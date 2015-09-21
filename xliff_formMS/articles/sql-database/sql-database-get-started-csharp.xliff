@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df0851c3-fe93-43f4-85d3-c0ebb166c6a9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df0851c3-fe93-43f4-85d3-c0ebb166c6a9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="343e9d0f-0e9a-4faf-a5d6-5891e4d41162">
+        <trans-unit id="452a8397-ef5e-4379-aec0-23c7145b5019" xml:space="preserve">
+          <source>Create an Azure SQL Database with C#</source>
+          <target state="new">Create an Azure SQL Database with C#</target>
+        </trans-unit>
+        <trans-unit id="8b90b359-3546-4887-b52a-628928ccc76a" xml:space="preserve">
+          <source>This article shows you how to create an Azure SQL Database with C# using the the Azure SQL Database Library for .NET.</source>
+          <target state="new">This article shows you how to create an Azure SQL Database with C# using the the Azure SQL Database Library for .NET.</target>
+        </trans-unit>
+        <trans-unit id="7f75682a-b012-4a77-bd13-f86b98009170" xml:space="preserve">
+          <source><bpt id="e2188c1e-1d9b-42e4-96db-a0bae91827a0">&lt;strong&gt;</bpt>Single database<ept id="e2188c1e-1d9b-42e4-96db-a0bae91827a0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2188c1e-1d9b-42e4-96db-a0bae91827a0">&lt;strong&gt;</bpt>Single database<ept id="e2188c1e-1d9b-42e4-96db-a0bae91827a0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9cf3af6-dcd1-4e46-b437-c1ec426a08f5" xml:space="preserve">
+          <source>This article provides commands to create an Azure SQL database with C# using the <bpt id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;linkText&gt;</bpt>Azure SQL Database Library for .NET<ept id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;/linkText&gt;</ept><bpt id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;title&gt;</bpt><ept id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article provides commands to create an Azure SQL database with C# using the <bpt id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;linkText&gt;</bpt>Azure SQL Database Library for .NET<ept id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;/linkText&gt;</ept><bpt id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;title&gt;</bpt><ept id="874aeb31-47e9-4311-9433-e13ba51129d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52bca9ac-865d-49e2-8476-3fea0c2c8b23" xml:space="preserve">
+          <source>This article shows how to create a single database, for creating elastic databases see <bpt id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;linkText&gt;</bpt>Create an Elastic database pool<ept id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;/linkText&gt;</ept><bpt id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;title&gt;</bpt><ept id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article shows how to create a single database, for creating elastic databases see <bpt id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;linkText&gt;</bpt>Create an Elastic database pool<ept id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;/linkText&gt;</ept><bpt id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;title&gt;</bpt><ept id="f36bf5fe-affa-4923-8381-1ab651435e3f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f819c63-99fb-4dd1-9c03-8110ce9f2332" xml:space="preserve">
+          <source>Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.</source>
+          <target state="new">Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.</target>
+        </trans-unit>
+        <trans-unit id="8cf41767-5dfe-49a5-a7aa-58334b75aad9" xml:space="preserve">
+          <source>The Azure SQL Database Library for .NET provides an <bpt id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;/linkText&gt;</ept><bpt id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;title&gt;</bpt><ept id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;/title&gt;</ept>-based API that wraps the <bpt id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;linkText&gt;</bpt>Resource Manager-based SQL Database REST API<ept id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;/linkText&gt;</ept><bpt id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;title&gt;</bpt><ept id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure SQL Database Library for .NET provides an <bpt id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;/linkText&gt;</ept><bpt id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;title&gt;</bpt><ept id="7174addf-39c5-43ce-9e4d-fc58f653a536">&lt;/title&gt;</ept>-based API that wraps the <bpt id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;linkText&gt;</bpt>Resource Manager-based SQL Database REST API<ept id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;/linkText&gt;</ept><bpt id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;title&gt;</bpt><ept id="323a49ae-0a31-47d8-a297-9baa20284b95">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2485ce71-bdb7-4fb1-9775-9bcc21166480" xml:space="preserve">
+          <source>This client library follows the common pattern for Resource Manager-based client libraries.</source>
+          <target state="new">This client library follows the common pattern for Resource Manager-based client libraries.</target>
+        </trans-unit>
+        <trans-unit id="0c453d6a-731d-4ade-abde-c0719f083ed4" xml:space="preserve">
+          <source>Resource Manager requires resource groups, and authenticating with <bpt id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;/linkText&gt;</ept><bpt id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;title&gt;</bpt><ept id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;/title&gt;</ept> (AAD).</source>
+          <target state="new">Resource Manager requires resource groups, and authenticating with <bpt id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;/linkText&gt;</ept><bpt id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;title&gt;</bpt><ept id="5438fa58-169c-4248-bd77-48b3e6ef1c4e">&lt;/title&gt;</ept> (AAD).</target>
+        </trans-unit>
+        <trans-unit id="559863cb-3820-4d8e-ac65-503be07ced44" xml:space="preserve">
+          <source>&lt;br&gt;</source>
+          <target state="new">&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="73cadb64-5e87-45f6-ac89-3586351f80a7" xml:space="preserve">
+          <source>The SQL Database Library for .NET is currently in preview.</source>
+          <target state="new">The SQL Database Library for .NET is currently in preview.</target>
+        </trans-unit>
+        <trans-unit id="61e20ef7-0a7c-41c8-a1c6-0c35cd685ba9" xml:space="preserve">
+          <source>&lt;br&gt;</source>
+          <target state="new">&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="00c318e7-036e-41b9-9e2d-cd9ad3858264" xml:space="preserve">
+          <source>To complete the steps in this article you need the following:</source>
+          <target state="new">To complete the steps in this article you need the following:</target>
+        </trans-unit>
+        <trans-unit id="ab68fdd3-5a92-47f4-88e5-ea374683e628" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="162ee10f-4089-4df9-8501-15c05acc8031" xml:space="preserve">
+          <source>If you need an Azure subscription simply click <bpt id="b58891a8-c5d8-4019-8561-f0c2a6d30e20">&lt;strong&gt;</bpt>FREE TRIAL<ept id="b58891a8-c5d8-4019-8561-f0c2a6d30e20">&lt;/strong&gt;</ept> at the top of this page, and then come back to finish this article.</source>
+          <target state="new">If you need an Azure subscription simply click <bpt id="b58891a8-c5d8-4019-8561-f0c2a6d30e20">&lt;strong&gt;</bpt>FREE TRIAL<ept id="b58891a8-c5d8-4019-8561-f0c2a6d30e20">&lt;/strong&gt;</ept> at the top of this page, and then come back to finish this article.</target>
+        </trans-unit>
+        <trans-unit id="ac8ece69-f632-443a-a84c-5624803e67f4" xml:space="preserve">
+          <source>Visual Studio.</source>
+          <target state="new">Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="54ab94bf-781a-4174-8ab9-879f0cb6f169" xml:space="preserve">
+          <source>For a free copy of Visual Studio, see the <bpt id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;/linkText&gt;</ept><bpt id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;title&gt;</bpt><ept id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;/title&gt;</ept> page.</source>
+          <target state="new">For a free copy of Visual Studio, see the <bpt id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;linkText&gt;</bpt>Visual Studio Downloads<ept id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;/linkText&gt;</ept><bpt id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;title&gt;</bpt><ept id="d8a8357c-a6b3-493f-a214-f375ce81a18c">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="92e9cd96-3a6b-49fa-83cb-53b955120269" xml:space="preserve">
+          <source>Get the required management libraries by installing the following packages using the <bpt id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;linkText&gt;</bpt>package manager console<ept id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;/linkText&gt;</ept><bpt id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;title&gt;</bpt><ept id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;/title&gt;</ept>:</source>
+          <target state="new">Get the required management libraries by installing the following packages using the <bpt id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;linkText&gt;</bpt>package manager console<ept id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;/linkText&gt;</ept><bpt id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;title&gt;</bpt><ept id="629c5283-f01f-4a13-85f6-e0dc91dc1a99">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ed1cb587-6046-4ba3-a713-e186cb00fb17" xml:space="preserve">
+          <source>You must first enable your client application to access the REST API by setting up the required authentication.</source>
+          <target state="new">You must first enable your client application to access the REST API by setting up the required authentication.</target>
+        </trans-unit>
+        <trans-unit id="9a5ec761-88bb-422b-957a-11f9de0c46f7" xml:space="preserve">
+          <source>The <bpt id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;linkText&gt;</bpt>Azure Resource Manager REST APIs<ept id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;/linkText&gt;</ept><bpt id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;title&gt;</bpt><ept id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;/title&gt;</ept> use Azure Active Directory for authentication.</source>
+          <target state="new">The <bpt id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;linkText&gt;</bpt>Azure Resource Manager REST APIs<ept id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;/linkText&gt;</ept><bpt id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;title&gt;</bpt><ept id="d6002bae-039d-4a13-9781-0e54f46641ea">&lt;/title&gt;</ept> use Azure Active Directory for authentication.</target>
+        </trans-unit>
+        <trans-unit id="a8770d51-7ba3-4f26-8c64-d32ab997bc42" xml:space="preserve">
+          <source>To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created.</source>
+          <target state="new">To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created.</target>
+        </trans-unit>
+        <trans-unit id="f809179b-d388-4dd6-b49b-d1a730476410" xml:space="preserve">
+          <source>If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain.</source>
+          <target state="new">If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain.</target>
+        </trans-unit>
+        <trans-unit id="edd62fe6-0488-4ab2-a02b-8a4660ea9a58" xml:space="preserve">
+          <source>Registering the application can be done in the <bpt id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;linkText&gt;</bpt>Azure Portal<ept id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;/linkText&gt;</ept><bpt id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;title&gt;</bpt><ept id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Registering the application can be done in the <bpt id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;linkText&gt;</bpt>Azure Portal<ept id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;/linkText&gt;</ept><bpt id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;title&gt;</bpt><ept id="5dfc1876-7c6b-4cc7-80df-42a94497c09b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8a51c80-4a5e-4a42-89e9-d41b2227390e" xml:space="preserve">
+          <source>To create a new application and register it in the correct active directory do the following:</source>
+          <target state="new">To create a new application and register it in the correct active directory do the following:</target>
+        </trans-unit>
+        <trans-unit id="3865c165-0bd1-4012-8871-301f123586b7" xml:space="preserve">
+          <source>Scroll the menu on the left side to locate the <bpt id="effc1913-51ae-432f-9678-a5fa1ccffa11">&lt;strong&gt;</bpt>Active Directory<ept id="effc1913-51ae-432f-9678-a5fa1ccffa11">&lt;/strong&gt;</ept> service and open it.</source>
+          <target state="new">Scroll the menu on the left side to locate the <bpt id="effc1913-51ae-432f-9678-a5fa1ccffa11">&lt;strong&gt;</bpt>Active Directory<ept id="effc1913-51ae-432f-9678-a5fa1ccffa11">&lt;/strong&gt;</ept> service and open it.</target>
+        </trans-unit>
+        <trans-unit id="880092be-55b7-42a7-bf9e-f356c76a085c" xml:space="preserve">
+          <source><bpt id="cb71811d-e5b7-499d-a19f-d9cc2e862199">&lt;linkText&gt;</bpt>AAD<ept id="cb71811d-e5b7-499d-a19f-d9cc2e862199">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb71811d-e5b7-499d-a19f-d9cc2e862199">&lt;linkText&gt;</bpt>AAD<ept id="cb71811d-e5b7-499d-a19f-d9cc2e862199">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18d449d3-057d-497d-b38b-ed1f421d7d6c" xml:space="preserve">
+          <source>Select the directory to authenticate your application and click it's <bpt id="a63cabd9-f661-486e-88a8-d3099130b1b3">&lt;strong&gt;</bpt>Name<ept id="a63cabd9-f661-486e-88a8-d3099130b1b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the directory to authenticate your application and click it's <bpt id="a63cabd9-f661-486e-88a8-d3099130b1b3">&lt;strong&gt;</bpt>Name<ept id="a63cabd9-f661-486e-88a8-d3099130b1b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d02509e7-c2e7-417a-88a1-9da3a2a16ed4" xml:space="preserve">
+          <source><bpt id="2f557459-4213-42ed-bde6-56debc199dca">&lt;linkText&gt;</bpt>Directories<ept id="2f557459-4213-42ed-bde6-56debc199dca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f557459-4213-42ed-bde6-56debc199dca">&lt;linkText&gt;</bpt>Directories<ept id="2f557459-4213-42ed-bde6-56debc199dca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e35bf1d-7c25-4562-9193-01057da28b9c" xml:space="preserve">
+          <source>On the directory page, click <bpt id="c3808132-7c2c-4f4e-9826-e49cc0b8c692">&lt;strong&gt;</bpt>APPLICATIONS<ept id="c3808132-7c2c-4f4e-9826-e49cc0b8c692">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the directory page, click <bpt id="c3808132-7c2c-4f4e-9826-e49cc0b8c692">&lt;strong&gt;</bpt>APPLICATIONS<ept id="c3808132-7c2c-4f4e-9826-e49cc0b8c692">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ce1b455-1c0c-4a68-aec2-c81ed89d6ce2" xml:space="preserve">
+          <source><bpt id="156084a5-0bf7-445e-95ff-685cc02d11f8">&lt;linkText&gt;</bpt>Applications<ept id="156084a5-0bf7-445e-95ff-685cc02d11f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="156084a5-0bf7-445e-95ff-685cc02d11f8">&lt;linkText&gt;</bpt>Applications<ept id="156084a5-0bf7-445e-95ff-685cc02d11f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fdc3361-e238-4e59-9318-38a52de68d56" xml:space="preserve">
+          <source>Click <bpt id="e367e571-ea09-47da-880c-627c295a8ca6">&lt;strong&gt;</bpt>ADD<ept id="e367e571-ea09-47da-880c-627c295a8ca6">&lt;/strong&gt;</ept> to create a new application.</source>
+          <target state="new">Click <bpt id="e367e571-ea09-47da-880c-627c295a8ca6">&lt;strong&gt;</bpt>ADD<ept id="e367e571-ea09-47da-880c-627c295a8ca6">&lt;/strong&gt;</ept> to create a new application.</target>
+        </trans-unit>
+        <trans-unit id="5041808c-1bd2-43ab-ab7a-13b9b14abbd0" xml:space="preserve">
+          <source><bpt id="788f8e98-15e1-43ed-9681-63e43f86c4e4">&lt;linkText&gt;</bpt>Add application<ept id="788f8e98-15e1-43ed-9681-63e43f86c4e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="788f8e98-15e1-43ed-9681-63e43f86c4e4">&lt;linkText&gt;</bpt>Add application<ept id="788f8e98-15e1-43ed-9681-63e43f86c4e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddd9ed33-45e7-4b85-8862-c0b42940bb1b" xml:space="preserve">
+          <source>Select <bpt id="df13a5fc-21de-4274-b673-5bf835758702">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="df13a5fc-21de-4274-b673-5bf835758702">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="df13a5fc-21de-4274-b673-5bf835758702">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="df13a5fc-21de-4274-b673-5bf835758702">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21baa3f6-fbf1-483a-962f-fdf5344b0cba" xml:space="preserve">
+          <source>Provide a <bpt id="20e54490-376b-43b5-b2ea-14bf07668462">&lt;strong&gt;</bpt>NAME<ept id="20e54490-376b-43b5-b2ea-14bf07668462">&lt;/strong&gt;</ept> for the app, and select <bpt id="ac3132b3-fcfb-4b3c-a02f-86dd683a2245">&lt;strong&gt;</bpt>NATIVE CLIENT APPLICATION<ept id="ac3132b3-fcfb-4b3c-a02f-86dd683a2245">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Provide a <bpt id="20e54490-376b-43b5-b2ea-14bf07668462">&lt;strong&gt;</bpt>NAME<ept id="20e54490-376b-43b5-b2ea-14bf07668462">&lt;/strong&gt;</ept> for the app, and select <bpt id="ac3132b3-fcfb-4b3c-a02f-86dd683a2245">&lt;strong&gt;</bpt>NATIVE CLIENT APPLICATION<ept id="ac3132b3-fcfb-4b3c-a02f-86dd683a2245">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a4e8a78-c66a-4b3e-8e91-ed65702e6408" xml:space="preserve">
+          <source><bpt id="140765eb-5058-4b34-b51f-f0da8bf9c55e">&lt;linkText&gt;</bpt>Add application<ept id="140765eb-5058-4b34-b51f-f0da8bf9c55e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="140765eb-5058-4b34-b51f-f0da8bf9c55e">&lt;linkText&gt;</bpt>Add application<ept id="140765eb-5058-4b34-b51f-f0da8bf9c55e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a25b7e1-77a2-4e4d-8b98-f4846b1e82c9" xml:space="preserve">
+          <source>Provide a <bpt id="95cedec7-e3d1-4c51-b3af-c75720404e8f">&lt;strong&gt;</bpt>REDIRECT URI<ept id="95cedec7-e3d1-4c51-b3af-c75720404e8f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Provide a <bpt id="95cedec7-e3d1-4c51-b3af-c75720404e8f">&lt;strong&gt;</bpt>REDIRECT URI<ept id="95cedec7-e3d1-4c51-b3af-c75720404e8f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="292f4389-68d6-4280-a3f4-29ca908e037c" xml:space="preserve">
+          <source>It doesn't need to be an actual endpoint, just a valid URI.</source>
+          <target state="new">It doesn't need to be an actual endpoint, just a valid URI.</target>
+        </trans-unit>
+        <trans-unit id="c1f2a6dd-3768-421c-bce9-db3972cab09b" xml:space="preserve">
+          <source><bpt id="406eac0e-ae32-4d0a-adbf-90ba67a757d7">&lt;linkText&gt;</bpt>Add application<ept id="406eac0e-ae32-4d0a-adbf-90ba67a757d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="406eac0e-ae32-4d0a-adbf-90ba67a757d7">&lt;linkText&gt;</bpt>Add application<ept id="406eac0e-ae32-4d0a-adbf-90ba67a757d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="517db958-ea13-4c76-9724-40941572cc60" xml:space="preserve">
+          <source>Finish creating the app, click <bpt id="649445e2-dc93-468c-9743-6c637d1880c4">&lt;strong&gt;</bpt>CONFIGURE<ept id="649445e2-dc93-468c-9743-6c637d1880c4">&lt;/strong&gt;</ept>, and copy the <bpt id="97d6a437-c385-407e-88b8-49f322b40b2f">&lt;strong&gt;</bpt>CLIENT ID<ept id="97d6a437-c385-407e-88b8-49f322b40b2f">&lt;/strong&gt;</ept> (you will need the client id in your code).</source>
+          <target state="new">Finish creating the app, click <bpt id="649445e2-dc93-468c-9743-6c637d1880c4">&lt;strong&gt;</bpt>CONFIGURE<ept id="649445e2-dc93-468c-9743-6c637d1880c4">&lt;/strong&gt;</ept>, and copy the <bpt id="97d6a437-c385-407e-88b8-49f322b40b2f">&lt;strong&gt;</bpt>CLIENT ID<ept id="97d6a437-c385-407e-88b8-49f322b40b2f">&lt;/strong&gt;</ept> (you will need the client id in your code).</target>
+        </trans-unit>
+        <trans-unit id="25efdf2c-8ae3-431a-b2c6-77d5c3b05d75" xml:space="preserve">
+          <source><bpt id="580f314a-0ea2-4415-b385-bfa46f837ebc">&lt;linkText&gt;</bpt>get client id<ept id="580f314a-0ea2-4415-b385-bfa46f837ebc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="580f314a-0ea2-4415-b385-bfa46f837ebc">&lt;linkText&gt;</bpt>get client id<ept id="580f314a-0ea2-4415-b385-bfa46f837ebc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e6e684a-cd6b-4f1b-9f9a-f18a0cde1fc2" xml:space="preserve">
+          <source>On the bottom of the page click on <bpt id="b02a829f-1468-4193-8617-d1c964a027f7">&lt;strong&gt;</bpt>Add application<ept id="b02a829f-1468-4193-8617-d1c964a027f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the bottom of the page click on <bpt id="b02a829f-1468-4193-8617-d1c964a027f7">&lt;strong&gt;</bpt>Add application<ept id="b02a829f-1468-4193-8617-d1c964a027f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b40cc65a-dc1b-4bb8-a4d6-93f81b7ce021" xml:space="preserve">
+          <source>Select <bpt id="1f38e07d-aa40-42d9-8147-7aad52a3a1a9">&lt;strong&gt;</bpt>Microsoft Apps<ept id="1f38e07d-aa40-42d9-8147-7aad52a3a1a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1f38e07d-aa40-42d9-8147-7aad52a3a1a9">&lt;strong&gt;</bpt>Microsoft Apps<ept id="1f38e07d-aa40-42d9-8147-7aad52a3a1a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56896338-a0c9-4cf9-9df6-f923fc0b2b64" xml:space="preserve">
+          <source>Select <bpt id="8c64aa59-46e1-4934-b874-744174e32c31">&lt;strong&gt;</bpt>Azure Service Management API<ept id="8c64aa59-46e1-4934-b874-744174e32c31">&lt;/strong&gt;</ept>, and then complete the wizard.</source>
+          <target state="new">Select <bpt id="8c64aa59-46e1-4934-b874-744174e32c31">&lt;strong&gt;</bpt>Azure Service Management API<ept id="8c64aa59-46e1-4934-b874-744174e32c31">&lt;/strong&gt;</ept>, and then complete the wizard.</target>
+        </trans-unit>
+        <trans-unit id="ceb8bf61-6dc2-46d7-813e-2b1822438844" xml:space="preserve">
+          <source>With the API selected you now need to grant the specific permissions required to access this API by selecting <bpt id="eda21afc-756a-4945-b1cc-ffdefb3a9640">&lt;strong&gt;</bpt>Access Azure Service Management (preview)<ept id="eda21afc-756a-4945-b1cc-ffdefb3a9640">&lt;/strong&gt;</ept>.</source>
+          <target state="new">With the API selected you now need to grant the specific permissions required to access this API by selecting <bpt id="eda21afc-756a-4945-b1cc-ffdefb3a9640">&lt;strong&gt;</bpt>Access Azure Service Management (preview)<ept id="eda21afc-756a-4945-b1cc-ffdefb3a9640">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd79af31-0973-4c2a-96a5-fb687382dbe7" xml:space="preserve">
+          <source><bpt id="61f38387-65b0-4694-a379-74976b8a8e5a">&lt;linkText&gt;</bpt>permissions<ept id="61f38387-65b0-4694-a379-74976b8a8e5a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61f38387-65b0-4694-a379-74976b8a8e5a">&lt;linkText&gt;</bpt>permissions<ept id="61f38387-65b0-4694-a379-74976b8a8e5a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8896f38f-6604-4503-9945-f9b186ac9a15" xml:space="preserve">
+          <source>Click <bpt id="6caad221-9645-40d8-8919-0b66faeeb9f8">&lt;strong&gt;</bpt>SAVE<ept id="6caad221-9645-40d8-8919-0b66faeeb9f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6caad221-9645-40d8-8919-0b66faeeb9f8">&lt;strong&gt;</bpt>SAVE<ept id="6caad221-9645-40d8-8919-0b66faeeb9f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89da0bf2-de6d-474f-8a47-137e11acb6df" xml:space="preserve">
+          <source>The domain name is required for your code.</source>
+          <target state="new">The domain name is required for your code.</target>
+        </trans-unit>
+        <trans-unit id="e29a682f-ec43-43bd-aba7-42fbf81ec5f3" xml:space="preserve">
+          <source>An easy way to identify the proper domain name is to:</source>
+          <target state="new">An easy way to identify the proper domain name is to:</target>
+        </trans-unit>
+        <trans-unit id="a26d3acb-2fe6-4750-9f7f-d08aca74e244" xml:space="preserve">
+          <source>Go to the <bpt id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;linkText&gt;</bpt>Azure preview portal<ept id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;/linkText&gt;</ept><bpt id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;title&gt;</bpt><ept id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;linkText&gt;</bpt>Azure preview portal<ept id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;/linkText&gt;</ept><bpt id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;title&gt;</bpt><ept id="9a48ae5d-ec85-40b9-b2fc-7e0ad1b58696">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ecf3c9a-0265-41fc-80f9-5db1e4a18307" xml:space="preserve">
+          <source>Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.</source>
+          <target state="new">Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.</target>
+        </trans-unit>
+        <trans-unit id="e41babe6-92b9-4199-932c-2dd7f86f888d" xml:space="preserve">
+          <source><bpt id="f7a4b563-9c95-45c1-a31d-b27c62b58556">&lt;linkText&gt;</bpt>Identify domain name<ept id="f7a4b563-9c95-45c1-a31d-b27c62b58556">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7a4b563-9c95-45c1-a31d-b27c62b58556">&lt;linkText&gt;</bpt>Identify domain name<ept id="f7a4b563-9c95-45c1-a31d-b27c62b58556">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f62b4b7b-04a9-4d87-82f8-0c97050785bd" xml:space="preserve">
+          <source><bpt id="24f4520f-1f50-438c-b07b-6d51d0d325b5">&lt;strong&gt;</bpt>Additional AAD Resources<ept id="24f4520f-1f50-438c-b07b-6d51d0d325b5">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="24f4520f-1f50-438c-b07b-6d51d0d325b5">&lt;strong&gt;</bpt>Additional AAD Resources<ept id="24f4520f-1f50-438c-b07b-6d51d0d325b5">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a94b544f-fb6c-4d95-acda-289c1b158c8f" xml:space="preserve">
+          <source>Additional information about using Azure Active Directory for authentication can be found in <bpt id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;linkText&gt;</bpt>this useful blog post<ept id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;/linkText&gt;</ept><bpt id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;title&gt;</bpt><ept id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Additional information about using Azure Active Directory for authentication can be found in <bpt id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;linkText&gt;</bpt>this useful blog post<ept id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;/linkText&gt;</ept><bpt id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;title&gt;</bpt><ept id="02ee3150-47b5-423e-9a87-3cb6fafe7cb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f303b7bc-be7b-4c35-9f21-ac3c89065d39" xml:space="preserve">
+          <source>The client application must retrieve the application access token for the current user.</source>
+          <target state="new">The client application must retrieve the application access token for the current user.</target>
+        </trans-unit>
+        <trans-unit id="d8d823b8-214b-435a-980d-5743588f013d" xml:space="preserve">
+          <source>The first time this code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally.</source>
+          <target state="new">The first time this code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally.</target>
+        </trans-unit>
+        <trans-unit id="0a4a083f-9a28-412f-bc69-a04183095837" xml:space="preserve">
+          <source>Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.</source>
+          <target state="new">Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.</target>
+        </trans-unit>
+        <trans-unit id="c926a19a-30a3-499b-a363-589f3f969ec2" xml:space="preserve">
+          <source>The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service.</source>
+          <target state="new">The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service.</target>
+        </trans-unit>
+        <trans-unit id="499fc416-7e76-400c-a845-99c1458ea1d0" xml:space="preserve">
+          <source>There are async methods available.</source>
+          <target state="new">There are async methods available.</target>
+        </trans-unit>
+        <trans-unit id="a469e820-2d83-425c-a489-a33183f9d452" xml:space="preserve">
+          <source>With Resource Manager, all resources must be created in a resource group.</source>
+          <target state="new">With Resource Manager, all resources must be created in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="682ade5e-a1d8-43d3-a5cf-91076c519bf7" xml:space="preserve">
+          <source>A resource group is a container that holds related resources for an application.</source>
+          <target state="new">A resource group is a container that holds related resources for an application.</target>
+        </trans-unit>
+        <trans-unit id="98c78549-e490-42c7-99eb-bb2aad8adff8" xml:space="preserve">
+          <source>With Azure SQL Database the database server must be created within an existing resource group and then the database created on the server.</source>
+          <target state="new">With Azure SQL Database the database server must be created within an existing resource group and then the database created on the server.</target>
+        </trans-unit>
+        <trans-unit id="092c1d12-f134-4da7-b44f-f2318a082b8b" xml:space="preserve">
+          <source>Then before an application can connect to the server or database you must also create a firewall rule on the server to open access from the client IP address.</source>
+          <target state="new">Then before an application can connect to the server or database you must also create a firewall rule on the server to open access from the client IP address.</target>
+        </trans-unit>
+        <trans-unit id="15ad5324-3a47-459b-b800-0d3b3ca94b32" xml:space="preserve">
+          <source>SQL databases are contained in servers.</source>
+          <target state="new">SQL databases are contained in servers.</target>
+        </trans-unit>
+        <trans-unit id="b37d7f6f-bd45-45a8-b3ae-05862449595f" xml:space="preserve">
+          <source>The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken.</source>
+          <target state="new">The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken.</target>
+        </trans-unit>
+        <trans-unit id="9f33bfb6-6009-4bf7-ade5-8dcdc716ef3f" xml:space="preserve">
+          <source>Also worth noting is that this command may take several minutes to complete.</source>
+          <target state="new">Also worth noting is that this command may take several minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="8b3509f9-8bb6-425c-9bcc-13f16b0cce04" xml:space="preserve">
+          <source>By default a server cannot be connected to from any location.</source>
+          <target state="new">By default a server cannot be connected to from any location.</target>
+        </trans-unit>
+        <trans-unit id="ca4af72a-b8dd-4d77-8efd-2b9f713a40a4" xml:space="preserve">
+          <source>In order to connect to a server or any databases on the server, a <bpt id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;linkText&gt;</bpt>firewall rule<ept id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;/linkText&gt;</ept><bpt id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;title&gt;</bpt><ept id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;/title&gt;</ept> must be defined that allows access from the client IP address.</source>
+          <target state="new">In order to connect to a server or any databases on the server, a <bpt id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;linkText&gt;</bpt>firewall rule<ept id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;/linkText&gt;</ept><bpt id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;title&gt;</bpt><ept id="1ea8b23f-40f6-411e-8f46-92dc69393015">&lt;/title&gt;</ept> must be defined that allows access from the client IP address.</target>
+        </trans-unit>
+        <trans-unit id="add6eb02-0822-410a-84c5-d374b016f5f7" xml:space="preserve">
+          <source>The following example creates a rule that opens access to the server from any IP address.</source>
+          <target state="new">The following example creates a rule that opens access to the server from any IP address.</target>
+        </trans-unit>
+        <trans-unit id="4018a1bf-4902-42be-838a-5abadcf291cd" xml:space="preserve">
+          <source>It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion.</source>
+          <target state="new">It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion.</target>
+        </trans-unit>
+        <trans-unit id="a0fa6abd-53f0-4fda-b8ac-1cfdc12ce909" xml:space="preserve">
+          <source>To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0.</source>
+          <target state="new">To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0.</target>
+        </trans-unit>
+        <trans-unit id="c43a2187-0bdc-4603-9a0f-a8e37fb98805" xml:space="preserve">
+          <source>Note that this allows Azure traffic from <bpt id="5a3bacdc-e42a-4f15-89b3-2e925877b2dc">&lt;em&gt;</bpt>any<ept id="5a3bacdc-e42a-4f15-89b3-2e925877b2dc">&lt;/em&gt;</ept> Azure subscription to access the server.</source>
+          <target state="new">Note that this allows Azure traffic from <bpt id="5a3bacdc-e42a-4f15-89b3-2e925877b2dc">&lt;em&gt;</bpt>any<ept id="5a3bacdc-e42a-4f15-89b3-2e925877b2dc">&lt;/em&gt;</ept> Azure subscription to access the server.</target>
+        </trans-unit>
+        <trans-unit id="8580cf10-7980-47be-94fb-d32f314817b2" xml:space="preserve">
+          <source>The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated.</source>
+          <target state="new">The following command will create a new Basic database if a database with the same name does not exist on the server; if a database with the same name does exist it will be updated.</target>
+        </trans-unit>
+        <trans-unit id="eececfe3-4863-4169-9ffb-74a84b9ce8d5" xml:space="preserve">
+          <source><bpt id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;linkText&gt;</bpt>Connect to and query your SQL Database with C#<ept id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;/linkText&gt;</ept><bpt id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;title&gt;</bpt><ept id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;linkText&gt;</bpt>Connect to and query your SQL Database with C#<ept id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;/linkText&gt;</ept><bpt id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;title&gt;</bpt><ept id="19c7719f-5a19-49d3-9fc3-8814baa62365">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34df0e30-0c87-4ad4-a6a3-417c8e39e1dd" xml:space="preserve">
+          <source><bpt id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;linkText&gt;</bpt>Connect with SQL Server Management Studio (SSMS)<ept id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;/linkText&gt;</ept><bpt id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;title&gt;</bpt><ept id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;linkText&gt;</bpt>Connect with SQL Server Management Studio (SSMS)<ept id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;/linkText&gt;</ept><bpt id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;title&gt;</bpt><ept id="843e4949-0739-4da3-b31d-900ac1400d50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4198139-9194-4034-8444-d63311eb0be2" xml:space="preserve">
+          <source><bpt id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;linkText&gt;</bpt>SQL Database<ept id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;/linkText&gt;</ept><bpt id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;title&gt;</bpt><ept id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;linkText&gt;</bpt>SQL Database<ept id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;/linkText&gt;</ept><bpt id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;title&gt;</bpt><ept id="821edc20-d5f6-4367-a5d3-7d162818d94c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea79ecd7-c5b1-4b91-93ce-1cded721362e" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/aad.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/aad.png</target>
+        </trans-unit>
+        <trans-unit id="1d9a9702-739e-4a8f-b952-b89ce8b574fe" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/permissions.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/permissions.png</target>
+        </trans-unit>
+        <trans-unit id="f0945b13-c126-48c8-8931-f4e4f4450fb4" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/getdomain.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/getdomain.png</target>
+        </trans-unit>
+        <trans-unit id="b474388f-9b3c-431c-b814-589c58be4c83" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/aad2.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/aad2.png</target>
+        </trans-unit>
+        <trans-unit id="2b0c9a59-62e1-4658-ab73-d7d548f5c6fd" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/aad-applications.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/aad-applications.png</target>
+        </trans-unit>
+        <trans-unit id="a4f63a4e-f054-459a-873b-7bb9463d1773" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/add.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/add.png</target>
+        </trans-unit>
+        <trans-unit id="f7838296-4db1-4ace-a444-81ad52752afb" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/add-application.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/add-application.png</target>
+        </trans-unit>
+        <trans-unit id="1dbaf100-9c39-4e02-807e-02803e7c03c5" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/add-application2.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/add-application2.png</target>
+        </trans-unit>
+        <trans-unit id="3999b145-4902-44ab-b65f-3c523a87b26c" xml:space="preserve">
+          <source>./media/sql-database-get-started-csharp/clientid.png</source>
+          <target state="new">./media/sql-database-get-started-csharp/clientid.png</target>
+        </trans-unit>
+      </group>
+      <group id="39e36307-9565-4800-a3fa-80ba166c0829" />
+    </body>
+  </file>
+</xliff>

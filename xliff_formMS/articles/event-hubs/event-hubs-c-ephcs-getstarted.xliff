@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1e6744d1-eedf-443b-8739-ca01a6906af9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1e6744d1-eedf-443b-8739-ca01a6906af9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="741c1d50-5266-4439-aff3-a8d725921230">
+        <trans-unit id="e4f8a112-76c6-4460-b2ec-0eb79d0c3f7e" xml:space="preserve">
+          <source>Get Started with Event Hubs</source>
+          <target state="new">Get Started with Event Hubs</target>
+        </trans-unit>
+        <trans-unit id="a4675bea-379c-4f10-b700-549eb242fc81" xml:space="preserve">
+          <source>Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost.</source>
+          <target state="new">Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost.</target>
+        </trans-unit>
+        <trans-unit id="96c5ab14-157b-4ecf-b2bc-3a9fbfa068f2" xml:space="preserve">
+          <source><bpt id="6db6ad89-baa3-49ff-aa42-1ef4f52a802a">&lt;token href="../../includes/service-bus-selector-get-started.md"&gt;</bpt><ept id="6db6ad89-baa3-49ff-aa42-1ef4f52a802a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6db6ad89-baa3-49ff-aa42-1ef4f52a802a">&lt;token href="../../includes/service-bus-selector-get-started.md"&gt;</bpt><ept id="6db6ad89-baa3-49ff-aa42-1ef4f52a802a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4c39d6f-1d85-442b-b0e1-a62b9650c6bc" xml:space="preserve">
+          <source>Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications.</source>
+          <target state="new">Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications.</target>
+        </trans-unit>
+        <trans-unit id="fcac15ea-ca12-4ec3-919a-41c63cefc1b5" xml:space="preserve">
+          <source>Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.</source>
+          <target state="new">Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.</target>
+        </trans-unit>
+        <trans-unit id="ee67c2c8-ae64-47d5-8481-2783b5f8d161" xml:space="preserve">
+          <source>For more information, please see [Event Hubs Overview].</source>
+          <target state="new">For more information, please see [Event Hubs Overview].</target>
+        </trans-unit>
+        <trans-unit id="8d78d36b-0354-48a5-a91e-000ba7d7f8ca" xml:space="preserve">
+          <source>In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using the C# [Event Processor Host] library.</source>
+          <target state="new">In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using the C# [Event Processor Host] library.</target>
+        </trans-unit>
+        <trans-unit id="cd00d1ab-ed80-4fdf-adec-1ea8ff1f313d" xml:space="preserve">
+          <source>In order to complete this tutorial you will need the following:</source>
+          <target state="new">In order to complete this tutorial you will need the following:</target>
+        </trans-unit>
+        <trans-unit id="393edc97-b631-45af-8f60-52c671937cf8" xml:space="preserve">
+          <source>A C development environment.</source>
+          <target state="new">A C development environment.</target>
+        </trans-unit>
+        <trans-unit id="5d8870c1-06c4-4a36-8653-c4b443eda8af" xml:space="preserve">
+          <source>For this tutorial, we will assume the gcc stack on an <bpt id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;linkText&gt;</bpt>Azure Linux VM<ept id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;/linkText&gt;</ept><bpt id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;title&gt;</bpt><ept id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;/title&gt;</ept> with Ubuntu 14.04.</source>
+          <target state="new">For this tutorial, we will assume the gcc stack on an <bpt id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;linkText&gt;</bpt>Azure Linux VM<ept id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;/linkText&gt;</ept><bpt id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;title&gt;</bpt><ept id="12347c20-532c-4f1e-b95c-258448a5f97b">&lt;/title&gt;</ept> with Ubuntu 14.04.</target>
+        </trans-unit>
+        <trans-unit id="cc05ec50-18eb-4716-a4fb-f68e6c384ece" xml:space="preserve">
+          <source>Instructions for other environments will be provided in external links.</source>
+          <target state="new">Instructions for other environments will be provided in external links.</target>
+        </trans-unit>
+        <trans-unit id="4056b5e0-bd8c-42c0-9624-276112b98e4d" xml:space="preserve">
+          <source>Microsoft Visual Studio Express 2013 for Windows</source>
+          <target state="new">Microsoft Visual Studio Express 2013 for Windows</target>
+        </trans-unit>
+        <trans-unit id="ea1366be-a132-4733-901e-7a845a27901f" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="214f76a3-6f8e-4a4b-a079-8b24faeb58cc" xml:space="preserve">
+          <source>&lt;br/&gt;If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">&lt;br/&gt;If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="6225fa7f-bca2-411d-a2c9-74ae258d1733" xml:space="preserve">
+          <source>For details, see &lt;a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="199bff27-f0af-4a4c-89e0-5f9104c990ed">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="<ept id="199bff27-f0af-4a4c-89e0-5f9104c990ed">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</source>
+          <target state="new">For details, see &lt;a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="199bff27-f0af-4a4c-89e0-5f9104c990ed">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="<ept id="199bff27-f0af-4a4c-89e0-5f9104c990ed">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="9e7f6d63-a8a4-4db4-8be1-ad47bf805c22" xml:space="preserve">
+          <source>Log on to the [Azure portal], and click <bpt id="55edc0fd-806d-47c8-b999-d0e6350c1fd2">&lt;strong&gt;</bpt>NEW<ept id="55edc0fd-806d-47c8-b999-d0e6350c1fd2">&lt;/strong&gt;</ept> at the bottom of the screen.</source>
+          <target state="new">Log on to the [Azure portal], and click <bpt id="55edc0fd-806d-47c8-b999-d0e6350c1fd2">&lt;strong&gt;</bpt>NEW<ept id="55edc0fd-806d-47c8-b999-d0e6350c1fd2">&lt;/strong&gt;</ept> at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="e8c37e49-d8b5-49c1-9ea7-d66ff4baf7d6" xml:space="preserve">
+          <source>Click <bpt id="41998648-4f48-441c-8e4d-2608e48ad390">&lt;strong&gt;</bpt>App Services<ept id="41998648-4f48-441c-8e4d-2608e48ad390">&lt;/strong&gt;</ept>, then <bpt id="8e92793b-6a8a-4b99-8855-9e277d1f5137">&lt;strong&gt;</bpt>Service Bus<ept id="8e92793b-6a8a-4b99-8855-9e277d1f5137">&lt;/strong&gt;</ept>, then <bpt id="fb94e25f-b369-4f29-a2a3-13682c84c19e">&lt;strong&gt;</bpt>Event Hub<ept id="fb94e25f-b369-4f29-a2a3-13682c84c19e">&lt;/strong&gt;</ept>, then <bpt id="edd84f9a-648f-4553-bfee-77cd39dfde4f">&lt;strong&gt;</bpt>Quick Create<ept id="edd84f9a-648f-4553-bfee-77cd39dfde4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="41998648-4f48-441c-8e4d-2608e48ad390">&lt;strong&gt;</bpt>App Services<ept id="41998648-4f48-441c-8e4d-2608e48ad390">&lt;/strong&gt;</ept>, then <bpt id="8e92793b-6a8a-4b99-8855-9e277d1f5137">&lt;strong&gt;</bpt>Service Bus<ept id="8e92793b-6a8a-4b99-8855-9e277d1f5137">&lt;/strong&gt;</ept>, then <bpt id="fb94e25f-b369-4f29-a2a3-13682c84c19e">&lt;strong&gt;</bpt>Event Hub<ept id="fb94e25f-b369-4f29-a2a3-13682c84c19e">&lt;/strong&gt;</ept>, then <bpt id="edd84f9a-648f-4553-bfee-77cd39dfde4f">&lt;strong&gt;</bpt>Quick Create<ept id="edd84f9a-648f-4553-bfee-77cd39dfde4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d0922c8-e66c-486f-bea2-f440cdba6af3" xml:space="preserve">
+          <source><bpt id="df850795-526e-4dbf-b6e3-fde62b8f7df1">&lt;linkText&gt;</bpt><ept id="df850795-526e-4dbf-b6e3-fde62b8f7df1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df850795-526e-4dbf-b6e3-fde62b8f7df1">&lt;linkText&gt;</bpt><ept id="df850795-526e-4dbf-b6e3-fde62b8f7df1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdbac114-c6a1-4820-863b-b3d83d7774a0" xml:space="preserve">
+          <source>Type a name for your Event Hub, select your desired region, and then click <bpt id="30d58400-2178-415e-9b68-3a682f588811">&lt;strong&gt;</bpt>Create a new Event Hub<ept id="30d58400-2178-415e-9b68-3a682f588811">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for your Event Hub, select your desired region, and then click <bpt id="30d58400-2178-415e-9b68-3a682f588811">&lt;strong&gt;</bpt>Create a new Event Hub<ept id="30d58400-2178-415e-9b68-3a682f588811">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec2bc1d5-d18b-419b-b35b-75d79946d5a2" xml:space="preserve">
+          <source><bpt id="aa2f0ad8-3c8d-41d6-a317-8645f94c76f1">&lt;linkText&gt;</bpt><ept id="aa2f0ad8-3c8d-41d6-a317-8645f94c76f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa2f0ad8-3c8d-41d6-a317-8645f94c76f1">&lt;linkText&gt;</bpt><ept id="aa2f0ad8-3c8d-41d6-a317-8645f94c76f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc41c256-cb77-4ae0-86b3-383f00f2ef97" xml:space="preserve">
+          <source>Click the namespace you just created (usually <bpt id="32689788-8eed-493e-ae0b-177a48532cba">&lt;strong&gt;</bpt>*event hub name*-ns<ept id="32689788-8eed-493e-ae0b-177a48532cba">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Click the namespace you just created (usually <bpt id="32689788-8eed-493e-ae0b-177a48532cba">&lt;strong&gt;</bpt>*event hub name*-ns<ept id="32689788-8eed-493e-ae0b-177a48532cba">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0a830e9a-e734-4bbf-bfa3-dd057ce3cd7f" xml:space="preserve">
+          <source><bpt id="d4376cbb-6a95-4028-85b1-184a44c382fb">&lt;linkText&gt;</bpt><ept id="d4376cbb-6a95-4028-85b1-184a44c382fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d4376cbb-6a95-4028-85b1-184a44c382fb">&lt;linkText&gt;</bpt><ept id="d4376cbb-6a95-4028-85b1-184a44c382fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="785ca1aa-2f4b-4407-9f23-aab83568efa6" xml:space="preserve">
+          <source>Click the <bpt id="e4912431-8962-4c2b-b84f-c75482e6b00a">&lt;strong&gt;</bpt>Event Hubs<ept id="e4912431-8962-4c2b-b84f-c75482e6b00a">&lt;/strong&gt;</ept> tab at the top of the page, and then click the Event Hub you just created.</source>
+          <target state="new">Click the <bpt id="e4912431-8962-4c2b-b84f-c75482e6b00a">&lt;strong&gt;</bpt>Event Hubs<ept id="e4912431-8962-4c2b-b84f-c75482e6b00a">&lt;/strong&gt;</ept> tab at the top of the page, and then click the Event Hub you just created.</target>
+        </trans-unit>
+        <trans-unit id="7e0705f0-512a-467b-bdb2-a8c8f994fa21" xml:space="preserve">
+          <source><bpt id="fbfa9c46-b50f-440c-8559-9880b2a8af01">&lt;linkText&gt;</bpt><ept id="fbfa9c46-b50f-440c-8559-9880b2a8af01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbfa9c46-b50f-440c-8559-9880b2a8af01">&lt;linkText&gt;</bpt><ept id="fbfa9c46-b50f-440c-8559-9880b2a8af01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c117983f-7ab9-49a4-a83e-5357c4fcd940" xml:space="preserve">
+          <source>Click the <bpt id="f8888e31-1b44-44af-bbb6-ad737ca227f7">&lt;strong&gt;</bpt>Configure<ept id="f8888e31-1b44-44af-bbb6-ad737ca227f7">&lt;/strong&gt;</ept> tab at the top of the page, add a rule named <bpt id="58e6f7ef-58ac-48a8-9aa6-57b6e5bfb778">&lt;strong&gt;</bpt>SendRule<ept id="58e6f7ef-58ac-48a8-9aa6-57b6e5bfb778">&lt;/strong&gt;</ept> with <bpt id="840fda27-009f-470a-ad85-2240b01e1100">&lt;em&gt;</bpt>Send<ept id="840fda27-009f-470a-ad85-2240b01e1100">&lt;/em&gt;</ept> rights, add another rule called <bpt id="36279649-44bf-4ee0-935d-8cbd1bd10990">&lt;strong&gt;</bpt>ReceiveRule<ept id="36279649-44bf-4ee0-935d-8cbd1bd10990">&lt;/strong&gt;</ept> with <bpt id="ed1039ad-e483-45c6-b265-58ac0d2b6fbf">&lt;em&gt;</bpt>Manage, Send, Listen<ept id="ed1039ad-e483-45c6-b265-58ac0d2b6fbf">&lt;/em&gt;</ept> rights, and then click <bpt id="f3dae424-629c-4c3f-860a-32cc9e839602">&lt;strong&gt;</bpt>Save<ept id="f3dae424-629c-4c3f-860a-32cc9e839602">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="f8888e31-1b44-44af-bbb6-ad737ca227f7">&lt;strong&gt;</bpt>Configure<ept id="f8888e31-1b44-44af-bbb6-ad737ca227f7">&lt;/strong&gt;</ept> tab at the top of the page, add a rule named <bpt id="58e6f7ef-58ac-48a8-9aa6-57b6e5bfb778">&lt;strong&gt;</bpt>SendRule<ept id="58e6f7ef-58ac-48a8-9aa6-57b6e5bfb778">&lt;/strong&gt;</ept> with <bpt id="840fda27-009f-470a-ad85-2240b01e1100">&lt;em&gt;</bpt>Send<ept id="840fda27-009f-470a-ad85-2240b01e1100">&lt;/em&gt;</ept> rights, add another rule called <bpt id="36279649-44bf-4ee0-935d-8cbd1bd10990">&lt;strong&gt;</bpt>ReceiveRule<ept id="36279649-44bf-4ee0-935d-8cbd1bd10990">&lt;/strong&gt;</ept> with <bpt id="ed1039ad-e483-45c6-b265-58ac0d2b6fbf">&lt;em&gt;</bpt>Manage, Send, Listen<ept id="ed1039ad-e483-45c6-b265-58ac0d2b6fbf">&lt;/em&gt;</ept> rights, and then click <bpt id="f3dae424-629c-4c3f-860a-32cc9e839602">&lt;strong&gt;</bpt>Save<ept id="f3dae424-629c-4c3f-860a-32cc9e839602">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b86c633c-c52c-4c38-bd8e-01db63a3ae22" xml:space="preserve">
+          <source><bpt id="11e629f6-089c-442d-b701-51dc725a4eb4">&lt;linkText&gt;</bpt><ept id="11e629f6-089c-442d-b701-51dc725a4eb4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11e629f6-089c-442d-b701-51dc725a4eb4">&lt;linkText&gt;</bpt><ept id="11e629f6-089c-442d-b701-51dc725a4eb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66ecfc59-86a4-4e37-8c61-a7607d2878d5" xml:space="preserve">
+          <source>On the same page, take note of the generated keys for <bpt id="71cd289e-519c-4df6-a891-9c38cadb72a5">&lt;strong&gt;</bpt>SendRule<ept id="71cd289e-519c-4df6-a891-9c38cadb72a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the same page, take note of the generated keys for <bpt id="71cd289e-519c-4df6-a891-9c38cadb72a5">&lt;strong&gt;</bpt>SendRule<ept id="71cd289e-519c-4df6-a891-9c38cadb72a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34f69f5a-74a3-4c7b-ba84-4729e6b288ea" xml:space="preserve">
+          <source><bpt id="0882ba15-99a6-44f3-87be-a69ead210501">&lt;linkText&gt;</bpt><ept id="0882ba15-99a6-44f3-87be-a69ead210501">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0882ba15-99a6-44f3-87be-a69ead210501">&lt;linkText&gt;</bpt><ept id="0882ba15-99a6-44f3-87be-a69ead210501">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ac11f2d-0d59-409a-8755-26f08aa08a55" xml:space="preserve">
+          <source>Click the <bpt id="07ce9aed-54ea-4b20-996d-c4ecbd5a0053">&lt;strong&gt;</bpt>Dashboard<ept id="07ce9aed-54ea-4b20-996d-c4ecbd5a0053">&lt;/strong&gt;</ept> tab at the top of the page, and then click <bpt id="e911b41c-2b3c-40aa-bb96-ecb9e816343a">&lt;strong&gt;</bpt>Connection Information<ept id="e911b41c-2b3c-40aa-bb96-ecb9e816343a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="07ce9aed-54ea-4b20-996d-c4ecbd5a0053">&lt;strong&gt;</bpt>Dashboard<ept id="07ce9aed-54ea-4b20-996d-c4ecbd5a0053">&lt;/strong&gt;</ept> tab at the top of the page, and then click <bpt id="e911b41c-2b3c-40aa-bb96-ecb9e816343a">&lt;strong&gt;</bpt>Connection Information<ept id="e911b41c-2b3c-40aa-bb96-ecb9e816343a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5069a73f-de6f-429a-9bcf-be2fd59b2f14" xml:space="preserve">
+          <source>Take note of the two connection strings.</source>
+          <target state="new">Take note of the two connection strings.</target>
+        </trans-unit>
+        <trans-unit id="c58ddc31-9758-4ddb-9195-264ae5df0677" xml:space="preserve">
+          <source><bpt id="13700df1-ed0c-4b2f-b004-fe1d937daf7c">&lt;linkText&gt;</bpt><ept id="13700df1-ed0c-4b2f-b004-fe1d937daf7c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13700df1-ed0c-4b2f-b004-fe1d937daf7c">&lt;linkText&gt;</bpt><ept id="13700df1-ed0c-4b2f-b004-fe1d937daf7c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7bcbb8f-8d35-4642-8ff1-2cc4e8462081" xml:space="preserve">
+          <source>Your Event Hub is now created, and you have the connection strings you need to send and receive events.</source>
+          <target state="new">Your Event Hub is now created, and you have the connection strings you need to send and receive events.</target>
+        </trans-unit>
+        <trans-unit id="86c2c30d-8e98-4afa-a662-479781acfda5" xml:space="preserve">
+          <source><bpt id="36f5844c-7618-4118-bcb7-c62f795b760a">&lt;token href="../../includes/service-bus-event-hubs-get-started-send-c.md"&gt;</bpt><ept id="36f5844c-7618-4118-bcb7-c62f795b760a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="36f5844c-7618-4118-bcb7-c62f795b760a">&lt;token href="../../includes/service-bus-event-hubs-get-started-send-c.md"&gt;</bpt><ept id="36f5844c-7618-4118-bcb7-c62f795b760a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b98b134e-846a-411a-a202-988a122cac75" xml:space="preserve">
+          <source><bpt id="1844b627-0013-4283-a740-f2b71727a092">&lt;token href="../../includes/service-bus-event-hubs-get-started-receive-ephcs.md"&gt;</bpt><ept id="1844b627-0013-4283-a740-f2b71727a092">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1844b627-0013-4283-a740-f2b71727a092">&lt;token href="../../includes/service-bus-event-hubs-get-started-receive-ephcs.md"&gt;</bpt><ept id="1844b627-0013-4283-a740-f2b71727a092">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6838b594-163d-4a4d-90dd-f8b94ce43cbb" xml:space="preserve">
+          <source>Now you are ready to run the applications.</source>
+          <target state="new">Now you are ready to run the applications.</target>
+        </trans-unit>
+        <trans-unit id="ba9d7112-02a2-48c6-82e0-1c5a07644fed" xml:space="preserve">
+          <source>Run the <bpt id="7193a43c-9b07-4f24-9b7f-4bdebf76846f">&lt;strong&gt;</bpt>Receiver<ept id="7193a43c-9b07-4f24-9b7f-4bdebf76846f">&lt;/strong&gt;</ept> project from Visual Studio, then wait for it to start the receivers for all the partitions.</source>
+          <target state="new">Run the <bpt id="7193a43c-9b07-4f24-9b7f-4bdebf76846f">&lt;strong&gt;</bpt>Receiver<ept id="7193a43c-9b07-4f24-9b7f-4bdebf76846f">&lt;/strong&gt;</ept> project from Visual Studio, then wait for it to start the receivers for all the partitions.</target>
+        </trans-unit>
+        <trans-unit id="72891e01-3744-4669-ac58-1dd791ae9d0d" xml:space="preserve">
+          <source><bpt id="9b4a0dd6-541c-4a75-b822-bc0ba55a7df3">&lt;linkText&gt;</bpt><ept id="9b4a0dd6-541c-4a75-b822-bc0ba55a7df3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b4a0dd6-541c-4a75-b822-bc0ba55a7df3">&lt;linkText&gt;</bpt><ept id="9b4a0dd6-541c-4a75-b822-bc0ba55a7df3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78aa04b7-4252-45cb-8e4e-3001218eabd3" xml:space="preserve">
+          <source>Run the <bpt id="092a3854-3e88-4633-baad-d32b0737a2e6">&lt;strong&gt;</bpt>sender<ept id="092a3854-3e88-4633-baad-d32b0737a2e6">&lt;/strong&gt;</ept> program, and see the events appear in the receiver window.</source>
+          <target state="new">Run the <bpt id="092a3854-3e88-4633-baad-d32b0737a2e6">&lt;strong&gt;</bpt>sender<ept id="092a3854-3e88-4633-baad-d32b0737a2e6">&lt;/strong&gt;</ept> program, and see the events appear in the receiver window.</target>
+        </trans-unit>
+        <trans-unit id="d6499fdd-460f-4add-9939-3cd760851818" xml:space="preserve">
+          <source><bpt id="add7ad84-6c52-413b-9474-41a216dd6525">&lt;linkText&gt;</bpt><ept id="add7ad84-6c52-413b-9474-41a216dd6525">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="add7ad84-6c52-413b-9474-41a216dd6525">&lt;linkText&gt;</bpt><ept id="add7ad84-6c52-413b-9474-41a216dd6525">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d97d1bc-811f-4cce-a7d8-5a8be63c9e69" xml:space="preserve">
+          <source>Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:</source>
+          <target state="new">Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="96c7e8a1-5bba-4c4a-b998-6bf8100b9eb0" xml:space="preserve">
+          <source>A complete [sample application that uses Event Hubs].</source>
+          <target state="new">A complete [sample application that uses Event Hubs].</target>
+        </trans-unit>
+        <trans-unit id="c17f8681-127b-41b6-828b-8a43953ab475" xml:space="preserve">
+          <source>The [Scale out Event Processing with Event Hubs] sample.</source>
+          <target state="new">The [Scale out Event Processing with Event Hubs] sample.</target>
+        </trans-unit>
+        <trans-unit id="4b244881-bb7a-46d4-96bc-107f07902fbe" xml:space="preserve">
+          <source>A [queued messaging solution] using Service Bus queues.</source>
+          <target state="new">A [queued messaging solution] using Service Bus queues.</target>
+        </trans-unit>
+        <trans-unit id="3c38758e-9468-4a34-ad8f-c43a6c34f717" xml:space="preserve">
+          <source>[Event Hubs overview]</source>
+          <target state="new">[Event Hubs overview]</target>
+        </trans-unit>
+        <trans-unit id="d0cd96b0-a6a5-4ab4-b390-b884560381d6" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub1.png</target>
+        </trans-unit>
+        <trans-unit id="e4c672ad-0461-436d-8beb-4245b7c6079b" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub2.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub2.png</target>
+        </trans-unit>
+        <trans-unit id="e0832601-5e43-4f8f-888b-9bbc6d2e8230" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub3.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub3.png</target>
+        </trans-unit>
+        <trans-unit id="f2d581b0-2565-4b01-9783-89c3cfe2e326" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub4.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub4.png</target>
+        </trans-unit>
+        <trans-unit id="a0d0a60c-dcaa-4513-b526-61cb41360d33" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub5.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub5.png</target>
+        </trans-unit>
+        <trans-unit id="5008cfd3-3206-42ef-8be1-c2b18288d429" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub6.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub6.png</target>
+        </trans-unit>
+        <trans-unit id="1f5d44c4-6004-45ed-a159-5fdf81a09be4" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/create-event-hub6b.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/create-event-hub6b.png</target>
+        </trans-unit>
+        <trans-unit id="e248da78-0e24-476d-bf1f-030b73c9fd17" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png</target>
+        </trans-unit>
+        <trans-unit id="bd9e88d2-5bcb-49a8-930c-73d50c29faa9" xml:space="preserve">
+          <source>./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png</source>
+          <target state="new">./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png</target>
+        </trans-unit>
+        <trans-unit id="2edbdb8b-ce07-4808-a294-1bce4bf4147a" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f5e2b922-0ded-44f3-9743-b977fb473428" xml:space="preserve">
+          <source>https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost</source>
+          <target state="new">https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost</target>
+        </trans-unit>
+        <trans-unit id="52014735-370c-46de-90a6-20584728c3f1" xml:space="preserve">
+          <source>event-hubs-overview.md</source>
+          <target state="new">event-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="4aee285f-e704-4b36-b0a6-d78160261b65" xml:space="preserve">
+          <source>https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</source>
+          <target state="new">https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</target>
+        </trans-unit>
+        <trans-unit id="b3154f8d-52ef-4734-abc3-0b503a961115" xml:space="preserve">
+          <source>https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3</source>
+          <target state="new">https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3</target>
+        </trans-unit>
+        <trans-unit id="b5fc0d50-65ac-40e9-b089-5f1089e293dd" xml:space="preserve">
+          <source>../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md</source>
+          <target state="new">../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md</target>
+        </trans-unit>
+      </group>
+      <group id="35a2f54d-48f9-484f-81d6-477524870f05" />
+    </body>
+  </file>
+</xliff>

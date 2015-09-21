@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f1bd4297-650b-4682-b827-087621561d58" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f1bd4297-650b-4682-b827-087621561d58" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="085d42f1-9355-4a8b-afcf-0884703b5440">
+        <trans-unit id="97f8d446-df7b-48ce-af10-00c96341a2da" xml:space="preserve">
+          <source>In Visual Studio in Solution Explorer, right click the service project and click <bpt id="72994043-ba6a-4ade-a99d-7eed21693fbd">&lt;strong&gt;</bpt>Start new instance<ept id="72994043-ba6a-4ade-a99d-7eed21693fbd">&lt;/strong&gt;</ept> under the <bpt id="ac70996b-18e9-434a-83e9-510083ea567e">&lt;strong&gt;</bpt>Debug<ept id="ac70996b-18e9-434a-83e9-510083ea567e">&lt;/strong&gt;</ept> context menu.</source>
+          <target state="new">In Visual Studio in Solution Explorer, right click the service project and click <bpt id="72994043-ba6a-4ade-a99d-7eed21693fbd">&lt;strong&gt;</bpt>Start new instance<ept id="72994043-ba6a-4ade-a99d-7eed21693fbd">&lt;/strong&gt;</ept> under the <bpt id="ac70996b-18e9-434a-83e9-510083ea567e">&lt;strong&gt;</bpt>Debug<ept id="ac70996b-18e9-434a-83e9-510083ea567e">&lt;/strong&gt;</ept> context menu.</target>
+        </trans-unit>
+        <trans-unit id="14e755ce-1393-450e-9970-5ec663408284" xml:space="preserve">
+          <source>Visual Studio opens the default web page for your service.</source>
+          <target state="new">Visual Studio opens the default web page for your service.</target>
+        </trans-unit>
+        <trans-unit id="3531f4d1-bf9f-490c-8459-c7028a2e64e4" xml:space="preserve">
+          <source>By default, Visual Studio hosts your mobile app backend locally in IIS Express.</source>
+          <target state="new">By default, Visual Studio hosts your mobile app backend locally in IIS Express.</target>
+        </trans-unit>
+        <trans-unit id="110759ac-c2fa-43a4-a404-730a64363565" xml:space="preserve">
+          <source>Right-click the tray icon for IIS Express on the Windows taskbar and verify that your mobile app backend has started.</source>
+          <target state="new">Right-click the tray icon for IIS Express on the Windows taskbar and verify that your mobile app backend has started.</target>
+        </trans-unit>
+        <trans-unit id="ea2f4e91-5634-4eb4-afb9-c9cfdfccd0c4" xml:space="preserve">
+          <source> <bpt id="082c3898-8ac7-417f-a191-349462382aa5">&lt;linkText&gt;</bpt>verify the mobile service in the taskbar<ept id="082c3898-8ac7-417f-a191-349462382aa5">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="082c3898-8ac7-417f-a191-349462382aa5">&lt;linkText&gt;</bpt>verify the mobile service in the taskbar<ept id="082c3898-8ac7-417f-a191-349462382aa5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ade2cad9-e97c-44cb-8fc8-400c96aabaa4" xml:space="preserve">
+          <source>On the start page of your .NET backend, click <bpt id="bf64199c-dd09-4182-ba03-04fca042dde5">&lt;strong&gt;</bpt>try it out<ept id="bf64199c-dd09-4182-ba03-04fca042dde5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the start page of your .NET backend, click <bpt id="bf64199c-dd09-4182-ba03-04fca042dde5">&lt;strong&gt;</bpt>try it out<ept id="bf64199c-dd09-4182-ba03-04fca042dde5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f94e429a-9f88-4a5b-a82b-15f273059159" xml:space="preserve">
+          <source>This displays the API documentation page, which you can use to test the Mobile App.</source>
+          <target state="new">This displays the API documentation page, which you can use to test the Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="9574cde9-3dc1-475a-8278-b145102ce252" xml:space="preserve">
+          <source>Authentication is not required to access this page when running locally.</source>
+          <target state="new">Authentication is not required to access this page when running locally.</target>
+        </trans-unit>
+        <trans-unit id="ba3faee4-66c9-4289-a914-ae7375557df3" xml:space="preserve">
+          <source>When running in Azure, you must supply the application key as the password (with no username) to access this page.</source>
+          <target state="new">When running in Azure, you must supply the application key as the password (with no username) to access this page.</target>
+        </trans-unit>
+        <trans-unit id="0c4e0bf7-793d-4f14-86de-99a27690636c" xml:space="preserve">
+          <source>Click the <bpt id="60bc466e-75f5-4431-a6bc-f9c933266d34">&lt;strong&gt;</bpt>GET tables/TodoItem<ept id="60bc466e-75f5-4431-a6bc-f9c933266d34">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">Click the <bpt id="60bc466e-75f5-4431-a6bc-f9c933266d34">&lt;strong&gt;</bpt>GET tables/TodoItem<ept id="60bc466e-75f5-4431-a6bc-f9c933266d34">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="1eadc4e0-93c1-49d2-8d1c-342d67cda2a6" xml:space="preserve">
+          <source><bpt id="29e3574a-aa8f-4f14-8f38-d91d3e349a5d">&lt;linkText&gt;</bpt><ept id="29e3574a-aa8f-4f14-8f38-d91d3e349a5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29e3574a-aa8f-4f14-8f38-d91d3e349a5d">&lt;linkText&gt;</bpt><ept id="29e3574a-aa8f-4f14-8f38-d91d3e349a5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6ce1b20-6d3e-4072-b9cb-b0308409b55f" xml:space="preserve">
+          <source>This displays the GET response page for the API.</source>
+          <target state="new">This displays the GET response page for the API.</target>
+        </trans-unit>
+        <trans-unit id="a9a88469-e343-4cef-b767-cb2d6d381a2a" xml:space="preserve">
+          <source>Click <bpt id="c98744ee-fcb6-46e6-9af5-67bc7c3f7334">&lt;strong&gt;</bpt>try this out<ept id="c98744ee-fcb6-46e6-9af5-67bc7c3f7334">&lt;/strong&gt;</ept> and then click <bpt id="ff803b9e-bde7-4a82-9ddc-873dc887d6be">&lt;strong&gt;</bpt>send<ept id="ff803b9e-bde7-4a82-9ddc-873dc887d6be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c98744ee-fcb6-46e6-9af5-67bc7c3f7334">&lt;strong&gt;</bpt>try this out<ept id="c98744ee-fcb6-46e6-9af5-67bc7c3f7334">&lt;/strong&gt;</ept> and then click <bpt id="ff803b9e-bde7-4a82-9ddc-873dc887d6be">&lt;strong&gt;</bpt>send<ept id="ff803b9e-bde7-4a82-9ddc-873dc887d6be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c2ee15c-f597-46f8-952d-049cf05d3181" xml:space="preserve">
+          <source><bpt id="d9dbed59-96b2-4bf8-ae34-2eea881c1ebd">&lt;linkText&gt;</bpt><ept id="d9dbed59-96b2-4bf8-ae34-2eea881c1ebd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9dbed59-96b2-4bf8-ae34-2eea881c1ebd">&lt;linkText&gt;</bpt><ept id="d9dbed59-96b2-4bf8-ae34-2eea881c1ebd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc2406ba-30aa-44ed-a3aa-b1c6fff4bfb7" xml:space="preserve">
+          <source>This sends a GET request to the local mobile app backend to return all rows in the TodoItem table.</source>
+          <target state="new">This sends a GET request to the local mobile app backend to return all rows in the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="9c712ba6-ef30-4cb3-adff-148eefb55743" xml:space="preserve">
+          <source>Because the table is seeded by the initializer, two TodoItem objects are returned in the body of the response message.</source>
+          <target state="new">Because the table is seeded by the initializer, two TodoItem objects are returned in the body of the response message.</target>
+        </trans-unit>
+        <trans-unit id="20918409-b16c-4340-8176-d06465d70691" xml:space="preserve">
+          <source>For more information about initializers, see <bpt id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;linkText&gt;</bpt>How to make data model changes to a .NET backend mobile service<ept id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;/linkText&gt;</ept><bpt id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;title&gt;</bpt><ept id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about initializers, see <bpt id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;linkText&gt;</bpt>How to make data model changes to a .NET backend mobile service<ept id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;/linkText&gt;</ept><bpt id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;title&gt;</bpt><ept id="bcb7d760-7391-4e67-a1a9-2dd10c0d4f1a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="977647f9-191a-4a69-96c4-6caf4b480e1b" xml:space="preserve">
+          <source><bpt id="b7b445bb-8bcc-48f2-95e8-f1eba6e56fb9">&lt;linkText&gt;</bpt><ept id="b7b445bb-8bcc-48f2-95e8-f1eba6e56fb9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7b445bb-8bcc-48f2-95e8-f1eba6e56fb9">&lt;linkText&gt;</bpt><ept id="b7b445bb-8bcc-48f2-95e8-f1eba6e56fb9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

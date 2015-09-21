@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8d80fd68-487d-4e1a-97a8-28c6e1809f10" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8d80fd68-487d-4e1a-97a8-28c6e1809f10" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b17220df-1ace-4bd0-ba9a-49f58f889feb">
+        <trans-unit id="0112e23b-2c1f-4cb3-8d05-0a9b3506446d" xml:space="preserve">
+          <source>How to use Service Bus queues (Java) | Microsoft Azure</source>
+          <target state="new">How to use Service Bus queues (Java) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="24a12203-b93f-48ff-a810-3cb4640d8447" xml:space="preserve">
+          <source>Learn how to use Service Bus queues in Azure. Code samples written in Java.</source>
+          <target state="new">Learn how to use Service Bus queues in Azure. Code samples written in Java.</target>
+        </trans-unit>
+        <trans-unit id="10fea034-31bb-47fd-8a6c-4e51fd516db5" xml:space="preserve">
+          <source>This guide describes how to use Service Bus queues.</source>
+          <target state="new">This guide describes how to use Service Bus queues.</target>
+        </trans-unit>
+        <trans-unit id="b7c4baab-7c7c-4b37-96ad-9ea0ecaf36b7" xml:space="preserve">
+          <source>The samples are
+written in Java and use the <bpt id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;/linkText&gt;</ept><bpt id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;title&gt;</bpt><ept id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are
+written in Java and use the <bpt id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;/linkText&gt;</ept><bpt id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;title&gt;</bpt><ept id="70e49fd8-961a-47dc-9f68-81f60d06c826">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81f6de70-78e5-4561-9f4e-9bfd87f11855" xml:space="preserve">
+          <source>The
+scenarios covered include <bpt id="196eb79b-cfad-46c7-bd95-786b53b7cf69">&lt;strong&gt;</bpt>creating queues<ept id="196eb79b-cfad-46c7-bd95-786b53b7cf69">&lt;/strong&gt;</ept>, <bpt id="6c7e28dc-98fc-42c2-97e4-0750f0026ecd">&lt;strong&gt;</bpt>sending and receiving
+messages<ept id="6c7e28dc-98fc-42c2-97e4-0750f0026ecd">&lt;/strong&gt;</ept>, and <bpt id="e60d172c-2c58-4605-8d92-945625e1d94c">&lt;strong&gt;</bpt>deleting queues<ept id="e60d172c-2c58-4605-8d92-945625e1d94c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The
+scenarios covered include <bpt id="196eb79b-cfad-46c7-bd95-786b53b7cf69">&lt;strong&gt;</bpt>creating queues<ept id="196eb79b-cfad-46c7-bd95-786b53b7cf69">&lt;/strong&gt;</ept>, <bpt id="6c7e28dc-98fc-42c2-97e4-0750f0026ecd">&lt;strong&gt;</bpt>sending and receiving
+messages<ept id="6c7e28dc-98fc-42c2-97e4-0750f0026ecd">&lt;/strong&gt;</ept>, and <bpt id="e60d172c-2c58-4605-8d92-945625e1d94c">&lt;strong&gt;</bpt>deleting queues<ept id="e60d172c-2c58-4605-8d92-945625e1d94c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0be39eab-1796-45b3-b753-a69ea68aad0e" xml:space="preserve">
+          <source><bpt id="9b9131fb-8279-4282-8c68-924d6e806224">&lt;token href="../../includes/service-bus-java-how-to-create-queue.md"&gt;</bpt><ept id="9b9131fb-8279-4282-8c68-924d6e806224">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9b9131fb-8279-4282-8c68-924d6e806224">&lt;token href="../../includes/service-bus-java-how-to-create-queue.md"&gt;</bpt><ept id="9b9131fb-8279-4282-8c68-924d6e806224">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd176948-238e-4353-accb-62de6e3558a9" xml:space="preserve">
+          <source>Make sure you have installed the <bpt id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;/linkText&gt;</ept><bpt id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;title&gt;</bpt><ept id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;/title&gt;</ept> before building this sample.</source>
+          <target state="new">Make sure you have installed the <bpt id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;/linkText&gt;</ept><bpt id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;title&gt;</bpt><ept id="7a6ca129-1f4b-4b55-86cf-ab9e56e21f3d">&lt;/title&gt;</ept> before building this sample.</target>
+        </trans-unit>
+        <trans-unit id="adef51bf-7c6c-4420-8f5f-ef75e926b606" xml:space="preserve">
+          <source>If you are using Eclipse, you can install the <bpt id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;linkText&gt;</bpt>Azure Toolkit for Eclipse<ept id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;/linkText&gt;</ept><bpt id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;title&gt;</bpt><ept id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;/title&gt;</ept> that includes the Azure SDK for Java.</source>
+          <target state="new">If you are using Eclipse, you can install the <bpt id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;linkText&gt;</bpt>Azure Toolkit for Eclipse<ept id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;/linkText&gt;</ept><bpt id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;title&gt;</bpt><ept id="d5f9e8c9-f67f-4bf0-853a-b31f32e37501">&lt;/title&gt;</ept> that includes the Azure SDK for Java.</target>
+        </trans-unit>
+        <trans-unit id="76c0aa5d-0e46-4036-af63-97446856145b" xml:space="preserve">
+          <source>You can then add the <bpt id="f5a08e21-1f0c-4ae8-807c-26deef0f9cff">&lt;strong&gt;</bpt>Microsoft Azure Libraries for Java<ept id="f5a08e21-1f0c-4ae8-807c-26deef0f9cff">&lt;/strong&gt;</ept> to your project:
+<bpt id="9e2d866a-716c-47e6-aba9-1551fb1b1ccd">&lt;linkText&gt;</bpt><ept id="9e2d866a-716c-47e6-aba9-1551fb1b1ccd">&lt;/linkText&gt;</ept></source>
+          <target state="new">You can then add the <bpt id="f5a08e21-1f0c-4ae8-807c-26deef0f9cff">&lt;strong&gt;</bpt>Microsoft Azure Libraries for Java<ept id="f5a08e21-1f0c-4ae8-807c-26deef0f9cff">&lt;/strong&gt;</ept> to your project:
+<bpt id="9e2d866a-716c-47e6-aba9-1551fb1b1ccd">&lt;linkText&gt;</bpt><ept id="9e2d866a-716c-47e6-aba9-1551fb1b1ccd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af3e85ef-eb47-4ce8-9946-74d6abde28d3" xml:space="preserve">
+          <source>Add the following import statements to the top of the Java file:</source>
+          <target state="new">Add the following import statements to the top of the Java file:</target>
+        </trans-unit>
+        <trans-unit id="3ccf32e3-3275-436c-8028-247a72f4205f" xml:space="preserve">
+          <source>Management operations for Service Bus queues can be performed via the
+<bpt id="c911e2b8-a1eb-4aef-a863-758780387ae7">&lt;strong&gt;</bpt>ServiceBusContract<ept id="c911e2b8-a1eb-4aef-a863-758780387ae7">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Management operations for Service Bus queues can be performed via the
+<bpt id="c911e2b8-a1eb-4aef-a863-758780387ae7">&lt;strong&gt;</bpt>ServiceBusContract<ept id="c911e2b8-a1eb-4aef-a863-758780387ae7">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="d735e26a-ca87-4032-9ae3-ec342b768b01" xml:space="preserve">
+          <source>A <bpt id="121488fa-6c0c-416f-b943-d1fd20cc13d6">&lt;strong&gt;</bpt>ServiceBusContract<ept id="121488fa-6c0c-416f-b943-d1fd20cc13d6">&lt;/strong&gt;</ept> object is
+constructed with an appropriate configuration that encapsulates the
+SAS token with permissions to manage it, and the <bpt id="68344979-aa06-4337-b1ef-b13137ca1386">&lt;strong&gt;</bpt>ServiceBusContract<ept id="68344979-aa06-4337-b1ef-b13137ca1386">&lt;/strong&gt;</ept> class is
+the sole point of communication with Azure.</source>
+          <target state="new">A <bpt id="121488fa-6c0c-416f-b943-d1fd20cc13d6">&lt;strong&gt;</bpt>ServiceBusContract<ept id="121488fa-6c0c-416f-b943-d1fd20cc13d6">&lt;/strong&gt;</ept> object is
+constructed with an appropriate configuration that encapsulates the
+SAS token with permissions to manage it, and the <bpt id="68344979-aa06-4337-b1ef-b13137ca1386">&lt;strong&gt;</bpt>ServiceBusContract<ept id="68344979-aa06-4337-b1ef-b13137ca1386">&lt;/strong&gt;</ept> class is
+the sole point of communication with Azure.</target>
+        </trans-unit>
+        <trans-unit id="6ee010f2-a483-4724-b2cf-4ffb60b4006c" xml:space="preserve">
+          <source>The <bpt id="35ffe04b-3b11-424f-8f67-c956720d6bd5">&lt;strong&gt;</bpt>ServiceBusService<ept id="35ffe04b-3b11-424f-8f67-c956720d6bd5">&lt;/strong&gt;</ept> class provides methods to create, enumerate,
+and delete queues.</source>
+          <target state="new">The <bpt id="35ffe04b-3b11-424f-8f67-c956720d6bd5">&lt;strong&gt;</bpt>ServiceBusService<ept id="35ffe04b-3b11-424f-8f67-c956720d6bd5">&lt;/strong&gt;</ept> class provides methods to create, enumerate,
+and delete queues.</target>
+        </trans-unit>
+        <trans-unit id="87822ff1-16fd-44eb-9b31-45853417411a" xml:space="preserve">
+          <source>The example below shows how a <bpt id="43fb9350-115a-4f63-ab63-0bff237ca7a1">&lt;strong&gt;</bpt>ServiceBusService<ept id="43fb9350-115a-4f63-ab63-0bff237ca7a1">&lt;/strong&gt;</ept> object
+can be used to create a queue named "TestQueue", with a namespace named "HowToSample":</source>
+          <target state="new">The example below shows how a <bpt id="43fb9350-115a-4f63-ab63-0bff237ca7a1">&lt;strong&gt;</bpt>ServiceBusService<ept id="43fb9350-115a-4f63-ab63-0bff237ca7a1">&lt;/strong&gt;</ept> object
+can be used to create a queue named "TestQueue", with a namespace named "HowToSample":</target>
+        </trans-unit>
+        <trans-unit id="1090e5e0-a24b-4293-bbb9-d870c59faa4b" xml:space="preserve">
+          <source>There are methods on QueueInfo that allow properties of the queue to be
+tuned (for example: to set the default "time-to-live" value to be
+applied to messages sent to the queue).</source>
+          <target state="new">There are methods on QueueInfo that allow properties of the queue to be
+tuned (for example: to set the default "time-to-live" value to be
+applied to messages sent to the queue).</target>
+        </trans-unit>
+        <trans-unit id="232b35bc-afba-45a2-83c2-36b9ed4e52a1" xml:space="preserve">
+          <source>The following example shows how
+to create a queue named "TestQueue" with a maximum size of 5GB:</source>
+          <target state="new">The following example shows how
+to create a queue named "TestQueue" with a maximum size of 5GB:</target>
+        </trans-unit>
+        <trans-unit id="ddc914b9-6a74-4815-9ce0-73a15a3955a3" xml:space="preserve">
+          <source>Note that you can use the <bpt id="15d75563-daad-4892-a18a-5395f9b75881">&lt;strong&gt;</bpt>listQueues<ept id="15d75563-daad-4892-a18a-5395f9b75881">&lt;/strong&gt;</ept> method on <bpt id="a72c1529-2685-4caa-9580-3a7c2d16608e">&lt;strong&gt;</bpt>ServiceBusContract<ept id="a72c1529-2685-4caa-9580-3a7c2d16608e">&lt;/strong&gt;</ept>
+objects to check if a queue with a specified name already exists within
+a service namespace.</source>
+          <target state="new">Note that you can use the <bpt id="15d75563-daad-4892-a18a-5395f9b75881">&lt;strong&gt;</bpt>listQueues<ept id="15d75563-daad-4892-a18a-5395f9b75881">&lt;/strong&gt;</ept> method on <bpt id="a72c1529-2685-4caa-9580-3a7c2d16608e">&lt;strong&gt;</bpt>ServiceBusContract<ept id="a72c1529-2685-4caa-9580-3a7c2d16608e">&lt;/strong&gt;</ept>
+objects to check if a queue with a specified name already exists within
+a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="05112dcb-65b8-4297-ad70-95348935181c" xml:space="preserve">
+          <source>To send a message to a Service Bus Queue, your application will obtain a
+<bpt id="b1ead234-ac0b-4db8-b694-88953aa32ffa">&lt;strong&gt;</bpt>ServiceBusContract<ept id="b1ead234-ac0b-4db8-b694-88953aa32ffa">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">To send a message to a Service Bus Queue, your application will obtain a
+<bpt id="b1ead234-ac0b-4db8-b694-88953aa32ffa">&lt;strong&gt;</bpt>ServiceBusContract<ept id="b1ead234-ac0b-4db8-b694-88953aa32ffa">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="e1973055-58d0-4a66-9af7-b96d468086a8" xml:space="preserve">
+          <source>The below code demonstrates how to send a
+message for the "TestQueue" queue we created above within our
+"HowToSample" service namespace:</source>
+          <target state="new">The below code demonstrates how to send a
+message for the "TestQueue" queue we created above within our
+"HowToSample" service namespace:</target>
+        </trans-unit>
+        <trans-unit id="66fa65c3-2c64-4f1a-ae96-d771f1bbd7f1" xml:space="preserve">
+          <source>Messages sent to (and received from ) Service Bus queues are instances
+of the <bpt id="b8085dde-70f1-47ad-940e-3e2ba424d80f">&lt;strong&gt;</bpt>BrokeredMessage<ept id="b8085dde-70f1-47ad-940e-3e2ba424d80f">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Messages sent to (and received from ) Service Bus queues are instances
+of the <bpt id="b8085dde-70f1-47ad-940e-3e2ba424d80f">&lt;strong&gt;</bpt>BrokeredMessage<ept id="b8085dde-70f1-47ad-940e-3e2ba424d80f">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="fe0dc584-3e6a-4083-8b37-aea640c7af33" xml:space="preserve">
+          <source><bpt id="f5319a6b-421c-43b6-94b0-8382f2380cbf">&lt;strong&gt;</bpt>BrokeredMessage<ept id="f5319a6b-421c-43b6-94b0-8382f2380cbf">&lt;/strong&gt;</ept> objects have a set
+of standard methods (such as <bpt id="fe84237f-6a93-4a55-b639-c9d6fd760fba">&lt;strong&gt;</bpt>getLabel<ept id="fe84237f-6a93-4a55-b639-c9d6fd760fba">&lt;/strong&gt;</ept>, <bpt id="09830c45-6d59-46d8-a995-7970f773486f">&lt;strong&gt;</bpt>getTimeToLive<ept id="09830c45-6d59-46d8-a995-7970f773486f">&lt;/strong&gt;</ept>,
+<bpt id="4b3b7054-dbf5-4701-809a-b03363e90449">&lt;strong&gt;</bpt>setLabel<ept id="4b3b7054-dbf5-4701-809a-b03363e90449">&lt;/strong&gt;</ept>, and <bpt id="0fe40b98-c71d-4e7a-8f46-72e304c7f534">&lt;strong&gt;</bpt>setTimeToLive<ept id="0fe40b98-c71d-4e7a-8f46-72e304c7f534">&lt;/strong&gt;</ept>), a dictionary that is used to hold
+custom application specific properties, and a body of arbitrary
+application data.</source>
+          <target state="new"><bpt id="f5319a6b-421c-43b6-94b0-8382f2380cbf">&lt;strong&gt;</bpt>BrokeredMessage<ept id="f5319a6b-421c-43b6-94b0-8382f2380cbf">&lt;/strong&gt;</ept> objects have a set
+of standard methods (such as <bpt id="fe84237f-6a93-4a55-b639-c9d6fd760fba">&lt;strong&gt;</bpt>getLabel<ept id="fe84237f-6a93-4a55-b639-c9d6fd760fba">&lt;/strong&gt;</ept>, <bpt id="09830c45-6d59-46d8-a995-7970f773486f">&lt;strong&gt;</bpt>getTimeToLive<ept id="09830c45-6d59-46d8-a995-7970f773486f">&lt;/strong&gt;</ept>,
+<bpt id="4b3b7054-dbf5-4701-809a-b03363e90449">&lt;strong&gt;</bpt>setLabel<ept id="4b3b7054-dbf5-4701-809a-b03363e90449">&lt;/strong&gt;</ept>, and <bpt id="0fe40b98-c71d-4e7a-8f46-72e304c7f534">&lt;strong&gt;</bpt>setTimeToLive<ept id="0fe40b98-c71d-4e7a-8f46-72e304c7f534">&lt;/strong&gt;</ept>), a dictionary that is used to hold
+custom application specific properties, and a body of arbitrary
+application data.</target>
+        </trans-unit>
+        <trans-unit id="4104b0a3-c112-4464-85fb-4bdac68fb139" xml:space="preserve">
+          <source>An application can set the body of the message by
+passing any serializable object into the constructor of the
+<bpt id="e34c5229-7319-4241-a03a-4233a0fbb89c">&lt;strong&gt;</bpt>BrokeredMessage<ept id="e34c5229-7319-4241-a03a-4233a0fbb89c">&lt;/strong&gt;</ept>, and the appropriate serializer will then be used to
+serialize the object.</source>
+          <target state="new">An application can set the body of the message by
+passing any serializable object into the constructor of the
+<bpt id="e34c5229-7319-4241-a03a-4233a0fbb89c">&lt;strong&gt;</bpt>BrokeredMessage<ept id="e34c5229-7319-4241-a03a-4233a0fbb89c">&lt;/strong&gt;</ept>, and the appropriate serializer will then be used to
+serialize the object.</target>
+        </trans-unit>
+        <trans-unit id="a00dab36-26b9-40e8-9f45-c177df186a78" xml:space="preserve">
+          <source>Alternatively, a <bpt id="a5ed1433-e085-4bde-91f5-60a1d1a6003d">&lt;strong&gt;</bpt>java.IO.InputStream<ept id="a5ed1433-e085-4bde-91f5-60a1d1a6003d">&lt;/strong&gt;</ept> can be
+provided.</source>
+          <target state="new">Alternatively, a <bpt id="a5ed1433-e085-4bde-91f5-60a1d1a6003d">&lt;strong&gt;</bpt>java.IO.InputStream<ept id="a5ed1433-e085-4bde-91f5-60a1d1a6003d">&lt;/strong&gt;</ept> can be
+provided.</target>
+        </trans-unit>
+        <trans-unit id="28d77f17-e754-4dbf-9f9a-63f6e0be2b51" xml:space="preserve">
+          <source>The following example demonstrates how to send five test messages to the
+"TestQueue" <bpt id="1253da79-3d7b-464d-a2ba-72ad4b125b4c">&lt;strong&gt;</bpt>MessageSender<ept id="1253da79-3d7b-464d-a2ba-72ad4b125b4c">&lt;/strong&gt;</ept> we obtained in the code snippet above:</source>
+          <target state="new">The following example demonstrates how to send five test messages to the
+"TestQueue" <bpt id="1253da79-3d7b-464d-a2ba-72ad4b125b4c">&lt;strong&gt;</bpt>MessageSender<ept id="1253da79-3d7b-464d-a2ba-72ad4b125b4c">&lt;/strong&gt;</ept> we obtained in the code snippet above:</target>
+        </trans-unit>
+        <trans-unit id="bb2c9aad-18f3-4814-af06-48182fe8fbb1" xml:space="preserve">
+          <source>Service Bus queues support a maximum message size of 256 KB (the header,
+which includes the standard and custom application properties, can have
+a maximum size of 64 KB).</source>
+          <target state="new">Service Bus queues support a maximum message size of 256 KB (the header,
+which includes the standard and custom application properties, can have
+a maximum size of 64 KB).</target>
+        </trans-unit>
+        <trans-unit id="2205686d-ba27-47db-915c-3c13ccde5042" xml:space="preserve">
+          <source>There is no limit on the number of messages
+held in a queue but there is a cap on the total size of the messages
+held by a queue.</source>
+          <target state="new">There is no limit on the number of messages
+held in a queue but there is a cap on the total size of the messages
+held by a queue.</target>
+        </trans-unit>
+        <trans-unit id="6775656d-ba5c-4c6e-8a14-4831671d68df" xml:space="preserve">
+          <source>This queue size is defined at creation time, with an
+upper limit of 5 GB.</source>
+          <target state="new">This queue size is defined at creation time, with an
+upper limit of 5 GB.</target>
+        </trans-unit>
+        <trans-unit id="d074dd7d-576a-4dea-875f-eaeef7df7229" xml:space="preserve">
+          <source>The primary way to receive messages from a queue is to use a
+<bpt id="e63b0271-24f8-4276-90d6-810d7ecd3c62">&lt;strong&gt;</bpt>ServiceBusContract<ept id="e63b0271-24f8-4276-90d6-810d7ecd3c62">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">The primary way to receive messages from a queue is to use a
+<bpt id="e63b0271-24f8-4276-90d6-810d7ecd3c62">&lt;strong&gt;</bpt>ServiceBusContract<ept id="e63b0271-24f8-4276-90d6-810d7ecd3c62">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="c31b15cb-eb54-40c5-b579-dcdd2851518d" xml:space="preserve">
+          <source>Received messages can work in two
+different modes: <bpt id="ac65b195-e762-4dac-9088-0bb2bef3261d">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="ac65b195-e762-4dac-9088-0bb2bef3261d">&lt;/strong&gt;</ept> and <bpt id="be25cb19-5239-402b-a4b1-68819278272a">&lt;strong&gt;</bpt>PeekLock<ept id="be25cb19-5239-402b-a4b1-68819278272a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Received messages can work in two
+different modes: <bpt id="ac65b195-e762-4dac-9088-0bb2bef3261d">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="ac65b195-e762-4dac-9088-0bb2bef3261d">&lt;/strong&gt;</ept> and <bpt id="be25cb19-5239-402b-a4b1-68819278272a">&lt;strong&gt;</bpt>PeekLock<ept id="be25cb19-5239-402b-a4b1-68819278272a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee6109cc-1312-4155-ba3e-086be223d872" xml:space="preserve">
+          <source>When using the <bpt id="6f978708-b03c-4506-a9c2-fed4138f5767">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="6f978708-b03c-4506-a9c2-fed4138f5767">&lt;/strong&gt;</ept> mode, receive is a single-shot
+operation - that is, when Service Bus receives a read request for a
+message in a queue, it marks the message as being consumed and returns
+it to the application.</source>
+          <target state="new">When using the <bpt id="6f978708-b03c-4506-a9c2-fed4138f5767">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="6f978708-b03c-4506-a9c2-fed4138f5767">&lt;/strong&gt;</ept> mode, receive is a single-shot
+operation - that is, when Service Bus receives a read request for a
+message in a queue, it marks the message as being consumed and returns
+it to the application.</target>
+        </trans-unit>
+        <trans-unit id="75dd494c-8ee3-405d-acc8-efc5c8fba4c1" xml:space="preserve">
+          <source><bpt id="11856ecf-4937-4812-bc86-4f19a00bea3b">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="11856ecf-4937-4812-bc86-4f19a00bea3b">&lt;/strong&gt;</ept> mode (which is the default
+mode) is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a
+failure.</source>
+          <target state="new"><bpt id="11856ecf-4937-4812-bc86-4f19a00bea3b">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="11856ecf-4937-4812-bc86-4f19a00bea3b">&lt;/strong&gt;</ept> mode (which is the default
+mode) is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a
+failure.</target>
+        </trans-unit>
+        <trans-unit id="19571971-9f59-4ecb-9818-39f24f67317b" xml:space="preserve">
+          <source>To understand this, consider a scenario in which the consumer
+issues the receive request and then crashes before processing it.</source>
+          <target state="new">To understand this, consider a scenario in which the consumer
+issues the receive request and then crashes before processing it.</target>
+        </trans-unit>
+        <trans-unit id="083f967e-6fe4-4cf0-a605-b05b05668c28" xml:space="preserve">
+          <source>Because Service Bus will have marked the message as being consumed, then
+when the application restarts and begins consuming messages again, it
+will have missed the message that was consumed prior to the crash.</source>
+          <target state="new">Because Service Bus will have marked the message as being consumed, then
+when the application restarts and begins consuming messages again, it
+will have missed the message that was consumed prior to the crash.</target>
+        </trans-unit>
+        <trans-unit id="8373b6cf-df8d-4364-939c-cc011785deca" xml:space="preserve">
+          <source>In <bpt id="6a7f1688-dd1c-477b-90ca-23e75d328196">&lt;strong&gt;</bpt>PeekLock<ept id="6a7f1688-dd1c-477b-90ca-23e75d328196">&lt;/strong&gt;</ept> mode, receive becomes a two stage operation, which makes
+it possible to support applications that cannot tolerate missing
+messages.</source>
+          <target state="new">In <bpt id="6a7f1688-dd1c-477b-90ca-23e75d328196">&lt;strong&gt;</bpt>PeekLock<ept id="6a7f1688-dd1c-477b-90ca-23e75d328196">&lt;/strong&gt;</ept> mode, receive becomes a two stage operation, which makes
+it possible to support applications that cannot tolerate missing
+messages.</target>
+        </trans-unit>
+        <trans-unit id="721825d8-ca80-4a0a-ad70-dd871f871c1a" xml:space="preserve">
+          <source>When Service Bus receives a request, it finds the next message
+to be consumed, locks it to prevent other consumers receiving it, and
+then returns it to the application.</source>
+          <target state="new">When Service Bus receives a request, it finds the next message
+to be consumed, locks it to prevent other consumers receiving it, and
+then returns it to the application.</target>
+        </trans-unit>
+        <trans-unit id="b6927f46-9cc7-4b60-9d62-ebeac789a6a4" xml:space="preserve">
+          <source>After the application finishes
+processing the message (or stores it reliably for future processing), it
+completes the second stage of the receive process by calling <bpt id="2a814286-ee75-47bb-ad8f-9c93e850c0af">&lt;strong&gt;</bpt>Delete<ept id="2a814286-ee75-47bb-ad8f-9c93e850c0af">&lt;/strong&gt;</ept>
+on the received message.</source>
+          <target state="new">After the application finishes
+processing the message (or stores it reliably for future processing), it
+completes the second stage of the receive process by calling <bpt id="2a814286-ee75-47bb-ad8f-9c93e850c0af">&lt;strong&gt;</bpt>Delete<ept id="2a814286-ee75-47bb-ad8f-9c93e850c0af">&lt;/strong&gt;</ept>
+on the received message.</target>
+        </trans-unit>
+        <trans-unit id="108ff125-8b1f-48c4-a111-5a9a61c8a628" xml:space="preserve">
+          <source>When Service Bus sees the <bpt id="366d2f99-70cd-493c-a0ba-41d8034bb14b">&lt;strong&gt;</bpt>Delete<ept id="366d2f99-70cd-493c-a0ba-41d8034bb14b">&lt;/strong&gt;</ept> call, it
+will mark the message as being consumed and remove it from the queue.</source>
+          <target state="new">When Service Bus sees the <bpt id="366d2f99-70cd-493c-a0ba-41d8034bb14b">&lt;strong&gt;</bpt>Delete<ept id="366d2f99-70cd-493c-a0ba-41d8034bb14b">&lt;/strong&gt;</ept> call, it
+will mark the message as being consumed and remove it from the queue.</target>
+        </trans-unit>
+        <trans-unit id="52136354-e758-4852-a6bf-57a505424fb2" xml:space="preserve">
+          <source>The example below demonstrates how messages can be received and
+processed using <bpt id="7e367479-93be-4403-a6cb-207d9014529f">&lt;strong&gt;</bpt>PeekLock<ept id="7e367479-93be-4403-a6cb-207d9014529f">&lt;/strong&gt;</ept> mode (not the default mode).</source>
+          <target state="new">The example below demonstrates how messages can be received and
+processed using <bpt id="7e367479-93be-4403-a6cb-207d9014529f">&lt;strong&gt;</bpt>PeekLock<ept id="7e367479-93be-4403-a6cb-207d9014529f">&lt;/strong&gt;</ept> mode (not the default mode).</target>
+        </trans-unit>
+        <trans-unit id="8781f77d-2496-406f-aa2a-52a834d8c686" xml:space="preserve">
+          <source>The example
+below does an infinite loop and processes messages as they arrive into
+our "TestQueue":</source>
+          <target state="new">The example
+below does an infinite loop and processes messages as they arrive into
+our "TestQueue":</target>
+        </trans-unit>
+        <trans-unit id="1279294e-28b5-46a1-b0d1-26e73e07eb2f" xml:space="preserve">
+          <source>Service Bus provides functionality to help you gracefully recover from
+errors in your application or difficulties processing a message.</source>
+          <target state="new">Service Bus provides functionality to help you gracefully recover from
+errors in your application or difficulties processing a message.</target>
+        </trans-unit>
+        <trans-unit id="b1cd0755-62a5-42c4-a335-422d056c5fd9" xml:space="preserve">
+          <source>If a
+receiver application is unable to process the message for some reason,
+then it can call the <bpt id="de898f13-29f2-4b8e-bbbf-83f136a71209">&lt;strong&gt;</bpt>unlockMessage<ept id="de898f13-29f2-4b8e-bbbf-83f136a71209">&lt;/strong&gt;</ept> method on the received message
+(instead of the <bpt id="bbb4c928-6744-4fbc-9f87-19935b929f83">&lt;strong&gt;</bpt>deleteMessage<ept id="bbb4c928-6744-4fbc-9f87-19935b929f83">&lt;/strong&gt;</ept> method).</source>
+          <target state="new">If a
+receiver application is unable to process the message for some reason,
+then it can call the <bpt id="de898f13-29f2-4b8e-bbbf-83f136a71209">&lt;strong&gt;</bpt>unlockMessage<ept id="de898f13-29f2-4b8e-bbbf-83f136a71209">&lt;/strong&gt;</ept> method on the received message
+(instead of the <bpt id="bbb4c928-6744-4fbc-9f87-19935b929f83">&lt;strong&gt;</bpt>deleteMessage<ept id="bbb4c928-6744-4fbc-9f87-19935b929f83">&lt;/strong&gt;</ept> method).</target>
+        </trans-unit>
+        <trans-unit id="62167534-7765-450a-a38b-24b4a4d32d72" xml:space="preserve">
+          <source>This will cause Service Bus
+to unlock the message within the queue and make it available to be
+received again, either by the same consuming application or by another
+consuming application.</source>
+          <target state="new">This will cause Service Bus
+to unlock the message within the queue and make it available to be
+received again, either by the same consuming application or by another
+consuming application.</target>
+        </trans-unit>
+        <trans-unit id="c63bbf78-083c-44bd-88a1-24ae61be4cf8" xml:space="preserve">
+          <source>There is also a timeout associated with a message locked within the
+queue, and if the application fails to process the message before the
+lock timeout expires (e.g., if the application crashes), then Service
+Bus will unlock the message automatically and make it available to be
+received again.</source>
+          <target state="new">There is also a timeout associated with a message locked within the
+queue, and if the application fails to process the message before the
+lock timeout expires (e.g., if the application crashes), then Service
+Bus will unlock the message automatically and make it available to be
+received again.</target>
+        </trans-unit>
+        <trans-unit id="9ec5b431-96b6-413a-91e4-8d12a865679e" xml:space="preserve">
+          <source>In the event that the application crashes after processing the message
+but before the <bpt id="07297f86-471f-485d-9f57-d9befd2b48de">&lt;strong&gt;</bpt>deleteMessage<ept id="07297f86-471f-485d-9f57-d9befd2b48de">&lt;/strong&gt;</ept> request is issued, then the message
+will be redelivered to the application when it restarts.</source>
+          <target state="new">In the event that the application crashes after processing the message
+but before the <bpt id="07297f86-471f-485d-9f57-d9befd2b48de">&lt;strong&gt;</bpt>deleteMessage<ept id="07297f86-471f-485d-9f57-d9befd2b48de">&lt;/strong&gt;</ept> request is issued, then the message
+will be redelivered to the application when it restarts.</target>
+        </trans-unit>
+        <trans-unit id="7f47ccce-22e9-4c31-9684-22f0728971ab" xml:space="preserve">
+          <source>This is often
+called <bpt id="11808190-ef39-4ea5-8ecd-e5e8ae1c32b4">&lt;strong&gt;</bpt>At Least Once Processing<ept id="11808190-ef39-4ea5-8ecd-e5e8ae1c32b4">&lt;/strong&gt;</ept>, that is, each message will be
+processed at least once but in certain situations the same message may
+be redelivered.</source>
+          <target state="new">This is often
+called <bpt id="11808190-ef39-4ea5-8ecd-e5e8ae1c32b4">&lt;strong&gt;</bpt>At Least Once Processing<ept id="11808190-ef39-4ea5-8ecd-e5e8ae1c32b4">&lt;/strong&gt;</ept>, that is, each message will be
+processed at least once but in certain situations the same message may
+be redelivered.</target>
+        </trans-unit>
+        <trans-unit id="29286b78-404c-4716-8cdd-35e10b34dae9" xml:space="preserve">
+          <source>If the scenario cannot tolerate duplicate processing,
+then application developers should add additional logic to their
+application to handle duplicate message delivery.</source>
+          <target state="new">If the scenario cannot tolerate duplicate processing,
+then application developers should add additional logic to their
+application to handle duplicate message delivery.</target>
+        </trans-unit>
+        <trans-unit id="5b50d36f-3617-43f0-b94a-28de41891c44" xml:space="preserve">
+          <source>This is often achieved
+using the <bpt id="72259255-a74e-4686-b22c-088418199fb2">&lt;strong&gt;</bpt>getMessageId<ept id="72259255-a74e-4686-b22c-088418199fb2">&lt;/strong&gt;</ept> method of the message, which will remain
+constant across delivery attempts.</source>
+          <target state="new">This is often achieved
+using the <bpt id="72259255-a74e-4686-b22c-088418199fb2">&lt;strong&gt;</bpt>getMessageId<ept id="72259255-a74e-4686-b22c-088418199fb2">&lt;/strong&gt;</ept> method of the message, which will remain
+constant across delivery attempts.</target>
+        </trans-unit>
+        <trans-unit id="d51a0e3d-06b2-4087-bbc3-6bd59a2d255d" xml:space="preserve">
+          <source>Now that you've learned the basics of Service Bus queues, see the MSDN
+topic <bpt id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;/linkText&gt;</ept><bpt id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;title&gt;</bpt><ept id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Now that you've learned the basics of Service Bus queues, see the MSDN
+topic <bpt id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;/linkText&gt;</ept><bpt id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;title&gt;</bpt><ept id="9427a1a8-3af5-46f9-b3ab-77adf70c81fa">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="d1017107-2c36-4121-931c-4a9398ed5d7d" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/java/</source>
+          <target state="new">http://azure.microsoft.com/develop/java/</target>
+        </trans-unit>
+        <trans-unit id="f276fe35-207a-41b5-a2c7-9f091a3496b8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/azure/hh694271.aspx</target>
+        </trans-unit>
+        <trans-unit id="69d17aba-9e3a-49c3-8dc8-f2618d16de7e" xml:space="preserve">
+          <source>#what-are-service-bus-queues</source>
+          <target state="new">#what-are-service-bus-queues</target>
+        </trans-unit>
+        <trans-unit id="23d4e3de-b3dd-4c3c-9f88-7c64707117a5" xml:space="preserve">
+          <source>#create-a-service-namespace</source>
+          <target state="new">#create-a-service-namespace</target>
+        </trans-unit>
+        <trans-unit id="86935919-e577-48c4-8bbc-48a2f1428566" xml:space="preserve">
+          <source>#obtain-default-credentials</source>
+          <target state="new">#obtain-default-credentials</target>
+        </trans-unit>
+        <trans-unit id="95de3544-9815-4373-9e75-4f5fcc054e7e" xml:space="preserve">
+          <source>#bkmk_ConfigApp</source>
+          <target state="new">#bkmk_ConfigApp</target>
+        </trans-unit>
+        <trans-unit id="66e7add8-6766-4957-a921-3280b3468b31" xml:space="preserve">
+          <source>#bkmk_HowToCreateQueue</source>
+          <target state="new">#bkmk_HowToCreateQueue</target>
+        </trans-unit>
+        <trans-unit id="7b3fa3e5-afb3-4106-bfb9-8e609c013eae" xml:space="preserve">
+          <source>#bkmk_HowToSendMsgs</source>
+          <target state="new">#bkmk_HowToSendMsgs</target>
+        </trans-unit>
+        <trans-unit id="dafea129-7a61-44e4-819b-8ceca28bd098" xml:space="preserve">
+          <source>#bkmk_HowToReceiveMsgs</source>
+          <target state="new">#bkmk_HowToReceiveMsgs</target>
+        </trans-unit>
+        <trans-unit id="e9949f38-b03d-4ca7-8885-e391cc678540" xml:space="preserve">
+          <source>#bkmk_HowToHandleAppCrashes</source>
+          <target state="new">#bkmk_HowToHandleAppCrashes</target>
+        </trans-unit>
+        <trans-unit id="6d8d64ec-49da-4d38-be6a-0d88413bc2d4" xml:space="preserve">
+          <source>#bkmk_NextSteps</source>
+          <target state="new">#bkmk_NextSteps</target>
+        </trans-unit>
+        <trans-unit id="73747926-27b1-4293-b444-60b2758439f7" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="59b9caf0-b2ac-4273-b577-78f00c4ed14c" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh367516.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh367516.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="84f276de-7426-4bd1-83a4-1907f1e8d1b3" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d798a4a0-9802-42b5-9cf8-ab735d65fbab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d798a4a0-9802-42b5-9cf8-ab735d65fbab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3a1f6d78-bcb2-46d1-9117-b1e90b04952a">
+        <trans-unit id="8e309fb4-e432-4b2d-83d6-3d734d5bbc21" xml:space="preserve">
+          <source>Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure</source>
+          <target state="new">Tutorial: Configuring Workday for Inbound Synchronization | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8cba274f-b32e-472c-8085-032395bfb38d" xml:space="preserve">
+          <source>Learn how to use Inbound Synchronization with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Inbound Synchronization with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="60ffa570-6a8a-4b24-99ef-560e4c003907" xml:space="preserve">
+          <source>Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD.</source>
+          <target state="new">Azure Active Directory (AD) Premium is available for customers in China using the worldwide instance of Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="8e5165ac-dfe5-4120-8b9a-a2bd9050097a" xml:space="preserve">
+          <source>Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China.</source>
+          <target state="new">Azure AD Premium is not currently supported in the Microsoft Azure service operated by 21Vianet in China.</target>
+        </trans-unit>
+        <trans-unit id="dae8124a-b025-4f2b-bbab-ba162df86d2e" xml:space="preserve">
+          <source>&amp;nbsp;  </source>
+          <target state="new">&amp;nbsp;  </target>
+        </trans-unit>
+        <trans-unit id="b3742b75-3559-4f34-b06e-741a8361a50c" xml:space="preserve">
+          <source>For feedback, click <bpt id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;linkText&gt;</bpt>here<ept id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;/linkText&gt;</ept><bpt id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;title&gt;</bpt><ept id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;linkText&gt;</bpt>here<ept id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;/linkText&gt;</ept><bpt id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;title&gt;</bpt><ept id="99a93d55-9c7f-4ebc-915f-3863e185d298">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05294d2f-9ef1-4ed3-89c9-46b2fa8d9165" xml:space="preserve">
+          <source>The objective of this tutorial is to show you the steps you need to perform in Workday and Microsoft Azure AD to import people from Workday to Microsoft Azure AD.</source>
+          <target state="new">The objective of this tutorial is to show you the steps you need to perform in Workday and Microsoft Azure AD to import people from Workday to Microsoft Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="cc601de3-bc28-48d1-a80b-ca0cd4255274" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="f5a84852-b09e-4aa7-99c2-70bef8e62eb6" xml:space="preserve">
+          <source>A valid Azure subscription  </source>
+          <target state="new">A valid Azure subscription  </target>
+        </trans-unit>
+        <trans-unit id="f97baee4-6494-4ada-8410-a725cc801a60" xml:space="preserve">
+          <source>A tenant in Workday  </source>
+          <target state="new">A tenant in Workday  </target>
+        </trans-unit>
+        <trans-unit id="709645ad-074a-4554-817f-509d0c583a39" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:  </source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:  </target>
+        </trans-unit>
+        <trans-unit id="1ee35a82-9be3-4cbb-8259-58bd4a7ff7df" xml:space="preserve">
+          <source>Enabling the application integration for Workday  </source>
+          <target state="new">Enabling the application integration for Workday  </target>
+        </trans-unit>
+        <trans-unit id="112a3393-a4aa-4d51-8531-a36846e18718" xml:space="preserve">
+          <source>Creating an integration system user  </source>
+          <target state="new">Creating an integration system user  </target>
+        </trans-unit>
+        <trans-unit id="44fc6a73-9d5f-4294-9d42-7fe267278f98" xml:space="preserve">
+          <source>Creating a security group  </source>
+          <target state="new">Creating a security group  </target>
+        </trans-unit>
+        <trans-unit id="c9cb6ab4-7fe8-4226-8c4e-48399fc4c04a" xml:space="preserve">
+          <source>Assigning the integration system user to the security group  </source>
+          <target state="new">Assigning the integration system user to the security group  </target>
+        </trans-unit>
+        <trans-unit id="e11e991d-db27-4dba-8a1b-da49f20a5262" xml:space="preserve">
+          <source>Configuring security group options  </source>
+          <target state="new">Configuring security group options  </target>
+        </trans-unit>
+        <trans-unit id="7ccf9bc1-9f2a-45dc-a0a9-1ee2f3aa830c" xml:space="preserve">
+          <source>Activating security policy changes  </source>
+          <target state="new">Activating security policy changes  </target>
+        </trans-unit>
+        <trans-unit id="99373ed0-b9d7-4aa4-8fee-af5e69dda10a" xml:space="preserve">
+          <source>Configuring user import in Microsoft Azure AD  </source>
+          <target state="new">Configuring user import in Microsoft Azure AD  </target>
+        </trans-unit>
+        <trans-unit id="c8921848-cfe5-4c6b-8497-5ec6033ea756" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Salesforce.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="83ab7122-075f-4f11-8458-92f4abbe297c" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="9802a7f0-a3d1-440b-b729-bab963eb0fdb">&lt;strong&gt;</bpt>Active Directory<ept id="9802a7f0-a3d1-440b-b729-bab963eb0fdb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="9802a7f0-a3d1-440b-b729-bab963eb0fdb">&lt;strong&gt;</bpt>Active Directory<ept id="9802a7f0-a3d1-440b-b729-bab963eb0fdb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afc477cb-cde3-4b30-a3eb-eba3411e8f88" xml:space="preserve">
+          <source><bpt id="cba08a24-7e62-49fa-99c6-694f316ffe88">&lt;linkText&gt;</bpt>Active Directory<ept id="cba08a24-7e62-49fa-99c6-694f316ffe88">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="cba08a24-7e62-49fa-99c6-694f316ffe88">&lt;linkText&gt;</bpt>Active Directory<ept id="cba08a24-7e62-49fa-99c6-694f316ffe88">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="7def7dac-e443-410d-a02a-3703961f9d48" xml:space="preserve">
+          <source>From the <bpt id="b0e77cbb-8537-486f-8aa1-255f46449c21">&lt;strong&gt;</bpt>Directory<ept id="b0e77cbb-8537-486f-8aa1-255f46449c21">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="b0e77cbb-8537-486f-8aa1-255f46449c21">&lt;strong&gt;</bpt>Directory<ept id="b0e77cbb-8537-486f-8aa1-255f46449c21">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="6aa42902-0438-4ac2-b6ff-fa98744d90cd" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="cb128c56-162f-4cde-ad02-3c54e9d408f9">&lt;strong&gt;</bpt>Applications<ept id="cb128c56-162f-4cde-ad02-3c54e9d408f9">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="cb128c56-162f-4cde-ad02-3c54e9d408f9">&lt;strong&gt;</bpt>Applications<ept id="cb128c56-162f-4cde-ad02-3c54e9d408f9">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="6b7c9f87-c1a1-4ade-ae4d-a4240c5cd162" xml:space="preserve">
+          <source><bpt id="c75ace96-120c-4e9d-a99c-cd725acb4042">&lt;linkText&gt;</bpt>Applications<ept id="c75ace96-120c-4e9d-a99c-cd725acb4042">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c75ace96-120c-4e9d-a99c-cd725acb4042">&lt;linkText&gt;</bpt>Applications<ept id="c75ace96-120c-4e9d-a99c-cd725acb4042">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="6ba8ae2d-2a51-461e-abaa-32049794a19c" xml:space="preserve">
+          <source>To open the <bpt id="9cb5924e-e121-4de5-a03f-d2bd9285a4f1">&lt;strong&gt;</bpt>Application Gallery<ept id="9cb5924e-e121-4de5-a03f-d2bd9285a4f1">&lt;/strong&gt;</ept>, click <bpt id="b0eab3d8-60f6-436f-944d-10eeb005459d">&lt;strong&gt;</bpt>Add An App<ept id="b0eab3d8-60f6-436f-944d-10eeb005459d">&lt;/strong&gt;</ept>, and then click <bpt id="8564bc66-0ca1-46d5-a936-dcda1d286eca">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="8564bc66-0ca1-46d5-a936-dcda1d286eca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the <bpt id="9cb5924e-e121-4de5-a03f-d2bd9285a4f1">&lt;strong&gt;</bpt>Application Gallery<ept id="9cb5924e-e121-4de5-a03f-d2bd9285a4f1">&lt;/strong&gt;</ept>, click <bpt id="b0eab3d8-60f6-436f-944d-10eeb005459d">&lt;strong&gt;</bpt>Add An App<ept id="b0eab3d8-60f6-436f-944d-10eeb005459d">&lt;/strong&gt;</ept>, and then click <bpt id="8564bc66-0ca1-46d5-a936-dcda1d286eca">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="8564bc66-0ca1-46d5-a936-dcda1d286eca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a64ffb35-50cf-4232-8d8c-d342cb70d5b8" xml:space="preserve">
+          <source><bpt id="3c4f0d22-88f7-44bc-be85-a217239aa32c">&lt;linkText&gt;</bpt>What do you want to do?<ept id="3c4f0d22-88f7-44bc-be85-a217239aa32c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3c4f0d22-88f7-44bc-be85-a217239aa32c">&lt;linkText&gt;</bpt>What do you want to do?<ept id="3c4f0d22-88f7-44bc-be85-a217239aa32c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b39f3cdd-2fc7-4637-b827-f794a70d9285" xml:space="preserve">
+          <source>In the <bpt id="8c645ef2-28a3-43bc-a1d3-974456848cc7">&lt;strong&gt;</bpt>search box<ept id="8c645ef2-28a3-43bc-a1d3-974456848cc7">&lt;/strong&gt;</ept>, type <bpt id="84d1e517-6e6e-4118-b342-c34344e3cd86">&lt;strong&gt;</bpt>Workday<ept id="84d1e517-6e6e-4118-b342-c34344e3cd86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="8c645ef2-28a3-43bc-a1d3-974456848cc7">&lt;strong&gt;</bpt>search box<ept id="8c645ef2-28a3-43bc-a1d3-974456848cc7">&lt;/strong&gt;</ept>, type <bpt id="84d1e517-6e6e-4118-b342-c34344e3cd86">&lt;strong&gt;</bpt>Workday<ept id="84d1e517-6e6e-4118-b342-c34344e3cd86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85b8868d-4098-47d8-80e4-2d7c0fbba6cd" xml:space="preserve">
+          <source><bpt id="53065162-ec63-4a89-87a3-14beed197bce">&lt;linkText&gt;</bpt>Workday<ept id="53065162-ec63-4a89-87a3-14beed197bce">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="53065162-ec63-4a89-87a3-14beed197bce">&lt;linkText&gt;</bpt>Workday<ept id="53065162-ec63-4a89-87a3-14beed197bce">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="3e0ea78f-b028-4cff-9a2c-883d7797ba73" xml:space="preserve">
+          <source>In the results pane, select <bpt id="da69a971-34d8-4531-ac29-e159ca088f13">&lt;strong&gt;</bpt>Workday<ept id="da69a971-34d8-4531-ac29-e159ca088f13">&lt;/strong&gt;</ept>, and then click <bpt id="4f6c7ae6-e2a7-4547-bd07-6cbf3d79c01d">&lt;strong&gt;</bpt>Complete<ept id="4f6c7ae6-e2a7-4547-bd07-6cbf3d79c01d">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="da69a971-34d8-4531-ac29-e159ca088f13">&lt;strong&gt;</bpt>Workday<ept id="da69a971-34d8-4531-ac29-e159ca088f13">&lt;/strong&gt;</ept>, and then click <bpt id="4f6c7ae6-e2a7-4547-bd07-6cbf3d79c01d">&lt;strong&gt;</bpt>Complete<ept id="4f6c7ae6-e2a7-4547-bd07-6cbf3d79c01d">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="fd266c0c-c03e-4fd6-b2d5-6718310e09a8" xml:space="preserve">
+          <source><bpt id="70823175-b046-437e-ba1c-663014b9a6f0">&lt;linkText&gt;</bpt>Workday<ept id="70823175-b046-437e-ba1c-663014b9a6f0">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="70823175-b046-437e-ba1c-663014b9a6f0">&lt;linkText&gt;</bpt>Workday<ept id="70823175-b046-437e-ba1c-663014b9a6f0">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="0e751ceb-0b22-4f62-9c32-ea40210c116a" xml:space="preserve">
+          <source>In the <bpt id="4ce8f3ae-10c7-46f6-a07b-d1270d42af32">&lt;strong&gt;</bpt>Workday Workbench<ept id="4ce8f3ae-10c7-46f6-a07b-d1270d42af32">&lt;/strong&gt;</ept>, enter <bpt id="e78636f6-ed73-46b0-b93b-9ce1c22233f3">&lt;strong&gt;</bpt>create user<ept id="e78636f6-ed73-46b0-b93b-9ce1c22233f3">&lt;/strong&gt;</ept> in the search box, and then click on the link, <bpt id="2f7f04ab-add6-48ed-acfd-7358273c7eab">&lt;strong&gt;</bpt>Create Integration System User<ept id="2f7f04ab-add6-48ed-acfd-7358273c7eab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4ce8f3ae-10c7-46f6-a07b-d1270d42af32">&lt;strong&gt;</bpt>Workday Workbench<ept id="4ce8f3ae-10c7-46f6-a07b-d1270d42af32">&lt;/strong&gt;</ept>, enter <bpt id="e78636f6-ed73-46b0-b93b-9ce1c22233f3">&lt;strong&gt;</bpt>create user<ept id="e78636f6-ed73-46b0-b93b-9ce1c22233f3">&lt;/strong&gt;</ept> in the search box, and then click on the link, <bpt id="2f7f04ab-add6-48ed-acfd-7358273c7eab">&lt;strong&gt;</bpt>Create Integration System User<ept id="2f7f04ab-add6-48ed-acfd-7358273c7eab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9f44933-03a0-48bf-8634-a44b0001162f" xml:space="preserve">
+          <source><bpt id="4fd6bb4b-b81c-4608-aa89-188d6a808bc5">&lt;linkText&gt;</bpt>create user<ept id="4fd6bb4b-b81c-4608-aa89-188d6a808bc5">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="4fd6bb4b-b81c-4608-aa89-188d6a808bc5">&lt;linkText&gt;</bpt>create user<ept id="4fd6bb4b-b81c-4608-aa89-188d6a808bc5">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="4e4adcd8-b4d8-4a66-86b3-374233ce5441" xml:space="preserve">
+          <source>Complete the Create Integration System User task by supplying a user name and password for a new Integration System User.</source>
+          <target state="new">Complete the Create Integration System User task by supplying a user name and password for a new Integration System User.</target>
+        </trans-unit>
+        <trans-unit id="ab40ff96-7008-4390-b726-a6747befc802" xml:space="preserve">
+          <source>Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically.</source>
+          <target state="new">Leave the Require New Password at Next Sign In option unchecked, because this user will be logging on programmatically.</target>
+        </trans-unit>
+        <trans-unit id="cb19b38b-c1c4-4082-b625-45dbec0398ae" xml:space="preserve">
+          <source>Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely.</source>
+          <target state="new">Leave the Session Timeout Minutes with its default value of 0, which will prevent the user’s sessions from timing out prematurely.</target>
+        </trans-unit>
+        <trans-unit id="42a15275-d79b-4806-a59a-6a599571897f" xml:space="preserve">
+          <source><bpt id="9a169b47-a909-428c-a0ea-d88ba42bd857">&lt;linkText&gt;</bpt>Create Integration System User<ept id="9a169b47-a909-428c-a0ea-d88ba42bd857">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="9a169b47-a909-428c-a0ea-d88ba42bd857">&lt;linkText&gt;</bpt>Create Integration System User<ept id="9a169b47-a909-428c-a0ea-d88ba42bd857">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="03482074-7cf1-4ca2-83ce-e6b64fc14249" xml:space="preserve">
+          <source>For the scenario outlined in this tutorial, you need to create an unconstrained integration system security group and assign the user to it.</source>
+          <target state="new">For the scenario outlined in this tutorial, you need to create an unconstrained integration system security group and assign the user to it.</target>
+        </trans-unit>
+        <trans-unit id="3f24c8c5-22ce-4b39-a1c9-d55e172ce77d" xml:space="preserve">
+          <source>Enter create security group in the search box, and then click on the link, Create Security Group.</source>
+          <target state="new">Enter create security group in the search box, and then click on the link, Create Security Group.</target>
+        </trans-unit>
+        <trans-unit id="5cccf21d-f297-4baf-821e-b2572297f2a0" xml:space="preserve">
+          <source><bpt id="8de047e6-bcae-4c53-b2b5-ebc1ec3692da">&lt;linkText&gt;</bpt>CreateSecurity Group<ept id="8de047e6-bcae-4c53-b2b5-ebc1ec3692da">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="8de047e6-bcae-4c53-b2b5-ebc1ec3692da">&lt;linkText&gt;</bpt>CreateSecurity Group<ept id="8de047e6-bcae-4c53-b2b5-ebc1ec3692da">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="8945df13-095a-4b6f-a430-f144036cd43b" xml:space="preserve">
+          <source>Complete the Create Security Group task.</source>
+          <target state="new">Complete the Create Security Group task.</target>
+        </trans-unit>
+        <trans-unit id="d095f27d-b974-4bee-b7a8-1f483cef2430" xml:space="preserve">
+          <source>Select Integration System Security Group—Unconstrained from the Type of Tenanted Security Group dropdown, to create a security group to which members will be explicitly added.</source>
+          <target state="new">Select Integration System Security Group—Unconstrained from the Type of Tenanted Security Group dropdown, to create a security group to which members will be explicitly added.</target>
+        </trans-unit>
+        <trans-unit id="c4e3621a-74d6-41c5-9c0b-bab424c6492b" xml:space="preserve">
+          <source><bpt id="e8a5a5aa-03d9-4305-903b-da842fa8cc89">&lt;linkText&gt;</bpt>CreateSecurity Group<ept id="e8a5a5aa-03d9-4305-903b-da842fa8cc89">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="e8a5a5aa-03d9-4305-903b-da842fa8cc89">&lt;linkText&gt;</bpt>CreateSecurity Group<ept id="e8a5a5aa-03d9-4305-903b-da842fa8cc89">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="af655235-6cc6-41f7-87e2-7ef1828e7767" xml:space="preserve">
+          <source>Enter edit security group in the search box, and then click on the link,  <bpt id="79912785-d77e-41ad-950c-057d553ffb6e">&lt;strong&gt;</bpt>Edit Security Group<ept id="79912785-d77e-41ad-950c-057d553ffb6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter edit security group in the search box, and then click on the link,  <bpt id="79912785-d77e-41ad-950c-057d553ffb6e">&lt;strong&gt;</bpt>Edit Security Group<ept id="79912785-d77e-41ad-950c-057d553ffb6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="981efc32-9836-407a-8362-ad4e182199ba" xml:space="preserve">
+          <source><bpt id="c8ef27ed-d64b-4029-8999-803bfc2e38a0">&lt;linkText&gt;</bpt>Edit Security Group<ept id="c8ef27ed-d64b-4029-8999-803bfc2e38a0">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c8ef27ed-d64b-4029-8999-803bfc2e38a0">&lt;linkText&gt;</bpt>Edit Security Group<ept id="c8ef27ed-d64b-4029-8999-803bfc2e38a0">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="3609eda5-2cce-4a1e-bc06-6bc52bbe5b5f" xml:space="preserve">
+          <source>Search for, and select the new integration security group by name    </source>
+          <target state="new">Search for, and select the new integration security group by name    </target>
+        </trans-unit>
+        <trans-unit id="a92b8e0f-b937-41ae-a4a8-c78a2a92da83" xml:space="preserve">
+          <source><bpt id="e4e7cfc0-1e16-4d51-b924-3310af0159b8">&lt;linkText&gt;</bpt>Edit Security Group<ept id="e4e7cfc0-1e16-4d51-b924-3310af0159b8">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="e4e7cfc0-1e16-4d51-b924-3310af0159b8">&lt;linkText&gt;</bpt>Edit Security Group<ept id="e4e7cfc0-1e16-4d51-b924-3310af0159b8">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="7a916b5e-67be-4a81-a61e-91cdc8be3798" xml:space="preserve">
+          <source>Add the new integration system user to the new security group.</source>
+          <target state="new">Add the new integration system user to the new security group.</target>
+        </trans-unit>
+        <trans-unit id="b6ac24c5-f385-4b4d-9239-4c93e8e4a781" xml:space="preserve">
+          <source><bpt id="eab2e12f-1b16-4f35-84a6-e9f3a646fe73">&lt;linkText&gt;</bpt>System Security Group<ept id="eab2e12f-1b16-4f35-84a6-e9f3a646fe73">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="eab2e12f-1b16-4f35-84a6-e9f3a646fe73">&lt;linkText&gt;</bpt>System Security Group<ept id="eab2e12f-1b16-4f35-84a6-e9f3a646fe73">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b8173d6f-0c0e-4be4-9379-422a805bafbf" xml:space="preserve">
+          <source>In this step, you grant to the new security group permissions for Get and Put operations on the objects secured by the following domain security policies:  </source>
+          <target state="new">In this step, you grant to the new security group permissions for Get and Put operations on the objects secured by the following domain security policies:  </target>
+        </trans-unit>
+        <trans-unit id="713f0f8c-5cca-4e52-9ced-be4839b5b78b" xml:space="preserve">
+          <source>External Account Provisioning  </source>
+          <target state="new">External Account Provisioning  </target>
+        </trans-unit>
+        <trans-unit id="91e4a2a5-9b73-4034-8267-c272f52e866a" xml:space="preserve">
+          <source>Worker Data: Public Worker Reports  </source>
+          <target state="new">Worker Data: Public Worker Reports  </target>
+        </trans-unit>
+        <trans-unit id="60f37b79-33c8-4c03-90db-fe6077411d56" xml:space="preserve">
+          <source>Worker Data: All Positions  </source>
+          <target state="new">Worker Data: All Positions  </target>
+        </trans-unit>
+        <trans-unit id="e67d206b-7dbc-4684-b320-feecefe2034e" xml:space="preserve">
+          <source>Worker Data: Current Staffing Information  </source>
+          <target state="new">Worker Data: Current Staffing Information  </target>
+        </trans-unit>
+        <trans-unit id="42cbedc3-eeba-4839-a6ac-ca2139b2953d" xml:space="preserve">
+          <source>Worker Data: Business Title on Worker Profile  </source>
+          <target state="new">Worker Data: Business Title on Worker Profile  </target>
+        </trans-unit>
+        <trans-unit id="5307f00a-613b-4b96-b7b6-510210c2db67" xml:space="preserve">
+          <source>&amp;nbsp;  </source>
+          <target state="new">&amp;nbsp;  </target>
+        </trans-unit>
+        <trans-unit id="345d2f20-19c0-4121-91f6-121de52dbf5b" xml:space="preserve">
+          <source>Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.</source>
+          <target state="new">Enter domain security policies in the search box, and then click on the link, Domain Security Policies for Functional Area.</target>
+        </trans-unit>
+        <trans-unit id="81a5e19f-66ed-4d04-a9ca-a1b71653cb4a" xml:space="preserve">
+          <source><bpt id="b0a785a2-e265-47c5-bf46-cc57fe159369">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="b0a785a2-e265-47c5-bf46-cc57fe159369">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="b0a785a2-e265-47c5-bf46-cc57fe159369">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="b0a785a2-e265-47c5-bf46-cc57fe159369">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="8d029a3f-d286-4d94-b0dd-62fc096181e1" xml:space="preserve">
+          <source>Search for system and select the System functional area.</source>
+          <target state="new">Search for system and select the System functional area.</target>
+        </trans-unit>
+        <trans-unit id="18e5780a-dcf5-4f95-bb14-53be4b8d3c0e" xml:space="preserve">
+          <source>Click on the button labelled, OK.</source>
+          <target state="new">Click on the button labelled, OK.</target>
+        </trans-unit>
+        <trans-unit id="5f8ed43b-8318-4207-b5b8-1bff454dda95" xml:space="preserve">
+          <source><bpt id="d92415c1-5990-40f0-af12-1a68df06de77">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="d92415c1-5990-40f0-af12-1a68df06de77">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="d92415c1-5990-40f0-af12-1a68df06de77">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="d92415c1-5990-40f0-af12-1a68df06de77">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a94f806f-3d42-40ef-8f5a-06b788f8b2bc" xml:space="preserve">
+          <source>In the list of security policies for the System functional area, expand Security Administration and select the domain security policy, External Account Provisioning.</source>
+          <target state="new">In the list of security policies for the System functional area, expand Security Administration and select the domain security policy, External Account Provisioning.</target>
+        </trans-unit>
+        <trans-unit id="02acb8e0-872c-4bd2-b348-09109870a691" xml:space="preserve">
+          <source><bpt id="0cb6cb36-b78e-4e17-8724-5e20bb6617de">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="0cb6cb36-b78e-4e17-8724-5e20bb6617de">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="0cb6cb36-b78e-4e17-8724-5e20bb6617de">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="0cb6cb36-b78e-4e17-8724-5e20bb6617de">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ed7409d2-b660-431a-8c89-5aa829576db8" xml:space="preserve">
+          <source>Click on the Edit Permissions button, and then, on the Edit Permissions screen, add the new security group to the list of security groups with Get and Put integration permissions.</source>
+          <target state="new">Click on the Edit Permissions button, and then, on the Edit Permissions screen, add the new security group to the list of security groups with Get and Put integration permissions.</target>
+        </trans-unit>
+        <trans-unit id="3582b0ca-8d6e-4351-89a3-f1162c892882" xml:space="preserve">
+          <source><bpt id="83deec87-dd21-4487-b59b-d1f6c5614e43">&lt;linkText&gt;</bpt>Edit Permission<ept id="83deec87-dd21-4487-b59b-d1f6c5614e43">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="83deec87-dd21-4487-b59b-d1f6c5614e43">&lt;linkText&gt;</bpt>Edit Permission<ept id="83deec87-dd21-4487-b59b-d1f6c5614e43">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c79690aa-c9ce-4b7d-b927-933290c6e1fb" xml:space="preserve">
+          <source>Repeat step 1, above, to return to the screen for selecting functional areas, and this time, search for staffing, select the Staffing functional area, and click on the button labelled, OK.</source>
+          <target state="new">Repeat step 1, above, to return to the screen for selecting functional areas, and this time, search for staffing, select the Staffing functional area, and click on the button labelled, OK.</target>
+        </trans-unit>
+        <trans-unit id="491124cf-d8f2-42d5-954b-b7254b106818" xml:space="preserve">
+          <source><bpt id="e3717882-8538-4655-8f28-6f0305709b7f">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="e3717882-8538-4655-8f28-6f0305709b7f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="e3717882-8538-4655-8f28-6f0305709b7f">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="e3717882-8538-4655-8f28-6f0305709b7f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="bbc42d3a-e807-4160-851c-532dce4c6ab5" xml:space="preserve">
+          <source>In the list of security policies for the Staffing functional area, expand Worker Data: Staffing, and repeat step 4 above for each of these remaining security policies:    </source>
+          <target state="new">In the list of security policies for the Staffing functional area, expand Worker Data: Staffing, and repeat step 4 above for each of these remaining security policies:    </target>
+        </trans-unit>
+        <trans-unit id="32fe5ca4-0a07-4b14-8dd1-1e70c63b6ebc" xml:space="preserve">
+          <source>Worker Data: Public Worker Reports  </source>
+          <target state="new">Worker Data: Public Worker Reports  </target>
+        </trans-unit>
+        <trans-unit id="3a38b467-6863-44cd-9c3f-77dc32b61a65" xml:space="preserve">
+          <source>Worker Data: All Positions  </source>
+          <target state="new">Worker Data: All Positions  </target>
+        </trans-unit>
+        <trans-unit id="c1ef0d95-95e7-4a11-8f8e-fbeb43989162" xml:space="preserve">
+          <source>Worker Data: Current Staffing Information  </source>
+          <target state="new">Worker Data: Current Staffing Information  </target>
+        </trans-unit>
+        <trans-unit id="c7529b25-c4ec-4de0-b4eb-a419d21c7cc2" xml:space="preserve">
+          <source>Worker Data: Business Title on Worker Profile    </source>
+          <target state="new">Worker Data: Business Title on Worker Profile    </target>
+        </trans-unit>
+        <trans-unit id="58d40cba-0030-4d54-b70b-d1cbc0298f27" xml:space="preserve">
+          <source><bpt id="cc6c77cb-4c32-4bc2-82f0-78e21bd54297">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="cc6c77cb-4c32-4bc2-82f0-78e21bd54297">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="cc6c77cb-4c32-4bc2-82f0-78e21bd54297">&lt;linkText&gt;</bpt>Domain Security Policies<ept id="cc6c77cb-4c32-4bc2-82f0-78e21bd54297">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ab6e60fd-9257-4bd4-bcaf-52d991ab8c10" xml:space="preserve">
+          <source>Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes.</source>
+          <target state="new">Enter activate in the search box, and then click on the link,Activate Pending Security Policy Changes.</target>
+        </trans-unit>
+        <trans-unit id="5b8842bf-05b4-47fa-b544-d382d40a83ca" xml:space="preserve">
+          <source><bpt id="bf6ca966-404f-43b0-b385-e320ce4c6c02">&lt;linkText&gt;</bpt>Activate<ept id="bf6ca966-404f-43b0-b385-e320ce4c6c02">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="bf6ca966-404f-43b0-b385-e320ce4c6c02">&lt;linkText&gt;</bpt>Activate<ept id="bf6ca966-404f-43b0-b385-e320ce4c6c02">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="9e26bcfb-1d3a-47f9-9332-340a98aa352c" xml:space="preserve">
+          <source>Begin the Activate Pending Security Policy Changes task by entering a comment for auditing purposes, and then clicking on the button labelled, OK.</source>
+          <target state="new">Begin the Activate Pending Security Policy Changes task by entering a comment for auditing purposes, and then clicking on the button labelled, OK.</target>
+        </trans-unit>
+        <trans-unit id="01df39cc-6cb9-4102-994c-95696c66ee07" xml:space="preserve">
+          <source><bpt id="f6f49706-6572-41cc-9c02-23522aff79dd">&lt;linkText&gt;</bpt>Activate Pending Security<ept id="f6f49706-6572-41cc-9c02-23522aff79dd">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="f6f49706-6572-41cc-9c02-23522aff79dd">&lt;linkText&gt;</bpt>Activate Pending Security<ept id="f6f49706-6572-41cc-9c02-23522aff79dd">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b0c7d63f-34b8-49a5-847e-d291d2f07ddb" xml:space="preserve">
+          <source>Complete the task on the next screen by checking the checkbox labelled Confirm and clicking on the button labelled, OK.</source>
+          <target state="new">Complete the task on the next screen by checking the checkbox labelled Confirm and clicking on the button labelled, OK.</target>
+        </trans-unit>
+        <trans-unit id="b7aeebb3-4eab-48c6-9bd9-ccadb210400a" xml:space="preserve">
+          <source><bpt id="b2fa6f22-32b4-4733-aa47-fd1667bfdd1c">&lt;linkText&gt;</bpt>Activate Pending Security<ept id="b2fa6f22-32b4-4733-aa47-fd1667bfdd1c">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="b2fa6f22-32b4-4733-aa47-fd1667bfdd1c">&lt;linkText&gt;</bpt>Activate Pending Security<ept id="b2fa6f22-32b4-4733-aa47-fd1667bfdd1c">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="e5df1667-d59c-4bb3-a24e-b20d2e65fda2" xml:space="preserve">
+          <source>The objective of this section is to outline how to configure Microsoft Azure AD to import people from Workday.</source>
+          <target state="new">The objective of this section is to outline how to configure Microsoft Azure AD to import people from Workday.</target>
+        </trans-unit>
+        <trans-unit id="d2602fcd-dc10-40e3-bdbd-307472ff3a5b" xml:space="preserve">
+          <source>On the <bpt id="7badbc95-773f-47b4-b007-379415dd30a1">&lt;strong&gt;</bpt>Workday<ept id="7badbc95-773f-47b4-b007-379415dd30a1">&lt;/strong&gt;</ept> application integration page, click <bpt id="fa875d64-b319-43cd-accb-299f7d65ab3f">&lt;strong&gt;</bpt>Configure user import<ept id="fa875d64-b319-43cd-accb-299f7d65ab3f">&lt;/strong&gt;</ept> to open the <bpt id="02a77e93-2ad6-4985-8fd5-6efc5db1007f">&lt;strong&gt;</bpt>Configure Provisioning<ept id="02a77e93-2ad6-4985-8fd5-6efc5db1007f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the <bpt id="7badbc95-773f-47b4-b007-379415dd30a1">&lt;strong&gt;</bpt>Workday<ept id="7badbc95-773f-47b4-b007-379415dd30a1">&lt;/strong&gt;</ept> application integration page, click <bpt id="fa875d64-b319-43cd-accb-299f7d65ab3f">&lt;strong&gt;</bpt>Configure user import<ept id="fa875d64-b319-43cd-accb-299f7d65ab3f">&lt;/strong&gt;</ept> to open the <bpt id="02a77e93-2ad6-4985-8fd5-6efc5db1007f">&lt;strong&gt;</bpt>Configure Provisioning<ept id="02a77e93-2ad6-4985-8fd5-6efc5db1007f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="ada7e87f-8ff4-40e8-a8bc-5ab1ea6a7d65" xml:space="preserve">
+          <source>On the <bpt id="cb410684-1065-4d0d-9487-08d42838c389">&lt;strong&gt;</bpt>Settings and admin credentials<ept id="cb410684-1065-4d0d-9487-08d42838c389">&lt;/strong&gt;</ept> page, perform the following steps, and then click Next:    </source>
+          <target state="new">On the <bpt id="cb410684-1065-4d0d-9487-08d42838c389">&lt;strong&gt;</bpt>Settings and admin credentials<ept id="cb410684-1065-4d0d-9487-08d42838c389">&lt;/strong&gt;</ept> page, perform the following steps, and then click Next:    </target>
+        </trans-unit>
+        <trans-unit id="0ea327af-c76e-477e-b77c-fd69c536286b" xml:space="preserve">
+          <source><bpt id="adfde1bb-a338-4561-98ac-384d837c4221">&lt;linkText&gt;</bpt>Settings and admin credentials<ept id="adfde1bb-a338-4561-98ac-384d837c4221">&lt;/linkText&gt;</ept>    </source>
+          <target state="new"><bpt id="adfde1bb-a338-4561-98ac-384d837c4221">&lt;linkText&gt;</bpt>Settings and admin credentials<ept id="adfde1bb-a338-4561-98ac-384d837c4221">&lt;/linkText&gt;</ept>    </target>
+        </trans-unit>
+        <trans-unit id="cbdb1203-fcda-4d41-871b-e12fdff4b235" xml:space="preserve">
+          <source>In the <bpt id="4ef357bc-15ca-4300-922e-6cebbe7948fc">&lt;strong&gt;</bpt>Workday admin user name<ept id="4ef357bc-15ca-4300-922e-6cebbe7948fc">&lt;/strong&gt;</ept> textbox, type the name of the user you have created in the <bpt id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;linkText&gt;</bpt>Creating an integration system user<ept id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;/linkText&gt;</ept><bpt id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;title&gt;</bpt><ept id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;/title&gt;</ept> section.</source>
+          <target state="new">In the <bpt id="4ef357bc-15ca-4300-922e-6cebbe7948fc">&lt;strong&gt;</bpt>Workday admin user name<ept id="4ef357bc-15ca-4300-922e-6cebbe7948fc">&lt;/strong&gt;</ept> textbox, type the name of the user you have created in the <bpt id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;linkText&gt;</bpt>Creating an integration system user<ept id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;/linkText&gt;</ept><bpt id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;title&gt;</bpt><ept id="7126071c-a030-4756-a4d0-36b4f7ede6b8">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="631413e9-c5c0-4301-9c36-89acce18e256" xml:space="preserve">
+          <source>In the <bpt id="6306fb11-b5c6-4125-9e9f-81bc6ed94e69">&lt;strong&gt;</bpt>Workday admin password<ept id="6306fb11-b5c6-4125-9e9f-81bc6ed94e69">&lt;/strong&gt;</ept> textbox, type the password of the user you have created in the <bpt id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;linkText&gt;</bpt>Creating an integration system user<ept id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;/linkText&gt;</ept><bpt id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;title&gt;</bpt><ept id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;/title&gt;</ept> section.</source>
+          <target state="new">In the <bpt id="6306fb11-b5c6-4125-9e9f-81bc6ed94e69">&lt;strong&gt;</bpt>Workday admin password<ept id="6306fb11-b5c6-4125-9e9f-81bc6ed94e69">&lt;/strong&gt;</ept> textbox, type the password of the user you have created in the <bpt id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;linkText&gt;</bpt>Creating an integration system user<ept id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;/linkText&gt;</ept><bpt id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;title&gt;</bpt><ept id="d8b2bd9b-d80b-46e2-af1e-8e18ac9b3dd1">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="7cf8e82d-f21a-462f-a3d0-a28ba5bb91e4" xml:space="preserve">
+          <source>In the <bpt id="3698c982-bb09-47ca-acc5-f23c3208fcaa">&lt;strong&gt;</bpt>Workday tenant URL<ept id="3698c982-bb09-47ca-acc5-f23c3208fcaa">&lt;/strong&gt;</ept> textbox, type the URL or your Workday tenant.</source>
+          <target state="new">In the <bpt id="3698c982-bb09-47ca-acc5-f23c3208fcaa">&lt;strong&gt;</bpt>Workday tenant URL<ept id="3698c982-bb09-47ca-acc5-f23c3208fcaa">&lt;/strong&gt;</ept> textbox, type the URL or your Workday tenant.</target>
+        </trans-unit>
+        <trans-unit id="6eeb9e80-d928-4f38-b7f0-1fe8790d77f5" xml:space="preserve">
+          <source>On the <bpt id="c25a5ff2-7e50-4c0b-8b4e-f2a8d4432601">&lt;strong&gt;</bpt>Test connection<ept id="c25a5ff2-7e50-4c0b-8b4e-f2a8d4432601">&lt;/strong&gt;</ept> page, click <bpt id="83954abb-4048-4e31-b6a9-ad673b978fe3">&lt;strong&gt;</bpt>Start test<ept id="83954abb-4048-4e31-b6a9-ad673b978fe3">&lt;/strong&gt;</ept> to confirm connectivity, and then click <bpt id="a138db2b-e95b-4830-aca8-5d2105dc177b">&lt;strong&gt;</bpt>Next<ept id="a138db2b-e95b-4830-aca8-5d2105dc177b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c25a5ff2-7e50-4c0b-8b4e-f2a8d4432601">&lt;strong&gt;</bpt>Test connection<ept id="c25a5ff2-7e50-4c0b-8b4e-f2a8d4432601">&lt;/strong&gt;</ept> page, click <bpt id="83954abb-4048-4e31-b6a9-ad673b978fe3">&lt;strong&gt;</bpt>Start test<ept id="83954abb-4048-4e31-b6a9-ad673b978fe3">&lt;/strong&gt;</ept> to confirm connectivity, and then click <bpt id="a138db2b-e95b-4830-aca8-5d2105dc177b">&lt;strong&gt;</bpt>Next<ept id="a138db2b-e95b-4830-aca8-5d2105dc177b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10be8b50-fef4-4e7c-a09f-48adcb28a2ab" xml:space="preserve">
+          <source><bpt id="2281ece2-a67d-4247-92d2-483a11a86213">&lt;linkText&gt;</bpt>Test connection<ept id="2281ece2-a67d-4247-92d2-483a11a86213">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="2281ece2-a67d-4247-92d2-483a11a86213">&lt;linkText&gt;</bpt>Test connection<ept id="2281ece2-a67d-4247-92d2-483a11a86213">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="6d60b5a9-acb4-4656-9078-04e49ecc4af3" xml:space="preserve">
+          <source>On the <bpt id="c0a8e6f0-b7a1-4cad-b551-095ae0668656">&lt;strong&gt;</bpt>Provisioning options<ept id="c0a8e6f0-b7a1-4cad-b551-095ae0668656">&lt;/strong&gt;</ept> page, click <bpt id="924ff2be-80f2-4476-b04a-062a468354eb">&lt;strong&gt;</bpt>Next<ept id="924ff2be-80f2-4476-b04a-062a468354eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c0a8e6f0-b7a1-4cad-b551-095ae0668656">&lt;strong&gt;</bpt>Provisioning options<ept id="c0a8e6f0-b7a1-4cad-b551-095ae0668656">&lt;/strong&gt;</ept> page, click <bpt id="924ff2be-80f2-4476-b04a-062a468354eb">&lt;strong&gt;</bpt>Next<ept id="924ff2be-80f2-4476-b04a-062a468354eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bd79a6c-40c2-43b6-b941-2c027b66d466" xml:space="preserve">
+          <source><bpt id="be57d8ce-d457-4aa8-898c-f5e53651cbea">&lt;linkText&gt;</bpt>Provisioning options<ept id="be57d8ce-d457-4aa8-898c-f5e53651cbea">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="be57d8ce-d457-4aa8-898c-f5e53651cbea">&lt;linkText&gt;</bpt>Provisioning options<ept id="be57d8ce-d457-4aa8-898c-f5e53651cbea">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b3529bb7-365e-4146-9a99-2f189a1e7dc6" xml:space="preserve">
+          <source>On the <bpt id="4150ff28-d4f7-4ce3-8bec-5a6fd50f8d00">&lt;strong&gt;</bpt>Start provisioning<ept id="4150ff28-d4f7-4ce3-8bec-5a6fd50f8d00">&lt;/strong&gt;</ept> dialog, click <bpt id="d984c4a2-409a-4870-a4a4-a1f180ee0402">&lt;strong&gt;</bpt>Complete<ept id="d984c4a2-409a-4870-a4a4-a1f180ee0402">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4150ff28-d4f7-4ce3-8bec-5a6fd50f8d00">&lt;strong&gt;</bpt>Start provisioning<ept id="4150ff28-d4f7-4ce3-8bec-5a6fd50f8d00">&lt;/strong&gt;</ept> dialog, click <bpt id="d984c4a2-409a-4870-a4a4-a1f180ee0402">&lt;strong&gt;</bpt>Complete<ept id="d984c4a2-409a-4870-a4a4-a1f180ee0402">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0b461b6-87db-43bc-9de7-5457f7cf7106" xml:space="preserve">
+          <source><bpt id="71adaba5-50d3-4875-842d-7af9f81a1596">&lt;linkText&gt;</bpt>Start provisioning<ept id="71adaba5-50d3-4875-842d-7af9f81a1596">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="71adaba5-50d3-4875-842d-7af9f81a1596">&lt;linkText&gt;</bpt>Start provisioning<ept id="71adaba5-50d3-4875-842d-7af9f81a1596">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="5ed4e7ed-381d-4df2-8103-ab4c044c2acf" xml:space="preserve">
+          <source>You can now go to the <bpt id="b842f283-8592-41e6-b665-619bf1259094">&lt;strong&gt;</bpt>Users<ept id="b842f283-8592-41e6-b665-619bf1259094">&lt;/strong&gt;</ept> section and check whether your Workday user has been imported.</source>
+          <target state="new">You can now go to the <bpt id="b842f283-8592-41e6-b665-619bf1259094">&lt;strong&gt;</bpt>Users<ept id="b842f283-8592-41e6-b665-619bf1259094">&lt;/strong&gt;</ept> section and check whether your Workday user has been imported.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

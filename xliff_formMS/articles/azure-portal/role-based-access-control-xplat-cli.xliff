@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1a3feb34-0a7c-489a-8027-f41ad79b296a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1a3feb34-0a7c-489a-8027-f41ad79b296a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d3901a4a-d472-4f99-9a55-c14ce95dbf14">
+        <trans-unit id="64371efd-69dd-4d8a-aac8-e3f671a4dc2b" xml:space="preserve">
+          <source>Managing Role-Based Access Control with Azure Command-Line Interface</source>
+          <target state="new">Managing Role-Based Access Control with Azure Command-Line Interface</target>
+        </trans-unit>
+        <trans-unit id="1683f002-a338-4b9d-9581-c61cdaf3aabf" xml:space="preserve">
+          <source>Managing role-based access control with Azure Command-Line Interface</source>
+          <target state="new">Managing role-based access control with Azure Command-Line Interface</target>
+        </trans-unit>
+        <trans-unit id="0a84521e-3a59-4010-b14f-38bda8544881" xml:space="preserve">
+          <source>Role-based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level.</source>
+          <target state="new">Role-based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level.</target>
+        </trans-unit>
+        <trans-unit id="5eec04a4-0f91-48b5-b293-b02c4fe3ff74" xml:space="preserve">
+          <source>With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.</source>
+          <target state="new">With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.</target>
+        </trans-unit>
+        <trans-unit id="d953d60c-14b5-4b8e-af36-c534ecd10ea8" xml:space="preserve">
+          <source>In this tutorial, you'll learn how to use Azure CLI to manage role based access control.</source>
+          <target state="new">In this tutorial, you'll learn how to use Azure CLI to manage role based access control.</target>
+        </trans-unit>
+        <trans-unit id="329cd07b-6dc1-49a7-8046-707f134d4b82" xml:space="preserve">
+          <source>It walks you through the process of creating and checking role assignments.</source>
+          <target state="new">It walks you through the process of creating and checking role assignments.</target>
+        </trans-unit>
+        <trans-unit id="fd527471-5240-400f-a7f6-6d5579f65fe8" xml:space="preserve">
+          <source><bpt id="52b0a5cf-7f2c-4eae-b6bc-86c706e746ec">&lt;strong&gt;</bpt>Estimated time to complete:<ept id="52b0a5cf-7f2c-4eae-b6bc-86c706e746ec">&lt;/strong&gt;</ept> 15 minutes</source>
+          <target state="new"><bpt id="52b0a5cf-7f2c-4eae-b6bc-86c706e746ec">&lt;strong&gt;</bpt>Estimated time to complete:<ept id="52b0a5cf-7f2c-4eae-b6bc-86c706e746ec">&lt;/strong&gt;</ept> 15 minutes</target>
+        </trans-unit>
+        <trans-unit id="c5ed446a-3074-41c4-8fdb-7eadf368d02b" xml:space="preserve">
+          <source>Before you can use Azure CLI to manage RBAC, you must have the following:</source>
+          <target state="new">Before you can use Azure CLI to manage RBAC, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="2681a498-875e-4077-bbfb-99c71035825d" xml:space="preserve">
+          <source>Azure CLI version 0.8.8 or later.</source>
+          <target state="new">Azure CLI version 0.8.8 or later.</target>
+        </trans-unit>
+        <trans-unit id="d54228e1-aead-4c7c-8b80-04e954cada4d" xml:space="preserve">
+          <source>To install the latest version and associate it with your Azure subscription, see <bpt id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;/linkText&gt;</ept><bpt id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;title&gt;</bpt><ept id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To install the latest version and associate it with your Azure subscription, see <bpt id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;/linkText&gt;</ept><bpt id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;title&gt;</bpt><ept id="033bbe12-b083-4afe-8e1c-e5cf93aec90e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d047c29-4b08-45cf-b4fe-194e52ed85a8" xml:space="preserve">
+          <source>Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: <bpt id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;/linkText&gt;</ept><bpt id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;title&gt;</bpt><ept id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;/title&gt;</ept></source>
+          <target state="new">Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Azure CLI: <bpt id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;/linkText&gt;</ept><bpt id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;title&gt;</bpt><ept id="9508fc80-07bd-4eaa-9093-7e8b50c165cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6ee49cf-a868-4d1c-a43c-848da00b50f5" xml:space="preserve">
+          <source><bpt id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;linkText&gt;</bpt>Connect to your subscriptions<ept id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;/linkText&gt;</ept><bpt id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;title&gt;</bpt><ept id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;linkText&gt;</bpt>Connect to your subscriptions<ept id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;/linkText&gt;</ept><bpt id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;title&gt;</bpt><ept id="fdb6b6fa-f725-4481-8daf-db9064f7d11c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cb4c680-f846-449f-8629-ebdb96e271c8" xml:space="preserve">
+          <source><bpt id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;linkText&gt;</bpt>Check existing role assignments<ept id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;/linkText&gt;</ept><bpt id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;title&gt;</bpt><ept id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;linkText&gt;</bpt>Check existing role assignments<ept id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;/linkText&gt;</ept><bpt id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;title&gt;</bpt><ept id="0513b682-46c5-45d7-b813-57b2c654d3a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52d5ac9f-3223-4bf3-9b81-cc202565150d" xml:space="preserve">
+          <source><bpt id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;linkText&gt;</bpt>Create a role assignment<ept id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;/linkText&gt;</ept><bpt id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;title&gt;</bpt><ept id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;linkText&gt;</bpt>Create a role assignment<ept id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;/linkText&gt;</ept><bpt id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;title&gt;</bpt><ept id="51b765b0-7ae5-449f-9b48-86a0bbf0e205">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2cbb42d-b233-481c-b84e-d19f29c2ab5d" xml:space="preserve">
+          <source><bpt id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;linkText&gt;</bpt>Verify permissions<ept id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;/linkText&gt;</ept><bpt id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;title&gt;</bpt><ept id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;linkText&gt;</bpt>Verify permissions<ept id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;/linkText&gt;</ept><bpt id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;title&gt;</bpt><ept id="36fed4b0-8168-482c-9454-7c52094b5c5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79d4f2c7-ebea-4cfa-8a3c-6234f87cdf8d" xml:space="preserve">
+          <source><bpt id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;linkText&gt;</bpt>Next steps<ept id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;/linkText&gt;</ept><bpt id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;title&gt;</bpt><ept id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;linkText&gt;</bpt>Next steps<ept id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;/linkText&gt;</ept><bpt id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;title&gt;</bpt><ept id="785c7b50-21e3-43f4-b73d-450675748ef2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6439aa19-2aad-495a-9468-7e071d5469fe" xml:space="preserve">
+          <source>Since RBAC only works with Azure Resource Manager, the first thing to do is to switch to Azure Resource Manager mode.</source>
+          <target state="new">Since RBAC only works with Azure Resource Manager, the first thing to do is to switch to Azure Resource Manager mode.</target>
+        </trans-unit>
+        <trans-unit id="5b7cde29-414c-424d-a5fa-310b5d2d9a68" xml:space="preserve">
+          <source>Type:</source>
+          <target state="new">Type:</target>
+        </trans-unit>
+        <trans-unit id="87f8283e-c97d-460d-8264-ad9720d1e547" xml:space="preserve">
+          <source>For more information, please refer to <bpt id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;/linkText&gt;</ept><bpt id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;title&gt;</bpt><ept id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, please refer to <bpt id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;/linkText&gt;</ept><bpt id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;title&gt;</bpt><ept id="4a05da11-e356-41a9-9337-d3fb58b87e24">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e5980c2-d31d-4792-ab8d-e693da3c1a4a" xml:space="preserve">
+          <source>To connect to your Azure subscriptions, type:</source>
+          <target state="new">To connect to your Azure subscriptions, type:</target>
+        </trans-unit>
+        <trans-unit id="473a56f8-ae82-4164-b4da-f899ff19448d" xml:space="preserve">
+          <source>In the command line prompt, enter you Azure account password (only use an organizational account).</source>
+          <target state="new">In the command line prompt, enter you Azure account password (only use an organizational account).</target>
+        </trans-unit>
+        <trans-unit id="f907c77d-b56e-4bab-8177-d9033b7fa80c" xml:space="preserve">
+          <source>Azure CLI will get all the subscriptions you have with this account and configure itself to use the first one as default.</source>
+          <target state="new">Azure CLI will get all the subscriptions you have with this account and configure itself to use the first one as default.</target>
+        </trans-unit>
+        <trans-unit id="ab45f12f-510e-4cab-8019-859e199d184c" xml:space="preserve">
+          <source>Notice that with role based access control, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment.</source>
+          <target state="new">Notice that with role based access control, you will only be able to get the subscriptions where you have some permissions by either being its co-admin or having some role assignment.</target>
+        </trans-unit>
+        <trans-unit id="caa4e45a-64ec-4d16-a9cd-4d44a09c8404" xml:space="preserve">
+          <source>If you have multiple subscriptions and want to switch to another one, type:</source>
+          <target state="new">If you have multiple subscriptions and want to switch to another one, type:</target>
+        </trans-unit>
+        <trans-unit id="9e4bc4d9-3199-472c-a141-4aa3133e1639" xml:space="preserve">
+          <source>For more information, please refer to <bpt id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;/linkText&gt;</ept><bpt id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;title&gt;</bpt><ept id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, please refer to <bpt id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;/linkText&gt;</ept><bpt id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;title&gt;</bpt><ept id="cf434ffb-9e61-4aad-ad57-c0d58ad61848">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13111fb1-6a6b-4f2d-9dcb-20c06ceb863a" xml:space="preserve">
+          <source>Now let's check what role assignments exist in the subscription already.</source>
+          <target state="new">Now let's check what role assignments exist in the subscription already.</target>
+        </trans-unit>
+        <trans-unit id="1df51128-e449-43ea-9daa-ac6177e8c34f" xml:space="preserve">
+          <source>Type:</source>
+          <target state="new">Type:</target>
+        </trans-unit>
+        <trans-unit id="b923c385-7379-4201-8861-c6a7c067d598" xml:space="preserve">
+          <source>This will return all the role assignments in the subscription.</source>
+          <target state="new">This will return all the role assignments in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="177075e5-0165-4df5-96ba-0ab62c7cc376" xml:space="preserve">
+          <source>Two things to notice:</source>
+          <target state="new">Two things to notice:</target>
+        </trans-unit>
+        <trans-unit id="2f373ef5-da42-4e09-9d70-9a6ead058135" xml:space="preserve">
+          <source>You'll need to have read access at the subscription level.</source>
+          <target state="new">You'll need to have read access at the subscription level.</target>
+        </trans-unit>
+        <trans-unit id="d3b4bb23-0323-4f8c-935a-85e55392482d" xml:space="preserve">
+          <source>If the subscription has a lot of role assignments, it may take a while to get all of them.</source>
+          <target state="new">If the subscription has a lot of role assignments, it may take a while to get all of them.</target>
+        </trans-unit>
+        <trans-unit id="93523ac2-a75f-4cd2-81e4-bad5ba2efb55" xml:space="preserve">
+          <source>You can also check existing role assignments for a particular role definition, at a particular scope for a particular user.</source>
+          <target state="new">You can also check existing role assignments for a particular role definition, at a particular scope for a particular user.</target>
+        </trans-unit>
+        <trans-unit id="7cc5260d-8507-4993-9eef-8dbb29baea4e" xml:space="preserve">
+          <source>Type:</source>
+          <target state="new">Type:</target>
+        </trans-unit>
+        <trans-unit id="16295800-ed78-437f-8cb0-7185e01afe35" xml:space="preserve">
+          <source>This will return all the role assignments for a particular user in your Azure AD directory, who has a role assignment of "Owner" for resource group "group1".</source>
+          <target state="new">This will return all the role assignments for a particular user in your Azure AD directory, who has a role assignment of "Owner" for resource group "group1".</target>
+        </trans-unit>
+        <trans-unit id="3532c530-043b-4c3e-b34c-6a0bc517a245" xml:space="preserve">
+          <source>The role assignment can come from two places:</source>
+          <target state="new">The role assignment can come from two places:</target>
+        </trans-unit>
+        <trans-unit id="30b44ac7-83b2-44b3-9972-9e691f2525d0" xml:space="preserve">
+          <source>A role assignment of "Owner" to the user for the resource group.</source>
+          <target state="new">A role assignment of "Owner" to the user for the resource group.</target>
+        </trans-unit>
+        <trans-unit id="df30ae7b-c8b3-4534-8bf8-8b39d2851b8f" xml:space="preserve">
+          <source>A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case) because if you have any permission at a certain parent resource, you'll have the same permissions to all its children resources.</source>
+          <target state="new">A role assignment of "Owner" to the user for the parent of the resource group (the subscription in this case) because if you have any permission at a certain parent resource, you'll have the same permissions to all its children resources.</target>
+        </trans-unit>
+        <trans-unit id="b4841372-3ded-44ec-b433-ab833483d35f" xml:space="preserve">
+          <source>All the parameters of this cmdlet are optional.</source>
+          <target state="new">All the parameters of this cmdlet are optional.</target>
+        </trans-unit>
+        <trans-unit id="cf6ea425-2871-482f-9f65-2e00f4ae0914" xml:space="preserve">
+          <source>You can combine them to check role assignments with different filters.</source>
+          <target state="new">You can combine them to check role assignments with different filters.</target>
+        </trans-unit>
+        <trans-unit id="dc1d93e0-495f-4a50-8fc6-cde9e9497411" xml:space="preserve">
+          <source>To create a role assignment, you need to think about:</source>
+          <target state="new">To create a role assignment, you need to think about:</target>
+        </trans-unit>
+        <trans-unit id="3febc3b5-9654-4f58-9eea-65d1c67a370f" xml:space="preserve">
+          <source>Who you want to assign the role to: you can use the following Azure Active Directory cmdlets to see what users, groups and service principals you have in your directory.</source>
+          <target state="new">Who you want to assign the role to: you can use the following Azure Active Directory cmdlets to see what users, groups and service principals you have in your directory.</target>
+        </trans-unit>
+        <trans-unit id="20b1aa53-15d1-469d-812d-053c89a72f7b" xml:space="preserve">
+          <source>What role you want to assign: you can use the following cmdlet to see the supported role definitions.</source>
+          <target state="new">What role you want to assign: you can use the following cmdlet to see the supported role definitions.</target>
+        </trans-unit>
+        <trans-unit id="384b490a-b2e9-49df-a35f-317baba0bdde" xml:space="preserve">
+          <source><bpt id="e82a9e04-66e6-4858-a526-124457bcf936">&lt;code&gt;</bpt>azure role list<ept id="e82a9e04-66e6-4858-a526-124457bcf936">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e82a9e04-66e6-4858-a526-124457bcf936">&lt;code&gt;</bpt>azure role list<ept id="e82a9e04-66e6-4858-a526-124457bcf936">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d44cfd79-b00f-40f9-b2fb-88edb9e48214" xml:space="preserve">
+          <source>What scope you want to assign: you have three levels for scopes:</source>
+          <target state="new">What scope you want to assign: you have three levels for scopes:</target>
+        </trans-unit>
+        <trans-unit id="99686111-1481-45ee-88c0-1fdd7a8a3e51" xml:space="preserve">
+          <source>The current subscription</source>
+          <target state="new">The current subscription</target>
+        </trans-unit>
+        <trans-unit id="3fcaae4a-6315-4e33-a569-10a5e321a78f" xml:space="preserve">
+          <source>A resource group.</source>
+          <target state="new">A resource group.</target>
+        </trans-unit>
+        <trans-unit id="70b20eb0-f521-435f-b7df-f87e76b4182d" xml:space="preserve">
+          <source>To get a list of resource groups, type <bpt id="d8797792-185b-4b65-b9e6-ff057a51e4ff">&lt;code&gt;</bpt>azure group list<ept id="d8797792-185b-4b65-b9e6-ff057a51e4ff">&lt;/code&gt;</ept></source>
+          <target state="new">To get a list of resource groups, type <bpt id="d8797792-185b-4b65-b9e6-ff057a51e4ff">&lt;code&gt;</bpt>azure group list<ept id="d8797792-185b-4b65-b9e6-ff057a51e4ff">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7906ad14-7220-4f1c-9710-0e5b622bf6a0" xml:space="preserve">
+          <source>A resource.</source>
+          <target state="new">A resource.</target>
+        </trans-unit>
+        <trans-unit id="85137c44-0afb-472c-b620-2a9775a63be9" xml:space="preserve">
+          <source>To get a list of resources, type <bpt id="fdfa954b-a76b-478e-a74d-eb21807a7a31">&lt;code&gt;</bpt>azure resource list<ept id="fdfa954b-a76b-478e-a74d-eb21807a7a31">&lt;/code&gt;</ept></source>
+          <target state="new">To get a list of resources, type <bpt id="fdfa954b-a76b-478e-a74d-eb21807a7a31">&lt;code&gt;</bpt>azure resource list<ept id="fdfa954b-a76b-478e-a74d-eb21807a7a31">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31cdbb08-c299-434c-ab2e-d256384988ad" xml:space="preserve">
+          <source>Then use <bpt id="58a680f3-0e9e-40e7-8971-fe825b3def19">&lt;code&gt;</bpt>azure role assignment create<ept id="58a680f3-0e9e-40e7-8971-fe825b3def19">&lt;/code&gt;</ept> to create a role assignment.</source>
+          <target state="new">Then use <bpt id="58a680f3-0e9e-40e7-8971-fe825b3def19">&lt;code&gt;</bpt>azure role assignment create<ept id="58a680f3-0e9e-40e7-8971-fe825b3def19">&lt;/code&gt;</ept> to create a role assignment.</target>
+        </trans-unit>
+        <trans-unit id="65e6581b-5c89-4cb8-9139-b5969901facb" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="c2c75f5a-c0fb-47fa-9211-6e2bd9efb5d5" xml:space="preserve">
+          <source>This will create a role assignment at the current subscription level for a user as a reader:</source>
+          <target state="new">This will create a role assignment at the current subscription level for a user as a reader:</target>
+        </trans-unit>
+        <trans-unit id="52bd7bd2-cdde-4118-af8b-d3547d82e779" xml:space="preserve">
+          <source><bpt id="ce8d6aeb-86cb-4fb3-8b24-0c56d1f0e7ce">&lt;code&gt;</bpt>azure role assignment create --upn &lt;user's email&gt; -o Reader<ept id="ce8d6aeb-86cb-4fb3-8b24-0c56d1f0e7ce">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ce8d6aeb-86cb-4fb3-8b24-0c56d1f0e7ce">&lt;code&gt;</bpt>azure role assignment create --upn &lt;user's email&gt; -o Reader<ept id="ce8d6aeb-86cb-4fb3-8b24-0c56d1f0e7ce">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f8e0f9d-e193-4f39-8ce4-7ab0d602abca" xml:space="preserve">
+          <source>This will create a role assignment at a resource group level:</source>
+          <target state="new">This will create a role assignment at a resource group level:</target>
+        </trans-unit>
+        <trans-unit id="cdf5f0a8-4d0c-45df-a1d2-1fce5653a26b" xml:space="preserve">
+          <source><bpt id="2212bc0b-0af9-4a6b-97fc-5001a82e74df">&lt;code&gt;</bpt>PS C:\&gt; azure role assignment create --upn &lt;user's email&gt; -o Contributor -g group1<ept id="2212bc0b-0af9-4a6b-97fc-5001a82e74df">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2212bc0b-0af9-4a6b-97fc-5001a82e74df">&lt;code&gt;</bpt>PS C:\&gt; azure role assignment create --upn &lt;user's email&gt; -o Contributor -g group1<ept id="2212bc0b-0af9-4a6b-97fc-5001a82e74df">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f495ae9e-79a7-43c5-afce-1e0c2af0fd7e" xml:space="preserve">
+          <source>This will create a role assignment at a resource level:</source>
+          <target state="new">This will create a role assignment at a resource level:</target>
+        </trans-unit>
+        <trans-unit id="222a85b2-ac69-45b3-9d09-615e67423397" xml:space="preserve">
+          <source><bpt id="39e1cedf-613b-46d3-9c88-f799acdf0d10">&lt;code&gt;</bpt>azure role assignment create --upn &lt;user's email&gt; -o Owner -g group1 -r Microsoft.Web/sites -u site1<ept id="39e1cedf-613b-46d3-9c88-f799acdf0d10">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="39e1cedf-613b-46d3-9c88-f799acdf0d10">&lt;code&gt;</bpt>azure role assignment create --upn &lt;user's email&gt; -o Owner -g group1 -r Microsoft.Web/sites -u site1<ept id="39e1cedf-613b-46d3-9c88-f799acdf0d10">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f465206-7a31-4e09-9a26-d1fa0f614be6" xml:space="preserve">
+          <source>After you check that your account has some role assignments, you can actually see the permissions these role assignments grant you by running:</source>
+          <target state="new">After you check that your account has some role assignments, you can actually see the permissions these role assignments grant you by running:</target>
+        </trans-unit>
+        <trans-unit id="e9640b29-69a2-4ac8-b26f-55be103c996a" xml:space="preserve">
+          <source>These two cmdlets will only return the resource groups or resources where you have read permission.</source>
+          <target state="new">These two cmdlets will only return the resource groups or resources where you have read permission.</target>
+        </trans-unit>
+        <trans-unit id="540271ed-85fe-49de-9d30-eb4edef0e5b9" xml:space="preserve">
+          <source>And it will show you the permissions you have as well.</source>
+          <target state="new">And it will show you the permissions you have as well.</target>
+        </trans-unit>
+        <trans-unit id="1818b83c-7fbc-4f0e-92a5-6491c1f160f4" xml:space="preserve">
+          <source>Then when you try to run other cmdlets like <bpt id="2bfb155e-4f64-4c8e-ae98-796041b1d810">&lt;code&gt;</bpt>azure group create<ept id="2bfb155e-4f64-4c8e-ae98-796041b1d810">&lt;/code&gt;</ept>, you will get an access denied error if you don't have the permission.</source>
+          <target state="new">Then when you try to run other cmdlets like <bpt id="2bfb155e-4f64-4c8e-ae98-796041b1d810">&lt;code&gt;</bpt>azure group create<ept id="2bfb155e-4f64-4c8e-ae98-796041b1d810">&lt;/code&gt;</ept>, you will get an access denied error if you don't have the permission.</target>
+        </trans-unit>
+        <trans-unit id="404052da-5b8c-42de-9b7b-135ef810d66c" xml:space="preserve">
+          <source>To learn more about managing role-based access control with Azure CLI and related topics:</source>
+          <target state="new">To learn more about managing role-based access control with Azure CLI and related topics:</target>
+        </trans-unit>
+        <trans-unit id="e1c43dc7-7320-4649-8873-a2b21b6fbb95" xml:space="preserve">
+          <source><bpt id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;linkText&gt;</bpt>Role based access control in Azure<ept id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;/linkText&gt;</ept><bpt id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;title&gt;</bpt><ept id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;linkText&gt;</bpt>Role based access control in Azure<ept id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;/linkText&gt;</ept><bpt id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;title&gt;</bpt><ept id="97fea252-9e7a-42f8-bcda-1087f0318467">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c4387cc-0eca-4010-a8e3-4aa36608aa30" xml:space="preserve">
+          <source><bpt id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;/linkText&gt;</ept><bpt id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;title&gt;</bpt><ept id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;/linkText&gt;</ept><bpt id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;title&gt;</bpt><ept id="c6eed7a9-2c6b-4994-8963-fdbf50d129af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9d84363-ebdb-4098-9115-c2744e00c300" xml:space="preserve">
+          <source><bpt id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;/linkText&gt;</ept><bpt id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;title&gt;</bpt><ept id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;linkText&gt;</bpt>Using the Azure CLI with the Resource Manager<ept id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;/linkText&gt;</ept><bpt id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;title&gt;</bpt><ept id="da6a877d-31af-41a1-b5cf-394837e95f30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ca3b781-9b90-46cb-ab93-ed364fc62c1e" xml:space="preserve">
+          <source><bpt id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;/linkText&gt;</ept><bpt id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;title&gt;</bpt><ept id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;/title&gt;</ept>: Learn how to create and manage resource groups in the Azure Management Portal.</source>
+          <target state="new"><bpt id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;/linkText&gt;</ept><bpt id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;title&gt;</bpt><ept id="ce424b06-378e-4395-bcc3-31be9150cd5d">&lt;/title&gt;</ept>: Learn how to create and manage resource groups in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="3b5b62b9-32ca-424a-a180-6a17719cf169" xml:space="preserve">
+          <source><bpt id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;linkText&gt;</bpt>Azure blog<ept id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;/linkText&gt;</ept><bpt id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;title&gt;</bpt><ept id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;/title&gt;</ept>: Learn about new features in Azure.</source>
+          <target state="new"><bpt id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;linkText&gt;</bpt>Azure blog<ept id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;/linkText&gt;</ept><bpt id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;title&gt;</bpt><ept id="1a497884-ece2-4dc6-b718-ba59e95f6e2a">&lt;/title&gt;</ept>: Learn about new features in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8aa5adce-9a49-42a8-b1e1-8fc158622951" xml:space="preserve">
+          <source><bpt id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;linkText&gt;</bpt>Configure role based access control using Windows PowerShell<ept id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;/linkText&gt;</ept><bpt id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;title&gt;</bpt><ept id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;linkText&gt;</bpt>Configure role based access control using Windows PowerShell<ept id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;/linkText&gt;</ept><bpt id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;title&gt;</bpt><ept id="02a99003-b0d3-4e42-99a8-ee8ad1540bae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4be7144-815d-4536-b135-ee5fdd217839" xml:space="preserve">
+          <source><bpt id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;linkText&gt;</bpt>Troubleshooting role based access control<ept id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;/linkText&gt;</ept><bpt id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;title&gt;</bpt><ept id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;linkText&gt;</bpt>Troubleshooting role based access control<ept id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;/linkText&gt;</ept><bpt id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;title&gt;</bpt><ept id="edde1184-23ce-450a-bdbd-0c2d5dd539fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

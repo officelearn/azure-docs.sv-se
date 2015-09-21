@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7bd3fe59-3f27-4658-9737-07574becd08f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7bd3fe59-3f27-4658-9737-07574becd08f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f8536871-1516-4925-be75-de1e909b1d91">
+        <trans-unit id="5a5879bc-f9aa-4c27-96ca-7d955f223626" xml:space="preserve">
+          <source>Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure</source>
+          <target state="new">Get Started with Offline Data Sync in Mobile Services (iOS) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f61d68bc-999d-42ab-9ffc-71c29f2d8b76" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application</source>
+          <target state="new">Learn how to use Azure Mobile Services to cache and sync offline data in your iOS application</target>
+        </trans-unit>
+        <trans-unit id="c776a4de-a9c7-45e5-b88e-6a0ed12fbefb" xml:space="preserve">
+          <source><bpt id="4e737fec-1a6d-4246-9eb0-2f361bfdc3eb">&lt;token href="../../includes/mobile-services-selector-offline.md"&gt;</bpt><ept id="4e737fec-1a6d-4246-9eb0-2f361bfdc3eb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4e737fec-1a6d-4246-9eb0-2f361bfdc3eb">&lt;token href="../../includes/mobile-services-selector-offline.md"&gt;</bpt><ept id="4e737fec-1a6d-4246-9eb0-2f361bfdc3eb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e298c3d-77e8-41c6-a248-3596fed4bf99" xml:space="preserve">
+          <source>Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection.</source>
+          <target state="new">Offline sync allows you to view, add, or modify data in a mobile app even when there is no network connection.</target>
+        </trans-unit>
+        <trans-unit id="e839211d-65f2-4b16-9f58-d56ebf59d064" xml:space="preserve">
+          <source>In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.</source>
+          <target state="new">In this tutorial, you'll learn how your app can automatically store changes in a local offline database and sync those changes whenever it's back online.</target>
+        </trans-unit>
+        <trans-unit id="3ab4e8c8-dd3c-4c8b-b5e8-5b506a40ae06" xml:space="preserve">
+          <source>Offline sync has several advantages:</source>
+          <target state="new">Offline sync has several advantages:</target>
+        </trans-unit>
+        <trans-unit id="1566b25f-250b-4e12-9971-a991f40903a9" xml:space="preserve">
+          <source>Improves app responsiveness by caching server data locally on device</source>
+          <target state="new">Improves app responsiveness by caching server data locally on device</target>
+        </trans-unit>
+        <trans-unit id="8c0ff50b-6338-44a3-8d8e-29f565c6b05b" xml:space="preserve">
+          <source>Makes apps resilient against intermittent network connectivity</source>
+          <target state="new">Makes apps resilient against intermittent network connectivity</target>
+        </trans-unit>
+        <trans-unit id="c723550e-8757-487b-8096-250845778d71" xml:space="preserve">
+          <source>Allows you to create and modify data even with little or no connectivity</source>
+          <target state="new">Allows you to create and modify data even with little or no connectivity</target>
+        </trans-unit>
+        <trans-unit id="4d7a6329-20b3-4328-a8cd-e143fab39a4b" xml:space="preserve">
+          <source>Syncs data across multiple devices</source>
+          <target state="new">Syncs data across multiple devices</target>
+        </trans-unit>
+        <trans-unit id="8df8bc2f-716d-44e3-965f-4cc155f4f306" xml:space="preserve">
+          <source>Detects conflicts when same record is modified by two devices</source>
+          <target state="new">Detects conflicts when same record is modified by two devices</target>
+        </trans-unit>
+        <trans-unit id="ed0f68d0-782a-4e8d-986f-c2bc85b13e2e" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="ccecf3dc-3698-422b-91ae-19722de6a5ff" xml:space="preserve">
+          <source>If you don't have an account, you can sign up for an Azure trial and get <bpt id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;linkText&gt;</bpt>free mobile services that you can keep using even after your trial ends<ept id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;/linkText&gt;</ept><bpt id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;title&gt;</bpt><ept id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an account, you can sign up for an Azure trial and get <bpt id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;linkText&gt;</bpt>free mobile services that you can keep using even after your trial ends<ept id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;/linkText&gt;</ept><bpt id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;title&gt;</bpt><ept id="3115231c-9477-4a2e-94fb-38335ad80ce9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="834863ee-2c66-46e6-9492-3d31b04ac5eb" xml:space="preserve">
+          <source>For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="ab4f3a32-bbf5-428f-b78f-f6a9370a2e26">&lt;em&gt;</bpt>id=AE564AB28 target="<ept id="ab4f3a32-bbf5-428f-b78f-f6a9370a2e26">&lt;/em&gt;</ept>blank").</source>
+          <target state="new">For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc<bpt id="ab4f3a32-bbf5-428f-b78f-f6a9370a2e26">&lt;em&gt;</bpt>id=AE564AB28 target="<ept id="ab4f3a32-bbf5-428f-b78f-f6a9370a2e26">&lt;/em&gt;</ept>blank").</target>
+        </trans-unit>
+        <trans-unit id="fdff37c6-0574-4f5e-9ec6-c729b33d4351" xml:space="preserve">
+          <source>This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first.</source>
+          <target state="new">This tutorial is based on the [Mobile Services Quick Start tutorial], which you must complete first.</target>
+        </trans-unit>
+        <trans-unit id="c187eff9-2228-403e-99f9-6d37ec34ca58" xml:space="preserve">
+          <source>Let's first review the code related to offline sync already in the Quick Start.</source>
+          <target state="new">Let's first review the code related to offline sync already in the Quick Start.</target>
+        </trans-unit>
+        <trans-unit id="b225eec7-fa2b-4a23-8fdb-a5e88d8cae6b" xml:space="preserve">
+          <source>Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible.</source>
+          <target state="new">Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible.</target>
+        </trans-unit>
+        <trans-unit id="745e3ab9-a96e-402c-bbcd-bcbe01dc88d9" xml:space="preserve">
+          <source>To use these features in your app, you initialize the sync context of <bpt id="f3852c69-e552-428f-a91d-7b0f05a43fbe">&lt;code&gt;</bpt>MSClient<ept id="f3852c69-e552-428f-a91d-7b0f05a43fbe">&lt;/code&gt;</ept> and reference a local store.</source>
+          <target state="new">To use these features in your app, you initialize the sync context of <bpt id="f3852c69-e552-428f-a91d-7b0f05a43fbe">&lt;code&gt;</bpt>MSClient<ept id="f3852c69-e552-428f-a91d-7b0f05a43fbe">&lt;/code&gt;</ept> and reference a local store.</target>
+        </trans-unit>
+        <trans-unit id="46a12eb3-03b0-4e3a-ad37-fb937db4e5ec" xml:space="preserve">
+          <source>Then reference your table through the <bpt id="70655115-639f-4496-bf33-23d71d32bf60">&lt;code&gt;</bpt>MSSyncTable<ept id="70655115-639f-4496-bf33-23d71d32bf60">&lt;/code&gt;</ept> interface.</source>
+          <target state="new">Then reference your table through the <bpt id="70655115-639f-4496-bf33-23d71d32bf60">&lt;code&gt;</bpt>MSSyncTable<ept id="70655115-639f-4496-bf33-23d71d32bf60">&lt;/code&gt;</ept> interface.</target>
+        </trans-unit>
+        <trans-unit id="cebfdc7d-4b16-46a2-b576-b7449a703f9c" xml:space="preserve">
+          <source>In <bpt id="a314e34e-6139-47dc-b4e2-71804bb36aba">&lt;strong&gt;</bpt>QSTodoService.m<ept id="a314e34e-6139-47dc-b4e2-71804bb36aba">&lt;/strong&gt;</ept>, notice the type of member <bpt id="3506df96-25ad-4066-96a1-27c4d135344e">&lt;code&gt;</bpt>syncTable<ept id="3506df96-25ad-4066-96a1-27c4d135344e">&lt;/code&gt;</ept> is <bpt id="cd4a7bd9-e723-41cc-b1f6-d9ca05641b6d">&lt;code&gt;</bpt>MSSyncTable<ept id="cd4a7bd9-e723-41cc-b1f6-d9ca05641b6d">&lt;/code&gt;</ept>.</source>
+          <target state="new">In <bpt id="a314e34e-6139-47dc-b4e2-71804bb36aba">&lt;strong&gt;</bpt>QSTodoService.m<ept id="a314e34e-6139-47dc-b4e2-71804bb36aba">&lt;/strong&gt;</ept>, notice the type of member <bpt id="3506df96-25ad-4066-96a1-27c4d135344e">&lt;code&gt;</bpt>syncTable<ept id="3506df96-25ad-4066-96a1-27c4d135344e">&lt;/code&gt;</ept> is <bpt id="cd4a7bd9-e723-41cc-b1f6-d9ca05641b6d">&lt;code&gt;</bpt>MSSyncTable<ept id="cd4a7bd9-e723-41cc-b1f6-d9ca05641b6d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b86bc8c-acca-4e7a-8c5e-85875596e3d9" xml:space="preserve">
+          <source>Offline sync uses this instead of <bpt id="a01e9ed7-08c9-41b1-8c4d-63d44f496757">&lt;code&gt;</bpt>MSTable<ept id="a01e9ed7-08c9-41b1-8c4d-63d44f496757">&lt;/code&gt;</ept>.</source>
+          <target state="new">Offline sync uses this instead of <bpt id="a01e9ed7-08c9-41b1-8c4d-63d44f496757">&lt;code&gt;</bpt>MSTable<ept id="a01e9ed7-08c9-41b1-8c4d-63d44f496757">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4be7d389-8b6e-4d2a-bb7d-f8a573b8eb39" xml:space="preserve">
+          <source>When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.</source>
+          <target state="new">When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.</target>
+        </trans-unit>
+        <trans-unit id="9a2d7e50-c915-4da1-9e60-71085447169d" xml:space="preserve">
+          <source>To get a reference to a sync table, use the method <bpt id="302a67f6-c9b3-44c9-83f0-670e5c7983a1">&lt;code&gt;</bpt>syncTableWithName<ept id="302a67f6-c9b3-44c9-83f0-670e5c7983a1">&lt;/code&gt;</ept>.</source>
+          <target state="new">To get a reference to a sync table, use the method <bpt id="302a67f6-c9b3-44c9-83f0-670e5c7983a1">&lt;code&gt;</bpt>syncTableWithName<ept id="302a67f6-c9b3-44c9-83f0-670e5c7983a1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e9f08bc-74ef-4699-9a4c-484e91d22677" xml:space="preserve">
+          <source>To remove offline sync functionality, use <bpt id="f1042e84-9bce-485b-81f6-97e8af9d9b21">&lt;code&gt;</bpt>tableWithName<ept id="f1042e84-9bce-485b-81f6-97e8af9d9b21">&lt;/code&gt;</ept> instead.</source>
+          <target state="new">To remove offline sync functionality, use <bpt id="f1042e84-9bce-485b-81f6-97e8af9d9b21">&lt;code&gt;</bpt>tableWithName<ept id="f1042e84-9bce-485b-81f6-97e8af9d9b21">&lt;/code&gt;</ept> instead.</target>
+        </trans-unit>
+        <trans-unit id="7e685dad-5e88-4dfc-adc0-c6c31eec43d0" xml:space="preserve">
+          <source>In <bpt id="f883e38f-a2e1-42cc-bd43-a43ec9228aa5">&lt;strong&gt;</bpt>QSTodoService.m<ept id="f883e38f-a2e1-42cc-bd43-a43ec9228aa5">&lt;/strong&gt;</ept>, before table operations are performed, the local store is initialized in <bpt id="a17c8218-d089-466f-98db-83df040cede2">&lt;code&gt;</bpt>QSTodoService.init<ept id="a17c8218-d089-466f-98db-83df040cede2">&lt;/code&gt;</ept>:</source>
+          <target state="new">In <bpt id="f883e38f-a2e1-42cc-bd43-a43ec9228aa5">&lt;strong&gt;</bpt>QSTodoService.m<ept id="f883e38f-a2e1-42cc-bd43-a43ec9228aa5">&lt;/strong&gt;</ept>, before table operations are performed, the local store is initialized in <bpt id="a17c8218-d089-466f-98db-83df040cede2">&lt;code&gt;</bpt>QSTodoService.init<ept id="a17c8218-d089-466f-98db-83df040cede2">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="df83b0f6-fc44-449e-8d75-cb53282001bd" xml:space="preserve">
+          <source>This creates a local store using the <bpt id="1728e5e0-61c8-4b5e-b0d5-d774bf880a15">&lt;code&gt;</bpt>MSCoreDataStore<ept id="1728e5e0-61c8-4b5e-b0d5-d774bf880a15">&lt;/code&gt;</ept> interface.</source>
+          <target state="new">This creates a local store using the <bpt id="1728e5e0-61c8-4b5e-b0d5-d774bf880a15">&lt;code&gt;</bpt>MSCoreDataStore<ept id="1728e5e0-61c8-4b5e-b0d5-d774bf880a15">&lt;/code&gt;</ept> interface.</target>
+        </trans-unit>
+        <trans-unit id="69cec12c-3813-40d3-99d4-599ea36138ae" xml:space="preserve">
+          <source>You may provide a different local store by implementing the <bpt id="ea8b0620-00e1-405d-92d0-a37ce94b4c90">&lt;code&gt;</bpt>MSSyncContextDataSource<ept id="ea8b0620-00e1-405d-92d0-a37ce94b4c90">&lt;/code&gt;</ept> protocol.</source>
+          <target state="new">You may provide a different local store by implementing the <bpt id="ea8b0620-00e1-405d-92d0-a37ce94b4c90">&lt;code&gt;</bpt>MSSyncContextDataSource<ept id="ea8b0620-00e1-405d-92d0-a37ce94b4c90">&lt;/code&gt;</ept> protocol.</target>
+        </trans-unit>
+        <trans-unit id="e63fbe5d-ec46-4754-a130-2e423bceca8d" xml:space="preserve">
+          <source>The first parameter of <bpt id="3f6dccd9-8fca-4e42-8677-96942b6ffa45">&lt;code&gt;</bpt>initWithDelegate<ept id="3f6dccd9-8fca-4e42-8677-96942b6ffa45">&lt;/code&gt;</ept> specifies a conflict handler, but since we've passed <bpt id="e942f637-526b-43cc-93f1-f99ab52dd17d">&lt;code&gt;</bpt>nil<ept id="e942f637-526b-43cc-93f1-f99ab52dd17d">&lt;/code&gt;</ept>, we get the default conflict handler which fails on any conflict.</source>
+          <target state="new">The first parameter of <bpt id="3f6dccd9-8fca-4e42-8677-96942b6ffa45">&lt;code&gt;</bpt>initWithDelegate<ept id="3f6dccd9-8fca-4e42-8677-96942b6ffa45">&lt;/code&gt;</ept> specifies a conflict handler, but since we've passed <bpt id="e942f637-526b-43cc-93f1-f99ab52dd17d">&lt;code&gt;</bpt>nil<ept id="e942f637-526b-43cc-93f1-f99ab52dd17d">&lt;/code&gt;</ept>, we get the default conflict handler which fails on any conflict.</target>
+        </trans-unit>
+        <trans-unit id="ca4a955d-7b9e-4e1e-9904-03f971d16919" xml:space="preserve">
+          <source>For details on how to implement a custom conflict handler, see [Handling Conflicts with Offline Support for Mobile Services].</source>
+          <target state="new">For details on how to implement a custom conflict handler, see [Handling Conflicts with Offline Support for Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="5bc8e2e5-022c-4bfe-9b5f-8f5f0f5c592d" xml:space="preserve">
+          <source>In <bpt id="b6b3eafa-cac8-4f24-aff9-09378a8e0717">&lt;strong&gt;</bpt>QSTodoService.m<ept id="b6b3eafa-cac8-4f24-aff9-09378a8e0717">&lt;/strong&gt;</ept>, <bpt id="b06515b9-4899-440d-b823-cd3e37e7987c">&lt;code&gt;</bpt>syncData<ept id="b06515b9-4899-440d-b823-cd3e37e7987c">&lt;/code&gt;</ept> first pushes new changes, and then calls <bpt id="51b81f0e-ff86-4bb4-b24e-0a9ff1a940ae">&lt;code&gt;</bpt>pullData<ept id="51b81f0e-ff86-4bb4-b24e-0a9ff1a940ae">&lt;/code&gt;</ept> to get data from the remote service.</source>
+          <target state="new">In <bpt id="b6b3eafa-cac8-4f24-aff9-09378a8e0717">&lt;strong&gt;</bpt>QSTodoService.m<ept id="b6b3eafa-cac8-4f24-aff9-09378a8e0717">&lt;/strong&gt;</ept>, <bpt id="b06515b9-4899-440d-b823-cd3e37e7987c">&lt;code&gt;</bpt>syncData<ept id="b06515b9-4899-440d-b823-cd3e37e7987c">&lt;/code&gt;</ept> first pushes new changes, and then calls <bpt id="51b81f0e-ff86-4bb4-b24e-0a9ff1a940ae">&lt;code&gt;</bpt>pullData<ept id="51b81f0e-ff86-4bb4-b24e-0a9ff1a940ae">&lt;/code&gt;</ept> to get data from the remote service.</target>
+        </trans-unit>
+        <trans-unit id="73c8df8c-53aa-4408-9b22-c3d8eb22951b" xml:space="preserve">
+          <source>In <bpt id="8fc24cfe-8242-44d5-9cb4-3e2b59f11209">&lt;code&gt;</bpt>syncData<ept id="8fc24cfe-8242-44d5-9cb4-3e2b59f11209">&lt;/code&gt;</ept>, we first call <bpt id="19ddfd51-694f-4d3a-a747-ded3ffe8db73">&lt;code&gt;</bpt>pushWithCompletion<ept id="19ddfd51-694f-4d3a-a747-ded3ffe8db73">&lt;/code&gt;</ept> on the sync context.</source>
+          <target state="new">In <bpt id="8fc24cfe-8242-44d5-9cb4-3e2b59f11209">&lt;code&gt;</bpt>syncData<ept id="8fc24cfe-8242-44d5-9cb4-3e2b59f11209">&lt;/code&gt;</ept>, we first call <bpt id="19ddfd51-694f-4d3a-a747-ded3ffe8db73">&lt;code&gt;</bpt>pushWithCompletion<ept id="19ddfd51-694f-4d3a-a747-ded3ffe8db73">&lt;/code&gt;</ept> on the sync context.</target>
+        </trans-unit>
+        <trans-unit id="b047d81a-2722-42fe-a225-17b73d91d363" xml:space="preserve">
+          <source>This method is a member of <bpt id="49f40c68-0dc7-4998-b8b9-8321b10b9e64">&lt;code&gt;</bpt>MSSyncContext<ept id="49f40c68-0dc7-4998-b8b9-8321b10b9e64">&lt;/code&gt;</ept> -- rather than the sync table itself -- because it pushes changes across all tables.</source>
+          <target state="new">This method is a member of <bpt id="49f40c68-0dc7-4998-b8b9-8321b10b9e64">&lt;code&gt;</bpt>MSSyncContext<ept id="49f40c68-0dc7-4998-b8b9-8321b10b9e64">&lt;/code&gt;</ept> -- rather than the sync table itself -- because it pushes changes across all tables.</target>
+        </trans-unit>
+        <trans-unit id="1fb56a58-db55-4b79-bdfb-2b0beba2009d" xml:space="preserve">
+          <source>Only records that are modified in some way locally -- through creation, update, or delete operations -- are sent to the server.</source>
+          <target state="new">Only records that are modified in some way locally -- through creation, update, or delete operations -- are sent to the server.</target>
+        </trans-unit>
+        <trans-unit id="0d33a933-0e2e-484a-98de-04be101e3aed" xml:space="preserve">
+          <source>At the end of <bpt id="f017b1cf-42be-4c86-8c59-442580be3591">&lt;code&gt;</bpt>syncData<ept id="f017b1cf-42be-4c86-8c59-442580be3591">&lt;/code&gt;</ept>, we call the helper <bpt id="27bf5f76-92e5-4464-a778-1d4c2030fd1b">&lt;code&gt;</bpt>pullData<ept id="27bf5f76-92e5-4464-a778-1d4c2030fd1b">&lt;/code&gt;</ept>.</source>
+          <target state="new">At the end of <bpt id="f017b1cf-42be-4c86-8c59-442580be3591">&lt;code&gt;</bpt>syncData<ept id="f017b1cf-42be-4c86-8c59-442580be3591">&lt;/code&gt;</ept>, we call the helper <bpt id="27bf5f76-92e5-4464-a778-1d4c2030fd1b">&lt;code&gt;</bpt>pullData<ept id="27bf5f76-92e5-4464-a778-1d4c2030fd1b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8aeddf69-f6fe-49de-98ff-59ee11f3cd0c" xml:space="preserve">
+          <source>In this example, the push operation is not strictly necessary.</source>
+          <target state="new">In this example, the push operation is not strictly necessary.</target>
+        </trans-unit>
+        <trans-unit id="5e4ddeac-6f03-4bff-b9ad-edb831fae054" xml:space="preserve">
+          <source>If there are changes pending in the sync context for the table that is doing a push operation, pull always issues a push first.</source>
+          <target state="new">If there are changes pending in the sync context for the table that is doing a push operation, pull always issues a push first.</target>
+        </trans-unit>
+        <trans-unit id="9666ddb7-7a6c-4f84-aa67-5f91c2eba98f" xml:space="preserve">
+          <source>However, if you have more than one sync table, call push explicitly to have consistency across tables.</source>
+          <target state="new">However, if you have more than one sync table, call push explicitly to have consistency across tables.</target>
+        </trans-unit>
+        <trans-unit id="03ce2415-8bf8-417c-bc57-bdb2b4ce3e4b" xml:space="preserve">
+          <source>Next in <bpt id="ef588bf5-1a05-4207-9e07-a9e0cf3e60bb">&lt;strong&gt;</bpt>QSTodoService.m<ept id="ef588bf5-1a05-4207-9e07-a9e0cf3e60bb">&lt;/strong&gt;</ept>, <bpt id="9ecfe7bb-d001-4a67-9177-2e24e6f09676">&lt;code&gt;</bpt>pullData<ept id="9ecfe7bb-d001-4a67-9177-2e24e6f09676">&lt;/code&gt;</ept> gets new data that matches a query.</source>
+          <target state="new">Next in <bpt id="ef588bf5-1a05-4207-9e07-a9e0cf3e60bb">&lt;strong&gt;</bpt>QSTodoService.m<ept id="ef588bf5-1a05-4207-9e07-a9e0cf3e60bb">&lt;/strong&gt;</ept>, <bpt id="9ecfe7bb-d001-4a67-9177-2e24e6f09676">&lt;code&gt;</bpt>pullData<ept id="9ecfe7bb-d001-4a67-9177-2e24e6f09676">&lt;/code&gt;</ept> gets new data that matches a query.</target>
+        </trans-unit>
+        <trans-unit id="c55b8e41-6161-4403-a737-fe91d188c4d5" xml:space="preserve">
+          <source><bpt id="c48245c5-02cb-43c6-96b3-32a1d1c08507">&lt;code&gt;</bpt>pullData<ept id="c48245c5-02cb-43c6-96b3-32a1d1c08507">&lt;/code&gt;</ept> calls <bpt id="dd2e47c1-c3c5-4353-a3ce-59f4388ce18e">&lt;code&gt;</bpt>MSSyncTable.pullWithQuery<ept id="dd2e47c1-c3c5-4353-a3ce-59f4388ce18e">&lt;/code&gt;</ept> to retrieve remote data and store it locally.</source>
+          <target state="new"><bpt id="c48245c5-02cb-43c6-96b3-32a1d1c08507">&lt;code&gt;</bpt>pullData<ept id="c48245c5-02cb-43c6-96b3-32a1d1c08507">&lt;/code&gt;</ept> calls <bpt id="dd2e47c1-c3c5-4353-a3ce-59f4388ce18e">&lt;code&gt;</bpt>MSSyncTable.pullWithQuery<ept id="dd2e47c1-c3c5-4353-a3ce-59f4388ce18e">&lt;/code&gt;</ept> to retrieve remote data and store it locally.</target>
+        </trans-unit>
+        <trans-unit id="c378c8f6-ef68-4d40-a1eb-5ca4e83e8c66" xml:space="preserve">
+          <source><bpt id="6d777589-be59-4501-94cf-9809b7601a53">&lt;code&gt;</bpt>pullWithQuery<ept id="6d777589-be59-4501-94cf-9809b7601a53">&lt;/code&gt;</ept> also allows you to specify a query to filter the records you wish to retrieve.</source>
+          <target state="new"><bpt id="6d777589-be59-4501-94cf-9809b7601a53">&lt;code&gt;</bpt>pullWithQuery<ept id="6d777589-be59-4501-94cf-9809b7601a53">&lt;/code&gt;</ept> also allows you to specify a query to filter the records you wish to retrieve.</target>
+        </trans-unit>
+        <trans-unit id="93a3281b-1c0b-425f-9975-43e61acd4d27" xml:space="preserve">
+          <source>In this example, the query just retrieves all records in the remote <bpt id="cc151bad-e499-4a53-b260-ce304c51524a">&lt;code&gt;</bpt>TodoItem<ept id="cc151bad-e499-4a53-b260-ce304c51524a">&lt;/code&gt;</ept> table.</source>
+          <target state="new">In this example, the query just retrieves all records in the remote <bpt id="cc151bad-e499-4a53-b260-ce304c51524a">&lt;code&gt;</bpt>TodoItem<ept id="cc151bad-e499-4a53-b260-ce304c51524a">&lt;/code&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="8466a8e2-b3d2-472f-aa93-fa514b4cf091" xml:space="preserve">
+          <source>The second parameter to <bpt id="140719f4-86b5-493c-a50d-aaf1de913122">&lt;code&gt;</bpt>pullWithQuery<ept id="140719f4-86b5-493c-a50d-aaf1de913122">&lt;/code&gt;</ept> is a query ID for <bpt id="54f801f3-813a-4418-a676-e275a8b2505b">&lt;em&gt;</bpt>incremental sync<ept id="54f801f3-813a-4418-a676-e275a8b2505b">&lt;/em&gt;</ept>.</source>
+          <target state="new">The second parameter to <bpt id="140719f4-86b5-493c-a50d-aaf1de913122">&lt;code&gt;</bpt>pullWithQuery<ept id="140719f4-86b5-493c-a50d-aaf1de913122">&lt;/code&gt;</ept> is a query ID for <bpt id="54f801f3-813a-4418-a676-e275a8b2505b">&lt;em&gt;</bpt>incremental sync<ept id="54f801f3-813a-4418-a676-e275a8b2505b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91ba5b61-ef7c-4e62-8399-e39effe44b76" xml:space="preserve">
+          <source>Incremental sync retrieves only those records modified since the last sync, using the record's <bpt id="73e22004-1f2a-4723-84ae-4c2a15f101a6">&lt;code&gt;</bpt>UpdatedAt<ept id="73e22004-1f2a-4723-84ae-4c2a15f101a6">&lt;/code&gt;</ept> timestamp, called <bpt id="c4478e81-daae-43db-a211-1fee10b9a484">&lt;code&gt;</bpt>ms_updatedAt<ept id="c4478e81-daae-43db-a211-1fee10b9a484">&lt;/code&gt;</ept> in the local store.</source>
+          <target state="new">Incremental sync retrieves only those records modified since the last sync, using the record's <bpt id="73e22004-1f2a-4723-84ae-4c2a15f101a6">&lt;code&gt;</bpt>UpdatedAt<ept id="73e22004-1f2a-4723-84ae-4c2a15f101a6">&lt;/code&gt;</ept> timestamp, called <bpt id="c4478e81-daae-43db-a211-1fee10b9a484">&lt;code&gt;</bpt>ms_updatedAt<ept id="c4478e81-daae-43db-a211-1fee10b9a484">&lt;/code&gt;</ept> in the local store.</target>
+        </trans-unit>
+        <trans-unit id="f17c702a-c446-448d-af99-18a3cd81fe73" xml:space="preserve">
+          <source>The query ID is descriptive string that is unique for each logical query in your app.</source>
+          <target state="new">The query ID is descriptive string that is unique for each logical query in your app.</target>
+        </trans-unit>
+        <trans-unit id="86ab63d1-783a-4829-9088-d758a8a3584d" xml:space="preserve">
+          <source>To opt-out of incremental sync, pass <bpt id="387cefa8-98ed-4fef-9a0f-2248725aba40">&lt;code&gt;</bpt>nil<ept id="387cefa8-98ed-4fef-9a0f-2248725aba40">&lt;/code&gt;</ept> as the query ID.</source>
+          <target state="new">To opt-out of incremental sync, pass <bpt id="387cefa8-98ed-4fef-9a0f-2248725aba40">&lt;code&gt;</bpt>nil<ept id="387cefa8-98ed-4fef-9a0f-2248725aba40">&lt;/code&gt;</ept> as the query ID.</target>
+        </trans-unit>
+        <trans-unit id="1b71453b-1c9a-453d-98be-ca7fa1063c5e" xml:space="preserve">
+          <source>This is inefficient since it will retrieve all records on every pull operation.</source>
+          <target state="new">This is inefficient since it will retrieve all records on every pull operation.</target>
+        </trans-unit>
+        <trans-unit id="f81ba7d3-2639-4bdd-938d-422b3431e2f2" xml:space="preserve">
+          <source>To remove records from the device local store when they have been deleted in your mobile service database, enable [Soft Delete].</source>
+          <target state="new">To remove records from the device local store when they have been deleted in your mobile service database, enable [Soft Delete].</target>
+        </trans-unit>
+        <trans-unit id="3f9b3471-cac4-42a7-933f-21162c7b8556" xml:space="preserve">
+          <source>Otherwise, your app should periodically call <bpt id="fc3d9415-9163-43f7-96df-69b522408272">&lt;code&gt;</bpt>MSSyncTable.purgeWithQuery<ept id="fc3d9415-9163-43f7-96df-69b522408272">&lt;/code&gt;</ept> to purge the local store.</source>
+          <target state="new">Otherwise, your app should periodically call <bpt id="fc3d9415-9163-43f7-96df-69b522408272">&lt;code&gt;</bpt>MSSyncTable.purgeWithQuery<ept id="fc3d9415-9163-43f7-96df-69b522408272">&lt;/code&gt;</ept> to purge the local store.</target>
+        </trans-unit>
+        <trans-unit id="0c962ca5-b260-4957-9804-fa7fd159cdef" xml:space="preserve">
+          <source>In <bpt id="67e279f1-4b4a-4e88-8b75-30228d60218d">&lt;strong&gt;</bpt>QSTodoService.m<ept id="67e279f1-4b4a-4e88-8b75-30228d60218d">&lt;/strong&gt;</ept>, the methods <bpt id="226a9dd8-472d-4a6c-a95b-901c124885de">&lt;code&gt;</bpt>addItem<ept id="226a9dd8-472d-4a6c-a95b-901c124885de">&lt;/code&gt;</ept> and <bpt id="c106d6df-5c8e-409d-8d47-dd8515ecb66a">&lt;code&gt;</bpt>completeItem<ept id="c106d6df-5c8e-409d-8d47-dd8515ecb66a">&lt;/code&gt;</ept> invoke <bpt id="9c469b6f-3b1d-484b-96d6-da42c039578d">&lt;code&gt;</bpt>syncData<ept id="9c469b6f-3b1d-484b-96d6-da42c039578d">&lt;/code&gt;</ept> after modifying data.</source>
+          <target state="new">In <bpt id="67e279f1-4b4a-4e88-8b75-30228d60218d">&lt;strong&gt;</bpt>QSTodoService.m<ept id="67e279f1-4b4a-4e88-8b75-30228d60218d">&lt;/strong&gt;</ept>, the methods <bpt id="226a9dd8-472d-4a6c-a95b-901c124885de">&lt;code&gt;</bpt>addItem<ept id="226a9dd8-472d-4a6c-a95b-901c124885de">&lt;/code&gt;</ept> and <bpt id="c106d6df-5c8e-409d-8d47-dd8515ecb66a">&lt;code&gt;</bpt>completeItem<ept id="c106d6df-5c8e-409d-8d47-dd8515ecb66a">&lt;/code&gt;</ept> invoke <bpt id="9c469b6f-3b1d-484b-96d6-da42c039578d">&lt;code&gt;</bpt>syncData<ept id="9c469b6f-3b1d-484b-96d6-da42c039578d">&lt;/code&gt;</ept> after modifying data.</target>
+        </trans-unit>
+        <trans-unit id="3425a36f-49cc-4411-88c1-d6e44bd50ab2" xml:space="preserve">
+          <source>In <bpt id="52450d0f-a5df-45c4-891b-559e693df08e">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="52450d0f-a5df-45c4-891b-559e693df08e">&lt;/strong&gt;</ept>, the method <bpt id="482dadfa-a010-4a3e-9106-5102ca574829">&lt;code&gt;</bpt>refresh<ept id="482dadfa-a010-4a3e-9106-5102ca574829">&lt;/code&gt;</ept> also invokes <bpt id="55edad40-95c3-47f4-97fd-4e77d71115ec">&lt;code&gt;</bpt>syncData<ept id="55edad40-95c3-47f4-97fd-4e77d71115ec">&lt;/code&gt;</ept> so that the UI displays the latest data on every refresh and at launch (<bpt id="5440e22c-d070-40b8-a7dd-b5699fece531">&lt;code&gt;</bpt>init<ept id="5440e22c-d070-40b8-a7dd-b5699fece531">&lt;/code&gt;</ept> calls <bpt id="54b0208b-1cfb-4483-a462-a789c5e1ce80">&lt;code&gt;</bpt>refresh<ept id="54b0208b-1cfb-4483-a462-a789c5e1ce80">&lt;/code&gt;</ept>.)</source>
+          <target state="new">In <bpt id="52450d0f-a5df-45c4-891b-559e693df08e">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="52450d0f-a5df-45c4-891b-559e693df08e">&lt;/strong&gt;</ept>, the method <bpt id="482dadfa-a010-4a3e-9106-5102ca574829">&lt;code&gt;</bpt>refresh<ept id="482dadfa-a010-4a3e-9106-5102ca574829">&lt;/code&gt;</ept> also invokes <bpt id="55edad40-95c3-47f4-97fd-4e77d71115ec">&lt;code&gt;</bpt>syncData<ept id="55edad40-95c3-47f4-97fd-4e77d71115ec">&lt;/code&gt;</ept> so that the UI displays the latest data on every refresh and at launch (<bpt id="5440e22c-d070-40b8-a7dd-b5699fece531">&lt;code&gt;</bpt>init<ept id="5440e22c-d070-40b8-a7dd-b5699fece531">&lt;/code&gt;</ept> calls <bpt id="54b0208b-1cfb-4483-a462-a789c5e1ce80">&lt;code&gt;</bpt>refresh<ept id="54b0208b-1cfb-4483-a462-a789c5e1ce80">&lt;/code&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="75f1ed59-a20f-4af0-85de-fae537308ed4" xml:space="preserve">
+          <source>Because the app calls <bpt id="53fcb642-020b-4f96-9244-45dacaaad778">&lt;code&gt;</bpt>syncData<ept id="53fcb642-020b-4f96-9244-45dacaaad778">&lt;/code&gt;</ept> whenever you modify data, the app assumes you are online whenever you edit data in the app.</source>
+          <target state="new">Because the app calls <bpt id="53fcb642-020b-4f96-9244-45dacaaad778">&lt;code&gt;</bpt>syncData<ept id="53fcb642-020b-4f96-9244-45dacaaad778">&lt;/code&gt;</ept> whenever you modify data, the app assumes you are online whenever you edit data in the app.</target>
+        </trans-unit>
+        <trans-unit id="4356583f-1279-43f1-bc13-ac438d6039d7" xml:space="preserve">
+          <source>When using the Core Data offline store, you need to define particular tables and fields in your data model.</source>
+          <target state="new">When using the Core Data offline store, you need to define particular tables and fields in your data model.</target>
+        </trans-unit>
+        <trans-unit id="bbf48234-cbc2-4800-9db3-0a7f04a2cd4b" xml:space="preserve">
+          <source>The sample app already includes a data model with the right format.</source>
+          <target state="new">The sample app already includes a data model with the right format.</target>
+        </trans-unit>
+        <trans-unit id="debad1c7-df37-483a-ba23-f2e00fcc35e3" xml:space="preserve">
+          <source>In this section we walk through these tables and how they are used.</source>
+          <target state="new">In this section we walk through these tables and how they are used.</target>
+        </trans-unit>
+        <trans-unit id="ef5f749b-fd3b-4a42-aba1-8e10e43efe87" xml:space="preserve">
+          <source>Open <bpt id="6cdc295a-b9f3-484e-81e7-d8122c4cabf0">&lt;strong&gt;</bpt>QSDataModel.xcdatamodeld<ept id="6cdc295a-b9f3-484e-81e7-d8122c4cabf0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="6cdc295a-b9f3-484e-81e7-d8122c4cabf0">&lt;strong&gt;</bpt>QSDataModel.xcdatamodeld<ept id="6cdc295a-b9f3-484e-81e7-d8122c4cabf0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fa44296-ee89-44ab-8eeb-f9f0cbd58c13" xml:space="preserve">
+          <source>There are four tables defined, three used by the SDK and one for the todo items themselves:</source>
+          <target state="new">There are four tables defined, three used by the SDK and one for the todo items themselves:</target>
+        </trans-unit>
+        <trans-unit id="6e64aed5-6a0e-4de7-aa9a-3edc2b58c6bf" xml:space="preserve">
+          <source>MS_TableOperations: For tracking items to be synchronized with server</source>
+          <target state="new">MS_TableOperations: For tracking items to be synchronized with server</target>
+        </trans-unit>
+        <trans-unit id="5aaa124d-c9d0-4cca-8138-54ed7149e4e3" xml:space="preserve">
+          <source>MS_TableOperationErrors: For tracking errors that happen during offline sync</source>
+          <target state="new">MS_TableOperationErrors: For tracking errors that happen during offline sync</target>
+        </trans-unit>
+        <trans-unit id="b393b042-91a0-447a-85f4-beaeab423f6c" xml:space="preserve">
+          <source>MS_TableConfig: For tracking last updated time for last sync operation for all pull operations</source>
+          <target state="new">MS_TableConfig: For tracking last updated time for last sync operation for all pull operations</target>
+        </trans-unit>
+        <trans-unit id="9bb8a563-6044-4d51-b607-fa5fe4b82702" xml:space="preserve">
+          <source>TodoItem: For storing todo items.</source>
+          <target state="new">TodoItem: For storing todo items.</target>
+        </trans-unit>
+        <trans-unit id="d9c00b36-bf37-406e-9efb-dd6e4a7558ab" xml:space="preserve">
+          <source>The system columns <bpt id="19bfe28e-ce23-4ee5-bea0-2d3e3e279132">&lt;strong&gt;</bpt>ms_createdAt<ept id="19bfe28e-ce23-4ee5-bea0-2d3e3e279132">&lt;/strong&gt;</ept>, <bpt id="10c32bf0-2903-40f5-9564-e6d8542277ef">&lt;strong&gt;</bpt>ms_updatedAt<ept id="10c32bf0-2903-40f5-9564-e6d8542277ef">&lt;/strong&gt;</ept>, and <bpt id="d7b3b410-e830-4f69-90ba-c5661cb0cf4c">&lt;strong&gt;</bpt>ms_version<ept id="d7b3b410-e830-4f69-90ba-c5661cb0cf4c">&lt;/strong&gt;</ept> are optional system properties.</source>
+          <target state="new">The system columns <bpt id="19bfe28e-ce23-4ee5-bea0-2d3e3e279132">&lt;strong&gt;</bpt>ms_createdAt<ept id="19bfe28e-ce23-4ee5-bea0-2d3e3e279132">&lt;/strong&gt;</ept>, <bpt id="10c32bf0-2903-40f5-9564-e6d8542277ef">&lt;strong&gt;</bpt>ms_updatedAt<ept id="10c32bf0-2903-40f5-9564-e6d8542277ef">&lt;/strong&gt;</ept>, and <bpt id="d7b3b410-e830-4f69-90ba-c5661cb0cf4c">&lt;strong&gt;</bpt>ms_version<ept id="d7b3b410-e830-4f69-90ba-c5661cb0cf4c">&lt;/strong&gt;</ept> are optional system properties.</target>
+        </trans-unit>
+        <trans-unit id="bad29d41-ac23-47b0-97d4-eff4434dc7ad" xml:space="preserve">
+          <source>The Mobile Services SDK reserves column names that begin with "**<bpt id="e88bf08b-964b-4fbc-bfbc-6cf3408dc9c9">&lt;code&gt;</bpt>ms_<ept id="e88bf08b-964b-4fbc-bfbc-6cf3408dc9c9">&lt;/code&gt;</ept>**".</source>
+          <target state="new">The Mobile Services SDK reserves column names that begin with "**<bpt id="e88bf08b-964b-4fbc-bfbc-6cf3408dc9c9">&lt;code&gt;</bpt>ms_<ept id="e88bf08b-964b-4fbc-bfbc-6cf3408dc9c9">&lt;/code&gt;</ept>**".</target>
+        </trans-unit>
+        <trans-unit id="5da5ba63-f2e8-427b-9e41-fe6e17c78285" xml:space="preserve">
+          <source>Do not use this prefix on anything other than system columns.</source>
+          <target state="new">Do not use this prefix on anything other than system columns.</target>
+        </trans-unit>
+        <trans-unit id="1f8e1c01-dcc4-4689-84d8-422bd037be10" xml:space="preserve">
+          <source>Otherwise, your column names will be modified when using the remote service.</source>
+          <target state="new">Otherwise, your column names will be modified when using the remote service.</target>
+        </trans-unit>
+        <trans-unit id="613c6179-e2a5-4fbc-873c-42e19d512b0d" xml:space="preserve">
+          <source>When using the offline sync feature, you must define the system tables as shown below.</source>
+          <target state="new">When using the offline sync feature, you must define the system tables as shown below.</target>
+        </trans-unit>
+        <trans-unit id="7c10c9ae-a788-47cc-a353-639869638d9c" xml:space="preserve">
+          <source>### System Tables</source>
+          <target state="new">### System Tables</target>
+        </trans-unit>
+        <trans-unit id="00fe91c9-5a98-47f0-b3a3-7c89b65bc703" xml:space="preserve">
+          <source>#### MS_TableOperations</source>
+          <target state="new">#### MS_TableOperations</target>
+        </trans-unit>
+        <trans-unit id="2ff09e94-2b02-4fcd-8149-6a6d50032b5f" xml:space="preserve">
+          <source>| Attribute     |    Type     |
+|-------------- |   ------    |
+| id (required) | Integer 64  |
+| itemId        | String      |
+| properties    | Binary Data |
+| table         | String      |
+| tableKind     | Integer 16  |</source>
+          <target state="new">| Attribute     |    Type     |
+|-------------- |   ------    |
+| id (required) | Integer 64  |
+| itemId        | String      |
+| properties    | Binary Data |
+| table         | String      |
+| tableKind     | Integer 16  |</target>
+        </trans-unit>
+        <trans-unit id="c30ee543-3aae-45f0-9617-c5debf95ed80" xml:space="preserve">
+          <source>#### MS_TableOperationErrors</source>
+          <target state="new">#### MS_TableOperationErrors</target>
+        </trans-unit>
+        <trans-unit id="b25b87fe-5e8b-4473-b699-73712e6eb145" xml:space="preserve">
+          <source>| Attribute     |    Type     |
+|-------------- | ----------  |
+| id (required) | String      |
+| operationId   | Integer 64  |
+| properties    | Binary Data |
+| tableKind     | Integer 16  |</source>
+          <target state="new">| Attribute     |    Type     |
+|-------------- | ----------  |
+| id (required) | String      |
+| operationId   | Integer 64  |
+| properties    | Binary Data |
+| tableKind     | Integer 16  |</target>
+        </trans-unit>
+        <trans-unit id="3c78c4fb-1093-46cc-9d8e-125bc9b70517" xml:space="preserve">
+          <source>#### MS_TableConfig</source>
+          <target state="new">#### MS_TableConfig</target>
+        </trans-unit>
+        <trans-unit id="4e2f97f4-f37c-4273-a026-7459378999cf" xml:space="preserve">
+          <source>| Attribute     |    Type     |
+|-------------- | ----------  |
+| id (required) | String      |
+| key           | String      |
+| keyType       | Integer 64  |
+| table         | String      |
+| value         | String      |</source>
+          <target state="new">| Attribute     |    Type     |
+|-------------- | ----------  |
+| id (required) | String      |
+| key           | String      |
+| keyType       | Integer 64  |
+| table         | String      |
+| value         | String      |</target>
+        </trans-unit>
+        <trans-unit id="2a59fa23-6e83-47ff-9e0b-b4545ae189a7" xml:space="preserve">
+          <source>### Data Table</source>
+          <target state="new">### Data Table</target>
+        </trans-unit>
+        <trans-unit id="4d102bf1-3be4-41da-ba9f-d8f9d1edb41d" xml:space="preserve">
+          <source>#### TodoItem</source>
+          <target state="new">#### TodoItem</target>
+        </trans-unit>
+        <trans-unit id="c60b4c31-4036-434d-b023-cc487483fa09" xml:space="preserve">
+          <source>| Attribute     |  Type   | Note                                                   | 
+|-------------- |  ------ | -------------------------------------------------------|
+| id (required) | String  | primary key in remote store (required)                 |
+| complete      | Boolean | todo item field                                        |
+| text          | String  | todo item field                                        |
+| ms<bpt id="6a366f98-e3ca-4c72-8b38-ee66023f740d">&lt;em&gt;</bpt>createdAt  | Date    | (optional) maps to _<ept id="6a366f98-e3ca-4c72-8b38-ee66023f740d">&lt;/em&gt;</ept>createdAt system property         |
+| ms<bpt id="16fa7709-47dc-4a2b-8ad8-532bc03e9dcc">&lt;em&gt;</bpt>updatedAt  | Date    | (optional) maps to _<ept id="16fa7709-47dc-4a2b-8ad8-532bc03e9dcc">&lt;/em&gt;</ept>updatedAt system property         |
+| ms<bpt id="2e786a45-8a8a-499c-92b3-6c13f2476cbe">&lt;em&gt;</bpt>version    | String  | (optional) used to detect conflicts, maps to _<ept id="2e786a45-8a8a-499c-92b3-6c13f2476cbe">&lt;/em&gt;</ept>version |</source>
+          <target state="new">| Attribute     |  Type   | Note                                                   | 
+|-------------- |  ------ | -------------------------------------------------------|
+| id (required) | String  | primary key in remote store (required)                 |
+| complete      | Boolean | todo item field                                        |
+| text          | String  | todo item field                                        |
+| ms<bpt id="6a366f98-e3ca-4c72-8b38-ee66023f740d">&lt;em&gt;</bpt>createdAt  | Date    | (optional) maps to _<ept id="6a366f98-e3ca-4c72-8b38-ee66023f740d">&lt;/em&gt;</ept>createdAt system property         |
+| ms<bpt id="16fa7709-47dc-4a2b-8ad8-532bc03e9dcc">&lt;em&gt;</bpt>updatedAt  | Date    | (optional) maps to _<ept id="16fa7709-47dc-4a2b-8ad8-532bc03e9dcc">&lt;/em&gt;</ept>updatedAt system property         |
+| ms<bpt id="2e786a45-8a8a-499c-92b3-6c13f2476cbe">&lt;em&gt;</bpt>version    | String  | (optional) used to detect conflicts, maps to _<ept id="2e786a45-8a8a-499c-92b3-6c13f2476cbe">&lt;/em&gt;</ept>version |</target>
+        </trans-unit>
+        <trans-unit id="521d85be-60c6-4549-af6c-fc286276d503" xml:space="preserve">
+          <source>In this section, you modify the app so that it does not sync on app start, or when inserting and updating items, but only when the refresh gesture  is performed.</source>
+          <target state="new">In this section, you modify the app so that it does not sync on app start, or when inserting and updating items, but only when the refresh gesture  is performed.</target>
+        </trans-unit>
+        <trans-unit id="d5453d58-e090-466f-a59a-9a2c72201a12" xml:space="preserve">
+          <source>In <bpt id="876b9d6f-7aaf-4e74-8cd3-6c2a71ca1ff1">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="876b9d6f-7aaf-4e74-8cd3-6c2a71ca1ff1">&lt;/strong&gt;</ept>, change <bpt id="25f2d1c4-a9a8-407a-b370-abc8429fc4a7">&lt;code&gt;</bpt>viewDidLoad<ept id="25f2d1c4-a9a8-407a-b370-abc8429fc4a7">&lt;/code&gt;</ept> to remove the call to <bpt id="d3472664-70df-4a41-86cc-6b4933b739e0">&lt;code&gt;</bpt>[self refresh]<ept id="d3472664-70df-4a41-86cc-6b4933b739e0">&lt;/code&gt;</ept> at the end of the method.</source>
+          <target state="new">In <bpt id="876b9d6f-7aaf-4e74-8cd3-6c2a71ca1ff1">&lt;strong&gt;</bpt>QSTodoListViewController.m<ept id="876b9d6f-7aaf-4e74-8cd3-6c2a71ca1ff1">&lt;/strong&gt;</ept>, change <bpt id="25f2d1c4-a9a8-407a-b370-abc8429fc4a7">&lt;code&gt;</bpt>viewDidLoad<ept id="25f2d1c4-a9a8-407a-b370-abc8429fc4a7">&lt;/code&gt;</ept> to remove the call to <bpt id="d3472664-70df-4a41-86cc-6b4933b739e0">&lt;code&gt;</bpt>[self refresh]<ept id="d3472664-70df-4a41-86cc-6b4933b739e0">&lt;/code&gt;</ept> at the end of the method.</target>
+        </trans-unit>
+        <trans-unit id="04cdce84-3959-452a-b11e-f0098a9353a2" xml:space="preserve">
+          <source>Now, the data will not be synced with the server on app start, but instead will be only stored locally.</source>
+          <target state="new">Now, the data will not be synced with the server on app start, but instead will be only stored locally.</target>
+        </trans-unit>
+        <trans-unit id="e242af80-635a-43ea-9499-7ebe4436f403" xml:space="preserve">
+          <source>In <bpt id="ec5b459c-4c45-4d96-9a25-04cacc17ff59">&lt;strong&gt;</bpt>QSTodoService.m<ept id="ec5b459c-4c45-4d96-9a25-04cacc17ff59">&lt;/strong&gt;</ept>, modify <bpt id="0a89d8fb-3ca3-443a-ab16-f7ae0d1214f6">&lt;code&gt;</bpt>addItem<ept id="0a89d8fb-3ca3-443a-ab16-f7ae0d1214f6">&lt;/code&gt;</ept> so that it doesn't sync after the item is inserted.</source>
+          <target state="new">In <bpt id="ec5b459c-4c45-4d96-9a25-04cacc17ff59">&lt;strong&gt;</bpt>QSTodoService.m<ept id="ec5b459c-4c45-4d96-9a25-04cacc17ff59">&lt;/strong&gt;</ept>, modify <bpt id="0a89d8fb-3ca3-443a-ab16-f7ae0d1214f6">&lt;code&gt;</bpt>addItem<ept id="0a89d8fb-3ca3-443a-ab16-f7ae0d1214f6">&lt;/code&gt;</ept> so that it doesn't sync after the item is inserted.</target>
+        </trans-unit>
+        <trans-unit id="16f03c61-0952-4f9a-9083-dd23d4b75b7b" xml:space="preserve">
+          <source>Remove the <bpt id="2ef7f263-9ba0-4301-a1b1-15c9d543bd2d">&lt;code&gt;</bpt>self syncData<ept id="2ef7f263-9ba0-4301-a1b1-15c9d543bd2d">&lt;/code&gt;</ept> block and replace it with the following:</source>
+          <target state="new">Remove the <bpt id="2ef7f263-9ba0-4301-a1b1-15c9d543bd2d">&lt;code&gt;</bpt>self syncData<ept id="2ef7f263-9ba0-4301-a1b1-15c9d543bd2d">&lt;/code&gt;</ept> block and replace it with the following:</target>
+        </trans-unit>
+        <trans-unit id="6ebe79c3-fcea-459a-a805-36da73421558" xml:space="preserve">
+          <source>Similarly, again in <bpt id="7f9672aa-c4f8-4e68-845b-1b93b48b2733">&lt;strong&gt;</bpt>QSTodoService.m<ept id="7f9672aa-c4f8-4e68-845b-1b93b48b2733">&lt;/strong&gt;</ept>, in <bpt id="7aef9890-48f2-47de-97e9-446fe8f24368">&lt;code&gt;</bpt>completeItem<ept id="7aef9890-48f2-47de-97e9-446fe8f24368">&lt;/code&gt;</ept>, remove the block for <bpt id="e6282d1f-d38e-4a36-9094-ffe7f813da84">&lt;code&gt;</bpt>self syncData<ept id="e6282d1f-d38e-4a36-9094-ffe7f813da84">&lt;/code&gt;</ept> and replace with the following:</source>
+          <target state="new">Similarly, again in <bpt id="7f9672aa-c4f8-4e68-845b-1b93b48b2733">&lt;strong&gt;</bpt>QSTodoService.m<ept id="7f9672aa-c4f8-4e68-845b-1b93b48b2733">&lt;/strong&gt;</ept>, in <bpt id="7aef9890-48f2-47de-97e9-446fe8f24368">&lt;code&gt;</bpt>completeItem<ept id="7aef9890-48f2-47de-97e9-446fe8f24368">&lt;/code&gt;</ept>, remove the block for <bpt id="e6282d1f-d38e-4a36-9094-ffe7f813da84">&lt;code&gt;</bpt>self syncData<ept id="e6282d1f-d38e-4a36-9094-ffe7f813da84">&lt;/code&gt;</ept> and replace with the following:</target>
+        </trans-unit>
+        <trans-unit id="80072809-df82-4359-9543-ff1e52483fb8" xml:space="preserve">
+          <source>In this section, you will turn of Wi-Fi in the simulator to create an offline scenario.</source>
+          <target state="new">In this section, you will turn of Wi-Fi in the simulator to create an offline scenario.</target>
+        </trans-unit>
+        <trans-unit id="6b34dd1b-06a5-4c02-a590-e84e89d6ced3" xml:space="preserve">
+          <source>When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.</source>
+          <target state="new">When you add data items, they will be held in the local Core Data store, but not synced to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="3963e75d-8282-45eb-b510-90c380570630" xml:space="preserve">
+          <source>Turn off the internet connection on your Mac.</source>
+          <target state="new">Turn off the internet connection on your Mac.</target>
+        </trans-unit>
+        <trans-unit id="19196867-4785-45a5-a35e-c7b8c15ff352" xml:space="preserve">
+          <source>Turning off WiFi in just iOS simulator may not have an effect, since the simulator may still use the host Mac's internet connection, so turn off internet for the computer itself.</source>
+          <target state="new">Turning off WiFi in just iOS simulator may not have an effect, since the simulator may still use the host Mac's internet connection, so turn off internet for the computer itself.</target>
+        </trans-unit>
+        <trans-unit id="e8be2351-3a63-481f-b140-4e153c7996f5" xml:space="preserve">
+          <source>This simulates an offline scenario.</source>
+          <target state="new">This simulates an offline scenario.</target>
+        </trans-unit>
+        <trans-unit id="3a537e7a-ece7-403e-8fbb-e5caf5490261" xml:space="preserve">
+          <source>Add some todo items or complete some items.</source>
+          <target state="new">Add some todo items or complete some items.</target>
+        </trans-unit>
+        <trans-unit id="59a71e6c-1aa7-4ec9-9e17-b21cd3941d40" xml:space="preserve">
+          <source>Quit the simulator (or forcibly close the app) and restart.</source>
+          <target state="new">Quit the simulator (or forcibly close the app) and restart.</target>
+        </trans-unit>
+        <trans-unit id="21a20f18-31ee-40b3-9af0-c4bdcacf1d9c" xml:space="preserve">
+          <source>Verify that your changes have been persisted.</source>
+          <target state="new">Verify that your changes have been persisted.</target>
+        </trans-unit>
+        <trans-unit id="3e87da52-46c7-4fa4-aceb-07c1b0f5b110" xml:space="preserve">
+          <source>Notice that the data items are still displayed because they are held in the local Core Data store.</source>
+          <target state="new">Notice that the data items are still displayed because they are held in the local Core Data store.</target>
+        </trans-unit>
+        <trans-unit id="d968c3c7-7ec1-48b2-89cc-776ba22d045f" xml:space="preserve">
+          <source>View the contents of the remote TodoItem table.</source>
+          <target state="new">View the contents of the remote TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="c7c28bba-76e5-4e48-a616-11be7487a6fd" xml:space="preserve">
+          <source>Verify that the new items have <bpt id="a58765ad-1991-498e-90d8-cd845f4e7761">&lt;em&gt;</bpt>not<ept id="a58765ad-1991-498e-90d8-cd845f4e7761">&lt;/em&gt;</ept> been synced to the server.</source>
+          <target state="new">Verify that the new items have <bpt id="a58765ad-1991-498e-90d8-cd845f4e7761">&lt;em&gt;</bpt>not<ept id="a58765ad-1991-498e-90d8-cd845f4e7761">&lt;/em&gt;</ept> been synced to the server.</target>
+        </trans-unit>
+        <trans-unit id="2de415b7-c6d7-4f02-80b3-d23e5ce54c7e" xml:space="preserve">
+          <source>For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the <bpt id="b10124f8-738e-4d19-80e1-b24e89fe3fdb">&lt;code&gt;</bpt>TodoItem<ept id="b10124f8-738e-4d19-80e1-b24e89fe3fdb">&lt;/code&gt;</ept> table.</source>
+          <target state="new">For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the <bpt id="b10124f8-738e-4d19-80e1-b24e89fe3fdb">&lt;code&gt;</bpt>TodoItem<ept id="b10124f8-738e-4d19-80e1-b24e89fe3fdb">&lt;/code&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="faba493a-efc8-4f4b-89d5-69687548385c" xml:space="preserve">
+          <source>For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.</source>
+          <target state="new">For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.</target>
+        </trans-unit>
+        <trans-unit id="5ba42104-c83f-4230-bd91-6fc98a138c04" xml:space="preserve">
+          <source>Turn on Wi-Fi in the iOS simulator.</source>
+          <target state="new">Turn on Wi-Fi in the iOS simulator.</target>
+        </trans-unit>
+        <trans-unit id="94898be0-0346-4260-9ff3-d38008a03a04" xml:space="preserve">
+          <source>Next, perform the refresh gesture by pulling down the list of items.</source>
+          <target state="new">Next, perform the refresh gesture by pulling down the list of items.</target>
+        </trans-unit>
+        <trans-unit id="63b08668-20d0-4092-a3d0-9091460cd3ba" xml:space="preserve">
+          <source>You will see a progress spinner and the text "Syncing...".</source>
+          <target state="new">You will see a progress spinner and the text "Syncing...".</target>
+        </trans-unit>
+        <trans-unit id="ecd3f36b-d4e6-475c-8133-e4feee8756b1" xml:space="preserve">
+          <source>View the TodoItem data again.</source>
+          <target state="new">View the TodoItem data again.</target>
+        </trans-unit>
+        <trans-unit id="bce3dbfa-2071-4587-9738-c298a7056160" xml:space="preserve">
+          <source>The new and changed TodoItems should now appear.</source>
+          <target state="new">The new and changed TodoItems should now appear.</target>
+        </trans-unit>
+        <trans-unit id="d6c07a48-c1ec-4763-ad35-d763f57efd0a" xml:space="preserve">
+          <source>In order to support the offline features of mobile services, you used the <bpt id="d975b058-0819-4f00-bcab-c17660814b01">&lt;code&gt;</bpt>MSSyncTable<ept id="d975b058-0819-4f00-bcab-c17660814b01">&lt;/code&gt;</ept> interface and initialized <bpt id="55c58e2f-6f7e-43e9-aceb-7781febcc8ae">&lt;code&gt;</bpt>MSClient.syncContext<ept id="55c58e2f-6f7e-43e9-aceb-7781febcc8ae">&lt;/code&gt;</ept> with a local store.</source>
+          <target state="new">In order to support the offline features of mobile services, you used the <bpt id="d975b058-0819-4f00-bcab-c17660814b01">&lt;code&gt;</bpt>MSSyncTable<ept id="d975b058-0819-4f00-bcab-c17660814b01">&lt;/code&gt;</ept> interface and initialized <bpt id="55c58e2f-6f7e-43e9-aceb-7781febcc8ae">&lt;code&gt;</bpt>MSClient.syncContext<ept id="55c58e2f-6f7e-43e9-aceb-7781febcc8ae">&lt;/code&gt;</ept> with a local store.</target>
+        </trans-unit>
+        <trans-unit id="68f1167b-38ed-4188-87f2-52b047fb9d31" xml:space="preserve">
+          <source>In this case the local store was a Core Data-based database.</source>
+          <target state="new">In this case the local store was a Core Data-based database.</target>
+        </trans-unit>
+        <trans-unit id="a354cc3d-194c-46ff-a8b6-d8fdc873b2ec" xml:space="preserve">
+          <source>When using a Core Data local store, you define several tables with the <bpt id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;linkText&gt;</bpt>correct system properties[review the core data model]<ept id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;/linkText&gt;</ept><bpt id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;title&gt;</bpt><ept id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;/title&gt;</ept>.</source>
+          <target state="new">When using a Core Data local store, you define several tables with the <bpt id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;linkText&gt;</bpt>correct system properties[review the core data model]<ept id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;/linkText&gt;</ept><bpt id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;title&gt;</bpt><ept id="c801b1fa-f8dd-43a4-b520-6ef7315941be">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d76061a-52b8-4330-bfb5-a50a1b8ee692" xml:space="preserve">
+          <source>The normal  operations for mobile services work as if the app is still connected but all the operations occur against the local store.</source>
+          <target state="new">The normal  operations for mobile services work as if the app is still connected but all the operations occur against the local store.</target>
+        </trans-unit>
+        <trans-unit id="eac455b0-ca90-4350-a9bd-a62e50cb407b" xml:space="preserve">
+          <source>To synchronize the local store with the server, you used <bpt id="2436547e-3b8a-4363-afe1-78d5ecd075a3">&lt;code&gt;</bpt>MSSyncTable.pullWithQuery<ept id="2436547e-3b8a-4363-afe1-78d5ecd075a3">&lt;/code&gt;</ept> and <bpt id="3c70c1eb-a8a8-4b51-8b38-03dbd9b2ad17">&lt;code&gt;</bpt>MSClient.syncContext.pushWithCompletion<ept id="3c70c1eb-a8a8-4b51-8b38-03dbd9b2ad17">&lt;/code&gt;</ept>:</source>
+          <target state="new">To synchronize the local store with the server, you used <bpt id="2436547e-3b8a-4363-afe1-78d5ecd075a3">&lt;code&gt;</bpt>MSSyncTable.pullWithQuery<ept id="2436547e-3b8a-4363-afe1-78d5ecd075a3">&lt;/code&gt;</ept> and <bpt id="3c70c1eb-a8a8-4b51-8b38-03dbd9b2ad17">&lt;code&gt;</bpt>MSClient.syncContext.pushWithCompletion<ept id="3c70c1eb-a8a8-4b51-8b38-03dbd9b2ad17">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0264ce88-09b0-433b-b4c2-8f6f86382010" xml:space="preserve">
+          <source>[Handling Conflicts with Offline Support for Mobile Services]</source>
+          <target state="new">[Handling Conflicts with Offline Support for Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="20d98da8-f3ef-48f0-ab49-24f25465db94" xml:space="preserve">
+          <source><bpt id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;linkText&gt;</bpt>Using Soft Delete in Mobile Services[soft delete]<ept id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;/linkText&gt;</ept><bpt id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;title&gt;</bpt><ept id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;linkText&gt;</bpt>Using Soft Delete in Mobile Services[soft delete]<ept id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;/linkText&gt;</ept><bpt id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;title&gt;</bpt><ept id="7a22eda3-e9aa-42c6-ae4b-5fa801e5768b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdea8da2-5fbf-4c9a-b730-e6b6c5fe7e94" xml:space="preserve">
+          <source>[Cloud Cover: Offline Sync in Azure Mobile Services]</source>
+          <target state="new">[Cloud Cover: Offline Sync in Azure Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="a8ff2040-97b9-4662-ba74-b94a68bb0aa8" xml:space="preserve">
+          <source>[Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)</source>
+          <target state="new">[Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)</target>
+        </trans-unit>
+        <trans-unit id="59b417fd-e5e8-4a76-b0ad-305e3fdab372" xml:space="preserve">
+          <source>#get-app</source>
+          <target state="new">#get-app</target>
+        </trans-unit>
+        <trans-unit id="6a82f674-5472-4544-9446-bdd54d069b6d" xml:space="preserve">
+          <source>#review-core-data</source>
+          <target state="new">#review-core-data</target>
+        </trans-unit>
+        <trans-unit id="75779fc5-bbd2-4cc3-875e-7c27eec3de56" xml:space="preserve">
+          <source>#review-sync</source>
+          <target state="new">#review-sync</target>
+        </trans-unit>
+        <trans-unit id="9c005450-c6f8-4366-951d-a3ff15521780" xml:space="preserve">
+          <source>#setup-sync</source>
+          <target state="new">#setup-sync</target>
+        </trans-unit>
+        <trans-unit id="e23a1ec7-f779-4a3c-b1a4-5459902dd983" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="f0cee8b6-ae98-43a4-9995-7607d6050948" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/core-data-1.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/core-data-1.png</target>
+        </trans-unit>
+        <trans-unit id="1a9d3a5f-b010-4081-bd6b-bd369d87e096" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/core-data-2.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/core-data-2.png</target>
+        </trans-unit>
+        <trans-unit id="c2ce2ceb-4ce5-45ca-ab1c-e9d32faf0e10" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/core-data-3.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/core-data-3.png</target>
+        </trans-unit>
+        <trans-unit id="c963c2b7-3902-4603-b234-900b10696892" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png</target>
+        </trans-unit>
+        <trans-unit id="5e73e3af-a44a-4217-bee4-526542f130a7" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png</target>
+        </trans-unit>
+        <trans-unit id="14142016-ce6f-4dbf-a3a2-5ba88659c229" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png</target>
+        </trans-unit>
+        <trans-unit id="b5da5b81-204b-4688-899c-bc29fc80edfa" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png</target>
+        </trans-unit>
+        <trans-unit id="e897fb93-1d3c-42e1-ab1c-2787bbc15613" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png</target>
+        </trans-unit>
+        <trans-unit id="58a515d4-35bb-49b5-933c-dffa8a87b81c" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png</target>
+        </trans-unit>
+        <trans-unit id="5c4be58a-2b9d-44e3-bdf2-2686081c84e9" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/update-framework-1.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/update-framework-1.png</target>
+        </trans-unit>
+        <trans-unit id="48048b97-ddaf-49b7-8b3f-8d9511f8a501" xml:space="preserve">
+          <source>./media/mobile-services-ios-get-started-offline-data/update-framework-2.png</source>
+          <target state="new">./media/mobile-services-ios-get-started-offline-data/update-framework-2.png</target>
+        </trans-unit>
+        <trans-unit id="649167f0-835a-4ef1-b5bb-3558a1b0384b" xml:space="preserve">
+          <source>https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html</source>
+          <target state="new">https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html</target>
+        </trans-unit>
+        <trans-unit id="f55ec0ad-f38b-4d8b-bb36-013cc82ea95e" xml:space="preserve">
+          <source>https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html</source>
+          <target state="new">https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html</target>
+        </trans-unit>
+        <trans-unit id="e830da0b-c6cd-4292-9552-ccdd2325e82f" xml:space="preserve">
+          <source>https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html</source>
+          <target state="new">https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html</target>
+        </trans-unit>
+        <trans-unit id="16c3ed9a-ada0-4352-a567-6b30c72d23a8" xml:space="preserve">
+          <source>https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1</source>
+          <target state="new">https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1</target>
+        </trans-unit>
+        <trans-unit id="cd8752f2-8235-403d-9ce6-db6be37acc5a" xml:space="preserve">
+          <source>https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html</source>
+          <target state="new">https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html</target>
+        </trans-unit>
+        <trans-unit id="a849468d-0c8d-4042-94df-17690de05d60" xml:space="preserve">
+          <source>https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html</source>
+          <target state="new">https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html</target>
+        </trans-unit>
+        <trans-unit id="53800bda-54ad-40d1-9742-a98254717621" xml:space="preserve">
+          <source>http://aka.ms/Gc6fex</source>
+          <target state="new">http://aka.ms/Gc6fex</target>
+        </trans-unit>
+        <trans-unit id="30138c73-8505-4757-ad8e-7144daa3d8e9" xml:space="preserve">
+          <source>mobile-services-ios-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-ios-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="572a8a76-b10d-457d-a13e-0d38e23dab59" xml:space="preserve">
+          <source>https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611</source>
+          <target state="new">https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611</target>
+        </trans-unit>
+        <trans-unit id="b7d2a9b7-3eb0-4b1e-bc22-b541e2996ecc" xml:space="preserve">
+          <source>https://github.com/Azure/mobile-services-samples</source>
+          <target state="new">https://github.com/Azure/mobile-services-samples</target>
+        </trans-unit>
+        <trans-unit id="e73d7510-6ccf-4eea-8e73-c3337505b487" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="d2accccd-605e-4d38-a243-f932d901eb7f" xml:space="preserve">
+          <source>mobile-services-ios-get-started-data.md</source>
+          <target state="new">mobile-services-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="3ccfa182-70f1-49c3-8c26-ca9576c46270" xml:space="preserve">
+          <source>mobile-services-ios-handling-conflicts-offline-data.md</source>
+          <target state="new">mobile-services-ios-handling-conflicts-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="27f358f7-54e9-4218-8fbe-0d6e3d4fc293" xml:space="preserve">
+          <source>mobile-services-using-soft-delete.md</source>
+          <target state="new">mobile-services-using-soft-delete.md</target>
+        </trans-unit>
+        <trans-unit id="76fc4134-d2aa-47bf-be0a-ad029b0328fb" xml:space="preserve">
+          <source>http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</source>
+          <target state="new">http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</target>
+        </trans-unit>
+        <trans-unit id="73037dfb-3e37-4dd8-b1fa-afb07159f041" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/</source>
+          <target state="new">http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/</target>
+        </trans-unit>
+        <trans-unit id="45c1bcce-1a28-493c-9d6f-bf5cf6a8bc4b" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="52a487e0-3231-45c4-a811-4ff306db8b5a" />
+    </body>
+  </file>
+</xliff>

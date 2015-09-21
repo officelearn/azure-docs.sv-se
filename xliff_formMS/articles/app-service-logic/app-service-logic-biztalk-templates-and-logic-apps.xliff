@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b421c9ee-8c9f-40ee-b7bc-6c0f1915cb5a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b421c9ee-8c9f-40ee-b7bc-6c0f1915cb5a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="91ae6656-2e12-44d8-bcff-ef9ad2d6302e">
+        <trans-unit id="55f3bdd7-c691-45f1-82b2-45ba992bdca7" xml:space="preserve">
+          <source>BizTalk templates and Logic Apps</source>
+          <target state="new">BizTalk templates and Logic Apps</target>
+        </trans-unit>
+        <trans-unit id="80842543-edd5-4fff-9375-8517b4e80f87" xml:space="preserve">
+          <source>Learn how to create APIs, operations, and products in API Management.</source>
+          <target state="new">Learn how to create APIs, operations, and products in API Management.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

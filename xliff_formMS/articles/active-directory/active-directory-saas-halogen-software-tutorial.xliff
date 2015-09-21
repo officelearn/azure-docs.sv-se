@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="312129a7-55dc-409e-ba97-acd3f9a5aaf2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="312129a7-55dc-409e-ba97-acd3f9a5aaf2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab466000-b252-4966-b2d2-15ddb2f2f1d7">
+        <trans-unit id="39316fcd-6335-4106-bc15-4c8d521507f5" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Halogen Software</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Halogen Software</target>
+        </trans-unit>
+        <trans-unit id="1c7ca537-a8ff-4804-96f9-5a90c5d192cc" xml:space="preserve">
+          <source>Learn how to configure single sign-on between Azure Active Directory and Halogen Software.</source>
+          <target state="new">Learn how to configure single sign-on between Azure Active Directory and Halogen Software.</target>
+        </trans-unit>
+        <trans-unit id="64e53207-e0a3-4661-8d8a-1814177bcddf" xml:space="preserve">
+          <source>The objective of this tutorial is to show you how to integrate Halogen Software with Azure Active Directory (Azure AD).&lt;br&gt;Integrating Halogen Software with Azure AD provides you with the following benefits: </source>
+          <target state="new">The objective of this tutorial is to show you how to integrate Halogen Software with Azure Active Directory (Azure AD).&lt;br&gt;Integrating Halogen Software with Azure AD provides you with the following benefits: </target>
+        </trans-unit>
+        <trans-unit id="cccf96de-e259-4dd7-8097-ed37201b9d6b" xml:space="preserve">
+          <source>You can control in Azure AD who has access to Halogen Software </source>
+          <target state="new">You can control in Azure AD who has access to Halogen Software </target>
+        </trans-unit>
+        <trans-unit id="5a3e2359-7d21-4565-9b0f-c858e03ed327" xml:space="preserve">
+          <source>You can enable your users to automatically get signed-on to Halogen Software (Single Sign-On) with their Azure AD accounts</source>
+          <target state="new">You can enable your users to automatically get signed-on to Halogen Software (Single Sign-On) with their Azure AD accounts</target>
+        </trans-unit>
+        <trans-unit id="48309705-3d62-4bdb-8a34-d6a4b8eb35a4" xml:space="preserve">
+          <source>You can manage your accounts in one central location - the Azure Active Directory Portal</source>
+          <target state="new">You can manage your accounts in one central location - the Azure Active Directory Portal</target>
+        </trans-unit>
+        <trans-unit id="76ee570c-1227-4245-a491-eaa34d207251" xml:space="preserve">
+          <source>If you want to know more details about SaaS app integration with Azure AD, see <bpt id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory<ept id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;/linkText&gt;</ept><bpt id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;title&gt;</bpt><ept id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to know more details about SaaS app integration with Azure AD, see <bpt id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory<ept id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;/linkText&gt;</ept><bpt id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;title&gt;</bpt><ept id="d783c03e-7294-4a09-8d76-5bea1a9cff86">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="442e350e-3893-40f3-8d45-2dee25d4d238" xml:space="preserve">
+          <source>To configure Azure AD integration with Halogen Software, you need the following items:</source>
+          <target state="new">To configure Azure AD integration with Halogen Software, you need the following items:</target>
+        </trans-unit>
+        <trans-unit id="f8475d43-289f-41cc-8a16-d5501e8431b3" xml:space="preserve">
+          <source>An Azure AD subscription</source>
+          <target state="new">An Azure AD subscription</target>
+        </trans-unit>
+        <trans-unit id="55d9c919-b91f-43c0-b48d-ae2e1387cc9b" xml:space="preserve">
+          <source>A Halogen Software single-sign on enabled subscription</source>
+          <target state="new">A Halogen Software single-sign on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="adf9ab6d-29b3-42ed-8d1f-8cd670da631c" xml:space="preserve">
+          <source>To test the steps in this tutorial, we do not recommend using a production environment.</source>
+          <target state="new">To test the steps in this tutorial, we do not recommend using a production environment.</target>
+        </trans-unit>
+        <trans-unit id="2ef582d1-4600-45b6-8c64-ab98a0e87e58" xml:space="preserve">
+          <source>To test the steps in this tutorial, you should follow these recommendations:</source>
+          <target state="new">To test the steps in this tutorial, you should follow these recommendations:</target>
+        </trans-unit>
+        <trans-unit id="0cf9e5d8-e939-40e7-ac48-0627c72a12a0" xml:space="preserve">
+          <source>You should not use your production environment, unless this is necessary.</source>
+          <target state="new">You should not use your production environment, unless this is necessary.</target>
+        </trans-unit>
+        <trans-unit id="bd30ed23-8041-4fb5-aae7-eb30dce8b4a1" xml:space="preserve">
+          <source>If you don't have an Azure AD trial environment, you can get a one-month trial <bpt id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;linkText&gt;</bpt>here<ept id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;/linkText&gt;</ept><bpt id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;title&gt;</bpt><ept id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure AD trial environment, you can get a one-month trial <bpt id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;linkText&gt;</bpt>here<ept id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;/linkText&gt;</ept><bpt id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;title&gt;</bpt><ept id="8b9e68f5-5233-4a67-a678-69884e810cc0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4679e88-7575-4d9f-8885-d5c532c909ca" xml:space="preserve">
+          <source>The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. &lt;br&gt;
+The scenario outlined in this tutorial consists of three main building blocks:</source>
+          <target state="new">The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. &lt;br&gt;
+The scenario outlined in this tutorial consists of three main building blocks:</target>
+        </trans-unit>
+        <trans-unit id="2ad16710-f9ab-4e58-a77d-032d78369b2f" xml:space="preserve">
+          <source>Adding Halogen Software from the gallery </source>
+          <target state="new">Adding Halogen Software from the gallery </target>
+        </trans-unit>
+        <trans-unit id="e8c50ec7-1afd-493d-894a-a76c033b0f4f" xml:space="preserve">
+          <source>Configuring and testing Azure AD single sign-on</source>
+          <target state="new">Configuring and testing Azure AD single sign-on</target>
+        </trans-unit>
+        <trans-unit id="59417c2e-1a73-470e-a893-5d8108c91bc4" xml:space="preserve">
+          <source>To configure the integration of Halogen Software into Azure AD, you need to add Halogen Software from the gallery to your list of managed SaaS apps.</source>
+          <target state="new">To configure the integration of Halogen Software into Azure AD, you need to add Halogen Software from the gallery to your list of managed SaaS apps.</target>
+        </trans-unit>
+        <trans-unit id="5e4a8548-939a-4d26-abc0-3e4aeefa3cf9" xml:space="preserve">
+          <source><bpt id="6e241b1c-c59d-45e6-a5a8-e2d00dcce6e9">&lt;strong&gt;</bpt>To add Halogen Software from the gallery, perform the following steps:<ept id="6e241b1c-c59d-45e6-a5a8-e2d00dcce6e9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6e241b1c-c59d-45e6-a5a8-e2d00dcce6e9">&lt;strong&gt;</bpt>To add Halogen Software from the gallery, perform the following steps:<ept id="6e241b1c-c59d-45e6-a5a8-e2d00dcce6e9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6027896-129a-461f-8bd8-9967172c2db7" xml:space="preserve">
+          <source>In the <bpt id="8db24fcd-6a2d-44b0-8283-95bcd824ce2e">&lt;strong&gt;</bpt>Azure Management Portal<ept id="8db24fcd-6a2d-44b0-8283-95bcd824ce2e">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="57d827ed-2fe6-4012-a5ae-a3099ca109d4">&lt;strong&gt;</bpt>Active Directory<ept id="57d827ed-2fe6-4012-a5ae-a3099ca109d4">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;
+<bpt id="a789572e-c1ca-4a99-8a23-34e33247d99a">&lt;linkText&gt;</bpt>Active Directory<ept id="a789572e-c1ca-4a99-8a23-34e33247d99a">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the <bpt id="8db24fcd-6a2d-44b0-8283-95bcd824ce2e">&lt;strong&gt;</bpt>Azure Management Portal<ept id="8db24fcd-6a2d-44b0-8283-95bcd824ce2e">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="57d827ed-2fe6-4012-a5ae-a3099ca109d4">&lt;strong&gt;</bpt>Active Directory<ept id="57d827ed-2fe6-4012-a5ae-a3099ca109d4">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;
+<bpt id="a789572e-c1ca-4a99-8a23-34e33247d99a">&lt;linkText&gt;</bpt>Active Directory<ept id="a789572e-c1ca-4a99-8a23-34e33247d99a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cee6ff97-7a18-47e4-a9b1-38dae5642367" xml:space="preserve">
+          <source>From the <bpt id="82be84a0-bfef-481c-8d5e-70c959d41ffb">&lt;strong&gt;</bpt>Directory<ept id="82be84a0-bfef-481c-8d5e-70c959d41ffb">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="82be84a0-bfef-481c-8d5e-70c959d41ffb">&lt;strong&gt;</bpt>Directory<ept id="82be84a0-bfef-481c-8d5e-70c959d41ffb">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="4b608e01-3236-494d-ba77-8db820080459" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="36cae78b-0775-4271-b761-617ba46e4053">&lt;strong&gt;</bpt>Applications<ept id="36cae78b-0775-4271-b761-617ba46e4053">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;&lt;br&gt;
+<bpt id="169a5d90-2719-4f2a-b5a9-8ce9f474b842">&lt;linkText&gt;</bpt>Applications<ept id="169a5d90-2719-4f2a-b5a9-8ce9f474b842">&lt;/linkText&gt;</ept></source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="36cae78b-0775-4271-b761-617ba46e4053">&lt;strong&gt;</bpt>Applications<ept id="36cae78b-0775-4271-b761-617ba46e4053">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;&lt;br&gt;
+<bpt id="169a5d90-2719-4f2a-b5a9-8ce9f474b842">&lt;linkText&gt;</bpt>Applications<ept id="169a5d90-2719-4f2a-b5a9-8ce9f474b842">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ed921fb-b34e-4528-a1f6-0984fa46662b" xml:space="preserve">
+          <source>Click <bpt id="1d13d3d3-3f94-4aa1-964c-09c6e1d1bb5b">&lt;strong&gt;</bpt>Add<ept id="1d13d3d3-3f94-4aa1-964c-09c6e1d1bb5b">&lt;/strong&gt;</ept> at the bottom of the page.&lt;br&gt;&lt;br&gt;
+<bpt id="0b4690e1-dcf4-4ce5-821f-2b85a3d7d51c">&lt;linkText&gt;</bpt>Applications<ept id="0b4690e1-dcf4-4ce5-821f-2b85a3d7d51c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="1d13d3d3-3f94-4aa1-964c-09c6e1d1bb5b">&lt;strong&gt;</bpt>Add<ept id="1d13d3d3-3f94-4aa1-964c-09c6e1d1bb5b">&lt;/strong&gt;</ept> at the bottom of the page.&lt;br&gt;&lt;br&gt;
+<bpt id="0b4690e1-dcf4-4ce5-821f-2b85a3d7d51c">&lt;linkText&gt;</bpt>Applications<ept id="0b4690e1-dcf4-4ce5-821f-2b85a3d7d51c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e877416f-b880-43ff-a3d4-5afe1721cc37" xml:space="preserve">
+          <source>On the <bpt id="07470935-9a93-43f5-9f0f-c34acfa1f72a">&lt;strong&gt;</bpt>What do you want to do<ept id="07470935-9a93-43f5-9f0f-c34acfa1f72a">&lt;/strong&gt;</ept> dialog, click <bpt id="2ad61b6f-0534-4e3e-b51a-6cc5c1d81b4e">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2ad61b6f-0534-4e3e-b51a-6cc5c1d81b4e">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="be5f0c93-57e9-4169-a398-d17cd99ea86e">&lt;linkText&gt;</bpt>Applications<ept id="be5f0c93-57e9-4169-a398-d17cd99ea86e">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="07470935-9a93-43f5-9f0f-c34acfa1f72a">&lt;strong&gt;</bpt>What do you want to do<ept id="07470935-9a93-43f5-9f0f-c34acfa1f72a">&lt;/strong&gt;</ept> dialog, click <bpt id="2ad61b6f-0534-4e3e-b51a-6cc5c1d81b4e">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2ad61b6f-0534-4e3e-b51a-6cc5c1d81b4e">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="be5f0c93-57e9-4169-a398-d17cd99ea86e">&lt;linkText&gt;</bpt>Applications<ept id="be5f0c93-57e9-4169-a398-d17cd99ea86e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="921c5f5f-8a6b-4f25-96b5-4146d12dbe04" xml:space="preserve">
+          <source>In the search box, type <bpt id="9ed29be3-2b80-4f68-a9cb-34f19ebc6465">&lt;strong&gt;</bpt>halogen software<ept id="9ed29be3-2b80-4f68-a9cb-34f19ebc6465">&lt;/strong&gt;</ept>.&lt;br&gt;
+<bpt id="d18ac6f4-6b1c-4ccb-abc2-8676b3f5fe98">&lt;linkText&gt;</bpt>Applications<ept id="d18ac6f4-6b1c-4ccb-abc2-8676b3f5fe98">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the search box, type <bpt id="9ed29be3-2b80-4f68-a9cb-34f19ebc6465">&lt;strong&gt;</bpt>halogen software<ept id="9ed29be3-2b80-4f68-a9cb-34f19ebc6465">&lt;/strong&gt;</ept>.&lt;br&gt;
+<bpt id="d18ac6f4-6b1c-4ccb-abc2-8676b3f5fe98">&lt;linkText&gt;</bpt>Applications<ept id="d18ac6f4-6b1c-4ccb-abc2-8676b3f5fe98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33192e3a-995d-4f74-85af-39358c028a97" xml:space="preserve">
+          <source>In the results pane, select <bpt id="74760bfa-85bc-4ddc-8766-8bbe544454a3">&lt;strong&gt;</bpt>Halogen Software<ept id="74760bfa-85bc-4ddc-8766-8bbe544454a3">&lt;/strong&gt;</ept>, and then click <bpt id="a48eb116-e8d7-4c87-9967-52c4ca3a979e">&lt;strong&gt;</bpt>Complete<ept id="a48eb116-e8d7-4c87-9967-52c4ca3a979e">&lt;/strong&gt;</ept> to add the application.&lt;br&gt;</source>
+          <target state="new">In the results pane, select <bpt id="74760bfa-85bc-4ddc-8766-8bbe544454a3">&lt;strong&gt;</bpt>Halogen Software<ept id="74760bfa-85bc-4ddc-8766-8bbe544454a3">&lt;/strong&gt;</ept>, and then click <bpt id="a48eb116-e8d7-4c87-9967-52c4ca3a979e">&lt;strong&gt;</bpt>Complete<ept id="a48eb116-e8d7-4c87-9967-52c4ca3a979e">&lt;/strong&gt;</ept> to add the application.&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="2e9460ee-27b9-48a2-83d6-803192d5e452" xml:space="preserve">
+          <source>The objective of this section is to show you how to configure and test Azure AD single sign-on with Halogen Software based on a test user called "Britta Simon".</source>
+          <target state="new">The objective of this section is to show you how to configure and test Azure AD single sign-on with Halogen Software based on a test user called "Britta Simon".</target>
+        </trans-unit>
+        <trans-unit id="a973a638-d472-459b-8a98-4b1e1103b789" xml:space="preserve">
+          <source>For single sign-on to work, Azure AD needs to know what the counterpart user in Halogen Software to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Halogen Software needs to be established.&lt;br&gt;
+This link relationship is established by assigning the value of the <bpt id="e4fb6185-4692-4988-9df6-d2d5fef74ca9">&lt;strong&gt;</bpt>user name<ept id="e4fb6185-4692-4988-9df6-d2d5fef74ca9">&lt;/strong&gt;</ept> in Azure AD as the value of the <bpt id="2b3866f3-8919-4318-a641-d67881fcb8bd">&lt;strong&gt;</bpt>Username<ept id="2b3866f3-8919-4318-a641-d67881fcb8bd">&lt;/strong&gt;</ept> in Halogen Software.</source>
+          <target state="new">For single sign-on to work, Azure AD needs to know what the counterpart user in Halogen Software to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Halogen Software needs to be established.&lt;br&gt;
+This link relationship is established by assigning the value of the <bpt id="e4fb6185-4692-4988-9df6-d2d5fef74ca9">&lt;strong&gt;</bpt>user name<ept id="e4fb6185-4692-4988-9df6-d2d5fef74ca9">&lt;/strong&gt;</ept> in Azure AD as the value of the <bpt id="2b3866f3-8919-4318-a641-d67881fcb8bd">&lt;strong&gt;</bpt>Username<ept id="2b3866f3-8919-4318-a641-d67881fcb8bd">&lt;/strong&gt;</ept> in Halogen Software.</target>
+        </trans-unit>
+        <trans-unit id="3c12363a-e150-4821-9def-1a9cbab39be8" xml:space="preserve">
+          <source>To configure and test Azure AD single sign-on with Halogen Software, you need to complete the following building blocks:</source>
+          <target state="new">To configure and test Azure AD single sign-on with Halogen Software, you need to complete the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="76975c6a-87e5-44ec-ad68-ce4c5ee2a873" xml:space="preserve">
+          <source><bpt id="a75350bd-ac1e-45b5-84a3-0eb8fbf60b0c">&lt;strong&gt;</bpt>[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)<ept id="a75350bd-ac1e-45b5-84a3-0eb8fbf60b0c">&lt;/strong&gt;</ept> - to enable your users to use this feature.</source>
+          <target state="new"><bpt id="a75350bd-ac1e-45b5-84a3-0eb8fbf60b0c">&lt;strong&gt;</bpt>[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)<ept id="a75350bd-ac1e-45b5-84a3-0eb8fbf60b0c">&lt;/strong&gt;</ept> - to enable your users to use this feature.</target>
+        </trans-unit>
+        <trans-unit id="82585494-3dbb-4290-8d52-99a1d050a00f" xml:space="preserve">
+          <source><bpt id="0cbb2a35-f867-4223-a5f6-cf77543b54d8">&lt;strong&gt;</bpt>[Creating an Azure AD test user](#creating-an-azure-ad-test-user)<ept id="0cbb2a35-f867-4223-a5f6-cf77543b54d8">&lt;/strong&gt;</ept> - to test Azure AD single sign-on with Britta Simon.</source>
+          <target state="new"><bpt id="0cbb2a35-f867-4223-a5f6-cf77543b54d8">&lt;strong&gt;</bpt>[Creating an Azure AD test user](#creating-an-azure-ad-test-user)<ept id="0cbb2a35-f867-4223-a5f6-cf77543b54d8">&lt;/strong&gt;</ept> - to test Azure AD single sign-on with Britta Simon.</target>
+        </trans-unit>
+        <trans-unit id="c6db2d03-bbad-4c47-b238-cad859261c45" xml:space="preserve">
+          <source><bpt id="cbb1d071-bd9f-4c52-89d7-e769b8460a22">&lt;strong&gt;</bpt>[Creating a Halogen Software test user](#creating-a-halogen-software-test-user)<ept id="cbb1d071-bd9f-4c52-89d7-e769b8460a22">&lt;/strong&gt;</ept> - to have a counterpart of Britta Simon in Halogen Software that is linked to the Azure AD representation of her.</source>
+          <target state="new"><bpt id="cbb1d071-bd9f-4c52-89d7-e769b8460a22">&lt;strong&gt;</bpt>[Creating a Halogen Software test user](#creating-a-halogen-software-test-user)<ept id="cbb1d071-bd9f-4c52-89d7-e769b8460a22">&lt;/strong&gt;</ept> - to have a counterpart of Britta Simon in Halogen Software that is linked to the Azure AD representation of her.</target>
+        </trans-unit>
+        <trans-unit id="81701fb0-5cb4-490d-b408-e20728fb63ba" xml:space="preserve">
+          <source><bpt id="f521f3ac-3630-4d36-81fe-f8ec3cf208bc">&lt;strong&gt;</bpt>[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)<ept id="f521f3ac-3630-4d36-81fe-f8ec3cf208bc">&lt;/strong&gt;</ept> - to enable Britta Simon to use Azure AD single sign-on.</source>
+          <target state="new"><bpt id="f521f3ac-3630-4d36-81fe-f8ec3cf208bc">&lt;strong&gt;</bpt>[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)<ept id="f521f3ac-3630-4d36-81fe-f8ec3cf208bc">&lt;/strong&gt;</ept> - to enable Britta Simon to use Azure AD single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="e1d41305-e40f-4a6d-ae8a-411c5d6e45dd" xml:space="preserve">
+          <source><bpt id="b1611b79-41ec-4890-8e57-932adaade65f">&lt;strong&gt;</bpt>[Testing Single Sign-On](#testing-single-sign-on)<ept id="b1611b79-41ec-4890-8e57-932adaade65f">&lt;/strong&gt;</ept> - to verify whether the configuration works.</source>
+          <target state="new"><bpt id="b1611b79-41ec-4890-8e57-932adaade65f">&lt;strong&gt;</bpt>[Testing Single Sign-On](#testing-single-sign-on)<ept id="b1611b79-41ec-4890-8e57-932adaade65f">&lt;/strong&gt;</ept> - to verify whether the configuration works.</target>
+        </trans-unit>
+        <trans-unit id="c1d52887-fef9-43d4-9d93-685112da2e32" xml:space="preserve">
+          <source>The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Halogen Software application.&lt;br&gt;</source>
+          <target state="new">The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Halogen Software application.&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="7abec9bd-b620-472d-89a9-22696dc2a9cd" xml:space="preserve">
+          <source><bpt id="d66509a4-a48c-46f0-8f6e-c153299ee3b9">&lt;strong&gt;</bpt>To configure Azure AD single sign-on with Halogen Software, perform the following steps:<ept id="d66509a4-a48c-46f0-8f6e-c153299ee3b9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d66509a4-a48c-46f0-8f6e-c153299ee3b9">&lt;strong&gt;</bpt>To configure Azure AD single sign-on with Halogen Software, perform the following steps:<ept id="d66509a4-a48c-46f0-8f6e-c153299ee3b9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f16a60a9-ea2b-4d46-83d6-4b01c86d64f5" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="fdd9e0b7-5c20-46cb-afc4-2a80c610975a">&lt;strong&gt;</bpt>Halogen Software<ept id="fdd9e0b7-5c20-46cb-afc4-2a80c610975a">&lt;/strong&gt;</ept> application integration page, click <bpt id="3b115be2-e49e-437e-b572-229fcf984ec6">&lt;strong&gt;</bpt>Configure single sign-on<ept id="3b115be2-e49e-437e-b572-229fcf984ec6">&lt;/strong&gt;</ept> to open the <bpt id="4c65817c-e26e-442f-922a-6a5486818f62">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="4c65817c-e26e-442f-922a-6a5486818f62">&lt;/strong&gt;</ept>  dialog.&lt;br&gt;&lt;br&gt;
+<bpt id="c4138776-ca76-43fb-af95-0d01437c2219">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c4138776-ca76-43fb-af95-0d01437c2219">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Azure AD portal, on the <bpt id="fdd9e0b7-5c20-46cb-afc4-2a80c610975a">&lt;strong&gt;</bpt>Halogen Software<ept id="fdd9e0b7-5c20-46cb-afc4-2a80c610975a">&lt;/strong&gt;</ept> application integration page, click <bpt id="3b115be2-e49e-437e-b572-229fcf984ec6">&lt;strong&gt;</bpt>Configure single sign-on<ept id="3b115be2-e49e-437e-b572-229fcf984ec6">&lt;/strong&gt;</ept> to open the <bpt id="4c65817c-e26e-442f-922a-6a5486818f62">&lt;strong&gt;</bpt>Configure Single Sign-On<ept id="4c65817c-e26e-442f-922a-6a5486818f62">&lt;/strong&gt;</ept>  dialog.&lt;br&gt;&lt;br&gt;
+<bpt id="c4138776-ca76-43fb-af95-0d01437c2219">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="c4138776-ca76-43fb-af95-0d01437c2219">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5510fe43-d1ad-4db7-ac27-d773d936b59a" xml:space="preserve">
+          <source>On the <bpt id="261cd434-78a9-4320-9ef8-46d6cfdab550">&lt;strong&gt;</bpt>How would you like users to sign on to Halogen Software<ept id="261cd434-78a9-4320-9ef8-46d6cfdab550">&lt;/strong&gt;</ept> page, select <bpt id="92d458dd-d805-44ca-bcab-2dd4b3728dd8">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="92d458dd-d805-44ca-bcab-2dd4b3728dd8">&lt;/strong&gt;</ept>, and then click <bpt id="d4999491-a930-4800-ae75-6969cb232a20">&lt;strong&gt;</bpt>Next<ept id="d4999491-a930-4800-ae75-6969cb232a20">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="c114415e-474a-4f5b-949f-f2d0f4ac7ddd">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="c114415e-474a-4f5b-949f-f2d0f4ac7ddd">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="261cd434-78a9-4320-9ef8-46d6cfdab550">&lt;strong&gt;</bpt>How would you like users to sign on to Halogen Software<ept id="261cd434-78a9-4320-9ef8-46d6cfdab550">&lt;/strong&gt;</ept> page, select <bpt id="92d458dd-d805-44ca-bcab-2dd4b3728dd8">&lt;strong&gt;</bpt>Azure AD Single Sign-On<ept id="92d458dd-d805-44ca-bcab-2dd4b3728dd8">&lt;/strong&gt;</ept>, and then click <bpt id="d4999491-a930-4800-ae75-6969cb232a20">&lt;strong&gt;</bpt>Next<ept id="d4999491-a930-4800-ae75-6969cb232a20">&lt;/strong&gt;</ept>.&lt;br&gt;&lt;br&gt;
+<bpt id="c114415e-474a-4f5b-949f-f2d0f4ac7ddd">&lt;linkText&gt;</bpt>Azure AD Single Sign-On<ept id="c114415e-474a-4f5b-949f-f2d0f4ac7ddd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb540de7-fa66-4a19-9425-d7f43fb3dead" xml:space="preserve">
+          <source>On the <bpt id="da2f43df-4265-4662-8f92-b68d45ebdeee">&lt;strong&gt;</bpt>Configure App Settings<ept id="da2f43df-4265-4662-8f92-b68d45ebdeee">&lt;/strong&gt;</ept> dialog page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="81b36d38-8f86-47f1-91e7-d963bc763b02">&lt;linkText&gt;</bpt>Configure App Settings<ept id="81b36d38-8f86-47f1-91e7-d963bc763b02">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="da2f43df-4265-4662-8f92-b68d45ebdeee">&lt;strong&gt;</bpt>Configure App Settings<ept id="da2f43df-4265-4662-8f92-b68d45ebdeee">&lt;/strong&gt;</ept> dialog page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="81b36d38-8f86-47f1-91e7-d963bc763b02">&lt;linkText&gt;</bpt>Configure App Settings<ept id="81b36d38-8f86-47f1-91e7-d963bc763b02">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42b819d0-8d1e-435d-9dfd-04cb23310d9c" xml:space="preserve">
+          <source> 3.1 in the <bpt id="f2c53e8d-0638-4d5f-a2f1-3db0a8ab05e1">&lt;strong&gt;</bpt>Sign On URL<ept id="f2c53e8d-0638-4d5f-a2f1-3db0a8ab05e1">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your Halogen Software application using the following pattern: <bpt id="84901558-72ea-46fe-bedd-aca6fab599ba">&lt;em&gt;</bpt>https://global.hgncloud.com/fabrikam/welcome.jsp<ept id="84901558-72ea-46fe-bedd-aca6fab599ba">&lt;/em&gt;</ept></source>
+          <target state="new"> 3.1 in the <bpt id="f2c53e8d-0638-4d5f-a2f1-3db0a8ab05e1">&lt;strong&gt;</bpt>Sign On URL<ept id="f2c53e8d-0638-4d5f-a2f1-3db0a8ab05e1">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your Halogen Software application using the following pattern: <bpt id="84901558-72ea-46fe-bedd-aca6fab599ba">&lt;em&gt;</bpt>https://global.hgncloud.com/fabrikam/welcome.jsp<ept id="84901558-72ea-46fe-bedd-aca6fab599ba">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe5794d2-c87c-4148-b2de-2430209421a0" xml:space="preserve">
+          <source>3.2.</source>
+          <target state="new">3.2.</target>
+        </trans-unit>
+        <trans-unit id="5014843b-7dbf-4534-be0c-799b0917b7dd" xml:space="preserve">
+          <source>Click <bpt id="95bf99b6-4b4c-48ed-84c8-3d8390f5b977">&lt;strong&gt;</bpt>Next<ept id="95bf99b6-4b4c-48ed-84c8-3d8390f5b977">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="95bf99b6-4b4c-48ed-84c8-3d8390f5b977">&lt;strong&gt;</bpt>Next<ept id="95bf99b6-4b4c-48ed-84c8-3d8390f5b977">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9253ce82-c6d6-4b9b-8e9b-a72b657a567e" xml:space="preserve">
+          <source>On the <bpt id="6f49ed26-5fd2-4f4b-a864-9d44a1395978">&lt;strong&gt;</bpt>Configure single sign-on at Halogen Software<ept id="6f49ed26-5fd2-4f4b-a864-9d44a1395978">&lt;/strong&gt;</ept> page, click <bpt id="1efe6795-fc26-4105-b74d-b09efe597f9d">&lt;strong&gt;</bpt>Download metadata<ept id="1efe6795-fc26-4105-b74d-b09efe597f9d">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.&lt;br&gt;&lt;br&gt;<bpt id="09cd70d7-46a1-4556-a8e1-0f759820eb81">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="09cd70d7-46a1-4556-a8e1-0f759820eb81">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="6f49ed26-5fd2-4f4b-a864-9d44a1395978">&lt;strong&gt;</bpt>Configure single sign-on at Halogen Software<ept id="6f49ed26-5fd2-4f4b-a864-9d44a1395978">&lt;/strong&gt;</ept> page, click <bpt id="1efe6795-fc26-4105-b74d-b09efe597f9d">&lt;strong&gt;</bpt>Download metadata<ept id="1efe6795-fc26-4105-b74d-b09efe597f9d">&lt;/strong&gt;</ept>, and then save the metadata file locally on your computer.&lt;br&gt;&lt;br&gt;<bpt id="09cd70d7-46a1-4556-a8e1-0f759820eb81">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="09cd70d7-46a1-4556-a8e1-0f759820eb81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2881c20d-27dc-44b3-8566-f3809b175b9b" xml:space="preserve">
+          <source>In a different browser window, sign-on to your <bpt id="b0c341da-1d23-4ee8-9bb6-48d74e64a17d">&lt;strong&gt;</bpt>Halogen Software<ept id="b0c341da-1d23-4ee8-9bb6-48d74e64a17d">&lt;/strong&gt;</ept> application as an administrator.</source>
+          <target state="new">In a different browser window, sign-on to your <bpt id="b0c341da-1d23-4ee8-9bb6-48d74e64a17d">&lt;strong&gt;</bpt>Halogen Software<ept id="b0c341da-1d23-4ee8-9bb6-48d74e64a17d">&lt;/strong&gt;</ept> application as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="63c7fd76-626a-41c9-8689-71d3f81d493d" xml:space="preserve">
+          <source>Click the <bpt id="10f9d91a-27cf-4ce3-8268-f263766db2f6">&lt;strong&gt;</bpt>Options<ept id="10f9d91a-27cf-4ce3-8268-f263766db2f6">&lt;/strong&gt;</ept> tab. &lt;br&gt;&lt;br&gt;<bpt id="1264ef7c-8c71-45d9-a621-2241c7751468">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1264ef7c-8c71-45d9-a621-2241c7751468">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click the <bpt id="10f9d91a-27cf-4ce3-8268-f263766db2f6">&lt;strong&gt;</bpt>Options<ept id="10f9d91a-27cf-4ce3-8268-f263766db2f6">&lt;/strong&gt;</ept> tab. &lt;br&gt;&lt;br&gt;<bpt id="1264ef7c-8c71-45d9-a621-2241c7751468">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1264ef7c-8c71-45d9-a621-2241c7751468">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0044024b-4c87-4b04-8e07-90b36c3d776c" xml:space="preserve">
+          <source>In the left navigation pane, click <bpt id="738c9f5a-f0c6-4191-abe9-b35f400ee5ad">&lt;strong&gt;</bpt>SAML Configuration<ept id="738c9f5a-f0c6-4191-abe9-b35f400ee5ad">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="eb8b3c73-db97-491c-9a09-f012efbe27d2">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="eb8b3c73-db97-491c-9a09-f012efbe27d2">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the left navigation pane, click <bpt id="738c9f5a-f0c6-4191-abe9-b35f400ee5ad">&lt;strong&gt;</bpt>SAML Configuration<ept id="738c9f5a-f0c6-4191-abe9-b35f400ee5ad">&lt;/strong&gt;</ept>. &lt;br&gt;&lt;br&gt;<bpt id="eb8b3c73-db97-491c-9a09-f012efbe27d2">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="eb8b3c73-db97-491c-9a09-f012efbe27d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e51e6dc8-8e0d-407f-b1f0-0099f9ec9174" xml:space="preserve">
+          <source>On the <bpt id="8b6e6446-795a-4cc7-8934-61fb36a387c2">&lt;strong&gt;</bpt>SAML Configuration<ept id="8b6e6446-795a-4cc7-8934-61fb36a387c2">&lt;/strong&gt;</ept> page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="009454c7-1b1e-491b-9d86-4e7b467279e9">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="009454c7-1b1e-491b-9d86-4e7b467279e9">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="8b6e6446-795a-4cc7-8934-61fb36a387c2">&lt;strong&gt;</bpt>SAML Configuration<ept id="8b6e6446-795a-4cc7-8934-61fb36a387c2">&lt;/strong&gt;</ept> page, perform the following steps: &lt;br&gt;&lt;br&gt;<bpt id="009454c7-1b1e-491b-9d86-4e7b467279e9">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="009454c7-1b1e-491b-9d86-4e7b467279e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e6a2b8-4ec7-4b2d-9a42-bb011d3ac06a" xml:space="preserve">
+          <source>8.1.</source>
+          <target state="new">8.1.</target>
+        </trans-unit>
+        <trans-unit id="8741428b-adb5-46f9-b0e4-01db4d154df2" xml:space="preserve">
+          <source>As <bpt id="ea82dae5-ea78-44f2-bbc2-99f2a6e632ae">&lt;strong&gt;</bpt>Unique Identifier<ept id="ea82dae5-ea78-44f2-bbc2-99f2a6e632ae">&lt;/strong&gt;</ept>, select <bpt id="2baa55a0-e3a8-47f1-b442-f402142e23bc">&lt;strong&gt;</bpt>NameID<ept id="2baa55a0-e3a8-47f1-b442-f402142e23bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="ea82dae5-ea78-44f2-bbc2-99f2a6e632ae">&lt;strong&gt;</bpt>Unique Identifier<ept id="ea82dae5-ea78-44f2-bbc2-99f2a6e632ae">&lt;/strong&gt;</ept>, select <bpt id="2baa55a0-e3a8-47f1-b442-f402142e23bc">&lt;strong&gt;</bpt>NameID<ept id="2baa55a0-e3a8-47f1-b442-f402142e23bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e254051-719d-493a-80d8-1a6a821979e8" xml:space="preserve">
+          <source>8.2.</source>
+          <target state="new">8.2.</target>
+        </trans-unit>
+        <trans-unit id="2b172730-eded-4d62-a09b-81b4c108102d" xml:space="preserve">
+          <source>As <bpt id="2f0f4c2a-c5e1-4b1e-803f-a2a786d6e1d2">&lt;strong&gt;</bpt>Unique Identifier Maps To<ept id="2f0f4c2a-c5e1-4b1e-803f-a2a786d6e1d2">&lt;/strong&gt;</ept>, select <bpt id="f8ffb35e-fb51-4a84-810c-93a3d312ce23">&lt;strong&gt;</bpt>Username<ept id="f8ffb35e-fb51-4a84-810c-93a3d312ce23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="2f0f4c2a-c5e1-4b1e-803f-a2a786d6e1d2">&lt;strong&gt;</bpt>Unique Identifier Maps To<ept id="2f0f4c2a-c5e1-4b1e-803f-a2a786d6e1d2">&lt;/strong&gt;</ept>, select <bpt id="f8ffb35e-fb51-4a84-810c-93a3d312ce23">&lt;strong&gt;</bpt>Username<ept id="f8ffb35e-fb51-4a84-810c-93a3d312ce23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cedb63c-c925-4055-a645-a1e9e36cf7bc" xml:space="preserve">
+          <source>8.3.</source>
+          <target state="new">8.3.</target>
+        </trans-unit>
+        <trans-unit id="85bfa7d5-e67d-49d8-a77c-911ccf546a78" xml:space="preserve">
+          <source>To upload your downloaded metadata file, click <bpt id="b7148fc3-90b3-4489-915e-f3b279fa0fa7">&lt;strong&gt;</bpt>Browse<ept id="b7148fc3-90b3-4489-915e-f3b279fa0fa7">&lt;/strong&gt;</ept> to select the file, and then <bpt id="3ce6fc6d-0d99-4ad3-becc-192b571870a2">&lt;strong&gt;</bpt>Upload File<ept id="3ce6fc6d-0d99-4ad3-becc-192b571870a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your downloaded metadata file, click <bpt id="b7148fc3-90b3-4489-915e-f3b279fa0fa7">&lt;strong&gt;</bpt>Browse<ept id="b7148fc3-90b3-4489-915e-f3b279fa0fa7">&lt;/strong&gt;</ept> to select the file, and then <bpt id="3ce6fc6d-0d99-4ad3-becc-192b571870a2">&lt;strong&gt;</bpt>Upload File<ept id="3ce6fc6d-0d99-4ad3-becc-192b571870a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd369d7e-1bb3-408f-a374-07c7da474d68" xml:space="preserve">
+          <source> 8.4. To test the configuration, click <bpt id="cb2eab75-0ad2-402e-ab8f-1d998f64e78b">&lt;strong&gt;</bpt>Run Test<ept id="cb2eab75-0ad2-402e-ab8f-1d998f64e78b">&lt;/strong&gt;</ept>. &gt; [AZURE.NOTE] You need to wait for the message "<bpt id="cbf4585c-d8e3-4879-88f1-bd6de17505a8">&lt;em&gt;</bpt>The SAML test is complete. Please close this window<ept id="cbf4585c-d8e3-4879-88f1-bd6de17505a8">&lt;/em&gt;</ept>". Then, close the opened browser window. &lt;br&gt; The <bpt id="bcd717f8-8bad-44ec-8c85-5a003fb4db4a">&lt;strong&gt;</bpt>Enable SAML<ept id="bcd717f8-8bad-44ec-8c85-5a003fb4db4a">&lt;/strong&gt;</ept> checkbox is only enabled if the test has been completed.</source>
+          <target state="new"> 8.4. To test the configuration, click <bpt id="cb2eab75-0ad2-402e-ab8f-1d998f64e78b">&lt;strong&gt;</bpt>Run Test<ept id="cb2eab75-0ad2-402e-ab8f-1d998f64e78b">&lt;/strong&gt;</ept>. &gt; [AZURE.NOTE] You need to wait for the message "<bpt id="cbf4585c-d8e3-4879-88f1-bd6de17505a8">&lt;em&gt;</bpt>The SAML test is complete. Please close this window<ept id="cbf4585c-d8e3-4879-88f1-bd6de17505a8">&lt;/em&gt;</ept>". Then, close the opened browser window. &lt;br&gt; The <bpt id="bcd717f8-8bad-44ec-8c85-5a003fb4db4a">&lt;strong&gt;</bpt>Enable SAML<ept id="bcd717f8-8bad-44ec-8c85-5a003fb4db4a">&lt;/strong&gt;</ept> checkbox is only enabled if the test has been completed.</target>
+        </trans-unit>
+        <trans-unit id="1beb84d1-206f-4d53-8e67-4efdc656d545" xml:space="preserve">
+          <source>8.5.</source>
+          <target state="new">8.5.</target>
+        </trans-unit>
+        <trans-unit id="d5f14d45-6482-4865-9991-92bac1ad8214" xml:space="preserve">
+          <source>Select <bpt id="1e0ac60a-1e9b-4c88-a3d8-e9cb9d23512f">&lt;strong&gt;</bpt>Enable SAML<ept id="1e0ac60a-1e9b-4c88-a3d8-e9cb9d23512f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1e0ac60a-1e9b-4c88-a3d8-e9cb9d23512f">&lt;strong&gt;</bpt>Enable SAML<ept id="1e0ac60a-1e9b-4c88-a3d8-e9cb9d23512f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3914e51-73a1-4901-91e3-dbbf130d9b0d" xml:space="preserve">
+          <source>8.6.</source>
+          <target state="new">8.6.</target>
+        </trans-unit>
+        <trans-unit id="2c57570f-b12d-4de6-9260-f859b18575b6" xml:space="preserve">
+          <source>Click <bpt id="1948d1de-fdaa-446a-9b61-5ca92718562c">&lt;strong&gt;</bpt>Save Changes<ept id="1948d1de-fdaa-446a-9b61-5ca92718562c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1948d1de-fdaa-446a-9b61-5ca92718562c">&lt;strong&gt;</bpt>Save Changes<ept id="1948d1de-fdaa-446a-9b61-5ca92718562c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6358bb6b-3d58-4a4a-8bf4-53fe461fb48e" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="105e8c3d-2cd4-44dc-b068-845cd9212844">&lt;strong&gt;</bpt>Complete<ept id="105e8c3d-2cd4-44dc-b068-845cd9212844">&lt;/strong&gt;</ept> to close the <bpt id="313361b2-127f-468f-ae79-23dc5c0be8e7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="313361b2-127f-468f-ae79-23dc5c0be8e7">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;<bpt id="241cd2f2-7500-4db9-8e90-77b2c58e511e">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="241cd2f2-7500-4db9-8e90-77b2c58e511e">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="105e8c3d-2cd4-44dc-b068-845cd9212844">&lt;strong&gt;</bpt>Complete<ept id="105e8c3d-2cd4-44dc-b068-845cd9212844">&lt;/strong&gt;</ept> to close the <bpt id="313361b2-127f-468f-ae79-23dc5c0be8e7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="313361b2-127f-468f-ae79-23dc5c0be8e7">&lt;/strong&gt;</ept> dialog. &lt;br&gt;&lt;br&gt;<bpt id="241cd2f2-7500-4db9-8e90-77b2c58e511e">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="241cd2f2-7500-4db9-8e90-77b2c58e511e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7bc77dc-1963-405b-bf41-797fa0144a72" xml:space="preserve">
+          <source>On the <bpt id="da0b8fb4-73dd-4fa9-b0f6-9ee1e387468e">&lt;strong&gt;</bpt>Single sign-on confirmation<ept id="da0b8fb4-73dd-4fa9-b0f6-9ee1e387468e">&lt;/strong&gt;</ept> page, click <bpt id="84cbfa20-0024-4644-866e-a2a91394e073">&lt;strong&gt;</bpt>Complete<ept id="84cbfa20-0024-4644-866e-a2a91394e073">&lt;/strong&gt;</ept>.  &lt;br&gt;&lt;br&gt;<bpt id="8ae0422c-65ca-4e8d-9cda-27862cb33d59">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="8ae0422c-65ca-4e8d-9cda-27862cb33d59">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="da0b8fb4-73dd-4fa9-b0f6-9ee1e387468e">&lt;strong&gt;</bpt>Single sign-on confirmation<ept id="da0b8fb4-73dd-4fa9-b0f6-9ee1e387468e">&lt;/strong&gt;</ept> page, click <bpt id="84cbfa20-0024-4644-866e-a2a91394e073">&lt;strong&gt;</bpt>Complete<ept id="84cbfa20-0024-4644-866e-a2a91394e073">&lt;/strong&gt;</ept>.  &lt;br&gt;&lt;br&gt;<bpt id="8ae0422c-65ca-4e8d-9cda-27862cb33d59">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="8ae0422c-65ca-4e8d-9cda-27862cb33d59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="277bc018-bf08-4068-9d21-26d9737a354c" xml:space="preserve">
+          <source>The objective of this section is to create a test user in the Azure portal called Britta Simon.</source>
+          <target state="new">The objective of this section is to create a test user in the Azure portal called Britta Simon.</target>
+        </trans-unit>
+        <trans-unit id="4e1761aa-b786-4cae-8c7f-5afce662a8ad" xml:space="preserve">
+          <source><bpt id="ccc4da09-a275-481b-af6c-67721bf2f14f">&lt;strong&gt;</bpt>To create a test user in Azure AD, perform the following steps:<ept id="ccc4da09-a275-481b-af6c-67721bf2f14f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ccc4da09-a275-481b-af6c-67721bf2f14f">&lt;strong&gt;</bpt>To create a test user in Azure AD, perform the following steps:<ept id="ccc4da09-a275-481b-af6c-67721bf2f14f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43f92689-d1e5-4167-9c54-cc2e3b1ff2c8" xml:space="preserve">
+          <source>In the <bpt id="a3476c2f-cebd-4076-aa7d-73c93bf295f7">&lt;strong&gt;</bpt>Azure Management Portal<ept id="a3476c2f-cebd-4076-aa7d-73c93bf295f7">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="ae9c05cd-25e3-436c-b390-9f65e50f46db">&lt;strong&gt;</bpt>Active Directory<ept id="ae9c05cd-25e3-436c-b390-9f65e50f46db">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="9d158062-d8b3-48c8-b776-a34f553f9d96">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="9d158062-d8b3-48c8-b776-a34f553f9d96">&lt;/linkText&gt;</ept> </source>
+          <target state="new">In the <bpt id="a3476c2f-cebd-4076-aa7d-73c93bf295f7">&lt;strong&gt;</bpt>Azure Management Portal<ept id="a3476c2f-cebd-4076-aa7d-73c93bf295f7">&lt;/strong&gt;</ept>, on the left navigation pane, click <bpt id="ae9c05cd-25e3-436c-b390-9f65e50f46db">&lt;strong&gt;</bpt>Active Directory<ept id="ae9c05cd-25e3-436c-b390-9f65e50f46db">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="9d158062-d8b3-48c8-b776-a34f553f9d96">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="9d158062-d8b3-48c8-b776-a34f553f9d96">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1c065d5f-b31c-43ab-9d96-8df0763fe564" xml:space="preserve">
+          <source>From the <bpt id="54acc7e1-62a4-4f1a-8389-84020ee1572d">&lt;strong&gt;</bpt>Directory<ept id="54acc7e1-62a4-4f1a-8389-84020ee1572d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="54acc7e1-62a4-4f1a-8389-84020ee1572d">&lt;strong&gt;</bpt>Directory<ept id="54acc7e1-62a4-4f1a-8389-84020ee1572d">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="bf77d15e-91eb-4a69-a78f-6ef7871e8b8e" xml:space="preserve">
+          <source>To display the list of users, in the menu on the top, click <bpt id="7b52006c-25f5-412a-80ac-ae961073615b">&lt;strong&gt;</bpt>Users<ept id="7b52006c-25f5-412a-80ac-ae961073615b">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="318c239a-a3fa-49f6-9b53-873df3223c3a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="318c239a-a3fa-49f6-9b53-873df3223c3a">&lt;/linkText&gt;</ept> </source>
+          <target state="new">To display the list of users, in the menu on the top, click <bpt id="7b52006c-25f5-412a-80ac-ae961073615b">&lt;strong&gt;</bpt>Users<ept id="7b52006c-25f5-412a-80ac-ae961073615b">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="318c239a-a3fa-49f6-9b53-873df3223c3a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="318c239a-a3fa-49f6-9b53-873df3223c3a">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="cd52fe4c-b245-459d-a7fa-9eec91c8641a" xml:space="preserve">
+          <source>To open the <bpt id="712208a5-30c6-41d2-a2be-1cd572be6d3e">&lt;strong&gt;</bpt>Add User<ept id="712208a5-30c6-41d2-a2be-1cd572be6d3e">&lt;/strong&gt;</ept> dialog, in the toolbar on the bottom, click <bpt id="b4f37c88-268c-42b8-ad60-2a90678d3e19">&lt;strong&gt;</bpt>Add User<ept id="b4f37c88-268c-42b8-ad60-2a90678d3e19">&lt;/strong&gt;</ept>. 
+&lt;br&gt;&lt;br&gt;<bpt id="f5fbb651-280c-4b0e-af57-3a43b68145f6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="f5fbb651-280c-4b0e-af57-3a43b68145f6">&lt;/linkText&gt;</ept> </source>
+          <target state="new">To open the <bpt id="712208a5-30c6-41d2-a2be-1cd572be6d3e">&lt;strong&gt;</bpt>Add User<ept id="712208a5-30c6-41d2-a2be-1cd572be6d3e">&lt;/strong&gt;</ept> dialog, in the toolbar on the bottom, click <bpt id="b4f37c88-268c-42b8-ad60-2a90678d3e19">&lt;strong&gt;</bpt>Add User<ept id="b4f37c88-268c-42b8-ad60-2a90678d3e19">&lt;/strong&gt;</ept>. 
+&lt;br&gt;&lt;br&gt;<bpt id="f5fbb651-280c-4b0e-af57-3a43b68145f6">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="f5fbb651-280c-4b0e-af57-3a43b68145f6">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="5d65ef1f-f42f-4004-9f88-85011dbee7ff" xml:space="preserve">
+          <source>On the <bpt id="3262a4ff-d916-4653-af7c-d18df8772dd5">&lt;strong&gt;</bpt>Tell us about this user<ept id="3262a4ff-d916-4653-af7c-d18df8772dd5">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="a52eb82a-3dec-4bf0-b365-36a68e8d08d9">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="a52eb82a-3dec-4bf0-b365-36a68e8d08d9">&lt;/linkText&gt;</ept> </source>
+          <target state="new">On the <bpt id="3262a4ff-d916-4653-af7c-d18df8772dd5">&lt;strong&gt;</bpt>Tell us about this user<ept id="3262a4ff-d916-4653-af7c-d18df8772dd5">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="a52eb82a-3dec-4bf0-b365-36a68e8d08d9">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="a52eb82a-3dec-4bf0-b365-36a68e8d08d9">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="90036530-c415-485a-a3f5-ba904dfde1f3" xml:space="preserve">
+          <source>As <bpt id="687d320c-4ba1-4234-896a-698e5780fdda">&lt;strong&gt;</bpt>Type Of User<ept id="687d320c-4ba1-4234-896a-698e5780fdda">&lt;/strong&gt;</ept>, select <bpt id="dac54253-52d6-4b46-a02a-a7c77da205c4">&lt;strong&gt;</bpt>New user in your organization<ept id="dac54253-52d6-4b46-a02a-a7c77da205c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="687d320c-4ba1-4234-896a-698e5780fdda">&lt;strong&gt;</bpt>Type Of User<ept id="687d320c-4ba1-4234-896a-698e5780fdda">&lt;/strong&gt;</ept>, select <bpt id="dac54253-52d6-4b46-a02a-a7c77da205c4">&lt;strong&gt;</bpt>New user in your organization<ept id="dac54253-52d6-4b46-a02a-a7c77da205c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97e7c748-d924-43b2-aeea-8ba914c2759c" xml:space="preserve">
+          <source>In the User Name <bpt id="957abbf6-203d-46ba-a297-8609a13ea80d">&lt;strong&gt;</bpt>textbox<ept id="957abbf6-203d-46ba-a297-8609a13ea80d">&lt;/strong&gt;</ept>, type <bpt id="29216036-179a-43af-88a2-ff31f9b9de26">&lt;strong&gt;</bpt>BrittaSimon<ept id="29216036-179a-43af-88a2-ff31f9b9de26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the User Name <bpt id="957abbf6-203d-46ba-a297-8609a13ea80d">&lt;strong&gt;</bpt>textbox<ept id="957abbf6-203d-46ba-a297-8609a13ea80d">&lt;/strong&gt;</ept>, type <bpt id="29216036-179a-43af-88a2-ff31f9b9de26">&lt;strong&gt;</bpt>BrittaSimon<ept id="29216036-179a-43af-88a2-ff31f9b9de26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bec0e779-7ea1-4458-a084-d05d383f2615" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="0af4819f-1af8-4d1f-afb0-426ba615045b" xml:space="preserve">
+          <source>On the <bpt id="43797ab2-4e69-42b3-a4c9-bca730c2ef13">&lt;strong&gt;</bpt>User Profile<ept id="43797ab2-4e69-42b3-a4c9-bca730c2ef13">&lt;/strong&gt;</ept> dialog page, perform the following steps: 
+&lt;br&gt;&lt;br&gt;<bpt id="1cb5a08e-c7c8-4d16-9db4-d61ea6fe8e7a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1cb5a08e-c7c8-4d16-9db4-d61ea6fe8e7a">&lt;/linkText&gt;</ept> </source>
+          <target state="new">On the <bpt id="43797ab2-4e69-42b3-a4c9-bca730c2ef13">&lt;strong&gt;</bpt>User Profile<ept id="43797ab2-4e69-42b3-a4c9-bca730c2ef13">&lt;/strong&gt;</ept> dialog page, perform the following steps: 
+&lt;br&gt;&lt;br&gt;<bpt id="1cb5a08e-c7c8-4d16-9db4-d61ea6fe8e7a">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1cb5a08e-c7c8-4d16-9db4-d61ea6fe8e7a">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f9c564d7-c4b2-47a4-88a8-50a5171632dd" xml:space="preserve">
+          <source>In the <bpt id="c69c0acc-2596-4b8c-94ba-0a30ab75943c">&lt;strong&gt;</bpt>First Name<ept id="c69c0acc-2596-4b8c-94ba-0a30ab75943c">&lt;/strong&gt;</ept> textbox, type <bpt id="d8560ac7-4545-41ad-8c2a-b0a13f0d58dc">&lt;strong&gt;</bpt>Britta<ept id="d8560ac7-4545-41ad-8c2a-b0a13f0d58dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c69c0acc-2596-4b8c-94ba-0a30ab75943c">&lt;strong&gt;</bpt>First Name<ept id="c69c0acc-2596-4b8c-94ba-0a30ab75943c">&lt;/strong&gt;</ept> textbox, type <bpt id="d8560ac7-4545-41ad-8c2a-b0a13f0d58dc">&lt;strong&gt;</bpt>Britta<ept id="d8560ac7-4545-41ad-8c2a-b0a13f0d58dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d742259-6141-41c1-a2ea-687371ae600b" xml:space="preserve">
+          <source>In the <bpt id="c9c0b51a-1955-4d39-ab94-b34cb5e69066">&lt;strong&gt;</bpt>Last Name<ept id="c9c0b51a-1955-4d39-ab94-b34cb5e69066">&lt;/strong&gt;</ept> txtbox, type, <bpt id="ca9674aa-82f3-40ba-b9e3-38b1a744e752">&lt;strong&gt;</bpt>Simon<ept id="ca9674aa-82f3-40ba-b9e3-38b1a744e752">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c9c0b51a-1955-4d39-ab94-b34cb5e69066">&lt;strong&gt;</bpt>Last Name<ept id="c9c0b51a-1955-4d39-ab94-b34cb5e69066">&lt;/strong&gt;</ept> txtbox, type, <bpt id="ca9674aa-82f3-40ba-b9e3-38b1a744e752">&lt;strong&gt;</bpt>Simon<ept id="ca9674aa-82f3-40ba-b9e3-38b1a744e752">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9011f719-28cc-4fac-8312-78be9f71c50f" xml:space="preserve">
+          <source>In the <bpt id="550d6dad-851f-4d60-ad50-dae90b42049e">&lt;strong&gt;</bpt>Display Name<ept id="550d6dad-851f-4d60-ad50-dae90b42049e">&lt;/strong&gt;</ept> textbox, type <bpt id="afeb8fa6-1df0-4798-99d3-f89df7d929d2">&lt;strong&gt;</bpt>Britta Simon<ept id="afeb8fa6-1df0-4798-99d3-f89df7d929d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="550d6dad-851f-4d60-ad50-dae90b42049e">&lt;strong&gt;</bpt>Display Name<ept id="550d6dad-851f-4d60-ad50-dae90b42049e">&lt;/strong&gt;</ept> textbox, type <bpt id="afeb8fa6-1df0-4798-99d3-f89df7d929d2">&lt;strong&gt;</bpt>Britta Simon<ept id="afeb8fa6-1df0-4798-99d3-f89df7d929d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ad2fcf8-60b3-41b8-9870-42c9fe7a0fe4" xml:space="preserve">
+          <source>In the <bpt id="f313b819-80c6-4c2f-894b-7e3b2e22e4dd">&lt;strong&gt;</bpt>Role<ept id="f313b819-80c6-4c2f-894b-7e3b2e22e4dd">&lt;/strong&gt;</ept> list, select <bpt id="e6b97ac4-d0be-4e05-8ec3-9d8d68b97ae0">&lt;strong&gt;</bpt>User<ept id="e6b97ac4-d0be-4e05-8ec3-9d8d68b97ae0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f313b819-80c6-4c2f-894b-7e3b2e22e4dd">&lt;strong&gt;</bpt>Role<ept id="f313b819-80c6-4c2f-894b-7e3b2e22e4dd">&lt;/strong&gt;</ept> list, select <bpt id="e6b97ac4-d0be-4e05-8ec3-9d8d68b97ae0">&lt;strong&gt;</bpt>User<ept id="e6b97ac4-d0be-4e05-8ec3-9d8d68b97ae0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9775d97-f1c0-4896-9dfa-df1b234339d9" xml:space="preserve">
+          <source>Click <bpt id="a1524185-8e46-456c-8d60-a845aeacf585">&lt;strong&gt;</bpt>Next<ept id="a1524185-8e46-456c-8d60-a845aeacf585">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a1524185-8e46-456c-8d60-a845aeacf585">&lt;strong&gt;</bpt>Next<ept id="a1524185-8e46-456c-8d60-a845aeacf585">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64832535-ada2-4708-acfc-45d76597e0a2" xml:space="preserve">
+          <source>On the <bpt id="43a6252b-4534-4dc7-8ab1-1a892dea6131">&lt;strong&gt;</bpt>Get temporary password<ept id="43a6252b-4534-4dc7-8ab1-1a892dea6131">&lt;/strong&gt;</ept> dialog page, click <bpt id="0a86046e-4b5c-40d0-ba95-c4c4b1266a87">&lt;strong&gt;</bpt>create<ept id="0a86046e-4b5c-40d0-ba95-c4c4b1266a87">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="b8c4f45e-0c3e-4648-82b5-0cee4f2d2abb">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="b8c4f45e-0c3e-4648-82b5-0cee4f2d2abb">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">On the <bpt id="43a6252b-4534-4dc7-8ab1-1a892dea6131">&lt;strong&gt;</bpt>Get temporary password<ept id="43a6252b-4534-4dc7-8ab1-1a892dea6131">&lt;/strong&gt;</ept> dialog page, click <bpt id="0a86046e-4b5c-40d0-ba95-c4c4b1266a87">&lt;strong&gt;</bpt>create<ept id="0a86046e-4b5c-40d0-ba95-c4c4b1266a87">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="b8c4f45e-0c3e-4648-82b5-0cee4f2d2abb">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="b8c4f45e-0c3e-4648-82b5-0cee4f2d2abb">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="719c36f9-11f3-4900-b9f2-4c99a865588c" xml:space="preserve">
+          <source>On the <bpt id="93312602-8c36-47c7-bcfd-dd857808ae01">&lt;strong&gt;</bpt>Get temporary password<ept id="93312602-8c36-47c7-bcfd-dd857808ae01">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="31b0af79-f683-4a9e-852b-01935c13e458">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="31b0af79-f683-4a9e-852b-01935c13e458">&lt;/linkText&gt;</ept>   </source>
+          <target state="new">On the <bpt id="93312602-8c36-47c7-bcfd-dd857808ae01">&lt;strong&gt;</bpt>Get temporary password<ept id="93312602-8c36-47c7-bcfd-dd857808ae01">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="31b0af79-f683-4a9e-852b-01935c13e458">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="31b0af79-f683-4a9e-852b-01935c13e458">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="7fa2e8d7-fa9c-45c5-962d-55bc077bf823" xml:space="preserve">
+          <source>Write down the value of the <bpt id="4d0cf281-df57-4fbe-b1cd-98acf4c34e2e">&lt;strong&gt;</bpt>New Password<ept id="4d0cf281-df57-4fbe-b1cd-98acf4c34e2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Write down the value of the <bpt id="4d0cf281-df57-4fbe-b1cd-98acf4c34e2e">&lt;strong&gt;</bpt>New Password<ept id="4d0cf281-df57-4fbe-b1cd-98acf4c34e2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2daf360-c4fd-4c82-9aad-335880115048" xml:space="preserve">
+          <source>Click <bpt id="ef81cc53-fa64-4861-9d2e-78964d835402">&lt;strong&gt;</bpt>Complete<ept id="ef81cc53-fa64-4861-9d2e-78964d835402">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ef81cc53-fa64-4861-9d2e-78964d835402">&lt;strong&gt;</bpt>Complete<ept id="ef81cc53-fa64-4861-9d2e-78964d835402">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66839414-03b6-4b48-ae00-ce38f3dac662" xml:space="preserve">
+          <source>The objective of this section is to create a user called Britta Simon in Halogen Software.</source>
+          <target state="new">The objective of this section is to create a user called Britta Simon in Halogen Software.</target>
+        </trans-unit>
+        <trans-unit id="a1ac8ed6-9347-4c7a-ad60-9528adf43508" xml:space="preserve">
+          <source><bpt id="584d6741-5b2d-414f-8bad-b5391ea35da2">&lt;strong&gt;</bpt>To create a user called Britta Simon in Halogen Software, perform the following steps:<ept id="584d6741-5b2d-414f-8bad-b5391ea35da2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="584d6741-5b2d-414f-8bad-b5391ea35da2">&lt;strong&gt;</bpt>To create a user called Britta Simon in Halogen Software, perform the following steps:<ept id="584d6741-5b2d-414f-8bad-b5391ea35da2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ff7dfca-f3d8-4317-acb9-91717476a0b0" xml:space="preserve">
+          <source>Sign on to your <bpt id="e67c4418-66b5-4bfc-ac98-6f1f96fc10f4">&lt;strong&gt;</bpt>Halogen Software<ept id="e67c4418-66b5-4bfc-ac98-6f1f96fc10f4">&lt;/strong&gt;</ept> application as an administrator.</source>
+          <target state="new">Sign on to your <bpt id="e67c4418-66b5-4bfc-ac98-6f1f96fc10f4">&lt;strong&gt;</bpt>Halogen Software<ept id="e67c4418-66b5-4bfc-ac98-6f1f96fc10f4">&lt;/strong&gt;</ept> application as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="3a9f148d-acaa-4c9b-bc02-22c18252e7b3" xml:space="preserve">
+          <source>Click the <bpt id="98616da6-a702-4063-8995-6f9a509aa915">&lt;strong&gt;</bpt>User Center<ept id="98616da6-a702-4063-8995-6f9a509aa915">&lt;/strong&gt;</ept> tab, and then click <bpt id="de06315c-d850-48e3-b551-60ba1b64e247">&lt;strong&gt;</bpt>Create User<ept id="de06315c-d850-48e3-b551-60ba1b64e247">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="3b3376bf-50a3-428e-a4fb-20f6a1e11e3f">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="3b3376bf-50a3-428e-a4fb-20f6a1e11e3f">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">Click the <bpt id="98616da6-a702-4063-8995-6f9a509aa915">&lt;strong&gt;</bpt>User Center<ept id="98616da6-a702-4063-8995-6f9a509aa915">&lt;/strong&gt;</ept> tab, and then click <bpt id="de06315c-d850-48e3-b551-60ba1b64e247">&lt;strong&gt;</bpt>Create User<ept id="de06315c-d850-48e3-b551-60ba1b64e247">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="3b3376bf-50a3-428e-a4fb-20f6a1e11e3f">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="3b3376bf-50a3-428e-a4fb-20f6a1e11e3f">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="2f244cb5-2a28-47c2-813b-f42117dc832e" xml:space="preserve">
+          <source>On the <bpt id="c269c715-65a3-4ccb-aa25-6fc970e26a12">&lt;strong&gt;</bpt>New User<ept id="c269c715-65a3-4ccb-aa25-6fc970e26a12">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="eb2b8161-13db-4f71-bb74-210b3465273f">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="eb2b8161-13db-4f71-bb74-210b3465273f">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the <bpt id="c269c715-65a3-4ccb-aa25-6fc970e26a12">&lt;strong&gt;</bpt>New User<ept id="c269c715-65a3-4ccb-aa25-6fc970e26a12">&lt;/strong&gt;</ept> dialog page, perform the following steps:
+&lt;br&gt;&lt;br&gt;<bpt id="eb2b8161-13db-4f71-bb74-210b3465273f">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="eb2b8161-13db-4f71-bb74-210b3465273f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="545a34b3-c080-4db1-b8f2-639b41979075" xml:space="preserve">
+          <source>In the <bpt id="385c48dc-6948-4dbf-9f4b-82158d499dc1">&lt;strong&gt;</bpt>First Name<ept id="385c48dc-6948-4dbf-9f4b-82158d499dc1">&lt;/strong&gt;</ept> textbox, type <bpt id="71a6fc01-5179-4827-b7d5-851bf9aeb810">&lt;strong&gt;</bpt>Britta<ept id="71a6fc01-5179-4827-b7d5-851bf9aeb810">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="385c48dc-6948-4dbf-9f4b-82158d499dc1">&lt;strong&gt;</bpt>First Name<ept id="385c48dc-6948-4dbf-9f4b-82158d499dc1">&lt;/strong&gt;</ept> textbox, type <bpt id="71a6fc01-5179-4827-b7d5-851bf9aeb810">&lt;strong&gt;</bpt>Britta<ept id="71a6fc01-5179-4827-b7d5-851bf9aeb810">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d01b76e0-8411-41e1-b661-7a87926493c7" xml:space="preserve">
+          <source>In the <bpt id="a3f3159c-5c64-4613-bb7d-477fed2fe35f">&lt;strong&gt;</bpt>Last Name<ept id="a3f3159c-5c64-4613-bb7d-477fed2fe35f">&lt;/strong&gt;</ept> textbox, type <bpt id="850d45ad-e3d8-48dc-80f5-8e5501f326ca">&lt;strong&gt;</bpt>Simon<ept id="850d45ad-e3d8-48dc-80f5-8e5501f326ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a3f3159c-5c64-4613-bb7d-477fed2fe35f">&lt;strong&gt;</bpt>Last Name<ept id="a3f3159c-5c64-4613-bb7d-477fed2fe35f">&lt;/strong&gt;</ept> textbox, type <bpt id="850d45ad-e3d8-48dc-80f5-8e5501f326ca">&lt;strong&gt;</bpt>Simon<ept id="850d45ad-e3d8-48dc-80f5-8e5501f326ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9860a35-11df-4104-a5dd-51110dd5ff29" xml:space="preserve">
+          <source>In the <bpt id="c1b9f408-a51c-4b24-93b2-55a8bf05ae37">&lt;strong&gt;</bpt>Username<ept id="c1b9f408-a51c-4b24-93b2-55a8bf05ae37">&lt;/strong&gt;</ept> textbox, type <bpt id="2a69813a-ea4e-4a88-9c16-80c83045cef4">&lt;strong&gt;</bpt>Brita Simon's user name in the Azure AD portal<ept id="2a69813a-ea4e-4a88-9c16-80c83045cef4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c1b9f408-a51c-4b24-93b2-55a8bf05ae37">&lt;strong&gt;</bpt>Username<ept id="c1b9f408-a51c-4b24-93b2-55a8bf05ae37">&lt;/strong&gt;</ept> textbox, type <bpt id="2a69813a-ea4e-4a88-9c16-80c83045cef4">&lt;strong&gt;</bpt>Brita Simon's user name in the Azure AD portal<ept id="2a69813a-ea4e-4a88-9c16-80c83045cef4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="972ab0c1-261b-4d47-9f77-472275328cea" xml:space="preserve">
+          <source>In the <bpt id="b1709460-445e-4e11-b946-dec690adc80a">&lt;strong&gt;</bpt>Password<ept id="b1709460-445e-4e11-b946-dec690adc80a">&lt;/strong&gt;</ept> textbox, type a password for Britta.</source>
+          <target state="new">In the <bpt id="b1709460-445e-4e11-b946-dec690adc80a">&lt;strong&gt;</bpt>Password<ept id="b1709460-445e-4e11-b946-dec690adc80a">&lt;/strong&gt;</ept> textbox, type a password for Britta.</target>
+        </trans-unit>
+        <trans-unit id="e8e44a2f-f43b-4197-bdaa-5364e23cd4af" xml:space="preserve">
+          <source>Click <bpt id="fd7156d9-0185-41dd-8b50-760b90d06531">&lt;strong&gt;</bpt>Save<ept id="fd7156d9-0185-41dd-8b50-760b90d06531">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fd7156d9-0185-41dd-8b50-760b90d06531">&lt;strong&gt;</bpt>Save<ept id="fd7156d9-0185-41dd-8b50-760b90d06531">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40ab4b6c-bc44-41f7-ae34-53c4ff7167da" xml:space="preserve">
+          <source>The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Halogen Software.
+&lt;br&gt;&lt;br&gt;<bpt id="3d42487d-5995-46eb-870f-d1c27a1a8e68">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="3d42487d-5995-46eb-870f-d1c27a1a8e68">&lt;/linkText&gt;</ept></source>
+          <target state="new">The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Halogen Software.
+&lt;br&gt;&lt;br&gt;<bpt id="3d42487d-5995-46eb-870f-d1c27a1a8e68">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="3d42487d-5995-46eb-870f-d1c27a1a8e68">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="291424f9-7bab-4263-914a-c5559966618a" xml:space="preserve">
+          <source><bpt id="88c5375a-c6e6-4985-a217-df425398770c">&lt;strong&gt;</bpt>To assign Britta Simon to Halogen Software, perform the following steps:<ept id="88c5375a-c6e6-4985-a217-df425398770c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="88c5375a-c6e6-4985-a217-df425398770c">&lt;strong&gt;</bpt>To assign Britta Simon to Halogen Software, perform the following steps:<ept id="88c5375a-c6e6-4985-a217-df425398770c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a1be0f5-c73f-4bc5-89e6-da897e7efbab" xml:space="preserve">
+          <source>On the Azure portal, to open the applications view, in the directory view, click <bpt id="0d2980a9-afde-4648-a710-48ed16410c85">&lt;strong&gt;</bpt>Applications<ept id="0d2980a9-afde-4648-a710-48ed16410c85">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="6c6af6b4-ee32-48a2-882e-96a019202ba3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="6c6af6b4-ee32-48a2-882e-96a019202ba3">&lt;/linkText&gt;</ept></source>
+          <target state="new">On the Azure portal, to open the applications view, in the directory view, click <bpt id="0d2980a9-afde-4648-a710-48ed16410c85">&lt;strong&gt;</bpt>Applications<ept id="0d2980a9-afde-4648-a710-48ed16410c85">&lt;/strong&gt;</ept> in the top menu.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="6c6af6b4-ee32-48a2-882e-96a019202ba3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="6c6af6b4-ee32-48a2-882e-96a019202ba3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdfb85f4-cc54-49f4-a588-d02ee8c0a3d9" xml:space="preserve">
+          <source>In the applications list, select <bpt id="98bed67a-0ebe-4bd3-b92e-7d47bad331b3">&lt;strong&gt;</bpt>Halogen Software<ept id="98bed67a-0ebe-4bd3-b92e-7d47bad331b3">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="0f7844e8-0e00-4ad9-b09a-9403b01283c3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="0f7844e8-0e00-4ad9-b09a-9403b01283c3">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the applications list, select <bpt id="98bed67a-0ebe-4bd3-b92e-7d47bad331b3">&lt;strong&gt;</bpt>Halogen Software<ept id="98bed67a-0ebe-4bd3-b92e-7d47bad331b3">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="0f7844e8-0e00-4ad9-b09a-9403b01283c3">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="0f7844e8-0e00-4ad9-b09a-9403b01283c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81491dde-4d2f-4580-8812-6da601449c27" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="5d805668-27c8-4697-9874-01039d6ef863">&lt;strong&gt;</bpt>Users<ept id="5d805668-27c8-4697-9874-01039d6ef863">&lt;/strong&gt;</ept>.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="5729b1f3-fc8e-40d2-aa76-a8db8f95582e">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="5729b1f3-fc8e-40d2-aa76-a8db8f95582e">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the menu on the top, click <bpt id="5d805668-27c8-4697-9874-01039d6ef863">&lt;strong&gt;</bpt>Users<ept id="5d805668-27c8-4697-9874-01039d6ef863">&lt;/strong&gt;</ept>.&lt;br&gt;
+&lt;br&gt;&lt;br&gt;<bpt id="5729b1f3-fc8e-40d2-aa76-a8db8f95582e">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="5729b1f3-fc8e-40d2-aa76-a8db8f95582e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a073eeac-b7de-4481-89b8-effc2329cf55" xml:space="preserve">
+          <source>In the Users list, select <bpt id="273cc7fd-aa5f-4ad6-87bf-ad6b77d069b9">&lt;strong&gt;</bpt>Britta Simon<ept id="273cc7fd-aa5f-4ad6-87bf-ad6b77d069b9">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="89996622-8ee3-49c9-a272-de14fadc45d0">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="89996622-8ee3-49c9-a272-de14fadc45d0">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Users list, select <bpt id="273cc7fd-aa5f-4ad6-87bf-ad6b77d069b9">&lt;strong&gt;</bpt>Britta Simon<ept id="273cc7fd-aa5f-4ad6-87bf-ad6b77d069b9">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="89996622-8ee3-49c9-a272-de14fadc45d0">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="89996622-8ee3-49c9-a272-de14fadc45d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3a681af-0a82-42d7-942e-7ab2c26bac4c" xml:space="preserve">
+          <source>In the toolbar on the bottom, click <bpt id="e228bad9-ea52-4faf-a6ba-856c532d1a7e">&lt;strong&gt;</bpt>Assign<ept id="e228bad9-ea52-4faf-a6ba-856c532d1a7e">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="1b00a87a-752f-46c9-8e17-52549fd225ab">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1b00a87a-752f-46c9-8e17-52549fd225ab">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the toolbar on the bottom, click <bpt id="e228bad9-ea52-4faf-a6ba-856c532d1a7e">&lt;strong&gt;</bpt>Assign<ept id="e228bad9-ea52-4faf-a6ba-856c532d1a7e">&lt;/strong&gt;</ept>.
+&lt;br&gt;&lt;br&gt;<bpt id="1b00a87a-752f-46c9-8e17-52549fd225ab">&lt;linkText&gt;</bpt>What is Azure AD Connect<ept id="1b00a87a-752f-46c9-8e17-52549fd225ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4628ff69-c23e-4ce7-8dd9-685577c9c886" xml:space="preserve">
+          <source>The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.&lt;br&gt;
+When you click the Halogen Software tile in the Access Panel, you should get automatically signed-on to your Halogen Software application.</source>
+          <target state="new">The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.&lt;br&gt;
+When you click the Halogen Software tile in the Access Panel, you should get automatically signed-on to your Halogen Software application.</target>
+        </trans-unit>
+        <trans-unit id="74e09c0d-d441-4636-abb1-aa2b2aba2d7b" xml:space="preserve">
+          <source><bpt id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;/linkText&gt;</ept><bpt id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;title&gt;</bpt><ept id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;linkText&gt;</bpt>List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory<ept id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;/linkText&gt;</ept><bpt id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;title&gt;</bpt><ept id="72367339-5f7a-4051-9ac7-20084a3085ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fdee211-13db-43bd-969f-a0b80779cb63" xml:space="preserve">
+          <source><bpt id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;/linkText&gt;</ept><bpt id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;title&gt;</bpt><ept id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;/linkText&gt;</ept><bpt id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;title&gt;</bpt><ept id="dbe22eac-eead-48c2-a604-5e63ea8de3d6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8d73070-2724-467d-89ea-dc7751c5d40e" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_01.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_01.png</target>
+        </trans-unit>
+        <trans-unit id="6708b040-51ca-4a41-82fc-5064e8fabf9d" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_02.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_02.png</target>
+        </trans-unit>
+        <trans-unit id="6e0d4cbe-b694-41e7-8604-32ad14e15f5a" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_03.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_03.png</target>
+        </trans-unit>
+        <trans-unit id="dd94cbab-49aa-4f4c-a096-b40ab0e74ef2" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_04.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_04.png</target>
+        </trans-unit>
+        <trans-unit id="d4af57cc-9ebf-4d13-bec2-51d4c26a16a9" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_05.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_05.png</target>
+        </trans-unit>
+        <trans-unit id="17a6b809-e6c9-4091-bd02-a9a63a64833d" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_06.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_06.png</target>
+        </trans-unit>
+        <trans-unit id="19d5c781-ad5d-4aab-a14b-92ebd3808f50" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_07.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_07.png</target>
+        </trans-unit>
+        <trans-unit id="36dd700f-ed9e-49e8-84be-7f48c2d96241" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_08.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_08.png</target>
+        </trans-unit>
+        <trans-unit id="e1acc540-d8bc-49eb-b4cf-3a517c1d044f" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_09.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_09.png</target>
+        </trans-unit>
+        <trans-unit id="a2352aea-6cae-4c3e-b37b-383534a54228" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_10.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_10.png</target>
+        </trans-unit>
+        <trans-unit id="ae37aadf-10a5-4614-a051-959a194b2266" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_11.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_11.png</target>
+        </trans-unit>
+        <trans-unit id="58ee4fa7-68cb-4212-93f6-5c8f3f87437c" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_12.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_12.png</target>
+        </trans-unit>
+        <trans-unit id="d9ac2d7c-d0be-41bd-93bb-98dd343f14d6" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_13.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_13.png</target>
+        </trans-unit>
+        <trans-unit id="d2988df7-0c81-4576-80bf-25464d7a4f34" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_14.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_14.png</target>
+        </trans-unit>
+        <trans-unit id="58942634-6d68-49bc-bab9-defe4c4040b6" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_15.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_15.png</target>
+        </trans-unit>
+        <trans-unit id="39aceb6d-aab0-4e39-9a30-5341df7cfe4f" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_16.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_16.png</target>
+        </trans-unit>
+        <trans-unit id="91769826-e17f-402d-9ea2-9387c2c0618f" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_100.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_100.png</target>
+        </trans-unit>
+        <trans-unit id="3b62b8ac-b7ad-4d64-a4b4-511270a012ba" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_101.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_101.png</target>
+        </trans-unit>
+        <trans-unit id="60453afa-e7f5-47aa-8c12-519e5a14cd71" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_102.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_102.png</target>
+        </trans-unit>
+        <trans-unit id="0a4b58af-f70b-4bc0-a21f-f57f77f48d45" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_103.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_103.png</target>
+        </trans-unit>
+        <trans-unit id="448677b6-bb99-4634-9ff0-0ae0b48d1747" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_104.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_104.png</target>
+        </trans-unit>
+        <trans-unit id="e7b28060-4436-4b56-b30c-7e2b355fb523" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_105.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_105.png</target>
+        </trans-unit>
+        <trans-unit id="e240868f-6eb9-4f7c-aebb-1e310000ea56" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_106.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_106.png</target>
+        </trans-unit>
+        <trans-unit id="402d7339-1ae4-4587-aaa6-afd162546506" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_200.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_200.png</target>
+        </trans-unit>
+        <trans-unit id="6ebf692d-a28f-4b3e-9787-bf77448e8de4" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_201.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_201.png</target>
+        </trans-unit>
+        <trans-unit id="594773e2-e3a8-4d01-a29d-e3f1733c99c9" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_202.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_202.png</target>
+        </trans-unit>
+        <trans-unit id="33daeb5e-d552-4079-bbd7-2ed3624a5abe" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_203.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_203.png</target>
+        </trans-unit>
+        <trans-unit id="be0b1159-27ff-4569-a299-dbf29fd0e046" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_204.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_204.png</target>
+        </trans-unit>
+        <trans-unit id="7de673a9-55fe-429b-b8a1-f8ee082d188c" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_205.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_205.png</target>
+        </trans-unit>
+        <trans-unit id="49ff5e5d-1a85-4511-b709-5d42a97a436f" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png</target>
+        </trans-unit>
+        <trans-unit id="e3273458-2b2f-49aa-af43-55e41e705662" xml:space="preserve">
+          <source>./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png</source>
+          <target state="new">./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png</target>
+        </trans-unit>
+      </group>
+      <group id="0593dfdf-c08a-4fc2-8b5a-1b16e1d81773" />
+    </body>
+  </file>
+</xliff>

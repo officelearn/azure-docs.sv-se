@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d68f335b-a3a7-4f60-9187-9b48abf43b05" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d68f335b-a3a7-4f60-9187-9b48abf43b05" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c5f0b2f5-a20a-4176-bab5-a2189c6f0cad">
+        <trans-unit id="7066e4c6-f2eb-4461-9e68-079ca4c4aa99" xml:space="preserve">
+          <source>Migrate your SQL code to SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Migrate your SQL code to SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="139f82eb-7e8c-45a0-a6b3-fb2d3d5aa3aa" xml:space="preserve">
+          <source>Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="f6e55946-28b0-48cd-87b9-79da494f13b1" xml:space="preserve">
+          <source>In order to ensure your code is compliant with SQL Data Warehouse it is quite likely that you will need to make changes to your code base.</source>
+          <target state="new">In order to ensure your code is compliant with SQL Data Warehouse it is quite likely that you will need to make changes to your code base.</target>
+        </trans-unit>
+        <trans-unit id="54e6bd34-3707-447c-be5c-d9ff9f91683c" xml:space="preserve">
+          <source>Some SQL Data Warehouse features can also significantly improve performance as they are designed to work directly in a distributed fashion.</source>
+          <target state="new">Some SQL Data Warehouse features can also significantly improve performance as they are designed to work directly in a distributed fashion.</target>
+        </trans-unit>
+        <trans-unit id="9a077df5-c999-4e01-9440-c4b0443a692a" xml:space="preserve">
+          <source>However, to maintain performance and scale, some features are also not available.</source>
+          <target state="new">However, to maintain performance and scale, some features are also not available.</target>
+        </trans-unit>
+        <trans-unit id="ec185cd4-b46b-4a5a-a56f-df490468f013" xml:space="preserve">
+          <source>The following list summarizes the main features that are not supported in Azure SQL Data Warehouse.</source>
+          <target state="new">The following list summarizes the main features that are not supported in Azure SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="a52e0da7-f802-4bf9-9004-165e387a5e73" xml:space="preserve">
+          <source>The links provided take you to workarounds for the unsupported feature:</source>
+          <target state="new">The links provided take you to workarounds for the unsupported feature:</target>
+        </trans-unit>
+        <trans-unit id="1305c2a6-2942-4629-8b7c-6537d619f2bf" xml:space="preserve">
+          <source><bpt id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;linkText&gt;</bpt>ANSI joins on updates<ept id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;/linkText&gt;</ept><bpt id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;title&gt;</bpt><ept id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;linkText&gt;</bpt>ANSI joins on updates<ept id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;/linkText&gt;</ept><bpt id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;title&gt;</bpt><ept id="ac3cc119-129e-4aeb-a262-e788f5104b12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="639d5d34-325a-49bd-b7e2-c8fbeaaa6d6f" xml:space="preserve">
+          <source><bpt id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;linkText&gt;</bpt>ANSI joins on deletes<ept id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;/linkText&gt;</ept><bpt id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;title&gt;</bpt><ept id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;linkText&gt;</bpt>ANSI joins on deletes<ept id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;/linkText&gt;</ept><bpt id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;title&gt;</bpt><ept id="d7e57637-a7fd-423c-809a-d09f36d53cad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ed16710-0dd0-4574-ba6e-5c4f7ae1d5d5" xml:space="preserve">
+          <source><bpt id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;linkText&gt;</bpt>merge statement<ept id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;/linkText&gt;</ept><bpt id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;title&gt;</bpt><ept id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;linkText&gt;</bpt>merge statement<ept id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;/linkText&gt;</ept><bpt id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;title&gt;</bpt><ept id="00eea77b-2d34-4d95-8027-6930769d4526">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7219ecb-1e25-483e-b080-1efd97bf2a6b" xml:space="preserve">
+          <source>cross-database joins</source>
+          <target state="new">cross-database joins</target>
+        </trans-unit>
+        <trans-unit id="c29635dd-6c97-493c-ab61-a98bcc169f9f" xml:space="preserve">
+          <source><bpt id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;linkText&gt;</bpt>cursors<ept id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;/linkText&gt;</ept><bpt id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;title&gt;</bpt><ept id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;linkText&gt;</bpt>cursors<ept id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;/linkText&gt;</ept><bpt id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;title&gt;</bpt><ept id="de0a7ad7-417c-447e-b6c8-4bfede0a56fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b634b33-010b-49a5-94bb-44c33bd27ec4" xml:space="preserve">
+          <source><bpt id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;linkText&gt;</bpt>SELECT..INTO<ept id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;/linkText&gt;</ept><bpt id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;title&gt;</bpt><ept id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;linkText&gt;</bpt>SELECT..INTO<ept id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;/linkText&gt;</ept><bpt id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;title&gt;</bpt><ept id="dfa1d726-8f1c-48a0-b8e0-a9fc10a014ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="287d32d7-dd3c-4637-a1f3-12fbc57098db" xml:space="preserve">
+          <source><bpt id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;linkText&gt;</bpt>INSERT..EXEC<ept id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;/linkText&gt;</ept><bpt id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;title&gt;</bpt><ept id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;linkText&gt;</bpt>INSERT..EXEC<ept id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;/linkText&gt;</ept><bpt id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;title&gt;</bpt><ept id="254df538-b144-4bd3-909f-f4b11a885aff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e43aad75-338e-4b6f-aaa6-4bf9adb00e74" xml:space="preserve">
+          <source>output clause</source>
+          <target state="new">output clause</target>
+        </trans-unit>
+        <trans-unit id="a7e880ea-6d71-48d9-9d23-2ff405c14052" xml:space="preserve">
+          <source>inline user-defined functions</source>
+          <target state="new">inline user-defined functions</target>
+        </trans-unit>
+        <trans-unit id="c3b27efe-b771-4f98-bced-c8ca62434646" xml:space="preserve">
+          <source>multi-statement functions</source>
+          <target state="new">multi-statement functions</target>
+        </trans-unit>
+        <trans-unit id="3359bdbd-7388-4c45-bc42-732edd05043b" xml:space="preserve">
+          <source>[recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)</source>
+          <target state="new">[recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)</target>
+        </trans-unit>
+        <trans-unit id="cc452acf-5598-4f2f-bca0-8ecde8d8ce5b" xml:space="preserve">
+          <source><bpt id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;linkText&gt;</bpt>updates through CTEs<ept id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;/linkText&gt;</ept><bpt id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;title&gt;</bpt><ept id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;linkText&gt;</bpt>updates through CTEs<ept id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;/linkText&gt;</ept><bpt id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;title&gt;</bpt><ept id="baf3bcf5-22fe-47d2-97a7-cbac751b8382">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bd23d11-3113-4880-8031-ce3c130eac8a" xml:space="preserve">
+          <source>CLR functions and procedures</source>
+          <target state="new">CLR functions and procedures</target>
+        </trans-unit>
+        <trans-unit id="36d89792-ad66-403b-92d0-ce68cb410c73" xml:space="preserve">
+          <source>$partition function</source>
+          <target state="new">$partition function</target>
+        </trans-unit>
+        <trans-unit id="004b4527-70c0-4392-9ed8-f206297c1483" xml:space="preserve">
+          <source>table variables</source>
+          <target state="new">table variables</target>
+        </trans-unit>
+        <trans-unit id="e858c7bc-5d83-42c9-89bd-41f299b6601f" xml:space="preserve">
+          <source>table value parameters</source>
+          <target state="new">table value parameters</target>
+        </trans-unit>
+        <trans-unit id="e874953e-1e30-4d15-b5f0-2a780815d0df" xml:space="preserve">
+          <source>distributed transactions</source>
+          <target state="new">distributed transactions</target>
+        </trans-unit>
+        <trans-unit id="1d11575c-1123-45d1-af80-c0a337740474" xml:space="preserve">
+          <source>commit / rollback work</source>
+          <target state="new">commit / rollback work</target>
+        </trans-unit>
+        <trans-unit id="d2e3e2b6-f67e-4bf7-a032-aad64352286a" xml:space="preserve">
+          <source>save transaction</source>
+          <target state="new">save transaction</target>
+        </trans-unit>
+        <trans-unit id="fd6d4445-a892-499f-a902-417855a810e0" xml:space="preserve">
+          <source>execution contexts (EXECUTE AS)</source>
+          <target state="new">execution contexts (EXECUTE AS)</target>
+        </trans-unit>
+        <trans-unit id="78319747-97bd-42fe-adba-3a24cfe4ddda" xml:space="preserve">
+          <source><bpt id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;linkText&gt;</bpt>group by clause with rollup / cube / grouping sets options<ept id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;/linkText&gt;</ept><bpt id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;title&gt;</bpt><ept id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;linkText&gt;</bpt>group by clause with rollup / cube / grouping sets options<ept id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;/linkText&gt;</ept><bpt id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;title&gt;</bpt><ept id="ad106e23-fdf0-42da-aa1b-4480bee8fc94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6128c59e-b6ad-47e1-bfad-ff1f82290549" xml:space="preserve">
+          <source><bpt id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;linkText&gt;</bpt>nesting levels beyond 8<ept id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;/linkText&gt;</ept><bpt id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;title&gt;</bpt><ept id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;linkText&gt;</bpt>nesting levels beyond 8<ept id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;/linkText&gt;</ept><bpt id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;title&gt;</bpt><ept id="327ee899-e20b-4ee5-8d03-d7222a66608a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3dc0693-216e-4636-aed4-fe343a85cd7f" xml:space="preserve">
+          <source><bpt id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;linkText&gt;</bpt>updating through views<ept id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;/linkText&gt;</ept><bpt id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;title&gt;</bpt><ept id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;linkText&gt;</bpt>updating through views<ept id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;/linkText&gt;</ept><bpt id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;title&gt;</bpt><ept id="063636f8-29a3-41c9-815e-0c34cdb2deac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a250f30-bb21-48db-be87-7b55f0b78b1e" xml:space="preserve">
+          <source><bpt id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;linkText&gt;</bpt>use of select for variable assignment<ept id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;/linkText&gt;</ept><bpt id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;title&gt;</bpt><ept id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;linkText&gt;</bpt>use of select for variable assignment<ept id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;/linkText&gt;</ept><bpt id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;title&gt;</bpt><ept id="08822531-19fd-4be7-ac01-0198fa0e1802">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc2de95f-2ea1-4ff1-8b6b-0959a9f09741" xml:space="preserve">
+          <source><bpt id="078612b3-b23a-449b-9787-11063a1cf153">&lt;linkText&gt;</bpt>no MAX data type for dynamic SQL strings<ept id="078612b3-b23a-449b-9787-11063a1cf153">&lt;/linkText&gt;</ept><bpt id="078612b3-b23a-449b-9787-11063a1cf153">&lt;title&gt;</bpt><ept id="078612b3-b23a-449b-9787-11063a1cf153">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="078612b3-b23a-449b-9787-11063a1cf153">&lt;linkText&gt;</bpt>no MAX data type for dynamic SQL strings<ept id="078612b3-b23a-449b-9787-11063a1cf153">&lt;/linkText&gt;</ept><bpt id="078612b3-b23a-449b-9787-11063a1cf153">&lt;title&gt;</bpt><ept id="078612b3-b23a-449b-9787-11063a1cf153">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20e8c5cc-d50b-4a1c-a5a0-01322657c046" xml:space="preserve">
+          <source>Happily most of these limitations can be worked around.</source>
+          <target state="new">Happily most of these limitations can be worked around.</target>
+        </trans-unit>
+        <trans-unit id="38a5ec5a-16c6-4ba1-8586-d3cb2aaea3b1" xml:space="preserve">
+          <source>Explanations have been included in the relevant development articles referenced above.</source>
+          <target state="new">Explanations have been included in the relevant development articles referenced above.</target>
+        </trans-unit>
+        <trans-unit id="b41f6132-1183-4463-96ef-7eaa6fc41179" xml:space="preserve">
+          <source>This is a complex scenario with no quick fix.</source>
+          <target state="new">This is a complex scenario with no quick fix.</target>
+        </trans-unit>
+        <trans-unit id="0a0dbeba-1e53-4796-99f6-ec3d4f723673" xml:space="preserve">
+          <source>The CTE will need to be broken down and handled in steps.</source>
+          <target state="new">The CTE will need to be broken down and handled in steps.</target>
+        </trans-unit>
+        <trans-unit id="e248bfdc-b67f-4c06-9e02-50f1439a22cd" xml:space="preserve">
+          <source>You can typically use a fairly complex loop; populating a temporary table as you iterate over the recursive interim queries.</source>
+          <target state="new">You can typically use a fairly complex loop; populating a temporary table as you iterate over the recursive interim queries.</target>
+        </trans-unit>
+        <trans-unit id="cdb3f1b2-2d62-41c6-962a-54c058a7e12d" xml:space="preserve">
+          <source>Once the temporary table is populated you can then return the data as a single result set.</source>
+          <target state="new">Once the temporary table is populated you can then return the data as a single result set.</target>
+        </trans-unit>
+        <trans-unit id="912be1e1-21f1-45e4-9d69-97a278479813" xml:space="preserve">
+          <source>A similar approach has been used to solve <bpt id="a3fd0c5b-b8fa-4b64-8b15-ee363b0ea8e7">&lt;code&gt;</bpt>GROUP BY WITH CUBE<ept id="a3fd0c5b-b8fa-4b64-8b15-ee363b0ea8e7">&lt;/code&gt;</ept> in the <bpt id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;linkText&gt;</bpt>group by clause with rollup / cube / grouping sets options<ept id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;/linkText&gt;</ept><bpt id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;title&gt;</bpt><ept id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;/title&gt;</ept> article.</source>
+          <target state="new">A similar approach has been used to solve <bpt id="a3fd0c5b-b8fa-4b64-8b15-ee363b0ea8e7">&lt;code&gt;</bpt>GROUP BY WITH CUBE<ept id="a3fd0c5b-b8fa-4b64-8b15-ee363b0ea8e7">&lt;/code&gt;</ept> in the <bpt id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;linkText&gt;</bpt>group by clause with rollup / cube / grouping sets options<ept id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;/linkText&gt;</ept><bpt id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;title&gt;</bpt><ept id="6e9f96c5-cc10-4d73-be80-1e28b62ff701">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="25025af7-5494-4d47-af2a-5470b22a598c" xml:space="preserve">
+          <source>If the CTE is non-recursive then you can re-write the query to use sub-queries.</source>
+          <target state="new">If the CTE is non-recursive then you can re-write the query to use sub-queries.</target>
+        </trans-unit>
+        <trans-unit id="fc2871f7-424f-40bf-9736-5785ca8aabbc" xml:space="preserve">
+          <source>For recursive CTEs you will need to build up the resultset first as described above; then join the final resultset to the target table and perform the update.</source>
+          <target state="new">For recursive CTEs you will need to build up the resultset first as described above; then join the final resultset to the target table and perform the update.</target>
+        </trans-unit>
+        <trans-unit id="54c23258-9f01-4dfe-81fb-6ebc28988997" xml:space="preserve">
+          <source>There are also some system functions that are not supported.</source>
+          <target state="new">There are also some system functions that are not supported.</target>
+        </trans-unit>
+        <trans-unit id="e53b186b-f458-4bdb-b6cb-ecc5713d5178" xml:space="preserve">
+          <source>Some of the main ones you might typically find used in data warehousing are:</source>
+          <target state="new">Some of the main ones you might typically find used in data warehousing are:</target>
+        </trans-unit>
+        <trans-unit id="1b4f5789-4e84-4138-9c1e-68b812eaf260" xml:space="preserve">
+          <source>NEWID()</source>
+          <target state="new">NEWID()</target>
+        </trans-unit>
+        <trans-unit id="04781612-3d6d-4bc6-92d6-3a8d8b01634b" xml:space="preserve">
+          <source>NEWSEQUENTIALID()</source>
+          <target state="new">NEWSEQUENTIALID()</target>
+        </trans-unit>
+        <trans-unit id="84ac97d9-0f87-4652-a614-3b63df4d4f0f" xml:space="preserve">
+          <source>@@NESTLEVEL()</source>
+          <target state="new">@@NESTLEVEL()</target>
+        </trans-unit>
+        <trans-unit id="c2f7e8f8-7f93-4e25-a433-d020af3b0193" xml:space="preserve">
+          <source>@@IDENTITY()</source>
+          <target state="new">@@IDENTITY()</target>
+        </trans-unit>
+        <trans-unit id="f3e0a434-57e3-4cee-a860-0a30ee05f267" xml:space="preserve">
+          <source>@@ROWCOUNT()</source>
+          <target state="new">@@ROWCOUNT()</target>
+        </trans-unit>
+        <trans-unit id="1c5db8d2-97da-462d-ab74-ed9e3a4065b9" xml:space="preserve">
+          <source>ROWCOUNT_BIG</source>
+          <target state="new">ROWCOUNT_BIG</target>
+        </trans-unit>
+        <trans-unit id="b5448e52-f34f-4673-9b22-154094e8ec21" xml:space="preserve">
+          <source>ERROR_LINE()</source>
+          <target state="new">ERROR_LINE()</target>
+        </trans-unit>
+        <trans-unit id="1bfbacd4-fba3-4a99-8539-ef58e56e95f0" xml:space="preserve">
+          <source>Again many of these issues can be worked around.</source>
+          <target state="new">Again many of these issues can be worked around.</target>
+        </trans-unit>
+        <trans-unit id="d07cbc8e-b674-44fe-b551-26be559584a3" xml:space="preserve">
+          <source>For example the code below is an alternative solution for retrieving @@ROWCOUNT information:</source>
+          <target state="new">For example the code below is an alternative solution for retrieving @@ROWCOUNT information:</target>
+        </trans-unit>
+        <trans-unit id="cde4f382-8464-489d-8ca0-bf0cb0756440" xml:space="preserve">
+          <source>For advice on developing your code please refer to the <bpt id="d0526267-314b-49c8-88f4-f312659da252">&lt;linkText&gt;</bpt>development overview<ept id="d0526267-314b-49c8-88f4-f312659da252">&lt;/linkText&gt;</ept><bpt id="d0526267-314b-49c8-88f4-f312659da252">&lt;title&gt;</bpt><ept id="d0526267-314b-49c8-88f4-f312659da252">&lt;/title&gt;</ept>.</source>
+          <target state="new">For advice on developing your code please refer to the <bpt id="d0526267-314b-49c8-88f4-f312659da252">&lt;linkText&gt;</bpt>development overview<ept id="d0526267-314b-49c8-88f4-f312659da252">&lt;/linkText&gt;</ept><bpt id="d0526267-314b-49c8-88f4-f312659da252">&lt;title&gt;</bpt><ept id="d0526267-314b-49c8-88f4-f312659da252">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d92177f2-8621-4cf6-a42a-e95b912df67f" xml:space="preserve">
+          <source>sql-data-warehouse-develop-ctas.md</source>
+          <target state="new">sql-data-warehouse-develop-ctas.md</target>
+        </trans-unit>
+        <trans-unit id="f413bf08-8d39-4b50-9143-7f1e7c117ea0" xml:space="preserve">
+          <source>sql-data-warehouse-develop-ctas.md</source>
+          <target state="new">sql-data-warehouse-develop-ctas.md</target>
+        </trans-unit>
+        <trans-unit id="ba9e5c75-8be0-4407-9f1d-b3e9ba68844b" xml:space="preserve">
+          <source>sql-data-warehouse-develop-ctas.md</source>
+          <target state="new">sql-data-warehouse-develop-ctas.md</target>
+        </trans-unit>
+        <trans-unit id="79c7ee45-5e09-4a00-b780-1e0ebde3511a" xml:space="preserve">
+          <source>sql-data-warehouse-develop-temporary-tables.md</source>
+          <target state="new">sql-data-warehouse-develop-temporary-tables.md</target>
+        </trans-unit>
+        <trans-unit id="33035932-a4c5-4e43-9d2c-345e76b6d447" xml:space="preserve">
+          <source>sql-data-warehouse-develop-loops.md</source>
+          <target state="new">sql-data-warehouse-develop-loops.md</target>
+        </trans-unit>
+        <trans-unit id="ef604aa9-d61e-48e8-b12e-f7ecd8388cf2" xml:space="preserve">
+          <source>sql-data-warehouse-develop-ctas.md</source>
+          <target state="new">sql-data-warehouse-develop-ctas.md</target>
+        </trans-unit>
+        <trans-unit id="6c8dc731-34dd-41fd-aa2a-cfef060ea8f7" xml:space="preserve">
+          <source>sql-data-warehouse-develop-group-by-options.md</source>
+          <target state="new">sql-data-warehouse-develop-group-by-options.md</target>
+        </trans-unit>
+        <trans-unit id="87672493-175e-487b-9e41-4776582b67ba" xml:space="preserve">
+          <source>sql-data-warehouse-develop-transactions.md</source>
+          <target state="new">sql-data-warehouse-develop-transactions.md</target>
+        </trans-unit>
+        <trans-unit id="2bacaa11-1fe6-4406-8b47-bfa2fead86d3" xml:space="preserve">
+          <source>sql-data-warehouse-develop-views.md</source>
+          <target state="new">sql-data-warehouse-develop-views.md</target>
+        </trans-unit>
+        <trans-unit id="af15e1dc-4c89-43b9-a69f-7cd3cb0d486f" xml:space="preserve">
+          <source>sql-data-warehouse-develop-variable-assignment.md</source>
+          <target state="new">sql-data-warehouse-develop-variable-assignment.md</target>
+        </trans-unit>
+        <trans-unit id="ff1301a7-bf3e-49ff-965d-6e1987240a5b" xml:space="preserve">
+          <source>sql-data-warehouse-develop-dynamic-sql.md</source>
+          <target state="new">sql-data-warehouse-develop-dynamic-sql.md</target>
+        </trans-unit>
+        <trans-unit id="b5364b27-2212-4e35-ad4f-f4464b99fd53" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+      </group>
+      <group id="4f7b4662-bdba-46e2-bc01-72def42c036b" />
+    </body>
+  </file>
+</xliff>

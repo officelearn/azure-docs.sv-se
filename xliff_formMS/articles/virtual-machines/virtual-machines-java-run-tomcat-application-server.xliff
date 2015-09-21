@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="827cd0e2-e2e0-4435-bcb0-8b980cd7ebf8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="827cd0e2-e2e0-4435-bcb0-8b980cd7ebf8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="db5e6ddb-b678-4d24-a342-f84d18173f39">
+        <trans-unit id="5427a712-4960-4bf6-873a-2e3713f215a5" xml:space="preserve">
+          <source>Tomcat on a virtual machine | Microsoft Azure</source>
+          <target state="new">Tomcat on a virtual machine | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="45fff5af-e406-4f85-b9da-af76511a0d5c" xml:space="preserve">
+          <source>Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server.</source>
+          <target state="new">Learn how to create a Windows Virtual machine and configure the machine to run a Apache Tomcat application server.</target>
+        </trans-unit>
+        <trans-unit id="657a8df6-3b6b-4d05-9c02-2a6c718374f5" xml:space="preserve">
+          <source>With Azure, you can use a virtual machine to provide server capabilities.</source>
+          <target state="new">With Azure, you can use a virtual machine to provide server capabilities.</target>
+        </trans-unit>
+        <trans-unit id="6d1bc07d-c77c-4520-baed-ecad6067af25" xml:space="preserve">
+          <source>As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat.</source>
+          <target state="new">As an example, a virtual machine running on Azure can be configured to host a Java application server, such as Apache Tomcat.</target>
+        </trans-unit>
+        <trans-unit id="2a799534-b54a-4e07-b5c5-43f4b625a88d" xml:space="preserve">
+          <source>After you complete this guide, you will have an understanding of how to create a virtual machine running on Azure and configure it to run a Java application server.</source>
+          <target state="new">After you complete this guide, you will have an understanding of how to create a virtual machine running on Azure and configure it to run a Java application server.</target>
+        </trans-unit>
+        <trans-unit id="3cc58ae3-57e2-4685-99cd-10449b176085" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="9c16bd8a-47fd-48bf-b7a3-c63ce8186bd0" xml:space="preserve">
+          <source>How to create a virtual machine that has a Java Development Kit (JDK) already installed.</source>
+          <target state="new">How to create a virtual machine that has a Java Development Kit (JDK) already installed.</target>
+        </trans-unit>
+        <trans-unit id="f251cde0-a481-4b06-9deb-009a7858dfe6" xml:space="preserve">
+          <source>How to remotely sign in to your virtual machine.</source>
+          <target state="new">How to remotely sign in to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="98afd868-b3a5-42c0-849b-ebfc525a0798" xml:space="preserve">
+          <source>How to install a Java application server on your virtual machine.</source>
+          <target state="new">How to install a Java application server on your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="14dcaaf9-9f5b-46f7-bbe9-747af5736363" xml:space="preserve">
+          <source>How to create an endpoint for your virtual machine.</source>
+          <target state="new">How to create an endpoint for your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2f01195c-338b-4ad2-a047-db843dc2943d" xml:space="preserve">
+          <source>How to open a port in the firewall for your application server.</source>
+          <target state="new">How to open a port in the firewall for your application server.</target>
+        </trans-unit>
+        <trans-unit id="8589dfda-999a-4152-ae16-bd9acc49d226" xml:space="preserve">
+          <source>For the purposes of this tutorial, an Apache Tomcat application server will be installed on a virtual machine.</source>
+          <target state="new">For the purposes of this tutorial, an Apache Tomcat application server will be installed on a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="20770a1b-cc15-4414-9b40-895c05290f02" xml:space="preserve">
+          <source>The completed installation will result in a Tomcat installation such as the following.</source>
+          <target state="new">The completed installation will result in a Tomcat installation such as the following.</target>
+        </trans-unit>
+        <trans-unit id="6a9e4ab9-f5de-4cfd-a2f2-66335c4301de" xml:space="preserve">
+          <source><bpt id="3247d79a-eb4d-4e58-aea7-846be83b97f3">&lt;linkText&gt;</bpt>Virtual machine running Apache Tomcat<ept id="3247d79a-eb4d-4e58-aea7-846be83b97f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3247d79a-eb4d-4e58-aea7-846be83b97f3">&lt;linkText&gt;</bpt>Virtual machine running Apache Tomcat<ept id="3247d79a-eb4d-4e58-aea7-846be83b97f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f32030d0-fe08-4b0b-be6a-57f8df9cc9d6" xml:space="preserve">
+          <source><bpt id="7db6ae8d-bc1e-40d5-a076-86b4aa09d71c">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="7db6ae8d-bc1e-40d5-a076-86b4aa09d71c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7db6ae8d-bc1e-40d5-a076-86b4aa09d71c">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="7db6ae8d-bc1e-40d5-a076-86b4aa09d71c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac6d7796-f4b1-4eb3-9058-c68b992e719b" xml:space="preserve">
+          <source>Sign in to the <bpt id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;linkText&gt;</bpt>Azure portal<ept id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;/linkText&gt;</ept><bpt id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;title&gt;</bpt><ept id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;linkText&gt;</bpt>Azure portal<ept id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;/linkText&gt;</ept><bpt id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;title&gt;</bpt><ept id="77c70cbf-e604-4421-9608-7a81f86b29a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c823fe2-7d23-430d-b1bc-54cca684882e" xml:space="preserve">
+          <source>Click <bpt id="0cf519d2-8e6f-48ee-a8ce-0fc5ffa460d1">&lt;strong&gt;</bpt>New<ept id="0cf519d2-8e6f-48ee-a8ce-0fc5ffa460d1">&lt;/strong&gt;</ept>, click <bpt id="0b48684b-5c49-4742-bc7c-9a233758ab6b">&lt;strong&gt;</bpt>Compute<ept id="0b48684b-5c49-4742-bc7c-9a233758ab6b">&lt;/strong&gt;</ept>, click <bpt id="bc6bfff3-cea2-4b15-8aeb-8981ec303349">&lt;strong&gt;</bpt>Virtual machine<ept id="bc6bfff3-cea2-4b15-8aeb-8981ec303349">&lt;/strong&gt;</ept>, and then click <bpt id="3ea63bad-aaff-4b1c-924e-05505d0bc333">&lt;strong&gt;</bpt>From Gallery<ept id="3ea63bad-aaff-4b1c-924e-05505d0bc333">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0cf519d2-8e6f-48ee-a8ce-0fc5ffa460d1">&lt;strong&gt;</bpt>New<ept id="0cf519d2-8e6f-48ee-a8ce-0fc5ffa460d1">&lt;/strong&gt;</ept>, click <bpt id="0b48684b-5c49-4742-bc7c-9a233758ab6b">&lt;strong&gt;</bpt>Compute<ept id="0b48684b-5c49-4742-bc7c-9a233758ab6b">&lt;/strong&gt;</ept>, click <bpt id="bc6bfff3-cea2-4b15-8aeb-8981ec303349">&lt;strong&gt;</bpt>Virtual machine<ept id="bc6bfff3-cea2-4b15-8aeb-8981ec303349">&lt;/strong&gt;</ept>, and then click <bpt id="3ea63bad-aaff-4b1c-924e-05505d0bc333">&lt;strong&gt;</bpt>From Gallery<ept id="3ea63bad-aaff-4b1c-924e-05505d0bc333">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d17bdb69-bca2-49fb-9c13-e2b93c9d162f" xml:space="preserve">
+          <source>In the <bpt id="de24de57-c820-4773-af8f-73cce6c0fcb9">&lt;strong&gt;</bpt>Virtual machine image select<ept id="de24de57-c820-4773-af8f-73cce6c0fcb9">&lt;/strong&gt;</ept> dialog box, select <bpt id="66c422b9-c523-4c5a-aa68-24eb2a2adf09">&lt;strong&gt;</bpt>JDK 7 Windows Server 2012<ept id="66c422b9-c523-4c5a-aa68-24eb2a2adf09">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="de24de57-c820-4773-af8f-73cce6c0fcb9">&lt;strong&gt;</bpt>Virtual machine image select<ept id="de24de57-c820-4773-af8f-73cce6c0fcb9">&lt;/strong&gt;</ept> dialog box, select <bpt id="66c422b9-c523-4c5a-aa68-24eb2a2adf09">&lt;strong&gt;</bpt>JDK 7 Windows Server 2012<ept id="66c422b9-c523-4c5a-aa68-24eb2a2adf09">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8646d2dd-1543-4521-8e40-9dab966d7030" xml:space="preserve">
+          <source>Note that <bpt id="6cc2b883-3cc7-45b4-8ba3-b10fc9a29408">&lt;strong&gt;</bpt>JDK 6 Windows Server 2012<ept id="6cc2b883-3cc7-45b4-8ba3-b10fc9a29408">&lt;/strong&gt;</ept> is available if you have legacy applications that are not ready to run in JDK 7.</source>
+          <target state="new">Note that <bpt id="6cc2b883-3cc7-45b4-8ba3-b10fc9a29408">&lt;strong&gt;</bpt>JDK 6 Windows Server 2012<ept id="6cc2b883-3cc7-45b4-8ba3-b10fc9a29408">&lt;/strong&gt;</ept> is available if you have legacy applications that are not ready to run in JDK 7.</target>
+        </trans-unit>
+        <trans-unit id="374b0efe-629a-4c8f-83a9-d277fabcaf73" xml:space="preserve">
+          <source>Click <bpt id="e0bc4814-07b8-40e3-85db-0243600a9162">&lt;strong&gt;</bpt>Next<ept id="e0bc4814-07b8-40e3-85db-0243600a9162">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e0bc4814-07b8-40e3-85db-0243600a9162">&lt;strong&gt;</bpt>Next<ept id="e0bc4814-07b8-40e3-85db-0243600a9162">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcab8e65-7dad-4625-a00c-af8b121d0024" xml:space="preserve">
+          <source>In the <bpt id="d8905487-147f-4a8a-bd55-861cee9fd479">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="d8905487-147f-4a8a-bd55-861cee9fd479">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="d8905487-147f-4a8a-bd55-861cee9fd479">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="d8905487-147f-4a8a-bd55-861cee9fd479">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="05728700-030b-4fda-a1c1-54ddbd091704" xml:space="preserve">
+          <source>Specify a name for the virtual machine.</source>
+          <target state="new">Specify a name for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="699a74c0-28d1-4317-820e-02704f2b5b06" xml:space="preserve">
+          <source>Specify the size to use for the virtual machine.</source>
+          <target state="new">Specify the size to use for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="13f6695a-e7ea-43c1-ad8c-480ee15660c5" xml:space="preserve">
+          <source>Enter a name for the administrator in the <bpt id="254ddd07-8f6f-41a1-8c0d-35062f3beddf">&lt;strong&gt;</bpt>User Name<ept id="254ddd07-8f6f-41a1-8c0d-35062f3beddf">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a name for the administrator in the <bpt id="254ddd07-8f6f-41a1-8c0d-35062f3beddf">&lt;strong&gt;</bpt>User Name<ept id="254ddd07-8f6f-41a1-8c0d-35062f3beddf">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="574c69c4-26c3-4fbc-a1f1-a7fc7e410fe1" xml:space="preserve">
+          <source>Remember this name and the password you will enter next, you will use them when you remotely sign in to the virtual machine.</source>
+          <target state="new">Remember this name and the password you will enter next, you will use them when you remotely sign in to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="afa6d19c-e1ea-483c-ac60-3ac9b995f7f1" xml:space="preserve">
+          <source>Enter a password in the <bpt id="99217ee9-801c-4599-9776-d3b9fb7a18a1">&lt;strong&gt;</bpt>New password<ept id="99217ee9-801c-4599-9776-d3b9fb7a18a1">&lt;/strong&gt;</ept> field, and re-enter it in the <bpt id="aa325adc-6e43-42ae-8e89-92fd0f4f6b21">&lt;strong&gt;</bpt>Confirm<ept id="aa325adc-6e43-42ae-8e89-92fd0f4f6b21">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a password in the <bpt id="99217ee9-801c-4599-9776-d3b9fb7a18a1">&lt;strong&gt;</bpt>New password<ept id="99217ee9-801c-4599-9776-d3b9fb7a18a1">&lt;/strong&gt;</ept> field, and re-enter it in the <bpt id="aa325adc-6e43-42ae-8e89-92fd0f4f6b21">&lt;strong&gt;</bpt>Confirm<ept id="aa325adc-6e43-42ae-8e89-92fd0f4f6b21">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="c5127d1b-f63c-4224-b8fa-c9fc6c6ad391" xml:space="preserve">
+          <source>This is the Administrator account password.</source>
+          <target state="new">This is the Administrator account password.</target>
+        </trans-unit>
+        <trans-unit id="874207ab-b97c-4323-992c-e6044b372797" xml:space="preserve">
+          <source>Click <bpt id="4f3cee1a-f338-47a9-a236-65fda0d158e2">&lt;strong&gt;</bpt>Next<ept id="4f3cee1a-f338-47a9-a236-65fda0d158e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4f3cee1a-f338-47a9-a236-65fda0d158e2">&lt;strong&gt;</bpt>Next<ept id="4f3cee1a-f338-47a9-a236-65fda0d158e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c14d521-cd37-4ce5-b25b-51cb8edb9f9c" xml:space="preserve">
+          <source>In the next <bpt id="04e14567-6145-414c-96d7-b794d0e788e3">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="04e14567-6145-414c-96d7-b794d0e788e3">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the next <bpt id="04e14567-6145-414c-96d7-b794d0e788e3">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="04e14567-6145-414c-96d7-b794d0e788e3">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="6b6ce5b8-d2c3-49b9-aa16-1b8609e6443d" xml:space="preserve">
+          <source>For <bpt id="26dd1e43-a09a-4032-af18-e110bcd0b071">&lt;strong&gt;</bpt>Cloud service<ept id="26dd1e43-a09a-4032-af18-e110bcd0b071">&lt;/strong&gt;</ept>, use the default <bpt id="f9f87db6-2683-44ce-995b-e695935a9872">&lt;strong&gt;</bpt>Create a new cloud service<ept id="f9f87db6-2683-44ce-995b-e695935a9872">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="26dd1e43-a09a-4032-af18-e110bcd0b071">&lt;strong&gt;</bpt>Cloud service<ept id="26dd1e43-a09a-4032-af18-e110bcd0b071">&lt;/strong&gt;</ept>, use the default <bpt id="f9f87db6-2683-44ce-995b-e695935a9872">&lt;strong&gt;</bpt>Create a new cloud service<ept id="f9f87db6-2683-44ce-995b-e695935a9872">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c90e2a3-34d3-4be9-80a9-8d975487397d" xml:space="preserve">
+          <source>The value for <bpt id="52d1584d-0a49-4970-a0dd-052f305c4dd2">&lt;strong&gt;</bpt>Cloud service DNS name<ept id="52d1584d-0a49-4970-a0dd-052f305c4dd2">&lt;/strong&gt;</ept> must be unique across cloudapp.net.</source>
+          <target state="new">The value for <bpt id="52d1584d-0a49-4970-a0dd-052f305c4dd2">&lt;strong&gt;</bpt>Cloud service DNS name<ept id="52d1584d-0a49-4970-a0dd-052f305c4dd2">&lt;/strong&gt;</ept> must be unique across cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="48a97e4f-6832-4564-afe6-09d6f44a482a" xml:space="preserve">
+          <source>If needed, modify this value so that Azure indicates it is unique.</source>
+          <target state="new">If needed, modify this value so that Azure indicates it is unique.</target>
+        </trans-unit>
+        <trans-unit id="9ee4150f-28f3-4072-8a0b-9240e3131687" xml:space="preserve">
+          <source>Specify a region, affinity group, or virtual network.</source>
+          <target state="new">Specify a region, affinity group, or virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d0886808-f93c-4da3-8415-90da9417ac04" xml:space="preserve">
+          <source>For the purposes of this tutorial, specify a region such as <bpt id="2055e44d-4b88-4d94-a058-914ef78471e4">&lt;strong&gt;</bpt>West US<ept id="2055e44d-4b88-4d94-a058-914ef78471e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the purposes of this tutorial, specify a region such as <bpt id="2055e44d-4b88-4d94-a058-914ef78471e4">&lt;strong&gt;</bpt>West US<ept id="2055e44d-4b88-4d94-a058-914ef78471e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9314f832-b5cf-42d6-b669-b4f6c426dac7" xml:space="preserve">
+          <source>For <bpt id="7d9bf153-860b-4068-8319-22ce121c1a3b">&lt;strong&gt;</bpt>Storage Account<ept id="7d9bf153-860b-4068-8319-22ce121c1a3b">&lt;/strong&gt;</ept>, select <bpt id="caf9a891-c297-46b9-a6cd-0e366abd9cd1">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="caf9a891-c297-46b9-a6cd-0e366abd9cd1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="7d9bf153-860b-4068-8319-22ce121c1a3b">&lt;strong&gt;</bpt>Storage Account<ept id="7d9bf153-860b-4068-8319-22ce121c1a3b">&lt;/strong&gt;</ept>, select <bpt id="caf9a891-c297-46b9-a6cd-0e366abd9cd1">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="caf9a891-c297-46b9-a6cd-0e366abd9cd1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efb2347a-cffb-45ac-927e-af84b6d77a40" xml:space="preserve">
+          <source>For <bpt id="23aa7c44-562e-4efc-a42a-c1e5353e042a">&lt;strong&gt;</bpt>Availability Set<ept id="23aa7c44-562e-4efc-a42a-c1e5353e042a">&lt;/strong&gt;</ept>, select <bpt id="44b210ec-1143-4822-bb92-8903ff367bcd">&lt;strong&gt;</bpt>(None)<ept id="44b210ec-1143-4822-bb92-8903ff367bcd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="23aa7c44-562e-4efc-a42a-c1e5353e042a">&lt;strong&gt;</bpt>Availability Set<ept id="23aa7c44-562e-4efc-a42a-c1e5353e042a">&lt;/strong&gt;</ept>, select <bpt id="44b210ec-1143-4822-bb92-8903ff367bcd">&lt;strong&gt;</bpt>(None)<ept id="44b210ec-1143-4822-bb92-8903ff367bcd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fcbba82-6622-4aa3-a561-4256d4779bf2" xml:space="preserve">
+          <source>Click <bpt id="54c8a61a-0e51-447d-89b1-8ad70daec057">&lt;strong&gt;</bpt>Next<ept id="54c8a61a-0e51-447d-89b1-8ad70daec057">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="54c8a61a-0e51-447d-89b1-8ad70daec057">&lt;strong&gt;</bpt>Next<ept id="54c8a61a-0e51-447d-89b1-8ad70daec057">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19a45e33-52f7-4622-8e52-7e94d03555dd" xml:space="preserve">
+          <source>In the final <bpt id="74d9f084-e050-44ec-8ac0-cfc0143f720d">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="74d9f084-e050-44ec-8ac0-cfc0143f720d">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the final <bpt id="74d9f084-e050-44ec-8ac0-cfc0143f720d">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="74d9f084-e050-44ec-8ac0-cfc0143f720d">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="6f075846-dc16-430b-aedf-0d04cbbf1ece" xml:space="preserve">
+          <source>Accept the default endpoint entries.</source>
+          <target state="new">Accept the default endpoint entries.</target>
+        </trans-unit>
+        <trans-unit id="dc75495d-c433-4e0a-a36f-f8da0335f2a5" xml:space="preserve">
+          <source>Click <bpt id="28d71590-744e-4ce2-97e4-9bbcfff48b33">&lt;strong&gt;</bpt>Complete<ept id="28d71590-744e-4ce2-97e4-9bbcfff48b33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="28d71590-744e-4ce2-97e4-9bbcfff48b33">&lt;strong&gt;</bpt>Complete<ept id="28d71590-744e-4ce2-97e4-9bbcfff48b33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e8b74b0-9738-4b6e-8654-3f59d1d1c111" xml:space="preserve">
+          <source>Log on to the <bpt id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;linkText&gt;</bpt>Management portal<ept id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;/linkText&gt;</ept><bpt id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;title&gt;</bpt><ept id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the <bpt id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;linkText&gt;</bpt>Management portal<ept id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;/linkText&gt;</ept><bpt id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;title&gt;</bpt><ept id="d59ae3c8-dceb-4cf9-853b-285a8cc308ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da244a74-e5f4-4119-9f84-47fa6cb1fca7" xml:space="preserve">
+          <source>Click <bpt id="c56fb028-23df-4e9b-a1d8-b2ce7812576c">&lt;strong&gt;</bpt>Virtual machines<ept id="c56fb028-23df-4e9b-a1d8-b2ce7812576c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c56fb028-23df-4e9b-a1d8-b2ce7812576c">&lt;strong&gt;</bpt>Virtual machines<ept id="c56fb028-23df-4e9b-a1d8-b2ce7812576c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63d21b11-5f26-425d-8f1c-96717e5289cf" xml:space="preserve">
+          <source>Click the name of the virtual machine that you want to sign in to.</source>
+          <target state="new">Click the name of the virtual machine that you want to sign in to.</target>
+        </trans-unit>
+        <trans-unit id="a00dd6ae-c1c2-4748-bc26-5325ca4eea85" xml:space="preserve">
+          <source>After the virtual machine has started, a pop-up menu at the bottom of the page allows connections.</source>
+          <target state="new">After the virtual machine has started, a pop-up menu at the bottom of the page allows connections.</target>
+        </trans-unit>
+        <trans-unit id="e1fdbcfe-7319-4202-b8c9-d7e3202cf621" xml:space="preserve">
+          <source>Click <bpt id="567281c6-ee1f-4f20-ae66-8827f942ce7f">&lt;strong&gt;</bpt>Connect<ept id="567281c6-ee1f-4f20-ae66-8827f942ce7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="567281c6-ee1f-4f20-ae66-8827f942ce7f">&lt;strong&gt;</bpt>Connect<ept id="567281c6-ee1f-4f20-ae66-8827f942ce7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1f08eeb-c591-42a0-a1cb-54c41380e0c5" xml:space="preserve">
+          <source>Respond to the prompts as needed to connect to the virtual machine.</source>
+          <target state="new">Respond to the prompts as needed to connect to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="80cc00c3-fb2a-46e3-8303-dc863b643a41" xml:space="preserve">
+          <source>This should entail saving or opening the .rdp file that contains the connection details.</source>
+          <target state="new">This should entail saving or opening the .rdp file that contains the connection details.</target>
+        </trans-unit>
+        <trans-unit id="5a7c84f4-c885-4d52-a377-4047ce239da8" xml:space="preserve">
+          <source>You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote sign-in application.</source>
+          <target state="new">You might have to copy the url:port as the last part of the first line of the .rdp file and paste it in a remote sign-in application.</target>
+        </trans-unit>
+        <trans-unit id="b64c76dd-86a3-4466-85c9-4088ab8b700d" xml:space="preserve">
+          <source>You can copy a Java application server to your virtual machine, or you can install a Java application server through an installer.</source>
+          <target state="new">You can copy a Java application server to your virtual machine, or you can install a Java application server through an installer.</target>
+        </trans-unit>
+        <trans-unit id="06db2b25-0f3b-48ca-b6ef-991f55b765db" xml:space="preserve">
+          <source>For the purposes of this tutorial, Tomcat will be installed.</source>
+          <target state="new">For the purposes of this tutorial, Tomcat will be installed.</target>
+        </trans-unit>
+        <trans-unit id="94ffebe2-7045-4175-81ab-b0cc541d8a4f" xml:space="preserve">
+          <source>When you are signed in to your virtual machine, open a browser session to <bpt id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;linkText&gt;</bpt>Apache Tomcat<ept id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;/linkText&gt;</ept><bpt id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;title&gt;</bpt><ept id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">When you are signed in to your virtual machine, open a browser session to <bpt id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;linkText&gt;</bpt>Apache Tomcat<ept id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;/linkText&gt;</ept><bpt id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;title&gt;</bpt><ept id="461cb504-03a6-4e30-8437-2b694a2646e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a3bafb0-494d-4ee0-a259-46c25debe874" xml:space="preserve">
+          <source>Double-click the link for <bpt id="47382f3b-9e78-487f-82a0-c498cbf82c30">&lt;strong&gt;</bpt>32-bit/64-bit Windows Service Installer<ept id="47382f3b-9e78-487f-82a0-c498cbf82c30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Double-click the link for <bpt id="47382f3b-9e78-487f-82a0-c498cbf82c30">&lt;strong&gt;</bpt>32-bit/64-bit Windows Service Installer<ept id="47382f3b-9e78-487f-82a0-c498cbf82c30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7f51f09-7a3e-48c0-9da7-31b6698cb57f" xml:space="preserve">
+          <source>By using this technique, Tomcat will be installed as a Windows service.</source>
+          <target state="new">By using this technique, Tomcat will be installed as a Windows service.</target>
+        </trans-unit>
+        <trans-unit id="78da08c2-d16a-40a2-b5bf-08e06650614c" xml:space="preserve">
+          <source>When prompted, choose to run the installer.</source>
+          <target state="new">When prompted, choose to run the installer.</target>
+        </trans-unit>
+        <trans-unit id="be48db7f-de95-45d1-a62b-8b339c60c538" xml:space="preserve">
+          <source>Within the <bpt id="01db58a1-aeb3-4253-b855-0f90e01eaedc">&lt;strong&gt;</bpt>Apache Tomcat Setup<ept id="01db58a1-aeb3-4253-b855-0f90e01eaedc">&lt;/strong&gt;</ept> wizard, follow the prompts to install Tomcat.</source>
+          <target state="new">Within the <bpt id="01db58a1-aeb3-4253-b855-0f90e01eaedc">&lt;strong&gt;</bpt>Apache Tomcat Setup<ept id="01db58a1-aeb3-4253-b855-0f90e01eaedc">&lt;/strong&gt;</ept> wizard, follow the prompts to install Tomcat.</target>
+        </trans-unit>
+        <trans-unit id="d2e0e0ad-38ea-42a1-8a50-595c2a569ed6" xml:space="preserve">
+          <source>For the purposes of this tutorial, accepting the defaults is fine.</source>
+          <target state="new">For the purposes of this tutorial, accepting the defaults is fine.</target>
+        </trans-unit>
+        <trans-unit id="70cfc1f0-2348-44e0-8200-f6bbffb88332" xml:space="preserve">
+          <source>When you reach the <bpt id="a7bcf078-3517-4fef-967a-0c86bc1725fc">&lt;strong&gt;</bpt>Completing the Apache Tomcat Setup Wizard<ept id="a7bcf078-3517-4fef-967a-0c86bc1725fc">&lt;/strong&gt;</ept> dialog box, you can optionally check <bpt id="94e6b7a0-7da6-4555-b199-2b9139ee4811">&lt;strong&gt;</bpt>Run Apache Tomcat<ept id="94e6b7a0-7da6-4555-b199-2b9139ee4811">&lt;/strong&gt;</ept> to have Tomcat start now.</source>
+          <target state="new">When you reach the <bpt id="a7bcf078-3517-4fef-967a-0c86bc1725fc">&lt;strong&gt;</bpt>Completing the Apache Tomcat Setup Wizard<ept id="a7bcf078-3517-4fef-967a-0c86bc1725fc">&lt;/strong&gt;</ept> dialog box, you can optionally check <bpt id="94e6b7a0-7da6-4555-b199-2b9139ee4811">&lt;strong&gt;</bpt>Run Apache Tomcat<ept id="94e6b7a0-7da6-4555-b199-2b9139ee4811">&lt;/strong&gt;</ept> to have Tomcat start now.</target>
+        </trans-unit>
+        <trans-unit id="2cdb45af-4f2c-465b-9409-85286988d80b" xml:space="preserve">
+          <source>Click <bpt id="18783b62-d431-4d8c-9e3c-9c799b33e409">&lt;strong&gt;</bpt>Finish<ept id="18783b62-d431-4d8c-9e3c-9c799b33e409">&lt;/strong&gt;</ept> to complete the Tomcat setup process.</source>
+          <target state="new">Click <bpt id="18783b62-d431-4d8c-9e3c-9c799b33e409">&lt;strong&gt;</bpt>Finish<ept id="18783b62-d431-4d8c-9e3c-9c799b33e409">&lt;/strong&gt;</ept> to complete the Tomcat setup process.</target>
+        </trans-unit>
+        <trans-unit id="94b04db1-0f29-4be1-8a46-d2887742c28e" xml:space="preserve">
+          <source>If you did not choose to run Tomcat in the <bpt id="e1fa5531-32ab-41cf-8384-aab74ac2140e">&lt;strong&gt;</bpt>Completing the Apache Tomcat Setup Wizard<ept id="e1fa5531-32ab-41cf-8384-aab74ac2140e">&lt;/strong&gt;</ept> dialog box, start it by opening a command prompt on your virtual machine and running <bpt id="6c98b0fa-9713-4e83-9990-f81187c7e542">&lt;strong&gt;</bpt>net start Tomcat7<ept id="6c98b0fa-9713-4e83-9990-f81187c7e542">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you did not choose to run Tomcat in the <bpt id="e1fa5531-32ab-41cf-8384-aab74ac2140e">&lt;strong&gt;</bpt>Completing the Apache Tomcat Setup Wizard<ept id="e1fa5531-32ab-41cf-8384-aab74ac2140e">&lt;/strong&gt;</ept> dialog box, start it by opening a command prompt on your virtual machine and running <bpt id="6c98b0fa-9713-4e83-9990-f81187c7e542">&lt;strong&gt;</bpt>net start Tomcat7<ept id="6c98b0fa-9713-4e83-9990-f81187c7e542">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5769e4c-2f18-4f9f-aaca-9968dc67622d" xml:space="preserve">
+          <source>You should now see Tomcat running if you run the virtual machine's browser and open &lt;http://localhost:8080&gt;.</source>
+          <target state="new">You should now see Tomcat running if you run the virtual machine's browser and open &lt;http://localhost:8080&gt;.</target>
+        </trans-unit>
+        <trans-unit id="d95761af-f856-4943-80e2-0078ee0d98bd" xml:space="preserve">
+          <source>To see Tomcat running from external machines, you need to create an endpoint and open a port.</source>
+          <target state="new">To see Tomcat running from external machines, you need to create an endpoint and open a port.</target>
+        </trans-unit>
+        <trans-unit id="83c70236-377e-4b28-ba82-0755d49f419f" xml:space="preserve">
+          <source>Sign in to the <bpt id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;linkText&gt;</bpt>Management portal<ept id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;/linkText&gt;</ept><bpt id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;title&gt;</bpt><ept id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;linkText&gt;</bpt>Management portal<ept id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;/linkText&gt;</ept><bpt id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;title&gt;</bpt><ept id="2b1ae302-4a4f-459a-8a5f-95f14e34b037">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="843a9469-99a8-4bef-baff-d8542e85cacf" xml:space="preserve">
+          <source>Click <bpt id="ec58f45f-58a2-4b25-a3a2-976279c1a429">&lt;strong&gt;</bpt>Virtual machines<ept id="ec58f45f-58a2-4b25-a3a2-976279c1a429">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ec58f45f-58a2-4b25-a3a2-976279c1a429">&lt;strong&gt;</bpt>Virtual machines<ept id="ec58f45f-58a2-4b25-a3a2-976279c1a429">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83e906fa-c0cd-4cb8-b28b-703482d09b55" xml:space="preserve">
+          <source>Click the name of the virtual machine that is running your Java application server.</source>
+          <target state="new">Click the name of the virtual machine that is running your Java application server.</target>
+        </trans-unit>
+        <trans-unit id="254995ce-604b-485e-9ca1-c52dfa3818da" xml:space="preserve">
+          <source>Click <bpt id="e0f90dd6-4993-4b79-a486-bebf791a3ea6">&lt;strong&gt;</bpt>Endpoints<ept id="e0f90dd6-4993-4b79-a486-bebf791a3ea6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e0f90dd6-4993-4b79-a486-bebf791a3ea6">&lt;strong&gt;</bpt>Endpoints<ept id="e0f90dd6-4993-4b79-a486-bebf791a3ea6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cd009ee-77f5-4483-8538-fc25dc43297e" xml:space="preserve">
+          <source>Click <bpt id="6fe88148-990a-4cd2-b46c-0bf8588a7ade">&lt;strong&gt;</bpt>Add<ept id="6fe88148-990a-4cd2-b46c-0bf8588a7ade">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6fe88148-990a-4cd2-b46c-0bf8588a7ade">&lt;strong&gt;</bpt>Add<ept id="6fe88148-990a-4cd2-b46c-0bf8588a7ade">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7fde022-d0a3-48fd-8317-023d55ab9239" xml:space="preserve">
+          <source>In the <bpt id="a1cc7214-da5e-462a-aaae-43cce6b3ff69">&lt;strong&gt;</bpt>Add endpoint<ept id="a1cc7214-da5e-462a-aaae-43cce6b3ff69">&lt;/strong&gt;</ept> dialog box, ensure <bpt id="a871a132-3dd5-4172-a42d-bce25aa192e9">&lt;strong&gt;</bpt>Add standalone endpoint<ept id="a871a132-3dd5-4172-a42d-bce25aa192e9">&lt;/strong&gt;</ept> is selected, and then click <bpt id="ec3c22a6-5467-4403-b4c1-ae3687263232">&lt;strong&gt;</bpt>Next<ept id="ec3c22a6-5467-4403-b4c1-ae3687263232">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a1cc7214-da5e-462a-aaae-43cce6b3ff69">&lt;strong&gt;</bpt>Add endpoint<ept id="a1cc7214-da5e-462a-aaae-43cce6b3ff69">&lt;/strong&gt;</ept> dialog box, ensure <bpt id="a871a132-3dd5-4172-a42d-bce25aa192e9">&lt;strong&gt;</bpt>Add standalone endpoint<ept id="a871a132-3dd5-4172-a42d-bce25aa192e9">&lt;/strong&gt;</ept> is selected, and then click <bpt id="ec3c22a6-5467-4403-b4c1-ae3687263232">&lt;strong&gt;</bpt>Next<ept id="ec3c22a6-5467-4403-b4c1-ae3687263232">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df1fd73d-2e38-4c86-b3c3-1fd5d476cd92" xml:space="preserve">
+          <source>In the <bpt id="d5af6f73-1c0d-4f7f-b606-fcaa547f4bbc">&lt;strong&gt;</bpt>New endpoint details<ept id="d5af6f73-1c0d-4f7f-b606-fcaa547f4bbc">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="d5af6f73-1c0d-4f7f-b606-fcaa547f4bbc">&lt;strong&gt;</bpt>New endpoint details<ept id="d5af6f73-1c0d-4f7f-b606-fcaa547f4bbc">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="b5c067a4-d4c6-4df4-96c6-b3156be82888" xml:space="preserve">
+          <source>Specify a name for the endpoint; for example, <bpt id="d38a2f66-b5f9-49da-8e3f-6a2cc92a025a">&lt;strong&gt;</bpt>HttpIn<ept id="d38a2f66-b5f9-49da-8e3f-6a2cc92a025a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a name for the endpoint; for example, <bpt id="d38a2f66-b5f9-49da-8e3f-6a2cc92a025a">&lt;strong&gt;</bpt>HttpIn<ept id="d38a2f66-b5f9-49da-8e3f-6a2cc92a025a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f50b0a2-16cc-49b3-9c34-2782e0b4e3ea" xml:space="preserve">
+          <source>Specify <bpt id="301def7e-b60e-4b77-b5f5-d4a5d2b38ca0">&lt;strong&gt;</bpt>TCP<ept id="301def7e-b60e-4b77-b5f5-d4a5d2b38ca0">&lt;/strong&gt;</ept> for the protocol.</source>
+          <target state="new">Specify <bpt id="301def7e-b60e-4b77-b5f5-d4a5d2b38ca0">&lt;strong&gt;</bpt>TCP<ept id="301def7e-b60e-4b77-b5f5-d4a5d2b38ca0">&lt;/strong&gt;</ept> for the protocol.</target>
+        </trans-unit>
+        <trans-unit id="a643eb1e-8ed6-4e30-9429-d4cb8bdc9746" xml:space="preserve">
+          <source>Specify <bpt id="404ba7f3-fa2a-401a-8222-c23ca06f5eed">&lt;strong&gt;</bpt>80<ept id="404ba7f3-fa2a-401a-8222-c23ca06f5eed">&lt;/strong&gt;</ept> for the public port.</source>
+          <target state="new">Specify <bpt id="404ba7f3-fa2a-401a-8222-c23ca06f5eed">&lt;strong&gt;</bpt>80<ept id="404ba7f3-fa2a-401a-8222-c23ca06f5eed">&lt;/strong&gt;</ept> for the public port.</target>
+        </trans-unit>
+        <trans-unit id="535d601e-f52d-4994-813b-a1f343180c9d" xml:space="preserve">
+          <source>Specify <bpt id="749ca106-3219-4ec3-b692-ce20bb42e894">&lt;strong&gt;</bpt>8080<ept id="749ca106-3219-4ec3-b692-ce20bb42e894">&lt;/strong&gt;</ept> for the private port.</source>
+          <target state="new">Specify <bpt id="749ca106-3219-4ec3-b692-ce20bb42e894">&lt;strong&gt;</bpt>8080<ept id="749ca106-3219-4ec3-b692-ce20bb42e894">&lt;/strong&gt;</ept> for the private port.</target>
+        </trans-unit>
+        <trans-unit id="943437c6-7e11-4832-9461-87637174b991" xml:space="preserve">
+          <source>Click the <bpt id="85dc96bc-6d82-46f2-ba03-c7679088e006">&lt;strong&gt;</bpt>Complete<ept id="85dc96bc-6d82-46f2-ba03-c7679088e006">&lt;/strong&gt;</ept> button to close the dialog box.</source>
+          <target state="new">Click the <bpt id="85dc96bc-6d82-46f2-ba03-c7679088e006">&lt;strong&gt;</bpt>Complete<ept id="85dc96bc-6d82-46f2-ba03-c7679088e006">&lt;/strong&gt;</ept> button to close the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="301e3354-da80-4682-addd-b206f4d6c313" xml:space="preserve">
+          <source>Your endpoint will now be created.</source>
+          <target state="new">Your endpoint will now be created.</target>
+        </trans-unit>
+        <trans-unit id="458335b7-aba4-401d-ae0a-a2512ed0900f" xml:space="preserve">
+          <source>Sign in to your virtual machine.</source>
+          <target state="new">Sign in to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="285164a6-cefe-4f2d-a099-2dfd160034ae" xml:space="preserve">
+          <source>Click <bpt id="322e042c-e1dc-4aea-8699-2323e132ff2a">&lt;strong&gt;</bpt>Windows Start<ept id="322e042c-e1dc-4aea-8699-2323e132ff2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="322e042c-e1dc-4aea-8699-2323e132ff2a">&lt;strong&gt;</bpt>Windows Start<ept id="322e042c-e1dc-4aea-8699-2323e132ff2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d30056b-63df-4d41-bfea-e9a62d09e57c" xml:space="preserve">
+          <source>Click <bpt id="f8d36b01-6227-4ae3-b27b-30d691193752">&lt;strong&gt;</bpt>Control Panel<ept id="f8d36b01-6227-4ae3-b27b-30d691193752">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f8d36b01-6227-4ae3-b27b-30d691193752">&lt;strong&gt;</bpt>Control Panel<ept id="f8d36b01-6227-4ae3-b27b-30d691193752">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3661ae2d-245f-43f6-b9c0-a99c3de39773" xml:space="preserve">
+          <source>Click <bpt id="451af960-93a9-4c32-9e96-505cf32eb835">&lt;strong&gt;</bpt>System and Security<ept id="451af960-93a9-4c32-9e96-505cf32eb835">&lt;/strong&gt;</ept>, click <bpt id="961f2a1b-bd84-4822-9245-1fd8ad30079c">&lt;strong&gt;</bpt>Windows Firewall<ept id="961f2a1b-bd84-4822-9245-1fd8ad30079c">&lt;/strong&gt;</ept>, and then click <bpt id="27e6dbc2-3f71-410d-8f66-fd4d6067e43d">&lt;strong&gt;</bpt>Advanced Settings<ept id="27e6dbc2-3f71-410d-8f66-fd4d6067e43d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="451af960-93a9-4c32-9e96-505cf32eb835">&lt;strong&gt;</bpt>System and Security<ept id="451af960-93a9-4c32-9e96-505cf32eb835">&lt;/strong&gt;</ept>, click <bpt id="961f2a1b-bd84-4822-9245-1fd8ad30079c">&lt;strong&gt;</bpt>Windows Firewall<ept id="961f2a1b-bd84-4822-9245-1fd8ad30079c">&lt;/strong&gt;</ept>, and then click <bpt id="27e6dbc2-3f71-410d-8f66-fd4d6067e43d">&lt;strong&gt;</bpt>Advanced Settings<ept id="27e6dbc2-3f71-410d-8f66-fd4d6067e43d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d13602c2-52c3-49cd-8f72-e52d4533a6d4" xml:space="preserve">
+          <source>Click <bpt id="da626d0b-90c2-479c-b1b6-f981873836fd">&lt;strong&gt;</bpt>Inbound Rules<ept id="da626d0b-90c2-479c-b1b6-f981873836fd">&lt;/strong&gt;</ept>, and then click <bpt id="6381b06d-a83e-4bcf-8701-5ddcc4d67927">&lt;strong&gt;</bpt>New Rule<ept id="6381b06d-a83e-4bcf-8701-5ddcc4d67927">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="da626d0b-90c2-479c-b1b6-f981873836fd">&lt;strong&gt;</bpt>Inbound Rules<ept id="da626d0b-90c2-479c-b1b6-f981873836fd">&lt;/strong&gt;</ept>, and then click <bpt id="6381b06d-a83e-4bcf-8701-5ddcc4d67927">&lt;strong&gt;</bpt>New Rule<ept id="6381b06d-a83e-4bcf-8701-5ddcc4d67927">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6255e23b-ad8d-4210-a277-e5a01ac0dcb6" xml:space="preserve">
+          <source><bpt id="554c305a-c2ab-49dc-a20e-25b2e785b699">&lt;linkText&gt;</bpt>New inbound rule<ept id="554c305a-c2ab-49dc-a20e-25b2e785b699">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="554c305a-c2ab-49dc-a20e-25b2e785b699">&lt;linkText&gt;</bpt>New inbound rule<ept id="554c305a-c2ab-49dc-a20e-25b2e785b699">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93477e23-8278-4e32-998c-78d68a6c40f4" xml:space="preserve">
+          <source>For the <bpt id="bbbfe56c-b611-4f30-805a-78d95fce7190">&lt;strong&gt;</bpt>Rule Type<ept id="bbbfe56c-b611-4f30-805a-78d95fce7190">&lt;/strong&gt;</ept>, select <bpt id="dc384b55-4c08-4952-970a-bf63c729681a">&lt;strong&gt;</bpt>Port<ept id="dc384b55-4c08-4952-970a-bf63c729681a">&lt;/strong&gt;</ept>, and then click <bpt id="bb2617b6-ce29-4020-89a4-10e47144e54c">&lt;strong&gt;</bpt>Next<ept id="bb2617b6-ce29-4020-89a4-10e47144e54c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="bbbfe56c-b611-4f30-805a-78d95fce7190">&lt;strong&gt;</bpt>Rule Type<ept id="bbbfe56c-b611-4f30-805a-78d95fce7190">&lt;/strong&gt;</ept>, select <bpt id="dc384b55-4c08-4952-970a-bf63c729681a">&lt;strong&gt;</bpt>Port<ept id="dc384b55-4c08-4952-970a-bf63c729681a">&lt;/strong&gt;</ept>, and then click <bpt id="bb2617b6-ce29-4020-89a4-10e47144e54c">&lt;strong&gt;</bpt>Next<ept id="bb2617b6-ce29-4020-89a4-10e47144e54c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cc159d0-3ec5-4a14-8af2-3e0269d4a4f7" xml:space="preserve">
+          <source><bpt id="3970aa87-5a6f-464b-8f88-f1db9cbeb134">&lt;linkText&gt;</bpt>New inbound rule port<ept id="3970aa87-5a6f-464b-8f88-f1db9cbeb134">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3970aa87-5a6f-464b-8f88-f1db9cbeb134">&lt;linkText&gt;</bpt>New inbound rule port<ept id="3970aa87-5a6f-464b-8f88-f1db9cbeb134">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="897d5677-ad93-4440-b91a-8a7673e36000" xml:space="preserve">
+          <source>On the <bpt id="7b84fea8-6fbf-4732-8a18-b83ba77ab7ab">&lt;strong&gt;</bpt>Protocol and Ports<ept id="7b84fea8-6fbf-4732-8a18-b83ba77ab7ab">&lt;/strong&gt;</ept> screen, select <bpt id="b09fc24e-93b9-4560-bcc3-8b220a3eafa3">&lt;strong&gt;</bpt>TCP<ept id="b09fc24e-93b9-4560-bcc3-8b220a3eafa3">&lt;/strong&gt;</ept>, specify <bpt id="a878e400-182a-4e0a-931f-9707dafd3d11">&lt;strong&gt;</bpt>8080<ept id="a878e400-182a-4e0a-931f-9707dafd3d11">&lt;/strong&gt;</ept> as the <bpt id="cb3fcbb7-a949-4bba-994e-8c7d84fbe2b1">&lt;strong&gt;</bpt>Specific local port<ept id="cb3fcbb7-a949-4bba-994e-8c7d84fbe2b1">&lt;/strong&gt;</ept>, and then click <bpt id="2ca9eb8d-650b-4eba-bd4a-17afc75fc271">&lt;strong&gt;</bpt>Next<ept id="2ca9eb8d-650b-4eba-bd4a-17afc75fc271">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7b84fea8-6fbf-4732-8a18-b83ba77ab7ab">&lt;strong&gt;</bpt>Protocol and Ports<ept id="7b84fea8-6fbf-4732-8a18-b83ba77ab7ab">&lt;/strong&gt;</ept> screen, select <bpt id="b09fc24e-93b9-4560-bcc3-8b220a3eafa3">&lt;strong&gt;</bpt>TCP<ept id="b09fc24e-93b9-4560-bcc3-8b220a3eafa3">&lt;/strong&gt;</ept>, specify <bpt id="a878e400-182a-4e0a-931f-9707dafd3d11">&lt;strong&gt;</bpt>8080<ept id="a878e400-182a-4e0a-931f-9707dafd3d11">&lt;/strong&gt;</ept> as the <bpt id="cb3fcbb7-a949-4bba-994e-8c7d84fbe2b1">&lt;strong&gt;</bpt>Specific local port<ept id="cb3fcbb7-a949-4bba-994e-8c7d84fbe2b1">&lt;/strong&gt;</ept>, and then click <bpt id="2ca9eb8d-650b-4eba-bd4a-17afc75fc271">&lt;strong&gt;</bpt>Next<ept id="2ca9eb8d-650b-4eba-bd4a-17afc75fc271">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82c67d65-b51d-45aa-ab90-5aef544d614c" xml:space="preserve">
+          <source><bpt id="eb90d69e-54c5-4b88-9154-ee0a520d2722">&lt;linkText&gt;</bpt>New inbound rule <ept id="eb90d69e-54c5-4b88-9154-ee0a520d2722">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb90d69e-54c5-4b88-9154-ee0a520d2722">&lt;linkText&gt;</bpt>New inbound rule <ept id="eb90d69e-54c5-4b88-9154-ee0a520d2722">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44741a7d-364b-473e-864a-b01bb0e4ea2d" xml:space="preserve">
+          <source>On the <bpt id="7baa060c-b2a9-4755-9196-6b398707f6ab">&lt;strong&gt;</bpt>Action<ept id="7baa060c-b2a9-4755-9196-6b398707f6ab">&lt;/strong&gt;</ept> screen, select <bpt id="1c0ce949-89fe-46f5-856a-90277209a840">&lt;strong&gt;</bpt>Allow the connection<ept id="1c0ce949-89fe-46f5-856a-90277209a840">&lt;/strong&gt;</ept>, and then click <bpt id="6f83ea06-346a-46b7-a160-72dbb1f045cf">&lt;strong&gt;</bpt>Next<ept id="6f83ea06-346a-46b7-a160-72dbb1f045cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7baa060c-b2a9-4755-9196-6b398707f6ab">&lt;strong&gt;</bpt>Action<ept id="7baa060c-b2a9-4755-9196-6b398707f6ab">&lt;/strong&gt;</ept> screen, select <bpt id="1c0ce949-89fe-46f5-856a-90277209a840">&lt;strong&gt;</bpt>Allow the connection<ept id="1c0ce949-89fe-46f5-856a-90277209a840">&lt;/strong&gt;</ept>, and then click <bpt id="6f83ea06-346a-46b7-a160-72dbb1f045cf">&lt;strong&gt;</bpt>Next<ept id="6f83ea06-346a-46b7-a160-72dbb1f045cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="839ca3fa-ff66-4e6b-921e-056974bf18b7" xml:space="preserve">
+          <source><bpt id="db64f5ed-4cf7-4c56-96df-7cbf8fbc2e30">&lt;linkText&gt;</bpt>New inbound rule action<ept id="db64f5ed-4cf7-4c56-96df-7cbf8fbc2e30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db64f5ed-4cf7-4c56-96df-7cbf8fbc2e30">&lt;linkText&gt;</bpt>New inbound rule action<ept id="db64f5ed-4cf7-4c56-96df-7cbf8fbc2e30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbd182a3-80a9-444d-88c8-daca49f85cb8" xml:space="preserve">
+          <source>On the <bpt id="5a1bb3ae-4535-4d2c-8747-baf695bbcfda">&lt;strong&gt;</bpt>Profile<ept id="5a1bb3ae-4535-4d2c-8747-baf695bbcfda">&lt;/strong&gt;</ept> screen, ensure that <bpt id="2233273f-7388-498a-bb3b-03363e6ad7d4">&lt;strong&gt;</bpt>Domain<ept id="2233273f-7388-498a-bb3b-03363e6ad7d4">&lt;/strong&gt;</ept>, <bpt id="8533b393-a8a5-43d3-ad16-26bc10f67e33">&lt;strong&gt;</bpt>Private<ept id="8533b393-a8a5-43d3-ad16-26bc10f67e33">&lt;/strong&gt;</ept>, and <bpt id="3a07ee00-de7f-4f75-8c02-2687cc2167cb">&lt;strong&gt;</bpt>Public<ept id="3a07ee00-de7f-4f75-8c02-2687cc2167cb">&lt;/strong&gt;</ept> are selected, and then click <bpt id="f54cc653-30d6-41dd-b47a-9b4203ec2b3e">&lt;strong&gt;</bpt>Next<ept id="f54cc653-30d6-41dd-b47a-9b4203ec2b3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5a1bb3ae-4535-4d2c-8747-baf695bbcfda">&lt;strong&gt;</bpt>Profile<ept id="5a1bb3ae-4535-4d2c-8747-baf695bbcfda">&lt;/strong&gt;</ept> screen, ensure that <bpt id="2233273f-7388-498a-bb3b-03363e6ad7d4">&lt;strong&gt;</bpt>Domain<ept id="2233273f-7388-498a-bb3b-03363e6ad7d4">&lt;/strong&gt;</ept>, <bpt id="8533b393-a8a5-43d3-ad16-26bc10f67e33">&lt;strong&gt;</bpt>Private<ept id="8533b393-a8a5-43d3-ad16-26bc10f67e33">&lt;/strong&gt;</ept>, and <bpt id="3a07ee00-de7f-4f75-8c02-2687cc2167cb">&lt;strong&gt;</bpt>Public<ept id="3a07ee00-de7f-4f75-8c02-2687cc2167cb">&lt;/strong&gt;</ept> are selected, and then click <bpt id="f54cc653-30d6-41dd-b47a-9b4203ec2b3e">&lt;strong&gt;</bpt>Next<ept id="f54cc653-30d6-41dd-b47a-9b4203ec2b3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb33e6c9-50e6-4072-b66e-cdcffb7def3f" xml:space="preserve">
+          <source><bpt id="02d3d34e-938b-485a-a21b-30fbe7661096">&lt;linkText&gt;</bpt>New inbound rule profile<ept id="02d3d34e-938b-485a-a21b-30fbe7661096">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02d3d34e-938b-485a-a21b-30fbe7661096">&lt;linkText&gt;</bpt>New inbound rule profile<ept id="02d3d34e-938b-485a-a21b-30fbe7661096">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73999b1f-882d-4d8b-85e7-557b4282d1a8" xml:space="preserve">
+          <source>On the <bpt id="b6b60bb6-ed2d-4a17-8d32-306de52ac361">&lt;strong&gt;</bpt>Name<ept id="b6b60bb6-ed2d-4a17-8d32-306de52ac361">&lt;/strong&gt;</ept> screen, specify a name for the rule, such as <bpt id="5ad12a08-9c14-491e-ab86-f9b9a734327f">&lt;strong&gt;</bpt>HttpIn<ept id="5ad12a08-9c14-491e-ab86-f9b9a734327f">&lt;/strong&gt;</ept> (the rule name is not required to match the endpoint name, however), and then click <bpt id="6833f0d9-d52b-4c5e-9a81-9c137496c82d">&lt;strong&gt;</bpt>Finish<ept id="6833f0d9-d52b-4c5e-9a81-9c137496c82d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b6b60bb6-ed2d-4a17-8d32-306de52ac361">&lt;strong&gt;</bpt>Name<ept id="b6b60bb6-ed2d-4a17-8d32-306de52ac361">&lt;/strong&gt;</ept> screen, specify a name for the rule, such as <bpt id="5ad12a08-9c14-491e-ab86-f9b9a734327f">&lt;strong&gt;</bpt>HttpIn<ept id="5ad12a08-9c14-491e-ab86-f9b9a734327f">&lt;/strong&gt;</ept> (the rule name is not required to match the endpoint name, however), and then click <bpt id="6833f0d9-d52b-4c5e-9a81-9c137496c82d">&lt;strong&gt;</bpt>Finish<ept id="6833f0d9-d52b-4c5e-9a81-9c137496c82d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13875975-93d4-47c1-9e2e-8eb895788d32" xml:space="preserve">
+          <source><bpt id="f0bdad5f-0cf3-4111-ba5e-274283521e65">&lt;linkText&gt;</bpt>New inbound rule name<ept id="f0bdad5f-0cf3-4111-ba5e-274283521e65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0bdad5f-0cf3-4111-ba5e-274283521e65">&lt;linkText&gt;</bpt>New inbound rule name<ept id="f0bdad5f-0cf3-4111-ba5e-274283521e65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="380bd590-fdd8-4341-92a5-d8d11901c3b6" xml:space="preserve">
+          <source>At this point, your Tomcat website should be viewable from an external browser by using a URL of the form <bpt id="bd57c5de-a069-47c9-a47a-0a36aa581120">&lt;strong&gt;</bpt>http://*your\_DNS\_name*.cloudapp.net<ept id="bd57c5de-a069-47c9-a47a-0a36aa581120">&lt;/strong&gt;</ept>, where <bpt id="b6886dd1-4a7d-48ee-bfe4-cf1c7f3e8f36">&lt;strong&gt;</bpt>*your\_DNS\_name*<ept id="b6886dd1-4a7d-48ee-bfe4-cf1c7f3e8f36">&lt;/strong&gt;</ept> is the DNS name you specified when you created the virtual machine.</source>
+          <target state="new">At this point, your Tomcat website should be viewable from an external browser by using a URL of the form <bpt id="bd57c5de-a069-47c9-a47a-0a36aa581120">&lt;strong&gt;</bpt>http://*your\_DNS\_name*.cloudapp.net<ept id="bd57c5de-a069-47c9-a47a-0a36aa581120">&lt;/strong&gt;</ept>, where <bpt id="b6886dd1-4a7d-48ee-bfe4-cf1c7f3e8f36">&lt;strong&gt;</bpt>*your\_DNS\_name*<ept id="b6886dd1-4a7d-48ee-bfe4-cf1c7f3e8f36">&lt;/strong&gt;</ept> is the DNS name you specified when you created the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c8d8ff46-75f2-4cdb-9848-53e3d23b92d3" xml:space="preserve">
+          <source>You could create your own web application archive (WAR) and add it to the <bpt id="8f5bbef7-d888-430c-9b4a-7b12c148fef7">&lt;strong&gt;</bpt>webapps<ept id="8f5bbef7-d888-430c-9b4a-7b12c148fef7">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">You could create your own web application archive (WAR) and add it to the <bpt id="8f5bbef7-d888-430c-9b4a-7b12c148fef7">&lt;strong&gt;</bpt>webapps<ept id="8f5bbef7-d888-430c-9b4a-7b12c148fef7">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="3f0a54a1-d5c7-4b84-81ff-e86c3cb26326" xml:space="preserve">
+          <source>For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file, copy the WAR to the Apache Tomcat <bpt id="2da2207c-aa5c-4326-96a5-a8294d3365c4">&lt;strong&gt;</bpt>webapps<ept id="2da2207c-aa5c-4326-96a5-a8294d3365c4">&lt;/strong&gt;</ept> folder on the virtual machine, then run it in a browser.</source>
+          <target state="new">For example, create a basic Java Service Page (JSP) dynamic web project and export it as a WAR file, copy the WAR to the Apache Tomcat <bpt id="2da2207c-aa5c-4326-96a5-a8294d3365c4">&lt;strong&gt;</bpt>webapps<ept id="2da2207c-aa5c-4326-96a5-a8294d3365c4">&lt;/strong&gt;</ept> folder on the virtual machine, then run it in a browser.</target>
+        </trans-unit>
+        <trans-unit id="ae88c4af-7307-484a-893a-f82e89fee0ee" xml:space="preserve">
+          <source>By default when the Tomcat service is installed, it is set to start manually.</source>
+          <target state="new">By default when the Tomcat service is installed, it is set to start manually.</target>
+        </trans-unit>
+        <trans-unit id="11eebffa-6213-488c-8b9a-555259d9d78b" xml:space="preserve">
+          <source>You can switch it to start automatically by using the Services snap-in.</source>
+          <target state="new">You can switch it to start automatically by using the Services snap-in.</target>
+        </trans-unit>
+        <trans-unit id="f94b0b7b-ab78-4407-9ef1-7b05e2b1d4d8" xml:space="preserve">
+          <source>Start the Services snap-in by clicking <bpt id="27b41c35-72b8-4ea6-bc7d-ac24dbbd6dcd">&lt;strong&gt;</bpt>Windows Start<ept id="27b41c35-72b8-4ea6-bc7d-ac24dbbd6dcd">&lt;/strong&gt;</ept>, <bpt id="6e5394b6-a447-459a-90ac-4817c96631f4">&lt;strong&gt;</bpt>Administrative Tools<ept id="6e5394b6-a447-459a-90ac-4817c96631f4">&lt;/strong&gt;</ept>, and then <bpt id="04e2422f-5bbb-4f5e-ab2f-192d711bc8ba">&lt;strong&gt;</bpt>Services<ept id="04e2422f-5bbb-4f5e-ab2f-192d711bc8ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Start the Services snap-in by clicking <bpt id="27b41c35-72b8-4ea6-bc7d-ac24dbbd6dcd">&lt;strong&gt;</bpt>Windows Start<ept id="27b41c35-72b8-4ea6-bc7d-ac24dbbd6dcd">&lt;/strong&gt;</ept>, <bpt id="6e5394b6-a447-459a-90ac-4817c96631f4">&lt;strong&gt;</bpt>Administrative Tools<ept id="6e5394b6-a447-459a-90ac-4817c96631f4">&lt;/strong&gt;</ept>, and then <bpt id="04e2422f-5bbb-4f5e-ab2f-192d711bc8ba">&lt;strong&gt;</bpt>Services<ept id="04e2422f-5bbb-4f5e-ab2f-192d711bc8ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56e959fe-aef5-4fea-8df1-e055fe44b236" xml:space="preserve">
+          <source>Double-click the <bpt id="743a32e2-3e6e-489c-b617-b1f5b4c752e1">&lt;strong&gt;</bpt>Apache Tomcat<ept id="743a32e2-3e6e-489c-b617-b1f5b4c752e1">&lt;/strong&gt;</ept> service  and set <bpt id="63333d08-86fb-49c8-ada8-5243d1b9b00b">&lt;strong&gt;</bpt>Startup type<ept id="63333d08-86fb-49c8-ada8-5243d1b9b00b">&lt;/strong&gt;</ept> to <bpt id="0b6544eb-2ab2-41c2-87ed-1267eb04f876">&lt;strong&gt;</bpt>Automatic<ept id="0b6544eb-2ab2-41c2-87ed-1267eb04f876">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Double-click the <bpt id="743a32e2-3e6e-489c-b617-b1f5b4c752e1">&lt;strong&gt;</bpt>Apache Tomcat<ept id="743a32e2-3e6e-489c-b617-b1f5b4c752e1">&lt;/strong&gt;</ept> service  and set <bpt id="63333d08-86fb-49c8-ada8-5243d1b9b00b">&lt;strong&gt;</bpt>Startup type<ept id="63333d08-86fb-49c8-ada8-5243d1b9b00b">&lt;/strong&gt;</ept> to <bpt id="0b6544eb-2ab2-41c2-87ed-1267eb04f876">&lt;strong&gt;</bpt>Automatic<ept id="0b6544eb-2ab2-41c2-87ed-1267eb04f876">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb5a9007-64e6-42c4-838f-cbc52c79c23e" xml:space="preserve">
+          <source><bpt id="87a44ffe-5be3-49bf-9d09-409b8914048b">&lt;linkText&gt;</bpt>Setting a service to start automatically<ept id="87a44ffe-5be3-49bf-9d09-409b8914048b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87a44ffe-5be3-49bf-9d09-409b8914048b">&lt;linkText&gt;</bpt>Setting a service to start automatically<ept id="87a44ffe-5be3-49bf-9d09-409b8914048b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c30e6d2-bf93-4995-a40a-73f8d251909f" xml:space="preserve">
+          <source>The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).</source>
+          <target state="new">The benefit of having Tomcat start automatically is that it will start if the virtual machine is rebooted (for example, after software updates that require a reboot are installed).</target>
+        </trans-unit>
+        <trans-unit id="39058722-d1c9-4768-b81a-f6a872f2ac49" xml:space="preserve">
+          <source>Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the <bpt id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;linkText&gt;</bpt>Java Developer Center<ept id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;/linkText&gt;</ept><bpt id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;title&gt;</bpt><ept id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about other services (such as Azure Storage, service bus, and SQL Database) that you may want to include with your Java applications by viewing the information available at the <bpt id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;linkText&gt;</bpt>Java Developer Center<ept id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;/linkText&gt;</ept><bpt id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;title&gt;</bpt><ept id="2356d3bf-11d0-4cbc-90a8-354b6d6c09a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11555017-29a6-4625-80d6-d120e7eb36f5" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png</target>
+        </trans-unit>
+        <trans-unit id="b4499063-c094-4541-b7d3-648556fef54b" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png</target>
+        </trans-unit>
+        <trans-unit id="1981602a-4aa6-4652-8483-1d0db36dbf2d" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png</target>
+        </trans-unit>
+        <trans-unit id="c72c94de-d9c1-41b2-9a47-183c29e6c6f7" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png</target>
+        </trans-unit>
+        <trans-unit id="15b1be7c-b915-48cd-9e3a-8904c1e98f0c" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewRuleProtocol.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewRuleProtocol.png</target>
+        </trans-unit>
+        <trans-unit id="1f3994d8-d28d-4bef-bc55-2edc3f15dea7" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png</target>
+        </trans-unit>
+        <trans-unit id="e5fd5847-926a-437d-a48a-7efc6b263d50" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png</target>
+        </trans-unit>
+        <trans-unit id="d3f90690-8bb1-4d52-bea3-8f9e363686bd" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png</source>
+          <target state="new">./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png</target>
+        </trans-unit>
+      </group>
+      <group id="f3df0667-9412-4c02-aa61-2ae773bb6891" />
+    </body>
+  </file>
+</xliff>

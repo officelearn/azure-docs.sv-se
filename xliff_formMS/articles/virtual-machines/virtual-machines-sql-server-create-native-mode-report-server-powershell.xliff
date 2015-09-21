@@ -1,0 +1,1156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2c528bb8-e685-4fb0-9ab3-cb3cb22721eb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2c528bb8-e685-4fb0-9ab3-cb3cb22721eb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3251eb98-aea0-4f31-be3b-605eab0230ab">
+        <trans-unit id="c8411175-e8ec-4b40-aec4-2a64ba1c8283" xml:space="preserve">
+          <source>Use PowerShell to Create an Azure VM With a Native Mode Report Server</source>
+          <target state="new">Use PowerShell to Create an Azure VM With a Native Mode Report Server</target>
+        </trans-unit>
+        <trans-unit id="47ff13dd-0235-429e-96b1-636ae166bde0" xml:space="preserve">
+          <source>This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. </source>
+          <target state="new">This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. </target>
+        </trans-unit>
+        <trans-unit id="3162c5a8-6de2-4053-85c0-1bdcd57e7526" xml:space="preserve">
+          <source>This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine.</source>
+          <target state="new">This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="e66faa95-a0ad-42b8-9340-1f0d8524b266" xml:space="preserve">
+          <source>The steps in this document use a combination of manual steps to create the virtual machine and a Windows PowerShell script to configure Reporting Services on the VM.</source>
+          <target state="new">The steps in this document use a combination of manual steps to create the virtual machine and a Windows PowerShell script to configure Reporting Services on the VM.</target>
+        </trans-unit>
+        <trans-unit id="55df9436-82f2-48d4-bcbf-1563d5498c3f" xml:space="preserve">
+          <source>The configuration script includes opening a firewall port for HTTP or HTTPs.</source>
+          <target state="new">The configuration script includes opening a firewall port for HTTP or HTTPs.</target>
+        </trans-unit>
+        <trans-unit id="2a1cb24d-9e0c-4262-9895-df6125b95b52" xml:space="preserve">
+          <source>If you do not require <bpt id="0972cd29-6b0d-4f0f-b43f-ff4ebe491abe">&lt;strong&gt;</bpt>HTTPS<ept id="0972cd29-6b0d-4f0f-b43f-ff4ebe491abe">&lt;/strong&gt;</ept> on the report server, <bpt id="528d28c2-04d1-4430-a3e0-1ff546367e03">&lt;strong&gt;</bpt>skip step 2<ept id="528d28c2-04d1-4430-a3e0-1ff546367e03">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you do not require <bpt id="0972cd29-6b0d-4f0f-b43f-ff4ebe491abe">&lt;strong&gt;</bpt>HTTPS<ept id="0972cd29-6b0d-4f0f-b43f-ff4ebe491abe">&lt;/strong&gt;</ept> on the report server, <bpt id="528d28c2-04d1-4430-a3e0-1ff546367e03">&lt;strong&gt;</bpt>skip step 2<ept id="528d28c2-04d1-4430-a3e0-1ff546367e03">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="221afb98-5617-4c23-9494-51efa5b49afd" xml:space="preserve">
+          <source>After creating the VM in step 1, go to the section Use script to configure the report server and HTTP.</source>
+          <target state="new">After creating the VM in step 1, go to the section Use script to configure the report server and HTTP.</target>
+        </trans-unit>
+        <trans-unit id="f4aaca41-1d2e-4d7a-8678-b42ead4d79e4" xml:space="preserve">
+          <source>After you run the script, the report server is ready to use.</source>
+          <target state="new">After you run the script, the report server is ready to use.</target>
+        </trans-unit>
+        <trans-unit id="3f6834e1-5cc9-42c1-83a1-1b5e4c8ae1bc" xml:space="preserve">
+          <source><bpt id="371a4970-3011-44e5-b102-bb3bf6000b61">&lt;strong&gt;</bpt>Azure Subscription<ept id="371a4970-3011-44e5-b102-bb3bf6000b61">&lt;/strong&gt;</ept>: Verify the number of cores available in your Azure Subscription.</source>
+          <target state="new"><bpt id="371a4970-3011-44e5-b102-bb3bf6000b61">&lt;strong&gt;</bpt>Azure Subscription<ept id="371a4970-3011-44e5-b102-bb3bf6000b61">&lt;/strong&gt;</ept>: Verify the number of cores available in your Azure Subscription.</target>
+        </trans-unit>
+        <trans-unit id="f198e951-92b2-4a9c-87b6-1a4017d2421f" xml:space="preserve">
+          <source>If you create the recommended VM size of <bpt id="d07f484e-4216-4946-a75b-fb0c1024b430">&lt;strong&gt;</bpt>A3<ept id="d07f484e-4216-4946-a75b-fb0c1024b430">&lt;/strong&gt;</ept>, you need <bpt id="7fa2bd01-4e50-45bc-b4f8-af5325dd5bf5">&lt;strong&gt;</bpt>4<ept id="7fa2bd01-4e50-45bc-b4f8-af5325dd5bf5">&lt;/strong&gt;</ept> available cores.</source>
+          <target state="new">If you create the recommended VM size of <bpt id="d07f484e-4216-4946-a75b-fb0c1024b430">&lt;strong&gt;</bpt>A3<ept id="d07f484e-4216-4946-a75b-fb0c1024b430">&lt;/strong&gt;</ept>, you need <bpt id="7fa2bd01-4e50-45bc-b4f8-af5325dd5bf5">&lt;strong&gt;</bpt>4<ept id="7fa2bd01-4e50-45bc-b4f8-af5325dd5bf5">&lt;/strong&gt;</ept> available cores.</target>
+        </trans-unit>
+        <trans-unit id="b14816e2-933a-470f-969d-e382aa542209" xml:space="preserve">
+          <source>If you use a VM size of <bpt id="def16900-d8c2-4fed-a584-816d2fa7e35b">&lt;strong&gt;</bpt>A2<ept id="def16900-d8c2-4fed-a584-816d2fa7e35b">&lt;/strong&gt;</ept>, you need <bpt id="bb0eb024-370b-492c-8f56-9e3640862d6a">&lt;strong&gt;</bpt>2<ept id="bb0eb024-370b-492c-8f56-9e3640862d6a">&lt;/strong&gt;</ept> available cores.</source>
+          <target state="new">If you use a VM size of <bpt id="def16900-d8c2-4fed-a584-816d2fa7e35b">&lt;strong&gt;</bpt>A2<ept id="def16900-d8c2-4fed-a584-816d2fa7e35b">&lt;/strong&gt;</ept>, you need <bpt id="bb0eb024-370b-492c-8f56-9e3640862d6a">&lt;strong&gt;</bpt>2<ept id="bb0eb024-370b-492c-8f56-9e3640862d6a">&lt;/strong&gt;</ept> available cores.</target>
+        </trans-unit>
+        <trans-unit id="8a932a65-f266-4b4b-b290-a53fa9acb977" xml:space="preserve">
+          <source>To verify the core limit of your subscription, in the Azure Management Portal, click SETTINGS in the left pane and then Click USAGE in the top menu.</source>
+          <target state="new">To verify the core limit of your subscription, in the Azure Management Portal, click SETTINGS in the left pane and then Click USAGE in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="8bd8c9df-0e92-4f13-80f1-9480a36dd296" xml:space="preserve">
+          <source>To increase the core quota, contact <bpt id="c0bb3727-f452-46a7-9627-889851e598db">&lt;linkText&gt;</bpt>Azure Support<ept id="c0bb3727-f452-46a7-9627-889851e598db">&lt;/linkText&gt;</ept><bpt id="c0bb3727-f452-46a7-9627-889851e598db">&lt;title&gt;</bpt><ept id="c0bb3727-f452-46a7-9627-889851e598db">&lt;/title&gt;</ept>.</source>
+          <target state="new">To increase the core quota, contact <bpt id="c0bb3727-f452-46a7-9627-889851e598db">&lt;linkText&gt;</bpt>Azure Support<ept id="c0bb3727-f452-46a7-9627-889851e598db">&lt;/linkText&gt;</ept><bpt id="c0bb3727-f452-46a7-9627-889851e598db">&lt;title&gt;</bpt><ept id="c0bb3727-f452-46a7-9627-889851e598db">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80c364d9-0965-4872-bc6d-bfdad1e7557a" xml:space="preserve">
+          <source>For VM size information, see <bpt id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;/linkText&gt;</ept><bpt id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;title&gt;</bpt><ept id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;/title&gt;</ept>.</source>
+          <target state="new">For VM size information, see <bpt id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;/linkText&gt;</ept><bpt id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;title&gt;</bpt><ept id="8277ad90-cb8f-41bb-9bcd-d2056ef2f716">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e7a8cbc-3121-4648-84ba-e06186c7918c" xml:space="preserve">
+          <source><bpt id="cb0e518b-4ffb-438f-92d3-3ed249fd8e33">&lt;strong&gt;</bpt>Windows PowerShell Scripting<ept id="cb0e518b-4ffb-438f-92d3-3ed249fd8e33">&lt;/strong&gt;</ept>: The topic assumes that you have a basic working knowledge of Windows PowerShell.</source>
+          <target state="new"><bpt id="cb0e518b-4ffb-438f-92d3-3ed249fd8e33">&lt;strong&gt;</bpt>Windows PowerShell Scripting<ept id="cb0e518b-4ffb-438f-92d3-3ed249fd8e33">&lt;/strong&gt;</ept>: The topic assumes that you have a basic working knowledge of Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="613ffa07-e35a-4426-a001-1445b4762491" xml:space="preserve">
+          <source>For more information about using Windows PowerShell, see the following:</source>
+          <target state="new">For more information about using Windows PowerShell, see the following:</target>
+        </trans-unit>
+        <trans-unit id="37fea4d5-80ce-45d1-9843-3d3754e006b4" xml:space="preserve">
+          <source><bpt id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;linkText&gt;</bpt>Starting Windows PowerShell on Windows Server<ept id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;/linkText&gt;</ept><bpt id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;title&gt;</bpt><ept id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;linkText&gt;</bpt>Starting Windows PowerShell on Windows Server<ept id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;/linkText&gt;</ept><bpt id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;title&gt;</bpt><ept id="f9098950-ee8b-4809-874d-738440e5a6b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4233ceb1-cff0-4d30-b82d-7ecdf2e8b8ee" xml:space="preserve">
+          <source><bpt id="82281856-5294-488f-8d1c-458fb647418a">&lt;linkText&gt;</bpt>Getting Started with Windows PowerShell<ept id="82281856-5294-488f-8d1c-458fb647418a">&lt;/linkText&gt;</ept><bpt id="82281856-5294-488f-8d1c-458fb647418a">&lt;title&gt;</bpt><ept id="82281856-5294-488f-8d1c-458fb647418a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82281856-5294-488f-8d1c-458fb647418a">&lt;linkText&gt;</bpt>Getting Started with Windows PowerShell<ept id="82281856-5294-488f-8d1c-458fb647418a">&lt;/linkText&gt;</ept><bpt id="82281856-5294-488f-8d1c-458fb647418a">&lt;title&gt;</bpt><ept id="82281856-5294-488f-8d1c-458fb647418a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf8921d9-132d-4349-be96-f7a389568696" xml:space="preserve">
+          <source>Browse to the <bpt id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;/linkText&gt;</ept><bpt id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;title&gt;</bpt><ept id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Browse to the <bpt id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;/linkText&gt;</ept><bpt id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;title&gt;</bpt><ept id="ae46903d-ff5b-4c21-a25b-f53676166a2e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="524f346d-4dae-4179-a28a-40a311475efe" xml:space="preserve">
+          <source>Click <bpt id="f091b90b-127a-4223-8a9a-bf7c59cd4488">&lt;strong&gt;</bpt>Virtual Machines<ept id="f091b90b-127a-4223-8a9a-bf7c59cd4488">&lt;/strong&gt;</ept> in the left pane.</source>
+          <target state="new">Click <bpt id="f091b90b-127a-4223-8a9a-bf7c59cd4488">&lt;strong&gt;</bpt>Virtual Machines<ept id="f091b90b-127a-4223-8a9a-bf7c59cd4488">&lt;/strong&gt;</ept> in the left pane.</target>
+        </trans-unit>
+        <trans-unit id="24c53476-d589-4233-bd3a-7fc2050f744b" xml:space="preserve">
+          <source><bpt id="c3af1562-d2a7-4966-a914-c10a4abecefc">&lt;linkText&gt;</bpt>microsoft azure virtual machines<ept id="c3af1562-d2a7-4966-a914-c10a4abecefc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3af1562-d2a7-4966-a914-c10a4abecefc">&lt;linkText&gt;</bpt>microsoft azure virtual machines<ept id="c3af1562-d2a7-4966-a914-c10a4abecefc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6997b683-c3bc-48ec-bbdc-519db496bbd9" xml:space="preserve">
+          <source>Click <bpt id="6aba971f-b36c-4e19-96c7-90afe41ec99b">&lt;strong&gt;</bpt>New<ept id="6aba971f-b36c-4e19-96c7-90afe41ec99b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6aba971f-b36c-4e19-96c7-90afe41ec99b">&lt;strong&gt;</bpt>New<ept id="6aba971f-b36c-4e19-96c7-90afe41ec99b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57a8b261-de2c-4995-b723-ad6e94643032" xml:space="preserve">
+          <source><bpt id="bd7b8241-2fd0-4889-8980-53fe2ca6499c">&lt;linkText&gt;</bpt>new button<ept id="bd7b8241-2fd0-4889-8980-53fe2ca6499c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bd7b8241-2fd0-4889-8980-53fe2ca6499c">&lt;linkText&gt;</bpt>new button<ept id="bd7b8241-2fd0-4889-8980-53fe2ca6499c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ad067e6-20a1-4405-b81f-9e5a0ee15016" xml:space="preserve">
+          <source>Click <bpt id="b3334fe8-2502-4874-9273-736a9b85b8af">&lt;strong&gt;</bpt>From Gallery<ept id="b3334fe8-2502-4874-9273-736a9b85b8af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b3334fe8-2502-4874-9273-736a9b85b8af">&lt;strong&gt;</bpt>From Gallery<ept id="b3334fe8-2502-4874-9273-736a9b85b8af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c38b49a5-084b-474c-889e-1b6437dbe3ed" xml:space="preserve">
+          <source><bpt id="4e835526-c80f-413b-82cc-040383e73c6f">&lt;linkText&gt;</bpt>new vm from gallery<ept id="4e835526-c80f-413b-82cc-040383e73c6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e835526-c80f-413b-82cc-040383e73c6f">&lt;linkText&gt;</bpt>new vm from gallery<ept id="4e835526-c80f-413b-82cc-040383e73c6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66d20e05-13c5-4779-9cab-4d227fa02f92" xml:space="preserve">
+          <source>Click <bpt id="1453eee6-c4ad-4a7a-9189-c317db130c97">&lt;strong&gt;</bpt>SQL Server 2014 RTM Standard – Windows Server 2012 R2<ept id="1453eee6-c4ad-4a7a-9189-c317db130c97">&lt;/strong&gt;</ept> and then click the arrow to continue.</source>
+          <target state="new">Click <bpt id="1453eee6-c4ad-4a7a-9189-c317db130c97">&lt;strong&gt;</bpt>SQL Server 2014 RTM Standard – Windows Server 2012 R2<ept id="1453eee6-c4ad-4a7a-9189-c317db130c97">&lt;/strong&gt;</ept> and then click the arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="25232b52-3972-4f93-83e1-cb9fdcf68de8" xml:space="preserve">
+          <source><bpt id="31b3f9a2-d672-4e65-90f5-934c1e515be4">&lt;linkText&gt;</bpt>next<ept id="31b3f9a2-d672-4e65-90f5-934c1e515be4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31b3f9a2-d672-4e65-90f5-934c1e515be4">&lt;linkText&gt;</bpt>next<ept id="31b3f9a2-d672-4e65-90f5-934c1e515be4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d17473e4-afec-4536-b1ae-7c6960906a4c" xml:space="preserve">
+          <source>If you need the Reporting Services data driven subscriptions feature, choose <bpt id="a73ee78e-ba63-4b76-8067-219e46b7451c">&lt;strong&gt;</bpt>SQL Server 2014 RTM Enterprise – Windows Server 2012 R2<ept id="a73ee78e-ba63-4b76-8067-219e46b7451c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you need the Reporting Services data driven subscriptions feature, choose <bpt id="a73ee78e-ba63-4b76-8067-219e46b7451c">&lt;strong&gt;</bpt>SQL Server 2014 RTM Enterprise – Windows Server 2012 R2<ept id="a73ee78e-ba63-4b76-8067-219e46b7451c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a2f6795-484d-4f68-8e4a-c870fd73a62e" xml:space="preserve">
+          <source>For more information on SQL Server editions and feature support, see <bpt id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;linkText&gt;</bpt>Features Supported by the Editions of SQL Server 2012<ept id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;/linkText&gt;</ept><bpt id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;title&gt;</bpt><ept id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on SQL Server editions and feature support, see <bpt id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;linkText&gt;</bpt>Features Supported by the Editions of SQL Server 2012<ept id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;/linkText&gt;</ept><bpt id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;title&gt;</bpt><ept id="d659fc77-f46f-4055-afa7-f71c60eee042">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="211137af-7e0f-407a-9517-ba67c77fb62b" xml:space="preserve">
+          <source>On the <bpt id="a7e258e8-8860-4b22-be72-6a5a55816834">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="a7e258e8-8860-4b22-be72-6a5a55816834">&lt;/strong&gt;</ept> page, edit the following fields:</source>
+          <target state="new">On the <bpt id="a7e258e8-8860-4b22-be72-6a5a55816834">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="a7e258e8-8860-4b22-be72-6a5a55816834">&lt;/strong&gt;</ept> page, edit the following fields:</target>
+        </trans-unit>
+        <trans-unit id="acaad3fa-3d48-4b30-86ef-4b7f8df1eafd" xml:space="preserve">
+          <source>If there is more than one <bpt id="67ccef27-9e50-4227-b249-bf59a3d7a059">&lt;strong&gt;</bpt>VERSION RELEASE DATE<ept id="67ccef27-9e50-4227-b249-bf59a3d7a059">&lt;/strong&gt;</ept>, select the most recent version.</source>
+          <target state="new">If there is more than one <bpt id="67ccef27-9e50-4227-b249-bf59a3d7a059">&lt;strong&gt;</bpt>VERSION RELEASE DATE<ept id="67ccef27-9e50-4227-b249-bf59a3d7a059">&lt;/strong&gt;</ept>, select the most recent version.</target>
+        </trans-unit>
+        <trans-unit id="d29821f5-2c11-4cd9-b64c-18f1106d833a" xml:space="preserve">
+          <source><bpt id="a877d0cc-8a6d-43df-8f00-68f46c598434">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="a877d0cc-8a6d-43df-8f00-68f46c598434">&lt;/strong&gt;</ept>: The machine name is also used on the next configuration page as the default Cloud Service DNS name.</source>
+          <target state="new"><bpt id="a877d0cc-8a6d-43df-8f00-68f46c598434">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="a877d0cc-8a6d-43df-8f00-68f46c598434">&lt;/strong&gt;</ept>: The machine name is also used on the next configuration page as the default Cloud Service DNS name.</target>
+        </trans-unit>
+        <trans-unit id="69cacb27-d256-4a7f-8c5b-8fadb7e68341" xml:space="preserve">
+          <source>The DNS name must be unique across the Azure service.</source>
+          <target state="new">The DNS name must be unique across the Azure service.</target>
+        </trans-unit>
+        <trans-unit id="87159958-c0f5-4d1c-a905-1e3e095e9c64" xml:space="preserve">
+          <source>Consider configuring the VM with a computer name that describes what the VM is used for.</source>
+          <target state="new">Consider configuring the VM with a computer name that describes what the VM is used for.</target>
+        </trans-unit>
+        <trans-unit id="a853bc73-d294-41fb-83e1-8d26d4e1d30c" xml:space="preserve">
+          <source>For example ssrsnativecloud.</source>
+          <target state="new">For example ssrsnativecloud.</target>
+        </trans-unit>
+        <trans-unit id="d5ef2645-d4f8-4d78-a7bb-8d2894348b2f" xml:space="preserve">
+          <source><bpt id="64a978ff-4be8-4c96-80b3-8d1c3a6fb078">&lt;strong&gt;</bpt>Tier<ept id="64a978ff-4be8-4c96-80b3-8d1c3a6fb078">&lt;/strong&gt;</ept>: Standard</source>
+          <target state="new"><bpt id="64a978ff-4be8-4c96-80b3-8d1c3a6fb078">&lt;strong&gt;</bpt>Tier<ept id="64a978ff-4be8-4c96-80b3-8d1c3a6fb078">&lt;/strong&gt;</ept>: Standard</target>
+        </trans-unit>
+        <trans-unit id="a4dbd4fc-7b35-4765-85e9-59e839adc2e6" xml:space="preserve">
+          <source><bpt id="55f1f1a2-6093-43ef-8048-f456896c2e95">&lt;strong&gt;</bpt>Size:A3<ept id="55f1f1a2-6093-43ef-8048-f456896c2e95">&lt;/strong&gt;</ept> is the recommended VM size for SQL Server workloads.</source>
+          <target state="new"><bpt id="55f1f1a2-6093-43ef-8048-f456896c2e95">&lt;strong&gt;</bpt>Size:A3<ept id="55f1f1a2-6093-43ef-8048-f456896c2e95">&lt;/strong&gt;</ept> is the recommended VM size for SQL Server workloads.</target>
+        </trans-unit>
+        <trans-unit id="b30a38de-a941-4afe-a4a2-2b7f3889b6de" xml:space="preserve">
+          <source>If a VM is only used as a report server, a VM size of A2 is sufficient unless the report server experiences a large workload.</source>
+          <target state="new">If a VM is only used as a report server, a VM size of A2 is sufficient unless the report server experiences a large workload.</target>
+        </trans-unit>
+        <trans-unit id="2e35215e-1c19-46db-969e-92add58e0f6a" xml:space="preserve">
+          <source>For VM pricing information, see <bpt id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;linkText&gt;</bpt>Virtual Machines Pricing<ept id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;/linkText&gt;</ept><bpt id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;title&gt;</bpt><ept id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;/title&gt;</ept>.</source>
+          <target state="new">For VM pricing information, see <bpt id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;linkText&gt;</bpt>Virtual Machines Pricing<ept id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;/linkText&gt;</ept><bpt id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;title&gt;</bpt><ept id="3994d7b9-e206-4b9d-b0bb-a14801619307">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9492cdd3-0f9e-4af1-a588-c7f995b79454" xml:space="preserve">
+          <source><bpt id="f6c02b8b-78d2-4d3c-879c-772bdf67c4fe">&lt;strong&gt;</bpt>New User Name<ept id="f6c02b8b-78d2-4d3c-879c-772bdf67c4fe">&lt;/strong&gt;</ept>: the name you provide is created as an administrator on the VM.</source>
+          <target state="new"><bpt id="f6c02b8b-78d2-4d3c-879c-772bdf67c4fe">&lt;strong&gt;</bpt>New User Name<ept id="f6c02b8b-78d2-4d3c-879c-772bdf67c4fe">&lt;/strong&gt;</ept>: the name you provide is created as an administrator on the VM.</target>
+        </trans-unit>
+        <trans-unit id="c12ed7fb-d9f6-4f2b-a709-7606ef159659" xml:space="preserve">
+          <source><bpt id="65d07e86-9d38-4cf5-a5e7-c9f15466c31a">&lt;strong&gt;</bpt>New Password<ept id="65d07e86-9d38-4cf5-a5e7-c9f15466c31a">&lt;/strong&gt;</ept> and <bpt id="98bac75d-b466-4853-9333-7ca8c3e608a2">&lt;strong&gt;</bpt>confirm<ept id="98bac75d-b466-4853-9333-7ca8c3e608a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="65d07e86-9d38-4cf5-a5e7-c9f15466c31a">&lt;strong&gt;</bpt>New Password<ept id="65d07e86-9d38-4cf5-a5e7-c9f15466c31a">&lt;/strong&gt;</ept> and <bpt id="98bac75d-b466-4853-9333-7ca8c3e608a2">&lt;strong&gt;</bpt>confirm<ept id="98bac75d-b466-4853-9333-7ca8c3e608a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d2e7868-3242-42dd-91d8-b1eb8cfdd044" xml:space="preserve">
+          <source>This password is used for the new administrator account and it is recommended you use a strong password.</source>
+          <target state="new">This password is used for the new administrator account and it is recommended you use a strong password.</target>
+        </trans-unit>
+        <trans-unit id="0399ecc5-eaea-4bb7-9002-28df9f091861" xml:space="preserve">
+          <source>Click <bpt id="fbb5d720-5746-4bfb-aeb4-783cda7f15c4">&lt;strong&gt;</bpt>Next<ept id="fbb5d720-5746-4bfb-aeb4-783cda7f15c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fbb5d720-5746-4bfb-aeb4-783cda7f15c4">&lt;strong&gt;</bpt>Next<ept id="fbb5d720-5746-4bfb-aeb4-783cda7f15c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0683c9b9-2b1a-49a6-815e-d21fa763f76e" xml:space="preserve">
+          <source><bpt id="aa44505e-a629-47cb-9b28-1f7f27de6674">&lt;linkText&gt;</bpt>next<ept id="aa44505e-a629-47cb-9b28-1f7f27de6674">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa44505e-a629-47cb-9b28-1f7f27de6674">&lt;linkText&gt;</bpt>next<ept id="aa44505e-a629-47cb-9b28-1f7f27de6674">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c75f269-95a3-4e1d-8ede-7038c0f91f4a" xml:space="preserve">
+          <source>On the next page, edit the following fields:</source>
+          <target state="new">On the next page, edit the following fields:</target>
+        </trans-unit>
+        <trans-unit id="d748ea5e-1dca-4cb6-b334-689d619bdcb4" xml:space="preserve">
+          <source><bpt id="b78ffc1c-6a5d-4089-beb5-3053022c83f4">&lt;strong&gt;</bpt>Cloud Service<ept id="b78ffc1c-6a5d-4089-beb5-3053022c83f4">&lt;/strong&gt;</ept>: select <bpt id="bdd4a8de-4926-41bd-a5a9-992c33ccf7e3">&lt;strong&gt;</bpt>Create a new Cloud Service<ept id="bdd4a8de-4926-41bd-a5a9-992c33ccf7e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b78ffc1c-6a5d-4089-beb5-3053022c83f4">&lt;strong&gt;</bpt>Cloud Service<ept id="b78ffc1c-6a5d-4089-beb5-3053022c83f4">&lt;/strong&gt;</ept>: select <bpt id="bdd4a8de-4926-41bd-a5a9-992c33ccf7e3">&lt;strong&gt;</bpt>Create a new Cloud Service<ept id="bdd4a8de-4926-41bd-a5a9-992c33ccf7e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bb99054-cdf0-49d6-a811-8b091dba0a4c" xml:space="preserve">
+          <source><bpt id="5758f47a-bff9-4a96-8db8-f188d0faf810">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="5758f47a-bff9-4a96-8db8-f188d0faf810">&lt;/strong&gt;</ept>: This is the public DNS name of the Cloud Service that is associated with the VM.</source>
+          <target state="new"><bpt id="5758f47a-bff9-4a96-8db8-f188d0faf810">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="5758f47a-bff9-4a96-8db8-f188d0faf810">&lt;/strong&gt;</ept>: This is the public DNS name of the Cloud Service that is associated with the VM.</target>
+        </trans-unit>
+        <trans-unit id="2ef498c6-6b94-4666-a2f6-a875694be2dc" xml:space="preserve">
+          <source>The default name is the name you typed in for the VM name.</source>
+          <target state="new">The default name is the name you typed in for the VM name.</target>
+        </trans-unit>
+        <trans-unit id="c9c21ecd-cda9-4d39-bb5c-9251de5d5678" xml:space="preserve">
+          <source>If in later steps of the topic, you create a trusted SSL certificate and then the DNS name is used for the value of the “<bpt id="be4b2679-65a9-44b9-adcc-9a9bd07793eb">&lt;strong&gt;</bpt>Issued to<ept id="be4b2679-65a9-44b9-adcc-9a9bd07793eb">&lt;/strong&gt;</ept>” of the certificate.</source>
+          <target state="new">If in later steps of the topic, you create a trusted SSL certificate and then the DNS name is used for the value of the “<bpt id="be4b2679-65a9-44b9-adcc-9a9bd07793eb">&lt;strong&gt;</bpt>Issued to<ept id="be4b2679-65a9-44b9-adcc-9a9bd07793eb">&lt;/strong&gt;</ept>” of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="4e9eaf08-7128-4474-8dac-0d9e69dade30" xml:space="preserve">
+          <source><bpt id="c20dcd03-4a17-4d74-a706-2bcaa77bbe88">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="c20dcd03-4a17-4d74-a706-2bcaa77bbe88">&lt;/strong&gt;</ept>: Choose the region closest to your end users.</source>
+          <target state="new"><bpt id="c20dcd03-4a17-4d74-a706-2bcaa77bbe88">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="c20dcd03-4a17-4d74-a706-2bcaa77bbe88">&lt;/strong&gt;</ept>: Choose the region closest to your end users.</target>
+        </trans-unit>
+        <trans-unit id="e9ff815d-f2dd-4930-934c-fc9c01de9fd5" xml:space="preserve">
+          <source><bpt id="0da1c157-46f9-4103-8063-52ffba21a0db">&lt;strong&gt;</bpt>Storage Account<ept id="0da1c157-46f9-4103-8063-52ffba21a0db">&lt;/strong&gt;</ept>: Use an automatically generated storage account.</source>
+          <target state="new"><bpt id="0da1c157-46f9-4103-8063-52ffba21a0db">&lt;strong&gt;</bpt>Storage Account<ept id="0da1c157-46f9-4103-8063-52ffba21a0db">&lt;/strong&gt;</ept>: Use an automatically generated storage account.</target>
+        </trans-unit>
+        <trans-unit id="19f0c060-c6f7-43ac-be36-8016333ed926" xml:space="preserve">
+          <source><bpt id="453e5ce3-21e0-4609-a053-84bd93669607">&lt;strong&gt;</bpt>Availability Set<ept id="453e5ce3-21e0-4609-a053-84bd93669607">&lt;/strong&gt;</ept>: None.</source>
+          <target state="new"><bpt id="453e5ce3-21e0-4609-a053-84bd93669607">&lt;strong&gt;</bpt>Availability Set<ept id="453e5ce3-21e0-4609-a053-84bd93669607">&lt;/strong&gt;</ept>: None.</target>
+        </trans-unit>
+        <trans-unit id="c2c18a80-7abd-4afc-ab63-8365783c2b0b" xml:space="preserve">
+          <source><bpt id="530c588a-e066-46ec-99b0-99fe16eb11bd">&lt;strong&gt;</bpt>ENDPOINTS<ept id="530c588a-e066-46ec-99b0-99fe16eb11bd">&lt;/strong&gt;</ept> Keep the <bpt id="97201960-811b-4eae-a753-b123b812c06b">&lt;strong&gt;</bpt>Remote Desktop<ept id="97201960-811b-4eae-a753-b123b812c06b">&lt;/strong&gt;</ept> and <bpt id="4652e35d-fb2d-467a-a910-655951e36f1b">&lt;strong&gt;</bpt>PowerShell<ept id="4652e35d-fb2d-467a-a910-655951e36f1b">&lt;/strong&gt;</ept> endpoints and then add either an HTTP or HTTPS endpoint, depending on your environment.</source>
+          <target state="new"><bpt id="530c588a-e066-46ec-99b0-99fe16eb11bd">&lt;strong&gt;</bpt>ENDPOINTS<ept id="530c588a-e066-46ec-99b0-99fe16eb11bd">&lt;/strong&gt;</ept> Keep the <bpt id="97201960-811b-4eae-a753-b123b812c06b">&lt;strong&gt;</bpt>Remote Desktop<ept id="97201960-811b-4eae-a753-b123b812c06b">&lt;/strong&gt;</ept> and <bpt id="4652e35d-fb2d-467a-a910-655951e36f1b">&lt;strong&gt;</bpt>PowerShell<ept id="4652e35d-fb2d-467a-a910-655951e36f1b">&lt;/strong&gt;</ept> endpoints and then add either an HTTP or HTTPS endpoint, depending on your environment.</target>
+        </trans-unit>
+        <trans-unit id="c0568755-48c7-4a45-819c-f87268cd776c" xml:space="preserve">
+          <source><bpt id="45b8a1b7-95af-4436-b7f0-4312930e8407">&lt;strong&gt;</bpt>HTTP<ept id="45b8a1b7-95af-4436-b7f0-4312930e8407">&lt;/strong&gt;</ept>: The default public and private ports are <bpt id="00569f0f-5568-4f1a-b0f0-be38e7e065c1">&lt;strong&gt;</bpt>80<ept id="00569f0f-5568-4f1a-b0f0-be38e7e065c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="45b8a1b7-95af-4436-b7f0-4312930e8407">&lt;strong&gt;</bpt>HTTP<ept id="45b8a1b7-95af-4436-b7f0-4312930e8407">&lt;/strong&gt;</ept>: The default public and private ports are <bpt id="00569f0f-5568-4f1a-b0f0-be38e7e065c1">&lt;strong&gt;</bpt>80<ept id="00569f0f-5568-4f1a-b0f0-be38e7e065c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ac86748-c701-41c8-9012-3613c77e85a6" xml:space="preserve">
+          <source>Note that if you use a private port other than 80, modify <bpt id="1df546e8-a705-444e-84d6-50feb44a2bb4">&lt;strong&gt;</bpt>$HTTPport = 80<ept id="1df546e8-a705-444e-84d6-50feb44a2bb4">&lt;/strong&gt;</ept> in the http script.</source>
+          <target state="new">Note that if you use a private port other than 80, modify <bpt id="1df546e8-a705-444e-84d6-50feb44a2bb4">&lt;strong&gt;</bpt>$HTTPport = 80<ept id="1df546e8-a705-444e-84d6-50feb44a2bb4">&lt;/strong&gt;</ept> in the http script.</target>
+        </trans-unit>
+        <trans-unit id="43fcb55d-999c-4000-a52f-6d9ad5de40ce" xml:space="preserve">
+          <source><bpt id="0620453f-f68d-45cb-af08-f29a0896d995">&lt;strong&gt;</bpt>HTTPS<ept id="0620453f-f68d-45cb-af08-f29a0896d995">&lt;/strong&gt;</ept>: The default public and private ports are <bpt id="ac88f84e-5028-43ac-b21c-5a465a2dda53">&lt;strong&gt;</bpt>443<ept id="ac88f84e-5028-43ac-b21c-5a465a2dda53">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="0620453f-f68d-45cb-af08-f29a0896d995">&lt;strong&gt;</bpt>HTTPS<ept id="0620453f-f68d-45cb-af08-f29a0896d995">&lt;/strong&gt;</ept>: The default public and private ports are <bpt id="ac88f84e-5028-43ac-b21c-5a465a2dda53">&lt;strong&gt;</bpt>443<ept id="ac88f84e-5028-43ac-b21c-5a465a2dda53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f29e773-707a-4682-bfea-0f3ac64da09c" xml:space="preserve">
+          <source>A security best practice is to change the private port and configure your firewall and the report server to use the private port.</source>
+          <target state="new">A security best practice is to change the private port and configure your firewall and the report server to use the private port.</target>
+        </trans-unit>
+        <trans-unit id="b8435503-9fe5-4f7c-80ff-089c79797650" xml:space="preserve">
+          <source>For more information on endpoints, see <bpt id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;linkText&gt;</bpt>How to Set Up Communication with a Virtual Machine<ept id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;/linkText&gt;</ept><bpt id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;title&gt;</bpt><ept id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on endpoints, see <bpt id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;linkText&gt;</bpt>How to Set Up Communication with a Virtual Machine<ept id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;/linkText&gt;</ept><bpt id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;title&gt;</bpt><ept id="41b173d8-8829-45cc-a63a-1f93d9d132ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e949a6ad-1b04-4999-ad74-0fbc89bcc32a" xml:space="preserve">
+          <source>Note that if you use a port other than 443, change the parameter <bpt id="f09e39b5-de96-40be-ba9a-12e9a7f38ca8">&lt;strong&gt;</bpt>$HTTPsport = 443<ept id="f09e39b5-de96-40be-ba9a-12e9a7f38ca8">&lt;/strong&gt;</ept> in the HTTPS script.</source>
+          <target state="new">Note that if you use a port other than 443, change the parameter <bpt id="f09e39b5-de96-40be-ba9a-12e9a7f38ca8">&lt;strong&gt;</bpt>$HTTPsport = 443<ept id="f09e39b5-de96-40be-ba9a-12e9a7f38ca8">&lt;/strong&gt;</ept> in the HTTPS script.</target>
+        </trans-unit>
+        <trans-unit id="7a2a1fe1-ab0e-4dd7-ba09-8d7ef52ef572" xml:space="preserve">
+          <source>Click next .</source>
+          <target state="new">Click next .</target>
+        </trans-unit>
+        <trans-unit id="0aee4bdb-1ded-466c-a95d-6e8bb4a43ce9" xml:space="preserve">
+          <source><bpt id="8b9328ed-1113-4eb7-8064-3406e42ae835">&lt;linkText&gt;</bpt>next<ept id="8b9328ed-1113-4eb7-8064-3406e42ae835">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b9328ed-1113-4eb7-8064-3406e42ae835">&lt;linkText&gt;</bpt>next<ept id="8b9328ed-1113-4eb7-8064-3406e42ae835">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b814b1e-bc89-41ad-a15e-6cfbb2150c46" xml:space="preserve">
+          <source>On the last page of the wizard, keep the default <bpt id="7e7aec3e-e9d4-4690-85ed-769e80027f5b">&lt;strong&gt;</bpt>Install the VM agent<ept id="7e7aec3e-e9d4-4690-85ed-769e80027f5b">&lt;/strong&gt;</ept> selected.</source>
+          <target state="new">On the last page of the wizard, keep the default <bpt id="7e7aec3e-e9d4-4690-85ed-769e80027f5b">&lt;strong&gt;</bpt>Install the VM agent<ept id="7e7aec3e-e9d4-4690-85ed-769e80027f5b">&lt;/strong&gt;</ept> selected.</target>
+        </trans-unit>
+        <trans-unit id="6a38b1dc-9f6e-41d0-b82d-fd745bb24642" xml:space="preserve">
+          <source>The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.</source>
+          <target state="new">The steps in this topic do not utilize the VM agent but if you plan to keep this VM, the VM agent and extensions will allow you to enhance he CM.</target>
+        </trans-unit>
+        <trans-unit id="dc55c656-3d81-45a7-bdc8-c711c932a50b" xml:space="preserve">
+          <source>For more information on the VM agent, see <bpt id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;linkText&gt;</bpt>VM Agent and Extensions – Part 1<ept id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;/linkText&gt;</ept><bpt id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;title&gt;</bpt><ept id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the VM agent, see <bpt id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;linkText&gt;</bpt>VM Agent and Extensions – Part 1<ept id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;/linkText&gt;</ept><bpt id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;title&gt;</bpt><ept id="f1a0f509-18b1-4b22-bc93-62cc6dd9cd4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="730fc5d2-e81e-45ac-bf53-f081ff4f6648" xml:space="preserve">
+          <source>One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.</source>
+          <target state="new">One of the default extensions installed ad running is the “BGINFO” extension that displays on the VM desktop, system information such as internal IP and free drive space.</target>
+        </trans-unit>
+        <trans-unit id="f75ec487-bc4e-4245-a68d-5dcd429be1b8" xml:space="preserve">
+          <source>Click complete .</source>
+          <target state="new">Click complete .</target>
+        </trans-unit>
+        <trans-unit id="404ae40b-8a1c-4960-a90e-64bb30dacc70" xml:space="preserve">
+          <source><bpt id="5fc7d046-4f12-4966-af3e-ffe94b5274f6">&lt;linkText&gt;</bpt>ok<ept id="5fc7d046-4f12-4966-af3e-ffe94b5274f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fc7d046-4f12-4966-af3e-ffe94b5274f6">&lt;linkText&gt;</bpt>ok<ept id="5fc7d046-4f12-4966-af3e-ffe94b5274f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="789cb9ca-de6e-4191-9388-6430e25df088" xml:space="preserve">
+          <source>The <bpt id="e1bf671a-ffe0-4289-81bb-c510027b57e4">&lt;strong&gt;</bpt>Status<ept id="e1bf671a-ffe0-4289-81bb-c510027b57e4">&lt;/strong&gt;</ept> of the VM displays as <bpt id="cdd9734e-bdf9-44ec-9dc7-d6b8b5dfcf2c">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="cdd9734e-bdf9-44ec-9dc7-d6b8b5dfcf2c">&lt;/strong&gt;</ept> during the provision process and then displays as <bpt id="66b88c4d-7bec-458e-9321-149e81e06e5e">&lt;strong&gt;</bpt>Running<ept id="66b88c4d-7bec-458e-9321-149e81e06e5e">&lt;/strong&gt;</ept> when the VM is provisioned and ready to use.</source>
+          <target state="new">The <bpt id="e1bf671a-ffe0-4289-81bb-c510027b57e4">&lt;strong&gt;</bpt>Status<ept id="e1bf671a-ffe0-4289-81bb-c510027b57e4">&lt;/strong&gt;</ept> of the VM displays as <bpt id="cdd9734e-bdf9-44ec-9dc7-d6b8b5dfcf2c">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="cdd9734e-bdf9-44ec-9dc7-d6b8b5dfcf2c">&lt;/strong&gt;</ept> during the provision process and then displays as <bpt id="66b88c4d-7bec-458e-9321-149e81e06e5e">&lt;strong&gt;</bpt>Running<ept id="66b88c4d-7bec-458e-9321-149e81e06e5e">&lt;/strong&gt;</ept> when the VM is provisioned and ready to use.</target>
+        </trans-unit>
+        <trans-unit id="ba404766-c35c-4ce7-aaeb-6a4580a79e58" xml:space="preserve">
+          <source>If you do not require HTTPS on the report server, you can <bpt id="e6f78aec-d59b-4e17-bd6e-142c765f6efc">&lt;strong&gt;</bpt>skip step 2<ept id="e6f78aec-d59b-4e17-bd6e-142c765f6efc">&lt;/strong&gt;</ept> and go to the section <bpt id="5abf5717-7bc9-4774-b1bd-ef36b8fd73de">&lt;strong&gt;</bpt>Use script to configure the report server and HTTP<ept id="5abf5717-7bc9-4774-b1bd-ef36b8fd73de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you do not require HTTPS on the report server, you can <bpt id="e6f78aec-d59b-4e17-bd6e-142c765f6efc">&lt;strong&gt;</bpt>skip step 2<ept id="e6f78aec-d59b-4e17-bd6e-142c765f6efc">&lt;/strong&gt;</ept> and go to the section <bpt id="5abf5717-7bc9-4774-b1bd-ef36b8fd73de">&lt;strong&gt;</bpt>Use script to configure the report server and HTTP<ept id="5abf5717-7bc9-4774-b1bd-ef36b8fd73de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f78dcc3-1240-4701-a4b0-375baa7b8f39" xml:space="preserve">
+          <source>Use the HTTP script to quickly configure the report server and the report server will be ready to use.</source>
+          <target state="new">Use the HTTP script to quickly configure the report server and the report server will be ready to use.</target>
+        </trans-unit>
+        <trans-unit id="53dd8ae1-f361-4547-af5f-08e373fb1f58" xml:space="preserve">
+          <source>In order to use HTTPS on the VM, you need a trusted SSL certificate.</source>
+          <target state="new">In order to use HTTPS on the VM, you need a trusted SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="c53eb8a1-b60b-4d23-83da-ad16eb3c883c" xml:space="preserve">
+          <source>Depending on your scenario, you can use one of the following two methods:</source>
+          <target state="new">Depending on your scenario, you can use one of the following two methods:</target>
+        </trans-unit>
+        <trans-unit id="f04bbb03-f667-45b8-9c81-8731e7902155" xml:space="preserve">
+          <source>A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft.</source>
+          <target state="new">A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="203db808-2737-4c01-8cbc-9bf1c0e04af6" xml:space="preserve">
+          <source>The CA root certificates are required to be distributed via the Microsoft Root Certificate Program.</source>
+          <target state="new">The CA root certificates are required to be distributed via the Microsoft Root Certificate Program.</target>
+        </trans-unit>
+        <trans-unit id="32e071a3-b720-4c7e-a012-d488deb0a7b5" xml:space="preserve">
+          <source>For more information about this program, see <bpt id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)<ept id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;/linkText&gt;</ept><bpt id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;title&gt;</bpt><ept id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;/title&gt;</ept> and <bpt id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;linkText&gt;</bpt>Introduction to The Microsoft Root Certificate Program<ept id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;/linkText&gt;</ept><bpt id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;title&gt;</bpt><ept id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about this program, see <bpt id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)<ept id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;/linkText&gt;</ept><bpt id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;title&gt;</bpt><ept id="cd7c71cc-3a5a-45d4-84da-02b34d9dc6ea">&lt;/title&gt;</ept> and <bpt id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;linkText&gt;</bpt>Introduction to The Microsoft Root Certificate Program<ept id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;/linkText&gt;</ept><bpt id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;title&gt;</bpt><ept id="4d9590e5-ff07-49b1-a3fa-0ccbe5f851b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a88ce469-d1dc-4264-925e-f9376c50f12b" xml:space="preserve">
+          <source>A self-signed certificate.</source>
+          <target state="new">A self-signed certificate.</target>
+        </trans-unit>
+        <trans-unit id="2298a638-0b4b-4938-a669-5f0880982337" xml:space="preserve">
+          <source>Self-signed certificates are not recommended for production environments.</source>
+          <target state="new">Self-signed certificates are not recommended for production environments.</target>
+        </trans-unit>
+        <trans-unit id="eb3ac410-e6f6-4204-aea7-1fac88654a71" xml:space="preserve">
+          <source><bpt id="a6a5ae41-8386-4a5c-b51b-ca17a95b4785">&lt;strong&gt;</bpt>Request a server certificate for the website from a certification authority<ept id="a6a5ae41-8386-4a5c-b51b-ca17a95b4785">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a6a5ae41-8386-4a5c-b51b-ca17a95b4785">&lt;strong&gt;</bpt>Request a server certificate for the website from a certification authority<ept id="a6a5ae41-8386-4a5c-b51b-ca17a95b4785">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0596f32-e088-4b05-84e6-5eea6b3b0dff" xml:space="preserve">
+          <source>You can use the Web Server Certificate Wizard either to generate a certificate request file (Certreq.txt) that you send to a certification authority, or to generate a request for an online certification authority.</source>
+          <target state="new">You can use the Web Server Certificate Wizard either to generate a certificate request file (Certreq.txt) that you send to a certification authority, or to generate a request for an online certification authority.</target>
+        </trans-unit>
+        <trans-unit id="3a9bfb63-1e5d-4a9d-aede-907528903832" xml:space="preserve">
+          <source>For example, Microsoft Certificate Services in Windows Server 2012.</source>
+          <target state="new">For example, Microsoft Certificate Services in Windows Server 2012.</target>
+        </trans-unit>
+        <trans-unit id="4aa8af4d-c346-4b37-ab42-300affb1f880" xml:space="preserve">
+          <source>Depending on the level of identification assurance offered by your server certificate, it is several days to several months for the certification authority to approve your request and send you a certificate file.</source>
+          <target state="new">Depending on the level of identification assurance offered by your server certificate, it is several days to several months for the certification authority to approve your request and send you a certificate file.</target>
+        </trans-unit>
+        <trans-unit id="bbd18077-5b53-47b4-8d7a-fe9b155a798c" xml:space="preserve">
+          <source>For more information about requesting a server certificates, see the following: </source>
+          <target state="new">For more information about requesting a server certificates, see the following: </target>
+        </trans-unit>
+        <trans-unit id="a1584f5f-7a71-4e32-b66d-ee9568112e6f" xml:space="preserve">
+          <source>Use <bpt id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;linkText&gt;</bpt>Certreq<ept id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;/linkText&gt;</ept><bpt id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;title&gt;</bpt><ept id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;/title&gt;</ept>, <bpt id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;linkText&gt;</bpt>Certreq<ept id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;/linkText&gt;</ept><bpt id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;title&gt;</bpt><ept id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use <bpt id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;linkText&gt;</bpt>Certreq<ept id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;/linkText&gt;</ept><bpt id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;title&gt;</bpt><ept id="ee04e412-7a78-4073-b6f0-f3133cfeed15">&lt;/title&gt;</ept>, <bpt id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;linkText&gt;</bpt>Certreq<ept id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;/linkText&gt;</ept><bpt id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;title&gt;</bpt><ept id="4186ef33-1590-4ee0-8521-e8435a7306eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a210f6f-72d7-4737-b0a0-6e85a448a43b" xml:space="preserve">
+          <source>Security Tools to Administer Windows Server 2012.</source>
+          <target state="new">Security Tools to Administer Windows Server 2012.</target>
+        </trans-unit>
+        <trans-unit id="954cd690-dfab-470d-bbec-a7dcea4ad2b0" xml:space="preserve">
+          <source><bpt id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;linkText&gt;</bpt>Security Tools to Administer Windows Server 2012<ept id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;/linkText&gt;</ept><bpt id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;title&gt;</bpt><ept id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;linkText&gt;</bpt>Security Tools to Administer Windows Server 2012<ept id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;/linkText&gt;</ept><bpt id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;title&gt;</bpt><ept id="4cb47dfc-4bc5-496f-b944-fca3e46f346a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1c092e8-9a15-4211-8608-7632ebe5cbd3" xml:space="preserve">
+          <source>The <bpt id="42bd493c-9674-49ad-a73b-9ae5cb25322c">&lt;strong&gt;</bpt>issued to<ept id="42bd493c-9674-49ad-a73b-9ae5cb25322c">&lt;/strong&gt;</ept> field of the trusted SSL certificate should be the same as the <bpt id="d314203d-7481-4a3e-9990-d8c858a27b3a">&lt;strong&gt;</bpt>Cloud Service DNS NAME<ept id="d314203d-7481-4a3e-9990-d8c858a27b3a">&lt;/strong&gt;</ept> you used for the new VM.</source>
+          <target state="new">The <bpt id="42bd493c-9674-49ad-a73b-9ae5cb25322c">&lt;strong&gt;</bpt>issued to<ept id="42bd493c-9674-49ad-a73b-9ae5cb25322c">&lt;/strong&gt;</ept> field of the trusted SSL certificate should be the same as the <bpt id="d314203d-7481-4a3e-9990-d8c858a27b3a">&lt;strong&gt;</bpt>Cloud Service DNS NAME<ept id="d314203d-7481-4a3e-9990-d8c858a27b3a">&lt;/strong&gt;</ept> you used for the new VM.</target>
+        </trans-unit>
+        <trans-unit id="3cd14455-cff6-45c2-9da0-1a5a4bdab5bb" xml:space="preserve">
+          <source><bpt id="fcd0b196-3ef4-4cc9-a4a6-8b4bef211daf">&lt;strong&gt;</bpt>Install the server certificate on the Web server<ept id="fcd0b196-3ef4-4cc9-a4a6-8b4bef211daf">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="fcd0b196-3ef4-4cc9-a4a6-8b4bef211daf">&lt;strong&gt;</bpt>Install the server certificate on the Web server<ept id="fcd0b196-3ef4-4cc9-a4a6-8b4bef211daf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="028dff18-2ecf-49c9-b624-697366f70cab" xml:space="preserve">
+          <source>The Web server in this case is the VM that hosts the report server and the website is created in later steps when you configure Reporting Services.</source>
+          <target state="new">The Web server in this case is the VM that hosts the report server and the website is created in later steps when you configure Reporting Services.</target>
+        </trans-unit>
+        <trans-unit id="f5a138af-4fa9-4969-8b9c-c734921dd5ff" xml:space="preserve">
+          <source>For more information about installing the server certificate on the Web server by using the Certificate MMC snap-in, see <bpt id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;linkText&gt;</bpt>Install a Server Certificate<ept id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;/linkText&gt;</ept><bpt id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;title&gt;</bpt><ept id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about installing the server certificate on the Web server by using the Certificate MMC snap-in, see <bpt id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;linkText&gt;</bpt>Install a Server Certificate<ept id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;/linkText&gt;</ept><bpt id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;title&gt;</bpt><ept id="2640ba44-e4fe-44e8-b6d6-fb3eb4202cbd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0ac020a-2684-49e9-97e3-dae9c9af330d" xml:space="preserve">
+          <source>If you want to use the script included with this topic, to configure the report server, the value of the certificates <bpt id="75f2b4ef-2a4b-4d36-8fc9-495818775a0e">&lt;strong&gt;</bpt>Thumbprint<ept id="75f2b4ef-2a4b-4d36-8fc9-495818775a0e">&lt;/strong&gt;</ept> is required as a parameter of the script.</source>
+          <target state="new">If you want to use the script included with this topic, to configure the report server, the value of the certificates <bpt id="75f2b4ef-2a4b-4d36-8fc9-495818775a0e">&lt;strong&gt;</bpt>Thumbprint<ept id="75f2b4ef-2a4b-4d36-8fc9-495818775a0e">&lt;/strong&gt;</ept> is required as a parameter of the script.</target>
+        </trans-unit>
+        <trans-unit id="5b0818d4-6de9-49ab-8248-08801a538828" xml:space="preserve">
+          <source>See the next section for details on how to obtain the thumbprint of the certificate.</source>
+          <target state="new">See the next section for details on how to obtain the thumbprint of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="fae5a2ed-6160-4b9e-9126-db8ef2a38a97" xml:space="preserve">
+          <source>Assign the server certificate to the report server.</source>
+          <target state="new">Assign the server certificate to the report server.</target>
+        </trans-unit>
+        <trans-unit id="5f2d79a0-c83f-40af-a408-24410c66539f" xml:space="preserve">
+          <source>The assignment is completed in the next section when you configure the report server.</source>
+          <target state="new">The assignment is completed in the next section when you configure the report server.</target>
+        </trans-unit>
+        <trans-unit id="65d7bba8-0283-4e5f-991e-643d1093bb92" xml:space="preserve">
+          <source>A self-signed certificate was created on the VM when the VM was provisioned.</source>
+          <target state="new">A self-signed certificate was created on the VM when the VM was provisioned.</target>
+        </trans-unit>
+        <trans-unit id="df2b18b4-df4c-48cc-9ac0-9bf6825a2c4d" xml:space="preserve">
+          <source>The certificate has the same name as the VM DNS name.</source>
+          <target state="new">The certificate has the same name as the VM DNS name.</target>
+        </trans-unit>
+        <trans-unit id="a94148b8-3b94-40fa-8b97-7a665b1d5bb8" xml:space="preserve">
+          <source>In order to avoid certificate errors, it is required that the certificate is trusted on the VM itself, and also by all users of the site.</source>
+          <target state="new">In order to avoid certificate errors, it is required that the certificate is trusted on the VM itself, and also by all users of the site.</target>
+        </trans-unit>
+        <trans-unit id="13e6b986-86b0-479a-9641-5b3b57f436d6" xml:space="preserve">
+          <source>To trust the root CA of the certificate on the Local VM, add the certificate to the <bpt id="a54ee8d9-08c6-4921-afa4-25e915b77c44">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="a54ee8d9-08c6-4921-afa4-25e915b77c44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To trust the root CA of the certificate on the Local VM, add the certificate to the <bpt id="a54ee8d9-08c6-4921-afa4-25e915b77c44">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="a54ee8d9-08c6-4921-afa4-25e915b77c44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ea2de58-6af0-45e9-b234-14684bab9855" xml:space="preserve">
+          <source>The following is a summary of the steps required.</source>
+          <target state="new">The following is a summary of the steps required.</target>
+        </trans-unit>
+        <trans-unit id="014ad98c-0c74-44c1-a969-2660a51816ed" xml:space="preserve">
+          <source>For detailed steps on how to trust the CA, see <bpt id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;linkText&gt;</bpt>Install a Server Certificate<ept id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;/linkText&gt;</ept><bpt id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;title&gt;</bpt><ept id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed steps on how to trust the CA, see <bpt id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;linkText&gt;</bpt>Install a Server Certificate<ept id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;/linkText&gt;</ept><bpt id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;title&gt;</bpt><ept id="70200954-daa3-44c8-b14f-9f05002972b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3c78b0c-8a18-4a35-b9dc-f645a3b3107f" xml:space="preserve">
+          <source>From the Azure Management portal, select the VM and click connect.</source>
+          <target state="new">From the Azure Management portal, select the VM and click connect.</target>
+        </trans-unit>
+        <trans-unit id="e642de56-d64b-4282-9cb6-bd31178ef95d" xml:space="preserve">
+          <source>Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</source>
+          <target state="new">Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</target>
+        </trans-unit>
+        <trans-unit id="5b7589cc-929f-40fb-a110-6d563875ec99" xml:space="preserve">
+          <source><bpt id="44d49d65-c7aa-4e03-88ce-3b3f456084b1">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="44d49d65-c7aa-4e03-88ce-3b3f456084b1">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</source>
+          <target state="new"><bpt id="44d49d65-c7aa-4e03-88ce-3b3f456084b1">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="44d49d65-c7aa-4e03-88ce-3b3f456084b1">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</target>
+        </trans-unit>
+        <trans-unit id="ae5a39c5-8d3d-47e3-bd6c-c7133caf8560" xml:space="preserve">
+          <source>For example, in the following image, the VM name is <bpt id="5abe7e00-4eac-4521-8e53-24f02fa82d16">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="5abe7e00-4eac-4521-8e53-24f02fa82d16">&lt;/strong&gt;</ept> and the user name is <bpt id="a4869c1d-b948-4a3d-b521-4047d747dfc6">&lt;strong&gt;</bpt>testuser<ept id="a4869c1d-b948-4a3d-b521-4047d747dfc6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, in the following image, the VM name is <bpt id="5abe7e00-4eac-4521-8e53-24f02fa82d16">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="5abe7e00-4eac-4521-8e53-24f02fa82d16">&lt;/strong&gt;</ept> and the user name is <bpt id="a4869c1d-b948-4a3d-b521-4047d747dfc6">&lt;strong&gt;</bpt>testuser<ept id="a4869c1d-b948-4a3d-b521-4047d747dfc6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7033772f-df46-45d6-8fd3-35349e48080f" xml:space="preserve">
+          <source><bpt id="faaee082-6a77-481e-abca-511712b4ad49">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="faaee082-6a77-481e-abca-511712b4ad49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="faaee082-6a77-481e-abca-511712b4ad49">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="faaee082-6a77-481e-abca-511712b4ad49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a5769d4-2a84-4f56-be8c-b52e52514bf8" xml:space="preserve">
+          <source>Run mmc.exe.</source>
+          <target state="new">Run mmc.exe.</target>
+        </trans-unit>
+        <trans-unit id="f5638fab-cb8e-4904-9381-88088e13ec7c" xml:space="preserve">
+          <source>For more information, see <bpt id="1ede881c-048a-4658-9863-74507d2a5167">&lt;linkText&gt;</bpt>How to: View Certificates with the MMC Snap-in<ept id="1ede881c-048a-4658-9863-74507d2a5167">&lt;/linkText&gt;</ept><bpt id="1ede881c-048a-4658-9863-74507d2a5167">&lt;title&gt;</bpt><ept id="1ede881c-048a-4658-9863-74507d2a5167">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1ede881c-048a-4658-9863-74507d2a5167">&lt;linkText&gt;</bpt>How to: View Certificates with the MMC Snap-in<ept id="1ede881c-048a-4658-9863-74507d2a5167">&lt;/linkText&gt;</ept><bpt id="1ede881c-048a-4658-9863-74507d2a5167">&lt;title&gt;</bpt><ept id="1ede881c-048a-4658-9863-74507d2a5167">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92d2a68f-65e1-4368-80b8-49d8013cd145" xml:space="preserve">
+          <source>In the console application <bpt id="4007a47e-7089-45a1-9466-4c2b78115e77">&lt;strong&gt;</bpt>File<ept id="4007a47e-7089-45a1-9466-4c2b78115e77">&lt;/strong&gt;</ept> menu, add the <bpt id="aac332f1-cbb9-4d14-89da-41ab9d1481fe">&lt;strong&gt;</bpt>Certificates<ept id="aac332f1-cbb9-4d14-89da-41ab9d1481fe">&lt;/strong&gt;</ept> snap-in, select <bpt id="056ffdb2-baca-42cb-a8bc-2f59c6fd7188">&lt;strong&gt;</bpt>Computer Account<ept id="056ffdb2-baca-42cb-a8bc-2f59c6fd7188">&lt;/strong&gt;</ept> when prompted, and then click <bpt id="4e5e8b20-a902-40c4-9f6b-349380b8ef04">&lt;strong&gt;</bpt>Next<ept id="4e5e8b20-a902-40c4-9f6b-349380b8ef04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the console application <bpt id="4007a47e-7089-45a1-9466-4c2b78115e77">&lt;strong&gt;</bpt>File<ept id="4007a47e-7089-45a1-9466-4c2b78115e77">&lt;/strong&gt;</ept> menu, add the <bpt id="aac332f1-cbb9-4d14-89da-41ab9d1481fe">&lt;strong&gt;</bpt>Certificates<ept id="aac332f1-cbb9-4d14-89da-41ab9d1481fe">&lt;/strong&gt;</ept> snap-in, select <bpt id="056ffdb2-baca-42cb-a8bc-2f59c6fd7188">&lt;strong&gt;</bpt>Computer Account<ept id="056ffdb2-baca-42cb-a8bc-2f59c6fd7188">&lt;/strong&gt;</ept> when prompted, and then click <bpt id="4e5e8b20-a902-40c4-9f6b-349380b8ef04">&lt;strong&gt;</bpt>Next<ept id="4e5e8b20-a902-40c4-9f6b-349380b8ef04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a440decb-08c1-4e4f-af07-01784e6a2a50" xml:space="preserve">
+          <source>Select <bpt id="4ff37eb1-7f96-4ed0-97e6-143a2f635193">&lt;strong&gt;</bpt>Local Computer<ept id="4ff37eb1-7f96-4ed0-97e6-143a2f635193">&lt;/strong&gt;</ept> to manage and then click <bpt id="36751b84-b758-4b24-a760-cfbe6d75fa89">&lt;strong&gt;</bpt>Finish<ept id="36751b84-b758-4b24-a760-cfbe6d75fa89">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="4ff37eb1-7f96-4ed0-97e6-143a2f635193">&lt;strong&gt;</bpt>Local Computer<ept id="4ff37eb1-7f96-4ed0-97e6-143a2f635193">&lt;/strong&gt;</ept> to manage and then click <bpt id="36751b84-b758-4b24-a760-cfbe6d75fa89">&lt;strong&gt;</bpt>Finish<ept id="36751b84-b758-4b24-a760-cfbe6d75fa89">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc069d19-31d3-4034-b7af-874306976a93" xml:space="preserve">
+          <source>Click <bpt id="6af46247-d4e4-4c0c-8e53-7e622a5b0571">&lt;strong&gt;</bpt>Ok<ept id="6af46247-d4e4-4c0c-8e53-7e622a5b0571">&lt;/strong&gt;</ept> and then expand the <bpt id="470ae3f3-a778-49bc-8252-f7f526d63d13">&lt;strong&gt;</bpt>Certificates -Personal<ept id="470ae3f3-a778-49bc-8252-f7f526d63d13">&lt;/strong&gt;</ept> nodes and then click <bpt id="6fad2710-fd35-48a5-935b-db8ab3f2f583">&lt;strong&gt;</bpt>Certificates<ept id="6fad2710-fd35-48a5-935b-db8ab3f2f583">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6af46247-d4e4-4c0c-8e53-7e622a5b0571">&lt;strong&gt;</bpt>Ok<ept id="6af46247-d4e4-4c0c-8e53-7e622a5b0571">&lt;/strong&gt;</ept> and then expand the <bpt id="470ae3f3-a778-49bc-8252-f7f526d63d13">&lt;strong&gt;</bpt>Certificates -Personal<ept id="470ae3f3-a778-49bc-8252-f7f526d63d13">&lt;/strong&gt;</ept> nodes and then click <bpt id="6fad2710-fd35-48a5-935b-db8ab3f2f583">&lt;strong&gt;</bpt>Certificates<ept id="6fad2710-fd35-48a5-935b-db8ab3f2f583">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29a564a6-835c-49f5-9fe8-eee9bff59697" xml:space="preserve">
+          <source>The certificate is named after the DNS name of the VM and ends with <bpt id="821e886e-2858-42c7-b2e5-d5ad68a54f2c">&lt;strong&gt;</bpt>cloudapp.net<ept id="821e886e-2858-42c7-b2e5-d5ad68a54f2c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The certificate is named after the DNS name of the VM and ends with <bpt id="821e886e-2858-42c7-b2e5-d5ad68a54f2c">&lt;strong&gt;</bpt>cloudapp.net<ept id="821e886e-2858-42c7-b2e5-d5ad68a54f2c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="403e1ec4-e8b4-4f9c-a94e-81bbfe7a4788" xml:space="preserve">
+          <source>Right-click the certificate name and click <bpt id="ab13348e-0e21-4d2e-aee7-a43ff41bf2cb">&lt;strong&gt;</bpt>Copy<ept id="ab13348e-0e21-4d2e-aee7-a43ff41bf2cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the certificate name and click <bpt id="ab13348e-0e21-4d2e-aee7-a43ff41bf2cb">&lt;strong&gt;</bpt>Copy<ept id="ab13348e-0e21-4d2e-aee7-a43ff41bf2cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c995c58-a037-4e30-a1d9-f562d04c8fcd" xml:space="preserve">
+          <source>Expand the <bpt id="58894d09-e7ac-43c8-acf4-546237831864">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="58894d09-e7ac-43c8-acf4-546237831864">&lt;/strong&gt;</ept> node and then right-click <bpt id="2c8959ca-704c-4711-99c8-f2a7b81e45e2">&lt;strong&gt;</bpt>Certificates<ept id="2c8959ca-704c-4711-99c8-f2a7b81e45e2">&lt;/strong&gt;</ept> and then click <bpt id="4cb8dcab-ea30-4b92-adbe-d9b33a44d5fc">&lt;strong&gt;</bpt>Paste<ept id="4cb8dcab-ea30-4b92-adbe-d9b33a44d5fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the <bpt id="58894d09-e7ac-43c8-acf4-546237831864">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="58894d09-e7ac-43c8-acf4-546237831864">&lt;/strong&gt;</ept> node and then right-click <bpt id="2c8959ca-704c-4711-99c8-f2a7b81e45e2">&lt;strong&gt;</bpt>Certificates<ept id="2c8959ca-704c-4711-99c8-f2a7b81e45e2">&lt;/strong&gt;</ept> and then click <bpt id="4cb8dcab-ea30-4b92-adbe-d9b33a44d5fc">&lt;strong&gt;</bpt>Paste<ept id="4cb8dcab-ea30-4b92-adbe-d9b33a44d5fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89b56b1b-aae6-4b93-afb1-d4b193390a90" xml:space="preserve">
+          <source>To validate, double click on the certificate name under <bpt id="dbc26b8f-a682-4bae-93cc-880f424df1c2">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="dbc26b8f-a682-4bae-93cc-880f424df1c2">&lt;/strong&gt;</ept> and verify that there are no errors and you see your certificate.</source>
+          <target state="new">To validate, double click on the certificate name under <bpt id="dbc26b8f-a682-4bae-93cc-880f424df1c2">&lt;strong&gt;</bpt>Trusted Root Certification Authorities<ept id="dbc26b8f-a682-4bae-93cc-880f424df1c2">&lt;/strong&gt;</ept> and verify that there are no errors and you see your certificate.</target>
+        </trans-unit>
+        <trans-unit id="3312fa0a-61a5-459f-8ec9-5d40838e5506" xml:space="preserve">
+          <source>If you want to use the HTTPS script included with this topic, to configure the report server, the value of the certificates <bpt id="8390b9f2-0feb-490a-ae69-dab711b3af1f">&lt;strong&gt;</bpt>Thumbprint<ept id="8390b9f2-0feb-490a-ae69-dab711b3af1f">&lt;/strong&gt;</ept> is required as a parameter of the script.</source>
+          <target state="new">If you want to use the HTTPS script included with this topic, to configure the report server, the value of the certificates <bpt id="8390b9f2-0feb-490a-ae69-dab711b3af1f">&lt;strong&gt;</bpt>Thumbprint<ept id="8390b9f2-0feb-490a-ae69-dab711b3af1f">&lt;/strong&gt;</ept> is required as a parameter of the script.</target>
+        </trans-unit>
+        <trans-unit id="a7b199ab-2a5f-45da-aa40-87e3c318e689" xml:space="preserve">
+          <source><bpt id="59a644ab-5787-464f-bfc1-6f79f4211672">&lt;strong&gt;</bpt>To get the thumbprint value<ept id="59a644ab-5787-464f-bfc1-6f79f4211672">&lt;/strong&gt;</ept>, complete the following.</source>
+          <target state="new"><bpt id="59a644ab-5787-464f-bfc1-6f79f4211672">&lt;strong&gt;</bpt>To get the thumbprint value<ept id="59a644ab-5787-464f-bfc1-6f79f4211672">&lt;/strong&gt;</ept>, complete the following.</target>
+        </trans-unit>
+        <trans-unit id="cfca9daf-52dd-454b-9a25-30c5e9a92b0a" xml:space="preserve">
+          <source>There is also a PowerShell sample to retrieve the thumbprint in section <bpt id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;linkText&gt;</bpt>Use script to configure the report server and HTTPS<ept id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;/linkText&gt;</ept><bpt id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;title&gt;</bpt><ept id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;/title&gt;</ept>.</source>
+          <target state="new">There is also a PowerShell sample to retrieve the thumbprint in section <bpt id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;linkText&gt;</bpt>Use script to configure the report server and HTTPS<ept id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;/linkText&gt;</ept><bpt id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;title&gt;</bpt><ept id="f005428b-cacf-4ace-9aa4-4b2b3a5dd6fe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed90bc38-e523-47a7-b1ff-820bfa1b698e" xml:space="preserve">
+          <source>Double-click the name of the certificate, for example ssrsnativecloud.cloudapp.net.</source>
+          <target state="new">Double-click the name of the certificate, for example ssrsnativecloud.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="90c9874f-14bb-4a2b-aa39-74b740819842" xml:space="preserve">
+          <source>Click the <bpt id="ff1ef390-6b45-4b85-a6d9-5f4518ed0067">&lt;strong&gt;</bpt>Details<ept id="ff1ef390-6b45-4b85-a6d9-5f4518ed0067">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="ff1ef390-6b45-4b85-a6d9-5f4518ed0067">&lt;strong&gt;</bpt>Details<ept id="ff1ef390-6b45-4b85-a6d9-5f4518ed0067">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c49efeca-80f9-4f6f-8c84-e1dd2b5ba9d1" xml:space="preserve">
+          <source>Click <bpt id="21ad678e-aa55-4801-bfea-179c1c1dfbf3">&lt;strong&gt;</bpt>Thumbprint<ept id="21ad678e-aa55-4801-bfea-179c1c1dfbf3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="21ad678e-aa55-4801-bfea-179c1c1dfbf3">&lt;strong&gt;</bpt>Thumbprint<ept id="21ad678e-aa55-4801-bfea-179c1c1dfbf3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a9751d0-cd38-4576-9ae7-56bfa033bb60" xml:space="preserve">
+          <source>The value of the thumbprint is displayed in the details field, for example ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.</source>
+          <target state="new">The value of the thumbprint is displayed in the details field, for example ‎a6 08 3c df f9 0b f7 e3 7c 25 ed a4 ed 7e ac 91 9c 2c fb 2f.</target>
+        </trans-unit>
+        <trans-unit id="942c45ed-cc20-41a2-8143-2fbd41a3cb0a" xml:space="preserve">
+          <source>Copy the thumbprint and save the value for later or edit the script now.</source>
+          <target state="new">Copy the thumbprint and save the value for later or edit the script now.</target>
+        </trans-unit>
+        <trans-unit id="c8e9ef6a-e4de-4bd6-84c3-d178ce39d059" xml:space="preserve">
+          <source>(*) Before you run the script, remove the spaces in between the pairs of values.</source>
+          <target state="new">(*) Before you run the script, remove the spaces in between the pairs of values.</target>
+        </trans-unit>
+        <trans-unit id="28b3f92a-7da6-4084-a6c6-17a1006ee4f8" xml:space="preserve">
+          <source>For example the thumbprint noted before would now be ‎a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.</source>
+          <target state="new">For example the thumbprint noted before would now be ‎a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.</target>
+        </trans-unit>
+        <trans-unit id="0ab259ed-0c4d-4053-aabe-aeb7f821a58e" xml:space="preserve">
+          <source>Assign the server certificate to the report server.</source>
+          <target state="new">Assign the server certificate to the report server.</target>
+        </trans-unit>
+        <trans-unit id="a988fb57-c048-498f-8899-a43455828e88" xml:space="preserve">
+          <source>The assignment is completed in the next section when you configure the report server.</source>
+          <target state="new">The assignment is completed in the next section when you configure the report server.</target>
+        </trans-unit>
+        <trans-unit id="37f07a18-f617-47ac-9a2d-59146ab6d718" xml:space="preserve">
+          <source>If you are using a self-signed SSL certificate, the name on the certificate already matches the hostname of the VM.</source>
+          <target state="new">If you are using a self-signed SSL certificate, the name on the certificate already matches the hostname of the VM.</target>
+        </trans-unit>
+        <trans-unit id="e8978170-0b8b-4e7f-b11e-15383ce34baf" xml:space="preserve">
+          <source>Therefore, the DNS of the machine is already registered globally and can be accessed from any client.</source>
+          <target state="new">Therefore, the DNS of the machine is already registered globally and can be accessed from any client.</target>
+        </trans-unit>
+        <trans-unit id="5c37b248-48e8-44b4-a4d2-8578811c2a11" xml:space="preserve">
+          <source>This section walks you through configuring the VM as a Reporting Services native mode report server.</source>
+          <target state="new">This section walks you through configuring the VM as a Reporting Services native mode report server.</target>
+        </trans-unit>
+        <trans-unit id="0da2b50d-cda8-4a6e-aff2-f665687c0e0c" xml:space="preserve">
+          <source>You can use one of the following methods to configure the report server:</source>
+          <target state="new">You can use one of the following methods to configure the report server:</target>
+        </trans-unit>
+        <trans-unit id="cf535d06-4eab-42c5-af89-6309fc123f45" xml:space="preserve">
+          <source>Use the script to configure the report server</source>
+          <target state="new">Use the script to configure the report server</target>
+        </trans-unit>
+        <trans-unit id="8c1fe3d7-5168-4137-86be-c48a4909b1ae" xml:space="preserve">
+          <source>Use Configuration Manager to Configure the Report Server.</source>
+          <target state="new">Use Configuration Manager to Configure the Report Server.</target>
+        </trans-unit>
+        <trans-unit id="42ccce00-00e1-400a-b41e-2857e1efbe21" xml:space="preserve">
+          <source>For more detailed steps, see the section <bpt id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;linkText&gt;</bpt>Connect to the Virtual Machine and Start the Reporting Services Configuration Manager<ept id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;/linkText&gt;</ept><bpt id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;title&gt;</bpt><ept id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detailed steps, see the section <bpt id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;linkText&gt;</bpt>Connect to the Virtual Machine and Start the Reporting Services Configuration Manager<ept id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;/linkText&gt;</ept><bpt id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;title&gt;</bpt><ept id="87e43a96-c177-4828-8c4b-870b3a3f5819">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b71b6c09-a351-419d-a3d7-43c874386cbc" xml:space="preserve">
+          <source><bpt id="5a0e5541-d5de-4697-8c0b-23b4569ddeee">&lt;strong&gt;</bpt>Authentication Note:<ept id="5a0e5541-d5de-4697-8c0b-23b4569ddeee">&lt;/strong&gt;</ept> Windows authentication is the recommended authentication method and it is the default Reporting Services authentication.</source>
+          <target state="new"><bpt id="5a0e5541-d5de-4697-8c0b-23b4569ddeee">&lt;strong&gt;</bpt>Authentication Note:<ept id="5a0e5541-d5de-4697-8c0b-23b4569ddeee">&lt;/strong&gt;</ept> Windows authentication is the recommended authentication method and it is the default Reporting Services authentication.</target>
+        </trans-unit>
+        <trans-unit id="a1422ca4-b02c-4a53-a61f-e66872794b85" xml:space="preserve">
+          <source>Only users that are configured on the VM can access Reporting Services and assigned to Reporting Services roles.</source>
+          <target state="new">Only users that are configured on the VM can access Reporting Services and assigned to Reporting Services roles.</target>
+        </trans-unit>
+        <trans-unit id="9bf40d08-a624-45f5-92be-2c6cc6b10110" xml:space="preserve">
+          <source>To use the Windows PowerShell script to configure the report server, complete the following steps.</source>
+          <target state="new">To use the Windows PowerShell script to configure the report server, complete the following steps.</target>
+        </trans-unit>
+        <trans-unit id="67c471c9-7d13-4d54-b3f4-baa3cfde57a6" xml:space="preserve">
+          <source>The configuration includes HTTP, not HTTPS:</source>
+          <target state="new">The configuration includes HTTP, not HTTPS:</target>
+        </trans-unit>
+        <trans-unit id="8bf6bd95-0c9e-4fe3-9a11-9e64ff8e837f" xml:space="preserve">
+          <source>From the Azure Management portal, select the VM and click connect.</source>
+          <target state="new">From the Azure Management portal, select the VM and click connect.</target>
+        </trans-unit>
+        <trans-unit id="0520aeb4-24b7-4155-afde-9cfa43845a29" xml:space="preserve">
+          <source>Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</source>
+          <target state="new">Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</target>
+        </trans-unit>
+        <trans-unit id="04cc5453-f4d9-44c9-80be-f6f12fb734a1" xml:space="preserve">
+          <source><bpt id="fcfd3e15-f6c8-4ca3-b17e-22145177b86b">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="fcfd3e15-f6c8-4ca3-b17e-22145177b86b">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</source>
+          <target state="new"><bpt id="fcfd3e15-f6c8-4ca3-b17e-22145177b86b">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="fcfd3e15-f6c8-4ca3-b17e-22145177b86b">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</target>
+        </trans-unit>
+        <trans-unit id="3b0fa7d5-a3ac-4999-93c6-6a41a14a1f3d" xml:space="preserve">
+          <source>For example, in the following image, the VM name is <bpt id="063c7d13-6b7b-4ba4-b8ce-979a94b9162b">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="063c7d13-6b7b-4ba4-b8ce-979a94b9162b">&lt;/strong&gt;</ept> and the user name is <bpt id="9a27d389-6ff6-4980-abc2-e759aa272893">&lt;strong&gt;</bpt>testuser<ept id="9a27d389-6ff6-4980-abc2-e759aa272893">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, in the following image, the VM name is <bpt id="063c7d13-6b7b-4ba4-b8ce-979a94b9162b">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="063c7d13-6b7b-4ba4-b8ce-979a94b9162b">&lt;/strong&gt;</ept> and the user name is <bpt id="9a27d389-6ff6-4980-abc2-e759aa272893">&lt;strong&gt;</bpt>testuser<ept id="9a27d389-6ff6-4980-abc2-e759aa272893">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9fb49d2-7b9c-4b82-bc23-7589fbf71225" xml:space="preserve">
+          <source><bpt id="877e4fc2-f4ee-4c3a-a9e5-fb8ddcb7fa47">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="877e4fc2-f4ee-4c3a-a9e5-fb8ddcb7fa47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="877e4fc2-f4ee-4c3a-a9e5-fb8ddcb7fa47">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="877e4fc2-f4ee-4c3a-a9e5-fb8ddcb7fa47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ae1d0d9-331a-4e4b-aa21-5a5a4938a93e" xml:space="preserve">
+          <source>On the VM, open <bpt id="4e866781-97c2-4a5b-8ed2-5773f254c42c">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="4e866781-97c2-4a5b-8ed2-5773f254c42c">&lt;/strong&gt;</ept> with administrative privileges.</source>
+          <target state="new">On the VM, open <bpt id="4e866781-97c2-4a5b-8ed2-5773f254c42c">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="4e866781-97c2-4a5b-8ed2-5773f254c42c">&lt;/strong&gt;</ept> with administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="b583552d-4d09-4475-8687-c01afed200f6" xml:space="preserve">
+          <source>The PowerShell ISE is installed by default on Windows server 2012.</source>
+          <target state="new">The PowerShell ISE is installed by default on Windows server 2012.</target>
+        </trans-unit>
+        <trans-unit id="89d18851-e19e-40e9-b9ee-bc64e2ce3435" xml:space="preserve">
+          <source>It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.</source>
+          <target state="new">It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.</target>
+        </trans-unit>
+        <trans-unit id="55f95b13-6763-444e-a0d0-4aa3c279c502" xml:space="preserve">
+          <source>In Windows PowerShell ISE, click the <bpt id="6b66106c-ad3d-48e0-827b-0fcf03eea193">&lt;strong&gt;</bpt>View<ept id="6b66106c-ad3d-48e0-827b-0fcf03eea193">&lt;/strong&gt;</ept> menu and then click <bpt id="eb92380c-6b1b-45d7-9b5a-35f805c1d3e3">&lt;strong&gt;</bpt>Show Script Pane<ept id="eb92380c-6b1b-45d7-9b5a-35f805c1d3e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Windows PowerShell ISE, click the <bpt id="6b66106c-ad3d-48e0-827b-0fcf03eea193">&lt;strong&gt;</bpt>View<ept id="6b66106c-ad3d-48e0-827b-0fcf03eea193">&lt;/strong&gt;</ept> menu and then click <bpt id="eb92380c-6b1b-45d7-9b5a-35f805c1d3e3">&lt;strong&gt;</bpt>Show Script Pane<ept id="eb92380c-6b1b-45d7-9b5a-35f805c1d3e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="055f830e-1415-42a0-8612-c03428daff4d" xml:space="preserve">
+          <source>Copy the following script, and paste the script into the Windows PowerShell ISE script pane.</source>
+          <target state="new">Copy the following script, and paste the script into the Windows PowerShell ISE script pane.</target>
+        </trans-unit>
+        <trans-unit id="786f9340-f679-4af0-b0d1-2464f40000e2" xml:space="preserve">
+          <source>If you created the VM with an HTTP port other than 80, modify the parameter $HTTPport = 80.</source>
+          <target state="new">If you created the VM with an HTTP port other than 80, modify the parameter $HTTPport = 80.</target>
+        </trans-unit>
+        <trans-unit id="bbba5df8-6a38-48eb-aeb4-0a9776f46e4c" xml:space="preserve">
+          <source>The script is currently configured for  Reporting Services.</source>
+          <target state="new">The script is currently configured for  Reporting Services.</target>
+        </trans-unit>
+        <trans-unit id="e68875e5-2d46-41aa-b60b-b33fc94e9ee9" xml:space="preserve">
+          <source>If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.</source>
+          <target state="new">If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.</target>
+        </trans-unit>
+        <trans-unit id="1cc36042-a2f2-448c-a438-5eb53d8b4012" xml:space="preserve">
+          <source>Run the script.</source>
+          <target state="new">Run the script.</target>
+        </trans-unit>
+        <trans-unit id="be1be70a-5441-49ef-9af1-aebeffab8c46" xml:space="preserve">
+          <source><bpt id="ebd0c847-1564-4117-ba5b-c2541aeaac35">&lt;strong&gt;</bpt>Validation<ept id="ebd0c847-1564-4117-ba5b-c2541aeaac35">&lt;/strong&gt;</ept>: To verify that the basic report server functionality is working, see the <bpt id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;linkText&gt;</bpt>Verify the configuration<ept id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;/linkText&gt;</ept><bpt id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;title&gt;</bpt><ept id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;/title&gt;</ept> section later in this topic.</source>
+          <target state="new"><bpt id="ebd0c847-1564-4117-ba5b-c2541aeaac35">&lt;strong&gt;</bpt>Validation<ept id="ebd0c847-1564-4117-ba5b-c2541aeaac35">&lt;/strong&gt;</ept>: To verify that the basic report server functionality is working, see the <bpt id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;linkText&gt;</bpt>Verify the configuration<ept id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;/linkText&gt;</ept><bpt id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;title&gt;</bpt><ept id="db605b8b-540e-416b-8849-a6a24d98ea24">&lt;/title&gt;</ept> section later in this topic.</target>
+        </trans-unit>
+        <trans-unit id="e9357312-7714-4cc3-bc51-6e70576c6e1c" xml:space="preserve">
+          <source>To use Windows PowerShell to configure the report server, complete the following steps.</source>
+          <target state="new">To use Windows PowerShell to configure the report server, complete the following steps.</target>
+        </trans-unit>
+        <trans-unit id="3ec9bba6-d939-480a-9575-de9791ec5d32" xml:space="preserve">
+          <source>The configuration includes HTTPS, not HTTP.</source>
+          <target state="new">The configuration includes HTTPS, not HTTP.</target>
+        </trans-unit>
+        <trans-unit id="03722d2f-d2d7-4e1d-a6a8-ef4440f702c7" xml:space="preserve">
+          <source>From the Azure Management portal, select the VM and click connect.</source>
+          <target state="new">From the Azure Management portal, select the VM and click connect.</target>
+        </trans-unit>
+        <trans-unit id="cfbdac3a-51fd-4820-9492-cb6ffb95cfaf" xml:space="preserve">
+          <source>Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</source>
+          <target state="new">Depending on your browser configuration, you may be prompted to save an .rdp file for connecting to the VM.</target>
+        </trans-unit>
+        <trans-unit id="ea914d59-3d74-4ee7-a9b8-499efed05cbd" xml:space="preserve">
+          <source><bpt id="658eae13-db9a-47bc-9111-7d1e6b16037b">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="658eae13-db9a-47bc-9111-7d1e6b16037b">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</source>
+          <target state="new"><bpt id="658eae13-db9a-47bc-9111-7d1e6b16037b">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="658eae13-db9a-47bc-9111-7d1e6b16037b">&lt;/linkText&gt;</ept> Use the user VM name, user name and password you configured when you created the VM.</target>
+        </trans-unit>
+        <trans-unit id="d001993a-569e-413a-931a-39d59e4711c0" xml:space="preserve">
+          <source>For example, in the following image, the VM name is <bpt id="f29cdee3-d6dc-4048-97f4-033fca743988">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="f29cdee3-d6dc-4048-97f4-033fca743988">&lt;/strong&gt;</ept> and the user name is <bpt id="1de4a6b3-732f-4d18-bdfc-bf73b17368e8">&lt;strong&gt;</bpt>testuser<ept id="1de4a6b3-732f-4d18-bdfc-bf73b17368e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, in the following image, the VM name is <bpt id="f29cdee3-d6dc-4048-97f4-033fca743988">&lt;strong&gt;</bpt>ssrsnativecloud<ept id="f29cdee3-d6dc-4048-97f4-033fca743988">&lt;/strong&gt;</ept> and the user name is <bpt id="1de4a6b3-732f-4d18-bdfc-bf73b17368e8">&lt;strong&gt;</bpt>testuser<ept id="1de4a6b3-732f-4d18-bdfc-bf73b17368e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8e16c3c-3f73-4ecf-aa37-7b32c68cda59" xml:space="preserve">
+          <source><bpt id="a6f7abe4-2820-40ab-b948-c449ec09f56f">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="a6f7abe4-2820-40ab-b948-c449ec09f56f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6f7abe4-2820-40ab-b948-c449ec09f56f">&lt;linkText&gt;</bpt>login inlcudes vm name<ept id="a6f7abe4-2820-40ab-b948-c449ec09f56f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cd9a24f-b7b4-4540-b119-31af341b1793" xml:space="preserve">
+          <source>On the VM, open <bpt id="2147a8de-0cc2-45e5-a9eb-d68159042818">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="2147a8de-0cc2-45e5-a9eb-d68159042818">&lt;/strong&gt;</ept> with administrative privileges.</source>
+          <target state="new">On the VM, open <bpt id="2147a8de-0cc2-45e5-a9eb-d68159042818">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="2147a8de-0cc2-45e5-a9eb-d68159042818">&lt;/strong&gt;</ept> with administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="7c33c895-7f20-4a21-9704-d5b390527b05" xml:space="preserve">
+          <source>The PowerShell ISE is installed by default on Windows server 2012.</source>
+          <target state="new">The PowerShell ISE is installed by default on Windows server 2012.</target>
+        </trans-unit>
+        <trans-unit id="2d732e6d-b18a-4609-8acc-97fd0955adf9" xml:space="preserve">
+          <source>It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.</source>
+          <target state="new">It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.</target>
+        </trans-unit>
+        <trans-unit id="934b599d-bf9f-433d-9eab-0b1d6700a1df" xml:space="preserve">
+          <source>To enable running scripts, run the following Windows PowerShell command:</source>
+          <target state="new">To enable running scripts, run the following Windows PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="0a53fb0d-437f-41dc-8dc0-094a3e427a67" xml:space="preserve">
+          <source>You can then run the following to verify the policy:</source>
+          <target state="new">You can then run the following to verify the policy:</target>
+        </trans-unit>
+        <trans-unit id="b13dce92-0f76-456a-b838-a7cb2ae2be3f" xml:space="preserve">
+          <source>In <bpt id="7dcd3f3c-261b-4715-bfdb-947070936778">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="7dcd3f3c-261b-4715-bfdb-947070936778">&lt;/strong&gt;</ept>, click the <bpt id="68813b84-42c8-4e17-9cb3-c1a6b0aa9de6">&lt;strong&gt;</bpt>View<ept id="68813b84-42c8-4e17-9cb3-c1a6b0aa9de6">&lt;/strong&gt;</ept> menu and then click <bpt id="84cc4a9b-f98a-4957-88c0-ace03a7157db">&lt;strong&gt;</bpt>Show Script Pane<ept id="84cc4a9b-f98a-4957-88c0-ace03a7157db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="7dcd3f3c-261b-4715-bfdb-947070936778">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="7dcd3f3c-261b-4715-bfdb-947070936778">&lt;/strong&gt;</ept>, click the <bpt id="68813b84-42c8-4e17-9cb3-c1a6b0aa9de6">&lt;strong&gt;</bpt>View<ept id="68813b84-42c8-4e17-9cb3-c1a6b0aa9de6">&lt;/strong&gt;</ept> menu and then click <bpt id="84cc4a9b-f98a-4957-88c0-ace03a7157db">&lt;strong&gt;</bpt>Show Script Pane<ept id="84cc4a9b-f98a-4957-88c0-ace03a7157db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bee4c2d-d84e-44e1-893c-23fc38e7c75f" xml:space="preserve">
+          <source>Copy the following script and paste it into the Windows PowerShell ISE script pane.</source>
+          <target state="new">Copy the following script and paste it into the Windows PowerShell ISE script pane.</target>
+        </trans-unit>
+        <trans-unit id="350224b1-4d00-46f4-a3b7-3460fa4a0efc" xml:space="preserve">
+          <source>Modify the <bpt id="3c276b75-4a85-49b4-8958-6d898c9d3a3a">&lt;strong&gt;</bpt>$certificatehash<ept id="3c276b75-4a85-49b4-8958-6d898c9d3a3a">&lt;/strong&gt;</ept> parameter in the script:</source>
+          <target state="new">Modify the <bpt id="3c276b75-4a85-49b4-8958-6d898c9d3a3a">&lt;strong&gt;</bpt>$certificatehash<ept id="3c276b75-4a85-49b4-8958-6d898c9d3a3a">&lt;/strong&gt;</ept> parameter in the script:</target>
+        </trans-unit>
+        <trans-unit id="15cc0398-3070-4a92-978a-5ae366f86dfc" xml:space="preserve">
+          <source>This is a <bpt id="8ee0ae89-c837-467e-a6c6-b9df09c03f61">&lt;strong&gt;</bpt>required<ept id="8ee0ae89-c837-467e-a6c6-b9df09c03f61">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">This is a <bpt id="8ee0ae89-c837-467e-a6c6-b9df09c03f61">&lt;strong&gt;</bpt>required<ept id="8ee0ae89-c837-467e-a6c6-b9df09c03f61">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="7247b089-1ceb-45c7-9a03-02918d6bde57" xml:space="preserve">
+          <source>If you did not save the certificate value from the previous steps, use one of the following methods to copy the certificate hash value from the certificates thumbprint.:</source>
+          <target state="new">If you did not save the certificate value from the previous steps, use one of the following methods to copy the certificate hash value from the certificates thumbprint.:</target>
+        </trans-unit>
+        <trans-unit id="a365329d-a936-402e-b743-58492e326153" xml:space="preserve">
+          <source>On the VM, open Windows PowerShell ISE and run the following command:</source>
+          <target state="new">On the VM, open Windows PowerShell ISE and run the following command:</target>
+        </trans-unit>
+        <trans-unit id="20e83297-2351-40cd-b49e-9be3f3f679e6" xml:space="preserve">
+          <source>The output will look similar to the following.</source>
+          <target state="new">The output will look similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="59f1ba95-82d5-49f3-bc60-e09e0396bd94" xml:space="preserve">
+          <source>If the script returns a blank line, the VM does not have a certificate configured for example, see the section <bpt id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;linkText&gt;</bpt>To use the Virtual Machines Self-signed Certificate<ept id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;/linkText&gt;</ept><bpt id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;title&gt;</bpt><ept id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the script returns a blank line, the VM does not have a certificate configured for example, see the section <bpt id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;linkText&gt;</bpt>To use the Virtual Machines Self-signed Certificate<ept id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;/linkText&gt;</ept><bpt id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;title&gt;</bpt><ept id="2ce54e28-c423-4314-830d-99c9cd25490f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d8e8323-1816-4d89-ad1b-6669d6bd9bdf" xml:space="preserve">
+          <source>OR</source>
+          <target state="new">OR</target>
+        </trans-unit>
+        <trans-unit id="0c1bd689-b0be-4880-992f-9e655471cad0" xml:space="preserve">
+          <source>On the VM Run mmc.exe and then add the <bpt id="bda54e7f-5ba1-43ae-a28d-b36cc02fa069">&lt;strong&gt;</bpt>Certificates<ept id="bda54e7f-5ba1-43ae-a28d-b36cc02fa069">&lt;/strong&gt;</ept> snap-in.</source>
+          <target state="new">On the VM Run mmc.exe and then add the <bpt id="bda54e7f-5ba1-43ae-a28d-b36cc02fa069">&lt;strong&gt;</bpt>Certificates<ept id="bda54e7f-5ba1-43ae-a28d-b36cc02fa069">&lt;/strong&gt;</ept> snap-in.</target>
+        </trans-unit>
+        <trans-unit id="b8110b60-84ef-48e5-a432-0cf9bd8236f5" xml:space="preserve">
+          <source>Under the <bpt id="4b2373d4-3d95-4549-b6ef-75d03514000b">&lt;strong&gt;</bpt>Trusted Root Certificate Authorities<ept id="4b2373d4-3d95-4549-b6ef-75d03514000b">&lt;/strong&gt;</ept> node double-click your certificate name.</source>
+          <target state="new">Under the <bpt id="4b2373d4-3d95-4549-b6ef-75d03514000b">&lt;strong&gt;</bpt>Trusted Root Certificate Authorities<ept id="4b2373d4-3d95-4549-b6ef-75d03514000b">&lt;/strong&gt;</ept> node double-click your certificate name.</target>
+        </trans-unit>
+        <trans-unit id="b16d2b4a-41f2-41ba-80f8-770d2350739e" xml:space="preserve">
+          <source>If you are using the self-signed certificate of the VM, the certificate is named after the DNS name of the VM and ends with <bpt id="92e090f7-e052-461f-922c-c205a788bb23">&lt;strong&gt;</bpt>cloudapp.net<ept id="92e090f7-e052-461f-922c-c205a788bb23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are using the self-signed certificate of the VM, the certificate is named after the DNS name of the VM and ends with <bpt id="92e090f7-e052-461f-922c-c205a788bb23">&lt;strong&gt;</bpt>cloudapp.net<ept id="92e090f7-e052-461f-922c-c205a788bb23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02b88e76-a7ae-4283-90c9-3436e8f93c39" xml:space="preserve">
+          <source>Click the <bpt id="41fa989b-b2bd-483a-9690-168fd9fc9f11">&lt;strong&gt;</bpt>Details<ept id="41fa989b-b2bd-483a-9690-168fd9fc9f11">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="41fa989b-b2bd-483a-9690-168fd9fc9f11">&lt;strong&gt;</bpt>Details<ept id="41fa989b-b2bd-483a-9690-168fd9fc9f11">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2e5cc792-aa45-4390-bf86-71d8bedb4885" xml:space="preserve">
+          <source>Click <bpt id="d351ed67-72d3-4563-89f9-1d07d79198e2">&lt;strong&gt;</bpt>Thumbprint<ept id="d351ed67-72d3-4563-89f9-1d07d79198e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d351ed67-72d3-4563-89f9-1d07d79198e2">&lt;strong&gt;</bpt>Thumbprint<ept id="d351ed67-72d3-4563-89f9-1d07d79198e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="389ff85c-1349-4d53-bcdd-b3d6b6cd6f2f" xml:space="preserve">
+          <source>The value of the thumbprint is displayed in the details field, for example af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48</source>
+          <target state="new">The value of the thumbprint is displayed in the details field, for example af 11 60 b6 4b 28 8d 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48</target>
+        </trans-unit>
+        <trans-unit id="42e0eebd-6143-4e5e-b63c-b54040f13486" xml:space="preserve">
+          <source><bpt id="2532a943-bfb3-450c-9bd0-89230e98340b">&lt;strong&gt;</bpt>Before you run the script<ept id="2532a943-bfb3-450c-9bd0-89230e98340b">&lt;/strong&gt;</ept>, remove the spaces in between the pairs of values.</source>
+          <target state="new"><bpt id="2532a943-bfb3-450c-9bd0-89230e98340b">&lt;strong&gt;</bpt>Before you run the script<ept id="2532a943-bfb3-450c-9bd0-89230e98340b">&lt;/strong&gt;</ept>, remove the spaces in between the pairs of values.</target>
+        </trans-unit>
+        <trans-unit id="8d747154-cdce-4aa6-a374-4bcb88728268" xml:space="preserve">
+          <source>For example af1160b64b288d890a8212ff6ba9c3664f319048</source>
+          <target state="new">For example af1160b64b288d890a8212ff6ba9c3664f319048</target>
+        </trans-unit>
+        <trans-unit id="bf81a9ea-b84e-4859-91e0-fb5be2ccbd3c" xml:space="preserve">
+          <source>Modify the <bpt id="8ed3afac-5e55-43e1-ae3e-119c25ba14a6">&lt;strong&gt;</bpt>$httpsport<ept id="8ed3afac-5e55-43e1-ae3e-119c25ba14a6">&lt;/strong&gt;</ept> parameter: </source>
+          <target state="new">Modify the <bpt id="8ed3afac-5e55-43e1-ae3e-119c25ba14a6">&lt;strong&gt;</bpt>$httpsport<ept id="8ed3afac-5e55-43e1-ae3e-119c25ba14a6">&lt;/strong&gt;</ept> parameter: </target>
+        </trans-unit>
+        <trans-unit id="ee412197-3b1c-403d-a2fd-87f5a44057b8" xml:space="preserve">
+          <source>If you used port 443 for the HTTPS endpoint, then you do not need to update this parameter in the script.</source>
+          <target state="new">If you used port 443 for the HTTPS endpoint, then you do not need to update this parameter in the script.</target>
+        </trans-unit>
+        <trans-unit id="c22738d5-1892-4683-a04d-ed567ecb2d84" xml:space="preserve">
+          <source>Otherwise use the port value you selected when you configured the HTTPS private endpoint on the VM.</source>
+          <target state="new">Otherwise use the port value you selected when you configured the HTTPS private endpoint on the VM.</target>
+        </trans-unit>
+        <trans-unit id="ab722ce0-f353-43e6-afc3-307a2099abb5" xml:space="preserve">
+          <source>Modify the <bpt id="e5bd83c2-7e94-48e1-96d8-e66c177b38c6">&lt;strong&gt;</bpt>$DNSName<ept id="e5bd83c2-7e94-48e1-96d8-e66c177b38c6">&lt;/strong&gt;</ept> parameter: </source>
+          <target state="new">Modify the <bpt id="e5bd83c2-7e94-48e1-96d8-e66c177b38c6">&lt;strong&gt;</bpt>$DNSName<ept id="e5bd83c2-7e94-48e1-96d8-e66c177b38c6">&lt;/strong&gt;</ept> parameter: </target>
+        </trans-unit>
+        <trans-unit id="2771ea2e-2d53-418a-b257-4a44f1406c3c" xml:space="preserve">
+          <source>The script is configured for a wild card certificate $DNSName="+".</source>
+          <target state="new">The script is configured for a wild card certificate $DNSName="+".</target>
+        </trans-unit>
+        <trans-unit id="9b635ad4-e9c6-488d-859a-87029be6df07" xml:space="preserve">
+          <source>If you do no want to configure for a wildcard certificate binding, comment out $DNSName="+" and enable the following line, the full $DNSNAme reference, ##$DNSName="$server.cloudapp.net".</source>
+          <target state="new">If you do no want to configure for a wildcard certificate binding, comment out $DNSName="+" and enable the following line, the full $DNSNAme reference, ##$DNSName="$server.cloudapp.net".</target>
+        </trans-unit>
+        <trans-unit id="997fbe39-1b7c-44ec-afcf-8c2469939a9a" xml:space="preserve">
+          <source>Change the $DNSName value if you do not want to use the virtual machine’s DNS name for Reporting Services.</source>
+          <target state="new">Change the $DNSName value if you do not want to use the virtual machine’s DNS name for Reporting Services.</target>
+        </trans-unit>
+        <trans-unit id="fea72a23-3bae-4ef9-b481-7d6772238333" xml:space="preserve">
+          <source>If you use the parameter, the certificate must also use this name and you register the name globally on a DNS server.</source>
+          <target state="new">If you use the parameter, the certificate must also use this name and you register the name globally on a DNS server.</target>
+        </trans-unit>
+        <trans-unit id="3ee9bf30-d5aa-45bb-b414-b8b7c7433463" xml:space="preserve">
+          <source>The script is currently configured for  Reporting Services.</source>
+          <target state="new">The script is currently configured for  Reporting Services.</target>
+        </trans-unit>
+        <trans-unit id="6db3844a-29f5-4edd-8137-cb24868c5472" xml:space="preserve">
+          <source>If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.</source>
+          <target state="new">If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.</target>
+        </trans-unit>
+        <trans-unit id="f2996def-f5b1-4033-b048-1b1f8b48af32" xml:space="preserve">
+          <source>Run the script.</source>
+          <target state="new">Run the script.</target>
+        </trans-unit>
+        <trans-unit id="ce88f3de-2894-4eb6-a869-465fdd94f07d" xml:space="preserve">
+          <source><bpt id="98f8f07e-aaa2-4ab5-8023-ee3257268ade">&lt;strong&gt;</bpt>Validation<ept id="98f8f07e-aaa2-4ab5-8023-ee3257268ade">&lt;/strong&gt;</ept>: To verify that the basic report server functionality is working, see the <bpt id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;linkText&gt;</bpt>Verify the configuration<ept id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;/linkText&gt;</ept><bpt id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;title&gt;</bpt><ept id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;/title&gt;</ept> section later in this topic.</source>
+          <target state="new"><bpt id="98f8f07e-aaa2-4ab5-8023-ee3257268ade">&lt;strong&gt;</bpt>Validation<ept id="98f8f07e-aaa2-4ab5-8023-ee3257268ade">&lt;/strong&gt;</ept>: To verify that the basic report server functionality is working, see the <bpt id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;linkText&gt;</bpt>Verify the configuration<ept id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;/linkText&gt;</ept><bpt id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;title&gt;</bpt><ept id="2454b95f-95db-4147-86bc-5716dd9cd48c">&lt;/title&gt;</ept> section later in this topic.</target>
+        </trans-unit>
+        <trans-unit id="49572558-4ea0-433a-af75-137dad15ae2b" xml:space="preserve">
+          <source>To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:</source>
+          <target state="new">To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:</target>
+        </trans-unit>
+        <trans-unit id="b1c1511b-d78d-4a9c-9948-6e7a817653ba" xml:space="preserve">
+          <source>The result will include the following:</source>
+          <target state="new">The result will include the following:</target>
+        </trans-unit>
+        <trans-unit id="af01c190-9eb0-4b01-a45e-6a06e081096c" xml:space="preserve">
+          <source>If you do not want to run the PowerShell script to configure the report server, follow the steps in this section to use the Reporting Services native mode configuration manager to configure the report server.</source>
+          <target state="new">If you do not want to run the PowerShell script to configure the report server, follow the steps in this section to use the Reporting Services native mode configuration manager to configure the report server.</target>
+        </trans-unit>
+        <trans-unit id="88d5cac9-7bd4-42ce-9006-0921bf52695f" xml:space="preserve">
+          <source>From the Azure Management portal, select the VM and click connect.</source>
+          <target state="new">From the Azure Management portal, select the VM and click connect.</target>
+        </trans-unit>
+        <trans-unit id="d3983130-c4ce-4f2a-9b13-9781e644717d" xml:space="preserve">
+          <source>Use the user name and password you configured when you created the VM.</source>
+          <target state="new">Use the user name and password you configured when you created the VM.</target>
+        </trans-unit>
+        <trans-unit id="d9cd0f76-d074-4517-8d80-35c67e2fcd8b" xml:space="preserve">
+          <source><bpt id="3e4f9ff9-5458-4019-9f56-7795563dd1b6">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="3e4f9ff9-5458-4019-9f56-7795563dd1b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e4f9ff9-5458-4019-9f56-7795563dd1b6">&lt;linkText&gt;</bpt>connect to azure virtual machine<ept id="3e4f9ff9-5458-4019-9f56-7795563dd1b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e42f73de-a34d-49d2-b637-5ced8a14f291" xml:space="preserve">
+          <source>Run Windows update and install updates to the VM.</source>
+          <target state="new">Run Windows update and install updates to the VM.</target>
+        </trans-unit>
+        <trans-unit id="751f32d4-a636-4f79-b37a-c0d33160a26d" xml:space="preserve">
+          <source>If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure Management portal.</source>
+          <target state="new">If a restart of the VM is required, restart the VM and reconnect to the VM from the Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="2cfa5a40-6804-4dba-aab1-64869ece28ea" xml:space="preserve">
+          <source>From the Start menu on the VM, type <bpt id="ad6e1505-451d-4f9b-8b67-1fbd3a7363eb">&lt;strong&gt;</bpt>Reporting Services<ept id="ad6e1505-451d-4f9b-8b67-1fbd3a7363eb">&lt;/strong&gt;</ept> and open <bpt id="8e03b8c3-3992-411c-b602-9395f14ca3e9">&lt;strong&gt;</bpt>Reporting Services Configuration Manager<ept id="8e03b8c3-3992-411c-b602-9395f14ca3e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start menu on the VM, type <bpt id="ad6e1505-451d-4f9b-8b67-1fbd3a7363eb">&lt;strong&gt;</bpt>Reporting Services<ept id="ad6e1505-451d-4f9b-8b67-1fbd3a7363eb">&lt;/strong&gt;</ept> and open <bpt id="8e03b8c3-3992-411c-b602-9395f14ca3e9">&lt;strong&gt;</bpt>Reporting Services Configuration Manager<ept id="8e03b8c3-3992-411c-b602-9395f14ca3e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35b52b09-268d-4b4d-83c6-6924662ce222" xml:space="preserve">
+          <source>Leave the default values for <bpt id="f703042f-e213-49fd-bcd5-c761889b34e8">&lt;strong&gt;</bpt>Server Name<ept id="f703042f-e213-49fd-bcd5-c761889b34e8">&lt;/strong&gt;</ept> and <bpt id="a705ca19-a2d3-41a2-9a1f-6eb473a2fd1e">&lt;strong&gt;</bpt>Report Server Instance<ept id="a705ca19-a2d3-41a2-9a1f-6eb473a2fd1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Leave the default values for <bpt id="f703042f-e213-49fd-bcd5-c761889b34e8">&lt;strong&gt;</bpt>Server Name<ept id="f703042f-e213-49fd-bcd5-c761889b34e8">&lt;/strong&gt;</ept> and <bpt id="a705ca19-a2d3-41a2-9a1f-6eb473a2fd1e">&lt;strong&gt;</bpt>Report Server Instance<ept id="a705ca19-a2d3-41a2-9a1f-6eb473a2fd1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52d226d0-aa52-4c91-a305-386559cd9f67" xml:space="preserve">
+          <source>Click <bpt id="12b06055-e05d-4288-a5c7-41749bc3899f">&lt;strong&gt;</bpt>Connect<ept id="12b06055-e05d-4288-a5c7-41749bc3899f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="12b06055-e05d-4288-a5c7-41749bc3899f">&lt;strong&gt;</bpt>Connect<ept id="12b06055-e05d-4288-a5c7-41749bc3899f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e80ac9a9-9ba4-4263-b019-3f64851478f5" xml:space="preserve">
+          <source>In the left pane, click <bpt id="33edbe22-d50f-448a-91b4-f3c9f9b96a1f">&lt;strong&gt;</bpt>Web Service URL<ept id="33edbe22-d50f-448a-91b4-f3c9f9b96a1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="33edbe22-d50f-448a-91b4-f3c9f9b96a1f">&lt;strong&gt;</bpt>Web Service URL<ept id="33edbe22-d50f-448a-91b4-f3c9f9b96a1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="006cc6ef-9856-4f03-91be-6f12dec050a3" xml:space="preserve">
+          <source>By default, RS is configured for HTTP port 80 with IP “All Assigned”.</source>
+          <target state="new">By default, RS is configured for HTTP port 80 with IP “All Assigned”.</target>
+        </trans-unit>
+        <trans-unit id="b21fdde9-50c3-4026-9a51-830f0e29e236" xml:space="preserve">
+          <source>To add HTTPS:</source>
+          <target state="new">To add HTTPS:</target>
+        </trans-unit>
+        <trans-unit id="faa61011-adec-4930-9a65-416d0ced2fa6" xml:space="preserve">
+          <source>In <bpt id="41e5a5be-c200-41c7-bdb2-e3a8b34838a2">&lt;strong&gt;</bpt>SSL Certificate<ept id="41e5a5be-c200-41c7-bdb2-e3a8b34838a2">&lt;/strong&gt;</ept>: select the certificate you want to use, for example [VM name].cloudapp.net.</source>
+          <target state="new">In <bpt id="41e5a5be-c200-41c7-bdb2-e3a8b34838a2">&lt;strong&gt;</bpt>SSL Certificate<ept id="41e5a5be-c200-41c7-bdb2-e3a8b34838a2">&lt;/strong&gt;</ept>: select the certificate you want to use, for example [VM name].cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="bec9d51b-bd7f-4b75-af7f-e5ab98917f8a" xml:space="preserve">
+          <source>If no certificates are listed, see the section <bpt id="a48a31e2-d060-47d8-93e6-a53b7655b090">&lt;strong&gt;</bpt>Step 2: Create a Server Certificate<ept id="a48a31e2-d060-47d8-93e6-a53b7655b090">&lt;/strong&gt;</ept> for information on how to install and trust the certificate on the VM.</source>
+          <target state="new">If no certificates are listed, see the section <bpt id="a48a31e2-d060-47d8-93e6-a53b7655b090">&lt;strong&gt;</bpt>Step 2: Create a Server Certificate<ept id="a48a31e2-d060-47d8-93e6-a53b7655b090">&lt;/strong&gt;</ept> for information on how to install and trust the certificate on the VM.</target>
+        </trans-unit>
+        <trans-unit id="7a2c32a8-c3ec-41ea-b78a-bd5b88ee7a11" xml:space="preserve">
+          <source>Under <bpt id="12640267-0929-46aa-a4af-8971222fb541">&lt;strong&gt;</bpt>SSL Port<ept id="12640267-0929-46aa-a4af-8971222fb541">&lt;/strong&gt;</ept>: choose 443.</source>
+          <target state="new">Under <bpt id="12640267-0929-46aa-a4af-8971222fb541">&lt;strong&gt;</bpt>SSL Port<ept id="12640267-0929-46aa-a4af-8971222fb541">&lt;/strong&gt;</ept>: choose 443.</target>
+        </trans-unit>
+        <trans-unit id="acce1b8f-f804-4879-840c-6ff217930ca2" xml:space="preserve">
+          <source>If you configured the HTTPS private endpoint in the VM with a different private port, use that value here.</source>
+          <target state="new">If you configured the HTTPS private endpoint in the VM with a different private port, use that value here.</target>
+        </trans-unit>
+        <trans-unit id="0d835032-88a1-40bd-82b4-b6f2c08e852a" xml:space="preserve">
+          <source>Click <bpt id="a1d659a1-1de6-40ba-8043-838f76a65644">&lt;strong&gt;</bpt>Apply<ept id="a1d659a1-1de6-40ba-8043-838f76a65644">&lt;/strong&gt;</ept> and wait for the operation to complete.</source>
+          <target state="new">Click <bpt id="a1d659a1-1de6-40ba-8043-838f76a65644">&lt;strong&gt;</bpt>Apply<ept id="a1d659a1-1de6-40ba-8043-838f76a65644">&lt;/strong&gt;</ept> and wait for the operation to complete.</target>
+        </trans-unit>
+        <trans-unit id="84a25ed4-86fe-4d1f-9798-ea0e69769b9c" xml:space="preserve">
+          <source>In the left pane, click <bpt id="b670c1cb-a709-4db6-a723-6f4f34d3a9c5">&lt;strong&gt;</bpt>Database<ept id="b670c1cb-a709-4db6-a723-6f4f34d3a9c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="b670c1cb-a709-4db6-a723-6f4f34d3a9c5">&lt;strong&gt;</bpt>Database<ept id="b670c1cb-a709-4db6-a723-6f4f34d3a9c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6e0e54f-e862-4b61-9f46-e2960a87eadf" xml:space="preserve">
+          <source>Click <bpt id="3afe190d-c43c-4f89-a2cd-6ac3b582a108">&lt;strong&gt;</bpt>Change Databas<ept id="3afe190d-c43c-4f89-a2cd-6ac3b582a108">&lt;/strong&gt;</ept>e.</source>
+          <target state="new">Click <bpt id="3afe190d-c43c-4f89-a2cd-6ac3b582a108">&lt;strong&gt;</bpt>Change Databas<ept id="3afe190d-c43c-4f89-a2cd-6ac3b582a108">&lt;/strong&gt;</ept>e.</target>
+        </trans-unit>
+        <trans-unit id="48279970-6ea0-4265-bc28-0a59d2c1c7b9" xml:space="preserve">
+          <source>Click <bpt id="40423f51-23c0-409d-b69e-3a2545f11e1a">&lt;strong&gt;</bpt>Create a new report server database<ept id="40423f51-23c0-409d-b69e-3a2545f11e1a">&lt;/strong&gt;</ept> and then click <bpt id="0a77ffc6-b849-4764-93c7-05abed62c44f">&lt;strong&gt;</bpt>Next<ept id="0a77ffc6-b849-4764-93c7-05abed62c44f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="40423f51-23c0-409d-b69e-3a2545f11e1a">&lt;strong&gt;</bpt>Create a new report server database<ept id="40423f51-23c0-409d-b69e-3a2545f11e1a">&lt;/strong&gt;</ept> and then click <bpt id="0a77ffc6-b849-4764-93c7-05abed62c44f">&lt;strong&gt;</bpt>Next<ept id="0a77ffc6-b849-4764-93c7-05abed62c44f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99b5ca56-db41-410a-bf55-826fbdf4cd04" xml:space="preserve">
+          <source>Leave the default <bpt id="5f2c3b93-ae59-46df-b0d9-66fb879aa2e1">&lt;strong&gt;</bpt>Server Name<ept id="5f2c3b93-ae59-46df-b0d9-66fb879aa2e1">&lt;/strong&gt;</ept>: as the VM name and leave the default <bpt id="ebe6904f-f965-4193-a543-4c4deb8ffc98">&lt;strong&gt;</bpt>Authentication Type<ept id="ebe6904f-f965-4193-a543-4c4deb8ffc98">&lt;/strong&gt;</ept> as <bpt id="cc6f00f5-1377-4e5f-973a-ed4a6f247d9e">&lt;strong&gt;</bpt>Current User<ept id="cc6f00f5-1377-4e5f-973a-ed4a6f247d9e">&lt;/strong&gt;</ept> – <bpt id="fb66166c-2932-4777-8917-fe7ab989604f">&lt;strong&gt;</bpt>Integrated Security<ept id="fb66166c-2932-4777-8917-fe7ab989604f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Leave the default <bpt id="5f2c3b93-ae59-46df-b0d9-66fb879aa2e1">&lt;strong&gt;</bpt>Server Name<ept id="5f2c3b93-ae59-46df-b0d9-66fb879aa2e1">&lt;/strong&gt;</ept>: as the VM name and leave the default <bpt id="ebe6904f-f965-4193-a543-4c4deb8ffc98">&lt;strong&gt;</bpt>Authentication Type<ept id="ebe6904f-f965-4193-a543-4c4deb8ffc98">&lt;/strong&gt;</ept> as <bpt id="cc6f00f5-1377-4e5f-973a-ed4a6f247d9e">&lt;strong&gt;</bpt>Current User<ept id="cc6f00f5-1377-4e5f-973a-ed4a6f247d9e">&lt;/strong&gt;</ept> – <bpt id="fb66166c-2932-4777-8917-fe7ab989604f">&lt;strong&gt;</bpt>Integrated Security<ept id="fb66166c-2932-4777-8917-fe7ab989604f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab7c9952-eb7f-4611-a34a-df391beb619f" xml:space="preserve">
+          <source>Click <bpt id="c584e0fc-5444-4f4d-8216-0ef5464bb305">&lt;strong&gt;</bpt>Next<ept id="c584e0fc-5444-4f4d-8216-0ef5464bb305">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c584e0fc-5444-4f4d-8216-0ef5464bb305">&lt;strong&gt;</bpt>Next<ept id="c584e0fc-5444-4f4d-8216-0ef5464bb305">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f73f81c0-82f6-44e3-8426-40676f2fb36c" xml:space="preserve">
+          <source>Leave the default <bpt id="a3624107-4ca5-4ee2-a953-64a0f696625b">&lt;strong&gt;</bpt>Database Name<ept id="a3624107-4ca5-4ee2-a953-64a0f696625b">&lt;/strong&gt;</ept> as <bpt id="3251c812-5eb8-437f-b699-726acc11d5ac">&lt;strong&gt;</bpt>ReportServer<ept id="3251c812-5eb8-437f-b699-726acc11d5ac">&lt;/strong&gt;</ept> and click <bpt id="1902ba7e-f71e-4ece-b97e-267c8ddc984f">&lt;strong&gt;</bpt>Next<ept id="1902ba7e-f71e-4ece-b97e-267c8ddc984f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Leave the default <bpt id="a3624107-4ca5-4ee2-a953-64a0f696625b">&lt;strong&gt;</bpt>Database Name<ept id="a3624107-4ca5-4ee2-a953-64a0f696625b">&lt;/strong&gt;</ept> as <bpt id="3251c812-5eb8-437f-b699-726acc11d5ac">&lt;strong&gt;</bpt>ReportServer<ept id="3251c812-5eb8-437f-b699-726acc11d5ac">&lt;/strong&gt;</ept> and click <bpt id="1902ba7e-f71e-4ece-b97e-267c8ddc984f">&lt;strong&gt;</bpt>Next<ept id="1902ba7e-f71e-4ece-b97e-267c8ddc984f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ee55377-6828-4a1b-b66c-7c3aae8e0d88" xml:space="preserve">
+          <source>Leave the default <bpt id="81ce3a67-3c7f-4ceb-b305-d628e9a17cdf">&lt;strong&gt;</bpt>Authentication Type<ept id="81ce3a67-3c7f-4ceb-b305-d628e9a17cdf">&lt;/strong&gt;</ept> as <bpt id="444c9712-d66b-484e-8b96-df1b34ef627c">&lt;strong&gt;</bpt>Service Credentials<ept id="444c9712-d66b-484e-8b96-df1b34ef627c">&lt;/strong&gt;</ept> and click <bpt id="35fe5dd1-e396-4332-9135-a57b9695c38f">&lt;strong&gt;</bpt>Next<ept id="35fe5dd1-e396-4332-9135-a57b9695c38f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Leave the default <bpt id="81ce3a67-3c7f-4ceb-b305-d628e9a17cdf">&lt;strong&gt;</bpt>Authentication Type<ept id="81ce3a67-3c7f-4ceb-b305-d628e9a17cdf">&lt;/strong&gt;</ept> as <bpt id="444c9712-d66b-484e-8b96-df1b34ef627c">&lt;strong&gt;</bpt>Service Credentials<ept id="444c9712-d66b-484e-8b96-df1b34ef627c">&lt;/strong&gt;</ept> and click <bpt id="35fe5dd1-e396-4332-9135-a57b9695c38f">&lt;strong&gt;</bpt>Next<ept id="35fe5dd1-e396-4332-9135-a57b9695c38f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93514112-f930-4663-acef-1baa24bf553e" xml:space="preserve">
+          <source>Click <bpt id="3d815f81-e1c4-408f-b841-8b5faf163e20">&lt;strong&gt;</bpt>Next<ept id="3d815f81-e1c4-408f-b841-8b5faf163e20">&lt;/strong&gt;</ept> on the <bpt id="3c35739a-fc1f-4539-bd0d-7b5622f3861f">&lt;strong&gt;</bpt>Summary<ept id="3c35739a-fc1f-4539-bd0d-7b5622f3861f">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click <bpt id="3d815f81-e1c4-408f-b841-8b5faf163e20">&lt;strong&gt;</bpt>Next<ept id="3d815f81-e1c4-408f-b841-8b5faf163e20">&lt;/strong&gt;</ept> on the <bpt id="3c35739a-fc1f-4539-bd0d-7b5622f3861f">&lt;strong&gt;</bpt>Summary<ept id="3c35739a-fc1f-4539-bd0d-7b5622f3861f">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="ae199020-e4fa-4c4f-a3ee-0eb382d28853" xml:space="preserve">
+          <source>When the configuration is complete, click <bpt id="2a6f18e9-7961-43a1-8acf-5d8b446f15bf">&lt;strong&gt;</bpt>Finish<ept id="2a6f18e9-7961-43a1-8acf-5d8b446f15bf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the configuration is complete, click <bpt id="2a6f18e9-7961-43a1-8acf-5d8b446f15bf">&lt;strong&gt;</bpt>Finish<ept id="2a6f18e9-7961-43a1-8acf-5d8b446f15bf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2df67fdc-ae2d-442f-b2ba-ba8fe10542dc" xml:space="preserve">
+          <source>In the left pane, click <bpt id="a4047862-3b89-4ec6-855f-f43c1f9abecc">&lt;strong&gt;</bpt>Report Manager URL<ept id="a4047862-3b89-4ec6-855f-f43c1f9abecc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="a4047862-3b89-4ec6-855f-f43c1f9abecc">&lt;strong&gt;</bpt>Report Manager URL<ept id="a4047862-3b89-4ec6-855f-f43c1f9abecc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f18432b-491a-40d0-9f77-b5417e2a07b4" xml:space="preserve">
+          <source>Leave the default <bpt id="bbc264ba-c44f-4266-abc1-56d69c46e9d2">&lt;strong&gt;</bpt>Virtual Directory<ept id="bbc264ba-c44f-4266-abc1-56d69c46e9d2">&lt;/strong&gt;</ept> as <bpt id="4332db23-45be-4287-b0aa-5c3227c9bb59">&lt;strong&gt;</bpt>Reports<ept id="4332db23-45be-4287-b0aa-5c3227c9bb59">&lt;/strong&gt;</ept> and click <bpt id="dbeeb8b5-e93f-493d-bb7d-0ad639e0988c">&lt;strong&gt;</bpt>Apply<ept id="dbeeb8b5-e93f-493d-bb7d-0ad639e0988c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Leave the default <bpt id="bbc264ba-c44f-4266-abc1-56d69c46e9d2">&lt;strong&gt;</bpt>Virtual Directory<ept id="bbc264ba-c44f-4266-abc1-56d69c46e9d2">&lt;/strong&gt;</ept> as <bpt id="4332db23-45be-4287-b0aa-5c3227c9bb59">&lt;strong&gt;</bpt>Reports<ept id="4332db23-45be-4287-b0aa-5c3227c9bb59">&lt;/strong&gt;</ept> and click <bpt id="dbeeb8b5-e93f-493d-bb7d-0ad639e0988c">&lt;strong&gt;</bpt>Apply<ept id="dbeeb8b5-e93f-493d-bb7d-0ad639e0988c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5eb61f79-dfb4-4efc-8de5-c253b14a0f6b" xml:space="preserve">
+          <source>Click <bpt id="b22e416e-6cac-4d5f-9616-b7500e9e87cf">&lt;strong&gt;</bpt>Exit<ept id="b22e416e-6cac-4d5f-9616-b7500e9e87cf">&lt;/strong&gt;</ept> to close the Reporting Services Configuration Manager.</source>
+          <target state="new">Click <bpt id="b22e416e-6cac-4d5f-9616-b7500e9e87cf">&lt;strong&gt;</bpt>Exit<ept id="b22e416e-6cac-4d5f-9616-b7500e9e87cf">&lt;/strong&gt;</ept> to close the Reporting Services Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="e9b58965-340c-4074-8a09-6550dd9f8e10" xml:space="preserve">
+          <source>If you used one of the scripts to configure the report server, you can skip this section.</source>
+          <target state="new">If you used one of the scripts to configure the report server, you can skip this section.</target>
+        </trans-unit>
+        <trans-unit id="73dc5fae-80c5-4a2d-b960-2869dc7e8c21" xml:space="preserve">
+          <source>The script included a step to open the firewall port.</source>
+          <target state="new">The script included a step to open the firewall port.</target>
+        </trans-unit>
+        <trans-unit id="c42dbd63-c55c-4808-a0c7-7b4e3f5eace9" xml:space="preserve">
+          <source>The default was port 80 for HTTP and port 443 for HTTPS.</source>
+          <target state="new">The default was port 80 for HTTP and port 443 for HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="4afcd680-05f2-4aa2-8039-352a6dda59fb" xml:space="preserve">
+          <source>To connect remotely to Report Manager or the Report Server on the virtual machine, a TCP Endpoint is required on the VM.</source>
+          <target state="new">To connect remotely to Report Manager or the Report Server on the virtual machine, a TCP Endpoint is required on the VM.</target>
+        </trans-unit>
+        <trans-unit id="1e2a2308-d377-439f-acf6-b2d7508eac59" xml:space="preserve">
+          <source>It is required to open the same port in the VM’s firewall.</source>
+          <target state="new">It is required to open the same port in the VM’s firewall.</target>
+        </trans-unit>
+        <trans-unit id="5ecdc835-ad30-41be-999b-72d695fa898f" xml:space="preserve">
+          <source>The endpoint was created when the VM was provisioned.</source>
+          <target state="new">The endpoint was created when the VM was provisioned.</target>
+        </trans-unit>
+        <trans-unit id="3b406e1b-239f-4d6e-b445-0402a254a978" xml:space="preserve">
+          <source>This section provides basic information on how to open the firewall port.</source>
+          <target state="new">This section provides basic information on how to open the firewall port.</target>
+        </trans-unit>
+        <trans-unit id="e83c8fb0-bc7c-413a-9359-9859cde6111f" xml:space="preserve">
+          <source>For more information, see <bpt id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;linkText&gt;</bpt>Configure a Firewall for Report Server Access<ept id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;/linkText&gt;</ept><bpt id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;title&gt;</bpt><ept id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;linkText&gt;</bpt>Configure a Firewall for Report Server Access<ept id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;/linkText&gt;</ept><bpt id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;title&gt;</bpt><ept id="5bfc76eb-d771-478c-9f2c-2719ff851ec8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16847029-cec2-4e06-9339-f18be5fa57ac" xml:space="preserve">
+          <source>If you used the script to configure the report server, you can skip this section.</source>
+          <target state="new">If you used the script to configure the report server, you can skip this section.</target>
+        </trans-unit>
+        <trans-unit id="256a5620-cb62-4c9a-846b-321f380e8875" xml:space="preserve">
+          <source>The script included a step to open the firewall port.</source>
+          <target state="new">The script included a step to open the firewall port.</target>
+        </trans-unit>
+        <trans-unit id="69577f15-5602-4a90-8c14-174ca750033d" xml:space="preserve">
+          <source>If you configured a private port for HTTPS other than 443, modify the following script appropriately.</source>
+          <target state="new">If you configured a private port for HTTPS other than 443, modify the following script appropriately.</target>
+        </trans-unit>
+        <trans-unit id="05a5b786-e017-48ea-b9cb-3792875c08bc" xml:space="preserve">
+          <source>To open port <bpt id="29b7af73-9c71-428f-ae1b-819c85476ea8">&lt;strong&gt;</bpt>443<ept id="29b7af73-9c71-428f-ae1b-819c85476ea8">&lt;/strong&gt;</ept> on the Windows Firewall, complete the following:</source>
+          <target state="new">To open port <bpt id="29b7af73-9c71-428f-ae1b-819c85476ea8">&lt;strong&gt;</bpt>443<ept id="29b7af73-9c71-428f-ae1b-819c85476ea8">&lt;/strong&gt;</ept> on the Windows Firewall, complete the following:</target>
+        </trans-unit>
+        <trans-unit id="323e99fb-bcca-4fc0-9adf-e1fc6884385e" xml:space="preserve">
+          <source>Open a Windows PowerShell window with administrative privileges.</source>
+          <target state="new">Open a Windows PowerShell window with administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="2ef59dfd-ed64-4d45-9cdf-6e37438f9b8b" xml:space="preserve">
+          <source>If you used a port other than 443 when you configured the HTTPS endpoint on the VM, update the port in the following command and then run the command:</source>
+          <target state="new">If you used a port other than 443 when you configured the HTTPS endpoint on the VM, update the port in the following command and then run the command:</target>
+        </trans-unit>
+        <trans-unit id="b8f5aaaf-2861-4760-b7f7-edc375596619" xml:space="preserve">
+          <source>When the command completes, <bpt id="be279b55-6b3f-4c31-9afb-75e08c42b159">&lt;strong&gt;</bpt>Ok<ept id="be279b55-6b3f-4c31-9afb-75e08c42b159">&lt;/strong&gt;</ept> is displayed in the command prompt.</source>
+          <target state="new">When the command completes, <bpt id="be279b55-6b3f-4c31-9afb-75e08c42b159">&lt;strong&gt;</bpt>Ok<ept id="be279b55-6b3f-4c31-9afb-75e08c42b159">&lt;/strong&gt;</ept> is displayed in the command prompt.</target>
+        </trans-unit>
+        <trans-unit id="3ade506d-3d25-4019-b900-b3107c7efd1f" xml:space="preserve">
+          <source>To verify that the port is opened, open a Windows PowerShell window and run the following command:</source>
+          <target state="new">To verify that the port is opened, open a Windows PowerShell window and run the following command:</target>
+        </trans-unit>
+        <trans-unit id="c327a3c8-c75d-4bde-a604-104287a5641f" xml:space="preserve">
+          <source>To verify that the basic report server functionality is now working, open your browser with administrative privileges and then browse to the following report server ad report manager URLS:</source>
+          <target state="new">To verify that the basic report server functionality is now working, open your browser with administrative privileges and then browse to the following report server ad report manager URLS:</target>
+        </trans-unit>
+        <trans-unit id="9a9b74ac-131f-4410-942b-62d971fe7f9a" xml:space="preserve">
+          <source>On the VM, browse to the report server URL:</source>
+          <target state="new">On the VM, browse to the report server URL:</target>
+        </trans-unit>
+        <trans-unit id="a0ba4359-2338-4338-8b8c-d2b8458d5e30" xml:space="preserve">
+          <source>On the VM, browse to the report manger URL:</source>
+          <target state="new">On the VM, browse to the report manger URL:</target>
+        </trans-unit>
+        <trans-unit id="ece776c7-cfbe-40ff-bdc8-6fd5599acb71" xml:space="preserve">
+          <source>From your local computer, browse to the <bpt id="0afc91e6-6a51-4a2f-844b-7fd39993ca62">&lt;strong&gt;</bpt>remote<ept id="0afc91e6-6a51-4a2f-844b-7fd39993ca62">&lt;/strong&gt;</ept> report Manager on the VM.</source>
+          <target state="new">From your local computer, browse to the <bpt id="0afc91e6-6a51-4a2f-844b-7fd39993ca62">&lt;strong&gt;</bpt>remote<ept id="0afc91e6-6a51-4a2f-844b-7fd39993ca62">&lt;/strong&gt;</ept> report Manager on the VM.</target>
+        </trans-unit>
+        <trans-unit id="61009c6d-32d9-4831-a783-13d643919244" xml:space="preserve">
+          <source>Update the DNS name in the following example as appropriate.</source>
+          <target state="new">Update the DNS name in the following example as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="77cfd82c-5096-4943-9ec4-c8d43c5ee081" xml:space="preserve">
+          <source>When prompted for a password, use the administrator credentials you created when the VM was provisioned.</source>
+          <target state="new">When prompted for a password, use the administrator credentials you created when the VM was provisioned.</target>
+        </trans-unit>
+        <trans-unit id="934e6cd3-0619-4f58-9bdd-3d2b97eb387d" xml:space="preserve">
+          <source>The user name is in the [Domain]\[user name] format, where the domain is the VM computer name, for example ssrsnativecloud\testuser.</source>
+          <target state="new">The user name is in the [Domain]\[user name] format, where the domain is the VM computer name, for example ssrsnativecloud\testuser.</target>
+        </trans-unit>
+        <trans-unit id="3892e901-2c9e-4dcb-9e35-a3ea640776e9" xml:space="preserve">
+          <source>If you are not using HTTP<bpt id="9fd9d094-f9ae-48cf-b755-32896430e035">&lt;strong&gt;</bpt>S<ept id="9fd9d094-f9ae-48cf-b755-32896430e035">&lt;/strong&gt;</ept>, remove the <bpt id="236fc684-57f2-488d-b8a4-03c0bb8d8ad6">&lt;strong&gt;</bpt>s<ept id="236fc684-57f2-488d-b8a4-03c0bb8d8ad6">&lt;/strong&gt;</ept> in the URL.</source>
+          <target state="new">If you are not using HTTP<bpt id="9fd9d094-f9ae-48cf-b755-32896430e035">&lt;strong&gt;</bpt>S<ept id="9fd9d094-f9ae-48cf-b755-32896430e035">&lt;/strong&gt;</ept>, remove the <bpt id="236fc684-57f2-488d-b8a4-03c0bb8d8ad6">&lt;strong&gt;</bpt>s<ept id="236fc684-57f2-488d-b8a4-03c0bb8d8ad6">&lt;/strong&gt;</ept> in the URL.</target>
+        </trans-unit>
+        <trans-unit id="027d833f-1b2b-4bff-9662-2cd569ca8eba" xml:space="preserve">
+          <source>See the next section for information on creating additional users on VM.</source>
+          <target state="new">See the next section for information on creating additional users on VM.</target>
+        </trans-unit>
+        <trans-unit id="74370fcf-ae80-44f9-bf17-f98c417c91cc" xml:space="preserve">
+          <source>From your local computer, browse to the remote report server URL.</source>
+          <target state="new">From your local computer, browse to the remote report server URL.</target>
+        </trans-unit>
+        <trans-unit id="c15861c2-7f88-4ce5-b6a7-acb183f2618e" xml:space="preserve">
+          <source>Update the DNS name in the following example as appropriate.</source>
+          <target state="new">Update the DNS name in the following example as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="8bcaab5f-13dc-433d-92ee-28a62544efac" xml:space="preserve">
+          <source>If you are not using HTTPS, remove the s in the URL.</source>
+          <target state="new">If you are not using HTTPS, remove the s in the URL.</target>
+        </trans-unit>
+        <trans-unit id="d467aaa2-604a-4325-8f51-9e524e46f777" xml:space="preserve">
+          <source>After configuring and verifying the report server, a common administrative task is to create one or more users and assign users to Reporting Services roles.</source>
+          <target state="new">After configuring and verifying the report server, a common administrative task is to create one or more users and assign users to Reporting Services roles.</target>
+        </trans-unit>
+        <trans-unit id="791d5c2f-6b7c-489d-84a3-d32d1750b6c5" xml:space="preserve">
+          <source>For more information, see the following:</source>
+          <target state="new">For more information, see the following:</target>
+        </trans-unit>
+        <trans-unit id="227fd46c-a646-4bc2-b814-65b31898208c" xml:space="preserve">
+          <source><bpt id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;linkText&gt;</bpt>Create a local user account<ept id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;/linkText&gt;</ept><bpt id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;title&gt;</bpt><ept id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;linkText&gt;</bpt>Create a local user account<ept id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;/linkText&gt;</ept><bpt id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;title&gt;</bpt><ept id="79f3e66d-04ca-47b1-a331-b23fcbf12f62">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70772340-e122-4227-bda4-500fc5394e14" xml:space="preserve">
+          <source><bpt id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;linkText&gt;</bpt>Grant User Access to a Report Server (Report Manager)<ept id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;/linkText&gt;</ept><bpt id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;title&gt;</bpt><ept id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;/title&gt;</ept>)</source>
+          <target state="new"><bpt id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;linkText&gt;</bpt>Grant User Access to a Report Server (Report Manager)<ept id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;/linkText&gt;</ept><bpt id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;title&gt;</bpt><ept id="1e1d170d-11ba-4000-b701-4c027a69d5ab">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="cbc801f3-ca7e-4af6-b6ce-fee59bf8f874" xml:space="preserve">
+          <source><bpt id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;linkText&gt;</bpt>Create and Manage Role Assignments<ept id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;/linkText&gt;</ept><bpt id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;title&gt;</bpt><ept id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;linkText&gt;</bpt>Create and Manage Role Assignments<ept id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;/linkText&gt;</ept><bpt id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;title&gt;</bpt><ept id="74ae53ae-da25-4c17-b939-f105b9af70b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4658aa0a-fe5e-435e-9801-228d7747cd77" xml:space="preserve">
+          <source>The following table summarizes some of the options available to publish existing reports from an on-premises computer to the report server hosted on the Microsoft Azure Virtual Machine:</source>
+          <target state="new">The following table summarizes some of the options available to publish existing reports from an on-premises computer to the report server hosted on the Microsoft Azure Virtual Machine:</target>
+        </trans-unit>
+        <trans-unit id="c75c74b3-748d-4fac-aace-698abb6719b1" xml:space="preserve">
+          <source><bpt id="f22786fd-6458-4570-bedf-6b38b7e10892">&lt;strong&gt;</bpt>RS.exe script<ept id="f22786fd-6458-4570-bedf-6b38b7e10892">&lt;/strong&gt;</ept>: Use RS.exe script to copy report items from and existing report server to your Microsoft Azure Virtual Machine.</source>
+          <target state="new"><bpt id="f22786fd-6458-4570-bedf-6b38b7e10892">&lt;strong&gt;</bpt>RS.exe script<ept id="f22786fd-6458-4570-bedf-6b38b7e10892">&lt;/strong&gt;</ept>: Use RS.exe script to copy report items from and existing report server to your Microsoft Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="7688502e-2f44-48c3-bd33-267d2e306c7d" xml:space="preserve">
+          <source>For more information, see the section “Native mode to Native Mode – Microsoft Azure Virtual Machine” in <bpt id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;linkText&gt;</bpt>Sample Reporting Services rs.exe Script to Migrate Content between Report Servers<ept id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;/linkText&gt;</ept><bpt id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;title&gt;</bpt><ept id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the section “Native mode to Native Mode – Microsoft Azure Virtual Machine” in <bpt id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;linkText&gt;</bpt>Sample Reporting Services rs.exe Script to Migrate Content between Report Servers<ept id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;/linkText&gt;</ept><bpt id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;title&gt;</bpt><ept id="e4d71d91-65bf-48e3-bb89-bd2042cd0e04">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22010df8-4613-465c-a2eb-60fbe4ba1fc3" xml:space="preserve">
+          <source><bpt id="db61b5f1-11ad-4189-9abe-85e0533e3a7b">&lt;strong&gt;</bpt>Report Builder<ept id="db61b5f1-11ad-4189-9abe-85e0533e3a7b">&lt;/strong&gt;</ept>: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder.</source>
+          <target state="new"><bpt id="db61b5f1-11ad-4189-9abe-85e0533e3a7b">&lt;strong&gt;</bpt>Report Builder<ept id="db61b5f1-11ad-4189-9abe-85e0533e3a7b">&lt;/strong&gt;</ept>: The virtual machine includes the click-once version of Microsoft SQL Server Report Builder.</target>
+        </trans-unit>
+        <trans-unit id="54872220-eb44-45e9-a7b2-d342eb16474b" xml:space="preserve">
+          <source>To start Report builder the first time on the virtual machine:</source>
+          <target state="new">To start Report builder the first time on the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="52225b0d-1ec8-4a45-b1c8-f404bc326b88" xml:space="preserve">
+          <source>Start your browser with administrative privileges.</source>
+          <target state="new">Start your browser with administrative privileges.</target>
+        </trans-unit>
+        <trans-unit id="aa459a1d-0661-4378-8b86-899fa9bcabe1" xml:space="preserve">
+          <source>Browse to report manager on the virtual machine and click <bpt id="afe3ee0d-2d7b-4692-b90e-e645cbfd3e2f">&lt;strong&gt;</bpt>Report Builder<ept id="afe3ee0d-2d7b-4692-b90e-e645cbfd3e2f">&lt;/strong&gt;</ept>  in the ribbon.</source>
+          <target state="new">Browse to report manager on the virtual machine and click <bpt id="afe3ee0d-2d7b-4692-b90e-e645cbfd3e2f">&lt;strong&gt;</bpt>Report Builder<ept id="afe3ee0d-2d7b-4692-b90e-e645cbfd3e2f">&lt;/strong&gt;</ept>  in the ribbon.</target>
+        </trans-unit>
+        <trans-unit id="d0dc947b-5d8e-49f7-a992-a35bb10545ff" xml:space="preserve">
+          <source>For more information, see <bpt id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;linkText&gt;</bpt>Installing, Uninstalling, and Supporting Report Builder<ept id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;/linkText&gt;</ept><bpt id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;title&gt;</bpt><ept id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;linkText&gt;</bpt>Installing, Uninstalling, and Supporting Report Builder<ept id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;/linkText&gt;</ept><bpt id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;title&gt;</bpt><ept id="0a8b3731-8ba2-4ca8-ade3-f952556f4eff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f38c149c-7002-4e0f-b3fd-3b7f81c2813d" xml:space="preserve">
+          <source><bpt id="b828ef07-fec9-4500-9b61-0972f954aa38">&lt;strong&gt;</bpt>SQL Server Data Tools: VM<ept id="b828ef07-fec9-4500-9b61-0972f954aa38">&lt;/strong&gt;</ept>:  If you created the VM with SQL Server 2012, then SQL Server Data Tools is installed on the virtual machine and can be used to create <bpt id="6839ec77-08d3-43b6-922b-6e57d4454d30">&lt;strong&gt;</bpt>Report Server Projects<ept id="6839ec77-08d3-43b6-922b-6e57d4454d30">&lt;/strong&gt;</ept> and reports on the virtual machine.</source>
+          <target state="new"><bpt id="b828ef07-fec9-4500-9b61-0972f954aa38">&lt;strong&gt;</bpt>SQL Server Data Tools: VM<ept id="b828ef07-fec9-4500-9b61-0972f954aa38">&lt;/strong&gt;</ept>:  If you created the VM with SQL Server 2012, then SQL Server Data Tools is installed on the virtual machine and can be used to create <bpt id="6839ec77-08d3-43b6-922b-6e57d4454d30">&lt;strong&gt;</bpt>Report Server Projects<ept id="6839ec77-08d3-43b6-922b-6e57d4454d30">&lt;/strong&gt;</ept> and reports on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="9c43ee02-677e-43c8-9dbd-087121e6ddd6" xml:space="preserve">
+          <source>SQL Server Data Tools can publish the reports to the report server on the virtual machine.</source>
+          <target state="new">SQL Server Data Tools can publish the reports to the report server on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a476606b-a9ab-4d74-91d7-8387477baa81" xml:space="preserve">
+          <source>If you created the VM with SQL server 2014, you can install SQL Server Data Tools- BI for visual Studio.</source>
+          <target state="new">If you created the VM with SQL server 2014, you can install SQL Server Data Tools- BI for visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="cd974be1-5b21-46e2-9d54-afc3bc0f34f6" xml:space="preserve">
+          <source>For more information, see the following:</source>
+          <target state="new">For more information, see the following:</target>
+        </trans-unit>
+        <trans-unit id="92d142ab-42dd-40a4-80ee-3f3b2d899bab" xml:space="preserve">
+          <source><bpt id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;linkText&gt;</bpt>Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013<ept id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;/linkText&gt;</ept><bpt id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;title&gt;</bpt><ept id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;linkText&gt;</bpt>Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013<ept id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;/linkText&gt;</ept><bpt id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;title&gt;</bpt><ept id="5b14ffd8-b3b2-4306-b715-02df760c0f85">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49e99869-24f3-40dc-a8e9-3a424917133d" xml:space="preserve">
+          <source><bpt id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;linkText&gt;</bpt>Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2012<ept id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;/linkText&gt;</ept><bpt id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;title&gt;</bpt><ept id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;linkText&gt;</bpt>Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2012<ept id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;/linkText&gt;</ept><bpt id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;title&gt;</bpt><ept id="bc6ec385-71d0-4aa7-9c92-987577a13c05">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b9ce423-f380-4b36-80fa-3ddd6ec01d1c" xml:space="preserve">
+          <source><bpt id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;linkText&gt;</bpt>SQL Server Data Tools and SQL Server Business Intelligence (SSDT-BI)<ept id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;/linkText&gt;</ept><bpt id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;title&gt;</bpt><ept id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;linkText&gt;</bpt>SQL Server Data Tools and SQL Server Business Intelligence (SSDT-BI)<ept id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;/linkText&gt;</ept><bpt id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;title&gt;</bpt><ept id="2592184b-ce05-46f4-99fe-c21a1e041551">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1effd48a-489c-4dcb-887c-71920fb3fcea" xml:space="preserve">
+          <source><bpt id="85ff958e-9159-4328-af00-bed15eef841f">&lt;strong&gt;</bpt>SQL Server Data Tools: Remote<ept id="85ff958e-9159-4328-af00-bed15eef841f">&lt;/strong&gt;</ept>:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports.</source>
+          <target state="new"><bpt id="85ff958e-9159-4328-af00-bed15eef841f">&lt;strong&gt;</bpt>SQL Server Data Tools: Remote<ept id="85ff958e-9159-4328-af00-bed15eef841f">&lt;/strong&gt;</ept>:  On your local computer, create a Reporting Services project in SQL Server Data Tools that contains Reporting Services reports.</target>
+        </trans-unit>
+        <trans-unit id="21fb522d-dd74-402b-bcdd-b7590f9a8fe2" xml:space="preserve">
+          <source>Configure the project to connect to the web service URL.</source>
+          <target state="new">Configure the project to connect to the web service URL.</target>
+        </trans-unit>
+        <trans-unit id="6e483468-626b-4147-b1c6-71f442df08ad" xml:space="preserve">
+          <source><bpt id="91e00c63-2432-419e-97a2-37aa22db7e09">&lt;linkText&gt;</bpt>ssdt project properties for SSRS project<ept id="91e00c63-2432-419e-97a2-37aa22db7e09">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91e00c63-2432-419e-97a2-37aa22db7e09">&lt;linkText&gt;</bpt>ssdt project properties for SSRS project<ept id="91e00c63-2432-419e-97a2-37aa22db7e09">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="538efddf-57ca-4757-be2b-7e3440495cd4" xml:space="preserve">
+          <source><bpt id="45595c66-1236-4c57-abd4-c0d53fdd2034">&lt;strong&gt;</bpt>Use script<ept id="45595c66-1236-4c57-abd4-c0d53fdd2034">&lt;/strong&gt;</ept>: Use script to copy report server content.</source>
+          <target state="new"><bpt id="45595c66-1236-4c57-abd4-c0d53fdd2034">&lt;strong&gt;</bpt>Use script<ept id="45595c66-1236-4c57-abd4-c0d53fdd2034">&lt;/strong&gt;</ept>: Use script to copy report server content.</target>
+        </trans-unit>
+        <trans-unit id="e157aefe-d776-4730-ac43-8a2671ad2773" xml:space="preserve">
+          <source>For more information, see <bpt id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;linkText&gt;</bpt>Sample Reporting Services rs.exe Script to Migrate Content between Report Servers<ept id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;/linkText&gt;</ept><bpt id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;title&gt;</bpt><ept id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;linkText&gt;</bpt>Sample Reporting Services rs.exe Script to Migrate Content between Report Servers<ept id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;/linkText&gt;</ept><bpt id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;title&gt;</bpt><ept id="fdf62ad5-5947-4090-9a13-c4d6aa09c38f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c195d45-3a8f-48da-9db1-4d89afafc060" xml:space="preserve">
+          <source>To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure Management portal.</source>
+          <target state="new">To minimize charges for your Azure Virtual Machines when not in use, shut down the VM from the Azure Management portal.</target>
+        </trans-unit>
+        <trans-unit id="6b3e2a9b-fdfd-41b4-b27a-35360c83a666" xml:space="preserve">
+          <source>If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM.</source>
+          <target state="new">If you use the Windows power options inside a VM to shut down the VM, you are still charged the same amount for the VM.</target>
+        </trans-unit>
+        <trans-unit id="8ee9ccd3-f413-4fce-88fc-4713f91b90b0" xml:space="preserve">
+          <source>To reduce charges, you need to shut down the VM in the Azure Management Portal.</source>
+          <target state="new">To reduce charges, you need to shut down the VM in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="2603051a-bbdd-43d5-9503-f4a719555958" xml:space="preserve">
+          <source>If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at <bpt id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;linkText&gt;</bpt>Virtual Machines Pricing Details<ept id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;/linkText&gt;</ept><bpt id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;title&gt;</bpt><ept id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you no longer need the VM, remember to delete the VM and the associated .vhd files to avoid storage charges.For more information, see the FAQ section at <bpt id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;linkText&gt;</bpt>Virtual Machines Pricing Details<ept id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;/linkText&gt;</ept><bpt id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;title&gt;</bpt><ept id="30415c97-522a-4a9e-bb35-b2f97ff39bd1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f178d678-3491-454e-ade8-9cb0aef6ecfa" xml:space="preserve">
+          <source>For similar content related to a single server deployment of SQL Server Business Intelligence and SharePoint 2013, see <bpt id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;linkText&gt;</bpt>Use Windows PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2013<ept id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;/linkText&gt;</ept><bpt id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;title&gt;</bpt><ept id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;/title&gt;</ept>.</source>
+          <target state="new">For similar content related to a single server deployment of SQL Server Business Intelligence and SharePoint 2013, see <bpt id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;linkText&gt;</bpt>Use Windows PowerShell to Create an Azure VM With SQL Server BI and SharePoint 2013<ept id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;/linkText&gt;</ept><bpt id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;title&gt;</bpt><ept id="7dc8bc40-895a-4fe3-b2d1-f7fef31eda75">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3751de3-e703-4d44-98e7-985a5e34a61f" xml:space="preserve">
+          <source>For similar content related to a multi-server deployment of SQL Server Business Intelligence and SharePoint 2013, see <bpt id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;linkText&gt;</bpt>Deploy SQL Server Business Intelligence in Azure Virtual Machines<ept id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;/linkText&gt;</ept><bpt id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;title&gt;</bpt><ept id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For similar content related to a multi-server deployment of SQL Server Business Intelligence and SharePoint 2013, see <bpt id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;linkText&gt;</bpt>Deploy SQL Server Business Intelligence in Azure Virtual Machines<ept id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;/linkText&gt;</ept><bpt id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;title&gt;</bpt><ept id="e6bd1c21-7ddd-46f6-bd46-4afde56f411c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d726bc3-4279-478c-a100-027e5ea1f32d" xml:space="preserve">
+          <source>For General information related to deployments of SQL Server Business Intelligence in Azure Virtual Machines, see <bpt id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;linkText&gt;</bpt>SQL Server Business Intelligence in Azure Virtual Machines<ept id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;/linkText&gt;</ept><bpt id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;title&gt;</bpt><ept id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For General information related to deployments of SQL Server Business Intelligence in Azure Virtual Machines, see <bpt id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;linkText&gt;</bpt>SQL Server Business Intelligence in Azure Virtual Machines<ept id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;/linkText&gt;</ept><bpt id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;title&gt;</bpt><ept id="74a54f18-89ad-4ae2-8d0d-9edb6ba725a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b00e6cd2-0f3b-4379-814c-25c46a4c91b2" xml:space="preserve">
+          <source>For more information about the cost of Azure compute charges, see the Virtual Machines tab of <bpt id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;linkText&gt;</bpt>Azure pricing calculator<ept id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;/linkText&gt;</ept><bpt id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;title&gt;</bpt><ept id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the cost of Azure compute charges, see the Virtual Machines tab of <bpt id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;linkText&gt;</bpt>Azure pricing calculator<ept id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;/linkText&gt;</ept><bpt id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;title&gt;</bpt><ept id="29c8469c-a77e-4d1c-a2d7-85d6cb451487">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84c5b831-823e-439b-b503-37dd9a848925" xml:space="preserve">
+          <source>For step by step instructions on how to create a Reporting Services Native mode report server without using script, see <bpt id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;linkText&gt;</bpt>Hosting SQL Reporting Service on Azure Virtual Machine<ept id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;/linkText&gt;</ept><bpt id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;title&gt;</bpt><ept id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For step by step instructions on how to create a Reporting Services Native mode report server without using script, see <bpt id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;linkText&gt;</bpt>Hosting SQL Reporting Service on Azure Virtual Machine<ept id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;/linkText&gt;</ept><bpt id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;title&gt;</bpt><ept id="aa8d391e-dd77-446a-b9d1-995876e01cc9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bc015d8-58ca-402e-a951-f885dd4abfa8" xml:space="preserve">
+          <source><bpt id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;/linkText&gt;</ept><bpt id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;title&gt;</bpt><ept id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;/linkText&gt;</ept><bpt id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;title&gt;</bpt><ept id="bf69450a-f61c-42da-9cbf-f8695e460ae5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

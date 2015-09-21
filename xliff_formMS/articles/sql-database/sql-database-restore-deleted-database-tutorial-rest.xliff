@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="10f1fa47-94b3-4049-8545-642c91da13ff" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="10f1fa47-94b3-4049-8545-642c91da13ff" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="86d2a9ba-d6c1-42b1-ae5a-32505ae4b6c8">
+        <trans-unit id="c778dd81-4edd-44dc-a736-ae1913332640" xml:space="preserve">
+          <source>Restore a deleted Azure SQL database with REST API</source>
+          <target state="new">Restore a deleted Azure SQL database with REST API</target>
+        </trans-unit>
+        <trans-unit id="a5a12150-6949-4ca4-9e3f-07f695463c89" xml:space="preserve">
+          <source>Microsoft Azure SQL Database, restore deleted database, recover deleted database, REST API</source>
+          <target state="new">Microsoft Azure SQL Database, restore deleted database, recover deleted database, REST API</target>
+        </trans-unit>
+        <trans-unit id="537baef7-2812-4e31-ab80-a5974b1739c6" xml:space="preserve">
+          <source>This guide shows you how to restore a deleted Azure SQL database with REST API.</source>
+          <target state="new">This guide shows you how to restore a deleted Azure SQL database with REST API.</target>
+        </trans-unit>
+        <trans-unit id="40247bb9-e06b-4fa0-995b-b81813c94cb0" xml:space="preserve">
+          <source>Links to more detailed operations are provided.</source>
+          <target state="new">Links to more detailed operations are provided.</target>
+        </trans-unit>
+        <trans-unit id="6fc34693-1221-412e-93d4-7f0a2ace8d45" xml:space="preserve">
+          <source>Restoring a deleted Azure SQL database creates a new database.</source>
+          <target state="new">Restoring a deleted Azure SQL database creates a new database.</target>
+        </trans-unit>
+        <trans-unit id="43689fb9-0394-47a7-bcec-40b46cc5e962" xml:space="preserve">
+          <source>The service automatically selects the service tier based on the backup used at the restore point.</source>
+          <target state="new">The service automatically selects the service tier based on the backup used at the restore point.</target>
+        </trans-unit>
+        <trans-unit id="5bc47f98-c715-4b01-9af0-ea49c1f09178" xml:space="preserve">
+          <source>Make sure you have available quota on the logical server to create another database.</source>
+          <target state="new">Make sure you have available quota on the logical server to create another database.</target>
+        </trans-unit>
+        <trans-unit id="07f8d313-3d03-4082-a4a2-38ecc2e2eaf3" xml:space="preserve">
+          <source>If you'd like to request an increased quota, contact <bpt id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;linkText&gt;</bpt>Azure Support<ept id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;/linkText&gt;</ept><bpt id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;title&gt;</bpt><ept id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to request an increased quota, contact <bpt id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;linkText&gt;</bpt>Azure Support<ept id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;/linkText&gt;</ept><bpt id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;title&gt;</bpt><ept id="d4bf92c1-9d4e-4c3d-bfe5-ef925cb43830">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c60ab52-050f-4e88-b375-7e58b31e2dc3" xml:space="preserve">
+          <source>See <bpt id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;linkText&gt;</bpt>Restore a deleted Azure SQL database in the Azure portal<ept id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;/linkText&gt;</ept><bpt id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;title&gt;</bpt><ept id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;linkText&gt;</bpt>Restore a deleted Azure SQL database in the Azure portal<ept id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;/linkText&gt;</ept><bpt id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;title&gt;</bpt><ept id="6660f16b-04cf-42c8-a5f5-297943918367">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19a6356b-656c-4845-861a-f2ae6f343185" xml:space="preserve">
+          <source>List all of your restorable deleted databases by using the <bpt id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;linkText&gt;</bpt>List Restorable Dropped Databases<ept id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;/linkText&gt;</ept><bpt id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;title&gt;</bpt><ept id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">List all of your restorable deleted databases by using the <bpt id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;linkText&gt;</bpt>List Restorable Dropped Databases<ept id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;/linkText&gt;</ept><bpt id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;title&gt;</bpt><ept id="9fda691a-9b8c-4866-8355-6603f030c61f">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="08c51326-e9fc-45ed-8bfc-d8f84faac279" xml:space="preserve">
+          <source>Get the details for the deleted database you want to restore by using the <bpt id="17696050-ee2f-4820-8f47-b81051358050">&lt;linkText&gt;</bpt>Get Restorable Dropped Database<ept id="17696050-ee2f-4820-8f47-b81051358050">&lt;/linkText&gt;</ept><bpt id="17696050-ee2f-4820-8f47-b81051358050">&lt;title&gt;</bpt><ept id="17696050-ee2f-4820-8f47-b81051358050">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Get the details for the deleted database you want to restore by using the <bpt id="17696050-ee2f-4820-8f47-b81051358050">&lt;linkText&gt;</bpt>Get Restorable Dropped Database<ept id="17696050-ee2f-4820-8f47-b81051358050">&lt;/linkText&gt;</ept><bpt id="17696050-ee2f-4820-8f47-b81051358050">&lt;title&gt;</bpt><ept id="17696050-ee2f-4820-8f47-b81051358050">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="bebe640a-581c-4d34-bade-6d589db1d676" xml:space="preserve">
+          <source>Begin your restore by using the <bpt id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;/linkText&gt;</ept><bpt id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;title&gt;</bpt><ept id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Begin your restore by using the <bpt id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;linkText&gt;</bpt>Create Database Restore Request<ept id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;/linkText&gt;</ept><bpt id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;title&gt;</bpt><ept id="c79e99df-ab9b-4d39-843a-2328168982e3">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="0b108ac2-44a8-4f6f-ab69-e98e6cfc4302" xml:space="preserve">
+          <source>Track the status of your restore by using the <bpt id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;linkText&gt;</bpt>Database Operation Status<ept id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;/linkText&gt;</ept><bpt id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;title&gt;</bpt><ept id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;/title&gt;</ept> operation.</source>
+          <target state="new">Track the status of your restore by using the <bpt id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;linkText&gt;</bpt>Database Operation Status<ept id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;/linkText&gt;</ept><bpt id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;title&gt;</bpt><ept id="1c396b98-941d-4a7f-9f6a-c3936c992676">&lt;/title&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="f26b3d63-ce2a-4ded-8d7b-71fa8ddafde0" xml:space="preserve">
+          <source>For more information, see the following:</source>
+          <target state="new">For more information, see the following:</target>
+        </trans-unit>
+        <trans-unit id="3c49315b-cef0-46fc-bc90-8571fba77105" xml:space="preserve">
+          <source><bpt id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;linkText&gt;</bpt>Azure SQL Database Business Continuity<ept id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;/linkText&gt;</ept><bpt id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;title&gt;</bpt><ept id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;linkText&gt;</bpt>Azure SQL Database Business Continuity<ept id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;/linkText&gt;</ept><bpt id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;title&gt;</bpt><ept id="cf1dcaea-04a4-4038-97e9-8a3150a2b289">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de7529fe-bed5-4451-932e-ac26c0686ee3" xml:space="preserve">
+          <source><bpt id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;/linkText&gt;</ept><bpt id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;title&gt;</bpt><ept id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;linkText&gt;</bpt>Azure SQL Database Backup and Restore<ept id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;/linkText&gt;</ept><bpt id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;title&gt;</bpt><ept id="02895561-5d5f-44d6-820a-70bcbe3a9fcd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14c2ecd2-857b-4bf6-996b-feb55fe5f1a2" xml:space="preserve">
+          <source><bpt id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;linkText&gt;</bpt>Service Management REST API Reference<ept id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;/linkText&gt;</ept><bpt id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;title&gt;</bpt><ept id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;linkText&gt;</bpt>Service Management REST API Reference<ept id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;/linkText&gt;</ept><bpt id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;title&gt;</bpt><ept id="4d12feeb-4f44-4706-a174-8ed7eb906d81">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

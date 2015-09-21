@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d255ac22-67d5-4272-9ecc-2265ff43dbba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d255ac22-67d5-4272-9ecc-2265ff43dbba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="52034be2-0a7a-4601-9b4b-2a34fed15872">
+        <trans-unit id="db0c7cd2-e837-4677-95c8-f1fcd783ab5a" xml:space="preserve">
+          <source>Press the F5 key to rebuild the project and start the Windows Store app.</source>
+          <target state="new">Press the F5 key to rebuild the project and start the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="dd44bbb0-1f57-4624-8c59-613a7bf5cd9b" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="7e16a8ef-e2fe-4546-8e27-63950e40cf71">&lt;em&gt;</bpt>Complete the tutorial<ept id="7e16a8ef-e2fe-4546-8e27-63950e40cf71">&lt;/em&gt;</ept>, in <bpt id="7587ef4f-9164-4ec4-aa40-a317c33aa4f6">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="7587ef4f-9164-4ec4-aa40-a317c33aa4f6">&lt;/strong&gt;</ept>, and then click <bpt id="48bfb6a7-d084-4462-9596-018a845e869d">&lt;strong&gt;</bpt>Save<ept id="48bfb6a7-d084-4462-9596-018a845e869d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="7e16a8ef-e2fe-4546-8e27-63950e40cf71">&lt;em&gt;</bpt>Complete the tutorial<ept id="7e16a8ef-e2fe-4546-8e27-63950e40cf71">&lt;/em&gt;</ept>, in <bpt id="7587ef4f-9164-4ec4-aa40-a317c33aa4f6">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="7587ef4f-9164-4ec4-aa40-a317c33aa4f6">&lt;/strong&gt;</ept>, and then click <bpt id="48bfb6a7-d084-4462-9596-018a845e869d">&lt;strong&gt;</bpt>Save<ept id="48bfb6a7-d084-4462-9596-018a845e869d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3401c8b1-8352-42f0-a57e-256efd746b58" xml:space="preserve">
+          <source><bpt id="245798fa-7a68-486a-a433-d8db780d55c2">&lt;linkText&gt;</bpt><ept id="245798fa-7a68-486a-a433-d8db780d55c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="245798fa-7a68-486a-a433-d8db780d55c2">&lt;linkText&gt;</bpt><ept id="245798fa-7a68-486a-a433-d8db780d55c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d3958e5-528b-40a7-97aa-c760abcf19b3" xml:space="preserve">
+          <source>This sends a POST request to the new mobile service hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new mobile service hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="326479a5-50cd-49e9-9720-dcc9ff68ee0b" xml:space="preserve">
+          <source>Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.</source>
+          <target state="new">Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.</target>
+        </trans-unit>
+        <trans-unit id="dd2c659e-e468-4b9a-acd6-c00089685eac" xml:space="preserve">
+          <source><bpt id="973d20f0-0c74-4a99-a8ab-48f0df730471">&lt;linkText&gt;</bpt><ept id="973d20f0-0c74-4a99-a8ab-48f0df730471">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="973d20f0-0c74-4a99-a8ab-48f0df730471">&lt;linkText&gt;</bpt><ept id="973d20f0-0c74-4a99-a8ab-48f0df730471">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f4fd1ae-a7c1-4521-aa55-b0d0d367cbb1" xml:space="preserve">
+          <source>Notice that data saved from the previous step is loaded from the mobile service after the app starts.</source>
+          <target state="new">Notice that data saved from the previous step is loaded from the mobile service after the app starts.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

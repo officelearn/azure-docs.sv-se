@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ccd34dea-6170-4f6c-b22f-d8c54aa37184" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ccd34dea-6170-4f6c-b22f-d8c54aa37184" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7a74568a-4abc-4fbe-adcf-aef56b8d08e4">
+        <trans-unit id="70e30176-2f66-4189-a79b-b873650b0e7a" xml:space="preserve">
+          <source>Azure Mobile Engagement iOS SDK Release Notes</source>
+          <target state="new">Azure Mobile Engagement iOS SDK Release Notes</target>
+        </trans-unit>
+        <trans-unit id="606166fd-7bee-4e72-ba21-e0f7f66dfc2e" xml:space="preserve">
+          <source>Latest updates and procedures for iOS SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for iOS SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="db81de09-77b4-4047-8f18-459004f0bc0e" xml:space="preserve">
+          <source>Fix iOS 9 compatibility bug with a third party library.</source>
+          <target state="new">Fix iOS 9 compatibility bug with a third party library.</target>
+        </trans-unit>
+        <trans-unit id="41e8de8f-b56b-4495-a84b-2a4170ae3391" xml:space="preserve">
+          <source>It was causing crashes while sending polls results, application information or extra data.</source>
+          <target state="new">It was causing crashes while sending polls results, application information or extra data.</target>
+        </trans-unit>
+        <trans-unit id="2feca2a0-3e8e-4640-a0eb-8140aced6d48" xml:space="preserve">
+          <source>Mobile Engagement uses Silent Push Notifications.</source>
+          <target state="new">Mobile Engagement uses Silent Push Notifications.</target>
+        </trans-unit>
+        <trans-unit id="5cf96e01-007f-4930-b36f-b2b2b9af77f5" xml:space="preserve">
+          <source>Dropped support for iOS 4.X.</source>
+          <target state="new">Dropped support for iOS 4.X.</target>
+        </trans-unit>
+        <trans-unit id="09796839-4f48-407c-9e54-c93e81a1a3e3" xml:space="preserve">
+          <source>Starting from this version the deployment target of your application must be at least iOS 6.</source>
+          <target state="new">Starting from this version the deployment target of your application must be at least iOS 6.</target>
+        </trans-unit>
+        <trans-unit id="e95d549f-a2a6-4da8-bdef-a0555b416969" xml:space="preserve">
+          <source>The Mobile Engagement device id for devices &lt; iOS 6 is now based on a GUID generated at installation time.</source>
+          <target state="new">The Mobile Engagement device id for devices &lt; iOS 6 is now based on a GUID generated at installation time.</target>
+        </trans-unit>
+        <trans-unit id="d75353f2-4ea4-41ea-89ff-a9f332c43c1e" xml:space="preserve">
+          <source>Added Swift compatibility.</source>
+          <target state="new">Added Swift compatibility.</target>
+        </trans-unit>
+        <trans-unit id="86844e63-ba5a-4633-8a11-4f13cd0f01c2" xml:space="preserve">
+          <source>When clicking on a notification, the action URL is now executed right after the application is opened.</source>
+          <target state="new">When clicking on a notification, the action URL is now executed right after the application is opened.</target>
+        </trans-unit>
+        <trans-unit id="8639583f-6eaa-4a51-bbf5-485b5b46965b" xml:space="preserve">
+          <source>Added missing header file in SDK package.</source>
+          <target state="new">Added missing header file in SDK package.</target>
+        </trans-unit>
+        <trans-unit id="7f8cca51-6eba-4ae8-bc6a-2f71d7f496af" xml:space="preserve">
+          <source>Fixed an issue when the Mobile Engagement crash reporter was disabled.</source>
+          <target state="new">Fixed an issue when the Mobile Engagement crash reporter was disabled.</target>
+        </trans-unit>
+        <trans-unit id="c6f296c5-d4ec-45fc-b870-8164882cf4c5" xml:space="preserve">
+          <source>Initial Release of Azure Mobile Engagement</source>
+          <target state="new">Initial Release of Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="295b943c-5e27-4465-97c5-fc88f3209bb3" xml:space="preserve">
+          <source>appId/sdkKey configuration is replaced by a connection string configuration.</source>
+          <target state="new">appId/sdkKey configuration is replaced by a connection string configuration.</target>
+        </trans-unit>
+        <trans-unit id="ed60adb5-9b0e-4b33-9728-5d63be34d17e" xml:space="preserve">
+          <source>Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.</source>
+          <target state="new">Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.</target>
+        </trans-unit>
+        <trans-unit id="bc4ee4dd-7986-4201-971e-9918c5bbc4b1" xml:space="preserve">
+          <source>Removed API to send and receive messages between devices.</source>
+          <target state="new">Removed API to send and receive messages between devices.</target>
+        </trans-unit>
+        <trans-unit id="95a0ef53-00bf-4af6-8c56-aaa0136f6063" xml:space="preserve">
+          <source>Security improvements.</source>
+          <target state="new">Security improvements.</target>
+        </trans-unit>
+        <trans-unit id="289f2e1a-892d-48eb-aa14-ac0c9d06ebe4" xml:space="preserve">
+          <source>SmartAd tracking removed.</source>
+          <target state="new">SmartAd tracking removed.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c393caad-96d0-4fd1-82fb-26b26f5e96ed" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c393caad-96d0-4fd1-82fb-26b26f5e96ed" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="38e310cb-dbce-4967-829e-e46571308a54">
+        <trans-unit id="d479760c-ff15-477e-b22d-d724ba1aa3f1" xml:space="preserve">
+          <source>High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines</source>
+          <target state="new">High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="1580f0b3-d5ea-4a06-90df-1d8ed452b10b" xml:space="preserve">
+          <source>Discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines.</source>
+          <target state="new">Discusses the various types of HADR strategies for SQL Server running in Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="357f4d11-f990-4579-b68d-daf2005c750d" xml:space="preserve">
+          <source>Microsoft Azure virtual machines (VMs) with SQL Server can help lower the cost of a high availability and disaster recovery (HADR) database solution.</source>
+          <target state="new">Microsoft Azure virtual machines (VMs) with SQL Server can help lower the cost of a high availability and disaster recovery (HADR) database solution.</target>
+        </trans-unit>
+        <trans-unit id="a64b8b85-94db-44b8-a22e-0ea4ed20c183" xml:space="preserve">
+          <source>Most SQL Server HADR solutions are supported in Azure virtual machines, both as  Azure-only  and as hybrid solutions.</source>
+          <target state="new">Most SQL Server HADR solutions are supported in Azure virtual machines, both as  Azure-only  and as hybrid solutions.</target>
+        </trans-unit>
+        <trans-unit id="f3203cc8-a96e-4620-ac3b-2dfa93b61c78" xml:space="preserve">
+          <source>In an Azure-only solution, the entire HADR system runs in  Azure.</source>
+          <target state="new">In an Azure-only solution, the entire HADR system runs in  Azure.</target>
+        </trans-unit>
+        <trans-unit id="982f42df-6d56-499b-acc3-30b1243f0740" xml:space="preserve">
+          <source>In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization.</source>
+          <target state="new">In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization.</target>
+        </trans-unit>
+        <trans-unit id="dbf6f15f-5e75-4d30-b309-07a6959e8077" xml:space="preserve">
+          <source>The flexibility of the Azure environment enables you to move partially or completely to  Azure to satisfy the budget and HADR requirements of your SQL Server database systems.</source>
+          <target state="new">The flexibility of the Azure environment enables you to move partially or completely to  Azure to satisfy the budget and HADR requirements of your SQL Server database systems.</target>
+        </trans-unit>
+        <trans-unit id="fb339366-7e9a-4496-9082-7990fc1c5cb1" xml:space="preserve">
+          <source>It is up to you to ensure that your database system possesses the HADR capabilities that the service-level agreement (SLA) requires.</source>
+          <target state="new">It is up to you to ensure that your database system possesses the HADR capabilities that the service-level agreement (SLA) requires.</target>
+        </trans-unit>
+        <trans-unit id="0b08c627-9e03-4b7e-bd2c-9f5da60c2b17" xml:space="preserve">
+          <source>The fact that Azure provides high availability mechanisms, such as service healing for cloud services and failure recovery detection for the Virtual Machines, does not itself guarantee you can meet the desired SLA.</source>
+          <target state="new">The fact that Azure provides high availability mechanisms, such as service healing for cloud services and failure recovery detection for the Virtual Machines, does not itself guarantee you can meet the desired SLA.</target>
+        </trans-unit>
+        <trans-unit id="f2431e00-6e82-42f6-af7b-b52165b29c33" xml:space="preserve">
+          <source>These mechanisms protect the high availability of the VMs but not the high availability of SQL Server running inside the VMs.</source>
+          <target state="new">These mechanisms protect the high availability of the VMs but not the high availability of SQL Server running inside the VMs.</target>
+        </trans-unit>
+        <trans-unit id="4bd05adf-a19d-4389-94a9-f03abaf99e39" xml:space="preserve">
+          <source>It is possible for the SQL Server instance to fail while the VM is online and healthy.</source>
+          <target state="new">It is possible for the SQL Server instance to fail while the VM is online and healthy.</target>
+        </trans-unit>
+        <trans-unit id="70701aea-e974-42ce-bc60-2e099d957055" xml:space="preserve">
+          <source>Moreover, even the high availability mechanisms provided by Azure allow for  downtime of the VMs due to events such as recovery from software or hardware failures and operating system upgrades.</source>
+          <target state="new">Moreover, even the high availability mechanisms provided by Azure allow for  downtime of the VMs due to events such as recovery from software or hardware failures and operating system upgrades.</target>
+        </trans-unit>
+        <trans-unit id="f8fac197-2d98-4994-a3be-4fac60428910" xml:space="preserve">
+          <source>In addition, Geo Redundant Storage (GRS) in Azure, which is implemented with a feature called geo-replication, may not be an adequate disaster recovery solution for your databases.</source>
+          <target state="new">In addition, Geo Redundant Storage (GRS) in Azure, which is implemented with a feature called geo-replication, may not be an adequate disaster recovery solution for your databases.</target>
+        </trans-unit>
+        <trans-unit id="e5020976-af39-4295-8adb-424ef72e33e3" xml:space="preserve">
+          <source>Because geo-replication sends data asynchronously, recent updates can be lost in the event of disaster.</source>
+          <target state="new">Because geo-replication sends data asynchronously, recent updates can be lost in the event of disaster.</target>
+        </trans-unit>
+        <trans-unit id="b06bde0a-0027-4d77-bf09-4b04e5cd6835" xml:space="preserve">
+          <source>More information regarding geo-replication limitations are covered in the <bpt id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;linkText&gt;</bpt>Geo-replication not supported for data and log files on separate disks<ept id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;/linkText&gt;</ept><bpt id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;title&gt;</bpt><ept id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;/title&gt;</ept> section.</source>
+          <target state="new">More information regarding geo-replication limitations are covered in the <bpt id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;linkText&gt;</bpt>Geo-replication not supported for data and log files on separate disks<ept id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;/linkText&gt;</ept><bpt id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;title&gt;</bpt><ept id="c11efab8-17e5-40f2-83ab-6b57acea4aa6">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="ec722713-f590-4c52-a7cc-6678e5124918" xml:space="preserve">
+          <source>SQL Server HADR technologies that are supported in Azure include:</source>
+          <target state="new">SQL Server HADR technologies that are supported in Azure include:</target>
+        </trans-unit>
+        <trans-unit id="9492be7b-aabf-4b8b-af52-785fa4d02b8c" xml:space="preserve">
+          <source><bpt id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;/linkText&gt;</ept><bpt id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;title&gt;</bpt><ept id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;/linkText&gt;</ept><bpt id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;title&gt;</bpt><ept id="7ab853df-7871-413f-a76e-fd63275c090c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="398844e3-afa3-42dd-aa3b-e4a35a17902d" xml:space="preserve">
+          <source><bpt id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;linkText&gt;</bpt>Database Mirroring<ept id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;/linkText&gt;</ept><bpt id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;title&gt;</bpt><ept id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;linkText&gt;</bpt>Database Mirroring<ept id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;/linkText&gt;</ept><bpt id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;title&gt;</bpt><ept id="38828e38-5741-4936-aba3-91b13a4e105c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bc68546-283c-444d-9bb3-344fd120ea16" xml:space="preserve">
+          <source><bpt id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;linkText&gt;</bpt>Log Shipping<ept id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;/linkText&gt;</ept><bpt id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;title&gt;</bpt><ept id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;linkText&gt;</bpt>Log Shipping<ept id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;/linkText&gt;</ept><bpt id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;title&gt;</bpt><ept id="13571114-0f79-4bad-b484-9c0ecf769021">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="417ed967-3145-4913-8b29-05ea9bdd7b82" xml:space="preserve">
+          <source><bpt id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;linkText&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;/linkText&gt;</ept><bpt id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;title&gt;</bpt><ept id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;linkText&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;/linkText&gt;</ept><bpt id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;title&gt;</bpt><ept id="316fd363-bd95-4be1-a7b8-cad7eb4809d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="984b9edd-ecb8-472c-91c5-1cf686dbeed5" xml:space="preserve">
+          <source>It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities.</source>
+          <target state="new">It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities.</target>
+        </trans-unit>
+        <trans-unit id="5455cac6-e4a3-445d-92e0-72e5e9203060" xml:space="preserve">
+          <source>Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network.</source>
+          <target state="new">Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="6219dc2c-35ef-40f5-9230-e0b523625240" xml:space="preserve">
+          <source>The sections below show you some of the example deployment architectures.</source>
+          <target state="new">The sections below show you some of the example deployment architectures.</target>
+        </trans-unit>
+        <trans-unit id="1dd07aaa-4c88-4cff-8e96-42283bb8e9fe" xml:space="preserve">
+          <source>You can have a high availability solution for your SQL Server databases in Azure using AlwaysOn Availability Groups or database mirroring.</source>
+          <target state="new">You can have a high availability solution for your SQL Server databases in Azure using AlwaysOn Availability Groups or database mirroring.</target>
+        </trans-unit>
+        <trans-unit id="ada13819-6633-4962-b458-30a174fd2dbd" xml:space="preserve">
+          <source>Technology</source>
+          <target state="new">Technology</target>
+        </trans-unit>
+        <trans-unit id="16b6ae84-8a09-4375-bf08-23064f9ecd0c" xml:space="preserve">
+          <source>Example Architectures</source>
+          <target state="new">Example Architectures</target>
+        </trans-unit>
+        <trans-unit id="599977cd-d81a-44b2-837f-9cca165dd3b9" xml:space="preserve">
+          <source><bpt id="0698f286-a221-4b2a-9a45-185c5bf26e36">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="0698f286-a221-4b2a-9a45-185c5bf26e36">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0698f286-a221-4b2a-9a45-185c5bf26e36">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="0698f286-a221-4b2a-9a45-185c5bf26e36">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f81d053-2ec4-4faa-b64f-98eb480b6642" xml:space="preserve">
+          <source>All availability replicas running in Azure VMs for high availability within the same region.</source>
+          <target state="new">All availability replicas running in Azure VMs for high availability within the same region.</target>
+        </trans-unit>
+        <trans-unit id="f6b4499b-6e89-42df-89a2-a6b981ce7ee0" xml:space="preserve">
+          <source>You need to configure a domain controller in addition to the SQL Server virtual machines because Windows Server Failover Clustering (WSFC) requires an Active Directory domain.&lt;br/&gt; <bpt id="f80c2495-9b06-4dd2-abbe-380fd96ce436">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="f80c2495-9b06-4dd2-abbe-380fd96ce436">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;/linkText&gt;</ept><bpt id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;title&gt;</bpt><ept id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;/title&gt;</ept>.</source>
+          <target state="new">You need to configure a domain controller in addition to the SQL Server virtual machines because Windows Server Failover Clustering (WSFC) requires an Active Directory domain.&lt;br/&gt; <bpt id="f80c2495-9b06-4dd2-abbe-380fd96ce436">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="f80c2495-9b06-4dd2-abbe-380fd96ce436">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;/linkText&gt;</ept><bpt id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;title&gt;</bpt><ept id="de8ae35b-ee5d-425c-b340-badc25f0cc84">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa0cf1ea-ba0d-448b-a5f7-3441a6033e8c" xml:space="preserve">
+          <source><bpt id="accfee0d-ea1c-419d-970b-c2e5f867cca9">&lt;strong&gt;</bpt>Database Mirroring<ept id="accfee0d-ea1c-419d-970b-c2e5f867cca9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="accfee0d-ea1c-419d-970b-c2e5f867cca9">&lt;strong&gt;</bpt>Database Mirroring<ept id="accfee0d-ea1c-419d-970b-c2e5f867cca9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f47aed6-408d-4e8e-9605-2278d779a85a" xml:space="preserve">
+          <source>Principal, mirror, and witness servers all running in the same Azure datacenter for high availability.</source>
+          <target state="new">Principal, mirror, and witness servers all running in the same Azure datacenter for high availability.</target>
+        </trans-unit>
+        <trans-unit id="a35a5cb8-20ed-4007-b40c-5520731217b9" xml:space="preserve">
+          <source>You can deploy using a domain controller.&lt;br/&gt;<bpt id="8da90e04-01f9-423b-84a0-f73adbc1cd54">&lt;linkText&gt;</bpt>Database Mirroring<ept id="8da90e04-01f9-423b-84a0-f73adbc1cd54">&lt;/linkText&gt;</ept>&lt;br/&gt;You can also deploy the same database mirroring configuration without a domain controller by using server certificates instead.&lt;br/&gt;<bpt id="a59dd5b3-7e7d-4e47-85d2-89e3d7dea3d3">&lt;linkText&gt;</bpt>Database Mirroring<ept id="a59dd5b3-7e7d-4e47-85d2-89e3d7dea3d3">&lt;/linkText&gt;</ept></source>
+          <target state="new">You can deploy using a domain controller.&lt;br/&gt;<bpt id="8da90e04-01f9-423b-84a0-f73adbc1cd54">&lt;linkText&gt;</bpt>Database Mirroring<ept id="8da90e04-01f9-423b-84a0-f73adbc1cd54">&lt;/linkText&gt;</ept>&lt;br/&gt;You can also deploy the same database mirroring configuration without a domain controller by using server certificates instead.&lt;br/&gt;<bpt id="a59dd5b3-7e7d-4e47-85d2-89e3d7dea3d3">&lt;linkText&gt;</bpt>Database Mirroring<ept id="a59dd5b3-7e7d-4e47-85d2-89e3d7dea3d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcbbc17e-01fe-420b-b8f3-a048edc00cb7" xml:space="preserve">
+          <source>You can have a disaster recovery solution for your SQL Server databases in Azure using AlwaysOn Availability Groups, database mirroring, or backup and restore with storage blobs.</source>
+          <target state="new">You can have a disaster recovery solution for your SQL Server databases in Azure using AlwaysOn Availability Groups, database mirroring, or backup and restore with storage blobs.</target>
+        </trans-unit>
+        <trans-unit id="40a4d1ea-f176-4597-84f7-04b19ff6dd3f" xml:space="preserve">
+          <source>Technology</source>
+          <target state="new">Technology</target>
+        </trans-unit>
+        <trans-unit id="fffbb6cc-e42b-4290-ab5a-4986bea33c8e" xml:space="preserve">
+          <source>Example Architectures</source>
+          <target state="new">Example Architectures</target>
+        </trans-unit>
+        <trans-unit id="8ce999bc-0b3c-4ece-8a20-37742ff26253" xml:space="preserve">
+          <source><bpt id="b8a23026-64e5-4a36-9a00-95a89b1e5b72">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="b8a23026-64e5-4a36-9a00-95a89b1e5b72">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b8a23026-64e5-4a36-9a00-95a89b1e5b72">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="b8a23026-64e5-4a36-9a00-95a89b1e5b72">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02dfe672-30ec-437e-845c-7ddc7709656d" xml:space="preserve">
+          <source>Availability replicas running across multiple datacenters in Azure VMs for disaster recovery.</source>
+          <target state="new">Availability replicas running across multiple datacenters in Azure VMs for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="c6e5c1e7-75d0-4704-b5b3-05faa4ad2fe3" xml:space="preserve">
+          <source>This cross-region solution protects against complete site outage.</source>
+          <target state="new">This cross-region solution protects against complete site outage.</target>
+        </trans-unit>
+        <trans-unit id="05545a78-a328-4e24-b756-b339d6a05d72" xml:space="preserve">
+          <source>&lt;br/&gt; <bpt id="2f4eb721-885b-43c8-b23b-cdcc1a513fb6">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="2f4eb721-885b-43c8-b23b-cdcc1a513fb6">&lt;/linkText&gt;</ept>&lt;br/&gt;Within a region, all replicas should be within the same cloud service and the same VNet.</source>
+          <target state="new">&lt;br/&gt; <bpt id="2f4eb721-885b-43c8-b23b-cdcc1a513fb6">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="2f4eb721-885b-43c8-b23b-cdcc1a513fb6">&lt;/linkText&gt;</ept>&lt;br/&gt;Within a region, all replicas should be within the same cloud service and the same VNet.</target>
+        </trans-unit>
+        <trans-unit id="8a3bf04b-1bfb-4914-98ad-59160b4b29b4" xml:space="preserve">
+          <source>Because each region will have a separate VNet, these solutions require VNet to VNet connectivity.</source>
+          <target state="new">Because each region will have a separate VNet, these solutions require VNet to VNet connectivity.</target>
+        </trans-unit>
+        <trans-unit id="155df1a1-f19f-4fd7-abf7-ba860c01261f" xml:space="preserve">
+          <source>For more information, see <bpt id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;linkText&gt;</bpt>Configure a Site-to-Site VPN in the Management Portal<ept id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;/linkText&gt;</ept><bpt id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;title&gt;</bpt><ept id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;linkText&gt;</bpt>Configure a Site-to-Site VPN in the Management Portal<ept id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;/linkText&gt;</ept><bpt id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;title&gt;</bpt><ept id="d32165af-27fe-4f6c-ae4d-d48831294419">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c1285e9-3747-4730-b908-5a53807d6f4d" xml:space="preserve">
+          <source><bpt id="35ee324d-9850-4083-a6ff-dcce7484e062">&lt;strong&gt;</bpt>Database Mirroring<ept id="35ee324d-9850-4083-a6ff-dcce7484e062">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="35ee324d-9850-4083-a6ff-dcce7484e062">&lt;strong&gt;</bpt>Database Mirroring<ept id="35ee324d-9850-4083-a6ff-dcce7484e062">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f47de8e-2798-41e1-9e2e-b9325efab774" xml:space="preserve">
+          <source>Principal and mirror and servers running in different  datacenters for disaster recovery.</source>
+          <target state="new">Principal and mirror and servers running in different  datacenters for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="c0258bd1-2edd-48bd-b096-a3be623f1d2c" xml:space="preserve">
+          <source>You must deploy using server certificates because an active directory domain cannot span multiple  datacenters.&lt;br/&gt;<bpt id="21efebf2-7140-4970-847e-364be431b71f">&lt;linkText&gt;</bpt>Database Mirroring<ept id="21efebf2-7140-4970-847e-364be431b71f">&lt;/linkText&gt;</ept></source>
+          <target state="new">You must deploy using server certificates because an active directory domain cannot span multiple  datacenters.&lt;br/&gt;<bpt id="21efebf2-7140-4970-847e-364be431b71f">&lt;linkText&gt;</bpt>Database Mirroring<ept id="21efebf2-7140-4970-847e-364be431b71f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79e0d9a8-6b45-4e92-964c-f9a497cac873" xml:space="preserve">
+          <source><bpt id="8060ee8b-c71c-414f-8b4f-9fa864461bba">&lt;strong&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="8060ee8b-c71c-414f-8b4f-9fa864461bba">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8060ee8b-c71c-414f-8b4f-9fa864461bba">&lt;strong&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="8060ee8b-c71c-414f-8b4f-9fa864461bba">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31ebac56-6ac4-49e1-a1b0-ecf655f73ac6" xml:space="preserve">
+          <source>Production databases backed up directly to blob storage in a different  datacenter for disaster recovery.&lt;br/&gt;<bpt id="4bbeeef6-749e-4af6-b34b-7fb65e1a521c">&lt;linkText&gt;</bpt>Backup and Restore<ept id="4bbeeef6-749e-4af6-b34b-7fb65e1a521c">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;linkText&gt;</bpt>Backup and Restore  for SQL Server in Azure Virtual Machines<ept id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;/linkText&gt;</ept><bpt id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;title&gt;</bpt><ept id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;/title&gt;</ept>.</source>
+          <target state="new">Production databases backed up directly to blob storage in a different  datacenter for disaster recovery.&lt;br/&gt;<bpt id="4bbeeef6-749e-4af6-b34b-7fb65e1a521c">&lt;linkText&gt;</bpt>Backup and Restore<ept id="4bbeeef6-749e-4af6-b34b-7fb65e1a521c">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;linkText&gt;</bpt>Backup and Restore  for SQL Server in Azure Virtual Machines<ept id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;/linkText&gt;</ept><bpt id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;title&gt;</bpt><ept id="3f233314-f675-46ed-b091-88c7f6b3b671">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99d31591-b1b0-4317-954c-98f5780d11b0" xml:space="preserve">
+          <source>You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment using AlwaysOn Availability Groups, database mirroring, log shipping, and backup and restore with Azure blog storage.</source>
+          <target state="new">You can have a disaster recovery solution for your SQL Server databases in a hybrid-IT environment using AlwaysOn Availability Groups, database mirroring, log shipping, and backup and restore with Azure blog storage.</target>
+        </trans-unit>
+        <trans-unit id="6c5c8f1f-3069-4858-b127-1d86e6f50f32" xml:space="preserve">
+          <source>Technology</source>
+          <target state="new">Technology</target>
+        </trans-unit>
+        <trans-unit id="971077a5-8e22-44fd-98f7-d570587ac105" xml:space="preserve">
+          <source>Example Architectures</source>
+          <target state="new">Example Architectures</target>
+        </trans-unit>
+        <trans-unit id="5088626e-a8d2-41c4-b1c5-5d6755e2d410" xml:space="preserve">
+          <source><bpt id="4fdae529-8022-40f1-99c1-05fe7a7dfb8d">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="4fdae529-8022-40f1-99c1-05fe7a7dfb8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4fdae529-8022-40f1-99c1-05fe7a7dfb8d">&lt;strong&gt;</bpt>AlwaysOn Availability Groups<ept id="4fdae529-8022-40f1-99c1-05fe7a7dfb8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e22d5b94-56df-4b43-8e68-644a8c7df4be" xml:space="preserve">
+          <source>Some availability replicas running in Azure VMs and other replicas running on-premises for cross-site disaster recovery.</source>
+          <target state="new">Some availability replicas running in Azure VMs and other replicas running on-premises for cross-site disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="d7bb0c2a-2011-4675-9487-de72f56f84b4" xml:space="preserve">
+          <source>The production site can be either on-premises or in an Azure datacenter.&lt;br/&gt;<bpt id="52e54f1e-eb33-4156-9bd6-8911321c1a9d">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="52e54f1e-eb33-4156-9bd6-8911321c1a9d">&lt;/linkText&gt;</ept>&lt;br/&gt;Because all availability replicas must be in the same WSFC cluster, the WSFC cluster must span both networks (a multi-subnet WSFC cluster).</source>
+          <target state="new">The production site can be either on-premises or in an Azure datacenter.&lt;br/&gt;<bpt id="52e54f1e-eb33-4156-9bd6-8911321c1a9d">&lt;linkText&gt;</bpt>AlwaysOn Availability Groups<ept id="52e54f1e-eb33-4156-9bd6-8911321c1a9d">&lt;/linkText&gt;</ept>&lt;br/&gt;Because all availability replicas must be in the same WSFC cluster, the WSFC cluster must span both networks (a multi-subnet WSFC cluster).</target>
+        </trans-unit>
+        <trans-unit id="916cc242-5500-4f8d-afbe-621e36bd64fe" xml:space="preserve">
+          <source>This configuration requires a VPN connection between Azure and the on-premises network.&lt;br/&gt;&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.&lt;br/&gt;&lt;br/&gt;It is possible to use the Add Replica Wizard in SSMS to add an Azure replica to an existing AlwaysOn Availability Group.</source>
+          <target state="new">This configuration requires a VPN connection between Azure and the on-premises network.&lt;br/&gt;&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.&lt;br/&gt;&lt;br/&gt;It is possible to use the Add Replica Wizard in SSMS to add an Azure replica to an existing AlwaysOn Availability Group.</target>
+        </trans-unit>
+        <trans-unit id="e99bfb86-cb7e-4075-adf6-2ae612f6442b" xml:space="preserve">
+          <source>For more information, see Tutorial: Extend your AlwaysOn Availability Group to Azure.</source>
+          <target state="new">For more information, see Tutorial: Extend your AlwaysOn Availability Group to Azure.</target>
+        </trans-unit>
+        <trans-unit id="258dc026-6477-4016-b5db-ee4ee630fbe0" xml:space="preserve">
+          <source><bpt id="1d08488a-4322-405c-8a2d-de058c69cf30">&lt;strong&gt;</bpt>Database Mirroring<ept id="1d08488a-4322-405c-8a2d-de058c69cf30">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1d08488a-4322-405c-8a2d-de058c69cf30">&lt;strong&gt;</bpt>Database Mirroring<ept id="1d08488a-4322-405c-8a2d-de058c69cf30">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2d14f20-ec7d-43bc-890e-dc7d836d0501" xml:space="preserve">
+          <source>One partner running in an Azure VM and the other running on-premises for cross-site disaster recovery using server certificates.</source>
+          <target state="new">One partner running in an Azure VM and the other running on-premises for cross-site disaster recovery using server certificates.</target>
+        </trans-unit>
+        <trans-unit id="e76d44e5-7634-43fe-8a86-85196b3356a1" xml:space="preserve">
+          <source>Partners do not need to be in the same Active Directory domain, and no VPN connection is required.&lt;br/&gt;<bpt id="f858f0ab-b1ab-4426-bcad-f62575940bc0">&lt;linkText&gt;</bpt>Database Mirroring<ept id="f858f0ab-b1ab-4426-bcad-f62575940bc0">&lt;/linkText&gt;</ept>&lt;br/&gt;Another database mirroring sceanario involves one partner running in an Azure VM and the other running on-premises in the same Active Directory domain for cross-site disaster recovery.</source>
+          <target state="new">Partners do not need to be in the same Active Directory domain, and no VPN connection is required.&lt;br/&gt;<bpt id="f858f0ab-b1ab-4426-bcad-f62575940bc0">&lt;linkText&gt;</bpt>Database Mirroring<ept id="f858f0ab-b1ab-4426-bcad-f62575940bc0">&lt;/linkText&gt;</ept>&lt;br/&gt;Another database mirroring sceanario involves one partner running in an Azure VM and the other running on-premises in the same Active Directory domain for cross-site disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="16d38535-bacc-4d69-b758-56a6fa4d7079" xml:space="preserve">
+          <source>A <bpt id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;linkText&gt;</bpt>VPN connection between the Azure virtual network and the on-premises network<ept id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;/linkText&gt;</ept><bpt id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;title&gt;</bpt><ept id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;/title&gt;</ept> is required.&lt;br/&gt;&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.</source>
+          <target state="new">A <bpt id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;linkText&gt;</bpt>VPN connection between the Azure virtual network and the on-premises network<ept id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;/linkText&gt;</ept><bpt id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;title&gt;</bpt><ept id="18806d9f-d1a7-4d19-b757-ef5f9f166d48">&lt;/title&gt;</ept> is required.&lt;br/&gt;&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.</target>
+        </trans-unit>
+        <trans-unit id="a30e32a6-7016-42c9-a5cd-b187e5835f34" xml:space="preserve">
+          <source><bpt id="3af6df39-b122-4877-bcde-37da1854bf00">&lt;strong&gt;</bpt>Log Shipping<ept id="3af6df39-b122-4877-bcde-37da1854bf00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3af6df39-b122-4877-bcde-37da1854bf00">&lt;strong&gt;</bpt>Log Shipping<ept id="3af6df39-b122-4877-bcde-37da1854bf00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43764082-1bd7-4237-a797-43a6bfce5f26" xml:space="preserve">
+          <source>One server running in an Azure VM and the other running on-premises for cross-site disaster recovery.</source>
+          <target state="new">One server running in an Azure VM and the other running on-premises for cross-site disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="9452b45c-0c42-4ea5-8469-20c03081ddbf" xml:space="preserve">
+          <source>Log shipping depends on Windows file sharing, so a VPN connection between the Azure virtual network and the on-premises network is required.&lt;br/&gt;<bpt id="a3dc3c7e-6cdf-47cd-be90-44d83562906b">&lt;linkText&gt;</bpt>Log Shipping<ept id="a3dc3c7e-6cdf-47cd-be90-44d83562906b">&lt;/linkText&gt;</ept>&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.</source>
+          <target state="new">Log shipping depends on Windows file sharing, so a VPN connection between the Azure virtual network and the on-premises network is required.&lt;br/&gt;<bpt id="a3dc3c7e-6cdf-47cd-be90-44d83562906b">&lt;linkText&gt;</bpt>Log Shipping<ept id="a3dc3c7e-6cdf-47cd-be90-44d83562906b">&lt;/linkText&gt;</ept>&lt;br/&gt;For successful disaster recovery of your databases, you should also install a replica domain controller at the disaster recovery site.</target>
+        </trans-unit>
+        <trans-unit id="3b931023-9c9d-480d-90f8-7682d4ecd8b6" xml:space="preserve">
+          <source><bpt id="74acd2ee-4c60-469e-9419-edec1335b9fb">&lt;strong&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="74acd2ee-4c60-469e-9419-edec1335b9fb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="74acd2ee-4c60-469e-9419-edec1335b9fb">&lt;strong&gt;</bpt>Backup and Restore with Azure Blob Storage Service<ept id="74acd2ee-4c60-469e-9419-edec1335b9fb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11518d8c-d561-4ddd-9d07-15bda2b2df37" xml:space="preserve">
+          <source>On-premises production databases backed up directly to Azure blob storage for disaster recovery.&lt;br/&gt;<bpt id="0c7de718-0967-44af-8456-6f7cc88674f6">&lt;linkText&gt;</bpt>Backup and Restore<ept id="0c7de718-0967-44af-8456-6f7cc88674f6">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;linkText&gt;</bpt>Backup and Restore  for SQL Server in Azure Virtual Machines<ept id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;/linkText&gt;</ept><bpt id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;title&gt;</bpt><ept id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;/title&gt;</ept>.</source>
+          <target state="new">On-premises production databases backed up directly to Azure blob storage for disaster recovery.&lt;br/&gt;<bpt id="0c7de718-0967-44af-8456-6f7cc88674f6">&lt;linkText&gt;</bpt>Backup and Restore<ept id="0c7de718-0967-44af-8456-6f7cc88674f6">&lt;/linkText&gt;</ept>&lt;br/&gt;For more information, see <bpt id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;linkText&gt;</bpt>Backup and Restore  for SQL Server in Azure Virtual Machines<ept id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;/linkText&gt;</ept><bpt id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;title&gt;</bpt><ept id="c305a47f-b2c0-404f-ac76-9d06646b0c9b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0548b5d5-93f9-496d-85f2-808640fad6db" xml:space="preserve">
+          <source>Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure.</source>
+          <target state="new">Azure VMs, storage, and networking have different operational characteristics than an on-premises, non-virtualized IT infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="57d38849-ccf9-48f3-8e3a-4d612f33795a" xml:space="preserve">
+          <source>A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.</source>
+          <target state="new">A successful implementation of a HADR SQL Server solution in Azure requires that you understand these differences and design your solution to accommodate them.</target>
+        </trans-unit>
+        <trans-unit id="610acb88-71ce-49f5-9e4c-1355a115a638" xml:space="preserve">
+          <source>Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs).</source>
+          <target state="new">Availability sets in Azure enable you to place the high availability nodes into separate Fault Domains (FDs) and Update Domains (UDs).</target>
+        </trans-unit>
+        <trans-unit id="8bd95c94-7cf3-45c6-b7ce-560614ea9a20" xml:space="preserve">
+          <source>For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service.</source>
+          <target state="new">For Azure VMs to be placed in the same availability set, you must deploy them in the same cloud service.</target>
+        </trans-unit>
+        <trans-unit id="88b93f32-cd64-410c-8004-b146b4f22497" xml:space="preserve">
+          <source>Only nodes in the same cloud service can participate in the same availability set.</source>
+          <target state="new">Only nodes in the same cloud service can participate in the same availability set.</target>
+        </trans-unit>
+        <trans-unit id="fe3a3fcb-5fd6-4742-bcbc-a7afaaa295c2" xml:space="preserve">
+          <source>For more information, see <bpt id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;/linkText&gt;</ept><bpt id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;title&gt;</bpt><ept id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;/linkText&gt;</ept><bpt id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;title&gt;</bpt><ept id="b1d88bb6-d153-4e0f-9da1-e19ac0c35f4d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="563373ff-08de-4c10-8384-b5f56c25402a" xml:space="preserve">
+          <source>The non-RFC-compliant DHCP service in Azure can cause the creation of certain WSFC cluster configurations to fail, due to the cluster network name being assigned a duplicate IP address, such as the same IP address as one of the cluster nodes.</source>
+          <target state="new">The non-RFC-compliant DHCP service in Azure can cause the creation of certain WSFC cluster configurations to fail, due to the cluster network name being assigned a duplicate IP address, such as the same IP address as one of the cluster nodes.</target>
+        </trans-unit>
+        <trans-unit id="b61f5eed-30c5-422f-8321-4543c7ce3c13" xml:space="preserve">
+          <source>This is an issue when you implement AlwaysOn Availability Groups, which depends on the WSFC feature.</source>
+          <target state="new">This is an issue when you implement AlwaysOn Availability Groups, which depends on the WSFC feature.</target>
+        </trans-unit>
+        <trans-unit id="5671688e-681f-4b80-a0d5-521eab044c34" xml:space="preserve">
+          <source>Consider the scenario when a two-node cluster is created and brought online:</source>
+          <target state="new">Consider the scenario when a two-node cluster is created and brought online:</target>
+        </trans-unit>
+        <trans-unit id="82062f76-7816-4d61-a41f-b1cd199f253f" xml:space="preserve">
+          <source>The cluster comes online, then NODE1 requests a dynamically assigned IP address for the cluster network name.</source>
+          <target state="new">The cluster comes online, then NODE1 requests a dynamically assigned IP address for the cluster network name.</target>
+        </trans-unit>
+        <trans-unit id="c4bbf028-e40b-4779-89d9-3cb502be7bce" xml:space="preserve">
+          <source>No IP address other than NODE1’s own IP address is given by the DHCP service, since the DHCP service recognizes that the request comes from NODE1 itself.</source>
+          <target state="new">No IP address other than NODE1’s own IP address is given by the DHCP service, since the DHCP service recognizes that the request comes from NODE1 itself.</target>
+        </trans-unit>
+        <trans-unit id="b3e80383-25a9-4d10-8bb5-d5d1e2abacbb" xml:space="preserve">
+          <source>Windows detects that a duplicate address is assigned both to NODE1 and to the cluster network name, and the default cluster group fails to come online.</source>
+          <target state="new">Windows detects that a duplicate address is assigned both to NODE1 and to the cluster network name, and the default cluster group fails to come online.</target>
+        </trans-unit>
+        <trans-unit id="3deae9b0-793c-4b62-b9c1-14f2af23a484" xml:space="preserve">
+          <source>The default cluster group moves to NODE2, which treats NODE1’s IP address as the cluster IP address and brings the default cluster group online.</source>
+          <target state="new">The default cluster group moves to NODE2, which treats NODE1’s IP address as the cluster IP address and brings the default cluster group online.</target>
+        </trans-unit>
+        <trans-unit id="e4f444b8-c196-4b8f-94b4-d116cf5b3626" xml:space="preserve">
+          <source>When NODE2 attempts to establish connectivity with NODE1, packets directed at NODE1 never leave NODE2 because it resolves NODE1’s IP address to itself.</source>
+          <target state="new">When NODE2 attempts to establish connectivity with NODE1, packets directed at NODE1 never leave NODE2 because it resolves NODE1’s IP address to itself.</target>
+        </trans-unit>
+        <trans-unit id="d4b35224-b782-4a8b-ba2c-efe22f52314f" xml:space="preserve">
+          <source>NODE2 cannot establish connectivity with NODE1, then loses quorum and shuts down the cluster.</source>
+          <target state="new">NODE2 cannot establish connectivity with NODE1, then loses quorum and shuts down the cluster.</target>
+        </trans-unit>
+        <trans-unit id="90e783c7-1601-4f3f-8321-0c1aa851bd57" xml:space="preserve">
+          <source>In the meantime, NODE1 can send packets to NODE2, but NODE2 cannot reply.</source>
+          <target state="new">In the meantime, NODE1 can send packets to NODE2, but NODE2 cannot reply.</target>
+        </trans-unit>
+        <trans-unit id="2fdaff35-ffdd-4e48-8123-f6a1db6110ab" xml:space="preserve">
+          <source>NODE1 loses quorum and shuts down the cluster.</source>
+          <target state="new">NODE1 loses quorum and shuts down the cluster.</target>
+        </trans-unit>
+        <trans-unit id="a014fb47-6502-4cdc-bbbe-9df9f6e66e19" xml:space="preserve">
+          <source>This scenario can be avoided by assigning an unused static IP address, such as a link-local IP address like 169.254.1.1, to the cluster network name in order to bring the cluster network name online.</source>
+          <target state="new">This scenario can be avoided by assigning an unused static IP address, such as a link-local IP address like 169.254.1.1, to the cluster network name in order to bring the cluster network name online.</target>
+        </trans-unit>
+        <trans-unit id="22af6b0f-b764-470d-9c98-39487a1bc3ca" xml:space="preserve">
+          <source>To simplify this process, see <bpt id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;linkText&gt;</bpt>Configuring Windows Failover Cluster in Azure for AlwaysOn Availability Groups<ept id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;/linkText&gt;</ept><bpt id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;title&gt;</bpt><ept id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To simplify this process, see <bpt id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;linkText&gt;</bpt>Configuring Windows Failover Cluster in Azure for AlwaysOn Availability Groups<ept id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;/linkText&gt;</ept><bpt id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;title&gt;</bpt><ept id="81fbf0c4-5ecc-47d5-8856-ac83f668573c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb714d81-aae0-4da9-85f3-54a36cf7fad5" xml:space="preserve">
+          <source>For more information, see <bpt id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;/linkText&gt;</ept><bpt id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;title&gt;</bpt><ept id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;linkText&gt;</bpt>Configure AlwaysOn Availability Groups in Azure (GUI)<ept id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;/linkText&gt;</ept><bpt id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;title&gt;</bpt><ept id="84309042-9dc7-4456-88f9-f55c33aff095">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddbf78d7-3d9a-4ff9-a360-cd52881faa58" xml:space="preserve">
+          <source>Availability group listeners are supported on Azure VMs running Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.</source>
+          <target state="new">Availability group listeners are supported on Azure VMs running Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="58cc1cf3-ab61-4aee-bb8b-148cf37823a8" xml:space="preserve">
+          <source>This support is made possible by the use of load-balanced endpoints with direct server return (DSR) enabled on the Azure VMs that are availability group nodes.</source>
+          <target state="new">This support is made possible by the use of load-balanced endpoints with direct server return (DSR) enabled on the Azure VMs that are availability group nodes.</target>
+        </trans-unit>
+        <trans-unit id="a42d5699-0fcf-4fa9-85e9-c9324f7dc131" xml:space="preserve">
+          <source>You must follow special configuration steps for the listeners to work for both client applications that are running in Azure as well as those running on-premises.</source>
+          <target state="new">You must follow special configuration steps for the listeners to work for both client applications that are running in Azure as well as those running on-premises.</target>
+        </trans-unit>
+        <trans-unit id="9b867e5f-a972-449f-9bac-2e6e8b8695e9" xml:space="preserve">
+          <source>Clients must connect to the listener from a machine that is not in the same cloud service as the AlwaysOn Availability Group nodes.</source>
+          <target state="new">Clients must connect to the listener from a machine that is not in the same cloud service as the AlwaysOn Availability Group nodes.</target>
+        </trans-unit>
+        <trans-unit id="0efe18fc-9beb-4171-b432-3641cbf6cb33" xml:space="preserve">
+          <source>If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "MultisubnetFailover=True".</source>
+          <target state="new">If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "MultisubnetFailover=True".</target>
+        </trans-unit>
+        <trans-unit id="aa018a91-34a2-4511-b944-4ab62791bf9d" xml:space="preserve">
+          <source>This results in parallel connection attempts to the replicas in the different subnets.</source>
+          <target state="new">This results in parallel connection attempts to the replicas in the different subnets.</target>
+        </trans-unit>
+        <trans-unit id="93c129b3-4af9-4d07-9fbf-3674c78dfbe2" xml:space="preserve">
+          <source>For instructions on setting up a listener, see <bpt id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;linkText&gt;</bpt>Configure an ILB listener for AlwaysOn Availability Groups in Azure<ept id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;/linkText&gt;</ept><bpt id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;title&gt;</bpt><ept id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on setting up a listener, see <bpt id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;linkText&gt;</bpt>Configure an ILB listener for AlwaysOn Availability Groups in Azure<ept id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;/linkText&gt;</ept><bpt id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;title&gt;</bpt><ept id="f28408e1-162e-455b-aaa1-af93cc73a596">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89cab227-6801-48ea-8f2f-4752c19b29c6" xml:space="preserve">
+          <source>You can still connect to each availability replica separately by connecting directly to the service instance.</source>
+          <target state="new">You can still connect to each availability replica separately by connecting directly to the service instance.</target>
+        </trans-unit>
+        <trans-unit id="4a16f266-a2c4-426e-b2e7-e5cec495678e" xml:space="preserve">
+          <source>Also, since AlwaysOn Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:</source>
+          <target state="new">Also, since AlwaysOn Availability Groups are backward compatible with database mirroring clients, you can connect to the availability replicas like database mirroring partners as long as the replicas are configured similar to database mirroring:</target>
+        </trans-unit>
+        <trans-unit id="1ca0eaa0-9467-41f3-9c9f-141b6d1b4d88" xml:space="preserve">
+          <source>One primary replica and one secondary replica</source>
+          <target state="new">One primary replica and one secondary replica</target>
+        </trans-unit>
+        <trans-unit id="68e692bb-2bad-47fe-9594-a69f26c488c6" xml:space="preserve">
+          <source>The secondary replica is configured as non-readable (<bpt id="a97ee022-68a0-4439-96a9-aa8f838c7371">&lt;strong&gt;</bpt>Readable Secondary<ept id="a97ee022-68a0-4439-96a9-aa8f838c7371">&lt;/strong&gt;</ept> option set to <bpt id="9265da60-b583-4a34-a5ec-b2d8ec792ca6">&lt;strong&gt;</bpt>No<ept id="9265da60-b583-4a34-a5ec-b2d8ec792ca6">&lt;/strong&gt;</ept>)</source>
+          <target state="new">The secondary replica is configured as non-readable (<bpt id="a97ee022-68a0-4439-96a9-aa8f838c7371">&lt;strong&gt;</bpt>Readable Secondary<ept id="a97ee022-68a0-4439-96a9-aa8f838c7371">&lt;/strong&gt;</ept> option set to <bpt id="9265da60-b583-4a34-a5ec-b2d8ec792ca6">&lt;strong&gt;</bpt>No<ept id="9265da60-b583-4a34-a5ec-b2d8ec792ca6">&lt;/strong&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="0981c007-0ee5-4bdd-b913-c983fba401f6" xml:space="preserve">
+          <source>An example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client is below:</source>
+          <target state="new">An example client connection string that corresponds to this database mirroring-like configuration using ADO.NET or SQL Server Native Client is below:</target>
+        </trans-unit>
+        <trans-unit id="36246038-1a86-4bfd-9049-6954b084d973" xml:space="preserve">
+          <source>For more information on client connectivity, see:</source>
+          <target state="new">For more information on client connectivity, see:</target>
+        </trans-unit>
+        <trans-unit id="4219f4fd-d0ec-4a93-be90-9f4ddae80ee6" xml:space="preserve">
+          <source><bpt id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;linkText&gt;</bpt>Using Connection String Keywords with SQL Server Native Client<ept id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;/linkText&gt;</ept><bpt id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;title&gt;</bpt><ept id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;linkText&gt;</bpt>Using Connection String Keywords with SQL Server Native Client<ept id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;/linkText&gt;</ept><bpt id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;title&gt;</bpt><ept id="f2523e1f-e310-4604-8029-e96db26167d4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a65bc1da-5708-465d-8970-c4dec2e90048" xml:space="preserve">
+          <source><bpt id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;linkText&gt;</bpt>Connect Clients to a Database Mirroring Session (SQL Server)<ept id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;/linkText&gt;</ept><bpt id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;title&gt;</bpt><ept id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;linkText&gt;</bpt>Connect Clients to a Database Mirroring Session (SQL Server)<ept id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;/linkText&gt;</ept><bpt id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;title&gt;</bpt><ept id="3e7bc68e-d2e9-4161-a2c6-5281c5c1f917">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02bfdeb4-df7b-43d0-b6db-ade1ae58355c" xml:space="preserve">
+          <source><bpt id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;linkText&gt;</bpt>Connecting to Availability Group Listener in Hybrid IT<ept id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;/linkText&gt;</ept><bpt id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;title&gt;</bpt><ept id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;linkText&gt;</bpt>Connecting to Availability Group Listener in Hybrid IT<ept id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;/linkText&gt;</ept><bpt id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;title&gt;</bpt><ept id="6ebc9929-af5f-447a-be92-9e3170b59707">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e71588b-865f-4586-bd3a-bb365b7ff35b" xml:space="preserve">
+          <source><bpt id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;linkText&gt;</bpt>Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)<ept id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;/linkText&gt;</ept><bpt id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;title&gt;</bpt><ept id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;linkText&gt;</bpt>Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)<ept id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;/linkText&gt;</ept><bpt id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;title&gt;</bpt><ept id="9617e318-7de8-4923-8bdb-2d8a5b5d0df2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="552fd069-ea90-4acc-bc80-f78bde785f39" xml:space="preserve">
+          <source><bpt id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;linkText&gt;</bpt>Using Database-Mirroring Connection Strings with Availability Groups<ept id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;/linkText&gt;</ept><bpt id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;title&gt;</bpt><ept id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;linkText&gt;</bpt>Using Database-Mirroring Connection Strings with Availability Groups<ept id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;/linkText&gt;</ept><bpt id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;title&gt;</bpt><ept id="a88a47b1-a079-4335-8b14-7372632505a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0f8b26a-3aec-407e-b32e-b52202bc2368" xml:space="preserve">
+          <source>You should deploy your HADR solution with the assumption that there may be periods of time with high network latency between your on-premises network and Azure.</source>
+          <target state="new">You should deploy your HADR solution with the assumption that there may be periods of time with high network latency between your on-premises network and Azure.</target>
+        </trans-unit>
+        <trans-unit id="3c6b8642-1c0d-4661-8791-0208c8916b1f" xml:space="preserve">
+          <source>When deploying replicas to Azure, you should use asynchronous commit instead of synchronous commit for the synchronization mode.</source>
+          <target state="new">When deploying replicas to Azure, you should use asynchronous commit instead of synchronous commit for the synchronization mode.</target>
+        </trans-unit>
+        <trans-unit id="91efb2ed-9d1f-4a55-9272-f381cb1e5ee8" xml:space="preserve">
+          <source>When deploying database mirroring servers both on-premises and in Azure, use the high performance mode instead of the high safety mode.</source>
+          <target state="new">When deploying database mirroring servers both on-premises and in Azure, use the high performance mode instead of the high safety mode.</target>
+        </trans-unit>
+        <trans-unit id="e4655695-59a0-454e-a0f0-3db7e728a2eb" xml:space="preserve">
+          <source>Geo-replication in Azure disks does not support the data file and log file of the same database to be stored on separate disks.</source>
+          <target state="new">Geo-replication in Azure disks does not support the data file and log file of the same database to be stored on separate disks.</target>
+        </trans-unit>
+        <trans-unit id="eb8102b6-2357-4a8f-bd90-b518ebbc6b76" xml:space="preserve">
+          <source>GRS replicates changes on each disk independently and asynchronously.</source>
+          <target state="new">GRS replicates changes on each disk independently and asynchronously.</target>
+        </trans-unit>
+        <trans-unit id="82143116-94fc-4ff0-a9d6-65d5523cd8f2" xml:space="preserve">
+          <source>This mechanism guarantees the write order within a single disk on the geo-replicated copy, but not across geo-replicated copies of multiple disks.</source>
+          <target state="new">This mechanism guarantees the write order within a single disk on the geo-replicated copy, but not across geo-replicated copies of multiple disks.</target>
+        </trans-unit>
+        <trans-unit id="50fa4087-580a-4d9d-81ab-c669ddf9fdd8" xml:space="preserve">
+          <source>If you configure a database to store its data file and its log file on separate disks, the recovered disks after a disaster may contain a more up-to-date copy of the data file than the log file, which breaks the write-ahead log in SQL Server and the ACID properties of transactions.</source>
+          <target state="new">If you configure a database to store its data file and its log file on separate disks, the recovered disks after a disaster may contain a more up-to-date copy of the data file than the log file, which breaks the write-ahead log in SQL Server and the ACID properties of transactions.</target>
+        </trans-unit>
+        <trans-unit id="93c4cee9-b1e5-4379-94a7-5e012b4dce2f" xml:space="preserve">
+          <source>If you do not have the option to disable geo-replication on the storage account, you should keep all data and log files for a given database on the same disk.</source>
+          <target state="new">If you do not have the option to disable geo-replication on the storage account, you should keep all data and log files for a given database on the same disk.</target>
+        </trans-unit>
+        <trans-unit id="44bb1905-ce12-45e3-a749-85f57ffd2ddd" xml:space="preserve">
+          <source>If you must use more than one disk due to the size of the database, you need to deploy one of the disaster recovery solutions listed above to ensure data redundancy.</source>
+          <target state="new">If you must use more than one disk due to the size of the database, you need to deploy one of the disaster recovery solutions listed above to ensure data redundancy.</target>
+        </trans-unit>
+        <trans-unit id="c12aaeaa-d755-4e79-b383-371650cb12ba" xml:space="preserve">
+          <source>If you need to create an Azure virtual machine with SQL Server, see <bpt id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;/linkText&gt;</ept><bpt id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;title&gt;</bpt><ept id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to create an Azure virtual machine with SQL Server, see <bpt id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;linkText&gt;</bpt>Provisioning a SQL Server Virtual Machine on Azure<ept id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;/linkText&gt;</ept><bpt id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;title&gt;</bpt><ept id="e8fb4204-567d-41c3-ab8a-f7e986c2e6c5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1a8110c-d62d-4131-be7c-1365163b6d7a" xml:space="preserve">
+          <source>To get the best performance from SQL Server running on an Azure VM, see the guidance in <bpt id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;/linkText&gt;</ept><bpt id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;title&gt;</bpt><ept id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get the best performance from SQL Server running on an Azure VM, see the guidance in <bpt id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;/linkText&gt;</ept><bpt id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;title&gt;</bpt><ept id="6b216487-dd33-4675-af1b-8982dfa4bfd1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcefff5f-de5e-495d-a594-f43510c81972" xml:space="preserve">
+          <source>For other topics related to running SQL Server in Azure VMs, see <bpt id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;/linkText&gt;</ept><bpt id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;title&gt;</bpt><ept id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For other topics related to running SQL Server in Azure VMs, see <bpt id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines<ept id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;/linkText&gt;</ept><bpt id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;title&gt;</bpt><ept id="6b7517e4-0057-4b81-85e9-351e8c46876e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8b667be-8016-48c2-9186-1f6ea333cca9" xml:space="preserve">
+          <source><bpt id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;linkText&gt;</bpt>Install a new Active Directory forest in Azure<ept id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;/linkText&gt;</ept><bpt id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;title&gt;</bpt><ept id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;linkText&gt;</bpt>Install a new Active Directory forest in Azure<ept id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;/linkText&gt;</ept><bpt id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;title&gt;</bpt><ept id="2d5790ac-b246-4d66-8d3a-3d5cade2bbf5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4c75c17-af80-4073-b600-60115d5d13b4" xml:space="preserve">
+          <source><bpt id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;linkText&gt;</bpt>Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM<ept id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;/linkText&gt;</ept><bpt id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;title&gt;</bpt><ept id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;linkText&gt;</bpt>Create WSFC Cluster for AlwaysOn Availability Groups in Azure VM<ept id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;/linkText&gt;</ept><bpt id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;title&gt;</bpt><ept id="df8e3163-1fd1-4028-a862-f0495be82eef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

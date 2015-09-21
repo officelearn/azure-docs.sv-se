@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8c96f4d8-ca29-4a9e-96e0-67a52e121c1e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8c96f4d8-ca29-4a9e-96e0-67a52e121c1e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5187c99b-2330-4d21-85e4-27bf7085282c">
+        <trans-unit id="3cb553d4-1d7b-43f2-9e7f-511aa3fe57ef" xml:space="preserve">
+          <source>Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Microsoft Azure</source>
+          <target state="new">Authenticate your app with Active Directory Authentication Library Single Sign-On (iOS) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f9ff1b83-2289-4d7a-94d8-6d614526fc46" xml:space="preserve">
+          <source>Learn how to authentication users for single sign-on with ADAL in your iOS application.</source>
+          <target state="new">Learn how to authentication users for single sign-on with ADAL in your iOS application.</target>
+        </trans-unit>
+        <trans-unit id="aa0691e4-78a2-4ed9-9978-b10206bffe9d" xml:space="preserve">
+          <source><bpt id="814a7073-ea72-4104-9975-3cb9b1a66edf">&lt;token href="../../includes/mobile-services-selector-adal-sso.md"&gt;</bpt><ept id="814a7073-ea72-4104-9975-3cb9b1a66edf">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="814a7073-ea72-4104-9975-3cb9b1a66edf">&lt;token href="../../includes/mobile-services-selector-adal-sso.md"&gt;</bpt><ept id="814a7073-ea72-4104-9975-3cb9b1a66edf">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e4781db-fe9f-4a61-bd69-2b561a4f3121" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.</target>
+        </trans-unit>
+        <trans-unit id="c1ae9505-4068-4ca1-816c-1c60f751e51b" xml:space="preserve">
+          <source>To be able to authenticate users, you must register your application with the Azure Active Directory (AAD).</source>
+          <target state="new">To be able to authenticate users, you must register your application with the Azure Active Directory (AAD).</target>
+        </trans-unit>
+        <trans-unit id="98bc10db-8b36-4b6c-9f58-4ca59636fd5b" xml:space="preserve">
+          <source>This is done in two steps.</source>
+          <target state="new">This is done in two steps.</target>
+        </trans-unit>
+        <trans-unit id="ccebbf4a-c03f-4154-8e6f-9705ed14234c" xml:space="preserve">
+          <source>First, you must register your mobile service and expose permissions on it.</source>
+          <target state="new">First, you must register your mobile service and expose permissions on it.</target>
+        </trans-unit>
+        <trans-unit id="f6e7f5d2-c31f-4e44-ad00-f1277dc2d5ea" xml:space="preserve">
+          <source>Second, you must register your iOS app and grant it access to those permissions</source>
+          <target state="new">Second, you must register your iOS app and grant it access to those permissions</target>
+        </trans-unit>
+        <trans-unit id="f670ad30-6285-4674-ba23-ac21451f7a14" xml:space="preserve">
+          <source>This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for iOS apps.</source>
+          <target state="new">This tutorial is intended to help you better understand how Mobile Services enables you to do single sign-on Azure Active Directory authentication for iOS apps.</target>
+        </trans-unit>
+        <trans-unit id="f5d96f47-61f0-479a-8dea-e58ffbc34bb0" xml:space="preserve">
+          <source>If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].</source>
+          <target state="new">If this is your first experience with Mobile Services, complete the tutorial [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="af1b26a0-38ca-421b-9071-cc1d29b1c300" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="0f7ea9fd-b12e-4de0-9199-88be41af06d8" xml:space="preserve">
+          <source>XCode 4.5 and iOS 6.0 (or later versions)</source>
+          <target state="new">XCode 4.5 and iOS 6.0 (or later versions)</target>
+        </trans-unit>
+        <trans-unit id="303f1ea4-b16b-4d7d-a3ac-07e3604d61db" xml:space="preserve">
+          <source>Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.</source>
+          <target state="new">Completion of the [Get started with Mobile Services] or [Get Started with Data] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="318739cc-3d5a-488e-9071-8e82ede30b47" xml:space="preserve">
+          <source>Microsoft Azure Mobile Services SDK</source>
+          <target state="new">Microsoft Azure Mobile Services SDK</target>
+        </trans-unit>
+        <trans-unit id="6fd12283-30d1-4c77-85fd-3d3df312ccdf" xml:space="preserve">
+          <source>The [Active Directory Authentication Library for iOS]</source>
+          <target state="new">The [Active Directory Authentication Library for iOS]</target>
+        </trans-unit>
+        <trans-unit id="714e459a-496b-4f41-bc7a-9bb094ccd878" xml:space="preserve">
+          <source><bpt id="c04adb9f-0f4a-4f7a-b7d8-7348729e3896">&lt;token href="../../includes/mobile-services-dotnet-adal-register-client.md"&gt;</bpt><ept id="c04adb9f-0f4a-4f7a-b7d8-7348729e3896">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c04adb9f-0f4a-4f7a-b7d8-7348729e3896">&lt;token href="../../includes/mobile-services-dotnet-adal-register-client.md"&gt;</bpt><ept id="c04adb9f-0f4a-4f7a-b7d8-7348729e3896">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf8e5da3-b549-4c3d-ae3c-f07374a47c79" xml:space="preserve">
+          <source><bpt id="d48c1fbe-8c9a-4b85-82be-542c8cc2fcb1">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="d48c1fbe-8c9a-4b85-82be-542c8cc2fcb1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d48c1fbe-8c9a-4b85-82be-542c8cc2fcb1">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="d48c1fbe-8c9a-4b85-82be-542c8cc2fcb1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fd1beb4-48aa-49a2-9297-fc278222d666" xml:space="preserve">
+          <source>Download the [Active Directory Authentication Library for iOS] and include it in your project.</source>
+          <target state="new">Download the [Active Directory Authentication Library for iOS] and include it in your project.</target>
+        </trans-unit>
+        <trans-unit id="c14259f5-f8a8-419f-ab35-bf3ff32489bb" xml:space="preserve">
+          <source>Be sure to also add the storyboards from the ADAL source.</source>
+          <target state="new">Be sure to also add the storyboards from the ADAL source.</target>
+        </trans-unit>
+        <trans-unit id="20fde225-b32b-4b49-a010-e39781d86447" xml:space="preserve">
+          <source>In the QSTodoListViewController, include ADAL with the following:</source>
+          <target state="new">In the QSTodoListViewController, include ADAL with the following:</target>
+        </trans-unit>
+        <trans-unit id="a66a49ba-4100-4df2-862d-d9d1e371d05d" xml:space="preserve">
+          <source>Then add the following method:</source>
+          <target state="new">Then add the following method:</target>
+        </trans-unit>
+        <trans-unit id="1aed62f2-2bf6-475b-b605-99b864fcd539" xml:space="preserve">
+          <source>In the code for the <bpt id="7542232a-34de-42ed-8193-cce9dae71797">&lt;code&gt;</bpt>loginAndGetData<ept id="7542232a-34de-42ed-8193-cce9dae71797">&lt;/code&gt;</ept> method above, replace <bpt id="6c1b674d-31ef-4ae2-b9b2-90375145594c">&lt;strong&gt;</bpt>INSERT-AUTHORITY-HERE<ept id="6c1b674d-31ef-4ae2-b9b2-90375145594c">&lt;/strong&gt;</ept> with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com.</source>
+          <target state="new">In the code for the <bpt id="7542232a-34de-42ed-8193-cce9dae71797">&lt;code&gt;</bpt>loginAndGetData<ept id="7542232a-34de-42ed-8193-cce9dae71797">&lt;/code&gt;</ept> method above, replace <bpt id="6c1b674d-31ef-4ae2-b9b2-90375145594c">&lt;strong&gt;</bpt>INSERT-AUTHORITY-HERE<ept id="6c1b674d-31ef-4ae2-b9b2-90375145594c">&lt;/strong&gt;</ept> with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="f2ba331c-c77c-4a12-aa80-9cb8df419a3f" xml:space="preserve">
+          <source>This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].</source>
+          <target state="new">This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="ba54744d-b792-4090-8ffa-9f546175fbba" xml:space="preserve">
+          <source>In the code for the <bpt id="bc6a3f1f-b510-463b-bbbd-964ceda43462">&lt;code&gt;</bpt>loginAndGetData<ept id="bc6a3f1f-b510-463b-bbbd-964ceda43462">&lt;/code&gt;</ept> method above, replace <bpt id="51642378-1308-48b4-a574-b022a60a131c">&lt;strong&gt;</bpt>INSERT-RESOURCE-URI-HERE<ept id="51642378-1308-48b4-a574-b022a60a131c">&lt;/strong&gt;</ept> with the <bpt id="a5820197-f2e4-419f-946f-9e961552efb2">&lt;strong&gt;</bpt>App ID URI<ept id="a5820197-f2e4-419f-946f-9e961552efb2">&lt;/strong&gt;</ept> for your mobile service.</source>
+          <target state="new">In the code for the <bpt id="bc6a3f1f-b510-463b-bbbd-964ceda43462">&lt;code&gt;</bpt>loginAndGetData<ept id="bc6a3f1f-b510-463b-bbbd-964ceda43462">&lt;/code&gt;</ept> method above, replace <bpt id="51642378-1308-48b4-a574-b022a60a131c">&lt;strong&gt;</bpt>INSERT-RESOURCE-URI-HERE<ept id="51642378-1308-48b4-a574-b022a60a131c">&lt;/strong&gt;</ept> with the <bpt id="a5820197-f2e4-419f-946f-9e961552efb2">&lt;strong&gt;</bpt>App ID URI<ept id="a5820197-f2e4-419f-946f-9e961552efb2">&lt;/strong&gt;</ept> for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="c8ff7f37-3e8a-4fa6-b5ff-af247823f9dd" xml:space="preserve">
+          <source>If you followed the [How to Register with the Azure Active Directory] topic your App ID URI should be similar to https://todolist.azure-mobile.net/login/aad.</source>
+          <target state="new">If you followed the [How to Register with the Azure Active Directory] topic your App ID URI should be similar to https://todolist.azure-mobile.net/login/aad.</target>
+        </trans-unit>
+        <trans-unit id="ae38b66a-7cc3-48a3-9f9e-56358e48f9f4" xml:space="preserve">
+          <source>In the code for the <bpt id="61cf276d-c9cb-4b3a-ab7f-18b4c115a8bd">&lt;code&gt;</bpt>loginAndGetData<ept id="61cf276d-c9cb-4b3a-ab7f-18b4c115a8bd">&lt;/code&gt;</ept> method above, replace <bpt id="69929c1c-1e9d-4dff-946e-287b78278cec">&lt;strong&gt;</bpt>INSERT-CLIENT-ID-HERE<ept id="69929c1c-1e9d-4dff-946e-287b78278cec">&lt;/strong&gt;</ept> with the client ID you copied from the native client application.</source>
+          <target state="new">In the code for the <bpt id="61cf276d-c9cb-4b3a-ab7f-18b4c115a8bd">&lt;code&gt;</bpt>loginAndGetData<ept id="61cf276d-c9cb-4b3a-ab7f-18b4c115a8bd">&lt;/code&gt;</ept> method above, replace <bpt id="69929c1c-1e9d-4dff-946e-287b78278cec">&lt;strong&gt;</bpt>INSERT-CLIENT-ID-HERE<ept id="69929c1c-1e9d-4dff-946e-287b78278cec">&lt;/strong&gt;</ept> with the client ID you copied from the native client application.</target>
+        </trans-unit>
+        <trans-unit id="5101b3d7-ff63-4f7d-9657-33e275f76daa" xml:space="preserve">
+          <source>In the code for the <bpt id="cf664f2a-2eb8-434a-93b6-ff7c05ad1c0b">&lt;code&gt;</bpt>loginAndGetData<ept id="cf664f2a-2eb8-434a-93b6-ff7c05ad1c0b">&lt;/code&gt;</ept> method above, replace <bpt id="7cb436b1-199c-4257-a685-357fb91f92a3">&lt;strong&gt;</bpt>INSERT-REDIRECT-URI-HERE<ept id="7cb436b1-199c-4257-a685-357fb91f92a3">&lt;/strong&gt;</ept> with the /login/done endpoint for your mobile service.</source>
+          <target state="new">In the code for the <bpt id="cf664f2a-2eb8-434a-93b6-ff7c05ad1c0b">&lt;code&gt;</bpt>loginAndGetData<ept id="cf664f2a-2eb8-434a-93b6-ff7c05ad1c0b">&lt;/code&gt;</ept> method above, replace <bpt id="7cb436b1-199c-4257-a685-357fb91f92a3">&lt;strong&gt;</bpt>INSERT-REDIRECT-URI-HERE<ept id="7cb436b1-199c-4257-a685-357fb91f92a3">&lt;/strong&gt;</ept> with the /login/done endpoint for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="40197c79-30fa-4106-b0a8-53e774588956" xml:space="preserve">
+          <source>This should be similar to https://todolist.azure-mobile.net/login/done.</source>
+          <target state="new">This should be similar to https://todolist.azure-mobile.net/login/done.</target>
+        </trans-unit>
+        <trans-unit id="e043b151-12a2-41b8-8f14-668d0edc2bfd" xml:space="preserve">
+          <source>In the QSTodoListViewController, modify <bpt id="49a412be-9a3a-4ffd-adfd-a79352b8a286">&lt;code&gt;</bpt>ViewDidLoad<ept id="49a412be-9a3a-4ffd-adfd-a79352b8a286">&lt;/code&gt;</ept> by replacing <bpt id="17455108-ad7a-4738-b5e3-12236b76df6a">&lt;code&gt;</bpt>[self refresh]<ept id="17455108-ad7a-4738-b5e3-12236b76df6a">&lt;/code&gt;</ept> with the following:</source>
+          <target state="new">In the QSTodoListViewController, modify <bpt id="49a412be-9a3a-4ffd-adfd-a79352b8a286">&lt;code&gt;</bpt>ViewDidLoad<ept id="49a412be-9a3a-4ffd-adfd-a79352b8a286">&lt;/code&gt;</ept> by replacing <bpt id="17455108-ad7a-4738-b5e3-12236b76df6a">&lt;code&gt;</bpt>[self refresh]<ept id="17455108-ad7a-4738-b5e3-12236b76df6a">&lt;/code&gt;</ept> with the following:</target>
+        </trans-unit>
+        <trans-unit id="e214e3da-937e-418f-9ee9-495df38d95b8" xml:space="preserve">
+          <source>From the Product menu, click Run to start the app</source>
+          <target state="new">From the Product menu, click Run to start the app</target>
+        </trans-unit>
+        <trans-unit id="8f9ed8b7-5851-461a-8502-c1caacf60812" xml:space="preserve">
+          <source>You will receive a prompt to login against your Azure Active Directory.</source>
+          <target state="new">You will receive a prompt to login against your Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="853da236-bb26-4ceb-b9d8-8949636e537b" xml:space="preserve">
+          <source>The app authenticates and returns the todo items.</source>
+          <target state="new">The app authenticates and returns the todo items.</target>
+        </trans-unit>
+        <trans-unit id="09352f66-acb3-4163-bed7-27ee9a074895" xml:space="preserve">
+          <source><bpt id="6b64578d-265a-413c-b401-55ba36bd49e0">&lt;linkText&gt;</bpt><ept id="6b64578d-265a-413c-b401-55ba36bd49e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b64578d-265a-413c-b401-55ba36bd49e0">&lt;linkText&gt;</bpt><ept id="6b64578d-265a-413c-b401-55ba36bd49e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3591db40-a199-4af1-81d9-1a587bd3b189" xml:space="preserve">
+          <source>mobile-services-ios-get-started-data.md</source>
+          <target state="new">mobile-services-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="ff685c55-2166-4721-a93f-1cd1663bdd74" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="bb9c0f67-57f0-4dd0-a249-8f61434b5572" xml:space="preserve">
+          <source>mobile-services-how-to-register-active-directory-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-active-directory-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="5a93367f-cb33-4f8a-a022-fb6edf24deeb" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="cf49a203-18f8-48c5-be72-750e60c29a23" xml:space="preserve">
+          <source>https://github.com/MSOpenTech/azure-activedirectory-library-for-ios</source>
+          <target state="new">https://github.com/MSOpenTech/azure-activedirectory-library-for-ios</target>
+        </trans-unit>
+      </group>
+      <group id="a0795b97-789c-43d8-95ef-bd475bd145c0" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="763acf6d-1241-43d0-9684-2fe2c8ddda54" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="763acf6d-1241-43d0-9684-2fe2c8ddda54" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c549c882-702d-4c5a-9da5-53604b2eb2df">
+        <trans-unit id="3a612128-9942-42c2-a2c5-8d73a7d59732" xml:space="preserve">
+          <source>Office 365 DirSync test environment  | Microsoft Azure</source>
+          <target state="new">Office 365 DirSync test environment  | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a64f4991-d261-4b75-8aa8-3fe794e7d811" xml:space="preserve">
+          <source>Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing.</source>
+          <target state="new">Learn how to configure an Office 365 Directory Synchronization (DirSync) server in a hybrid cloud for IT pro or development testing.</target>
+        </trans-unit>
+        <trans-unit id="418a60d7-f047-497f-afd5-50ae976fdcb9" xml:space="preserve">
+          <source>This topic steps you through creating a hybrid cloud environment for testing Office 365 Directory Synchronization (DirSync) with password synchronization hosted in Microsoft Azure.</source>
+          <target state="new">This topic steps you through creating a hybrid cloud environment for testing Office 365 Directory Synchronization (DirSync) with password synchronization hosted in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="7184a422-6bd6-4a55-a8de-e98443cc6f7a" xml:space="preserve">
+          <source>Here is the resulting configuration.</source>
+          <target state="new">Here is the resulting configuration.</target>
+        </trans-unit>
+        <trans-unit id="72602f5a-7b43-47a5-b9e2-f3c18414985c" xml:space="preserve">
+          <source><bpt id="61e29a72-45f5-4c18-9c87-38fb19c86aef">&lt;linkText&gt;</bpt><ept id="61e29a72-45f5-4c18-9c87-38fb19c86aef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61e29a72-45f5-4c18-9c87-38fb19c86aef">&lt;linkText&gt;</bpt><ept id="61e29a72-45f5-4c18-9c87-38fb19c86aef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="beb063bf-2bac-4d31-acbe-fdd60e952f51" xml:space="preserve">
+          <source>This configuration simulates a DirSync server in Azure production environment from your location on the Internet.</source>
+          <target state="new">This configuration simulates a DirSync server in Azure production environment from your location on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="0110d4ee-5b45-4126-bfe9-c21c3193c8c6" xml:space="preserve">
+          <source>It consists of:</source>
+          <target state="new">It consists of:</target>
+        </trans-unit>
+        <trans-unit id="c69611db-9cab-4a31-b394-7335e0912b40" xml:space="preserve">
+          <source>A simplified on-premises network (the Corpnet subnet).</source>
+          <target state="new">A simplified on-premises network (the Corpnet subnet).</target>
+        </trans-unit>
+        <trans-unit id="c465986e-8f22-41ff-8274-be9ccb77bcef" xml:space="preserve">
+          <source>A cross-premises virtual network hosted in Azure (TestVNET).</source>
+          <target state="new">A cross-premises virtual network hosted in Azure (TestVNET).</target>
+        </trans-unit>
+        <trans-unit id="3e5e5eda-17a7-4185-91b0-9b9c50055223" xml:space="preserve">
+          <source>A site-to-site VPN connection.</source>
+          <target state="new">A site-to-site VPN connection.</target>
+        </trans-unit>
+        <trans-unit id="2f0f9abc-b458-4636-abcf-b4cda6234b86" xml:space="preserve">
+          <source>An Office 365 FastTrack trial subscription.</source>
+          <target state="new">An Office 365 FastTrack trial subscription.</target>
+        </trans-unit>
+        <trans-unit id="3bd33962-0997-463a-85b0-16918b3a30d5" xml:space="preserve">
+          <source>A DirSync server and secondary domain controller in the TestVNET virtual network.</source>
+          <target state="new">A DirSync server and secondary domain controller in the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2e7e02fb-2ba4-4d50-b8d7-c6bf48806a06" xml:space="preserve">
+          <source>This configuration provides a basis and common starting point from which you can:</source>
+          <target state="new">This configuration provides a basis and common starting point from which you can:</target>
+        </trans-unit>
+        <trans-unit id="2b7c59d0-3c8e-463f-90c5-3247bebc80be" xml:space="preserve">
+          <source>Develop and test applications for Office 365 that rely on synchronization with an on-premises Active Directory domain using password sync.</source>
+          <target state="new">Develop and test applications for Office 365 that rely on synchronization with an on-premises Active Directory domain using password sync.</target>
+        </trans-unit>
+        <trans-unit id="b6383476-546e-4578-96de-c625b7b6a3f2" xml:space="preserve">
+          <source>Perform testing of this cloud-based IT workload.</source>
+          <target state="new">Perform testing of this cloud-based IT workload.</target>
+        </trans-unit>
+        <trans-unit id="50f073c7-d3ae-4423-864f-75bcfb040eef" xml:space="preserve">
+          <source>There are three major phases to setting up this hybrid cloud test environment:</source>
+          <target state="new">There are three major phases to setting up this hybrid cloud test environment:</target>
+        </trans-unit>
+        <trans-unit id="71977361-4cdc-4f70-9a6a-57d75a82a680" xml:space="preserve">
+          <source>Set up the hybrid cloud environment for testing.</source>
+          <target state="new">Set up the hybrid cloud environment for testing.</target>
+        </trans-unit>
+        <trans-unit id="43242ff3-0aa0-49ca-9d36-74c7ea1fe3d5" xml:space="preserve">
+          <source>Configure the Office 365 FastTrack trial.</source>
+          <target state="new">Configure the Office 365 FastTrack trial.</target>
+        </trans-unit>
+        <trans-unit id="07ca1c21-6673-441f-bed4-f9ef3842c29b" xml:space="preserve">
+          <source>Configure the DirSync server (DS1).</source>
+          <target state="new">Configure the DirSync server (DS1).</target>
+        </trans-unit>
+        <trans-unit id="c12cedf7-568d-4212-92af-e4424697d05c" xml:space="preserve">
+          <source>If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;linkText&gt;</bpt>Try Azure<ept id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;/linkText&gt;</ept><bpt id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;title&gt;</bpt><ept id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;linkText&gt;</bpt>Try Azure<ept id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;/linkText&gt;</ept><bpt id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;title&gt;</bpt><ept id="8489d7ab-eb1e-4b94-b2f9-a941f61aeb99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1300c9ec-6740-43d7-b953-59d4d0af91ff" xml:space="preserve">
+          <source>If you have an MSDN Subscription, see <bpt id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;/linkText&gt;</ept><bpt id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;title&gt;</bpt><ept id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN Subscription, see <bpt id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;/linkText&gt;</ept><bpt id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;title&gt;</bpt><ept id="d9048b06-368b-415a-acdd-ae10059100f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a85638de-71ff-4c0b-bbac-e252563083ba" xml:space="preserve">
+          <source>Use the instructions in the <bpt id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;/linkText&gt;</ept><bpt id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;title&gt;</bpt><ept id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">Use the instructions in the <bpt id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;/linkText&gt;</ept><bpt id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;title&gt;</bpt><ept id="f4a2d18b-1c80-4ef1-9e35-1f5d0b036602">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="f203a838-463b-4bd4-8970-8dcc5aec348c" xml:space="preserve">
+          <source>Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.</source>
+          <target state="new">Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.</target>
+        </trans-unit>
+        <trans-unit id="803329ac-cab3-43d6-999e-e2d8d203328b" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="2c5c9359-f1ec-4521-a766-6c24689c72e7" xml:space="preserve">
+          <source><bpt id="89021e5f-2ccf-4b15-ad21-a67835e40e26">&lt;linkText&gt;</bpt><ept id="89021e5f-2ccf-4b15-ad21-a67835e40e26">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89021e5f-2ccf-4b15-ad21-a67835e40e26">&lt;linkText&gt;</bpt><ept id="89021e5f-2ccf-4b15-ad21-a67835e40e26">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75d7fc33-45b9-42d4-98d3-96c3aea31bb5" xml:space="preserve">
+          <source>For Phase 1, you can also set up the simulated hybrid cloud test environment.</source>
+          <target state="new">For Phase 1, you can also set up the simulated hybrid cloud test environment.</target>
+        </trans-unit>
+        <trans-unit id="6d8475d4-4289-4634-a0f5-3b7801be66d6" xml:space="preserve">
+          <source>See <bpt id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;/linkText&gt;</ept><bpt id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;title&gt;</bpt><ept id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;/title&gt;</ept> for the instructions.</source>
+          <target state="new">See <bpt id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;/linkText&gt;</ept><bpt id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;title&gt;</bpt><ept id="876e2efb-b1c5-4345-8ab9-85b59ea31772">&lt;/title&gt;</ept> for the instructions.</target>
+        </trans-unit>
+        <trans-unit id="7923fc15-c6fc-461b-8756-4f9d5a292b6b" xml:space="preserve">
+          <source>To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account.</source>
+          <target state="new">To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="dc01b53b-6efd-4ea9-b7b0-7dbda742b7e8" xml:space="preserve">
+          <source>We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isn’t required.</source>
+          <target state="new">We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isn’t required.</target>
+        </trans-unit>
+        <trans-unit id="81c5246d-9188-4107-ad6d-bbe38f658d3c" xml:space="preserve">
+          <source>Next, sign up for a new Microsoft account.</source>
+          <target state="new">Next, sign up for a new Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="15493a37-a4f1-4cf4-81e3-53b7f37f4758" xml:space="preserve">
+          <source>Go to <bpt id="7d04745f-3db0-428c-ace3-673f09e3153d">&lt;strong&gt;</bpt>http://outlook.com<ept id="7d04745f-3db0-428c-ace3-673f09e3153d">&lt;/strong&gt;</ept> and create an account with an email address like user123@outlook.com.</source>
+          <target state="new">Go to <bpt id="7d04745f-3db0-428c-ace3-673f09e3153d">&lt;strong&gt;</bpt>http://outlook.com<ept id="7d04745f-3db0-428c-ace3-673f09e3153d">&lt;/strong&gt;</ept> and create an account with an email address like user123@outlook.com.</target>
+        </trans-unit>
+        <trans-unit id="90fcf904-37fb-428d-a24e-223fb605464d" xml:space="preserve">
+          <source>You will sign up for an Office 365 FastTrack trial using this account.</source>
+          <target state="new">You will sign up for an Office 365 FastTrack trial using this account.</target>
+        </trans-unit>
+        <trans-unit id="0dcd47d9-464e-40c1-bd1d-3253ebc550a3" xml:space="preserve">
+          <source>Next, sign up for a new Office 365 FastTrack trial.</source>
+          <target state="new">Next, sign up for a new Office 365 FastTrack trial.</target>
+        </trans-unit>
+        <trans-unit id="85c856a9-5453-41b0-bc7d-6fb78877df89" xml:space="preserve">
+          <source>Log on to CLIENT1 with the CORP\User1 account credentials.</source>
+          <target state="new">Log on to CLIENT1 with the CORP\User1 account credentials.</target>
+        </trans-unit>
+        <trans-unit id="b449c8c4-6b9f-41c6-b39a-89044acc808a" xml:space="preserve">
+          <source>Open Internet Explorer and go to <bpt id="f3fd3607-e2bb-4a9c-916f-eb4cc9ebff58">&lt;strong&gt;</bpt>http://fasttrack.office.com<ept id="f3fd3607-e2bb-4a9c-916f-eb4cc9ebff58">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Internet Explorer and go to <bpt id="f3fd3607-e2bb-4a9c-916f-eb4cc9ebff58">&lt;strong&gt;</bpt>http://fasttrack.office.com<ept id="f3fd3607-e2bb-4a9c-916f-eb4cc9ebff58">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dbebeb9-79cf-4972-9bea-22fab5652592" xml:space="preserve">
+          <source>Click <bpt id="8b48cb22-df0d-45cf-9f40-4c43fc53f77f">&lt;strong&gt;</bpt>Getting started with FastTrack<ept id="8b48cb22-df0d-45cf-9f40-4c43fc53f77f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8b48cb22-df0d-45cf-9f40-4c43fc53f77f">&lt;strong&gt;</bpt>Getting started with FastTrack<ept id="8b48cb22-df0d-45cf-9f40-4c43fc53f77f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="598f7645-6ecd-41f4-8968-3584c8f8aab2" xml:space="preserve">
+          <source>On the Getting Started with FastTrack page, under <bpt id="8aa009e1-c883-4aa7-97ff-c378cb8701ff">&lt;strong&gt;</bpt>First, sign up for an Office 365 trial<ept id="8aa009e1-c883-4aa7-97ff-c378cb8701ff">&lt;/strong&gt;</ept>, click <bpt id="eb20e340-c6fd-4e67-a9cb-79b5f768fc19">&lt;strong&gt;</bpt>For enterprises, sign up here<ept id="eb20e340-c6fd-4e67-a9cb-79b5f768fc19">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Getting Started with FastTrack page, under <bpt id="8aa009e1-c883-4aa7-97ff-c378cb8701ff">&lt;strong&gt;</bpt>First, sign up for an Office 365 trial<ept id="8aa009e1-c883-4aa7-97ff-c378cb8701ff">&lt;/strong&gt;</ept>, click <bpt id="eb20e340-c6fd-4e67-a9cb-79b5f768fc19">&lt;strong&gt;</bpt>For enterprises, sign up here<ept id="eb20e340-c6fd-4e67-a9cb-79b5f768fc19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="799901ff-e51f-4f5a-8a7d-9b66ec19bd50" xml:space="preserve">
+          <source>On the Step 1 page, fill in the page, specifying your new Microsoft account in <bpt id="8dbb9cb6-421b-4a0e-abd5-d9bf077875f2">&lt;strong&gt;</bpt>Business email address<ept id="8dbb9cb6-421b-4a0e-abd5-d9bf077875f2">&lt;/strong&gt;</ept>, and then click <bpt id="cfb373d7-b396-4737-a86e-fa09723fed24">&lt;strong&gt;</bpt>Next<ept id="cfb373d7-b396-4737-a86e-fa09723fed24">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Step 1 page, fill in the page, specifying your new Microsoft account in <bpt id="8dbb9cb6-421b-4a0e-abd5-d9bf077875f2">&lt;strong&gt;</bpt>Business email address<ept id="8dbb9cb6-421b-4a0e-abd5-d9bf077875f2">&lt;/strong&gt;</ept>, and then click <bpt id="cfb373d7-b396-4737-a86e-fa09723fed24">&lt;strong&gt;</bpt>Next<ept id="cfb373d7-b396-4737-a86e-fa09723fed24">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="662e82a2-56de-4caf-8a93-14c922e1538e" xml:space="preserve">
+          <source>On the Step 2 page, type the name of an initial Office 365 account in the first field, your fictitious company name, and then a password.</source>
+          <target state="new">On the Step 2 page, type the name of an initial Office 365 account in the first field, your fictitious company name, and then a password.</target>
+        </trans-unit>
+        <trans-unit id="0663b64f-1317-4d62-9109-b1bdc0340fc8" xml:space="preserve">
+          <source>Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location.</source>
+          <target state="new">Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="71acd342-090d-4e71-89bc-1231e67bb70d" xml:space="preserve">
+          <source>You will need this information to complete the Active Directory Sync tool Configuration Wizard in Phase 3.</source>
+          <target state="new">You will need this information to complete the Active Directory Sync tool Configuration Wizard in Phase 3.</target>
+        </trans-unit>
+        <trans-unit id="5247f3e0-22cd-4c86-a7f3-75ada9e28ac0" xml:space="preserve">
+          <source>Click <bpt id="ab165ef4-0227-4afd-a681-6a466a695422">&lt;strong&gt;</bpt>Next<ept id="ab165ef4-0227-4afd-a681-6a466a695422">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ab165ef4-0227-4afd-a681-6a466a695422">&lt;strong&gt;</bpt>Next<ept id="ab165ef4-0227-4afd-a681-6a466a695422">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3bb3a3a-c839-44c2-9a61-9e0aaa67dc39" xml:space="preserve">
+          <source>On the Step 3 page, type the phone number of your text message-capable cellular or smart phone, and then click <bpt id="f43b9cd6-ae47-4a93-9389-e38a05ebda4b">&lt;strong&gt;</bpt>Text me<ept id="f43b9cd6-ae47-4a93-9389-e38a05ebda4b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Step 3 page, type the phone number of your text message-capable cellular or smart phone, and then click <bpt id="f43b9cd6-ae47-4a93-9389-e38a05ebda4b">&lt;strong&gt;</bpt>Text me<ept id="f43b9cd6-ae47-4a93-9389-e38a05ebda4b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0e1afc7-b64b-493b-ab09-928b87497d25" xml:space="preserve">
+          <source>After you receive the text message on your phone, type the verification code, and then click <bpt id="46d9552a-55ab-4b11-8eea-ae37e8bec2b5">&lt;strong&gt;</bpt>Create my account<ept id="46d9552a-55ab-4b11-8eea-ae37e8bec2b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you receive the text message on your phone, type the verification code, and then click <bpt id="46d9552a-55ab-4b11-8eea-ae37e8bec2b5">&lt;strong&gt;</bpt>Create my account<ept id="46d9552a-55ab-4b11-8eea-ae37e8bec2b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4668cdd7-448d-446c-871d-6e5d540a47d9" xml:space="preserve">
+          <source>When Office 365 is done creating your account, click <bpt id="96d66eea-706a-4cff-a5d0-3d085662757a">&lt;strong&gt;</bpt>You're ready to go<ept id="96d66eea-706a-4cff-a5d0-3d085662757a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When Office 365 is done creating your account, click <bpt id="96d66eea-706a-4cff-a5d0-3d085662757a">&lt;strong&gt;</bpt>You're ready to go<ept id="96d66eea-706a-4cff-a5d0-3d085662757a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52208512-6f11-4b3c-8262-fc280e9107cf" xml:space="preserve">
+          <source>You should now see the main Office 365 portal page.</source>
+          <target state="new">You should now see the main Office 365 portal page.</target>
+        </trans-unit>
+        <trans-unit id="12e7b296-cb94-425d-8a56-3b8b58702e6b" xml:space="preserve">
+          <source>In the top ribbon, click <bpt id="5c187576-6a56-4b2b-bc52-4cf152e7ff27">&lt;strong&gt;</bpt>Admin<ept id="5c187576-6a56-4b2b-bc52-4cf152e7ff27">&lt;/strong&gt;</ept>, and then click <bpt id="3854a998-e598-4903-9452-5d1d496fc274">&lt;strong&gt;</bpt>Office 365<ept id="3854a998-e598-4903-9452-5d1d496fc274">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the top ribbon, click <bpt id="5c187576-6a56-4b2b-bc52-4cf152e7ff27">&lt;strong&gt;</bpt>Admin<ept id="5c187576-6a56-4b2b-bc52-4cf152e7ff27">&lt;/strong&gt;</ept>, and then click <bpt id="3854a998-e598-4903-9452-5d1d496fc274">&lt;strong&gt;</bpt>Office 365<ept id="3854a998-e598-4903-9452-5d1d496fc274">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a21ef289-57ca-4e92-aa9a-46c14ff2811e" xml:space="preserve">
+          <source>The Office 365 admin center page appears.</source>
+          <target state="new">The Office 365 admin center page appears.</target>
+        </trans-unit>
+        <trans-unit id="73732eab-5b5a-4f2b-ae71-1cd2ff975494" xml:space="preserve">
+          <source>Keep this page open on CLIENT1.</source>
+          <target state="new">Keep this page open on CLIENT1.</target>
+        </trans-unit>
+        <trans-unit id="5431cdd8-8c4a-4f1b-a152-98e9ba43dd2c" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="3ed9ebe6-2275-4120-843b-e86a7c89dd31" xml:space="preserve">
+          <source><bpt id="9df6c85c-8b79-42c2-a3fb-90d65f7e2549">&lt;linkText&gt;</bpt><ept id="9df6c85c-8b79-42c2-a3fb-90d65f7e2549">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9df6c85c-8b79-42c2-a3fb-90d65f7e2549">&lt;linkText&gt;</bpt><ept id="9df6c85c-8b79-42c2-a3fb-90d65f7e2549">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e55911d-1fed-4e4f-8d61-60bcc5e8c8ec" xml:space="preserve">
+          <source>First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the &lt; and &gt; characters.</source>
+          <target state="new">First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the &lt; and &gt; characters.</target>
+        </trans-unit>
+        <trans-unit id="5c442b9e-e8f2-4703-9e22-f798dd150bdb" xml:space="preserve">
+          <source>Next, connect to the DS1 virtual machine.</source>
+          <target state="new">Next, connect to the DS1 virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c5057594-e6a7-4348-9db1-425d8dd2a351" xml:space="preserve">
+          <source>On the virtual machines page of the Azure Management Portal, click <bpt id="ceb3dbc5-f305-4cdf-b046-628c6a701ce3">&lt;strong&gt;</bpt>Running<ept id="ceb3dbc5-f305-4cdf-b046-628c6a701ce3">&lt;/strong&gt;</ept> in the STATUS column for the DS1 virtual machine.</source>
+          <target state="new">On the virtual machines page of the Azure Management Portal, click <bpt id="ceb3dbc5-f305-4cdf-b046-628c6a701ce3">&lt;strong&gt;</bpt>Running<ept id="ceb3dbc5-f305-4cdf-b046-628c6a701ce3">&lt;/strong&gt;</ept> in the STATUS column for the DS1 virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="1a36e21d-d685-42ce-b5af-6bfc85660c1b" xml:space="preserve">
+          <source>In the task bar, click <bpt id="27752e66-ebad-4979-a5d8-6d1401764678">&lt;strong&gt;</bpt>Connect<ept id="27752e66-ebad-4979-a5d8-6d1401764678">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="27752e66-ebad-4979-a5d8-6d1401764678">&lt;strong&gt;</bpt>Connect<ept id="27752e66-ebad-4979-a5d8-6d1401764678">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61f7cfca-485d-49fb-8cdd-ba56753be171" xml:space="preserve">
+          <source>When prompted to open DS1.rdp, click <bpt id="e9ab0104-ef05-46a4-be57-4abc25a96d20">&lt;strong&gt;</bpt>Open<ept id="e9ab0104-ef05-46a4-be57-4abc25a96d20">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted to open DS1.rdp, click <bpt id="e9ab0104-ef05-46a4-be57-4abc25a96d20">&lt;strong&gt;</bpt>Open<ept id="e9ab0104-ef05-46a4-be57-4abc25a96d20">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="862730e9-648d-438c-9cfa-4275b9e260d6" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box, click <bpt id="9956ef88-090c-4f70-b722-c4d6a5dc0673">&lt;strong&gt;</bpt>Connect<ept id="9956ef88-090c-4f70-b722-c4d6a5dc0673">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box, click <bpt id="9956ef88-090c-4f70-b722-c4d6a5dc0673">&lt;strong&gt;</bpt>Connect<ept id="9956ef88-090c-4f70-b722-c4d6a5dc0673">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2f85576-4568-44ef-ac8a-caa8f043fe79" xml:space="preserve">
+          <source>When prompted for credentials, use these:</source>
+          <target state="new">When prompted for credentials, use these:</target>
+        </trans-unit>
+        <trans-unit id="b3a3fab1-93d6-44f8-bef9-0bf7fa0097dc" xml:space="preserve">
+          <source>Name: <bpt id="787ab94f-efed-4dee-b925-7c9b9983adac">&lt;strong&gt;</bpt>CORP\User1<ept id="787ab94f-efed-4dee-b925-7c9b9983adac">&lt;/strong&gt;</ept></source>
+          <target state="new">Name: <bpt id="787ab94f-efed-4dee-b925-7c9b9983adac">&lt;strong&gt;</bpt>CORP\User1<ept id="787ab94f-efed-4dee-b925-7c9b9983adac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20bd7296-8b7f-490c-8fa0-26fbe0590766" xml:space="preserve">
+          <source>Password: [User1 account password]</source>
+          <target state="new">Password: [User1 account password]</target>
+        </trans-unit>
+        <trans-unit id="7118c122-fc3b-41d8-9349-dabfdbe267fb" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="99877785-530b-455b-96f9-1f98886779fb">&lt;strong&gt;</bpt>Yes<ept id="99877785-530b-455b-96f9-1f98886779fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="99877785-530b-455b-96f9-1f98886779fb">&lt;strong&gt;</bpt>Yes<ept id="99877785-530b-455b-96f9-1f98886779fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a218386-938f-40a4-8758-21ebc772d01f" xml:space="preserve">
+          <source>Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</source>
+          <target state="new">Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</target>
+        </trans-unit>
+        <trans-unit id="96021fa2-d75f-4886-ac03-01bc711af5a8" xml:space="preserve">
+          <source>From an administrator-level Windows PowerShell command prompt on DS1, run these commands.</source>
+          <target state="new">From an administrator-level Windows PowerShell command prompt on DS1, run these commands.</target>
+        </trans-unit>
+        <trans-unit id="bc22bf07-188c-4b20-9343-5fd5e9fdf680" xml:space="preserve">
+          <source>The ping command should result in four successful replies from IP address 10.0.0.1.</source>
+          <target state="new">The ping command should result in four successful replies from IP address 10.0.0.1.</target>
+        </trans-unit>
+        <trans-unit id="d3ead95b-acc5-4d6a-a139-87c0935affcb" xml:space="preserve">
+          <source>Next, install .NET 3.5 on DS1 with this command at the Windows PowerShell command prompt.</source>
+          <target state="new">Next, install .NET 3.5 on DS1 with this command at the Windows PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="1f357999-bd4f-4c60-b017-af513657b462" xml:space="preserve">
+          <source>Next, install Directory Sync on DS1.</source>
+          <target state="new">Next, install Directory Sync on DS1.</target>
+        </trans-unit>
+        <trans-unit id="545521db-6135-4160-8089-cc4228d0bba3" xml:space="preserve">
+          <source>Run Internet Explorer, type <bpt id="2a75f320-745b-4813-abc6-a5159367ceaf">&lt;strong&gt;</bpt>http://go.microsoft.com/fwlink/?LinkID=278924<ept id="2a75f320-745b-4813-abc6-a5159367ceaf">&lt;/strong&gt;</ept> in the Address bar, and then press ENTER.</source>
+          <target state="new">Run Internet Explorer, type <bpt id="2a75f320-745b-4813-abc6-a5159367ceaf">&lt;strong&gt;</bpt>http://go.microsoft.com/fwlink/?LinkID=278924<ept id="2a75f320-745b-4813-abc6-a5159367ceaf">&lt;/strong&gt;</ept> in the Address bar, and then press ENTER.</target>
+        </trans-unit>
+        <trans-unit id="33d2154a-469e-46d7-9912-13764593af32" xml:space="preserve">
+          <source>When prompted to run dirsync.exe, click the arrow next to <bpt id="ee0dd478-7fa6-4aa9-abe9-f99253617984">&lt;strong&gt;</bpt>Save<ept id="ee0dd478-7fa6-4aa9-abe9-f99253617984">&lt;/strong&gt;</ept>, click <bpt id="b42ebaa2-b62f-42f9-83e2-977ad5c67922">&lt;strong&gt;</bpt>Save As<ept id="b42ebaa2-b62f-42f9-83e2-977ad5c67922">&lt;/strong&gt;</ept>, and then click <bpt id="fbe322c4-8713-4059-87ee-c1e2dfb5e35b">&lt;strong&gt;</bpt>Save<ept id="fbe322c4-8713-4059-87ee-c1e2dfb5e35b">&lt;/strong&gt;</ept> to save the file in the Downloads folder.</source>
+          <target state="new">When prompted to run dirsync.exe, click the arrow next to <bpt id="ee0dd478-7fa6-4aa9-abe9-f99253617984">&lt;strong&gt;</bpt>Save<ept id="ee0dd478-7fa6-4aa9-abe9-f99253617984">&lt;/strong&gt;</ept>, click <bpt id="b42ebaa2-b62f-42f9-83e2-977ad5c67922">&lt;strong&gt;</bpt>Save As<ept id="b42ebaa2-b62f-42f9-83e2-977ad5c67922">&lt;/strong&gt;</ept>, and then click <bpt id="fbe322c4-8713-4059-87ee-c1e2dfb5e35b">&lt;strong&gt;</bpt>Save<ept id="fbe322c4-8713-4059-87ee-c1e2dfb5e35b">&lt;/strong&gt;</ept> to save the file in the Downloads folder.</target>
+        </trans-unit>
+        <trans-unit id="4910ad66-a32b-468f-973b-3775ed25a0b1" xml:space="preserve">
+          <source>For more information about installing the tool, see <bpt id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;linkText&gt;</bpt>Install or upgrade the Directory Sync tool<ept id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;/linkText&gt;</ept><bpt id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;title&gt;</bpt><ept id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about installing the tool, see <bpt id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;linkText&gt;</bpt>Install or upgrade the Directory Sync tool<ept id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;/linkText&gt;</ept><bpt id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;title&gt;</bpt><ept id="217e9521-ef0b-4818-87ca-fd01308e9968">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88eaf726-a0d9-4085-8a30-7e5d953aceae" xml:space="preserve">
+          <source>Open the <bpt id="134927dd-aad6-45fe-a50b-535c6842e5e9">&lt;strong&gt;</bpt>Downloads<ept id="134927dd-aad6-45fe-a50b-535c6842e5e9">&lt;/strong&gt;</ept> folder, right-click the <bpt id="8b429891-9d45-44fe-b1d3-20d5dcef7970">&lt;strong&gt;</bpt>dirsync<ept id="8b429891-9d45-44fe-b1d3-20d5dcef7970">&lt;/strong&gt;</ept> file, and then click <bpt id="87641329-bd52-4273-9de4-150849fe0dee">&lt;strong&gt;</bpt>Run as administrator<ept id="87641329-bd52-4273-9de4-150849fe0dee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the <bpt id="134927dd-aad6-45fe-a50b-535c6842e5e9">&lt;strong&gt;</bpt>Downloads<ept id="134927dd-aad6-45fe-a50b-535c6842e5e9">&lt;/strong&gt;</ept> folder, right-click the <bpt id="8b429891-9d45-44fe-b1d3-20d5dcef7970">&lt;strong&gt;</bpt>dirsync<ept id="8b429891-9d45-44fe-b1d3-20d5dcef7970">&lt;/strong&gt;</ept> file, and then click <bpt id="87641329-bd52-4273-9de4-150849fe0dee">&lt;strong&gt;</bpt>Run as administrator<ept id="87641329-bd52-4273-9de4-150849fe0dee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fc8e18d-f361-4bee-9ec2-0c42f8e87dde" xml:space="preserve">
+          <source>On the Welcome page of the Active Directory Sync Setup wizard, click <bpt id="645b8a29-f761-4b89-8850-2e24f44e8bbd">&lt;strong&gt;</bpt>Next<ept id="645b8a29-f761-4b89-8850-2e24f44e8bbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Welcome page of the Active Directory Sync Setup wizard, click <bpt id="645b8a29-f761-4b89-8850-2e24f44e8bbd">&lt;strong&gt;</bpt>Next<ept id="645b8a29-f761-4b89-8850-2e24f44e8bbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3071354c-39e9-40e7-ac08-0f3c279245e6" xml:space="preserve">
+          <source>On the License Terms page, click <bpt id="f0615496-4b30-4559-a8a0-d385a5621d77">&lt;strong&gt;</bpt>I accept<ept id="f0615496-4b30-4559-a8a0-d385a5621d77">&lt;/strong&gt;</ept>, and then click <bpt id="a5ad0e4e-2b82-4c20-8ce3-dea8ede3453d">&lt;strong&gt;</bpt>Next<ept id="a5ad0e4e-2b82-4c20-8ce3-dea8ede3453d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the License Terms page, click <bpt id="f0615496-4b30-4559-a8a0-d385a5621d77">&lt;strong&gt;</bpt>I accept<ept id="f0615496-4b30-4559-a8a0-d385a5621d77">&lt;/strong&gt;</ept>, and then click <bpt id="a5ad0e4e-2b82-4c20-8ce3-dea8ede3453d">&lt;strong&gt;</bpt>Next<ept id="a5ad0e4e-2b82-4c20-8ce3-dea8ede3453d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61902f9c-8c1d-4391-aa21-d939cd02ba92" xml:space="preserve">
+          <source>On the Select Folder Installation page, click <bpt id="b2b86d38-8042-4cc2-88cf-299cf5711d06">&lt;strong&gt;</bpt>Next<ept id="b2b86d38-8042-4cc2-88cf-299cf5711d06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select Folder Installation page, click <bpt id="b2b86d38-8042-4cc2-88cf-299cf5711d06">&lt;strong&gt;</bpt>Next<ept id="b2b86d38-8042-4cc2-88cf-299cf5711d06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a37f519-e7c5-4348-b9a9-cbcbace05d0e" xml:space="preserve">
+          <source>It may take a several minutes to complete the installation.</source>
+          <target state="new">It may take a several minutes to complete the installation.</target>
+        </trans-unit>
+        <trans-unit id="7908da4e-e377-464a-a16b-9aa51eab12ec" xml:space="preserve">
+          <source>On the Finished page, clear <bpt id="854ccc8e-ea08-4ccf-8920-00e0c16edbbf">&lt;strong&gt;</bpt>Start Configuration Wizard now<ept id="854ccc8e-ea08-4ccf-8920-00e0c16edbbf">&lt;/strong&gt;</ept>, and then click <bpt id="8a712859-1b4c-48a5-8595-77b3ee7c5bbb">&lt;strong&gt;</bpt>Finish<ept id="8a712859-1b4c-48a5-8595-77b3ee7c5bbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Finished page, clear <bpt id="854ccc8e-ea08-4ccf-8920-00e0c16edbbf">&lt;strong&gt;</bpt>Start Configuration Wizard now<ept id="854ccc8e-ea08-4ccf-8920-00e0c16edbbf">&lt;/strong&gt;</ept>, and then click <bpt id="8a712859-1b4c-48a5-8595-77b3ee7c5bbb">&lt;strong&gt;</bpt>Finish<ept id="8a712859-1b4c-48a5-8595-77b3ee7c5bbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ec36088-a539-4e0c-80f2-9dbadd235c21" xml:space="preserve">
+          <source>From the Start screen, click <bpt id="a6f1364a-ff16-422d-8034-6c902efce45b">&lt;strong&gt;</bpt>user1<ept id="a6f1364a-ff16-422d-8034-6c902efce45b">&lt;/strong&gt;</ept>, and then click <bpt id="a18701de-f5fe-43c4-afc0-6342bfb33c4f">&lt;strong&gt;</bpt>Sign out<ept id="a18701de-f5fe-43c4-afc0-6342bfb33c4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen, click <bpt id="a6f1364a-ff16-422d-8034-6c902efce45b">&lt;strong&gt;</bpt>user1<ept id="a6f1364a-ff16-422d-8034-6c902efce45b">&lt;/strong&gt;</ept>, and then click <bpt id="a18701de-f5fe-43c4-afc0-6342bfb33c4f">&lt;strong&gt;</bpt>Sign out<ept id="a18701de-f5fe-43c4-afc0-6342bfb33c4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e861de3-9e1b-40e9-9b23-725e2de7b492" xml:space="preserve">
+          <source>Next, enable Directory Synchronization for your Office 365 FastTrack trial.</source>
+          <target state="new">Next, enable Directory Synchronization for your Office 365 FastTrack trial.</target>
+        </trans-unit>
+        <trans-unit id="a0608216-89e2-481e-9823-623a1b9c290b" xml:space="preserve">
+          <source>On CLIENT1, on the <bpt id="5f23aa49-7529-4b43-b00a-922fb005dc75">&lt;strong&gt;</bpt>Office 365 admin center<ept id="5f23aa49-7529-4b43-b00a-922fb005dc75">&lt;/strong&gt;</ept> page, in the left pane, click <bpt id="3376b957-ee51-4df4-abe2-2c19ad8a9e73">&lt;strong&gt;</bpt>Users<ept id="3376b957-ee51-4df4-abe2-2c19ad8a9e73">&lt;/strong&gt;</ept>, and then click <bpt id="9764a29f-8dfc-4676-b1e0-4660a5ba0140">&lt;strong&gt;</bpt>Active Users<ept id="9764a29f-8dfc-4676-b1e0-4660a5ba0140">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On CLIENT1, on the <bpt id="5f23aa49-7529-4b43-b00a-922fb005dc75">&lt;strong&gt;</bpt>Office 365 admin center<ept id="5f23aa49-7529-4b43-b00a-922fb005dc75">&lt;/strong&gt;</ept> page, in the left pane, click <bpt id="3376b957-ee51-4df4-abe2-2c19ad8a9e73">&lt;strong&gt;</bpt>Users<ept id="3376b957-ee51-4df4-abe2-2c19ad8a9e73">&lt;/strong&gt;</ept>, and then click <bpt id="9764a29f-8dfc-4676-b1e0-4660a5ba0140">&lt;strong&gt;</bpt>Active Users<ept id="9764a29f-8dfc-4676-b1e0-4660a5ba0140">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5eb3af3f-064d-4472-a1f0-99aa410a461e" xml:space="preserve">
+          <source>For <bpt id="8be8080d-ce39-430d-ab04-6243400bdb51">&lt;strong&gt;</bpt>Active Directory synchronization<ept id="8be8080d-ce39-430d-ab04-6243400bdb51">&lt;/strong&gt;</ept>, click <bpt id="6a109bd4-ae82-467a-9007-5fc199bb6c25">&lt;strong&gt;</bpt>Set up<ept id="6a109bd4-ae82-467a-9007-5fc199bb6c25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="8be8080d-ce39-430d-ab04-6243400bdb51">&lt;strong&gt;</bpt>Active Directory synchronization<ept id="8be8080d-ce39-430d-ab04-6243400bdb51">&lt;/strong&gt;</ept>, click <bpt id="6a109bd4-ae82-467a-9007-5fc199bb6c25">&lt;strong&gt;</bpt>Set up<ept id="6a109bd4-ae82-467a-9007-5fc199bb6c25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83f15e80-ff77-4940-9167-df08518ea52c" xml:space="preserve">
+          <source>On the Set up and manage Active Directory synchronization page, in step 3, click <bpt id="edea93c5-83c5-41c0-a058-57227fefd154">&lt;strong&gt;</bpt>Activate<ept id="edea93c5-83c5-41c0-a058-57227fefd154">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Set up and manage Active Directory synchronization page, in step 3, click <bpt id="edea93c5-83c5-41c0-a058-57227fefd154">&lt;strong&gt;</bpt>Activate<ept id="edea93c5-83c5-41c0-a058-57227fefd154">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3eb32f68-d5f2-4a2c-8f13-39083964bed2" xml:space="preserve">
+          <source>When prompted with <bpt id="d9081f2a-7829-441e-b2cb-0c1cf4209e3b">&lt;strong&gt;</bpt>Do you want to activate Active Directory synchronization?<ept id="d9081f2a-7829-441e-b2cb-0c1cf4209e3b">&lt;/strong&gt;</ept>, click <bpt id="3a96873a-184a-49a1-962d-59381198658b">&lt;strong&gt;</bpt>Activate<ept id="3a96873a-184a-49a1-962d-59381198658b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with <bpt id="d9081f2a-7829-441e-b2cb-0c1cf4209e3b">&lt;strong&gt;</bpt>Do you want to activate Active Directory synchronization?<ept id="d9081f2a-7829-441e-b2cb-0c1cf4209e3b">&lt;/strong&gt;</ept>, click <bpt id="3a96873a-184a-49a1-962d-59381198658b">&lt;strong&gt;</bpt>Activate<ept id="3a96873a-184a-49a1-962d-59381198658b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0f250a9-f189-48a8-9fba-a24255419392" xml:space="preserve">
+          <source>After you do this, <bpt id="d45d42ca-0e64-4846-be0c-11fd003c3395">&lt;strong&gt;</bpt>Active Directory synchronization is activated<ept id="d45d42ca-0e64-4846-be0c-11fd003c3395">&lt;/strong&gt;</ept> appears in step 3.</source>
+          <target state="new">After you do this, <bpt id="d45d42ca-0e64-4846-be0c-11fd003c3395">&lt;strong&gt;</bpt>Active Directory synchronization is activated<ept id="d45d42ca-0e64-4846-be0c-11fd003c3395">&lt;/strong&gt;</ept> appears in step 3.</target>
+        </trans-unit>
+        <trans-unit id="a953fc5a-eb18-43ba-9a38-3ffc4ef85a4f" xml:space="preserve">
+          <source>Leave the <bpt id="3246d862-695f-4442-8372-270b478ec9c0">&lt;strong&gt;</bpt>Set up and manage Active Directory synchronization<ept id="3246d862-695f-4442-8372-270b478ec9c0">&lt;/strong&gt;</ept> page open on CLIENT1.</source>
+          <target state="new">Leave the <bpt id="3246d862-695f-4442-8372-270b478ec9c0">&lt;strong&gt;</bpt>Set up and manage Active Directory synchronization<ept id="3246d862-695f-4442-8372-270b478ec9c0">&lt;/strong&gt;</ept> page open on CLIENT1.</target>
+        </trans-unit>
+        <trans-unit id="ec4a5424-9f8b-484b-96a2-1a0ed8529d4c" xml:space="preserve">
+          <source>Next, log on to DC1 with the CORP\User1 account and open an administrator-level Windows PowerShell command prompt.</source>
+          <target state="new">Next, log on to DC1 with the CORP\User1 account and open an administrator-level Windows PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="e7ec8195-3e63-41b7-83a0-b58de6256bd9" xml:space="preserve">
+          <source>Run these commands one at a time to create a new organizational unit called contoso_users and add two new user accounts for Marci Kaufman and Lynda Meyer.</source>
+          <target state="new">Run these commands one at a time to create a new organizational unit called contoso_users and add two new user accounts for Marci Kaufman and Lynda Meyer.</target>
+        </trans-unit>
+        <trans-unit id="86a78b31-5537-4b70-aea9-6eb68d9ea680" xml:space="preserve">
+          <source>When you run each Windows PowerShell command, you are prompted for the new user’s password.</source>
+          <target state="new">When you run each Windows PowerShell command, you are prompted for the new user’s password.</target>
+        </trans-unit>
+        <trans-unit id="92888f4b-98a7-45aa-ac2d-3a910a18297e" xml:space="preserve">
+          <source>Record these passwords and store them in a secure location.</source>
+          <target state="new">Record these passwords and store them in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="658e5637-df0c-490c-a2fd-3829fe281390" xml:space="preserve">
+          <source>You will need them later.</source>
+          <target state="new">You will need them later.</target>
+        </trans-unit>
+        <trans-unit id="808e1ef0-ed74-4feb-8980-6043a2b4a2b3" xml:space="preserve">
+          <source>Next, configure Directory Sync on DS1.</source>
+          <target state="new">Next, configure Directory Sync on DS1.</target>
+        </trans-unit>
+        <trans-unit id="ee624c1e-3a22-4401-9df3-397a630f8baf" xml:space="preserve">
+          <source>Log in to DS1 with the CORP\User1 account.</source>
+          <target state="new">Log in to DS1 with the CORP\User1 account.</target>
+        </trans-unit>
+        <trans-unit id="b4d37547-eb38-4073-85b0-eb79c562446a" xml:space="preserve">
+          <source>On the <bpt id="bc9cbaa8-a9c2-4e1f-8b57-ea13e4a82f69">&lt;strong&gt;</bpt>Start<ept id="bc9cbaa8-a9c2-4e1f-8b57-ea13e4a82f69">&lt;/strong&gt;</ept> screen, type <bpt id="be3cb95f-4033-4fa6-a2c9-c9faea5a1248">&lt;strong&gt;</bpt>Directory Sync<ept id="be3cb95f-4033-4fa6-a2c9-c9faea5a1248">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="bc9cbaa8-a9c2-4e1f-8b57-ea13e4a82f69">&lt;strong&gt;</bpt>Start<ept id="bc9cbaa8-a9c2-4e1f-8b57-ea13e4a82f69">&lt;/strong&gt;</ept> screen, type <bpt id="be3cb95f-4033-4fa6-a2c9-c9faea5a1248">&lt;strong&gt;</bpt>Directory Sync<ept id="be3cb95f-4033-4fa6-a2c9-c9faea5a1248">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b197797-0fb4-4709-a913-bd4666bd7636" xml:space="preserve">
+          <source>Right-click <bpt id="c395ae1c-a107-40fb-8b70-5020800cdd7c">&lt;strong&gt;</bpt>Directory Sync Configuration<ept id="c395ae1c-a107-40fb-8b70-5020800cdd7c">&lt;/strong&gt;</ept>, and then click <bpt id="404b7e77-993f-4699-90e1-7bf3d4ded1ef">&lt;strong&gt;</bpt>Run as administrator<ept id="404b7e77-993f-4699-90e1-7bf3d4ded1ef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="c395ae1c-a107-40fb-8b70-5020800cdd7c">&lt;strong&gt;</bpt>Directory Sync Configuration<ept id="c395ae1c-a107-40fb-8b70-5020800cdd7c">&lt;/strong&gt;</ept>, and then click <bpt id="404b7e77-993f-4699-90e1-7bf3d4ded1ef">&lt;strong&gt;</bpt>Run as administrator<ept id="404b7e77-993f-4699-90e1-7bf3d4ded1ef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddfdbcc7-e3b7-4325-85b8-90468a3dad16" xml:space="preserve">
+          <source>This starts the configuration wizard.</source>
+          <target state="new">This starts the configuration wizard.</target>
+        </trans-unit>
+        <trans-unit id="5a4fe234-6639-4acd-9fc3-a2804c2baa68" xml:space="preserve">
+          <source>On the Welcome page, click <bpt id="1fa805df-4145-46e7-b346-6ce977304a42">&lt;strong&gt;</bpt>Next<ept id="1fa805df-4145-46e7-b346-6ce977304a42">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Welcome page, click <bpt id="1fa805df-4145-46e7-b346-6ce977304a42">&lt;strong&gt;</bpt>Next<ept id="1fa805df-4145-46e7-b346-6ce977304a42">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7fd832e-2c94-4e9f-8648-415f9db76768" xml:space="preserve">
+          <source>On the Microsoft Azure Active Directory Credentials page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2.</source>
+          <target state="new">On the Microsoft Azure Active Directory Credentials page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2.</target>
+        </trans-unit>
+        <trans-unit id="253a787f-d3d6-434b-9c09-4a9c7685cf94" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="8ab8f4fc-45ce-4629-aed3-8fab47296323" xml:space="preserve">
+          <source>On the Active Directory Credentials page, type <bpt id="4eaea018-d0f9-4c69-b2ed-6ac945e5dd9f">&lt;strong&gt;</bpt>CORP\User1<ept id="4eaea018-d0f9-4c69-b2ed-6ac945e5dd9f">&lt;/strong&gt;</ept> in <bpt id="01f80a6f-659b-4740-b779-785559db2d70">&lt;strong&gt;</bpt>User name<ept id="01f80a6f-659b-4740-b779-785559db2d70">&lt;/strong&gt;</ept> and the User1 account password in <bpt id="5738d8ba-4970-40fe-956e-af56af34923c">&lt;strong&gt;</bpt>Password<ept id="5738d8ba-4970-40fe-956e-af56af34923c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Active Directory Credentials page, type <bpt id="4eaea018-d0f9-4c69-b2ed-6ac945e5dd9f">&lt;strong&gt;</bpt>CORP\User1<ept id="4eaea018-d0f9-4c69-b2ed-6ac945e5dd9f">&lt;/strong&gt;</ept> in <bpt id="01f80a6f-659b-4740-b779-785559db2d70">&lt;strong&gt;</bpt>User name<ept id="01f80a6f-659b-4740-b779-785559db2d70">&lt;/strong&gt;</ept> and the User1 account password in <bpt id="5738d8ba-4970-40fe-956e-af56af34923c">&lt;strong&gt;</bpt>Password<ept id="5738d8ba-4970-40fe-956e-af56af34923c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68b64692-b069-4fa8-91e2-7aebc351831e" xml:space="preserve">
+          <source>Click <bpt id="58ce46c6-5fcb-4e5d-89cb-b786a1919a6a">&lt;strong&gt;</bpt>Next<ept id="58ce46c6-5fcb-4e5d-89cb-b786a1919a6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="58ce46c6-5fcb-4e5d-89cb-b786a1919a6a">&lt;strong&gt;</bpt>Next<ept id="58ce46c6-5fcb-4e5d-89cb-b786a1919a6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f025cd9e-2843-4526-97a6-9a59d1f6e3ba" xml:space="preserve">
+          <source>On the Hybrid Deployment page, select <bpt id="4511d871-b141-41c4-9c17-492e7da6779a">&lt;strong&gt;</bpt>Enable Hybrid Deployment<ept id="4511d871-b141-41c4-9c17-492e7da6779a">&lt;/strong&gt;</ept>, and then click <bpt id="102679a5-c6a7-4f86-9623-3fa75b212ea1">&lt;strong&gt;</bpt>Next<ept id="102679a5-c6a7-4f86-9623-3fa75b212ea1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Hybrid Deployment page, select <bpt id="4511d871-b141-41c4-9c17-492e7da6779a">&lt;strong&gt;</bpt>Enable Hybrid Deployment<ept id="4511d871-b141-41c4-9c17-492e7da6779a">&lt;/strong&gt;</ept>, and then click <bpt id="102679a5-c6a7-4f86-9623-3fa75b212ea1">&lt;strong&gt;</bpt>Next<ept id="102679a5-c6a7-4f86-9623-3fa75b212ea1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d381a9bb-d144-4e1c-a26d-ec627493e9bf" xml:space="preserve">
+          <source>On the Password Synchronization page, select <bpt id="9487dd84-7e5c-40d0-b2f3-1a245c63b2e9">&lt;strong&gt;</bpt>Enable Password Sync<ept id="9487dd84-7e5c-40d0-b2f3-1a245c63b2e9">&lt;/strong&gt;</ept>, and then click <bpt id="88bf546e-8f33-418b-b517-156c2e762c50">&lt;strong&gt;</bpt>Next<ept id="88bf546e-8f33-418b-b517-156c2e762c50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Password Synchronization page, select <bpt id="9487dd84-7e5c-40d0-b2f3-1a245c63b2e9">&lt;strong&gt;</bpt>Enable Password Sync<ept id="9487dd84-7e5c-40d0-b2f3-1a245c63b2e9">&lt;/strong&gt;</ept>, and then click <bpt id="88bf546e-8f33-418b-b517-156c2e762c50">&lt;strong&gt;</bpt>Next<ept id="88bf546e-8f33-418b-b517-156c2e762c50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2569521b-ee35-4df5-9443-60ab6114f33f" xml:space="preserve">
+          <source>The Configuration page displays.</source>
+          <target state="new">The Configuration page displays.</target>
+        </trans-unit>
+        <trans-unit id="8df35451-e1df-4117-96df-3f1acb44452f" xml:space="preserve">
+          <source>When configuration is complete, click <bpt id="2aabfdff-785e-4e88-8141-791da772abb2">&lt;strong&gt;</bpt>Next<ept id="2aabfdff-785e-4e88-8141-791da772abb2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When configuration is complete, click <bpt id="2aabfdff-785e-4e88-8141-791da772abb2">&lt;strong&gt;</bpt>Next<ept id="2aabfdff-785e-4e88-8141-791da772abb2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb7f471a-c0e2-4406-9753-1ced906fb7e4" xml:space="preserve">
+          <source>On the Finished page, click <bpt id="bf51251c-e05e-4db7-a69c-04ca368065b2">&lt;strong&gt;</bpt>Finish<ept id="bf51251c-e05e-4db7-a69c-04ca368065b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Finished page, click <bpt id="bf51251c-e05e-4db7-a69c-04ca368065b2">&lt;strong&gt;</bpt>Finish<ept id="bf51251c-e05e-4db7-a69c-04ca368065b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f4ce6ce-7ac1-4550-9d26-3baf165c57c5" xml:space="preserve">
+          <source>When prompted, click <bpt id="fd300d14-4dcf-4782-b372-8b73701d9068">&lt;strong&gt;</bpt>OK<ept id="fd300d14-4dcf-4782-b372-8b73701d9068">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="fd300d14-4dcf-4782-b372-8b73701d9068">&lt;strong&gt;</bpt>OK<ept id="fd300d14-4dcf-4782-b372-8b73701d9068">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f623b0a0-4b1e-4aeb-9b40-e8e8df22ea9a" xml:space="preserve">
+          <source>Next, verify that the user accounts in the CORP domain are synchronized to Office 365.</source>
+          <target state="new">Next, verify that the user accounts in the CORP domain are synchronized to Office 365.</target>
+        </trans-unit>
+        <trans-unit id="94a8c33b-5539-43b0-9e74-c5fc59bf72bb" xml:space="preserve">
+          <source>Note that it can take a few hours before synchronization occurs.</source>
+          <target state="new">Note that it can take a few hours before synchronization occurs.</target>
+        </trans-unit>
+        <trans-unit id="0f519142-c7fd-4ff3-9251-d5e1c7eeb626" xml:space="preserve">
+          <source>On CLIENT1, on the <bpt id="033d0dc3-669c-424b-bac3-e16278b08590">&lt;strong&gt;</bpt>Set up and manage Active Directory synchronization<ept id="033d0dc3-669c-424b-bac3-e16278b08590">&lt;/strong&gt;</ept> page, click the <bpt id="f83f7954-6d39-48a2-bee0-75dae9899e6b">&lt;strong&gt;</bpt>users<ept id="f83f7954-6d39-48a2-bee0-75dae9899e6b">&lt;/strong&gt;</ept> link in step 6 of this page.</source>
+          <target state="new">On CLIENT1, on the <bpt id="033d0dc3-669c-424b-bac3-e16278b08590">&lt;strong&gt;</bpt>Set up and manage Active Directory synchronization<ept id="033d0dc3-669c-424b-bac3-e16278b08590">&lt;/strong&gt;</ept> page, click the <bpt id="f83f7954-6d39-48a2-bee0-75dae9899e6b">&lt;strong&gt;</bpt>users<ept id="f83f7954-6d39-48a2-bee0-75dae9899e6b">&lt;/strong&gt;</ept> link in step 6 of this page.</target>
+        </trans-unit>
+        <trans-unit id="e766a380-4eee-45bf-99cd-c171aca80201" xml:space="preserve">
+          <source>If directory synchronization has occurred successfully, you should see something similar to this.</source>
+          <target state="new">If directory synchronization has occurred successfully, you should see something similar to this.</target>
+        </trans-unit>
+        <trans-unit id="dc0ff411-ae58-4858-a2f8-327895ae7279" xml:space="preserve">
+          <source><bpt id="add0042a-68da-4b51-b4db-d4de4b146da4">&lt;linkText&gt;</bpt><ept id="add0042a-68da-4b51-b4db-d4de4b146da4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="add0042a-68da-4b51-b4db-d4de4b146da4">&lt;linkText&gt;</bpt><ept id="add0042a-68da-4b51-b4db-d4de4b146da4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36d426eb-1f76-439f-b258-6c41fb041c03" xml:space="preserve">
+          <source>The <bpt id="3c3b739a-2ede-4d67-a1a5-1984ea8e8765">&lt;strong&gt;</bpt>Status<ept id="3c3b739a-2ede-4d67-a1a5-1984ea8e8765">&lt;/strong&gt;</ept> column indicates that the account was obtained through synchronization with an Active Directory domain.</source>
+          <target state="new">The <bpt id="3c3b739a-2ede-4d67-a1a5-1984ea8e8765">&lt;strong&gt;</bpt>Status<ept id="3c3b739a-2ede-4d67-a1a5-1984ea8e8765">&lt;/strong&gt;</ept> column indicates that the account was obtained through synchronization with an Active Directory domain.</target>
+        </trans-unit>
+        <trans-unit id="57cdfca2-171e-4d35-bba8-258a60bb38f8" xml:space="preserve">
+          <source>Next, demonstrate Office 365 password sync with the Lynda Myer Active Directory account.</source>
+          <target state="new">Next, demonstrate Office 365 password sync with the Lynda Myer Active Directory account.</target>
+        </trans-unit>
+        <trans-unit id="1dd8a3e3-a5d3-482e-817b-0cdd557a64ce" xml:space="preserve">
+          <source>On CLIENT1, on the <bpt id="547fc229-581e-43da-852d-3c638094de18">&lt;strong&gt;</bpt>Active Users<ept id="547fc229-581e-43da-852d-3c638094de18">&lt;/strong&gt;</ept> page, select the <bpt id="00993083-8688-47e7-876f-3d15802cf733">&lt;strong&gt;</bpt>Lynda Meyer<ept id="00993083-8688-47e7-876f-3d15802cf733">&lt;/strong&gt;</ept> account.</source>
+          <target state="new">On CLIENT1, on the <bpt id="547fc229-581e-43da-852d-3c638094de18">&lt;strong&gt;</bpt>Active Users<ept id="547fc229-581e-43da-852d-3c638094de18">&lt;/strong&gt;</ept> page, select the <bpt id="00993083-8688-47e7-876f-3d15802cf733">&lt;strong&gt;</bpt>Lynda Meyer<ept id="00993083-8688-47e7-876f-3d15802cf733">&lt;/strong&gt;</ept> account.</target>
+        </trans-unit>
+        <trans-unit id="2bf31f89-0f9a-4396-8621-6713a9e46a05" xml:space="preserve">
+          <source>In the properties of the Lynda Meyer account, under <bpt id="be34344b-045d-4b3e-b6ff-e388a3c87174">&lt;strong&gt;</bpt>Assigned license<ept id="be34344b-045d-4b3e-b6ff-e388a3c87174">&lt;/strong&gt;</ept>, click <bpt id="8ad506fd-6f61-442b-b181-7571b07fb931">&lt;strong&gt;</bpt>Edit<ept id="8ad506fd-6f61-442b-b181-7571b07fb931">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the properties of the Lynda Meyer account, under <bpt id="be34344b-045d-4b3e-b6ff-e388a3c87174">&lt;strong&gt;</bpt>Assigned license<ept id="be34344b-045d-4b3e-b6ff-e388a3c87174">&lt;/strong&gt;</ept>, click <bpt id="8ad506fd-6f61-442b-b181-7571b07fb931">&lt;strong&gt;</bpt>Edit<ept id="8ad506fd-6f61-442b-b181-7571b07fb931">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62b88ed2-45cc-4a3f-86b6-b47f676174e0" xml:space="preserve">
+          <source>In the <bpt id="229c1dde-a9dc-4467-9730-52c6153573c4">&lt;strong&gt;</bpt>Assign License<ept id="229c1dde-a9dc-4467-9730-52c6153573c4">&lt;/strong&gt;</ept> tab, select a location in <bpt id="b7c2701f-d816-4dde-8b80-0b4856f1bdfd">&lt;strong&gt;</bpt>Set user location<ept id="b7c2701f-d816-4dde-8b80-0b4856f1bdfd">&lt;/strong&gt;</ept> (such as United States).</source>
+          <target state="new">In the <bpt id="229c1dde-a9dc-4467-9730-52c6153573c4">&lt;strong&gt;</bpt>Assign License<ept id="229c1dde-a9dc-4467-9730-52c6153573c4">&lt;/strong&gt;</ept> tab, select a location in <bpt id="b7c2701f-d816-4dde-8b80-0b4856f1bdfd">&lt;strong&gt;</bpt>Set user location<ept id="b7c2701f-d816-4dde-8b80-0b4856f1bdfd">&lt;/strong&gt;</ept> (such as United States).</target>
+        </trans-unit>
+        <trans-unit id="003a7de4-f968-4dbd-a94d-a70257a1112e" xml:space="preserve">
+          <source>Select <bpt id="cdd359c3-efc0-42c2-a2ab-5b6a9ae6e061">&lt;strong&gt;</bpt>Microsoft Office 365 Plan E3<ept id="cdd359c3-efc0-42c2-a2ab-5b6a9ae6e061">&lt;/strong&gt;</ept>, and then click <bpt id="94bb6969-b7e8-460f-a46b-b3873c7bc387">&lt;strong&gt;</bpt>Save<ept id="94bb6969-b7e8-460f-a46b-b3873c7bc387">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="cdd359c3-efc0-42c2-a2ab-5b6a9ae6e061">&lt;strong&gt;</bpt>Microsoft Office 365 Plan E3<ept id="cdd359c3-efc0-42c2-a2ab-5b6a9ae6e061">&lt;/strong&gt;</ept>, and then click <bpt id="94bb6969-b7e8-460f-a46b-b3873c7bc387">&lt;strong&gt;</bpt>Save<ept id="94bb6969-b7e8-460f-a46b-b3873c7bc387">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb3a85dc-6b68-4c9b-895e-21ffe5e72a6a" xml:space="preserve">
+          <source>Close Internet Explorer.</source>
+          <target state="new">Close Internet Explorer.</target>
+        </trans-unit>
+        <trans-unit id="4717a67d-8d9c-40c9-84a1-052ef4cf37e8" xml:space="preserve">
+          <source>Run Internet Explorer and go to <bpt id="67a23e8f-691b-4e11-a183-7cf8212e96c3">&lt;strong&gt;</bpt>http://portal.microsoftonline.com<ept id="67a23e8f-691b-4e11-a183-7cf8212e96c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run Internet Explorer and go to <bpt id="67a23e8f-691b-4e11-a183-7cf8212e96c3">&lt;strong&gt;</bpt>http://portal.microsoftonline.com<ept id="67a23e8f-691b-4e11-a183-7cf8212e96c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad1e3c20-02ed-4a3f-809e-49e7458231b2" xml:space="preserve">
+          <source>Log on with Lynda Meyer’s Office 365 credentials. Her user name will be lyndam@&lt;<bpt id="cfed1882-6b08-43a2-b2e3-dc80b93a1858">&lt;em&gt;</bpt>Your Fictional Name<ept id="cfed1882-6b08-43a2-b2e3-dc80b93a1858">&lt;/em&gt;</ept>&gt;.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.</source>
+          <target state="new">Log on with Lynda Meyer’s Office 365 credentials. Her user name will be lyndam@&lt;<bpt id="cfed1882-6b08-43a2-b2e3-dc80b93a1858">&lt;em&gt;</bpt>Your Fictional Name<ept id="cfed1882-6b08-43a2-b2e3-dc80b93a1858">&lt;/em&gt;</ept>&gt;.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.</target>
+        </trans-unit>
+        <trans-unit id="5394a226-aad4-4276-b02e-1ab9906d777d" xml:space="preserve">
+          <source>After the successful logon, you see the Office 365 main portal page with <bpt id="0391cef5-4752-49fd-b739-a3c9f404f25d">&lt;strong&gt;</bpt>Let's make a difference today<ept id="0391cef5-4752-49fd-b739-a3c9f404f25d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the successful logon, you see the Office 365 main portal page with <bpt id="0391cef5-4752-49fd-b739-a3c9f404f25d">&lt;strong&gt;</bpt>Let's make a difference today<ept id="0391cef5-4752-49fd-b739-a3c9f404f25d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="206082d6-4bd6-439d-a84f-8f34c6acf1b0" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="2e1699b1-8d84-4d5e-9000-0e79a730ba0a" xml:space="preserve">
+          <source><bpt id="57bdf03b-efad-485b-80c5-bec4b6420ff6">&lt;linkText&gt;</bpt><ept id="57bdf03b-efad-485b-80c5-bec4b6420ff6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57bdf03b-efad-485b-80c5-bec4b6420ff6">&lt;linkText&gt;</bpt><ept id="57bdf03b-efad-485b-80c5-bec4b6420ff6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9ea7949-3c7a-4181-8156-69ed62c5ca4c" xml:space="preserve">
+          <source>This environment is now ready for you to perform testing of Office 365 applications that rely on Office 365 DirSync functionality or to test DirSync functionality and performance from DS1.</source>
+          <target state="new">This environment is now ready for you to perform testing of Office 365 applications that rely on Office 365 DirSync functionality or to test DirSync functionality and performance from DS1.</target>
+        </trans-unit>
+        <trans-unit id="ae6591dd-7fd7-427b-898d-176e0c99fc2c" xml:space="preserve">
+          <source><bpt id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;linkText&gt;</bpt>Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure<ept id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;/linkText&gt;</ept><bpt id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;title&gt;</bpt><ept id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;linkText&gt;</bpt>Deploy Office 365 Directory Synchronization (DirSync) in Microsoft Azure<ept id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;/linkText&gt;</ept><bpt id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;title&gt;</bpt><ept id="caccb0e2-483c-4afb-9987-b3a7ff79a39e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41894263-4118-4d49-b78a-4e3c5200a14f" xml:space="preserve">
+          <source><bpt id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;linkText&gt;</bpt>Solutions using Office Servers and the Cloud<ept id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;/linkText&gt;</ept><bpt id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;title&gt;</bpt><ept id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;linkText&gt;</bpt>Solutions using Office Servers and the Cloud<ept id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;/linkText&gt;</ept><bpt id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;title&gt;</bpt><ept id="2c624ee8-9d91-4c3c-a935-82bf3eac4916">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8754aaf3-0ffc-40fb-8552-e4e9e4e636e7" xml:space="preserve">
+          <source><bpt id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;/linkText&gt;</ept><bpt id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;title&gt;</bpt><ept id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;/linkText&gt;</ept><bpt id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;title&gt;</bpt><ept id="9a125eb6-575a-4fe8-a031-dde4567fb539">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f785cc5b-a9db-4525-af7a-d58287ca00e5" xml:space="preserve">
+          <source><bpt id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;/linkText&gt;</ept><bpt id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;title&gt;</bpt><ept id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;/linkText&gt;</ept><bpt id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;title&gt;</bpt><ept id="1914bb66-584a-40d2-b8d0-8f336c98f99e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f0ecdba-b1b5-4035-995d-1ce9d25740fb" xml:space="preserve">
+          <source><bpt id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;/linkText&gt;</ept><bpt id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;title&gt;</bpt><ept id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;/linkText&gt;</ept><bpt id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;title&gt;</bpt><ept id="f89ad9ac-581d-4a93-8481-396280d2aa30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="684b9318-43ab-431b-b135-a0784ba19942" xml:space="preserve">
+          <source><bpt id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;/linkText&gt;</ept><bpt id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;title&gt;</bpt><ept id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;/linkText&gt;</ept><bpt id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;title&gt;</bpt><ept id="dbc523e3-ce74-4721-afe4-d06e9aa66c92">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72afcc49-743c-4f74-846e-238c381f58f7" xml:space="preserve">
+          <source><bpt id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;/linkText&gt;</ept><bpt id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;title&gt;</bpt><ept id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;/linkText&gt;</ept><bpt id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;title&gt;</bpt><ept id="448db278-af2d-494b-b0ef-7ebc9325e16d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d09725a-0c70-4057-9b45-10d4d256ecee" xml:space="preserve">
+          <source><bpt id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;/linkText&gt;</ept><bpt id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;title&gt;</bpt><ept id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;/linkText&gt;</ept><bpt id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;title&gt;</bpt><ept id="b1299774-36bb-4d23-8d18-8cccff5f243a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

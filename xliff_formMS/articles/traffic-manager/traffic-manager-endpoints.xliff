@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ee40e042-1a95-43ee-99ab-ffaa2476f6d1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ee40e042-1a95-43ee-99ab-ffaa2476f6d1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="50cdd8c3-45f0-4baf-a4c5-591b58ed73ee">
+        <trans-unit id="5657b1dc-6108-4aac-b996-70936a5aec6f" xml:space="preserve">
+          <source>Manage endpoints in Azure Traffic Manager | Microsoft Azure</source>
+          <target state="new">Manage endpoints in Azure Traffic Manager | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c8fc52e3-9f8e-4481-9bcc-a8c6e8517f9d" xml:space="preserve">
+          <source>This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.</source>
+          <target state="new">This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="ea8a5656-9582-4861-b18e-3b56a89ccac6" xml:space="preserve">
+          <source>The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode.</source>
+          <target state="new">The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode.</target>
+        </trans-unit>
+        <trans-unit id="c090fb54-bdf5-4447-8b08-28b4aed1b95a" xml:space="preserve">
+          <source>Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters.</source>
+          <target state="new">Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters.</target>
+        </trans-unit>
+        <trans-unit id="3c6dfdd4-57db-4963-82d0-6e49fec9d979" xml:space="preserve">
+          <source>The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.</source>
+          <target state="new">The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="4fbf8a10-5ef3-4d0c-a506-f9786eef5e05" xml:space="preserve">
+          <source>You cannot add external locations or Traffic Manager profiles as endpoints using the Azure portal.</source>
+          <target state="new">You cannot add external locations or Traffic Manager profiles as endpoints using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="010d55e5-3084-4e97-b509-40b41440f139" xml:space="preserve">
+          <source>You must use the REST API <bpt id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;linkText&gt;</bpt>Create Definition<ept id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;/linkText&gt;</ept><bpt id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;title&gt;</bpt><ept id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;/title&gt;</ept> or Windows PowerShell <bpt id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;linkText&gt;</bpt>Add-AzureTrafficManagerEndpoint<ept id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;/linkText&gt;</ept><bpt id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;title&gt;</bpt><ept id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must use the REST API <bpt id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;linkText&gt;</bpt>Create Definition<ept id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;/linkText&gt;</ept><bpt id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;title&gt;</bpt><ept id="559dab6a-6056-43d7-94b2-2f0f7cdabac6">&lt;/title&gt;</ept> or Windows PowerShell <bpt id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;linkText&gt;</bpt>Add-AzureTrafficManagerEndpoint<ept id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;/linkText&gt;</ept><bpt id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;title&gt;</bpt><ept id="5e314f45-459f-491a-873e-57d9381ba7f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b5d8fe5-0929-4d58-a4c6-64be1af9650b" xml:space="preserve">
+          <source>You can also disable individual endpoints that are part of a Traffic Manager profile.</source>
+          <target state="new">You can also disable individual endpoints that are part of a Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="0cf42e14-7d0f-4184-8a9b-ede40319d7e6" xml:space="preserve">
+          <source>Endpoints include both cloud services and websites.</source>
+          <target state="new">Endpoints include both cloud services and websites.</target>
+        </trans-unit>
+        <trans-unit id="1c207c8e-adbf-45ae-8d41-b98587e77d45" xml:space="preserve">
+          <source>Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it.</source>
+          <target state="new">Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it.</target>
+        </trans-unit>
+        <trans-unit id="eae0a5d8-1370-4a1e-bb33-d99cf0086cb6" xml:space="preserve">
+          <source>This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed.</source>
+          <target state="new">This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed.</target>
+        </trans-unit>
+        <trans-unit id="8aa7c423-6e7a-4375-86c0-60c9e0074bfc" xml:space="preserve">
+          <source>Once the endpoint is up and running again, it can be enabled.</source>
+          <target state="new">Once the endpoint is up and running again, it can be enabled.</target>
+        </trans-unit>
+        <trans-unit id="776f7e22-6766-4855-bc08-89af308dd519" xml:space="preserve">
+          <source>Disabling an endpoint has nothing to do with its deployment state in Azure.</source>
+          <target state="new">Disabling an endpoint has nothing to do with its deployment state in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e51fe8f9-7a24-496a-8815-c4ec906c04d9" xml:space="preserve">
+          <source>A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager.</source>
+          <target state="new">A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="cbcce881-666f-43ed-bd3c-9cb106ac68f6" xml:space="preserve">
+          <source>Additionally, disabling an endpoint in one profile does not affect its status in another profile.</source>
+          <target state="new">Additionally, disabling an endpoint in one profile does not affect its status in another profile.</target>
+        </trans-unit>
+        <trans-unit id="39decfec-500e-409e-90ed-3315e549ab44" xml:space="preserve">
+          <source>On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</source>
+          <target state="new">On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</target>
+        </trans-unit>
+        <trans-unit id="b290e049-3a30-4b04-be9f-50d6433939ea" xml:space="preserve">
+          <source>This will open the settings page for the profile.</source>
+          <target state="new">This will open the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="ac4d1d9f-d38b-4e70-b904-113fa3a1ab96" xml:space="preserve">
+          <source>At the top of the page, click <bpt id="455e2b3d-1333-48c3-a7f7-b33b6dca0162">&lt;strong&gt;</bpt>Endpoints<ept id="455e2b3d-1333-48c3-a7f7-b33b6dca0162">&lt;/strong&gt;</ept> to view the endpoints that are already part of your configuration.</source>
+          <target state="new">At the top of the page, click <bpt id="455e2b3d-1333-48c3-a7f7-b33b6dca0162">&lt;strong&gt;</bpt>Endpoints<ept id="455e2b3d-1333-48c3-a7f7-b33b6dca0162">&lt;/strong&gt;</ept> to view the endpoints that are already part of your configuration.</target>
+        </trans-unit>
+        <trans-unit id="f8147948-ade1-48e3-8723-25ef7545b203" xml:space="preserve">
+          <source>At the bottom of the page, click <bpt id="5d9dc27a-d9c6-4bff-b807-0be949cad56f">&lt;strong&gt;</bpt>Add<ept id="5d9dc27a-d9c6-4bff-b807-0be949cad56f">&lt;/strong&gt;</ept> to access the <bpt id="0abd117a-62b1-4b72-a0df-2a2e393f5364">&lt;strong&gt;</bpt>Add Service Endpoints<ept id="0abd117a-62b1-4b72-a0df-2a2e393f5364">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">At the bottom of the page, click <bpt id="5d9dc27a-d9c6-4bff-b807-0be949cad56f">&lt;strong&gt;</bpt>Add<ept id="5d9dc27a-d9c6-4bff-b807-0be949cad56f">&lt;/strong&gt;</ept> to access the <bpt id="0abd117a-62b1-4b72-a0df-2a2e393f5364">&lt;strong&gt;</bpt>Add Service Endpoints<ept id="0abd117a-62b1-4b72-a0df-2a2e393f5364">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="39b9d236-3c93-4b63-b676-b81f955bcc51" xml:space="preserve">
+          <source>By default, the page lists the cloud services under <bpt id="72ca0582-89ea-48e1-b41d-8e87d4051e9a">&lt;strong&gt;</bpt>Service Endpoints<ept id="72ca0582-89ea-48e1-b41d-8e87d4051e9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">By default, the page lists the cloud services under <bpt id="72ca0582-89ea-48e1-b41d-8e87d4051e9a">&lt;strong&gt;</bpt>Service Endpoints<ept id="72ca0582-89ea-48e1-b41d-8e87d4051e9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fb56008-91bc-4934-9e86-1d583cdbd67f" xml:space="preserve">
+          <source>For cloud services, select the cloud services in the list to enable them as endpoints for this profile.</source>
+          <target state="new">For cloud services, select the cloud services in the list to enable them as endpoints for this profile.</target>
+        </trans-unit>
+        <trans-unit id="ecd555e7-efa7-4fbf-a48b-ecc0d52d94af" xml:space="preserve">
+          <source>Clearing the cloud service name removes it from the list of endpoints.</source>
+          <target state="new">Clearing the cloud service name removes it from the list of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="2458962d-0772-4d14-a992-a68ef043e442" xml:space="preserve">
+          <source>For websites, click the <bpt id="1bbe9493-6265-4d37-bab0-a8b7e6e67dc4">&lt;strong&gt;</bpt>Service Type<ept id="1bbe9493-6265-4d37-bab0-a8b7e6e67dc4">&lt;/strong&gt;</ept> drop-down list, and then select <bpt id="92b51ca9-ad22-41b5-8ba2-a28801fa18ae">&lt;strong&gt;</bpt>Web app<ept id="92b51ca9-ad22-41b5-8ba2-a28801fa18ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For websites, click the <bpt id="1bbe9493-6265-4d37-bab0-a8b7e6e67dc4">&lt;strong&gt;</bpt>Service Type<ept id="1bbe9493-6265-4d37-bab0-a8b7e6e67dc4">&lt;/strong&gt;</ept> drop-down list, and then select <bpt id="92b51ca9-ad22-41b5-8ba2-a28801fa18ae">&lt;strong&gt;</bpt>Web app<ept id="92b51ca9-ad22-41b5-8ba2-a28801fa18ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61b1eb2c-0f51-46f6-ba75-e5ba37baaadb" xml:space="preserve">
+          <source>Select the websites in the list to add them as endpoints for this profile.</source>
+          <target state="new">Select the websites in the list to add them as endpoints for this profile.</target>
+        </trans-unit>
+        <trans-unit id="79ed9dd0-ba30-43fd-83c2-444278c7c645" xml:space="preserve">
+          <source>Clearing the website name removes it from the list of endpoints.</source>
+          <target state="new">Clearing the website name removes it from the list of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="12bd7f47-54cc-454e-8ca0-06eba9c48538" xml:space="preserve">
+          <source>Note that you can only select a single website per Azure datacenter (also known as a region).</source>
+          <target state="new">Note that you can only select a single website per Azure datacenter (also known as a region).</target>
+        </trans-unit>
+        <trans-unit id="ac71dd39-52f6-4db3-838e-d3271e934a7d" xml:space="preserve">
+          <source>If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection.</source>
+          <target state="new">If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection.</target>
+        </trans-unit>
+        <trans-unit id="8e058bba-af92-4fd0-afec-7707a26c320f" xml:space="preserve">
+          <source>Also note that only Standard websites are listed.</source>
+          <target state="new">Also note that only Standard websites are listed.</target>
+        </trans-unit>
+        <trans-unit id="97d43130-bcef-4a83-9f2a-3d530d439414" xml:space="preserve">
+          <source>After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.</source>
+          <target state="new">After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.</target>
+        </trans-unit>
+        <trans-unit id="73ab18b3-428e-4f18-8a4c-f5468c838c03" xml:space="preserve">
+          <source>If you are using the <bpt id="dbc3b871-c2bd-4f0c-8696-4b95f5e1d195">&lt;em&gt;</bpt>Failover<ept id="dbc3b871-c2bd-4f0c-8696-4b95f5e1d195">&lt;/em&gt;</ept> traffic routing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration.</source>
+          <target state="new">If you are using the <bpt id="dbc3b871-c2bd-4f0c-8696-4b95f5e1d195">&lt;em&gt;</bpt>Failover<ept id="dbc3b871-c2bd-4f0c-8696-4b95f5e1d195">&lt;/em&gt;</ept> traffic routing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="b8140d75-64a8-4272-8875-eba1c1abeaec" xml:space="preserve">
+          <source>For more information, see <bpt id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;linkText&gt;</bpt>Configure Failover traffic routing<ept id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;/linkText&gt;</ept><bpt id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;title&gt;</bpt><ept id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;linkText&gt;</bpt>Configure Failover traffic routing<ept id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;/linkText&gt;</ept><bpt id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;title&gt;</bpt><ept id="d94dd5e4-5be0-40c9-81d0-fdefaee35c30">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2fa4b57-bd89-487d-a226-ef77c0a38f01" xml:space="preserve">
+          <source>On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</source>
+          <target state="new">On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</target>
+        </trans-unit>
+        <trans-unit id="e9703285-2bff-45b1-b4fc-fb2d64669dd6" xml:space="preserve">
+          <source>This will open the settings page for the profile.</source>
+          <target state="new">This will open the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="f6a4ffa0-fcc7-4c3e-b533-9afaafdba720" xml:space="preserve">
+          <source>At the top of the page, click <bpt id="bf9fa287-7985-4353-bf01-199ec15e3832">&lt;strong&gt;</bpt>Endpoints<ept id="bf9fa287-7985-4353-bf01-199ec15e3832">&lt;/strong&gt;</ept> to view the endpoints that are included in your configuration.</source>
+          <target state="new">At the top of the page, click <bpt id="bf9fa287-7985-4353-bf01-199ec15e3832">&lt;strong&gt;</bpt>Endpoints<ept id="bf9fa287-7985-4353-bf01-199ec15e3832">&lt;/strong&gt;</ept> to view the endpoints that are included in your configuration.</target>
+        </trans-unit>
+        <trans-unit id="b28686b3-50df-426f-ad41-3e0f8f954433" xml:space="preserve">
+          <source>Click the endpoint that you want to disable, and then click <bpt id="2f4b6338-a8c0-4e02-b583-6ce7f744f073">&lt;strong&gt;</bpt>Disable<ept id="2f4b6338-a8c0-4e02-b583-6ce7f744f073">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click the endpoint that you want to disable, and then click <bpt id="2f4b6338-a8c0-4e02-b583-6ce7f744f073">&lt;strong&gt;</bpt>Disable<ept id="2f4b6338-a8c0-4e02-b583-6ce7f744f073">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="cac9bc1c-86ca-45e7-9456-213f9515bbba" xml:space="preserve">
+          <source>Traffic will stop flowing to the endpoint based on the DNS Time-to-Live (TTL) configured for the Traffic Manager domain name.</source>
+          <target state="new">Traffic will stop flowing to the endpoint based on the DNS Time-to-Live (TTL) configured for the Traffic Manager domain name.</target>
+        </trans-unit>
+        <trans-unit id="8e3946e5-ae79-4e45-9565-3850bf160350" xml:space="preserve">
+          <source>You can change the TTL from the Configuration page of the Traffic Manager profile.</source>
+          <target state="new">You can change the TTL from the Configuration page of the Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="9f3ecf5d-6300-4c2b-9d48-d4c79579c08f" xml:space="preserve">
+          <source>On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</source>
+          <target state="new">On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</target>
+        </trans-unit>
+        <trans-unit id="cbf829ac-5dcf-46a3-8e9b-95c218f68c91" xml:space="preserve">
+          <source>This will open the settings page for the profile.</source>
+          <target state="new">This will open the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="5233b657-0861-46c9-a513-d764245e3879" xml:space="preserve">
+          <source>At the top of the page, click <bpt id="a05f833d-526b-4fd8-b576-018c739d28d7">&lt;strong&gt;</bpt>Endpoints<ept id="a05f833d-526b-4fd8-b576-018c739d28d7">&lt;/strong&gt;</ept> to view the endpoints that are included in your configuration.</source>
+          <target state="new">At the top of the page, click <bpt id="a05f833d-526b-4fd8-b576-018c739d28d7">&lt;strong&gt;</bpt>Endpoints<ept id="a05f833d-526b-4fd8-b576-018c739d28d7">&lt;/strong&gt;</ept> to view the endpoints that are included in your configuration.</target>
+        </trans-unit>
+        <trans-unit id="032999f5-9b97-4acc-8dbd-2c490d46f9e6" xml:space="preserve">
+          <source>Click the endpoint that you want to enable, and then click <bpt id="81e2e6d9-5dc0-45df-aea7-551f2af7716a">&lt;strong&gt;</bpt>Enable<ept id="81e2e6d9-5dc0-45df-aea7-551f2af7716a">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click the endpoint that you want to enable, and then click <bpt id="81e2e6d9-5dc0-45df-aea7-551f2af7716a">&lt;strong&gt;</bpt>Enable<ept id="81e2e6d9-5dc0-45df-aea7-551f2af7716a">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="857a21e5-28b1-4a9b-80ee-d9e67c60ea9b" xml:space="preserve">
+          <source>Traffic will start flowing to the service again as dictated by the profile.</source>
+          <target state="new">Traffic will start flowing to the service again as dictated by the profile.</target>
+        </trans-unit>
+        <trans-unit id="24b9f526-fbdb-4897-802c-7312bcfcb434" xml:space="preserve">
+          <source>On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</source>
+          <target state="new">On the Traffic Manager pane in the Azure portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name.</target>
+        </trans-unit>
+        <trans-unit id="971440dd-c806-44b7-8cc7-8ad63d3b6b14" xml:space="preserve">
+          <source>This will open the settings page for the profile.</source>
+          <target state="new">This will open the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="0f1b15da-2e2c-4597-b171-8f75eba3729d" xml:space="preserve">
+          <source>At the top of the page, click <bpt id="14b0d611-1e62-4c3f-afd7-20032dbb2721">&lt;strong&gt;</bpt>Endpoints<ept id="14b0d611-1e62-4c3f-afd7-20032dbb2721">&lt;/strong&gt;</ept> to view the endpoints that are already part of your configuration.</source>
+          <target state="new">At the top of the page, click <bpt id="14b0d611-1e62-4c3f-afd7-20032dbb2721">&lt;strong&gt;</bpt>Endpoints<ept id="14b0d611-1e62-4c3f-afd7-20032dbb2721">&lt;/strong&gt;</ept> to view the endpoints that are already part of your configuration.</target>
+        </trans-unit>
+        <trans-unit id="a0ad1901-80ce-4124-b132-b9c20405ce21" xml:space="preserve">
+          <source>On the Endpoints page, click the name of the endpoint that you want to delete from the profile.</source>
+          <target state="new">On the Endpoints page, click the name of the endpoint that you want to delete from the profile.</target>
+        </trans-unit>
+        <trans-unit id="42b99914-c81a-4d51-96d4-24113480ee10" xml:space="preserve">
+          <source>At the bottom of the page, click <bpt id="b98e6013-2afa-48a3-9b3a-eda900bec8f4">&lt;strong&gt;</bpt>Delete<ept id="b98e6013-2afa-48a3-9b3a-eda900bec8f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the page, click <bpt id="b98e6013-2afa-48a3-9b3a-eda900bec8f4">&lt;strong&gt;</bpt>Delete<ept id="b98e6013-2afa-48a3-9b3a-eda900bec8f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f285c3a-f287-4db4-bf97-09bf55a1ac3d" xml:space="preserve">
+          <source>You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure portal.</source>
+          <target state="new">You cannot delete external locations or Traffic Manager profiles as endpoints using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="a0de50e3-6883-4d36-bfa5-5c0305180f20" xml:space="preserve">
+          <source>You must use Windows PowerShell.</source>
+          <target state="new">You must use Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="548c433d-be56-42cc-8e0e-25cefa0b7b43" xml:space="preserve">
+          <source>For more information, see <bpt id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;linkText&gt;</bpt>Remove-AzureTrafficManagerEndpoint<ept id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;/linkText&gt;</ept><bpt id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;title&gt;</bpt><ept id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;linkText&gt;</bpt>Remove-AzureTrafficManagerEndpoint<ept id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;/linkText&gt;</ept><bpt id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;title&gt;</bpt><ept id="dc48e174-d9c2-4621-af04-961ab515c30f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c00b986-3a7e-40fc-8766-21fe9b270a82" xml:space="preserve">
+          <source><bpt id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;linkText&gt;</bpt>Traffic Manager overview<ept id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;/linkText&gt;</ept><bpt id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;title&gt;</bpt><ept id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;linkText&gt;</bpt>Traffic Manager overview<ept id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;/linkText&gt;</ept><bpt id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;title&gt;</bpt><ept id="b20af508-a2ed-498c-b155-17b6da95daf8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e52563f5-118b-472c-ae6d-a3d87f809090" xml:space="preserve">
+          <source><bpt id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;linkText&gt;</bpt>About Traffic Manager monitoring<ept id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;/linkText&gt;</ept><bpt id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;title&gt;</bpt><ept id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;linkText&gt;</bpt>About Traffic Manager monitoring<ept id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;/linkText&gt;</ept><bpt id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;title&gt;</bpt><ept id="b24cf5c0-1795-4937-83c0-e429c11dffc6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fa4e830-b07e-4b6c-b800-0af16b338f6d" xml:space="preserve">
+          <source><bpt id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;/linkText&gt;</ept><bpt id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;title&gt;</bpt><ept id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;/linkText&gt;</ept><bpt id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;title&gt;</bpt><ept id="f65d57ba-e79e-4006-9933-61174e6c285e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="087931f4-968f-44c6-9f82-a2cdc8b56efb" xml:space="preserve">
+          <source><bpt id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;/linkText&gt;</ept><bpt id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;title&gt;</bpt><ept id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;/linkText&gt;</ept><bpt id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;title&gt;</bpt><ept id="0dab102d-4bcd-4e81-9856-cea50d746ec2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e457171-d471-4b88-b269-1b4dcf96c654" xml:space="preserve">
+          <source><bpt id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;/linkText&gt;</ept><bpt id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;title&gt;</bpt><ept id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;/linkText&gt;</ept><bpt id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;title&gt;</bpt><ept id="222c7207-1956-4efd-9de0-8ce79f8cc5db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f012a312-58f0-4602-9268-f194e9bd1456" xml:space="preserve">
+          <source><bpt id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;linkText&gt;</bpt>Cloud Services<ept id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;/linkText&gt;</ept><bpt id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;title&gt;</bpt><ept id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;linkText&gt;</bpt>Cloud Services<ept id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;/linkText&gt;</ept><bpt id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;title&gt;</bpt><ept id="1b4e3902-dbaf-4f91-8908-26fce02fb53f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2083ec35-aecf-4cc4-bb71-31279a60a770" xml:space="preserve">
+          <source><bpt id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;linkText&gt;</bpt>Websites<ept id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;/linkText&gt;</ept><bpt id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;title&gt;</bpt><ept id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;linkText&gt;</bpt>Websites<ept id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;/linkText&gt;</ept><bpt id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;title&gt;</bpt><ept id="730d2d6c-bc29-4b6a-90d5-25163e72388d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

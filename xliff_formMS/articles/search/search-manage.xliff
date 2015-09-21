@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bdd411b3-b410-4fa4-aeae-7298751bd9f9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bdd411b3-b410-4fa4-aeae-7298751bd9f9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c9d3a4ca-3e9d-49b7-ba2d-ea8b513803d2">
+        <trans-unit id="9f18ad4b-b23d-4ada-b1a2-9abbe89c2b5a" xml:space="preserve">
+          <source>Manage your Search service on Microsoft Azure | Microsoft Azure</source>
+          <target state="new">Manage your Search service on Microsoft Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0063cda1-7b31-4524-be3d-16e2482e91e0" xml:space="preserve">
+          <source>Manage your Search service on Microsoft Azure</source>
+          <target state="new">Manage your Search service on Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2b6ba839-9a4a-4a45-aac8-e79593278582" xml:space="preserve">
+          <source>Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications.</source>
+          <target state="new">Azure Search is a cloud-based service and HTTP-based API that can be used in custom search applications.</target>
+        </trans-unit>
+        <trans-unit id="a91e97eb-3a2f-45e5-8e63-31a362a3d7ac" xml:space="preserve">
+          <source>Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax.</source>
+          <target state="new">Our Search service provides the engine for full-text search text analysis, advanced search features, search data storage, and a query command syntax.</target>
+        </trans-unit>
+        <trans-unit id="f8a95af6-5c09-4731-8e86-732d389ec677" xml:space="preserve">
+          <source>This article explains how to administer a Search service in the <bpt id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;linkText&gt;</bpt>Azure portal<ept id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;/linkText&gt;</ept><bpt id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;title&gt;</bpt><ept id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article explains how to administer a Search service in the <bpt id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;linkText&gt;</bpt>Azure portal<ept id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;/linkText&gt;</ept><bpt id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;title&gt;</bpt><ept id="00fe07a0-8499-4464-a391-3e7660e8fbb2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0fada49-d2d2-47e3-aee5-11a8d03cb38e" xml:space="preserve">
+          <source>Alternatively, you can use the Management REST API.</source>
+          <target state="new">Alternatively, you can use the Management REST API.</target>
+        </trans-unit>
+        <trans-unit id="4e53a44c-5921-4e6c-96e2-847f315520a4" xml:space="preserve">
+          <source>See <bpt id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;linkText&gt;</bpt>Get started with Azure Search Management REST API<ept id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;/linkText&gt;</ept><bpt id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;title&gt;</bpt><ept id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;/title&gt;</ept> and <bpt id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;linkText&gt;</bpt>Azure Search Management REST API reference<ept id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;/linkText&gt;</ept><bpt id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;title&gt;</bpt><ept id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;linkText&gt;</bpt>Get started with Azure Search Management REST API<ept id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;/linkText&gt;</ept><bpt id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;title&gt;</bpt><ept id="6c5bd6c5-80d1-47e7-88a3-202d5a526a3f">&lt;/title&gt;</ept> and <bpt id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;linkText&gt;</bpt>Azure Search Management REST API reference<ept id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;/linkText&gt;</ept><bpt id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;title&gt;</bpt><ept id="eb7fa4e3-c739-4579-9b79-9d12892d7cbb">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="6e447cab-dce3-45eb-a667-6a23be0eb8ce" xml:space="preserve">
+          <source><bpt id="25976e2f-530b-4ad3-ad07-04ef376e5e9a">&lt;bookmark&gt;</bpt><ept id="25976e2f-530b-4ad3-ad07-04ef376e5e9a">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="25976e2f-530b-4ad3-ad07-04ef376e5e9a">&lt;bookmark&gt;</bpt><ept id="25976e2f-530b-4ad3-ad07-04ef376e5e9a">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43d5ce4c-4190-4a2e-ae94-a0adc573c061" xml:space="preserve">
+          <source>As the administrator setting up a Search service, one of your first decisions is choosing a pricing tier.</source>
+          <target state="new">As the administrator setting up a Search service, one of your first decisions is choosing a pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="0f061ef1-9174-491d-bc72-7ebef75cf2b4" xml:space="preserve">
+          <source>Options include the Free and Standard pricing tiers.</source>
+          <target state="new">Options include the Free and Standard pricing tiers.</target>
+        </trans-unit>
+        <trans-unit id="43f32584-3b7c-40f4-ae85-4dfc38f0dba0" xml:space="preserve">
+          <source>At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects.</source>
+          <target state="new">At no charge to existing subscribers, you can opt for a shared service, recommended for learning purposes, proof-of-concept testing, and small developmental projects.</target>
+        </trans-unit>
+        <trans-unit id="3adb67e1-b245-40ed-a2d4-847793d24900" xml:space="preserve">
+          <source>The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed.</source>
+          <target state="new">The shared service is constrained by 50 MB of storage, three indexes, and document count - a hard limit of 10,000 document, even if storage consumption is less than the full 50 MB allowed.</target>
+        </trans-unit>
+        <trans-unit id="d916878d-b394-4bf8-b21f-dd26846d2379" xml:space="preserve">
+          <source>There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.</source>
+          <target state="new">There are no performance guarantees with the Shared service, so if you're building a production search application, consider Standard search instead.</target>
+        </trans-unit>
+        <trans-unit id="e7929896-e3bf-4b63-8aa8-b7da6e5d9065" xml:space="preserve">
+          <source>Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription.</source>
+          <target state="new">Standard search is billable because you are signing up for dedicated resources and infrastructure used only by your subscription.</target>
+        </trans-unit>
+        <trans-unit id="ccd11eb2-b63b-49e9-a149-625c8d10143d" xml:space="preserve">
+          <source>Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit.</source>
+          <target state="new">Standard search is allocated in user-defined bundles of partitions (storage) and replicas (service workloads), and priced by search unit.</target>
+        </trans-unit>
+        <trans-unit id="e481a75e-aba8-4cdb-9633-4d21d41e1077" xml:space="preserve">
+          <source>You can scale up on partitions or replicas independently, adding more of whatever resource is needed.</source>
+          <target state="new">You can scale up on partitions or replicas independently, adding more of whatever resource is needed.</target>
+        </trans-unit>
+        <trans-unit id="a874e86d-7229-496b-9f99-536c3a347489" xml:space="preserve">
+          <source>To plan for capacity and understand the billing impact, we recommend these links:</source>
+          <target state="new">To plan for capacity and understand the billing impact, we recommend these links:</target>
+        </trans-unit>
+        <trans-unit id="d22270d4-448f-4983-9329-81bdbb79f26e" xml:space="preserve">
+          <source><bpt id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;linkText&gt;</bpt>Limits and constraints<ept id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;/linkText&gt;</ept><bpt id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;title&gt;</bpt><ept id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;linkText&gt;</bpt>Limits and constraints<ept id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;/linkText&gt;</ept><bpt id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;title&gt;</bpt><ept id="3929ebae-0192-4690-ad37-109a8e120eb3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cb8d248-392c-4cd0-8b92-7ac582205a4a" xml:space="preserve">
+          <source><bpt id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;linkText&gt;</bpt>Pricing Details<ept id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;/linkText&gt;</ept><bpt id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;title&gt;</bpt><ept id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;linkText&gt;</bpt>Pricing Details<ept id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;/linkText&gt;</ept><bpt id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;title&gt;</bpt><ept id="d95d3b3b-5281-48fe-8a00-5d54ad81df16">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17bd984a-21c8-4b01-bb4c-759db066eaab" xml:space="preserve">
+          <source>When you are ready to sign up, see <bpt id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;/linkText&gt;</ept><bpt id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;title&gt;</bpt><ept id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;/title&gt;</ept>.</source>
+          <target state="new">When you are ready to sign up, see <bpt id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;/linkText&gt;</ept><bpt id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;title&gt;</bpt><ept id="f1be767b-fa50-4dad-9629-fc3d03c29ed5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dc769f8-b1a2-4180-8353-6e4c124c3fcb" xml:space="preserve">
+          <source><bpt id="5e947b19-4bf2-4dd0-b3fa-cbdad27061de">&lt;bookmark&gt;</bpt><ept id="5e947b19-4bf2-4dd0-b3fa-cbdad27061de">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="5e947b19-4bf2-4dd0-b3fa-cbdad27061de">&lt;bookmark&gt;</bpt><ept id="5e947b19-4bf2-4dd0-b3fa-cbdad27061de">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5aec5a29-cd40-410f-9ac7-c887a0fe02b5" xml:space="preserve">
+          <source>Although some services can have co-administrators, an Azure Search service has one administrator per subscription.</source>
+          <target state="new">Although some services can have co-administrators, an Azure Search service has one administrator per subscription.</target>
+        </trans-unit>
+        <trans-unit id="48125bf9-91bf-4dc2-9214-0b1635afaf54" xml:space="preserve">
+          <source>You need to be an administrator to perform the tasks outlined in this section.</source>
+          <target state="new">You need to be an administrator to perform the tasks outlined in this section.</target>
+        </trans-unit>
+        <trans-unit id="3e3c0b8f-0f1e-41d1-a0aa-bd8e40d83acc" xml:space="preserve">
+          <source>Besides adding Search to the subscription, an administrator is responsible for these additional tasks:</source>
+          <target state="new">Besides adding Search to the subscription, an administrator is responsible for these additional tasks:</target>
+        </trans-unit>
+        <trans-unit id="fb6ccc1c-d389-4585-99d7-736849cad730" xml:space="preserve">
+          <source>Distribution of the service URL (defined during service provisioning).</source>
+          <target state="new">Distribution of the service URL (defined during service provisioning).</target>
+        </trans-unit>
+        <trans-unit id="cf0536cc-4604-4860-b737-b89d8d0f6ca9" xml:space="preserve">
+          <source>Management and distribution of the api-keys.</source>
+          <target state="new">Management and distribution of the api-keys.</target>
+        </trans-unit>
+        <trans-unit id="bd98e777-7f3b-4d9e-999d-ec9577bb0172" xml:space="preserve">
+          <source>Monitor resource usage</source>
+          <target state="new">Monitor resource usage</target>
+        </trans-unit>
+        <trans-unit id="bfd6feae-92f0-4935-af0f-b030aa985933" xml:space="preserve">
+          <source>Scale up or down (applies to standard search only)</source>
+          <target state="new">Scale up or down (applies to standard search only)</target>
+        </trans-unit>
+        <trans-unit id="d8e00e07-6d83-4368-b6db-d568e4eba7c5" xml:space="preserve">
+          <source>Start or stop the service</source>
+          <target state="new">Start or stop the service</target>
+        </trans-unit>
+        <trans-unit id="eb386156-3457-4180-9e45-dfcc335d9f2c" xml:space="preserve">
+          <source>Set roles to control administrative access</source>
+          <target state="new">Set roles to control administrative access</target>
+        </trans-unit>
+        <trans-unit id="e97d2087-ac4e-4929-ac1a-0a33cd2cf8e8" xml:space="preserve">
+          <source><bpt id="85db6b2e-ea5f-4701-9911-911493eb292d">&lt;bookmark&gt;</bpt><ept id="85db6b2e-ea5f-4701-9911-911493eb292d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="85db6b2e-ea5f-4701-9911-911493eb292d">&lt;bookmark&gt;</bpt><ept id="85db6b2e-ea5f-4701-9911-911493eb292d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec5d5d41-b660-4a0c-8dc4-1fa658c4e8e4" xml:space="preserve">
+          <source>The service URL is defined as a fixed property when you create the service; it cannot be changed later.</source>
+          <target state="new">The service URL is defined as a fixed property when you create the service; it cannot be changed later.</target>
+        </trans-unit>
+        <trans-unit id="a870af57-c6df-43ce-8dea-bc543b76bc08" xml:space="preserve">
+          <source>Developers who are building search applications will need to know the service URL for HTTP requests.</source>
+          <target state="new">Developers who are building search applications will need to know the service URL for HTTP requests.</target>
+        </trans-unit>
+        <trans-unit id="d6ae9f9d-ecaa-4ab6-a91c-71b77901bdc0" xml:space="preserve">
+          <source>You can quickly locate the service URL via the service dashboard.</source>
+          <target state="new">You can quickly locate the service URL via the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="7a411582-ad38-4f84-9f13-4158eb783d5b" xml:space="preserve">
+          <source>To get the service URL from the service dashboard:</source>
+          <target state="new">To get the service URL from the service dashboard:</target>
+        </trans-unit>
+        <trans-unit id="92ffea8e-13c8-4df4-917a-be1776824cff" xml:space="preserve">
+          <source>Sign in to the <bpt id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;linkText&gt;</bpt>Azure portal<ept id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;/linkText&gt;</ept><bpt id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;title&gt;</bpt><ept id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;linkText&gt;</bpt>Azure portal<ept id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;/linkText&gt;</ept><bpt id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;title&gt;</bpt><ept id="cefcd232-5f61-4f4b-a524-221424e08a0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcc714a5-bb41-41e5-8b20-5ce6aba9a34c" xml:space="preserve">
+          <source>Click <bpt id="9bdfdd50-bfc2-4fd2-8796-0339238d4aeb">&lt;strong&gt;</bpt>Browse<ept id="9bdfdd50-bfc2-4fd2-8796-0339238d4aeb">&lt;/strong&gt;</ept> | <bpt id="9c4c950d-4f34-4525-9775-3e27fa16fcad">&lt;strong&gt;</bpt>Everything<ept id="9c4c950d-4f34-4525-9775-3e27fa16fcad">&lt;/strong&gt;</ept> | <bpt id="c4080098-5b3f-449f-baf1-5ff917a9375e">&lt;strong&gt;</bpt>Search services<ept id="c4080098-5b3f-449f-baf1-5ff917a9375e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9bdfdd50-bfc2-4fd2-8796-0339238d4aeb">&lt;strong&gt;</bpt>Browse<ept id="9bdfdd50-bfc2-4fd2-8796-0339238d4aeb">&lt;/strong&gt;</ept> | <bpt id="9c4c950d-4f34-4525-9775-3e27fa16fcad">&lt;strong&gt;</bpt>Everything<ept id="9c4c950d-4f34-4525-9775-3e27fa16fcad">&lt;/strong&gt;</ept> | <bpt id="c4080098-5b3f-449f-baf1-5ff917a9375e">&lt;strong&gt;</bpt>Search services<ept id="c4080098-5b3f-449f-baf1-5ff917a9375e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69ec8109-32fc-446d-9bee-4705d5fa31fc" xml:space="preserve">
+          <source>Click the name of your search service to open the dashboard.</source>
+          <target state="new">Click the name of your search service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="5ba1e775-f1b2-45b8-a96a-94cad656c225" xml:space="preserve">
+          <source>Click <bpt id="83103afb-756b-4edf-ad60-d78e4ee04b51">&lt;strong&gt;</bpt>PROPERTIES<ept id="83103afb-756b-4edf-ad60-d78e4ee04b51">&lt;/strong&gt;</ept> to slide open a property page.</source>
+          <target state="new">Click <bpt id="83103afb-756b-4edf-ad60-d78e4ee04b51">&lt;strong&gt;</bpt>PROPERTIES<ept id="83103afb-756b-4edf-ad60-d78e4ee04b51">&lt;/strong&gt;</ept> to slide open a property page.</target>
+        </trans-unit>
+        <trans-unit id="b3c26cbb-b5cd-4a72-894d-186d2ec66c36" xml:space="preserve">
+          <source>The service URL is at the top of the page.</source>
+          <target state="new">The service URL is at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="0e7dc5c2-374a-41ad-9d3a-642458f711f2" xml:space="preserve">
+          <source>You can pin this page for fast access later.</source>
+          <target state="new">You can pin this page for fast access later.</target>
+        </trans-unit>
+        <trans-unit id="e35831d7-f4b4-480c-ba4c-97ee10401039" xml:space="preserve">
+          <source><bpt id="8584f9c7-e6d8-452a-99e3-0fae7c331dd0">&lt;linkText&gt;</bpt><ept id="8584f9c7-e6d8-452a-99e3-0fae7c331dd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8584f9c7-e6d8-452a-99e3-0fae7c331dd0">&lt;linkText&gt;</bpt><ept id="8584f9c7-e6d8-452a-99e3-0fae7c331dd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee7245a7-ee95-4b33-87d2-1e3b4e52905b" xml:space="preserve">
+          <source>Developers might also ask you about the api-version.</source>
+          <target state="new">Developers might also ask you about the api-version.</target>
+        </trans-unit>
+        <trans-unit id="60870e71-c940-406c-b672-56635a972a92" xml:space="preserve">
+          <source>A coding requirement of Azure Search API is to always specify the api-version in the request.</source>
+          <target state="new">A coding requirement of Azure Search API is to always specify the api-version in the request.</target>
+        </trans-unit>
+        <trans-unit id="b8e44531-6dcc-4d85-8391-25e875267812" xml:space="preserve">
+          <source>This requirement exists so that developers can continue using a previous version, and then move up to a later version when the timing is right.</source>
+          <target state="new">This requirement exists so that developers can continue using a previous version, and then move up to a later version when the timing is right.</target>
+        </trans-unit>
+        <trans-unit id="1e9f0887-32c3-4a8b-8aa7-b6ed03c0391d" xml:space="preserve">
+          <source>The api-version is not displayed in the portal pages, so that is not information that you can provide.</source>
+          <target state="new">The api-version is not displayed in the portal pages, so that is not information that you can provide.</target>
+        </trans-unit>
+        <trans-unit id="dbb9747c-afe0-4ae5-bb64-1f127d8e1e92" xml:space="preserve">
+          <source>For information about current and previous API versions, see the <bpt id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;/linkText&gt;</ept><bpt id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;title&gt;</bpt><ept id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about current and previous API versions, see the <bpt id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;/linkText&gt;</ept><bpt id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;title&gt;</bpt><ept id="474805fa-ca5f-419f-b7c7-36972349116f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b42ae2e1-8656-40d2-aefd-d568710c42c1" xml:space="preserve">
+          <source><bpt id="6a95b5f7-629a-4d01-bee2-4465f82efd88">&lt;bookmark&gt;</bpt><ept id="6a95b5f7-629a-4d01-bee2-4465f82efd88">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="6a95b5f7-629a-4d01-bee2-4465f82efd88">&lt;bookmark&gt;</bpt><ept id="6a95b5f7-629a-4d01-bee2-4465f82efd88">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da7504dd-48a6-4682-b46e-4facf8f57e41" xml:space="preserve">
+          <source>Developers who are building search applications will need to have an api-key in order to access Search.</source>
+          <target state="new">Developers who are building search applications will need to have an api-key in order to access Search.</target>
+        </trans-unit>
+        <trans-unit id="392d09b2-18cc-47ef-b327-59a96edb3b10" xml:space="preserve">
+          <source>Every HTTP request to your search service will need an api-key that was generated specifically for your service.</source>
+          <target state="new">Every HTTP request to your search service will need an api-key that was generated specifically for your service.</target>
+        </trans-unit>
+        <trans-unit id="0e121069-5dad-4166-a172-17e2b376c4e2" xml:space="preserve">
+          <source>This api-key is the sole mechanism for authenticating to your search service URL.</source>
+          <target state="new">This api-key is the sole mechanism for authenticating to your search service URL.</target>
+        </trans-unit>
+        <trans-unit id="cd5b2f19-1b86-4592-8014-5fd6774c3096" xml:space="preserve">
+          <source>Two types of keys are used to access your search service:</source>
+          <target state="new">Two types of keys are used to access your search service:</target>
+        </trans-unit>
+        <trans-unit id="64b2933c-f177-42e5-8677-d6c01d3ac8e8" xml:space="preserve">
+          <source>Admin (valid for any operation)</source>
+          <target state="new">Admin (valid for any operation)</target>
+        </trans-unit>
+        <trans-unit id="4aedbf81-a22c-4095-b4ad-294463688160" xml:space="preserve">
+          <source>Query (valid only for query requests)</source>
+          <target state="new">Query (valid only for query requests)</target>
+        </trans-unit>
+        <trans-unit id="efec6858-e056-48d4-b18c-6ab58a65d964" xml:space="preserve">
+          <source>An admin api-key is created with the service.</source>
+          <target state="new">An admin api-key is created with the service.</target>
+        </trans-unit>
+        <trans-unit id="0e368a13-228a-4bad-9b0f-72ac8cd91c63" xml:space="preserve">
+          <source>There is a primary key and secondary key.</source>
+          <target state="new">There is a primary key and secondary key.</target>
+        </trans-unit>
+        <trans-unit id="8b008470-fe4d-4d2c-8fe8-cb6b3f6eca66" xml:space="preserve">
+          <source>You can use them equally; neither one conveys a higher or lower level of access, which is useful in the event you want to roll over keys.</source>
+          <target state="new">You can use them equally; neither one conveys a higher or lower level of access, which is useful in the event you want to roll over keys.</target>
+        </trans-unit>
+        <trans-unit id="b6666261-1824-49a3-9a6f-c2cba71e04f3" xml:space="preserve">
+          <source>You can regenerate either admin key, but you cannot add to the total admin key count.</source>
+          <target state="new">You can regenerate either admin key, but you cannot add to the total admin key count.</target>
+        </trans-unit>
+        <trans-unit id="d984dbf6-f86f-4ff7-ad40-b88298991697" xml:space="preserve">
+          <source>There can be a maximum of two admin keys per search service.</source>
+          <target state="new">There can be a maximum of two admin keys per search service.</target>
+        </trans-unit>
+        <trans-unit id="0c4b74a1-f645-4238-ab1b-108506b23b86" xml:space="preserve">
+          <source>Query keys are designed for use in client applications that call Search directly.</source>
+          <target state="new">Query keys are designed for use in client applications that call Search directly.</target>
+        </trans-unit>
+        <trans-unit id="d21ffa98-6bb9-4e0c-827a-88bb3804a783" xml:space="preserve">
+          <source>You can create up to 50 query keys.</source>
+          <target state="new">You can create up to 50 query keys.</target>
+        </trans-unit>
+        <trans-unit id="a38c108d-3e17-4616-9823-9f7919c8b0e8" xml:space="preserve">
+          <source>To get or regenerate api-keys, open the service dashboard.</source>
+          <target state="new">To get or regenerate api-keys, open the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="9f931491-d108-4855-a860-e8cfd896a59a" xml:space="preserve">
+          <source>Click <bpt id="ad34b305-9899-493c-93ca-822db738913d">&lt;strong&gt;</bpt>KEYS<ept id="ad34b305-9899-493c-93ca-822db738913d">&lt;/strong&gt;</ept> to slide open the key management page.</source>
+          <target state="new">Click <bpt id="ad34b305-9899-493c-93ca-822db738913d">&lt;strong&gt;</bpt>KEYS<ept id="ad34b305-9899-493c-93ca-822db738913d">&lt;/strong&gt;</ept> to slide open the key management page.</target>
+        </trans-unit>
+        <trans-unit id="ac08c5a9-084b-4f57-a294-d240966bd3d3" xml:space="preserve">
+          <source>Commands for regenerating or creating keys are at the top of the page.</source>
+          <target state="new">Commands for regenerating or creating keys are at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="6f114934-960d-48c9-84c4-3ca7551e9b5c" xml:space="preserve">
+          <source> <bpt id="9baca25d-aa4c-45ff-9628-6692f8a27efd">&lt;linkText&gt;</bpt><ept id="9baca25d-aa4c-45ff-9628-6692f8a27efd">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="9baca25d-aa4c-45ff-9628-6692f8a27efd">&lt;linkText&gt;</bpt><ept id="9baca25d-aa4c-45ff-9628-6692f8a27efd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a470729e-5a20-43e6-b614-e343a032a8bb" xml:space="preserve">
+          <source><bpt id="47ee3b07-9828-4626-9a95-6d5902bfbc66">&lt;bookmark&gt;</bpt><ept id="47ee3b07-9828-4626-9a95-6d5902bfbc66">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="47ee3b07-9828-4626-9a95-6d5902bfbc66">&lt;bookmark&gt;</bpt><ept id="47ee3b07-9828-4626-9a95-6d5902bfbc66">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17a30359-369a-423d-b5f7-329d989bcea9" xml:space="preserve">
+          <source>In this public preview, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service.</source>
+          <target state="new">In this public preview, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service.</target>
+        </trans-unit>
+        <trans-unit id="dc93b69c-4d6a-470e-8f10-5908316ddae1" xml:space="preserve">
+          <source>On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.</source>
+          <target state="new">On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.</target>
+        </trans-unit>
+        <trans-unit id="60cf6155-86a9-4fd6-a0de-386fc52d2468" xml:space="preserve">
+          <source>Using the Search Service API, you can get a count on documents and indexes.</source>
+          <target state="new">Using the Search Service API, you can get a count on documents and indexes.</target>
+        </trans-unit>
+        <trans-unit id="4a2dc64c-69fe-49c5-ad28-a64bed1d1d10" xml:space="preserve">
+          <source>There are hard limits associated with these counts based on the pricing tier.</source>
+          <target state="new">There are hard limits associated with these counts based on the pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="49a5eb76-6df9-4767-a395-8847042de7d6" xml:space="preserve">
+          <source>See <bpt id="92e7c499-220b-45c5-be9a-17f742285899">&lt;linkText&gt;</bpt>Limits and constraints<ept id="92e7c499-220b-45c5-be9a-17f742285899">&lt;/linkText&gt;</ept><bpt id="92e7c499-220b-45c5-be9a-17f742285899">&lt;title&gt;</bpt><ept id="92e7c499-220b-45c5-be9a-17f742285899">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="92e7c499-220b-45c5-be9a-17f742285899">&lt;linkText&gt;</bpt>Limits and constraints<ept id="92e7c499-220b-45c5-be9a-17f742285899">&lt;/linkText&gt;</ept><bpt id="92e7c499-220b-45c5-be9a-17f742285899">&lt;title&gt;</bpt><ept id="92e7c499-220b-45c5-be9a-17f742285899">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="089332d8-9b73-407b-bcdc-70879b2aa80a" xml:space="preserve">
+          <source><bpt id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;/linkText&gt;</ept><bpt id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;title&gt;</bpt><ept id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;/linkText&gt;</ept><bpt id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;title&gt;</bpt><ept id="2f2b3ea4-e146-419b-b75d-6dfef402fd4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="040d7f9f-4df2-41b4-8984-029967571f4d" xml:space="preserve">
+          <source><bpt id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;linkText&gt;</bpt>Count Documents<ept id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;/linkText&gt;</ept><bpt id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;title&gt;</bpt><ept id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;linkText&gt;</bpt>Count Documents<ept id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;/linkText&gt;</ept><bpt id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;title&gt;</bpt><ept id="2b095f2c-6dfd-41c1-80b1-9267d84ccd8e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e6c8a7b-625a-4809-b6cd-caad30985e56" xml:space="preserve">
+          <source>Caching behaviors can temporarily overstate a limit.</source>
+          <target state="new">Caching behaviors can temporarily overstate a limit.</target>
+        </trans-unit>
+        <trans-unit id="6203c36c-1b97-4f4d-9044-5a745c91aba5" xml:space="preserve">
+          <source>For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents.</source>
+          <target state="new">For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents.</target>
+        </trans-unit>
+        <trans-unit id="acb2d0aa-8fc9-4785-a74c-de636a247719" xml:space="preserve">
+          <source>The overstatement is temporary and will be detected on the next limit enforcement check.</source>
+          <target state="new">The overstatement is temporary and will be detected on the next limit enforcement check.</target>
+        </trans-unit>
+        <trans-unit id="466752a5-b034-4383-a491-2386d3a5f06a" xml:space="preserve">
+          <source><bpt id="9d03e615-4e1b-4d9b-b591-8ddbd2dadac7">&lt;bookmark&gt;</bpt><ept id="9d03e615-4e1b-4d9b-b591-8ddbd2dadac7">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="9d03e615-4e1b-4d9b-b591-8ddbd2dadac7">&lt;bookmark&gt;</bpt><ept id="9d03e615-4e1b-4d9b-b591-8ddbd2dadac7">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="876824a8-f5b8-4180-8d60-52ed92179f08" xml:space="preserve">
+          <source>Every search service starts with a minimum of one replica and one partition.</source>
+          <target state="new">Every search service starts with a minimum of one replica and one partition.</target>
+        </trans-unit>
+        <trans-unit id="f21cf765-1e48-4681-8471-1256ccec17c7" xml:space="preserve">
+          <source>If you signed up for dedicated resources using the Standard pricing tier, you can click the <bpt id="ab0ea4e5-d0d8-4ab3-885d-1f09c78bbb31">&lt;strong&gt;</bpt>SCALE<ept id="ab0ea4e5-d0d8-4ab3-885d-1f09c78bbb31">&lt;/strong&gt;</ept> tile in the service dashboard to readjust the number of partitions and replicas used by your service.</source>
+          <target state="new">If you signed up for dedicated resources using the Standard pricing tier, you can click the <bpt id="ab0ea4e5-d0d8-4ab3-885d-1f09c78bbb31">&lt;strong&gt;</bpt>SCALE<ept id="ab0ea4e5-d0d8-4ab3-885d-1f09c78bbb31">&lt;/strong&gt;</ept> tile in the service dashboard to readjust the number of partitions and replicas used by your service.</target>
+        </trans-unit>
+        <trans-unit id="71c480b3-4996-4bfa-8467-a47aaffcdb40" xml:space="preserve">
+          <source>When you add either resource, the service uses them automatically.</source>
+          <target state="new">When you add either resource, the service uses them automatically.</target>
+        </trans-unit>
+        <trans-unit id="54b65f18-a811-4b9d-889b-703241680131" xml:space="preserve">
+          <source>No further action is required on your part, but there will be a slight delay before the impact of the new resource is realized.</source>
+          <target state="new">No further action is required on your part, but there will be a slight delay before the impact of the new resource is realized.</target>
+        </trans-unit>
+        <trans-unit id="eefd9f1c-497e-4d80-b4be-6fd56dc30004" xml:space="preserve">
+          <source>It can take 15 minutes or more to provision the additional resources.</source>
+          <target state="new">It can take 15 minutes or more to provision the additional resources.</target>
+        </trans-unit>
+        <trans-unit id="9c324349-f74b-4de5-ac12-975f779860c7" xml:space="preserve">
+          <source> <bpt id="d13dd952-f156-46e8-a534-e946a6c40ef9">&lt;linkText&gt;</bpt><ept id="d13dd952-f156-46e8-a534-e946a6c40ef9">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="d13dd952-f156-46e8-a534-e946a6c40ef9">&lt;linkText&gt;</bpt><ept id="d13dd952-f156-46e8-a534-e946a6c40ef9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4f2a3f8-a007-4f9c-b16d-d96c2d49f04d" xml:space="preserve">
+          <source>Increasing queries per second (QPS) or achieving high availability is done by adding replicas.</source>
+          <target state="new">Increasing queries per second (QPS) or achieving high availability is done by adding replicas.</target>
+        </trans-unit>
+        <trans-unit id="b7952d25-5c75-4559-bebd-2a8f82a03a0e" xml:space="preserve">
+          <source>Each replica has one copy of an index, so adding one more replica translates to one more index that can be used to service query requests.</source>
+          <target state="new">Each replica has one copy of an index, so adding one more replica translates to one more index that can be used to service query requests.</target>
+        </trans-unit>
+        <trans-unit id="eb27ff3f-8f5f-4353-a0b3-fe3f0fd68f7e" xml:space="preserve">
+          <source>Currently, the rule of thumb is that you need at least 3 replicas for high availability.</source>
+          <target state="new">Currently, the rule of thumb is that you need at least 3 replicas for high availability.</target>
+        </trans-unit>
+        <trans-unit id="0bde1ab3-55b1-41de-8568-c372c172552e" xml:space="preserve">
+          <source>A search service having more replicas can load balance query requests over a larger number of indexes.</source>
+          <target state="new">A search service having more replicas can load balance query requests over a larger number of indexes.</target>
+        </trans-unit>
+        <trans-unit id="252653a4-8aa6-4564-b0bb-48d7befaf74b" xml:space="preserve">
+          <source>Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request.</source>
+          <target state="new">Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request.</target>
+        </trans-unit>
+        <trans-unit id="99ef7c60-25b6-4306-90bb-cac7c51dd299" xml:space="preserve">
+          <source>If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.</source>
+          <target state="new">If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.</target>
+        </trans-unit>
+        <trans-unit id="d605d6c0-15ae-4458-91f1-e6c2d8e9fa9a" xml:space="preserve">
+          <source>Although query throughput goes up as you add replicas, it does not precisely double or triple as you add replicas to your service.</source>
+          <target state="new">Although query throughput goes up as you add replicas, it does not precisely double or triple as you add replicas to your service.</target>
+        </trans-unit>
+        <trans-unit id="85bea343-23cd-4a18-8960-0902b83549c0" xml:space="preserve">
+          <source>All search applications are subject to external factors that can impinge on query performance.</source>
+          <target state="new">All search applications are subject to external factors that can impinge on query performance.</target>
+        </trans-unit>
+        <trans-unit id="b34980d7-097b-4753-b014-e93029201240" xml:space="preserve">
+          <source>Complex queries and network latency are two factors that contribute to variations in query response times.</source>
+          <target state="new">Complex queries and network latency are two factors that contribute to variations in query response times.</target>
+        </trans-unit>
+        <trans-unit id="6eda8b36-01b5-4a8f-8ceb-44f4130b1425" xml:space="preserve">
+          <source>Most service applications have a built-in need for more replicas rather than partitions, as most applications that utilize search can fit easily into a single partition that can support up to 15 million documents.</source>
+          <target state="new">Most service applications have a built-in need for more replicas rather than partitions, as most applications that utilize search can fit easily into a single partition that can support up to 15 million documents.</target>
+        </trans-unit>
+        <trans-unit id="195ce6ee-a786-4c5c-be9e-fbadbb0e771d" xml:space="preserve">
+          <source>For those cases where an increased document count is required, you can add partitions.</source>
+          <target state="new">For those cases where an increased document count is required, you can add partitions.</target>
+        </trans-unit>
+        <trans-unit id="de0c3d2c-34ec-4a9e-b29f-e6fdd9047a20" xml:space="preserve">
+          <source>Notice that partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12).</source>
+          <target state="new">Notice that partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12).</target>
+        </trans-unit>
+        <trans-unit id="e47a2036-9d7b-462c-8296-d478e0fc2d40" xml:space="preserve">
+          <source>This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).</source>
+          <target state="new">This is an artifact of sharding; an index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).</target>
+        </trans-unit>
+        <trans-unit id="dffb59ad-9884-40e3-94ba-4a804e33ebf1" xml:space="preserve">
+          <source>After periods of high query volumes, you will most likely remove replicas once search query loads have normalized (for example, after holiday sales are over).</source>
+          <target state="new">After periods of high query volumes, you will most likely remove replicas once search query loads have normalized (for example, after holiday sales are over).</target>
+        </trans-unit>
+        <trans-unit id="f27313d3-034d-456a-a2ce-9078f417d2b9" xml:space="preserve">
+          <source>To do this, you just move the replica slider back to a lower number.</source>
+          <target state="new">To do this, you just move the replica slider back to a lower number.</target>
+        </trans-unit>
+        <trans-unit id="c3f9159e-54de-4435-8270-0225ea10930f" xml:space="preserve">
+          <source>There are no further steps required on your part.</source>
+          <target state="new">There are no further steps required on your part.</target>
+        </trans-unit>
+        <trans-unit id="012f3458-0fab-4f92-b153-ae8e0a4aa7dc" xml:space="preserve">
+          <source>Lowering the replica count relinquishes virtual machines in the data center.</source>
+          <target state="new">Lowering the replica count relinquishes virtual machines in the data center.</target>
+        </trans-unit>
+        <trans-unit id="2a2e4d46-f404-4c23-931e-2f5bd87536bc" xml:space="preserve">
+          <source>Your query and data ingestion operations will now run on fewer VMs than before.</source>
+          <target state="new">Your query and data ingestion operations will now run on fewer VMs than before.</target>
+        </trans-unit>
+        <trans-unit id="2c543f65-87f5-4094-a99c-4da51cc81a0e" xml:space="preserve">
+          <source>The minimum limit is one replica.</source>
+          <target state="new">The minimum limit is one replica.</target>
+        </trans-unit>
+        <trans-unit id="1680754b-f558-494e-8142-f4185c0f2abe" xml:space="preserve">
+          <source>In contrast with removing replicas, which requires no extra effort on your part, you might have some work to do if you are using more storage than can be reduced.</source>
+          <target state="new">In contrast with removing replicas, which requires no extra effort on your part, you might have some work to do if you are using more storage than can be reduced.</target>
+        </trans-unit>
+        <trans-unit id="2a9ea245-c716-4b3a-9849-cc81dcf4a447" xml:space="preserve">
+          <source>For example, if your solution is using three partitions, attempting to reduce to one or two partitions will generate an error if you are using more storage space than can be stored in the reduced number of partitions.</source>
+          <target state="new">For example, if your solution is using three partitions, attempting to reduce to one or two partitions will generate an error if you are using more storage space than can be stored in the reduced number of partitions.</target>
+        </trans-unit>
+        <trans-unit id="da771f2f-b1f0-4daa-bcb9-145388e56415" xml:space="preserve">
+          <source>In this case, your choices are to delete indexes or documents within an associated index to free up space, or keep the current configuration.</source>
+          <target state="new">In this case, your choices are to delete indexes or documents within an associated index to free up space, or keep the current configuration.</target>
+        </trans-unit>
+        <trans-unit id="309f3e94-2609-4138-bcf0-17a117b14b1b" xml:space="preserve">
+          <source>There is no detection method that tells you which index shards are stored on specific partitions.</source>
+          <target state="new">There is no detection method that tells you which index shards are stored on specific partitions.</target>
+        </trans-unit>
+        <trans-unit id="b6325644-245f-41c9-8ddf-445eec701371" xml:space="preserve">
+          <source>Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have.</source>
+          <target state="new">Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have.</target>
+        </trans-unit>
+        <trans-unit id="02b0f021-692d-4143-a7cc-fdf96d958ff6" xml:space="preserve">
+          <source>If you want to revert to one partition, all 12 shards will need to fit.</source>
+          <target state="new">If you want to revert to one partition, all 12 shards will need to fit.</target>
+        </trans-unit>
+        <trans-unit id="75303e38-b8f9-458c-b88f-77e00508638d" xml:space="preserve">
+          <source>To help with future planning, you might want to check storage (using <bpt id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;/linkText&gt;</ept><bpt id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;title&gt;</bpt><ept id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;/title&gt;</ept>) to see how much you actually used.</source>
+          <target state="new">To help with future planning, you might want to check storage (using <bpt id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;linkText&gt;</bpt>Get Index Statistics<ept id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;/linkText&gt;</ept><bpt id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;title&gt;</bpt><ept id="ae6dfaf6-b761-47ac-a996-f5af5680e169">&lt;/title&gt;</ept>) to see how much you actually used.</target>
+        </trans-unit>
+        <trans-unit id="328c4422-e4f2-4fb9-8f9d-1812ca43befa" xml:space="preserve">
+          <source><bpt id="055be9db-53ab-4692-b001-14cc0b35225a">&lt;bookmark&gt;</bpt><ept id="055be9db-53ab-4692-b001-14cc0b35225a">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="055be9db-53ab-4692-b001-14cc0b35225a">&lt;bookmark&gt;</bpt><ept id="055be9db-53ab-4692-b001-14cc0b35225a">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15ec18ae-909e-404e-9386-316cf0430874" xml:space="preserve">
+          <source>You can start, stop, or even delete the service using commands in the service dashboard.</source>
+          <target state="new">You can start, stop, or even delete the service using commands in the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="09652f46-d71c-4ab3-86c6-c315194e1611" xml:space="preserve">
+          <source> <bpt id="b62765a2-4745-40f2-83bb-9e0778dade08">&lt;linkText&gt;</bpt><ept id="b62765a2-4745-40f2-83bb-9e0778dade08">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="b62765a2-4745-40f2-83bb-9e0778dade08">&lt;linkText&gt;</bpt><ept id="b62765a2-4745-40f2-83bb-9e0778dade08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00dc1f57-0e37-4e32-92c5-596001027ec4" xml:space="preserve">
+          <source>Stopping or starting the service does not turn off billing.</source>
+          <target state="new">Stopping or starting the service does not turn off billing.</target>
+        </trans-unit>
+        <trans-unit id="54e0ab7f-f2cc-43aa-bfb3-ca3a18a04cc9" xml:space="preserve">
+          <source>You must delete the service to avoid charges altogether.</source>
+          <target state="new">You must delete the service to avoid charges altogether.</target>
+        </trans-unit>
+        <trans-unit id="9df39826-d0d7-4226-980d-55e4a70bd401" xml:space="preserve">
+          <source>Any data associated with your service is deleted when your service is decommissioned.</source>
+          <target state="new">Any data associated with your service is deleted when your service is decommissioned.</target>
+        </trans-unit>
+        <trans-unit id="c48aee8d-bed9-4d66-b81f-7514295b28f5" xml:space="preserve">
+          <source><bpt id="8df7e916-b7c7-4306-acb5-cecc2265b6dd">&lt;bookmark&gt;</bpt><ept id="8df7e916-b7c7-4306-acb5-cecc2265b6dd">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="8df7e916-b7c7-4306-acb5-cecc2265b6dd">&lt;bookmark&gt;</bpt><ept id="8df7e916-b7c7-4306-acb5-cecc2265b6dd">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7827bad5-7dc2-4dcd-95a3-ba1975c705bc" xml:space="preserve">
+          <source>Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool.</source>
+          <target state="new">Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool.</target>
+        </trans-unit>
+        <trans-unit id="f4344750-544b-4438-814c-63748924092b" xml:space="preserve">
+          <source>Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role.</source>
+          <target state="new">Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role.</target>
+        </trans-unit>
+        <trans-unit id="49490d05-5ac6-48e5-849d-2973ec693564" xml:space="preserve">
+          <source>See <bpt id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;linkText&gt;</bpt>Role-based access control in Azure Portal<ept id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;/linkText&gt;</ept><bpt id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;title&gt;</bpt><ept id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;/title&gt;</ept> for details about role membership.</source>
+          <target state="new">See <bpt id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;linkText&gt;</bpt>Role-based access control in Azure Portal<ept id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;/linkText&gt;</ept><bpt id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;title&gt;</bpt><ept id="4ae38279-8cf8-4955-8713-b9ff56acc1f6">&lt;/title&gt;</ept> for details about role membership.</target>
+        </trans-unit>
+        <trans-unit id="b951c74d-a73e-44b6-b627-7f3fb7c66683" xml:space="preserve">
+          <source>In terms of Azure Search, role-based access controls determine the following administrative tasks:</source>
+          <target state="new">In terms of Azure Search, role-based access controls determine the following administrative tasks:</target>
+        </trans-unit>
+        <trans-unit id="e0237fed-b6b4-446d-a690-724e8d7f26de" xml:space="preserve">
+          <source>Role</source>
+          <target state="new">Role</target>
+        </trans-unit>
+        <trans-unit id="89be5cef-44b7-494a-bee3-2e7d7850fc59" xml:space="preserve">
+          <source>Task</source>
+          <target state="new">Task</target>
+        </trans-unit>
+        <trans-unit id="b5f46d69-56f1-404b-8b55-3d450340da3e" xml:space="preserve">
+          <source>Owner</source>
+          <target state="new">Owner</target>
+        </trans-unit>
+        <trans-unit id="1c8559ba-be1f-4922-aca5-d9145b86f37d" xml:space="preserve">
+          <source>Start, stop, or delete the service.&lt;p&gt;Generate and view admin keys and query keys.&lt;p&gt;View service status, including index count, index names, document count, and storage size.&lt;p&gt;Add or delete role membership (only an Owner can manage role membership).&lt;p&gt;Subscription and service administrators have automatic membership in the Owners role.</source>
+          <target state="new">Start, stop, or delete the service.&lt;p&gt;Generate and view admin keys and query keys.&lt;p&gt;View service status, including index count, index names, document count, and storage size.&lt;p&gt;Add or delete role membership (only an Owner can manage role membership).&lt;p&gt;Subscription and service administrators have automatic membership in the Owners role.</target>
+        </trans-unit>
+        <trans-unit id="4d9dd51f-7806-4321-b8d5-fa5d1746a2d0" xml:space="preserve">
+          <source>Contributor</source>
+          <target state="new">Contributor</target>
+        </trans-unit>
+        <trans-unit id="e734b052-828f-490f-9446-1e23bf514388" xml:space="preserve">
+          <source>Has the same level of access as Owner, except for role management.</source>
+          <target state="new">Has the same level of access as Owner, except for role management.</target>
+        </trans-unit>
+        <trans-unit id="bfd97c6a-de81-487b-8507-761aaa651859" xml:space="preserve">
+          <source>For example, a Contributor can view and regenerate <bpt id="3b6b3d0b-fd09-4fb6-8982-a3e8103466ac">&lt;code&gt;</bpt>api-key<ept id="3b6b3d0b-fd09-4fb6-8982-a3e8103466ac">&lt;/code&gt;</ept>, but he or she cannot modify role memberships.</source>
+          <target state="new">For example, a Contributor can view and regenerate <bpt id="3b6b3d0b-fd09-4fb6-8982-a3e8103466ac">&lt;code&gt;</bpt>api-key<ept id="3b6b3d0b-fd09-4fb6-8982-a3e8103466ac">&lt;/code&gt;</ept>, but he or she cannot modify role memberships.</target>
+        </trans-unit>
+        <trans-unit id="3b9d4d2c-4359-4acd-bc13-e3d239a153e4" xml:space="preserve">
+          <source>Reader</source>
+          <target state="new">Reader</target>
+        </trans-unit>
+        <trans-unit id="9db58489-d26b-4a79-8541-42ee0591ab63" xml:space="preserve">
+          <source>View service status and query keys.</source>
+          <target state="new">View service status and query keys.</target>
+        </trans-unit>
+        <trans-unit id="fcc097a8-ab23-48ab-a764-757c198f6e3e" xml:space="preserve">
+          <source>Members of this role cannot start or stop a service, nor can they view admin keys.</source>
+          <target state="new">Members of this role cannot start or stop a service, nor can they view admin keys.</target>
+        </trans-unit>
+        <trans-unit id="250a7a65-f0ab-4198-bec8-e6b1b10791ac" xml:space="preserve">
+          <source>Note that roles do not grant access rights to the service endpoint.</source>
+          <target state="new">Note that roles do not grant access rights to the service endpoint.</target>
+        </trans-unit>
+        <trans-unit id="8f7ff8b3-97a3-412d-be00-31245863452a" xml:space="preserve">
+          <source>Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles.</source>
+          <target state="new">Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles.</target>
+        </trans-unit>
+        <trans-unit id="40099d60-2e47-4062-b3e1-7b715944dd6b" xml:space="preserve">
+          <source>See "Authorization for management versus data operations" in <bpt id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;linkText&gt;</bpt>Role-based access control in Azure Portal<ept id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;/linkText&gt;</ept><bpt id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;title&gt;</bpt><ept id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See "Authorization for management versus data operations" in <bpt id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;linkText&gt;</bpt>Role-based access control in Azure Portal<ept id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;/linkText&gt;</ept><bpt id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;title&gt;</bpt><ept id="a56e412a-b360-4157-8fd4-15ddf91624e4">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="772e386b-20a0-4bff-adde-9cb313fe1b0a" xml:space="preserve">
+          <source>Roles provide access control after the service is created.</source>
+          <target state="new">Roles provide access control after the service is created.</target>
+        </trans-unit>
+        <trans-unit id="bba97a0a-6e91-4226-be16-4b5a18c3a2df" xml:space="preserve">
+          <source>Only subscription managers can add a Search service to a subscription.</source>
+          <target state="new">Only subscription managers can add a Search service to a subscription.</target>
+        </trans-unit>
+        <trans-unit id="97b1c1c0-9e5b-45a8-a3bc-74c9cb2ef4c6" xml:space="preserve">
+          <source>#sub-1</source>
+          <target state="new">#sub-1</target>
+        </trans-unit>
+        <trans-unit id="c43c68c8-10d3-4fe9-be1d-bd3eaa77efc2" xml:space="preserve">
+          <source>#sub-2</source>
+          <target state="new">#sub-2</target>
+        </trans-unit>
+        <trans-unit id="6a2854e9-7af6-4b2d-be92-622ee00375c6" xml:space="preserve">
+          <source>#sub-3</source>
+          <target state="new">#sub-3</target>
+        </trans-unit>
+        <trans-unit id="2b9ec429-4103-4d23-93f1-f6c482965d30" xml:space="preserve">
+          <source>#sub-4</source>
+          <target state="new">#sub-4</target>
+        </trans-unit>
+        <trans-unit id="eda00fc0-d458-49cd-82a8-3b344cd4b5ac" xml:space="preserve">
+          <source>#sub-5</source>
+          <target state="new">#sub-5</target>
+        </trans-unit>
+        <trans-unit id="5eb7ca1d-9af2-4458-a52a-1aa8e1a13741" xml:space="preserve">
+          <source>#sub-6</source>
+          <target state="new">#sub-6</target>
+        </trans-unit>
+        <trans-unit id="502229b0-6855-46de-95ea-02029384fda6" xml:space="preserve">
+          <source>#sub-7</source>
+          <target state="new">#sub-7</target>
+        </trans-unit>
+        <trans-unit id="45197241-bac6-4f3f-ab39-3d4dee7ffd5d" xml:space="preserve">
+          <source>#sub-8</source>
+          <target state="new">#sub-8</target>
+        </trans-unit>
+        <trans-unit id="8a4a71d3-11e7-4656-96b3-b8c790d0a23c" xml:space="preserve">
+          <source>./media/search-manage/Azure-Search-Manage-1-URL.png</source>
+          <target state="new">./media/search-manage/Azure-Search-Manage-1-URL.png</target>
+        </trans-unit>
+        <trans-unit id="83e72f4b-63fc-4d40-8e8c-f1a86b2f0fc5" xml:space="preserve">
+          <source>./media/search-manage/Azure-Search-Manage-2-Keys.png</source>
+          <target state="new">./media/search-manage/Azure-Search-Manage-2-Keys.png</target>
+        </trans-unit>
+        <trans-unit id="f21b3cb1-370d-438f-8b2b-7abd6b7725e8" xml:space="preserve">
+          <source>./media/search-manage/Azure-Search-Manage-3-ScaleUp.png</source>
+          <target state="new">./media/search-manage/Azure-Search-Manage-3-ScaleUp.png</target>
+        </trans-unit>
+        <trans-unit id="5498730c-537d-43e2-90d1-0ea870773948" xml:space="preserve">
+          <source>./media/search-manage/Azure-Search-Manage-4-StartStop.png</source>
+          <target state="new">./media/search-manage/Azure-Search-Manage-4-StartStop.png</target>
+        </trans-unit>
+      </group>
+      <group id="4a217bb8-5848-46b1-a38e-1faa2f398d2a" />
+    </body>
+  </file>
+</xliff>

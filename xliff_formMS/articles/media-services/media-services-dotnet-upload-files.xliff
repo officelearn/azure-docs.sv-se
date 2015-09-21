@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="293af520-9689-4005-8a41-39303116903a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="293af520-9689-4005-8a41-39303116903a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c57e7009-7455-4fae-8aa2-f338c9fd6775">
+        <trans-unit id="e81b77be-8cdb-4a30-b66f-5e2bd4ee7c55" xml:space="preserve">
+          <source>Upload Files into a Media Services account using .NET</source>
+          <target state="new">Upload Files into a Media Services account using .NET</target>
+        </trans-unit>
+        <trans-unit id="41a2c203-cd00-4263-9b6f-397fc981fcc0" xml:space="preserve">
+          <source>Learn how to get media content into Media Services by creating and uploading assets.</source>
+          <target state="new">Learn how to get media content into Media Services by creating and uploading assets.</target>
+        </trans-unit>
+        <trans-unit id="30424762-08ea-4ac9-a2fa-60840aec8a6b" xml:space="preserve">
+          <source><bpt id="1fd96185-e800-4bb0-a597-1326087a5106">&lt;token href="../../includes/media-services-selector-upload-files.md"&gt;</bpt><ept id="1fd96185-e800-4bb0-a597-1326087a5106">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1fd96185-e800-4bb0-a597-1326087a5106">&lt;token href="../../includes/media-services-selector-upload-files.md"&gt;</bpt><ept id="1fd96185-e800-4bb0-a597-1326087a5106">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89b6cd7d-cde6-48d8-89d8-a49440777c6d" xml:space="preserve">
+          <source>In Media Services, you upload (or ingest) your digital files into an asset.</source>
+          <target state="new">In Media Services, you upload (or ingest) your digital files into an asset.</target>
+        </trans-unit>
+        <trans-unit id="3b032366-0cc0-497c-8206-22463007b56d" xml:space="preserve">
+          <source>The <bpt id="4201ee87-b6e5-4f5e-94d9-fdae3e3a05fb">&lt;strong&gt;</bpt>Asset<ept id="4201ee87-b6e5-4f5e-94d9-fdae3e3a05fb">&lt;/strong&gt;</ept> entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)</source>
+          <target state="new">The <bpt id="4201ee87-b6e5-4f5e-94d9-fdae3e3a05fb">&lt;strong&gt;</bpt>Asset<ept id="4201ee87-b6e5-4f5e-94d9-fdae3e3a05fb">&lt;/strong&gt;</ept> entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)</target>
+        </trans-unit>
+        <trans-unit id="2ae273f2-350d-43df-b29e-6752f87bd72f" xml:space="preserve">
+          <source>Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.</source>
+          <target state="new">Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.</target>
+        </trans-unit>
+        <trans-unit id="049bca50-9be7-4856-8cda-262bc1cfd916" xml:space="preserve">
+          <source>The files in the asset are called <bpt id="99194878-1638-4667-b160-b89150e3964a">&lt;strong&gt;</bpt>Asset Files<ept id="99194878-1638-4667-b160-b89150e3964a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The files in the asset are called <bpt id="99194878-1638-4667-b160-b89150e3964a">&lt;strong&gt;</bpt>Asset Files<ept id="99194878-1638-4667-b160-b89150e3964a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14aa66eb-188c-43ba-9e67-895b5bf48d6c" xml:space="preserve">
+          <source>The <bpt id="4d6d27db-d6cd-44be-be7e-8cfb22c09bf9">&lt;strong&gt;</bpt>AssetFile<ept id="4d6d27db-d6cd-44be-be7e-8cfb22c09bf9">&lt;/strong&gt;</ept> instance and the actual media file are two distinct objects.</source>
+          <target state="new">The <bpt id="4d6d27db-d6cd-44be-be7e-8cfb22c09bf9">&lt;strong&gt;</bpt>AssetFile<ept id="4d6d27db-d6cd-44be-be7e-8cfb22c09bf9">&lt;/strong&gt;</ept> instance and the actual media file are two distinct objects.</target>
+        </trans-unit>
+        <trans-unit id="0e488d0f-cf70-4e55-887b-caf3ac58827b" xml:space="preserve">
+          <source>The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.</source>
+          <target state="new">The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.</target>
+        </trans-unit>
+        <trans-unit id="bd75a25a-fbf5-4e5a-8fc1-8100aebcc414" xml:space="preserve">
+          <source>When you create assets, you can specify the following encryption options.</source>
+          <target state="new">When you create assets, you can specify the following encryption options.</target>
+        </trans-unit>
+        <trans-unit id="3b284519-f6ec-4a93-ade9-2fe66057a85d" xml:space="preserve">
+          <source><bpt id="84b06502-74d8-4003-b643-eb9da38aeb06">&lt;strong&gt;</bpt>None<ept id="84b06502-74d8-4003-b643-eb9da38aeb06">&lt;/strong&gt;</ept> - No encryption is used.</source>
+          <target state="new"><bpt id="84b06502-74d8-4003-b643-eb9da38aeb06">&lt;strong&gt;</bpt>None<ept id="84b06502-74d8-4003-b643-eb9da38aeb06">&lt;/strong&gt;</ept> - No encryption is used.</target>
+        </trans-unit>
+        <trans-unit id="6e23daa6-b403-4789-b5b9-e70654819217" xml:space="preserve">
+          <source>This is the default value.</source>
+          <target state="new">This is the default value.</target>
+        </trans-unit>
+        <trans-unit id="bbf4e70e-e2c9-4b67-88f1-174bb5ea0ba4" xml:space="preserve">
+          <source>Note that when using this option your content is not protected in transit or at rest in storage.</source>
+          <target state="new">Note that when using this option your content is not protected in transit or at rest in storage.</target>
+        </trans-unit>
+        <trans-unit id="b51b6328-96fc-427b-8bd2-9c3f2e0679a6" xml:space="preserve">
+          <source>If you plan to deliver an MP4 using progressive download, use this option.</source>
+          <target state="new">If you plan to deliver an MP4 using progressive download, use this option.</target>
+        </trans-unit>
+        <trans-unit id="b5af6014-db64-4747-b3a5-ca2c21b34fb8" xml:space="preserve">
+          <source><bpt id="e3c6f93f-89b7-4be4-a4ba-6fff1967a9fd">&lt;strong&gt;</bpt>CommonEncryption<ept id="e3c6f93f-89b7-4be4-a4ba-6fff1967a9fd">&lt;/strong&gt;</ept> - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</source>
+          <target state="new"><bpt id="e3c6f93f-89b7-4be4-a4ba-6fff1967a9fd">&lt;strong&gt;</bpt>CommonEncryption<ept id="e3c6f93f-89b7-4be4-a4ba-6fff1967a9fd">&lt;/strong&gt;</ept> - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</target>
+        </trans-unit>
+        <trans-unit id="402fa595-3de5-4df2-91b8-9cd1549dffd0" xml:space="preserve">
+          <source><bpt id="05209af8-69f8-46f5-9dde-8516bcb8b9ef">&lt;strong&gt;</bpt>EnvelopeEncrypted<ept id="05209af8-69f8-46f5-9dde-8516bcb8b9ef">&lt;/strong&gt;</ept> – Use this option if you are uploading HLS encrypted with AES.</source>
+          <target state="new"><bpt id="05209af8-69f8-46f5-9dde-8516bcb8b9ef">&lt;strong&gt;</bpt>EnvelopeEncrypted<ept id="05209af8-69f8-46f5-9dde-8516bcb8b9ef">&lt;/strong&gt;</ept> – Use this option if you are uploading HLS encrypted with AES.</target>
+        </trans-unit>
+        <trans-unit id="a50b2213-65b9-4158-b21b-28798c28ea34" xml:space="preserve">
+          <source>Note that the files must have been encoded and encrypted by Transform Manager.</source>
+          <target state="new">Note that the files must have been encoded and encrypted by Transform Manager.</target>
+        </trans-unit>
+        <trans-unit id="e75dc924-a90c-4b6f-b8d1-cae4aa14affa" xml:space="preserve">
+          <source><bpt id="e44da5b5-16ae-40fc-908f-e3edac16a2b6">&lt;strong&gt;</bpt>StorageEncrypted<ept id="e44da5b5-16ae-40fc-908f-e3edac16a2b6">&lt;/strong&gt;</ept> - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest.</source>
+          <target state="new"><bpt id="e44da5b5-16ae-40fc-908f-e3edac16a2b6">&lt;strong&gt;</bpt>StorageEncrypted<ept id="e44da5b5-16ae-40fc-908f-e3edac16a2b6">&lt;/strong&gt;</ept> - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest.</target>
+        </trans-unit>
+        <trans-unit id="be9496e7-d063-4766-b46b-a53a1983ba9c" xml:space="preserve">
+          <source>Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</source>
+          <target state="new">Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</target>
+        </trans-unit>
+        <trans-unit id="7773af2b-3375-42a2-b9b0-74ca36edeeca" xml:space="preserve">
+          <source>The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</source>
+          <target state="new">The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</target>
+        </trans-unit>
+        <trans-unit id="34a719c4-beef-49e7-a42b-2f616c7bad23" xml:space="preserve">
+          <source>Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).</source>
+          <target state="new">Media Services provides on-disk storage encryption for your assets, not over-the-wire like Digital Rights Manager (DRM).</target>
+        </trans-unit>
+        <trans-unit id="d158d051-fd2d-43a8-9d7e-2fc6933efc49" xml:space="preserve">
+          <source>If your asset is storage encrypted, you must configure asset delivery policy.</source>
+          <target state="new">If your asset is storage encrypted, you must configure asset delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="4a82ec20-b572-4bed-8910-954e3eedcc24" xml:space="preserve">
+          <source>For more information see <bpt id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;linkText&gt;</bpt>Configuring asset delivery policy<ept id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;/linkText&gt;</ept><bpt id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;title&gt;</bpt><ept id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;linkText&gt;</bpt>Configuring asset delivery policy<ept id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;/linkText&gt;</ept><bpt id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;title&gt;</bpt><ept id="17d40efd-d944-4795-8686-1b6bbd9e7fd4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39a82ba3-1527-4f9d-a5dd-c6aa9ccb4391" xml:space="preserve">
+          <source>If you specify for your asset to be encrypted with a <bpt id="3f2f36a2-eb21-4a8b-a17f-5aa20bca7c43">&lt;strong&gt;</bpt>CommonEncrypted<ept id="3f2f36a2-eb21-4a8b-a17f-5aa20bca7c43">&lt;/strong&gt;</ept> option, or an <bpt id="f56ee626-dca8-4c53-9f08-85c796e8f9bf">&lt;strong&gt;</bpt>EnvelopeEncypted<ept id="f56ee626-dca8-4c53-9f08-85c796e8f9bf">&lt;/strong&gt;</ept> option, you will need to associate your asset with a <bpt id="47fbd624-bea2-4405-84c0-1ee17e9a0456">&lt;strong&gt;</bpt>ContentKey<ept id="47fbd624-bea2-4405-84c0-1ee17e9a0456">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you specify for your asset to be encrypted with a <bpt id="3f2f36a2-eb21-4a8b-a17f-5aa20bca7c43">&lt;strong&gt;</bpt>CommonEncrypted<ept id="3f2f36a2-eb21-4a8b-a17f-5aa20bca7c43">&lt;/strong&gt;</ept> option, or an <bpt id="f56ee626-dca8-4c53-9f08-85c796e8f9bf">&lt;strong&gt;</bpt>EnvelopeEncypted<ept id="f56ee626-dca8-4c53-9f08-85c796e8f9bf">&lt;/strong&gt;</ept> option, you will need to associate your asset with a <bpt id="47fbd624-bea2-4405-84c0-1ee17e9a0456">&lt;strong&gt;</bpt>ContentKey<ept id="47fbd624-bea2-4405-84c0-1ee17e9a0456">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88d7059a-2c19-4d59-a565-23cf3b5ad07d" xml:space="preserve">
+          <source>For more information, see <bpt id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;linkText&gt;</bpt>How to create a ContentKey<ept id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;/linkText&gt;</ept><bpt id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;title&gt;</bpt><ept id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;linkText&gt;</bpt>How to create a ContentKey<ept id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;/linkText&gt;</ept><bpt id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;title&gt;</bpt><ept id="705abb1a-09fc-49d2-95a9-7d417e3ab6bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75070487-2fa6-4727-9c1f-088a289e9765" xml:space="preserve">
+          <source>If you specify for your asset to be encrypted with a <bpt id="3877add9-b0a4-4c4c-ad04-bacd2fdaf8bc">&lt;strong&gt;</bpt>StorageEncrypted<ept id="3877add9-b0a4-4c4c-ad04-bacd2fdaf8bc">&lt;/strong&gt;</ept> option, the Media Services SDK for .NET will create a <bpt id="c8d30d74-ca07-40dc-a27c-709e5031cece">&lt;strong&gt;</bpt>StorateEncrypted<ept id="c8d30d74-ca07-40dc-a27c-709e5031cece">&lt;/strong&gt;</ept> <bpt id="04d50d5e-8ed6-4bc1-ad84-3dab76d4b703">&lt;strong&gt;</bpt>ContentKey<ept id="04d50d5e-8ed6-4bc1-ad84-3dab76d4b703">&lt;/strong&gt;</ept> for your asset.</source>
+          <target state="new">If you specify for your asset to be encrypted with a <bpt id="3877add9-b0a4-4c4c-ad04-bacd2fdaf8bc">&lt;strong&gt;</bpt>StorageEncrypted<ept id="3877add9-b0a4-4c4c-ad04-bacd2fdaf8bc">&lt;/strong&gt;</ept> option, the Media Services SDK for .NET will create a <bpt id="c8d30d74-ca07-40dc-a27c-709e5031cece">&lt;strong&gt;</bpt>StorateEncrypted<ept id="c8d30d74-ca07-40dc-a27c-709e5031cece">&lt;/strong&gt;</ept> <bpt id="04d50d5e-8ed6-4bc1-ad84-3dab76d4b703">&lt;strong&gt;</bpt>ContentKey<ept id="04d50d5e-8ed6-4bc1-ad84-3dab76d4b703">&lt;/strong&gt;</ept> for your asset.</target>
+        </trans-unit>
+        <trans-unit id="ea971a8a-9628-4eeb-b3ec-d0a30afc8f0c" xml:space="preserve">
+          <source>Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the <bpt id="34ecc9d0-743e-4fe8-bcb0-88401cad0f0d">&lt;strong&gt;</bpt>Name<ept id="34ecc9d0-743e-4fe8-bcb0-88401cad0f0d">&lt;/strong&gt;</ept> property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding<bpt id="6ef2dd89-e28e-47af-8700-51626660f105">&lt;em&gt;</bpt>reserved<ept id="6ef2dd89-e28e-47af-8700-51626660f105">&lt;/em&gt;</ept>characters): !*'();:@&amp;=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.</source>
+          <target state="new">Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the <bpt id="34ecc9d0-743e-4fe8-bcb0-88401cad0f0d">&lt;strong&gt;</bpt>Name<ept id="34ecc9d0-743e-4fe8-bcb0-88401cad0f0d">&lt;/strong&gt;</ept> property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding<bpt id="6ef2dd89-e28e-47af-8700-51626660f105">&lt;em&gt;</bpt>reserved<ept id="6ef2dd89-e28e-47af-8700-51626660f105">&lt;/em&gt;</ept>characters): !*'();:@&amp;=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.</target>
+        </trans-unit>
+        <trans-unit id="74639949-88e5-4126-aa75-4892bd3ffa1e" xml:space="preserve">
+          <source>This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.</source>
+          <target state="new">This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.</target>
+        </trans-unit>
+        <trans-unit id="0abbfae5-509d-4753-a31c-a065a02b4711" xml:space="preserve">
+          <source>The sample code below uses .NET SDK to perform the following tasks: </source>
+          <target state="new">The sample code below uses .NET SDK to perform the following tasks: </target>
+        </trans-unit>
+        <trans-unit id="cf93f73d-91ca-438f-a2b6-7f8f09fe5359" xml:space="preserve">
+          <source>Creates an empty Asset.</source>
+          <target state="new">Creates an empty Asset.</target>
+        </trans-unit>
+        <trans-unit id="943f77ce-b2e8-47c6-b010-f422705802ab" xml:space="preserve">
+          <source>Creates an AssetFile instance that we want to associate with the asset.</source>
+          <target state="new">Creates an AssetFile instance that we want to associate with the asset.</target>
+        </trans-unit>
+        <trans-unit id="b71f48ea-6ac2-45c3-8509-46a8b88d9154" xml:space="preserve">
+          <source>Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.</source>
+          <target state="new">Creates an AccessPolicy instance that defines the permissions and duration of access to the asset.</target>
+        </trans-unit>
+        <trans-unit id="889397d4-1ded-4bcd-986a-e00c0f688b16" xml:space="preserve">
+          <source>Creates a Locator instance that provides access to the asset.</source>
+          <target state="new">Creates a Locator instance that provides access to the asset.</target>
+        </trans-unit>
+        <trans-unit id="df88c0c6-cdd5-4594-a5a7-c60c0e14dfbf" xml:space="preserve">
+          <source>Uploads a single media file into Media Services.</source>
+          <target state="new">Uploads a single media file into Media Services.</target>
+        </trans-unit>
+        <trans-unit id="fe633051-228f-41e1-bf28-e87c54d57cb6" xml:space="preserve">
+          <source>The following code shows how to create an asset and upload multiple files.</source>
+          <target state="new">The following code shows how to create an asset and upload multiple files.</target>
+        </trans-unit>
+        <trans-unit id="bed334bf-ea0b-4d35-89fb-28f10c46d867" xml:space="preserve">
+          <source>The code does the following:</source>
+          <target state="new">The code does the following:</target>
+        </trans-unit>
+        <trans-unit id="bb19f3b1-5374-43b2-8159-2ca8003df1e8" xml:space="preserve">
+          <source>Creates an empty asset using the CreateEmptyAsset method defined in the previous step.</source>
+          <target state="new">Creates an empty asset using the CreateEmptyAsset method defined in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="17d11f29-c7c0-46ab-b072-c309b33f9673" xml:space="preserve">
+          <source>Creates an <bpt id="8dd80418-5458-4f9c-93c0-7c5a2dc39a58">&lt;strong&gt;</bpt>AccessPolicy<ept id="8dd80418-5458-4f9c-93c0-7c5a2dc39a58">&lt;/strong&gt;</ept> instance that defines the permissions and duration of access to the asset.</source>
+          <target state="new">Creates an <bpt id="8dd80418-5458-4f9c-93c0-7c5a2dc39a58">&lt;strong&gt;</bpt>AccessPolicy<ept id="8dd80418-5458-4f9c-93c0-7c5a2dc39a58">&lt;/strong&gt;</ept> instance that defines the permissions and duration of access to the asset.</target>
+        </trans-unit>
+        <trans-unit id="7bd25c78-f4c1-43e7-9327-b8809385ddaa" xml:space="preserve">
+          <source>Creates a <bpt id="d69cd449-7443-4783-862b-f3ed40e05f15">&lt;strong&gt;</bpt>Locator<ept id="d69cd449-7443-4783-862b-f3ed40e05f15">&lt;/strong&gt;</ept> instance that provides access to the asset.</source>
+          <target state="new">Creates a <bpt id="d69cd449-7443-4783-862b-f3ed40e05f15">&lt;strong&gt;</bpt>Locator<ept id="d69cd449-7443-4783-862b-f3ed40e05f15">&lt;/strong&gt;</ept> instance that provides access to the asset.</target>
+        </trans-unit>
+        <trans-unit id="82f1f08e-fb51-446d-bcf0-90c3f66d38e8" xml:space="preserve">
+          <source>Creates a <bpt id="754de959-2dd8-4b9b-9dd3-4f91b1bb4420">&lt;strong&gt;</bpt>BlobTransferClient<ept id="754de959-2dd8-4b9b-9dd3-4f91b1bb4420">&lt;/strong&gt;</ept> instance.</source>
+          <target state="new">Creates a <bpt id="754de959-2dd8-4b9b-9dd3-4f91b1bb4420">&lt;strong&gt;</bpt>BlobTransferClient<ept id="754de959-2dd8-4b9b-9dd3-4f91b1bb4420">&lt;/strong&gt;</ept> instance.</target>
+        </trans-unit>
+        <trans-unit id="4e1eac2e-c3b0-447c-85de-8a2fe7a69591" xml:space="preserve">
+          <source>This type represents a client that operates on the Azure blobs.</source>
+          <target state="new">This type represents a client that operates on the Azure blobs.</target>
+        </trans-unit>
+        <trans-unit id="40911e93-797a-472f-b25c-c7a0225bd156" xml:space="preserve">
+          <source>In this example we use the client to monitor the upload progress.</source>
+          <target state="new">In this example we use the client to monitor the upload progress.</target>
+        </trans-unit>
+        <trans-unit id="b16227fe-743b-486e-92ca-42b9d7cbbea1" xml:space="preserve">
+          <source>Enumerates through files in the specified directory and creates an <bpt id="0299cdd7-4096-41fe-8a35-db804c6d0eba">&lt;strong&gt;</bpt>AssetFile<ept id="0299cdd7-4096-41fe-8a35-db804c6d0eba">&lt;/strong&gt;</ept> instance for each file.</source>
+          <target state="new">Enumerates through files in the specified directory and creates an <bpt id="0299cdd7-4096-41fe-8a35-db804c6d0eba">&lt;strong&gt;</bpt>AssetFile<ept id="0299cdd7-4096-41fe-8a35-db804c6d0eba">&lt;/strong&gt;</ept> instance for each file.</target>
+        </trans-unit>
+        <trans-unit id="0bd96a10-b83b-4fba-8744-7e1aa97479d3" xml:space="preserve">
+          <source>Uploads the files into Media Services using the <bpt id="75092772-2fd4-42e5-8945-6bd18c49e0ca">&lt;strong&gt;</bpt>UploadAsync<ept id="75092772-2fd4-42e5-8945-6bd18c49e0ca">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Uploads the files into Media Services using the <bpt id="75092772-2fd4-42e5-8945-6bd18c49e0ca">&lt;strong&gt;</bpt>UploadAsync<ept id="75092772-2fd4-42e5-8945-6bd18c49e0ca">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="c88f380c-a849-4533-b0d5-7f7e57873d30" xml:space="preserve">
+          <source>Use the UploadAsync method to ensure that the calls are not blocking and the files are uploaded in parallel.</source>
+          <target state="new">Use the UploadAsync method to ensure that the calls are not blocking and the files are uploaded in parallel.</target>
+        </trans-unit>
+        <trans-unit id="462088dc-89a5-4b1b-86ac-504d5ac668c3" xml:space="preserve">
+          <source>When uploading a large number of assets, consider the following.</source>
+          <target state="new">When uploading a large number of assets, consider the following.</target>
+        </trans-unit>
+        <trans-unit id="939a19ab-5bc3-42da-80f6-ad8e1a407484" xml:space="preserve">
+          <source>Create a new <bpt id="4075e13f-8717-4f38-87c4-c4cd1ca0e5f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="4075e13f-8717-4f38-87c4-c4cd1ca0e5f7">&lt;/strong&gt;</ept> object per thread.</source>
+          <target state="new">Create a new <bpt id="4075e13f-8717-4f38-87c4-c4cd1ca0e5f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="4075e13f-8717-4f38-87c4-c4cd1ca0e5f7">&lt;/strong&gt;</ept> object per thread.</target>
+        </trans-unit>
+        <trans-unit id="3d8f098f-a853-4a34-93cc-109b690906d0" xml:space="preserve">
+          <source>The <bpt id="52b88d3a-29fd-4dad-8bc8-58b2ee398086">&lt;strong&gt;</bpt>CloudMediaContext<ept id="52b88d3a-29fd-4dad-8bc8-58b2ee398086">&lt;/strong&gt;</ept> class is not thread safe.</source>
+          <target state="new">The <bpt id="52b88d3a-29fd-4dad-8bc8-58b2ee398086">&lt;strong&gt;</bpt>CloudMediaContext<ept id="52b88d3a-29fd-4dad-8bc8-58b2ee398086">&lt;/strong&gt;</ept> class is not thread safe.</target>
+        </trans-unit>
+        <trans-unit id="b6fc2b33-4d0c-4f7f-aad6-54bfe26b52fc" xml:space="preserve">
+          <source>Increase NumberOfConcurrentTransfers from the default value of 2 to a higher value like 5.</source>
+          <target state="new">Increase NumberOfConcurrentTransfers from the default value of 2 to a higher value like 5.</target>
+        </trans-unit>
+        <trans-unit id="9547d127-b143-4e0d-a55f-10f7423c54ac" xml:space="preserve">
+          <source>Setting this property affects all instances of <bpt id="5d497eda-1a33-4275-9e02-113a1b68a190">&lt;strong&gt;</bpt>CloudMediaContext<ept id="5d497eda-1a33-4275-9e02-113a1b68a190">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Setting this property affects all instances of <bpt id="5d497eda-1a33-4275-9e02-113a1b68a190">&lt;strong&gt;</bpt>CloudMediaContext<ept id="5d497eda-1a33-4275-9e02-113a1b68a190">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd18fd66-b53a-4816-9421-9b282790f0a5" xml:space="preserve">
+          <source>Keep ParallelTransferThreadCount at the default value of 10.</source>
+          <target state="new">Keep ParallelTransferThreadCount at the default value of 10.</target>
+        </trans-unit>
+        <trans-unit id="2a0d4600-84cf-49a9-a560-b68431916c86" xml:space="preserve">
+          <source>Uploading large asset files can be a bottleneck during asset creation.</source>
+          <target state="new">Uploading large asset files can be a bottleneck during asset creation.</target>
+        </trans-unit>
+        <trans-unit id="657abc41-00d4-4919-a558-c775ed1d7ae8" xml:space="preserve">
+          <source>Ingesting Assets in Bulk or “Bulk Ingesting”, involves decoupling asset creation from the upload process.</source>
+          <target state="new">Ingesting Assets in Bulk or “Bulk Ingesting”, involves decoupling asset creation from the upload process.</target>
+        </trans-unit>
+        <trans-unit id="81a5be81-44fa-4452-9d15-40c3fae05602" xml:space="preserve">
+          <source>To use a bulk ingesting approach, create a manifest (IngestManifest) that describes the asset and its associated files.</source>
+          <target state="new">To use a bulk ingesting approach, create a manifest (IngestManifest) that describes the asset and its associated files.</target>
+        </trans-unit>
+        <trans-unit id="ba514842-0f40-4665-82d7-42e74ff61d82" xml:space="preserve">
+          <source>Then use the upload method of your choice to upload the associated files to the manifest’s blob container.</source>
+          <target state="new">Then use the upload method of your choice to upload the associated files to the manifest’s blob container.</target>
+        </trans-unit>
+        <trans-unit id="fd1c88df-0542-4d07-bd6a-2f07af77b02e" xml:space="preserve">
+          <source>Microsoft Azure Media Services watches the blob container associated with the manifest.</source>
+          <target state="new">Microsoft Azure Media Services watches the blob container associated with the manifest.</target>
+        </trans-unit>
+        <trans-unit id="9c966c64-f899-4716-9420-a22c284d8a47" xml:space="preserve">
+          <source>Once a file is uploaded to the blob container, Microsoft Azure Media Services completes the asset creation based on the configuration of the asset in the manifest (IngestManifestAsset).</source>
+          <target state="new">Once a file is uploaded to the blob container, Microsoft Azure Media Services completes the asset creation based on the configuration of the asset in the manifest (IngestManifestAsset).</target>
+        </trans-unit>
+        <trans-unit id="cda5221e-7960-49a7-82e1-7929aa7ca0c9" xml:space="preserve">
+          <source>To create a new IngestManifest call the Create method exposed by the IngestManifests collection on the CloudMediaContext.</source>
+          <target state="new">To create a new IngestManifest call the Create method exposed by the IngestManifests collection on the CloudMediaContext.</target>
+        </trans-unit>
+        <trans-unit id="583f57f9-467c-4e3e-8640-e5f5c216615a" xml:space="preserve">
+          <source>This method will create a new IngestManifest with the manifest name you provide.</source>
+          <target state="new">This method will create a new IngestManifest with the manifest name you provide.</target>
+        </trans-unit>
+        <trans-unit id="28fddc58-3486-45c6-96a2-70fa5d647b0b" xml:space="preserve">
+          <source>Create the assets that will be associated with the bulk IngestManifest.</source>
+          <target state="new">Create the assets that will be associated with the bulk IngestManifest.</target>
+        </trans-unit>
+        <trans-unit id="0843f8a7-5138-4159-a84a-c678c1e942ff" xml:space="preserve">
+          <source>Configure the desired encryption options on the asset for bulk ingesting.</source>
+          <target state="new">Configure the desired encryption options on the asset for bulk ingesting.</target>
+        </trans-unit>
+        <trans-unit id="4fb77464-a122-495b-97cb-c4168fc2e443" xml:space="preserve">
+          <source>An IngestManifestAsset associates an Asset with a bulk IngestManifest for bulk ingesting.</source>
+          <target state="new">An IngestManifestAsset associates an Asset with a bulk IngestManifest for bulk ingesting.</target>
+        </trans-unit>
+        <trans-unit id="25a4c039-5380-4098-a4fd-66e4dbb087c0" xml:space="preserve">
+          <source>It also associates the AssetFiles that will make up each Asset.</source>
+          <target state="new">It also associates the AssetFiles that will make up each Asset.</target>
+        </trans-unit>
+        <trans-unit id="88243007-bec5-4838-8aca-16f2e9f685fd" xml:space="preserve">
+          <source>To create an IngestManifestAsset, use the Create method on the server context.</source>
+          <target state="new">To create an IngestManifestAsset, use the Create method on the server context.</target>
+        </trans-unit>
+        <trans-unit id="e3a9f712-ec99-45ea-a07f-a54e93832989" xml:space="preserve">
+          <source>The following example demonstrates adding two new IngestManifestAssets that associate the two assets previously created to the bulk ingest manifest.</source>
+          <target state="new">The following example demonstrates adding two new IngestManifestAssets that associate the two assets previously created to the bulk ingest manifest.</target>
+        </trans-unit>
+        <trans-unit id="694f1751-f94b-414d-bbc6-47796c136f1b" xml:space="preserve">
+          <source>Each IngestManifestAsset also associates a set of files that will be uploaded for each asset during bulk ingesting.</source>
+          <target state="new">Each IngestManifestAsset also associates a set of files that will be uploaded for each asset during bulk ingesting.</target>
+        </trans-unit>
+        <trans-unit id="28c1c0f3-d9f5-4452-9972-65fbdebad065" xml:space="preserve">
+          <source>You can use any high speed client application capable of uploading the asset files to the blob storage container URI provided by the <bpt id="d595d5de-123d-46cf-b38c-5dc598b46233">&lt;strong&gt;</bpt>IIngestManifest.BlobStorageUriForUpload<ept id="d595d5de-123d-46cf-b38c-5dc598b46233">&lt;/strong&gt;</ept> property of the IngestManifest.</source>
+          <target state="new">You can use any high speed client application capable of uploading the asset files to the blob storage container URI provided by the <bpt id="d595d5de-123d-46cf-b38c-5dc598b46233">&lt;strong&gt;</bpt>IIngestManifest.BlobStorageUriForUpload<ept id="d595d5de-123d-46cf-b38c-5dc598b46233">&lt;/strong&gt;</ept> property of the IngestManifest.</target>
+        </trans-unit>
+        <trans-unit id="db5f2fb5-1154-4eb6-9728-37e6ba762784" xml:space="preserve">
+          <source>One notable high speed upload service is <bpt id="8693838c-0980-4368-8535-749e61f52a11">&lt;linkText&gt;</bpt>Aspera On Demand for Azure Application<ept id="8693838c-0980-4368-8535-749e61f52a11">&lt;/linkText&gt;</ept><bpt id="8693838c-0980-4368-8535-749e61f52a11">&lt;title&gt;</bpt><ept id="8693838c-0980-4368-8535-749e61f52a11">&lt;/title&gt;</ept>.</source>
+          <target state="new">One notable high speed upload service is <bpt id="8693838c-0980-4368-8535-749e61f52a11">&lt;linkText&gt;</bpt>Aspera On Demand for Azure Application<ept id="8693838c-0980-4368-8535-749e61f52a11">&lt;/linkText&gt;</ept><bpt id="8693838c-0980-4368-8535-749e61f52a11">&lt;title&gt;</bpt><ept id="8693838c-0980-4368-8535-749e61f52a11">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66dd4942-e7f8-4088-be00-2d19724841b5" xml:space="preserve">
+          <source>You can also write code to upload the assets files as shown in the following code example.</source>
+          <target state="new">You can also write code to upload the assets files as shown in the following code example.</target>
+        </trans-unit>
+        <trans-unit id="bb73f74b-5453-4fa7-b25d-5ea804be73c7" xml:space="preserve">
+          <source>The code for uploading the asset files for the sample used in this topic is shown in the following code example.</source>
+          <target state="new">The code for uploading the asset files for the sample used in this topic is shown in the following code example.</target>
+        </trans-unit>
+        <trans-unit id="53d67247-14dd-4473-b5d0-583ca295a344" xml:space="preserve">
+          <source>You can determine the progress of the bulk ingesting for all assets associated with an <bpt id="c68525c0-0b58-4f14-af22-20e447205772">&lt;strong&gt;</bpt>IngestManifest<ept id="c68525c0-0b58-4f14-af22-20e447205772">&lt;/strong&gt;</ept> by polling the Statistics property of the <bpt id="b749a92d-f71c-46da-bc06-e90d9c44a070">&lt;strong&gt;</bpt>IngestManifest<ept id="b749a92d-f71c-46da-bc06-e90d9c44a070">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can determine the progress of the bulk ingesting for all assets associated with an <bpt id="c68525c0-0b58-4f14-af22-20e447205772">&lt;strong&gt;</bpt>IngestManifest<ept id="c68525c0-0b58-4f14-af22-20e447205772">&lt;/strong&gt;</ept> by polling the Statistics property of the <bpt id="b749a92d-f71c-46da-bc06-e90d9c44a070">&lt;strong&gt;</bpt>IngestManifest<ept id="b749a92d-f71c-46da-bc06-e90d9c44a070">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94f57f7e-af23-47dd-a8ed-3626c2c79e56" xml:space="preserve">
+          <source>In order to update progress information, you must use a new <bpt id="1b5e5061-949b-4305-bcfb-ec9766a71a27">&lt;strong&gt;</bpt>CloudMediaContext<ept id="1b5e5061-949b-4305-bcfb-ec9766a71a27">&lt;/strong&gt;</ept> each time you poll the Statistics property.</source>
+          <target state="new">In order to update progress information, you must use a new <bpt id="1b5e5061-949b-4305-bcfb-ec9766a71a27">&lt;strong&gt;</bpt>CloudMediaContext<ept id="1b5e5061-949b-4305-bcfb-ec9766a71a27">&lt;/strong&gt;</ept> each time you poll the Statistics property.</target>
+        </trans-unit>
+        <trans-unit id="2390ee3d-7f1a-43af-8027-8956f44035e9" xml:space="preserve">
+          <source>The following example demonstrates polling an IngestManifest by its <bpt id="7f1a29ea-de7e-49c6-a1aa-d5260daaf0d1">&lt;strong&gt;</bpt>Id<ept id="7f1a29ea-de7e-49c6-a1aa-d5260daaf0d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following example demonstrates polling an IngestManifest by its <bpt id="7f1a29ea-de7e-49c6-a1aa-d5260daaf0d1">&lt;strong&gt;</bpt>Id<ept id="7f1a29ea-de7e-49c6-a1aa-d5260daaf0d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b9f2cff-cde1-4bf1-a258-b05a78a073aa" xml:space="preserve">
+          <source>The example below shows how to upload a single file using .NET SDK Extensions.</source>
+          <target state="new">The example below shows how to upload a single file using .NET SDK Extensions.</target>
+        </trans-unit>
+        <trans-unit id="cfe50d6a-6e40-4c1e-aefc-9ac1d1d3def2" xml:space="preserve">
+          <source>In this case the <bpt id="fa4c169e-cfba-426e-8dea-e3cefee7a8e1">&lt;strong&gt;</bpt>CreateFromFile<ept id="fa4c169e-cfba-426e-8dea-e3cefee7a8e1">&lt;/strong&gt;</ept> method is used, but the asynchronous version is also available (<bpt id="c48de9dd-8abf-477b-87be-129d3e6b7dac">&lt;strong&gt;</bpt>CreateFromFileAsync<ept id="c48de9dd-8abf-477b-87be-129d3e6b7dac">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In this case the <bpt id="fa4c169e-cfba-426e-8dea-e3cefee7a8e1">&lt;strong&gt;</bpt>CreateFromFile<ept id="fa4c169e-cfba-426e-8dea-e3cefee7a8e1">&lt;/strong&gt;</ept> method is used, but the asynchronous version is also available (<bpt id="c48de9dd-8abf-477b-87be-129d3e6b7dac">&lt;strong&gt;</bpt>CreateFromFileAsync<ept id="c48de9dd-8abf-477b-87be-129d3e6b7dac">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="3ae2f253-d336-496d-8be7-2826bd6e3f67" xml:space="preserve">
+          <source>The <bpt id="f96d645f-ccce-4965-88f4-29a5ac9c4efd">&lt;strong&gt;</bpt>CreateFromFile<ept id="f96d645f-ccce-4965-88f4-29a5ac9c4efd">&lt;/strong&gt;</ept> method lets you specify the file name, encryption option, and a callback in order to report the upload progress of the file.</source>
+          <target state="new">The <bpt id="f96d645f-ccce-4965-88f4-29a5ac9c4efd">&lt;strong&gt;</bpt>CreateFromFile<ept id="f96d645f-ccce-4965-88f4-29a5ac9c4efd">&lt;/strong&gt;</ept> method lets you specify the file name, encryption option, and a callback in order to report the upload progress of the file.</target>
+        </trans-unit>
+        <trans-unit id="f184549d-0f7f-467a-87fd-d10e582e94de" xml:space="preserve">
+          <source>The following example calls UploadFile function and specifies storage encryption as the asset creation option.</source>
+          <target state="new">The following example calls UploadFile function and specifies storage encryption as the asset creation option.</target>
+        </trans-unit>
+        <trans-unit id="808e8536-d105-4661-accb-a2d034aad05e" xml:space="preserve">
+          <source>Now that you have uploaded an asset to Media Services, go to the <bpt id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;linkText&gt;</bpt>How to Get a Media Processor<ept id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;/linkText&gt;</ept><bpt id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;title&gt;</bpt><ept id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">Now that you have uploaded an asset to Media Services, go to the <bpt id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;linkText&gt;</bpt>How to Get a Media Processor<ept id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;/linkText&gt;</ept><bpt id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;title&gt;</bpt><ept id="d964c80e-4bba-428c-a8a5-66be18a5d678">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="f5516046-90ca-4a20-9d16-78c2328cc708" xml:space="preserve">
+          <source>media-services-get-media-processor.md</source>
+          <target state="new">media-services-get-media-processor.md</target>
+        </trans-unit>
+      </group>
+      <group id="af66fdf0-5788-449a-8047-5e5fa3a601b1" />
+    </body>
+  </file>
+</xliff>

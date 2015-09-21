@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="376b974a-a2b3-48b1-898e-e3e2f34465bc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="376b974a-a2b3-48b1-898e-e3e2f34465bc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bc6944cf-aacb-4927-93d5-6c752550f1e9">
+        <trans-unit id="d9b5bf8b-d70b-407e-b9e6-17374aa52799" xml:space="preserve">
+          <source>Manage a web app in Azure App Service</source>
+          <target state="new">Manage a web app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="270134b2-feae-48cf-b8f1-a56f82880b01" xml:space="preserve">
+          <source>Links to resources for managing a web app in Azure App Service.</source>
+          <target state="new">Links to resources for managing a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="8b91559b-d583-4ecb-b3cd-cdab6baf1887" xml:space="preserve">
+          <source>This topic contains links to resources for managing a web app in <bpt id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;linkText&gt;</bpt>Azure App Service<ept id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;/linkText&gt;</ept><bpt id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;title&gt;</bpt><ept id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic contains links to resources for managing a web app in <bpt id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;linkText&gt;</bpt>Azure App Service<ept id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;/linkText&gt;</ept><bpt id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;title&gt;</bpt><ept id="e3b2ccaa-ae1e-40eb-88a7-f57f001c2345">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2743969-d3cf-4b42-b352-b4ec38b0fdcb" xml:space="preserve">
+          <source>Management includes all of the tasks that keep your web app running smoothly.</source>
+          <target state="new">Management includes all of the tasks that keep your web app running smoothly.</target>
+        </trans-unit>
+        <trans-unit id="eca8500e-161b-4a6c-b318-d04f3be7db47" xml:space="preserve">
+          <source>Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.</source>
+          <target state="new">Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.</target>
+        </trans-unit>
+        <trans-unit id="e68191be-e2da-4469-9187-98e0410cccf3" xml:space="preserve">
+          <source>Many web app management tasks can be performed in the Azure portal.</source>
+          <target state="new">Many web app management tasks can be performed in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="9c68be60-54c2-44d9-a8cc-87cbb80b1478" xml:space="preserve">
+          <source>Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and Premium.</source>
+          <target state="new">Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and Premium.</target>
+        </trans-unit>
+        <trans-unit id="f9351d89-ff71-4bdc-aa10-05147b1878a1" xml:space="preserve">
+          <source>For information about the features and pricing for each tier, see <bpt id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;linkText&gt;</bpt>Pricing details<ept id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;/linkText&gt;</ept><bpt id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;title&gt;</bpt><ept id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the features and pricing for each tier, see <bpt id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;linkText&gt;</bpt>Pricing details<ept id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;/linkText&gt;</ept><bpt id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;title&gt;</bpt><ept id="4efff176-aac7-4e80-a65f-6ddfdcb9766f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e9496b4-b598-4361-84b0-4ef428e4a55f" xml:space="preserve">
+          <source><bpt id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;linkText&gt;</bpt>App Service plans<ept id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;/linkText&gt;</ept><bpt id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;title&gt;</bpt><ept id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;/title&gt;</ept> let you group multiple web apps under the same tier.</source>
+          <target state="new"><bpt id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;linkText&gt;</bpt>App Service plans<ept id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;/linkText&gt;</ept><bpt id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;title&gt;</bpt><ept id="2e010eef-33e3-4cb4-86ca-7886afe11fd6">&lt;/title&gt;</ept> let you group multiple web apps under the same tier.</target>
+        </trans-unit>
+        <trans-unit id="e0add822-de73-4993-b13b-1a211475e422" xml:space="preserve">
+          <source>You can always <bpt id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;linkText&gt;</bpt>switch tiers<ept id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;/linkText&gt;</ept><bpt id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;title&gt;</bpt><ept id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;/title&gt;</ept> after you create your web app.</source>
+          <target state="new">You can always <bpt id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;linkText&gt;</bpt>switch tiers<ept id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;/linkText&gt;</ept><bpt id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;title&gt;</bpt><ept id="98236aa3-8f22-4a09-b183-d3607e5c084b">&lt;/title&gt;</ept> after you create your web app.</target>
+        </trans-unit>
+        <trans-unit id="1f139fcf-6424-48c4-a4f8-0d2fea6c1218" xml:space="preserve">
+          <source>Use the <bpt id="b3756333-219e-43be-8f08-3403e689c135">&lt;linkText&gt;</bpt>Azure preview portal<ept id="b3756333-219e-43be-8f08-3403e689c135">&lt;/linkText&gt;</ept><bpt id="b3756333-219e-43be-8f08-3403e689c135">&lt;title&gt;</bpt><ept id="b3756333-219e-43be-8f08-3403e689c135">&lt;/title&gt;</ept> to set various configuration options.</source>
+          <target state="new">Use the <bpt id="b3756333-219e-43be-8f08-3403e689c135">&lt;linkText&gt;</bpt>Azure preview portal<ept id="b3756333-219e-43be-8f08-3403e689c135">&lt;/linkText&gt;</ept><bpt id="b3756333-219e-43be-8f08-3403e689c135">&lt;title&gt;</bpt><ept id="b3756333-219e-43be-8f08-3403e689c135">&lt;/title&gt;</ept> to set various configuration options.</target>
+        </trans-unit>
+        <trans-unit id="57b7c14c-fd8d-4c19-8627-4c1203025a0c" xml:space="preserve">
+          <source>For details, see <bpt id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;linkText&gt;</bpt>Configure web apps in Azure App Service<ept id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;/linkText&gt;</ept><bpt id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;title&gt;</bpt><ept id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;linkText&gt;</bpt>Configure web apps in Azure App Service<ept id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;/linkText&gt;</ept><bpt id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;title&gt;</bpt><ept id="8cc9fc63-fa5f-4ded-8329-2ee405c0fa32">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01d1e5a6-1ffc-45e6-86a8-ca801a6ff84c" xml:space="preserve">
+          <source>Here is a quick checklist:</source>
+          <target state="new">Here is a quick checklist:</target>
+        </trans-unit>
+        <trans-unit id="cc28a9ef-ce20-4a53-a9c6-c97a0640a438" xml:space="preserve">
+          <source>Select <bpt id="419bdc4c-c81f-4204-b4d9-09e4b69d5886">&lt;strong&gt;</bpt>runtime versions<ept id="419bdc4c-c81f-4204-b4d9-09e4b69d5886">&lt;/strong&gt;</ept> for .NET, PHP, Java, or Python, if needed.</source>
+          <target state="new">Select <bpt id="419bdc4c-c81f-4204-b4d9-09e4b69d5886">&lt;strong&gt;</bpt>runtime versions<ept id="419bdc4c-c81f-4204-b4d9-09e4b69d5886">&lt;/strong&gt;</ept> for .NET, PHP, Java, or Python, if needed.</target>
+        </trans-unit>
+        <trans-unit id="631eab3a-8b6f-418f-8dd3-ec82517ad73d" xml:space="preserve">
+          <source>Enable <bpt id="ffa470c9-e582-47bf-9f74-c412b0fe3f55">&lt;strong&gt;</bpt>WebSockets<ept id="ffa470c9-e582-47bf-9f74-c412b0fe3f55">&lt;/strong&gt;</ept> if your web app uses the WebSocket protocol.</source>
+          <target state="new">Enable <bpt id="ffa470c9-e582-47bf-9f74-c412b0fe3f55">&lt;strong&gt;</bpt>WebSockets<ept id="ffa470c9-e582-47bf-9f74-c412b0fe3f55">&lt;/strong&gt;</ept> if your web app uses the WebSocket protocol.</target>
+        </trans-unit>
+        <trans-unit id="3a796a58-5bbb-4cc1-be2b-57c11b9fd452" xml:space="preserve">
+          <source>(This includes apps that use <bpt id="55942182-0d10-4540-9674-1313c11f4edd">&lt;linkText&gt;</bpt>ASP.NET SignalR<ept id="55942182-0d10-4540-9674-1313c11f4edd">&lt;/linkText&gt;</ept><bpt id="55942182-0d10-4540-9674-1313c11f4edd">&lt;title&gt;</bpt><ept id="55942182-0d10-4540-9674-1313c11f4edd">&lt;/title&gt;</ept> or <bpt id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;linkText&gt;</bpt>socket.io<ept id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;/linkText&gt;</ept><bpt id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;title&gt;</bpt><ept id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(This includes apps that use <bpt id="55942182-0d10-4540-9674-1313c11f4edd">&lt;linkText&gt;</bpt>ASP.NET SignalR<ept id="55942182-0d10-4540-9674-1313c11f4edd">&lt;/linkText&gt;</ept><bpt id="55942182-0d10-4540-9674-1313c11f4edd">&lt;title&gt;</bpt><ept id="55942182-0d10-4540-9674-1313c11f4edd">&lt;/title&gt;</ept> or <bpt id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;linkText&gt;</bpt>socket.io<ept id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;/linkText&gt;</ept><bpt id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;title&gt;</bpt><ept id="49c5dad9-6ada-45ec-9bbb-441b5fe49a12">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="eb256cac-6716-4e33-a329-a5d42a7e7f1b" xml:space="preserve">
+          <source>Are you running continuous web jobs?</source>
+          <target state="new">Are you running continuous web jobs?</target>
+        </trans-unit>
+        <trans-unit id="947850b4-f0c9-4c9a-a787-f8a32c803e6f" xml:space="preserve">
+          <source>If so, enable <bpt id="74b3902f-7964-401d-9b2c-67459eaf51c4">&lt;strong&gt;</bpt>Always On<ept id="74b3902f-7964-401d-9b2c-67459eaf51c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If so, enable <bpt id="74b3902f-7964-401d-9b2c-67459eaf51c4">&lt;strong&gt;</bpt>Always On<ept id="74b3902f-7964-401d-9b2c-67459eaf51c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d41ed6b9-2651-40a5-88ee-edc66f7553c5" xml:space="preserve">
+          <source>Set the <bpt id="664d8696-8aee-4fbb-9ff1-750333af7f2e">&lt;strong&gt;</bpt>default document<ept id="664d8696-8aee-4fbb-9ff1-750333af7f2e">&lt;/strong&gt;</ept>, such as index.html.</source>
+          <target state="new">Set the <bpt id="664d8696-8aee-4fbb-9ff1-750333af7f2e">&lt;strong&gt;</bpt>default document<ept id="664d8696-8aee-4fbb-9ff1-750333af7f2e">&lt;/strong&gt;</ept>, such as index.html.</target>
+        </trans-unit>
+        <trans-unit id="8b55f242-55db-4586-aba4-60244aeedb1f" xml:space="preserve">
+          <source>In addition to these basic configuration settings, you may want to configure the following:</source>
+          <target state="new">In addition to these basic configuration settings, you may want to configure the following:</target>
+        </trans-unit>
+        <trans-unit id="ac11492b-050a-4a56-ae5f-5f0c9a712e7d" xml:space="preserve">
+          <source><bpt id="0e873588-e603-4716-9415-38654d021b7e">&lt;strong&gt;</bpt>Secure Socket Layer (SSL)<ept id="0e873588-e603-4716-9415-38654d021b7e">&lt;/strong&gt;</ept> encryption.</source>
+          <target state="new"><bpt id="0e873588-e603-4716-9415-38654d021b7e">&lt;strong&gt;</bpt>Secure Socket Layer (SSL)<ept id="0e873588-e603-4716-9415-38654d021b7e">&lt;/strong&gt;</ept> encryption.</target>
+        </trans-unit>
+        <trans-unit id="40f17917-fe9f-4617-a9e2-9936e17d0048" xml:space="preserve">
+          <source>To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it.</source>
+          <target state="new">To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it.</target>
+        </trans-unit>
+        <trans-unit id="3e4f8ac5-ae51-46b9-b61d-476893c0e8db" xml:space="preserve">
+          <source>See <bpt id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;linkText&gt;</bpt>Enable HTTPS for a web app in Azure App Service<ept id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;/linkText&gt;</ept><bpt id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;title&gt;</bpt><ept id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;linkText&gt;</bpt>Enable HTTPS for a web app in Azure App Service<ept id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;/linkText&gt;</ept><bpt id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;title&gt;</bpt><ept id="2ed4080f-a3e9-4a99-beb0-62bb131b5387">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97535eec-a2d4-4193-af75-49bcb8c76c91" xml:space="preserve">
+          <source><bpt id="9c6f060f-d526-4833-8885-71ccf342d660">&lt;strong&gt;</bpt>Custom domain name.<ept id="9c6f060f-d526-4833-8885-71ccf342d660">&lt;/strong&gt;</ept> Your web app automatically has a subdomain under azurewebsites.net.</source>
+          <target state="new"><bpt id="9c6f060f-d526-4833-8885-71ccf342d660">&lt;strong&gt;</bpt>Custom domain name.<ept id="9c6f060f-d526-4833-8885-71ccf342d660">&lt;/strong&gt;</ept> Your web app automatically has a subdomain under azurewebsites.net.</target>
+        </trans-unit>
+        <trans-unit id="2e5c0a43-0375-4a6e-b3aa-09475da4d887" xml:space="preserve">
+          <source>You can associate a custom domain name, such as contoso.com.</source>
+          <target state="new">You can associate a custom domain name, such as contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="051d10de-8489-457d-bd4e-0e280098561b" xml:space="preserve">
+          <source>See <bpt id="caa7da86-63d0-4868-aed3-be723a807445">&lt;linkText&gt;</bpt>Configure a custom domain name in Azure App Service<ept id="caa7da86-63d0-4868-aed3-be723a807445">&lt;/linkText&gt;</ept><bpt id="caa7da86-63d0-4868-aed3-be723a807445">&lt;title&gt;</bpt><ept id="caa7da86-63d0-4868-aed3-be723a807445">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="caa7da86-63d0-4868-aed3-be723a807445">&lt;linkText&gt;</bpt>Configure a custom domain name in Azure App Service<ept id="caa7da86-63d0-4868-aed3-be723a807445">&lt;/linkText&gt;</ept><bpt id="caa7da86-63d0-4868-aed3-be723a807445">&lt;title&gt;</bpt><ept id="caa7da86-63d0-4868-aed3-be723a807445">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e33a1486-ea55-4387-a456-be8211eb58cf" xml:space="preserve">
+          <source>Language-specific configuration:</source>
+          <target state="new">Language-specific configuration:</target>
+        </trans-unit>
+        <trans-unit id="7afcc51b-8b39-4eb1-9d8d-08ede924fdba" xml:space="preserve">
+          <source><bpt id="8f76f73b-69f3-48c1-93c8-ab116640df87">&lt;strong&gt;</bpt>PHP<ept id="8f76f73b-69f3-48c1-93c8-ab116640df87">&lt;/strong&gt;</ept>: <bpt id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;linkText&gt;</bpt>Configure PHP in Azure App Service Web Apps<ept id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;/linkText&gt;</ept><bpt id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;title&gt;</bpt><ept id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="8f76f73b-69f3-48c1-93c8-ab116640df87">&lt;strong&gt;</bpt>PHP<ept id="8f76f73b-69f3-48c1-93c8-ab116640df87">&lt;/strong&gt;</ept>: <bpt id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;linkText&gt;</bpt>Configure PHP in Azure App Service Web Apps<ept id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;/linkText&gt;</ept><bpt id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;title&gt;</bpt><ept id="7743421f-cceb-401e-8032-5a8fc9c3c780">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec8ba38-0324-4ad3-90bf-8f13df4f4519" xml:space="preserve">
+          <source><bpt id="d59a5e5d-54d9-4d29-a072-87ebc12f8a93">&lt;strong&gt;</bpt>Python<ept id="d59a5e5d-54d9-4d29-a072-87ebc12f8a93">&lt;/strong&gt;</ept>: <bpt id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;linkText&gt;</bpt>Configuring Python with Azure App Service Web Apps<ept id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;/linkText&gt;</ept><bpt id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;title&gt;</bpt><ept id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d59a5e5d-54d9-4d29-a072-87ebc12f8a93">&lt;strong&gt;</bpt>Python<ept id="d59a5e5d-54d9-4d29-a072-87ebc12f8a93">&lt;/strong&gt;</ept>: <bpt id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;linkText&gt;</bpt>Configuring Python with Azure App Service Web Apps<ept id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;/linkText&gt;</ept><bpt id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;title&gt;</bpt><ept id="3196068d-6277-40ee-83f1-fba1fbbba871">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="589949f0-4b98-40ff-9ecd-81fb7cc3c57f" xml:space="preserve">
+          <source>While your web app is running, you want to make sure it is available, and that it scales to meet user traffic.</source>
+          <target state="new">While your web app is running, you want to make sure it is available, and that it scales to meet user traffic.</target>
+        </trans-unit>
+        <trans-unit id="f7f0c370-961d-44a1-aa74-b6a4c3d3f2ce" xml:space="preserve">
+          <source>You may also need to troubleshoot errors.</source>
+          <target state="new">You may also need to troubleshoot errors.</target>
+        </trans-unit>
+        <trans-unit id="6d53ccfe-053b-442e-a2bf-b2ff48231233" xml:space="preserve">
+          <source>Through the Azure preview portal, you can <bpt id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;linkText&gt;</bpt>add performance metrics<ept id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;/linkText&gt;</ept><bpt id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;title&gt;</bpt><ept id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;/title&gt;</ept> such as CPU usage and number of client requests.</source>
+          <target state="new">Through the Azure preview portal, you can <bpt id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;linkText&gt;</bpt>add performance metrics<ept id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;/linkText&gt;</ept><bpt id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;title&gt;</bpt><ept id="8d4dd44c-0a92-4a17-9cd9-60ae8dc2b513">&lt;/title&gt;</ept> such as CPU usage and number of client requests.</target>
+        </trans-unit>
+        <trans-unit id="2e0db2cb-559e-4fc4-8332-494e2407fdb0" xml:space="preserve">
+          <source>For deeper insight, use New Relic to monitor and manage performance.</source>
+          <target state="new">For deeper insight, use New Relic to monitor and manage performance.</target>
+        </trans-unit>
+        <trans-unit id="1d6307ee-1dd1-4f92-8ca4-20e1f67f37fe" xml:space="preserve">
+          <source>See <bpt id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;linkText&gt;</bpt>.NET web app in Azure App Service with New Relic application performance management<ept id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;/linkText&gt;</ept><bpt id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;title&gt;</bpt><ept id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;linkText&gt;</bpt>.NET web app in Azure App Service with New Relic application performance management<ept id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;/linkText&gt;</ept><bpt id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;title&gt;</bpt><ept id="ce68e9c0-1c79-46b8-822e-3925466b9d6a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3afb7ef3-d62b-44fe-934b-adcb8d853a21" xml:space="preserve">
+          <source><bpt id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;linkText&gt;</bpt>Scale your web app<ept id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;/linkText&gt;</ept><bpt id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;title&gt;</bpt><ept id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;/title&gt;</ept> in response to traffic.</source>
+          <target state="new"><bpt id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;linkText&gt;</bpt>Scale your web app<ept id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;/linkText&gt;</ept><bpt id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;title&gt;</bpt><ept id="1c082fdd-52a7-422e-9c7d-4e905e95d4d1">&lt;/title&gt;</ept> in response to traffic.</target>
+        </trans-unit>
+        <trans-unit id="1648e895-6bf8-4a45-903c-e3afcac36cf8" xml:space="preserve">
+          <source>Depending on your tier, you can scale the number of VMs and/or the size of the VM instances.</source>
+          <target state="new">Depending on your tier, you can scale the number of VMs and/or the size of the VM instances.</target>
+        </trans-unit>
+        <trans-unit id="86ec703f-dd71-4621-bb9f-7245c2682f64" xml:space="preserve">
+          <source>In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.</source>
+          <target state="new">In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.</target>
+        </trans-unit>
+        <trans-unit id="aa87284a-f286-48d8-b0fb-aa437247ddf2" xml:space="preserve">
+          <source>Set <bpt id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;linkText&gt;</bpt>automatic backups<ept id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;/linkText&gt;</ept><bpt id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;title&gt;</bpt><ept id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;/title&gt;</ept> of your web app.</source>
+          <target state="new">Set <bpt id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;linkText&gt;</bpt>automatic backups<ept id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;/linkText&gt;</ept><bpt id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;title&gt;</bpt><ept id="69a49686-0b16-4f07-9828-f47e7acfcb7a">&lt;/title&gt;</ept> of your web app.</target>
+        </trans-unit>
+        <trans-unit id="636638c2-5b97-4f11-b8cb-5b8ccfbbd062" xml:space="preserve">
+          <source>Learn more about backups in <bpt id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;linkText&gt;</bpt>this video<ept id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;/linkText&gt;</ept><bpt id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;title&gt;</bpt><ept id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about backups in <bpt id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;linkText&gt;</bpt>this video<ept id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;/linkText&gt;</ept><bpt id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;title&gt;</bpt><ept id="cc470ab9-f7d2-4974-b97d-2800caf96ccf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a460fc5d-1793-4953-a6f7-dccfaaceeaf0" xml:space="preserve">
+          <source>Learn about the options for <bpt id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;linkText&gt;</bpt>database recovery<ept id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;/linkText&gt;</ept><bpt id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;title&gt;</bpt><ept id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;/title&gt;</ept> in Azure SQL Database.</source>
+          <target state="new">Learn about the options for <bpt id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;linkText&gt;</bpt>database recovery<ept id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;/linkText&gt;</ept><bpt id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;title&gt;</bpt><ept id="2c50a6a0-d71c-456d-9dc1-81bbd544bc12">&lt;/title&gt;</ept> in Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="7f33100f-7079-4627-b4d4-e369a6aeeb8f" xml:space="preserve">
+          <source>If something goes wrong, you can <bpt id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;linkText&gt;</bpt>troubleshoot in Visual Studio<ept id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;/linkText&gt;</ept><bpt id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;title&gt;</bpt><ept id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;/title&gt;</ept>, using diagnostic logs and live debugging in the cloud.</source>
+          <target state="new">If something goes wrong, you can <bpt id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;linkText&gt;</bpt>troubleshoot in Visual Studio<ept id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;/linkText&gt;</ept><bpt id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;title&gt;</bpt><ept id="2aa58e04-8a5a-4e13-80d9-99c53ccb1bb1">&lt;/title&gt;</ept>, using diagnostic logs and live debugging in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8c75fa0d-0470-461c-83c4-49ab8c26020f" xml:space="preserve">
+          <source>Outside of Visual Studio, there are various ways to collect diagnostic logs.</source>
+          <target state="new">Outside of Visual Studio, there are various ways to collect diagnostic logs.</target>
+        </trans-unit>
+        <trans-unit id="73db9751-45e6-4d6b-be35-f231503e8638" xml:space="preserve">
+          <source>See <bpt id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;linkText&gt;</bpt>Enable diagnostics logging for web apps in Azure App Service<ept id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;/linkText&gt;</ept><bpt id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;title&gt;</bpt><ept id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;linkText&gt;</bpt>Enable diagnostics logging for web apps in Azure App Service<ept id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;/linkText&gt;</ept><bpt id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;title&gt;</bpt><ept id="8d80773b-75bc-408a-b4a9-4a0047aec0ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="432b5ff5-2e03-4f85-b4fc-bd257790f510" xml:space="preserve">
+          <source>For Node.js applications, see <bpt id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;linkText&gt;</bpt>How to debug a Node.js web app in Azure App Service<ept id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;/linkText&gt;</ept><bpt id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;title&gt;</bpt><ept id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Node.js applications, see <bpt id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;linkText&gt;</bpt>How to debug a Node.js web app in Azure App Service<ept id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;/linkText&gt;</ept><bpt id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;title&gt;</bpt><ept id="ad1634c9-f06b-4c0f-8d27-649e3f0d2576">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b717491a-6539-4240-ae4b-01b337d7b401" xml:space="preserve">
+          <source><bpt id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;linkText&gt;</bpt>Restore<ept id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;/linkText&gt;</ept><bpt id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;title&gt;</bpt><ept id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;/title&gt;</ept> a web app that was previously backed up.</source>
+          <target state="new"><bpt id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;linkText&gt;</bpt>Restore<ept id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;/linkText&gt;</ept><bpt id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;title&gt;</bpt><ept id="f210ea7d-db06-459e-bdf1-26aa8f750538">&lt;/title&gt;</ept> a web app that was previously backed up.</target>
+        </trans-unit>
+        <trans-unit id="f0f4dd6f-b817-4b43-aed2-28c6b02d9789" xml:space="preserve">
+          <source>If you have not enabled automatic backups, you can create a <bpt id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;linkText&gt;</bpt>manual backup<ept id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;/linkText&gt;</ept><bpt id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;title&gt;</bpt><ept id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not enabled automatic backups, you can create a <bpt id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;linkText&gt;</bpt>manual backup<ept id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;/linkText&gt;</ept><bpt id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;title&gt;</bpt><ept id="08bc986d-ffd3-41f4-a97f-d4ea8fffc506">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2788b333-c080-4b42-ba28-e8a66ea63982" xml:space="preserve">
+          <source>Consider using <bpt id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;linkText&gt;</bpt>staged deployment<ept id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;/linkText&gt;</ept><bpt id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;title&gt;</bpt><ept id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Consider using <bpt id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;linkText&gt;</bpt>staged deployment<ept id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;/linkText&gt;</ept><bpt id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;title&gt;</bpt><ept id="2319af99-d71d-44a1-99c6-0b294a54f8d9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="287d8dcb-a321-41f7-8983-1a36bd130dd2" xml:space="preserve">
+          <source>This option lets you publish updates to a staging deployment that runs side-by-side with your production deployment.</source>
+          <target state="new">This option lets you publish updates to a staging deployment that runs side-by-side with your production deployment.</target>
+        </trans-unit>
+        <trans-unit id="b51fafa4-4021-4579-beec-3f684dd1c3d4" xml:space="preserve">
+          <source>If you use Visual Studio Online, you can set up continuous deployment from source control:</source>
+          <target state="new">If you use Visual Studio Online, you can set up continuous deployment from source control:</target>
+        </trans-unit>
+        <trans-unit id="00e35ba4-8271-4305-9b0f-47cc504ae5aa" xml:space="preserve">
+          <source><bpt id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;linkText&gt;</bpt>Using Team Foundation Version Control (TFVC)<ept id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;/linkText&gt;</ept><bpt id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;title&gt;</bpt><ept id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;linkText&gt;</bpt>Using Team Foundation Version Control (TFVC)<ept id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;/linkText&gt;</ept><bpt id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;title&gt;</bpt><ept id="7bb4cc3a-4e86-443c-8fa4-ef665574a441">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="32a1343d-3572-4a79-ab21-3ddf80364f11" xml:space="preserve">
+          <source><bpt id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;linkText&gt;</bpt>Using Git<ept id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;/linkText&gt;</ept><bpt id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;title&gt;</bpt><ept id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;linkText&gt;</bpt>Using Git<ept id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;/linkText&gt;</ept><bpt id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;title&gt;</bpt><ept id="35089748-4296-4c55-8935-8ee9265dcb3d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24b90ba7-299f-4a8b-9ee3-2b381fe6e58a" xml:space="preserve">
+          <source><bpt id="f8eac75d-78c7-48d4-a3d5-68c10dafe7b9">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="f8eac75d-78c7-48d4-a3d5-68c10dafe7b9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f8eac75d-78c7-48d4-a3d5-68c10dafe7b9">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="f8eac75d-78c7-48d4-a3d5-68c10dafe7b9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39513ab1-b35c-4d31-b988-6937d69addbc" xml:space="preserve">
+          <source><bpt id="253d9870-8fcc-444d-a5c2-3eabac7ef86f">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="253d9870-8fcc-444d-a5c2-3eabac7ef86f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="253d9870-8fcc-444d-a5c2-3eabac7ef86f">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="253d9870-8fcc-444d-a5c2-3eabac7ef86f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a3018e3-c97a-41d1-97af-b7af36ef0223" xml:space="preserve">
+          <source>#before-you-deploy-your-site-to-production</source>
+          <target state="new">#before-you-deploy-your-site-to-production</target>
+        </trans-unit>
+        <trans-unit id="87f48d0c-a8a4-42d5-85b0-1508a83e1c32" xml:space="preserve">
+          <source>#while-your-website-is-running</source>
+          <target state="new">#while-your-website-is-running</target>
+        </trans-unit>
+        <trans-unit id="5b4d7639-baa9-44e4-8096-9eea240d63c2" xml:space="preserve">
+          <source>#when-you-update-your-website</source>
+          <target state="new">#when-you-update-your-website</target>
+        </trans-unit>
+      </group>
+      <group id="6f5ee8da-3b60-4d7d-bf4d-d998bd0aa39f" />
+    </body>
+  </file>
+</xliff>

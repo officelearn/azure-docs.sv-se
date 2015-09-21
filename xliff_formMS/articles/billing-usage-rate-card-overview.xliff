@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="47cac68c-8191-4329-b0c4-53326f1312b3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="47cac68c-8191-4329-b0c4-53326f1312b3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="26767f64-8dbb-4334-ba42-bd2a62053e5b">
+        <trans-unit id="e68ae0b5-20ea-454c-a0bd-78ff668791de" xml:space="preserve">
+          <source>Gain insights into your Microsoft Azure resource consumption</source>
+          <target state="new">Gain insights into your Microsoft Azure resource consumption</target>
+        </trans-unit>
+        <trans-unit id="ad23ddb2-16e6-45fe-8c89-dd24ed120392" xml:space="preserve">
+          <source>Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends.</source>
+          <target state="new">Provides a conceptual overview of the Azure Billing Usage and RateCard APIs, which are used to provide insights into Azure resource consumption and trends.</target>
+        </trans-unit>
+        <trans-unit id="cd9d5c02-f41c-4593-8368-771ae1b299b2" xml:space="preserve">
+          <source>Customers and partners require the ability to accurately predict and manage their Azure costs.</source>
+          <target state="new">Customers and partners require the ability to accurately predict and manage their Azure costs.</target>
+        </trans-unit>
+        <trans-unit id="f3a1f38a-fa95-47b1-9e06-ac8013990abf" xml:space="preserve">
+          <source>As they move from a Capex to an Opex model, they also need the ability to do showback vs. chargeback analysis, as well as provide mode fidelity in estimation and billing, especially for large cloud deployments.</source>
+          <target state="new">As they move from a Capex to an Opex model, they also need the ability to do showback vs. chargeback analysis, as well as provide mode fidelity in estimation and billing, especially for large cloud deployments.</target>
+        </trans-unit>
+        <trans-unit id="4eac7a6a-e82a-4000-be1c-146a2ee58ded" xml:space="preserve">
+          <source>The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.</source>
+          <target state="new">The Azure Resource Usage and Rate Card APIs discussed in this article address these needs, by enabling new insights into your consumption of Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="5b10d8ca-ec9c-44c5-862f-e85718380c7b" xml:space="preserve">
+          <source>The Azure Resource Usage and RateCard APIs are implemented as a Resource Provider, as part of the family of APIs exposed by the Azure Resource Manager.</source>
+          <target state="new">The Azure Resource Usage and RateCard APIs are implemented as a Resource Provider, as part of the family of APIs exposed by the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="6ffead28-a936-483d-8f1c-0c6e65f90edc" xml:space="preserve">
+          <source>Customers and partners can use the Azure Resource Usage API to get their estimated Azure consumption data.</source>
+          <target state="new">Customers and partners can use the Azure Resource Usage API to get their estimated Azure consumption data.</target>
+        </trans-unit>
+        <trans-unit id="a4ce3624-81f5-432e-8c5d-59ad9f53d0b5" xml:space="preserve">
+          <source>The features include:</source>
+          <target state="new">The features include:</target>
+        </trans-unit>
+        <trans-unit id="184db42c-5ac4-41da-91f6-141df0b42c77" xml:space="preserve">
+          <source><bpt id="2aa00cd1-9022-4e5e-8e73-f6d4b5f22622">&lt;strong&gt;</bpt>Azure Role-based Access Control<ept id="2aa00cd1-9022-4e5e-8e73-f6d4b5f22622">&lt;/strong&gt;</ept> - Customers and partners can configure their access policies on the <bpt id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;/linkText&gt;</ept><bpt id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;title&gt;</bpt><ept id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;/title&gt;</ept> or through <bpt id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;/linkText&gt;</ept><bpt id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;title&gt;</bpt><ept id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;/title&gt;</ept> to specify which users or applications can get access to the subscription’s usage data.</source>
+          <target state="new"><bpt id="2aa00cd1-9022-4e5e-8e73-f6d4b5f22622">&lt;strong&gt;</bpt>Azure Role-based Access Control<ept id="2aa00cd1-9022-4e5e-8e73-f6d4b5f22622">&lt;/strong&gt;</ept> - Customers and partners can configure their access policies on the <bpt id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;/linkText&gt;</ept><bpt id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;title&gt;</bpt><ept id="898a4c75-f9c1-43a1-851a-06b432f8d39e">&lt;/title&gt;</ept> or through <bpt id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;/linkText&gt;</ept><bpt id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;title&gt;</bpt><ept id="697c89d0-1148-41e6-a708-2965a1a82f01">&lt;/title&gt;</ept> to specify which users or applications can get access to the subscription’s usage data.</target>
+        </trans-unit>
+        <trans-unit id="5b925c54-0c09-4be6-a966-5afa8fb4d9a5" xml:space="preserve">
+          <source>Callers must use standard Azure Active Directory tokens for authentication.</source>
+          <target state="new">Callers must use standard Azure Active Directory tokens for authentication.</target>
+        </trans-unit>
+        <trans-unit id="1d0fd9c4-b4f6-41e2-bfba-90d36f2954d4" xml:space="preserve">
+          <source>The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.</source>
+          <target state="new">The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="c0237a8a-3934-4797-a24b-2dd3365ede68" xml:space="preserve">
+          <source><bpt id="f258bcb4-230e-4545-aa31-38a4730290e0">&lt;strong&gt;</bpt>Hourly or Daily Aggregations<ept id="f258bcb4-230e-4545-aa31-38a4730290e0">&lt;/strong&gt;</ept> - Callers can specify whether they want their Azure usage data in hourly buckets or daily buckets.</source>
+          <target state="new"><bpt id="f258bcb4-230e-4545-aa31-38a4730290e0">&lt;strong&gt;</bpt>Hourly or Daily Aggregations<ept id="f258bcb4-230e-4545-aa31-38a4730290e0">&lt;/strong&gt;</ept> - Callers can specify whether they want their Azure usage data in hourly buckets or daily buckets.</target>
+        </trans-unit>
+        <trans-unit id="6bb139a3-d1fc-46f4-b65b-2869ff78cbde" xml:space="preserve">
+          <source>The default is daily.</source>
+          <target state="new">The default is daily.</target>
+        </trans-unit>
+        <trans-unit id="a0477632-553f-4fe8-883d-6ca1ab2b2375" xml:space="preserve">
+          <source><bpt id="0a17798b-5d2a-4764-8b1d-5699e8fe8f2e">&lt;strong&gt;</bpt>Instance metadata provided (includes resource tags)<ept id="0a17798b-5d2a-4764-8b1d-5699e8fe8f2e">&lt;/strong&gt;</ept> – Instance-level details such as the fully qualified resource uri (/subscriptions/{subscription-id}/..), along with the resource group information and resource tags will be provided in the response.</source>
+          <target state="new"><bpt id="0a17798b-5d2a-4764-8b1d-5699e8fe8f2e">&lt;strong&gt;</bpt>Instance metadata provided (includes resource tags)<ept id="0a17798b-5d2a-4764-8b1d-5699e8fe8f2e">&lt;/strong&gt;</ept> – Instance-level details such as the fully qualified resource uri (/subscriptions/{subscription-id}/..), along with the resource group information and resource tags will be provided in the response.</target>
+        </trans-unit>
+        <trans-unit id="baf99419-a7f5-4726-88aa-51f3478d8f5b" xml:space="preserve">
+          <source>This will help customers deterministically and programmatically allocate usage by the tags, for use-cases like cross-charging.</source>
+          <target state="new">This will help customers deterministically and programmatically allocate usage by the tags, for use-cases like cross-charging.</target>
+        </trans-unit>
+        <trans-unit id="159ee24c-de86-467c-b7d8-974e4f6090b5" xml:space="preserve">
+          <source><bpt id="b9b40080-0f69-4bc8-8920-c203b4be0c22">&lt;strong&gt;</bpt>Resource metadata provided<ept id="b9b40080-0f69-4bc8-8920-c203b4be0c22">&lt;/strong&gt;</ept> - Resource details such as the meter name, meter category, meter sub category, unit and region will also be passed in the response, to give the callers a better understanding of what was consumed.</source>
+          <target state="new"><bpt id="b9b40080-0f69-4bc8-8920-c203b4be0c22">&lt;strong&gt;</bpt>Resource metadata provided<ept id="b9b40080-0f69-4bc8-8920-c203b4be0c22">&lt;/strong&gt;</ept> - Resource details such as the meter name, meter category, meter sub category, unit and region will also be passed in the response, to give the callers a better understanding of what was consumed.</target>
+        </trans-unit>
+        <trans-unit id="db1dcd30-679d-41f5-be6b-93e19f1e6faa" xml:space="preserve">
+          <source>We are also working to align  resource metadata terminology across the Azure portal, Azure usage CSV, EA billing CSV and other public-facing experiences, to enable customers to correlate data across experiences.</source>
+          <target state="new">We are also working to align  resource metadata terminology across the Azure portal, Azure usage CSV, EA billing CSV and other public-facing experiences, to enable customers to correlate data across experiences.</target>
+        </trans-unit>
+        <trans-unit id="b79645c1-b1ae-49b3-b55e-0f420579b958" xml:space="preserve">
+          <source><bpt id="b5a4780c-5905-40c7-bf17-eef201876313">&lt;strong&gt;</bpt>Usage for all offer types<ept id="b5a4780c-5905-40c7-bf17-eef201876313">&lt;/strong&gt;</ept> – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA among others.</source>
+          <target state="new"><bpt id="b5a4780c-5905-40c7-bf17-eef201876313">&lt;strong&gt;</bpt>Usage for all offer types<ept id="b5a4780c-5905-40c7-bf17-eef201876313">&lt;/strong&gt;</ept> – Usage data will be accessible for all offer types including Pay-as-you-go, MSDN, Monetary commitment, Monetary credit, and EA among others.</target>
+        </trans-unit>
+        <trans-unit id="b4af75e5-3a3d-4cfe-a1f1-52e703e14b05" xml:space="preserve">
+          <source>Customers and partners can use the Azure Resource RateCard API to get the list of available Azure resources, along with estimated pricing information for each.</source>
+          <target state="new">Customers and partners can use the Azure Resource RateCard API to get the list of available Azure resources, along with estimated pricing information for each.</target>
+        </trans-unit>
+        <trans-unit id="bf6ef362-da91-42fb-a38f-152b7cde0b9c" xml:space="preserve">
+          <source>The features include:</source>
+          <target state="new">The features include:</target>
+        </trans-unit>
+        <trans-unit id="e174f475-92bc-4b62-85f5-331551317e05" xml:space="preserve">
+          <source><bpt id="18e03e37-f586-4f89-825e-962e011fbed5">&lt;strong&gt;</bpt>Azure Role-based Access Control<ept id="18e03e37-f586-4f89-825e-962e011fbed5">&lt;/strong&gt;</ept> - Customers and partners can configure their access policies on the <bpt id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;/linkText&gt;</ept><bpt id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;title&gt;</bpt><ept id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;/title&gt;</ept> or through <bpt id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;/linkText&gt;</ept><bpt id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;title&gt;</bpt><ept id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;/title&gt;</ept> to specify which users or applications can get access to the RateCard data.</source>
+          <target state="new"><bpt id="18e03e37-f586-4f89-825e-962e011fbed5">&lt;strong&gt;</bpt>Azure Role-based Access Control<ept id="18e03e37-f586-4f89-825e-962e011fbed5">&lt;/strong&gt;</ept> - Customers and partners can configure their access policies on the <bpt id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;/linkText&gt;</ept><bpt id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;title&gt;</bpt><ept id="43fc9141-a1ce-44b4-9c35-4f8a76052da4">&lt;/title&gt;</ept> or through <bpt id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;/linkText&gt;</ept><bpt id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;title&gt;</bpt><ept id="edd9fa74-fc73-4f26-87ff-7030ee529dff">&lt;/title&gt;</ept> to specify which users or applications can get access to the RateCard data.</target>
+        </trans-unit>
+        <trans-unit id="d589a7d8-42f5-4e56-9b9e-d15525f97c7b" xml:space="preserve">
+          <source>Callers must use standard Azure Active Directory tokens for authentication.</source>
+          <target state="new">Callers must use standard Azure Active Directory tokens for authentication.</target>
+        </trans-unit>
+        <trans-unit id="9bddf60e-14a5-41e0-81d0-1c1c65394660" xml:space="preserve">
+          <source>The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.</source>
+          <target state="new">The caller must also be added to either the Reader, Owner or Contributor role to get access to the usage data for a particular Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="f721b7ae-923d-4ac9-a067-42304dce09e1" xml:space="preserve">
+          <source><bpt id="c587c337-6271-4afa-a974-81c89a69896e">&lt;strong&gt;</bpt>Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)<ept id="c587c337-6271-4afa-a974-81c89a69896e">&lt;/strong&gt;</ept> - This API provides Azure offer-level rate information, vs. subscription-level.</source>
+          <target state="new"><bpt id="c587c337-6271-4afa-a974-81c89a69896e">&lt;strong&gt;</bpt>Support for Pay-as-you-go, MSDN, Monetary commitment, and Monetary credit offers (EA not supported)<ept id="c587c337-6271-4afa-a974-81c89a69896e">&lt;/strong&gt;</ept> - This API provides Azure offer-level rate information, vs. subscription-level.</target>
+        </trans-unit>
+        <trans-unit id="93bfa274-67f7-4877-b2e4-d66b99fa4ced" xml:space="preserve">
+          <source>The caller of this API must pass in the offer information to get resource details and rates.</source>
+          <target state="new">The caller of this API must pass in the offer information to get resource details and rates.</target>
+        </trans-unit>
+        <trans-unit id="a4ff50db-8796-4d6b-a430-23ee87ec6713" xml:space="preserve">
+          <source>As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time.</source>
+          <target state="new">As EA offers have customized rates per enrollment, we are unable to provide the EA rates at this time.</target>
+        </trans-unit>
+        <trans-unit id="0a306cc5-d3e3-4099-a133-a349a7fddea7" xml:space="preserve">
+          <source>Here are some of the scenarios that are made possible with the combination of the Usage and the RateCard APIs:</source>
+          <target state="new">Here are some of the scenarios that are made possible with the combination of the Usage and the RateCard APIs:</target>
+        </trans-unit>
+        <trans-unit id="0aafcbec-dfe2-4eff-b67e-89377196f4c2" xml:space="preserve">
+          <source><bpt id="3ed0a901-af86-41de-94da-5a6cd58124f3">&lt;strong&gt;</bpt>Azure spend during the month<ept id="3ed0a901-af86-41de-94da-5a6cd58124f3">&lt;/strong&gt;</ept> - Customers can use the Usage and RateCard APIs in combination to get better insights into their cloud spend during the month, by analyzing the hourly and daily buckets of usage and charge estimates.</source>
+          <target state="new"><bpt id="3ed0a901-af86-41de-94da-5a6cd58124f3">&lt;strong&gt;</bpt>Azure spend during the month<ept id="3ed0a901-af86-41de-94da-5a6cd58124f3">&lt;/strong&gt;</ept> - Customers can use the Usage and RateCard APIs in combination to get better insights into their cloud spend during the month, by analyzing the hourly and daily buckets of usage and charge estimates.</target>
+        </trans-unit>
+        <trans-unit id="bec93068-8fac-4655-b385-868b70dab1e3" xml:space="preserve">
+          <source><bpt id="3f53f07d-e07d-4ea9-80ba-cd2ffbab8c18">&lt;strong&gt;</bpt>Set up alerts<ept id="3f53f07d-e07d-4ea9-80ba-cd2ffbab8c18">&lt;/strong&gt;</ept> – Customers and partners can set up resource-based or monetary-based alerts on their cloud consumption by getting the estimated consumption and charge estimate using the Usage and the RateCard API.</source>
+          <target state="new"><bpt id="3f53f07d-e07d-4ea9-80ba-cd2ffbab8c18">&lt;strong&gt;</bpt>Set up alerts<ept id="3f53f07d-e07d-4ea9-80ba-cd2ffbab8c18">&lt;/strong&gt;</ept> – Customers and partners can set up resource-based or monetary-based alerts on their cloud consumption by getting the estimated consumption and charge estimate using the Usage and the RateCard API.</target>
+        </trans-unit>
+        <trans-unit id="f65ab59f-d0fd-4aaa-bdb9-de3051c9c653" xml:space="preserve">
+          <source><bpt id="ea55dd8c-3896-4d74-911c-16f29c91e209">&lt;strong&gt;</bpt>Predict bill<ept id="ea55dd8c-3896-4d74-911c-16f29c91e209">&lt;/strong&gt;</ept> – Customers and partners can get their estimated consumption and cloud spend and apply machine learning algorithms to predict what their bill would be at the end of the billing cycle.</source>
+          <target state="new"><bpt id="ea55dd8c-3896-4d74-911c-16f29c91e209">&lt;strong&gt;</bpt>Predict bill<ept id="ea55dd8c-3896-4d74-911c-16f29c91e209">&lt;/strong&gt;</ept> – Customers and partners can get their estimated consumption and cloud spend and apply machine learning algorithms to predict what their bill would be at the end of the billing cycle.</target>
+        </trans-unit>
+        <trans-unit id="76b85b76-2be3-496a-b36c-c50eb6768359" xml:space="preserve">
+          <source><bpt id="c4ef7a7c-c5c7-4a2f-95b4-6a44d2682065">&lt;strong&gt;</bpt>Pre-consumption cost analysis<ept id="c4ef7a7c-c5c7-4a2f-95b4-6a44d2682065">&lt;/strong&gt;</ept> – Customers can also use the RateCard API to predict how much their bill would be if they were to move their workloads to Azure, by providing desired usage numbers.</source>
+          <target state="new"><bpt id="c4ef7a7c-c5c7-4a2f-95b4-6a44d2682065">&lt;strong&gt;</bpt>Pre-consumption cost analysis<ept id="c4ef7a7c-c5c7-4a2f-95b4-6a44d2682065">&lt;/strong&gt;</ept> – Customers can also use the RateCard API to predict how much their bill would be if they were to move their workloads to Azure, by providing desired usage numbers.</target>
+        </trans-unit>
+        <trans-unit id="b13d66e5-846b-48cd-b68a-caed7c0bb1ee" xml:space="preserve">
+          <source>If customers have existing workloads in other clouds or private clouds, they can also map their usage with the Azure rates to get a better estimate of their estimated Azure spend.</source>
+          <target state="new">If customers have existing workloads in other clouds or private clouds, they can also map their usage with the Azure rates to get a better estimate of their estimated Azure spend.</target>
+        </trans-unit>
+        <trans-unit id="61a6c2e0-31d6-4417-9ba9-b517bb1bf191" xml:space="preserve">
+          <source>This provides an enhanced view of what can be obtained via the <bpt id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;linkText&gt;</bpt>Azure Pricing Calculator<ept id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;/linkText&gt;</ept><bpt id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;title&gt;</bpt><ept id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;/title&gt;</ept>, as (for example) our Billing partners provide the ability to pivot on offer and compare/contrast between different offer types beyond Pay-As-You-Go, including Monetary commitment and Monetary credit.</source>
+          <target state="new">This provides an enhanced view of what can be obtained via the <bpt id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;linkText&gt;</bpt>Azure Pricing Calculator<ept id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;/linkText&gt;</ept><bpt id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;title&gt;</bpt><ept id="9d33d63c-9814-43c0-92f2-41f99e313241">&lt;/title&gt;</ept>, as (for example) our Billing partners provide the ability to pivot on offer and compare/contrast between different offer types beyond Pay-As-You-Go, including Monetary commitment and Monetary credit.</target>
+        </trans-unit>
+        <trans-unit id="00f38b06-cc90-40c9-a590-8f98bad6e4f1" xml:space="preserve">
+          <source>The APIs also provide the ability to do cost estimation changes by region, enabling the type of what-if analysis required to make deployment decisions, as deploying resources in different DCs around the world can have a direct impact on total cost.</source>
+          <target state="new">The APIs also provide the ability to do cost estimation changes by region, enabling the type of what-if analysis required to make deployment decisions, as deploying resources in different DCs around the world can have a direct impact on total cost.</target>
+        </trans-unit>
+        <trans-unit id="c6311d36-d45b-4ffe-996d-cc0be2f0afe7" xml:space="preserve">
+          <source><bpt id="5c12799d-6168-4f84-8561-09e4e8a515b1">&lt;strong&gt;</bpt>What-if analysis<ept id="5c12799d-6168-4f84-8561-09e4e8a515b1">&lt;/strong&gt;</ept> -</source>
+          <target state="new"><bpt id="5c12799d-6168-4f84-8561-09e4e8a515b1">&lt;strong&gt;</bpt>What-if analysis<ept id="5c12799d-6168-4f84-8561-09e4e8a515b1">&lt;/strong&gt;</ept> -</target>
+        </trans-unit>
+        <trans-unit id="f2da5c42-f6bf-40dd-9b3d-3c190335daf0" xml:space="preserve">
+          <source>Customers and partners can determine whether it would be more cost-effective to run their workloads in another region, or on another configuration of the Azure resource.</source>
+          <target state="new">Customers and partners can determine whether it would be more cost-effective to run their workloads in another region, or on another configuration of the Azure resource.</target>
+        </trans-unit>
+        <trans-unit id="b31c747b-e1b6-4f31-9be6-a2cfa0f0bfe7" xml:space="preserve">
+          <source>Azure resource costs may differ based on the Azure region in which they are running, and this allows customers and partners to get cost optimizations.</source>
+          <target state="new">Azure resource costs may differ based on the Azure region in which they are running, and this allows customers and partners to get cost optimizations.</target>
+        </trans-unit>
+        <trans-unit id="3594eb16-3c8d-46a3-856d-9b2ac91a31fd" xml:space="preserve">
+          <source>Customers and partners can also determine if another Azure offer type gives a better rate on an Azure resource.</source>
+          <target state="new">Customers and partners can also determine if another Azure offer type gives a better rate on an Azure resource.</target>
+        </trans-unit>
+        <trans-unit id="9ca2af97-0912-45b7-b837-d45b3f6a5583" xml:space="preserve">
+          <source><bpt id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;linkText&gt;</bpt>Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers<ept id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;/linkText&gt;</ept><bpt id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;title&gt;</bpt><ept id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;/title&gt;</ept> describes the integration experience offered by Azure Billing API partner <bpt id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;linkText&gt;</bpt>Cloudyn<ept id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;/linkText&gt;</ept><bpt id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;title&gt;</bpt><ept id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;linkText&gt;</bpt>Microsoft Azure Usage and RateCard APIs Enable Cloudyn to Provide ITFM for Customers<ept id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;/linkText&gt;</ept><bpt id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;title&gt;</bpt><ept id="324e660b-c1a2-45d9-a5dd-b1f181596fcf">&lt;/title&gt;</ept> describes the integration experience offered by Azure Billing API partner <bpt id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;linkText&gt;</bpt>Cloudyn<ept id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;/linkText&gt;</ept><bpt id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;title&gt;</bpt><ept id="956c8a9e-9ccf-45fd-ab1e-e01a2267f5a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e06df89-8ab4-42a1-99d0-7f5112d1943a" xml:space="preserve">
+          <source>This article provides detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data.</source>
+          <target state="new">This article provides detailed coverage of their experiences, including a short video which shows how an Azure customer can use Cloudyn and the Azure Billing APIs to gains insights from their Azure consumption data.</target>
+        </trans-unit>
+        <trans-unit id="bceaaf63-58ba-4a6d-a9a2-cb9092c19df5" xml:space="preserve">
+          <source><bpt id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;linkText&gt;</bpt>Cloud Cruiser and Microsoft Azure Billing API Integration<ept id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;/linkText&gt;</ept><bpt id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;title&gt;</bpt><ept id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;/title&gt;</ept> describes how <bpt id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;linkText&gt;</bpt>Cloud Cruiser's Express for Azure Pack<ept id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;/linkText&gt;</ept><bpt id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;title&gt;</bpt><ept id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;/title&gt;</ept> works directly from the  WAP portal, enabling customers to seamlessly manage both the operational and financial aspects of their Microsoft Azure private or hosted public cloud from a single user interface.</source>
+          <target state="new"><bpt id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;linkText&gt;</bpt>Cloud Cruiser and Microsoft Azure Billing API Integration<ept id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;/linkText&gt;</ept><bpt id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;title&gt;</bpt><ept id="5a9f2bfc-3720-44d8-9449-47b46b198c86">&lt;/title&gt;</ept> describes how <bpt id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;linkText&gt;</bpt>Cloud Cruiser's Express for Azure Pack<ept id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;/linkText&gt;</ept><bpt id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;title&gt;</bpt><ept id="22955003-aa79-4514-887e-6f1dd8c85097">&lt;/title&gt;</ept> works directly from the  WAP portal, enabling customers to seamlessly manage both the operational and financial aspects of their Microsoft Azure private or hosted public cloud from a single user interface.</target>
+        </trans-unit>
+        <trans-unit id="849bc43e-c0a2-41e3-8644-45d90ab1b750" xml:space="preserve">
+          <source>Check out the <bpt id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;/linkText&gt;</ept><bpt id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;title&gt;</bpt><ept id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;/title&gt;</ept> for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</source>
+          <target state="new">Check out the <bpt id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;linkText&gt;</bpt>Azure Billing REST API Reference<ept id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;/linkText&gt;</ept><bpt id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;title&gt;</bpt><ept id="460e6f6a-be86-4239-9f99-78b740b467b6">&lt;/title&gt;</ept> for more details on both APIs, which are part of the set of APIs provided by the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="4a3bd321-56e8-408d-ac18-54c37758cb4f" xml:space="preserve">
+          <source>If you would like to dive right into the sample code, check out our <bpt id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;/linkText&gt;</ept><bpt id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;title&gt;</bpt><ept id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to dive right into the sample code, check out our <bpt id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;linkText&gt;</bpt>Microsoft Azure Billing API Code Samples on Github<ept id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;/linkText&gt;</ept><bpt id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;title&gt;</bpt><ept id="221a4acc-53ad-4c6a-9057-7db54661f3e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5693510-5b32-4b33-94c0-f785660004ae" xml:space="preserve">
+          <source>See the <bpt id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;/linkText&gt;</ept><bpt id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;title&gt;</bpt><ept id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</source>
+          <target state="new">See the <bpt id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;/linkText&gt;</ept><bpt id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;title&gt;</bpt><ept id="7feacff1-65e0-4045-9642-2828b7ca0dba">&lt;/title&gt;</ept> article to learn more about the Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="aa5d86fd-5ad4-44e4-860e-2e78b1c6b8d9" xml:space="preserve">
+          <source>For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article <bpt id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;linkText&gt;</bpt>Market Guide for IT Financial Management (ITFM) Tools<ept id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;/linkText&gt;</ept><bpt id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;title&gt;</bpt><ept id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information on the suite of tools necessary to help in gaining an understanding of cloud spend, please refer to  Gartner article <bpt id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;linkText&gt;</bpt>Market Guide for IT Financial Management (ITFM) Tools<ept id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;/linkText&gt;</ept><bpt id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;title&gt;</bpt><ept id="f6906c16-4b64-4f4d-ab48-b0e0eba2a716">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

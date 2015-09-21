@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e6743ae-595b-4676-8df1-d2002761bc60" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e6743ae-595b-4676-8df1-d2002761bc60" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b46c16e1-d04a-4275-9b9b-c2a8614a76c7">
+        <trans-unit id="a176a6f4-a85f-4391-b596-34bdc0490be7" xml:space="preserve">
+          <source>Sign in to your Azure subscription using the steps listed in <bpt id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;linkText&gt;</bpt>Connect to Azure from the Azure CLI<ept id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;/linkText&gt;</ept><bpt id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;title&gt;</bpt><ept id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to your Azure subscription using the steps listed in <bpt id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;linkText&gt;</bpt>Connect to Azure from the Azure CLI<ept id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;/linkText&gt;</ept><bpt id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;title&gt;</bpt><ept id="7f4a7912-4170-42f8-a791-dca75e0a5cca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a6674cd-80fa-4758-ab36-ee99f00640a3" xml:space="preserve">
+          <source>Make sure you are in the Service Management mode by using:</source>
+          <target state="new">Make sure you are in the Service Management mode by using:</target>
+        </trans-unit>
+        <trans-unit id="53987bab-df0a-411f-be01-d67b38ff25b4" xml:space="preserve">
+          <source>Find out the Linux image that you want to load from the available images:</source>
+          <target state="new">Find out the Linux image that you want to load from the available images:</target>
+        </trans-unit>
+        <trans-unit id="15993ba5-a5c6-44b3-804b-df318336d58d" xml:space="preserve">
+          <source>Use <bpt id="59b87e0f-9b48-4aff-924a-4c549d03411f">&lt;code&gt;</bpt>azure vm create<ept id="59b87e0f-9b48-4aff-924a-4c549d03411f">&lt;/code&gt;</ept> to create a new virtual machine with the Linux image from the above list.</source>
+          <target state="new">Use <bpt id="59b87e0f-9b48-4aff-924a-4c549d03411f">&lt;code&gt;</bpt>azure vm create<ept id="59b87e0f-9b48-4aff-924a-4c549d03411f">&lt;/code&gt;</ept> to create a new virtual machine with the Linux image from the above list.</target>
+        </trans-unit>
+        <trans-unit id="ba022fbc-fc77-48b7-b297-b73089c7c252" xml:space="preserve">
+          <source>This step creates a new cloud service as well as a new storage account.</source>
+          <target state="new">This step creates a new cloud service as well as a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="f8cba642-41e6-4a40-8170-03a83a85bd84" xml:space="preserve">
+          <source>You could also connect this virtual machine to an existing cloud service with a <bpt id="158777d7-776e-4001-afcb-913f0498c608">&lt;code&gt;</bpt>-c<ept id="158777d7-776e-4001-afcb-913f0498c608">&lt;/code&gt;</ept> option.</source>
+          <target state="new">You could also connect this virtual machine to an existing cloud service with a <bpt id="158777d7-776e-4001-afcb-913f0498c608">&lt;code&gt;</bpt>-c<ept id="158777d7-776e-4001-afcb-913f0498c608">&lt;/code&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="222d9c64-f786-4ea0-9ccb-33c206540c27" xml:space="preserve">
+          <source>It also creates an SSH endpoint to login to the Linux virtual machine with the <bpt id="ecff621a-09a0-4b7e-a6f5-843cd3950ec3">&lt;code&gt;</bpt>-e<ept id="ecff621a-09a0-4b7e-a6f5-843cd3950ec3">&lt;/code&gt;</ept> option.</source>
+          <target state="new">It also creates an SSH endpoint to login to the Linux virtual machine with the <bpt id="ecff621a-09a0-4b7e-a6f5-843cd3950ec3">&lt;code&gt;</bpt>-e<ept id="ecff621a-09a0-4b7e-a6f5-843cd3950ec3">&lt;/code&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="48cab792-b2e4-49d6-a237-82dcb82f88a6" xml:space="preserve">
+          <source>For a Linux virtual machine, you must provide the <bpt id="6a45ab82-ec0a-43e1-87ff-33152cf13aed">&lt;code&gt;</bpt>-e<ept id="6a45ab82-ec0a-43e1-87ff-33152cf13aed">&lt;/code&gt;</ept> option in <bpt id="fe00d173-9eee-4dab-ab4e-8c140b710e9a">&lt;code&gt;</bpt>vm create<ept id="fe00d173-9eee-4dab-ab4e-8c140b710e9a">&lt;/code&gt;</ept>; it is not possible to enable SSH after the virtual machine has been created.</source>
+          <target state="new">For a Linux virtual machine, you must provide the <bpt id="6a45ab82-ec0a-43e1-87ff-33152cf13aed">&lt;code&gt;</bpt>-e<ept id="6a45ab82-ec0a-43e1-87ff-33152cf13aed">&lt;/code&gt;</ept> option in <bpt id="fe00d173-9eee-4dab-ab4e-8c140b710e9a">&lt;code&gt;</bpt>vm create<ept id="fe00d173-9eee-4dab-ab4e-8c140b710e9a">&lt;/code&gt;</ept>; it is not possible to enable SSH after the virtual machine has been created.</target>
+        </trans-unit>
+        <trans-unit id="67b8a8dd-1830-439a-99bb-8489c5883003" xml:space="preserve">
+          <source>For more details on SSH, read <bpt id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;/linkText&gt;</ept><bpt id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;title&gt;</bpt><ept id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details on SSH, read <bpt id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;linkText&gt;</bpt>How to Use SSH with Linux on Azure<ept id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;/linkText&gt;</ept><bpt id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;title&gt;</bpt><ept id="e18b114e-a589-4850-9e33-b3df4a37bc4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a405ad6-c9bd-42d5-97f6-c7532010612b" xml:space="preserve">
+          <source>Note that the image <bpt id="56eb1180-7a2c-4358-8c74-6123e2ac869a">&lt;em&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64<ept id="56eb1180-7a2c-4358-8c74-6123e2ac869a">&lt;/em&gt;</ept> is the one we chose from the image list in the above step.</source>
+          <target state="new">Note that the image <bpt id="56eb1180-7a2c-4358-8c74-6123e2ac869a">&lt;em&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-opensuse-13.1-20141216-x86-64<ept id="56eb1180-7a2c-4358-8c74-6123e2ac869a">&lt;/em&gt;</ept> is the one we chose from the image list in the above step.</target>
+        </trans-unit>
+        <trans-unit id="dc735b45-fb0d-47a8-9c41-58e99e3830a0" xml:space="preserve">
+          <source><bpt id="6b2f9dae-2178-4585-a1d3-1ffeb13f06df">&lt;em&gt;</bpt>MyTestVM<ept id="6b2f9dae-2178-4585-a1d3-1ffeb13f06df">&lt;/em&gt;</ept> is the name of our new virtual machine, and <bpt id="14cf6e92-58e4-4189-a90b-b468de16afa2">&lt;em&gt;</bpt>adminUser<ept id="14cf6e92-58e4-4189-a90b-b468de16afa2">&lt;/em&gt;</ept> is the username that we will use to SSH into the virtual machine.</source>
+          <target state="new"><bpt id="6b2f9dae-2178-4585-a1d3-1ffeb13f06df">&lt;em&gt;</bpt>MyTestVM<ept id="6b2f9dae-2178-4585-a1d3-1ffeb13f06df">&lt;/em&gt;</ept> is the name of our new virtual machine, and <bpt id="14cf6e92-58e4-4189-a90b-b468de16afa2">&lt;em&gt;</bpt>adminUser<ept id="14cf6e92-58e4-4189-a90b-b468de16afa2">&lt;/em&gt;</ept> is the username that we will use to SSH into the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="274756d1-78f2-43ad-aa80-4b243681df22" xml:space="preserve">
+          <source>You can replace these variables as per your requirement.</source>
+          <target state="new">You can replace these variables as per your requirement.</target>
+        </trans-unit>
+        <trans-unit id="52754722-94dc-48ce-b007-36b03c89d818" xml:space="preserve">
+          <source>For more details on this command, visit the <bpt id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;linkText&gt;</bpt>Using the Azure CLI with Azure Service Management<ept id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;/linkText&gt;</ept><bpt id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;title&gt;</bpt><ept id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details on this command, visit the <bpt id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;linkText&gt;</bpt>Using the Azure CLI with Azure Service Management<ept id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;/linkText&gt;</ept><bpt id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;title&gt;</bpt><ept id="d53900ec-23eb-457e-b396-63dcad6b26c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb1bd1b1-b412-451c-9e14-09fe69d24175" xml:space="preserve">
+          <source>The newly created Linux virtual machine will appear in the list given by:</source>
+          <target state="new">The newly created Linux virtual machine will appear in the list given by:</target>
+        </trans-unit>
+        <trans-unit id="ee080d6e-7c8b-4343-8240-d9129e00f59e" xml:space="preserve">
+          <source>You can verify the attributes of the virtual machine by using the command:</source>
+          <target state="new">You can verify the attributes of the virtual machine by using the command:</target>
+        </trans-unit>
+        <trans-unit id="1cbec64d-dea2-4ad7-9737-33aef000342c" xml:space="preserve">
+          <source>The newly created virtual machine is ready to start with the <bpt id="60346618-7a3d-497a-8e79-0753d2e44ed9">&lt;code&gt;</bpt>azure vm start<ept id="60346618-7a3d-497a-8e79-0753d2e44ed9">&lt;/code&gt;</ept> command.</source>
+          <target state="new">The newly created virtual machine is ready to start with the <bpt id="60346618-7a3d-497a-8e79-0753d2e44ed9">&lt;code&gt;</bpt>azure vm start<ept id="60346618-7a3d-497a-8e79-0753d2e44ed9">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="15821532-fd9d-41d0-8aa8-edcda824c838" xml:space="preserve">
+          <source>For details on all these Azure CLI virtual machine commands, please read the <bpt id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;linkText&gt;</bpt>Using the Azure CLI with the Service Management API<ept id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;/linkText&gt;</ept><bpt id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;title&gt;</bpt><ept id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on all these Azure CLI virtual machine commands, please read the <bpt id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;linkText&gt;</bpt>Using the Azure CLI with the Service Management API<ept id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;/linkText&gt;</ept><bpt id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;title&gt;</bpt><ept id="f144d554-9d72-48b5-aa24-db9e9fc14753">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

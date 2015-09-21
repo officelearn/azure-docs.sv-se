@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d81e14d0-7c9d-49cc-8005-91580de2548a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d81e14d0-7c9d-49cc-8005-91580de2548a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2917e26d-80e3-4c2f-8b5f-b92994aa2bb5">
+        <trans-unit id="172e5303-9a75-453e-bdd3-9d6ae8ea02a4" xml:space="preserve">
+          <source>The easiest way to create your first Azure storage account is by using the <bpt id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;/linkText&gt;</ept><bpt id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;title&gt;</bpt><ept id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">The easiest way to create your first Azure storage account is by using the <bpt id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;/linkText&gt;</ept><bpt id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;title&gt;</bpt><ept id="88d1a881-6d60-4ebf-944e-73e6974786f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d066a0dd-b699-4f52-ba5f-c3b27705c6cd" xml:space="preserve">
+          <source>To learn more, see <bpt id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;linkText&gt;</bpt>Create a storage account<ept id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;/linkText&gt;</ept><bpt id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;title&gt;</bpt><ept id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more, see <bpt id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;linkText&gt;</bpt>Create a storage account<ept id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;/linkText&gt;</ept><bpt id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;title&gt;</bpt><ept id="54bbf33d-63db-45ff-875b-f5de8429eabb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1308526b-3365-470f-a7c9-81ee02fdfbb1" xml:space="preserve">
+          <source>You can create an Azure storage account by using <bpt id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;/linkText&gt;</ept><bpt id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;title&gt;</bpt><ept id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;/title&gt;</ept> or <bpt id="317106b8-893a-4893-b052-85e4c291db77">&lt;linkText&gt;</bpt>Azure CLI<ept id="317106b8-893a-4893-b052-85e4c291db77">&lt;/linkText&gt;</ept><bpt id="317106b8-893a-4893-b052-85e4c291db77">&lt;title&gt;</bpt><ept id="317106b8-893a-4893-b052-85e4c291db77">&lt;/title&gt;</ept>, or by using the <bpt id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;linkText&gt;</bpt>Azure Storage Resource Provider REST API<ept id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;/linkText&gt;</ept><bpt id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;title&gt;</bpt><ept id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create an Azure storage account by using <bpt id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;/linkText&gt;</ept><bpt id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;title&gt;</bpt><ept id="3955722d-701e-45eb-836a-07ac7b262db6">&lt;/title&gt;</ept> or <bpt id="317106b8-893a-4893-b052-85e4c291db77">&lt;linkText&gt;</bpt>Azure CLI<ept id="317106b8-893a-4893-b052-85e4c291db77">&lt;/linkText&gt;</ept><bpt id="317106b8-893a-4893-b052-85e4c291db77">&lt;title&gt;</bpt><ept id="317106b8-893a-4893-b052-85e4c291db77">&lt;/title&gt;</ept>, or by using the <bpt id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;linkText&gt;</bpt>Azure Storage Resource Provider REST API<ept id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;/linkText&gt;</ept><bpt id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;title&gt;</bpt><ept id="418eff97-ac2c-4857-a959-078f858d0c41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

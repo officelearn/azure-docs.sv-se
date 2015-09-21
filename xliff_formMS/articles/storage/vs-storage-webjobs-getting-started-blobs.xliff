@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="72339cf3-6842-440b-8225-25c967ebf298" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="72339cf3-6842-440b-8225-25c967ebf298" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6a89cb36-abb6-4260-adc6-9d3f923da319">
+        <trans-unit id="df9b0d43-e3bd-489e-88b8-8a7e1640792d" xml:space="preserve">
+          <source>Getting started with Azure storage and Visual Studio connected services (WebJob projects)</source>
+          <target state="new">Getting started with Azure storage and Visual Studio connected services (WebJob projects)</target>
+        </trans-unit>
+        <trans-unit id="ae5aab41-caf5-40f6-8129-7ece0641f067" xml:space="preserve">
+          <source>How to get started using Blob storage in an Azure storage account that was created using Visual Studio's Add Connected Services dialog box in a WebJob project.</source>
+          <target state="new">How to get started using Blob storage in an Azure storage account that was created using Visual Studio's Add Connected Services dialog box in a WebJob project.</target>
+        </trans-unit>
+        <trans-unit id="34c4c790-2b77-48fb-ade1-f5ca3aed6f40" xml:space="preserve">
+          <source>This article provides C# code samples that show how to trigger a process when an Azure blob is created or updated.</source>
+          <target state="new">This article provides C# code samples that show how to trigger a process when an Azure blob is created or updated.</target>
+        </trans-unit>
+        <trans-unit id="f78320b0-99f4-4830-88e1-ccd7c81d2934" xml:space="preserve">
+          <source>The code samples use the <bpt id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;/linkText&gt;</ept><bpt id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;title&gt;</bpt><ept id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;/title&gt;</ept> version 1.x.</source>
+          <target state="new">The code samples use the <bpt id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;/linkText&gt;</ept><bpt id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;title&gt;</bpt><ept id="81da4aa7-c26f-41d8-b9ae-93b62cf6e2f8">&lt;/title&gt;</ept> version 1.x.</target>
+        </trans-unit>
+        <trans-unit id="0330a9fd-8311-4698-bd61-9654bcb007d9" xml:space="preserve">
+          <source>When you add a storage account to a WebJob project by using the Visual Studio <bpt id="c5b8f304-78ab-4f15-bd82-9447a90574f7">&lt;strong&gt;</bpt>Add Connected Services<ept id="c5b8f304-78ab-4f15-bd82-9447a90574f7">&lt;/strong&gt;</ept> dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.</source>
+          <target state="new">When you add a storage account to a WebJob project by using the Visual Studio <bpt id="c5b8f304-78ab-4f15-bd82-9447a90574f7">&lt;strong&gt;</bpt>Add Connected Services<ept id="c5b8f304-78ab-4f15-bd82-9447a90574f7">&lt;/strong&gt;</ept> dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.</target>
+        </trans-unit>
+        <trans-unit id="2e5178d0-59de-4b33-a019-29c5651ecdf4" xml:space="preserve">
+          <source>This section shows how to use the <bpt id="39df1cc8-3c8d-46de-8c33-eee405824d43">&lt;code&gt;</bpt>BlobTrigger<ept id="39df1cc8-3c8d-46de-8c33-eee405824d43">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">This section shows how to use the <bpt id="39df1cc8-3c8d-46de-8c33-eee405824d43">&lt;code&gt;</bpt>BlobTrigger<ept id="39df1cc8-3c8d-46de-8c33-eee405824d43">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="76abcb8c-f54b-4c41-9425-f31f72af8f32" xml:space="preserve">
+          <source><bpt id="3def2335-f9c1-466c-9f07-73d2528af6d8">&lt;strong&gt;</bpt>Note:<ept id="3def2335-f9c1-466c-9f07-73d2528af6d8">&lt;/strong&gt;</ept> The WebJobs SDK scans log files to watch for new or changed blobs.</source>
+          <target state="new"><bpt id="3def2335-f9c1-466c-9f07-73d2528af6d8">&lt;strong&gt;</bpt>Note:<ept id="3def2335-f9c1-466c-9f07-73d2528af6d8">&lt;/strong&gt;</ept> The WebJobs SDK scans log files to watch for new or changed blobs.</target>
+        </trans-unit>
+        <trans-unit id="eccf8ae4-b441-4af8-96f2-30c72be19498" xml:space="preserve">
+          <source>This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.</source>
+          <target state="new">This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.</target>
+        </trans-unit>
+        <trans-unit id="c7f88944-4a58-4c03-9f56-b6a32201a6a5" xml:space="preserve">
+          <source>If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the <bpt id="59026334-61c3-409e-9509-8516d52173c9">&lt;linkText&gt;</bpt>QueueTrigger<ept id="59026334-61c3-409e-9509-8516d52173c9">&lt;/linkText&gt;</ept><bpt id="59026334-61c3-409e-9509-8516d52173c9">&lt;title&gt;</bpt><ept id="59026334-61c3-409e-9509-8516d52173c9">&lt;/title&gt;</ept> attribute instead of the <bpt id="b4df99e8-84fd-4107-b01f-5110a41b5646">&lt;code&gt;</bpt>BlobTrigger<ept id="b4df99e8-84fd-4107-b01f-5110a41b5646">&lt;/code&gt;</ept> attribute on the function that processes the blob.</source>
+          <target state="new">If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the <bpt id="59026334-61c3-409e-9509-8516d52173c9">&lt;linkText&gt;</bpt>QueueTrigger<ept id="59026334-61c3-409e-9509-8516d52173c9">&lt;/linkText&gt;</ept><bpt id="59026334-61c3-409e-9509-8516d52173c9">&lt;title&gt;</bpt><ept id="59026334-61c3-409e-9509-8516d52173c9">&lt;/title&gt;</ept> attribute instead of the <bpt id="b4df99e8-84fd-4107-b01f-5110a41b5646">&lt;code&gt;</bpt>BlobTrigger<ept id="b4df99e8-84fd-4107-b01f-5110a41b5646">&lt;/code&gt;</ept> attribute on the function that processes the blob.</target>
+        </trans-unit>
+        <trans-unit id="ade3cd83-abeb-415a-85dc-f5de60255804" xml:space="preserve">
+          <source>The following code sample copies text blobs that appear in the <bpt id="e2c1e376-cef7-4d93-b8a1-1866eddd492d">&lt;em&gt;</bpt>input<ept id="e2c1e376-cef7-4d93-b8a1-1866eddd492d">&lt;/em&gt;</ept> container to the <bpt id="c53cc103-16e1-449e-970e-57009dce3485">&lt;em&gt;</bpt>output<ept id="c53cc103-16e1-449e-970e-57009dce3485">&lt;/em&gt;</ept> container:</source>
+          <target state="new">The following code sample copies text blobs that appear in the <bpt id="e2c1e376-cef7-4d93-b8a1-1866eddd492d">&lt;em&gt;</bpt>input<ept id="e2c1e376-cef7-4d93-b8a1-1866eddd492d">&lt;/em&gt;</ept> container to the <bpt id="c53cc103-16e1-449e-970e-57009dce3485">&lt;em&gt;</bpt>output<ept id="c53cc103-16e1-449e-970e-57009dce3485">&lt;/em&gt;</ept> container:</target>
+        </trans-unit>
+        <trans-unit id="a27c4029-38de-421d-9b46-fb1717683966" xml:space="preserve">
+          <source>The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name.</source>
+          <target state="new">The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name.</target>
+        </trans-unit>
+        <trans-unit id="2936cdab-8813-49c4-968f-4cba8150303d" xml:space="preserve">
+          <source>In this example, if a blob named <bpt id="40072dd1-f656-422a-bb93-e1a4882cb625">&lt;em&gt;</bpt>Blob1.txt<ept id="40072dd1-f656-422a-bb93-e1a4882cb625">&lt;/em&gt;</ept> is created in the <bpt id="b8dfe358-888b-4861-9537-5276b8895f78">&lt;em&gt;</bpt>input<ept id="b8dfe358-888b-4861-9537-5276b8895f78">&lt;/em&gt;</ept> container, the function creates a blob named <bpt id="be1f25bc-4bfe-44c2-9f6d-1699b506ebe0">&lt;em&gt;</bpt>Blob1.txt<ept id="be1f25bc-4bfe-44c2-9f6d-1699b506ebe0">&lt;/em&gt;</ept> in the <bpt id="c4edefdf-3f6a-42e3-8c15-bd7b2ed30556">&lt;em&gt;</bpt>output<ept id="c4edefdf-3f6a-42e3-8c15-bd7b2ed30556">&lt;/em&gt;</ept> container.</source>
+          <target state="new">In this example, if a blob named <bpt id="40072dd1-f656-422a-bb93-e1a4882cb625">&lt;em&gt;</bpt>Blob1.txt<ept id="40072dd1-f656-422a-bb93-e1a4882cb625">&lt;/em&gt;</ept> is created in the <bpt id="b8dfe358-888b-4861-9537-5276b8895f78">&lt;em&gt;</bpt>input<ept id="b8dfe358-888b-4861-9537-5276b8895f78">&lt;/em&gt;</ept> container, the function creates a blob named <bpt id="be1f25bc-4bfe-44c2-9f6d-1699b506ebe0">&lt;em&gt;</bpt>Blob1.txt<ept id="be1f25bc-4bfe-44c2-9f6d-1699b506ebe0">&lt;/em&gt;</ept> in the <bpt id="c4edefdf-3f6a-42e3-8c15-bd7b2ed30556">&lt;em&gt;</bpt>output<ept id="c4edefdf-3f6a-42e3-8c15-bd7b2ed30556">&lt;/em&gt;</ept> container.</target>
+        </trans-unit>
+        <trans-unit id="e44c5b95-6d3b-4c93-b43c-2bfa9de9b14d" xml:space="preserve">
+          <source>You can specify a name pattern with the blob name placeholder, as shown in the following code sample:</source>
+          <target state="new">You can specify a name pattern with the blob name placeholder, as shown in the following code sample:</target>
+        </trans-unit>
+        <trans-unit id="581a2d46-5a27-486f-9714-f31c8c7c1522" xml:space="preserve">
+          <source>This code copies only blobs that have names beginning with "original-".</source>
+          <target state="new">This code copies only blobs that have names beginning with "original-".</target>
+        </trans-unit>
+        <trans-unit id="49df9b4c-a0a2-415f-9979-11071b3d2ff1" xml:space="preserve">
+          <source>For example, <bpt id="5873d2ac-4bcc-4941-8df5-f5318542abff">&lt;em&gt;</bpt>original-Blob1.txt<ept id="5873d2ac-4bcc-4941-8df5-f5318542abff">&lt;/em&gt;</ept> in the <bpt id="f7446178-e909-44e6-b0d0-074fbd90917c">&lt;em&gt;</bpt>input<ept id="f7446178-e909-44e6-b0d0-074fbd90917c">&lt;/em&gt;</ept> container is copied to <bpt id="cf622f25-3177-4ea1-b11f-1c00a568d9cb">&lt;em&gt;</bpt>copy-Blob1.txt<ept id="cf622f25-3177-4ea1-b11f-1c00a568d9cb">&lt;/em&gt;</ept> in the <bpt id="81181572-f64f-4479-a9e6-a7bfc8ea1174">&lt;em&gt;</bpt>output<ept id="81181572-f64f-4479-a9e6-a7bfc8ea1174">&lt;/em&gt;</ept> container.</source>
+          <target state="new">For example, <bpt id="5873d2ac-4bcc-4941-8df5-f5318542abff">&lt;em&gt;</bpt>original-Blob1.txt<ept id="5873d2ac-4bcc-4941-8df5-f5318542abff">&lt;/em&gt;</ept> in the <bpt id="f7446178-e909-44e6-b0d0-074fbd90917c">&lt;em&gt;</bpt>input<ept id="f7446178-e909-44e6-b0d0-074fbd90917c">&lt;/em&gt;</ept> container is copied to <bpt id="cf622f25-3177-4ea1-b11f-1c00a568d9cb">&lt;em&gt;</bpt>copy-Blob1.txt<ept id="cf622f25-3177-4ea1-b11f-1c00a568d9cb">&lt;/em&gt;</ept> in the <bpt id="81181572-f64f-4479-a9e6-a7bfc8ea1174">&lt;em&gt;</bpt>output<ept id="81181572-f64f-4479-a9e6-a7bfc8ea1174">&lt;/em&gt;</ept> container.</target>
+        </trans-unit>
+        <trans-unit id="12675b4e-886d-4d8d-bf3a-8a3e62110f73" xml:space="preserve">
+          <source>If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces.</source>
+          <target state="new">If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces.</target>
+        </trans-unit>
+        <trans-unit id="68dbbb6e-45e1-46f7-a982-d219754a769e" xml:space="preserve">
+          <source>For example, if you want to find blobs in the <bpt id="b76b4464-c3a1-4c20-9e54-63e28ad75216">&lt;em&gt;</bpt>images<ept id="b76b4464-c3a1-4c20-9e54-63e28ad75216">&lt;/em&gt;</ept> container that have names like this:</source>
+          <target state="new">For example, if you want to find blobs in the <bpt id="b76b4464-c3a1-4c20-9e54-63e28ad75216">&lt;em&gt;</bpt>images<ept id="b76b4464-c3a1-4c20-9e54-63e28ad75216">&lt;/em&gt;</ept> container that have names like this:</target>
+        </trans-unit>
+        <trans-unit id="173d0ec4-b99f-464c-b512-ae610512d8a0" xml:space="preserve">
+          <source>use this for your pattern:</source>
+          <target state="new">use this for your pattern:</target>
+        </trans-unit>
+        <trans-unit id="e33e30a0-fba3-46ec-98b4-b1ce18755767" xml:space="preserve">
+          <source>In the example, the <bpt id="ef886715-22ca-4c1e-ab47-2ab0325024a5">&lt;em&gt;</bpt>name<ept id="ef886715-22ca-4c1e-ab47-2ab0325024a5">&lt;/em&gt;</ept> placeholder value would be <bpt id="f808f8d4-e0d7-4c71-8c31-66951c9832b8">&lt;em&gt;</bpt>soundfile.mp3<ept id="f808f8d4-e0d7-4c71-8c31-66951c9832b8">&lt;/em&gt;</ept>.</source>
+          <target state="new">In the example, the <bpt id="ef886715-22ca-4c1e-ab47-2ab0325024a5">&lt;em&gt;</bpt>name<ept id="ef886715-22ca-4c1e-ab47-2ab0325024a5">&lt;/em&gt;</ept> placeholder value would be <bpt id="f808f8d4-e0d7-4c71-8c31-66951c9832b8">&lt;em&gt;</bpt>soundfile.mp3<ept id="f808f8d4-e0d7-4c71-8c31-66951c9832b8">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d196d3e-648d-42ca-8ac1-136dd493a6c4" xml:space="preserve">
+          <source>The following code sample changes the file extension as it copies blobs that appear in the <bpt id="b4cd6554-e3b1-4b67-a217-4df53d31c4a5">&lt;em&gt;</bpt>input<ept id="b4cd6554-e3b1-4b67-a217-4df53d31c4a5">&lt;/em&gt;</ept> container to the <bpt id="4a11003b-3c2e-4386-9b6c-2941846d4a51">&lt;em&gt;</bpt>output<ept id="4a11003b-3c2e-4386-9b6c-2941846d4a51">&lt;/em&gt;</ept> container.</source>
+          <target state="new">The following code sample changes the file extension as it copies blobs that appear in the <bpt id="b4cd6554-e3b1-4b67-a217-4df53d31c4a5">&lt;em&gt;</bpt>input<ept id="b4cd6554-e3b1-4b67-a217-4df53d31c4a5">&lt;/em&gt;</ept> container to the <bpt id="4a11003b-3c2e-4386-9b6c-2941846d4a51">&lt;em&gt;</bpt>output<ept id="4a11003b-3c2e-4386-9b6c-2941846d4a51">&lt;/em&gt;</ept> container.</target>
+        </trans-unit>
+        <trans-unit id="c137a94e-7f60-4174-b829-d698976bfee1" xml:space="preserve">
+          <source>The code logs the extension of the <bpt id="2257ac89-4a17-443c-a67a-0fe5a25dec8a">&lt;em&gt;</bpt>input<ept id="2257ac89-4a17-443c-a67a-0fe5a25dec8a">&lt;/em&gt;</ept> blob and sets the extension of the <bpt id="2ab2a564-73ee-4d53-93e4-024ce83f2363">&lt;em&gt;</bpt>output<ept id="2ab2a564-73ee-4d53-93e4-024ce83f2363">&lt;/em&gt;</ept> blob to <bpt id="6637c8ec-b42a-47ef-89a4-b5e6f85f2924">&lt;em&gt;</bpt>.txt<ept id="6637c8ec-b42a-47ef-89a4-b5e6f85f2924">&lt;/em&gt;</ept>.</source>
+          <target state="new">The code logs the extension of the <bpt id="2257ac89-4a17-443c-a67a-0fe5a25dec8a">&lt;em&gt;</bpt>input<ept id="2257ac89-4a17-443c-a67a-0fe5a25dec8a">&lt;/em&gt;</ept> blob and sets the extension of the <bpt id="2ab2a564-73ee-4d53-93e4-024ce83f2363">&lt;em&gt;</bpt>output<ept id="2ab2a564-73ee-4d53-93e4-024ce83f2363">&lt;/em&gt;</ept> blob to <bpt id="6637c8ec-b42a-47ef-89a4-b5e6f85f2924">&lt;em&gt;</bpt>.txt<ept id="6637c8ec-b42a-47ef-89a4-b5e6f85f2924">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8f8dae6-709f-460e-99d7-ea5c8e208357" xml:space="preserve">
+          <source>You can use the <bpt id="03097206-c090-4cf0-8374-0a93983f85be">&lt;code&gt;</bpt>BlobTrigger<ept id="03097206-c090-4cf0-8374-0a93983f85be">&lt;/code&gt;</ept> attribute on the following types:</source>
+          <target state="new">You can use the <bpt id="03097206-c090-4cf0-8374-0a93983f85be">&lt;code&gt;</bpt>BlobTrigger<ept id="03097206-c090-4cf0-8374-0a93983f85be">&lt;/code&gt;</ept> attribute on the following types:</target>
+        </trans-unit>
+        <trans-unit id="cf50b87a-7b74-4ce1-b9a1-376ffb6114f7" xml:space="preserve">
+          <source><bpt id="24f710a6-cd6a-4ba3-99e5-0307c7eb913e">&lt;code&gt;</bpt>string<ept id="24f710a6-cd6a-4ba3-99e5-0307c7eb913e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="24f710a6-cd6a-4ba3-99e5-0307c7eb913e">&lt;code&gt;</bpt>string<ept id="24f710a6-cd6a-4ba3-99e5-0307c7eb913e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f4d09f6-cc29-4c33-a0c5-fb7e5c90bd6a" xml:space="preserve">
+          <source><bpt id="4bdd7410-5f06-45c8-b4b4-6d447dab501f">&lt;code&gt;</bpt>TextReader<ept id="4bdd7410-5f06-45c8-b4b4-6d447dab501f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4bdd7410-5f06-45c8-b4b4-6d447dab501f">&lt;code&gt;</bpt>TextReader<ept id="4bdd7410-5f06-45c8-b4b4-6d447dab501f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bafc309-94e0-4f53-8238-b871247240c0" xml:space="preserve">
+          <source><bpt id="d4f197ef-a327-43a0-93f5-66b22d1d23fe">&lt;code&gt;</bpt>Stream<ept id="d4f197ef-a327-43a0-93f5-66b22d1d23fe">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d4f197ef-a327-43a0-93f5-66b22d1d23fe">&lt;code&gt;</bpt>Stream<ept id="d4f197ef-a327-43a0-93f5-66b22d1d23fe">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9330fe53-5612-4c90-854b-3ac27478aafd" xml:space="preserve">
+          <source><bpt id="4e8598fb-6225-422f-9322-5df54a89ec3d">&lt;code&gt;</bpt>ICloudBlob<ept id="4e8598fb-6225-422f-9322-5df54a89ec3d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4e8598fb-6225-422f-9322-5df54a89ec3d">&lt;code&gt;</bpt>ICloudBlob<ept id="4e8598fb-6225-422f-9322-5df54a89ec3d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb9227c6-67dc-46c4-9ff7-47f694f678ae" xml:space="preserve">
+          <source><bpt id="3a3f1977-4614-4a08-afd0-004763ca472f">&lt;code&gt;</bpt>CloudBlockBlob<ept id="3a3f1977-4614-4a08-afd0-004763ca472f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3a3f1977-4614-4a08-afd0-004763ca472f">&lt;code&gt;</bpt>CloudBlockBlob<ept id="3a3f1977-4614-4a08-afd0-004763ca472f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f87a6403-f029-4cfd-84b5-b567ff3109ed" xml:space="preserve">
+          <source><bpt id="52b38e70-cc53-46ff-9972-e82e58d9c05f">&lt;code&gt;</bpt>CloudPageBlob<ept id="52b38e70-cc53-46ff-9972-e82e58d9c05f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="52b38e70-cc53-46ff-9972-e82e58d9c05f">&lt;code&gt;</bpt>CloudPageBlob<ept id="52b38e70-cc53-46ff-9972-e82e58d9c05f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02f0db84-3fbb-432e-88f1-da9b16bfe0d6" xml:space="preserve">
+          <source>Other types deserialized by <bpt id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;linkText&gt;</bpt>ICloudBlobStreamBinder<ept id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;/linkText&gt;</ept><bpt id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;title&gt;</bpt><ept id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;/title&gt;</ept> </source>
+          <target state="new">Other types deserialized by <bpt id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;linkText&gt;</bpt>ICloudBlobStreamBinder<ept id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;/linkText&gt;</ept><bpt id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;title&gt;</bpt><ept id="a58e165c-70d9-4dfb-bba5-6657b74762b1">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c136a561-28f8-445f-bf6b-99148cc3a348" xml:space="preserve">
+          <source>If you want to work directly with the Azure storage account, you can also add a <bpt id="db5b4e04-a19f-4c9d-9770-43d69da77942">&lt;code&gt;</bpt>CloudStorageAccount<ept id="db5b4e04-a19f-4c9d-9770-43d69da77942">&lt;/code&gt;</ept> parameter to the method signature.</source>
+          <target state="new">If you want to work directly with the Azure storage account, you can also add a <bpt id="db5b4e04-a19f-4c9d-9770-43d69da77942">&lt;code&gt;</bpt>CloudStorageAccount<ept id="db5b4e04-a19f-4c9d-9770-43d69da77942">&lt;/code&gt;</ept> parameter to the method signature.</target>
+        </trans-unit>
+        <trans-unit id="17db872a-d3f9-40f5-a09a-5ca79782246f" xml:space="preserve">
+          <source>If text blobs are expected, <bpt id="4d151902-7800-4af9-9400-45411f7de7af">&lt;code&gt;</bpt>BlobTrigger<ept id="4d151902-7800-4af9-9400-45411f7de7af">&lt;/code&gt;</ept> can be applied to a <bpt id="7004c23f-98fa-4cd7-80ba-fb2bfb6410a4">&lt;code&gt;</bpt>string<ept id="7004c23f-98fa-4cd7-80ba-fb2bfb6410a4">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">If text blobs are expected, <bpt id="4d151902-7800-4af9-9400-45411f7de7af">&lt;code&gt;</bpt>BlobTrigger<ept id="4d151902-7800-4af9-9400-45411f7de7af">&lt;/code&gt;</ept> can be applied to a <bpt id="7004c23f-98fa-4cd7-80ba-fb2bfb6410a4">&lt;code&gt;</bpt>string<ept id="7004c23f-98fa-4cd7-80ba-fb2bfb6410a4">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="519e25eb-f38e-4f10-a8d2-69e24b4f6685" xml:space="preserve">
+          <source>The following code sample binds a text blob to a <bpt id="b6ad3e54-91e6-4305-8f76-110f26735cab">&lt;code&gt;</bpt>string<ept id="b6ad3e54-91e6-4305-8f76-110f26735cab">&lt;/code&gt;</ept> parameter named <bpt id="f4d60f2e-2241-41bc-8f6a-33e8423c7a77">&lt;code&gt;</bpt>logMessage<ept id="f4d60f2e-2241-41bc-8f6a-33e8423c7a77">&lt;/code&gt;</ept>.</source>
+          <target state="new">The following code sample binds a text blob to a <bpt id="b6ad3e54-91e6-4305-8f76-110f26735cab">&lt;code&gt;</bpt>string<ept id="b6ad3e54-91e6-4305-8f76-110f26735cab">&lt;/code&gt;</ept> parameter named <bpt id="f4d60f2e-2241-41bc-8f6a-33e8423c7a77">&lt;code&gt;</bpt>logMessage<ept id="f4d60f2e-2241-41bc-8f6a-33e8423c7a77">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd4ecc91-9b89-4b88-b946-1a19358cddb4" xml:space="preserve">
+          <source>The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard.</source>
+          <target state="new">The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard.</target>
+        </trans-unit>
+        <trans-unit id="c7a7708b-9d1b-4f27-acbd-e056f0370b1f" xml:space="preserve">
+          <source>The following code sample uses a class that implements <bpt id="cbf8591a-c81e-41ba-89bf-0456cbb77278">&lt;code&gt;</bpt>ICloudBlobStreamBinder<ept id="cbf8591a-c81e-41ba-89bf-0456cbb77278">&lt;/code&gt;</ept> to enable the <bpt id="55591d00-807f-44a7-aea1-9e98f1e222b8">&lt;code&gt;</bpt>BlobTrigger<ept id="55591d00-807f-44a7-aea1-9e98f1e222b8">&lt;/code&gt;</ept> attribute to bind a blob to the <bpt id="5d1bfe0d-f79f-4429-bb81-9992eb2b3ff3">&lt;code&gt;</bpt>WebImage<ept id="5d1bfe0d-f79f-4429-bb81-9992eb2b3ff3">&lt;/code&gt;</ept> type.</source>
+          <target state="new">The following code sample uses a class that implements <bpt id="cbf8591a-c81e-41ba-89bf-0456cbb77278">&lt;code&gt;</bpt>ICloudBlobStreamBinder<ept id="cbf8591a-c81e-41ba-89bf-0456cbb77278">&lt;/code&gt;</ept> to enable the <bpt id="55591d00-807f-44a7-aea1-9e98f1e222b8">&lt;code&gt;</bpt>BlobTrigger<ept id="55591d00-807f-44a7-aea1-9e98f1e222b8">&lt;/code&gt;</ept> attribute to bind a blob to the <bpt id="5d1bfe0d-f79f-4429-bb81-9992eb2b3ff3">&lt;code&gt;</bpt>WebImage<ept id="5d1bfe0d-f79f-4429-bb81-9992eb2b3ff3">&lt;/code&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="9c98cf99-d990-4f5f-aa67-a2ad8f366a0b" xml:space="preserve">
+          <source>The <bpt id="eb14e6b7-c0dd-4ada-a361-d98bae17b907">&lt;code&gt;</bpt>WebImage<ept id="eb14e6b7-c0dd-4ada-a361-d98bae17b907">&lt;/code&gt;</ept> binding code is provided in a <bpt id="3c14ea3c-4910-447b-ab17-fc32d6c4e057">&lt;code&gt;</bpt>WebImageBinder<ept id="3c14ea3c-4910-447b-ab17-fc32d6c4e057">&lt;/code&gt;</ept> class that derives from <bpt id="88809839-4e12-4a0b-9878-4a2bd6f5b8c0">&lt;code&gt;</bpt>ICloudBlobStreamBinder<ept id="88809839-4e12-4a0b-9878-4a2bd6f5b8c0">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="eb14e6b7-c0dd-4ada-a361-d98bae17b907">&lt;code&gt;</bpt>WebImage<ept id="eb14e6b7-c0dd-4ada-a361-d98bae17b907">&lt;/code&gt;</ept> binding code is provided in a <bpt id="3c14ea3c-4910-447b-ab17-fc32d6c4e057">&lt;code&gt;</bpt>WebImageBinder<ept id="3c14ea3c-4910-447b-ab17-fc32d6c4e057">&lt;/code&gt;</ept> class that derives from <bpt id="88809839-4e12-4a0b-9878-4a2bd6f5b8c0">&lt;code&gt;</bpt>ICloudBlobStreamBinder<ept id="88809839-4e12-4a0b-9878-4a2bd6f5b8c0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05278c39-11e3-4c86-9bcc-f98275b1335d" xml:space="preserve">
+          <source>When a <bpt id="8f5028a1-547c-432c-a46f-ab4a2734552a">&lt;code&gt;</bpt>BlobTrigger<ept id="8f5028a1-547c-432c-a46f-ab4a2734552a">&lt;/code&gt;</ept> function fails, the SDK calls it again, in case the failure was caused by a transient error.</source>
+          <target state="new">When a <bpt id="8f5028a1-547c-432c-a46f-ab4a2734552a">&lt;code&gt;</bpt>BlobTrigger<ept id="8f5028a1-547c-432c-a46f-ab4a2734552a">&lt;/code&gt;</ept> function fails, the SDK calls it again, in case the failure was caused by a transient error.</target>
+        </trans-unit>
+        <trans-unit id="7bd384f1-40c6-4bb0-b8e6-7b5874f24048" xml:space="preserve">
+          <source>If the failure is caused by the content of the blob, the function fails every time it tries to process the blob.</source>
+          <target state="new">If the failure is caused by the content of the blob, the function fails every time it tries to process the blob.</target>
+        </trans-unit>
+        <trans-unit id="5cfc54d5-298b-41fd-87cb-3d5de6ec6d27" xml:space="preserve">
+          <source>By default, the SDK calls a function up to 5 times for a given blob.</source>
+          <target state="new">By default, the SDK calls a function up to 5 times for a given blob.</target>
+        </trans-unit>
+        <trans-unit id="7b7bd9dc-833f-4754-ae24-364dc5fe9703" xml:space="preserve">
+          <source>If the fifth try fails, the SDK adds a message to a queue named <bpt id="8594bd15-3f67-4a3a-a56d-8cb233a92813">&lt;em&gt;</bpt>webjobs-blobtrigger-poison<ept id="8594bd15-3f67-4a3a-a56d-8cb233a92813">&lt;/em&gt;</ept>.</source>
+          <target state="new">If the fifth try fails, the SDK adds a message to a queue named <bpt id="8594bd15-3f67-4a3a-a56d-8cb233a92813">&lt;em&gt;</bpt>webjobs-blobtrigger-poison<ept id="8594bd15-3f67-4a3a-a56d-8cb233a92813">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dafefa88-565f-41b9-8b61-53a517f3dc4b" xml:space="preserve">
+          <source>The maximum number of retries is configurable.</source>
+          <target state="new">The maximum number of retries is configurable.</target>
+        </trans-unit>
+        <trans-unit id="840e98f5-cf9d-48f8-8adc-84a73fe21c78" xml:space="preserve">
+          <source>The same <bpt id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;linkText&gt;</bpt>MaxDequeueCount<ept id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;/linkText&gt;</ept><bpt id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;title&gt;</bpt><ept id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;/title&gt;</ept> setting is used for poison blob handling and poison queue message handling.</source>
+          <target state="new">The same <bpt id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;linkText&gt;</bpt>MaxDequeueCount<ept id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;/linkText&gt;</ept><bpt id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;title&gt;</bpt><ept id="55122ef0-5d6c-4dd1-a4a2-144c062914f1">&lt;/title&gt;</ept> setting is used for poison blob handling and poison queue message handling.</target>
+        </trans-unit>
+        <trans-unit id="34647c6b-4b97-4d0d-a9c8-0fd4fa53185f" xml:space="preserve">
+          <source>The queue message for poison blobs is a JSON object that contains the following properties:</source>
+          <target state="new">The queue message for poison blobs is a JSON object that contains the following properties:</target>
+        </trans-unit>
+        <trans-unit id="fe90ea59-a25c-4b7b-b864-3a49e5a3c550" xml:space="preserve">
+          <source>FunctionId (in the format <bpt id="39c0efa3-6b5b-4c9d-86e2-a0c837be1966">&lt;em&gt;</bpt>{WebJob name}<ept id="39c0efa3-6b5b-4c9d-86e2-a0c837be1966">&lt;/em&gt;</ept>.Functions.<bpt id="6768f919-9037-46f0-9c4d-578bae98a9fe">&lt;em&gt;</bpt>{Function name}<ept id="6768f919-9037-46f0-9c4d-578bae98a9fe">&lt;/em&gt;</ept>, for example: WebJob1.Functions.CopyBlob)</source>
+          <target state="new">FunctionId (in the format <bpt id="39c0efa3-6b5b-4c9d-86e2-a0c837be1966">&lt;em&gt;</bpt>{WebJob name}<ept id="39c0efa3-6b5b-4c9d-86e2-a0c837be1966">&lt;/em&gt;</ept>.Functions.<bpt id="6768f919-9037-46f0-9c4d-578bae98a9fe">&lt;em&gt;</bpt>{Function name}<ept id="6768f919-9037-46f0-9c4d-578bae98a9fe">&lt;/em&gt;</ept>, for example: WebJob1.Functions.CopyBlob)</target>
+        </trans-unit>
+        <trans-unit id="2e22b811-5ce4-49aa-a464-a5b5b86886a4" xml:space="preserve">
+          <source>BlobType ("BlockBlob" or "PageBlob")</source>
+          <target state="new">BlobType ("BlockBlob" or "PageBlob")</target>
+        </trans-unit>
+        <trans-unit id="c53cb0f8-a93d-4991-95a5-f6e4c96325d8" xml:space="preserve">
+          <source>ContainerName</source>
+          <target state="new">ContainerName</target>
+        </trans-unit>
+        <trans-unit id="6170bac3-d094-4b02-a9d9-e5dcdca5b6c9" xml:space="preserve">
+          <source>BlobName</source>
+          <target state="new">BlobName</target>
+        </trans-unit>
+        <trans-unit id="5d6165b5-90fa-4c77-82af-7a47cc52097b" xml:space="preserve">
+          <source>ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")</source>
+          <target state="new">ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")</target>
+        </trans-unit>
+        <trans-unit id="73303d9b-4a99-4464-a265-49b7a621e512" xml:space="preserve">
+          <source>In the following code sample, the <bpt id="241063c9-7282-4073-8d51-24bf188a8ec0">&lt;code&gt;</bpt>CopyBlob<ept id="241063c9-7282-4073-8d51-24bf188a8ec0">&lt;/code&gt;</ept> function has code that causes it to fail every time it's called.</source>
+          <target state="new">In the following code sample, the <bpt id="241063c9-7282-4073-8d51-24bf188a8ec0">&lt;code&gt;</bpt>CopyBlob<ept id="241063c9-7282-4073-8d51-24bf188a8ec0">&lt;/code&gt;</ept> function has code that causes it to fail every time it's called.</target>
+        </trans-unit>
+        <trans-unit id="5e8d0e81-75ee-41de-916a-153e16a66fca" xml:space="preserve">
+          <source>After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the <bpt id="7733cb23-7741-413d-b0c7-772672b7111a">&lt;code&gt;</bpt>LogPoisonBlob<ept id="7733cb23-7741-413d-b0c7-772672b7111a">&lt;/code&gt;</ept> function.</source>
+          <target state="new">After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the <bpt id="7733cb23-7741-413d-b0c7-772672b7111a">&lt;code&gt;</bpt>LogPoisonBlob<ept id="7733cb23-7741-413d-b0c7-772672b7111a">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="803a8ad1-ea51-4d8d-b410-40bd89b537d2" xml:space="preserve">
+          <source>The SDK automatically deserializes the JSON message.</source>
+          <target state="new">The SDK automatically deserializes the JSON message.</target>
+        </trans-unit>
+        <trans-unit id="3424ef7e-64cc-4043-a72e-3b4480663907" xml:space="preserve">
+          <source>Here is the <bpt id="0f3c2d66-a4cd-40f4-b928-8443cd936dfb">&lt;code&gt;</bpt>PoisonBlobMessage<ept id="0f3c2d66-a4cd-40f4-b928-8443cd936dfb">&lt;/code&gt;</ept> class:</source>
+          <target state="new">Here is the <bpt id="0f3c2d66-a4cd-40f4-b928-8443cd936dfb">&lt;code&gt;</bpt>PoisonBlobMessage<ept id="0f3c2d66-a4cd-40f4-b928-8443cd936dfb">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="af6f7c1a-fc18-4f82-9ffa-5d8c53f1eb47" xml:space="preserve">
+          <source>The WebJobs SDK scans all containers specified by <bpt id="2f632ced-4727-473e-8c89-94d807cc7854">&lt;code&gt;</bpt>BlobTrigger<ept id="2f632ced-4727-473e-8c89-94d807cc7854">&lt;/code&gt;</ept> attributes at application start.</source>
+          <target state="new">The WebJobs SDK scans all containers specified by <bpt id="2f632ced-4727-473e-8c89-94d807cc7854">&lt;code&gt;</bpt>BlobTrigger<ept id="2f632ced-4727-473e-8c89-94d807cc7854">&lt;/code&gt;</ept> attributes at application start.</target>
+        </trans-unit>
+        <trans-unit id="5219c2d8-1c75-4858-93ae-7559888c904e" xml:space="preserve">
+          <source>In a large storage account this scan can take some time, so it might be a while before new blobs are found and <bpt id="284ef32d-75bf-4e75-be21-0a9dedb261a3">&lt;code&gt;</bpt>BlobTrigger<ept id="284ef32d-75bf-4e75-be21-0a9dedb261a3">&lt;/code&gt;</ept> functions are executed.</source>
+          <target state="new">In a large storage account this scan can take some time, so it might be a while before new blobs are found and <bpt id="284ef32d-75bf-4e75-be21-0a9dedb261a3">&lt;code&gt;</bpt>BlobTrigger<ept id="284ef32d-75bf-4e75-be21-0a9dedb261a3">&lt;/code&gt;</ept> functions are executed.</target>
+        </trans-unit>
+        <trans-unit id="e3b8ed83-b1c9-4e79-bdbf-2de88b101573" xml:space="preserve">
+          <source>To detect new or changed blobs after application start, the SDK periodically reads from the blob storage logs.</source>
+          <target state="new">To detect new or changed blobs after application start, the SDK periodically reads from the blob storage logs.</target>
+        </trans-unit>
+        <trans-unit id="050c5a89-63cc-422b-9d28-a294d1fc4bfe" xml:space="preserve">
+          <source>The blob logs are buffered and only get physically written every 10 minutes or so, so there may be significant delay after a blob is created or updated before the corresponding <bpt id="a114f48c-795f-4dd3-8111-877aa61c0c1d">&lt;code&gt;</bpt>BlobTrigger<ept id="a114f48c-795f-4dd3-8111-877aa61c0c1d">&lt;/code&gt;</ept> function executes.</source>
+          <target state="new">The blob logs are buffered and only get physically written every 10 minutes or so, so there may be significant delay after a blob is created or updated before the corresponding <bpt id="a114f48c-795f-4dd3-8111-877aa61c0c1d">&lt;code&gt;</bpt>BlobTrigger<ept id="a114f48c-795f-4dd3-8111-877aa61c0c1d">&lt;/code&gt;</ept> function executes.</target>
+        </trans-unit>
+        <trans-unit id="96cac218-1c01-4779-8694-6bc6136a6c7e" xml:space="preserve">
+          <source>There is an exception for blobs that you create by using the <bpt id="ae04c6ae-595e-4e56-84fb-def39571434f">&lt;code&gt;</bpt>Blob<ept id="ae04c6ae-595e-4e56-84fb-def39571434f">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">There is an exception for blobs that you create by using the <bpt id="ae04c6ae-595e-4e56-84fb-def39571434f">&lt;code&gt;</bpt>Blob<ept id="ae04c6ae-595e-4e56-84fb-def39571434f">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="e165813e-b7bb-48c5-a837-2fc4dde66ed7" xml:space="preserve">
+          <source>When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching <bpt id="bd58c71f-d5d9-4904-b71d-00429431ba65">&lt;code&gt;</bpt>BlobTrigger<ept id="bd58c71f-d5d9-4904-b71d-00429431ba65">&lt;/code&gt;</ept> functions.</source>
+          <target state="new">When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching <bpt id="bd58c71f-d5d9-4904-b71d-00429431ba65">&lt;code&gt;</bpt>BlobTrigger<ept id="bd58c71f-d5d9-4904-b71d-00429431ba65">&lt;/code&gt;</ept> functions.</target>
+        </trans-unit>
+        <trans-unit id="3b5acc9c-31ee-4f2e-9c0e-3bd141105904" xml:space="preserve">
+          <source>Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently.</source>
+          <target state="new">Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently.</target>
+        </trans-unit>
+        <trans-unit id="a4ebf4e4-ff57-4261-abba-fcf016e744bc" xml:space="preserve">
+          <source>But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using <bpt id="aec9fc92-7945-4494-97ee-e90b453e7728">&lt;code&gt;</bpt>QueueTrigger<ept id="aec9fc92-7945-4494-97ee-e90b453e7728">&lt;/code&gt;</ept> rather than <bpt id="1fc72a4a-03e2-47e5-b4fa-93a1301aae09">&lt;code&gt;</bpt>BlobTrigger<ept id="1fc72a4a-03e2-47e5-b4fa-93a1301aae09">&lt;/code&gt;</ept>.</source>
+          <target state="new">But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using <bpt id="aec9fc92-7945-4494-97ee-e90b453e7728">&lt;code&gt;</bpt>QueueTrigger<ept id="aec9fc92-7945-4494-97ee-e90b453e7728">&lt;/code&gt;</ept> rather than <bpt id="1fc72a4a-03e2-47e5-b4fa-93a1301aae09">&lt;code&gt;</bpt>BlobTrigger<ept id="1fc72a4a-03e2-47e5-b4fa-93a1301aae09">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6f135c3-36c0-4ea2-9882-25451753c1c3" xml:space="preserve">
+          <source>The WebJobs SDK makes sure that no <bpt id="50cacb56-0db9-4fe5-a60b-416d4b40cfce">&lt;code&gt;</bpt>BlobTrigger<ept id="50cacb56-0db9-4fe5-a60b-416d4b40cfce">&lt;/code&gt;</ept> function gets called more than once for the same new or updated blob.</source>
+          <target state="new">The WebJobs SDK makes sure that no <bpt id="50cacb56-0db9-4fe5-a60b-416d4b40cfce">&lt;code&gt;</bpt>BlobTrigger<ept id="50cacb56-0db9-4fe5-a60b-416d4b40cfce">&lt;/code&gt;</ept> function gets called more than once for the same new or updated blob.</target>
+        </trans-unit>
+        <trans-unit id="86bd5e44-69b8-4c88-a7d5-ac06944db595" xml:space="preserve">
+          <source>It does this by maintaining <bpt id="5277ca0d-1403-4d4c-844a-020ff2075d01">&lt;em&gt;</bpt>blob receipts<ept id="5277ca0d-1403-4d4c-844a-020ff2075d01">&lt;/em&gt;</ept> in order to determine if a given blob version has been processed.</source>
+          <target state="new">It does this by maintaining <bpt id="5277ca0d-1403-4d4c-844a-020ff2075d01">&lt;em&gt;</bpt>blob receipts<ept id="5277ca0d-1403-4d4c-844a-020ff2075d01">&lt;/em&gt;</ept> in order to determine if a given blob version has been processed.</target>
+        </trans-unit>
+        <trans-unit id="8fb7db49-e041-40bf-ad11-7d64ce5b498e" xml:space="preserve">
+          <source>Blob receipts are stored in a container named <bpt id="43be4f7c-12e5-40ce-a212-ac3c661099d7">&lt;em&gt;</bpt>azure-webjobs-hosts<ept id="43be4f7c-12e5-40ce-a212-ac3c661099d7">&lt;/em&gt;</ept> in the Azure storage account specified by the AzureWebJobsStorage connection string.</source>
+          <target state="new">Blob receipts are stored in a container named <bpt id="43be4f7c-12e5-40ce-a212-ac3c661099d7">&lt;em&gt;</bpt>azure-webjobs-hosts<ept id="43be4f7c-12e5-40ce-a212-ac3c661099d7">&lt;/em&gt;</ept> in the Azure storage account specified by the AzureWebJobsStorage connection string.</target>
+        </trans-unit>
+        <trans-unit id="9e177eec-3559-42cc-b30f-41ae2564888e" xml:space="preserve">
+          <source>A blob receipt has the following  information:</source>
+          <target state="new">A blob receipt has the following  information:</target>
+        </trans-unit>
+        <trans-unit id="ce7b9e8d-88a2-40de-8548-8a086ac7e208" xml:space="preserve">
+          <source>The function that was called for the blob ("<bpt id="0ea01559-d004-418b-ba88-ad51bf75bcdd">&lt;em&gt;</bpt>{WebJob name}<ept id="0ea01559-d004-418b-ba88-ad51bf75bcdd">&lt;/em&gt;</ept>.Functions.<bpt id="faa364c5-bc46-498e-adf5-0d15e92611be">&lt;em&gt;</bpt>{Function name}<ept id="faa364c5-bc46-498e-adf5-0d15e92611be">&lt;/em&gt;</ept>", for example: "WebJob1.Functions.CopyBlob")</source>
+          <target state="new">The function that was called for the blob ("<bpt id="0ea01559-d004-418b-ba88-ad51bf75bcdd">&lt;em&gt;</bpt>{WebJob name}<ept id="0ea01559-d004-418b-ba88-ad51bf75bcdd">&lt;/em&gt;</ept>.Functions.<bpt id="faa364c5-bc46-498e-adf5-0d15e92611be">&lt;em&gt;</bpt>{Function name}<ept id="faa364c5-bc46-498e-adf5-0d15e92611be">&lt;/em&gt;</ept>", for example: "WebJob1.Functions.CopyBlob")</target>
+        </trans-unit>
+        <trans-unit id="543def95-98b9-4f05-b553-35e491af8711" xml:space="preserve">
+          <source>The container name</source>
+          <target state="new">The container name</target>
+        </trans-unit>
+        <trans-unit id="d18e5717-f655-4e40-938c-ab90ba833098" xml:space="preserve">
+          <source>The blob type ("BlockBlob" or "PageBlob")</source>
+          <target state="new">The blob type ("BlockBlob" or "PageBlob")</target>
+        </trans-unit>
+        <trans-unit id="9af6b8b8-ed34-488f-a7bb-a78c6989c201" xml:space="preserve">
+          <source>The blob name</source>
+          <target state="new">The blob name</target>
+        </trans-unit>
+        <trans-unit id="068c3361-1a75-4d47-8761-82e48adafab3" xml:space="preserve">
+          <source>The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")</source>
+          <target state="new">The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")</target>
+        </trans-unit>
+        <trans-unit id="28968761-6af1-40d8-bffa-e7ecf83180ce" xml:space="preserve">
+          <source>If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the <bpt id="8cce0acc-9f7a-4bf7-b26b-158b81386f43">&lt;em&gt;</bpt>azure-webjobs-hosts<ept id="8cce0acc-9f7a-4bf7-b26b-158b81386f43">&lt;/em&gt;</ept> container.</source>
+          <target state="new">If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the <bpt id="8cce0acc-9f7a-4bf7-b26b-158b81386f43">&lt;em&gt;</bpt>azure-webjobs-hosts<ept id="8cce0acc-9f7a-4bf7-b26b-158b81386f43">&lt;/em&gt;</ept> container.</target>
+        </trans-unit>
+        <trans-unit id="45c8c652-fd39-4ad5-af41-a7176d5413f6" xml:space="preserve">
+          <source>For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see <bpt id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;/linkText&gt;</ept><bpt id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;title&gt;</bpt><ept id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see <bpt id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;/linkText&gt;</ept><bpt id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;title&gt;</bpt><ept id="425dad47-33ef-43c9-b43a-a1b93b58f98b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8351452c-4755-4a63-859d-c17ca3113c8d" xml:space="preserve">
+          <source>Related topics covered in that article include the following:</source>
+          <target state="new">Related topics covered in that article include the following:</target>
+        </trans-unit>
+        <trans-unit id="8e7af1a2-10a5-47fb-9e77-5e8ed6ffb12d" xml:space="preserve">
+          <source>Async functions</source>
+          <target state="new">Async functions</target>
+        </trans-unit>
+        <trans-unit id="81efee5f-d80d-46a6-ba4f-782b451637ab" xml:space="preserve">
+          <source>Multiple instances</source>
+          <target state="new">Multiple instances</target>
+        </trans-unit>
+        <trans-unit id="ade439bc-4a14-4c4d-a6a4-1efdfec12464" xml:space="preserve">
+          <source>Graceful shutdown</source>
+          <target state="new">Graceful shutdown</target>
+        </trans-unit>
+        <trans-unit id="7de4669c-99a3-40cf-be5e-a4d6b2287ff0" xml:space="preserve">
+          <source>Use WebJobs SDK attributes in the body of a function</source>
+          <target state="new">Use WebJobs SDK attributes in the body of a function</target>
+        </trans-unit>
+        <trans-unit id="b4105a73-e26e-4b24-aa83-7ef42db7005d" xml:space="preserve">
+          <source>Set the SDK connection strings in code.</source>
+          <target state="new">Set the SDK connection strings in code.</target>
+        </trans-unit>
+        <trans-unit id="126b4592-0175-42e1-8ae0-6196f09fec6f" xml:space="preserve">
+          <source>Set values for WebJobs SDK constructor parameters in code</source>
+          <target state="new">Set values for WebJobs SDK constructor parameters in code</target>
+        </trans-unit>
+        <trans-unit id="a48c2b46-9665-4b29-9a7b-b146bd6a6516" xml:space="preserve">
+          <source>Configure <bpt id="f4acba69-2e03-4e71-a73e-0151ccfa45f6">&lt;code&gt;</bpt>MaxDequeueCount<ept id="f4acba69-2e03-4e71-a73e-0151ccfa45f6">&lt;/code&gt;</ept> for poison blob handling.</source>
+          <target state="new">Configure <bpt id="f4acba69-2e03-4e71-a73e-0151ccfa45f6">&lt;code&gt;</bpt>MaxDequeueCount<ept id="f4acba69-2e03-4e71-a73e-0151ccfa45f6">&lt;/code&gt;</ept> for poison blob handling.</target>
+        </trans-unit>
+        <trans-unit id="846e025a-0984-48af-97e4-062e89dd91a7" xml:space="preserve">
+          <source>Trigger a function manually</source>
+          <target state="new">Trigger a function manually</target>
+        </trans-unit>
+        <trans-unit id="8524b7b8-bbe7-4e54-80a2-48ba235d3d32" xml:space="preserve">
+          <source>Write logs</source>
+          <target state="new">Write logs</target>
+        </trans-unit>
+        <trans-unit id="d91d3bd0-5b30-4f71-9b88-1a1256fe1530" xml:space="preserve">
+          <source>This article has provided code samples that show how to handle common scenarios for working with Azure blobs.</source>
+          <target state="new">This article has provided code samples that show how to handle common scenarios for working with Azure blobs.</target>
+        </trans-unit>
+        <trans-unit id="b045fd99-7cbb-4ea9-855d-d2c6dc40e6d6" xml:space="preserve">
+          <source>For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;/linkText&gt;</ept><bpt id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;title&gt;</bpt><ept id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;/linkText&gt;</ept><bpt id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;title&gt;</bpt><ept id="e989153b-91c0-4d42-8ed2-c850aa0fb539">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

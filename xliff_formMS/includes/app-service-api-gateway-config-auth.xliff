@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ed67339c-a1f4-433e-a558-0a37bf31ed3e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ed67339c-a1f4-433e-a558-0a37bf31ed3e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="abcbab08-ac85-41ef-8cbd-9c2c04208b0d">
+        <trans-unit id="c7b1aa10-0094-4c08-a42b-c4a720e3ae98" xml:space="preserve">
+          <source>Navigate to your API app's gateway blade.</source>
+          <target state="new">Navigate to your API app's gateway blade.</target>
+        </trans-unit>
+        <trans-unit id="c6d993e6-94b6-48bc-aadf-ff587a5c01f3" xml:space="preserve">
+          <source><bpt id="84f5a0f1-43b1-410c-aba5-fcd3a547fc01">&lt;linkText&gt;</bpt>Click gateway<ept id="84f5a0f1-43b1-410c-aba5-fcd3a547fc01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84f5a0f1-43b1-410c-aba5-fcd3a547fc01">&lt;linkText&gt;</bpt>Click gateway<ept id="84f5a0f1-43b1-410c-aba5-fcd3a547fc01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd8632da-cd80-4c89-ab10-e8acd5493c23" xml:space="preserve">
+          <source>In the <bpt id="a0663bdd-18ce-47a2-8f2f-041a98265780">&lt;strong&gt;</bpt>Gateway<ept id="a0663bdd-18ce-47a2-8f2f-041a98265780">&lt;/strong&gt;</ept> blade, click <bpt id="0690e6c8-fc66-4c3d-aaaf-208ddc47614f">&lt;strong&gt;</bpt>Settings<ept id="0690e6c8-fc66-4c3d-aaaf-208ddc47614f">&lt;/strong&gt;</ept>, and then click <bpt id="224c44d6-a538-4554-85a0-ca05cdc0385c">&lt;strong&gt;</bpt>Identity<ept id="224c44d6-a538-4554-85a0-ca05cdc0385c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a0663bdd-18ce-47a2-8f2f-041a98265780">&lt;strong&gt;</bpt>Gateway<ept id="a0663bdd-18ce-47a2-8f2f-041a98265780">&lt;/strong&gt;</ept> blade, click <bpt id="0690e6c8-fc66-4c3d-aaaf-208ddc47614f">&lt;strong&gt;</bpt>Settings<ept id="0690e6c8-fc66-4c3d-aaaf-208ddc47614f">&lt;/strong&gt;</ept>, and then click <bpt id="224c44d6-a538-4554-85a0-ca05cdc0385c">&lt;strong&gt;</bpt>Identity<ept id="224c44d6-a538-4554-85a0-ca05cdc0385c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9234a20-3118-4077-a257-096bc9a61f90" xml:space="preserve">
+          <source><bpt id="b69f9933-44b1-46dc-a42b-4b52e0d9bf7f">&lt;linkText&gt;</bpt>Click Settings<ept id="b69f9933-44b1-46dc-a42b-4b52e0d9bf7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b69f9933-44b1-46dc-a42b-4b52e0d9bf7f">&lt;linkText&gt;</bpt>Click Settings<ept id="b69f9933-44b1-46dc-a42b-4b52e0d9bf7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c07707a-8d94-43d0-ab0f-e8d65696ff56" xml:space="preserve">
+          <source><bpt id="2bdf9cfb-aa29-4e41-b28c-fd525217e522">&lt;linkText&gt;</bpt>Click Identity<ept id="2bdf9cfb-aa29-4e41-b28c-fd525217e522">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bdf9cfb-aa29-4e41-b28c-fd525217e522">&lt;linkText&gt;</bpt>Click Identity<ept id="2bdf9cfb-aa29-4e41-b28c-fd525217e522">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a01e8055-d496-49b2-900c-b327eae89899" xml:space="preserve">
+          <source>From the <bpt id="46efbbe8-e20f-429c-8df3-e274d6f718ca">&lt;strong&gt;</bpt>Identity<ept id="46efbbe8-e20f-429c-8df3-e274d6f718ca">&lt;/strong&gt;</ept> blade you can navigate to different blades for configuring authentication using Azure Active Directory and several other providers.</source>
+          <target state="new">From the <bpt id="46efbbe8-e20f-429c-8df3-e274d6f718ca">&lt;strong&gt;</bpt>Identity<ept id="46efbbe8-e20f-429c-8df3-e274d6f718ca">&lt;/strong&gt;</ept> blade you can navigate to different blades for configuring authentication using Azure Active Directory and several other providers.</target>
+        </trans-unit>
+        <trans-unit id="ed5e52f9-f96e-4ba6-a73e-2e2ab89adba1" xml:space="preserve">
+          <source><bpt id="20ca524e-be8d-4d2f-b2da-6ab4220cb183">&lt;linkText&gt;</bpt>Identity blade<ept id="20ca524e-be8d-4d2f-b2da-6ab4220cb183">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20ca524e-be8d-4d2f-b2da-6ab4220cb183">&lt;linkText&gt;</bpt>Identity blade<ept id="20ca524e-be8d-4d2f-b2da-6ab4220cb183">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8389d22-bc86-4473-a26f-c222f072820c" xml:space="preserve">
+          <source>Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider.</source>
+          <target state="new">Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider.</target>
+        </trans-unit>
+        <trans-unit id="e72a41e9-d735-40a0-9dee-339649e64546" xml:space="preserve">
+          <source>These articles were written for mobile apps, but the procedures are the same for API apps.</source>
+          <target state="new">These articles were written for mobile apps, but the procedures are the same for API apps.</target>
+        </trans-unit>
+        <trans-unit id="ad051a77-e4e1-4c30-ae41-fb1b40589b34" xml:space="preserve">
+          <source>Some of the procedures require you to use the [Azure portal].</source>
+          <target state="new">Some of the procedures require you to use the [Azure portal].</target>
+        </trans-unit>
+        <trans-unit id="194bb597-935f-4ab2-b619-36d193ac3277" xml:space="preserve">
+          <source><bpt id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;linkText&gt;</bpt>Microsoft Account<ept id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;/linkText&gt;</ept><bpt id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;title&gt;</bpt><ept id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;linkText&gt;</bpt>Microsoft Account<ept id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;/linkText&gt;</ept><bpt id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;title&gt;</bpt><ept id="51b52bcf-8c35-4da6-90c3-9144609f62af">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f712c3f0-1fd3-43e8-a7c0-e4eec6e9d892" xml:space="preserve">
+          <source><bpt id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;linkText&gt;</bpt>Facebook login<ept id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;/linkText&gt;</ept><bpt id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;title&gt;</bpt><ept id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;linkText&gt;</bpt>Facebook login<ept id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;/linkText&gt;</ept><bpt id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;title&gt;</bpt><ept id="70308180-f541-4fa0-836b-8b1a0afc743b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38c6145c-0ec1-4f23-ab87-125546ebaf02" xml:space="preserve">
+          <source><bpt id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;linkText&gt;</bpt>Twitter login<ept id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;/linkText&gt;</ept><bpt id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;title&gt;</bpt><ept id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;linkText&gt;</bpt>Twitter login<ept id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;/linkText&gt;</ept><bpt id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;title&gt;</bpt><ept id="a856bb8e-dd5f-4393-80fb-f0086ffcf39d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d3b0cf7-5018-44fa-a1ab-c0e62eed2f69" xml:space="preserve">
+          <source><bpt id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;linkText&gt;</bpt>Google login<ept id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;/linkText&gt;</ept><bpt id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;title&gt;</bpt><ept id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;linkText&gt;</bpt>Google login<ept id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;/linkText&gt;</ept><bpt id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;title&gt;</bpt><ept id="77792c5e-4f9f-443f-8d83-b4a21d0460a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46fde671-0804-4e65-829f-950dde64cd40" xml:space="preserve">
+          <source><bpt id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;/linkText&gt;</ept><bpt id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;title&gt;</bpt><ept id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;/linkText&gt;</ept><bpt id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;title&gt;</bpt><ept id="7538ab85-2549-4142-bb28-f7772513ea89">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="840478aa-a36e-4d76-a046-b74a2a70311d" xml:space="preserve">
+          <source>As an example, the following screen shots show what you should see in the [Azure portal] pages and [Azure preview portal] blades after you have set up Azure Active Directory authentication.</source>
+          <target state="new">As an example, the following screen shots show what you should see in the [Azure portal] pages and [Azure preview portal] blades after you have set up Azure Active Directory authentication.</target>
+        </trans-unit>
+        <trans-unit id="ab1c7b62-cbb4-4b04-8d76-1909b6afdf99" xml:space="preserve">
+          <source>In the Azure preview portal, The <bpt id="a1ab3d4f-79c8-406a-9255-5982488434af">&lt;strong&gt;</bpt>Azure Active Directory<ept id="a1ab3d4f-79c8-406a-9255-5982488434af">&lt;/strong&gt;</ept> blade has a <bpt id="839d7f2f-5021-4001-985c-e671f08be324">&lt;strong&gt;</bpt>Client ID<ept id="839d7f2f-5021-4001-985c-e671f08be324">&lt;/strong&gt;</ept> from the application you created in the Azure Active Directory tab of the Azure portal, and <bpt id="1147fc09-485f-49f8-ad7d-354a68ee5103">&lt;strong&gt;</bpt>Allowed Tenants<ept id="1147fc09-485f-49f8-ad7d-354a68ee5103">&lt;/strong&gt;</ept> has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").</source>
+          <target state="new">In the Azure preview portal, The <bpt id="a1ab3d4f-79c8-406a-9255-5982488434af">&lt;strong&gt;</bpt>Azure Active Directory<ept id="a1ab3d4f-79c8-406a-9255-5982488434af">&lt;/strong&gt;</ept> blade has a <bpt id="839d7f2f-5021-4001-985c-e671f08be324">&lt;strong&gt;</bpt>Client ID<ept id="839d7f2f-5021-4001-985c-e671f08be324">&lt;/strong&gt;</ept> from the application you created in the Azure Active Directory tab of the Azure portal, and <bpt id="1147fc09-485f-49f8-ad7d-354a68ee5103">&lt;strong&gt;</bpt>Allowed Tenants<ept id="1147fc09-485f-49f8-ad7d-354a68ee5103">&lt;/strong&gt;</ept> has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").</target>
+        </trans-unit>
+        <trans-unit id="a2812364-3733-413f-85a5-710b2f20dfd5" xml:space="preserve">
+          <source><bpt id="865c8e0e-a3e4-44c5-b7f6-4a5cd5cba5af">&lt;linkText&gt;</bpt>Azure Active Directory blade<ept id="865c8e0e-a3e4-44c5-b7f6-4a5cd5cba5af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="865c8e0e-a3e4-44c5-b7f6-4a5cd5cba5af">&lt;linkText&gt;</bpt>Azure Active Directory blade<ept id="865c8e0e-a3e4-44c5-b7f6-4a5cd5cba5af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="863d51ca-2ada-4ec0-aaba-36663f7601d0" xml:space="preserve">
+          <source>In the Azure portal, the <bpt id="3ac8d220-cbc6-49b4-910a-548f6239e98c">&lt;strong&gt;</bpt>Configure<ept id="3ac8d220-cbc6-49b4-910a-548f6239e98c">&lt;/strong&gt;</ept> tab for the application you created in the <bpt id="9d16465b-f7f1-4e13-b540-c414d5a94918">&lt;strong&gt;</bpt>Azure Active Directory<ept id="9d16465b-f7f1-4e13-b540-c414d5a94918">&lt;/strong&gt;</ept> tab has the <bpt id="ac8d6fa8-6897-4eff-bf85-6acad509b864">&lt;strong&gt;</bpt>Sign-on URL<ept id="ac8d6fa8-6897-4eff-bf85-6acad509b864">&lt;/strong&gt;</ept>, <bpt id="80e99f71-3051-4b37-a8c0-4fa891129cbd">&lt;strong&gt;</bpt>App ID URI<ept id="80e99f71-3051-4b37-a8c0-4fa891129cbd">&lt;/strong&gt;</ept>, and <bpt id="65ba77eb-2efb-479d-b1ea-a49105e098a8">&lt;strong&gt;</bpt>Reply URL<ept id="65ba77eb-2efb-479d-b1ea-a49105e098a8">&lt;/strong&gt;</ept> from the <bpt id="9e73ae92-8c2d-493d-a72c-3a28ec49daf7">&lt;strong&gt;</bpt>Azure Active Directory<ept id="9e73ae92-8c2d-493d-a72c-3a28ec49daf7">&lt;/strong&gt;</ept> blade in the Azure preview portal.</source>
+          <target state="new">In the Azure portal, the <bpt id="3ac8d220-cbc6-49b4-910a-548f6239e98c">&lt;strong&gt;</bpt>Configure<ept id="3ac8d220-cbc6-49b4-910a-548f6239e98c">&lt;/strong&gt;</ept> tab for the application you created in the <bpt id="9d16465b-f7f1-4e13-b540-c414d5a94918">&lt;strong&gt;</bpt>Azure Active Directory<ept id="9d16465b-f7f1-4e13-b540-c414d5a94918">&lt;/strong&gt;</ept> tab has the <bpt id="ac8d6fa8-6897-4eff-bf85-6acad509b864">&lt;strong&gt;</bpt>Sign-on URL<ept id="ac8d6fa8-6897-4eff-bf85-6acad509b864">&lt;/strong&gt;</ept>, <bpt id="80e99f71-3051-4b37-a8c0-4fa891129cbd">&lt;strong&gt;</bpt>App ID URI<ept id="80e99f71-3051-4b37-a8c0-4fa891129cbd">&lt;/strong&gt;</ept>, and <bpt id="65ba77eb-2efb-479d-b1ea-a49105e098a8">&lt;strong&gt;</bpt>Reply URL<ept id="65ba77eb-2efb-479d-b1ea-a49105e098a8">&lt;/strong&gt;</ept> from the <bpt id="9e73ae92-8c2d-493d-a72c-3a28ec49daf7">&lt;strong&gt;</bpt>Azure Active Directory<ept id="9e73ae92-8c2d-493d-a72c-3a28ec49daf7">&lt;/strong&gt;</ept> blade in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="575f721c-b156-4748-b365-d490ce067f52" xml:space="preserve">
+          <source><bpt id="575dd4dd-b07a-4014-90b2-8e35b11a61f1">&lt;linkText&gt;</bpt><ept id="575dd4dd-b07a-4014-90b2-8e35b11a61f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="575dd4dd-b07a-4014-90b2-8e35b11a61f1">&lt;linkText&gt;</bpt><ept id="575dd4dd-b07a-4014-90b2-8e35b11a61f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0635315-1a13-4dbd-aff6-36a91ee81546" xml:space="preserve">
+          <source><bpt id="634a5c1a-76c0-4f62-bfd0-841de4500a20">&lt;linkText&gt;</bpt><ept id="634a5c1a-76c0-4f62-bfd0-841de4500a20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="634a5c1a-76c0-4f62-bfd0-841de4500a20">&lt;linkText&gt;</bpt><ept id="634a5c1a-76c0-4f62-bfd0-841de4500a20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7826f8a-9f03-49c6-a071-aec1ca52f294" xml:space="preserve">
+          <source><bpt id="36663122-74db-4a26-9658-6b97e0d2a8a2">&lt;linkText&gt;</bpt><ept id="36663122-74db-4a26-9658-6b97e0d2a8a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36663122-74db-4a26-9658-6b97e0d2a8a2">&lt;linkText&gt;</bpt><ept id="36663122-74db-4a26-9658-6b97e0d2a8a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0c05faf-c82f-4f2c-9e81-8beba69a59d1" xml:space="preserve">
+          <source><bpt id="3e1b37b2-5d19-430e-9287-ae71928a4b38">&lt;linkText&gt;</bpt><ept id="3e1b37b2-5d19-430e-9287-ae71928a4b38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e1b37b2-5d19-430e-9287-ae71928a4b38">&lt;linkText&gt;</bpt><ept id="3e1b37b2-5d19-430e-9287-ae71928a4b38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d110b158-6a59-418f-ae60-fce714ba8310" xml:space="preserve">
+          <source>(The Reply URL in the image shows the same URL twice, once with <bpt id="6ee529f9-e530-4b41-8723-fa225f7d6db4">&lt;code&gt;</bpt>http:<ept id="6ee529f9-e530-4b41-8723-fa225f7d6db4">&lt;/code&gt;</ept> and once with <bpt id="b368e8d6-4b4a-4c71-918d-187ce100e1ce">&lt;code&gt;</bpt>https:<ept id="b368e8d6-4b4a-4c71-918d-187ce100e1ce">&lt;/code&gt;</ept>.)</source>
+          <target state="new">(The Reply URL in the image shows the same URL twice, once with <bpt id="6ee529f9-e530-4b41-8723-fa225f7d6db4">&lt;code&gt;</bpt>http:<ept id="6ee529f9-e530-4b41-8723-fa225f7d6db4">&lt;/code&gt;</ept> and once with <bpt id="b368e8d6-4b4a-4c71-918d-187ce100e1ce">&lt;code&gt;</bpt>https:<ept id="b368e8d6-4b4a-4c71-918d-187ce100e1ce">&lt;/code&gt;</ept>.)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="96827b76-7076-4dc0-bdc4-8d8eb5206b7a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="96827b76-7076-4dc0-bdc4-8d8eb5206b7a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="734d5f90-480e-4c10-9122-9b8bf0f45e36">
+        <trans-unit id="41cbdd3b-fc1a-4a66-bd7d-f1e87f67d025" xml:space="preserve">
+          <source>Install Update 1 from the Azure Management Portal</source>
+          <target state="new">Install Update 1 from the Azure Management Portal</target>
+        </trans-unit>
+        <trans-unit id="cf242ba6-f1bb-4c11-b365-017fb886018e" xml:space="preserve">
+          <source>Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.</source>
+          <target state="new">Explains how to use the Management Portal to install StorSimple 8000 Series Update 1.</target>
+        </trans-unit>
+        <trans-unit id="39f3b0cb-a550-46e2-a8c9-d7859abbb33d" xml:space="preserve">
+          <source>On the StorSimple service page, select your device.</source>
+          <target state="new">On the StorSimple service page, select your device.</target>
+        </trans-unit>
+        <trans-unit id="caab2807-c1ec-4d04-aed2-14fa9ffae67e" xml:space="preserve">
+          <source>Navigate to <bpt id="9530db31-a8f4-4a32-8bcf-e1d17d57bb65">&lt;strong&gt;</bpt>Devices<ept id="9530db31-a8f4-4a32-8bcf-e1d17d57bb65">&lt;/strong&gt;</ept> &gt; <bpt id="34bf8ec2-349b-478c-b860-4d15ec3e116a">&lt;strong&gt;</bpt>Maintenance<ept id="34bf8ec2-349b-478c-b860-4d15ec3e116a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="9530db31-a8f4-4a32-8bcf-e1d17d57bb65">&lt;strong&gt;</bpt>Devices<ept id="9530db31-a8f4-4a32-8bcf-e1d17d57bb65">&lt;/strong&gt;</ept> &gt; <bpt id="34bf8ec2-349b-478c-b860-4d15ec3e116a">&lt;strong&gt;</bpt>Maintenance<ept id="34bf8ec2-349b-478c-b860-4d15ec3e116a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="062f2330-b7cd-4946-a9ac-ab4977f7589c" xml:space="preserve">
+          <source>At the bottom of the page, click <bpt id="e027a477-1c2b-4ac3-bc6f-9a685d500460">&lt;strong&gt;</bpt>Scan Updates<ept id="e027a477-1c2b-4ac3-bc6f-9a685d500460">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the page, click <bpt id="e027a477-1c2b-4ac3-bc6f-9a685d500460">&lt;strong&gt;</bpt>Scan Updates<ept id="e027a477-1c2b-4ac3-bc6f-9a685d500460">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f6a68c7-2c9a-4d3c-af92-0a0518168377" xml:space="preserve">
+          <source>A job will be created to scan for available updates.</source>
+          <target state="new">A job will be created to scan for available updates.</target>
+        </trans-unit>
+        <trans-unit id="08d88971-0de3-48d6-bb33-5fff01219e82" xml:space="preserve">
+          <source>You will be notified when the job has completed successfully.</source>
+          <target state="new">You will be notified when the job has completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="403fac0d-9fbe-436f-b41c-bd1e5979f359" xml:space="preserve">
+          <source>In the <bpt id="6cea1187-3a44-4f76-bea8-580816faddac">&lt;strong&gt;</bpt>Software Updates<ept id="6cea1187-3a44-4f76-bea8-580816faddac">&lt;/strong&gt;</ept> section on the same page, you will see that new software updates are available.</source>
+          <target state="new">In the <bpt id="6cea1187-3a44-4f76-bea8-580816faddac">&lt;strong&gt;</bpt>Software Updates<ept id="6cea1187-3a44-4f76-bea8-580816faddac">&lt;/strong&gt;</ept> section on the same page, you will see that new software updates are available.</target>
+        </trans-unit>
+        <trans-unit id="f8588c92-7e4b-48aa-b9d8-2e5a9696aee3" xml:space="preserve">
+          <source>We recommend that you review the release notes before you apply Update 1.0 on your device.</source>
+          <target state="new">We recommend that you review the release notes before you apply Update 1.0 on your device.</target>
+        </trans-unit>
+        <trans-unit id="69b30487-77d4-497b-ab64-80c9b4fbcbe5" xml:space="preserve">
+          <source><bpt id="7aba1744-53e6-4e14-aa87-f59f81b058fb">&lt;linkText&gt;</bpt>Install software updates<ept id="7aba1744-53e6-4e14-aa87-f59f81b058fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7aba1744-53e6-4e14-aa87-f59f81b058fb">&lt;linkText&gt;</bpt>Install software updates<ept id="7aba1744-53e6-4e14-aa87-f59f81b058fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03319b80-2fa8-4620-bc3a-aae0f2560e1c" xml:space="preserve">
+          <source>At the bottom of the page, click <bpt id="41ba7abc-4d89-468b-8ad4-19522d6d1440">&lt;strong&gt;</bpt>Install Updates<ept id="41ba7abc-4d89-468b-8ad4-19522d6d1440">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the page, click <bpt id="41ba7abc-4d89-468b-8ad4-19522d6d1440">&lt;strong&gt;</bpt>Install Updates<ept id="41ba7abc-4d89-468b-8ad4-19522d6d1440">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41d74b62-ca1d-44ce-9656-3b1f7f6bcf21" xml:space="preserve">
+          <source>You will be prompted for confirmation.</source>
+          <target state="new">You will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="6d13ef20-807e-41e9-8ce9-ff29aee64811" xml:space="preserve">
+          <source>Click <bpt id="11271982-de50-4503-887d-00060d9c4251">&lt;strong&gt;</bpt>OK<ept id="11271982-de50-4503-887d-00060d9c4251">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="11271982-de50-4503-887d-00060d9c4251">&lt;strong&gt;</bpt>OK<ept id="11271982-de50-4503-887d-00060d9c4251">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="945bf6bc-7309-4129-a55f-661e806145ff" xml:space="preserve">
+          <source>An <bpt id="ce96d050-259a-48f5-a6d7-1c1a1e294f25">&lt;strong&gt;</bpt>Install Updates<ept id="ce96d050-259a-48f5-a6d7-1c1a1e294f25">&lt;/strong&gt;</ept> dialog box will be presented.</source>
+          <target state="new">An <bpt id="ce96d050-259a-48f5-a6d7-1c1a1e294f25">&lt;strong&gt;</bpt>Install Updates<ept id="ce96d050-259a-48f5-a6d7-1c1a1e294f25">&lt;/strong&gt;</ept> dialog box will be presented.</target>
+        </trans-unit>
+        <trans-unit id="a001d591-960b-4f62-a8aa-a6b0445a5063" xml:space="preserve">
+          <source>Make sure that your device satisfies the checks listed in this dialog box.</source>
+          <target state="new">Make sure that your device satisfies the checks listed in this dialog box.</target>
+        </trans-unit>
+        <trans-unit id="0a2c8dca-d6c7-47e0-be91-95fbf28c1468" xml:space="preserve">
+          <source>Select <bpt id="74ff2b69-91ab-4f95-9adf-bde5d8ee064d">&lt;strong&gt;</bpt>I understand the above requirement and am ready to update my device<ept id="74ff2b69-91ab-4f95-9adf-bde5d8ee064d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="74ff2b69-91ab-4f95-9adf-bde5d8ee064d">&lt;strong&gt;</bpt>I understand the above requirement and am ready to update my device<ept id="74ff2b69-91ab-4f95-9adf-bde5d8ee064d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="259acca2-63b6-4a1e-b924-2f2c173fa61c" xml:space="preserve">
+          <source>Click the check icon.</source>
+          <target state="new">Click the check icon.</target>
+        </trans-unit>
+        <trans-unit id="66b717af-a311-4a6f-a933-f537df3a3039" xml:space="preserve">
+          <source><bpt id="dda8803f-acf6-4eb3-984e-5253623696f8">&lt;linkText&gt;</bpt>Confirmation message<ept id="dda8803f-acf6-4eb3-984e-5253623696f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dda8803f-acf6-4eb3-984e-5253623696f8">&lt;linkText&gt;</bpt>Confirmation message<ept id="dda8803f-acf6-4eb3-984e-5253623696f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e7c467c-5423-4c6f-8924-786ec395f45d" xml:space="preserve">
+          <source>You will be notified that pre-update checks are in progress.</source>
+          <target state="new">You will be notified that pre-update checks are in progress.</target>
+        </trans-unit>
+        <trans-unit id="26da03f6-e5ff-4bf2-869a-e210108ac887" xml:space="preserve">
+          <source><bpt id="a44b6ad7-af0b-4d31-bd88-bc625ce24fd2">&lt;linkText&gt;</bpt>Pre-check notification<ept id="a44b6ad7-af0b-4d31-bd88-bc625ce24fd2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a44b6ad7-af0b-4d31-bd88-bc625ce24fd2">&lt;linkText&gt;</bpt>Pre-check notification<ept id="a44b6ad7-af0b-4d31-bd88-bc625ce24fd2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98860b0a-45e8-4718-b646-7a5ee4769cee" xml:space="preserve">
+          <source>The following is an example in which the pre-upgrade check failed.</source>
+          <target state="new">The following is an example in which the pre-upgrade check failed.</target>
+        </trans-unit>
+        <trans-unit id="6e783919-2725-4a53-9780-bb37f391cfd1" xml:space="preserve">
+          <source>You will need to verify that both the device controllers are healthy and online.</source>
+          <target state="new">You will need to verify that both the device controllers are healthy and online.</target>
+        </trans-unit>
+        <trans-unit id="d0d65c1d-b89b-4bc6-b7b8-cbf358ef59cf" xml:space="preserve">
+          <source>You will also need to check the health of the hardware components.</source>
+          <target state="new">You will also need to check the health of the hardware components.</target>
+        </trans-unit>
+        <trans-unit id="e84a9d81-f43e-4f37-9c04-8788455bea50" xml:space="preserve">
+          <source>In this example, Controller 0 and Controller 1 components need attention.</source>
+          <target state="new">In this example, Controller 0 and Controller 1 components need attention.</target>
+        </trans-unit>
+        <trans-unit id="c5677340-628a-4033-ac1c-fe16e2ccc8d7" xml:space="preserve">
+          <source>You may need to contact Microsoft Support if you cannot address these issues by yourself.</source>
+          <target state="new">You may need to contact Microsoft Support if you cannot address these issues by yourself.</target>
+        </trans-unit>
+        <trans-unit id="1065f283-1656-40a1-8846-bbd9b964b0d4" xml:space="preserve">
+          <source><bpt id="6d908a09-d689-4474-aab7-cf058ab01c9c">&lt;linkText&gt;</bpt>Pre-check failed<ept id="6d908a09-d689-4474-aab7-cf058ab01c9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d908a09-d689-4474-aab7-cf058ab01c9c">&lt;linkText&gt;</bpt>Pre-check failed<ept id="6d908a09-d689-4474-aab7-cf058ab01c9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="893cab87-0fff-425b-b7a2-1f3e804e1f13" xml:space="preserve">
+          <source>After the pre-upgrade checks are successfully completed, an update job will be created.</source>
+          <target state="new">After the pre-upgrade checks are successfully completed, an update job will be created.</target>
+        </trans-unit>
+        <trans-unit id="dbcaaaa5-5533-4146-89e9-742388f7f8d5" xml:space="preserve">
+          <source>You will be notified when the update job is successfully created.</source>
+          <target state="new">You will be notified when the update job is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="a577f35f-f70e-48d9-923c-6301b5518530" xml:space="preserve">
+          <source><bpt id="4b856c7a-18ac-4e7f-ad93-769f2560107c">&lt;linkText&gt;</bpt>Update job creation<ept id="4b856c7a-18ac-4e7f-ad93-769f2560107c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b856c7a-18ac-4e7f-ad93-769f2560107c">&lt;linkText&gt;</bpt>Update job creation<ept id="4b856c7a-18ac-4e7f-ad93-769f2560107c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71b59d50-aab0-4e83-a206-922bab0b1028" xml:space="preserve">
+          <source>The update will then be applied on your device.</source>
+          <target state="new">The update will then be applied on your device.</target>
+        </trans-unit>
+        <trans-unit id="a0ba7c4c-64b8-4b1b-be8e-04fc264c8a0b" xml:space="preserve">
+          <source>To monitor the progress of the update job, click <bpt id="83bd1855-fcb8-4f99-8091-7ef4f5c2753a">&lt;strong&gt;</bpt>View Job<ept id="83bd1855-fcb8-4f99-8091-7ef4f5c2753a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To monitor the progress of the update job, click <bpt id="83bd1855-fcb8-4f99-8091-7ef4f5c2753a">&lt;strong&gt;</bpt>View Job<ept id="83bd1855-fcb8-4f99-8091-7ef4f5c2753a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="779d48a1-9fc1-43ff-ba49-ae9ec54d455e" xml:space="preserve">
+          <source>On the Jobs page, you can see the update progress.</source>
+          <target state="new">On the Jobs page, you can see the update progress.</target>
+        </trans-unit>
+        <trans-unit id="b5a7d439-557e-4d5d-ad23-6eef8089b0ea" xml:space="preserve">
+          <source><bpt id="daa86886-7657-4349-9cab-ce74674eee0e">&lt;linkText&gt;</bpt>Update job progress<ept id="daa86886-7657-4349-9cab-ce74674eee0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="daa86886-7657-4349-9cab-ce74674eee0e">&lt;linkText&gt;</bpt>Update job progress<ept id="daa86886-7657-4349-9cab-ce74674eee0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bedf446-1e14-46f1-ba4f-fdd0e6c8a5da" xml:space="preserve">
+          <source>The update will take a few hours to complete.</source>
+          <target state="new">The update will take a few hours to complete.</target>
+        </trans-unit>
+        <trans-unit id="e0c407f5-93da-4cf2-b8d8-6cc7e06b7198" xml:space="preserve">
+          <source>You can view the details of the job at any time.</source>
+          <target state="new">You can view the details of the job at any time.</target>
+        </trans-unit>
+        <trans-unit id="ca5d5018-ee85-4f9b-adb6-d3c17e419ad1" xml:space="preserve">
+          <source><bpt id="fb995bfe-60c7-4e67-84db-633c60f79ab3">&lt;linkText&gt;</bpt>Update job details<ept id="fb995bfe-60c7-4e67-84db-633c60f79ab3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb995bfe-60c7-4e67-84db-633c60f79ab3">&lt;linkText&gt;</bpt>Update job details<ept id="fb995bfe-60c7-4e67-84db-633c60f79ab3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8739637c-6d1f-4956-800d-ec10d506aedb" xml:space="preserve">
+          <source>After the job is complete, navigate to the <bpt id="b34b48b0-3758-446b-a7b8-81daf3e7e7f6">&lt;strong&gt;</bpt>Maintenance<ept id="b34b48b0-3758-446b-a7b8-81daf3e7e7f6">&lt;/strong&gt;</ept> page and scroll down to <bpt id="a3ff3623-83b3-4580-833a-2d340954ebd0">&lt;strong&gt;</bpt>Software Updates<ept id="a3ff3623-83b3-4580-833a-2d340954ebd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the job is complete, navigate to the <bpt id="b34b48b0-3758-446b-a7b8-81daf3e7e7f6">&lt;strong&gt;</bpt>Maintenance<ept id="b34b48b0-3758-446b-a7b8-81daf3e7e7f6">&lt;/strong&gt;</ept> page and scroll down to <bpt id="a3ff3623-83b3-4580-833a-2d340954ebd0">&lt;strong&gt;</bpt>Software Updates<ept id="a3ff3623-83b3-4580-833a-2d340954ebd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7e2efcb-1a80-46b3-b20b-81fe651ff278" xml:space="preserve">
+          <source>Verify that your device is running <bpt id="9901a968-4d1f-422b-ac99-00d35d043b5f">&lt;strong&gt;</bpt>StorSimple 8000 Series Update 1.0 (6.3.9600.17491)<ept id="9901a968-4d1f-422b-ac99-00d35d043b5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Verify that your device is running <bpt id="9901a968-4d1f-422b-ac99-00d35d043b5f">&lt;strong&gt;</bpt>StorSimple 8000 Series Update 1.0 (6.3.9600.17491)<ept id="9901a968-4d1f-422b-ac99-00d35d043b5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e010b82-7c40-4401-bb30-27bce541a147" xml:space="preserve">
+          <source>The <bpt id="8248fe6e-80b8-48d3-b280-7ebd35510275">&lt;strong&gt;</bpt>Last updated date<ept id="8248fe6e-80b8-48d3-b280-7ebd35510275">&lt;/strong&gt;</ept> should also be modified.</source>
+          <target state="new">The <bpt id="8248fe6e-80b8-48d3-b280-7ebd35510275">&lt;strong&gt;</bpt>Last updated date<ept id="8248fe6e-80b8-48d3-b280-7ebd35510275">&lt;/strong&gt;</ept> should also be modified.</target>
+        </trans-unit>
+        <trans-unit id="f8ec576f-bc5d-43e1-9db7-3c45a83449b0" xml:space="preserve">
+          <source><bpt id="0e385ff0-31ce-441d-ad73-ed505fc55488">&lt;linkText&gt;</bpt>Maintenance page<ept id="0e385ff0-31ce-441d-ad73-ed505fc55488">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e385ff0-31ce-441d-ad73-ed505fc55488">&lt;linkText&gt;</bpt>Maintenance page<ept id="0e385ff0-31ce-441d-ad73-ed505fc55488">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

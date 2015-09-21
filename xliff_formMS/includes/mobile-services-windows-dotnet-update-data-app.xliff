@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b280a12f-dd2f-4ec6-b61d-a061126d5d00" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b280a12f-dd2f-4ec6-b61d-a061126d5d00" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e9c48140-eeea-4d7b-9d85-6a0873ac22b2">
+        <trans-unit id="6d1b9746-6135-41da-bb25-a04793ef7bac" xml:space="preserve">
+          <source>In the file MainPage.xaml.cs, add or uncomment the following using statements: </source>
+          <target state="new">In the file MainPage.xaml.cs, add or uncomment the following using statements: </target>
+        </trans-unit>
+        <trans-unit id="c2fcb001-c442-41e8-a816-40c01489be77" xml:space="preserve">
+          <source>Replace the TodoItem class definition with the following code: </source>
+          <target state="new">Replace the TodoItem class definition with the following code: </target>
+        </trans-unit>
+        <trans-unit id="ab798f96-f221-48e5-ad7d-fd6c79a875c1" xml:space="preserve">
+          <source>The <bpt id="517f249d-5f41-47a5-b9d9-325437c4a639">&lt;strong&gt;</bpt>JsonPropertyAttribute<ept id="517f249d-5f41-47a5-b9d9-325437c4a639">&lt;/strong&gt;</ept> is used to define the mapping between property names in the client type to column names in the underlying data table.</source>
+          <target state="new">The <bpt id="517f249d-5f41-47a5-b9d9-325437c4a639">&lt;strong&gt;</bpt>JsonPropertyAttribute<ept id="517f249d-5f41-47a5-b9d9-325437c4a639">&lt;/strong&gt;</ept> is used to define the mapping between property names in the client type to column names in the underlying data table.</target>
+        </trans-unit>
+        <trans-unit id="fd658f42-8e37-4572-b052-3025a8dc0c04" xml:space="preserve">
+          <source>In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.</source>
+          <target state="new">In a universal Windows app project, the TodoItem class is defined in the seperate code file in the shared DataModel folder.</target>
+        </trans-unit>
+        <trans-unit id="ed2474b9-f89d-4814-8bed-2158aa79ef3d" xml:space="preserve">
+          <source>In MainPage.xaml.cs, comment-out or delete the line that defines the existing items collection, then uncomment or add the following lines, replacing <bpt id="01c9ee10-0ece-4dfc-8849-71198996b3f0">&lt;em&gt;</bpt>&amp;lt;yourClient&amp;gt;<ept id="01c9ee10-0ece-4dfc-8849-71198996b3f0">&lt;/em&gt;</ept> with the <bpt id="1c65ac88-6dc2-40c2-8471-126614d79f82">&lt;code&gt;</bpt>MobileServiceClient<ept id="1c65ac88-6dc2-40c2-8471-126614d79f82">&lt;/code&gt;</ept> field added to the App.xaml.cs file when you connected your project to the mobile service: </source>
+          <target state="new">In MainPage.xaml.cs, comment-out or delete the line that defines the existing items collection, then uncomment or add the following lines, replacing <bpt id="01c9ee10-0ece-4dfc-8849-71198996b3f0">&lt;em&gt;</bpt>&amp;lt;yourClient&amp;gt;<ept id="01c9ee10-0ece-4dfc-8849-71198996b3f0">&lt;/em&gt;</ept> with the <bpt id="1c65ac88-6dc2-40c2-8471-126614d79f82">&lt;code&gt;</bpt>MobileServiceClient<ept id="1c65ac88-6dc2-40c2-8471-126614d79f82">&lt;/code&gt;</ept> field added to the App.xaml.cs file when you connected your project to the mobile service: </target>
+        </trans-unit>
+        <trans-unit id="fcec4f48-86a3-440e-9c1a-a2104b702b96" xml:space="preserve">
+          <source>This code creates a mobile services-aware binding collection (items) and a proxy class for the database table (todoTable).</source>
+          <target state="new">This code creates a mobile services-aware binding collection (items) and a proxy class for the database table (todoTable).</target>
+        </trans-unit>
+        <trans-unit id="7ba9550b-86db-4275-a3cc-60cec8fa5640" xml:space="preserve">
+          <source>In the <bpt id="33ed46d1-6a84-4853-bd65-9e1e7b7b1dfc">&lt;strong&gt;</bpt>InsertTodoItem<ept id="33ed46d1-6a84-4853-bd65-9e1e7b7b1dfc">&lt;/strong&gt;</ept> method, remove the line of code that sets the <bpt id="2337ad66-24c5-4984-83b4-d41988fe9670">&lt;strong&gt;</bpt>TodoItem.Id<ept id="2337ad66-24c5-4984-83b4-d41988fe9670">&lt;/strong&gt;</ept> property, add the <bpt id="21d88cab-fa73-4fd9-8cea-b40458c2fd7c">&lt;strong&gt;</bpt>async<ept id="21d88cab-fa73-4fd9-8cea-b40458c2fd7c">&lt;/strong&gt;</ept> modifier to the method, and uncomment the following line of code: </source>
+          <target state="new">In the <bpt id="33ed46d1-6a84-4853-bd65-9e1e7b7b1dfc">&lt;strong&gt;</bpt>InsertTodoItem<ept id="33ed46d1-6a84-4853-bd65-9e1e7b7b1dfc">&lt;/strong&gt;</ept> method, remove the line of code that sets the <bpt id="2337ad66-24c5-4984-83b4-d41988fe9670">&lt;strong&gt;</bpt>TodoItem.Id<ept id="2337ad66-24c5-4984-83b4-d41988fe9670">&lt;/strong&gt;</ept> property, add the <bpt id="21d88cab-fa73-4fd9-8cea-b40458c2fd7c">&lt;strong&gt;</bpt>async<ept id="21d88cab-fa73-4fd9-8cea-b40458c2fd7c">&lt;/strong&gt;</ept> modifier to the method, and uncomment the following line of code: </target>
+        </trans-unit>
+        <trans-unit id="8cf6c637-05b7-45e0-a244-37f9c38aa748" xml:space="preserve">
+          <source>This code inserts a new item into the table.</source>
+          <target state="new">This code inserts a new item into the table.</target>
+        </trans-unit>
+        <trans-unit id="eae7dba3-ba4a-4b09-9878-c4b2449e31db" xml:space="preserve">
+          <source>Replace the <bpt id="296376a3-a8d6-4936-a34f-6cecc3d6b08b">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="296376a3-a8d6-4936-a34f-6cecc3d6b08b">&lt;/strong&gt;</ept> method with the following code: </source>
+          <target state="new">Replace the <bpt id="296376a3-a8d6-4936-a34f-6cecc3d6b08b">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="296376a3-a8d6-4936-a34f-6cecc3d6b08b">&lt;/strong&gt;</ept> method with the following code: </target>
+        </trans-unit>
+        <trans-unit id="6cfbd78e-bc6d-45f7-816e-77ce5b82c4aa" xml:space="preserve">
+          <source>This sets the binding to the collection of items in <bpt id="6cc80503-4b0e-4642-bf42-8acac0f857cc">&lt;code&gt;</bpt>todoTable<ept id="6cc80503-4b0e-4642-bf42-8acac0f857cc">&lt;/code&gt;</ept>, which contains all of the <bpt id="4bc60005-cf9b-45d6-a6d3-5bcb75cbb832">&lt;strong&gt;</bpt>TodoItem<ept id="4bc60005-cf9b-45d6-a6d3-5bcb75cbb832">&lt;/strong&gt;</ept> objects returned from the mobile service.</source>
+          <target state="new">This sets the binding to the collection of items in <bpt id="6cc80503-4b0e-4642-bf42-8acac0f857cc">&lt;code&gt;</bpt>todoTable<ept id="6cc80503-4b0e-4642-bf42-8acac0f857cc">&lt;/code&gt;</ept>, which contains all of the <bpt id="4bc60005-cf9b-45d6-a6d3-5bcb75cbb832">&lt;strong&gt;</bpt>TodoItem<ept id="4bc60005-cf9b-45d6-a6d3-5bcb75cbb832">&lt;/strong&gt;</ept> objects returned from the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="83bb7439-701d-4696-8ccf-674fb929d0ea" xml:space="preserve">
+          <source>If there is a problem executing the query, a message box is raised to display the errors.</source>
+          <target state="new">If there is a problem executing the query, a message box is raised to display the errors.</target>
+        </trans-unit>
+        <trans-unit id="a44134be-3140-47c0-8c78-2ba7941de117" xml:space="preserve">
+          <source>In the <bpt id="ed6d3aad-4b0e-4127-afe3-075180ba4b98">&lt;strong&gt;</bpt>UpdateCheckedTodoItem<ept id="ed6d3aad-4b0e-4127-afe3-075180ba4b98">&lt;/strong&gt;</ept> method, add the <bpt id="a0e84d99-bf03-4b0b-857a-9dfb889f2ef1">&lt;strong&gt;</bpt>async<ept id="a0e84d99-bf03-4b0b-857a-9dfb889f2ef1">&lt;/strong&gt;</ept> modifier to the method, and uncomment the following line of code: </source>
+          <target state="new">In the <bpt id="ed6d3aad-4b0e-4127-afe3-075180ba4b98">&lt;strong&gt;</bpt>UpdateCheckedTodoItem<ept id="ed6d3aad-4b0e-4127-afe3-075180ba4b98">&lt;/strong&gt;</ept> method, add the <bpt id="a0e84d99-bf03-4b0b-857a-9dfb889f2ef1">&lt;strong&gt;</bpt>async<ept id="a0e84d99-bf03-4b0b-857a-9dfb889f2ef1">&lt;/strong&gt;</ept> modifier to the method, and uncomment the following line of code: </target>
+        </trans-unit>
+        <trans-unit id="6eb0c22c-2f03-4381-9ace-23c25cfc32aa" xml:space="preserve">
+          <source>This sends an item update to the mobile service.</source>
+          <target state="new">This sends an item update to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="7c5f5d19-2201-40dd-8f77-94b75bbbd970" xml:space="preserve">
+          <source>Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.</source>
+          <target state="new">Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

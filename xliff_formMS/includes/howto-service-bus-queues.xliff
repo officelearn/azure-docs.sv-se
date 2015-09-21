@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f45be903-a8dd-4719-acd4-dab167c1298a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f45be903-a8dd-4719-acd4-dab167c1298a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6f68bdd0-729a-48f1-a786-5c5a9d30441c">
+        <trans-unit id="50624034-84d3-48f9-8672-ae1a520e4d60" xml:space="preserve">
+          <source>Service Bus queues support a <bpt id="c0bd7354-c9aa-4bcd-9211-30eaadf117fa">&lt;strong&gt;</bpt>brokered messaging<ept id="c0bd7354-c9aa-4bcd-9211-30eaadf117fa">&lt;/strong&gt;</ept> communication model.</source>
+          <target state="new">Service Bus queues support a <bpt id="c0bd7354-c9aa-4bcd-9211-30eaadf117fa">&lt;strong&gt;</bpt>brokered messaging<ept id="c0bd7354-c9aa-4bcd-9211-30eaadf117fa">&lt;/strong&gt;</ept> communication model.</target>
+        </trans-unit>
+        <trans-unit id="8a12846a-2d61-432e-8034-bfd6f9ed809f" xml:space="preserve">
+          <source>When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker).</source>
+          <target state="new">When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker).</target>
+        </trans-unit>
+        <trans-unit id="a0402e99-fe9e-40ed-809d-cd2e6e0388fe" xml:space="preserve">
+          <source>A message producer (sender) hands off a message to the queue and then continues its processing.</source>
+          <target state="new">A message producer (sender) hands off a message to the queue and then continues its processing.</target>
+        </trans-unit>
+        <trans-unit id="f5ec52f4-aa5e-47c6-a9a4-833a2eacdd9d" xml:space="preserve">
+          <source>Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it.</source>
+          <target state="new">Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it.</target>
+        </trans-unit>
+        <trans-unit id="90745feb-5ee9-45a8-840b-1685c6591dbd" xml:space="preserve">
+          <source>The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages.</source>
+          <target state="new">The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages.</target>
+        </trans-unit>
+        <trans-unit id="60c9e3f6-c031-4b98-8dc6-fcaab5305fc3" xml:space="preserve">
+          <source>Queues offer <bpt id="64380794-d99a-4ed3-839b-68ac0b74da64">&lt;strong&gt;</bpt>First In, First Out (FIFO)<ept id="64380794-d99a-4ed3-839b-68ac0b74da64">&lt;/strong&gt;</ept> message delivery to one or more competing consumers.</source>
+          <target state="new">Queues offer <bpt id="64380794-d99a-4ed3-839b-68ac0b74da64">&lt;strong&gt;</bpt>First In, First Out (FIFO)<ept id="64380794-d99a-4ed3-839b-68ac0b74da64">&lt;/strong&gt;</ept> message delivery to one or more competing consumers.</target>
+        </trans-unit>
+        <trans-unit id="569dc3ed-8c48-4a01-91d3-daeefbc4c585" xml:space="preserve">
+          <source>That is, messages are typically received and processed by the receivers in the order in which they were
+added to the queue, and each message is received and processed by only one message consumer.</source>
+          <target state="new">That is, messages are typically received and processed by the receivers in the order in which they were
+added to the queue, and each message is received and processed by only one message consumer.</target>
+        </trans-unit>
+        <trans-unit id="ff15cb33-68de-4bf5-af38-195840413a92" xml:space="preserve">
+          <source><bpt id="986f1999-e9a3-4fbf-b090-ec6f8eabe9ee">&lt;linkText&gt;</bpt>QueueConcepts<ept id="986f1999-e9a3-4fbf-b090-ec6f8eabe9ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="986f1999-e9a3-4fbf-b090-ec6f8eabe9ee">&lt;linkText&gt;</bpt>QueueConcepts<ept id="986f1999-e9a3-4fbf-b090-ec6f8eabe9ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98cdb7e5-7cdc-4ef9-82f6-45e6a24ad4a0" xml:space="preserve">
+          <source>Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:</source>
+          <target state="new">Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:</target>
+        </trans-unit>
+        <trans-unit id="c12854df-84a5-4466-bf29-7a0a6003f7ec" xml:space="preserve">
+          <source>Communication between web and worker roles in a multi-tier Azure application.</source>
+          <target state="new">Communication between web and worker roles in a multi-tier Azure application.</target>
+        </trans-unit>
+        <trans-unit id="65b9abdb-cc06-485f-94cd-675561760c50" xml:space="preserve">
+          <source>Communication between on-premises apps and Azure hosted apps in a hybrid solution.</source>
+          <target state="new">Communication between on-premises apps and Azure hosted apps in a hybrid solution.</target>
+        </trans-unit>
+        <trans-unit id="be0883aa-738b-4fbf-b477-3fd1b10012fb" xml:space="preserve">
+          <source>Communication between components of a distributed application running on-premises in different organizations or departments of an organization.</source>
+          <target state="new">Communication between components of a distributed application running on-premises in different organizations or departments of an organization.</target>
+        </trans-unit>
+        <trans-unit id="baf77091-790a-499e-ac9e-155cbbdef453" xml:space="preserve">
+          <source>Using queues enables you to scale out your applications more easily, and enable more resiliency to your architecture.</source>
+          <target state="new">Using queues enables you to scale out your applications more easily, and enable more resiliency to your architecture.</target>
+        </trans-unit>
+        <trans-unit id="b5443f4e-ce8a-4e4a-8446-346c10f54753" xml:space="preserve">
+          <source>To begin using Service Bus queues in Azure, you must first create a service namespace.</source>
+          <target state="new">To begin using Service Bus queues in Azure, you must first create a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="bfa2ad08-b002-4945-92e4-c85681ccb76a" xml:space="preserve">
+          <source>A namespace provides a scoping container for addressing Service Bus resources within your application.</source>
+          <target state="new">A namespace provides a scoping container for addressing Service Bus resources within your application.</target>
+        </trans-unit>
+        <trans-unit id="ccc1c9c6-e4fd-4e6a-afa5-68041fd76e5a" xml:space="preserve">
+          <source>To create a service namespace:</source>
+          <target state="new">To create a service namespace:</target>
+        </trans-unit>
+        <trans-unit id="f2654d3d-a925-4ab1-ac8f-9456066f64e1" xml:space="preserve">
+          <source>Log on to the <bpt id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;/linkText&gt;</ept><bpt id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;title&gt;</bpt><ept id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the <bpt id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;/linkText&gt;</ept><bpt id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;title&gt;</bpt><ept id="f4aa1791-7c2d-4ca2-b614-8cfe7a350535">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff1b076b-4622-4f76-ae60-26f476ef9f18" xml:space="preserve">
+          <source>In the left navigation pane of the Management Portal, click <bpt id="01c9918b-6402-4678-b665-3f5733a77a50">&lt;strong&gt;</bpt>Service Bus<ept id="01c9918b-6402-4678-b665-3f5733a77a50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane of the Management Portal, click <bpt id="01c9918b-6402-4678-b665-3f5733a77a50">&lt;strong&gt;</bpt>Service Bus<ept id="01c9918b-6402-4678-b665-3f5733a77a50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87357bec-9c09-4b19-9cc4-fc349f86dec9" xml:space="preserve">
+          <source>In the lower pane of the Management Portal, click <bpt id="f2316e02-00eb-46e7-bf2d-39a5225dbd01">&lt;strong&gt;</bpt>Create<ept id="f2316e02-00eb-46e7-bf2d-39a5225dbd01">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower pane of the Management Portal, click <bpt id="f2316e02-00eb-46e7-bf2d-39a5225dbd01">&lt;strong&gt;</bpt>Create<ept id="f2316e02-00eb-46e7-bf2d-39a5225dbd01">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="920ce110-67c9-4acf-9374-d7811bfdf890" xml:space="preserve">
+          <source><bpt id="c9029455-2e5c-4ca8-bb17-02f849381859">&lt;linkText&gt;</bpt><ept id="c9029455-2e5c-4ca8-bb17-02f849381859">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9029455-2e5c-4ca8-bb17-02f849381859">&lt;linkText&gt;</bpt><ept id="c9029455-2e5c-4ca8-bb17-02f849381859">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87a81e8d-1948-429d-9450-e2d14ae5042f" xml:space="preserve">
+          <source>In the <bpt id="08a7f5a9-6502-4692-a210-a87e52d679ee">&lt;strong&gt;</bpt>Add a new namespace<ept id="08a7f5a9-6502-4692-a210-a87e52d679ee">&lt;/strong&gt;</ept> dialog, enter a namespace name.</source>
+          <target state="new">In the <bpt id="08a7f5a9-6502-4692-a210-a87e52d679ee">&lt;strong&gt;</bpt>Add a new namespace<ept id="08a7f5a9-6502-4692-a210-a87e52d679ee">&lt;/strong&gt;</ept> dialog, enter a namespace name.</target>
+        </trans-unit>
+        <trans-unit id="12ea0c4f-1f6c-4557-8ecb-7378af1e53a0" xml:space="preserve">
+          <source>The system immediately checks to see if the name is available.</source>
+          <target state="new">The system immediately checks to see if the name is available.</target>
+        </trans-unit>
+        <trans-unit id="c16bcd86-ce65-4a32-bc27-13305b1c3da6" xml:space="preserve">
+          <source><bpt id="20a76b42-eb4f-479a-962d-0120e8083b1a">&lt;linkText&gt;</bpt><ept id="20a76b42-eb4f-479a-962d-0120e8083b1a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20a76b42-eb4f-479a-962d-0120e8083b1a">&lt;linkText&gt;</bpt><ept id="20a76b42-eb4f-479a-962d-0120e8083b1a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cb69020-ac6c-48b1-b038-1332e36c5bab" xml:space="preserve">
+          <source>After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).</source>
+          <target state="new">After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).</target>
+        </trans-unit>
+        <trans-unit id="177902f1-2447-4b01-a771-adfc2a8c5464" xml:space="preserve">
+          <source>IMPORTANT: Pick the <bpt id="fe428cb5-8376-49ea-b9fa-d6181457c270">&lt;strong&gt;</bpt>same region<ept id="fe428cb5-8376-49ea-b9fa-d6181457c270">&lt;/strong&gt;</ept> that you intend to choose for deploying your application.</source>
+          <target state="new">IMPORTANT: Pick the <bpt id="fe428cb5-8376-49ea-b9fa-d6181457c270">&lt;strong&gt;</bpt>same region<ept id="fe428cb5-8376-49ea-b9fa-d6181457c270">&lt;/strong&gt;</ept> that you intend to choose for deploying your application.</target>
+        </trans-unit>
+        <trans-unit id="c26e841f-9a33-42bc-9fb8-18446ec1128f" xml:space="preserve">
+          <source>This will give you the best performance.</source>
+          <target state="new">This will give you the best performance.</target>
+        </trans-unit>
+        <trans-unit id="38eb9755-58d7-402e-bce0-e3c378b2dbe3" xml:space="preserve">
+          <source>Leave the other fields in the dialog with their default values (<bpt id="895ba100-02e5-4dcc-9100-1b82728b6321">&lt;strong&gt;</bpt>Messaging<ept id="895ba100-02e5-4dcc-9100-1b82728b6321">&lt;/strong&gt;</ept> and <bpt id="a67912dc-1950-441a-8807-bf3a78958cf2">&lt;strong&gt;</bpt>Standard Tier<ept id="a67912dc-1950-441a-8807-bf3a78958cf2">&lt;/strong&gt;</ept>), then click the check mark.</source>
+          <target state="new">Leave the other fields in the dialog with their default values (<bpt id="895ba100-02e5-4dcc-9100-1b82728b6321">&lt;strong&gt;</bpt>Messaging<ept id="895ba100-02e5-4dcc-9100-1b82728b6321">&lt;/strong&gt;</ept> and <bpt id="a67912dc-1950-441a-8807-bf3a78958cf2">&lt;strong&gt;</bpt>Standard Tier<ept id="a67912dc-1950-441a-8807-bf3a78958cf2">&lt;/strong&gt;</ept>), then click the check mark.</target>
+        </trans-unit>
+        <trans-unit id="d756aa31-fa71-48b9-a776-96cb8f9115ae" xml:space="preserve">
+          <source>The system now creates your namespace and enables it.</source>
+          <target state="new">The system now creates your namespace and enables it.</target>
+        </trans-unit>
+        <trans-unit id="97dced17-afe9-4a8a-9a71-0b746a9f93d2" xml:space="preserve">
+          <source>You might have to wait several minutes as the system provisions resources for your account.</source>
+          <target state="new">You might have to wait several minutes as the system provisions resources for your account.</target>
+        </trans-unit>
+        <trans-unit id="6609dc7d-5df6-44c8-82b0-5f1dfff309e8" xml:space="preserve">
+          <source><bpt id="6274d3a3-cd83-4607-a227-d7011c9f6d1d">&lt;linkText&gt;</bpt><ept id="6274d3a3-cd83-4607-a227-d7011c9f6d1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6274d3a3-cd83-4607-a227-d7011c9f6d1d">&lt;linkText&gt;</bpt><ept id="6274d3a3-cd83-4607-a227-d7011c9f6d1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28ec2895-d715-4676-940a-deb9c03e6bcf" xml:space="preserve">
+          <source>The namespace you created takes a moment to activate, and will then appear in the management portal.</source>
+          <target state="new">The namespace you created takes a moment to activate, and will then appear in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="7aec181a-eefc-475d-83d1-c5fb1f552ea6" xml:space="preserve">
+          <source>Wait until the namespace status is <bpt id="8ce489f2-486c-43c4-95e9-31d1ec744866">&lt;strong&gt;</bpt>Active<ept id="8ce489f2-486c-43c4-95e9-31d1ec744866">&lt;/strong&gt;</ept> before continuing.</source>
+          <target state="new">Wait until the namespace status is <bpt id="8ce489f2-486c-43c4-95e9-31d1ec744866">&lt;strong&gt;</bpt>Active<ept id="8ce489f2-486c-43c4-95e9-31d1ec744866">&lt;/strong&gt;</ept> before continuing.</target>
+        </trans-unit>
+        <trans-unit id="ea48693b-0ed4-495c-b357-53834219c327" xml:space="preserve">
+          <source>In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.</source>
+          <target state="new">In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace.</target>
+        </trans-unit>
+        <trans-unit id="9c01bcec-cfa4-446c-807f-e393a2f6095a" xml:space="preserve">
+          <source>You can obtain these credentials from either the Azure management portal, or from the Visual Studio Server Explorer.</source>
+          <target state="new">You can obtain these credentials from either the Azure management portal, or from the Visual Studio Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="9c16a84c-51d7-4f63-8fc1-f6dfae984e47" xml:space="preserve">
+          <source>In the left navigation pane, click the <bpt id="b575194f-4394-46f8-a234-4d45da7c65f6">&lt;strong&gt;</bpt>Service Bus<ept id="b575194f-4394-46f8-a234-4d45da7c65f6">&lt;/strong&gt;</ept> node, to display the list of available namespaces:   
+<bpt id="4f0ee698-a003-44f9-bab4-bd928f93de8a">&lt;linkText&gt;</bpt><ept id="4f0ee698-a003-44f9-bab4-bd928f93de8a">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the left navigation pane, click the <bpt id="b575194f-4394-46f8-a234-4d45da7c65f6">&lt;strong&gt;</bpt>Service Bus<ept id="b575194f-4394-46f8-a234-4d45da7c65f6">&lt;/strong&gt;</ept> node, to display the list of available namespaces:   
+<bpt id="4f0ee698-a003-44f9-bab4-bd928f93de8a">&lt;linkText&gt;</bpt><ept id="4f0ee698-a003-44f9-bab4-bd928f93de8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8003cbc9-aa43-401d-b334-6c8deee9478a" xml:space="preserve">
+          <source>Select the namespace you just created from the list shown:   
+<bpt id="9391903e-3f6b-4f46-a749-e2a9385d7e80">&lt;linkText&gt;</bpt><ept id="9391903e-3f6b-4f46-a749-e2a9385d7e80">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select the namespace you just created from the list shown:   
+<bpt id="9391903e-3f6b-4f46-a749-e2a9385d7e80">&lt;linkText&gt;</bpt><ept id="9391903e-3f6b-4f46-a749-e2a9385d7e80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8164c3a-d15c-460e-8580-ee37a7e6b4ce" xml:space="preserve">
+          <source>Click <bpt id="7dd5c87c-4d15-4c42-b1ea-bbb2dc772696">&lt;strong&gt;</bpt>Connection Information<ept id="7dd5c87c-4d15-4c42-b1ea-bbb2dc772696">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7dd5c87c-4d15-4c42-b1ea-bbb2dc772696">&lt;strong&gt;</bpt>Connection Information<ept id="7dd5c87c-4d15-4c42-b1ea-bbb2dc772696">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38b84ca2-9879-4814-b0b4-b012abfccbb0" xml:space="preserve">
+          <source><bpt id="5dc82aad-8680-4b94-ae32-5374b2c54139">&lt;linkText&gt;</bpt><ept id="5dc82aad-8680-4b94-ae32-5374b2c54139">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5dc82aad-8680-4b94-ae32-5374b2c54139">&lt;linkText&gt;</bpt><ept id="5dc82aad-8680-4b94-ae32-5374b2c54139">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd23e4bc-698d-409d-8e32-8aa976907605" xml:space="preserve">
+          <source>In the <bpt id="9a36c799-5ae5-40e4-b845-da850adfecf5">&lt;strong&gt;</bpt>Access connection information<ept id="9a36c799-5ae5-40e4-b845-da850adfecf5">&lt;/strong&gt;</ept> pane, find the connection string that contains the SAS key and key name.</source>
+          <target state="new">In the <bpt id="9a36c799-5ae5-40e4-b845-da850adfecf5">&lt;strong&gt;</bpt>Access connection information<ept id="9a36c799-5ae5-40e4-b845-da850adfecf5">&lt;/strong&gt;</ept> pane, find the connection string that contains the SAS key and key name.</target>
+        </trans-unit>
+        <trans-unit id="796fc762-4fe7-4b21-a642-5a846c10fe9b" xml:space="preserve">
+          <source><bpt id="82e2f491-dec0-422e-922f-6a54c3b3fd8d">&lt;linkText&gt;</bpt><ept id="82e2f491-dec0-422e-922f-6a54c3b3fd8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82e2f491-dec0-422e-922f-6a54c3b3fd8d">&lt;linkText&gt;</bpt><ept id="82e2f491-dec0-422e-922f-6a54c3b3fd8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e87f113a-663b-49f2-8e78-a9bc91371073" xml:space="preserve">
+          <source>Make a note of the key, or copy it to the clipboard.</source>
+          <target state="new">Make a note of the key, or copy it to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="a8722851-7a73-4dba-9bc8-f3446c10bc1b" xml:space="preserve">
+          <source>To obtain connection information using Visual Studio instead of the management portal, follow the procedure described <bpt id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;linkText&gt;</bpt>here<ept id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;/linkText&gt;</ept><bpt id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;title&gt;</bpt><ept id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;/title&gt;</ept>, in the section titled <bpt id="e1c918e2-3e6b-415b-809d-601e8b4bf94d">&lt;strong&gt;</bpt>To connect to Azure from Visual Studio<ept id="e1c918e2-3e6b-415b-809d-601e8b4bf94d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To obtain connection information using Visual Studio instead of the management portal, follow the procedure described <bpt id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;linkText&gt;</bpt>here<ept id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;/linkText&gt;</ept><bpt id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;title&gt;</bpt><ept id="235fb9c7-5150-4359-9d82-10439c973d40">&lt;/title&gt;</ept>, in the section titled <bpt id="e1c918e2-3e6b-415b-809d-601e8b4bf94d">&lt;strong&gt;</bpt>To connect to Azure from Visual Studio<ept id="e1c918e2-3e6b-415b-809d-601e8b4bf94d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0da6b7af-a058-4f76-823a-101bb7bd2d1b" xml:space="preserve">
+          <source>When you sign in to Azure, the <bpt id="7da099f1-f1e5-4997-ac97-107cb38e04ea">&lt;strong&gt;</bpt>Service Bus<ept id="7da099f1-f1e5-4997-ac97-107cb38e04ea">&lt;/strong&gt;</ept> node under the <bpt id="81d5cb98-4fd1-46fe-92a7-25f97f407fb0">&lt;strong&gt;</bpt>Azure<ept id="81d5cb98-4fd1-46fe-92a7-25f97f407fb0">&lt;/strong&gt;</ept> tree in Server Explorer is automatically populated with any namespaces you've already created.</source>
+          <target state="new">When you sign in to Azure, the <bpt id="7da099f1-f1e5-4997-ac97-107cb38e04ea">&lt;strong&gt;</bpt>Service Bus<ept id="7da099f1-f1e5-4997-ac97-107cb38e04ea">&lt;/strong&gt;</ept> node under the <bpt id="81d5cb98-4fd1-46fe-92a7-25f97f407fb0">&lt;strong&gt;</bpt>Azure<ept id="81d5cb98-4fd1-46fe-92a7-25f97f407fb0">&lt;/strong&gt;</ept> tree in Server Explorer is automatically populated with any namespaces you've already created.</target>
+        </trans-unit>
+        <trans-unit id="ede8f3c2-c4b1-4f98-aa42-b47dbf52c70a" xml:space="preserve">
+          <source>Right-click any namespace, and then click <bpt id="d5f61cb2-3689-4176-9757-74cdf41c6d78">&lt;strong&gt;</bpt>Properties<ept id="d5f61cb2-3689-4176-9757-74cdf41c6d78">&lt;/strong&gt;</ept> to see the connection string and other metadata associated with this namespace displayed in the Visual Studio <bpt id="e77fc52e-7af3-48ba-82a5-5caceb7864a3">&lt;strong&gt;</bpt>Properties<ept id="e77fc52e-7af3-48ba-82a5-5caceb7864a3">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">Right-click any namespace, and then click <bpt id="d5f61cb2-3689-4176-9757-74cdf41c6d78">&lt;strong&gt;</bpt>Properties<ept id="d5f61cb2-3689-4176-9757-74cdf41c6d78">&lt;/strong&gt;</ept> to see the connection string and other metadata associated with this namespace displayed in the Visual Studio <bpt id="e77fc52e-7af3-48ba-82a5-5caceb7864a3">&lt;strong&gt;</bpt>Properties<ept id="e77fc52e-7af3-48ba-82a5-5caceb7864a3">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="c0f03042-040c-4004-ad20-7379408aa454" xml:space="preserve">
+          <source>Make a note of the <bpt id="9df9af95-dd09-4063-88ae-8c669173d94b">&lt;strong&gt;</bpt>SharedAccessKey<ept id="9df9af95-dd09-4063-88ae-8c669173d94b">&lt;/strong&gt;</ept> value, or copy it to the clipboard:</source>
+          <target state="new">Make a note of the <bpt id="9df9af95-dd09-4063-88ae-8c669173d94b">&lt;strong&gt;</bpt>SharedAccessKey<ept id="9df9af95-dd09-4063-88ae-8c669173d94b">&lt;/strong&gt;</ept> value, or copy it to the clipboard:</target>
+        </trans-unit>
+        <trans-unit id="75c921da-6666-44e5-8285-4fb1393bc9dc" xml:space="preserve">
+          <source><bpt id="62fc22c7-2c6a-4f49-af2d-d9ef41b34ca8">&lt;linkText&gt;</bpt><ept id="62fc22c7-2c6a-4f49-af2d-d9ef41b34ca8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62fc22c7-2c6a-4f49-af2d-d9ef41b34ca8">&lt;linkText&gt;</bpt><ept id="62fc22c7-2c6a-4f49-af2d-d9ef41b34ca8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f52f5a78-a548-47a1-828e-5c2c7d47c3c2" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="38722a4a-54d7-45a2-a19c-f55d64327d04" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="34a0d1fc-90e6-4cdf-be61-f61c25c25f51" xml:space="preserve">
+          <source>./media/howto-service-bus-queues/VSProperties.png</source>
+          <target state="new">./media/howto-service-bus-queues/VSProperties.png</target>
+        </trans-unit>
+      </group>
+      <group id="574758e2-ebe2-47a5-a915-36e3267afb50" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69c3e3bc-c231-426e-b9b4-88b6d1e3308e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69c3e3bc-c231-426e-b9b4-88b6d1e3308e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="38b0ea8b-ac91-4b22-a94c-2234a4aa6de6">
+        <trans-unit id="3f229e24-deea-4bed-a175-5959c6fca7d0" xml:space="preserve">
+          <source>Configuring Stateful Reliable Services</source>
+          <target state="new">Configuring Stateful Reliable Services</target>
+        </trans-unit>
+        <trans-unit id="2c375da5-cd8e-4288-993d-612cb10ce13e" xml:space="preserve">
+          <source>Learn about configuring stateful Reliable Services in Service Fabric.</source>
+          <target state="new">Learn about configuring stateful Reliable Services in Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="f8e78e0b-4adf-4423-918a-d743d64d8db8" xml:space="preserve">
+          <source>Stateful Reliable Service's default configuration can be modified by changing the "settings.xml" file generated in the Visual Studio package root under the "Config" folder for each service in the application.</source>
+          <target state="new">Stateful Reliable Service's default configuration can be modified by changing the "settings.xml" file generated in the Visual Studio package root under the "Config" folder for each service in the application.</target>
+        </trans-unit>
+        <trans-unit id="8653648e-1a76-4a1a-9e4b-f92c9aaef616" xml:space="preserve">
+          <source>The Service Fabric runtime looks for pre-defined section names in the "settings.xml" file and consumes the configuration values while creating the underlying runtime components.</source>
+          <target state="new">The Service Fabric runtime looks for pre-defined section names in the "settings.xml" file and consumes the configuration values while creating the underlying runtime components.</target>
+        </trans-unit>
+        <trans-unit id="b3170d27-bdbe-4d29-837c-69a60a9acbeb" xml:space="preserve">
+          <source>Do <bpt id="668b6a2b-ef25-4bb0-a13c-03b530950ff5">&lt;strong&gt;</bpt>NOT<ept id="668b6a2b-ef25-4bb0-a13c-03b530950ff5">&lt;/strong&gt;</ept> delete/modify the section names of the following configurations in the "settings.xml" file that is generated in the Visual Studio Solution.</source>
+          <target state="new">Do <bpt id="668b6a2b-ef25-4bb0-a13c-03b530950ff5">&lt;strong&gt;</bpt>NOT<ept id="668b6a2b-ef25-4bb0-a13c-03b530950ff5">&lt;/strong&gt;</ept> delete/modify the section names of the following configurations in the "settings.xml" file that is generated in the Visual Studio Solution.</target>
+        </trans-unit>
+        <trans-unit id="cbdd7f9d-e415-4e16-a528-780acde70fff" xml:space="preserve">
+          <source>Replicator Security Configurations are used to secure the communication channel that is used during replication.</source>
+          <target state="new">Replicator Security Configurations are used to secure the communication channel that is used during replication.</target>
+        </trans-unit>
+        <trans-unit id="e00f562d-02bf-4b53-ab23-af72bc3b8a5c" xml:space="preserve">
+          <source>This means services will not be able to see each other's replication traffic, ensuring the data that is made highly available is also secure.</source>
+          <target state="new">This means services will not be able to see each other's replication traffic, ensuring the data that is made highly available is also secure.</target>
+        </trans-unit>
+        <trans-unit id="6b91864e-9ed6-4717-ab9d-c3cc40ee2051" xml:space="preserve">
+          <source>By default, an empty security configuration section does not enable replication security.</source>
+          <target state="new">By default, an empty security configuration section does not enable replication security.</target>
+        </trans-unit>
+        <trans-unit id="2653f8c2-2a00-4f20-9543-82a249f164b5" xml:space="preserve">
+          <source>ReplicatorSecurityConfig</source>
+          <target state="new">ReplicatorSecurityConfig</target>
+        </trans-unit>
+        <trans-unit id="9881715a-1808-4316-a0b5-e0329647090f" xml:space="preserve">
+          <source>Refer to <bpt id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;linkText&gt;</bpt>Replication Security<ept id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;/linkText&gt;</ept><bpt id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;title&gt;</bpt><ept id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;/title&gt;</ept></source>
+          <target state="new">Refer to <bpt id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;linkText&gt;</bpt>Replication Security<ept id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;/linkText&gt;</ept><bpt id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;title&gt;</bpt><ept id="86b9347c-1024-4268-ba2f-46bb2672505b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8515d75-ca17-4502-8963-e1386d308d27" xml:space="preserve">
+          <source>Replicator Configurations are used to configure the replicator that is responsible for making the stateful Reliable Service's state highly reliable by replicating and persisting the state locally.</source>
+          <target state="new">Replicator Configurations are used to configure the replicator that is responsible for making the stateful Reliable Service's state highly reliable by replicating and persisting the state locally.</target>
+        </trans-unit>
+        <trans-unit id="9443efc6-57d3-46e4-93c2-e4c52b7f40d9" xml:space="preserve">
+          <source>The default configuration is generated by the Visual Studio template and should suffice.</source>
+          <target state="new">The default configuration is generated by the Visual Studio template and should suffice.</target>
+        </trans-unit>
+        <trans-unit id="a1654034-a921-464e-9cb3-f867ee1fc86e" xml:space="preserve">
+          <source>This section talks about additional configurations that are available to tune the replicator.</source>
+          <target state="new">This section talks about additional configurations that are available to tune the replicator.</target>
+        </trans-unit>
+        <trans-unit id="0df66efe-6f00-4a4a-8ad3-60cc7a470b67" xml:space="preserve">
+          <source>ReplicatorConfig</source>
+          <target state="new">ReplicatorConfig</target>
+        </trans-unit>
+        <trans-unit id="df5f7331-30c8-4184-a853-9926253eb0f5" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="247f1a02-5976-414b-a029-3cc970f0888c" xml:space="preserve">
+          <source>Unit</source>
+          <target state="new">Unit</target>
+        </trans-unit>
+        <trans-unit id="280b915a-ddf1-426e-aa1a-24658753928e" xml:space="preserve">
+          <source>Default Value</source>
+          <target state="new">Default Value</target>
+        </trans-unit>
+        <trans-unit id="accaa9bd-bdad-4265-a0b6-1f03e1ce4b0b" xml:space="preserve">
+          <source>Remarks</source>
+          <target state="new">Remarks</target>
+        </trans-unit>
+        <trans-unit id="df1a44e9-be41-4cd8-b00d-69cb478b806f" xml:space="preserve">
+          <source>BatchAcknowledgementInterval</source>
+          <target state="new">BatchAcknowledgementInterval</target>
+        </trans-unit>
+        <trans-unit id="be14cdda-9c92-409f-9113-acf30d904d5c" xml:space="preserve">
+          <source>Seconds</source>
+          <target state="new">Seconds</target>
+        </trans-unit>
+        <trans-unit id="b28becf6-636c-4e7c-afa0-2613513d2584" xml:space="preserve">
+          <source>0.05</source>
+          <target state="new">0.05</target>
+        </trans-unit>
+        <trans-unit id="7b585472-a9b7-43ac-a8f4-9634915d0a5f" xml:space="preserve">
+          <source>Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary.</source>
+          <target state="new">Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary.</target>
+        </trans-unit>
+        <trans-unit id="16fb4384-cb1f-4e23-a16e-0f6c5c922c42" xml:space="preserve">
+          <source>Any other acknowledgements to be sent for operations processed within this interval are sent as one response.</source>
+          <target state="new">Any other acknowledgements to be sent for operations processed within this interval are sent as one response.</target>
+        </trans-unit>
+        <trans-unit id="bdc43d07-bf4d-4941-bd2e-539eb5420541" xml:space="preserve">
+          <source>ReplicatorEndpoint</source>
+          <target state="new">ReplicatorEndpoint</target>
+        </trans-unit>
+        <trans-unit id="9e3894bf-fe9e-4a5f-b7d9-8a45cf402160" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="5aba8d86-9c01-4c1a-9489-8614c63cad7b" xml:space="preserve">
+          <source>N/A - RequiredParameter</source>
+          <target state="new">N/A - RequiredParameter</target>
+        </trans-unit>
+        <trans-unit id="1140a71c-08f3-4d55-a847-b27f491c22b0" xml:space="preserve">
+          <source>IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set.</source>
+          <target state="new">IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set.</target>
+        </trans-unit>
+        <trans-unit id="d53ae38b-0733-4f9d-976e-a6217eb676c4" xml:space="preserve">
+          <source>This should reference a TCP Resource Endpoint in the service manifest.</source>
+          <target state="new">This should reference a TCP Resource Endpoint in the service manifest.</target>
+        </trans-unit>
+        <trans-unit id="7a606087-1f4d-4a8b-ac2d-f66ec5b31a47" xml:space="preserve">
+          <source>Refer to <bpt id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;linkText&gt;</bpt>Service Manifest Resources<ept id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;/linkText&gt;</ept><bpt id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;title&gt;</bpt><ept id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;/title&gt;</ept> to read more about defining endpoint resources in service manifest.</source>
+          <target state="new">Refer to <bpt id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;linkText&gt;</bpt>Service Manifest Resources<ept id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;/linkText&gt;</ept><bpt id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;title&gt;</bpt><ept id="4825f8c0-866f-4b2f-b206-38cf8d9866ef">&lt;/title&gt;</ept> to read more about defining endpoint resources in service manifest.</target>
+        </trans-unit>
+        <trans-unit id="b82a37b1-875a-48f2-a84f-47413550cbc6" xml:space="preserve">
+          <source>RetryInterval</source>
+          <target state="new">RetryInterval</target>
+        </trans-unit>
+        <trans-unit id="e569efa0-46ea-44f1-924d-a73ab387eb06" xml:space="preserve">
+          <source>Seconds</source>
+          <target state="new">Seconds</target>
+        </trans-unit>
+        <trans-unit id="63ca21f3-b9f0-438e-9f5d-1f622ec1f1ab" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="62296f97-3c19-4aee-ba76-9bb6db5a5baf" xml:space="preserve">
+          <source>Time period after which the replicator re-transmits a message if it does not receive an acknowledgement for an operation.</source>
+          <target state="new">Time period after which the replicator re-transmits a message if it does not receive an acknowledgement for an operation.</target>
+        </trans-unit>
+        <trans-unit id="9980014c-041e-4231-92c7-ab7330468441" xml:space="preserve">
+          <source>MaxReplicationMessageSize</source>
+          <target state="new">MaxReplicationMessageSize</target>
+        </trans-unit>
+        <trans-unit id="72cc9f1c-7a26-4029-859c-61182f9462f4" xml:space="preserve">
+          <source>Bytes</source>
+          <target state="new">Bytes</target>
+        </trans-unit>
+        <trans-unit id="ac59b4a3-c5b4-4a13-a8f0-0436da752fda" xml:space="preserve">
+          <source>50MB</source>
+          <target state="new">50MB</target>
+        </trans-unit>
+        <trans-unit id="13ce00ec-2dcb-4e90-a251-d515884f6de1" xml:space="preserve">
+          <source>Maximum size of replication data that can be transmitted in a single message.</source>
+          <target state="new">Maximum size of replication data that can be transmitted in a single message.</target>
+        </trans-unit>
+        <trans-unit id="0cc61bba-b76b-4228-9f7d-81cec573e47c" xml:space="preserve">
+          <source>MaxPrimaryReplicationQueueSize</source>
+          <target state="new">MaxPrimaryReplicationQueueSize</target>
+        </trans-unit>
+        <trans-unit id="d8d9a011-0939-499f-94ac-a5a269e8cd62" xml:space="preserve">
+          <source>Number of operations</source>
+          <target state="new">Number of operations</target>
+        </trans-unit>
+        <trans-unit id="a9a71420-7b76-4c36-ac46-3debf4850fbe" xml:space="preserve">
+          <source>1024</source>
+          <target state="new">1024</target>
+        </trans-unit>
+        <trans-unit id="7b7b12bb-2ee3-4c54-9114-f987ab32c164" xml:space="preserve">
+          <source>Maximum number of operations in the primary queue.</source>
+          <target state="new">Maximum number of operations in the primary queue.</target>
+        </trans-unit>
+        <trans-unit id="14329c2d-4380-403d-ac0e-ddaa196028e6" xml:space="preserve">
+          <source>An Operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators.This value must be greater than 64 and a power of 2.</source>
+          <target state="new">An Operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators.This value must be greater than 64 and a power of 2.</target>
+        </trans-unit>
+        <trans-unit id="23b7c9fc-591c-4131-ba4c-b4b6c44c69ae" xml:space="preserve">
+          <source>MaxSecondaryReplicationQueueSize</source>
+          <target state="new">MaxSecondaryReplicationQueueSize</target>
+        </trans-unit>
+        <trans-unit id="51286c12-4f9d-4adf-a6ce-6d226621d0d5" xml:space="preserve">
+          <source>Number of operations</source>
+          <target state="new">Number of operations</target>
+        </trans-unit>
+        <trans-unit id="ecb76be3-c1dd-44a5-b015-c73c7391c0b2" xml:space="preserve">
+          <source>2048</source>
+          <target state="new">2048</target>
+        </trans-unit>
+        <trans-unit id="19003793-9c93-4c57-9eeb-43cb1b0c508a" xml:space="preserve">
+          <source>Maximum number of operations in the secondary queue.</source>
+          <target state="new">Maximum number of operations in the secondary queue.</target>
+        </trans-unit>
+        <trans-unit id="6618d691-38c7-4205-ace7-7f98526c7597" xml:space="preserve">
+          <source>An Operation is freed up after making its state highly available through persistence.</source>
+          <target state="new">An Operation is freed up after making its state highly available through persistence.</target>
+        </trans-unit>
+        <trans-unit id="21d444ff-5f02-43eb-9ec0-3aeed5a261d9" xml:space="preserve">
+          <source>This value must be greater than 64 and a power of 2.</source>
+          <target state="new">This value must be greater than 64 and a power of 2.</target>
+        </trans-unit>
+        <trans-unit id="939bac5c-eeec-4315-8ed7-81ad8d9b57da" xml:space="preserve">
+          <source>MaxStreamSizeInMB</source>
+          <target state="new">MaxStreamSizeInMB</target>
+        </trans-unit>
+        <trans-unit id="2be33fa8-8378-49d2-b12b-5769a4468abf" xml:space="preserve">
+          <source>MB</source>
+          <target state="new">MB</target>
+        </trans-unit>
+        <trans-unit id="a89fa387-d229-42a2-a5f3-d371bceabe18" xml:space="preserve">
+          <source>1024</source>
+          <target state="new">1024</target>
+        </trans-unit>
+        <trans-unit id="5b496fed-5048-4e95-8ad9-2fa6402986af" xml:space="preserve">
+          <source>Amount of log file space that is reserved.</source>
+          <target state="new">Amount of log file space that is reserved.</target>
+        </trans-unit>
+        <trans-unit id="5185aaaa-19ea-4ea9-8271-fdc070cf2d59" xml:space="preserve">
+          <source>The size in bytes must be larger than 16 times the MaxRecordSize in bytes.</source>
+          <target state="new">The size in bytes must be larger than 16 times the MaxRecordSize in bytes.</target>
+        </trans-unit>
+        <trans-unit id="edfc8d67-12c2-4c0a-9ad1-f0b7f38137c1" xml:space="preserve">
+          <source>MaxRecordSizeInKB</source>
+          <target state="new">MaxRecordSizeInKB</target>
+        </trans-unit>
+        <trans-unit id="4d621f81-06bb-49fa-8ccf-43a1c65bc4a6" xml:space="preserve">
+          <source>KB</source>
+          <target state="new">KB</target>
+        </trans-unit>
+        <trans-unit id="80933584-ae3c-42c5-9838-ba09c453cd61" xml:space="preserve">
+          <source>1024</source>
+          <target state="new">1024</target>
+        </trans-unit>
+        <trans-unit id="8605317e-4a19-4cb3-9cf3-a359f5ccbfda" xml:space="preserve">
+          <source>Largest record size which the replicator may write in the log.</source>
+          <target state="new">Largest record size which the replicator may write in the log.</target>
+        </trans-unit>
+        <trans-unit id="9955ba8b-d017-4234-b254-eab74939c08d" xml:space="preserve">
+          <source>This value must be a multiple of 4 and greater than 16.</source>
+          <target state="new">This value must be a multiple of 4 and greater than 16.</target>
+        </trans-unit>
+        <trans-unit id="693eb55d-655a-414d-bd82-5b0496302a27" xml:space="preserve">
+          <source>OptimizeForLocalSSD</source>
+          <target state="new">OptimizeForLocalSSD</target>
+        </trans-unit>
+        <trans-unit id="8f03a3c4-fb07-465a-9ce6-51d4425876a0" xml:space="preserve">
+          <source>boolean</source>
+          <target state="new">boolean</target>
+        </trans-unit>
+        <trans-unit id="51898080-3cb8-4562-a073-429c101d233a" xml:space="preserve">
+          <source>false</source>
+          <target state="new">false</target>
+        </trans-unit>
+        <trans-unit id="7e2aaa9a-e534-4b0c-b970-b4deec402610" xml:space="preserve">
+          <source>When true the log is configured so state information is written directly to the replica's dedicated log file.</source>
+          <target state="new">When true the log is configured so state information is written directly to the replica's dedicated log file.</target>
+        </trans-unit>
+        <trans-unit id="9df693b4-ca41-4381-a571-b847bf083b2b" xml:space="preserve">
+          <source>This provides best performance when log files are on solid state disk media or when the VM disk IO rate is highly throttled.</source>
+          <target state="new">This provides best performance when log files are on solid state disk media or when the VM disk IO rate is highly throttled.</target>
+        </trans-unit>
+        <trans-unit id="8d5c489a-9f9c-4318-b618-eb1c2f0c4feb" xml:space="preserve">
+          <source>When false the state information is staged in the shared log file first and then destaged to the dedicated log file.</source>
+          <target state="new">When false the state information is staged in the shared log file first and then destaged to the dedicated log file.</target>
+        </trans-unit>
+        <trans-unit id="bad0bbee-d509-4f5e-bafb-36ca4d4520eb" xml:space="preserve">
+          <source>OptimizeLogForLowerDiskUsage</source>
+          <target state="new">OptimizeLogForLowerDiskUsage</target>
+        </trans-unit>
+        <trans-unit id="28c554e4-6a2f-4148-81f4-0570256f1ba1" xml:space="preserve">
+          <source>boolean</source>
+          <target state="new">boolean</target>
+        </trans-unit>
+        <trans-unit id="965b9e1a-1cbf-4daf-bd7c-e2ae2f3a6ad7" xml:space="preserve">
+          <source>false</source>
+          <target state="new">false</target>
+        </trans-unit>
+        <trans-unit id="d0bbbcd0-e01d-4cc3-8aaa-b8781e7f40ad" xml:space="preserve">
+          <source>When true the log is configured to so that the replica's dedicated log file is created using an NTFS sparse file.</source>
+          <target state="new">When true the log is configured to so that the replica's dedicated log file is created using an NTFS sparse file.</target>
+        </trans-unit>
+        <trans-unit id="b562ef09-217c-4308-9586-936d188b9055" xml:space="preserve">
+          <source>This lowers the actual disk space usage for the file.</source>
+          <target state="new">This lowers the actual disk space usage for the file.</target>
+        </trans-unit>
+        <trans-unit id="98bdb7e7-3984-419a-8b67-2fc774ce7501" xml:space="preserve">
+          <source>When false the file is created with fixed allocations which provide the best write performance.</source>
+          <target state="new">When false the file is created with fixed allocations which provide the best write performance.</target>
+        </trans-unit>
+        <trans-unit id="5007bcb6-99ec-45d8-8926-d9c51625d849" xml:space="preserve">
+          <source>SharedLogId</source>
+          <target state="new">SharedLogId</target>
+        </trans-unit>
+        <trans-unit id="d8d4d333-1cb4-4af3-a0b9-fe3ccda2b6bf" xml:space="preserve">
+          <source>guid</source>
+          <target state="new">guid</target>
+        </trans-unit>
+        <trans-unit id="5204c81e-a968-421e-a15e-1c6ce5d62a73" xml:space="preserve">
+          <source>""</source>
+          <target state="new">""</target>
+        </trans-unit>
+        <trans-unit id="c11fbe9d-4a54-48b2-8d6f-e9c9a8dd8cc5" xml:space="preserve">
+          <source>Specifies a unique guid to use for identifying the shared log file used with this replica.</source>
+          <target state="new">Specifies a unique guid to use for identifying the shared log file used with this replica.</target>
+        </trans-unit>
+        <trans-unit id="c7cd4560-a4ea-4a0e-afa7-f8de6cf4d0fb" xml:space="preserve">
+          <source>Typically services should not use this setting however if SharedLogId is specified then SharedLogPath must also be specified.</source>
+          <target state="new">Typically services should not use this setting however if SharedLogId is specified then SharedLogPath must also be specified.</target>
+        </trans-unit>
+        <trans-unit id="a57da0b4-e409-4e48-bbe4-34f355c587e3" xml:space="preserve">
+          <source>SharedLogPath</source>
+          <target state="new">SharedLogPath</target>
+        </trans-unit>
+        <trans-unit id="7bd9a842-883b-4cfd-9578-af031f084f22" xml:space="preserve">
+          <source>Fully qualified pathname</source>
+          <target state="new">Fully qualified pathname</target>
+        </trans-unit>
+        <trans-unit id="91a6235f-a767-4269-a933-26416409581e" xml:space="preserve">
+          <source>""</source>
+          <target state="new">""</target>
+        </trans-unit>
+        <trans-unit id="cd83a0f0-ab46-45ee-a411-6d1342fb734a" xml:space="preserve">
+          <source>Specifies the fully qualified path where the shared log file for this replica will be created.</source>
+          <target state="new">Specifies the fully qualified path where the shared log file for this replica will be created.</target>
+        </trans-unit>
+        <trans-unit id="b260cad8-2da4-4762-a759-22245be0e3e2" xml:space="preserve">
+          <source>Typically services should not use this setting however if SharedLogPath is specified then SharedLogId must also be specified.</source>
+          <target state="new">Typically services should not use this setting however if SharedLogPath is specified then SharedLogId must also be specified.</target>
+        </trans-unit>
+        <trans-unit id="262e31cc-8f16-442d-a6d6-b2593b6c90ed" xml:space="preserve">
+          <source>BatchAcknowledgementInterval controls replication latency.</source>
+          <target state="new">BatchAcknowledgementInterval controls replication latency.</target>
+        </trans-unit>
+        <trans-unit id="ade4b88a-a9c1-4866-9791-51af9353b8a7" xml:space="preserve">
+          <source>A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).</source>
+          <target state="new">A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).</target>
+        </trans-unit>
+        <trans-unit id="9eae881e-313e-4ea8-b302-52e65c552342" xml:space="preserve">
+          <source>The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency.</source>
+          <target state="new">The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency.</target>
+        </trans-unit>
+        <trans-unit id="38eface7-4a71-4688-be09-4dd213205e72" xml:space="preserve">
+          <source>This directly translates to the latency of transaction commits.</source>
+          <target state="new">This directly translates to the latency of transaction commits.</target>
+        </trans-unit>
+        <trans-unit id="9e8e8eb3-b67a-491c-99d5-267c584cc989" xml:space="preserve">
+          <source>The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file.</source>
+          <target state="new">The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file.</target>
+        </trans-unit>
+        <trans-unit id="f400f631-cf2e-4692-bff4-390842f920e5" xml:space="preserve">
+          <source>Since the stored information state is used to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state of the primary.</source>
+          <target state="new">Since the stored information state is used to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state of the primary.</target>
+        </trans-unit>
+        <trans-unit id="d0dc7493-5be1-4ae6-a5b6-58b8752b9bc6" xml:space="preserve">
+          <source>However larger log files may use more disk space and thus reduce the number of replicas that can be hosted on a particular node.</source>
+          <target state="new">However larger log files may use more disk space and thus reduce the number of replicas that can be hosted on a particular node.</target>
+        </trans-unit>
+        <trans-unit id="efceeabd-ea00-45ec-8ed5-91bfe800140b" xml:space="preserve">
+          <source>The OptimizeForLowerDiskUsage setting allows log file space to be "over-provisioned" so that active replicas can store more state information in their log files while inactive replicas would use less disk
+space.</source>
+          <target state="new">The OptimizeForLowerDiskUsage setting allows log file space to be "over-provisioned" so that active replicas can store more state information in their log files while inactive replicas would use less disk
+space.</target>
+        </trans-unit>
+        <trans-unit id="3b7a1b6b-e705-44b5-a733-b4c2b73c171d" xml:space="preserve">
+          <source>Although this allows more replicas to be hosted on a node than would otherwise happen because of a lack of disk space, by setting OptimizeForLowerDiskUsage to false the state information is written to
+the log files more quickly.</source>
+          <target state="new">Although this allows more replicas to be hosted on a node than would otherwise happen because of a lack of disk space, by setting OptimizeForLowerDiskUsage to false the state information is written to
+the log files more quickly.</target>
+        </trans-unit>
+        <trans-unit id="a4536baf-8acd-484c-90f8-86df238102aa" xml:space="preserve">
+          <source>The OptimizeForLocalSSD setting is used to disable writing state information to the shared log file first before destaging to the dedicated log file.</source>
+          <target state="new">The OptimizeForLocalSSD setting is used to disable writing state information to the shared log file first before destaging to the dedicated log file.</target>
+        </trans-unit>
+        <trans-unit id="45fc6bd7-8f42-4701-9175-3ae7fba217f1" xml:space="preserve">
+          <source>It should typically be set when the local disk storage
+for the dedicated log file is solid state media as minimizing disk head movement is not an issue.</source>
+          <target state="new">It should typically be set when the local disk storage
+for the dedicated log file is solid state media as minimizing disk head movement is not an issue.</target>
+        </trans-unit>
+        <trans-unit id="1d197ac1-fbca-437e-b4ea-4581db15ccf0" xml:space="preserve">
+          <source>It may also be used when the VM is performing a lot of local disk IO and local disk IO rates are
+significantly throttled by the VM host.</source>
+          <target state="new">It may also be used when the VM is performing a lot of local disk IO and local disk IO rates are
+significantly throttled by the VM host.</target>
+        </trans-unit>
+        <trans-unit id="4feb8f5b-9d02-4dec-914f-9aa822730e9c" xml:space="preserve">
+          <source>The MaxRecordSizeInKB defines the maximum size of a record that can be written by the replicator into the log file.</source>
+          <target state="new">The MaxRecordSizeInKB defines the maximum size of a record that can be written by the replicator into the log file.</target>
+        </trans-unit>
+        <trans-unit id="d096adb0-3825-4713-ae4c-05d0ac5fdfa6" xml:space="preserve">
+          <source>In most all cases the default 1024KB record size is optimal however if the service is
+causing larger data items to be part of the state information then this value might need to be increased.</source>
+          <target state="new">In most all cases the default 1024KB record size is optimal however if the service is
+causing larger data items to be part of the state information then this value might need to be increased.</target>
+        </trans-unit>
+        <trans-unit id="fadebdba-d81b-4f98-9f4b-43679526d3c5" xml:space="preserve">
+          <source>There is little benefit in making the MaxRecordSizeInKB smaller than 1024 as smaller records
+only use the space needed for the smaller record.</source>
+          <target state="new">There is little benefit in making the MaxRecordSizeInKB smaller than 1024 as smaller records
+only use the space needed for the smaller record.</target>
+        </trans-unit>
+        <trans-unit id="8483e526-df96-40e6-8e09-7b2eeff98d2e" xml:space="preserve">
+          <source>It is expected that it would need to be changed in only rare cases.</source>
+          <target state="new">It is expected that it would need to be changed in only rare cases.</target>
+        </trans-unit>
+        <trans-unit id="4025b006-dba5-4608-b17e-31c2ce0d5666" xml:space="preserve">
+          <source>The SharedLogId and SharedLogPath settings are always used together and allow a service to use a separate shared log from the default shared log for the node.</source>
+          <target state="new">The SharedLogId and SharedLogPath settings are always used together and allow a service to use a separate shared log from the default shared log for the node.</target>
+        </trans-unit>
+        <trans-unit id="00c98729-2aba-47f9-8bc4-c3df189ba573" xml:space="preserve">
+          <source>For best efficiency, as many services as
+possible should specify the same shared log.</source>
+          <target state="new">For best efficiency, as many services as
+possible should specify the same shared log.</target>
+        </trans-unit>
+        <trans-unit id="2a4e1005-2a5b-42a2-80e6-6e73553d3345" xml:space="preserve">
+          <source>Shared log files should be placed on disks that are used solely for the shared log file so that head movement contention is reduced.</source>
+          <target state="new">Shared log files should be placed on disks that are used solely for the shared log file so that head movement contention is reduced.</target>
+        </trans-unit>
+        <trans-unit id="67dfb7e6-46c8-48de-856f-2b80d8f64ba2" xml:space="preserve">
+          <source>It is expected that it would need to be changed in only rare cases.</source>
+          <target state="new">It is expected that it would need to be changed in only rare cases.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

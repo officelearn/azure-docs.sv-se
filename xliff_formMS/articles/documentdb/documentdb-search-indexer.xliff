@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a8f56950-3057-42a8-bd7d-321580394d93" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a8f56950-3057-42a8-bd7d-321580394d93" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6bb904dd-1fc8-4b31-9d21-a76295edcf42">
+        <trans-unit id="f964f855-04c7-4b36-a99e-2167558eaeb3" xml:space="preserve">
+          <source>Connecting DocumentDB with Azure Search using indexers | Microsoft Azure</source>
+          <target state="new">Connecting DocumentDB with Azure Search using indexers | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="106c0f91-9dad-44a2-a043-40011e4a4018" xml:space="preserve">
+          <source>This article shows you how to use to Azure Search indexer with DocumentDB as a data source.</source>
+          <target state="new">This article shows you how to use to Azure Search indexer with DocumentDB as a data source.</target>
+        </trans-unit>
+        <trans-unit id="decd1b79-84cb-45aa-9678-003903ea1085" xml:space="preserve">
+          <source>If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB!</source>
+          <target state="new">If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB!</target>
+        </trans-unit>
+        <trans-unit id="156b837b-51d9-4bd1-acfd-4e54562295a4" xml:space="preserve">
+          <source>In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!</source>
+          <target state="new">In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!</target>
+        </trans-unit>
+        <trans-unit id="082816d2-fd48-4afb-834a-2210be1f8dd6" xml:space="preserve">
+          <source>To set this up, you have to <bpt id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;linkText&gt;</bpt>setup an Azure Search account<ept id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;/linkText&gt;</ept><bpt id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;title&gt;</bpt><ept id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;/title&gt;</ept> (you don't need to upgrade to standard search), and then call the <bpt id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;/linkText&gt;</ept><bpt id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;title&gt;</bpt><ept id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;/title&gt;</ept> to create a DocumentDB <bpt id="b7733322-49fd-4794-83bb-419c661b7c2b">&lt;strong&gt;</bpt>data source<ept id="b7733322-49fd-4794-83bb-419c661b7c2b">&lt;/strong&gt;</ept> and an <bpt id="cd8e1cc7-7feb-414d-b0d8-1bb1d541db92">&lt;strong&gt;</bpt>indexer<ept id="cd8e1cc7-7feb-414d-b0d8-1bb1d541db92">&lt;/strong&gt;</ept> for that data source.</source>
+          <target state="new">To set this up, you have to <bpt id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;linkText&gt;</bpt>setup an Azure Search account<ept id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;/linkText&gt;</ept><bpt id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;title&gt;</bpt><ept id="1bd92746-3845-4128-95b9-83a79ad96c75">&lt;/title&gt;</ept> (you don't need to upgrade to standard search), and then call the <bpt id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;linkText&gt;</bpt>Azure Search REST API<ept id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;/linkText&gt;</ept><bpt id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;title&gt;</bpt><ept id="58f7740b-ddad-43e8-8f0e-b17a4ffcacb4">&lt;/title&gt;</ept> to create a DocumentDB <bpt id="b7733322-49fd-4794-83bb-419c661b7c2b">&lt;strong&gt;</bpt>data source<ept id="b7733322-49fd-4794-83bb-419c661b7c2b">&lt;/strong&gt;</ept> and an <bpt id="cd8e1cc7-7feb-414d-b0d8-1bb1d541db92">&lt;strong&gt;</bpt>indexer<ept id="cd8e1cc7-7feb-414d-b0d8-1bb1d541db92">&lt;/strong&gt;</ept> for that data source.</target>
+        </trans-unit>
+        <trans-unit id="1132292c-ac6e-493c-92aa-d406a588570b" xml:space="preserve">
+          <source>Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.</source>
+          <target state="new">Azure Search supports the creation and management of data sources (including DocumentDB) and indexers that operate against those data sources.</target>
+        </trans-unit>
+        <trans-unit id="3113d758-615b-45ec-9c98-ff3d3cadeb19" xml:space="preserve">
+          <source>A <bpt id="7cfff07b-41a1-4564-8e60-c7e9055d7e89">&lt;strong&gt;</bpt>data source<ept id="7cfff07b-41a1-4564-8e60-c7e9055d7e89">&lt;/strong&gt;</ept> specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection).</source>
+          <target state="new">A <bpt id="7cfff07b-41a1-4564-8e60-c7e9055d7e89">&lt;strong&gt;</bpt>data source<ept id="7cfff07b-41a1-4564-8e60-c7e9055d7e89">&lt;/strong&gt;</ept> specifies what data needs to be indexed, credentials to access the data, and policies to enable Azure Search to efficiently identify changes in the data (such as modified or deleted documents inside your collection).</target>
+        </trans-unit>
+        <trans-unit id="d316e9a0-a88e-4a54-a064-1b209b82972c" xml:space="preserve">
+          <source>The data source is defined as an independent resource so that it can be used by multiple indexers.</source>
+          <target state="new">The data source is defined as an independent resource so that it can be used by multiple indexers.</target>
+        </trans-unit>
+        <trans-unit id="6e007596-4439-46dd-af72-9773ca41042d" xml:space="preserve">
+          <source>An <bpt id="7bff00f1-703d-45f3-8708-5db228cd304b">&lt;strong&gt;</bpt>indexer<ept id="7bff00f1-703d-45f3-8708-5db228cd304b">&lt;/strong&gt;</ept> describes how the data flows from your data source into a target search index.</source>
+          <target state="new">An <bpt id="7bff00f1-703d-45f3-8708-5db228cd304b">&lt;strong&gt;</bpt>indexer<ept id="7bff00f1-703d-45f3-8708-5db228cd304b">&lt;/strong&gt;</ept> describes how the data flows from your data source into a target search index.</target>
+        </trans-unit>
+        <trans-unit id="12fef0ea-a420-4349-9261-fedc115eb82f" xml:space="preserve">
+          <source>You should plan on creating one indexer for every target index and data source combination.</source>
+          <target state="new">You should plan on creating one indexer for every target index and data source combination.</target>
+        </trans-unit>
+        <trans-unit id="4260b958-355b-4c25-a459-eaa7cb05c5d7" xml:space="preserve">
+          <source>While you can have multiple indexers writing into the same index, an indexer can only write into a single index.</source>
+          <target state="new">While you can have multiple indexers writing into the same index, an indexer can only write into a single index.</target>
+        </trans-unit>
+        <trans-unit id="6b8c35ac-98b0-43eb-827e-1e9f900ee0a7" xml:space="preserve">
+          <source>An indexer is used to:</source>
+          <target state="new">An indexer is used to:</target>
+        </trans-unit>
+        <trans-unit id="5cb3eee2-8757-4efe-acd1-236514ecb64d" xml:space="preserve">
+          <source>Perform a one-time copy of the data to populate an index.</source>
+          <target state="new">Perform a one-time copy of the data to populate an index.</target>
+        </trans-unit>
+        <trans-unit id="25811899-37c1-409c-a5f9-97e1d8220903" xml:space="preserve">
+          <source>Sync an index with changes in the data source on a schedule.</source>
+          <target state="new">Sync an index with changes in the data source on a schedule.</target>
+        </trans-unit>
+        <trans-unit id="9432fb4b-36e0-4ded-9df4-3d94e6b566f1" xml:space="preserve">
+          <source>The schedule is part of the indexer definition.</source>
+          <target state="new">The schedule is part of the indexer definition.</target>
+        </trans-unit>
+        <trans-unit id="2c5608c8-6be9-4bf3-b159-a09ed6da6227" xml:space="preserve">
+          <source>Invoke on-demand updates to an index as needed.</source>
+          <target state="new">Invoke on-demand updates to an index as needed.</target>
+        </trans-unit>
+        <trans-unit id="048cded8-cbb6-49d1-b650-7b64aad6f3bb" xml:space="preserve">
+          <source>Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.</source>
+          <target state="new">Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.</target>
+        </trans-unit>
+        <trans-unit id="b329e543-b811-4c7b-9456-22edb0cf8688" xml:space="preserve">
+          <source>The <bpt id="af7f3453-6907-48fc-827f-50d6fadd4c86">&lt;code&gt;</bpt>api-version<ept id="af7f3453-6907-48fc-827f-50d6fadd4c86">&lt;/code&gt;</ept> is required.</source>
+          <target state="new">The <bpt id="af7f3453-6907-48fc-827f-50d6fadd4c86">&lt;code&gt;</bpt>api-version<ept id="af7f3453-6907-48fc-827f-50d6fadd4c86">&lt;/code&gt;</ept> is required.</target>
+        </trans-unit>
+        <trans-unit id="476081c1-e73f-42bf-86b4-2defd079ddf3" xml:space="preserve">
+          <source>Valid values include <bpt id="efe0a703-edb0-488f-aa33-dcab40c2b7a8">&lt;code&gt;</bpt>2015-02-28<ept id="efe0a703-edb0-488f-aa33-dcab40c2b7a8">&lt;/code&gt;</ept> or a later version.</source>
+          <target state="new">Valid values include <bpt id="efe0a703-edb0-488f-aa33-dcab40c2b7a8">&lt;code&gt;</bpt>2015-02-28<ept id="efe0a703-edb0-488f-aa33-dcab40c2b7a8">&lt;/code&gt;</ept> or a later version.</target>
+        </trans-unit>
+        <trans-unit id="794a501b-4f23-4d89-94dd-b70b14724911" xml:space="preserve">
+          <source>The body of the request contains the data source definition, which should include the following fields:</source>
+          <target state="new">The body of the request contains the data source definition, which should include the following fields:</target>
+        </trans-unit>
+        <trans-unit id="702510bc-6d08-4b92-9355-4751b62ca7b8" xml:space="preserve">
+          <source><bpt id="3ded2187-2979-4ad5-a833-ae06f105a147">&lt;strong&gt;</bpt>name<ept id="3ded2187-2979-4ad5-a833-ae06f105a147">&lt;/strong&gt;</ept>: The name of the data source.</source>
+          <target state="new"><bpt id="3ded2187-2979-4ad5-a833-ae06f105a147">&lt;strong&gt;</bpt>name<ept id="3ded2187-2979-4ad5-a833-ae06f105a147">&lt;/strong&gt;</ept>: The name of the data source.</target>
+        </trans-unit>
+        <trans-unit id="d59d8d63-5f5f-40bb-b61c-22ddbcd5c9f2" xml:space="preserve">
+          <source><bpt id="d05054ef-6329-433c-afea-25df36fe42fe">&lt;strong&gt;</bpt>type<ept id="d05054ef-6329-433c-afea-25df36fe42fe">&lt;/strong&gt;</ept>: Use <bpt id="65b59681-8a3e-4bd1-b670-278754e7226b">&lt;code&gt;</bpt>documentdb<ept id="65b59681-8a3e-4bd1-b670-278754e7226b">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="d05054ef-6329-433c-afea-25df36fe42fe">&lt;strong&gt;</bpt>type<ept id="d05054ef-6329-433c-afea-25df36fe42fe">&lt;/strong&gt;</ept>: Use <bpt id="65b59681-8a3e-4bd1-b670-278754e7226b">&lt;code&gt;</bpt>documentdb<ept id="65b59681-8a3e-4bd1-b670-278754e7226b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3f15900-7918-47be-9f49-ce7d66435f43" xml:space="preserve">
+          <source><bpt id="e6b06d65-d599-4c0f-ae5f-a3743b6630c8">&lt;strong&gt;</bpt>credentials<ept id="e6b06d65-d599-4c0f-ae5f-a3743b6630c8">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="e6b06d65-d599-4c0f-ae5f-a3743b6630c8">&lt;strong&gt;</bpt>credentials<ept id="e6b06d65-d599-4c0f-ae5f-a3743b6630c8">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f8dc6306-8611-49db-bae9-81ea92a6d824" xml:space="preserve">
+          <source><bpt id="4b48cc6f-8a3e-445f-a05f-bfc56e9d7085">&lt;strong&gt;</bpt>connectionString<ept id="4b48cc6f-8a3e-445f-a05f-bfc56e9d7085">&lt;/strong&gt;</ept>: Required. Specify the connection info to your Azure DocumentDB database in the following format: <bpt id="fdaabb28-efcb-4750-b4d1-0d1218032cc9">&lt;code&gt;</bpt>AccountEndpoint=&lt;DocumentDB endpoint url&gt;;AccountKey=&lt;DocumentDB auth key&gt;;Database=&lt;DocumentDB database id&gt;<ept id="fdaabb28-efcb-4750-b4d1-0d1218032cc9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4b48cc6f-8a3e-445f-a05f-bfc56e9d7085">&lt;strong&gt;</bpt>connectionString<ept id="4b48cc6f-8a3e-445f-a05f-bfc56e9d7085">&lt;/strong&gt;</ept>: Required. Specify the connection info to your Azure DocumentDB database in the following format: <bpt id="fdaabb28-efcb-4750-b4d1-0d1218032cc9">&lt;code&gt;</bpt>AccountEndpoint=&lt;DocumentDB endpoint url&gt;;AccountKey=&lt;DocumentDB auth key&gt;;Database=&lt;DocumentDB database id&gt;<ept id="fdaabb28-efcb-4750-b4d1-0d1218032cc9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2165d9ed-e5c3-46cd-af93-5e92dc8d54de" xml:space="preserve">
+          <source><bpt id="68346bac-db3f-41f7-a87c-51ec0a03a167">&lt;strong&gt;</bpt>container<ept id="68346bac-db3f-41f7-a87c-51ec0a03a167">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="68346bac-db3f-41f7-a87c-51ec0a03a167">&lt;strong&gt;</bpt>container<ept id="68346bac-db3f-41f7-a87c-51ec0a03a167">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="671016aa-ac87-4cf4-970d-99f0a0b75a88" xml:space="preserve">
+          <source><bpt id="85c27b13-d8a3-4012-9f43-102b252c309d">&lt;strong&gt;</bpt>name<ept id="85c27b13-d8a3-4012-9f43-102b252c309d">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="85c27b13-d8a3-4012-9f43-102b252c309d">&lt;strong&gt;</bpt>name<ept id="85c27b13-d8a3-4012-9f43-102b252c309d">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="245c7791-a12a-4813-ac95-9f5e7fb3ca36" xml:space="preserve">
+          <source>Specify the DocumentDB collection to be indexed.</source>
+          <target state="new">Specify the DocumentDB collection to be indexed.</target>
+        </trans-unit>
+        <trans-unit id="02ca4a59-12e0-4125-a04d-49b73406e586" xml:space="preserve">
+          <source><bpt id="7cef6d9e-874d-4374-a39f-fb1d83da7c25">&lt;strong&gt;</bpt>query<ept id="7cef6d9e-874d-4374-a39f-fb1d83da7c25">&lt;/strong&gt;</ept>: Optional.</source>
+          <target state="new"><bpt id="7cef6d9e-874d-4374-a39f-fb1d83da7c25">&lt;strong&gt;</bpt>query<ept id="7cef6d9e-874d-4374-a39f-fb1d83da7c25">&lt;/strong&gt;</ept>: Optional.</target>
+        </trans-unit>
+        <trans-unit id="764d9751-8d98-4b6b-87cd-2718ea5bd390" xml:space="preserve">
+          <source>You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.</source>
+          <target state="new">You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.</target>
+        </trans-unit>
+        <trans-unit id="1ea2e277-85ef-4daf-9f42-b0c0cc64d54a" xml:space="preserve">
+          <source><bpt id="ceadf663-e010-4975-8184-c9a81d2641d0">&lt;strong&gt;</bpt>dataChangeDetectionPolicy<ept id="ceadf663-e010-4975-8184-c9a81d2641d0">&lt;/strong&gt;</ept>: Optional.</source>
+          <target state="new"><bpt id="ceadf663-e010-4975-8184-c9a81d2641d0">&lt;strong&gt;</bpt>dataChangeDetectionPolicy<ept id="ceadf663-e010-4975-8184-c9a81d2641d0">&lt;/strong&gt;</ept>: Optional.</target>
+        </trans-unit>
+        <trans-unit id="8437e3d8-171d-420e-a83c-1061f274d20c" xml:space="preserve">
+          <source>See <bpt id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;linkText&gt;</bpt>Data Change Detection Policy<ept id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;/linkText&gt;</ept><bpt id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;title&gt;</bpt><ept id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;/title&gt;</ept> below.</source>
+          <target state="new">See <bpt id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;linkText&gt;</bpt>Data Change Detection Policy<ept id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;/linkText&gt;</ept><bpt id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;title&gt;</bpt><ept id="292f91b9-fcf2-4b75-9223-588038a71406">&lt;/title&gt;</ept> below.</target>
+        </trans-unit>
+        <trans-unit id="f91157fc-9cd5-490f-8ccf-6e6cad715c1b" xml:space="preserve">
+          <source><bpt id="57d449cd-e516-4737-b5ae-c5202dd3c580">&lt;strong&gt;</bpt>dataDeletionDetectionPolicy<ept id="57d449cd-e516-4737-b5ae-c5202dd3c580">&lt;/strong&gt;</ept>: Optional.</source>
+          <target state="new"><bpt id="57d449cd-e516-4737-b5ae-c5202dd3c580">&lt;strong&gt;</bpt>dataDeletionDetectionPolicy<ept id="57d449cd-e516-4737-b5ae-c5202dd3c580">&lt;/strong&gt;</ept>: Optional.</target>
+        </trans-unit>
+        <trans-unit id="22b55ebe-eb8f-45cd-a8f7-a9c2b8b977f0" xml:space="preserve">
+          <source>See <bpt id="3141c070-6773-4d95-8d34-45622335fef3">&lt;linkText&gt;</bpt>Data Deletion Detection Policy<ept id="3141c070-6773-4d95-8d34-45622335fef3">&lt;/linkText&gt;</ept><bpt id="3141c070-6773-4d95-8d34-45622335fef3">&lt;title&gt;</bpt><ept id="3141c070-6773-4d95-8d34-45622335fef3">&lt;/title&gt;</ept> below.</source>
+          <target state="new">See <bpt id="3141c070-6773-4d95-8d34-45622335fef3">&lt;linkText&gt;</bpt>Data Deletion Detection Policy<ept id="3141c070-6773-4d95-8d34-45622335fef3">&lt;/linkText&gt;</ept><bpt id="3141c070-6773-4d95-8d34-45622335fef3">&lt;title&gt;</bpt><ept id="3141c070-6773-4d95-8d34-45622335fef3">&lt;/title&gt;</ept> below.</target>
+        </trans-unit>
+        <trans-unit id="6226d352-1c81-45c6-b8eb-7df4df22470f" xml:space="preserve">
+          <source>The purpose of a data change detection policy is to efficiently identify changed data items.</source>
+          <target state="new">The purpose of a data change detection policy is to efficiently identify changed data items.</target>
+        </trans-unit>
+        <trans-unit id="c624f800-5e6f-428c-8173-249f1dcd4887" xml:space="preserve">
+          <source>Currently, the only supported policy is the <bpt id="c4ca739b-8331-4f07-acfd-b56299937305">&lt;code&gt;</bpt>High Water Mark<ept id="c4ca739b-8331-4f07-acfd-b56299937305">&lt;/code&gt;</ept> policy using the <bpt id="48ed067c-5c68-4b6d-a664-959dea6641e8">&lt;code&gt;</bpt>_ts<ept id="48ed067c-5c68-4b6d-a664-959dea6641e8">&lt;/code&gt;</ept> last-modified timestamp property provided by DocumentDB - which is specified as follows:</source>
+          <target state="new">Currently, the only supported policy is the <bpt id="c4ca739b-8331-4f07-acfd-b56299937305">&lt;code&gt;</bpt>High Water Mark<ept id="c4ca739b-8331-4f07-acfd-b56299937305">&lt;/code&gt;</ept> policy using the <bpt id="48ed067c-5c68-4b6d-a664-959dea6641e8">&lt;code&gt;</bpt>_ts<ept id="48ed067c-5c68-4b6d-a664-959dea6641e8">&lt;/code&gt;</ept> last-modified timestamp property provided by DocumentDB - which is specified as follows:</target>
+        </trans-unit>
+        <trans-unit id="a5d294a5-7fa0-4b7f-8a71-4a009fc32b20" xml:space="preserve">
+          <source>You will also need to add <bpt id="5f33fc8b-f5ca-45b8-9528-3cf67d3d9928">&lt;code&gt;</bpt>_ts<ept id="5f33fc8b-f5ca-45b8-9528-3cf67d3d9928">&lt;/code&gt;</ept> in the projection and <bpt id="fc6a6285-7e19-4033-a7ae-d6ce95fd3cde">&lt;code&gt;</bpt>WHERE<ept id="fc6a6285-7e19-4033-a7ae-d6ce95fd3cde">&lt;/code&gt;</ept> clause for your query.</source>
+          <target state="new">You will also need to add <bpt id="5f33fc8b-f5ca-45b8-9528-3cf67d3d9928">&lt;code&gt;</bpt>_ts<ept id="5f33fc8b-f5ca-45b8-9528-3cf67d3d9928">&lt;/code&gt;</ept> in the projection and <bpt id="fc6a6285-7e19-4033-a7ae-d6ce95fd3cde">&lt;code&gt;</bpt>WHERE<ept id="fc6a6285-7e19-4033-a7ae-d6ce95fd3cde">&lt;/code&gt;</ept> clause for your query.</target>
+        </trans-unit>
+        <trans-unit id="d49416e7-1836-4e13-8956-8406b36ae39c" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="23c4c944-1493-45bf-b59a-bb4fe209fae9" xml:space="preserve">
+          <source>When rows are deleted from the source table, you should delete those rows from the search index as well.</source>
+          <target state="new">When rows are deleted from the source table, you should delete those rows from the search index as well.</target>
+        </trans-unit>
+        <trans-unit id="7a2b8bcc-998f-427c-81d0-639ba543f7ee" xml:space="preserve">
+          <source>The purpose of a data deletion detection policy is to efficiently identify deleted data items.</source>
+          <target state="new">The purpose of a data deletion detection policy is to efficiently identify deleted data items.</target>
+        </trans-unit>
+        <trans-unit id="da299524-3f76-4e03-9fd9-38a8296ef70b" xml:space="preserve">
+          <source>Currently, the only supported policy is the <bpt id="43c07c87-30e2-46af-9092-adc6d0c4a2a9">&lt;code&gt;</bpt>Soft Delete<ept id="43c07c87-30e2-46af-9092-adc6d0c4a2a9">&lt;/code&gt;</ept> policy (deletion is marked with a flag of some sort), which is specified as follows:</source>
+          <target state="new">Currently, the only supported policy is the <bpt id="43c07c87-30e2-46af-9092-adc6d0c4a2a9">&lt;code&gt;</bpt>Soft Delete<ept id="43c07c87-30e2-46af-9092-adc6d0c4a2a9">&lt;/code&gt;</ept> policy (deletion is marked with a flag of some sort), which is specified as follows:</target>
+        </trans-unit>
+        <trans-unit id="52d985b0-043a-4ef8-ac79-458c27e2b6fd" xml:space="preserve">
+          <source>You will need to include the property in your SELECT clause if you are using a custom projection.</source>
+          <target state="new">You will need to include the property in your SELECT clause if you are using a custom projection.</target>
+        </trans-unit>
+        <trans-unit id="89a422e6-c90e-40dd-8b08-1cbc98681c02" xml:space="preserve">
+          <source>The following example creates a data source with a custom query and policy hints:</source>
+          <target state="new">The following example creates a data source with a custom query and policy hints:</target>
+        </trans-unit>
+        <trans-unit id="327eb1f2-1ab7-49e4-a23d-62b9bbfc19ea" xml:space="preserve">
+          <source>You will receive an HTTP 201 Created response if the data source was successfully created.</source>
+          <target state="new">You will receive an HTTP 201 Created response if the data source was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="f5557a37-19e5-492a-92d5-6299b85bc8bc" xml:space="preserve">
+          <source>Create a target Azure Search index if you don’t have one already.</source>
+          <target state="new">Create a target Azure Search index if you don’t have one already.</target>
+        </trans-unit>
+        <trans-unit id="72b41e3b-60c0-41e2-9c50-5e0ad6538681" xml:space="preserve">
+          <source>You can do this from the <bpt id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;linkText&gt;</bpt>Azure Portal UI<ept id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;/linkText&gt;</ept><bpt id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;title&gt;</bpt><ept id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;/title&gt;</ept> or by using the <bpt id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;linkText&gt;</bpt>Create Index API<ept id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;/linkText&gt;</ept><bpt id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;title&gt;</bpt><ept id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can do this from the <bpt id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;linkText&gt;</bpt>Azure Portal UI<ept id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;/linkText&gt;</ept><bpt id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;title&gt;</bpt><ept id="c7bbcab4-e449-4f9f-b10b-2d6afabf753e">&lt;/title&gt;</ept> or by using the <bpt id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;linkText&gt;</bpt>Create Index API<ept id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;/linkText&gt;</ept><bpt id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;title&gt;</bpt><ept id="dc9e671c-1d07-4f71-9ed3-b3fc9c34289c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9eb21f2f-bf7c-4a00-8940-38ae1cb714d5" xml:space="preserve">
+          <source>Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.</source>
+          <target state="new">Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.</target>
+        </trans-unit>
+        <trans-unit id="055d4d19-81e7-4b42-9aac-6743acd0bbda" xml:space="preserve">
+          <source>JSON DATA TYPE</source>
+          <target state="new">JSON DATA TYPE</target>
+        </trans-unit>
+        <trans-unit id="a49d294b-0ba6-49cf-89f9-8cb2f04e8781" xml:space="preserve">
+          <source>COMPATIBLE TARGET INDEX FIELD TYPES</source>
+          <target state="new">COMPATIBLE TARGET INDEX FIELD TYPES</target>
+        </trans-unit>
+        <trans-unit id="2f7669ae-9695-4ead-bcde-0dbd3c1a9d8f" xml:space="preserve">
+          <source>Bool</source>
+          <target state="new">Bool</target>
+        </trans-unit>
+        <trans-unit id="9a7de913-0a78-4a06-92f2-7eb1c00294ba" xml:space="preserve">
+          <source>Edm.Boolean, Edm.String</source>
+          <target state="new">Edm.Boolean, Edm.String</target>
+        </trans-unit>
+        <trans-unit id="ec7049de-82dd-400f-adc2-863c705da995" xml:space="preserve">
+          <source>Numbers that look like integers</source>
+          <target state="new">Numbers that look like integers</target>
+        </trans-unit>
+        <trans-unit id="d7e78a4b-5e63-4cc4-860d-4dc125904113" xml:space="preserve">
+          <source>Edm.Int32, Edm.Int64, Edm.String</source>
+          <target state="new">Edm.Int32, Edm.Int64, Edm.String</target>
+        </trans-unit>
+        <trans-unit id="6edc5c2b-f7ca-4018-8ada-afbf97dac498" xml:space="preserve">
+          <source>Numbers that look like floating-points</source>
+          <target state="new">Numbers that look like floating-points</target>
+        </trans-unit>
+        <trans-unit id="9d880e1f-f314-4e52-9ec9-2794fc986194" xml:space="preserve">
+          <source>Edm.Double, Edm.String</source>
+          <target state="new">Edm.Double, Edm.String</target>
+        </trans-unit>
+        <trans-unit id="e1daefe5-7ed9-4178-87c6-d87fe7d99a11" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="dabd3661-5655-40fe-bf8f-78d3dade54de" xml:space="preserve">
+          <source>Edm.String</source>
+          <target state="new">Edm.String</target>
+        </trans-unit>
+        <trans-unit id="bc2e0db5-c5ac-4e17-92a5-e024865e1007" xml:space="preserve">
+          <source>Arrays of primitive types e.g. "a", "b", "c"</source>
+          <target state="new">Arrays of primitive types e.g. "a", "b", "c"</target>
+        </trans-unit>
+        <trans-unit id="f2136bbd-6a8b-4b61-a68c-36085890fffa" xml:space="preserve">
+          <source>Collection(Edm.String)</source>
+          <target state="new">Collection(Edm.String)</target>
+        </trans-unit>
+        <trans-unit id="52e5388a-eb11-489f-8c19-2e2191e079f9" xml:space="preserve">
+          <source>Strings that look like dates</source>
+          <target state="new">Strings that look like dates</target>
+        </trans-unit>
+        <trans-unit id="627ac32e-25d9-45e1-8cc0-4bb5a2d645e3" xml:space="preserve">
+          <source>Edm.DateTimeOffset, Edm.String</source>
+          <target state="new">Edm.DateTimeOffset, Edm.String</target>
+        </trans-unit>
+        <trans-unit id="bcb3988e-fbf1-47ad-8029-87964454889b" xml:space="preserve">
+          <source>GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] }</source>
+          <target state="new">GeoJSON objects e.g. { "type": "Point", "coordinates": [ long, lat ] }</target>
+        </trans-unit>
+        <trans-unit id="8220308f-06cc-49ba-8b6d-b3394dc2ed6f" xml:space="preserve">
+          <source>Edm.GeographyPoint</source>
+          <target state="new">Edm.GeographyPoint</target>
+        </trans-unit>
+        <trans-unit id="36e004f9-6ae1-4a90-bebe-96e15bc9a50b" xml:space="preserve">
+          <source>Other JSON objects</source>
+          <target state="new">Other JSON objects</target>
+        </trans-unit>
+        <trans-unit id="1e832a90-7ada-4049-965a-abf354d43605" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="e648a2eb-99e8-4f25-b25c-45926ac71a3c" xml:space="preserve">
+          <source>The following example creates an index with an id and description field:</source>
+          <target state="new">The following example creates an index with an id and description field:</target>
+        </trans-unit>
+        <trans-unit id="f05f4c2d-4a06-454d-9843-8f7885f92dc7" xml:space="preserve">
+          <source>You will receive an HTTP 201 Created response if the index was successfully created.</source>
+          <target state="new">You will receive an HTTP 201 Created response if the index was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="a94d8a9c-0318-4f73-bdf1-978258ba46c2" xml:space="preserve">
+          <source>You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.</source>
+          <target state="new">You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.</target>
+        </trans-unit>
+        <trans-unit id="721b3f81-2137-40f6-b7e0-04d47e5107c0" xml:space="preserve">
+          <source>The body of the request contains the indexer definition, which should include the following fields:</source>
+          <target state="new">The body of the request contains the indexer definition, which should include the following fields:</target>
+        </trans-unit>
+        <trans-unit id="205b9443-076a-4e7d-80da-468178f07289" xml:space="preserve">
+          <source><bpt id="275fd012-e605-4df9-8d8c-db68edd906f9">&lt;strong&gt;</bpt>name<ept id="275fd012-e605-4df9-8d8c-db68edd906f9">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="275fd012-e605-4df9-8d8c-db68edd906f9">&lt;strong&gt;</bpt>name<ept id="275fd012-e605-4df9-8d8c-db68edd906f9">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="d739fb1e-7b5e-44e7-94b0-5b3e4cf444f4" xml:space="preserve">
+          <source>The name of the indexer.</source>
+          <target state="new">The name of the indexer.</target>
+        </trans-unit>
+        <trans-unit id="f9b49f26-a246-4268-97a1-a6aa1ce76911" xml:space="preserve">
+          <source><bpt id="2fdcef67-3248-4c7f-85a8-77d16e87d8ed">&lt;strong&gt;</bpt>dataSourceName<ept id="2fdcef67-3248-4c7f-85a8-77d16e87d8ed">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="2fdcef67-3248-4c7f-85a8-77d16e87d8ed">&lt;strong&gt;</bpt>dataSourceName<ept id="2fdcef67-3248-4c7f-85a8-77d16e87d8ed">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="cfe63ea0-9bc3-43ac-96db-0efaec8ac166" xml:space="preserve">
+          <source>The name of an existing data source.</source>
+          <target state="new">The name of an existing data source.</target>
+        </trans-unit>
+        <trans-unit id="a6c4a5bf-42e5-46e8-b8f5-9c3230e6ee73" xml:space="preserve">
+          <source><bpt id="02bd9f95-6520-4170-b151-1a5d55ec5152">&lt;strong&gt;</bpt>targetIndexName<ept id="02bd9f95-6520-4170-b151-1a5d55ec5152">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="02bd9f95-6520-4170-b151-1a5d55ec5152">&lt;strong&gt;</bpt>targetIndexName<ept id="02bd9f95-6520-4170-b151-1a5d55ec5152">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="b4222bde-8880-4cb9-a9e4-882de1c5dcf8" xml:space="preserve">
+          <source>The name of an existing index.</source>
+          <target state="new">The name of an existing index.</target>
+        </trans-unit>
+        <trans-unit id="db50712e-b658-4093-a7bd-440504a17aa3" xml:space="preserve">
+          <source><bpt id="34f293bd-1a7c-47e3-89d4-49bb3c49a021">&lt;strong&gt;</bpt>schedule<ept id="34f293bd-1a7c-47e3-89d4-49bb3c49a021">&lt;/strong&gt;</ept>: Optional.</source>
+          <target state="new"><bpt id="34f293bd-1a7c-47e3-89d4-49bb3c49a021">&lt;strong&gt;</bpt>schedule<ept id="34f293bd-1a7c-47e3-89d4-49bb3c49a021">&lt;/strong&gt;</ept>: Optional.</target>
+        </trans-unit>
+        <trans-unit id="f48b1efa-2364-4a0f-b463-8bcb6bde97ce" xml:space="preserve">
+          <source>See <bpt id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;linkText&gt;</bpt>Indexing Schedule<ept id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;/linkText&gt;</ept><bpt id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;title&gt;</bpt><ept id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;/title&gt;</ept> below.</source>
+          <target state="new">See <bpt id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;linkText&gt;</bpt>Indexing Schedule<ept id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;/linkText&gt;</ept><bpt id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;title&gt;</bpt><ept id="b98fb454-a805-4335-8f8b-d9844d047b10">&lt;/title&gt;</ept> below.</target>
+        </trans-unit>
+        <trans-unit id="6216b109-8963-4c35-a359-8e7f3f1a4eaf" xml:space="preserve">
+          <source>An indexer can optionally specify a schedule.</source>
+          <target state="new">An indexer can optionally specify a schedule.</target>
+        </trans-unit>
+        <trans-unit id="06cd5902-aeb3-451c-8ada-2bcbe9496af0" xml:space="preserve">
+          <source>If a schedule is present, the indexer will run periodically as per schedule.</source>
+          <target state="new">If a schedule is present, the indexer will run periodically as per schedule.</target>
+        </trans-unit>
+        <trans-unit id="f4bf7033-ccdc-40ea-9d84-31a41362ecbd" xml:space="preserve">
+          <source>Schedule has the following attributes:</source>
+          <target state="new">Schedule has the following attributes:</target>
+        </trans-unit>
+        <trans-unit id="20c2051c-c772-42ee-ade7-b77dbceb98ec" xml:space="preserve">
+          <source><bpt id="d23773eb-4aca-48d8-a148-4bb7ca917c97">&lt;strong&gt;</bpt>interval<ept id="d23773eb-4aca-48d8-a148-4bb7ca917c97">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="d23773eb-4aca-48d8-a148-4bb7ca917c97">&lt;strong&gt;</bpt>interval<ept id="d23773eb-4aca-48d8-a148-4bb7ca917c97">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="c350eabc-8b47-4f22-95d6-4d4f26cbe03b" xml:space="preserve">
+          <source>A duration value that specifies an interval or period for indexer runs.</source>
+          <target state="new">A duration value that specifies an interval or period for indexer runs.</target>
+        </trans-unit>
+        <trans-unit id="8a9fcc9d-dae5-4654-a307-e4744545d5fb" xml:space="preserve">
+          <source>The smallest allowed interval is 5 minutes; the longest is one day.</source>
+          <target state="new">The smallest allowed interval is 5 minutes; the longest is one day.</target>
+        </trans-unit>
+        <trans-unit id="987c07d6-f075-4222-bc84-1955fbf00b9c" xml:space="preserve">
+          <source>It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an <bpt id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;linkText&gt;</bpt>ISO 8601 duration<ept id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;/linkText&gt;</ept><bpt id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;title&gt;</bpt><ept id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;/title&gt;</ept> value).</source>
+          <target state="new">It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an <bpt id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;linkText&gt;</bpt>ISO 8601 duration<ept id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;/linkText&gt;</ept><bpt id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;title&gt;</bpt><ept id="8cf097c4-20d4-4f0d-850f-4402a0226233">&lt;/title&gt;</ept> value).</target>
+        </trans-unit>
+        <trans-unit id="35b33103-2c3d-42a6-bd85-b8c4dbad545d" xml:space="preserve">
+          <source>The pattern for this is: <bpt id="a57af062-abf9-4b21-9085-100eac7d6bc2">&lt;code&gt;</bpt>P(nD)(T(nH)(nM))<ept id="a57af062-abf9-4b21-9085-100eac7d6bc2">&lt;/code&gt;</ept>.</source>
+          <target state="new">The pattern for this is: <bpt id="a57af062-abf9-4b21-9085-100eac7d6bc2">&lt;code&gt;</bpt>P(nD)(T(nH)(nM))<ept id="a57af062-abf9-4b21-9085-100eac7d6bc2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92c066b8-09de-4aeb-8df5-685359f1e47c" xml:space="preserve">
+          <source>Examples: <bpt id="7205def1-7e8e-4da4-8c62-58664979aba4">&lt;code&gt;</bpt>PT15M<ept id="7205def1-7e8e-4da4-8c62-58664979aba4">&lt;/code&gt;</ept> for every 15 minutes, <bpt id="98819543-b7ae-43cd-8ee6-eee22fa0802b">&lt;code&gt;</bpt>PT2H<ept id="98819543-b7ae-43cd-8ee6-eee22fa0802b">&lt;/code&gt;</ept> for every 2 hours.</source>
+          <target state="new">Examples: <bpt id="7205def1-7e8e-4da4-8c62-58664979aba4">&lt;code&gt;</bpt>PT15M<ept id="7205def1-7e8e-4da4-8c62-58664979aba4">&lt;/code&gt;</ept> for every 15 minutes, <bpt id="98819543-b7ae-43cd-8ee6-eee22fa0802b">&lt;code&gt;</bpt>PT2H<ept id="98819543-b7ae-43cd-8ee6-eee22fa0802b">&lt;/code&gt;</ept> for every 2 hours.</target>
+        </trans-unit>
+        <trans-unit id="858d3022-e9f4-4b73-85c8-71177300c7fd" xml:space="preserve">
+          <source><bpt id="cb0fa6c8-d801-4533-a186-d71b8e61ccb8">&lt;strong&gt;</bpt>startTime<ept id="cb0fa6c8-d801-4533-a186-d71b8e61ccb8">&lt;/strong&gt;</ept>: Required.</source>
+          <target state="new"><bpt id="cb0fa6c8-d801-4533-a186-d71b8e61ccb8">&lt;strong&gt;</bpt>startTime<ept id="cb0fa6c8-d801-4533-a186-d71b8e61ccb8">&lt;/strong&gt;</ept>: Required.</target>
+        </trans-unit>
+        <trans-unit id="2f6c93b1-9389-44f3-ae9e-41c5df0105b0" xml:space="preserve">
+          <source>An UTC datetime that specifies when the indexer should start running.</source>
+          <target state="new">An UTC datetime that specifies when the indexer should start running.</target>
+        </trans-unit>
+        <trans-unit id="d7e040c8-04ef-4b62-8093-88f0bcdc0539" xml:space="preserve">
+          <source>The following example creates an indexer that copies data from the collection referenced by the <bpt id="76b52012-225e-40f4-9538-f9ab6972abd6">&lt;code&gt;</bpt>myDocDbDataSource<ept id="76b52012-225e-40f4-9538-f9ab6972abd6">&lt;/code&gt;</ept> data source to the <bpt id="708885b3-03d0-4d95-aa8c-629bc62fe073">&lt;code&gt;</bpt>mySearchIndex<ept id="708885b3-03d0-4d95-aa8c-629bc62fe073">&lt;/code&gt;</ept> index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.</source>
+          <target state="new">The following example creates an indexer that copies data from the collection referenced by the <bpt id="76b52012-225e-40f4-9538-f9ab6972abd6">&lt;code&gt;</bpt>myDocDbDataSource<ept id="76b52012-225e-40f4-9538-f9ab6972abd6">&lt;/code&gt;</ept> data source to the <bpt id="708885b3-03d0-4d95-aa8c-629bc62fe073">&lt;code&gt;</bpt>mySearchIndex<ept id="708885b3-03d0-4d95-aa8c-629bc62fe073">&lt;/code&gt;</ept> index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.</target>
+        </trans-unit>
+        <trans-unit id="4c29df90-8a65-4f0c-8add-5cd2e35c9abb" xml:space="preserve">
+          <source>You will receive an HTTP 201 Created response if the indexer was successfully created.</source>
+          <target state="new">You will receive an HTTP 201 Created response if the indexer was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="4e65b87f-df56-46a5-8b28-3081185b4713" xml:space="preserve">
+          <source>In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request: </source>
+          <target state="new">In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request: </target>
+        </trans-unit>
+        <trans-unit id="9aa615bf-0108-4311-9ae0-172ca5dd6f1a" xml:space="preserve">
+          <source>You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.</source>
+          <target state="new">You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.</target>
+        </trans-unit>
+        <trans-unit id="6af70aec-97be-46d3-adfb-b6ce898921b2" xml:space="preserve">
+          <source>You can issue a HTTP GET request to retrieve the current status and execution history of an indexer: </source>
+          <target state="new">You can issue a HTTP GET request to retrieve the current status and execution history of an indexer: </target>
+        </trans-unit>
+        <trans-unit id="d4c23e46-b118-46d8-8f8a-029d64e36616" xml:space="preserve">
+          <source>You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).</source>
+          <target state="new">You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).</target>
+        </trans-unit>
+        <trans-unit id="813ab7e0-1af2-4824-bbb9-21a403f25027" xml:space="preserve">
+          <source>The response should look similar to the following:</source>
+          <target state="new">The response should look similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="5d94a404-950c-4295-b6d0-c96db057f67d" xml:space="preserve">
+          <source>Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).</source>
+          <target state="new">Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).</target>
+        </trans-unit>
+        <trans-unit id="9bbf9d43-a90d-40f6-b2a5-d0ecd1df2d74" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="cd745923-4ffc-489f-92ae-b0402580e40a" xml:space="preserve">
+          <source>You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.</source>
+          <target state="new">You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="f709f445-7f13-40ee-a49c-ca47151ba0c6" xml:space="preserve">
+          <source>To learn how more about Azure DocumentDB, click <bpt id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;linkText&gt;</bpt>here<ept id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;/linkText&gt;</ept><bpt id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;title&gt;</bpt><ept id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how more about Azure DocumentDB, click <bpt id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;linkText&gt;</bpt>here<ept id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;/linkText&gt;</ept><bpt id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;title&gt;</bpt><ept id="08e614d9-21b8-4e8e-aaf7-4082e120e26d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40f8febd-5e38-4d26-9fba-c8053aca8199" xml:space="preserve">
+          <source>To learn how more about Azure Search, click <bpt id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;linkText&gt;</bpt>here<ept id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;/linkText&gt;</ept><bpt id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;title&gt;</bpt><ept id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how more about Azure Search, click <bpt id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;linkText&gt;</bpt>here<ept id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;/linkText&gt;</ept><bpt id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;title&gt;</bpt><ept id="8dc1e5bc-ec9c-48ab-b65b-e6c10a46e972">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

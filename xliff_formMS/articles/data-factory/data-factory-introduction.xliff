@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8def1a94-dadc-4064-a27e-779ef64b7b94" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8def1a94-dadc-4064-a27e-779ef64b7b94" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9b62c04b-d735-4041-8105-43733f340953">
+        <trans-unit id="ef8c2d42-4942-40eb-8ffc-7f8980b6505a" xml:space="preserve">
+          <source>Introduction to Azure Data Factory</source>
+          <target state="new">Introduction to Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="e0230a9d-c306-420e-a7c8-46f8d104e078" xml:space="preserve">
+          <source>Learn how you can use the Azure Data Factory service to compose data processing, data storage and data movement services to create pipelines that produce trusted information.</source>
+          <target state="new">Learn how you can use the Azure Data Factory service to compose data processing, data storage and data movement services to create pipelines that produce trusted information.</target>
+        </trans-unit>
+        <trans-unit id="71ba8467-3f42-49df-b57e-a56857705a3b" xml:space="preserve">
+          <source>Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</source>
+          <target state="new">Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data.</target>
+        </trans-unit>
+        <trans-unit id="481582df-f271-4c72-901e-c5500ff95fe8" xml:space="preserve">
+          <source>Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</source>
+          <target state="new">Just like a manufacturing factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.</target>
+        </trans-unit>
+        <trans-unit id="23eb8667-77b4-4128-976b-833b69aa1a4c" xml:space="preserve">
+          <source>Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.</source>
+          <target state="new">Data Factory works across on-premises and cloud data sources and SaaS to ingest, prepare, transform, analyze, and publish your data.</target>
+        </trans-unit>
+        <trans-unit id="40a6ea53-cfbf-4fae-ba30-5041b6b6e8d7" xml:space="preserve">
+          <source>Use Data Factory to compose services into managed data flow pipelines to transform your data using services like <bpt id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;linkText&gt;</bpt>Azure HDInsight (Hadoop)<ept id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;/linkText&gt;</ept><bpt id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;title&gt;</bpt><ept id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;/title&gt;</ept> and <bpt id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;linkText&gt;</bpt>Azure Batch<ept id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;/linkText&gt;</ept><bpt id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;title&gt;</bpt><ept id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;/title&gt;</ept> for your big data computing needs, and with <bpt id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;linkText&gt;</bpt>Azure Machine Learning<ept id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;/linkText&gt;</ept><bpt id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;title&gt;</bpt><ept id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;/title&gt;</ept> to operationalize your analytics solutions.</source>
+          <target state="new">Use Data Factory to compose services into managed data flow pipelines to transform your data using services like <bpt id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;linkText&gt;</bpt>Azure HDInsight (Hadoop)<ept id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;/linkText&gt;</ept><bpt id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;title&gt;</bpt><ept id="278e196f-5716-4c3c-8775-70bfb806c068">&lt;/title&gt;</ept> and <bpt id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;linkText&gt;</bpt>Azure Batch<ept id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;/linkText&gt;</ept><bpt id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;title&gt;</bpt><ept id="0afefc0e-32b8-42a8-b4ca-8a2855774c52">&lt;/title&gt;</ept> for your big data computing needs, and with <bpt id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;linkText&gt;</bpt>Azure Machine Learning<ept id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;/linkText&gt;</ept><bpt id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;title&gt;</bpt><ept id="7fb9276a-2b46-4e78-a73b-f11fc1f4b1e4">&lt;/title&gt;</ept> to operationalize your analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="1c8d33ee-69f7-4945-ae92-46a630ab0989" xml:space="preserve">
+          <source>Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines.</source>
+          <target state="new">Go beyond just a tabular monitoring view, and use the rich visualizations of Data Factory to quickly display the lineage and dependencies between your data pipelines.</target>
+        </trans-unit>
+        <trans-unit id="b1193309-705d-4f62-a107-91ccb0f56f38" xml:space="preserve">
+          <source>Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.</source>
+          <target state="new">Monitor all of your data flow pipelines from a single unified view to easily pinpoint issues and setup monitoring alerts.</target>
+        </trans-unit>
+        <trans-unit id="800b515e-5fcb-46a3-9357-e426d8dd6620" xml:space="preserve">
+          <source><bpt id="21ae15be-f335-4322-83b7-e4aa17071845">&lt;linkText&gt;</bpt>Overview<ept id="21ae15be-f335-4322-83b7-e4aa17071845">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21ae15be-f335-4322-83b7-e4aa17071845">&lt;linkText&gt;</bpt>Overview<ept id="21ae15be-f335-4322-83b7-e4aa17071845">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55e9ede9-3a3c-483b-890d-064c6db2a43d" xml:space="preserve">
+          <source><bpt id="fcc5729c-0bf2-4ec5-9159-5b988cf9b439">&lt;strong&gt;</bpt>Figure1.<ept id="fcc5729c-0bf2-4ec5-9159-5b988cf9b439">&lt;/strong&gt;</ept> Collect data from many different on-premises data sources, ingest and prepare it, organize and analyze it with a range of transformations, then publish ready-to-use data for consumption.</source>
+          <target state="new"><bpt id="fcc5729c-0bf2-4ec5-9159-5b988cf9b439">&lt;strong&gt;</bpt>Figure1.<ept id="fcc5729c-0bf2-4ec5-9159-5b988cf9b439">&lt;/strong&gt;</ept> Collect data from many different on-premises data sources, ingest and prepare it, organize and analyze it with a range of transformations, then publish ready-to-use data for consumption.</target>
+        </trans-unit>
+        <trans-unit id="cb1d7195-dca6-45d6-9e4d-1d347ccab13a" xml:space="preserve">
+          <source>You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule.</source>
+          <target state="new">You can use Data Factory anytime you need to collect data of different shapes and sizes, transform it, and publish it to extract deep insights – all on a reliable schedule.</target>
+        </trans-unit>
+        <trans-unit id="b5a50f0c-a005-42c7-9287-4bdb00c96930" xml:space="preserve">
+          <source>Data Factory is used to create highly available data flow pipelines for many scenarios across different industries for their analytics pipeline needs.</source>
+          <target state="new">Data Factory is used to create highly available data flow pipelines for many scenarios across different industries for their analytics pipeline needs.</target>
+        </trans-unit>
+        <trans-unit id="10d745e2-4f62-4da6-b2d7-ec8cabb9c902" xml:space="preserve">
+          <source>Online retailers use it to generate personalized <bpt id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;linkText&gt;</bpt>product recommendations<ept id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;/linkText&gt;</ept><bpt id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;title&gt;</bpt><ept id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;/title&gt;</ept> based on customer browsing behavior.</source>
+          <target state="new">Online retailers use it to generate personalized <bpt id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;linkText&gt;</bpt>product recommendations<ept id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;/linkText&gt;</ept><bpt id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;title&gt;</bpt><ept id="1fc95286-ec52-4d3f-bbb5-044978e8411b">&lt;/title&gt;</ept> based on customer browsing behavior.</target>
+        </trans-unit>
+        <trans-unit id="dc8b1e8a-d601-43c8-b800-330e94662cd6" xml:space="preserve">
+          <source>Game studios use it to understand the <bpt id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;linkText&gt;</bpt>effectiveness of their marketing<ept id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;/linkText&gt;</ept><bpt id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;title&gt;</bpt><ept id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;/title&gt;</ept> campaigns.</source>
+          <target state="new">Game studios use it to understand the <bpt id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;linkText&gt;</bpt>effectiveness of their marketing<ept id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;/linkText&gt;</ept><bpt id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;title&gt;</bpt><ept id="1a2975ae-3bd3-4099-8f92-353ac5895e4d">&lt;/title&gt;</ept> campaigns.</target>
+        </trans-unit>
+        <trans-unit id="655fa860-9184-4ed4-8256-848d7e81f130" xml:space="preserve">
+          <source>Learn directly from our customers how and why they use Data Factory by reviewing <bpt id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;linkText&gt;</bpt>Customer Case Studies<ept id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;/linkText&gt;</ept><bpt id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;title&gt;</bpt><ept id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn directly from our customers how and why they use Data Factory by reviewing <bpt id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;linkText&gt;</bpt>Customer Case Studies<ept id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;/linkText&gt;</ept><bpt id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;title&gt;</bpt><ept id="aad202ef-9148-403f-9ea0-5d7db13705d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7a189d2-1a72-4767-a91a-66a5a0389054" xml:space="preserve">
+          <source>Azure Data Factory has a few key entities that work together to define the input and output data, processing events, and the schedule and resources required to execute the desired data flow.</source>
+          <target state="new">Azure Data Factory has a few key entities that work together to define the input and output data, processing events, and the schedule and resources required to execute the desired data flow.</target>
+        </trans-unit>
+        <trans-unit id="12058b52-51e6-48b9-8e75-a26940cb310f" xml:space="preserve">
+          <source><bpt id="186d5598-541e-4e88-b9b3-c30ff5279436">&lt;linkText&gt;</bpt>Key Concepts<ept id="186d5598-541e-4e88-b9b3-c30ff5279436">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="186d5598-541e-4e88-b9b3-c30ff5279436">&lt;linkText&gt;</bpt>Key Concepts<ept id="186d5598-541e-4e88-b9b3-c30ff5279436">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c096197-b493-4128-8477-921554071d0c" xml:space="preserve">
+          <source><bpt id="cb713534-625e-40ba-ad87-929adb58e9e7">&lt;strong&gt;</bpt>Figure 2.<ept id="cb713534-625e-40ba-ad87-929adb58e9e7">&lt;/strong&gt;</ept> Relationships between Dataset, Activity, Pipeline, and Linked service</source>
+          <target state="new"><bpt id="cb713534-625e-40ba-ad87-929adb58e9e7">&lt;strong&gt;</bpt>Figure 2.<ept id="cb713534-625e-40ba-ad87-929adb58e9e7">&lt;/strong&gt;</ept> Relationships between Dataset, Activity, Pipeline, and Linked service</target>
+        </trans-unit>
+        <trans-unit id="170b79f5-504b-4608-a311-b2a44cfcd732" xml:space="preserve">
+          <source>Activities define the actions to perform on your data.</source>
+          <target state="new">Activities define the actions to perform on your data.</target>
+        </trans-unit>
+        <trans-unit id="041a4f9e-4993-411b-8d4f-d2963b550048" xml:space="preserve">
+          <source>Each activity takes zero or more <bpt id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;linkText&gt;</bpt>datasets<ept id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;/linkText&gt;</ept><bpt id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;title&gt;</bpt><ept id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;/title&gt;</ept> as inputs and produces one or more datasets as outputs.</source>
+          <target state="new">Each activity takes zero or more <bpt id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;linkText&gt;</bpt>datasets<ept id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;/linkText&gt;</ept><bpt id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;title&gt;</bpt><ept id="05a48405-f6a6-4493-ace2-3054616d5122">&lt;/title&gt;</ept> as inputs and produces one or more datasets as outputs.</target>
+        </trans-unit>
+        <trans-unit id="e42bf29b-5b46-4201-8197-8a2b51f8a553" xml:space="preserve">
+          <source>An activity is a unit of orchestration in Azure Data Factory.</source>
+          <target state="new">An activity is a unit of orchestration in Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="47e794b8-2ad9-46f3-afed-4d29fb0e6ee3" xml:space="preserve">
+          <source>For example, you may use a <bpt id="344db6c3-3172-4053-bed1-412c660e3113">&lt;linkText&gt;</bpt>Copy activity<ept id="344db6c3-3172-4053-bed1-412c660e3113">&lt;/linkText&gt;</ept><bpt id="344db6c3-3172-4053-bed1-412c660e3113">&lt;title&gt;</bpt><ept id="344db6c3-3172-4053-bed1-412c660e3113">&lt;/title&gt;</ept> to orchestrate copying data from one dataset to another.</source>
+          <target state="new">For example, you may use a <bpt id="344db6c3-3172-4053-bed1-412c660e3113">&lt;linkText&gt;</bpt>Copy activity<ept id="344db6c3-3172-4053-bed1-412c660e3113">&lt;/linkText&gt;</ept><bpt id="344db6c3-3172-4053-bed1-412c660e3113">&lt;title&gt;</bpt><ept id="344db6c3-3172-4053-bed1-412c660e3113">&lt;/title&gt;</ept> to orchestrate copying data from one dataset to another.</target>
+        </trans-unit>
+        <trans-unit id="645c31d7-3492-42cf-bc4f-48e706754a5b" xml:space="preserve">
+          <source>Similarly you may use a <bpt id="b1293316-6f64-4923-9311-4df136403bfe">&lt;linkText&gt;</bpt>Hive activity<ept id="b1293316-6f64-4923-9311-4df136403bfe">&lt;/linkText&gt;</ept><bpt id="b1293316-6f64-4923-9311-4df136403bfe">&lt;title&gt;</bpt><ept id="b1293316-6f64-4923-9311-4df136403bfe">&lt;/title&gt;</ept> which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data.</source>
+          <target state="new">Similarly you may use a <bpt id="b1293316-6f64-4923-9311-4df136403bfe">&lt;linkText&gt;</bpt>Hive activity<ept id="b1293316-6f64-4923-9311-4df136403bfe">&lt;/linkText&gt;</ept><bpt id="b1293316-6f64-4923-9311-4df136403bfe">&lt;title&gt;</bpt><ept id="b1293316-6f64-4923-9311-4df136403bfe">&lt;/title&gt;</ept> which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data.</target>
+        </trans-unit>
+        <trans-unit id="2e89d66e-6b43-4e5a-9661-80961c955b02" xml:space="preserve">
+          <source>Azure Data Factory provides a wide range of data transformation, analysis, and data movement activities.</source>
+          <target state="new">Azure Data Factory provides a wide range of data transformation, analysis, and data movement activities.</target>
+        </trans-unit>
+        <trans-unit id="9b0e62aa-81e6-462a-b62b-fa1bdb5822fd" xml:space="preserve">
+          <source><bpt id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;linkText&gt;</bpt>Pipelines<ept id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;/linkText&gt;</ept><bpt id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;title&gt;</bpt><ept id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;/title&gt;</ept> are a logical grouping of Activities.</source>
+          <target state="new"><bpt id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;linkText&gt;</bpt>Pipelines<ept id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;/linkText&gt;</ept><bpt id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;title&gt;</bpt><ept id="e2f6ebd0-f15c-4c2f-9eaf-e1cbe1fb242f">&lt;/title&gt;</ept> are a logical grouping of Activities.</target>
+        </trans-unit>
+        <trans-unit id="94f82f68-c2d4-4a6b-a775-935838fbee55" xml:space="preserve">
+          <source>They are used to group activities into a unit that together perform a task.</source>
+          <target state="new">They are used to group activities into a unit that together perform a task.</target>
+        </trans-unit>
+        <trans-unit id="432a53f6-02d0-46b0-82c4-a705508e5606" xml:space="preserve">
+          <source>For example, a sequence of several transformation Activities might be needed to cleanse log file data.</source>
+          <target state="new">For example, a sequence of several transformation Activities might be needed to cleanse log file data.</target>
+        </trans-unit>
+        <trans-unit id="863a68af-765e-4385-9443-4fcc65015790" xml:space="preserve">
+          <source>This sequence could have a complex schedule and dependencies that need to be orchestrated and automated.</source>
+          <target state="new">This sequence could have a complex schedule and dependencies that need to be orchestrated and automated.</target>
+        </trans-unit>
+        <trans-unit id="53fe265b-80f8-4edb-9e55-6bd41f5c5206" xml:space="preserve">
+          <source>All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.</source>
+          <target state="new">All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.</target>
+        </trans-unit>
+        <trans-unit id="fb3751b0-b980-4b36-b772-cfed44ca82bf" xml:space="preserve">
+          <source>“CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.</source>
+          <target state="new">“CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.</target>
+        </trans-unit>
+        <trans-unit id="837b784b-e76a-4fc9-b18b-ca77d97ffed9" xml:space="preserve">
+          <source><bpt id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;linkText&gt;</bpt>Datasets<ept id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;/linkText&gt;</ept><bpt id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;title&gt;</bpt><ept id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;/title&gt;</ept> are named references/pointers to the data you want to use as an input or an output of an Activity.</source>
+          <target state="new"><bpt id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;linkText&gt;</bpt>Datasets<ept id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;/linkText&gt;</ept><bpt id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;title&gt;</bpt><ept id="ffaccba1-1e40-4942-a7b1-c42bdd1ead59">&lt;/title&gt;</ept> are named references/pointers to the data you want to use as an input or an output of an Activity.</target>
+        </trans-unit>
+        <trans-unit id="12eef12d-3af6-4c22-8282-e1a46d44f7ab" xml:space="preserve">
+          <source>Datasets identify data structures within different data stores including tables, files, folders, and documents.</source>
+          <target state="new">Datasets identify data structures within different data stores including tables, files, folders, and documents.</target>
+        </trans-unit>
+        <trans-unit id="2c108e5d-ab5c-4561-a23c-226f788dfb74" xml:space="preserve">
+          <source>Linked services define the information needed for Data Factory to connect to external resources.</source>
+          <target state="new">Linked services define the information needed for Data Factory to connect to external resources.</target>
+        </trans-unit>
+        <trans-unit id="d3749507-7eea-4243-89e9-ca690b3d7deb" xml:space="preserve">
+          <source>Linked services are used for two purposes in Data Factory:</source>
+          <target state="new">Linked services are used for two purposes in Data Factory:</target>
+        </trans-unit>
+        <trans-unit id="f94fe145-44a8-4466-a8ff-6a9948591434" xml:space="preserve">
+          <source>To represent a data store  including, but not limited to, an on-premises SQL Server, Oracle DB, File share or an Azure Blob Storage account.</source>
+          <target state="new">To represent a data store  including, but not limited to, an on-premises SQL Server, Oracle DB, File share or an Azure Blob Storage account.</target>
+        </trans-unit>
+        <trans-unit id="c929a313-ff07-40d8-a10c-7d16cfe9db6d" xml:space="preserve">
+          <source>As discussed above, Datasets represent the structures within the data stores connected to Data Factory through a Linked service.</source>
+          <target state="new">As discussed above, Datasets represent the structures within the data stores connected to Data Factory through a Linked service.</target>
+        </trans-unit>
+        <trans-unit id="d2ee0759-80dc-44ac-9120-8c1ef54a9a80" xml:space="preserve">
+          <source>To represent a compute resource that can host the execution of an Activity.</source>
+          <target state="new">To represent a compute resource that can host the execution of an Activity.</target>
+        </trans-unit>
+        <trans-unit id="057af42b-7f47-4c11-83e0-83fb99b08d93" xml:space="preserve">
+          <source>For example, the “HDInsightHive Activity”executes on an HDInsight Hadoop cluster.</source>
+          <target state="new">For example, the “HDInsightHive Activity”executes on an HDInsight Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="e6699721-6ef9-4602-ac3d-79866b935fb8" xml:space="preserve">
+          <source>With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!</source>
+          <target state="new">With the four simple concepts of datasets, activities, pipelines and linked services, you are ready to get started!</target>
+        </trans-unit>
+        <trans-unit id="fefaaf9d-f176-48d9-b7d6-df6e2bb8d25a" xml:space="preserve">
+          <source>You can <bpt id="b2515640-6adc-4a79-b389-71396b29534c">&lt;linkText&gt;</bpt>build your first pipeline<ept id="b2515640-6adc-4a79-b389-71396b29534c">&lt;/linkText&gt;</ept><bpt id="b2515640-6adc-4a79-b389-71396b29534c">&lt;title&gt;</bpt><ept id="b2515640-6adc-4a79-b389-71396b29534c">&lt;/title&gt;</ept>  from the ground up, or deploy a ready-made sample by following the instructions in our <bpt id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;linkText&gt;</bpt>Data Factory Samples<ept id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;/linkText&gt;</ept><bpt id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;title&gt;</bpt><ept id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;/title&gt;</ept> article.</source>
+          <target state="new">You can <bpt id="b2515640-6adc-4a79-b389-71396b29534c">&lt;linkText&gt;</bpt>build your first pipeline<ept id="b2515640-6adc-4a79-b389-71396b29534c">&lt;/linkText&gt;</ept><bpt id="b2515640-6adc-4a79-b389-71396b29534c">&lt;title&gt;</bpt><ept id="b2515640-6adc-4a79-b389-71396b29534c">&lt;/title&gt;</ept>  from the ground up, or deploy a ready-made sample by following the instructions in our <bpt id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;linkText&gt;</bpt>Data Factory Samples<ept id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;/linkText&gt;</ept><bpt id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;title&gt;</bpt><ept id="6666b2c3-93e7-4c51-acb1-ae136c1a5028">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="ea51d054-af14-4b9c-ad3f-e8c5ef4478e5" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="d898b3c0-7685-4c17-bd36-b24d927914f3" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;linkText&gt;</bpt>email<ept id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;/linkText&gt;</ept><bpt id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;title&gt;</bpt><ept id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;linkText&gt;</bpt>email<ept id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;/linkText&gt;</ept><bpt id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;title&gt;</bpt><ept id="bddec1c0-f384-4db8-9d25-b1acf8b78eba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

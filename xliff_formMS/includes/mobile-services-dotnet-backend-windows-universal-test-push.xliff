@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="613e5968-784f-414b-aef8-f4ca39a9e609" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="613e5968-784f-414b-aef8-f4ca39a9e609" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="656e2aad-8cc5-4726-864d-d288786393f1">
+        <trans-unit id="bc1f7db0-d1d3-468c-9559-ee18adfbbfa0" xml:space="preserve">
+          <source>Right-click the Windows Store project, click <bpt id="35600d5b-cf17-4c46-80f8-eeb52e0e6704">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="35600d5b-cf17-4c46-80f8-eeb52e0e6704">&lt;/strong&gt;</ept>, then press the F5 key to run the Windows Store app.</source>
+          <target state="new">Right-click the Windows Store project, click <bpt id="35600d5b-cf17-4c46-80f8-eeb52e0e6704">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="35600d5b-cf17-4c46-80f8-eeb52e0e6704">&lt;/strong&gt;</ept>, then press the F5 key to run the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="38c4a92a-2699-4eae-b68d-25ad5f085e0a" xml:space="preserve">
+          <source>After the app starts, the device is registered for push notifications.</source>
+          <target state="new">After the app starts, the device is registered for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="5ceb4396-a4f5-410a-bd9a-d14539368675" xml:space="preserve">
+          <source>Stop the Windows Store app and repeat the previous step to run the Windows Phone Store app.</source>
+          <target state="new">Stop the Windows Store app and repeat the previous step to run the Windows Phone Store app.</target>
+        </trans-unit>
+        <trans-unit id="abbbd6bb-7952-4ab7-8d4e-fcdb62c78d35" xml:space="preserve">
+          <source>At this point, both devices are registered to receive push notifications.</source>
+          <target state="new">At this point, both devices are registered to receive push notifications.</target>
+        </trans-unit>
+        <trans-unit id="96bd1f29-b837-45cd-9762-af018adf235b" xml:space="preserve">
+          <source>Run the Windows Store app again, and type text in <bpt id="f980b4d7-27ab-4454-b107-b84c9f04dec8">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="f980b4d7-27ab-4454-b107-b84c9f04dec8">&lt;/strong&gt;</ept>, and then click <bpt id="990b1944-a3b3-4ac9-997e-f75a1ea81564">&lt;strong&gt;</bpt>Save<ept id="990b1944-a3b3-4ac9-997e-f75a1ea81564">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run the Windows Store app again, and type text in <bpt id="f980b4d7-27ab-4454-b107-b84c9f04dec8">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="f980b4d7-27ab-4454-b107-b84c9f04dec8">&lt;/strong&gt;</ept>, and then click <bpt id="990b1944-a3b3-4ac9-997e-f75a1ea81564">&lt;strong&gt;</bpt>Save<ept id="990b1944-a3b3-4ac9-997e-f75a1ea81564">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23c588de-16a1-4c26-9a8a-c487b9b62933" xml:space="preserve">
+          <source><bpt id="4e415f6c-f502-4623-8719-9721f373fa04">&lt;linkText&gt;</bpt><ept id="4e415f6c-f502-4623-8719-9721f373fa04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e415f6c-f502-4623-8719-9721f373fa04">&lt;linkText&gt;</bpt><ept id="4e415f6c-f502-4623-8719-9721f373fa04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b847279-596b-433f-a37f-b58e39ade5b6" xml:space="preserve">
+          <source>Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS.</source>
+          <target state="new">Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS.</target>
+        </trans-unit>
+        <trans-unit id="153238a1-4e4b-47f2-9195-5599ce9762f5" xml:space="preserve">
+          <source><bpt id="44885793-966f-45be-a57e-b62b241b5ec4">&lt;linkText&gt;</bpt><ept id="44885793-966f-45be-a57e-b62b241b5ec4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44885793-966f-45be-a57e-b62b241b5ec4">&lt;linkText&gt;</bpt><ept id="44885793-966f-45be-a57e-b62b241b5ec4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b724a3f1-17ac-4283-9ecb-1c2548d50e6a" xml:space="preserve">
+          <source>The notification is displayed on Windows Phone even when the app isn't running.</source>
+          <target state="new">The notification is displayed on Windows Phone even when the app isn't running.</target>
+        </trans-unit>
+        <trans-unit id="b2dc5877-5058-4c47-ad3f-42036df8a35a" xml:space="preserve">
+          <source><bpt id="93340c6a-11f9-4ebf-b0a6-d5c7aef56537">&lt;linkText&gt;</bpt><ept id="93340c6a-11f9-4ebf-b0a6-d5c7aef56537">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93340c6a-11f9-4ebf-b0a6-d5c7aef56537">&lt;linkText&gt;</bpt><ept id="93340c6a-11f9-4ebf-b0a6-d5c7aef56537">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

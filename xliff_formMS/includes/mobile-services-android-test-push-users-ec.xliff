@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7b45d99a-46f9-4998-a97b-823a4507c25c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7b45d99a-46f9-4998-a97b-823a4507c25c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ac7edd69-031b-4183-9671-2687215ac12c">
+        <trans-unit id="590ab957-32a6-47e3-8925-fd5563e1f75a" xml:space="preserve">
+          <source>In Eclipse, press F11 to deploy the changes to your Android device and run the app.</source>
+          <target state="new">In Eclipse, press F11 to deploy the changes to your Android device and run the app.</target>
+        </trans-unit>
+        <trans-unit id="6936f9d7-6032-42fa-869d-271ee1768d64" xml:space="preserve">
+          <source>Log in with your identity provider and verify that authentication succeeds.</source>
+          <target state="new">Log in with your identity provider and verify that authentication succeeds.</target>
+        </trans-unit>
+        <trans-unit id="6e15b4e8-c66d-4705-b2bc-c8edbaaa0fcb" xml:space="preserve">
+          <source>In the app, type text in <bpt id="b8dcc77e-55f8-4fcc-a76c-05263360dc54">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="b8dcc77e-55f8-4fcc-a76c-05263360dc54">&lt;/strong&gt;</ept>, and then click <bpt id="4494f474-682b-4b71-b692-e6a896ebd76f">&lt;strong&gt;</bpt>Save<ept id="4494f474-682b-4b71-b692-e6a896ebd76f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type text in <bpt id="b8dcc77e-55f8-4fcc-a76c-05263360dc54">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="b8dcc77e-55f8-4fcc-a76c-05263360dc54">&lt;/strong&gt;</ept>, and then click <bpt id="4494f474-682b-4b71-b692-e6a896ebd76f">&lt;strong&gt;</bpt>Save<ept id="4494f474-682b-4b71-b692-e6a896ebd76f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2eab2a79-4aa2-4218-abff-fe99ab7ecb54" xml:space="preserve">
+          <source>Note that after the insert completes, the app receives a push notification from GCM.</source>
+          <target state="new">Note that after the insert completes, the app receives a push notification from GCM.</target>
+        </trans-unit>
+        <trans-unit id="03862dad-06af-49c0-b65e-34c45cfd1e7d" xml:space="preserve">
+          <source>(Optional) Repeat steps 1-3 on a different client device and using a different account when logging in.</source>
+          <target state="new">(Optional) Repeat steps 1-3 on a different client device and using a different account when logging in.</target>
+        </trans-unit>
+        <trans-unit id="73957906-0bd5-4546-a14d-48895e98b3b9" xml:space="preserve">
+          <source>Verify that the notification is received only by devices authenticating with the same user account.</source>
+          <target state="new">Verify that the notification is received only by devices authenticating with the same user account.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

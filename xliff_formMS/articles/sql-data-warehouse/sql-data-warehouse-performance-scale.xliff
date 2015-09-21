@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="294124e6-3f31-4136-9b5a-6a3203604e5b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="294124e6-3f31-4136-9b5a-6a3203604e5b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b8f0f4ec-9814-4027-9e3c-16d0c40c4391">
+        <trans-unit id="f075f763-868e-4541-831e-c6aaad62ece5" xml:space="preserve">
+          <source>Elastic performance and scale with SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Elastic performance and scale with SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1b1ceb1c-b1e5-46b7-8c5f-fc560670e716" xml:space="preserve">
+          <source>Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down. Code examples provided.</source>
+          <target state="new">Understand SQL Data Warehouse elasticity using Data Warehouse Units to scale compute resources up and down. Code examples provided.</target>
+        </trans-unit>
+        <trans-unit id="8e0ba254-2282-4da8-8e7e-77964646989a" xml:space="preserve">
+          <source>To elastically increase or decrease your compute power all you need to do is adjust the number of Data Warehouse Units (DWU) allocated to your SQL Data Warehouse.</source>
+          <target state="new">To elastically increase or decrease your compute power all you need to do is adjust the number of Data Warehouse Units (DWU) allocated to your SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="5cff6f01-761b-4b80-8b0c-c59c7e4b892a" xml:space="preserve">
+          <source>Data Warehouse Units are a new concept delivered by SQL Data Warehouse to enable you to manage this simmply and effectively.</source>
+          <target state="new">Data Warehouse Units are a new concept delivered by SQL Data Warehouse to enable you to manage this simmply and effectively.</target>
+        </trans-unit>
+        <trans-unit id="6240805a-78cf-4538-82f9-2d8fafff2fc1" xml:space="preserve">
+          <source>This topic serves as an introduction to Data Warehouse units; explaining how you can use them to elastically scale your compute power.</source>
+          <target state="new">This topic serves as an introduction to Data Warehouse units; explaining how you can use them to elastically scale your compute power.</target>
+        </trans-unit>
+        <trans-unit id="935812b9-4165-4802-b754-6ba572882fb2" xml:space="preserve">
+          <source>The article also provides some initial guidance on how to set a reasonable DWU value for your environment.</source>
+          <target state="new">The article also provides some initial guidance on how to set a reasonable DWU value for your environment.</target>
+        </trans-unit>
+        <trans-unit id="1188a2b0-1888-40ea-b3cb-b8a91e966dd4" xml:space="preserve">
+          <source>Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.</source>
+          <target state="new">Behind the scenes Microsoft runs a number of performance benchmark tests to determine how much hardware and with what configuration will allow us to deliver a competitive offering to our customers.</target>
+        </trans-unit>
+        <trans-unit id="7b7818c1-6170-4f34-b3e5-1c8a1bc6ba29" xml:space="preserve">
+          <source>Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.</source>
+          <target state="new">Scaling compute up and down can be done in blocks of 100 DWUs, but not all multiples of 100 DWU are offered.</target>
+        </trans-unit>
+        <trans-unit id="d9a4e659-2661-4b10-8278-95d26323c911" xml:space="preserve">
+          <source>There are many different solutions SQL Data Warehouse can unblock for customers.</source>
+          <target state="new">There are many different solutions SQL Data Warehouse can unblock for customers.</target>
+        </trans-unit>
+        <trans-unit id="48570573-063f-4c3f-84b7-4a8734671c2a" xml:space="preserve">
+          <source>As such, there is a large variety in the types of queries customers will run and how much data they operate over, as well as the architecture of the schema, how the data is distributed, how many users will access the data, how frequently, etc..</source>
+          <target state="new">As such, there is a large variety in the types of queries customers will run and how much data they operate over, as well as the architecture of the schema, how the data is distributed, how many users will access the data, how frequently, etc..</target>
+        </trans-unit>
+        <trans-unit id="eef7d0b9-5679-4087-a722-a35324358ef4" xml:space="preserve">
+          <source>Rather than provide prescriptive DWU starting points that may be great for a category of customers, let's approach this question with a practical approach.</source>
+          <target state="new">Rather than provide prescriptive DWU starting points that may be great for a category of customers, let's approach this question with a practical approach.</target>
+        </trans-unit>
+        <trans-unit id="5856e6fd-aef1-4f32-a0bf-1ea29c2c33aa" xml:space="preserve">
+          <source>Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds.</source>
+          <target state="new">Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds.</target>
+        </trans-unit>
+        <trans-unit id="9bfbf9df-3a4b-4194-b16b-723aa76491d4" xml:space="preserve">
+          <source>This gives you the freedom to try things out and determine what the best fit for your scenario is.</source>
+          <target state="new">This gives you the freedom to try things out and determine what the best fit for your scenario is.</target>
+        </trans-unit>
+        <trans-unit id="80bb5fc2-e3b6-4eb6-99d0-e23f42dbd1ec" xml:space="preserve">
+          <source>For a data warehouse in development, start with small number of DWUs.</source>
+          <target state="new">For a data warehouse in development, start with small number of DWUs.</target>
+        </trans-unit>
+        <trans-unit id="278e72e1-1de7-4761-8392-1e2bdde34958" xml:space="preserve">
+          <source>Monitor your application performance, so you can become familiar with DWUs versus the performance you observe.</source>
+          <target state="new">Monitor your application performance, so you can become familiar with DWUs versus the performance you observe.</target>
+        </trans-unit>
+        <trans-unit id="96d30576-1b45-4363-a451-9e36f8427740" xml:space="preserve">
+          <source>Determine how much faster or slower performance should be for you to reach the optimum performance level for your business requirements by assuming linear scale.</source>
+          <target state="new">Determine how much faster or slower performance should be for you to reach the optimum performance level for your business requirements by assuming linear scale.</target>
+        </trans-unit>
+        <trans-unit id="f0429927-2795-4b10-a5d4-48fcbd09eded" xml:space="preserve">
+          <source>Change the amount of DWU you're using to a greater or lower amount depending on need.</source>
+          <target state="new">Change the amount of DWU you're using to a greater or lower amount depending on need.</target>
+        </trans-unit>
+        <trans-unit id="7d3500a7-45b7-4363-97a6-8999dfc1560c" xml:space="preserve">
+          <source>The service will respond rapidly to adjust the compute resources to meet the DWU requirements.</source>
+          <target state="new">The service will respond rapidly to adjust the compute resources to meet the DWU requirements.</target>
+        </trans-unit>
+        <trans-unit id="aadeb3cc-9287-4f70-8e4e-64c8ae13bb86" xml:space="preserve">
+          <source>Make adjustments until you reach an optimum performance level for your business requirements.</source>
+          <target state="new">Make adjustments until you reach an optimum performance level for your business requirements.</target>
+        </trans-unit>
+        <trans-unit id="9b60e4e4-1497-44e4-ba5d-c598842589d3" xml:space="preserve">
+          <source>If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points.</source>
+          <target state="new">If you have an application with a fluctuating workload, you can move performance levels up or down to accommodate peaks and low points.</target>
+        </trans-unit>
+        <trans-unit id="eacaa514-01da-4504-9771-253844503de9" xml:space="preserve">
+          <source>For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during those peak days and then throttle it back down when the peak period is over.</source>
+          <target state="new">For example, if a workload typically peaks at the end of the month, you could plan to add more DWUs during those peak days and then throttle it back down when the peak period is over.</target>
+        </trans-unit>
+        <trans-unit id="e280f595-9e95-46e5-8ffb-4f29eeae5854" xml:space="preserve">
+          <source>Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs).</source>
+          <target state="new">Independent of cloud storage, SQL Data Warehouse's elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs).</target>
+        </trans-unit>
+        <trans-unit id="811e56d2-df5f-415e-9533-d1817f4ca7bd" xml:space="preserve">
+          <source>This gives you the flexibility to tune your compute power to something that is optimal for your business.</source>
+          <target state="new">This gives you the flexibility to tune your compute power to something that is optimal for your business.</target>
+        </trans-unit>
+        <trans-unit id="7c2aee9b-cc76-410d-9193-8b16f323034d" xml:space="preserve">
+          <source>To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Portal.</source>
+          <target state="new">To increase the compute power you can add more DWUs to the service using the scale slider in the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="94480af9-f6f9-48ca-bd5a-603c79284ff3" xml:space="preserve">
+          <source>You can also add DWUs through T-SQL, REST APIs, or Powershell cmdlets.</source>
+          <target state="new">You can also add DWUs through T-SQL, REST APIs, or Powershell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="fef7b299-3243-45cb-9cee-151a1876d3f8" xml:space="preserve">
+          <source>Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.</source>
+          <target state="new">Scaling up and down cancels all running or queued activities, but completes in seconds so you can resume with more or less compute power.</target>
+        </trans-unit>
+        <trans-unit id="bb485e26-b9f6-4c13-a368-2ed623fe8b43" xml:space="preserve">
+          <source>In the <bpt id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;linkText&gt;</bpt>Azure Portal<ept id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;/linkText&gt;</ept><bpt id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;title&gt;</bpt><ept id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;/title&gt;</ept>, you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.</source>
+          <target state="new">In the <bpt id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;linkText&gt;</bpt>Azure Portal<ept id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;/linkText&gt;</ept><bpt id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;title&gt;</bpt><ept id="4af4faac-8cf9-4b0f-947e-7d1181c9274f">&lt;/title&gt;</ept>, you can click the 'Scale' icon at the top of your SQL Data Warehouse page and then use the slider to increase or decrease the amount of DWUs applied to your Data Warehouse before clicking 'Save'.</target>
+        </trans-unit>
+        <trans-unit id="7b208bf4-58aa-4a1b-bec2-33c9f09aef50" xml:space="preserve">
+          <source>If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:</source>
+          <target state="new">If you would rather change the scale programmatically, the T-SQL code below shows how to adjust the DWU allocation for your SQL Data Warehouse:</target>
+        </trans-unit>
+        <trans-unit id="64245ba4-1fdc-408e-b6bd-b3a18359bc94" xml:space="preserve">
+          <source>Please note that this T-SQL should be run against your logical server, and not against the SQL Data Warehouse instance itself.</source>
+          <target state="new">Please note that this T-SQL should be run against your logical server, and not against the SQL Data Warehouse instance itself.</target>
+        </trans-unit>
+        <trans-unit id="f0b22bce-523d-428c-9b3f-55f3547e9c1e" xml:space="preserve">
+          <source>You can also achieve the same with result using Powershell using the code below:</source>
+          <target state="new">You can also achieve the same with result using Powershell using the code below:</target>
+        </trans-unit>
+        <trans-unit id="59a912ca-0449-430c-b011-9759d65b32ae" xml:space="preserve">
+          <source>Unique to SQL Data Warehouse is the ability to pause and resume compute on demand.</source>
+          <target state="new">Unique to SQL Data Warehouse is the ability to pause and resume compute on demand.</target>
+        </trans-unit>
+        <trans-unit id="73ddf913-ffe6-4114-b42c-e611158c0547" xml:space="preserve">
+          <source>If the team will not be using the Data Warehouse instance for a period of time, like nights, weekends, certain holidays or for any other reason, you can pause the Data Warehouse instance for that period of time and pick up where you left off when you return.</source>
+          <target state="new">If the team will not be using the Data Warehouse instance for a period of time, like nights, weekends, certain holidays or for any other reason, you can pause the Data Warehouse instance for that period of time and pick up where you left off when you return.</target>
+        </trans-unit>
+        <trans-unit id="a491dc72-9799-4091-849e-f23d4936a27a" xml:space="preserve">
+          <source>The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.</source>
+          <target state="new">The pause action returns your compute resources back to the pool of available resources in the data center and the resume action acquires the necessary compute resources needed for the DWU you've set and assigns them to your Data Warehouse instance.</target>
+        </trans-unit>
+        <trans-unit id="f2cbb8f0-218f-491e-9025-b6df5894f94a" xml:space="preserve">
+          <source>Pause and resume of your compute power can be done through the <bpt id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;linkText&gt;</bpt>Azure Portal<ept id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;/linkText&gt;</ept><bpt id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;title&gt;</bpt><ept id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;/title&gt;</ept>, via REST APIs or through Powershell.</source>
+          <target state="new">Pause and resume of your compute power can be done through the <bpt id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;linkText&gt;</bpt>Azure Portal<ept id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;/linkText&gt;</ept><bpt id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;title&gt;</bpt><ept id="163981b4-3375-4b87-8879-a11b1ca2026b">&lt;/title&gt;</ept>, via REST APIs or through Powershell.</target>
+        </trans-unit>
+        <trans-unit id="d1039af6-5bed-40a6-b781-60a0fd810d76" xml:space="preserve">
+          <source>Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.</source>
+          <target state="new">Pausing cancels all running or queued activities and when you return you can resume your compute resources in seconds.</target>
+        </trans-unit>
+        <trans-unit id="0e4c2514-d300-4da9-91a7-bd089ac20437" xml:space="preserve">
+          <source>The code below shows how to perform a pause using PowerShell:</source>
+          <target state="new">The code below shows how to perform a pause using PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="a287a225-4b82-4d96-bdea-c96d90b79066" xml:space="preserve">
+          <source>Resuming the service is also very straightforward with PowerShell:</source>
+          <target state="new">Resuming the service is also very straightforward with PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="fce42fff-54cf-463b-b8b2-245292ea3b7f" xml:space="preserve">
+          <source>For more details on how to use PowerShell please refer to the <bpt id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;linkText&gt;</bpt>Introduction to PowerShell cmdlets<ept id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;/linkText&gt;</ept><bpt id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;title&gt;</bpt><ept id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;/title&gt;</ept> article.</source>
+          <target state="new">For more details on how to use PowerShell please refer to the <bpt id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;linkText&gt;</bpt>Introduction to PowerShell cmdlets<ept id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;/linkText&gt;</ept><bpt id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;title&gt;</bpt><ept id="849dbcc7-7e15-4a55-86ee-b29d03113529">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="ad69ba2d-4b65-49bc-8803-26161dd75818" xml:space="preserve">
+          <source>[Azure.Note] Since storage is separate from compute, your storage is unaffected by pause.</source>
+          <target state="new">[Azure.Note] Since storage is separate from compute, your storage is unaffected by pause.</target>
+        </trans-unit>
+        <trans-unit id="fa60a371-41dc-474f-b8df-4aa9736567c1" xml:space="preserve">
+          <source>For the performance overview, see <bpt id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;linkText&gt;</bpt>performance overview<ept id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;/linkText&gt;</ept><bpt id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;title&gt;</bpt><ept id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the performance overview, see <bpt id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;linkText&gt;</bpt>performance overview<ept id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;/linkText&gt;</ept><bpt id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;title&gt;</bpt><ept id="f15ec0ce-2e0f-4b3d-b17c-4eddb460f756">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c72d290c-7acf-403d-ab91-dba66b1daf7d" xml:space="preserve">
+          <source>sql-data-warehouse-overview-performance.md</source>
+          <target state="new">sql-data-warehouse-overview-performance.md</target>
+        </trans-unit>
+        <trans-unit id="a01f40d6-3a0d-4cfa-a702-68c9d3c31c52" xml:space="preserve">
+          <source>sql-data-warehouse-get-started-powershell-cmdlets.md</source>
+          <target state="new">sql-data-warehouse-get-started-powershell-cmdlets.md</target>
+        </trans-unit>
+        <trans-unit id="41ec888c-955f-40b7-bd3e-a05d369c4f91" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="297f6a8a-bb5d-43a0-b2c1-9869e9ebda19" />
+    </body>
+  </file>
+</xliff>

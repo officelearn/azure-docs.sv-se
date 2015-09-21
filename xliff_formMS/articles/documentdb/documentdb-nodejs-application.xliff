@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3d5b64d4-c744-4489-ac2c-da43615d4d1e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3d5b64d4-c744-4489-ac2c-da43615d4d1e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57a1f898-864d-4774-9c79-4c6ff44dce94">
+        <trans-unit id="5ba0af62-ecc2-43dc-9ba7-7c67af0cc6eb" xml:space="preserve">
+          <source>Build a Node.js web application using DocumentDB | Microsoft Azure</source>
+          <target state="new">Build a Node.js web application using DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="84b511b4-9b42-4a70-b9b3-2e81ff7f1269" xml:space="preserve">
+          <source>Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites.</source>
+          <target state="new">Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="24f4a390-10ea-4278-a33e-e3f9d303ff31" xml:space="preserve">
+          <source>This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.</source>
+          <target state="new">This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="2f2dd936-ef64-48d4-8934-c56c74144d41" xml:space="preserve">
+          <source>We recommend getting started by watching the following video, where we show you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application.</source>
+          <target state="new">We recommend getting started by watching the following video, where we show you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="65c51120-72ce-4028-af22-9d98585e525a" xml:space="preserve">
+          <source>Then, return to this article, where you'll learn the answers to the following questions:</source>
+          <target state="new">Then, return to this article, where you'll learn the answers to the following questions:</target>
+        </trans-unit>
+        <trans-unit id="d62dc7f6-c39d-4482-9f2d-2ba0569acb39" xml:space="preserve">
+          <source>How do I work with DocumentDB using the documentdb npm module?</source>
+          <target state="new">How do I work with DocumentDB using the documentdb npm module?</target>
+        </trans-unit>
+        <trans-unit id="00056e96-199e-4d45-a4d8-b232c4617f69" xml:space="preserve">
+          <source>How do I deploy the web application to Azure Websites?</source>
+          <target state="new">How do I deploy the web application to Azure Websites?</target>
+        </trans-unit>
+        <trans-unit id="765fcd41-a5e9-4121-a412-0cc2312bbfb5" xml:space="preserve">
+          <source>By following this tutorial, you will build a simple web-based
+task-management application that allows creating, retrieving and
+completing of tasks.</source>
+          <target state="new">By following this tutorial, you will build a simple web-based
+task-management application that allows creating, retrieving and
+completing of tasks.</target>
+        </trans-unit>
+        <trans-unit id="02c655d5-8903-44fa-a5d3-e383525f0b7b" xml:space="preserve">
+          <source>The tasks will be stored as JSON documents in Azure
+DocumentDB.</source>
+          <target state="new">The tasks will be stored as JSON documents in Azure
+DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="5d2583bb-d1fe-475e-927c-e517e3d4e0ec" xml:space="preserve">
+          <source><bpt id="6902abaf-41da-4d63-9706-68942a4d0d4e">&lt;linkText&gt;</bpt>Screen shot of the My Todo List application created in this tutorial<ept id="6902abaf-41da-4d63-9706-68942a4d0d4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6902abaf-41da-4d63-9706-68942a4d0d4e">&lt;linkText&gt;</bpt>Screen shot of the My Todo List application created in this tutorial<ept id="6902abaf-41da-4d63-9706-68942a4d0d4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5923120a-a622-4b24-97b8-9e18da6235bf" xml:space="preserve">
+          <source>Don't have time to complete the tutorial and just want to get the complete solution from GitHub?</source>
+          <target state="new">Don't have time to complete the tutorial and just want to get the complete solution from GitHub?</target>
+        </trans-unit>
+        <trans-unit id="a38280c1-0bdf-48df-bbc1-9ba040022c1d" xml:space="preserve">
+          <source>Not a problem, get it <bpt id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;linkText&gt;</bpt>here<ept id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;/linkText&gt;</ept><bpt id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;title&gt;</bpt><ept id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Not a problem, get it <bpt id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;linkText&gt;</bpt>here<ept id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;/linkText&gt;</ept><bpt id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;title&gt;</bpt><ept id="8bef3b3c-4d3f-46b8-9368-e59e2bc3e24a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26888ddd-c964-4115-8eb1-fe6f85dee0e3" xml:space="preserve">
+          <source>This tutorial assumes that you have some prior experience using Node.js and Azure Websites.</source>
+          <target state="new">This tutorial assumes that you have some prior experience using Node.js and Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="c3033e8b-e2c7-4c69-97af-f762edc0bb35" xml:space="preserve">
+          <source>Before following the instructions in this article, you should ensure
+that you have the following:</source>
+          <target state="new">Before following the instructions in this article, you should ensure
+that you have the following:</target>
+        </trans-unit>
+        <trans-unit id="806ab309-a58e-4f41-9f63-e8d3954b30b3" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="82173c06-ade7-4f8b-8a22-7b7b1a410d24" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="1e04afb3-84e7-4f32-aea4-c1be2c9f52ea" xml:space="preserve">
+          <source>For details, see <bpt id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;/linkText&gt;</ept><bpt id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;title&gt;</bpt><ept id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;/linkText&gt;</ept><bpt id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;title&gt;</bpt><ept id="81f57c99-a9e7-4845-877f-27da8a920a7c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91428747-9be1-4bbe-952a-ec81f48e6bb9" xml:space="preserve">
+          <source><bpt id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;linkText&gt;</bpt>Node.js<ept id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;/linkText&gt;</ept><bpt id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;title&gt;</bpt><ept id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;/title&gt;</ept> version v0.10.29 or higher.</source>
+          <target state="new"><bpt id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;linkText&gt;</bpt>Node.js<ept id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;/linkText&gt;</ept><bpt id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;title&gt;</bpt><ept id="a2dac3e3-6a8f-4526-baf9-ee14d978e3d2">&lt;/title&gt;</ept> version v0.10.29 or higher.</target>
+        </trans-unit>
+        <trans-unit id="6706b3ac-9232-4a58-a049-52620102118e" xml:space="preserve">
+          <source><bpt id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;linkText&gt;</bpt>Express generator<ept id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;/linkText&gt;</ept><bpt id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;title&gt;</bpt><ept id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;/title&gt;</ept> (you can install this via <bpt id="f857a5c9-ac26-480e-bd8d-5537707f76b6">&lt;code&gt;</bpt>npm install express-generator -g<ept id="f857a5c9-ac26-480e-bd8d-5537707f76b6">&lt;/code&gt;</ept>)</source>
+          <target state="new"><bpt id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;linkText&gt;</bpt>Express generator<ept id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;/linkText&gt;</ept><bpt id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;title&gt;</bpt><ept id="bc2a47ad-a15d-4287-a0bb-406984ad8995">&lt;/title&gt;</ept> (you can install this via <bpt id="f857a5c9-ac26-480e-bd8d-5537707f76b6">&lt;code&gt;</bpt>npm install express-generator -g<ept id="f857a5c9-ac26-480e-bd8d-5537707f76b6">&lt;/code&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="e1b6c87c-5461-4b10-bd76-a69488e3f375" xml:space="preserve">
+          <source><bpt id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;linkText&gt;</bpt>Git<ept id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;/linkText&gt;</ept><bpt id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;title&gt;</bpt><ept id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;linkText&gt;</bpt>Git<ept id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;/linkText&gt;</ept><bpt id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;title&gt;</bpt><ept id="c009853d-8bd1-480d-8a76-b97184033b66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="585441af-5a7d-4ea7-9649-8b4839088172" xml:space="preserve">
+          <source>Let's start by creating a DocumentDB account.</source>
+          <target state="new">Let's start by creating a DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="6351a648-0bec-41cc-a25e-d7d45d3bd519" xml:space="preserve">
+          <source>If you already have an account, you can skip to <bpt id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;linkText&gt;</bpt>Step 2: Create a new Node.js application<ept id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;/linkText&gt;</ept><bpt id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;title&gt;</bpt><ept id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have an account, you can skip to <bpt id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;linkText&gt;</bpt>Step 2: Create a new Node.js application<ept id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;/linkText&gt;</ept><bpt id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;title&gt;</bpt><ept id="60ffd7c9-d5fa-4d92-810a-92261fdb096c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d3ee4ad-5b7e-41db-9284-f4060321c2aa" xml:space="preserve">
+          <source><bpt id="8b7d3d5b-4a4b-4670-ae96-81c5d32713c9">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="8b7d3d5b-4a4b-4670-ae96-81c5d32713c9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8b7d3d5b-4a4b-4670-ae96-81c5d32713c9">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="8b7d3d5b-4a4b-4670-ae96-81c5d32713c9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9784d0d-559f-4aa0-b519-672ffdb16098" xml:space="preserve">
+          <source><bpt id="19e3bed0-f992-4274-98f5-9cccb422bf55">&lt;token href="../../includes/documentdb-keys.md"&gt;</bpt><ept id="19e3bed0-f992-4274-98f5-9cccb422bf55">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="19e3bed0-f992-4274-98f5-9cccb422bf55">&lt;token href="../../includes/documentdb-keys.md"&gt;</bpt><ept id="19e3bed0-f992-4274-98f5-9cccb422bf55">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b762b15-6921-418b-b381-49d7f3362129" xml:space="preserve">
+          <source>Now let's create a basic Hello World Node.js project using the <bpt id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;linkText&gt;</bpt>Express<ept id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;/linkText&gt;</ept><bpt id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;title&gt;</bpt><ept id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;/title&gt;</ept> framework.</source>
+          <target state="new">Now let's create a basic Hello World Node.js project using the <bpt id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;linkText&gt;</bpt>Express<ept id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;/linkText&gt;</ept><bpt id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;title&gt;</bpt><ept id="736f92f7-bee4-4ab8-a67a-8bd1a6fec141">&lt;/title&gt;</ept> framework.</target>
+        </trans-unit>
+        <trans-unit id="69b82ce8-7400-49fa-8693-229192710913" xml:space="preserve">
+          <source>Open your favorite terminal.</source>
+          <target state="new">Open your favorite terminal.</target>
+        </trans-unit>
+        <trans-unit id="04386eac-95d2-4477-ae24-f28838d131f7" xml:space="preserve">
+          <source>Use the express generator to generate a new application called <bpt id="902e5815-6968-4da2-8c8c-ae6ac454829b">&lt;strong&gt;</bpt>todo<ept id="902e5815-6968-4da2-8c8c-ae6ac454829b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the express generator to generate a new application called <bpt id="902e5815-6968-4da2-8c8c-ae6ac454829b">&lt;strong&gt;</bpt>todo<ept id="902e5815-6968-4da2-8c8c-ae6ac454829b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6139932a-e28f-4e96-84c6-a44a125398bc" xml:space="preserve">
+          <source>Open your new <bpt id="c459e649-5ba6-439c-a29f-281ddcd81b1f">&lt;strong&gt;</bpt>todo<ept id="c459e649-5ba6-439c-a29f-281ddcd81b1f">&lt;/strong&gt;</ept> directory and install dependencies.</source>
+          <target state="new">Open your new <bpt id="c459e649-5ba6-439c-a29f-281ddcd81b1f">&lt;strong&gt;</bpt>todo<ept id="c459e649-5ba6-439c-a29f-281ddcd81b1f">&lt;/strong&gt;</ept> directory and install dependencies.</target>
+        </trans-unit>
+        <trans-unit id="36c1d9b5-3c82-47ff-b212-237df1442f02" xml:space="preserve">
+          <source>Run your new application.</source>
+          <target state="new">Run your new application.</target>
+        </trans-unit>
+        <trans-unit id="c9082f2b-37de-4568-afe1-7fa97c97f2c9" xml:space="preserve">
+          <source>You can you view your new application by navigating your browser to <bpt id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;linkText&gt;</bpt>http://localhost:3000<ept id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;/linkText&gt;</ept><bpt id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;title&gt;</bpt><ept id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can you view your new application by navigating your browser to <bpt id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;linkText&gt;</bpt>http://localhost:3000<ept id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;/linkText&gt;</ept><bpt id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;title&gt;</bpt><ept id="a723dd7e-822f-4c96-aa8b-3981e117bc49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f200840f-879b-4e6b-bbae-a8173a4880a4" xml:space="preserve">
+          <source><bpt id="2ea0365f-b2e2-4546-91a4-924bada3641e">&lt;linkText&gt;</bpt>Screenshot of the Hello World application in a browser window<ept id="2ea0365f-b2e2-4546-91a4-924bada3641e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ea0365f-b2e2-4546-91a4-924bada3641e">&lt;linkText&gt;</bpt>Screenshot of the Hello World application in a browser window<ept id="2ea0365f-b2e2-4546-91a4-924bada3641e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f99dbcf-4cab-44de-911c-1f41b3c44f3d" xml:space="preserve">
+          <source>The <bpt id="51393328-8ede-4481-8b26-70ca6fac9b3f">&lt;strong&gt;</bpt>package.json<ept id="51393328-8ede-4481-8b26-70ca6fac9b3f">&lt;/strong&gt;</ept> file is one of the files created in the root of the
+project.</source>
+          <target state="new">The <bpt id="51393328-8ede-4481-8b26-70ca6fac9b3f">&lt;strong&gt;</bpt>package.json<ept id="51393328-8ede-4481-8b26-70ca6fac9b3f">&lt;/strong&gt;</ept> file is one of the files created in the root of the
+project.</target>
+        </trans-unit>
+        <trans-unit id="3720ca58-1cf1-4a67-9326-c35d773dbc21" xml:space="preserve">
+          <source>This file contains a list of additional modules that are
+required for your Node.js application.</source>
+          <target state="new">This file contains a list of additional modules that are
+required for your Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="c3b4a637-a3c6-49e0-a354-44afb2cdb782" xml:space="preserve">
+          <source>Later, when you deploy this
+application to an Azure Websites, this file is used to determine
+which modules need to be installed on Azure to support your application.</source>
+          <target state="new">Later, when you deploy this
+application to an Azure Websites, this file is used to determine
+which modules need to be installed on Azure to support your application.</target>
+        </trans-unit>
+        <trans-unit id="fd68bc96-ecef-43c7-abbb-678e7491c921" xml:space="preserve">
+          <source>We still need to install two more packages for this tutorial.</source>
+          <target state="new">We still need to install two more packages for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="4dab2114-6941-4b98-9ce9-b9b874b6d0ea" xml:space="preserve">
+          <source>Back in the terminal, install the <bpt id="07ba5d59-13e3-484e-88d4-6d87ac02cfa5">&lt;strong&gt;</bpt>async<ept id="07ba5d59-13e3-484e-88d4-6d87ac02cfa5">&lt;/strong&gt;</ept> module via npm.</source>
+          <target state="new">Back in the terminal, install the <bpt id="07ba5d59-13e3-484e-88d4-6d87ac02cfa5">&lt;strong&gt;</bpt>async<ept id="07ba5d59-13e3-484e-88d4-6d87ac02cfa5">&lt;/strong&gt;</ept> module via npm.</target>
+        </trans-unit>
+        <trans-unit id="8d816142-2cc9-401e-8989-43601e0b465f" xml:space="preserve">
+          <source>Install the <bpt id="7b5cd33a-9d82-4a7a-bb33-638cf4fd26a7">&lt;strong&gt;</bpt>documentdb<ept id="7b5cd33a-9d82-4a7a-bb33-638cf4fd26a7">&lt;/strong&gt;</ept> module via npm.</source>
+          <target state="new">Install the <bpt id="7b5cd33a-9d82-4a7a-bb33-638cf4fd26a7">&lt;strong&gt;</bpt>documentdb<ept id="7b5cd33a-9d82-4a7a-bb33-638cf4fd26a7">&lt;/strong&gt;</ept> module via npm.</target>
+        </trans-unit>
+        <trans-unit id="d76573ac-61d6-4546-83f3-003ee6c56c38" xml:space="preserve">
+          <source>This is the module where all the DocumentDB magic happens.</source>
+          <target state="new">This is the module where all the DocumentDB magic happens.</target>
+        </trans-unit>
+        <trans-unit id="ca3a045b-7d93-4347-82ab-240934d47831" xml:space="preserve">
+          <source>A quick check of the <bpt id="f11279dc-8749-40a2-a049-696c861465c5">&lt;strong&gt;</bpt>package.json<ept id="f11279dc-8749-40a2-a049-696c861465c5">&lt;/strong&gt;</ept> file of the application should show the additional modules.</source>
+          <target state="new">A quick check of the <bpt id="f11279dc-8749-40a2-a049-696c861465c5">&lt;strong&gt;</bpt>package.json<ept id="f11279dc-8749-40a2-a049-696c861465c5">&lt;/strong&gt;</ept> file of the application should show the additional modules.</target>
+        </trans-unit>
+        <trans-unit id="474148ee-67be-4d56-83db-9274f160c69c" xml:space="preserve">
+          <source>This file will tell Azure which packages to download and install when running your application.</source>
+          <target state="new">This file will tell Azure which packages to download and install when running your application.</target>
+        </trans-unit>
+        <trans-unit id="93b4631f-d566-4169-9236-9a6a66bb6844" xml:space="preserve">
+          <source>It should resemble the example below.</source>
+          <target state="new">It should resemble the example below.</target>
+        </trans-unit>
+        <trans-unit id="e1a2235f-9475-4d04-a1fb-5175e56bf2cf" xml:space="preserve">
+          <source><bpt id="62640f84-8b2e-4c10-a906-d73ca70ac486">&lt;linkText&gt;</bpt>Screenshot of the package.json tab<ept id="62640f84-8b2e-4c10-a906-d73ca70ac486">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62640f84-8b2e-4c10-a906-d73ca70ac486">&lt;linkText&gt;</bpt>Screenshot of the package.json tab<ept id="62640f84-8b2e-4c10-a906-d73ca70ac486">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b2e5065-f3f1-473c-82f0-eca68d8a56e4" xml:space="preserve">
+          <source>       This tells Node (and Azure later) that your application depends on these additional modules.</source>
+          <target state="new">       This tells Node (and Azure later) that your application depends on these additional modules.</target>
+        </trans-unit>
+        <trans-unit id="89468038-5b43-4d2b-9640-cf56a88d78b1" xml:space="preserve">
+          <source>That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB.</source>
+          <target state="new">That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="97732640-48c4-448d-9393-872a30341ecd" xml:space="preserve">
+          <source>In the project directory, create a new directory named <bpt id="a271222a-b944-41dd-a82e-f855694bfdc3">&lt;strong&gt;</bpt>models<ept id="a271222a-b944-41dd-a82e-f855694bfdc3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the project directory, create a new directory named <bpt id="a271222a-b944-41dd-a82e-f855694bfdc3">&lt;strong&gt;</bpt>models<ept id="a271222a-b944-41dd-a82e-f855694bfdc3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9853ac4d-dd99-4d05-9a8e-8f9e7caf838e" xml:space="preserve">
+          <source>In the <bpt id="d947078c-120d-4883-8183-ed9360370dc9">&lt;strong&gt;</bpt>models<ept id="d947078c-120d-4883-8183-ed9360370dc9">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="9c0c33bd-81bf-4b48-a12d-c5313a7bfdcf">&lt;strong&gt;</bpt>taskDao.js<ept id="9c0c33bd-81bf-4b48-a12d-c5313a7bfdcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d947078c-120d-4883-8183-ed9360370dc9">&lt;strong&gt;</bpt>models<ept id="d947078c-120d-4883-8183-ed9360370dc9">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="9c0c33bd-81bf-4b48-a12d-c5313a7bfdcf">&lt;strong&gt;</bpt>taskDao.js<ept id="9c0c33bd-81bf-4b48-a12d-c5313a7bfdcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85a0669c-1040-47e1-a033-9aa67465ae0c" xml:space="preserve">
+          <source>This file will contain the model for the tasks created by our application.</source>
+          <target state="new">This file will contain the model for the tasks created by our application.</target>
+        </trans-unit>
+        <trans-unit id="cba851ad-5343-4531-b710-98225aeb8c1e" xml:space="preserve">
+          <source>In the same <bpt id="b09e7bca-b1db-4268-a995-9dd881227aa0">&lt;strong&gt;</bpt>models<ept id="b09e7bca-b1db-4268-a995-9dd881227aa0">&lt;/strong&gt;</ept> directory, create another new file named <bpt id="87ba668e-85e0-460e-8d09-67ef9b0bd143">&lt;strong&gt;</bpt>docdbUtils.js<ept id="87ba668e-85e0-460e-8d09-67ef9b0bd143">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the same <bpt id="b09e7bca-b1db-4268-a995-9dd881227aa0">&lt;strong&gt;</bpt>models<ept id="b09e7bca-b1db-4268-a995-9dd881227aa0">&lt;/strong&gt;</ept> directory, create another new file named <bpt id="87ba668e-85e0-460e-8d09-67ef9b0bd143">&lt;strong&gt;</bpt>docdbUtils.js<ept id="87ba668e-85e0-460e-8d09-67ef9b0bd143">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff37f8b3-c850-462f-a98d-1ca86eea79e6" xml:space="preserve">
+          <source>This file will contain some useful, reusable, code that we will use throughout our application.</source>
+          <target state="new">This file will contain some useful, reusable, code that we will use throughout our application.</target>
+        </trans-unit>
+        <trans-unit id="ac83ef18-6d4e-4bcf-b3b5-c17529d13520" xml:space="preserve">
+          <source>Copy the following code in to <bpt id="a34fafd3-d5d5-41bd-b8b1-ea4004028609">&lt;strong&gt;</bpt>docdbUtils.js<ept id="a34fafd3-d5d5-41bd-b8b1-ea4004028609">&lt;/strong&gt;</ept></source>
+          <target state="new">Copy the following code in to <bpt id="a34fafd3-d5d5-41bd-b8b1-ea4004028609">&lt;strong&gt;</bpt>docdbUtils.js<ept id="a34fafd3-d5d5-41bd-b8b1-ea4004028609">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76cbc67e-45d0-4a6a-b16a-c4adf7f189b5" xml:space="preserve">
+          <source>createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection.</source>
+          <target state="new">createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection.</target>
+        </trans-unit>
+        <trans-unit id="eaa256b0-73d9-464d-9c4c-30dff46e82dc" xml:space="preserve">
+          <source>If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.</source>
+          <target state="new">If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.</target>
+        </trans-unit>
+        <trans-unit id="7fb7a5fc-8e02-430e-a107-e2a06427137b" xml:space="preserve">
+          <source>For more information on DocumentDB Offer Types please refer to <bpt id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;/linkText&gt;</ept><bpt id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;title&gt;</bpt><ept id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on DocumentDB Offer Types please refer to <bpt id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;/linkText&gt;</ept><bpt id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;title&gt;</bpt><ept id="bb7a8881-990e-4306-8122-9b82ecd57b9a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcdeeaad-ec1a-436c-85f9-6decbcf7386e" xml:space="preserve">
+          <source>Save and close the <bpt id="ea77273e-2768-4c29-af26-f92582f8f86e">&lt;strong&gt;</bpt>docdbUtils.js<ept id="ea77273e-2768-4c29-af26-f92582f8f86e">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close the <bpt id="ea77273e-2768-4c29-af26-f92582f8f86e">&lt;strong&gt;</bpt>docdbUtils.js<ept id="ea77273e-2768-4c29-af26-f92582f8f86e">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="4031f62b-fdce-4ed7-b773-45702f5d4ac7" xml:space="preserve">
+          <source>At the beginning of the <bpt id="7be1c175-2876-4da8-ba03-56db72decb52">&lt;strong&gt;</bpt>taskDao.js<ept id="7be1c175-2876-4da8-ba03-56db72decb52">&lt;/strong&gt;</ept> file, add the following code to reference the <bpt id="64cdc16d-19f9-43b2-91b3-e83cd5ace949">&lt;strong&gt;</bpt>DocumentDBClient<ept id="64cdc16d-19f9-43b2-91b3-e83cd5ace949">&lt;/strong&gt;</ept> and the <bpt id="9332baac-a671-4421-98f4-ac0e0de4c299">&lt;strong&gt;</bpt>docdbUtils.js<ept id="9332baac-a671-4421-98f4-ac0e0de4c299">&lt;/strong&gt;</ept> we created above:</source>
+          <target state="new">At the beginning of the <bpt id="7be1c175-2876-4da8-ba03-56db72decb52">&lt;strong&gt;</bpt>taskDao.js<ept id="7be1c175-2876-4da8-ba03-56db72decb52">&lt;/strong&gt;</ept> file, add the following code to reference the <bpt id="64cdc16d-19f9-43b2-91b3-e83cd5ace949">&lt;strong&gt;</bpt>DocumentDBClient<ept id="64cdc16d-19f9-43b2-91b3-e83cd5ace949">&lt;/strong&gt;</ept> and the <bpt id="9332baac-a671-4421-98f4-ac0e0de4c299">&lt;strong&gt;</bpt>docdbUtils.js<ept id="9332baac-a671-4421-98f4-ac0e0de4c299">&lt;/strong&gt;</ept> we created above:</target>
+        </trans-unit>
+        <trans-unit id="07943ed9-06af-47c7-b90f-0a0a0d94de0c" xml:space="preserve">
+          <source>Next, you will add code to define and export the Task object.</source>
+          <target state="new">Next, you will add code to define and export the Task object.</target>
+        </trans-unit>
+        <trans-unit id="2db86a40-18b8-44fe-8536-b06fe964b8fb" xml:space="preserve">
+          <source>This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.</source>
+          <target state="new">This is responsible for initializing our Task object and setting up the Database and Document Collection we will use.</target>
+        </trans-unit>
+        <trans-unit id="a638a3e2-8744-45f1-80ef-953d8ae999c8" xml:space="preserve">
+          <source>Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in DocumentDB.</source>
+          <target state="new">Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="abcfc86d-e8e0-4113-91dd-f069f6ca21d5" xml:space="preserve">
+          <source>Save and close the <bpt id="8db8a95c-2cdb-4083-9ac5-6f668e31f1d8">&lt;strong&gt;</bpt>taskDao.js<ept id="8db8a95c-2cdb-4083-9ac5-6f668e31f1d8">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close the <bpt id="8db8a95c-2cdb-4083-9ac5-6f668e31f1d8">&lt;strong&gt;</bpt>taskDao.js<ept id="8db8a95c-2cdb-4083-9ac5-6f668e31f1d8">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="3c54d5f7-da12-4e8f-88c3-19fb97a6da3a" xml:space="preserve">
+          <source>In the <bpt id="3aa2694c-9f1e-47c1-abac-713803ed027f">&lt;strong&gt;</bpt>routes<ept id="3aa2694c-9f1e-47c1-abac-713803ed027f">&lt;/strong&gt;</ept> directory of your project, create a new file named <bpt id="7947b22e-1825-40b6-830a-165f2ab07396">&lt;strong&gt;</bpt>tasklist.js<ept id="7947b22e-1825-40b6-830a-165f2ab07396">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="3aa2694c-9f1e-47c1-abac-713803ed027f">&lt;strong&gt;</bpt>routes<ept id="3aa2694c-9f1e-47c1-abac-713803ed027f">&lt;/strong&gt;</ept> directory of your project, create a new file named <bpt id="7947b22e-1825-40b6-830a-165f2ab07396">&lt;strong&gt;</bpt>tasklist.js<ept id="7947b22e-1825-40b6-830a-165f2ab07396">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dda04ef8-7900-4f99-84e8-a10bb76f939a" xml:space="preserve">
+          <source>Add the following code to <bpt id="98b6bffc-803b-4ec9-a084-6c69594f215c">&lt;strong&gt;</bpt>tasklist.js<ept id="98b6bffc-803b-4ec9-a084-6c69594f215c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following code to <bpt id="98b6bffc-803b-4ec9-a084-6c69594f215c">&lt;strong&gt;</bpt>tasklist.js<ept id="98b6bffc-803b-4ec9-a084-6c69594f215c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fc2ae61-f153-48c4-84cd-63ff99008bf9" xml:space="preserve">
+          <source>This loads the DocumentDBClient and async modules, which are used by <bpt id="768ada15-957d-4599-b04d-38c229fb1584">&lt;strong&gt;</bpt>tasklist.js<ept id="768ada15-957d-4599-b04d-38c229fb1584">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This loads the DocumentDBClient and async modules, which are used by <bpt id="768ada15-957d-4599-b04d-38c229fb1584">&lt;strong&gt;</bpt>tasklist.js<ept id="768ada15-957d-4599-b04d-38c229fb1584">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b00370b8-cfd1-445b-bd21-2e4a1baa7f5a" xml:space="preserve">
+          <source>This also defined the <bpt id="61691d67-a563-4da9-af24-c1afcba314f9">&lt;strong&gt;</bpt>TaskList<ept id="61691d67-a563-4da9-af24-c1afcba314f9">&lt;/strong&gt;</ept> function, which is passed an instance of the <bpt id="d2f2096e-03f2-4092-abf3-7f56417f4430">&lt;strong&gt;</bpt>Task<ept id="d2f2096e-03f2-4092-abf3-7f56417f4430">&lt;/strong&gt;</ept> object we defined earlier:</source>
+          <target state="new">This also defined the <bpt id="61691d67-a563-4da9-af24-c1afcba314f9">&lt;strong&gt;</bpt>TaskList<ept id="61691d67-a563-4da9-af24-c1afcba314f9">&lt;/strong&gt;</ept> function, which is passed an instance of the <bpt id="d2f2096e-03f2-4092-abf3-7f56417f4430">&lt;strong&gt;</bpt>Task<ept id="d2f2096e-03f2-4092-abf3-7f56417f4430">&lt;/strong&gt;</ept> object we defined earlier:</target>
+        </trans-unit>
+        <trans-unit id="b9956a90-2210-43ea-b7a5-f7510d74fff0" xml:space="preserve">
+          <source>Continue adding to the <bpt id="23eba89e-9362-417e-ae65-c1cfb14025e3">&lt;strong&gt;</bpt>tasklist.js<ept id="23eba89e-9362-417e-ae65-c1cfb14025e3">&lt;/strong&gt;</ept> file by adding the methods used to <bpt id="d68f918f-3280-427d-a2d7-ed094b1d4127">&lt;strong&gt;</bpt>showTasks, addTask<ept id="d68f918f-3280-427d-a2d7-ed094b1d4127">&lt;/strong&gt;</ept>, and <bpt id="7ae0e0b5-2aee-4ffc-987d-d53866ef890f">&lt;strong&gt;</bpt>completeTasks<ept id="7ae0e0b5-2aee-4ffc-987d-d53866ef890f">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Continue adding to the <bpt id="23eba89e-9362-417e-ae65-c1cfb14025e3">&lt;strong&gt;</bpt>tasklist.js<ept id="23eba89e-9362-417e-ae65-c1cfb14025e3">&lt;/strong&gt;</ept> file by adding the methods used to <bpt id="d68f918f-3280-427d-a2d7-ed094b1d4127">&lt;strong&gt;</bpt>showTasks, addTask<ept id="d68f918f-3280-427d-a2d7-ed094b1d4127">&lt;/strong&gt;</ept>, and <bpt id="7ae0e0b5-2aee-4ffc-987d-d53866ef890f">&lt;strong&gt;</bpt>completeTasks<ept id="7ae0e0b5-2aee-4ffc-987d-d53866ef890f">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5b3dcbb4-391c-40fc-abe1-ebb3697123a7" xml:space="preserve">
+          <source>Save and close the <bpt id="e5ece5f2-c097-4592-a510-598541c5e4b4">&lt;strong&gt;</bpt>tasklist.js<ept id="e5ece5f2-c097-4592-a510-598541c5e4b4">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close the <bpt id="e5ece5f2-c097-4592-a510-598541c5e4b4">&lt;strong&gt;</bpt>tasklist.js<ept id="e5ece5f2-c097-4592-a510-598541c5e4b4">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c3a2e039-2b1d-4b01-a19c-0c9e5240f7d0" xml:space="preserve">
+          <source>In your project directory create a new file named <bpt id="0c26ad11-1f42-46d7-aca1-4ba96c009dfa">&lt;strong&gt;</bpt>config.js<ept id="0c26ad11-1f42-46d7-aca1-4ba96c009dfa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your project directory create a new file named <bpt id="0c26ad11-1f42-46d7-aca1-4ba96c009dfa">&lt;strong&gt;</bpt>config.js<ept id="0c26ad11-1f42-46d7-aca1-4ba96c009dfa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66de10e8-335c-410b-8d6a-c06c3bdb7504" xml:space="preserve">
+          <source>Add the following to <bpt id="fa3d6be9-cba1-491c-840a-e0e33f9e3e64">&lt;strong&gt;</bpt>config.js<ept id="fa3d6be9-cba1-491c-840a-e0e33f9e3e64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following to <bpt id="fa3d6be9-cba1-491c-840a-e0e33f9e3e64">&lt;strong&gt;</bpt>config.js<ept id="fa3d6be9-cba1-491c-840a-e0e33f9e3e64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a18ab6f9-72d8-4d41-ad0b-f2bdfd9eef27" xml:space="preserve">
+          <source>This defines configuration settings and values needed for our application.</source>
+          <target state="new">This defines configuration settings and values needed for our application.</target>
+        </trans-unit>
+        <trans-unit id="8c156172-533d-4140-b2d0-291ec9ded60b" xml:space="preserve">
+          <source>In the <bpt id="9df8c775-3787-4dd4-b793-e83bced4a5bb">&lt;strong&gt;</bpt>config.js<ept id="9df8c775-3787-4dd4-b793-e83bced4a5bb">&lt;/strong&gt;</ept> file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the <bpt id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;linkText&gt;</bpt>Microsoft Azure Preview portal<ept id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;/linkText&gt;</ept><bpt id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;title&gt;</bpt><ept id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;/title&gt;</ept>:</source>
+          <target state="new">In the <bpt id="9df8c775-3787-4dd4-b793-e83bced4a5bb">&lt;strong&gt;</bpt>config.js<ept id="9df8c775-3787-4dd4-b793-e83bced4a5bb">&lt;/strong&gt;</ept> file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the <bpt id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;linkText&gt;</bpt>Microsoft Azure Preview portal<ept id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;/linkText&gt;</ept><bpt id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;title&gt;</bpt><ept id="9ade6f45-9bee-4b66-8b50-d0b81780a807">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4aa97a19-be84-4a55-984e-574020b18a9a" xml:space="preserve">
+          <source>Save and close the <bpt id="e06ff05d-f846-4b90-be5b-de35152cabd1">&lt;strong&gt;</bpt>config.js<ept id="e06ff05d-f846-4b90-be5b-de35152cabd1">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close the <bpt id="e06ff05d-f846-4b90-be5b-de35152cabd1">&lt;strong&gt;</bpt>config.js<ept id="e06ff05d-f846-4b90-be5b-de35152cabd1">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="182330ce-5089-41b6-be1b-c0e491793520" xml:space="preserve">
+          <source>In the project directory, open the <bpt id="c1f46e75-770b-4f98-ad54-ea8023668ae5">&lt;strong&gt;</bpt>app.js<ept id="c1f46e75-770b-4f98-ad54-ea8023668ae5">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">In the project directory, open the <bpt id="c1f46e75-770b-4f98-ad54-ea8023668ae5">&lt;strong&gt;</bpt>app.js<ept id="c1f46e75-770b-4f98-ad54-ea8023668ae5">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="2b8159f2-a022-484d-862c-d97353762ee5" xml:space="preserve">
+          <source>This file was created earlier when the Express web application was created.</source>
+          <target state="new">This file was created earlier when the Express web application was created.</target>
+        </trans-unit>
+        <trans-unit id="825550ed-3c1a-41d8-9131-6ea3a8d2cd8e" xml:space="preserve">
+          <source>Add the following code to the top of <bpt id="88521109-ee3e-4231-91b4-f5a5f5a4f84f">&lt;strong&gt;</bpt>app.js<ept id="88521109-ee3e-4231-91b4-f5a5f5a4f84f">&lt;/strong&gt;</ept></source>
+          <target state="new">Add the following code to the top of <bpt id="88521109-ee3e-4231-91b4-f5a5f5a4f84f">&lt;strong&gt;</bpt>app.js<ept id="88521109-ee3e-4231-91b4-f5a5f5a4f84f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1f8b511-0e78-4f45-9408-08ccbd4170e0" xml:space="preserve">
+          <source>This code defines the config file to be used, and proceeds to read values out of this file in to some variables we will use soon.</source>
+          <target state="new">This code defines the config file to be used, and proceeds to read values out of this file in to some variables we will use soon.</target>
+        </trans-unit>
+        <trans-unit id="a3152c6d-ccf0-4e04-b15f-80e33f9d0166" xml:space="preserve">
+          <source>Replace the following two lines in <bpt id="dc6ecb30-137c-4738-b7ce-4eab63f74bde">&lt;strong&gt;</bpt>app.js<ept id="dc6ecb30-137c-4738-b7ce-4eab63f74bde">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Replace the following two lines in <bpt id="dc6ecb30-137c-4738-b7ce-4eab63f74bde">&lt;strong&gt;</bpt>app.js<ept id="dc6ecb30-137c-4738-b7ce-4eab63f74bde">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="ca98f9e6-62f3-4ebf-aa5b-9e1916783e6d" xml:space="preserve">
+          <source>  with the following snippet:</source>
+          <target state="new">  with the following snippet:</target>
+        </trans-unit>
+        <trans-unit id="bd282e74-0c4d-4bd5-bf3f-c521cc97d7fc" xml:space="preserve">
+          <source>These lines define a new instance of our <bpt id="a359cf49-4ca7-430a-a13d-244e368a2a6b">&lt;strong&gt;</bpt>TaskDao<ept id="a359cf49-4ca7-430a-a13d-244e368a2a6b">&lt;/strong&gt;</ept> object, with a new connection to DocumentDB (using the values read from the <bpt id="2282fe7b-1717-4325-a826-05cf31d04196">&lt;strong&gt;</bpt>config.js<ept id="2282fe7b-1717-4325-a826-05cf31d04196">&lt;/strong&gt;</ept>), initialize the task object and then bind form actions to methods on our <bpt id="c914fa6e-d035-48d0-9ed6-f268a46fb489">&lt;strong&gt;</bpt>TaskList<ept id="c914fa6e-d035-48d0-9ed6-f268a46fb489">&lt;/strong&gt;</ept> controller.</source>
+          <target state="new">These lines define a new instance of our <bpt id="a359cf49-4ca7-430a-a13d-244e368a2a6b">&lt;strong&gt;</bpt>TaskDao<ept id="a359cf49-4ca7-430a-a13d-244e368a2a6b">&lt;/strong&gt;</ept> object, with a new connection to DocumentDB (using the values read from the <bpt id="2282fe7b-1717-4325-a826-05cf31d04196">&lt;strong&gt;</bpt>config.js<ept id="2282fe7b-1717-4325-a826-05cf31d04196">&lt;/strong&gt;</ept>), initialize the task object and then bind form actions to methods on our <bpt id="c914fa6e-d035-48d0-9ed6-f268a46fb489">&lt;strong&gt;</bpt>TaskList<ept id="c914fa6e-d035-48d0-9ed6-f268a46fb489">&lt;/strong&gt;</ept> controller.</target>
+        </trans-unit>
+        <trans-unit id="c7223ef6-2be0-479c-96cf-de3a8f374733" xml:space="preserve">
+          <source>Finally, save and close the <bpt id="73f2b49d-300d-45db-aed1-6bb97b01a955">&lt;strong&gt;</bpt>app.js<ept id="73f2b49d-300d-45db-aed1-6bb97b01a955">&lt;/strong&gt;</ept> file, we're just about done.</source>
+          <target state="new">Finally, save and close the <bpt id="73f2b49d-300d-45db-aed1-6bb97b01a955">&lt;strong&gt;</bpt>app.js<ept id="73f2b49d-300d-45db-aed1-6bb97b01a955">&lt;/strong&gt;</ept> file, we're just about done.</target>
+        </trans-unit>
+        <trans-unit id="a191e150-7eba-4c55-a859-5224d7e94558" xml:space="preserve">
+          <source>Now let’s turn our attention to building the user interface so a user can actually interact with our application.</source>
+          <target state="new">Now let’s turn our attention to building the user interface so a user can actually interact with our application.</target>
+        </trans-unit>
+        <trans-unit id="0c188fed-1d3c-4f2f-a2f3-e3f7ac48f391" xml:space="preserve">
+          <source>The Express application we created uses <bpt id="733b456e-5bb1-4b18-b8ab-3952ab857d23">&lt;strong&gt;</bpt>Jade<ept id="733b456e-5bb1-4b18-b8ab-3952ab857d23">&lt;/strong&gt;</ept> as the view engine.</source>
+          <target state="new">The Express application we created uses <bpt id="733b456e-5bb1-4b18-b8ab-3952ab857d23">&lt;strong&gt;</bpt>Jade<ept id="733b456e-5bb1-4b18-b8ab-3952ab857d23">&lt;/strong&gt;</ept> as the view engine.</target>
+        </trans-unit>
+        <trans-unit id="00d45ec7-adf6-4dc4-8309-a2bd4e923e9e" xml:space="preserve">
+          <source>For more information on Jade please refer to <bpt id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;linkText&gt;</bpt>http://jade-lang.com/<ept id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;/linkText&gt;</ept><bpt id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;title&gt;</bpt><ept id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on Jade please refer to <bpt id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;linkText&gt;</bpt>http://jade-lang.com/<ept id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;/linkText&gt;</ept><bpt id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;title&gt;</bpt><ept id="2d7e6e8b-1714-4998-a017-c18b66f6913b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8bee3837-58da-49c8-a838-27859c5014cf" xml:space="preserve">
+          <source>The <bpt id="2d40e31d-5555-4d6e-9f19-0998e62319f8">&lt;strong&gt;</bpt>layout.jade<ept id="2d40e31d-5555-4d6e-9f19-0998e62319f8">&lt;/strong&gt;</ept> file in the <bpt id="b85839ba-1296-4ce5-b67b-e4e4c76e79cb">&lt;strong&gt;</bpt>views<ept id="b85839ba-1296-4ce5-b67b-e4e4c76e79cb">&lt;/strong&gt;</ept> directory is used as a global template for other <bpt id="442d44cb-4206-490b-b649-84950e510d03">&lt;strong&gt;</bpt>.jade<ept id="442d44cb-4206-490b-b649-84950e510d03">&lt;/strong&gt;</ept> files.</source>
+          <target state="new">The <bpt id="2d40e31d-5555-4d6e-9f19-0998e62319f8">&lt;strong&gt;</bpt>layout.jade<ept id="2d40e31d-5555-4d6e-9f19-0998e62319f8">&lt;/strong&gt;</ept> file in the <bpt id="b85839ba-1296-4ce5-b67b-e4e4c76e79cb">&lt;strong&gt;</bpt>views<ept id="b85839ba-1296-4ce5-b67b-e4e4c76e79cb">&lt;/strong&gt;</ept> directory is used as a global template for other <bpt id="442d44cb-4206-490b-b649-84950e510d03">&lt;strong&gt;</bpt>.jade<ept id="442d44cb-4206-490b-b649-84950e510d03">&lt;/strong&gt;</ept> files.</target>
+        </trans-unit>
+        <trans-unit id="c7a125ce-b900-45df-bde2-4b00458286df" xml:space="preserve">
+          <source>In this step you will modify it to use <bpt id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;/linkText&gt;</ept><bpt id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;title&gt;</bpt><ept id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;/title&gt;</ept>, which is a toolkit that makes it easy to design a nice looking website.</source>
+          <target state="new">In this step you will modify it to use <bpt id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;/linkText&gt;</ept><bpt id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;title&gt;</bpt><ept id="e6171c06-e389-4b38-9a27-29cbb2e7cc17">&lt;/title&gt;</ept>, which is a toolkit that makes it easy to design a nice looking website.</target>
+        </trans-unit>
+        <trans-unit id="b7fe340e-ea31-4d5e-9b03-10d9fc36d93d" xml:space="preserve">
+          <source>Open the <bpt id="0696a6ef-1d6b-4308-95d1-586a5d88e616">&lt;strong&gt;</bpt>layout.jade<ept id="0696a6ef-1d6b-4308-95d1-586a5d88e616">&lt;/strong&gt;</ept> file found in the <bpt id="a6065203-699f-48ff-9864-23a6a4567a53">&lt;strong&gt;</bpt>views<ept id="a6065203-699f-48ff-9864-23a6a4567a53">&lt;/strong&gt;</ept> folder and replace the contents with the following;</source>
+          <target state="new">Open the <bpt id="0696a6ef-1d6b-4308-95d1-586a5d88e616">&lt;strong&gt;</bpt>layout.jade<ept id="0696a6ef-1d6b-4308-95d1-586a5d88e616">&lt;/strong&gt;</ept> file found in the <bpt id="a6065203-699f-48ff-9864-23a6a4567a53">&lt;strong&gt;</bpt>views<ept id="a6065203-699f-48ff-9864-23a6a4567a53">&lt;/strong&gt;</ept> folder and replace the contents with the following;</target>
+        </trans-unit>
+        <trans-unit id="3804a468-c62d-4678-9ae0-a03264cf9395" xml:space="preserve">
+          <source>This effectively tells the <bpt id="4fb99a1c-0156-4bf5-93b2-a7edcd83f087">&lt;strong&gt;</bpt>Jade<ept id="4fb99a1c-0156-4bf5-93b2-a7edcd83f087">&lt;/strong&gt;</ept> engine to render some HTML for our application and creates a <bpt id="171519d3-62f6-4051-af64-b3a865bf5cb4">&lt;strong&gt;</bpt>block<ept id="171519d3-62f6-4051-af64-b3a865bf5cb4">&lt;/strong&gt;</ept> called <bpt id="b18a8d76-6d82-438d-a696-11fecc7315a1">&lt;strong&gt;</bpt>content<ept id="b18a8d76-6d82-438d-a696-11fecc7315a1">&lt;/strong&gt;</ept> where we can supply the layout for our content pages.</source>
+          <target state="new">This effectively tells the <bpt id="4fb99a1c-0156-4bf5-93b2-a7edcd83f087">&lt;strong&gt;</bpt>Jade<ept id="4fb99a1c-0156-4bf5-93b2-a7edcd83f087">&lt;/strong&gt;</ept> engine to render some HTML for our application and creates a <bpt id="171519d3-62f6-4051-af64-b3a865bf5cb4">&lt;strong&gt;</bpt>block<ept id="171519d3-62f6-4051-af64-b3a865bf5cb4">&lt;/strong&gt;</ept> called <bpt id="b18a8d76-6d82-438d-a696-11fecc7315a1">&lt;strong&gt;</bpt>content<ept id="b18a8d76-6d82-438d-a696-11fecc7315a1">&lt;/strong&gt;</ept> where we can supply the layout for our content pages.</target>
+        </trans-unit>
+        <trans-unit id="add1d0cb-5d93-4faf-a572-1bbf432a3b82" xml:space="preserve">
+          <source>Save and close this <bpt id="67a3072b-f476-4d1b-b358-d20ed637cfcb">&lt;strong&gt;</bpt>layout.jade<ept id="67a3072b-f476-4d1b-b358-d20ed637cfcb">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close this <bpt id="67a3072b-f476-4d1b-b358-d20ed637cfcb">&lt;strong&gt;</bpt>layout.jade<ept id="67a3072b-f476-4d1b-b358-d20ed637cfcb">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="b4cff5da-8680-4a88-9550-f8eedbf9d879" xml:space="preserve">
+          <source>Now open the <bpt id="0fde8bf5-bf58-4a03-8f95-b501deb3f1d5">&lt;strong&gt;</bpt>index.jade<ept id="0fde8bf5-bf58-4a03-8f95-b501deb3f1d5">&lt;/strong&gt;</ept> file, the view that will be used by our application, and replace the content of the file with the following:</source>
+          <target state="new">Now open the <bpt id="0fde8bf5-bf58-4a03-8f95-b501deb3f1d5">&lt;strong&gt;</bpt>index.jade<ept id="0fde8bf5-bf58-4a03-8f95-b501deb3f1d5">&lt;/strong&gt;</ept> file, the view that will be used by our application, and replace the content of the file with the following:</target>
+        </trans-unit>
+        <trans-unit id="f2c676a8-6989-4cd6-92b9-53af3ba90b28" xml:space="preserve">
+          <source>This extends layout, and provides content for the <bpt id="ee0b639a-6e15-4b31-8a39-172e245bf16c">&lt;strong&gt;</bpt>content<ept id="ee0b639a-6e15-4b31-8a39-172e245bf16c">&lt;/strong&gt;</ept> placeholder we saw in the <bpt id="1d35f032-51bf-4036-b222-ecc6150becb3">&lt;strong&gt;</bpt>layout.jade<ept id="1d35f032-51bf-4036-b222-ecc6150becb3">&lt;/strong&gt;</ept> file earlier.</source>
+          <target state="new">This extends layout, and provides content for the <bpt id="ee0b639a-6e15-4b31-8a39-172e245bf16c">&lt;strong&gt;</bpt>content<ept id="ee0b639a-6e15-4b31-8a39-172e245bf16c">&lt;/strong&gt;</ept> placeholder we saw in the <bpt id="1d35f032-51bf-4036-b222-ecc6150becb3">&lt;strong&gt;</bpt>layout.jade<ept id="1d35f032-51bf-4036-b222-ecc6150becb3">&lt;/strong&gt;</ept> file earlier.</target>
+        </trans-unit>
+        <trans-unit id="4281cdd8-7943-45aa-bbaf-87c5d390ff2a" xml:space="preserve">
+          <source>In this layout we created two HTML forms.</source>
+          <target state="new">In this layout we created two HTML forms.</target>
+        </trans-unit>
+        <trans-unit id="7bd8a57d-4831-4b38-9071-97cf9acd4f91" xml:space="preserve">
+          <source>The first form contains a table for our data and a button that allows us to update items by posting to <bpt id="e53b4cc9-9053-4cfd-9924-43fdb6383a06">&lt;strong&gt;</bpt>/completetask<ept id="e53b4cc9-9053-4cfd-9924-43fdb6383a06">&lt;/strong&gt;</ept> method of our controller.</source>
+          <target state="new">The first form contains a table for our data and a button that allows us to update items by posting to <bpt id="e53b4cc9-9053-4cfd-9924-43fdb6383a06">&lt;strong&gt;</bpt>/completetask<ept id="e53b4cc9-9053-4cfd-9924-43fdb6383a06">&lt;/strong&gt;</ept> method of our controller.</target>
+        </trans-unit>
+        <trans-unit id="a6607b89-7ffd-4d6a-9dec-135de841b36a" xml:space="preserve">
+          <source>The second form contains two input fields and a button that allows us to create a new item by posting to <bpt id="182da749-2a17-483f-a094-70c04d324fa6">&lt;strong&gt;</bpt>/addtask<ept id="182da749-2a17-483f-a094-70c04d324fa6">&lt;/strong&gt;</ept> method of our controller.</source>
+          <target state="new">The second form contains two input fields and a button that allows us to create a new item by posting to <bpt id="182da749-2a17-483f-a094-70c04d324fa6">&lt;strong&gt;</bpt>/addtask<ept id="182da749-2a17-483f-a094-70c04d324fa6">&lt;/strong&gt;</ept> method of our controller.</target>
+        </trans-unit>
+        <trans-unit id="e98d9a23-2874-417a-9106-2dabaa00fe23" xml:space="preserve">
+          <source>This should be all that we need for our application to work.</source>
+          <target state="new">This should be all that we need for our application to work.</target>
+        </trans-unit>
+        <trans-unit id="2fd971d2-4a32-4eef-9b03-7f575583cb91" xml:space="preserve">
+          <source>Open the <bpt id="82a1387d-39c7-4e6f-b958-12b2f19b30e2">&lt;strong&gt;</bpt>style.css<ept id="82a1387d-39c7-4e6f-b958-12b2f19b30e2">&lt;/strong&gt;</ept> file in <bpt id="11d0806d-e867-4cd7-a293-5b322aeaa109">&lt;strong&gt;</bpt>public\stylesheets<ept id="11d0806d-e867-4cd7-a293-5b322aeaa109">&lt;/strong&gt;</ept> directory and replace the code with the following:</source>
+          <target state="new">Open the <bpt id="82a1387d-39c7-4e6f-b958-12b2f19b30e2">&lt;strong&gt;</bpt>style.css<ept id="82a1387d-39c7-4e6f-b958-12b2f19b30e2">&lt;/strong&gt;</ept> file in <bpt id="11d0806d-e867-4cd7-a293-5b322aeaa109">&lt;strong&gt;</bpt>public\stylesheets<ept id="11d0806d-e867-4cd7-a293-5b322aeaa109">&lt;/strong&gt;</ept> directory and replace the code with the following:</target>
+        </trans-unit>
+        <trans-unit id="67e140eb-76e9-4e4f-9c58-4c8bfa7bf262" xml:space="preserve">
+          <source>Save and close this <bpt id="ca28c483-6666-42f8-b13e-43d349e80d4b">&lt;strong&gt;</bpt>style.css<ept id="ca28c483-6666-42f8-b13e-43d349e80d4b">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close this <bpt id="ca28c483-6666-42f8-b13e-43d349e80d4b">&lt;strong&gt;</bpt>style.css<ept id="ca28c483-6666-42f8-b13e-43d349e80d4b">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="9c8db82a-2d75-4d3d-a521-e922036746f7" xml:space="preserve">
+          <source>To test the application on your local machine, run <bpt id="ff368cf2-f2cd-41bf-a5c1-47dcfff2c5f1">&lt;code&gt;</bpt>npm start<ept id="ff368cf2-f2cd-41bf-a5c1-47dcfff2c5f1">&lt;/code&gt;</ept> in a terminal to start your application, and launch a browser with a page that looks like the image below:</source>
+          <target state="new">To test the application on your local machine, run <bpt id="ff368cf2-f2cd-41bf-a5c1-47dcfff2c5f1">&lt;code&gt;</bpt>npm start<ept id="ff368cf2-f2cd-41bf-a5c1-47dcfff2c5f1">&lt;/code&gt;</ept> in a terminal to start your application, and launch a browser with a page that looks like the image below:</target>
+        </trans-unit>
+        <trans-unit id="82d124c8-f079-46d9-9143-6afaeee999d6" xml:space="preserve">
+          <source><bpt id="f8fe5049-3048-46b1-b897-bf92ce9b96b4">&lt;linkText&gt;</bpt>Screenshot of the MyTodo List application in a browser window<ept id="f8fe5049-3048-46b1-b897-bf92ce9b96b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8fe5049-3048-46b1-b897-bf92ce9b96b4">&lt;linkText&gt;</bpt>Screenshot of the MyTodo List application in a browser window<ept id="f8fe5049-3048-46b1-b897-bf92ce9b96b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e3c0dda-c37b-481e-8f6a-c4ff626f2c34" xml:space="preserve">
+          <source>Use the provided fields for Item, Item Name and Category to enter
+information, and then click <bpt id="24207d67-5c0e-4737-8f85-ef03d2693336">&lt;strong&gt;</bpt>Add Item<ept id="24207d67-5c0e-4737-8f85-ef03d2693336">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the provided fields for Item, Item Name and Category to enter
+information, and then click <bpt id="24207d67-5c0e-4737-8f85-ef03d2693336">&lt;strong&gt;</bpt>Add Item<ept id="24207d67-5c0e-4737-8f85-ef03d2693336">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b112a43f-890b-4421-bf12-f7fc1f2e2a07" xml:space="preserve">
+          <source>The page should update to display the newly created item in the ToDo
+list.</source>
+          <target state="new">The page should update to display the newly created item in the ToDo
+list.</target>
+        </trans-unit>
+        <trans-unit id="5f384b6e-a20a-454e-93e6-3b9d348caf6c" xml:space="preserve">
+          <source><bpt id="00dc9fd9-ed5f-4b6b-a6c4-a9ecf2f69fff">&lt;linkText&gt;</bpt>Screenshot of the application with a new item in the ToDo list<ept id="00dc9fd9-ed5f-4b6b-a6c4-a9ecf2f69fff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00dc9fd9-ed5f-4b6b-a6c4-a9ecf2f69fff">&lt;linkText&gt;</bpt>Screenshot of the application with a new item in the ToDo list<ept id="00dc9fd9-ed5f-4b6b-a6c4-a9ecf2f69fff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="895c19e5-5b6f-4e3c-9f92-6ad5d720128e" xml:space="preserve">
+          <source>To complete a task, simply check the checkbox in the Complete column,
+and then click <bpt id="b4041609-eb25-4830-8a22-5a5466008d1e">&lt;strong&gt;</bpt>Update tasks<ept id="b4041609-eb25-4830-8a22-5a5466008d1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To complete a task, simply check the checkbox in the Complete column,
+and then click <bpt id="b4041609-eb25-4830-8a22-5a5466008d1e">&lt;strong&gt;</bpt>Update tasks<ept id="b4041609-eb25-4830-8a22-5a5466008d1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="485221aa-2143-4fa1-8001-a546539821ca" xml:space="preserve">
+          <source>If you haven't already, enable a git repository for your Azure Website.</source>
+          <target state="new">If you haven't already, enable a git repository for your Azure Website.</target>
+        </trans-unit>
+        <trans-unit id="6352949e-e824-469a-a192-617d16680623" xml:space="preserve">
+          <source>You can find instructions on how to do this <bpt id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;linkText&gt;</bpt>here<ept id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;/linkText&gt;</ept><bpt id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;title&gt;</bpt><ept id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find instructions on how to do this <bpt id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;linkText&gt;</bpt>here<ept id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;/linkText&gt;</ept><bpt id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;title&gt;</bpt><ept id="e78bb549-78ef-4f5d-8bd4-90b9f2b9730f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e73f662-9531-4fee-8922-7ab71a77b712" xml:space="preserve">
+          <source>Add your Azure Website as a git remote.</source>
+          <target state="new">Add your Azure Website as a git remote.</target>
+        </trans-unit>
+        <trans-unit id="5ac99441-7262-4272-b926-1e44df1dcc74" xml:space="preserve">
+          <source>Deploy by pushing to the remote.</source>
+          <target state="new">Deploy by pushing to the remote.</target>
+        </trans-unit>
+        <trans-unit id="11e34c44-abee-4e9c-b3aa-28c33fe54ca9" xml:space="preserve">
+          <source>In a few seconds, git will finish publishing your web
+application and launch a browser where you can see your handy work
+running in Azure!</source>
+          <target state="new">In a few seconds, git will finish publishing your web
+application and launch a browser where you can see your handy work
+running in Azure!</target>
+        </trans-unit>
+        <trans-unit id="46376f85-abd8-4f13-98fd-bbeda68b5cef" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="20a28ba8-89af-4c45-82ae-b71a882e33a7" xml:space="preserve">
+          <source>You have just built your first Node.js Express Web
+Application using Azure DocumentDB and published it to Azure Websites.</source>
+          <target state="new">You have just built your first Node.js Express Web
+Application using Azure DocumentDB and published it to Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="af94b62c-15ee-41d5-b9d8-4a8984d55c16" xml:space="preserve">
+          <source>The source code for the complete reference application can be downloaded <bpt id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;linkText&gt;</bpt>here<ept id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;/linkText&gt;</ept><bpt id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;title&gt;</bpt><ept id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;/title&gt;</ept>.</source>
+          <target state="new">The source code for the complete reference application can be downloaded <bpt id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;linkText&gt;</bpt>here<ept id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;/linkText&gt;</ept><bpt id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;title&gt;</bpt><ept id="dc6e2c50-0d0d-436b-819b-9ab784f9205c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79e551d3-37f3-44dd-aca1-ecf126582679" xml:space="preserve">
+          <source>http://nodejs.org/</source>
+          <target state="new">http://nodejs.org/</target>
+        </trans-unit>
+        <trans-unit id="55c3c992-44fe-45df-892f-a9a299c67578" xml:space="preserve">
+          <source>http://git-scm.com/</source>
+          <target state="new">http://git-scm.com/</target>
+        </trans-unit>
+      </group>
+      <group id="8168f071-13b5-4213-92a4-f8303aacf7d9" />
+    </body>
+  </file>
+</xliff>

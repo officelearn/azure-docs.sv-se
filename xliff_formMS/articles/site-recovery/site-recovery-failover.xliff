@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f743343a-ca7e-4a45-808a-6d5b3bc085df" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f743343a-ca7e-4a45-808a-6d5b3bc085df" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="830e9b9c-d80a-4285-82e0-03388ab179a4">
+        <trans-unit id="de67ae22-cb71-48ce-a9ba-96b50143db5b" xml:space="preserve">
+          <source>Failover in Site Recovery</source>
+          <target state="new">Failover in Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="4968c622-3557-4f91-a2e9-a27295a5354a" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter.</target>
+        </trans-unit>
+        <trans-unit id="5e9a3552-204c-4d9b-89e2-3c72420745f8" xml:space="preserve">
+          <source>The <bpt id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;linkText&gt;</bpt>Azure Site Recovery service<ept id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;/linkText&gt;</ept><bpt id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;title&gt;</bpt><ept id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;/title&gt;</ept> contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</source>
+          <target state="new">The <bpt id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;linkText&gt;</bpt>Azure Site Recovery service<ept id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;/linkText&gt;</ept><bpt id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;title&gt;</bpt><ept id="69bee712-e237-42b5-a891-4aedb0d1fb87">&lt;/title&gt;</ept> contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="1170b071-c80d-451a-895e-1ac4d9d11d6a" xml:space="preserve">
+          <source>This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery.</source>
+          <target state="new">This article provides information and instructions for recovering (failing over and failing back) virtual machines and physical servers that are protected with Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="a67b2a71-8faa-4eb4-9e49-bc6db17513c4" xml:space="preserve">
+          <source>If you have any questions after reading this article post them on the <bpt id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;/linkText&gt;</ept><bpt id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;title&gt;</bpt><ept id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have any questions after reading this article post them on the <bpt id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;/linkText&gt;</ept><bpt id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;title&gt;</bpt><ept id="2f51781d-09ed-4023-8c59-b2e31ff8deb2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ec053db-a950-4ae3-9da5-fb082e8b41e3" xml:space="preserve">
+          <source>After you've set up protection for virtual machines and physical servers they begin replicating to the secondary location.</source>
+          <target state="new">After you've set up protection for virtual machines and physical servers they begin replicating to the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="d4cc6fa3-dd1b-4c43-8bd9-e0cc896cdb45" xml:space="preserve">
+          <source>After replication is in place you can run failovers as the need arises.</source>
+          <target state="new">After replication is in place you can run failovers as the need arises.</target>
+        </trans-unit>
+        <trans-unit id="3459ff1e-bd6f-40b5-b75f-27d3121b1bbc" xml:space="preserve">
+          <source>Site Recovery supports a number of types of failover.</source>
+          <target state="new">Site Recovery supports a number of types of failover.</target>
+        </trans-unit>
+        <trans-unit id="25c70290-6b45-44c1-8f5c-86569934d944" xml:space="preserve">
+          <source><bpt id="17f21a69-8da3-4733-be10-9a26eb6e3d40">&lt;strong&gt;</bpt>Failover<ept id="17f21a69-8da3-4733-be10-9a26eb6e3d40">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="17f21a69-8da3-4733-be10-9a26eb6e3d40">&lt;strong&gt;</bpt>Failover<ept id="17f21a69-8da3-4733-be10-9a26eb6e3d40">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0bf6550-5dc8-4c6a-89da-fc4f540a8826" xml:space="preserve">
+          <source><bpt id="1302692a-1a8b-4329-a0c8-a8045f14f8cc">&lt;strong&gt;</bpt>When to run<ept id="1302692a-1a8b-4329-a0c8-a8045f14f8cc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1302692a-1a8b-4329-a0c8-a8045f14f8cc">&lt;strong&gt;</bpt>When to run<ept id="1302692a-1a8b-4329-a0c8-a8045f14f8cc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="905ef59a-e90a-4bde-8bcd-8bcf765ad366" xml:space="preserve">
+          <source><bpt id="9f928f6a-8ca4-421f-a959-a7465f5ac304">&lt;strong&gt;</bpt>Details<ept id="9f928f6a-8ca4-421f-a959-a7465f5ac304">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9f928f6a-8ca4-421f-a959-a7465f5ac304">&lt;strong&gt;</bpt>Details<ept id="9f928f6a-8ca4-421f-a959-a7465f5ac304">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="912d1833-cf27-4b0e-a478-86dd29eebaa3" xml:space="preserve">
+          <source><bpt id="f4f4d701-0a2d-4545-8c5e-6f2d4f0e70e4">&lt;strong&gt;</bpt>Process<ept id="f4f4d701-0a2d-4545-8c5e-6f2d4f0e70e4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f4f4d701-0a2d-4545-8c5e-6f2d4f0e70e4">&lt;strong&gt;</bpt>Process<ept id="f4f4d701-0a2d-4545-8c5e-6f2d4f0e70e4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31f6d719-c9c9-4829-bdaa-08a5ff8ba1d1" xml:space="preserve">
+          <source><bpt id="b4902c2d-7fbc-4975-bac3-be7c87ba21df">&lt;strong&gt;</bpt>Test failover<ept id="b4902c2d-7fbc-4975-bac3-be7c87ba21df">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b4902c2d-7fbc-4975-bac3-be7c87ba21df">&lt;strong&gt;</bpt>Test failover<ept id="b4902c2d-7fbc-4975-bac3-be7c87ba21df">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af2e5c28-ef15-4f2a-9755-4acf4be4fc2b" xml:space="preserve">
+          <source>Run to validate your replication strategy or perform a disaster recovery drill</source>
+          <target state="new">Run to validate your replication strategy or perform a disaster recovery drill</target>
+        </trans-unit>
+        <trans-unit id="4d5d031c-1a8a-4588-808a-25cda6f3dadc" xml:space="preserve">
+          <source>&lt;p&gt;No data loss or downtime&lt;/p&gt;&lt;p&gt;No impact on replication&lt;/p&gt;&lt;p&gt;No impact on your production environment&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;No data loss or downtime&lt;/p&gt;&lt;p&gt;No impact on replication&lt;/p&gt;&lt;p&gt;No impact on your production environment&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d82e272b-2583-4f83-92c7-0f87f982630d" xml:space="preserve">
+          <source>&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Specify how test machines will be connected to networks after failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="9e2ad43f-02b1-4c77-ae70-1b94a9cb9f68">&lt;strong&gt;</bpt>Jobs<ept id="9e2ad43f-02b1-4c77-ae70-1b94a9cb9f68">&lt;/strong&gt;</ept> tab. Test machines are created and start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site - access the machine on the same host and cloud&lt;/p&gt;&lt;p&gt;Complete testing and automatically clean up test failover settings.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Specify how test machines will be connected to networks after failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="9e2ad43f-02b1-4c77-ae70-1b94a9cb9f68">&lt;strong&gt;</bpt>Jobs<ept id="9e2ad43f-02b1-4c77-ae70-1b94a9cb9f68">&lt;/strong&gt;</ept> tab. Test machines are created and start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site - access the machine on the same host and cloud&lt;/p&gt;&lt;p&gt;Complete testing and automatically clean up test failover settings.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="780a07f8-1d75-4f7c-92a8-6b9b7fea490a" xml:space="preserve">
+          <source><bpt id="86740a65-ad44-4275-93cb-e5944335cd9e">&lt;strong&gt;</bpt>Planned failover<ept id="86740a65-ad44-4275-93cb-e5944335cd9e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="86740a65-ad44-4275-93cb-e5944335cd9e">&lt;strong&gt;</bpt>Planned failover<ept id="86740a65-ad44-4275-93cb-e5944335cd9e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6597d954-e43f-41d5-bd33-d3f5bb2b6ae4" xml:space="preserve">
+          <source>&lt;p&gt;Run to meet compliance requirements&lt;/p&gt;&lt;p&gt;Run for planned maintenance&lt;/p&gt;&lt;p&gt;Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports&lt;/p&gt; &lt;p&gt;Run to failback after failover from primary to secondary</source>
+          <target state="new">&lt;p&gt;Run to meet compliance requirements&lt;/p&gt;&lt;p&gt;Run for planned maintenance&lt;/p&gt;&lt;p&gt;Run to fail over data to keep workloads running for known outages - such as an expected power failure or severe weather reports&lt;/p&gt; &lt;p&gt;Run to failback after failover from primary to secondary</target>
+        </trans-unit>
+        <trans-unit id="b1270758-3b28-42f6-b2bf-12425b5b1055" xml:space="preserve">
+          <source>&lt;p&gt;No data loss&lt;/p&gt;&lt;p&gt;Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.&lt;/p&gt;&lt;p&gt;Virtual machines are impact as  target machines becomes source machines after failover.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;No data loss&lt;/p&gt;&lt;p&gt;Downtime is incurred during the time it takes to shut down the virtual machine on the primary and bring it up on the secondary location.&lt;/p&gt;&lt;p&gt;Virtual machines are impact as  target machines becomes source machines after failover.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="fcb5e779-4899-4912-be32-a3463be1bb75" xml:space="preserve">
+          <source>&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="bdb3c4f9-f2cf-4cf4-8fc7-92cd1e1fd05c">&lt;strong&gt;</bpt>Jobs<ept id="bdb3c4f9-f2cf-4cf4-8fc7-92cd1e1fd05c">&lt;/strong&gt;</ept> tab. Source machines are shut down&lt;/p&gt;&lt;p&gt;Replica machines start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the replica machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site - access the machine on the same host and in the same cloud&lt;/p&gt;&lt;p&gt;Commit the failover&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="bdb3c4f9-f2cf-4cf4-8fc7-92cd1e1fd05c">&lt;strong&gt;</bpt>Jobs<ept id="bdb3c4f9-f2cf-4cf4-8fc7-92cd1e1fd05c">&lt;/strong&gt;</ept> tab. Source machines are shut down&lt;/p&gt;&lt;p&gt;Replica machines start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the replica machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site - access the machine on the same host and in the same cloud&lt;/p&gt;&lt;p&gt;Commit the failover&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4098b8b6-d4b0-49e8-bdd5-767067c2ec1b" xml:space="preserve">
+          <source><bpt id="bd1eb0f6-48c7-4bf6-9357-1e9cf8b48fc1">&lt;strong&gt;</bpt>Unplanned failover<ept id="bd1eb0f6-48c7-4bf6-9357-1e9cf8b48fc1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bd1eb0f6-48c7-4bf6-9357-1e9cf8b48fc1">&lt;strong&gt;</bpt>Unplanned failover<ept id="bd1eb0f6-48c7-4bf6-9357-1e9cf8b48fc1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b14d6ce7-97c6-41d6-8d53-2c8a33c8fce4" xml:space="preserve">
+          <source>&lt;p&gt;Run this type of failover reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack&lt;/p&gt;&lt;p&gt;You can run an unplanned failover can be done even if primary site isn't available.&lt;p&gt;</source>
+          <target state="new">&lt;p&gt;Run this type of failover reactive manner when a primary site becomes inaccessible because of an unexpected incident, such as a power outage or virus attack&lt;/p&gt;&lt;p&gt;You can run an unplanned failover can be done even if primary site isn't available.&lt;p&gt;</target>
+        </trans-unit>
+        <trans-unit id="40517d38-631c-456b-900f-eeab964939f3" xml:space="preserve">
+          <source>&lt;p&gt;Data loss dependent on replication frequency settings&lt;/p&gt; &lt;p&gt;Data will be up-to-date in accordance with the last time it was synchronized&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Data loss dependent on replication frequency settings&lt;/p&gt; &lt;p&gt;Data will be up-to-date in accordance with the last time it was synchronized&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="da500a88-0d52-444a-8226-e6bce961da8e" xml:space="preserve">
+          <source>&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="9a230d64-b7c3-4b38-bec8-022bd1063d68">&lt;strong&gt;</bpt>Jobs<ept id="9a230d64-b7c3-4b38-bec8-022bd1063d68">&lt;/strong&gt;</ept> tab. Optionally try to shut down virtual machines and synchronize latest data&lt;/p&gt;&lt;p&gt;Replica machines start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the replica machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site access the machine on the same host and in the same cloud&lt;/p&gt;&lt;p&gt;Commit the failover&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Start the failover&lt;/p&gt;&lt;p&gt;Track progress on the <bpt id="9a230d64-b7c3-4b38-bec8-022bd1063d68">&lt;strong&gt;</bpt>Jobs<ept id="9a230d64-b7c3-4b38-bec8-022bd1063d68">&lt;/strong&gt;</ept> tab. Optionally try to shut down virtual machines and synchronize latest data&lt;/p&gt;&lt;p&gt;Replica machines start in the secondary location&lt;/p&gt;&lt;p&gt;Azure - connect to the replica machine in the Azure portal&lt;/p&gt;&lt;p&gt;Secondary site access the machine on the same host and in the same cloud&lt;/p&gt;&lt;p&gt;Commit the failover&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="87922cf9-723c-4a2c-aae4-df8c26b7bf4b" xml:space="preserve">
+          <source>The types of failovers that are supported depend on your deployment scenario.</source>
+          <target state="new">The types of failovers that are supported depend on your deployment scenario.</target>
+        </trans-unit>
+        <trans-unit id="cf10b5de-db74-4323-aa46-b49f50d825f4" xml:space="preserve">
+          <source><bpt id="459c05b8-0bc3-4e94-868e-5a3eb068daf2">&lt;strong&gt;</bpt>Failover direction<ept id="459c05b8-0bc3-4e94-868e-5a3eb068daf2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="459c05b8-0bc3-4e94-868e-5a3eb068daf2">&lt;strong&gt;</bpt>Failover direction<ept id="459c05b8-0bc3-4e94-868e-5a3eb068daf2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3be9e531-d590-4dc7-a8aa-13693f3cae13" xml:space="preserve">
+          <source><bpt id="736993cd-3c26-4528-8045-c2abc7e65c3d">&lt;strong&gt;</bpt>Test failover<ept id="736993cd-3c26-4528-8045-c2abc7e65c3d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="736993cd-3c26-4528-8045-c2abc7e65c3d">&lt;strong&gt;</bpt>Test failover<ept id="736993cd-3c26-4528-8045-c2abc7e65c3d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af5d75e5-432a-4ca3-a512-181c6cc7e9ec" xml:space="preserve">
+          <source><bpt id="e2a09ba2-2a7d-4edd-945e-3b55b9a8c374">&lt;strong&gt;</bpt>Planned failover<ept id="e2a09ba2-2a7d-4edd-945e-3b55b9a8c374">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2a09ba2-2a7d-4edd-945e-3b55b9a8c374">&lt;strong&gt;</bpt>Planned failover<ept id="e2a09ba2-2a7d-4edd-945e-3b55b9a8c374">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc3c142b-c054-496b-9a16-fd11df90c362" xml:space="preserve">
+          <source><bpt id="5435aed3-f840-4ab2-9bde-3426d4a5942a">&lt;strong&gt;</bpt>Unplanned failover<ept id="5435aed3-f840-4ab2-9bde-3426d4a5942a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5435aed3-f840-4ab2-9bde-3426d4a5942a">&lt;strong&gt;</bpt>Unplanned failover<ept id="5435aed3-f840-4ab2-9bde-3426d4a5942a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecc8158e-3a1a-41fd-b964-173099d17862" xml:space="preserve">
+          <source>Primary VMM site to Secondary VMM site</source>
+          <target state="new">Primary VMM site to Secondary VMM site</target>
+        </trans-unit>
+        <trans-unit id="a0b569c4-109d-4fd5-8425-526f63bb17b0" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="21268012-0617-4390-a599-68a774c85275" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="b77c35b8-8437-4688-a9d1-ce7db470aecb" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="4b7b520f-48d9-4e32-9872-57b7c8ab6a63" xml:space="preserve">
+          <source>Secondary VMM site to Primary VMM site</source>
+          <target state="new">Secondary VMM site to Primary VMM site</target>
+        </trans-unit>
+        <trans-unit id="8b7eeb18-b11e-4bed-a427-72df4a12648c" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="76d51288-715d-4009-ab4b-659502497d61" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="da4b4b0c-ad8b-4d31-8a5a-d2314957332c" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="0abc20b2-3fcd-4a8b-861e-509da90777af" xml:space="preserve">
+          <source>Cloud to Cloud (single VMM server)</source>
+          <target state="new">Cloud to Cloud (single VMM server)</target>
+        </trans-unit>
+        <trans-unit id="c0459192-2586-4a3e-be35-d5beb8bf9210" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="3908f092-f814-4ac8-8152-774b814bd783" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="deb69498-42a2-4d30-be08-ac26f0c20f2f" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="708c34d9-2fbd-481b-8da7-a7e0a11bf41a" xml:space="preserve">
+          <source>VMM site to Azure</source>
+          <target state="new">VMM site to Azure</target>
+        </trans-unit>
+        <trans-unit id="de0a6981-59b8-400c-9b46-443855eae815" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="5ff126d5-3461-40c4-a963-2d1f49b75787" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="689feb1a-0bbc-4015-915e-3e4ad3ece5a9" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="41e72408-e51e-45e1-bccf-f8d7275d92f7" xml:space="preserve">
+          <source>Azure to VMM site</source>
+          <target state="new">Azure to VMM site</target>
+        </trans-unit>
+        <trans-unit id="eed17b10-f88b-401c-9d9a-0413e5d09b1e" xml:space="preserve">
+          <source>Unsupported</source>
+          <target state="new">Unsupported</target>
+        </trans-unit>
+        <trans-unit id="ce6c2eab-9754-4ec8-95f5-bbf13ce0e186" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="4f1e6547-a819-4d68-9c3d-d2d2dd1ed987" xml:space="preserve">
+          <source>Unsupported</source>
+          <target state="new">Unsupported</target>
+        </trans-unit>
+        <trans-unit id="32521696-5a6b-4aac-b8b2-600899a26418" xml:space="preserve">
+          <source>Hyper-V site to Azure</source>
+          <target state="new">Hyper-V site to Azure</target>
+        </trans-unit>
+        <trans-unit id="e15a8fc2-a2c1-4862-9b9a-3d4255065560" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="ff06693a-9565-4d96-8c7e-9af2b8f6f9b3" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="148d4184-944a-47fd-8f1e-6b9609253d73" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="2a973029-c3cb-448d-90cf-d643b3aaccc7" xml:space="preserve">
+          <source>Azure to Hyper-V site</source>
+          <target state="new">Azure to Hyper-V site</target>
+        </trans-unit>
+        <trans-unit id="901c1eb7-e298-4277-96b6-8aed6190ff97" xml:space="preserve">
+          <source>Unsupported</source>
+          <target state="new">Unsupported</target>
+        </trans-unit>
+        <trans-unit id="e0b594fb-6933-4b0d-acdf-36b6d8a326a4" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="9255a02a-6877-4256-ae61-b7779d25435c" xml:space="preserve">
+          <source>Unsupported</source>
+          <target state="new">Unsupported</target>
+        </trans-unit>
+        <trans-unit id="bdd79002-8fef-4314-a38e-c518fe7a77af" xml:space="preserve">
+          <source>VMware site to Azure</source>
+          <target state="new">VMware site to Azure</target>
+        </trans-unit>
+        <trans-unit id="c25cd93d-ecfd-4631-a3d8-6619d617c152" xml:space="preserve">
+          <source>Unsupported</source>
+          <target state="new">Unsupported</target>
+        </trans-unit>
+        <trans-unit id="4a77edd9-c059-426a-883b-df4c769b0232" xml:space="preserve">
+          <source>This scenario uses continuous replication so there's no distinction between planned and unplanned failover.</source>
+          <target state="new">This scenario uses continuous replication so there's no distinction between planned and unplanned failover.</target>
+        </trans-unit>
+        <trans-unit id="acdbff97-95c0-4cbc-adc4-0fad52f589ac" xml:space="preserve">
+          <source>You select <bpt id="797a0105-e84b-4933-aa7c-aee5dc9b28a2">&lt;strong&gt;</bpt>Failover<ept id="797a0105-e84b-4933-aa7c-aee5dc9b28a2">&lt;/strong&gt;</ept></source>
+          <target state="new">You select <bpt id="797a0105-e84b-4933-aa7c-aee5dc9b28a2">&lt;strong&gt;</bpt>Failover<ept id="797a0105-e84b-4933-aa7c-aee5dc9b28a2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0015a45-b83b-4c2f-994f-5f1e98c3203b" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="74431ecb-714d-43af-a7a2-c78e039fcdba" xml:space="preserve">
+          <source>Physical server to Azure</source>
+          <target state="new">Physical server to Azure</target>
+        </trans-unit>
+        <trans-unit id="8d4233d4-ac07-4916-9d3d-e7d38e4494c8" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="045e8c84-9f61-4eff-976a-b42ac9c1ecae" xml:space="preserve">
+          <source>This scenario uses continuous replication so there's no distinction between planned and unplanned failover.</source>
+          <target state="new">This scenario uses continuous replication so there's no distinction between planned and unplanned failover.</target>
+        </trans-unit>
+        <trans-unit id="8ce57910-b6b8-4740-b399-6aafd151a3c6" xml:space="preserve">
+          <source>You select <bpt id="86d6b692-8080-4b0e-a7d0-b4508131d946">&lt;strong&gt;</bpt>Failover<ept id="86d6b692-8080-4b0e-a7d0-b4508131d946">&lt;/strong&gt;</ept></source>
+          <target state="new">You select <bpt id="86d6b692-8080-4b0e-a7d0-b4508131d946">&lt;strong&gt;</bpt>Failover<ept id="86d6b692-8080-4b0e-a7d0-b4508131d946">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb152cc1-c358-4d3e-8348-eaba749030a4" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="7aff0a14-37a5-40c4-b797-a888ed11ff2e" xml:space="preserve">
+          <source>You fail over virtual machines to a secondary on-premises site or to Azure, depending on your deployment.</source>
+          <target state="new">You fail over virtual machines to a secondary on-premises site or to Azure, depending on your deployment.</target>
+        </trans-unit>
+        <trans-unit id="8f761cf4-8f3e-4c19-8f4a-eaaafde0b895" xml:space="preserve">
+          <source>A machine that fails over to Azure is created as an Azure virtual machine.</source>
+          <target state="new">A machine that fails over to Azure is created as an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6a5e70f5-3cac-44d4-a2fe-6f21d9d05f8f" xml:space="preserve">
+          <source>You can fail over a single virtual machine or physical server, or a recovery plan.</source>
+          <target state="new">You can fail over a single virtual machine or physical server, or a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="a1687a6b-b982-41e1-9fcb-2510c8c064f9" xml:space="preserve">
+          <source>Recovery plans consists of one or more ordered groups that contain protected virtual machines or physical servers.</source>
+          <target state="new">Recovery plans consists of one or more ordered groups that contain protected virtual machines or physical servers.</target>
+        </trans-unit>
+        <trans-unit id="73afc3dd-1f0a-430f-b961-1eadfc6dd602" xml:space="preserve">
+          <source>They're used to orchestrate failover of multiple machines which fail over according to the group they're in.</source>
+          <target state="new">They're used to orchestrate failover of multiple machines which fail over according to the group they're in.</target>
+        </trans-unit>
+        <trans-unit id="704ca884-556a-4344-a94d-f739b0a00300" xml:space="preserve">
+          <source><bpt id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;linkText&gt;</bpt>Read more<ept id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;/linkText&gt;</ept><bpt id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;title&gt;</bpt><ept id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;/title&gt;</ept> about recovery plans.</source>
+          <target state="new"><bpt id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;linkText&gt;</bpt>Read more<ept id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;/linkText&gt;</ept><bpt id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;title&gt;</bpt><ept id="a595ef46-f21f-4543-91ac-c1876d4fb7ef">&lt;/title&gt;</ept> about recovery plans.</target>
+        </trans-unit>
+        <trans-unit id="4eeb646f-69c0-439d-b97f-db79ac52e445" xml:space="preserve">
+          <source>After failover completes and your machines are up and running in a secondary location note that:</source>
+          <target state="new">After failover completes and your machines are up and running in a secondary location note that:</target>
+        </trans-unit>
+        <trans-unit id="ceeb8d09-ffe5-4794-acb2-b158a2f76760" xml:space="preserve">
+          <source>If you failed over to Azure, after the failover machines aren't protected or replicating in the primary or secondary location.</source>
+          <target state="new">If you failed over to Azure, after the failover machines aren't protected or replicating in the primary or secondary location.</target>
+        </trans-unit>
+        <trans-unit id="a680a4d0-20e0-4516-b224-7cf3262006f1" xml:space="preserve">
+          <source>In Azure the virtual machines are stored in geo-replicated storage which provides resiliency, but not replication.</source>
+          <target state="new">In Azure the virtual machines are stored in geo-replicated storage which provides resiliency, but not replication.</target>
+        </trans-unit>
+        <trans-unit id="fe041ac0-6639-4011-be03-a1471d402722" xml:space="preserve">
+          <source>If you did an unplanned failover to a secondary site, after the failover machines in the secondary location aren't protected or replicating.</source>
+          <target state="new">If you did an unplanned failover to a secondary site, after the failover machines in the secondary location aren't protected or replicating.</target>
+        </trans-unit>
+        <trans-unit id="721cf09b-c668-4004-b3bb-70a560a784f3" xml:space="preserve">
+          <source>If you did an planned failover to a secondary site, after the failover machines in the secondary location are protected.</source>
+          <target state="new">If you did an planned failover to a secondary site, after the failover machines in the secondary location are protected.</target>
+        </trans-unit>
+        <trans-unit id="1efaaace-9803-415f-a5e6-5968d5d1336f" xml:space="preserve">
+          <source>Failback from a secondary site to a primary uses the same process as failover from the primary to secondary.</source>
+          <target state="new">Failback from a secondary site to a primary uses the same process as failover from the primary to secondary.</target>
+        </trans-unit>
+        <trans-unit id="31715af2-350a-4c4e-8721-7cce7328dc3a" xml:space="preserve">
+          <source>After the failover from primary to secondary datacenter is committed and complete, you can initiate reverse replication when your primary site becomes available.</source>
+          <target state="new">After the failover from primary to secondary datacenter is committed and complete, you can initiate reverse replication when your primary site becomes available.</target>
+        </trans-unit>
+        <trans-unit id="9b9b7c8c-9cc8-459c-a644-66574cee203a" xml:space="preserve">
+          <source>Reverse replication initiates replication between the secondary site and the primary by synchronizing the delta data.</source>
+          <target state="new">Reverse replication initiates replication between the secondary site and the primary by synchronizing the delta data.</target>
+        </trans-unit>
+        <trans-unit id="f1358e21-2187-4688-881a-ad8a4921cafb" xml:space="preserve">
+          <source>Reverse replication brings the virtual machines into a protected state but the secondary datacenter is still the active location.</source>
+          <target state="new">Reverse replication brings the virtual machines into a protected state but the secondary datacenter is still the active location.</target>
+        </trans-unit>
+        <trans-unit id="7a5b18dc-0dcb-4dfe-a9b8-e8dd101b994b" xml:space="preserve">
+          <source>In order to make the primary site into the active location you initiate a planned failover from secondary to primary, followed by another reverse replication.</source>
+          <target state="new">In order to make the primary site into the active location you initiate a planned failover from secondary to primary, followed by another reverse replication.</target>
+        </trans-unit>
+        <trans-unit id="4e65a721-7275-4d92-a2d2-8deeeaf9d7cc" xml:space="preserve">
+          <source>If you've failed over to Azure your virtual machines are protected by the Azure resiliency features for virtual machines.</source>
+          <target state="new">If you've failed over to Azure your virtual machines are protected by the Azure resiliency features for virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0918d0d5-e6e2-4e00-bc8d-c95504abfedf" xml:space="preserve">
+          <source>To make the original primary site into the active location you run a planned failover.</source>
+          <target state="new">To make the original primary site into the active location you run a planned failover.</target>
+        </trans-unit>
+        <trans-unit id="fa1f260e-9db5-4d46-aa0c-78256bce18f2" xml:space="preserve">
+          <source>You can fail back to the original location or to an alternate location if your original site isn't available.</source>
+          <target state="new">You can fail back to the original location or to an alternate location if your original site isn't available.</target>
+        </trans-unit>
+        <trans-unit id="e033e5d1-7dc9-46ea-b1a4-d3e54b7dc9a9" xml:space="preserve">
+          <source>To start replicating again after failback to the primary location you initiate a reverse replication.</source>
+          <target state="new">To start replicating again after failback to the primary location you initiate a reverse replication.</target>
+        </trans-unit>
+        <trans-unit id="c7fee1f9-eff0-4107-a069-428718abec06" xml:space="preserve">
+          <source><bpt id="1ef3c679-2128-460e-99e6-5bf0a722d9e6">&lt;strong&gt;</bpt>IP address after failover<ept id="1ef3c679-2128-460e-99e6-5bf0a722d9e6">&lt;/strong&gt;</ept>—By default a failed over machine will have a different IP address than the source machine.</source>
+          <target state="new"><bpt id="1ef3c679-2128-460e-99e6-5bf0a722d9e6">&lt;strong&gt;</bpt>IP address after failover<ept id="1ef3c679-2128-460e-99e6-5bf0a722d9e6">&lt;/strong&gt;</ept>—By default a failed over machine will have a different IP address than the source machine.</target>
+        </trans-unit>
+        <trans-unit id="7fced835-2684-41ec-9412-9f75f597ea7b" xml:space="preserve">
+          <source>If you want to retain the same IP address see:</source>
+          <target state="new">If you want to retain the same IP address see:</target>
+        </trans-unit>
+        <trans-unit id="289b4bed-20a7-4983-88c4-e6820dad378c" xml:space="preserve">
+          <source><bpt id="47f602a4-5a69-4645-a580-51bf6204f3a8">&lt;strong&gt;</bpt>Secondary site<ept id="47f602a4-5a69-4645-a580-51bf6204f3a8">&lt;/strong&gt;</ept>—If you're failing over to a secondary site and you want to retain an IP address <bpt id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;linkText&gt;</bpt>read<ept id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;/linkText&gt;</ept><bpt id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;title&gt;</bpt><ept id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;/title&gt;</ept> this article.</source>
+          <target state="new"><bpt id="47f602a4-5a69-4645-a580-51bf6204f3a8">&lt;strong&gt;</bpt>Secondary site<ept id="47f602a4-5a69-4645-a580-51bf6204f3a8">&lt;/strong&gt;</ept>—If you're failing over to a secondary site and you want to retain an IP address <bpt id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;linkText&gt;</bpt>read<ept id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;/linkText&gt;</ept><bpt id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;title&gt;</bpt><ept id="6ef7b9c9-8499-427f-a61f-ee31b091b430">&lt;/title&gt;</ept> this article.</target>
+        </trans-unit>
+        <trans-unit id="40fcb464-d994-4d92-87e9-848dbaced0a8" xml:space="preserve">
+          <source>Note that you can retain a public IP address if your ISP supports it.</source>
+          <target state="new">Note that you can retain a public IP address if your ISP supports it.</target>
+        </trans-unit>
+        <trans-unit id="660ba1b4-6330-4226-8fdb-fffe652a9b92" xml:space="preserve">
+          <source><bpt id="2bff584f-33c1-4415-9fd2-4c21a56771ac">&lt;strong&gt;</bpt>Azure<ept id="2bff584f-33c1-4415-9fd2-4c21a56771ac">&lt;/strong&gt;</ept>—If you're failing over to Azure you can specify the IP address you want to assign in the <bpt id="98884b03-71fa-410b-b141-7b44bfc53611">&lt;strong&gt;</bpt>Configure<ept id="98884b03-71fa-410b-b141-7b44bfc53611">&lt;/strong&gt;</ept> tab of the virtual machine properties.</source>
+          <target state="new"><bpt id="2bff584f-33c1-4415-9fd2-4c21a56771ac">&lt;strong&gt;</bpt>Azure<ept id="2bff584f-33c1-4415-9fd2-4c21a56771ac">&lt;/strong&gt;</ept>—If you're failing over to Azure you can specify the IP address you want to assign in the <bpt id="98884b03-71fa-410b-b141-7b44bfc53611">&lt;strong&gt;</bpt>Configure<ept id="98884b03-71fa-410b-b141-7b44bfc53611">&lt;/strong&gt;</ept> tab of the virtual machine properties.</target>
+        </trans-unit>
+        <trans-unit id="123737c8-f756-4198-880d-c4360e1fe712" xml:space="preserve">
+          <source>You can't retain a public IP address after failover to Azure.</source>
+          <target state="new">You can't retain a public IP address after failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="eaeeca1a-fef3-4219-9cb9-2446e9f89456" xml:space="preserve">
+          <source>You can retain non-RFC 1918 address spaces that are used as internal addresses.</source>
+          <target state="new">You can retain non-RFC 1918 address spaces that are used as internal addresses.</target>
+        </trans-unit>
+        <trans-unit id="042949f7-9e79-4e83-a914-2ef4e1b47302" xml:space="preserve">
+          <source><bpt id="5eb8924a-9ded-4f4c-8881-b0b2a93186ea">&lt;strong&gt;</bpt>Partial failover<ept id="5eb8924a-9ded-4f4c-8881-b0b2a93186ea">&lt;/strong&gt;</ept>—If you want to fail over part of a site rather than an entire site note that: </source>
+          <target state="new"><bpt id="5eb8924a-9ded-4f4c-8881-b0b2a93186ea">&lt;strong&gt;</bpt>Partial failover<ept id="5eb8924a-9ded-4f4c-8881-b0b2a93186ea">&lt;/strong&gt;</ept>—If you want to fail over part of a site rather than an entire site note that: </target>
+        </trans-unit>
+        <trans-unit id="2ad32752-39d6-4608-84c1-d28d24a4e965" xml:space="preserve">
+          <source><bpt id="efafe610-e18e-43a2-bbdf-ac996d52c55e">&lt;strong&gt;</bpt>Secondary site<ept id="efafe610-e18e-43a2-bbdf-ac996d52c55e">&lt;/strong&gt;</ept>—If you fail over part of a primary site to a secondary site and you want to connect back to the primary site, use a site-to-site VPN connection to connect failed over applications on the secondary site to infrastructure components running on the primary site.</source>
+          <target state="new"><bpt id="efafe610-e18e-43a2-bbdf-ac996d52c55e">&lt;strong&gt;</bpt>Secondary site<ept id="efafe610-e18e-43a2-bbdf-ac996d52c55e">&lt;/strong&gt;</ept>—If you fail over part of a primary site to a secondary site and you want to connect back to the primary site, use a site-to-site VPN connection to connect failed over applications on the secondary site to infrastructure components running on the primary site.</target>
+        </trans-unit>
+        <trans-unit id="11b2597c-db7f-487e-8ed7-c8d6adc96aa3" xml:space="preserve">
+          <source>If an entire subnet fails over you can retain the virtual machine IP address.</source>
+          <target state="new">If an entire subnet fails over you can retain the virtual machine IP address.</target>
+        </trans-unit>
+        <trans-unit id="70f7c542-d608-4aa8-aa8c-efe378ff4cbf" xml:space="preserve">
+          <source>If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.</source>
+          <target state="new">If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.</target>
+        </trans-unit>
+        <trans-unit id="a446bd34-917e-4703-805b-f2bbc4fe21f7" xml:space="preserve">
+          <source><bpt id="44481657-5a3b-4d88-bee2-29ff3a5a6a5d">&lt;strong&gt;</bpt>Azure<ept id="44481657-5a3b-4d88-bee2-29ff3a5a6a5d">&lt;/strong&gt;</ept>—If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site.</source>
+          <target state="new"><bpt id="44481657-5a3b-4d88-bee2-29ff3a5a6a5d">&lt;strong&gt;</bpt>Azure<ept id="44481657-5a3b-4d88-bee2-29ff3a5a6a5d">&lt;/strong&gt;</ept>—If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site.</target>
+        </trans-unit>
+        <trans-unit id="a04b5c3c-667e-494b-a009-244d3b6395ff" xml:space="preserve">
+          <source>Note that if the entire subnet fails over you can retain the virtual machine IP address.</source>
+          <target state="new">Note that if the entire subnet fails over you can retain the virtual machine IP address.</target>
+        </trans-unit>
+        <trans-unit id="b4e9e9a1-79b1-4598-8571-e45b942d5f63" xml:space="preserve">
+          <source>If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.</source>
+          <target state="new">If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.</target>
+        </trans-unit>
+        <trans-unit id="bdd7d3f3-d17b-443e-901f-82248aad2655" xml:space="preserve">
+          <source><bpt id="eec4f574-dd13-4a3d-bb7d-e2f66447393c">&lt;strong&gt;</bpt>Drive letter<ept id="eec4f574-dd13-4a3d-bb7d-e2f66447393c">&lt;/strong&gt;</ept>—If you want to retain the drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to <bpt id="804e8e10-b0a1-4aa5-b264-255e6ebd6d05">&lt;strong&gt;</bpt>On<ept id="804e8e10-b0a1-4aa5-b264-255e6ebd6d05">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="eec4f574-dd13-4a3d-bb7d-e2f66447393c">&lt;strong&gt;</bpt>Drive letter<ept id="eec4f574-dd13-4a3d-bb7d-e2f66447393c">&lt;/strong&gt;</ept>—If you want to retain the drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to <bpt id="804e8e10-b0a1-4aa5-b264-255e6ebd6d05">&lt;strong&gt;</bpt>On<ept id="804e8e10-b0a1-4aa5-b264-255e6ebd6d05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f997088d-6146-4365-8ee3-bc4f2e2fee31" xml:space="preserve">
+          <source>Virtual machine disks come online automatically.</source>
+          <target state="new">Virtual machine disks come online automatically.</target>
+        </trans-unit>
+        <trans-unit id="efa99d70-2d3a-47fa-b749-8de73892b94f" xml:space="preserve">
+          <source><bpt id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;linkText&gt;</bpt>Read more<ept id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;/linkText&gt;</ept><bpt id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;title&gt;</bpt><ept id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;linkText&gt;</bpt>Read more<ept id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;/linkText&gt;</ept><bpt id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;title&gt;</bpt><ept id="ad7ae2b3-a743-469b-8f7d-6f0c81ce8abd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cfac5d0-e04e-40cc-8b7b-103eccd84dbc" xml:space="preserve">
+          <source><bpt id="5c80ae7a-3ade-4a01-87f4-6dadf2506c41">&lt;strong&gt;</bpt>Route client requests<ept id="5c80ae7a-3ade-4a01-87f4-6dadf2506c41">&lt;/strong&gt;</ept>—Site Recovery works with Azure Traffic Manager to route client requests to your application after failover.</source>
+          <target state="new"><bpt id="5c80ae7a-3ade-4a01-87f4-6dadf2506c41">&lt;strong&gt;</bpt>Route client requests<ept id="5c80ae7a-3ade-4a01-87f4-6dadf2506c41">&lt;/strong&gt;</ept>—Site Recovery works with Azure Traffic Manager to route client requests to your application after failover.</target>
+        </trans-unit>
+        <trans-unit id="54a15325-9290-4aa2-98ed-1f84d5c74b43" xml:space="preserve">
+          <source>When you run a test failover you'll be asked to select network settings for test replica machines.</source>
+          <target state="new">When you run a test failover you'll be asked to select network settings for test replica machines.</target>
+        </trans-unit>
+        <trans-unit id="963a8f0c-e692-4284-abd6-d4cdfc97c355" xml:space="preserve">
+          <source>You have a number of options.</source>
+          <target state="new">You have a number of options.</target>
+        </trans-unit>
+        <trans-unit id="a0b7034d-c11a-4d70-b024-b23d7f44ec1a" xml:space="preserve">
+          <source><bpt id="7a88fa2f-f899-442f-b6b5-97b593475426">&lt;strong&gt;</bpt>Test failover option<ept id="7a88fa2f-f899-442f-b6b5-97b593475426">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7a88fa2f-f899-442f-b6b5-97b593475426">&lt;strong&gt;</bpt>Test failover option<ept id="7a88fa2f-f899-442f-b6b5-97b593475426">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26690a24-ca12-49cb-b6af-36de5151eb7b" xml:space="preserve">
+          <source><bpt id="35626a83-14ed-4976-9960-4702515b3760">&lt;strong&gt;</bpt>Description<ept id="35626a83-14ed-4976-9960-4702515b3760">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="35626a83-14ed-4976-9960-4702515b3760">&lt;strong&gt;</bpt>Description<ept id="35626a83-14ed-4976-9960-4702515b3760">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6959cfe5-2d21-4636-bed8-1db56765c129" xml:space="preserve">
+          <source><bpt id="50ff9dbe-0993-4030-9bff-d0205ac9b8f6">&lt;strong&gt;</bpt>Failover check<ept id="50ff9dbe-0993-4030-9bff-d0205ac9b8f6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="50ff9dbe-0993-4030-9bff-d0205ac9b8f6">&lt;strong&gt;</bpt>Failover check<ept id="50ff9dbe-0993-4030-9bff-d0205ac9b8f6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0fd0644-35c6-45e9-a786-84eed226caf0" xml:space="preserve">
+          <source><bpt id="42a832a0-363c-47e5-8b30-a859294cf5e6">&lt;strong&gt;</bpt>Details<ept id="42a832a0-363c-47e5-8b30-a859294cf5e6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="42a832a0-363c-47e5-8b30-a859294cf5e6">&lt;strong&gt;</bpt>Details<ept id="42a832a0-363c-47e5-8b30-a859294cf5e6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d052beb4-a4d1-4a99-891a-b1d7ec9b4af0" xml:space="preserve">
+          <source><bpt id="f4013b1e-1589-4ad5-8fae-8296c7a7b466">&lt;strong&gt;</bpt>Fail over to Azure—without network<ept id="f4013b1e-1589-4ad5-8fae-8296c7a7b466">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f4013b1e-1589-4ad5-8fae-8296c7a7b466">&lt;strong&gt;</bpt>Fail over to Azure—without network<ept id="f4013b1e-1589-4ad5-8fae-8296c7a7b466">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75489520-3a6c-4cfa-91be-8c3ae97b9db2" xml:space="preserve">
+          <source>Don't select a target Azure network</source>
+          <target state="new">Don't select a target Azure network</target>
+        </trans-unit>
+        <trans-unit id="d1ff5aea-ac94-4c5e-ae2e-6c03cd0d6f9c" xml:space="preserve">
+          <source>Failover checks that test virtual machine starts as expected in Azure</source>
+          <target state="new">Failover checks that test virtual machine starts as expected in Azure</target>
+        </trans-unit>
+        <trans-unit id="a54cbbc6-f281-47f3-8cba-34ae56d796cf" xml:space="preserve">
+          <source>&lt;p&gt;All test virtual machines in a recover plan are added in a single cloud service and can connect to each other&lt;/p&gt;&lt;p&gt;Machines aren't connected to an Azure network after failover.&lt;/p&gt;&lt;p&gt;Users can connect to the test machines with a public IP address&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;All test virtual machines in a recover plan are added in a single cloud service and can connect to each other&lt;/p&gt;&lt;p&gt;Machines aren't connected to an Azure network after failover.&lt;/p&gt;&lt;p&gt;Users can connect to the test machines with a public IP address&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="402a178c-e627-4ac5-b980-7617e9be80ad" xml:space="preserve">
+          <source><bpt id="2283f1fa-1136-40d2-a8da-3f640529d9c0">&lt;strong&gt;</bpt>Fail over to Azure—with network<ept id="2283f1fa-1136-40d2-a8da-3f640529d9c0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2283f1fa-1136-40d2-a8da-3f640529d9c0">&lt;strong&gt;</bpt>Fail over to Azure—with network<ept id="2283f1fa-1136-40d2-a8da-3f640529d9c0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c6a27af-4672-48b6-8f9d-0ae8d8aad158" xml:space="preserve">
+          <source>Select a target Azure network</source>
+          <target state="new">Select a target Azure network</target>
+        </trans-unit>
+        <trans-unit id="97a8ce71-11b5-4e0f-b7aa-44c8f2730c27" xml:space="preserve">
+          <source>Failover checks that test machines are connected to the network</source>
+          <target state="new">Failover checks that test machines are connected to the network</target>
+        </trans-unit>
+        <trans-unit id="1fef644b-b3cc-47a7-a198-72b46afd3eeb" xml:space="preserve">
+          <source>&lt;p&gt;Create an Azure network that’s isolated from your Azure production network and set up the infrastructure for the replicated virtual machine to work as expected.&lt;/p&gt;&lt;p&gt;The subnet of the test virtual machine is based on subnet on which the failed over virtual machine is expected to connect to if a planned or unplanned failover occurs.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Create an Azure network that’s isolated from your Azure production network and set up the infrastructure for the replicated virtual machine to work as expected.&lt;/p&gt;&lt;p&gt;The subnet of the test virtual machine is based on subnet on which the failed over virtual machine is expected to connect to if a planned or unplanned failover occurs.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="81271017-d1aa-47fa-be14-e1ebdbe285b3" xml:space="preserve">
+          <source><bpt id="b5897d2e-4c4b-4f98-a298-831a5d9efb04">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—without network<ept id="b5897d2e-4c4b-4f98-a298-831a5d9efb04">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b5897d2e-4c4b-4f98-a298-831a5d9efb04">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—without network<ept id="b5897d2e-4c4b-4f98-a298-831a5d9efb04">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="996c2141-410e-4e6a-b1c9-56d850c78ad0" xml:space="preserve">
+          <source>Don't select a VM network</source>
+          <target state="new">Don't select a VM network</target>
+        </trans-unit>
+        <trans-unit id="dbc35980-616e-46ce-8e3c-70a0f43372bf" xml:space="preserve">
+          <source>Failover checks that test machines are created &lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;&lt;/p&gt;</source>
+          <target state="new">Failover checks that test machines are created &lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4ea5b8d4-b035-4922-b797-5fdb198de94d" xml:space="preserve">
+          <source>&lt;p&gt;The failed over machine won’t be connected to any network.&lt;/p&gt;&lt;p&gt;The machine can be connected to a VM network after it has been created&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The failed over machine won’t be connected to any network.&lt;/p&gt;&lt;p&gt;The machine can be connected to a VM network after it has been created&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="3e8cf679-64a5-48e1-96a2-b1fbe7db9e45" xml:space="preserve">
+          <source><bpt id="8178761e-953d-44a2-8767-1cb5884f8765">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—with network<ept id="8178761e-953d-44a2-8767-1cb5884f8765">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8178761e-953d-44a2-8767-1cb5884f8765">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—with network<ept id="8178761e-953d-44a2-8767-1cb5884f8765">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b2f6c31-aecb-49d6-be42-9545e942cebb" xml:space="preserve">
+          <source>Select an existing VM network a</source>
+          <target state="new">Select an existing VM network a</target>
+        </trans-unit>
+        <trans-unit id="63bb3818-de40-48ed-98be-835fd951c322" xml:space="preserve">
+          <source>Failover checks that virtual machines are created</source>
+          <target state="new">Failover checks that virtual machines are created</target>
+        </trans-unit>
+        <trans-unit id="990b087d-9de8-45b7-85a8-18d7d96903a2" xml:space="preserve">
+          <source>&lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;&lt;p&gt;Create a VM network that's isolated from your production network&lt;/p&gt;&lt;p&gt;If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.&lt;/p&gt;&lt;p&gt;The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.&lt;/p&gt;&lt;p&gt;For VLAN logical networks, the network sites you add to the logical network should be isolated.&lt;/p&gt;&lt;p&gt;If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;&lt;p&gt;Create a VM network that's isolated from your production network&lt;/p&gt;&lt;p&gt;If you're using a VLAN-based network we recommend you create a separate logical network (not used in production) in VMM for this purpose. This logical network is used to create VM networks for the purpose of test failover.&lt;/p&gt;&lt;p&gt;The logical network should be associated with at least one of the network adapters of all the Hyper-V servers hosting virtual machines.&lt;/p&gt;&lt;p&gt;For VLAN logical networks, the network sites you add to the logical network should be isolated.&lt;/p&gt;&lt;p&gt;If you’re using a Windows Network Virtualization–based logical network, Azure Site Recovery automatically creates isolated VM networks.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="2c60ef4e-5b4b-4c4e-9a4b-5ec1b39f8b0b" xml:space="preserve">
+          <source><bpt id="7facaaa7-c2c4-4f69-98b4-71ec48a5699b">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—create a network<ept id="7facaaa7-c2c4-4f69-98b4-71ec48a5699b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7facaaa7-c2c4-4f69-98b4-71ec48a5699b">&lt;strong&gt;</bpt>Fail over to a secondary VMM site—create a network<ept id="7facaaa7-c2c4-4f69-98b4-71ec48a5699b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="143d9ce7-3d13-4b7a-936b-4d23a245794d" xml:space="preserve">
+          <source>A temporary test network will be created automatically based on the setting you specify in <bpt id="591ca7fb-86ff-4072-9a1a-d3ecc4eca34e">&lt;strong&gt;</bpt>Logical Network<ept id="591ca7fb-86ff-4072-9a1a-d3ecc4eca34e">&lt;/strong&gt;</ept> and its related network sites</source>
+          <target state="new">A temporary test network will be created automatically based on the setting you specify in <bpt id="591ca7fb-86ff-4072-9a1a-d3ecc4eca34e">&lt;strong&gt;</bpt>Logical Network<ept id="591ca7fb-86ff-4072-9a1a-d3ecc4eca34e">&lt;/strong&gt;</ept> and its related network sites</target>
+        </trans-unit>
+        <trans-unit id="8bdc6de8-8080-486b-82a8-6dfb82776de6" xml:space="preserve">
+          <source>Failover checks that virtual machines are created</source>
+          <target state="new">Failover checks that virtual machines are created</target>
+        </trans-unit>
+        <trans-unit id="188419cb-a556-4e86-b917-1af0ce4498ef" xml:space="preserve">
+          <source>&lt;p&gt;Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.&lt;/p&gt;&lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Use this option if the recovery plan uses more than one VM network. If you're using Windows Network Virtualization networks, this option can automatically create VM networks with the same settings (subnets and IP address pools) in the network of the replica virtual machine. These VM networks are cleaned up automatically after the test failover is complete.&lt;/p&gt;&lt;p&gt;The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="0aebe890-2717-4431-9a55-d75c14fbe8f4" xml:space="preserve">
+          <source>Note that: </source>
+          <target state="new">Note that: </target>
+        </trans-unit>
+        <trans-unit id="ba54cce4-3bc6-46f1-8eaa-ae20f3a6bba0" xml:space="preserve">
+          <source>When replicating to a secondary site, the type of network used by the replica machine doesn’t need to match the type of logical network used for test failover, but some combinations might not work.</source>
+          <target state="new">When replicating to a secondary site, the type of network used by the replica machine doesn’t need to match the type of logical network used for test failover, but some combinations might not work.</target>
+        </trans-unit>
+        <trans-unit id="32431c4d-1f0a-4184-9d85-917c38c9a156" xml:space="preserve">
+          <source>If the replica uses DHCP and VLAN-based isolation, the VM network for the replica doesn't need a static IP address pool.</source>
+          <target state="new">If the replica uses DHCP and VLAN-based isolation, the VM network for the replica doesn't need a static IP address pool.</target>
+        </trans-unit>
+        <trans-unit id="064ce881-1384-4a03-8bb0-baf7453e1b36" xml:space="preserve">
+          <source>So using Windows Network Virtualization for the test failover wouldn't work because no address pools are available.</source>
+          <target state="new">So using Windows Network Virtualization for the test failover wouldn't work because no address pools are available.</target>
+        </trans-unit>
+        <trans-unit id="1ee4c459-9371-4fe7-bea9-7caeef0717cf" xml:space="preserve">
+          <source>In addition test failover won't work if the replica network is No Isolation and the test network is Windows Network Virtualization.</source>
+          <target state="new">In addition test failover won't work if the replica network is No Isolation and the test network is Windows Network Virtualization.</target>
+        </trans-unit>
+        <trans-unit id="332e4281-a4d4-4cf4-867a-0ab6bfaa96b3" xml:space="preserve">
+          <source>This is because the No Isolation network doesn't have the subnets required to create a Windows Network Virtualization network.</source>
+          <target state="new">This is because the No Isolation network doesn't have the subnets required to create a Windows Network Virtualization network.</target>
+        </trans-unit>
+        <trans-unit id="d8795c98-5a17-4125-8a19-9477f3bb69bb" xml:space="preserve">
+          <source>The way in which replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console:</source>
+          <target state="new">The way in which replica virtual machines are connected to mapped VM networks after failover depends on how the VM network is configured in the VMM console:</target>
+        </trans-unit>
+        <trans-unit id="ea4a6d32-81f9-4510-aeda-925b71e831c8" xml:space="preserve">
+          <source><bpt id="729b5595-58ff-4cc9-89a1-6cfc6a3fc446">&lt;strong&gt;</bpt>VM network configured with no isolation or VLAN isolation<ept id="729b5595-58ff-4cc9-89a1-6cfc6a3fc446">&lt;/strong&gt;</ept>—If DHCP is defined for the VM network, the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network.</source>
+          <target state="new"><bpt id="729b5595-58ff-4cc9-89a1-6cfc6a3fc446">&lt;strong&gt;</bpt>VM network configured with no isolation or VLAN isolation<ept id="729b5595-58ff-4cc9-89a1-6cfc6a3fc446">&lt;/strong&gt;</ept>—If DHCP is defined for the VM network, the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network.</target>
+        </trans-unit>
+        <trans-unit id="9dea0e6e-2ced-42f1-a41f-9ee9885328d2" xml:space="preserve">
+          <source>The virtual machine will receive its IP address from the available DHCP server.</source>
+          <target state="new">The virtual machine will receive its IP address from the available DHCP server.</target>
+        </trans-unit>
+        <trans-unit id="e65c53a2-7bb5-4960-b3a7-97d30c3a405c" xml:space="preserve">
+          <source>You don't need a static IP address pool defined for the target VM network.</source>
+          <target state="new">You don't need a static IP address pool defined for the target VM network.</target>
+        </trans-unit>
+        <trans-unit id="689d8fdd-5eea-49b9-92e7-faa816f7c2cc" xml:space="preserve">
+          <source>If a static IP address pool is used for the VM network the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network.</source>
+          <target state="new">If a static IP address pool is used for the VM network the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network.</target>
+        </trans-unit>
+        <trans-unit id="6a4d44c7-cc6e-42c5-8de4-105636f6e4db" xml:space="preserve">
+          <source>The virtual machine will receive its IP address from the pool defined for the VM network.</source>
+          <target state="new">The virtual machine will receive its IP address from the pool defined for the VM network.</target>
+        </trans-unit>
+        <trans-unit id="75f3c5d5-3583-4f1d-80d4-484b49a382d1" xml:space="preserve">
+          <source>If a static IP address pool isn't defined on the target VM network, IP address allocation will fail.</source>
+          <target state="new">If a static IP address pool isn't defined on the target VM network, IP address allocation will fail.</target>
+        </trans-unit>
+        <trans-unit id="5dbbe88f-9ca0-455c-8289-2b9ca6bdaa14" xml:space="preserve">
+          <source>The IP address pool should be created on both the source and target VMM servers that you are going to use for protection and recovery.</source>
+          <target state="new">The IP address pool should be created on both the source and target VMM servers that you are going to use for protection and recovery.</target>
+        </trans-unit>
+        <trans-unit id="a37de22d-d12d-4227-8b28-abd4a5107309" xml:space="preserve">
+          <source><bpt id="6573bf15-0723-4e6f-994c-79a210bd8fbc">&lt;strong&gt;</bpt>VM network with Windows network virtualization<ept id="6573bf15-0723-4e6f-994c-79a210bd8fbc">&lt;/strong&gt;</ept>—If a VM network is configured with this setting a static pool should be defined for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool.</source>
+          <target state="new"><bpt id="6573bf15-0723-4e6f-994c-79a210bd8fbc">&lt;strong&gt;</bpt>VM network with Windows network virtualization<ept id="6573bf15-0723-4e6f-994c-79a210bd8fbc">&lt;/strong&gt;</ept>—If a VM network is configured with this setting a static pool should be defined for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool.</target>
+        </trans-unit>
+        <trans-unit id="e6624bd9-275d-4784-8ea0-496ff2e3e081" xml:space="preserve">
+          <source>If you define DHCP, the target VMM server will act as a DHCP server and provide an IP address from the pool that is defined for the target VM network.</source>
+          <target state="new">If you define DHCP, the target VMM server will act as a DHCP server and provide an IP address from the pool that is defined for the target VM network.</target>
+        </trans-unit>
+        <trans-unit id="f8403b15-ffee-4b98-934f-c3f6d4d21a3b" xml:space="preserve">
+          <source>If use of a static IP address pool is defined for the source server, the target VMM server will allocate an IP address from the pool.</source>
+          <target state="new">If use of a static IP address pool is defined for the source server, the target VMM server will allocate an IP address from the pool.</target>
+        </trans-unit>
+        <trans-unit id="0ed1ae76-bfd4-4e26-bda1-8900f91c2d07" xml:space="preserve">
+          <source>In both cases, IP address allocation will fail if a static IP address pool is not defined.</source>
+          <target state="new">In both cases, IP address allocation will fail if a static IP address pool is not defined.</target>
+        </trans-unit>
+        <trans-unit id="4ddb2b82-55e2-4b85-869f-1e5a63288650" xml:space="preserve">
+          <source>This procedure describes how to run a test failover for a recovery plan.</source>
+          <target state="new">This procedure describes how to run a test failover for a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="c90f7fbd-ae2a-480b-a099-e41f4de3390d" xml:space="preserve">
+          <source>Alternatively you can run the failover for a single machine on the <bpt id="a50e6d7c-e4de-4c23-a501-eee351dbdee1">&lt;strong&gt;</bpt>Virtual Machines<ept id="a50e6d7c-e4de-4c23-a501-eee351dbdee1">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Alternatively you can run the failover for a single machine on the <bpt id="a50e6d7c-e4de-4c23-a501-eee351dbdee1">&lt;strong&gt;</bpt>Virtual Machines<ept id="a50e6d7c-e4de-4c23-a501-eee351dbdee1">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d62565f8-7b7f-479d-9bfb-d1d39952f214" xml:space="preserve">
+          <source>Select <bpt id="cbcb249d-32e7-44d9-bf5e-d1147f26089f">&lt;strong&gt;</bpt>Recovery Plans<ept id="cbcb249d-32e7-44d9-bf5e-d1147f26089f">&lt;/strong&gt;</ept> &gt; <bpt id="fedae375-0b81-41af-83bf-fd53a4d9fc5c">&lt;em&gt;</bpt>recoveryplan_name<ept id="fedae375-0b81-41af-83bf-fd53a4d9fc5c">&lt;/em&gt;</ept>.</source>
+          <target state="new">Select <bpt id="cbcb249d-32e7-44d9-bf5e-d1147f26089f">&lt;strong&gt;</bpt>Recovery Plans<ept id="cbcb249d-32e7-44d9-bf5e-d1147f26089f">&lt;/strong&gt;</ept> &gt; <bpt id="fedae375-0b81-41af-83bf-fd53a4d9fc5c">&lt;em&gt;</bpt>recoveryplan_name<ept id="fedae375-0b81-41af-83bf-fd53a4d9fc5c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9fbc484-ee78-46cb-9bfe-720543698b81" xml:space="preserve">
+          <source>Click <bpt id="d7695c23-25fb-476d-8351-408d0ab14f90">&lt;strong&gt;</bpt>Failover<ept id="d7695c23-25fb-476d-8351-408d0ab14f90">&lt;/strong&gt;</ept> &gt; <bpt id="5677661a-a30a-4ece-a140-388d986049b3">&lt;strong&gt;</bpt>Test Failover<ept id="5677661a-a30a-4ece-a140-388d986049b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d7695c23-25fb-476d-8351-408d0ab14f90">&lt;strong&gt;</bpt>Failover<ept id="d7695c23-25fb-476d-8351-408d0ab14f90">&lt;/strong&gt;</ept> &gt; <bpt id="5677661a-a30a-4ece-a140-388d986049b3">&lt;strong&gt;</bpt>Test Failover<ept id="5677661a-a30a-4ece-a140-388d986049b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9758e0e-37a3-4f28-abc6-a44a58b8acf6" xml:space="preserve">
+          <source>On the <bpt id="59182aef-229b-459f-b345-dff4271dca7c">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="59182aef-229b-459f-b345-dff4271dca7c">&lt;/strong&gt;</ept> page, specify how replica machines will be connected to an Azure network after failover.</source>
+          <target state="new">On the <bpt id="59182aef-229b-459f-b345-dff4271dca7c">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="59182aef-229b-459f-b345-dff4271dca7c">&lt;/strong&gt;</ept> page, specify how replica machines will be connected to an Azure network after failover.</target>
+        </trans-unit>
+        <trans-unit id="4e101766-389c-4028-bbf1-d82bc100ddd2" xml:space="preserve">
+          <source>If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="631ed975-091a-4f78-8a36-b5e9e50988c6">&lt;strong&gt;</bpt>Encryption Key<ept id="631ed975-091a-4f78-8a36-b5e9e50988c6">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation.</source>
+          <target state="new">If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="631ed975-091a-4f78-8a36-b5e9e50988c6">&lt;strong&gt;</bpt>Encryption Key<ept id="631ed975-091a-4f78-8a36-b5e9e50988c6">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation.</target>
+        </trans-unit>
+        <trans-unit id="647d2a52-abce-4986-9f49-16ba88fc6418" xml:space="preserve">
+          <source>Track failover progress on the <bpt id="32ff3009-5ede-4993-8bed-c275f145e319">&lt;strong&gt;</bpt>Jobs<ept id="32ff3009-5ede-4993-8bed-c275f145e319">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Track failover progress on the <bpt id="32ff3009-5ede-4993-8bed-c275f145e319">&lt;strong&gt;</bpt>Jobs<ept id="32ff3009-5ede-4993-8bed-c275f145e319">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="485a10aa-e96d-432f-baa9-b1066b98c97d" xml:space="preserve">
+          <source>You should be able to see the test replica machine in the Azure portal.</source>
+          <target state="new">You should be able to see the test replica machine in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="44a16610-3d88-42dd-a8c2-829e6104ae97" xml:space="preserve">
+          <source>You can access replica machines in Azure from your on-premises site initiate an RDP connection to the virtual machine.</source>
+          <target state="new">You can access replica machines in Azure from your on-premises site initiate an RDP connection to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f57e48dc-1e40-4c01-ae2f-3044cea85c89" xml:space="preserve">
+          <source>port 3389 will need to be open on the endpoint for the virtual machine.</source>
+          <target state="new">port 3389 will need to be open on the endpoint for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b1f1fb76-1ef3-495a-962f-b2a860ae5468" xml:space="preserve">
+          <source>Once you're done, When the failover reaches the <bpt id="1c275a92-bf2c-468d-b1fb-bb4c2694f252">&lt;strong&gt;</bpt>Complete testing<ept id="1c275a92-bf2c-468d-b1fb-bb4c2694f252">&lt;/strong&gt;</ept> phase , click <bpt id="d3b9c9ad-b617-437a-8977-791c3b8dd9c9">&lt;strong&gt;</bpt>Complete Test<ept id="d3b9c9ad-b617-437a-8977-791c3b8dd9c9">&lt;/strong&gt;</ept> to finish.</source>
+          <target state="new">Once you're done, When the failover reaches the <bpt id="1c275a92-bf2c-468d-b1fb-bb4c2694f252">&lt;strong&gt;</bpt>Complete testing<ept id="1c275a92-bf2c-468d-b1fb-bb4c2694f252">&lt;/strong&gt;</ept> phase , click <bpt id="d3b9c9ad-b617-437a-8977-791c3b8dd9c9">&lt;strong&gt;</bpt>Complete Test<ept id="d3b9c9ad-b617-437a-8977-791c3b8dd9c9">&lt;/strong&gt;</ept> to finish.</target>
+        </trans-unit>
+        <trans-unit id="1e4e0e77-97f2-4c2e-a566-8445dde5fc36" xml:space="preserve">
+          <source>In <bpt id="e7bc2512-6f7d-4bb9-bbdf-68e32eb2734c">&lt;strong&gt;</bpt>Notes<ept id="e7bc2512-6f7d-4bb9-bbdf-68e32eb2734c">&lt;/strong&gt;</ept> record and save any observations associated with the test failover.</source>
+          <target state="new">In <bpt id="e7bc2512-6f7d-4bb9-bbdf-68e32eb2734c">&lt;strong&gt;</bpt>Notes<ept id="e7bc2512-6f7d-4bb9-bbdf-68e32eb2734c">&lt;/strong&gt;</ept> record and save any observations associated with the test failover.</target>
+        </trans-unit>
+        <trans-unit id="8ebfc153-e5d7-49c4-88f7-ea20822ad13c" xml:space="preserve">
+          <source>Click <bpt id="e4ecea01-7c68-46d1-8c3a-d0bbfe8f57a1">&lt;strong&gt;</bpt>The test failover is complete<ept id="e4ecea01-7c68-46d1-8c3a-d0bbfe8f57a1">&lt;/strong&gt;</ept> to automatically clean up the test environment.</source>
+          <target state="new">Click <bpt id="e4ecea01-7c68-46d1-8c3a-d0bbfe8f57a1">&lt;strong&gt;</bpt>The test failover is complete<ept id="e4ecea01-7c68-46d1-8c3a-d0bbfe8f57a1">&lt;/strong&gt;</ept> to automatically clean up the test environment.</target>
+        </trans-unit>
+        <trans-unit id="3b79ad3e-f054-4fe6-82a7-b7ca8a2c577d" xml:space="preserve">
+          <source>After this is complete the test failover will show the C<bpt id="9f56852a-63cc-4e01-808a-8e8edff10409">&lt;strong&gt;</bpt>omplete<ept id="9f56852a-63cc-4e01-808a-8e8edff10409">&lt;/strong&gt;</ept> status.</source>
+          <target state="new">After this is complete the test failover will show the C<bpt id="9f56852a-63cc-4e01-808a-8e8edff10409">&lt;strong&gt;</bpt>omplete<ept id="9f56852a-63cc-4e01-808a-8e8edff10409">&lt;/strong&gt;</ept> status.</target>
+        </trans-unit>
+        <trans-unit id="8e85513e-cc61-428c-848e-088b6e6105ea" xml:space="preserve">
+          <source>If a test failover continues for more than two weeks it'll be completed by force.</source>
+          <target state="new">If a test failover continues for more than two weeks it'll be completed by force.</target>
+        </trans-unit>
+        <trans-unit id="0109ace6-7f86-42c2-9fb7-dbf67f091b8b" xml:space="preserve">
+          <source>Any elements or virtual machines created automatically during the test failover will be deleted.</source>
+          <target state="new">Any elements or virtual machines created automatically during the test failover will be deleted.</target>
+        </trans-unit>
+        <trans-unit id="1a4e313d-5891-4847-bc36-552f531261b5" xml:space="preserve">
+          <source>Run an example test failover as follows:</source>
+          <target state="new">Run an example test failover as follows:</target>
+        </trans-unit>
+        <trans-unit id="56524705-0900-4b39-87fa-11a4476c28bc" xml:space="preserve">
+          <source>Do a test failover of the Active Directory virtual machine and DNS virtual machine in the same network that you’ll be using for the test failover of the on-premises virtual machine.</source>
+          <target state="new">Do a test failover of the Active Directory virtual machine and DNS virtual machine in the same network that you’ll be using for the test failover of the on-premises virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="1087532e-c598-45c6-b8ab-34a54ac981f5" xml:space="preserve">
+          <source>Note the IP addresses that are allocated to these failed over machines.</source>
+          <target state="new">Note the IP addresses that are allocated to these failed over machines.</target>
+        </trans-unit>
+        <trans-unit id="ce5b9b2d-62f7-45ec-9606-80e5248d1811" xml:space="preserve">
+          <source>In the Azure virtual network that'' be used for the test failover, add the IP addresses as the addresses of the DNS and Active Directory servers.</source>
+          <target state="new">In the Azure virtual network that'' be used for the test failover, add the IP addresses as the addresses of the DNS and Active Directory servers.</target>
+        </trans-unit>
+        <trans-unit id="5384ab5e-713e-4ee6-82e0-8d450862a811" xml:space="preserve">
+          <source>Do a test failover of the virtual machine, specifying the Azure network.</source>
+          <target state="new">Do a test failover of the virtual machine, specifying the Azure network.</target>
+        </trans-unit>
+        <trans-unit id="d7722f6f-c4ff-49ee-8d67-10bc9a05972b" xml:space="preserve">
+          <source>After validating that the test failure worked as expected, complete the failover for the virtual machines, and then for the Active Directory and DNS virtual machines.</source>
+          <target state="new">After validating that the test failure worked as expected, complete the failover for the virtual machines, and then for the Active Directory and DNS virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="f321f3c8-d00f-4472-a298-b5d824bc40ad" xml:space="preserve">
+          <source>You’ll need to do a number of things to run a test failover, including making a copy of Active Directory and placing test DHCP and DNS servers in your test environment.</source>
+          <target state="new">You’ll need to do a number of things to run a test failover, including making a copy of Active Directory and placing test DHCP and DNS servers in your test environment.</target>
+        </trans-unit>
+        <trans-unit id="90f7e5a3-f886-44d7-a497-c27479fab357" xml:space="preserve">
+          <source>You can do this in a couple of ways:</source>
+          <target state="new">You can do this in a couple of ways:</target>
+        </trans-unit>
+        <trans-unit id="f1f0787c-8282-4c07-84d5-5b685a562cf2" xml:space="preserve">
+          <source>If you want to run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.</source>
+          <target state="new">If you want to run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.</target>
+        </trans-unit>
+        <trans-unit id="621066c7-1f7f-4123-94a7-7f06127dee91" xml:space="preserve">
+          <source>If you want to run a test failover using the option to create VM networks automatically, add manual step before Group-1 in the recovery plan you’re going to use for the test failover and then add the infrastructure resources to the automatically created network before running the test failover.</source>
+          <target state="new">If you want to run a test failover using the option to create VM networks automatically, add manual step before Group-1 in the recovery plan you’re going to use for the test failover and then add the infrastructure resources to the automatically created network before running the test failover.</target>
+        </trans-unit>
+        <trans-unit id="a7a5d27f-1da3-4839-a528-111d729027ce" xml:space="preserve">
+          <source>To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment.</source>
+          <target state="new">To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment.</target>
+        </trans-unit>
+        <trans-unit id="8812129f-fceb-454d-916c-73f9bf5b912a" xml:space="preserve">
+          <source>Here's what to do.</source>
+          <target state="new">Here's what to do.</target>
+        </trans-unit>
+        <trans-unit id="28395dc5-b20b-4f4a-ac20-f2303ff02310" xml:space="preserve">
+          <source><bpt id="a894a2b3-e73d-4f83-b087-c18897fd1d24">&lt;strong&gt;</bpt>Create a copy<ept id="a894a2b3-e73d-4f83-b087-c18897fd1d24">&lt;/strong&gt;</ept>—Create a copy of Active Directory using one of the following methods:</source>
+          <target state="new"><bpt id="a894a2b3-e73d-4f83-b087-c18897fd1d24">&lt;strong&gt;</bpt>Create a copy<ept id="a894a2b3-e73d-4f83-b087-c18897fd1d24">&lt;/strong&gt;</ept>—Create a copy of Active Directory using one of the following methods:</target>
+        </trans-unit>
+        <trans-unit id="207e1985-8f34-4719-86fe-6a092525bc47" xml:space="preserve">
+          <source>Hyper-V replication—You can start Active Directory replication using Hyper-V replication, just as you do for other virtual machines.</source>
+          <target state="new">Hyper-V replication—You can start Active Directory replication using Hyper-V replication, just as you do for other virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="7bc3658b-c838-4f75-a6ae-a574902f7055" xml:space="preserve">
+          <source>When you do a test failover of a recovery plan, you can also do a test failover of the Active Directory virtual machine.</source>
+          <target state="new">When you do a test failover of a recovery plan, you can also do a test failover of the Active Directory virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="ae5000cf-4f22-4c7e-b593-6ab84dc380c6" xml:space="preserve">
+          <source>Active Directory replication—You can use Active Directory replication to create a copy of your Active Directory installation in your replica site.</source>
+          <target state="new">Active Directory replication—You can use Active Directory replication to create a copy of your Active Directory installation in your replica site.</target>
+        </trans-unit>
+        <trans-unit id="af02dbf6-a4f0-4df0-ac1c-58bb18c6db71" xml:space="preserve">
+          <source>When you do a test failover of a recovery plan, you can create a copy of the Active Directory virtual machine by taking a snapshot of the replica Active Directory installation.</source>
+          <target state="new">When you do a test failover of a recovery plan, you can create a copy of the Active Directory virtual machine by taking a snapshot of the replica Active Directory installation.</target>
+        </trans-unit>
+        <trans-unit id="0795bf9a-f4e6-4c39-ba16-bf8d5762e308" xml:space="preserve">
+          <source>You can use this copy for test failover.</source>
+          <target state="new">You can use this copy for test failover.</target>
+        </trans-unit>
+        <trans-unit id="e259a8b8-1105-4843-bc47-20ee785151b2" xml:space="preserve">
+          <source>After the test failover is done, you can delete the copy of Active Directory.</source>
+          <target state="new">After the test failover is done, you can delete the copy of Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="1f8a1b4b-bba8-4956-90f1-c40ef01998a2" xml:space="preserve">
+          <source><bpt id="bd231fb3-2fcf-49a3-a9c8-ba85d91c49e5">&lt;strong&gt;</bpt>Import and export<ept id="bd231fb3-2fcf-49a3-a9c8-ba85d91c49e5">&lt;/strong&gt;</ept>—You can create a copy of an Active Directory virtual machine by exporting it and then importing it with a new GUID.</source>
+          <target state="new"><bpt id="bd231fb3-2fcf-49a3-a9c8-ba85d91c49e5">&lt;strong&gt;</bpt>Import and export<ept id="bd231fb3-2fcf-49a3-a9c8-ba85d91c49e5">&lt;/strong&gt;</ept>—You can create a copy of an Active Directory virtual machine by exporting it and then importing it with a new GUID.</target>
+        </trans-unit>
+        <trans-unit id="c460fe83-ef1f-47c1-9a68-f3be87b49bb2" xml:space="preserve">
+          <source><bpt id="58556c92-980d-44ff-976d-7612cdc7a5ad">&lt;strong&gt;</bpt>Add to the network<ept id="58556c92-980d-44ff-976d-7612cdc7a5ad">&lt;/strong&gt;</ept>—Add Active Directory to the network that is created by the test failover.</source>
+          <target state="new"><bpt id="58556c92-980d-44ff-976d-7612cdc7a5ad">&lt;strong&gt;</bpt>Add to the network<ept id="58556c92-980d-44ff-976d-7612cdc7a5ad">&lt;/strong&gt;</ept>—Add Active Directory to the network that is created by the test failover.</target>
+        </trans-unit>
+        <trans-unit id="277dad45-4a05-4086-8edf-810f4e15644c" xml:space="preserve">
+          <source>Note the following:</source>
+          <target state="new">Note the following:</target>
+        </trans-unit>
+        <trans-unit id="c4715b9b-afc7-4e39-ba63-8b6199d3f3d0" xml:space="preserve">
+          <source>It’s important to ensure that the network to which you’re going to add Active Directory is completely isolated from your production network.</source>
+          <target state="new">It’s important to ensure that the network to which you’re going to add Active Directory is completely isolated from your production network.</target>
+        </trans-unit>
+        <trans-unit id="cf564eca-0cac-4923-8465-d6df78dab2b2" xml:space="preserve">
+          <source>If you use a network of the Windows Network type as your test network, the system guarantees the isolation of automatically created VM networks, providing you don't add an external gateway to the network.</source>
+          <target state="new">If you use a network of the Windows Network type as your test network, the system guarantees the isolation of automatically created VM networks, providing you don't add an external gateway to the network.</target>
+        </trans-unit>
+        <trans-unit id="e4fdc888-ef0a-4719-863f-7e2fa1e0a5bc" xml:space="preserve">
+          <source>If you are using VLAN-based isolation, you have to ensure that the VM networks that are created are isolated from your production environment.</source>
+          <target state="new">If you are using VLAN-based isolation, you have to ensure that the VM networks that are created are isolated from your production environment.</target>
+        </trans-unit>
+        <trans-unit id="06cfe0e8-731a-4957-b9a1-5d1fcc03c8b8" xml:space="preserve">
+          <source>The sequence of steps that you might have to follow will be slightly different, depending on whether Active Directory and DNS are running on the same virtual machine or on different virtual machines:</source>
+          <target state="new">The sequence of steps that you might have to follow will be slightly different, depending on whether Active Directory and DNS are running on the same virtual machine or on different virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="e825a58a-7309-4cd5-8a69-e24c038bf054" xml:space="preserve">
+          <source>Same virtual machine—If Active Directory and DNS are on the same virtual machine, you can use the same virtual machine as a DNS resource for the test failover.</source>
+          <target state="new">Same virtual machine—If Active Directory and DNS are on the same virtual machine, you can use the same virtual machine as a DNS resource for the test failover.</target>
+        </trans-unit>
+        <trans-unit id="41750ad4-64e0-4bcd-9202-7aaeb85f8951" xml:space="preserve">
+          <source>You can choose to clean up all the entries in DNS and recreate required zones in the DNS.</source>
+          <target state="new">You can choose to clean up all the entries in DNS and recreate required zones in the DNS.</target>
+        </trans-unit>
+        <trans-unit id="c32199c0-e66f-476f-bfc4-b206e347db00" xml:space="preserve">
+          <source>Different virtual machine—If Active Directory and DNS are on different virtual machines, you’ll need to create a DNS resource for the test failover.</source>
+          <target state="new">Different virtual machine—If Active Directory and DNS are on different virtual machines, you’ll need to create a DNS resource for the test failover.</target>
+        </trans-unit>
+        <trans-unit id="3ed1ad7a-37d2-4dab-8d67-c6f3f5233f6a" xml:space="preserve">
+          <source>You can use a fresh DNS server and create all the required zones.</source>
+          <target state="new">You can use a fresh DNS server and create all the required zones.</target>
+        </trans-unit>
+        <trans-unit id="2ffc5b2d-6cfb-482e-a2dc-c71709338e43" xml:space="preserve">
+          <source>For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com.</source>
+          <target state="new">For example, if your Active Directory domain is contoso.com, you can create a zone with the name contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="c0aedecf-76c5-42d8-a4d2-60287b0cba54" xml:space="preserve">
+          <source><bpt id="2e05b9d3-6e50-4102-ba6b-fe3355eae763">&lt;strong&gt;</bpt>Update Active Directory in DNS<ept id="2e05b9d3-6e50-4102-ba6b-fe3355eae763">&lt;/strong&gt;</ept>—In both cases, the entries corresponding to Active Directory must be updated in DNS.</source>
+          <target state="new"><bpt id="2e05b9d3-6e50-4102-ba6b-fe3355eae763">&lt;strong&gt;</bpt>Update Active Directory in DNS<ept id="2e05b9d3-6e50-4102-ba6b-fe3355eae763">&lt;/strong&gt;</ept>—In both cases, the entries corresponding to Active Directory must be updated in DNS.</target>
+        </trans-unit>
+        <trans-unit id="377c9846-92bb-4d04-9149-500732f501cb" xml:space="preserve">
+          <source>Do this as follows:</source>
+          <target state="new">Do this as follows:</target>
+        </trans-unit>
+        <trans-unit id="7840c623-53cf-45e5-be83-513f6330bee0" xml:space="preserve">
+          <source>Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:</source>
+          <target state="new">Ensure the following settings are in place before any other virtual machine in the recovery plan comes up:</target>
+        </trans-unit>
+        <trans-unit id="6abf9814-e1f9-4aea-b491-050c13ef6fa1" xml:space="preserve">
+          <source>The zone must be named after the forest root name.</source>
+          <target state="new">The zone must be named after the forest root name.</target>
+        </trans-unit>
+        <trans-unit id="c87940f5-063b-4b0a-ad17-409e23ec7e6a" xml:space="preserve">
+          <source>The zone must be file backed.</source>
+          <target state="new">The zone must be file backed.</target>
+        </trans-unit>
+        <trans-unit id="2fb3a386-5479-48bc-92bb-0969260edd95" xml:space="preserve">
+          <source>The zone must be enabled for secure and non-secure updates.</source>
+          <target state="new">The zone must be enabled for secure and non-secure updates.</target>
+        </trans-unit>
+        <trans-unit id="2b1fdfc4-32cd-41cc-bbc3-57a3407f268c" xml:space="preserve">
+          <source>If Active Directory and DNS are on two separate virtual machines, the resolver of the Active Directory virtual machine should point to the IP address of the DNS virtual machine.</source>
+          <target state="new">If Active Directory and DNS are on two separate virtual machines, the resolver of the Active Directory virtual machine should point to the IP address of the DNS virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="766ebf6c-e219-4a53-b394-6418c9dd8b13" xml:space="preserve">
+          <source>Run the following command in Active Directory: nltest /dsregdns.</source>
+          <target state="new">Run the following command in Active Directory: nltest /dsregdns.</target>
+        </trans-unit>
+        <trans-unit id="7a30395a-24d1-4843-93db-8f39392cc7a1" xml:space="preserve">
+          <source>If the virtual machines involved in test failover use DHCP, a test DHCP server should be created within the isolated network that is created for the purpose of test failover.</source>
+          <target state="new">If the virtual machines involved in test failover use DHCP, a test DHCP server should be created within the isolated network that is created for the purpose of test failover.</target>
+        </trans-unit>
+        <trans-unit id="eccdce2f-8bcb-48ae-889e-eba279d95f42" xml:space="preserve">
+          <source>Prepare a DNS server for the test failover as follows:</source>
+          <target state="new">Prepare a DNS server for the test failover as follows:</target>
+        </trans-unit>
+        <trans-unit id="9e9e1807-5074-47cb-807e-cfa7c3253887" xml:space="preserve">
+          <source><bpt id="bd54469a-0564-40b3-9747-7714b9507619">&lt;strong&gt;</bpt>DHCP<ept id="bd54469a-0564-40b3-9747-7714b9507619">&lt;/strong&gt;</ept>—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server.</source>
+          <target state="new"><bpt id="bd54469a-0564-40b3-9747-7714b9507619">&lt;strong&gt;</bpt>DHCP<ept id="bd54469a-0564-40b3-9747-7714b9507619">&lt;/strong&gt;</ept>—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server.</target>
+        </trans-unit>
+        <trans-unit id="879aca7d-cee9-4f96-8b77-59e180805d67" xml:space="preserve">
+          <source>If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server.</source>
+          <target state="new">If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server.</target>
+        </trans-unit>
+        <trans-unit id="f3ff820e-c53b-4062-81eb-af26c724e91e" xml:space="preserve">
+          <source>Therefore, the IP address of DNS should be updated in the static IP address pool that is used for test failover.</source>
+          <target state="new">Therefore, the IP address of DNS should be updated in the static IP address pool that is used for test failover.</target>
+        </trans-unit>
+        <trans-unit id="b4793ccc-9f78-4e4d-81e8-c5be33df83d8" xml:space="preserve">
+          <source>In this case, the virtual machines will register themselves to the relevant DNS Server.</source>
+          <target state="new">In this case, the virtual machines will register themselves to the relevant DNS Server.</target>
+        </trans-unit>
+        <trans-unit id="191323d2-d8fc-48e7-b875-8f56323f556e" xml:space="preserve">
+          <source><bpt id="4259ff15-c833-4260-8424-ba378b38cfe0">&lt;strong&gt;</bpt>Static address<ept id="4259ff15-c833-4260-8424-ba378b38cfe0">&lt;/strong&gt;</ept>—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in the static IP address pools that are used for test failover.</source>
+          <target state="new"><bpt id="4259ff15-c833-4260-8424-ba378b38cfe0">&lt;strong&gt;</bpt>Static address<ept id="4259ff15-c833-4260-8424-ba378b38cfe0">&lt;/strong&gt;</ept>—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in the static IP address pools that are used for test failover.</target>
+        </trans-unit>
+        <trans-unit id="b8282584-edd4-40f4-98cf-83231dcccb40" xml:space="preserve">
+          <source>You’ll need to update DNS with the IP address of the test virtual machines.</source>
+          <target state="new">You’ll need to update DNS with the IP address of the test virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="7d593587-46e2-4cbb-8c83-72021b95f919" xml:space="preserve">
+          <source>You can use the following sample script for this purpose:</source>
+          <target state="new">You can use the following sample script for this purpose:</target>
+        </trans-unit>
+        <trans-unit id="29369140-2232-4a1e-bb2c-11a56276eec4" xml:space="preserve">
+          <source><bpt id="df51621e-70f2-4944-8b51-6989f7b7e608">&lt;strong&gt;</bpt>Add zone<ept id="df51621e-70f2-4944-8b51-6989f7b7e608">&lt;/strong&gt;</ept>—Use the following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:</source>
+          <target state="new"><bpt id="df51621e-70f2-4944-8b51-6989f7b7e608">&lt;strong&gt;</bpt>Add zone<ept id="df51621e-70f2-4944-8b51-6989f7b7e608">&lt;/strong&gt;</ept>—Use the following script to add a zone on the DNS server, allow non-secure updates, and add an entry for itself to DNS:</target>
+        </trans-unit>
+        <trans-unit id="1f6cd78e-f0ca-457a-ba44-ec8c824f2d29" xml:space="preserve">
+          <source>This procedure describes how to run an unplanned failover for a recovery plan.</source>
+          <target state="new">This procedure describes how to run an unplanned failover for a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="2b48e86b-2b32-4bf5-bc96-0a4d0a77713c" xml:space="preserve">
+          <source>Alternatively you can run the failover for a single virtual machine or physical server on the <bpt id="7a78f5cb-34ff-418d-bbe9-87078b9f8696">&lt;strong&gt;</bpt>Virtual Machines<ept id="7a78f5cb-34ff-418d-bbe9-87078b9f8696">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Alternatively you can run the failover for a single virtual machine or physical server on the <bpt id="7a78f5cb-34ff-418d-bbe9-87078b9f8696">&lt;strong&gt;</bpt>Virtual Machines<ept id="7a78f5cb-34ff-418d-bbe9-87078b9f8696">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5346d04b-82e8-47e3-a054-f1470e9acb3c" xml:space="preserve">
+          <source>Select <bpt id="f64b04d0-82f8-4c3c-b951-f9586f2c6b8d">&lt;strong&gt;</bpt>Recovery Plans<ept id="f64b04d0-82f8-4c3c-b951-f9586f2c6b8d">&lt;/strong&gt;</ept> &gt; <bpt id="4c50ee90-7ecc-4b92-af0d-6ebf58de90f1">&lt;em&gt;</bpt>recoveryplan_name<ept id="4c50ee90-7ecc-4b92-af0d-6ebf58de90f1">&lt;/em&gt;</ept>.</source>
+          <target state="new">Select <bpt id="f64b04d0-82f8-4c3c-b951-f9586f2c6b8d">&lt;strong&gt;</bpt>Recovery Plans<ept id="f64b04d0-82f8-4c3c-b951-f9586f2c6b8d">&lt;/strong&gt;</ept> &gt; <bpt id="4c50ee90-7ecc-4b92-af0d-6ebf58de90f1">&lt;em&gt;</bpt>recoveryplan_name<ept id="4c50ee90-7ecc-4b92-af0d-6ebf58de90f1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92074659-cb62-4dbb-b645-ad6a9978ce56" xml:space="preserve">
+          <source>Click <bpt id="9cc1c0f5-047e-4b5b-aee5-3551285a4e75">&lt;strong&gt;</bpt>Failover<ept id="9cc1c0f5-047e-4b5b-aee5-3551285a4e75">&lt;/strong&gt;</ept> &gt; <bpt id="768d5298-4421-4959-8237-9d68a2cedc46">&lt;strong&gt;</bpt>Test Failover<ept id="768d5298-4421-4959-8237-9d68a2cedc46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9cc1c0f5-047e-4b5b-aee5-3551285a4e75">&lt;strong&gt;</bpt>Failover<ept id="9cc1c0f5-047e-4b5b-aee5-3551285a4e75">&lt;/strong&gt;</ept> &gt; <bpt id="768d5298-4421-4959-8237-9d68a2cedc46">&lt;strong&gt;</bpt>Test Failover<ept id="768d5298-4421-4959-8237-9d68a2cedc46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="433c52c0-6742-4528-8926-841e0d95aedc" xml:space="preserve">
+          <source>On the <bpt id="293f62ef-233f-42d6-aea4-2f0f3fdf8303">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="293f62ef-233f-42d6-aea4-2f0f3fdf8303">&lt;/strong&gt;</ept> page, specify how virtual machines should be connected to networks after the test failover.</source>
+          <target state="new">On the <bpt id="293f62ef-233f-42d6-aea4-2f0f3fdf8303">&lt;strong&gt;</bpt>Confirm Test Failover<ept id="293f62ef-233f-42d6-aea4-2f0f3fdf8303">&lt;/strong&gt;</ept> page, specify how virtual machines should be connected to networks after the test failover.</target>
+        </trans-unit>
+        <trans-unit id="53332911-4561-4ab7-9d13-d20147e6b5c7" xml:space="preserve">
+          <source>Track failover progress on the <bpt id="e7640470-6b9d-4c76-a54a-efebac4cdcfe">&lt;strong&gt;</bpt>Jobs<ept id="e7640470-6b9d-4c76-a54a-efebac4cdcfe">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Track failover progress on the <bpt id="e7640470-6b9d-4c76-a54a-efebac4cdcfe">&lt;strong&gt;</bpt>Jobs<ept id="e7640470-6b9d-4c76-a54a-efebac4cdcfe">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c7f2985b-2fc3-4b68-8ff0-8c5cb6896f0d" xml:space="preserve">
+          <source>When the failover reaches the<bpt id="cb5dd7b4-b1b4-4b0d-aef5-2fc875fc357f">&lt;em&gt;</bpt>* Complete testing<ept id="cb5dd7b4-b1b4-4b0d-aef5-2fc875fc357f">&lt;/em&gt;</ept>* phase, click <bpt id="1c6f2ac7-222a-4e8b-8a43-15013dec511d">&lt;strong&gt;</bpt>Complete Test<ept id="1c6f2ac7-222a-4e8b-8a43-15013dec511d">&lt;/strong&gt;</ept> to finish up the test failover.</source>
+          <target state="new">When the failover reaches the<bpt id="cb5dd7b4-b1b4-4b0d-aef5-2fc875fc357f">&lt;em&gt;</bpt>* Complete testing<ept id="cb5dd7b4-b1b4-4b0d-aef5-2fc875fc357f">&lt;/em&gt;</ept>* phase, click <bpt id="1c6f2ac7-222a-4e8b-8a43-15013dec511d">&lt;strong&gt;</bpt>Complete Test<ept id="1c6f2ac7-222a-4e8b-8a43-15013dec511d">&lt;/strong&gt;</ept> to finish up the test failover.</target>
+        </trans-unit>
+        <trans-unit id="b1cd03ac-662d-4392-94ff-a9d819fd8815" xml:space="preserve">
+          <source>Click <bpt id="b91ff4d5-68e1-448d-bc96-27f7263553d8">&lt;strong&gt;</bpt>Notes<ept id="b91ff4d5-68e1-448d-bc96-27f7263553d8">&lt;/strong&gt;</ept> to record and save any observations associated with the test failover.</source>
+          <target state="new">Click <bpt id="b91ff4d5-68e1-448d-bc96-27f7263553d8">&lt;strong&gt;</bpt>Notes<ept id="b91ff4d5-68e1-448d-bc96-27f7263553d8">&lt;/strong&gt;</ept> to record and save any observations associated with the test failover.</target>
+        </trans-unit>
+        <trans-unit id="edf3a11a-a9c1-4f9a-9ef6-4d60d137c62d" xml:space="preserve">
+          <source>After it's complete verify that the virtual machines start successfully.</source>
+          <target state="new">After it's complete verify that the virtual machines start successfully.</target>
+        </trans-unit>
+        <trans-unit id="38f24a63-ab47-4092-b97d-bc8ff7a62954" xml:space="preserve">
+          <source>After verifying that virtual machines start successfully, complete the test failover to clean up the isolated environment.</source>
+          <target state="new">After verifying that virtual machines start successfully, complete the test failover to clean up the isolated environment.</target>
+        </trans-unit>
+        <trans-unit id="1cc179e7-4d39-4beb-bd94-03ab7797b6d6" xml:space="preserve">
+          <source>If you chose to automatically create VM networks, cleanup deletes all the test virtual machines and test networks.</source>
+          <target state="new">If you chose to automatically create VM networks, cleanup deletes all the test virtual machines and test networks.</target>
+        </trans-unit>
+        <trans-unit id="ee5256a9-965a-456c-89c0-52e38cba98ef" xml:space="preserve">
+          <source>Note that if a test failover continues for more than two weeks it’s completed by force and any elements or virtual machines created automatically during the test failover are deleted.</source>
+          <target state="new">Note that if a test failover continues for more than two weeks it’s completed by force and any elements or virtual machines created automatically during the test failover are deleted.</target>
+        </trans-unit>
+        <trans-unit id="a12ee5c0-3aaa-4f0b-900f-b343b770fe59" xml:space="preserve">
+          <source>This procedure describes how to run a planned failover for a recovery plan.</source>
+          <target state="new">This procedure describes how to run a planned failover for a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="fa85c329-c21c-4daa-91cd-e5e88d7da11d" xml:space="preserve">
+          <source>Alternatively you can run the failover for a single virtual machine on the <bpt id="39e9f7d2-3ff0-4ffe-a14d-ebfb214033d0">&lt;strong&gt;</bpt>Virtual Machines<ept id="39e9f7d2-3ff0-4ffe-a14d-ebfb214033d0">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Alternatively you can run the failover for a single virtual machine on the <bpt id="39e9f7d2-3ff0-4ffe-a14d-ebfb214033d0">&lt;strong&gt;</bpt>Virtual Machines<ept id="39e9f7d2-3ff0-4ffe-a14d-ebfb214033d0">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c315dc27-8c53-412a-90f0-c3eb44629c68" xml:space="preserve">
+          <source>Before you start make sure all the virtual machines you want to fail over have completed initial replication.</source>
+          <target state="new">Before you start make sure all the virtual machines you want to fail over have completed initial replication.</target>
+        </trans-unit>
+        <trans-unit id="d8d7e170-8ece-4e1e-a630-daf071d8b277" xml:space="preserve">
+          <source>Select <bpt id="b812af45-a1d2-4263-975c-30929beecda8">&lt;strong&gt;</bpt>Recovery Plans<ept id="b812af45-a1d2-4263-975c-30929beecda8">&lt;/strong&gt;</ept> &gt; <bpt id="a2824ca5-ddcb-44f6-90d6-f031223febce">&lt;em&gt;</bpt>recoveryplan_name<ept id="a2824ca5-ddcb-44f6-90d6-f031223febce">&lt;/em&gt;</ept>.</source>
+          <target state="new">Select <bpt id="b812af45-a1d2-4263-975c-30929beecda8">&lt;strong&gt;</bpt>Recovery Plans<ept id="b812af45-a1d2-4263-975c-30929beecda8">&lt;/strong&gt;</ept> &gt; <bpt id="a2824ca5-ddcb-44f6-90d6-f031223febce">&lt;em&gt;</bpt>recoveryplan_name<ept id="a2824ca5-ddcb-44f6-90d6-f031223febce">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a51959d8-c78d-4859-8fb9-17178d1c94ee" xml:space="preserve">
+          <source>Click <bpt id="20964590-fa30-498f-8ed1-1bb042a611d4">&lt;strong&gt;</bpt>Failover<ept id="20964590-fa30-498f-8ed1-1bb042a611d4">&lt;/strong&gt;</ept> &gt; <bpt id="3979e379-0a2e-420d-94ae-f88293456091">&lt;strong&gt;</bpt>Planned Failover<ept id="3979e379-0a2e-420d-94ae-f88293456091">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="20964590-fa30-498f-8ed1-1bb042a611d4">&lt;strong&gt;</bpt>Failover<ept id="20964590-fa30-498f-8ed1-1bb042a611d4">&lt;/strong&gt;</ept> &gt; <bpt id="3979e379-0a2e-420d-94ae-f88293456091">&lt;strong&gt;</bpt>Planned Failover<ept id="3979e379-0a2e-420d-94ae-f88293456091">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e92fef6-518a-448a-9fc8-1faaeaccefb4" xml:space="preserve">
+          <source>On the <bpt id="ed2d8534-15a6-47df-8332-a19203f7c4c7">&lt;em&gt;</bpt>*Confirm Planned Failover *<ept id="ed2d8534-15a6-47df-8332-a19203f7c4c7">&lt;/em&gt;</ept>page, choose the source and target locations.</source>
+          <target state="new">On the <bpt id="ed2d8534-15a6-47df-8332-a19203f7c4c7">&lt;em&gt;</bpt>*Confirm Planned Failover *<ept id="ed2d8534-15a6-47df-8332-a19203f7c4c7">&lt;/em&gt;</ept>page, choose the source and target locations.</target>
+        </trans-unit>
+        <trans-unit id="3d3b9717-d394-42fb-a0ad-0d0c4a5aa9f9" xml:space="preserve">
+          <source>Note the failover direction.</source>
+          <target state="new">Note the failover direction.</target>
+        </trans-unit>
+        <trans-unit id="99325888-1664-4263-b2b1-dd6d55c2621e" xml:space="preserve">
+          <source>If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.</source>
+          <target state="new">If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.</target>
+        </trans-unit>
+        <trans-unit id="bbcf6d2b-b456-49f1-af78-f0a15ed0dc90" xml:space="preserve">
+          <source>If virtual machines are active on both the source and target locations, the <bpt id="64182766-7a27-472f-bb2e-71af95a7e565">&lt;strong&gt;</bpt>Change Direction<ept id="64182766-7a27-472f-bb2e-71af95a7e565">&lt;/strong&gt;</ept> button appears.</source>
+          <target state="new">If virtual machines are active on both the source and target locations, the <bpt id="64182766-7a27-472f-bb2e-71af95a7e565">&lt;strong&gt;</bpt>Change Direction<ept id="64182766-7a27-472f-bb2e-71af95a7e565">&lt;/strong&gt;</ept> button appears.</target>
+        </trans-unit>
+        <trans-unit id="539b1bff-d1f3-48d2-85df-812b4083361e" xml:space="preserve">
+          <source>Use this button to change and specify the direction in which the failover should occur.</source>
+          <target state="new">Use this button to change and specify the direction in which the failover should occur.</target>
+        </trans-unit>
+        <trans-unit id="4bf67c24-978d-46b3-a563-726849840dd2" xml:space="preserve">
+          <source>If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="d3b9e93b-777d-4b6a-ad6a-db702da19477">&lt;strong&gt;</bpt>Encryption Key<ept id="d3b9e93b-777d-4b6a-ad6a-db702da19477">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</source>
+          <target state="new">If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="d3b9e93b-777d-4b6a-ad6a-db702da19477">&lt;strong&gt;</bpt>Encryption Key<ept id="d3b9e93b-777d-4b6a-ad6a-db702da19477">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="dc8f0273-72e3-4ced-9570-2f1f69d8d058" xml:space="preserve">
+          <source>When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss.</source>
+          <target state="new">When a planned failover begins the first step is to shut down the virtual machines to ensure no data loss.</target>
+        </trans-unit>
+        <trans-unit id="a2f95ee3-6762-4cca-a48c-8ab88ec44041" xml:space="preserve">
+          <source>You can follow the failover progress on the <bpt id="2bb55e0a-d0cd-47ed-a974-c6bf53aa4aa7">&lt;strong&gt;</bpt>Jobs<ept id="2bb55e0a-d0cd-47ed-a974-c6bf53aa4aa7">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">You can follow the failover progress on the <bpt id="2bb55e0a-d0cd-47ed-a974-c6bf53aa4aa7">&lt;strong&gt;</bpt>Jobs<ept id="2bb55e0a-d0cd-47ed-a974-c6bf53aa4aa7">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d99de7aa-3c2a-4ed9-9e5d-7837865a24fc" xml:space="preserve">
+          <source>If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops.</source>
+          <target state="new">If an error occurs in the failover (either on a virtual machine or in a script that is included in the recovery plan), the planned failover of a recovery plan stops.</target>
+        </trans-unit>
+        <trans-unit id="07b1c4bf-466e-435d-acae-eeb329d1c147" xml:space="preserve">
+          <source>You can initiate the failover again.</source>
+          <target state="new">You can initiate the failover again.</target>
+        </trans-unit>
+        <trans-unit id="218c5145-1958-4c91-9a85-7b595c7aca62" xml:space="preserve">
+          <source>After replica virtual machines are created they're in a commit pending state.</source>
+          <target state="new">After replica virtual machines are created they're in a commit pending state.</target>
+        </trans-unit>
+        <trans-unit id="df9413be-c5d5-4b2a-a8cd-887c833b22a2" xml:space="preserve">
+          <source>Click <bpt id="ee8d6e5e-7164-44f8-b2ed-62059fdf74b3">&lt;strong&gt;</bpt>Commit<ept id="ee8d6e5e-7164-44f8-b2ed-62059fdf74b3">&lt;/strong&gt;</ept> to commit the failover.</source>
+          <target state="new">Click <bpt id="ee8d6e5e-7164-44f8-b2ed-62059fdf74b3">&lt;strong&gt;</bpt>Commit<ept id="ee8d6e5e-7164-44f8-b2ed-62059fdf74b3">&lt;/strong&gt;</ept> to commit the failover.</target>
+        </trans-unit>
+        <trans-unit id="7673568e-62d8-41da-9932-528c1ae498f2" xml:space="preserve">
+          <source>After replication is complete the virtual machines start up at the secondary location.</source>
+          <target state="new">After replication is complete the virtual machines start up at the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="a434481f-2831-484a-abcd-6d52e412bee6" xml:space="preserve">
+          <source>This procedure describes how to run an unplanned failover for a recovery plan.</source>
+          <target state="new">This procedure describes how to run an unplanned failover for a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="1f9133ec-fef7-4805-8e37-e7f84e164a9f" xml:space="preserve">
+          <source>Alternatively you can run the failover for a single virtual machine or physical server on the <bpt id="d2428127-c955-4f50-ac7d-9c80fd9dd306">&lt;strong&gt;</bpt>Virtual Machines<ept id="d2428127-c955-4f50-ac7d-9c80fd9dd306">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Alternatively you can run the failover for a single virtual machine or physical server on the <bpt id="d2428127-c955-4f50-ac7d-9c80fd9dd306">&lt;strong&gt;</bpt>Virtual Machines<ept id="d2428127-c955-4f50-ac7d-9c80fd9dd306">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2754c34c-10b7-44cd-a8aa-97917423307c" xml:space="preserve">
+          <source>Select <bpt id="bbcc22cc-57f8-4f15-8fe2-749dd7f0e01f">&lt;strong&gt;</bpt>Recovery Plans<ept id="bbcc22cc-57f8-4f15-8fe2-749dd7f0e01f">&lt;/strong&gt;</ept> &gt; <bpt id="5f62c673-4197-47ce-a083-f47a27647a7a">&lt;em&gt;</bpt>recoveryplan_name<ept id="5f62c673-4197-47ce-a083-f47a27647a7a">&lt;/em&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bbcc22cc-57f8-4f15-8fe2-749dd7f0e01f">&lt;strong&gt;</bpt>Recovery Plans<ept id="bbcc22cc-57f8-4f15-8fe2-749dd7f0e01f">&lt;/strong&gt;</ept> &gt; <bpt id="5f62c673-4197-47ce-a083-f47a27647a7a">&lt;em&gt;</bpt>recoveryplan_name<ept id="5f62c673-4197-47ce-a083-f47a27647a7a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e09046cf-4ca1-4eb2-bdcd-fdbc9f063d29" xml:space="preserve">
+          <source>Click <bpt id="00bdbc0a-8944-4601-975c-9144a0f49196">&lt;strong&gt;</bpt>Failover<ept id="00bdbc0a-8944-4601-975c-9144a0f49196">&lt;/strong&gt;</ept> &gt; <bpt id="392f62f5-050e-4cd3-8968-68d54624e470">&lt;strong&gt;</bpt>Unplanned Failover<ept id="392f62f5-050e-4cd3-8968-68d54624e470">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="00bdbc0a-8944-4601-975c-9144a0f49196">&lt;strong&gt;</bpt>Failover<ept id="00bdbc0a-8944-4601-975c-9144a0f49196">&lt;/strong&gt;</ept> &gt; <bpt id="392f62f5-050e-4cd3-8968-68d54624e470">&lt;strong&gt;</bpt>Unplanned Failover<ept id="392f62f5-050e-4cd3-8968-68d54624e470">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="407271b0-9a93-4e26-a267-811edb9718f1" xml:space="preserve">
+          <source>On the <bpt id="b3207d1b-79fd-4c45-823d-af64a83c7434">&lt;em&gt;</bpt>*Confirm Unplanned Failover *<ept id="b3207d1b-79fd-4c45-823d-af64a83c7434">&lt;/em&gt;</ept>page, choose the source and target locations.</source>
+          <target state="new">On the <bpt id="b3207d1b-79fd-4c45-823d-af64a83c7434">&lt;em&gt;</bpt>*Confirm Unplanned Failover *<ept id="b3207d1b-79fd-4c45-823d-af64a83c7434">&lt;/em&gt;</ept>page, choose the source and target locations.</target>
+        </trans-unit>
+        <trans-unit id="5e349943-79f2-49a9-82f9-e742af5c1b62" xml:space="preserve">
+          <source>Note the failover direction.</source>
+          <target state="new">Note the failover direction.</target>
+        </trans-unit>
+        <trans-unit id="af723261-9c4b-41eb-8248-13e2e5e43e61" xml:space="preserve">
+          <source>If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.</source>
+          <target state="new">If previous failovers worked as expected and all of the virtual machine servers are located on either the source or target location, the failover direction details are for information only.</target>
+        </trans-unit>
+        <trans-unit id="eee4b899-cd68-45ec-b14a-e80aed251a38" xml:space="preserve">
+          <source>If virtual machines are active on both the source and target locations, the <bpt id="c15022fb-9f62-49b5-8673-e991047431fe">&lt;strong&gt;</bpt>Change Direction<ept id="c15022fb-9f62-49b5-8673-e991047431fe">&lt;/strong&gt;</ept> button appears.</source>
+          <target state="new">If virtual machines are active on both the source and target locations, the <bpt id="c15022fb-9f62-49b5-8673-e991047431fe">&lt;strong&gt;</bpt>Change Direction<ept id="c15022fb-9f62-49b5-8673-e991047431fe">&lt;/strong&gt;</ept> button appears.</target>
+        </trans-unit>
+        <trans-unit id="1f927243-8d53-4267-990e-9135c252e0bf" xml:space="preserve">
+          <source>Use this button to change and specify the direction in which the failover should occur.</source>
+          <target state="new">Use this button to change and specify the direction in which the failover should occur.</target>
+        </trans-unit>
+        <trans-unit id="5d07eb1f-779d-4d74-9d17-f9437a4c5ad6" xml:space="preserve">
+          <source>If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="0b1aa4b0-cbb6-4b9c-85be-2c08820540f8">&lt;strong&gt;</bpt>Encryption Key<ept id="0b1aa4b0-cbb6-4b9c-85be-2c08820540f8">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</source>
+          <target state="new">If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="0b1aa4b0-cbb6-4b9c-85be-2c08820540f8">&lt;strong&gt;</bpt>Encryption Key<ept id="0b1aa4b0-cbb6-4b9c-85be-2c08820540f8">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="0dc3ad89-ba06-4fb5-8d6c-abcf5414148c" xml:space="preserve">
+          <source>Select <bpt id="acc3029e-4f9c-4ec1-bfdf-bd02f7f82aa7">&lt;strong&gt;</bpt>Shut down virtual machines and synchronize the latest data<ept id="acc3029e-4f9c-4ec1-bfdf-bd02f7f82aa7">&lt;/strong&gt;</ept> to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.</source>
+          <target state="new">Select <bpt id="acc3029e-4f9c-4ec1-bfdf-bd02f7f82aa7">&lt;strong&gt;</bpt>Shut down virtual machines and synchronize the latest data<ept id="acc3029e-4f9c-4ec1-bfdf-bd02f7f82aa7">&lt;/strong&gt;</ept> to specify that Site Recovery should try to shut down the protected virtual machines and synchronize the data so that the latest version of the data will be failed over.</target>
+        </trans-unit>
+        <trans-unit id="08702144-a78a-4591-9cdb-2ed2a5705266" xml:space="preserve">
+          <source>If you don’t select this option or the attempt doesn’t succeed the failover will be from the latest available recovery point for the virtual machine.</source>
+          <target state="new">If you don’t select this option or the attempt doesn’t succeed the failover will be from the latest available recovery point for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="14fa0b96-6737-4c35-9da6-45e5adf6b726" xml:space="preserve">
+          <source>You can follow the failover progress on the <bpt id="9b3ffdc2-17dc-48f0-b2a5-820f7125b05b">&lt;strong&gt;</bpt>Jobs<ept id="9b3ffdc2-17dc-48f0-b2a5-820f7125b05b">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">You can follow the failover progress on the <bpt id="9b3ffdc2-17dc-48f0-b2a5-820f7125b05b">&lt;strong&gt;</bpt>Jobs<ept id="9b3ffdc2-17dc-48f0-b2a5-820f7125b05b">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="59d8ad30-8838-4079-87fe-690a554569b3" xml:space="preserve">
+          <source>Note that even if errors occur during an unplanned failover, the recovery plan runs until it is complete.</source>
+          <target state="new">Note that even if errors occur during an unplanned failover, the recovery plan runs until it is complete.</target>
+        </trans-unit>
+        <trans-unit id="e6ed1cbf-7472-45f5-9da2-9cc70eacc644" xml:space="preserve">
+          <source>After the failover, the virtual machines are in a <bpt id="8b9d73ad-fe83-4cc9-9c07-ce2e2c372293">&lt;strong&gt;</bpt>commit pending<ept id="8b9d73ad-fe83-4cc9-9c07-ce2e2c372293">&lt;/strong&gt;</ept> state.</source>
+          <target state="new">After the failover, the virtual machines are in a <bpt id="8b9d73ad-fe83-4cc9-9c07-ce2e2c372293">&lt;strong&gt;</bpt>commit pending<ept id="8b9d73ad-fe83-4cc9-9c07-ce2e2c372293">&lt;/strong&gt;</ept> state.</target>
+        </trans-unit>
+        <trans-unit id="3ee9b0ca-4a37-4791-b337-6d5803feea31" xml:space="preserve">
+          <source>Click <bpt id="e8096135-2f76-4915-96ab-441656f45fc9">&lt;strong&gt;</bpt>Commit<ept id="e8096135-2f76-4915-96ab-441656f45fc9">&lt;/strong&gt;</ept> to commit the failover.</source>
+          <target state="new">Click <bpt id="e8096135-2f76-4915-96ab-441656f45fc9">&lt;strong&gt;</bpt>Commit<ept id="e8096135-2f76-4915-96ab-441656f45fc9">&lt;/strong&gt;</ept> to commit the failover.</target>
+        </trans-unit>
+        <trans-unit id="60e47c18-b2aa-419d-a1bc-72f03b5cfa3c" xml:space="preserve">
+          <source>If you set up replication to use multiple recovery points, in Change Recovery Point you can select to use a recovery point that isn't the latest (latest is used by default).</source>
+          <target state="new">If you set up replication to use multiple recovery points, in Change Recovery Point you can select to use a recovery point that isn't the latest (latest is used by default).</target>
+        </trans-unit>
+        <trans-unit id="97bc721f-594e-4794-99b2-1c85a1838aac" xml:space="preserve">
+          <source>After you commit additional recovery points will be removed.</source>
+          <target state="new">After you commit additional recovery points will be removed.</target>
+        </trans-unit>
+        <trans-unit id="14397981-28bb-4b2e-aff4-8e01aa343f26" xml:space="preserve">
+          <source>After replication is complete the virtual machines start up and are running at the secondary location.</source>
+          <target state="new">After replication is complete the virtual machines start up and are running at the secondary location.</target>
+        </trans-unit>
+        <trans-unit id="b1930f1c-248b-4fa2-9dc0-8a7faafca233" xml:space="preserve">
+          <source>However they aren’t protected or replicating.</source>
+          <target state="new">However they aren’t protected or replicating.</target>
+        </trans-unit>
+        <trans-unit id="36b41d17-a00f-44cb-9439-089bbb3b5320" xml:space="preserve">
+          <source>When the primary site is available again with the same underlying infrastructure, click <bpt id="e81aa8d6-3e44-4f30-a9b1-4ba567c46de9">&lt;strong&gt;</bpt>Reverse Replicate<ept id="e81aa8d6-3e44-4f30-a9b1-4ba567c46de9">&lt;/strong&gt;</ept> to begin reverse replication.</source>
+          <target state="new">When the primary site is available again with the same underlying infrastructure, click <bpt id="e81aa8d6-3e44-4f30-a9b1-4ba567c46de9">&lt;strong&gt;</bpt>Reverse Replicate<ept id="e81aa8d6-3e44-4f30-a9b1-4ba567c46de9">&lt;/strong&gt;</ept> to begin reverse replication.</target>
+        </trans-unit>
+        <trans-unit id="04df82e5-cc6d-4193-9e5a-d04fcfb4f176" xml:space="preserve">
+          <source>This ensures that all the data is replicated back to the primary site, and that the virtual machine is ready for failover again.</source>
+          <target state="new">This ensures that all the data is replicated back to the primary site, and that the virtual machine is ready for failover again.</target>
+        </trans-unit>
+        <trans-unit id="dcd0a82a-480f-42f0-9965-d25d4a613c8d" xml:space="preserve">
+          <source>Reverse replication after an unplanned failover incurs an overhead in data transfer.</source>
+          <target state="new">Reverse replication after an unplanned failover incurs an overhead in data transfer.</target>
+        </trans-unit>
+        <trans-unit id="3dfb69e4-8240-4434-9060-960092f2b9d3" xml:space="preserve">
+          <source>The transfer will use the same method that is configured for initial replication settings for the cloud.</source>
+          <target state="new">The transfer will use the same method that is configured for initial replication settings for the cloud.</target>
+        </trans-unit>
+        <trans-unit id="6c86900c-149d-4ca9-92e3-287f652fd2df" xml:space="preserve">
+          <source>After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the primary.</source>
+          <target state="new">After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the primary.</target>
+        </trans-unit>
+        <trans-unit id="655ca4b8-025f-4982-94f8-8fe11ba9f186" xml:space="preserve">
+          <source>Follow these procedures to fail back to the original primary site.</source>
+          <target state="new">Follow these procedures to fail back to the original primary site.</target>
+        </trans-unit>
+        <trans-unit id="e84e4294-309b-4024-b928-1560022f5328" xml:space="preserve">
+          <source>This procedure describes how to run a planned failover for a recovery plan.</source>
+          <target state="new">This procedure describes how to run a planned failover for a recovery plan.</target>
+        </trans-unit>
+        <trans-unit id="3d87e5c2-2108-4279-acab-a5bf5da33f5d" xml:space="preserve">
+          <source>Alternatively you can run the failover for a single virtual machine on the <bpt id="b841516c-4a47-4ed9-8d00-d6cd1f8bd6e2">&lt;strong&gt;</bpt>Virtual Machines<ept id="b841516c-4a47-4ed9-8d00-d6cd1f8bd6e2">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Alternatively you can run the failover for a single virtual machine on the <bpt id="b841516c-4a47-4ed9-8d00-d6cd1f8bd6e2">&lt;strong&gt;</bpt>Virtual Machines<ept id="b841516c-4a47-4ed9-8d00-d6cd1f8bd6e2">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="4e17a111-c68b-47a4-aba9-0bb503578955" xml:space="preserve">
+          <source>Select <bpt id="1667ca35-ebc1-45ee-9172-ee762e774a18">&lt;strong&gt;</bpt>Recovery Plans<ept id="1667ca35-ebc1-45ee-9172-ee762e774a18">&lt;/strong&gt;</ept> &gt; <bpt id="e45da846-f24a-4ca9-bb44-f2800bd30be1">&lt;em&gt;</bpt>recoveryplan_name<ept id="e45da846-f24a-4ca9-bb44-f2800bd30be1">&lt;/em&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1667ca35-ebc1-45ee-9172-ee762e774a18">&lt;strong&gt;</bpt>Recovery Plans<ept id="1667ca35-ebc1-45ee-9172-ee762e774a18">&lt;/strong&gt;</ept> &gt; <bpt id="e45da846-f24a-4ca9-bb44-f2800bd30be1">&lt;em&gt;</bpt>recoveryplan_name<ept id="e45da846-f24a-4ca9-bb44-f2800bd30be1">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5b029d6-8c69-438b-97ec-a34a4e1a3ae3" xml:space="preserve">
+          <source>Click <bpt id="64e52de1-4fe0-4813-b066-15e102026d4f">&lt;strong&gt;</bpt>Failover<ept id="64e52de1-4fe0-4813-b066-15e102026d4f">&lt;/strong&gt;</ept> &gt; <bpt id="df336ffc-0282-42b8-a74a-fcb6b8ec1bea">&lt;strong&gt;</bpt>Planned Failover<ept id="df336ffc-0282-42b8-a74a-fcb6b8ec1bea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="64e52de1-4fe0-4813-b066-15e102026d4f">&lt;strong&gt;</bpt>Failover<ept id="64e52de1-4fe0-4813-b066-15e102026d4f">&lt;/strong&gt;</ept> &gt; <bpt id="df336ffc-0282-42b8-a74a-fcb6b8ec1bea">&lt;strong&gt;</bpt>Planned Failover<ept id="df336ffc-0282-42b8-a74a-fcb6b8ec1bea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d509cf05-b48f-45d7-9828-f331812328f4" xml:space="preserve">
+          <source>On the <bpt id="ed3b6ac5-bf68-498f-b7c7-3cf392dc69a0">&lt;em&gt;</bpt>*Confirm Planned Failover *<ept id="ed3b6ac5-bf68-498f-b7c7-3cf392dc69a0">&lt;/em&gt;</ept>page, choose the source and target locations.</source>
+          <target state="new">On the <bpt id="ed3b6ac5-bf68-498f-b7c7-3cf392dc69a0">&lt;em&gt;</bpt>*Confirm Planned Failover *<ept id="ed3b6ac5-bf68-498f-b7c7-3cf392dc69a0">&lt;/em&gt;</ept>page, choose the source and target locations.</target>
+        </trans-unit>
+        <trans-unit id="45d94312-ebb7-4221-bcf7-a64b2ef6c96f" xml:space="preserve">
+          <source>Note the failover direction.</source>
+          <target state="new">Note the failover direction.</target>
+        </trans-unit>
+        <trans-unit id="dcaf5ab1-fed2-45df-b421-dfe37d71e62d" xml:space="preserve">
+          <source>If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.</source>
+          <target state="new">If the failover from primary worked as expect and all virtual machines are in the secondary location this is for information only.</target>
+        </trans-unit>
+        <trans-unit id="cc5c9ef8-d532-449d-a5a7-56779b6b9167" xml:space="preserve">
+          <source>If you're failing back from Azure select settings in <bpt id="97d2540a-9a12-4c5f-b0b8-e8c80813550a">&lt;strong&gt;</bpt>Data Synchronization<ept id="97d2540a-9a12-4c5f-b0b8-e8c80813550a">&lt;/strong&gt;</ept>:</source>
+          <target state="new">If you're failing back from Azure select settings in <bpt id="97d2540a-9a12-4c5f-b0b8-e8c80813550a">&lt;strong&gt;</bpt>Data Synchronization<ept id="97d2540a-9a12-4c5f-b0b8-e8c80813550a">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="7e379684-b8dd-4c92-882f-6c50831d5997" xml:space="preserve">
+          <source><bpt id="171a676d-4f64-4979-9637-001dadf5a488">&lt;strong&gt;</bpt>Synchronize the data before the failover<ept id="171a676d-4f64-4979-9637-001dadf5a488">&lt;/strong&gt;</ept>—This option minimizes downtime for virtual machines as it synchronizes without shutting them down.</source>
+          <target state="new"><bpt id="171a676d-4f64-4979-9637-001dadf5a488">&lt;strong&gt;</bpt>Synchronize the data before the failover<ept id="171a676d-4f64-4979-9637-001dadf5a488">&lt;/strong&gt;</ept>—This option minimizes downtime for virtual machines as it synchronizes without shutting them down.</target>
+        </trans-unit>
+        <trans-unit id="18988630-ea51-4f70-a8d0-e2ca21e1bde4" xml:space="preserve">
+          <source>It does the following:</source>
+          <target state="new">It does the following:</target>
+        </trans-unit>
+        <trans-unit id="d000845d-feb5-4540-88b2-d15387769538" xml:space="preserve">
+          <source>Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host.</source>
+          <target state="new">Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host.</target>
+        </trans-unit>
+        <trans-unit id="8019ca68-8d71-4e6a-b8dc-a44f8b960bcc" xml:space="preserve">
+          <source>The machine continues running in Azure.</source>
+          <target state="new">The machine continues running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="021899ba-75a4-4a67-b4c1-70ff61df2396" xml:space="preserve">
+          <source>Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there.</source>
+          <target state="new">Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there.</target>
+        </trans-unit>
+        <trans-unit id="262f6578-1c62-4bc6-9693-90a6f622feaa" xml:space="preserve">
+          <source>The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.</source>
+          <target state="new">The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.</target>
+        </trans-unit>
+        <trans-unit id="f7268220-19ee-4cc0-ac31-7616d0151f6d" xml:space="preserve">
+          <source>We recommend you use this option if you've been running Azure for a while (a month or more) This option performs synchronization without shutting down virtual machines.</source>
+          <target state="new">We recommend you use this option if you've been running Azure for a while (a month or more) This option performs synchronization without shutting down virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="10f8efa1-d90f-48bd-83bc-5341065c4d07" xml:space="preserve">
+          <source>It doesn't do a resynchronization, but performs a full failback.</source>
+          <target state="new">It doesn't do a resynchronization, but performs a full failback.</target>
+        </trans-unit>
+        <trans-unit id="23b0443e-dfce-4169-9055-52d8b1914469" xml:space="preserve">
+          <source>This option doesn't perform any checksum calculations.</source>
+          <target state="new">This option doesn't perform any checksum calculations.</target>
+        </trans-unit>
+        <trans-unit id="03729ba7-ca5f-42fb-bce7-a2687e3aa73c" xml:space="preserve">
+          <source><bpt id="1d0ff3ac-3882-4771-9328-11d933a2653f">&lt;strong&gt;</bpt>Synchronize the data during failover only<ept id="1d0ff3ac-3882-4771-9328-11d933a2653f">&lt;/strong&gt;</ept>—Use this option if you've only been running on Azure for a short amount of time.</source>
+          <target state="new"><bpt id="1d0ff3ac-3882-4771-9328-11d933a2653f">&lt;strong&gt;</bpt>Synchronize the data during failover only<ept id="1d0ff3ac-3882-4771-9328-11d933a2653f">&lt;/strong&gt;</ept>—Use this option if you've only been running on Azure for a short amount of time.</target>
+        </trans-unit>
+        <trans-unit id="2002fc33-cf39-45a2-ba0d-796a5a713cf2" xml:space="preserve">
+          <source>this option is faster because it resynchronizes instead of doing a full failback.</source>
+          <target state="new">this option is faster because it resynchronizes instead of doing a full failback.</target>
+        </trans-unit>
+        <trans-unit id="6f14685a-f79d-4531-a592-8b15173a68fa" xml:space="preserve">
+          <source>It performs a fast checksum calculation and only downloads changed blocks.</source>
+          <target state="new">It performs a fast checksum calculation and only downloads changed blocks.</target>
+        </trans-unit>
+        <trans-unit id="435743e7-2940-46bb-9399-9565eb3d640d" xml:space="preserve">
+          <source>If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="6e4a995a-18d8-42d1-8a9b-166f65d95e5b">&lt;strong&gt;</bpt>Encryption Key<ept id="6e4a995a-18d8-42d1-8a9b-166f65d95e5b">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</source>
+          <target state="new">If you're failing over to Azure and data encryption is enabled for the cloud, in <bpt id="6e4a995a-18d8-42d1-8a9b-166f65d95e5b">&lt;strong&gt;</bpt>Encryption Key<ept id="6e4a995a-18d8-42d1-8a9b-166f65d95e5b">&lt;/strong&gt;</ept> select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.</target>
+        </trans-unit>
+        <trans-unit id="e479e1d8-7bff-430d-a531-5577500e88ae" xml:space="preserve">
+          <source>By default the last recovery point is used, but in <bpt id="1574476b-0639-4c3d-965d-9ec4d9eed090">&lt;strong&gt;</bpt>Change Recovery Point<ept id="1574476b-0639-4c3d-965d-9ec4d9eed090">&lt;/strong&gt;</ept> you can specify a different recovery point.</source>
+          <target state="new">By default the last recovery point is used, but in <bpt id="1574476b-0639-4c3d-965d-9ec4d9eed090">&lt;strong&gt;</bpt>Change Recovery Point<ept id="1574476b-0639-4c3d-965d-9ec4d9eed090">&lt;/strong&gt;</ept> you can specify a different recovery point.</target>
+        </trans-unit>
+        <trans-unit id="9b742d37-6616-4b19-9465-4cb4d50fc1cc" xml:space="preserve">
+          <source>Click the checkmark to start the failback.</source>
+          <target state="new">Click the checkmark to start the failback.</target>
+        </trans-unit>
+        <trans-unit id="bca51656-5957-42da-836c-59a250a7cf09" xml:space="preserve">
+          <source>You can follow the failover progress on the <bpt id="a10910b7-6091-4024-b6a5-8a6759fe928f">&lt;strong&gt;</bpt>Jobs<ept id="a10910b7-6091-4024-b6a5-8a6759fe928f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">You can follow the failover progress on the <bpt id="a10910b7-6091-4024-b6a5-8a6759fe928f">&lt;strong&gt;</bpt>Jobs<ept id="a10910b7-6091-4024-b6a5-8a6759fe928f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a9cbde87-4466-4612-b2b7-6d6cbb70bfa7" xml:space="preserve">
+          <source>f you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click <bpt id="2a06f04d-547b-47df-8e70-039cbc9ba63c">&lt;strong&gt;</bpt>Jobs<ept id="2a06f04d-547b-47df-8e70-039cbc9ba63c">&lt;/strong&gt;</ept> &gt; &lt;planned failover job name&gt; <bpt id="82d594e4-3e97-4936-bc8a-c462db1e8e85">&lt;strong&gt;</bpt>Complete Failover<ept id="82d594e4-3e97-4936-bc8a-c462db1e8e85">&lt;/strong&gt;</ept>. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.</source>
+          <target state="new">f you selected the option to synchronize the data before the failover, once the initial data synchronization is complete and you're ready to shut down the virtual machines in Azure, click <bpt id="2a06f04d-547b-47df-8e70-039cbc9ba63c">&lt;strong&gt;</bpt>Jobs<ept id="2a06f04d-547b-47df-8e70-039cbc9ba63c">&lt;/strong&gt;</ept> &gt; &lt;planned failover job name&gt; <bpt id="82d594e4-3e97-4936-bc8a-c462db1e8e85">&lt;strong&gt;</bpt>Complete Failover<ept id="82d594e4-3e97-4936-bc8a-c462db1e8e85">&lt;/strong&gt;</ept>. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.</target>
+        </trans-unit>
+        <trans-unit id="8d73239b-ddcd-4848-94b5-99fa2b6e1aab" xml:space="preserve">
+          <source>You can now log onto the virtual machine to validate it's available as expected.</source>
+          <target state="new">You can now log onto the virtual machine to validate it's available as expected.</target>
+        </trans-unit>
+        <trans-unit id="399b6369-b382-4ea3-94e7-ec0e2b71f9a9" xml:space="preserve">
+          <source>The virtual machine is in a commit pending state.</source>
+          <target state="new">The virtual machine is in a commit pending state.</target>
+        </trans-unit>
+        <trans-unit id="6cced635-fab0-4270-aa0d-000576c5eb37" xml:space="preserve">
+          <source>Click <bpt id="60d17d77-6482-4aa6-8baa-533195bab6e2">&lt;strong&gt;</bpt>Commit<ept id="60d17d77-6482-4aa6-8baa-533195bab6e2">&lt;/strong&gt;</ept> to commit the failover.</source>
+          <target state="new">Click <bpt id="60d17d77-6482-4aa6-8baa-533195bab6e2">&lt;strong&gt;</bpt>Commit<ept id="60d17d77-6482-4aa6-8baa-533195bab6e2">&lt;/strong&gt;</ept> to commit the failover.</target>
+        </trans-unit>
+        <trans-unit id="66b406d9-d0b2-48ed-919b-692a30151012" xml:space="preserve">
+          <source>Now in order to complete the failback click <bpt id="8a1e3507-97d5-42f7-96c5-1098b7c9801e">&lt;strong&gt;</bpt>Reverse Replicate<ept id="8a1e3507-97d5-42f7-96c5-1098b7c9801e">&lt;/strong&gt;</ept> to start protecting the virtual machine in the primary site.</source>
+          <target state="new">Now in order to complete the failback click <bpt id="8a1e3507-97d5-42f7-96c5-1098b7c9801e">&lt;strong&gt;</bpt>Reverse Replicate<ept id="8a1e3507-97d5-42f7-96c5-1098b7c9801e">&lt;/strong&gt;</ept> to start protecting the virtual machine in the primary site.</target>
+        </trans-unit>
+        <trans-unit id="a2b4f437-2012-45a4-91b1-da52c93fe9b4" xml:space="preserve">
+          <source>If you've deployed protection between a <bpt id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;linkText&gt;</bpt>Hyper-V site and Azure<ept id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;/linkText&gt;</ept><bpt id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;title&gt;</bpt><ept id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;/title&gt;</ept> you have to ability to failback from Azure to an alternate on-premises location.</source>
+          <target state="new">If you've deployed protection between a <bpt id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;linkText&gt;</bpt>Hyper-V site and Azure<ept id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;/linkText&gt;</ept><bpt id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;title&gt;</bpt><ept id="45030b45-a17f-41c0-8bee-f8a67f183137">&lt;/title&gt;</ept> you have to ability to failback from Azure to an alternate on-premises location.</target>
+        </trans-unit>
+        <trans-unit id="05bb8de5-88e6-42b5-af8b-2a83174e0f0e" xml:space="preserve">
+          <source>This is useful if you need to set up new on-premises hardware.</source>
+          <target state="new">This is useful if you need to set up new on-premises hardware.</target>
+        </trans-unit>
+        <trans-unit id="ff667300-8d24-4a6d-ba26-764fd26463c2" xml:space="preserve">
+          <source>Here's how you do it.</source>
+          <target state="new">Here's how you do it.</target>
+        </trans-unit>
+        <trans-unit id="c3ee3089-afd8-4292-a7bf-1fe5e8f36db6" xml:space="preserve">
+          <source>If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.</source>
+          <target state="new">If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.</target>
+        </trans-unit>
+        <trans-unit id="70ab7b4c-db07-40b3-8934-2da2fc3a32da" xml:space="preserve">
+          <source>Create a virtual network switch with the same name that you had on the original server.</source>
+          <target state="new">Create a virtual network switch with the same name that you had on the original server.</target>
+        </trans-unit>
+        <trans-unit id="d16b2df1-b97a-4115-adb1-78b993d2e46c" xml:space="preserve">
+          <source>Select <bpt id="ab1c4b94-bf34-47ae-9795-9e375f48e0e6">&lt;strong&gt;</bpt>Protected Items<ept id="ab1c4b94-bf34-47ae-9795-9e375f48e0e6">&lt;/strong&gt;</ept> -&gt; <bpt id="5b95e22c-2c4d-4055-8cc4-e4bfd8b1f5e4">&lt;strong&gt;</bpt>Protection Group<ept id="5b95e22c-2c4d-4055-8cc4-e4bfd8b1f5e4">&lt;/strong&gt;</ept> -&gt; &lt;ProtectionGroupName&gt; -&gt; &lt;VirtualMachineName&gt; you want to fail back, and select <bpt id="8432568f-9c57-46a7-ad1d-84f69158abea">&lt;strong&gt;</bpt>Planned Failover<ept id="8432568f-9c57-46a7-ad1d-84f69158abea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="ab1c4b94-bf34-47ae-9795-9e375f48e0e6">&lt;strong&gt;</bpt>Protected Items<ept id="ab1c4b94-bf34-47ae-9795-9e375f48e0e6">&lt;/strong&gt;</ept> -&gt; <bpt id="5b95e22c-2c4d-4055-8cc4-e4bfd8b1f5e4">&lt;strong&gt;</bpt>Protection Group<ept id="5b95e22c-2c4d-4055-8cc4-e4bfd8b1f5e4">&lt;/strong&gt;</ept> -&gt; &lt;ProtectionGroupName&gt; -&gt; &lt;VirtualMachineName&gt; you want to fail back, and select <bpt id="8432568f-9c57-46a7-ad1d-84f69158abea">&lt;strong&gt;</bpt>Planned Failover<ept id="8432568f-9c57-46a7-ad1d-84f69158abea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4057e1c-e6e6-4a99-89de-bd1c89b586f0" xml:space="preserve">
+          <source>In <bpt id="d377abca-6764-4b33-a88f-a42c5f50c91b">&lt;strong&gt;</bpt>Confirm Planned Failover<ept id="d377abca-6764-4b33-a88f-a42c5f50c91b">&lt;/strong&gt;</ept> select <bpt id="13499be4-a96f-40b1-a885-27cfac2264c1">&lt;strong&gt;</bpt>Create on-premises virtual machine if it does not exist<ept id="13499be4-a96f-40b1-a885-27cfac2264c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="d377abca-6764-4b33-a88f-a42c5f50c91b">&lt;strong&gt;</bpt>Confirm Planned Failover<ept id="d377abca-6764-4b33-a88f-a42c5f50c91b">&lt;/strong&gt;</ept> select <bpt id="13499be4-a96f-40b1-a885-27cfac2264c1">&lt;strong&gt;</bpt>Create on-premises virtual machine if it does not exist<ept id="13499be4-a96f-40b1-a885-27cfac2264c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0b8e55f-0a20-4daf-bc17-b4257b1b0de3" xml:space="preserve">
+          <source>In <bpt id="6ef2e138-0f84-4d78-b386-8680829bcf30">&lt;strong&gt;</bpt>Host Name<ept id="6ef2e138-0f84-4d78-b386-8680829bcf30">&lt;/strong&gt;</ept> select the new Hyper-V host server on which you want to place the virtual machine.</source>
+          <target state="new">In <bpt id="6ef2e138-0f84-4d78-b386-8680829bcf30">&lt;strong&gt;</bpt>Host Name<ept id="6ef2e138-0f84-4d78-b386-8680829bcf30">&lt;/strong&gt;</ept> select the new Hyper-V host server on which you want to place the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0d907360-a47a-4a6e-9972-d0e405589ab6" xml:space="preserve">
+          <source>In Data Synchronization we recommend you select  the option <bpt id="e582abd1-265c-4001-ac0d-cf0caf2fd714">&lt;strong&gt;</bpt>Synchronize the data before the failover<ept id="e582abd1-265c-4001-ac0d-cf0caf2fd714">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Data Synchronization we recommend you select  the option <bpt id="e582abd1-265c-4001-ac0d-cf0caf2fd714">&lt;strong&gt;</bpt>Synchronize the data before the failover<ept id="e582abd1-265c-4001-ac0d-cf0caf2fd714">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dabc8f6a-efa4-471e-b362-a8f3d3f37801" xml:space="preserve">
+          <source>This minimizes downtime for virtual machines as it synchronizes without shutting them down.</source>
+          <target state="new">This minimizes downtime for virtual machines as it synchronizes without shutting them down.</target>
+        </trans-unit>
+        <trans-unit id="78cb2fc0-3702-4e4c-ac0f-702077e3417d" xml:space="preserve">
+          <source>It does the following:</source>
+          <target state="new">It does the following:</target>
+        </trans-unit>
+        <trans-unit id="6c87c24e-bad8-4152-afdb-958cea6d41e9" xml:space="preserve">
+          <source>Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host.</source>
+          <target state="new">Phase 1: Takes snapshot of the virtual machine in Azure and copies it to the on-premises Hyper-V host.</target>
+        </trans-unit>
+        <trans-unit id="a973dc43-15c2-41d6-9730-802eee8ca29b" xml:space="preserve">
+          <source>The machine continues running in Azure.</source>
+          <target state="new">The machine continues running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="71f62076-debf-4384-a16c-80b73a5b1818" xml:space="preserve">
+          <source>Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there.</source>
+          <target state="new">Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there.</target>
+        </trans-unit>
+        <trans-unit id="35db0615-78a1-4ff6-bd1c-628a4693aa49" xml:space="preserve">
+          <source>The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.</source>
+          <target state="new">The final set of changes are transferred to the on-premises server and the on-premises virtual machine is started up.</target>
+        </trans-unit>
+        <trans-unit id="bcdf56ee-c6ec-4575-bdda-c3acc0083a5c" xml:space="preserve">
+          <source>Click the checkmark to begin the failover (failback).</source>
+          <target state="new">Click the checkmark to begin the failover (failback).</target>
+        </trans-unit>
+        <trans-unit id="b4ffaebd-90a5-4ef8-b39e-f4fec55cf4f7" xml:space="preserve">
+          <source>After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click <bpt id="abcd27da-09ef-493a-86f5-a6d7b2ad238a">&lt;strong&gt;</bpt>Jobs<ept id="abcd27da-09ef-493a-86f5-a6d7b2ad238a">&lt;/strong&gt;</ept> &gt; &lt;planned failover job&gt; &gt; <bpt id="9dcd8958-864b-490e-8d7c-f2b3a35166fe">&lt;strong&gt;</bpt>Complete Failover<ept id="9dcd8958-864b-490e-8d7c-f2b3a35166fe">&lt;/strong&gt;</ept>. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine and starts it.</source>
+          <target state="new">After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click <bpt id="abcd27da-09ef-493a-86f5-a6d7b2ad238a">&lt;strong&gt;</bpt>Jobs<ept id="abcd27da-09ef-493a-86f5-a6d7b2ad238a">&lt;/strong&gt;</ept> &gt; &lt;planned failover job&gt; &gt; <bpt id="9dcd8958-864b-490e-8d7c-f2b3a35166fe">&lt;strong&gt;</bpt>Complete Failover<ept id="9dcd8958-864b-490e-8d7c-f2b3a35166fe">&lt;/strong&gt;</ept>. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine and starts it.</target>
+        </trans-unit>
+        <trans-unit id="40c578ee-47bc-43b1-8108-3b5aee7fb0f4" xml:space="preserve">
+          <source>You can log onto the on-premises virtual machine to verify everything is working as expected.</source>
+          <target state="new">You can log onto the on-premises virtual machine to verify everything is working as expected.</target>
+        </trans-unit>
+        <trans-unit id="28f67f00-b6db-4aca-bdbb-387964b769de" xml:space="preserve">
+          <source>Then click <bpt id="8443cee3-fc9b-4dfc-8029-9805a5d002e7">&lt;strong&gt;</bpt>Commit<ept id="8443cee3-fc9b-4dfc-8029-9805a5d002e7">&lt;/strong&gt;</ept> to finish the failover.</source>
+          <target state="new">Then click <bpt id="8443cee3-fc9b-4dfc-8029-9805a5d002e7">&lt;strong&gt;</bpt>Commit<ept id="8443cee3-fc9b-4dfc-8029-9805a5d002e7">&lt;/strong&gt;</ept> to finish the failover.</target>
+        </trans-unit>
+        <trans-unit id="d168268f-dfba-4663-bf3f-51de2a25557a" xml:space="preserve">
+          <source>Click <bpt id="95334c59-d104-41a2-8a4b-53d9decc9707">&lt;strong&gt;</bpt>Reverse Replicate<ept id="95334c59-d104-41a2-8a4b-53d9decc9707">&lt;/strong&gt;</ept> to start protecting the on-premises virtual machine.</source>
+          <target state="new">Click <bpt id="95334c59-d104-41a2-8a4b-53d9decc9707">&lt;strong&gt;</bpt>Reverse Replicate<ept id="95334c59-d104-41a2-8a4b-53d9decc9707">&lt;/strong&gt;</ept> to start protecting the on-premises virtual machine.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

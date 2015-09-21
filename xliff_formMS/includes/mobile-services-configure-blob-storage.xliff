@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0dd20e19-74b2-4345-b183-b4534ad37148" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0dd20e19-74b2-4345-b183-b4534ad37148" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53d1c1a3-7d54-431d-814d-63512941f69a">
+        <trans-unit id="220ed66b-b370-4cc3-a4ee-4ba5e08e6387" xml:space="preserve">
+          <source>A new insert script is registered that generates an SAS when a new Todo item is inserted.</source>
+          <target state="new">A new insert script is registered that generates an SAS when a new Todo item is inserted.</target>
+        </trans-unit>
+        <trans-unit id="32fb3087-2b93-41fc-9ebf-fb83cba2937b" xml:space="preserve">
+          <source>If you haven't yet created your storage account, see <bpt id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;linkText&gt;</bpt>How To Create a Storage Account<ept id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;/linkText&gt;</ept><bpt id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;title&gt;</bpt><ept id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't yet created your storage account, see <bpt id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;linkText&gt;</bpt>How To Create a Storage Account<ept id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;/linkText&gt;</ept><bpt id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;title&gt;</bpt><ept id="f6dff173-7bd2-48e2-8407-93512ee645ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec9436d-77da-4cd1-b5f4-85da0bab4964" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="78faedd0-e25c-425c-884b-b6906c85bebb">&lt;strong&gt;</bpt>Storage<ept id="78faedd0-e25c-425c-884b-b6906c85bebb">&lt;/strong&gt;</ept>, click the storage account, then click <bpt id="2b13df6c-c6f3-4109-88d3-e2da3bec8a63">&lt;strong&gt;</bpt>Manage Keys<ept id="2b13df6c-c6f3-4109-88d3-e2da3bec8a63">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click <bpt id="78faedd0-e25c-425c-884b-b6906c85bebb">&lt;strong&gt;</bpt>Storage<ept id="78faedd0-e25c-425c-884b-b6906c85bebb">&lt;/strong&gt;</ept>, click the storage account, then click <bpt id="2b13df6c-c6f3-4109-88d3-e2da3bec8a63">&lt;strong&gt;</bpt>Manage Keys<ept id="2b13df6c-c6f3-4109-88d3-e2da3bec8a63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b758bbc-0c22-43b6-9408-f573cadc86dd" xml:space="preserve">
+          <source>Make a note of the <bpt id="281a18bc-1321-4ebe-9309-19cb53b7aaab">&lt;strong&gt;</bpt>Storage Account Name<ept id="281a18bc-1321-4ebe-9309-19cb53b7aaab">&lt;/strong&gt;</ept> and <bpt id="2483d692-c83b-4e6e-bdee-5950cfd867fa">&lt;strong&gt;</bpt>Access Key<ept id="2483d692-c83b-4e6e-bdee-5950cfd867fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make a note of the <bpt id="281a18bc-1321-4ebe-9309-19cb53b7aaab">&lt;strong&gt;</bpt>Storage Account Name<ept id="281a18bc-1321-4ebe-9309-19cb53b7aaab">&lt;/strong&gt;</ept> and <bpt id="2483d692-c83b-4e6e-bdee-5950cfd867fa">&lt;strong&gt;</bpt>Access Key<ept id="2483d692-c83b-4e6e-bdee-5950cfd867fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="140d8e77-f6a4-496f-a899-2f496c2e3adb" xml:space="preserve">
+          <source><bpt id="125f9aed-4965-445a-84d4-524dcfbbc5d4">&lt;linkText&gt;</bpt><ept id="125f9aed-4965-445a-84d4-524dcfbbc5d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="125f9aed-4965-445a-84d4-524dcfbbc5d4">&lt;linkText&gt;</bpt><ept id="125f9aed-4965-445a-84d4-524dcfbbc5d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fe4dcf6-7606-4143-a68b-3a2ce3a146d8" xml:space="preserve">
+          <source>In your mobile service, click the <bpt id="8d941a35-99d6-41ff-9e68-b72a62c3336b">&lt;strong&gt;</bpt>Configure<ept id="8d941a35-99d6-41ff-9e68-b72a62c3336b">&lt;/strong&gt;</ept> tab, scroll down to <bpt id="341c368b-2fa7-40b9-bdf5-72d8d017c0a6">&lt;strong&gt;</bpt>App settings<ept id="341c368b-2fa7-40b9-bdf5-72d8d017c0a6">&lt;/strong&gt;</ept> and enter a <bpt id="b05d4c31-d3d8-40d7-9c9c-c351597295da">&lt;strong&gt;</bpt>Name<ept id="b05d4c31-d3d8-40d7-9c9c-c351597295da">&lt;/strong&gt;</ept> and <bpt id="73f30788-a16f-4068-91b8-9368c619866e">&lt;strong&gt;</bpt>Value<ept id="73f30788-a16f-4068-91b8-9368c619866e">&lt;/strong&gt;</ept> pair for each of the following that you obtained from the storage account, then click <bpt id="42cb1018-4761-4d61-aba1-9926a70dcf5a">&lt;strong&gt;</bpt>Save<ept id="42cb1018-4761-4d61-aba1-9926a70dcf5a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In your mobile service, click the <bpt id="8d941a35-99d6-41ff-9e68-b72a62c3336b">&lt;strong&gt;</bpt>Configure<ept id="8d941a35-99d6-41ff-9e68-b72a62c3336b">&lt;/strong&gt;</ept> tab, scroll down to <bpt id="341c368b-2fa7-40b9-bdf5-72d8d017c0a6">&lt;strong&gt;</bpt>App settings<ept id="341c368b-2fa7-40b9-bdf5-72d8d017c0a6">&lt;/strong&gt;</ept> and enter a <bpt id="b05d4c31-d3d8-40d7-9c9c-c351597295da">&lt;strong&gt;</bpt>Name<ept id="b05d4c31-d3d8-40d7-9c9c-c351597295da">&lt;/strong&gt;</ept> and <bpt id="73f30788-a16f-4068-91b8-9368c619866e">&lt;strong&gt;</bpt>Value<ept id="73f30788-a16f-4068-91b8-9368c619866e">&lt;/strong&gt;</ept> pair for each of the following that you obtained from the storage account, then click <bpt id="42cb1018-4761-4d61-aba1-9926a70dcf5a">&lt;strong&gt;</bpt>Save<ept id="42cb1018-4761-4d61-aba1-9926a70dcf5a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="784b57f7-f5d9-45fb-9e82-e5259b7f9a9b" xml:space="preserve">
+          <source><bpt id="80485a4b-2025-4bd5-bfbd-bf87d0141bd0">&lt;code&gt;</bpt>STORAGE_ACCOUNT_NAME<ept id="80485a4b-2025-4bd5-bfbd-bf87d0141bd0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="80485a4b-2025-4bd5-bfbd-bf87d0141bd0">&lt;code&gt;</bpt>STORAGE_ACCOUNT_NAME<ept id="80485a4b-2025-4bd5-bfbd-bf87d0141bd0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6360ace6-d577-4d1c-aa85-1d152a9381a0" xml:space="preserve">
+          <source><bpt id="a543071f-7475-4558-86bf-d80afb2931e1">&lt;code&gt;</bpt>STORAGE_ACCOUNT_ACCESS_KEY<ept id="a543071f-7475-4558-86bf-d80afb2931e1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a543071f-7475-4558-86bf-d80afb2931e1">&lt;code&gt;</bpt>STORAGE_ACCOUNT_ACCESS_KEY<ept id="a543071f-7475-4558-86bf-d80afb2931e1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4356933d-9b68-4755-a682-6a3f5c7c0181" xml:space="preserve">
+          <source><bpt id="16450c41-4d28-476e-b500-1a30477e2aed">&lt;linkText&gt;</bpt><ept id="16450c41-4d28-476e-b500-1a30477e2aed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16450c41-4d28-476e-b500-1a30477e2aed">&lt;linkText&gt;</bpt><ept id="16450c41-4d28-476e-b500-1a30477e2aed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afd7b15a-63f4-4cac-81cf-a379db024882" xml:space="preserve">
+          <source>The storage account access key is stored encrypted in app settings.</source>
+          <target state="new">The storage account access key is stored encrypted in app settings.</target>
+        </trans-unit>
+        <trans-unit id="afb8cb5c-f52d-4d1a-9d88-7125b6073de6" xml:space="preserve">
+          <source>You can access this key from any server script at runtime.</source>
+          <target state="new">You can access this key from any server script at runtime.</target>
+        </trans-unit>
+        <trans-unit id="5394848a-ea4e-43b9-be9a-af92ded68040" xml:space="preserve">
+          <source>For more information, see [App settings].</source>
+          <target state="new">For more information, see [App settings].</target>
+        </trans-unit>
+        <trans-unit id="41317184-bd5c-43da-b606-f9f06d213ab2" xml:space="preserve">
+          <source>In the Configure tab, make sure that <bpt id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;linkText&gt;</bpt>Dynamic schema<ept id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;/linkText&gt;</ept><bpt id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;title&gt;</bpt><ept id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;/title&gt;</ept> is enabled.</source>
+          <target state="new">In the Configure tab, make sure that <bpt id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;linkText&gt;</bpt>Dynamic schema<ept id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;/linkText&gt;</ept><bpt id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;title&gt;</bpt><ept id="4c1501a5-d9bd-46bd-9992-9394da2b74b4">&lt;/title&gt;</ept> is enabled.</target>
+        </trans-unit>
+        <trans-unit id="0cc8b9b9-45ce-4c35-80f8-e75aaa0f895a" xml:space="preserve">
+          <source>You need dynamic schema enabled to be able to add new columns to the TodoItem table.</source>
+          <target state="new">You need dynamic schema enabled to be able to add new columns to the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="ea978e9a-a09e-427f-abb7-82167cde3827" xml:space="preserve">
+          <source>Dynamic schema should not be enabled in any production service.</source>
+          <target state="new">Dynamic schema should not be enabled in any production service.</target>
+        </trans-unit>
+        <trans-unit id="267499c1-f9e6-4eb6-95da-290b18aaaf12" xml:space="preserve">
+          <source>Click the <bpt id="7d28a9f5-efc7-4e47-ba52-4b4c6ac94370">&lt;strong&gt;</bpt>Data<ept id="7d28a9f5-efc7-4e47-ba52-4b4c6ac94370">&lt;/strong&gt;</ept> tab and then click the <bpt id="6daaec2e-3cd9-4a3e-969e-9fd531730812">&lt;strong&gt;</bpt>TodoItem<ept id="6daaec2e-3cd9-4a3e-969e-9fd531730812">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">Click the <bpt id="7d28a9f5-efc7-4e47-ba52-4b4c6ac94370">&lt;strong&gt;</bpt>Data<ept id="7d28a9f5-efc7-4e47-ba52-4b4c6ac94370">&lt;/strong&gt;</ept> tab and then click the <bpt id="6daaec2e-3cd9-4a3e-969e-9fd531730812">&lt;strong&gt;</bpt>TodoItem<ept id="6daaec2e-3cd9-4a3e-969e-9fd531730812">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="c2f02bf2-4634-42d3-9b78-f1a8c2f0615e" xml:space="preserve">
+          <source>In <bpt id="6aa51065-1add-41fb-8124-ad2a3a5743c1">&lt;strong&gt;</bpt>todoitem<ept id="6aa51065-1add-41fb-8124-ad2a3a5743c1">&lt;/strong&gt;</ept>, click the <bpt id="011f55e4-f614-4b52-b18f-30dfe771fdd2">&lt;strong&gt;</bpt>Script<ept id="011f55e4-f614-4b52-b18f-30dfe771fdd2">&lt;/strong&gt;</ept> tab and select <bpt id="bf32f963-ed6e-488f-9e3d-8228e4b05d13">&lt;strong&gt;</bpt>Insert<ept id="bf32f963-ed6e-488f-9e3d-8228e4b05d13">&lt;/strong&gt;</ept>, replace the insert function with the following code, then click <bpt id="ad94d4bb-6e55-458c-b6f7-7c70e086b5f3">&lt;strong&gt;</bpt>Save<ept id="ad94d4bb-6e55-458c-b6f7-7c70e086b5f3">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In <bpt id="6aa51065-1add-41fb-8124-ad2a3a5743c1">&lt;strong&gt;</bpt>todoitem<ept id="6aa51065-1add-41fb-8124-ad2a3a5743c1">&lt;/strong&gt;</ept>, click the <bpt id="011f55e4-f614-4b52-b18f-30dfe771fdd2">&lt;strong&gt;</bpt>Script<ept id="011f55e4-f614-4b52-b18f-30dfe771fdd2">&lt;/strong&gt;</ept> tab and select <bpt id="bf32f963-ed6e-488f-9e3d-8228e4b05d13">&lt;strong&gt;</bpt>Insert<ept id="bf32f963-ed6e-488f-9e3d-8228e4b05d13">&lt;/strong&gt;</ept>, replace the insert function with the following code, then click <bpt id="ad94d4bb-6e55-458c-b6f7-7c70e086b5f3">&lt;strong&gt;</bpt>Save<ept id="ad94d4bb-6e55-458c-b6f7-7c70e086b5f3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="fbc2ac8c-01f4-4b3b-80d1-5ca126876962" xml:space="preserve">
+          <source>This replaces the function that is invoked when an insert occurs in the TodoItem table with a new script.</source>
+          <target state="new">This replaces the function that is invoked when an insert occurs in the TodoItem table with a new script.</target>
+        </trans-unit>
+        <trans-unit id="03dbaf43-ac6e-4265-b0ca-932534120a0e" xml:space="preserve">
+          <source>This new script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the <bpt id="6640d7ba-9de6-4af2-8ff8-0784fe3f062d">&lt;code&gt;</bpt>sasQueryString<ept id="6640d7ba-9de6-4af2-8ff8-0784fe3f062d">&lt;/code&gt;</ept> property of the returned item.</source>
+          <target state="new">This new script generates a new SAS for the insert, which is valid for 5 minutes, and assigns the value of the generated SAS to the <bpt id="6640d7ba-9de6-4af2-8ff8-0784fe3f062d">&lt;code&gt;</bpt>sasQueryString<ept id="6640d7ba-9de6-4af2-8ff8-0784fe3f062d">&lt;/code&gt;</ept> property of the returned item.</target>
+        </trans-unit>
+        <trans-unit id="2eee38ad-eda4-4974-a762-3f95015c2ea0" xml:space="preserve">
+          <source>The <bpt id="fbb64338-fdf3-4475-a294-a2789bb3c26c">&lt;code&gt;</bpt>imageUri<ept id="fbb64338-fdf3-4475-a294-a2789bb3c26c">&lt;/code&gt;</ept> property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.</source>
+          <target state="new">The <bpt id="fbb64338-fdf3-4475-a294-a2789bb3c26c">&lt;code&gt;</bpt>imageUri<ept id="fbb64338-fdf3-4475-a294-a2789bb3c26c">&lt;/code&gt;</ept> property is also set to the resource path of the new BLOB to enable image display during binding in the client UI.</target>
+        </trans-unit>
+        <trans-unit id="94b1b95f-fdd3-4901-98d7-28d41aa0a08c" xml:space="preserve">
+          <source>This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the <bpt id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;linkText&gt;</bpt>generateSharedAccessSignature method<ept id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;/linkText&gt;</ept><bpt id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;title&gt;</bpt><ept id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;/title&gt;</ept>&lt;/a&gt; with an empty blob resource name, like this: </source>
+          <target state="new">This code creates an SAS for an individual BLOB. If you need to upload multiple blobs to a container using the same SAS, you can instead call the <bpt id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;linkText&gt;</bpt>generateSharedAccessSignature method<ept id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;/linkText&gt;</ept><bpt id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;title&gt;</bpt><ept id="86c91ad3-2567-4104-8f4e-ff92d1985fc0">&lt;/title&gt;</ept>&lt;/a&gt; with an empty blob resource name, like this: </target>
+        </trans-unit>
+        <trans-unit id="8da89267-b371-46f8-a382-7c343c8ce76e" xml:space="preserve">
+          <source>Next, you will update the quickstart app to add image upload functionality by using the SAS generated on insert.</source>
+          <target state="new">Next, you will update the quickstart app to add image upload functionality by using the SAS generated on insert.</target>
+        </trans-unit>
+        <trans-unit id="c23cff21-079e-4fa5-acc3-0666105f2cc5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</target>
+        </trans-unit>
+      </group>
+      <group id="3c4d97d9-2b36-44c8-bac2-54f8323ad80f" />
+    </body>
+  </file>
+</xliff>

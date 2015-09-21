@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6f211ded-daf4-4221-9c0b-9c9f8a1d8bf7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6f211ded-daf4-4221-9c0b-9c9f8a1d8bf7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7dad4cd0-44e6-4d19-800a-352c564ab882">
+        <trans-unit id="9f8d5f07-8a21-4b5e-8147-e32e9a298f7e" xml:space="preserve">
+          <source>Azure Notification Hubs Rich Push</source>
+          <target state="new">Azure Notification Hubs Rich Push</target>
+        </trans-unit>
+        <trans-unit id="e0f3b686-1b70-4508-b8b5-c7d935141d9d" xml:space="preserve">
+          <source>Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.</source>
+          <target state="new">Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.</target>
+        </trans-unit>
+        <trans-unit id="b71d8f2a-632e-4056-ba03-0988302b69f9" xml:space="preserve">
+          <source>In order to engage users with instant rich contents, an application might want to push beyond plain text.</source>
+          <target state="new">In order to engage users with instant rich contents, an application might want to push beyond plain text.</target>
+        </trans-unit>
+        <trans-unit id="54f6f005-6e49-468e-a978-d3d82a60d5fe" xml:space="preserve">
+          <source>These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more.</source>
+          <target state="new">These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more.</target>
+        </trans-unit>
+        <trans-unit id="3ed8fd54-47fd-4512-afe4-02488ccba065" xml:space="preserve">
+          <source>This tutorial builds on the <bpt id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;linkText&gt;</bpt>Notify Users<ept id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;/linkText&gt;</ept><bpt id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;title&gt;</bpt><ept id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;/title&gt;</ept> topic, and shows how to send push notifications that incorporate payloads (for example, image).</source>
+          <target state="new">This tutorial builds on the <bpt id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;linkText&gt;</bpt>Notify Users<ept id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;/linkText&gt;</ept><bpt id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;title&gt;</bpt><ept id="8a6a43fd-bdf6-4304-acfc-5941b992620a">&lt;/title&gt;</ept> topic, and shows how to send push notifications that incorporate payloads (for example, image).</target>
+        </trans-unit>
+        <trans-unit id="57e0ae1e-4daa-4fd0-bbee-f852f861d9dc" xml:space="preserve">
+          <source>This tutorial is compatible with iOS 7 &amp; 8.</source>
+          <target state="new">This tutorial is compatible with iOS 7 &amp; 8.</target>
+        </trans-unit>
+        <trans-unit id="5ce38be9-4fa8-4a7e-a815-664a82a5d08c" xml:space="preserve">
+          <source>  <bpt id="484e8c3c-1fa0-4cd8-b302-3a1f12f5a1a5">&lt;linkText&gt;</bpt><ept id="484e8c3c-1fa0-4cd8-b302-3a1f12f5a1a5">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="484e8c3c-1fa0-4cd8-b302-3a1f12f5a1a5">&lt;linkText&gt;</bpt><ept id="484e8c3c-1fa0-4cd8-b302-3a1f12f5a1a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94dd0659-dcb9-4333-ba86-df13bc6fc366" xml:space="preserve">
+          <source>At a high level:</source>
+          <target state="new">At a high level:</target>
+        </trans-unit>
+        <trans-unit id="c96471dd-5910-4b9c-bf6a-3864343e9ea1" xml:space="preserve">
+          <source>The app backend:</source>
+          <target state="new">The app backend:</target>
+        </trans-unit>
+        <trans-unit id="207cec20-9822-4da2-bdcf-34bb23dd47ef" xml:space="preserve">
+          <source>Stores the rich payload (in this case, image) in the backend database/local storage</source>
+          <target state="new">Stores the rich payload (in this case, image) in the backend database/local storage</target>
+        </trans-unit>
+        <trans-unit id="50cce770-1f80-43e2-ac4c-319d4c7e2265" xml:space="preserve">
+          <source>Sends ID of this rich notification to the device</source>
+          <target state="new">Sends ID of this rich notification to the device</target>
+        </trans-unit>
+        <trans-unit id="47125d48-b10d-4ab2-bd4f-74cb2eb4e6e1" xml:space="preserve">
+          <source>App on the device:</source>
+          <target state="new">App on the device:</target>
+        </trans-unit>
+        <trans-unit id="b37a0d9d-f9a4-4a54-b376-08f4e8519afa" xml:space="preserve">
+          <source>Contacts the backend requesting the rich payload with the ID it receives</source>
+          <target state="new">Contacts the backend requesting the rich payload with the ID it receives</target>
+        </trans-unit>
+        <trans-unit id="7e6b0dbc-7597-4b15-8df1-181b56a7bad0" xml:space="preserve">
+          <source>Sends users notifications on the device when data retrieval is complete, and shows the payload immediately when users tap to learn more</source>
+          <target state="new">Sends users notifications on the device when data retrieval is complete, and shows the payload immediately when users tap to learn more</target>
+        </trans-unit>
+        <trans-unit id="d9c26282-4e2d-46a0-889b-0771ad87f0f3" xml:space="preserve">
+          <source>In Visual Studio, open the <bpt id="c498ba08-712d-4566-b46c-dd90309f0cfb">&lt;strong&gt;</bpt>AppBackend<ept id="c498ba08-712d-4566-b46c-dd90309f0cfb">&lt;/strong&gt;</ept> project that you created in the <bpt id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;linkText&gt;</bpt>Notify Users<ept id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;/linkText&gt;</ept><bpt id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;title&gt;</bpt><ept id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">In Visual Studio, open the <bpt id="c498ba08-712d-4566-b46c-dd90309f0cfb">&lt;strong&gt;</bpt>AppBackend<ept id="c498ba08-712d-4566-b46c-dd90309f0cfb">&lt;/strong&gt;</ept> project that you created in the <bpt id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;linkText&gt;</bpt>Notify Users<ept id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;/linkText&gt;</ept><bpt id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;title&gt;</bpt><ept id="2ddb1d7c-2a1d-4330-b92c-a2f50f7fe38d">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="e504cc1f-0553-4c97-b088-322540f8c25c" xml:space="preserve">
+          <source>Obtain an image you would like to notify users with, and put it in an <bpt id="029b16a1-9020-40f8-a57d-6384cef4d289">&lt;strong&gt;</bpt>img<ept id="029b16a1-9020-40f8-a57d-6384cef4d289">&lt;/strong&gt;</ept> folder in your project directory.</source>
+          <target state="new">Obtain an image you would like to notify users with, and put it in an <bpt id="029b16a1-9020-40f8-a57d-6384cef4d289">&lt;strong&gt;</bpt>img<ept id="029b16a1-9020-40f8-a57d-6384cef4d289">&lt;/strong&gt;</ept> folder in your project directory.</target>
+        </trans-unit>
+        <trans-unit id="e490e7e9-7342-40fd-9647-7279b3148e17" xml:space="preserve">
+          <source>Click <bpt id="e6714103-c35e-4be9-8cad-7519b60f7921">&lt;strong&gt;</bpt>Show All Files<ept id="e6714103-c35e-4be9-8cad-7519b60f7921">&lt;/strong&gt;</ept> in the Solution Explorer, and right-click the folder to <bpt id="64e7bebc-b0a9-4547-8128-6cd55ec5d583">&lt;strong&gt;</bpt>Include In Project<ept id="64e7bebc-b0a9-4547-8128-6cd55ec5d583">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e6714103-c35e-4be9-8cad-7519b60f7921">&lt;strong&gt;</bpt>Show All Files<ept id="e6714103-c35e-4be9-8cad-7519b60f7921">&lt;/strong&gt;</ept> in the Solution Explorer, and right-click the folder to <bpt id="64e7bebc-b0a9-4547-8128-6cd55ec5d583">&lt;strong&gt;</bpt>Include In Project<ept id="64e7bebc-b0a9-4547-8128-6cd55ec5d583">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9afac752-0c66-4943-9641-112f655befd3" xml:space="preserve">
+          <source>With the image selected, change its Build Action in Properties window to <bpt id="7753842b-7b79-4aec-b151-906af90af8fc">&lt;strong&gt;</bpt>Embedded Resource<ept id="7753842b-7b79-4aec-b151-906af90af8fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">With the image selected, change its Build Action in Properties window to <bpt id="7753842b-7b79-4aec-b151-906af90af8fc">&lt;strong&gt;</bpt>Embedded Resource<ept id="7753842b-7b79-4aec-b151-906af90af8fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1129e349-8c6b-4e30-b525-c7f9d0c983e1" xml:space="preserve">
+          <source><bpt id="661e4b6e-5263-4fe6-a862-f88ca28070db">&lt;linkText&gt;</bpt><ept id="661e4b6e-5263-4fe6-a862-f88ca28070db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="661e4b6e-5263-4fe6-a862-f88ca28070db">&lt;linkText&gt;</bpt><ept id="661e4b6e-5263-4fe6-a862-f88ca28070db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4202b84e-59e8-43f9-99c5-23be2661d2a6" xml:space="preserve">
+          <source>In <bpt id="9993773b-787a-40ae-99ee-c62ce66bdb3d">&lt;strong&gt;</bpt>Notifications.cs<ept id="9993773b-787a-40ae-99ee-c62ce66bdb3d">&lt;/strong&gt;</ept>, add the following using statement:</source>
+          <target state="new">In <bpt id="9993773b-787a-40ae-99ee-c62ce66bdb3d">&lt;strong&gt;</bpt>Notifications.cs<ept id="9993773b-787a-40ae-99ee-c62ce66bdb3d">&lt;/strong&gt;</ept>, add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="17d2c29d-ce67-4209-8b69-e8244e4386f2" xml:space="preserve">
+          <source>Update the whole <bpt id="42e6040a-59e3-4771-9619-1a54d2fe495f">&lt;strong&gt;</bpt>Notifications<ept id="42e6040a-59e3-4771-9619-1a54d2fe495f">&lt;/strong&gt;</ept> class with the following code.</source>
+          <target state="new">Update the whole <bpt id="42e6040a-59e3-4771-9619-1a54d2fe495f">&lt;strong&gt;</bpt>Notifications<ept id="42e6040a-59e3-4771-9619-1a54d2fe495f">&lt;/strong&gt;</ept> class with the following code.</target>
+        </trans-unit>
+        <trans-unit id="8be0be51-72c4-4317-b153-0592f42c2e54" xml:space="preserve">
+          <source>Be sure to replace the placeholders with your notification hub credentials and image file name.</source>
+          <target state="new">Be sure to replace the placeholders with your notification hub credentials and image file name.</target>
+        </trans-unit>
+        <trans-unit id="76d31ce9-4062-42da-afde-93bd0e14e6af" xml:space="preserve">
+          <source>(optional) Refer to <bpt id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;linkText&gt;</bpt>How to embed and access resources by using Visual C#<ept id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;/linkText&gt;</ept><bpt id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;title&gt;</bpt><ept id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;/title&gt;</ept> for more information on how to add and obtain project resources.</source>
+          <target state="new">(optional) Refer to <bpt id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;linkText&gt;</bpt>How to embed and access resources by using Visual C#<ept id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;/linkText&gt;</ept><bpt id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;title&gt;</bpt><ept id="99dbfcf4-f5af-448c-a3ba-4387e607e817">&lt;/title&gt;</ept> for more information on how to add and obtain project resources.</target>
+        </trans-unit>
+        <trans-unit id="132ccbda-8636-4806-a630-dd4d7506f096" xml:space="preserve">
+          <source>In <bpt id="d2238f9f-df6b-4de5-8ef6-57490b35201f">&lt;strong&gt;</bpt>NotificationsController.cs<ept id="d2238f9f-df6b-4de5-8ef6-57490b35201f">&lt;/strong&gt;</ept>, redefine <bpt id="6ecf3bb5-3178-4f3b-963f-e94b19f06cf4">&lt;strong&gt;</bpt>NotificationsController<ept id="6ecf3bb5-3178-4f3b-963f-e94b19f06cf4">&lt;/strong&gt;</ept>  with the following snippets.</source>
+          <target state="new">In <bpt id="d2238f9f-df6b-4de5-8ef6-57490b35201f">&lt;strong&gt;</bpt>NotificationsController.cs<ept id="d2238f9f-df6b-4de5-8ef6-57490b35201f">&lt;/strong&gt;</ept>, redefine <bpt id="6ecf3bb5-3178-4f3b-963f-e94b19f06cf4">&lt;strong&gt;</bpt>NotificationsController<ept id="6ecf3bb5-3178-4f3b-963f-e94b19f06cf4">&lt;/strong&gt;</ept>  with the following snippets.</target>
+        </trans-unit>
+        <trans-unit id="5623e19c-b9c4-4177-9b90-c6f84a93ff28" xml:space="preserve">
+          <source>This sends an initial silent rich notification id to device and allows client-side retrieval of image:</source>
+          <target state="new">This sends an initial silent rich notification id to device and allows client-side retrieval of image:</target>
+        </trans-unit>
+        <trans-unit id="740ac4a0-485c-4e67-80cd-3a5ee064fd22" xml:space="preserve">
+          <source>Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices.</source>
+          <target state="new">Now we will re-deploy this app to an Azure Website in order to make it accessible from all devices.</target>
+        </trans-unit>
+        <trans-unit id="d858da91-f08e-4c2d-8f37-54441643cb09" xml:space="preserve">
+          <source>Right-click on the <bpt id="e645ce80-70e2-4a43-92a2-f529e24d3fa7">&lt;strong&gt;</bpt>AppBackend<ept id="e645ce80-70e2-4a43-92a2-f529e24d3fa7">&lt;/strong&gt;</ept> project and select <bpt id="80b98716-8a4b-45bb-b745-3b168ecf0fe9">&lt;strong&gt;</bpt>Publish<ept id="80b98716-8a4b-45bb-b745-3b168ecf0fe9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on the <bpt id="e645ce80-70e2-4a43-92a2-f529e24d3fa7">&lt;strong&gt;</bpt>AppBackend<ept id="e645ce80-70e2-4a43-92a2-f529e24d3fa7">&lt;/strong&gt;</ept> project and select <bpt id="80b98716-8a4b-45bb-b745-3b168ecf0fe9">&lt;strong&gt;</bpt>Publish<ept id="80b98716-8a4b-45bb-b745-3b168ecf0fe9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40b07627-b0a9-4f0c-8cc1-f52a978d33ac" xml:space="preserve">
+          <source>Select Azure Website as your publish target.</source>
+          <target state="new">Select Azure Website as your publish target.</target>
+        </trans-unit>
+        <trans-unit id="3e7311df-d9d5-4aa9-921c-eb660b76bc8d" xml:space="preserve">
+          <source>Log in with your Azure account and select an existing or new Website, and make a note of the <bpt id="488545eb-808d-4abb-805a-fe1dc728eea8">&lt;strong&gt;</bpt>destination URL<ept id="488545eb-808d-4abb-805a-fe1dc728eea8">&lt;/strong&gt;</ept> property in the <bpt id="4bb57c67-5a1a-4334-bb7c-fea6cf6a7a10">&lt;strong&gt;</bpt>Connection<ept id="4bb57c67-5a1a-4334-bb7c-fea6cf6a7a10">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Log in with your Azure account and select an existing or new Website, and make a note of the <bpt id="488545eb-808d-4abb-805a-fe1dc728eea8">&lt;strong&gt;</bpt>destination URL<ept id="488545eb-808d-4abb-805a-fe1dc728eea8">&lt;/strong&gt;</ept> property in the <bpt id="4bb57c67-5a1a-4334-bb7c-fea6cf6a7a10">&lt;strong&gt;</bpt>Connection<ept id="4bb57c67-5a1a-4334-bb7c-fea6cf6a7a10">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2f99706c-a45f-415b-a132-6dc611bea22c" xml:space="preserve">
+          <source>We will refer to this URL as your <bpt id="a6b798d9-280c-4049-a31e-2d670be34c33">&lt;em&gt;</bpt>backend endpoint<ept id="a6b798d9-280c-4049-a31e-2d670be34c33">&lt;/em&gt;</ept> later in this tutorial.</source>
+          <target state="new">We will refer to this URL as your <bpt id="a6b798d9-280c-4049-a31e-2d670be34c33">&lt;em&gt;</bpt>backend endpoint<ept id="a6b798d9-280c-4049-a31e-2d670be34c33">&lt;/em&gt;</ept> later in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="219646e6-ff45-4252-b70f-0968c3b71f6e" xml:space="preserve">
+          <source>Click <bpt id="6572d088-b9b8-46fb-973b-7f51d4114131">&lt;strong&gt;</bpt>Publish<ept id="6572d088-b9b8-46fb-973b-7f51d4114131">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6572d088-b9b8-46fb-973b-7f51d4114131">&lt;strong&gt;</bpt>Publish<ept id="6572d088-b9b8-46fb-973b-7f51d4114131">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89e280c3-4d32-4be8-8c0a-ec55912971cd" xml:space="preserve">
+          <source>Now that you have modified your app backend to send just the <bpt id="83616fa5-a346-49df-8b4d-d17b16e1530f">&lt;em&gt;</bpt>id<ept id="83616fa5-a346-49df-8b4d-d17b16e1530f">&lt;/em&gt;</ept> of a notification, you will change your iOS app to handle that id and retrieve the rich message from your backend.</source>
+          <target state="new">Now that you have modified your app backend to send just the <bpt id="83616fa5-a346-49df-8b4d-d17b16e1530f">&lt;em&gt;</bpt>id<ept id="83616fa5-a346-49df-8b4d-d17b16e1530f">&lt;/em&gt;</ept> of a notification, you will change your iOS app to handle that id and retrieve the rich message from your backend.</target>
+        </trans-unit>
+        <trans-unit id="d91f789a-edf4-427e-a819-d5d6aabfac23" xml:space="preserve">
+          <source>Open your iOS project, and enable remote notifications by going to your main app target in the <bpt id="89fd79b8-104b-4562-accd-b657082161b5">&lt;strong&gt;</bpt>Targets<ept id="89fd79b8-104b-4562-accd-b657082161b5">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Open your iOS project, and enable remote notifications by going to your main app target in the <bpt id="89fd79b8-104b-4562-accd-b657082161b5">&lt;strong&gt;</bpt>Targets<ept id="89fd79b8-104b-4562-accd-b657082161b5">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="e4fbf67e-53d9-4b6d-bae5-e81235b3c0ba" xml:space="preserve">
+          <source>Click on <bpt id="a32a3d41-73bd-497f-9b7d-01d4374a9ecd">&lt;strong&gt;</bpt>Capabilities<ept id="a32a3d41-73bd-497f-9b7d-01d4374a9ecd">&lt;/strong&gt;</ept>, turn on <bpt id="a529b371-f08d-44f6-b6ba-3c6e28fec6c4">&lt;strong&gt;</bpt>Background Modes<ept id="a529b371-f08d-44f6-b6ba-3c6e28fec6c4">&lt;/strong&gt;</ept>, and check the <bpt id="837cc928-eee8-42d1-ab2d-1d0a16589384">&lt;strong&gt;</bpt>Remote Notifications<ept id="837cc928-eee8-42d1-ab2d-1d0a16589384">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Click on <bpt id="a32a3d41-73bd-497f-9b7d-01d4374a9ecd">&lt;strong&gt;</bpt>Capabilities<ept id="a32a3d41-73bd-497f-9b7d-01d4374a9ecd">&lt;/strong&gt;</ept>, turn on <bpt id="a529b371-f08d-44f6-b6ba-3c6e28fec6c4">&lt;strong&gt;</bpt>Background Modes<ept id="a529b371-f08d-44f6-b6ba-3c6e28fec6c4">&lt;/strong&gt;</ept>, and check the <bpt id="837cc928-eee8-42d1-ab2d-1d0a16589384">&lt;strong&gt;</bpt>Remote Notifications<ept id="837cc928-eee8-42d1-ab2d-1d0a16589384">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="f6280145-c6db-4471-96d8-f6eb2357bcd2" xml:space="preserve">
+          <source><bpt id="024f4b4c-a62e-429d-b07c-bbf17d91c570">&lt;linkText&gt;</bpt><ept id="024f4b4c-a62e-429d-b07c-bbf17d91c570">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="024f4b4c-a62e-429d-b07c-bbf17d91c570">&lt;linkText&gt;</bpt><ept id="024f4b4c-a62e-429d-b07c-bbf17d91c570">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="230506d5-feec-4446-88ed-712569638595" xml:space="preserve">
+          <source>Go to <bpt id="424be3ac-f428-41e9-a875-f8f711e8e797">&lt;strong&gt;</bpt>Main.storyboard<ept id="424be3ac-f428-41e9-a875-f8f711e8e797">&lt;/strong&gt;</ept>, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from <bpt id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;linkText&gt;</bpt>Notify User<ept id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;/linkText&gt;</ept><bpt id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;title&gt;</bpt><ept id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">Go to <bpt id="424be3ac-f428-41e9-a875-f8f711e8e797">&lt;strong&gt;</bpt>Main.storyboard<ept id="424be3ac-f428-41e9-a875-f8f711e8e797">&lt;/strong&gt;</ept>, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from <bpt id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;linkText&gt;</bpt>Notify User<ept id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;/linkText&gt;</ept><bpt id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;title&gt;</bpt><ept id="32e45951-82ad-4550-9afb-821ca69c1368">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="b1cb125e-461d-4a2d-9ba6-43b9f37ba583" xml:space="preserve">
+          <source>Add a <bpt id="64f88263-f11e-4e77-aa0b-33b036793b17">&lt;strong&gt;</bpt>Navigation Controller<ept id="64f88263-f11e-4e77-aa0b-33b036793b17">&lt;/strong&gt;</ept> to your storyboard, and control-drag to Home View Controller to make it the <bpt id="c32c82e1-d009-4dca-9277-4789506affdb">&lt;strong&gt;</bpt>root view<ept id="c32c82e1-d009-4dca-9277-4789506affdb">&lt;/strong&gt;</ept> of navigation.</source>
+          <target state="new">Add a <bpt id="64f88263-f11e-4e77-aa0b-33b036793b17">&lt;strong&gt;</bpt>Navigation Controller<ept id="64f88263-f11e-4e77-aa0b-33b036793b17">&lt;/strong&gt;</ept> to your storyboard, and control-drag to Home View Controller to make it the <bpt id="c32c82e1-d009-4dca-9277-4789506affdb">&lt;strong&gt;</bpt>root view<ept id="c32c82e1-d009-4dca-9277-4789506affdb">&lt;/strong&gt;</ept> of navigation.</target>
+        </trans-unit>
+        <trans-unit id="d969eaf9-0aa7-40d9-8f2d-c9d499b319ab" xml:space="preserve">
+          <source>Make sure the <bpt id="3a3d4d3e-96ad-48a2-82ff-49d1fb6fde55">&lt;strong&gt;</bpt>Is Initial View Controller<ept id="3a3d4d3e-96ad-48a2-82ff-49d1fb6fde55">&lt;/strong&gt;</ept> in Attributes inspector is selected for the Navigation Controller only.</source>
+          <target state="new">Make sure the <bpt id="3a3d4d3e-96ad-48a2-82ff-49d1fb6fde55">&lt;strong&gt;</bpt>Is Initial View Controller<ept id="3a3d4d3e-96ad-48a2-82ff-49d1fb6fde55">&lt;/strong&gt;</ept> in Attributes inspector is selected for the Navigation Controller only.</target>
+        </trans-unit>
+        <trans-unit id="22c0b588-9aa1-4e84-aa99-8826c5feee3b" xml:space="preserve">
+          <source>Add a <bpt id="467adbf1-cf78-4004-a0b3-9595e8b749e8">&lt;strong&gt;</bpt>View Controller<ept id="467adbf1-cf78-4004-a0b3-9595e8b749e8">&lt;/strong&gt;</ept> to storyboard and add an <bpt id="041f575f-abb2-49b7-8816-e291c0c28547">&lt;strong&gt;</bpt>Image View<ept id="041f575f-abb2-49b7-8816-e291c0c28547">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add a <bpt id="467adbf1-cf78-4004-a0b3-9595e8b749e8">&lt;strong&gt;</bpt>View Controller<ept id="467adbf1-cf78-4004-a0b3-9595e8b749e8">&lt;/strong&gt;</ept> to storyboard and add an <bpt id="041f575f-abb2-49b7-8816-e291c0c28547">&lt;strong&gt;</bpt>Image View<ept id="041f575f-abb2-49b7-8816-e291c0c28547">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1853332d-2ba7-4fc3-a9e5-08b7a27862d3" xml:space="preserve">
+          <source>This is the page users will see once they choose to learn more by clicking on the notifiication.</source>
+          <target state="new">This is the page users will see once they choose to learn more by clicking on the notifiication.</target>
+        </trans-unit>
+        <trans-unit id="9015917d-de22-4c8d-baa2-92831b6b9a7e" xml:space="preserve">
+          <source>Your storyboard should look as follows:</source>
+          <target state="new">Your storyboard should look as follows:</target>
+        </trans-unit>
+        <trans-unit id="66536b5a-b62e-423d-9443-86d7f105172d" xml:space="preserve">
+          <source><bpt id="bec295b9-0f4e-4d19-8495-9fdf54e738d2">&lt;linkText&gt;</bpt><ept id="bec295b9-0f4e-4d19-8495-9fdf54e738d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bec295b9-0f4e-4d19-8495-9fdf54e738d2">&lt;linkText&gt;</bpt><ept id="bec295b9-0f4e-4d19-8495-9fdf54e738d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ebf4d4b-d388-4f4d-8232-28ab3b7faecb" xml:space="preserve">
+          <source>Click on the <bpt id="2e4525a7-a291-4300-9cfa-ec00d47a23c4">&lt;strong&gt;</bpt>Home View Controller<ept id="2e4525a7-a291-4300-9cfa-ec00d47a23c4">&lt;/strong&gt;</ept> in storyboard, and make sure it has <bpt id="fe3ad5ad-1245-4189-8e3a-91fbb3a734de">&lt;strong&gt;</bpt>homeViewController<ept id="fe3ad5ad-1245-4189-8e3a-91fbb3a734de">&lt;/strong&gt;</ept> as its <bpt id="9c157622-842b-4385-8a4c-5b9fff5a58a9">&lt;strong&gt;</bpt>Custom Class<ept id="9c157622-842b-4385-8a4c-5b9fff5a58a9">&lt;/strong&gt;</ept> and <bpt id="a35b627e-16f3-4b70-83d9-e15183819fcd">&lt;strong&gt;</bpt>Storyboard ID<ept id="a35b627e-16f3-4b70-83d9-e15183819fcd">&lt;/strong&gt;</ept> under the Identity inspector.</source>
+          <target state="new">Click on the <bpt id="2e4525a7-a291-4300-9cfa-ec00d47a23c4">&lt;strong&gt;</bpt>Home View Controller<ept id="2e4525a7-a291-4300-9cfa-ec00d47a23c4">&lt;/strong&gt;</ept> in storyboard, and make sure it has <bpt id="fe3ad5ad-1245-4189-8e3a-91fbb3a734de">&lt;strong&gt;</bpt>homeViewController<ept id="fe3ad5ad-1245-4189-8e3a-91fbb3a734de">&lt;/strong&gt;</ept> as its <bpt id="9c157622-842b-4385-8a4c-5b9fff5a58a9">&lt;strong&gt;</bpt>Custom Class<ept id="9c157622-842b-4385-8a4c-5b9fff5a58a9">&lt;/strong&gt;</ept> and <bpt id="a35b627e-16f3-4b70-83d9-e15183819fcd">&lt;strong&gt;</bpt>Storyboard ID<ept id="a35b627e-16f3-4b70-83d9-e15183819fcd">&lt;/strong&gt;</ept> under the Identity inspector.</target>
+        </trans-unit>
+        <trans-unit id="03c45aac-c097-4e62-badd-1bfe2a2857e9" xml:space="preserve">
+          <source>Do the same for Image View Controller as <bpt id="1d61c19d-84f3-4fbd-9848-950bebe72853">&lt;strong&gt;</bpt>imageViewController<ept id="1d61c19d-84f3-4fbd-9848-950bebe72853">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Do the same for Image View Controller as <bpt id="1d61c19d-84f3-4fbd-9848-950bebe72853">&lt;strong&gt;</bpt>imageViewController<ept id="1d61c19d-84f3-4fbd-9848-950bebe72853">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d49e7a85-ca9e-481d-b95b-c6052f8ca936" xml:space="preserve">
+          <source>Then, create a new View Controller class titled <bpt id="d987d590-4a43-4a17-a577-cfab8b24540f">&lt;strong&gt;</bpt>imageViewController<ept id="d987d590-4a43-4a17-a577-cfab8b24540f">&lt;/strong&gt;</ept> to handle the UI you just created.</source>
+          <target state="new">Then, create a new View Controller class titled <bpt id="d987d590-4a43-4a17-a577-cfab8b24540f">&lt;strong&gt;</bpt>imageViewController<ept id="d987d590-4a43-4a17-a577-cfab8b24540f">&lt;/strong&gt;</ept> to handle the UI you just created.</target>
+        </trans-unit>
+        <trans-unit id="1b630326-5c61-4f8a-9edd-9a97e44d0783" xml:space="preserve">
+          <source>In <bpt id="ff85d180-9aef-4656-88dc-717f117d3b53">&lt;strong&gt;</bpt>imageViewController.h<ept id="ff85d180-9aef-4656-88dc-717f117d3b53">&lt;/strong&gt;</ept>, add the following to the controller's interface declarations.</source>
+          <target state="new">In <bpt id="ff85d180-9aef-4656-88dc-717f117d3b53">&lt;strong&gt;</bpt>imageViewController.h<ept id="ff85d180-9aef-4656-88dc-717f117d3b53">&lt;/strong&gt;</ept>, add the following to the controller's interface declarations.</target>
+        </trans-unit>
+        <trans-unit id="ed7cfc89-7cee-494d-94d2-ace7cc63a486" xml:space="preserve">
+          <source>Make sure to control-drag from the storyboard image view to these properties to link the two:</source>
+          <target state="new">Make sure to control-drag from the storyboard image view to these properties to link the two:</target>
+        </trans-unit>
+        <trans-unit id="24cd4897-18a4-4719-bb7f-139fc90dd9be" xml:space="preserve">
+          <source>In <bpt id="95eeb490-ffcc-47e1-8427-84efdeb9eb8f">&lt;strong&gt;</bpt>imageViewController.m<ept id="95eeb490-ffcc-47e1-8427-84efdeb9eb8f">&lt;/strong&gt;</ept>, add the following at the end of <bpt id="f3078de9-3c9b-4ade-b755-df5d4762ec3b">&lt;strong&gt;</bpt>viewDidload<ept id="f3078de9-3c9b-4ade-b755-df5d4762ec3b">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In <bpt id="95eeb490-ffcc-47e1-8427-84efdeb9eb8f">&lt;strong&gt;</bpt>imageViewController.m<ept id="95eeb490-ffcc-47e1-8427-84efdeb9eb8f">&lt;/strong&gt;</ept>, add the following at the end of <bpt id="f3078de9-3c9b-4ade-b755-df5d4762ec3b">&lt;strong&gt;</bpt>viewDidload<ept id="f3078de9-3c9b-4ade-b755-df5d4762ec3b">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a6d5c4fe-2784-4e40-9fe8-69097982fc75" xml:space="preserve">
+          <source>In <bpt id="091c707c-83af-4d52-af37-5351338d24c2">&lt;strong&gt;</bpt>AppDelegate.m<ept id="091c707c-83af-4d52-af37-5351338d24c2">&lt;/strong&gt;</ept>, import the image controller you created:</source>
+          <target state="new">In <bpt id="091c707c-83af-4d52-af37-5351338d24c2">&lt;strong&gt;</bpt>AppDelegate.m<ept id="091c707c-83af-4d52-af37-5351338d24c2">&lt;/strong&gt;</ept>, import the image controller you created:</target>
+        </trans-unit>
+        <trans-unit id="a3d0f451-3e18-4008-9e77-1da25e5076ad" xml:space="preserve">
+          <source>Add an interface section with the following declaration:</source>
+          <target state="new">Add an interface section with the following declaration:</target>
+        </trans-unit>
+        <trans-unit id="ab98f3a6-398a-49e1-9743-5f4049c94614" xml:space="preserve">
+          <source>In <bpt id="a4f6852e-8b2b-4908-80c7-4d623092c5e9">&lt;strong&gt;</bpt>AppDelegate<ept id="a4f6852e-8b2b-4908-80c7-4d623092c5e9">&lt;/strong&gt;</ept>, make sure your app registers for silent notifications in <bpt id="c8e07ac5-d735-49f2-9799-01843963a6d1">&lt;strong&gt;</bpt>application: didFinishLaunchingWithOptions<ept id="c8e07ac5-d735-49f2-9799-01843963a6d1">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In <bpt id="a4f6852e-8b2b-4908-80c7-4d623092c5e9">&lt;strong&gt;</bpt>AppDelegate<ept id="a4f6852e-8b2b-4908-80c7-4d623092c5e9">&lt;/strong&gt;</ept>, make sure your app registers for silent notifications in <bpt id="c8e07ac5-d735-49f2-9799-01843963a6d1">&lt;strong&gt;</bpt>application: didFinishLaunchingWithOptions<ept id="c8e07ac5-d735-49f2-9799-01843963a6d1">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ad19704a-145e-4692-a4eb-964df1a1b82f" xml:space="preserve">
+          <source>Subsitute in the following implementation for <bpt id="03612387-f4a5-4fd1-85a4-7027ac6ac0c3">&lt;strong&gt;</bpt>application:didRegisterForRemoteNotificationsWithDeviceToken<ept id="03612387-f4a5-4fd1-85a4-7027ac6ac0c3">&lt;/strong&gt;</ept> to take the storyboard UI changes into account:</source>
+          <target state="new">Subsitute in the following implementation for <bpt id="03612387-f4a5-4fd1-85a4-7027ac6ac0c3">&lt;strong&gt;</bpt>application:didRegisterForRemoteNotificationsWithDeviceToken<ept id="03612387-f4a5-4fd1-85a4-7027ac6ac0c3">&lt;/strong&gt;</ept> to take the storyboard UI changes into account:</target>
+        </trans-unit>
+        <trans-unit id="e71bae00-5211-456e-ac71-6dd488c4103d" xml:space="preserve">
+          <source>Then, add the following methods to <bpt id="0956467c-2de8-42ea-be6b-c58ab183c06b">&lt;strong&gt;</bpt>AppDelegate.m<ept id="0956467c-2de8-42ea-be6b-c58ab183c06b">&lt;/strong&gt;</ept> to retrieve the image from your endpoint and send a local notification when retrieval is complete.</source>
+          <target state="new">Then, add the following methods to <bpt id="0956467c-2de8-42ea-be6b-c58ab183c06b">&lt;strong&gt;</bpt>AppDelegate.m<ept id="0956467c-2de8-42ea-be6b-c58ab183c06b">&lt;/strong&gt;</ept> to retrieve the image from your endpoint and send a local notification when retrieval is complete.</target>
+        </trans-unit>
+        <trans-unit id="efb1fcd7-f8ed-4363-93d8-306c5b941ac5" xml:space="preserve">
+          <source>Make sure to substitute the placeholder <bpt id="3e640cc0-2ea0-4601-a30f-308d863075dd">&lt;code&gt;</bpt>{backend endpoint}<ept id="3e640cc0-2ea0-4601-a30f-308d863075dd">&lt;/code&gt;</ept> with your backend endpoint:</source>
+          <target state="new">Make sure to substitute the placeholder <bpt id="3e640cc0-2ea0-4601-a30f-308d863075dd">&lt;code&gt;</bpt>{backend endpoint}<ept id="3e640cc0-2ea0-4601-a30f-308d863075dd">&lt;/code&gt;</ept> with your backend endpoint:</target>
+        </trans-unit>
+        <trans-unit id="2ee6450f-8cca-4105-93b1-7a37691f79eb" xml:space="preserve">
+          <source>Handle the local notification above by opening up the image view controller in <bpt id="29642931-4e2e-47f3-ab38-04f40bfafef9">&lt;strong&gt;</bpt>AppDelegate.m<ept id="29642931-4e2e-47f3-ab38-04f40bfafef9">&lt;/strong&gt;</ept> with the following methods:</source>
+          <target state="new">Handle the local notification above by opening up the image view controller in <bpt id="29642931-4e2e-47f3-ab38-04f40bfafef9">&lt;strong&gt;</bpt>AppDelegate.m<ept id="29642931-4e2e-47f3-ab38-04f40bfafef9">&lt;/strong&gt;</ept> with the following methods:</target>
+        </trans-unit>
+        <trans-unit id="06ca20c0-254c-42a7-b17a-b75adb9c3d43" xml:space="preserve">
+          <source>In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</source>
+          <target state="new">In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</target>
+        </trans-unit>
+        <trans-unit id="539fa8de-878e-47f5-aa48-b1ea919e7b84" xml:space="preserve">
+          <source>In the iOS app UI, enter a username and password of the same value for authentication and click <bpt id="efe3293d-2914-4a30-b6e1-cb15b1896607">&lt;strong&gt;</bpt>Log In<ept id="efe3293d-2914-4a30-b6e1-cb15b1896607">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the iOS app UI, enter a username and password of the same value for authentication and click <bpt id="efe3293d-2914-4a30-b6e1-cb15b1896607">&lt;strong&gt;</bpt>Log In<ept id="efe3293d-2914-4a30-b6e1-cb15b1896607">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="644a952a-3a50-45c1-aa6c-d0a35ea21c66" xml:space="preserve">
+          <source>Click <bpt id="3d0d99a2-6b9e-493f-9cd1-d9a39b1df4f1">&lt;strong&gt;</bpt>Send push<ept id="3d0d99a2-6b9e-493f-9cd1-d9a39b1df4f1">&lt;/strong&gt;</ept> and you should see an in-app alert.</source>
+          <target state="new">Click <bpt id="3d0d99a2-6b9e-493f-9cd1-d9a39b1df4f1">&lt;strong&gt;</bpt>Send push<ept id="3d0d99a2-6b9e-493f-9cd1-d9a39b1df4f1">&lt;/strong&gt;</ept> and you should see an in-app alert.</target>
+        </trans-unit>
+        <trans-unit id="d6279f97-c999-4829-b0ab-881756e2e08c" xml:space="preserve">
+          <source>If you click on <bpt id="72da7a6e-735b-4533-9329-6d78e8f809f2">&lt;strong&gt;</bpt>More<ept id="72da7a6e-735b-4533-9329-6d78e8f809f2">&lt;/strong&gt;</ept>, you will be brought to the image you chose to include in your app backend.</source>
+          <target state="new">If you click on <bpt id="72da7a6e-735b-4533-9329-6d78e8f809f2">&lt;strong&gt;</bpt>More<ept id="72da7a6e-735b-4533-9329-6d78e8f809f2">&lt;/strong&gt;</ept>, you will be brought to the image you chose to include in your app backend.</target>
+        </trans-unit>
+        <trans-unit id="861a2337-9501-4c70-aeaa-f4dc89ad0565" xml:space="preserve">
+          <source>You can also click <bpt id="a6fca3b4-1bc2-4b90-91fd-112e96baeefa">&lt;strong&gt;</bpt>Send push<ept id="a6fca3b4-1bc2-4b90-91fd-112e96baeefa">&lt;/strong&gt;</ept> and immediately press the home button of your device.</source>
+          <target state="new">You can also click <bpt id="a6fca3b4-1bc2-4b90-91fd-112e96baeefa">&lt;strong&gt;</bpt>Send push<ept id="a6fca3b4-1bc2-4b90-91fd-112e96baeefa">&lt;/strong&gt;</ept> and immediately press the home button of your device.</target>
+        </trans-unit>
+        <trans-unit id="50e3aedb-1da5-4961-9de5-9db2be0c45f3" xml:space="preserve">
+          <source>In a few moments, you will receive a push notification.</source>
+          <target state="new">In a few moments, you will receive a push notification.</target>
+        </trans-unit>
+        <trans-unit id="ccef3dba-7e98-48d9-b2bf-a1699b89d4d4" xml:space="preserve">
+          <source>If you tap on it or click More, you will be brought to your app and the rich image content.</source>
+          <target state="new">If you tap on it or click More, you will be brought to your app and the rich image content.</target>
+        </trans-unit>
+        <trans-unit id="55073522-de91-49a0-8204-152c8d2deab8" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png</target>
+        </trans-unit>
+        <trans-unit id="eec100a5-9293-4989-9367-accc9310fbe0" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png</target>
+        </trans-unit>
+        <trans-unit id="0eb44816-1222-4ecd-96a0-9c989cc60bf4" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png</target>
+        </trans-unit>
+        <trans-unit id="d896baaf-d193-497c-8755-0a9e5b44bad5" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png</target>
+        </trans-unit>
+      </group>
+      <group id="87327a58-3ffe-4a7b-a057-dd7e4c84ee52" />
+    </body>
+  </file>
+</xliff>

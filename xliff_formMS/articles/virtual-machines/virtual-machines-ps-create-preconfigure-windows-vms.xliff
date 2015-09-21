@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b2de911a-cb08-4c28-be5a-13de0074e74d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b2de911a-cb08-4c28-be5a-13de0074e74d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0d766452-98c0-4d1f-b161-ef15e7d63de1">
+        <trans-unit id="4813a529-18df-4a49-8296-cfc6f3c42331" xml:space="preserve">
+          <source>Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</source>
+          <target state="new">Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="8be01d8b-d88c-478c-b45f-7d8a096c1083" xml:space="preserve">
+          <source>Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure.</source>
+          <target state="new">Learn how to use Azure PowerShell to create and preconfigure Windows-based virtual machines in Azure.</target>
+        </trans-unit>
+        <trans-unit id="3c0cce75-82df-4cd6-8d95-3566caff5113" xml:space="preserve">
+          <source>These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach.</source>
+          <target state="new">These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach.</target>
+        </trans-unit>
+        <trans-unit id="6d43773a-1285-4d6e-8942-af5c6f05469a" xml:space="preserve">
+          <source>You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.</source>
+          <target state="new">You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.</target>
+        </trans-unit>
+        <trans-unit id="19083eb4-a9a3-4cc9-8530-126dfc2eced1" xml:space="preserve">
+          <source>These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets.</source>
+          <target state="new">These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets.</target>
+        </trans-unit>
+        <trans-unit id="42f7159b-9584-4ee9-a444-2ba086f0eec0" xml:space="preserve">
+          <source>This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration.</source>
+          <target state="new">This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration.</target>
+        </trans-unit>
+        <trans-unit id="84952c73-2ac7-4703-b0a1-ff5568ad98db" xml:space="preserve">
+          <source>Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").</source>
+          <target state="new">Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").</target>
+        </trans-unit>
+        <trans-unit id="557dfd63-79db-4bdb-bfa3-a75726aabf32" xml:space="preserve">
+          <source>For the companion topic to configure Linux-based virtual machines, see <bpt id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines<ept id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;/linkText&gt;</ept><bpt id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;title&gt;</bpt><ept id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the companion topic to configure Linux-based virtual machines, see <bpt id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines<ept id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;/linkText&gt;</ept><bpt id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;title&gt;</bpt><ept id="37c3852b-fccf-4c4d-a72d-59323ad111db">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b32fceb-eebe-465a-8afb-a61610b4909e" xml:space="preserve">
+          <source><bpt id="c83cd03a-1c87-4f18-ab73-daed9bc47ee7">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="c83cd03a-1c87-4f18-ab73-daed9bc47ee7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c83cd03a-1c87-4f18-ab73-daed9bc47ee7">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="c83cd03a-1c87-4f18-ab73-daed9bc47ee7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b1afabf-6d3a-4fd7-adb2-f2f0d75c6361" xml:space="preserve">
+          <source><bpt id="ea335114-c76a-4286-ac46-151b98072abb">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="ea335114-c76a-4286-ac46-151b98072abb">&lt;/linkText&gt;</ept><bpt id="ea335114-c76a-4286-ac46-151b98072abb">&lt;title&gt;</bpt><ept id="ea335114-c76a-4286-ac46-151b98072abb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea335114-c76a-4286-ac46-151b98072abb">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="ea335114-c76a-4286-ac46-151b98072abb">&lt;/linkText&gt;</ept><bpt id="ea335114-c76a-4286-ac46-151b98072abb">&lt;title&gt;</bpt><ept id="ea335114-c76a-4286-ac46-151b98072abb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed311bd-38d7-4729-8d1f-bb868e2700dd" xml:space="preserve">
+          <source>If you haven't done so already, use the instructions in <bpt id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;/linkText&gt;</ept><bpt id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;title&gt;</bpt><ept id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;/title&gt;</ept> to install Azure PowerShell on your local computer.</source>
+          <target state="new">If you haven't done so already, use the instructions in <bpt id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;/linkText&gt;</ept><bpt id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;title&gt;</bpt><ept id="c2136bc0-e2d0-4ad2-9cb7-1e76728dbd42">&lt;/title&gt;</ept> to install Azure PowerShell on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="50eed204-a012-4d40-870e-7c8941da9b16" xml:space="preserve">
+          <source>Then, open an Azure PowerShell command prompt.</source>
+          <target state="new">Then, open an Azure PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="53b0e6dd-2fc0-4fac-ac6b-88c5a72e0e12" xml:space="preserve">
+          <source>Set your Azure subscription and storage account by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the &lt; and &gt; characters, with the correct names.</source>
+          <target state="new">Set your Azure subscription and storage account by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the &lt; and &gt; characters, with the correct names.</target>
+        </trans-unit>
+        <trans-unit id="239966ef-d5ea-4e7e-bbc0-3de96d58931f" xml:space="preserve">
+          <source>You can get the correct subscription name from the SubscriptionName property of the output of the <bpt id="31805ece-3b5a-436f-945a-2cbfe0225cf7">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="31805ece-3b5a-436f-945a-2cbfe0225cf7">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can get the correct subscription name from the SubscriptionName property of the output of the <bpt id="31805ece-3b5a-436f-945a-2cbfe0225cf7">&lt;strong&gt;</bpt>Get-AzureSubscription<ept id="31805ece-3b5a-436f-945a-2cbfe0225cf7">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="a82fdb16-073a-4f93-a9c8-88ebcaf636f0" xml:space="preserve">
+          <source>You can get the correct storage account name from the Label property of the output of the <bpt id="fd3928b9-92dc-49ef-99d8-be0498aa9857">&lt;strong&gt;</bpt>Get-AzureStorageAccount<ept id="fd3928b9-92dc-49ef-99d8-be0498aa9857">&lt;/strong&gt;</ept> command after you run the <bpt id="fda90d29-c343-42fb-a44a-d2f381ad09a6">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="fda90d29-c343-42fb-a44a-d2f381ad09a6">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can get the correct storage account name from the Label property of the output of the <bpt id="fd3928b9-92dc-49ef-99d8-be0498aa9857">&lt;strong&gt;</bpt>Get-AzureStorageAccount<ept id="fd3928b9-92dc-49ef-99d8-be0498aa9857">&lt;/strong&gt;</ept> command after you run the <bpt id="fda90d29-c343-42fb-a44a-d2f381ad09a6">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="fda90d29-c343-42fb-a44a-d2f381ad09a6">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="49682a1d-8a30-4fbb-aca4-a3e7a8dcfc44" xml:space="preserve">
+          <source>Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create.</source>
+          <target state="new">Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create.</target>
+        </trans-unit>
+        <trans-unit id="e083dd9b-73b5-4313-b272-a971631122fb" xml:space="preserve">
+          <source>Here are some examples from the Gallery in the Azure Management Portal.</source>
+          <target state="new">Here are some examples from the Gallery in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="cbe225e4-e4f4-40c0-8b4a-8f64de85d972" xml:space="preserve">
+          <source><bpt id="eb8a259e-c24b-4cbc-b1d7-6038c2cc87c1">&lt;linkText&gt;</bpt><ept id="eb8a259e-c24b-4cbc-b1d7-6038c2cc87c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb8a259e-c24b-4cbc-b1d7-6038c2cc87c1">&lt;linkText&gt;</bpt><ept id="eb8a259e-c24b-4cbc-b1d7-6038c2cc87c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04817750-26b6-4456-bbc2-ea16f02917ff" xml:space="preserve">
+          <source>You can get the list of available ImageFamily values with this command.</source>
+          <target state="new">You can get the list of available ImageFamily values with this command.</target>
+        </trans-unit>
+        <trans-unit id="c46e2993-5511-40c7-8143-8d4fa334e095" xml:space="preserve">
+          <source>Here are some examples of ImageFamily values for Windows-based computers:</source>
+          <target state="new">Here are some examples of ImageFamily values for Windows-based computers:</target>
+        </trans-unit>
+        <trans-unit id="d9ba1306-6c1f-4ef8-bbc3-ac80941c5fa3" xml:space="preserve">
+          <source>Windows Server 2012 R2 Datacenter</source>
+          <target state="new">Windows Server 2012 R2 Datacenter</target>
+        </trans-unit>
+        <trans-unit id="6d3fea24-892b-4288-bad1-949d2225b7bc" xml:space="preserve">
+          <source>Windows Server 2008 R2 SP1</source>
+          <target state="new">Windows Server 2008 R2 SP1</target>
+        </trans-unit>
+        <trans-unit id="9d11fda2-f733-4492-9988-d474e87dc713" xml:space="preserve">
+          <source>Windows Server Technical Preview</source>
+          <target state="new">Windows Server Technical Preview</target>
+        </trans-unit>
+        <trans-unit id="e76aa44c-268c-4a70-ac5a-01a99d24912a" xml:space="preserve">
+          <source>SQL Server 2012 SP1 Enterprise on Windows Server 2012</source>
+          <target state="new">SQL Server 2012 SP1 Enterprise on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="3083dbba-0326-40dc-a989-e1d2c5d381e3" xml:space="preserve">
+          <source>If you find the image you are looking for, open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE).</source>
+          <target state="new">If you find the image you are looking for, open a fresh instance of the text editor of your choice or the PowerShell Integrated Scripting Environment (ISE).</target>
+        </trans-unit>
+        <trans-unit id="6095b761-1b29-47cd-8360-a14c32cbb0d3" xml:space="preserve">
+          <source>Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.</source>
+          <target state="new">Copy the following into the new text file or the PowerShell ISE, substituting the ImageFamily value.</target>
+        </trans-unit>
+        <trans-unit id="94d5df6a-941f-4b8f-92ee-6bd3d20291a0" xml:space="preserve">
+          <source>In some cases, the image name is in the Label property instead of the ImageFamily value.</source>
+          <target state="new">In some cases, the image name is in the Label property instead of the ImageFamily value.</target>
+        </trans-unit>
+        <trans-unit id="2de5baf0-f34f-4c34-96d1-c489ffbc2c79" xml:space="preserve">
+          <source>If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.</source>
+          <target state="new">If you didn't find the image that you are looking for using the ImageFamily property, list the images by their Label property with this command.</target>
+        </trans-unit>
+        <trans-unit id="d24c43dc-eefd-4542-836f-5cbcaccd91f6" xml:space="preserve">
+          <source>If you find the right image with this command, open a fresh instance of the text editor of your choice or the PowerShell ISE.</source>
+          <target state="new">If you find the right image with this command, open a fresh instance of the text editor of your choice or the PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="3cbe5013-b82d-4eb2-a10d-4f41b304b4c4" xml:space="preserve">
+          <source>Copy the following into the new text file or the PowerShell ISE, substituting the Label value.</source>
+          <target state="new">Copy the following into the new text file or the PowerShell ISE, substituting the Label value.</target>
+        </trans-unit>
+        <trans-unit id="1def9389-87ba-4794-9c04-15b34e9ad0a8" xml:space="preserve">
+          <source>Build the rest of your command set by copying the appropriate set of blocks below into your new text file or the ISE and then filling in the variable values and removing the &lt; and &gt; characters. See the two <bpt id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;linkText&gt;</bpt>examples<ept id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;/linkText&gt;</ept><bpt id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;title&gt;</bpt><ept id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;/title&gt;</ept> at the end of this article for an idea of the final result.</source>
+          <target state="new">Build the rest of your command set by copying the appropriate set of blocks below into your new text file or the ISE and then filling in the variable values and removing the &lt; and &gt; characters. See the two <bpt id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;linkText&gt;</bpt>examples<ept id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;/linkText&gt;</ept><bpt id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;title&gt;</bpt><ept id="fe62b51f-be6e-408d-a967-09c87d1039cc">&lt;/title&gt;</ept> at the end of this article for an idea of the final result.</target>
+        </trans-unit>
+        <trans-unit id="94490f6a-1ae1-4a31-a1f1-1e4d42d00d50" xml:space="preserve">
+          <source>Start your command set by choosing one of these two command blocks (required).</source>
+          <target state="new">Start your command set by choosing one of these two command blocks (required).</target>
+        </trans-unit>
+        <trans-unit id="613d5f70-c59d-4b3f-8b51-8fe428b00866" xml:space="preserve">
+          <source>Option 1: Specify a virtual machine name and a size.</source>
+          <target state="new">Option 1: Specify a virtual machine name and a size.</target>
+        </trans-unit>
+        <trans-unit id="51002f0e-8425-4803-9687-359f365628d2" xml:space="preserve">
+          <source>Option 2: Specify a name, size, and availability set name.</source>
+          <target state="new">Option 2: Specify a name, size, and availability set name.</target>
+        </trans-unit>
+        <trans-unit id="547294d3-82f2-452f-b2ca-9d73dc594755" xml:space="preserve">
+          <source>For the InstanceSize values for D-, DS-, or G-series virtual machines, see <bpt id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;/linkText&gt;</ept><bpt id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;title&gt;</bpt><ept id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the InstanceSize values for D-, DS-, or G-series virtual machines, see <bpt id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;/linkText&gt;</ept><bpt id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;title&gt;</bpt><ept id="14974d1b-5455-47ce-a61e-73b92aead963">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc2997aa-7695-4a4f-8148-77fd5a3f92dd" xml:space="preserve">
+          <source>Optionally, for a standalone Windows computer, specify the local administrator account and password.</source>
+          <target state="new">Optionally, for a standalone Windows computer, specify the local administrator account and password.</target>
+        </trans-unit>
+        <trans-unit id="d4175711-86c9-48e5-bed2-3d779b299c19" xml:space="preserve">
+          <source>Choose a strong password.</source>
+          <target state="new">Choose a strong password.</target>
+        </trans-unit>
+        <trans-unit id="18911c1b-376f-4d46-91c1-fab95bf2cc97" xml:space="preserve">
+          <source>To check its strength, see <bpt id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;linkText&gt;</bpt>Password Checker: Using Strong Passwords<ept id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;/linkText&gt;</ept><bpt id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;title&gt;</bpt><ept id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To check its strength, see <bpt id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;linkText&gt;</bpt>Password Checker: Using Strong Passwords<ept id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;/linkText&gt;</ept><bpt id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;title&gt;</bpt><ept id="f6305c31-f754-425d-90cb-3c1363660cc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d69587b7-f0e5-4167-b60c-041c39d1a392" xml:space="preserve">
+          <source>Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.</source>
+          <target state="new">Optionally, to add the Windows computer to an existing Active Directory domain, specify the local administrator account and password, the domain, and the name and password of a domain account.</target>
+        </trans-unit>
+        <trans-unit id="fb579f87-0b22-421a-b9fc-dd5769887ed5" xml:space="preserve">
+          <source>For additional pre-configuration options for Windows-based virtual machines, see the syntax for the <bpt id="1eec0c0d-dd7b-4f6d-83c4-b115faaa7879">&lt;strong&gt;</bpt>Windows<ept id="1eec0c0d-dd7b-4f6d-83c4-b115faaa7879">&lt;/strong&gt;</ept> and <bpt id="34d417a7-88f0-47c3-8995-50d1f2016f46">&lt;strong&gt;</bpt>WindowsDomain<ept id="34d417a7-88f0-47c3-8995-50d1f2016f46">&lt;/strong&gt;</ept> parameter sets in <bpt id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;linkText&gt;</bpt>Add-AzureProvisioningConfig<ept id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;/linkText&gt;</ept><bpt id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;title&gt;</bpt><ept id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional pre-configuration options for Windows-based virtual machines, see the syntax for the <bpt id="1eec0c0d-dd7b-4f6d-83c4-b115faaa7879">&lt;strong&gt;</bpt>Windows<ept id="1eec0c0d-dd7b-4f6d-83c4-b115faaa7879">&lt;/strong&gt;</ept> and <bpt id="34d417a7-88f0-47c3-8995-50d1f2016f46">&lt;strong&gt;</bpt>WindowsDomain<ept id="34d417a7-88f0-47c3-8995-50d1f2016f46">&lt;/strong&gt;</ept> parameter sets in <bpt id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;linkText&gt;</bpt>Add-AzureProvisioningConfig<ept id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;/linkText&gt;</ept><bpt id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;title&gt;</bpt><ept id="a077a8d5-a9fa-4879-81e6-779cdc261224">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f28c594e-83bc-4009-bb8b-fd2b5d94de49" xml:space="preserve">
+          <source>Optionally, assign the virtual machine a specific IP address, known as a static DIP.</source>
+          <target state="new">Optionally, assign the virtual machine a specific IP address, known as a static DIP.</target>
+        </trans-unit>
+        <trans-unit id="fc08effd-999d-4475-839f-7ccb843006d3" xml:space="preserve">
+          <source>You can verify that a specific IP address is available with:</source>
+          <target state="new">You can verify that a specific IP address is available with:</target>
+        </trans-unit>
+        <trans-unit id="e14239ad-b07b-4ad7-86ff-8b5ac236f819" xml:space="preserve">
+          <source>Optionally, assign the virtual machine to a specific subnet in an Azure virtual network.</source>
+          <target state="new">Optionally, assign the virtual machine to a specific subnet in an Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2da02c99-0f23-40ab-85e4-a477f8d430b3" xml:space="preserve">
+          <source>Optionally, add a single data disk to the virtual machine.</source>
+          <target state="new">Optionally, add a single data disk to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3072456b-6994-4207-b76a-74778db96fbf" xml:space="preserve">
+          <source>For an Active Directory domain controller, set $hcaching to "None".</source>
+          <target state="new">For an Active Directory domain controller, set $hcaching to "None".</target>
+        </trans-unit>
+        <trans-unit id="b8c78134-e759-46a1-82d9-39d06e4f8701" xml:space="preserve">
+          <source>Optionally, add the virtual machine to an existing load-balanced set for external traffic.</source>
+          <target state="new">Optionally, add the virtual machine to an existing load-balanced set for external traffic.</target>
+        </trans-unit>
+        <trans-unit id="3269850e-a8fd-49c2-8c4b-583fd0b61694" xml:space="preserve">
+          <source>Finally, choose one of these required command blocks for creating the virtual machine.</source>
+          <target state="new">Finally, choose one of these required command blocks for creating the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="07bb11d3-871c-4e98-8a28-c4523499b8b4" xml:space="preserve">
+          <source>Option 1: Create the virtual machine in an existing cloud service.</source>
+          <target state="new">Option 1: Create the virtual machine in an existing cloud service.</target>
+        </trans-unit>
+        <trans-unit id="fa8d46c6-e2cf-48f0-8199-9ad042a5bc5e" xml:space="preserve">
+          <source>The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal.</source>
+          <target state="new">The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="f2216811-e4ea-4086-a560-ed8955961e58" xml:space="preserve">
+          <source>Option 2: Create the virtual machine in an existing cloud service and virtual network.</source>
+          <target state="new">Option 2: Create the virtual machine in an existing cloud service and virtual network.</target>
+        </trans-unit>
+        <trans-unit id="33474e2f-f321-4d57-82db-9988e6fa01ae" xml:space="preserve">
+          <source>Review the Azure PowerShell command set you built in your text editor or the PowerShell ISE consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the &lt; and &gt; characters.</source>
+          <target state="new">Review the Azure PowerShell command set you built in your text editor or the PowerShell ISE consisting of multiple blocks of commands from step 4. Ensure that you have specified all the needed variables and that they have the correct values. Also make sure that you have removed all the &lt; and &gt; characters.</target>
+        </trans-unit>
+        <trans-unit id="8e2bb0ee-3f69-49f5-a79d-002b7ed104a3" xml:space="preserve">
+          <source>If you are using a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt.</source>
+          <target state="new">If you are using a text editor, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="c38c0fa9-97b3-4a79-965c-18d3d86da32b" xml:space="preserve">
+          <source>This will issue the command set as a series of PowerShell commands and create your Azure virtual machine.</source>
+          <target state="new">This will issue the command set as a series of PowerShell commands and create your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="15f5be18-06e6-440c-9226-8a8ab34c7191" xml:space="preserve">
+          <source>Alternately, run the command set in the PowerShell ISE.</source>
+          <target state="new">Alternately, run the command set in the PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="ead41cd9-e9e1-4ee3-a3b2-41d334e5ee9c" xml:space="preserve">
+          <source>If you will be creating this virtual machine again or a similar one, you can:</source>
+          <target state="new">If you will be creating this virtual machine again or a similar one, you can:</target>
+        </trans-unit>
+        <trans-unit id="eb3a3ae9-7b92-408f-afe8-48721a0f5b00" xml:space="preserve">
+          <source>Save this command set as a PowerShell script file (*.ps1).</source>
+          <target state="new">Save this command set as a PowerShell script file (*.ps1).</target>
+        </trans-unit>
+        <trans-unit id="52d3cad7-c53a-4ef5-a5aa-3860cb268c7d" xml:space="preserve">
+          <source>Save this command set as an Azure automation runbook in the <bpt id="ae3d3c54-14e0-46d3-a875-c9033e7698c6">&lt;strong&gt;</bpt>Automation<ept id="ae3d3c54-14e0-46d3-a875-c9033e7698c6">&lt;/strong&gt;</ept> section of the Azure Management Portal.</source>
+          <target state="new">Save this command set as an Azure automation runbook in the <bpt id="ae3d3c54-14e0-46d3-a875-c9033e7698c6">&lt;strong&gt;</bpt>Automation<ept id="ae3d3c54-14e0-46d3-a875-c9033e7698c6">&lt;/strong&gt;</ept> section of the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="56dd946b-c9ab-4855-839b-ba09c7949f8e" xml:space="preserve">
+          <source>Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.</source>
+          <target state="new">Here are two examples of using the steps above to build Azure PowerShell command sets that create Windows-based Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="5d3f0d52-7661-47eb-8e89-5f1bf8bbcdfc" xml:space="preserve">
+          <source>I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:</source>
+          <target state="new">I need a PowerShell command set to create the initial virtual machine for an Active Directory domain controller that:</target>
+        </trans-unit>
+        <trans-unit id="f98a815a-2d39-4197-aa59-871c61a2bdf2" xml:space="preserve">
+          <source>Uses the Windows Server 2012 R2 Datacenter image.</source>
+          <target state="new">Uses the Windows Server 2012 R2 Datacenter image.</target>
+        </trans-unit>
+        <trans-unit id="4b9f6445-a7a6-4bd0-9089-a7c118cd850a" xml:space="preserve">
+          <source>Has the name AZDC1.</source>
+          <target state="new">Has the name AZDC1.</target>
+        </trans-unit>
+        <trans-unit id="8a331b2d-b791-4121-84d4-7595db701720" xml:space="preserve">
+          <source>Is a standalone computer.</source>
+          <target state="new">Is a standalone computer.</target>
+        </trans-unit>
+        <trans-unit id="c4bc96c1-cfad-456b-a867-5e3f4ef24905" xml:space="preserve">
+          <source>Has an additional data disk of 20 GB.</source>
+          <target state="new">Has an additional data disk of 20 GB.</target>
+        </trans-unit>
+        <trans-unit id="f7006542-398e-40f5-9419-2362b267bbc8" xml:space="preserve">
+          <source>Has the static IP address 192.168.244.4.</source>
+          <target state="new">Has the static IP address 192.168.244.4.</target>
+        </trans-unit>
+        <trans-unit id="1541e068-236f-4949-995d-611158c4013f" xml:space="preserve">
+          <source>Is in the BackEnd subnet of the AZDatacenter virtual network.</source>
+          <target state="new">Is in the BackEnd subnet of the AZDatacenter virtual network.</target>
+        </trans-unit>
+        <trans-unit id="51e21c41-0a29-4f3e-b2f5-2da9a421c7cb" xml:space="preserve">
+          <source>Is in the Azure-TailspinToys cloud service.</source>
+          <target state="new">Is in the Azure-TailspinToys cloud service.</target>
+        </trans-unit>
+        <trans-unit id="9cc3592c-0b91-4bcd-9d61-2b6fe7f91a31" xml:space="preserve">
+          <source>Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.</source>
+          <target state="new">Here is the corresponding Azure PowerShell command set to create this virtual machine, with blank lines between each block for readability.</target>
+        </trans-unit>
+        <trans-unit id="4ddf68d0-ce10-4b90-81f2-f12308f4d031" xml:space="preserve">
+          <source>I need a PowerShell command set to create a virtual machine for a line-of-business server that:</source>
+          <target state="new">I need a PowerShell command set to create a virtual machine for a line-of-business server that:</target>
+        </trans-unit>
+        <trans-unit id="743a39a6-3b4c-4400-9f27-43863157bdb1" xml:space="preserve">
+          <source>Uses the Windows Server 2012 R2 Datacenter image.</source>
+          <target state="new">Uses the Windows Server 2012 R2 Datacenter image.</target>
+        </trans-unit>
+        <trans-unit id="f168f328-1fa5-441c-b934-1d5247b2383a" xml:space="preserve">
+          <source>Has the name LOB1.</source>
+          <target state="new">Has the name LOB1.</target>
+        </trans-unit>
+        <trans-unit id="f57fc5f7-bc26-4e5a-a27d-af520a947e86" xml:space="preserve">
+          <source>Is a member of the corp.contoso.com domain.</source>
+          <target state="new">Is a member of the corp.contoso.com domain.</target>
+        </trans-unit>
+        <trans-unit id="9bc1039c-4d52-4a99-add3-c2276f22622f" xml:space="preserve">
+          <source>Has an additional data disk of 200 GB.</source>
+          <target state="new">Has an additional data disk of 200 GB.</target>
+        </trans-unit>
+        <trans-unit id="6353d7f9-0cd1-4ca7-87b7-e4871a1a50f4" xml:space="preserve">
+          <source>Is in the FrontEnd subnet of the AZDatacenter virtual network.</source>
+          <target state="new">Is in the FrontEnd subnet of the AZDatacenter virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d582ba28-09ee-46df-a5b2-d68454400d45" xml:space="preserve">
+          <source>Is in the Azure-TailspinToys cloud service.</source>
+          <target state="new">Is in the Azure-TailspinToys cloud service.</target>
+        </trans-unit>
+        <trans-unit id="86ae3c65-83da-4b6b-ab62-36619f9efeff" xml:space="preserve">
+          <source>Here is the corresponding Azure PowerShell command set to create this virtual machine.</source>
+          <target state="new">Here is the corresponding Azure PowerShell command set to create this virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b652e644-a86f-4458-9905-8f499296cd46" xml:space="preserve">
+          <source><bpt id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;/linkText&gt;</ept><bpt id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;title&gt;</bpt><ept id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;/linkText&gt;</ept><bpt id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;title&gt;</bpt><ept id="983a4b26-e91f-4b80-90db-6f576d94f977">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eba5a363-60ea-4261-a133-bf8617bc9e1b" xml:space="preserve">
+          <source><bpt id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;linkText&gt;</bpt>Azure virtual machines FAQ<ept id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;/linkText&gt;</ept><bpt id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;title&gt;</bpt><ept id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;linkText&gt;</bpt>Azure virtual machines FAQ<ept id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;/linkText&gt;</ept><bpt id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;title&gt;</bpt><ept id="c0f07519-0afa-484b-9848-9d01369198ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7649ac8c-0b46-4bc9-a766-330246e6584e" xml:space="preserve">
+          <source><bpt id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;linkText&gt;</bpt>Overview of Azure Virtual Machines<ept id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;/linkText&gt;</ept><bpt id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;title&gt;</bpt><ept id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;linkText&gt;</bpt>Overview of Azure Virtual Machines<ept id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;/linkText&gt;</ept><bpt id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;title&gt;</bpt><ept id="419fe5c9-08e6-4a1f-b0d5-6b7ef435ae1d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7bd9f22-6dc1-434c-ac3f-be146a294341" xml:space="preserve">
+          <source><bpt id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;/linkText&gt;</ept><bpt id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;title&gt;</bpt><ept id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;/linkText&gt;</ept><bpt id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;title&gt;</bpt><ept id="011013b0-326f-4e74-9d3a-a6ba1d64ad7e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a419c11f-8d5d-4be7-a1a9-92196d4503f5" xml:space="preserve">
+          <source><bpt id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines<ept id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;/linkText&gt;</ept><bpt id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;title&gt;</bpt><ept id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines<ept id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;/linkText&gt;</ept><bpt id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;title&gt;</bpt><ept id="6adb15ac-a06d-4912-8fac-a1d58191dd73">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d4a8e28-b6e5-4c28-9475-95da6c957965" xml:space="preserve">
+          <source><bpt id="3360f425-243e-4377-b702-9a2993252d98">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="3360f425-243e-4377-b702-9a2993252d98">&lt;/linkText&gt;</ept><bpt id="3360f425-243e-4377-b702-9a2993252d98">&lt;title&gt;</bpt><ept id="3360f425-243e-4377-b702-9a2993252d98">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3360f425-243e-4377-b702-9a2993252d98">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="3360f425-243e-4377-b702-9a2993252d98">&lt;/linkText&gt;</ept><bpt id="3360f425-243e-4377-b702-9a2993252d98">&lt;title&gt;</bpt><ept id="3360f425-243e-4377-b702-9a2993252d98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

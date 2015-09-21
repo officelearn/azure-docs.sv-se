@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="25a82a2e-2de0-4120-9448-90f1ae77a0b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="25a82a2e-2de0-4120-9448-90f1ae77a0b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="40ed18ee-51e6-44bf-95e0-f8c4ed1649ee">
+        <trans-unit id="187873ad-dc30-443f-bf3d-7ab841d94fcf" xml:space="preserve">
+          <source>Step 2: Upload data into a Machine Learning experiment | Microsoft Azure</source>
+          <target state="new">Step 2: Upload data into a Machine Learning experiment | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c7b48406-5dc3-4711-90b0-090e0005abca" xml:space="preserve">
+          <source>Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio.</source>
+          <target state="new">Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="d68f60e9-529a-4e56-acd3-4753ac49d2d7" xml:space="preserve">
+          <source>This is the second step of the walkthrough, <bpt id="b044145a-dc63-4edb-b01b-676100575c49">&lt;linkText&gt;</bpt>Developing a Predictive Solution with Azure ML<ept id="b044145a-dc63-4edb-b01b-676100575c49">&lt;/linkText&gt;</ept><bpt id="b044145a-dc63-4edb-b01b-676100575c49">&lt;title&gt;</bpt><ept id="b044145a-dc63-4edb-b01b-676100575c49">&lt;/title&gt;</ept></source>
+          <target state="new">This is the second step of the walkthrough, <bpt id="b044145a-dc63-4edb-b01b-676100575c49">&lt;linkText&gt;</bpt>Developing a Predictive Solution with Azure ML<ept id="b044145a-dc63-4edb-b01b-676100575c49">&lt;/linkText&gt;</ept><bpt id="b044145a-dc63-4edb-b01b-676100575c49">&lt;title&gt;</bpt><ept id="b044145a-dc63-4edb-b01b-676100575c49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcc3dc79-20a6-4e09-adac-4be3d36cf8f5" xml:space="preserve">
+          <source><bpt id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;linkText&gt;</bpt>Create a Machine Learning workspace<ept id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;/linkText&gt;</ept><bpt id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;title&gt;</bpt><ept id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;linkText&gt;</bpt>Create a Machine Learning workspace<ept id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;/linkText&gt;</ept><bpt id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;title&gt;</bpt><ept id="1eaa4a4a-e1ef-4159-8f16-5294e1b2be9d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a727f3d-6545-4e16-911e-70affea41975" xml:space="preserve">
+          <source><bpt id="6afd691c-7245-41ae-90f1-da6ca80dcdfb">&lt;strong&gt;</bpt>Upload existing data<ept id="6afd691c-7245-41ae-90f1-da6ca80dcdfb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6afd691c-7245-41ae-90f1-da6ca80dcdfb">&lt;strong&gt;</bpt>Upload existing data<ept id="6afd691c-7245-41ae-90f1-da6ca80dcdfb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b0009b1-3fe5-4f01-9c84-ff256553b617" xml:space="preserve">
+          <source><bpt id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;linkText&gt;</bpt>Create a new experiment<ept id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;/linkText&gt;</ept><bpt id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;title&gt;</bpt><ept id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;linkText&gt;</bpt>Create a new experiment<ept id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;/linkText&gt;</ept><bpt id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;title&gt;</bpt><ept id="5ad5a3c2-8869-4389-9b87-4c40f657b470">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7606c64-183d-452b-9a14-042fa4db0386" xml:space="preserve">
+          <source><bpt id="92fbea23-099b-435f-b77d-bc275226da22">&lt;linkText&gt;</bpt>Train and evaluate the models<ept id="92fbea23-099b-435f-b77d-bc275226da22">&lt;/linkText&gt;</ept><bpt id="92fbea23-099b-435f-b77d-bc275226da22">&lt;title&gt;</bpt><ept id="92fbea23-099b-435f-b77d-bc275226da22">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92fbea23-099b-435f-b77d-bc275226da22">&lt;linkText&gt;</bpt>Train and evaluate the models<ept id="92fbea23-099b-435f-b77d-bc275226da22">&lt;/linkText&gt;</ept><bpt id="92fbea23-099b-435f-b77d-bc275226da22">&lt;title&gt;</bpt><ept id="92fbea23-099b-435f-b77d-bc275226da22">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e59e350-4cc9-425b-ac02-3027a499ca5c" xml:space="preserve">
+          <source><bpt id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;linkText&gt;</bpt>Publish the web service<ept id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;/linkText&gt;</ept><bpt id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;title&gt;</bpt><ept id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;linkText&gt;</bpt>Publish the web service<ept id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;/linkText&gt;</ept><bpt id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;title&gt;</bpt><ept id="0fa2cfe8-0750-49ed-bc30-105e5e6b1b1b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f992908-2d49-4bcd-95ab-988c573231ca" xml:space="preserve">
+          <source><bpt id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;linkText&gt;</bpt>Access the web service<ept id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;/linkText&gt;</ept><bpt id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;title&gt;</bpt><ept id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;linkText&gt;</bpt>Access the web service<ept id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;/linkText&gt;</ept><bpt id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;title&gt;</bpt><ept id="2adfdc6e-9f39-48d9-80d7-49eed9d5ee7f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1df169b5-1a09-4f1e-b479-cb7ab23084e1" xml:space="preserve">
+          <source>To develop a predictive model for credit risk, we'll use the "UCI Statlog (German Credit Data) Data Set" from the UCI Machine Learning repository.</source>
+          <target state="new">To develop a predictive model for credit risk, we'll use the "UCI Statlog (German Credit Data) Data Set" from the UCI Machine Learning repository.</target>
+        </trans-unit>
+        <trans-unit id="07ebc272-df34-4282-b87b-9a6d30459df4" xml:space="preserve">
+          <source>You can find it here:  
+&lt;a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)"&gt;http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)&lt;/a&gt;</source>
+          <target state="new">You can find it here:  
+&lt;a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)"&gt;http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="89575354-2fdc-4417-83e2-04b1ad43046a" xml:space="preserve">
+          <source>We'll use the file named <bpt id="e1367cc5-50a9-4eed-9c1e-6e114b16539f">&lt;strong&gt;</bpt>german.data<ept id="e1367cc5-50a9-4eed-9c1e-6e114b16539f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">We'll use the file named <bpt id="e1367cc5-50a9-4eed-9c1e-6e114b16539f">&lt;strong&gt;</bpt>german.data<ept id="e1367cc5-50a9-4eed-9c1e-6e114b16539f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54e04c8f-ee0e-4597-b4a6-81886d066842" xml:space="preserve">
+          <source>Download this file to your local hard drive.</source>
+          <target state="new">Download this file to your local hard drive.</target>
+        </trans-unit>
+        <trans-unit id="5892b0d7-c783-45a5-b084-4d988f3e3f33" xml:space="preserve">
+          <source>This dataset contains rows of 20 variables for 1000 past applicants for credit.</source>
+          <target state="new">This dataset contains rows of 20 variables for 1000 past applicants for credit.</target>
+        </trans-unit>
+        <trans-unit id="48d019b3-cc31-4160-9bb1-8dc64e58c647" xml:space="preserve">
+          <source>These 20 variables represent the dataset's feature vector, which provides identifying characteristics for each credit applicant.</source>
+          <target state="new">These 20 variables represent the dataset's feature vector, which provides identifying characteristics for each credit applicant.</target>
+        </trans-unit>
+        <trans-unit id="ebe126d4-31cb-4572-9b61-c78aed62bde9" xml:space="preserve">
+          <source>An additional column in each row represents the applicant's credit risk, with 700 applicants identified as a low credit risk and 300 as a high risk.</source>
+          <target state="new">An additional column in each row represents the applicant's credit risk, with 700 applicants identified as a low credit risk and 300 as a high risk.</target>
+        </trans-unit>
+        <trans-unit id="53ffb9f3-7174-4362-8ef4-3dd222b4db5f" xml:space="preserve">
+          <source>The UCI website provides a description of the attributes of the feature vector, which include financial information, credit history, employment status, and personal information.</source>
+          <target state="new">The UCI website provides a description of the attributes of the feature vector, which include financial information, credit history, employment status, and personal information.</target>
+        </trans-unit>
+        <trans-unit id="94567c85-add8-4a47-93ac-0b1b0bf661d5" xml:space="preserve">
+          <source>For each applicant, a binary rating has been given indicating whether they are a low or high credit risk.</source>
+          <target state="new">For each applicant, a binary rating has been given indicating whether they are a low or high credit risk.</target>
+        </trans-unit>
+        <trans-unit id="21afad88-f655-433f-b110-dd50ed84ab18" xml:space="preserve">
+          <source>We'll use this data to train a predictive analytics model.</source>
+          <target state="new">We'll use this data to train a predictive analytics model.</target>
+        </trans-unit>
+        <trans-unit id="af3a8352-44d4-4b68-b390-f5398e104bb0" xml:space="preserve">
+          <source>When we're done, our model should be able to accept information for new individuals and predict whether they are a low or high credit risk.</source>
+          <target state="new">When we're done, our model should be able to accept information for new individuals and predict whether they are a low or high credit risk.</target>
+        </trans-unit>
+        <trans-unit id="524c41e7-c2b8-4bc8-bcb3-cffb1a0d7fe8" xml:space="preserve">
+          <source>Here's one interesting twist.</source>
+          <target state="new">Here's one interesting twist.</target>
+        </trans-unit>
+        <trans-unit id="b51035ae-f23d-44d7-8409-80667c44815c" xml:space="preserve">
+          <source>The description of the dataset explains that misclassifying a person as a low credit risk when they are actually a high credit risk is 5 times more costly to the financial institution than misclassifying a low credit risk as high.</source>
+          <target state="new">The description of the dataset explains that misclassifying a person as a low credit risk when they are actually a high credit risk is 5 times more costly to the financial institution than misclassifying a low credit risk as high.</target>
+        </trans-unit>
+        <trans-unit id="8c3139ff-6a54-40ea-9269-b0721ef03c92" xml:space="preserve">
+          <source>One simple way to take this into account in our experiment is by duplicating (5 times) those entries that represent someone with a high credit risk.</source>
+          <target state="new">One simple way to take this into account in our experiment is by duplicating (5 times) those entries that represent someone with a high credit risk.</target>
+        </trans-unit>
+        <trans-unit id="b97345c3-b342-4dbf-a3ef-0811c9f068d9" xml:space="preserve">
+          <source>Then, if the model misclassifies a high credit risk as low, it will do that misclassification 5 times, once for each duplicate.</source>
+          <target state="new">Then, if the model misclassifies a high credit risk as low, it will do that misclassification 5 times, once for each duplicate.</target>
+        </trans-unit>
+        <trans-unit id="2571ca9a-e1e0-4f44-9d84-aa4eb668b4d7" xml:space="preserve">
+          <source>This will increase the cost of this error in the training results.</source>
+          <target state="new">This will increase the cost of this error in the training results.</target>
+        </trans-unit>
+        <trans-unit id="e9d2acb7-b88c-4c76-b856-661a0cca5298" xml:space="preserve">
+          <source>The original dataset uses a blank-separated format.</source>
+          <target state="new">The original dataset uses a blank-separated format.</target>
+        </trans-unit>
+        <trans-unit id="1c03b9d1-a486-4d94-8934-893f479e1841" xml:space="preserve">
+          <source>Machine Learning Studio works better with a comma-separated value (CSV) file, so we'll convert the dataset by replacing spaces with commas.</source>
+          <target state="new">Machine Learning Studio works better with a comma-separated value (CSV) file, so we'll convert the dataset by replacing spaces with commas.</target>
+        </trans-unit>
+        <trans-unit id="003c0a82-2d77-472f-a521-0079f79a266c" xml:space="preserve">
+          <source>We can do this by using the following Windows PowerShell command:   </source>
+          <target state="new">We can do this by using the following Windows PowerShell command:   </target>
+        </trans-unit>
+        <trans-unit id="3fa16612-4465-40da-883b-bea46f15e6f0" xml:space="preserve">
+          <source>We can also do this by using the Unix sed command:  </source>
+          <target state="new">We can also do this by using the Unix sed command:  </target>
+        </trans-unit>
+        <trans-unit id="16d82a95-2114-4c77-9581-cca6c04a45e6" xml:space="preserve">
+          <source>Once the data has been converted to CSV format, we need to upload it into Machine Learning Studio.</source>
+          <target state="new">Once the data has been converted to CSV format, we need to upload it into Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="c6b14535-b45d-4cff-8833-725c2a2170df" xml:space="preserve">
+          <source>Sign in to Machine Learning Studio (<bpt id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;linkText&gt;</bpt>https://studio.azureml.net<ept id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;/linkText&gt;</ept><bpt id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;title&gt;</bpt><ept id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;/title&gt;</ept>) by using the Microsoft account you specified as the owner of the workspace, and click the <bpt id="b11da256-5326-4b34-8e13-a06964991abd">&lt;strong&gt;</bpt>Studio<ept id="b11da256-5326-4b34-8e13-a06964991abd">&lt;/strong&gt;</ept> tab at the top.</source>
+          <target state="new">Sign in to Machine Learning Studio (<bpt id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;linkText&gt;</bpt>https://studio.azureml.net<ept id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;/linkText&gt;</ept><bpt id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;title&gt;</bpt><ept id="0ae3be57-7d3d-4cc1-bf76-1ae93c8cbe4f">&lt;/title&gt;</ept>) by using the Microsoft account you specified as the owner of the workspace, and click the <bpt id="b11da256-5326-4b34-8e13-a06964991abd">&lt;strong&gt;</bpt>Studio<ept id="b11da256-5326-4b34-8e13-a06964991abd">&lt;/strong&gt;</ept> tab at the top.</target>
+        </trans-unit>
+        <trans-unit id="e12a046c-1d58-4abe-81ef-c59322d95c30" xml:space="preserve">
+          <source>Click <bpt id="9b0cc437-a214-4aca-8ac6-59f90dfb83a1">&lt;strong&gt;</bpt>+NEW<ept id="9b0cc437-a214-4aca-8ac6-59f90dfb83a1">&lt;/strong&gt;</ept> at the bottom of the window.</source>
+          <target state="new">Click <bpt id="9b0cc437-a214-4aca-8ac6-59f90dfb83a1">&lt;strong&gt;</bpt>+NEW<ept id="9b0cc437-a214-4aca-8ac6-59f90dfb83a1">&lt;/strong&gt;</ept> at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="a0c294b5-e433-4bc2-8c45-700f2025fffa" xml:space="preserve">
+          <source>Select <bpt id="1438359c-48b6-4da3-9f8a-32829e8a1c39">&lt;strong&gt;</bpt>DATASET<ept id="1438359c-48b6-4da3-9f8a-32829e8a1c39">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1438359c-48b6-4da3-9f8a-32829e8a1c39">&lt;strong&gt;</bpt>DATASET<ept id="1438359c-48b6-4da3-9f8a-32829e8a1c39">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60f053b2-08b4-4c49-8c3b-f4686735ccd8" xml:space="preserve">
+          <source>Select <bpt id="9b0a5373-c9c6-46d9-b06d-23dceb4bd883">&lt;strong&gt;</bpt>FROM LOCAL FILE<ept id="9b0a5373-c9c6-46d9-b06d-23dceb4bd883">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9b0a5373-c9c6-46d9-b06d-23dceb4bd883">&lt;strong&gt;</bpt>FROM LOCAL FILE<ept id="9b0a5373-c9c6-46d9-b06d-23dceb4bd883">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caf87286-2e3e-441a-b57e-200c26be414b" xml:space="preserve">
+          <source>In the <bpt id="dd1ed056-aeb8-41a4-9679-57541daef366">&lt;strong&gt;</bpt>Upload a new dataset<ept id="dd1ed056-aeb8-41a4-9679-57541daef366">&lt;/strong&gt;</ept> dialog, click <bpt id="7c62a1f3-b508-45d6-941f-2b09f885bdb6">&lt;strong&gt;</bpt>Browse<ept id="7c62a1f3-b508-45d6-941f-2b09f885bdb6">&lt;/strong&gt;</ept> and find the <bpt id="92d68ec5-b39a-43c5-a4ba-ccb93db0e3c3">&lt;strong&gt;</bpt>german.csv<ept id="92d68ec5-b39a-43c5-a4ba-ccb93db0e3c3">&lt;/strong&gt;</ept> file you created.</source>
+          <target state="new">In the <bpt id="dd1ed056-aeb8-41a4-9679-57541daef366">&lt;strong&gt;</bpt>Upload a new dataset<ept id="dd1ed056-aeb8-41a4-9679-57541daef366">&lt;/strong&gt;</ept> dialog, click <bpt id="7c62a1f3-b508-45d6-941f-2b09f885bdb6">&lt;strong&gt;</bpt>Browse<ept id="7c62a1f3-b508-45d6-941f-2b09f885bdb6">&lt;/strong&gt;</ept> and find the <bpt id="92d68ec5-b39a-43c5-a4ba-ccb93db0e3c3">&lt;strong&gt;</bpt>german.csv<ept id="92d68ec5-b39a-43c5-a4ba-ccb93db0e3c3">&lt;/strong&gt;</ept> file you created.</target>
+        </trans-unit>
+        <trans-unit id="03fe8a9c-907d-455d-a34b-2a4b0be208b4" xml:space="preserve">
+          <source>Enter a name for the dataset.</source>
+          <target state="new">Enter a name for the dataset.</target>
+        </trans-unit>
+        <trans-unit id="982848d0-313f-4ee3-a5dc-4351106e10f6" xml:space="preserve">
+          <source>For this example, we'll call it "UCI German Credit Card Data".</source>
+          <target state="new">For this example, we'll call it "UCI German Credit Card Data".</target>
+        </trans-unit>
+        <trans-unit id="2d488cb7-7464-4b80-a2fe-e7cbea443273" xml:space="preserve">
+          <source>For data type, select <bpt id="f43149d8-fdc2-41c2-bea8-7c1ba211ccd6">&lt;strong&gt;</bpt>Generic CSV File With no header (.nh.csv)<ept id="f43149d8-fdc2-41c2-bea8-7c1ba211ccd6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For data type, select <bpt id="f43149d8-fdc2-41c2-bea8-7c1ba211ccd6">&lt;strong&gt;</bpt>Generic CSV File With no header (.nh.csv)<ept id="f43149d8-fdc2-41c2-bea8-7c1ba211ccd6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d8421bc-8796-444c-b704-453da0364ed5" xml:space="preserve">
+          <source>Add a description if you’d like.</source>
+          <target state="new">Add a description if you’d like.</target>
+        </trans-unit>
+        <trans-unit id="d777de4b-57a6-4715-85f0-430e553346f2" xml:space="preserve">
+          <source>Click <bpt id="8ff02014-50b1-4bde-993b-66ea837f16d1">&lt;strong&gt;</bpt>OK<ept id="8ff02014-50b1-4bde-993b-66ea837f16d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8ff02014-50b1-4bde-993b-66ea837f16d1">&lt;strong&gt;</bpt>OK<ept id="8ff02014-50b1-4bde-993b-66ea837f16d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b591fc7d-e6f3-4f9f-9b40-91f60b5f2cb0" xml:space="preserve">
+          <source><bpt id="6443b5c2-ef43-40c0-93a7-5d5754acde1e">&lt;linkText&gt;</bpt>Upload the dataset<ept id="6443b5c2-ef43-40c0-93a7-5d5754acde1e">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="6443b5c2-ef43-40c0-93a7-5d5754acde1e">&lt;linkText&gt;</bpt>Upload the dataset<ept id="6443b5c2-ef43-40c0-93a7-5d5754acde1e">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="bde8588e-ffb9-41ea-b433-0a25b1e5df72" xml:space="preserve">
+          <source>This uploads the data into a dataset module that we can use in an experiment.</source>
+          <target state="new">This uploads the data into a dataset module that we can use in an experiment.</target>
+        </trans-unit>
+        <trans-unit id="fe99d4c3-0601-4e2f-9348-06bff55b644b" xml:space="preserve">
+          <source>For more information about importing various types of data into an experiment, see <bpt id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;linkText&gt;</bpt>Import your training data into Azure Machine Learning Studio<ept id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;/linkText&gt;</ept><bpt id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;title&gt;</bpt><ept id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about importing various types of data into an experiment, see <bpt id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;linkText&gt;</bpt>Import your training data into Azure Machine Learning Studio<ept id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;/linkText&gt;</ept><bpt id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;title&gt;</bpt><ept id="dbed580a-29e5-4321-bc12-458846a8fd0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b4fd245-2fb4-4c52-90f0-7fa46022770a" xml:space="preserve">
+          <source><bpt id="0d976bcb-8866-4c09-bb4e-7dfedcf72791">&lt;strong&gt;</bpt>Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)<ept id="0d976bcb-8866-4c09-bb4e-7dfedcf72791">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0d976bcb-8866-4c09-bb4e-7dfedcf72791">&lt;strong&gt;</bpt>Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)<ept id="0d976bcb-8866-4c09-bb4e-7dfedcf72791">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="547337c2-dcd1-48df-ba7b-0b837103ae8e" xml:space="preserve">
+          <source>./media/machine-learning-walkthrough-2-upload-data/upload1.png</source>
+          <target state="new">./media/machine-learning-walkthrough-2-upload-data/upload1.png</target>
+        </trans-unit>
+      </group>
+      <group id="1a98920e-2c36-4de1-a9ae-fedda2ee572a" />
+    </body>
+  </file>
+</xliff>

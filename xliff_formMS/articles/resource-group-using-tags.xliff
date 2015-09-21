@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5f812f5f-e5ca-4c12-a201-5203919367dd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5f812f5f-e5ca-4c12-a201-5203919367dd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ae231af3-6dc5-465b-82ba-4e9b2389a4e8">
+        <trans-unit id="65201fe0-bbdb-4386-a1b0-e1392ba27701" xml:space="preserve">
+          <source>Using tags to organize your Azure resources</source>
+          <target state="new">Using tags to organize your Azure resources</target>
+        </trans-unit>
+        <trans-unit id="8a2cff8a-6b16-43b9-9220-99010cb14b0d" xml:space="preserve">
+          <source>Shows how to apply tags to organize resources for billing and managing.</source>
+          <target state="new">Shows how to apply tags to organize resources for billing and managing.</target>
+        </trans-unit>
+        <trans-unit id="53520d8c-3d37-4874-890d-49836fd2ef24" xml:space="preserve">
+          <source>Resource Manager enables you to logically organize resources by applying tags.</source>
+          <target state="new">Resource Manager enables you to logically organize resources by applying tags.</target>
+        </trans-unit>
+        <trans-unit id="312588e3-e9b2-4c9d-96f1-647d481b04d4" xml:space="preserve">
+          <source>The tags consist of key/value pairs that identify resources with properties that you define.</source>
+          <target state="new">The tags consist of key/value pairs that identify resources with properties that you define.</target>
+        </trans-unit>
+        <trans-unit id="649e17e4-80ed-4735-939b-d7323ae3eb26" xml:space="preserve">
+          <source>To mark resources as belonging to the same category, apply the same tag to those resources.</source>
+          <target state="new">To mark resources as belonging to the same category, apply the same tag to those resources.</target>
+        </trans-unit>
+        <trans-unit id="a54e7fc2-08dd-4df0-9f48-c99574ef1457" xml:space="preserve">
+          <source>When you view resources with a particular tag, you see resources from all of your resource groups.</source>
+          <target state="new">When you view resources with a particular tag, you see resources from all of your resource groups.</target>
+        </trans-unit>
+        <trans-unit id="50c931ec-afcb-4d3c-b94d-0eeb2fdce467" xml:space="preserve">
+          <source>You are not limited to only resources in the same resource group which enables you to organize your resources in a way that is independent of the deployment relationships.</source>
+          <target state="new">You are not limited to only resources in the same resource group which enables you to organize your resources in a way that is independent of the deployment relationships.</target>
+        </trans-unit>
+        <trans-unit id="62bd622f-f3c7-4762-b2bb-b303afe529d2" xml:space="preserve">
+          <source>Tags can be particularly helpful when you need to organize resources for billing or management.</source>
+          <target state="new">Tags can be particularly helpful when you need to organize resources for billing or management.</target>
+        </trans-unit>
+        <trans-unit id="2f308bb4-896a-4899-b3e6-14a514715105" xml:space="preserve">
+          <source>Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy.</source>
+          <target state="new">Each tag you add to a resource or resource group is automatically added to the subscription-wide taxonomy.</target>
+        </trans-unit>
+        <trans-unit id="bd4684c4-51da-4e41-8695-b951c0b63e95" xml:space="preserve">
+          <source>You can also prepopulate the taxonomy for your subscription with tag names and values you'd like to use as resources are tagged in the future.</source>
+          <target state="new">You can also prepopulate the taxonomy for your subscription with tag names and values you'd like to use as resources are tagged in the future.</target>
+        </trans-unit>
+        <trans-unit id="085258a3-80db-4532-b5d8-3d0d15986d92" xml:space="preserve">
+          <source>You can only apply tags to resources that support Resource Manager operations.</source>
+          <target state="new">You can only apply tags to resources that support Resource Manager operations.</target>
+        </trans-unit>
+        <trans-unit id="934b147f-f682-46bb-a03c-c97ed6c25466" xml:space="preserve">
+          <source>If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or <bpt id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;linkText&gt;</bpt>Service Management API<ept id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;/linkText&gt;</ept><bpt id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;title&gt;</bpt><ept id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;/title&gt;</ept>), you cannot apply a tag to that resource.</source>
+          <target state="new">If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or <bpt id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;linkText&gt;</bpt>Service Management API<ept id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;/linkText&gt;</ept><bpt id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;title&gt;</bpt><ept id="b6f3884a-43f6-4198-8078-39d035585c3f">&lt;/title&gt;</ept>), you cannot apply a tag to that resource.</target>
+        </trans-unit>
+        <trans-unit id="ac0f3c5e-6152-40c7-9bc7-1d8127d79470" xml:space="preserve">
+          <source>You must re-deploy these resources through Resource Manager to support tagging.</source>
+          <target state="new">You must re-deploy these resources through Resource Manager to support tagging.</target>
+        </trans-unit>
+        <trans-unit id="48e66d69-24e0-45fc-a9e3-1ac156ef9f29" xml:space="preserve">
+          <source>All other resources support tagging.</source>
+          <target state="new">All other resources support tagging.</target>
+        </trans-unit>
+        <trans-unit id="acdb9d42-6fcc-4aa8-aad5-d794ed7504d9" xml:space="preserve">
+          <source>Tagging resources and resource groups in the preview portal is easy.</source>
+          <target state="new">Tagging resources and resource groups in the preview portal is easy.</target>
+        </trans-unit>
+        <trans-unit id="5a03d8a5-0fb2-4f9f-a056-33004a69ff2a" xml:space="preserve">
+          <source>Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade.</source>
+          <target state="new">Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="90b115e6-7156-4157-8ed4-bf6b1feb0318" xml:space="preserve">
+          <source><bpt id="3b6e1fd1-9d1f-4e8c-9b2f-8709bbd1adff">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="3b6e1fd1-9d1f-4e8c-9b2f-8709bbd1adff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b6e1fd1-9d1f-4e8c-9b2f-8709bbd1adff">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="3b6e1fd1-9d1f-4e8c-9b2f-8709bbd1adff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0714d245-6a5a-4f1f-b85a-30bfac588b80" xml:space="preserve">
+          <source>This will open a blade with the list of tags that have already been applied.</source>
+          <target state="new">This will open a blade with the list of tags that have already been applied.</target>
+        </trans-unit>
+        <trans-unit id="351f1fbb-0804-49f8-b365-b09a92de6458" xml:space="preserve">
+          <source>If this is your first tag, the list will be empty.</source>
+          <target state="new">If this is your first tag, the list will be empty.</target>
+        </trans-unit>
+        <trans-unit id="c45aaef3-6ee5-4c48-87d9-61483713dd65" xml:space="preserve">
+          <source>To add a tag, simply specify a name and value and press Enter.</source>
+          <target state="new">To add a tag, simply specify a name and value and press Enter.</target>
+        </trans-unit>
+        <trans-unit id="9d61ed58-b9c8-4c81-870b-68f5bac68b49" xml:space="preserve">
+          <source>After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.</source>
+          <target state="new">After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.</target>
+        </trans-unit>
+        <trans-unit id="f0e7a857-44cb-4cd2-bfd0-18c284dbd8a3" xml:space="preserve">
+          <source><bpt id="d2659198-c780-4579-839b-5669683a9cdb">&lt;linkText&gt;</bpt>Tag resources with name/value pairs<ept id="d2659198-c780-4579-839b-5669683a9cdb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2659198-c780-4579-839b-5669683a9cdb">&lt;linkText&gt;</bpt>Tag resources with name/value pairs<ept id="d2659198-c780-4579-839b-5669683a9cdb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="144fc504-dbd8-458e-ae7f-69b523c4564d" xml:space="preserve">
+          <source>To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.</source>
+          <target state="new">To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.</target>
+        </trans-unit>
+        <trans-unit id="36ac55ba-36b5-4ef9-8fbb-14f99653f52c" xml:space="preserve">
+          <source><bpt id="f9917021-5757-409e-8a68-bd297ad95403">&lt;linkText&gt;</bpt>Find tags via the Browse hub<ept id="f9917021-5757-409e-8a68-bd297ad95403">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9917021-5757-409e-8a68-bd297ad95403">&lt;linkText&gt;</bpt>Find tags via the Browse hub<ept id="f9917021-5757-409e-8a68-bd297ad95403">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d230bf20-be8c-401f-a471-2e17dfc4b772" xml:space="preserve">
+          <source>Pin the most important tags to your Startboard for quick access and you're ready to go.</source>
+          <target state="new">Pin the most important tags to your Startboard for quick access and you're ready to go.</target>
+        </trans-unit>
+        <trans-unit id="613d19c5-074e-4349-9df3-4f9891c623cd" xml:space="preserve">
+          <source>Have fun!</source>
+          <target state="new">Have fun!</target>
+        </trans-unit>
+        <trans-unit id="8c020feb-c414-4623-bc97-2764cfe44932" xml:space="preserve">
+          <source><bpt id="c2a519dd-f658-4db2-8b1b-173aa7733da0">&lt;linkText&gt;</bpt>Pin tags to the Startboard<ept id="c2a519dd-f658-4db2-8b1b-173aa7733da0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2a519dd-f658-4db2-8b1b-173aa7733da0">&lt;linkText&gt;</bpt>Pin tags to the Startboard<ept id="c2a519dd-f658-4db2-8b1b-173aa7733da0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd8827ad-b95c-4d87-831c-e8f70deedcdf" xml:space="preserve">
+          <source>If you have not previously used Azure PowerShell with Resource Manager, see <bpt id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;/linkText&gt;</ept><bpt id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;title&gt;</bpt><ept id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not previously used Azure PowerShell with Resource Manager, see <bpt id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;/linkText&gt;</ept><bpt id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;title&gt;</bpt><ept id="5e999834-8d93-4ffe-b46a-602e7e63de6d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbcb1153-18da-4499-9d86-786ae93c1ba4" xml:space="preserve">
+          <source>For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.</source>
+          <target state="new">For the purposes of this article, we'll assume you've already added an account and selected a subscription with the resources you want to tag.</target>
+        </trans-unit>
+        <trans-unit id="a9a102ef-ff81-4a9f-ab0c-c2886b74464b" xml:space="preserve">
+          <source>Tagging is only available for resources and resource groups available from <bpt id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;linkText&gt;</bpt>Resource Manager<ept id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;/linkText&gt;</ept><bpt id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;title&gt;</bpt><ept id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;/title&gt;</ept>, so the next thing we need to do is switch to use Resource Manager.</source>
+          <target state="new">Tagging is only available for resources and resource groups available from <bpt id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;linkText&gt;</bpt>Resource Manager<ept id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;/linkText&gt;</ept><bpt id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;title&gt;</bpt><ept id="7475611e-9783-43a3-9473-8c5ac9e2326c">&lt;/title&gt;</ept>, so the next thing we need to do is switch to use Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="e6c6c7dc-a960-45fa-b5d7-b1be34a990d5" xml:space="preserve">
+          <source>Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with <bpt id="e5ad0dd2-df17-4809-8565-0a3341475ac0">&lt;code&gt;</bpt>Get-AzureResource<ept id="e5ad0dd2-df17-4809-8565-0a3341475ac0">&lt;/code&gt;</ept> or <bpt id="7c4ea5d3-c431-4e12-a3e7-6bf5e115e3b1">&lt;code&gt;</bpt>Get-AzureResourceGroup<ept id="7c4ea5d3-c431-4e12-a3e7-6bf5e115e3b1">&lt;/code&gt;</ept>, respectively.</source>
+          <target state="new">Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with <bpt id="e5ad0dd2-df17-4809-8565-0a3341475ac0">&lt;code&gt;</bpt>Get-AzureResource<ept id="e5ad0dd2-df17-4809-8565-0a3341475ac0">&lt;/code&gt;</ept> or <bpt id="7c4ea5d3-c431-4e12-a3e7-6bf5e115e3b1">&lt;code&gt;</bpt>Get-AzureResourceGroup<ept id="7c4ea5d3-c431-4e12-a3e7-6bf5e115e3b1">&lt;/code&gt;</ept>, respectively.</target>
+        </trans-unit>
+        <trans-unit id="bfe9e22f-d294-44a9-815d-0479f9c252d8" xml:space="preserve">
+          <source>Let's start with a resource group.</source>
+          <target state="new">Let's start with a resource group.</target>
+        </trans-unit>
+        <trans-unit id="6cb14032-c628-41aa-92fe-bded83cc025c" xml:space="preserve">
+          <source>This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.</source>
+          <target state="new">This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.</target>
+        </trans-unit>
+        <trans-unit id="e08dda1d-da3e-4365-ab24-fca9969fc74d" xml:space="preserve">
+          <source>To tag a resource group, simply use the <bpt id="f6fb8d5b-68b8-40b1-b104-7b5862c280b8">&lt;code&gt;</bpt>Set-AzureResourceGroup<ept id="f6fb8d5b-68b8-40b1-b104-7b5862c280b8">&lt;/code&gt;</ept> command and specify a tag name and value.</source>
+          <target state="new">To tag a resource group, simply use the <bpt id="f6fb8d5b-68b8-40b1-b104-7b5862c280b8">&lt;code&gt;</bpt>Set-AzureResourceGroup<ept id="f6fb8d5b-68b8-40b1-b104-7b5862c280b8">&lt;/code&gt;</ept> command and specify a tag name and value.</target>
+        </trans-unit>
+        <trans-unit id="bc87f480-641f-4324-a776-dedccc9a36e8" xml:space="preserve">
+          <source>Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep.</source>
+          <target state="new">Tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to use an array with all the tags you want to keep.</target>
+        </trans-unit>
+        <trans-unit id="8f090865-7b87-4e88-ad56-5d6ca50e38be" xml:space="preserve">
+          <source>To do this, you can first select the existing tags and add a new one.</source>
+          <target state="new">To do this, you can first select the existing tags and add a new one.</target>
+        </trans-unit>
+        <trans-unit id="4cf2d240-16ca-4c22-9e98-acf049b1090e" xml:space="preserve">
+          <source>To remove one or more tags, simply save the array without the ones you want to remove.</source>
+          <target state="new">To remove one or more tags, simply save the array without the ones you want to remove.</target>
+        </trans-unit>
+        <trans-unit id="75c13faa-6016-455c-8080-bd76c10f3403" xml:space="preserve">
+          <source>The process is the same for resources, except you'll use the <bpt id="8a531122-cffc-40b7-aa00-c5bfe911a162">&lt;code&gt;</bpt>Get-AzureResource<ept id="8a531122-cffc-40b7-aa00-c5bfe911a162">&lt;/code&gt;</ept> and <bpt id="14530d47-af80-458e-8d35-b42292cf89bd">&lt;code&gt;</bpt>Set-AzureResource<ept id="14530d47-af80-458e-8d35-b42292cf89bd">&lt;/code&gt;</ept> cmdlets.</source>
+          <target state="new">The process is the same for resources, except you'll use the <bpt id="8a531122-cffc-40b7-aa00-c5bfe911a162">&lt;code&gt;</bpt>Get-AzureResource<ept id="8a531122-cffc-40b7-aa00-c5bfe911a162">&lt;/code&gt;</ept> and <bpt id="14530d47-af80-458e-8d35-b42292cf89bd">&lt;code&gt;</bpt>Set-AzureResource<ept id="14530d47-af80-458e-8d35-b42292cf89bd">&lt;/code&gt;</ept> cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="e690bba9-9534-4488-aeac-9616c4aca0c5" xml:space="preserve">
+          <source>To get resources or resource groups with a specific tag, use <bpt id="f2359bd1-80e1-40c5-85a0-ce4d6833979b">&lt;code&gt;</bpt>Get-AzureResource<ept id="f2359bd1-80e1-40c5-85a0-ce4d6833979b">&lt;/code&gt;</ept> or <bpt id="62f81cee-4076-4cc5-9be7-39e97eeff8e0">&lt;code&gt;</bpt>Get-AzureResourceGroup<ept id="62f81cee-4076-4cc5-9be7-39e97eeff8e0">&lt;/code&gt;</ept> cmdlet with the <bpt id="498318dd-0252-48e9-8c76-124fce5f2c10">&lt;code&gt;</bpt>-Tag<ept id="498318dd-0252-48e9-8c76-124fce5f2c10">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">To get resources or resource groups with a specific tag, use <bpt id="f2359bd1-80e1-40c5-85a0-ce4d6833979b">&lt;code&gt;</bpt>Get-AzureResource<ept id="f2359bd1-80e1-40c5-85a0-ce4d6833979b">&lt;/code&gt;</ept> or <bpt id="62f81cee-4076-4cc5-9be7-39e97eeff8e0">&lt;code&gt;</bpt>Get-AzureResourceGroup<ept id="62f81cee-4076-4cc5-9be7-39e97eeff8e0">&lt;/code&gt;</ept> cmdlet with the <bpt id="498318dd-0252-48e9-8c76-124fce5f2c10">&lt;code&gt;</bpt>-Tag<ept id="498318dd-0252-48e9-8c76-124fce5f2c10">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="ce34d41f-44c7-470a-b859-58701313ec80" xml:space="preserve">
+          <source>To get a list of all tags within a subscription using PowerShell, use the <bpt id="06518e6c-527e-4171-8e35-d465f37715c6">&lt;code&gt;</bpt>Get-AzureTag<ept id="06518e6c-527e-4171-8e35-d465f37715c6">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new">To get a list of all tags within a subscription using PowerShell, use the <bpt id="06518e6c-527e-4171-8e35-d465f37715c6">&lt;code&gt;</bpt>Get-AzureTag<ept id="06518e6c-527e-4171-8e35-d465f37715c6">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="4d054eb9-b193-49a1-ac29-fdb717cf111d" xml:space="preserve">
+          <source>You may see tags that start with "hidden-" and "link:".</source>
+          <target state="new">You may see tags that start with "hidden-" and "link:".</target>
+        </trans-unit>
+        <trans-unit id="96d418a4-d4c2-45c7-bf80-f76ddf967f0b" xml:space="preserve">
+          <source>These are internal tags, which you should ignore and avoid changing.</source>
+          <target state="new">These are internal tags, which you should ignore and avoid changing.</target>
+        </trans-unit>
+        <trans-unit id="688dd22e-a82f-4f37-889e-dd24e2bd58df" xml:space="preserve">
+          <source>Use the <bpt id="8bee9af6-098b-4dfb-be42-37c38d1f7187">&lt;code&gt;</bpt>New-AzureTag<ept id="8bee9af6-098b-4dfb-be42-37c38d1f7187">&lt;/code&gt;</ept> cmdlet to add new tags to the taxonomy.</source>
+          <target state="new">Use the <bpt id="8bee9af6-098b-4dfb-be42-37c38d1f7187">&lt;code&gt;</bpt>New-AzureTag<ept id="8bee9af6-098b-4dfb-be42-37c38d1f7187">&lt;/code&gt;</ept> cmdlet to add new tags to the taxonomy.</target>
+        </trans-unit>
+        <trans-unit id="df12bd47-4849-48e2-9255-93b953644442" xml:space="preserve">
+          <source>These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet.</source>
+          <target state="new">These tags will be included in the autocomplete even though they haven't been applied to any resources or resource groups, yet.</target>
+        </trans-unit>
+        <trans-unit id="3fab1464-4e50-490b-b039-4813b271f403" xml:space="preserve">
+          <source>To remove a tag name/value, first remove the tag from any resources it may be used with and then use the <bpt id="75d4fb28-d3f3-4424-8f32-faccf4a1145b">&lt;code&gt;</bpt>Remove-AzureTag<ept id="75d4fb28-d3f3-4424-8f32-faccf4a1145b">&lt;/code&gt;</ept> cmdlet to remove it from the taxonomy.</source>
+          <target state="new">To remove a tag name/value, first remove the tag from any resources it may be used with and then use the <bpt id="75d4fb28-d3f3-4424-8f32-faccf4a1145b">&lt;code&gt;</bpt>Remove-AzureTag<ept id="75d4fb28-d3f3-4424-8f32-faccf4a1145b">&lt;/code&gt;</ept> cmdlet to remove it from the taxonomy.</target>
+        </trans-unit>
+        <trans-unit id="40473a65-bb08-4040-bb32-f598f94b3b24" xml:space="preserve">
+          <source>The portal and PowerShell both use the <bpt id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;linkText&gt;</bpt>Resource Manager REST API<ept id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;/linkText&gt;</ept><bpt id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;title&gt;</bpt><ept id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;/title&gt;</ept> behind the scenes.</source>
+          <target state="new">The portal and PowerShell both use the <bpt id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;linkText&gt;</bpt>Resource Manager REST API<ept id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;/linkText&gt;</ept><bpt id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;title&gt;</bpt><ept id="299fc3cb-0548-41be-a7de-bc0a43848b23">&lt;/title&gt;</ept> behind the scenes.</target>
+        </trans-unit>
+        <trans-unit id="56b753e4-0181-4dd5-a591-cc7fca6b0291" xml:space="preserve">
+          <source>If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.</source>
+          <target state="new">If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.</target>
+        </trans-unit>
+        <trans-unit id="97a5941f-4b8d-4be4-b0cd-f5fbc8a8bfdb" xml:space="preserve">
+          <source>For supported services, you can use tags to group your billing data.</source>
+          <target state="new">For supported services, you can use tags to group your billing data.</target>
+        </trans-unit>
+        <trans-unit id="a9ff8289-af53-44f3-b033-7b46b5acdeff" xml:space="preserve">
+          <source>For example, <bpt id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;linkText&gt;</bpt>Virtual Machines integrated with Azure Resource Manager<ept id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;/linkText&gt;</ept><bpt id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;title&gt;</bpt><ept id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;/title&gt;</ept> enable 
+you to define and apply tags to organize the billing usage for virtual machines.</source>
+          <target state="new">For example, <bpt id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;linkText&gt;</bpt>Virtual Machines integrated with Azure Resource Manager<ept id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;/linkText&gt;</ept><bpt id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;title&gt;</bpt><ept id="d896d4cf-773f-44e1-8750-e24d09742672">&lt;/title&gt;</ept> enable 
+you to define and apply tags to organize the billing usage for virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="ffb8bad8-2eee-4db5-9748-c647b795f0ee" xml:space="preserve">
+          <source>If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.</source>
+          <target state="new">If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.</target>
+        </trans-unit>
+        <trans-unit id="a216ddeb-34d1-439f-a7b6-3b462166399a" xml:space="preserve">
+          <source>You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.</source>
+          <target state="new">You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.</target>
+        </trans-unit>
+        <trans-unit id="809281fe-2435-42af-b97a-91b3ade6e3fa" xml:space="preserve">
+          <source>You can retrieve information about tags through the <bpt id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;linkText&gt;</bpt>usage api<ept id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;/linkText&gt;</ept><bpt id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;title&gt;</bpt><ept id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;/title&gt;</ept> or the usage comma-separated values (CSV) file that you can download from 
+the <bpt id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;linkText&gt;</bpt>Azure accounts portal<ept id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;/linkText&gt;</ept><bpt id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;title&gt;</bpt><ept id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;/title&gt;</ept> or <bpt id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;linkText&gt;</bpt>EA portal<ept id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;/linkText&gt;</ept><bpt id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;title&gt;</bpt><ept id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can retrieve information about tags through the <bpt id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;linkText&gt;</bpt>usage api<ept id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;/linkText&gt;</ept><bpt id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;title&gt;</bpt><ept id="823c9e40-2e40-4a97-abc8-93e3dc006f93">&lt;/title&gt;</ept> or the usage comma-separated values (CSV) file that you can download from 
+the <bpt id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;linkText&gt;</bpt>Azure accounts portal<ept id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;/linkText&gt;</ept><bpt id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;title&gt;</bpt><ept id="e332940c-8b01-445d-af70-7ca62c6108ce">&lt;/title&gt;</ept> or <bpt id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;linkText&gt;</bpt>EA portal<ept id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;/linkText&gt;</ept><bpt id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;title&gt;</bpt><ept id="caea95e5-566e-4a78-8162-6b662a164ff3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0f53f80-5b39-45b9-83db-5bbc2cc23973" xml:space="preserve">
+          <source>For more information about programmatic access to billing information, see <bpt id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;/linkText&gt;</ept><bpt id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;title&gt;</bpt><ept id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about programmatic access to billing information, see <bpt id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;linkText&gt;</bpt>Gain insights into your Microsoft Azure resource consumption<ept id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;/linkText&gt;</ept><bpt id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;title&gt;</bpt><ept id="22867e48-d648-4e7d-8082-3c5d538009fb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc32d704-2924-4b03-b593-f18e09b89d47" xml:space="preserve">
+          <source>When you download the usage CSV for services that support tags with billing, the tags will appear in the <bpt id="6ddcb601-5b27-4dd4-86eb-35879d9b66ca">&lt;strong&gt;</bpt>Tags<ept id="6ddcb601-5b27-4dd4-86eb-35879d9b66ca">&lt;/strong&gt;</ept> column.</source>
+          <target state="new">When you download the usage CSV for services that support tags with billing, the tags will appear in the <bpt id="6ddcb601-5b27-4dd4-86eb-35879d9b66ca">&lt;strong&gt;</bpt>Tags<ept id="6ddcb601-5b27-4dd4-86eb-35879d9b66ca">&lt;/strong&gt;</ept> column.</target>
+        </trans-unit>
+        <trans-unit id="2654d4c1-59bd-4acf-a1ca-fcdf09c810ca" xml:space="preserve">
+          <source>For more details, see <bpt id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;linkText&gt;</bpt>Understand your bill for Microsoft Azure<ept id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;/linkText&gt;</ept><bpt id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;title&gt;</bpt><ept id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;linkText&gt;</bpt>Understand your bill for Microsoft Azure<ept id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;/linkText&gt;</ept><bpt id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;title&gt;</bpt><ept id="dd855601-4154-4e84-bfc2-8ef71d003a8a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf8a38bd-da40-48fc-a0d8-8fc3a6cba419" xml:space="preserve">
+          <source><bpt id="21373430-7da3-450f-b612-f6ef189f9697">&lt;linkText&gt;</bpt>See tags in billing<ept id="21373430-7da3-450f-b612-f6ef189f9697">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21373430-7da3-450f-b612-f6ef189f9697">&lt;linkText&gt;</bpt>See tags in billing<ept id="21373430-7da3-450f-b612-f6ef189f9697">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f7f2191-0bc6-48f0-9709-d836dd2c3fb4" xml:space="preserve">
+          <source>For an introduction to using Azure PowerShell when deploying resources, see <bpt id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;/linkText&gt;</ept><bpt id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;title&gt;</bpt><ept id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an introduction to using Azure PowerShell when deploying resources, see <bpt id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;/linkText&gt;</ept><bpt id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;title&gt;</bpt><ept id="5b14fccb-1853-4520-9b49-296bdd65f8bf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c0fdd45-0ac6-41eb-8169-7a700df29e7c" xml:space="preserve">
+          <source>For an introduction to using Azure CLI when deploying resources, see <bpt id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management<ept id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;/linkText&gt;</ept><bpt id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;title&gt;</bpt><ept id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an introduction to using Azure CLI when deploying resources, see <bpt id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management<ept id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;/linkText&gt;</ept><bpt id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;title&gt;</bpt><ept id="5888335c-87a7-47ff-983a-14dfe868a674">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ebb575f-8005-4437-b1ca-fb231680d8b7" xml:space="preserve">
+          <source>For an introduction to using the preview portal, see <bpt id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;linkText&gt;</bpt>Using the Azure preview portal to manage your Azure resources<ept id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;/linkText&gt;</ept><bpt id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;title&gt;</bpt><ept id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;/title&gt;</ept>  </source>
+          <target state="new">For an introduction to using the preview portal, see <bpt id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;linkText&gt;</bpt>Using the Azure preview portal to manage your Azure resources<ept id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;/linkText&gt;</ept><bpt id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;title&gt;</bpt><ept id="7a2d49e9-3561-4c73-979d-5f816a2ea0c6">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

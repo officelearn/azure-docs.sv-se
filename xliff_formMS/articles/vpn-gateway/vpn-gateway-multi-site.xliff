@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="78c6f374-decb-4ed9-b725-d54bb862f3bc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="78c6f374-decb-4ed9-b725-d54bb862f3bc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c5172743-f544-4e84-8272-afb8c5579eb9">
+        <trans-unit id="3b8bc9d0-8d9e-49aa-9cc2-bc627b6794b6" xml:space="preserve">
+          <source>Connect multiple on-premises sites to a virtual network</source>
+          <target state="new">Connect multiple on-premises sites to a virtual network</target>
+        </trans-unit>
+        <trans-unit id="25878e58-5f13-4344-a78f-dcf135e0972c" xml:space="preserve">
+          <source>This article will walk you through connecting multiple local on-premises sites to a virtual network.</source>
+          <target state="new">This article will walk you through connecting multiple local on-premises sites to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="1182142e-1bd7-4f92-b4c8-aa20fe56524b" xml:space="preserve">
+          <source>You can connect multiple on-premises sites to a single virtual network.</source>
+          <target state="new">You can connect multiple on-premises sites to a single virtual network.</target>
+        </trans-unit>
+        <trans-unit id="0b4a8e92-257e-4f82-a1a4-8349c2f06f71" xml:space="preserve">
+          <source>This is especially attractive for building hybrid cloud solutions.</source>
+          <target state="new">This is especially attractive for building hybrid cloud solutions.</target>
+        </trans-unit>
+        <trans-unit id="89f4e70a-12a7-4e1f-a880-bdd242c21fad" xml:space="preserve">
+          <source>Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other site-to-site connections.</source>
+          <target state="new">Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other site-to-site connections.</target>
+        </trans-unit>
+        <trans-unit id="a375514d-dec9-46d9-aae7-32c01ffa3e8a" xml:space="preserve">
+          <source>In fact, you can use an existing Azure VPN gateway, provided you have a route-based (or dynamic routing) VPN gateway configured for your virtual network.</source>
+          <target state="new">In fact, you can use an existing Azure VPN gateway, provided you have a route-based (or dynamic routing) VPN gateway configured for your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b2ff47cd-8cac-4b4c-a4a3-5818e5d50bed" xml:space="preserve">
+          <source>If your gateway is policy-based (or static routing), you can always change the gateway type without needing to rebuild the virtual network to accommodate multi-site, although you will also need to ensure your on-premises VPN gateway supports route-based VPN configurations.</source>
+          <target state="new">If your gateway is policy-based (or static routing), you can always change the gateway type without needing to rebuild the virtual network to accommodate multi-site, although you will also need to ensure your on-premises VPN gateway supports route-based VPN configurations.</target>
+        </trans-unit>
+        <trans-unit id="28793839-5f2b-40b9-98ca-d54d4ceab983" xml:space="preserve">
+          <source>You'll then just add configuration settings to the network configuration file, and create multiple VPN connections from your virtual network to additional sites.</source>
+          <target state="new">You'll then just add configuration settings to the network configuration file, and create multiple VPN connections from your virtual network to additional sites.</target>
+        </trans-unit>
+        <trans-unit id="84d72954-8cb7-4084-a6c0-60f6b2ea0290" xml:space="preserve">
+          <source><bpt id="d0c977ee-e663-4de7-b1b4-46883af6149f">&lt;linkText&gt;</bpt>Multi-Site VPN<ept id="d0c977ee-e663-4de7-b1b4-46883af6149f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0c977ee-e663-4de7-b1b4-46883af6149f">&lt;linkText&gt;</bpt>Multi-Site VPN<ept id="d0c977ee-e663-4de7-b1b4-46883af6149f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f474f746-8029-44e4-860f-95ae7086694e" xml:space="preserve">
+          <source><bpt id="5fa40be3-4b8c-4013-8e53-62a7428b194d">&lt;strong&gt;</bpt>You won't be able to use the Management Portal to make changes to this virtual network.<ept id="5fa40be3-4b8c-4013-8e53-62a7428b194d">&lt;/strong&gt;</ept> For this release, you'll need to make changes to the network configuration file instead of using the Management Portal.</source>
+          <target state="new"><bpt id="5fa40be3-4b8c-4013-8e53-62a7428b194d">&lt;strong&gt;</bpt>You won't be able to use the Management Portal to make changes to this virtual network.<ept id="5fa40be3-4b8c-4013-8e53-62a7428b194d">&lt;/strong&gt;</ept> For this release, you'll need to make changes to the network configuration file instead of using the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ec4979e4-da5e-4695-b3f1-9c6d700d8a49" xml:space="preserve">
+          <source>If you make changes in the Management Portal, they'll overwrite your multi-site reference settings for this virtual network.</source>
+          <target state="new">If you make changes in the Management Portal, they'll overwrite your multi-site reference settings for this virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d86ab992-470a-4842-bed9-cf1e1855a4c3" xml:space="preserve">
+          <source>You should feel pretty comfortable using the network configuration file by the time you've completed the multi-site procedure.</source>
+          <target state="new">You should feel pretty comfortable using the network configuration file by the time you've completed the multi-site procedure.</target>
+        </trans-unit>
+        <trans-unit id="838d1acb-8e29-42f2-adf9-640dfd750488" xml:space="preserve">
+          <source>However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation.</source>
+          <target state="new">However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation.</target>
+        </trans-unit>
+        <trans-unit id="df22779a-da99-443a-9581-10f5c9944d70" xml:space="preserve">
+          <source>This doesn't mean that you can't use the Management Portal at all.</source>
+          <target state="new">This doesn't mean that you can't use the Management Portal at all.</target>
+        </trans-unit>
+        <trans-unit id="99985737-4133-4f4d-afda-0d5eaadf7f46" xml:space="preserve">
+          <source>You can use it for everything else except making configuration changes to this particular virtual network.</source>
+          <target state="new">You can use it for everything else except making configuration changes to this particular virtual network.</target>
+        </trans-unit>
+        <trans-unit id="5c4215df-9e5f-4d16-a86a-2a61abff4a55" xml:space="preserve">
+          <source>Before you begin configuration, verify that you have the following:</source>
+          <target state="new">Before you begin configuration, verify that you have the following:</target>
+        </trans-unit>
+        <trans-unit id="b67425be-52a6-412e-b58a-e40abb7aea5f" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="f308275b-dc19-412e-8750-e773d19e5d63" xml:space="preserve">
+          <source>If you don't already have an Azure subscription, you can activate your <bpt id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;/linkText&gt;</ept><bpt id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;title&gt;</bpt><ept id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;/title&gt;</ept> or sign up for a <bpt id="1498dc59-2033-4f87-be20-09e18671005e">&lt;linkText&gt;</bpt>free trial<ept id="1498dc59-2033-4f87-be20-09e18671005e">&lt;/linkText&gt;</ept><bpt id="1498dc59-2033-4f87-be20-09e18671005e">&lt;title&gt;</bpt><ept id="1498dc59-2033-4f87-be20-09e18671005e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have an Azure subscription, you can activate your <bpt id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;/linkText&gt;</ept><bpt id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;title&gt;</bpt><ept id="f63912ab-4a9a-48e7-930f-94153b8c42ac">&lt;/title&gt;</ept> or sign up for a <bpt id="1498dc59-2033-4f87-be20-09e18671005e">&lt;linkText&gt;</bpt>free trial<ept id="1498dc59-2033-4f87-be20-09e18671005e">&lt;/linkText&gt;</ept><bpt id="1498dc59-2033-4f87-be20-09e18671005e">&lt;title&gt;</bpt><ept id="1498dc59-2033-4f87-be20-09e18671005e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09454a2d-56b9-448b-ba85-4c65b9008fdf" xml:space="preserve">
+          <source>Compatible VPN hardware for each on-premises location.</source>
+          <target state="new">Compatible VPN hardware for each on-premises location.</target>
+        </trans-unit>
+        <trans-unit id="7e9f3b5d-bec6-4ce6-a253-e0cd4e88fb1d" xml:space="preserve">
+          <source>Check <bpt id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;linkText&gt;</bpt>About VPN Devices for Virtual Network Connectivity<ept id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;/linkText&gt;</ept><bpt id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;title&gt;</bpt><ept id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;/title&gt;</ept> to verify if the device that you want to use is something that is known to be compatible.</source>
+          <target state="new">Check <bpt id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;linkText&gt;</bpt>About VPN Devices for Virtual Network Connectivity<ept id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;/linkText&gt;</ept><bpt id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;title&gt;</bpt><ept id="211e5f80-4e59-4736-bc32-2588dcb6317b">&lt;/title&gt;</ept> to verify if the device that you want to use is something that is known to be compatible.</target>
+        </trans-unit>
+        <trans-unit id="8ad71d91-7529-4647-ab39-a494f80cb76f" xml:space="preserve">
+          <source>An externally facing public IPv4 IP address for each VPN device.</source>
+          <target state="new">An externally facing public IPv4 IP address for each VPN device.</target>
+        </trans-unit>
+        <trans-unit id="3af735b3-eaf4-4bb1-b3d6-321fb967ca9a" xml:space="preserve">
+          <source>The IP address cannot be located behind a NAT.</source>
+          <target state="new">The IP address cannot be located behind a NAT.</target>
+        </trans-unit>
+        <trans-unit id="712d2889-de06-4600-8055-5885b2ac3b56" xml:space="preserve">
+          <source>This is requirement.</source>
+          <target state="new">This is requirement.</target>
+        </trans-unit>
+        <trans-unit id="1149190c-6291-4a0f-89af-856de95e7800" xml:space="preserve">
+          <source>The latest version of Azure PowerShell cmdlets.</source>
+          <target state="new">The latest version of Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="16dfdf03-a3af-4135-a965-ceae3fc06dee" xml:space="preserve">
+          <source>You can download and install the latest version from the Windows PowerShell section of the <bpt id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;linkText&gt;</bpt>Downloads<ept id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;/linkText&gt;</ept><bpt id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;title&gt;</bpt><ept id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;/title&gt;</ept> page.</source>
+          <target state="new">You can download and install the latest version from the Windows PowerShell section of the <bpt id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;linkText&gt;</bpt>Downloads<ept id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;/linkText&gt;</ept><bpt id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;title&gt;</bpt><ept id="2cd85f88-f976-4519-8967-4b2312598cac">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="2d6ba412-6c21-439e-b63c-109c2cbcd69a" xml:space="preserve">
+          <source>Someone who is proficient at configuring your VPN hardware.</source>
+          <target state="new">Someone who is proficient at configuring your VPN hardware.</target>
+        </trans-unit>
+        <trans-unit id="19e80957-a963-4a81-baf9-8cfdd4730eea" xml:space="preserve">
+          <source>You won't be able to use the auto-generated VPN scripts from the Management Portal to configure your VPN devices.</source>
+          <target state="new">You won't be able to use the auto-generated VPN scripts from the Management Portal to configure your VPN devices.</target>
+        </trans-unit>
+        <trans-unit id="dff37a1f-c9b9-4955-90e2-1bece11ed533" xml:space="preserve">
+          <source>This means you'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.</source>
+          <target state="new">This means you'll have to have a strong understanding of how to configure your VPN device, or work with someone who does.</target>
+        </trans-unit>
+        <trans-unit id="9405d84f-6e47-4023-906a-46c2b372706e" xml:space="preserve">
+          <source>The IP address ranges that you want to use for your virtual network (if you haven't already created one).</source>
+          <target state="new">The IP address ranges that you want to use for your virtual network (if you haven't already created one).</target>
+        </trans-unit>
+        <trans-unit id="bd978a15-5ba0-4163-8717-a935a07aaa9b" xml:space="preserve">
+          <source>The IP address ranges for each of the local network sites that you'll be connecting to.</source>
+          <target state="new">The IP address ranges for each of the local network sites that you'll be connecting to.</target>
+        </trans-unit>
+        <trans-unit id="742f664c-93cb-4d8b-9b12-0b7cfec1c965" xml:space="preserve">
+          <source>You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap.</source>
+          <target state="new">You'll need to make sure that the IP address ranges for each of the local network sites that you want to connect to do not overlap.</target>
+        </trans-unit>
+        <trans-unit id="f17edd23-292d-4395-ba92-263f95f082b8" xml:space="preserve">
+          <source>Otherwise, the Management Portal or the REST API will reject the configuration being uploaded.</source>
+          <target state="new">Otherwise, the Management Portal or the REST API will reject the configuration being uploaded.</target>
+        </trans-unit>
+        <trans-unit id="1fd7b0ed-f2e3-4166-9e7e-3ae011c6be10" xml:space="preserve">
+          <source>For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping.</source>
+          <target state="new">For example, if you have two local network sites that both contain the IP address range 10.2.3.0/24 and you have a package with a destination address 10.2.3.3, Azure wouldn't know which site you want to send the package to because the address ranges are overlapping.</target>
+        </trans-unit>
+        <trans-unit id="61212bc2-12bb-4ef2-b49a-abca5b6410a5" xml:space="preserve">
+          <source>To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.</source>
+          <target state="new">To prevent routing issues, Azure doesn't allow you to upload a configuration file that has overlapping ranges.</target>
+        </trans-unit>
+        <trans-unit id="b53dc824-6059-4deb-92da-6d261753b85a" xml:space="preserve">
+          <source><bpt id="a6ce2f7f-9d5c-404f-b7d2-e30400fab19e">&lt;strong&gt;</bpt>Create a site-to-site VPN with a dynamic routing gateway.<ept id="a6ce2f7f-9d5c-404f-b7d2-e30400fab19e">&lt;/strong&gt;</ept> If you already have one, great!</source>
+          <target state="new"><bpt id="a6ce2f7f-9d5c-404f-b7d2-e30400fab19e">&lt;strong&gt;</bpt>Create a site-to-site VPN with a dynamic routing gateway.<ept id="a6ce2f7f-9d5c-404f-b7d2-e30400fab19e">&lt;/strong&gt;</ept> If you already have one, great!</target>
+        </trans-unit>
+        <trans-unit id="d40d6f7d-4934-4e9b-ad28-f8fa00f0e91b" xml:space="preserve">
+          <source>You can proceed to <bpt id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;linkText&gt;</bpt>Export the virtual network configuration settings<ept id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;/linkText&gt;</ept><bpt id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;title&gt;</bpt><ept id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can proceed to <bpt id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;linkText&gt;</bpt>Export the virtual network configuration settings<ept id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;/linkText&gt;</ept><bpt id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;title&gt;</bpt><ept id="26b853c7-f4b5-4fbc-b413-2daf2b866b8a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc8ec5d7-43f5-496d-9cb8-837ae4412b73" xml:space="preserve">
+          <source>If not, do the following:</source>
+          <target state="new">If not, do the following:</target>
+        </trans-unit>
+        <trans-unit id="09e816d1-5e6e-4c3a-b493-b989daf16d4c" xml:space="preserve">
+          <source><bpt id="271499a1-dded-4fcd-92d9-f8944aed368b">&lt;strong&gt;</bpt>If you already have a site-to-site virtual network, but it has a static routing gateway:<ept id="271499a1-dded-4fcd-92d9-f8944aed368b">&lt;/strong&gt;</ept> <bpt id="72272982-9979-487e-a30f-8334ac87d519">&lt;strong&gt;</bpt>1.<ept id="72272982-9979-487e-a30f-8334ac87d519">&lt;/strong&gt;</ept> Change your gateway type to dynamic routing.</source>
+          <target state="new"><bpt id="271499a1-dded-4fcd-92d9-f8944aed368b">&lt;strong&gt;</bpt>If you already have a site-to-site virtual network, but it has a static routing gateway:<ept id="271499a1-dded-4fcd-92d9-f8944aed368b">&lt;/strong&gt;</ept> <bpt id="72272982-9979-487e-a30f-8334ac87d519">&lt;strong&gt;</bpt>1.<ept id="72272982-9979-487e-a30f-8334ac87d519">&lt;/strong&gt;</ept> Change your gateway type to dynamic routing.</target>
+        </trans-unit>
+        <trans-unit id="bd7a3d09-0e87-4baf-8140-a441c4ffb3bd" xml:space="preserve">
+          <source>A multi-site VPN requires a dynamic routing gateway.</source>
+          <target state="new">A multi-site VPN requires a dynamic routing gateway.</target>
+        </trans-unit>
+        <trans-unit id="747cd60e-9d1b-4198-97ca-8bdbe9e4da36" xml:space="preserve">
+          <source>To change your gateway type, you'll need to first delete the existing gateway, then create a new one.</source>
+          <target state="new">To change your gateway type, you'll need to first delete the existing gateway, then create a new one.</target>
+        </trans-unit>
+        <trans-unit id="5c100b54-b434-4162-8cae-4de5ca2d417d" xml:space="preserve">
+          <source>For instructions, see <bpt id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;linkText&gt;</bpt>Change a VPN Gateway Routing Type<ept id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;/linkText&gt;</ept><bpt id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;title&gt;</bpt><ept id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;linkText&gt;</bpt>Change a VPN Gateway Routing Type<ept id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;/linkText&gt;</ept><bpt id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;title&gt;</bpt><ept id="59aa9cc0-1469-4215-8eff-d73902923149">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd51b19a-a104-40fc-a99d-ecb0adb0e1cc" xml:space="preserve">
+          <source><bpt id="f1247bfb-184b-4911-a2bf-c63eaa33aee3">&lt;strong&gt;</bpt>2.<ept id="f1247bfb-184b-4911-a2bf-c63eaa33aee3">&lt;/strong&gt;</ept> Configure your new gateway and create your VPN tunnel.</source>
+          <target state="new"><bpt id="f1247bfb-184b-4911-a2bf-c63eaa33aee3">&lt;strong&gt;</bpt>2.<ept id="f1247bfb-184b-4911-a2bf-c63eaa33aee3">&lt;/strong&gt;</ept> Configure your new gateway and create your VPN tunnel.</target>
+        </trans-unit>
+        <trans-unit id="f9450f5e-de1f-4359-818d-2a31e443b126" xml:space="preserve">
+          <source>For instructions, see <bpt id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;linkText&gt;</bpt>Configure a VPN Gateway in the Management Portal<ept id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;/linkText&gt;</ept><bpt id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;title&gt;</bpt><ept id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;linkText&gt;</bpt>Configure a VPN Gateway in the Management Portal<ept id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;/linkText&gt;</ept><bpt id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;title&gt;</bpt><ept id="dfc10922-d63c-4a7d-8106-a361cd7a517d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13e5176d-9e4a-4ca7-a5f6-401718846cce" xml:space="preserve">
+          <source><bpt id="95e6c79e-88d9-4803-8c9a-397230bd03e7">&lt;strong&gt;</bpt>If you don't have a site-to-site virtual network:<ept id="95e6c79e-88d9-4803-8c9a-397230bd03e7">&lt;/strong&gt;</ept> <bpt id="9b950d48-ab41-46f4-9940-a186533f3d6c">&lt;strong&gt;</bpt>1.<ept id="9b950d48-ab41-46f4-9940-a186533f3d6c">&lt;/strong&gt;</ept> Create your site-to-site virtual network using these instructions: <bpt id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;linkText&gt;</bpt>Create a Virtual Network with a Site-to-Site VPN Connection in the Management Portal<ept id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;/linkText&gt;</ept><bpt id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;title&gt;</bpt><ept id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="95e6c79e-88d9-4803-8c9a-397230bd03e7">&lt;strong&gt;</bpt>If you don't have a site-to-site virtual network:<ept id="95e6c79e-88d9-4803-8c9a-397230bd03e7">&lt;/strong&gt;</ept> <bpt id="9b950d48-ab41-46f4-9940-a186533f3d6c">&lt;strong&gt;</bpt>1.<ept id="9b950d48-ab41-46f4-9940-a186533f3d6c">&lt;/strong&gt;</ept> Create your site-to-site virtual network using these instructions: <bpt id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;linkText&gt;</bpt>Create a Virtual Network with a Site-to-Site VPN Connection in the Management Portal<ept id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;/linkText&gt;</ept><bpt id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;title&gt;</bpt><ept id="362a35bf-ecd4-4a4e-bf98-48ede4e69235">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a410f79-a4fa-4129-83d2-6a632e71f2b8" xml:space="preserve">
+          <source><bpt id="d00e0707-19a9-4df7-93f3-0ee9c3ce5dab">&lt;strong&gt;</bpt>2.<ept id="d00e0707-19a9-4df7-93f3-0ee9c3ce5dab">&lt;/strong&gt;</ept> Configure a dynamic routing gateway using these instructions: <bpt id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;linkText&gt;</bpt>Configure a VPN Gateway in the Management Portal<ept id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;/linkText&gt;</ept><bpt id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;title&gt;</bpt><ept id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d00e0707-19a9-4df7-93f3-0ee9c3ce5dab">&lt;strong&gt;</bpt>2.<ept id="d00e0707-19a9-4df7-93f3-0ee9c3ce5dab">&lt;/strong&gt;</ept> Configure a dynamic routing gateway using these instructions: <bpt id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;linkText&gt;</bpt>Configure a VPN Gateway in the Management Portal<ept id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;/linkText&gt;</ept><bpt id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;title&gt;</bpt><ept id="f8836699-b4e3-4866-bf99-8b3949b3faa7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0c71773-2500-4844-aa40-59718746a52f" xml:space="preserve">
+          <source>Be sure to select <bpt id="f26f2d70-3db3-4302-9f16-b24240e34776">&lt;strong&gt;</bpt>dynamic routing<ept id="f26f2d70-3db3-4302-9f16-b24240e34776">&lt;/strong&gt;</ept> for your gateway type.</source>
+          <target state="new">Be sure to select <bpt id="f26f2d70-3db3-4302-9f16-b24240e34776">&lt;strong&gt;</bpt>dynamic routing<ept id="f26f2d70-3db3-4302-9f16-b24240e34776">&lt;/strong&gt;</ept> for your gateway type.</target>
+        </trans-unit>
+        <trans-unit id="31f462fa-5466-4a58-a736-e37dbb3d9ee4" xml:space="preserve">
+          <source><bpt id="f447e429-7fd0-4284-bd9a-d59bbcd4a6f6">&lt;strong&gt;</bpt>&lt;a name="export"&gt;&lt;/a&gt;Export the virtual network configuration settings.<ept id="f447e429-7fd0-4284-bd9a-d59bbcd4a6f6">&lt;/strong&gt;</ept> To export your network configuration file, see <bpt id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;linkText&gt;</bpt>To export your network settings<ept id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;/linkText&gt;</ept><bpt id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;title&gt;</bpt><ept id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f447e429-7fd0-4284-bd9a-d59bbcd4a6f6">&lt;strong&gt;</bpt>&lt;a name="export"&gt;&lt;/a&gt;Export the virtual network configuration settings.<ept id="f447e429-7fd0-4284-bd9a-d59bbcd4a6f6">&lt;/strong&gt;</ept> To export your network configuration file, see <bpt id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;linkText&gt;</bpt>To export your network settings<ept id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;/linkText&gt;</ept><bpt id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;title&gt;</bpt><ept id="bb24372c-e24e-4683-b19b-0063cbdc5f29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e03618fb-3d82-41e6-82d2-1a8ca79c8eea" xml:space="preserve">
+          <source>The file that you export will be used to configure your new multi-site settings.</source>
+          <target state="new">The file that you export will be used to configure your new multi-site settings.</target>
+        </trans-unit>
+        <trans-unit id="6dfcd133-97ea-4cd0-9207-465f1e9acf50" xml:space="preserve">
+          <source><bpt id="56adcd3e-9290-473c-97b8-9735103d7f47">&lt;strong&gt;</bpt>Open your network configuration file.<ept id="56adcd3e-9290-473c-97b8-9735103d7f47">&lt;/strong&gt;</ept> Open the network configuration file that you downloaded in the last step.</source>
+          <target state="new"><bpt id="56adcd3e-9290-473c-97b8-9735103d7f47">&lt;strong&gt;</bpt>Open your network configuration file.<ept id="56adcd3e-9290-473c-97b8-9735103d7f47">&lt;/strong&gt;</ept> Open the network configuration file that you downloaded in the last step.</target>
+        </trans-unit>
+        <trans-unit id="6447ef36-d03e-47e9-9c9f-e6c978124cae" xml:space="preserve">
+          <source>Use any xml editor that you like.</source>
+          <target state="new">Use any xml editor that you like.</target>
+        </trans-unit>
+        <trans-unit id="c671d423-7e95-495f-b0de-238888efdeea" xml:space="preserve">
+          <source>The file should look similar to the following:</source>
+          <target state="new">The file should look similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="9a63cdf6-5b58-4499-99de-720ddf4f8403" xml:space="preserve">
+          <source>Add multiple site references to the network configuration file.</source>
+          <target state="new">Add multiple site references to the network configuration file.</target>
+        </trans-unit>
+        <trans-unit id="a4daa3a7-77ec-49f7-a055-a29564277de7" xml:space="preserve">
+          <source>When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef.</source>
+          <target state="new">When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef.</target>
+        </trans-unit>
+        <trans-unit id="57a5c724-7280-4b9e-87e8-1a2b4f3081d7" xml:space="preserve">
+          <source>Adding a new local site reference triggers Azure to create a new tunnel.</source>
+          <target state="new">Adding a new local site reference triggers Azure to create a new tunnel.</target>
+        </trans-unit>
+        <trans-unit id="492783ff-36b8-4887-bd74-0e0271daa78b" xml:space="preserve">
+          <source>In the example below, the network configuration is for a single-site connection.</source>
+          <target state="new">In the example below, the network configuration is for a single-site connection.</target>
+        </trans-unit>
+        <trans-unit id="a5a9b042-94ed-459d-9d90-63ce393dfae2" xml:space="preserve">
+          <source>To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below: </source>
+          <target state="new">To add additional site references (create a multi-site configuration), simply add additional "LocalNetworkSiteRef" lines, as shown in the example below: </target>
+        </trans-unit>
+        <trans-unit id="7c142527-0d02-49e0-b910-3d27b5244e50" xml:space="preserve">
+          <source><bpt id="b082028e-f80f-4490-bc46-d1c18a28b7e1">&lt;strong&gt;</bpt>Save the network configuration file and import it.<ept id="b082028e-f80f-4490-bc46-d1c18a28b7e1">&lt;/strong&gt;</ept> To import the network configuration file, see <bpt id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;linkText&gt;</bpt>To import your network settings<ept id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;/linkText&gt;</ept><bpt id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;title&gt;</bpt><ept id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b082028e-f80f-4490-bc46-d1c18a28b7e1">&lt;strong&gt;</bpt>Save the network configuration file and import it.<ept id="b082028e-f80f-4490-bc46-d1c18a28b7e1">&lt;/strong&gt;</ept> To import the network configuration file, see <bpt id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;linkText&gt;</bpt>To import your network settings<ept id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;/linkText&gt;</ept><bpt id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;title&gt;</bpt><ept id="fa5545a7-312c-42c4-9fdb-d240edd04d13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3a8a847-a7d4-4fd4-a65c-4d6b253ac505" xml:space="preserve">
+          <source>When you import this file with the changes, the new tunnels will be added.</source>
+          <target state="new">When you import this file with the changes, the new tunnels will be added.</target>
+        </trans-unit>
+        <trans-unit id="341dca93-6a58-49cb-8ada-036247c26b69" xml:space="preserve">
+          <source>The tunnels will use the dynamic gateway that you created earlier.</source>
+          <target state="new">The tunnels will use the dynamic gateway that you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="9061a3b9-ed38-4fd1-b848-8240e7e8f57c" xml:space="preserve">
+          <source><bpt id="c160771b-fdfd-422c-840b-d79752370069">&lt;strong&gt;</bpt>Download the pre-shared keys for the VPN tunnels.<ept id="c160771b-fdfd-422c-840b-d79752370069">&lt;/strong&gt;</ept> Once your new tunnels have been added, use the PowerShell cmdlet Get-AzureVNetGatewayKey to get the IPsec/IKE pre-shared keys for each tunnel.</source>
+          <target state="new"><bpt id="c160771b-fdfd-422c-840b-d79752370069">&lt;strong&gt;</bpt>Download the pre-shared keys for the VPN tunnels.<ept id="c160771b-fdfd-422c-840b-d79752370069">&lt;/strong&gt;</ept> Once your new tunnels have been added, use the PowerShell cmdlet Get-AzureVNetGatewayKey to get the IPsec/IKE pre-shared keys for each tunnel.</target>
+        </trans-unit>
+        <trans-unit id="7975f497-89fc-4416-a04c-ac50fee32b11" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="d0fb2432-48c6-4d6f-889f-a50a6c104666" xml:space="preserve">
+          <source>If you prefer, you can also use the <bpt id="245b1011-076f-4375-8d0b-aa0cec2d7c6e">&lt;em&gt;</bpt>Get Virual Network Gateway Shared Key<ept id="245b1011-076f-4375-8d0b-aa0cec2d7c6e">&lt;/em&gt;</ept> REST API to get the pre-shared keys.</source>
+          <target state="new">If you prefer, you can also use the <bpt id="245b1011-076f-4375-8d0b-aa0cec2d7c6e">&lt;em&gt;</bpt>Get Virual Network Gateway Shared Key<ept id="245b1011-076f-4375-8d0b-aa0cec2d7c6e">&lt;/em&gt;</ept> REST API to get the pre-shared keys.</target>
+        </trans-unit>
+        <trans-unit id="32347f7c-1895-41de-8295-e6b07a3234e4" xml:space="preserve">
+          <source><bpt id="8a4ad4c6-68a7-4c8e-a2dc-845418059d02">&lt;strong&gt;</bpt>Check the multi-site tunnel status.<ept id="8a4ad4c6-68a7-4c8e-a2dc-845418059d02">&lt;/strong&gt;</ept> After downloading the keys for each tunnel, you'll want to verify connections.</source>
+          <target state="new"><bpt id="8a4ad4c6-68a7-4c8e-a2dc-845418059d02">&lt;strong&gt;</bpt>Check the multi-site tunnel status.<ept id="8a4ad4c6-68a7-4c8e-a2dc-845418059d02">&lt;/strong&gt;</ept> After downloading the keys for each tunnel, you'll want to verify connections.</target>
+        </trans-unit>
+        <trans-unit id="d7159dee-650e-488b-838a-2c77ae22926c" xml:space="preserve">
+          <source>Use <bpt id="3d65887f-4d75-4f1a-b3ca-8c98f4e4bce6">&lt;em&gt;</bpt>Get-AzureVnetConnection<ept id="3d65887f-4d75-4f1a-b3ca-8c98f4e4bce6">&lt;/em&gt;</ept> to get a list of virtual network tunnels, as shown in the example below.</source>
+          <target state="new">Use <bpt id="3d65887f-4d75-4f1a-b3ca-8c98f4e4bce6">&lt;em&gt;</bpt>Get-AzureVnetConnection<ept id="3d65887f-4d75-4f1a-b3ca-8c98f4e4bce6">&lt;/em&gt;</ept> to get a list of virtual network tunnels, as shown in the example below.</target>
+        </trans-unit>
+        <trans-unit id="edb5bbc4-e751-414e-9e74-75b3d9292163" xml:space="preserve">
+          <source>VNet1 is the name of the VNet.</source>
+          <target state="new">VNet1 is the name of the VNet.</target>
+        </trans-unit>
+        <trans-unit id="47eb5c87-afe0-4f3a-b6bf-0cf96ad18505" xml:space="preserve">
+          <source>To learn more about VPN Gateways, see <bpt id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;linkText&gt;</bpt>About VPN Gateways<ept id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;/linkText&gt;</ept><bpt id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;title&gt;</bpt><ept id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about VPN Gateways, see <bpt id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;linkText&gt;</bpt>About VPN Gateways<ept id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;/linkText&gt;</ept><bpt id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;title&gt;</bpt><ept id="67444b6d-92c1-4033-af15-1a5af33bf449">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4140c2be-748f-4143-80f5-afaa5e011ca0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4140c2be-748f-4143-80f5-afaa5e011ca0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e672e56d-e10c-4824-b348-d67553c20330">
+        <trans-unit id="cb8cd54c-b685-4d0b-b6f4-1fc9808aeaf4" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="1ccbca80-d05c-4553-ab4a-8da4a6a17aa3" xml:space="preserve">
+          <source>Default Limit</source>
+          <target state="new">Default Limit</target>
+        </trans-unit>
+        <trans-unit id="1435d813-c28c-4bfe-94e1-db382f84a02a" xml:space="preserve">
+          <source>Total disk capacity per account</source>
+          <target state="new">Total disk capacity per account</target>
+        </trans-unit>
+        <trans-unit id="be3eba9e-9142-4b2f-9812-9c2148cd4220" xml:space="preserve">
+          <source>35 TB</source>
+          <target state="new">35 TB</target>
+        </trans-unit>
+        <trans-unit id="4e5d487d-bb55-4026-a557-33b3bce2f6f6" xml:space="preserve">
+          <source>Total snapshot capacity per account</source>
+          <target state="new">Total snapshot capacity per account</target>
+        </trans-unit>
+        <trans-unit id="7507a275-48ad-4a8e-b7be-648308b0a235" xml:space="preserve">
+          <source>10 TB</source>
+          <target state="new">10 TB</target>
+        </trans-unit>
+        <trans-unit id="b47df0f5-c8b6-4399-964d-e2faaf739b20" xml:space="preserve">
+          <source>Max bandwidth per account (ingress + egress&lt;sup&gt;1&lt;/sup&gt;)</source>
+          <target state="new">Max bandwidth per account (ingress + egress&lt;sup&gt;1&lt;/sup&gt;)</target>
+        </trans-unit>
+        <trans-unit id="ca80af25-024e-4c6b-9e6f-5f202ee822cf" xml:space="preserve">
+          <source>&gt;50 Gbps</source>
+          <target state="new">&gt;50 Gbps</target>
+        </trans-unit>
+        <trans-unit id="01f7bac0-2713-4b87-b635-34863c468fa3" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;<bpt id="1752f8aa-f248-4f52-8190-f78618c8f7e2">&lt;em&gt;</bpt>Ingress<ept id="1752f8aa-f248-4f52-8190-f78618c8f7e2">&lt;/em&gt;</ept> refers to all data (requests) being sent to a storage account.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;<bpt id="1752f8aa-f248-4f52-8190-f78618c8f7e2">&lt;em&gt;</bpt>Ingress<ept id="1752f8aa-f248-4f52-8190-f78618c8f7e2">&lt;/em&gt;</ept> refers to all data (requests) being sent to a storage account.</target>
+        </trans-unit>
+        <trans-unit id="6d5a0e6b-6b50-463f-840a-7851a3efaaaf" xml:space="preserve">
+          <source><bpt id="d83d3bcd-c4a8-4cf1-87c9-f638247aad40">&lt;em&gt;</bpt>Egress<ept id="d83d3bcd-c4a8-4cf1-87c9-f638247aad40">&lt;/em&gt;</ept> refers to all data (responses) being received from a storage account.</source>
+          <target state="new"><bpt id="d83d3bcd-c4a8-4cf1-87c9-f638247aad40">&lt;em&gt;</bpt>Egress<ept id="d83d3bcd-c4a8-4cf1-87c9-f638247aad40">&lt;/em&gt;</ept> refers to all data (responses) being received from a storage account.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

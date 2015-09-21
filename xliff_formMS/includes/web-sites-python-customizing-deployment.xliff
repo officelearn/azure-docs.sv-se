@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e2844aae-f9fe-4429-a1b8-6f0ca1e56a2f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e2844aae-f9fe-4429-a1b8-6f0ca1e56a2f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c02df25d-9c7d-4ce3-8d10-7efaa6341da3">
+        <trans-unit id="71d2ff9e-615f-47f9-8d47-6244b1990022" xml:space="preserve">
+          <source>Azure will determine that your application uses Python <bpt id="0e2ed5ab-ccfc-4a65-aca5-e6e070d33510">&lt;strong&gt;</bpt>if both of these conditions are true<ept id="0e2ed5ab-ccfc-4a65-aca5-e6e070d33510">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Azure will determine that your application uses Python <bpt id="0e2ed5ab-ccfc-4a65-aca5-e6e070d33510">&lt;strong&gt;</bpt>if both of these conditions are true<ept id="0e2ed5ab-ccfc-4a65-aca5-e6e070d33510">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a13d3bb3-ff32-4490-8291-997c0c3e770f" xml:space="preserve">
+          <source>requirements.txt file in the root folder</source>
+          <target state="new">requirements.txt file in the root folder</target>
+        </trans-unit>
+        <trans-unit id="096aa349-10f5-4f7c-a45d-6d0104715a08" xml:space="preserve">
+          <source>any .py file in the root folder OR a runtime.txt that specifies python</source>
+          <target state="new">any .py file in the root folder OR a runtime.txt that specifies python</target>
+        </trans-unit>
+        <trans-unit id="ec2f1a80-f996-43ba-aa56-25c3143ee27c" xml:space="preserve">
+          <source>When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:</source>
+          <target state="new">When that's the case, it will use a Python specific deployment script, which performs the standard synchronization of files, as well as additional Python operations such as:</target>
+        </trans-unit>
+        <trans-unit id="1cce3455-14f1-4d5d-89a2-66e9d790cadf" xml:space="preserve">
+          <source>Automatic management of virtual environment</source>
+          <target state="new">Automatic management of virtual environment</target>
+        </trans-unit>
+        <trans-unit id="96bbaaf7-8673-43da-8536-bc1dad9262fb" xml:space="preserve">
+          <source>Installation of packages listed in requirements.txt using pip</source>
+          <target state="new">Installation of packages listed in requirements.txt using pip</target>
+        </trans-unit>
+        <trans-unit id="2630e314-d920-4d33-bbf9-09f5b0d6d4ad" xml:space="preserve">
+          <source>Creation of the appropriate web.config based on the selected Python version.</source>
+          <target state="new">Creation of the appropriate web.config based on the selected Python version.</target>
+        </trans-unit>
+        <trans-unit id="e6d163c0-6b1f-47af-a62e-e372713a4a0a" xml:space="preserve">
+          <source>Collect static files for Django applications</source>
+          <target state="new">Collect static files for Django applications</target>
+        </trans-unit>
+        <trans-unit id="2a808324-5bfe-4ce7-bf7d-fc9844af9f31" xml:space="preserve">
+          <source>You can control certain aspects of the default deployment steps without having to customize the script.</source>
+          <target state="new">You can control certain aspects of the default deployment steps without having to customize the script.</target>
+        </trans-unit>
+        <trans-unit id="b7411e89-b5d4-4309-9a25-48b6cc4d65bc" xml:space="preserve">
+          <source>If you want to skip all Python specific deployment steps, you can create this empty file:</source>
+          <target state="new">If you want to skip all Python specific deployment steps, you can create this empty file:</target>
+        </trans-unit>
+        <trans-unit id="7f295816-4aa8-42ba-8990-bc9dc1e9bda4" xml:space="preserve">
+          <source>If you want to skip collection of static files for your Django application:</source>
+          <target state="new">If you want to skip collection of static files for your Django application:</target>
+        </trans-unit>
+        <trans-unit id="bf4b9220-e706-4b38-9d97-ef67a54cdf8e" xml:space="preserve">
+          <source>For more control over deployment, you can override the default deployment script by creating the following files:</source>
+          <target state="new">For more control over deployment, you can override the default deployment script by creating the following files:</target>
+        </trans-unit>
+        <trans-unit id="22cefd48-a22a-4fc2-87b6-0c702193a49b" xml:space="preserve">
+          <source>You can use the <bpt id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;linkText&gt;</bpt>Azure command-line interface<ept id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;/linkText&gt;</ept><bpt id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;title&gt;</bpt><ept id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;/title&gt;</ept> to create the files.</source>
+          <target state="new">You can use the <bpt id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;linkText&gt;</bpt>Azure command-line interface<ept id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;/linkText&gt;</ept><bpt id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;title&gt;</bpt><ept id="6c70b177-09fb-4be7-8668-f4e119e702ab">&lt;/title&gt;</ept> to create the files.</target>
+        </trans-unit>
+        <trans-unit id="8fe56457-8fd8-4962-b53c-8810451dea2c" xml:space="preserve">
+          <source>Use this command from your project folder:</source>
+          <target state="new">Use this command from your project folder:</target>
+        </trans-unit>
+        <trans-unit id="a56941b3-0029-4140-be4b-058ce39801cd" xml:space="preserve">
+          <source>When these files don't exist, Azure creates a temporary deployment script and runs it.</source>
+          <target state="new">When these files don't exist, Azure creates a temporary deployment script and runs it.</target>
+        </trans-unit>
+        <trans-unit id="3cabdc96-d6cc-48e3-ad35-4b03f4c4642d" xml:space="preserve">
+          <source>It is identical to the one you create with the command above.</source>
+          <target state="new">It is identical to the one you create with the command above.</target>
+        </trans-unit>
+        <trans-unit id="2d5e11a4-4d12-4b03-82cd-b9ee5dc1abea" xml:space="preserve">
+          <source>http://azure.microsoft.com/downloads/</source>
+          <target state="new">http://azure.microsoft.com/downloads/</target>
+        </trans-unit>
+      </group>
+      <group id="12c00220-b444-4fe1-8298-2f4315fae5dc" />
+    </body>
+  </file>
+</xliff>

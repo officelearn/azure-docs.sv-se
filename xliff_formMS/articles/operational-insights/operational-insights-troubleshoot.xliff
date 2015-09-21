@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7031031c-ed40-4a0d-b489-eb825f40eca9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7031031c-ed40-4a0d-b489-eb825f40eca9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="90b9c595-2bfb-4e09-b1ef-da1a55f21c01">
+        <trans-unit id="5e4f3e38-1396-4119-bf0e-9a558db18c93" xml:space="preserve">
+          <source>Troubleshoot issues with Operational Insights</source>
+          <target state="new">Troubleshoot issues with Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="c7a7357e-1ca5-4dd4-ad1c-902affeaaca4" xml:space="preserve">
+          <source>Learn about troubleshooting issues with Operational Insights</source>
+          <target state="new">Learn about troubleshooting issues with Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="d73cd08a-fe4c-40ad-99a3-7a7407b5e7b5" xml:space="preserve">
+          <source><bpt id="4e58a516-e922-4273-ac3f-4f3d96a8e118">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="4e58a516-e922-4273-ac3f-4f3d96a8e118">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4e58a516-e922-4273-ac3f-4f3d96a8e118">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="4e58a516-e922-4273-ac3f-4f3d96a8e118">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9d52e2b-5775-424c-a189-3d96c4153a73" xml:space="preserve">
+          <source>You can use the information in the following sections to help you troubleshoot problems.</source>
+          <target state="new">You can use the information in the following sections to help you troubleshoot problems.</target>
+        </trans-unit>
+        <trans-unit id="c54d67ab-e3e5-4bdf-900c-cb1ab2b73f2f" xml:space="preserve">
+          <source>If the issue you're having isn't in this article, you can try the <bpt id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;linkText&gt;</bpt>Operational Insights team blog<ept id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;/linkText&gt;</ept><bpt id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;title&gt;</bpt><ept id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the issue you're having isn't in this article, you can try the <bpt id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;linkText&gt;</bpt>Operational Insights team blog<ept id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;/linkText&gt;</ept><bpt id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;title&gt;</bpt><ept id="55e1de50-2cb6-44b7-bc2b-46189ad23413">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b97cd72-882c-4731-905a-dfc47cc2fa92" xml:space="preserve">
+          <source>Because Microsoft Azure Operational Insights relies on data that is moved to and from the cloud, connection issues can be crippling.</source>
+          <target state="new">Because Microsoft Azure Operational Insights relies on data that is moved to and from the cloud, connection issues can be crippling.</target>
+        </trans-unit>
+        <trans-unit id="d01211f4-99e2-4060-8dd0-48cd4dbeb7ac" xml:space="preserve">
+          <source>Use the following information to understand and solve your connection issues.</source>
+          <target state="new">Use the following information to understand and solve your connection issues.</target>
+        </trans-unit>
+        <trans-unit id="1a6411bc-2a44-4b7f-8487-66076a948394" xml:space="preserve">
+          <source><bpt id="54f8c58f-d21b-43d9-a660-4e9542607b06">&lt;strong&gt;</bpt>Error message:<ept id="54f8c58f-d21b-43d9-a660-4e9542607b06">&lt;/strong&gt;</ept> The Internet connectivity was verified, but connection to Operational Insights service could not be established.</source>
+          <target state="new"><bpt id="54f8c58f-d21b-43d9-a660-4e9542607b06">&lt;strong&gt;</bpt>Error message:<ept id="54f8c58f-d21b-43d9-a660-4e9542607b06">&lt;/strong&gt;</ept> The Internet connectivity was verified, but connection to Operational Insights service could not be established.</target>
+        </trans-unit>
+        <trans-unit id="169178a3-91e3-4bfd-a722-8f99164de72d" xml:space="preserve">
+          <source>Please try again later.</source>
+          <target state="new">Please try again later.</target>
+        </trans-unit>
+        <trans-unit id="eed372b3-3175-4bcf-960e-a033d1b29c9a" xml:space="preserve">
+          <source><bpt id="54d2ed58-1ea8-4ede-b9da-c6a1c9b987b4">&lt;strong&gt;</bpt>Possible causes:<ept id="54d2ed58-1ea8-4ede-b9da-c6a1c9b987b4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="54d2ed58-1ea8-4ede-b9da-c6a1c9b987b4">&lt;strong&gt;</bpt>Possible causes:<ept id="54d2ed58-1ea8-4ede-b9da-c6a1c9b987b4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f0b37e5-b760-45ae-98ba-bd39d7d62cea" xml:space="preserve">
+          <source>The Operational Insights service is under maintenance.</source>
+          <target state="new">The Operational Insights service is under maintenance.</target>
+        </trans-unit>
+        <trans-unit id="a86cb35e-d30b-4411-83dd-f1608c2aaa79" xml:space="preserve">
+          <source>Wait until the Operational Insights maintenance is done.</source>
+          <target state="new">Wait until the Operational Insights maintenance is done.</target>
+        </trans-unit>
+        <trans-unit id="c7698a82-2115-4747-a60e-b448d7919e86" xml:space="preserve">
+          <source>Your network has blocked Operational Insights.</source>
+          <target state="new">Your network has blocked Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="2c5fc851-3da8-4383-b0b4-b1f9fe26b86f" xml:space="preserve">
+          <source>Contact your network administrator and request access to Operational Insights, or use another server as your gateway.</source>
+          <target state="new">Contact your network administrator and request access to Operational Insights, or use another server as your gateway.</target>
+        </trans-unit>
+        <trans-unit id="f624b4f0-ef93-4b2d-a750-98c95c1b4c2a" xml:space="preserve">
+          <source><bpt id="66a7299a-1c3b-4d5e-ac2c-83c7a85141f0">&lt;strong&gt;</bpt>Error message:<ept id="66a7299a-1c3b-4d5e-ac2c-83c7a85141f0">&lt;/strong&gt;</ept> Internet connection could not be established.</source>
+          <target state="new"><bpt id="66a7299a-1c3b-4d5e-ac2c-83c7a85141f0">&lt;strong&gt;</bpt>Error message:<ept id="66a7299a-1c3b-4d5e-ac2c-83c7a85141f0">&lt;/strong&gt;</ept> Internet connection could not be established.</target>
+        </trans-unit>
+        <trans-unit id="515fe807-0f5b-4ecd-9bab-d3ad410e5e45" xml:space="preserve">
+          <source>Please check your proxy settings.</source>
+          <target state="new">Please check your proxy settings.</target>
+        </trans-unit>
+        <trans-unit id="e0a1b0d4-c0ab-4993-b91c-f48c8a1f2795" xml:space="preserve">
+          <source><bpt id="3a029e6c-3c4f-49a6-836a-28f96c0c1d00">&lt;strong&gt;</bpt>Possible causes:<ept id="3a029e6c-3c4f-49a6-836a-28f96c0c1d00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3a029e6c-3c4f-49a6-836a-28f96c0c1d00">&lt;strong&gt;</bpt>Possible causes:<ept id="3a029e6c-3c4f-49a6-836a-28f96c0c1d00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d0566b4-463d-4f87-bd69-d1f9ca6af66e" xml:space="preserve">
+          <source>This server is not connected to the Internet.</source>
+          <target state="new">This server is not connected to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="6d19f6c6-295f-46f5-9a26-9ff70616776d" xml:space="preserve">
+          <source>Check the Internet connectivity status, and connect the server to the Internet.</source>
+          <target state="new">Check the Internet connectivity status, and connect the server to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="396c9ec8-22cd-4f65-9aba-d01496621682" xml:space="preserve">
+          <source>The proxy setting is not correct.</source>
+          <target state="new">The proxy setting is not correct.</target>
+        </trans-unit>
+        <trans-unit id="8689d249-6fc8-4c75-86c3-30af6c21960a" xml:space="preserve">
+          <source>See <bpt id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;linkText&gt;</bpt>Configure proxy and firewall settings<ept id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;/linkText&gt;</ept><bpt id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;title&gt;</bpt><ept id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;/title&gt;</ept> for information about how to set or change your proxy settings.</source>
+          <target state="new">See <bpt id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;linkText&gt;</bpt>Configure proxy and firewall settings<ept id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;/linkText&gt;</ept><bpt id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;title&gt;</bpt><ept id="b0a83f4a-cc73-43e0-8954-9e6803d42c52">&lt;/title&gt;</ept> for information about how to set or change your proxy settings.</target>
+        </trans-unit>
+        <trans-unit id="582da93d-a6b2-492f-8885-aabac990792b" xml:space="preserve">
+          <source>The proxy server requires authentication.</source>
+          <target state="new">The proxy server requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="9804baaf-e6bb-4279-8be2-10293e9f50eb" xml:space="preserve">
+          <source>See <bpt id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;linkText&gt;</bpt>Configure proxy and firewall settings<ept id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;/linkText&gt;</ept><bpt id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;title&gt;</bpt><ept id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;/title&gt;</ept> to learn about how to configure Operations Manager to use a proxy server.</source>
+          <target state="new">See <bpt id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;linkText&gt;</bpt>Configure proxy and firewall settings<ept id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;/linkText&gt;</ept><bpt id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;title&gt;</bpt><ept id="b8c94a77-e5da-444d-83ff-c501f39073e5">&lt;/title&gt;</ept> to learn about how to configure Operations Manager to use a proxy server.</target>
+        </trans-unit>
+        <trans-unit id="31ed5f09-07a4-4309-8cc1-45daf72dc8e2" xml:space="preserve">
+          <source>If you are running Microsoft SQL Server 2008 R2, and despite deploying the Operations Manager agent, you do not see alerts for this server, you might have a discovery issue.</source>
+          <target state="new">If you are running Microsoft SQL Server 2008 R2, and despite deploying the Operations Manager agent, you do not see alerts for this server, you might have a discovery issue.</target>
+        </trans-unit>
+        <trans-unit id="68d7c13c-6a31-451c-8baa-ef0cb5b625cc" xml:space="preserve">
+          <source>To confirm if this is the source of your trouble, check for the following two issues:</source>
+          <target state="new">To confirm if this is the source of your trouble, check for the following two issues:</target>
+        </trans-unit>
+        <trans-unit id="b85bbbe1-86c9-4ce2-8125-5c0af44f4123" xml:space="preserve">
+          <source>In the Operations Manager event log, you see Event ID 4001.</source>
+          <target state="new">In the Operations Manager event log, you see Event ID 4001.</target>
+        </trans-unit>
+        <trans-unit id="5bef6f7e-c96b-4f1e-af0d-bceda4efaae0" xml:space="preserve">
+          <source>This event indicates that there is an invalid class.</source>
+          <target state="new">This event indicates that there is an invalid class.</target>
+        </trans-unit>
+        <trans-unit id="cc9fa291-a59e-4708-9b15-bf2beb7e2827" xml:space="preserve">
+          <source>In SQL Server Configuration Manager, when you view SQL Server Services, you see the error message, “The remote procedure call failed.</source>
+          <target state="new">In SQL Server Configuration Manager, when you view SQL Server Services, you see the error message, “The remote procedure call failed.</target>
+        </trans-unit>
+        <trans-unit id="9b334f88-f7d9-4215-99da-8a2ea533afb7" xml:space="preserve">
+          <source>[0x0800706be]”</source>
+          <target state="new">[0x0800706be]”</target>
+        </trans-unit>
+        <trans-unit id="e0d7f572-5f73-4c19-aaef-2ac429381496" xml:space="preserve">
+          <source>If both issues are true, you need to install SQL Server 2008 R2 Service Pack 2.</source>
+          <target state="new">If both issues are true, you need to install SQL Server 2008 R2 Service Pack 2.</target>
+        </trans-unit>
+        <trans-unit id="480106e2-80f9-4a68-815a-448ab43fbaea" xml:space="preserve">
+          <source>To download this service pack, see <bpt id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;linkText&gt;</bpt>SQL Server 2008 R2 Service Pack 2<ept id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;/linkText&gt;</ept><bpt id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;title&gt;</bpt><ept id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;/title&gt;</ept> in the Microsoft Download Center.</source>
+          <target state="new">To download this service pack, see <bpt id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;linkText&gt;</bpt>SQL Server 2008 R2 Service Pack 2<ept id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;/linkText&gt;</ept><bpt id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;title&gt;</bpt><ept id="0a77a4b5-0116-4c2f-82c7-26b19a9a9f58">&lt;/title&gt;</ept> in the Microsoft Download Center.</target>
+        </trans-unit>
+        <trans-unit id="8cdbea93-0396-4dc1-9f0d-2eaa4ffe5d9b" xml:space="preserve">
+          <source>After you install the service pack, you should see Operational Insights data for the server within 24 hours.</source>
+          <target state="new">After you install the service pack, you should see Operational Insights data for the server within 24 hours.</target>
+        </trans-unit>
+        <trans-unit id="fcd66263-a3bd-42bd-8501-69bf6219c537" xml:space="preserve">
+          <source>The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.</source>
+          <target state="new">The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="b32962f9-a64f-4eaa-8e5a-42584eadbc23" xml:space="preserve">
+          <source>If you only use Direct Agent, you can skip to the next procedure.</source>
+          <target state="new">If you only use Direct Agent, you can skip to the next procedure.</target>
+        </trans-unit>
+        <trans-unit id="9b7ff965-6787-42aa-9a37-4ad5fbe77a15" xml:space="preserve">
+          <source>Depending on which solutions (previously called intelligence packs) you have enabled from the OpInsights Portal will you see more or less of these MPs.</source>
+          <target state="new">Depending on which solutions (previously called intelligence packs) you have enabled from the OpInsights Portal will you see more or less of these MPs.</target>
+        </trans-unit>
+        <trans-unit id="06b28834-bccb-49fd-80cf-ba357a9f0cba" xml:space="preserve">
+          <source>Search for keyword ‘Advisor’ or ‘Intelligence’ in their name.</source>
+          <target state="new">Search for keyword ‘Advisor’ or ‘Intelligence’ in their name.</target>
+        </trans-unit>
+        <trans-unit id="608c0472-74d3-4f08-8d62-d6d9e063a37a" xml:space="preserve">
+          <source>You can check for these MPs using OpsMgr PowerShell:</source>
+          <target state="new">You can check for these MPs using OpsMgr PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="b3abfa20-5c25-4693-8eef-bc5147b7c693" xml:space="preserve">
+          <source>If you are troubleshooting the Capacity solution, check <bpt id="6161c3bb-8bcc-4638-8b03-13a098716d08">&lt;em&gt;</bpt>how many<ept id="6161c3bb-8bcc-4638-8b03-13a098716d08">&lt;/em&gt;</ept> management packs with the name containing ‘capacity’ you have: there are two management packs that have the same display name (but different internal ID’s) that come in the same MP bundle; if one of the two does not get imported (often due to missing VMM dependency) the other MP does not get imported and the operation does not retry.</source>
+          <target state="new">If you are troubleshooting the Capacity solution, check <bpt id="6161c3bb-8bcc-4638-8b03-13a098716d08">&lt;em&gt;</bpt>how many<ept id="6161c3bb-8bcc-4638-8b03-13a098716d08">&lt;/em&gt;</ept> management packs with the name containing ‘capacity’ you have: there are two management packs that have the same display name (but different internal ID’s) that come in the same MP bundle; if one of the two does not get imported (often due to missing VMM dependency) the other MP does not get imported and the operation does not retry.</target>
+        </trans-unit>
+        <trans-unit id="560a184a-1779-4bef-a500-be9c40825b9d" xml:space="preserve">
+          <source>You should see the following three management packs related to ‘capacity’</source>
+          <target state="new">You should see the following three management packs related to ‘capacity’</target>
+        </trans-unit>
+        <trans-unit id="fd6899d3-fdf6-4596-b3d0-37cc16819802" xml:space="preserve">
+          <source>Microsoft System Center Advisor Capacity Intelligence Pack</source>
+          <target state="new">Microsoft System Center Advisor Capacity Intelligence Pack</target>
+        </trans-unit>
+        <trans-unit id="369ecd6d-3312-4ac1-96bf-90b7e0c11c54" xml:space="preserve">
+          <source>Microsoft System Center Advisor Capacity Intelligence Pack</source>
+          <target state="new">Microsoft System Center Advisor Capacity Intelligence Pack</target>
+        </trans-unit>
+        <trans-unit id="f779204c-de9d-48e8-925f-7f25c996a6a1" xml:space="preserve">
+          <source>Microsoft System Center Advisor Capacity Storage Data</source>
+          <target state="new">Microsoft System Center Advisor Capacity Storage Data</target>
+        </trans-unit>
+        <trans-unit id="d1345834-c30f-4060-99dc-1038662fc029" xml:space="preserve">
+          <source>If you only see one or two of them but not all three, remove it and wait 5/10 minutes for Operations Manager to download and import it again – check the event logs for errors during this period.</source>
+          <target state="new">If you only see one or two of them but not all three, remove it and wait 5/10 minutes for Operations Manager to download and import it again – check the event logs for errors during this period.</target>
+        </trans-unit>
+        <trans-unit id="2a0d9df4-a06f-4c15-8cf5-73449e812ca0" xml:space="preserve">
+          <source>If you only use Operations Manager, you can ignore this procedure.</source>
+          <target state="new">If you only use Operations Manager, you can ignore this procedure.</target>
+        </trans-unit>
+        <trans-unit id="ae8bd03a-0d4e-4386-b510-9f0a6ae67d1c" xml:space="preserve">
+          <source>In Direct Agent you should see the solution collection policy being cached under <bpt id="6c3d5036-ec7e-472e-9dec-bde06e15b932">&lt;strong&gt;</bpt>C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs<ept id="6c3d5036-ec7e-472e-9dec-bde06e15b932">&lt;/strong&gt;</ept></source>
+          <target state="new">In Direct Agent you should see the solution collection policy being cached under <bpt id="6c3d5036-ec7e-472e-9dec-bde06e15b932">&lt;strong&gt;</bpt>C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs<ept id="6c3d5036-ec7e-472e-9dec-bde06e15b932">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c6941a7-5a44-4471-844f-1244e3e8272e" xml:space="preserve">
+          <source>Depending if you are using Directly-connected agents or Operations Manager, you can perform the following procedure on the direct agent machine or on the Operations Manager management server:</source>
+          <target state="new">Depending if you are using Directly-connected agents or Operations Manager, you can perform the following procedure on the direct agent machine or on the Operations Manager management server:</target>
+        </trans-unit>
+        <trans-unit id="1c11bfe0-ff27-4a76-8416-00bb3b3e7264" xml:space="preserve">
+          <source>Open ‘Performance Monitor’</source>
+          <target state="new">Open ‘Performance Monitor’</target>
+        </trans-unit>
+        <trans-unit id="d32971a6-95c5-45c3-a664-4fcb685b4eab" xml:space="preserve">
+          <source>Select ‘Health Service Management Groups’</source>
+          <target state="new">Select ‘Health Service Management Groups’</target>
+        </trans-unit>
+        <trans-unit id="cc2c41e8-1afe-42b5-9ac7-18f31a4caf03" xml:space="preserve">
+          <source>Add all the counters that start with ‘HTTP’</source>
+          <target state="new">Add all the counters that start with ‘HTTP’</target>
+        </trans-unit>
+        <trans-unit id="6fa9907d-e4d6-46bc-b6fb-f886e4e80c17" xml:space="preserve">
+          <source>If things are configured right you should see activity for these counters, as events and other data items (based on the solutions onboarded in the portal, and the configured log collection policy) are uploaded.</source>
+          <target state="new">If things are configured right you should see activity for these counters, as events and other data items (based on the solutions onboarded in the portal, and the configured log collection policy) are uploaded.</target>
+        </trans-unit>
+        <trans-unit id="ff0040e4-aeca-4d93-86b9-5fa6c9b5f0c3" xml:space="preserve">
+          <source>Those counters don’t necessarily have to be continuously ‘busy’ - if you see little to no activity it might be that you are not onboarded on many solutions or have a very lightweight collection policy.</source>
+          <target state="new">Those counters don’t necessarily have to be continuously ‘busy’ - if you see little to no activity it might be that you are not onboarded on many solutions or have a very lightweight collection policy.</target>
+        </trans-unit>
+        <trans-unit id="3dffd85b-1979-4ea7-ab23-a2f2a0e39bf6" xml:space="preserve">
+          <source>As a final step if all of the above fails but you still see no data received by the service, check if you are seeing any errors in <bpt id="9c65f170-a18d-4a26-b523-2a2f105a5481">&lt;strong&gt;</bpt>Event Viewer<ept id="9c65f170-a18d-4a26-b523-2a2f105a5481">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As a final step if all of the above fails but you still see no data received by the service, check if you are seeing any errors in <bpt id="9c65f170-a18d-4a26-b523-2a2f105a5481">&lt;strong&gt;</bpt>Event Viewer<ept id="9c65f170-a18d-4a26-b523-2a2f105a5481">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="601dc5f0-d6c9-4e09-a32b-4a89d50d79f1" xml:space="preserve">
+          <source>Open <bpt id="c5d001ea-eb45-43b5-8cf9-7d2c8ec17a7f">&lt;strong&gt;</bpt>Event Viewer<ept id="c5d001ea-eb45-43b5-8cf9-7d2c8ec17a7f">&lt;/strong&gt;</ept> –&gt; <bpt id="86963abf-bbc3-49a8-84c2-7689190d27ca">&lt;strong&gt;</bpt>Application and Services<ept id="86963abf-bbc3-49a8-84c2-7689190d27ca">&lt;/strong&gt;</ept> –&gt; <bpt id="d860ce6d-dec0-4f41-81ef-6b2b8bff0ed9">&lt;strong&gt;</bpt>Operations Manager<ept id="d860ce6d-dec0-4f41-81ef-6b2b8bff0ed9">&lt;/strong&gt;</ept> and filter by Event Sources: <bpt id="714d9032-d538-42c4-aa7d-8af3345fa2b5">&lt;strong&gt;</bpt>Advisor<ept id="714d9032-d538-42c4-aa7d-8af3345fa2b5">&lt;/strong&gt;</ept>, <bpt id="d1d4fe9e-6f9e-4183-a629-2dee542973a0">&lt;strong&gt;</bpt>Health Service Modules<ept id="d1d4fe9e-6f9e-4183-a629-2dee542973a0">&lt;/strong&gt;</ept>, <bpt id="a1a2c014-1439-4ed7-b05e-dc0ecb4bfca0">&lt;strong&gt;</bpt>HealthService<ept id="a1a2c014-1439-4ed7-b05e-dc0ecb4bfca0">&lt;/strong&gt;</ept> and <bpt id="d59797b5-8884-4979-bb56-f6a82f054956">&lt;strong&gt;</bpt>Service Connector<ept id="d59797b5-8884-4979-bb56-f6a82f054956">&lt;/strong&gt;</ept> (this last one applies to Direct Agent only).</source>
+          <target state="new">Open <bpt id="c5d001ea-eb45-43b5-8cf9-7d2c8ec17a7f">&lt;strong&gt;</bpt>Event Viewer<ept id="c5d001ea-eb45-43b5-8cf9-7d2c8ec17a7f">&lt;/strong&gt;</ept> –&gt; <bpt id="86963abf-bbc3-49a8-84c2-7689190d27ca">&lt;strong&gt;</bpt>Application and Services<ept id="86963abf-bbc3-49a8-84c2-7689190d27ca">&lt;/strong&gt;</ept> –&gt; <bpt id="d860ce6d-dec0-4f41-81ef-6b2b8bff0ed9">&lt;strong&gt;</bpt>Operations Manager<ept id="d860ce6d-dec0-4f41-81ef-6b2b8bff0ed9">&lt;/strong&gt;</ept> and filter by Event Sources: <bpt id="714d9032-d538-42c4-aa7d-8af3345fa2b5">&lt;strong&gt;</bpt>Advisor<ept id="714d9032-d538-42c4-aa7d-8af3345fa2b5">&lt;/strong&gt;</ept>, <bpt id="d1d4fe9e-6f9e-4183-a629-2dee542973a0">&lt;strong&gt;</bpt>Health Service Modules<ept id="d1d4fe9e-6f9e-4183-a629-2dee542973a0">&lt;/strong&gt;</ept>, <bpt id="a1a2c014-1439-4ed7-b05e-dc0ecb4bfca0">&lt;strong&gt;</bpt>HealthService<ept id="a1a2c014-1439-4ed7-b05e-dc0ecb4bfca0">&lt;/strong&gt;</ept> and <bpt id="d59797b5-8884-4979-bb56-f6a82f054956">&lt;strong&gt;</bpt>Service Connector<ept id="d59797b5-8884-4979-bb56-f6a82f054956">&lt;/strong&gt;</ept> (this last one applies to Direct Agent only).</target>
+        </trans-unit>
+        <trans-unit id="1c6be9e7-6060-4525-b8d8-c6725a4ea2b6" xml:space="preserve">
+          <source>Most of these events would be similar in either Operations Manager and on Direct Agent and the steps for troubleshooting would be similar for either.</source>
+          <target state="new">Most of these events would be similar in either Operations Manager and on Direct Agent and the steps for troubleshooting would be similar for either.</target>
+        </trans-unit>
+        <trans-unit id="5fade17c-cc06-47f6-9826-620c2aa952c2" xml:space="preserve">
+          <source>The only part that differs between Operations Manager and Direct Agent is the registration process (GUI in Operations Manager; workspace Id/Key combination in Direct agent) but, after initial registration, certificates are exchanges and used and everything else about the communication with the service is the same.</source>
+          <target state="new">The only part that differs between Operations Manager and Direct Agent is the registration process (GUI in Operations Manager; workspace Id/Key combination in Direct agent) but, after initial registration, certificates are exchanges and used and everything else about the communication with the service is the same.</target>
+        </trans-unit>
+        <trans-unit id="7f5ae42a-4bc3-44a5-a08d-720b7f9d6f12" xml:space="preserve">
+          <source>Hence, many of these events apply to both types of reporting infrastructure.</source>
+          <target state="new">Hence, many of these events apply to both types of reporting infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="02ebb036-c492-4b26-a1c7-8f2b651c86b9" xml:space="preserve">
+          <source>Here's a list of the common ones you might see.</source>
+          <target state="new">Here's a list of the common ones you might see.</target>
+        </trans-unit>
+        <trans-unit id="34742c44-cba9-4cfd-acef-8a301463d24d" xml:space="preserve">
+          <source>This means your proxy requires authentication.</source>
+          <target state="new">This means your proxy requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="b51b93f9-9a42-4930-ae06-a63e4bed59e7" xml:space="preserve">
+          <source>Please follow the steps to <bpt id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;linkText&gt;</bpt>configure proxy servers<ept id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;/linkText&gt;</ept><bpt id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;title&gt;</bpt><ept id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;/title&gt;</ept></source>
+          <target state="new">Please follow the steps to <bpt id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;linkText&gt;</bpt>configure proxy servers<ept id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;/linkText&gt;</ept><bpt id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;title&gt;</bpt><ept id="c20099e3-2f3a-45d2-8513-bd5fdec2f834">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49d0617e-c86a-4547-8da7-ba383b29b049" xml:space="preserve">
+          <source>Operations Manager cannot read the authentication certificate.</source>
+          <target state="new">Operations Manager cannot read the authentication certificate.</target>
+        </trans-unit>
+        <trans-unit id="043f76a4-09d9-4ae7-9059-b3a0707b3619" xml:space="preserve">
+          <source>Re-running the Advisor registration wizard will fix certificates/runas accounts</source>
+          <target state="new">Re-running the Advisor registration wizard will fix certificates/runas accounts</target>
+        </trans-unit>
+        <trans-unit id="5f508835-68bf-455f-b816-5a2298b794e1" xml:space="preserve">
+          <source>Means <bpt id="580b1311-dcc1-4560-8fbe-61a67441429c">&lt;strong&gt;</bpt>Not Authorized<ept id="580b1311-dcc1-4560-8fbe-61a67441429c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Means <bpt id="580b1311-dcc1-4560-8fbe-61a67441429c">&lt;strong&gt;</bpt>Not Authorized<ept id="580b1311-dcc1-4560-8fbe-61a67441429c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45901bb4-64f3-4e87-8170-a92efccad521" xml:space="preserve">
+          <source>Could be an issue with the certificate and/or registration to the service; try re-running the registration wizard that will fix certificates and RunAs accounts.</source>
+          <target state="new">Could be an issue with the certificate and/or registration to the service; try re-running the registration wizard that will fix certificates and RunAs accounts.</target>
+        </trans-unit>
+        <trans-unit id="699e358e-673f-4b84-8211-30fd42b84a54" xml:space="preserve">
+          <source>Additionally, verify the proxy has been set to allow exclusions.</source>
+          <target state="new">Additionally, verify the proxy has been set to allow exclusions.</target>
+        </trans-unit>
+        <trans-unit id="685da99a-af15-4328-9f2c-45ba0997c34f" xml:space="preserve">
+          <source>For more information see <bpt id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;linkText&gt;</bpt>configure proxy servers<ept id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;/linkText&gt;</ept><bpt id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;title&gt;</bpt><ept id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;/title&gt;</ept></source>
+          <target state="new">For more information see <bpt id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;linkText&gt;</bpt>configure proxy servers<ept id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;/linkText&gt;</ept><bpt id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;title&gt;</bpt><ept id="ea654b98-3084-4734-8abf-91caeca1093c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a973f671-7896-4271-b3f1-d69075a9cb8e" xml:space="preserve">
+          <source>This is a failed connection due to failed SSL negotiation.</source>
+          <target state="new">This is a failed connection due to failed SSL negotiation.</target>
+        </trans-unit>
+        <trans-unit id="2130ef82-e731-4050-9872-2b948901ae79" xml:space="preserve">
+          <source>Verify that your systems are configured to use TLS and not SSL.</source>
+          <target state="new">Verify that your systems are configured to use TLS and not SSL.</target>
+        </trans-unit>
+        <trans-unit id="19fec347-7d5e-4938-9d9b-7351a2ab8efa" xml:space="preserve">
+          <source>There could be some strange SSL settings on this server with regards to chipers, either in the Internet Explorer <bpt id="81afe366-28cb-40f0-a79b-0fb83b574661">&lt;strong&gt;</bpt>Advanced<ept id="81afe366-28cb-40f0-a79b-0fb83b574661">&lt;/strong&gt;</ept> options, or in the Windows registry under the key</source>
+          <target state="new">There could be some strange SSL settings on this server with regards to chipers, either in the Internet Explorer <bpt id="81afe366-28cb-40f0-a79b-0fb83b574661">&lt;strong&gt;</bpt>Advanced<ept id="81afe366-28cb-40f0-a79b-0fb83b574661">&lt;/strong&gt;</ept> options, or in the Windows registry under the key</target>
+        </trans-unit>
+        <trans-unit id="c54cd08b-a1ff-44c1-b13b-978c4224e98b" xml:space="preserve">
+          <source>Failure sending data received error code.</source>
+          <target state="new">Failure sending data received error code.</target>
+        </trans-unit>
+        <trans-unit id="2b8f215d-1e66-41ad-8155-cc95c72f06ae" xml:space="preserve">
+          <source>If this only happens once in a while, it could be just a glitch.</source>
+          <target state="new">If this only happens once in a while, it could be just a glitch.</target>
+        </trans-unit>
+        <trans-unit id="343e0f38-61c8-45f2-9125-d836f1585910" xml:space="preserve">
+          <source>Keep an eye on it, to understand how often it happens.</source>
+          <target state="new">Keep an eye on it, to understand how often it happens.</target>
+        </trans-unit>
+        <trans-unit id="9d883c55-321e-49fe-8874-56f7c67a623a" xml:space="preserve">
+          <source>If the same appears very often (every 10 minutes or so for an extended period of time), then it could be a real issue – check your network configuration, proxy settings described above, and re-run registration wizard.</source>
+          <target state="new">If the same appears very often (every 10 minutes or so for an extended period of time), then it could be a real issue – check your network configuration, proxy settings described above, and re-run registration wizard.</target>
+        </trans-unit>
+        <trans-unit id="fc226a08-832d-43cc-b9f0-88ade73c94ff" xml:space="preserve">
+          <source>But if it only happens sporadically (i.e. a couple of times per day) then everything should be fine, as data will be queued and retransmitted.</source>
+          <target state="new">But if it only happens sporadically (i.e. a couple of times per day) then everything should be fine, as data will be queued and retransmitted.</target>
+        </trans-unit>
+        <trans-unit id="26f2a296-9284-4d6a-ab6d-4d8a9ef5b9bd" xml:space="preserve">
+          <source>It's probably just a network timeout if that's the frequency at which it occurs.</source>
+          <target state="new">It's probably just a network timeout if that's the frequency at which it occurs.</target>
+        </trans-unit>
+        <trans-unit id="a0f0c98b-9951-412b-bc7e-a3a9babe4f3a" xml:space="preserve">
+          <source>Some of the HTTP error codes have some special meanings, i.e.:</source>
+          <target state="new">Some of the HTTP error codes have some special meanings, i.e.:</target>
+        </trans-unit>
+        <trans-unit id="0ba16b0b-44c1-4219-9803-4cb80f06affc" xml:space="preserve">
+          <source>the FIRST time that a MMA direct agent or management server tries to send data to our service, it will get a 500 error with an inner 404 error code – 404 means not found; this indicates that the storage area we’ll use for this new workspace of yours isn’t quite ready yet – it is being provisioned.</source>
+          <target state="new">the FIRST time that a MMA direct agent or management server tries to send data to our service, it will get a 500 error with an inner 404 error code – 404 means not found; this indicates that the storage area we’ll use for this new workspace of yours isn’t quite ready yet – it is being provisioned.</target>
+        </trans-unit>
+        <trans-unit id="3d3bae37-f960-4bc0-9bab-b629748b2c39" xml:space="preserve">
+          <source>On next retry, this will however be ready and flow will start working (under normal conditions).</source>
+          <target state="new">On next retry, this will however be ready and flow will start working (under normal conditions).</target>
+        </trans-unit>
+        <trans-unit id="0e27f452-0a41-45c8-a983-066f4f563004" xml:space="preserve">
+          <source>403 might indicate a permission/credential issue, and so forth.</source>
+          <target state="new">403 might indicate a permission/credential issue, and so forth.</target>
+        </trans-unit>
+        <trans-unit id="446cdda2-5cfa-40e4-9bf9-c9feaa04765f" xml:space="preserve">
+          <source>DNS name resolution failed.</source>
+          <target state="new">DNS name resolution failed.</target>
+        </trans-unit>
+        <trans-unit id="d425c63a-c460-4aad-ab05-fb92e7f6cfca" xml:space="preserve">
+          <source>You server can’t resolve our internet address it is supposed to send data to.</source>
+          <target state="new">You server can’t resolve our internet address it is supposed to send data to.</target>
+        </trans-unit>
+        <trans-unit id="7244638e-1f23-4cad-b8a9-549cd2d37ab3" xml:space="preserve">
+          <source>This might be DNS resolver settings on your machine, incorrect proxy settings, or a (temporary) issue with DNS at your provider.</source>
+          <target state="new">This might be DNS resolver settings on your machine, incorrect proxy settings, or a (temporary) issue with DNS at your provider.</target>
+        </trans-unit>
+        <trans-unit id="1943b032-f878-4248-82ad-f52f4d7ecfbd" xml:space="preserve">
+          <source>Like the previous event, depending if it happens constantly or ‘once in a while’ it could indicate a real issue – or not.</source>
+          <target state="new">Like the previous event, depending if it happens constantly or ‘once in a while’ it could indicate a real issue – or not.</target>
+        </trans-unit>
+        <trans-unit id="05fc46ba-a7e4-4b6e-9f13-6ab8588b6a92" xml:space="preserve">
+          <source>Timeout.</source>
+          <target state="new">Timeout.</target>
+        </trans-unit>
+        <trans-unit id="ddecade5-66a1-48ae-a0b3-1fcb81fe3527" xml:space="preserve">
+          <source>Like the previous event, depending if it happens constantly or ‘once in a while’ it could be an issue – or not.</source>
+          <target state="new">Like the previous event, depending if it happens constantly or ‘once in a while’ it could be an issue – or not.</target>
+        </trans-unit>
+        <trans-unit id="6c8ae1f5-69ee-4e3d-a4e0-04a6ed9e7e69" xml:space="preserve">
+          <source>Cannot load module "System.PublishDataToEndPoint" – file not found.</source>
+          <target state="new">Cannot load module "System.PublishDataToEndPoint" – file not found.</target>
+        </trans-unit>
+        <trans-unit id="29b70a50-6231-4881-93a7-fc6b167c5425" xml:space="preserve">
+          <source>Initialization of a module of type "System.PublishDataToEndPoint" (CLSID "{D407D659-65E4-4476-BF40-924E56841465}") failed with error code The system cannot find the file specified.</source>
+          <target state="new">Initialization of a module of type "System.PublishDataToEndPoint" (CLSID "{D407D659-65E4-4476-BF40-924E56841465}") failed with error code The system cannot find the file specified.</target>
+        </trans-unit>
+        <trans-unit id="a41502fa-2d96-4e9d-98b2-4ff634a2ba64" xml:space="preserve">
+          <source>This error indicates you have old DLLs on your machine, that don’t contain the required modules.</source>
+          <target state="new">This error indicates you have old DLLs on your machine, that don’t contain the required modules.</target>
+        </trans-unit>
+        <trans-unit id="f70903f9-849b-4077-9826-d59e5ba1bbc0" xml:space="preserve">
+          <source>The fix is to update your Management Servers to the latest Update Rollup.</source>
+          <target state="new">The fix is to update your Management Servers to the latest Update Rollup.</target>
+        </trans-unit>
+        <trans-unit id="a53b8b72-a2ba-4baa-a2b4-bc175b8164d3" xml:space="preserve">
+          <source>Module crashed.</source>
+          <target state="new">Module crashed.</target>
+        </trans-unit>
+        <trans-unit id="55d2a6a0-73ea-4ee5-b082-400f25023a28" xml:space="preserve">
+          <source>If you see this for workflows with names such as <bpt id="96c0326b-e3fe-4724-8ee1-e83296ef7e65">&lt;strong&gt;</bpt>CollectInstanceSpace<ept id="96c0326b-e3fe-4724-8ee1-e83296ef7e65">&lt;/strong&gt;</ept> or <bpt id="69e4858e-4eb7-4d10-bcfe-5bc9dbfb7c93">&lt;strong&gt;</bpt>CollectTypeSpace<ept id="69e4858e-4eb7-4d10-bcfe-5bc9dbfb7c93">&lt;/strong&gt;</ept> it might mean the server is having issues to send some configuration data.</source>
+          <target state="new">If you see this for workflows with names such as <bpt id="96c0326b-e3fe-4724-8ee1-e83296ef7e65">&lt;strong&gt;</bpt>CollectInstanceSpace<ept id="96c0326b-e3fe-4724-8ee1-e83296ef7e65">&lt;/strong&gt;</ept> or <bpt id="69e4858e-4eb7-4d10-bcfe-5bc9dbfb7c93">&lt;strong&gt;</bpt>CollectTypeSpace<ept id="69e4858e-4eb7-4d10-bcfe-5bc9dbfb7c93">&lt;/strong&gt;</ept> it might mean the server is having issues to send some configuration data.</target>
+        </trans-unit>
+        <trans-unit id="e428a7a3-31da-41e0-8079-d59ac3f090a4" xml:space="preserve">
+          <source>Depending on how often it happens - constantly or ‘once in a while’ - it could be an issue or not.</source>
+          <target state="new">Depending on how often it happens - constantly or ‘once in a while’ - it could be an issue or not.</target>
+        </trans-unit>
+        <trans-unit id="456aca69-a69a-44f5-8d90-2804d06388b5" xml:space="preserve">
+          <source>If it happens more that every hour it is definitely an issue.</source>
+          <target state="new">If it happens more that every hour it is definitely an issue.</target>
+        </trans-unit>
+        <trans-unit id="b48cd8bf-e107-40a8-947e-e4aee4a286e3" xml:space="preserve">
+          <source>If only fails this operation once or twice per day, it will be fine an able to recover.</source>
+          <target state="new">If only fails this operation once or twice per day, it will be fine an able to recover.</target>
+        </trans-unit>
+        <trans-unit id="8c192f35-6c05-4b93-8bfc-271a2a593dae" xml:space="preserve">
+          <source>Depending on how the module actually fails (description will have more details) this could be an on-premises issue – i.e. to collect to DB – or an issue sending to the cloud.</source>
+          <target state="new">Depending on how the module actually fails (description will have more details) this could be an on-premises issue – i.e. to collect to DB – or an issue sending to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="376033cf-0c78-4d51-8f92-f4b94fd8ddec" xml:space="preserve">
+          <source>Verify your network and proxy settings, and worst case try restarting the HealthService.</source>
+          <target state="new">Verify your network and proxy settings, and worst case try restarting the HealthService.</target>
+        </trans-unit>
+        <trans-unit id="aa32b74f-5f21-46ae-bb03-8844e11a320f" xml:space="preserve">
+          <source>Module "System.PublishDataToEndPoint" crashed.</source>
+          <target state="new">Module "System.PublishDataToEndPoint" crashed.</target>
+        </trans-unit>
+        <trans-unit id="ba6b7d73-9f89-4457-9b76-0d6f144b891e" xml:space="preserve">
+          <source>A module of type "System.PublishDataToEndPoint" reported an error 87L which was running as part of rule "Microsoft.SystemCenter.CollectAlertChangeDataToCloud" running for instance "Operations Manager Management Group" with id:"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}" in management group "SCOMTEST".</source>
+          <target state="new">A module of type "System.PublishDataToEndPoint" reported an error 87L which was running as part of rule "Microsoft.SystemCenter.CollectAlertChangeDataToCloud" running for instance "Operations Manager Management Group" with id:"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}" in management group "SCOMTEST".</target>
+        </trans-unit>
+        <trans-unit id="732bae5d-d090-45aa-b034-a50c9fa82854" xml:space="preserve">
+          <source>You should <bpt id="5fb740d6-1052-408f-8988-179b7587b768">&lt;em&gt;</bpt>not<ept id="5fb740d6-1052-408f-8988-179b7587b768">&lt;/em&gt;</ept> see this with this exact workflow, module and error anymore, it used to be [a bug <bpt id="8ff15570-cc25-41d0-86e7-b6604274a290">&lt;em&gt;</bpt>now fixed<ept id="8ff15570-cc25-41d0-86e7-b6604274a290">&lt;/em&gt;</ept>](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale).</source>
+          <target state="new">You should <bpt id="5fb740d6-1052-408f-8988-179b7587b768">&lt;em&gt;</bpt>not<ept id="5fb740d6-1052-408f-8988-179b7587b768">&lt;/em&gt;</ept> see this with this exact workflow, module and error anymore, it used to be [a bug <bpt id="8ff15570-cc25-41d0-86e7-b6604274a290">&lt;em&gt;</bpt>now fixed<ept id="8ff15570-cc25-41d0-86e7-b6604274a290">&lt;/em&gt;</ept>](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale).</target>
+        </trans-unit>
+        <trans-unit id="ee387743-0a0d-4df2-b700-530b2f8149ad" xml:space="preserve">
+          <source>If you see this again please report it thru your preferred Microsoft support channel.</source>
+          <target state="new">If you see this again please report it thru your preferred Microsoft support channel.</target>
+        </trans-unit>
+        <trans-unit id="de42ac19-6819-4068-ab4f-0aad2486d21d" xml:space="preserve">
+          <source>The service returned HTTP status code 403 in response to a query.  Please check with the service administrator for the health of the service. The query will be retried later. You can get a 403 during the agent’s initial registration phase, you’ll see a URL like https://&lt;YourWorkspaceID&gt;.oms.opinsights.azure.com/ AgentService.svc/AgentTopologyRequest
+Error code 403 means ‘fordbidden’ – this is typically a wrongly-copied WorkspaceId or key, or the clock is not synced on the machine. Try synchronising with a reliable time source and use the connectivity check in the Control Panel applet for Microsoft Monitoring Agent to verify you have the right workspace Id and Key.</source>
+          <target state="new">The service returned HTTP status code 403 in response to a query.  Please check with the service administrator for the health of the service. The query will be retried later. You can get a 403 during the agent’s initial registration phase, you’ll see a URL like https://&lt;YourWorkspaceID&gt;.oms.opinsights.azure.com/ AgentService.svc/AgentTopologyRequest
+Error code 403 means ‘fordbidden’ – this is typically a wrongly-copied WorkspaceId or key, or the clock is not synced on the machine. Try synchronising with a reliable time source and use the connectivity check in the Control Panel applet for Microsoft Monitoring Agent to verify you have the right workspace Id and Key.</target>
+        </trans-unit>
+        <trans-unit id="abca2ba4-b378-4a4e-837f-7d1fd4b09a8c" xml:space="preserve">
+          <source>Check in the OpInsights Portal, from Overview page navigate to the small tile <bpt id="740d99f6-4c06-49e5-be19-fa73560b1828">&lt;strong&gt;</bpt>Servers and Usage<ept id="740d99f6-4c06-49e5-be19-fa73560b1828">&lt;/strong&gt;</ept> – this will show if management groups (and their agents) and direct agents are reporting data into log search.</source>
+          <target state="new">Check in the OpInsights Portal, from Overview page navigate to the small tile <bpt id="740d99f6-4c06-49e5-be19-fa73560b1828">&lt;strong&gt;</bpt>Servers and Usage<ept id="740d99f6-4c06-49e5-be19-fa73560b1828">&lt;/strong&gt;</ept> – this will show if management groups (and their agents) and direct agents are reporting data into log search.</target>
+        </trans-unit>
+        <trans-unit id="2e596ef7-295e-43c9-8fc4-81d45206172e" xml:space="preserve">
+          <source>The number of agents on the tile is derived from data – if machines don’t report for 2 weeks they’ll drop off the radar.</source>
+          <target state="new">The number of agents on the tile is derived from data – if machines don’t report for 2 weeks they’ll drop off the radar.</target>
+        </trans-unit>
+        <trans-unit id="dd4cd804-c273-4f39-a03b-156aa730ab35" xml:space="preserve">
+          <source>The drill downs take you to log search and show the last indexed data’s timestamp for each machine.</source>
+          <target state="new">The drill downs take you to log search and show the last indexed data’s timestamp for each machine.</target>
+        </trans-unit>
+        <trans-unit id="eb3975bf-9698-4e84-8054-e8c0e1046795" xml:space="preserve">
+          <source>From there you can explore what data it is.</source>
+          <target state="new">From there you can explore what data it is.</target>
+        </trans-unit>
+        <trans-unit id="693cf71d-62f9-459f-bd00-1d352d1a5092" xml:space="preserve">
+          <source>Depending on the amount of data collection configured and which solutions, data upload schedule and speed can vary.</source>
+          <target state="new">Depending on the amount of data collection configured and which solutions, data upload schedule and speed can vary.</target>
+        </trans-unit>
+        <trans-unit id="068ee2e7-176c-4abb-b9b6-a62acba90c4b" xml:space="preserve">
+          <source>This page also features metering information (this does not use the log search index but the billing system, it’s refreshed every couple of hours) about the amounts of data sent to the service broken down by solution.</source>
+          <target state="new">This page also features metering information (this does not use the log search index but the billing system, it’s refreshed every couple of hours) about the amounts of data sent to the service broken down by solution.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

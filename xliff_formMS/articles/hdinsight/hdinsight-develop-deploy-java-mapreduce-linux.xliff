@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b02271d1-9a74-42a2-ac71-7f2c1c346ddb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b02271d1-9a74-42a2-ac71-7f2c1c346ddb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="60a37c90-566c-43bd-828c-e5d7b0b9b804">
+        <trans-unit id="379c9793-9d3b-4497-b3b1-5fde30886920" xml:space="preserve">
+          <source>Develop Java MapReduce programs for Hadoop | Microsoft Azure</source>
+          <target state="new">Develop Java MapReduce programs for Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="db74e7ce-9dd3-44fd-aa6c-73db442bf978" xml:space="preserve">
+          <source>Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight.</source>
+          <target state="new">Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="20f48776-3b12-4de4-a9e7-0c58e320190c" xml:space="preserve">
+          <source><bpt id="295566a4-f9b2-48f6-aba3-31a0d959c7ba">&lt;token href="../../includes/hdinsight-maven-mapreduce-selector.md"&gt;</bpt><ept id="295566a4-f9b2-48f6-aba3-31a0d959c7ba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="295566a4-f9b2-48f6-aba3-31a0d959c7ba">&lt;token href="../../includes/hdinsight-maven-mapreduce-selector.md"&gt;</bpt><ept id="295566a4-f9b2-48f6-aba3-31a0d959c7ba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83d28745-4ca5-42a9-bed0-fb0bfe234d62" xml:space="preserve">
+          <source>This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.</source>
+          <target state="new">This documents walks you through using Apache Maven to create a MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="a8079375-332e-40a9-a79f-5f4b73d7786f" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="f61f7aad-d329-4654-9ecf-f8f2b69242c8" xml:space="preserve">
+          <source><bpt id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;linkText&gt;</bpt>Java JDK<ept id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;/linkText&gt;</ept><bpt id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;title&gt;</bpt><ept id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;/title&gt;</ept> 7 or later (or an equivalent, such as OpenJDK)</source>
+          <target state="new"><bpt id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;linkText&gt;</bpt>Java JDK<ept id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;/linkText&gt;</ept><bpt id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;title&gt;</bpt><ept id="c7b9daae-75a0-48aa-8e21-49dd03e7a945">&lt;/title&gt;</ept> 7 or later (or an equivalent, such as OpenJDK)</target>
+        </trans-unit>
+        <trans-unit id="8f1e16f7-339c-4cac-8be2-03f245152c7d" xml:space="preserve">
+          <source><bpt id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;linkText&gt;</bpt>Apache Maven<ept id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;/linkText&gt;</ept><bpt id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;title&gt;</bpt><ept id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;linkText&gt;</bpt>Apache Maven<ept id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;/linkText&gt;</ept><bpt id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;title&gt;</bpt><ept id="ea2a8d18-57bc-42ef-b7d2-22a243d81d4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6463a5bc-de43-4e53-b1e1-260bfb0f419d" xml:space="preserve">
+          <source><bpt id="5e274907-adbd-47fa-8387-d1e142caf358">&lt;strong&gt;</bpt>An Azure subscription<ept id="5e274907-adbd-47fa-8387-d1e142caf358">&lt;/strong&gt;</ept>: See <bpt id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;/linkText&gt;</ept><bpt id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;title&gt;</bpt><ept id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="5e274907-adbd-47fa-8387-d1e142caf358">&lt;strong&gt;</bpt>An Azure subscription<ept id="5e274907-adbd-47fa-8387-d1e142caf358">&lt;/strong&gt;</ept>: See <bpt id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;/linkText&gt;</ept><bpt id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;title&gt;</bpt><ept id="79be133c-3f99-492a-bb8b-28d6545afae9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d7e5336-91bd-42bd-8ff8-26d95931c90c" xml:space="preserve">
+          <source><bpt id="750d20ba-bd56-4242-83d2-e679a2b30c5e">&lt;strong&gt;</bpt>Azure CLI<ept id="750d20ba-bd56-4242-83d2-e679a2b30c5e">&lt;/strong&gt;</ept>: For more information, see <bpt id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;linkText&gt;</bpt>Install and configure Azure CLI<ept id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;/linkText&gt;</ept><bpt id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;title&gt;</bpt><ept id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="750d20ba-bd56-4242-83d2-e679a2b30c5e">&lt;strong&gt;</bpt>Azure CLI<ept id="750d20ba-bd56-4242-83d2-e679a2b30c5e">&lt;/strong&gt;</ept>: For more information, see <bpt id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;linkText&gt;</bpt>Install and configure Azure CLI<ept id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;/linkText&gt;</ept><bpt id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;title&gt;</bpt><ept id="a937a70c-afc6-4ce7-be90-c1bf5c92b546">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7b05e13-8aaa-4669-b261-19f0236246ba" xml:space="preserve">
+          <source>The following environment variables may be set when you install Java and the JDK.</source>
+          <target state="new">The following environment variables may be set when you install Java and the JDK.</target>
+        </trans-unit>
+        <trans-unit id="3044d796-4410-4846-8e10-9e0fd8cd0214" xml:space="preserve">
+          <source>However, you should check that they exist and that they contain the correct values for your system.</source>
+          <target state="new">However, you should check that they exist and that they contain the correct values for your system.</target>
+        </trans-unit>
+        <trans-unit id="9db2257e-fb52-4729-a9ad-e50039997228" xml:space="preserve">
+          <source><bpt id="eaccc991-817f-4a75-b14a-62783c0a7350">&lt;strong&gt;</bpt>JAVA_HOME<ept id="eaccc991-817f-4a75-b14a-62783c0a7350">&lt;/strong&gt;</ept> - should point to the directory where the Java runtime environment (JRE) is installed.</source>
+          <target state="new"><bpt id="eaccc991-817f-4a75-b14a-62783c0a7350">&lt;strong&gt;</bpt>JAVA_HOME<ept id="eaccc991-817f-4a75-b14a-62783c0a7350">&lt;/strong&gt;</ept> - should point to the directory where the Java runtime environment (JRE) is installed.</target>
+        </trans-unit>
+        <trans-unit id="f611d990-72cd-4f62-9a16-cf8cde833531" xml:space="preserve">
+          <source>For example, in a OS X, Unix or Linux system, it should have a value similar to <bpt id="afb64f48-47cc-418f-a03c-cc83c26ebf85">&lt;code&gt;</bpt>/usr/lib/jvm/java-7-oracle<ept id="afb64f48-47cc-418f-a03c-cc83c26ebf85">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, in a OS X, Unix or Linux system, it should have a value similar to <bpt id="afb64f48-47cc-418f-a03c-cc83c26ebf85">&lt;code&gt;</bpt>/usr/lib/jvm/java-7-oracle<ept id="afb64f48-47cc-418f-a03c-cc83c26ebf85">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f26dee8-3893-4717-a809-382c9ac16bff" xml:space="preserve">
+          <source>In Windows, it would have a value similar to <bpt id="6eb8ebc5-9133-4046-950a-3ce7c8bd8f52">&lt;code&gt;</bpt>c:\Program Files (x86)\Java\jre1.7<ept id="6eb8ebc5-9133-4046-950a-3ce7c8bd8f52">&lt;/code&gt;</ept></source>
+          <target state="new">In Windows, it would have a value similar to <bpt id="6eb8ebc5-9133-4046-950a-3ce7c8bd8f52">&lt;code&gt;</bpt>c:\Program Files (x86)\Java\jre1.7<ept id="6eb8ebc5-9133-4046-950a-3ce7c8bd8f52">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c0a9725-d2e2-4c0d-a204-63c0e7b1e4bd" xml:space="preserve">
+          <source><bpt id="cc4bdb79-02e0-4e36-886f-79c5e218c2ac">&lt;strong&gt;</bpt>PATH<ept id="cc4bdb79-02e0-4e36-886f-79c5e218c2ac">&lt;/strong&gt;</ept> - should contain the following paths:</source>
+          <target state="new"><bpt id="cc4bdb79-02e0-4e36-886f-79c5e218c2ac">&lt;strong&gt;</bpt>PATH<ept id="cc4bdb79-02e0-4e36-886f-79c5e218c2ac">&lt;/strong&gt;</ept> - should contain the following paths:</target>
+        </trans-unit>
+        <trans-unit id="2ecac45e-4cd8-4606-abc0-944b685b742b" xml:space="preserve">
+          <source><bpt id="eb23f7b3-46bb-4372-b113-3650d140ceef">&lt;strong&gt;</bpt>JAVA_HOME<ept id="eb23f7b3-46bb-4372-b113-3650d140ceef">&lt;/strong&gt;</ept> (or the equivalent path)</source>
+          <target state="new"><bpt id="eb23f7b3-46bb-4372-b113-3650d140ceef">&lt;strong&gt;</bpt>JAVA_HOME<ept id="eb23f7b3-46bb-4372-b113-3650d140ceef">&lt;/strong&gt;</ept> (or the equivalent path)</target>
+        </trans-unit>
+        <trans-unit id="a6d2b57f-0a57-455e-8772-faf19f91fc4a" xml:space="preserve">
+          <source><bpt id="b8c4caec-2414-456c-8aec-6f583482fc44">&lt;strong&gt;</bpt>JAVA_HOME\bin<ept id="b8c4caec-2414-456c-8aec-6f583482fc44">&lt;/strong&gt;</ept> (or the equivalent path)</source>
+          <target state="new"><bpt id="b8c4caec-2414-456c-8aec-6f583482fc44">&lt;strong&gt;</bpt>JAVA_HOME\bin<ept id="b8c4caec-2414-456c-8aec-6f583482fc44">&lt;/strong&gt;</ept> (or the equivalent path)</target>
+        </trans-unit>
+        <trans-unit id="102af054-9d40-4ef3-b2be-137eab6bff5b" xml:space="preserve">
+          <source>The directory where Maven is installed</source>
+          <target state="new">The directory where Maven is installed</target>
+        </trans-unit>
+        <trans-unit id="bdfdf23f-9e37-4c7e-8dd6-e16745f5b223" xml:space="preserve">
+          <source>From a terminal session, or command line in your development environment, change directories to the location you want to store this project.</source>
+          <target state="new">From a terminal session, or command line in your development environment, change directories to the location you want to store this project.</target>
+        </trans-unit>
+        <trans-unit id="977d0d6e-bde7-4709-b6f8-e7edb1284048" xml:space="preserve">
+          <source>Use the <bpt id="29dbbec7-eb56-478c-a251-28db272b999a">&lt;strong&gt;</bpt>mvn<ept id="29dbbec7-eb56-478c-a251-28db272b999a">&lt;/strong&gt;</ept> command, which is installed with Maven, to generate the scaffolding for the project.</source>
+          <target state="new">Use the <bpt id="29dbbec7-eb56-478c-a251-28db272b999a">&lt;strong&gt;</bpt>mvn<ept id="29dbbec7-eb56-478c-a251-28db272b999a">&lt;/strong&gt;</ept> command, which is installed with Maven, to generate the scaffolding for the project.</target>
+        </trans-unit>
+        <trans-unit id="fc88f829-94e8-4a33-9895-4d5672c579a8" xml:space="preserve">
+          <source>This will create a new directory in the current directory, with the name specified by the <bpt id="5ccb6247-9b19-4d0b-b530-b6f391e0daf5">&lt;strong&gt;</bpt>artifactID<ept id="5ccb6247-9b19-4d0b-b530-b6f391e0daf5">&lt;/strong&gt;</ept> parameter (<bpt id="eec58c8e-098a-4869-a2e2-9304477e26cc">&lt;strong&gt;</bpt>wordcountjava<ept id="eec58c8e-098a-4869-a2e2-9304477e26cc">&lt;/strong&gt;</ept> in this example.)</source>
+          <target state="new">This will create a new directory in the current directory, with the name specified by the <bpt id="5ccb6247-9b19-4d0b-b530-b6f391e0daf5">&lt;strong&gt;</bpt>artifactID<ept id="5ccb6247-9b19-4d0b-b530-b6f391e0daf5">&lt;/strong&gt;</ept> parameter (<bpt id="eec58c8e-098a-4869-a2e2-9304477e26cc">&lt;strong&gt;</bpt>wordcountjava<ept id="eec58c8e-098a-4869-a2e2-9304477e26cc">&lt;/strong&gt;</ept> in this example.)</target>
+        </trans-unit>
+        <trans-unit id="d202c2cb-95a6-4081-b63b-5a48c5ac7d95" xml:space="preserve">
+          <source>This directory will contain the following items:</source>
+          <target state="new">This directory will contain the following items:</target>
+        </trans-unit>
+        <trans-unit id="d05065b2-f8bb-4450-9e1b-1c95de94bf17" xml:space="preserve">
+          <source><bpt id="8d33400f-168c-47b4-89c9-8d9c8ad65bf1">&lt;strong&gt;</bpt>pom.xml<ept id="8d33400f-168c-47b4-89c9-8d9c8ad65bf1">&lt;/strong&gt;</ept> - The <bpt id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;linkText&gt;</bpt>Project Object Model (POM)<ept id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;/linkText&gt;</ept><bpt id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;title&gt;</bpt><ept id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;/title&gt;</ept> that contains information and configuration details used to build the project.</source>
+          <target state="new"><bpt id="8d33400f-168c-47b4-89c9-8d9c8ad65bf1">&lt;strong&gt;</bpt>pom.xml<ept id="8d33400f-168c-47b4-89c9-8d9c8ad65bf1">&lt;/strong&gt;</ept> - The <bpt id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;linkText&gt;</bpt>Project Object Model (POM)<ept id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;/linkText&gt;</ept><bpt id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;title&gt;</bpt><ept id="c34ffcd1-3222-4c57-817a-fa2cb1cc0560">&lt;/title&gt;</ept> that contains information and configuration details used to build the project.</target>
+        </trans-unit>
+        <trans-unit id="ebbf4224-65e6-4e54-9c96-b89b11888383" xml:space="preserve">
+          <source><bpt id="66e65624-1ff6-4e7e-a88d-72cb466f3d72">&lt;strong&gt;</bpt>src<ept id="66e65624-1ff6-4e7e-a88d-72cb466f3d72">&lt;/strong&gt;</ept> - The directory that contains the <bpt id="47ff4125-4f58-4ffa-9673-4ab90c5ceec4">&lt;strong&gt;</bpt>main/java/org/apache/hadoop/examples<ept id="47ff4125-4f58-4ffa-9673-4ab90c5ceec4">&lt;/strong&gt;</ept> directory, where you will author the application.</source>
+          <target state="new"><bpt id="66e65624-1ff6-4e7e-a88d-72cb466f3d72">&lt;strong&gt;</bpt>src<ept id="66e65624-1ff6-4e7e-a88d-72cb466f3d72">&lt;/strong&gt;</ept> - The directory that contains the <bpt id="47ff4125-4f58-4ffa-9673-4ab90c5ceec4">&lt;strong&gt;</bpt>main/java/org/apache/hadoop/examples<ept id="47ff4125-4f58-4ffa-9673-4ab90c5ceec4">&lt;/strong&gt;</ept> directory, where you will author the application.</target>
+        </trans-unit>
+        <trans-unit id="4cc371cb-6262-4b86-be7b-122b46c6cc93" xml:space="preserve">
+          <source>Delete the <bpt id="5be180bd-9b67-4114-9cb6-f0a23496c44b">&lt;strong&gt;</bpt>src/test/java/org/apache/hadoop/examples/apptest.java<ept id="5be180bd-9b67-4114-9cb6-f0a23496c44b">&lt;/strong&gt;</ept> file, as it will not be used in this example.</source>
+          <target state="new">Delete the <bpt id="5be180bd-9b67-4114-9cb6-f0a23496c44b">&lt;strong&gt;</bpt>src/test/java/org/apache/hadoop/examples/apptest.java<ept id="5be180bd-9b67-4114-9cb6-f0a23496c44b">&lt;/strong&gt;</ept> file, as it will not be used in this example.</target>
+        </trans-unit>
+        <trans-unit id="6dc15afc-d596-4461-b9a9-a28bfa0aa122" xml:space="preserve">
+          <source>Edit the <bpt id="69a93efa-eb00-4fd2-a7b4-3491163e2a70">&lt;strong&gt;</bpt>pom.xml<ept id="69a93efa-eb00-4fd2-a7b4-3491163e2a70">&lt;/strong&gt;</ept> file and add the following inside the <bpt id="6edee99d-aa59-4ab0-899c-351cdba7405c">&lt;code&gt;</bpt>&lt;dependencies&gt;<ept id="6edee99d-aa59-4ab0-899c-351cdba7405c">&lt;/code&gt;</ept> section:</source>
+          <target state="new">Edit the <bpt id="69a93efa-eb00-4fd2-a7b4-3491163e2a70">&lt;strong&gt;</bpt>pom.xml<ept id="69a93efa-eb00-4fd2-a7b4-3491163e2a70">&lt;/strong&gt;</ept> file and add the following inside the <bpt id="6edee99d-aa59-4ab0-899c-351cdba7405c">&lt;code&gt;</bpt>&lt;dependencies&gt;<ept id="6edee99d-aa59-4ab0-899c-351cdba7405c">&lt;/code&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="7eee25f5-61d9-4ac1-b502-3cc7e0e25bac" xml:space="preserve">
+          <source>This tells Maven that the project requires the libraries (listed within &lt;artifactId\&gt;) with a specific version (listed within &lt;version\&gt;). At compile time, this will be downloaded from the default Maven repository. You can use the <bpt id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;linkText&gt;</bpt>Maven repository search<ept id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;/linkText&gt;</ept><bpt id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;title&gt;</bpt><ept id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;/title&gt;</ept> to view more.</source>
+          <target state="new">This tells Maven that the project requires the libraries (listed within &lt;artifactId\&gt;) with a specific version (listed within &lt;version\&gt;). At compile time, this will be downloaded from the default Maven repository. You can use the <bpt id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;linkText&gt;</bpt>Maven repository search<ept id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;/linkText&gt;</ept><bpt id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;title&gt;</bpt><ept id="3fa0f5a1-a2f1-4d35-b60f-a80927a8f5ae">&lt;/title&gt;</ept> to view more.</target>
+        </trans-unit>
+        <trans-unit id="5442bb9b-cd24-4715-8c30-9d42d96c4a95" xml:space="preserve">
+          <source>The <bpt id="3f3977ea-7143-465c-8e60-d709e740617e">&lt;code&gt;</bpt>&lt;scope&gt;provided&lt;/scope&gt;<ept id="3f3977ea-7143-465c-8e60-d709e740617e">&lt;/code&gt;</ept> tells Maven that these dependencies should not be packaged with the application, as they will be provided by the HDInsight cluster at run-time.</source>
+          <target state="new">The <bpt id="3f3977ea-7143-465c-8e60-d709e740617e">&lt;code&gt;</bpt>&lt;scope&gt;provided&lt;/scope&gt;<ept id="3f3977ea-7143-465c-8e60-d709e740617e">&lt;/code&gt;</ept> tells Maven that these dependencies should not be packaged with the application, as they will be provided by the HDInsight cluster at run-time.</target>
+        </trans-unit>
+        <trans-unit id="c801f023-2678-4008-a349-24ddaa86ae9e" xml:space="preserve">
+          <source>Add the following to the <bpt id="c939036f-9679-4b33-8c22-2e987d8bac89">&lt;strong&gt;</bpt>pom.xml<ept id="c939036f-9679-4b33-8c22-2e987d8bac89">&lt;/strong&gt;</ept> file. This must be inside the <bpt id="1a802653-d9f6-49a7-bde5-ae0e49e1aba8">&lt;code&gt;</bpt>&lt;project&gt;...&lt;/project&gt;<ept id="1a802653-d9f6-49a7-bde5-ae0e49e1aba8">&lt;/code&gt;</ept> tags in the file; for example, between <bpt id="d9d44ec3-a688-4075-aa87-ee3d35d197e2">&lt;code&gt;</bpt>&lt;/dependencies&gt;<ept id="d9d44ec3-a688-4075-aa87-ee3d35d197e2">&lt;/code&gt;</ept> and <bpt id="a46e8ef1-46d1-49b4-81e7-fd37b10819dd">&lt;code&gt;</bpt>&lt;/project&gt;<ept id="a46e8ef1-46d1-49b4-81e7-fd37b10819dd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Add the following to the <bpt id="c939036f-9679-4b33-8c22-2e987d8bac89">&lt;strong&gt;</bpt>pom.xml<ept id="c939036f-9679-4b33-8c22-2e987d8bac89">&lt;/strong&gt;</ept> file. This must be inside the <bpt id="1a802653-d9f6-49a7-bde5-ae0e49e1aba8">&lt;code&gt;</bpt>&lt;project&gt;...&lt;/project&gt;<ept id="1a802653-d9f6-49a7-bde5-ae0e49e1aba8">&lt;/code&gt;</ept> tags in the file; for example, between <bpt id="d9d44ec3-a688-4075-aa87-ee3d35d197e2">&lt;code&gt;</bpt>&lt;/dependencies&gt;<ept id="d9d44ec3-a688-4075-aa87-ee3d35d197e2">&lt;/code&gt;</ept> and <bpt id="a46e8ef1-46d1-49b4-81e7-fd37b10819dd">&lt;code&gt;</bpt>&lt;/project&gt;<ept id="a46e8ef1-46d1-49b4-81e7-fd37b10819dd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5058906a-035a-40d0-aaa1-a512377b7b2e" xml:space="preserve">
+          <source>The first plugin configures the <bpt id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;linkText&gt;</bpt>Maven Shade Plugin<ept id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;/linkText&gt;</ept><bpt id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;title&gt;</bpt><ept id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;/title&gt;</ept>, which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application.</source>
+          <target state="new">The first plugin configures the <bpt id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;linkText&gt;</bpt>Maven Shade Plugin<ept id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;/linkText&gt;</ept><bpt id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;title&gt;</bpt><ept id="888b569d-027d-4308-9bfc-100c3b38744f">&lt;/title&gt;</ept>, which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application.</target>
+        </trans-unit>
+        <trans-unit id="cdd98987-fdfd-4c1a-a8fe-d64246846870" xml:space="preserve">
+          <source>It also prevents duplication of licenses within the jar package, which can cause problems on some systems.</source>
+          <target state="new">It also prevents duplication of licenses within the jar package, which can cause problems on some systems.</target>
+        </trans-unit>
+        <trans-unit id="4c638440-b9ec-449f-b5b4-39c8d2aeae0d" xml:space="preserve">
+          <source>The second plugin configures the Maven compiler, which is used to set the version of Java required by this application to the version used on the HDInsight cluster.</source>
+          <target state="new">The second plugin configures the Maven compiler, which is used to set the version of Java required by this application to the version used on the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="6bcf7eca-f700-4f7e-bdf4-8d2318b28043" xml:space="preserve">
+          <source>Save the <bpt id="3d4271d5-4c2f-435a-a2d9-e0b5b8c9afba">&lt;strong&gt;</bpt>pom.xml<ept id="3d4271d5-4c2f-435a-a2d9-e0b5b8c9afba">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="3d4271d5-4c2f-435a-a2d9-e0b5b8c9afba">&lt;strong&gt;</bpt>pom.xml<ept id="3d4271d5-4c2f-435a-a2d9-e0b5b8c9afba">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="40b91b68-f613-4fb3-81ca-f1aa78e9a402" xml:space="preserve">
+          <source>Go to the <bpt id="0bcd0c83-026b-48c1-a201-dc958309a2da">&lt;strong&gt;</bpt>wordcountjava/src/main/java/org/apache/hadoop/examples<ept id="0bcd0c83-026b-48c1-a201-dc958309a2da">&lt;/strong&gt;</ept> directory and rename the <bpt id="23e5159a-5dd0-4c39-853c-84364b8f7e01">&lt;strong&gt;</bpt>App.java<ept id="23e5159a-5dd0-4c39-853c-84364b8f7e01">&lt;/strong&gt;</ept>  file to <bpt id="100cf0f3-630b-4656-960a-d03f2f784249">&lt;strong&gt;</bpt>WordCount.java<ept id="100cf0f3-630b-4656-960a-d03f2f784249">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="0bcd0c83-026b-48c1-a201-dc958309a2da">&lt;strong&gt;</bpt>wordcountjava/src/main/java/org/apache/hadoop/examples<ept id="0bcd0c83-026b-48c1-a201-dc958309a2da">&lt;/strong&gt;</ept> directory and rename the <bpt id="23e5159a-5dd0-4c39-853c-84364b8f7e01">&lt;strong&gt;</bpt>App.java<ept id="23e5159a-5dd0-4c39-853c-84364b8f7e01">&lt;/strong&gt;</ept>  file to <bpt id="100cf0f3-630b-4656-960a-d03f2f784249">&lt;strong&gt;</bpt>WordCount.java<ept id="100cf0f3-630b-4656-960a-d03f2f784249">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53d196af-8667-4567-abf2-95bc46ed648c" xml:space="preserve">
+          <source>Open the <bpt id="0c8a2b35-53cb-4908-815d-506847875324">&lt;strong&gt;</bpt>WordCount.java<ept id="0c8a2b35-53cb-4908-815d-506847875324">&lt;/strong&gt;</ept> file in a text editor and replace the contents with the following:</source>
+          <target state="new">Open the <bpt id="0c8a2b35-53cb-4908-815d-506847875324">&lt;strong&gt;</bpt>WordCount.java<ept id="0c8a2b35-53cb-4908-815d-506847875324">&lt;/strong&gt;</ept> file in a text editor and replace the contents with the following:</target>
+        </trans-unit>
+        <trans-unit id="7fba9d35-9f61-4dab-bf1e-7750b15014c3" xml:space="preserve">
+          <source>Notice the package name is <bpt id="a226b42e-b837-408f-8385-7c0e17e9833e">&lt;strong&gt;</bpt>org.apache.hadoop.examples<ept id="a226b42e-b837-408f-8385-7c0e17e9833e">&lt;/strong&gt;</ept> and the class name is <bpt id="95d06f32-2ace-4d70-9e8a-7200617f6caa">&lt;strong&gt;</bpt>WordCount<ept id="95d06f32-2ace-4d70-9e8a-7200617f6caa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Notice the package name is <bpt id="a226b42e-b837-408f-8385-7c0e17e9833e">&lt;strong&gt;</bpt>org.apache.hadoop.examples<ept id="a226b42e-b837-408f-8385-7c0e17e9833e">&lt;/strong&gt;</ept> and the class name is <bpt id="95d06f32-2ace-4d70-9e8a-7200617f6caa">&lt;strong&gt;</bpt>WordCount<ept id="95d06f32-2ace-4d70-9e8a-7200617f6caa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a40f2bd2-686a-4d99-a04c-7737f3a3f6cc" xml:space="preserve">
+          <source>You will use these names when you submit the MapReduce job.</source>
+          <target state="new">You will use these names when you submit the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="7440588b-bc71-4e3a-a1b9-78e865c8f537" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="7bdefa45-bf96-4149-8975-e0a39b127d9e" xml:space="preserve">
+          <source>Change to the <bpt id="20be1916-700b-4cc2-a9b7-9b6bb9f0e77f">&lt;strong&gt;</bpt>wordcountjava<ept id="20be1916-700b-4cc2-a9b7-9b6bb9f0e77f">&lt;/strong&gt;</ept> directory, if you are not already there.</source>
+          <target state="new">Change to the <bpt id="20be1916-700b-4cc2-a9b7-9b6bb9f0e77f">&lt;strong&gt;</bpt>wordcountjava<ept id="20be1916-700b-4cc2-a9b7-9b6bb9f0e77f">&lt;/strong&gt;</ept> directory, if you are not already there.</target>
+        </trans-unit>
+        <trans-unit id="3866fb32-3672-4fc6-b7b6-d0979cadeb11" xml:space="preserve">
+          <source>Use the following command to build a JAR file containing the application:</source>
+          <target state="new">Use the following command to build a JAR file containing the application:</target>
+        </trans-unit>
+        <trans-unit id="1611f44e-fe71-467f-9b79-f3c76221df90" xml:space="preserve">
+          <source>This will clean any previous build artifacts, download any dependencies that have not already been installed, and then build and package the application.</source>
+          <target state="new">This will clean any previous build artifacts, download any dependencies that have not already been installed, and then build and package the application.</target>
+        </trans-unit>
+        <trans-unit id="2eb03a0b-3e83-4df1-bdae-6820eff078fb" xml:space="preserve">
+          <source>Once the command finishes, the <bpt id="c763c273-3c8e-45a5-90c3-1e42655668bd">&lt;strong&gt;</bpt>wordcountjava/target<ept id="c763c273-3c8e-45a5-90c3-1e42655668bd">&lt;/strong&gt;</ept> directory will contain a file named <bpt id="2020f6ec-983d-456b-9430-52ce518c2c72">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="2020f6ec-983d-456b-9430-52ce518c2c72">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the command finishes, the <bpt id="c763c273-3c8e-45a5-90c3-1e42655668bd">&lt;strong&gt;</bpt>wordcountjava/target<ept id="c763c273-3c8e-45a5-90c3-1e42655668bd">&lt;/strong&gt;</ept> directory will contain a file named <bpt id="2020f6ec-983d-456b-9430-52ce518c2c72">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="2020f6ec-983d-456b-9430-52ce518c2c72">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e869d12-add7-4905-904a-10bd7a796b46" xml:space="preserve">
+          <source>The <bpt id="230c06b0-7bf8-43f4-bbe3-eff6e12a7c1f">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="230c06b0-7bf8-43f4-bbe3-eff6e12a7c1f">&lt;/strong&gt;</ept> file is an uberjar, which contains not only the WordCount job, but also dependencies that the job requires at runtime.</source>
+          <target state="new">The <bpt id="230c06b0-7bf8-43f4-bbe3-eff6e12a7c1f">&lt;strong&gt;</bpt>wordcountjava-1.0-SNAPSHOT.jar<ept id="230c06b0-7bf8-43f4-bbe3-eff6e12a7c1f">&lt;/strong&gt;</ept> file is an uberjar, which contains not only the WordCount job, but also dependencies that the job requires at runtime.</target>
+        </trans-unit>
+        <trans-unit id="fdd009c7-bca1-4fde-b66c-f1fd71e53d71" xml:space="preserve">
+          <source>Use the following command to upload the jar file to the HDInsight headnode:</source>
+          <target state="new">Use the following command to upload the jar file to the HDInsight headnode:</target>
+        </trans-unit>
+        <trans-unit id="cfbbcf13-13d2-4da4-9c7a-e6e378567542" xml:space="preserve">
+          <source>This copies the files from the local system to the head node.</source>
+          <target state="new">This copies the files from the local system to the head node.</target>
+        </trans-unit>
+        <trans-unit id="8febebe3-42a7-436d-815b-2e71f5430f0a" xml:space="preserve">
+          <source>If you used a password to secure your SSH account, you will be prompted for the password.</source>
+          <target state="new">If you used a password to secure your SSH account, you will be prompted for the password.</target>
+        </trans-unit>
+        <trans-unit id="5aed2644-0d9d-452a-a67b-c07bc1fff725" xml:space="preserve">
+          <source>If you used an SSH key, you may have to use the <bpt id="6b7b7343-ceec-4fda-934f-9d10f3bbafca">&lt;code&gt;</bpt>-i<ept id="6b7b7343-ceec-4fda-934f-9d10f3bbafca">&lt;/code&gt;</ept> parameter and the path to the private key.</source>
+          <target state="new">If you used an SSH key, you may have to use the <bpt id="6b7b7343-ceec-4fda-934f-9d10f3bbafca">&lt;code&gt;</bpt>-i<ept id="6b7b7343-ceec-4fda-934f-9d10f3bbafca">&lt;/code&gt;</ept> parameter and the path to the private key.</target>
+        </trans-unit>
+        <trans-unit id="f7d71299-c21f-4c38-896f-15f0285cffb9" xml:space="preserve">
+          <source>For example, <bpt id="7344a451-a0b8-455f-815f-51f4ee5ce616">&lt;code&gt;</bpt>scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:<ept id="7344a451-a0b8-455f-815f-51f4ee5ce616">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="7344a451-a0b8-455f-815f-51f4ee5ce616">&lt;code&gt;</bpt>scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:<ept id="7344a451-a0b8-455f-815f-51f4ee5ce616">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10877a6b-5a2a-4bdb-81b6-e48734562dd7" xml:space="preserve">
+          <source>Connect to HDInsight using SSH as described in the following articles:</source>
+          <target state="new">Connect to HDInsight using SSH as described in the following articles:</target>
+        </trans-unit>
+        <trans-unit id="3d77d0be-a2d5-4bc3-9074-941e10f04905" xml:space="preserve">
+          <source><bpt id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;/linkText&gt;</ept><bpt id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;title&gt;</bpt><ept id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;/linkText&gt;</ept><bpt id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;title&gt;</bpt><ept id="925d990f-8f78-4b69-8c1b-caccbeec8198">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fd4b285-e58e-4324-86bd-e5c5b4e05c24" xml:space="preserve">
+          <source><bpt id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;/linkText&gt;</ept><bpt id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;title&gt;</bpt><ept id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;/linkText&gt;</ept><bpt id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;title&gt;</bpt><ept id="b5ad27c0-ae88-49aa-a5b4-26c970589af2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40a1ffb5-b739-44ed-9a8c-ca6c599de3b1" xml:space="preserve">
+          <source>From the SSH session, use the following command to run the MapReduce application:</source>
+          <target state="new">From the SSH session, use the following command to run the MapReduce application:</target>
+        </trans-unit>
+        <trans-unit id="3456a1f8-8fba-4a68-a071-40a4bfca9fcf" xml:space="preserve">
+          <source>This will use the WordCount MapReduce application to count the words in the davinci.txt file, and store the results to <bpt id="a98e648e-a8d3-439b-91f8-3b0ae002622e">&lt;strong&gt;</bpt>wasb:///example/data/wordcountout<ept id="a98e648e-a8d3-439b-91f8-3b0ae002622e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This will use the WordCount MapReduce application to count the words in the davinci.txt file, and store the results to <bpt id="a98e648e-a8d3-439b-91f8-3b0ae002622e">&lt;strong&gt;</bpt>wasb:///example/data/wordcountout<ept id="a98e648e-a8d3-439b-91f8-3b0ae002622e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3592613e-5b9e-4e3d-a79f-214ccaa2027d" xml:space="preserve">
+          <source>Both the input file and output are stored to the default storage for the cluster.</source>
+          <target state="new">Both the input file and output are stored to the default storage for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="ecf49aa6-1445-4843-9a64-3130080c87bf" xml:space="preserve">
+          <source>Once the job completes, use the following to view the results:</source>
+          <target state="new">Once the job completes, use the following to view the results:</target>
+        </trans-unit>
+        <trans-unit id="41fdee51-1f2c-4efc-ab90-8cdb7137e971" xml:space="preserve">
+          <source>You should receive a list of words and counts, with values similar to the following:</source>
+          <target state="new">You should receive a list of words and counts, with values similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="2bbb9603-2e05-4490-9e18-1d4cc176ac80" xml:space="preserve">
+          <source>In this document, you have learned how to develop a Java MapReduce job.</source>
+          <target state="new">In this document, you have learned how to develop a Java MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="140ceaff-bb23-45ce-ab83-48a3e7db0ebf" xml:space="preserve">
+          <source>See the following documents for other ways to work with HDInsight.</source>
+          <target state="new">See the following documents for other ways to work with HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="99e0d3bd-828f-4bbe-9344-d2e83eb37b4d" xml:space="preserve">
+          <source><bpt id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;/linkText&gt;</ept><bpt id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;title&gt;</bpt><ept id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;/linkText&gt;</ept><bpt id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;title&gt;</bpt><ept id="da5e1c2d-7bac-4f05-a35c-1319a607305d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce798c37-a5b5-4408-a0e7-3b45cd8ae404" xml:space="preserve">
+          <source><bpt id="e24fa473-5175-43ea-8280-984c31da4101">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="e24fa473-5175-43ea-8280-984c31da4101">&lt;/linkText&gt;</ept><bpt id="e24fa473-5175-43ea-8280-984c31da4101">&lt;title&gt;</bpt><ept id="e24fa473-5175-43ea-8280-984c31da4101">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e24fa473-5175-43ea-8280-984c31da4101">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="e24fa473-5175-43ea-8280-984c31da4101">&lt;/linkText&gt;</ept><bpt id="e24fa473-5175-43ea-8280-984c31da4101">&lt;title&gt;</bpt><ept id="e24fa473-5175-43ea-8280-984c31da4101">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71bcf5c4-26da-4f16-84ed-21df4af5c2d6" xml:space="preserve">
+          <source><bpt id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight<ept id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;/linkText&gt;</ept><bpt id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;title&gt;</bpt><ept id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight<ept id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;/linkText&gt;</ept><bpt id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;title&gt;</bpt><ept id="74d0d5af-efd1-402f-aeec-dc31ac8cf43b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41cc23a8-e077-4552-8d50-0c383b75c45d" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="44115bde-a1fd-4672-a7d9-ded2f6506118" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="5b17b8f2-67b3-4365-a34a-d4a28fddb5d5" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="fe9e326c-57d3-44b8-8e42-79d92626e6e4" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="3d9c2110-a315-41d3-a1f8-99699b5242c9" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+        <trans-unit id="761778ac-ea76-4289-93fb-49010b3c972a" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="f993f70b-5077-4c27-b02c-7aa73d2f3df1" xml:space="preserve">
+          <source>hdinsight-hadoop-develop-deploy-streaming-jobs.md</source>
+          <target state="new">hdinsight-hadoop-develop-deploy-streaming-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="b7e9f060-284b-4ad9-b47e-7113ecc449e0" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="1d994c75-dde7-495c-9686-3eef4f66bd17" xml:space="preserve">
+          <source>../hdinsight-get-started-emulator.md</source>
+          <target state="new">../hdinsight-get-started-emulator.md</target>
+        </trans-unit>
+        <trans-unit id="30c79dd7-4d35-4310-9577-232551ef8112" xml:space="preserve">
+          <source>../hdinsight-get-started-emulator.md#blobstorage</source>
+          <target state="new">../hdinsight-get-started-emulator.md#blobstorage</target>
+        </trans-unit>
+        <trans-unit id="d9f328f0-cdbf-4a49-81be-3f4e8f8a14ef" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="ee971c2b-22d2-4f98-8ee2-373226facf89" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="89b59ddd-ac10-470f-8c10-b09c3c2e1e74" xml:space="preserve">
+          <source>hdinsight-administer-use-powershell.md</source>
+          <target state="new">hdinsight-administer-use-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="c58d8b64-1c3c-4652-96f7-963dd89ed86e" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="0b517cb9-98fa-40f4-9ed1-52831b2ee2fc" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="f796b73d-0ddd-4758-9b1b-43d5f8470900" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="b3f3bb58-4945-4aea-9d03-8b43109a8516" xml:space="preserve">
+          <source>http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx</source>
+          <target state="new">http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx</target>
+        </trans-unit>
+        <trans-unit id="2f38ba51-9516-4b30-bfe4-c0415c9473e3" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="6fd44727-7c3f-4a31-9b24-f4f2dc07c5e7" xml:space="preserve">
+          <source>./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png</source>
+          <target state="new">./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png</target>
+        </trans-unit>
+        <trans-unit id="fc61b71b-f7ec-46ca-a22c-f4441bfac00f" xml:space="preserve">
+          <source>./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png</source>
+          <target state="new">./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png</target>
+        </trans-unit>
+      </group>
+      <group id="ce0a400e-3f23-4633-9ee3-14ec622986a4" />
+    </body>
+  </file>
+</xliff>

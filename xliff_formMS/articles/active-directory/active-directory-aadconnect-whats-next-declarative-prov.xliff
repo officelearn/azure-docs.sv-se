@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8cd2636a-8e9a-485b-9fdd-765c6ccfac55" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8cd2636a-8e9a-485b-9fdd-765c6ccfac55" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="68e1090d-6f50-4907-ba19-39ee5f8eef6c">
+        <trans-unit id="e657e7f4-37f1-4cee-a250-6fd7c203ae8f" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Using Azure AD Connect declarative provisioning" 
+    description="Learn how to use the Azure AD Connect declarative provisioning." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Using Azure AD Connect declarative provisioning" 
+    description="Learn how to use the Azure AD Connect declarative provisioning." 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="billmath" 
+    manager="stevenpo" 
+    editor="curtand"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="2116f997-3a86-46c9-8e24-ec6a97d7f23c" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/24/2015" 
+    ms.author="billmath"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="25b2e17a-a9e9-4fca-8814-6128bd333103" xml:space="preserve">
+          <source>Declarative provisioning is "codeless" provisioning and can be setup and configured using the Synchronization Rules Editor.</source>
+          <target state="new">Declarative provisioning is "codeless" provisioning and can be setup and configured using the Synchronization Rules Editor.</target>
+        </trans-unit>
+        <trans-unit id="5a7bfb59-9f41-4a41-b3c9-e03991816635" xml:space="preserve">
+          <source>The Editor can be used setup and create your own provisioning rules.</source>
+          <target state="new">The Editor can be used setup and create your own provisioning rules.</target>
+        </trans-unit>
+        <trans-unit id="d6a2e900-89b5-4fbf-9b45-af096a22f5d4" xml:space="preserve">
+          <source>An essential part of Declarative Provisioning is the expression language used in attribute flows.</source>
+          <target state="new">An essential part of Declarative Provisioning is the expression language used in attribute flows.</target>
+        </trans-unit>
+        <trans-unit id="a19c71ea-d3ce-4c8f-bb58-b5633deb3349" xml:space="preserve">
+          <source>The language used is a subset of Microsoft® Visual Basic® for Applications (VBA).</source>
+          <target state="new">The language used is a subset of Microsoft® Visual Basic® for Applications (VBA).</target>
+        </trans-unit>
+        <trans-unit id="90a52fcc-1529-4ee8-b772-d9a881aee16f" xml:space="preserve">
+          <source>This language is used in Microsoft Office and users with experience of VBScript will also recognize it.</source>
+          <target state="new">This language is used in Microsoft Office and users with experience of VBScript will also recognize it.</target>
+        </trans-unit>
+        <trans-unit id="a71e73cb-ba50-422f-b899-6b4794fb56a8" xml:space="preserve">
+          <source>The Declarative Provisioning Expression Language is only using functions and is not a structured language; there are no methods or statements.</source>
+          <target state="new">The Declarative Provisioning Expression Language is only using functions and is not a structured language; there are no methods or statements.</target>
+        </trans-unit>
+        <trans-unit id="ae95bc3c-be23-44f1-b246-e725c491b859" xml:space="preserve">
+          <source>Functions will instead be nested to express program flow.</source>
+          <target state="new">Functions will instead be nested to express program flow.</target>
+        </trans-unit>
+        <trans-unit id="2a39068b-2a52-46f4-ba4b-9ff18017dc2e" xml:space="preserve">
+          <source>For more information on the expression language see <bpt id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;linkText&gt;</bpt>Understanding Declarative Provisioning Expressions<ept id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;/linkText&gt;</ept><bpt id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;title&gt;</bpt><ept id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;/title&gt;</ept> </source>
+          <target state="new">For more information on the expression language see <bpt id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;linkText&gt;</bpt>Understanding Declarative Provisioning Expressions<ept id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;/linkText&gt;</ept><bpt id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;title&gt;</bpt><ept id="3802a1f5-ccf4-48c0-8f83-06cd0a484569">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

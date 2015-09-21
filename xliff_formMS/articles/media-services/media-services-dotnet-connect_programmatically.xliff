@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="df0b4195-db9f-435e-bf98-fb6bc0da3561" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="df0b4195-db9f-435e-bf98-fb6bc0da3561" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b6f11a29-d943-456a-a4d7-b83c985f2fbe">
+        <trans-unit id="6bae4bbd-cb8f-4be3-82c4-af1cb0022897" xml:space="preserve">
+          <source>Connecting to Media Services Account using .NET</source>
+          <target state="new">Connecting to Media Services Account using .NET</target>
+        </trans-unit>
+        <trans-unit id="3a35cf75-39a0-4137-aa21-d920d5861934" xml:space="preserve">
+          <source>This topic demonstrates how to connect to Media Services uisng .NET.</source>
+          <target state="new">This topic demonstrates how to connect to Media Services uisng .NET.</target>
+        </trans-unit>
+        <trans-unit id="8d288dc2-1d9c-405b-8fe0-6816728cf671" xml:space="preserve">
+          <source>This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services SDK for .NET.</source>
+          <target state="new">This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="4ee4ba55-fcad-4741-94e1-ed5f3ca71f59" xml:space="preserve">
+          <source>To connect to Media Services programmatically, you must have previously set up an Azure account, configured Media Services on that account, and then set up a Visual Studio project for development with the Media Services SDK for .NET.</source>
+          <target state="new">To connect to Media Services programmatically, you must have previously set up an Azure account, configured Media Services on that account, and then set up a Visual Studio project for development with the Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="725b720e-58fc-45f8-b40a-84cfd838a0f5" xml:space="preserve">
+          <source>For more information, see Setup for Development with the Media Services SDK for .NET.</source>
+          <target state="new">For more information, see Setup for Development with the Media Services SDK for .NET.</target>
+        </trans-unit>
+        <trans-unit id="a1c0fbf1-f621-4c9a-99e0-7a6599e165a2" xml:space="preserve">
+          <source>At the end of the Media Services account setup process, you obtained the following required connection values.</source>
+          <target state="new">At the end of the Media Services account setup process, you obtained the following required connection values.</target>
+        </trans-unit>
+        <trans-unit id="76a86c9c-df16-4a7b-a421-514a178f38df" xml:space="preserve">
+          <source>Use these to make programmatic connections to Media Services.</source>
+          <target state="new">Use these to make programmatic connections to Media Services.</target>
+        </trans-unit>
+        <trans-unit id="cdd3e9e7-9d75-42b4-b9a0-7cdfe51ceccd" xml:space="preserve">
+          <source>Your Media Services account name.</source>
+          <target state="new">Your Media Services account name.</target>
+        </trans-unit>
+        <trans-unit id="4317835c-1231-4913-b278-bfb15af34347" xml:space="preserve">
+          <source>Your Media Services account key.</source>
+          <target state="new">Your Media Services account key.</target>
+        </trans-unit>
+        <trans-unit id="6101de02-a430-4192-b8fd-546459feba02" xml:space="preserve">
+          <source>To find these values, go to the Azure Managment Portal, select your Media Service account, and click on the “<bpt id="c7e7bc54-c60a-475b-be2e-3e8b37f60863">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="c7e7bc54-c60a-475b-be2e-3e8b37f60863">&lt;/strong&gt;</ept>” icon on the bottom of the portal window.</source>
+          <target state="new">To find these values, go to the Azure Managment Portal, select your Media Service account, and click on the “<bpt id="c7e7bc54-c60a-475b-be2e-3e8b37f60863">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="c7e7bc54-c60a-475b-be2e-3e8b37f60863">&lt;/strong&gt;</ept>” icon on the bottom of the portal window.</target>
+        </trans-unit>
+        <trans-unit id="90f3bc3e-6918-47d7-b23d-414202cfb8f6" xml:space="preserve">
+          <source>Clicking on the icon next to each text box copies the value to the system clipboard.</source>
+          <target state="new">Clicking on the icon next to each text box copies the value to the system clipboard.</target>
+        </trans-unit>
+        <trans-unit id="fff942c0-c807-4243-a51a-9651ac70a23c" xml:space="preserve">
+          <source>To start programming against Media Services you need to create a <bpt id="c2d8a07c-d120-4b07-8079-a2cf38930808">&lt;strong&gt;</bpt>CloudMediaContext<ept id="c2d8a07c-d120-4b07-8079-a2cf38930808">&lt;/strong&gt;</ept> instance that represents the server context.</source>
+          <target state="new">To start programming against Media Services you need to create a <bpt id="c2d8a07c-d120-4b07-8079-a2cf38930808">&lt;strong&gt;</bpt>CloudMediaContext<ept id="c2d8a07c-d120-4b07-8079-a2cf38930808">&lt;/strong&gt;</ept> instance that represents the server context.</target>
+        </trans-unit>
+        <trans-unit id="0f81c0e7-2693-4e23-a80a-9e7deb8eede3" xml:space="preserve">
+          <source>The <bpt id="0f437c4f-756b-4a8e-aa73-719c2fa7d9db">&lt;strong&gt;</bpt>CloudMediaContext<ept id="0f437c4f-756b-4a8e-aa73-719c2fa7d9db">&lt;/strong&gt;</ept> includes references to important collections including jobs, assets, files, access policies, and locators.</source>
+          <target state="new">The <bpt id="0f437c4f-756b-4a8e-aa73-719c2fa7d9db">&lt;strong&gt;</bpt>CloudMediaContext<ept id="0f437c4f-756b-4a8e-aa73-719c2fa7d9db">&lt;/strong&gt;</ept> includes references to important collections including jobs, assets, files, access policies, and locators.</target>
+        </trans-unit>
+        <trans-unit id="000b2fbf-0696-40f8-b62f-75ff6b653927" xml:space="preserve">
+          <source>The <bpt id="4196311c-522f-499c-a0db-451be4e76afa">&lt;strong&gt;</bpt>CloudMediaContext<ept id="4196311c-522f-499c-a0db-451be4e76afa">&lt;/strong&gt;</ept> class is not thread safe.</source>
+          <target state="new">The <bpt id="4196311c-522f-499c-a0db-451be4e76afa">&lt;strong&gt;</bpt>CloudMediaContext<ept id="4196311c-522f-499c-a0db-451be4e76afa">&lt;/strong&gt;</ept> class is not thread safe.</target>
+        </trans-unit>
+        <trans-unit id="b043df7f-d466-4c25-888c-a5807747acf1" xml:space="preserve">
+          <source>You should create a new CloudMediaContext per thread or per set of operations.</source>
+          <target state="new">You should create a new CloudMediaContext per thread or per set of operations.</target>
+        </trans-unit>
+        <trans-unit id="dc966ffc-b077-4389-bbf3-fb2759392342" xml:space="preserve">
+          <source>CloudMediaContext has five constructor overloads.</source>
+          <target state="new">CloudMediaContext has five constructor overloads.</target>
+        </trans-unit>
+        <trans-unit id="6f509e6f-78d8-4dce-894d-9dfc5f88144d" xml:space="preserve">
+          <source>It is recommended to use constructors that take <bpt id="528d4ecc-3cd2-432b-b276-2bbdc0179e0b">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="528d4ecc-3cd2-432b-b276-2bbdc0179e0b">&lt;/strong&gt;</ept> as a parameter.</source>
+          <target state="new">It is recommended to use constructors that take <bpt id="528d4ecc-3cd2-432b-b276-2bbdc0179e0b">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="528d4ecc-3cd2-432b-b276-2bbdc0179e0b">&lt;/strong&gt;</ept> as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="6a1d289a-5b94-4275-b1c7-b56bd111276a" xml:space="preserve">
+          <source>For more information, see the <bpt id="e09f9626-f556-43af-8d29-82eca49c28bd">&lt;strong&gt;</bpt>Reusing Access Control Service Tokens<ept id="e09f9626-f556-43af-8d29-82eca49c28bd">&lt;/strong&gt;</ept> that follows.</source>
+          <target state="new">For more information, see the <bpt id="e09f9626-f556-43af-8d29-82eca49c28bd">&lt;strong&gt;</bpt>Reusing Access Control Service Tokens<ept id="e09f9626-f556-43af-8d29-82eca49c28bd">&lt;/strong&gt;</ept> that follows.</target>
+        </trans-unit>
+        <trans-unit id="6862d765-3249-47b5-9a84-c3fc404c8c99" xml:space="preserve">
+          <source>The following example uses the public CloudMediaContext(MediaServicesCredentials credentials) constructor:</source>
+          <target state="new">The following example uses the public CloudMediaContext(MediaServicesCredentials credentials) constructor:</target>
+        </trans-unit>
+        <trans-unit id="9c9375a1-efff-45e9-9918-b2a35b83b0c2" xml:space="preserve">
+          <source>This section shows how to reuse Access Control Service tokens by using CloudMediaContext constructors that take MediaServicesCredentials as a parameter.</source>
+          <target state="new">This section shows how to reuse Access Control Service tokens by using CloudMediaContext constructors that take MediaServicesCredentials as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="6e3f0ac8-db42-4cae-be44-d9212ec580ce" xml:space="preserve">
+          <source><bpt id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;linkText&gt;</bpt>Azure Active Directory Access Control<ept id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;/linkText&gt;</ept><bpt id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;title&gt;</bpt><ept id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;/title&gt;</ept> (also known as Access Control Service or ACS) is a cloud-based service that provides an easy way of authenticating and authorizing users to gain access to their web applications.</source>
+          <target state="new"><bpt id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;linkText&gt;</bpt>Azure Active Directory Access Control<ept id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;/linkText&gt;</ept><bpt id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;title&gt;</bpt><ept id="c8ad6964-95d4-4f9e-80ea-d66c75eedc22">&lt;/title&gt;</ept> (also known as Access Control Service or ACS) is a cloud-based service that provides an easy way of authenticating and authorizing users to gain access to their web applications.</target>
+        </trans-unit>
+        <trans-unit id="9b388f30-725c-4111-89b3-065217579877" xml:space="preserve">
+          <source>Microsoft Azure Media Services controls access to its services though OAuth protocol that requires an ACS token.</source>
+          <target state="new">Microsoft Azure Media Services controls access to its services though OAuth protocol that requires an ACS token.</target>
+        </trans-unit>
+        <trans-unit id="fea634c2-016a-4f60-995e-20b0a0370014" xml:space="preserve">
+          <source>Media Services receives the ACS tokens from an authorization server.</source>
+          <target state="new">Media Services receives the ACS tokens from an authorization server.</target>
+        </trans-unit>
+        <trans-unit id="37b3ae25-2096-4fa8-95c1-73efa9bb1c09" xml:space="preserve">
+          <source>When developing with the Media Services SDK, you can choose to not deal with the tokens because the SDK code managers them for you.</source>
+          <target state="new">When developing with the Media Services SDK, you can choose to not deal with the tokens because the SDK code managers them for you.</target>
+        </trans-unit>
+        <trans-unit id="59d5f3e2-6737-4364-a6f0-5872138f931e" xml:space="preserve">
+          <source>However, letting the SDK fully manage the ACS tokens leads to unnecessary token requests.</source>
+          <target state="new">However, letting the SDK fully manage the ACS tokens leads to unnecessary token requests.</target>
+        </trans-unit>
+        <trans-unit id="98c104df-3e90-438f-875f-94c30a78b0ee" xml:space="preserve">
+          <source>Requesting tokens takes time and consumes the client and server resources.</source>
+          <target state="new">Requesting tokens takes time and consumes the client and server resources.</target>
+        </trans-unit>
+        <trans-unit id="c831158c-e16a-4499-b362-55e1b0c380c0" xml:space="preserve">
+          <source>Also, the ACS server throttles the requests if the rate is too high.</source>
+          <target state="new">Also, the ACS server throttles the requests if the rate is too high.</target>
+        </trans-unit>
+        <trans-unit id="322a50d3-ad28-4b90-86c1-9910f1bb658e" xml:space="preserve">
+          <source>The limit is 30 requests per second, see <bpt id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;linkText&gt;</bpt>ACS Service Limitations<ept id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;/linkText&gt;</ept><bpt id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;title&gt;</bpt><ept id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">The limit is 30 requests per second, see <bpt id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;linkText&gt;</bpt>ACS Service Limitations<ept id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;/linkText&gt;</ept><bpt id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;title&gt;</bpt><ept id="a463ff02-7b9a-4bda-b5c0-efda6589aebe">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="73b51e7d-4728-4dd3-9837-42d88304a608" xml:space="preserve">
+          <source>Starting with the Media Services SDK version 3.0.0.0, you can reuse the ACS tokens.</source>
+          <target state="new">Starting with the Media Services SDK version 3.0.0.0, you can reuse the ACS tokens.</target>
+        </trans-unit>
+        <trans-unit id="2c2dea04-c58a-42b5-99e2-d99aebb538c7" xml:space="preserve">
+          <source>The <bpt id="a0714dfd-6b10-42b9-9523-8e329fe846f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="a0714dfd-6b10-42b9-9523-8e329fe846f7">&lt;/strong&gt;</ept> constructors that take <bpt id="fb674988-f1b4-4a99-8f05-a71043511c93">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="fb674988-f1b4-4a99-8f05-a71043511c93">&lt;/strong&gt;</ept> as a parameter enable sharing the ACS tokens between multiple contexts.</source>
+          <target state="new">The <bpt id="a0714dfd-6b10-42b9-9523-8e329fe846f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="a0714dfd-6b10-42b9-9523-8e329fe846f7">&lt;/strong&gt;</ept> constructors that take <bpt id="fb674988-f1b4-4a99-8f05-a71043511c93">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="fb674988-f1b4-4a99-8f05-a71043511c93">&lt;/strong&gt;</ept> as a parameter enable sharing the ACS tokens between multiple contexts.</target>
+        </trans-unit>
+        <trans-unit id="016da479-dfd1-4dae-bff7-9637ba96e7c1" xml:space="preserve">
+          <source>The MediaServicesCredentials class encapsulates the Media Services credentials.</source>
+          <target state="new">The MediaServicesCredentials class encapsulates the Media Services credentials.</target>
+        </trans-unit>
+        <trans-unit id="6d86e31d-9ff3-4398-bfd0-1104225d4e23" xml:space="preserve">
+          <source>If an ACS token is available and its expiration time is known, you can create a new MediaServicesCredentials instance with the token and pass it to the constructor of CloudMediaContext.</source>
+          <target state="new">If an ACS token is available and its expiration time is known, you can create a new MediaServicesCredentials instance with the token and pass it to the constructor of CloudMediaContext.</target>
+        </trans-unit>
+        <trans-unit id="3511dcae-5eda-45ef-908c-af1c26f8d24b" xml:space="preserve">
+          <source>Note that the Media Services SDK automatically refreshes tokens whenever they expire.</source>
+          <target state="new">Note that the Media Services SDK automatically refreshes tokens whenever they expire.</target>
+        </trans-unit>
+        <trans-unit id="609f9837-c126-41d4-a1d9-3baa768ad6d0" xml:space="preserve">
+          <source>There are two ways to reuse ACS tokens, as shown in the examples below.</source>
+          <target state="new">There are two ways to reuse ACS tokens, as shown in the examples below.</target>
+        </trans-unit>
+        <trans-unit id="9d894663-d33c-4a09-9614-d174066acc06" xml:space="preserve">
+          <source>You can cache the <bpt id="bd9231c9-93ca-48fc-9133-82fa5e4db2d5">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="bd9231c9-93ca-48fc-9133-82fa5e4db2d5">&lt;/strong&gt;</ept> object in memory (for example, in a static class variable).</source>
+          <target state="new">You can cache the <bpt id="bd9231c9-93ca-48fc-9133-82fa5e4db2d5">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="bd9231c9-93ca-48fc-9133-82fa5e4db2d5">&lt;/strong&gt;</ept> object in memory (for example, in a static class variable).</target>
+        </trans-unit>
+        <trans-unit id="fdb60ad2-2934-4d6e-95d8-63d241ad404f" xml:space="preserve">
+          <source>Then, pass the cached object to the CloudMediaContext constructor.</source>
+          <target state="new">Then, pass the cached object to the CloudMediaContext constructor.</target>
+        </trans-unit>
+        <trans-unit id="f35e7d71-dd77-4075-aa96-a738a4eac6be" xml:space="preserve">
+          <source>The MediaServicesCredentials object contains an ACS token that can be reused if it is still valid.</source>
+          <target state="new">The MediaServicesCredentials object contains an ACS token that can be reused if it is still valid.</target>
+        </trans-unit>
+        <trans-unit id="f3792608-a28c-454f-a7f3-46d2b21f0716" xml:space="preserve">
+          <source>If the token is not valid, it will be refreshed by the Media Services SDK using the credentials given to the MediaServicesCredentials constructor.</source>
+          <target state="new">If the token is not valid, it will be refreshed by the Media Services SDK using the credentials given to the MediaServicesCredentials constructor.</target>
+        </trans-unit>
+        <trans-unit id="c52c7afd-9d0a-485b-a35b-6c7ea4423f6d" xml:space="preserve">
+          <source>Note that the <bpt id="1384f8d1-c81a-4857-85f8-d2c10ecb96f6">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="1384f8d1-c81a-4857-85f8-d2c10ecb96f6">&lt;/strong&gt;</ept> object gets a valid token after the RefreshToken is called.</source>
+          <target state="new">Note that the <bpt id="1384f8d1-c81a-4857-85f8-d2c10ecb96f6">&lt;strong&gt;</bpt>MediaServicesCredentials<ept id="1384f8d1-c81a-4857-85f8-d2c10ecb96f6">&lt;/strong&gt;</ept> object gets a valid token after the RefreshToken is called.</target>
+        </trans-unit>
+        <trans-unit id="bc89fc84-80c6-477c-8e11-3d59c5b04603" xml:space="preserve">
+          <source>The <bpt id="f10ca12d-a3da-4352-a14a-a56a03dd55f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="f10ca12d-a3da-4352-a14a-a56a03dd55f7">&lt;/strong&gt;</ept> calls the <bpt id="f02ee068-5bfa-4d74-9a53-9173bfacaa7e">&lt;strong&gt;</bpt>RefreshToken<ept id="f02ee068-5bfa-4d74-9a53-9173bfacaa7e">&lt;/strong&gt;</ept> method in the constructor.</source>
+          <target state="new">The <bpt id="f10ca12d-a3da-4352-a14a-a56a03dd55f7">&lt;strong&gt;</bpt>CloudMediaContext<ept id="f10ca12d-a3da-4352-a14a-a56a03dd55f7">&lt;/strong&gt;</ept> calls the <bpt id="f02ee068-5bfa-4d74-9a53-9173bfacaa7e">&lt;strong&gt;</bpt>RefreshToken<ept id="f02ee068-5bfa-4d74-9a53-9173bfacaa7e">&lt;/strong&gt;</ept> method in the constructor.</target>
+        </trans-unit>
+        <trans-unit id="bddc8f3b-7615-465f-a65e-734f3dce2afa" xml:space="preserve">
+          <source>If you are planning to save the token values to an external storage, make sure to check whether the TokenExpiration value is valid before saving the token data.</source>
+          <target state="new">If you are planning to save the token values to an external storage, make sure to check whether the TokenExpiration value is valid before saving the token data.</target>
+        </trans-unit>
+        <trans-unit id="74a9f374-9b1e-44c8-abbb-a5304131e393" xml:space="preserve">
+          <source>If it is not valid, call RefreshToken before caching.</source>
+          <target state="new">If it is not valid, call RefreshToken before caching.</target>
+        </trans-unit>
+        <trans-unit id="48145981-27bc-41a6-97bc-551ff939180b" xml:space="preserve">
+          <source>You can also cache the AccessToken string and the TokenExpiration values.</source>
+          <target state="new">You can also cache the AccessToken string and the TokenExpiration values.</target>
+        </trans-unit>
+        <trans-unit id="0e58d3c7-31f1-4c6b-acbc-8340dfdd7862" xml:space="preserve">
+          <source>The values could later be used to create a new MediaServicesCredentials object with the cached token data.</source>
+          <target state="new">The values could later be used to create a new MediaServicesCredentials object with the cached token data.</target>
+        </trans-unit>
+        <trans-unit id="8a179245-4f96-4e51-8796-a75275749697" xml:space="preserve">
+          <source>This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.</source>
+          <target state="new">This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.</target>
+        </trans-unit>
+        <trans-unit id="a93f2fea-e572-4bca-8419-71356d467dab" xml:space="preserve">
+          <source>The following code snippets call the SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage, and UpdateTokenDataInExternalStorageIfNeeded methods that are not defined in this example.</source>
+          <target state="new">The following code snippets call the SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage, and UpdateTokenDataInExternalStorageIfNeeded methods that are not defined in this example.</target>
+        </trans-unit>
+        <trans-unit id="d30f4dc7-46ac-445d-9375-b7a9d64cdd17" xml:space="preserve">
+          <source>You could define these methods to store, retrieve, and update token data in an external storage.</source>
+          <target state="new">You could define these methods to store, retrieve, and update token data in an external storage.</target>
+        </trans-unit>
+        <trans-unit id="40fe1b6d-23cd-413e-9a1a-76087baa33e7" xml:space="preserve">
+          <source>Use the saved token values to create MediaServicesCredentials.</source>
+          <target state="new">Use the saved token values to create MediaServicesCredentials.</target>
+        </trans-unit>
+        <trans-unit id="b9b1b63f-58f1-4596-8226-058b313d9c94" xml:space="preserve">
+          <source>Update the token copy in case the token was updated by the Media Services SDK.</source>
+          <target state="new">Update the token copy in case the token was updated by the Media Services SDK.</target>
+        </trans-unit>
+        <trans-unit id="11755330-c541-464c-98bb-5066b5cfb489" xml:space="preserve">
+          <source>If you have multiple Media Services accounts (for example, for load sharing purposes or Geo-distribution) you can cache MediaServicesCredentials objects using the System.Collections.Concurrent.ConcurrentDictionary collection (the ConcurrentDictionary collection represents a thread-safe collection of key/value pairs that can be accessed by multiple threads concurrently).</source>
+          <target state="new">If you have multiple Media Services accounts (for example, for load sharing purposes or Geo-distribution) you can cache MediaServicesCredentials objects using the System.Collections.Concurrent.ConcurrentDictionary collection (the ConcurrentDictionary collection represents a thread-safe collection of key/value pairs that can be accessed by multiple threads concurrently).</target>
+        </trans-unit>
+        <trans-unit id="5b229aed-4c70-4bbb-8f1f-32e5ddc4f66d" xml:space="preserve">
+          <source>You can then use the GetOrAdd method to get the cached credentials.</source>
+          <target state="new">You can then use the GetOrAdd method to get the cached credentials.</target>
+        </trans-unit>
+        <trans-unit id="7c417b5e-accd-433e-8c82-750f1725617b" xml:space="preserve">
+          <source>If your account is located in the North China region, use the following constructor:</source>
+          <target state="new">If your account is located in the North China region, use the following constructor:</target>
+        </trans-unit>
+        <trans-unit id="a117c2cd-88aa-47fc-a6a3-472daac55261" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="0293514c-4f93-41ab-bca7-4f4d7a12605a" xml:space="preserve">
+          <source>It is a highly recommended practice to store connection values, especially sensitive values such as your account name and password, in configuration.</source>
+          <target state="new">It is a highly recommended practice to store connection values, especially sensitive values such as your account name and password, in configuration.</target>
+        </trans-unit>
+        <trans-unit id="7aaafe7b-e144-4c49-94bd-840b695ff970" xml:space="preserve">
+          <source>Also, it is a recommended practice to encrypt sensitive configuration data.</source>
+          <target state="new">Also, it is a recommended practice to encrypt sensitive configuration data.</target>
+        </trans-unit>
+        <trans-unit id="7fccec7d-6eb6-454e-9b29-a57e106463ee" xml:space="preserve">
+          <source>You can encrypt the entire configuration file by using the Windows Encrypting File System (EFS).</source>
+          <target state="new">You can encrypt the entire configuration file by using the Windows Encrypting File System (EFS).</target>
+        </trans-unit>
+        <trans-unit id="463abe6f-fbea-4283-b41a-d160039d744c" xml:space="preserve">
+          <source>To enable EFS on a file, right-click the file, select <bpt id="b99442f0-dd1d-47eb-bb3d-90000b58fd6c">&lt;strong&gt;</bpt>Properties<ept id="b99442f0-dd1d-47eb-bb3d-90000b58fd6c">&lt;/strong&gt;</ept>, and enable encryption in the <bpt id="a540c0dc-3965-49b6-80fa-e3792c0f2360">&lt;strong&gt;</bpt>Advanced<ept id="a540c0dc-3965-49b6-80fa-e3792c0f2360">&lt;/strong&gt;</ept> settings tab.</source>
+          <target state="new">To enable EFS on a file, right-click the file, select <bpt id="b99442f0-dd1d-47eb-bb3d-90000b58fd6c">&lt;strong&gt;</bpt>Properties<ept id="b99442f0-dd1d-47eb-bb3d-90000b58fd6c">&lt;/strong&gt;</ept>, and enable encryption in the <bpt id="a540c0dc-3965-49b6-80fa-e3792c0f2360">&lt;strong&gt;</bpt>Advanced<ept id="a540c0dc-3965-49b6-80fa-e3792c0f2360">&lt;/strong&gt;</ept> settings tab.</target>
+        </trans-unit>
+        <trans-unit id="b4f6c581-b4bf-4a19-b304-40b06791abf5" xml:space="preserve">
+          <source>Or you can create a custom solution for encrypting selected portions of a configuration file by using protected configuration.</source>
+          <target state="new">Or you can create a custom solution for encrypting selected portions of a configuration file by using protected configuration.</target>
+        </trans-unit>
+        <trans-unit id="a6d8377a-953e-4659-9464-abd546afbbf3" xml:space="preserve">
+          <source>See <bpt id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;linkText&gt;</bpt>Encrypting Configuration Information Using Protected Configuration<ept id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;/linkText&gt;</ept><bpt id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;title&gt;</bpt><ept id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;linkText&gt;</bpt>Encrypting Configuration Information Using Protected Configuration<ept id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;/linkText&gt;</ept><bpt id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;title&gt;</bpt><ept id="09597438-32bc-40dd-9aff-145e5e46e7bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0ec09b1-22b2-4d8f-8333-93452b8bbcc1" xml:space="preserve">
+          <source>The following App.config file contains the required connection values. The values in the &lt;appSettings&gt; element are the required values that you got from the Media Services account setup process.</source>
+          <target state="new">The following App.config file contains the required connection values. The values in the &lt;appSettings&gt; element are the required values that you got from the Media Services account setup process.</target>
+        </trans-unit>
+        <trans-unit id="6a4a340e-8b47-484b-abfd-1cbe8cbb45be" xml:space="preserve">
+          <source>
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</source>
+          <target state="new">
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+    &amp;lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&amp;gt;
+        &amp;lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="d758811f-704d-427b-a2da-4455bdd0d62a" xml:space="preserve">
+          <source>To retrieve connection values from configuration, you can use the <bpt id="5f192453-32f8-4c7b-96be-a9d043b30e01">&lt;strong&gt;</bpt>ConfigurationManager<ept id="5f192453-32f8-4c7b-96be-a9d043b30e01">&lt;/strong&gt;</ept> class and then assign the values to fields in your code:</source>
+          <target state="new">To retrieve connection values from configuration, you can use the <bpt id="5f192453-32f8-4c7b-96be-a9d043b30e01">&lt;strong&gt;</bpt>ConfigurationManager<ept id="5f192453-32f8-4c7b-96be-a9d043b30e01">&lt;/strong&gt;</ept> class and then assign the values to fields in your code:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bb790263-f4cb-43b9-9bd7-da6eba32b88d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bb790263-f4cb-43b9-9bd7-da6eba32b88d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eeb6fec6-34aa-4962-94ff-a094777c9cb3">
+        <trans-unit id="c5daf314-d507-483e-bd90-c441948d7856" xml:space="preserve">
+          <source>How to use Azure storage for SQL Server backup and restore | Microsoft Azure</source>
+          <target state="new">How to use Azure storage for SQL Server backup and restore | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ffe69dce-b33e-490d-9347-46edb598a8b6" xml:space="preserve">
+          <source>Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required</source>
+          <target state="new">Backup SQL Server and SQL Database to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage, and which SQL Server and Azure Storage components are required</target>
+        </trans-unit>
+        <trans-unit id="902dc7ac-25d9-499c-90d7-464f202bd166" xml:space="preserve">
+          <source>The feature that provides the ability to write SQL Server backups to the Azure Blob storage service was released in SQL Server 2012 SP1 CU2.</source>
+          <target state="new">The feature that provides the ability to write SQL Server backups to the Azure Blob storage service was released in SQL Server 2012 SP1 CU2.</target>
+        </trans-unit>
+        <trans-unit id="6a20dad8-efde-4964-be07-f51ebb05fa5f" xml:space="preserve">
+          <source>You can use this functionality to back up to and restore from the Azure Blob service from a on-premises SQL Server database or a SQL Server database in an Azure Virtual Machine.</source>
+          <target state="new">You can use this functionality to back up to and restore from the Azure Blob service from a on-premises SQL Server database or a SQL Server database in an Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="e0557eac-a8e1-41d0-89de-40998930a188" xml:space="preserve">
+          <source>Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.</source>
+          <target state="new">Backup to cloud offers benefits of availability, limitless geo-replicated off-site storage, and ease of migration of data to and from the cloud.</target>
+        </trans-unit>
+        <trans-unit id="a714481c-e4e0-45bf-b54b-af5fb9d1cf12" xml:space="preserve">
+          <source>In this release, you can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.</source>
+          <target state="new">In this release, you can issue BACKUP or RESTORE statements by using Transact-SQL or SMO.</target>
+        </trans-unit>
+        <trans-unit id="bd1890e4-1189-40c3-a299-8f2948538497" xml:space="preserve">
+          <source>Storage management, risk of storage failure, access to off-site storage, and configuring devices are some of the general backup challenges.</source>
+          <target state="new">Storage management, risk of storage failure, access to off-site storage, and configuring devices are some of the general backup challenges.</target>
+        </trans-unit>
+        <trans-unit id="833b4191-a9e9-43cc-a793-dadb610e7b3c" xml:space="preserve">
+          <source>For SQL Server running in an Azure Virtual Machine, there are additional challenges of configuring and backing up a VHD, or configuring attached drives.</source>
+          <target state="new">For SQL Server running in an Azure Virtual Machine, there are additional challenges of configuring and backing up a VHD, or configuring attached drives.</target>
+        </trans-unit>
+        <trans-unit id="6f9f4341-7faf-4009-8edb-d77f72469840" xml:space="preserve">
+          <source>The following lists some of the key benefits of using the Azure Blob storage service storage for SQL Server backups:</source>
+          <target state="new">The following lists some of the key benefits of using the Azure Blob storage service storage for SQL Server backups:</target>
+        </trans-unit>
+        <trans-unit id="c93c0849-db47-4b89-92df-a24ba1f46386" xml:space="preserve">
+          <source>Flexible, reliable, and limitless off-site storage: Storing your backups on Azure Blob service can be a convenient, flexible, and easy to access off-site option.</source>
+          <target state="new">Flexible, reliable, and limitless off-site storage: Storing your backups on Azure Blob service can be a convenient, flexible, and easy to access off-site option.</target>
+        </trans-unit>
+        <trans-unit id="edbc53a7-3a84-4411-8342-b87f6c6a271c" xml:space="preserve">
+          <source>Creating off-site storage for your SQL Server backups can be as easy as modifying your existing scripts/jobs.</source>
+          <target state="new">Creating off-site storage for your SQL Server backups can be as easy as modifying your existing scripts/jobs.</target>
+        </trans-unit>
+        <trans-unit id="8e07c10c-e86f-410b-b59a-f9460bfc19a5" xml:space="preserve">
+          <source>Off-site storage should typically be far enough from the production database location to prevent a single disaster that might impact both the off-site and production database locations.</source>
+          <target state="new">Off-site storage should typically be far enough from the production database location to prevent a single disaster that might impact both the off-site and production database locations.</target>
+        </trans-unit>
+        <trans-unit id="624b6ffd-f831-44f3-8a94-c08510fde985" xml:space="preserve">
+          <source>By choosing to geo replicate the Blob storage you have an extra layer of protection in the event of a disaster that could affect the whole region.</source>
+          <target state="new">By choosing to geo replicate the Blob storage you have an extra layer of protection in the event of a disaster that could affect the whole region.</target>
+        </trans-unit>
+        <trans-unit id="5ba1b1f6-5ae3-49d1-997d-115cbb7fd1a3" xml:space="preserve">
+          <source>In addition, backups are available from anywhere and at any time and can easily be accessed for restores.</source>
+          <target state="new">In addition, backups are available from anywhere and at any time and can easily be accessed for restores.</target>
+        </trans-unit>
+        <trans-unit id="bad61f69-b39a-44bf-a8ff-d49cb4be3c1d" xml:space="preserve">
+          <source>Backup Archive: The Azure Blob Storage service offers a better alternative to the often used tape option to archive backups.</source>
+          <target state="new">Backup Archive: The Azure Blob Storage service offers a better alternative to the often used tape option to archive backups.</target>
+        </trans-unit>
+        <trans-unit id="279ac2c3-dfc9-45c6-b104-0cfea40249d8" xml:space="preserve">
+          <source>Tape storage might require physical transportation to an off-site facility and measures to protect the media.</source>
+          <target state="new">Tape storage might require physical transportation to an off-site facility and measures to protect the media.</target>
+        </trans-unit>
+        <trans-unit id="17e46903-73a6-42f7-88b8-d5e883597cb4" xml:space="preserve">
+          <source>Storing your backups in Azure Blob Storage provides an instant, highly available, and a durable archiving option.</source>
+          <target state="new">Storing your backups in Azure Blob Storage provides an instant, highly available, and a durable archiving option.</target>
+        </trans-unit>
+        <trans-unit id="c2854e95-a981-4581-844c-2f00270f65c4" xml:space="preserve">
+          <source>No overhead of hardware management: There is no overhead of hardware management with Azure services.</source>
+          <target state="new">No overhead of hardware management: There is no overhead of hardware management with Azure services.</target>
+        </trans-unit>
+        <trans-unit id="2916edac-e492-46a8-b0ba-ea538a0af9f7" xml:space="preserve">
+          <source>Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures.</source>
+          <target state="new">Azure services manage the hardware and provide geo-replication for redundancy and protection against hardware failures.</target>
+        </trans-unit>
+        <trans-unit id="251dec05-6d55-4f60-801a-9be8aad662b6" xml:space="preserve">
+          <source>Currently for instances of SQL Server running in an Azure Virtual Machine, backing up to Azure Blob storage services can be done by creating attached disks.</source>
+          <target state="new">Currently for instances of SQL Server running in an Azure Virtual Machine, backing up to Azure Blob storage services can be done by creating attached disks.</target>
+        </trans-unit>
+        <trans-unit id="5fc144b1-274f-4a2e-808e-ec4ff37e625d" xml:space="preserve">
+          <source>However, there is a limit to the number of disks you can attach to an Azure Virtual Machine.</source>
+          <target state="new">However, there is a limit to the number of disks you can attach to an Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="6b6df179-d8c6-4138-b158-b1b19b73d8ab" xml:space="preserve">
+          <source>This limit is 16 disks for an extra large instance and fewer for smaller instances.</source>
+          <target state="new">This limit is 16 disks for an extra large instance and fewer for smaller instances.</target>
+        </trans-unit>
+        <trans-unit id="8133beaf-3cb9-4aac-b70e-8312f4b93a1f" xml:space="preserve">
+          <source>By enabling a direct backup to Azure Blob Storage, you can bypass the 16 disk limit.</source>
+          <target state="new">By enabling a direct backup to Azure Blob Storage, you can bypass the 16 disk limit.</target>
+        </trans-unit>
+        <trans-unit id="685c5aae-8d81-4afc-9ec8-a5205dc251f4" xml:space="preserve">
+          <source>In addition, the backup file which now is stored in the Azure Blob storage service is directly available to either an on-premises SQL Server or another SQL Server running in an Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD.</source>
+          <target state="new">In addition, the backup file which now is stored in the Azure Blob storage service is directly available to either an on-premises SQL Server or another SQL Server running in an Azure Virtual Machine, without the need for database attach/detach or downloading and attaching the VHD.</target>
+        </trans-unit>
+        <trans-unit id="97368cbc-f7b5-470c-83d2-da1f424295ee" xml:space="preserve">
+          <source>Cost Benefits: Pay only for the service that is used.</source>
+          <target state="new">Cost Benefits: Pay only for the service that is used.</target>
+        </trans-unit>
+        <trans-unit id="748bdbd2-7786-46ec-844e-7718162a4516" xml:space="preserve">
+          <source>Can be cost-effective as an off-site and backup archive option.</source>
+          <target state="new">Can be cost-effective as an off-site and backup archive option.</target>
+        </trans-unit>
+        <trans-unit id="6a73497f-21b8-4457-8bc2-ab4db79581c5" xml:space="preserve">
+          <source>See the <bpt id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;linkText&gt;</bpt>Azure pricing calculator<ept id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;/linkText&gt;</ept><bpt id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;title&gt;</bpt>Pricing Calculator<ept id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;/title&gt;</ept>, and the <bpt id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;linkText&gt;</bpt>Azure Pricing article<ept id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;/linkText&gt;</ept><bpt id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;title&gt;</bpt>Pricing article<ept id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See the <bpt id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;linkText&gt;</bpt>Azure pricing calculator<ept id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;/linkText&gt;</ept><bpt id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;title&gt;</bpt>Pricing Calculator<ept id="9b862027-5a3d-4131-a1a2-a79231bf4440">&lt;/title&gt;</ept>, and the <bpt id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;linkText&gt;</bpt>Azure Pricing article<ept id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;/linkText&gt;</ept><bpt id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;title&gt;</bpt>Pricing article<ept id="76476ced-f2a2-47d5-ae4b-87f1eea3f758">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="89c22a4b-eb93-458f-8dd4-522737e3ab6e" xml:space="preserve">
+          <source>For more details, see <bpt id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;linkText&gt;</bpt>SQL Server Backup and Restore with Azure Blob Storage Service<ept id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;/linkText&gt;</ept><bpt id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;title&gt;</bpt><ept id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;linkText&gt;</bpt>SQL Server Backup and Restore with Azure Blob Storage Service<ept id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;/linkText&gt;</ept><bpt id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;title&gt;</bpt><ept id="6a307627-acaf-4e0d-a758-30181913dcf4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8abcdbda-db1b-4225-8e8a-fbd910df0d7a" xml:space="preserve">
+          <source>The following two sections introduce the Azure Blob storage service, and the SQL Server components used when backing up to or restoring from the Azure Blob storage service.</source>
+          <target state="new">The following two sections introduce the Azure Blob storage service, and the SQL Server components used when backing up to or restoring from the Azure Blob storage service.</target>
+        </trans-unit>
+        <trans-unit id="66dd83ea-bf75-47aa-b323-db90d87b6296" xml:space="preserve">
+          <source>It is important to understand the components and the interaction between them to do a backup to or restore from the Azure Blob storage service.</source>
+          <target state="new">It is important to understand the components and the interaction between them to do a backup to or restore from the Azure Blob storage service.</target>
+        </trans-unit>
+        <trans-unit id="f8e5bbcc-7b47-41f1-ac1c-0131a657c481" xml:space="preserve">
+          <source>Creating an Azure account is the first step to this process.</source>
+          <target state="new">Creating an Azure account is the first step to this process.</target>
+        </trans-unit>
+        <trans-unit id="b070cd93-ab06-479d-b061-b6919b9192e6" xml:space="preserve">
+          <source>SQL Server uses the Azure storage account name and its access key values to authenticate and write and read blobs to the storage service.</source>
+          <target state="new">SQL Server uses the Azure storage account name and its access key values to authenticate and write and read blobs to the storage service.</target>
+        </trans-unit>
+        <trans-unit id="540b8d89-24ce-4c48-a8be-425d3c727c6b" xml:space="preserve">
+          <source>The SQL Server Credential stores this authentication information and is used during the backup or restore operations.</source>
+          <target state="new">The SQL Server Credential stores this authentication information and is used during the backup or restore operations.</target>
+        </trans-unit>
+        <trans-unit id="a1819a4f-5f44-4d41-a187-a35ef92fa001" xml:space="preserve">
+          <source>For a complete walkthrough of creating a storage account and performing a simple restore, see <bpt id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;linkText&gt;</bpt>Getting Started with Azure Storage Service for SQL Server Backup and Restore<ept id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;/linkText&gt;</ept><bpt id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;title&gt;</bpt><ept id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;/title&gt;</ept></source>
+          <target state="new">For a complete walkthrough of creating a storage account and performing a simple restore, see <bpt id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;linkText&gt;</bpt>Getting Started with Azure Storage Service for SQL Server Backup and Restore<ept id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;/linkText&gt;</ept><bpt id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;title&gt;</bpt><ept id="b95e931c-b180-4b77-80a7-8224aa736191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1fab1cf-d0c3-4eb4-bca6-2fc8ea48926c" xml:space="preserve">
+          <source>Storage Account: The storage account is the starting point for all storage services.</source>
+          <target state="new">Storage Account: The storage account is the starting point for all storage services.</target>
+        </trans-unit>
+        <trans-unit id="431efbcc-172c-489c-bd99-87802f44fadd" xml:space="preserve">
+          <source>To access an Azure Blob Storage service, first create an Azure Storage account.</source>
+          <target state="new">To access an Azure Blob Storage service, first create an Azure Storage account.</target>
+        </trans-unit>
+        <trans-unit id="ca00a782-8af0-49fb-8115-b812611bce81" xml:space="preserve">
+          <source>The storage account name and its access key properties are required to authenticate to the Azure Blob Storage service and its components.</source>
+          <target state="new">The storage account name and its access key properties are required to authenticate to the Azure Blob Storage service and its components.</target>
+        </trans-unit>
+        <trans-unit id="fd5f8eaf-ca17-4d29-8daa-681cbb4d2a74" xml:space="preserve">
+          <source>For more information about Azure Blob storage service, see <bpt id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;linkText&gt;</bpt>How to use the Azure Blob Storage Service<ept id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;/linkText&gt;</ept><bpt id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;title&gt;</bpt><ept id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about Azure Blob storage service, see <bpt id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;linkText&gt;</bpt>How to use the Azure Blob Storage Service<ept id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;/linkText&gt;</ept><bpt id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;title&gt;</bpt><ept id="5e56a927-634d-4f9a-b6d1-4ba3113cc84a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1860b73c-692a-4c42-b76d-d734148a6516" xml:space="preserve">
+          <source>Container: A container provides a grouping of a set of Blobs, and can store an unlimited number of Blobs.</source>
+          <target state="new">Container: A container provides a grouping of a set of Blobs, and can store an unlimited number of Blobs.</target>
+        </trans-unit>
+        <trans-unit id="378398b8-5251-40d6-a00d-bc3f90043c7d" xml:space="preserve">
+          <source>To write a SQL Server backup to an Azure Blob service, you must have at least the root container created.</source>
+          <target state="new">To write a SQL Server backup to an Azure Blob service, you must have at least the root container created.</target>
+        </trans-unit>
+        <trans-unit id="db15c3b4-0fe9-4883-8327-f3d80bec34a4" xml:space="preserve">
+          <source>Blob: A file of any type and size. There are two types of blobs that can be stored in the Azure Blob storage service: block and page blobs.  SQL Server backup uses page Blobs as the Blob type. Blobs are addressable using the following URL format: <bpt id="194a802d-d2f3-4bfc-bd01-9d3c41cb3686">&lt;code&gt;</bpt>https://&lt;storage account&gt;.blob.core.windows.net/&lt;container&gt;/&lt;blob&gt;<ept id="194a802d-d2f3-4bfc-bd01-9d3c41cb3686">&lt;/code&gt;</ept>
+For more information about page Blobs, see <bpt id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;linkText&gt;</bpt>Understanding Block and Page Blobs<ept id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;/linkText&gt;</ept><bpt id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;title&gt;</bpt><ept id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;/title&gt;</ept></source>
+          <target state="new">Blob: A file of any type and size. There are two types of blobs that can be stored in the Azure Blob storage service: block and page blobs.  SQL Server backup uses page Blobs as the Blob type. Blobs are addressable using the following URL format: <bpt id="194a802d-d2f3-4bfc-bd01-9d3c41cb3686">&lt;code&gt;</bpt>https://&lt;storage account&gt;.blob.core.windows.net/&lt;container&gt;/&lt;blob&gt;<ept id="194a802d-d2f3-4bfc-bd01-9d3c41cb3686">&lt;/code&gt;</ept>
+For more information about page Blobs, see <bpt id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;linkText&gt;</bpt>Understanding Block and Page Blobs<ept id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;/linkText&gt;</ept><bpt id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;title&gt;</bpt><ept id="5e00878c-9c5f-4734-8b28-b1922ac73be1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2297ae17-ebd9-4922-b752-19c115342e50" xml:space="preserve">
+          <source>URL: A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. In this implementation, the only valid URL is one that points to a page Blob in an Azure Storage account. The URL must point to an actual Blob, not just a container. If the Blob does not exist, it is created. If an existing Blob is specified, BACKUP fails, unless the &gt; WITH FORMAT option is specified.
+Following is an example of the URL you would specify in the BACKUP command:
+**<bpt id="115344d9-7f3a-45ab-babf-f36ee81a074c">&lt;code&gt;</bpt>http[s]://ACCOUNTNAME.Blob.core.windows.net/&lt;CONTAINER&gt;/&lt;FILENAME.bak&gt;<ept id="115344d9-7f3a-45ab-babf-f36ee81a074c">&lt;/code&gt;</ept></source>
+          <target state="new">URL: A URL specifies a Uniform Resource Identifier (URI) to a unique backup file. The URL is used to provide the location and name of the SQL Server backup file. In this implementation, the only valid URL is one that points to a page Blob in an Azure Storage account. The URL must point to an actual Blob, not just a container. If the Blob does not exist, it is created. If an existing Blob is specified, BACKUP fails, unless the &gt; WITH FORMAT option is specified.
+Following is an example of the URL you would specify in the BACKUP command:
+**<bpt id="115344d9-7f3a-45ab-babf-f36ee81a074c">&lt;code&gt;</bpt>http[s]://ACCOUNTNAME.Blob.core.windows.net/&lt;CONTAINER&gt;/&lt;FILENAME.bak&gt;<ept id="115344d9-7f3a-45ab-babf-f36ee81a074c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41f2b5d5-58c5-4382-ba57-cdd9b822f171" xml:space="preserve">
+          <source>&lt;b&gt;Note:&lt;/b&gt; HTTPS is not required, but is recommended.</source>
+          <target state="new">&lt;b&gt;Note:&lt;/b&gt; HTTPS is not required, but is recommended.</target>
+        </trans-unit>
+        <trans-unit id="234e0fa5-a682-49db-9fc3-c1e8c0edda75" xml:space="preserve">
+          <source>&lt;b&gt;Important&lt;/b&gt;
+If you choose to copy and upload a backup file to the Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations.</source>
+          <target state="new">&lt;b&gt;Important&lt;/b&gt;
+If you choose to copy and upload a backup file to the Azure Blob storage service, you must use a page blob type as your storage option if you are planning to use this file for restore operations.</target>
+        </trans-unit>
+        <trans-unit id="a8175b8c-851d-48d5-8e41-1f6542fe7d78" xml:space="preserve">
+          <source>RESTORE from a block blob type will fail with an error.</source>
+          <target state="new">RESTORE from a block blob type will fail with an error.</target>
+        </trans-unit>
+        <trans-unit id="9e7352a3-bd1b-4eda-aecf-d6161e8dca96" xml:space="preserve">
+          <source>Credential: The information that is required to connect and authenticate to Azure Blob storage service is stored as a Credential.</source>
+          <target state="new">Credential: The information that is required to connect and authenticate to Azure Blob storage service is stored as a Credential.</target>
+        </trans-unit>
+        <trans-unit id="7ef839ea-79a1-46db-9ed4-38ca38ffa849" xml:space="preserve">
+          <source>In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created.</source>
+          <target state="new">In order for SQL Server to write backups to an Azure Blob or restore from it, a SQL Server credential must be created.</target>
+        </trans-unit>
+        <trans-unit id="1f50d22d-1c8e-4911-89a4-0273285aabdb" xml:space="preserve">
+          <source>The Credential stores the name of the storage account and the storage account access key.</source>
+          <target state="new">The Credential stores the name of the storage account and the storage account access key.</target>
+        </trans-unit>
+        <trans-unit id="a460881c-1a22-4980-b7ea-80f12c6ed676" xml:space="preserve">
+          <source>Once the credential is created, it must be specified in the WITH CREDENTIAL option when issuing the BACKUP/RESTORE statements.</source>
+          <target state="new">Once the credential is created, it must be specified in the WITH CREDENTIAL option when issuing the BACKUP/RESTORE statements.</target>
+        </trans-unit>
+        <trans-unit id="95ab0a5b-3683-4f58-a34e-231ed3e3d837" xml:space="preserve">
+          <source>For step by step instructions about how to create a SQL Server Credential, see <bpt id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;linkText&gt;</bpt>Getting Started with Azure Storage Service for SQL Server Backup and Restore<ept id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;/linkText&gt;</ept><bpt id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;title&gt;</bpt><ept id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For step by step instructions about how to create a SQL Server Credential, see <bpt id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;linkText&gt;</bpt>Getting Started with Azure Storage Service for SQL Server Backup and Restore<ept id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;/linkText&gt;</ept><bpt id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;title&gt;</bpt><ept id="a1f06543-9c88-4bb0-a8cc-5ad1369e5fd0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a0d7f0c-59d1-4c40-bd74-1b317f852b26" xml:space="preserve">
+          <source><bpt id="474ab889-b529-4e3f-acc9-cf112432ec1e">&lt;strong&gt;</bpt>Concepts, Considerations, and Code samples:<ept id="474ab889-b529-4e3f-acc9-cf112432ec1e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="474ab889-b529-4e3f-acc9-cf112432ec1e">&lt;strong&gt;</bpt>Concepts, Considerations, and Code samples:<ept id="474ab889-b529-4e3f-acc9-cf112432ec1e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e205a32c-67d3-4e94-88d2-041c1772da7a" xml:space="preserve">
+          <source><bpt id="00331734-2df5-440e-a721-b10bcac0652d">&lt;linkText&gt;</bpt>SQL Server Backup and Restore with Azure Blob Storage Service<ept id="00331734-2df5-440e-a721-b10bcac0652d">&lt;/linkText&gt;</ept><bpt id="00331734-2df5-440e-a721-b10bcac0652d">&lt;title&gt;</bpt><ept id="00331734-2df5-440e-a721-b10bcac0652d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00331734-2df5-440e-a721-b10bcac0652d">&lt;linkText&gt;</bpt>SQL Server Backup and Restore with Azure Blob Storage Service<ept id="00331734-2df5-440e-a721-b10bcac0652d">&lt;/linkText&gt;</ept><bpt id="00331734-2df5-440e-a721-b10bcac0652d">&lt;title&gt;</bpt><ept id="00331734-2df5-440e-a721-b10bcac0652d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3522688c-c861-4046-b09b-1abfba0d61bc" xml:space="preserve">
+          <source><bpt id="fb61593d-5b20-4c40-97c1-252323ace2c0">&lt;strong&gt;</bpt>Getting Started Tutorial:<ept id="fb61593d-5b20-4c40-97c1-252323ace2c0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fb61593d-5b20-4c40-97c1-252323ace2c0">&lt;strong&gt;</bpt>Getting Started Tutorial:<ept id="fb61593d-5b20-4c40-97c1-252323ace2c0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d8cc22b-fa05-4f70-81b0-bcb3f3cfa8f9" xml:space="preserve">
+          <source><bpt id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;linkText&gt;</bpt>Getting Started with SQL Server Backup and Restore to Azure Blob Storage Service<ept id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;/linkText&gt;</ept><bpt id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;title&gt;</bpt>Tutorial<ept id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;linkText&gt;</bpt>Getting Started with SQL Server Backup and Restore to Azure Blob Storage Service<ept id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;/linkText&gt;</ept><bpt id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;title&gt;</bpt>Tutorial<ept id="0194670b-c5e9-4b61-aa71-639edfe5883e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76e09659-09c2-49e6-87f7-584d47cd959f" xml:space="preserve">
+          <source><bpt id="8ca74986-98e7-444d-9429-113322831892">&lt;strong&gt;</bpt>Best Practices, Troubleshooting:<ept id="8ca74986-98e7-444d-9429-113322831892">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8ca74986-98e7-444d-9429-113322831892">&lt;strong&gt;</bpt>Best Practices, Troubleshooting:<ept id="8ca74986-98e7-444d-9429-113322831892">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6bd852c-3531-4f85-af47-6056c4bfc072" xml:space="preserve">
+          <source><bpt id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;linkText&gt;</bpt>Back and Restore Best Practices (Azure Blob Storage Service)<ept id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;/linkText&gt;</ept><bpt id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;title&gt;</bpt><ept id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;linkText&gt;</bpt>Back and Restore Best Practices (Azure Blob Storage Service)<ept id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;/linkText&gt;</ept><bpt id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;title&gt;</bpt><ept id="3010d8e8-b7d4-4072-b8dd-d387761a4ef3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

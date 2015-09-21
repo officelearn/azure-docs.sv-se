@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d5f1525a-8926-430a-a11b-a72b0399f37a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d5f1525a-8926-430a-a11b-a72b0399f37a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cda1d5ba-83e6-4d76-8b1b-437903914355">
+        <trans-unit id="df45b4fa-54de-4b94-b97a-fa09b4cea2ce" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Kudos | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Kudos | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="50a34f1d-f18f-46d2-b584-4bc01459c6d9" xml:space="preserve">
+          <source>Learn how to use Kudos with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Kudos with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="de48bed4-886c-4338-ad2a-7e58784793f1" xml:space="preserve">
+          <source>For feedback, click <bpt id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;linkText&gt;</bpt>here<ept id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;/linkText&gt;</ept><bpt id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;title&gt;</bpt><ept id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;linkText&gt;</bpt>here<ept id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;/linkText&gt;</ept><bpt id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;title&gt;</bpt><ept id="774f76d7-6f92-48e6-b8d1-128dca134feb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9eca10d7-c465-4196-80c1-1ce023bd6363" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Kudos.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Kudos.</target>
+        </trans-unit>
+        <trans-unit id="c0048a19-f88f-4e41-bb65-28abd7829c37" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="8ff4ac60-a23f-493a-8ea1-10638ded10ae" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="f6b689bb-39e0-4bf7-8a19-0bef791d0a64" xml:space="preserve">
+          <source>A Kudos tenant</source>
+          <target state="new">A Kudos tenant</target>
+        </trans-unit>
+        <trans-unit id="af8d98af-eae1-406c-90c4-bb7ac46addb4" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Kudos will be able to single sign into the application at your Kudos company site (service provider initiated sign on), or using the <bpt id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;/linkText&gt;</ept><bpt id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;title&gt;</bpt><ept id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Kudos will be able to single sign into the application at your Kudos company site (service provider initiated sign on), or using the <bpt id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;/linkText&gt;</ept><bpt id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;title&gt;</bpt><ept id="c29fd904-4f0a-4ae2-85de-5cb06a389da0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f54b2dd5-f94e-4310-8305-14af15928c89" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="69047cdc-b895-4371-8c87-e2a141aa955e" xml:space="preserve">
+          <source>Enabling the application integration for Kudos</source>
+          <target state="new">Enabling the application integration for Kudos</target>
+        </trans-unit>
+        <trans-unit id="f898c639-3d9e-4171-b25c-e5184c5899d7" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5fd440ce-7eff-4855-b499-ef9c0390f0d2" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="18d0481f-9d8f-4d6a-9677-9573d64332aa" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="4a7a52df-6d73-485b-b790-72d38c943f96" xml:space="preserve">
+          <source><bpt id="505cca49-8d3c-4a1b-ab5a-9f05460569ae">&lt;linkText&gt;</bpt>Scenario<ept id="505cca49-8d3c-4a1b-ab5a-9f05460569ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="505cca49-8d3c-4a1b-ab5a-9f05460569ae">&lt;linkText&gt;</bpt>Scenario<ept id="505cca49-8d3c-4a1b-ab5a-9f05460569ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82f03689-7427-4bed-9558-2f1b3ec7131b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Kudos.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Kudos.</target>
+        </trans-unit>
+        <trans-unit id="19e79808-0f64-4b36-aca2-af90636c3612" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="602aa16a-8af0-4d22-9789-5eb1a1beeb47">&lt;strong&gt;</bpt>Active Directory<ept id="602aa16a-8af0-4d22-9789-5eb1a1beeb47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="602aa16a-8af0-4d22-9789-5eb1a1beeb47">&lt;strong&gt;</bpt>Active Directory<ept id="602aa16a-8af0-4d22-9789-5eb1a1beeb47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cb2cbdf-9c30-4213-9e27-c58da5317f1a" xml:space="preserve">
+          <source><bpt id="6c13f64e-6467-4f8b-a829-7a1ba2adfccb">&lt;linkText&gt;</bpt>Active Directory<ept id="6c13f64e-6467-4f8b-a829-7a1ba2adfccb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c13f64e-6467-4f8b-a829-7a1ba2adfccb">&lt;linkText&gt;</bpt>Active Directory<ept id="6c13f64e-6467-4f8b-a829-7a1ba2adfccb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f058b27-65e7-46c5-bf23-3a589d3f53c4" xml:space="preserve">
+          <source>From the <bpt id="12f627c5-0f0e-444c-a246-d8c07081cbfa">&lt;strong&gt;</bpt>Directory<ept id="12f627c5-0f0e-444c-a246-d8c07081cbfa">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="12f627c5-0f0e-444c-a246-d8c07081cbfa">&lt;strong&gt;</bpt>Directory<ept id="12f627c5-0f0e-444c-a246-d8c07081cbfa">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ca43c2b3-c700-48c3-8c07-0ea4e1e70e70" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="679a971a-e37a-4a23-9777-f8700afcade0">&lt;strong&gt;</bpt>Applications<ept id="679a971a-e37a-4a23-9777-f8700afcade0">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="679a971a-e37a-4a23-9777-f8700afcade0">&lt;strong&gt;</bpt>Applications<ept id="679a971a-e37a-4a23-9777-f8700afcade0">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="6c59d9b5-abc9-4d24-9c9b-24d7a437ea31" xml:space="preserve">
+          <source><bpt id="2a917330-7c3c-417b-beb9-4cbca10cbc65">&lt;linkText&gt;</bpt>Applications<ept id="2a917330-7c3c-417b-beb9-4cbca10cbc65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a917330-7c3c-417b-beb9-4cbca10cbc65">&lt;linkText&gt;</bpt>Applications<ept id="2a917330-7c3c-417b-beb9-4cbca10cbc65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03bf5168-b2d7-4053-a936-fbf3fc5d6e54" xml:space="preserve">
+          <source>Click <bpt id="19ce1615-1d39-4cb0-b2fa-ffbc402e819c">&lt;strong&gt;</bpt>Add<ept id="19ce1615-1d39-4cb0-b2fa-ffbc402e819c">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="19ce1615-1d39-4cb0-b2fa-ffbc402e819c">&lt;strong&gt;</bpt>Add<ept id="19ce1615-1d39-4cb0-b2fa-ffbc402e819c">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="4c993814-37c6-4c06-be47-9cf3e039d5ae" xml:space="preserve">
+          <source><bpt id="be68d094-7e5c-4922-8a91-42b58ac8c9a6">&lt;linkText&gt;</bpt>Add application<ept id="be68d094-7e5c-4922-8a91-42b58ac8c9a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be68d094-7e5c-4922-8a91-42b58ac8c9a6">&lt;linkText&gt;</bpt>Add application<ept id="be68d094-7e5c-4922-8a91-42b58ac8c9a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91334bb5-b382-4bd6-afaf-cf4d5dcb4388" xml:space="preserve">
+          <source>On the <bpt id="b3ee5043-e772-436c-9595-7de41e726412">&lt;strong&gt;</bpt>What do you want to do<ept id="b3ee5043-e772-436c-9595-7de41e726412">&lt;/strong&gt;</ept> dialog, click <bpt id="4d37f074-2fba-495d-95a9-da3bd1b0d63b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="4d37f074-2fba-495d-95a9-da3bd1b0d63b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b3ee5043-e772-436c-9595-7de41e726412">&lt;strong&gt;</bpt>What do you want to do<ept id="b3ee5043-e772-436c-9595-7de41e726412">&lt;/strong&gt;</ept> dialog, click <bpt id="4d37f074-2fba-495d-95a9-da3bd1b0d63b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="4d37f074-2fba-495d-95a9-da3bd1b0d63b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8229f14e-5abb-405a-b1a7-8a6650c86b14" xml:space="preserve">
+          <source><bpt id="1dc36e83-5bac-4901-89ee-91021c58162f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="1dc36e83-5bac-4901-89ee-91021c58162f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1dc36e83-5bac-4901-89ee-91021c58162f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="1dc36e83-5bac-4901-89ee-91021c58162f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce4e1763-7dd3-41f6-ac05-c85a68c037ad" xml:space="preserve">
+          <source>In the <bpt id="dd0361e5-c34d-45e3-8458-ae2f8f39987a">&lt;strong&gt;</bpt>search box<ept id="dd0361e5-c34d-45e3-8458-ae2f8f39987a">&lt;/strong&gt;</ept>, type <bpt id="5bd63c19-b80a-4a3f-bdce-cb8e920df6e3">&lt;strong&gt;</bpt>Kudos<ept id="5bd63c19-b80a-4a3f-bdce-cb8e920df6e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dd0361e5-c34d-45e3-8458-ae2f8f39987a">&lt;strong&gt;</bpt>search box<ept id="dd0361e5-c34d-45e3-8458-ae2f8f39987a">&lt;/strong&gt;</ept>, type <bpt id="5bd63c19-b80a-4a3f-bdce-cb8e920df6e3">&lt;strong&gt;</bpt>Kudos<ept id="5bd63c19-b80a-4a3f-bdce-cb8e920df6e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbda90c8-0583-42a7-9b37-a0da243cc58c" xml:space="preserve">
+          <source><bpt id="2c8d9b86-d49e-4f9e-9433-6e0ef3d6c7b2">&lt;linkText&gt;</bpt>Application Gallery<ept id="2c8d9b86-d49e-4f9e-9433-6e0ef3d6c7b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c8d9b86-d49e-4f9e-9433-6e0ef3d6c7b2">&lt;linkText&gt;</bpt>Application Gallery<ept id="2c8d9b86-d49e-4f9e-9433-6e0ef3d6c7b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d75e9470-406d-4081-bfea-c5c7748cadaa" xml:space="preserve">
+          <source>In the results pane, select <bpt id="8fc70c30-6c0e-4d2c-93ed-ef2d9955db04">&lt;strong&gt;</bpt>Kudos<ept id="8fc70c30-6c0e-4d2c-93ed-ef2d9955db04">&lt;/strong&gt;</ept>, and then click <bpt id="799d114d-8cbe-49f0-859a-c8a4edba05da">&lt;strong&gt;</bpt>Complete<ept id="799d114d-8cbe-49f0-859a-c8a4edba05da">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="8fc70c30-6c0e-4d2c-93ed-ef2d9955db04">&lt;strong&gt;</bpt>Kudos<ept id="8fc70c30-6c0e-4d2c-93ed-ef2d9955db04">&lt;/strong&gt;</ept>, and then click <bpt id="799d114d-8cbe-49f0-859a-c8a4edba05da">&lt;strong&gt;</bpt>Complete<ept id="799d114d-8cbe-49f0-859a-c8a4edba05da">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="1ff3eaff-d9c3-4bee-b3a6-3c6fb5aa198d" xml:space="preserve">
+          <source><bpt id="bd016b2e-47bc-42bb-965d-ade2f80daff2">&lt;linkText&gt;</bpt>Kudos<ept id="bd016b2e-47bc-42bb-965d-ade2f80daff2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bd016b2e-47bc-42bb-965d-ade2f80daff2">&lt;linkText&gt;</bpt>Kudos<ept id="bd016b2e-47bc-42bb-965d-ade2f80daff2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b0650b3-da9b-4f5c-b0ad-d8f15c80dcc7" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Kudos with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Kudos with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="66536a6a-bc42-43c4-9b29-365ab0743353" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="abe25d1e-715a-4388-a671-646c4566c490" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;/linkText&gt;</ept><bpt id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;title&gt;</bpt><ept id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;/linkText&gt;</ept><bpt id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;title&gt;</bpt><ept id="94c68345-2c0b-4244-b823-f9cbe8713493">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91a5823b-e830-4ed1-886e-aa438828e675" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="1377848e-491d-4a80-8ec4-15e8d56afed6">&lt;strong&gt;</bpt>Kudos<ept id="1377848e-491d-4a80-8ec4-15e8d56afed6">&lt;/strong&gt;</ept> application integration page, click <bpt id="d9508e40-90a2-43bc-93d6-57091b5772e5">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d9508e40-90a2-43bc-93d6-57091b5772e5">&lt;/strong&gt;</ept> to open the <bpt id="fd94feef-3119-485d-b878-3ddb0402f708">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="fd94feef-3119-485d-b878-3ddb0402f708">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="1377848e-491d-4a80-8ec4-15e8d56afed6">&lt;strong&gt;</bpt>Kudos<ept id="1377848e-491d-4a80-8ec4-15e8d56afed6">&lt;/strong&gt;</ept> application integration page, click <bpt id="d9508e40-90a2-43bc-93d6-57091b5772e5">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d9508e40-90a2-43bc-93d6-57091b5772e5">&lt;/strong&gt;</ept> to open the <bpt id="fd94feef-3119-485d-b878-3ddb0402f708">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="fd94feef-3119-485d-b878-3ddb0402f708">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="9de9d6c8-bc44-478d-94ef-a17d988935f6" xml:space="preserve">
+          <source><bpt id="3d7a37b3-3af2-427c-a3bd-507fc391b720">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3d7a37b3-3af2-427c-a3bd-507fc391b720">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d7a37b3-3af2-427c-a3bd-507fc391b720">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3d7a37b3-3af2-427c-a3bd-507fc391b720">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3293c368-0215-46c4-8066-0bd701ca6d2f" xml:space="preserve">
+          <source>On the <bpt id="27e387e5-b7ab-4f41-9c80-f071b44228e1">&lt;strong&gt;</bpt>How would you like users to sign on to Kudos<ept id="27e387e5-b7ab-4f41-9c80-f071b44228e1">&lt;/strong&gt;</ept> page, select <bpt id="bbd42caa-e2ef-4c57-ac7f-875daeeb3a07">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bbd42caa-e2ef-4c57-ac7f-875daeeb3a07">&lt;/strong&gt;</ept>, and then click <bpt id="afb6341c-f01c-42a0-a15d-4689a42f8864">&lt;strong&gt;</bpt>Next<ept id="afb6341c-f01c-42a0-a15d-4689a42f8864">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="27e387e5-b7ab-4f41-9c80-f071b44228e1">&lt;strong&gt;</bpt>How would you like users to sign on to Kudos<ept id="27e387e5-b7ab-4f41-9c80-f071b44228e1">&lt;/strong&gt;</ept> page, select <bpt id="bbd42caa-e2ef-4c57-ac7f-875daeeb3a07">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bbd42caa-e2ef-4c57-ac7f-875daeeb3a07">&lt;/strong&gt;</ept>, and then click <bpt id="afb6341c-f01c-42a0-a15d-4689a42f8864">&lt;strong&gt;</bpt>Next<ept id="afb6341c-f01c-42a0-a15d-4689a42f8864">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98c58826-4ba9-45e4-84be-c87b272c6ef6" xml:space="preserve">
+          <source><bpt id="3b2445b7-4634-4010-bab6-a527442dcf86">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3b2445b7-4634-4010-bab6-a527442dcf86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b2445b7-4634-4010-bab6-a527442dcf86">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="3b2445b7-4634-4010-bab6-a527442dcf86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="339dfcd4-be16-4e92-8563-b338f4f849cc" xml:space="preserve">
+          <source>On the <bpt id="37bb2aa8-2f42-468b-9e82-dc17af2fe71b">&lt;strong&gt;</bpt>Configure App URL<ept id="37bb2aa8-2f42-468b-9e82-dc17af2fe71b">&lt;/strong&gt;</ept> page, in the <bpt id="321b3ea4-959e-4055-913a-8a1787aa2409">&lt;strong&gt;</bpt>Kudos Sign On URL<ept id="321b3ea4-959e-4055-913a-8a1787aa2409">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="5a742dfc-198e-4c7a-8ddd-11d1f0a312f7">&lt;em&gt;</bpt>https://company.kudosnow.com<ept id="5a742dfc-198e-4c7a-8ddd-11d1f0a312f7">&lt;/em&gt;</ept>", and then click <bpt id="50b6ec57-31ce-42fd-8624-4f1ece369a59">&lt;strong&gt;</bpt>Next<ept id="50b6ec57-31ce-42fd-8624-4f1ece369a59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="37bb2aa8-2f42-468b-9e82-dc17af2fe71b">&lt;strong&gt;</bpt>Configure App URL<ept id="37bb2aa8-2f42-468b-9e82-dc17af2fe71b">&lt;/strong&gt;</ept> page, in the <bpt id="321b3ea4-959e-4055-913a-8a1787aa2409">&lt;strong&gt;</bpt>Kudos Sign On URL<ept id="321b3ea4-959e-4055-913a-8a1787aa2409">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="5a742dfc-198e-4c7a-8ddd-11d1f0a312f7">&lt;em&gt;</bpt>https://company.kudosnow.com<ept id="5a742dfc-198e-4c7a-8ddd-11d1f0a312f7">&lt;/em&gt;</ept>", and then click <bpt id="50b6ec57-31ce-42fd-8624-4f1ece369a59">&lt;strong&gt;</bpt>Next<ept id="50b6ec57-31ce-42fd-8624-4f1ece369a59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21028d1c-e71e-4d6d-9a35-9d0af416ed63" xml:space="preserve">
+          <source><bpt id="dc251d31-73c4-4915-9f03-6dace11de892">&lt;linkText&gt;</bpt>Configure App URL<ept id="dc251d31-73c4-4915-9f03-6dace11de892">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc251d31-73c4-4915-9f03-6dace11de892">&lt;linkText&gt;</bpt>Configure App URL<ept id="dc251d31-73c4-4915-9f03-6dace11de892">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c17f163f-2273-49c7-96a3-318e89091421" xml:space="preserve">
+          <source>On the <bpt id="d0edef28-6f5a-4471-8939-8c393dfc0012">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="d0edef28-6f5a-4471-8939-8c393dfc0012">&lt;/strong&gt;</ept> page, click <bpt id="f1c4a38d-4105-470d-b70b-667bd1396982">&lt;strong&gt;</bpt>Download certificate<ept id="f1c4a38d-4105-470d-b70b-667bd1396982">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="d0edef28-6f5a-4471-8939-8c393dfc0012">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="d0edef28-6f5a-4471-8939-8c393dfc0012">&lt;/strong&gt;</ept> page, click <bpt id="f1c4a38d-4105-470d-b70b-667bd1396982">&lt;strong&gt;</bpt>Download certificate<ept id="f1c4a38d-4105-470d-b70b-667bd1396982">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ec20383c-86a5-45af-86aa-62d67c933cc8" xml:space="preserve">
+          <source><bpt id="7489fc95-4592-40ad-9eed-712810a2c98a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7489fc95-4592-40ad-9eed-712810a2c98a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7489fc95-4592-40ad-9eed-712810a2c98a">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7489fc95-4592-40ad-9eed-712810a2c98a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a93f97d1-89a0-496c-b619-b1c565e157de" xml:space="preserve">
+          <source>In a different web browser window, log into your Kudos company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Kudos company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="e99ad076-0912-4574-bf06-84c2b6b260bc" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="578034c4-2147-4065-99f8-07df20e21ac6">&lt;strong&gt;</bpt>Settings<ept id="578034c4-2147-4065-99f8-07df20e21ac6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="578034c4-2147-4065-99f8-07df20e21ac6">&lt;strong&gt;</bpt>Settings<ept id="578034c4-2147-4065-99f8-07df20e21ac6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b94ae52-3aa4-4452-aecc-3b26c8513815" xml:space="preserve">
+          <source><bpt id="ec8d8201-15ad-4b55-a656-00c247e99062">&lt;linkText&gt;</bpt>Settings<ept id="ec8d8201-15ad-4b55-a656-00c247e99062">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec8d8201-15ad-4b55-a656-00c247e99062">&lt;linkText&gt;</bpt>Settings<ept id="ec8d8201-15ad-4b55-a656-00c247e99062">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2702dd5-8560-434f-b9c0-87fd24dbb8d7" xml:space="preserve">
+          <source>Click <bpt id="1687961b-96ff-497e-8ec4-9ee855cb9d60">&lt;strong&gt;</bpt>Integrations \&gt; SSO<ept id="1687961b-96ff-497e-8ec4-9ee855cb9d60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1687961b-96ff-497e-8ec4-9ee855cb9d60">&lt;strong&gt;</bpt>Integrations \&gt; SSO<ept id="1687961b-96ff-497e-8ec4-9ee855cb9d60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e531950-5dfc-45a7-b50d-2019868faa64" xml:space="preserve">
+          <source>In the <bpt id="c79e7813-f750-40d2-8275-13dd87150c40">&lt;strong&gt;</bpt>SSO<ept id="c79e7813-f750-40d2-8275-13dd87150c40">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="c79e7813-f750-40d2-8275-13dd87150c40">&lt;strong&gt;</bpt>SSO<ept id="c79e7813-f750-40d2-8275-13dd87150c40">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="de32b6e8-7ed4-4f73-8064-e61f956aa59f" xml:space="preserve">
+          <source><bpt id="482371b9-3a52-4c55-a59e-7cf6dc9c1f48">&lt;linkText&gt;</bpt>SSO<ept id="482371b9-3a52-4c55-a59e-7cf6dc9c1f48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="482371b9-3a52-4c55-a59e-7cf6dc9c1f48">&lt;linkText&gt;</bpt>SSO<ept id="482371b9-3a52-4c55-a59e-7cf6dc9c1f48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="306527d8-52fc-481c-bbc9-cff4ab83410c" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="cc529fa8-9b14-44df-8f61-ba396633c070">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="cc529fa8-9b14-44df-8f61-ba396633c070">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="ee5df646-3437-41fa-892d-78dd0057f4bb">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="ee5df646-3437-41fa-892d-78dd0057f4bb">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="7d8aaf51-7fc3-4f0b-b8ce-29788da54c2e">&lt;em&gt;</bpt>*Sign on URL *<ept id="7d8aaf51-7fc3-4f0b-b8ce-29788da54c2e">&lt;/em&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="cc529fa8-9b14-44df-8f61-ba396633c070">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="cc529fa8-9b14-44df-8f61-ba396633c070">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="ee5df646-3437-41fa-892d-78dd0057f4bb">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="ee5df646-3437-41fa-892d-78dd0057f4bb">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="7d8aaf51-7fc3-4f0b-b8ce-29788da54c2e">&lt;em&gt;</bpt>*Sign on URL *<ept id="7d8aaf51-7fc3-4f0b-b8ce-29788da54c2e">&lt;/em&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="01efea1a-6fd9-4a53-9799-34539cd1c190" xml:space="preserve">
+          <source>Create a <bpt id="9cad93d9-ba3a-48bd-a453-4d81ea8db6f4">&lt;strong&gt;</bpt>base-64 encoded<ept id="9cad93d9-ba3a-48bd-a453-4d81ea8db6f4">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="9cad93d9-ba3a-48bd-a453-4d81ea8db6f4">&lt;strong&gt;</bpt>base-64 encoded<ept id="9cad93d9-ba3a-48bd-a453-4d81ea8db6f4">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="6bb3214c-c3c7-4a4d-b1fd-621a31dd580a" xml:space="preserve">
+          <source>For more details, see <bpt id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;/linkText&gt;</ept><bpt id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;title&gt;</bpt><ept id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;/linkText&gt;</ept><bpt id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;title&gt;</bpt><ept id="1760e170-fd14-4a47-b510-6f0210581c10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="788336f6-c427-4129-89a7-cbf98312bf82" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="867f394c-fee0-44ef-946f-c9a1f5b008ba">&lt;strong&gt;</bpt>X.509 certificate<ept id="867f394c-fee0-44ef-946f-c9a1f5b008ba">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="867f394c-fee0-44ef-946f-c9a1f5b008ba">&lt;strong&gt;</bpt>X.509 certificate<ept id="867f394c-fee0-44ef-946f-c9a1f5b008ba">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="9b87759d-d533-43ea-b254-28b8fd7e9cf3" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="ec52fddf-d859-4782-93cd-d2a2c88ef878">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="ec52fddf-d859-4782-93cd-d2a2c88ef878">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d3d8cc97-c91e-449c-b450-7aa3b8312209">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="d3d8cc97-c91e-449c-b450-7aa3b8312209">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="dcf4d851-b3ad-4fcc-9bf0-fb2574d94328">&lt;em&gt;</bpt>*Logout To URL *<ept id="dcf4d851-b3ad-4fcc-9bf0-fb2574d94328">&lt;/em&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="ec52fddf-d859-4782-93cd-d2a2c88ef878">&lt;strong&gt;</bpt>Configure single sign-on at Kudos<ept id="ec52fddf-d859-4782-93cd-d2a2c88ef878">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="d3d8cc97-c91e-449c-b450-7aa3b8312209">&lt;strong&gt;</bpt>Single Sign-Out Service URL<ept id="d3d8cc97-c91e-449c-b450-7aa3b8312209">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="dcf4d851-b3ad-4fcc-9bf0-fb2574d94328">&lt;em&gt;</bpt>*Logout To URL *<ept id="dcf4d851-b3ad-4fcc-9bf0-fb2574d94328">&lt;/em&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="e1e2ba1f-1502-45dd-a274-f31797fbf743" xml:space="preserve">
+          <source>In the <bpt id="5d7840c7-09f5-4ed0-b14e-2cf8c4b1d2be">&lt;strong&gt;</bpt>Your Kudos URL<ept id="5d7840c7-09f5-4ed0-b14e-2cf8c4b1d2be">&lt;/strong&gt;</ept> textbox, type your company name.</source>
+          <target state="new">In the <bpt id="5d7840c7-09f5-4ed0-b14e-2cf8c4b1d2be">&lt;strong&gt;</bpt>Your Kudos URL<ept id="5d7840c7-09f5-4ed0-b14e-2cf8c4b1d2be">&lt;/strong&gt;</ept> textbox, type your company name.</target>
+        </trans-unit>
+        <trans-unit id="714b9e7b-8bfe-4ab7-85aa-0ff1299bef45" xml:space="preserve">
+          <source>Click <bpt id="bcb5a3ae-894f-47cb-b225-ee981455f810">&lt;strong&gt;</bpt>Save<ept id="bcb5a3ae-894f-47cb-b225-ee981455f810">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bcb5a3ae-894f-47cb-b225-ee981455f810">&lt;strong&gt;</bpt>Save<ept id="bcb5a3ae-894f-47cb-b225-ee981455f810">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cd8ce6a-a004-4fe6-9d42-e807dbf0187a" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6a643c9b-0e7e-4d2d-936b-bfe31e5f9d2b">&lt;strong&gt;</bpt>Complete<ept id="6a643c9b-0e7e-4d2d-936b-bfe31e5f9d2b">&lt;/strong&gt;</ept> to close the <bpt id="bc5eae70-c8fe-46a1-af81-b51d87d906bf">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="bc5eae70-c8fe-46a1-af81-b51d87d906bf">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="6a643c9b-0e7e-4d2d-936b-bfe31e5f9d2b">&lt;strong&gt;</bpt>Complete<ept id="6a643c9b-0e7e-4d2d-936b-bfe31e5f9d2b">&lt;/strong&gt;</ept> to close the <bpt id="bc5eae70-c8fe-46a1-af81-b51d87d906bf">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="bc5eae70-c8fe-46a1-af81-b51d87d906bf">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="a344a887-5f0f-48ea-9b89-a10f1989c75a" xml:space="preserve">
+          <source><bpt id="8002843c-a1ff-4632-8192-905aa3c9e3cf">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="8002843c-a1ff-4632-8192-905aa3c9e3cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8002843c-a1ff-4632-8192-905aa3c9e3cf">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="8002843c-a1ff-4632-8192-905aa3c9e3cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fabf78be-9b82-4ee9-8e58-102b32c84fa9" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Kudos, they must be provisioned into Kudos.</source>
+          <target state="new">In order to enable Azure AD users to log into Kudos, they must be provisioned into Kudos.</target>
+        </trans-unit>
+        <trans-unit id="b92bec8d-6bf6-432a-9656-6c36279b1ce8" xml:space="preserve">
+          <source>In the case of Kudos, provisioning is a manual task.</source>
+          <target state="new">In the case of Kudos, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="63040b3c-8a8a-4a4a-a930-a6851724fcb2" xml:space="preserve">
+          <source>Log in to your <bpt id="8b396c14-9065-447d-a63b-39b7a3baef3c">&lt;strong&gt;</bpt>Kudos<ept id="8b396c14-9065-447d-a63b-39b7a3baef3c">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="8b396c14-9065-447d-a63b-39b7a3baef3c">&lt;strong&gt;</bpt>Kudos<ept id="8b396c14-9065-447d-a63b-39b7a3baef3c">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="19ed3f1f-3eb4-4871-a2ec-46febaafa664" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="d6c172ee-8df4-49e0-b4f6-64432b4405e9">&lt;strong&gt;</bpt>Settings<ept id="d6c172ee-8df4-49e0-b4f6-64432b4405e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="d6c172ee-8df4-49e0-b4f6-64432b4405e9">&lt;strong&gt;</bpt>Settings<ept id="d6c172ee-8df4-49e0-b4f6-64432b4405e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d92121bb-80be-4421-97b4-4d454a48da81" xml:space="preserve">
+          <source><bpt id="dad1b7b9-6f37-41a2-81a1-0650b4cfd450">&lt;linkText&gt;</bpt>Settings<ept id="dad1b7b9-6f37-41a2-81a1-0650b4cfd450">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dad1b7b9-6f37-41a2-81a1-0650b4cfd450">&lt;linkText&gt;</bpt>Settings<ept id="dad1b7b9-6f37-41a2-81a1-0650b4cfd450">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfb32926-de20-4eb3-b594-e0931b9cc9ee" xml:space="preserve">
+          <source>Click <bpt id="90374a54-9c4c-4fb4-911b-88034973e306">&lt;strong&gt;</bpt>User Admin<ept id="90374a54-9c4c-4fb4-911b-88034973e306">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="90374a54-9c4c-4fb4-911b-88034973e306">&lt;strong&gt;</bpt>User Admin<ept id="90374a54-9c4c-4fb4-911b-88034973e306">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdfeda36-3c15-49c7-b294-254268a8fb62" xml:space="preserve">
+          <source>Click the <bpt id="c787745f-2720-469c-9116-87b46341967e">&lt;strong&gt;</bpt>Users<ept id="c787745f-2720-469c-9116-87b46341967e">&lt;/strong&gt;</ept> tab, and then click <bpt id="78a08a84-4403-4a73-8cfb-4e2fdb1062e9">&lt;strong&gt;</bpt>Add a user<ept id="78a08a84-4403-4a73-8cfb-4e2fdb1062e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="c787745f-2720-469c-9116-87b46341967e">&lt;strong&gt;</bpt>Users<ept id="c787745f-2720-469c-9116-87b46341967e">&lt;/strong&gt;</ept> tab, and then click <bpt id="78a08a84-4403-4a73-8cfb-4e2fdb1062e9">&lt;strong&gt;</bpt>Add a user<ept id="78a08a84-4403-4a73-8cfb-4e2fdb1062e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0602eac-cd90-44d8-aad9-c4807deb649a" xml:space="preserve">
+          <source><bpt id="229323c6-f240-4ac4-86d7-edf71d96940f">&lt;linkText&gt;</bpt>User Admin<ept id="229323c6-f240-4ac4-86d7-edf71d96940f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="229323c6-f240-4ac4-86d7-edf71d96940f">&lt;linkText&gt;</bpt>User Admin<ept id="229323c6-f240-4ac4-86d7-edf71d96940f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71c05ee9-d280-47de-8519-f0c23cc6afad" xml:space="preserve">
+          <source>In the <bpt id="4c0c62cf-44d5-4df7-8fea-25b7cfc8b254">&lt;strong&gt;</bpt>Add a User<ept id="4c0c62cf-44d5-4df7-8fea-25b7cfc8b254">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="4c0c62cf-44d5-4df7-8fea-25b7cfc8b254">&lt;strong&gt;</bpt>Add a User<ept id="4c0c62cf-44d5-4df7-8fea-25b7cfc8b254">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a64c8d8d-ef5e-4b28-b539-c1d05711a936" xml:space="preserve">
+          <source><bpt id="31db1b60-3122-4ce3-84a6-5b7b94cbe786">&lt;linkText&gt;</bpt>Add a User<ept id="31db1b60-3122-4ce3-84a6-5b7b94cbe786">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31db1b60-3122-4ce3-84a6-5b7b94cbe786">&lt;linkText&gt;</bpt>Add a User<ept id="31db1b60-3122-4ce3-84a6-5b7b94cbe786">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ee6d161-62db-44bc-88cf-e59575d58d36" xml:space="preserve">
+          <source>Type the <bpt id="600a94cf-70e6-4bf7-8eab-7cec887e164b">&lt;strong&gt;</bpt>First Name<ept id="600a94cf-70e6-4bf7-8eab-7cec887e164b">&lt;/strong&gt;</ept>, <bpt id="45ea525c-79b9-4f5a-afa8-5c71e7b5f205">&lt;strong&gt;</bpt>Last Name<ept id="45ea525c-79b9-4f5a-afa8-5c71e7b5f205">&lt;/strong&gt;</ept>, <bpt id="a0defe56-117c-4411-8349-a51608600332">&lt;strong&gt;</bpt>Email<ept id="a0defe56-117c-4411-8349-a51608600332">&lt;/strong&gt;</ept> and other details of a valid Azure Active Directory account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="600a94cf-70e6-4bf7-8eab-7cec887e164b">&lt;strong&gt;</bpt>First Name<ept id="600a94cf-70e6-4bf7-8eab-7cec887e164b">&lt;/strong&gt;</ept>, <bpt id="45ea525c-79b9-4f5a-afa8-5c71e7b5f205">&lt;strong&gt;</bpt>Last Name<ept id="45ea525c-79b9-4f5a-afa8-5c71e7b5f205">&lt;/strong&gt;</ept>, <bpt id="a0defe56-117c-4411-8349-a51608600332">&lt;strong&gt;</bpt>Email<ept id="a0defe56-117c-4411-8349-a51608600332">&lt;/strong&gt;</ept> and other details of a valid Azure Active Directory account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="b4c5793f-0734-49fc-8c23-61411aed48cd" xml:space="preserve">
+          <source>Click <bpt id="9935294a-fb2b-4470-88b8-a6e6e60f0ec9">&lt;strong&gt;</bpt>Create User<ept id="9935294a-fb2b-4470-88b8-a6e6e60f0ec9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9935294a-fb2b-4470-88b8-a6e6e60f0ec9">&lt;strong&gt;</bpt>Create User<ept id="9935294a-fb2b-4470-88b8-a6e6e60f0ec9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a406db7-dd04-4396-917a-a00519283713" xml:space="preserve">
+          <source>You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.</source>
+          <target state="new">You can use any other Kudos user account creation tools or APIs provided by Kudos to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="a1a91475-594d-4479-88dc-92dc5c71eb65" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="edad9cd5-94db-4b53-a9ca-028f6a8d6151" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="69a71771-4234-45ff-86e3-c0977528c58c" xml:space="preserve">
+          <source>On the <bpt id="afbb07d7-56a0-407d-8a2f-36ac246601ee">&lt;strong&gt;</bpt>Kudos **application integration page, click **Assign users<ept id="afbb07d7-56a0-407d-8a2f-36ac246601ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="afbb07d7-56a0-407d-8a2f-36ac246601ee">&lt;strong&gt;</bpt>Kudos **application integration page, click **Assign users<ept id="afbb07d7-56a0-407d-8a2f-36ac246601ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4026e661-4538-4dc2-abcb-5868f4688637" xml:space="preserve">
+          <source><bpt id="92a34acd-a81e-42a8-8e8e-2e56bbf633d6">&lt;linkText&gt;</bpt>Assign users<ept id="92a34acd-a81e-42a8-8e8e-2e56bbf633d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92a34acd-a81e-42a8-8e8e-2e56bbf633d6">&lt;linkText&gt;</bpt>Assign users<ept id="92a34acd-a81e-42a8-8e8e-2e56bbf633d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f7b07c7-9509-43c9-96fa-1708e5452c3f" xml:space="preserve">
+          <source>Select your test user, click <bpt id="c2a0b9cb-4d48-4777-a61f-899a82093c9f">&lt;strong&gt;</bpt>Assign<ept id="c2a0b9cb-4d48-4777-a61f-899a82093c9f">&lt;/strong&gt;</ept>, and then click <bpt id="5ab32909-5fdf-45b8-8dd4-d06a1f499636">&lt;strong&gt;</bpt>Yes<ept id="5ab32909-5fdf-45b8-8dd4-d06a1f499636">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="c2a0b9cb-4d48-4777-a61f-899a82093c9f">&lt;strong&gt;</bpt>Assign<ept id="c2a0b9cb-4d48-4777-a61f-899a82093c9f">&lt;/strong&gt;</ept>, and then click <bpt id="5ab32909-5fdf-45b8-8dd4-d06a1f499636">&lt;strong&gt;</bpt>Yes<ept id="5ab32909-5fdf-45b8-8dd4-d06a1f499636">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="6b06153c-7b3c-4b6c-96e2-88403ab52025" xml:space="preserve">
+          <source><bpt id="3d29b135-bede-4d6e-96f6-4a3b949308d7">&lt;linkText&gt;</bpt>Yes<ept id="3d29b135-bede-4d6e-96f6-4a3b949308d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d29b135-bede-4d6e-96f6-4a3b949308d7">&lt;linkText&gt;</bpt>Yes<ept id="3d29b135-bede-4d6e-96f6-4a3b949308d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99a1b8a3-4216-4451-979a-aea00828a5c8" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="4b7d555c-4c93-42d5-918c-55732acfdd6a" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;/linkText&gt;</ept><bpt id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;title&gt;</bpt><ept id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;/linkText&gt;</ept><bpt id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;title&gt;</bpt><ept id="74f9bd5c-7eb2-4208-845b-617cb45be53a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0f5cb576-010f-4336-a764-05d3343affb2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0f5cb576-010f-4336-a764-05d3343affb2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="03338523-dce4-423c-8699-794d89fd0861">
+        <trans-unit id="0e5c6d2b-82df-4375-946c-c34e0c39f8f2" xml:space="preserve">
+          <source>Authenticate your app with Live Connect (JavaScript)</source>
+          <target state="new">Authenticate your app with Live Connect (JavaScript)</target>
+        </trans-unit>
+        <trans-unit id="dbbdb84d-870d-495e-8a0b-0887bba4bdfd" xml:space="preserve">
+          <source>Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application.</source>
+          <target state="new">Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Store application.</target>
+        </trans-unit>
+        <trans-unit id="f2d5098a-2329-4a96-b65f-5b574f207128" xml:space="preserve">
+          <source><bpt id="ac0dab8b-e7e5-48c4-bc3b-047757127291">&lt;token href="../../includes/mobile-services-selector-single-signon.md"&gt;</bpt><ept id="ac0dab8b-e7e5-48c4-bc3b-047757127291">&lt;/token&gt;</ept>  </source>
+          <target state="new"><bpt id="ac0dab8b-e7e5-48c4-bc3b-047757127291">&lt;token href="../../includes/mobile-services-selector-single-signon.md"&gt;</bpt><ept id="ac0dab8b-e7e5-48c4-bc3b-047757127291">&lt;/token&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="02541093-9820-4162-a046-cb1ccbd5a34b" xml:space="preserve">
+          <source>This topic shows you how to authenticate users in Azure Mobile Services from a Windows Store app.</source>
+          <target state="new">This topic shows you how to authenticate users in Azure Mobile Services from a Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="f226d0c0-6ba3-4da3-83d3-31964126b119" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using Live Connect.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using Live Connect.</target>
+        </trans-unit>
+        <trans-unit id="7cdae8a4-c67c-45d6-9200-70a6a4d98e9e" xml:space="preserve">
+          <source>When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.</source>
+          <target state="new">When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.</target>
+        </trans-unit>
+        <trans-unit id="99df1c72-825a-4bf9-baab-bfc1d84b70cb" xml:space="preserve">
+          <source>This tutorial demonstrates the benefits of using client-managed authentication and the Live SDK.</source>
+          <target state="new">This tutorial demonstrates the benefits of using client-managed authentication and the Live SDK.</target>
+        </trans-unit>
+        <trans-unit id="1ad5fd95-5021-4abc-87d9-6b98e3ba6a2d" xml:space="preserve">
+          <source>This enables you to more easily authenticate an already logged-on user with you mobile service.</source>
+          <target state="new">This enables you to more easily authenticate an already logged-on user with you mobile service.</target>
+        </trans-unit>
+        <trans-unit id="31ff875b-2b2e-4707-8cc7-358b52fead1c" xml:space="preserve">
+          <source>You can also request additional scopes to enable your app to also access resources like OneDrive.</source>
+          <target state="new">You can also request additional scopes to enable your app to also access resources like OneDrive.</target>
+        </trans-unit>
+        <trans-unit id="62639a68-f147-4309-a2b7-c991e421175c" xml:space="preserve">
+          <source>Service-managed authentication provides a more generalized experience and supports multiple authentication providers.</source>
+          <target state="new">Service-managed authentication provides a more generalized experience and supports multiple authentication providers.</target>
+        </trans-unit>
+        <trans-unit id="5c6c1637-2f51-4167-b66f-4444da68c960" xml:space="preserve">
+          <source>For more information about service-managed authentication, see the topic <bpt id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;linkText&gt;</bpt>Add authentication to your app<ept id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;/linkText&gt;</ept><bpt id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;title&gt;</bpt><ept id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about service-managed authentication, see the topic <bpt id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;linkText&gt;</bpt>Add authentication to your app<ept id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;/linkText&gt;</ept><bpt id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;title&gt;</bpt><ept id="53724387-ddb9-43e6-92d1-8ad24bdfd682">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c27b59ae-09a0-41ed-9a8a-16ce462e5402" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="a36fc9c4-2753-445a-96b0-5cfef9e0c4d6" xml:space="preserve">
+          <source>[Live SDK for Windows]</source>
+          <target state="new">[Live SDK for Windows]</target>
+        </trans-unit>
+        <trans-unit id="9236d4c1-9489-4c53-8e6d-9d6aa5e4e920" xml:space="preserve">
+          <source>Microsoft Visual Studio 2012 Express for Windows 8 RC, or a later version</source>
+          <target state="new">Microsoft Visual Studio 2012 Express for Windows 8 RC, or a later version</target>
+        </trans-unit>
+        <trans-unit id="ff8e53a0-45d4-47c0-b329-1e334f272b95" xml:space="preserve">
+          <source>You must also first complete the tutorial [Add Mobile Services to an existing app].</source>
+          <target state="new">You must also first complete the tutorial [Add Mobile Services to an existing app].</target>
+        </trans-unit>
+        <trans-unit id="f18a58ca-4e75-40c4-bb8d-fa55ed39897e" xml:space="preserve">
+          <source>To be able to authenticate users, you must register your app at the Microsoft account Developer Center.</source>
+          <target state="new">To be able to authenticate users, you must register your app at the Microsoft account Developer Center.</target>
+        </trans-unit>
+        <trans-unit id="4b80b75f-680a-44c3-be6d-fb716f20925d" xml:space="preserve">
+          <source>You must then connect this registration with your mobile service.</source>
+          <target state="new">You must then connect this registration with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="58755adf-69f3-4e99-88c6-cba120b4945e" xml:space="preserve">
+          <source>Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service.</source>
+          <target state="new">Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="08c285e2-4ca9-451f-8e71-3855bcb7d748" xml:space="preserve">
+          <source><bpt id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;linkText&gt;</bpt>Register your app to use a Microsoft account login<ept id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;/linkText&gt;</ept><bpt id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;title&gt;</bpt><ept id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;linkText&gt;</bpt>Register your app to use a Microsoft account login<ept id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;/linkText&gt;</ept><bpt id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;title&gt;</bpt><ept id="ccb7c5ce-afa7-41a9-b8f0-70c1a2527723">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60f62d86-156e-4fd2-b67e-54623dc45276" xml:space="preserve">
+          <source>You next need to restrict access to a resource, in this case the <bpt id="4f148a9c-d053-4c93-b11b-e1cd30ab6a9b">&lt;em&gt;</bpt>TodoItems<ept id="4f148a9c-d053-4c93-b11b-e1cd30ab6a9b">&lt;/em&gt;</ept> table to make sure it can only be accessed by a signed-in user.</source>
+          <target state="new">You next need to restrict access to a resource, in this case the <bpt id="4f148a9c-d053-4c93-b11b-e1cd30ab6a9b">&lt;em&gt;</bpt>TodoItems<ept id="4f148a9c-d053-4c93-b11b-e1cd30ab6a9b">&lt;/em&gt;</ept> table to make sure it can only be accessed by a signed-in user.</target>
+        </trans-unit>
+        <trans-unit id="830d62de-4ad4-4d00-a22a-b323737fc6b0" xml:space="preserve">
+          <source><bpt id="0146c2cb-3edb-4989-9417-264cce972fd2">&lt;token href="../../includes/mobile-services-restrict-permissions-windows.md"&gt;</bpt><ept id="0146c2cb-3edb-4989-9417-264cce972fd2">&lt;/token&gt;</ept>  </source>
+          <target state="new"><bpt id="0146c2cb-3edb-4989-9417-264cce972fd2">&lt;token href="../../includes/mobile-services-restrict-permissions-windows.md"&gt;</bpt><ept id="0146c2cb-3edb-4989-9417-264cce972fd2">&lt;/token&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="500060cc-be22-4192-8c9d-5cd43620d31a" xml:space="preserve">
+          <source>Finally, you add the Live SDK and use it to authenticate users in your app.</source>
+          <target state="new">Finally, you add the Live SDK and use it to authenticate users in your app.</target>
+        </trans-unit>
+        <trans-unit id="d0c2e237-ee57-469c-b98d-585bfd984091" xml:space="preserve">
+          <source>In <bpt id="046a190b-0839-48da-a331-440199c9fa73">&lt;strong&gt;</bpt>Solution Explorer<ept id="046a190b-0839-48da-a331-440199c9fa73">&lt;/strong&gt;</ept>, right-click the solution, and then select <bpt id="f0cf1125-d3f2-4473-80ba-32fbcaffa3e0">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="f0cf1125-d3f2-4473-80ba-32fbcaffa3e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="046a190b-0839-48da-a331-440199c9fa73">&lt;strong&gt;</bpt>Solution Explorer<ept id="046a190b-0839-48da-a331-440199c9fa73">&lt;/strong&gt;</ept>, right-click the solution, and then select <bpt id="f0cf1125-d3f2-4473-80ba-32fbcaffa3e0">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="f0cf1125-d3f2-4473-80ba-32fbcaffa3e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4849f1a-ff1b-408b-8965-776b57770414" xml:space="preserve">
+          <source>In the left pane, select the <bpt id="99a275ec-ecd8-4394-ae36-ad7515eebb01">&lt;strong&gt;</bpt>Online<ept id="99a275ec-ecd8-4394-ae36-ad7515eebb01">&lt;/strong&gt;</ept> category, search for <bpt id="0d15010f-806f-4cde-a505-4e0b67181f4d">&lt;strong&gt;</bpt>LiveSDK<ept id="0d15010f-806f-4cde-a505-4e0b67181f4d">&lt;/strong&gt;</ept>, click <bpt id="ad5e39be-d5ba-493b-bff6-80c8a74865b9">&lt;strong&gt;</bpt>Install<ept id="ad5e39be-d5ba-493b-bff6-80c8a74865b9">&lt;/strong&gt;</ept> on the <bpt id="9d30b172-5925-456a-9747-f408a2fa19a6">&lt;strong&gt;</bpt>Live SDK<ept id="9d30b172-5925-456a-9747-f408a2fa19a6">&lt;/strong&gt;</ept> package, select all projects, then accept the license agreements.</source>
+          <target state="new">In the left pane, select the <bpt id="99a275ec-ecd8-4394-ae36-ad7515eebb01">&lt;strong&gt;</bpt>Online<ept id="99a275ec-ecd8-4394-ae36-ad7515eebb01">&lt;/strong&gt;</ept> category, search for <bpt id="0d15010f-806f-4cde-a505-4e0b67181f4d">&lt;strong&gt;</bpt>LiveSDK<ept id="0d15010f-806f-4cde-a505-4e0b67181f4d">&lt;/strong&gt;</ept>, click <bpt id="ad5e39be-d5ba-493b-bff6-80c8a74865b9">&lt;strong&gt;</bpt>Install<ept id="ad5e39be-d5ba-493b-bff6-80c8a74865b9">&lt;/strong&gt;</ept> on the <bpt id="9d30b172-5925-456a-9747-f408a2fa19a6">&lt;strong&gt;</bpt>Live SDK<ept id="9d30b172-5925-456a-9747-f408a2fa19a6">&lt;/strong&gt;</ept> package, select all projects, then accept the license agreements.</target>
+        </trans-unit>
+        <trans-unit id="a942dd2b-b1df-486a-ae31-cf5c80cd9b20" xml:space="preserve">
+          <source>This adds the Live SDK to the solution.</source>
+          <target state="new">This adds the Live SDK to the solution.</target>
+        </trans-unit>
+        <trans-unit id="5fe76e9b-4d12-4486-a5aa-64bf2b3ccafc" xml:space="preserve">
+          <source>Open the default.html project file and add the following <bpt id="2d2187ea-261a-40ec-8f06-c20c26973daf">&lt;code&gt;</bpt>&lt;script&gt;<ept id="2d2187ea-261a-40ec-8f06-c20c26973daf">&lt;/code&gt;</ept> element in the <bpt id="3d8f22f4-4728-4dff-9769-d34c42d82120">&lt;code&gt;</bpt>&lt;head&gt;<ept id="3d8f22f4-4728-4dff-9769-d34c42d82120">&lt;/code&gt;</ept> element. </source>
+          <target state="new">Open the default.html project file and add the following <bpt id="2d2187ea-261a-40ec-8f06-c20c26973daf">&lt;code&gt;</bpt>&lt;script&gt;<ept id="2d2187ea-261a-40ec-8f06-c20c26973daf">&lt;/code&gt;</ept> element in the <bpt id="3d8f22f4-4728-4dff-9769-d34c42d82120">&lt;code&gt;</bpt>&lt;head&gt;<ept id="3d8f22f4-4728-4dff-9769-d34c42d82120">&lt;/code&gt;</ept> element. </target>
+        </trans-unit>
+        <trans-unit id="7e21094f-b6c3-4175-b9df-0dab52c64d32" xml:space="preserve">
+          <source>In the <bpt id="619c6cfc-72af-4d7e-9cd2-4f2d3ada5afc">&lt;strong&gt;</bpt>app.OnActivated<ept id="619c6cfc-72af-4d7e-9cd2-4f2d3ada5afc">&lt;/strong&gt;</ept> method overload, replace the call to the <bpt id="800251ee-a3ae-4a43-a531-94b1eaf36f68">&lt;strong&gt;</bpt>refreshTodoItems<ept id="800251ee-a3ae-4a43-a531-94b1eaf36f68">&lt;/strong&gt;</ept> method  with the following code: </source>
+          <target state="new">In the <bpt id="619c6cfc-72af-4d7e-9cd2-4f2d3ada5afc">&lt;strong&gt;</bpt>app.OnActivated<ept id="619c6cfc-72af-4d7e-9cd2-4f2d3ada5afc">&lt;/strong&gt;</ept> method overload, replace the call to the <bpt id="800251ee-a3ae-4a43-a531-94b1eaf36f68">&lt;strong&gt;</bpt>refreshTodoItems<ept id="800251ee-a3ae-4a43-a531-94b1eaf36f68">&lt;/strong&gt;</ept> method  with the following code: </target>
+        </trans-unit>
+        <trans-unit id="34ac2484-0b2f-43c4-b744-e8288e2312d8" xml:space="preserve">
+          <source>This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user.</source>
+          <target state="new">This initializes the Live Connect client, sends a new login request to Microsoft account, sends the returned authentication token to Mobile Services, and then displays information about the signed-in user.</target>
+        </trans-unit>
+        <trans-unit id="96015c43-5623-4cc3-adda-21dad2fc4876" xml:space="preserve">
+          <source>Ideally, you should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs.</source>
+          <target state="new">Ideally, you should not request either Live Connection authentiction tokens or Mobile Services authorization tokens every time that your app runs.</target>
+        </trans-unit>
+        <trans-unit id="fe4fe71c-f4d8-4c15-8292-7ddb7a8a17ad" xml:space="preserve">
+          <source>Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time.</source>
+          <target state="new">Not only is this inefficient, you can run into usage-relates issues should many customers try to start your app at the same time.</target>
+        </trans-unit>
+        <trans-unit id="e0c46640-bfc9-470b-88ae-2f4c8adb420d" xml:space="preserve">
+          <source>A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling <bpt id="bf7a8144-f186-4332-9d76-e3eb10bc4761">&lt;strong&gt;</bpt>LoginWithMicrosoftAccountAsync<ept id="bf7a8144-f186-4332-9d76-e3eb10bc4761">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A better approach is to cache the tokens and first try to use the cached Mobile Services token before calling <bpt id="bf7a8144-f186-4332-9d76-e3eb10bc4761">&lt;strong&gt;</bpt>LoginWithMicrosoftAccountAsync<ept id="bf7a8144-f186-4332-9d76-e3eb10bc4761">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c329bac9-8e01-453e-bdba-3f8ad23c7ea9" xml:space="preserve">
+          <source>For an example of how to cache this token, see <bpt id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;linkText&gt;</bpt>Get started with authentication<ept id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;/linkText&gt;</ept><bpt id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;title&gt;</bpt><ept id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of how to cache this token, see <bpt id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;linkText&gt;</bpt>Get started with authentication<ept id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;/linkText&gt;</ept><bpt id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;title&gt;</bpt><ept id="f6027906-25e3-4aa7-ba7a-7eacc39c0f30">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fe626ba-b390-499c-8377-eb8ea1d73832" xml:space="preserve">
+          <source>Replace the value <bpt id="8fcd1eb2-9875-474f-baf2-d3cd78e7a62c">&lt;code&gt;</bpt>&lt;yourClient&gt;<ept id="8fcd1eb2-9875-474f-baf2-d3cd78e7a62c">&lt;/code&gt;</ept> in the first line of above code with the variable defined in the .js file added when you connected your project to the mobile service.</source>
+          <target state="new">Replace the value <bpt id="8fcd1eb2-9875-474f-baf2-d3cd78e7a62c">&lt;code&gt;</bpt>&lt;yourClient&gt;<ept id="8fcd1eb2-9875-474f-baf2-d3cd78e7a62c">&lt;/code&gt;</ept> in the first line of above code with the variable defined in the .js file added when you connected your project to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="f64908b2-0f3c-43d1-9864-e6f5df18eea6" xml:space="preserve">
+          <source>Press the F5 key to run the app and sign in with your Microsoft account.</source>
+          <target state="new">Press the F5 key to run the app and sign in with your Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="ab013980-ece9-49a4-bd5c-35add5aea0f8" xml:space="preserve">
+          <source>When you are successfully signed-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</source>
+          <target state="new">When you are successfully signed-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</target>
+        </trans-unit>
+        <trans-unit id="689b71c3-cfa8-41a3-92e5-e24f6aafdc20" xml:space="preserve">
+          <source>In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</source>
+          <target state="new">In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="2729c1cd-36f8-4c44-b512-15bea95789b0" xml:space="preserve">
+          <source>For information about how to use other identity providers for authentication, see [Get started with authentication].</source>
+          <target state="new">For information about how to use other identity providers for authentication, see [Get started with authentication].</target>
+        </trans-unit>
+        <trans-unit id="a6a42cf5-cb3a-471a-b71d-d5dd347a2f65" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="74fcd60e-2072-470d-8ef4-007d241dae0f" xml:space="preserve">
+          <source>#permissions</source>
+          <target state="new">#permissions</target>
+        </trans-unit>
+        <trans-unit id="b5c7de86-f69b-4adf-a867-d0fb3bb6be9f" xml:space="preserve">
+          <source>#add-authentication</source>
+          <target state="new">#add-authentication</target>
+        </trans-unit>
+        <trans-unit id="bcd054a5-e2af-48cf-ae0f-0d1e3fbe4d06" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="f6dfc914-86ff-46b1-ba70-40b3dbe41937" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="facfb017-a21a-4fce-84a1-3afd1c1138b1" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="b55e9896-b4e5-4c3b-a9f4-1806827a59dd" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="d5b6018c-9869-426b-a0ee-cf87afc5a70d" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-get-started-data.md</source>
+          <target state="new">mobile-services-windows-store-javascript-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="a5b101b3-9cf7-4791-8d08-77029f0cf3be" xml:space="preserve">
+          <source>mobile-services-windows-store-javascript-get-started-users.md</source>
+          <target state="new">mobile-services-windows-store-javascript-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="1193da7e-98b8-4716-9540-9fb38d96971c" xml:space="preserve">
+          <source>../mobile-services-windows-store-javascript-authorize-users-in-scripts.md</source>
+          <target state="new">../mobile-services-windows-store-javascript-authorize-users-in-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="8fb823a5-3778-455d-946d-afd9d752abf9" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="59cbbe1b-d622-4a1f-8fd5-28b89652a467" />
+    </body>
+  </file>
+</xliff>

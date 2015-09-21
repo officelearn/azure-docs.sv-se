@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="395273bc-b75a-414f-a5c4-80e732430c18" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="395273bc-b75a-414f-a5c4-80e732430c18" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="de983129-7474-4d7d-be94-fff7ca62d70b">
+        <trans-unit id="14f2099c-62d7-4074-b9aa-591376ba5be7" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Kontiki | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Kontiki | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="70ce3974-ca1a-43a8-9529-63e6d823bf88" xml:space="preserve">
+          <source>Learn how to use Kontiki with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Kontiki with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="6669bae0-c852-4fa8-a240-be35e910e6b7" xml:space="preserve">
+          <source>For feedback, click <bpt id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;linkText&gt;</bpt>here<ept id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;/linkText&gt;</ept><bpt id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;title&gt;</bpt><ept id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;linkText&gt;</bpt>here<ept id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;/linkText&gt;</ept><bpt id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;title&gt;</bpt><ept id="7cc57e34-0599-460f-8515-cc6770ac55e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b247a96-d726-43b1-8cf2-76c7111c5054" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Kontiki.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Kontiki.</target>
+        </trans-unit>
+        <trans-unit id="021b3711-a543-4b94-b367-b63c7ff0b713" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="dbeb1430-3b34-4cdf-9775-26419c8c658e" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="12c7a30b-f05b-4001-90ea-d86eb17c26eb" xml:space="preserve">
+          <source>A Kontiki single sign-on enabled subscription</source>
+          <target state="new">A Kontiki single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="59be5685-df07-4abe-ac2d-d8be9e9f7eae" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Kontiki will be able to single sign into the application at your Kontiki company site (service provider initiated sign on), or using the <bpt id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;/linkText&gt;</ept><bpt id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;title&gt;</bpt><ept id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Kontiki will be able to single sign into the application at your Kontiki company site (service provider initiated sign on), or using the <bpt id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;/linkText&gt;</ept><bpt id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;title&gt;</bpt><ept id="ad8f9aaa-42b5-40e7-a432-4bdbafb08627">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2b4e581-cd7c-43b4-99e3-ce07797fa9a3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="8fa3f16b-9540-4181-8cee-0964a583b070" xml:space="preserve">
+          <source>Enabling the application integration for Kontiki</source>
+          <target state="new">Enabling the application integration for Kontiki</target>
+        </trans-unit>
+        <trans-unit id="9092431b-e1d6-4fb6-a322-6f53897acc4f" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5882ac99-f7fc-466f-9594-f09a6b0eba7c" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="6740ca26-ac1a-4e84-a019-8ae132e45ada" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="e214e0da-7c30-48cb-9951-a0148c73c76c" xml:space="preserve">
+          <source><bpt id="98ee7c4d-ddbf-40c3-9842-0a6133cd3c7b">&lt;linkText&gt;</bpt>Scenario<ept id="98ee7c4d-ddbf-40c3-9842-0a6133cd3c7b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98ee7c4d-ddbf-40c3-9842-0a6133cd3c7b">&lt;linkText&gt;</bpt>Scenario<ept id="98ee7c4d-ddbf-40c3-9842-0a6133cd3c7b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ebc4d31-0223-43d9-893b-af32e0d91415" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Kontiki.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Kontiki.</target>
+        </trans-unit>
+        <trans-unit id="cf1b383c-9319-49ad-9710-5091e96a65d9" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="b8939579-4f22-4297-878b-927ea353bced">&lt;strong&gt;</bpt>Active Directory<ept id="b8939579-4f22-4297-878b-927ea353bced">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="b8939579-4f22-4297-878b-927ea353bced">&lt;strong&gt;</bpt>Active Directory<ept id="b8939579-4f22-4297-878b-927ea353bced">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="651026a7-3d2b-44b2-beb1-26f2efd93e35" xml:space="preserve">
+          <source><bpt id="01e12760-2ac1-4607-9317-51d6a5227527">&lt;linkText&gt;</bpt>Active Directory<ept id="01e12760-2ac1-4607-9317-51d6a5227527">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01e12760-2ac1-4607-9317-51d6a5227527">&lt;linkText&gt;</bpt>Active Directory<ept id="01e12760-2ac1-4607-9317-51d6a5227527">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76f91b5d-6b2c-4201-af92-4191072c33d4" xml:space="preserve">
+          <source>From the <bpt id="16e0da12-1ba7-4b38-884a-6f3b1f73a726">&lt;strong&gt;</bpt>Directory<ept id="16e0da12-1ba7-4b38-884a-6f3b1f73a726">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="16e0da12-1ba7-4b38-884a-6f3b1f73a726">&lt;strong&gt;</bpt>Directory<ept id="16e0da12-1ba7-4b38-884a-6f3b1f73a726">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="83a31847-66cd-4706-aab0-cb71b7521005" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="516e3327-1c64-4608-b050-624719374e29">&lt;strong&gt;</bpt>Applications<ept id="516e3327-1c64-4608-b050-624719374e29">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="516e3327-1c64-4608-b050-624719374e29">&lt;strong&gt;</bpt>Applications<ept id="516e3327-1c64-4608-b050-624719374e29">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="80065954-78e4-4d61-a9d6-4bcc5f99050c" xml:space="preserve">
+          <source><bpt id="02287662-acc3-4158-bf0a-18d59ecac876">&lt;linkText&gt;</bpt>Applications<ept id="02287662-acc3-4158-bf0a-18d59ecac876">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02287662-acc3-4158-bf0a-18d59ecac876">&lt;linkText&gt;</bpt>Applications<ept id="02287662-acc3-4158-bf0a-18d59ecac876">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6547e84-fd2d-424c-bf72-511c25752ca1" xml:space="preserve">
+          <source>Click <bpt id="9a11820e-ff0c-4dcc-a738-8c0ed58a46ca">&lt;strong&gt;</bpt>Add<ept id="9a11820e-ff0c-4dcc-a738-8c0ed58a46ca">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="9a11820e-ff0c-4dcc-a738-8c0ed58a46ca">&lt;strong&gt;</bpt>Add<ept id="9a11820e-ff0c-4dcc-a738-8c0ed58a46ca">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="178e51fb-0102-4eb2-a9ef-be942f000979" xml:space="preserve">
+          <source><bpt id="cdd7acd6-891b-48bd-945a-49c9d2a302e1">&lt;linkText&gt;</bpt>Add application<ept id="cdd7acd6-891b-48bd-945a-49c9d2a302e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdd7acd6-891b-48bd-945a-49c9d2a302e1">&lt;linkText&gt;</bpt>Add application<ept id="cdd7acd6-891b-48bd-945a-49c9d2a302e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87ff6b3d-6ec6-4229-b116-33b650ae1ad9" xml:space="preserve">
+          <source>On the <bpt id="51cbe487-e49f-470f-95b1-6b6ab755c3e3">&lt;strong&gt;</bpt>What do you want to do<ept id="51cbe487-e49f-470f-95b1-6b6ab755c3e3">&lt;/strong&gt;</ept> dialog, click <bpt id="2032cdad-9e1a-4f41-b57c-2f4de7f87d48">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2032cdad-9e1a-4f41-b57c-2f4de7f87d48">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="51cbe487-e49f-470f-95b1-6b6ab755c3e3">&lt;strong&gt;</bpt>What do you want to do<ept id="51cbe487-e49f-470f-95b1-6b6ab755c3e3">&lt;/strong&gt;</ept> dialog, click <bpt id="2032cdad-9e1a-4f41-b57c-2f4de7f87d48">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="2032cdad-9e1a-4f41-b57c-2f4de7f87d48">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c90de34-a980-4ee7-ad49-c9bec4dc84d0" xml:space="preserve">
+          <source><bpt id="cd351b32-a2e7-4776-9b24-39e492f602af">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="cd351b32-a2e7-4776-9b24-39e492f602af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd351b32-a2e7-4776-9b24-39e492f602af">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="cd351b32-a2e7-4776-9b24-39e492f602af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3dd57d8c-42fb-4ff9-adfb-d71581345371" xml:space="preserve">
+          <source>In the <bpt id="91242a84-5b0f-4ecf-9e47-115967d1ba98">&lt;strong&gt;</bpt>search box<ept id="91242a84-5b0f-4ecf-9e47-115967d1ba98">&lt;/strong&gt;</ept>, type <bpt id="30adbd14-8f2a-48c9-b8dd-553042959e55">&lt;strong&gt;</bpt>Kontiki<ept id="30adbd14-8f2a-48c9-b8dd-553042959e55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="91242a84-5b0f-4ecf-9e47-115967d1ba98">&lt;strong&gt;</bpt>search box<ept id="91242a84-5b0f-4ecf-9e47-115967d1ba98">&lt;/strong&gt;</ept>, type <bpt id="30adbd14-8f2a-48c9-b8dd-553042959e55">&lt;strong&gt;</bpt>Kontiki<ept id="30adbd14-8f2a-48c9-b8dd-553042959e55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ecf708e-7785-49c7-90cf-69931bde71ba" xml:space="preserve">
+          <source><bpt id="91927c52-9109-435f-823f-046f1bf0fabb">&lt;linkText&gt;</bpt>Application Gallery<ept id="91927c52-9109-435f-823f-046f1bf0fabb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91927c52-9109-435f-823f-046f1bf0fabb">&lt;linkText&gt;</bpt>Application Gallery<ept id="91927c52-9109-435f-823f-046f1bf0fabb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3238d12a-5b43-4915-88f5-86b300620bca" xml:space="preserve">
+          <source>In the results pane, select <bpt id="a9d05295-dcbd-44f6-bb1f-d51357bfb4e6">&lt;strong&gt;</bpt>Kontiki<ept id="a9d05295-dcbd-44f6-bb1f-d51357bfb4e6">&lt;/strong&gt;</ept>, and then click <bpt id="e8bdf7e2-4508-4bb3-b4c1-8f540d7decdb">&lt;strong&gt;</bpt>Complete<ept id="e8bdf7e2-4508-4bb3-b4c1-8f540d7decdb">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="a9d05295-dcbd-44f6-bb1f-d51357bfb4e6">&lt;strong&gt;</bpt>Kontiki<ept id="a9d05295-dcbd-44f6-bb1f-d51357bfb4e6">&lt;/strong&gt;</ept>, and then click <bpt id="e8bdf7e2-4508-4bb3-b4c1-8f540d7decdb">&lt;strong&gt;</bpt>Complete<ept id="e8bdf7e2-4508-4bb3-b4c1-8f540d7decdb">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="e2843cd6-40a0-40df-b7b5-06b7b7e4915b" xml:space="preserve">
+          <source><bpt id="21ec66e0-e38d-463e-ba63-e038d0f7dcd7">&lt;linkText&gt;</bpt>Kontiki<ept id="21ec66e0-e38d-463e-ba63-e038d0f7dcd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21ec66e0-e38d-463e-ba63-e038d0f7dcd7">&lt;linkText&gt;</bpt>Kontiki<ept id="21ec66e0-e38d-463e-ba63-e038d0f7dcd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5f717b3-a815-4628-b25a-7f6baebd2a04" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Kontiki with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Kontiki with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="7ccb2b3c-684e-4716-9621-c2f3059a5ac4" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="cd86be26-a3bf-41e9-9244-59e71ea4d250">&lt;strong&gt;</bpt>Kontiki<ept id="cd86be26-a3bf-41e9-9244-59e71ea4d250">&lt;/strong&gt;</ept> application integration page, click <bpt id="7f8c94b8-029a-4462-8127-a4db521c5b95">&lt;strong&gt;</bpt>Configure single sign-on<ept id="7f8c94b8-029a-4462-8127-a4db521c5b95">&lt;/strong&gt;</ept> to open the <bpt id="02f1b6df-fdc4-48fc-9c99-9fc47b9779f0">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="02f1b6df-fdc4-48fc-9c99-9fc47b9779f0">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="cd86be26-a3bf-41e9-9244-59e71ea4d250">&lt;strong&gt;</bpt>Kontiki<ept id="cd86be26-a3bf-41e9-9244-59e71ea4d250">&lt;/strong&gt;</ept> application integration page, click <bpt id="7f8c94b8-029a-4462-8127-a4db521c5b95">&lt;strong&gt;</bpt>Configure single sign-on<ept id="7f8c94b8-029a-4462-8127-a4db521c5b95">&lt;/strong&gt;</ept> to open the <bpt id="02f1b6df-fdc4-48fc-9c99-9fc47b9779f0">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="02f1b6df-fdc4-48fc-9c99-9fc47b9779f0">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="da3b53c7-103f-40ec-a799-06037bd6f975" xml:space="preserve">
+          <source><bpt id="5400b992-55fa-408f-92cb-a15e36d288ee">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="5400b992-55fa-408f-92cb-a15e36d288ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5400b992-55fa-408f-92cb-a15e36d288ee">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="5400b992-55fa-408f-92cb-a15e36d288ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36d29b19-90a7-4736-ab72-8044c8dfc6dd" xml:space="preserve">
+          <source>On the <bpt id="1d4f255b-447f-44a0-b13b-1de4599c9ef3">&lt;strong&gt;</bpt>How would you like users to sign on to Kontiki<ept id="1d4f255b-447f-44a0-b13b-1de4599c9ef3">&lt;/strong&gt;</ept> page, select <bpt id="32e5df21-5d42-4bea-92c7-cc8c44358d12">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="32e5df21-5d42-4bea-92c7-cc8c44358d12">&lt;/strong&gt;</ept>, and then click <bpt id="f585e837-f763-42d6-b29e-4622b79df72b">&lt;strong&gt;</bpt>Next<ept id="f585e837-f763-42d6-b29e-4622b79df72b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1d4f255b-447f-44a0-b13b-1de4599c9ef3">&lt;strong&gt;</bpt>How would you like users to sign on to Kontiki<ept id="1d4f255b-447f-44a0-b13b-1de4599c9ef3">&lt;/strong&gt;</ept> page, select <bpt id="32e5df21-5d42-4bea-92c7-cc8c44358d12">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="32e5df21-5d42-4bea-92c7-cc8c44358d12">&lt;/strong&gt;</ept>, and then click <bpt id="f585e837-f763-42d6-b29e-4622b79df72b">&lt;strong&gt;</bpt>Next<ept id="f585e837-f763-42d6-b29e-4622b79df72b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfdfb7c6-9637-4318-afcc-2f7a18202de4" xml:space="preserve">
+          <source><bpt id="3215282e-41ba-462c-89c2-b0f43096e767">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="3215282e-41ba-462c-89c2-b0f43096e767">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3215282e-41ba-462c-89c2-b0f43096e767">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="3215282e-41ba-462c-89c2-b0f43096e767">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7aa5aec3-2e34-469e-afe5-e9a2b6e853ef" xml:space="preserve">
+          <source>On the <bpt id="79fdac60-0046-4f2c-afbf-3405db78fe0d">&lt;strong&gt;</bpt>Configure App URL<ept id="79fdac60-0046-4f2c-afbf-3405db78fe0d">&lt;/strong&gt;</ept> page, in the <bpt id="d114a38b-6d05-4b2d-9220-6c4803a7358b">&lt;strong&gt;</bpt>Kontiki Sign On URL<ept id="d114a38b-6d05-4b2d-9220-6c4803a7358b">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to Kontiki (e.g.: “<bpt id="802df3b6-ff97-4096-b3cf-8270f5aca18e">&lt;em&gt;</bpt>https://company.mc.eval.kontiki.com/<ept id="802df3b6-ff97-4096-b3cf-8270f5aca18e">&lt;/em&gt;</ept>"), and then click <bpt id="36d774ac-47b2-40e6-9585-41bc15a0c8c9">&lt;strong&gt;</bpt>Next<ept id="36d774ac-47b2-40e6-9585-41bc15a0c8c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="79fdac60-0046-4f2c-afbf-3405db78fe0d">&lt;strong&gt;</bpt>Configure App URL<ept id="79fdac60-0046-4f2c-afbf-3405db78fe0d">&lt;/strong&gt;</ept> page, in the <bpt id="d114a38b-6d05-4b2d-9220-6c4803a7358b">&lt;strong&gt;</bpt>Kontiki Sign On URL<ept id="d114a38b-6d05-4b2d-9220-6c4803a7358b">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to Kontiki (e.g.: “<bpt id="802df3b6-ff97-4096-b3cf-8270f5aca18e">&lt;em&gt;</bpt>https://company.mc.eval.kontiki.com/<ept id="802df3b6-ff97-4096-b3cf-8270f5aca18e">&lt;/em&gt;</ept>"), and then click <bpt id="36d774ac-47b2-40e6-9585-41bc15a0c8c9">&lt;strong&gt;</bpt>Next<ept id="36d774ac-47b2-40e6-9585-41bc15a0c8c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7906e7b1-f34b-4222-a400-8ede4cde2155" xml:space="preserve">
+          <source><bpt id="23e12db2-cb9c-4859-a1d3-b88c5d599631">&lt;linkText&gt;</bpt>Configure App URL<ept id="23e12db2-cb9c-4859-a1d3-b88c5d599631">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23e12db2-cb9c-4859-a1d3-b88c5d599631">&lt;linkText&gt;</bpt>Configure App URL<ept id="23e12db2-cb9c-4859-a1d3-b88c5d599631">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcf0addf-5b58-4453-b172-c3674565c91b" xml:space="preserve">
+          <source>On the <bpt id="84b518e6-92ba-4e59-9972-aaf0f1100e45">&lt;strong&gt;</bpt>Configure single sign-on at Kontiki<ept id="84b518e6-92ba-4e59-9972-aaf0f1100e45">&lt;/strong&gt;</ept> page, click <bpt id="17cdb90e-ca21-48cd-9d52-ffa93684e49a">&lt;strong&gt;</bpt>Download metadata<ept id="17cdb90e-ca21-48cd-9d52-ffa93684e49a">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="84b518e6-92ba-4e59-9972-aaf0f1100e45">&lt;strong&gt;</bpt>Configure single sign-on at Kontiki<ept id="84b518e6-92ba-4e59-9972-aaf0f1100e45">&lt;/strong&gt;</ept> page, click <bpt id="17cdb90e-ca21-48cd-9d52-ffa93684e49a">&lt;strong&gt;</bpt>Download metadata<ept id="17cdb90e-ca21-48cd-9d52-ffa93684e49a">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ae6ceff7-b919-4ec4-99e7-f2d594884fb1" xml:space="preserve">
+          <source><bpt id="3d5f8392-8a93-45a7-b2ac-32487a168022">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="3d5f8392-8a93-45a7-b2ac-32487a168022">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d5f8392-8a93-45a7-b2ac-32487a168022">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="3d5f8392-8a93-45a7-b2ac-32487a168022">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fd8762e-a25e-4074-a9de-d443e280b14c" xml:space="preserve">
+          <source>Send the metadatafile to the Kontiki support team.</source>
+          <target state="new">Send the metadatafile to the Kontiki support team.</target>
+        </trans-unit>
+        <trans-unit id="81f9c16a-e5f6-4413-aea3-d3ab991ec127" xml:space="preserve">
+          <source>The single sign-on configuration has to be performed by the Kontiki support team.</source>
+          <target state="new">The single sign-on configuration has to be performed by the Kontiki support team.</target>
+        </trans-unit>
+        <trans-unit id="04396beb-bd6f-49d0-ba89-9de382989815" xml:space="preserve">
+          <source>You will get a notification as soon as the configuration has been completed.</source>
+          <target state="new">You will get a notification as soon as the configuration has been completed.</target>
+        </trans-unit>
+        <trans-unit id="da0c6574-65cc-40b0-872e-93e855f4401a" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="5264af61-d953-4566-a337-40478eab58e6">&lt;strong&gt;</bpt>Complete<ept id="5264af61-d953-4566-a337-40478eab58e6">&lt;/strong&gt;</ept> to close the <bpt id="1b32b0ec-6481-48a4-be49-ce2a5f8b3cca">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1b32b0ec-6481-48a4-be49-ce2a5f8b3cca">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="5264af61-d953-4566-a337-40478eab58e6">&lt;strong&gt;</bpt>Complete<ept id="5264af61-d953-4566-a337-40478eab58e6">&lt;/strong&gt;</ept> to close the <bpt id="1b32b0ec-6481-48a4-be49-ce2a5f8b3cca">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1b32b0ec-6481-48a4-be49-ce2a5f8b3cca">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="d64501e0-a9b8-405d-ad87-c1ded137bc28" xml:space="preserve">
+          <source><bpt id="e66765d9-d053-44b8-8c8b-a80536f080b1">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="e66765d9-d053-44b8-8c8b-a80536f080b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e66765d9-d053-44b8-8c8b-a80536f080b1">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="e66765d9-d053-44b8-8c8b-a80536f080b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b5eb7fb-37a2-4896-b655-d8fe256abf08" xml:space="preserve">
+          <source>There is no action item for you to configure user provisioning to Kontiki.</source>
+          <target state="new">There is no action item for you to configure user provisioning to Kontiki.</target>
+        </trans-unit>
+        <trans-unit id="33a27470-9817-4d93-a3f9-4bec911c9fae" xml:space="preserve">
+          <source>When an assigned user tries to log into Kontiki using the access panel, Kontiki checks whether the user exists.</source>
+          <target state="new">When an assigned user tries to log into Kontiki using the access panel, Kontiki checks whether the user exists.</target>
+        </trans-unit>
+        <trans-unit id="2304f990-cac9-4174-a4f7-cd0206857320" xml:space="preserve">
+          <source>If there is no user account available yet, it is automatically created by Kontiki.</source>
+          <target state="new">If there is no user account available yet, it is automatically created by Kontiki.</target>
+        </trans-unit>
+        <trans-unit id="5a6e0e3b-edcc-4297-b87e-0476ad0d53f4" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="7cde6ded-eefa-4c7a-8f22-5243f701bd17" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="0db59ae0-8c37-4ce9-a252-6415496c7e30" xml:space="preserve">
+          <source>On the <bpt id="a81a4d59-d454-4e2b-9033-d8af71678998">&lt;strong&gt;</bpt>Kontiki **application integration page, click **Assign users<ept id="a81a4d59-d454-4e2b-9033-d8af71678998">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a81a4d59-d454-4e2b-9033-d8af71678998">&lt;strong&gt;</bpt>Kontiki **application integration page, click **Assign users<ept id="a81a4d59-d454-4e2b-9033-d8af71678998">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd9837c3-1fd2-4ee1-a668-e4c5e9860ea9" xml:space="preserve">
+          <source><bpt id="b32ae7dd-9f87-44a6-a2eb-ca26c43fbad0">&lt;linkText&gt;</bpt>Assign Users<ept id="b32ae7dd-9f87-44a6-a2eb-ca26c43fbad0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b32ae7dd-9f87-44a6-a2eb-ca26c43fbad0">&lt;linkText&gt;</bpt>Assign Users<ept id="b32ae7dd-9f87-44a6-a2eb-ca26c43fbad0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23ebcea6-ec2d-452c-9442-66c6131fcdf2" xml:space="preserve">
+          <source>Select your test user, click <bpt id="c27c32fc-8d21-4104-be4b-2e9236b2eec9">&lt;strong&gt;</bpt>Assign<ept id="c27c32fc-8d21-4104-be4b-2e9236b2eec9">&lt;/strong&gt;</ept>, and then click <bpt id="571f6a76-94c8-4988-a3eb-4bd0397ef773">&lt;strong&gt;</bpt>Yes<ept id="571f6a76-94c8-4988-a3eb-4bd0397ef773">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="c27c32fc-8d21-4104-be4b-2e9236b2eec9">&lt;strong&gt;</bpt>Assign<ept id="c27c32fc-8d21-4104-be4b-2e9236b2eec9">&lt;/strong&gt;</ept>, and then click <bpt id="571f6a76-94c8-4988-a3eb-4bd0397ef773">&lt;strong&gt;</bpt>Yes<ept id="571f6a76-94c8-4988-a3eb-4bd0397ef773">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="6a1be121-1f13-413b-b4c8-4d81158ffa21" xml:space="preserve">
+          <source><bpt id="d7f07ae7-0bef-4df5-8ff1-b33963368d05">&lt;linkText&gt;</bpt>Yes<ept id="d7f07ae7-0bef-4df5-8ff1-b33963368d05">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7f07ae7-0bef-4df5-8ff1-b33963368d05">&lt;linkText&gt;</bpt>Yes<ept id="d7f07ae7-0bef-4df5-8ff1-b33963368d05">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="733adc32-3f13-47e5-bca0-1689266cbaee" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="309b3757-1b23-4265-92db-637784b1a668" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;/linkText&gt;</ept><bpt id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;title&gt;</bpt><ept id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;/linkText&gt;</ept><bpt id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;title&gt;</bpt><ept id="fad74809-e7f8-42a1-9a4f-6385c2fb4a43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ed01ccbf-38c0-4ad4-9c83-8c9af796cbc8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ed01ccbf-38c0-4ad4-9c83-8c9af796cbc8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fb2a63a1-ac74-4c62-be21-620add2a0bbe">
+        <trans-unit id="0633f392-1ab5-4bfa-91ca-25b2f28f8cfc" xml:space="preserve">
+          <source>Configure Local Storage Resources in Azure Cloud Services</source>
+          <target state="new">Configure Local Storage Resources in Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="de57ff19-549d-4567-bde1-f2626cd60e7c" xml:space="preserve">
+          <source>A local storage resource is a reserved directory in the file system of the virtual machine in which an instance of a role is running.</source>
+          <target state="new">A local storage resource is a reserved directory in the file system of the virtual machine in which an instance of a role is running.</target>
+        </trans-unit>
+        <trans-unit id="1fa1de57-b1d0-4b26-9384-3d8ee97e2eef" xml:space="preserve">
+          <source>You can store information in your virtual machine instance so that code running in the instance can access the local storage resource when it needs to write to or read from a file.</source>
+          <target state="new">You can store information in your virtual machine instance so that code running in the instance can access the local storage resource when it needs to write to or read from a file.</target>
+        </trans-unit>
+        <trans-unit id="b27738bc-1362-45ec-b9be-947c25ea0970" xml:space="preserve">
+          <source>For example, a local storage resource can be used to cache data that may need to be accessed again while the service is running in Azure.</source>
+          <target state="new">For example, a local storage resource can be used to cache data that may need to be accessed again while the service is running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="524416a2-fb1a-42e9-a35c-32a18d3e8a61" xml:space="preserve">
+          <source>You can also configure local storage resource to store files during startup.</source>
+          <target state="new">You can also configure local storage resource to store files during startup.</target>
+        </trans-unit>
+        <trans-unit id="c147dde3-3444-4bb9-bf25-731f49fbe19d" xml:space="preserve">
+          <source>For more information on configuring local storage resources for startup, see <bpt id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;linkText&gt;</bpt>Using Local Storage to Store Files During Startup<ept id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;/linkText&gt;</ept><bpt id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;title&gt;</bpt><ept id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on configuring local storage resources for startup, see <bpt id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;linkText&gt;</bpt>Using Local Storage to Store Files During Startup<ept id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;/linkText&gt;</ept><bpt id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;title&gt;</bpt><ept id="5ecabf33-3c99-49f4-8c6c-c796f9f8894e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8620908-dc98-45a8-b128-4e5f1a170093" xml:space="preserve">
+          <source>A local storage resource is declared in the service definition file.</source>
+          <target state="new">A local storage resource is declared in the service definition file.</target>
+        </trans-unit>
+        <trans-unit id="8b9d8a90-2715-41d1-ab63-6e320c03cd82" xml:space="preserve">
+          <source>You can declare any number of local storage resources for a role.</source>
+          <target state="new">You can declare any number of local storage resources for a role.</target>
+        </trans-unit>
+        <trans-unit id="e0f2d864-9e9b-44d3-94c9-f51aef20fa31" xml:space="preserve">
+          <source>Each local storage resource is reserved for every instance of that role.</source>
+          <target state="new">Each local storage resource is reserved for every instance of that role.</target>
+        </trans-unit>
+        <trans-unit id="3ae91c73-5766-4bfe-a67e-ed1847f3811a" xml:space="preserve">
+          <source>The minimum amount of disk space that you can allocate for a local storage resource is 1 MB.</source>
+          <target state="new">The minimum amount of disk space that you can allocate for a local storage resource is 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="97835f09-9908-4d07-a66f-fa559440ee06" xml:space="preserve">
+          <source>The maximum amount that you can allocate for any given local resource depends on the size of the virtual machine that is specified for the role.</source>
+          <target state="new">The maximum amount that you can allocate for any given local resource depends on the size of the virtual machine that is specified for the role.</target>
+        </trans-unit>
+        <trans-unit id="962b8fac-1f8b-4be9-b313-e5c9bf1a42d0" xml:space="preserve">
+          <source>Each virtual machine size has a corresponding total storage allocation, and the total space allocated for all local storage resources declared for a role cannot exceed the maximum size allotted for that virtual machine size.</source>
+          <target state="new">Each virtual machine size has a corresponding total storage allocation, and the total space allocated for all local storage resources declared for a role cannot exceed the maximum size allotted for that virtual machine size.</target>
+        </trans-unit>
+        <trans-unit id="8775b1c2-fa48-4cad-b4bb-fcec90a13b01" xml:space="preserve">
+          <source>For more information about the maximum amount of local disk space that is allotted for each virtual machine size, see <bpt id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;linkText&gt;</bpt>Configure Sizes for Cloud Services<ept id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;/linkText&gt;</ept><bpt id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;title&gt;</bpt><ept id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the maximum amount of local disk space that is allotted for each virtual machine size, see <bpt id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;linkText&gt;</bpt>Configure Sizes for Cloud Services<ept id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;/linkText&gt;</ept><bpt id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;title&gt;</bpt><ept id="09356090-2d3e-4c8a-b0cb-81209f17e2b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc27e00e-75a6-4814-8246-e26f5346f87e" xml:space="preserve">
+          <source>Be aware that it is the developer's responsibility to ensure that the amount of disk space that is requested for a local storage resource does not exceed the maximum amount allotted for a virtual machine.</source>
+          <target state="new">Be aware that it is the developer's responsibility to ensure that the amount of disk space that is requested for a local storage resource does not exceed the maximum amount allotted for a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8ce91303-b79a-47ee-a8b3-f461e86fb72f" xml:space="preserve">
+          <source>If you configure a local storage resource to be larger than the allowed maximum, an error will not occur until you attempt a write operation that exceeds the allowed maximum.</source>
+          <target state="new">If you configure a local storage resource to be larger than the allowed maximum, an error will not occur until you attempt a write operation that exceeds the allowed maximum.</target>
+        </trans-unit>
+        <trans-unit id="7496dde5-824b-42d4-a6a7-c9478f75dc8d" xml:space="preserve">
+          <source>In that case, the write operation will fail and an out of disk space error message will appear.</source>
+          <target state="new">In that case, the write operation will fail and an out of disk space error message will appear.</target>
+        </trans-unit>
+        <trans-unit id="c3547f0b-4e1a-4257-95ca-d458a7d7d3d1" xml:space="preserve">
+          <source>The processing model for Azure is try/fail.</source>
+          <target state="new">The processing model for Azure is try/fail.</target>
+        </trans-unit>
+        <trans-unit id="a588ccaa-6c98-4e47-9c19-c0f5f6c1054c" xml:space="preserve">
+          <source>If you receive an out of disk space error you can handle the error and clear some disk space.</source>
+          <target state="new">If you receive an out of disk space error you can handle the error and clear some disk space.</target>
+        </trans-unit>
+        <trans-unit id="77ab171d-ed27-47c2-be91-270510ff39f0" xml:space="preserve">
+          <source>You can then retry the write operation.</source>
+          <target state="new">You can then retry the write operation.</target>
+        </trans-unit>
+        <trans-unit id="6e4ea1c9-79d2-4285-abf6-90114fb7249d" xml:space="preserve">
+          <source>You can specify that a local storage resource be preserved when an instance is recycled.</source>
+          <target state="new">You can specify that a local storage resource be preserved when an instance is recycled.</target>
+        </trans-unit>
+        <trans-unit id="4cc8f8a9-4543-4d14-af9b-7ddf63b2ae5c" xml:space="preserve">
+          <source>However, data that is saved to the local file system of the virtual machine is not guaranteed to be durable.</source>
+          <target state="new">However, data that is saved to the local file system of the virtual machine is not guaranteed to be durable.</target>
+        </trans-unit>
+        <trans-unit id="247b76ad-742a-413d-b405-31485ce626c6" xml:space="preserve">
+          <source>If your role requires durable data, it is recommended that you use a Azure drive to store file data.</source>
+          <target state="new">If your role requires durable data, it is recommended that you use a Azure drive to store file data.</target>
+        </trans-unit>
+        <trans-unit id="a32d1319-77bd-4e7c-b2ee-5612a4001bcf" xml:space="preserve">
+          <source>Azure drives are backed by the Azure Blob service, so they are guaranteed to be durable.</source>
+          <target state="new">Azure drives are backed by the Azure Blob service, so they are guaranteed to be durable.</target>
+        </trans-unit>
+        <trans-unit id="a64898c9-8153-4445-812b-03b1c9448cad" xml:space="preserve">
+          <source>&gt;</source>
+          <target state="new">&gt;</target>
+        </trans-unit>
+        <trans-unit id="a269f806-abc1-4515-9ef1-a1c0d263f1cb" xml:space="preserve">
+          <source>To declare a local storage resource within the service definition file, add the <bpt id="95ff6819-24cb-4851-b66c-b6d6f92e46a7">&lt;strong&gt;</bpt>LocalResources<ept id="95ff6819-24cb-4851-b66c-b6d6f92e46a7">&lt;/strong&gt;</ept> element as a child of a <bpt id="5fe1e866-0af7-46e0-8341-31b3fdee79cd">&lt;strong&gt;</bpt>WebRole<ept id="5fe1e866-0af7-46e0-8341-31b3fdee79cd">&lt;/strong&gt;</ept> element or the <bpt id="8bf24874-708c-4bd8-bf0d-7644dcd88532">&lt;strong&gt;</bpt>WorkerRole<ept id="8bf24874-708c-4bd8-bf0d-7644dcd88532">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">To declare a local storage resource within the service definition file, add the <bpt id="95ff6819-24cb-4851-b66c-b6d6f92e46a7">&lt;strong&gt;</bpt>LocalResources<ept id="95ff6819-24cb-4851-b66c-b6d6f92e46a7">&lt;/strong&gt;</ept> element as a child of a <bpt id="5fe1e866-0af7-46e0-8341-31b3fdee79cd">&lt;strong&gt;</bpt>WebRole<ept id="5fe1e866-0af7-46e0-8341-31b3fdee79cd">&lt;/strong&gt;</ept> element or the <bpt id="8bf24874-708c-4bd8-bf0d-7644dcd88532">&lt;strong&gt;</bpt>WorkerRole<ept id="8bf24874-708c-4bd8-bf0d-7644dcd88532">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="810995b4-5363-4151-bb8b-0a579823d877" xml:space="preserve">
+          <source>Then add a <bpt id="05a5e690-f64c-4242-ab4d-299776773216">&lt;strong&gt;</bpt>LocalStorage<ept id="05a5e690-f64c-4242-ab4d-299776773216">&lt;/strong&gt;</ept> element to represent the resource.</source>
+          <target state="new">Then add a <bpt id="05a5e690-f64c-4242-ab4d-299776773216">&lt;strong&gt;</bpt>LocalStorage<ept id="05a5e690-f64c-4242-ab4d-299776773216">&lt;/strong&gt;</ept> element to represent the resource.</target>
+        </trans-unit>
+        <trans-unit id="e5d2a349-89fb-46fb-8725-8d9baa2c77a3" xml:space="preserve">
+          <source>The <bpt id="fc84a1d9-1e4f-4aa1-8026-2fc3116343ec">&lt;strong&gt;</bpt>LocalStorage<ept id="fc84a1d9-1e4f-4aa1-8026-2fc3116343ec">&lt;/strong&gt;</ept> element takes three attributes:</source>
+          <target state="new">The <bpt id="fc84a1d9-1e4f-4aa1-8026-2fc3116343ec">&lt;strong&gt;</bpt>LocalStorage<ept id="fc84a1d9-1e4f-4aa1-8026-2fc3116343ec">&lt;/strong&gt;</ept> element takes three attributes:</target>
+        </trans-unit>
+        <trans-unit id="1a736c60-59cf-4c9f-88ee-93273b9be210" xml:space="preserve">
+          <source><bpt id="d1e640e0-a3db-41c5-9268-9352cc42407c">&lt;em&gt;</bpt>name<ept id="d1e640e0-a3db-41c5-9268-9352cc42407c">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d1e640e0-a3db-41c5-9268-9352cc42407c">&lt;em&gt;</bpt>name<ept id="d1e640e0-a3db-41c5-9268-9352cc42407c">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6ae669d-d32e-446a-95e0-038f20c79c0c" xml:space="preserve">
+          <source><bpt id="da8dff6b-9e31-4f60-82a5-018baeb88646">&lt;em&gt;</bpt>sizeInMB<ept id="da8dff6b-9e31-4f60-82a5-018baeb88646">&lt;/em&gt;</ept>: Specifies the desired size for this local storage resource</source>
+          <target state="new"><bpt id="da8dff6b-9e31-4f60-82a5-018baeb88646">&lt;em&gt;</bpt>sizeInMB<ept id="da8dff6b-9e31-4f60-82a5-018baeb88646">&lt;/em&gt;</ept>: Specifies the desired size for this local storage resource</target>
+        </trans-unit>
+        <trans-unit id="1462ad08-5464-4d5f-8781-d87765c9b4b5" xml:space="preserve">
+          <source><bpt id="16f8f2e2-ba7e-4b26-9704-13738d084544">&lt;em&gt;</bpt>cleanOnRoleRecycle<ept id="16f8f2e2-ba7e-4b26-9704-13738d084544">&lt;/em&gt;</ept>: Specifies whether the local storage resource should be wiped clean when a role instance is recycled, or whether it should be persisted across the role life cycle.</source>
+          <target state="new"><bpt id="16f8f2e2-ba7e-4b26-9704-13738d084544">&lt;em&gt;</bpt>cleanOnRoleRecycle<ept id="16f8f2e2-ba7e-4b26-9704-13738d084544">&lt;/em&gt;</ept>: Specifies whether the local storage resource should be wiped clean when a role instance is recycled, or whether it should be persisted across the role life cycle.</target>
+        </trans-unit>
+        <trans-unit id="69f002bb-e57d-4a90-aaf7-94cfe75bbee8" xml:space="preserve">
+          <source>The default value is <bpt id="30c16ffd-6391-460b-9047-4f90256d67c1">&lt;strong&gt;</bpt>true<ept id="30c16ffd-6391-460b-9047-4f90256d67c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default value is <bpt id="30c16ffd-6391-460b-9047-4f90256d67c1">&lt;strong&gt;</bpt>true<ept id="30c16ffd-6391-460b-9047-4f90256d67c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce1504e3-aacc-4d99-96e1-243ec3c43695" xml:space="preserve">
+          <source>The following service definition file shows two local storage resources that are declared for a web role:</source>
+          <target state="new">The following service definition file shows two local storage resources that are declared for a web role:</target>
+        </trans-unit>
+        <trans-unit id="ea00196f-dec2-4fe4-81f6-d40c7da0fdff" xml:space="preserve">
+          <source>For more information about the service definition file, see <bpt id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;linkText&gt;</bpt>Azure Service Definition Schema (.csdef File)<ept id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;/linkText&gt;</ept><bpt id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;title&gt;</bpt><ept id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the service definition file, see <bpt id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;linkText&gt;</bpt>Azure Service Definition Schema (.csdef File)<ept id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;/linkText&gt;</ept><bpt id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;title&gt;</bpt><ept id="ddc3fac3-2b3d-4308-8a74-7f80e543cffd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3037dda2-c795-4037-8733-eef6225c186f" xml:space="preserve">
+          <source>If you are using the Azure Tools for Microsoft Visual Studio, you can define a local storage resource within the <bpt id="0b154d56-4dd3-4155-a7c5-9a5d2cef53f9">&lt;strong&gt;</bpt>Properties<ept id="0b154d56-4dd3-4155-a7c5-9a5d2cef53f9">&lt;/strong&gt;</ept> pages for the role.</source>
+          <target state="new">If you are using the Azure Tools for Microsoft Visual Studio, you can define a local storage resource within the <bpt id="0b154d56-4dd3-4155-a7c5-9a5d2cef53f9">&lt;strong&gt;</bpt>Properties<ept id="0b154d56-4dd3-4155-a7c5-9a5d2cef53f9">&lt;/strong&gt;</ept> pages for the role.</target>
+        </trans-unit>
+        <trans-unit id="7bab51d6-f5d8-405a-9001-18d3b684ea09" xml:space="preserve">
+          <source>For more information, see <bpt id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;linkText&gt;</bpt>Configuring the Azure Application with Visual Studio<ept id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;/linkText&gt;</ept><bpt id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;title&gt;</bpt><ept id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;linkText&gt;</bpt>Configuring the Azure Application with Visual Studio<ept id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;/linkText&gt;</ept><bpt id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;title&gt;</bpt><ept id="b5f9406e-4a31-47c0-992c-513723d002eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3324a918-9c4c-4d2a-ad58-5ce0c07de5fa" xml:space="preserve">
+          <source>To access the local storage resource, the application must retrieve the path from the <bpt id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;linkText&gt;</bpt>GetLocalResource<ept id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;/linkText&gt;</ept><bpt id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;title&gt;</bpt><ept id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;/title&gt;</ept> method.</source>
+          <target state="new">To access the local storage resource, the application must retrieve the path from the <bpt id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;linkText&gt;</bpt>GetLocalResource<ept id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;/linkText&gt;</ept><bpt id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;title&gt;</bpt><ept id="5976e7e8-792a-4304-898c-7c4973ae2d11">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="18ee8002-8269-494b-8ab0-c796c97f165b" xml:space="preserve">
+          <source>You can then use standard file read and write operations to read and write the contents of the local storage resource.</source>
+          <target state="new">You can then use standard file read and write operations to read and write the contents of the local storage resource.</target>
+        </trans-unit>
+        <trans-unit id="590a7213-23b8-4a5e-91fb-df6bab118d56" xml:space="preserve">
+          <source>For example, the following sample shows how to read the contents of a file called <bpt id="79e0514c-321d-4946-95a0-60aaed77cce9">&lt;strong&gt;</bpt>MyTest.txt<ept id="79e0514c-321d-4946-95a0-60aaed77cce9">&lt;/strong&gt;</ept> from the local storage resource, and display it on the home page of an MVC 3 application:</source>
+          <target state="new">For example, the following sample shows how to read the contents of a file called <bpt id="79e0514c-321d-4946-95a0-60aaed77cce9">&lt;strong&gt;</bpt>MyTest.txt<ept id="79e0514c-321d-4946-95a0-60aaed77cce9">&lt;/strong&gt;</ept> from the local storage resource, and display it on the home page of an MVC 3 application:</target>
+        </trans-unit>
+        <trans-unit id="9d2dbd54-0dbc-4ea5-933b-f9653e6bf663" xml:space="preserve">
+          <source>The Azure Managed Library provides classes for accessing the local storage resource from within code that is running in a role instance.</source>
+          <target state="new">The Azure Managed Library provides classes for accessing the local storage resource from within code that is running in a role instance.</target>
+        </trans-unit>
+        <trans-unit id="a63e53d8-f144-40ab-a783-a58a902ea9f6" xml:space="preserve">
+          <source>The <bpt id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;linkText&gt;</bpt>RoleEnvironment.GetLocalResource<ept id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;/linkText&gt;</ept><bpt id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;title&gt;</bpt><ept id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;/title&gt;</ept> method returns a reference to a named <bpt id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;linkText&gt;</bpt>LocalResource<ept id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;/linkText&gt;</ept><bpt id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;title&gt;</bpt><ept id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;/title&gt;</ept> object.</source>
+          <target state="new">The <bpt id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;linkText&gt;</bpt>RoleEnvironment.GetLocalResource<ept id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;/linkText&gt;</ept><bpt id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;title&gt;</bpt><ept id="d5334ce1-9e78-4df7-9359-8948104c9224">&lt;/title&gt;</ept> method returns a reference to a named <bpt id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;linkText&gt;</bpt>LocalResource<ept id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;/linkText&gt;</ept><bpt id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;title&gt;</bpt><ept id="b0eaff5b-e510-4026-ba39-8eab526e9fbb">&lt;/title&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="2e34f62f-2758-4882-ade3-603d6da2d9ba" xml:space="preserve">
+          <source>Because the <bpt id="625d5000-b9aa-4c3c-bd90-ac8221271d54">&lt;strong&gt;</bpt>LocalResource<ept id="625d5000-b9aa-4c3c-bd90-ac8221271d54">&lt;/strong&gt;</ept> object represents a directory, you can read from it and write to it by using the standard .NET file I/O classes.</source>
+          <target state="new">Because the <bpt id="625d5000-b9aa-4c3c-bd90-ac8221271d54">&lt;strong&gt;</bpt>LocalResource<ept id="625d5000-b9aa-4c3c-bd90-ac8221271d54">&lt;/strong&gt;</ept> object represents a directory, you can read from it and write to it by using the standard .NET file I/O classes.</target>
+        </trans-unit>
+        <trans-unit id="d2789fec-301a-41d2-ba7f-ab0954819209" xml:space="preserve">
+          <source>To determine the path to the local storage resource's directory, use the <bpt id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;linkText&gt;</bpt>LocalResource.RootPath<ept id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;/linkText&gt;</ept><bpt id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;title&gt;</bpt><ept id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;/title&gt;</ept> property.</source>
+          <target state="new">To determine the path to the local storage resource's directory, use the <bpt id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;linkText&gt;</bpt>LocalResource.RootPath<ept id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;/linkText&gt;</ept><bpt id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;title&gt;</bpt><ept id="6c08e2f9-60ed-4f52-8d58-4c208447c44f">&lt;/title&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="d55d0877-e60a-42fc-8a84-02f71f2f20f7" xml:space="preserve">
+          <source>This property returns the full path to the local storage resource, including the named resource directory.</source>
+          <target state="new">This property returns the full path to the local storage resource, including the named resource directory.</target>
+        </trans-unit>
+        <trans-unit id="a61656e7-22ff-4d47-bfbf-ddd8b1a9fcf8" xml:space="preserve">
+          <source>For example, if your service is running in the development environment, the local storage resource is defined within your local file system, and the <bpt id="09ff44eb-5ff9-451b-b13e-7e90f57ecd49">&lt;strong&gt;</bpt>RootPath<ept id="09ff44eb-5ff9-451b-b13e-7e90f57ecd49">&lt;/strong&gt;</ept> property would return a value similar to the following:</source>
+          <target state="new">For example, if your service is running in the development environment, the local storage resource is defined within your local file system, and the <bpt id="09ff44eb-5ff9-451b-b13e-7e90f57ecd49">&lt;strong&gt;</bpt>RootPath<ept id="09ff44eb-5ff9-451b-b13e-7e90f57ecd49">&lt;/strong&gt;</ept> property would return a value similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="214bbba4-6c65-4a15-90e3-2db2297566df" xml:space="preserve">
+          <source>When your service is deployed to Azure, the path to the local storage resource includes the deployment ID, and the <bpt id="792040d5-f80e-4934-b7cc-4a97ad83a2be">&lt;strong&gt;</bpt>RootPath<ept id="792040d5-f80e-4934-b7cc-4a97ad83a2be">&lt;/strong&gt;</ept> property returns a value similar to the following:</source>
+          <target state="new">When your service is deployed to Azure, the path to the local storage resource includes the deployment ID, and the <bpt id="792040d5-f80e-4934-b7cc-4a97ad83a2be">&lt;strong&gt;</bpt>RootPath<ept id="792040d5-f80e-4934-b7cc-4a97ad83a2be">&lt;/strong&gt;</ept> property returns a value similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="13ceb9b9-1dab-4920-bded-79d265867462" xml:space="preserve">
+          <source>Code running in a role instance can access a local storage resource that is defined for that role from the time the instance comes online to the time it is taken offline.</source>
+          <target state="new">Code running in a role instance can access a local storage resource that is defined for that role from the time the instance comes online to the time it is taken offline.</target>
+        </trans-unit>
+        <trans-unit id="65ba3aab-65ea-45cc-bec9-24e642c73178" xml:space="preserve">
+          <source><bpt id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;linkText&gt;</bpt>Set Up a Cloud Service for Azure<ept id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;/linkText&gt;</ept><bpt id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;title&gt;</bpt><ept id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;linkText&gt;</bpt>Set Up a Cloud Service for Azure<ept id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;/linkText&gt;</ept><bpt id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;title&gt;</bpt><ept id="68905e21-219f-4eba-98e6-f978573cb96b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

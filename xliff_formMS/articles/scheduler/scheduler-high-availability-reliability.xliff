@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6b2289c4-77dc-4f8f-a25c-e43d9030377c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6b2289c4-77dc-4f8f-a25c-e43d9030377c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8dafb032-e477-483d-859c-763c4bd85cba">
+        <trans-unit id="a19d5932-29e9-4682-901d-7601edf1d1e9" xml:space="preserve">
+          <source>Scheduler High-Availability and Reliability</source>
+          <target state="new">Scheduler High-Availability and Reliability</target>
+        </trans-unit>
+        <trans-unit id="caf255c7-900d-4458-8a23-25f4e81dde91" xml:space="preserve">
+          <source>As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.</source>
+          <target state="new">As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.</target>
+        </trans-unit>
+        <trans-unit id="e696e5c8-4eef-4069-a4df-e57bb6a50222" xml:space="preserve">
+          <source>Azure Scheduler is available via the UI in almost every geo region that's in Azure today.</source>
+          <target state="new">Azure Scheduler is available via the UI in almost every geo region that's in Azure today.</target>
+        </trans-unit>
+        <trans-unit id="e75f4fcf-a632-4cd4-9b4f-837174a4e68d" xml:space="preserve">
+          <source>The list of regions that Azure Scheduler is available in is <bpt id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;linkText&gt;</bpt>listed here<ept id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;/linkText&gt;</ept><bpt id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;title&gt;</bpt><ept id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">The list of regions that Azure Scheduler is available in is <bpt id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;linkText&gt;</bpt>listed here<ept id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;/linkText&gt;</ept><bpt id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;title&gt;</bpt><ept id="3878a05b-3a0f-43b3-985c-e25aa09694ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29e72a4d-b49f-4262-8b00-447865694e82" xml:space="preserve">
+          <source>If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.</source>
+          <target state="new">If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.</target>
+        </trans-unit>
+        <trans-unit id="e95ba275-c917-4a4d-a051-9e9032f6a811" xml:space="preserve">
+          <source>Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated.</source>
+          <target state="new">Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated.</target>
+        </trans-unit>
+        <trans-unit id="63f655b4-f0eb-4379-b859-de482cbbb645" xml:space="preserve">
+          <source>When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.</source>
+          <target state="new">When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.</target>
+        </trans-unit>
+        <trans-unit id="9f6d0666-783e-48a8-8c80-8597650d56ea" xml:space="preserve">
+          <source>For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US.</source>
+          <target state="new">For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US.</target>
+        </trans-unit>
+        <trans-unit id="499d828d-a908-4cc4-bc7b-d601e3edc059" xml:space="preserve">
+          <source>When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US.</source>
+          <target state="new">When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US.</target>
+        </trans-unit>
+        <trans-unit id="8d3f76fc-cfaf-450e-b6d8-7962557ce06e" xml:space="preserve">
+          <source><bpt id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;linkText&gt;</bpt>The list of paired Azure regions is available here<ept id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;/linkText&gt;</ept><bpt id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;title&gt;</bpt><ept id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;linkText&gt;</bpt>The list of paired Azure regions is available here<ept id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;/linkText&gt;</ept><bpt id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;title&gt;</bpt><ept id="f544e907-96b0-4a1d-be4d-df4a992f5db0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9b183c6-65f8-41d8-95a1-a35f147c44b9" xml:space="preserve">
+          <source><bpt id="d1c581e6-e677-41c5-b3b1-ea9d4124bd9c">&lt;linkText&gt;</bpt><ept id="d1c581e6-e677-41c5-b3b1-ea9d4124bd9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d1c581e6-e677-41c5-b3b1-ea9d4124bd9c">&lt;linkText&gt;</bpt><ept id="d1c581e6-e677-41c5-b3b1-ea9d4124bd9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acd57b4c-c1ff-48e7-880e-7703147feafe" xml:space="preserve">
+          <source>As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure.</source>
+          <target state="new">As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure.</target>
+        </trans-unit>
+        <trans-unit id="bdfedc15-b811-40f0-ba64-0402f2b37d7b" xml:space="preserve">
+          <source>As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.</source>
+          <target state="new">As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.</target>
+        </trans-unit>
+        <trans-unit id="3988f817-d743-4a8a-b87a-20b474d74eae" xml:space="preserve">
+          <source>Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs.</source>
+          <target state="new">Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs.</target>
+        </trans-unit>
+        <trans-unit id="eb3f0212-acf9-4e60-a15f-f95f9776c41b" xml:space="preserve">
+          <source>For example, your job may invoke an HTTP endpoint that’s unavailable.</source>
+          <target state="new">For example, your job may invoke an HTTP endpoint that’s unavailable.</target>
+        </trans-unit>
+        <trans-unit id="60746403-30a4-4791-acf3-3aeaee396f19" xml:space="preserve">
+          <source>Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure.</source>
+          <target state="new">Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure.</target>
+        </trans-unit>
+        <trans-unit id="ec022798-6bfa-4b4c-8208-435143fb85f4" xml:space="preserve">
+          <source>Azure Scheduler does this in two ways:</source>
+          <target state="new">Azure Scheduler does this in two ways:</target>
+        </trans-unit>
+        <trans-unit id="3b6e5c0e-f811-4d23-92c2-03dff882b31c" xml:space="preserve">
+          <source>Azure Scheduler allows you to configure a retry policy.</source>
+          <target state="new">Azure Scheduler allows you to configure a retry policy.</target>
+        </trans-unit>
+        <trans-unit id="50d9cb48-353b-45dc-8ed3-4bdde71cd921" xml:space="preserve">
+          <source>By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals.</source>
+          <target state="new">By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals.</target>
+        </trans-unit>
+        <trans-unit id="d2855410-089b-4e2e-bd7b-a5312cd9d3c0" xml:space="preserve">
+          <source>You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)</source>
+          <target state="new">You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)</target>
+        </trans-unit>
+        <trans-unit id="5473cad8-8cda-4214-94c9-3e25cfba97ab" xml:space="preserve">
+          <source>As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint.</source>
+          <target state="new">As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint.</target>
+        </trans-unit>
+        <trans-unit id="7cbff6bc-57e6-4d17-a689-cc25b24942ff" xml:space="preserve">
+          <source>If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail.</source>
+          <target state="new">If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail.</target>
+        </trans-unit>
+        <trans-unit id="a6ce458f-3434-48de-9360-82ad2129a323" xml:space="preserve">
+          <source>In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.</source>
+          <target state="new">In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="f61f38b9-51ce-4d02-b91d-a5f18662219a" xml:space="preserve">
+          <source>To learn how to configure a retry policy, refer to <bpt id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;linkText&gt;</bpt>retryPolicy<ept id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;/linkText&gt;</ept><bpt id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;title&gt;</bpt><ept id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to configure a retry policy, refer to <bpt id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;linkText&gt;</bpt>retryPolicy<ept id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;/linkText&gt;</ept><bpt id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;title&gt;</bpt><ept id="7807fbd3-0488-4f0f-84f4-4aedabc1f4ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a7601b9-47fc-4d61-8c62-29c78ca7202f" xml:space="preserve">
+          <source>If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy.</source>
+          <target state="new">If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy.</target>
+        </trans-unit>
+        <trans-unit id="1aa647a4-90ce-4e3e-80d5-3a2787aa6fa4" xml:space="preserve">
+          <source>If an alternate error-handling endpoint is configured, Azure Scheduler invokes it.</source>
+          <target state="new">If an alternate error-handling endpoint is configured, Azure Scheduler invokes it.</target>
+        </trans-unit>
+        <trans-unit id="36c4fe10-0af8-4aea-ac40-55c118537564" xml:space="preserve">
+          <source>With an alternate endpoint, your own jobs are highly available in the face of failure.</source>
+          <target state="new">With an alternate endpoint, your own jobs are highly available in the face of failure.</target>
+        </trans-unit>
+        <trans-unit id="91c84790-5a95-46a2-97a2-1b97c5016988" xml:space="preserve">
+          <source>As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service.</source>
+          <target state="new">As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service.</target>
+        </trans-unit>
+        <trans-unit id="94d4d841-92fe-47a5-a313-a635999c1985" xml:space="preserve">
+          <source>After the retries fail, it checks if there's an alternate.</source>
+          <target state="new">After the retries fail, it checks if there's an alternate.</target>
+        </trans-unit>
+        <trans-unit id="4e424165-8464-442c-a3c6-bf77c2a4f993" xml:space="preserve">
+          <source>It then goes ahead and starts making requests to the alternate with the same retry policy.</source>
+          <target state="new">It then goes ahead and starts making requests to the alternate with the same retry policy.</target>
+        </trans-unit>
+        <trans-unit id="945122a7-c1f8-4170-8e2c-cd2a15e12c82" xml:space="preserve">
+          <source><bpt id="a2625ff7-eae7-41ca-b876-a7ca5d2972c1">&lt;linkText&gt;</bpt><ept id="a2625ff7-eae7-41ca-b876-a7ca5d2972c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2625ff7-eae7-41ca-b876-a7ca5d2972c1">&lt;linkText&gt;</bpt><ept id="a2625ff7-eae7-41ca-b876-a7ca5d2972c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61df96d4-2cd2-45d0-a54a-e648b90a95b4" xml:space="preserve">
+          <source>Note that the same retry policy applies to both the original action and the alternate error action.</source>
+          <target state="new">Note that the same retry policy applies to both the original action and the alternate error action.</target>
+        </trans-unit>
+        <trans-unit id="559c9deb-f6e5-458c-aa4d-4824c7ad0521" xml:space="preserve">
+          <source>It’s also possible to have the alternate error action’s action type be different from the main action’s action type.</source>
+          <target state="new">It’s also possible to have the alternate error action’s action type be different from the main action’s action type.</target>
+        </trans-unit>
+        <trans-unit id="1888a69c-2c96-494b-947c-bbf3a9acf665" xml:space="preserve">
+          <source>For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue action that does error-logging.</source>
+          <target state="new">For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue action that does error-logging.</target>
+        </trans-unit>
+        <trans-unit id="9dcb895f-3f72-45b2-b1b4-83da262ea843" xml:space="preserve">
+          <source>To learn how to configure an alternate endpoint, refer to <bpt id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;linkText&gt;</bpt>errorAction<ept id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;/linkText&gt;</ept><bpt id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;title&gt;</bpt><ept id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to configure an alternate endpoint, refer to <bpt id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;linkText&gt;</bpt>errorAction<ept id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;/linkText&gt;</ept><bpt id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;title&gt;</bpt><ept id="7dbd0336-364e-4f14-8b3f-b2812bc62c22">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7bc7268e-a3f4-469b-b318-d02e69756204" xml:space="preserve">
+          <source> <bpt id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;/linkText&gt;</ept><bpt id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;title&gt;</bpt><ept id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;/linkText&gt;</ept><bpt id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;title&gt;</bpt><ept id="be842b23-c598-4c17-853c-b2f11d5c641f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fea42b37-a7b3-4684-8be6-ea3847b02755" xml:space="preserve">
+          <source> <bpt id="ef360375-d26a-420d-83f2-411142b47510">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="ef360375-d26a-420d-83f2-411142b47510">&lt;/linkText&gt;</ept><bpt id="ef360375-d26a-420d-83f2-411142b47510">&lt;title&gt;</bpt><ept id="ef360375-d26a-420d-83f2-411142b47510">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="ef360375-d26a-420d-83f2-411142b47510">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="ef360375-d26a-420d-83f2-411142b47510">&lt;/linkText&gt;</ept><bpt id="ef360375-d26a-420d-83f2-411142b47510">&lt;title&gt;</bpt><ept id="ef360375-d26a-420d-83f2-411142b47510">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b979687-943d-44bd-988e-03f079dcb6a7" xml:space="preserve">
+          <source> <bpt id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;/linkText&gt;</ept><bpt id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;title&gt;</bpt><ept id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;/linkText&gt;</ept><bpt id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;title&gt;</bpt><ept id="a6fcdb19-1e61-4e6e-b1bb-c9f25b5c5662">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf12731b-421a-4bc7-8941-197a9b229179" xml:space="preserve">
+          <source> <bpt id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;/linkText&gt;</ept><bpt id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;title&gt;</bpt><ept id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;/linkText&gt;</ept><bpt id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;title&gt;</bpt><ept id="20d3a503-d95f-4e48-ac5c-bee2fbe0e030">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4127a9f6-7aff-40af-a822-60f1465d1a41" xml:space="preserve">
+          <source> <bpt id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;/linkText&gt;</ept><bpt id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;title&gt;</bpt><ept id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;/linkText&gt;</ept><bpt id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;title&gt;</bpt><ept id="7f7785e3-00d8-4638-aa2b-31dfeeee45b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59a1cb81-f28a-4909-a59f-7450bc72e4c2" xml:space="preserve">
+          <source> <bpt id="3286120a-7ec7-4b06-8466-4da723412653">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="3286120a-7ec7-4b06-8466-4da723412653">&lt;/linkText&gt;</ept><bpt id="3286120a-7ec7-4b06-8466-4da723412653">&lt;title&gt;</bpt><ept id="3286120a-7ec7-4b06-8466-4da723412653">&lt;/title&gt;</ept>   </source>
+          <target state="new"> <bpt id="3286120a-7ec7-4b06-8466-4da723412653">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="3286120a-7ec7-4b06-8466-4da723412653">&lt;/linkText&gt;</ept><bpt id="3286120a-7ec7-4b06-8466-4da723412653">&lt;title&gt;</bpt><ept id="3286120a-7ec7-4b06-8466-4da723412653">&lt;/title&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="2da49862-c20e-4a75-94ea-84ea87f74ff0" xml:space="preserve">
+          <source> <bpt id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;/linkText&gt;</ept><bpt id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;title&gt;</bpt><ept id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;/linkText&gt;</ept><bpt id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;title&gt;</bpt><ept id="5fb7a384-27f5-410b-961c-e549599a835c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a55d3bb-1a10-4ddb-b773-49ed1b1dd04d" xml:space="preserve">
+          <source> <bpt id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;/linkText&gt;</ept><bpt id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;title&gt;</bpt><ept id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;/linkText&gt;</ept><bpt id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;title&gt;</bpt><ept id="caafca14-2fdb-4bc8-a982-c4c39d14b0b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe8ffcde-c5f9-4760-b927-10b0f46f156d" xml:space="preserve">
+          <source> <bpt id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;/linkText&gt;</ept><bpt id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;title&gt;</bpt><ept id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;linkText&gt;</bpt>Scheduler Outbound Authentication<ept id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;/linkText&gt;</ept><bpt id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;title&gt;</bpt><ept id="299ddf83-178c-4c05-af7f-d89705ddbc55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72960e59-b57e-4841-a257-e97e235f17cd" xml:space="preserve">
+          <source>./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png</source>
+          <target state="new">./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png</target>
+        </trans-unit>
+        <trans-unit id="68e8f08c-ad63-4355-be4a-52b7e46c0d45" xml:space="preserve">
+          <source>./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png</source>
+          <target state="new">./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png</target>
+        </trans-unit>
+      </group>
+      <group id="83fdb2e9-c834-4da6-902d-a7b020437c6b" />
+    </body>
+  </file>
+</xliff>

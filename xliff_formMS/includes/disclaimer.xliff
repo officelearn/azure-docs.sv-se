@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b8c01c13-f75e-46b5-8fcb-c01e12bbaa9e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b8c01c13-f75e-46b5-8fcb-c01e12bbaa9e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b1119926-b432-4b0c-91a7-5bbe861b9f58">
+        <trans-unit id="c9c80b0f-90b2-4398-91e7-8305ee56057b" xml:space="preserve">
+          <source>To use this feature and other new Azure capabilities, sign up for the <bpt id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;linkText&gt;</bpt>free preview<ept id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;/linkText&gt;</ept><bpt id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;title&gt;</bpt><ept id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use this feature and other new Azure capabilities, sign up for the <bpt id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;linkText&gt;</bpt>free preview<ept id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;/linkText&gt;</ept><bpt id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;title&gt;</bpt><ept id="ce8432c1-c1e3-44c2-b79d-ead908191719">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

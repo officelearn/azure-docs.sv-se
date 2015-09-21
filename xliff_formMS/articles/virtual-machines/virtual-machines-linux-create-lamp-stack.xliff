@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c585562b-0f07-4e7d-8e3e-89992b608e5e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c585562b-0f07-4e7d-8e3e-89992b608e5e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f62e6e23-fd30-4110-b488-530fde54e1f1">
+        <trans-unit id="8af77fd5-e67e-4b19-8c51-e4c56f477b1a" xml:space="preserve">
+          <source>How to create a LAMP Stack with Microsoft Azure</source>
+          <target state="new">How to create a LAMP Stack with Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="992afe28-2ea5-40c4-ad46-88228905eb9f" xml:space="preserve">
+          <source>Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux.</source>
+          <target state="new">Learn how to create a LAMP Stack with Microsoft Azure using Azure virtual machines (VMs) running Linux.</target>
+        </trans-unit>
+        <trans-unit id="6b87c7d3-4f37-463e-8b3c-7d2296f64741" xml:space="preserve">
+          <source>A "LAMP" stack is a group of open source software that is typically installed together to enable a server to host dynamic websites and web applications.</source>
+          <target state="new">A "LAMP" stack is a group of open source software that is typically installed together to enable a server to host dynamic websites and web applications.</target>
+        </trans-unit>
+        <trans-unit id="9dcbb08b-d1fb-4966-a12b-2ba5d1938005" xml:space="preserve">
+          <source>This term is actually an acronym that represents the Linux operating system with the Apache web server.</source>
+          <target state="new">This term is actually an acronym that represents the Linux operating system with the Apache web server.</target>
+        </trans-unit>
+        <trans-unit id="61096673-a0b2-47aa-a843-edc9cff6fa1e" xml:space="preserve">
+          <source>The site data is stored in a MySQL database, and dynamic content is processed by PHP.</source>
+          <target state="new">The site data is stored in a MySQL database, and dynamic content is processed by PHP.</target>
+        </trans-unit>
+        <trans-unit id="ffc4f878-a5da-4d90-8145-72974a1f425b" xml:space="preserve">
+          <source>In this guide, we'll get a LAMP stack installed on a Linux image and deploy it on Microsoft Azure.</source>
+          <target state="new">In this guide, we'll get a LAMP stack installed on a Linux image and deploy it on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="d60c0972-e186-4753-bb84-d6b0daec184e" xml:space="preserve">
+          <source>You will learn:  </source>
+          <target state="new">You will learn:  </target>
+        </trans-unit>
+        <trans-unit id="d5f29ac8-5e1e-4660-a762-028a64ed8d7e" xml:space="preserve">
+          <source>How to create an Azure virtual machine.</source>
+          <target state="new">How to create an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="89c488a9-8669-47e7-88ad-2646e3991b9f" xml:space="preserve">
+          <source>How to prepare the virtual machine for the LAMP stack.</source>
+          <target state="new">How to prepare the virtual machine for the LAMP stack.</target>
+        </trans-unit>
+        <trans-unit id="17fef1d9-c3ad-4d71-b05d-fd5d683c1da3" xml:space="preserve">
+          <source>How to install software that is needed by your LAMP server on the virtual machine.</source>
+          <target state="new">How to install software that is needed by your LAMP server on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="71a2be83-e0e6-4f8a-8a70-bbcb4aaab357" xml:space="preserve">
+          <source>It is assumed that the reader already has an Azure subscription.</source>
+          <target state="new">It is assumed that the reader already has an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d66a9f80-a2eb-469b-90ad-91bbbfbeaa95" xml:space="preserve">
+          <source>If not you can sign up for a free trial at <bpt id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;/linkText&gt;</ept><bpt id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;title&gt;</bpt><ept id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If not you can sign up for a free trial at <bpt id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;/linkText&gt;</ept><bpt id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;title&gt;</bpt><ept id="07a4cc44-48cd-48ce-b974-93569f6bbe6e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d10d48d-bede-4683-ab74-381e87348dc6" xml:space="preserve">
+          <source>If you have an MSDN subscription, see <bpt id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;/linkText&gt;</ept><bpt id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;title&gt;</bpt><ept id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN subscription, see <bpt id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;/linkText&gt;</ept><bpt id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;title&gt;</bpt><ept id="e41bbbef-a259-4859-9a96-b193a84b1f70">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04d39381-eb28-4c1c-befa-d80073ffeec2" xml:space="preserve">
+          <source>To learn more about Azure, see <bpt id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;linkText&gt;</bpt>What is Azure?<ept id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;/linkText&gt;</ept><bpt id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;title&gt;</bpt><ept id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about Azure, see <bpt id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;linkText&gt;</bpt>What is Azure?<ept id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;/linkText&gt;</ept><bpt id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;title&gt;</bpt><ept id="3b121300-5377-441e-a602-bd2ef0e1f46b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="741ccfb8-4542-499c-b46c-34b997ae1d07" xml:space="preserve">
+          <source>In addition to this topic, if you already have a virtual machine and are just looking for the basics of installing a  LAMP stack on different Linux distributions, refer to <bpt id="976574f0-3b96-4978-8985-40f41364c80f">&lt;linkText&gt;</bpt>Install the LAMP Stack on a Linux virtual machine in Azure<ept id="976574f0-3b96-4978-8985-40f41364c80f">&lt;/linkText&gt;</ept><bpt id="976574f0-3b96-4978-8985-40f41364c80f">&lt;title&gt;</bpt><ept id="976574f0-3b96-4978-8985-40f41364c80f">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition to this topic, if you already have a virtual machine and are just looking for the basics of installing a  LAMP stack on different Linux distributions, refer to <bpt id="976574f0-3b96-4978-8985-40f41364c80f">&lt;linkText&gt;</bpt>Install the LAMP Stack on a Linux virtual machine in Azure<ept id="976574f0-3b96-4978-8985-40f41364c80f">&lt;/linkText&gt;</ept><bpt id="976574f0-3b96-4978-8985-40f41364c80f">&lt;title&gt;</bpt><ept id="976574f0-3b96-4978-8985-40f41364c80f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec276363-9ccf-489d-b4de-b123b37f01e5" xml:space="preserve">
+          <source>You can also deploy pre-configured LAMP images from the Azure Marketplace.</source>
+          <target state="new">You can also deploy pre-configured LAMP images from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="6f9e7019-ee99-4a19-967c-cbffa0aee17d" xml:space="preserve">
+          <source>The following 10 minute video introduces deploying pre-built LAMP images from the Azure Marketplace: (LAMP stack on Azure VMs](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).</source>
+          <target state="new">The following 10 minute video introduces deploying pre-built LAMP images from the Azure Marketplace: (LAMP stack on Azure VMs](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).</target>
+        </trans-unit>
+        <trans-unit id="5164fd5e-caa8-464f-b45f-e85c7b2c595e" xml:space="preserve">
+          <source>In this phase, you will create a virtual machine using a Linux image in Azure.</source>
+          <target state="new">In this phase, you will create a virtual machine using a Linux image in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c0671cea-622d-4215-9852-f663900101a8" xml:space="preserve">
+          <source>SSH is an important tool for system administrators.</source>
+          <target state="new">SSH is an important tool for system administrators.</target>
+        </trans-unit>
+        <trans-unit id="e52a1626-d29c-47fd-8dd4-a3719fe184a4" xml:space="preserve">
+          <source>However, relying on a human-determined password for security is not always wise.</source>
+          <target state="new">However, relying on a human-determined password for security is not always wise.</target>
+        </trans-unit>
+        <trans-unit id="13c1aa43-4cba-4455-bc00-fa30ccc5803e" xml:space="preserve">
+          <source>A strong SSH key allows you to leave remote access open without worrying about passwords.</source>
+          <target state="new">A strong SSH key allows you to leave remote access open without worrying about passwords.</target>
+        </trans-unit>
+        <trans-unit id="6652ded5-962b-4b09-9005-f21aa2ee386a" xml:space="preserve">
+          <source>The method consists of authentication with asymmetric cryptography.</source>
+          <target state="new">The method consists of authentication with asymmetric cryptography.</target>
+        </trans-unit>
+        <trans-unit id="57e13e5a-c8c6-4136-a948-2379d73d155a" xml:space="preserve">
+          <source>The user’s private key is the one that grants the authentication.</source>
+          <target state="new">The user’s private key is the one that grants the authentication.</target>
+        </trans-unit>
+        <trans-unit id="8b1b7c91-54a9-4384-94a8-ed01e5d35f76" xml:space="preserve">
+          <source>You can even lock the user’s account to disallow password authentication completely.</source>
+          <target state="new">You can even lock the user’s account to disallow password authentication completely.</target>
+        </trans-unit>
+        <trans-unit id="7d295aa6-1fbe-4990-864e-7252c4d0b093" xml:space="preserve">
+          <source>Follow these steps to generate the SSH Authentication Key.</source>
+          <target state="new">Follow these steps to generate the SSH Authentication Key.</target>
+        </trans-unit>
+        <trans-unit id="ee3aee86-b70f-42d4-a8e5-b9a8596622ed" xml:space="preserve">
+          <source>Download and install puttygen from the following location: <bpt id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/<ept id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;/linkText&gt;</ept><bpt id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;title&gt;</bpt><ept id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;/title&gt;</ept>putty/download.html</source>
+          <target state="new">Download and install puttygen from the following location: <bpt id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/<ept id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;/linkText&gt;</ept><bpt id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;title&gt;</bpt><ept id="41940be8-556c-4943-b74d-5c8bafc50586">&lt;/title&gt;</ept>putty/download.html</target>
+        </trans-unit>
+        <trans-unit id="48fbff33-6128-4f9c-93d5-4901687d28b3" xml:space="preserve">
+          <source>Run puttygen.exe.</source>
+          <target state="new">Run puttygen.exe.</target>
+        </trans-unit>
+        <trans-unit id="2217665d-8d55-492f-9a74-b01fef217341" xml:space="preserve">
+          <source>Click <bpt id="91e470a4-4899-4823-859e-297f8469f1bd">&lt;strong&gt;</bpt>Generate<ept id="91e470a4-4899-4823-859e-297f8469f1bd">&lt;/strong&gt;</ept> to generate the keys.</source>
+          <target state="new">Click <bpt id="91e470a4-4899-4823-859e-297f8469f1bd">&lt;strong&gt;</bpt>Generate<ept id="91e470a4-4899-4823-859e-297f8469f1bd">&lt;/strong&gt;</ept> to generate the keys.</target>
+        </trans-unit>
+        <trans-unit id="fd06e24c-d317-46ae-b4c0-aa57b0a3d734" xml:space="preserve">
+          <source>In the process you can increase randomness by moving the mouse over the blank area in the window.</source>
+          <target state="new">In the process you can increase randomness by moving the mouse over the blank area in the window.</target>
+        </trans-unit>
+        <trans-unit id="c11a11a0-aa96-4eec-9ea8-63f886201c3d" xml:space="preserve">
+          <source><bpt id="fbc27537-62f4-46f5-9ceb-a15afcac28db">&lt;linkText&gt;</bpt><ept id="fbc27537-62f4-46f5-9ceb-a15afcac28db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbc27537-62f4-46f5-9ceb-a15afcac28db">&lt;linkText&gt;</bpt><ept id="fbc27537-62f4-46f5-9ceb-a15afcac28db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0581ab5-dbae-4f1b-908d-8bb4bd7ae0b6" xml:space="preserve">
+          <source>After the generate process, Puttygen.exe will show your generated key.</source>
+          <target state="new">After the generate process, Puttygen.exe will show your generated key.</target>
+        </trans-unit>
+        <trans-unit id="e28ddcab-2bbd-41c1-9e64-cb96a3863417" xml:space="preserve">
+          <source>For example:  
+<bpt id="8e8bdfa7-c14d-46a8-ac8d-6f277292cca0">&lt;linkText&gt;</bpt><ept id="8e8bdfa7-c14d-46a8-ac8d-6f277292cca0">&lt;/linkText&gt;</ept></source>
+          <target state="new">For example:  
+<bpt id="8e8bdfa7-c14d-46a8-ac8d-6f277292cca0">&lt;linkText&gt;</bpt><ept id="8e8bdfa7-c14d-46a8-ac8d-6f277292cca0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c719251-ee3b-4faa-8fe2-83613aa4fc3b" xml:space="preserve">
+          <source>Select and copy the public key in <bpt id="d70cd64b-de9b-4f41-9ef7-6eb5616e91fe">&lt;strong&gt;</bpt>Key<ept id="d70cd64b-de9b-4f41-9ef7-6eb5616e91fe">&lt;/strong&gt;</ept> and save it in a file named <bpt id="3d9f495f-841a-462b-a7a9-659a054e3d34">&lt;strong&gt;</bpt>publicKey.pem<ept id="3d9f495f-841a-462b-a7a9-659a054e3d34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select and copy the public key in <bpt id="d70cd64b-de9b-4f41-9ef7-6eb5616e91fe">&lt;strong&gt;</bpt>Key<ept id="d70cd64b-de9b-4f41-9ef7-6eb5616e91fe">&lt;/strong&gt;</ept> and save it in a file named <bpt id="3d9f495f-841a-462b-a7a9-659a054e3d34">&lt;strong&gt;</bpt>publicKey.pem<ept id="3d9f495f-841a-462b-a7a9-659a054e3d34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9714714-1b50-4cb4-b8d1-50e007369a26" xml:space="preserve">
+          <source>Don’t click <bpt id="6f6cc1cc-37b8-4b87-b00e-bdd858557809">&lt;strong&gt;</bpt>Save public key<ept id="6f6cc1cc-37b8-4b87-b00e-bdd858557809">&lt;/strong&gt;</ept>, because the saved public key’s file format is different from the public key we want.</source>
+          <target state="new">Don’t click <bpt id="6f6cc1cc-37b8-4b87-b00e-bdd858557809">&lt;strong&gt;</bpt>Save public key<ept id="6f6cc1cc-37b8-4b87-b00e-bdd858557809">&lt;/strong&gt;</ept>, because the saved public key’s file format is different from the public key we want.</target>
+        </trans-unit>
+        <trans-unit id="8f630d81-97d8-4390-aab2-df023e733ac3" xml:space="preserve">
+          <source>Click <bpt id="01f0c251-4c50-478d-8d15-8ffb9dfb34ad">&lt;strong&gt;</bpt>Save private key<ept id="01f0c251-4c50-478d-8d15-8ffb9dfb34ad">&lt;/strong&gt;</ept> and save it in a file named <bpt id="c9594416-a941-4e99-949a-016da9813536">&lt;strong&gt;</bpt>privateKey.ppk<ept id="c9594416-a941-4e99-949a-016da9813536">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="01f0c251-4c50-478d-8d15-8ffb9dfb34ad">&lt;strong&gt;</bpt>Save private key<ept id="01f0c251-4c50-478d-8d15-8ffb9dfb34ad">&lt;/strong&gt;</ept> and save it in a file named <bpt id="c9594416-a941-4e99-949a-016da9813536">&lt;strong&gt;</bpt>privateKey.ppk<ept id="c9594416-a941-4e99-949a-016da9813536">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7fce73f-3cdc-4698-8d48-27f1f7917286" xml:space="preserve">
+          <source>In the <bpt id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;linkText&gt;</bpt>Azure Portal<ept id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;/linkText&gt;</ept><bpt id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;title&gt;</bpt><ept id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;/title&gt;</ept>, click <bpt id="f09e3369-1aad-4651-adc1-2ab5f1ecdf8f">&lt;strong&gt;</bpt>New<ept id="f09e3369-1aad-4651-adc1-2ab5f1ecdf8f">&lt;/strong&gt;</ept> in the task bar and create an image by following these instructions, choosing the Linux image based on your needs.</source>
+          <target state="new">In the <bpt id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;linkText&gt;</bpt>Azure Portal<ept id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;/linkText&gt;</ept><bpt id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;title&gt;</bpt><ept id="172f2f3c-bcf9-43c3-a4c2-3a69d4a7a0d3">&lt;/title&gt;</ept>, click <bpt id="f09e3369-1aad-4651-adc1-2ab5f1ecdf8f">&lt;strong&gt;</bpt>New<ept id="f09e3369-1aad-4651-adc1-2ab5f1ecdf8f">&lt;/strong&gt;</ept> in the task bar and create an image by following these instructions, choosing the Linux image based on your needs.</target>
+        </trans-unit>
+        <trans-unit id="249a45f6-866a-424d-87e8-19932679e7b9" xml:space="preserve">
+          <source>This example uses the Ubuntu 14.04 image.</source>
+          <target state="new">This example uses the Ubuntu 14.04 image.</target>
+        </trans-unit>
+        <trans-unit id="4033834d-42dd-44c1-b707-d779237f6f90" xml:space="preserve">
+          <source><bpt id="bb3b68fa-2cff-45bf-b9d4-37c71ad6b0c1">&lt;linkText&gt;</bpt><ept id="bb3b68fa-2cff-45bf-b9d4-37c71ad6b0c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb3b68fa-2cff-45bf-b9d4-37c71ad6b0c1">&lt;linkText&gt;</bpt><ept id="bb3b68fa-2cff-45bf-b9d4-37c71ad6b0c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f8c962a-2a38-48b9-b233-4baa069cc39a" xml:space="preserve">
+          <source>For <bpt id="68208a68-01f6-4101-8a24-7336c99d3fd3">&lt;strong&gt;</bpt>Host Name<ept id="68208a68-01f6-4101-8a24-7336c99d3fd3">&lt;/strong&gt;</ept>, specify the name for the URL that you an Internet clients will use to access this virtual machine.</source>
+          <target state="new">For <bpt id="68208a68-01f6-4101-8a24-7336c99d3fd3">&lt;strong&gt;</bpt>Host Name<ept id="68208a68-01f6-4101-8a24-7336c99d3fd3">&lt;/strong&gt;</ept>, specify the name for the URL that you an Internet clients will use to access this virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="eee17b6a-88a1-4e86-9acf-2f1aab792dbe" xml:space="preserve">
+          <source>Define the last part of the DNS name, for example LAMPDemo, and Azure will generate the URL as Lampdemo.cloudapp.net.</source>
+          <target state="new">Define the last part of the DNS name, for example LAMPDemo, and Azure will generate the URL as Lampdemo.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="491f29b6-993b-4e14-ba1e-e26991fb0c64" xml:space="preserve">
+          <source>For <bpt id="45b2eaee-d4a1-4a57-8f56-3b9f2c6215b3">&lt;strong&gt;</bpt>User Name<ept id="45b2eaee-d4a1-4a57-8f56-3b9f2c6215b3">&lt;/strong&gt;</ept>, pick a name that you will later use to login to the virtual machine.</source>
+          <target state="new">For <bpt id="45b2eaee-d4a1-4a57-8f56-3b9f2c6215b3">&lt;strong&gt;</bpt>User Name<ept id="45b2eaee-d4a1-4a57-8f56-3b9f2c6215b3">&lt;/strong&gt;</ept>, pick a name that you will later use to login to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5053be31-a19a-48bd-bc29-7bc8567233e8" xml:space="preserve">
+          <source>For <bpt id="34cb191c-2f94-479a-9e8c-ea11e85e7006">&lt;strong&gt;</bpt>SSH Authentication Key<ept id="34cb191c-2f94-479a-9e8c-ea11e85e7006">&lt;/strong&gt;</ept>, copy the key value from the <bpt id="b50c24f5-e70b-4dc2-b471-da750748f7cc">&lt;strong&gt;</bpt>publicKey.pem<ept id="b50c24f5-e70b-4dc2-b471-da750748f7cc">&lt;/strong&gt;</ept> file, which contains the public key generated by puttygen.</source>
+          <target state="new">For <bpt id="34cb191c-2f94-479a-9e8c-ea11e85e7006">&lt;strong&gt;</bpt>SSH Authentication Key<ept id="34cb191c-2f94-479a-9e8c-ea11e85e7006">&lt;/strong&gt;</ept>, copy the key value from the <bpt id="b50c24f5-e70b-4dc2-b471-da750748f7cc">&lt;strong&gt;</bpt>publicKey.pem<ept id="b50c24f5-e70b-4dc2-b471-da750748f7cc">&lt;/strong&gt;</ept> file, which contains the public key generated by puttygen.</target>
+        </trans-unit>
+        <trans-unit id="c2b1a5a1-6ec7-42fa-a0b3-ac1786897f55" xml:space="preserve">
+          <source><bpt id="119196a2-c215-471b-9447-e50f1daf7fe6">&lt;linkText&gt;</bpt><ept id="119196a2-c215-471b-9447-e50f1daf7fe6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="119196a2-c215-471b-9447-e50f1daf7fe6">&lt;linkText&gt;</bpt><ept id="119196a2-c215-471b-9447-e50f1daf7fe6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62c5598d-4186-4627-a4e6-1c3c06e61922" xml:space="preserve">
+          <source>Configure other settings as needed, and then click <bpt id="844ec4dc-79f3-4627-b0d4-b8ef3f779fe8">&lt;strong&gt;</bpt>Create<ept id="844ec4dc-79f3-4627-b0d4-b8ef3f779fe8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure other settings as needed, and then click <bpt id="844ec4dc-79f3-4627-b0d4-b8ef3f779fe8">&lt;strong&gt;</bpt>Create<ept id="844ec4dc-79f3-4627-b0d4-b8ef3f779fe8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df6aa037-442b-43e8-abdb-9d60411e1451" xml:space="preserve">
+          <source>In this phase, you will configure an endpoint for web traffic and then connect to your new virtual machine.</source>
+          <target state="new">In this phase, you will configure an endpoint for web traffic and then connect to your new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0fb9f2b1-5c05-4760-b9aa-06d5d088f14a" xml:space="preserve">
+          <source>Endpoints in Azure consists of a protocol (TCP or UDP), along with a public and private port.</source>
+          <target state="new">Endpoints in Azure consists of a protocol (TCP or UDP), along with a public and private port.</target>
+        </trans-unit>
+        <trans-unit id="6f37258d-f09e-4531-838f-d5788ee55989" xml:space="preserve">
+          <source>The private port is the port that the service is listening on the virtual machine.</source>
+          <target state="new">The private port is the port that the service is listening on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="614a13a8-87f0-4d53-94cf-276954dc8d68" xml:space="preserve">
+          <source>The public port is the port that the Azure cloud service is listening externally for Internet-based traffic.</source>
+          <target state="new">The public port is the port that the Azure cloud service is listening externally for Internet-based traffic.</target>
+        </trans-unit>
+        <trans-unit id="2a3dadd0-58f2-431d-b254-dcbfb4ed8c8d" xml:space="preserve">
+          <source>In some cases, this is the same port number.</source>
+          <target state="new">In some cases, this is the same port number.</target>
+        </trans-unit>
+        <trans-unit id="f308451b-e116-4598-96ef-d1fef7578c72" xml:space="preserve">
+          <source>TCP port 80 is the default port number on which Apache listens.</source>
+          <target state="new">TCP port 80 is the default port number on which Apache listens.</target>
+        </trans-unit>
+        <trans-unit id="cd71864a-f992-4d19-b6cb-e5536fd498dd" xml:space="preserve">
+          <source>Opening this port with an Azure endpoint will allow you and other Internet clients access to the Apache web server.</source>
+          <target state="new">Opening this port with an Azure endpoint will allow you and other Internet clients access to the Apache web server.</target>
+        </trans-unit>
+        <trans-unit id="35a127fe-2d86-4f49-b8cb-fdea9bf955df" xml:space="preserve">
+          <source>In the Azure Portal, click <bpt id="13e6a71e-3b24-4692-a68f-1e12afcbd7a2">&lt;strong&gt;</bpt>Browse -&gt; Virtual Machine<ept id="13e6a71e-3b24-4692-a68f-1e12afcbd7a2">&lt;/strong&gt;</ept>, and then click the virtual machine that you created.</source>
+          <target state="new">In the Azure Portal, click <bpt id="13e6a71e-3b24-4692-a68f-1e12afcbd7a2">&lt;strong&gt;</bpt>Browse -&gt; Virtual Machine<ept id="13e6a71e-3b24-4692-a68f-1e12afcbd7a2">&lt;/strong&gt;</ept>, and then click the virtual machine that you created.</target>
+        </trans-unit>
+        <trans-unit id="393cb5c4-21f5-4cf8-9161-7588db728957" xml:space="preserve">
+          <source><bpt id="8396e225-f363-4ad1-9315-ba153cb575fb">&lt;linkText&gt;</bpt><ept id="8396e225-f363-4ad1-9315-ba153cb575fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8396e225-f363-4ad1-9315-ba153cb575fb">&lt;linkText&gt;</bpt><ept id="8396e225-f363-4ad1-9315-ba153cb575fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd3c8d0a-ea18-469a-ae2a-918e9c51c328" xml:space="preserve">
+          <source>To add an endpoint to a virtual machine, click the <bpt id="c2e86651-45be-468d-9f41-c88ea9d246ef">&lt;strong&gt;</bpt>Endpoints<ept id="c2e86651-45be-468d-9f41-c88ea9d246ef">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">To add an endpoint to a virtual machine, click the <bpt id="c2e86651-45be-468d-9f41-c88ea9d246ef">&lt;strong&gt;</bpt>Endpoints<ept id="c2e86651-45be-468d-9f41-c88ea9d246ef">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="b8b11395-3012-487d-9840-a5a43f381851" xml:space="preserve">
+          <source><bpt id="17cb3d96-2323-48a0-a64c-6d0a7746de87">&lt;linkText&gt;</bpt><ept id="17cb3d96-2323-48a0-a64c-6d0a7746de87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17cb3d96-2323-48a0-a64c-6d0a7746de87">&lt;linkText&gt;</bpt><ept id="17cb3d96-2323-48a0-a64c-6d0a7746de87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74d9efa1-327b-4b8a-88eb-56115851aaea" xml:space="preserve">
+          <source>Click <bpt id="eac3ed2d-0d61-448b-9e0b-da0e6d2c8022">&lt;strong&gt;</bpt>Add<ept id="eac3ed2d-0d61-448b-9e0b-da0e6d2c8022">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eac3ed2d-0d61-448b-9e0b-da0e6d2c8022">&lt;strong&gt;</bpt>Add<ept id="eac3ed2d-0d61-448b-9e0b-da0e6d2c8022">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f3c4b27-77f3-4150-b8e0-30d725d694cd" xml:space="preserve">
+          <source>When provisioning a new virtual machine you can enable or disable endpoints as needed.</source>
+          <target state="new">When provisioning a new virtual machine you can enable or disable endpoints as needed.</target>
+        </trans-unit>
+        <trans-unit id="4c67a8c4-5e55-4fbf-83e5-46d58f8aa8e1" xml:space="preserve">
+          <source>Configure the endpoint:  </source>
+          <target state="new">Configure the endpoint:  </target>
+        </trans-unit>
+        <trans-unit id="10e4529a-ea1b-4713-a9a3-1b713e869acd" xml:space="preserve">
+          <source>Type a name for the endpoint in <bpt id="870005d9-f592-4763-868e-54c73622d6ba">&lt;strong&gt;</bpt>Endpoint<ept id="870005d9-f592-4763-868e-54c73622d6ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for the endpoint in <bpt id="870005d9-f592-4763-868e-54c73622d6ba">&lt;strong&gt;</bpt>Endpoint<ept id="870005d9-f592-4763-868e-54c73622d6ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f00d6393-ea39-47f9-8033-25d7f37823d6" xml:space="preserve">
+          <source>Type 80 in <bpt id="1ec729ba-04a9-4e0a-8886-9fc642e3035a">&lt;strong&gt;</bpt>Public Port<ept id="1ec729ba-04a9-4e0a-8886-9fc642e3035a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type 80 in <bpt id="1ec729ba-04a9-4e0a-8886-9fc642e3035a">&lt;strong&gt;</bpt>Public Port<ept id="1ec729ba-04a9-4e0a-8886-9fc642e3035a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f5de256-2dc8-418b-9da0-5df4fe726bdc" xml:space="preserve">
+          <source>If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port.</source>
+          <target state="new">If you changed the default listen port of Apache, you should update Private Port to be the same as the Apache listen port.</target>
+        </trans-unit>
+        <trans-unit id="96194fe8-aee1-4a17-a880-84540c376694" xml:space="preserve">
+          <source>Type 80 in <bpt id="129c8274-8d38-4bd2-a8a1-8489b702c018">&lt;strong&gt;</bpt>Public Port<ept id="129c8274-8d38-4bd2-a8a1-8489b702c018">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type 80 in <bpt id="129c8274-8d38-4bd2-a8a1-8489b702c018">&lt;strong&gt;</bpt>Public Port<ept id="129c8274-8d38-4bd2-a8a1-8489b702c018">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe764b60-a24c-4bd6-ad40-3496314b21e3" xml:space="preserve">
+          <source>By default, HTTP traffic uses port 80.</source>
+          <target state="new">By default, HTTP traffic uses port 80.</target>
+        </trans-unit>
+        <trans-unit id="76353891-79ef-4b1e-acc7-ec19e0e5ba6b" xml:space="preserve">
+          <source>If you set it to 80, don’t need to include the port number in the URL that allows you to access the Apache web service.</source>
+          <target state="new">If you set it to 80, don’t need to include the port number in the URL that allows you to access the Apache web service.</target>
+        </trans-unit>
+        <trans-unit id="2434bcd4-1dce-400f-a879-300420bee27e" xml:space="preserve">
+          <source>For example, http://lampdemo.cloudapp.net.</source>
+          <target state="new">For example, http://lampdemo.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="75df6da4-2c7e-416f-86b7-a775d8e95c5d" xml:space="preserve">
+          <source>If you set the Apache listening port to another value, such as 81, you need to add the port number to the URL to access the Apache web service.</source>
+          <target state="new">If you set the Apache listening port to another value, such as 81, you need to add the port number to the URL to access the Apache web service.</target>
+        </trans-unit>
+        <trans-unit id="8a7bdf4b-dc82-458c-880c-30ced69f1d0f" xml:space="preserve">
+          <source>For example,  http://lampdemo.cloudapp.net:81/.</source>
+          <target state="new">For example,  http://lampdemo.cloudapp.net:81/.</target>
+        </trans-unit>
+        <trans-unit id="254b3a09-8747-466c-be7c-3eb130b85344" xml:space="preserve">
+          <source><bpt id="40067167-e522-4e77-97b3-bd987049d656">&lt;linkText&gt;</bpt><ept id="40067167-e522-4e77-97b3-bd987049d656">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40067167-e522-4e77-97b3-bd987049d656">&lt;linkText&gt;</bpt><ept id="40067167-e522-4e77-97b3-bd987049d656">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="780bddb0-cf96-464c-86cd-c1e23841c3b0" xml:space="preserve">
+          <source>Click <bpt id="9da064fa-aab5-4fda-b7ea-2e6b743cd9f0">&lt;strong&gt;</bpt>OK<ept id="9da064fa-aab5-4fda-b7ea-2e6b743cd9f0">&lt;/strong&gt;</ept> to add the endpoint to your virtual machine.</source>
+          <target state="new">Click <bpt id="9da064fa-aab5-4fda-b7ea-2e6b743cd9f0">&lt;strong&gt;</bpt>OK<ept id="9da064fa-aab5-4fda-b7ea-2e6b743cd9f0">&lt;/strong&gt;</ept> to add the endpoint to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="efe49ea1-c7f0-4fcb-a712-a4905de3f00d" xml:space="preserve">
+          <source>You can choose any SSH tool to connect to your new virtual machine.</source>
+          <target state="new">You can choose any SSH tool to connect to your new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0a4e55e4-8ea1-41ec-a439-d6fe3a53bb39" xml:space="preserve">
+          <source>In this example, we use Putty.</source>
+          <target state="new">In this example, we use Putty.</target>
+        </trans-unit>
+        <trans-unit id="97ce3cbe-9005-410a-bef0-e18cac626da6" xml:space="preserve">
+          <source>First, get the DNS name of your virtual machine from the Azure Portal.</source>
+          <target state="new">First, get the DNS name of your virtual machine from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="5b460d00-8a25-4235-9990-ed43e9f8cedf" xml:space="preserve">
+          <source>Click <bpt id="1f845a62-2845-4bad-8827-0d83757f107c">&lt;strong&gt;</bpt>Browse -&gt; Virtual machines -&gt;<ept id="1f845a62-2845-4bad-8827-0d83757f107c">&lt;/strong&gt;</ept> the name of your virtual machine <bpt id="73ce6c59-e01d-4c75-9c8a-3788e4c72e07">&lt;strong&gt;</bpt>-&gt; Properties<ept id="73ce6c59-e01d-4c75-9c8a-3788e4c72e07">&lt;/strong&gt;</ept>, and then look in the <bpt id="791c6dfc-a8a3-4e21-b8c2-0665eae1037c">&lt;strong&gt;</bpt>Domain Name<ept id="791c6dfc-a8a3-4e21-b8c2-0665eae1037c">&lt;/strong&gt;</ept> field of the <bpt id="0400b56c-7c62-4b11-a70c-1ad7cd7f1e7b">&lt;strong&gt;</bpt>Properties<ept id="0400b56c-7c62-4b11-a70c-1ad7cd7f1e7b">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">Click <bpt id="1f845a62-2845-4bad-8827-0d83757f107c">&lt;strong&gt;</bpt>Browse -&gt; Virtual machines -&gt;<ept id="1f845a62-2845-4bad-8827-0d83757f107c">&lt;/strong&gt;</ept> the name of your virtual machine <bpt id="73ce6c59-e01d-4c75-9c8a-3788e4c72e07">&lt;strong&gt;</bpt>-&gt; Properties<ept id="73ce6c59-e01d-4c75-9c8a-3788e4c72e07">&lt;/strong&gt;</ept>, and then look in the <bpt id="791c6dfc-a8a3-4e21-b8c2-0665eae1037c">&lt;strong&gt;</bpt>Domain Name<ept id="791c6dfc-a8a3-4e21-b8c2-0665eae1037c">&lt;/strong&gt;</ept> field of the <bpt id="0400b56c-7c62-4b11-a70c-1ad7cd7f1e7b">&lt;strong&gt;</bpt>Properties<ept id="0400b56c-7c62-4b11-a70c-1ad7cd7f1e7b">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="0afbdfd2-42c7-404a-82c1-89462a90fca0" xml:space="preserve">
+          <source>Get the port number for SSH connections from the <bpt id="70e43d94-c79c-40f6-a8a2-3c307a0b897a">&lt;strong&gt;</bpt>SSH<ept id="70e43d94-c79c-40f6-a8a2-3c307a0b897a">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Get the port number for SSH connections from the <bpt id="70e43d94-c79c-40f6-a8a2-3c307a0b897a">&lt;strong&gt;</bpt>SSH<ept id="70e43d94-c79c-40f6-a8a2-3c307a0b897a">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="0331e3c5-bc81-4469-8ff2-69be6cac6404" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="708a46fa-8fb3-44f9-9504-028acefc184d" xml:space="preserve">
+          <source><bpt id="5070c92f-d4c5-4fa3-8f6b-ec982a7ed97c">&lt;linkText&gt;</bpt><ept id="5070c92f-d4c5-4fa3-8f6b-ec982a7ed97c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5070c92f-d4c5-4fa3-8f6b-ec982a7ed97c">&lt;linkText&gt;</bpt><ept id="5070c92f-d4c5-4fa3-8f6b-ec982a7ed97c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e57b9d8-81a1-46e5-8986-7676b503d895" xml:space="preserve">
+          <source>Download Putty from <bpt id="6553826c-2e65-409a-8746-293248b94ce5">&lt;linkText&gt;</bpt>here<ept id="6553826c-2e65-409a-8746-293248b94ce5">&lt;/linkText&gt;</ept><bpt id="6553826c-2e65-409a-8746-293248b94ce5">&lt;title&gt;</bpt><ept id="6553826c-2e65-409a-8746-293248b94ce5">&lt;/title&gt;</ept> .</source>
+          <target state="new">Download Putty from <bpt id="6553826c-2e65-409a-8746-293248b94ce5">&lt;linkText&gt;</bpt>here<ept id="6553826c-2e65-409a-8746-293248b94ce5">&lt;/linkText&gt;</ept><bpt id="6553826c-2e65-409a-8746-293248b94ce5">&lt;title&gt;</bpt><ept id="6553826c-2e65-409a-8746-293248b94ce5">&lt;/title&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="721f3cd4-b56f-49c5-a128-709796f0a969" xml:space="preserve">
+          <source>After downloading, click the executable file PUTTY.EXE.</source>
+          <target state="new">After downloading, click the executable file PUTTY.EXE.</target>
+        </trans-unit>
+        <trans-unit id="58f29ceb-cedd-4cf0-97e9-cb799cdecb4f" xml:space="preserve">
+          <source>Configure the basic options with the host name and port number obtained from the properties of your virtual machine.</source>
+          <target state="new">Configure the basic options with the host name and port number obtained from the properties of your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6731bd5a-3dab-4e58-8400-63055b7598ca" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="2ac27686-8371-424c-a474-f1a8ed2e6a1c" xml:space="preserve">
+          <source><bpt id="36de121d-03cf-47b0-a81a-28eb14a3a118">&lt;linkText&gt;</bpt><ept id="36de121d-03cf-47b0-a81a-28eb14a3a118">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36de121d-03cf-47b0-a81a-28eb14a3a118">&lt;linkText&gt;</bpt><ept id="36de121d-03cf-47b0-a81a-28eb14a3a118">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5df5044a-b4c3-427e-a093-a4e8acc20e54" xml:space="preserve">
+          <source>In the left pane, click  <bpt id="6be99f94-32a6-4953-9c51-98aa2dee989a">&lt;strong&gt;</bpt>Connection -&gt; SSH -&gt; Auth<ept id="6be99f94-32a6-4953-9c51-98aa2dee989a">&lt;/strong&gt;</ept> and then click <bpt id="11deefa1-b4a5-4dbf-99d0-fd987944419c">&lt;strong&gt;</bpt>Browse<ept id="11deefa1-b4a5-4dbf-99d0-fd987944419c">&lt;/strong&gt;</ept> to specify the location of the <bpt id="d547cc78-06ea-4855-90da-a381e184d5aa">&lt;strong&gt;</bpt>privateKey.ppk<ept id="d547cc78-06ea-4855-90da-a381e184d5aa">&lt;/strong&gt;</ept> file, which contains the private key generated by puttygen in Phase 1: Create an Image.</source>
+          <target state="new">In the left pane, click  <bpt id="6be99f94-32a6-4953-9c51-98aa2dee989a">&lt;strong&gt;</bpt>Connection -&gt; SSH -&gt; Auth<ept id="6be99f94-32a6-4953-9c51-98aa2dee989a">&lt;/strong&gt;</ept> and then click <bpt id="11deefa1-b4a5-4dbf-99d0-fd987944419c">&lt;strong&gt;</bpt>Browse<ept id="11deefa1-b4a5-4dbf-99d0-fd987944419c">&lt;/strong&gt;</ept> to specify the location of the <bpt id="d547cc78-06ea-4855-90da-a381e184d5aa">&lt;strong&gt;</bpt>privateKey.ppk<ept id="d547cc78-06ea-4855-90da-a381e184d5aa">&lt;/strong&gt;</ept> file, which contains the private key generated by puttygen in Phase 1: Create an Image.</target>
+        </trans-unit>
+        <trans-unit id="2c8c5deb-2c1e-43ba-80da-5b81b21f3e45" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="5ba2f020-cf03-4f5d-be79-d4b2f3ec63d6" xml:space="preserve">
+          <source><bpt id="eb4aee96-11ed-4db8-820a-aaba79ba2a20">&lt;linkText&gt;</bpt><ept id="eb4aee96-11ed-4db8-820a-aaba79ba2a20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb4aee96-11ed-4db8-820a-aaba79ba2a20">&lt;linkText&gt;</bpt><ept id="eb4aee96-11ed-4db8-820a-aaba79ba2a20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71d89dbd-3536-4c9f-87d0-2d140510f450" xml:space="preserve">
+          <source>Click <bpt id="745e2c9b-5b38-4425-b7eb-9ba9a83bc634">&lt;strong&gt;</bpt>Open<ept id="745e2c9b-5b38-4425-b7eb-9ba9a83bc634">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="745e2c9b-5b38-4425-b7eb-9ba9a83bc634">&lt;strong&gt;</bpt>Open<ept id="745e2c9b-5b38-4425-b7eb-9ba9a83bc634">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed847a9c-9300-4e1b-aad4-1644f302408c" xml:space="preserve">
+          <source>You might be alerted by a message box.</source>
+          <target state="new">You might be alerted by a message box.</target>
+        </trans-unit>
+        <trans-unit id="2ff12c6c-2133-467c-a2e7-5da1ba1863f3" xml:space="preserve">
+          <source>If you have configured the DNS name and port number correctly, click <bpt id="34faad14-c416-4ae4-a8fc-96db4db1e059">&lt;strong&gt;</bpt>Yes<ept id="34faad14-c416-4ae4-a8fc-96db4db1e059">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have configured the DNS name and port number correctly, click <bpt id="34faad14-c416-4ae4-a8fc-96db4db1e059">&lt;strong&gt;</bpt>Yes<ept id="34faad14-c416-4ae4-a8fc-96db4db1e059">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff216738-dddb-4372-bd64-46501dc6d4db" xml:space="preserve">
+          <source><bpt id="70d79568-23c5-4db6-8286-fa1724553254">&lt;linkText&gt;</bpt><ept id="70d79568-23c5-4db6-8286-fa1724553254">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70d79568-23c5-4db6-8286-fa1724553254">&lt;linkText&gt;</bpt><ept id="70d79568-23c5-4db6-8286-fa1724553254">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b4e66e0-bb1f-4f4c-bab9-fb3e8ed7aecd" xml:space="preserve">
+          <source>You should see the following.</source>
+          <target state="new">You should see the following.</target>
+        </trans-unit>
+        <trans-unit id="8a3c0549-c553-4f0d-bb68-418ae44bc9ad" xml:space="preserve">
+          <source><bpt id="e6cec149-d77f-40ca-ac82-452f765aeee2">&lt;linkText&gt;</bpt><ept id="e6cec149-d77f-40ca-ac82-452f765aeee2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e6cec149-d77f-40ca-ac82-452f765aeee2">&lt;linkText&gt;</bpt><ept id="e6cec149-d77f-40ca-ac82-452f765aeee2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a96a17fe-521e-47df-a550-82d12fdac219" xml:space="preserve">
+          <source>Enter the user name specified when you created the virtual machine in Phase 1: Create an Image.</source>
+          <target state="new">Enter the user name specified when you created the virtual machine in Phase 1: Create an Image.</target>
+        </trans-unit>
+        <trans-unit id="52688a64-2de6-42e8-9878-9492551d26ec" xml:space="preserve">
+          <source>You will see something like the following:</source>
+          <target state="new">You will see something like the following:</target>
+        </trans-unit>
+        <trans-unit id="c45e3dc9-33c8-4be7-981c-edaab344d7bb" xml:space="preserve">
+          <source><bpt id="5fc60aef-fa82-42d4-9c4a-f9ba3ca23884">&lt;linkText&gt;</bpt><ept id="5fc60aef-fa82-42d4-9c4a-f9ba3ca23884">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fc60aef-fa82-42d4-9c4a-f9ba3ca23884">&lt;linkText&gt;</bpt><ept id="5fc60aef-fa82-42d4-9c4a-f9ba3ca23884">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f9ca6bf-8ba8-4f1a-af33-4a597cdedba9" xml:space="preserve">
+          <source>Depending what Linux distribution you used to create your virtual machine, there are different ways to install the LAMP Stack.</source>
+          <target state="new">Depending what Linux distribution you used to create your virtual machine, there are different ways to install the LAMP Stack.</target>
+        </trans-unit>
+        <trans-unit id="10640678-5459-4159-a864-e645b2010600" xml:space="preserve">
+          <source>The following sections contain typical steps on some common Linux OSes.</source>
+          <target state="new">The following sections contain typical steps on some common Linux OSes.</target>
+        </trans-unit>
+        <trans-unit id="9e7db6d8-3707-415e-8903-c93c34965fcd" xml:space="preserve">
+          <source>To install Apache, open terminal and execute this command:  </source>
+          <target state="new">To install Apache, open terminal and execute this command:  </target>
+        </trans-unit>
+        <trans-unit id="64374245-b921-48af-9bfd-0b26285c408b" xml:space="preserve">
+          <source>Once it installs, start Apache with this command:  </source>
+          <target state="new">Once it installs, start Apache with this command:  </target>
+        </trans-unit>
+        <trans-unit id="e623e69a-cb4e-4a2d-a67a-1a59ee8c4686" xml:space="preserve">
+          <source>To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/).</source>
+          <target state="new">To check if Apache is successfully installed, browse to your Apache server’s DNS name (for the example URL in this article, http://lampdemo.cloudapp.net/).</target>
+        </trans-unit>
+        <trans-unit id="59215edc-b755-4ea2-854f-ba804b73f2ba" xml:space="preserve">
+          <source>The page should display the words “It works!"</source>
+          <target state="new">The page should display the words “It works!"</target>
+        </trans-unit>
+        <trans-unit id="267739da-1740-4f29-af90-c37deb639cf5" xml:space="preserve">
+          <source><bpt id="ce62e174-694a-450d-af19-9b166d28fe8e">&lt;linkText&gt;</bpt><ept id="ce62e174-694a-450d-af19-9b166d28fe8e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce62e174-694a-450d-af19-9b166d28fe8e">&lt;linkText&gt;</bpt><ept id="ce62e174-694a-450d-af19-9b166d28fe8e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4271c1ae-c056-4633-9f55-d57beb8ddde1" xml:space="preserve">
+          <source>If Apache is running but you can’t see Apache default page above, you need to check following:  </source>
+          <target state="new">If Apache is running but you can’t see Apache default page above, you need to check following:  </target>
+        </trans-unit>
+        <trans-unit id="a0e8a2a6-0670-436e-9183-cf765ddc7cd0" xml:space="preserve">
+          <source>Apache web service listening address / port</source>
+          <target state="new">Apache web service listening address / port</target>
+        </trans-unit>
+        <trans-unit id="fc603ea1-9a2d-4ed7-a2de-60d69d59f3d6" xml:space="preserve">
+          <source>Check your endpoint setting for your Azure virtual machine.</source>
+          <target state="new">Check your endpoint setting for your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b608cde1-2396-4efe-9eba-6865e4649022" xml:space="preserve">
+          <source>Make sure the configuration of the endpoint is appropriate.</source>
+          <target state="new">Make sure the configuration of the endpoint is appropriate.</target>
+        </trans-unit>
+        <trans-unit id="d7c97470-b99b-4c0e-8685-d4fa2a318d33" xml:space="preserve">
+          <source>See the Phase 1: Create an Image instructions in this article.</source>
+          <target state="new">See the Phase 1: Create an Image instructions in this article.</target>
+        </trans-unit>
+        <trans-unit id="9bfb4f62-012a-43d3-afb3-70cf0f0258a7" xml:space="preserve">
+          <source>Open /etc/httpd/conf/httpd.conf and then search for the string “Listen”.</source>
+          <target state="new">Open /etc/httpd/conf/httpd.conf and then search for the string “Listen”.</target>
+        </trans-unit>
+        <trans-unit id="32a517cc-dbd9-4b08-98ce-68ceed3b92d3" xml:space="preserve">
+          <source>Ensure that the Apache listening port is same as the Private Port that you configured for your endpoint.</source>
+          <target state="new">Ensure that the Apache listening port is same as the Private Port that you configured for your endpoint.</target>
+        </trans-unit>
+        <trans-unit id="105c54c8-e456-4d20-9306-195eaecaae90" xml:space="preserve">
+          <source>The default port for Apache is 80.</source>
+          <target state="new">The default port for Apache is 80.</target>
+        </trans-unit>
+        <trans-unit id="79688263-e0cd-436e-880f-1883061e65a7" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="8b2e88e1-8e7b-4178-b068-a9651a12c0b4" xml:space="preserve">
+          <source>Firewall, iptables configuration  
+If you can see Apache default page from the local host, then the problem may be that the port upon which Apache is listening is blocked by the firewall.</source>
+          <target state="new">Firewall, iptables configuration  
+If you can see Apache default page from the local host, then the problem may be that the port upon which Apache is listening is blocked by the firewall.</target>
+        </trans-unit>
+        <trans-unit id="165e122a-7f5d-4212-b2d0-0e3dbda52ae5" xml:space="preserve">
+          <source>You can use the w3m tool to browse the Apache web page.</source>
+          <target state="new">You can use the w3m tool to browse the Apache web page.</target>
+        </trans-unit>
+        <trans-unit id="8cfc5f5e-3eb9-4009-bdc5-93b24de250bf" xml:space="preserve">
+          <source>The following commands install w3m and browse to the Apache default page:</source>
+          <target state="new">The following commands install w3m and browse to the Apache default page:</target>
+        </trans-unit>
+        <trans-unit id="273ffd69-ec03-4f5c-b025-e51fc2009b31" xml:space="preserve">
+          <source>If the issue is caused by the firewall or iptables, add the following lines to /etc/sysconfig/iptables:  </source>
+          <target state="new">If the issue is caused by the firewall or iptables, add the following lines to /etc/sysconfig/iptables:  </target>
+        </trans-unit>
+        <trans-unit id="33826008-138b-4feb-bf03-6cbf04e559e9" xml:space="preserve">
+          <source>Note that the second line is only needed for https traffic.</source>
+          <target state="new">Note that the second line is only needed for https traffic.</target>
+        </trans-unit>
+        <trans-unit id="227407e4-f759-4b6e-bcc0-551950e5b4b1" xml:space="preserve">
+          <source>Make sure that these lines are above any lines that would globally restrict access, such as the following:  </source>
+          <target state="new">Make sure that these lines are above any lines that would globally restrict access, such as the following:  </target>
+        </trans-unit>
+        <trans-unit id="22d486fb-ac1d-477d-ae4e-fe631d83734f" xml:space="preserve">
+          <source>To make the new settings take effect, use the following command:  </source>
+          <target state="new">To make the new settings take effect, use the following command:  </target>
+        </trans-unit>
+        <trans-unit id="817b084a-d25d-4044-b10b-ea44f7d030aa" xml:space="preserve">
+          <source>To install MySQL, open terminal and run these commands:  </source>
+          <target state="new">To install MySQL, open terminal and run these commands:  </target>
+        </trans-unit>
+        <trans-unit id="152d36af-06f6-44bd-854b-515a2f4753cb" xml:space="preserve">
+          <source>During the installation, MySQL will ask you for your permission twice.</source>
+          <target state="new">During the installation, MySQL will ask you for your permission twice.</target>
+        </trans-unit>
+        <trans-unit id="f5ea82a1-335b-47d0-8378-d109707b5e59" xml:space="preserve">
+          <source>After you say yes to both queries, MySQL will install.</source>
+          <target state="new">After you say yes to both queries, MySQL will install.</target>
+        </trans-unit>
+        <trans-unit id="e4ad7be1-39c4-412d-b36f-df5249db22c2" xml:space="preserve">
+          <source>After it is done installing, you can set a root MySQL password with the following:  </source>
+          <target state="new">After it is done installing, you can set a root MySQL password with the following:  </target>
+        </trans-unit>
+        <trans-unit id="be718efd-b5f8-4f76-bb2c-4e0dde328478" xml:space="preserve">
+          <source>The prompt will ask you for your current root password.</source>
+          <target state="new">The prompt will ask you for your current root password.</target>
+        </trans-unit>
+        <trans-unit id="ce16aaec-6654-4fa0-8e21-30104a4f7b2b" xml:space="preserve">
+          <source>Since you just installed MySQL, you most likely won’t have one, so leave it blank by pressing ENTER.</source>
+          <target state="new">Since you just installed MySQL, you most likely won’t have one, so leave it blank by pressing ENTER.</target>
+        </trans-unit>
+        <trans-unit id="c935a54b-5abb-4ad4-8c7f-5ffb86f65ac3" xml:space="preserve">
+          <source>You will be prompted to set a root password.</source>
+          <target state="new">You will be prompted to set a root password.</target>
+        </trans-unit>
+        <trans-unit id="ac7d9faf-5964-4812-a590-bad8f756440b" xml:space="preserve">
+          <source>Go ahead and choose Y and follow the instructions.</source>
+          <target state="new">Go ahead and choose Y and follow the instructions.</target>
+        </trans-unit>
+        <trans-unit id="2e47436c-c089-4bc0-876b-cc2e60f0f321" xml:space="preserve">
+          <source>CentOS automates the process of setting up MySQL, asking you a series of yes or no questions.</source>
+          <target state="new">CentOS automates the process of setting up MySQL, asking you a series of yes or no questions.</target>
+        </trans-unit>
+        <trans-unit id="bdcf741a-0cb9-44cd-8d30-48230a5cbef7" xml:space="preserve">
+          <source>Those questions are shown below.</source>
+          <target state="new">Those questions are shown below.</target>
+        </trans-unit>
+        <trans-unit id="51d7007c-5161-4a05-910f-815ac1880783" xml:space="preserve">
+          <source>Choose Y or N for your configuration.</source>
+          <target state="new">Choose Y or N for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="fa0ee4ca-47c5-42f9-a145-4b9e016a2975" xml:space="preserve">
+          <source>At the end, MySQL will reload and implement the new changes.</source>
+          <target state="new">At the end, MySQL will reload and implement the new changes.</target>
+        </trans-unit>
+        <trans-unit id="65897e3a-5141-4952-b5e9-6a128bdcf6a3" xml:space="preserve">
+          <source>PHP is an open source web scripting language that is widely used to build dynamic web pages.</source>
+          <target state="new">PHP is an open source web scripting language that is widely used to build dynamic web pages.</target>
+        </trans-unit>
+        <trans-unit id="3f42857d-e190-4e5c-9682-0de301c2d28e" xml:space="preserve">
+          <source>To install PHP on your virtual machine, open terminal and run this command:  </source>
+          <target state="new">To install PHP on your virtual machine, open terminal and run this command:  </target>
+        </trans-unit>
+        <trans-unit id="fc4b9b51-c69f-4a38-9192-37103e0b8052" xml:space="preserve">
+          <source>Answer “y” to download software packages.</source>
+          <target state="new">Answer “y” to download software packages.</target>
+        </trans-unit>
+        <trans-unit id="6a09d244-ee27-4739-a8ee-1bc3d1ba5b5f" xml:space="preserve">
+          <source>Then answer “y” to Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key).</source>
+          <target state="new">Then answer “y” to Importing GPG key 0xE8562897 "CentOS-5 Key (CentOS 5 Official Signing Key).</target>
+        </trans-unit>
+        <trans-unit id="26ad9d95-391e-4ff7-a319-87728e9d04f8" xml:space="preserve">
+          <source>PHP will install.</source>
+          <target state="new">PHP will install.</target>
+        </trans-unit>
+        <trans-unit id="807e858c-39f2-46b7-828e-ec6fcb3b530b" xml:space="preserve">
+          <source>This has been tested on Ubuntu 14.04.</source>
+          <target state="new">This has been tested on Ubuntu 14.04.</target>
+        </trans-unit>
+        <trans-unit id="69a4d59a-3146-47ee-a275-c130dcc631de" xml:space="preserve">
+          <source>Ubuntu is based on Debian.</source>
+          <target state="new">Ubuntu is based on Debian.</target>
+        </trans-unit>
+        <trans-unit id="ff79a22c-bb2e-446c-8b30-2175e22420f8" xml:space="preserve">
+          <source>You can install the LAMP stack in the same way as the Red Hat series.</source>
+          <target state="new">You can install the LAMP stack in the same way as the Red Hat series.</target>
+        </trans-unit>
+        <trans-unit id="6a663c8e-0cbb-457c-8d0e-790e9e5e2122" xml:space="preserve">
+          <source>To simplify the steps, use the Tasksel tool.</source>
+          <target state="new">To simplify the steps, use the Tasksel tool.</target>
+        </trans-unit>
+        <trans-unit id="7ecf6410-d985-4def-87d5-5820ae3d568d" xml:space="preserve">
+          <source>Tasksel is a Debian/Ubuntu tool that installs multiple related packages as a coordinated task onto your system.</source>
+          <target state="new">Tasksel is a Debian/Ubuntu tool that installs multiple related packages as a coordinated task onto your system.</target>
+        </trans-unit>
+        <trans-unit id="85e129d8-fb9d-4e90-ab04-dc8c2126d45c" xml:space="preserve">
+          <source>For more information, see <bpt id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;linkText&gt;</bpt>Tasksel - Community Help Wiki<ept id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;/linkText&gt;</ept><bpt id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;title&gt;</bpt><ept id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;linkText&gt;</bpt>Tasksel - Community Help Wiki<ept id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;/linkText&gt;</ept><bpt id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;title&gt;</bpt><ept id="c1566a24-d008-4f81-9ad9-ba9c1814ec35">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd3f142e-3268-44cc-83d9-9c263729ee00" xml:space="preserve">
+          <source>Use tasksel to install the required software for the LAMP stack.</source>
+          <target state="new">Use tasksel to install the required software for the LAMP stack.</target>
+        </trans-unit>
+        <trans-unit id="31c9736c-5645-4fa4-935d-5f425486fd38" xml:space="preserve">
+          <source>To download the package lists from the repositories and update them to get information on the newest versions of packages and their dependencies:  </source>
+          <target state="new">To download the package lists from the repositories and update them to get information on the newest versions of packages and their dependencies:  </target>
+        </trans-unit>
+        <trans-unit id="b53e4ab5-9a6d-442b-bded-d788700fae7c" xml:space="preserve">
+          <source>To Install the Ubuntu LAMP stack using Tasksel:  </source>
+          <target state="new">To Install the Ubuntu LAMP stack using Tasksel:  </target>
+        </trans-unit>
+        <trans-unit id="3733cc82-6326-455b-91e6-35632f8b4e9d" xml:space="preserve">
+          <source>Next, go through the wizard and choose your <bpt id="976d88b7-399e-4c72-9412-cd01890ee75a">&lt;strong&gt;</bpt>MySQL root password<ept id="976d88b7-399e-4c72-9412-cd01890ee75a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, go through the wizard and choose your <bpt id="976d88b7-399e-4c72-9412-cd01890ee75a">&lt;strong&gt;</bpt>MySQL root password<ept id="976d88b7-399e-4c72-9412-cd01890ee75a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00138d18-8b78-4d67-811a-12ddc70fd540" xml:space="preserve">
+          <source><bpt id="fc768bfc-9744-4639-96c3-40313c88a2e4">&lt;linkText&gt;</bpt><ept id="fc768bfc-9744-4639-96c3-40313c88a2e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc768bfc-9744-4639-96c3-40313c88a2e4">&lt;linkText&gt;</bpt><ept id="fc768bfc-9744-4639-96c3-40313c88a2e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb835c06-c035-4e9b-8fc9-fe0af6c2b10b" xml:space="preserve">
+          <source>You can test the LAMP system by creating a quick php info page.</source>
+          <target state="new">You can test the LAMP system by creating a quick php info page.</target>
+        </trans-unit>
+        <trans-unit id="ea1cb4e7-25df-4fe9-bedf-4e943820cdb2" xml:space="preserve">
+          <source>First, create a new file:  </source>
+          <target state="new">First, create a new file:  </target>
+        </trans-unit>
+        <trans-unit id="f4f3a492-7a2a-46dc-a75b-9b861365be2f" xml:space="preserve">
+          <source>Add the following line:  </source>
+          <target state="new">Add the following line:  </target>
+        </trans-unit>
+        <trans-unit id="5eaf0698-30e3-4973-ad5e-dd63000fd3ce" xml:space="preserve">
+          <source>Then, Save and Exit.</source>
+          <target state="new">Then, Save and Exit.</target>
+        </trans-unit>
+        <trans-unit id="b2cb4379-61f0-4c66-8b30-d7a43e54b11c" xml:space="preserve">
+          <source>Restart Apache so that all of the changes take effect on your machine.</source>
+          <target state="new">Restart Apache so that all of the changes take effect on your machine.</target>
+        </trans-unit>
+        <trans-unit id="fd6af61d-a53c-442c-886d-500fb9838ee4" xml:space="preserve">
+          <source>If the OS of your virtual machine is CentOS, use the following command to restart Apache:</source>
+          <target state="new">If the OS of your virtual machine is CentOS, use the following command to restart Apache:</target>
+        </trans-unit>
+        <trans-unit id="d07a6fe6-d43b-429d-b05e-bd01df8acdbe" xml:space="preserve">
+          <source>If the OS of your virtual machine is Ubuntu, use the following command to restart Apache:  </source>
+          <target state="new">If the OS of your virtual machine is Ubuntu, use the following command to restart Apache:  </target>
+        </trans-unit>
+        <trans-unit id="a627679a-7efc-4ef4-b75f-d9fd7a662332" xml:space="preserve">
+          <source>Finish up by browsing to your php info page (for the example web server in this topic, the URL would be http://lampdemo.cloudapp.net/info.php).</source>
+          <target state="new">Finish up by browsing to your php info page (for the example web server in this topic, the URL would be http://lampdemo.cloudapp.net/info.php).</target>
+        </trans-unit>
+        <trans-unit id="1e4c9a09-ad27-4d0d-a27f-c62902bb2599" xml:space="preserve">
+          <source>Your browser should look similar to this:</source>
+          <target state="new">Your browser should look similar to this:</target>
+        </trans-unit>
+        <trans-unit id="2979a281-d3a8-48be-a82f-0ef1df68821c" xml:space="preserve">
+          <source><bpt id="4e1cefde-c62b-4b26-b828-8fba5f91f8a3">&lt;linkText&gt;</bpt><ept id="4e1cefde-c62b-4b26-b828-8fba5f91f8a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e1cefde-c62b-4b26-b828-8fba5f91f8a3">&lt;linkText&gt;</bpt><ept id="4e1cefde-c62b-4b26-b828-8fba5f91f8a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbceea84-9466-4837-a60e-7716a295ac7f" xml:space="preserve">
+          <source>As general practice, you will change some default settings to prepare for web application deployment.</source>
+          <target state="new">As general practice, you will change some default settings to prepare for web application deployment.</target>
+        </trans-unit>
+        <trans-unit id="b9e4af55-55b7-46b6-b382-04b82437d5ea" xml:space="preserve">
+          <source>If you have more than one VM installed with MySQL and they need to exchange data, you should enable MySQL remote access and grant the proper permissions.</source>
+          <target state="new">If you have more than one VM installed with MySQL and they need to exchange data, you should enable MySQL remote access and grant the proper permissions.</target>
+        </trans-unit>
+        <trans-unit id="295f9961-080e-459a-a968-cd5b447ced08" xml:space="preserve">
+          <source><bpt id="b7b54234-b365-496f-9b72-7336e32a4ea1">&lt;strong&gt;</bpt>Command reference format:<ept id="b7b54234-b365-496f-9b72-7336e32a4ea1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b7b54234-b365-496f-9b72-7336e32a4ea1">&lt;strong&gt;</bpt>Command reference format:<ept id="b7b54234-b365-496f-9b72-7336e32a4ea1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce794d18-7ee6-4f6c-a976-7430261e9725" xml:space="preserve">
+          <source><bpt id="b8ab54fc-c855-493f-9137-f9ac10052ab8">&lt;strong&gt;</bpt>Example:<ept id="b8ab54fc-c855-493f-9137-f9ac10052ab8">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="b8ab54fc-c855-493f-9137-f9ac10052ab8">&lt;strong&gt;</bpt>Example:<ept id="b8ab54fc-c855-493f-9137-f9ac10052ab8">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ad7a6c99-610e-477a-af9a-fe6817ba7c44" xml:space="preserve">
+          <source>You should also change the /etc/mysql/my.cnf profile.</source>
+          <target state="new">You should also change the /etc/mysql/my.cnf profile.</target>
+        </trans-unit>
+        <trans-unit id="63f6ece5-0b76-4511-868c-6d72358c3e92" xml:space="preserve">
+          <source>If you have lines like this:</source>
+          <target state="new">If you have lines like this:</target>
+        </trans-unit>
+        <trans-unit id="fd9741dc-2d0b-43b7-9cc4-5db3056b3859" xml:space="preserve">
+          <source>You should comment them out (add a # at the beginning of the lines), and then restart MySQL.</source>
+          <target state="new">You should comment them out (add a # at the beginning of the lines), and then restart MySQL.</target>
+        </trans-unit>
+        <trans-unit id="f52a4012-c805-496d-879f-f6abc474d7aa" xml:space="preserve">
+          <source>To add an endpoint to allow remote access, refer to instructions in Phase 1: Create an Image to create a new endpoint.</source>
+          <target state="new">To add an endpoint to allow remote access, refer to instructions in Phase 1: Create an Image to create a new endpoint.</target>
+        </trans-unit>
+        <trans-unit id="40e83e9a-c468-48f8-b54a-527d436d9fb4" xml:space="preserve">
+          <source>The default remote access TCP port number of MySQL is 3306.</source>
+          <target state="new">The default remote access TCP port number of MySQL is 3306.</target>
+        </trans-unit>
+        <trans-unit id="91a19079-bbb7-470b-a9e6-245fc7ea9c2e" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="2957affe-8483-4781-bf3e-24ac4d831e50" xml:space="preserve">
+          <source><bpt id="1f2cd8ca-ce31-49fa-bdb2-56b7c9c4595a">&lt;linkText&gt;</bpt><ept id="1f2cd8ca-ce31-49fa-bdb2-56b7c9c4595a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f2cd8ca-ce31-49fa-bdb2-56b7c9c4595a">&lt;linkText&gt;</bpt><ept id="1f2cd8ca-ce31-49fa-bdb2-56b7c9c4595a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8dd0d96-90ba-4a6b-ab8a-e5d8f78cd959" xml:space="preserve">
+          <source>Once you have setup the LAMP stack successfully, you can deploy your existing web application to the Apache web server (your virtual machine).</source>
+          <target state="new">Once you have setup the LAMP stack successfully, you can deploy your existing web application to the Apache web server (your virtual machine).</target>
+        </trans-unit>
+        <trans-unit id="2e373228-ec01-41ec-919b-0d43b2012f8c" xml:space="preserve">
+          <source>It is the same steps as deploying an existing web application on a physical web server.</source>
+          <target state="new">It is the same steps as deploying an existing web application on a physical web server.</target>
+        </trans-unit>
+        <trans-unit id="a4ea5016-5ecf-4f58-8ba8-ef7fc7df8037" xml:space="preserve">
+          <source>The root of the webserver is located at <bpt id="986a7bca-5d05-4baf-9ae2-006f01b12c6b">&lt;strong&gt;</bpt>/var/www/html<ept id="986a7bca-5d05-4baf-9ae2-006f01b12c6b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The root of the webserver is located at <bpt id="986a7bca-5d05-4baf-9ae2-006f01b12c6b">&lt;strong&gt;</bpt>/var/www/html<ept id="986a7bca-5d05-4baf-9ae2-006f01b12c6b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cc3e475-ff46-4d9b-94ba-86c8ae9c0b5d" xml:space="preserve">
+          <source>You should grant privileges to the users who need to upload files to this folder.</source>
+          <target state="new">You should grant privileges to the users who need to upload files to this folder.</target>
+        </trans-unit>
+        <trans-unit id="90480c83-fae1-416f-892a-7134ddccef1f" xml:space="preserve">
+          <source>The following example shows how to add write permission to a group named lampappgroup and put the azureuser user name in this group:</source>
+          <target state="new">The following example shows how to add write permission to a group named lampappgroup and put the azureuser user name in this group:</target>
+        </trans-unit>
+        <trans-unit id="c226d274-1729-4fe5-8955-2b03f283b86f" xml:space="preserve">
+          <source>You may need to login again if you want modify a file in /var/www/html/.</source>
+          <target state="new">You may need to login again if you want modify a file in /var/www/html/.</target>
+        </trans-unit>
+        <trans-unit id="e2a08a30-24a6-4f09-a330-54ede39f29cd" xml:space="preserve">
+          <source>Use any SFTP client (such as FileZilla) to connect to the DNS name of your virtual machine (for example,  lampdemo.cloudapp.net) and navigate to /<bpt id="78c9b1ab-2b43-4b8c-9168-56e902ddba82">&lt;strong&gt;</bpt>var/www/html<ept id="78c9b1ab-2b43-4b8c-9168-56e902ddba82">&lt;/strong&gt;</ept> to publish your site.</source>
+          <target state="new">Use any SFTP client (such as FileZilla) to connect to the DNS name of your virtual machine (for example,  lampdemo.cloudapp.net) and navigate to /<bpt id="78c9b1ab-2b43-4b8c-9168-56e902ddba82">&lt;strong&gt;</bpt>var/www/html<ept id="78c9b1ab-2b43-4b8c-9168-56e902ddba82">&lt;/strong&gt;</ept> to publish your site.</target>
+        </trans-unit>
+        <trans-unit id="a0685ed2-088b-4f45-a8b7-55f950bcdbd4" xml:space="preserve">
+          <source><bpt id="de1c0783-682e-4a3d-88a4-e5484a45b151">&lt;linkText&gt;</bpt><ept id="de1c0783-682e-4a3d-88a4-e5484a45b151">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de1c0783-682e-4a3d-88a4-e5484a45b151">&lt;linkText&gt;</bpt><ept id="de1c0783-682e-4a3d-88a4-e5484a45b151">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f88dc31-8962-4d71-9289-968adebc56fa" xml:space="preserve">
+          <source><bpt id="aafd8b0d-a683-42ac-9275-fbec38edae8c">&lt;strong&gt;</bpt>Symptom<ept id="aafd8b0d-a683-42ac-9275-fbec38edae8c">&lt;/strong&gt;</ept>  
+Apache is running but you can’t see the Apache default page with your browser.</source>
+          <target state="new"><bpt id="aafd8b0d-a683-42ac-9275-fbec38edae8c">&lt;strong&gt;</bpt>Symptom<ept id="aafd8b0d-a683-42ac-9275-fbec38edae8c">&lt;/strong&gt;</ept>  
+Apache is running but you can’t see the Apache default page with your browser.</target>
+        </trans-unit>
+        <trans-unit id="3d35839e-a91b-4440-afc7-9bde82f42e02" xml:space="preserve">
+          <source><bpt id="26b743bd-119e-46d5-b52c-3ef1a663a101">&lt;strong&gt;</bpt>Possible root case<ept id="26b743bd-119e-46d5-b52c-3ef1a663a101">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="26b743bd-119e-46d5-b52c-3ef1a663a101">&lt;strong&gt;</bpt>Possible root case<ept id="26b743bd-119e-46d5-b52c-3ef1a663a101">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dede8043-f155-4e32-869e-4b438a34550f" xml:space="preserve">
+          <source>The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.&lt;/br&gt;
+Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.&lt;/br&gt;
+To determine the listen port of Apache, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/apache2/ports.conf (Debian release), search for the string “Listen”. The default port is 80.</source>
+          <target state="new">The Apache listening port is not same as the Private Port of your virtual machine's endpoint for web traffic.&lt;/br&gt;
+Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Apache listen port. See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.&lt;/br&gt;
+To determine the listen port of Apache, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/apache2/ports.conf (Debian release), search for the string “Listen”. The default port is 80.</target>
+        </trans-unit>
+        <trans-unit id="d23009ff-1bc7-49ba-a418-0e4527bca924" xml:space="preserve">
+          <source>The firewall has disabled the listen port of Apache.&lt;/br&gt;  
+If you can see Apache default page from the local host, then the problem is most likely that the port which is listened by Apache is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to Apache default page:  </source>
+          <target state="new">The firewall has disabled the listen port of Apache.&lt;/br&gt;  
+If you can see Apache default page from the local host, then the problem is most likely that the port which is listened by Apache is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to Apache default page:  </target>
+        </trans-unit>
+        <trans-unit id="b40683fc-f9c3-4fcb-ad33-8dd6c7733292" xml:space="preserve">
+          <source><bpt id="bed3628d-e619-4f9f-a22a-5da58226760d">&lt;strong&gt;</bpt>Solution<ept id="bed3628d-e619-4f9f-a22a-5da58226760d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bed3628d-e619-4f9f-a22a-5da58226760d">&lt;strong&gt;</bpt>Solution<ept id="bed3628d-e619-4f9f-a22a-5da58226760d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2737e36b-2ca4-4e12-ab04-957089d05d13" xml:space="preserve">
+          <source>If the Apache listen port is not same as the Private Port of endpoint for web traffic on the virtual machine, you need change the Private Port of the endpoint to be the same as the Apache listen port.</source>
+          <target state="new">If the Apache listen port is not same as the Private Port of endpoint for web traffic on the virtual machine, you need change the Private Port of the endpoint to be the same as the Apache listen port.</target>
+        </trans-unit>
+        <trans-unit id="1760bcea-8e6d-487d-bdb0-84b71ec5ed72" xml:space="preserve">
+          <source>If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  </source>
+          <target state="new">If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  </target>
+        </trans-unit>
+        <trans-unit id="e50e050f-88c5-433e-9481-6b2b8750cd9e" xml:space="preserve">
+          <source>Note that the second line is only needed for https traffic.</source>
+          <target state="new">Note that the second line is only needed for https traffic.</target>
+        </trans-unit>
+        <trans-unit id="ecc6339d-1e8c-4543-b21c-bda39cca1707" xml:space="preserve">
+          <source>Make sure this is above any lines that would globally restrict access, such as the following:  </source>
+          <target state="new">Make sure this is above any lines that would globally restrict access, such as the following:  </target>
+        </trans-unit>
+        <trans-unit id="201f6411-9dd2-437a-b836-fb6339a87ed6" xml:space="preserve">
+          <source>To reload the iptables, run the following command:  </source>
+          <target state="new">To reload the iptables, run the following command:  </target>
+        </trans-unit>
+        <trans-unit id="8dee44a0-4f62-47e7-93e3-ece675ce1de5" xml:space="preserve">
+          <source>This has been tested on CentOS 6.3.</source>
+          <target state="new">This has been tested on CentOS 6.3.</target>
+        </trans-unit>
+        <trans-unit id="f852edaa-1383-491c-9033-1bafd971c248" xml:space="preserve">
+          <source><bpt id="30fcc97e-249f-4c87-a772-8e7deb2acafe">&lt;strong&gt;</bpt>Symptom<ept id="30fcc97e-249f-4c87-a772-8e7deb2acafe">&lt;/strong&gt;</ept>  
+When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/www/html to publish your site, you get an error message similar to the following:  </source>
+          <target state="new"><bpt id="30fcc97e-249f-4c87-a772-8e7deb2acafe">&lt;strong&gt;</bpt>Symptom<ept id="30fcc97e-249f-4c87-a772-8e7deb2acafe">&lt;/strong&gt;</ept>  
+When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/www/html to publish your site, you get an error message similar to the following:  </target>
+        </trans-unit>
+        <trans-unit id="7b8c7610-e124-484c-b616-3f06f3698e6e" xml:space="preserve">
+          <source><bpt id="6f9213cb-f80f-4a97-a1da-55aa5d73c002">&lt;strong&gt;</bpt>Possible root case<ept id="6f9213cb-f80f-4a97-a1da-55aa5d73c002">&lt;/strong&gt;</ept>
+You have no permissions to access the /var/www/html folder.</source>
+          <target state="new"><bpt id="6f9213cb-f80f-4a97-a1da-55aa5d73c002">&lt;strong&gt;</bpt>Possible root case<ept id="6f9213cb-f80f-4a97-a1da-55aa5d73c002">&lt;/strong&gt;</ept>
+You have no permissions to access the /var/www/html folder.</target>
+        </trans-unit>
+        <trans-unit id="64441a55-4ee6-4fe2-86df-c5d3aa603147" xml:space="preserve">
+          <source><bpt id="1899eff9-7338-489d-8172-7543a656ff1a">&lt;strong&gt;</bpt>Solution<ept id="1899eff9-7338-489d-8172-7543a656ff1a">&lt;/strong&gt;</ept>  
+You need get permission from the root account.</source>
+          <target state="new"><bpt id="1899eff9-7338-489d-8172-7543a656ff1a">&lt;strong&gt;</bpt>Solution<ept id="1899eff9-7338-489d-8172-7543a656ff1a">&lt;/strong&gt;</ept>  
+You need get permission from the root account.</target>
+        </trans-unit>
+        <trans-unit id="5d750d43-6c45-4f21-a20d-8c6cc7a8ec8e" xml:space="preserve">
+          <source>You can change the ownership of that folder from root to the username you used when provisioning the machine.</source>
+          <target state="new">You can change the ownership of that folder from root to the username you used when provisioning the machine.</target>
+        </trans-unit>
+        <trans-unit id="26143b1b-b900-4740-bd42-9c01ff52ff14" xml:space="preserve">
+          <source>Here is an example with the azureuser account name:</source>
+          <target state="new">Here is an example with the azureuser account name:</target>
+        </trans-unit>
+        <trans-unit id="640cd990-3ac1-47f6-b09f-6c902815ad15" xml:space="preserve">
+          <source>Use the -R option to apply the permissions for all files inside of a directory too.</source>
+          <target state="new">Use the -R option to apply the permissions for all files inside of a directory too.</target>
+        </trans-unit>
+        <trans-unit id="7696f3b5-bbd9-4506-a6e3-0f25f33db405" xml:space="preserve">
+          <source>Note that this command also works for directories.</source>
+          <target state="new">Note that this command also works for directories.</target>
+        </trans-unit>
+        <trans-unit id="5023f2a6-1ea9-4b48-a3b6-ad2f89fc0904" xml:space="preserve">
+          <source>The -R option changes the permissions for all files and directories inside of the directory.</source>
+          <target state="new">The -R option changes the permissions for all files and directories inside of the directory.</target>
+        </trans-unit>
+        <trans-unit id="b09fc299-f947-4fc9-9685-1b960aff168d" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="ebdf3c10-1577-43dd-a721-cfb635a63b58" xml:space="preserve">
+          <source>This command  changes ownership (both user and group) for all files and directories inside of directory and directory itself.</source>
+          <target state="new">This command  changes ownership (both user and group) for all files and directories inside of directory and directory itself.</target>
+        </trans-unit>
+        <trans-unit id="8b67ddf4-70a2-4c1a-abca-0f4cb4f60395" xml:space="preserve">
+          <source>The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.</source>
+          <target state="new">The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.</target>
+        </trans-unit>
+        <trans-unit id="69222030-74e5-4082-ae14-b99633f7d5d9" xml:space="preserve">
+          <source><bpt id="1667546a-e0ea-4d09-a89f-a610973bfa89">&lt;strong&gt;</bpt>Symptom<ept id="1667546a-e0ea-4d09-a89f-a610973bfa89">&lt;/strong&gt;</ept>  
+When you restart the Apache server using one of the following commands:  </source>
+          <target state="new"><bpt id="1667546a-e0ea-4d09-a89f-a610973bfa89">&lt;strong&gt;</bpt>Symptom<ept id="1667546a-e0ea-4d09-a89f-a610973bfa89">&lt;/strong&gt;</ept>  
+When you restart the Apache server using one of the following commands:  </target>
+        </trans-unit>
+        <trans-unit id="d22447e9-761a-428a-912e-d9a7116cbd4b" xml:space="preserve">
+          <source>or</source>
+          <target state="new">or</target>
+        </trans-unit>
+        <trans-unit id="16d26980-2ee6-4e53-88ba-51de96749ffc" xml:space="preserve">
+          <source>You get the following error:  </source>
+          <target state="new">You get the following error:  </target>
+        </trans-unit>
+        <trans-unit id="87bbb41f-cbc2-4a3a-8b43-1572b1f2b409" xml:space="preserve">
+          <source><bpt id="30cf5004-bd45-4985-ac59-eedfa55a8803">&lt;strong&gt;</bpt>Possible root case<ept id="30cf5004-bd45-4985-ac59-eedfa55a8803">&lt;/strong&gt;</ept>
+You have not set the server name of Apache.</source>
+          <target state="new"><bpt id="30cf5004-bd45-4985-ac59-eedfa55a8803">&lt;strong&gt;</bpt>Possible root case<ept id="30cf5004-bd45-4985-ac59-eedfa55a8803">&lt;/strong&gt;</ept>
+You have not set the server name of Apache.</target>
+        </trans-unit>
+        <trans-unit id="76114caa-1ae6-47aa-835c-151d778cf8a3" xml:space="preserve">
+          <source><bpt id="8109b6c5-1aa7-479a-9260-f36e38adff85">&lt;strong&gt;</bpt>Solution<ept id="8109b6c5-1aa7-479a-9260-f36e38adff85">&lt;/strong&gt;</ept>  
+Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache.</source>
+          <target state="new"><bpt id="8109b6c5-1aa7-479a-9260-f36e38adff85">&lt;strong&gt;</bpt>Solution<ept id="8109b6c5-1aa7-479a-9260-f36e38adff85">&lt;/strong&gt;</ept>  
+Insert a “ServerName localhost” line in either httpd.conf (Red Hat release) or apache2.conf (Debian release) in /etc/apache2 and restart Apache.</target>
+        </trans-unit>
+        <trans-unit id="877f14d9-3043-42fd-8f6e-7c62281227f5" xml:space="preserve">
+          <source>The notice will disappear.</source>
+          <target state="new">The notice will disappear.</target>
+        </trans-unit>
+        <trans-unit id="012f1727-14b0-40d4-82da-5b7c4f2f7936" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-01.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-01.png</target>
+        </trans-unit>
+        <trans-unit id="a89fc23e-496a-4636-8e50-5c037bb8def2" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-02.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-02.png</target>
+        </trans-unit>
+        <trans-unit id="162400fa-6ea4-457b-8274-66ab834ede73" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-03.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-03.png</target>
+        </trans-unit>
+        <trans-unit id="50d95a71-19ad-4ae5-99f9-28d195d21653" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-04.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-04.png</target>
+        </trans-unit>
+        <trans-unit id="2f59fa8e-d80d-4531-992b-2808f9ca0340" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-05.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-05.png</target>
+        </trans-unit>
+        <trans-unit id="c9784992-b3ff-49eb-b73e-67b687a3f1b3" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-06.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-06.png</target>
+        </trans-unit>
+        <trans-unit id="0d31480e-991f-4bac-87c1-648c12d67860" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-07.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-07.png</target>
+        </trans-unit>
+        <trans-unit id="d3b06369-af6f-44cc-ae27-63d6a7897b9d" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-08.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-08.png</target>
+        </trans-unit>
+        <trans-unit id="22b5f18d-cd54-45f6-95c0-11f87446d879" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-09.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-09.png</target>
+        </trans-unit>
+        <trans-unit id="6eea5d03-a3ae-49b0-bc89-c9ba1ffdba80" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-10.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-10.png</target>
+        </trans-unit>
+        <trans-unit id="9f63366a-3822-4dfe-b9a0-9345771f9b45" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-11.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-11.png</target>
+        </trans-unit>
+        <trans-unit id="ae3a727c-ab0e-47c1-8323-17d84d7d2664" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-12.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-12.png</target>
+        </trans-unit>
+        <trans-unit id="23733609-e2a5-482e-b636-efd1b396938f" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-13.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-13.png</target>
+        </trans-unit>
+        <trans-unit id="916828df-711b-4c5c-9a9d-42b7e529a8f2" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-14.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-14.png</target>
+        </trans-unit>
+        <trans-unit id="7f876f09-7234-4639-a2cd-e2d9bc53c324" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-15.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-15.png</target>
+        </trans-unit>
+        <trans-unit id="8d1c2517-6403-4c73-9916-f4528be76f8d" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png</target>
+        </trans-unit>
+        <trans-unit id="27d59882-2381-40fc-a32f-3ae7760a2c88" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png</target>
+        </trans-unit>
+        <trans-unit id="da77ebeb-4036-4177-ac63-869a97b5c42a" xml:space="preserve">
+          <source>./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg</source>
+          <target state="new">./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="efc831a6-d3df-418a-b9cd-fe2fbe9da6cb" />
+    </body>
+  </file>
+</xliff>

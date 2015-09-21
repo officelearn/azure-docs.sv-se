@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b8498427-e678-47d8-a1fa-fba6ada28153" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b8498427-e678-47d8-a1fa-fba6ada28153" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="521966a1-88ba-4a68-bfe2-4008c29af175">
+        <trans-unit id="77cfccf1-c462-4548-9468-0588fec9b6a6" xml:space="preserve">
+          <source>Deploy a SharePoint Server 2013 farm | Microsoft Azure</source>
+          <target state="new">Deploy a SharePoint Server 2013 farm | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="76ef3e80-0081-4cd9-a3fd-76ce56e11b91" xml:space="preserve">
+          <source>Deploy a high-availability SharePoint Server 2013 farm using SQL Server AlwaysOn Availability Groups in Azure in five phases.</source>
+          <target state="new">Deploy a high-availability SharePoint Server 2013 farm using SQL Server AlwaysOn Availability Groups in Azure in five phases.</target>
+        </trans-unit>
+        <trans-unit id="85f1b9bc-8a53-451e-b9e6-dc5c5c585846" xml:space="preserve">
+          <source>This topic contains links to the step-by-step instructions for deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups with Azure Service Management.</source>
+          <target state="new">This topic contains links to the step-by-step instructions for deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups with Azure Service Management.</target>
+        </trans-unit>
+        <trans-unit id="a15953bc-4095-46b0-a3b5-826673394df5" xml:space="preserve">
+          <source>The farm contains these computers:</source>
+          <target state="new">The farm contains these computers:</target>
+        </trans-unit>
+        <trans-unit id="a2919149-be0b-4f63-892f-0b0893788357" xml:space="preserve">
+          <source>Two SharePoint web servers</source>
+          <target state="new">Two SharePoint web servers</target>
+        </trans-unit>
+        <trans-unit id="8be869e4-f691-4af7-ade6-994ca4278e3e" xml:space="preserve">
+          <source>Two SharePoint application servers</source>
+          <target state="new">Two SharePoint application servers</target>
+        </trans-unit>
+        <trans-unit id="2aa58649-bc62-422b-8e12-032b27021db4" xml:space="preserve">
+          <source>Two database servers</source>
+          <target state="new">Two database servers</target>
+        </trans-unit>
+        <trans-unit id="169bbeac-8852-411d-8b63-59ccbd335faa" xml:space="preserve">
+          <source>One cluster majority node server</source>
+          <target state="new">One cluster majority node server</target>
+        </trans-unit>
+        <trans-unit id="7bc98d03-0bec-4c53-9398-319073a86bca" xml:space="preserve">
+          <source>Two domain controllers</source>
+          <target state="new">Two domain controllers</target>
+        </trans-unit>
+        <trans-unit id="4298a943-d376-4c65-8946-0d26731d193d" xml:space="preserve">
+          <source>This is the configuration, with placeholder names for each server:</source>
+          <target state="new">This is the configuration, with placeholder names for each server:</target>
+        </trans-unit>
+        <trans-unit id="7d882b89-d186-4ad1-b07b-ed0467cd5655" xml:space="preserve">
+          <source><bpt id="1538df11-6383-489d-9318-fe857a86f0b5">&lt;linkText&gt;</bpt><ept id="1538df11-6383-489d-9318-fe857a86f0b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1538df11-6383-489d-9318-fe857a86f0b5">&lt;linkText&gt;</bpt><ept id="1538df11-6383-489d-9318-fe857a86f0b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a746cbb-5b98-4466-a37a-3f55c7dd46ab" xml:space="preserve">
+          <source>Two machines for each role ensure high availability.</source>
+          <target state="new">Two machines for each role ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="e7aefa5e-4859-43ea-b60c-64445e15b406" xml:space="preserve">
+          <source>All of the virtual machines are in a single region.</source>
+          <target state="new">All of the virtual machines are in a single region.</target>
+        </trans-unit>
+        <trans-unit id="529422f5-14fa-493e-840a-a2fd1203f912" xml:space="preserve">
+          <source>Each group of virtual machines for a specific role is in its own availability set.</source>
+          <target state="new">Each group of virtual machines for a specific role is in its own availability set.</target>
+        </trans-unit>
+        <trans-unit id="daaf32a7-23e5-403a-888b-5c471c25529d" xml:space="preserve">
+          <source>You deploy this configuration in the following phases:</source>
+          <target state="new">You deploy this configuration in the following phases:</target>
+        </trans-unit>
+        <trans-unit id="892e3bd2-a5bb-4907-990a-694aeace5f8e" xml:space="preserve">
+          <source><bpt id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;/linkText&gt;</ept><bpt id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;title&gt;</bpt><ept id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;/linkText&gt;</ept><bpt id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;title&gt;</bpt><ept id="a21a16e7-1382-41d4-ad47-0519436112a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6b2cdd4-efc8-498c-a41c-541785feb425" xml:space="preserve">
+          <source>Create a storage account, cloud services, and a cross-premises virtual network.</source>
+          <target state="new">Create a storage account, cloud services, and a cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="80ce30a3-614b-4611-8517-a6ce4f7be820" xml:space="preserve">
+          <source><bpt id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;linkText&gt;</bpt>Phase 2: Configure domain controllers<ept id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;/linkText&gt;</ept><bpt id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;title&gt;</bpt><ept id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;linkText&gt;</bpt>Phase 2: Configure domain controllers<ept id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;/linkText&gt;</ept><bpt id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;title&gt;</bpt><ept id="2e771c1c-630d-42ed-84f8-be0753ea797b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82ee2dde-be18-420a-b577-113bc5065c07" xml:space="preserve">
+          <source>Create and configure replica Active Directory Domain Services (AD DS) domain controllers.</source>
+          <target state="new">Create and configure replica Active Directory Domain Services (AD DS) domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="35e1991e-1f4a-4dee-ace9-10fa867c7ff3" xml:space="preserve">
+          <source><bpt id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;/linkText&gt;</ept><bpt id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;title&gt;</bpt><ept id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;/linkText&gt;</ept><bpt id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;title&gt;</bpt><ept id="3a147c0a-81d4-45ff-a05e-4678683f80ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="482f64cb-5161-481f-b07a-5e439ecb8900" xml:space="preserve">
+          <source>Create and configure the SQL Server virtual machines, prepare them for use with SharePoint, and create the cluster.</source>
+          <target state="new">Create and configure the SQL Server virtual machines, prepare them for use with SharePoint, and create the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1d5d2448-f27f-4e96-a039-28877448b424" xml:space="preserve">
+          <source><bpt id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;linkText&gt;</bpt>Phase 4: Configure SharePoint servers<ept id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;/linkText&gt;</ept><bpt id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;title&gt;</bpt><ept id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;linkText&gt;</bpt>Phase 4: Configure SharePoint servers<ept id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;/linkText&gt;</ept><bpt id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;title&gt;</bpt><ept id="bb7d464d-5a07-4218-813c-7d8558adfad7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b16ad906-219f-419a-b122-af49b211391d" xml:space="preserve">
+          <source>Create and configure the four SharePoint virtual machines.</source>
+          <target state="new">Create and configure the four SharePoint virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="d0b08e6a-0ffd-4be3-a1f1-6dea881dd079" xml:space="preserve">
+          <source><bpt id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;linkText&gt;</bpt>Phase 5: Create the availability group and add the SharePoint databases<ept id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;/linkText&gt;</ept><bpt id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;title&gt;</bpt><ept id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;linkText&gt;</bpt>Phase 5: Create the availability group and add the SharePoint databases<ept id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;/linkText&gt;</ept><bpt id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;title&gt;</bpt><ept id="c2640f8b-6427-40fd-b603-d7b2699dbee0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2925ec64-06e4-4691-a548-cafc190c14dd" xml:space="preserve">
+          <source>Prepare databases and create a SQL Server AlwaysOn availability group.</source>
+          <target state="new">Prepare databases and create a SQL Server AlwaysOn availability group.</target>
+        </trans-unit>
+        <trans-unit id="281b43bc-6293-4363-9e8b-d094c385c062" xml:space="preserve">
+          <source>This deployment of SharePoint with SQL Server AlwaysOn is designed to accompany the <bpt id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;/linkText&gt;</ept><bpt id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;title&gt;</bpt><ept id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;/title&gt;</ept> and incorporate the latest recommendations.</source>
+          <target state="new">This deployment of SharePoint with SQL Server AlwaysOn is designed to accompany the <bpt id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;/linkText&gt;</ept><bpt id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;title&gt;</bpt><ept id="b3200c1c-6ddd-4af3-b10e-382a2ca2a75f">&lt;/title&gt;</ept> and incorporate the latest recommendations.</target>
+        </trans-unit>
+        <trans-unit id="e803779c-e79b-464e-b3e1-c9f0d77ba4bf" xml:space="preserve">
+          <source>This configuration is a prescriptive, phase-by-phase guide for a predefined architecture to create a functional, highly available intranet SharePoint farm in Azure infrastructure services.</source>
+          <target state="new">This configuration is a prescriptive, phase-by-phase guide for a predefined architecture to create a functional, highly available intranet SharePoint farm in Azure infrastructure services.</target>
+        </trans-unit>
+        <trans-unit id="a94cb231-d780-41fe-af23-ca3c36a791b2" xml:space="preserve">
+          <source>For additional architectural guidance on implementing SharePoint 2013 in Azure, see <bpt id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;/linkText&gt;</ept><bpt id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;title&gt;</bpt><ept id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional architectural guidance on implementing SharePoint 2013 in Azure, see <bpt id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;/linkText&gt;</ept><bpt id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;title&gt;</bpt><ept id="a1076f4d-2fee-4d42-a1c7-dac5241b5fd7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8fbd82d-aa46-429d-a1d8-2264e1d5da58" xml:space="preserve">
+          <source>Keep the following in mind:</source>
+          <target state="new">Keep the following in mind:</target>
+        </trans-unit>
+        <trans-unit id="f6a20d47-bb3a-4831-a17f-872f46f51449" xml:space="preserve">
+          <source>If you are an experienced SharePoint implementer, please feel free to adapt the instructions in phases 3 through 5 and build the farm that best suits your needs.</source>
+          <target state="new">If you are an experienced SharePoint implementer, please feel free to adapt the instructions in phases 3 through 5 and build the farm that best suits your needs.</target>
+        </trans-unit>
+        <trans-unit id="30d0ae5f-dac5-431b-a996-f87e29288972" xml:space="preserve">
+          <source>If you already have an existing Azure hybrid cloud implementation, feel free to adapt or skip the instructions in phases 1 and 2 to host the new SharePoint farm on the appropriate subnet.</source>
+          <target state="new">If you already have an existing Azure hybrid cloud implementation, feel free to adapt or skip the instructions in phases 1 and 2 to host the new SharePoint farm on the appropriate subnet.</target>
+        </trans-unit>
+        <trans-unit id="f120374b-e218-4897-8d2e-50fd2a594954" xml:space="preserve">
+          <source>All of the servers are located on a single subnet in the Azure virtual network.</source>
+          <target state="new">All of the servers are located on a single subnet in the Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="a837e61c-00ad-45c7-b5ca-67e598e991b3" xml:space="preserve">
+          <source>If you want to provide additional security equivalent to subnet isolation, you can use <bpt id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;linkText&gt;</bpt>network security groups<ept id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;/linkText&gt;</ept><bpt id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;title&gt;</bpt><ept id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to provide additional security equivalent to subnet isolation, you can use <bpt id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;linkText&gt;</bpt>network security groups<ept id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;/linkText&gt;</ept><bpt id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;title&gt;</bpt><ept id="10dd863b-a4e7-451c-9eba-bf18b85aef99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60340936-6d56-4e50-8a3d-032970df7f54" xml:space="preserve">
+          <source>To build a dev/test environment or a proof-of-concept of this configuration, see <bpt id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;/linkText&gt;</ept><bpt id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;title&gt;</bpt><ept id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;/title&gt;</ept>.</source>
+          <target state="new">To build a dev/test environment or a proof-of-concept of this configuration, see <bpt id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;/linkText&gt;</ept><bpt id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;title&gt;</bpt><ept id="62abbedb-e35a-4a04-8d4a-b5f2506fdd55">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1234299d-74d7-4c71-8565-54a408c73609" xml:space="preserve">
+          <source>For additional information about SharePoint with SQL Server AlwaysOn Availability Groups, see <bpt id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;linkText&gt;</bpt>Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013<ept id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;/linkText&gt;</ept><bpt id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;title&gt;</bpt><ept id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about SharePoint with SQL Server AlwaysOn Availability Groups, see <bpt id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;linkText&gt;</bpt>Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013<ept id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;/linkText&gt;</ept><bpt id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;title&gt;</bpt><ept id="c1e0b33f-01f7-4488-ae14-0daf2ea88578">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd4be81e-5c5a-4b70-af51-fd0574f6eb6e" xml:space="preserve">
+          <source>To start the configuration of this workload, go to <bpt id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;/linkText&gt;</ept><bpt id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;title&gt;</bpt><ept id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To start the configuration of this workload, go to <bpt id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;/linkText&gt;</ept><bpt id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;title&gt;</bpt><ept id="e22383ed-2236-4448-a91e-082b73c376c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab57b2b7-b15f-4968-a590-31bbc6e4f7e0" xml:space="preserve">
+          <source><bpt id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;/linkText&gt;</ept><bpt id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;title&gt;</bpt><ept id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;/linkText&gt;</ept><bpt id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;title&gt;</bpt><ept id="85fba6d0-7ae5-47c6-a306-397d95104d4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="842ecaee-6c99-4654-b862-c83e4d973888" xml:space="preserve">
+          <source><bpt id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;/linkText&gt;</ept><bpt id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;title&gt;</bpt><ept id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;/linkText&gt;</ept><bpt id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;title&gt;</bpt><ept id="d6b2ed3b-2555-4114-ba76-09da79e1181c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de50f648-dd9f-4b54-9581-afdbb394ca6b" xml:space="preserve">
+          <source><bpt id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;/linkText&gt;</ept><bpt id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;title&gt;</bpt><ept id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;/linkText&gt;</ept><bpt id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;title&gt;</bpt><ept id="d9c29b72-35c7-4c53-a2e5-a5f678d8e14e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e01740d-9693-4d5f-b0c2-d06c30e5869f" xml:space="preserve">
+          <source><bpt id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;/linkText&gt;</ept><bpt id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;title&gt;</bpt><ept id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;/linkText&gt;</ept><bpt id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;title&gt;</bpt><ept id="9f4eaa18-cde4-47f9-9ae4-407d85522376">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6460cc06-ad73-47b4-b03f-6eb5a693c28e" xml:space="preserve">
+          <source><bpt id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: High-availability line of business application<ept id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;/linkText&gt;</ept><bpt id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;title&gt;</bpt><ept id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: High-availability line of business application<ept id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;/linkText&gt;</ept><bpt id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;title&gt;</bpt><ept id="10cb71cf-b509-495f-a0d0-83abdff8e9ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="83609366-9056-47f1-80fa-b0730d2f3eae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="83609366-9056-47f1-80fa-b0730d2f3eae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="72658fcb-b7ff-4e76-9940-debc7cd9914d">
+        <trans-unit id="257deec8-9866-4c87-8161-1dc58ce34080" xml:space="preserve">
+          <source>Convert WordPress to Multisite in Azure App Service</source>
+          <target state="new">Convert WordPress to Multisite in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="83a87a83-1419-440e-a92e-61c76617feda" xml:space="preserve">
+          <source>Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite</source>
+          <target state="new">Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite</target>
+        </trans-unit>
+        <trans-unit id="e430ec4d-397f-46cf-b078-cdf9ddc96817" xml:space="preserve">
+          <source>*By <bpt id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;linkText&gt;</bpt>Ben Lobaugh[ben-lobaugh]<ept id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;/linkText&gt;</ept><bpt id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;title&gt;</bpt><ept id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;/title&gt;</ept>, <bpt id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;linkText&gt;</bpt>Microsoft Open Technologies Inc.[ms-open-tech]<ept id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;/linkText&gt;</ept><bpt id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;title&gt;</bpt><ept id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;/title&gt;</ept>*</source>
+          <target state="new">*By <bpt id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;linkText&gt;</bpt>Ben Lobaugh[ben-lobaugh]<ept id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;/linkText&gt;</ept><bpt id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;title&gt;</bpt><ept id="738eab7e-e197-4db8-b759-7031f65a75bd">&lt;/title&gt;</ept>, <bpt id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;linkText&gt;</bpt>Microsoft Open Technologies Inc.[ms-open-tech]<ept id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;/linkText&gt;</ept><bpt id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;title&gt;</bpt><ept id="00420cd1-1003-4628-89b5-b802d22b0a2e">&lt;/title&gt;</ept>*</target>
+        </trans-unit>
+        <trans-unit id="4165cafe-c983-439f-a3b1-9841c35fb718" xml:space="preserve">
+          <source>In this tutorial you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install.</source>
+          <target state="new">In this tutorial you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install.</target>
+        </trans-unit>
+        <trans-unit id="caf63e34-e3a0-4a65-83b1-e421db745e8f" xml:space="preserve">
+          <source>Additionally, you will learn how to assign a custom domain to each of the subsites within your install.</source>
+          <target state="new">Additionally, you will learn how to assign a custom domain to each of the subsites within your install.</target>
+        </trans-unit>
+        <trans-unit id="2725be6d-eee2-43bd-9cd4-abdad5bde914" xml:space="preserve">
+          <source>It is assumed that you have an existing installation of WordPress.</source>
+          <target state="new">It is assumed that you have an existing installation of WordPress.</target>
+        </trans-unit>
+        <trans-unit id="feb1b4a1-3173-49d6-a5c5-2524f29d6668" xml:space="preserve">
+          <source>If you do not, please follow the guidance provided in <bpt id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;linkText&gt;</bpt>Create a WordPress web site from the gallery in Azure[website-from-gallery]<ept id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;/linkText&gt;</ept><bpt id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;title&gt;</bpt><ept id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not, please follow the guidance provided in <bpt id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;linkText&gt;</bpt>Create a WordPress web site from the gallery in Azure[website-from-gallery]<ept id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;/linkText&gt;</ept><bpt id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;title&gt;</bpt><ept id="d86c79ec-09c9-4fdf-8016-5ad5d714392d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9bdadc6-3aac-482e-8d31-9df3aea97daf" xml:space="preserve">
+          <source>Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the <bpt id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;linkText&gt;</bpt>Create A Network[wordpress-codex-create-a-network]<ept id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;/linkText&gt;</ept><bpt id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;title&gt;</bpt><ept id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;/title&gt;</ept> page on the <bpt id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;linkText&gt;</bpt>WordPress Codex<ept id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;/linkText&gt;</ept><bpt id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;title&gt;</bpt><ept id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the <bpt id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;linkText&gt;</bpt>Create A Network[wordpress-codex-create-a-network]<ept id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;/linkText&gt;</ept><bpt id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;title&gt;</bpt><ept id="f50618f5-0124-4b1c-9843-b04366f9679a">&lt;/title&gt;</ept> page on the <bpt id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;linkText&gt;</bpt>WordPress Codex<ept id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;/linkText&gt;</ept><bpt id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;title&gt;</bpt><ept id="2edbb2bd-73d6-4e56-a73d-f1c87524c89c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e04ed0e-97da-4c1f-8d7e-618b0dceeba9" xml:space="preserve">
+          <source>Lets get started.</source>
+          <target state="new">Lets get started.</target>
+        </trans-unit>
+        <trans-unit id="8008dffe-9120-4038-8cba-2165fc122ef6" xml:space="preserve">
+          <source>You first need to enable Multisite through the <bpt id="426179c9-532d-4eb3-89b3-d2ffb56434e6">&lt;code&gt;</bpt>wp-config.php<ept id="426179c9-532d-4eb3-89b3-d2ffb56434e6">&lt;/code&gt;</ept> file with the <bpt id="6ed87b7e-a824-4733-a212-b75dd27075f2">&lt;strong&gt;</bpt>WP\_ALLOW\_MULTISITE<ept id="6ed87b7e-a824-4733-a212-b75dd27075f2">&lt;/strong&gt;</ept> constant.</source>
+          <target state="new">You first need to enable Multisite through the <bpt id="426179c9-532d-4eb3-89b3-d2ffb56434e6">&lt;code&gt;</bpt>wp-config.php<ept id="426179c9-532d-4eb3-89b3-d2ffb56434e6">&lt;/code&gt;</ept> file with the <bpt id="6ed87b7e-a824-4733-a212-b75dd27075f2">&lt;strong&gt;</bpt>WP\_ALLOW\_MULTISITE<ept id="6ed87b7e-a824-4733-a212-b75dd27075f2">&lt;/strong&gt;</ept> constant.</target>
+        </trans-unit>
+        <trans-unit id="b38edcde-9bff-4ae3-92ee-93d0e9f70399" xml:space="preserve">
+          <source>There are two methods to edit your web app files: the first is through FTP, and the second through Git.</source>
+          <target state="new">There are two methods to edit your web app files: the first is through FTP, and the second through Git.</target>
+        </trans-unit>
+        <trans-unit id="59bed887-1620-4056-831e-fdce48e86499" xml:space="preserve">
+          <source>If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:</source>
+          <target state="new">If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:</target>
+        </trans-unit>
+        <trans-unit id="eba675d4-6eeb-489a-92f3-2733d9c50792" xml:space="preserve">
+          <source><bpt id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;linkText&gt;</bpt>PHP web site with MySQL and FTP[website-w-mysql-and-ftp-ftp-setup]<ept id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;/linkText&gt;</ept><bpt id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;title&gt;</bpt><ept id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;linkText&gt;</bpt>PHP web site with MySQL and FTP[website-w-mysql-and-ftp-ftp-setup]<ept id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;/linkText&gt;</ept><bpt id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;title&gt;</bpt><ept id="2813a31c-6cf7-4829-b9e9-1937f353d531">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99298df4-b518-4e26-8114-5c1969c9a9c5" xml:space="preserve">
+          <source><bpt id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;linkText&gt;</bpt>PHP web site with MySQL and Git[website-w-mysql-and-git-git-setup]<ept id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;/linkText&gt;</ept><bpt id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;title&gt;</bpt><ept id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;linkText&gt;</bpt>PHP web site with MySQL and Git[website-w-mysql-and-git-git-setup]<ept id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;/linkText&gt;</ept><bpt id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;title&gt;</bpt><ept id="e607009c-f63d-478f-87ff-23acb3d7ca36">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f8644cd-03b0-4dc5-9ed1-7f677ca4af96" xml:space="preserve">
+          <source>Open the <bpt id="6fa34623-9094-4cae-8199-3391c29df8f6">&lt;code&gt;</bpt>wp-config.php<ept id="6fa34623-9094-4cae-8199-3391c29df8f6">&lt;/code&gt;</ept> file with the editor of your choosing and add the following above the `/* That's all, stop editing!</source>
+          <target state="new">Open the <bpt id="6fa34623-9094-4cae-8199-3391c29df8f6">&lt;code&gt;</bpt>wp-config.php<ept id="6fa34623-9094-4cae-8199-3391c29df8f6">&lt;/code&gt;</ept> file with the editor of your choosing and add the following above the `/* That's all, stop editing!</target>
+        </trans-unit>
+        <trans-unit id="96af2b49-e5eb-48c5-9170-9e05d9a31986" xml:space="preserve">
+          <source>Happy blogging.</source>
+          <target state="new">Happy blogging.</target>
+        </trans-unit>
+        <trans-unit id="913b4c3e-87ef-4ccb-97e1-640bea4c6666" xml:space="preserve">
+          <source>*/` line.</source>
+          <target state="new">*/` line.</target>
+        </trans-unit>
+        <trans-unit id="54ffc43f-6929-4793-96fb-110738410b8c" xml:space="preserve">
+          <source>Be sure to save the file and upload it back to the server!</source>
+          <target state="new">Be sure to save the file and upload it back to the server!</target>
+        </trans-unit>
+        <trans-unit id="7a8680a2-929d-49c4-ab8b-34198af21957" xml:space="preserve">
+          <source>Log in to the <bpt id="78955f05-48b8-4ee3-82db-1ac6687d2392">&lt;em&gt;</bpt>wp-admin<ept id="78955f05-48b8-4ee3-82db-1ac6687d2392">&lt;/em&gt;</ept> area of your web app and you should see a new item under the <bpt id="54bdb49c-ca73-4065-9efc-9654c99afd6b">&lt;strong&gt;</bpt>Tools<ept id="54bdb49c-ca73-4065-9efc-9654c99afd6b">&lt;/strong&gt;</ept> menu called <bpt id="3947e798-40af-41b2-a5d0-79c4c66c5d06">&lt;strong&gt;</bpt>Network Setup<ept id="3947e798-40af-41b2-a5d0-79c4c66c5d06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="78955f05-48b8-4ee3-82db-1ac6687d2392">&lt;em&gt;</bpt>wp-admin<ept id="78955f05-48b8-4ee3-82db-1ac6687d2392">&lt;/em&gt;</ept> area of your web app and you should see a new item under the <bpt id="54bdb49c-ca73-4065-9efc-9654c99afd6b">&lt;strong&gt;</bpt>Tools<ept id="54bdb49c-ca73-4065-9efc-9654c99afd6b">&lt;/strong&gt;</ept> menu called <bpt id="3947e798-40af-41b2-a5d0-79c4c66c5d06">&lt;strong&gt;</bpt>Network Setup<ept id="3947e798-40af-41b2-a5d0-79c4c66c5d06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f486f596-8746-48a4-858e-88c153fb9c05" xml:space="preserve">
+          <source>Click <bpt id="61e69647-eafa-48a7-9d61-c1a20e54098e">&lt;strong&gt;</bpt>Network Setup<ept id="61e69647-eafa-48a7-9d61-c1a20e54098e">&lt;/strong&gt;</ept> and fill in the details of your network.</source>
+          <target state="new">Click <bpt id="61e69647-eafa-48a7-9d61-c1a20e54098e">&lt;strong&gt;</bpt>Network Setup<ept id="61e69647-eafa-48a7-9d61-c1a20e54098e">&lt;/strong&gt;</ept> and fill in the details of your network.</target>
+        </trans-unit>
+        <trans-unit id="ab7f3b17-0f0a-4da2-a9a6-97df1eeeb8f3" xml:space="preserve">
+          <source><bpt id="f9e6b536-fc4e-4be8-961d-a1606d63612d">&lt;linkText&gt;</bpt>Network Setup Screen<ept id="f9e6b536-fc4e-4be8-961d-a1606d63612d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9e6b536-fc4e-4be8-961d-a1606d63612d">&lt;linkText&gt;</bpt>Network Setup Screen<ept id="f9e6b536-fc4e-4be8-961d-a1606d63612d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ab684e7-192c-4943-8d21-71a98fada0d6" xml:space="preserve">
+          <source>This tutorial uses the <bpt id="e969701b-6119-429e-8cda-ab23e520e812">&lt;em&gt;</bpt>Sub-directories<ept id="e969701b-6119-429e-8cda-ab23e520e812">&lt;/em&gt;</ept> site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial.</source>
+          <target state="new">This tutorial uses the <bpt id="e969701b-6119-429e-8cda-ab23e520e812">&lt;em&gt;</bpt>Sub-directories<ept id="e969701b-6119-429e-8cda-ab23e520e812">&lt;/em&gt;</ept> site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="2d26b6e0-68fa-41c9-83e6-a8577fdca8d8" xml:space="preserve">
+          <source>However, it should be possible to setup a subdomain install if you map a domain through the <bpt id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;linkText&gt;</bpt>Azure Portal<ept id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;/linkText&gt;</ept><bpt id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;title&gt;</bpt><ept id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;/title&gt;</ept> and setup wildcard DNS properly.</source>
+          <target state="new">However, it should be possible to setup a subdomain install if you map a domain through the <bpt id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;linkText&gt;</bpt>Azure Portal<ept id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;/linkText&gt;</ept><bpt id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;title&gt;</bpt><ept id="e460e64c-df17-411e-a979-1b8a590cdd1f">&lt;/title&gt;</ept> and setup wildcard DNS properly.</target>
+        </trans-unit>
+        <trans-unit id="17288c7a-5edd-49af-b1da-94e01a74ce61" xml:space="preserve">
+          <source>For more information on sub-domain vs sub-directory setups see the <bpt id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;linkText&gt;</bpt>Types of multisite network[wordpress-codex-types-of-networks]<ept id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;/linkText&gt;</ept><bpt id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;title&gt;</bpt><ept id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;/title&gt;</ept> article on the WordPress Codex.</source>
+          <target state="new">For more information on sub-domain vs sub-directory setups see the <bpt id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;linkText&gt;</bpt>Types of multisite network[wordpress-codex-types-of-networks]<ept id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;/linkText&gt;</ept><bpt id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;title&gt;</bpt><ept id="c8cca3bd-f7a8-425c-af87-37ece240c1ff">&lt;/title&gt;</ept> article on the WordPress Codex.</target>
+        </trans-unit>
+        <trans-unit id="c596e40b-2bdb-4cce-8841-defd5e0956d6" xml:space="preserve">
+          <source>The network is now configured in the database, but there is one remaining step to enable the network functionality.</source>
+          <target state="new">The network is now configured in the database, but there is one remaining step to enable the network functionality.</target>
+        </trans-unit>
+        <trans-unit id="970d7f45-559a-48e5-bfc2-6febe3c40010" xml:space="preserve">
+          <source>Finalize the <bpt id="aec9ceea-e726-4f91-b3bd-d79dbef7e1f4">&lt;code&gt;</bpt>wp-config.php<ept id="aec9ceea-e726-4f91-b3bd-d79dbef7e1f4">&lt;/code&gt;</ept> settings and ensure <bpt id="d9e66e1f-dd63-4905-9195-0eeb983df4be">&lt;code&gt;</bpt>web.config<ept id="d9e66e1f-dd63-4905-9195-0eeb983df4be">&lt;/code&gt;</ept> properly routes each site.</source>
+          <target state="new">Finalize the <bpt id="aec9ceea-e726-4f91-b3bd-d79dbef7e1f4">&lt;code&gt;</bpt>wp-config.php<ept id="aec9ceea-e726-4f91-b3bd-d79dbef7e1f4">&lt;/code&gt;</ept> settings and ensure <bpt id="d9e66e1f-dd63-4905-9195-0eeb983df4be">&lt;code&gt;</bpt>web.config<ept id="d9e66e1f-dd63-4905-9195-0eeb983df4be">&lt;/code&gt;</ept> properly routes each site.</target>
+        </trans-unit>
+        <trans-unit id="6dc69a8b-b712-42ec-8123-50cb21877f95" xml:space="preserve">
+          <source>After clicking the <bpt id="c6e62baa-a290-4219-848c-ab0b01e50c12">&lt;strong&gt;</bpt>Install<ept id="c6e62baa-a290-4219-848c-ab0b01e50c12">&lt;/strong&gt;</ept> button on the <bpt id="398afcfc-4e55-407a-883b-1b75f458583b">&lt;em&gt;</bpt>Network Setup<ept id="398afcfc-4e55-407a-883b-1b75f458583b">&lt;/em&gt;</ept> page, WordPress will attempt to update the <bpt id="f983fde5-d72d-404a-a3ce-139763fa83a8">&lt;code&gt;</bpt>wp-config.php<ept id="f983fde5-d72d-404a-a3ce-139763fa83a8">&lt;/code&gt;</ept> and <bpt id="18cc6b6e-7c9f-416a-9182-b290f713f41f">&lt;code&gt;</bpt>web.config<ept id="18cc6b6e-7c9f-416a-9182-b290f713f41f">&lt;/code&gt;</ept> files.</source>
+          <target state="new">After clicking the <bpt id="c6e62baa-a290-4219-848c-ab0b01e50c12">&lt;strong&gt;</bpt>Install<ept id="c6e62baa-a290-4219-848c-ab0b01e50c12">&lt;/strong&gt;</ept> button on the <bpt id="398afcfc-4e55-407a-883b-1b75f458583b">&lt;em&gt;</bpt>Network Setup<ept id="398afcfc-4e55-407a-883b-1b75f458583b">&lt;/em&gt;</ept> page, WordPress will attempt to update the <bpt id="f983fde5-d72d-404a-a3ce-139763fa83a8">&lt;code&gt;</bpt>wp-config.php<ept id="f983fde5-d72d-404a-a3ce-139763fa83a8">&lt;/code&gt;</ept> and <bpt id="18cc6b6e-7c9f-416a-9182-b290f713f41f">&lt;code&gt;</bpt>web.config<ept id="18cc6b6e-7c9f-416a-9182-b290f713f41f">&lt;/code&gt;</ept> files.</target>
+        </trans-unit>
+        <trans-unit id="896a06a7-1943-4bd1-b7b7-c21448f6d632" xml:space="preserve">
+          <source>However, you should always check the files to ensure the updates were successful.</source>
+          <target state="new">However, you should always check the files to ensure the updates were successful.</target>
+        </trans-unit>
+        <trans-unit id="021eeafa-8ef4-40e6-a27f-fe03bb5b80bf" xml:space="preserve">
+          <source>If not, this screen will present you with the necessary updates.</source>
+          <target state="new">If not, this screen will present you with the necessary updates.</target>
+        </trans-unit>
+        <trans-unit id="6b2e564e-63e8-4b31-919f-0bf05a5affa0" xml:space="preserve">
+          <source>Edit and save the files.</source>
+          <target state="new">Edit and save the files.</target>
+        </trans-unit>
+        <trans-unit id="59c0afab-1f76-4209-91a8-1a9e965b123a" xml:space="preserve">
+          <source>After making these updates you will need to log out and log back in to the wp-admin dashboard.</source>
+          <target state="new">After making these updates you will need to log out and log back in to the wp-admin dashboard.</target>
+        </trans-unit>
+        <trans-unit id="9781aeb5-a3dc-43c8-99a5-1accc3ec7f04" xml:space="preserve">
+          <source>There should now be an additional menu on the admin bar labeled <bpt id="c18942d8-3b71-4437-95a9-c80baf7d4b98">&lt;strong&gt;</bpt>My Sites<ept id="c18942d8-3b71-4437-95a9-c80baf7d4b98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There should now be an additional menu on the admin bar labeled <bpt id="c18942d8-3b71-4437-95a9-c80baf7d4b98">&lt;strong&gt;</bpt>My Sites<ept id="c18942d8-3b71-4437-95a9-c80baf7d4b98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05e569fe-5b35-4e0a-8f6b-3d9cc465036b" xml:space="preserve">
+          <source>This menu allows you to control your new network through the <bpt id="f5fea313-05ce-4d67-bc36-38a6fe0521e6">&lt;strong&gt;</bpt>Network Admin<ept id="f5fea313-05ce-4d67-bc36-38a6fe0521e6">&lt;/strong&gt;</ept> dashboard.</source>
+          <target state="new">This menu allows you to control your new network through the <bpt id="f5fea313-05ce-4d67-bc36-38a6fe0521e6">&lt;strong&gt;</bpt>Network Admin<ept id="f5fea313-05ce-4d67-bc36-38a6fe0521e6">&lt;/strong&gt;</ept> dashboard.</target>
+        </trans-unit>
+        <trans-unit id="acd2d8ab-2a6d-4d39-a45b-27e7dff766e3" xml:space="preserve">
+          <source>The <bpt id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;linkText&gt;</bpt>WordPress MU Domain Mapping[wordpress-plugin-wordpress-mu-domain-mapping]<ept id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;/linkText&gt;</ept><bpt id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;title&gt;</bpt><ept id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;/title&gt;</ept> plugin makes it a breeze to add custom domains to any site in your network.</source>
+          <target state="new">The <bpt id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;linkText&gt;</bpt>WordPress MU Domain Mapping[wordpress-plugin-wordpress-mu-domain-mapping]<ept id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;/linkText&gt;</ept><bpt id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;title&gt;</bpt><ept id="58af10ce-894c-4941-9697-e6e0282804a0">&lt;/title&gt;</ept> plugin makes it a breeze to add custom domains to any site in your network.</target>
+        </trans-unit>
+        <trans-unit id="efec8ed1-7658-4ec9-b26b-b6f8b7f0d60d" xml:space="preserve">
+          <source>In order for the plugin to operate properly, you need to do some additional setup on the Portal, and also at your domain registrar.</source>
+          <target state="new">In order for the plugin to operate properly, you need to do some additional setup on the Portal, and also at your domain registrar.</target>
+        </trans-unit>
+        <trans-unit id="4690a09a-e9eb-4f1e-847e-c9e2c91eac10" xml:space="preserve">
+          <source>The <bpt id="d088c59b-c81f-4ebf-9722-bb69c22f403c">&lt;strong&gt;</bpt>Free<ept id="d088c59b-c81f-4ebf-9722-bb69c22f403c">&lt;/strong&gt;</ept> <bpt id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;linkText&gt;</bpt>App Service<ept id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;/linkText&gt;</ept><bpt id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;title&gt;</bpt><ept id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;/title&gt;</ept> plan mode does not support adding custom domains to Web Apps.</source>
+          <target state="new">The <bpt id="d088c59b-c81f-4ebf-9722-bb69c22f403c">&lt;strong&gt;</bpt>Free<ept id="d088c59b-c81f-4ebf-9722-bb69c22f403c">&lt;/strong&gt;</ept> <bpt id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;linkText&gt;</bpt>App Service<ept id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;/linkText&gt;</ept><bpt id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;title&gt;</bpt><ept id="1bd08664-acc1-42b9-9361-4e56300c81c5">&lt;/title&gt;</ept> plan mode does not support adding custom domains to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="f71503c0-e5a9-43f0-b634-a1d4091d8b59" xml:space="preserve">
+          <source>You will need to switch to <bpt id="4bd5f4a7-22b7-4be0-bb6f-dc2b8f13a6c8">&lt;strong&gt;</bpt>Shared<ept id="4bd5f4a7-22b7-4be0-bb6f-dc2b8f13a6c8">&lt;/strong&gt;</ept> or <bpt id="3fc21f8c-4de7-4620-b3f1-4155fbdb396a">&lt;strong&gt;</bpt>Standard<ept id="3fc21f8c-4de7-4620-b3f1-4155fbdb396a">&lt;/strong&gt;</ept> mode.</source>
+          <target state="new">You will need to switch to <bpt id="4bd5f4a7-22b7-4be0-bb6f-dc2b8f13a6c8">&lt;strong&gt;</bpt>Shared<ept id="4bd5f4a7-22b7-4be0-bb6f-dc2b8f13a6c8">&lt;/strong&gt;</ept> or <bpt id="3fc21f8c-4de7-4620-b3f1-4155fbdb396a">&lt;strong&gt;</bpt>Standard<ept id="3fc21f8c-4de7-4620-b3f1-4155fbdb396a">&lt;/strong&gt;</ept> mode.</target>
+        </trans-unit>
+        <trans-unit id="30f5954f-d2fd-4e06-b811-55034f894696" xml:space="preserve">
+          <source>To do this:</source>
+          <target state="new">To do this:</target>
+        </trans-unit>
+        <trans-unit id="cb2494ad-9a31-43d2-bb0a-6d413bd818dd" xml:space="preserve">
+          <source>Log in to the Azure Portal and locate your web app.</source>
+          <target state="new">Log in to the Azure Portal and locate your web app.</target>
+        </trans-unit>
+        <trans-unit id="e6280801-ff79-4ce0-9178-2adf4533108b" xml:space="preserve">
+          <source>Click on the <bpt id="b8bad888-3936-4901-92ff-c77c26e289dd">&lt;strong&gt;</bpt>Scale<ept id="b8bad888-3936-4901-92ff-c77c26e289dd">&lt;/strong&gt;</ept> tab in the main content area</source>
+          <target state="new">Click on the <bpt id="b8bad888-3936-4901-92ff-c77c26e289dd">&lt;strong&gt;</bpt>Scale<ept id="b8bad888-3936-4901-92ff-c77c26e289dd">&lt;/strong&gt;</ept> tab in the main content area</target>
+        </trans-unit>
+        <trans-unit id="3d014cda-8f6b-4771-9527-db4c689b361b" xml:space="preserve">
+          <source>Under <bpt id="ba2c2dbe-6c8d-4c40-a91c-e527031c2ba1">&lt;strong&gt;</bpt>General<ept id="ba2c2dbe-6c8d-4c40-a91c-e527031c2ba1">&lt;/strong&gt;</ept>, select either <bpt id="4442da85-0919-4ece-9648-d2c0a2f02ba7">&lt;em&gt;</bpt>SHARED<ept id="4442da85-0919-4ece-9648-d2c0a2f02ba7">&lt;/em&gt;</ept> or <bpt id="0e026a82-8fbc-4470-bad8-555f7d38b5a6">&lt;em&gt;</bpt>STANDARD<ept id="0e026a82-8fbc-4470-bad8-555f7d38b5a6">&lt;/em&gt;</ept></source>
+          <target state="new">Under <bpt id="ba2c2dbe-6c8d-4c40-a91c-e527031c2ba1">&lt;strong&gt;</bpt>General<ept id="ba2c2dbe-6c8d-4c40-a91c-e527031c2ba1">&lt;/strong&gt;</ept>, select either <bpt id="4442da85-0919-4ece-9648-d2c0a2f02ba7">&lt;em&gt;</bpt>SHARED<ept id="4442da85-0919-4ece-9648-d2c0a2f02ba7">&lt;/em&gt;</ept> or <bpt id="0e026a82-8fbc-4470-bad8-555f7d38b5a6">&lt;em&gt;</bpt>STANDARD<ept id="0e026a82-8fbc-4470-bad8-555f7d38b5a6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9349b920-098e-40b4-8831-a67e767b9514" xml:space="preserve">
+          <source>Click <bpt id="06e518bc-150c-4f94-9493-7f34c8f72238">&lt;strong&gt;</bpt>Save<ept id="06e518bc-150c-4f94-9493-7f34c8f72238">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="06e518bc-150c-4f94-9493-7f34c8f72238">&lt;strong&gt;</bpt>Save<ept id="06e518bc-150c-4f94-9493-7f34c8f72238">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="588085df-a4b7-450e-9e77-87ff5c97f5fb" xml:space="preserve">
+          <source>You may receive a message asking you to verify the change and acknowledge your web app may now incur cost, depending upon usage and the other configuration you set.</source>
+          <target state="new">You may receive a message asking you to verify the change and acknowledge your web app may now incur cost, depending upon usage and the other configuration you set.</target>
+        </trans-unit>
+        <trans-unit id="90e79008-8350-409f-b0c7-dd5af5ec2990" xml:space="preserve">
+          <source>It takes a few seconds to process the new settings, so now is a good time to start setting up your domain.</source>
+          <target state="new">It takes a few seconds to process the new settings, so now is a good time to start setting up your domain.</target>
+        </trans-unit>
+        <trans-unit id="ad3400a8-cc0d-4261-b6b1-00f1d4a28ed9" xml:space="preserve">
+          <source>Before Azure Web Apps will allow you to map a domain to the site, you first need to verify that you have the authorization to map the domain.</source>
+          <target state="new">Before Azure Web Apps will allow you to map a domain to the site, you first need to verify that you have the authorization to map the domain.</target>
+        </trans-unit>
+        <trans-unit id="8b298361-411d-4430-b6ec-4176fc24d9dd" xml:space="preserve">
+          <source>To do so, you must add a new CNAME record to your DNS entry.</source>
+          <target state="new">To do so, you must add a new CNAME record to your DNS entry.</target>
+        </trans-unit>
+        <trans-unit id="07d57fef-506e-4946-a7f6-71f621133d85" xml:space="preserve">
+          <source>Log in to your domain's DNS manager</source>
+          <target state="new">Log in to your domain's DNS manager</target>
+        </trans-unit>
+        <trans-unit id="861fad70-e8bd-43c6-a30d-d7cea08d7964" xml:space="preserve">
+          <source>Create a new CNAME <bpt id="5a1a2272-5bc0-4d2d-be29-034eec2b0ff1">&lt;em&gt;</bpt>awverify<ept id="5a1a2272-5bc0-4d2d-be29-034eec2b0ff1">&lt;/em&gt;</ept></source>
+          <target state="new">Create a new CNAME <bpt id="5a1a2272-5bc0-4d2d-be29-034eec2b0ff1">&lt;em&gt;</bpt>awverify<ept id="5a1a2272-5bc0-4d2d-be29-034eec2b0ff1">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11c6f4c2-3555-40dd-aa29-b5ff16f12c25" xml:space="preserve">
+          <source>Point <bpt id="4cb01108-bf0f-41ee-a712-4f6a037d6654">&lt;em&gt;</bpt>awverify<ept id="4cb01108-bf0f-41ee-a712-4f6a037d6654">&lt;/em&gt;</ept> to <bpt id="c7595fe1-7c10-4405-a00f-ad60cd85dab0">&lt;em&gt;</bpt>awverify.YOUR_DOMAIN.azurewebsites.net<ept id="c7595fe1-7c10-4405-a00f-ad60cd85dab0">&lt;/em&gt;</ept></source>
+          <target state="new">Point <bpt id="4cb01108-bf0f-41ee-a712-4f6a037d6654">&lt;em&gt;</bpt>awverify<ept id="4cb01108-bf0f-41ee-a712-4f6a037d6654">&lt;/em&gt;</ept> to <bpt id="c7595fe1-7c10-4405-a00f-ad60cd85dab0">&lt;em&gt;</bpt>awverify.YOUR_DOMAIN.azurewebsites.net<ept id="c7595fe1-7c10-4405-a00f-ad60cd85dab0">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f51d188-dc15-4fe4-9332-2298cca0a514" xml:space="preserve">
+          <source>It may take some time for the DNS changes to go into full effect, so if the following steps do not work immediately, go make a cup of coffee, then come back and try again.</source>
+          <target state="new">It may take some time for the DNS changes to go into full effect, so if the following steps do not work immediately, go make a cup of coffee, then come back and try again.</target>
+        </trans-unit>
+        <trans-unit id="093c426c-d2a7-4b47-ad52-1dc37b7d3e96" xml:space="preserve">
+          <source>Return to your web app through the Azure Portal, click <bpt id="18f58948-5fdd-4799-a785-12bfd70c3cd4">&lt;strong&gt;</bpt>Settings<ept id="18f58948-5fdd-4799-a785-12bfd70c3cd4">&lt;/strong&gt;</ept>, and then click <bpt id="533b6cd8-47d6-4d02-8e3a-30909abb0a26">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="533b6cd8-47d6-4d02-8e3a-30909abb0a26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Return to your web app through the Azure Portal, click <bpt id="18f58948-5fdd-4799-a785-12bfd70c3cd4">&lt;strong&gt;</bpt>Settings<ept id="18f58948-5fdd-4799-a785-12bfd70c3cd4">&lt;/strong&gt;</ept>, and then click <bpt id="533b6cd8-47d6-4d02-8e3a-30909abb0a26">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="533b6cd8-47d6-4d02-8e3a-30909abb0a26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e495f0b8-eeed-476c-8ecf-a71476ba826a" xml:space="preserve">
+          <source>When the <bpt id="56cf7602-e123-4f05-8aa4-bef17f179434">&lt;em&gt;</bpt>SSL settings<ept id="56cf7602-e123-4f05-8aa4-bef17f179434">&lt;/em&gt;</ept> are displayed, you will see the fields where you will input all the domains which you wish to assign to your web app.</source>
+          <target state="new">When the <bpt id="56cf7602-e123-4f05-8aa4-bef17f179434">&lt;em&gt;</bpt>SSL settings<ept id="56cf7602-e123-4f05-8aa4-bef17f179434">&lt;/em&gt;</ept> are displayed, you will see the fields where you will input all the domains which you wish to assign to your web app.</target>
+        </trans-unit>
+        <trans-unit id="71042adb-5a03-4733-aea1-bd777bcf543c" xml:space="preserve">
+          <source>If a domain is not listed here, it will not be available for mapping inside WordPress, regardless of how the domain DNS is setup.</source>
+          <target state="new">If a domain is not listed here, it will not be available for mapping inside WordPress, regardless of how the domain DNS is setup.</target>
+        </trans-unit>
+        <trans-unit id="f03f7673-9c4b-45ce-bba2-0ee82d7a71d0" xml:space="preserve">
+          <source><bpt id="4d269bba-f5fd-466a-a16f-d4bcb3c49655">&lt;linkText&gt;</bpt>Manage custom domains dialog<ept id="4d269bba-f5fd-466a-a16f-d4bcb3c49655">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d269bba-f5fd-466a-a16f-d4bcb3c49655">&lt;linkText&gt;</bpt>Manage custom domains dialog<ept id="4d269bba-f5fd-466a-a16f-d4bcb3c49655">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41e11beb-b0a3-4577-b3e0-1a1f382d8f95" xml:space="preserve">
+          <source>After typing your domain into the text box, Azure will verify the CNAME record you created previously.</source>
+          <target state="new">After typing your domain into the text box, Azure will verify the CNAME record you created previously.</target>
+        </trans-unit>
+        <trans-unit id="297a9349-52df-4adb-acca-c00fc46eea70" xml:space="preserve">
+          <source>If the DNS has not fully propigated, a red indicator will show.</source>
+          <target state="new">If the DNS has not fully propigated, a red indicator will show.</target>
+        </trans-unit>
+        <trans-unit id="1ecc12a9-8d3a-4c0a-a996-4e623b077e9f" xml:space="preserve">
+          <source>If it was successful, you will see a green checkmark.</source>
+          <target state="new">If it was successful, you will see a green checkmark.</target>
+        </trans-unit>
+        <trans-unit id="0bc4df73-0c9e-48e9-98af-d1f8e43f2d60" xml:space="preserve">
+          <source>Take note of the IP Address listed at the bottom of the dialog.</source>
+          <target state="new">Take note of the IP Address listed at the bottom of the dialog.</target>
+        </trans-unit>
+        <trans-unit id="a8f24fb4-cfb3-444b-a956-51224d822d89" xml:space="preserve">
+          <source>You will need this to setup the A record for your domain.</source>
+          <target state="new">You will need this to setup the A record for your domain.</target>
+        </trans-unit>
+        <trans-unit id="af3c6e4d-16d2-49ab-aeee-e4a175808cd5" xml:space="preserve">
+          <source>If the other steps were successful, you may now assign the domain to your Azure web app through a DNS A record.</source>
+          <target state="new">If the other steps were successful, you may now assign the domain to your Azure web app through a DNS A record.</target>
+        </trans-unit>
+        <trans-unit id="1bdc5ed5-b24d-4ffd-984d-622e2e0ccd62" xml:space="preserve">
+          <source>It is important to note here that Azure web apps accept both CNAME and A records, however you <bpt id="956d6aa4-e720-491c-a2d4-207459cd49dd">&lt;em&gt;</bpt>must<ept id="956d6aa4-e720-491c-a2d4-207459cd49dd">&lt;/em&gt;</ept> use an A record to enable proper domain mapping.</source>
+          <target state="new">It is important to note here that Azure web apps accept both CNAME and A records, however you <bpt id="956d6aa4-e720-491c-a2d4-207459cd49dd">&lt;em&gt;</bpt>must<ept id="956d6aa4-e720-491c-a2d4-207459cd49dd">&lt;/em&gt;</ept> use an A record to enable proper domain mapping.</target>
+        </trans-unit>
+        <trans-unit id="d817bdba-9ced-4095-8b0f-c2196fcf2759" xml:space="preserve">
+          <source>A CNAME cannot be forwarded to another CNAME, which is what Azure created for you with YOUR_DOMAIN.azurewebsites.net.</source>
+          <target state="new">A CNAME cannot be forwarded to another CNAME, which is what Azure created for you with YOUR_DOMAIN.azurewebsites.net.</target>
+        </trans-unit>
+        <trans-unit id="e4bbf3e0-ddc6-47f4-b46b-749e4c6af39b" xml:space="preserve">
+          <source>Using the IP address from the previous step, return to your DNS manager and setup the A record to point to that IP.</source>
+          <target state="new">Using the IP address from the previous step, return to your DNS manager and setup the A record to point to that IP.</target>
+        </trans-unit>
+        <trans-unit id="ec2af5ed-1ac7-451c-a538-da2dbd12600c" xml:space="preserve">
+          <source>WordPress Multisite currently does not have a built in method to map custom domains.</source>
+          <target state="new">WordPress Multisite currently does not have a built in method to map custom domains.</target>
+        </trans-unit>
+        <trans-unit id="f77422e0-2870-466f-bc21-bd9a90af444b" xml:space="preserve">
+          <source>However, there is a plugin called <bpt id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;linkText&gt;</bpt>WordPress MU Domain Mapping[wordpress-plugin-wordpress-mu-domain-mapping]<ept id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;/linkText&gt;</ept><bpt id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;title&gt;</bpt><ept id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;/title&gt;</ept> that adds the functionality for you.</source>
+          <target state="new">However, there is a plugin called <bpt id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;linkText&gt;</bpt>WordPress MU Domain Mapping[wordpress-plugin-wordpress-mu-domain-mapping]<ept id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;/linkText&gt;</ept><bpt id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;title&gt;</bpt><ept id="ec8226ab-ac53-4d0e-96de-2d3b9a7857dc">&lt;/title&gt;</ept> that adds the functionality for you.</target>
+        </trans-unit>
+        <trans-unit id="d48fd262-498f-45f8-81c3-f7873c183a51" xml:space="preserve">
+          <source>Log in to the Network Admin portion of your site and install the <bpt id="b3c611ec-14fe-4a02-a506-53ee3382132f">&lt;strong&gt;</bpt>WordPress MU Domain Mapping<ept id="b3c611ec-14fe-4a02-a506-53ee3382132f">&lt;/strong&gt;</ept> plugin.</source>
+          <target state="new">Log in to the Network Admin portion of your site and install the <bpt id="b3c611ec-14fe-4a02-a506-53ee3382132f">&lt;strong&gt;</bpt>WordPress MU Domain Mapping<ept id="b3c611ec-14fe-4a02-a506-53ee3382132f">&lt;/strong&gt;</ept> plugin.</target>
+        </trans-unit>
+        <trans-unit id="e68ea13a-6204-4850-aa0b-8516eeb0d0ee" xml:space="preserve">
+          <source>After installing and activating the plugin, visit <bpt id="d25c89c0-cf99-4739-b3e0-ed6e5ed0ac4a">&lt;strong&gt;</bpt>Settings<ept id="d25c89c0-cf99-4739-b3e0-ed6e5ed0ac4a">&lt;/strong&gt;</ept> &gt; <bpt id="1b824102-cee2-4e84-aa77-7d2ed87d281a">&lt;strong&gt;</bpt>Domain Mapping<ept id="1b824102-cee2-4e84-aa77-7d2ed87d281a">&lt;/strong&gt;</ept> to configure the plugin.</source>
+          <target state="new">After installing and activating the plugin, visit <bpt id="d25c89c0-cf99-4739-b3e0-ed6e5ed0ac4a">&lt;strong&gt;</bpt>Settings<ept id="d25c89c0-cf99-4739-b3e0-ed6e5ed0ac4a">&lt;/strong&gt;</ept> &gt; <bpt id="1b824102-cee2-4e84-aa77-7d2ed87d281a">&lt;strong&gt;</bpt>Domain Mapping<ept id="1b824102-cee2-4e84-aa77-7d2ed87d281a">&lt;/strong&gt;</ept> to configure the plugin.</target>
+        </trans-unit>
+        <trans-unit id="3748c4bf-968c-4514-b2d7-eb8fa7fb97d5" xml:space="preserve">
+          <source>In the first textbox, <bpt id="74fd1f10-696d-4e40-b29b-b2a6233bd320">&lt;em&gt;</bpt>Server IP Address<ept id="74fd1f10-696d-4e40-b29b-b2a6233bd320">&lt;/em&gt;</ept>, input the IP Address you used to setup the A record for the domain.</source>
+          <target state="new">In the first textbox, <bpt id="74fd1f10-696d-4e40-b29b-b2a6233bd320">&lt;em&gt;</bpt>Server IP Address<ept id="74fd1f10-696d-4e40-b29b-b2a6233bd320">&lt;/em&gt;</ept>, input the IP Address you used to setup the A record for the domain.</target>
+        </trans-unit>
+        <trans-unit id="3e4cfab8-f694-4324-b26d-da52263025a9" xml:space="preserve">
+          <source>Set any <bpt id="16356928-bf2e-4a47-9191-7545126b14f2">&lt;em&gt;</bpt>Domain Options<ept id="16356928-bf2e-4a47-9191-7545126b14f2">&lt;/em&gt;</ept> you desire (the defaults are often fine) and click <bpt id="175e8093-45fc-4701-8d7e-f8de0a16b26e">&lt;strong&gt;</bpt>Save<ept id="175e8093-45fc-4701-8d7e-f8de0a16b26e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set any <bpt id="16356928-bf2e-4a47-9191-7545126b14f2">&lt;em&gt;</bpt>Domain Options<ept id="16356928-bf2e-4a47-9191-7545126b14f2">&lt;/em&gt;</ept> you desire (the defaults are often fine) and click <bpt id="175e8093-45fc-4701-8d7e-f8de0a16b26e">&lt;strong&gt;</bpt>Save<ept id="175e8093-45fc-4701-8d7e-f8de0a16b26e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbfec47e-3972-41fd-9c12-560fdabfd768" xml:space="preserve">
+          <source>Visit the <bpt id="8deecf37-7afa-4ea2-ba3c-20192bc2d46f">&lt;strong&gt;</bpt>Dashboard<ept id="8deecf37-7afa-4ea2-ba3c-20192bc2d46f">&lt;/strong&gt;</ept> for the site you wish to map the domain to.</source>
+          <target state="new">Visit the <bpt id="8deecf37-7afa-4ea2-ba3c-20192bc2d46f">&lt;strong&gt;</bpt>Dashboard<ept id="8deecf37-7afa-4ea2-ba3c-20192bc2d46f">&lt;/strong&gt;</ept> for the site you wish to map the domain to.</target>
+        </trans-unit>
+        <trans-unit id="6e5b69a4-c2f6-4ffc-bc16-34186d79c347" xml:space="preserve">
+          <source>Click on <bpt id="1278f341-21c1-433f-843c-b8eb91ca4bd5">&lt;strong&gt;</bpt>Tools<ept id="1278f341-21c1-433f-843c-b8eb91ca4bd5">&lt;/strong&gt;</ept> &gt; <bpt id="c2091445-48ce-4e74-9442-662217b9fb46">&lt;strong&gt;</bpt>Domain Mapping<ept id="c2091445-48ce-4e74-9442-662217b9fb46">&lt;/strong&gt;</ept> and type the new domain into the textbox and click <bpt id="d02bc976-7e2d-41df-b5eb-4c4eb46e5da6">&lt;strong&gt;</bpt>Add<ept id="d02bc976-7e2d-41df-b5eb-4c4eb46e5da6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="1278f341-21c1-433f-843c-b8eb91ca4bd5">&lt;strong&gt;</bpt>Tools<ept id="1278f341-21c1-433f-843c-b8eb91ca4bd5">&lt;/strong&gt;</ept> &gt; <bpt id="c2091445-48ce-4e74-9442-662217b9fb46">&lt;strong&gt;</bpt>Domain Mapping<ept id="c2091445-48ce-4e74-9442-662217b9fb46">&lt;/strong&gt;</ept> and type the new domain into the textbox and click <bpt id="d02bc976-7e2d-41df-b5eb-4c4eb46e5da6">&lt;strong&gt;</bpt>Add<ept id="d02bc976-7e2d-41df-b5eb-4c4eb46e5da6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="603aa115-f6f0-42e2-b702-8f37ff44be3f" xml:space="preserve">
+          <source>By default, the new domain will be rewritten to the autogenerated site domain.</source>
+          <target state="new">By default, the new domain will be rewritten to the autogenerated site domain.</target>
+        </trans-unit>
+        <trans-unit id="03f1b4e4-9d3e-44a4-bfe5-961aa28d6fd6" xml:space="preserve">
+          <source>If you want to have all traffic sent to the new domain, check the <bpt id="7688b99f-4bf6-4cde-8477-a332187f10ed">&lt;em&gt;</bpt>Primary domain for this blog<ept id="7688b99f-4bf6-4cde-8477-a332187f10ed">&lt;/em&gt;</ept> box before saving.</source>
+          <target state="new">If you want to have all traffic sent to the new domain, check the <bpt id="7688b99f-4bf6-4cde-8477-a332187f10ed">&lt;em&gt;</bpt>Primary domain for this blog<ept id="7688b99f-4bf6-4cde-8477-a332187f10ed">&lt;/em&gt;</ept> box before saving.</target>
+        </trans-unit>
+        <trans-unit id="d8dad554-058f-4917-9a63-e644231054c8" xml:space="preserve">
+          <source>You can add an unlimited number of domains to a site, but  only one can be primary.</source>
+          <target state="new">You can add an unlimited number of domains to a site, but  only one can be primary.</target>
+        </trans-unit>
+        <trans-unit id="b9e94aeb-8fd9-46c0-b7bb-1499dd1c81d3" xml:space="preserve">
+          <source>Azure Web Apps allow you to add an unlimited number of domains to a web app.</source>
+          <target state="new">Azure Web Apps allow you to add an unlimited number of domains to a web app.</target>
+        </trans-unit>
+        <trans-unit id="a8731597-57da-4a0b-b766-c2bc5040f529" xml:space="preserve">
+          <source>To add another domain you will need to execute the <bpt id="0facd9e6-3d8a-4b6d-a93d-677990f799f3">&lt;strong&gt;</bpt>Verify your domain<ept id="0facd9e6-3d8a-4b6d-a93d-677990f799f3">&lt;/strong&gt;</ept> and <bpt id="f187596a-f0b9-4735-b21c-fc95e0c30ff6">&lt;strong&gt;</bpt>Setup the domain A record<ept id="f187596a-f0b9-4735-b21c-fc95e0c30ff6">&lt;/strong&gt;</ept> sections for each domain.</source>
+          <target state="new">To add another domain you will need to execute the <bpt id="0facd9e6-3d8a-4b6d-a93d-677990f799f3">&lt;strong&gt;</bpt>Verify your domain<ept id="0facd9e6-3d8a-4b6d-a93d-677990f799f3">&lt;/strong&gt;</ept> and <bpt id="f187596a-f0b9-4735-b21c-fc95e0c30ff6">&lt;strong&gt;</bpt>Setup the domain A record<ept id="f187596a-f0b9-4735-b21c-fc95e0c30ff6">&lt;/strong&gt;</ept> sections for each domain.</target>
+        </trans-unit>
+        <trans-unit id="1a72bc23-9703-44d1-8532-0ede0a6c2318" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;linkText&gt;</bpt>Try App Service<ept id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;/linkText&gt;</ept><bpt id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;title&gt;</bpt><ept id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;linkText&gt;</bpt>Try App Service<ept id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;/linkText&gt;</ept><bpt id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;title&gt;</bpt><ept id="bdbcce1c-af3d-4dc4-a42d-41405fe53251">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="1827f0ec-1a35-404d-8a66-ea3b13f95e2e" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="f532826f-e39b-4693-9049-ebef2050bbcf" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;/linkText&gt;</ept><bpt id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;title&gt;</bpt><ept id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;/linkText&gt;</ept><bpt id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;title&gt;</bpt><ept id="972e4521-726c-4d1c-8af6-7f3305fec409">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fb5a8a0-e63c-4f25-8522-33f88c39fc35" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;/linkText&gt;</ept><bpt id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;title&gt;</bpt><ept id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;/linkText&gt;</ept><bpt id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;title&gt;</bpt><ept id="a83bc3b7-e61d-4789-b311-033c3be48c4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54fa6399-01c1-4b1a-9d20-9d3ac666bf6b" xml:space="preserve">
+          <source>http://ben.lobaugh.net</source>
+          <target state="new">http://ben.lobaugh.net</target>
+        </trans-unit>
+        <trans-unit id="8d7ec32a-7ba5-480b-a743-5fdaae15bba9" xml:space="preserve">
+          <source>http://msopentech.com</source>
+          <target state="new">http://msopentech.com</target>
+        </trans-unit>
+        <trans-unit id="ecb178dc-387d-4fb1-a1f6-067956ab7ee7" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-from-gallery/</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-from-gallery/</target>
+        </trans-unit>
+        <trans-unit id="8a1e49fb-797d-4de9-95d8-cb39924a188b" xml:space="preserve">
+          <source>http://codex.wordpress.org/Create_A_Network</source>
+          <target state="new">http://codex.wordpress.org/Create_A_Network</target>
+        </trans-unit>
+        <trans-unit id="0a44134f-0ff1-439d-911b-5d44ddafef13" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/#header-0</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-ftp/#header-0</target>
+        </trans-unit>
+        <trans-unit id="680671b3-fdff-4b32-84de-45a051d12909" xml:space="preserve">
+          <source>https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/#header-1</source>
+          <target state="new">https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/#header-1</target>
+        </trans-unit>
+        <trans-unit id="a30511e6-9000-476e-8ffe-cd2c6e165f81" xml:space="preserve">
+          <source>./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png</source>
+          <target state="new">./media/web-sites-php-convert-wordpress-multisite/wordpress-network-setup.png</target>
+        </trans-unit>
+        <trans-unit id="45c21eb7-562b-465d-be05-c6877458f43b" xml:space="preserve">
+          <source>http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network</source>
+          <target state="new">http://codex.wordpress.org/Before_You_Create_A_Network#Types_of_multisite_network</target>
+        </trans-unit>
+        <trans-unit id="ab0bb9c6-886c-4e7a-b3c6-0a3893a1a609" xml:space="preserve">
+          <source>http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/</source>
+          <target state="new">http://wordpress.org/extend/plugins/wordpress-mu-domain-mapping/</target>
+        </trans-unit>
+        <trans-unit id="3ef3d5af-48e7-4607-b44b-e1c5dfbd3161" xml:space="preserve">
+          <source>./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png</source>
+          <target state="new">./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png</target>
+        </trans-unit>
+      </group>
+      <group id="478a02d6-9819-4eed-bd8f-197563294f47" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="070945f7-18df-493a-809b-5ddf677024dc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="070945f7-18df-493a-809b-5ddf677024dc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b0ca9584-c1ca-4279-bbe0-4b289ca04023">
+        <trans-unit id="8cd9b2cb-85ff-4239-ae6e-e6cdf38aaa71" xml:space="preserve">
+          <source>Create a volume container</source>
+          <target state="new">Create a volume container</target>
+        </trans-unit>
+        <trans-unit id="ecd1825f-5808-4210-acae-4a0d3482260a" xml:space="preserve">
+          <source>Describes how to create a volume container on a StorSimple device.</source>
+          <target state="new">Describes how to create a volume container on a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="9a723e29-1b88-4607-a8f2-d02f37b419d7" xml:space="preserve">
+          <source>In the device <bpt id="f130f7f2-23d6-4f5b-97c6-1e55b087e201">&lt;strong&gt;</bpt>Quick Start<ept id="f130f7f2-23d6-4f5b-97c6-1e55b087e201">&lt;/strong&gt;</ept> page, click <bpt id="1f043958-6057-4022-9e50-bf030c1b5e61">&lt;strong&gt;</bpt>Add a volume container<ept id="1f043958-6057-4022-9e50-bf030c1b5e61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the device <bpt id="f130f7f2-23d6-4f5b-97c6-1e55b087e201">&lt;strong&gt;</bpt>Quick Start<ept id="f130f7f2-23d6-4f5b-97c6-1e55b087e201">&lt;/strong&gt;</ept> page, click <bpt id="1f043958-6057-4022-9e50-bf030c1b5e61">&lt;strong&gt;</bpt>Add a volume container<ept id="1f043958-6057-4022-9e50-bf030c1b5e61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e538b7b3-bc91-4363-93cb-89191d1cf19c" xml:space="preserve">
+          <source>The <bpt id="dfe8b482-db76-4573-ba4a-1f21ff2fe72f">&lt;strong&gt;</bpt>Create Volume Container<ept id="dfe8b482-db76-4573-ba4a-1f21ff2fe72f">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="dfe8b482-db76-4573-ba4a-1f21ff2fe72f">&lt;strong&gt;</bpt>Create Volume Container<ept id="dfe8b482-db76-4573-ba4a-1f21ff2fe72f">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="9ed3b387-6910-4f74-82b3-26e2537a0b4a" xml:space="preserve">
+          <source><bpt id="5acfb607-8f7d-4193-bcb9-4b501505b856">&lt;linkText&gt;</bpt>Create Volume Container<ept id="5acfb607-8f7d-4193-bcb9-4b501505b856">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5acfb607-8f7d-4193-bcb9-4b501505b856">&lt;linkText&gt;</bpt>Create Volume Container<ept id="5acfb607-8f7d-4193-bcb9-4b501505b856">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2b6213d-74a3-4073-83b1-d391c14d25a5" xml:space="preserve">
+          <source>In the <bpt id="b58575f8-07b1-4b77-b204-6c7d6b268662">&lt;strong&gt;</bpt>Create Volume container<ept id="b58575f8-07b1-4b77-b204-6c7d6b268662">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="b58575f8-07b1-4b77-b204-6c7d6b268662">&lt;strong&gt;</bpt>Create Volume container<ept id="b58575f8-07b1-4b77-b204-6c7d6b268662">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="ce41d46d-c68b-471d-ab61-d4bedef47bd9" xml:space="preserve">
+          <source>Supply a <bpt id="41894f83-1713-4674-965c-9f5535423d7c">&lt;strong&gt;</bpt>Name<ept id="41894f83-1713-4674-965c-9f5535423d7c">&lt;/strong&gt;</ept> for your volume container.</source>
+          <target state="new">Supply a <bpt id="41894f83-1713-4674-965c-9f5535423d7c">&lt;strong&gt;</bpt>Name<ept id="41894f83-1713-4674-965c-9f5535423d7c">&lt;/strong&gt;</ept> for your volume container.</target>
+        </trans-unit>
+        <trans-unit id="1f835464-6179-4b06-9da8-2f6aba33edd7" xml:space="preserve">
+          <source>The name must be 3 to 32 characters long.</source>
+          <target state="new">The name must be 3 to 32 characters long.</target>
+        </trans-unit>
+        <trans-unit id="54d9e95d-2e52-484a-a3a9-e2c70eab641f" xml:space="preserve">
+          <source>Select a <bpt id="8787d733-dc64-4f05-9d4b-f0b1fcb53419">&lt;strong&gt;</bpt>Storage Account<ept id="8787d733-dc64-4f05-9d4b-f0b1fcb53419">&lt;/strong&gt;</ept> to associate with this volume container.</source>
+          <target state="new">Select a <bpt id="8787d733-dc64-4f05-9d4b-f0b1fcb53419">&lt;strong&gt;</bpt>Storage Account<ept id="8787d733-dc64-4f05-9d4b-f0b1fcb53419">&lt;/strong&gt;</ept> to associate with this volume container.</target>
+        </trans-unit>
+        <trans-unit id="bf6e4b0e-6db7-48b4-8e9f-4dac0fb34940" xml:space="preserve">
+          <source>You can choose the default account that is generated at the time of service creation.</source>
+          <target state="new">You can choose the default account that is generated at the time of service creation.</target>
+        </trans-unit>
+        <trans-unit id="8f3c603b-b440-4b06-a4f5-e28faa0830fa" xml:space="preserve">
+          <source>You can also use the <bpt id="6aaa9ba3-17b6-4794-9ea9-eacaa38ad59e">&lt;strong&gt;</bpt>Add new<ept id="6aaa9ba3-17b6-4794-9ea9-eacaa38ad59e">&lt;/strong&gt;</ept> option to specify a storage account that is not linked to this service subscription.</source>
+          <target state="new">You can also use the <bpt id="6aaa9ba3-17b6-4794-9ea9-eacaa38ad59e">&lt;strong&gt;</bpt>Add new<ept id="6aaa9ba3-17b6-4794-9ea9-eacaa38ad59e">&lt;/strong&gt;</ept> option to specify a storage account that is not linked to this service subscription.</target>
+        </trans-unit>
+        <trans-unit id="6ca942bd-c0e1-4c7e-801e-682caa11fccc" xml:space="preserve">
+          <source>Select <bpt id="b0f6ef2e-4d9b-465b-a886-93082ea46fd8">&lt;strong&gt;</bpt>Enable Cloud Storage Encryption<ept id="b0f6ef2e-4d9b-465b-a886-93082ea46fd8">&lt;/strong&gt;</ept> to enable encryption of the data sent from the device to the cloud.</source>
+          <target state="new">Select <bpt id="b0f6ef2e-4d9b-465b-a886-93082ea46fd8">&lt;strong&gt;</bpt>Enable Cloud Storage Encryption<ept id="b0f6ef2e-4d9b-465b-a886-93082ea46fd8">&lt;/strong&gt;</ept> to enable encryption of the data sent from the device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="8ea93404-4e63-4489-86d6-da872c676272" xml:space="preserve">
+          <source>Provide and confirm a <bpt id="2ef558bd-a3b1-4ae5-b114-e04981c7e3fb">&lt;strong&gt;</bpt>Cloud Storage Encryption Key<ept id="2ef558bd-a3b1-4ae5-b114-e04981c7e3fb">&lt;/strong&gt;</ept> that is 8 to 32 characters long.</source>
+          <target state="new">Provide and confirm a <bpt id="2ef558bd-a3b1-4ae5-b114-e04981c7e3fb">&lt;strong&gt;</bpt>Cloud Storage Encryption Key<ept id="2ef558bd-a3b1-4ae5-b114-e04981c7e3fb">&lt;/strong&gt;</ept> that is 8 to 32 characters long.</target>
+        </trans-unit>
+        <trans-unit id="3525e0d3-ce96-4402-a89e-c695c2e86c9c" xml:space="preserve">
+          <source>This key is used by the device to access encrypted data.</source>
+          <target state="new">This key is used by the device to access encrypted data.</target>
+        </trans-unit>
+        <trans-unit id="7048d02f-a582-47ac-a00d-e68922622729" xml:space="preserve">
+          <source>Select <bpt id="efdd8eea-69c3-40de-8dbd-7a6f2704c032">&lt;strong&gt;</bpt>Unlimited<ept id="efdd8eea-69c3-40de-8dbd-7a6f2704c032">&lt;/strong&gt;</ept> in the <bpt id="e72616b6-bbf5-43ca-adaf-f610c8a21a4b">&lt;strong&gt;</bpt>Specify bandwidth<ept id="e72616b6-bbf5-43ca-adaf-f610c8a21a4b">&lt;/strong&gt;</ept> drop-down list if you wish to consume all the available bandwidth.</source>
+          <target state="new">Select <bpt id="efdd8eea-69c3-40de-8dbd-7a6f2704c032">&lt;strong&gt;</bpt>Unlimited<ept id="efdd8eea-69c3-40de-8dbd-7a6f2704c032">&lt;/strong&gt;</ept> in the <bpt id="e72616b6-bbf5-43ca-adaf-f610c8a21a4b">&lt;strong&gt;</bpt>Specify bandwidth<ept id="e72616b6-bbf5-43ca-adaf-f610c8a21a4b">&lt;/strong&gt;</ept> drop-down list if you wish to consume all the available bandwidth.</target>
+        </trans-unit>
+        <trans-unit id="8eb7368e-0b8d-4dc7-a6a6-607e1f58705a" xml:space="preserve">
+          <source>You can also set this option to <bpt id="68ce5205-948e-4fcf-a271-e285592668b9">&lt;strong&gt;</bpt>Custom<ept id="68ce5205-948e-4fcf-a271-e285592668b9">&lt;/strong&gt;</ept> to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps.</source>
+          <target state="new">You can also set this option to <bpt id="68ce5205-948e-4fcf-a271-e285592668b9">&lt;strong&gt;</bpt>Custom<ept id="68ce5205-948e-4fcf-a271-e285592668b9">&lt;/strong&gt;</ept> to employ bandwidth controls, and specify a value between 1 and 1,000 Mbps.</target>
+        </trans-unit>
+        <trans-unit id="bbc5b3f0-e632-47ee-8712-104bad4276d6" xml:space="preserve">
+          <source>If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying <bpt id="c6aa15b7-4f35-446e-83fe-1f8b6434165a">&lt;strong&gt;</bpt>Select a bandwidth template<ept id="c6aa15b7-4f35-446e-83fe-1f8b6434165a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying <bpt id="c6aa15b7-4f35-446e-83fe-1f8b6434165a">&lt;strong&gt;</bpt>Select a bandwidth template<ept id="c6aa15b7-4f35-446e-83fe-1f8b6434165a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8224f64e-ce2c-4698-806d-d54ac9642ba4" xml:space="preserve">
+          <source>For a step-by-step procedure, go to <bpt id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;linkText&gt;</bpt>Add a bandwidth template<ept id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;/linkText&gt;</ept><bpt id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;title&gt;</bpt><ept id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a step-by-step procedure, go to <bpt id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;linkText&gt;</bpt>Add a bandwidth template<ept id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;/linkText&gt;</ept><bpt id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;title&gt;</bpt><ept id="2eb6b1dc-e55e-4c92-9f12-d9ef4e935daa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb46b6d6-97d2-4835-b76d-66278766c2e6" xml:space="preserve">
+          <source>Click the check icon <bpt id="db715e1f-3342-49d2-9e96-3d0c4878993e">&lt;linkText&gt;</bpt>check-icon<ept id="db715e1f-3342-49d2-9e96-3d0c4878993e">&lt;/linkText&gt;</ept> to save this volume container and exit the wizard.</source>
+          <target state="new">Click the check icon <bpt id="db715e1f-3342-49d2-9e96-3d0c4878993e">&lt;linkText&gt;</bpt>check-icon<ept id="db715e1f-3342-49d2-9e96-3d0c4878993e">&lt;/linkText&gt;</ept> to save this volume container and exit the wizard.</target>
+        </trans-unit>
+        <trans-unit id="d1373bdf-ac69-46da-ace4-c776de89c484" xml:space="preserve">
+          <source>The newly created volume container will be listed on the <bpt id="cc94b0a7-fe0a-411d-959e-1e7c87756fd6">&lt;strong&gt;</bpt>Volume containers<ept id="cc94b0a7-fe0a-411d-959e-1e7c87756fd6">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">The newly created volume container will be listed on the <bpt id="cc94b0a7-fe0a-411d-959e-1e7c87756fd6">&lt;strong&gt;</bpt>Volume containers<ept id="cc94b0a7-fe0a-411d-959e-1e7c87756fd6">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

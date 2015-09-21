@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7b021833-ec7e-4a45-98b1-98871b683eaf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7b021833-ec7e-4a45-98b1-98871b683eaf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5c53e866-3084-40fb-b2ea-513c3f177cc8">
+        <trans-unit id="07e1b992-4d65-4b56-9106-cb7324f2eb05" xml:space="preserve">
+          <source>Machine Learning app: Anomaly Detection Service | Microsoft Azure</source>
+          <target state="new">Machine Learning app: Anomaly Detection Service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="552e8081-0597-45b6-b676-cb3c19ea129b" xml:space="preserve">
+          <source>Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.</source>
+          <target state="new">Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.</target>
+        </trans-unit>
+        <trans-unit id="f5cf0b92-4872-4093-8a40-d2233dcc0071" xml:space="preserve">
+          <source>Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.</source>
+          <target state="new">Anomaly Detection API is an example built with Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.</target>
+        </trans-unit>
+        <trans-unit id="656ec06b-1349-418e-b59e-01ffe18c34bc" xml:space="preserve">
+          <source><bpt id="40bf0911-f9c6-4795-8638-08d67ffdf82e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="40bf0911-f9c6-4795-8638-08d67ffdf82e">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="40bf0911-f9c6-4795-8638-08d67ffdf82e">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="40bf0911-f9c6-4795-8638-08d67ffdf82e">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c3bbd7e3-fc97-4d5d-bb57-57743d3c05b6" xml:space="preserve">
+          <source>This anomaly detection service can detect the following different types of anomalies on time series data:</source>
+          <target state="new">This anomaly detection service can detect the following different types of anomalies on time series data:</target>
+        </trans-unit>
+        <trans-unit id="99aaca4d-156a-45de-9bf8-b6598c62d827" xml:space="preserve">
+          <source>Positive and negative trends: When monitoring memory usage in computing, for instance, an upward trend is indicative of a memory leak,</source>
+          <target state="new">Positive and negative trends: When monitoring memory usage in computing, for instance, an upward trend is indicative of a memory leak,</target>
+        </trans-unit>
+        <trans-unit id="004ff1f8-f5d9-4cc5-99b8-1679d6f249b4" xml:space="preserve">
+          <source>Increase in the dynamic range of values: As an example, when monitoring the exceptions thrown by a service, any increases in the dynamic range of values could indicate instability in the health of the service, and</source>
+          <target state="new">Increase in the dynamic range of values: As an example, when monitoring the exceptions thrown by a service, any increases in the dynamic range of values could indicate instability in the health of the service, and</target>
+        </trans-unit>
+        <trans-unit id="119bbb41-17cc-4543-b2cb-2284d4c89282" xml:space="preserve">
+          <source>Spikes and Dips: For instance, when monitoring the number of login failures to a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.</source>
+          <target state="new">Spikes and Dips: For instance, when monitoring the number of login failures to a service or number of checkouts in an e-commerce site, spikes or dips could indicate abnormal behavior.</target>
+        </trans-unit>
+        <trans-unit id="e66d9511-c1f3-4180-872e-8973e18a7d19" xml:space="preserve">
+          <source>These detectors track changes in values over time and reports ongoing changes in their values.</source>
+          <target state="new">These detectors track changes in values over time and reports ongoing changes in their values.</target>
+        </trans-unit>
+        <trans-unit id="7944cd2b-d5d3-4300-8a45-f6ab5e94b308" xml:space="preserve">
+          <source>They do not require adhoc threshold tuning and their scores can be used to control false positive rate.</source>
+          <target state="new">They do not require adhoc threshold tuning and their scores can be used to control false positive rate.</target>
+        </trans-unit>
+        <trans-unit id="927e22a5-125c-4b20-a118-3866c24dfc52" xml:space="preserve">
+          <source>The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage metrics such as number of searches, numbers of clicks, performance counters like memory, cpu, file reads, etc. over time.</source>
+          <target state="new">The anomaly detection API is useful in several scenarios like service monitoring by tracking KPIs over time, usage metrics such as number of searches, numbers of clicks, performance counters like memory, cpu, file reads, etc. over time.</target>
+        </trans-unit>
+        <trans-unit id="f86cc51c-525e-40ad-8d47-2043ddc96228" xml:space="preserve">
+          <source>The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc. We have an <bpt id="95940222-f88f-4c6d-b690-6cb593253585">&lt;linkText&gt;</bpt>Azure web application<ept id="95940222-f88f-4c6d-b690-6cb593253585">&lt;/linkText&gt;</ept><bpt id="95940222-f88f-4c6d-b690-6cb593253585">&lt;title&gt;</bpt><ept id="95940222-f88f-4c6d-b690-6cb593253585">&lt;/title&gt;</ept> that helps run the anomaly detection web service on your data and visualize the results.</source>
+          <target state="new">The service provides a REST based API over HTTPS that can be consumed in different ways including a web or mobile application, R, Python, Excel, etc. We have an <bpt id="95940222-f88f-4c6d-b690-6cb593253585">&lt;linkText&gt;</bpt>Azure web application<ept id="95940222-f88f-4c6d-b690-6cb593253585">&lt;/linkText&gt;</ept><bpt id="95940222-f88f-4c6d-b690-6cb593253585">&lt;title&gt;</bpt><ept id="95940222-f88f-4c6d-b690-6cb593253585">&lt;/title&gt;</ept> that helps run the anomaly detection web service on your data and visualize the results.</target>
+        </trans-unit>
+        <trans-unit id="0cc6ed26-8f19-4c5c-ab66-e49ad8921173" xml:space="preserve">
+          <source>You can also send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above.</source>
+          <target state="new">You can also send your time series data to this service via a REST API call, and it runs a combination of the three anomaly types described above.</target>
+        </trans-unit>
+        <trans-unit id="de3c47ef-e42d-4c63-90d6-17b0a0aeea77" xml:space="preserve">
+          <source>The service runs on the AzureML Machine Learning platform which scales to your business needs seamlessly and provides SLAs of 99.95%.</source>
+          <target state="new">The service runs on the AzureML Machine Learning platform which scales to your business needs seamlessly and provides SLAs of 99.95%.</target>
+        </trans-unit>
+        <trans-unit id="57be48ad-2185-412c-a548-7406095a72f4" xml:space="preserve">
+          <source>The figure below shows an example of anomalies detected in a times series using the above framework.</source>
+          <target state="new">The figure below shows an example of anomalies detected in a times series using the above framework.</target>
+        </trans-unit>
+        <trans-unit id="cc741951-2a3e-4761-981f-8635508d43e2" xml:space="preserve">
+          <source>The time series has 2 distinct level changes, and 3 spikes.</source>
+          <target state="new">The time series has 2 distinct level changes, and 3 spikes.</target>
+        </trans-unit>
+        <trans-unit id="ccf7531a-a4e0-4a1c-b335-fc9e6bc19577" xml:space="preserve">
+          <source>The red dots show the time at which the level change is detected, while the red upward arrows show the detected spikes.</source>
+          <target state="new">The red dots show the time at which the level change is detected, while the red upward arrows show the detected spikes.</target>
+        </trans-unit>
+        <trans-unit id="fbd61bd7-e9d4-4d2a-a4c1-3522c670cbd8" xml:space="preserve">
+          <source><bpt id="e27809e7-8296-41bf-a4c8-2e57216f26b1">&lt;linkText&gt;</bpt><ept id="e27809e7-8296-41bf-a4c8-2e57216f26b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e27809e7-8296-41bf-a4c8-2e57216f26b1">&lt;linkText&gt;</bpt><ept id="e27809e7-8296-41bf-a4c8-2e57216f26b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22caaae7-761b-477d-bd34-840be63b80ab" xml:space="preserve">
+          <source>The API takes 2 input parameters </source>
+          <target state="new">The API takes 2 input parameters </target>
+        </trans-unit>
+        <trans-unit id="aae04a72-604d-4e6c-b986-1d968ef699e4" xml:space="preserve">
+          <source>"data" represents input time series in the format: t1=v1;t2=v2;... </source>
+          <target state="new">"data" represents input time series in the format: t1=v1;t2=v2;... </target>
+        </trans-unit>
+        <trans-unit id="c1f23985-fb0a-45dd-9f20-4d245d7c07cb" xml:space="preserve">
+          <source>Sample data: </source>
+          <target state="new">Sample data: </target>
+        </trans-unit>
+        <trans-unit id="4cc711aa-5b61-4a95-957a-ac5f646d2e11" xml:space="preserve">
+          <source>"params" set to "SpikeDetector.TukeyThresh=3; SpikeDetector.ZscoreThresh=3" which controls sensitivity of spike detectors.</source>
+          <target state="new">"params" set to "SpikeDetector.TukeyThresh=3; SpikeDetector.ZscoreThresh=3" which controls sensitivity of spike detectors.</target>
+        </trans-unit>
+        <trans-unit id="adb8d12a-a507-4fad-b761-568a9e6ba790" xml:space="preserve">
+          <source>Higher values will catch higher spikes and vice versa.</source>
+          <target state="new">Higher values will catch higher spikes and vice versa.</target>
+        </trans-unit>
+        <trans-unit id="6ec51679-ea5a-48f3-970f-08c7c1546b43" xml:space="preserve">
+          <source>Sample URL with input parameters mentioned above:</source>
+          <target state="new">Sample URL with input parameters mentioned above:</target>
+        </trans-unit>
+        <trans-unit id="5be7ea5c-d3ef-4a66-a480-d6adc7f388cb" xml:space="preserve">
+          <source>The API runs these detectors on your time series data and returns the anomaly scores at each point in time.</source>
+          <target state="new">The API runs these detectors on your time series data and returns the anomaly scores at each point in time.</target>
+        </trans-unit>
+        <trans-unit id="04dadad8-23c6-443f-9a7f-16707312e6a9" xml:space="preserve">
+          <source>This output can be parsed using a simple parser as shown in <bpt id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;linkText&gt;</bpt>https://adresultparser.codeplex.com/<ept id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;/linkText&gt;</ept><bpt id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;title&gt;</bpt><ept id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;/title&gt;</ept>.</source>
+          <target state="new">This output can be parsed using a simple parser as shown in <bpt id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;linkText&gt;</bpt>https://adresultparser.codeplex.com/<ept id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;/linkText&gt;</ept><bpt id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;title&gt;</bpt><ept id="d518354b-5507-45b4-ac2f-e38f6c5d5069">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4eec3224-21f5-41b0-9142-7671a863b110" xml:space="preserve">
+          <source>This gives sample code that shows how to connect to the API and parse the output.</source>
+          <target state="new">This gives sample code that shows how to connect to the API and parse the output.</target>
+        </trans-unit>
+        <trans-unit id="681b061a-6de8-443f-91ea-1df80cd02c37" xml:space="preserve">
+          <source>The alerts generated can be visualized on a dashboard and/or passed on to human experts who can take corrective actions.</source>
+          <target state="new">The alerts generated can be visualized on a dashboard and/or passed on to human experts who can take corrective actions.</target>
+        </trans-unit>
+        <trans-unit id="6f450fd6-2627-4ddc-a327-238339942b4b" xml:space="preserve">
+          <source>Sample output for the sample input above: </source>
+          <target state="new">Sample output for the sample input above: </target>
+        </trans-unit>
+        <trans-unit id="800c29d5-2989-4a60-861d-46728bdd2c67" xml:space="preserve">
+          <source>which is a representation of the following table:</source>
+          <target state="new">which is a representation of the following table:</target>
+        </trans-unit>
+        <trans-unit id="7266d4b6-1cc9-435b-9dfc-3ea8da29d8d7" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="5ed2e1c4-7ebe-4388-ade4-886749f20046" xml:space="preserve">
+          <source>Data</source>
+          <target state="new">Data</target>
+        </trans-unit>
+        <trans-unit id="f6899d31-dccf-4831-bcaf-996c675f825a" xml:space="preserve">
+          <source>Tspike</source>
+          <target state="new">Tspike</target>
+        </trans-unit>
+        <trans-unit id="7a12784d-6666-432b-a8ca-54fa42606d44" xml:space="preserve">
+          <source>Zspike</source>
+          <target state="new">Zspike</target>
+        </trans-unit>
+        <trans-unit id="1653c4a1-2c62-427a-8bee-4637155f442c" xml:space="preserve">
+          <source>Martingale values</source>
+          <target state="new">Martingale values</target>
+        </trans-unit>
+        <trans-unit id="1373c79d-7c18-4727-b2dd-36b5dc825343" xml:space="preserve">
+          <source>Alert indicator</source>
+          <target state="new">Alert indicator</target>
+        </trans-unit>
+        <trans-unit id="f9cc6e5b-e741-4863-aa1b-2f1acd481915" xml:space="preserve">
+          <source>Martingale values (2)</source>
+          <target state="new">Martingale values (2)</target>
+        </trans-unit>
+        <trans-unit id="9670a96a-4a0f-41c3-a90f-53b2a050625c" xml:space="preserve">
+          <source>Alert indicator (2)</source>
+          <target state="new">Alert indicator (2)</target>
+        </trans-unit>
+        <trans-unit id="8f97d1ad-e2c6-43d7-aff2-a31079586e63" xml:space="preserve">
+          <source>9/21/2014 11:05</source>
+          <target state="new">9/21/2014 11:05</target>
+        </trans-unit>
+        <trans-unit id="cc84af06-ba5b-427e-a2ea-b4d55e72298b" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="6bba4d6a-0f2f-45f1-bbc3-ddc8d54c4965" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="3c5e1258-7457-4cbc-a925-ccd72fc0eb57" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="629557af-88b2-4793-bb6c-52a7d022cfab" xml:space="preserve">
+          <source>-0.687952591</source>
+          <target state="new">-0.687952591</target>
+        </trans-unit>
+        <trans-unit id="99ed09ab-2194-4ab5-b8c7-e5d811c5a628" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="fbb859f0-7b0a-405c-82c8-7c82b5f896dd" xml:space="preserve">
+          <source>-0.687952591</source>
+          <target state="new">-0.687952591</target>
+        </trans-unit>
+        <trans-unit id="363a307f-0138-4aae-9919-4219f77e4e15" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="0fafc51f-51e4-4115-90cd-d896bfb49bca" xml:space="preserve">
+          <source>9/21/2014 11:10</source>
+          <target state="new">9/21/2014 11:10</target>
+        </trans-unit>
+        <trans-unit id="eed3d654-d51b-4ccb-a000-17f6407ac09e" xml:space="preserve">
+          <source>9.09</source>
+          <target state="new">9.09</target>
+        </trans-unit>
+        <trans-unit id="f89c8a6f-64fe-440e-9363-c01699e61c97" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="495dbab5-e3f5-42d6-812a-f77d719a4c9e" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="e3327704-3d1e-4656-87be-e13bb0045f00" xml:space="preserve">
+          <source>-1.070304977</source>
+          <target state="new">-1.070304977</target>
+        </trans-unit>
+        <trans-unit id="0dcd8259-cc4b-4edf-87ec-0b075aa46a8b" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="7c9c7778-d558-4d2b-a8c4-8af6017a7f35" xml:space="preserve">
+          <source>-0.884548154</source>
+          <target state="new">-0.884548154</target>
+        </trans-unit>
+        <trans-unit id="899704bd-aa10-4ccb-bae6-89a781abbf33" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="4c16ff3e-52df-46f6-b6d1-76afb597eae3" xml:space="preserve">
+          <source>9/21/2014 11:15</source>
+          <target state="new">9/21/2014 11:15</target>
+        </trans-unit>
+        <trans-unit id="e67acd76-71b3-46ab-a3c4-da65d12e80b7" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="4220e409-9e09-40b4-9aa2-51c9734b37b6" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="61020a01-a5ce-480c-a808-e07c1dc9cc8d" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="4ab974cf-4042-4f55-b255-cd1542abdee5" xml:space="preserve">
+          <source>-1.051862374</source>
+          <target state="new">-1.051862374</target>
+        </trans-unit>
+        <trans-unit id="a1c2254f-a772-4951-a543-3377f1acc7a6" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="c109aba3-5797-4c33-80f4-38cf241b968c" xml:space="preserve">
+          <source>-1.1738002814</source>
+          <target state="new">-1.1738002814</target>
+        </trans-unit>
+        <trans-unit id="b45f6aa4-c4bb-4be5-8dc3-da057ae41cf2" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="e420d7d7-0e4f-49ff-bbcd-714c3045f601" xml:space="preserve">
+          <source>./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg</source>
+          <target state="new">./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="250c1f94-c980-4020-ac4d-1b9bf89837e4" />
+    </body>
+  </file>
+</xliff>

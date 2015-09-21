@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9f825c2f-eb67-40bc-8519-ad7d97aab082" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9f825c2f-eb67-40bc-8519-ad7d97aab082" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c32a06ac-184e-4b24-bddc-c0eb65d7fcd4">
+        <trans-unit id="82410536-f31d-4a23-a58d-447fbcfb45f4" xml:space="preserve">
+          <source>Deploy a web app in Azure App Service</source>
+          <target state="new">Deploy a web app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="4ebd5461-3bb8-43d2-a986-2b28db5bd69e" xml:space="preserve">
+          <source>Learn what methods are available for deploying content to Web Apps.</source>
+          <target state="new">Learn what methods are available for deploying content to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="ef5dd75d-d880-45e7-babe-48360c54e2ee" xml:space="preserve">
+          <source>You have many options for deploying your own content to <bpt id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;/linkText&gt;</ept><bpt id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;title&gt;</bpt><ept id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">You have many options for deploying your own content to <bpt id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;/linkText&gt;</ept><bpt id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;title&gt;</bpt><ept id="89da5c92-194d-4f90-8a5a-e4ba447271cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="158322c7-672e-4aa9-9de0-12b1c362cb2e" xml:space="preserve">
+          <source>This topic provides a brief overview of each option and links to more information.</source>
+          <target state="new">This topic provides a brief overview of each option and links to more information.</target>
+        </trans-unit>
+        <trans-unit id="cef9d425-ff25-414f-8016-2c0b8d436412" xml:space="preserve">
+          <source>The best way to deploy a web app is to set up a <bpt id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;linkText&gt;</bpt>continuous delivery workflow<ept id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;/linkText&gt;</ept><bpt id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;title&gt;</bpt><ept id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;/title&gt;</ept> integrated with your <bpt id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;linkText&gt;</bpt>source control system<ept id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;/linkText&gt;</ept><bpt id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;title&gt;</bpt><ept id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">The best way to deploy a web app is to set up a <bpt id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;linkText&gt;</bpt>continuous delivery workflow<ept id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;/linkText&gt;</ept><bpt id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;title&gt;</bpt><ept id="1f07d91f-8c60-4948-8ec7-515d4bf8b9f5">&lt;/title&gt;</ept> integrated with your <bpt id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;linkText&gt;</bpt>source control system<ept id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;/linkText&gt;</ept><bpt id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;title&gt;</bpt><ept id="9a0cb79f-33f9-4a32-ad76-6789287a50b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea762c76-65fe-4c7b-bdeb-a813860e1a89" xml:space="preserve">
+          <source>Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable.</source>
+          <target state="new">Automation not only makes the development process more efficient but also can make your backup and restore processes more manageable and reliable.</target>
+        </trans-unit>
+        <trans-unit id="4fe12fd5-f606-4e2f-85de-baa7c122a70e" xml:space="preserve">
+          <source>If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.</source>
+          <target state="new">If you don't have source control set up yet, the easiest way to get started is to use a cloud-hosted source control system.</target>
+        </trans-unit>
+        <trans-unit id="b41cfccf-dbd2-4b4b-bb2a-dee3677f15b3" xml:space="preserve">
+          <source><bpt id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;/linkText&gt;</ept><bpt id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;title&gt;</bpt><ept id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;/linkText&gt;</ept><bpt id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;title&gt;</bpt><ept id="8d09990e-9b62-4e47-a928-c9c2984f5a8a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45e91a1c-bb9e-4f8c-82c6-436e2d10cb1c" xml:space="preserve">
+          <source><bpt id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;linkText&gt;</bpt>Repository websites using Git<ept id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;/linkText&gt;</ept><bpt id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;title&gt;</bpt><ept id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;linkText&gt;</bpt>Repository websites using Git<ept id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;/linkText&gt;</ept><bpt id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;title&gt;</bpt><ept id="deede13b-578b-40dd-b897-6da0ed665fb4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45df4430-0a43-4a26-a554-6fb6c57b9625" xml:space="preserve">
+          <source><bpt id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;linkText&gt;</bpt>Repository websites using Mercurial<ept id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;/linkText&gt;</ept><bpt id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;title&gt;</bpt><ept id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;linkText&gt;</bpt>Repository websites using Mercurial<ept id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;/linkText&gt;</ept><bpt id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;title&gt;</bpt><ept id="29a22d0f-090d-4459-9f5d-cde189298812">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b49f07f-e237-4109-a350-ee307083b4b4" xml:space="preserve">
+          <source><bpt id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;linkText&gt;</bpt>Dropbox<ept id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;/linkText&gt;</ept><bpt id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;title&gt;</bpt><ept id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;linkText&gt;</bpt>Dropbox<ept id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;/linkText&gt;</ept><bpt id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;title&gt;</bpt><ept id="37d6273e-aa2a-4d75-87f3-867aeb78452d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe14af92-6d41-4359-997b-a87d336849f4" xml:space="preserve">
+          <source><bpt id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;linkText&gt;</bpt>Visual Studio<ept id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;/linkText&gt;</ept><bpt id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;title&gt;</bpt><ept id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;/title&gt;</ept> and <bpt id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;linkText&gt;</bpt>WebMatrix<ept id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;/linkText&gt;</ept><bpt id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;title&gt;</bpt><ept id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;/title&gt;</ept> are Microsoft IDEs (integrated development environments) that you can use for web development.</source>
+          <target state="new"><bpt id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;linkText&gt;</bpt>Visual Studio<ept id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;/linkText&gt;</ept><bpt id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;title&gt;</bpt><ept id="9845bfaf-7577-4aed-9e25-ebc263cdc15e">&lt;/title&gt;</ept> and <bpt id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;linkText&gt;</bpt>WebMatrix<ept id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;/linkText&gt;</ept><bpt id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;title&gt;</bpt><ept id="2154db3e-2670-483e-a532-0f99a9349e80">&lt;/title&gt;</ept> are Microsoft IDEs (integrated development environments) that you can use for web development.</target>
+        </trans-unit>
+        <trans-unit id="e1708746-7c23-48c1-9d54-ac4738f0fbf0" xml:space="preserve">
+          <source>Both provide built-in features that make it easy to deploy a web app.</source>
+          <target state="new">Both provide built-in features that make it easy to deploy a web app.</target>
+        </trans-unit>
+        <trans-unit id="56e91662-0258-438b-b785-a2238776fbd3" xml:space="preserve">
+          <source>Both can use <bpt id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;linkText&gt;</bpt>Web Deploy<ept id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;/linkText&gt;</ept><bpt id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;title&gt;</bpt><ept id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;/title&gt;</ept> to automate additional deployment-related tasks such as database deployment and connection string changes.</source>
+          <target state="new">Both can use <bpt id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;linkText&gt;</bpt>Web Deploy<ept id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;/linkText&gt;</ept><bpt id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;title&gt;</bpt><ept id="825bc6d2-9d95-4d68-a5bd-2d0430646351">&lt;/title&gt;</ept> to automate additional deployment-related tasks such as database deployment and connection string changes.</target>
+        </trans-unit>
+        <trans-unit id="8219ef2d-4aa4-4b91-86f3-8a6314ae2ca2" xml:space="preserve">
+          <source>Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File<bpt id="1ce0a5fa-4aeb-41cf-a29a-766a6923dfa2">&lt;em&gt;</bpt>Transfer<ept id="1ce0a5fa-4aeb-41cf-a29a-766a6923dfa2">&lt;/em&gt;</ept>Protocol)).</source>
+          <target state="new">Both can also deploy by using [FTP or FTPS](http://en.wikipedia.org/wiki/File<bpt id="1ce0a5fa-4aeb-41cf-a29a-766a6923dfa2">&lt;em&gt;</bpt>Transfer<ept id="1ce0a5fa-4aeb-41cf-a29a-766a6923dfa2">&lt;/em&gt;</ept>Protocol)).</target>
+        </trans-unit>
+        <trans-unit id="0b181869-e36a-4893-a73f-489b1e65b91c" xml:space="preserve">
+          <source>WebMatrix is quick to install and easy to learn, but Visual Studio offers many more features for working with Web Apps.</source>
+          <target state="new">WebMatrix is quick to install and easy to learn, but Visual Studio offers many more features for working with Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="19bc8583-054f-448a-9fe9-e30c0223282d" xml:space="preserve">
+          <source>From within the Visual Studio IDE you can create, stop, start, and delete web apps, you can view logs as they are created in real-time, you can debug remotely, and much more.</source>
+          <target state="new">From within the Visual Studio IDE you can create, stop, start, and delete web apps, you can view logs as they are created in real-time, you can debug remotely, and much more.</target>
+        </trans-unit>
+        <trans-unit id="f90ac446-1dc0-4e59-ae7c-04269e0b6a8d" xml:space="preserve">
+          <source>Visual Studio also integrates with source control systems such as <bpt id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;/linkText&gt;</ept><bpt id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;title&gt;</bpt><ept id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;/title&gt;</ept>, <bpt id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;linkText&gt;</bpt>Team Foundation Server<ept id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;/linkText&gt;</ept><bpt id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;title&gt;</bpt><ept id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;/title&gt;</ept>, and <bpt id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;linkText&gt;</bpt>Git repositories<ept id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;/linkText&gt;</ept><bpt id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;title&gt;</bpt><ept id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visual Studio also integrates with source control systems such as <bpt id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;/linkText&gt;</ept><bpt id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;title&gt;</bpt><ept id="2794c8ab-6b20-423e-ac85-930c71c786f3">&lt;/title&gt;</ept>, <bpt id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;linkText&gt;</bpt>Team Foundation Server<ept id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;/linkText&gt;</ept><bpt id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;title&gt;</bpt><ept id="1e5a32cb-536a-499f-a1a9-1c68e8237cab">&lt;/title&gt;</ept>, and <bpt id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;linkText&gt;</bpt>Git repositories<ept id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;/linkText&gt;</ept><bpt id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;title&gt;</bpt><ept id="a474ca65-67fc-4868-92e5-90a65c1f06c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be3d260c-2f05-45af-a38d-e8c1c400c0ab" xml:space="preserve">
+          <source><bpt id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;linkText&gt;</bpt>Visual Studio<ept id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;/linkText&gt;</ept><bpt id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;title&gt;</bpt><ept id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;linkText&gt;</bpt>Visual Studio<ept id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;/linkText&gt;</ept><bpt id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;title&gt;</bpt><ept id="0654c743-6af2-4224-bd8a-09dcf4b08571">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a9362ac-499f-4077-a33a-1069d5206405" xml:space="preserve">
+          <source><bpt id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;linkText&gt;</bpt>WebMatrix<ept id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;/linkText&gt;</ept><bpt id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;title&gt;</bpt><ept id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;linkText&gt;</bpt>WebMatrix<ept id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;/linkText&gt;</ept><bpt id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;title&gt;</bpt><ept id="809c8f34-48c7-4d9a-a63d-a9a008d1c92d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95da8522-b13d-498e-8a36-8b4dd87951aa" xml:space="preserve">
+          <source>Regardless of what IDE you use, you can also deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File<bpt id="fd9957f0-a281-4e0c-9541-300b91d3a3fc">&lt;em&gt;</bpt>Transfer<ept id="fd9957f0-a281-4e0c-9541-300b91d3a3fc">&lt;/em&gt;</ept>Protocol) to copy files.</source>
+          <target state="new">Regardless of what IDE you use, you can also deploy content to your App by using [FTP](http://en.wikipedia.org/wiki/File<bpt id="fd9957f0-a281-4e0c-9541-300b91d3a3fc">&lt;em&gt;</bpt>Transfer<ept id="fd9957f0-a281-4e0c-9541-300b91d3a3fc">&lt;/em&gt;</ept>Protocol) to copy files.</target>
+        </trans-unit>
+        <trans-unit id="73c7c3fb-7ca0-4d93-bf15-ed68bafbeed3" xml:space="preserve">
+          <source>It's easy to create FTP credentials for a web app, and you can use them in any application that works with FTP, including browsers such as Internet Explorer and full-featured free utilities such as <bpt id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;linkText&gt;</bpt>FileZilla<ept id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;/linkText&gt;</ept><bpt id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;title&gt;</bpt><ept id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;/title&gt;</ept>.</source>
+          <target state="new">It's easy to create FTP credentials for a web app, and you can use them in any application that works with FTP, including browsers such as Internet Explorer and full-featured free utilities such as <bpt id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;linkText&gt;</bpt>FileZilla<ept id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;/linkText&gt;</ept><bpt id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;title&gt;</bpt><ept id="695bde58-9409-42e6-86ad-9ba2862ec26b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6717c119-512e-4f09-a4fe-c5c56154d9c9" xml:space="preserve">
+          <source>Web Apps also supports the more secure FTPS protocol.</source>
+          <target state="new">Web Apps also supports the more secure FTPS protocol.</target>
+        </trans-unit>
+        <trans-unit id="630baed6-1dae-4d30-b8f6-9a9556b90597" xml:space="preserve">
+          <source>Although it's easy to copy your web app's files to Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings.</source>
+          <target state="new">Although it's easy to copy your web app's files to Azure using FTP utilities, they don't automatically take care of or coordinate related deployment tasks such as deploying a database or changing connection strings.</target>
+        </trans-unit>
+        <trans-unit id="8e1f2fe7-66d1-4540-b5ee-6a33b15f3fb9" xml:space="preserve">
+          <source>Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed.</source>
+          <target state="new">Also, many FTP tools don't compare source and destination files in order to skip copying files that haven't changed.</target>
+        </trans-unit>
+        <trans-unit id="258a40d8-49a5-4238-afc4-9b85fbc98a22" xml:space="preserve">
+          <source>For large Apps, always copying all files can result in long deployment times even for minor updates since all files are always copied.</source>
+          <target state="new">For large Apps, always copying all files can result in long deployment times even for minor updates since all files are always copied.</target>
+        </trans-unit>
+        <trans-unit id="e232a15e-857d-4ea7-9a29-b2ae252e1491" xml:space="preserve">
+          <source>If you are using TFS, Git, or Mercurial in an on-premises (not cloud-hosted) repository, you can deploy directly from your repository to a web app.</source>
+          <target state="new">If you are using TFS, Git, or Mercurial in an on-premises (not cloud-hosted) repository, you can deploy directly from your repository to a web app.</target>
+        </trans-unit>
+        <trans-unit id="e1115cb3-4677-4d5a-b668-989df848ee0c" xml:space="preserve">
+          <source><bpt id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;linkText&gt;</bpt>Team Foundation Server (TFS)<ept id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;/linkText&gt;</ept><bpt id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;title&gt;</bpt><ept id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;linkText&gt;</bpt>Team Foundation Server (TFS)<ept id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;/linkText&gt;</ept><bpt id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;title&gt;</bpt><ept id="b3fb9656-e1d9-4615-a483-c6e63d276f10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4a38c95-0736-4365-bdb1-e01579ca240c" xml:space="preserve">
+          <source><bpt id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;linkText&gt;</bpt>On-premises Git or Mercurial repositories<ept id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;/linkText&gt;</ept><bpt id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;title&gt;</bpt><ept id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;linkText&gt;</bpt>On-premises Git or Mercurial repositories<ept id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;/linkText&gt;</ept><bpt id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;title&gt;</bpt><ept id="79a94ced-b5f1-4c9e-b7d4-21e5cc7632fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c8b5e9e-ef16-4e26-8721-6d15ddf94530" xml:space="preserve">
+          <source>It's always best to automate your development workflow, but if you can't do that directly in your source control system, you can set it up manually by using command-line tools.</source>
+          <target state="new">It's always best to automate your development workflow, but if you can't do that directly in your source control system, you can set it up manually by using command-line tools.</target>
+        </trans-unit>
+        <trans-unit id="3af60a24-61b5-4994-8d43-a9fb263580ff" xml:space="preserve">
+          <source>This generally involves the use of more than one tool or framework, as deployment often involves performing site management functions as well as copying content.</source>
+          <target state="new">This generally involves the use of more than one tool or framework, as deployment often involves performing site management functions as well as copying content.</target>
+        </trans-unit>
+        <trans-unit id="5e8d8411-d38a-442a-b216-f42f7da9170d" xml:space="preserve">
+          <source>Azure simplifies site management tasks that you might have to do for deployment by providing a REST management API and several frameworks that make it easier to work with the API.</source>
+          <target state="new">Azure simplifies site management tasks that you might have to do for deployment by providing a REST management API and several frameworks that make it easier to work with the API.</target>
+        </trans-unit>
+        <trans-unit id="9132c2b4-b13b-4cdc-8c8d-c9baab0b239a" xml:space="preserve">
+          <source><bpt id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;linkText&gt;</bpt>FTP<ept id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;/linkText&gt;</ept><bpt id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;title&gt;</bpt><ept id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;linkText&gt;</bpt>FTP<ept id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;/linkText&gt;</ept><bpt id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;title&gt;</bpt><ept id="09042a01-6c19-4ffe-808e-bc3a70d37876">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bed8f58-591a-4514-9819-2af1803276b6" xml:space="preserve">
+          <source><bpt id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;linkText&gt;</bpt>MSBuild<ept id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;/linkText&gt;</ept><bpt id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;title&gt;</bpt><ept id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;linkText&gt;</bpt>MSBuild<ept id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;/linkText&gt;</ept><bpt id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;title&gt;</bpt><ept id="e4e96331-f8d4-428d-b645-ff1b21c74111">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94b6f444-a247-49bb-88b5-c978a6863391" xml:space="preserve">
+          <source><bpt id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;linkText&gt;</bpt>FTP scripts<ept id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;/linkText&gt;</ept><bpt id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;title&gt;</bpt><ept id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;linkText&gt;</bpt>FTP scripts<ept id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;/linkText&gt;</ept><bpt id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;title&gt;</bpt><ept id="d32a2e2d-6f6d-4072-82d0-b8f48e273fd8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8f5cb4f-6205-4d9a-ad14-ec4cb6a42112" xml:space="preserve">
+          <source><bpt id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;/linkText&gt;</ept><bpt id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;title&gt;</bpt><ept id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;/linkText&gt;</ept><bpt id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;title&gt;</bpt><ept id="29f1562b-29d4-4d72-8106-58601dd92a86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7bce990-6cbe-4d7b-8abb-019da344f1e3" xml:space="preserve">
+          <source><bpt id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;linkText&gt;</bpt>.NET management API<ept id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;/linkText&gt;</ept><bpt id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;title&gt;</bpt><ept id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;linkText&gt;</bpt>.NET management API<ept id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;/linkText&gt;</ept><bpt id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;title&gt;</bpt><ept id="4c8f03b4-5851-4c17-a80c-6c46c7c52fa1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c997a74-1b08-475f-9b61-d7759fa5bf39" xml:space="preserve">
+          <source><bpt id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;linkText&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;/linkText&gt;</ept><bpt id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;title&gt;</bpt><ept id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;linkText&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;/linkText&gt;</ept><bpt id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;title&gt;</bpt><ept id="7a97d308-cdb3-4332-b9f7-0d30dcab12f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66b15d4a-c7c6-4d71-8fde-ddd23d4f3e89" xml:space="preserve">
+          <source><bpt id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;linkText&gt;</bpt>Web Deploy command line<ept id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;/linkText&gt;</ept><bpt id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;title&gt;</bpt><ept id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;linkText&gt;</bpt>Web Deploy command line<ept id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;/linkText&gt;</ept><bpt id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;title&gt;</bpt><ept id="5408a44f-a8f3-49ab-a207-9881fe37871c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7384aa69-d210-4e84-803e-63067ee6ca05" xml:space="preserve">
+          <source><bpt id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;linkText&gt;</bpt>Octopus Deploy<ept id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;/linkText&gt;</ept><bpt id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;title&gt;</bpt><ept id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;/title&gt;</ept> can be used with App Service Web Apps.</source>
+          <target state="new"><bpt id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;linkText&gt;</bpt>Octopus Deploy<ept id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;/linkText&gt;</ept><bpt id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;title&gt;</bpt><ept id="a0f13dd0-33dc-4ca7-901c-918e5ba8dbe8">&lt;/title&gt;</ept> can be used with App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="a9528d40-ba13-4cab-af30-c88445ce4ffe" xml:space="preserve">
+          <source>For more information, see <bpt id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;linkText&gt;</bpt>Deploy ASP.NET applications to Azure Web Sites<ept id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;/linkText&gt;</ept><bpt id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;title&gt;</bpt><ept id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;linkText&gt;</bpt>Deploy ASP.NET applications to Azure Web Sites<ept id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;/linkText&gt;</ept><bpt id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;title&gt;</bpt><ept id="d1dfa0a4-4468-46b0-b98a-9be99b10f9ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af88099f-80ea-4b62-9589-2c8e334ea145" xml:space="preserve">
+          <source><bpt id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;/linkText&gt;</ept><bpt id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;title&gt;</bpt><ept id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;/title&gt;</ept> (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration.</source>
+          <target state="new"><bpt id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;linkText&gt;</bpt>Visual Studio Online<ept id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;/linkText&gt;</ept><bpt id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;title&gt;</bpt><ept id="e5668d50-fad3-479c-b0ad-c015ed3ef15e">&lt;/title&gt;</ept> (formerly Team Foundation Service) is Microsoft's cloud-based solution for source control and team collaboration.</target>
+        </trans-unit>
+        <trans-unit id="67b66ec7-6487-4b0f-a143-c7e46cdc50d2" xml:space="preserve">
+          <source>The service is free for a team of up to 5 developers.</source>
+          <target state="new">The service is free for a team of up to 5 developers.</target>
+        </trans-unit>
+        <trans-unit id="0987ebeb-24a2-49f3-bd8f-b33ef2428dd0" xml:space="preserve">
+          <source>You can do continuous delivery to a web app in App Services, and your repository can use either <bpt id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;linkText&gt;</bpt>Git or TFVC<ept id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;/linkText&gt;</ept><bpt id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;title&gt;</bpt><ept id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can do continuous delivery to a web app in App Services, and your repository can use either <bpt id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;linkText&gt;</bpt>Git or TFVC<ept id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;/linkText&gt;</ept><bpt id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;title&gt;</bpt><ept id="97e72479-613b-4982-a3e2-3c0a129fcb7c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4aa17d66-36b0-487b-9e4c-d2f94d58b5cd" xml:space="preserve">
+          <source>For more information, see the following resources:</source>
+          <target state="new">For more information, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="e8ae12a4-877b-4f36-b527-1657e2b2456e" xml:space="preserve">
+          <source><bpt id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;linkText&gt;</bpt>Continuous delivery to Azure using Visual Studio Online and TFVC<ept id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;/linkText&gt;</ept><bpt id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;title&gt;</bpt><ept id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;linkText&gt;</bpt>Continuous delivery to Azure using Visual Studio Online and TFVC<ept id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;/linkText&gt;</ept><bpt id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;title&gt;</bpt><ept id="3d751e8f-0286-42fd-9514-63dd455b6c65">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53edf7ef-ce68-4824-b1f6-f58679848329" xml:space="preserve">
+          <source>Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to a web app, using TFVC.</source>
+          <target state="new">Step-by-step tutorial that shows how to set up continuous delivery from Visual Studio Online to a web app, using TFVC.</target>
+        </trans-unit>
+        <trans-unit id="973005f1-5d69-4949-8b49-c162df47e692" xml:space="preserve">
+          <source>TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.</source>
+          <target state="new">TFVC is the centralized source control option, as opposed to Git, which is the distributed source control option.</target>
+        </trans-unit>
+        <trans-unit id="c394e27d-5239-4e4a-9bf3-36aed8d50cdc" xml:space="preserve">
+          <source><bpt id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;linkText&gt;</bpt>Continuous delivery to Azure using Visual Studio Online and Git<ept id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;/linkText&gt;</ept><bpt id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;title&gt;</bpt><ept id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;linkText&gt;</bpt>Continuous delivery to Azure using Visual Studio Online and Git<ept id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;/linkText&gt;</ept><bpt id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;title&gt;</bpt><ept id="905e027c-958a-402d-9191-ed3d94c0999a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0117fd90-c040-40e6-89ab-4cd63dce2d8c" xml:space="preserve">
+          <source>Similar to the previous tutorial but uses Git instead of TFVC.</source>
+          <target state="new">Similar to the previous tutorial but uses Git instead of TFVC.</target>
+        </trans-unit>
+        <trans-unit id="5239527b-3f6d-41cb-b38d-620909b43ebd" xml:space="preserve">
+          <source><bpt id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;linkText&gt;</bpt>Git<ept id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;/linkText&gt;</ept><bpt id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;title&gt;</bpt><ept id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;/title&gt;</ept> is a popular distributed source control system.</source>
+          <target state="new"><bpt id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;linkText&gt;</bpt>Git<ept id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;/linkText&gt;</ept><bpt id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;title&gt;</bpt><ept id="a59b2781-66c6-439a-9cf9-63d24ce5a863">&lt;/title&gt;</ept> is a popular distributed source control system.</target>
+        </trans-unit>
+        <trans-unit id="51e1b39c-3d43-413d-99bb-a51f3974aaf3" xml:space="preserve">
+          <source>Azure has built-in features that make it easy to automate deployment to a web app from popular web-based repository sites that store Git repositories, including <bpt id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;linkText&gt;</bpt>GitHub<ept id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;/linkText&gt;</ept><bpt id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;title&gt;</bpt><ept id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;/title&gt;</ept>, <bpt id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;linkText&gt;</bpt>CodePlex<ept id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;/linkText&gt;</ept><bpt id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;title&gt;</bpt><ept id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;/title&gt;</ept>, and <bpt id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;linkText&gt;</bpt>BitBucket<ept id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;/linkText&gt;</ept><bpt id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;title&gt;</bpt><ept id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure has built-in features that make it easy to automate deployment to a web app from popular web-based repository sites that store Git repositories, including <bpt id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;linkText&gt;</bpt>GitHub<ept id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;/linkText&gt;</ept><bpt id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;title&gt;</bpt><ept id="4267ce9a-89fa-4f37-a663-e0276549bd9d">&lt;/title&gt;</ept>, <bpt id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;linkText&gt;</bpt>CodePlex<ept id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;/linkText&gt;</ept><bpt id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;title&gt;</bpt><ept id="62bada65-9248-4908-8e09-35265ec70e0b">&lt;/title&gt;</ept>, and <bpt id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;linkText&gt;</bpt>BitBucket<ept id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;/linkText&gt;</ept><bpt id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;title&gt;</bpt><ept id="27ba1f72-3ecd-45ed-bc75-8cf6eafbc90e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a219a27-c877-4aec-b8af-2f56f60728e5" xml:space="preserve">
+          <source>An advantage of using Git to deploy is that it's relatively easy to roll back to an earlier deployment if that ever becomes necessary.</source>
+          <target state="new">An advantage of using Git to deploy is that it's relatively easy to roll back to an earlier deployment if that ever becomes necessary.</target>
+        </trans-unit>
+        <trans-unit id="0aaa7dbb-8d81-47d6-b60b-6e50cebfbb10" xml:space="preserve">
+          <source>For more information, see the following resources:</source>
+          <target state="new">For more information, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="9e2e408d-ed49-4f16-820b-7f678b81899b" xml:space="preserve">
+          <source><bpt id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;/linkText&gt;</ept><bpt id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;title&gt;</bpt><ept id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;/linkText&gt;</ept><bpt id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;title&gt;</bpt><ept id="d95324a7-23a0-4518-83f2-363a54b74166">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd1207ca-93f6-4015-8bf1-7382b414ecb6" xml:space="preserve">
+          <source>How to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called Local Git).</source>
+          <target state="new">How to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called Local Git).</target>
+        </trans-unit>
+        <trans-unit id="9963cab1-4dae-4cd5-8475-e50abf36041a" xml:space="preserve">
+          <source>Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.</source>
+          <target state="new">Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.</target>
+        </trans-unit>
+        <trans-unit id="df4b89dc-5ae7-4e81-b5a1-73bc5ce5a9cf" xml:space="preserve">
+          <source><bpt id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;linkText&gt;</bpt>Deploying to Web Apps with GitHub using Kudu<ept id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;/linkText&gt;</ept><bpt id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;title&gt;</bpt><ept id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;linkText&gt;</bpt>Deploying to Web Apps with GitHub using Kudu<ept id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;/linkText&gt;</ept><bpt id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;title&gt;</bpt><ept id="67cfacbc-793c-4b77-a8a4-83de0fe57520">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c875d43b-6b77-43bc-b7b8-ea54f7ffecf9" xml:space="preserve">
+          <source>Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.</source>
+          <target state="new">Video by Scott Hanselman and David Ebbo that shows how to deploy a web app directly from GitHub to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="27ae7e07-1ae1-49a7-8473-044051ce1870" xml:space="preserve">
+          <source><bpt id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;linkText&gt;</bpt>Deploy to Azure Button for Web Apps<ept id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;/linkText&gt;</ept><bpt id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;title&gt;</bpt><ept id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;linkText&gt;</bpt>Deploy to Azure Button for Web Apps<ept id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;/linkText&gt;</ept><bpt id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;title&gt;</bpt><ept id="f6d7f1c3-cb8a-4187-a12c-423942a80fa1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1697a9af-e012-4c03-b091-781d6df841c6" xml:space="preserve">
+          <source>Blog about a method for triggering deployment from a Git repository.</source>
+          <target state="new">Blog about a method for triggering deployment from a Git repository.</target>
+        </trans-unit>
+        <trans-unit id="6b91a253-f5cb-408b-8654-6cc2a5321adf" xml:space="preserve">
+          <source><bpt id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;/linkText&gt;</ept><bpt id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;title&gt;</bpt><ept id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;/linkText&gt;</ept><bpt id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;title&gt;</bpt><ept id="567c5e77-f1d1-4044-a9fa-ed2fc8ffde31">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8049af3e-0a16-4b00-a62e-8477df224508" xml:space="preserve">
+          <source>If you use <bpt id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;linkText&gt;</bpt>Mercurial<ept id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;/linkText&gt;</ept><bpt id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;title&gt;</bpt><ept id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;/title&gt;</ept> as your source control system and store your repository in <bpt id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;linkText&gt;</bpt>CodePlex<ept id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;/linkText&gt;</ept><bpt id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;title&gt;</bpt><ept id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;/title&gt;</ept> or <bpt id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;linkText&gt;</bpt>BitBucket<ept id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;/linkText&gt;</ept><bpt id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;title&gt;</bpt><ept id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;/title&gt;</ept>, you can use built-in features in Azure App Service to automatically deploy your content.</source>
+          <target state="new">If you use <bpt id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;linkText&gt;</bpt>Mercurial<ept id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;/linkText&gt;</ept><bpt id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;title&gt;</bpt><ept id="22640ecd-4994-4e60-9d15-179b75a3a233">&lt;/title&gt;</ept> as your source control system and store your repository in <bpt id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;linkText&gt;</bpt>CodePlex<ept id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;/linkText&gt;</ept><bpt id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;title&gt;</bpt><ept id="58be84a6-4433-46f6-bf0e-0bd612f24f4c">&lt;/title&gt;</ept> or <bpt id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;linkText&gt;</bpt>BitBucket<ept id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;/linkText&gt;</ept><bpt id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;title&gt;</bpt><ept id="a392130b-e6b0-46bc-81c3-21fae4ff426f">&lt;/title&gt;</ept>, you can use built-in features in Azure App Service to automatically deploy your content.</target>
+        </trans-unit>
+        <trans-unit id="2a14b4fd-d129-466e-85ce-fa4bb04c6fd1" xml:space="preserve">
+          <source>For information about how to deploy using Mercurial, see the following resources:</source>
+          <target state="new">For information about how to deploy using Mercurial, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="6df66ca1-6da4-4aa1-98d1-57fa7a512130" xml:space="preserve">
+          <source><bpt id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;/linkText&gt;</ept><bpt id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;title&gt;</bpt><ept id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;/linkText&gt;</ept><bpt id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;title&gt;</bpt><ept id="d9e172db-a50c-413a-82bb-821cfb5d3e74">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2e4d93e-6008-476c-8047-7c8329494ea0" xml:space="preserve">
+          <source>Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.</source>
+          <target state="new">Although this tutorial shows how to publish a Git repository, the process for Mercurial repositories hosted in CodePlex or BitBucket is similar.</target>
+        </trans-unit>
+        <trans-unit id="5073f98b-7324-466c-abc8-2f3505bd8fb6" xml:space="preserve">
+          <source><bpt id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;/linkText&gt;</ept><bpt id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;title&gt;</bpt><ept id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;/linkText&gt;</ept><bpt id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;title&gt;</bpt><ept id="1fd26f6f-ea40-4687-bac3-23196b97485e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ee8d9aa-94db-4388-82c3-a8e305b547d9" xml:space="preserve">
+          <source><bpt id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;linkText&gt;</bpt>Dropbox<ept id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;/linkText&gt;</ept><bpt id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;title&gt;</bpt><ept id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;/title&gt;</ept> is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.</source>
+          <target state="new"><bpt id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;linkText&gt;</bpt>Dropbox<ept id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;/linkText&gt;</ept><bpt id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;title&gt;</bpt><ept id="b1c33be8-62da-461f-8767-351ae8148e4a">&lt;/title&gt;</ept> is not a source control system, but if you store your source code in Dropbox you can automate deployment from your Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="4ecc9854-49c2-473a-83e8-dde8da554fcb" xml:space="preserve">
+          <source><bpt id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;linkText&gt;</bpt>Deploy To Web Apps from Dropbox<ept id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;/linkText&gt;</ept><bpt id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;title&gt;</bpt><ept id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;linkText&gt;</bpt>Deploy To Web Apps from Dropbox<ept id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;/linkText&gt;</ept><bpt id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;title&gt;</bpt><ept id="77337203-9905-4452-9aa0-2044f4f853a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60972d8a-d6f4-4a57-98cc-e0107afb67a4" xml:space="preserve">
+          <source>How to use the <bpt id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;linkText&gt;</bpt>Azure Portal<ept id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;/linkText&gt;</ept><bpt id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;title&gt;</bpt><ept id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;/title&gt;</ept> to set up Dropbox deployment.</source>
+          <target state="new">How to use the <bpt id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;linkText&gt;</bpt>Azure Portal<ept id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;/linkText&gt;</ept><bpt id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;title&gt;</bpt><ept id="a07f1f8a-febb-460a-9a11-04aee3b25efc">&lt;/title&gt;</ept> to set up Dropbox deployment.</target>
+        </trans-unit>
+        <trans-unit id="2a592b48-0924-427a-b8fa-5a0262f405ad" xml:space="preserve">
+          <source><bpt id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;linkText&gt;</bpt>Dropbox Deployment to Web Apps<ept id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;/linkText&gt;</ept><bpt id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;title&gt;</bpt><ept id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;linkText&gt;</bpt>Dropbox Deployment to Web Apps<ept id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;/linkText&gt;</ept><bpt id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;title&gt;</bpt><ept id="a7b2407b-e4a7-4429-9090-111c358c1d2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="885b042b-f4ac-463c-83c1-bbaa08b10dba" xml:space="preserve">
+          <source>This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.</source>
+          <target state="new">This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.</target>
+        </trans-unit>
+        <trans-unit id="bec7f4b9-5d68-4d70-9eef-e53d4a2e0c63" xml:space="preserve">
+          <source><bpt id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;/linkText&gt;</ept><bpt id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;title&gt;</bpt><ept id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;/linkText&gt;</ept><bpt id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;title&gt;</bpt><ept id="7a047300-4714-423a-9918-08df4c4f5e41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87110aba-7432-42c4-ad64-eb5daa1c2cb0" xml:space="preserve">
+          <source>For information about how to deploy to Web Apps from Visual Studio, see the following resources:</source>
+          <target state="new">For information about how to deploy to Web Apps from Visual Studio, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="619ff1f3-f0c6-4860-9f48-a9d2b6bba401" xml:space="preserve">
+          <source><bpt id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;linkText&gt;</bpt>Get started with Azure and ASP.NET<ept id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;/linkText&gt;</ept><bpt id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;title&gt;</bpt><ept id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;linkText&gt;</bpt>Get started with Azure and ASP.NET<ept id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;/linkText&gt;</ept><bpt id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;title&gt;</bpt><ept id="8efb188d-8827-4116-af4c-87367b2ac9e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2409339-d538-415b-85b0-84d691efc1ae" xml:space="preserve">
+          <source>How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.</source>
+          <target state="new">How to create and deploy a simple ASP.NET MVC web project by using Visual Studio and Web Deploy.</target>
+        </trans-unit>
+        <trans-unit id="931d0a69-ead8-4097-9034-beb93e7b926b" xml:space="preserve">
+          <source><bpt id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs using Visual Studio<ept id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;/linkText&gt;</ept><bpt id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;title&gt;</bpt><ept id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs using Visual Studio<ept id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;/linkText&gt;</ept><bpt id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;title&gt;</bpt><ept id="77de6b9e-91c7-414d-84d8-903366c588a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b035d813-1b11-45f5-bf9b-cf4303006b5f" xml:space="preserve">
+          <source>How to configure Console Application projects so that they deploy as WebJobs.</source>
+          <target state="new">How to configure Console Application projects so that they deploy as WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="5b74b039-d6a4-40f8-83c5-f04bc107ddaa" xml:space="preserve">
+          <source><bpt id="16226895-e2bd-43dc-919c-98164d944090">&lt;linkText&gt;</bpt>Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web Apps<ept id="16226895-e2bd-43dc-919c-98164d944090">&lt;/linkText&gt;</ept><bpt id="16226895-e2bd-43dc-919c-98164d944090">&lt;title&gt;</bpt><ept id="16226895-e2bd-43dc-919c-98164d944090">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="16226895-e2bd-43dc-919c-98164d944090">&lt;linkText&gt;</bpt>Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to Web Apps<ept id="16226895-e2bd-43dc-919c-98164d944090">&lt;/linkText&gt;</ept><bpt id="16226895-e2bd-43dc-919c-98164d944090">&lt;title&gt;</bpt><ept id="16226895-e2bd-43dc-919c-98164d944090">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2df463e7-d407-45cd-906e-d18dfc0dff73" xml:space="preserve">
+          <source>How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.</source>
+          <target state="new">How to create and deploy an ASP.NET MVC web project with a SQL database, by using Visual Studio, Web Deploy, and Entity Framework Code First Migrations.</target>
+        </trans-unit>
+        <trans-unit id="4ff708de-0615-4e3b-80a3-de336f8ed45b" xml:space="preserve">
+          <source><bpt id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;linkText&gt;</bpt>Web Deployment Overview for Visual Studio and ASP.NET<ept id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;/linkText&gt;</ept><bpt id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;title&gt;</bpt><ept id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;linkText&gt;</bpt>Web Deployment Overview for Visual Studio and ASP.NET<ept id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;/linkText&gt;</ept><bpt id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;title&gt;</bpt><ept id="0e47bc41-4bd1-4953-98b4-5aabd717d725">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="657806a6-d5cc-4b52-9f26-d36750a07376" xml:space="preserve">
+          <source>A basic introduction to web deployment using Visual Studio.</source>
+          <target state="new">A basic introduction to web deployment using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="ce5083d8-212e-4bba-899b-6e577121a329" xml:space="preserve">
+          <source>Dated but includes information that is still relevant, including an overview of options for deploying a database along with the web application and a list of additional deployment tasks you might have to do or manually configure Visual Studio to do for you.</source>
+          <target state="new">Dated but includes information that is still relevant, including an overview of options for deploying a database along with the web application and a list of additional deployment tasks you might have to do or manually configure Visual Studio to do for you.</target>
+        </trans-unit>
+        <trans-unit id="56c14e61-f6ce-45fc-9e1d-3f4a098d7b87" xml:space="preserve">
+          <source>This topic is about deployment in general, not just about deployment to Web Apps.</source>
+          <target state="new">This topic is about deployment in general, not just about deployment to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="eb8354d2-3bc9-41db-9ae2-68f679284fb7" xml:space="preserve">
+          <source><bpt id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio<ept id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;/linkText&gt;</ept><bpt id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;title&gt;</bpt><ept id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio<ept id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;/linkText&gt;</ept><bpt id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;title&gt;</bpt><ept id="7d75ce72-b7cd-44e7-bb8f-2c8b72eff3e1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddef52ff-8976-4ae4-8a08-20eb247d165d" xml:space="preserve">
+          <source>A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list.</source>
+          <target state="new">A 12-part tutorial series that covers a more complete range of deployment tasks than the others in this list.</target>
+        </trans-unit>
+        <trans-unit id="399bd1ed-e834-4880-a86f-a40b41367aa5" xml:space="preserve">
+          <source>Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.</source>
+          <target state="new">Some Azure deployment features have been added since the tutorial was written, but notes added later explain what's missing.</target>
+        </trans-unit>
+        <trans-unit id="d97a17c7-637c-4663-82dc-579564a0c07a" xml:space="preserve">
+          <source><bpt id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;linkText&gt;</bpt>Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly<ept id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;/linkText&gt;</ept><bpt id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;title&gt;</bpt><ept id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;linkText&gt;</bpt>Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly<ept id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;/linkText&gt;</ept><bpt id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;title&gt;</bpt><ept id="804c55f2-6495-4a8f-8e7a-739d6924a313">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5facf172-0fa7-4356-b280-65fa65b11dc2" xml:space="preserve">
+          <source>Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository.</source>
+          <target state="new">Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to the Git repository.</target>
+        </trans-unit>
+        <trans-unit id="d9a75be1-4906-4320-8fe1-e4cbb329d1c5" xml:space="preserve">
+          <source>Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.</source>
+          <target state="new">Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.</target>
+        </trans-unit>
+        <trans-unit id="aa877dda-80dc-48c7-a78a-d86ed09f48de" xml:space="preserve">
+          <source>For information about how to deploy to Web Apps from WebMatrix, see the following resources:</source>
+          <target state="new">For information about how to deploy to Web Apps from WebMatrix, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="73070ebc-d3ad-41a6-b589-e557529ca91d" xml:space="preserve">
+          <source><bpt id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;linkText&gt;</bpt>Build and deploy a Node.js web site to Azure using WebMatrix<ept id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;/linkText&gt;</ept><bpt id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;title&gt;</bpt><ept id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;linkText&gt;</bpt>Build and deploy a Node.js web site to Azure using WebMatrix<ept id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;/linkText&gt;</ept><bpt id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;title&gt;</bpt><ept id="02cafba6-b457-468d-9ee4-4e510a672dd0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc070426-d1c4-4ede-991c-5ec00fb9b2e1" xml:space="preserve">
+          <source><bpt id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;linkText&gt;</bpt>Create and deploy a PHP-MySQL web app using WebMatrix<ept id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;/linkText&gt;</ept><bpt id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;title&gt;</bpt><ept id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;linkText&gt;</bpt>Create and deploy a PHP-MySQL web app using WebMatrix<ept id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;/linkText&gt;</ept><bpt id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;title&gt;</bpt><ept id="1087ba49-7249-46b3-b275-b13758b3ec56">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="975e176f-fdf8-40d0-93f8-e70b4f5cb3a9" xml:space="preserve">
+          <source><bpt id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;linkText&gt;</bpt>WebMatrix 3: Integrated Git and Deployment to Azure<ept id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;/linkText&gt;</ept><bpt id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;title&gt;</bpt><ept id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;linkText&gt;</bpt>WebMatrix 3: Integrated Git and Deployment to Azure<ept id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;/linkText&gt;</ept><bpt id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;title&gt;</bpt><ept id="54aa3d59-7155-4d6b-b798-06be0fddc832">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86dc9b73-c244-44f2-9b24-109d50706095" xml:space="preserve">
+          <source>How to use WebMatrix to deploy from a Git source control repository.</source>
+          <target state="new">How to use WebMatrix to deploy from a Git source control repository.</target>
+        </trans-unit>
+        <trans-unit id="ddc8c6bc-2751-4981-8fa8-50da3fb7833c" xml:space="preserve">
+          <source>For more information, see the following resources:</source>
+          <target state="new">For more information, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="5ead3fa5-6251-4c5a-8461-3ea264e20116" xml:space="preserve">
+          <source><bpt id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;linkText&gt;</bpt>Create a PHP-MySQL web app and deploy using FTP<ept id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;/linkText&gt;</ept><bpt id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;title&gt;</bpt><ept id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;linkText&gt;</bpt>Create a PHP-MySQL web app and deploy using FTP<ept id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;/linkText&gt;</ept><bpt id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;title&gt;</bpt><ept id="54380305-5a3f-4b01-95aa-33d618afd6ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe1bc8bc-33c9-40b2-8131-eaeffb4e9bdf" xml:space="preserve">
+          <source>Team Foundation Server is Microsoft's on-premises solution for source control and team collaboration.</source>
+          <target state="new">Team Foundation Server is Microsoft's on-premises solution for source control and team collaboration.</target>
+        </trans-unit>
+        <trans-unit id="0200ab90-5936-4d7e-b395-54be5fefcabd" xml:space="preserve">
+          <source>You can set up TFS to do continuous delivery to a web app.</source>
+          <target state="new">You can set up TFS to do continuous delivery to a web app.</target>
+        </trans-unit>
+        <trans-unit id="e401cfe6-6fcc-4124-8b50-9a9a21fab216" xml:space="preserve">
+          <source>For more information, see the following resource:</source>
+          <target state="new">For more information, see the following resource:</target>
+        </trans-unit>
+        <trans-unit id="66a97789-b082-4d6e-b423-deb63a169b07" xml:space="preserve">
+          <source><bpt id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;linkText&gt;</bpt>Continuous Delivery for Cloud Services in Azure<ept id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;/linkText&gt;</ept><bpt id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;title&gt;</bpt><ept id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;linkText&gt;</bpt>Continuous Delivery for Cloud Services in Azure<ept id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;/linkText&gt;</ept><bpt id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;title&gt;</bpt><ept id="68fdf96e-a819-47bc-9d9b-6f877712a49b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="926c6545-0226-4c0a-a4fc-db607b7727bd" xml:space="preserve">
+          <source>This document is for an Azure Cloud Service, but some of its content is relevant to Web Apps.</source>
+          <target state="new">This document is for an Azure Cloud Service, but some of its content is relevant to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="e522319e-140a-460c-8652-7da7ea8e9d69" xml:space="preserve">
+          <source>In Azure you can enter the URL of any repository that uses Git or Mercurial in order to deploy from that location.</source>
+          <target state="new">In Azure you can enter the URL of any repository that uses Git or Mercurial in order to deploy from that location.</target>
+        </trans-unit>
+        <trans-unit id="742f534b-1347-4dad-8f69-eea38a35bbca" xml:space="preserve">
+          <source>You can also directly push from a local Git repository to a web app.</source>
+          <target state="new">You can also directly push from a local Git repository to a web app.</target>
+        </trans-unit>
+        <trans-unit id="736b1ec7-b8cc-47c0-b20e-3322db517443" xml:space="preserve">
+          <source>For more information, see the following resources:</source>
+          <target state="new">For more information, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="0f1623a2-f725-4cdc-a98d-6095ae51dfd1" xml:space="preserve">
+          <source><bpt id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;/linkText&gt;</ept><bpt id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;title&gt;</bpt><ept id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;linkText&gt;</bpt>Publishing from Source Control to Web Apps with Git<ept id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;/linkText&gt;</ept><bpt id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;title&gt;</bpt><ept id="4cc8a05f-b2aa-4414-9767-50507dba22e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfd00d1f-56cf-4633-922e-18667b940623" xml:space="preserve">
+          <source>How to use Git to publish directly from your local computer to a web app (in Azure, this method of publishing is called Local Git).</source>
+          <target state="new">How to use Git to publish directly from your local computer to a web app (in Azure, this method of publishing is called Local Git).</target>
+        </trans-unit>
+        <trans-unit id="18d1241f-6bec-405d-aa49-ece53de01613" xml:space="preserve">
+          <source>Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.</source>
+          <target state="new">Also shows how to enable continuous deployment of Git repositories from GitHub, CodePlex, or BitBucket.</target>
+        </trans-unit>
+        <trans-unit id="706cab8d-c6be-43df-baa2-b3d1de8eb49c" xml:space="preserve">
+          <source><bpt id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;linkText&gt;</bpt>Publishing to Web Apps from any git/hg repo<ept id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;/linkText&gt;</ept><bpt id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;title&gt;</bpt><ept id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;linkText&gt;</bpt>Publishing to Web Apps from any git/hg repo<ept id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;/linkText&gt;</ept><bpt id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;title&gt;</bpt><ept id="fab1d031-2cbb-482f-aa5d-9533df9b0d3d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="077261e7-d516-4803-be1a-511a8e494ade" xml:space="preserve">
+          <source>Blog that explains the "External Repository" feature in Web Apps.</source>
+          <target state="new">Blog that explains the "External Repository" feature in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="e41017e4-2bf2-4b35-b573-af2f225ccec2" xml:space="preserve">
+          <source><bpt id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;/linkText&gt;</ept><bpt id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;title&gt;</bpt><ept id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;linkText&gt;</bpt>Azure Forum for Git, Mercurial, and Dropbox<ept id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;/linkText&gt;</ept><bpt id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;title&gt;</bpt><ept id="a63c8638-5eb8-46db-bd49-046b0fb811ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38960664-7ca5-4cd7-81f9-981900e3d197" xml:space="preserve">
+          <source><bpt id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;linkText&gt;</bpt>Deploying TWO websites to Azure from one Git Repository<ept id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;/linkText&gt;</ept><bpt id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;title&gt;</bpt><ept id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;linkText&gt;</bpt>Deploying TWO websites to Azure from one Git Repository<ept id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;/linkText&gt;</ept><bpt id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;title&gt;</bpt><ept id="474b147f-5476-46d8-b7b2-5a13cb815755">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d4ea952-2d76-4d27-b600-004e25eccb4c" xml:space="preserve">
+          <source>Blog post by Scott Hanselman.</source>
+          <target state="new">Blog post by Scott Hanselman.</target>
+        </trans-unit>
+        <trans-unit id="15910694-3224-4555-82f9-217c4b450a96" xml:space="preserve">
+          <source>If you use the <bpt id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;linkText&gt;</bpt>Visual Studio IDE<ept id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;/linkText&gt;</ept><bpt id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;title&gt;</bpt><ept id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;/title&gt;</ept> for development, you can use <bpt id="0464e999-9132-46fb-be7d-46167551d964">&lt;linkText&gt;</bpt>MSBuild<ept id="0464e999-9132-46fb-be7d-46167551d964">&lt;/linkText&gt;</ept><bpt id="0464e999-9132-46fb-be7d-46167551d964">&lt;title&gt;</bpt><ept id="0464e999-9132-46fb-be7d-46167551d964">&lt;/title&gt;</ept> to automate anything you can do in your IDE.</source>
+          <target state="new">If you use the <bpt id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;linkText&gt;</bpt>Visual Studio IDE<ept id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;/linkText&gt;</ept><bpt id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;title&gt;</bpt><ept id="4a8604c4-8239-4148-be8b-0fef23cab9d7">&lt;/title&gt;</ept> for development, you can use <bpt id="0464e999-9132-46fb-be7d-46167551d964">&lt;linkText&gt;</bpt>MSBuild<ept id="0464e999-9132-46fb-be7d-46167551d964">&lt;/linkText&gt;</ept><bpt id="0464e999-9132-46fb-be7d-46167551d964">&lt;title&gt;</bpt><ept id="0464e999-9132-46fb-be7d-46167551d964">&lt;/title&gt;</ept> to automate anything you can do in your IDE.</target>
+        </trans-unit>
+        <trans-unit id="32a633fa-fbff-4b6a-a612-ed4b51da037c" xml:space="preserve">
+          <source>You can configure MSBuild to use either <bpt id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;linkText&gt;</bpt>Web Deploy<ept id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;/linkText&gt;</ept><bpt id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;title&gt;</bpt><ept id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;/title&gt;</ept> or <bpt id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;linkText&gt;</bpt>FTP/FTPS<ept id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;/linkText&gt;</ept><bpt id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;title&gt;</bpt><ept id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;/title&gt;</ept> to copy files.</source>
+          <target state="new">You can configure MSBuild to use either <bpt id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;linkText&gt;</bpt>Web Deploy<ept id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;/linkText&gt;</ept><bpt id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;title&gt;</bpt><ept id="221e3426-31fe-418d-b134-5e460081bbf4">&lt;/title&gt;</ept> or <bpt id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;linkText&gt;</bpt>FTP/FTPS<ept id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;/linkText&gt;</ept><bpt id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;title&gt;</bpt><ept id="97a58575-9e08-495b-b24f-1035d3aa246e">&lt;/title&gt;</ept> to copy files.</target>
+        </trans-unit>
+        <trans-unit id="bbfa5318-8fa2-442f-86ea-1eb5c1dbfb89" xml:space="preserve">
+          <source>Web Deploy can also automate many other deployment-related tasks, such as deploying databases.</source>
+          <target state="new">Web Deploy can also automate many other deployment-related tasks, such as deploying databases.</target>
+        </trans-unit>
+        <trans-unit id="6cf3071b-2775-469b-a828-b9573a29c3ee" xml:space="preserve">
+          <source>For more information about command-line deployment using MSBuild, see the following resources:</source>
+          <target state="new">For more information about command-line deployment using MSBuild, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="1068cc7c-ab8b-4ce4-8708-9c4fbd736878" xml:space="preserve">
+          <source><bpt id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio: Command Line Deployment<ept id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;/linkText&gt;</ept><bpt id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;title&gt;</bpt><ept id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio: Command Line Deployment<ept id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;/linkText&gt;</ept><bpt id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;title&gt;</bpt><ept id="6997091b-3e73-4129-afaf-0b27b38df7f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6317e584-1dc6-4778-8af1-c09267637bbc" xml:space="preserve">
+          <source>Tenth in a series of tutorials about deployment to Azure using Visual Studio.</source>
+          <target state="new">Tenth in a series of tutorials about deployment to Azure using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="b6c2b618-043e-4326-8b5a-df609921bce3" xml:space="preserve">
+          <source>Shows how to use the command line to deploy after setting up publish profiles in Visual Studio.</source>
+          <target state="new">Shows how to use the command line to deploy after setting up publish profiles in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="327c25db-3a3b-4afe-bb1e-b464ad9fe823" xml:space="preserve">
+          <source><bpt id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;linkText&gt;</bpt>Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build<ept id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;/linkText&gt;</ept><bpt id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;title&gt;</bpt><ept id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;linkText&gt;</bpt>Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build<ept id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;/linkText&gt;</ept><bpt id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;title&gt;</bpt><ept id="e2f67116-da3e-45fc-9478-efac5654bddc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73e17377-ecab-4c40-b91b-4c7b71e00a96" xml:space="preserve">
+          <source>Hard-copy book that includes chapters on how to use MSBuild for deployment.</source>
+          <target state="new">Hard-copy book that includes chapters on how to use MSBuild for deployment.</target>
+        </trans-unit>
+        <trans-unit id="2cc6e7c6-413b-43a5-a2c1-b9b6f580554d" xml:space="preserve">
+          <source>It's easy to create [FTP/FTPS](http://en.wikipedia.org/wiki/File<bpt id="3c9b4c11-f734-44f5-9409-56f56c03289d">&lt;em&gt;</bpt>Transfer<ept id="3c9b4c11-f734-44f5-9409-56f56c03289d">&lt;/em&gt;</ept>Protocol) credentials for a web app, and you can then use those credentials with FTP batch scripts.</source>
+          <target state="new">It's easy to create [FTP/FTPS](http://en.wikipedia.org/wiki/File<bpt id="3c9b4c11-f734-44f5-9409-56f56c03289d">&lt;em&gt;</bpt>Transfer<ept id="3c9b4c11-f734-44f5-9409-56f56c03289d">&lt;/em&gt;</ept>Protocol) credentials for a web app, and you can then use those credentials with FTP batch scripts.</target>
+        </trans-unit>
+        <trans-unit id="46d64b1e-740e-4a4f-a062-0639826263c4" xml:space="preserve">
+          <source>For more information, see the following resource:</source>
+          <target state="new">For more information, see the following resource:</target>
+        </trans-unit>
+        <trans-unit id="f23a4d6e-c337-476f-8e25-6b9f186de808" xml:space="preserve">
+          <source><bpt id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;linkText&gt;</bpt>Using FTP Batch Scripts<ept id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;/linkText&gt;</ept><bpt id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;title&gt;</bpt><ept id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;linkText&gt;</bpt>Using FTP Batch Scripts<ept id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;/linkText&gt;</ept><bpt id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;title&gt;</bpt><ept id="4266bddf-ad11-4d64-88b4-a3408a548985">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9b3fc08-fbe7-417e-bb31-bfcdda164651" xml:space="preserve">
+          <source>You can perform MSBuild or FTP deployment functions from <bpt id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;/linkText&gt;</ept><bpt id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;title&gt;</bpt><ept id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can perform MSBuild or FTP deployment functions from <bpt id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;linkText&gt;</bpt>Windows PowerShell<ept id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;/linkText&gt;</ept><bpt id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;title&gt;</bpt><ept id="665ed03c-aad6-45ed-bede-aaa1d380ea34">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fac417d-e8a4-41be-a921-3ab00558f062" xml:space="preserve">
+          <source>If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.</source>
+          <target state="new">If you do that, you can also use a collection of Windows PowerShell cmdlets that make the Azure REST management API easy to call.</target>
+        </trans-unit>
+        <trans-unit id="b0c3f86c-ee2a-42a5-8527-47132d72dab2" xml:space="preserve">
+          <source>For more information, see the following resources:</source>
+          <target state="new">For more information, see the following resources:</target>
+        </trans-unit>
+        <trans-unit id="c5ff0333-4c55-44da-94ef-81f6df894f3b" xml:space="preserve">
+          <source><bpt id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;linkText&gt;</bpt>Deploy a web app linked to a GitHub repository<ept id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;/linkText&gt;</ept><bpt id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;title&gt;</bpt><ept id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;linkText&gt;</bpt>Deploy a web app linked to a GitHub repository<ept id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;/linkText&gt;</ept><bpt id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;title&gt;</bpt><ept id="df6ca3e2-88d0-4134-bcae-32100031cc06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3644a182-6353-4e4e-aa75-46798577f095" xml:space="preserve">
+          <source><bpt id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;linkText&gt;</bpt>Provision a web app with a SQL Database<ept id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;/linkText&gt;</ept><bpt id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;title&gt;</bpt><ept id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;linkText&gt;</bpt>Provision a web app with a SQL Database<ept id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;/linkText&gt;</ept><bpt id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;title&gt;</bpt><ept id="61a39e94-6f39-4de9-8854-abb1f79a28cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f943233-3f00-4146-80a3-0d5dc093a310" xml:space="preserve">
+          <source><bpt id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;linkText&gt;</bpt>Provision and deploy microservices predictably in Azure<ept id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;/linkText&gt;</ept><bpt id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;title&gt;</bpt><ept id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;linkText&gt;</bpt>Provision and deploy microservices predictably in Azure<ept id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;/linkText&gt;</ept><bpt id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;title&gt;</bpt><ept id="8e701333-7f5f-4a7b-91ab-d1bea84f2061">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29e39aeb-a9bd-4244-9ba9-065b0d8fbcc9" xml:space="preserve">
+          <source><bpt id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;linkText&gt;</bpt>Building Real-World Cloud Apps with Azure - Automate Everything<ept id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;/linkText&gt;</ept><bpt id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;title&gt;</bpt><ept id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;linkText&gt;</bpt>Building Real-World Cloud Apps with Azure - Automate Everything<ept id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;/linkText&gt;</ept><bpt id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;title&gt;</bpt><ept id="8ff50579-e251-4856-84e4-7586651faf8f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a6afd25-5c76-472b-9963-be1d5af1b095" xml:space="preserve">
+          <source>E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it.</source>
+          <target state="new">E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it.</target>
+        </trans-unit>
+        <trans-unit id="f92b76d1-c0fd-4603-b58f-27aa65508ff2" xml:space="preserve">
+          <source>See the <bpt id="5b003648-1887-489e-8945-c23533f84bab">&lt;linkText&gt;</bpt>Resources<ept id="5b003648-1887-489e-8945-c23533f84bab">&lt;/linkText&gt;</ept><bpt id="5b003648-1887-489e-8945-c23533f84bab">&lt;title&gt;</bpt><ept id="5b003648-1887-489e-8945-c23533f84bab">&lt;/title&gt;</ept> section for links to additional Azure PowerShell documentation.</source>
+          <target state="new">See the <bpt id="5b003648-1887-489e-8945-c23533f84bab">&lt;linkText&gt;</bpt>Resources<ept id="5b003648-1887-489e-8945-c23533f84bab">&lt;/linkText&gt;</ept><bpt id="5b003648-1887-489e-8945-c23533f84bab">&lt;title&gt;</bpt><ept id="5b003648-1887-489e-8945-c23533f84bab">&lt;/title&gt;</ept> section for links to additional Azure PowerShell documentation.</target>
+        </trans-unit>
+        <trans-unit id="c7fdd8f3-71fb-4d30-98a1-8da099e1db70" xml:space="preserve">
+          <source><bpt id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;linkText&gt;</bpt>Using Windows PowerShell Scripts to Publish to Dev and Test Environments<ept id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;/linkText&gt;</ept><bpt id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;title&gt;</bpt><ept id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;linkText&gt;</bpt>Using Windows PowerShell Scripts to Publish to Dev and Test Environments<ept id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;/linkText&gt;</ept><bpt id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;title&gt;</bpt><ept id="10a55bee-0dcb-4cee-b79c-67dd475e14e6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b221922-c000-4c99-bf29-2c2c239bc95f" xml:space="preserve">
+          <source>How to use Windows PowerShell deployment scripts that Visual Studio generates.</source>
+          <target state="new">How to use Windows PowerShell deployment scripts that Visual Studio generates.</target>
+        </trans-unit>
+        <trans-unit id="c758ba3f-7d68-4c6f-ad26-fd99130336c4" xml:space="preserve">
+          <source>You can write C# code to perform MSBuild or FTP functions for deployment.</source>
+          <target state="new">You can write C# code to perform MSBuild or FTP functions for deployment.</target>
+        </trans-unit>
+        <trans-unit id="756bc259-566d-4524-8728-97dc827779aa" xml:space="preserve">
+          <source>If you do that, you can access the Azure management REST API to perform site management functions.</source>
+          <target state="new">If you do that, you can access the Azure management REST API to perform site management functions.</target>
+        </trans-unit>
+        <trans-unit id="553be290-9235-4d9d-a607-3e8fe6b5b944" xml:space="preserve">
+          <source>For more information, see the following resource:</source>
+          <target state="new">For more information, see the following resource:</target>
+        </trans-unit>
+        <trans-unit id="c77d6621-e84d-4f9f-bc4b-7c544ee0dbfe" xml:space="preserve">
+          <source><bpt id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;linkText&gt;</bpt>Automating everything with the Azure Management Libraries and .NET<ept id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;/linkText&gt;</ept><bpt id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;title&gt;</bpt><ept id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;linkText&gt;</bpt>Automating everything with the Azure Management Libraries and .NET<ept id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;/linkText&gt;</ept><bpt id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;title&gt;</bpt><ept id="bc5f5a55-45bc-4a12-b0c2-33b77bf2ecad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57716575-902c-4f3a-bcd5-5a608581971b" xml:space="preserve">
+          <source>Introduction to the .NET management API and links to more documentation.</source>
+          <target state="new">Introduction to the .NET management API and links to more documentation.</target>
+        </trans-unit>
+        <trans-unit id="f9146d3d-f92b-42fb-9275-c18d4a117009" xml:space="preserve">
+          <source>You can use the command line in Windows, Mac or Linux machines to deploy by using FTP.</source>
+          <target state="new">You can use the command line in Windows, Mac or Linux machines to deploy by using FTP.</target>
+        </trans-unit>
+        <trans-unit id="7a79a7eb-e0ad-41a0-a1d9-81d29b571ab1" xml:space="preserve">
+          <source>If you do that, you can also access the Azure REST management API using the Azure CLI.</source>
+          <target state="new">If you do that, you can also access the Azure REST management API using the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="cfc6a6a5-b95d-438e-93f6-1b824d4272d3" xml:space="preserve">
+          <source>For more information, see the following resource:</source>
+          <target state="new">For more information, see the following resource:</target>
+        </trans-unit>
+        <trans-unit id="88bf936d-894d-4ff4-b859-d327867797e0" xml:space="preserve">
+          <source><bpt id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;linkText&gt;</bpt>Azure Command line tools<ept id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;/linkText&gt;</ept><bpt id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;title&gt;</bpt><ept id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;linkText&gt;</bpt>Azure Command line tools<ept id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;/linkText&gt;</ept><bpt id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;title&gt;</bpt><ept id="2a04578a-d8c7-46d0-a048-16fca06a54a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ecc398-ae00-46de-b6b4-53b2414bbb2c" xml:space="preserve">
+          <source>Portal page in Azure.com for command line tool information.</source>
+          <target state="new">Portal page in Azure.com for command line tool information.</target>
+        </trans-unit>
+        <trans-unit id="07c495c7-7d03-433d-b820-b6d382363e56" xml:space="preserve">
+          <source><bpt id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;linkText&gt;</bpt>Web Deploy<ept id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;/linkText&gt;</ept><bpt id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;title&gt;</bpt><ept id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;/title&gt;</ept> is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP.</source>
+          <target state="new"><bpt id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;linkText&gt;</bpt>Web Deploy<ept id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;/linkText&gt;</ept><bpt id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;title&gt;</bpt><ept id="73be3ed1-40c5-449f-b890-c64ed56e291a">&lt;/title&gt;</ept> is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP.</target>
+        </trans-unit>
+        <trans-unit id="61a0eb1a-d619-471c-a896-23d3ab9f60c4" xml:space="preserve">
+          <source>For example, Web Deploy can deploy a new database or database updates along with your web app.</source>
+          <target state="new">For example, Web Deploy can deploy a new database or database updates along with your web app.</target>
+        </trans-unit>
+        <trans-unit id="64ca78f4-a3ba-4a24-ab35-fcdadf469118" xml:space="preserve">
+          <source>Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files.</source>
+          <target state="new">Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files.</target>
+        </trans-unit>
+        <trans-unit id="c3f5f895-eba2-454e-aea4-5bf154ef5eed" xml:space="preserve">
+          <source>Microsoft WebMatrix, Visual Studio, Visual Studio Online, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment.</source>
+          <target state="new">Microsoft WebMatrix, Visual Studio, Visual Studio Online, and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment.</target>
+        </trans-unit>
+        <trans-unit id="10d3c24c-29d0-4021-aa25-22d6c99f9a84" xml:space="preserve">
+          <source>Web Deploy commands are very powerful but the learning curve can be steep.</source>
+          <target state="new">Web Deploy commands are very powerful but the learning curve can be steep.</target>
+        </trans-unit>
+        <trans-unit id="d20755db-91f3-4271-94e9-84a37cd56d6c" xml:space="preserve">
+          <source>For more information, see the following resource:</source>
+          <target state="new">For more information, see the following resource:</target>
+        </trans-unit>
+        <trans-unit id="ee2fdf1e-febc-42e1-990c-b0485862e116" xml:space="preserve">
+          <source><bpt id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;linkText&gt;</bpt>Simple Web Apps: Deployment<ept id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;/linkText&gt;</ept><bpt id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;title&gt;</bpt><ept id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;linkText&gt;</bpt>Simple Web Apps: Deployment<ept id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;/linkText&gt;</ept><bpt id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;title&gt;</bpt><ept id="b8402360-cae9-425d-a9a9-d1d92c18010b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e05a7f9-4b02-43eb-96ab-1d478492480e" xml:space="preserve">
+          <source>Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.</source>
+          <target state="new">Blog by David Ebbo about a tool he wrote to make it easier to use Web Deploy.</target>
+        </trans-unit>
+        <trans-unit id="8e3c7393-f2be-4d76-9d0e-e716b55690fe" xml:space="preserve">
+          <source><bpt id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;linkText&gt;</bpt>Web Deployment Tool<ept id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;/linkText&gt;</ept><bpt id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;title&gt;</bpt><ept id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;linkText&gt;</bpt>Web Deployment Tool<ept id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;/linkText&gt;</ept><bpt id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;title&gt;</bpt><ept id="68994d3e-4550-495c-affc-d3ec4b79bac2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f21aff82-5db3-44a7-8927-0e3264592be2" xml:space="preserve">
+          <source>Official documentation on the Microsoft TechNet site.</source>
+          <target state="new">Official documentation on the Microsoft TechNet site.</target>
+        </trans-unit>
+        <trans-unit id="33534a38-4982-4c9e-afde-e7f1735f0309" xml:space="preserve">
+          <source>Dated but still a good place to start.</source>
+          <target state="new">Dated but still a good place to start.</target>
+        </trans-unit>
+        <trans-unit id="e4009ca6-046b-42f9-96e3-eb40e28f1239" xml:space="preserve">
+          <source><bpt id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;linkText&gt;</bpt>Using Web Deploy<ept id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;/linkText&gt;</ept><bpt id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;title&gt;</bpt><ept id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;linkText&gt;</bpt>Using Web Deploy<ept id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;/linkText&gt;</ept><bpt id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;title&gt;</bpt><ept id="81f34229-1b49-4341-8262-1c3314d76f3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4940b485-2058-4f32-a82d-b8730b900b4b" xml:space="preserve">
+          <source>Official documentation on the Microsoft IIS.NET site.</source>
+          <target state="new">Official documentation on the Microsoft IIS.NET site.</target>
+        </trans-unit>
+        <trans-unit id="a50586df-3960-4307-b280-ae2ad9c45f64" xml:space="preserve">
+          <source>Also dated but a good place to start.</source>
+          <target state="new">Also dated but a good place to start.</target>
+        </trans-unit>
+        <trans-unit id="c0d2c4e6-7c7e-4350-bef2-c1d9d0147d53" xml:space="preserve">
+          <source><bpt id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;linkText&gt;</bpt>StackOverflow<ept id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;/linkText&gt;</ept><bpt id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;title&gt;</bpt><ept id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;linkText&gt;</bpt>StackOverflow<ept id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;/linkText&gt;</ept><bpt id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;title&gt;</bpt><ept id="76d12e99-0d6e-4400-80d0-9fadc7ab16e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34e331ab-ac0d-48dd-8e7a-28d2759cad17" xml:space="preserve">
+          <source>The best place to go for more current information about how to use Web Deploy from the command line.</source>
+          <target state="new">The best place to go for more current information about how to use Web Deploy from the command line.</target>
+        </trans-unit>
+        <trans-unit id="a3bf36f6-b244-4cd2-8906-c1e90f04f3b8" xml:space="preserve">
+          <source><bpt id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio: Command Line Deployment<ept id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;/linkText&gt;</ept><bpt id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;title&gt;</bpt><ept id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;linkText&gt;</bpt>ASP.NET Web Deployment using Visual Studio: Command Line Deployment<ept id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;/linkText&gt;</ept><bpt id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;title&gt;</bpt><ept id="32b0a5b0-848d-4124-9fb5-02dd5350ec94">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f33982a9-c09b-4c92-b753-5f808d6b5391" xml:space="preserve">
+          <source>MSBuild is the build engine used by Visual Studio, and it can also be used from the command line to deploy web applications to Web Apps.</source>
+          <target state="new">MSBuild is the build engine used by Visual Studio, and it can also be used from the command line to deploy web applications to Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="ae330e6b-e58b-4c0e-bae3-4e425445ae66" xml:space="preserve">
+          <source>This tutorial is part of a series that is mainly about Visual Studio deployment.</source>
+          <target state="new">This tutorial is part of a series that is mainly about Visual Studio deployment.</target>
+        </trans-unit>
+        <trans-unit id="48254b32-f971-4647-85fb-dd0c0003d279" xml:space="preserve">
+          <source>In some scenarios you might want to be able to easily switch back and forth between a staging and a production version of your web app.</source>
+          <target state="new">In some scenarios you might want to be able to easily switch back and forth between a staging and a production version of your web app.</target>
+        </trans-unit>
+        <trans-unit id="5894acc1-d55c-49fa-8e95-b2989ab005c4" xml:space="preserve">
+          <source>For more information, see <bpt id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;linkText&gt;</bpt>Staged Deployment on Web Apps<ept id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;/linkText&gt;</ept><bpt id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;title&gt;</bpt><ept id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;linkText&gt;</bpt>Staged Deployment on Web Apps<ept id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;/linkText&gt;</ept><bpt id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;title&gt;</bpt><ept id="24c87edc-4c64-467a-b1a7-592f2ee53052">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebdef4d0-a16c-47ed-9d28-51a7b00a6b33" xml:space="preserve">
+          <source>Having a backup and restore plan in place is an important part of any deployment workflow.</source>
+          <target state="new">Having a backup and restore plan in place is an important part of any deployment workflow.</target>
+        </trans-unit>
+        <trans-unit id="95428fbf-69c5-4f8b-acbd-0881f55d55c9" xml:space="preserve">
+          <source>For information about the Web Apps backup and restore feature, see <bpt id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;linkText&gt;</bpt>Web Apps Backups<ept id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;/linkText&gt;</ept><bpt id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;title&gt;</bpt><ept id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the Web Apps backup and restore feature, see <bpt id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;linkText&gt;</bpt>Web Apps Backups<ept id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;/linkText&gt;</ept><bpt id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;title&gt;</bpt><ept id="d0ae4c8f-e0df-46e2-bfbc-a481d4a0fcfe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f768d47f-1d8d-4995-929d-26c9734abf97" xml:space="preserve">
+          <source>For information about how to use Azure's Role-Based Access Control to manage access to Web Apps deployment, see <bpt id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;linkText&gt;</bpt>RBAC and Web App Publishing<ept id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;/linkText&gt;</ept><bpt id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;title&gt;</bpt><ept id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to use Azure's Role-Based Access Control to manage access to Web Apps deployment, see <bpt id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;linkText&gt;</bpt>RBAC and Web App Publishing<ept id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;/linkText&gt;</ept><bpt id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;title&gt;</bpt><ept id="55e73ba2-2c6f-4844-b0a9-7b277b49fd79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a9378eb-5674-4485-8aef-c2dbb91f938c" xml:space="preserve">
+          <source>For information about other deployment topics, see the Deploy section in <bpt id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;linkText&gt;</bpt>Web Apps Documentation<ept id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;/linkText&gt;</ept><bpt id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;title&gt;</bpt><ept id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about other deployment topics, see the Deploy section in <bpt id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;linkText&gt;</bpt>Web Apps Documentation<ept id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;/linkText&gt;</ept><bpt id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;title&gt;</bpt><ept id="5457fc92-7547-4c12-bf30-a834bbf965f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff3afab5-dacd-4066-9a6a-4cf16bd437b2" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;/linkText&gt;</ept><bpt id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;title&gt;</bpt><ept id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;/linkText&gt;</ept><bpt id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;title&gt;</bpt><ept id="9a47e4df-2db3-4bda-90d0-3bcfe4cd14d4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75bafe5e-0c3c-4b09-85e2-e8dfcb2347ea" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;/linkText&gt;</ept><bpt id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;title&gt;</bpt><ept id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;/linkText&gt;</ept><bpt id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;title&gt;</bpt><ept id="6e0ffe88-2d76-4252-90d4-b4d18b9076c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

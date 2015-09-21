@@ -1,0 +1,1028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9b65206c-3576-4063-a957-defa6165a7ce" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9b65206c-3576-4063-a957-defa6165a7ce" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="18f6e4c0-3cbc-494c-9dae-e8127920a37f">
+        <trans-unit id="9dd6129f-280a-44d6-ab80-1f483fe6e5dd" xml:space="preserve">
+          <source>View and manage StorSimple alerts | Microsoft Azure</source>
+          <target state="new">View and manage StorSimple alerts | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="930a2b80-7003-4722-8673-b47e7ce5ba46" xml:space="preserve">
+          <source>Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts.</source>
+          <target state="new">Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Manager service to manage alerts.</target>
+        </trans-unit>
+        <trans-unit id="6b19de81-91b1-49eb-98e8-16d3ec40e5ef" xml:space="preserve">
+          <source>The <bpt id="0e38346c-e060-4766-94c8-8df334c22837">&lt;strong&gt;</bpt>Alerts<ept id="0e38346c-e060-4766-94c8-8df334c22837">&lt;/strong&gt;</ept> tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis.</source>
+          <target state="new">The <bpt id="0e38346c-e060-4766-94c8-8df334c22837">&lt;strong&gt;</bpt>Alerts<ept id="0e38346c-e060-4766-94c8-8df334c22837">&lt;/strong&gt;</ept> tab in the StorSimple Manager service provides a way for you to review and clear StorSimple device–related alerts on a real-time basis.</target>
+        </trans-unit>
+        <trans-unit id="9cca4f55-1e54-4f0a-98dc-acbad065481f" xml:space="preserve">
+          <source>From this tab, you can centrally monitor the health of your StorSimple devices and the overall Microsoft Azure StorSimple solution.</source>
+          <target state="new">From this tab, you can centrally monitor the health of your StorSimple devices and the overall Microsoft Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="49f7337a-1376-468b-998b-fcb3e6be8cac" xml:space="preserve">
+          <source>This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications.</source>
+          <target state="new">This tutorial describes common alert conditions, alert severity levels, and how to configure alert notifications.</target>
+        </trans-unit>
+        <trans-unit id="64bf133a-cab4-4403-879a-ea6f15b8837e" xml:space="preserve">
+          <source>Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.</source>
+          <target state="new">Additionally, it includes alert quick reference tables, which enable you to quickly locate a specific alert and respond appropriately.</target>
+        </trans-unit>
+        <trans-unit id="8c196354-f8dd-403e-a8a4-04088705a1b4" xml:space="preserve">
+          <source><bpt id="1618b584-e31c-42d0-90d2-ef07076ccbb0">&lt;linkText&gt;</bpt>Alerts page<ept id="1618b584-e31c-42d0-90d2-ef07076ccbb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1618b584-e31c-42d0-90d2-ef07076ccbb0">&lt;linkText&gt;</bpt>Alerts page<ept id="1618b584-e31c-42d0-90d2-ef07076ccbb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="496b8b9c-7875-4275-b689-77a165a84a48" xml:space="preserve">
+          <source>Your StorSimple device generates alerts in response to a variety of conditions.</source>
+          <target state="new">Your StorSimple device generates alerts in response to a variety of conditions.</target>
+        </trans-unit>
+        <trans-unit id="7b0bb6d6-c677-418b-b1a4-71b897479e7a" xml:space="preserve">
+          <source>The following are the most common types of alert conditions:</source>
+          <target state="new">The following are the most common types of alert conditions:</target>
+        </trans-unit>
+        <trans-unit id="4acc294b-3b0d-4877-8a65-9cce20869a63" xml:space="preserve">
+          <source><bpt id="c74c4978-dde8-4b78-a9fc-61b223e408c5">&lt;strong&gt;</bpt>Hardware issues<ept id="c74c4978-dde8-4b78-a9fc-61b223e408c5">&lt;/strong&gt;</ept> – These alerts tell you about the health of your hardware.</source>
+          <target state="new"><bpt id="c74c4978-dde8-4b78-a9fc-61b223e408c5">&lt;strong&gt;</bpt>Hardware issues<ept id="c74c4978-dde8-4b78-a9fc-61b223e408c5">&lt;/strong&gt;</ept> – These alerts tell you about the health of your hardware.</target>
+        </trans-unit>
+        <trans-unit id="d9c47b5d-4fbd-42b9-8a48-38cff25c93d0" xml:space="preserve">
+          <source>They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.</source>
+          <target state="new">They let you know if firmware upgrades are needed, if a network interface has issues, or if there is a problem with one of your data drives.</target>
+        </trans-unit>
+        <trans-unit id="3f3e3303-2ce0-4d98-87a6-2a91c5e969b0" xml:space="preserve">
+          <source><bpt id="adc72a59-9651-4df1-b195-f298ba734cf0">&lt;strong&gt;</bpt>Connectivity issues<ept id="adc72a59-9651-4df1-b195-f298ba734cf0">&lt;/strong&gt;</ept> – These alerts occur when there is difficulty in transferring data between data sources.</source>
+          <target state="new"><bpt id="adc72a59-9651-4df1-b195-f298ba734cf0">&lt;strong&gt;</bpt>Connectivity issues<ept id="adc72a59-9651-4df1-b195-f298ba734cf0">&lt;/strong&gt;</ept> – These alerts occur when there is difficulty in transferring data between data sources.</target>
+        </trans-unit>
+        <trans-unit id="17421a74-3278-464d-b669-3d356d1a9e9d" xml:space="preserve">
+          <source>Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service.</source>
+          <target state="new">Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the devices and the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="d1dd1dc7-7fe4-48d1-a1ab-53fc7f07c9a4" xml:space="preserve">
+          <source>They can occur during configuration, backup, or restore processes.</source>
+          <target state="new">They can occur during configuration, backup, or restore processes.</target>
+        </trans-unit>
+        <trans-unit id="02d440a2-803b-459b-a789-0140572ea1ee" xml:space="preserve">
+          <source>Communication issues are some of the hardest to fix because there are so many points of failure.</source>
+          <target state="new">Communication issues are some of the hardest to fix because there are so many points of failure.</target>
+        </trans-unit>
+        <trans-unit id="2be26d78-7b6b-4aea-80e2-23e5b4112313" xml:space="preserve">
+          <source>You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting.</source>
+          <target state="new">You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="146c2b30-21b8-4919-bf63-0f9d45f57877" xml:space="preserve">
+          <source><bpt id="3cefda8b-0fbf-4597-b4ce-b2c89a857d10">&lt;strong&gt;</bpt>Performance issues<ept id="3cefda8b-0fbf-4597-b4ce-b2c89a857d10">&lt;/strong&gt;</ept> – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.</source>
+          <target state="new"><bpt id="3cefda8b-0fbf-4597-b4ce-b2c89a857d10">&lt;strong&gt;</bpt>Performance issues<ept id="3cefda8b-0fbf-4597-b4ce-b2c89a857d10">&lt;/strong&gt;</ept> – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.</target>
+        </trans-unit>
+        <trans-unit id="1fc8a4b4-1b35-463c-bfb9-798490d50d1e" xml:space="preserve">
+          <source>In addition, you might see alerts related to security, updates, or job failures.</source>
+          <target state="new">In addition, you might see alerts related to security, updates, or job failures.</target>
+        </trans-unit>
+        <trans-unit id="642383db-3a63-4240-bb88-3e60e0b62ad4" xml:space="preserve">
+          <source>Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert.</source>
+          <target state="new">Alerts have different severity levels, depending on the impact that the alert situation will have and the need for a response to the alert.</target>
+        </trans-unit>
+        <trans-unit id="a7f18f12-0f08-43d3-a552-066c4e074851" xml:space="preserve">
+          <source>The severity levels are:</source>
+          <target state="new">The severity levels are:</target>
+        </trans-unit>
+        <trans-unit id="367603ec-d2af-4b1f-99ae-872f1dc20150" xml:space="preserve">
+          <source><bpt id="9ff56140-c2aa-4bbf-86c6-d1442cfe045b">&lt;strong&gt;</bpt>Critical<ept id="9ff56140-c2aa-4bbf-86c6-d1442cfe045b">&lt;/strong&gt;</ept> – This alert is in response to a condition that is affecting the successful performance of your system.</source>
+          <target state="new"><bpt id="9ff56140-c2aa-4bbf-86c6-d1442cfe045b">&lt;strong&gt;</bpt>Critical<ept id="9ff56140-c2aa-4bbf-86c6-d1442cfe045b">&lt;/strong&gt;</ept> – This alert is in response to a condition that is affecting the successful performance of your system.</target>
+        </trans-unit>
+        <trans-unit id="8086f952-0593-4793-874e-d88824a36bdf" xml:space="preserve">
+          <source>Action is required to ensure that the StorSimple service is not interrupted.</source>
+          <target state="new">Action is required to ensure that the StorSimple service is not interrupted.</target>
+        </trans-unit>
+        <trans-unit id="f9c541de-6da3-4924-8ef4-0620a5404dcd" xml:space="preserve">
+          <source><bpt id="d721de71-e161-4f53-98e6-af74a36643f8">&lt;strong&gt;</bpt>Warning<ept id="d721de71-e161-4f53-98e6-af74a36643f8">&lt;/strong&gt;</ept> – This condition could become critical if not resolved.</source>
+          <target state="new"><bpt id="d721de71-e161-4f53-98e6-af74a36643f8">&lt;strong&gt;</bpt>Warning<ept id="d721de71-e161-4f53-98e6-af74a36643f8">&lt;/strong&gt;</ept> – This condition could become critical if not resolved.</target>
+        </trans-unit>
+        <trans-unit id="6a91a6b4-ab95-4d58-a6ec-ffd5dfeec0b3" xml:space="preserve">
+          <source>You should investigate the situation and take any action required to clear the issue.</source>
+          <target state="new">You should investigate the situation and take any action required to clear the issue.</target>
+        </trans-unit>
+        <trans-unit id="10769075-91a1-415b-9b1f-acf0c2222f1d" xml:space="preserve">
+          <source><bpt id="0c4ed64f-396a-4834-9432-160ae4e35e0d">&lt;strong&gt;</bpt>Information<ept id="0c4ed64f-396a-4834-9432-160ae4e35e0d">&lt;/strong&gt;</ept> – This alert contains information that can be useful in tracking and managing your system.</source>
+          <target state="new"><bpt id="0c4ed64f-396a-4834-9432-160ae4e35e0d">&lt;strong&gt;</bpt>Information<ept id="0c4ed64f-396a-4834-9432-160ae4e35e0d">&lt;/strong&gt;</ept> – This alert contains information that can be useful in tracking and managing your system.</target>
+        </trans-unit>
+        <trans-unit id="b76fb18a-b2a2-429d-b94a-6bc9db06316a" xml:space="preserve">
+          <source>You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices.</source>
+          <target state="new">You can choose whether you want to be notified by email of alert conditions for each of your StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="4e19abcd-a075-4984-9e61-eb0af1df08af" xml:space="preserve">
+          <source>Additionally, you can identify other alert notification recipients by entering their email addresses in the <bpt id="f99fac47-2ae1-4880-965b-7512a918cc83">&lt;strong&gt;</bpt>OTHER EMAIL RECIPIENTS<ept id="f99fac47-2ae1-4880-965b-7512a918cc83">&lt;/strong&gt;</ept> box, separated by semicolons.</source>
+          <target state="new">Additionally, you can identify other alert notification recipients by entering their email addresses in the <bpt id="f99fac47-2ae1-4880-965b-7512a918cc83">&lt;strong&gt;</bpt>OTHER EMAIL RECIPIENTS<ept id="f99fac47-2ae1-4880-965b-7512a918cc83">&lt;/strong&gt;</ept> box, separated by semicolons.</target>
+        </trans-unit>
+        <trans-unit id="73248680-f5a4-41cf-b3d6-2f9f0a174b8a" xml:space="preserve">
+          <source>You can enter a maximum of 20 email addresses per device.</source>
+          <target state="new">You can enter a maximum of 20 email addresses per device.</target>
+        </trans-unit>
+        <trans-unit id="fa138244-5bf8-40bb-aede-4207c47b28b4" xml:space="preserve">
+          <source>After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs.</source>
+          <target state="new">After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs.</target>
+        </trans-unit>
+        <trans-unit id="8cabc1aa-dac8-416f-9316-04f7f7b9c15f" xml:space="preserve">
+          <source>The messages will be sent from <bpt id="f65b10b9-bca9-4a60-a6e2-14bed7a54a55">&lt;em&gt;</bpt>storsimple-alerts-noreply@mail.windowsazure.com<ept id="f65b10b9-bca9-4a60-a6e2-14bed7a54a55">&lt;/em&gt;</ept> and will describe the alert condition.</source>
+          <target state="new">The messages will be sent from <bpt id="f65b10b9-bca9-4a60-a6e2-14bed7a54a55">&lt;em&gt;</bpt>storsimple-alerts-noreply@mail.windowsazure.com<ept id="f65b10b9-bca9-4a60-a6e2-14bed7a54a55">&lt;/em&gt;</ept> and will describe the alert condition.</target>
+        </trans-unit>
+        <trans-unit id="70464abe-424d-4030-bf33-606ebfaf0b2a" xml:space="preserve">
+          <source>Recipients can click <bpt id="6ec9b0bb-8d50-4cc3-a31c-7c2f8ab91843">&lt;strong&gt;</bpt>Unsubscribe<ept id="6ec9b0bb-8d50-4cc3-a31c-7c2f8ab91843">&lt;/strong&gt;</ept> to remove themselves from the email notification list.</source>
+          <target state="new">Recipients can click <bpt id="6ec9b0bb-8d50-4cc3-a31c-7c2f8ab91843">&lt;strong&gt;</bpt>Unsubscribe<ept id="6ec9b0bb-8d50-4cc3-a31c-7c2f8ab91843">&lt;/strong&gt;</ept> to remove themselves from the email notification list.</target>
+        </trans-unit>
+        <trans-unit id="52c94ec2-ae42-431e-a57b-b78ade1d760c" xml:space="preserve">
+          <source>Go to <bpt id="c5f4add8-e9bf-4ef0-aa66-babb78d89093">&lt;strong&gt;</bpt>Devices<ept id="c5f4add8-e9bf-4ef0-aa66-babb78d89093">&lt;/strong&gt;</ept> &gt; <bpt id="4b04b255-e96b-44ed-b0e7-c864fa464b00">&lt;strong&gt;</bpt>Configure<ept id="4b04b255-e96b-44ed-b0e7-c864fa464b00">&lt;/strong&gt;</ept> for the device.</source>
+          <target state="new">Go to <bpt id="c5f4add8-e9bf-4ef0-aa66-babb78d89093">&lt;strong&gt;</bpt>Devices<ept id="c5f4add8-e9bf-4ef0-aa66-babb78d89093">&lt;/strong&gt;</ept> &gt; <bpt id="4b04b255-e96b-44ed-b0e7-c864fa464b00">&lt;strong&gt;</bpt>Configure<ept id="4b04b255-e96b-44ed-b0e7-c864fa464b00">&lt;/strong&gt;</ept> for the device.</target>
+        </trans-unit>
+        <trans-unit id="bdbf947f-bbb5-41ed-a01c-1447adf6d90e" xml:space="preserve">
+          <source>Under <bpt id="25e114db-cc44-4565-b659-a746fa69cec6">&lt;strong&gt;</bpt>Alert Settings<ept id="25e114db-cc44-4565-b659-a746fa69cec6">&lt;/strong&gt;</ept>, set the following:</source>
+          <target state="new">Under <bpt id="25e114db-cc44-4565-b659-a746fa69cec6">&lt;strong&gt;</bpt>Alert Settings<ept id="25e114db-cc44-4565-b659-a746fa69cec6">&lt;/strong&gt;</ept>, set the following:</target>
+        </trans-unit>
+        <trans-unit id="e0d2d8c4-5902-4bf0-8e56-9eac67aab66c" xml:space="preserve">
+          <source>In the <bpt id="faad606a-8234-4ed1-84bf-1fa53c24bbc6">&lt;strong&gt;</bpt>SEND EMAIL NOTIFICATION<ept id="faad606a-8234-4ed1-84bf-1fa53c24bbc6">&lt;/strong&gt;</ept> field, select <bpt id="899de9cb-c479-4f7b-bf97-e3ebc3851b00">&lt;strong&gt;</bpt>YES<ept id="899de9cb-c479-4f7b-bf97-e3ebc3851b00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="faad606a-8234-4ed1-84bf-1fa53c24bbc6">&lt;strong&gt;</bpt>SEND EMAIL NOTIFICATION<ept id="faad606a-8234-4ed1-84bf-1fa53c24bbc6">&lt;/strong&gt;</ept> field, select <bpt id="899de9cb-c479-4f7b-bf97-e3ebc3851b00">&lt;strong&gt;</bpt>YES<ept id="899de9cb-c479-4f7b-bf97-e3ebc3851b00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="812cf0b5-d1cb-4efa-aec9-67504fe62b84" xml:space="preserve">
+          <source>In the <bpt id="5b5a3560-d3d4-4c90-8241-7c491006535d">&lt;strong&gt;</bpt>EMAIL SERVICE ADMINISTRATORS<ept id="5b5a3560-d3d4-4c90-8241-7c491006535d">&lt;/strong&gt;</ept> field, select <bpt id="c5b3f88e-8069-43d1-bb8a-6ee12889df76">&lt;strong&gt;</bpt>YES<ept id="c5b3f88e-8069-43d1-bb8a-6ee12889df76">&lt;/strong&gt;</ept> if you wish to have the service administrator and all co-administrators receive the alert notifications.</source>
+          <target state="new">In the <bpt id="5b5a3560-d3d4-4c90-8241-7c491006535d">&lt;strong&gt;</bpt>EMAIL SERVICE ADMINISTRATORS<ept id="5b5a3560-d3d4-4c90-8241-7c491006535d">&lt;/strong&gt;</ept> field, select <bpt id="c5b3f88e-8069-43d1-bb8a-6ee12889df76">&lt;strong&gt;</bpt>YES<ept id="c5b3f88e-8069-43d1-bb8a-6ee12889df76">&lt;/strong&gt;</ept> if you wish to have the service administrator and all co-administrators receive the alert notifications.</target>
+        </trans-unit>
+        <trans-unit id="cc2022a9-e1c2-4e34-87f1-71408e4ee2d5" xml:space="preserve">
+          <source>In the <bpt id="a7feaf23-1b2b-4510-85dd-44bb8d14a85c">&lt;strong&gt;</bpt>OTHER EMAIL RECIPIENTS<ept id="a7feaf23-1b2b-4510-85dd-44bb8d14a85c">&lt;/strong&gt;</ept> field, enter the email addresses of all other recipients who should receive the alert notifications.</source>
+          <target state="new">In the <bpt id="a7feaf23-1b2b-4510-85dd-44bb8d14a85c">&lt;strong&gt;</bpt>OTHER EMAIL RECIPIENTS<ept id="a7feaf23-1b2b-4510-85dd-44bb8d14a85c">&lt;/strong&gt;</ept> field, enter the email addresses of all other recipients who should receive the alert notifications.</target>
+        </trans-unit>
+        <trans-unit id="67eb45b1-f7cd-4b1c-867a-95f5990393ab" xml:space="preserve">
+          <source>Enter names in the format <bpt id="c6e38ffd-fa09-43dc-a059-0a248e15a22a">&lt;em&gt;</bpt>someone@somewhere.com<ept id="c6e38ffd-fa09-43dc-a059-0a248e15a22a">&lt;/em&gt;</ept>.</source>
+          <target state="new">Enter names in the format <bpt id="c6e38ffd-fa09-43dc-a059-0a248e15a22a">&lt;em&gt;</bpt>someone@somewhere.com<ept id="c6e38ffd-fa09-43dc-a059-0a248e15a22a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f60ebf9-cc3a-401b-ae76-8bb057556176" xml:space="preserve">
+          <source>Use semicolons to separate the email addresses.</source>
+          <target state="new">Use semicolons to separate the email addresses.</target>
+        </trans-unit>
+        <trans-unit id="4960898a-98a0-426c-8db8-dd85912e78de" xml:space="preserve">
+          <source>You can configure a maximum of 20 email addresses per device.</source>
+          <target state="new">You can configure a maximum of 20 email addresses per device.</target>
+        </trans-unit>
+        <trans-unit id="3cbdb44e-ccba-4b77-ba81-ce27b932e833" xml:space="preserve">
+          <source><bpt id="ffbfba45-c3db-47e6-a64e-0cd9a54f2236">&lt;linkText&gt;</bpt>Alerts notification configuration page<ept id="ffbfba45-c3db-47e6-a64e-0cd9a54f2236">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffbfba45-c3db-47e6-a64e-0cd9a54f2236">&lt;linkText&gt;</bpt>Alerts notification configuration page<ept id="ffbfba45-c3db-47e6-a64e-0cd9a54f2236">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f3e7ad5-1180-494b-a043-54cf8e224b11" xml:space="preserve">
+          <source>To send a test email notification, click the arrow icon next to <bpt id="3e75ee8c-65e7-4a58-93f9-d0548fbf351d">&lt;strong&gt;</bpt>SEND TEST EMAIL<ept id="3e75ee8c-65e7-4a58-93f9-d0548fbf351d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To send a test email notification, click the arrow icon next to <bpt id="3e75ee8c-65e7-4a58-93f9-d0548fbf351d">&lt;strong&gt;</bpt>SEND TEST EMAIL<ept id="3e75ee8c-65e7-4a58-93f9-d0548fbf351d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cfa9377-4071-4521-814f-0621abe3fc89" xml:space="preserve">
+          <source>The StorSimple Manager service will display status messages as it forwards the test notification.</source>
+          <target state="new">The StorSimple Manager service will display status messages as it forwards the test notification.</target>
+        </trans-unit>
+        <trans-unit id="477b1152-41de-4707-881c-0e23f18a0b59" xml:space="preserve">
+          <source>When the following message appears, click <bpt id="08aca948-026f-4705-9556-3dcb44c8a766">&lt;strong&gt;</bpt>OK<ept id="08aca948-026f-4705-9556-3dcb44c8a766">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the following message appears, click <bpt id="08aca948-026f-4705-9556-3dcb44c8a766">&lt;strong&gt;</bpt>OK<ept id="08aca948-026f-4705-9556-3dcb44c8a766">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3000443-9352-4608-b38b-5d01b3c37118" xml:space="preserve">
+          <source><bpt id="de754255-6458-410a-8b06-b918d4f1e5c9">&lt;linkText&gt;</bpt>Alerts test notification email sent<ept id="de754255-6458-410a-8b06-b918d4f1e5c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de754255-6458-410a-8b06-b918d4f1e5c9">&lt;linkText&gt;</bpt>Alerts test notification email sent<ept id="de754255-6458-410a-8b06-b918d4f1e5c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e27b6b2-fc42-4973-91a2-92dd50b9f998" xml:space="preserve">
+          <source>If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message.</source>
+          <target state="new">If the test notification message can't be sent, the StorSimple Manager service will display an appropriate message.</target>
+        </trans-unit>
+        <trans-unit id="3d839184-0480-4b39-8aff-8029c61c4561" xml:space="preserve">
+          <source>This can occur because of traffic or other network issues.</source>
+          <target state="new">This can occur because of traffic or other network issues.</target>
+        </trans-unit>
+        <trans-unit id="5a77f027-2d72-445a-be9e-8e92759c5d5b" xml:space="preserve">
+          <source>Click <bpt id="0cfbdb36-9d68-45dc-bc25-c745b1c60ded">&lt;strong&gt;</bpt>OK<ept id="0cfbdb36-9d68-45dc-bc25-c745b1c60ded">&lt;/strong&gt;</ept>, wait a few minutes, and then try to send your test notification message again.</source>
+          <target state="new">Click <bpt id="0cfbdb36-9d68-45dc-bc25-c745b1c60ded">&lt;strong&gt;</bpt>OK<ept id="0cfbdb36-9d68-45dc-bc25-c745b1c60ded">&lt;/strong&gt;</ept>, wait a few minutes, and then try to send your test notification message again.</target>
+        </trans-unit>
+        <trans-unit id="d9a94478-23b1-4d52-9d21-0f650bc97b89" xml:space="preserve">
+          <source>The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your devices, broken down by severity level.</source>
+          <target state="new">The StorSimple Manager service dashboard provides you with a quick glance at the number of alerts on your devices, broken down by severity level.</target>
+        </trans-unit>
+        <trans-unit id="32b01603-7242-460b-a695-258a72618233" xml:space="preserve">
+          <source><bpt id="29140174-37e7-4cd4-b1a4-f2a6016eef86">&lt;linkText&gt;</bpt>Alerts dashboard<ept id="29140174-37e7-4cd4-b1a4-f2a6016eef86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29140174-37e7-4cd4-b1a4-f2a6016eef86">&lt;linkText&gt;</bpt>Alerts dashboard<ept id="29140174-37e7-4cd4-b1a4-f2a6016eef86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="046e935c-9778-4cde-90db-a417e03b0757" xml:space="preserve">
+          <source>Clicking the severity level opens the <bpt id="c557901c-a54b-4a73-aad6-a8ffafd7c350">&lt;strong&gt;</bpt>Alerts<ept id="c557901c-a54b-4a73-aad6-a8ffafd7c350">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Clicking the severity level opens the <bpt id="c557901c-a54b-4a73-aad6-a8ffafd7c350">&lt;strong&gt;</bpt>Alerts<ept id="c557901c-a54b-4a73-aad6-a8ffafd7c350">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3e1d967e-5610-4519-afce-ff7f9b77276c" xml:space="preserve">
+          <source>The results include only the alerts that match that severity level.</source>
+          <target state="new">The results include only the alerts that match that severity level.</target>
+        </trans-unit>
+        <trans-unit id="d068afa6-c5ed-4d22-8bc5-a930521af346" xml:space="preserve">
+          <source><bpt id="258bef06-3d77-404a-9145-3581239b90d6">&lt;linkText&gt;</bpt>Alerts report scoped to alert type<ept id="258bef06-3d77-404a-9145-3581239b90d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="258bef06-3d77-404a-9145-3581239b90d6">&lt;linkText&gt;</bpt>Alerts report scoped to alert type<ept id="258bef06-3d77-404a-9145-3581239b90d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cfe5105-efaf-42db-9d48-50856728cc55" xml:space="preserve">
+          <source>Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.</source>
+          <target state="new">Clicking an alert in the list provides you with additional details for the alert, including the last time the alert was reported, the number of occurrences of the alert on the device, and the recommended action to resolve the alert.</target>
+        </trans-unit>
+        <trans-unit id="5f1fb8fe-40e4-41ea-a03c-c1cc42ea149f" xml:space="preserve">
+          <source>If it is a hardware alert, it will also identify the hardware component.</source>
+          <target state="new">If it is a hardware alert, it will also identify the hardware component.</target>
+        </trans-unit>
+        <trans-unit id="d5c80ac9-71da-4d48-b002-d9880167900c" xml:space="preserve">
+          <source><bpt id="8b0e1798-3ac2-40a5-9943-cbce2c23e54d">&lt;linkText&gt;</bpt>Hardware alert example<ept id="8b0e1798-3ac2-40a5-9943-cbce2c23e54d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b0e1798-3ac2-40a5-9943-cbce2c23e54d">&lt;linkText&gt;</bpt>Hardware alert example<ept id="8b0e1798-3ac2-40a5-9943-cbce2c23e54d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d82e1162-47b2-43f6-af41-9b653f623aa1" xml:space="preserve">
+          <source>You can copy the alert details to a text file if you want to track the alert resolution in a separate file or if you need to send the information to Microsoft Support.</source>
+          <target state="new">You can copy the alert details to a text file if you want to track the alert resolution in a separate file or if you need to send the information to Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="d4af623b-58ef-46c7-9c91-f8677b0bd072" xml:space="preserve">
+          <source>After you have resolved the alert condition, you should clear the alert from the device by selecting the alert in the <bpt id="240a0f26-9682-449b-8dc2-572ac203bc81">&lt;strong&gt;</bpt>Alerts<ept id="240a0f26-9682-449b-8dc2-572ac203bc81">&lt;/strong&gt;</ept> tab and clicking <bpt id="998202da-0e36-4e47-8965-e061cc673cd2">&lt;strong&gt;</bpt>Clear<ept id="998202da-0e36-4e47-8965-e061cc673cd2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you have resolved the alert condition, you should clear the alert from the device by selecting the alert in the <bpt id="240a0f26-9682-449b-8dc2-572ac203bc81">&lt;strong&gt;</bpt>Alerts<ept id="240a0f26-9682-449b-8dc2-572ac203bc81">&lt;/strong&gt;</ept> tab and clicking <bpt id="998202da-0e36-4e47-8965-e061cc673cd2">&lt;strong&gt;</bpt>Clear<ept id="998202da-0e36-4e47-8965-e061cc673cd2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ebe6b5-2111-4d51-87f2-7aab02be268a" xml:space="preserve">
+          <source>To clear multiple alerts, press the Ctrl key while you select the alerts, and then click <bpt id="3d2b1b2a-9436-4af1-853f-494fde307c27">&lt;strong&gt;</bpt>Clear<ept id="3d2b1b2a-9436-4af1-853f-494fde307c27">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To clear multiple alerts, press the Ctrl key while you select the alerts, and then click <bpt id="3d2b1b2a-9436-4af1-853f-494fde307c27">&lt;strong&gt;</bpt>Clear<ept id="3d2b1b2a-9436-4af1-853f-494fde307c27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e874f2fb-c42c-48c3-afab-6a9d21472f44" xml:space="preserve">
+          <source>Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.</source>
+          <target state="new">Note that some alerts are automatically cleared when the issue is resolved or when the system updates the alert with new information.</target>
+        </trans-unit>
+        <trans-unit id="c7a2de0d-a256-487f-bfbd-3d135dc381c8" xml:space="preserve">
+          <source>When you click <bpt id="d6197597-9168-4224-b5ee-3cba3e9415af">&lt;strong&gt;</bpt>Clear<ept id="d6197597-9168-4224-b5ee-3cba3e9415af">&lt;/strong&gt;</ept>, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue.</source>
+          <target state="new">When you click <bpt id="d6197597-9168-4224-b5ee-3cba3e9415af">&lt;strong&gt;</bpt>Clear<ept id="d6197597-9168-4224-b5ee-3cba3e9415af">&lt;/strong&gt;</ept>, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue.</target>
+        </trans-unit>
+        <trans-unit id="179a1cbf-9253-41c7-9e66-149ba46d6614" xml:space="preserve">
+          <source>Some events will be cleared by the system if another event is triggered with new information.</source>
+          <target state="new">Some events will be cleared by the system if another event is triggered with new information.</target>
+        </trans-unit>
+        <trans-unit id="7f5503f7-79ed-4418-bb06-cc938586e081" xml:space="preserve">
+          <source>In that case, you will see the following message.</source>
+          <target state="new">In that case, you will see the following message.</target>
+        </trans-unit>
+        <trans-unit id="8b1a55d6-7dbe-4359-a5d0-2fb2cc1d96ee" xml:space="preserve">
+          <source><bpt id="00c163f3-8938-412f-9483-2cad1294797d">&lt;linkText&gt;</bpt>Clear alert message<ept id="00c163f3-8938-412f-9483-2cad1294797d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00c163f3-8938-412f-9483-2cad1294797d">&lt;linkText&gt;</bpt>Clear alert message<ept id="00c163f3-8938-412f-9483-2cad1294797d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce459222-f8da-4962-816f-4f16d1050055" xml:space="preserve">
+          <source>You may find it more efficient to run reports on alerts so that you can review and clear them in groups.</source>
+          <target state="new">You may find it more efficient to run reports on alerts so that you can review and clear them in groups.</target>
+        </trans-unit>
+        <trans-unit id="8d82b827-76c1-4741-b13d-c3033486a42c" xml:space="preserve">
+          <source>Additionally, the <bpt id="b2e85f9c-fb78-4109-9aeb-3bf325d5421e">&lt;strong&gt;</bpt>Alerts<ept id="b2e85f9c-fb78-4109-9aeb-3bf325d5421e">&lt;/strong&gt;</ept> tab can display up to 250 alerts.</source>
+          <target state="new">Additionally, the <bpt id="b2e85f9c-fb78-4109-9aeb-3bf325d5421e">&lt;strong&gt;</bpt>Alerts<ept id="b2e85f9c-fb78-4109-9aeb-3bf325d5421e">&lt;/strong&gt;</ept> tab can display up to 250 alerts.</target>
+        </trans-unit>
+        <trans-unit id="adf09487-b882-4472-b23f-b7838ad926bc" xml:space="preserve">
+          <source>If you have exceeded that number of alerts, not all alerts will be displayed in the default view.</source>
+          <target state="new">If you have exceeded that number of alerts, not all alerts will be displayed in the default view.</target>
+        </trans-unit>
+        <trans-unit id="31f8a5e3-4104-473b-8519-24bb834d6a93" xml:space="preserve">
+          <source>You can combine the following fields to customize which alerts are displayed:</source>
+          <target state="new">You can combine the following fields to customize which alerts are displayed:</target>
+        </trans-unit>
+        <trans-unit id="6b18e392-4417-49c4-9ae8-d079a89173c8" xml:space="preserve">
+          <source><bpt id="9e6a913a-905d-411f-96bd-58a7710e29eb">&lt;strong&gt;</bpt>Status<ept id="9e6a913a-905d-411f-96bd-58a7710e29eb">&lt;/strong&gt;</ept> – You can display either <bpt id="c76735b0-d4e6-43e4-9324-b9e471a21b17">&lt;strong&gt;</bpt>Active<ept id="c76735b0-d4e6-43e4-9324-b9e471a21b17">&lt;/strong&gt;</ept> or <bpt id="93a10ba8-7b63-49fe-a19f-c819e75f54ec">&lt;strong&gt;</bpt>Cleared<ept id="93a10ba8-7b63-49fe-a19f-c819e75f54ec">&lt;/strong&gt;</ept> alerts.</source>
+          <target state="new"><bpt id="9e6a913a-905d-411f-96bd-58a7710e29eb">&lt;strong&gt;</bpt>Status<ept id="9e6a913a-905d-411f-96bd-58a7710e29eb">&lt;/strong&gt;</ept> – You can display either <bpt id="c76735b0-d4e6-43e4-9324-b9e471a21b17">&lt;strong&gt;</bpt>Active<ept id="c76735b0-d4e6-43e4-9324-b9e471a21b17">&lt;/strong&gt;</ept> or <bpt id="93a10ba8-7b63-49fe-a19f-c819e75f54ec">&lt;strong&gt;</bpt>Cleared<ept id="93a10ba8-7b63-49fe-a19f-c819e75f54ec">&lt;/strong&gt;</ept> alerts.</target>
+        </trans-unit>
+        <trans-unit id="f96db2b9-5075-4725-b9d6-81e295a10569" xml:space="preserve">
+          <source>Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.</source>
+          <target state="new">Active alerts are still being triggered on your system, while cleared alerts have been either manually cleared by an administrator or programmatically cleared because the system updated the alert condition with new information.</target>
+        </trans-unit>
+        <trans-unit id="f3977f3f-cb9b-47fb-8e4c-c1eba25c6e16" xml:space="preserve">
+          <source><bpt id="b8b93657-044c-4f3d-8001-ee4e33e6ac2f">&lt;strong&gt;</bpt>Severity<ept id="b8b93657-044c-4f3d-8001-ee4e33e6ac2f">&lt;/strong&gt;</ept> – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.</source>
+          <target state="new"><bpt id="b8b93657-044c-4f3d-8001-ee4e33e6ac2f">&lt;strong&gt;</bpt>Severity<ept id="b8b93657-044c-4f3d-8001-ee4e33e6ac2f">&lt;/strong&gt;</ept> – You can display alerts of all severity levels (critical, warning, information), or just a certain severity, such as only critical alerts.</target>
+        </trans-unit>
+        <trans-unit id="d0dcc380-2829-4b2d-b782-c9edd8dbbd3a" xml:space="preserve">
+          <source><bpt id="9d6b28c6-5e28-4a71-8138-37078c88722d">&lt;strong&gt;</bpt>Source<ept id="9d6b28c6-5e28-4a71-8138-37078c88722d">&lt;/strong&gt;</ept> – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all of the devices.</source>
+          <target state="new"><bpt id="9d6b28c6-5e28-4a71-8138-37078c88722d">&lt;strong&gt;</bpt>Source<ept id="9d6b28c6-5e28-4a71-8138-37078c88722d">&lt;/strong&gt;</ept> – You can display alerts from all sources, or limit the alerts to those that come from either the service or one or all of the devices.</target>
+        </trans-unit>
+        <trans-unit id="89a38eee-f759-49d4-a4f5-d301270df9dc" xml:space="preserve">
+          <source><bpt id="3509dc4b-5747-406d-8451-80e1b4fafd04">&lt;strong&gt;</bpt>Time range<ept id="3509dc4b-5747-406d-8451-80e1b4fafd04">&lt;/strong&gt;</ept> – By specifying the <bpt id="44a912fe-852e-4868-8a01-99c028b64a0d">&lt;strong&gt;</bpt>From<ept id="44a912fe-852e-4868-8a01-99c028b64a0d">&lt;/strong&gt;</ept> and <bpt id="02f58052-e1d6-4be5-801d-87c41624b399">&lt;strong&gt;</bpt>To<ept id="02f58052-e1d6-4be5-801d-87c41624b399">&lt;/strong&gt;</ept> dates and time stamps, you can look at alerts during the time period that you are interested in.</source>
+          <target state="new"><bpt id="3509dc4b-5747-406d-8451-80e1b4fafd04">&lt;strong&gt;</bpt>Time range<ept id="3509dc4b-5747-406d-8451-80e1b4fafd04">&lt;/strong&gt;</ept> – By specifying the <bpt id="44a912fe-852e-4868-8a01-99c028b64a0d">&lt;strong&gt;</bpt>From<ept id="44a912fe-852e-4868-8a01-99c028b64a0d">&lt;/strong&gt;</ept> and <bpt id="02f58052-e1d6-4be5-801d-87c41624b399">&lt;strong&gt;</bpt>To<ept id="02f58052-e1d6-4be5-801d-87c41624b399">&lt;/strong&gt;</ept> dates and time stamps, you can look at alerts during the time period that you are interested in.</target>
+        </trans-unit>
+        <trans-unit id="a30d424b-62e1-4d01-95b9-8be952fbaff4" xml:space="preserve">
+          <source>The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available.</source>
+          <target state="new">The following tables list some of the Microsoft Azure StorSimple alerts that you might encounter, as well as additional information and recommendations where available.</target>
+        </trans-unit>
+        <trans-unit id="445096d5-f3ac-4a9a-85e6-04c1b021c63b" xml:space="preserve">
+          <source>StorSimple device alerts fall into one of the following categories:</source>
+          <target state="new">StorSimple device alerts fall into one of the following categories:</target>
+        </trans-unit>
+        <trans-unit id="9d551679-8dfd-4163-ae35-fa1f2f5241ea" xml:space="preserve">
+          <source><bpt id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;linkText&gt;</bpt>Cloud connectivity alerts<ept id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;/linkText&gt;</ept><bpt id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;title&gt;</bpt><ept id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;linkText&gt;</bpt>Cloud connectivity alerts<ept id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;/linkText&gt;</ept><bpt id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;title&gt;</bpt><ept id="afcb5933-7eeb-4f1b-b5b6-aadee638532f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b09c0942-a601-4fba-8761-67257bc94c46" xml:space="preserve">
+          <source><bpt id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;linkText&gt;</bpt>Cluster alerts<ept id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;/linkText&gt;</ept><bpt id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;title&gt;</bpt><ept id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;linkText&gt;</bpt>Cluster alerts<ept id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;/linkText&gt;</ept><bpt id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;title&gt;</bpt><ept id="70457c55-02ce-42c9-bacb-a3dfbb1207d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="135eded0-fd69-4a61-9f07-36947ce16997" xml:space="preserve">
+          <source><bpt id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;linkText&gt;</bpt>Disaster recovery alerts<ept id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;/linkText&gt;</ept><bpt id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;title&gt;</bpt><ept id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;linkText&gt;</bpt>Disaster recovery alerts<ept id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;/linkText&gt;</ept><bpt id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;title&gt;</bpt><ept id="8208b31e-e22a-49ea-ab93-5cce7f29197a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c17ca875-ba68-4e53-aedb-6a621efb3721" xml:space="preserve">
+          <source><bpt id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;linkText&gt;</bpt>Hardware alerts<ept id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;/linkText&gt;</ept><bpt id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;title&gt;</bpt><ept id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;linkText&gt;</bpt>Hardware alerts<ept id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;/linkText&gt;</ept><bpt id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;title&gt;</bpt><ept id="e28a3d04-4aaf-4d0d-a5b5-f984ff7f6365">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c469ec37-d600-48c3-bc3f-d26280a0c6f9" xml:space="preserve">
+          <source><bpt id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;linkText&gt;</bpt>Job failure alerts<ept id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;/linkText&gt;</ept><bpt id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;title&gt;</bpt><ept id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;linkText&gt;</bpt>Job failure alerts<ept id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;/linkText&gt;</ept><bpt id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;title&gt;</bpt><ept id="d589945f-a4cb-4cf6-b406-04d55df6b89a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c64216c-155b-4bbe-9971-b3600cf821fb" xml:space="preserve">
+          <source><bpt id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;linkText&gt;</bpt>Performance alerts<ept id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;/linkText&gt;</ept><bpt id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;title&gt;</bpt><ept id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;linkText&gt;</bpt>Performance alerts<ept id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;/linkText&gt;</ept><bpt id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;title&gt;</bpt><ept id="5442037b-3a97-4933-8d8f-45d18f18b5b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bdf6e5f-023d-4035-b19f-0a5fb9e318cc" xml:space="preserve">
+          <source><bpt id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;linkText&gt;</bpt>Security alerts<ept id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;/linkText&gt;</ept><bpt id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;title&gt;</bpt><ept id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;linkText&gt;</bpt>Security alerts<ept id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;/linkText&gt;</ept><bpt id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;title&gt;</bpt><ept id="ec914d56-3282-4a3d-aede-f37d4e2a9df5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4bf9298-6563-4253-9f4c-c8fb3755ac28" xml:space="preserve">
+          <source><bpt id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;linkText&gt;</bpt>Support package alerts<ept id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;/linkText&gt;</ept><bpt id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;title&gt;</bpt><ept id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;linkText&gt;</bpt>Support package alerts<ept id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;/linkText&gt;</ept><bpt id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;title&gt;</bpt><ept id="da63eb15-b52e-4d30-ad2c-f297d8a80347">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b906b9f-2d5a-496a-95ac-0b4d3ecff3fb" xml:space="preserve">
+          <source><bpt id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;linkText&gt;</bpt>Test alerts<ept id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;/linkText&gt;</ept><bpt id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;title&gt;</bpt><ept id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;linkText&gt;</bpt>Test alerts<ept id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;/linkText&gt;</ept><bpt id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;title&gt;</bpt><ept id="34634bb0-f437-4217-8928-8a2af70d6707">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="578abfbf-1096-4322-9e6b-bc02abf7d037" xml:space="preserve">
+          <source><bpt id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;linkText&gt;</bpt>Update alerts<ept id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;/linkText&gt;</ept><bpt id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;title&gt;</bpt><ept id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;linkText&gt;</bpt>Update alerts<ept id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;/linkText&gt;</ept><bpt id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;title&gt;</bpt><ept id="1302a950-077f-489c-8ed7-c48b9345c1f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a92a6d3-2896-4c8e-b79b-88761fb0f7ee" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="bfd2b2a2-1334-4e20-83d4-d339eb54c7af" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="73888d22-cfa8-4ce3-b879-de1542a5e86f" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="6aeab346-f136-4a73-8e1b-d99d7ec46aa0" xml:space="preserve">
+          <source>Connectivity to &lt;<bpt id="7c1e424a-3b61-454b-a6fa-034eb07c54cc">&lt;em&gt;</bpt>cloud credential name<ept id="7c1e424a-3b61-454b-a6fa-034eb07c54cc">&lt;/em&gt;</ept>&gt; cannot be established.</source>
+          <target state="new">Connectivity to &lt;<bpt id="7c1e424a-3b61-454b-a6fa-034eb07c54cc">&lt;em&gt;</bpt>cloud credential name<ept id="7c1e424a-3b61-454b-a6fa-034eb07c54cc">&lt;/em&gt;</ept>&gt; cannot be established.</target>
+        </trans-unit>
+        <trans-unit id="52db721d-c044-4284-85ea-1ff85eab92b2" xml:space="preserve">
+          <source>Cannot connect to the storage account.</source>
+          <target state="new">Cannot connect to the storage account.</target>
+        </trans-unit>
+        <trans-unit id="d4f2a55a-b72d-4e44-ab01-72ff64653a41" xml:space="preserve">
+          <source>It looks like there might be a connectivity issue with your device.</source>
+          <target state="new">It looks like there might be a connectivity issue with your device.</target>
+        </trans-unit>
+        <trans-unit id="b6d6dc09-092d-4c01-a7e4-2b9a6e1f3a75" xml:space="preserve">
+          <source>Please run the <bpt id="d8a7ba5e-6da5-41d1-86a7-e28d6ac46ff3">&lt;code&gt;</bpt>Test-HcsmConnection<ept id="d8a7ba5e-6da5-41d1-86a7-e28d6ac46ff3">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue.</source>
+          <target state="new">Please run the <bpt id="d8a7ba5e-6da5-41d1-86a7-e28d6ac46ff3">&lt;code&gt;</bpt>Test-HcsmConnection<ept id="d8a7ba5e-6da5-41d1-86a7-e28d6ac46ff3">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue.</target>
+        </trans-unit>
+        <trans-unit id="c67dd19e-1773-4163-81c4-c57a81b58964" xml:space="preserve">
+          <source>If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised.</source>
+          <target state="new">If the settings are correct, the issue might be with the credentials of the storage account for which the alert was raised.</target>
+        </trans-unit>
+        <trans-unit id="4e53cfd3-da4a-4413-adb2-5ee0e0296002" xml:space="preserve">
+          <source>In this case, use the <bpt id="e8546a64-3171-433f-a4df-e8f79cee9e35">&lt;code&gt;</bpt>Test-HcsStorageAccountCredential<ept id="e8546a64-3171-433f-a4df-e8f79cee9e35">&lt;/code&gt;</ept> cmdlet to determine if there are issues that you can resolve.&lt;ul&gt;&lt;li&gt;Check your network settings.&lt;/li&gt;&lt;li&gt;Check your storage account credentials.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">In this case, use the <bpt id="e8546a64-3171-433f-a4df-e8f79cee9e35">&lt;code&gt;</bpt>Test-HcsStorageAccountCredential<ept id="e8546a64-3171-433f-a4df-e8f79cee9e35">&lt;/code&gt;</ept> cmdlet to determine if there are issues that you can resolve.&lt;ul&gt;&lt;li&gt;Check your network settings.&lt;/li&gt;&lt;li&gt;Check your storage account credentials.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="2fbc028a-55a1-479f-91e6-a46f7c6148e3" xml:space="preserve">
+          <source>We have not received a heartbeat from your device for the last &lt;<bpt id="276b2ad9-1a31-4d22-9f4d-cb7208a266bf">&lt;em&gt;</bpt>number<ept id="276b2ad9-1a31-4d22-9f4d-cb7208a266bf">&lt;/em&gt;</ept>&gt; minutes.</source>
+          <target state="new">We have not received a heartbeat from your device for the last &lt;<bpt id="276b2ad9-1a31-4d22-9f4d-cb7208a266bf">&lt;em&gt;</bpt>number<ept id="276b2ad9-1a31-4d22-9f4d-cb7208a266bf">&lt;/em&gt;</ept>&gt; minutes.</target>
+        </trans-unit>
+        <trans-unit id="f7aa10e1-10a1-4f50-acf0-b5ec675e102e" xml:space="preserve">
+          <source>Cannot connect to device.</source>
+          <target state="new">Cannot connect to device.</target>
+        </trans-unit>
+        <trans-unit id="b52aa74d-1129-4417-b53a-3854f3dae7c4" xml:space="preserve">
+          <source>It looks like there is a connectivity issue with your device.</source>
+          <target state="new">It looks like there is a connectivity issue with your device.</target>
+        </trans-unit>
+        <trans-unit id="c3dec448-3e29-4482-806f-c6d6cb2d398a" xml:space="preserve">
+          <source>Please use the <bpt id="9a630015-c3eb-43fa-8dc9-57d23727c59d">&lt;code&gt;</bpt>Test-HcsmConnection<ept id="9a630015-c3eb-43fa-8dc9-57d23727c59d">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.</source>
+          <target state="new">Please use the <bpt id="9a630015-c3eb-43fa-8dc9-57d23727c59d">&lt;code&gt;</bpt>Test-HcsmConnection<ept id="9a630015-c3eb-43fa-8dc9-57d23727c59d">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to identify and fix the issue or contact your network administrator.</target>
+        </trans-unit>
+        <trans-unit id="634b30dd-fe26-47aa-b2d7-f072caec9d5d" xml:space="preserve">
+          <source>What happens if cloud connectivity fails for my StorSimple device running in production?</source>
+          <target state="new">What happens if cloud connectivity fails for my StorSimple device running in production?</target>
+        </trans-unit>
+        <trans-unit id="8c626476-b328-4e4c-83a1-e8ef73f58134" xml:space="preserve">
+          <source>If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: </source>
+          <target state="new">If cloud connectivity fails on your StorSimple production device, then depending on the state of your device, the following can occur: </target>
+        </trans-unit>
+        <trans-unit id="f0d618c5-f338-4b6a-b2bb-476b479f7344" xml:space="preserve">
+          <source><bpt id="22c36553-6fad-4770-808a-43ffa626ef44">&lt;strong&gt;</bpt>For the local data on your device<ept id="22c36553-6fad-4770-808a-43ffa626ef44">&lt;/strong&gt;</ept>: There will be no disruption and reads will continue to be served.</source>
+          <target state="new"><bpt id="22c36553-6fad-4770-808a-43ffa626ef44">&lt;strong&gt;</bpt>For the local data on your device<ept id="22c36553-6fad-4770-808a-43ffa626ef44">&lt;/strong&gt;</ept>: There will be no disruption and reads will continue to be served.</target>
+        </trans-unit>
+        <trans-unit id="4a884e01-3505-4f89-aadf-6cf59e8a6b4a" xml:space="preserve">
+          <source>However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail.</source>
+          <target state="new">However, as the number of outstanding IOs increases and exceeds a limit, the reads could start to fail.</target>
+        </trans-unit>
+        <trans-unit id="85d21a48-7b91-40d0-9f0e-cd7b11d5e70b" xml:space="preserve">
+          <source>Depending on the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity.</source>
+          <target state="new">Depending on the amount of data on the local tiers of your device, the writes will also continue to occur for the first few hours after the disruption in the cloud connectivity.</target>
+        </trans-unit>
+        <trans-unit id="4442afc6-5b46-46a7-93b8-5bb1aa79636b" xml:space="preserve">
+          <source>The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours.</source>
+          <target state="new">The writes will then slow down and eventually start to fail if the cloud connectivity is disrupted for several hours.</target>
+        </trans-unit>
+        <trans-unit id="5ab3bce2-83a7-44e2-8f3e-c3e27f21295e" xml:space="preserve">
+          <source><bpt id="07aa5f59-2c9c-434d-95b1-0d0ccb66fceb">&lt;strong&gt;</bpt>For the data in the cloud<ept id="07aa5f59-2c9c-434d-95b1-0d0ccb66fceb">&lt;/strong&gt;</ept>: For most cloud connectivity errors, an error is returned.</source>
+          <target state="new"><bpt id="07aa5f59-2c9c-434d-95b1-0d0ccb66fceb">&lt;strong&gt;</bpt>For the data in the cloud<ept id="07aa5f59-2c9c-434d-95b1-0d0ccb66fceb">&lt;/strong&gt;</ept>: For most cloud connectivity errors, an error is returned.</target>
+        </trans-unit>
+        <trans-unit id="8b339f8d-2e80-479c-b88c-877a6a4b8b32" xml:space="preserve">
+          <source>Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online.</source>
+          <target state="new">Once the connectivity is restored, the IOs are resumed without the user having to bring the volume online.</target>
+        </trans-unit>
+        <trans-unit id="f18a7ae1-85c9-4b90-8b0d-454f34f48afa" xml:space="preserve">
+          <source>In rare instances, user intervention may be required to bring back the volume online from the Azure Portal.</source>
+          <target state="new">In rare instances, user intervention may be required to bring back the volume online from the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="339ff847-6da0-4bcb-a546-a85fceb25cd8" xml:space="preserve">
+          <source><bpt id="b8779642-89da-48c8-a9d7-47bdf9d7de4e">&lt;strong&gt;</bpt>For cloud snapshots in progress<ept id="b8779642-89da-48c8-a9d7-47bdf9d7de4e">&lt;/strong&gt;</ept>: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.</source>
+          <target state="new"><bpt id="b8779642-89da-48c8-a9d7-47bdf9d7de4e">&lt;strong&gt;</bpt>For cloud snapshots in progress<ept id="b8779642-89da-48c8-a9d7-47bdf9d7de4e">&lt;/strong&gt;</ept>: The operation is retried a few times within 4-5 hours and if the connectivity is not restored, the cloud snapshots will fail.</target>
+        </trans-unit>
+        <trans-unit id="6451d475-55ed-478f-97e7-3555694e013c" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="1f34d70c-3c06-4d24-b2ab-182b4c8e96de" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="2b409cb6-d9ed-4e2d-8ec7-472b62919066" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="31f10977-53a9-4dbe-a48e-2906331d5e18" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="facf62fc-7c0d-40a3-ab5a-1ca16636f209">&lt;em&gt;</bpt>device name<ept id="facf62fc-7c0d-40a3-ab5a-1ca16636f209">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="facf62fc-7c0d-40a3-ab5a-1ca16636f209">&lt;em&gt;</bpt>device name<ept id="facf62fc-7c0d-40a3-ab5a-1ca16636f209">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="eeb89afc-8fec-413a-a95b-75f8a4f4dac6" xml:space="preserve">
+          <source>Device is in maintenance mode.</source>
+          <target state="new">Device is in maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="c9936c36-ffe7-4c31-a237-1f6ea94ee6c5" xml:space="preserve">
+          <source>Device failed over due to entering or exiting maintenance mode.</source>
+          <target state="new">Device failed over due to entering or exiting maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="8da79607-2edc-4c39-9815-6f7a88bded2d" xml:space="preserve">
+          <source>This is normal and no action is needed.</source>
+          <target state="new">This is normal and no action is needed.</target>
+        </trans-unit>
+        <trans-unit id="3e848f3f-076d-4325-b3be-50a26de99826" xml:space="preserve">
+          <source>After you have acknowledged this alert, please clear it from the alerts page.</source>
+          <target state="new">After you have acknowledged this alert, please clear it from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="08a2dacd-7da8-4120-94c9-42b3c4e51510" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="592188d7-e8e2-4eda-acc3-a1fb036b97da">&lt;em&gt;</bpt>device name<ept id="592188d7-e8e2-4eda-acc3-a1fb036b97da">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="592188d7-e8e2-4eda-acc3-a1fb036b97da">&lt;em&gt;</bpt>device name<ept id="592188d7-e8e2-4eda-acc3-a1fb036b97da">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e64b126c-8e62-435b-a3fb-a1e7cdda906b" xml:space="preserve">
+          <source>Device firmware or software was just updated.</source>
+          <target state="new">Device firmware or software was just updated.</target>
+        </trans-unit>
+        <trans-unit id="185450b7-8a33-47c5-baf5-6cb3d3a34de5" xml:space="preserve">
+          <source>There was a cluster failover due to an update.</source>
+          <target state="new">There was a cluster failover due to an update.</target>
+        </trans-unit>
+        <trans-unit id="98e47843-bcdc-4d6a-86f1-28eef2168167" xml:space="preserve">
+          <source>This is normal and no action is needed.</source>
+          <target state="new">This is normal and no action is needed.</target>
+        </trans-unit>
+        <trans-unit id="f49a0218-9f48-4a14-8610-9e7f8b38da9e" xml:space="preserve">
+          <source>After you have acknowledged this alert, please clear it from the alerts page.</source>
+          <target state="new">After you have acknowledged this alert, please clear it from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="1653a31d-4529-40b0-a669-64e2fae2dd4d" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="16661fbf-58e1-4cda-a61d-19c03b57e48b">&lt;em&gt;</bpt>device name<ept id="16661fbf-58e1-4cda-a61d-19c03b57e48b">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="16661fbf-58e1-4cda-a61d-19c03b57e48b">&lt;em&gt;</bpt>device name<ept id="16661fbf-58e1-4cda-a61d-19c03b57e48b">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="8c823074-6516-4caf-bdaa-a5bf5c681366" xml:space="preserve">
+          <source>Controller was shut down or restarted.</source>
+          <target state="new">Controller was shut down or restarted.</target>
+        </trans-unit>
+        <trans-unit id="a1f514dc-e8fb-491c-8536-8516aa17c9e9" xml:space="preserve">
+          <source>Device failed over because the active controller was shut down or restarted by an administrator.</source>
+          <target state="new">Device failed over because the active controller was shut down or restarted by an administrator.</target>
+        </trans-unit>
+        <trans-unit id="41ffa06b-7bac-4473-92ea-e175fd3fe3f7" xml:space="preserve">
+          <source>No action is needed.</source>
+          <target state="new">No action is needed.</target>
+        </trans-unit>
+        <trans-unit id="17043b8a-3ec4-4095-afcd-6df020aac605" xml:space="preserve">
+          <source>After you have acknowledged this alert, please clear it from the alerts page.</source>
+          <target state="new">After you have acknowledged this alert, please clear it from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="6a61b368-7cb6-4ea0-8aa1-d91b19f04288" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="d3b63401-b308-43a5-92a4-9307644118ac">&lt;em&gt;</bpt>device name<ept id="d3b63401-b308-43a5-92a4-9307644118ac">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="d3b63401-b308-43a5-92a4-9307644118ac">&lt;em&gt;</bpt>device name<ept id="d3b63401-b308-43a5-92a4-9307644118ac">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="41f56e3f-f204-44ae-bd66-4050ba37d8cb" xml:space="preserve">
+          <source>Planned failover.</source>
+          <target state="new">Planned failover.</target>
+        </trans-unit>
+        <trans-unit id="15bc586a-ec4d-4145-a0f6-af7ddec665dd" xml:space="preserve">
+          <source>Verify that this was a planned failover.</source>
+          <target state="new">Verify that this was a planned failover.</target>
+        </trans-unit>
+        <trans-unit id="17da0e25-f249-475c-abda-236aa02fa96c" xml:space="preserve">
+          <source>After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="2cd685cd-0575-4a06-870b-1448a5033985" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="3816fd08-75eb-48c4-9303-3c168af5b3e4">&lt;em&gt;</bpt>device name<ept id="3816fd08-75eb-48c4-9303-3c168af5b3e4">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="3816fd08-75eb-48c4-9303-3c168af5b3e4">&lt;em&gt;</bpt>device name<ept id="3816fd08-75eb-48c4-9303-3c168af5b3e4">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="7d03ee14-b7f2-4aca-afd0-1e603c6db3cd" xml:space="preserve">
+          <source>Unplanned failover.</source>
+          <target state="new">Unplanned failover.</target>
+        </trans-unit>
+        <trans-unit id="cc9509de-508c-42a2-8cac-c29354eee6a2" xml:space="preserve">
+          <source>StorSimple is built to automatically recover from unplanned failovers.</source>
+          <target state="new">StorSimple is built to automatically recover from unplanned failovers.</target>
+        </trans-unit>
+        <trans-unit id="82e2d688-fc33-446b-8bc7-3f7ef569226a" xml:space="preserve">
+          <source>If you see a large number of these alerts, please contact Microsoft Support.</source>
+          <target state="new">If you see a large number of these alerts, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="1ef4ec63-7680-4d6a-8093-a44d74e7bdd4" xml:space="preserve">
+          <source>Device failed over to &lt;<bpt id="e581907c-d280-4c59-94e5-8e550edb9186">&lt;em&gt;</bpt>device name<ept id="e581907c-d280-4c59-94e5-8e550edb9186">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Device failed over to &lt;<bpt id="e581907c-d280-4c59-94e5-8e550edb9186">&lt;em&gt;</bpt>device name<ept id="e581907c-d280-4c59-94e5-8e550edb9186">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="42952edc-d32c-4370-a452-79ff54daa20e" xml:space="preserve">
+          <source>Other/unknown cause.</source>
+          <target state="new">Other/unknown cause.</target>
+        </trans-unit>
+        <trans-unit id="704cc7e6-19f8-47b2-b561-366ce023c2b7" xml:space="preserve">
+          <source>If you see a large number of these alerts, please contact Microsoft Support.</source>
+          <target state="new">If you see a large number of these alerts, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="372bca16-e311-4847-b262-c01a47746c8b" xml:space="preserve">
+          <source>After the issue is resolved, please clear this alert from the alerts page.</source>
+          <target state="new">After the issue is resolved, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="1d6497dd-ae14-47c0-95f3-b486f3758026" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="ef62911f-6b26-4bcd-84b7-f40c0ead78d7" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="229716ef-0818-4267-9cc0-8147f782cc55" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="23909f83-0ff8-4830-ac2a-5c17f8a8a913" xml:space="preserve">
+          <source>Recovery operations could not restore all of the settings for this service.</source>
+          <target state="new">Recovery operations could not restore all of the settings for this service.</target>
+        </trans-unit>
+        <trans-unit id="c43ca186-3022-452a-bc7a-6814493d110f" xml:space="preserve">
+          <source>Device configuration data is in an inconsistent state for some devices.</source>
+          <target state="new">Device configuration data is in an inconsistent state for some devices.</target>
+        </trans-unit>
+        <trans-unit id="9772141d-f181-4748-a868-f69f14687f7d" xml:space="preserve">
+          <source>Data inconsistency detected after disaster recovery.</source>
+          <target state="new">Data inconsistency detected after disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="c1f90900-ec80-497f-ae45-6aafea160a8b" xml:space="preserve">
+          <source>Encrypted data on the service is not synchronized with that on the device. Authorize the device &lt;<bpt id="163514d1-96c9-434e-8e4f-54de5fc05383">&lt;em&gt;</bpt>device name<ept id="163514d1-96c9-434e-8e4f-54de5fc05383">&lt;/em&gt;</ept>&gt; from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the <bpt id="fadc074e-b7a6-4635-a29d-76cbfe107288">&lt;code&gt;</bpt>Restore-HcsmEncryptedServiceData<ept id="fadc074e-b7a6-4635-a29d-76cbfe107288">&lt;/code&gt;</ept> on device &lt;<bpt id="8cc57385-f3fb-420d-aae7-2f6decce02f8">&lt;em&gt;</bpt>device name<ept id="8cc57385-f3fb-420d-aae7-2f6decce02f8">&lt;/em&gt;</ept>&gt; cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the <bpt id="0a698304-96cf-4e24-b728-f2b820f4ac87">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="0a698304-96cf-4e24-b728-f2b820f4ac87">&lt;/code&gt;</ept> cmdlet to update the service data encryption key. After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">Encrypted data on the service is not synchronized with that on the device. Authorize the device &lt;<bpt id="163514d1-96c9-434e-8e4f-54de5fc05383">&lt;em&gt;</bpt>device name<ept id="163514d1-96c9-434e-8e4f-54de5fc05383">&lt;/em&gt;</ept>&gt; from StorSimple Manager to start the synchronization process. Use the Windows PowerShell Interface for StorSimple to run the <bpt id="fadc074e-b7a6-4635-a29d-76cbfe107288">&lt;code&gt;</bpt>Restore-HcsmEncryptedServiceData<ept id="fadc074e-b7a6-4635-a29d-76cbfe107288">&lt;/code&gt;</ept> on device &lt;<bpt id="8cc57385-f3fb-420d-aae7-2f6decce02f8">&lt;em&gt;</bpt>device name<ept id="8cc57385-f3fb-420d-aae7-2f6decce02f8">&lt;/em&gt;</ept>&gt; cmdlet, providing the old password as an input to this cmdlet to restore the security profile. Then run the <bpt id="0a698304-96cf-4e24-b728-f2b820f4ac87">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="0a698304-96cf-4e24-b728-f2b820f4ac87">&lt;/code&gt;</ept> cmdlet to update the service data encryption key. After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="8347bc9d-8b9c-4419-8865-a693202d911f" xml:space="preserve">
+          <source>The service has failed over to a secondary data center due to an unexpected failure.</source>
+          <target state="new">The service has failed over to a secondary data center due to an unexpected failure.</target>
+        </trans-unit>
+        <trans-unit id="edcd3bd5-f3b0-4bc9-86a9-6502158cf44a" xml:space="preserve">
+          <source>Other/unknown cause.</source>
+          <target state="new">Other/unknown cause.</target>
+        </trans-unit>
+        <trans-unit id="728a0dc8-89fa-4d57-8613-cba4d5d610f8" xml:space="preserve">
+          <source>You need to verify your configuration settings in StorSimple Manager to continue.</source>
+          <target state="new">You need to verify your configuration settings in StorSimple Manager to continue.</target>
+        </trans-unit>
+        <trans-unit id="3c0997a3-d1f9-4ec4-8d0b-82a94356f6d1" xml:space="preserve">
+          <source>After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="25f7b49e-03a8-463c-8251-e12d3f67df07" xml:space="preserve">
+          <source>For more information about StorSimple Manager see the <bpt id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;linkText&gt;</bpt>Use StorSimple Manager service to administer your StorSimple device<ept id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;/linkText&gt;</ept><bpt id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;title&gt;</bpt><ept id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about StorSimple Manager see the <bpt id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;linkText&gt;</bpt>Use StorSimple Manager service to administer your StorSimple device<ept id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;/linkText&gt;</ept><bpt id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;title&gt;</bpt><ept id="ceaa7147-bbab-4ba8-aa0b-6bb139436fb6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d981947-a199-4501-8717-cfedfb57a75a" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="a1f546fb-423a-4e47-b804-41b89062049b" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="07269a08-d07d-4598-9a0d-ce6a372f144f" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="8ca2766f-4893-43f0-ba36-2f229d8dc923" xml:space="preserve">
+          <source>Hardware component &lt;<bpt id="b7ef9d07-79bc-483a-b938-8f5a2d6345de">&lt;em&gt;</bpt>component ID<ept id="b7ef9d07-79bc-483a-b938-8f5a2d6345de">&lt;/em&gt;</ept>&gt; reports status as &lt;<bpt id="9a67c8da-943b-4c2f-8dc8-a9cc6e65ec43">&lt;em&gt;</bpt>status<ept id="9a67c8da-943b-4c2f-8dc8-a9cc6e65ec43">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Hardware component &lt;<bpt id="b7ef9d07-79bc-483a-b938-8f5a2d6345de">&lt;em&gt;</bpt>component ID<ept id="b7ef9d07-79bc-483a-b938-8f5a2d6345de">&lt;/em&gt;</ept>&gt; reports status as &lt;<bpt id="9a67c8da-943b-4c2f-8dc8-a9cc6e65ec43">&lt;em&gt;</bpt>status<ept id="9a67c8da-943b-4c2f-8dc8-a9cc6e65ec43">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="9dcd4788-19ad-40cd-a0c3-93695e9cdb90" xml:space="preserve">
+          <source>Sometimes temporary conditions can cause these alerts.</source>
+          <target state="new">Sometimes temporary conditions can cause these alerts.</target>
+        </trans-unit>
+        <trans-unit id="1b92ec93-62b2-4446-8a35-cd72761fb059" xml:space="preserve">
+          <source>If so, this alert will be automatically cleared after some time.</source>
+          <target state="new">If so, this alert will be automatically cleared after some time.</target>
+        </trans-unit>
+        <trans-unit id="af3c2279-9e8b-4603-bbc9-583043c19fd7" xml:space="preserve">
+          <source>If the issue persists, please contact Microsoft Support.</source>
+          <target state="new">If the issue persists, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="7eef96e3-b03c-4f79-9faa-96277c264329" xml:space="preserve">
+          <source>Passive controller malfunctioning.</source>
+          <target state="new">Passive controller malfunctioning.</target>
+        </trans-unit>
+        <trans-unit id="21ce6b27-0186-4c9a-b27a-061ba490b832" xml:space="preserve">
+          <source>The passive (secondary) controller is not functioning.</source>
+          <target state="new">The passive (secondary) controller is not functioning.</target>
+        </trans-unit>
+        <trans-unit id="7fe84e1e-4e3a-4cd4-a184-55949cae0178" xml:space="preserve">
+          <source>Your device is operational, but one of your controllers is malfunctioning.</source>
+          <target state="new">Your device is operational, but one of your controllers is malfunctioning.</target>
+        </trans-unit>
+        <trans-unit id="0ca85a33-a91b-4b69-b73f-ff74708f3d54" xml:space="preserve">
+          <source>Try restarting that controller.</source>
+          <target state="new">Try restarting that controller.</target>
+        </trans-unit>
+        <trans-unit id="a0002bf0-9edb-4b4d-a28d-7dbc1a4caa0f" xml:space="preserve">
+          <source>If the issue is not resolved, contact Microsoft Support.</source>
+          <target state="new">If the issue is not resolved, contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="4bac7b13-b688-4e21-8538-f3ce51973668" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="d3c10c50-4e11-4919-a5df-b0970486ca69" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="db703e5e-452f-4566-82d0-965cf3e9d975" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="0b1d4072-fa9e-442c-9b3e-cb7eedac2b68" xml:space="preserve">
+          <source>Backup of &lt;<bpt id="b72cb62e-6f6b-4f3f-be40-6b9cdafc2974">&lt;em&gt;</bpt>source volume group ID<ept id="b72cb62e-6f6b-4f3f-be40-6b9cdafc2974">&lt;/em&gt;</ept>&gt; failed.</source>
+          <target state="new">Backup of &lt;<bpt id="b72cb62e-6f6b-4f3f-be40-6b9cdafc2974">&lt;em&gt;</bpt>source volume group ID<ept id="b72cb62e-6f6b-4f3f-be40-6b9cdafc2974">&lt;/em&gt;</ept>&gt; failed.</target>
+        </trans-unit>
+        <trans-unit id="18c17848-1f33-4922-9924-78db0bfc45f2" xml:space="preserve">
+          <source>Backup job failed.</source>
+          <target state="new">Backup job failed.</target>
+        </trans-unit>
+        <trans-unit id="a399f64d-2243-4e7b-9455-3426b6e9fd69" xml:space="preserve">
+          <source>Connectivity issues could be preventing the backup operation from successfully completing.</source>
+          <target state="new">Connectivity issues could be preventing the backup operation from successfully completing.</target>
+        </trans-unit>
+        <trans-unit id="69e678f2-7ad3-4c47-9d9e-450ef78c1e20" xml:space="preserve">
+          <source>If there are no connectivity issues, you may have reached the maximum number of backups.</source>
+          <target state="new">If there are no connectivity issues, you may have reached the maximum number of backups.</target>
+        </trans-unit>
+        <trans-unit id="bdda3cd6-6ac0-45bd-af24-08f242a5e1b2" xml:space="preserve">
+          <source>Delete any backups that are no longer needed and retry the operation.</source>
+          <target state="new">Delete any backups that are no longer needed and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="d99045cf-7c29-4af8-8526-bab9319d99a4" xml:space="preserve">
+          <source>After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="30f8360a-700d-4c82-99c7-1ba7e3c54e98" xml:space="preserve">
+          <source>Clone of &lt;<bpt id="a653903f-5c58-4799-a105-e0b775025cd4">&lt;em&gt;</bpt>source backup element IDs<ept id="a653903f-5c58-4799-a105-e0b775025cd4">&lt;/em&gt;</ept>&gt; to &lt;<bpt id="d5d8df32-afd0-419d-a20a-aabeca749aaf">&lt;em&gt;</bpt>destination volume serial numbers<ept id="d5d8df32-afd0-419d-a20a-aabeca749aaf">&lt;/em&gt;</ept>&gt; failed.</source>
+          <target state="new">Clone of &lt;<bpt id="a653903f-5c58-4799-a105-e0b775025cd4">&lt;em&gt;</bpt>source backup element IDs<ept id="a653903f-5c58-4799-a105-e0b775025cd4">&lt;/em&gt;</ept>&gt; to &lt;<bpt id="d5d8df32-afd0-419d-a20a-aabeca749aaf">&lt;em&gt;</bpt>destination volume serial numbers<ept id="d5d8df32-afd0-419d-a20a-aabeca749aaf">&lt;/em&gt;</ept>&gt; failed.</target>
+        </trans-unit>
+        <trans-unit id="67f5e354-1753-400d-ab64-2bc4351fdcb7" xml:space="preserve">
+          <source>Clone job failed.</source>
+          <target state="new">Clone job failed.</target>
+        </trans-unit>
+        <trans-unit id="bff52395-251f-4a85-9d34-ff1489ee86c7" xml:space="preserve">
+          <source>Refresh the backup list to verify that the backup is still valid.</source>
+          <target state="new">Refresh the backup list to verify that the backup is still valid.</target>
+        </trans-unit>
+        <trans-unit id="28b407be-0fe4-47ce-a1cd-c3967bfc608b" xml:space="preserve">
+          <source>If the backup is valid, it is possible that cloud connectivity issues are preventing the clone operation from successfully completing.</source>
+          <target state="new">If the backup is valid, it is possible that cloud connectivity issues are preventing the clone operation from successfully completing.</target>
+        </trans-unit>
+        <trans-unit id="698a9e3f-d55d-484d-8075-34e85c8ed7cb" xml:space="preserve">
+          <source>If there are no connectivity issues, you may have reached the storage limit.</source>
+          <target state="new">If there are no connectivity issues, you may have reached the storage limit.</target>
+        </trans-unit>
+        <trans-unit id="e29ec4f8-b8de-4de1-8d95-67ac0face47b" xml:space="preserve">
+          <source>Delete any backups that are no longer needed and retry the operation.</source>
+          <target state="new">Delete any backups that are no longer needed and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="cc5c7e74-a238-4cbc-b24e-50316be619a7" xml:space="preserve">
+          <source>After you have taken appropriate action to resolve the issue, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action to resolve the issue, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="b1adc292-df0f-42d7-adb4-292568622ec7" xml:space="preserve">
+          <source>Restore of &lt;<bpt id="cc217679-8578-4950-b50d-9fad8410b6ae">&lt;em&gt;</bpt>source backup element IDs<ept id="cc217679-8578-4950-b50d-9fad8410b6ae">&lt;/em&gt;</ept>&gt; failed.</source>
+          <target state="new">Restore of &lt;<bpt id="cc217679-8578-4950-b50d-9fad8410b6ae">&lt;em&gt;</bpt>source backup element IDs<ept id="cc217679-8578-4950-b50d-9fad8410b6ae">&lt;/em&gt;</ept>&gt; failed.</target>
+        </trans-unit>
+        <trans-unit id="61c45e8e-14df-4a82-a0c9-61b14c046b5a" xml:space="preserve">
+          <source>Restore job failed.</source>
+          <target state="new">Restore job failed.</target>
+        </trans-unit>
+        <trans-unit id="481cbccc-7c81-4486-bc1b-d690095a4f1a" xml:space="preserve">
+          <source>Refresh the backup list to verify that the backup is still valid.</source>
+          <target state="new">Refresh the backup list to verify that the backup is still valid.</target>
+        </trans-unit>
+        <trans-unit id="89f838fd-d756-46a0-b61d-d0d449d67855" xml:space="preserve">
+          <source>If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing.</source>
+          <target state="new">If the backup is valid, it is possible that cloud connectivity issues are preventing the restore operation from successfully completing.</target>
+        </trans-unit>
+        <trans-unit id="1b77897c-eb9e-4387-9441-cbd5eec556cb" xml:space="preserve">
+          <source>If there are no connectivity issues, you may have reached the storage limit.</source>
+          <target state="new">If there are no connectivity issues, you may have reached the storage limit.</target>
+        </trans-unit>
+        <trans-unit id="42b77c22-9a84-4c05-a5ac-1da3e490ab36" xml:space="preserve">
+          <source>Delete any backups that are no longer needed and retry the operation.</source>
+          <target state="new">Delete any backups that are no longer needed and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="47da3ba8-164f-4fd4-964a-6190eae419a5" xml:space="preserve">
+          <source>After you have taken appropriate action to resolve the issue, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action to resolve the issue, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="1d096421-db32-4602-930c-7e8b357578ea" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="d4a1c8c2-0873-4189-8839-8a78022970a0" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="5d10851b-9a22-4a3d-ba18-5cdd913a09af" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="7395d2ef-ce7c-41b5-8b6d-f2ff9e4f7662" xml:space="preserve">
+          <source>The device load has exceeded &lt;<bpt id="4406a94e-fe40-4415-8d1f-4895f79302c7">&lt;em&gt;</bpt>threshold<ept id="4406a94e-fe40-4415-8d1f-4895f79302c7">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">The device load has exceeded &lt;<bpt id="4406a94e-fe40-4415-8d1f-4895f79302c7">&lt;em&gt;</bpt>threshold<ept id="4406a94e-fe40-4415-8d1f-4895f79302c7">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="7f550a80-4adb-4625-96ab-1484b8871aab" xml:space="preserve">
+          <source>Slower than expected response times.</source>
+          <target state="new">Slower than expected response times.</target>
+        </trans-unit>
+        <trans-unit id="2469db44-5f26-4536-817d-3b9202bfcbbb" xml:space="preserve">
+          <source>Your device reports utilization under a heavy input/output load.</source>
+          <target state="new">Your device reports utilization under a heavy input/output load.</target>
+        </trans-unit>
+        <trans-unit id="d3166724-c6f6-4491-bc4d-0600ea60c695" xml:space="preserve">
+          <source>This could cause your device to not work as well as it should.</source>
+          <target state="new">This could cause your device to not work as well as it should.</target>
+        </trans-unit>
+        <trans-unit id="d1ff2ee5-8b0c-4b40-89a9-affeb24df78b" xml:space="preserve">
+          <source>Please review the workloads that you have attached to the device and determine if there are any that could be moved to another device or that are no longer necessary.</source>
+          <target state="new">Please review the workloads that you have attached to the device and determine if there are any that could be moved to another device or that are no longer necessary.</target>
+        </trans-unit>
+        <trans-unit id="f51f9000-8045-4ead-b2cc-d0adb254e7be" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="a5103e1e-41a9-4dc3-bea8-6e02822ac20c" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="2d0b2414-4788-474f-8597-6b168d66bf9c" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="e70d4539-3e1c-4f19-9d43-3b7b51d78580" xml:space="preserve">
+          <source>Microsoft Support session has begun.</source>
+          <target state="new">Microsoft Support session has begun.</target>
+        </trans-unit>
+        <trans-unit id="ef121d22-0b63-4d73-89b6-320834a08a78" xml:space="preserve">
+          <source>Third-party accessed support session.</source>
+          <target state="new">Third-party accessed support session.</target>
+        </trans-unit>
+        <trans-unit id="55a99317-606c-463e-a371-21e961e026f9" xml:space="preserve">
+          <source>Please confirm this access is authorized.</source>
+          <target state="new">Please confirm this access is authorized.</target>
+        </trans-unit>
+        <trans-unit id="116f8d65-3ee8-4ea1-a113-5d3121ddb7bd" xml:space="preserve">
+          <source>After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="ab050243-956c-41d4-bd62-6b5d867bf7c4" xml:space="preserve">
+          <source>Password for &lt;<bpt id="947fdbb6-7e7c-44e4-a5eb-5cab7498711b">&lt;em&gt;</bpt>element<ept id="947fdbb6-7e7c-44e4-a5eb-5cab7498711b">&lt;/em&gt;</ept>&gt; will expire in &lt;<bpt id="1368924a-9e92-44d6-8dac-f5ae60ded02b">&lt;em&gt;</bpt>length of time<ept id="1368924a-9e92-44d6-8dac-f5ae60ded02b">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Password for &lt;<bpt id="947fdbb6-7e7c-44e4-a5eb-5cab7498711b">&lt;em&gt;</bpt>element<ept id="947fdbb6-7e7c-44e4-a5eb-5cab7498711b">&lt;/em&gt;</ept>&gt; will expire in &lt;<bpt id="1368924a-9e92-44d6-8dac-f5ae60ded02b">&lt;em&gt;</bpt>length of time<ept id="1368924a-9e92-44d6-8dac-f5ae60ded02b">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ceecf917-bfdc-4848-bcc9-28a7642a9905" xml:space="preserve">
+          <source>Change your password before it expires.</source>
+          <target state="new">Change your password before it expires.</target>
+        </trans-unit>
+        <trans-unit id="f8a6f8cb-6a2a-40bf-a115-eecd8d848691" xml:space="preserve">
+          <source>Security configuration information missing for &lt;<bpt id="c388c479-3b85-48cb-8a16-5561a4703611">&lt;em&gt;</bpt>element ID<ept id="c388c479-3b85-48cb-8a16-5561a4703611">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">Security configuration information missing for &lt;<bpt id="c388c479-3b85-48cb-8a16-5561a4703611">&lt;em&gt;</bpt>element ID<ept id="c388c479-3b85-48cb-8a16-5561a4703611">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="eef276d2-3ad2-495d-b8d1-7941d58af468" xml:space="preserve">
+          <source>The volumes associated with this volume container cannot be used to replicate your StorSimple configuration.</source>
+          <target state="new">The volumes associated with this volume container cannot be used to replicate your StorSimple configuration.</target>
+        </trans-unit>
+        <trans-unit id="95e9be94-1935-4a5a-b681-bc624b4af8c2" xml:space="preserve">
+          <source>To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container.</source>
+          <target state="new">To ensure that your data is safely stored, we recommend that you delete the volume container and any volumes associated with the volume container.</target>
+        </trans-unit>
+        <trans-unit id="05337b19-b062-4244-a605-582e5b84ac49" xml:space="preserve">
+          <source>After you have taken appropriate action, please clear this alert from the alerts page.</source>
+          <target state="new">After you have taken appropriate action, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="4749df35-4b2e-4786-bd80-719aadca02c3" xml:space="preserve">
+          <source>&lt;<bpt id="6feb4b7c-b3f0-43b9-b137-ca0e13e89f2f">&lt;em&gt;</bpt>number<ept id="6feb4b7c-b3f0-43b9-b137-ca0e13e89f2f">&lt;/em&gt;</ept>&gt; login attempts failed for &lt;<bpt id="95459c85-ddc9-42aa-9bdd-ae356d3f8ce4">&lt;em&gt;</bpt>element ID<ept id="95459c85-ddc9-42aa-9bdd-ae356d3f8ce4">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">&lt;<bpt id="6feb4b7c-b3f0-43b9-b137-ca0e13e89f2f">&lt;em&gt;</bpt>number<ept id="6feb4b7c-b3f0-43b9-b137-ca0e13e89f2f">&lt;/em&gt;</ept>&gt; login attempts failed for &lt;<bpt id="95459c85-ddc9-42aa-9bdd-ae356d3f8ce4">&lt;em&gt;</bpt>element ID<ept id="95459c85-ddc9-42aa-9bdd-ae356d3f8ce4">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="6929598d-e60a-4499-a4db-50784cdd3b80" xml:space="preserve">
+          <source>Multiple failed logon attempts.</source>
+          <target state="new">Multiple failed logon attempts.</target>
+        </trans-unit>
+        <trans-unit id="f32660b0-b1fb-402b-88f9-6660d73170e2" xml:space="preserve">
+          <source>Your device might be under attack or an authorized user is attempting to connect with an incorrect password.&lt;ul&gt;&lt;li&gt;Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, please clear this alert from the alerts page.&lt;/li&gt;&lt;li&gt;Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, please clear this alert from the alerts page.&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">Your device might be under attack or an authorized user is attempting to connect with an incorrect password.&lt;ul&gt;&lt;li&gt;Contact your authorized users and verify that these attempts were from a legitimate source. If you continue to see large numbers of failed login attempts, consider disabling remote management and contacting your network administrator. After you have taken appropriate action, please clear this alert from the alerts page.&lt;/li&gt;&lt;li&gt;Check that your Snapshot Manager instances are configured with the correct password. After you have taken appropriate action, please clear this alert from the alerts page.&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="6e71f9e8-02f3-43da-a51c-29a336e1a28e" xml:space="preserve">
+          <source>One or more failures occurred while changing the service data encryption key.</source>
+          <target state="new">One or more failures occurred while changing the service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="196f8ecd-b89c-4f38-914d-029ae85a248a" xml:space="preserve">
+          <source>There were errors encountered while changing the service data encryption key.</source>
+          <target state="new">There were errors encountered while changing the service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="49bce7c7-b684-45e0-9a19-0921261cfc90" xml:space="preserve">
+          <source>After you have addressed the error conditions, run the <bpt id="2681748f-1b0e-4bc0-9cbb-5613c9d03799">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="2681748f-1b0e-4bc0-9cbb-5613c9d03799">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service.</source>
+          <target state="new">After you have addressed the error conditions, run the <bpt id="2681748f-1b0e-4bc0-9cbb-5613c9d03799">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="2681748f-1b0e-4bc0-9cbb-5613c9d03799">&lt;/code&gt;</ept> cmdlet from the Windows PowerShell Interface for StorSimple on your device to update the service.</target>
+        </trans-unit>
+        <trans-unit id="22d44441-ae86-4677-950f-84d1b64f8902" xml:space="preserve">
+          <source>If this issue persists, please contact Microsoft support.</source>
+          <target state="new">If this issue persists, please contact Microsoft support.</target>
+        </trans-unit>
+        <trans-unit id="691aff59-1960-42c7-a0f0-0f9fef225f67" xml:space="preserve">
+          <source>After you resolve the issue, please clear this alert from the alerts page.</source>
+          <target state="new">After you resolve the issue, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="4e5e99aa-048e-46ae-b1e9-ca2b5555ac54" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="e2227b9b-36fb-46a1-a743-4b45d319f779" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="cdb69837-ec42-45a9-ade2-4fd2c3484f4b" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="156f3e08-6c71-422e-b996-8c0181d1ef18" xml:space="preserve">
+          <source>Creation of support package failed.</source>
+          <target state="new">Creation of support package failed.</target>
+        </trans-unit>
+        <trans-unit id="01d35322-1e38-41af-bd18-e9374dc279b9" xml:space="preserve">
+          <source>StorSimple couldn't generate the package.</source>
+          <target state="new">StorSimple couldn't generate the package.</target>
+        </trans-unit>
+        <trans-unit id="66a8563b-1ab5-4c93-8d5b-24ffd419f5d5" xml:space="preserve">
+          <source>Retry this operation.</source>
+          <target state="new">Retry this operation.</target>
+        </trans-unit>
+        <trans-unit id="41567a5f-e392-4c24-aeb2-dfef41964788" xml:space="preserve">
+          <source>If the issue persists, please contact Microsoft Support.</source>
+          <target state="new">If the issue persists, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="cc0436aa-c111-4923-8f75-051dd66a82d2" xml:space="preserve">
+          <source>After you have resolved the issue, please clear this alert from the alerts page.</source>
+          <target state="new">After you have resolved the issue, please clear this alert from the alerts page.</target>
+        </trans-unit>
+        <trans-unit id="6f27f035-ce47-41e7-ac41-110c19f6e5df" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="860c0087-3efd-4a4b-aef3-88e24ac74831" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="9f78fd04-5583-4229-b3f1-39405402e83a" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="f6c46795-635f-4e29-a658-fdc297ca39f7" xml:space="preserve">
+          <source>This is a test message sent from your StorSimple device. Your StorSimple administrator has added you as a recipient of alert notifications for the device: &lt;<bpt id="261f59dd-57f9-4396-8401-b9d75db4d617">&lt;em&gt;</bpt>device name<ept id="261f59dd-57f9-4396-8401-b9d75db4d617">&lt;/em&gt;</ept>&gt;.</source>
+          <target state="new">This is a test message sent from your StorSimple device. Your StorSimple administrator has added you as a recipient of alert notifications for the device: &lt;<bpt id="261f59dd-57f9-4396-8401-b9d75db4d617">&lt;em&gt;</bpt>device name<ept id="261f59dd-57f9-4396-8401-b9d75db4d617">&lt;/em&gt;</ept>&gt;.</target>
+        </trans-unit>
+        <trans-unit id="5b1bea43-0d1f-45bc-8e8d-dad44fbeb8a0" xml:space="preserve">
+          <source>Test alert notification email.</source>
+          <target state="new">Test alert notification email.</target>
+        </trans-unit>
+        <trans-unit id="70d7bd91-4bcb-44c4-b3cd-498d8e93b2ee" xml:space="preserve">
+          <source>If you feel that you received this message in error, please contact your StorSimple administrator.</source>
+          <target state="new">If you feel that you received this message in error, please contact your StorSimple administrator.</target>
+        </trans-unit>
+        <trans-unit id="64f7ed41-6ca6-49ea-863f-18973e814ffa" xml:space="preserve">
+          <source>Alert text</source>
+          <target state="new">Alert text</target>
+        </trans-unit>
+        <trans-unit id="b729b4d1-3586-49e6-b17e-3f728234c38a" xml:space="preserve">
+          <source>Event</source>
+          <target state="new">Event</target>
+        </trans-unit>
+        <trans-unit id="9ffedeb7-f03b-40bb-b472-4c9a176c6587" xml:space="preserve">
+          <source>More information / recommended actions</source>
+          <target state="new">More information / recommended actions</target>
+        </trans-unit>
+        <trans-unit id="6b084ab6-d9aa-4267-b7fe-0d4366a6a4f2" xml:space="preserve">
+          <source>Hotfix installed.</source>
+          <target state="new">Hotfix installed.</target>
+        </trans-unit>
+        <trans-unit id="388007d7-0877-4137-97c7-a83a2ade8bda" xml:space="preserve">
+          <source>Software/firmware update completed.</source>
+          <target state="new">Software/firmware update completed.</target>
+        </trans-unit>
+        <trans-unit id="3a8129d6-37eb-4a98-8df3-33f93423b696" xml:space="preserve">
+          <source>The hotfix has been successfully installed on your device.</source>
+          <target state="new">The hotfix has been successfully installed on your device.</target>
+        </trans-unit>
+        <trans-unit id="f81b7116-72d5-4307-b6cf-34cc45726bf3" xml:space="preserve">
+          <source>Manual updates available.</source>
+          <target state="new">Manual updates available.</target>
+        </trans-unit>
+        <trans-unit id="4f9b624b-8fc3-4803-9437-4ee99e4f0627" xml:space="preserve">
+          <source>Notification of available updates.</source>
+          <target state="new">Notification of available updates.</target>
+        </trans-unit>
+        <trans-unit id="d7fdb9c9-caff-4095-84a5-8bccae1038b2" xml:space="preserve">
+          <source>Please use the Windows PowerShell Interface for StorSimple on your device to install these updates.</source>
+          <target state="new">Please use the Windows PowerShell Interface for StorSimple on your device to install these updates.</target>
+        </trans-unit>
+        <trans-unit id="ad81cd1e-b907-436f-b148-a552faba874d" xml:space="preserve">
+          <source>New updates available.</source>
+          <target state="new">New updates available.</target>
+        </trans-unit>
+        <trans-unit id="85701c1a-adb0-40bc-9f30-469cce3172ad" xml:space="preserve">
+          <source>Notification of available updates.</source>
+          <target state="new">Notification of available updates.</target>
+        </trans-unit>
+        <trans-unit id="d1538eae-7f5d-4a88-89a0-2400be1a8549" xml:space="preserve">
+          <source>You can install these updates either from the <bpt id="0a0beed6-0ac1-4dab-8666-254ca4853b78">&lt;strong&gt;</bpt>Maintenance<ept id="0a0beed6-0ac1-4dab-8666-254ca4853b78">&lt;/strong&gt;</ept> page or by using the Windows PowerShell Interface for StorSimple on your device.</source>
+          <target state="new">You can install these updates either from the <bpt id="0a0beed6-0ac1-4dab-8666-254ca4853b78">&lt;strong&gt;</bpt>Maintenance<ept id="0a0beed6-0ac1-4dab-8666-254ca4853b78">&lt;/strong&gt;</ept> page or by using the Windows PowerShell Interface for StorSimple on your device.</target>
+        </trans-unit>
+        <trans-unit id="5c8d060f-bf56-478d-b8a9-789af20f0e73" xml:space="preserve">
+          <source>Failed to install updates.</source>
+          <target state="new">Failed to install updates.</target>
+        </trans-unit>
+        <trans-unit id="016accbc-8082-4f68-b6dc-790c7e9dcf6f" xml:space="preserve">
+          <source>Updates were not successfully installed.</source>
+          <target state="new">Updates were not successfully installed.</target>
+        </trans-unit>
+        <trans-unit id="107d965f-dbc1-43af-ba0f-ed099b9267bb" xml:space="preserve">
+          <source>Your system was not able to install the updates.</source>
+          <target state="new">Your system was not able to install the updates.</target>
+        </trans-unit>
+        <trans-unit id="7862c966-0b0e-4759-8247-c0f878b21d6f" xml:space="preserve">
+          <source>You can install these updates either from the <bpt id="bd835861-54e2-4318-949c-b1dd766e6923">&lt;strong&gt;</bpt>Maintenance<ept id="bd835861-54e2-4318-949c-b1dd766e6923">&lt;/strong&gt;</ept> page or by using the Windows PowerShell Interface for StorSimple on your device.</source>
+          <target state="new">You can install these updates either from the <bpt id="bd835861-54e2-4318-949c-b1dd766e6923">&lt;strong&gt;</bpt>Maintenance<ept id="bd835861-54e2-4318-949c-b1dd766e6923">&lt;/strong&gt;</ept> page or by using the Windows PowerShell Interface for StorSimple on your device.</target>
+        </trans-unit>
+        <trans-unit id="3a02f20c-276b-4251-a7f8-e314d809e86a" xml:space="preserve">
+          <source>If the issue persists, please contact Microsoft Support.</source>
+          <target state="new">If the issue persists, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="e073200a-8429-41d7-977d-d5b8f53c7d2f" xml:space="preserve">
+          <source>Unable to automatically check for new updates.</source>
+          <target state="new">Unable to automatically check for new updates.</target>
+        </trans-unit>
+        <trans-unit id="108a2640-e293-4850-b372-a54169f48b7e" xml:space="preserve">
+          <source>Automatic check failed.</source>
+          <target state="new">Automatic check failed.</target>
+        </trans-unit>
+        <trans-unit id="e9712933-fc05-43bb-8110-e4ff306a3bf7" xml:space="preserve">
+          <source>You can manually check for new updates from the <bpt id="17b8c62a-c6c6-4115-a71f-e546a6a8f194">&lt;strong&gt;</bpt>Maintenance<ept id="17b8c62a-c6c6-4115-a71f-e546a6a8f194">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can manually check for new updates from the <bpt id="17b8c62a-c6c6-4115-a71f-e546a6a8f194">&lt;strong&gt;</bpt>Maintenance<ept id="17b8c62a-c6c6-4115-a71f-e546a6a8f194">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="ca494933-dca7-41f0-a213-8acdedf748ad" xml:space="preserve">
+          <source>New WUA agent available.</source>
+          <target state="new">New WUA agent available.</target>
+        </trans-unit>
+        <trans-unit id="26dcdcd7-61f2-4060-89bf-f26244dabc14" xml:space="preserve">
+          <source>Notification of available update.</source>
+          <target state="new">Notification of available update.</target>
+        </trans-unit>
+        <trans-unit id="9b0ddb51-d464-40bb-b852-9d62fa03d268" xml:space="preserve">
+          <source>Download the latest Windows Update Agent and install it from the Windows PowerShell interface.</source>
+          <target state="new">Download the latest Windows Update Agent and install it from the Windows PowerShell interface.</target>
+        </trans-unit>
+        <trans-unit id="b203d0d9-49dd-4ea1-8067-05144fbb3600" xml:space="preserve">
+          <source>Version of firmware component &lt;<bpt id="dd27c2b7-f329-4ed4-ac19-f3020b97bf3a">&lt;em&gt;</bpt>component ID<ept id="dd27c2b7-f329-4ed4-ac19-f3020b97bf3a">&lt;/em&gt;</ept>&gt; does not match with hardware.</source>
+          <target state="new">Version of firmware component &lt;<bpt id="dd27c2b7-f329-4ed4-ac19-f3020b97bf3a">&lt;em&gt;</bpt>component ID<ept id="dd27c2b7-f329-4ed4-ac19-f3020b97bf3a">&lt;/em&gt;</ept>&gt; does not match with hardware.</target>
+        </trans-unit>
+        <trans-unit id="b35597e3-ee63-4794-948d-801a93319eaa" xml:space="preserve">
+          <source>Firmware update(s) were not successfully installed.</source>
+          <target state="new">Firmware update(s) were not successfully installed.</target>
+        </trans-unit>
+        <trans-unit id="36dbe12f-1bbd-45b9-92b5-8099575c05a0" xml:space="preserve">
+          <source>Please contact Microsoft Support.</source>
+          <target state="new">Please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="de47801f-0a2b-4e19-894c-122c077345f2" xml:space="preserve">
+          <source><bpt id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;linkText&gt;</bpt>Learn more about StorSimple errors<ept id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;/linkText&gt;</ept><bpt id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;title&gt;</bpt><ept id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;linkText&gt;</bpt>Learn more about StorSimple errors<ept id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;/linkText&gt;</ept><bpt id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;title&gt;</bpt><ept id="66810b67-e9dc-41ef-b722-75d93b0b90b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

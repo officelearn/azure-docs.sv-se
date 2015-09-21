@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="97ea63cf-7815-4ff2-9461-c5e4b64047f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="97ea63cf-7815-4ff2-9461-c5e4b64047f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e731d374-1376-4630-85a1-0b795ed1d4a7">
+        <trans-unit id="398d17ff-67e9-495b-9a84-7e8d4eddb4e8" xml:space="preserve">
+          <source>Sign in to the <bpt id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;linkText&gt;</bpt>Azure portal<ept id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;/linkText&gt;</ept><bpt id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;title&gt;</bpt><ept id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;linkText&gt;</bpt>Azure portal<ept id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;/linkText&gt;</ept><bpt id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;title&gt;</bpt><ept id="3c4d4858-1e09-4c6b-96c6-1e6f76ad831c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="016d3868-5f40-44a3-a231-cb22bc5037c5" xml:space="preserve">
+          <source>Check out the <bpt id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;linkText&gt;</bpt>Free Trial<ept id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;/linkText&gt;</ept><bpt id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;title&gt;</bpt><ept id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;/title&gt;</ept> offer if you don't have a subscription yet.</source>
+          <target state="new">Check out the <bpt id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;linkText&gt;</bpt>Free Trial<ept id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;/linkText&gt;</ept><bpt id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;title&gt;</bpt><ept id="238a1821-4536-4b5d-a7fe-9f5bd12c85c8">&lt;/title&gt;</ept> offer if you don't have a subscription yet.</target>
+        </trans-unit>
+        <trans-unit id="a2bbbd90-04b6-4a5b-aad4-7a1773865f9a" xml:space="preserve">
+          <source>On the command bar at the bottom of the window, click <bpt id="927b1f61-a96a-4c83-8a26-16b1d4181ad2">&lt;strong&gt;</bpt>New<ept id="927b1f61-a96a-4c83-8a26-16b1d4181ad2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar at the bottom of the window, click <bpt id="927b1f61-a96a-4c83-8a26-16b1d4181ad2">&lt;strong&gt;</bpt>New<ept id="927b1f61-a96a-4c83-8a26-16b1d4181ad2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12325765-411b-4db1-9d2b-28cedce5687c" xml:space="preserve">
+          <source>Under <bpt id="d97618aa-e133-40e2-a4a9-f695a53b5c20">&lt;strong&gt;</bpt>Compute<ept id="d97618aa-e133-40e2-a4a9-f695a53b5c20">&lt;/strong&gt;</ept>, click <bpt id="316b1fe8-196c-4cdf-ad84-163e6f097035">&lt;strong&gt;</bpt>Virtual Machine<ept id="316b1fe8-196c-4cdf-ad84-163e6f097035">&lt;/strong&gt;</ept>, and then click <bpt id="080961cd-770e-49d0-b7a8-eaad7d4ab9fd">&lt;strong&gt;</bpt>From Gallery<ept id="080961cd-770e-49d0-b7a8-eaad7d4ab9fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="d97618aa-e133-40e2-a4a9-f695a53b5c20">&lt;strong&gt;</bpt>Compute<ept id="d97618aa-e133-40e2-a4a9-f695a53b5c20">&lt;/strong&gt;</ept>, click <bpt id="316b1fe8-196c-4cdf-ad84-163e6f097035">&lt;strong&gt;</bpt>Virtual Machine<ept id="316b1fe8-196c-4cdf-ad84-163e6f097035">&lt;/strong&gt;</ept>, and then click <bpt id="080961cd-770e-49d0-b7a8-eaad7d4ab9fd">&lt;strong&gt;</bpt>From Gallery<ept id="080961cd-770e-49d0-b7a8-eaad7d4ab9fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91dcabcc-e84d-46c1-9e85-6e604fb742b4" xml:space="preserve">
+          <source><bpt id="cdbe2797-85a8-4a06-9168-c78d7d3527b0">&lt;linkText&gt;</bpt>Navigate to From Gallery in the Command Bar<ept id="cdbe2797-85a8-4a06-9168-c78d7d3527b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdbe2797-85a8-4a06-9168-c78d7d3527b0">&lt;linkText&gt;</bpt>Navigate to From Gallery in the Command Bar<ept id="cdbe2797-85a8-4a06-9168-c78d7d3527b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b9d8c7d-c2eb-469f-b9c9-f1e17155ffb3" xml:space="preserve">
+          <source>The first screen after this lets you <bpt id="4f5785b0-e0af-4eb9-b44c-ed2941cf75f5">&lt;strong&gt;</bpt>Choose an Image<ept id="4f5785b0-e0af-4eb9-b44c-ed2941cf75f5">&lt;/strong&gt;</ept> for your virtual machine from the list of available images.</source>
+          <target state="new">The first screen after this lets you <bpt id="4f5785b0-e0af-4eb9-b44c-ed2941cf75f5">&lt;strong&gt;</bpt>Choose an Image<ept id="4f5785b0-e0af-4eb9-b44c-ed2941cf75f5">&lt;/strong&gt;</ept> for your virtual machine from the list of available images.</target>
+        </trans-unit>
+        <trans-unit id="b19236c1-55ea-43c0-a720-6015aff37340" xml:space="preserve">
+          <source>(The available images may differ depending on the subscription you're using.)</source>
+          <target state="new">(The available images may differ depending on the subscription you're using.)</target>
+        </trans-unit>
+        <trans-unit id="a7e82d13-f558-4687-b24d-bc89052dc2bf" xml:space="preserve">
+          <source>The second screen lets you pick a computer name, size, and administrative user name and password.</source>
+          <target state="new">The second screen lets you pick a computer name, size, and administrative user name and password.</target>
+        </trans-unit>
+        <trans-unit id="4590464e-f3ae-439a-b6a7-8d157ac47f62" xml:space="preserve">
+          <source>Use the tier and size required to run your app or workload.</source>
+          <target state="new">Use the tier and size required to run your app or workload.</target>
+        </trans-unit>
+        <trans-unit id="83a6a95f-41e3-461f-993a-dbef86f4a797" xml:space="preserve">
+          <source>Here are some tips:</source>
+          <target state="new">Here are some tips:</target>
+        </trans-unit>
+        <trans-unit id="7f797fef-6aae-4979-a2c8-5230bc711f84" xml:space="preserve">
+          <source><bpt id="f570f7b7-32c3-47b4-836a-d7da148cd264">&lt;strong&gt;</bpt>New User Name<ept id="f570f7b7-32c3-47b4-836a-d7da148cd264">&lt;/strong&gt;</ept> refers to the administrative account that you use to manage the server.</source>
+          <target state="new"><bpt id="f570f7b7-32c3-47b4-836a-d7da148cd264">&lt;strong&gt;</bpt>New User Name<ept id="f570f7b7-32c3-47b4-836a-d7da148cd264">&lt;/strong&gt;</ept> refers to the administrative account that you use to manage the server.</target>
+        </trans-unit>
+        <trans-unit id="91392ea2-2871-46ce-a816-05a543f9902b" xml:space="preserve">
+          <source>Create a unique password for this account and make sure to remember it.</source>
+          <target state="new">Create a unique password for this account and make sure to remember it.</target>
+        </trans-unit>
+        <trans-unit id="a7166c6a-fb5e-4078-b8b8-1621a303ddd9" xml:space="preserve">
+          <source><bpt id="ea46c18c-6597-484e-abb9-74d224d55982">&lt;strong&gt;</bpt>You'll need the user name and password to log on to the virtual machine<ept id="ea46c18c-6597-484e-abb9-74d224d55982">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ea46c18c-6597-484e-abb9-74d224d55982">&lt;strong&gt;</bpt>You'll need the user name and password to log on to the virtual machine<ept id="ea46c18c-6597-484e-abb9-74d224d55982">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94c3edc1-0ef5-4f4e-a5d1-3fac140e1f85" xml:space="preserve">
+          <source>A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach.</source>
+          <target state="new">A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach.</target>
+        </trans-unit>
+        <trans-unit id="a65138f9-c87e-4a9e-bf6e-7a3266458b90" xml:space="preserve">
+          <source>For details, see <bpt id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;/linkText&gt;</ept><bpt id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;title&gt;</bpt><ept id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;/linkText&gt;</ept><bpt id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;title&gt;</bpt><ept id="7dcbba5e-1d03-466c-9e85-e221df7c60c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="996e1f78-ac98-4ca1-bce0-504572d7a8da" xml:space="preserve">
+          <source>The third screen lets you configure resources for networking, storage, and availability.</source>
+          <target state="new">The third screen lets you configure resources for networking, storage, and availability.</target>
+        </trans-unit>
+        <trans-unit id="324f9eb9-cdf8-464d-aa6d-11a8eb53349a" xml:space="preserve">
+          <source>Here are some tips:</source>
+          <target state="new">Here are some tips:</target>
+        </trans-unit>
+        <trans-unit id="bd388309-1adb-4ac7-9120-9387e3caeb1e" xml:space="preserve">
+          <source>The <bpt id="7142b804-5eb0-47cb-bc70-964e2e9cdb01">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="7142b804-5eb0-47cb-bc70-964e2e9cdb01">&lt;/strong&gt;</ept> is the global DNS name that becomes part of the URI that's used to contact the virtual machine.</source>
+          <target state="new">The <bpt id="7142b804-5eb0-47cb-bc70-964e2e9cdb01">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="7142b804-5eb0-47cb-bc70-964e2e9cdb01">&lt;/strong&gt;</ept> is the global DNS name that becomes part of the URI that's used to contact the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2fd3ed5c-8be7-45aa-8bab-79f9131c9aa9" xml:space="preserve">
+          <source>You'll need to come up with your own cloud service name because it must be unique in Azure.</source>
+          <target state="new">You'll need to come up with your own cloud service name because it must be unique in Azure.</target>
+        </trans-unit>
+        <trans-unit id="a323fb43-7872-4638-ad71-6704a528d358" xml:space="preserve">
+          <source>Cloud services are important for scenarios using <bpt id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;linkText&gt;</bpt>multiple virtual machines<ept id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;/linkText&gt;</ept><bpt id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;title&gt;</bpt><ept id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Cloud services are important for scenarios using <bpt id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;linkText&gt;</bpt>multiple virtual machines<ept id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;/linkText&gt;</ept><bpt id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;title&gt;</bpt><ept id="0fa70619-ae91-44f4-a6fa-7d1d9ca46e9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9dcbfff-7dce-4253-86a9-193c52017555" xml:space="preserve">
+          <source>For <bpt id="3c456aa6-2347-4093-8aed-a7717deff81f">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="3c456aa6-2347-4093-8aed-a7717deff81f">&lt;/strong&gt;</ept>, use a region that's appropriate to your location.</source>
+          <target state="new">For <bpt id="3c456aa6-2347-4093-8aed-a7717deff81f">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="3c456aa6-2347-4093-8aed-a7717deff81f">&lt;/strong&gt;</ept>, use a region that's appropriate to your location.</target>
+        </trans-unit>
+        <trans-unit id="e4dc7b91-a7fd-4b15-9ba3-adf2239042a6" xml:space="preserve">
+          <source>You can also choose to specify a virtual network instead.</source>
+          <target state="new">You can also choose to specify a virtual network instead.</target>
+        </trans-unit>
+        <trans-unit id="d49b6d4c-8343-40d9-94b3-f0a4cd567cde" xml:space="preserve">
+          <source>If you want a virtual machine to use a virtual network, you <bpt id="53f5da04-d32c-446a-8415-ebf4738d54ca">&lt;strong&gt;</bpt>must<ept id="53f5da04-d32c-446a-8415-ebf4738d54ca">&lt;/strong&gt;</ept> specify the virtual network when you create the virtual machine.</source>
+          <target state="new">If you want a virtual machine to use a virtual network, you <bpt id="53f5da04-d32c-446a-8415-ebf4738d54ca">&lt;strong&gt;</bpt>must<ept id="53f5da04-d32c-446a-8415-ebf4738d54ca">&lt;/strong&gt;</ept> specify the virtual network when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="704a2edd-0607-4f75-82a0-043096bbc2ef" xml:space="preserve">
+          <source>You can't join the virtual machine to a virtual network after you create the VM.</source>
+          <target state="new">You can't join the virtual machine to a virtual network after you create the VM.</target>
+        </trans-unit>
+        <trans-unit id="a8404517-3440-440b-ae7c-8020e43424ee" xml:space="preserve">
+          <source>For more information, see <bpt id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;/linkText&gt;</ept><bpt id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;title&gt;</bpt><ept id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;/linkText&gt;</ept><bpt id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;title&gt;</bpt><ept id="8d5ac0cb-a285-4289-a384-3e4157c4bb99">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9f71a11-8256-4218-a8d6-9e9c6ccbfb8e" xml:space="preserve">
+          <source>For details about configuring endpoints, see <bpt id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;/linkText&gt;</ept><bpt id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;title&gt;</bpt><ept id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about configuring endpoints, see <bpt id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;/linkText&gt;</ept><bpt id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;title&gt;</bpt><ept id="a39a75f3-c611-408b-9c74-b4aeffa60213">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ecc5580-c5c4-49bf-9b51-48c2b126331f" xml:space="preserve">
+          <source>The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.</source>
+          <target state="new">The fourth configuration screen lets you install the VM Agent and configure some of the available extensions.</target>
+        </trans-unit>
+        <trans-unit id="6f73b6c2-4f0c-401b-935c-20dd94183b04" xml:space="preserve">
+          <source>The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine.</source>
+          <target state="new">The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e4cb7ceb-951a-40f8-901c-f884f0b6d0cd" xml:space="preserve">
+          <source>For details, see <bpt id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;linkText&gt;</bpt>About the VM agent and extensions<ept id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;/linkText&gt;</ept><bpt id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;title&gt;</bpt><ept id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;linkText&gt;</bpt>About the VM agent and extensions<ept id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;/linkText&gt;</ept><bpt id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;title&gt;</bpt><ept id="e3a1eada-ae51-470f-a2c0-efd283117158">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a266cb86-06ed-4ece-ba50-fd72d4bfaead" xml:space="preserve">
+          <source>After the virtual machine is created, the portal lists the new virtual machine under <bpt id="97c39a34-0ac3-4f86-932d-30efb7f2a951">&lt;strong&gt;</bpt>Virtual Machines<ept id="97c39a34-0ac3-4f86-932d-30efb7f2a951">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the virtual machine is created, the portal lists the new virtual machine under <bpt id="97c39a34-0ac3-4f86-932d-30efb7f2a951">&lt;strong&gt;</bpt>Virtual Machines<ept id="97c39a34-0ac3-4f86-932d-30efb7f2a951">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e17c070-5013-43ea-af90-006e903e3d7d" xml:space="preserve">
+          <source>The corresponding cloud service and storage account also are created and are listed in those sections.</source>
+          <target state="new">The corresponding cloud service and storage account also are created and are listed in those sections.</target>
+        </trans-unit>
+        <trans-unit id="fdc4670e-fedf-4e03-b9d4-81f3db8359f1" xml:space="preserve">
+          <source>Both the virtual machine and cloud service are started automatically and their status is listed as <bpt id="eb9d2a5d-5fbf-4c6a-8773-118d49f9ce89">&lt;strong&gt;</bpt>Running<ept id="eb9d2a5d-5fbf-4c6a-8773-118d49f9ce89">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Both the virtual machine and cloud service are started automatically and their status is listed as <bpt id="eb9d2a5d-5fbf-4c6a-8773-118d49f9ce89">&lt;strong&gt;</bpt>Running<ept id="eb9d2a5d-5fbf-4c6a-8773-118d49f9ce89">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27527862-1af8-42b8-8ac4-28b9d9412455" xml:space="preserve">
+          <source><bpt id="02790257-f74c-4e61-9a28-b0e5734ec7ab">&lt;linkText&gt;</bpt>Configure VM Agent and the endpoints of the virtual machine<ept id="02790257-f74c-4e61-9a28-b0e5734ec7ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02790257-f74c-4e61-9a28-b0e5734ec7ab">&lt;linkText&gt;</bpt>Configure VM Agent and the endpoints of the virtual machine<ept id="02790257-f74c-4e61-9a28-b0e5734ec7ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

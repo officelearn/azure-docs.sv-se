@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="51baff6a-15cc-4ed4-beaa-18813b73a18a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="51baff6a-15cc-4ed4-beaa-18813b73a18a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69e9bfa1-28d2-4f7a-9124-886923fd8144">
+        <trans-unit id="4267b0a9-9332-4071-8853-d65776219b3c" xml:space="preserve">
+          <source>The push notifications extension package is included in the quickstart extension package.</source>
+          <target state="new">The push notifications extension package is included in the quickstart extension package.</target>
+        </trans-unit>
+        <trans-unit id="cf946b44-0d01-42b1-92e1-d00edbf5941b" xml:space="preserve">
+          <source>The server project that you download from the portal already has push notifications enabled.</source>
+          <target state="new">The server project that you download from the portal already has push notifications enabled.</target>
+        </trans-unit>
+        <trans-unit id="585b8d14-4af8-4c2e-acc1-ba463ecfbfef" xml:space="preserve">
+          <source>To learn how to install and initialize push notifications when not using the quickstart extension, see <bpt id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;linkText&gt;</bpt>How to: Add push notifications to a server project<ept id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;/linkText&gt;</ept><bpt id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;title&gt;</bpt><ept id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to install and initialize push notifications when not using the quickstart extension, see <bpt id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;linkText&gt;</bpt>How to: Add push notifications to a server project<ept id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;/linkText&gt;</ept><bpt id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;title&gt;</bpt><ept id="4d1baac9-04f3-4b8d-988c-cd68be22d6c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e0112e10-e5b0-4907-9f17-e58a1b1d6b1f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e0112e10-e5b0-4907-9f17-e58a1b1d6b1f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f29b20b-36f3-4d6a-b26f-43862a632464">
+        <trans-unit id="d9a62bbd-40bc-4e0e-9b5e-5cc00b3644b0" xml:space="preserve">
+          <source>Protect VMs from one VMM site to another  with PowerShell and Microsoft Azure Resource Manager</source>
+          <target state="new">Protect VMs from one VMM site to another  with PowerShell and Microsoft Azure Resource Manager</target>
+        </trans-unit>
+        <trans-unit id="f305f0f4-3473-4021-86cf-99f49fcc5ca8" xml:space="preserve">
+          <source>Automate protection between two on-premises VMM site and Azure using PowerShell and Azure Resource Manager.</source>
+          <target state="new">Automate protection between two on-premises VMM site and Azure using PowerShell and Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="a8f985af-2476-445d-89b7-83f686e29c8d" xml:space="preserve">
+          <source>Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.</source>
+          <target state="new">Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.</target>
+        </trans-unit>
+        <trans-unit id="cb82c39d-db52-4cca-9c09-5c747dbe1b1e" xml:space="preserve">
+          <source>For a full list of deployment scenarios see the <bpt id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;/linkText&gt;</ept><bpt id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;title&gt;</bpt><ept id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of deployment scenarios see the <bpt id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;linkText&gt;</bpt>Azure Site Recovery overview<ept id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;/linkText&gt;</ept><bpt id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;title&gt;</bpt><ept id="ff1dfaaf-1e43-4659-b157-1c0a9d18c589">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ff40988-e095-451a-a9d3-a6dd4c023b6e" xml:space="preserve">
+          <source>Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell.</source>
+          <target state="new">Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="abbd29e6-2885-4e9b-9479-c6cc7139ba22" xml:space="preserve">
+          <source>It can work with two types of modules - the Azure Profile module, or the Azure Resource Manager (ARM) module.</source>
+          <target state="new">It can work with two types of modules - the Azure Profile module, or the Azure Resource Manager (ARM) module.</target>
+        </trans-unit>
+        <trans-unit id="61918379-11d2-4188-8273-98634dab399c" xml:space="preserve">
+          <source>This article describes how to use Windows PowerShell® together with ARM to deploy Azure Site Recovery to configure and orchestrate virtual machine protection between two VMM sites.</source>
+          <target state="new">This article describes how to use Windows PowerShell® together with ARM to deploy Azure Site Recovery to configure and orchestrate virtual machine protection between two VMM sites.</target>
+        </trans-unit>
+        <trans-unit id="83e0f042-21fb-49a9-9a85-d2b7ff3e78ab" xml:space="preserve">
+          <source>Virtual machines running on Hyper-V host servers that are located in VMM private clouds in a primary site will replicate and fail over to a secondary VMM site using Hyper-V Replica.</source>
+          <target state="new">Virtual machines running on Hyper-V host servers that are located in VMM private clouds in a primary site will replicate and fail over to a secondary VMM site using Hyper-V Replica.</target>
+        </trans-unit>
+        <trans-unit id="1139917b-77a7-4e0d-a001-7aa49e325825" xml:space="preserve">
+          <source>You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions.</source>
+          <target state="new">You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions.</target>
+        </trans-unit>
+        <trans-unit id="a6dfa881-f1ed-43b2-9364-20cbcf8bf076" xml:space="preserve">
+          <source>For more information about Windows PowerShell, see <bpt id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;linkText&gt;</bpt>Getting Started with Windows PowerShell<ept id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;/linkText&gt;</ept><bpt id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;title&gt;</bpt><ept id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Windows PowerShell, see <bpt id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;linkText&gt;</bpt>Getting Started with Windows PowerShell<ept id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;/linkText&gt;</ept><bpt id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;title&gt;</bpt><ept id="4ea99cdf-71a1-417f-8096-04cc32cd89b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c275663d-55e3-4181-a1b2-19bfca1247c3" xml:space="preserve">
+          <source>Read more about <bpt id="ec3a3900-f310-45df-8e47-024817d16730">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="ec3a3900-f310-45df-8e47-024817d16730">&lt;/linkText&gt;</ept><bpt id="ec3a3900-f310-45df-8e47-024817d16730">&lt;title&gt;</bpt><ept id="ec3a3900-f310-45df-8e47-024817d16730">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="ec3a3900-f310-45df-8e47-024817d16730">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="ec3a3900-f310-45df-8e47-024817d16730">&lt;/linkText&gt;</ept><bpt id="ec3a3900-f310-45df-8e47-024817d16730">&lt;title&gt;</bpt><ept id="ec3a3900-f310-45df-8e47-024817d16730">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fea8a719-56b4-4bec-b8a4-84e5ad750854" xml:space="preserve">
+          <source>The article includes prerequisites for the scenario, and shows you how to set up Azure PowerShell to work with Site Recovery, create a Site Recovery vault, install the Azure Site Recovery Provider on VMM servers and register them  vault, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines.</source>
+          <target state="new">The article includes prerequisites for the scenario, and shows you how to set up Azure PowerShell to work with Site Recovery, create a Site Recovery vault, install the Azure Site Recovery Provider on VMM servers and register them  vault, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="99d026c9-5afa-4a82-aa42-c2ae6d157967" xml:space="preserve">
+          <source>You'll finish up by testing the failover to make sure everything's working as expected.</source>
+          <target state="new">You'll finish up by testing the failover to make sure everything's working as expected.</target>
+        </trans-unit>
+        <trans-unit id="8c6b4b45-b879-4421-93af-82b5630ac93e" xml:space="preserve">
+          <source>Make sure you have these prerequisites in place:</source>
+          <target state="new">Make sure you have these prerequisites in place:</target>
+        </trans-unit>
+        <trans-unit id="bcbf9678-2ed7-4c0b-827c-a9de8e61f002" xml:space="preserve">
+          <source>You'll need a <bpt id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;/linkText&gt;</ept><bpt id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;title&gt;</bpt><ept id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;/title&gt;</ept> account.</source>
+          <target state="new">You'll need a <bpt id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;/linkText&gt;</ept><bpt id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;title&gt;</bpt><ept id="daa86192-be35-40b9-abfd-8b08b68dfb2b">&lt;/title&gt;</ept> account.</target>
+        </trans-unit>
+        <trans-unit id="7a2ce5d7-b05d-477e-acf9-6fa92fc3abb6" xml:space="preserve">
+          <source>You'll need a <bpt id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;/linkText&gt;</ept><bpt id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;title&gt;</bpt><ept id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;/title&gt;</ept> account.</source>
+          <target state="new">You'll need a <bpt id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;/linkText&gt;</ept><bpt id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;title&gt;</bpt><ept id="17a3cf02-7485-44b8-9242-75ba59d91029">&lt;/title&gt;</ept> account.</target>
+        </trans-unit>
+        <trans-unit id="dfced671-b2d7-4d14-b473-6ecc56bcfeef" xml:space="preserve">
+          <source>You can start with a <bpt id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;linkText&gt;</bpt>free trial<ept id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;/linkText&gt;</ept><bpt id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;title&gt;</bpt><ept id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can start with a <bpt id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;linkText&gt;</bpt>free trial<ept id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;/linkText&gt;</ept><bpt id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;title&gt;</bpt><ept id="953f9cbd-cfe6-4638-ba46-db93f36b138a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bfe14a1-d7a7-40d4-9c65-cb9c840ffbd0" xml:space="preserve">
+          <source>In addition, you can read about <bpt id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;linkText&gt;</bpt>Azure Site Recovery Manager pricing<ept id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;/linkText&gt;</ept><bpt id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;title&gt;</bpt><ept id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition, you can read about <bpt id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;linkText&gt;</bpt>Azure Site Recovery Manager pricing<ept id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;/linkText&gt;</ept><bpt id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;title&gt;</bpt><ept id="6cdd36db-04db-4fcc-b324-266ff0309de3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92d2cf93-085c-4607-b77c-67c25fb21d37" xml:space="preserve">
+          <source>You'll need a VMM server in the primary and secondary sites running on System Center 2012 R2.</source>
+          <target state="new">You'll need a VMM server in the primary and secondary sites running on System Center 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="8a4199e1-5a64-439b-8d3f-fc9b3620f81b" xml:space="preserve">
+          <source>Each VMM server should have at least one cloud that contains:</source>
+          <target state="new">Each VMM server should have at least one cloud that contains:</target>
+        </trans-unit>
+        <trans-unit id="770ae8a7-4fa8-46fb-8bab-a929ac7a7cd4" xml:space="preserve">
+          <source>One or more VMM host groups.</source>
+          <target state="new">One or more VMM host groups.</target>
+        </trans-unit>
+        <trans-unit id="65a5b99d-ea10-464c-b39f-a4fc38b665f8" xml:space="preserve">
+          <source>One or more Hyper-V host servers or clusters in each host group .</source>
+          <target state="new">One or more Hyper-V host servers or clusters in each host group .</target>
+        </trans-unit>
+        <trans-unit id="0a8ee6cf-aa3d-47a7-a320-2c4804659018" xml:space="preserve">
+          <source>One or more virtual machines on the source Hyper-V server.</source>
+          <target state="new">One or more virtual machines on the source Hyper-V server.</target>
+        </trans-unit>
+        <trans-unit id="a2d36162-274a-457a-8cf9-8293630c8e7d" xml:space="preserve">
+          <source>Learn more about setting up VMM clouds:</source>
+          <target state="new">Learn more about setting up VMM clouds:</target>
+        </trans-unit>
+        <trans-unit id="66759cca-21f0-4267-90e0-6bf4e37f8d14" xml:space="preserve">
+          <source><bpt id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;/linkText&gt;</ept><bpt id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;title&gt;</bpt><ept id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;/title&gt;</ept> and in <bpt id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;/linkText&gt;</ept><bpt id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;title&gt;</bpt><ept id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;linkText&gt;</bpt>What’s New in Private Cloud with System Center 2012 R2 VMM<ept id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;/linkText&gt;</ept><bpt id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;title&gt;</bpt><ept id="82aed549-6ef7-485b-bebf-35e1deae479d">&lt;/title&gt;</ept> and in <bpt id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;linkText&gt;</bpt>VMM 2012 and the clouds<ept id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;/linkText&gt;</ept><bpt id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;title&gt;</bpt><ept id="5034e300-65f9-4d4e-93a2-870adbc13f75">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fea36e8-9818-42ad-bc38-ee7fe9228bb8" xml:space="preserve">
+          <source><bpt id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;/linkText&gt;</ept><bpt id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;title&gt;</bpt><ept id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;linkText&gt;</bpt>Configuring the VMM cloud fabric<ept id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;/linkText&gt;</ept><bpt id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;title&gt;</bpt><ept id="9cf7aece-e4dd-48c2-afb4-886e449d5560">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="276ce8be-eb8c-49a6-a598-950a82dee8f4" xml:space="preserve">
+          <source><bpt id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;/linkText&gt;</ept><bpt id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;title&gt;</bpt><ept id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;/title&gt;</ept> and <bpt id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;/linkText&gt;</ept><bpt id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;title&gt;</bpt><ept id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;linkText&gt;</bpt>Creating a private cloud in VMM<ept id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;/linkText&gt;</ept><bpt id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;title&gt;</bpt><ept id="b28bc2da-ef7a-481d-a2f3-2531623f29c4">&lt;/title&gt;</ept> and <bpt id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;linkText&gt;</bpt>Walkthrough: Creating private clouds with System Center 2012 SP1 VMM<ept id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;/linkText&gt;</ept><bpt id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;title&gt;</bpt><ept id="04062a93-d55b-4e51-8533-2f9c68cd160f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80e66319-48b3-4744-99b2-b26daf260e79" xml:space="preserve">
+          <source>One or more Hyper-V servers running at least Windows Server 2012 with Hyper-V role with the latest updates installed.</source>
+          <target state="new">One or more Hyper-V servers running at least Windows Server 2012 with Hyper-V role with the latest updates installed.</target>
+        </trans-unit>
+        <trans-unit id="442dbf95-62e4-4dc0-8446-3f33ee7b062a" xml:space="preserve">
+          <source>The server or cluster must be included in a VMM cloud.</source>
+          <target state="new">The server or cluster must be included in a VMM cloud.</target>
+        </trans-unit>
+        <trans-unit id="476643dc-e453-4da4-b008-6fc43bf92be0" xml:space="preserve">
+          <source>If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster.</source>
+          <target state="new">If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster.</target>
+        </trans-unit>
+        <trans-unit id="93dce1bb-a5a9-4699-9ca6-ec4f4f7db203" xml:space="preserve">
+          <source>You'll need to configure the cluster broker manually.</source>
+          <target state="new">You'll need to configure the cluster broker manually.</target>
+        </trans-unit>
+        <trans-unit id="d8c07d50-e722-4827-809b-6ac492e01eb3" xml:space="preserve">
+          <source>For instructions see <bpt id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;linkText&gt;</bpt>Configure Hyper-V Replica Broker<ept id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;/linkText&gt;</ept><bpt id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;title&gt;</bpt><ept id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions see <bpt id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;linkText&gt;</bpt>Configure Hyper-V Replica Broker<ept id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;/linkText&gt;</ept><bpt id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;title&gt;</bpt><ept id="0b3bd992-b224-4fa5-9ffc-10d061623aa1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0da2b332-a420-4134-a90d-3b95ba739f3b" xml:space="preserve">
+          <source>You'll needed Azure PowerShell.</source>
+          <target state="new">You'll needed Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="4931daca-eb1b-4af0-a598-b8e03eb3f6a9" xml:space="preserve">
+          <source>Make sure you're running Azure PowerShell version 0.9.6 or later.</source>
+          <target state="new">Make sure you're running Azure PowerShell version 0.9.6 or later.</target>
+        </trans-unit>
+        <trans-unit id="2c7d7d7b-c61f-4efd-92a1-b9207e6a77d0" xml:space="preserve">
+          <source>Read <bpt id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;/linkText&gt;</ept><bpt id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;title&gt;</bpt><ept id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read <bpt id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;/linkText&gt;</ept><bpt id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;title&gt;</bpt><ept id="f31d1a36-f416-4696-90b7-de1486005e67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71a82c2d-b8ff-46eb-b43a-ffb5826262a1" xml:space="preserve">
+          <source>Installing Azure PowerShell installs a customized console.</source>
+          <target state="new">Installing Azure PowerShell installs a customized console.</target>
+        </trans-unit>
+        <trans-unit id="75a2b1a1-348f-47c2-b211-04eaa5e81394" xml:space="preserve">
+          <source>You can run the PowerShell commands from this console or from any other host program, such as Windows PowerShell ISE.</source>
+          <target state="new">You can run the PowerShell commands from this console or from any other host program, such as Windows PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="564d0a0b-6aba-4169-a7f7-e71058829941" xml:space="preserve">
+          <source>Open a PowerShell console and run this command to switch to the ARM module:</source>
+          <target state="new">Open a PowerShell console and run this command to switch to the ARM module:</target>
+        </trans-unit>
+        <trans-unit id="78ec28e5-de1c-4954-b044-cdc261dd6e06" xml:space="preserve">
+          <source><bpt id="1385e24c-05a7-46f2-a350-f9aed3ca8ddf">&lt;code&gt;</bpt>Switch-AzureMode AzureResourceManager<ept id="1385e24c-05a7-46f2-a350-f9aed3ca8ddf">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1385e24c-05a7-46f2-a350-f9aed3ca8ddf">&lt;code&gt;</bpt>Switch-AzureMode AzureResourceManager<ept id="1385e24c-05a7-46f2-a350-f9aed3ca8ddf">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66ae3eaa-a791-48ea-9b78-f0ce52c0907d" xml:space="preserve">
+          <source>Now run this command to add your Azure account to the PowerShell session.</source>
+          <target state="new">Now run this command to add your Azure account to the PowerShell session.</target>
+        </trans-unit>
+        <trans-unit id="12dcd76b-a65c-4e91-9d13-caa7b9a37c4c" xml:space="preserve">
+          <source>The cmdlet prompts you for login credentials for your account.</source>
+          <target state="new">The cmdlet prompts you for login credentials for your account.</target>
+        </trans-unit>
+        <trans-unit id="b1c49e5f-48be-4f71-912b-2e5125eb0a50" xml:space="preserve">
+          <source><bpt id="0ac83624-6d3c-4a6b-a3b3-b0aba477d488">&lt;code&gt;</bpt>Add-AzureAccount<ept id="0ac83624-6d3c-4a6b-a3b3-b0aba477d488">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="0ac83624-6d3c-4a6b-a3b3-b0aba477d488">&lt;code&gt;</bpt>Add-AzureAccount<ept id="0ac83624-6d3c-4a6b-a3b3-b0aba477d488">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c5e43d54-ed5b-4e1e-a05e-4fa9312bfd64" xml:space="preserve">
+          <source>Note that if you're a CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant when you add the Azure account: </source>
+          <target state="new">Note that if you're a CSP partner working on behalf of a tenant you'll need to specify the customer as a tenant when you add the Azure account: </target>
+        </trans-unit>
+        <trans-unit id="dc1c5152-a16d-4b93-85f6-644a2da9e261" xml:space="preserve">
+          <source><bpt id="3d790e32-eb47-4e1e-a6f1-fdad52cce7f6">&lt;code&gt;</bpt>Add-AzureAccount-Tenant "customer"<ept id="3d790e32-eb47-4e1e-a6f1-fdad52cce7f6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3d790e32-eb47-4e1e-a6f1-fdad52cce7f6">&lt;code&gt;</bpt>Add-AzureAccount-Tenant "customer"<ept id="3d790e32-eb47-4e1e-a6f1-fdad52cce7f6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f538c447-f8f1-44ee-b168-534581e8c13f" xml:space="preserve">
+          <source>An account can have several subscriptions so you'll need to associate the subscription you want to use with the account.</source>
+          <target state="new">An account can have several subscriptions so you'll need to associate the subscription you want to use with the account.</target>
+        </trans-unit>
+        <trans-unit id="3ae34b7d-c3e9-4269-b037-b57d3a076f17" xml:space="preserve">
+          <source><bpt id="1ce948f9-45c7-424d-ae59-25671a6216b1">&lt;code&gt;</bpt>Select-AzureSubscription -SubscriptionName $SubscriptionName<ept id="1ce948f9-45c7-424d-ae59-25671a6216b1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1ce948f9-45c7-424d-ae59-25671a6216b1">&lt;code&gt;</bpt>Select-AzureSubscription -SubscriptionName $SubscriptionName<ept id="1ce948f9-45c7-424d-ae59-25671a6216b1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eda4496d-3796-4139-93b8-90eb324a0dc7" xml:space="preserve">
+          <source>If you're using Site Recovery cmdlets for the first time in the subscription, you need to register the Azure provider for Site Recovery:</source>
+          <target state="new">If you're using Site Recovery cmdlets for the first time in the subscription, you need to register the Azure provider for Site Recovery:</target>
+        </trans-unit>
+        <trans-unit id="f0406626-23cd-4c87-8fb4-167341e3bed7" xml:space="preserve">
+          <source><bpt id="b6cf5973-d338-4213-a691-680aa0ba5fb7">&lt;code&gt;</bpt>Register-AzureProvider -ProviderNamespace Microsoft.SiteRecovery<ept id="b6cf5973-d338-4213-a691-680aa0ba5fb7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="b6cf5973-d338-4213-a691-680aa0ba5fb7">&lt;code&gt;</bpt>Register-AzureProvider -ProviderNamespace Microsoft.SiteRecovery<ept id="b6cf5973-d338-4213-a691-680aa0ba5fb7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21c1bbc1-061c-419e-875b-6d3f0f56c63e" xml:space="preserve">
+          <source>If you haven't currently got a Site Recovery vault you'll need to create one by running the <bpt id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;linkText&gt;</bpt>New-AzureSiteRecoveryVault<ept id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;/linkText&gt;</ept><bpt id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;title&gt;</bpt><ept id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;/title&gt;</ept> cmdlet:</source>
+          <target state="new">If you haven't currently got a Site Recovery vault you'll need to create one by running the <bpt id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;linkText&gt;</bpt>New-AzureSiteRecoveryVault<ept id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;/linkText&gt;</ept><bpt id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;title&gt;</bpt><ept id="4f4a1201-0bbe-4d6a-af53-652e573df27f">&lt;/title&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="e3026e1f-d97f-4c57-a5b8-d71c51f55185" xml:space="preserve">
+          <source><bpt id="e1684472-2994-436a-bae0-9a2365cc870f">&lt;code&gt;</bpt>New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
+$vault = Get-AzureSiteRecoveryVault -Name $VaultName;<ept id="e1684472-2994-436a-bae0-9a2365cc870f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e1684472-2994-436a-bae0-9a2365cc870f">&lt;code&gt;</bpt>New-AzureSiteRecoveryVault -Location $VaultGeo -Name $VaultName;
+$vault = Get-AzureSiteRecoveryVault -Name $VaultName;<ept id="e1684472-2994-436a-bae0-9a2365cc870f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d713344-3633-45d3-8e4c-b70e44da2de8" xml:space="preserve">
+          <source>Run the <bpt id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;linkText&gt;</bpt>Get-AzureSiteRecoveryVaultSettingsFile<ept id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;/linkText&gt;</ept><bpt id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;title&gt;</bpt><ept id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;/title&gt;</ept> cmdlet to get a vault registration key.</source>
+          <target state="new">Run the <bpt id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;linkText&gt;</bpt>Get-AzureSiteRecoveryVaultSettingsFile<ept id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;/linkText&gt;</ept><bpt id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;title&gt;</bpt><ept id="7bf41607-640e-4093-8ca8-60fa7d9887b1">&lt;/title&gt;</ept> cmdlet to get a vault registration key.</target>
+        </trans-unit>
+        <trans-unit id="06410299-0b9d-450b-a9bb-8dd290aec7c4" xml:space="preserve">
+          <source>You need this key to register VMM servers in the vault:</source>
+          <target state="new">You need this key to register VMM servers in the vault:</target>
+        </trans-unit>
+        <trans-unit id="8d8c351f-c921-4153-a980-7cab74d5e8a0" xml:space="preserve">
+          <source><bpt id="8a951b35-fedb-4c0f-81bb-aff31088001b">&lt;code&gt;</bpt>$VaultSettingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;<ept id="8a951b35-fedb-4c0f-81bb-aff31088001b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="8a951b35-fedb-4c0f-81bb-aff31088001b">&lt;code&gt;</bpt>$VaultSettingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;<ept id="8a951b35-fedb-4c0f-81bb-aff31088001b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffb82926-f677-444d-8733-66ce67fbd9b1" xml:space="preserve">
+          <source>Download the Provider installation file from the Quick Start page in the Site Recovery vault.</source>
+          <target state="new">Download the Provider installation file from the Quick Start page in the Site Recovery vault.</target>
+        </trans-unit>
+        <trans-unit id="7eb5d583-9456-4889-8c6d-0ba60bfd747f" xml:space="preserve">
+          <source>On each VMM server create a folder using this command:</source>
+          <target state="new">On each VMM server create a folder using this command:</target>
+        </trans-unit>
+        <trans-unit id="9504d714-9166-4593-8bbf-5e3936074000" xml:space="preserve">
+          <source><bpt id="4f380b8a-7ecd-4032-a77c-70d4430dce94">&lt;code&gt;</bpt>pushd C:\ASR\<ept id="4f380b8a-7ecd-4032-a77c-70d4430dce94">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4f380b8a-7ecd-4032-a77c-70d4430dce94">&lt;code&gt;</bpt>pushd C:\ASR\<ept id="4f380b8a-7ecd-4032-a77c-70d4430dce94">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3ae2208-79aa-4ced-b1bd-a503bad432b7" xml:space="preserve">
+          <source>Run this command to extract the files from the downloaded Provider:</source>
+          <target state="new">Run this command to extract the files from the downloaded Provider:</target>
+        </trans-unit>
+        <trans-unit id="ac1c37ee-04eb-410d-a7b3-0d7f71809651" xml:space="preserve">
+          <source>`AzureSiteRecoveryProvider.exe /x:.</source>
+          <target state="new">`AzureSiteRecoveryProvider.exe /x:.</target>
+        </trans-unit>
+        <trans-unit id="0dcbe0da-87c4-4215-860e-8f25e36a9e51" xml:space="preserve">
+          <source>/q`</source>
+          <target state="new">/q`</target>
+        </trans-unit>
+        <trans-unit id="19154bce-c99f-49f3-9786-15b081b279a5" xml:space="preserve">
+          <source>Install the provider by running:</source>
+          <target state="new">Install the provider by running:</target>
+        </trans-unit>
+        <trans-unit id="e8228897-aded-4acd-9873-b4eab9a748c0" xml:space="preserve">
+          <source><bpt id="d5a89597-436c-4eee-b72e-d79ca5b64a6e">&lt;code&gt;</bpt>.\SetupDr.exe /i<ept id="d5a89597-436c-4eee-b72e-d79ca5b64a6e">&lt;/code&gt;</ept>
+<bpt id="b632614f-4c3d-43fc-831e-178398c37717">&lt;code&gt;</bpt>$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
+do
+{
+            $isNotInstalled = $true;
+            if(Test-Path $installationRegPath)
+            {
+                            $isNotInstalled = $false;
+            }
+}While($isNotInstalled)<ept id="b632614f-4c3d-43fc-831e-178398c37717">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d5a89597-436c-4eee-b72e-d79ca5b64a6e">&lt;code&gt;</bpt>.\SetupDr.exe /i<ept id="d5a89597-436c-4eee-b72e-d79ca5b64a6e">&lt;/code&gt;</ept>
+<bpt id="b632614f-4c3d-43fc-831e-178398c37717">&lt;code&gt;</bpt>$installationRegPath = "hklm:\software\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter"
+do
+{
+            $isNotInstalled = $true;
+            if(Test-Path $installationRegPath)
+            {
+                            $isNotInstalled = $false;
+            }
+}While($isNotInstalled)<ept id="b632614f-4c3d-43fc-831e-178398c37717">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88c73086-972e-4cf9-86d8-2b18bfac88b5" xml:space="preserve">
+          <source>Wait for the installation to finish and then register the server in the vault:</source>
+          <target state="new">Wait for the installation to finish and then register the server in the vault:</target>
+        </trans-unit>
+        <trans-unit id="ffb6383b-14f0-46a3-8a8a-f75f202d17b5" xml:space="preserve">
+          <source><bpt id="32241bb2-2dfa-471a-b4bc-6928c7ea7b54">&lt;code&gt;</bpt>$BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
+pushd $BinPath
+$encryptionFilePath = "C:\temp\"
+.\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice<ept id="32241bb2-2dfa-471a-b4bc-6928c7ea7b54">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="32241bb2-2dfa-471a-b4bc-6928c7ea7b54">&lt;code&gt;</bpt>$BinPath = $env:SystemDrive+"\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin"
+pushd $BinPath
+$encryptionFilePath = "C:\temp\"
+.\DRConfigurator.exe /r /Credentials $VaultSettingFilePath /vmmfriendlyname $env:COMPUTERNAME /dataencryptionenabled $encryptionFilePath /startvmmservice<ept id="32241bb2-2dfa-471a-b4bc-6928c7ea7b54">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9cd93ee-acf9-414f-aa04-6340e42c8e16" xml:space="preserve">
+          <source>Run the Get-AzureSiteRecoveryVault cmdlet to make sure all commands run under the specific vault:</source>
+          <target state="new">Run the Get-AzureSiteRecoveryVault cmdlet to make sure all commands run under the specific vault:</target>
+        </trans-unit>
+        <trans-unit id="0a55a9bc-86a9-40cc-8180-b9e6ad4f6885" xml:space="preserve">
+          <source><bpt id="787004b4-3c8b-4e34-892e-a4cb1d79c50e">&lt;code&gt;</bpt>$Vault = Get-AzureSiteRecoveryVault -ResouceGroupName $ResourceGroupName | where { $_.Name -eq $VaultName}<ept id="787004b4-3c8b-4e34-892e-a4cb1d79c50e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="787004b4-3c8b-4e34-892e-a4cb1d79c50e">&lt;code&gt;</bpt>$Vault = Get-AzureSiteRecoveryVault -ResouceGroupName $ResourceGroupName | where { $_.Name -eq $VaultName}<ept id="787004b4-3c8b-4e34-892e-a4cb1d79c50e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcfcffd7-d870-4e7a-b5c8-b038f1be736e" xml:space="preserve">
+          <source>Download the vault settings: </source>
+          <target state="new">Download the vault settings: </target>
+        </trans-unit>
+        <trans-unit id="352b9369-a169-4fbc-8573-4eff7ed32f43" xml:space="preserve">
+          <source><bpt id="7b3a15e8-0d75-43e5-8a5e-1f231cb2052b">&lt;code&gt;</bpt>$VaultSettingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Vault $Vault -Path $OutputPathForSettingsFile<ept id="7b3a15e8-0d75-43e5-8a5e-1f231cb2052b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7b3a15e8-0d75-43e5-8a5e-1f231cb2052b">&lt;code&gt;</bpt>$VaultSettingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Vault $Vault -Path $OutputPathForSettingsFile<ept id="7b3a15e8-0d75-43e5-8a5e-1f231cb2052b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30962581-ca52-46c9-9a40-07857618f43e" xml:space="preserve">
+          <source>To make sure the cmdlets run under the vault run:</source>
+          <target state="new">To make sure the cmdlets run under the vault run:</target>
+        </trans-unit>
+        <trans-unit id="21bf4d38-12ab-4fbf-aa7c-1e6d94774a5f" xml:space="preserve">
+          <source><bpt id="d6d1612d-9316-4143-902e-06bd4e3ff1ad">&lt;code&gt;</bpt>Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSetingsFile.FilePath<ept id="d6d1612d-9316-4143-902e-06bd4e3ff1ad">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d6d1612d-9316-4143-902e-06bd4e3ff1ad">&lt;code&gt;</bpt>Import-AzureSiteRecoveryVaultSettingsFile -Path $VaultSetingsFile.FilePath<ept id="d6d1612d-9316-4143-902e-06bd4e3ff1ad">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea75c192-b499-44c8-bd00-8733b65ad39b" xml:space="preserve">
+          <source>After the VMM server is registered in the vault you can configure cloud protection settings that will be applied to all virtual machines on Hyper-V hosts located in clouds on registered VMM server.</source>
+          <target state="new">After the VMM server is registered in the vault you can configure cloud protection settings that will be applied to all virtual machines on Hyper-V hosts located in clouds on registered VMM server.</target>
+        </trans-unit>
+        <trans-unit id="220b060a-374a-4d51-a082-2b2a2ab427b8" xml:space="preserve">
+          <source>Create a container in the vault for the primary and secondary clouds:</source>
+          <target state="new">Create a container in the vault for the primary and secondary clouds:</target>
+        </trans-unit>
+        <trans-unit id="de906b13-891f-4d4c-9191-58a91cfc5df6" xml:space="preserve">
+          <source><bpt id="373838a4-c9cb-4883-9e4c-d96869ca2bed">&lt;code&gt;</bpt>$PrimaryContainer = Get-AzureSiteRecoveryProtectionContainer -FriendlyName  $PrimaryCloudName<ept id="373838a4-c9cb-4883-9e4c-d96869ca2bed">&lt;/code&gt;</ept>
+<bpt id="92d6af74-4d08-4831-84e3-8f1cc5f27b44">&lt;code&gt;</bpt>$$RecoveryContainer = Get-AzureSiteRecoveryProtectionContainer -FriendlyName  $RecoveryCloudName<ept id="92d6af74-4d08-4831-84e3-8f1cc5f27b44">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="373838a4-c9cb-4883-9e4c-d96869ca2bed">&lt;code&gt;</bpt>$PrimaryContainer = Get-AzureSiteRecoveryProtectionContainer -FriendlyName  $PrimaryCloudName<ept id="373838a4-c9cb-4883-9e4c-d96869ca2bed">&lt;/code&gt;</ept>
+<bpt id="92d6af74-4d08-4831-84e3-8f1cc5f27b44">&lt;code&gt;</bpt>$$RecoveryContainer = Get-AzureSiteRecoveryProtectionContainer -FriendlyName  $RecoveryCloudName<ept id="92d6af74-4d08-4831-84e3-8f1cc5f27b44">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="278863d5-cf5a-4a60-93ee-94bcdb179a25" xml:space="preserve">
+          <source>Configure protection settings to apply to the clouds:</source>
+          <target state="new">Configure protection settings to apply to the clouds:</target>
+        </trans-unit>
+        <trans-unit id="a2ccc6dd-f857-4750-918d-05547f392461" xml:space="preserve">
+          <source><bpt id="c47a2dd9-eb26-4719-aea0-b07d3f281428">&lt;code&gt;</bpt>New-AzureSiteRecoveryProtectionProfile -Name $ProtectionProfileName -ReplicationProvider HyperVReplica -ReplicationMethod Online -ReplicationFrequencyInSeconds 30 -RecoveryPoints 1 -ApplicationConsistentSnapshotFrequencyInHours 0 -ReplicationPort 8083 -Authentication Kerberos -AllowReplicaDeletion<ept id="c47a2dd9-eb26-4719-aea0-b07d3f281428">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c47a2dd9-eb26-4719-aea0-b07d3f281428">&lt;code&gt;</bpt>New-AzureSiteRecoveryProtectionProfile -Name $ProtectionProfileName -ReplicationProvider HyperVReplica -ReplicationMethod Online -ReplicationFrequencyInSeconds 30 -RecoveryPoints 1 -ApplicationConsistentSnapshotFrequencyInHours 0 -ReplicationPort 8083 -Authentication Kerberos -AllowReplicaDeletion<ept id="c47a2dd9-eb26-4719-aea0-b07d3f281428">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45e3be88-e77c-4237-b3ad-0949cab8eab5" xml:space="preserve">
+          <source>Start a job to associate the cloud containers with the cloud protection settings:</source>
+          <target state="new">Start a job to associate the cloud containers with the cloud protection settings:</target>
+        </trans-unit>
+        <trans-unit id="71af729a-b69d-41bb-a88d-ae22d2d5bdfa" xml:space="preserve">
+          <source><bpt id="da3f5d83-1ba2-4c67-ae1e-df86637f7979">&lt;code&gt;</bpt>Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $ProtectionProfile -PrimaryProtectionContainer $PrimaryContainer -RecoveryProtectionContainer $RecoveryContainer<ept id="da3f5d83-1ba2-4c67-ae1e-df86637f7979">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="da3f5d83-1ba2-4c67-ae1e-df86637f7979">&lt;code&gt;</bpt>Start-AzureSiteRecoveryProtectionProfileAssociationJob -ProtectionProfile $ProtectionProfile -PrimaryProtectionContainer $PrimaryContainer -RecoveryProtectionContainer $RecoveryContainer<ept id="da3f5d83-1ba2-4c67-ae1e-df86637f7979">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3436f02-72f3-4943-9c7b-9f8621600f31" xml:space="preserve">
+          <source>Enable protection for VMs in the VMM clouds:</source>
+          <target state="new">Enable protection for VMs in the VMM clouds:</target>
+        </trans-unit>
+        <trans-unit id="2907733e-8d5e-4bbf-8b9d-d57887b6fa4a" xml:space="preserve">
+          <source>Get the VM you want to protect:</source>
+          <target state="new">Get the VM you want to protect:</target>
+        </trans-unit>
+        <trans-unit id="6bb5b407-4416-4b5c-982e-76befc10a268" xml:space="preserve">
+          <source><bpt id="5d3b4ef2-952e-4bba-92c6-d039ec788b75">&lt;code&gt;</bpt>$VM = Get-AzureSiteRecoveryProtectionEntity -ProtectionContainer $PrimaryContainer -FriendlyName $VMName <ept id="5d3b4ef2-952e-4bba-92c6-d039ec788b75">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5d3b4ef2-952e-4bba-92c6-d039ec788b75">&lt;code&gt;</bpt>$VM = Get-AzureSiteRecoveryProtectionEntity -ProtectionContainer $PrimaryContainer -FriendlyName $VMName <ept id="5d3b4ef2-952e-4bba-92c6-d039ec788b75">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1861334d-def8-45ea-9d53-1bf099c0efed" xml:space="preserve">
+          <source>Enable protection for the VM:</source>
+          <target state="new">Enable protection for the VM:</target>
+        </trans-unit>
+        <trans-unit id="d80d704c-6e54-4efe-8dcd-864f1256d19e" xml:space="preserve">
+          <source><bpt id="7bd4f7f6-8416-47ee-be5b-3aede87d0e30">&lt;code&gt;</bpt>Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $VM -Protection Enable<ept id="7bd4f7f6-8416-47ee-be5b-3aede87d0e30">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7bd4f7f6-8416-47ee-be5b-3aede87d0e30">&lt;code&gt;</bpt>Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $VM -Protection Enable<ept id="7bd4f7f6-8416-47ee-be5b-3aede87d0e30">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5488969-05ba-4798-8d27-01833356a37d" xml:space="preserve">
+          <source>Select the VM you want to fail over:</source>
+          <target state="new">Select the VM you want to fail over:</target>
+        </trans-unit>
+        <trans-unit id="c96e508a-776b-4c9e-b834-a99a1c1997bc" xml:space="preserve">
+          <source><bpt id="474786cf-4515-4c08-a7b9-6d3d03b56f4d">&lt;code&gt;</bpt>$VM = Get-AzureSiteRecoveryProtectionEntity -ProtectionContainer $PrimaryContainer -FriendlyName  $VMName<ept id="474786cf-4515-4c08-a7b9-6d3d03b56f4d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="474786cf-4515-4c08-a7b9-6d3d03b56f4d">&lt;code&gt;</bpt>$VM = Get-AzureSiteRecoveryProtectionEntity -ProtectionContainer $PrimaryContainer -FriendlyName  $VMName<ept id="474786cf-4515-4c08-a7b9-6d3d03b56f4d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3382ce68-3f61-4793-8073-c4f7a71c40a1" xml:space="preserve">
+          <source>Run a test failover job:</source>
+          <target state="new">Run a test failover job:</target>
+        </trans-unit>
+        <trans-unit id="06fbf403-71c4-42b9-843a-8027eaf7d257" xml:space="preserve">
+          <source><bpt id="2c476e95-c45a-460e-8516-2724ae9423d6">&lt;code&gt;</bpt>$ currentJob = Start-AzureSiteRecoveryTestFailoverJob -ProtectionEntity $VM -Direction PrimaryToRecovery<ept id="2c476e95-c45a-460e-8516-2724ae9423d6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2c476e95-c45a-460e-8516-2724ae9423d6">&lt;code&gt;</bpt>$ currentJob = Start-AzureSiteRecoveryTestFailoverJob -ProtectionEntity $VM -Direction PrimaryToRecovery<ept id="2c476e95-c45a-460e-8516-2724ae9423d6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b80de163-7531-4aaa-8f2e-9692ae683bb5" xml:space="preserve">
+          <source>Check that the failed over VM appears in the secondary site and complete the failover:</source>
+          <target state="new">Check that the failed over VM appears in the secondary site and complete the failover:</target>
+        </trans-unit>
+        <trans-unit id="594f72b2-0a2e-4e49-86da-edda00a38cff" xml:space="preserve">
+          <source><bpt id="c44af3f6-fdd9-493b-bb7b-bbf7dd39a9e3">&lt;code&gt;</bpt>Resume-AzureSiteRecoveryJob -Id $currentJob.Name<ept id="c44af3f6-fdd9-493b-bb7b-bbf7dd39a9e3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c44af3f6-fdd9-493b-bb7b-bbf7dd39a9e3">&lt;code&gt;</bpt>Resume-AzureSiteRecoveryJob -Id $currentJob.Name<ept id="c44af3f6-fdd9-493b-bb7b-bbf7dd39a9e3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19990439-fb58-4175-80d5-051a1a65988c" xml:space="preserve">
+          <source>For questions and comments on this scenario visit the <bpt id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;linkText&gt;</bpt>Site Recovery forum<ept id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;/linkText&gt;</ept><bpt id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;title&gt;</bpt><ept id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;/title&gt;</ept></source>
+          <target state="new">For questions and comments on this scenario visit the <bpt id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;linkText&gt;</bpt>Site Recovery forum<ept id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;/linkText&gt;</ept><bpt id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;title&gt;</bpt><ept id="cdc86844-09c6-4634-b60c-da1fffc684fd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="67304ecd-ac28-4a81-bf7e-cc0cf2cb881e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="67304ecd-ac28-4a81-bf7e-cc0cf2cb881e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8b72937f-fe63-406f-89c0-5e206203c730">
+        <trans-unit id="bfc3d61f-524e-457f-aa44-890296c02422" xml:space="preserve">
+          <source>By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources.</source>
+          <target state="new">By default, all requests to mobile service resources are restricted to clients that present the application key, which does not strictly secure access to resources.</target>
+        </trans-unit>
+        <trans-unit id="fcd7a4c1-4e48-4974-8090-ceb269d20a5c" xml:space="preserve">
+          <source>To secure your resources, you must restrict access to only authenticated clients.</source>
+          <target state="new">To secure your resources, you must restrict access to only authenticated clients.</target>
+        </trans-unit>
+        <trans-unit id="30fd65df-15ad-486c-bab4-e3e5103f5a37" xml:space="preserve">
+          <source>In Visual Studio, open your mobile service project, expand the Controllers folder, and open <bpt id="489db79d-9c66-4b30-bed7-e4eca9d9685c">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="489db79d-9c66-4b30-bed7-e4eca9d9685c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open your mobile service project, expand the Controllers folder, and open <bpt id="489db79d-9c66-4b30-bed7-e4eca9d9685c">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="489db79d-9c66-4b30-bed7-e4eca9d9685c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="744ac23a-2dee-4a61-82cc-4aa30cbb16fc" xml:space="preserve">
+          <source>The <bpt id="712b5639-9e7d-4eed-8b26-0acef9e24508">&lt;strong&gt;</bpt>TodoItemController<ept id="712b5639-9e7d-4eed-8b26-0acef9e24508">&lt;/strong&gt;</ept> class implements data access for the TodoItem table.</source>
+          <target state="new">The <bpt id="712b5639-9e7d-4eed-8b26-0acef9e24508">&lt;strong&gt;</bpt>TodoItemController<ept id="712b5639-9e7d-4eed-8b26-0acef9e24508">&lt;/strong&gt;</ept> class implements data access for the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="1e7bbe87-d6c5-482b-ace3-2ef41bc3746d" xml:space="preserve">
+          <source>Add the following <bpt id="a8d63da5-d62f-4a47-a003-94810e536c08">&lt;code&gt;</bpt>using<ept id="a8d63da5-d62f-4a47-a003-94810e536c08">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">Add the following <bpt id="a8d63da5-d62f-4a47-a003-94810e536c08">&lt;code&gt;</bpt>using<ept id="a8d63da5-d62f-4a47-a003-94810e536c08">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="2778b4e9-7e35-4f25-9190-8e34fdee189f" xml:space="preserve">
+          <source>Apply the following <bpt id="1e81c427-298c-4ba3-98d4-a6e2b7512d12">&lt;em&gt;</bpt>AuthorizeLevel<ept id="1e81c427-298c-4ba3-98d4-a6e2b7512d12">&lt;/em&gt;</ept> attribute to the <bpt id="b287b334-9d72-4cc4-b950-e9c91d2d1524">&lt;strong&gt;</bpt>TodoItemController<ept id="b287b334-9d72-4cc4-b950-e9c91d2d1524">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Apply the following <bpt id="1e81c427-298c-4ba3-98d4-a6e2b7512d12">&lt;em&gt;</bpt>AuthorizeLevel<ept id="1e81c427-298c-4ba3-98d4-a6e2b7512d12">&lt;/em&gt;</ept> attribute to the <bpt id="b287b334-9d72-4cc4-b950-e9c91d2d1524">&lt;strong&gt;</bpt>TodoItemController<ept id="b287b334-9d72-4cc4-b950-e9c91d2d1524">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="c8b7036f-df36-482b-ab67-bcea07e0236a" xml:space="preserve">
+          <source>This makes sure that all operations against the <bpt id="90443e6d-f200-443c-a524-3e399922378b">&lt;em&gt;</bpt>TodoItem<ept id="90443e6d-f200-443c-a524-3e399922378b">&lt;/em&gt;</ept> table require an authenticated user.</source>
+          <target state="new">This makes sure that all operations against the <bpt id="90443e6d-f200-443c-a524-3e399922378b">&lt;em&gt;</bpt>TodoItem<ept id="90443e6d-f200-443c-a524-3e399922378b">&lt;/em&gt;</ept> table require an authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="9c9c704b-5fd9-45a7-b1ce-5cc9975ebf8e" xml:space="preserve">
+          <source>You can also apply the <bpt id="b12ccddc-bab2-4dfe-a5eb-4a9c7e52edb3">&lt;em&gt;</bpt>AuthorizeLevel<ept id="b12ccddc-bab2-4dfe-a5eb-4a9c7e52edb3">&lt;/em&gt;</ept> attribute at the method level.</source>
+          <target state="new">You can also apply the <bpt id="b12ccddc-bab2-4dfe-a5eb-4a9c7e52edb3">&lt;em&gt;</bpt>AuthorizeLevel<ept id="b12ccddc-bab2-4dfe-a5eb-4a9c7e52edb3">&lt;/em&gt;</ept> attribute at the method level.</target>
+        </trans-unit>
+        <trans-unit id="d2000c4a-b8fc-442a-a4ef-e8030ec717dc" xml:space="preserve">
+          <source>(Optional) If you wish to debug authentication locally, expand the <bpt id="91f27e8c-1581-4068-8f15-497ea3af3e5b">&lt;code&gt;</bpt>App_Start<ept id="91f27e8c-1581-4068-8f15-497ea3af3e5b">&lt;/code&gt;</ept> folder, open <bpt id="6bdf32cd-ddbb-45b4-9f4e-8077817db829">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="6bdf32cd-ddbb-45b4-9f4e-8077817db829">&lt;/strong&gt;</ept>, and add the following code to the <bpt id="b2d581fc-a86c-486f-ba97-745f3f3142a2">&lt;strong&gt;</bpt>Register<ept id="b2d581fc-a86c-486f-ba97-745f3f3142a2">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">(Optional) If you wish to debug authentication locally, expand the <bpt id="91f27e8c-1581-4068-8f15-497ea3af3e5b">&lt;code&gt;</bpt>App_Start<ept id="91f27e8c-1581-4068-8f15-497ea3af3e5b">&lt;/code&gt;</ept> folder, open <bpt id="6bdf32cd-ddbb-45b4-9f4e-8077817db829">&lt;strong&gt;</bpt>WebApiConfig.cs<ept id="6bdf32cd-ddbb-45b4-9f4e-8077817db829">&lt;/strong&gt;</ept>, and add the following code to the <bpt id="b2d581fc-a86c-486f-ba97-745f3f3142a2">&lt;strong&gt;</bpt>Register<ept id="b2d581fc-a86c-486f-ba97-745f3f3142a2">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="77906fb4-cf77-4da9-8e8d-31b0f7d20c02" xml:space="preserve">
+          <source>This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the <bpt id="e6b3e09f-1f1d-40c3-8ea4-55b2c896ae8b">&lt;em&gt;</bpt>AuthorizeLevel<ept id="e6b3e09f-1f1d-40c3-8ea4-55b2c896ae8b">&lt;/em&gt;</ept> settings.</source>
+          <target state="new">This tells the local mobile service project to run as if it is being hosted in Azure, including honoring the <bpt id="e6b3e09f-1f1d-40c3-8ea4-55b2c896ae8b">&lt;em&gt;</bpt>AuthorizeLevel<ept id="e6b3e09f-1f1d-40c3-8ea4-55b2c896ae8b">&lt;/em&gt;</ept> settings.</target>
+        </trans-unit>
+        <trans-unit id="22b76e47-d1bf-432b-9beb-5871ae6afa53" xml:space="preserve">
+          <source>Without this setting, all HTTP requests to localhost are permitted without authentication despite the <bpt id="ca1148bd-814b-4507-8e1d-7ae467c558f4">&lt;em&gt;</bpt>AuthorizeLevel<ept id="ca1148bd-814b-4507-8e1d-7ae467c558f4">&lt;/em&gt;</ept> setting.</source>
+          <target state="new">Without this setting, all HTTP requests to localhost are permitted without authentication despite the <bpt id="ca1148bd-814b-4507-8e1d-7ae467c558f4">&lt;em&gt;</bpt>AuthorizeLevel<ept id="ca1148bd-814b-4507-8e1d-7ae467c558f4">&lt;/em&gt;</ept> setting.</target>
+        </trans-unit>
+        <trans-unit id="575672e8-3d4e-4c8d-a88b-d1c648bd1ce5" xml:space="preserve">
+          <source>When you enable self-hosted mode, you also need to set a value for the local application key.</source>
+          <target state="new">When you enable self-hosted mode, you also need to set a value for the local application key.</target>
+        </trans-unit>
+        <trans-unit id="c09fd115-e5b4-4b04-9fa3-066360d16aa3" xml:space="preserve">
+          <source>(Optional) In the web.config project file, set a string value for the <bpt id="761a7acd-4b8c-4c5e-91e3-78aabacdd077">&lt;code&gt;</bpt>MS_ApplicationKey<ept id="761a7acd-4b8c-4c5e-91e3-78aabacdd077">&lt;/code&gt;</ept> app setting.</source>
+          <target state="new">(Optional) In the web.config project file, set a string value for the <bpt id="761a7acd-4b8c-4c5e-91e3-78aabacdd077">&lt;code&gt;</bpt>MS_ApplicationKey<ept id="761a7acd-4b8c-4c5e-91e3-78aabacdd077">&lt;/code&gt;</ept> app setting.</target>
+        </trans-unit>
+        <trans-unit id="6096d728-67ee-469c-9b77-0dd02258392a" xml:space="preserve">
+          <source>This is the password that you use (with no username) to test the API help pages when you run the service locally.</source>
+          <target state="new">This is the password that you use (with no username) to test the API help pages when you run the service locally.</target>
+        </trans-unit>
+        <trans-unit id="6de501e8-9f84-4197-ad30-7d9198289acb" xml:space="preserve">
+          <source>This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.</source>
+          <target state="new">This string value is not used by the live site in Azure, and you do not need to use the actual application key; any valid string value will work.</target>
+        </trans-unit>
+        <trans-unit id="f0c388ab-cb39-4e76-a6ae-ddef3e5a8cdb" xml:space="preserve">
+          <source>Republish your project.</source>
+          <target state="new">Republish your project.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

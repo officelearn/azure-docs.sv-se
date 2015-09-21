@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ac129bbb-1236-40c1-8bb5-cdc7cc51c9a9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ac129bbb-1236-40c1-8bb5-cdc7cc51c9a9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3f9c50db-0fc6-4022-b168-43413027ac31">
+        <trans-unit id="71dd0774-1ab1-466c-976a-9d5877e45eb4" xml:space="preserve">
+          <source>Click <bpt id="f793667e-f40f-4bed-8374-4b3afec400e8">&lt;strong&gt;</bpt>Applications<ept id="f793667e-f40f-4bed-8374-4b3afec400e8">&lt;/strong&gt;</ept> tab on your directory page in the <bpt id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;/linkText&gt;</ept><bpt id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;title&gt;</bpt><ept id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;/title&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f793667e-f40f-4bed-8374-4b3afec400e8">&lt;strong&gt;</bpt>Applications<ept id="f793667e-f40f-4bed-8374-4b3afec400e8">&lt;/strong&gt;</ept> tab on your directory page in the <bpt id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;/linkText&gt;</ept><bpt id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;title&gt;</bpt><ept id="ea7d477c-0e11-465e-9383-6e6eba036a51">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fbad399-b9f8-4309-b4d6-7ce7a565f5a1" xml:space="preserve">
+          <source>Click your integrated application registration.</source>
+          <target state="new">Click your integrated application registration.</target>
+        </trans-unit>
+        <trans-unit id="9d026eb4-f701-4573-8d2c-7d9ff2b13738" xml:space="preserve">
+          <source>Click <bpt id="08969f88-a7b8-4aaf-ba06-9c8c61cc20cb">&lt;strong&gt;</bpt>Configure<ept id="08969f88-a7b8-4aaf-ba06-9c8c61cc20cb">&lt;/strong&gt;</ept> on the application page and scroll down the the <bpt id="792e63d6-98b7-442a-96e7-cb1faebcc3b6">&lt;strong&gt;</bpt>keys<ept id="792e63d6-98b7-442a-96e7-cb1faebcc3b6">&lt;/strong&gt;</ept> section of the page.</source>
+          <target state="new">Click <bpt id="08969f88-a7b8-4aaf-ba06-9c8c61cc20cb">&lt;strong&gt;</bpt>Configure<ept id="08969f88-a7b8-4aaf-ba06-9c8c61cc20cb">&lt;/strong&gt;</ept> on the application page and scroll down the the <bpt id="792e63d6-98b7-442a-96e7-cb1faebcc3b6">&lt;strong&gt;</bpt>keys<ept id="792e63d6-98b7-442a-96e7-cb1faebcc3b6">&lt;/strong&gt;</ept> section of the page.</target>
+        </trans-unit>
+        <trans-unit id="5024f44c-fafd-46e4-9246-34006fad5bff" xml:space="preserve">
+          <source>Click <bpt id="20947486-332b-430a-ac24-9d3a81f47a4f">&lt;strong&gt;</bpt>1 year<ept id="20947486-332b-430a-ac24-9d3a81f47a4f">&lt;/strong&gt;</ept> duration for a new key.</source>
+          <target state="new">Click <bpt id="20947486-332b-430a-ac24-9d3a81f47a4f">&lt;strong&gt;</bpt>1 year<ept id="20947486-332b-430a-ac24-9d3a81f47a4f">&lt;/strong&gt;</ept> duration for a new key.</target>
+        </trans-unit>
+        <trans-unit id="fce9d6bc-839d-4b36-8e3d-69ec6df2db9c" xml:space="preserve">
+          <source>Then click <bpt id="1a0e19fe-21ba-4a85-bfef-fbbde75f4e5c">&lt;strong&gt;</bpt>Save<ept id="1a0e19fe-21ba-4a85-bfef-fbbde75f4e5c">&lt;/strong&gt;</ept> and the portal will display your new key value.</source>
+          <target state="new">Then click <bpt id="1a0e19fe-21ba-4a85-bfef-fbbde75f4e5c">&lt;strong&gt;</bpt>Save<ept id="1a0e19fe-21ba-4a85-bfef-fbbde75f4e5c">&lt;/strong&gt;</ept> and the portal will display your new key value.</target>
+        </trans-unit>
+        <trans-unit id="148baf64-a259-47fc-bc1c-9e88050565fb" xml:space="preserve">
+          <source>Copy the <bpt id="dc188083-d1f9-419e-9cc9-aabb490006a5">&lt;strong&gt;</bpt>Client ID<ept id="dc188083-d1f9-419e-9cc9-aabb490006a5">&lt;/strong&gt;</ept> and <bpt id="3a075989-3f8e-438b-bb52-57bca8d6cc97">&lt;strong&gt;</bpt>Key<ept id="3a075989-3f8e-438b-bb52-57bca8d6cc97">&lt;/strong&gt;</ept> shown after you save.</source>
+          <target state="new">Copy the <bpt id="dc188083-d1f9-419e-9cc9-aabb490006a5">&lt;strong&gt;</bpt>Client ID<ept id="dc188083-d1f9-419e-9cc9-aabb490006a5">&lt;/strong&gt;</ept> and <bpt id="3a075989-3f8e-438b-bb52-57bca8d6cc97">&lt;strong&gt;</bpt>Key<ept id="3a075989-3f8e-438b-bb52-57bca8d6cc97">&lt;/strong&gt;</ept> shown after you save.</target>
+        </trans-unit>
+        <trans-unit id="ad3bbab0-48cc-4930-a66b-3d2cfe5a84a3" xml:space="preserve">
+          <source>Note that the key value will only be shown to you a single time after you have saved.</source>
+          <target state="new">Note that the key value will only be shown to you a single time after you have saved.</target>
+        </trans-unit>
+        <trans-unit id="34f5dd0c-01c8-46c7-8853-d6f120231e4c" xml:space="preserve">
+          <source><bpt id="389f91e1-8d06-4278-8d66-ca4fbbc53dac">&lt;linkText&gt;</bpt><ept id="389f91e1-8d06-4278-8d66-ca4fbbc53dac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="389f91e1-8d06-4278-8d66-ca4fbbc53dac">&lt;linkText&gt;</bpt><ept id="389f91e1-8d06-4278-8d66-ca4fbbc53dac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c005542e-5f59-4b9d-9bef-bacb70164472" xml:space="preserve">
+          <source>Scroll down to the bottom of the integrated application configuration page and enable the <bpt id="41b8ae12-908f-4536-9d16-eb1483ee090d">&lt;strong&gt;</bpt>Read directory data<ept id="41b8ae12-908f-4536-9d16-eb1483ee090d">&lt;/strong&gt;</ept> permission for the application and click <bpt id="855805c9-d994-49e0-8f5d-0baf2b49e6c7">&lt;strong&gt;</bpt>Save<ept id="855805c9-d994-49e0-8f5d-0baf2b49e6c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down to the bottom of the integrated application configuration page and enable the <bpt id="41b8ae12-908f-4536-9d16-eb1483ee090d">&lt;strong&gt;</bpt>Read directory data<ept id="41b8ae12-908f-4536-9d16-eb1483ee090d">&lt;/strong&gt;</ept> permission for the application and click <bpt id="855805c9-d994-49e0-8f5d-0baf2b49e6c7">&lt;strong&gt;</bpt>Save<ept id="855805c9-d994-49e0-8f5d-0baf2b49e6c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2703cb8f-b420-4911-ab82-2d5044bcc2bd" xml:space="preserve">
+          <source><bpt id="204f1374-7b03-4fbd-a1d9-d513a088bbff">&lt;linkText&gt;</bpt><ept id="204f1374-7b03-4fbd-a1d9-d513a088bbff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="204f1374-7b03-4fbd-a1d9-d513a088bbff">&lt;linkText&gt;</bpt><ept id="204f1374-7b03-4fbd-a1d9-d513a088bbff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f02a9f63-428b-4c24-8bfc-4f5024ab8f97" xml:space="preserve">
+          <source>In the <bpt id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;/linkText&gt;</ept><bpt id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;title&gt;</bpt><ept id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;/title&gt;</ept> navigate back to your mobile service and click the <bpt id="47c4d3a4-8ba7-4885-a816-215579fbe246">&lt;strong&gt;</bpt>Configure<ept id="47c4d3a4-8ba7-4885-a816-215579fbe246">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;/linkText&gt;</ept><bpt id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;title&gt;</bpt><ept id="5ed83872-7da2-43be-9b6c-b59139385c1a">&lt;/title&gt;</ept> navigate back to your mobile service and click the <bpt id="47c4d3a4-8ba7-4885-a816-215579fbe246">&lt;strong&gt;</bpt>Configure<ept id="47c4d3a4-8ba7-4885-a816-215579fbe246">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="c7dd2de5-86a6-4000-93ff-dc527a7e0c99" xml:space="preserve">
+          <source>Scroll down to the <bpt id="edf65fd5-38e3-42c4-a9a5-9998aa9726a9">&lt;strong&gt;</bpt>app settings<ept id="edf65fd5-38e3-42c4-a9a5-9998aa9726a9">&lt;/strong&gt;</ept> section and add the following app settings and click <bpt id="ee2207d1-cf79-441c-880f-30f4265cbc38">&lt;strong&gt;</bpt>Save<ept id="ee2207d1-cf79-441c-880f-30f4265cbc38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down to the <bpt id="edf65fd5-38e3-42c4-a9a5-9998aa9726a9">&lt;strong&gt;</bpt>app settings<ept id="edf65fd5-38e3-42c4-a9a5-9998aa9726a9">&lt;/strong&gt;</ept> section and add the following app settings and click <bpt id="ee2207d1-cf79-441c-880f-30f4265cbc38">&lt;strong&gt;</bpt>Save<ept id="ee2207d1-cf79-441c-880f-30f4265cbc38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7220a527-8b0a-4321-8569-6c25ffd84ec0" xml:space="preserve">
+          <source>&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;App Setting Name&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="2b785062-b5c1-4c57-975c-c1212cef62d9">&lt;em&gt;</bpt>CLIENT<ept id="2b785062-b5c1-4c57-975c-c1212cef62d9">&lt;/em&gt;</ept>ID&lt;/td&gt;&lt;td&gt;The client id you copied from your integrated app in the steps above.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="b96820b3-cee5-4177-a3f8-c4888a7bdac9">&lt;em&gt;</bpt>CLIENT<ept id="b96820b3-cee5-4177-a3f8-c4888a7bdac9">&lt;/em&gt;</ept>KEY&lt;/td&gt;&lt;td&gt;The app key you generated in your AAD integrated app in the steps above.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="6d4773bf-728f-4401-85e5-91ea61086432">&lt;em&gt;</bpt>TENANT<ept id="6d4773bf-728f-4401-85e5-91ea61086432">&lt;/em&gt;</ept>DOMAIN&lt;/td&gt;&lt;td&gt;Your AAD domain name. Should be similar to "mydomain.onmicrosoft.com"&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;br/&gt;</source>
+          <target state="new">&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;App Setting Name&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="2b785062-b5c1-4c57-975c-c1212cef62d9">&lt;em&gt;</bpt>CLIENT<ept id="2b785062-b5c1-4c57-975c-c1212cef62d9">&lt;/em&gt;</ept>ID&lt;/td&gt;&lt;td&gt;The client id you copied from your integrated app in the steps above.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="b96820b3-cee5-4177-a3f8-c4888a7bdac9">&lt;em&gt;</bpt>CLIENT<ept id="b96820b3-cee5-4177-a3f8-c4888a7bdac9">&lt;/em&gt;</ept>KEY&lt;/td&gt;&lt;td&gt;The app key you generated in your AAD integrated app in the steps above.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AAD<bpt id="6d4773bf-728f-4401-85e5-91ea61086432">&lt;em&gt;</bpt>TENANT<ept id="6d4773bf-728f-4401-85e5-91ea61086432">&lt;/em&gt;</ept>DOMAIN&lt;/td&gt;&lt;td&gt;Your AAD domain name. Should be similar to "mydomain.onmicrosoft.com"&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="28b4dc87-5896-40e1-b68f-343c46703565" xml:space="preserve">
+          <source><bpt id="97e7c664-5c13-4c06-af26-fe816fe88ae0">&lt;linkText&gt;</bpt><ept id="97e7c664-5c13-4c06-af26-fe816fe88ae0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97e7c664-5c13-4c06-af26-fe816fe88ae0">&lt;linkText&gt;</bpt><ept id="97e7c664-5c13-4c06-af26-fe816fe88ae0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="36dbcf86-6bce-4c4c-8f2f-808828af9241" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="36dbcf86-6bce-4c4c-8f2f-808828af9241" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d46e66d3-813d-4144-8e9d-9e5d7f7c5a3e">
+        <trans-unit id="1af92707-81fc-4375-9348-0183f48ea701" xml:space="preserve">
+          <source>Use sample experiments to create new experiments | Microsoft Azure</source>
+          <target state="new">Use sample experiments to create new experiments | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="14541843-7695-4f8c-93bb-367c72f7a871" xml:space="preserve">
+          <source>Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community.</source>
+          <target state="new">Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community.</target>
+        </trans-unit>
+        <trans-unit id="c8143513-be99-4b11-8997-bbe9243fb33f" xml:space="preserve">
+          <source>When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community.</source>
+          <target state="new">When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community.</target>
+        </trans-unit>
+        <trans-unit id="25018638-0ed1-47c9-9a6e-083e9e04c043" xml:space="preserve">
+          <source>You also can ask questions or post comments about experiments in the <bpt id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;linkText&gt;</bpt>Gallery<ept id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;/linkText&gt;</ept><bpt id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;title&gt;</bpt><ept id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;/title&gt;</ept></source>
+          <target state="new">You also can ask questions or post comments about experiments in the <bpt id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;linkText&gt;</bpt>Gallery<ept id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;/linkText&gt;</ept><bpt id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;title&gt;</bpt><ept id="7f9b1f61-50a9-4d58-a9f9-93c7d7ac90f3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9231fd7-949c-48a1-ba2a-c3b963affd8a" xml:space="preserve">
+          <source><bpt id="7994df14-0711-4947-a34a-c2293217c30f">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="7994df14-0711-4947-a34a-c2293217c30f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7994df14-0711-4947-a34a-c2293217c30f">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="7994df14-0711-4947-a34a-c2293217c30f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77f0c37a-cc6e-486d-82a5-ac310414cb68" xml:space="preserve">
+          <source>Go to the <bpt id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;linkText&gt;</bpt>Gallery<ept id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;/linkText&gt;</ept><bpt id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;title&gt;</bpt><ept id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;/title&gt;</ept></source>
+          <target state="new">Go to the <bpt id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;linkText&gt;</bpt>Gallery<ept id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;/linkText&gt;</ept><bpt id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;title&gt;</bpt><ept id="0766554f-8df4-4866-95c2-1bb372b5c3d6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a67a35c-95c8-4946-906f-b73bf5e7d5c8" xml:space="preserve">
+          <source>Browse either by going to <bpt id="16f2a664-9f40-49f6-9492-30819703a258">&lt;strong&gt;</bpt>Trending Experiments<ept id="16f2a664-9f40-49f6-9492-30819703a258">&lt;/strong&gt;</ept> or <bpt id="5948fdb1-a513-4934-93cb-5a71167f0358">&lt;strong&gt;</bpt>Microsoft samples<ept id="5948fdb1-a513-4934-93cb-5a71167f0358">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Browse either by going to <bpt id="16f2a664-9f40-49f6-9492-30819703a258">&lt;strong&gt;</bpt>Trending Experiments<ept id="16f2a664-9f40-49f6-9492-30819703a258">&lt;/strong&gt;</ept> or <bpt id="5948fdb1-a513-4934-93cb-5a71167f0358">&lt;strong&gt;</bpt>Microsoft samples<ept id="5948fdb1-a513-4934-93cb-5a71167f0358">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab9ddcc7-d1a5-41da-bd18-67b07eceb2a2" xml:space="preserve">
+          <source>Use search and filters to narrow results:
+<bpt id="4bfd9b57-60b5-43b7-bf11-4d1bfac0c32a">&lt;linkText&gt;</bpt><ept id="4bfd9b57-60b5-43b7-bf11-4d1bfac0c32a">&lt;/linkText&gt;</ept> </source>
+          <target state="new">Use search and filters to narrow results:
+<bpt id="4bfd9b57-60b5-43b7-bf11-4d1bfac0c32a">&lt;linkText&gt;</bpt><ept id="4bfd9b57-60b5-43b7-bf11-4d1bfac0c32a">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="aea67f01-7c69-4761-8be2-e79ac117f518" xml:space="preserve">
+          <source>Click an experiment to learn more about it.</source>
+          <target state="new">Click an experiment to learn more about it.</target>
+        </trans-unit>
+        <trans-unit id="6e1c78b4-2199-49f0-9f25-ff3203bc4a09" xml:space="preserve">
+          <source>To run and/or modify the experiment, click <bpt id="aa21727f-fe7d-4b71-a0f2-5f67ddaf78ad">&lt;strong&gt;</bpt>Open in Studio<ept id="aa21727f-fe7d-4b71-a0f2-5f67ddaf78ad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To run and/or modify the experiment, click <bpt id="aa21727f-fe7d-4b71-a0f2-5f67ddaf78ad">&lt;strong&gt;</bpt>Open in Studio<ept id="aa21727f-fe7d-4b71-a0f2-5f67ddaf78ad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ade9c877-16ef-498d-b2fb-a34c88ffc3ab" xml:space="preserve">
+          <source><bpt id="97400c11-f07a-4cdf-a06e-7895bbcc16c1">&lt;linkText&gt;</bpt><ept id="97400c11-f07a-4cdf-a06e-7895bbcc16c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97400c11-f07a-4cdf-a06e-7895bbcc16c1">&lt;linkText&gt;</bpt><ept id="97400c11-f07a-4cdf-a06e-7895bbcc16c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6a871f5-23f9-45f6-9ce4-94bedc6a4756" xml:space="preserve">
+          <source>Sign in with your Microsoft account credentials.</source>
+          <target state="new">Sign in with your Microsoft account credentials.</target>
+        </trans-unit>
+        <trans-unit id="49593414-8937-4814-bb8b-044ddf563fc7" xml:space="preserve">
+          <source>If you don’t have a Machine Learning workspace yet, a free trial workspace is created.</source>
+          <target state="new">If you don’t have a Machine Learning workspace yet, a free trial workspace is created.</target>
+        </trans-unit>
+        <trans-unit id="6c789a13-51ae-446a-a5db-5190440ff99e" xml:space="preserve">
+          <source><bpt id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;linkText&gt;</bpt>Learn what’s included in the Machine Learning free trial<ept id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;/linkText&gt;</ept><bpt id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;title&gt;</bpt><ept id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;/title&gt;</ept>
+<bpt id="0d4494b0-11ce-4dd5-ae30-42dbdf1aa00f">&lt;linkText&gt;</bpt><ept id="0d4494b0-11ce-4dd5-ae30-42dbdf1aa00f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;linkText&gt;</bpt>Learn what’s included in the Machine Learning free trial<ept id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;/linkText&gt;</ept><bpt id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;title&gt;</bpt><ept id="497970b8-8a61-483d-b6cf-d3e902d4aa14">&lt;/title&gt;</ept>
+<bpt id="0d4494b0-11ce-4dd5-ae30-42dbdf1aa00f">&lt;linkText&gt;</bpt><ept id="0d4494b0-11ce-4dd5-ae30-42dbdf1aa00f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97891b84-618a-48a4-b5ff-49c591eebd7e" xml:space="preserve">
+          <source>Sign in with your Microsoft account credentials to the <bpt id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;linkText&gt;</bpt>Studio<ept id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;/linkText&gt;</ept><bpt id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;title&gt;</bpt><ept id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;/title&gt;</ept>, and then click <bpt id="cea3bddd-b3b0-47bd-9953-9baf760c0715">&lt;strong&gt;</bpt>New*<ept id="cea3bddd-b3b0-47bd-9953-9baf760c0715">&lt;/strong&gt;</ept> to create a new experiment</source>
+          <target state="new">Sign in with your Microsoft account credentials to the <bpt id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;linkText&gt;</bpt>Studio<ept id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;/linkText&gt;</ept><bpt id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;title&gt;</bpt><ept id="c2a932eb-d3b8-4f9d-8e06-82956e4410cc">&lt;/title&gt;</ept>, and then click <bpt id="cea3bddd-b3b0-47bd-9953-9baf760c0715">&lt;strong&gt;</bpt>New*<ept id="cea3bddd-b3b0-47bd-9953-9baf760c0715">&lt;/strong&gt;</ept> to create a new experiment</target>
+        </trans-unit>
+        <trans-unit id="e84c855b-b9fd-44de-848b-25a4692d8e3a" xml:space="preserve">
+          <source>Browse through the Sample content, and pick one to use as a template.</source>
+          <target state="new">Browse through the Sample content, and pick one to use as a template.</target>
+        </trans-unit>
+        <trans-unit id="fa2bb365-5210-4e63-9dce-8d3d5cbed149" xml:space="preserve">
+          <source><bpt id="28263951-a64b-4645-be17-669859ac49c6">&lt;linkText&gt;</bpt>Prepare your data<ept id="28263951-a64b-4645-be17-669859ac49c6">&lt;/linkText&gt;</ept><bpt id="28263951-a64b-4645-be17-669859ac49c6">&lt;title&gt;</bpt><ept id="28263951-a64b-4645-be17-669859ac49c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28263951-a64b-4645-be17-669859ac49c6">&lt;linkText&gt;</bpt>Prepare your data<ept id="28263951-a64b-4645-be17-669859ac49c6">&lt;/linkText&gt;</ept><bpt id="28263951-a64b-4645-be17-669859ac49c6">&lt;title&gt;</bpt><ept id="28263951-a64b-4645-be17-669859ac49c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e355b6-d04d-43e6-8018-365f36d9ecd2" xml:space="preserve">
+          <source><bpt id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;linkText&gt;</bpt>Try using R in your experiment<ept id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;/linkText&gt;</ept><bpt id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;title&gt;</bpt><ept id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;linkText&gt;</bpt>Try using R in your experiment<ept id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;/linkText&gt;</ept><bpt id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;title&gt;</bpt><ept id="9b24a4be-b24c-4408-9ff5-a57719f759c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cf902ac-7aad-494e-9aef-33bc443e7292" xml:space="preserve">
+          <source><bpt id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;linkText&gt;</bpt>Review sample R experiments<ept id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;/linkText&gt;</ept><bpt id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;title&gt;</bpt><ept id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;linkText&gt;</bpt>Review sample R experiments<ept id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;/linkText&gt;</ept><bpt id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;title&gt;</bpt><ept id="1cefae2b-3f88-4dfd-aac1-660deef4fdf9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5ff3515-a9dc-4024-a550-271c06590dc0" xml:space="preserve">
+          <source><bpt id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;linkText&gt;</bpt>Create an web service API<ept id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;/linkText&gt;</ept><bpt id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;title&gt;</bpt><ept id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;linkText&gt;</bpt>Create an web service API<ept id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;/linkText&gt;</ept><bpt id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;title&gt;</bpt><ept id="2e68d223-9581-4d86-a10f-4f21e92c03bf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9aa0acf-d2d4-4f65-8ecc-fd697bb6d4f2" xml:space="preserve">
+          <source><bpt id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;linkText&gt;</bpt>Browse ready-to-use applications<ept id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;/linkText&gt;</ept><bpt id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;title&gt;</bpt><ept id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;linkText&gt;</bpt>Browse ready-to-use applications<ept id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;/linkText&gt;</ept><bpt id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;title&gt;</bpt><ept id="7bd45440-0b79-4380-ba36-01662e5e4612">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

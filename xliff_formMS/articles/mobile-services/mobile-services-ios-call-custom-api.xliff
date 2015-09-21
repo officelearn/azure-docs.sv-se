@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7a093e8c-0dce-4b5c-b34e-0f3b8d5b6fa3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7a093e8c-0dce-4b5c-b34e-0f3b8d5b6fa3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2576077a-317a-43e6-a7ce-53a11779d6e6">
+        <trans-unit id="54ad98ec-573a-4126-8134-1b8d89553034" xml:space="preserve">
+          <source>How to call a custom API from an iOS client</source>
+          <target state="new">How to call a custom API from an iOS client</target>
+        </trans-unit>
+        <trans-unit id="efedfdb7-9f07-4fff-8f8e-f822b999aaa8" xml:space="preserve">
+          <source>Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services.</source>
+          <target state="new">Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="e3600511-8ccc-4d4f-980c-3b7d1440a7ce" xml:space="preserve">
+          <source><bpt id="ac33ffe5-86ab-4784-971d-d2798226924f">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="ac33ffe5-86ab-4784-971d-d2798226924f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ac33ffe5-86ab-4784-971d-d2798226924f">&lt;token href="../../includes/mobile-services-selector-call-custom-api.md"&gt;</bpt><ept id="ac33ffe5-86ab-4784-971d-d2798226924f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebb00794-836c-4d9d-91ff-b5d2a0f1caeb" xml:space="preserve">
+          <source>This topic shows you how to call a custom API from an iOS app.</source>
+          <target state="new">This topic shows you how to call a custom API from an iOS app.</target>
+        </trans-unit>
+        <trans-unit id="3d5fc3a3-b41a-48eb-9c41-0b74f793df95" xml:space="preserve">
+          <source>A custom API lets you define custom endpoints with server functionality, but it does not map to a database insert, update, delete, or read operation.</source>
+          <target state="new">A custom API lets you define custom endpoints with server functionality, but it does not map to a database insert, update, delete, or read operation.</target>
+        </trans-unit>
+        <trans-unit id="752ced7c-9b56-41de-955f-2385383860cb" xml:space="preserve">
+          <source>By using a custom API, you have more control over messaging, including HTTP headers and body format.</source>
+          <target state="new">By using a custom API, you have more control over messaging, including HTTP headers and body format.</target>
+        </trans-unit>
+        <trans-unit id="364a5b9a-db58-4340-b1c0-068a3128bb83" xml:space="preserve">
+          <source><bpt id="32ba11de-3219-4d4a-8ff9-18e557e6cb9a">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="32ba11de-3219-4d4a-8ff9-18e557e6cb9a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="32ba11de-3219-4d4a-8ff9-18e557e6cb9a">&lt;token href="../../includes/mobile-services-create-custom-api.md"&gt;</bpt><ept id="32ba11de-3219-4d4a-8ff9-18e557e6cb9a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56979a5a-9298-41f1-80f4-2e6835bc0fef" xml:space="preserve">
+          <source><bpt id="67ab08e2-f96c-4ab8-8842-0c47d3430469">&lt;token href="../../includes/mobile-services-ios-call-custom-api.md"&gt;</bpt><ept id="67ab08e2-f96c-4ab8-8842-0c47d3430469">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="67ab08e2-f96c-4ab8-8842-0c47d3430469">&lt;token href="../../includes/mobile-services-ios-call-custom-api.md"&gt;</bpt><ept id="67ab08e2-f96c-4ab8-8842-0c47d3430469">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e583d50-e0cc-4d72-91ce-a9fb97993a81" xml:space="preserve">
+          <source>This topic showed how to use the <bpt id="44e6b910-62f7-4776-a059-cb02f376cc9c">&lt;strong&gt;</bpt>invokeApi<ept id="44e6b910-62f7-4776-a059-cb02f376cc9c">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your iOS app.</source>
+          <target state="new">This topic showed how to use the <bpt id="44e6b910-62f7-4776-a059-cb02f376cc9c">&lt;strong&gt;</bpt>invokeApi<ept id="44e6b910-62f7-4776-a059-cb02f376cc9c">&lt;/strong&gt;</ept> method to call a fairly simple custom API from your iOS app.</target>
+        </trans-unit>
+        <trans-unit id="6893784d-a37b-40a3-8b14-3f7d3c708889" xml:space="preserve">
+          <source>To learn more about using the <bpt id="594e87d0-2c32-4d91-9a7e-dd5f5c53db20">&lt;strong&gt;</bpt>invokeApi<ept id="594e87d0-2c32-4d91-9a7e-dd5f5c53db20">&lt;/strong&gt;</ept> method, see the post <bpt id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;/linkText&gt;</ept><bpt id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;title&gt;</bpt><ept id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about using the <bpt id="594e87d0-2c32-4d91-9a7e-dd5f5c53db20">&lt;strong&gt;</bpt>invokeApi<ept id="594e87d0-2c32-4d91-9a7e-dd5f5c53db20">&lt;/strong&gt;</ept> method, see the post <bpt id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services<ept id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;/linkText&gt;</ept><bpt id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;title&gt;</bpt><ept id="2ff0342b-c14c-45fd-9fb8-b93cbaaebedb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6f39e2d-50d3-4c3b-b484-6f08c7fc3e8a" xml:space="preserve">
+          <source>Also, consider finding out more about the following Mobile Services topics:</source>
+          <target state="new">Also, consider finding out more about the following Mobile Services topics:</target>
+        </trans-unit>
+        <trans-unit id="4aeb3f19-b34d-463d-bf4a-c4909150e407" xml:space="preserve">
+          <source>[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</source>
+          <target state="new">[Mobile Services server script reference]
+&lt;br/&gt;Learn more about creating custom APIs.</target>
+        </trans-unit>
+        <trans-unit id="04915643-4d11-4b89-8ac3-a6fac8dd1b87" xml:space="preserve">
+          <source>[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</source>
+          <target state="new">[Store server scripts in source control]
+&lt;br/&gt; Learn how to use the source control feature to more easily and securely develop and publish custom API script code.</target>
+        </trans-unit>
+        <trans-unit id="f5ff8e8d-9c43-413a-91a7-dbf30d41359b" xml:space="preserve">
+          <source>#define-custom-api</source>
+          <target state="new">#define-custom-api</target>
+        </trans-unit>
+        <trans-unit id="c1e35a90-e17a-4b0d-852d-a935bb8b1d2a" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="247cb197-52b8-4792-a51f-ec44b531b52d" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="22a14a78-ff35-49da-a5bc-50af1ceb8954" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="032c62cb-a201-4e2e-8969-4f3c9eb1c992" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=257677</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=257677</target>
+        </trans-unit>
+        <trans-unit id="cf67d27e-e0f4-4140-82ec-e1aa915b8f67" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262293</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262293</target>
+        </trans-unit>
+        <trans-unit id="659a9fa1-cf7f-4238-9660-25c8fd9f203b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="1afc309f-3b60-4d0c-8a62-29ae696b91ff" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="a72c42c9-d540-4602-aacf-a1d0fb3990e9" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9f9f1ac5-523b-4f6a-ab87-b89ac5fe4c72" xml:space="preserve">
+          <source>mobile-services-ios-get-started-data.md</source>
+          <target state="new">mobile-services-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="ce5b863f-933d-414f-b98b-57830d16ab82" xml:space="preserve">
+          <source>mobile-services-ios-get-started-users.md</source>
+          <target state="new">mobile-services-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="2611e634-2ab5-468f-a113-7226edaf086e" xml:space="preserve">
+          <source>../mobile-services-ios-get-started-push.md</source>
+          <target state="new">../mobile-services-ios-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="4ee40593-a313-40f7-a858-d94b6ff1d4c3" xml:space="preserve">
+          <source>mobile-services-store-scripts-source-control.md</source>
+          <target state="new">mobile-services-store-scripts-source-control.md</target>
+        </trans-unit>
+      </group>
+      <group id="c7439584-b942-4e49-8e73-05c4089d3af2" />
+    </body>
+  </file>
+</xliff>

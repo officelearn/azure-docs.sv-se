@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a7f8722d-ba85-4738-b3be-2ed3c097ec35" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a7f8722d-ba85-4738-b3be-2ed3c097ec35" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="06a9a364-267b-4aa0-a740-9b1beaa127a1">
+        <trans-unit id="9bcc5132-79ca-4a6d-ba17-e671f804ac42" xml:space="preserve">
+          <source>In this section you will update the project from the [Get started with Mobile Services] tutorial to take photos and upload them to Azure Blob Storage.</source>
+          <target state="new">In this section you will update the project from the [Get started with Mobile Services] tutorial to take photos and upload them to Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="e190f7d8-06f5-4d0f-a0f3-f1bbc2373a96" xml:space="preserve">
+          <source>To capture the image, this tutorial uses the [CameraCaptureTask] from the <bpt id="98c0234f-a172-4d94-990d-f4e0a7c5d1c9">&lt;code&gt;</bpt>Microsoft.Phone.Tasks<ept id="98c0234f-a172-4d94-990d-f4e0a7c5d1c9">&lt;/code&gt;</ept> namespace.</source>
+          <target state="new">To capture the image, this tutorial uses the [CameraCaptureTask] from the <bpt id="98c0234f-a172-4d94-990d-f4e0a7c5d1c9">&lt;code&gt;</bpt>Microsoft.Phone.Tasks<ept id="98c0234f-a172-4d94-990d-f4e0a7c5d1c9">&lt;/code&gt;</ept> namespace.</target>
+        </trans-unit>
+        <trans-unit id="12316068-369d-49bb-bf3f-16f903bcfb43" xml:space="preserve">
+          <source>This class launches the camera UI on the Windows Phone device to capture the photo and automatically saves the image to the Camera Roll on the Windows Phone device.</source>
+          <target state="new">This class launches the camera UI on the Windows Phone device to capture the photo and automatically saves the image to the Camera Roll on the Windows Phone device.</target>
+        </trans-unit>
+        <trans-unit id="b119acc6-a876-45d8-af54-1d2192f2a6f5" xml:space="preserve">
+          <source>If you do not want the images saved to the Camera Roll, use the [PhotoCamera] class in the <bpt id="195ec49e-1112-4a2b-8eab-c0b991bbf62e">&lt;code&gt;</bpt>Microsoft.Devices<ept id="195ec49e-1112-4a2b-8eab-c0b991bbf62e">&lt;/code&gt;</ept> namespace instead.</source>
+          <target state="new">If you do not want the images saved to the Camera Roll, use the [PhotoCamera] class in the <bpt id="195ec49e-1112-4a2b-8eab-c0b991bbf62e">&lt;code&gt;</bpt>Microsoft.Devices<ept id="195ec49e-1112-4a2b-8eab-c0b991bbf62e">&lt;/code&gt;</ept> namespace instead.</target>
+        </trans-unit>
+        <trans-unit id="ed017e5f-6ce3-4e82-8c62-fe84d04e9a50" xml:space="preserve">
+          <source>In the Solution Explorer for Visual Studio, under the project, expand <bpt id="ad06f6c6-9cce-4f37-b5cd-79c6ff8c901b">&lt;strong&gt;</bpt>Properties<ept id="ad06f6c6-9cce-4f37-b5cd-79c6ff8c901b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Solution Explorer for Visual Studio, under the project, expand <bpt id="ad06f6c6-9cce-4f37-b5cd-79c6ff8c901b">&lt;strong&gt;</bpt>Properties<ept id="ad06f6c6-9cce-4f37-b5cd-79c6ff8c901b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="244c3f42-0d54-49bc-89a0-f5a94a4dd378" xml:space="preserve">
+          <source>Then open the WMAppManifest.xml file and on the <bpt id="97b3f609-e48d-4bf8-8235-3bd83b23a4a4">&lt;strong&gt;</bpt>Capabilities<ept id="97b3f609-e48d-4bf8-8235-3bd83b23a4a4">&lt;/strong&gt;</ept> tab enable the camera by clicking <bpt id="9d139049-0b7d-4753-b339-0da204c10d24">&lt;strong&gt;</bpt>ID\_CAP\_ISV\_CAMERA<ept id="9d139049-0b7d-4753-b339-0da204c10d24">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then open the WMAppManifest.xml file and on the <bpt id="97b3f609-e48d-4bf8-8235-3bd83b23a4a4">&lt;strong&gt;</bpt>Capabilities<ept id="97b3f609-e48d-4bf8-8235-3bd83b23a4a4">&lt;/strong&gt;</ept> tab enable the camera by clicking <bpt id="9d139049-0b7d-4753-b339-0da204c10d24">&lt;strong&gt;</bpt>ID\_CAP\_ISV\_CAMERA<ept id="9d139049-0b7d-4753-b339-0da204c10d24">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edaff2bd-5cd0-40cf-846d-9aa8895f8c97" xml:space="preserve">
+          <source>Close the file to save your change.</source>
+          <target state="new">Close the file to save your change.</target>
+        </trans-unit>
+        <trans-unit id="d2afda03-6f17-4c32-bb33-cb9f31e9f55a" xml:space="preserve">
+          <source><bpt id="e490b63a-0f76-4736-9dab-96021c98e61b">&lt;linkText&gt;</bpt><ept id="e490b63a-0f76-4736-9dab-96021c98e61b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e490b63a-0f76-4736-9dab-96021c98e61b">&lt;linkText&gt;</bpt><ept id="e490b63a-0f76-4736-9dab-96021c98e61b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6387a904-b485-4136-8cc7-5796a6ec03f2" xml:space="preserve">
+          <source>This makes sure that your app can use a camera attached to the computer.</source>
+          <target state="new">This makes sure that your app can use a camera attached to the computer.</target>
+        </trans-unit>
+        <trans-unit id="ddb5b25f-d76b-44be-951f-2a9f5fb1a011" xml:space="preserve">
+          <source>Users will be requested to allow camera access the first time that the app is run.</source>
+          <target state="new">Users will be requested to allow camera access the first time that the app is run.</target>
+        </trans-unit>
+        <trans-unit id="3d3a0ad8-afb6-41a3-becc-c61d2cbd9c5c" xml:space="preserve">
+          <source>Open the MainPage.xaml file and replace the <bpt id="c2fba2a0-6d4d-4949-963e-cf6d721e14ff">&lt;strong&gt;</bpt>Grid<ept id="c2fba2a0-6d4d-4949-963e-cf6d721e14ff">&lt;/strong&gt;</ept> element named <bpt id="5b21134c-3aef-4d61-99c5-d751123f70ba">&lt;strong&gt;</bpt>ContentPanel<ept id="5b21134c-3aef-4d61-99c5-d751123f70ba">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">Open the MainPage.xaml file and replace the <bpt id="c2fba2a0-6d4d-4949-963e-cf6d721e14ff">&lt;strong&gt;</bpt>Grid<ept id="c2fba2a0-6d4d-4949-963e-cf6d721e14ff">&lt;/strong&gt;</ept> element named <bpt id="5b21134c-3aef-4d61-99c5-d751123f70ba">&lt;strong&gt;</bpt>ContentPanel<ept id="5b21134c-3aef-4d61-99c5-d751123f70ba">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="d2bba94f-be92-474e-9ea8-b75beed68631" xml:space="preserve">
+          <source>This adds a new button to launch the [CameraCaptureTask] and adds an image to the <bpt id="64becc6c-43b1-424c-956a-9929e2d40551">&lt;strong&gt;</bpt>ItemTemplate<ept id="64becc6c-43b1-424c-956a-9929e2d40551">&lt;/strong&gt;</ept> and sets its binding source as the URI of the uploaded image in the Blob Storage service.</source>
+          <target state="new">This adds a new button to launch the [CameraCaptureTask] and adds an image to the <bpt id="64becc6c-43b1-424c-956a-9929e2d40551">&lt;strong&gt;</bpt>ItemTemplate<ept id="64becc6c-43b1-424c-956a-9929e2d40551">&lt;/strong&gt;</ept> and sets its binding source as the URI of the uploaded image in the Blob Storage service.</target>
+        </trans-unit>
+        <trans-unit id="1e9f1b27-f436-4ae8-ac8c-b695bde49fd3" xml:space="preserve">
+          <source>Open the MainPage.xaml.cs project file and add the following <bpt id="f18c0886-78a9-4039-8c63-c1140471516b">&lt;strong&gt;</bpt>using<ept id="f18c0886-78a9-4039-8c63-c1140471516b">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">Open the MainPage.xaml.cs project file and add the following <bpt id="f18c0886-78a9-4039-8c63-c1140471516b">&lt;strong&gt;</bpt>using<ept id="f18c0886-78a9-4039-8c63-c1140471516b">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="4be84f08-4db3-4154-b8bd-2f4501a31d17" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:</source>
+          <target state="new">In the MainPage.xaml.cs project file, update the TodoItem class by adding the following properties:</target>
+        </trans-unit>
+        <trans-unit id="b3e122ab-43e1-4175-bb21-255876b07193" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, update the MainPage class.</source>
+          <target state="new">In the MainPage.xaml.cs project file, update the MainPage class.</target>
+        </trans-unit>
+        <trans-unit id="824dc9b5-146b-4dbe-952b-008e851fdeb5" xml:space="preserve">
+          <source>Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:</source>
+          <target state="new">Add the following code to declare the [CameraCaptureTask] and a stream object that will reference the captured image:</target>
+        </trans-unit>
+        <trans-unit id="6c279eb4-5dd9-42be-b427-b557beead7bf" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, update the MainPage class.</source>
+          <target state="new">In the MainPage.xaml.cs project file, update the MainPage class.</target>
+        </trans-unit>
+        <trans-unit id="9d5cab76-6a4e-4145-a445-2bf60c7bd580" xml:space="preserve">
+          <source>Add the following code to update the constructor to create the CameraCaptureTask and add an event handler for the Completed event:</source>
+          <target state="new">Add the following code to update the constructor to create the CameraCaptureTask and add an event handler for the Completed event:</target>
+        </trans-unit>
+        <trans-unit id="9c405abf-b00d-4313-a217-738c9d2b81df" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, update the MainPage class.</source>
+          <target state="new">In the MainPage.xaml.cs project file, update the MainPage class.</target>
+        </trans-unit>
+        <trans-unit id="97d1c24d-b9d2-40e0-a14b-88f0a1833a9e" xml:space="preserve">
+          <source>Add the following code that displays the camera UI to allow the user to capture an image when the <bpt id="b5093ee7-dcd9-4f6d-817b-9941af2aa5b8">&lt;strong&gt;</bpt>Capture Image<ept id="b5093ee7-dcd9-4f6d-817b-9941af2aa5b8">&lt;/strong&gt;</ept> button is clicked:</source>
+          <target state="new">Add the following code that displays the camera UI to allow the user to capture an image when the <bpt id="b5093ee7-dcd9-4f6d-817b-9941af2aa5b8">&lt;strong&gt;</bpt>Capture Image<ept id="b5093ee7-dcd9-4f6d-817b-9941af2aa5b8">&lt;/strong&gt;</ept> button is clicked:</target>
+        </trans-unit>
+        <trans-unit id="1698313b-dd9b-4f59-b6fb-428d84a0c12a" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, update the MainPage class.</source>
+          <target state="new">In the MainPage.xaml.cs project file, update the MainPage class.</target>
+        </trans-unit>
+        <trans-unit id="1b79a958-3144-4504-b177-3b4768f7d21e" xml:space="preserve">
+          <source>Replace the existing <bpt id="675f2df4-895d-40ef-9862-743896fe4d38">&lt;code&gt;</bpt>InsertTodoItem<ept id="675f2df4-895d-40ef-9862-743896fe4d38">&lt;/code&gt;</ept> method with the following code:</source>
+          <target state="new">Replace the existing <bpt id="675f2df4-895d-40ef-9862-743896fe4d38">&lt;code&gt;</bpt>InsertTodoItem<ept id="675f2df4-895d-40ef-9862-743896fe4d38">&lt;/code&gt;</ept> method with the following code:</target>
+        </trans-unit>
+        <trans-unit id="19cec4c4-4b83-4742-a628-eebebf8d2841" xml:space="preserve">
+          <source>This code sends a request to the mobile service to insert a new TodoItem, including the image file name.</source>
+          <target state="new">This code sends a request to the mobile service to insert a new TodoItem, including the image file name.</target>
+        </trans-unit>
+        <trans-unit id="a643d346-4e4f-4c0a-9c15-6db989623073" xml:space="preserve">
+          <source>The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.</source>
+          <target state="new">The response contains the SAS, which is then used to insert the image in the Blob store, and the URI of the image for data binding.</target>
+        </trans-unit>
+        <trans-unit id="4e4c0ffd-d09c-4db0-83d0-57949f90c33c" xml:space="preserve">
+          <source>The final step is to test the app and validate that uploads succeed.</source>
+          <target state="new">The final step is to test the app and validate that uploads succeed.</target>
+        </trans-unit>
+        <trans-unit id="d2737d7f-4710-4c41-b5d8-5a600e3c4c21" xml:space="preserve">
+          <source>In Visual Studio, you can press the F5 key to test the app in the emulator or with an actual device targeted.</source>
+          <target state="new">In Visual Studio, you can press the F5 key to test the app in the emulator or with an actual device targeted.</target>
+        </trans-unit>
+        <trans-unit id="31781836-c02a-4cf7-8717-bcdcb2a5f187" xml:space="preserve">
+          <source>Enter some text in the textbox, then click <bpt id="ae1042a8-a436-4f69-9609-3b204fc36daf">&lt;strong&gt;</bpt>Capture Image<ept id="ae1042a8-a436-4f69-9609-3b204fc36daf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter some text in the textbox, then click <bpt id="ae1042a8-a436-4f69-9609-3b204fc36daf">&lt;strong&gt;</bpt>Capture Image<ept id="ae1042a8-a436-4f69-9609-3b204fc36daf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ca80cfd-21c3-4781-961b-e2b107f75189" xml:space="preserve">
+          <source><bpt id="4b505dd3-2c89-45a3-96f1-9598dff8fc79">&lt;linkText&gt;</bpt><ept id="4b505dd3-2c89-45a3-96f1-9598dff8fc79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b505dd3-2c89-45a3-96f1-9598dff8fc79">&lt;linkText&gt;</bpt><ept id="4b505dd3-2c89-45a3-96f1-9598dff8fc79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="855ceb28-fe66-4245-8dfb-1e6236eccef0" xml:space="preserve">
+          <source>This displays the camera capture UI.</source>
+          <target state="new">This displays the camera capture UI.</target>
+        </trans-unit>
+        <trans-unit id="4c7ef182-6210-4342-a600-2c337ae553c4" xml:space="preserve">
+          <source>Click the image or the snapshot button on the phone to take a picture.</source>
+          <target state="new">Click the image or the snapshot button on the phone to take a picture.</target>
+        </trans-unit>
+        <trans-unit id="58b0ed2b-20b5-4149-abca-c1144b75814e" xml:space="preserve">
+          <source><bpt id="3656d15e-7784-463f-b7fd-1f5dd22ce912">&lt;linkText&gt;</bpt><ept id="3656d15e-7784-463f-b7fd-1f5dd22ce912">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3656d15e-7784-463f-b7fd-1f5dd22ce912">&lt;linkText&gt;</bpt><ept id="3656d15e-7784-463f-b7fd-1f5dd22ce912">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7cc6d9a-586b-46f8-8b47-36120b4163e4" xml:space="preserve">
+          <source>Click <bpt id="056ee4ac-c791-48bb-8623-5f534a5aa702">&lt;strong&gt;</bpt>accept<ept id="056ee4ac-c791-48bb-8623-5f534a5aa702">&lt;/strong&gt;</ept> to accept the image and exit the camera UI.</source>
+          <target state="new">Click <bpt id="056ee4ac-c791-48bb-8623-5f534a5aa702">&lt;strong&gt;</bpt>accept<ept id="056ee4ac-c791-48bb-8623-5f534a5aa702">&lt;/strong&gt;</ept> to accept the image and exit the camera UI.</target>
+        </trans-unit>
+        <trans-unit id="addd3a77-5a4f-493d-8bba-5d19b34a51bc" xml:space="preserve">
+          <source><bpt id="5b6f3106-14ce-424a-b0d0-733d8ba6e5eb">&lt;linkText&gt;</bpt><ept id="5b6f3106-14ce-424a-b0d0-733d8ba6e5eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b6f3106-14ce-424a-b0d0-733d8ba6e5eb">&lt;linkText&gt;</bpt><ept id="5b6f3106-14ce-424a-b0d0-733d8ba6e5eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dafc3b4e-c8ff-424f-9f50-1f96327001f1" xml:space="preserve">
+          <source>Click <bpt id="8f04ef35-9a00-4523-b7ae-4e5444befc87">&lt;strong&gt;</bpt>Save<ept id="8f04ef35-9a00-4523-b7ae-4e5444befc87">&lt;/strong&gt;</ept> to insert the new item and upload the image.</source>
+          <target state="new">Click <bpt id="8f04ef35-9a00-4523-b7ae-4e5444befc87">&lt;strong&gt;</bpt>Save<ept id="8f04ef35-9a00-4523-b7ae-4e5444befc87">&lt;/strong&gt;</ept> to insert the new item and upload the image.</target>
+        </trans-unit>
+        <trans-unit id="f3034b37-9f1a-42fb-8f31-b8750b15c212" xml:space="preserve">
+          <source><bpt id="f8d6113c-4301-437f-8bfb-c16d4264131b">&lt;linkText&gt;</bpt><ept id="f8d6113c-4301-437f-8bfb-c16d4264131b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8d6113c-4301-437f-8bfb-c16d4264131b">&lt;linkText&gt;</bpt><ept id="f8d6113c-4301-437f-8bfb-c16d4264131b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88aa4d0d-9a7e-4d2c-bc8d-655c73f332dc" xml:space="preserve">
+          <source>The new item, along with the uploaded image, is displayed in the list view.</source>
+          <target state="new">The new item, along with the uploaded image, is displayed in the list view.</target>
+        </trans-unit>
+        <trans-unit id="e367943f-1992-4ac7-bec4-d9fee761f0b4" xml:space="preserve">
+          <source><bpt id="7f0e6546-18bb-49ea-8969-e9efbe0ad305">&lt;linkText&gt;</bpt><ept id="7f0e6546-18bb-49ea-8969-e9efbe0ad305">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f0e6546-18bb-49ea-8969-e9efbe0ad305">&lt;linkText&gt;</bpt><ept id="7f0e6546-18bb-49ea-8969-e9efbe0ad305">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22629525-15ab-440a-b4e6-2d16b9216129" xml:space="preserve">
+          <source>The image is downloaded automatically from the Blob Storage service when the &lt;code&gt;imageUri&lt;/code&gt; property of the new item is bound to the &lt;strong&gt;Image&lt;/strong&gt; control.</source>
+          <target state="new">The image is downloaded automatically from the Blob Storage service when the &lt;code&gt;imageUri&lt;/code&gt; property of the new item is bound to the &lt;strong&gt;Image&lt;/strong&gt; control.</target>
+        </trans-unit>
+        <trans-unit id="4aaaeea9-22ad-400f-b090-ec15df3bf7a3" xml:space="preserve">
+          <source>../articles/mobile-services-windows-phone-get-started.md</source>
+          <target state="new">../articles/mobile-services-windows-phone-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="caa08a55-b9cc-4245-959c-76b3c6b88561" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx</target>
+        </trans-unit>
+        <trans-unit id="c892f913-c5f5-4728-a966-067c6002de17" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="ca506cd8-461e-4c81-836a-0b5ba315f404" />
+    </body>
+  </file>
+</xliff>

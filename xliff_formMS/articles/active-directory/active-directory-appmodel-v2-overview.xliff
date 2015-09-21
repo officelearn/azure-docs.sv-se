@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cb9ea0e6-a268-47a1-9656-829c1c2dd947" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cb9ea0e6-a268-47a1-9656-829c1c2dd947" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a08d3542-55fb-4512-afa6-d2df057b2e35">
+        <trans-unit id="c5dc49ef-94a4-4218-a83d-7d4473710036" xml:space="preserve">
+          <source>App Model v2.0 | Microsoft Azure</source>
+          <target state="new">App Model v2.0 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="87c77951-3510-4fc9-810b-e9ec3c8b4458" xml:space="preserve">
+          <source>An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.</source>
+          <target state="new">An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.</target>
+        </trans-unit>
+        <trans-unit id="13b5bc9f-6932-48d0-9674-7882af5b7bd3" xml:space="preserve">
+          <source>This information applies to the v2.0 app model public preview.</source>
+          <target state="new">This information applies to the v2.0 app model public preview.</target>
+        </trans-unit>
+        <trans-unit id="ecad8275-ed42-4478-a6f7-c76022b4a98c" xml:space="preserve">
+          <source>For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;/linkText&gt;</ept><bpt id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;title&gt;</bpt><ept id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;/linkText&gt;</ept><bpt id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;title&gt;</bpt><ept id="32a878bc-7946-412b-9ee5-04bdf8d50470">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03404b85-e5cf-49b8-9c35-0f758a624195" xml:space="preserve">
+          <source>In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems.</source>
+          <target state="new">In the past, an app developer who wanted to support both Microsoft accounts and Azure Active Directory was required to integrate with two separate systems.</target>
+        </trans-unit>
+        <trans-unit id="0166780f-02be-41e0-87cc-e27dafff23a4" xml:space="preserve">
+          <source>With the v2.0 app model, you can now sign users in with both types of accounts.</source>
+          <target state="new">With the v2.0 app model, you can now sign users in with both types of accounts.</target>
+        </trans-unit>
+        <trans-unit id="1bda5350-b9fe-4210-8635-9e088313c2bf" xml:space="preserve">
+          <source>One simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.</source>
+          <target state="new">One simple integration allows you to reach an audience that spans millions of users with both personal and work/school accounts.</target>
+        </trans-unit>
+        <trans-unit id="0ab88a02-e98c-4c4a-8421-0a96c24fe7fe" xml:space="preserve">
+          <source>Your apps can also consume a <bpt id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;linkText&gt;</bpt>set of Office 365 REST APIs<ept id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;/linkText&gt;</ept><bpt id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;title&gt;</bpt><ept id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;/title&gt;</ept> using either type of account.</source>
+          <target state="new">Your apps can also consume a <bpt id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;linkText&gt;</bpt>set of Office 365 REST APIs<ept id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;/linkText&gt;</ept><bpt id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;title&gt;</bpt><ept id="e481d9ad-22f0-4476-beb3-ad595660352a">&lt;/title&gt;</ept> using either type of account.</target>
+        </trans-unit>
+        <trans-unit id="8f61a568-7003-4af3-a988-fdc5187b6226" xml:space="preserve">
+          <source>Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs.</source>
+          <target state="new">Currently, these APIs include Outlook's Mail, Contacts, and Calendars APIs.</target>
+        </trans-unit>
+        <trans-unit id="06e13142-ed93-4333-a187-a727911e8a2d" xml:space="preserve">
+          <source>Additional services will be added in the near future.</source>
+          <target state="new">Additional services will be added in the near future.</target>
+        </trans-unit>
+        <trans-unit id="49aa991a-1394-4eac-a0a0-17beb3346f50" xml:space="preserve">
+          <source>The v2.0 app model is in preview.</source>
+          <target state="new">The v2.0 app model is in preview.</target>
+        </trans-unit>
+        <trans-unit id="4d89b93a-230f-4aad-985d-1bc574c67328" xml:space="preserve">
+          <source>During the preview period, we are eager to hear your feedback and experience with the new app model as you try things out.</source>
+          <target state="new">During the preview period, we are eager to hear your feedback and experience with the new app model as you try things out.</target>
+        </trans-unit>
+        <trans-unit id="eafbfc06-966e-44e4-a9e0-603502b2143b" xml:space="preserve">
+          <source>Based on that feedback, we may make breaking changes in the interest of improving the service.</source>
+          <target state="new">Based on that feedback, we may make breaking changes in the interest of improving the service.</target>
+        </trans-unit>
+        <trans-unit id="ecc39e71-7954-41ce-8e8a-39a9345fd6dd" xml:space="preserve">
+          <source>You should not release a production app using the v2.0 app model during this period.</source>
+          <target state="new">You should not release a production app using the v2.0 app model during this period.</target>
+        </trans-unit>
+        <trans-unit id="91a2252d-2389-4f94-b153-8d14059c16e7" xml:space="preserve">
+          <source>There are two ways to get your own app up &amp; running with the v2.0 app model.  You can choose to send protocol messages directly, using <bpt id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;/linkText&gt;</ept><bpt id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;title&gt;</bpt><ept id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;/title&gt;</ept> or <bpt id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;linkText&gt;</bpt>Open ID Connect<ept id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;/linkText&gt;</ept><bpt id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;title&gt;</bpt><ept id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;/title&gt;</ept>.  Alternatively you can use our libraries to do the work for you - choose your favorite platform below and get started.</source>
+          <target state="new">There are two ways to get your own app up &amp; running with the v2.0 app model.  You can choose to send protocol messages directly, using <bpt id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;/linkText&gt;</ept><bpt id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;title&gt;</bpt><ept id="564d2b9c-0d10-4a1c-83b3-03c7be5ab971">&lt;/title&gt;</ept> or <bpt id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;linkText&gt;</bpt>Open ID Connect<ept id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;/linkText&gt;</ept><bpt id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;title&gt;</bpt><ept id="786c4ffe-e0a3-40a1-abd2-c4babbeeea1c">&lt;/title&gt;</ept>.  Alternatively you can use our libraries to do the work for you - choose your favorite platform below and get started.</target>
+        </trans-unit>
+        <trans-unit id="367b96d4-6dd5-494c-80a0-756c3eab18b4" xml:space="preserve">
+          <source><bpt id="ddbd5b24-8abd-4040-bf43-f49a090273ed">&lt;token href="../../includes/active-directory-v2-quickstart-table.md"&gt;</bpt><ept id="ddbd5b24-8abd-4040-bf43-f49a090273ed">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ddbd5b24-8abd-4040-bf43-f49a090273ed">&lt;token href="../../includes/active-directory-v2-quickstart-table.md"&gt;</bpt><ept id="ddbd5b24-8abd-4040-bf43-f49a090273ed">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f4b6b46-0c14-4e12-ab98-60b4113835b1" xml:space="preserve">
+          <source>Check back here often to learn about future changes to the v2.0 app model public preview.</source>
+          <target state="new">Check back here often to learn about future changes to the v2.0 app model public preview.</target>
+        </trans-unit>
+        <trans-unit id="f6803f79-89c7-4792-9664-a15a537f0996" xml:space="preserve">
+          <source>We'll also tweet about any updates using @AzureAD.</source>
+          <target state="new">We'll also tweet about any updates using @AzureAD.</target>
+        </trans-unit>
+        <trans-unit id="0977ef00-d55f-4feb-9fcb-bf267a9e8ca6" xml:space="preserve">
+          <source>Learn about the <bpt id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;linkText&gt;</bpt>types of apps you can build with app model v2.0<ept id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;/linkText&gt;</ept><bpt id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;title&gt;</bpt><ept id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about the <bpt id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;linkText&gt;</bpt>types of apps you can build with app model v2.0<ept id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;/linkText&gt;</ept><bpt id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;title&gt;</bpt><ept id="a4293ffe-fe1e-40e0-a723-36e2915d498a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3078fcae-8b63-4d10-ad27-d70ecb393b10" xml:space="preserve">
+          <source>For developers familiar with Azure Active Directory, you should check out the <bpt id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;linkText&gt;</bpt>updates to our protocols &amp; differences in the v2.0 app model<ept id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;/linkText&gt;</ept><bpt id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;title&gt;</bpt><ept id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For developers familiar with Azure Active Directory, you should check out the <bpt id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;linkText&gt;</bpt>updates to our protocols &amp; differences in the v2.0 app model<ept id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;/linkText&gt;</ept><bpt id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;title&gt;</bpt><ept id="81f36457-9e12-4fe6-bc8f-25e8d53923d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d3293eb-911a-4710-a315-162f034c18dd" xml:space="preserve">
+          <source>Current <bpt id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;linkText&gt;</bpt>preview limitations, restrictions and constraints<ept id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;/linkText&gt;</ept><bpt id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;title&gt;</bpt><ept id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;/title&gt;</ept>.</source>
+          <target state="new">Current <bpt id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;linkText&gt;</bpt>preview limitations, restrictions and constraints<ept id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;/linkText&gt;</ept><bpt id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;title&gt;</bpt><ept id="9644855a-e18b-4463-8c74-776cf89a8883">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6856b84-3a55-4e7e-9a2a-4c288bbd0d72" xml:space="preserve">
+          <source>These links will be useful for exploring the platform in depth:</source>
+          <target state="new">These links will be useful for exploring the platform in depth:</target>
+        </trans-unit>
+        <trans-unit id="d2da760d-0127-4ab9-a3bb-e59da0bf7713" xml:space="preserve">
+          <source>Get help on Stack Overflow using the <bpt id="30609103-945b-4e50-8851-51954260f63f">&lt;linkText&gt;</bpt>azure-active-directory<ept id="30609103-945b-4e50-8851-51954260f63f">&lt;/linkText&gt;</ept><bpt id="30609103-945b-4e50-8851-51954260f63f">&lt;title&gt;</bpt><ept id="30609103-945b-4e50-8851-51954260f63f">&lt;/title&gt;</ept> or <bpt id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;linkText&gt;</bpt>adal<ept id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;/linkText&gt;</ept><bpt id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;title&gt;</bpt><ept id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;/title&gt;</ept> tags.</source>
+          <target state="new">Get help on Stack Overflow using the <bpt id="30609103-945b-4e50-8851-51954260f63f">&lt;linkText&gt;</bpt>azure-active-directory<ept id="30609103-945b-4e50-8851-51954260f63f">&lt;/linkText&gt;</ept><bpt id="30609103-945b-4e50-8851-51954260f63f">&lt;title&gt;</bpt><ept id="30609103-945b-4e50-8851-51954260f63f">&lt;/title&gt;</ept> or <bpt id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;linkText&gt;</bpt>adal<ept id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;/linkText&gt;</ept><bpt id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;title&gt;</bpt><ept id="fcea0514-8a82-429d-9856-38ce7c575c3c">&lt;/title&gt;</ept> tags.</target>
+        </trans-unit>
+        <trans-unit id="7a4a0f44-b4a0-4deb-aec5-ffd9de6affa6" xml:space="preserve">
+          <source>Give us your thoughts on the preview using <bpt id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;linkText&gt;</bpt>User Voice<ept id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;/linkText&gt;</ept><bpt id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;title&gt;</bpt><ept id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;/title&gt;</ept> - we want to hear them!</source>
+          <target state="new">Give us your thoughts on the preview using <bpt id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;linkText&gt;</bpt>User Voice<ept id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;/linkText&gt;</ept><bpt id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;title&gt;</bpt><ept id="624f2a46-3c09-4d70-a531-a324c259179d">&lt;/title&gt;</ept> - we want to hear them!</target>
+        </trans-unit>
+        <trans-unit id="d13d458e-e204-4018-9b60-4665563996db" xml:space="preserve">
+          <source>Use the phrase "AppModelv2:" in the title of your post so we can find it.</source>
+          <target state="new">Use the phrase "AppModelv2:" in the title of your post so we can find it.</target>
+        </trans-unit>
+        <trans-unit id="74fd27f8-eace-43ef-9096-6cd037aecc03" xml:space="preserve">
+          <source><bpt id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;linkText&gt;</bpt>App Model v2.0 Protocol Reference<ept id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;/linkText&gt;</ept><bpt id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;title&gt;</bpt><ept id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;linkText&gt;</bpt>App Model v2.0 Protocol Reference<ept id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;/linkText&gt;</ept><bpt id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;title&gt;</bpt><ept id="2bf5adb5-a28c-4097-badd-1c82042b578e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aa0cf79-b5a9-4ebf-b392-f24303ca99c4" xml:space="preserve">
+          <source><bpt id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;linkText&gt;</bpt>App Model v2.0 Token Reference<ept id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;/linkText&gt;</ept><bpt id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;title&gt;</bpt><ept id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;linkText&gt;</bpt>App Model v2.0 Token Reference<ept id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;/linkText&gt;</ept><bpt id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;title&gt;</bpt><ept id="488a7bb6-a910-4872-b9df-2ca7ecebb088">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="803e6cfe-cdb3-4a50-bd5c-4324fdabd009" xml:space="preserve">
+          <source><bpt id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;linkText&gt;</bpt>Office 365 REST API Reference<ept id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;/linkText&gt;</ept><bpt id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;title&gt;</bpt><ept id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;linkText&gt;</bpt>Office 365 REST API Reference<ept id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;/linkText&gt;</ept><bpt id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;title&gt;</bpt><ept id="65ef111f-1754-450c-85f3-050eb0e1996d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d535b6a9-a47e-47f0-aeda-d685f634292a" xml:space="preserve">
+          <source><bpt id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;linkText&gt;</bpt>Scopes and Consent in the v2 endpoint<ept id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;/linkText&gt;</ept><bpt id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;title&gt;</bpt><ept id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;linkText&gt;</bpt>Scopes and Consent in the v2 endpoint<ept id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;/linkText&gt;</ept><bpt id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;title&gt;</bpt><ept id="0cea8f5d-9aff-4f77-b15a-83f0c94cf659">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

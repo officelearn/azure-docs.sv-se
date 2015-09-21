@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b0368bfd-cb1f-41f3-9bd4-94c0ef01c5d3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b0368bfd-cb1f-41f3-9bd4-94c0ef01c5d3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9028535b-661a-4b29-a61c-48169c914d33">
+        <trans-unit id="33c3695e-c18b-4624-bdef-dbf4d8e684d4" xml:space="preserve">
+          <source>What is Machine Learning on Azure? | Microsoft Azure</source>
+          <target state="new">What is Machine Learning on Azure? | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="49e5c96c-5e11-4618-9d85-6dedecc61b55" xml:space="preserve">
+          <source>Explains basic concepts of the fully-managed Machine Learning service, a cloud technology you can use to create, operationalize, and monetize solutions.</source>
+          <target state="new">Explains basic concepts of the fully-managed Machine Learning service, a cloud technology you can use to create, operationalize, and monetize solutions.</target>
+        </trans-unit>
+        <trans-unit id="b572848a-ad3b-40f9-989b-5c0472038de0" xml:space="preserve">
+          <source>Machine learning uses computers to run predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.</source>
+          <target state="new">Machine learning uses computers to run predictive models that learn from existing data in order to forecast future behaviors, outcomes, and trends.</target>
+        </trans-unit>
+        <trans-unit id="6b51667a-502b-4066-b742-792960e3f3b2" xml:space="preserve">
+          <source>These forecasts or predictions from machine learning can make apps and devices smarter.</source>
+          <target state="new">These forecasts or predictions from machine learning can make apps and devices smarter.</target>
+        </trans-unit>
+        <trans-unit id="53a0b61f-40bc-4864-a986-f985e8d3a818" xml:space="preserve">
+          <source>When you shop online, machine learning helps recommend other products you might like based on what you've purchased.</source>
+          <target state="new">When you shop online, machine learning helps recommend other products you might like based on what you've purchased.</target>
+        </trans-unit>
+        <trans-unit id="1e3f99f2-f231-4e5c-b22a-df6509dd893e" xml:space="preserve">
+          <source>When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps the bank do fraud detection.</source>
+          <target state="new">When your credit card is swiped, machine learning compares the transaction to a database of transactions and helps the bank do fraud detection.</target>
+        </trans-unit>
+        <trans-unit id="1d27c1ab-65f7-40d5-8692-09dd615e2cdb" xml:space="preserve">
+          <source>Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.</source>
+          <target state="new">Azure Machine Learning is a powerful cloud-based predictive analytics service that makes it possible to quickly create and deploy predictive models as analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="f163cf09-92cc-43e7-9c6f-db1dc0c775e7" xml:space="preserve">
+          <source>Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services.</source>
+          <target state="new">Azure Machine Learning not only provides tools to model predictive analytics, but also provides a fully-managed service you can use to publish your predictive models as ready-to-consume web services.</target>
+        </trans-unit>
+        <trans-unit id="1f6cb79e-7c6b-4611-b8d3-1a8a67957e9c" xml:space="preserve">
+          <source>Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.</source>
+          <target state="new">Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud: Quickly create, test, operationalize, and manage predictive models.</target>
+        </trans-unit>
+        <trans-unit id="65e153f5-d83f-4f44-affc-78819efc1bab" xml:space="preserve">
+          <source>You do not need to buy any hardware nor manually manage virtual machines.</source>
+          <target state="new">You do not need to buy any hardware nor manually manage virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="10101668-ce8e-49ff-b9de-3a1478300782" xml:space="preserve">
+          <source><bpt id="f779ca61-ba43-4882-a8c6-b9cdf44c5c96">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="f779ca61-ba43-4882-a8c6-b9cdf44c5c96">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f779ca61-ba43-4882-a8c6-b9cdf44c5c96">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="f779ca61-ba43-4882-a8c6-b9cdf44c5c96">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="621a6f20-79c5-4567-922d-4fcdbed1e69f" xml:space="preserve">
+          <source>Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events.</source>
+          <target state="new">Predictive analytics uses various statistical techniques - in this case, machine learning - to analyze collected or current data for patterns or trends in order to forecast future events.</target>
+        </trans-unit>
+        <trans-unit id="a1216832-15f2-4f71-b8b1-31ce8c232a09" xml:space="preserve">
+          <source>Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly.</source>
+          <target state="new">Azure Machine Learning is a particularly powerful way to do predictive analytics: You can work from a ready-to-use library of algorithms, create models on an internet-connected PC without purchasing additional equipment or infrastructure, and deploy your predictive solution quickly.</target>
+        </trans-unit>
+        <trans-unit id="c03403d3-0c97-40e0-8cbb-96398197d648" xml:space="preserve">
+          <source>You can also find ready-to-use examples and solutions in the <bpt id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;linkText&gt;</bpt>Microsoft Azure Marketplace<ept id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;/linkText&gt;</ept><bpt id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;title&gt;</bpt><ept id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;/title&gt;</ept> or <bpt id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;linkText&gt;</bpt>Machine Learning Gallery<ept id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;/linkText&gt;</ept><bpt id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;title&gt;</bpt><ept id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also find ready-to-use examples and solutions in the <bpt id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;linkText&gt;</bpt>Microsoft Azure Marketplace<ept id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;/linkText&gt;</ept><bpt id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;title&gt;</bpt><ept id="35ea8e08-b7bd-488d-bb85-188ba52334cc">&lt;/title&gt;</ept> or <bpt id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;linkText&gt;</bpt>Machine Learning Gallery<ept id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;/linkText&gt;</ept><bpt id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;title&gt;</bpt><ept id="5f1ee366-d3bf-4bfb-b658-d4578848dbe1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e16ffd7-42f7-406d-b33c-43e15746df50" xml:space="preserve">
+          <source>Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud from a large algorithm library, to a studio for building models, to an easy way to deploy your model as a web service.</source>
+          <target state="new">Azure Machine Learning has everything you need to create predictive analytics solutions in the cloud from a large algorithm library, to a studio for building models, to an easy way to deploy your model as a web service.</target>
+        </trans-unit>
+        <trans-unit id="4c563514-e487-404f-a88c-b27b0f4b96c3" xml:space="preserve">
+          <source>Create predictive models in <bpt id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;linkText&gt;</bpt>Machine Learning Studio<ept id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;/linkText&gt;</ept><bpt id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;title&gt;</bpt><ept id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;/title&gt;</ept>, a browser-based tool, by dragging, dropping, and connecting modules.</source>
+          <target state="new">Create predictive models in <bpt id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;linkText&gt;</bpt>Machine Learning Studio<ept id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;/linkText&gt;</ept><bpt id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;title&gt;</bpt><ept id="8b3d8560-27cc-483f-8cc0-df4ef94832e5">&lt;/title&gt;</ept>, a browser-based tool, by dragging, dropping, and connecting modules.</target>
+        </trans-unit>
+        <trans-unit id="50d753e7-7912-466d-9c61-e3ce37f339b2" xml:space="preserve">
+          <source><bpt id="89498061-b64c-4091-8896-a4097345c64b">&lt;linkText&gt;</bpt>What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio<ept id="89498061-b64c-4091-8896-a4097345c64b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89498061-b64c-4091-8896-a4097345c64b">&lt;linkText&gt;</bpt>What is predictive analytics: Example of a predictive analytics experiment in Azure Machine Learning Studio<ept id="89498061-b64c-4091-8896-a4097345c64b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff49ca49-1707-4e40-b884-6d75fc9af919" xml:space="preserve">
+          <source>Use a large library of <bpt id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;linkText&gt;</bpt>Machine Learning algorithms and modules<ept id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;/linkText&gt;</ept><bpt id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;title&gt;</bpt><ept id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;/title&gt;</ept> in Machine Learning Studio to jump-start your predictive models.</source>
+          <target state="new">Use a large library of <bpt id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;linkText&gt;</bpt>Machine Learning algorithms and modules<ept id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;/linkText&gt;</ept><bpt id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;title&gt;</bpt><ept id="5716a040-79f2-4edb-bcc9-d581d31615a3">&lt;/title&gt;</ept> in Machine Learning Studio to jump-start your predictive models.</target>
+        </trans-unit>
+        <trans-unit id="366df50b-8d92-4e17-9ba2-ab9f4ffbe1ff" xml:space="preserve">
+          <source>Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing.</source>
+          <target state="new">Choose from a library of sample experiments, R and Python packages, and best-in-class algorithms from Microsoft businesses like Xbox and Bing.</target>
+        </trans-unit>
+        <trans-unit id="72e13271-02e0-41b8-8b29-edccc813ed60" xml:space="preserve">
+          <source>Extend Studio modules with your own custom  <bpt id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;linkText&gt;</bpt>R<ept id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;/linkText&gt;</ept><bpt id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;title&gt;</bpt><ept id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;/title&gt;</ept> and <bpt id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;linkText&gt;</bpt>Python<ept id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;/linkText&gt;</ept><bpt id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;title&gt;</bpt><ept id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;/title&gt;</ept> scripts.</source>
+          <target state="new">Extend Studio modules with your own custom  <bpt id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;linkText&gt;</bpt>R<ept id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;/linkText&gt;</ept><bpt id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;title&gt;</bpt><ept id="5125f7bc-c053-488e-80aa-abc09502bf6a">&lt;/title&gt;</ept> and <bpt id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;linkText&gt;</bpt>Python<ept id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;/linkText&gt;</ept><bpt id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;title&gt;</bpt><ept id="4a994afb-ed48-4301-af34-6be264e168fb">&lt;/title&gt;</ept> scripts.</target>
+        </trans-unit>
+        <trans-unit id="5b324d04-5876-4b39-a5e0-6001d3dabb45" xml:space="preserve">
+          <source>In <bpt id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;linkText&gt;</bpt>Machine Learning Community Gallery<ept id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;/linkText&gt;</ept><bpt id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;title&gt;</bpt><ept id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;/title&gt;</ept>, you can get started with Azure Machine Learning and learn from others in the community.</source>
+          <target state="new">In <bpt id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;linkText&gt;</bpt>Machine Learning Community Gallery<ept id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;/linkText&gt;</ept><bpt id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;title&gt;</bpt><ept id="d1b95611-ad1e-4481-8714-250366581cc4">&lt;/title&gt;</ept>, you can get started with Azure Machine Learning and learn from others in the community.</target>
+        </trans-unit>
+        <trans-unit id="dd8d95f2-b60e-41a6-9ab4-b2bb27c2eb21" xml:space="preserve">
+          <source>Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments.</source>
+          <target state="new">Try experiments authored by others, ask questions or post comments about experiments, or publish your own experiments.</target>
+        </trans-unit>
+        <trans-unit id="c2cdf4a6-c395-4c15-aeb6-2fda0879ae11" xml:space="preserve">
+          <source>You can also share links to experiments via social networks such as LinkedIn and Twitter.</source>
+          <target state="new">You can also share links to experiments via social networks such as LinkedIn and Twitter.</target>
+        </trans-unit>
+        <trans-unit id="0ab1fbef-0508-4d10-91bb-1e9190892bc2" xml:space="preserve">
+          <source><bpt id="a06583ea-fde3-4ab6-8c6f-34a87eea7e58">&lt;linkText&gt;</bpt>Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery<ept id="a06583ea-fde3-4ab6-8c6f-34a87eea7e58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a06583ea-fde3-4ab6-8c6f-34a87eea7e58">&lt;linkText&gt;</bpt>Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery<ept id="a06583ea-fde3-4ab6-8c6f-34a87eea7e58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1e96193-d7e8-46c4-9fe0-b757ead3d07e" xml:space="preserve">
+          <source>Purchase ready-to-consume web services from <bpt id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;linkText&gt;</bpt>Microsoft Azure Marketplace<ept id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;/linkText&gt;</ept><bpt id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;title&gt;</bpt><ept id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;/title&gt;</ept>, such as Recommendations, Text Analytics, and Anomaly Detection.</source>
+          <target state="new">Purchase ready-to-consume web services from <bpt id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;linkText&gt;</bpt>Microsoft Azure Marketplace<ept id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;/linkText&gt;</ept><bpt id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;title&gt;</bpt><ept id="d4d92ee9-15ef-494f-8b6f-d552f2bf8926">&lt;/title&gt;</ept>, such as Recommendations, Text Analytics, and Anomaly Detection.</target>
+        </trans-unit>
+        <trans-unit id="a2d5691d-4ec8-4575-9309-251c300630c2" xml:space="preserve">
+          <source>Operationalize your predictive analytics models:</source>
+          <target state="new">Operationalize your predictive analytics models:</target>
+        </trans-unit>
+        <trans-unit id="4822e72c-3568-4a04-aee6-33374163f1aa" xml:space="preserve">
+          <source><bpt id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;linkText&gt;</bpt>Publish web services<ept id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;/linkText&gt;</ept><bpt id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;title&gt;</bpt><ept id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;linkText&gt;</bpt>Publish web services<ept id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;/linkText&gt;</ept><bpt id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;title&gt;</bpt><ept id="526b483a-a398-4d1a-87e8-9bc2999df67d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef21c376-12fa-43ea-8494-f8431b86aef4" xml:space="preserve">
+          <source><bpt id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;linkText&gt;</bpt>Train and retrain models through APIs<ept id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;/linkText&gt;</ept><bpt id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;title&gt;</bpt><ept id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;linkText&gt;</bpt>Train and retrain models through APIs<ept id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;/linkText&gt;</ept><bpt id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;title&gt;</bpt><ept id="b960f3a7-5cf4-4e00-8727-e3ad6a2c9357">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d432e76-fe3d-41b4-8c0d-b7e88b74168b" xml:space="preserve">
+          <source><bpt id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;linkText&gt;</bpt>Manage web service endpoints<ept id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;/linkText&gt;</ept><bpt id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;title&gt;</bpt><ept id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;linkText&gt;</bpt>Manage web service endpoints<ept id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;/linkText&gt;</ept><bpt id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;title&gt;</bpt><ept id="e77dfc92-19c8-4ad9-bcc1-8d34d48a8bb8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e150e950-c3f1-4cb1-b4aa-6a7bf16670d1" xml:space="preserve">
+          <source><bpt id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;linkText&gt;</bpt>Scale web services<ept id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;/linkText&gt;</ept><bpt id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;title&gt;</bpt><ept id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;linkText&gt;</bpt>Scale web services<ept id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;/linkText&gt;</ept><bpt id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;title&gt;</bpt><ept id="9c60bdbf-77d2-4b75-a9f5-d2315f8cd52e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c3ae3b9-c29c-46ed-b7f7-a6cb70f1c01a" xml:space="preserve">
+          <source><bpt id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;linkText&gt;</bpt>Consume web services<ept id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;/linkText&gt;</ept><bpt id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;title&gt;</bpt><ept id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;linkText&gt;</bpt>Consume web services<ept id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;/linkText&gt;</ept><bpt id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;title&gt;</bpt><ept id="3f33b245-dc01-4037-bbb5-ed7ac37cd63b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b58112e-37d3-45ab-8590-ee5f6d02bdae" xml:space="preserve">
+          <source><bpt id="fc364896-74ba-4dd9-bf1b-26d0a1af478a">&lt;strong&gt;</bpt>Data exploration<ept id="fc364896-74ba-4dd9-bf1b-26d0a1af478a">&lt;/strong&gt;</ept> is the process of gathering information about a large and often unstructured data set in order find characteristics for focused analysis.</source>
+          <target state="new"><bpt id="fc364896-74ba-4dd9-bf1b-26d0a1af478a">&lt;strong&gt;</bpt>Data exploration<ept id="fc364896-74ba-4dd9-bf1b-26d0a1af478a">&lt;/strong&gt;</ept> is the process of gathering information about a large and often unstructured data set in order find characteristics for focused analysis.</target>
+        </trans-unit>
+        <trans-unit id="1599d6d1-ddd2-4b48-8bd5-f173afcc8675" xml:space="preserve">
+          <source><bpt id="da199f0d-3cb8-4a18-9b46-2f47af59b7de">&lt;strong&gt;</bpt>Data mining<ept id="da199f0d-3cb8-4a18-9b46-2f47af59b7de">&lt;/strong&gt;</ept> refers to automated data exploration.</source>
+          <target state="new"><bpt id="da199f0d-3cb8-4a18-9b46-2f47af59b7de">&lt;strong&gt;</bpt>Data mining<ept id="da199f0d-3cb8-4a18-9b46-2f47af59b7de">&lt;/strong&gt;</ept> refers to automated data exploration.</target>
+        </trans-unit>
+        <trans-unit id="17dcbe87-8a1a-4b3f-ba0c-b4addc34e39e" xml:space="preserve">
+          <source><bpt id="c9092bec-ed1b-470c-ba91-989f599b1f61">&lt;strong&gt;</bpt>Descriptive analytics<ept id="c9092bec-ed1b-470c-ba91-989f599b1f61">&lt;/strong&gt;</ept> is the process of analyzing a data set in order to summarize what happened.</source>
+          <target state="new"><bpt id="c9092bec-ed1b-470c-ba91-989f599b1f61">&lt;strong&gt;</bpt>Descriptive analytics<ept id="c9092bec-ed1b-470c-ba91-989f599b1f61">&lt;/strong&gt;</ept> is the process of analyzing a data set in order to summarize what happened.</target>
+        </trans-unit>
+        <trans-unit id="01ea88dd-49cd-453b-8e4c-7e9a16f6f230" xml:space="preserve">
+          <source>The vast majority of business analytics - such as sales reports, web metrics, and social networks analysis - are descriptive.</source>
+          <target state="new">The vast majority of business analytics - such as sales reports, web metrics, and social networks analysis - are descriptive.</target>
+        </trans-unit>
+        <trans-unit id="ca2b9282-4cee-4af3-955d-566078bccafb" xml:space="preserve">
+          <source><bpt id="66262d2d-99d0-48af-9d80-d3e1be93366e">&lt;strong&gt;</bpt>Predictive analytics<ept id="66262d2d-99d0-48af-9d80-d3e1be93366e">&lt;/strong&gt;</ept> is the process of building models from historical or current data in order to forecast future outcomes.</source>
+          <target state="new"><bpt id="66262d2d-99d0-48af-9d80-d3e1be93366e">&lt;strong&gt;</bpt>Predictive analytics<ept id="66262d2d-99d0-48af-9d80-d3e1be93366e">&lt;/strong&gt;</ept> is the process of building models from historical or current data in order to forecast future outcomes.</target>
+        </trans-unit>
+        <trans-unit id="8bb7a09b-135c-44e1-8e9c-0a97c935a40a" xml:space="preserve">
+          <source><bpt id="debf5fcb-70b8-4025-abae-a7004fe490f5">&lt;strong&gt;</bpt>Supervised learning<ept id="debf5fcb-70b8-4025-abae-a7004fe490f5">&lt;/strong&gt;</ept> algorithms are trained with labeled data - in other words, data comprised of examples of the answers wanted.</source>
+          <target state="new"><bpt id="debf5fcb-70b8-4025-abae-a7004fe490f5">&lt;strong&gt;</bpt>Supervised learning<ept id="debf5fcb-70b8-4025-abae-a7004fe490f5">&lt;/strong&gt;</ept> algorithms are trained with labeled data - in other words, data comprised of examples of the answers wanted.</target>
+        </trans-unit>
+        <trans-unit id="350e3890-2472-4446-b865-f95a2459b8b6" xml:space="preserve">
+          <source>For instance, a model that identifies fraudulent credit card use would be trained from a data set in which data points indicating known fraudulent and valid charges were labeled.</source>
+          <target state="new">For instance, a model that identifies fraudulent credit card use would be trained from a data set in which data points indicating known fraudulent and valid charges were labeled.</target>
+        </trans-unit>
+        <trans-unit id="0c826b2a-f01e-4672-ba0e-e98b7805f42c" xml:space="preserve">
+          <source>Most machine learning is supervised.</source>
+          <target state="new">Most machine learning is supervised.</target>
+        </trans-unit>
+        <trans-unit id="00629707-c99b-489a-9f29-f766a0483e2b" xml:space="preserve">
+          <source><bpt id="82e94eaa-a511-477b-aefe-029068287ac0">&lt;strong&gt;</bpt>Unsupervised learning<ept id="82e94eaa-a511-477b-aefe-029068287ac0">&lt;/strong&gt;</ept> is used on data with no labels, and the goal is to find relationships in the data.</source>
+          <target state="new"><bpt id="82e94eaa-a511-477b-aefe-029068287ac0">&lt;strong&gt;</bpt>Unsupervised learning<ept id="82e94eaa-a511-477b-aefe-029068287ac0">&lt;/strong&gt;</ept> is used on data with no labels, and the goal is to find relationships in the data.</target>
+        </trans-unit>
+        <trans-unit id="b37efd50-3301-41c3-9dd3-890341d473ff" xml:space="preserve">
+          <source>For instance, you might want to find groupings of customer demographics with similar buying habits.</source>
+          <target state="new">For instance, you might want to find groupings of customer demographics with similar buying habits.</target>
+        </trans-unit>
+        <trans-unit id="3cf0bcca-1d40-4629-8aa5-8c4dc1aff666" xml:space="preserve">
+          <source>A machine learning model is an abstraction of the question you are trying to answer or the outcome you want to predict.</source>
+          <target state="new">A machine learning model is an abstraction of the question you are trying to answer or the outcome you want to predict.</target>
+        </trans-unit>
+        <trans-unit id="815685f4-ad23-4f9a-9e72-4f2b03b0f21a" xml:space="preserve">
+          <source>Models are trained and evaluated from existing data.</source>
+          <target state="new">Models are trained and evaluated from existing data.</target>
+        </trans-unit>
+        <trans-unit id="475188fe-9a27-466d-a3ba-dbee6f76f460" xml:space="preserve">
+          <source>In Azure Machine Learning, a model is built from an algorithm module that processes training data and functional modules, such as a scoring module.</source>
+          <target state="new">In Azure Machine Learning, a model is built from an algorithm module that processes training data and functional modules, such as a scoring module.</target>
+        </trans-unit>
+        <trans-unit id="aece7442-97fe-4c70-af9d-443f4ef9e8c5" xml:space="preserve">
+          <source>In supervised learning, if you're training a fraud detection model, you'll use a set of transactions that are labeled as either fraudulent or valid.</source>
+          <target state="new">In supervised learning, if you're training a fraud detection model, you'll use a set of transactions that are labeled as either fraudulent or valid.</target>
+        </trans-unit>
+        <trans-unit id="99c0da00-2145-429e-8963-7a53e29c7b28" xml:space="preserve">
+          <source>You'll split your data set randomly, and use part to train the model and part to test or evaluate the model.</source>
+          <target state="new">You'll split your data set randomly, and use part to train the model and part to test or evaluate the model.</target>
+        </trans-unit>
+        <trans-unit id="f345a71b-907d-4f90-b58b-133e80b7bdef" xml:space="preserve">
+          <source>Once you have a trained model, evaluate the model using the remaining test data.</source>
+          <target state="new">Once you have a trained model, evaluate the model using the remaining test data.</target>
+        </trans-unit>
+        <trans-unit id="b8148fc6-1e7b-49b1-9996-8a8ead989e10" xml:space="preserve">
+          <source>You use data you already know the outcomes for, so that you can tell whether your model predicts accurately.</source>
+          <target state="new">You use data you already know the outcomes for, so that you can tell whether your model predicts accurately.</target>
+        </trans-unit>
+        <trans-unit id="bb8a72ba-892d-41f7-9c10-fa9b561df729" xml:space="preserve">
+          <source><bpt id="77f2c9b6-7fc8-457f-91fe-16f691a155ca">&lt;strong&gt;</bpt>algorithm<ept id="77f2c9b6-7fc8-457f-91fe-16f691a155ca">&lt;/strong&gt;</ept>: A self-contained set of rules used to solve problems through data processing, calculation, or automated reasoning.</source>
+          <target state="new"><bpt id="77f2c9b6-7fc8-457f-91fe-16f691a155ca">&lt;strong&gt;</bpt>algorithm<ept id="77f2c9b6-7fc8-457f-91fe-16f691a155ca">&lt;/strong&gt;</ept>: A self-contained set of rules used to solve problems through data processing, calculation, or automated reasoning.</target>
+        </trans-unit>
+        <trans-unit id="d621c68e-c078-4c40-afe2-4b69bebc887e" xml:space="preserve">
+          <source><bpt id="b7bbd254-2064-4c10-8c1b-69613af6d86f">&lt;strong&gt;</bpt>categorical data<ept id="b7bbd254-2064-4c10-8c1b-69613af6d86f">&lt;/strong&gt;</ept>: Data that is organized by categories and that can be divided into groups.</source>
+          <target state="new"><bpt id="b7bbd254-2064-4c10-8c1b-69613af6d86f">&lt;strong&gt;</bpt>categorical data<ept id="b7bbd254-2064-4c10-8c1b-69613af6d86f">&lt;/strong&gt;</ept>: Data that is organized by categories and that can be divided into groups.</target>
+        </trans-unit>
+        <trans-unit id="dbd326bc-d5ae-45f4-9018-031c5c92eff0" xml:space="preserve">
+          <source>For example a categorical data set for autos could specify year, make, model, and price.</source>
+          <target state="new">For example a categorical data set for autos could specify year, make, model, and price.</target>
+        </trans-unit>
+        <trans-unit id="f2cf3014-7316-4058-8753-28ac7d7f0a15" xml:space="preserve">
+          <source><bpt id="7d05e076-b18e-4818-9437-b5afab09f4d5">&lt;strong&gt;</bpt>classification<ept id="7d05e076-b18e-4818-9437-b5afab09f4d5">&lt;/strong&gt;</ept>: A model for organizing data points into categories based on a data set for which category groupings are already known.</source>
+          <target state="new"><bpt id="7d05e076-b18e-4818-9437-b5afab09f4d5">&lt;strong&gt;</bpt>classification<ept id="7d05e076-b18e-4818-9437-b5afab09f4d5">&lt;/strong&gt;</ept>: A model for organizing data points into categories based on a data set for which category groupings are already known.</target>
+        </trans-unit>
+        <trans-unit id="c15219f8-2b0d-4647-88b0-34ca9a9cf091" xml:space="preserve">
+          <source><bpt id="9bbf538d-ad2d-49f0-b592-b2b3589a91de">&lt;strong&gt;</bpt>feature engineering<ept id="9bbf538d-ad2d-49f0-b592-b2b3589a91de">&lt;/strong&gt;</ept>: The process of extracting or selecting features related to a data set in order to enhance the data set and improve outcomes.</source>
+          <target state="new"><bpt id="9bbf538d-ad2d-49f0-b592-b2b3589a91de">&lt;strong&gt;</bpt>feature engineering<ept id="9bbf538d-ad2d-49f0-b592-b2b3589a91de">&lt;/strong&gt;</ept>: The process of extracting or selecting features related to a data set in order to enhance the data set and improve outcomes.</target>
+        </trans-unit>
+        <trans-unit id="6231ca54-c569-47aa-a6ef-61d85a094f8c" xml:space="preserve">
+          <source>For instance, airfare data could be enhanced by days of the week and holidays.</source>
+          <target state="new">For instance, airfare data could be enhanced by days of the week and holidays.</target>
+        </trans-unit>
+        <trans-unit id="7c908181-d13b-4462-9e98-1ef09ae76be6" xml:space="preserve">
+          <source>See <bpt id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;linkText&gt;</bpt>Feature selection and engineering in Azure Machine Learning<ept id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;/linkText&gt;</ept><bpt id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;title&gt;</bpt><ept id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;linkText&gt;</bpt>Feature selection and engineering in Azure Machine Learning<ept id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;/linkText&gt;</ept><bpt id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;title&gt;</bpt><ept id="0e0ac3fe-f73a-4e22-9f29-d27fb3ce8d93">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ed0ef46-dbb0-4456-a20d-fb9911019b18" xml:space="preserve">
+          <source><bpt id="1ab18e50-475c-4230-914f-d8719493e297">&lt;strong&gt;</bpt>module<ept id="1ab18e50-475c-4230-914f-d8719493e297">&lt;/strong&gt;</ept>: A functional element in a Machine Learning Studio model, such as the Enter Data module which enables entering and editing small data sets.</source>
+          <target state="new"><bpt id="1ab18e50-475c-4230-914f-d8719493e297">&lt;strong&gt;</bpt>module<ept id="1ab18e50-475c-4230-914f-d8719493e297">&lt;/strong&gt;</ept>: A functional element in a Machine Learning Studio model, such as the Enter Data module which enables entering and editing small data sets.</target>
+        </trans-unit>
+        <trans-unit id="1a3deb8a-67ed-471c-ade1-495a7369dfbb" xml:space="preserve">
+          <source>An algorithm is also a type of module in Machine Learning Studio.</source>
+          <target state="new">An algorithm is also a type of module in Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="84e278e9-6953-46a1-a18b-6748826b438d" xml:space="preserve">
+          <source><bpt id="2a35040a-42cc-47b9-a616-5445c9fab27f">&lt;strong&gt;</bpt>model<ept id="2a35040a-42cc-47b9-a616-5445c9fab27f">&lt;/strong&gt;</ept>: For supervised learning, a model is the product of a machine learning experiment comprised of a training data set, an algorithm module, and functional modules, such as a Score Model module.</source>
+          <target state="new"><bpt id="2a35040a-42cc-47b9-a616-5445c9fab27f">&lt;strong&gt;</bpt>model<ept id="2a35040a-42cc-47b9-a616-5445c9fab27f">&lt;/strong&gt;</ept>: For supervised learning, a model is the product of a machine learning experiment comprised of a training data set, an algorithm module, and functional modules, such as a Score Model module.</target>
+        </trans-unit>
+        <trans-unit id="f60066a5-ff28-491d-a83f-a05bd30dd5e2" xml:space="preserve">
+          <source><bpt id="e39c12a8-c264-4804-86e4-0ebe317e52f0">&lt;strong&gt;</bpt>numerical data<ept id="e39c12a8-c264-4804-86e4-0ebe317e52f0">&lt;/strong&gt;</ept>: Data that has meaning as measurements (continuous data) or counts (discrete data).</source>
+          <target state="new"><bpt id="e39c12a8-c264-4804-86e4-0ebe317e52f0">&lt;strong&gt;</bpt>numerical data<ept id="e39c12a8-c264-4804-86e4-0ebe317e52f0">&lt;/strong&gt;</ept>: Data that has meaning as measurements (continuous data) or counts (discrete data).</target>
+        </trans-unit>
+        <trans-unit id="33b22664-df9a-4bd0-aa35-d80edcdf169f" xml:space="preserve">
+          <source>Also referred to as <bpt id="b6e825d3-9b69-45a2-a7dd-3da4f2e3541a">&lt;em&gt;</bpt>quantitative data<ept id="b6e825d3-9b69-45a2-a7dd-3da4f2e3541a">&lt;/em&gt;</ept>.</source>
+          <target state="new">Also referred to as <bpt id="b6e825d3-9b69-45a2-a7dd-3da4f2e3541a">&lt;em&gt;</bpt>quantitative data<ept id="b6e825d3-9b69-45a2-a7dd-3da4f2e3541a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6aa789ac-91df-419b-9e36-32958431a9ee" xml:space="preserve">
+          <source><bpt id="0ea5b99b-6ba6-4329-ad45-981d6de8a7e9">&lt;strong&gt;</bpt>partition<ept id="0ea5b99b-6ba6-4329-ad45-981d6de8a7e9">&lt;/strong&gt;</ept>: The method by which you divide data into samples.</source>
+          <target state="new"><bpt id="0ea5b99b-6ba6-4329-ad45-981d6de8a7e9">&lt;strong&gt;</bpt>partition<ept id="0ea5b99b-6ba6-4329-ad45-981d6de8a7e9">&lt;/strong&gt;</ept>: The method by which you divide data into samples.</target>
+        </trans-unit>
+        <trans-unit id="1087ca54-9110-48c5-b8ad-57b5dffb9cc6" xml:space="preserve">
+          <source>See <bpt id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;linkText&gt;</bpt>Partition and Sample<ept id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;/linkText&gt;</ept><bpt id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;title&gt;</bpt><ept id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;linkText&gt;</bpt>Partition and Sample<ept id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;/linkText&gt;</ept><bpt id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;title&gt;</bpt><ept id="2aeacc8d-dab9-4723-a48b-3aab29af3808">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="e01711dd-7bbc-473d-b83f-a23e114efdc0" xml:space="preserve">
+          <source><bpt id="dcabe322-2fc7-4337-982a-8c93feec3a2a">&lt;strong&gt;</bpt>prediction<ept id="dcabe322-2fc7-4337-982a-8c93feec3a2a">&lt;/strong&gt;</ept>: A prediction is a forecast of a value or values from a machine learning model.</source>
+          <target state="new"><bpt id="dcabe322-2fc7-4337-982a-8c93feec3a2a">&lt;strong&gt;</bpt>prediction<ept id="dcabe322-2fc7-4337-982a-8c93feec3a2a">&lt;/strong&gt;</ept>: A prediction is a forecast of a value or values from a machine learning model.</target>
+        </trans-unit>
+        <trans-unit id="32133e22-50ef-4ee5-a2e4-0527bb04cc36" xml:space="preserve">
+          <source>You might also see the term "predicted score"; however, predicted scores are not the final output of a model.</source>
+          <target state="new">You might also see the term "predicted score"; however, predicted scores are not the final output of a model.</target>
+        </trans-unit>
+        <trans-unit id="038d9587-391c-4f57-b0f9-ea462238f72b" xml:space="preserve">
+          <source>An evaluation of the model follows the score.</source>
+          <target state="new">An evaluation of the model follows the score.</target>
+        </trans-unit>
+        <trans-unit id="35f18861-3d3c-4158-bf31-f5a6fd703efb" xml:space="preserve">
+          <source><bpt id="f736456f-2435-40dc-b1a9-7fa0e57d827e">&lt;strong&gt;</bpt>regression<ept id="f736456f-2435-40dc-b1a9-7fa0e57d827e">&lt;/strong&gt;</ept>: A model for predicting a continuous value based on independent variables, such as predicting the price of a car based on its year and make.</source>
+          <target state="new"><bpt id="f736456f-2435-40dc-b1a9-7fa0e57d827e">&lt;strong&gt;</bpt>regression<ept id="f736456f-2435-40dc-b1a9-7fa0e57d827e">&lt;/strong&gt;</ept>: A model for predicting a continuous value based on independent variables, such as predicting the price of a car based on its year and make.</target>
+        </trans-unit>
+        <trans-unit id="9ad77cb2-d3ba-40dc-90e1-86437b883339" xml:space="preserve">
+          <source><bpt id="dca2c3f5-67a8-4c10-88b3-eec77e291c16">&lt;strong&gt;</bpt>score<ept id="dca2c3f5-67a8-4c10-88b3-eec77e291c16">&lt;/strong&gt;</ept>: A predicted value generated from a trained classification or regression model, using the <bpt id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;linkText&gt;</bpt>Score Model module<ept id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;/linkText&gt;</ept><bpt id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;title&gt;</bpt><ept id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;/title&gt;</ept> in Machine Learning Studio.</source>
+          <target state="new"><bpt id="dca2c3f5-67a8-4c10-88b3-eec77e291c16">&lt;strong&gt;</bpt>score<ept id="dca2c3f5-67a8-4c10-88b3-eec77e291c16">&lt;/strong&gt;</ept>: A predicted value generated from a trained classification or regression model, using the <bpt id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;linkText&gt;</bpt>Score Model module<ept id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;/linkText&gt;</ept><bpt id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;title&gt;</bpt><ept id="da996afc-5bc6-4e48-b316-90c0bbb5807c">&lt;/title&gt;</ept> in Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="12a722be-d2b9-446a-bd25-16ef40fa8fce" xml:space="preserve">
+          <source>Classification models also return a score for the probability of the predicted value.</source>
+          <target state="new">Classification models also return a score for the probability of the predicted value.</target>
+        </trans-unit>
+        <trans-unit id="f53cb4fc-9348-4803-a942-701ba212cf0e" xml:space="preserve">
+          <source>Once you've generated scores from a model, you can evaluate the model's accuracy using the <bpt id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;linkText&gt;</bpt>Evaluate Model module<ept id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;/linkText&gt;</ept><bpt id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;title&gt;</bpt><ept id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Once you've generated scores from a model, you can evaluate the model's accuracy using the <bpt id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;linkText&gt;</bpt>Evaluate Model module<ept id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;/linkText&gt;</ept><bpt id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;title&gt;</bpt><ept id="d95e06fc-9954-4d05-a8b2-58086822689b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98b13140-5a8a-4738-ba9f-282921d687cf" xml:space="preserve">
+          <source><bpt id="bb0de239-82d9-4e8b-83ec-3e8b6ff6062b">&lt;strong&gt;</bpt>sample<ept id="bb0de239-82d9-4e8b-83ec-3e8b6ff6062b">&lt;/strong&gt;</ept>: A part of a data set intended to be representative of the whole.</source>
+          <target state="new"><bpt id="bb0de239-82d9-4e8b-83ec-3e8b6ff6062b">&lt;strong&gt;</bpt>sample<ept id="bb0de239-82d9-4e8b-83ec-3e8b6ff6062b">&lt;/strong&gt;</ept>: A part of a data set intended to be representative of the whole.</target>
+        </trans-unit>
+        <trans-unit id="50b4b78e-9deb-460f-9afd-712c5eff1fdf" xml:space="preserve">
+          <source>Samples can be selected randomly or based on specific features of the data set.</source>
+          <target state="new">Samples can be selected randomly or based on specific features of the data set.</target>
+        </trans-unit>
+        <trans-unit id="b0d2833c-d816-45e1-8c6a-a1f58ede8ad5" xml:space="preserve">
+          <source>You can learn the basics of predictive analytics and machine learning using a <bpt id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;linkText&gt;</bpt>step-by-step tutorial<ept id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;/linkText&gt;</ept><bpt id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;title&gt;</bpt><ept id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;/title&gt;</ept> and by <bpt id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;linkText&gt;</bpt>building on samples<ept id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;/linkText&gt;</ept><bpt id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;title&gt;</bpt><ept id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn the basics of predictive analytics and machine learning using a <bpt id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;linkText&gt;</bpt>step-by-step tutorial<ept id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;/linkText&gt;</ept><bpt id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;title&gt;</bpt><ept id="c2c2cdf2-5d8e-4894-b4ad-bccb149f9692">&lt;/title&gt;</ept> and by <bpt id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;linkText&gt;</bpt>building on samples<ept id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;/linkText&gt;</ept><bpt id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;title&gt;</bpt><ept id="252eff1d-d845-4434-a0c2-b70166f39516">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a16ae5a9-c45a-45bf-ae6e-a2b3addf5b10" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/</target>
+        </trans-unit>
+      </group>
+      <group id="a7a6abd0-d12a-4da3-9b87-fc23eb4cec6c" />
+    </body>
+  </file>
+</xliff>

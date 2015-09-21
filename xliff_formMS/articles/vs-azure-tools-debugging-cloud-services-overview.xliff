@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bd9c58b5-d48a-458c-9053-dd1526a3cb32" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bd9c58b5-d48a-458c-9053-dd1526a3cb32" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="260464c8-bbfd-4407-ba15-ea5fdd90d3ae">
+        <trans-unit id="9c213159-db9c-463e-9ff8-3b0fe2eee56a" xml:space="preserve">
+          <source>Debugging Azure Cloud Services | Microsoft Azure</source>
+          <target state="new">Debugging Azure Cloud Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="def63940-a345-4404-95d0-40c82fb122ef" xml:space="preserve">
+          <source>Debugging Azure Cloud Services</source>
+          <target state="new">Debugging Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="59709866-8423-4f27-9fb7-d9c05cf3e1d5" xml:space="preserve">
+          <source>You can use different approaches to debug an Azure application by using the Azure Tools for Microsoft Visual Studio and the Azure SDK:</source>
+          <target state="new">You can use different approaches to debug an Azure application by using the Azure Tools for Microsoft Visual Studio and the Azure SDK:</target>
+        </trans-unit>
+        <trans-unit id="4b9d0d66-dc48-44cd-b0dc-072847ef75f3" xml:space="preserve">
+          <source>You can debug an Azure application from Visual Studio when you are developing it, just as you would any Visual C# or Visual Basic application.</source>
+          <target state="new">You can debug an Azure application from Visual Studio when you are developing it, just as you would any Visual C# or Visual Basic application.</target>
+        </trans-unit>
+        <trans-unit id="730241ef-64d1-45be-942c-d82cfafe8137" xml:space="preserve">
+          <source>For more information, see <bpt id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;linkText&gt;</bpt>Debugging a cloud service or virtual machine in Visual Studio<ept id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;/linkText&gt;</ept><bpt id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;title&gt;</bpt><ept id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;linkText&gt;</bpt>Debugging a cloud service or virtual machine in Visual Studio<ept id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;/linkText&gt;</ept><bpt id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;title&gt;</bpt><ept id="1f840884-2c41-4d7d-bd14-78a2272fab5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60059ec1-7a29-431d-ad28-4be45adc4a81" xml:space="preserve">
+          <source>You can use Azure Diagnostics to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure.</source>
+          <target state="new">You can use Azure Diagnostics to log detailed information from code running within roles, whether the roles are running in the development environment or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="eacd3f0f-64eb-4530-9d4c-0582f55e6243" xml:space="preserve">
+          <source>For more information, see <bpt id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;linkText&gt;</bpt>Collecting logging data by using Azure Diagnostics<ept id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;/linkText&gt;</ept><bpt id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;title&gt;</bpt><ept id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;linkText&gt;</bpt>Collecting logging data by using Azure Diagnostics<ept id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;/linkText&gt;</ept><bpt id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;title&gt;</bpt><ept id="35a39897-1d3e-4fe8-87e2-76248ff08794">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61b45fb9-d2fe-4f2a-9866-c8840d799b24" xml:space="preserve">
+          <source>If you are using Visual Studio Enterprise to write roles targeted at the .NET Framework 4 or the .NET Framework 4.5, you can enable IntelliTrace at the time that you deploy an Azure cloud service from Visual Studio.</source>
+          <target state="new">If you are using Visual Studio Enterprise to write roles targeted at the .NET Framework 4 or the .NET Framework 4.5, you can enable IntelliTrace at the time that you deploy an Azure cloud service from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="b89a0e2e-6260-404e-af5c-667bc7ac6295" xml:space="preserve">
+          <source>IntelliTrace provides a log that you can use with Visual Studio to debug your application as if it were running in Azure.</source>
+          <target state="new">IntelliTrace provides a log that you can use with Visual Studio to debug your application as if it were running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="78dddf74-38ae-4b32-95c7-18a2ba107b4e" xml:space="preserve">
+          <source>For more information, see <bpt id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;linkText&gt;</bpt>Debugging a published cloud service with IntelliTrace and Visual Studio<ept id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;/linkText&gt;</ept><bpt id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;title&gt;</bpt><ept id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;linkText&gt;</bpt>Debugging a published cloud service with IntelliTrace and Visual Studio<ept id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;/linkText&gt;</ept><bpt id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;title&gt;</bpt><ept id="bcc179db-f74a-443d-8c01-817bfedc0f25">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72001ef4-5a69-4050-acc3-17517180ae77" xml:space="preserve">
+          <source>You can enable remote debugging on your cloud services at the time when you deploy the cloud service from Visual Studio.</source>
+          <target state="new">You can enable remote debugging on your cloud services at the time when you deploy the cloud service from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="9c4debad-271f-4fc6-8613-b3a26462a37f" xml:space="preserve">
+          <source>If you choose to enable remote debugging for a deployment, remote debugging services are installed on the virtual machines that run each role instance.</source>
+          <target state="new">If you choose to enable remote debugging for a deployment, remote debugging services are installed on the virtual machines that run each role instance.</target>
+        </trans-unit>
+        <trans-unit id="b394c98a-16b7-4b87-a3fa-b582b24a3bfe" xml:space="preserve">
+          <source>These services, such as msvsmon.exe, do not affect performance or result in extra costs.</source>
+          <target state="new">These services, such as msvsmon.exe, do not affect performance or result in extra costs.</target>
+        </trans-unit>
+        <trans-unit id="d7470de8-ef7d-4afa-9f8b-3a5a86a7df6b" xml:space="preserve">
+          <source>For more information, see <bpt id="89417616-b292-482a-9d04-9a4cf387258c">&lt;linkText&gt;</bpt>Debugging a cloud service or virtual machine in Visual Studio<ept id="89417616-b292-482a-9d04-9a4cf387258c">&lt;/linkText&gt;</ept><bpt id="89417616-b292-482a-9d04-9a4cf387258c">&lt;title&gt;</bpt><ept id="89417616-b292-482a-9d04-9a4cf387258c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="89417616-b292-482a-9d04-9a4cf387258c">&lt;linkText&gt;</bpt>Debugging a cloud service or virtual machine in Visual Studio<ept id="89417616-b292-482a-9d04-9a4cf387258c">&lt;/linkText&gt;</ept><bpt id="89417616-b292-482a-9d04-9a4cf387258c">&lt;title&gt;</bpt><ept id="89417616-b292-482a-9d04-9a4cf387258c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

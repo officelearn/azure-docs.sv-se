@@ -1,0 +1,901 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="58d0f9c1-184e-400c-b97c-5c8edf4752bb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="58d0f9c1-184e-400c-b97c-5c8edf4752bb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="90ebdfe9-d133-4d26-9037-e9131222f208">
+        <trans-unit id="75125f43-68bf-402a-83ba-3c3ed6963780" xml:space="preserve">
+          <source>Smooth Streaming Windows Store App Tutorial</source>
+          <target state="new">Smooth Streaming Windows Store App Tutorial</target>
+        </trans-unit>
+        <trans-unit id="938fe29d-cbb6-406b-bbaf-cb339753fa87" xml:space="preserve">
+          <source>Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content.</source>
+          <target state="new">Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content.</target>
+        </trans-unit>
+        <trans-unit id="e19a1a87-e364-4a3c-944a-63549497d186" xml:space="preserve">
+          <source>The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content.</source>
+          <target state="new">The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content.</target>
+        </trans-unit>
+        <trans-unit id="fedff412-7c86-49b6-bb9d-aedcc4e1a159" xml:space="preserve">
+          <source>In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on.</source>
+          <target state="new">In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on.</target>
+        </trans-unit>
+        <trans-unit id="d357e2b8-26ce-457f-9229-fb0f03514328" xml:space="preserve">
+          <source>For more information of the supported features, see the <bpt id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;linkText&gt;</bpt>release notes<ept id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;/linkText&gt;</ept><bpt id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;title&gt;</bpt><ept id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information of the supported features, see the <bpt id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;linkText&gt;</bpt>release notes<ept id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;/linkText&gt;</ept><bpt id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;title&gt;</bpt><ept id="6d7a0ad1-5ade-47ac-8823-b33e315f1faa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7d835d0-6a6d-4a24-91c2-e1dc2894d822" xml:space="preserve">
+          <source>This tutorial covers the APIs.</source>
+          <target state="new">This tutorial covers the APIs.</target>
+        </trans-unit>
+        <trans-unit id="446ecac3-222a-4d12-8572-111e9019ec0c" xml:space="preserve">
+          <source>For player development, Microsoft strongly recommends using <bpt id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;linkText&gt;</bpt>Player Framework for Windows 8<ept id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;/linkText&gt;</ept><bpt id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;title&gt;</bpt><ept id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For player development, Microsoft strongly recommends using <bpt id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;linkText&gt;</bpt>Player Framework for Windows 8<ept id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;/linkText&gt;</ept><bpt id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;title&gt;</bpt><ept id="9cae85bf-d34f-4576-8336-b219013d76ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af69701d-f1c9-4798-ab59-840654ff4b39" xml:space="preserve">
+          <source>Player framework makes it easier to build applications and provides many additional features.</source>
+          <target state="new">Player framework makes it easier to build applications and provides many additional features.</target>
+        </trans-unit>
+        <trans-unit id="274fbdef-7b2a-460f-b1fb-70f9e1e7bb53" xml:space="preserve">
+          <source>This tutorial contains four lessons:</source>
+          <target state="new">This tutorial contains four lessons:</target>
+        </trans-unit>
+        <trans-unit id="4503b696-cc9a-4a21-b487-82eb06d2328d" xml:space="preserve">
+          <source>Create a Basic Smooth Streaming Store Application</source>
+          <target state="new">Create a Basic Smooth Streaming Store Application</target>
+        </trans-unit>
+        <trans-unit id="7b69e719-428d-467b-82e2-1eba4e0848ca" xml:space="preserve">
+          <source>Add a Slider Bar to Control the Media Progress</source>
+          <target state="new">Add a Slider Bar to Control the Media Progress</target>
+        </trans-unit>
+        <trans-unit id="fbf30251-3655-4dd0-b772-b38d32a11cf5" xml:space="preserve">
+          <source>Select Smooth Streaming Streams</source>
+          <target state="new">Select Smooth Streaming Streams</target>
+        </trans-unit>
+        <trans-unit id="5ba6a8ed-d721-4cda-82e4-bcdc5b7ebfe4" xml:space="preserve">
+          <source>Select Smooth Streaming Tracks</source>
+          <target state="new">Select Smooth Streaming Tracks</target>
+        </trans-unit>
+        <trans-unit id="155b32bf-44e5-4aca-8b2d-069030adc267" xml:space="preserve">
+          <source>Windows 8 32-bit or 64-bit.</source>
+          <target state="new">Windows 8 32-bit or 64-bit.</target>
+        </trans-unit>
+        <trans-unit id="39324701-96c2-4a90-aef4-91c0dea8eb5f" xml:space="preserve">
+          <source>You can get <bpt id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;linkText&gt;</bpt>Windows 8 Enterprise Evaluation<ept id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;/linkText&gt;</ept><bpt id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;title&gt;</bpt><ept id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;/title&gt;</ept> from MSDN.</source>
+          <target state="new">You can get <bpt id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;linkText&gt;</bpt>Windows 8 Enterprise Evaluation<ept id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;/linkText&gt;</ept><bpt id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;title&gt;</bpt><ept id="71811a79-dd3d-4d4a-8023-e31a811567f1">&lt;/title&gt;</ept> from MSDN.</target>
+        </trans-unit>
+        <trans-unit id="c40f867c-b4d4-43f8-a077-e93923d986fa" xml:space="preserve">
+          <source>Visual Studio 2012 or Visual Studio Express 2012 for Windows 8 installed on Windows 8.</source>
+          <target state="new">Visual Studio 2012 or Visual Studio Express 2012 for Windows 8 installed on Windows 8.</target>
+        </trans-unit>
+        <trans-unit id="f96b69e3-3c6b-41db-9810-55a1110a28f7" xml:space="preserve">
+          <source>You can get the trial version from <bpt id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;linkText&gt;</bpt>here<ept id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;/linkText&gt;</ept><bpt id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;title&gt;</bpt><ept id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get the trial version from <bpt id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;linkText&gt;</bpt>here<ept id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;/linkText&gt;</ept><bpt id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;title&gt;</bpt><ept id="44e88b5e-8572-462b-957f-340cddb7de52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d4736ee0-cded-4eaf-b335-2811bdbdcf3d" xml:space="preserve">
+          <source><bpt id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;linkText&gt;</bpt>Microsoft Smooth Streaming Client SDK for Windows 8<ept id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;/linkText&gt;</ept><bpt id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;title&gt;</bpt><ept id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;linkText&gt;</bpt>Microsoft Smooth Streaming Client SDK for Windows 8<ept id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;/linkText&gt;</ept><bpt id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;title&gt;</bpt><ept id="928409d7-6ef6-4f2f-9653-5685127f9611">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="354151f1-4ca6-45bc-9d28-dcd127c7ccaa" xml:space="preserve">
+          <source>The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): <bpt id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;linkText&gt;</bpt>Lesson 1<ept id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;/linkText&gt;</ept><bpt id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;title&gt;</bpt>A Simple Windows 8 Smooth Streaming Media Player<ept id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;/title&gt;</ept>, <bpt id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;linkText&gt;</bpt>Lesson 2<ept id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;/linkText&gt;</ept><bpt id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;title&gt;</bpt>A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control<ept id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;/title&gt;</ept>, <bpt id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;linkText&gt;</bpt>Lesson 3<ept id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;/linkText&gt;</ept><bpt id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;title&gt;</bpt>A Windows 8 Smooth Streaming Media Player with Stream Selection<ept id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;/title&gt;</ept>, and <bpt id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;linkText&gt;</bpt>Lesson 4<ept id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;/linkText&gt;</ept><bpt id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;title&gt;</bpt>A Windows 8 Smooth Streaming Media Player with Track Selection<ept id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): <bpt id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;linkText&gt;</bpt>Lesson 1<ept id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;/linkText&gt;</ept><bpt id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;title&gt;</bpt>A Simple Windows 8 Smooth Streaming Media Player<ept id="c081ce13-0bdb-45f2-b3db-04f05136e5d5">&lt;/title&gt;</ept>, <bpt id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;linkText&gt;</bpt>Lesson 2<ept id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;/linkText&gt;</ept><bpt id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;title&gt;</bpt>A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control<ept id="bb11ed2e-64c1-4a95-bcc1-b1c3fb7dba85">&lt;/title&gt;</ept>, <bpt id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;linkText&gt;</bpt>Lesson 3<ept id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;/linkText&gt;</ept><bpt id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;title&gt;</bpt>A Windows 8 Smooth Streaming Media Player with Stream Selection<ept id="971aa996-3004-41a5-850f-f525b04c1ce1">&lt;/title&gt;</ept>, and <bpt id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;linkText&gt;</bpt>Lesson 4<ept id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;/linkText&gt;</ept><bpt id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;title&gt;</bpt>A Windows 8 Smooth Streaming Media Player with Track Selection<ept id="21132105-35c7-49e5-aaf6-df5d2208719e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03343846-c793-4ba3-8797-ac5ac7e4ed96" xml:space="preserve">
+          <source>In this lesson, you will create a Windows Store application with a MediaElement control to play Smooth Stream content.</source>
+          <target state="new">In this lesson, you will create a Windows Store application with a MediaElement control to play Smooth Stream content.</target>
+        </trans-unit>
+        <trans-unit id="9f816eb6-5e07-48ec-8c26-70844544987a" xml:space="preserve">
+          <source>The running application looks like:</source>
+          <target state="new">The running application looks like:</target>
+        </trans-unit>
+        <trans-unit id="f8b0f369-6b23-4a23-81e5-e105251dff28" xml:space="preserve">
+          <source><bpt id="99056ab2-d599-423f-be89-6f65114c081a">&lt;linkText&gt;</bpt>Smooth Streaming Windows Store application example<ept id="99056ab2-d599-423f-be89-6f65114c081a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99056ab2-d599-423f-be89-6f65114c081a">&lt;linkText&gt;</bpt>Smooth Streaming Windows Store application example<ept id="99056ab2-d599-423f-be89-6f65114c081a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31810ab9-38f0-4132-b1f2-c3edb0762b87" xml:space="preserve">
+          <source>For more information on developing Windows Store application, see <bpt id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;linkText&gt;</bpt>Develop Great Apps for Windows 8<ept id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;/linkText&gt;</ept><bpt id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;title&gt;</bpt><ept id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on developing Windows Store application, see <bpt id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;linkText&gt;</bpt>Develop Great Apps for Windows 8<ept id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;/linkText&gt;</ept><bpt id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;title&gt;</bpt><ept id="01c9c718-ab57-4f2f-bb60-85b05d566bc0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90767272-7f0c-45c2-a134-80b1bfd03074" xml:space="preserve">
+          <source>This lesson contains the following procedures:</source>
+          <target state="new">This lesson contains the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="2f4a8308-d05c-4116-9e3a-d40c62b409ce" xml:space="preserve">
+          <source>Create a Windows Store project</source>
+          <target state="new">Create a Windows Store project</target>
+        </trans-unit>
+        <trans-unit id="69248002-addb-45ca-ba1e-998876161f08" xml:space="preserve">
+          <source>Design the user interface (XAML)</source>
+          <target state="new">Design the user interface (XAML)</target>
+        </trans-unit>
+        <trans-unit id="ca633018-062f-437b-929f-3f2874ef5f33" xml:space="preserve">
+          <source>Modify the code behind file</source>
+          <target state="new">Modify the code behind file</target>
+        </trans-unit>
+        <trans-unit id="69cafab9-e179-4c74-b62f-a2c178d14851" xml:space="preserve">
+          <source>Compile and test the application</source>
+          <target state="new">Compile and test the application</target>
+        </trans-unit>
+        <trans-unit id="fdb268bf-cb38-4437-97eb-f88544bfbf01" xml:space="preserve">
+          <source><bpt id="d2bf1287-870a-4365-ad27-7c6be26b5674">&lt;strong&gt;</bpt>To create a Windows Store project<ept id="d2bf1287-870a-4365-ad27-7c6be26b5674">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d2bf1287-870a-4365-ad27-7c6be26b5674">&lt;strong&gt;</bpt>To create a Windows Store project<ept id="d2bf1287-870a-4365-ad27-7c6be26b5674">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9bcafc1-7745-4b59-b60c-838bd8fe0f36" xml:space="preserve">
+          <source>Run Visual Studio 2012 or later.</source>
+          <target state="new">Run Visual Studio 2012 or later.</target>
+        </trans-unit>
+        <trans-unit id="3aa0d802-78c2-4779-9ddc-b605f7356eae" xml:space="preserve">
+          <source>From the <bpt id="9830fa6c-c2af-4bc5-8190-4ba7465e6a06">&lt;strong&gt;</bpt>FILE<ept id="9830fa6c-c2af-4bc5-8190-4ba7465e6a06">&lt;/strong&gt;</ept> menu, click <bpt id="617545d8-c978-40e6-aa32-e5643e79f691">&lt;strong&gt;</bpt>New<ept id="617545d8-c978-40e6-aa32-e5643e79f691">&lt;/strong&gt;</ept>, and then click <bpt id="8c467211-144b-4619-801d-94fb28ffc786">&lt;strong&gt;</bpt>Project<ept id="8c467211-144b-4619-801d-94fb28ffc786">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="9830fa6c-c2af-4bc5-8190-4ba7465e6a06">&lt;strong&gt;</bpt>FILE<ept id="9830fa6c-c2af-4bc5-8190-4ba7465e6a06">&lt;/strong&gt;</ept> menu, click <bpt id="617545d8-c978-40e6-aa32-e5643e79f691">&lt;strong&gt;</bpt>New<ept id="617545d8-c978-40e6-aa32-e5643e79f691">&lt;/strong&gt;</ept>, and then click <bpt id="8c467211-144b-4619-801d-94fb28ffc786">&lt;strong&gt;</bpt>Project<ept id="8c467211-144b-4619-801d-94fb28ffc786">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c9eb6d2-5dd6-42eb-bbf8-ca9d4566730a" xml:space="preserve">
+          <source>From the New Project dialog, type or select  the following values:</source>
+          <target state="new">From the New Project dialog, type or select  the following values:</target>
+        </trans-unit>
+        <trans-unit id="3d84d051-c18f-4f4c-94e4-d7e3bc18c13c" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="2c51941d-ad79-446b-9ef1-c15926230993" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="28d56cf3-64c8-403f-92b3-69e47dacabac" xml:space="preserve">
+          <source>Template group</source>
+          <target state="new">Template group</target>
+        </trans-unit>
+        <trans-unit id="c6789d80-33d2-4d6b-81ee-c130b1356738" xml:space="preserve">
+          <source>Installed/Templates/Visual C#/Windows Store</source>
+          <target state="new">Installed/Templates/Visual C#/Windows Store</target>
+        </trans-unit>
+        <trans-unit id="3510bb83-debc-417b-8129-1de1c9671d58" xml:space="preserve">
+          <source>Template</source>
+          <target state="new">Template</target>
+        </trans-unit>
+        <trans-unit id="a1b9f3b2-cf1c-4d62-863d-3ae28a13a021" xml:space="preserve">
+          <source>Blank App (XAML)</source>
+          <target state="new">Blank App (XAML)</target>
+        </trans-unit>
+        <trans-unit id="fad5a866-f677-4008-b2e4-f7680516f35d" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6398dceb-d4a8-4b08-a940-7c1f4b1fb394" xml:space="preserve">
+          <source>SSPlayer</source>
+          <target state="new">SSPlayer</target>
+        </trans-unit>
+        <trans-unit id="877f8490-e687-4a02-aa7c-499b3bca6f45" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="8fe7b985-6196-414f-815a-9a06dad817c0" xml:space="preserve">
+          <source>C:\SSTutorials</source>
+          <target state="new">C:\SSTutorials</target>
+        </trans-unit>
+        <trans-unit id="cc8afb7e-832b-4b27-8905-e15f9ef5e4da" xml:space="preserve">
+          <source>Solution Name</source>
+          <target state="new">Solution Name</target>
+        </trans-unit>
+        <trans-unit id="00da86b9-6865-450c-8e54-c07c112ab8b9" xml:space="preserve">
+          <source>SSPlayer</source>
+          <target state="new">SSPlayer</target>
+        </trans-unit>
+        <trans-unit id="e9a6486e-e613-4568-a43a-23ace783a71f" xml:space="preserve">
+          <source>Create directory for solution</source>
+          <target state="new">Create directory for solution</target>
+        </trans-unit>
+        <trans-unit id="49c87a68-42da-4369-9c49-ac41c92730d5" xml:space="preserve">
+          <source>(selected)</source>
+          <target state="new">(selected)</target>
+        </trans-unit>
+        <trans-unit id="f7a10d0f-b6dd-4aed-88f3-b5f18f1cd5f7" xml:space="preserve">
+          <source>Click <bpt id="75706e55-3692-4868-aa50-8cc353cf361e">&lt;strong&gt;</bpt>OK<ept id="75706e55-3692-4868-aa50-8cc353cf361e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="75706e55-3692-4868-aa50-8cc353cf361e">&lt;strong&gt;</bpt>OK<ept id="75706e55-3692-4868-aa50-8cc353cf361e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c070f50a-0cbf-40c6-bdad-513307175917" xml:space="preserve">
+          <source><bpt id="40542742-14c4-4111-8681-ce0591d0f7a6">&lt;strong&gt;</bpt>To add a reference to the Smooth Streaming Client SDK<ept id="40542742-14c4-4111-8681-ce0591d0f7a6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="40542742-14c4-4111-8681-ce0591d0f7a6">&lt;strong&gt;</bpt>To add a reference to the Smooth Streaming Client SDK<ept id="40542742-14c4-4111-8681-ce0591d0f7a6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc68b644-0b96-4343-98f5-bfb9e13fc832" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="c2afe503-9749-4e9f-a984-bee5e3539970">&lt;strong&gt;</bpt>SSPlayer<ept id="c2afe503-9749-4e9f-a984-bee5e3539970">&lt;/strong&gt;</ept>, and then click <bpt id="9581b227-bd43-4179-b8f2-97a4f830205e">&lt;strong&gt;</bpt>Add Reference<ept id="9581b227-bd43-4179-b8f2-97a4f830205e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="c2afe503-9749-4e9f-a984-bee5e3539970">&lt;strong&gt;</bpt>SSPlayer<ept id="c2afe503-9749-4e9f-a984-bee5e3539970">&lt;/strong&gt;</ept>, and then click <bpt id="9581b227-bd43-4179-b8f2-97a4f830205e">&lt;strong&gt;</bpt>Add Reference<ept id="9581b227-bd43-4179-b8f2-97a4f830205e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f825b857-6620-49d6-b597-0b11a3731b03" xml:space="preserve">
+          <source>Type or select the following values:</source>
+          <target state="new">Type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="909bc8c0-c17f-4e8e-9971-31351750e4c2" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="99043fe7-5dd7-4de5-b17b-5e81b77a48ef" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="260bf5dc-54a6-4c7b-87fd-8137cc8eaca6" xml:space="preserve">
+          <source>Reference group</source>
+          <target state="new">Reference group</target>
+        </trans-unit>
+        <trans-unit id="b62f700d-9121-45dd-8ed1-f7cbcc0d23ad" xml:space="preserve">
+          <source>Windows/Extensions</source>
+          <target state="new">Windows/Extensions</target>
+        </trans-unit>
+        <trans-unit id="d551edcb-bdc6-4bec-9ca1-98f9e65597ac" xml:space="preserve">
+          <source>Reference</source>
+          <target state="new">Reference</target>
+        </trans-unit>
+        <trans-unit id="fbb5221c-5eba-42aa-89cc-46752dcd60a4" xml:space="preserve">
+          <source>Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package</source>
+          <target state="new">Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package</target>
+        </trans-unit>
+        <trans-unit id="6dd2595b-8100-475c-897f-9ddd02a2c0e0" xml:space="preserve">
+          <source>Click <bpt id="73bb3c19-b99d-46c7-819d-76e671e4d905">&lt;strong&gt;</bpt>OK<ept id="73bb3c19-b99d-46c7-819d-76e671e4d905">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="73bb3c19-b99d-46c7-819d-76e671e4d905">&lt;strong&gt;</bpt>OK<ept id="73bb3c19-b99d-46c7-819d-76e671e4d905">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d541434-887a-4f02-9747-739e9f0f3301" xml:space="preserve">
+          <source>After adding the references, you must select the targeted platform (x64 or x86), adding references will not work for Any CPU platform configuration.</source>
+          <target state="new">After adding the references, you must select the targeted platform (x64 or x86), adding references will not work for Any CPU platform configuration.</target>
+        </trans-unit>
+        <trans-unit id="29fbd0fe-c546-4b02-afd4-652bb6bb4239" xml:space="preserve">
+          <source>In solution explorer, you will see yellow warning mark for these added references.</source>
+          <target state="new">In solution explorer, you will see yellow warning mark for these added references.</target>
+        </trans-unit>
+        <trans-unit id="cf7fdbee-90e7-48af-b5bf-4e1e377c8174" xml:space="preserve">
+          <source><bpt id="c2551eb4-d5ac-4330-8002-204f391bef43">&lt;strong&gt;</bpt>To design the player user interface<ept id="c2551eb4-d5ac-4330-8002-204f391bef43">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c2551eb4-d5ac-4330-8002-204f391bef43">&lt;strong&gt;</bpt>To design the player user interface<ept id="c2551eb4-d5ac-4330-8002-204f391bef43">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="822948fe-62d6-4b91-9c8e-f98a88eb35ad" xml:space="preserve">
+          <source>From Solution Explorer, double click <bpt id="8d6aa69a-9859-46d3-bb33-160a3b34b442">&lt;strong&gt;</bpt>MainPage.xaml<ept id="8d6aa69a-9859-46d3-bb33-160a3b34b442">&lt;/strong&gt;</ept> to open it in the design view.</source>
+          <target state="new">From Solution Explorer, double click <bpt id="8d6aa69a-9859-46d3-bb33-160a3b34b442">&lt;strong&gt;</bpt>MainPage.xaml<ept id="8d6aa69a-9859-46d3-bb33-160a3b34b442">&lt;/strong&gt;</ept> to open it in the design view.</target>
+        </trans-unit>
+        <trans-unit id="3f3cb2b5-afa0-454f-83e8-89514de49ef3" xml:space="preserve">
+          <source>Locate the <bpt id="9470df72-091c-446c-a349-59bc648715df">&lt;strong&gt;</bpt>&amp;lt;Grid&amp;gt;<ept id="9470df72-091c-446c-a349-59bc648715df">&lt;/strong&gt;</ept> and <bpt id="91d8c43a-339c-43fb-99a2-5e9bb0d95564">&lt;strong&gt;</bpt>&amp;lt;/Grid&amp;gt;<ept id="91d8c43a-339c-43fb-99a2-5e9bb0d95564">&lt;/strong&gt;</ept>  tags the XAML file, and paste the following code between the two tags:</source>
+          <target state="new">Locate the <bpt id="9470df72-091c-446c-a349-59bc648715df">&lt;strong&gt;</bpt>&amp;lt;Grid&amp;gt;<ept id="9470df72-091c-446c-a349-59bc648715df">&lt;/strong&gt;</ept> and <bpt id="91d8c43a-339c-43fb-99a2-5e9bb0d95564">&lt;strong&gt;</bpt>&amp;lt;/Grid&amp;gt;<ept id="91d8c43a-339c-43fb-99a2-5e9bb0d95564">&lt;/strong&gt;</ept>  tags the XAML file, and paste the following code between the two tags:</target>
+        </trans-unit>
+        <trans-unit id="7b82b1c8-77fd-4c23-bada-68ba13542977" xml:space="preserve">
+          <source>The MediaElement control is used to playback media.</source>
+          <target state="new">The MediaElement control is used to playback media.</target>
+        </trans-unit>
+        <trans-unit id="2dc30b13-b2b8-4a0b-894d-c4ffead8de4e" xml:space="preserve">
+          <source>The slider control named sliderProgress will be used in the next lesson to control the media progress.</source>
+          <target state="new">The slider control named sliderProgress will be used in the next lesson to control the media progress.</target>
+        </trans-unit>
+        <trans-unit id="a23a3a90-dcf7-44c5-abe4-6063e17fcded" xml:space="preserve">
+          <source>Press <bpt id="6e1689a3-f847-461a-aefe-38cb4e45de2b">&lt;strong&gt;</bpt>CTRL+S<ept id="6e1689a3-f847-461a-aefe-38cb4e45de2b">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="6e1689a3-f847-461a-aefe-38cb4e45de2b">&lt;strong&gt;</bpt>CTRL+S<ept id="6e1689a3-f847-461a-aefe-38cb4e45de2b">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="93cdae6c-ba30-4007-8728-1cb2d449d4b8" xml:space="preserve">
+          <source>The MediaElement control does not support Smooth Streaming content out-of-box.</source>
+          <target state="new">The MediaElement control does not support Smooth Streaming content out-of-box.</target>
+        </trans-unit>
+        <trans-unit id="e713e022-4fc4-49ad-8078-eb997110273e" xml:space="preserve">
+          <source>To enable the Smooth Streaming support, you must register the Smooth Streaming byte-stream handler by file name extension and MIME type.</source>
+          <target state="new">To enable the Smooth Streaming support, you must register the Smooth Streaming byte-stream handler by file name extension and MIME type.</target>
+        </trans-unit>
+        <trans-unit id="6177b373-e769-477e-9a5b-89c8db06b53d" xml:space="preserve">
+          <source>To register, you use the MediaExtensionManager.RegisterByteStremHandler method of the Windows.Media namespace.</source>
+          <target state="new">To register, you use the MediaExtensionManager.RegisterByteStremHandler method of the Windows.Media namespace.</target>
+        </trans-unit>
+        <trans-unit id="1427a290-9c24-47c1-b329-885fce0bec72" xml:space="preserve">
+          <source>In this XAML file, some event handlers are associated with the controls.</source>
+          <target state="new">In this XAML file, some event handlers are associated with the controls.</target>
+        </trans-unit>
+        <trans-unit id="21f64698-4e88-4667-95a3-789a20745321" xml:space="preserve">
+          <source>You must define those event handlers.</source>
+          <target state="new">You must define those event handlers.</target>
+        </trans-unit>
+        <trans-unit id="7c6d8fdb-c94f-4c3a-8ebd-59afe135ed56" xml:space="preserve">
+          <source><bpt id="cff7affa-55c4-4007-883e-195339bbfe91">&lt;strong&gt;</bpt>To modify the code behind file<ept id="cff7affa-55c4-4007-883e-195339bbfe91">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cff7affa-55c4-4007-883e-195339bbfe91">&lt;strong&gt;</bpt>To modify the code behind file<ept id="cff7affa-55c4-4007-883e-195339bbfe91">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a916334f-af4b-4c84-942d-31e30e36d82e" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="88570736-4aba-4453-a0a1-76a92d36278b">&lt;strong&gt;</bpt>MainPage.xaml<ept id="88570736-4aba-4453-a0a1-76a92d36278b">&lt;/strong&gt;</ept>, and then click <bpt id="bc550339-2547-44e8-ab38-5aa3eff78fcf">&lt;strong&gt;</bpt>View Code<ept id="bc550339-2547-44e8-ab38-5aa3eff78fcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="88570736-4aba-4453-a0a1-76a92d36278b">&lt;strong&gt;</bpt>MainPage.xaml<ept id="88570736-4aba-4453-a0a1-76a92d36278b">&lt;/strong&gt;</ept>, and then click <bpt id="bc550339-2547-44e8-ab38-5aa3eff78fcf">&lt;strong&gt;</bpt>View Code<ept id="bc550339-2547-44e8-ab38-5aa3eff78fcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6a20d76-9fd5-4d46-bd4f-54f6808679b1" xml:space="preserve">
+          <source>At the top of the file, add the following using statement:</source>
+          <target state="new">At the top of the file, add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="b75b53db-a588-4147-9a2f-9f27c23f42e0" xml:space="preserve">
+          <source>At the beginning of the <bpt id="ad5aec5a-4006-4121-858b-95c6428aa72b">&lt;strong&gt;</bpt>MainPage<ept id="ad5aec5a-4006-4121-858b-95c6428aa72b">&lt;/strong&gt;</ept> class, add the following data member:</source>
+          <target state="new">At the beginning of the <bpt id="ad5aec5a-4006-4121-858b-95c6428aa72b">&lt;strong&gt;</bpt>MainPage<ept id="ad5aec5a-4006-4121-858b-95c6428aa72b">&lt;/strong&gt;</ept> class, add the following data member:</target>
+        </trans-unit>
+        <trans-unit id="696104ac-96b4-4fd1-ada4-2a984c1ed810" xml:space="preserve">
+          <source>At the end of the <bpt id="2fc9fb3b-351d-4516-a6ea-918263168cd1">&lt;strong&gt;</bpt>MainPage<ept id="2fc9fb3b-351d-4516-a6ea-918263168cd1">&lt;/strong&gt;</ept> constructor, add the following two lines:</source>
+          <target state="new">At the end of the <bpt id="2fc9fb3b-351d-4516-a6ea-918263168cd1">&lt;strong&gt;</bpt>MainPage<ept id="2fc9fb3b-351d-4516-a6ea-918263168cd1">&lt;/strong&gt;</ept> constructor, add the following two lines:</target>
+        </trans-unit>
+        <trans-unit id="5bc3da52-dedd-4b48-a416-230e3103afa0" xml:space="preserve">
+          <source>At the end of the <bpt id="9303bd89-9634-4eb7-a094-ebd77d44cb6f">&lt;strong&gt;</bpt>MainPage<ept id="9303bd89-9634-4eb7-a094-ebd77d44cb6f">&lt;/strong&gt;</ept> class, past the following code:</source>
+          <target state="new">At the end of the <bpt id="9303bd89-9634-4eb7-a094-ebd77d44cb6f">&lt;strong&gt;</bpt>MainPage<ept id="9303bd89-9634-4eb7-a094-ebd77d44cb6f">&lt;/strong&gt;</ept> class, past the following code:</target>
+        </trans-unit>
+        <trans-unit id="b06aa84b-aafe-4050-a2b4-15914d74007d" xml:space="preserve">
+          <source>The sliderProgress_PointerPressed event handler is defined here.</source>
+          <target state="new">The sliderProgress_PointerPressed event handler is defined here.</target>
+        </trans-unit>
+        <trans-unit id="0a7b8892-c46e-4d45-817a-16006a409166" xml:space="preserve">
+          <source>There are more works to do to get it working, which will be covered in the next lesson of this tutorial.</source>
+          <target state="new">There are more works to do to get it working, which will be covered in the next lesson of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="73a70f9e-026a-4dd7-a560-d4e58f0adae9" xml:space="preserve">
+          <source>Press <bpt id="bda0608c-5dec-4545-b4ef-65a102e1b097">&lt;strong&gt;</bpt>CTRL+S<ept id="bda0608c-5dec-4545-b4ef-65a102e1b097">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="bda0608c-5dec-4545-b4ef-65a102e1b097">&lt;strong&gt;</bpt>CTRL+S<ept id="bda0608c-5dec-4545-b4ef-65a102e1b097">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="af889255-a17e-48a4-a8d6-33fa21001807" xml:space="preserve">
+          <source>The finished the code behind file shall look like this:</source>
+          <target state="new">The finished the code behind file shall look like this:</target>
+        </trans-unit>
+        <trans-unit id="36b48bca-82c3-4ff9-905b-32475cc8c326" xml:space="preserve">
+          <source><bpt id="da55f289-884a-442c-8e25-0dd448bf4a47">&lt;linkText&gt;</bpt>Codeview in Visual Studio of Smooth Streaming Windows Store application<ept id="da55f289-884a-442c-8e25-0dd448bf4a47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da55f289-884a-442c-8e25-0dd448bf4a47">&lt;linkText&gt;</bpt>Codeview in Visual Studio of Smooth Streaming Windows Store application<ept id="da55f289-884a-442c-8e25-0dd448bf4a47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e782ec6-f1b2-4432-b286-b73899c4a707" xml:space="preserve">
+          <source><bpt id="e499b8b6-1b10-4ab2-9ced-b549bda10360">&lt;strong&gt;</bpt>To compile and test the application<ept id="e499b8b6-1b10-4ab2-9ced-b549bda10360">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e499b8b6-1b10-4ab2-9ced-b549bda10360">&lt;strong&gt;</bpt>To compile and test the application<ept id="e499b8b6-1b10-4ab2-9ced-b549bda10360">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ef1a1cc-fff6-4dd2-8fa0-479aa3e3879e" xml:space="preserve">
+          <source>From the <bpt id="071301a1-d54a-4b27-b767-4131aa3eba87">&lt;strong&gt;</bpt>BUILD<ept id="071301a1-d54a-4b27-b767-4131aa3eba87">&lt;/strong&gt;</ept> menu, click <bpt id="273e924d-48f7-404c-8bd8-9ded63b25740">&lt;strong&gt;</bpt>Configuration Manager<ept id="273e924d-48f7-404c-8bd8-9ded63b25740">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="071301a1-d54a-4b27-b767-4131aa3eba87">&lt;strong&gt;</bpt>BUILD<ept id="071301a1-d54a-4b27-b767-4131aa3eba87">&lt;/strong&gt;</ept> menu, click <bpt id="273e924d-48f7-404c-8bd8-9ded63b25740">&lt;strong&gt;</bpt>Configuration Manager<ept id="273e924d-48f7-404c-8bd8-9ded63b25740">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d37fd34-a4f1-4f2a-b149-1515799ea013" xml:space="preserve">
+          <source>Change <bpt id="846c76b9-1411-451a-baf0-c51d04a54e7b">&lt;strong&gt;</bpt>Active solution platform<ept id="846c76b9-1411-451a-baf0-c51d04a54e7b">&lt;/strong&gt;</ept> to match your development platform.</source>
+          <target state="new">Change <bpt id="846c76b9-1411-451a-baf0-c51d04a54e7b">&lt;strong&gt;</bpt>Active solution platform<ept id="846c76b9-1411-451a-baf0-c51d04a54e7b">&lt;/strong&gt;</ept> to match your development platform.</target>
+        </trans-unit>
+        <trans-unit id="b71c8e80-8dbc-4321-9de0-6014867ba1b6" xml:space="preserve">
+          <source>Press <bpt id="88a31665-7fe2-4341-9b13-9135a6536e3b">&lt;strong&gt;</bpt>F6<ept id="88a31665-7fe2-4341-9b13-9135a6536e3b">&lt;/strong&gt;</ept> to compile the project.</source>
+          <target state="new">Press <bpt id="88a31665-7fe2-4341-9b13-9135a6536e3b">&lt;strong&gt;</bpt>F6<ept id="88a31665-7fe2-4341-9b13-9135a6536e3b">&lt;/strong&gt;</ept> to compile the project.</target>
+        </trans-unit>
+        <trans-unit id="79268520-e9fe-4675-9472-9bec29bfa400" xml:space="preserve">
+          <source>Press <bpt id="7973d927-d204-4ea6-8801-de82a1b0b3e3">&lt;strong&gt;</bpt>F5<ept id="7973d927-d204-4ea6-8801-de82a1b0b3e3">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Press <bpt id="7973d927-d204-4ea6-8801-de82a1b0b3e3">&lt;strong&gt;</bpt>F5<ept id="7973d927-d204-4ea6-8801-de82a1b0b3e3">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="c8cfbab8-0a62-4448-9c13-3b7a3ddea4bb" xml:space="preserve">
+          <source>At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</source>
+          <target state="new">At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</target>
+        </trans-unit>
+        <trans-unit id="80115518-9c9c-44af-b375-53b73511c732" xml:space="preserve">
+          <source>Click <bpt id="c32462f8-359a-475a-923a-51bf28baec6a">&lt;strong&gt;</bpt>Set Source<ept id="c32462f8-359a-475a-923a-51bf28baec6a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c32462f8-359a-475a-923a-51bf28baec6a">&lt;strong&gt;</bpt>Set Source<ept id="c32462f8-359a-475a-923a-51bf28baec6a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95ca2ea8-22af-4174-bd70-5178c8e88a8b" xml:space="preserve">
+          <source>Because <bpt id="2aacf035-2085-4098-8b04-fb171ccea47e">&lt;strong&gt;</bpt>Auto Play<ept id="2aacf035-2085-4098-8b04-fb171ccea47e">&lt;/strong&gt;</ept> is enabled by default, the media shall play automatically.</source>
+          <target state="new">Because <bpt id="2aacf035-2085-4098-8b04-fb171ccea47e">&lt;strong&gt;</bpt>Auto Play<ept id="2aacf035-2085-4098-8b04-fb171ccea47e">&lt;/strong&gt;</ept> is enabled by default, the media shall play automatically.</target>
+        </trans-unit>
+        <trans-unit id="ce681c51-8e86-4a9a-8c1f-a41118f4cd59" xml:space="preserve">
+          <source>You can control the media using the <bpt id="916c6550-156c-4f42-a032-e72183f1a398">&lt;strong&gt;</bpt>Play<ept id="916c6550-156c-4f42-a032-e72183f1a398">&lt;/strong&gt;</ept>, <bpt id="6bf76b8b-9873-44f8-b898-4dc3fdf4291e">&lt;strong&gt;</bpt>Pause<ept id="6bf76b8b-9873-44f8-b898-4dc3fdf4291e">&lt;/strong&gt;</ept> and <bpt id="7b5bc8c6-bb41-4588-99e0-60b815f1f086">&lt;strong&gt;</bpt>Stop<ept id="7b5bc8c6-bb41-4588-99e0-60b815f1f086">&lt;/strong&gt;</ept> buttons.</source>
+          <target state="new">You can control the media using the <bpt id="916c6550-156c-4f42-a032-e72183f1a398">&lt;strong&gt;</bpt>Play<ept id="916c6550-156c-4f42-a032-e72183f1a398">&lt;/strong&gt;</ept>, <bpt id="6bf76b8b-9873-44f8-b898-4dc3fdf4291e">&lt;strong&gt;</bpt>Pause<ept id="6bf76b8b-9873-44f8-b898-4dc3fdf4291e">&lt;/strong&gt;</ept> and <bpt id="7b5bc8c6-bb41-4588-99e0-60b815f1f086">&lt;strong&gt;</bpt>Stop<ept id="7b5bc8c6-bb41-4588-99e0-60b815f1f086">&lt;/strong&gt;</ept> buttons.</target>
+        </trans-unit>
+        <trans-unit id="ae38cc04-523b-4d82-859f-0e622c63f6fa" xml:space="preserve">
+          <source>You can control the media volume using the vertical slider.</source>
+          <target state="new">You can control the media volume using the vertical slider.</target>
+        </trans-unit>
+        <trans-unit id="cd720370-d417-45f3-b8a1-c17e5f3d5cbb" xml:space="preserve">
+          <source>However the horizontal slider for controlling the media progress is not fully implemented yet.</source>
+          <target state="new">However the horizontal slider for controlling the media progress is not fully implemented yet.</target>
+        </trans-unit>
+        <trans-unit id="32762c6f-6045-42cb-b624-f5e20c71e3f6" xml:space="preserve">
+          <source>You have completed lesson1.</source>
+          <target state="new">You have completed lesson1.</target>
+        </trans-unit>
+        <trans-unit id="ca6973f2-54d7-4a48-9099-3c6e4073c69e" xml:space="preserve">
+          <source>In this lesson, you use a MediaElement control to playback Smooth Streaming content.</source>
+          <target state="new">In this lesson, you use a MediaElement control to playback Smooth Streaming content.</target>
+        </trans-unit>
+        <trans-unit id="e9383603-b7aa-4e6b-be5a-87927864745d" xml:space="preserve">
+          <source>In the next lesson, you will add a slider to control the progress of the Smooth Streaming content.</source>
+          <target state="new">In the next lesson, you will add a slider to control the progress of the Smooth Streaming content.</target>
+        </trans-unit>
+        <trans-unit id="c115358d-34d7-407c-a9d6-2e6a6be3fae3" xml:space="preserve">
+          <source>In lesson 1, you created a Windows Store application with a MediaElement XAML control to playback Smooth Streaming media content.</source>
+          <target state="new">In lesson 1, you created a Windows Store application with a MediaElement XAML control to playback Smooth Streaming media content.</target>
+        </trans-unit>
+        <trans-unit id="eef48938-87b7-4e38-a558-9a4afe2a15de" xml:space="preserve">
+          <source>It comes some basic media functions like start, stop and pause.</source>
+          <target state="new">It comes some basic media functions like start, stop and pause.</target>
+        </trans-unit>
+        <trans-unit id="cf01c7b5-87c2-4129-bc1c-969e9102f8d2" xml:space="preserve">
+          <source>In this lesson, you will add a slider bar control to the application.</source>
+          <target state="new">In this lesson, you will add a slider bar control to the application.</target>
+        </trans-unit>
+        <trans-unit id="a2853d8d-fc13-46ff-8223-5c897a080439" xml:space="preserve">
+          <source>In this tutorial, we will use a timer to update the slider position based on the current position of the MediaElement control.</source>
+          <target state="new">In this tutorial, we will use a timer to update the slider position based on the current position of the MediaElement control.</target>
+        </trans-unit>
+        <trans-unit id="caa22ae4-0f2b-42d3-8f00-d0501efcc1f0" xml:space="preserve">
+          <source>The slider start and end time also need to be updated in case of live content.</source>
+          <target state="new">The slider start and end time also need to be updated in case of live content.</target>
+        </trans-unit>
+        <trans-unit id="433c4f39-c8b8-4af4-adca-57950e018fe4" xml:space="preserve">
+          <source>This can be better handled in the adaptive source update event.</source>
+          <target state="new">This can be better handled in the adaptive source update event.</target>
+        </trans-unit>
+        <trans-unit id="141c6b20-66fe-4eaa-a9a7-7207969a5a0d" xml:space="preserve">
+          <source>Media sources are objects that generate media data.</source>
+          <target state="new">Media sources are objects that generate media data.</target>
+        </trans-unit>
+        <trans-unit id="120ccf74-19b3-4bd8-971c-61d21f6de2bb" xml:space="preserve">
+          <source>The source resolver takes a URL or byte stream and creates the appropriate media source for that content.</source>
+          <target state="new">The source resolver takes a URL or byte stream and creates the appropriate media source for that content.</target>
+        </trans-unit>
+        <trans-unit id="8830c8ac-0cbc-42d5-82e1-529d140533e6" xml:space="preserve">
+          <source>The source resolver is the standard way for the applications to create media sources.</source>
+          <target state="new">The source resolver is the standard way for the applications to create media sources.</target>
+        </trans-unit>
+        <trans-unit id="d06b2a99-0353-492d-851f-cf3affbf0329" xml:space="preserve">
+          <source>This lesson contains the following procedures:</source>
+          <target state="new">This lesson contains the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="da081232-9558-402b-9935-232afa46024a" xml:space="preserve">
+          <source>Register the Smooth Streaming handler </source>
+          <target state="new">Register the Smooth Streaming handler </target>
+        </trans-unit>
+        <trans-unit id="0cf67624-1950-4614-a142-a385b597f4cb" xml:space="preserve">
+          <source>Add the adaptive source manager level event handlers</source>
+          <target state="new">Add the adaptive source manager level event handlers</target>
+        </trans-unit>
+        <trans-unit id="d4f11ebc-b376-45ad-8888-dc1a93e556b9" xml:space="preserve">
+          <source>Add the adaptive source level event handlers</source>
+          <target state="new">Add the adaptive source level event handlers</target>
+        </trans-unit>
+        <trans-unit id="3efb0df2-1aec-44e7-8b7b-86db5d7191d0" xml:space="preserve">
+          <source>Add MediaElement event handlers</source>
+          <target state="new">Add MediaElement event handlers</target>
+        </trans-unit>
+        <trans-unit id="13aa6e97-6f71-4678-b4f8-a3610ebcd76b" xml:space="preserve">
+          <source>Add slider bar related code</source>
+          <target state="new">Add slider bar related code</target>
+        </trans-unit>
+        <trans-unit id="9409b689-2eb7-464b-a756-376a40439577" xml:space="preserve">
+          <source>Compile and test the application</source>
+          <target state="new">Compile and test the application</target>
+        </trans-unit>
+        <trans-unit id="ebd06f8d-44da-4d19-b118-b66985b111f4" xml:space="preserve">
+          <source><bpt id="c18b3115-943b-46b0-8e56-a5f1bf0b5b5c">&lt;strong&gt;</bpt>To register the Smooth Streaming byte-stream handler and pass the propertyset<ept id="c18b3115-943b-46b0-8e56-a5f1bf0b5b5c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c18b3115-943b-46b0-8e56-a5f1bf0b5b5c">&lt;strong&gt;</bpt>To register the Smooth Streaming byte-stream handler and pass the propertyset<ept id="c18b3115-943b-46b0-8e56-a5f1bf0b5b5c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fcb3558-5abb-4f66-b2c1-b32a4fe6d517" xml:space="preserve">
+          <source>From Solution Explorer, right click <bpt id="0d49237a-22c7-46d5-a97b-e94c5834c4ea">&lt;strong&gt;</bpt>MainPage.xaml<ept id="0d49237a-22c7-46d5-a97b-e94c5834c4ea">&lt;/strong&gt;</ept>, and then click <bpt id="bb2ffd20-f7ec-4788-96f9-00fd25e80827">&lt;strong&gt;</bpt>View Code<ept id="bb2ffd20-f7ec-4788-96f9-00fd25e80827">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right click <bpt id="0d49237a-22c7-46d5-a97b-e94c5834c4ea">&lt;strong&gt;</bpt>MainPage.xaml<ept id="0d49237a-22c7-46d5-a97b-e94c5834c4ea">&lt;/strong&gt;</ept>, and then click <bpt id="bb2ffd20-f7ec-4788-96f9-00fd25e80827">&lt;strong&gt;</bpt>View Code<ept id="bb2ffd20-f7ec-4788-96f9-00fd25e80827">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78991fe6-11ee-4f45-a6e3-903b6b202801" xml:space="preserve">
+          <source>At the beginning of the file, add the following using statement:</source>
+          <target state="new">At the beginning of the file, add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="7486ec8e-b094-459b-a621-a903edbbf396" xml:space="preserve">
+          <source>At the beginning of the MainPage class, add the following data members:</source>
+          <target state="new">At the beginning of the MainPage class, add the following data members:</target>
+        </trans-unit>
+        <trans-unit id="7efad725-8793-4039-9258-7ae20adf4840" xml:space="preserve">
+          <source>Inside the <bpt id="649c842d-3fec-4e91-a946-7b61474a1ca9">&lt;strong&gt;</bpt>MainPage<ept id="649c842d-3fec-4e91-a946-7b61474a1ca9">&lt;/strong&gt;</ept> constructor, add the following code after the <bpt id="964fc5f5-f841-46dd-9f12-b971f98b7196">&lt;strong&gt;</bpt>this.Initialize Components();<ept id="964fc5f5-f841-46dd-9f12-b971f98b7196">&lt;/strong&gt;</ept> line and the registration code lines written in the previous lesson:</source>
+          <target state="new">Inside the <bpt id="649c842d-3fec-4e91-a946-7b61474a1ca9">&lt;strong&gt;</bpt>MainPage<ept id="649c842d-3fec-4e91-a946-7b61474a1ca9">&lt;/strong&gt;</ept> constructor, add the following code after the <bpt id="964fc5f5-f841-46dd-9f12-b971f98b7196">&lt;strong&gt;</bpt>this.Initialize Components();<ept id="964fc5f5-f841-46dd-9f12-b971f98b7196">&lt;/strong&gt;</ept> line and the registration code lines written in the previous lesson:</target>
+        </trans-unit>
+        <trans-unit id="d8d2884f-ad5d-4f8a-a071-1f91f8674a2d" xml:space="preserve">
+          <source>Inside the <bpt id="410a2ed1-5e9a-40d2-b495-b6710cc77618">&lt;strong&gt;</bpt>MainPage<ept id="410a2ed1-5e9a-40d2-b495-b6710cc77618">&lt;/strong&gt;</ept> constructor, modify the two RegisterByteStreamHandler methods to add the forth parameters:</source>
+          <target state="new">Inside the <bpt id="410a2ed1-5e9a-40d2-b495-b6710cc77618">&lt;strong&gt;</bpt>MainPage<ept id="410a2ed1-5e9a-40d2-b495-b6710cc77618">&lt;/strong&gt;</ept> constructor, modify the two RegisterByteStreamHandler methods to add the forth parameters:</target>
+        </trans-unit>
+        <trans-unit id="a302c891-8828-44cd-938d-8db7c0ba2365" xml:space="preserve">
+          <source>Press <bpt id="1d968dfc-fa66-46c0-baad-f02686351b2f">&lt;strong&gt;</bpt>CTRL+S<ept id="1d968dfc-fa66-46c0-baad-f02686351b2f">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="1d968dfc-fa66-46c0-baad-f02686351b2f">&lt;strong&gt;</bpt>CTRL+S<ept id="1d968dfc-fa66-46c0-baad-f02686351b2f">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="5827e8ae-df9d-434e-9fc9-ca2bb28e9641" xml:space="preserve">
+          <source><bpt id="a2e86683-3eef-4a73-b2b4-489c7b237a76">&lt;strong&gt;</bpt>To add the adaptive source manager level event handler<ept id="a2e86683-3eef-4a73-b2b4-489c7b237a76">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2e86683-3eef-4a73-b2b4-489c7b237a76">&lt;strong&gt;</bpt>To add the adaptive source manager level event handler<ept id="a2e86683-3eef-4a73-b2b4-489c7b237a76">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f6b0647-7389-410f-9ff0-2187ec95bda1" xml:space="preserve">
+          <source>From Solution Explorer, right click <bpt id="97f488c0-e027-44ca-8e05-c7f05ca39ec7">&lt;strong&gt;</bpt>MainPage.xaml<ept id="97f488c0-e027-44ca-8e05-c7f05ca39ec7">&lt;/strong&gt;</ept>, and then click <bpt id="b1846b55-dfea-442e-9749-5c243228e1a0">&lt;strong&gt;</bpt>View Code<ept id="b1846b55-dfea-442e-9749-5c243228e1a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right click <bpt id="97f488c0-e027-44ca-8e05-c7f05ca39ec7">&lt;strong&gt;</bpt>MainPage.xaml<ept id="97f488c0-e027-44ca-8e05-c7f05ca39ec7">&lt;/strong&gt;</ept>, and then click <bpt id="b1846b55-dfea-442e-9749-5c243228e1a0">&lt;strong&gt;</bpt>View Code<ept id="b1846b55-dfea-442e-9749-5c243228e1a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f97f7354-c18b-412f-ad17-80b800c953ac" xml:space="preserve">
+          <source>Inside the <bpt id="2eaae556-1fc0-430c-972d-ed6d7d2db27e">&lt;strong&gt;</bpt>MainPage<ept id="2eaae556-1fc0-430c-972d-ed6d7d2db27e">&lt;/strong&gt;</ept> class, add the following data member:</source>
+          <target state="new">Inside the <bpt id="2eaae556-1fc0-430c-972d-ed6d7d2db27e">&lt;strong&gt;</bpt>MainPage<ept id="2eaae556-1fc0-430c-972d-ed6d7d2db27e">&lt;/strong&gt;</ept> class, add the following data member:</target>
+        </trans-unit>
+        <trans-unit id="d7336ee4-37ff-4590-8771-d914954b5cba" xml:space="preserve">
+          <source>At the end of the <bpt id="b426d650-3c75-47a7-aa6c-b5ba33e5ac55">&lt;strong&gt;</bpt>MainPage<ept id="b426d650-3c75-47a7-aa6c-b5ba33e5ac55">&lt;/strong&gt;</ept> class, add the following event handler:</source>
+          <target state="new">At the end of the <bpt id="b426d650-3c75-47a7-aa6c-b5ba33e5ac55">&lt;strong&gt;</bpt>MainPage<ept id="b426d650-3c75-47a7-aa6c-b5ba33e5ac55">&lt;/strong&gt;</ept> class, add the following event handler:</target>
+        </trans-unit>
+        <trans-unit id="769cd87c-1bf7-4d38-9e2b-3fbe7af2ef94" xml:space="preserve">
+          <source>At the end of the <bpt id="b798b0d5-533b-480f-833f-5e59e589546b">&lt;strong&gt;</bpt>MainPage<ept id="b798b0d5-533b-480f-833f-5e59e589546b">&lt;/strong&gt;</ept> constructor, add the following line to subscribe to the adaptive source open event:</source>
+          <target state="new">At the end of the <bpt id="b798b0d5-533b-480f-833f-5e59e589546b">&lt;strong&gt;</bpt>MainPage<ept id="b798b0d5-533b-480f-833f-5e59e589546b">&lt;/strong&gt;</ept> constructor, add the following line to subscribe to the adaptive source open event:</target>
+        </trans-unit>
+        <trans-unit id="e096b2e8-2fd0-4d63-9932-9d161445ce6f" xml:space="preserve">
+          <source>adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
+    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);</source>
+          <target state="new">adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
+    new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);</target>
+        </trans-unit>
+        <trans-unit id="4c26024d-28dd-4ce7-b8ba-83a6c1ee81ba" xml:space="preserve">
+          <source>Press <bpt id="34b0dd96-a603-4711-9a9c-f5572e35cfb9">&lt;strong&gt;</bpt>CTRL+S<ept id="34b0dd96-a603-4711-9a9c-f5572e35cfb9">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="34b0dd96-a603-4711-9a9c-f5572e35cfb9">&lt;strong&gt;</bpt>CTRL+S<ept id="34b0dd96-a603-4711-9a9c-f5572e35cfb9">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="c84e1b54-e99b-4879-8dc4-e444f04b39c9" xml:space="preserve">
+          <source><bpt id="54390e3d-4fb0-402f-9e2d-97c7ee8fc641">&lt;strong&gt;</bpt>To add adaptive source level event handlers<ept id="54390e3d-4fb0-402f-9e2d-97c7ee8fc641">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="54390e3d-4fb0-402f-9e2d-97c7ee8fc641">&lt;strong&gt;</bpt>To add adaptive source level event handlers<ept id="54390e3d-4fb0-402f-9e2d-97c7ee8fc641">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f9098c8-8cfd-4c83-95c1-bce69acd7178" xml:space="preserve">
+          <source>From Solution Explorer, right click <bpt id="a0fe953c-c55f-492d-9ed8-e0686b5d320a">&lt;strong&gt;</bpt>MainPage.xaml<ept id="a0fe953c-c55f-492d-9ed8-e0686b5d320a">&lt;/strong&gt;</ept>, and then click <bpt id="b81e9ec9-9259-4815-b49b-c645b4407b2e">&lt;strong&gt;</bpt>View Code<ept id="b81e9ec9-9259-4815-b49b-c645b4407b2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right click <bpt id="a0fe953c-c55f-492d-9ed8-e0686b5d320a">&lt;strong&gt;</bpt>MainPage.xaml<ept id="a0fe953c-c55f-492d-9ed8-e0686b5d320a">&lt;/strong&gt;</ept>, and then click <bpt id="b81e9ec9-9259-4815-b49b-c645b4407b2e">&lt;strong&gt;</bpt>View Code<ept id="b81e9ec9-9259-4815-b49b-c645b4407b2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81c31239-88a1-414b-a759-f4edd9c22279" xml:space="preserve">
+          <source>Inside the <bpt id="58e5f7c5-5e0b-4b27-9b70-c94c7a75f27f">&lt;strong&gt;</bpt>MainPage<ept id="58e5f7c5-5e0b-4b27-9b70-c94c7a75f27f">&lt;/strong&gt;</ept> class, add the following data member:</source>
+          <target state="new">Inside the <bpt id="58e5f7c5-5e0b-4b27-9b70-c94c7a75f27f">&lt;strong&gt;</bpt>MainPage<ept id="58e5f7c5-5e0b-4b27-9b70-c94c7a75f27f">&lt;/strong&gt;</ept> class, add the following data member:</target>
+        </trans-unit>
+        <trans-unit id="3781537d-e8cc-46d3-b259-e41d124f2cc2" xml:space="preserve">
+          <source>At the end of the <bpt id="78468575-1ce7-42e0-a0c3-48ec39361db6">&lt;strong&gt;</bpt>MainPage<ept id="78468575-1ce7-42e0-a0c3-48ec39361db6">&lt;/strong&gt;</ept> class, add the following event handlers:</source>
+          <target state="new">At the end of the <bpt id="78468575-1ce7-42e0-a0c3-48ec39361db6">&lt;strong&gt;</bpt>MainPage<ept id="78468575-1ce7-42e0-a0c3-48ec39361db6">&lt;/strong&gt;</ept> class, add the following event handlers:</target>
+        </trans-unit>
+        <trans-unit id="7d024ec8-09b4-4269-aa28-fb865936f548" xml:space="preserve">
+          <source>At the end of the <bpt id="a963e965-97a1-4248-b41b-47d755b80d13">&lt;strong&gt;</bpt>mediaElement AdaptiveSourceOpened<ept id="a963e965-97a1-4248-b41b-47d755b80d13">&lt;/strong&gt;</ept> method, add the following code to subscribe to the events:</source>
+          <target state="new">At the end of the <bpt id="a963e965-97a1-4248-b41b-47d755b80d13">&lt;strong&gt;</bpt>mediaElement AdaptiveSourceOpened<ept id="a963e965-97a1-4248-b41b-47d755b80d13">&lt;/strong&gt;</ept> method, add the following code to subscribe to the events:</target>
+        </trans-unit>
+        <trans-unit id="79d8f0e2-be44-4206-8f67-f338129d3241" xml:space="preserve">
+          <source>Press <bpt id="81d3005e-cbab-4c45-a277-c46dc158de90">&lt;strong&gt;</bpt>CTRL+S<ept id="81d3005e-cbab-4c45-a277-c46dc158de90">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="81d3005e-cbab-4c45-a277-c46dc158de90">&lt;strong&gt;</bpt>CTRL+S<ept id="81d3005e-cbab-4c45-a277-c46dc158de90">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="63354119-312e-420d-8ab2-d9e511a6b62e" xml:space="preserve">
+          <source>The same events are available on Adaptive Source manger level as well, which can be used for handling functionality common to all media elements in the app.</source>
+          <target state="new">The same events are available on Adaptive Source manger level as well, which can be used for handling functionality common to all media elements in the app.</target>
+        </trans-unit>
+        <trans-unit id="a8762259-d1d4-47a2-81a5-62cab6d9f1a4" xml:space="preserve">
+          <source>Each AdaptiveSource includes its own events and all AdaptiveSource events will be cascaded under AdaptiveSourceManager.</source>
+          <target state="new">Each AdaptiveSource includes its own events and all AdaptiveSource events will be cascaded under AdaptiveSourceManager.</target>
+        </trans-unit>
+        <trans-unit id="f2255bb3-5326-479c-9ca8-de3b38e947fa" xml:space="preserve">
+          <source><bpt id="81b25451-2a07-4c71-ac4b-8730fd21852b">&lt;strong&gt;</bpt>To add Media Element event handlers<ept id="81b25451-2a07-4c71-ac4b-8730fd21852b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="81b25451-2a07-4c71-ac4b-8730fd21852b">&lt;strong&gt;</bpt>To add Media Element event handlers<ept id="81b25451-2a07-4c71-ac4b-8730fd21852b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a1353c8-ac0a-4e0a-bf74-f3137c9347f2" xml:space="preserve">
+          <source>From Solution Explorer, right click <bpt id="7f6da378-f64e-4636-b7b8-169c0470bf01">&lt;strong&gt;</bpt>MainPage.xaml<ept id="7f6da378-f64e-4636-b7b8-169c0470bf01">&lt;/strong&gt;</ept>, and then click <bpt id="06563a6e-d2de-4552-97ff-74bea123de9a">&lt;strong&gt;</bpt>View Code<ept id="06563a6e-d2de-4552-97ff-74bea123de9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right click <bpt id="7f6da378-f64e-4636-b7b8-169c0470bf01">&lt;strong&gt;</bpt>MainPage.xaml<ept id="7f6da378-f64e-4636-b7b8-169c0470bf01">&lt;/strong&gt;</ept>, and then click <bpt id="06563a6e-d2de-4552-97ff-74bea123de9a">&lt;strong&gt;</bpt>View Code<ept id="06563a6e-d2de-4552-97ff-74bea123de9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74f317e1-0ff6-42ac-bb45-d66c4f5f5f46" xml:space="preserve">
+          <source>At the end of the <bpt id="6739a782-f8b7-4ca6-b741-cfe8f0e16f9d">&lt;strong&gt;</bpt>MainPage<ept id="6739a782-f8b7-4ca6-b741-cfe8f0e16f9d">&lt;/strong&gt;</ept> class, add the following event handlers:</source>
+          <target state="new">At the end of the <bpt id="6739a782-f8b7-4ca6-b741-cfe8f0e16f9d">&lt;strong&gt;</bpt>MainPage<ept id="6739a782-f8b7-4ca6-b741-cfe8f0e16f9d">&lt;/strong&gt;</ept> class, add the following event handlers:</target>
+        </trans-unit>
+        <trans-unit id="10093eee-e6e0-4aa9-bf7a-09dedd46d3c4" xml:space="preserve">
+          <source>At the end of the <bpt id="76f7e684-bc1d-4dab-a6fd-1938713cd130">&lt;strong&gt;</bpt>MainPage<ept id="76f7e684-bc1d-4dab-a6fd-1938713cd130">&lt;/strong&gt;</ept> constructor, add the following code to subscript to the events:</source>
+          <target state="new">At the end of the <bpt id="76f7e684-bc1d-4dab-a6fd-1938713cd130">&lt;strong&gt;</bpt>MainPage<ept id="76f7e684-bc1d-4dab-a6fd-1938713cd130">&lt;/strong&gt;</ept> constructor, add the following code to subscript to the events:</target>
+        </trans-unit>
+        <trans-unit id="51090156-15a9-4ad4-b19f-a904902cc2c4" xml:space="preserve">
+          <source>Press <bpt id="6320ee70-78d7-4638-bf22-4da819ca70b8">&lt;strong&gt;</bpt>CTRL+S<ept id="6320ee70-78d7-4638-bf22-4da819ca70b8">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="6320ee70-78d7-4638-bf22-4da819ca70b8">&lt;strong&gt;</bpt>CTRL+S<ept id="6320ee70-78d7-4638-bf22-4da819ca70b8">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="c034f4db-97c6-4de9-a4cd-499e94e1d64b" xml:space="preserve">
+          <source><bpt id="93812279-b185-4a19-9183-5499b345206c">&lt;strong&gt;</bpt>To add slider bar related code<ept id="93812279-b185-4a19-9183-5499b345206c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="93812279-b185-4a19-9183-5499b345206c">&lt;strong&gt;</bpt>To add slider bar related code<ept id="93812279-b185-4a19-9183-5499b345206c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40187cc8-e0f5-4b4d-b32c-10b22a5a17b3" xml:space="preserve">
+          <source>From Solution Explorer, right click <bpt id="158f1b70-08f8-4ab6-a0ee-3f2f11e2cd42">&lt;strong&gt;</bpt>MainPage.xaml<ept id="158f1b70-08f8-4ab6-a0ee-3f2f11e2cd42">&lt;/strong&gt;</ept>, and then click <bpt id="5c64c847-c37c-4499-a513-d30f6c20b9b6">&lt;strong&gt;</bpt>View Code<ept id="5c64c847-c37c-4499-a513-d30f6c20b9b6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right click <bpt id="158f1b70-08f8-4ab6-a0ee-3f2f11e2cd42">&lt;strong&gt;</bpt>MainPage.xaml<ept id="158f1b70-08f8-4ab6-a0ee-3f2f11e2cd42">&lt;/strong&gt;</ept>, and then click <bpt id="5c64c847-c37c-4499-a513-d30f6c20b9b6">&lt;strong&gt;</bpt>View Code<ept id="5c64c847-c37c-4499-a513-d30f6c20b9b6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1017caa-a74b-4fa4-a57f-118cd3da59fe" xml:space="preserve">
+          <source>At the beginning of the file, add the following using statement:</source>
+          <target state="new">At the beginning of the file, add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="bc148db8-ee77-47a7-a89e-90ad301fe5c1" xml:space="preserve">
+          <source>Inside the <bpt id="11dc1c3b-4f3e-4b2f-b3b7-c5a5bb96e3b5">&lt;strong&gt;</bpt>MainPage<ept id="11dc1c3b-4f3e-4b2f-b3b7-c5a5bb96e3b5">&lt;/strong&gt;</ept> class, add the following data members:</source>
+          <target state="new">Inside the <bpt id="11dc1c3b-4f3e-4b2f-b3b7-c5a5bb96e3b5">&lt;strong&gt;</bpt>MainPage<ept id="11dc1c3b-4f3e-4b2f-b3b7-c5a5bb96e3b5">&lt;/strong&gt;</ept> class, add the following data members:</target>
+        </trans-unit>
+        <trans-unit id="87b1408d-f8df-4b3d-ba6f-b8bb5f361085" xml:space="preserve">
+          <source>At the end of the <bpt id="859e29f1-4cc5-4e65-80d7-d359cb437c78">&lt;strong&gt;</bpt>MainPage<ept id="859e29f1-4cc5-4e65-80d7-d359cb437c78">&lt;/strong&gt;</ept> constructor, add the following code:</source>
+          <target state="new">At the end of the <bpt id="859e29f1-4cc5-4e65-80d7-d359cb437c78">&lt;strong&gt;</bpt>MainPage<ept id="859e29f1-4cc5-4e65-80d7-d359cb437c78">&lt;/strong&gt;</ept> constructor, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="853efa32-a65e-4837-a48b-049cf729b201" xml:space="preserve">
+          <source>At the end of the <bpt id="ae0380e8-e23a-44af-88e7-8333f3b7f25a">&lt;strong&gt;</bpt>MainPage<ept id="ae0380e8-e23a-44af-88e7-8333f3b7f25a">&lt;/strong&gt;</ept> class, add the following code:</source>
+          <target state="new">At the end of the <bpt id="ae0380e8-e23a-44af-88e7-8333f3b7f25a">&lt;strong&gt;</bpt>MainPage<ept id="ae0380e8-e23a-44af-88e7-8333f3b7f25a">&lt;/strong&gt;</ept> class, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="1787bad0-af5e-4c8b-99d3-48f2cdff43b7" xml:space="preserve">
+          <source><bpt id="844bd833-71c7-4c5d-b7d0-a9ee3abeb991">&lt;strong&gt;</bpt>Note:<ept id="844bd833-71c7-4c5d-b7d0-a9ee3abeb991">&lt;/strong&gt;</ept> CoreDispatcher is used to make changes to the UI thread from non UI Thread.</source>
+          <target state="new"><bpt id="844bd833-71c7-4c5d-b7d0-a9ee3abeb991">&lt;strong&gt;</bpt>Note:<ept id="844bd833-71c7-4c5d-b7d0-a9ee3abeb991">&lt;/strong&gt;</ept> CoreDispatcher is used to make changes to the UI thread from non UI Thread.</target>
+        </trans-unit>
+        <trans-unit id="0e0d6209-0557-4fe9-a7da-087c5efa4ab6" xml:space="preserve">
+          <source>In case of bottleneck on dispatcher thread, developer can choose to use dispatcher provided by UI-element he/she intends to update.</source>
+          <target state="new">In case of bottleneck on dispatcher thread, developer can choose to use dispatcher provided by UI-element he/she intends to update.</target>
+        </trans-unit>
+        <trans-unit id="09a13637-e8d7-444e-aee9-873135f452ea" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="68552537-54bf-4f91-afac-eff02babca3f" xml:space="preserve">
+          <source>At the end of the <bpt id="5e0766f8-8320-49c1-a912-47e82c48e507">&lt;strong&gt;</bpt>mediaElement_AdaptiveSourceStatusUpdated<ept id="5e0766f8-8320-49c1-a912-47e82c48e507">&lt;/strong&gt;</ept> method, add the following code:</source>
+          <target state="new">At the end of the <bpt id="5e0766f8-8320-49c1-a912-47e82c48e507">&lt;strong&gt;</bpt>mediaElement_AdaptiveSourceStatusUpdated<ept id="5e0766f8-8320-49c1-a912-47e82c48e507">&lt;/strong&gt;</ept> method, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="afcf54a4-973c-4275-9166-5fb0dda4931b" xml:space="preserve">
+          <source>At the end of the <bpt id="78c23276-b9cd-4b8c-aba4-067c0764fedd">&lt;strong&gt;</bpt>MediaOpened<ept id="78c23276-b9cd-4b8c-aba4-067c0764fedd">&lt;/strong&gt;</ept> method, add the following code:</source>
+          <target state="new">At the end of the <bpt id="78c23276-b9cd-4b8c-aba4-067c0764fedd">&lt;strong&gt;</bpt>MediaOpened<ept id="78c23276-b9cd-4b8c-aba4-067c0764fedd">&lt;/strong&gt;</ept> method, add the following code:</target>
+        </trans-unit>
+        <trans-unit id="20737420-864b-4137-a4c1-d5c6813f30f8" xml:space="preserve">
+          <source>sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+sliderProgress.Width = mediaElement.Width;
+setupTimer();</source>
+          <target state="new">sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
+sliderProgress.Width = mediaElement.Width;
+setupTimer();</target>
+        </trans-unit>
+        <trans-unit id="973d9785-ac4b-493f-98a3-e0c4d6c9cfc8" xml:space="preserve">
+          <source>Press <bpt id="8227d0fa-1e40-49bd-bd59-339451790426">&lt;strong&gt;</bpt>CTRL+S<ept id="8227d0fa-1e40-49bd-bd59-339451790426">&lt;/strong&gt;</ept> to save the file.</source>
+          <target state="new">Press <bpt id="8227d0fa-1e40-49bd-bd59-339451790426">&lt;strong&gt;</bpt>CTRL+S<ept id="8227d0fa-1e40-49bd-bd59-339451790426">&lt;/strong&gt;</ept> to save the file.</target>
+        </trans-unit>
+        <trans-unit id="b24acd0c-915f-4b13-8d75-c89c854c1dd6" xml:space="preserve">
+          <source><bpt id="926ca25b-f6ce-4951-ac8b-dcab590aa432">&lt;strong&gt;</bpt>To compile and test the application<ept id="926ca25b-f6ce-4951-ac8b-dcab590aa432">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="926ca25b-f6ce-4951-ac8b-dcab590aa432">&lt;strong&gt;</bpt>To compile and test the application<ept id="926ca25b-f6ce-4951-ac8b-dcab590aa432">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e0b071f-9988-45e9-9c10-700845b62087" xml:space="preserve">
+          <source>Press <bpt id="eda6928a-f279-4977-be4e-e73d310e8150">&lt;strong&gt;</bpt>F6<ept id="eda6928a-f279-4977-be4e-e73d310e8150">&lt;/strong&gt;</ept> to compile the project.</source>
+          <target state="new">Press <bpt id="eda6928a-f279-4977-be4e-e73d310e8150">&lt;strong&gt;</bpt>F6<ept id="eda6928a-f279-4977-be4e-e73d310e8150">&lt;/strong&gt;</ept> to compile the project.</target>
+        </trans-unit>
+        <trans-unit id="babf0329-8bde-47f2-a569-2363c5d2d828" xml:space="preserve">
+          <source>Press <bpt id="56b73b17-98c0-4f4d-9562-2c0c2e1d8194">&lt;strong&gt;</bpt>F5<ept id="56b73b17-98c0-4f4d-9562-2c0c2e1d8194">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Press <bpt id="56b73b17-98c0-4f4d-9562-2c0c2e1d8194">&lt;strong&gt;</bpt>F5<ept id="56b73b17-98c0-4f4d-9562-2c0c2e1d8194">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="9fa7b059-b9f2-4451-8f34-38b02019bba2" xml:space="preserve">
+          <source>At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</source>
+          <target state="new">At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</target>
+        </trans-unit>
+        <trans-unit id="439b944a-bf87-4344-a6be-36f9acee8b13" xml:space="preserve">
+          <source>Click <bpt id="6be092b1-1f04-431c-8f74-36a4721c0913">&lt;strong&gt;</bpt>Set Source<ept id="6be092b1-1f04-431c-8f74-36a4721c0913">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6be092b1-1f04-431c-8f74-36a4721c0913">&lt;strong&gt;</bpt>Set Source<ept id="6be092b1-1f04-431c-8f74-36a4721c0913">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b1e2bb6-e364-4dda-a9e4-e60cb7764a1a" xml:space="preserve">
+          <source>Test the slider bar.</source>
+          <target state="new">Test the slider bar.</target>
+        </trans-unit>
+        <trans-unit id="815ea8bf-46d6-42ac-a76a-a318ad044377" xml:space="preserve">
+          <source>You have completed lesson 2.</source>
+          <target state="new">You have completed lesson 2.</target>
+        </trans-unit>
+        <trans-unit id="86d87266-a710-46cb-a278-137e524b7c1c" xml:space="preserve">
+          <source>In this lesson you added a slider to application.</source>
+          <target state="new">In this lesson you added a slider to application.</target>
+        </trans-unit>
+        <trans-unit id="d555a797-5c9f-4374-9948-f742dd65d109" xml:space="preserve">
+          <source>Smooth Streaming is capable to stream content with multiple language audio tracks that are selectable by the viewers.</source>
+          <target state="new">Smooth Streaming is capable to stream content with multiple language audio tracks that are selectable by the viewers.</target>
+        </trans-unit>
+        <trans-unit id="3eaaad11-41e2-428e-81d0-56c5dd70c24a" xml:space="preserve">
+          <source>In this lesson, you will enable viewers to select streams.</source>
+          <target state="new">In this lesson, you will enable viewers to select streams.</target>
+        </trans-unit>
+        <trans-unit id="cc4ce9aa-f688-4829-be2c-9a724032be44" xml:space="preserve">
+          <source>This lesson contains the following procedures:</source>
+          <target state="new">This lesson contains the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="5adeb751-bab5-453a-91fd-5d2c862571ff" xml:space="preserve">
+          <source>Modify the XAML file</source>
+          <target state="new">Modify the XAML file</target>
+        </trans-unit>
+        <trans-unit id="182f0fc2-e409-487d-b1f3-80d325d1d12f" xml:space="preserve">
+          <source>Modify the code behand file</source>
+          <target state="new">Modify the code behand file</target>
+        </trans-unit>
+        <trans-unit id="ac777e46-ef41-4cea-94fe-6ce89ee965e2" xml:space="preserve">
+          <source>Compile and test the application</source>
+          <target state="new">Compile and test the application</target>
+        </trans-unit>
+        <trans-unit id="c2eb33d1-c2db-4000-8510-12f4007e73a0" xml:space="preserve">
+          <source><bpt id="9243fd4b-6d1f-4e85-a00b-d917dbec1cde">&lt;strong&gt;</bpt>To modify the XAML file<ept id="9243fd4b-6d1f-4e85-a00b-d917dbec1cde">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9243fd4b-6d1f-4e85-a00b-d917dbec1cde">&lt;strong&gt;</bpt>To modify the XAML file<ept id="9243fd4b-6d1f-4e85-a00b-d917dbec1cde">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92088d1d-ed9e-46e1-a434-706a46be2b64" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="c786c643-b1bf-41c0-8a47-06071856e218">&lt;strong&gt;</bpt>MainPage.xaml<ept id="c786c643-b1bf-41c0-8a47-06071856e218">&lt;/strong&gt;</ept>, and then click <bpt id="73acfa3e-baed-4e08-8dd8-9a1eef89cee1">&lt;strong&gt;</bpt>View Designer<ept id="73acfa3e-baed-4e08-8dd8-9a1eef89cee1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="c786c643-b1bf-41c0-8a47-06071856e218">&lt;strong&gt;</bpt>MainPage.xaml<ept id="c786c643-b1bf-41c0-8a47-06071856e218">&lt;/strong&gt;</ept>, and then click <bpt id="73acfa3e-baed-4e08-8dd8-9a1eef89cee1">&lt;strong&gt;</bpt>View Designer<ept id="73acfa3e-baed-4e08-8dd8-9a1eef89cee1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="172d23d5-d19f-4b65-98fe-1583653ef6db" xml:space="preserve">
+          <source>Locate &amp;lt;Grid.RowDefinitions&amp;gt;, and modify the RowDefinitions so they looks like:</source>
+          <target state="new">Locate &amp;lt;Grid.RowDefinitions&amp;gt;, and modify the RowDefinitions so they looks like:</target>
+        </trans-unit>
+        <trans-unit id="81ed07b3-2e8a-4029-a8f5-edbe72f0f2b0" xml:space="preserve">
+          <source>Inside the &amp;lt;Grid&amp;gt;&amp;lt;/Grid&amp;gt; tags, add the following code to define a listbox control, so users can see the list of available streams, and select streams:</source>
+          <target state="new">Inside the &amp;lt;Grid&amp;gt;&amp;lt;/Grid&amp;gt; tags, add the following code to define a listbox control, so users can see the list of available streams, and select streams:</target>
+        </trans-unit>
+        <trans-unit id="e3feb27e-84b3-4967-9567-9e08676ab9bc" xml:space="preserve">
+          <source>Press <bpt id="d2598472-cfe5-41e8-ab0e-a3e862fa81be">&lt;strong&gt;</bpt>CTRL+S<ept id="d2598472-cfe5-41e8-ab0e-a3e862fa81be">&lt;/strong&gt;</ept> to save the changes.</source>
+          <target state="new">Press <bpt id="d2598472-cfe5-41e8-ab0e-a3e862fa81be">&lt;strong&gt;</bpt>CTRL+S<ept id="d2598472-cfe5-41e8-ab0e-a3e862fa81be">&lt;/strong&gt;</ept> to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="4bed30f7-780c-4a9d-bdeb-49a54e4d2c24" xml:space="preserve">
+          <source><bpt id="5147d4c2-36c2-4503-a4f2-7766c388af19">&lt;strong&gt;</bpt>To modify the code behind file<ept id="5147d4c2-36c2-4503-a4f2-7766c388af19">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5147d4c2-36c2-4503-a4f2-7766c388af19">&lt;strong&gt;</bpt>To modify the code behind file<ept id="5147d4c2-36c2-4503-a4f2-7766c388af19">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c7ee140-7732-4ff1-af30-6b75d1d01588" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="655bc41c-e031-4545-a9e3-3f2b640c8004">&lt;strong&gt;</bpt>MainPage.xaml<ept id="655bc41c-e031-4545-a9e3-3f2b640c8004">&lt;/strong&gt;</ept>, and then click <bpt id="a70ec462-bff5-4b97-baf3-7c73d38ec97b">&lt;strong&gt;</bpt>View Code<ept id="a70ec462-bff5-4b97-baf3-7c73d38ec97b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="655bc41c-e031-4545-a9e3-3f2b640c8004">&lt;strong&gt;</bpt>MainPage.xaml<ept id="655bc41c-e031-4545-a9e3-3f2b640c8004">&lt;/strong&gt;</ept>, and then click <bpt id="a70ec462-bff5-4b97-baf3-7c73d38ec97b">&lt;strong&gt;</bpt>View Code<ept id="a70ec462-bff5-4b97-baf3-7c73d38ec97b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85b4ea2f-34ac-4ba2-bf66-5e5030d95b89" xml:space="preserve">
+          <source>Inside the SSPlayer namespace, add a new class:
+    #region class Stream</source>
+          <target state="new">Inside the SSPlayer namespace, add a new class:
+    #region class Stream</target>
+        </trans-unit>
+        <trans-unit id="ff79c1e3-8efb-4e3d-8cdf-9ee2ef87f665" xml:space="preserve">
+          <source>At the beginning of the MainPage class, add the following variable definitions:</source>
+          <target state="new">At the beginning of the MainPage class, add the following variable definitions:</target>
+        </trans-unit>
+        <trans-unit id="387c2ca2-b350-4546-89a9-6a14f6e04223" xml:space="preserve">
+          <source>Inside the MainPage class, add the following region:</source>
+          <target state="new">Inside the MainPage class, add the following region:</target>
+        </trans-unit>
+        <trans-unit id="b91919b3-0923-4e43-8d54-8bf89aa4dd6c" xml:space="preserve">
+          <source>Locate the mediaElement_ManifestReady method, append the following code at the end of the function:</source>
+          <target state="new">Locate the mediaElement_ManifestReady method, append the following code at the end of the function:</target>
+        </trans-unit>
+        <trans-unit id="fc1e3bac-fe6e-41ab-aa8a-cca048ab13c9" xml:space="preserve">
+          <source>So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.</source>
+          <target state="new">So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.</target>
+        </trans-unit>
+        <trans-unit id="e552ccc0-047e-4114-9b88-32f7c7393c88" xml:space="preserve">
+          <source>Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:</source>
+          <target state="new">Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:</target>
+        </trans-unit>
+        <trans-unit id="863c0a86-852b-4ac1-8f1c-69898948ad97" xml:space="preserve">
+          <source><bpt id="f0927d32-e408-44fa-be8a-91068ead2e9c">&lt;strong&gt;</bpt>To compile and test the application<ept id="f0927d32-e408-44fa-be8a-91068ead2e9c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f0927d32-e408-44fa-be8a-91068ead2e9c">&lt;strong&gt;</bpt>To compile and test the application<ept id="f0927d32-e408-44fa-be8a-91068ead2e9c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fd7fcb5-42ee-4a04-92ea-52a498200466" xml:space="preserve">
+          <source>Press <bpt id="ed37ec24-f390-40cf-bd5f-53058bff380c">&lt;strong&gt;</bpt>F6<ept id="ed37ec24-f390-40cf-bd5f-53058bff380c">&lt;/strong&gt;</ept> to compile the project.</source>
+          <target state="new">Press <bpt id="ed37ec24-f390-40cf-bd5f-53058bff380c">&lt;strong&gt;</bpt>F6<ept id="ed37ec24-f390-40cf-bd5f-53058bff380c">&lt;/strong&gt;</ept> to compile the project.</target>
+        </trans-unit>
+        <trans-unit id="8c6b1d08-f811-48b3-891c-55990f9b6973" xml:space="preserve">
+          <source>Press <bpt id="3c0d8f05-aef8-4bbb-9e91-b5f0dd696aa4">&lt;strong&gt;</bpt>F5<ept id="3c0d8f05-aef8-4bbb-9e91-b5f0dd696aa4">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Press <bpt id="3c0d8f05-aef8-4bbb-9e91-b5f0dd696aa4">&lt;strong&gt;</bpt>F5<ept id="3c0d8f05-aef8-4bbb-9e91-b5f0dd696aa4">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="8a1b6606-d11d-4ce2-afae-50f371b82dd0" xml:space="preserve">
+          <source>At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</source>
+          <target state="new">At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</target>
+        </trans-unit>
+        <trans-unit id="162478de-11bd-45ab-a473-76e4e15cbd64" xml:space="preserve">
+          <source>Click <bpt id="62e132a4-0c9c-4a7e-9f7d-fbc0781eeba0">&lt;strong&gt;</bpt>Set Source<ept id="62e132a4-0c9c-4a7e-9f7d-fbc0781eeba0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="62e132a4-0c9c-4a7e-9f7d-fbc0781eeba0">&lt;strong&gt;</bpt>Set Source<ept id="62e132a4-0c9c-4a7e-9f7d-fbc0781eeba0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8b33fe2-5ba4-44ff-b152-dc29171c5b32" xml:space="preserve">
+          <source>The default language is audio_eng.</source>
+          <target state="new">The default language is audio_eng.</target>
+        </trans-unit>
+        <trans-unit id="9f4eb309-9e58-4d45-97df-7482aef677fd" xml:space="preserve">
+          <source>Try to switch between audio<bpt id="1b084fdf-e98e-48a2-a048-94c7858bfe12">&lt;em&gt;</bpt>eng and audio<ept id="1b084fdf-e98e-48a2-a048-94c7858bfe12">&lt;/em&gt;</ept>es.</source>
+          <target state="new">Try to switch between audio<bpt id="1b084fdf-e98e-48a2-a048-94c7858bfe12">&lt;em&gt;</bpt>eng and audio<ept id="1b084fdf-e98e-48a2-a048-94c7858bfe12">&lt;/em&gt;</ept>es.</target>
+        </trans-unit>
+        <trans-unit id="f032be9f-249c-45e5-a0cc-18c254c9db24" xml:space="preserve">
+          <source>Everytime, you select a new stream, you must click the Submit button.</source>
+          <target state="new">Everytime, you select a new stream, you must click the Submit button.</target>
+        </trans-unit>
+        <trans-unit id="cb9f1804-c6dd-4d3c-8ea3-7cfd84bc1242" xml:space="preserve">
+          <source>You have completed lesson 3.</source>
+          <target state="new">You have completed lesson 3.</target>
+        </trans-unit>
+        <trans-unit id="3b383503-999a-4a38-aa57-b73afb1fc6b1" xml:space="preserve">
+          <source>In this lesson, you add the functionality to choose streams.</source>
+          <target state="new">In this lesson, you add the functionality to choose streams.</target>
+        </trans-unit>
+        <trans-unit id="7b1cf2c4-d395-4ab9-94e2-7777361dbdc5" xml:space="preserve">
+          <source>A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions.</source>
+          <target state="new">A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions.</target>
+        </trans-unit>
+        <trans-unit id="914cf35d-0c79-4fba-bead-f604509c235a" xml:space="preserve">
+          <source>In this lesson, you will enable users to select tracks.</source>
+          <target state="new">In this lesson, you will enable users to select tracks.</target>
+        </trans-unit>
+        <trans-unit id="2614a6ec-3829-4ddc-b68c-0dbdca4991f1" xml:space="preserve">
+          <source>This lesson contains the following procedures:</source>
+          <target state="new">This lesson contains the following procedures:</target>
+        </trans-unit>
+        <trans-unit id="924b5c49-a894-479e-90e9-965c49d1346f" xml:space="preserve">
+          <source>Modify the XAML file</source>
+          <target state="new">Modify the XAML file</target>
+        </trans-unit>
+        <trans-unit id="b80c9461-ece7-46af-b907-ca8a19b4c505" xml:space="preserve">
+          <source>Modify the code behand file</source>
+          <target state="new">Modify the code behand file</target>
+        </trans-unit>
+        <trans-unit id="52a3ef1e-5baa-44b3-8708-17b15dc84a60" xml:space="preserve">
+          <source>Compile and test the application</source>
+          <target state="new">Compile and test the application</target>
+        </trans-unit>
+        <trans-unit id="24ea2614-1e8b-44dc-b370-d00677096883" xml:space="preserve">
+          <source><bpt id="bdd6ad28-bdaa-481d-a4e1-827518ed48ed">&lt;strong&gt;</bpt>To modify the XAML file<ept id="bdd6ad28-bdaa-481d-a4e1-827518ed48ed">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bdd6ad28-bdaa-481d-a4e1-827518ed48ed">&lt;strong&gt;</bpt>To modify the XAML file<ept id="bdd6ad28-bdaa-481d-a4e1-827518ed48ed">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1453f056-416e-437c-88da-b1e735c7eb7a" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="a270c76b-7fbf-475a-8b6c-f2dbcdd6549a">&lt;strong&gt;</bpt>MainPage.xaml<ept id="a270c76b-7fbf-475a-8b6c-f2dbcdd6549a">&lt;/strong&gt;</ept>, and then click <bpt id="699bffa6-e191-413f-890f-c810d11855f2">&lt;strong&gt;</bpt>View Designer<ept id="699bffa6-e191-413f-890f-c810d11855f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="a270c76b-7fbf-475a-8b6c-f2dbcdd6549a">&lt;strong&gt;</bpt>MainPage.xaml<ept id="a270c76b-7fbf-475a-8b6c-f2dbcdd6549a">&lt;/strong&gt;</ept>, and then click <bpt id="699bffa6-e191-413f-890f-c810d11855f2">&lt;strong&gt;</bpt>View Designer<ept id="699bffa6-e191-413f-890f-c810d11855f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="743daefe-1af2-427a-a0e1-0efc2eabad52" xml:space="preserve">
+          <source>Locate the &amp;lt;Grid&amp;gt; tag with the name <bpt id="d895d33c-a0bd-46b3-b3d4-4144632fbebb">&lt;strong&gt;</bpt>gridStreamAndBitrateSelection<ept id="d895d33c-a0bd-46b3-b3d4-4144632fbebb">&lt;/strong&gt;</ept>, append the following code at the end of the tag:</source>
+          <target state="new">Locate the &amp;lt;Grid&amp;gt; tag with the name <bpt id="d895d33c-a0bd-46b3-b3d4-4144632fbebb">&lt;strong&gt;</bpt>gridStreamAndBitrateSelection<ept id="d895d33c-a0bd-46b3-b3d4-4144632fbebb">&lt;/strong&gt;</ept>, append the following code at the end of the tag:</target>
+        </trans-unit>
+        <trans-unit id="85111ac0-e468-40ee-89e6-07388ee69247" xml:space="preserve">
+          <source>Press <bpt id="08b720cb-492d-4f50-b532-ec8b5db8ff12">&lt;strong&gt;</bpt>CTRL+S<ept id="08b720cb-492d-4f50-b532-ec8b5db8ff12">&lt;/strong&gt;</ept> to save he changes</source>
+          <target state="new">Press <bpt id="08b720cb-492d-4f50-b532-ec8b5db8ff12">&lt;strong&gt;</bpt>CTRL+S<ept id="08b720cb-492d-4f50-b532-ec8b5db8ff12">&lt;/strong&gt;</ept> to save he changes</target>
+        </trans-unit>
+        <trans-unit id="83eb6351-0c7e-427b-9182-43e68cd5a89d" xml:space="preserve">
+          <source><bpt id="c1e9b206-9a0a-4a19-b33e-5484f7164caa">&lt;strong&gt;</bpt>To modify the code behind file<ept id="c1e9b206-9a0a-4a19-b33e-5484f7164caa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c1e9b206-9a0a-4a19-b33e-5484f7164caa">&lt;strong&gt;</bpt>To modify the code behind file<ept id="c1e9b206-9a0a-4a19-b33e-5484f7164caa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e09df5a4-4a47-4809-b38f-8f8a9aea3774" xml:space="preserve">
+          <source>From Solution Explorer, right-click <bpt id="54655a72-9b8f-4d4e-a7ed-f0e74773963f">&lt;strong&gt;</bpt>MainPage.xaml<ept id="54655a72-9b8f-4d4e-a7ed-f0e74773963f">&lt;/strong&gt;</ept>, and then click <bpt id="55296523-11da-4039-b796-26840995a01b">&lt;strong&gt;</bpt>View Code<ept id="55296523-11da-4039-b796-26840995a01b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Solution Explorer, right-click <bpt id="54655a72-9b8f-4d4e-a7ed-f0e74773963f">&lt;strong&gt;</bpt>MainPage.xaml<ept id="54655a72-9b8f-4d4e-a7ed-f0e74773963f">&lt;/strong&gt;</ept>, and then click <bpt id="55296523-11da-4039-b796-26840995a01b">&lt;strong&gt;</bpt>View Code<ept id="55296523-11da-4039-b796-26840995a01b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4700bb1-d3b2-4b7f-a93a-c2e73e2b2821" xml:space="preserve">
+          <source>Inside the SSPlayer namespace, add a new class:</source>
+          <target state="new">Inside the SSPlayer namespace, add a new class:</target>
+        </trans-unit>
+        <trans-unit id="cdfd0c1b-35de-4201-8aaf-a5a49fbe866f" xml:space="preserve">
+          <source>At the beginning of the MainPage class, add the following variable definitions:</source>
+          <target state="new">At the beginning of the MainPage class, add the following variable definitions:</target>
+        </trans-unit>
+        <trans-unit id="79748979-76a6-49b3-9c4f-9c4252c04224" xml:space="preserve">
+          <source>Inside the MainPage class, add the following region:</source>
+          <target state="new">Inside the MainPage class, add the following region:</target>
+        </trans-unit>
+        <trans-unit id="9a48fce2-5319-4a60-a02f-13559b919581" xml:space="preserve">
+          <source>Locate the mediaElement_ManifestReady method, append the following code at the end of the function:</source>
+          <target state="new">Locate the mediaElement_ManifestReady method, append the following code at the end of the function:</target>
+        </trans-unit>
+        <trans-unit id="9234466e-c184-4f28-97a8-dca7e83e0f11" xml:space="preserve">
+          <source>Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:</source>
+          <target state="new">Inside the MainPage class, locate the UI buttons click events region, and then add the following function definition:</target>
+        </trans-unit>
+        <trans-unit id="2e66b99b-3bda-4d43-94f1-92d9a8182cdd" xml:space="preserve">
+          <source><bpt id="72fd4449-b22e-48fb-9e2d-41f8ef30f58d">&lt;strong&gt;</bpt>To compile and test the application<ept id="72fd4449-b22e-48fb-9e2d-41f8ef30f58d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="72fd4449-b22e-48fb-9e2d-41f8ef30f58d">&lt;strong&gt;</bpt>To compile and test the application<ept id="72fd4449-b22e-48fb-9e2d-41f8ef30f58d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e813cfb-bc8b-4488-9a9e-4735d858a3af" xml:space="preserve">
+          <source>Press <bpt id="8ff318a1-75be-40a5-a237-2948182eb891">&lt;strong&gt;</bpt>F6<ept id="8ff318a1-75be-40a5-a237-2948182eb891">&lt;/strong&gt;</ept> to compile the project.</source>
+          <target state="new">Press <bpt id="8ff318a1-75be-40a5-a237-2948182eb891">&lt;strong&gt;</bpt>F6<ept id="8ff318a1-75be-40a5-a237-2948182eb891">&lt;/strong&gt;</ept> to compile the project.</target>
+        </trans-unit>
+        <trans-unit id="ccebfec7-183c-400a-8301-205441aca33c" xml:space="preserve">
+          <source>Press <bpt id="99b343aa-87c5-442e-95a6-4cde31fa00d4">&lt;strong&gt;</bpt>F5<ept id="99b343aa-87c5-442e-95a6-4cde31fa00d4">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Press <bpt id="99b343aa-87c5-442e-95a6-4cde31fa00d4">&lt;strong&gt;</bpt>F5<ept id="99b343aa-87c5-442e-95a6-4cde31fa00d4">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="f9ec42d6-896b-49d0-a3aa-198dbc3e4abd" xml:space="preserve">
+          <source>At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</source>
+          <target state="new">At the top of the application, you can either use the default Smooth Streaming URL or enter a different one.</target>
+        </trans-unit>
+        <trans-unit id="ba5c4e9a-bcb2-4df4-9c2e-082959ced769" xml:space="preserve">
+          <source>Click <bpt id="79ff399c-f5a5-4669-97cc-3058631b6736">&lt;strong&gt;</bpt>Set Source<ept id="79ff399c-f5a5-4669-97cc-3058631b6736">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="79ff399c-f5a5-4669-97cc-3058631b6736">&lt;strong&gt;</bpt>Set Source<ept id="79ff399c-f5a5-4669-97cc-3058631b6736">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95751a14-9195-49f7-9a32-b7c926568985" xml:space="preserve">
+          <source>By default, all of the tracks of the video stream are selected.</source>
+          <target state="new">By default, all of the tracks of the video stream are selected.</target>
+        </trans-unit>
+        <trans-unit id="5e2ddf37-e912-4138-a561-dc767912cac8" xml:space="preserve">
+          <source>To experiment the bit rate changes, you can select the lowest bit rate available, and then select the highest bit rate available.</source>
+          <target state="new">To experiment the bit rate changes, you can select the lowest bit rate available, and then select the highest bit rate available.</target>
+        </trans-unit>
+        <trans-unit id="38b6f02d-20dd-42ac-8b67-75eb24eb282e" xml:space="preserve">
+          <source>You must click Submit after each change.</source>
+          <target state="new">You must click Submit after each change.</target>
+        </trans-unit>
+        <trans-unit id="fb63aa6e-1765-476c-8887-8f5e3382f891" xml:space="preserve">
+          <source>You can see the video quality changes.</source>
+          <target state="new">You can see the video quality changes.</target>
+        </trans-unit>
+        <trans-unit id="9c10d441-da4a-4d3d-ab9a-5f54aa21088c" xml:space="preserve">
+          <source>You have completed lesson 4.</source>
+          <target state="new">You have completed lesson 4.</target>
+        </trans-unit>
+        <trans-unit id="7730d884-83fd-490b-acfd-2f3314685fc2" xml:space="preserve">
+          <source>In this lesson, you add the functionality to choose tracks.</source>
+          <target state="new">In this lesson, you add the functionality to choose tracks.</target>
+        </trans-unit>
+        <trans-unit id="accd5dbb-f531-40fd-b4e8-200973571d55" xml:space="preserve">
+          <source><bpt id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;linkText&gt;</bpt>How to build a Smooth Streaming Windows 8 JavaScript application with advanced features<ept id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;/linkText&gt;</ept><bpt id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;title&gt;</bpt><ept id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;linkText&gt;</bpt>How to build a Smooth Streaming Windows 8 JavaScript application with advanced features<ept id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;/linkText&gt;</ept><bpt id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;title&gt;</bpt><ept id="5d90cd9c-e9aa-40cc-b518-9e339bc499cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3fae92b-8103-4a8a-bebb-0622eccb2127" xml:space="preserve">
+          <source><bpt id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;linkText&gt;</bpt>Smooth Streaming Technical Overview<ept id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;/linkText&gt;</ept><bpt id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;title&gt;</bpt><ept id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;linkText&gt;</bpt>Smooth Streaming Technical Overview<ept id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;/linkText&gt;</ept><bpt id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;title&gt;</bpt><ept id="e7cc70b4-70e5-41e8-9d19-b0ca0a45fa30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b82d29d-6dca-4d9f-9ea7-b5bed0aca62e" xml:space="preserve">
+          <source>./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png</source>
+          <target state="new">./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png</target>
+        </trans-unit>
+        <trans-unit id="2b0f66e8-2261-4231-b684-00ed6269c045" xml:space="preserve">
+          <source>./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png</source>
+          <target state="new">./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png</target>
+        </trans-unit>
+      </group>
+      <group id="310301c2-293e-4c4e-afa3-1fc9c4dde4d2" />
+    </body>
+  </file>
+</xliff>

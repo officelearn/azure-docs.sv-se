@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="005a13bb-dff0-415a-bdb2-12498b81517d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="005a13bb-dff0-415a-bdb2-12498b81517d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cdc2bb4e-1538-4581-88f4-1caefeaac634">
+        <trans-unit id="36b1ced9-e5cf-44d3-9d0f-d3ff3d8bfd20" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Bonus.ly | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Bonus.ly | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1c2b8e32-d6ea-415d-bb70-8c61f523e8c6" xml:space="preserve">
+          <source>Learn how to use Bonus.ly with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Bonus.ly with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="0708bfa6-341c-4151-8e79-cb756be150c3" xml:space="preserve">
+          <source>For feedback, click <bpt id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;linkText&gt;</bpt>here<ept id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;/linkText&gt;</ept><bpt id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;title&gt;</bpt><ept id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;linkText&gt;</bpt>here<ept id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;/linkText&gt;</ept><bpt id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;title&gt;</bpt><ept id="a83d8360-3d64-48cc-992d-0e9cf4b92be8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="007855b5-5609-41e4-a06d-037e868b7d86" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Bonus.ly.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Bonus.ly.</target>
+        </trans-unit>
+        <trans-unit id="947d1eb2-8ce3-4f22-ae5b-c1c0503bee84" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="37553c6b-e3fb-4615-9438-f84eab79313a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="81f0090c-a2f9-4fa2-b2b3-ba3cd96abd5e" xml:space="preserve">
+          <source>A test tenant in Bonus.ly</source>
+          <target state="new">A test tenant in Bonus.ly</target>
+        </trans-unit>
+        <trans-unit id="bc6055cd-85ab-45a1-a5d4-2e590118d689" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="aa946e71-247b-420a-891a-8a79c057a912" xml:space="preserve">
+          <source>Enabling the application integration for Bonus.ly</source>
+          <target state="new">Enabling the application integration for Bonus.ly</target>
+        </trans-unit>
+        <trans-unit id="d4abd537-5bd2-4d77-a6e4-43ed9fe63ceb" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="cc4306ce-5606-4c25-b197-0e2dace7fcf4" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="0a2a17cf-ad8a-43e1-8fd1-c6adf0d5bd9a" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="dde1026f-c774-4b1c-9351-041958abc4c3" xml:space="preserve">
+          <source><bpt id="286c98f8-646b-4fa0-9b01-11a9b20ba4a6">&lt;linkText&gt;</bpt>Scenario<ept id="286c98f8-646b-4fa0-9b01-11a9b20ba4a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="286c98f8-646b-4fa0-9b01-11a9b20ba4a6">&lt;linkText&gt;</bpt>Scenario<ept id="286c98f8-646b-4fa0-9b01-11a9b20ba4a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00298b41-2b25-4029-908e-44addcaaab95" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Bonus.ly.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Bonus.ly.</target>
+        </trans-unit>
+        <trans-unit id="22628a6f-6e04-4fd6-8af4-202d996cad53" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="57a9483c-b785-47b7-bca9-3d05b3c3db31">&lt;strong&gt;</bpt>Active Directory<ept id="57a9483c-b785-47b7-bca9-3d05b3c3db31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="57a9483c-b785-47b7-bca9-3d05b3c3db31">&lt;strong&gt;</bpt>Active Directory<ept id="57a9483c-b785-47b7-bca9-3d05b3c3db31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="179781ee-491a-4dc4-a774-ba2e173032ef" xml:space="preserve">
+          <source><bpt id="e0e31791-2508-49de-8ad1-05f8bc2972d0">&lt;linkText&gt;</bpt>Enable single sign-on<ept id="e0e31791-2508-49de-8ad1-05f8bc2972d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0e31791-2508-49de-8ad1-05f8bc2972d0">&lt;linkText&gt;</bpt>Enable single sign-on<ept id="e0e31791-2508-49de-8ad1-05f8bc2972d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c31945f3-cbe7-4af5-bf11-847462dc55b8" xml:space="preserve">
+          <source>From the <bpt id="887d01e8-ab63-4823-9cb5-2b8515658ab0">&lt;strong&gt;</bpt>Directory<ept id="887d01e8-ab63-4823-9cb5-2b8515658ab0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="887d01e8-ab63-4823-9cb5-2b8515658ab0">&lt;strong&gt;</bpt>Directory<ept id="887d01e8-ab63-4823-9cb5-2b8515658ab0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="1488084f-cdd9-47b4-8e71-dd7e5c96b575" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="50bcea1c-1ad9-446d-bb9b-becfb1d7665d">&lt;strong&gt;</bpt>Applications<ept id="50bcea1c-1ad9-446d-bb9b-becfb1d7665d">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="50bcea1c-1ad9-446d-bb9b-becfb1d7665d">&lt;strong&gt;</bpt>Applications<ept id="50bcea1c-1ad9-446d-bb9b-becfb1d7665d">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ca64aa8a-2f9b-4513-9d80-1e63aa804659" xml:space="preserve">
+          <source><bpt id="87c85549-2635-4e59-993b-5f22eb67c3ad">&lt;linkText&gt;</bpt>Applications<ept id="87c85549-2635-4e59-993b-5f22eb67c3ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87c85549-2635-4e59-993b-5f22eb67c3ad">&lt;linkText&gt;</bpt>Applications<ept id="87c85549-2635-4e59-993b-5f22eb67c3ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb09af26-f43e-4387-b7a1-ed63bd7f2e90" xml:space="preserve">
+          <source>Click <bpt id="c2e5dc34-f426-4cc8-9b0e-bba9997726db">&lt;strong&gt;</bpt>Add<ept id="c2e5dc34-f426-4cc8-9b0e-bba9997726db">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="c2e5dc34-f426-4cc8-9b0e-bba9997726db">&lt;strong&gt;</bpt>Add<ept id="c2e5dc34-f426-4cc8-9b0e-bba9997726db">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d5c0b5a3-91a0-4fac-b7d6-50fde92d6f3c" xml:space="preserve">
+          <source><bpt id="d240692a-eb6f-4018-a215-63e1380fc954">&lt;linkText&gt;</bpt>Add application<ept id="d240692a-eb6f-4018-a215-63e1380fc954">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d240692a-eb6f-4018-a215-63e1380fc954">&lt;linkText&gt;</bpt>Add application<ept id="d240692a-eb6f-4018-a215-63e1380fc954">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00d9fb83-7090-4e67-818b-cfd3b641289c" xml:space="preserve">
+          <source>On the <bpt id="6800b680-5091-4a3a-8346-d9f0cb0b3e80">&lt;strong&gt;</bpt>What do you want to do<ept id="6800b680-5091-4a3a-8346-d9f0cb0b3e80">&lt;/strong&gt;</ept> dialog, click <bpt id="54d17769-90e2-4e4f-989f-9ebc0e647fcf">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="54d17769-90e2-4e4f-989f-9ebc0e647fcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6800b680-5091-4a3a-8346-d9f0cb0b3e80">&lt;strong&gt;</bpt>What do you want to do<ept id="6800b680-5091-4a3a-8346-d9f0cb0b3e80">&lt;/strong&gt;</ept> dialog, click <bpt id="54d17769-90e2-4e4f-989f-9ebc0e647fcf">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="54d17769-90e2-4e4f-989f-9ebc0e647fcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="939819b1-1f6d-4828-af2c-2d7d5f52a2c3" xml:space="preserve">
+          <source><bpt id="0c13e88c-045f-44ca-8798-cce74377b0af">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="0c13e88c-045f-44ca-8798-cce74377b0af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c13e88c-045f-44ca-8798-cce74377b0af">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="0c13e88c-045f-44ca-8798-cce74377b0af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8927d726-6d79-42ab-8b2e-9a028cb082da" xml:space="preserve">
+          <source>In the <bpt id="acdfd80d-4ee1-45cf-a928-3b9d55730fff">&lt;strong&gt;</bpt>search box<ept id="acdfd80d-4ee1-45cf-a928-3b9d55730fff">&lt;/strong&gt;</ept>, type <bpt id="32972f09-9224-4a98-b20a-fbad58c57318">&lt;strong&gt;</bpt>Bonus.ly<ept id="32972f09-9224-4a98-b20a-fbad58c57318">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="acdfd80d-4ee1-45cf-a928-3b9d55730fff">&lt;strong&gt;</bpt>search box<ept id="acdfd80d-4ee1-45cf-a928-3b9d55730fff">&lt;/strong&gt;</ept>, type <bpt id="32972f09-9224-4a98-b20a-fbad58c57318">&lt;strong&gt;</bpt>Bonus.ly<ept id="32972f09-9224-4a98-b20a-fbad58c57318">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="568048ea-db53-4c58-9758-0f727523e39f" xml:space="preserve">
+          <source><bpt id="147e1b1c-9767-4fbf-af7b-04af206913c4">&lt;linkText&gt;</bpt>Application gallery<ept id="147e1b1c-9767-4fbf-af7b-04af206913c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="147e1b1c-9767-4fbf-af7b-04af206913c4">&lt;linkText&gt;</bpt>Application gallery<ept id="147e1b1c-9767-4fbf-af7b-04af206913c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e75ff31b-0e72-4881-83d4-02b80f1fe921" xml:space="preserve">
+          <source>In the results pane, select <bpt id="bef40a9f-cfa0-46a9-85ca-6ea62f14ff90">&lt;strong&gt;</bpt>Bonus.ly<ept id="bef40a9f-cfa0-46a9-85ca-6ea62f14ff90">&lt;/strong&gt;</ept>, and then click <bpt id="a1f29ab6-2963-4f59-a3ea-008528c4733b">&lt;strong&gt;</bpt>Complete<ept id="a1f29ab6-2963-4f59-a3ea-008528c4733b">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="bef40a9f-cfa0-46a9-85ca-6ea62f14ff90">&lt;strong&gt;</bpt>Bonus.ly<ept id="bef40a9f-cfa0-46a9-85ca-6ea62f14ff90">&lt;/strong&gt;</ept>, and then click <bpt id="a1f29ab6-2963-4f59-a3ea-008528c4733b">&lt;strong&gt;</bpt>Complete<ept id="a1f29ab6-2963-4f59-a3ea-008528c4733b">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="0cf1638c-156b-49bb-abe6-5a92bd2b1c6b" xml:space="preserve">
+          <source><bpt id="9a987875-3749-427a-a31f-7880fca5ffe8">&lt;linkText&gt;</bpt>Bonusly<ept id="9a987875-3749-427a-a31f-7880fca5ffe8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a987875-3749-427a-a31f-7880fca5ffe8">&lt;linkText&gt;</bpt>Bonusly<ept id="9a987875-3749-427a-a31f-7880fca5ffe8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63ef4bc3-6bce-4791-b9dc-f0af3713c1e7" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Bonus.ly with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Bonus.ly with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="f8430643-034f-4995-8f8a-dce042571a3f" xml:space="preserve">
+          <source>Configuring single sign-on for Bonus.ly requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for Bonus.ly requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="4b75000b-7dae-4df8-88c5-59038ac4a45f" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;/linkText&gt;</ept><bpt id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;title&gt;</bpt><ept id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;/linkText&gt;</ept><bpt id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;title&gt;</bpt><ept id="6812a5da-787c-4b18-b1cd-cfe010d38d65">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56144b6d-0fce-4e16-8ea9-9ffca8828a9a" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="f3d4e648-253e-4043-9dcf-243a7a3ce8b1">&lt;strong&gt;</bpt>Bonus.ly<ept id="f3d4e648-253e-4043-9dcf-243a7a3ce8b1">&lt;/strong&gt;</ept> application integration page, click <bpt id="eabe57f6-88c0-41d6-9277-5f7ae379d161">&lt;strong&gt;</bpt>Configure single sign-on<ept id="eabe57f6-88c0-41d6-9277-5f7ae379d161">&lt;/strong&gt;</ept> to open the <bpt id="8b3e5f80-6172-4720-b96a-83167f2a0326">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="8b3e5f80-6172-4720-b96a-83167f2a0326">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="f3d4e648-253e-4043-9dcf-243a7a3ce8b1">&lt;strong&gt;</bpt>Bonus.ly<ept id="f3d4e648-253e-4043-9dcf-243a7a3ce8b1">&lt;/strong&gt;</ept> application integration page, click <bpt id="eabe57f6-88c0-41d6-9277-5f7ae379d161">&lt;strong&gt;</bpt>Configure single sign-on<ept id="eabe57f6-88c0-41d6-9277-5f7ae379d161">&lt;/strong&gt;</ept> to open the <bpt id="8b3e5f80-6172-4720-b96a-83167f2a0326">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="8b3e5f80-6172-4720-b96a-83167f2a0326">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="24407bc6-ecae-4c91-a60d-8f48c80f6feb" xml:space="preserve">
+          <source><bpt id="f8be2832-680c-4725-bc90-8d6d07fa07b6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f8be2832-680c-4725-bc90-8d6d07fa07b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8be2832-680c-4725-bc90-8d6d07fa07b6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="f8be2832-680c-4725-bc90-8d6d07fa07b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a11ea60-4018-4532-bc0b-b3cd8d8f11f7" xml:space="preserve">
+          <source>On the <bpt id="cb8ab32c-0f06-41cf-a18c-e3b9056cbd3f">&lt;strong&gt;</bpt>How would you like users to sign on to Bonus.ly<ept id="cb8ab32c-0f06-41cf-a18c-e3b9056cbd3f">&lt;/strong&gt;</ept> page, select <bpt id="89a0152b-d6dd-4f1a-a8e6-2d4bd591cd53">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="89a0152b-d6dd-4f1a-a8e6-2d4bd591cd53">&lt;/strong&gt;</ept>, and then click <bpt id="2668ec78-7e6e-487f-8c7c-f9adf027e485">&lt;strong&gt;</bpt>Next<ept id="2668ec78-7e6e-487f-8c7c-f9adf027e485">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="cb8ab32c-0f06-41cf-a18c-e3b9056cbd3f">&lt;strong&gt;</bpt>How would you like users to sign on to Bonus.ly<ept id="cb8ab32c-0f06-41cf-a18c-e3b9056cbd3f">&lt;/strong&gt;</ept> page, select <bpt id="89a0152b-d6dd-4f1a-a8e6-2d4bd591cd53">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="89a0152b-d6dd-4f1a-a8e6-2d4bd591cd53">&lt;/strong&gt;</ept>, and then click <bpt id="2668ec78-7e6e-487f-8c7c-f9adf027e485">&lt;strong&gt;</bpt>Next<ept id="2668ec78-7e6e-487f-8c7c-f9adf027e485">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6161c13-e603-4530-bfee-7081399c64ab" xml:space="preserve">
+          <source><bpt id="cfca9684-6f00-4218-bdf7-2b2be250dff4">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cfca9684-6f00-4218-bdf7-2b2be250dff4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cfca9684-6f00-4218-bdf7-2b2be250dff4">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="cfca9684-6f00-4218-bdf7-2b2be250dff4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97f3d1eb-ed8f-4ebd-8f13-b564ba7c42cd" xml:space="preserve">
+          <source>On the <bpt id="11430bcc-42ef-41a8-91ee-08aabb91d977">&lt;strong&gt;</bpt>Configure App URL<ept id="11430bcc-42ef-41a8-91ee-08aabb91d977">&lt;/strong&gt;</ept> page, in the <bpt id="e9ab9e1b-9fb9-4c0a-9ccb-69e56f29e65d">&lt;strong&gt;</bpt>Bonus.ly Tenant URL<ept id="e9ab9e1b-9fb9-4c0a-9ccb-69e56f29e65d">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="f80bfde7-7873-41f6-8a9f-89d99af2f96a">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Bonus.ly<ept id="f80bfde7-7873-41f6-8a9f-89d99af2f96a">&lt;/em&gt;</ept>", and then click <bpt id="a6c359a9-325b-478f-963e-fce328e2884b">&lt;strong&gt;</bpt>Next<ept id="a6c359a9-325b-478f-963e-fce328e2884b">&lt;/strong&gt;</ept>: </source>
+          <target state="new">On the <bpt id="11430bcc-42ef-41a8-91ee-08aabb91d977">&lt;strong&gt;</bpt>Configure App URL<ept id="11430bcc-42ef-41a8-91ee-08aabb91d977">&lt;/strong&gt;</ept> page, in the <bpt id="e9ab9e1b-9fb9-4c0a-9ccb-69e56f29e65d">&lt;strong&gt;</bpt>Bonus.ly Tenant URL<ept id="e9ab9e1b-9fb9-4c0a-9ccb-69e56f29e65d">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="f80bfde7-7873-41f6-8a9f-89d99af2f96a">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Bonus.ly<ept id="f80bfde7-7873-41f6-8a9f-89d99af2f96a">&lt;/em&gt;</ept>", and then click <bpt id="a6c359a9-325b-478f-963e-fce328e2884b">&lt;strong&gt;</bpt>Next<ept id="a6c359a9-325b-478f-963e-fce328e2884b">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="973f5991-e23e-4154-bf6f-2e8236b3c075" xml:space="preserve">
+          <source><bpt id="ebaff750-9fab-4792-989e-a7706841990b">&lt;linkText&gt;</bpt>Configure app URL<ept id="ebaff750-9fab-4792-989e-a7706841990b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebaff750-9fab-4792-989e-a7706841990b">&lt;linkText&gt;</bpt>Configure app URL<ept id="ebaff750-9fab-4792-989e-a7706841990b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da71274b-cb3a-4bc5-8a90-b750ba6dfd5b" xml:space="preserve">
+          <source>On the <bpt id="bfce0f11-263a-4b09-8df1-9870042c5a6c">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="bfce0f11-263a-4b09-8df1-9870042c5a6c">&lt;/strong&gt;</ept> page, click <bpt id="5866ffe0-08b2-488c-ac11-4e2fa728251b">&lt;strong&gt;</bpt>download Certificate<ept id="5866ffe0-08b2-488c-ac11-4e2fa728251b">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="49e76615-f006-4144-8d81-49889fdae39d">&lt;strong&gt;</bpt>c:\\Bonusly.cer<ept id="49e76615-f006-4144-8d81-49889fdae39d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="bfce0f11-263a-4b09-8df1-9870042c5a6c">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="bfce0f11-263a-4b09-8df1-9870042c5a6c">&lt;/strong&gt;</ept> page, click <bpt id="5866ffe0-08b2-488c-ac11-4e2fa728251b">&lt;strong&gt;</bpt>download Certificate<ept id="5866ffe0-08b2-488c-ac11-4e2fa728251b">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="49e76615-f006-4144-8d81-49889fdae39d">&lt;strong&gt;</bpt>c:\\Bonusly.cer<ept id="49e76615-f006-4144-8d81-49889fdae39d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e70069a1-5c00-41d7-a3d6-81f65cb6c8a2" xml:space="preserve">
+          <source><bpt id="ae71b583-419a-498f-9ce5-920c1e5a0cf6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="ae71b583-419a-498f-9ce5-920c1e5a0cf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae71b583-419a-498f-9ce5-920c1e5a0cf6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="ae71b583-419a-498f-9ce5-920c1e5a0cf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9d97385-dc3b-4afb-8c13-8b7c0393c54b" xml:space="preserve">
+          <source>In a different browser window, log in to your <bpt id="c2777f3d-9eaa-4cb6-9185-653eba1349fe">&lt;strong&gt;</bpt>Bonus.ly<ept id="c2777f3d-9eaa-4cb6-9185-653eba1349fe">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">In a different browser window, log in to your <bpt id="c2777f3d-9eaa-4cb6-9185-653eba1349fe">&lt;strong&gt;</bpt>Bonus.ly<ept id="c2777f3d-9eaa-4cb6-9185-653eba1349fe">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="40c91f51-7883-47fa-a5f5-301163a0636c" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="ace2317e-6f25-4772-a528-ee0d4558877b">&lt;strong&gt;</bpt>Settings<ept id="ace2317e-6f25-4772-a528-ee0d4558877b">&lt;/strong&gt;</ept>, and then select <bpt id="edc2be36-f1a6-4299-856e-840efd8886fe">&lt;strong&gt;</bpt>Integrations and apps<ept id="edc2be36-f1a6-4299-856e-840efd8886fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="ace2317e-6f25-4772-a528-ee0d4558877b">&lt;strong&gt;</bpt>Settings<ept id="ace2317e-6f25-4772-a528-ee0d4558877b">&lt;/strong&gt;</ept>, and then select <bpt id="edc2be36-f1a6-4299-856e-840efd8886fe">&lt;strong&gt;</bpt>Integrations and apps<ept id="edc2be36-f1a6-4299-856e-840efd8886fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba286525-01ce-4fd8-854c-2b6321febd43" xml:space="preserve">
+          <source><bpt id="182e5c5b-61a7-43e6-80f2-9c257af7380d">&lt;linkText&gt;</bpt>Bonusly<ept id="182e5c5b-61a7-43e6-80f2-9c257af7380d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="182e5c5b-61a7-43e6-80f2-9c257af7380d">&lt;linkText&gt;</bpt>Bonusly<ept id="182e5c5b-61a7-43e6-80f2-9c257af7380d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7f55ef2-9a0e-4ca1-b621-7abbdf1e9ec4" xml:space="preserve">
+          <source>Under <bpt id="1db860d0-212e-46f6-9120-0a4f5663b0fd">&lt;strong&gt;</bpt>Single Sign-On<ept id="1db860d0-212e-46f6-9120-0a4f5663b0fd">&lt;/strong&gt;</ept>, select <bpt id="23ff14a7-b951-45a2-ac3e-20b0e340ee68">&lt;strong&gt;</bpt>SAML<ept id="23ff14a7-b951-45a2-ac3e-20b0e340ee68">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="1db860d0-212e-46f6-9120-0a4f5663b0fd">&lt;strong&gt;</bpt>Single Sign-On<ept id="1db860d0-212e-46f6-9120-0a4f5663b0fd">&lt;/strong&gt;</ept>, select <bpt id="23ff14a7-b951-45a2-ac3e-20b0e340ee68">&lt;strong&gt;</bpt>SAML<ept id="23ff14a7-b951-45a2-ac3e-20b0e340ee68">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ce03c8e-f4c3-41ec-a353-f42e7bcee379" xml:space="preserve">
+          <source>On the <bpt id="4f6956ad-ed19-4686-a5f9-1153786fb068">&lt;strong&gt;</bpt>SAML<ept id="4f6956ad-ed19-4686-a5f9-1153786fb068">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="4f6956ad-ed19-4686-a5f9-1153786fb068">&lt;strong&gt;</bpt>SAML<ept id="4f6956ad-ed19-4686-a5f9-1153786fb068">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="249991a8-49aa-4719-8078-16992d21e1bb" xml:space="preserve">
+          <source><bpt id="3fa7ce18-c746-4b92-bc50-3bf74d7d5a5d">&lt;linkText&gt;</bpt>Bonusly<ept id="3fa7ce18-c746-4b92-bc50-3bf74d7d5a5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fa7ce18-c746-4b92-bc50-3bf74d7d5a5d">&lt;linkText&gt;</bpt>Bonusly<ept id="3fa7ce18-c746-4b92-bc50-3bf74d7d5a5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bfe3ce3-464f-4a9c-9113-4afbf31b0bc1" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="97d87bdf-cb8b-4d3b-a878-55ac4c71eb33">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="97d87bdf-cb8b-4d3b-a878-55ac4c71eb33">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3e15a521-f225-4074-8a21-68dacda61f21">&lt;strong&gt;</bpt>Remote Login URL<ept id="3e15a521-f225-4074-8a21-68dacda61f21">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="99cd576b-080f-4f60-a77d-5979e999a254">&lt;strong&gt;</bpt>IdP SSO target URL<ept id="99cd576b-080f-4f60-a77d-5979e999a254">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="97d87bdf-cb8b-4d3b-a878-55ac4c71eb33">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="97d87bdf-cb8b-4d3b-a878-55ac4c71eb33">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3e15a521-f225-4074-8a21-68dacda61f21">&lt;strong&gt;</bpt>Remote Login URL<ept id="3e15a521-f225-4074-8a21-68dacda61f21">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="99cd576b-080f-4f60-a77d-5979e999a254">&lt;strong&gt;</bpt>IdP SSO target URL<ept id="99cd576b-080f-4f60-a77d-5979e999a254">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="4d504e60-8802-4760-9dc1-6f09ae70165c" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="1f41fd9f-6570-478b-9f99-bf4bc846e924">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="1f41fd9f-6570-478b-9f99-bf4bc846e924">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="400ea15a-99f3-4ece-b95b-0434c8a96e99">&lt;strong&gt;</bpt>Issuer ID<ept id="400ea15a-99f3-4ece-b95b-0434c8a96e99">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="6fc7d489-7977-40b6-bc8b-2145c6199a2a">&lt;strong&gt;</bpt>IdP Issuer<ept id="6fc7d489-7977-40b6-bc8b-2145c6199a2a">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="1f41fd9f-6570-478b-9f99-bf4bc846e924">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="1f41fd9f-6570-478b-9f99-bf4bc846e924">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="400ea15a-99f3-4ece-b95b-0434c8a96e99">&lt;strong&gt;</bpt>Issuer ID<ept id="400ea15a-99f3-4ece-b95b-0434c8a96e99">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="6fc7d489-7977-40b6-bc8b-2145c6199a2a">&lt;strong&gt;</bpt>IdP Issuer<ept id="6fc7d489-7977-40b6-bc8b-2145c6199a2a">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="27239541-6c3b-40d5-8f66-400b2ba632da" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="ded1c8f9-8586-47ac-8282-8453d05960c4">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="ded1c8f9-8586-47ac-8282-8453d05960c4">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="897b5d47-c822-47ae-bcf5-3eca7a11d11c">&lt;strong&gt;</bpt>Remote Login URL<ept id="897b5d47-c822-47ae-bcf5-3eca7a11d11c">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="5c736614-c22d-4218-bf35-03294769b3f7">&lt;strong&gt;</bpt>IdP Login URL<ept id="5c736614-c22d-4218-bf35-03294769b3f7">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="ded1c8f9-8586-47ac-8282-8453d05960c4">&lt;strong&gt;</bpt>Configure single sign-on at Bonus.ly<ept id="ded1c8f9-8586-47ac-8282-8453d05960c4">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="897b5d47-c822-47ae-bcf5-3eca7a11d11c">&lt;strong&gt;</bpt>Remote Login URL<ept id="897b5d47-c822-47ae-bcf5-3eca7a11d11c">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="5c736614-c22d-4218-bf35-03294769b3f7">&lt;strong&gt;</bpt>IdP Login URL<ept id="5c736614-c22d-4218-bf35-03294769b3f7">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="caf79b2e-e679-435d-9609-9b5eda669d7f" xml:space="preserve">
+          <source>Copy the <bpt id="4206388e-fd21-47c1-99d4-d69b761ea5d5">&lt;strong&gt;</bpt>Thumbprint<ept id="4206388e-fd21-47c1-99d4-d69b761ea5d5">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="525acdea-8945-43ef-ad04-91f273d76506">&lt;strong&gt;</bpt>Cert Fingerprint<ept id="525acdea-8945-43ef-ad04-91f273d76506">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="4206388e-fd21-47c1-99d4-d69b761ea5d5">&lt;strong&gt;</bpt>Thumbprint<ept id="4206388e-fd21-47c1-99d4-d69b761ea5d5">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="525acdea-8945-43ef-ad04-91f273d76506">&lt;strong&gt;</bpt>Cert Fingerprint<ept id="525acdea-8945-43ef-ad04-91f273d76506">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f067f645-59b8-4380-a99a-254d03524933" xml:space="preserve">
+          <source>For more details, see <bpt id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;/linkText&gt;</ept><bpt id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;title&gt;</bpt><ept id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;/linkText&gt;</ept><bpt id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;title&gt;</bpt><ept id="073af86e-5cd3-4937-bb45-d1145dfe7241">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d347ffc7-0fd9-44e3-8768-b9f96f4827c5" xml:space="preserve">
+          <source>Click <bpt id="afab9139-04f0-450c-bd4a-17546f0139a6">&lt;strong&gt;</bpt>save<ept id="afab9139-04f0-450c-bd4a-17546f0139a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="afab9139-04f0-450c-bd4a-17546f0139a6">&lt;strong&gt;</bpt>save<ept id="afab9139-04f0-450c-bd4a-17546f0139a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d592f3e4-0ade-4666-adf0-82cd32335a64" xml:space="preserve">
+          <source>On the Microsoft Azure AD portal, select the configuration confirmation, and then click <bpt id="868aa27d-2c8b-4ae5-baec-372492b00820">&lt;strong&gt;</bpt>Complete<ept id="868aa27d-2c8b-4ae5-baec-372492b00820">&lt;/strong&gt;</ept> to close the <bpt id="8fdef27f-6793-4d49-a376-bce099e50d56">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="8fdef27f-6793-4d49-a376-bce099e50d56">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Microsoft Azure AD portal, select the configuration confirmation, and then click <bpt id="868aa27d-2c8b-4ae5-baec-372492b00820">&lt;strong&gt;</bpt>Complete<ept id="868aa27d-2c8b-4ae5-baec-372492b00820">&lt;/strong&gt;</ept> to close the <bpt id="8fdef27f-6793-4d49-a376-bce099e50d56">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="8fdef27f-6793-4d49-a376-bce099e50d56">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="1f5debe0-a9d9-40d3-8392-7f58177e12f4" xml:space="preserve">
+          <source><bpt id="2344b925-eb1e-43b5-a57d-0ce779014039">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="2344b925-eb1e-43b5-a57d-0ce779014039">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2344b925-eb1e-43b5-a57d-0ce779014039">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="2344b925-eb1e-43b5-a57d-0ce779014039">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cf27e62-96fc-45c3-a6e9-42f21ca5f6bc" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Bonus.ly, they must be provisioned into Bonus.ly.</source>
+          <target state="new">In order to enable Azure AD users to log into Bonus.ly, they must be provisioned into Bonus.ly.</target>
+        </trans-unit>
+        <trans-unit id="e5e80c9a-3d68-4a8e-a2a0-3a082ebe1d2c" xml:space="preserve">
+          <source>In the case of Bonus.ly, provisioning is a manual task.</source>
+          <target state="new">In the case of Bonus.ly, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="ca8651c5-528e-4879-91cb-e4281a32dce4" xml:space="preserve">
+          <source>In a web browser window, log into your Bonus.ly tenant.</source>
+          <target state="new">In a web browser window, log into your Bonus.ly tenant.</target>
+        </trans-unit>
+        <trans-unit id="c3e1649e-9005-4dbe-883a-867c86184602" xml:space="preserve">
+          <source>Click <bpt id="dab41b54-69af-4414-b1f3-d3c84961b3fa">&lt;strong&gt;</bpt>Settings<ept id="dab41b54-69af-4414-b1f3-d3c84961b3fa">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="dab41b54-69af-4414-b1f3-d3c84961b3fa">&lt;strong&gt;</bpt>Settings<ept id="dab41b54-69af-4414-b1f3-d3c84961b3fa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5f982ee-e49f-44ea-b0e7-e97e240baa63" xml:space="preserve">
+          <source><bpt id="1215e3d2-c2ef-43e2-89c5-93f3f7ec0934">&lt;linkText&gt;</bpt>Settings<ept id="1215e3d2-c2ef-43e2-89c5-93f3f7ec0934">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1215e3d2-c2ef-43e2-89c5-93f3f7ec0934">&lt;linkText&gt;</bpt>Settings<ept id="1215e3d2-c2ef-43e2-89c5-93f3f7ec0934">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94f753bc-04cb-40d0-8c75-4d0137572748" xml:space="preserve">
+          <source>Click the <bpt id="857b1e90-3b9b-4aec-8ecf-046c52e02dbc">&lt;strong&gt;</bpt>Users and bonuses<ept id="857b1e90-3b9b-4aec-8ecf-046c52e02dbc">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="857b1e90-3b9b-4aec-8ecf-046c52e02dbc">&lt;strong&gt;</bpt>Users and bonuses<ept id="857b1e90-3b9b-4aec-8ecf-046c52e02dbc">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="72726d75-e77c-431a-a734-94916ed70170" xml:space="preserve">
+          <source><bpt id="fe32d976-8791-4f28-a160-cbb4748ad5ce">&lt;linkText&gt;</bpt>Users and bonuses<ept id="fe32d976-8791-4f28-a160-cbb4748ad5ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe32d976-8791-4f28-a160-cbb4748ad5ce">&lt;linkText&gt;</bpt>Users and bonuses<ept id="fe32d976-8791-4f28-a160-cbb4748ad5ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="908edf17-6bb3-411f-9a24-617bec591979" xml:space="preserve">
+          <source>Click <bpt id="47a8f680-a206-4f1b-b12c-446e3e389b1c">&lt;strong&gt;</bpt>Manage Users<ept id="47a8f680-a206-4f1b-b12c-446e3e389b1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="47a8f680-a206-4f1b-b12c-446e3e389b1c">&lt;strong&gt;</bpt>Manage Users<ept id="47a8f680-a206-4f1b-b12c-446e3e389b1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f19cc036-f0fc-49a9-a624-4d97c9a78cef" xml:space="preserve">
+          <source><bpt id="8df8baa6-0257-43e7-b9c0-e161b89e7a30">&lt;linkText&gt;</bpt>Manage Users<ept id="8df8baa6-0257-43e7-b9c0-e161b89e7a30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8df8baa6-0257-43e7-b9c0-e161b89e7a30">&lt;linkText&gt;</bpt>Manage Users<ept id="8df8baa6-0257-43e7-b9c0-e161b89e7a30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c458c2a-f742-4d31-b4cf-0d639592b2f5" xml:space="preserve">
+          <source>Click <bpt id="518f1090-3ad5-48f1-9b0e-76de8b1f6782">&lt;strong&gt;</bpt>Add User<ept id="518f1090-3ad5-48f1-9b0e-76de8b1f6782">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="518f1090-3ad5-48f1-9b0e-76de8b1f6782">&lt;strong&gt;</bpt>Add User<ept id="518f1090-3ad5-48f1-9b0e-76de8b1f6782">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="092cda7f-8aa1-423b-8997-7a86d7b8557d" xml:space="preserve">
+          <source><bpt id="3b8086ee-a2e5-4d81-b3eb-99ef9c65bcf6">&lt;linkText&gt;</bpt>Add User<ept id="3b8086ee-a2e5-4d81-b3eb-99ef9c65bcf6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b8086ee-a2e5-4d81-b3eb-99ef9c65bcf6">&lt;linkText&gt;</bpt>Add User<ept id="3b8086ee-a2e5-4d81-b3eb-99ef9c65bcf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43e31d98-65ac-4186-9ff6-8601549bb712" xml:space="preserve">
+          <source>On the <bpt id="fbeea049-d002-442a-9513-53bd95e8a247">&lt;strong&gt;</bpt>Add User<ept id="fbeea049-d002-442a-9513-53bd95e8a247">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="fbeea049-d002-442a-9513-53bd95e8a247">&lt;strong&gt;</bpt>Add User<ept id="fbeea049-d002-442a-9513-53bd95e8a247">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="4a900b23-c910-4002-b6e1-af94f5bbf5c4" xml:space="preserve">
+          <source><bpt id="95c5897c-d445-4baf-913b-c541b07fca4d">&lt;linkText&gt;</bpt>Add User<ept id="95c5897c-d445-4baf-913b-c541b07fca4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95c5897c-d445-4baf-913b-c541b07fca4d">&lt;linkText&gt;</bpt>Add User<ept id="95c5897c-d445-4baf-913b-c541b07fca4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77b4224a-8848-4e01-84fc-1db8e074bf69" xml:space="preserve">
+          <source>Type the “<bpt id="09858a61-7c89-4d7a-b909-16b87876c401">&lt;strong&gt;</bpt>Email<ept id="09858a61-7c89-4d7a-b909-16b87876c401">&lt;/strong&gt;</ept>, <bpt id="761812a9-fa84-4311-8bb4-5e7dcb9e44a0">&lt;strong&gt;</bpt>First name<ept id="761812a9-fa84-4311-8bb4-5e7dcb9e44a0">&lt;/strong&gt;</ept>, <bpt id="00dcc522-6d36-45e8-9857-01db5cf37413">&lt;strong&gt;</bpt>Last name<ept id="00dcc522-6d36-45e8-9857-01db5cf37413">&lt;/strong&gt;</ept>” of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the “<bpt id="09858a61-7c89-4d7a-b909-16b87876c401">&lt;strong&gt;</bpt>Email<ept id="09858a61-7c89-4d7a-b909-16b87876c401">&lt;/strong&gt;</ept>, <bpt id="761812a9-fa84-4311-8bb4-5e7dcb9e44a0">&lt;strong&gt;</bpt>First name<ept id="761812a9-fa84-4311-8bb4-5e7dcb9e44a0">&lt;/strong&gt;</ept>, <bpt id="00dcc522-6d36-45e8-9857-01db5cf37413">&lt;strong&gt;</bpt>Last name<ept id="00dcc522-6d36-45e8-9857-01db5cf37413">&lt;/strong&gt;</ept>” of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="8dff34a1-f300-4ec3-a63f-4b8acfca0ed7" xml:space="preserve">
+          <source>Click <bpt id="f4bed3d0-69c7-4824-9102-d6f7012a454b">&lt;strong&gt;</bpt>Save<ept id="f4bed3d0-69c7-4824-9102-d6f7012a454b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f4bed3d0-69c7-4824-9102-d6f7012a454b">&lt;strong&gt;</bpt>Save<ept id="f4bed3d0-69c7-4824-9102-d6f7012a454b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f49522a1-5587-4117-91f0-da0a5750ad3c" xml:space="preserve">
+          <source>The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.</source>
+          <target state="new">The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.</target>
+        </trans-unit>
+        <trans-unit id="e40c8eeb-ae64-443e-b39a-eb58bff2bdf5" xml:space="preserve">
+          <source>You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.</source>
+          <target state="new">You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="4fc13a41-b75b-462e-937c-16df6dd34677" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="b46ef202-3be2-4a48-bb12-d1ce895e3b05" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="ffe65bab-0c29-49a1-aea0-0067ad1e3ff6" xml:space="preserve">
+          <source>On the Bonus.ly application integration page, click <bpt id="0e368258-ac43-4cd6-8cde-68e88504d7a8">&lt;strong&gt;</bpt>Assign users<ept id="0e368258-ac43-4cd6-8cde-68e88504d7a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Bonus.ly application integration page, click <bpt id="0e368258-ac43-4cd6-8cde-68e88504d7a8">&lt;strong&gt;</bpt>Assign users<ept id="0e368258-ac43-4cd6-8cde-68e88504d7a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cd62a21-b9de-4420-a1f5-fdab4f4110c4" xml:space="preserve">
+          <source><bpt id="e7d22815-3473-43ab-b7b7-071207530695">&lt;linkText&gt;</bpt>Assign users<ept id="e7d22815-3473-43ab-b7b7-071207530695">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7d22815-3473-43ab-b7b7-071207530695">&lt;linkText&gt;</bpt>Assign users<ept id="e7d22815-3473-43ab-b7b7-071207530695">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6cbab1a-f7a6-4247-aee5-4db6a7a40a7f" xml:space="preserve">
+          <source>Select your test user, click <bpt id="12b82405-801b-436f-9932-0e4e02664ee8">&lt;strong&gt;</bpt>Assign<ept id="12b82405-801b-436f-9932-0e4e02664ee8">&lt;/strong&gt;</ept>, and then click <bpt id="a9d12c7b-cb54-4069-a883-4c21752044e9">&lt;strong&gt;</bpt>Yes<ept id="a9d12c7b-cb54-4069-a883-4c21752044e9">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="12b82405-801b-436f-9932-0e4e02664ee8">&lt;strong&gt;</bpt>Assign<ept id="12b82405-801b-436f-9932-0e4e02664ee8">&lt;/strong&gt;</ept>, and then click <bpt id="a9d12c7b-cb54-4069-a883-4c21752044e9">&lt;strong&gt;</bpt>Yes<ept id="a9d12c7b-cb54-4069-a883-4c21752044e9">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="08c55476-f767-496d-abe2-341af4cfad92" xml:space="preserve">
+          <source><bpt id="228daeba-1d2b-4570-b647-d73c79c7ae13">&lt;linkText&gt;</bpt>Yes<ept id="228daeba-1d2b-4570-b647-d73c79c7ae13">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="228daeba-1d2b-4570-b647-d73c79c7ae13">&lt;linkText&gt;</bpt>Yes<ept id="228daeba-1d2b-4570-b647-d73c79c7ae13">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf2ed56c-8f56-4b9f-9d40-002f2a679c52" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="4e39a2e4-840a-40d8-bf18-342b4210b618" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;/linkText&gt;</ept><bpt id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;title&gt;</bpt><ept id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;/linkText&gt;</ept><bpt id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;title&gt;</bpt><ept id="eb57db5d-24e1-4df3-81f4-84954fdc93bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

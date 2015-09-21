@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bf4f7a8b-f2cf-48f3-b104-988131e06c05" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bf4f7a8b-f2cf-48f3-b104-988131e06c05" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd348588-2e90-4f23-8194-bb9f0db974db">
+        <trans-unit id="90709e95-cda8-450b-945c-62b0d4edb7c2" xml:space="preserve">
+          <source>Using the FTP Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the FTP Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="52bdd0ce-302b-468e-8f21-139761a17718" xml:space="preserve">
+          <source>How to create and configure the FTP Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the FTP Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="a3949eb7-37a7-4c7d-8f33-47e3f43b3da6" xml:space="preserve">
+          <source>Connect to an FTP server to move data or files.</source>
+          <target state="new">Connect to an FTP server to move data or files.</target>
+        </trans-unit>
+        <trans-unit id="ee80fbfb-1a71-495e-b8a9-bb06fb3309ed" xml:space="preserve">
+          <source>Key features of the FTP connector include:</source>
+          <target state="new">Key features of the FTP connector include:</target>
+        </trans-unit>
+        <trans-unit id="e469b0aa-7c7a-4a33-847e-859df5d01789" xml:space="preserve">
+          <source>Pulling files from the FTP server on demand</source>
+          <target state="new">Pulling files from the FTP server on demand</target>
+        </trans-unit>
+        <trans-unit id="06c5238d-1d7e-40fe-89fb-824238f4800d" xml:space="preserve">
+          <source>Running polls based on a configurable schedule</source>
+          <target state="new">Running polls based on a configurable schedule</target>
+        </trans-unit>
+        <trans-unit id="c6ab82a2-0888-4ba5-b22a-ce8ea0df96a4" xml:space="preserve">
+          <source>Polling the FTP server and triggering the logic flow based on new documents in the FTP Server</source>
+          <target state="new">Polling the FTP server and triggering the logic flow based on new documents in the FTP Server</target>
+        </trans-unit>
+        <trans-unit id="be09555f-3246-44fd-8129-95bf5a64b7af" xml:space="preserve">
+          <source>Specifying the FTP server as an IP address, port, password, and host name</source>
+          <target state="new">Specifying the FTP server as an IP address, port, password, and host name</target>
+        </trans-unit>
+        <trans-unit id="ce67ee5f-96cc-4b08-a706-51c21dd1ccb7" xml:space="preserve">
+          <source>Ability to run sends on demand</source>
+          <target state="new">Ability to run sends on demand</target>
+        </trans-unit>
+        <trans-unit id="dce1399b-3c39-4ac0-bedb-d9b9b1e4e9a2" xml:space="preserve">
+          <source>Ability to delete files on FTP Server on demand</source>
+          <target state="new">Ability to delete files on FTP Server on demand</target>
+        </trans-unit>
+        <trans-unit id="df1bd447-0ae7-42cc-8e97-4ad9f706fd64" xml:space="preserve">
+          <source>You can add the FTP connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the FTP connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="2bcb5971-e934-493b-89c2-64b6869c7e68" xml:space="preserve">
+          <source>To create a new FTP connector, follow the steps mentioned below.</source>
+          <target state="new">To create a new FTP connector, follow the steps mentioned below.</target>
+        </trans-unit>
+        <trans-unit id="8549d6a4-9305-4ada-8fd4-6c21dcfca4a3" xml:space="preserve">
+          <source>Launch Azure portal</source>
+          <target state="new">Launch Azure portal</target>
+        </trans-unit>
+        <trans-unit id="d0beba19-351d-4288-a925-6777503bea09" xml:space="preserve">
+          <source>Open Azure marketplace using +New (at the bottom of the page) -&gt; Web+Mobile --&gt; Azure Marketplace:  
+<bpt id="d6781ef1-e63e-4f65-bd38-b51f272b97ef">&lt;linkText&gt;</bpt>Launch Azure Marketplace<ept id="d6781ef1-e63e-4f65-bd38-b51f272b97ef">&lt;/linkText&gt;</ept></source>
+          <target state="new">Open Azure marketplace using +New (at the bottom of the page) -&gt; Web+Mobile --&gt; Azure Marketplace:  
+<bpt id="d6781ef1-e63e-4f65-bd38-b51f272b97ef">&lt;linkText&gt;</bpt>Launch Azure Marketplace<ept id="d6781ef1-e63e-4f65-bd38-b51f272b97ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfbc3ea1-645f-4225-9b88-e65ea11f3a1a" xml:space="preserve">
+          <source>Click on API Apps</source>
+          <target state="new">Click on API Apps</target>
+        </trans-unit>
+        <trans-unit id="6c4a1794-a2dd-45ab-a090-1966941cb615" xml:space="preserve">
+          <source>Search for FTP, and select FTP Connector:  
+<bpt id="19d2329d-6258-4f52-9938-abef23ba7353">&lt;linkText&gt;</bpt>Select FTP Connector<ept id="19d2329d-6258-4f52-9938-abef23ba7353">&lt;/linkText&gt;</ept></source>
+          <target state="new">Search for FTP, and select FTP Connector:  
+<bpt id="19d2329d-6258-4f52-9938-abef23ba7353">&lt;linkText&gt;</bpt>Select FTP Connector<ept id="19d2329d-6258-4f52-9938-abef23ba7353">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="185013ae-86fd-4b30-9999-8afcdc9f573b" xml:space="preserve">
+          <source>Click on Create</source>
+          <target state="new">Click on Create</target>
+        </trans-unit>
+        <trans-unit id="63edf8cf-35f1-4006-887f-e489d6f93d25" xml:space="preserve">
+          <source>In the FTP connector blade that opens up, provide the following data:  
+<bpt id="e5e09681-d7a6-4c42-8126-63271057bffe">&lt;linkText&gt;</bpt>Create FTP Connector<ept id="e5e09681-d7a6-4c42-8126-63271057bffe">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the FTP connector blade that opens up, provide the following data:  
+<bpt id="e5e09681-d7a6-4c42-8126-63271057bffe">&lt;linkText&gt;</bpt>Create FTP Connector<ept id="e5e09681-d7a6-4c42-8126-63271057bffe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c98fbb9-d3c9-4118-9af6-847f569a0ba8" xml:space="preserve">
+          <source><bpt id="84c2f47e-698f-4776-9d03-f3ea2a6afb2f">&lt;strong&gt;</bpt>Location<ept id="84c2f47e-698f-4776-9d03-f3ea2a6afb2f">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</source>
+          <target state="new"><bpt id="84c2f47e-698f-4776-9d03-f3ea2a6afb2f">&lt;strong&gt;</bpt>Location<ept id="84c2f47e-698f-4776-9d03-f3ea2a6afb2f">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</target>
+        </trans-unit>
+        <trans-unit id="134cba67-c23a-4a5d-b17c-18e733ec8f0f" xml:space="preserve">
+          <source><bpt id="3531f69e-3f96-47c9-8184-56720e3c40f9">&lt;strong&gt;</bpt>Subscription<ept id="3531f69e-3f96-47c9-8184-56720e3c40f9">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</source>
+          <target state="new"><bpt id="3531f69e-3f96-47c9-8184-56720e3c40f9">&lt;strong&gt;</bpt>Subscription<ept id="3531f69e-3f96-47c9-8184-56720e3c40f9">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</target>
+        </trans-unit>
+        <trans-unit id="37560d33-c25b-4978-b9ae-0c03bfbf9b78" xml:space="preserve">
+          <source><bpt id="bd1dc865-ba4e-40fc-b757-b9d5003463af">&lt;strong&gt;</bpt>Resource group<ept id="bd1dc865-ba4e-40fc-b757-b9d5003463af">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</source>
+          <target state="new"><bpt id="bd1dc865-ba4e-40fc-b757-b9d5003463af">&lt;strong&gt;</bpt>Resource group<ept id="bd1dc865-ba4e-40fc-b757-b9d5003463af">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</target>
+        </trans-unit>
+        <trans-unit id="e0537cfb-b429-4e1c-babb-eef8aeeda2e7" xml:space="preserve">
+          <source><bpt id="c34ec151-12a4-4b52-8d1a-7aa087ce31dc">&lt;strong&gt;</bpt>Web hosting plan<ept id="c34ec151-12a4-4b52-8d1a-7aa087ce31dc">&lt;/strong&gt;</ept> - select or create a web hosting plan</source>
+          <target state="new"><bpt id="c34ec151-12a4-4b52-8d1a-7aa087ce31dc">&lt;strong&gt;</bpt>Web hosting plan<ept id="c34ec151-12a4-4b52-8d1a-7aa087ce31dc">&lt;/strong&gt;</ept> - select or create a web hosting plan</target>
+        </trans-unit>
+        <trans-unit id="3427bf9d-7dc1-4f52-beec-1ce25339b330" xml:space="preserve">
+          <source><bpt id="46866be3-5990-4699-8428-c2fb6483baf5">&lt;strong&gt;</bpt>Pricing tier<ept id="46866be3-5990-4699-8428-c2fb6483baf5">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</source>
+          <target state="new"><bpt id="46866be3-5990-4699-8428-c2fb6483baf5">&lt;strong&gt;</bpt>Pricing tier<ept id="46866be3-5990-4699-8428-c2fb6483baf5">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</target>
+        </trans-unit>
+        <trans-unit id="ae658192-cbad-4a73-b0b5-c7daca82e6b7" xml:space="preserve">
+          <source><bpt id="2282f5d7-1f97-4e30-be9e-b0bd8256c10d">&lt;strong&gt;</bpt>Name<ept id="2282f5d7-1f97-4e30-be9e-b0bd8256c10d">&lt;/strong&gt;</ept> - give a name for your FTP Connector</source>
+          <target state="new"><bpt id="2282f5d7-1f97-4e30-be9e-b0bd8256c10d">&lt;strong&gt;</bpt>Name<ept id="2282f5d7-1f97-4e30-be9e-b0bd8256c10d">&lt;/strong&gt;</ept> - give a name for your FTP Connector</target>
+        </trans-unit>
+        <trans-unit id="38a3b7af-61c1-4f56-9907-7fe19693dccb" xml:space="preserve">
+          <source><bpt id="063f6ac0-5077-4c52-beaa-89a33715f758">&lt;strong&gt;</bpt>Package settings<ept id="063f6ac0-5077-4c52-beaa-89a33715f758">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="063f6ac0-5077-4c52-beaa-89a33715f758">&lt;strong&gt;</bpt>Package settings<ept id="063f6ac0-5077-4c52-beaa-89a33715f758">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4171b73d-4b58-4ce3-9ac3-94f982fc6ba5" xml:space="preserve">
+          <source><bpt id="3ad08bff-9029-46ae-a380-17b7bccc1545">&lt;strong&gt;</bpt>Server Address<ept id="3ad08bff-9029-46ae-a380-17b7bccc1545">&lt;/strong&gt;</ept> - Specify the FTP Server name or IP address</source>
+          <target state="new"><bpt id="3ad08bff-9029-46ae-a380-17b7bccc1545">&lt;strong&gt;</bpt>Server Address<ept id="3ad08bff-9029-46ae-a380-17b7bccc1545">&lt;/strong&gt;</ept> - Specify the FTP Server name or IP address</target>
+        </trans-unit>
+        <trans-unit id="abbb9e63-3ba6-4282-bc58-7648962ee82f" xml:space="preserve">
+          <source><bpt id="15ac789d-f596-4cd1-8de9-73aa534df60e">&lt;strong&gt;</bpt>User Name<ept id="15ac789d-f596-4cd1-8de9-73aa534df60e">&lt;/strong&gt;</ept> - Specify the user name to connect to the FTP Server</source>
+          <target state="new"><bpt id="15ac789d-f596-4cd1-8de9-73aa534df60e">&lt;strong&gt;</bpt>User Name<ept id="15ac789d-f596-4cd1-8de9-73aa534df60e">&lt;/strong&gt;</ept> - Specify the user name to connect to the FTP Server</target>
+        </trans-unit>
+        <trans-unit id="698492b1-10cb-482e-8bf8-97639f642733" xml:space="preserve">
+          <source><bpt id="b8623691-5b33-4f0c-bba4-b64c4f347ee9">&lt;strong&gt;</bpt>Password<ept id="b8623691-5b33-4f0c-bba4-b64c4f347ee9">&lt;/strong&gt;</ept> - Specify the password to connect to the FTP Server</source>
+          <target state="new"><bpt id="b8623691-5b33-4f0c-bba4-b64c4f347ee9">&lt;strong&gt;</bpt>Password<ept id="b8623691-5b33-4f0c-bba4-b64c4f347ee9">&lt;/strong&gt;</ept> - Specify the password to connect to the FTP Server</target>
+        </trans-unit>
+        <trans-unit id="8da38310-4118-468b-a36c-00314cbf4029" xml:space="preserve">
+          <source><bpt id="405bc59e-1f6e-4e73-943e-6b114db10eef">&lt;strong&gt;</bpt>Root Folder<ept id="405bc59e-1f6e-4e73-943e-6b114db10eef">&lt;/strong&gt;</ept> - Specify a root folder path</source>
+          <target state="new"><bpt id="405bc59e-1f6e-4e73-943e-6b114db10eef">&lt;strong&gt;</bpt>Root Folder<ept id="405bc59e-1f6e-4e73-943e-6b114db10eef">&lt;/strong&gt;</ept> - Specify a root folder path</target>
+        </trans-unit>
+        <trans-unit id="7dabcb12-4c24-4685-b8f9-7fb4e983f090" xml:space="preserve">
+          <source><bpt id="d838d250-483d-46fb-9fe0-9a7939d19ede">&lt;strong&gt;</bpt>Use Binary<ept id="d838d250-483d-46fb-9fe0-9a7939d19ede">&lt;/strong&gt;</ept> - Specify true to use Binary transfer mode, false for ASCII</source>
+          <target state="new"><bpt id="d838d250-483d-46fb-9fe0-9a7939d19ede">&lt;strong&gt;</bpt>Use Binary<ept id="d838d250-483d-46fb-9fe0-9a7939d19ede">&lt;/strong&gt;</ept> - Specify true to use Binary transfer mode, false for ASCII</target>
+        </trans-unit>
+        <trans-unit id="d4ebeeba-d43d-414c-8c64-6c204ff53ff8" xml:space="preserve">
+          <source><bpt id="f26bf02a-6ca9-4ce4-842b-de4f758c80cf">&lt;strong&gt;</bpt>Use SSL<ept id="f26bf02a-6ca9-4ce4-842b-de4f758c80cf">&lt;/strong&gt;</ept> - Specify true to use FTP over a secure SSL/TLS channel</source>
+          <target state="new"><bpt id="f26bf02a-6ca9-4ce4-842b-de4f758c80cf">&lt;strong&gt;</bpt>Use SSL<ept id="f26bf02a-6ca9-4ce4-842b-de4f758c80cf">&lt;/strong&gt;</ept> - Specify true to use FTP over a secure SSL/TLS channel</target>
+        </trans-unit>
+        <trans-unit id="23e10b57-37ac-40ae-a4d9-2878d273ed55" xml:space="preserve">
+          <source><bpt id="190ce310-827e-4e94-8bec-6c031c767777">&lt;strong&gt;</bpt>Server Port<ept id="190ce310-827e-4e94-8bec-6c031c767777">&lt;/strong&gt;</ept> - Specify the FTP Server port number</source>
+          <target state="new"><bpt id="190ce310-827e-4e94-8bec-6c031c767777">&lt;strong&gt;</bpt>Server Port<ept id="190ce310-827e-4e94-8bec-6c031c767777">&lt;/strong&gt;</ept> - Specify the FTP Server port number</target>
+        </trans-unit>
+        <trans-unit id="0a07babd-3de9-44fa-8bc0-9492dc95f80d" xml:space="preserve">
+          <source>Click on Create.</source>
+          <target state="new">Click on Create.</target>
+        </trans-unit>
+        <trans-unit id="a0c5e3e1-b53c-4235-ba56-e50130f58926" xml:space="preserve">
+          <source>A new FTP Connector will be created.</source>
+          <target state="new">A new FTP Connector will be created.</target>
+        </trans-unit>
+        <trans-unit id="c052815f-0795-4ce2-b3d7-222b71cc03a4" xml:space="preserve">
+          <source>Once the FTP connector has been created, it can be consumed from the flow.</source>
+          <target state="new">Once the FTP connector has been created, it can be consumed from the flow.</target>
+        </trans-unit>
+        <trans-unit id="d5425950-2aa1-45d5-9fa8-a26f3c641f1e" xml:space="preserve">
+          <source>Create a new flow through +New -&gt; Web+Mobile -&gt; LogicApp.</source>
+          <target state="new">Create a new flow through +New -&gt; Web+Mobile -&gt; LogicApp.</target>
+        </trans-unit>
+        <trans-unit id="a50848f2-9e68-4ac8-b264-406e59b3358b" xml:space="preserve">
+          <source>Provide the metadata for the flow including resource group:  
+<bpt id="d480fd0b-a6a1-4599-9ca3-3826303e545c">&lt;linkText&gt;</bpt>Create Logic App<ept id="d480fd0b-a6a1-4599-9ca3-3826303e545c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Provide the metadata for the flow including resource group:  
+<bpt id="d480fd0b-a6a1-4599-9ca3-3826303e545c">&lt;linkText&gt;</bpt>Create Logic App<ept id="d480fd0b-a6a1-4599-9ca3-3826303e545c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcd65cce-846f-4f4a-8b00-539c95c83d6d" xml:space="preserve">
+          <source>Click on <bpt id="91384bb7-99c0-49c0-99ff-4881639217cc">&lt;em&gt;</bpt>triggers and actions<ept id="91384bb7-99c0-49c0-99ff-4881639217cc">&lt;/em&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="91384bb7-99c0-49c0-99ff-4881639217cc">&lt;em&gt;</bpt>triggers and actions<ept id="91384bb7-99c0-49c0-99ff-4881639217cc">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2cfb3e4-1fc7-40f4-aca9-0404dacd1fc1" xml:space="preserve">
+          <source>The flow designer opens:  
+<bpt id="ea4acb74-36e1-45c9-b67b-911475e530e5">&lt;linkText&gt;</bpt>Logic App empty flow designer<ept id="ea4acb74-36e1-45c9-b67b-911475e530e5">&lt;/linkText&gt;</ept></source>
+          <target state="new">The flow designer opens:  
+<bpt id="ea4acb74-36e1-45c9-b67b-911475e530e5">&lt;linkText&gt;</bpt>Logic App empty flow designer<ept id="ea4acb74-36e1-45c9-b67b-911475e530e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ea3b733-03f3-4c5f-b7be-b6c99fe2ec26" xml:space="preserve">
+          <source>FTP Connector can be used as both trigger and action.</source>
+          <target state="new">FTP Connector can be used as both trigger and action.</target>
+        </trans-unit>
+        <trans-unit id="ca5bd361-210b-4685-aae5-2388e93c7a4a" xml:space="preserve">
+          <source>In the empty flow designer, click on FTP connector from the right gallery pane:  
+<bpt id="dd10df20-7890-4481-9ae1-1231d0ebf2fb">&lt;linkText&gt;</bpt>Choose FTP Trigger<ept id="dd10df20-7890-4481-9ae1-1231d0ebf2fb">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the empty flow designer, click on FTP connector from the right gallery pane:  
+<bpt id="dd10df20-7890-4481-9ae1-1231d0ebf2fb">&lt;linkText&gt;</bpt>Choose FTP Trigger<ept id="dd10df20-7890-4481-9ae1-1231d0ebf2fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cf35b19-ac00-428e-ad08-ce548ff7dd86" xml:space="preserve">
+          <source>FTP Connector has one trigger - 'File Available (Read then Delete)'.</source>
+          <target state="new">FTP Connector has one trigger - 'File Available (Read then Delete)'.</target>
+        </trans-unit>
+        <trans-unit id="d7a048ec-ccfe-45ec-96bd-aa3f747fb64c" xml:space="preserve">
+          <source>This trigger:</source>
+          <target state="new">This trigger:</target>
+        </trans-unit>
+        <trans-unit id="844f102f-368d-41b6-a52d-fc9acca65ab3" xml:space="preserve">
+          <source>Polls the folder path for new files</source>
+          <target state="new">Polls the folder path for new files</target>
+        </trans-unit>
+        <trans-unit id="a77fec48-7a18-48ef-ba64-f000c698a1b7" xml:space="preserve">
+          <source>Instantiates the logic flow whenever for every new file</source>
+          <target state="new">Instantiates the logic flow whenever for every new file</target>
+        </trans-unit>
+        <trans-unit id="9c2f73d3-f38b-42c3-802d-3e6b3a6af521" xml:space="preserve">
+          <source>Deletes the file from the folder path after the logic flow has been instantiated</source>
+          <target state="new">Deletes the file from the folder path after the logic flow has been instantiated</target>
+        </trans-unit>
+        <trans-unit id="9cad3da6-f89d-4b3a-ae8a-5cda9597eded" xml:space="preserve">
+          <source>Click on 'File Available (Read then Delete)' trigger:  
+<bpt id="bb8bef7a-1331-4313-b4ad-8d162e77cae3">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="bb8bef7a-1331-4313-b4ad-8d162e77cae3">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on 'File Available (Read then Delete)' trigger:  
+<bpt id="bb8bef7a-1331-4313-b4ad-8d162e77cae3">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="bb8bef7a-1331-4313-b4ad-8d162e77cae3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f318b968-cef1-446a-9d97-29133cd997f3" xml:space="preserve">
+          <source>The inputs help you configure a particular folder path to be polled on a scheduled frequency.</source>
+          <target state="new">The inputs help you configure a particular folder path to be polled on a scheduled frequency.</target>
+        </trans-unit>
+        <trans-unit id="f9e53f4b-ceb2-4f8f-b63d-4e1094e68dd3" xml:space="preserve">
+          <source>The basic inputs are</source>
+          <target state="new">The basic inputs are</target>
+        </trans-unit>
+        <trans-unit id="9c5a3c3b-52fb-4830-86eb-c7d6faea205f" xml:space="preserve">
+          <source>Frequency - Specifies the frequency of the FTP poll</source>
+          <target state="new">Frequency - Specifies the frequency of the FTP poll</target>
+        </trans-unit>
+        <trans-unit id="dd07c142-435a-4458-916f-d70ded665a32" xml:space="preserve">
+          <source>Interval - Specifies the interval for the scheduled frequency</source>
+          <target state="new">Interval - Specifies the interval for the scheduled frequency</target>
+        </trans-unit>
+        <trans-unit id="ce873a0e-1b92-44df-bf83-5d5ee238cc68" xml:space="preserve">
+          <source>Folder Path - Specifies the folder path in the FTP Server</source>
+          <target state="new">Folder Path - Specifies the folder path in the FTP Server</target>
+        </trans-unit>
+        <trans-unit id="95d909cf-b0bc-4d05-af64-adf7a32d80ba" xml:space="preserve">
+          <source>Type of file - Specifies whether the file type is text or binary</source>
+          <target state="new">Type of file - Specifies whether the file type is text or binary</target>
+        </trans-unit>
+        <trans-unit id="4aff97f2-c5c8-464e-9f75-846ce06696c6" xml:space="preserve">
+          <source>Clicking on the elipses '...' shows the advanced inputs:  
+<bpt id="9ef2617f-2d2f-4fe4-959f-82707c81919c">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="9ef2617f-2d2f-4fe4-959f-82707c81919c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Clicking on the elipses '...' shows the advanced inputs:  
+<bpt id="9ef2617f-2d2f-4fe4-959f-82707c81919c">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="9ef2617f-2d2f-4fe4-959f-82707c81919c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12c5e032-6b9f-419c-938d-933324953746" xml:space="preserve">
+          <source>The advanced inputs include:</source>
+          <target state="new">The advanced inputs include:</target>
+        </trans-unit>
+        <trans-unit id="f1edacbd-4f72-4bff-8949-37b659e2799d" xml:space="preserve">
+          <source>File mask - Specifies the file mask while polling</source>
+          <target state="new">File mask - Specifies the file mask while polling</target>
+        </trans-unit>
+        <trans-unit id="1fe26f19-8074-4239-986b-6d45cfc60748" xml:space="preserve">
+          <source>Exclude file mask - Specifies the file masks to exclude while polling</source>
+          <target state="new">Exclude file mask - Specifies the file masks to exclude while polling</target>
+        </trans-unit>
+        <trans-unit id="b9927ee0-aada-4fd4-a85f-9f776cd0a769" xml:space="preserve">
+          <source>Provide the inputs and click on the check mark to complete input configuration:  
+<bpt id="dcc941c8-9168-4ebc-8621-0a81153c8b10">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="dcc941c8-9168-4ebc-8621-0a81153c8b10">&lt;/linkText&gt;</ept></source>
+          <target state="new">Provide the inputs and click on the check mark to complete input configuration:  
+<bpt id="dcc941c8-9168-4ebc-8621-0a81153c8b10">&lt;linkText&gt;</bpt>Basic inputs FTP Trigger<ept id="dcc941c8-9168-4ebc-8621-0a81153c8b10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7bcc376-ac28-4eb3-8638-70675ff372d6" xml:space="preserve">
+          <source>Note that the configured FTP trigger shows both input parameters configured as well as the outputs.</source>
+          <target state="new">Note that the configured FTP trigger shows both input parameters configured as well as the outputs.</target>
+        </trans-unit>
+        <trans-unit id="6a98482a-d629-48a2-8421-c8bd1e94a327" xml:space="preserve">
+          <source>The output of FTP Connector can be used as the input of some other actions in the flow.</source>
+          <target state="new">The output of FTP Connector can be used as the input of some other actions in the flow.</target>
+        </trans-unit>
+        <trans-unit id="5117aec5-01ae-4da3-9c2b-3b4a72b0160b" xml:space="preserve">
+          <source>You can click on '...' in the input dialog of action and select the output of FTP from the drop down box directly.</source>
+          <target state="new">You can click on '...' in the input dialog of action and select the output of FTP from the drop down box directly.</target>
+        </trans-unit>
+        <trans-unit id="00e41d99-7d3a-4404-b610-7b7673d80569" xml:space="preserve">
+          <source>You can also write an expression directly in the input box of action.</source>
+          <target state="new">You can also write an expression directly in the input box of action.</target>
+        </trans-unit>
+        <trans-unit id="8df372b6-8e90-492f-a242-3fd07042df1d" xml:space="preserve">
+          <source>The flow expression to refer to the output of ftp trigger is given below:</source>
+          <target state="new">The flow expression to refer to the output of ftp trigger is given below:</target>
+        </trans-unit>
+        <trans-unit id="af9d3233-70b9-483f-9630-0934e0c4a924" xml:space="preserve">
+          <source>Click on FTP connector from the right pane.</source>
+          <target state="new">Click on FTP connector from the right pane.</target>
+        </trans-unit>
+        <trans-unit id="b1074b25-df85-420e-968a-3fadcecbd00e" xml:space="preserve">
+          <source>The FTP connector lists down the actions supported:  
+<bpt id="72a99179-2332-4ad5-99a9-ba8b1b29448a">&lt;linkText&gt;</bpt>List of FTP Actions<ept id="72a99179-2332-4ad5-99a9-ba8b1b29448a">&lt;/linkText&gt;</ept></source>
+          <target state="new">The FTP connector lists down the actions supported:  
+<bpt id="72a99179-2332-4ad5-99a9-ba8b1b29448a">&lt;linkText&gt;</bpt>List of FTP Actions<ept id="72a99179-2332-4ad5-99a9-ba8b1b29448a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bb06d60-632e-4c97-83de-32786ee99079" xml:space="preserve">
+          <source>FTP Connector supports the following actions:</source>
+          <target state="new">FTP Connector supports the following actions:</target>
+        </trans-unit>
+        <trans-unit id="453df189-8d13-4bd6-b3f7-244aefb70ca6" xml:space="preserve">
+          <source><bpt id="2d481042-72e9-4d11-9a8b-7bf7ab15dcc7">&lt;strong&gt;</bpt>Get File<ept id="2d481042-72e9-4d11-9a8b-7bf7ab15dcc7">&lt;/strong&gt;</ept> - Get the contents of a specific file</source>
+          <target state="new"><bpt id="2d481042-72e9-4d11-9a8b-7bf7ab15dcc7">&lt;strong&gt;</bpt>Get File<ept id="2d481042-72e9-4d11-9a8b-7bf7ab15dcc7">&lt;/strong&gt;</ept> - Get the contents of a specific file</target>
+        </trans-unit>
+        <trans-unit id="098c1cea-7a08-453b-b899-d6c8b6a8a47a" xml:space="preserve">
+          <source><bpt id="9608f79f-be32-48e2-bc33-95f5a6c9b7a2">&lt;strong&gt;</bpt>Upload File<ept id="9608f79f-be32-48e2-bc33-95f5a6c9b7a2">&lt;/strong&gt;</ept> - Uploads file to the FTP folder path</source>
+          <target state="new"><bpt id="9608f79f-be32-48e2-bc33-95f5a6c9b7a2">&lt;strong&gt;</bpt>Upload File<ept id="9608f79f-be32-48e2-bc33-95f5a6c9b7a2">&lt;/strong&gt;</ept> - Uploads file to the FTP folder path</target>
+        </trans-unit>
+        <trans-unit id="5bb66ee0-947c-4055-88a9-173061b8ca2a" xml:space="preserve">
+          <source><bpt id="d8a5f9be-12d8-48f8-9793-848fddbfa1f5">&lt;strong&gt;</bpt>Delete File<ept id="d8a5f9be-12d8-48f8-9793-848fddbfa1f5">&lt;/strong&gt;</ept> - Deletes file from the FTP folder path</source>
+          <target state="new"><bpt id="d8a5f9be-12d8-48f8-9793-848fddbfa1f5">&lt;strong&gt;</bpt>Delete File<ept id="d8a5f9be-12d8-48f8-9793-848fddbfa1f5">&lt;/strong&gt;</ept> - Deletes file from the FTP folder path</target>
+        </trans-unit>
+        <trans-unit id="3dfbad1b-ce7a-4f52-a22b-4c71dc18689d" xml:space="preserve">
+          <source><bpt id="ca52718f-0206-4cb5-985b-e9b4e9df78dc">&lt;strong&gt;</bpt>List Files<ept id="ca52718f-0206-4cb5-985b-e9b4e9df78dc">&lt;/strong&gt;</ept> - Lists all the files in the FTP folder path</source>
+          <target state="new"><bpt id="ca52718f-0206-4cb5-985b-e9b4e9df78dc">&lt;strong&gt;</bpt>List Files<ept id="ca52718f-0206-4cb5-985b-e9b4e9df78dc">&lt;/strong&gt;</ept> - Lists all the files in the FTP folder path</target>
+        </trans-unit>
+        <trans-unit id="1a4bc8b6-5789-4923-974b-70d80f476bca" xml:space="preserve">
+          <source>Lets take one example - Upload File.</source>
+          <target state="new">Lets take one example - Upload File.</target>
+        </trans-unit>
+        <trans-unit id="84713191-452f-4e79-abee-e3146c6ba0ed" xml:space="preserve">
+          <source>Click on Upload File.</source>
+          <target state="new">Click on Upload File.</target>
+        </trans-unit>
+        <trans-unit id="34b16ab8-3c82-416e-b271-d63566122e94" xml:space="preserve">
+          <source>The basic inputs are displayed first:  
+<bpt id="21a4915a-0bb0-41bb-8afe-3840b8835ec0">&lt;linkText&gt;</bpt>Basic inputs of Upload File action<ept id="21a4915a-0bb0-41bb-8afe-3840b8835ec0">&lt;/linkText&gt;</ept></source>
+          <target state="new">The basic inputs are displayed first:  
+<bpt id="21a4915a-0bb0-41bb-8afe-3840b8835ec0">&lt;linkText&gt;</bpt>Basic inputs of Upload File action<ept id="21a4915a-0bb0-41bb-8afe-3840b8835ec0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="148c1f64-7285-4053-befe-6d6d84815d3b" xml:space="preserve">
+          <source><bpt id="a0322fae-a5f3-4847-8df3-33d7c05aab1b">&lt;strong&gt;</bpt>Content<ept id="a0322fae-a5f3-4847-8df3-33d7c05aab1b">&lt;/strong&gt;</ept> - Specifies the content of the file to be uploaded</source>
+          <target state="new"><bpt id="a0322fae-a5f3-4847-8df3-33d7c05aab1b">&lt;strong&gt;</bpt>Content<ept id="a0322fae-a5f3-4847-8df3-33d7c05aab1b">&lt;/strong&gt;</ept> - Specifies the content of the file to be uploaded</target>
+        </trans-unit>
+        <trans-unit id="6b074b12-0db0-4605-96f5-ac23d8645370" xml:space="preserve">
+          <source><bpt id="67cccfa6-cf39-49e9-b080-72bd9601adbe">&lt;strong&gt;</bpt>Content Transfer Encoding<ept id="67cccfa6-cf39-49e9-b080-72bd9601adbe">&lt;/strong&gt;</ept> - Specify none or base64</source>
+          <target state="new"><bpt id="67cccfa6-cf39-49e9-b080-72bd9601adbe">&lt;strong&gt;</bpt>Content Transfer Encoding<ept id="67cccfa6-cf39-49e9-b080-72bd9601adbe">&lt;/strong&gt;</ept> - Specify none or base64</target>
+        </trans-unit>
+        <trans-unit id="14d03c50-5a22-4aea-a259-b42774dcdfca" xml:space="preserve">
+          <source><bpt id="0ec8dd8f-868c-4177-9afb-678aa49e7a9c">&lt;strong&gt;</bpt>File Path<ept id="0ec8dd8f-868c-4177-9afb-678aa49e7a9c">&lt;/strong&gt;</ept> - Specifies the file path of the file to be uploaded</source>
+          <target state="new"><bpt id="0ec8dd8f-868c-4177-9afb-678aa49e7a9c">&lt;strong&gt;</bpt>File Path<ept id="0ec8dd8f-868c-4177-9afb-678aa49e7a9c">&lt;/strong&gt;</ept> - Specifies the file path of the file to be uploaded</target>
+        </trans-unit>
+        <trans-unit id="e4f7a36b-de99-4db9-8cee-4aa1995ebf2b" xml:space="preserve">
+          <source>Click on ... for advanced inputs:  
+<bpt id="a95dc49c-d089-4da4-a425-b2041bd60f74">&lt;linkText&gt;</bpt>Basic inputs of Upload File action<ept id="a95dc49c-d089-4da4-a425-b2041bd60f74">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on ... for advanced inputs:  
+<bpt id="a95dc49c-d089-4da4-a425-b2041bd60f74">&lt;linkText&gt;</bpt>Basic inputs of Upload File action<ept id="a95dc49c-d089-4da4-a425-b2041bd60f74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14eb2ede-c90f-4e67-9dc1-a47aa3eaf23b" xml:space="preserve">
+          <source><bpt id="170cf3ec-2e3a-4eaa-823d-97b0ed8a6def">&lt;strong&gt;</bpt>Append If Exists<ept id="170cf3ec-2e3a-4eaa-823d-97b0ed8a6def">&lt;/strong&gt;</ept> - True or False 'Append If Exist'.</source>
+          <target state="new"><bpt id="170cf3ec-2e3a-4eaa-823d-97b0ed8a6def">&lt;strong&gt;</bpt>Append If Exists<ept id="170cf3ec-2e3a-4eaa-823d-97b0ed8a6def">&lt;/strong&gt;</ept> - True or False 'Append If Exist'.</target>
+        </trans-unit>
+        <trans-unit id="82123b91-6f26-42aa-a89e-5103412970a1" xml:space="preserve">
+          <source>When enabled, the data is appended to the file if it exists.</source>
+          <target state="new">When enabled, the data is appended to the file if it exists.</target>
+        </trans-unit>
+        <trans-unit id="38b0e155-9101-40c1-b350-4ea7724b72e3" xml:space="preserve">
+          <source>When disabled, the file is overwritten if it exists</source>
+          <target state="new">When disabled, the file is overwritten if it exists</target>
+        </trans-unit>
+        <trans-unit id="e64c4ccf-3198-4176-b8bf-3693076ccec7" xml:space="preserve">
+          <source><bpt id="8de828b1-9231-440b-bc2c-387eb641e305">&lt;strong&gt;</bpt>Temporary Folder<ept id="8de828b1-9231-440b-bc2c-387eb641e305">&lt;/strong&gt;</ept> - Optional.</source>
+          <target state="new"><bpt id="8de828b1-9231-440b-bc2c-387eb641e305">&lt;strong&gt;</bpt>Temporary Folder<ept id="8de828b1-9231-440b-bc2c-387eb641e305">&lt;/strong&gt;</ept> - Optional.</target>
+        </trans-unit>
+        <trans-unit id="1d2a8485-64d5-4e20-910f-28debd8f979d" xml:space="preserve">
+          <source>If provided, the adapter will upload the file to the 'Temporary Folder Path' and once the upload is done the file will be moved to 'Folder Path'.</source>
+          <target state="new">If provided, the adapter will upload the file to the 'Temporary Folder Path' and once the upload is done the file will be moved to 'Folder Path'.</target>
+        </trans-unit>
+        <trans-unit id="8deca52e-faaa-4150-b481-b1485536eca7" xml:space="preserve">
+          <source>The 'Temporary Folder Path' should be on the same physical disk as the 'Folder Path' to make sure that the move operation is atomic.</source>
+          <target state="new">The 'Temporary Folder Path' should be on the same physical disk as the 'Folder Path' to make sure that the move operation is atomic.</target>
+        </trans-unit>
+        <trans-unit id="965b42b4-8815-494b-956c-4a44165f1647" xml:space="preserve">
+          <source>Temporary folder can be used only when 'Append If Exist' property is disabled.</source>
+          <target state="new">Temporary folder can be used only when 'Append If Exist' property is disabled.</target>
+        </trans-unit>
+        <trans-unit id="7e94e0b3-712e-42c3-9603-c0da965999c4" xml:space="preserve">
+          <source>Provide the inputs and click on the check mark to complete input configuration:  
+<bpt id="ac875d3b-6f58-4038-95c1-a8471dd6c7d9">&lt;linkText&gt;</bpt>Configured Upload File action<ept id="ac875d3b-6f58-4038-95c1-a8471dd6c7d9">&lt;/linkText&gt;</ept></source>
+          <target state="new">Provide the inputs and click on the check mark to complete input configuration:  
+<bpt id="ac875d3b-6f58-4038-95c1-a8471dd6c7d9">&lt;linkText&gt;</bpt>Configured Upload File action<ept id="ac875d3b-6f58-4038-95c1-a8471dd6c7d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d22544b5-90a0-433c-afdd-674ec6cf1ed9" xml:space="preserve">
+          <source>The 'File Path' parameter is set to:</source>
+          <target state="new">The 'File Path' parameter is set to:</target>
+        </trans-unit>
+        <trans-unit id="bc99c39b-ae9d-45f1-ae2f-a29601387382" xml:space="preserve">
+          <source>Note that the configured FTP Upload File action shows both input parameters as well as output parameters.</source>
+          <target state="new">Note that the configured FTP Upload File action shows both input parameters as well as output parameters.</target>
+        </trans-unit>
+        <trans-unit id="0bffc414-5e62-4208-8f66-d6df2c01825c" xml:space="preserve">
+          <source>Note that in the configured screenshot, Content is value is set to an expression.</source>
+          <target state="new">Note that in the configured screenshot, Content is value is set to an expression.</target>
+        </trans-unit>
+        <trans-unit id="8d58669d-a7fd-43dd-b81a-2c85d15f16f6" xml:space="preserve">
+          <source>You can set it to any value that you want.</source>
+          <target state="new">You can set it to any value that you want.</target>
+        </trans-unit>
+        <trans-unit id="8099d99e-2dd5-4c14-82e8-d12e0f9e3384" xml:space="preserve">
+          <source>This is just an example.</source>
+          <target state="new">This is just an example.</target>
+        </trans-unit>
+        <trans-unit id="b980f119-e758-4b08-96c6-88572ce5d842" xml:space="preserve">
+          <source>The expression takes the output of the logic app trigger and uses it as the content of the file to be uploaded.</source>
+          <target state="new">The expression takes the output of the logic app trigger and uses it as the content of the file to be uploaded.</target>
+        </trans-unit>
+        <trans-unit id="86730eb0-c086-4a3f-acdf-85d545d880b2" xml:space="preserve">
+          <source>Lets say you want to use the output of a previous action, say transform.</source>
+          <target state="new">Lets say you want to use the output of a previous action, say transform.</target>
+        </trans-unit>
+        <trans-unit id="043bfce8-48ef-45ad-8001-91e08c2f4b03" xml:space="preserve">
+          <source>In that case, the expression would be</source>
+          <target state="new">In that case, the expression would be</target>
+        </trans-unit>
+        <trans-unit id="6fd48b2d-9cf1-4c12-9b08-37ba77ec9d92" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="f58c5bb3-2445-4c33-b306-e7ded0ccc82d" xml:space="preserve">
+          <source>See <bpt id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;/linkText&gt;</ept><bpt id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;title&gt;</bpt><ept id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;/linkText&gt;</ept><bpt id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;title&gt;</bpt><ept id="3d4374ee-3f68-4067-94ad-9395e4f33ae0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7472286b-a8f9-4b57-97e5-2c83bb530774" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;/linkText&gt;</ept><bpt id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;title&gt;</bpt><ept id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;/linkText&gt;</ept><bpt id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;title&gt;</bpt><ept id="3766c022-c326-418f-8ff6-4d7acfcafe92">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6ce7eff-176f-4096-9fb6-a331b253d70f" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="49f3f34c-4b3d-481b-ab00-71daa5ce051a" xml:space="preserve">
+          <source>See <bpt id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;/linkText&gt;</ept><bpt id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;title&gt;</bpt><ept id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;/linkText&gt;</ept><bpt id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;title&gt;</bpt><ept id="21e9e31b-34cd-4f21-84ac-7c513b79be2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09f223a3-e855-4883-b2f9-17c7149caa8e" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/LaunchAzureMarketplace.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/LaunchAzureMarketplace.PNG</target>
+        </trans-unit>
+        <trans-unit id="0bf82e08-5754-4cdf-9a06-6fb5f2c80947" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/SelectFTPConnector.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/SelectFTPConnector.PNG</target>
+        </trans-unit>
+        <trans-unit id="8afe4a1e-3feb-4e85-be0a-30c757a25757" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/CreateFTPConnector.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/CreateFTPConnector.PNG</target>
+        </trans-unit>
+        <trans-unit id="5c5e0ba0-22b5-4e2b-a36e-83aad7b5e2b5" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/CreateLogicApp.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/CreateLogicApp.PNG</target>
+        </trans-unit>
+        <trans-unit id="86cf5b0a-f966-4479-b92d-fe334609ecd6" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/LogicAppEmptyFlowDesigner.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/LogicAppEmptyFlowDesigner.PNG</target>
+        </trans-unit>
+        <trans-unit id="101cdaa2-2622-4091-9ad8-5dd5e52b0762" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/ChooseFTPTrigger.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/ChooseFTPTrigger.PNG</target>
+        </trans-unit>
+        <trans-unit id="8623440a-de09-437b-8a84-6be9bb573352" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/BasicInputsFTPTrigger.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/BasicInputsFTPTrigger.PNG</target>
+        </trans-unit>
+        <trans-unit id="1c0886d4-452e-4802-b331-fa5a4d9298f5" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/AdvancedInputsFTPTrigger.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/AdvancedInputsFTPTrigger.PNG</target>
+        </trans-unit>
+        <trans-unit id="323192cc-b385-47e2-8b20-22bef9e0fa30" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/ConfiguredFTPTrigger.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/ConfiguredFTPTrigger.PNG</target>
+        </trans-unit>
+        <trans-unit id="ef690bd7-8a5a-4f0f-8606-e3d753e3f681" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/ListOfFTPActions.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/ListOfFTPActions.PNG</target>
+        </trans-unit>
+        <trans-unit id="a7397e97-8856-40ba-93cd-11c5dba0dcac" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/BasicInputsUploadFile.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/BasicInputsUploadFile.PNG</target>
+        </trans-unit>
+        <trans-unit id="8e0dec16-6584-4bb6-aafe-158336029c8a" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/AdvancedInputsUploadFile.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/AdvancedInputsUploadFile.PNG</target>
+        </trans-unit>
+        <trans-unit id="cb495da5-a6dc-4b30-a51b-5de80c3e4231" xml:space="preserve">
+          <source>./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG</source>
+          <target state="new">./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="974f4f95-099e-48a9-bb99-ffbd72b2f942" />
+    </body>
+  </file>
+</xliff>

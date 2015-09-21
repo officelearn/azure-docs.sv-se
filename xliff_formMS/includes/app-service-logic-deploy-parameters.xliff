@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="edd432d9-d69a-4e57-a129-2df86615fb50" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="edd432d9-d69a-4e57-a129-2df86615fb50" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="15b4ceb8-ad47-4ae3-88f8-7c3b35476041">
+        <trans-unit id="7d2354dd-1509-4664-b94e-cf2e69d7ac91" xml:space="preserve">
+          <source>With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed.</source>
+          <target state="new">With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed.</target>
+        </trans-unit>
+        <trans-unit id="fad99fc5-9e80-4faa-b92a-bdf68b7a9b4b" xml:space="preserve">
+          <source>The template includes a section called Parameters that contains all of the parameter values.</source>
+          <target state="new">The template includes a section called Parameters that contains all of the parameter values.</target>
+        </trans-unit>
+        <trans-unit id="8feffa3b-f0c8-47e8-a1a4-b61baaf61662" xml:space="preserve">
+          <source>You should define a parameter for those values that will vary based on the project you are deploying or based on the 
+environment you are deploying to.</source>
+          <target state="new">You should define a parameter for those values that will vary based on the project you are deploying or based on the 
+environment you are deploying to.</target>
+        </trans-unit>
+        <trans-unit id="21d88dac-9859-4444-ab1e-3f052611a53d" xml:space="preserve">
+          <source>Do not define parameters for values that will always stay the same.</source>
+          <target state="new">Do not define parameters for values that will always stay the same.</target>
+        </trans-unit>
+        <trans-unit id="2ba57404-a365-46df-851d-2d832b6c4fe5" xml:space="preserve">
+          <source>Each parameter value is used in the template to define the resources that are deploy.</source>
+          <target state="new">Each parameter value is used in the template to define the resources that are deploy.</target>
+        </trans-unit>
+        <trans-unit id="691b0bde-6eff-4416-a1ab-145f3c060a82" xml:space="preserve">
+          <source>When defining parameters, use the <bpt id="26ad3a8e-3b9b-48a7-8d16-01d206265f84">&lt;strong&gt;</bpt>allowedValues<ept id="26ad3a8e-3b9b-48a7-8d16-01d206265f84">&lt;/strong&gt;</ept> field to specify which values a user can provide during deployment.</source>
+          <target state="new">When defining parameters, use the <bpt id="26ad3a8e-3b9b-48a7-8d16-01d206265f84">&lt;strong&gt;</bpt>allowedValues<ept id="26ad3a8e-3b9b-48a7-8d16-01d206265f84">&lt;/strong&gt;</ept> field to specify which values a user can provide during deployment.</target>
+        </trans-unit>
+        <trans-unit id="790c55cb-d7de-4702-95a8-42cd8fe869d5" xml:space="preserve">
+          <source>Use the <bpt id="d44c17fc-314b-49bf-adc1-8d593e760375">&lt;strong&gt;</bpt>defaultValue<ept id="d44c17fc-314b-49bf-adc1-8d593e760375">&lt;/strong&gt;</ept> field to assign a value to the parameter, if no value is provided 
+during deployment.</source>
+          <target state="new">Use the <bpt id="d44c17fc-314b-49bf-adc1-8d593e760375">&lt;strong&gt;</bpt>defaultValue<ept id="d44c17fc-314b-49bf-adc1-8d593e760375">&lt;/strong&gt;</ept> field to assign a value to the parameter, if no value is provided 
+during deployment.</target>
+        </trans-unit>
+        <trans-unit id="7c232a9c-5ffb-4332-9bd3-1bb9feda103e" xml:space="preserve">
+          <source>We will describe each parameter in the template.</source>
+          <target state="new">We will describe each parameter in the template.</target>
+        </trans-unit>
+        <trans-unit id="192faadd-937c-42f5-8692-f7708d1a6ab6" xml:space="preserve">
+          <source>The name of the logic app to create.</source>
+          <target state="new">The name of the logic app to create.</target>
+        </trans-unit>
+        <trans-unit id="0c397850-b758-47ce-b14b-1c0316bbda22" xml:space="preserve">
+          <source>The name of the App Service plan to create for hosting the logic app.</source>
+          <target state="new">The name of the App Service plan to create for hosting the logic app.</target>
+        </trans-unit>
+        <trans-unit id="0905e68f-bf10-4db9-9292-d07ee55ea6a2" xml:space="preserve">
+          <source>The pricing tier for the logic app.</source>
+          <target state="new">The pricing tier for the logic app.</target>
+        </trans-unit>
+        <trans-unit id="cda4cb02-1c1e-4a2d-8149-782b4c9ca3db" xml:space="preserve">
+          <source>The template defines the values that are permitted for this parameter (Free, Basic, Standard, or Premium), and assigns a default value (Standard) if no value is specified.</source>
+          <target state="new">The template defines the values that are permitted for this parameter (Free, Basic, Standard, or Premium), and assigns a default value (Standard) if no value is specified.</target>
+        </trans-unit>
+        <trans-unit id="671f8ba4-00c9-407e-b393-d8d098bf21cd" xml:space="preserve">
+          <source>The instance size of the app.</source>
+          <target state="new">The instance size of the app.</target>
+        </trans-unit>
+        <trans-unit id="3d181aa6-a208-489b-a864-5c0c3e278297" xml:space="preserve">
+          <source>The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified.</source>
+          <target state="new">The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified.</target>
+        </trans-unit>
+        <trans-unit id="f7af33d8-1581-49c7-83b6-d4b981636a46" xml:space="preserve">
+          <source>The values correspond to small, medium and large.</source>
+          <target state="new">The values correspond to small, medium and large.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

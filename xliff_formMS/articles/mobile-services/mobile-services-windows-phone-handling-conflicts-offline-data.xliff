@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="03a8436f-aca6-4e46-a84a-f8033c28fdbf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="03a8436f-aca6-4e46-a84a-f8033c28fdbf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fa676ed8-f193-4aad-8652-522e2c3cf51f">
+        <trans-unit id="b66edcea-2ff7-4799-b9b7-7f550379b8d5" xml:space="preserve">
+          <source>Handle conflicts with offline data in Mobile Services (Windows Phone) | Microsoft Azure</source>
+          <target state="new">Handle conflicts with offline data in Mobile Services (Windows Phone) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6d83366f-e156-4e95-9470-5de39efedae1" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application</source>
+          <target state="new">Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application</target>
+        </trans-unit>
+        <trans-unit id="f5d9a55f-5ff3-4e2f-adb0-70cbed3623fd" xml:space="preserve">
+          <source><bpt id="970bc037-5139-474f-9fba-df994d810027">&lt;token href="../../includes/mobile-services-selector-offline-conflicts.md"&gt;</bpt><ept id="970bc037-5139-474f-9fba-df994d810027">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="970bc037-5139-474f-9fba-df994d810027">&lt;token href="../../includes/mobile-services-selector-offline-conflicts.md"&gt;</bpt><ept id="970bc037-5139-474f-9fba-df994d810027">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bc0f2bf-891c-4046-884a-d77621ffdf42" xml:space="preserve">
+          <source>This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services.</source>
+          <target state="new">This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="faeeb08f-d7bb-476c-85e7-9ca0a7ad312f" xml:space="preserve">
+          <source>In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Azure Management Portal to view and update the database when running the app.</source>
+          <target state="new">In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Azure Management Portal to view and update the database when running the app.</target>
+        </trans-unit>
+        <trans-unit id="4f2229b8-68cf-4b5d-969c-65765b869924" xml:space="preserve">
+          <source>This tutorial builds on the steps and the sample app from the previous tutorial [Get started with offline data].</source>
+          <target state="new">This tutorial builds on the steps and the sample app from the previous tutorial [Get started with offline data].</target>
+        </trans-unit>
+        <trans-unit id="b872317a-1463-405d-b9d6-c29c1fa95466" xml:space="preserve">
+          <source>Before you begin this tutorial, you must first complete [Get started with offline data].</source>
+          <target state="new">Before you begin this tutorial, you must first complete [Get started with offline data].</target>
+        </trans-unit>
+        <trans-unit id="50220680-c1b4-4a3b-b15f-55e835443279" xml:space="preserve">
+          <source>This tutorial requires Visual Studio 2012 and the [Windows Phone 8 SDK].</source>
+          <target state="new">This tutorial requires Visual Studio 2012 and the [Windows Phone 8 SDK].</target>
+        </trans-unit>
+        <trans-unit id="c663c6df-23bf-4819-9291-c146c522e96e" xml:space="preserve">
+          <source>This tutorial is built on the [Handling conflicts code sample], which is a Windows Phone 8 project for Visual Studio 2012.</source>
+          <target state="new">This tutorial is built on the [Handling conflicts code sample], which is a Windows Phone 8 project for Visual Studio 2012.</target>
+        </trans-unit>
+        <trans-unit id="487028c8-8a24-4e9e-b377-6de5e7bce597" xml:space="preserve">
+          <source>The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem.</source>
+          <target state="new">The UI for this app is similar to the app in the tutorial [Get started with offline data], except that there is a new date column in for each TodoItem.</target>
+        </trans-unit>
+        <trans-unit id="ebccf338-5e86-4c41-ba55-359b1b3e3b1c" xml:space="preserve">
+          <source><bpt id="2ce0804f-96a8-47e8-a5b4-515cf1e7ec68">&lt;linkText&gt;</bpt><ept id="2ce0804f-96a8-47e8-a5b4-515cf1e7ec68">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ce0804f-96a8-47e8-a5b4-515cf1e7ec68">&lt;linkText&gt;</bpt><ept id="2ce0804f-96a8-47e8-a5b4-515cf1e7ec68">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5577dcc-3fd5-4d8e-b649-ccc5bc4017b2" xml:space="preserve">
+          <source>Download the Windows Phone version of the [Handling conflicts code sample].</source>
+          <target state="new">Download the Windows Phone version of the [Handling conflicts code sample].</target>
+        </trans-unit>
+        <trans-unit id="6d23c882-c897-4cb4-b964-fc959a3bd97c" xml:space="preserve">
+          <source>Install [SQLite for Windows Phone 8] if it has not been installed.</source>
+          <target state="new">Install [SQLite for Windows Phone 8] if it has not been installed.</target>
+        </trans-unit>
+        <trans-unit id="7ff4ab19-2b50-4e9b-93be-f7e9a4dd82cc" xml:space="preserve">
+          <source>In Visual Studio 2012, open the downloaded project.</source>
+          <target state="new">In Visual Studio 2012, open the downloaded project.</target>
+        </trans-unit>
+        <trans-unit id="ab1504c3-61c6-49a1-96ca-bcfbc282fde3" xml:space="preserve">
+          <source>Add a reference to <bpt id="4fe80bfa-b964-459f-98f0-3e6f10cab756">&lt;strong&gt;</bpt>SQLite for Windows Phone<ept id="4fe80bfa-b964-459f-98f0-3e6f10cab756">&lt;/strong&gt;</ept> under <bpt id="7da7e7af-de52-4330-84f0-79e61194e8b8">&lt;strong&gt;</bpt>Windows Phone<ept id="7da7e7af-de52-4330-84f0-79e61194e8b8">&lt;/strong&gt;</ept> &gt; <bpt id="bcbb4c10-128d-41f0-8817-a2ab1d7e1f55">&lt;strong&gt;</bpt>Extensions<ept id="bcbb4c10-128d-41f0-8817-a2ab1d7e1f55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add a reference to <bpt id="4fe80bfa-b964-459f-98f0-3e6f10cab756">&lt;strong&gt;</bpt>SQLite for Windows Phone<ept id="4fe80bfa-b964-459f-98f0-3e6f10cab756">&lt;/strong&gt;</ept> under <bpt id="7da7e7af-de52-4330-84f0-79e61194e8b8">&lt;strong&gt;</bpt>Windows Phone<ept id="7da7e7af-de52-4330-84f0-79e61194e8b8">&lt;/strong&gt;</ept> &gt; <bpt id="bcbb4c10-128d-41f0-8817-a2ab1d7e1f55">&lt;strong&gt;</bpt>Extensions<ept id="bcbb4c10-128d-41f0-8817-a2ab1d7e1f55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17380925-0fb4-4a7f-bd85-60f26e42746a" xml:space="preserve">
+          <source>In Visual Studio 2012, press the <bpt id="b0107383-e3ef-4b68-b903-dee7ec8d29d5">&lt;strong&gt;</bpt>F5<ept id="b0107383-e3ef-4b68-b903-dee7ec8d29d5">&lt;/strong&gt;</ept> key to build and run the app in the debugger.</source>
+          <target state="new">In Visual Studio 2012, press the <bpt id="b0107383-e3ef-4b68-b903-dee7ec8d29d5">&lt;strong&gt;</bpt>F5<ept id="b0107383-e3ef-4b68-b903-dee7ec8d29d5">&lt;/strong&gt;</ept> key to build and run the app in the debugger.</target>
+        </trans-unit>
+        <trans-unit id="5b02808a-0c0e-47e9-8800-aee3175e8de7" xml:space="preserve">
+          <source>In the app, type some text for some new todo items, then click <bpt id="f90d5e3a-7372-422a-9d32-d62b82d5230a">&lt;strong&gt;</bpt>Save<ept id="f90d5e3a-7372-422a-9d32-d62b82d5230a">&lt;/strong&gt;</ept> to save each one.</source>
+          <target state="new">In the app, type some text for some new todo items, then click <bpt id="f90d5e3a-7372-422a-9d32-d62b82d5230a">&lt;strong&gt;</bpt>Save<ept id="f90d5e3a-7372-422a-9d32-d62b82d5230a">&lt;/strong&gt;</ept> to save each one.</target>
+        </trans-unit>
+        <trans-unit id="d63fd95f-0368-4a7f-8c82-8ba1a2352ef0" xml:space="preserve">
+          <source>You can also modify the due date of the todo items you add.</source>
+          <target state="new">You can also modify the due date of the todo items you add.</target>
+        </trans-unit>
+        <trans-unit id="ce8d656c-c464-422b-8772-36b4ee796004" xml:space="preserve">
+          <source>Note that the app is not yet connected to any mobile service, so the buttons <bpt id="733f5c42-f212-458e-b6e9-15737152d877">&lt;strong&gt;</bpt>Push<ept id="733f5c42-f212-458e-b6e9-15737152d877">&lt;/strong&gt;</ept> and <bpt id="aca2de77-19db-4171-8fed-e2ad53f70800">&lt;strong&gt;</bpt>Pull<ept id="aca2de77-19db-4171-8fed-e2ad53f70800">&lt;/strong&gt;</ept> will throw exceptions.</source>
+          <target state="new">Note that the app is not yet connected to any mobile service, so the buttons <bpt id="733f5c42-f212-458e-b6e9-15737152d877">&lt;strong&gt;</bpt>Push<ept id="733f5c42-f212-458e-b6e9-15737152d877">&lt;/strong&gt;</ept> and <bpt id="aca2de77-19db-4171-8fed-e2ad53f70800">&lt;strong&gt;</bpt>Pull<ept id="aca2de77-19db-4171-8fed-e2ad53f70800">&lt;/strong&gt;</ept> will throw exceptions.</target>
+        </trans-unit>
+        <trans-unit id="342c509f-b11a-4d1a-9c7b-a8202ab612c0" xml:space="preserve">
+          <source>In this section you will update the database for your mobile service to include a TodoItem table with a due date column.</source>
+          <target state="new">In this section you will update the database for your mobile service to include a TodoItem table with a due date column.</target>
+        </trans-unit>
+        <trans-unit id="7db6ff21-134d-471b-8946-0fbc935e5903" xml:space="preserve">
+          <source>The app allows you to change the due date for an item at runtime so that you can generate sync conflicts in a later section of this tutorial.</source>
+          <target state="new">The app allows you to change the due date for an item at runtime so that you can generate sync conflicts in a later section of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6e417531-b1dd-4b61-a113-9e4687a6a069" xml:space="preserve">
+          <source>The <bpt id="e2766cad-52b6-460c-98f6-7c0b0eeaba5e">&lt;code&gt;</bpt>TodoItem<ept id="e2766cad-52b6-460c-98f6-7c0b0eeaba5e">&lt;/code&gt;</ept> class in the sample is defined in MainPage.xaml.cs.</source>
+          <target state="new">The <bpt id="e2766cad-52b6-460c-98f6-7c0b0eeaba5e">&lt;code&gt;</bpt>TodoItem<ept id="e2766cad-52b6-460c-98f6-7c0b0eeaba5e">&lt;/code&gt;</ept> class in the sample is defined in MainPage.xaml.cs.</target>
+        </trans-unit>
+        <trans-unit id="980e2594-af8e-46ec-815c-924783af50c3" xml:space="preserve">
+          <source>Notice the class has the following attribute which will target the sync operations against that table.</source>
+          <target state="new">Notice the class has the following attribute which will target the sync operations against that table.</target>
+        </trans-unit>
+        <trans-unit id="68d1be15-86e5-4b31-98e3-9c3d72be33c7" xml:space="preserve">
+          <source>Update your database to include this table.</source>
+          <target state="new">Update your database to include this table.</target>
+        </trans-unit>
+        <trans-unit id="da0fa442-1aaa-4ac1-ac20-a18ab793ad4b" xml:space="preserve">
+          <source>If you are using the .NET backend for your mobile service, follow these steps to update the schema for your database.</source>
+          <target state="new">If you are using the .NET backend for your mobile service, follow these steps to update the schema for your database.</target>
+        </trans-unit>
+        <trans-unit id="43ecb003-e6f2-4772-9ecc-1b130855e8ec" xml:space="preserve">
+          <source>Open your .NET backend mobile service project in Visual Studio.</source>
+          <target state="new">Open your .NET backend mobile service project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="8d435beb-ee6b-4787-b26f-91d6f28b0fe3" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, in your service project, expand the <bpt id="a06d7e28-89fe-4d1e-a4fd-2e496b4a340d">&lt;strong&gt;</bpt>Models<ept id="a06d7e28-89fe-4d1e-a4fd-2e496b4a340d">&lt;/strong&gt;</ept> folder and open ToDoItem.cs.</source>
+          <target state="new">In Solution Explorer for Visual Studio, in your service project, expand the <bpt id="a06d7e28-89fe-4d1e-a4fd-2e496b4a340d">&lt;strong&gt;</bpt>Models<ept id="a06d7e28-89fe-4d1e-a4fd-2e496b4a340d">&lt;/strong&gt;</ept> folder and open ToDoItem.cs.</target>
+        </trans-unit>
+        <trans-unit id="b1383d05-98a5-4681-8465-5b0f5fef9b2f" xml:space="preserve">
+          <source>Add the <bpt id="9051a8a7-71de-46ac-aa51-113dcb7eb4b6">&lt;code&gt;</bpt>DueDate<ept id="9051a8a7-71de-46ac-aa51-113dcb7eb4b6">&lt;/code&gt;</ept> property as follows.</source>
+          <target state="new">Add the <bpt id="9051a8a7-71de-46ac-aa51-113dcb7eb4b6">&lt;code&gt;</bpt>DueDate<ept id="9051a8a7-71de-46ac-aa51-113dcb7eb4b6">&lt;/code&gt;</ept> property as follows.</target>
+        </trans-unit>
+        <trans-unit id="2a13cc94-9de8-4280-b048-ca4b059b4f16" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="a9b9efba-c413-4420-8c28-88f7740cfa0e">&lt;strong&gt;</bpt>App_Start<ept id="a9b9efba-c413-4420-8c28-88f7740cfa0e">&lt;/strong&gt;</ept> folder and open the WebApiConfig.cs file.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="a9b9efba-c413-4420-8c28-88f7740cfa0e">&lt;strong&gt;</bpt>App_Start<ept id="a9b9efba-c413-4420-8c28-88f7740cfa0e">&lt;/strong&gt;</ept> folder and open the WebApiConfig.cs file.</target>
+        </trans-unit>
+        <trans-unit id="bc3b50b5-2a86-4e56-9607-ac2cffa8c272" xml:space="preserve">
+          <source>In the WebApiConfig.cs file, notice that your default database initializer class is derived from the <bpt id="825883f4-9770-4192-8126-ad48bb45d283">&lt;code&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="825883f4-9770-4192-8126-ad48bb45d283">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In the WebApiConfig.cs file, notice that your default database initializer class is derived from the <bpt id="825883f4-9770-4192-8126-ad48bb45d283">&lt;code&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="825883f4-9770-4192-8126-ad48bb45d283">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="b2b736fd-e1b7-4b1a-8203-4b97269fc1e3" xml:space="preserve">
+          <source>This means any change to the model will result in the table being dropped and recreated to accommodate the new model.</source>
+          <target state="new">This means any change to the model will result in the table being dropped and recreated to accommodate the new model.</target>
+        </trans-unit>
+        <trans-unit id="a8d02ebf-90ca-49c4-9d7f-141eb967ed86" xml:space="preserve">
+          <source>So the data in the table will be lost and the table will be re-seeded.</source>
+          <target state="new">So the data in the table will be lost and the table will be re-seeded.</target>
+        </trans-unit>
+        <trans-unit id="309f50ca-2ea1-4384-878f-398f3568a5f5" xml:space="preserve">
+          <source>Modify the Seed method of the database initializer so that the <bpt id="c37c34ab-f400-4355-b5cf-c395b1675b94">&lt;code&gt;</bpt>Seed()<ept id="c37c34ab-f400-4355-b5cf-c395b1675b94">&lt;/code&gt;</ept> initialization function as follows to initialize the new DueDate column.</source>
+          <target state="new">Modify the Seed method of the database initializer so that the <bpt id="c37c34ab-f400-4355-b5cf-c395b1675b94">&lt;code&gt;</bpt>Seed()<ept id="c37c34ab-f400-4355-b5cf-c395b1675b94">&lt;/code&gt;</ept> initialization function as follows to initialize the new DueDate column.</target>
+        </trans-unit>
+        <trans-unit id="026e590a-fde1-4cfd-aa24-9ffc72b12455" xml:space="preserve">
+          <source>Save the WebApiConfig.cs file.</source>
+          <target state="new">Save the WebApiConfig.cs file.</target>
+        </trans-unit>
+        <trans-unit id="3521bb64-7706-4b35-bcd3-4ee01e4a0cc9" xml:space="preserve">
+          <source>When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</source>
+          <target state="new">When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</target>
+        </trans-unit>
+        <trans-unit id="4efd3ad7-a4fc-4d69-aa76-cd1bb4047479" xml:space="preserve">
+          <source>To make this data model change and maintain existing data in the database, you must use Code First Migrations.</source>
+          <target state="new">To make this data model change and maintain existing data in the database, you must use Code First Migrations.</target>
+        </trans-unit>
+        <trans-unit id="c9e3b9d7-ea13-4100-81a2-7b16ad7c7888" xml:space="preserve">
+          <source>For more information, see <bpt id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;/linkText&gt;</ept><bpt id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;title&gt;</bpt><ept id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;/linkText&gt;</ept><bpt id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;title&gt;</bpt><ept id="3a617ba0-c3b4-46e6-9b39-5ec9de38879d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60844154-2537-40af-aad0-7b0be7a3080a" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="fc1a546e-ef3f-47e6-b1c3-9877e4d63ca9">&lt;strong&gt;</bpt>Controllers<ept id="fc1a546e-ef3f-47e6-b1c3-9877e4d63ca9">&lt;/strong&gt;</ept> folder and open ToDoItemController.cs.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="fc1a546e-ef3f-47e6-b1c3-9877e4d63ca9">&lt;strong&gt;</bpt>Controllers<ept id="fc1a546e-ef3f-47e6-b1c3-9877e4d63ca9">&lt;/strong&gt;</ept> folder and open ToDoItemController.cs.</target>
+        </trans-unit>
+        <trans-unit id="5adace22-4cd0-496a-b085-d3763bd4a43d" xml:space="preserve">
+          <source>Rename the <bpt id="efb338b2-dc1d-405e-aba1-17056bdee99d">&lt;code&gt;</bpt>TodoItemController<ept id="efb338b2-dc1d-405e-aba1-17056bdee99d">&lt;/code&gt;</ept> class to <bpt id="c7b929bf-15a2-4a44-9506-31ec1c925039">&lt;code&gt;</bpt>TodoWithDateController<ept id="c7b929bf-15a2-4a44-9506-31ec1c925039">&lt;/code&gt;</ept>.</source>
+          <target state="new">Rename the <bpt id="efb338b2-dc1d-405e-aba1-17056bdee99d">&lt;code&gt;</bpt>TodoItemController<ept id="efb338b2-dc1d-405e-aba1-17056bdee99d">&lt;/code&gt;</ept> class to <bpt id="c7b929bf-15a2-4a44-9506-31ec1c925039">&lt;code&gt;</bpt>TodoWithDateController<ept id="c7b929bf-15a2-4a44-9506-31ec1c925039">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f146337-0fbb-4fe9-83c4-5b8eade0f18a" xml:space="preserve">
+          <source>This will change the REST endpoint for table operations.</source>
+          <target state="new">This will change the REST endpoint for table operations.</target>
+        </trans-unit>
+        <trans-unit id="e5ac3296-e38b-40bc-835b-e8213a26dc79" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, right click your .NET backend mobile service project and click <bpt id="aff6374e-a511-446c-adc6-e0b425e375a7">&lt;strong&gt;</bpt>Publish<ept id="aff6374e-a511-446c-adc6-e0b425e375a7">&lt;/strong&gt;</ept> to publish your changes.</source>
+          <target state="new">In Solution Explorer for Visual Studio, right click your .NET backend mobile service project and click <bpt id="aff6374e-a511-446c-adc6-e0b425e375a7">&lt;strong&gt;</bpt>Publish<ept id="aff6374e-a511-446c-adc6-e0b425e375a7">&lt;/strong&gt;</ept> to publish your changes.</target>
+        </trans-unit>
+        <trans-unit id="18d4385b-592a-4d09-87c6-a81a81abb8f9" xml:space="preserve">
+          <source>For JavaScript backend mobile services, you will add a new table named <bpt id="d323f29b-39e7-482c-a352-25a2773c5fb7">&lt;strong&gt;</bpt>TodoWithDate<ept id="d323f29b-39e7-482c-a352-25a2773c5fb7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For JavaScript backend mobile services, you will add a new table named <bpt id="d323f29b-39e7-482c-a352-25a2773c5fb7">&lt;strong&gt;</bpt>TodoWithDate<ept id="d323f29b-39e7-482c-a352-25a2773c5fb7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ee4be9e-7215-4475-9887-1a60ec1b2ecd" xml:space="preserve">
+          <source>To add the <bpt id="42c56495-1439-475d-8544-72776bddafeb">&lt;strong&gt;</bpt>TodoWithDate<ept id="42c56495-1439-475d-8544-72776bddafeb">&lt;/strong&gt;</ept> table for JavaScript backend mobile services, follow these steps.</source>
+          <target state="new">To add the <bpt id="42c56495-1439-475d-8544-72776bddafeb">&lt;strong&gt;</bpt>TodoWithDate<ept id="42c56495-1439-475d-8544-72776bddafeb">&lt;/strong&gt;</ept> table for JavaScript backend mobile services, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="27b82a3d-b53a-4294-866a-bc89d9bd4de8" xml:space="preserve">
+          <source>Log into the [Azure Management Portal].</source>
+          <target state="new">Log into the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="fc432b90-d962-4e06-9cb0-67cf1683484b" xml:space="preserve">
+          <source>Navigate to the <bpt id="59171c52-6931-4084-bd5c-abb5c6900a15">&lt;strong&gt;</bpt>Data<ept id="59171c52-6931-4084-bd5c-abb5c6900a15">&lt;/strong&gt;</ept> tab of your mobile service.</source>
+          <target state="new">Navigate to the <bpt id="59171c52-6931-4084-bd5c-abb5c6900a15">&lt;strong&gt;</bpt>Data<ept id="59171c52-6931-4084-bd5c-abb5c6900a15">&lt;/strong&gt;</ept> tab of your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="b7c780cd-d80a-45ea-a87e-ccbe82c8c615" xml:space="preserve">
+          <source>Click <bpt id="6cba8efb-2635-4097-954c-0d41674a70e5">&lt;strong&gt;</bpt>Create<ept id="6cba8efb-2635-4097-954c-0d41674a70e5">&lt;/strong&gt;</ept> at the bottom of the page and create a new table named <bpt id="b0e4b28d-b14d-4663-8270-1a62ce43ddd4">&lt;strong&gt;</bpt>TodoWithDate<ept id="b0e4b28d-b14d-4663-8270-1a62ce43ddd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6cba8efb-2635-4097-954c-0d41674a70e5">&lt;strong&gt;</bpt>Create<ept id="6cba8efb-2635-4097-954c-0d41674a70e5">&lt;/strong&gt;</ept> at the bottom of the page and create a new table named <bpt id="b0e4b28d-b14d-4663-8270-1a62ce43ddd4">&lt;strong&gt;</bpt>TodoWithDate<ept id="b0e4b28d-b14d-4663-8270-1a62ce43ddd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f266db08-6563-465b-afea-e6c032bca029" xml:space="preserve">
+          <source>Now it's time to test the app against Mobile Services.</source>
+          <target state="new">Now it's time to test the app against Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="f23b6e59-cccc-47a2-858a-864bdf7ae8f7" xml:space="preserve">
+          <source>In the Azure Management Portal, find your mobile service's application key by clicking <bpt id="6c062eca-880e-448d-acd8-b0ebfca856b6">&lt;strong&gt;</bpt>Manage Keys<ept id="6c062eca-880e-448d-acd8-b0ebfca856b6">&lt;/strong&gt;</ept> on the command bar of the <bpt id="6d28f036-f854-4353-a221-da7b5a85893f">&lt;strong&gt;</bpt>Dashboard<ept id="6d28f036-f854-4353-a221-da7b5a85893f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the Azure Management Portal, find your mobile service's application key by clicking <bpt id="6c062eca-880e-448d-acd8-b0ebfca856b6">&lt;strong&gt;</bpt>Manage Keys<ept id="6c062eca-880e-448d-acd8-b0ebfca856b6">&lt;/strong&gt;</ept> on the command bar of the <bpt id="6d28f036-f854-4353-a221-da7b5a85893f">&lt;strong&gt;</bpt>Dashboard<ept id="6d28f036-f854-4353-a221-da7b5a85893f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2b34ccec-3bcf-4b27-91e4-e231b89938e8" xml:space="preserve">
+          <source>Copy the <bpt id="5ce4475e-6ec1-4df6-bdb6-6ca810ca344a">&lt;strong&gt;</bpt>Application Key<ept id="5ce4475e-6ec1-4df6-bdb6-6ca810ca344a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the <bpt id="5ce4475e-6ec1-4df6-bdb6-6ca810ca344a">&lt;strong&gt;</bpt>Application Key<ept id="5ce4475e-6ec1-4df6-bdb6-6ca810ca344a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2817fd0-b983-4b35-b701-423150238927" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, open the App.xaml.cs file in the client sample project.</source>
+          <target state="new">In Solution Explorer for Visual Studio, open the App.xaml.cs file in the client sample project.</target>
+        </trans-unit>
+        <trans-unit id="8b7b546c-e8a2-4c3a-9e12-c7ebcad660b1" xml:space="preserve">
+          <source>Change the initialization of the <bpt id="8dd2e297-1e9f-4d17-ab5f-693bcf374a83">&lt;strong&gt;</bpt>MobileServiceClient<ept id="8dd2e297-1e9f-4d17-ab5f-693bcf374a83">&lt;/strong&gt;</ept> to use your mobile service URL and application key:</source>
+          <target state="new">Change the initialization of the <bpt id="8dd2e297-1e9f-4d17-ab5f-693bcf374a83">&lt;strong&gt;</bpt>MobileServiceClient<ept id="8dd2e297-1e9f-4d17-ab5f-693bcf374a83">&lt;/strong&gt;</ept> to use your mobile service URL and application key:</target>
+        </trans-unit>
+        <trans-unit id="50ec3ebf-eee6-4c75-9bd0-3816485d28e8" xml:space="preserve">
+          <source>In Visual Studio, press the <bpt id="b5574d1c-e1da-45c7-95e0-24aed684db33">&lt;strong&gt;</bpt>F5<ept id="b5574d1c-e1da-45c7-95e0-24aed684db33">&lt;/strong&gt;</ept> key to build and run the app.</source>
+          <target state="new">In Visual Studio, press the <bpt id="b5574d1c-e1da-45c7-95e0-24aed684db33">&lt;strong&gt;</bpt>F5<ept id="b5574d1c-e1da-45c7-95e0-24aed684db33">&lt;/strong&gt;</ept> key to build and run the app.</target>
+        </trans-unit>
+        <trans-unit id="e17b4e80-9ecf-44bc-90da-1de78c9ff455" xml:space="preserve">
+          <source>As before, type text in the textbox, and then click <bpt id="6ab52f66-1235-45aa-b128-5e3362056e2e">&lt;strong&gt;</bpt>Save<ept id="6ab52f66-1235-45aa-b128-5e3362056e2e">&lt;/strong&gt;</ept> to save some new todo items.</source>
+          <target state="new">As before, type text in the textbox, and then click <bpt id="6ab52f66-1235-45aa-b128-5e3362056e2e">&lt;strong&gt;</bpt>Save<ept id="6ab52f66-1235-45aa-b128-5e3362056e2e">&lt;/strong&gt;</ept> to save some new todo items.</target>
+        </trans-unit>
+        <trans-unit id="4bcb7676-591e-4bb8-a045-c18a8b5d141b" xml:space="preserve">
+          <source>This saves the data to the local sync table, but not to the server.</source>
+          <target state="new">This saves the data to the local sync table, but not to the server.</target>
+        </trans-unit>
+        <trans-unit id="2c1b2803-f59d-4994-92ae-c966780d94d2" xml:space="preserve">
+          <source><bpt id="1ca0607e-ca6f-42f0-9ef3-8a4686dab4fb">&lt;linkText&gt;</bpt><ept id="1ca0607e-ca6f-42f0-9ef3-8a4686dab4fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ca0607e-ca6f-42f0-9ef3-8a4686dab4fb">&lt;linkText&gt;</bpt><ept id="1ca0607e-ca6f-42f0-9ef3-8a4686dab4fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="250dc908-bf6d-42ab-9d33-b76d5aec9853" xml:space="preserve">
+          <source>To see the current state of your database, log into the [Azure Management Portal], click <bpt id="db968449-edb2-4ff7-9213-ca30f2293d66">&lt;strong&gt;</bpt>Mobile Services<ept id="db968449-edb2-4ff7-9213-ca30f2293d66">&lt;/strong&gt;</ept>, and then click your mobile service.</source>
+          <target state="new">To see the current state of your database, log into the [Azure Management Portal], click <bpt id="db968449-edb2-4ff7-9213-ca30f2293d66">&lt;strong&gt;</bpt>Mobile Services<ept id="db968449-edb2-4ff7-9213-ca30f2293d66">&lt;/strong&gt;</ept>, and then click your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="6bd2d248-9035-487d-aff7-dad9cf0452f5" xml:space="preserve">
+          <source>If you are using the JavaScript backend for your mobile service, click the <bpt id="a9ef503f-e5e3-42ad-987b-7168b4c1b9b2">&lt;strong&gt;</bpt>Data<ept id="a9ef503f-e5e3-42ad-987b-7168b4c1b9b2">&lt;/strong&gt;</ept> tab, then click the <bpt id="88d79f41-778b-4b14-941e-c8ecbd3209cb">&lt;strong&gt;</bpt>TodoWithDate<ept id="88d79f41-778b-4b14-941e-c8ecbd3209cb">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">If you are using the JavaScript backend for your mobile service, click the <bpt id="a9ef503f-e5e3-42ad-987b-7168b4c1b9b2">&lt;strong&gt;</bpt>Data<ept id="a9ef503f-e5e3-42ad-987b-7168b4c1b9b2">&lt;/strong&gt;</ept> tab, then click the <bpt id="88d79f41-778b-4b14-941e-c8ecbd3209cb">&lt;strong&gt;</bpt>TodoWithDate<ept id="88d79f41-778b-4b14-941e-c8ecbd3209cb">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="2cfc47bc-e41f-4797-837a-2704e9273241" xml:space="preserve">
+          <source>Click <bpt id="ba92b65a-5391-48e3-9c45-bc080cafa427">&lt;strong&gt;</bpt>Browse<ept id="ba92b65a-5391-48e3-9c45-bc080cafa427">&lt;/strong&gt;</ept> to see that the table will still be empty, since we have not pushed changes from the app to the server..</source>
+          <target state="new">Click <bpt id="ba92b65a-5391-48e3-9c45-bc080cafa427">&lt;strong&gt;</bpt>Browse<ept id="ba92b65a-5391-48e3-9c45-bc080cafa427">&lt;/strong&gt;</ept> to see that the table will still be empty, since we have not pushed changes from the app to the server..</target>
+        </trans-unit>
+        <trans-unit id="7ee7b034-2405-4b62-8465-396229aea5cc" xml:space="preserve">
+          <source><bpt id="77e4bb92-61b3-43c4-b79a-93b59b7d929a">&lt;linkText&gt;</bpt><ept id="77e4bb92-61b3-43c4-b79a-93b59b7d929a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="77e4bb92-61b3-43c4-b79a-93b59b7d929a">&lt;linkText&gt;</bpt><ept id="77e4bb92-61b3-43c4-b79a-93b59b7d929a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f682e289-ee29-462d-81d4-95a75cffcf88" xml:space="preserve">
+          <source>If you are using the .NET backend for your mobile service, click the <bpt id="e635c8f7-b77a-4afb-a296-84cd55ed30bf">&lt;strong&gt;</bpt>Configure<ept id="e635c8f7-b77a-4afb-a296-84cd55ed30bf">&lt;/strong&gt;</ept> tab, then click your SQL database.</source>
+          <target state="new">If you are using the .NET backend for your mobile service, click the <bpt id="e635c8f7-b77a-4afb-a296-84cd55ed30bf">&lt;strong&gt;</bpt>Configure<ept id="e635c8f7-b77a-4afb-a296-84cd55ed30bf">&lt;/strong&gt;</ept> tab, then click your SQL database.</target>
+        </trans-unit>
+        <trans-unit id="33288d5e-f1c3-499f-9f98-0c4835a4ff53" xml:space="preserve">
+          <source>Click <bpt id="b81ad5f8-33d6-4462-831a-11b9890f88ec">&lt;strong&gt;</bpt>Manage<ept id="b81ad5f8-33d6-4462-831a-11b9890f88ec">&lt;/strong&gt;</ept> at the bottom of the screen to log into the SQL Azure Managment Portal to view your database by running a SQL query similar to the following.</source>
+          <target state="new">Click <bpt id="b81ad5f8-33d6-4462-831a-11b9890f88ec">&lt;strong&gt;</bpt>Manage<ept id="b81ad5f8-33d6-4462-831a-11b9890f88ec">&lt;/strong&gt;</ept> at the bottom of the screen to log into the SQL Azure Managment Portal to view your database by running a SQL query similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="1ea5ca85-a954-4705-9c04-e7a80b3b8ce7" xml:space="preserve">
+          <source><bpt id="c80882c5-d80f-4e74-9919-741f11aa8202">&lt;linkText&gt;</bpt><ept id="c80882c5-d80f-4e74-9919-741f11aa8202">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c80882c5-d80f-4e74-9919-741f11aa8202">&lt;linkText&gt;</bpt><ept id="c80882c5-d80f-4e74-9919-741f11aa8202">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5ee73d2-4217-4285-b746-2fdf75b36e2a" xml:space="preserve">
+          <source>Back in the app, click <bpt id="974423d3-2dea-478a-92b4-417c849b3c2b">&lt;strong&gt;</bpt>Push<ept id="974423d3-2dea-478a-92b4-417c849b3c2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Back in the app, click <bpt id="974423d3-2dea-478a-92b4-417c849b3c2b">&lt;strong&gt;</bpt>Push<ept id="974423d3-2dea-478a-92b4-417c849b3c2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20c9735c-0757-4f52-befe-34ac2dbb9e49" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="080c88e1-3b06-4e95-8b38-4777b568f795">&lt;strong&gt;</bpt>Refresh<ept id="080c88e1-3b06-4e95-8b38-4777b568f795">&lt;/strong&gt;</ept> on the <bpt id="22593741-8ede-458c-aa66-a8ab604114d3">&lt;strong&gt;</bpt>TodoItem<ept id="22593741-8ede-458c-aa66-a8ab604114d3">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">In the Management Portal, click <bpt id="080c88e1-3b06-4e95-8b38-4777b568f795">&lt;strong&gt;</bpt>Refresh<ept id="080c88e1-3b06-4e95-8b38-4777b568f795">&lt;/strong&gt;</ept> on the <bpt id="22593741-8ede-458c-aa66-a8ab604114d3">&lt;strong&gt;</bpt>TodoItem<ept id="22593741-8ede-458c-aa66-a8ab604114d3">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="a9c5c3bf-83b7-4fe3-8ab2-4f32aec1678f" xml:space="preserve">
+          <source>You should now see the data that you entered in your app.</source>
+          <target state="new">You should now see the data that you entered in your app.</target>
+        </trans-unit>
+        <trans-unit id="8dca5035-0456-481c-b863-e9b87e0d8e24" xml:space="preserve">
+          <source><bpt id="65f87ebe-2974-46fe-850c-90f366e01302">&lt;linkText&gt;</bpt><ept id="65f87ebe-2974-46fe-850c-90f366e01302">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="65f87ebe-2974-46fe-850c-90f366e01302">&lt;linkText&gt;</bpt><ept id="65f87ebe-2974-46fe-850c-90f366e01302">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3b18997-98bc-437b-ace3-7130a49959ac" xml:space="preserve">
+          <source>Leave <bpt id="bc6a1860-6e0a-4ce4-9c86-8bcec99eb109">&lt;strong&gt;</bpt>Emulator WVGA 512MB<ept id="bc6a1860-6e0a-4ce4-9c86-8bcec99eb109">&lt;/strong&gt;</ept> up and running for the next section where you will run the app in two emulators to generate a conflict.</source>
+          <target state="new">Leave <bpt id="bc6a1860-6e0a-4ce4-9c86-8bcec99eb109">&lt;strong&gt;</bpt>Emulator WVGA 512MB<ept id="bc6a1860-6e0a-4ce4-9c86-8bcec99eb109">&lt;/strong&gt;</ept> up and running for the next section where you will run the app in two emulators to generate a conflict.</target>
+        </trans-unit>
+        <trans-unit id="805e612b-b053-4fdc-815e-020a8a6cfddd" xml:space="preserve">
+          <source>In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record using an outdated version field in that record.</source>
+          <target state="new">In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record using an outdated version field in that record.</target>
+        </trans-unit>
+        <trans-unit id="7aa22439-ea2f-4ae0-b0dd-1b079fbba173" xml:space="preserve">
+          <source>If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a <bpt id="81f2f4fc-42fc-48cd-b143-be03044fd227">&lt;code&gt;</bpt>MobileServicePreconditionFailedException<ept id="81f2f4fc-42fc-48cd-b143-be03044fd227">&lt;/code&gt;</ept> in the app.</source>
+          <target state="new">If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a <bpt id="81f2f4fc-42fc-48cd-b143-be03044fd227">&lt;code&gt;</bpt>MobileServicePreconditionFailedException<ept id="81f2f4fc-42fc-48cd-b143-be03044fd227">&lt;/code&gt;</ept> in the app.</target>
+        </trans-unit>
+        <trans-unit id="06b5a5f9-811d-4f78-96d2-0e541d295541" xml:space="preserve">
+          <source>In this section you will run two instances of the app at the same time to generate a conflict.</source>
+          <target state="new">In this section you will run two instances of the app at the same time to generate a conflict.</target>
+        </trans-unit>
+        <trans-unit id="95bf4dca-f5d4-4a31-90ef-c9e86af3385d" xml:space="preserve">
+          <source>If <bpt id="1ab20eb2-f50c-45d7-8d6f-ef9d55834377">&lt;strong&gt;</bpt>Emulator WVGA 512MB<ept id="1ab20eb2-f50c-45d7-8d6f-ef9d55834377">&lt;/strong&gt;</ept> is not still up and running, press <bpt id="156c724a-630f-4b99-879f-a0b8e66f2e5b">&lt;strong&gt;</bpt>Ctrl+F5<ept id="156c724a-630f-4b99-879f-a0b8e66f2e5b">&lt;/strong&gt;</ept> to relaunch it.</source>
+          <target state="new">If <bpt id="1ab20eb2-f50c-45d7-8d6f-ef9d55834377">&lt;strong&gt;</bpt>Emulator WVGA 512MB<ept id="1ab20eb2-f50c-45d7-8d6f-ef9d55834377">&lt;/strong&gt;</ept> is not still up and running, press <bpt id="156c724a-630f-4b99-879f-a0b8e66f2e5b">&lt;strong&gt;</bpt>Ctrl+F5<ept id="156c724a-630f-4b99-879f-a0b8e66f2e5b">&lt;/strong&gt;</ept> to relaunch it.</target>
+        </trans-unit>
+        <trans-unit id="1062dae7-dfcd-43da-bc03-c6192c87bec8" xml:space="preserve">
+          <source>In Visual Studio, change the output device to <bpt id="3a1368df-6ece-42e0-b55b-e542aacfe82b">&lt;strong&gt;</bpt>Emulator WVGA<ept id="3a1368df-6ece-42e0-b55b-e542aacfe82b">&lt;/strong&gt;</ept> and run a second instance of the app in the new emulator by pressing <bpt id="7899d2c3-196f-43f0-ba4f-069a986a01be">&lt;strong&gt;</bpt>F5<ept id="7899d2c3-196f-43f0-ba4f-069a986a01be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, change the output device to <bpt id="3a1368df-6ece-42e0-b55b-e542aacfe82b">&lt;strong&gt;</bpt>Emulator WVGA<ept id="3a1368df-6ece-42e0-b55b-e542aacfe82b">&lt;/strong&gt;</ept> and run a second instance of the app in the new emulator by pressing <bpt id="7899d2c3-196f-43f0-ba4f-069a986a01be">&lt;strong&gt;</bpt>F5<ept id="7899d2c3-196f-43f0-ba4f-069a986a01be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bb7f8cf-ca18-4dcf-94d4-cff86b7b7cd5" xml:space="preserve">
+          <source><bpt id="899f723e-be37-4956-b4bf-2b98a967f460">&lt;linkText&gt;</bpt><ept id="899f723e-be37-4956-b4bf-2b98a967f460">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="899f723e-be37-4956-b4bf-2b98a967f460">&lt;linkText&gt;</bpt><ept id="899f723e-be37-4956-b4bf-2b98a967f460">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b69f4d4-f548-46c0-9484-8f82123e7967" xml:space="preserve">
+          <source>In the second instance of the app, click <bpt id="6db1312e-e033-4c81-85b2-1452b9eefafc">&lt;strong&gt;</bpt>Pull<ept id="6db1312e-e033-4c81-85b2-1452b9eefafc">&lt;/strong&gt;</ept> to sync the local store with the mobile service database.</source>
+          <target state="new">In the second instance of the app, click <bpt id="6db1312e-e033-4c81-85b2-1452b9eefafc">&lt;strong&gt;</bpt>Pull<ept id="6db1312e-e033-4c81-85b2-1452b9eefafc">&lt;/strong&gt;</ept> to sync the local store with the mobile service database.</target>
+        </trans-unit>
+        <trans-unit id="ab62a6fd-c79e-4c74-9364-546e2c54e36b" xml:space="preserve">
+          <source>Both instances of the app should have the same data.</source>
+          <target state="new">Both instances of the app should have the same data.</target>
+        </trans-unit>
+        <trans-unit id="562837d2-c6c9-42b7-86ae-a4f2bb6fe2be" xml:space="preserve">
+          <source><bpt id="3998c18c-6a45-4a96-b816-7699d8c8b20d">&lt;linkText&gt;</bpt><ept id="3998c18c-6a45-4a96-b816-7699d8c8b20d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3998c18c-6a45-4a96-b816-7699d8c8b20d">&lt;linkText&gt;</bpt><ept id="3998c18c-6a45-4a96-b816-7699d8c8b20d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b51893dc-3af6-4ac3-a1c6-fae5e05b6d0d" xml:space="preserve">
+          <source>In the second instance of the app, click the check box to complete one of the items then click <bpt id="b40ac1e7-6267-4f8e-8743-973d782232c3">&lt;strong&gt;</bpt>Push<ept id="b40ac1e7-6267-4f8e-8743-973d782232c3">&lt;/strong&gt;</ept> to push your change to the remote database.</source>
+          <target state="new">In the second instance of the app, click the check box to complete one of the items then click <bpt id="b40ac1e7-6267-4f8e-8743-973d782232c3">&lt;strong&gt;</bpt>Push<ept id="b40ac1e7-6267-4f8e-8743-973d782232c3">&lt;/strong&gt;</ept> to push your change to the remote database.</target>
+        </trans-unit>
+        <trans-unit id="b18ebf6e-a6b3-422e-a85e-e002eb549387" xml:space="preserve">
+          <source>In the following screen shot, <bpt id="0f14a2f4-ddc6-4581-8a93-524a76997116">&lt;strong&gt;</bpt>Pick up James<ept id="0f14a2f4-ddc6-4581-8a93-524a76997116">&lt;/strong&gt;</ept> has been completed indicating the James has already been picked up.</source>
+          <target state="new">In the following screen shot, <bpt id="0f14a2f4-ddc6-4581-8a93-524a76997116">&lt;strong&gt;</bpt>Pick up James<ept id="0f14a2f4-ddc6-4581-8a93-524a76997116">&lt;/strong&gt;</ept> has been completed indicating the James has already been picked up.</target>
+        </trans-unit>
+        <trans-unit id="ff32e3df-c299-4ac6-8b0a-8cb601c786ce" xml:space="preserve">
+          <source>The first instance of the app now has an outdated record.</source>
+          <target state="new">The first instance of the app now has an outdated record.</target>
+        </trans-unit>
+        <trans-unit id="0e1c4f8f-a00a-49e7-96df-3d0f1795b82e" xml:space="preserve">
+          <source><bpt id="2b6bf307-ad32-447d-8062-bab5bbd26e58">&lt;linkText&gt;</bpt><ept id="2b6bf307-ad32-447d-8062-bab5bbd26e58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b6bf307-ad32-447d-8062-bab5bbd26e58">&lt;linkText&gt;</bpt><ept id="2b6bf307-ad32-447d-8062-bab5bbd26e58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d183c487-870f-4b20-8f00-ec3fee8fa631" xml:space="preserve">
+          <source>In the first instance of the app, try to change the date for the outdated record then click <bpt id="4d1d48eb-aa75-433e-9f46-8be88d64bc6a">&lt;strong&gt;</bpt>Push<ept id="4d1d48eb-aa75-433e-9f46-8be88d64bc6a">&lt;/strong&gt;</ept> to attempt to update the remote database with the outdated record.</source>
+          <target state="new">In the first instance of the app, try to change the date for the outdated record then click <bpt id="4d1d48eb-aa75-433e-9f46-8be88d64bc6a">&lt;strong&gt;</bpt>Push<ept id="4d1d48eb-aa75-433e-9f46-8be88d64bc6a">&lt;/strong&gt;</ept> to attempt to update the remote database with the outdated record.</target>
+        </trans-unit>
+        <trans-unit id="9af098ba-d40a-42fc-a898-619b64bf7974" xml:space="preserve">
+          <source>In the screen shot below, we try to schedule James to be picked up on <bpt id="fb886e2a-d26e-417f-b0fd-30d40d905f7a">&lt;strong&gt;</bpt>5/10/2014<ept id="fb886e2a-d26e-417f-b0fd-30d40d905f7a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the screen shot below, we try to schedule James to be picked up on <bpt id="fb886e2a-d26e-417f-b0fd-30d40d905f7a">&lt;strong&gt;</bpt>5/10/2014<ept id="fb886e2a-d26e-417f-b0fd-30d40d905f7a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="355f4929-19fa-473f-a30d-38c79b3c516e" xml:space="preserve">
+          <source><bpt id="bcb864bd-80e2-4dae-a566-2ad6c8a7d2f9">&lt;linkText&gt;</bpt><ept id="bcb864bd-80e2-4dae-a566-2ad6c8a7d2f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bcb864bd-80e2-4dae-a566-2ad6c8a7d2f9">&lt;linkText&gt;</bpt><ept id="bcb864bd-80e2-4dae-a566-2ad6c8a7d2f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85f4e087-7aa8-4be6-8bde-a93c97131cee" xml:space="preserve">
+          <source>When you click the <bpt id="847c9fd5-ae64-4438-87d9-2b2a2c2a1712">&lt;strong&gt;</bpt>Push<ept id="847c9fd5-ae64-4438-87d9-2b2a2c2a1712">&lt;/strong&gt;</ept> button to commit the date change, you will see a dialog box indicating that the conflict has been detected.</source>
+          <target state="new">When you click the <bpt id="847c9fd5-ae64-4438-87d9-2b2a2c2a1712">&lt;strong&gt;</bpt>Push<ept id="847c9fd5-ae64-4438-87d9-2b2a2c2a1712">&lt;/strong&gt;</ept> button to commit the date change, you will see a dialog box indicating that the conflict has been detected.</target>
+        </trans-unit>
+        <trans-unit id="74598504-d33b-4f55-8f2c-9c3bb57701db" xml:space="preserve">
+          <source>You will be asked how to resolve the conflict.</source>
+          <target state="new">You will be asked how to resolve the conflict.</target>
+        </trans-unit>
+        <trans-unit id="ca7b283e-740a-4d0a-8d7e-f9fad5f4d66f" xml:space="preserve">
+          <source>Choose one of the options to resolve the conflict.</source>
+          <target state="new">Choose one of the options to resolve the conflict.</target>
+        </trans-unit>
+        <trans-unit id="887c1238-5a72-490b-8c06-ef1eb7b4f4f4" xml:space="preserve">
+          <source>In the scenario shown below, James has already been picked up.</source>
+          <target state="new">In the scenario shown below, James has already been picked up.</target>
+        </trans-unit>
+        <trans-unit id="a85ec4ba-fe3a-4866-8d12-40a899ed5e33" xml:space="preserve">
+          <source>So there's no need to schedule a pick up for him on <bpt id="e3b2b2cd-7a75-426c-85f3-a70cbbee86b7">&lt;strong&gt;</bpt>5/10/2014<ept id="e3b2b2cd-7a75-426c-85f3-a70cbbee86b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">So there's no need to schedule a pick up for him on <bpt id="e3b2b2cd-7a75-426c-85f3-a70cbbee86b7">&lt;strong&gt;</bpt>5/10/2014<ept id="e3b2b2cd-7a75-426c-85f3-a70cbbee86b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04674edf-bef0-4cc2-8493-091d6e39de5b" xml:space="preserve">
+          <source>The <bpt id="9db4324a-7148-4f34-bc66-f620ada907e0">&lt;strong&gt;</bpt>Use server version<ept id="9db4324a-7148-4f34-bc66-f620ada907e0">&lt;/strong&gt;</ept> option would be selected so the first instance of the app would have that record updated with the record from the server.</source>
+          <target state="new">The <bpt id="9db4324a-7148-4f34-bc66-f620ada907e0">&lt;strong&gt;</bpt>Use server version<ept id="9db4324a-7148-4f34-bc66-f620ada907e0">&lt;/strong&gt;</ept> option would be selected so the first instance of the app would have that record updated with the record from the server.</target>
+        </trans-unit>
+        <trans-unit id="ce33e226-fb16-4b85-97fc-c3b79c4201a9" xml:space="preserve">
+          <source><bpt id="cad268ed-9ba1-46f0-bd75-a6e1cffabe14">&lt;linkText&gt;</bpt><ept id="cad268ed-9ba1-46f0-bd75-a6e1cffabe14">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cad268ed-9ba1-46f0-bd75-a6e1cffabe14">&lt;linkText&gt;</bpt><ept id="cad268ed-9ba1-46f0-bd75-a6e1cffabe14">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2a20d1f-cbd2-4e3f-9b5b-5dc4249e3b56" xml:space="preserve">
+          <source>In order to set up the offline feature to detect conflicts, you must include a version column in both your local database and your data transfer object.</source>
+          <target state="new">In order to set up the offline feature to detect conflicts, you must include a version column in both your local database and your data transfer object.</target>
+        </trans-unit>
+        <trans-unit id="14123e4a-3c20-4136-9da0-1f8a539c2c28" xml:space="preserve">
+          <source>The class <bpt id="253771bb-b7ee-44d4-beb9-7d2b47d30e71">&lt;code&gt;</bpt>TodoItem<ept id="253771bb-b7ee-44d4-beb9-7d2b47d30e71">&lt;/code&gt;</ept> has the following member:</source>
+          <target state="new">The class <bpt id="253771bb-b7ee-44d4-beb9-7d2b47d30e71">&lt;code&gt;</bpt>TodoItem<ept id="253771bb-b7ee-44d4-beb9-7d2b47d30e71">&lt;/code&gt;</ept> has the following member:</target>
+        </trans-unit>
+        <trans-unit id="16e3007e-2d34-4519-a6d3-804fa65ced45" xml:space="preserve">
+          <source>The column <bpt id="3c4e486a-647b-4ae5-9375-87f232e1a8e9">&lt;code&gt;</bpt>__version<ept id="3c4e486a-647b-4ae5-9375-87f232e1a8e9">&lt;/code&gt;</ept> is also specified in the local database set up in the  <bpt id="a1376f92-a17d-4411-8af2-b32614247e61">&lt;code&gt;</bpt>OnNavigatedTo()<ept id="a1376f92-a17d-4411-8af2-b32614247e61">&lt;/code&gt;</ept> method.</source>
+          <target state="new">The column <bpt id="3c4e486a-647b-4ae5-9375-87f232e1a8e9">&lt;code&gt;</bpt>__version<ept id="3c4e486a-647b-4ae5-9375-87f232e1a8e9">&lt;/code&gt;</ept> is also specified in the local database set up in the  <bpt id="a1376f92-a17d-4411-8af2-b32614247e61">&lt;code&gt;</bpt>OnNavigatedTo()<ept id="a1376f92-a17d-4411-8af2-b32614247e61">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="21944cfd-54c9-40df-bb5d-08e68be4144e" xml:space="preserve">
+          <source>To handle offline sync conflicts in your code, you create a class that implements <bpt id="1147ee31-d708-4acd-99fa-9e60d6b96f7d">&lt;code&gt;</bpt>IMobileServiceSyncHandler<ept id="1147ee31-d708-4acd-99fa-9e60d6b96f7d">&lt;/code&gt;</ept>.</source>
+          <target state="new">To handle offline sync conflicts in your code, you create a class that implements <bpt id="1147ee31-d708-4acd-99fa-9e60d6b96f7d">&lt;code&gt;</bpt>IMobileServiceSyncHandler<ept id="1147ee31-d708-4acd-99fa-9e60d6b96f7d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0452afe-3a30-4150-b618-624ed7486ed7" xml:space="preserve">
+          <source>Pass an object of this type in the call to <bpt id="9cbb415b-ca25-4758-85e0-a9a4cdfc1d7a">&lt;code&gt;</bpt>InitializeAsync<ept id="9cbb415b-ca25-4758-85e0-a9a4cdfc1d7a">&lt;/code&gt;</ept>:</source>
+          <target state="new">Pass an object of this type in the call to <bpt id="9cbb415b-ca25-4758-85e0-a9a4cdfc1d7a">&lt;code&gt;</bpt>InitializeAsync<ept id="9cbb415b-ca25-4758-85e0-a9a4cdfc1d7a">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2a3e4853-0bed-4445-a394-638788194d2e" xml:space="preserve">
+          <source>The class <bpt id="a1d846e4-115e-425a-89d1-e709dae9f55d">&lt;code&gt;</bpt>SyncHandler<ept id="a1d846e4-115e-425a-89d1-e709dae9f55d">&lt;/code&gt;</ept> in <bpt id="fa760f9a-56af-4f27-a35c-e046f88616be">&lt;strong&gt;</bpt>MainPage.xaml.cs<ept id="fa760f9a-56af-4f27-a35c-e046f88616be">&lt;/strong&gt;</ept> implements <bpt id="d1353be7-34dd-4e9a-8d18-75484449627f">&lt;code&gt;</bpt>IMobileServiceSyncHandler<ept id="d1353be7-34dd-4e9a-8d18-75484449627f">&lt;/code&gt;</ept>.</source>
+          <target state="new">The class <bpt id="a1d846e4-115e-425a-89d1-e709dae9f55d">&lt;code&gt;</bpt>SyncHandler<ept id="a1d846e4-115e-425a-89d1-e709dae9f55d">&lt;/code&gt;</ept> in <bpt id="fa760f9a-56af-4f27-a35c-e046f88616be">&lt;strong&gt;</bpt>MainPage.xaml.cs<ept id="fa760f9a-56af-4f27-a35c-e046f88616be">&lt;/strong&gt;</ept> implements <bpt id="d1353be7-34dd-4e9a-8d18-75484449627f">&lt;code&gt;</bpt>IMobileServiceSyncHandler<ept id="d1353be7-34dd-4e9a-8d18-75484449627f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f24aa2c5-bd1d-492b-ab4b-6fd37122c106" xml:space="preserve">
+          <source>The method <bpt id="ed4de018-f26b-4102-930c-756f3ab56e0e">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="ed4de018-f26b-4102-930c-756f3ab56e0e">&lt;/code&gt;</ept> is called when each push operation is sent to the server.</source>
+          <target state="new">The method <bpt id="ed4de018-f26b-4102-930c-756f3ab56e0e">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="ed4de018-f26b-4102-930c-756f3ab56e0e">&lt;/code&gt;</ept> is called when each push operation is sent to the server.</target>
+        </trans-unit>
+        <trans-unit id="e9b83715-457d-4344-b21f-8e164377d188" xml:space="preserve">
+          <source>If an exception of type <bpt id="b3830309-e2e6-4246-b32f-83b52fadf956">&lt;code&gt;</bpt>MobileServicePreconditionFailedException<ept id="b3830309-e2e6-4246-b32f-83b52fadf956">&lt;/code&gt;</ept> is thrown, this means that there is a conflict between the local and remote versions of an item.</source>
+          <target state="new">If an exception of type <bpt id="b3830309-e2e6-4246-b32f-83b52fadf956">&lt;code&gt;</bpt>MobileServicePreconditionFailedException<ept id="b3830309-e2e6-4246-b32f-83b52fadf956">&lt;/code&gt;</ept> is thrown, this means that there is a conflict between the local and remote versions of an item.</target>
+        </trans-unit>
+        <trans-unit id="7032b50e-feaf-4ab9-aa82-6d6a8751d8cf" xml:space="preserve">
+          <source>To resolve conflicts in favor of the local item, you should simply retry the operation.</source>
+          <target state="new">To resolve conflicts in favor of the local item, you should simply retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="83303845-4925-4992-83d6-6db47c494f69" xml:space="preserve">
+          <source>Once a conflict has occurred, the local item version will be updated to match the server version, so executing the operation again will overwrite the server changes with the local changes:</source>
+          <target state="new">Once a conflict has occurred, the local item version will be updated to match the server version, so executing the operation again will overwrite the server changes with the local changes:</target>
+        </trans-unit>
+        <trans-unit id="1dea29af-395b-4616-83d7-006348abf1dc" xml:space="preserve">
+          <source>To resolve conflicts in favor of the server item, simply return from the <bpt id="a1de0366-056d-45bb-8f83-2de96356d222">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="a1de0366-056d-45bb-8f83-2de96356d222">&lt;/code&gt;</ept>.</source>
+          <target state="new">To resolve conflicts in favor of the server item, simply return from the <bpt id="a1de0366-056d-45bb-8f83-2de96356d222">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="a1de0366-056d-45bb-8f83-2de96356d222">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="375a2045-89e4-4b0f-bde8-1bb80d377f77" xml:space="preserve">
+          <source>The local version of the object will be discarded and replaced with the value from the server.</source>
+          <target state="new">The local version of the object will be discarded and replaced with the value from the server.</target>
+        </trans-unit>
+        <trans-unit id="386359c4-f26e-46d2-8d9a-c70eacd56eb1" xml:space="preserve">
+          <source>To stop the push operation (but retain the queued changes), use the method <bpt id="767de523-be5c-4894-85cf-5eb25c273972">&lt;code&gt;</bpt>AbortPush()<ept id="767de523-be5c-4894-85cf-5eb25c273972">&lt;/code&gt;</ept>:</source>
+          <target state="new">To stop the push operation (but retain the queued changes), use the method <bpt id="767de523-be5c-4894-85cf-5eb25c273972">&lt;code&gt;</bpt>AbortPush()<ept id="767de523-be5c-4894-85cf-5eb25c273972">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="23da2fb7-8930-4726-870a-aeb299b056a6" xml:space="preserve">
+          <source>This will stop the current push operation but will keep all pending changes, including the current operation if <bpt id="c32446a2-d72b-4c05-98aa-fdb3dc5f7f83">&lt;code&gt;</bpt>AbortPush<ept id="c32446a2-d72b-4c05-98aa-fdb3dc5f7f83">&lt;/code&gt;</ept> is called from <bpt id="51d420e2-0969-4903-a68c-6d06dd6eaca4">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="51d420e2-0969-4903-a68c-6d06dd6eaca4">&lt;/code&gt;</ept>.</source>
+          <target state="new">This will stop the current push operation but will keep all pending changes, including the current operation if <bpt id="c32446a2-d72b-4c05-98aa-fdb3dc5f7f83">&lt;code&gt;</bpt>AbortPush<ept id="c32446a2-d72b-4c05-98aa-fdb3dc5f7f83">&lt;/code&gt;</ept> is called from <bpt id="51d420e2-0969-4903-a68c-6d06dd6eaca4">&lt;code&gt;</bpt>ExecuteTableOperationAsync<ept id="51d420e2-0969-4903-a68c-6d06dd6eaca4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e918ec90-9475-4835-9121-d1b323fe0d1b" xml:space="preserve">
+          <source>The next time that <bpt id="03bb38cb-632a-44aa-bdfb-9dbd16bcddda">&lt;code&gt;</bpt>PushAsync()<ept id="03bb38cb-632a-44aa-bdfb-9dbd16bcddda">&lt;/code&gt;</ept> is called, these changes will be sent to the server.</source>
+          <target state="new">The next time that <bpt id="03bb38cb-632a-44aa-bdfb-9dbd16bcddda">&lt;code&gt;</bpt>PushAsync()<ept id="03bb38cb-632a-44aa-bdfb-9dbd16bcddda">&lt;/code&gt;</ept> is called, these changes will be sent to the server.</target>
+        </trans-unit>
+        <trans-unit id="0fb9e91e-0a33-40f6-b14f-a7d0a665c61f" xml:space="preserve">
+          <source>When a push is canceled, <bpt id="a73d88f3-9735-4756-9bcc-bc81fce9f2de">&lt;code&gt;</bpt>PushAsync<ept id="a73d88f3-9735-4756-9bcc-bc81fce9f2de">&lt;/code&gt;</ept> will throw a <bpt id="2439bd02-de72-49ae-b2f4-83cfe9bc93c0">&lt;code&gt;</bpt>MobileServicePushFailedException<ept id="2439bd02-de72-49ae-b2f4-83cfe9bc93c0">&lt;/code&gt;</ept>, and the exception property <bpt id="ed9064a1-4b31-477d-8aef-db30c457b22b">&lt;code&gt;</bpt>PushResult.Status<ept id="ed9064a1-4b31-477d-8aef-db30c457b22b">&lt;/code&gt;</ept> will have the value <bpt id="0316a720-a76a-4152-917c-32694ba869df">&lt;code&gt;</bpt>MobileServicePushStatus.CancelledByOperation<ept id="0316a720-a76a-4152-917c-32694ba869df">&lt;/code&gt;</ept>.</source>
+          <target state="new">When a push is canceled, <bpt id="a73d88f3-9735-4756-9bcc-bc81fce9f2de">&lt;code&gt;</bpt>PushAsync<ept id="a73d88f3-9735-4756-9bcc-bc81fce9f2de">&lt;/code&gt;</ept> will throw a <bpt id="2439bd02-de72-49ae-b2f4-83cfe9bc93c0">&lt;code&gt;</bpt>MobileServicePushFailedException<ept id="2439bd02-de72-49ae-b2f4-83cfe9bc93c0">&lt;/code&gt;</ept>, and the exception property <bpt id="ed9064a1-4b31-477d-8aef-db30c457b22b">&lt;code&gt;</bpt>PushResult.Status<ept id="ed9064a1-4b31-477d-8aef-db30c457b22b">&lt;/code&gt;</ept> will have the value <bpt id="0316a720-a76a-4152-917c-32694ba869df">&lt;code&gt;</bpt>MobileServicePushStatus.CancelledByOperation<ept id="0316a720-a76a-4152-917c-32694ba869df">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d279e16-faac-4d91-9598-9e2f918a71a7" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png</target>
+        </trans-unit>
+        <trans-unit id="a4e88993-f1ad-4b9e-9bab-d500c0c251be" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty.png</target>
+        </trans-unit>
+        <trans-unit id="4e86b57b-d8b1-4fd5-8b82-2e48f296dfe1" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty-sql.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-empty-sql.png</target>
+        </trans-unit>
+        <trans-unit id="980cfffc-9709-494b-aba0-015472f6199f" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png</target>
+        </trans-unit>
+        <trans-unit id="f2de7ebe-edb8-4cf6-9129-90fddcc2b6b7" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png</target>
+        </trans-unit>
+        <trans-unit id="ddbe8cbb-f386-4ba0-a448-852760845e9d" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-synced.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-synced.png</target>
+        </trans-unit>
+        <trans-unit id="1e978f6a-4a4e-4886-814a-bc4dc8602ea7" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-date-change.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-date-change.png</target>
+        </trans-unit>
+        <trans-unit id="ce3eeb88-25c3-4ff4-a817-ee4b29f58601" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-conflict-detected.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-conflict-detected.png</target>
+        </trans-unit>
+        <trans-unit id="37464c18-4add-419a-ba6a-5bcd5f90aff8" xml:space="preserve">
+          <source>./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-item-completed.png</source>
+          <target state="new">./media/mobile-services-windows-phone-handling-conflicts-offline-data/two-emulators-item-completed.png</target>
+        </trans-unit>
+        <trans-unit id="47bb8be8-ca6b-45ff-9aeb-2070cb734972" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=398257</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=398257</target>
+        </trans-unit>
+        <trans-unit id="c8307794-b9d2-46c7-8f5b-6a74f9bc02ef" xml:space="preserve">
+          <source>../mobile-services-windows-phone-get-started.md</source>
+          <target state="new">../mobile-services-windows-phone-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="c2665ec8-5699-4524-9009-43d9cce75c44" xml:space="preserve">
+          <source>mobile-services-windows-phone-get-started-offline-data.md</source>
+          <target state="new">mobile-services-windows-phone-get-started-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="43993e32-75f7-4167-8b87-faba39fd3d4b" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="cb2fc37f-ec74-44b8-b68a-6dc2f27a3e67" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?linkid=268374</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?linkid=268374</target>
+        </trans-unit>
+        <trans-unit id="077f7e1a-9b49-4643-9cbb-cf8c3c032f69" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=397953</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=397953</target>
+        </trans-unit>
+        <trans-unit id="c5cc3573-30b2-4c30-84f7-d68fa0ad6d50" xml:space="preserve">
+          <source>mobile-services-windows-phone-get-started-data.md</source>
+          <target state="new">mobile-services-windows-phone-get-started-data.md</target>
+        </trans-unit>
+      </group>
+      <group id="c931a009-e76c-4f69-9b9f-c386e220c002" />
+    </body>
+  </file>
+</xliff>

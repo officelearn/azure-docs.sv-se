@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="47488613-1f85-4403-90b5-483b1b339eca" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="47488613-1f85-4403-90b5-483b1b339eca" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ef9ab420-a3d6-4c79-bf6c-4066c9fefeee">
+        <trans-unit id="2ae6365d-0221-4415-b304-f6afd08b23a6" xml:space="preserve">
+          <source>Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:</source>
+          <target state="new">Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:</target>
+        </trans-unit>
+        <trans-unit id="261d351a-bbe8-43f1-a7c5-cb1f665e4437" xml:space="preserve">
+          <source>This code authenticates the user with a Facebook login.</source>
+          <target state="new">This code authenticates the user with a Facebook login.</target>
+        </trans-unit>
+        <trans-unit id="77b90630-7016-4a59-a8ac-53b72d9e40b4" xml:space="preserve">
+          <source>If you are using an identity provider other than Facebook, change the value of <bpt id="a0f7212f-9ec7-4881-a8aa-16e0317f58d8">&lt;strong&gt;</bpt>MobileServiceAuthenticationProvider<ept id="a0f7212f-9ec7-4881-a8aa-16e0317f58d8">&lt;/strong&gt;</ept> above to the value for your provider.</source>
+          <target state="new">If you are using an identity provider other than Facebook, change the value of <bpt id="a0f7212f-9ec7-4881-a8aa-16e0317f58d8">&lt;strong&gt;</bpt>MobileServiceAuthenticationProvider<ept id="a0f7212f-9ec7-4881-a8aa-16e0317f58d8">&lt;/strong&gt;</ept> above to the value for your provider.</target>
+        </trans-unit>
+        <trans-unit id="c0807b75-b616-4f24-8c5a-c58a968fb39b" xml:space="preserve">
+          <source>Comment-out or delete the call to the <bpt id="0dbc28c2-427b-4807-80ee-b6109279c688">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="0dbc28c2-427b-4807-80ee-b6109279c688">&lt;/strong&gt;</ept> method in the existing <bpt id="587344ba-d2c7-4749-b1db-997a71aa203c">&lt;strong&gt;</bpt>OnNavigatedTo<ept id="587344ba-d2c7-4749-b1db-997a71aa203c">&lt;/strong&gt;</ept> method override.</source>
+          <target state="new">Comment-out or delete the call to the <bpt id="0dbc28c2-427b-4807-80ee-b6109279c688">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="0dbc28c2-427b-4807-80ee-b6109279c688">&lt;/strong&gt;</ept> method in the existing <bpt id="587344ba-d2c7-4749-b1db-997a71aa203c">&lt;strong&gt;</bpt>OnNavigatedTo<ept id="587344ba-d2c7-4749-b1db-997a71aa203c">&lt;/strong&gt;</ept> method override.</target>
+        </trans-unit>
+        <trans-unit id="2d5356f9-9e45-4930-8b54-ef407ed72407" xml:space="preserve">
+          <source>This prevents the data from being loaded before the user is authenticated.</source>
+          <target state="new">This prevents the data from being loaded before the user is authenticated.</target>
+        </trans-unit>
+        <trans-unit id="0b102117-f9da-4bff-b2ec-4634d95f4a60" xml:space="preserve">
+          <source>Next, you will add a <bpt id="f90dbe02-becd-4a8e-856c-e58e1fc8ab90">&lt;strong&gt;</bpt>Sign in<ept id="f90dbe02-becd-4a8e-856c-e58e1fc8ab90">&lt;/strong&gt;</ept> button to the app that triggers authentication.</source>
+          <target state="new">Next, you will add a <bpt id="f90dbe02-becd-4a8e-856c-e58e1fc8ab90">&lt;strong&gt;</bpt>Sign in<ept id="f90dbe02-becd-4a8e-856c-e58e1fc8ab90">&lt;/strong&gt;</ept> button to the app that triggers authentication.</target>
+        </trans-unit>
+        <trans-unit id="9ee1fcea-5eac-4b17-98ed-33e01ff27e3c" xml:space="preserve">
+          <source>Add the following code snippet to the MainPage class:</source>
+          <target state="new">Add the following code snippet to the MainPage class:</target>
+        </trans-unit>
+        <trans-unit id="f0551028-d96b-4959-9792-40ee6a999203" xml:space="preserve">
+          <source>In the Windows Store app project, open the MainPage.xaml project file and add the following <bpt id="e305b617-6e39-48b4-87d2-3028403094e4">&lt;strong&gt;</bpt>Button<ept id="e305b617-6e39-48b4-87d2-3028403094e4">&lt;/strong&gt;</ept> element just before the element that defines the <bpt id="8cc90906-7562-4615-ab69-5d9ee806f812">&lt;strong&gt;</bpt>Save<ept id="8cc90906-7562-4615-ab69-5d9ee806f812">&lt;/strong&gt;</ept> button:</source>
+          <target state="new">In the Windows Store app project, open the MainPage.xaml project file and add the following <bpt id="e305b617-6e39-48b4-87d2-3028403094e4">&lt;strong&gt;</bpt>Button<ept id="e305b617-6e39-48b4-87d2-3028403094e4">&lt;/strong&gt;</ept> element just before the element that defines the <bpt id="8cc90906-7562-4615-ab69-5d9ee806f812">&lt;strong&gt;</bpt>Save<ept id="8cc90906-7562-4615-ab69-5d9ee806f812">&lt;/strong&gt;</ept> button:</target>
+        </trans-unit>
+        <trans-unit id="be7cff1e-dcda-4744-a75a-f52941030e0f" xml:space="preserve">
+          <source>In the Windows Phone Store app project, add the following <bpt id="3f352168-17ff-4c66-89f2-8aa635899887">&lt;strong&gt;</bpt>Button<ept id="3f352168-17ff-4c66-89f2-8aa635899887">&lt;/strong&gt;</ept> element in the <bpt id="47a35bfa-434e-45ca-95f1-9fc0dbcefa76">&lt;strong&gt;</bpt>ContentPanel<ept id="47a35bfa-434e-45ca-95f1-9fc0dbcefa76">&lt;/strong&gt;</ept>, after the <bpt id="1d4ffa07-3df0-41d3-9f65-71cd5614447f">&lt;strong&gt;</bpt>TextBox<ept id="1d4ffa07-3df0-41d3-9f65-71cd5614447f">&lt;/strong&gt;</ept> element:</source>
+          <target state="new">In the Windows Phone Store app project, add the following <bpt id="3f352168-17ff-4c66-89f2-8aa635899887">&lt;strong&gt;</bpt>Button<ept id="3f352168-17ff-4c66-89f2-8aa635899887">&lt;/strong&gt;</ept> element in the <bpt id="47a35bfa-434e-45ca-95f1-9fc0dbcefa76">&lt;strong&gt;</bpt>ContentPanel<ept id="47a35bfa-434e-45ca-95f1-9fc0dbcefa76">&lt;/strong&gt;</ept>, after the <bpt id="1d4ffa07-3df0-41d3-9f65-71cd5614447f">&lt;strong&gt;</bpt>TextBox<ept id="1d4ffa07-3df0-41d3-9f65-71cd5614447f">&lt;/strong&gt;</ept> element:</target>
+        </trans-unit>
+        <trans-unit id="ac9e1025-88cb-4fc3-b54c-3cd39bf60b22" xml:space="preserve">
+          <source>Open the shared App.xaml.cs project file and add the following code:</source>
+          <target state="new">Open the shared App.xaml.cs project file and add the following code:</target>
+        </trans-unit>
+        <trans-unit id="0fafd6c6-a0fa-41f6-96b8-a3a6eed51421" xml:space="preserve">
+          <source>If the <bpt id="171573ce-7c58-4832-bb8a-c1c5943ea950">&lt;strong&gt;</bpt>OnActivated<ept id="171573ce-7c58-4832-bb8a-c1c5943ea950">&lt;/strong&gt;</ept> method already exists, just add the <bpt id="382bd643-2e53-4070-9353-7f40e1f1722e">&lt;code&gt;</bpt>#if...#endif<ept id="382bd643-2e53-4070-9353-7f40e1f1722e">&lt;/code&gt;</ept> code block.</source>
+          <target state="new">If the <bpt id="171573ce-7c58-4832-bb8a-c1c5943ea950">&lt;strong&gt;</bpt>OnActivated<ept id="171573ce-7c58-4832-bb8a-c1c5943ea950">&lt;/strong&gt;</ept> method already exists, just add the <bpt id="382bd643-2e53-4070-9353-7f40e1f1722e">&lt;code&gt;</bpt>#if...#endif<ept id="382bd643-2e53-4070-9353-7f40e1f1722e">&lt;/code&gt;</ept> code block.</target>
+        </trans-unit>
+        <trans-unit id="26d4337c-638a-48f0-b4d4-1fe8387fda5a" xml:space="preserve">
+          <source>Press the F5 key to run the Windows Store app, click the <bpt id="3ba30759-3316-40f0-944a-73777041fcc2">&lt;strong&gt;</bpt>Sign in<ept id="3ba30759-3316-40f0-944a-73777041fcc2">&lt;/strong&gt;</ept> button, and sign into the app with your chosen identity provider.</source>
+          <target state="new">Press the F5 key to run the Windows Store app, click the <bpt id="3ba30759-3316-40f0-944a-73777041fcc2">&lt;strong&gt;</bpt>Sign in<ept id="3ba30759-3316-40f0-944a-73777041fcc2">&lt;/strong&gt;</ept> button, and sign into the app with your chosen identity provider.</target>
+        </trans-unit>
+        <trans-unit id="cbb76dd4-9df6-47da-8809-6c91e6362e55" xml:space="preserve">
+          <source>When you are successfully logged-in, the app should run without errors, and you should be able to query your Mobile App and make updates to data.</source>
+          <target state="new">When you are successfully logged-in, the app should run without errors, and you should be able to query your Mobile App and make updates to data.</target>
+        </trans-unit>
+        <trans-unit id="1d152700-dc83-4059-9d93-84f2b6948235" xml:space="preserve">
+          <source>Right-click the Windows Phone Store app project, click <bpt id="7e4e8afb-c8b3-465b-9d48-d37211d980d5">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="7e4e8afb-c8b3-465b-9d48-d37211d980d5">&lt;/strong&gt;</ept>, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.</source>
+          <target state="new">Right-click the Windows Phone Store app project, click <bpt id="7e4e8afb-c8b3-465b-9d48-d37211d980d5">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="7e4e8afb-c8b3-465b-9d48-d37211d980d5">&lt;/strong&gt;</ept>, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="55facd10-ae08-4fb2-9813-327fa17d26c8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="55facd10-ae08-4fb2-9813-327fa17d26c8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9eabfd4d-c1f6-4351-9561-503583d374a4">
+        <trans-unit id="4555aa6f-538d-449a-944b-96f379b4b6f2" xml:space="preserve">
+          <source>Author Custom R Modules in Azure Machine Learning | Microsoft Azure</source>
+          <target state="new">Author Custom R Modules in Azure Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6fb80458-0576-403e-9f9b-132da232039a" xml:space="preserve">
+          <source>Quick start for authoring custom R modules in Azure Machine Learning.</source>
+          <target state="new">Quick start for authoring custom R modules in Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="3fc0e873-8c15-4b46-9017-ea037face4e8" xml:space="preserve">
+          <source>This topic describes how to author and deploy a custom R module in Azure Machine Learning.</source>
+          <target state="new">This topic describes how to author and deploy a custom R module in Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="ecc405fd-3de4-4bac-9d9a-6f4e41d74700" xml:space="preserve">
+          <source>It explains what custom R modules are and what files are used to define them.</source>
+          <target state="new">It explains what custom R modules are and what files are used to define them.</target>
+        </trans-unit>
+        <trans-unit id="330e0871-191f-4115-b07e-fad6d7049c0d" xml:space="preserve">
+          <source>It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace.</source>
+          <target state="new">It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace.</target>
+        </trans-unit>
+        <trans-unit id="8d440c7b-760e-4ac7-ba47-9c5e48cbe995" xml:space="preserve">
+          <source>The elements and attributes used in the definition of the custom module are then described in more detail.</source>
+          <target state="new">The elements and attributes used in the definition of the custom module are then described in more detail.</target>
+        </trans-unit>
+        <trans-unit id="ccb2226d-f1fd-4bc1-90a6-68d4c08895c7" xml:space="preserve">
+          <source>How to use auxiliary functionality and files and multiple outputs is also discussed.</source>
+          <target state="new">How to use auxiliary functionality and files and multiple outputs is also discussed.</target>
+        </trans-unit>
+        <trans-unit id="f8cee0d4-822a-4e48-bbfc-2bb61a7da4f8" xml:space="preserve">
+          <source><bpt id="2b17dea9-4b3e-460e-9cb3-a01ec7532aa5">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="2b17dea9-4b3e-460e-9cb3-a01ec7532aa5">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2b17dea9-4b3e-460e-9cb3-a01ec7532aa5">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="2b17dea9-4b3e-460e-9cb3-a01ec7532aa5">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b37fffe4-8370-466b-9389-8b0ee6e56772" xml:space="preserve">
+          <source>A <bpt id="afeb7917-c3e9-47bc-ae51-1875560de5f4">&lt;strong&gt;</bpt>custom module<ept id="afeb7917-c3e9-47bc-ae51-1875560de5f4">&lt;/strong&gt;</ept> is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment.</source>
+          <target state="new">A <bpt id="afeb7917-c3e9-47bc-ae51-1875560de5f4">&lt;strong&gt;</bpt>custom module<ept id="afeb7917-c3e9-47bc-ae51-1875560de5f4">&lt;/strong&gt;</ept> is a user-defined module that can be uploaded to your workspace and executed as part of an Azure Machine Learning experiment.</target>
+        </trans-unit>
+        <trans-unit id="c1942705-18ef-422d-a15b-76835faf0525" xml:space="preserve">
+          <source>A <bpt id="ff7a58e7-2867-4625-beb3-71bf6650f45d">&lt;strong&gt;</bpt>custom R module<ept id="ff7a58e7-2867-4625-beb3-71bf6650f45d">&lt;/strong&gt;</ept> is a custom module that executes a user-defined R function.</source>
+          <target state="new">A <bpt id="ff7a58e7-2867-4625-beb3-71bf6650f45d">&lt;strong&gt;</bpt>custom R module<ept id="ff7a58e7-2867-4625-beb3-71bf6650f45d">&lt;/strong&gt;</ept> is a custom module that executes a user-defined R function.</target>
+        </trans-unit>
+        <trans-unit id="861a879b-d9e8-40df-8532-c635c742c0b6" xml:space="preserve">
+          <source>R is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms.</source>
+          <target state="new">R is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms.</target>
+        </trans-unit>
+        <trans-unit id="d4b1c06a-9cac-4737-8e72-537338bc2ec4" xml:space="preserve">
+          <source>Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.</source>
+          <target state="new">Currently, R is the only language supported in custom modules, but support for additional languages will be added in future releases.</target>
+        </trans-unit>
+        <trans-unit id="75e60dbc-d967-4d03-875d-fd73e228e031" xml:space="preserve">
+          <source>Custom modules have <bpt id="86c87d18-9859-49bf-88df-05923afd7113">&lt;strong&gt;</bpt>first-class status<ept id="86c87d18-9859-49bf-88df-05923afd7113">&lt;/strong&gt;</ept> in Azure Machine Learning in the sense that they can used just like any other module.</source>
+          <target state="new">Custom modules have <bpt id="86c87d18-9859-49bf-88df-05923afd7113">&lt;strong&gt;</bpt>first-class status<ept id="86c87d18-9859-49bf-88df-05923afd7113">&lt;/strong&gt;</ept> in Azure Machine Learning in the sense that they can used just like any other module.</target>
+        </trans-unit>
+        <trans-unit id="78959155-a882-44e1-85a8-1efa057490bf" xml:space="preserve">
+          <source>They can be executed with other modules, included in published experiments or visualizations.</source>
+          <target state="new">They can be executed with other modules, included in published experiments or visualizations.</target>
+        </trans-unit>
+        <trans-unit id="b3e7026a-bf13-46d1-8435-e665bc7d39ee" xml:space="preserve">
+          <source>Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors.</source>
+          <target state="new">Users have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors.</target>
+        </trans-unit>
+        <trans-unit id="ec8add16-b5bb-4e39-9cfe-c5f95f629ff4" xml:space="preserve">
+          <source>A custom module is only available in the workspace in which it was created and cannot be published to community experiments.</source>
+          <target state="new">A custom module is only available in the workspace in which it was created and cannot be published to community experiments.</target>
+        </trans-unit>
+        <trans-unit id="a58de002-5920-49ce-af8e-1f4a620f36d8" xml:space="preserve">
+          <source>A custom R module is defined by a .zip file that contains, at a minimum, two files:</source>
+          <target state="new">A custom R module is defined by a .zip file that contains, at a minimum, two files:</target>
+        </trans-unit>
+        <trans-unit id="7a4b3e06-83ca-4b98-9660-d8b0bab6c55a" xml:space="preserve">
+          <source>A <bpt id="73cf1e8b-82a9-4c5b-9b60-982d9fc8cde9">&lt;strong&gt;</bpt>source file<ept id="73cf1e8b-82a9-4c5b-9b60-982d9fc8cde9">&lt;/strong&gt;</ept> that implements the R function exposed by the module</source>
+          <target state="new">A <bpt id="73cf1e8b-82a9-4c5b-9b60-982d9fc8cde9">&lt;strong&gt;</bpt>source file<ept id="73cf1e8b-82a9-4c5b-9b60-982d9fc8cde9">&lt;/strong&gt;</ept> that implements the R function exposed by the module</target>
+        </trans-unit>
+        <trans-unit id="6a9cf13e-dfbe-4c08-a4bc-1a07e816ffe8" xml:space="preserve">
+          <source>An <bpt id="7afd358b-4e8e-42d9-820c-e5b4f0218fc8">&lt;strong&gt;</bpt>XML definition file<ept id="7afd358b-4e8e-42d9-820c-e5b4f0218fc8">&lt;/strong&gt;</ept> that describes the custom module interface</source>
+          <target state="new">An <bpt id="7afd358b-4e8e-42d9-820c-e5b4f0218fc8">&lt;strong&gt;</bpt>XML definition file<ept id="7afd358b-4e8e-42d9-820c-e5b4f0218fc8">&lt;/strong&gt;</ept> that describes the custom module interface</target>
+        </trans-unit>
+        <trans-unit id="1153f1fb-5a87-40a1-b4d7-c8d477bbf968" xml:space="preserve">
+          <source>Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module.</source>
+          <target state="new">Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module.</target>
+        </trans-unit>
+        <trans-unit id="8ca845db-903b-4a85-a40d-d91721848e37" xml:space="preserve">
+          <source>This option is discussed below.</source>
+          <target state="new">This option is discussed below.</target>
+        </trans-unit>
+        <trans-unit id="6d921058-7d3f-4d3c-b673-6b9a635e14ad" xml:space="preserve">
+          <source>This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from <bpt id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;linkText&gt;</bpt>here<ept id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;/linkText&gt;</ept><bpt id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;title&gt;</bpt><ept id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;/title&gt;</ept>.</source>
+          <target state="new">This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from <bpt id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;linkText&gt;</bpt>here<ept id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;/linkText&gt;</ept><bpt id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;title&gt;</bpt><ept id="f9e2c6b2-870e-4a20-86a8-990fa111e135">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f831e76b-10df-45f2-b9d3-5d349af92f28" xml:space="preserve">
+          <source>Consider the example of a <bpt id="390e3789-c6d4-415e-9eb6-4db03c6c831d">&lt;strong&gt;</bpt>Custom Add Rows<ept id="390e3789-c6d4-415e-9eb6-4db03c6c831d">&lt;/strong&gt;</ept> module that modifies the standard implementation of the Add Rows module used to concatenate rows (observations) from two datasets (data frames).</source>
+          <target state="new">Consider the example of a <bpt id="390e3789-c6d4-415e-9eb6-4db03c6c831d">&lt;strong&gt;</bpt>Custom Add Rows<ept id="390e3789-c6d4-415e-9eb6-4db03c6c831d">&lt;/strong&gt;</ept> module that modifies the standard implementation of the Add Rows module used to concatenate rows (observations) from two datasets (data frames).</target>
+        </trans-unit>
+        <trans-unit id="ce22ee3c-ea8a-40a4-93d3-68ceeca263b9" xml:space="preserve">
+          <source>The standard Add Rows module appends the rows of the second input dataset to the end of the first input dataset using the rbind algorithm.</source>
+          <target state="new">The standard Add Rows module appends the rows of the second input dataset to the end of the first input dataset using the rbind algorithm.</target>
+        </trans-unit>
+        <trans-unit id="e8752924-ee4f-452f-a78e-146a23ae6a41" xml:space="preserve">
+          <source>The customized <bpt id="f8a5437f-3e3d-46d1-b0e2-eb6e4b1f7c69">&lt;code&gt;</bpt>CustomAddRows<ept id="f8a5437f-3e3d-46d1-b0e2-eb6e4b1f7c69">&lt;/code&gt;</ept> function similarly accepts two datasets, but also accepts an additional Boolean swap parameter as an input.</source>
+          <target state="new">The customized <bpt id="f8a5437f-3e3d-46d1-b0e2-eb6e4b1f7c69">&lt;code&gt;</bpt>CustomAddRows<ept id="f8a5437f-3e3d-46d1-b0e2-eb6e4b1f7c69">&lt;/code&gt;</ept> function similarly accepts two datasets, but also accepts an additional Boolean swap parameter as an input.</target>
+        </trans-unit>
+        <trans-unit id="f20af4d4-d789-4814-9e5b-a577dfba3f68" xml:space="preserve">
+          <source>If the swap parameter is <bpt id="cc3a0ce1-f6f6-40b7-b263-eeae24a69748">&lt;strong&gt;</bpt>FALSE<ept id="cc3a0ce1-f6f6-40b7-b263-eeae24a69748">&lt;/strong&gt;</ept>, it returns the same data set as the standard implementation.</source>
+          <target state="new">If the swap parameter is <bpt id="cc3a0ce1-f6f6-40b7-b263-eeae24a69748">&lt;strong&gt;</bpt>FALSE<ept id="cc3a0ce1-f6f6-40b7-b263-eeae24a69748">&lt;/strong&gt;</ept>, it returns the same data set as the standard implementation.</target>
+        </trans-unit>
+        <trans-unit id="a3b57ada-780a-4997-9b05-8a5ef8408939" xml:space="preserve">
+          <source>But if the swap parameter is <bpt id="0beace83-3afb-4dd8-b669-583f57b6321f">&lt;strong&gt;</bpt>TRUE<ept id="0beace83-3afb-4dd8-b669-583f57b6321f">&lt;/strong&gt;</ept>, it appends rows of first input dataset to the end of the second dataset instead.</source>
+          <target state="new">But if the swap parameter is <bpt id="0beace83-3afb-4dd8-b669-583f57b6321f">&lt;strong&gt;</bpt>TRUE<ept id="0beace83-3afb-4dd8-b669-583f57b6321f">&lt;/strong&gt;</ept>, it appends rows of first input dataset to the end of the second dataset instead.</target>
+        </trans-unit>
+        <trans-unit id="a6838834-a8bc-4868-8d3d-584823577ab7" xml:space="preserve">
+          <source>The file that implements the R <bpt id="b6fb7017-ae35-458d-8801-6bb837c0d4dc">&lt;code&gt;</bpt>CustomAddRows<ept id="b6fb7017-ae35-458d-8801-6bb837c0d4dc">&lt;/code&gt;</ept> function exposed by the <bpt id="824f6b56-b9ef-46ad-b149-005cbfb0d2bd">&lt;strong&gt;</bpt>Custom Add Rows<ept id="824f6b56-b9ef-46ad-b149-005cbfb0d2bd">&lt;/strong&gt;</ept> module contains the following R code.</source>
+          <target state="new">The file that implements the R <bpt id="b6fb7017-ae35-458d-8801-6bb837c0d4dc">&lt;code&gt;</bpt>CustomAddRows<ept id="b6fb7017-ae35-458d-8801-6bb837c0d4dc">&lt;/code&gt;</ept> function exposed by the <bpt id="824f6b56-b9ef-46ad-b149-005cbfb0d2bd">&lt;strong&gt;</bpt>Custom Add Rows<ept id="824f6b56-b9ef-46ad-b149-005cbfb0d2bd">&lt;/strong&gt;</ept> module contains the following R code.</target>
+        </trans-unit>
+        <trans-unit id="d9feaac0-bb31-44cf-bbc6-b6fb47dd3002" xml:space="preserve">
+          <source>To expose this <bpt id="7c2f9394-8077-4e1e-91b4-81cc543ac010">&lt;code&gt;</bpt>CustomAddRows<ept id="7c2f9394-8077-4e1e-91b4-81cc543ac010">&lt;/code&gt;</ept> function as an Azure Machine Learning module, an XML definition file must be created to specify how the <bpt id="eed2504e-b486-492f-83a7-30d3dac62c32">&lt;strong&gt;</bpt>Custom Add Rows<ept id="eed2504e-b486-492f-83a7-30d3dac62c32">&lt;/strong&gt;</ept> module should look and behave.</source>
+          <target state="new">To expose this <bpt id="7c2f9394-8077-4e1e-91b4-81cc543ac010">&lt;code&gt;</bpt>CustomAddRows<ept id="7c2f9394-8077-4e1e-91b4-81cc543ac010">&lt;/code&gt;</ept> function as an Azure Machine Learning module, an XML definition file must be created to specify how the <bpt id="eed2504e-b486-492f-83a7-30d3dac62c32">&lt;strong&gt;</bpt>Custom Add Rows<ept id="eed2504e-b486-492f-83a7-30d3dac62c32">&lt;/strong&gt;</ept> module should look and behave.</target>
+        </trans-unit>
+        <trans-unit id="0eba5b26-0fdd-4130-b3be-097a6ac91e32" xml:space="preserve">
+          <source>Note that the value of the <bpt id="2cec67ac-6f37-467b-a698-517361350e80">&lt;strong&gt;</bpt>id<ept id="2cec67ac-6f37-467b-a698-517361350e80">&lt;/strong&gt;</ept> attributes of the <bpt id="94abf481-5100-4a95-b469-e50a042076bc">&lt;strong&gt;</bpt>Input<ept id="94abf481-5100-4a95-b469-e50a042076bc">&lt;/strong&gt;</ept> and <bpt id="1d2a5fa9-886c-4a93-b894-7a07a7b45873">&lt;strong&gt;</bpt>Arg<ept id="1d2a5fa9-886c-4a93-b894-7a07a7b45873">&lt;/strong&gt;</ept> elements in the XML file must match the function parameter names of the R code exactly (<bpt id="15b5b2f1-2352-484e-b13b-67ef4be56650">&lt;em&gt;</bpt>dataset1<ept id="15b5b2f1-2352-484e-b13b-67ef4be56650">&lt;/em&gt;</ept>, <bpt id="5e12f7c7-0878-46f8-86bb-855c01414b17">&lt;em&gt;</bpt>dataset2<ept id="5e12f7c7-0878-46f8-86bb-855c01414b17">&lt;/em&gt;</ept>, and <bpt id="31781b46-40d6-49dc-acf6-240cb9c31fac">&lt;em&gt;</bpt>swap<ept id="31781b46-40d6-49dc-acf6-240cb9c31fac">&lt;/em&gt;</ept> in the example).</source>
+          <target state="new">Note that the value of the <bpt id="2cec67ac-6f37-467b-a698-517361350e80">&lt;strong&gt;</bpt>id<ept id="2cec67ac-6f37-467b-a698-517361350e80">&lt;/strong&gt;</ept> attributes of the <bpt id="94abf481-5100-4a95-b469-e50a042076bc">&lt;strong&gt;</bpt>Input<ept id="94abf481-5100-4a95-b469-e50a042076bc">&lt;/strong&gt;</ept> and <bpt id="1d2a5fa9-886c-4a93-b894-7a07a7b45873">&lt;strong&gt;</bpt>Arg<ept id="1d2a5fa9-886c-4a93-b894-7a07a7b45873">&lt;/strong&gt;</ept> elements in the XML file must match the function parameter names of the R code exactly (<bpt id="15b5b2f1-2352-484e-b13b-67ef4be56650">&lt;em&gt;</bpt>dataset1<ept id="15b5b2f1-2352-484e-b13b-67ef4be56650">&lt;/em&gt;</ept>, <bpt id="5e12f7c7-0878-46f8-86bb-855c01414b17">&lt;em&gt;</bpt>dataset2<ept id="5e12f7c7-0878-46f8-86bb-855c01414b17">&lt;/em&gt;</ept>, and <bpt id="31781b46-40d6-49dc-acf6-240cb9c31fac">&lt;em&gt;</bpt>swap<ept id="31781b46-40d6-49dc-acf6-240cb9c31fac">&lt;/em&gt;</ept> in the example).</target>
+        </trans-unit>
+        <trans-unit id="89d38c51-531b-486c-9811-b3bc9af2e26d" xml:space="preserve">
+          <source>Similarly, the value of the <bpt id="a50ecf33-6349-4880-851b-0b96c4ecb657">&lt;strong&gt;</bpt>entryPoint<ept id="a50ecf33-6349-4880-851b-0b96c4ecb657">&lt;/strong&gt;</ept> attribute of the <bpt id="eae8f148-6152-4af5-a7c9-bc918b969ef2">&lt;strong&gt;</bpt>Language<ept id="eae8f148-6152-4af5-a7c9-bc918b969ef2">&lt;/strong&gt;</ept> element must match the name of the function in the R script exactly (<bpt id="69aa3379-f850-489a-9f52-978f1c5ee1b4">&lt;em&gt;</bpt>CustomAddRows<ept id="69aa3379-f850-489a-9f52-978f1c5ee1b4">&lt;/em&gt;</ept> in the example).</source>
+          <target state="new">Similarly, the value of the <bpt id="a50ecf33-6349-4880-851b-0b96c4ecb657">&lt;strong&gt;</bpt>entryPoint<ept id="a50ecf33-6349-4880-851b-0b96c4ecb657">&lt;/strong&gt;</ept> attribute of the <bpt id="eae8f148-6152-4af5-a7c9-bc918b969ef2">&lt;strong&gt;</bpt>Language<ept id="eae8f148-6152-4af5-a7c9-bc918b969ef2">&lt;/strong&gt;</ept> element must match the name of the function in the R script exactly (<bpt id="69aa3379-f850-489a-9f52-978f1c5ee1b4">&lt;em&gt;</bpt>CustomAddRows<ept id="69aa3379-f850-489a-9f52-978f1c5ee1b4">&lt;/em&gt;</ept> in the example).</target>
+        </trans-unit>
+        <trans-unit id="ad4b7465-dd3a-4559-a5bc-72f677ae2ac9" xml:space="preserve">
+          <source>In contrast, the <bpt id="09c5dca6-c77c-4658-bb5f-c93f6daaa42a">&lt;strong&gt;</bpt>id<ept id="09c5dca6-c77c-4658-bb5f-c93f6daaa42a">&lt;/strong&gt;</ept> attribute for the <bpt id="cefc1d24-a64c-4c48-82aa-cf106b0b20ef">&lt;strong&gt;</bpt>Output<ept id="cefc1d24-a64c-4c48-82aa-cf106b0b20ef">&lt;/strong&gt;</ept> elements do not correspond to any variables in the R script.</source>
+          <target state="new">In contrast, the <bpt id="09c5dca6-c77c-4658-bb5f-c93f6daaa42a">&lt;strong&gt;</bpt>id<ept id="09c5dca6-c77c-4658-bb5f-c93f6daaa42a">&lt;/strong&gt;</ept> attribute for the <bpt id="cefc1d24-a64c-4c48-82aa-cf106b0b20ef">&lt;strong&gt;</bpt>Output<ept id="cefc1d24-a64c-4c48-82aa-cf106b0b20ef">&lt;/strong&gt;</ept> elements do not correspond to any variables in the R script.</target>
+        </trans-unit>
+        <trans-unit id="575ccf86-5192-4ac0-bf18-36a0ff459936" xml:space="preserve">
+          <source>When more than one output is required, simply return a list from the R function with results placed in the same order as outputs are declared in the XML file.</source>
+          <target state="new">When more than one output is required, simply return a list from the R function with results placed in the same order as outputs are declared in the XML file.</target>
+        </trans-unit>
+        <trans-unit id="615fff47-10b8-44ac-9517-aa5ac3f70814" xml:space="preserve">
+          <source>Save these two files as <bpt id="7d9609cf-d904-4d42-bf52-f783a4381dcc">&lt;em&gt;</bpt>CustomAddRows.R<ept id="7d9609cf-d904-4d42-bf52-f783a4381dcc">&lt;/em&gt;</ept> and <bpt id="e5c046ea-2317-4f2e-a112-313d8b9c4ab5">&lt;em&gt;</bpt>CustomAddRows.xml<ept id="e5c046ea-2317-4f2e-a112-313d8b9c4ab5">&lt;/em&gt;</ept> and then zip them together into a <bpt id="af5a1d0d-c87c-4bf4-9d5e-765e4e0f2a70">&lt;em&gt;</bpt>CustomAddRows.zip<ept id="af5a1d0d-c87c-4bf4-9d5e-765e4e0f2a70">&lt;/em&gt;</ept> file.</source>
+          <target state="new">Save these two files as <bpt id="7d9609cf-d904-4d42-bf52-f783a4381dcc">&lt;em&gt;</bpt>CustomAddRows.R<ept id="7d9609cf-d904-4d42-bf52-f783a4381dcc">&lt;/em&gt;</ept> and <bpt id="e5c046ea-2317-4f2e-a112-313d8b9c4ab5">&lt;em&gt;</bpt>CustomAddRows.xml<ept id="e5c046ea-2317-4f2e-a112-313d8b9c4ab5">&lt;/em&gt;</ept> and then zip them together into a <bpt id="af5a1d0d-c87c-4bf4-9d5e-765e4e0f2a70">&lt;em&gt;</bpt>CustomAddRows.zip<ept id="af5a1d0d-c87c-4bf4-9d5e-765e4e0f2a70">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="76cf4db3-604a-462b-9906-cb56485594fe" xml:space="preserve">
+          <source>To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the <bpt id="c227020a-f0f4-4a23-8406-6bc6e125f65e">&lt;strong&gt;</bpt>+NEW<ept id="c227020a-f0f4-4a23-8406-6bc6e125f65e">&lt;/strong&gt;</ept> button on the bottom and choose <bpt id="576f9373-3dbb-4de2-aade-41c690ba330f">&lt;strong&gt;</bpt>MODULE -&gt; FROM ZIP PACKAGE<ept id="576f9373-3dbb-4de2-aade-41c690ba330f">&lt;/strong&gt;</ept> to upload the new Custom Add Rows module.</source>
+          <target state="new">To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the <bpt id="c227020a-f0f4-4a23-8406-6bc6e125f65e">&lt;strong&gt;</bpt>+NEW<ept id="c227020a-f0f4-4a23-8406-6bc6e125f65e">&lt;/strong&gt;</ept> button on the bottom and choose <bpt id="576f9373-3dbb-4de2-aade-41c690ba330f">&lt;strong&gt;</bpt>MODULE -&gt; FROM ZIP PACKAGE<ept id="576f9373-3dbb-4de2-aade-41c690ba330f">&lt;/strong&gt;</ept> to upload the new Custom Add Rows module.</target>
+        </trans-unit>
+        <trans-unit id="996cef65-9783-4145-9919-b0f60ee5a288" xml:space="preserve">
+          <source><bpt id="b8ca7335-fc73-4c99-a7d7-5381f96b81dd">&lt;linkText&gt;</bpt><ept id="b8ca7335-fc73-4c99-a7d7-5381f96b81dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8ca7335-fc73-4c99-a7d7-5381f96b81dd">&lt;linkText&gt;</bpt><ept id="b8ca7335-fc73-4c99-a7d7-5381f96b81dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aac99b47-ccd8-4980-9802-97b69b8d3de6" xml:space="preserve">
+          <source>The <bpt id="ccbaaa37-0f3e-413f-8a0b-bd0e7b709906">&lt;strong&gt;</bpt>Custom Add Rows<ept id="ccbaaa37-0f3e-413f-8a0b-bd0e7b709906">&lt;/strong&gt;</ept> module is now ready to be accessed by your Machine Learning experiments.</source>
+          <target state="new">The <bpt id="ccbaaa37-0f3e-413f-8a0b-bd0e7b709906">&lt;strong&gt;</bpt>Custom Add Rows<ept id="ccbaaa37-0f3e-413f-8a0b-bd0e7b709906">&lt;/strong&gt;</ept> module is now ready to be accessed by your Machine Learning experiments.</target>
+        </trans-unit>
+        <trans-unit id="14e91b2b-1daa-4385-925f-2ea1ed18ae37" xml:space="preserve">
+          <source>The <bpt id="29344808-e1f9-4545-8d1c-13dcbc115d25">&lt;strong&gt;</bpt>Module<ept id="29344808-e1f9-4545-8d1c-13dcbc115d25">&lt;/strong&gt;</ept> element is used to define a custom module in the XML file.</source>
+          <target state="new">The <bpt id="29344808-e1f9-4545-8d1c-13dcbc115d25">&lt;strong&gt;</bpt>Module<ept id="29344808-e1f9-4545-8d1c-13dcbc115d25">&lt;/strong&gt;</ept> element is used to define a custom module in the XML file.</target>
+        </trans-unit>
+        <trans-unit id="d7e410a4-9a76-477e-b085-f740c8aed2e2" xml:space="preserve">
+          <source>Multiple modules can be defined in one XML file using multiple <bpt id="dc772abc-316c-4bcf-a510-8942d075dc9a">&lt;strong&gt;</bpt>module<ept id="dc772abc-316c-4bcf-a510-8942d075dc9a">&lt;/strong&gt;</ept> elements.</source>
+          <target state="new">Multiple modules can be defined in one XML file using multiple <bpt id="dc772abc-316c-4bcf-a510-8942d075dc9a">&lt;strong&gt;</bpt>module<ept id="dc772abc-316c-4bcf-a510-8942d075dc9a">&lt;/strong&gt;</ept> elements.</target>
+        </trans-unit>
+        <trans-unit id="f9dc9859-1f6c-4e67-8163-06f40dad7b9e" xml:space="preserve">
+          <source>Each module in your workspace must have a unique name.</source>
+          <target state="new">Each module in your workspace must have a unique name.</target>
+        </trans-unit>
+        <trans-unit id="3968c3a7-bbab-40d6-94b2-bd10a576fe55" xml:space="preserve">
+          <source>Register a custom module with the same name as an existing custom module and it will replace the existing module with the new one.</source>
+          <target state="new">Register a custom module with the same name as an existing custom module and it will replace the existing module with the new one.</target>
+        </trans-unit>
+        <trans-unit id="f75846c0-cde9-421a-8db6-4fd9b980a54b" xml:space="preserve">
+          <source>Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module and it will appear in the Custom category of the module palette.</source>
+          <target state="new">Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module and it will appear in the Custom category of the module palette.</target>
+        </trans-unit>
+        <trans-unit id="53ce754e-9319-483f-b2fb-23c08f3ea22a" xml:space="preserve">
+          <source>Within the <bpt id="879812d2-85eb-457c-9fd3-ce7dc6741c54">&lt;strong&gt;</bpt>Module<ept id="879812d2-85eb-457c-9fd3-ce7dc6741c54">&lt;/strong&gt;</ept> element, you can specify an optional <bpt id="569c2057-c27d-4b38-9735-66123979b753">&lt;strong&gt;</bpt>Owner<ept id="569c2057-c27d-4b38-9735-66123979b753">&lt;/strong&gt;</ept> element that is embedded into the module as well as a <bpt id="89691bb7-e5e7-46b1-b884-089c9fb23665">&lt;strong&gt;</bpt>Description<ept id="89691bb7-e5e7-46b1-b884-089c9fb23665">&lt;/strong&gt;</ept> element which is text displayed in quick help for the module and when you hover over the module in the Machine Learning UI.</source>
+          <target state="new">Within the <bpt id="879812d2-85eb-457c-9fd3-ce7dc6741c54">&lt;strong&gt;</bpt>Module<ept id="879812d2-85eb-457c-9fd3-ce7dc6741c54">&lt;/strong&gt;</ept> element, you can specify an optional <bpt id="569c2057-c27d-4b38-9735-66123979b753">&lt;strong&gt;</bpt>Owner<ept id="569c2057-c27d-4b38-9735-66123979b753">&lt;/strong&gt;</ept> element that is embedded into the module as well as a <bpt id="89691bb7-e5e7-46b1-b884-089c9fb23665">&lt;strong&gt;</bpt>Description<ept id="89691bb7-e5e7-46b1-b884-089c9fb23665">&lt;/strong&gt;</ept> element which is text displayed in quick help for the module and when you hover over the module in the Machine Learning UI.</target>
+        </trans-unit>
+        <trans-unit id="833df5ec-ff7e-49c4-9597-05898d72fda1" xml:space="preserve">
+          <source><bpt id="1e643a89-75cf-43a5-8087-7c75f6b14bc9">&lt;strong&gt;</bpt>Rules for characters limits in the Module elements<ept id="1e643a89-75cf-43a5-8087-7c75f6b14bc9">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="1e643a89-75cf-43a5-8087-7c75f6b14bc9">&lt;strong&gt;</bpt>Rules for characters limits in the Module elements<ept id="1e643a89-75cf-43a5-8087-7c75f6b14bc9">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="64ac4588-e2ae-4809-a042-5e0e60481a1d" xml:space="preserve">
+          <source>The value of the <bpt id="9270d3b3-6eda-439c-90ce-ad1508bd203b">&lt;strong&gt;</bpt>name<ept id="9270d3b3-6eda-439c-90ce-ad1508bd203b">&lt;/strong&gt;</ept> attribute in the <bpt id="5d19494c-2c6c-480c-beaa-a1a75226d88b">&lt;strong&gt;</bpt>Module<ept id="5d19494c-2c6c-480c-beaa-a1a75226d88b">&lt;/strong&gt;</ept> element must not exceed 64 characters in length.</source>
+          <target state="new">The value of the <bpt id="9270d3b3-6eda-439c-90ce-ad1508bd203b">&lt;strong&gt;</bpt>name<ept id="9270d3b3-6eda-439c-90ce-ad1508bd203b">&lt;/strong&gt;</ept> attribute in the <bpt id="5d19494c-2c6c-480c-beaa-a1a75226d88b">&lt;strong&gt;</bpt>Module<ept id="5d19494c-2c6c-480c-beaa-a1a75226d88b">&lt;/strong&gt;</ept> element must not exceed 64 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="9c89a1af-2917-47a5-bda4-bfb92faf7504" xml:space="preserve">
+          <source>The content of the <bpt id="f3e902a1-1a34-4053-9fa5-853442b9faac">&lt;strong&gt;</bpt>Description<ept id="f3e902a1-1a34-4053-9fa5-853442b9faac">&lt;/strong&gt;</ept> element must not exceed 128 characters in length.</source>
+          <target state="new">The content of the <bpt id="f3e902a1-1a34-4053-9fa5-853442b9faac">&lt;strong&gt;</bpt>Description<ept id="f3e902a1-1a34-4053-9fa5-853442b9faac">&lt;/strong&gt;</ept> element must not exceed 128 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="4ac58d07-a1a4-4c60-8a5f-82df23d788bb" xml:space="preserve">
+          <source>The content of the <bpt id="79249fd5-2644-4cea-9095-90566bfeb481">&lt;strong&gt;</bpt>Owner<ept id="79249fd5-2644-4cea-9095-90566bfeb481">&lt;/strong&gt;</ept> element must not exceed 32 characters in length.</source>
+          <target state="new">The content of the <bpt id="79249fd5-2644-4cea-9095-90566bfeb481">&lt;strong&gt;</bpt>Owner<ept id="79249fd5-2644-4cea-9095-90566bfeb481">&lt;/strong&gt;</ept> element must not exceed 32 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="b914189d-5e2d-488d-8622-c5489b38c330" xml:space="preserve">
+          <source>** Indicating whether a module's results are deterministic or nondeterministic</source>
+          <target state="new">** Indicating whether a module's results are deterministic or nondeterministic</target>
+        </trans-unit>
+        <trans-unit id="fc992099-8878-40d1-b87b-312ad9f6a889" xml:space="preserve">
+          <source>By default, all modules are considered to be deterministic.</source>
+          <target state="new">By default, all modules are considered to be deterministic.</target>
+        </trans-unit>
+        <trans-unit id="3f9d5d65-ef4e-48f9-9fe9-68658c6dd177" xml:space="preserve">
+          <source>That is, given an  unchanging set of parameters, the module should return the same results each time it is run.</source>
+          <target state="new">That is, given an  unchanging set of parameters, the module should return the same results each time it is run.</target>
+        </trans-unit>
+        <trans-unit id="4c59155f-b0d1-43e7-833a-f4d6387c0eeb" xml:space="preserve">
+          <source>Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed.</source>
+          <target state="new">Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed.</target>
+        </trans-unit>
+        <trans-unit id="4c46d8a6-0573-4737-9a8b-3f34d0123b3a" xml:space="preserve">
+          <source>Cached results are returned resulting in faster experiment execution.</source>
+          <target state="new">Cached results are returned resulting in faster experiment execution.</target>
+        </trans-unit>
+        <trans-unit id="0bfac9bb-b149-4713-be6b-d88000da0903" xml:space="preserve">
+          <source>However, if your module uses a function that returns different results each time it is run – for example, RAND or a function that returns the current date or time – you can specify the module as being non-deterministic by setting the optional <bpt id="b54e2475-9b81-4ea4-9840-f4f2ede070ef">&lt;strong&gt;</bpt>isDeterministic<ept id="b54e2475-9b81-4ea4-9840-f4f2ede070ef">&lt;/strong&gt;</ept> attribute to <bpt id="df369c98-6378-45d5-abdd-0044875d0fae">&lt;strong&gt;</bpt>false<ept id="df369c98-6378-45d5-abdd-0044875d0fae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">However, if your module uses a function that returns different results each time it is run – for example, RAND or a function that returns the current date or time – you can specify the module as being non-deterministic by setting the optional <bpt id="b54e2475-9b81-4ea4-9840-f4f2ede070ef">&lt;strong&gt;</bpt>isDeterministic<ept id="b54e2475-9b81-4ea4-9840-f4f2ede070ef">&lt;/strong&gt;</ept> attribute to <bpt id="df369c98-6378-45d5-abdd-0044875d0fae">&lt;strong&gt;</bpt>false<ept id="df369c98-6378-45d5-abdd-0044875d0fae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ce43d1f-b963-4808-9ecf-e655c894c842" xml:space="preserve">
+          <source>The module will be rerun each time the experiment is run, even if the module input and parameters have not changed.</source>
+          <target state="new">The module will be rerun each time the experiment is run, even if the module input and parameters have not changed.</target>
+        </trans-unit>
+        <trans-unit id="4a0f3244-cc95-4d9e-b7ab-75fe76787b5c" xml:space="preserve">
+          <source>The <bpt id="69de0dc5-b990-4d2f-a0f7-5382f9c48d22">&lt;strong&gt;</bpt>Language<ept id="69de0dc5-b990-4d2f-a0f7-5382f9c48d22">&lt;/strong&gt;</ept> element in your XML definition file is used to specify the custom module language.</source>
+          <target state="new">The <bpt id="69de0dc5-b990-4d2f-a0f7-5382f9c48d22">&lt;strong&gt;</bpt>Language<ept id="69de0dc5-b990-4d2f-a0f7-5382f9c48d22">&lt;/strong&gt;</ept> element in your XML definition file is used to specify the custom module language.</target>
+        </trans-unit>
+        <trans-unit id="1ffe5503-68be-4a60-ae80-71a407b4a75a" xml:space="preserve">
+          <source>Currently, R is the only supported language.</source>
+          <target state="new">Currently, R is the only supported language.</target>
+        </trans-unit>
+        <trans-unit id="5260a33b-9740-41ed-ac26-8a4baea8356b" xml:space="preserve">
+          <source>The value of the <bpt id="723110f0-594b-4fa5-8e48-21649bc7bc81">&lt;strong&gt;</bpt>sourceFile<ept id="723110f0-594b-4fa5-8e48-21649bc7bc81">&lt;/strong&gt;</ept> attribute must be the name of the R file that contains the function to call when the module is run.</source>
+          <target state="new">The value of the <bpt id="723110f0-594b-4fa5-8e48-21649bc7bc81">&lt;strong&gt;</bpt>sourceFile<ept id="723110f0-594b-4fa5-8e48-21649bc7bc81">&lt;/strong&gt;</ept> attribute must be the name of the R file that contains the function to call when the module is run.</target>
+        </trans-unit>
+        <trans-unit id="d28d7720-1332-4c44-8be3-44f1079df4c3" xml:space="preserve">
+          <source>This file must be part of the zip package.</source>
+          <target state="new">This file must be part of the zip package.</target>
+        </trans-unit>
+        <trans-unit id="055aacd6-c494-428c-a542-5bce76481ef9" xml:space="preserve">
+          <source>The value of the <bpt id="5f9a1670-d41b-43e0-8416-3699916f153b">&lt;strong&gt;</bpt>entryPoint<ept id="5f9a1670-d41b-43e0-8416-3699916f153b">&lt;/strong&gt;</ept> attribute is the name of the function being called and must match a valid function defined with in the source file.</source>
+          <target state="new">The value of the <bpt id="5f9a1670-d41b-43e0-8416-3699916f153b">&lt;strong&gt;</bpt>entryPoint<ept id="5f9a1670-d41b-43e0-8416-3699916f153b">&lt;/strong&gt;</ept> attribute is the name of the function being called and must match a valid function defined with in the source file.</target>
+        </trans-unit>
+        <trans-unit id="ccdf7782-fd3e-4275-a651-03f310ea2dd9" xml:space="preserve">
+          <source>The input and output ports for a custom module are specified in child elements of the <bpt id="b4aee2cd-6f51-453b-914f-192ebd5ad056">&lt;strong&gt;</bpt>Ports<ept id="b4aee2cd-6f51-453b-914f-192ebd5ad056">&lt;/strong&gt;</ept> section of the XML definition file.</source>
+          <target state="new">The input and output ports for a custom module are specified in child elements of the <bpt id="b4aee2cd-6f51-453b-914f-192ebd5ad056">&lt;strong&gt;</bpt>Ports<ept id="b4aee2cd-6f51-453b-914f-192ebd5ad056">&lt;/strong&gt;</ept> section of the XML definition file.</target>
+        </trans-unit>
+        <trans-unit id="9f3de615-84d9-4c61-90a9-2fa50a06c03a" xml:space="preserve">
+          <source>The order of these elements determines the layout experienced (UX) by users.</source>
+          <target state="new">The order of these elements determines the layout experienced (UX) by users.</target>
+        </trans-unit>
+        <trans-unit id="281a52c7-3125-42e4-9cf2-acbc718dee56" xml:space="preserve">
+          <source>The first child <bpt id="61c78b98-e45c-42ab-ab76-304a3d05ea7b">&lt;strong&gt;</bpt>input<ept id="61c78b98-e45c-42ab-ab76-304a3d05ea7b">&lt;/strong&gt;</ept> or <bpt id="59eb3d21-a68b-4dd2-addc-5ce8d335e993">&lt;strong&gt;</bpt>output<ept id="59eb3d21-a68b-4dd2-addc-5ce8d335e993">&lt;/strong&gt;</ept> listed in the <bpt id="873abd88-405f-4f2d-bf05-492ec2b51fbc">&lt;strong&gt;</bpt>Ports<ept id="873abd88-405f-4f2d-bf05-492ec2b51fbc">&lt;/strong&gt;</ept> element  of the XML file will be the left-most input port in the Machine Learning UX.</source>
+          <target state="new">The first child <bpt id="61c78b98-e45c-42ab-ab76-304a3d05ea7b">&lt;strong&gt;</bpt>input<ept id="61c78b98-e45c-42ab-ab76-304a3d05ea7b">&lt;/strong&gt;</ept> or <bpt id="59eb3d21-a68b-4dd2-addc-5ce8d335e993">&lt;strong&gt;</bpt>output<ept id="59eb3d21-a68b-4dd2-addc-5ce8d335e993">&lt;/strong&gt;</ept> listed in the <bpt id="873abd88-405f-4f2d-bf05-492ec2b51fbc">&lt;strong&gt;</bpt>Ports<ept id="873abd88-405f-4f2d-bf05-492ec2b51fbc">&lt;/strong&gt;</ept> element  of the XML file will be the left-most input port in the Machine Learning UX.</target>
+        </trans-unit>
+        <trans-unit id="71b8f78e-6838-47df-a642-f6762a60b611" xml:space="preserve">
+          <source>Each input and output port may have an optional <bpt id="6c24bffc-450e-4bbd-b191-ee08059f08a9">&lt;strong&gt;</bpt>Description<ept id="6c24bffc-450e-4bbd-b191-ee08059f08a9">&lt;/strong&gt;</ept> child element that specifies the text shown when a user hovers the mouse cursor over the port in the Machine Learning UI.</source>
+          <target state="new">Each input and output port may have an optional <bpt id="6c24bffc-450e-4bbd-b191-ee08059f08a9">&lt;strong&gt;</bpt>Description<ept id="6c24bffc-450e-4bbd-b191-ee08059f08a9">&lt;/strong&gt;</ept> child element that specifies the text shown when a user hovers the mouse cursor over the port in the Machine Learning UI.</target>
+        </trans-unit>
+        <trans-unit id="a81b526a-4567-4e08-be94-6ab0327cceba" xml:space="preserve">
+          <source><bpt id="e68bd85b-d28f-4974-8962-4a958dff3b3e">&lt;strong&gt;</bpt>Ports Rules<ept id="e68bd85b-d28f-4974-8962-4a958dff3b3e">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="e68bd85b-d28f-4974-8962-4a958dff3b3e">&lt;strong&gt;</bpt>Ports Rules<ept id="e68bd85b-d28f-4974-8962-4a958dff3b3e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="35a45a96-216f-4f80-b0cd-0ecd4c2811c3" xml:space="preserve">
+          <source>Maximum number of <bpt id="3aa735fc-31eb-41f1-bd4a-d753c0bce43b">&lt;strong&gt;</bpt>input and output ports<ept id="3aa735fc-31eb-41f1-bd4a-d753c0bce43b">&lt;/strong&gt;</ept> is 8 for each.</source>
+          <target state="new">Maximum number of <bpt id="3aa735fc-31eb-41f1-bd4a-d753c0bce43b">&lt;strong&gt;</bpt>input and output ports<ept id="3aa735fc-31eb-41f1-bd4a-d753c0bce43b">&lt;/strong&gt;</ept> is 8 for each.</target>
+        </trans-unit>
+        <trans-unit id="4ff3a689-755d-44ec-bdfb-36cdc529c506" xml:space="preserve">
+          <source>Input ports allow users to pass data to your R function and workspace.</source>
+          <target state="new">Input ports allow users to pass data to your R function and workspace.</target>
+        </trans-unit>
+        <trans-unit id="76a868da-3e14-4c26-baf3-bdc1cf1e044f" xml:space="preserve">
+          <source>The <bpt id="bc22ad1d-996a-4a21-8b3d-1a02e574d538">&lt;strong&gt;</bpt>data types<ept id="bc22ad1d-996a-4a21-8b3d-1a02e574d538">&lt;/strong&gt;</ept> that are supported for input ports are as follows:</source>
+          <target state="new">The <bpt id="bc22ad1d-996a-4a21-8b3d-1a02e574d538">&lt;strong&gt;</bpt>data types<ept id="bc22ad1d-996a-4a21-8b3d-1a02e574d538">&lt;/strong&gt;</ept> that are supported for input ports are as follows:</target>
+        </trans-unit>
+        <trans-unit id="98aa11ab-64e8-4756-a4db-e890ded6feac" xml:space="preserve">
+          <source><bpt id="8ec74c98-bc99-40af-9952-dc4554cb75eb">&lt;strong&gt;</bpt>DataTable:<ept id="8ec74c98-bc99-40af-9952-dc4554cb75eb">&lt;/strong&gt;</ept> This type is passed to your R function as a data.frame.</source>
+          <target state="new"><bpt id="8ec74c98-bc99-40af-9952-dc4554cb75eb">&lt;strong&gt;</bpt>DataTable:<ept id="8ec74c98-bc99-40af-9952-dc4554cb75eb">&lt;/strong&gt;</ept> This type is passed to your R function as a data.frame.</target>
+        </trans-unit>
+        <trans-unit id="d73756fe-7ade-47a0-87ce-e4a8ea33a958" xml:space="preserve">
+          <source>In fact, any types (for example, CSV files or ARFF files) that are supported  by Machine Learning and that are compatible with <bpt id="a70bedf1-d97d-4c7a-a3a8-1bfda51199aa">&lt;strong&gt;</bpt>DataTable<ept id="a70bedf1-d97d-4c7a-a3a8-1bfda51199aa">&lt;/strong&gt;</ept> are converted to a data.frame automatically.</source>
+          <target state="new">In fact, any types (for example, CSV files or ARFF files) that are supported  by Machine Learning and that are compatible with <bpt id="a70bedf1-d97d-4c7a-a3a8-1bfda51199aa">&lt;strong&gt;</bpt>DataTable<ept id="a70bedf1-d97d-4c7a-a3a8-1bfda51199aa">&lt;/strong&gt;</ept> are converted to a data.frame automatically.</target>
+        </trans-unit>
+        <trans-unit id="32b869bf-6c11-4d3a-bca4-de1114946f17" xml:space="preserve">
+          <source>The <bpt id="f8cb7ee5-d8bc-4d35-8f9a-1b474e658a43">&lt;strong&gt;</bpt>id<ept id="f8cb7ee5-d8bc-4d35-8f9a-1b474e658a43">&lt;/strong&gt;</ept> attribute associated with each <bpt id="77e8c158-9cf6-4b10-bb51-e665fb11b070">&lt;strong&gt;</bpt>DataTable<ept id="77e8c158-9cf6-4b10-bb51-e665fb11b070">&lt;/strong&gt;</ept> input port must have a unique value and this value must match its corresponding named parameter in your R function.</source>
+          <target state="new">The <bpt id="f8cb7ee5-d8bc-4d35-8f9a-1b474e658a43">&lt;strong&gt;</bpt>id<ept id="f8cb7ee5-d8bc-4d35-8f9a-1b474e658a43">&lt;/strong&gt;</ept> attribute associated with each <bpt id="77e8c158-9cf6-4b10-bb51-e665fb11b070">&lt;strong&gt;</bpt>DataTable<ept id="77e8c158-9cf6-4b10-bb51-e665fb11b070">&lt;/strong&gt;</ept> input port must have a unique value and this value must match its corresponding named parameter in your R function.</target>
+        </trans-unit>
+        <trans-unit id="28a8bba7-2f4d-403f-aaec-3b902056275f" xml:space="preserve">
+          <source>Optional <bpt id="e5921d6d-c248-4d95-9fcc-745769c916c1">&lt;strong&gt;</bpt>DataTable<ept id="e5921d6d-c248-4d95-9fcc-745769c916c1">&lt;/strong&gt;</ept> ports that are not passed as input in an experiment will have the value <bpt id="df9a9204-6e1a-48ae-b7a8-40233f6e7406">&lt;strong&gt;</bpt>NULL<ept id="df9a9204-6e1a-48ae-b7a8-40233f6e7406">&lt;/strong&gt;</ept> passed to the R function and optional zip ports will be ignored if the input is not connected.</source>
+          <target state="new">Optional <bpt id="e5921d6d-c248-4d95-9fcc-745769c916c1">&lt;strong&gt;</bpt>DataTable<ept id="e5921d6d-c248-4d95-9fcc-745769c916c1">&lt;/strong&gt;</ept> ports that are not passed as input in an experiment will have the value <bpt id="df9a9204-6e1a-48ae-b7a8-40233f6e7406">&lt;strong&gt;</bpt>NULL<ept id="df9a9204-6e1a-48ae-b7a8-40233f6e7406">&lt;/strong&gt;</ept> passed to the R function and optional zip ports will be ignored if the input is not connected.</target>
+        </trans-unit>
+        <trans-unit id="cea6eb53-5249-46e4-87e1-1a439159b140" xml:space="preserve">
+          <source>The <bpt id="1c40fee6-37bb-42bc-98a2-e5f533abaa20">&lt;strong&gt;</bpt>isOptional<ept id="1c40fee6-37bb-42bc-98a2-e5f533abaa20">&lt;/strong&gt;</ept> attribute is optional for both the <bpt id="9e96fe1d-1353-4558-9268-9b137873390c">&lt;strong&gt;</bpt>DataTable<ept id="9e96fe1d-1353-4558-9268-9b137873390c">&lt;/strong&gt;</ept> and <bpt id="18b434ab-b68e-4759-bc12-adbde06d0eef">&lt;strong&gt;</bpt>Zip<ept id="18b434ab-b68e-4759-bc12-adbde06d0eef">&lt;/strong&gt;</ept> types and is <bpt id="5c8258a4-1cb4-4909-87b6-e0387695759b">&lt;em&gt;</bpt>false<ept id="5c8258a4-1cb4-4909-87b6-e0387695759b">&lt;/em&gt;</ept> by default.</source>
+          <target state="new">The <bpt id="1c40fee6-37bb-42bc-98a2-e5f533abaa20">&lt;strong&gt;</bpt>isOptional<ept id="1c40fee6-37bb-42bc-98a2-e5f533abaa20">&lt;/strong&gt;</ept> attribute is optional for both the <bpt id="9e96fe1d-1353-4558-9268-9b137873390c">&lt;strong&gt;</bpt>DataTable<ept id="9e96fe1d-1353-4558-9268-9b137873390c">&lt;/strong&gt;</ept> and <bpt id="18b434ab-b68e-4759-bc12-adbde06d0eef">&lt;strong&gt;</bpt>Zip<ept id="18b434ab-b68e-4759-bc12-adbde06d0eef">&lt;/strong&gt;</ept> types and is <bpt id="5c8258a4-1cb4-4909-87b6-e0387695759b">&lt;em&gt;</bpt>false<ept id="5c8258a4-1cb4-4909-87b6-e0387695759b">&lt;/em&gt;</ept> by default.</target>
+        </trans-unit>
+        <trans-unit id="f2c92909-427c-43f2-bb4e-91342b8e6d8e" xml:space="preserve">
+          <source><bpt id="15f93084-e71c-4fac-adc1-5b9b8ab602de">&lt;strong&gt;</bpt>Zip:<ept id="15f93084-e71c-4fac-adc1-5b9b8ab602de">&lt;/strong&gt;</ept> Custom modules can accept a zip file as input.</source>
+          <target state="new"><bpt id="15f93084-e71c-4fac-adc1-5b9b8ab602de">&lt;strong&gt;</bpt>Zip:<ept id="15f93084-e71c-4fac-adc1-5b9b8ab602de">&lt;/strong&gt;</ept> Custom modules can accept a zip file as input.</target>
+        </trans-unit>
+        <trans-unit id="faebbe17-7daa-4ab7-874c-b1c073440133" xml:space="preserve">
+          <source>This input is unpacked into the R working directory of your function</source>
+          <target state="new">This input is unpacked into the R working directory of your function</target>
+        </trans-unit>
+        <trans-unit id="11aeea0f-9d13-416a-b98b-00f520cb3b04" xml:space="preserve">
+          <source>For custom R modules, the id for a Zip port does not have to match any parameters of the R function since the zip file is automatically extracted to the R working directory.</source>
+          <target state="new">For custom R modules, the id for a Zip port does not have to match any parameters of the R function since the zip file is automatically extracted to the R working directory.</target>
+        </trans-unit>
+        <trans-unit id="8489aa97-01d8-409e-ab8a-61e67969a229" xml:space="preserve">
+          <source><bpt id="d80052de-344e-4976-82c7-66e82df39a5c">&lt;strong&gt;</bpt>Input Rules:<ept id="d80052de-344e-4976-82c7-66e82df39a5c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d80052de-344e-4976-82c7-66e82df39a5c">&lt;strong&gt;</bpt>Input Rules:<ept id="d80052de-344e-4976-82c7-66e82df39a5c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10f75e02-d4c2-4d30-bde2-71f7b635dd52" xml:space="preserve">
+          <source>The value of the <bpt id="c71ef111-e677-460d-8f61-553dece3f236">&lt;strong&gt;</bpt>id<ept id="c71ef111-e677-460d-8f61-553dece3f236">&lt;/strong&gt;</ept> attribute of the <bpt id="d1c61b05-5589-41d7-8e86-6de8afb957ad">&lt;strong&gt;</bpt>Input<ept id="d1c61b05-5589-41d7-8e86-6de8afb957ad">&lt;/strong&gt;</ept> element must be a valid R variable name.</source>
+          <target state="new">The value of the <bpt id="c71ef111-e677-460d-8f61-553dece3f236">&lt;strong&gt;</bpt>id<ept id="c71ef111-e677-460d-8f61-553dece3f236">&lt;/strong&gt;</ept> attribute of the <bpt id="d1c61b05-5589-41d7-8e86-6de8afb957ad">&lt;strong&gt;</bpt>Input<ept id="d1c61b05-5589-41d7-8e86-6de8afb957ad">&lt;/strong&gt;</ept> element must be a valid R variable name.</target>
+        </trans-unit>
+        <trans-unit id="9464fcfd-ffdc-49f3-81a1-7001cb6912a3" xml:space="preserve">
+          <source>The value of the <bpt id="82620b5a-0eb7-4e19-999e-e41a696383f0">&lt;strong&gt;</bpt>id<ept id="82620b5a-0eb7-4e19-999e-e41a696383f0">&lt;/strong&gt;</ept> attribute of the <bpt id="a0942163-4c44-4ee5-a1a4-033a7511dacd">&lt;strong&gt;</bpt>Input<ept id="a0942163-4c44-4ee5-a1a4-033a7511dacd">&lt;/strong&gt;</ept> element must not be longer than 64 characters.</source>
+          <target state="new">The value of the <bpt id="82620b5a-0eb7-4e19-999e-e41a696383f0">&lt;strong&gt;</bpt>id<ept id="82620b5a-0eb7-4e19-999e-e41a696383f0">&lt;/strong&gt;</ept> attribute of the <bpt id="a0942163-4c44-4ee5-a1a4-033a7511dacd">&lt;strong&gt;</bpt>Input<ept id="a0942163-4c44-4ee5-a1a4-033a7511dacd">&lt;/strong&gt;</ept> element must not be longer than 64 characters.</target>
+        </trans-unit>
+        <trans-unit id="5d871d9a-7e27-4c60-99ea-556ae23f380b" xml:space="preserve">
+          <source>The value of the <bpt id="862dde5f-e50c-4ea6-b1c7-69e42c18968d">&lt;strong&gt;</bpt>name<ept id="862dde5f-e50c-4ea6-b1c7-69e42c18968d">&lt;/strong&gt;</ept> attribute of the <bpt id="63c330fc-3bbf-4710-baa9-c137e471e147">&lt;strong&gt;</bpt>Input<ept id="63c330fc-3bbf-4710-baa9-c137e471e147">&lt;/strong&gt;</ept> element  must not be longer than 64 characters.</source>
+          <target state="new">The value of the <bpt id="862dde5f-e50c-4ea6-b1c7-69e42c18968d">&lt;strong&gt;</bpt>name<ept id="862dde5f-e50c-4ea6-b1c7-69e42c18968d">&lt;/strong&gt;</ept> attribute of the <bpt id="63c330fc-3bbf-4710-baa9-c137e471e147">&lt;strong&gt;</bpt>Input<ept id="63c330fc-3bbf-4710-baa9-c137e471e147">&lt;/strong&gt;</ept> element  must not be longer than 64 characters.</target>
+        </trans-unit>
+        <trans-unit id="e1d28be0-2d95-4076-8029-c5d3943caaf0" xml:space="preserve">
+          <source>The content of the <bpt id="47fe94ae-7d3b-4434-8315-56e523b78161">&lt;strong&gt;</bpt>Description<ept id="47fe94ae-7d3b-4434-8315-56e523b78161">&lt;/strong&gt;</ept> element must not be longer than 128 characters</source>
+          <target state="new">The content of the <bpt id="47fe94ae-7d3b-4434-8315-56e523b78161">&lt;strong&gt;</bpt>Description<ept id="47fe94ae-7d3b-4434-8315-56e523b78161">&lt;/strong&gt;</ept> element must not be longer than 128 characters</target>
+        </trans-unit>
+        <trans-unit id="d9ce8703-4a92-4010-a0e3-29dae259f9e2" xml:space="preserve">
+          <source>The value of the <bpt id="6f0d237d-8b6a-4164-861a-5c3a57dea595">&lt;strong&gt;</bpt>type<ept id="6f0d237d-8b6a-4164-861a-5c3a57dea595">&lt;/strong&gt;</ept> attribute of the <bpt id="74eb7c6f-6c47-45d2-b3bb-29cd62185881">&lt;strong&gt;</bpt>Input<ept id="74eb7c6f-6c47-45d2-b3bb-29cd62185881">&lt;/strong&gt;</ept> element must be <bpt id="8fbbadf3-4eb9-41d6-b7a4-2f15300b1b07">&lt;em&gt;</bpt>Zip<ept id="8fbbadf3-4eb9-41d6-b7a4-2f15300b1b07">&lt;/em&gt;</ept> or <bpt id="078350bc-a152-451d-9de4-98139705cda7">&lt;em&gt;</bpt>DataTable<ept id="078350bc-a152-451d-9de4-98139705cda7">&lt;/em&gt;</ept>.</source>
+          <target state="new">The value of the <bpt id="6f0d237d-8b6a-4164-861a-5c3a57dea595">&lt;strong&gt;</bpt>type<ept id="6f0d237d-8b6a-4164-861a-5c3a57dea595">&lt;/strong&gt;</ept> attribute of the <bpt id="74eb7c6f-6c47-45d2-b3bb-29cd62185881">&lt;strong&gt;</bpt>Input<ept id="74eb7c6f-6c47-45d2-b3bb-29cd62185881">&lt;/strong&gt;</ept> element must be <bpt id="8fbbadf3-4eb9-41d6-b7a4-2f15300b1b07">&lt;em&gt;</bpt>Zip<ept id="8fbbadf3-4eb9-41d6-b7a4-2f15300b1b07">&lt;/em&gt;</ept> or <bpt id="078350bc-a152-451d-9de4-98139705cda7">&lt;em&gt;</bpt>DataTable<ept id="078350bc-a152-451d-9de4-98139705cda7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="691a8ad4-510f-4613-af06-598d28d27b72" xml:space="preserve">
+          <source>The value of the <bpt id="97836586-aba8-48bc-9b50-3bb4621f9297">&lt;strong&gt;</bpt>isOptional<ept id="97836586-aba8-48bc-9b50-3bb4621f9297">&lt;/strong&gt;</ept> attribute of the <bpt id="e925ef3b-3c74-4c13-b970-bb60150ffe94">&lt;strong&gt;</bpt>Input<ept id="e925ef3b-3c74-4c13-b970-bb60150ffe94">&lt;/strong&gt;</ept> element is not required (and is <bpt id="31a862bf-9672-4ae2-905e-23b7fc819be9">&lt;em&gt;</bpt>false<ept id="31a862bf-9672-4ae2-905e-23b7fc819be9">&lt;/em&gt;</ept> by default when not specified); but if it is specified, it must be <bpt id="f90ff85d-0a15-4ce4-8895-d5cad542b33e">&lt;em&gt;</bpt>true<ept id="f90ff85d-0a15-4ce4-8895-d5cad542b33e">&lt;/em&gt;</ept> or <bpt id="84e63ecc-1705-4620-8bd4-bcd4c0e8cafa">&lt;em&gt;</bpt>false<ept id="84e63ecc-1705-4620-8bd4-bcd4c0e8cafa">&lt;/em&gt;</ept>.</source>
+          <target state="new">The value of the <bpt id="97836586-aba8-48bc-9b50-3bb4621f9297">&lt;strong&gt;</bpt>isOptional<ept id="97836586-aba8-48bc-9b50-3bb4621f9297">&lt;/strong&gt;</ept> attribute of the <bpt id="e925ef3b-3c74-4c13-b970-bb60150ffe94">&lt;strong&gt;</bpt>Input<ept id="e925ef3b-3c74-4c13-b970-bb60150ffe94">&lt;/strong&gt;</ept> element is not required (and is <bpt id="31a862bf-9672-4ae2-905e-23b7fc819be9">&lt;em&gt;</bpt>false<ept id="31a862bf-9672-4ae2-905e-23b7fc819be9">&lt;/em&gt;</ept> by default when not specified); but if it is specified, it must be <bpt id="f90ff85d-0a15-4ce4-8895-d5cad542b33e">&lt;em&gt;</bpt>true<ept id="f90ff85d-0a15-4ce4-8895-d5cad542b33e">&lt;/em&gt;</ept> or <bpt id="84e63ecc-1705-4620-8bd4-bcd4c0e8cafa">&lt;em&gt;</bpt>false<ept id="84e63ecc-1705-4620-8bd4-bcd4c0e8cafa">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49a64e4c-09b9-445c-bc33-88c508bf1f0c" xml:space="preserve">
+          <source><bpt id="848309fe-3ef3-41e1-8e02-47ff07756a8d">&lt;strong&gt;</bpt>Standard output ports:<ept id="848309fe-3ef3-41e1-8e02-47ff07756a8d">&lt;/strong&gt;</ept>
+Output ports are mapped to the return values from your R function, which can then be used by subsequent modules.</source>
+          <target state="new"><bpt id="848309fe-3ef3-41e1-8e02-47ff07756a8d">&lt;strong&gt;</bpt>Standard output ports:<ept id="848309fe-3ef3-41e1-8e02-47ff07756a8d">&lt;/strong&gt;</ept>
+Output ports are mapped to the return values from your R function, which can then be used by subsequent modules.</target>
+        </trans-unit>
+        <trans-unit id="bdc7d982-6731-43ec-9f84-775a2768fc7a" xml:space="preserve">
+          <source><bpt id="759b5f40-6805-4861-8cdc-122f64a176b6">&lt;em&gt;</bpt>DataTable<ept id="759b5f40-6805-4861-8cdc-122f64a176b6">&lt;/em&gt;</ept> is the only standard output port type supported currently.</source>
+          <target state="new"><bpt id="759b5f40-6805-4861-8cdc-122f64a176b6">&lt;em&gt;</bpt>DataTable<ept id="759b5f40-6805-4861-8cdc-122f64a176b6">&lt;/em&gt;</ept> is the only standard output port type supported currently.</target>
+        </trans-unit>
+        <trans-unit id="7fe9ef74-9d4e-4e20-a61c-8ab10428f85c" xml:space="preserve">
+          <source>(Support for <bpt id="be71e804-a81b-4bbc-bb38-a9187355627e">&lt;em&gt;</bpt>Learners<ept id="be71e804-a81b-4bbc-bb38-a9187355627e">&lt;/em&gt;</ept> and <bpt id="cf386bcb-60a7-4383-8d4b-d110eff36c6c">&lt;em&gt;</bpt>Transforms<ept id="cf386bcb-60a7-4383-8d4b-d110eff36c6c">&lt;/em&gt;</ept> is forthcoming.)</source>
+          <target state="new">(Support for <bpt id="be71e804-a81b-4bbc-bb38-a9187355627e">&lt;em&gt;</bpt>Learners<ept id="be71e804-a81b-4bbc-bb38-a9187355627e">&lt;/em&gt;</ept> and <bpt id="cf386bcb-60a7-4383-8d4b-d110eff36c6c">&lt;em&gt;</bpt>Transforms<ept id="cf386bcb-60a7-4383-8d4b-d110eff36c6c">&lt;/em&gt;</ept> is forthcoming.)</target>
+        </trans-unit>
+        <trans-unit id="7066ffb7-046d-417b-8bcf-f6c09401bbf9" xml:space="preserve">
+          <source>A <bpt id="b13e5ddb-d72a-4a0f-82ac-267c7bb7dfc6">&lt;em&gt;</bpt>DataTable<ept id="b13e5ddb-d72a-4a0f-82ac-267c7bb7dfc6">&lt;/em&gt;</ept> output is defined as:</source>
+          <target state="new">A <bpt id="b13e5ddb-d72a-4a0f-82ac-267c7bb7dfc6">&lt;em&gt;</bpt>DataTable<ept id="b13e5ddb-d72a-4a0f-82ac-267c7bb7dfc6">&lt;/em&gt;</ept> output is defined as:</target>
+        </trans-unit>
+        <trans-unit id="c751d11c-bdd3-4e98-a132-86ab9fe95bd8" xml:space="preserve">
+          <source>For outputs in custom R modules, the value of the <bpt id="132cbe95-64a3-4d13-aca7-7b1426cf5c33">&lt;strong&gt;</bpt>id<ept id="132cbe95-64a3-4d13-aca7-7b1426cf5c33">&lt;/strong&gt;</ept> attribute does not have to correspond with anything in the R script, but it must be unique.</source>
+          <target state="new">For outputs in custom R modules, the value of the <bpt id="132cbe95-64a3-4d13-aca7-7b1426cf5c33">&lt;strong&gt;</bpt>id<ept id="132cbe95-64a3-4d13-aca7-7b1426cf5c33">&lt;/strong&gt;</ept> attribute does not have to correspond with anything in the R script, but it must be unique.</target>
+        </trans-unit>
+        <trans-unit id="ee68e388-f40d-45a6-acff-315e172c5681" xml:space="preserve">
+          <source>For a single module output, the return value from the R function must be a <bpt id="6c50c8c8-4463-4248-8997-2ce6cff6d863">&lt;em&gt;</bpt>data.frame<ept id="6c50c8c8-4463-4248-8997-2ce6cff6d863">&lt;/em&gt;</ept>.</source>
+          <target state="new">For a single module output, the return value from the R function must be a <bpt id="6c50c8c8-4463-4248-8997-2ce6cff6d863">&lt;em&gt;</bpt>data.frame<ept id="6c50c8c8-4463-4248-8997-2ce6cff6d863">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d465df6-4693-431b-87d5-6fe5e7e9a3f2" xml:space="preserve">
+          <source>In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list.</source>
+          <target state="new">In order to output more than one object of a supported data type, the appropriate output ports need to be specified in the XML definition file and the objects need to be returned as a list.</target>
+        </trans-unit>
+        <trans-unit id="2dceb49b-0bdf-4220-898c-310d3fc9aeec" xml:space="preserve">
+          <source>The output objects will be assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.</source>
+          <target state="new">The output objects will be assigned to output ports from left to right, reflecting the order in which the objects are placed in the returned list.</target>
+        </trans-unit>
+        <trans-unit id="30099e09-e9a8-43b2-bbd3-ed301a299ab5" xml:space="preserve">
+          <source>For example, if you want to output dataset, Dataset1, and Dataset2 to output ports dataset, dataset1, and dataset2 from left to right, respectively, then define the output ports in the ‘CustomAddRows.xml’ file as follows:</source>
+          <target state="new">For example, if you want to output dataset, Dataset1, and Dataset2 to output ports dataset, dataset1, and dataset2 from left to right, respectively, then define the output ports in the ‘CustomAddRows.xml’ file as follows:</target>
+        </trans-unit>
+        <trans-unit id="9faf5211-bc12-4f11-b817-d883e1571e07" xml:space="preserve">
+          <source>For example, if you want to modify the <bpt id="edfaabc4-547b-4325-8690-14b05ecde3d4">&lt;strong&gt;</bpt>Custom Add Rows<ept id="edfaabc4-547b-4325-8690-14b05ecde3d4">&lt;/strong&gt;</ept> module to output the original two datasets, <bpt id="f4d54972-c816-45b4-b5f4-fe5dd5c9f93e">&lt;em&gt;</bpt>dataset1<ept id="f4d54972-c816-45b4-b5f4-fe5dd5c9f93e">&lt;/em&gt;</ept>, and <bpt id="56c66f8d-af68-43c5-92d1-0eb25e8a066a">&lt;em&gt;</bpt>dataset2<ept id="56c66f8d-af68-43c5-92d1-0eb25e8a066a">&lt;/em&gt;</ept>, in addition to the new joined dataset <bpt id="ac269082-3578-4b82-949a-99fb6505c842">&lt;em&gt;</bpt>dataset<ept id="ac269082-3578-4b82-949a-99fb6505c842">&lt;/em&gt;</ept> (in an order, from left to right, as: <bpt id="e8425ae9-56ea-4d49-923e-b91eec73bc93">&lt;em&gt;</bpt>dataset<ept id="e8425ae9-56ea-4d49-923e-b91eec73bc93">&lt;/em&gt;</ept>, <bpt id="2d17de68-62c3-4e86-a202-0254228ea705">&lt;em&gt;</bpt>dataset1<ept id="2d17de68-62c3-4e86-a202-0254228ea705">&lt;/em&gt;</ept>, <bpt id="b6305b23-ae68-41fc-a834-d4484e182850">&lt;em&gt;</bpt>dataset2<ept id="b6305b23-ae68-41fc-a834-d4484e182850">&lt;/em&gt;</ept>), then define the output ports in the CustomAddRows.xml file as follows:</source>
+          <target state="new">For example, if you want to modify the <bpt id="edfaabc4-547b-4325-8690-14b05ecde3d4">&lt;strong&gt;</bpt>Custom Add Rows<ept id="edfaabc4-547b-4325-8690-14b05ecde3d4">&lt;/strong&gt;</ept> module to output the original two datasets, <bpt id="f4d54972-c816-45b4-b5f4-fe5dd5c9f93e">&lt;em&gt;</bpt>dataset1<ept id="f4d54972-c816-45b4-b5f4-fe5dd5c9f93e">&lt;/em&gt;</ept>, and <bpt id="56c66f8d-af68-43c5-92d1-0eb25e8a066a">&lt;em&gt;</bpt>dataset2<ept id="56c66f8d-af68-43c5-92d1-0eb25e8a066a">&lt;/em&gt;</ept>, in addition to the new joined dataset <bpt id="ac269082-3578-4b82-949a-99fb6505c842">&lt;em&gt;</bpt>dataset<ept id="ac269082-3578-4b82-949a-99fb6505c842">&lt;/em&gt;</ept> (in an order, from left to right, as: <bpt id="e8425ae9-56ea-4d49-923e-b91eec73bc93">&lt;em&gt;</bpt>dataset<ept id="e8425ae9-56ea-4d49-923e-b91eec73bc93">&lt;/em&gt;</ept>, <bpt id="2d17de68-62c3-4e86-a202-0254228ea705">&lt;em&gt;</bpt>dataset1<ept id="2d17de68-62c3-4e86-a202-0254228ea705">&lt;/em&gt;</ept>, <bpt id="b6305b23-ae68-41fc-a834-d4484e182850">&lt;em&gt;</bpt>dataset2<ept id="b6305b23-ae68-41fc-a834-d4484e182850">&lt;/em&gt;</ept>), then define the output ports in the CustomAddRows.xml file as follows:</target>
+        </trans-unit>
+        <trans-unit id="bf288e3d-2ed5-4730-a584-eb56a13c96c8" xml:space="preserve">
+          <source>And return the list of objects in a list in the correct order in ‘CustomAddRows.R’:</source>
+          <target state="new">And return the list of objects in a list in the correct order in ‘CustomAddRows.R’:</target>
+        </trans-unit>
+        <trans-unit id="8a84f8c1-4639-4954-ad6f-e2ebae3c10b2" xml:space="preserve">
+          <source><bpt id="3f050fcf-fdad-431f-8a2e-2a3a2164b961">&lt;strong&gt;</bpt>Visualization output:<ept id="3f050fcf-fdad-431f-8a2e-2a3a2164b961">&lt;/strong&gt;</ept>
+You can also specify an output port of type <bpt id="e71cff6e-dfd9-4c93-a4af-c4be4e0e2aa5">&lt;em&gt;</bpt>Visualization<ept id="e71cff6e-dfd9-4c93-a4af-c4be4e0e2aa5">&lt;/em&gt;</ept> which displays the output from the R graphics device and console output.</source>
+          <target state="new"><bpt id="3f050fcf-fdad-431f-8a2e-2a3a2164b961">&lt;strong&gt;</bpt>Visualization output:<ept id="3f050fcf-fdad-431f-8a2e-2a3a2164b961">&lt;/strong&gt;</ept>
+You can also specify an output port of type <bpt id="e71cff6e-dfd9-4c93-a4af-c4be4e0e2aa5">&lt;em&gt;</bpt>Visualization<ept id="e71cff6e-dfd9-4c93-a4af-c4be4e0e2aa5">&lt;/em&gt;</ept> which displays the output from the R graphics device and console output.</target>
+        </trans-unit>
+        <trans-unit id="b28f3957-a394-4723-b0f9-e2bc909183fa" xml:space="preserve">
+          <source>This port is not part of the R function output and does not interfere with the order of the the other output port types.</source>
+          <target state="new">This port is not part of the R function output and does not interfere with the order of the the other output port types.</target>
+        </trans-unit>
+        <trans-unit id="b269855b-ae3e-47e9-9e31-943d4b1b3948" xml:space="preserve">
+          <source>To add a visualization port to the custom modules, add an <bpt id="94d72905-af2f-4959-990d-52b27f615cf7">&lt;strong&gt;</bpt>Output<ept id="94d72905-af2f-4959-990d-52b27f615cf7">&lt;/strong&gt;</ept> element with a value of <bpt id="22a4ac72-9772-462d-82a0-a18d34430930">&lt;em&gt;</bpt>Visualization<ept id="22a4ac72-9772-462d-82a0-a18d34430930">&lt;/em&gt;</ept> for its <bpt id="c3713779-d1af-4330-981e-19960c9acaf5">&lt;strong&gt;</bpt>type<ept id="c3713779-d1af-4330-981e-19960c9acaf5">&lt;/strong&gt;</ept> attribute:</source>
+          <target state="new">To add a visualization port to the custom modules, add an <bpt id="94d72905-af2f-4959-990d-52b27f615cf7">&lt;strong&gt;</bpt>Output<ept id="94d72905-af2f-4959-990d-52b27f615cf7">&lt;/strong&gt;</ept> element with a value of <bpt id="22a4ac72-9772-462d-82a0-a18d34430930">&lt;em&gt;</bpt>Visualization<ept id="22a4ac72-9772-462d-82a0-a18d34430930">&lt;/em&gt;</ept> for its <bpt id="c3713779-d1af-4330-981e-19960c9acaf5">&lt;strong&gt;</bpt>type<ept id="c3713779-d1af-4330-981e-19960c9acaf5">&lt;/strong&gt;</ept> attribute:</target>
+        </trans-unit>
+        <trans-unit id="03817f8e-e946-4e7a-8f75-6c63cc9dbf9e" xml:space="preserve">
+          <source><bpt id="1ffa62e0-c64b-4fb4-a1d4-9ce7289954c8">&lt;strong&gt;</bpt>Output Rules:<ept id="1ffa62e0-c64b-4fb4-a1d4-9ce7289954c8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ffa62e0-c64b-4fb4-a1d4-9ce7289954c8">&lt;strong&gt;</bpt>Output Rules:<ept id="1ffa62e0-c64b-4fb4-a1d4-9ce7289954c8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a8b9c3d-2911-49b8-9e6d-4f96d5feef2b" xml:space="preserve">
+          <source>The value of the <bpt id="a58eb8b1-16ba-4333-86a8-70a00e489732">&lt;strong&gt;</bpt>id<ept id="a58eb8b1-16ba-4333-86a8-70a00e489732">&lt;/strong&gt;</ept> attribute of the <bpt id="a01f6d30-bbb8-4d35-91c4-7e28d4d032e1">&lt;strong&gt;</bpt>Output<ept id="a01f6d30-bbb8-4d35-91c4-7e28d4d032e1">&lt;/strong&gt;</ept> element must be a valid R variable name.</source>
+          <target state="new">The value of the <bpt id="a58eb8b1-16ba-4333-86a8-70a00e489732">&lt;strong&gt;</bpt>id<ept id="a58eb8b1-16ba-4333-86a8-70a00e489732">&lt;/strong&gt;</ept> attribute of the <bpt id="a01f6d30-bbb8-4d35-91c4-7e28d4d032e1">&lt;strong&gt;</bpt>Output<ept id="a01f6d30-bbb8-4d35-91c4-7e28d4d032e1">&lt;/strong&gt;</ept> element must be a valid R variable name.</target>
+        </trans-unit>
+        <trans-unit id="acdd8b63-193e-43ac-8cb4-1f9d070481ce" xml:space="preserve">
+          <source>The value of the <bpt id="5813cb4c-2ad7-4ed6-a859-1e1be5d30e74">&lt;strong&gt;</bpt>id<ept id="5813cb4c-2ad7-4ed6-a859-1e1be5d30e74">&lt;/strong&gt;</ept> attribute of the <bpt id="2fd6b9aa-5eb5-4c00-b814-3a56b4b76063">&lt;strong&gt;</bpt>Output<ept id="2fd6b9aa-5eb5-4c00-b814-3a56b4b76063">&lt;/strong&gt;</ept> element must not be longer than 32 characters.</source>
+          <target state="new">The value of the <bpt id="5813cb4c-2ad7-4ed6-a859-1e1be5d30e74">&lt;strong&gt;</bpt>id<ept id="5813cb4c-2ad7-4ed6-a859-1e1be5d30e74">&lt;/strong&gt;</ept> attribute of the <bpt id="2fd6b9aa-5eb5-4c00-b814-3a56b4b76063">&lt;strong&gt;</bpt>Output<ept id="2fd6b9aa-5eb5-4c00-b814-3a56b4b76063">&lt;/strong&gt;</ept> element must not be longer than 32 characters.</target>
+        </trans-unit>
+        <trans-unit id="95f9fbe0-c123-45ef-b839-8b06d4d29051" xml:space="preserve">
+          <source>The value of the <bpt id="d056a0d7-a910-40ad-9a61-1c8ff4d3c83e">&lt;strong&gt;</bpt>name<ept id="d056a0d7-a910-40ad-9a61-1c8ff4d3c83e">&lt;/strong&gt;</ept> attribute of the <bpt id="7af0cffd-570b-45b9-a24c-d7a0ba95b1ba">&lt;strong&gt;</bpt>Output<ept id="7af0cffd-570b-45b9-a24c-d7a0ba95b1ba">&lt;/strong&gt;</ept> element  must not be longer than 64 characters.</source>
+          <target state="new">The value of the <bpt id="d056a0d7-a910-40ad-9a61-1c8ff4d3c83e">&lt;strong&gt;</bpt>name<ept id="d056a0d7-a910-40ad-9a61-1c8ff4d3c83e">&lt;/strong&gt;</ept> attribute of the <bpt id="7af0cffd-570b-45b9-a24c-d7a0ba95b1ba">&lt;strong&gt;</bpt>Output<ept id="7af0cffd-570b-45b9-a24c-d7a0ba95b1ba">&lt;/strong&gt;</ept> element  must not be longer than 64 characters.</target>
+        </trans-unit>
+        <trans-unit id="07bdbd46-b97d-4954-8bbd-896b081dadd1" xml:space="preserve">
+          <source>The value of the <bpt id="5edd2b68-fc39-4c6a-8fc6-d33701791bef">&lt;strong&gt;</bpt>type<ept id="5edd2b68-fc39-4c6a-8fc6-d33701791bef">&lt;/strong&gt;</ept> attribute of the <bpt id="70a660bb-4bc8-43ed-9c9a-6a38662bbee9">&lt;strong&gt;</bpt>Output<ept id="70a660bb-4bc8-43ed-9c9a-6a38662bbee9">&lt;/strong&gt;</ept> element must be <bpt id="9d4191c0-c8ba-4cb6-b9ce-12fa06925641">&lt;em&gt;</bpt>Visualization<ept id="9d4191c0-c8ba-4cb6-b9ce-12fa06925641">&lt;/em&gt;</ept>.</source>
+          <target state="new">The value of the <bpt id="5edd2b68-fc39-4c6a-8fc6-d33701791bef">&lt;strong&gt;</bpt>type<ept id="5edd2b68-fc39-4c6a-8fc6-d33701791bef">&lt;/strong&gt;</ept> attribute of the <bpt id="70a660bb-4bc8-43ed-9c9a-6a38662bbee9">&lt;strong&gt;</bpt>Output<ept id="70a660bb-4bc8-43ed-9c9a-6a38662bbee9">&lt;/strong&gt;</ept> element must be <bpt id="9d4191c0-c8ba-4cb6-b9ce-12fa06925641">&lt;em&gt;</bpt>Visualization<ept id="9d4191c0-c8ba-4cb6-b9ce-12fa06925641">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32a2d82a-b6c8-4c22-a87c-bc67d7e8a0a0" xml:space="preserve">
+          <source>Additional data can be passed to the R function via module parameters which are defined in the <bpt id="607aa7df-8d5d-4ef7-9ef7-657ba0fb92c0">&lt;strong&gt;</bpt>Arguments<ept id="607aa7df-8d5d-4ef7-9ef7-657ba0fb92c0">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">Additional data can be passed to the R function via module parameters which are defined in the <bpt id="607aa7df-8d5d-4ef7-9ef7-657ba0fb92c0">&lt;strong&gt;</bpt>Arguments<ept id="607aa7df-8d5d-4ef7-9ef7-657ba0fb92c0">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="cf1ed9fd-64f9-44ca-95f1-8be272cb932b" xml:space="preserve">
+          <source>These parameters appear in the right most properties pane of the Machine Learning UI when the module is selected.</source>
+          <target state="new">These parameters appear in the right most properties pane of the Machine Learning UI when the module is selected.</target>
+        </trans-unit>
+        <trans-unit id="229fe483-4fe5-4294-a28a-f95ab52a487d" xml:space="preserve">
+          <source>Arguments can be any of the supported types or you can create a custom enumeration when needed.</source>
+          <target state="new">Arguments can be any of the supported types or you can create a custom enumeration when needed.</target>
+        </trans-unit>
+        <trans-unit id="24152328-3d1b-45d6-a6a5-b085aadd8ebd" xml:space="preserve">
+          <source>Similar to the <bpt id="473692e1-c59f-4587-8a18-5012d33636c9">&lt;strong&gt;</bpt>Ports<ept id="473692e1-c59f-4587-8a18-5012d33636c9">&lt;/strong&gt;</ept> elements, <bpt id="d08efb89-678a-4d16-9c19-2e34b3320fe4">&lt;strong&gt;</bpt>Arguments<ept id="d08efb89-678a-4d16-9c19-2e34b3320fe4">&lt;/strong&gt;</ept> elements can have an optional <bpt id="1159d2b4-f385-4a67-8b0e-5318529789e4">&lt;strong&gt;</bpt>Description<ept id="1159d2b4-f385-4a67-8b0e-5318529789e4">&lt;/strong&gt;</ept> element that specifies the text that appears when you hover the mouse over the parameter name.</source>
+          <target state="new">Similar to the <bpt id="473692e1-c59f-4587-8a18-5012d33636c9">&lt;strong&gt;</bpt>Ports<ept id="473692e1-c59f-4587-8a18-5012d33636c9">&lt;/strong&gt;</ept> elements, <bpt id="d08efb89-678a-4d16-9c19-2e34b3320fe4">&lt;strong&gt;</bpt>Arguments<ept id="d08efb89-678a-4d16-9c19-2e34b3320fe4">&lt;/strong&gt;</ept> elements can have an optional <bpt id="1159d2b4-f385-4a67-8b0e-5318529789e4">&lt;strong&gt;</bpt>Description<ept id="1159d2b4-f385-4a67-8b0e-5318529789e4">&lt;/strong&gt;</ept> element that specifies the text that appears when you hover the mouse over the parameter name.</target>
+        </trans-unit>
+        <trans-unit id="aade8e1b-28ff-4c62-a86c-dbcc4472c8b0" xml:space="preserve">
+          <source>Optional properties for a module, such as defaultValue, minValue and maxValue can be added to any argument as attributes to a <bpt id="d8c25746-fdb9-460f-b669-e02a4504d12c">&lt;strong&gt;</bpt>Properties<ept id="d8c25746-fdb9-460f-b669-e02a4504d12c">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">Optional properties for a module, such as defaultValue, minValue and maxValue can be added to any argument as attributes to a <bpt id="d8c25746-fdb9-460f-b669-e02a4504d12c">&lt;strong&gt;</bpt>Properties<ept id="d8c25746-fdb9-460f-b669-e02a4504d12c">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="19f08d86-a939-45b6-af8b-38cb35cf1ce2" xml:space="preserve">
+          <source>Valid properties for the <bpt id="139615c2-3206-4f5a-90e8-0f24b06688a1">&lt;strong&gt;</bpt>Properties<ept id="139615c2-3206-4f5a-90e8-0f24b06688a1">&lt;/strong&gt;</ept> element depend on the argument type and are describe with the supported argument types below.</source>
+          <target state="new">Valid properties for the <bpt id="139615c2-3206-4f5a-90e8-0f24b06688a1">&lt;strong&gt;</bpt>Properties<ept id="139615c2-3206-4f5a-90e8-0f24b06688a1">&lt;/strong&gt;</ept> element depend on the argument type and are describe with the supported argument types below.</target>
+        </trans-unit>
+        <trans-unit id="dddf9312-3422-4d27-b1b9-02ffd656f264" xml:space="preserve">
+          <source>As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them.</source>
+          <target state="new">As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them.</target>
+        </trans-unit>
+        <trans-unit id="7c9fc53a-6e4f-4b05-ac08-7aae1a4d32f9" xml:space="preserve">
+          <source>In addition, the id values must correspond to the named parameters in your R function.</source>
+          <target state="new">In addition, the id values must correspond to the named parameters in your R function.</target>
+        </trans-unit>
+        <trans-unit id="804bd83d-050e-4ccc-a6b9-fbe43356b1d6" xml:space="preserve">
+          <source>In our quick start example the associated id/parameter was <bpt id="6f263b4a-6dba-4fcf-b855-6108b1016af9">&lt;em&gt;</bpt>swap<ept id="6f263b4a-6dba-4fcf-b855-6108b1016af9">&lt;/em&gt;</ept>.</source>
+          <target state="new">In our quick start example the associated id/parameter was <bpt id="6f263b4a-6dba-4fcf-b855-6108b1016af9">&lt;em&gt;</bpt>swap<ept id="6f263b4a-6dba-4fcf-b855-6108b1016af9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4124c0c7-80b1-429e-9ffb-98bb03d29037" xml:space="preserve">
+          <source>A module parameter is defined using the <bpt id="0450d689-4b57-483b-9401-6f61cc6be638">&lt;strong&gt;</bpt>Arg<ept id="0450d689-4b57-483b-9401-6f61cc6be638">&lt;/strong&gt;</ept> child element of the <bpt id="cf8cff55-0979-4c92-a919-9346716e984a">&lt;strong&gt;</bpt>Arguments<ept id="cf8cff55-0979-4c92-a919-9346716e984a">&lt;/strong&gt;</ept> section of the XML definition file.</source>
+          <target state="new">A module parameter is defined using the <bpt id="0450d689-4b57-483b-9401-6f61cc6be638">&lt;strong&gt;</bpt>Arg<ept id="0450d689-4b57-483b-9401-6f61cc6be638">&lt;/strong&gt;</ept> child element of the <bpt id="cf8cff55-0979-4c92-a919-9346716e984a">&lt;strong&gt;</bpt>Arguments<ept id="cf8cff55-0979-4c92-a919-9346716e984a">&lt;/strong&gt;</ept> section of the XML definition file.</target>
+        </trans-unit>
+        <trans-unit id="4d16309f-293e-4879-8c3b-b5bf983b13a4" xml:space="preserve">
+          <source>As with the child elements in the <bpt id="ecc51b90-6335-4c5d-a856-636afb334240">&lt;strong&gt;</bpt>Ports<ept id="ecc51b90-6335-4c5d-a856-636afb334240">&lt;/strong&gt;</ept> section, the ordering of parameters in the <bpt id="eefec188-2973-4b6d-9736-d68dafb134b0">&lt;strong&gt;</bpt>Arguments<ept id="eefec188-2973-4b6d-9736-d68dafb134b0">&lt;/strong&gt;</ept> section defines the layout encountered in the UX.</source>
+          <target state="new">As with the child elements in the <bpt id="ecc51b90-6335-4c5d-a856-636afb334240">&lt;strong&gt;</bpt>Ports<ept id="ecc51b90-6335-4c5d-a856-636afb334240">&lt;/strong&gt;</ept> section, the ordering of parameters in the <bpt id="eefec188-2973-4b6d-9736-d68dafb134b0">&lt;strong&gt;</bpt>Arguments<ept id="eefec188-2973-4b6d-9736-d68dafb134b0">&lt;/strong&gt;</ept> section defines the layout encountered in the UX.</target>
+        </trans-unit>
+        <trans-unit id="81110ef2-ce62-4605-8f44-7f049e87f824" xml:space="preserve">
+          <source>The parameters appear from top down in the UI in the same order in which they are defined in the XML file.</source>
+          <target state="new">The parameters appear from top down in the UI in the same order in which they are defined in the XML file.</target>
+        </trans-unit>
+        <trans-unit id="e9fb06c9-ec39-4c91-9700-f9c69da2fe66" xml:space="preserve">
+          <source>The types supported by Machine Learning for parameters are listed below.</source>
+          <target state="new">The types supported by Machine Learning for parameters are listed below.</target>
+        </trans-unit>
+        <trans-unit id="6359f586-fb9b-4bb3-8e3d-ebc405389ea1" xml:space="preserve">
+          <source><bpt id="1e1f8afe-fdbe-4093-ae5d-506eaca7ffc6">&lt;strong&gt;</bpt>int<ept id="1e1f8afe-fdbe-4093-ae5d-506eaca7ffc6">&lt;/strong&gt;</ept> – an Integer (32-bit) type parameter.</source>
+          <target state="new"><bpt id="1e1f8afe-fdbe-4093-ae5d-506eaca7ffc6">&lt;strong&gt;</bpt>int<ept id="1e1f8afe-fdbe-4093-ae5d-506eaca7ffc6">&lt;/strong&gt;</ept> – an Integer (32-bit) type parameter.</target>
+        </trans-unit>
+        <trans-unit id="d1d554f4-cd84-41ab-9a0c-4babc1228f82" xml:space="preserve">
+          <source><bpt id="f6ab0849-076e-412b-addd-19552275447d">&lt;em&gt;</bpt>Optional Properties<ept id="f6ab0849-076e-412b-addd-19552275447d">&lt;/em&gt;</ept>: <bpt id="eb935a46-f7f9-40e2-961d-7610193e78b1">&lt;strong&gt;</bpt>min<ept id="eb935a46-f7f9-40e2-961d-7610193e78b1">&lt;/strong&gt;</ept>, <bpt id="b355e95e-024d-4b4e-b29d-5a883083c6d4">&lt;strong&gt;</bpt>max<ept id="b355e95e-024d-4b4e-b29d-5a883083c6d4">&lt;/strong&gt;</ept> and <bpt id="c28ae1e1-e514-4830-92ac-7d1e9137773c">&lt;strong&gt;</bpt>default<ept id="c28ae1e1-e514-4830-92ac-7d1e9137773c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f6ab0849-076e-412b-addd-19552275447d">&lt;em&gt;</bpt>Optional Properties<ept id="f6ab0849-076e-412b-addd-19552275447d">&lt;/em&gt;</ept>: <bpt id="eb935a46-f7f9-40e2-961d-7610193e78b1">&lt;strong&gt;</bpt>min<ept id="eb935a46-f7f9-40e2-961d-7610193e78b1">&lt;/strong&gt;</ept>, <bpt id="b355e95e-024d-4b4e-b29d-5a883083c6d4">&lt;strong&gt;</bpt>max<ept id="b355e95e-024d-4b4e-b29d-5a883083c6d4">&lt;/strong&gt;</ept> and <bpt id="c28ae1e1-e514-4830-92ac-7d1e9137773c">&lt;strong&gt;</bpt>default<ept id="c28ae1e1-e514-4830-92ac-7d1e9137773c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfa0b389-cb27-4b76-a467-1758b57a9aef" xml:space="preserve">
+          <source><bpt id="d5cb637a-b9c4-4f91-a589-65afd2fdebdf">&lt;strong&gt;</bpt>double<ept id="d5cb637a-b9c4-4f91-a589-65afd2fdebdf">&lt;/strong&gt;</ept> – a double type parameter.</source>
+          <target state="new"><bpt id="d5cb637a-b9c4-4f91-a589-65afd2fdebdf">&lt;strong&gt;</bpt>double<ept id="d5cb637a-b9c4-4f91-a589-65afd2fdebdf">&lt;/strong&gt;</ept> – a double type parameter.</target>
+        </trans-unit>
+        <trans-unit id="a3bbf1c4-9994-41e2-93f8-9fd7dd4e3d89" xml:space="preserve">
+          <source><bpt id="573fc817-a2f5-4542-95c0-0c5f30144f93">&lt;em&gt;</bpt>Optional Properties<ept id="573fc817-a2f5-4542-95c0-0c5f30144f93">&lt;/em&gt;</ept>: <bpt id="cf3e344d-fe13-4640-8ddf-ab570a51bc06">&lt;strong&gt;</bpt>min<ept id="cf3e344d-fe13-4640-8ddf-ab570a51bc06">&lt;/strong&gt;</ept>, <bpt id="c26c7a81-5dcd-442c-8d65-1dadfd1589d0">&lt;strong&gt;</bpt>max<ept id="c26c7a81-5dcd-442c-8d65-1dadfd1589d0">&lt;/strong&gt;</ept> and <bpt id="cf34a52e-d699-472d-a96e-65b723821eee">&lt;strong&gt;</bpt>default<ept id="cf34a52e-d699-472d-a96e-65b723821eee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="573fc817-a2f5-4542-95c0-0c5f30144f93">&lt;em&gt;</bpt>Optional Properties<ept id="573fc817-a2f5-4542-95c0-0c5f30144f93">&lt;/em&gt;</ept>: <bpt id="cf3e344d-fe13-4640-8ddf-ab570a51bc06">&lt;strong&gt;</bpt>min<ept id="cf3e344d-fe13-4640-8ddf-ab570a51bc06">&lt;/strong&gt;</ept>, <bpt id="c26c7a81-5dcd-442c-8d65-1dadfd1589d0">&lt;strong&gt;</bpt>max<ept id="c26c7a81-5dcd-442c-8d65-1dadfd1589d0">&lt;/strong&gt;</ept> and <bpt id="cf34a52e-d699-472d-a96e-65b723821eee">&lt;strong&gt;</bpt>default<ept id="cf34a52e-d699-472d-a96e-65b723821eee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e0aaa84-af9c-4427-a3f5-da7db0c35ded" xml:space="preserve">
+          <source><bpt id="6ea6af0e-1d9a-40e0-a852-c136ba06a123">&lt;strong&gt;</bpt>bool<ept id="6ea6af0e-1d9a-40e0-a852-c136ba06a123">&lt;/strong&gt;</ept> – a Boolean parameter that is represented by a check-box in UX.</source>
+          <target state="new"><bpt id="6ea6af0e-1d9a-40e0-a852-c136ba06a123">&lt;strong&gt;</bpt>bool<ept id="6ea6af0e-1d9a-40e0-a852-c136ba06a123">&lt;/strong&gt;</ept> – a Boolean parameter that is represented by a check-box in UX.</target>
+        </trans-unit>
+        <trans-unit id="21f6e61f-2aa7-4cd5-b90e-377a59a7eb5a" xml:space="preserve">
+          <source><bpt id="c8629d4b-9277-4b97-b770-42baa1d430c6">&lt;em&gt;</bpt>Optional Properties<ept id="c8629d4b-9277-4b97-b770-42baa1d430c6">&lt;/em&gt;</ept>: <bpt id="b30c496e-3f97-42a5-9778-dd58ba8d6b27">&lt;strong&gt;</bpt>default<ept id="b30c496e-3f97-42a5-9778-dd58ba8d6b27">&lt;/strong&gt;</ept> - false if not set</source>
+          <target state="new"><bpt id="c8629d4b-9277-4b97-b770-42baa1d430c6">&lt;em&gt;</bpt>Optional Properties<ept id="c8629d4b-9277-4b97-b770-42baa1d430c6">&lt;/em&gt;</ept>: <bpt id="b30c496e-3f97-42a5-9778-dd58ba8d6b27">&lt;strong&gt;</bpt>default<ept id="b30c496e-3f97-42a5-9778-dd58ba8d6b27">&lt;/strong&gt;</ept> - false if not set</target>
+        </trans-unit>
+        <trans-unit id="a0c08f5b-db1e-447f-ae19-6f437c4cec1c" xml:space="preserve">
+          <source><bpt id="c04d78ca-fc91-44d5-be4e-dd0dc3f9d8eb">&lt;strong&gt;</bpt>string<ept id="c04d78ca-fc91-44d5-be4e-dd0dc3f9d8eb">&lt;/strong&gt;</ept>: a standard string</source>
+          <target state="new"><bpt id="c04d78ca-fc91-44d5-be4e-dd0dc3f9d8eb">&lt;strong&gt;</bpt>string<ept id="c04d78ca-fc91-44d5-be4e-dd0dc3f9d8eb">&lt;/strong&gt;</ept>: a standard string</target>
+        </trans-unit>
+        <trans-unit id="113f87d2-bb74-4213-8194-4cc86b67471a" xml:space="preserve">
+          <source><bpt id="8c1b27b6-d73a-4fc0-93fa-5b812a5cb1bd">&lt;em&gt;</bpt>Optional Properties<ept id="8c1b27b6-d73a-4fc0-93fa-5b812a5cb1bd">&lt;/em&gt;</ept>: <bpt id="8691199c-089d-498a-8cef-53c4da404088">&lt;strong&gt;</bpt>default<ept id="8691199c-089d-498a-8cef-53c4da404088">&lt;/strong&gt;</ept> and <bpt id="e44b94d8-d089-4a4f-bfbb-4ff769e61440">&lt;strong&gt;</bpt>isOptional<ept id="e44b94d8-d089-4a4f-bfbb-4ff769e61440">&lt;/strong&gt;</ept> - An optional string without a default value will be passed as null to the R function if a value is not otherwise provided by a user.</source>
+          <target state="new"><bpt id="8c1b27b6-d73a-4fc0-93fa-5b812a5cb1bd">&lt;em&gt;</bpt>Optional Properties<ept id="8c1b27b6-d73a-4fc0-93fa-5b812a5cb1bd">&lt;/em&gt;</ept>: <bpt id="8691199c-089d-498a-8cef-53c4da404088">&lt;strong&gt;</bpt>default<ept id="8691199c-089d-498a-8cef-53c4da404088">&lt;/strong&gt;</ept> and <bpt id="e44b94d8-d089-4a4f-bfbb-4ff769e61440">&lt;strong&gt;</bpt>isOptional<ept id="e44b94d8-d089-4a4f-bfbb-4ff769e61440">&lt;/strong&gt;</ept> - An optional string without a default value will be passed as null to the R function if a value is not otherwise provided by a user.</target>
+        </trans-unit>
+        <trans-unit id="0dea68a9-b238-46e3-8490-d51bd17c27a7" xml:space="preserve">
+          <source><bpt id="928dc971-8016-4d2c-a1d2-679ce920528d">&lt;strong&gt;</bpt>ColumnPicker<ept id="928dc971-8016-4d2c-a1d2-679ce920528d">&lt;/strong&gt;</ept>: a column selection parameter.</source>
+          <target state="new"><bpt id="928dc971-8016-4d2c-a1d2-679ce920528d">&lt;strong&gt;</bpt>ColumnPicker<ept id="928dc971-8016-4d2c-a1d2-679ce920528d">&lt;/strong&gt;</ept>: a column selection parameter.</target>
+        </trans-unit>
+        <trans-unit id="becff810-cd31-4708-b5ca-1c307f99294b" xml:space="preserve">
+          <source>This type renders in the UX as a column chooser.</source>
+          <target state="new">This type renders in the UX as a column chooser.</target>
+        </trans-unit>
+        <trans-unit id="9f4b473d-328e-4561-b54c-cf93203a6816" xml:space="preserve">
+          <source>The <bpt id="13dd7ed3-3828-436d-bdbc-9c49e8bc1e3f">&lt;strong&gt;</bpt>Property<ept id="13dd7ed3-3828-436d-bdbc-9c49e8bc1e3f">&lt;/strong&gt;</ept> element is used here to specify the id of the port from which columns will be selected, where the target port type must be <bpt id="4a2dae1d-8d7c-43c6-aa7e-1dbdd8d943d3">&lt;em&gt;</bpt>DataTable<ept id="4a2dae1d-8d7c-43c6-aa7e-1dbdd8d943d3">&lt;/em&gt;</ept>.</source>
+          <target state="new">The <bpt id="13dd7ed3-3828-436d-bdbc-9c49e8bc1e3f">&lt;strong&gt;</bpt>Property<ept id="13dd7ed3-3828-436d-bdbc-9c49e8bc1e3f">&lt;/strong&gt;</ept> element is used here to specify the id of the port from which columns will be selected, where the target port type must be <bpt id="4a2dae1d-8d7c-43c6-aa7e-1dbdd8d943d3">&lt;em&gt;</bpt>DataTable<ept id="4a2dae1d-8d7c-43c6-aa7e-1dbdd8d943d3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9dda5b45-b0ae-45b9-a45f-aa049e148a78" xml:space="preserve">
+          <source>The result of the column selection will be passed to the R function as a list of strings containing the selected column names.</source>
+          <target state="new">The result of the column selection will be passed to the R function as a list of strings containing the selected column names.</target>
+        </trans-unit>
+        <trans-unit id="b00c8664-f43d-43c1-bb9a-fef46b491375" xml:space="preserve">
+          <source><bpt id="fc354b1f-f1f2-478a-ac22-718a6d2566ae">&lt;em&gt;</bpt>Required Properties<ept id="fc354b1f-f1f2-478a-ac22-718a6d2566ae">&lt;/em&gt;</ept>: <bpt id="ad517faa-3d79-4ddf-b8e7-8d7203dd272d">&lt;strong&gt;</bpt>portId<ept id="ad517faa-3d79-4ddf-b8e7-8d7203dd272d">&lt;/strong&gt;</ept> -  matches the id of an Input element with type <bpt id="dc40e749-338b-43ca-b996-4d320176d3a7">&lt;em&gt;</bpt>DataTable<ept id="dc40e749-338b-43ca-b996-4d320176d3a7">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="fc354b1f-f1f2-478a-ac22-718a6d2566ae">&lt;em&gt;</bpt>Required Properties<ept id="fc354b1f-f1f2-478a-ac22-718a6d2566ae">&lt;/em&gt;</ept>: <bpt id="ad517faa-3d79-4ddf-b8e7-8d7203dd272d">&lt;strong&gt;</bpt>portId<ept id="ad517faa-3d79-4ddf-b8e7-8d7203dd272d">&lt;/strong&gt;</ept> -  matches the id of an Input element with type <bpt id="dc40e749-338b-43ca-b996-4d320176d3a7">&lt;em&gt;</bpt>DataTable<ept id="dc40e749-338b-43ca-b996-4d320176d3a7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47107a6a-c8d2-4c3c-b3b2-cf407e456c36" xml:space="preserve">
+          <source><bpt id="450b8356-c8a8-45d5-8560-6c03e84dd532">&lt;em&gt;</bpt>Optional Properties<ept id="450b8356-c8a8-45d5-8560-6c03e84dd532">&lt;/em&gt;</ept>:</source>
+          <target state="new"><bpt id="450b8356-c8a8-45d5-8560-6c03e84dd532">&lt;em&gt;</bpt>Optional Properties<ept id="450b8356-c8a8-45d5-8560-6c03e84dd532">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d3f41847-1af7-4f7b-a30e-7d688b9a3c71" xml:space="preserve">
+          <source><bpt id="09c2b667-88da-457a-8f75-05154986a1f9">&lt;strong&gt;</bpt>allowedTypes<ept id="09c2b667-88da-457a-8f75-05154986a1f9">&lt;/strong&gt;</ept> - Filter the column types the user can pick from.</source>
+          <target state="new"><bpt id="09c2b667-88da-457a-8f75-05154986a1f9">&lt;strong&gt;</bpt>allowedTypes<ept id="09c2b667-88da-457a-8f75-05154986a1f9">&lt;/strong&gt;</ept> - Filter the column types the user can pick from.</target>
+        </trans-unit>
+        <trans-unit id="87df1773-3bdd-45d0-b8fc-92a895f6be3b" xml:space="preserve">
+          <source>Valid values include:</source>
+          <target state="new">Valid values include:</target>
+        </trans-unit>
+        <trans-unit id="49bbef2f-53e6-443a-9844-64489aab20d3" xml:space="preserve">
+          <source>Numeric</source>
+          <target state="new">Numeric</target>
+        </trans-unit>
+        <trans-unit id="0cb74c8e-bbd0-490b-ad9e-299541643775" xml:space="preserve">
+          <source>Boolean</source>
+          <target state="new">Boolean</target>
+        </trans-unit>
+        <trans-unit id="1853863d-4b6e-4082-9e35-4c525446c780" xml:space="preserve">
+          <source>Categorical</source>
+          <target state="new">Categorical</target>
+        </trans-unit>
+        <trans-unit id="e3359bdb-6b39-436b-81c6-8e795373cc75" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="9822bc8b-2260-4076-afdd-0e316b1a48d5" xml:space="preserve">
+          <source>Label</source>
+          <target state="new">Label</target>
+        </trans-unit>
+        <trans-unit id="2c18cf82-a85b-4d3b-bc11-4f47a8f49293" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="5299ddb3-e43a-4f2d-ab28-bf140e5a1089" xml:space="preserve">
+          <source>Score</source>
+          <target state="new">Score</target>
+        </trans-unit>
+        <trans-unit id="b97aa364-8719-4c4c-b99a-2a5cac90417d" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="8ab4b1c5-9930-468e-b36b-5557f25c8e2c" xml:space="preserve">
+          <source><bpt id="cf7db173-1d03-4635-ae8a-bdaeb01e8f03">&lt;strong&gt;</bpt>default<ept id="cf7db173-1d03-4635-ae8a-bdaeb01e8f03">&lt;/strong&gt;</ept> - Valid default selections for the column picker include: </source>
+          <target state="new"><bpt id="cf7db173-1d03-4635-ae8a-bdaeb01e8f03">&lt;strong&gt;</bpt>default<ept id="cf7db173-1d03-4635-ae8a-bdaeb01e8f03">&lt;/strong&gt;</ept> - Valid default selections for the column picker include: </target>
+        </trans-unit>
+        <trans-unit id="96c523b8-3724-4eaa-b539-b5b19f8a3510" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="84e8eee6-e677-4569-927b-92d0d3645767" xml:space="preserve">
+          <source>NumericFeature</source>
+          <target state="new">NumericFeature</target>
+        </trans-unit>
+        <trans-unit id="abcb9d00-b5dc-49b3-b676-498286015b23" xml:space="preserve">
+          <source>NumericLabel</source>
+          <target state="new">NumericLabel</target>
+        </trans-unit>
+        <trans-unit id="915a2e93-e511-4ae0-af5c-6cc648c4b16f" xml:space="preserve">
+          <source>NumericScore</source>
+          <target state="new">NumericScore</target>
+        </trans-unit>
+        <trans-unit id="f313f3ec-b589-46f2-a26e-b099bb607cc4" xml:space="preserve">
+          <source>NumericAll</source>
+          <target state="new">NumericAll</target>
+        </trans-unit>
+        <trans-unit id="82aa6be5-e939-441d-b164-4246257eaac9" xml:space="preserve">
+          <source>BooleanFeature</source>
+          <target state="new">BooleanFeature</target>
+        </trans-unit>
+        <trans-unit id="2a8fdb54-525f-45f6-8e0c-d9bda9e67e50" xml:space="preserve">
+          <source>BooleanLabel</source>
+          <target state="new">BooleanLabel</target>
+        </trans-unit>
+        <trans-unit id="8c9d4cb9-3097-4a9b-b141-929e784c88fb" xml:space="preserve">
+          <source>BooleanScore</source>
+          <target state="new">BooleanScore</target>
+        </trans-unit>
+        <trans-unit id="3c20e938-0bbd-42e1-b613-8e9842280ba8" xml:space="preserve">
+          <source>BooleanAll</source>
+          <target state="new">BooleanAll</target>
+        </trans-unit>
+        <trans-unit id="d3739749-19b6-4ef5-b8b6-63956328a33f" xml:space="preserve">
+          <source>CategoricalFeature</source>
+          <target state="new">CategoricalFeature</target>
+        </trans-unit>
+        <trans-unit id="63c7e559-9453-4584-8c16-1f490bfa069e" xml:space="preserve">
+          <source>CategoricalLabel</source>
+          <target state="new">CategoricalLabel</target>
+        </trans-unit>
+        <trans-unit id="610c8d49-3c2d-4868-acc3-6d9ed42e0c6f" xml:space="preserve">
+          <source>CategoricalScore</source>
+          <target state="new">CategoricalScore</target>
+        </trans-unit>
+        <trans-unit id="aa678798-46ff-449c-9e20-5c14ef8d4bc4" xml:space="preserve">
+          <source>CategoricalAll</source>
+          <target state="new">CategoricalAll</target>
+        </trans-unit>
+        <trans-unit id="ba363301-6d9d-417b-8655-0c29d18a67ca" xml:space="preserve">
+          <source>StringFeature</source>
+          <target state="new">StringFeature</target>
+        </trans-unit>
+        <trans-unit id="17303fbe-3c07-4ddf-a368-c13cbab7fe15" xml:space="preserve">
+          <source>StringLabel</source>
+          <target state="new">StringLabel</target>
+        </trans-unit>
+        <trans-unit id="8f0b1621-e1bb-45e2-ad9a-f6e807075ccc" xml:space="preserve">
+          <source>StringScore</source>
+          <target state="new">StringScore</target>
+        </trans-unit>
+        <trans-unit id="806e8371-3805-444d-b0a2-714a39d29f49" xml:space="preserve">
+          <source>StringAll</source>
+          <target state="new">StringAll</target>
+        </trans-unit>
+        <trans-unit id="60d84e13-5fb5-470e-98be-eabaa5135d50" xml:space="preserve">
+          <source>AllLabel</source>
+          <target state="new">AllLabel</target>
+        </trans-unit>
+        <trans-unit id="1c39c542-bfcd-4921-a466-79026d14dd34" xml:space="preserve">
+          <source>AllFeature</source>
+          <target state="new">AllFeature</target>
+        </trans-unit>
+        <trans-unit id="9601f4c4-e597-4829-883f-26f722877b75" xml:space="preserve">
+          <source>AllScore</source>
+          <target state="new">AllScore</target>
+        </trans-unit>
+        <trans-unit id="fd5e9526-1dfd-4dc1-a24c-58e067f486d4" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="94983600-61f8-4998-9be0-c05122075d99" xml:space="preserve">
+          <source><bpt id="a7f14813-5275-4f6d-ad3f-5abbe22a5769">&lt;strong&gt;</bpt>DropDown<ept id="a7f14813-5275-4f6d-ad3f-5abbe22a5769">&lt;/strong&gt;</ept>: a user specified enumerated (dropdown) list.</source>
+          <target state="new"><bpt id="a7f14813-5275-4f6d-ad3f-5abbe22a5769">&lt;strong&gt;</bpt>DropDown<ept id="a7f14813-5275-4f6d-ad3f-5abbe22a5769">&lt;/strong&gt;</ept>: a user specified enumerated (dropdown) list.</target>
+        </trans-unit>
+        <trans-unit id="d9133b65-e46f-48e4-91d6-16590ce46aa7" xml:space="preserve">
+          <source>The dropdown items are specified within the <bpt id="12f40b1c-d932-4231-84ba-40ec6208bb2c">&lt;strong&gt;</bpt>Properties<ept id="12f40b1c-d932-4231-84ba-40ec6208bb2c">&lt;/strong&gt;</ept> element using an <bpt id="b643839d-347d-43a0-8f9d-c2408022c618">&lt;strong&gt;</bpt>Item<ept id="b643839d-347d-43a0-8f9d-c2408022c618">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">The dropdown items are specified within the <bpt id="12f40b1c-d932-4231-84ba-40ec6208bb2c">&lt;strong&gt;</bpt>Properties<ept id="12f40b1c-d932-4231-84ba-40ec6208bb2c">&lt;/strong&gt;</ept> element using an <bpt id="b643839d-347d-43a0-8f9d-c2408022c618">&lt;strong&gt;</bpt>Item<ept id="b643839d-347d-43a0-8f9d-c2408022c618">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="c41cf7bd-bf76-4ca5-bcaa-535ed321e653" xml:space="preserve">
+          <source>The <bpt id="917146b7-ad71-43c0-869d-17545afe3558">&lt;strong&gt;</bpt>id<ept id="917146b7-ad71-43c0-869d-17545afe3558">&lt;/strong&gt;</ept> for each <bpt id="4b9abeee-227c-44f9-aab4-0c619de5c369">&lt;strong&gt;</bpt>Item<ept id="4b9abeee-227c-44f9-aab4-0c619de5c369">&lt;/strong&gt;</ept> must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.</source>
+          <target state="new">The <bpt id="917146b7-ad71-43c0-869d-17545afe3558">&lt;strong&gt;</bpt>id<ept id="917146b7-ad71-43c0-869d-17545afe3558">&lt;/strong&gt;</ept> for each <bpt id="4b9abeee-227c-44f9-aab4-0c619de5c369">&lt;strong&gt;</bpt>Item<ept id="4b9abeee-227c-44f9-aab4-0c619de5c369">&lt;/strong&gt;</ept> must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.</target>
+        </trans-unit>
+        <trans-unit id="1790445c-1aea-4205-b145-f45335b65382" xml:space="preserve">
+          <source><bpt id="b8da7f7a-6751-4a2a-9bca-9c61427dccca">&lt;em&gt;</bpt>Optional Properties<ept id="b8da7f7a-6751-4a2a-9bca-9c61427dccca">&lt;/em&gt;</ept>:</source>
+          <target state="new"><bpt id="b8da7f7a-6751-4a2a-9bca-9c61427dccca">&lt;em&gt;</bpt>Optional Properties<ept id="b8da7f7a-6751-4a2a-9bca-9c61427dccca">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4f8513af-d3a6-4336-a681-94dadd95d855" xml:space="preserve">
+          <source><bpt id="8c7aeb35-5cdd-4795-bf52-f6b91daf6ad4">&lt;strong&gt;</bpt>default<ept id="8c7aeb35-5cdd-4795-bf52-f6b91daf6ad4">&lt;/strong&gt;</ept> - The value for the default property must correspond with an id value from one of the <bpt id="d4f7f8a3-e7c5-471e-acf2-af79f14e1d89">&lt;strong&gt;</bpt>Item<ept id="d4f7f8a3-e7c5-471e-acf2-af79f14e1d89">&lt;/strong&gt;</ept> elements.</source>
+          <target state="new"><bpt id="8c7aeb35-5cdd-4795-bf52-f6b91daf6ad4">&lt;strong&gt;</bpt>default<ept id="8c7aeb35-5cdd-4795-bf52-f6b91daf6ad4">&lt;/strong&gt;</ept> - The value for the default property must correspond with an id value from one of the <bpt id="d4f7f8a3-e7c5-471e-acf2-af79f14e1d89">&lt;strong&gt;</bpt>Item<ept id="d4f7f8a3-e7c5-471e-acf2-af79f14e1d89">&lt;/strong&gt;</ept> elements.</target>
+        </trans-unit>
+        <trans-unit id="51a1706b-1fbd-4273-ac84-bbc28d23372a" xml:space="preserve">
+          <source>Any file that is placed in your custom module ZIP file will be available for use during execution time.</source>
+          <target state="new">Any file that is placed in your custom module ZIP file will be available for use during execution time.</target>
+        </trans-unit>
+        <trans-unit id="127433ac-434d-48de-84ef-a86eed708c90" xml:space="preserve">
+          <source>If there is a directory structure present it will be preserved.</source>
+          <target state="new">If there is a directory structure present it will be preserved.</target>
+        </trans-unit>
+        <trans-unit id="483ca39d-b39b-4ff4-bb87-2ef492373d52" xml:space="preserve">
+          <source>This means that file sourcing will work the same locally and in Azure Machine Learning execution.</source>
+          <target state="new">This means that file sourcing will work the same locally and in Azure Machine Learning execution.</target>
+        </trans-unit>
+        <trans-unit id="6b251b5c-b204-4864-b186-2edb6b136954" xml:space="preserve">
+          <source>Please notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.</source>
+          <target state="new">Please notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.</target>
+        </trans-unit>
+        <trans-unit id="5cb83614-713d-4b65-9a90-06476a67b388" xml:space="preserve">
+          <source>For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:</source>
+          <target state="new">For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:</target>
+        </trans-unit>
+        <trans-unit id="f739038c-9a72-496c-b31a-2309de2d5cfb" xml:space="preserve">
+          <source>Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.</source>
+          <target state="new">Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.</target>
+        </trans-unit>
+        <trans-unit id="7effee65-874e-46f0-b6f4-948e50f55d72" xml:space="preserve">
+          <source>The execution environment for the R script uses the same version of R as the <bpt id="0aab0816-8b7c-48fa-bc48-5d691575660f">&lt;strong&gt;</bpt>Execute R Script<ept id="0aab0816-8b7c-48fa-bc48-5d691575660f">&lt;/strong&gt;</ept> module, and can use the same default packages.</source>
+          <target state="new">The execution environment for the R script uses the same version of R as the <bpt id="0aab0816-8b7c-48fa-bc48-5d691575660f">&lt;strong&gt;</bpt>Execute R Script<ept id="0aab0816-8b7c-48fa-bc48-5d691575660f">&lt;/strong&gt;</ept> module, and can use the same default packages.</target>
+        </trans-unit>
+        <trans-unit id="989f7fd0-5eae-407f-8677-578043aa36de" xml:space="preserve">
+          <source>You can add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment.</source>
+          <target state="new">You can add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment.</target>
+        </trans-unit>
+        <trans-unit id="91e5edb1-6a46-4a6d-956d-f258d98a2da3" xml:space="preserve">
+          <source><bpt id="ee3006e0-888a-49b8-b3fc-87f3fedd6e83">&lt;strong&gt;</bpt>Limitations of the execution environment<ept id="ee3006e0-888a-49b8-b3fc-87f3fedd6e83">&lt;/strong&gt;</ept> include:</source>
+          <target state="new"><bpt id="ee3006e0-888a-49b8-b3fc-87f3fedd6e83">&lt;strong&gt;</bpt>Limitations of the execution environment<ept id="ee3006e0-888a-49b8-b3fc-87f3fedd6e83">&lt;/strong&gt;</ept> include:</target>
+        </trans-unit>
+        <trans-unit id="2a7a09c3-0f54-4688-b564-4004b0d2a9de" xml:space="preserve">
+          <source>Non-persistent file system: Files written when the custom module is run will not persist across multiple runs of the same module.</source>
+          <target state="new">Non-persistent file system: Files written when the custom module is run will not persist across multiple runs of the same module.</target>
+        </trans-unit>
+        <trans-unit id="725f70bb-47be-4b2b-b147-846321c08a71" xml:space="preserve">
+          <source>No network access</source>
+          <target state="new">No network access</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

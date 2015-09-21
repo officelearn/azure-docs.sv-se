@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="41a7b767-6c3f-4525-ad0e-5da6006f429c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="41a7b767-6c3f-4525-ad0e-5da6006f429c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="02fdd269-fab4-4d12-9801-08ed21dba016">
+        <trans-unit id="1455ee83-f516-425b-8f02-8a43d0461502" xml:space="preserve">
+          <source>If you haven't already done so, download and install <bpt id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;linkText&gt;</bpt>Visual Studio Professional 2013<ept id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;/linkText&gt;</ept><bpt id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;title&gt;</bpt><ept id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;/title&gt;</ept>, or a later version.</source>
+          <target state="new">If you haven't already done so, download and install <bpt id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;linkText&gt;</bpt>Visual Studio Professional 2013<ept id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;/linkText&gt;</ept><bpt id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;title&gt;</bpt><ept id="8ba7bf0e-da81-4edb-a8bd-58a61ed0ad38">&lt;/title&gt;</ept>, or a later version.</target>
+        </trans-unit>
+        <trans-unit id="a9466e62-e241-42bf-a882-0a7e0fb1a993" xml:space="preserve">
+          <source>In the <bpt id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;/linkText&gt;</ept><bpt id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;title&gt;</bpt><ept id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;/title&gt;</ept>, click your new Mobile Service and in the quickstart page click the <bpt id="95fd1aba-b8ff-4320-875c-d019c29f9569">&lt;strong&gt;</bpt>Android<ept id="95fd1aba-b8ff-4320-875c-d019c29f9569">&lt;/strong&gt;</ept> platform, then under <bpt id="f13c66d4-7f3f-48cd-b643-2d6ba350cb31">&lt;strong&gt;</bpt>Get Started<ept id="f13c66d4-7f3f-48cd-b643-2d6ba350cb31">&lt;/strong&gt;</ept>, expand <bpt id="ebdad3d5-5914-4d3c-b510-465ab012e409">&lt;strong&gt;</bpt>Create a new Android app<ept id="ebdad3d5-5914-4d3c-b510-465ab012e409">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;/linkText&gt;</ept><bpt id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;title&gt;</bpt><ept id="f4a833e3-e4a0-41c7-8ba2-4027a92a942c">&lt;/title&gt;</ept>, click your new Mobile Service and in the quickstart page click the <bpt id="95fd1aba-b8ff-4320-875c-d019c29f9569">&lt;strong&gt;</bpt>Android<ept id="95fd1aba-b8ff-4320-875c-d019c29f9569">&lt;/strong&gt;</ept> platform, then under <bpt id="f13c66d4-7f3f-48cd-b643-2d6ba350cb31">&lt;strong&gt;</bpt>Get Started<ept id="f13c66d4-7f3f-48cd-b643-2d6ba350cb31">&lt;/strong&gt;</ept>, expand <bpt id="ebdad3d5-5914-4d3c-b510-465ab012e409">&lt;strong&gt;</bpt>Create a new Android app<ept id="ebdad3d5-5914-4d3c-b510-465ab012e409">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0284f6a9-7e43-4dab-a98d-44c1d85323e6" xml:space="preserve">
+          <source><bpt id="f1390cd3-b50e-4e92-8268-6e3029e5d6c2">&lt;linkText&gt;</bpt><ept id="f1390cd3-b50e-4e92-8268-6e3029e5d6c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1390cd3-b50e-4e92-8268-6e3029e5d6c2">&lt;linkText&gt;</bpt><ept id="f1390cd3-b50e-4e92-8268-6e3029e5d6c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95488c05-3980-47ee-aaab-49c42a9c5b9f" xml:space="preserve">
+          <source>Under <bpt id="740a780d-3588-4f0d-b856-06be0ffea333">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="740a780d-3588-4f0d-b856-06be0ffea333">&lt;/strong&gt;</ept>, click <bpt id="16055e82-a61c-4077-8ec6-84595c381a25">&lt;strong&gt;</bpt>Download<ept id="16055e82-a61c-4077-8ec6-84595c381a25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="740a780d-3588-4f0d-b856-06be0ffea333">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="740a780d-3588-4f0d-b856-06be0ffea333">&lt;/strong&gt;</ept>, click <bpt id="16055e82-a61c-4077-8ec6-84595c381a25">&lt;strong&gt;</bpt>Download<ept id="16055e82-a61c-4077-8ec6-84595c381a25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa884422-028f-4b0e-8442-bf9379580492" xml:space="preserve">
+          <source>This downloads the Visual Studio project that implements your mobile service.</source>
+          <target state="new">This downloads the Visual Studio project that implements your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="4e504eef-a750-4567-9d6b-9d70ea63cc82" xml:space="preserve">
+          <source>Save the compressed project file to your local computer, and make a note of where you saved it.</source>
+          <target state="new">Save the compressed project file to your local computer, and make a note of where you saved it.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

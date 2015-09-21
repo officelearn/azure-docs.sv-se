@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="50d42d39-22b7-4ad5-a249-f466d23fdfc2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="50d42d39-22b7-4ad5-a249-f466d23fdfc2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bb2cbbc8-faa9-4185-831a-daac6ce6863b">
+        <trans-unit id="9237db59-1abc-4b2c-9abc-5a1788de776b" xml:space="preserve">
+          <source>Hash distribution and its effect on query performance in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Hash distribution and its effect on query performance in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0fdc7be1-9931-44b6-8899-cbdbe8cc7d1f" xml:space="preserve">
+          <source>Learn about hash distributed tables and how they affect query performance in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Learn about hash distributed tables and how they affect query performance in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="0ba66bd2-9aca-49c4-a500-c1a463a4980e" xml:space="preserve">
+          <source>Making smart hash distribution decisions is one of the most important ways to improve query performance.</source>
+          <target state="new">Making smart hash distribution decisions is one of the most important ways to improve query performance.</target>
+        </trans-unit>
+        <trans-unit id="eb23ae44-7aff-4bbc-9851-4dcc5ec916d1" xml:space="preserve">
+          <source>There are in fact three major factors:</source>
+          <target state="new">There are in fact three major factors:</target>
+        </trans-unit>
+        <trans-unit id="b781575b-d6c3-4024-ac2a-9eaeef85a56b" xml:space="preserve">
+          <source>Minimize Data Movement</source>
+          <target state="new">Minimize Data Movement</target>
+        </trans-unit>
+        <trans-unit id="ae031b6c-5a02-4e3c-b507-68f6c0eac313" xml:space="preserve">
+          <source>Avoid Data Skew</source>
+          <target state="new">Avoid Data Skew</target>
+        </trans-unit>
+        <trans-unit id="fd95ba10-9d7e-446b-b30b-205f6bb8a31d" xml:space="preserve">
+          <source>Provide Balanced Execution</source>
+          <target state="new">Provide Balanced Execution</target>
+        </trans-unit>
+        <trans-unit id="1e521fd8-173b-4c22-8cd3-faae90ff3139" xml:space="preserve">
+          <source>Data Movement most commonly arises when tables are joined together or aggregations on tables are performed.</source>
+          <target state="new">Data Movement most commonly arises when tables are joined together or aggregations on tables are performed.</target>
+        </trans-unit>
+        <trans-unit id="2ce25b2c-571f-4c61-9147-4a46a5435728" xml:space="preserve">
+          <source>Hash distributing tables on a shared key is one of the most effective methods for minimizing this movement.</source>
+          <target state="new">Hash distributing tables on a shared key is one of the most effective methods for minimizing this movement.</target>
+        </trans-unit>
+        <trans-unit id="ca207b49-9022-4f77-bc44-8fb6fc2fd218" xml:space="preserve">
+          <source>However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:</source>
+          <target state="new">However, for the hash distribution to be effective in minimizing the movement the following criteria must all be true:</target>
+        </trans-unit>
+        <trans-unit id="3dcea53d-f7a8-4c89-8644-c09cb9429562" xml:space="preserve">
+          <source>Both tables need to be hash distributed and be joined on the shared distribution key</source>
+          <target state="new">Both tables need to be hash distributed and be joined on the shared distribution key</target>
+        </trans-unit>
+        <trans-unit id="cf85acfd-681e-4b50-89cc-8b78d7ef6a72" xml:space="preserve">
+          <source>The data types of both columns need to match</source>
+          <target state="new">The data types of both columns need to match</target>
+        </trans-unit>
+        <trans-unit id="70aa3417-41d5-4fa6-a442-c4903fc0afdb" xml:space="preserve">
+          <source>The joining columns need to be equi-join (i.e. the values in the left table's column need to equal the values in the right table's column)</source>
+          <target state="new">The joining columns need to be equi-join (i.e. the values in the left table's column need to equal the values in the right table's column)</target>
+        </trans-unit>
+        <trans-unit id="1a278756-f258-4325-a8f1-797b2f942fa1" xml:space="preserve">
+          <source>The join is <bpt id="9434bdca-2a52-43cd-9113-0b864380e4e7">&lt;strong&gt;</bpt>not<ept id="9434bdca-2a52-43cd-9113-0b864380e4e7">&lt;/strong&gt;</ept> a <bpt id="cbe63918-948c-4a9a-bab9-463d23181e5c">&lt;code&gt;</bpt>CROSS JOIN<ept id="cbe63918-948c-4a9a-bab9-463d23181e5c">&lt;/code&gt;</ept></source>
+          <target state="new">The join is <bpt id="9434bdca-2a52-43cd-9113-0b864380e4e7">&lt;strong&gt;</bpt>not<ept id="9434bdca-2a52-43cd-9113-0b864380e4e7">&lt;/strong&gt;</ept> a <bpt id="cbe63918-948c-4a9a-bab9-463d23181e5c">&lt;code&gt;</bpt>CROSS JOIN<ept id="cbe63918-948c-4a9a-bab9-463d23181e5c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99322f47-9c48-4a88-83e3-3f8352f14bd1" xml:space="preserve">
+          <source>Columns used in <bpt id="cab698fa-fd46-49b0-a146-ad777ac04cfe">&lt;code&gt;</bpt>JOIN<ept id="cab698fa-fd46-49b0-a146-ad777ac04cfe">&lt;/code&gt;</ept>, <bpt id="533819b8-8587-4474-87fb-76503f800fab">&lt;code&gt;</bpt>GROUP BY<ept id="533819b8-8587-4474-87fb-76503f800fab">&lt;/code&gt;</ept>, <bpt id="a4bd3e86-344c-42e6-9a2b-7ddf731e40db">&lt;code&gt;</bpt>DISTINCT<ept id="a4bd3e86-344c-42e6-9a2b-7ddf731e40db">&lt;/code&gt;</ept> and <bpt id="1c7483ac-746a-4ec1-9f7b-3308dd05dc25">&lt;code&gt;</bpt>HAVING<ept id="1c7483ac-746a-4ec1-9f7b-3308dd05dc25">&lt;/code&gt;</ept> clauses all make for good HASH column candidates.</source>
+          <target state="new">Columns used in <bpt id="cab698fa-fd46-49b0-a146-ad777ac04cfe">&lt;code&gt;</bpt>JOIN<ept id="cab698fa-fd46-49b0-a146-ad777ac04cfe">&lt;/code&gt;</ept>, <bpt id="533819b8-8587-4474-87fb-76503f800fab">&lt;code&gt;</bpt>GROUP BY<ept id="533819b8-8587-4474-87fb-76503f800fab">&lt;/code&gt;</ept>, <bpt id="a4bd3e86-344c-42e6-9a2b-7ddf731e40db">&lt;code&gt;</bpt>DISTINCT<ept id="a4bd3e86-344c-42e6-9a2b-7ddf731e40db">&lt;/code&gt;</ept> and <bpt id="1c7483ac-746a-4ec1-9f7b-3308dd05dc25">&lt;code&gt;</bpt>HAVING<ept id="1c7483ac-746a-4ec1-9f7b-3308dd05dc25">&lt;/code&gt;</ept> clauses all make for good HASH column candidates.</target>
+        </trans-unit>
+        <trans-unit id="cf227a14-dc10-47fc-9266-67fd2fa18248" xml:space="preserve">
+          <source>On the other hand columns in the <bpt id="02e18724-583d-4204-bae9-c5add14e1560">&lt;code&gt;</bpt>WHERE<ept id="02e18724-583d-4204-bae9-c5add14e1560">&lt;/code&gt;</ept> clause do <bpt id="a15c81ef-940e-4fff-8343-302ad488ff99">&lt;strong&gt;</bpt>not<ept id="a15c81ef-940e-4fff-8343-302ad488ff99">&lt;/strong&gt;</ept> make for good hash column candidates.</source>
+          <target state="new">On the other hand columns in the <bpt id="02e18724-583d-4204-bae9-c5add14e1560">&lt;code&gt;</bpt>WHERE<ept id="02e18724-583d-4204-bae9-c5add14e1560">&lt;/code&gt;</ept> clause do <bpt id="a15c81ef-940e-4fff-8343-302ad488ff99">&lt;strong&gt;</bpt>not<ept id="a15c81ef-940e-4fff-8343-302ad488ff99">&lt;/strong&gt;</ept> make for good hash column candidates.</target>
+        </trans-unit>
+        <trans-unit id="125e7e0b-4049-4c78-8ed6-4db60d7c10eb" xml:space="preserve">
+          <source>See the section on balanced execution below.</source>
+          <target state="new">See the section on balanced execution below.</target>
+        </trans-unit>
+        <trans-unit id="0b255f0b-600f-4ef7-bc63-a264924e7374" xml:space="preserve">
+          <source>Data movement may also arise from query syntax (<bpt id="6774b783-ffb3-487f-a366-066322d6d003">&lt;code&gt;</bpt>COUNT DISTINCT<ept id="6774b783-ffb3-487f-a366-066322d6d003">&lt;/code&gt;</ept> and the <bpt id="27928d2e-c826-48b5-b591-8067aa3323d1">&lt;code&gt;</bpt>OVER<ept id="27928d2e-c826-48b5-b591-8067aa3323d1">&lt;/code&gt;</ept> clause both being great examples) when used with columns that do not include the hash distribution key.</source>
+          <target state="new">Data movement may also arise from query syntax (<bpt id="6774b783-ffb3-487f-a366-066322d6d003">&lt;code&gt;</bpt>COUNT DISTINCT<ept id="6774b783-ffb3-487f-a366-066322d6d003">&lt;/code&gt;</ept> and the <bpt id="27928d2e-c826-48b5-b591-8067aa3323d1">&lt;code&gt;</bpt>OVER<ept id="27928d2e-c826-48b5-b591-8067aa3323d1">&lt;/code&gt;</ept> clause both being great examples) when used with columns that do not include the hash distribution key.</target>
+        </trans-unit>
+        <trans-unit id="80130fea-5f01-436f-bd17-8c4495bd979d" xml:space="preserve">
+          <source>Round-Robin tables typically generate data movement.</source>
+          <target state="new">Round-Robin tables typically generate data movement.</target>
+        </trans-unit>
+        <trans-unit id="4d59b83a-2d66-41ae-9601-2dab884c9648" xml:space="preserve">
+          <source>The data in the table has been allocated in a non-deterministic fashion and so the data must first be moved prior to most queries being completed.</source>
+          <target state="new">The data in the table has been allocated in a non-deterministic fashion and so the data must first be moved prior to most queries being completed.</target>
+        </trans-unit>
+        <trans-unit id="3cc71645-c463-42c0-a9a9-2e289aac4195" xml:space="preserve">
+          <source>In order for hash distribution to be effective it is important that the column chosen exhibits the following properties:</source>
+          <target state="new">In order for hash distribution to be effective it is important that the column chosen exhibits the following properties:</target>
+        </trans-unit>
+        <trans-unit id="19be776b-63cc-40c3-9f63-c49e15cc2560" xml:space="preserve">
+          <source>The column contains a significant number of distinct values.</source>
+          <target state="new">The column contains a significant number of distinct values.</target>
+        </trans-unit>
+        <trans-unit id="31c93c36-3e84-4109-b71b-a4fca7a9b67e" xml:space="preserve">
+          <source>The column does not suffer from <bpt id="cb512c34-cbd6-4a89-abcd-a3940d4b1ebc">&lt;strong&gt;</bpt>data skew<ept id="cb512c34-cbd6-4a89-abcd-a3940d4b1ebc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The column does not suffer from <bpt id="cb512c34-cbd6-4a89-abcd-a3940d4b1ebc">&lt;strong&gt;</bpt>data skew<ept id="cb512c34-cbd6-4a89-abcd-a3940d4b1ebc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9d039be-fd8b-41bd-a362-62c62704b8e4" xml:space="preserve">
+          <source>Each distinct value will be allocated to a distribution.</source>
+          <target state="new">Each distinct value will be allocated to a distribution.</target>
+        </trans-unit>
+        <trans-unit id="e3abb464-eef6-425b-b973-312a9071ad98" xml:space="preserve">
+          <source>Consequently, the data will require a reasonable number of distinct values to ensure enough unique hash values are generated.</source>
+          <target state="new">Consequently, the data will require a reasonable number of distinct values to ensure enough unique hash values are generated.</target>
+        </trans-unit>
+        <trans-unit id="325f1d19-9ae5-42d8-a4a9-f202678feece" xml:space="preserve">
+          <source>Otherwise we might get a poor quality hash.</source>
+          <target state="new">Otherwise we might get a poor quality hash.</target>
+        </trans-unit>
+        <trans-unit id="448f15e7-55e8-476f-9e50-b15646ad9c1c" xml:space="preserve">
+          <source>If the number of distributions exceeds the number of distinct values for example then some distributions will be left empty.</source>
+          <target state="new">If the number of distributions exceeds the number of distinct values for example then some distributions will be left empty.</target>
+        </trans-unit>
+        <trans-unit id="2032a79c-6ff0-4dae-8ce5-b29ffc73efb1" xml:space="preserve">
+          <source>This would hurt performance.</source>
+          <target state="new">This would hurt performance.</target>
+        </trans-unit>
+        <trans-unit id="a6820557-952e-43bf-b2bc-46ce12629789" xml:space="preserve">
+          <source>Similarly, if all of the rows for the hashed column contained the same value then the data is said to be <bpt id="91356264-6b0f-4786-8818-870475b88e80">&lt;strong&gt;</bpt>skewed<ept id="91356264-6b0f-4786-8818-870475b88e80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Similarly, if all of the rows for the hashed column contained the same value then the data is said to be <bpt id="91356264-6b0f-4786-8818-870475b88e80">&lt;strong&gt;</bpt>skewed<ept id="91356264-6b0f-4786-8818-870475b88e80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82f52c17-2c5c-4109-ad1c-c57cc301f397" xml:space="preserve">
+          <source>In this extreme case only one hash value would have been created resulting in all rows ending up inside a single distribution.</source>
+          <target state="new">In this extreme case only one hash value would have been created resulting in all rows ending up inside a single distribution.</target>
+        </trans-unit>
+        <trans-unit id="42ddc9c1-463c-4c6b-8e2f-80c8a18fbeed" xml:space="preserve">
+          <source>Ideally, each distinct value in the hashed column would have the same number of rows.</source>
+          <target state="new">Ideally, each distinct value in the hashed column would have the same number of rows.</target>
+        </trans-unit>
+        <trans-unit id="2fc3d16d-deac-491e-bf7d-c27882cda1f3" xml:space="preserve">
+          <source>Round-robin tables do not exhibit signs of skew.</source>
+          <target state="new">Round-robin tables do not exhibit signs of skew.</target>
+        </trans-unit>
+        <trans-unit id="c0d6c16d-957f-47e7-b9c2-e9c9cdf1d896" xml:space="preserve">
+          <source>This is because the data is stored evenly across the distributions.</source>
+          <target state="new">This is because the data is stored evenly across the distributions.</target>
+        </trans-unit>
+        <trans-unit id="4d705bb7-3e0a-4c9f-9de7-deb35248816a" xml:space="preserve">
+          <source>Balanced execution is achieved when each distribution has the same amount of work to perform.</source>
+          <target state="new">Balanced execution is achieved when each distribution has the same amount of work to perform.</target>
+        </trans-unit>
+        <trans-unit id="c80ee19f-3995-4f82-80e4-5aa4d6b2fde3" xml:space="preserve">
+          <source>Massively Parallel Processing (MPP) is a team game; everyone has to cross the line before anyone can be declared the winner.</source>
+          <target state="new">Massively Parallel Processing (MPP) is a team game; everyone has to cross the line before anyone can be declared the winner.</target>
+        </trans-unit>
+        <trans-unit id="3efa9fac-28e8-44fc-8bfa-324644b9bb02" xml:space="preserve">
+          <source>If every distribution has the same amount of work (i.e. data to process) then all of the queries will finish at about the same time.</source>
+          <target state="new">If every distribution has the same amount of work (i.e. data to process) then all of the queries will finish at about the same time.</target>
+        </trans-unit>
+        <trans-unit id="18d2147f-0140-43cc-90f5-b7e3940ae930" xml:space="preserve">
+          <source>This is known as balanced execution.</source>
+          <target state="new">This is known as balanced execution.</target>
+        </trans-unit>
+        <trans-unit id="8a96556b-2c2b-4020-98d3-07aadef1b2a6" xml:space="preserve">
+          <source>As has been seen, data skew can affect balanced execution.</source>
+          <target state="new">As has been seen, data skew can affect balanced execution.</target>
+        </trans-unit>
+        <trans-unit id="a5749b6c-f05f-4dfd-ab69-380edf090a26" xml:space="preserve">
+          <source>However, so can the choice of hash distribution key.</source>
+          <target state="new">However, so can the choice of hash distribution key.</target>
+        </trans-unit>
+        <trans-unit id="6279d910-cb07-49fb-9546-1cd66513302c" xml:space="preserve">
+          <source>If a column has been chosen that appears in the <bpt id="533af231-855f-4d23-adca-ce342cfa5f82">&lt;code&gt;</bpt>WHERE<ept id="533af231-855f-4d23-adca-ce342cfa5f82">&lt;/code&gt;</ept> clause of a query then it is quite likely that the query will not be balanced.</source>
+          <target state="new">If a column has been chosen that appears in the <bpt id="533af231-855f-4d23-adca-ce342cfa5f82">&lt;code&gt;</bpt>WHERE<ept id="533af231-855f-4d23-adca-ce342cfa5f82">&lt;/code&gt;</ept> clause of a query then it is quite likely that the query will not be balanced.</target>
+        </trans-unit>
+        <trans-unit id="9f891d6c-774e-4832-908f-8b2a614a2a94" xml:space="preserve">
+          <source>The <bpt id="346fa9f1-9a19-4be3-a739-2c1125a9e789">&lt;code&gt;</bpt>WHERE<ept id="346fa9f1-9a19-4be3-a739-2c1125a9e789">&lt;/code&gt;</ept> clause typically helps identify columns that are best used for partitioning.</source>
+          <target state="new">The <bpt id="346fa9f1-9a19-4be3-a739-2c1125a9e789">&lt;code&gt;</bpt>WHERE<ept id="346fa9f1-9a19-4be3-a739-2c1125a9e789">&lt;/code&gt;</ept> clause typically helps identify columns that are best used for partitioning.</target>
+        </trans-unit>
+        <trans-unit id="43dce352-0980-489e-9e99-d2bc009589ae" xml:space="preserve">
+          <source>A good example of a column that appears in the <bpt id="4262b7ca-6cdb-4181-ac9b-f5c274f9f4b1">&lt;code&gt;</bpt>WHERE<ept id="4262b7ca-6cdb-4181-ac9b-f5c274f9f4b1">&lt;/code&gt;</ept> clause would be a date field.</source>
+          <target state="new">A good example of a column that appears in the <bpt id="4262b7ca-6cdb-4181-ac9b-f5c274f9f4b1">&lt;code&gt;</bpt>WHERE<ept id="4262b7ca-6cdb-4181-ac9b-f5c274f9f4b1">&lt;/code&gt;</ept> clause would be a date field.</target>
+        </trans-unit>
+        <trans-unit id="e69bc2b0-bbef-486e-b029-b5ac6888683e" xml:space="preserve">
+          <source>Date fields are a classic examples of great partitioning columns but often poor hash distribution columns.</source>
+          <target state="new">Date fields are a classic examples of great partitioning columns but often poor hash distribution columns.</target>
+        </trans-unit>
+        <trans-unit id="ca641087-7233-4c14-9c9b-344eb83bae32" xml:space="preserve">
+          <source>Typically, data warehouse queries are over a specified time period such as day, week or month.</source>
+          <target state="new">Typically, data warehouse queries are over a specified time period such as day, week or month.</target>
+        </trans-unit>
+        <trans-unit id="fd9cfdf3-99a9-4b38-8c36-7403aa4b8d83" xml:space="preserve">
+          <source>Hash distributing by date may have actually limited our scalablity and hurt our performance.</source>
+          <target state="new">Hash distributing by date may have actually limited our scalablity and hurt our performance.</target>
+        </trans-unit>
+        <trans-unit id="84d38af6-9b3b-4aa1-8138-0dcb37919f25" xml:space="preserve">
+          <source>If for example the date range specified was for a week i.e. 7 days then the maximum number of hashes would be 7 - one for each day.</source>
+          <target state="new">If for example the date range specified was for a week i.e. 7 days then the maximum number of hashes would be 7 - one for each day.</target>
+        </trans-unit>
+        <trans-unit id="570d760d-3a10-4df8-a824-8c628d134a38" xml:space="preserve">
+          <source>This means that only 7 of our distributions would contain data.</source>
+          <target state="new">This means that only 7 of our distributions would contain data.</target>
+        </trans-unit>
+        <trans-unit id="c474fea3-c110-4e4a-8f11-681377035302" xml:space="preserve">
+          <source>The remaining distributions would not have any data.</source>
+          <target state="new">The remaining distributions would not have any data.</target>
+        </trans-unit>
+        <trans-unit id="2c4cb3d4-91d4-4186-a4a5-226780839f23" xml:space="preserve">
+          <source>This would result in an unbalanced query execution as only 7 distributions are processing data.</source>
+          <target state="new">This would result in an unbalanced query execution as only 7 distributions are processing data.</target>
+        </trans-unit>
+        <trans-unit id="911de64a-5e6a-4171-9b1f-67a1e4400c00" xml:space="preserve">
+          <source>Round-robin tables typically provide balanced execution.</source>
+          <target state="new">Round-robin tables typically provide balanced execution.</target>
+        </trans-unit>
+        <trans-unit id="ebda1029-b982-44ea-9278-0b1b9c3e8017" xml:space="preserve">
+          <source>This is because the data is stored evenly across the distributions.</source>
+          <target state="new">This is because the data is stored evenly across the distributions.</target>
+        </trans-unit>
+        <trans-unit id="4bccf9fd-5d68-4e5f-8c3f-c81befd76590" xml:space="preserve">
+          <source>To maximize your performance and overall query throughput try and ensure that your hash distributed tables follow this pattern as much as possible:</source>
+          <target state="new">To maximize your performance and overall query throughput try and ensure that your hash distributed tables follow this pattern as much as possible:</target>
+        </trans-unit>
+        <trans-unit id="fbe8f8fe-247b-41b3-9dc9-98a169f81d4f" xml:space="preserve">
+          <source>Hash distribution key:</source>
+          <target state="new">Hash distribution key:</target>
+        </trans-unit>
+        <trans-unit id="132f7975-e595-475b-805e-09eaaf93153c" xml:space="preserve">
+          <source>Is used in <bpt id="10930889-fac6-4eb7-b145-5e6d7d4462bf">&lt;code&gt;</bpt>JOIN<ept id="10930889-fac6-4eb7-b145-5e6d7d4462bf">&lt;/code&gt;</ept>, <bpt id="e4bb0eca-b52b-4a41-8ac3-ca14e49d8c1a">&lt;code&gt;</bpt>GROUP BY<ept id="e4bb0eca-b52b-4a41-8ac3-ca14e49d8c1a">&lt;/code&gt;</ept>, <bpt id="f9d25a06-bb13-4070-929a-79f20a8ffd54">&lt;code&gt;</bpt>DISTINCT<ept id="f9d25a06-bb13-4070-929a-79f20a8ffd54">&lt;/code&gt;</ept>, or <bpt id="0053942c-75f9-45d8-9c47-f24500db95f6">&lt;code&gt;</bpt>HAVING<ept id="0053942c-75f9-45d8-9c47-f24500db95f6">&lt;/code&gt;</ept> clauses in your queries.</source>
+          <target state="new">Is used in <bpt id="10930889-fac6-4eb7-b145-5e6d7d4462bf">&lt;code&gt;</bpt>JOIN<ept id="10930889-fac6-4eb7-b145-5e6d7d4462bf">&lt;/code&gt;</ept>, <bpt id="e4bb0eca-b52b-4a41-8ac3-ca14e49d8c1a">&lt;code&gt;</bpt>GROUP BY<ept id="e4bb0eca-b52b-4a41-8ac3-ca14e49d8c1a">&lt;/code&gt;</ept>, <bpt id="f9d25a06-bb13-4070-929a-79f20a8ffd54">&lt;code&gt;</bpt>DISTINCT<ept id="f9d25a06-bb13-4070-929a-79f20a8ffd54">&lt;/code&gt;</ept>, or <bpt id="0053942c-75f9-45d8-9c47-f24500db95f6">&lt;code&gt;</bpt>HAVING<ept id="0053942c-75f9-45d8-9c47-f24500db95f6">&lt;/code&gt;</ept> clauses in your queries.</target>
+        </trans-unit>
+        <trans-unit id="ce6d1616-dc8b-4e4f-bd0a-2b2b1b7248f9" xml:space="preserve">
+          <source>Is not used in <bpt id="4e4451b6-447f-4664-a643-6316f589c76e">&lt;code&gt;</bpt>WHERE<ept id="4e4451b6-447f-4664-a643-6316f589c76e">&lt;/code&gt;</ept> clauses</source>
+          <target state="new">Is not used in <bpt id="4e4451b6-447f-4664-a643-6316f589c76e">&lt;code&gt;</bpt>WHERE<ept id="4e4451b6-447f-4664-a643-6316f589c76e">&lt;/code&gt;</ept> clauses</target>
+        </trans-unit>
+        <trans-unit id="54c364c9-4636-4d6a-9a88-0b530f8fe6da" xml:space="preserve">
+          <source>Has lots of different values, at least 1000.</source>
+          <target state="new">Has lots of different values, at least 1000.</target>
+        </trans-unit>
+        <trans-unit id="430ac359-6abc-46a6-b628-465b06b89147" xml:space="preserve">
+          <source>Does not have a disproportionately large number of rows that will hash to a small number of distributions.</source>
+          <target state="new">Does not have a disproportionately large number of rows that will hash to a small number of distributions.</target>
+        </trans-unit>
+        <trans-unit id="93982357-31fc-40d3-ac35-18c0fea3c316" xml:space="preserve">
+          <source>Is defined as NOT NULL.</source>
+          <target state="new">Is defined as NOT NULL.</target>
+        </trans-unit>
+        <trans-unit id="47d64a2e-e7e7-4a11-b257-d589df3cdddf" xml:space="preserve">
+          <source>NULL rows will congregate in one distribution.</source>
+          <target state="new">NULL rows will congregate in one distribution.</target>
+        </trans-unit>
+        <trans-unit id="f8435048-8464-4ea9-8651-e759dcce4015" xml:space="preserve">
+          <source>Hash distribution can be summarized as follows:</source>
+          <target state="new">Hash distribution can be summarized as follows:</target>
+        </trans-unit>
+        <trans-unit id="3612346a-0e50-4e66-8d2a-554681f8b578" xml:space="preserve">
+          <source>The hash function is deterministic.</source>
+          <target state="new">The hash function is deterministic.</target>
+        </trans-unit>
+        <trans-unit id="29dc4229-b2b1-4bed-96a8-81ed115b82ea" xml:space="preserve">
+          <source>The same value is always assigned to the same distribution.</source>
+          <target state="new">The same value is always assigned to the same distribution.</target>
+        </trans-unit>
+        <trans-unit id="b6432665-d20e-4f77-81a8-a5f812657de2" xml:space="preserve">
+          <source>One column is used as the distribution column.</source>
+          <target state="new">One column is used as the distribution column.</target>
+        </trans-unit>
+        <trans-unit id="384d2c4c-4df9-44f1-868e-680c7c48cd66" xml:space="preserve">
+          <source>The hash function uses the nominated column to compute the row assignments to distributions.</source>
+          <target state="new">The hash function uses the nominated column to compute the row assignments to distributions.</target>
+        </trans-unit>
+        <trans-unit id="c4961dda-7e1a-4183-ba13-febb0f79d830" xml:space="preserve">
+          <source>The hash function is based on the type of the column not on the values themselves</source>
+          <target state="new">The hash function is based on the type of the column not on the values themselves</target>
+        </trans-unit>
+        <trans-unit id="b4aa950e-e7ff-41d9-88c1-c247df6cc4ff" xml:space="preserve">
+          <source>Hash distributing a table can sometimes result in a skewed table</source>
+          <target state="new">Hash distributing a table can sometimes result in a skewed table</target>
+        </trans-unit>
+        <trans-unit id="ebab0365-377e-47ad-ad44-caf8f33dc5b0" xml:space="preserve">
+          <source>Hash distributed tables generally require less data movement when resolving queries, and therefore improve query performance for large fact tables.</source>
+          <target state="new">Hash distributed tables generally require less data movement when resolving queries, and therefore improve query performance for large fact tables.</target>
+        </trans-unit>
+        <trans-unit id="f1df5f1d-a7af-4f18-940f-90b12cd28edc" xml:space="preserve">
+          <source>Observe the recommendations for hash distributed column selection to enhance query throughput.</source>
+          <target state="new">Observe the recommendations for hash distributed column selection to enhance query throughput.</target>
+        </trans-unit>
+        <trans-unit id="e8e7d6ce-0179-4122-aee1-9076367e3062" xml:space="preserve">
+          <source>In SQL Data Warehouse data type consistency matters!</source>
+          <target state="new">In SQL Data Warehouse data type consistency matters!</target>
+        </trans-unit>
+        <trans-unit id="27686818-3f1f-48a9-ad3a-e8210efeafec" xml:space="preserve">
+          <source>Make sure that the existing schema is consistently using the same type for a column.</source>
+          <target state="new">Make sure that the existing schema is consistently using the same type for a column.</target>
+        </trans-unit>
+        <trans-unit id="f48375f2-0458-4317-90ee-a0823990a087" xml:space="preserve">
+          <source>This is especially important for the distribution key.</source>
+          <target state="new">This is especially important for the distribution key.</target>
+        </trans-unit>
+        <trans-unit id="b1b5f3c1-4d3c-497c-a952-c7b9e0f7c016" xml:space="preserve">
+          <source>If the distribution key data types are not synchronized and the tables are joined then needless data movement will occur.</source>
+          <target state="new">If the distribution key data types are not synchronized and the tables are joined then needless data movement will occur.</target>
+        </trans-unit>
+        <trans-unit id="c396eaf2-86a8-488c-be35-c297c0f76976" xml:space="preserve">
+          <source>This could be costly if the tables are large and would result in reduced throughput  and performance.</source>
+          <target state="new">This could be costly if the tables are large and would result in reduced throughput  and performance.</target>
+        </trans-unit>
+        <trans-unit id="54bb1394-c496-48c5-a083-f5955c86dbae" xml:space="preserve">
+          <source>For more development tips, see <bpt id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;linkText&gt;</bpt>development overview<ept id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;/linkText&gt;</ept><bpt id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;title&gt;</bpt><ept id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;linkText&gt;</bpt>development overview<ept id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;/linkText&gt;</ept><bpt id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;title&gt;</bpt><ept id="162c3b28-d458-4ac2-b3dd-f82fb00d06d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="484d5eff-b630-4391-960c-9c589b8a3090" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+      </group>
+      <group id="da662d88-25c9-4800-a37f-54453d014c12" />
+    </body>
+  </file>
+</xliff>

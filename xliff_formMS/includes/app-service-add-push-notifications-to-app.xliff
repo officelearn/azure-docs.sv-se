@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71b8a482-8801-4882-b3c3-f1451a6ff3e7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71b8a482-8801-4882-b3c3-f1451a6ff3e7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b85f554c-3a4b-4b25-b238-cdbfef17e3e0">
+        <trans-unit id="f73e4fde-585d-4dc6-aeb2-9993ae18c7b9" xml:space="preserve">
+          <source>In <bpt id="95ad589b-c422-443f-97f4-5a447352afec">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="95ad589b-c422-443f-97f4-5a447352afec">&lt;/strong&gt;</ept>, import the iOS SDK and <bpt id="2e18556d-f69a-45b3-9beb-aa116a406848">&lt;strong&gt;</bpt>QSTodoService.h<ept id="2e18556d-f69a-45b3-9beb-aa116a406848">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In <bpt id="95ad589b-c422-443f-97f4-5a447352afec">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="95ad589b-c422-443f-97f4-5a447352afec">&lt;/strong&gt;</ept>, import the iOS SDK and <bpt id="2e18556d-f69a-45b3-9beb-aa116a406848">&lt;strong&gt;</bpt>QSTodoService.h<ept id="2e18556d-f69a-45b3-9beb-aa116a406848">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="96f3ccf6-0d5a-4330-9cea-5688849ff12d" xml:space="preserve">
+          <source>In <bpt id="50ac3388-e7c5-4277-940a-0f62f23594e4">&lt;code&gt;</bpt>didFinishLaunchingWithOptions<ept id="50ac3388-e7c5-4277-940a-0f62f23594e4">&lt;/code&gt;</ept> in <bpt id="2bec9473-87bb-44f2-8f8f-dba1faf24190">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="2bec9473-87bb-44f2-8f8f-dba1faf24190">&lt;/strong&gt;</ept>, insert the following lines right before <bpt id="cbd72354-97a2-49a9-9bd4-9d078141a206">&lt;code&gt;</bpt>return YES;<ept id="cbd72354-97a2-49a9-9bd4-9d078141a206">&lt;/code&gt;</ept>:</source>
+          <target state="new">In <bpt id="50ac3388-e7c5-4277-940a-0f62f23594e4">&lt;code&gt;</bpt>didFinishLaunchingWithOptions<ept id="50ac3388-e7c5-4277-940a-0f62f23594e4">&lt;/code&gt;</ept> in <bpt id="2bec9473-87bb-44f2-8f8f-dba1faf24190">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="2bec9473-87bb-44f2-8f8f-dba1faf24190">&lt;/strong&gt;</ept>, insert the following lines right before <bpt id="cbd72354-97a2-49a9-9bd4-9d078141a206">&lt;code&gt;</bpt>return YES;<ept id="cbd72354-97a2-49a9-9bd4-9d078141a206">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="ec397630-9492-4e65-9e70-be117357c351" xml:space="preserve">
+          <source>In <bpt id="ec17adfc-331a-41f0-b057-5941e6a543ef">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="ec17adfc-331a-41f0-b057-5941e6a543ef">&lt;/strong&gt;</ept>, add the following handler methods.</source>
+          <target state="new">In <bpt id="ec17adfc-331a-41f0-b057-5941e6a543ef">&lt;strong&gt;</bpt>QSAppDelegate.m<ept id="ec17adfc-331a-41f0-b057-5941e6a543ef">&lt;/strong&gt;</ept>, add the following handler methods.</target>
+        </trans-unit>
+        <trans-unit id="bf7f05ab-d9ca-46fd-917b-73649a16cec1" xml:space="preserve">
+          <source>Your app is now updated to support push notifications.</source>
+          <target state="new">Your app is now updated to support push notifications.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

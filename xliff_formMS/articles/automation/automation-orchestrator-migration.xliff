@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="542b272a-7283-4ee7-8c97-78821634d3f2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="542b272a-7283-4ee7-8c97-78821634d3f2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1393750e-bb1f-4e4a-8e37-b70f1d65ee90">
+        <trans-unit id="33409ca4-ab58-4666-86a1-9e3d4e48cc0e" xml:space="preserve">
+          <source>Migrating from Orchestrator to Azure Automation | Microsoft Azure</source>
+          <target state="new">Migrating from Orchestrator to Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ef564dd5-a4d1-4c14-a33d-82709e7a3bc3" xml:space="preserve">
+          <source>Describes how to migrate runbooks and integration packs from System Center Orchestrator to Azure Automation.</source>
+          <target state="new">Describes how to migrate runbooks and integration packs from System Center Orchestrator to Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="97ba11a2-86a2-48eb-8a55-81b0129bdf89" xml:space="preserve">
+          <source>Runbooks in <bpt id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;linkText&gt;</bpt>System Center Orchestrator<ept id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;/linkText&gt;</ept><bpt id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;title&gt;</bpt><ept id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;/title&gt;</ept> are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.</source>
+          <target state="new">Runbooks in <bpt id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;linkText&gt;</bpt>System Center Orchestrator<ept id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;/linkText&gt;</ept><bpt id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;title&gt;</bpt><ept id="1a63a258-5863-4687-8a5d-5ab383ddd12f">&lt;/title&gt;</ept> are based on activities from integration packs that are written specifically for Orchestrator while runbooks in Azure Automation are based on Windows PowerShell Workflows.</target>
+        </trans-unit>
+        <trans-unit id="9b0a7af4-c3d5-4de0-86f5-52c59719e291" xml:space="preserve">
+          <source>Graphical runbooks in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.</source>
+          <target state="new">Graphical runbooks in Azure Automation have a similar appearance to Orchestrator runbooks with their activities representing PowerShell cmdlets, child runbooks, and assets.</target>
+        </trans-unit>
+        <trans-unit id="786163fa-bab2-4a12-9257-1d7607359c1d" xml:space="preserve">
+          <source>The [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&amp;WT.mc<bpt id="00d7102a-4dd6-406f-a922-cf7d3f305e33">&lt;em&gt;</bpt>id=rss<ept id="00d7102a-4dd6-406f-a922-cf7d3f305e33">&lt;/em&gt;</ept>alldownloads_all) includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that they use to integration modules with Windows PowerShell cmdlets.  </source>
+          <target state="new">The [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&amp;WT.mc<bpt id="00d7102a-4dd6-406f-a922-cf7d3f305e33">&lt;em&gt;</bpt>id=rss<ept id="00d7102a-4dd6-406f-a922-cf7d3f305e33">&lt;/em&gt;</ept>alldownloads_all) includes tools to assist you in converting runbooks from Orchestrator to Azure Automation.  In addition to converting the runbooks themselves, you must convert the integration packs with the activities that they use to integration modules with Windows PowerShell cmdlets.  </target>
+        </trans-unit>
+        <trans-unit id="9950b3f7-540b-4295-8507-1d6d34005a1c" xml:space="preserve">
+          <source>Following is the the basic process for converting Orchestrator runbooks to Azure Automation.</source>
+          <target state="new">Following is the the basic process for converting Orchestrator runbooks to Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="2b45c125-b7cd-4593-833a-e70a59eac994" xml:space="preserve">
+          <source>Each of these steps is described in detail in the sections below.</source>
+          <target state="new">Each of these steps is described in detail in the sections below.</target>
+        </trans-unit>
+        <trans-unit id="86e2ac77-6162-4231-a2bf-878abdd8a713" xml:space="preserve">
+          <source>Download the [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&amp;WT.mc<bpt id="c84f74bd-59de-43f5-a00b-28dcf94b80f4">&lt;em&gt;</bpt>id=rss<ept id="c84f74bd-59de-43f5-a00b-28dcf94b80f4">&lt;/em&gt;</ept>alldownloads_all) which contains the tools and modules discussed in this article.</source>
+          <target state="new">Download the [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&amp;WT.mc<bpt id="c84f74bd-59de-43f5-a00b-28dcf94b80f4">&lt;em&gt;</bpt>id=rss<ept id="c84f74bd-59de-43f5-a00b-28dcf94b80f4">&lt;/em&gt;</ept>alldownloads_all) which contains the tools and modules discussed in this article.</target>
+        </trans-unit>
+        <trans-unit id="73db4987-2240-449f-bc76-b56833baa490" xml:space="preserve">
+          <source>Install <bpt id="c06c04de-7336-42ea-ba09-54019d293206">&lt;linkText&gt;</bpt>Standard Activities Module<ept id="c06c04de-7336-42ea-ba09-54019d293206">&lt;/linkText&gt;</ept><bpt id="c06c04de-7336-42ea-ba09-54019d293206">&lt;title&gt;</bpt><ept id="c06c04de-7336-42ea-ba09-54019d293206">&lt;/title&gt;</ept> into Azure Automation.</source>
+          <target state="new">Install <bpt id="c06c04de-7336-42ea-ba09-54019d293206">&lt;linkText&gt;</bpt>Standard Activities Module<ept id="c06c04de-7336-42ea-ba09-54019d293206">&lt;/linkText&gt;</ept><bpt id="c06c04de-7336-42ea-ba09-54019d293206">&lt;title&gt;</bpt><ept id="c06c04de-7336-42ea-ba09-54019d293206">&lt;/title&gt;</ept> into Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="d44b2880-599f-40dc-8be0-68f4d2d96047" xml:space="preserve">
+          <source>This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.</source>
+          <target state="new">This includes converted versions of standard Orchestrator activities that may be used by converted runbooks.</target>
+        </trans-unit>
+        <trans-unit id="d2eb6d60-d6f9-4910-8a48-504b063f145e" xml:space="preserve">
+          <source>Install <bpt id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;linkText&gt;</bpt>System Center Orchestrator Integration Modules<ept id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;/linkText&gt;</ept><bpt id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;title&gt;</bpt><ept id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;/title&gt;</ept> into Azure Automation for those integration packs used by your runbooks.</source>
+          <target state="new">Install <bpt id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;linkText&gt;</bpt>System Center Orchestrator Integration Modules<ept id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;/linkText&gt;</ept><bpt id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;title&gt;</bpt><ept id="5adb67ce-340f-478e-8cf2-404ba3dfdf62">&lt;/title&gt;</ept> into Azure Automation for those integration packs used by your runbooks.</target>
+        </trans-unit>
+        <trans-unit id="3caff237-9b4b-4148-b82d-c3a009eff06c" xml:space="preserve">
+          <source>Convert custom and third party integration packs using the <bpt id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;linkText&gt;</bpt>Integration Pack Converter<ept id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;/linkText&gt;</ept><bpt id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;title&gt;</bpt><ept id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;/title&gt;</ept> and install in Azure Automation.</source>
+          <target state="new">Convert custom and third party integration packs using the <bpt id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;linkText&gt;</bpt>Integration Pack Converter<ept id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;/linkText&gt;</ept><bpt id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;title&gt;</bpt><ept id="67789587-59a2-4bb6-b723-b5e880e70fd5">&lt;/title&gt;</ept> and install in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="dcbf6b05-40bd-447f-b2de-8592bd0b0243" xml:space="preserve">
+          <source>Manually recreate global assets in Orchestrator in Azure Automation since there is no automated method to perform this migration.</source>
+          <target state="new">Manually recreate global assets in Orchestrator in Azure Automation since there is no automated method to perform this migration.</target>
+        </trans-unit>
+        <trans-unit id="f7fec566-bcf1-4d22-abef-c985bbbdd151" xml:space="preserve">
+          <source>Convert Orchestrator runbooks using the <bpt id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;linkText&gt;</bpt>Runbook Converter<ept id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;/linkText&gt;</ept><bpt id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;title&gt;</bpt><ept id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;/title&gt;</ept> (coming soon) and install in Azure Automation.</source>
+          <target state="new">Convert Orchestrator runbooks using the <bpt id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;linkText&gt;</bpt>Runbook Converter<ept id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;/linkText&gt;</ept><bpt id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;title&gt;</bpt><ept id="19a003a7-8e14-48ce-abfe-bde50d319943">&lt;/title&gt;</ept> (coming soon) and install in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="142819a4-b53b-47c0-bf1d-17611edfe7b0" xml:space="preserve">
+          <source>Configure a <bpt id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;/linkText&gt;</ept><bpt id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;title&gt;</bpt><ept id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;/title&gt;</ept> in your local data center to run the converted runbooks.</source>
+          <target state="new">Configure a <bpt id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;/linkText&gt;</ept><bpt id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;title&gt;</bpt><ept id="46f1048e-b6a5-41c0-a41a-765871497bfc">&lt;/title&gt;</ept> in your local data center to run the converted runbooks.</target>
+        </trans-unit>
+        <trans-unit id="b4bd6131-223b-43ca-95db-05ea22df13ff" xml:space="preserve">
+          <source><bpt id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;linkText&gt;</bpt>Service Management Automation<ept id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;/linkText&gt;</ept><bpt id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;title&gt;</bpt><ept id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;/title&gt;</ept> (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.</source>
+          <target state="new"><bpt id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;linkText&gt;</bpt>Service Management Automation<ept id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;/linkText&gt;</ept><bpt id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;title&gt;</bpt><ept id="dbcf1543-273d-49a9-bc45-98760ce1d5f1">&lt;/title&gt;</ept> (SMA) stores and runs runbooks in your local data center like Orchestrator, and it uses the same integration modules as Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="9ff2171e-3c99-4bb9-af5b-0aaddb1b8689" xml:space="preserve">
+          <source>When it is available, the <bpt id="a35c70ce-5516-41eb-9d60-480958193655">&lt;linkText&gt;</bpt>Runbook Converter<ept id="a35c70ce-5516-41eb-9d60-480958193655">&lt;/linkText&gt;</ept><bpt id="a35c70ce-5516-41eb-9d60-480958193655">&lt;title&gt;</bpt><ept id="a35c70ce-5516-41eb-9d60-480958193655">&lt;/title&gt;</ept> will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.</source>
+          <target state="new">When it is available, the <bpt id="a35c70ce-5516-41eb-9d60-480958193655">&lt;linkText&gt;</bpt>Runbook Converter<ept id="a35c70ce-5516-41eb-9d60-480958193655">&lt;/linkText&gt;</ept><bpt id="a35c70ce-5516-41eb-9d60-480958193655">&lt;title&gt;</bpt><ept id="a35c70ce-5516-41eb-9d60-480958193655">&lt;/title&gt;</ept> will convert Orchestrator runbooks to graphical runbooks though which are not supported in SMA.</target>
+        </trans-unit>
+        <trans-unit id="f96d2ee5-32e3-4be9-90fe-10729f121325" xml:space="preserve">
+          <source>You can still install the <bpt id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;linkText&gt;</bpt>Standard Activities Module<ept id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;/linkText&gt;</ept><bpt id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;title&gt;</bpt><ept id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;/title&gt;</ept> and <bpt id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;linkText&gt;</bpt>System Center Orchestrator Integration Modules<ept id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;/linkText&gt;</ept><bpt id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;title&gt;</bpt><ept id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;/title&gt;</ept> into SMA, but you must manually <bpt id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;linkText&gt;</bpt>rewrite your runbooks<ept id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;/linkText&gt;</ept><bpt id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;title&gt;</bpt><ept id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can still install the <bpt id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;linkText&gt;</bpt>Standard Activities Module<ept id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;/linkText&gt;</ept><bpt id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;title&gt;</bpt><ept id="3deb953c-6ed9-4328-885f-5b26688e78a6">&lt;/title&gt;</ept> and <bpt id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;linkText&gt;</bpt>System Center Orchestrator Integration Modules<ept id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;/linkText&gt;</ept><bpt id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;title&gt;</bpt><ept id="dc0ebf87-c5bc-435b-a861-d876821ccbc6">&lt;/title&gt;</ept> into SMA, but you must manually <bpt id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;linkText&gt;</bpt>rewrite your runbooks<ept id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;/linkText&gt;</ept><bpt id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;title&gt;</bpt><ept id="0c418c56-14d3-4010-8cdf-797003cabdf7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6489100a-9cd7-4082-b402-3938c64ba99b" xml:space="preserve">
+          <source>Runbooks in Orchestrator are stored on a database server and run on runbook servers, both in your local data center.</source>
+          <target state="new">Runbooks in Orchestrator are stored on a database server and run on runbook servers, both in your local data center.</target>
+        </trans-unit>
+        <trans-unit id="e166f9cf-9af5-4a6d-949f-d2b09fd46582" xml:space="preserve">
+          <source>Runbooks in Azure Automation are stored in the Azure cloud and can run in your local data center using a <bpt id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;/linkText&gt;</ept><bpt id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;title&gt;</bpt><ept id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;/title&gt;</ept>.</source>
+          <target state="new">Runbooks in Azure Automation are stored in the Azure cloud and can run in your local data center using a <bpt id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;/linkText&gt;</ept><bpt id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;title&gt;</bpt><ept id="c9a28300-bbca-450b-bbc4-cdd48445e170">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c73b99ca-3c6b-441f-b2b5-09ce17bddae2" xml:space="preserve">
+          <source>This is how you will usually run runbooks converted from Orchestrator since they are designed to run on local servers.</source>
+          <target state="new">This is how you will usually run runbooks converted from Orchestrator since they are designed to run on local servers.</target>
+        </trans-unit>
+        <trans-unit id="178f0dad-ee5b-4c54-ae0d-dab062a0a84f" xml:space="preserve">
+          <source>The Integration Pack Converter converts integration packs that were created using the Orchestrator Integration Toolkit (OIT) to integration modules based on Windows PowerShell that can be imported into Azure Automation or Service Management Automation.</source>
+          <target state="new">The Integration Pack Converter converts integration packs that were created using the Orchestrator Integration Toolkit (OIT) to integration modules based on Windows PowerShell that can be imported into Azure Automation or Service Management Automation.</target>
+        </trans-unit>
+        <trans-unit id="4823e26f-9e74-4c77-9bb4-3d44007c5075" xml:space="preserve">
+          <source>When you run the Integration Pack Converter, you are presented with a wizard that will allow you to select an integration pack (.oip) file.</source>
+          <target state="new">When you run the Integration Pack Converter, you are presented with a wizard that will allow you to select an integration pack (.oip) file.</target>
+        </trans-unit>
+        <trans-unit id="1739b7fe-1423-4607-a364-5f965c9f180d" xml:space="preserve">
+          <source>The wizard then lists the activities included in that integration pack and allows you to select which will be migrated.</source>
+          <target state="new">The wizard then lists the activities included in that integration pack and allows you to select which will be migrated.</target>
+        </trans-unit>
+        <trans-unit id="6efa0989-40c7-4ac2-ae23-564b52dee14a" xml:space="preserve">
+          <source>When you complete the wizard, it creates a module that includes a corresponding cmdlet for each of the activities in the original integration pack.</source>
+          <target state="new">When you complete the wizard, it creates a module that includes a corresponding cmdlet for each of the activities in the original integration pack.</target>
+        </trans-unit>
+        <trans-unit id="40669340-604d-4109-ad13-4dfeaab68064" xml:space="preserve">
+          <source>Any properties of an activity in the integration pack are converted to parameters of the corresponding cmdlet in the integration module.</source>
+          <target state="new">Any properties of an activity in the integration pack are converted to parameters of the corresponding cmdlet in the integration module.</target>
+        </trans-unit>
+        <trans-unit id="b0106dfc-2432-4b98-95d7-b634ee406fc0" xml:space="preserve">
+          <source>Windows PowerShell cmdlets have a set of <bpt id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;linkText&gt;</bpt>common parameters<ept id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;/linkText&gt;</ept><bpt id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;title&gt;</bpt><ept id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;/title&gt;</ept> that can be used with all cmdlets.</source>
+          <target state="new">Windows PowerShell cmdlets have a set of <bpt id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;linkText&gt;</bpt>common parameters<ept id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;/linkText&gt;</ept><bpt id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;title&gt;</bpt><ept id="af6a37b6-45f4-4ec9-9089-b82954a29b3c">&lt;/title&gt;</ept> that can be used with all cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="7bd9a5a3-a529-4eed-bdfb-c11115c890b2" xml:space="preserve">
+          <source>For example, the -Verbose parameter causes a cmdlet to output detailed information about its operation.</source>
+          <target state="new">For example, the -Verbose parameter causes a cmdlet to output detailed information about its operation.</target>
+        </trans-unit>
+        <trans-unit id="d872dc3a-a61e-4ee1-b10e-44f7f56806b2" xml:space="preserve">
+          <source>No cmdlet may have a parameter with the same name as a common parameter.</source>
+          <target state="new">No cmdlet may have a parameter with the same name as a common parameter.</target>
+        </trans-unit>
+        <trans-unit id="ed35f05d-2a88-473d-bf94-e14e5f6e7e28" xml:space="preserve">
+          <source>If an activity does have a property with the same name as a common parameter, the wizard will prompt you to provide another name for the parameter.</source>
+          <target state="new">If an activity does have a property with the same name as a common parameter, the wizard will prompt you to provide another name for the parameter.</target>
+        </trans-unit>
+        <trans-unit id="068af838-e39d-4117-9e70-381ee6ff7d47" xml:space="preserve">
+          <source>Monitor runbooks in Orchestrator start with a <bpt id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;linkText&gt;</bpt>monitor activity<ept id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;/linkText&gt;</ept><bpt id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;title&gt;</bpt><ept id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;/title&gt;</ept> and run continuously waiting to be invoked by a particular event.</source>
+          <target state="new">Monitor runbooks in Orchestrator start with a <bpt id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;linkText&gt;</bpt>monitor activity<ept id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;/linkText&gt;</ept><bpt id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;title&gt;</bpt><ept id="cca1c7b9-a2ea-41c9-b03f-95d6ceb7f5fd">&lt;/title&gt;</ept> and run continuously waiting to be invoked by a particular event.</target>
+        </trans-unit>
+        <trans-unit id="9f20f987-653d-4f2a-b511-a40c06ac3803" xml:space="preserve">
+          <source>Azure Automation does not support monitor runbooks, so any monitor activities in the integration pack will not be converted.</source>
+          <target state="new">Azure Automation does not support monitor runbooks, so any monitor activities in the integration pack will not be converted.</target>
+        </trans-unit>
+        <trans-unit id="34bf224c-be13-4daf-b5ed-866efa896e27" xml:space="preserve">
+          <source>Instead, a placeholder cmdlet is created in the integration module for the monitor activity.</source>
+          <target state="new">Instead, a placeholder cmdlet is created in the integration module for the monitor activity.</target>
+        </trans-unit>
+        <trans-unit id="9ba91f1a-b151-4e1a-b3ae-cbc6c8f97779" xml:space="preserve">
+          <source>This cmdlet has no functionality, but it allows any converted runbook that uses it to be installed.</source>
+          <target state="new">This cmdlet has no functionality, but it allows any converted runbook that uses it to be installed.</target>
+        </trans-unit>
+        <trans-unit id="43d65ffe-b47b-42d7-9469-7c6d610b8e98" xml:space="preserve">
+          <source>This runbook will not be able to run in Azure Automation, but it can be installed so that the user can modify it.</source>
+          <target state="new">This runbook will not be able to run in Azure Automation, but it can be installed so that the user can modify it.</target>
+        </trans-unit>
+        <trans-unit id="a5385fc5-baf6-4909-ba35-b531072e2b4b" xml:space="preserve">
+          <source>Integration packs that were not created with OIT, including some created by Microsoft, cannot be converted with this tool.</source>
+          <target state="new">Integration packs that were not created with OIT, including some created by Microsoft, cannot be converted with this tool.</target>
+        </trans-unit>
+        <trans-unit id="3e66f428-4d45-40f7-87ee-53b400673ea7" xml:space="preserve">
+          <source>Integration packs provided by Microsoft have been converted to integration modules so that they can be installed in Azure Automation or Service Management Automation.</source>
+          <target state="new">Integration packs provided by Microsoft have been converted to integration modules so that they can be installed in Azure Automation or Service Management Automation.</target>
+        </trans-unit>
+        <trans-unit id="845ea0ef-35cd-4e09-a2c5-9de1ce711a3d" xml:space="preserve">
+          <source>Orchestrator includes a set of <bpt id="ae44a001-8209-45f1-9965-32454115e92d">&lt;linkText&gt;</bpt>standard activities<ept id="ae44a001-8209-45f1-9965-32454115e92d">&lt;/linkText&gt;</ept><bpt id="ae44a001-8209-45f1-9965-32454115e92d">&lt;title&gt;</bpt><ept id="ae44a001-8209-45f1-9965-32454115e92d">&lt;/title&gt;</ept> that are not included in an integration pack but are used by many runbooks.</source>
+          <target state="new">Orchestrator includes a set of <bpt id="ae44a001-8209-45f1-9965-32454115e92d">&lt;linkText&gt;</bpt>standard activities<ept id="ae44a001-8209-45f1-9965-32454115e92d">&lt;/linkText&gt;</ept><bpt id="ae44a001-8209-45f1-9965-32454115e92d">&lt;title&gt;</bpt><ept id="ae44a001-8209-45f1-9965-32454115e92d">&lt;/title&gt;</ept> that are not included in an integration pack but are used by many runbooks.</target>
+        </trans-unit>
+        <trans-unit id="3c0f9345-356c-48ee-bc3d-9859c1e3b26e" xml:space="preserve">
+          <source>The Standard Activities module is a integration module that includes a cmdlet equivalent for each of these activities.</source>
+          <target state="new">The Standard Activities module is a integration module that includes a cmdlet equivalent for each of these activities.</target>
+        </trans-unit>
+        <trans-unit id="68740c67-63a9-41cc-a92a-3aa283dcabad" xml:space="preserve">
+          <source>You must install this integration module in Azure Automation before importing any converted runbooks that use a standard activity.</source>
+          <target state="new">You must install this integration module in Azure Automation before importing any converted runbooks that use a standard activity.</target>
+        </trans-unit>
+        <trans-unit id="a33d31eb-b716-493b-a034-6c1c964b5bcf" xml:space="preserve">
+          <source>In addition to supporting converted runbooks, the cmdlets in the standard activities module can be used by someone familiar with Orchestrator to build new runbooks in Azure Automation.</source>
+          <target state="new">In addition to supporting converted runbooks, the cmdlets in the standard activities module can be used by someone familiar with Orchestrator to build new runbooks in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="da9cfdf2-24c1-4d00-aa35-5acd0715aa14" xml:space="preserve">
+          <source>While the functionality of all of the standard activities can be performed with cmdlets, they may operate differently.</source>
+          <target state="new">While the functionality of all of the standard activities can be performed with cmdlets, they may operate differently.</target>
+        </trans-unit>
+        <trans-unit id="8f5d5c70-bea2-42ba-bb24-e9ca113af843" xml:space="preserve">
+          <source>The cmdlets in the converted standard activities module will work the same as their corresponding activities and use the same parameters.</source>
+          <target state="new">The cmdlets in the converted standard activities module will work the same as their corresponding activities and use the same parameters.</target>
+        </trans-unit>
+        <trans-unit id="b8ab9e52-64f2-4151-b2bd-5e5cd022a5a2" xml:space="preserve">
+          <source>This can help the existing Orchestrator runbook author in their transition to Azure Automation runbooks.</source>
+          <target state="new">This can help the existing Orchestrator runbook author in their transition to Azure Automation runbooks.</target>
+        </trans-unit>
+        <trans-unit id="89e3cef2-5b10-48f4-a12c-51671692f235" xml:space="preserve">
+          <source>Microsoft provides <bpt id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;linkText&gt;</bpt>integration packs<ept id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;/linkText&gt;</ept><bpt id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;title&gt;</bpt><ept id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;/title&gt;</ept> for building runbooks to automate System Center components and other products.  Currently, when you download some of these integration packs from <bpt id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;linkText&gt;</bpt>TechNet<ept id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;/linkText&gt;</ept><bpt id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;title&gt;</bpt><ept id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;/title&gt;</ept>, they cannot be converted with the Integration Pack Converter due to known issue which will be fixed with RC release of System Center Orchestrator Migration Toolkit.  [System Center Orchestrator Integration Modules](http://www.microsoft.com/download/details.aspx?id=47324&amp;WT.mc<bpt id="bf40009a-5b57-4647-9574-55b0c11e8923">&lt;em&gt;</bpt>id=rss<ept id="bf40009a-5b57-4647-9574-55b0c11e8923">&lt;/em&gt;</ept>alldownloads_all) includes converted versions of these integration packs that can be imported in Azure Automation and Service Management Automation prior to this release.</source>
+          <target state="new">Microsoft provides <bpt id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;linkText&gt;</bpt>integration packs<ept id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;/linkText&gt;</ept><bpt id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;title&gt;</bpt><ept id="f260397a-c084-4bb5-bbaa-cfaf4269857b">&lt;/title&gt;</ept> for building runbooks to automate System Center components and other products.  Currently, when you download some of these integration packs from <bpt id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;linkText&gt;</bpt>TechNet<ept id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;/linkText&gt;</ept><bpt id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;title&gt;</bpt><ept id="a096f97d-cb72-4dfe-8930-c8767a2851cc">&lt;/title&gt;</ept>, they cannot be converted with the Integration Pack Converter due to known issue which will be fixed with RC release of System Center Orchestrator Migration Toolkit.  [System Center Orchestrator Integration Modules](http://www.microsoft.com/download/details.aspx?id=47324&amp;WT.mc<bpt id="bf40009a-5b57-4647-9574-55b0c11e8923">&lt;em&gt;</bpt>id=rss<ept id="bf40009a-5b57-4647-9574-55b0c11e8923">&lt;/em&gt;</ept>alldownloads_all) includes converted versions of these integration packs that can be imported in Azure Automation and Service Management Automation prior to this release.</target>
+        </trans-unit>
+        <trans-unit id="7657d252-436f-4629-8a4a-e4a78489b89f" xml:space="preserve">
+          <source>This tool will convert Orchestrator runbooks into graphical runbooks that can be imported into Azure Automation.</source>
+          <target state="new">This tool will convert Orchestrator runbooks into graphical runbooks that can be imported into Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="10308503-6aa7-48b1-8195-4cc7b9f7041f" xml:space="preserve">
+          <source>Further details on this tool will be provided here when it comes available.</source>
+          <target state="new">Further details on this tool will be provided here when it comes available.</target>
+        </trans-unit>
+        <trans-unit id="102abacc-6c9b-46cd-aefd-6c00218ef0fe" xml:space="preserve">
+          <source><bpt id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;linkText&gt;</bpt>System Center 2012 - Orchestrator<ept id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;/linkText&gt;</ept><bpt id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;title&gt;</bpt><ept id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;linkText&gt;</bpt>System Center 2012 - Orchestrator<ept id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;/linkText&gt;</ept><bpt id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;title&gt;</bpt><ept id="901820b6-91ea-4287-8bc1-2f46ac4714f2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dd168d7-7552-4c18-8fa4-65160f1a35b7" xml:space="preserve">
+          <source><bpt id="a950b7ff-651a-445c-a094-76652567582e">&lt;linkText&gt;</bpt>Service Management Automation<ept id="a950b7ff-651a-445c-a094-76652567582e">&lt;/linkText&gt;</ept><bpt id="a950b7ff-651a-445c-a094-76652567582e">&lt;title&gt;</bpt><ept id="a950b7ff-651a-445c-a094-76652567582e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a950b7ff-651a-445c-a094-76652567582e">&lt;linkText&gt;</bpt>Service Management Automation<ept id="a950b7ff-651a-445c-a094-76652567582e">&lt;/linkText&gt;</ept><bpt id="a950b7ff-651a-445c-a094-76652567582e">&lt;title&gt;</bpt><ept id="a950b7ff-651a-445c-a094-76652567582e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b8b71f8-27de-4cb7-b606-600251325f3e" xml:space="preserve">
+          <source><bpt id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;/linkText&gt;</ept><bpt id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;title&gt;</bpt><ept id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;/linkText&gt;</ept><bpt id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;title&gt;</bpt><ept id="42c911a9-8a91-4970-89fc-fd4925eac1ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c03be725-b4e2-4e76-9c41-b1549e036576" xml:space="preserve">
+          <source><bpt id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;linkText&gt;</bpt>Orchestrator Standard Activities<ept id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;/linkText&gt;</ept><bpt id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;title&gt;</bpt><ept id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;linkText&gt;</bpt>Orchestrator Standard Activities<ept id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;/linkText&gt;</ept><bpt id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;title&gt;</bpt><ept id="9493d4fc-5563-44f1-a7d2-2cb1ef4ce315">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

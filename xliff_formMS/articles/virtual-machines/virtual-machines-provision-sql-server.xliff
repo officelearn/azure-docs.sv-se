@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ece2f255-fde0-416c-8ee1-8d4d1adbecc3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ece2f255-fde0-416c-8ee1-8d4d1adbecc3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="92911007-7a77-4805-b50c-a08f45acfa20">
+        <trans-unit id="dbfc7453-5516-4686-96ef-8f3c5d82d1e6" xml:space="preserve">
+          <source>Provision a SQL Server virtual machine in Azure</source>
+          <target state="new">Provision a SQL Server virtual machine in Azure</target>
+        </trans-unit>
+        <trans-unit id="8735826e-595d-4eb4-9b29-5e773149b90d" xml:space="preserve">
+          <source>This tutorial teaches you how to create and configure a SQL Server VM on Azure.</source>
+          <target state="new">This tutorial teaches you how to create and configure a SQL Server VM on Azure.</target>
+        </trans-unit>
+        <trans-unit id="f70c7e16-6acc-4865-bec3-fe1ece92267e" xml:space="preserve">
+          <source>The Azure virtual machine gallery includes several images that contain Microsoft SQL Server.</source>
+          <target state="new">The Azure virtual machine gallery includes several images that contain Microsoft SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="798bd516-61cf-40db-a33e-0e97e34538d7" xml:space="preserve">
+          <source>You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Azure environment.</source>
+          <target state="new">You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="eed37124-46b7-4631-b2b6-a554d9c6b510" xml:space="preserve">
+          <source>In this tutorial, you will:</source>
+          <target state="new">In this tutorial, you will:</target>
+        </trans-unit>
+        <trans-unit id="a06dabef-506c-4393-bd51-f9456330c747" xml:space="preserve">
+          <source><bpt id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;linkText&gt;</bpt>Connect to the Azure management portal and provision a virtual machine from the gallery<ept id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;/linkText&gt;</ept><bpt id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;title&gt;</bpt><ept id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;linkText&gt;</bpt>Connect to the Azure management portal and provision a virtual machine from the gallery<ept id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;/linkText&gt;</ept><bpt id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;title&gt;</bpt><ept id="ac015aac-5703-47dd-aa2a-b9b1a217fe6a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="265338bc-bd26-437e-b162-bf1c65c19c6f" xml:space="preserve">
+          <source><bpt id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;linkText&gt;</bpt>Open the virtual machine using Remote Desktop and complete setup<ept id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;/linkText&gt;</ept><bpt id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;title&gt;</bpt><ept id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;linkText&gt;</bpt>Open the virtual machine using Remote Desktop and complete setup<ept id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;/linkText&gt;</ept><bpt id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;title&gt;</bpt><ept id="8a226691-f755-42a3-b02b-2d6738efe8ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="658cccae-8b64-4a68-8132-136c7fa723ce" xml:space="preserve">
+          <source><bpt id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;linkText&gt;</bpt>Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer<ept id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;/linkText&gt;</ept><bpt id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;title&gt;</bpt><ept id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;linkText&gt;</bpt>Complete configuration steps to connect to the virtual machine using SQL Server Management Studio on another computer<ept id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;/linkText&gt;</ept><bpt id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;title&gt;</bpt><ept id="91c44e61-0eff-4401-8683-f7518f47d309">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3466a6b0-ae54-4949-9f56-5529098d7c29" xml:space="preserve">
+          <source><bpt id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;linkText&gt;</bpt>Next steps<ept id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;/linkText&gt;</ept><bpt id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;title&gt;</bpt><ept id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;linkText&gt;</bpt>Next steps<ept id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;/linkText&gt;</ept><bpt id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;title&gt;</bpt><ept id="5e3534fd-0451-42b0-8b10-cbfdd531cdf6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a73b28f-7ffd-4c54-8094-71c531a7aec6" xml:space="preserve">
+          <source>Log in to the <bpt id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;/linkText&gt;</ept><bpt id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;title&gt;</bpt><ept id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;/title&gt;</ept> using your account.</source>
+          <target state="new">Log in to the <bpt id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;/linkText&gt;</ept><bpt id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;title&gt;</bpt><ept id="10254790-a0ce-40f3-a7dd-c7027be5ed66">&lt;/title&gt;</ept> using your account.</target>
+        </trans-unit>
+        <trans-unit id="664b4139-f4c7-44e2-9dd3-2eb3c6fc6c77" xml:space="preserve">
+          <source>If you do not have an Azure account, visit <bpt id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;linkText&gt;</bpt>Azure free trial<ept id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;/linkText&gt;</ept><bpt id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;title&gt;</bpt><ept id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not have an Azure account, visit <bpt id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;linkText&gt;</bpt>Azure free trial<ept id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;/linkText&gt;</ept><bpt id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;title&gt;</bpt><ept id="31889442-6d30-45a3-9b7e-2bf0d9255870">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f888e84-6ea1-4642-8aa9-3eb576543e33" xml:space="preserve">
+          <source>On the Azure Management Portal, at the bottom left of the web page, click <bpt id="715cd0cf-75ea-49f8-95ea-6e272dbe27be">&lt;strong&gt;</bpt>+NEW<ept id="715cd0cf-75ea-49f8-95ea-6e272dbe27be">&lt;/strong&gt;</ept>, click <bpt id="ee6ca324-f4f0-4692-aae3-f6b95c357ce1">&lt;strong&gt;</bpt>COMPUTE<ept id="ee6ca324-f4f0-4692-aae3-f6b95c357ce1">&lt;/strong&gt;</ept>, click <bpt id="708e37d5-22a4-4c3f-b50e-a89125355e11">&lt;strong&gt;</bpt>VIRTUAL MACHINE<ept id="708e37d5-22a4-4c3f-b50e-a89125355e11">&lt;/strong&gt;</ept>, and then click <bpt id="34749986-c75c-4b40-96a6-4fe18e67fe5d">&lt;strong&gt;</bpt>FROM GALLERY<ept id="34749986-c75c-4b40-96a6-4fe18e67fe5d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Azure Management Portal, at the bottom left of the web page, click <bpt id="715cd0cf-75ea-49f8-95ea-6e272dbe27be">&lt;strong&gt;</bpt>+NEW<ept id="715cd0cf-75ea-49f8-95ea-6e272dbe27be">&lt;/strong&gt;</ept>, click <bpt id="ee6ca324-f4f0-4692-aae3-f6b95c357ce1">&lt;strong&gt;</bpt>COMPUTE<ept id="ee6ca324-f4f0-4692-aae3-f6b95c357ce1">&lt;/strong&gt;</ept>, click <bpt id="708e37d5-22a4-4c3f-b50e-a89125355e11">&lt;strong&gt;</bpt>VIRTUAL MACHINE<ept id="708e37d5-22a4-4c3f-b50e-a89125355e11">&lt;/strong&gt;</ept>, and then click <bpt id="34749986-c75c-4b40-96a6-4fe18e67fe5d">&lt;strong&gt;</bpt>FROM GALLERY<ept id="34749986-c75c-4b40-96a6-4fe18e67fe5d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93760b07-c925-48a6-b463-3a52201716fc" xml:space="preserve">
+          <source>On the <bpt id="99b3000f-49b5-4091-b308-a19e4f8fcf8f">&lt;strong&gt;</bpt>Choose an Image<ept id="99b3000f-49b5-4091-b308-a19e4f8fcf8f">&lt;/strong&gt;</ept> page, click <bpt id="14ff297a-5bd1-4db2-beaa-adcf54bcde28">&lt;strong&gt;</bpt>SQL SERVER<ept id="14ff297a-5bd1-4db2-beaa-adcf54bcde28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="99b3000f-49b5-4091-b308-a19e4f8fcf8f">&lt;strong&gt;</bpt>Choose an Image<ept id="99b3000f-49b5-4091-b308-a19e4f8fcf8f">&lt;/strong&gt;</ept> page, click <bpt id="14ff297a-5bd1-4db2-beaa-adcf54bcde28">&lt;strong&gt;</bpt>SQL SERVER<ept id="14ff297a-5bd1-4db2-beaa-adcf54bcde28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15e27cbb-bfb3-41bf-a2ea-c47e726f37de" xml:space="preserve">
+          <source>Then select a SQL Server image.</source>
+          <target state="new">Then select a SQL Server image.</target>
+        </trans-unit>
+        <trans-unit id="ff89f63e-7d4f-4e55-b6e6-c6496138ec5f" xml:space="preserve">
+          <source>Click the next arrow at the bottom right of the page.</source>
+          <target state="new">Click the next arrow at the bottom right of the page.</target>
+        </trans-unit>
+        <trans-unit id="5851eccd-1e0e-40d9-be77-50634036c807" xml:space="preserve">
+          <source><bpt id="ec08f7f5-21f7-4a7e-b91e-d63381ce9314">&lt;linkText&gt;</bpt>Choose an Image<ept id="ec08f7f5-21f7-4a7e-b91e-d63381ce9314">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec08f7f5-21f7-4a7e-b91e-d63381ce9314">&lt;linkText&gt;</bpt>Choose an Image<ept id="ec08f7f5-21f7-4a7e-b91e-d63381ce9314">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddba013e-25b3-40c3-8a34-d56be5eaa556" xml:space="preserve">
+          <source>For the most up-to-date information on the supported SQL Server images on Azure, see <bpt id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;/linkText&gt;</ept><bpt id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;title&gt;</bpt><ept id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the most up-to-date information on the supported SQL Server images on Azure, see <bpt id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;/linkText&gt;</ept><bpt id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;title&gt;</bpt><ept id="4cbefe35-080d-422e-9e03-89bd8db07fdd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6cec4fe-233a-431d-9074-8a6b68e81fed" xml:space="preserve">
+          <source>If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery.</source>
+          <target state="new">If you have a virtual machine created by using the platform image SQL Server Evaluation edition, you cannot upgrade it to a per-minute paid edition image in the gallery.</target>
+        </trans-unit>
+        <trans-unit id="85fb71f6-69e7-42ef-88ec-8a9f4687f7e0" xml:space="preserve">
+          <source>You can choose one of the following two options:</source>
+          <target state="new">You can choose one of the following two options:</target>
+        </trans-unit>
+        <trans-unit id="9c6f067a-3b82-4207-b434-d91c1ef4480e" xml:space="preserve">
+          <source>You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at <bpt id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;/linkText&gt;</ept><bpt id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;title&gt;</bpt><ept id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;/title&gt;</ept></source>
+          <target state="new">You can create a new virtual machine by using the per-minute paid SQL Server edition from the gallery and migrate your database files to this new virtual machine by following the steps at <bpt id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;/linkText&gt;</ept><bpt id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;title&gt;</bpt><ept id="217fc914-4f0d-4e05-b3f4-8646278854f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c5d2f34-e747-4333-b2bf-fff49c7452c1" xml:space="preserve">
+          <source>Or, you can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the <bpt id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;linkText&gt;</bpt>License Mobility through Software Assurance on Azure<ept id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;/linkText&gt;</ept><bpt id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;title&gt;</bpt><ept id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;/title&gt;</ept> agreement by following the steps at <bpt id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;linkText&gt;</bpt>Upgrade to a Different Edition of SQL Server<ept id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;/linkText&gt;</ept><bpt id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;title&gt;</bpt><ept id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or, you can upgrade an existing instance of SQL Server Evaluation edition to a different edition of SQL Server under the <bpt id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;linkText&gt;</bpt>License Mobility through Software Assurance on Azure<ept id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;/linkText&gt;</ept><bpt id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;title&gt;</bpt><ept id="66e785ff-1ef6-49c3-9fca-65dc2691d041">&lt;/title&gt;</ept> agreement by following the steps at <bpt id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;linkText&gt;</bpt>Upgrade to a Different Edition of SQL Server<ept id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;/linkText&gt;</ept><bpt id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;title&gt;</bpt><ept id="e8ed69af-450d-45a7-a913-badbcbb03632">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="405429a6-89ec-4c9e-99fd-fe4e6d7c670e" xml:space="preserve">
+          <source>For information on how to purchase the licensed copy of SQL Server, see <bpt id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;linkText&gt;</bpt>How to Buy SQL Server<ept id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;/linkText&gt;</ept><bpt id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;title&gt;</bpt><ept id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on how to purchase the licensed copy of SQL Server, see <bpt id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;linkText&gt;</bpt>How to Buy SQL Server<ept id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;/linkText&gt;</ept><bpt id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;title&gt;</bpt><ept id="ff3b1797-d9ac-43f7-ae76-01fa72ed6286">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62ab491c-60c3-4cf1-a515-2545f4b703cd" xml:space="preserve">
+          <source>On the first <bpt id="2cc118c5-948d-4691-95a5-beb14ba5bd8b">&lt;strong&gt;</bpt>Virtual Machine Configuration<ept id="2cc118c5-948d-4691-95a5-beb14ba5bd8b">&lt;/strong&gt;</ept> page, provide the following information:</source>
+          <target state="new">On the first <bpt id="2cc118c5-948d-4691-95a5-beb14ba5bd8b">&lt;strong&gt;</bpt>Virtual Machine Configuration<ept id="2cc118c5-948d-4691-95a5-beb14ba5bd8b">&lt;/strong&gt;</ept> page, provide the following information:</target>
+        </trans-unit>
+        <trans-unit id="0d89590d-9171-44d4-a54c-8a7f3022ddc8" xml:space="preserve">
+          <source>A <bpt id="0073a679-bb13-417f-8f94-8fdefcc6a8a3">&lt;strong&gt;</bpt>VERSION RELEASE DATE<ept id="0073a679-bb13-417f-8f94-8fdefcc6a8a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A <bpt id="0073a679-bb13-417f-8f94-8fdefcc6a8a3">&lt;strong&gt;</bpt>VERSION RELEASE DATE<ept id="0073a679-bb13-417f-8f94-8fdefcc6a8a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32b57702-9be3-41bb-9313-b8a0bc937f12" xml:space="preserve">
+          <source>If multiple images are available, select the latest.</source>
+          <target state="new">If multiple images are available, select the latest.</target>
+        </trans-unit>
+        <trans-unit id="5a56fe56-9f5c-4366-ac78-80822bcf5353" xml:space="preserve">
+          <source>A unique <bpt id="4d6520f3-bf26-4686-b6fb-41690f967d09">&lt;strong&gt;</bpt>VIRTUAL MACHINE NAME<ept id="4d6520f3-bf26-4686-b6fb-41690f967d09">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A unique <bpt id="4d6520f3-bf26-4686-b6fb-41690f967d09">&lt;strong&gt;</bpt>VIRTUAL MACHINE NAME<ept id="4d6520f3-bf26-4686-b6fb-41690f967d09">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9d09954-ea09-4cc4-96f8-c53b87744947" xml:space="preserve">
+          <source>In the <bpt id="c37cfb0b-facc-4bdf-ba36-ff6dd10cf561">&lt;strong&gt;</bpt>NEW USER NAME<ept id="c37cfb0b-facc-4bdf-ba36-ff6dd10cf561">&lt;/strong&gt;</ept> box, a unique user name for the machine's local administrator account.</source>
+          <target state="new">In the <bpt id="c37cfb0b-facc-4bdf-ba36-ff6dd10cf561">&lt;strong&gt;</bpt>NEW USER NAME<ept id="c37cfb0b-facc-4bdf-ba36-ff6dd10cf561">&lt;/strong&gt;</ept> box, a unique user name for the machine's local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="2fc5a012-fcaf-4380-90e7-df4209204fb9" xml:space="preserve">
+          <source>In the <bpt id="325f01e5-3d78-4af4-8b8d-42698a7b6c0b">&lt;strong&gt;</bpt>NEW PASSWORD<ept id="325f01e5-3d78-4af4-8b8d-42698a7b6c0b">&lt;/strong&gt;</ept> box, type a strong password.</source>
+          <target state="new">In the <bpt id="325f01e5-3d78-4af4-8b8d-42698a7b6c0b">&lt;strong&gt;</bpt>NEW PASSWORD<ept id="325f01e5-3d78-4af4-8b8d-42698a7b6c0b">&lt;/strong&gt;</ept> box, type a strong password.</target>
+        </trans-unit>
+        <trans-unit id="06cbb7ee-f226-4b5b-a18c-aaf912bbb992" xml:space="preserve">
+          <source>In the <bpt id="628b3e58-1ef4-4971-82cc-549f7d864970">&lt;strong&gt;</bpt>CONFIRM PASSWORD<ept id="628b3e58-1ef4-4971-82cc-549f7d864970">&lt;/strong&gt;</ept> box, retype the password.</source>
+          <target state="new">In the <bpt id="628b3e58-1ef4-4971-82cc-549f7d864970">&lt;strong&gt;</bpt>CONFIRM PASSWORD<ept id="628b3e58-1ef4-4971-82cc-549f7d864970">&lt;/strong&gt;</ept> box, retype the password.</target>
+        </trans-unit>
+        <trans-unit id="ae998fde-b3da-4498-89f2-de941d694ab4" xml:space="preserve">
+          <source>Select the appropriate <bpt id="c0a08f45-4855-4813-9afb-dcfd0ce82346">&lt;strong&gt;</bpt>SIZE<ept id="c0a08f45-4855-4813-9afb-dcfd0ce82346">&lt;/strong&gt;</ept> from the drop down list.</source>
+          <target state="new">Select the appropriate <bpt id="c0a08f45-4855-4813-9afb-dcfd0ce82346">&lt;strong&gt;</bpt>SIZE<ept id="c0a08f45-4855-4813-9afb-dcfd0ce82346">&lt;/strong&gt;</ept> from the drop down list.</target>
+        </trans-unit>
+        <trans-unit id="e857a041-7818-4049-8238-7d86dfe2d2b5" xml:space="preserve">
+          <source><bpt id="22fea8ce-7a3b-441d-a84a-8d4a2170035d">&lt;linkText&gt;</bpt>VM Configuration<ept id="22fea8ce-7a3b-441d-a84a-8d4a2170035d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22fea8ce-7a3b-441d-a84a-8d4a2170035d">&lt;linkText&gt;</bpt>VM Configuration<ept id="22fea8ce-7a3b-441d-a84a-8d4a2170035d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ab1314a-712b-4cc5-95ed-6db6cfd8abf8" xml:space="preserve">
+          <source>The size of the virtual machine is specified during provisioning:</source>
+          <target state="new">The size of the virtual machine is specified during provisioning:</target>
+        </trans-unit>
+        <trans-unit id="91e4e26b-341e-4b5d-9518-43444f7508bc" xml:space="preserve">
+          <source>A2 is the smallest size recommended for production workloads.</source>
+          <target state="new">A2 is the smallest size recommended for production workloads.</target>
+        </trans-unit>
+        <trans-unit id="80f1f5a0-f652-4b61-93aa-1b6de107edd6" xml:space="preserve">
+          <source>The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.</source>
+          <target state="new">The minimum recommended size for a virtual machine is A3 when using SQL Server Enterprise Edition.</target>
+        </trans-unit>
+        <trans-unit id="a5559c3e-1173-4cdb-911d-e8f3d90d3319" xml:space="preserve">
+          <source>Select A3 or higher when using SQL Server Enterprise Edition.</source>
+          <target state="new">Select A3 or higher when using SQL Server Enterprise Edition.</target>
+        </trans-unit>
+        <trans-unit id="4f7497fe-5625-4988-b7e5-4186c51aee88" xml:space="preserve">
+          <source>Select A4 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.</source>
+          <target state="new">Select A4 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Transactional Workloads images.</target>
+        </trans-unit>
+        <trans-unit id="c691ea76-2d85-45c6-a3d5-25976246e740" xml:space="preserve">
+          <source>Select A7 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images.</source>
+          <target state="new">Select A7 or higher when using SQL Server 2012 or 2014 Enterprise Optimized for Data Warehousing Workloads images.</target>
+        </trans-unit>
+        <trans-unit id="033996d2-313f-4833-bacc-172308c9e49b" xml:space="preserve">
+          <source>For the best performance use DS2 or DS3 with Premium Storage.</source>
+          <target state="new">For the best performance use DS2 or DS3 with Premium Storage.</target>
+        </trans-unit>
+        <trans-unit id="baee2b31-bc44-4517-84a8-283da614256d" xml:space="preserve">
+          <source>For more information, see <bpt id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;/linkText&gt;</ept><bpt id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;title&gt;</bpt><ept id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;/linkText&gt;</ept><bpt id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;title&gt;</bpt><ept id="c838922d-8b37-4e2a-8465-83000fbbff8b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="862a24f9-5b18-4836-9c96-2b33db9a86be" xml:space="preserve">
+          <source>The size selected limits the number of data disks you can configure.</source>
+          <target state="new">The size selected limits the number of data disks you can configure.</target>
+        </trans-unit>
+        <trans-unit id="ae70bab9-2e3f-4a2f-adf1-812b3041f972" xml:space="preserve">
+          <source>For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see <bpt id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;/linkText&gt;</ept><bpt id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;title&gt;</bpt><ept id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;/title&gt;</ept>.</source>
+          <target state="new">For most up-to-date information on available virtual machine sizes and the number of data disks that you can attach to a virtual machine, see <bpt id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;linkText&gt;</bpt>Virtual Machine Sizes for Azure<ept id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;/linkText&gt;</ept><bpt id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;title&gt;</bpt><ept id="00fd753a-0da2-4fec-9e2f-2327d0419487">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0472498-fe7b-4745-9e71-ebe58b9603b0" xml:space="preserve">
+          <source>After entering your VM configuration details, click the next arrow on the bottom right to continue.</source>
+          <target state="new">After entering your VM configuration details, click the next arrow on the bottom right to continue.</target>
+        </trans-unit>
+        <trans-unit id="66704dd8-36bc-4c0a-9525-c9b313421075" xml:space="preserve">
+          <source>On the second <bpt id="29ed6c5c-2a53-419a-9ba8-5f5c14663c6f">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="29ed6c5c-2a53-419a-9ba8-5f5c14663c6f">&lt;/strong&gt;</ept> page, configure resources for networking, storage, and availability:</source>
+          <target state="new">On the second <bpt id="29ed6c5c-2a53-419a-9ba8-5f5c14663c6f">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="29ed6c5c-2a53-419a-9ba8-5f5c14663c6f">&lt;/strong&gt;</ept> page, configure resources for networking, storage, and availability:</target>
+        </trans-unit>
+        <trans-unit id="854446b8-ff4e-4b0b-bd2c-ced8349986b6" xml:space="preserve">
+          <source>In the <bpt id="515b8664-f64f-46d8-b637-5a6f3423069c">&lt;strong&gt;</bpt>Cloud Service<ept id="515b8664-f64f-46d8-b637-5a6f3423069c">&lt;/strong&gt;</ept> box, choose <bpt id="b691e9bd-858d-4098-8120-ece7de669409">&lt;strong&gt;</bpt>Create a new cloud service<ept id="b691e9bd-858d-4098-8120-ece7de669409">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="515b8664-f64f-46d8-b637-5a6f3423069c">&lt;strong&gt;</bpt>Cloud Service<ept id="515b8664-f64f-46d8-b637-5a6f3423069c">&lt;/strong&gt;</ept> box, choose <bpt id="b691e9bd-858d-4098-8120-ece7de669409">&lt;strong&gt;</bpt>Create a new cloud service<ept id="b691e9bd-858d-4098-8120-ece7de669409">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec363e64-0fbb-4d25-895d-a538af1db2e8" xml:space="preserve">
+          <source>In the <bpt id="3f46bbf2-bbea-43b8-9b51-7fc9084b8fbb">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="3f46bbf2-bbea-43b8-9b51-7fc9084b8fbb">&lt;/strong&gt;</ept> box, provide the first portion of a DNS name of your choice, so that it completes a name in the format <bpt id="3a256e4f-2b09-4950-8a30-298ab97d190d">&lt;strong&gt;</bpt>TESTNAME.cloudapp.net<ept id="3a256e4f-2b09-4950-8a30-298ab97d190d">&lt;/strong&gt;</ept> </source>
+          <target state="new">In the <bpt id="3f46bbf2-bbea-43b8-9b51-7fc9084b8fbb">&lt;strong&gt;</bpt>Cloud Service DNS Name<ept id="3f46bbf2-bbea-43b8-9b51-7fc9084b8fbb">&lt;/strong&gt;</ept> box, provide the first portion of a DNS name of your choice, so that it completes a name in the format <bpt id="3a256e4f-2b09-4950-8a30-298ab97d190d">&lt;strong&gt;</bpt>TESTNAME.cloudapp.net<ept id="3a256e4f-2b09-4950-8a30-298ab97d190d">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="1a0774be-0e66-4532-be8e-1c0f0585c408" xml:space="preserve">
+          <source>Select a <bpt id="b3761edb-705c-43d6-b8e2-8a70832eff39">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="b3761edb-705c-43d6-b8e2-8a70832eff39">&lt;/strong&gt;</ept>, if you have multiple subscriptions to choose from.</source>
+          <target state="new">Select a <bpt id="b3761edb-705c-43d6-b8e2-8a70832eff39">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="b3761edb-705c-43d6-b8e2-8a70832eff39">&lt;/strong&gt;</ept>, if you have multiple subscriptions to choose from.</target>
+        </trans-unit>
+        <trans-unit id="2607646e-055d-4623-857a-3642583d586c" xml:space="preserve">
+          <source>The choice determines which <bpt id="695254c3-a06d-4073-bc5d-417b03eee80c">&lt;em&gt;</bpt>*storage accounts *<ept id="695254c3-a06d-4073-bc5d-417b03eee80c">&lt;/em&gt;</ept>are available.</source>
+          <target state="new">The choice determines which <bpt id="695254c3-a06d-4073-bc5d-417b03eee80c">&lt;em&gt;</bpt>*storage accounts *<ept id="695254c3-a06d-4073-bc5d-417b03eee80c">&lt;/em&gt;</ept>are available.</target>
+        </trans-unit>
+        <trans-unit id="03f56ba6-74a4-4623-a23f-7205a2e7216e" xml:space="preserve">
+          <source>In the <bpt id="a59c102a-9497-4155-bfc3-d2dbb2fd03aa">&lt;strong&gt;</bpt>REGION/AFFINITY GROUP/VIRTUAL NETWORK<ept id="a59c102a-9497-4155-bfc3-d2dbb2fd03aa">&lt;/strong&gt;</ept> box, select a region where this virtual image will be hosted.</source>
+          <target state="new">In the <bpt id="a59c102a-9497-4155-bfc3-d2dbb2fd03aa">&lt;strong&gt;</bpt>REGION/AFFINITY GROUP/VIRTUAL NETWORK<ept id="a59c102a-9497-4155-bfc3-d2dbb2fd03aa">&lt;/strong&gt;</ept> box, select a region where this virtual image will be hosted.</target>
+        </trans-unit>
+        <trans-unit id="cee637ca-61ab-4b20-9291-b523c2457fc8" xml:space="preserve">
+          <source>In the <bpt id="a4149276-8716-4b01-87e8-09241feffcc9">&lt;strong&gt;</bpt>Storage Account<ept id="a4149276-8716-4b01-87e8-09241feffcc9">&lt;/strong&gt;</ept>, automatically generate an account, or select one from the list.</source>
+          <target state="new">In the <bpt id="a4149276-8716-4b01-87e8-09241feffcc9">&lt;strong&gt;</bpt>Storage Account<ept id="a4149276-8716-4b01-87e8-09241feffcc9">&lt;/strong&gt;</ept>, automatically generate an account, or select one from the list.</target>
+        </trans-unit>
+        <trans-unit id="33fd3e24-1e77-473d-9abd-cf0311ad2d03" xml:space="preserve">
+          <source>Change the <bpt id="a6e420a3-54a8-424c-935e-44c95f8db754">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="a6e420a3-54a8-424c-935e-44c95f8db754">&lt;/strong&gt;</ept> to see more accounts.</source>
+          <target state="new">Change the <bpt id="a6e420a3-54a8-424c-935e-44c95f8db754">&lt;strong&gt;</bpt>SUBSCRIPTION<ept id="a6e420a3-54a8-424c-935e-44c95f8db754">&lt;/strong&gt;</ept> to see more accounts.</target>
+        </trans-unit>
+        <trans-unit id="881f4d2c-843a-4911-b92f-be5142601850" xml:space="preserve">
+          <source>In the <bpt id="d9a0d0c7-6c41-4953-b144-e7edf06670bc">&lt;strong&gt;</bpt>AVAILABILITY SET<ept id="d9a0d0c7-6c41-4953-b144-e7edf06670bc">&lt;/strong&gt;</ept> box, select <bpt id="e495df19-99d0-45e6-8bd0-afe2198c1d64">&lt;strong&gt;</bpt>(none)<ept id="e495df19-99d0-45e6-8bd0-afe2198c1d64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d9a0d0c7-6c41-4953-b144-e7edf06670bc">&lt;strong&gt;</bpt>AVAILABILITY SET<ept id="d9a0d0c7-6c41-4953-b144-e7edf06670bc">&lt;/strong&gt;</ept> box, select <bpt id="e495df19-99d0-45e6-8bd0-afe2198c1d64">&lt;strong&gt;</bpt>(none)<ept id="e495df19-99d0-45e6-8bd0-afe2198c1d64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="473fb289-d027-44ab-a0d9-3bab57fa7d99" xml:space="preserve">
+          <source>Read and accept the legal terms.</source>
+          <target state="new">Read and accept the legal terms.</target>
+        </trans-unit>
+        <trans-unit id="8ae36440-5165-4d2d-9776-2f521d4541b0" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="84b4e5f2-ee57-4ef2-8e1a-3e97d5c3edf6" xml:space="preserve">
+          <source>Click the check mark in the bottom right corner to continue.</source>
+          <target state="new">Click the check mark in the bottom right corner to continue.</target>
+        </trans-unit>
+        <trans-unit id="9a273062-151c-49c2-8b67-28f5d9245df2" xml:space="preserve">
+          <source>Wait while Azure prepares your virtual machine.</source>
+          <target state="new">Wait while Azure prepares your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="674b10e6-599c-4289-9adc-fbf0db154468" xml:space="preserve">
+          <source>Expect the virtual machine status to proceed through:</source>
+          <target state="new">Expect the virtual machine status to proceed through:</target>
+        </trans-unit>
+        <trans-unit id="7e67e242-54ce-4125-986f-3cf1c1d329ce" xml:space="preserve">
+          <source><bpt id="6da3847d-d943-406e-959c-10321a6f5e4b">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="6da3847d-d943-406e-959c-10321a6f5e4b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6da3847d-d943-406e-959c-10321a6f5e4b">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="6da3847d-d943-406e-959c-10321a6f5e4b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c0a1570-cfbb-4e1f-a7ac-ea4a54f23e07" xml:space="preserve">
+          <source><bpt id="3f38fee3-a4c3-4962-98cb-6d5ed030a360">&lt;strong&gt;</bpt>Stopped<ept id="3f38fee3-a4c3-4962-98cb-6d5ed030a360">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f38fee3-a4c3-4962-98cb-6d5ed030a360">&lt;strong&gt;</bpt>Stopped<ept id="3f38fee3-a4c3-4962-98cb-6d5ed030a360">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="943c4ad5-2f10-4a3b-be33-37d17f8c1cfe" xml:space="preserve">
+          <source><bpt id="08e3425f-3635-484d-91b1-a499e3da201e">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="08e3425f-3635-484d-91b1-a499e3da201e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="08e3425f-3635-484d-91b1-a499e3da201e">&lt;strong&gt;</bpt>Starting (Provisioning)<ept id="08e3425f-3635-484d-91b1-a499e3da201e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c290d343-6b06-46eb-9a88-a2f0c10b6049" xml:space="preserve">
+          <source><bpt id="6c3b2132-fa04-47ea-ae28-bf42d5678816">&lt;strong&gt;</bpt>Running (Provisioning)<ept id="6c3b2132-fa04-47ea-ae28-bf42d5678816">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6c3b2132-fa04-47ea-ae28-bf42d5678816">&lt;strong&gt;</bpt>Running (Provisioning)<ept id="6c3b2132-fa04-47ea-ae28-bf42d5678816">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17796199-186a-4464-b30a-c3808eea5e72" xml:space="preserve">
+          <source><bpt id="316d5a0d-ac08-4762-a67a-8e44a52f2d04">&lt;strong&gt;</bpt>Running<ept id="316d5a0d-ac08-4762-a67a-8e44a52f2d04">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="316d5a0d-ac08-4762-a67a-8e44a52f2d04">&lt;strong&gt;</bpt>Running<ept id="316d5a0d-ac08-4762-a67a-8e44a52f2d04">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d00d872-2913-4839-bd77-2b4f183a76c3" xml:space="preserve">
+          <source>When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page.</source>
+          <target state="new">When provisioning completes, click on the name of your virtual machine to go to the DASHBOARD page.</target>
+        </trans-unit>
+        <trans-unit id="514eacc4-7b3b-4042-be11-19bd418b8eae" xml:space="preserve">
+          <source>At the bottom of the page, click <bpt id="c4e9a897-9034-4f58-b0fa-ab1e429af82e">&lt;strong&gt;</bpt>Connect<ept id="c4e9a897-9034-4f58-b0fa-ab1e429af82e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the page, click <bpt id="c4e9a897-9034-4f58-b0fa-ab1e429af82e">&lt;strong&gt;</bpt>Connect<ept id="c4e9a897-9034-4f58-b0fa-ab1e429af82e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f98702d-52d7-42a9-8777-0803133ccd01" xml:space="preserve">
+          <source>Click the <bpt id="d3a8946e-36d6-4b73-a7a5-a249949c46f6">&lt;strong&gt;</bpt>Open<ept id="d3a8946e-36d6-4b73-a7a5-a249949c46f6">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="d3a8946e-36d6-4b73-a7a5-a249949c46f6">&lt;strong&gt;</bpt>Open<ept id="d3a8946e-36d6-4b73-a7a5-a249949c46f6">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="d8ed8104-3c00-4d30-a186-ac6c882831f1" xml:space="preserve">
+          <source><bpt id="c4d8a1cf-fbbd-4c5f-ac53-7c8e8521219b">&lt;linkText&gt;</bpt>Click the Open button<ept id="c4d8a1cf-fbbd-4c5f-ac53-7c8e8521219b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4d8a1cf-fbbd-4c5f-ac53-7c8e8521219b">&lt;linkText&gt;</bpt>Click the Open button<ept id="c4d8a1cf-fbbd-4c5f-ac53-7c8e8521219b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccfc6d13-c1fe-4d68-93ff-3cd5518d8e38" xml:space="preserve">
+          <source>At the <bpt id="9dac7815-d742-46c2-a251-9536c5655b04">&lt;strong&gt;</bpt>Windows Security<ept id="9dac7815-d742-46c2-a251-9536c5655b04">&lt;/strong&gt;</ept> dialog box, click <bpt id="fb68180e-32d7-4069-9579-398cb65ad135">&lt;strong&gt;</bpt>Use another account<ept id="fb68180e-32d7-4069-9579-398cb65ad135">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the <bpt id="9dac7815-d742-46c2-a251-9536c5655b04">&lt;strong&gt;</bpt>Windows Security<ept id="9dac7815-d742-46c2-a251-9536c5655b04">&lt;/strong&gt;</ept> dialog box, click <bpt id="fb68180e-32d7-4069-9579-398cb65ad135">&lt;strong&gt;</bpt>Use another account<ept id="fb68180e-32d7-4069-9579-398cb65ad135">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9f8c676-949a-439f-8c49-68fc04251fc4" xml:space="preserve">
+          <source><bpt id="7aa6a4aa-e22f-4f1f-88af-7fb555ad7912">&lt;linkText&gt;</bpt>Click Use another account<ept id="7aa6a4aa-e22f-4f1f-88af-7fb555ad7912">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="7aa6a4aa-e22f-4f1f-88af-7fb555ad7912">&lt;linkText&gt;</bpt>Click Use another account<ept id="7aa6a4aa-e22f-4f1f-88af-7fb555ad7912">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="fd04008b-c09d-42b7-9c30-fc3e15078f5a" xml:space="preserve">
+          <source>Use the name of the machine as the domain name, followed by your administrator name in this format: <bpt id="1ffaa216-e808-4d06-9912-f156b2cd6d6d">&lt;code&gt;</bpt>machinename\username<ept id="1ffaa216-e808-4d06-9912-f156b2cd6d6d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Use the name of the machine as the domain name, followed by your administrator name in this format: <bpt id="1ffaa216-e808-4d06-9912-f156b2cd6d6d">&lt;code&gt;</bpt>machinename\username<ept id="1ffaa216-e808-4d06-9912-f156b2cd6d6d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f55bad43-6eb5-431d-9a08-702a3a2f2494" xml:space="preserve">
+          <source>Type your password and connect to the machine.</source>
+          <target state="new">Type your password and connect to the machine.</target>
+        </trans-unit>
+        <trans-unit id="59d355ca-9802-4329-bad4-88614169dcda" xml:space="preserve">
+          <source>The first time you log on, several processes will complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks (sysprep).</source>
+          <target state="new">The first time you log on, several processes will complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks (sysprep).</target>
+        </trans-unit>
+        <trans-unit id="e3979111-6157-4aea-a13f-8c67bae9c890" xml:space="preserve">
+          <source>After Windows sysprep completes, SQL Server setup  completes configuration tasks.</source>
+          <target state="new">After Windows sysprep completes, SQL Server setup  completes configuration tasks.</target>
+        </trans-unit>
+        <trans-unit id="674a50c4-fc4a-48f3-a356-d542f6476d9e" xml:space="preserve">
+          <source>These tasks make cause a delay of a few minutes while they complete.</source>
+          <target state="new">These tasks make cause a delay of a few minutes while they complete.</target>
+        </trans-unit>
+        <trans-unit id="d88c5f31-15f1-43c5-9bf4-0bd41d814c4d" xml:space="preserve">
+          <source><bpt id="9fb835db-e140-4b41-b3c8-81ece8a05a45">&lt;code&gt;</bpt>SELECT @@SERVERNAME<ept id="9fb835db-e140-4b41-b3c8-81ece8a05a45">&lt;/code&gt;</ept> may not return the correct name until SQL Server setup completes, and SQL Server Management Studio may not be visable on the start page.</source>
+          <target state="new"><bpt id="9fb835db-e140-4b41-b3c8-81ece8a05a45">&lt;code&gt;</bpt>SELECT @@SERVERNAME<ept id="9fb835db-e140-4b41-b3c8-81ece8a05a45">&lt;/code&gt;</ept> may not return the correct name until SQL Server setup completes, and SQL Server Management Studio may not be visable on the start page.</target>
+        </trans-unit>
+        <trans-unit id="d60073b5-d90a-4dc8-a608-892ed513188f" xml:space="preserve">
+          <source>Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer.</source>
+          <target state="new">Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer.</target>
+        </trans-unit>
+        <trans-unit id="9335aedf-7eae-4f62-b311-7b7ed8d531e9" xml:space="preserve">
+          <source>Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way.</source>
+          <target state="new">Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way.</target>
+        </trans-unit>
+        <trans-unit id="62008d15-a929-4a89-bb83-2dd12ac3f66d" xml:space="preserve">
+          <source><bpt id="45869b3e-2229-40fd-8ee8-67c9b6e7f274">&lt;token href="../../includes/virtual-machines-sql-server-connection-steps.md"&gt;</bpt><ept id="45869b3e-2229-40fd-8ee8-67c9b6e7f274">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="45869b3e-2229-40fd-8ee8-67c9b6e7f274">&lt;token href="../../includes/virtual-machines-sql-server-connection-steps.md"&gt;</bpt><ept id="45869b3e-2229-40fd-8ee8-67c9b6e7f274">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5da30c87-0756-4a87-a3f0-86c456cd0fd4" xml:space="preserve">
+          <source>If you can connect to an instance of SQL Server running on an Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.</source>
+          <target state="new">If you can connect to an instance of SQL Server running on an Azure virtual machine by using Management Studio, you should be able to connect by using a connection string similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="eff46b2a-99b6-4a55-8d23-f883837978f9" xml:space="preserve">
+          <source>For more information, see <bpt id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;linkText&gt;</bpt>How to Troubleshoot Connecting to the SQL Server Database Engine<ept id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;/linkText&gt;</ept><bpt id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;title&gt;</bpt><ept id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;linkText&gt;</bpt>How to Troubleshoot Connecting to the SQL Server Database Engine<ept id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;/linkText&gt;</ept><bpt id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;title&gt;</bpt><ept id="71113628-12bb-4fdd-92bb-860ce9ad3188">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="296f66a9-cffd-4925-9207-f6e79fb2a487" xml:space="preserve">
+          <source>You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image.</source>
+          <target state="new">You've seen how to create and configure a SQL Server on an Azure virtual machine using the platform image.</target>
+        </trans-unit>
+        <trans-unit id="428241cc-36ad-4bf8-acc5-5bf6d4e44b92" xml:space="preserve">
+          <source>In many cases, the next step is to migrate your databases to this new SQL Server VM.</source>
+          <target state="new">In many cases, the next step is to migrate your databases to this new SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="33e9802e-4885-4f60-949f-c7af23e7ce69" xml:space="preserve">
+          <source>For database migration guidance, see <bpt id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;/linkText&gt;</ept><bpt id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;title&gt;</bpt><ept id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For database migration guidance, see <bpt id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;linkText&gt;</bpt>Migrating a Database to SQL Server on an Azure VM<ept id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;/linkText&gt;</ept><bpt id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;title&gt;</bpt><ept id="e3101330-ca82-4477-908c-b635799cc5ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="288987eb-e7c2-4c14-8a71-f5c7e49d711b" xml:space="preserve">
+          <source>The following list provides additional resources for SQL Server in Azure virtual machines.</source>
+          <target state="new">The following list provides additional resources for SQL Server in Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="6a552930-ba13-4a0c-9304-66f82f6ace86" xml:space="preserve">
+          <source><bpt id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;/linkText&gt;</ept><bpt id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;title&gt;</bpt><ept id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;linkText&gt;</bpt>SQL Server on Azure Virtual Machines Overview<ept id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;/linkText&gt;</ept><bpt id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;title&gt;</bpt><ept id="94138b18-186e-442b-97a9-5ae76fe681dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50412998-b580-4c64-9e5a-5dd8e3a55212" xml:space="preserve">
+          <source><bpt id="28822430-2d0a-4f92-98ee-97017364c639">&lt;linkText&gt;</bpt>Connect to a SQL Server Virtual Machine on Azure<ept id="28822430-2d0a-4f92-98ee-97017364c639">&lt;/linkText&gt;</ept><bpt id="28822430-2d0a-4f92-98ee-97017364c639">&lt;title&gt;</bpt><ept id="28822430-2d0a-4f92-98ee-97017364c639">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28822430-2d0a-4f92-98ee-97017364c639">&lt;linkText&gt;</bpt>Connect to a SQL Server Virtual Machine on Azure<ept id="28822430-2d0a-4f92-98ee-97017364c639">&lt;/linkText&gt;</ept><bpt id="28822430-2d0a-4f92-98ee-97017364c639">&lt;title&gt;</bpt><ept id="28822430-2d0a-4f92-98ee-97017364c639">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77c07de7-bf92-438f-97f3-dd5f188113f3" xml:space="preserve">
+          <source><bpt id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;/linkText&gt;</ept><bpt id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;title&gt;</bpt><ept id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;/linkText&gt;</ept><bpt id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;title&gt;</bpt><ept id="a6093324-94d8-4e57-a83b-03c1ed8095ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44e39d42-3993-4ea9-83a0-c2a188349e85" xml:space="preserve">
+          <source><bpt id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;linkText&gt;</bpt>Security Considerations for SQL Server in Azure Virtual Machines<ept id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;/linkText&gt;</ept><bpt id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;title&gt;</bpt><ept id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;linkText&gt;</bpt>Security Considerations for SQL Server in Azure Virtual Machines<ept id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;/linkText&gt;</ept><bpt id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;title&gt;</bpt><ept id="6d4ef521-61b7-434e-bfdd-e67e20a82cfe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6271aea-8c69-43c2-a179-f4607e129331" xml:space="preserve">
+          <source><bpt id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;linkText&gt;</bpt>High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines<ept id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;/linkText&gt;</ept><bpt id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;title&gt;</bpt><ept id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;linkText&gt;</bpt>High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines<ept id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;/linkText&gt;</ept><bpt id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;title&gt;</bpt><ept id="91a2ec74-efbf-4603-b096-ab2f041456df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27aa0970-676d-402c-8a79-f2d785cf3eba" xml:space="preserve">
+          <source><bpt id="137391fe-658b-400a-9288-50562f25ff02">&lt;linkText&gt;</bpt>Backup and Restore for SQL Server in Azure Virtual Machines<ept id="137391fe-658b-400a-9288-50562f25ff02">&lt;/linkText&gt;</ept><bpt id="137391fe-658b-400a-9288-50562f25ff02">&lt;title&gt;</bpt><ept id="137391fe-658b-400a-9288-50562f25ff02">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="137391fe-658b-400a-9288-50562f25ff02">&lt;linkText&gt;</bpt>Backup and Restore for SQL Server in Azure Virtual Machines<ept id="137391fe-658b-400a-9288-50562f25ff02">&lt;/linkText&gt;</ept><bpt id="137391fe-658b-400a-9288-50562f25ff02">&lt;title&gt;</bpt><ept id="137391fe-658b-400a-9288-50562f25ff02">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29dd7f3b-ab5a-46de-9ac6-8811b37163da" xml:space="preserve">
+          <source><bpt id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;linkText&gt;</bpt>SQL Server Business Intelligence in Azure Virtual Machines<ept id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;/linkText&gt;</ept><bpt id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;title&gt;</bpt><ept id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;linkText&gt;</bpt>SQL Server Business Intelligence in Azure Virtual Machines<ept id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;/linkText&gt;</ept><bpt id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;title&gt;</bpt><ept id="72b92d5f-f560-4d3d-91a7-90df647d951e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3504ca41-e553-45a7-95f4-1fd375072490" xml:space="preserve">
+          <source><bpt id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;linkText&gt;</bpt>Understand Azure SQL Database and SQL Server in Azure Virtual Machines<ept id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;/linkText&gt;</ept><bpt id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;title&gt;</bpt><ept id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;linkText&gt;</bpt>Understand Azure SQL Database and SQL Server in Azure Virtual Machines<ept id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;/linkText&gt;</ept><bpt id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;title&gt;</bpt><ept id="9596a650-98a0-4d3e-b339-2b5ca122e7a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4b37fd3-48dd-416a-a288-c1157b04de0c" xml:space="preserve">
+          <source><bpt id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;linkText&gt;</bpt>Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines<ept id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;/linkText&gt;</ept><bpt id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;title&gt;</bpt><ept id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;linkText&gt;</bpt>Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines<ept id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;/linkText&gt;</ept><bpt id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;title&gt;</bpt><ept id="58867fff-a8b0-4200-8012-2406eda2651b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

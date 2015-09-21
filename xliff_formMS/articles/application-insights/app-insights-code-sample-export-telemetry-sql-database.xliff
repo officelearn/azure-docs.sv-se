@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="46faa196-e9ae-42cf-84d6-0893f6ba150d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="46faa196-e9ae-42cf-84d6-0893f6ba150d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d3cb9ff7-d64e-4452-9a4e-ffa6b99c5120">
+        <trans-unit id="6c338a0b-a772-44e7-93f6-7f30ace769f2" xml:space="preserve">
+          <source>Code sample: export to SQL from Application Insights using a worker role</source>
+          <target state="new">Code sample: export to SQL from Application Insights using a worker role</target>
+        </trans-unit>
+        <trans-unit id="c07a5db8-d3ec-4c25-bdee-1bd9270864fe" xml:space="preserve">
+          <source>Code your own analysis of telemetry in Application Insights by using the continuous export feature.</source>
+          <target state="new">Code your own analysis of telemetry in Application Insights by using the continuous export feature.</target>
+        </trans-unit>
+        <trans-unit id="0e693044-68fa-4a4f-9b96-a97491137bb0" xml:space="preserve">
+          <source>This article shows how to move your telemetry data from <bpt id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;/linkText&gt;</ept><bpt id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;title&gt;</bpt><ept id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;/title&gt;</ept> into an Azure SQL database by using <bpt id="c65fc163-0732-4e98-ba04-268408a25367">&lt;linkText&gt;</bpt>Continuous Export[export]<ept id="c65fc163-0732-4e98-ba04-268408a25367">&lt;/linkText&gt;</ept><bpt id="c65fc163-0732-4e98-ba04-268408a25367">&lt;title&gt;</bpt><ept id="c65fc163-0732-4e98-ba04-268408a25367">&lt;/title&gt;</ept> and a small amount of code.</source>
+          <target state="new">This article shows how to move your telemetry data from <bpt id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;/linkText&gt;</ept><bpt id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;title&gt;</bpt><ept id="ead9fc7a-c690-4b62-bc9c-4bce5491370d">&lt;/title&gt;</ept> into an Azure SQL database by using <bpt id="c65fc163-0732-4e98-ba04-268408a25367">&lt;linkText&gt;</bpt>Continuous Export[export]<ept id="c65fc163-0732-4e98-ba04-268408a25367">&lt;/linkText&gt;</ept><bpt id="c65fc163-0732-4e98-ba04-268408a25367">&lt;title&gt;</bpt><ept id="c65fc163-0732-4e98-ba04-268408a25367">&lt;/title&gt;</ept> and a small amount of code.</target>
+        </trans-unit>
+        <trans-unit id="beb11f58-c640-4d66-8f13-1385a6491ffc" xml:space="preserve">
+          <source>Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.</source>
+          <target state="new">Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.</target>
+        </trans-unit>
+        <trans-unit id="0c310dac-494b-405f-b24a-7e8035c42486" xml:space="preserve">
+          <source>(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights.</source>
+          <target state="new">(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="003b390c-ff9a-4d8c-adc6-51a748bddc30" xml:space="preserve">
+          <source>You could adapt this code sample to do other things with the exported telemetry.)</source>
+          <target state="new">You could adapt this code sample to do other things with the exported telemetry.)</target>
+        </trans-unit>
+        <trans-unit id="6238bc0d-7481-4036-a856-928d0b0c90c1" xml:space="preserve">
+          <source>We'll start with the assumption that you already have the app you want to monitor.</source>
+          <target state="new">We'll start with the assumption that you already have the app you want to monitor.</target>
+        </trans-unit>
+        <trans-unit id="6ea8e391-0d6f-4fcc-bf9b-618755a2d3da" xml:space="preserve">
+          <source>To monitor your application, you <bpt id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;linkText&gt;</bpt>add an Application Insights SDK[start]<ept id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;/linkText&gt;</ept><bpt id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;title&gt;</bpt><ept id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;/title&gt;</ept> to your application.</source>
+          <target state="new">To monitor your application, you <bpt id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;linkText&gt;</bpt>add an Application Insights SDK[start]<ept id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;/linkText&gt;</ept><bpt id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;title&gt;</bpt><ept id="065e8aa2-6314-45d7-be8d-75555591b228">&lt;/title&gt;</ept> to your application.</target>
+        </trans-unit>
+        <trans-unit id="1bf112cd-6bc8-4758-b838-949b06b107a2" xml:space="preserve">
+          <source>There are different SDKs and helper tools for different platforms, IDEs and languages.</source>
+          <target state="new">There are different SDKs and helper tools for different platforms, IDEs and languages.</target>
+        </trans-unit>
+        <trans-unit id="4d3f0078-37f0-47f9-9e97-e210a9b7905f" xml:space="preserve">
+          <source>You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds.</source>
+          <target state="new">You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds.</target>
+        </trans-unit>
+        <trans-unit id="1192ae02-d8d5-43ba-bfab-49c8b7024f28" xml:space="preserve">
+          <source>All the SDKs send telemetry to the <bpt id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;linkText&gt;</bpt>Application Insights portal[portal]<ept id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;/linkText&gt;</ept><bpt id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;title&gt;</bpt><ept id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;/title&gt;</ept>, where you can use our powerful analysis and diagnostic tools, and export the data to storage.</source>
+          <target state="new">All the SDKs send telemetry to the <bpt id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;linkText&gt;</bpt>Application Insights portal[portal]<ept id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;/linkText&gt;</ept><bpt id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;title&gt;</bpt><ept id="f18aab7d-50e9-4ac6-9beb-e94c7c0e303b">&lt;/title&gt;</ept>, where you can use our powerful analysis and diagnostic tools, and export the data to storage.</target>
+        </trans-unit>
+        <trans-unit id="bf74383d-fe68-4024-8849-982868304f12" xml:space="preserve">
+          <source>To get started:</source>
+          <target state="new">To get started:</target>
+        </trans-unit>
+        <trans-unit id="8eef0831-1062-4005-b1cc-fab0d39a5a5e" xml:space="preserve">
+          <source>Get an <bpt id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;linkText&gt;</bpt>account in Microsoft Azure<ept id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;/linkText&gt;</ept><bpt id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;title&gt;</bpt><ept id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Get an <bpt id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;linkText&gt;</bpt>account in Microsoft Azure<ept id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;/linkText&gt;</ept><bpt id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;title&gt;</bpt><ept id="f5670fe7-40ed-487b-bc5e-db497708ef8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5d01a69-c11b-4326-b45c-b40ad50b07f9" xml:space="preserve">
+          <source>In the <bpt id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;/linkText&gt;</ept><bpt id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;title&gt;</bpt><ept id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;/title&gt;</ept>, add a new Application Insights resource for your app:</source>
+          <target state="new">In the <bpt id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;/linkText&gt;</ept><bpt id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;title&gt;</bpt><ept id="dfc1dbab-58dc-46c1-9f5f-96c87bc68923">&lt;/title&gt;</ept>, add a new Application Insights resource for your app:</target>
+        </trans-unit>
+        <trans-unit id="e093db70-8b95-4b5b-bc07-8b7a30738aed" xml:space="preserve">
+          <source><bpt id="2a60c04d-7d83-440c-ba20-18945c563b89">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights, and choose the type of application<ept id="2a60c04d-7d83-440c-ba20-18945c563b89">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a60c04d-7d83-440c-ba20-18945c563b89">&lt;linkText&gt;</bpt>Choose New, Developer Services, Application Insights, and choose the type of application<ept id="2a60c04d-7d83-440c-ba20-18945c563b89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b54e6325-35eb-42eb-98fa-2a45b7af5a30" xml:space="preserve">
+          <source>(Your app type and subscription might be different.)</source>
+          <target state="new">(Your app type and subscription might be different.)</target>
+        </trans-unit>
+        <trans-unit id="2ebb2100-43fe-4893-9fea-68ab833f8a4d" xml:space="preserve">
+          <source>Open Quick Start to find how to set up the SDK for your app type.</source>
+          <target state="new">Open Quick Start to find how to set up the SDK for your app type.</target>
+        </trans-unit>
+        <trans-unit id="24d190e3-0d10-4b5c-8d25-8fe78e4a6002" xml:space="preserve">
+          <source><bpt id="8d4a3090-e3c0-4853-bc70-b2b2a3faa4ce">&lt;linkText&gt;</bpt>Choose Quick Start and follow instructions<ept id="8d4a3090-e3c0-4853-bc70-b2b2a3faa4ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d4a3090-e3c0-4853-bc70-b2b2a3faa4ce">&lt;linkText&gt;</bpt>Choose Quick Start and follow instructions<ept id="8d4a3090-e3c0-4853-bc70-b2b2a3faa4ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba1442b5-12e3-4c1f-a2f3-4cfa74c9c7d4" xml:space="preserve">
+          <source>If your app type isn't listed, take a look at the <bpt id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;linkText&gt;</bpt>Getting Started[start]<ept id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;/linkText&gt;</ept><bpt id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;title&gt;</bpt><ept id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;/title&gt;</ept> page.</source>
+          <target state="new">If your app type isn't listed, take a look at the <bpt id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;linkText&gt;</bpt>Getting Started[start]<ept id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;/linkText&gt;</ept><bpt id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;title&gt;</bpt><ept id="84801b19-e57f-45a9-a61b-e2c29e28dea3">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="81393eb2-1d4b-4021-8523-d2774f6f5581" xml:space="preserve">
+          <source>In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK.</source>
+          <target state="new">In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK.</target>
+        </trans-unit>
+        <trans-unit id="58b95507-b6bd-46ae-8b15-1c527f08cbfb" xml:space="preserve">
+          <source>We tell it the name of our Application Insights resource:</source>
+          <target state="new">We tell it the name of our Application Insights resource:</target>
+        </trans-unit>
+        <trans-unit id="6ca0cdbc-a3a6-404e-8614-9c565b16d261" xml:space="preserve">
+          <source><bpt id="aff29824-a6e4-4edf-8e0f-1d69dd691fb4">&lt;linkText&gt;</bpt>In Visual Studio, in the New Project dialog, check Add Application Insights, and under Send telemetry to, choose to create a new app, or use an existing one.<ept id="aff29824-a6e4-4edf-8e0f-1d69dd691fb4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aff29824-a6e4-4edf-8e0f-1d69dd691fb4">&lt;linkText&gt;</bpt>In Visual Studio, in the New Project dialog, check Add Application Insights, and under Send telemetry to, choose to create a new app, or use an existing one.<ept id="aff29824-a6e4-4edf-8e0f-1d69dd691fb4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0299a34b-2d82-4dd4-b2df-4a7603ac4d5f" xml:space="preserve">
+          <source>Create a storage account in your subscription in the <bpt id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;/linkText&gt;</ept><bpt id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;title&gt;</bpt><ept id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create a storage account in your subscription in the <bpt id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;/linkText&gt;</ept><bpt id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;title&gt;</bpt><ept id="3fd49f2e-f6f9-40fe-ae95-2edaac4cc630">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4ef4dd6-923d-4814-be81-5e3fc0f9f093" xml:space="preserve">
+          <source><bpt id="319a71e1-ea27-43d5-a9b2-ceb1084447e3">&lt;linkText&gt;</bpt>In Azure portal, choose New, Data, Storage<ept id="319a71e1-ea27-43d5-a9b2-ceb1084447e3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="319a71e1-ea27-43d5-a9b2-ceb1084447e3">&lt;linkText&gt;</bpt>In Azure portal, choose New, Data, Storage<ept id="319a71e1-ea27-43d5-a9b2-ceb1084447e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="477f56c4-3bef-4f8b-a5da-763fe53193a6" xml:space="preserve">
+          <source>Create a container</source>
+          <target state="new">Create a container</target>
+        </trans-unit>
+        <trans-unit id="af231c8c-23e2-41d8-8b2d-e9cad9401c9c" xml:space="preserve">
+          <source><bpt id="2dbe0fb7-80c5-46a1-a702-9d87e58a10f8">&lt;linkText&gt;</bpt>In the new storage, select Containers and then Add<ept id="2dbe0fb7-80c5-46a1-a702-9d87e58a10f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2dbe0fb7-80c5-46a1-a702-9d87e58a10f8">&lt;linkText&gt;</bpt>In the new storage, select Containers and then Add<ept id="2dbe0fb7-80c5-46a1-a702-9d87e58a10f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d176b450-2beb-420a-bb9c-19e4a99a91cd" xml:space="preserve">
+          <source>In the Azure portal, browse to the Application Insights resource you created for your application.</source>
+          <target state="new">In the Azure portal, browse to the Application Insights resource you created for your application.</target>
+        </trans-unit>
+        <trans-unit id="c09fd34b-6daf-42c7-b316-302d995a6aaa" xml:space="preserve">
+          <source><bpt id="7a8bbed3-cde6-4d10-9f0f-b1c5b571418c">&lt;linkText&gt;</bpt>Choose Browse, Application Insights, your application<ept id="7a8bbed3-cde6-4d10-9f0f-b1c5b571418c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a8bbed3-cde6-4d10-9f0f-b1c5b571418c">&lt;linkText&gt;</bpt>Choose Browse, Application Insights, your application<ept id="7a8bbed3-cde6-4d10-9f0f-b1c5b571418c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="179bd4c9-5fb4-4a92-abb6-bd3009dad48a" xml:space="preserve">
+          <source>Create a continuous export.</source>
+          <target state="new">Create a continuous export.</target>
+        </trans-unit>
+        <trans-unit id="5f0294c6-a989-4e60-bdd2-8ee78f81f708" xml:space="preserve">
+          <source><bpt id="e1b87cc9-cd42-408d-8681-f66215e512cc">&lt;linkText&gt;</bpt>Choose Settings, Continuous Export, Add<ept id="e1b87cc9-cd42-408d-8681-f66215e512cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1b87cc9-cd42-408d-8681-f66215e512cc">&lt;linkText&gt;</bpt>Choose Settings, Continuous Export, Add<ept id="e1b87cc9-cd42-408d-8681-f66215e512cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f3729b5-c4c3-49e7-9c56-0abb94b6a056" xml:space="preserve">
+          <source>Select the storage account you created earlier:</source>
+          <target state="new">Select the storage account you created earlier:</target>
+        </trans-unit>
+        <trans-unit id="a08337c8-9403-4491-a26c-82881b542260" xml:space="preserve">
+          <source><bpt id="ae486017-ed52-4179-8032-29cb639424ba">&lt;linkText&gt;</bpt>Set the export destination<ept id="ae486017-ed52-4179-8032-29cb639424ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae486017-ed52-4179-8032-29cb639424ba">&lt;linkText&gt;</bpt>Set the export destination<ept id="ae486017-ed52-4179-8032-29cb639424ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3991f7d-f2de-44f7-b723-58aec6e07158" xml:space="preserve">
+          <source>Set the event types you want to see:</source>
+          <target state="new">Set the event types you want to see:</target>
+        </trans-unit>
+        <trans-unit id="10d14c7b-984b-4704-8f46-e80dd060be9e" xml:space="preserve">
+          <source><bpt id="d4e568aa-d4ab-43a2-a45e-b850c0cb3510">&lt;linkText&gt;</bpt>Choose event types<ept id="d4e568aa-d4ab-43a2-a45e-b850c0cb3510">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d4e568aa-d4ab-43a2-a45e-b850c0cb3510">&lt;linkText&gt;</bpt>Choose event types<ept id="d4e568aa-d4ab-43a2-a45e-b850c0cb3510">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7540cdd-c9c0-440f-a8c6-d1cf967c201e" xml:space="preserve">
+          <source>Let some data accumulate.</source>
+          <target state="new">Let some data accumulate.</target>
+        </trans-unit>
+        <trans-unit id="f7bcffa6-d47f-4019-92b6-4e249f6d48f6" xml:space="preserve">
+          <source>Sit back and let people use your application for a while.</source>
+          <target state="new">Sit back and let people use your application for a while.</target>
+        </trans-unit>
+        <trans-unit id="9fc1d6b3-2163-4604-a657-dc22eea0faab" xml:space="preserve">
+          <source>Telemetry will come in and you'll see statistical charts in <bpt id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;linkText&gt;</bpt>metric explorer<ept id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;/linkText&gt;</ept><bpt id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;title&gt;</bpt><ept id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;/title&gt;</ept> and individual events in <bpt id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;linkText&gt;</bpt>diagnostic search<ept id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;/linkText&gt;</ept><bpt id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;title&gt;</bpt><ept id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;/title&gt;</ept>.</source>
+          <target state="new">Telemetry will come in and you'll see statistical charts in <bpt id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;linkText&gt;</bpt>metric explorer<ept id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;/linkText&gt;</ept><bpt id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;title&gt;</bpt><ept id="e81a0517-4cb9-472b-a826-c4246d819787">&lt;/title&gt;</ept> and individual events in <bpt id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;linkText&gt;</bpt>diagnostic search<ept id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;/linkText&gt;</ept><bpt id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;title&gt;</bpt><ept id="e0bfab20-7abb-4f6c-9bc6-0d267a3f0c25">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55d56bde-9f3e-47b3-a8f8-1dbf425cb1bc" xml:space="preserve">
+          <source>And also, the data will export to your storage.</source>
+          <target state="new">And also, the data will export to your storage.</target>
+        </trans-unit>
+        <trans-unit id="87fed481-436f-44dd-aed7-61d3d0c3a63e" xml:space="preserve">
+          <source>Inspect the exported data.</source>
+          <target state="new">Inspect the exported data.</target>
+        </trans-unit>
+        <trans-unit id="b2f7df44-addd-48af-97d8-524b3cae5fae" xml:space="preserve">
+          <source>In Visual Studio, choose <bpt id="9df0a1f3-e895-4c5a-9954-8b7a7defe526">&lt;strong&gt;</bpt>View / Cloud Explorer<ept id="9df0a1f3-e895-4c5a-9954-8b7a7defe526">&lt;/strong&gt;</ept>, and open Azure / Storage.</source>
+          <target state="new">In Visual Studio, choose <bpt id="9df0a1f3-e895-4c5a-9954-8b7a7defe526">&lt;strong&gt;</bpt>View / Cloud Explorer<ept id="9df0a1f3-e895-4c5a-9954-8b7a7defe526">&lt;/strong&gt;</ept>, and open Azure / Storage.</target>
+        </trans-unit>
+        <trans-unit id="530d7ee9-7966-40a5-98d3-1fc4ad4ca76e" xml:space="preserve">
+          <source>(If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)</source>
+          <target state="new">(If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)</target>
+        </trans-unit>
+        <trans-unit id="bb534fb6-11e2-4ed7-9a29-5065413f7f24" xml:space="preserve">
+          <source><bpt id="e2ada86c-7ed2-4a26-b082-1c023b35a083">&lt;linkText&gt;</bpt>In Visual Studio, open Server Browser, Azure, Storage<ept id="e2ada86c-7ed2-4a26-b082-1c023b35a083">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2ada86c-7ed2-4a26-b082-1c023b35a083">&lt;linkText&gt;</bpt>In Visual Studio, open Server Browser, Azure, Storage<ept id="e2ada86c-7ed2-4a26-b082-1c023b35a083">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15eaa17b-39ca-4c2c-bec2-b764491959e9" xml:space="preserve">
+          <source>Make a note of the common part of the path name, which is derived from the application name and instrumentation key.</source>
+          <target state="new">Make a note of the common part of the path name, which is derived from the application name and instrumentation key.</target>
+        </trans-unit>
+        <trans-unit id="36a2fee6-06a4-486a-b4fb-5210eb5d530a" xml:space="preserve">
+          <source>The events are written to blob files in JSON format.</source>
+          <target state="new">The events are written to blob files in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="8016aba9-1fb9-4b79-a872-2b303240bfe1" xml:space="preserve">
+          <source>Each file may contain one or more events.</source>
+          <target state="new">Each file may contain one or more events.</target>
+        </trans-unit>
+        <trans-unit id="64596c4d-4c09-4da6-a771-eeb870847944" xml:space="preserve">
+          <source>So we'd like to read the event data and filter out the fields we want.</source>
+          <target state="new">So we'd like to read the event data and filter out the fields we want.</target>
+        </trans-unit>
+        <trans-unit id="23db23c1-d1f3-4e67-9122-0aeac5f222cf" xml:space="preserve">
+          <source>There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database.</source>
+          <target state="new">There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database.</target>
+        </trans-unit>
+        <trans-unit id="3c1ede48-f538-4043-bad2-bb269c0f2de1" xml:space="preserve">
+          <source>That will make it easy to run lots of interesting queries.</source>
+          <target state="new">That will make it easy to run lots of interesting queries.</target>
+        </trans-unit>
+        <trans-unit id="ab4e0b19-f757-4c49-adef-ed2e65d35c38" xml:space="preserve">
+          <source>Once again starting from your subscription in <bpt id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;/linkText&gt;</ept><bpt id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;title&gt;</bpt><ept id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;/title&gt;</ept>, create the database (and a new server, unless you've already got one) to which you'll write the data.</source>
+          <target state="new">Once again starting from your subscription in <bpt id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;/linkText&gt;</ept><bpt id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;title&gt;</bpt><ept id="a50b8ab4-d982-4316-8c8f-05e4e151ce82">&lt;/title&gt;</ept>, create the database (and a new server, unless you've already got one) to which you'll write the data.</target>
+        </trans-unit>
+        <trans-unit id="fbe4d620-dd69-47bc-9eb3-b28a926dba55" xml:space="preserve">
+          <source><bpt id="e41e557b-4ea9-4d04-8f47-a1f74e886e8a">&lt;linkText&gt;</bpt>New, Data, SQL<ept id="e41e557b-4ea9-4d04-8f47-a1f74e886e8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e41e557b-4ea9-4d04-8f47-a1f74e886e8a">&lt;linkText&gt;</bpt>New, Data, SQL<ept id="e41e557b-4ea9-4d04-8f47-a1f74e886e8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b276925-cfc0-47c9-89bd-ed62d24b94ca" xml:space="preserve">
+          <source>Make sure that the database server allows access to Azure services:</source>
+          <target state="new">Make sure that the database server allows access to Azure services:</target>
+        </trans-unit>
+        <trans-unit id="b2522db2-1720-4f16-a4bd-84b2bd78a3e1" xml:space="preserve">
+          <source><bpt id="2552ca3d-e404-4814-a9a3-cb0fab1ff727">&lt;linkText&gt;</bpt>Browse, Servers, your server, Settings, Firewall, Allow Access to Azure<ept id="2552ca3d-e404-4814-a9a3-cb0fab1ff727">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2552ca3d-e404-4814-a9a3-cb0fab1ff727">&lt;linkText&gt;</bpt>Browse, Servers, your server, Settings, Firewall, Allow Access to Azure<ept id="2552ca3d-e404-4814-a9a3-cb0fab1ff727">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91ef52d1-823f-4d9b-b230-e494837957d8" xml:space="preserve">
+          <source>Now we can write <bpt id="31e23712-e751-475b-9159-ad41d28c2913">&lt;linkText&gt;</bpt>some code<ept id="31e23712-e751-475b-9159-ad41d28c2913">&lt;/linkText&gt;</ept><bpt id="31e23712-e751-475b-9159-ad41d28c2913">&lt;title&gt;</bpt><ept id="31e23712-e751-475b-9159-ad41d28c2913">&lt;/title&gt;</ept> to parse the JSON in the exported blobs, and create records in the database.</source>
+          <target state="new">Now we can write <bpt id="31e23712-e751-475b-9159-ad41d28c2913">&lt;linkText&gt;</bpt>some code<ept id="31e23712-e751-475b-9159-ad41d28c2913">&lt;/linkText&gt;</ept><bpt id="31e23712-e751-475b-9159-ad41d28c2913">&lt;title&gt;</bpt><ept id="31e23712-e751-475b-9159-ad41d28c2913">&lt;/title&gt;</ept> to parse the JSON in the exported blobs, and create records in the database.</target>
+        </trans-unit>
+        <trans-unit id="036cf74c-9f8c-4670-9388-01707895d569" xml:space="preserve">
+          <source>Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.</source>
+          <target state="new">Since the export store and the database are both in Azure, we'll run the code in an Azure worker role.</target>
+        </trans-unit>
+        <trans-unit id="84e97e16-d1de-4dbb-90cb-3022d8abcf87" xml:space="preserve">
+          <source>This code automatically extracts whatever properties are present in the JSON.</source>
+          <target state="new">This code automatically extracts whatever properties are present in the JSON.</target>
+        </trans-unit>
+        <trans-unit id="21205526-7614-402d-b0d3-545f441dc01a" xml:space="preserve">
+          <source>For descriptions of the properties, see <bpt id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;linkText&gt;</bpt>Export data model<ept id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;/linkText&gt;</ept><bpt id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;title&gt;</bpt><ept id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For descriptions of the properties, see <bpt id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;linkText&gt;</bpt>Export data model<ept id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;/linkText&gt;</ept><bpt id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;title&gt;</bpt><ept id="a3ad0eaa-05da-4b06-94f5-200b70af85d1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2f27ffa-9ea5-413d-a364-8130c0a8e36c" xml:space="preserve">
+          <source>In Visual Studio, create a new project for the worker role:</source>
+          <target state="new">In Visual Studio, create a new project for the worker role:</target>
+        </trans-unit>
+        <trans-unit id="2f924949-1119-430f-8206-67fe365358a8" xml:space="preserve">
+          <source><bpt id="acdc15df-e2cf-41bb-9115-b761158ace58">&lt;linkText&gt;</bpt>New Project, Visual C#, Cloud, Azure Cloud Service<ept id="acdc15df-e2cf-41bb-9115-b761158ace58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acdc15df-e2cf-41bb-9115-b761158ace58">&lt;linkText&gt;</bpt>New Project, Visual C#, Cloud, Azure Cloud Service<ept id="acdc15df-e2cf-41bb-9115-b761158ace58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="720ba006-2cf3-4d02-a753-ce234aee2a0e" xml:space="preserve">
+          <source><bpt id="107ea388-d0f2-4a74-b738-1fc2d049f25f">&lt;linkText&gt;</bpt>In new cloud service dialog, choose Visual C#, Worker Role<ept id="107ea388-d0f2-4a74-b738-1fc2d049f25f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="107ea388-d0f2-4a74-b738-1fc2d049f25f">&lt;linkText&gt;</bpt>In new cloud service dialog, choose Visual C#, Worker Role<ept id="107ea388-d0f2-4a74-b738-1fc2d049f25f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51381e4e-a62e-4114-8e99-183c4ed2e817" xml:space="preserve">
+          <source>In Azure, get the connection string from your Storage account:</source>
+          <target state="new">In Azure, get the connection string from your Storage account:</target>
+        </trans-unit>
+        <trans-unit id="e92b524e-0926-4863-be80-3f77e37b360d" xml:space="preserve">
+          <source><bpt id="19bba627-e15f-438c-961b-a901e9947602">&lt;linkText&gt;</bpt>In the Storage Account, select Keys, and copy Primary Connection String<ept id="19bba627-e15f-438c-961b-a901e9947602">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19bba627-e15f-438c-961b-a901e9947602">&lt;linkText&gt;</bpt>In the Storage Account, select Keys, and copy Primary Connection String<ept id="19bba627-e15f-438c-961b-a901e9947602">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82d6a406-25bc-4bdf-a3c1-a525a4481928" xml:space="preserve">
+          <source>In Visual Studio, configure the worker role settings with the Storage account connection string:</source>
+          <target state="new">In Visual Studio, configure the worker role settings with the Storage account connection string:</target>
+        </trans-unit>
+        <trans-unit id="d91ef6dc-5b4e-4edc-8324-9e112a654993" xml:space="preserve">
+          <source>![In Solution Explorer, under the Cloud Service project, expand Roles, and open your worker role.</source>
+          <target state="new">![In Solution Explorer, under the Cloud Service project, expand Roles, and open your worker role.</target>
+        </trans-unit>
+        <trans-unit id="2912ed81-a76b-4a33-a805-ff2d7faf4268" xml:space="preserve">
+          <source>Open the settings tab, choose Add Setting, and set name=StorageConnectionString, type=connection string, click to set the value.</source>
+          <target state="new">Open the settings tab, choose Add Setting, and set name=StorageConnectionString, type=connection string, click to set the value.</target>
+        </trans-unit>
+        <trans-unit id="0672f857-35cb-41c7-a5bc-99736157c058" xml:space="preserve">
+          <source>Set it manually and paste the connection string.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)</source>
+          <target state="new">Set it manually and paste the connection string.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)</target>
+        </trans-unit>
+        <trans-unit id="71622729-3ded-473f-8e78-2a908d0187c3" xml:space="preserve">
+          <source>In Solution Explorer, right-click your Worker Role project and choose Manage NuGet Packages.</source>
+          <target state="new">In Solution Explorer, right-click your Worker Role project and choose Manage NuGet Packages.</target>
+        </trans-unit>
+        <trans-unit id="cde58d93-467f-4182-a1ed-1ff6c3b75697" xml:space="preserve">
+          <source>Search for and install these packages:</source>
+          <target state="new">Search for and install these packages:</target>
+        </trans-unit>
+        <trans-unit id="af0aa1f5-3942-415b-b339-efbcfce910bf" xml:space="preserve">
+          <source>EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.</source>
+          <target state="new">EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.</target>
+        </trans-unit>
+        <trans-unit id="bd6ead81-85fd-4a84-9f77-24ee91cdbce0" xml:space="preserve">
+          <source>JsonFx - We'll use this for flattening the JSON to C# class properties.</source>
+          <target state="new">JsonFx - We'll use this for flattening the JSON to C# class properties.</target>
+        </trans-unit>
+        <trans-unit id="f5d2c2b1-d578-4193-8fd4-518213e28407" xml:space="preserve">
+          <source>Use this tool to generate C# Class out of our single JSON document.</source>
+          <target state="new">Use this tool to generate C# Class out of our single JSON document.</target>
+        </trans-unit>
+        <trans-unit id="2add7eb5-a2dc-466c-83c6-93fb1222c38f" xml:space="preserve">
+          <source>It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex.</source>
+          <target state="new">It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex.</target>
+        </trans-unit>
+        <trans-unit id="a33f3043-2268-4571-921c-64a3cdec9395" xml:space="preserve">
+          <source>urlData_port)</source>
+          <target state="new">urlData_port)</target>
+        </trans-unit>
+        <trans-unit id="e20dc43e-c146-4e24-8b3a-a1638fbf167f" xml:space="preserve">
+          <source><bpt id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;linkText&gt;</bpt>JSON C# class generator<ept id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;/linkText&gt;</ept><bpt id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;title&gt;</bpt><ept id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;linkText&gt;</bpt>JSON C# class generator<ept id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;/linkText&gt;</ept><bpt id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;title&gt;</bpt><ept id="d8fccf70-f9c8-4bfd-b55e-7dc49234f322">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b21c53db-aabd-490a-95cd-96008a124fc3" xml:space="preserve">
+          <source>You can put this code in <bpt id="b2891ed6-6cff-4419-a9da-6e26521d4929">&lt;code&gt;</bpt>WorkerRole.cs<ept id="b2891ed6-6cff-4419-a9da-6e26521d4929">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can put this code in <bpt id="b2891ed6-6cff-4419-a9da-6e26521d4929">&lt;code&gt;</bpt>WorkerRole.cs<ept id="b2891ed6-6cff-4419-a9da-6e26521d4929">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38f8642a-041a-42ba-ba36-4b51bbce5bf4" xml:space="preserve">
+          <source>Replace the existing run method, and choose the interval you prefer.</source>
+          <target state="new">Replace the existing run method, and choose the interval you prefer.</target>
+        </trans-unit>
+        <trans-unit id="2b7ed3ed-9eac-48fa-a39d-bf91ddd5c3bd" xml:space="preserve">
+          <source>It should be at least one hour, because the export feature completes one JSON object in an hour.</source>
+          <target state="new">It should be at least one hour, because the export feature completes one JSON object in an hour.</target>
+        </trans-unit>
+        <trans-unit id="77ade13c-1107-464d-ac7e-031f15d03dfe" xml:space="preserve">
+          <source>Add your DB connection string with name <bpt id="30449245-40f0-4abf-9305-ab4ea62f343d">&lt;code&gt;</bpt>TelemetryContext<ept id="30449245-40f0-4abf-9305-ab4ea62f343d">&lt;/code&gt;</ept> in <bpt id="0781b60c-3f72-4a6b-a8ac-465e8e3f895e">&lt;code&gt;</bpt>app.config<ept id="0781b60c-3f72-4a6b-a8ac-465e8e3f895e">&lt;/code&gt;</ept>.</source>
+          <target state="new">Add your DB connection string with name <bpt id="30449245-40f0-4abf-9305-ab4ea62f343d">&lt;code&gt;</bpt>TelemetryContext<ept id="30449245-40f0-4abf-9305-ab4ea62f343d">&lt;/code&gt;</ept> in <bpt id="0781b60c-3f72-4a6b-a8ac-465e8e3f895e">&lt;code&gt;</bpt>app.config<ept id="0781b60c-3f72-4a6b-a8ac-465e8e3f895e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fb0d57c-4195-49b0-9288-dc9160055b3b" xml:space="preserve">
+          <source>This is the schema for the table that will be generated for PageView.</source>
+          <target state="new">This is the schema for the table that will be generated for PageView.</target>
+        </trans-unit>
+        <trans-unit id="1a3a09e9-d00e-4f92-8afa-259130720666" xml:space="preserve">
+          <source>You don't have to run this script.</source>
+          <target state="new">You don't have to run this script.</target>
+        </trans-unit>
+        <trans-unit id="1fbf9c77-3c7d-4888-8ff5-5a998f53d633" xml:space="preserve">
+          <source>The attributes in the JSON determine the columns in the table.</source>
+          <target state="new">The attributes in the JSON determine the columns in the table.</target>
+        </trans-unit>
+        <trans-unit id="c7a296ee-3a7a-4f15-b16c-717ae6424e61" xml:space="preserve">
+          <source>To see this example in action, <bpt id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;linkText&gt;</bpt>download<ept id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;/linkText&gt;</ept><bpt id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;title&gt;</bpt><ept id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;/title&gt;</ept> the complete working code, change the <bpt id="61286e90-29ac-4119-bd1f-5c20d2a1c34e">&lt;code&gt;</bpt>app.config<ept id="61286e90-29ac-4119-bd1f-5c20d2a1c34e">&lt;/code&gt;</ept> settings and publish the worker role to Azure.</source>
+          <target state="new">To see this example in action, <bpt id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;linkText&gt;</bpt>download<ept id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;/linkText&gt;</ept><bpt id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;title&gt;</bpt><ept id="b2fba63d-f8df-4cb6-acf7-8b8e16b16e9f">&lt;/title&gt;</ept> the complete working code, change the <bpt id="61286e90-29ac-4119-bd1f-5c20d2a1c34e">&lt;code&gt;</bpt>app.config<ept id="61286e90-29ac-4119-bd1f-5c20d2a1c34e">&lt;/code&gt;</ept> settings and publish the worker role to Azure.</target>
+        </trans-unit>
+        <trans-unit id="12624c22-429b-44ed-acb3-5032f280cb01" xml:space="preserve">
+          <source><bpt id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;linkText&gt;</bpt>Export to SQL using a worker role<ept id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;/linkText&gt;</ept><bpt id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;title&gt;</bpt><ept id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;linkText&gt;</bpt>Export to SQL using a worker role<ept id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;/linkText&gt;</ept><bpt id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;title&gt;</bpt><ept id="5be1bf5a-22a1-4174-acf1-7569e38cfeef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c174a731-e559-4808-87c8-e6b916d8d1bd" xml:space="preserve">
+          <source><bpt id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;linkText&gt;</bpt>Continuous Export in Application Insights<ept id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;/linkText&gt;</ept><bpt id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;title&gt;</bpt><ept id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;linkText&gt;</bpt>Continuous Export in Application Insights<ept id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;/linkText&gt;</ept><bpt id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;title&gt;</bpt><ept id="81b4fae0-bff4-4a82-b0b0-df79f40a33b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dff6683d-f287-48e0-b0a4-eaddc6f109d0" xml:space="preserve">
+          <source><bpt id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;linkText&gt;</bpt>Application Insights<ept id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;/linkText&gt;</ept><bpt id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;title&gt;</bpt><ept id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;linkText&gt;</bpt>Application Insights<ept id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;/linkText&gt;</ept><bpt id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;title&gt;</bpt><ept id="da2cb4dd-fba3-4983-b6c7-7c3ec05a6b9d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea1dc02b-bc7f-4193-ad50-930db4c8659b" xml:space="preserve">
+          <source><bpt id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;linkText&gt;</bpt>Export data model<ept id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;/linkText&gt;</ept><bpt id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;title&gt;</bpt><ept id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;linkText&gt;</bpt>Export data model<ept id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;/linkText&gt;</ept><bpt id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;title&gt;</bpt><ept id="182fe37c-9076-48ea-b209-43b9385e1586">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a9f084a-e5db-44ad-bcd0-7a399469d011" xml:space="preserve">
+          <source><bpt id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;linkText&gt;</bpt>More samples and walkthroughs<ept id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;/linkText&gt;</ept><bpt id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;title&gt;</bpt><ept id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;linkText&gt;</bpt>More samples and walkthroughs<ept id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;/linkText&gt;</ept><bpt id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;title&gt;</bpt><ept id="b224e910-dff1-4065-98d7-142b20cd8221">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2018d9f6-7d78-4f12-9a64-97870dff304d" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="a3b7dd9c-9b62-4621-99f8-914e99a91243" xml:space="preserve">
+          <source>app-insights-export-telemetry.md</source>
+          <target state="new">app-insights-export-telemetry.md</target>
+        </trans-unit>
+        <trans-unit id="a2875c91-977c-4d19-9d6f-a4e848d90603" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="db59f5bc-465f-4443-9312-e35fa301d958" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="dfba88a2-5c50-4ce3-be6a-89653e4c72b8" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="55fd75e4-c185-4fa8-99b4-0f2082e7866a" />
+    </body>
+  </file>
+</xliff>

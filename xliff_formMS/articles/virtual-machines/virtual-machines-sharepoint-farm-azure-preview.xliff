@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aef4e99f-1743-48b2-a11d-ce18abac0441" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aef4e99f-1743-48b2-a11d-ce18abac0441" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="94c6c72d-90cc-48d4-ba1d-8631f63fc419">
+        <trans-unit id="0b27c665-5399-4892-a7fe-c6e18c755bb5" xml:space="preserve">
+          <source>SharePoint Server Farm | Microsoft Azure</source>
+          <target state="new">SharePoint Server Farm | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e5f7dca5-8c8d-47bb-a378-68ca65364e92" xml:space="preserve">
+          <source>Quickly create a new basic or highly-available SharePoint Server 2013 farm using SharePoint Server Farm in the Azure Preview portal.</source>
+          <target state="new">Quickly create a new basic or highly-available SharePoint Server 2013 farm using SharePoint Server Farm in the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="5743d046-d50d-4c75-b50e-ddb60159a1a0" xml:space="preserve">
+          <source>With SharePoint Server Farm, the Microsoft Azure Preview Portal automatically creates a pre-configured SharePoint Server 2013 farm for you.</source>
+          <target state="new">With SharePoint Server Farm, the Microsoft Azure Preview Portal automatically creates a pre-configured SharePoint Server 2013 farm for you.</target>
+        </trans-unit>
+        <trans-unit id="601a01f2-046b-42b3-aa3f-2945117981bc" xml:space="preserve">
+          <source>This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.</source>
+          <target state="new">This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.</target>
+        </trans-unit>
+        <trans-unit id="88e186bd-9fed-4cab-ae7f-8dfdeec99d8d" xml:space="preserve">
+          <source>The basic SharePoint farm consists of three virtual machines in this configuration.</source>
+          <target state="new">The basic SharePoint farm consists of three virtual machines in this configuration.</target>
+        </trans-unit>
+        <trans-unit id="47e2698c-58fc-44d3-9dd8-82ced2371e86" xml:space="preserve">
+          <source><bpt id="85f9fe7f-0c4c-4dc5-936c-de4fd295836e">&lt;linkText&gt;</bpt>sharepointfarm<ept id="85f9fe7f-0c4c-4dc5-936c-de4fd295836e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85f9fe7f-0c4c-4dc5-936c-de4fd295836e">&lt;linkText&gt;</bpt>sharepointfarm<ept id="85f9fe7f-0c4c-4dc5-936c-de4fd295836e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c1f5f72-ae30-473e-93bd-578579936262" xml:space="preserve">
+          <source>You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.</source>
+          <target state="new">You can use this farm configuration for a simplified setup for SharePoint app development or your first-time evaluation of SharePoint 2013.</target>
+        </trans-unit>
+        <trans-unit id="91552936-eed0-46d7-a6b1-eb0565df3d18" xml:space="preserve">
+          <source>The high-availability SharePoint farm consists of nine virtual machines in this configuration.</source>
+          <target state="new">The high-availability SharePoint farm consists of nine virtual machines in this configuration.</target>
+        </trans-unit>
+        <trans-unit id="3966d91e-2bbe-424e-ae00-2d9b6058781f" xml:space="preserve">
+          <source><bpt id="e1409ffd-efcc-43cc-8f56-a4c256281515">&lt;linkText&gt;</bpt>sharepointfarm<ept id="e1409ffd-efcc-43cc-8f56-a4c256281515">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1409ffd-efcc-43cc-8f56-a4c256281515">&lt;linkText&gt;</bpt>sharepointfarm<ept id="e1409ffd-efcc-43cc-8f56-a4c256281515">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00ee8e8b-6b2b-48d8-b7f3-8f9da39546c5" xml:space="preserve">
+          <source>You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm.</source>
+          <target state="new">You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="28320d11-5ceb-40ee-ae26-7389c4506882" xml:space="preserve">
+          <source>You can also use this configuration for SharePoint app development in a high-availability environment.</source>
+          <target state="new">You can also use this configuration for SharePoint app development in a high-availability environment.</target>
+        </trans-unit>
+        <trans-unit id="980ab72a-4398-428c-9cc8-3c5100325c36" xml:space="preserve">
+          <source>For the configuration details for both of these farms, see <bpt id="36760140-09dc-446f-a99f-51d043710dd2">&lt;linkText&gt;</bpt>SharePoint Server Farm Configuration Details<ept id="36760140-09dc-446f-a99f-51d043710dd2">&lt;/linkText&gt;</ept><bpt id="36760140-09dc-446f-a99f-51d043710dd2">&lt;title&gt;</bpt><ept id="36760140-09dc-446f-a99f-51d043710dd2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the configuration details for both of these farms, see <bpt id="36760140-09dc-446f-a99f-51d043710dd2">&lt;linkText&gt;</bpt>SharePoint Server Farm Configuration Details<ept id="36760140-09dc-446f-a99f-51d043710dd2">&lt;/linkText&gt;</ept><bpt id="36760140-09dc-446f-a99f-51d043710dd2">&lt;title&gt;</bpt><ept id="36760140-09dc-446f-a99f-51d043710dd2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f15c271-ef43-42ef-88dc-d814c9274edf" xml:space="preserve">
+          <source>To create your SharePoint farm with the SharePoint Server Farm template, do the following:</source>
+          <target state="new">To create your SharePoint farm with the SharePoint Server Farm template, do the following:</target>
+        </trans-unit>
+        <trans-unit id="d5256dc5-5d23-43c9-9cf0-a2a7370858c2" xml:space="preserve">
+          <source>In the <bpt id="97320457-01de-423e-b7d0-d3dda2319893">&lt;linkText&gt;</bpt>Microsoft Azure Preview Portal<ept id="97320457-01de-423e-b7d0-d3dda2319893">&lt;/linkText&gt;</ept><bpt id="97320457-01de-423e-b7d0-d3dda2319893">&lt;title&gt;</bpt><ept id="97320457-01de-423e-b7d0-d3dda2319893">&lt;/title&gt;</ept>, click  <bpt id="098e7666-07d8-4447-b0b5-4eedde682822">&lt;strong&gt;</bpt>New<ept id="098e7666-07d8-4447-b0b5-4eedde682822">&lt;/strong&gt;</ept> &gt; <bpt id="b3e48776-4c81-4ac7-8d9c-8278e459dc4a">&lt;strong&gt;</bpt>Compute<ept id="b3e48776-4c81-4ac7-8d9c-8278e459dc4a">&lt;/strong&gt;</ept> &gt; <bpt id="83420f6a-bce1-43b8-b976-baf6dda0419b">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="83420f6a-bce1-43b8-b976-baf6dda0419b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="97320457-01de-423e-b7d0-d3dda2319893">&lt;linkText&gt;</bpt>Microsoft Azure Preview Portal<ept id="97320457-01de-423e-b7d0-d3dda2319893">&lt;/linkText&gt;</ept><bpt id="97320457-01de-423e-b7d0-d3dda2319893">&lt;title&gt;</bpt><ept id="97320457-01de-423e-b7d0-d3dda2319893">&lt;/title&gt;</ept>, click  <bpt id="098e7666-07d8-4447-b0b5-4eedde682822">&lt;strong&gt;</bpt>New<ept id="098e7666-07d8-4447-b0b5-4eedde682822">&lt;/strong&gt;</ept> &gt; <bpt id="b3e48776-4c81-4ac7-8d9c-8278e459dc4a">&lt;strong&gt;</bpt>Compute<ept id="b3e48776-4c81-4ac7-8d9c-8278e459dc4a">&lt;/strong&gt;</ept> &gt; <bpt id="83420f6a-bce1-43b8-b976-baf6dda0419b">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="83420f6a-bce1-43b8-b976-baf6dda0419b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3ea9b90-548a-41c2-9ab9-9cc363782a45" xml:space="preserve">
+          <source>If <bpt id="02fca680-b6c6-4c97-8c46-651217c42bcd">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="02fca680-b6c6-4c97-8c46-651217c42bcd">&lt;/strong&gt;</ept> does not appear, click <bpt id="d53c5c1b-68ea-46d4-963e-3f41325d1a79">&lt;strong&gt;</bpt>New<ept id="d53c5c1b-68ea-46d4-963e-3f41325d1a79">&lt;/strong&gt;</ept> &gt; <bpt id="154c62ac-d219-4e15-bec0-aef4b2135230">&lt;strong&gt;</bpt>Compute<ept id="154c62ac-d219-4e15-bec0-aef4b2135230">&lt;/strong&gt;</ept> &gt; <bpt id="fd457992-89d7-46d8-b13c-491682ae3e64">&lt;strong&gt;</bpt>Marketplace<ept id="fd457992-89d7-46d8-b13c-491682ae3e64">&lt;/strong&gt;</ept>, type <bpt id="565de7de-0d31-4642-8fe9-195b5798a996">&lt;strong&gt;</bpt>SharePoint<ept id="565de7de-0d31-4642-8fe9-195b5798a996">&lt;/strong&gt;</ept> in <bpt id="377e1697-9e8a-41bf-9cb0-e1c021162c7b">&lt;strong&gt;</bpt>Search Compute<ept id="377e1697-9e8a-41bf-9cb0-e1c021162c7b">&lt;/strong&gt;</ept>, and then click <bpt id="f0d2d1b0-8930-46a6-80fe-5f1535b27bbc">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="f0d2d1b0-8930-46a6-80fe-5f1535b27bbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If <bpt id="02fca680-b6c6-4c97-8c46-651217c42bcd">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="02fca680-b6c6-4c97-8c46-651217c42bcd">&lt;/strong&gt;</ept> does not appear, click <bpt id="d53c5c1b-68ea-46d4-963e-3f41325d1a79">&lt;strong&gt;</bpt>New<ept id="d53c5c1b-68ea-46d4-963e-3f41325d1a79">&lt;/strong&gt;</ept> &gt; <bpt id="154c62ac-d219-4e15-bec0-aef4b2135230">&lt;strong&gt;</bpt>Compute<ept id="154c62ac-d219-4e15-bec0-aef4b2135230">&lt;/strong&gt;</ept> &gt; <bpt id="fd457992-89d7-46d8-b13c-491682ae3e64">&lt;strong&gt;</bpt>Marketplace<ept id="fd457992-89d7-46d8-b13c-491682ae3e64">&lt;/strong&gt;</ept>, type <bpt id="565de7de-0d31-4642-8fe9-195b5798a996">&lt;strong&gt;</bpt>SharePoint<ept id="565de7de-0d31-4642-8fe9-195b5798a996">&lt;/strong&gt;</ept> in <bpt id="377e1697-9e8a-41bf-9cb0-e1c021162c7b">&lt;strong&gt;</bpt>Search Compute<ept id="377e1697-9e8a-41bf-9cb0-e1c021162c7b">&lt;/strong&gt;</ept>, and then click <bpt id="f0d2d1b0-8930-46a6-80fe-5f1535b27bbc">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="f0d2d1b0-8930-46a6-80fe-5f1535b27bbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e1dd939-1a93-4566-aede-e59bc70d8724" xml:space="preserve">
+          <source>In the <bpt id="22fde64c-774c-4cc1-a019-54d8664ad80a">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="22fde64c-774c-4cc1-a019-54d8664ad80a">&lt;/strong&gt;</ept> pane, click <bpt id="5a8a4d94-19a8-43a6-baaa-c7321f99f12a">&lt;strong&gt;</bpt>Create<ept id="5a8a4d94-19a8-43a6-baaa-c7321f99f12a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="22fde64c-774c-4cc1-a019-54d8664ad80a">&lt;strong&gt;</bpt>SharePoint Server Farm<ept id="22fde64c-774c-4cc1-a019-54d8664ad80a">&lt;/strong&gt;</ept> pane, click <bpt id="5a8a4d94-19a8-43a6-baaa-c7321f99f12a">&lt;strong&gt;</bpt>Create<ept id="5a8a4d94-19a8-43a6-baaa-c7321f99f12a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15b6958a-70aa-49a3-8d94-24f8e9eeb89a" xml:space="preserve">
+          <source>In the <bpt id="78155cbd-beb3-470e-b47d-26e88c08302f">&lt;strong&gt;</bpt>Create a SharePoint farm<ept id="78155cbd-beb3-470e-b47d-26e88c08302f">&lt;/strong&gt;</ept> pane, type the name of a resource group.</source>
+          <target state="new">In the <bpt id="78155cbd-beb3-470e-b47d-26e88c08302f">&lt;strong&gt;</bpt>Create a SharePoint farm<ept id="78155cbd-beb3-470e-b47d-26e88c08302f">&lt;/strong&gt;</ept> pane, type the name of a resource group.</target>
+        </trans-unit>
+        <trans-unit id="f65350a3-2939-44c2-b214-3faedf382782" xml:space="preserve">
+          <source>Type a user name and password for a local administrator account on each virtual machine in your farm.</source>
+          <target state="new">Type a user name and password for a local administrator account on each virtual machine in your farm.</target>
+        </trans-unit>
+        <trans-unit id="76c34822-bcbe-4bfd-8864-e2256b24c5f7" xml:space="preserve">
+          <source>Choose a name and password that is difficult to guess, record it, and store it in a secure location.</source>
+          <target state="new">Choose a name and password that is difficult to guess, record it, and store it in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="a6f0149b-4201-4267-8c12-7042be5ec852" xml:space="preserve">
+          <source>If you want the high-availability farm, click <bpt id="7422f2ca-6cd3-4bb2-87a9-b3e8164fe077">&lt;strong&gt;</bpt>Enable high availability<ept id="7422f2ca-6cd3-4bb2-87a9-b3e8164fe077">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want the high-availability farm, click <bpt id="7422f2ca-6cd3-4bb2-87a9-b3e8164fe077">&lt;strong&gt;</bpt>Enable high availability<ept id="7422f2ca-6cd3-4bb2-87a9-b3e8164fe077">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46bee662-0636-4f17-8082-c1458e96b7f6" xml:space="preserve">
+          <source>To configure your domain controllers, click the arrow.</source>
+          <target state="new">To configure your domain controllers, click the arrow.</target>
+        </trans-unit>
+        <trans-unit id="39c713fd-ca76-41a3-8902-efcdaec18657" xml:space="preserve">
+          <source>You can specify a host name prefix (the default is the resource group name), forest root domain name (default is contoso.com), and the size of your domain controllers (default is A1).</source>
+          <target state="new">You can specify a host name prefix (the default is the resource group name), forest root domain name (default is contoso.com), and the size of your domain controllers (default is A1).</target>
+        </trans-unit>
+        <trans-unit id="465980d4-7e51-4d78-8ab5-69af773856e1" xml:space="preserve">
+          <source>To configure your SQL servers, click the arrow.</source>
+          <target state="new">To configure your SQL servers, click the arrow.</target>
+        </trans-unit>
+        <trans-unit id="7b0d6553-6f1d-4c23-b66d-430d08f4626f" xml:space="preserve">
+          <source>You can specify a host name prefix (the default is the resource group name), the size of your SQL servers (default is A5), a database access account name and password (the default is to use the administrator account), and a SQL server service account name (the default is sqlservice) and password (the default is to use the same password as the administrator account).</source>
+          <target state="new">You can specify a host name prefix (the default is the resource group name), the size of your SQL servers (default is A5), a database access account name and password (the default is to use the administrator account), and a SQL server service account name (the default is sqlservice) and password (the default is to use the same password as the administrator account).</target>
+        </trans-unit>
+        <trans-unit id="be5ecef3-9137-44b2-999f-a2faa9707f80" xml:space="preserve">
+          <source>To configure your SharePoint servers, click the arrow.</source>
+          <target state="new">To configure your SharePoint servers, click the arrow.</target>
+        </trans-unit>
+        <trans-unit id="e78dc25b-76ee-4e13-88dd-561f3690d4ae" xml:space="preserve">
+          <source>You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A2), a SharePoint user account (the default is sp<bpt id="a91f70e9-8f71-4ec3-928b-e37d3439e92a">&lt;em&gt;</bpt>setup) and password, a SharePoint farm account name (the default is sp<ept id="a91f70e9-8f71-4ec3-928b-e37d3439e92a">&lt;/em&gt;</ept>farm) and password, and a SharePoint farm passphrase.</source>
+          <target state="new">You can specify a host name prefix (the default is the resource group name), the size of your SharePoint servers (default is A2), a SharePoint user account (the default is sp<bpt id="a91f70e9-8f71-4ec3-928b-e37d3439e92a">&lt;em&gt;</bpt>setup) and password, a SharePoint farm account name (the default is sp<ept id="a91f70e9-8f71-4ec3-928b-e37d3439e92a">&lt;/em&gt;</ept>farm) and password, and a SharePoint farm passphrase.</target>
+        </trans-unit>
+        <trans-unit id="39dcb131-191c-4966-afcf-a843ee7630a8" xml:space="preserve">
+          <source>The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.</source>
+          <target state="new">The default is to use the administrator password for the SharePoint user account, farm account, and passphrase.</target>
+        </trans-unit>
+        <trans-unit id="1de9707a-2d74-4024-8dc6-dff0bc08c984" xml:space="preserve">
+          <source>To configure optional configuration settings for the virtual network, storage account, or diagnostics, click the corresponding arrow.</source>
+          <target state="new">To configure optional configuration settings for the virtual network, storage account, or diagnostics, click the corresponding arrow.</target>
+        </trans-unit>
+        <trans-unit id="b8c220d5-f15f-4557-b412-b9af8af34076" xml:space="preserve">
+          <source>To specify the subscription, click the arrow.</source>
+          <target state="new">To specify the subscription, click the arrow.</target>
+        </trans-unit>
+        <trans-unit id="60b74366-7816-48c8-8ca5-fa21c06e0a6b" xml:space="preserve">
+          <source>When you are done, click <bpt id="5eb40abc-b38d-4be0-ac53-52568804c650">&lt;strong&gt;</bpt>Create<ept id="5eb40abc-b38d-4be0-ac53-52568804c650">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are done, click <bpt id="5eb40abc-b38d-4be0-ac53-52568804c650">&lt;strong&gt;</bpt>Create<ept id="5eb40abc-b38d-4be0-ac53-52568804c650">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d97ba16-acde-41dc-a198-1b2a0e0a9f46" xml:space="preserve">
+          <source>The domain controller does not have the Active Directory Management tools installed by default.</source>
+          <target state="new">The domain controller does not have the Active Directory Management tools installed by default.</target>
+        </trans-unit>
+        <trans-unit id="70e12532-5b2e-40d3-90d2-30fb5960e494" xml:space="preserve">
+          <source>To install them, run the <bpt id="187a17fb-3e38-4d76-9bfd-f04447f162c1">&lt;strong&gt;</bpt>Install-WindowsFeature AD-Domain-Services -IncludeManagementTools<ept id="187a17fb-3e38-4d76-9bfd-f04447f162c1">&lt;/strong&gt;</ept> command from an administrator-level Windows PowerShell command prompt on the domain controller virtual machine.</source>
+          <target state="new">To install them, run the <bpt id="187a17fb-3e38-4d76-9bfd-f04447f162c1">&lt;strong&gt;</bpt>Install-WindowsFeature AD-Domain-Services -IncludeManagementTools<ept id="187a17fb-3e38-4d76-9bfd-f04447f162c1">&lt;/strong&gt;</ept> command from an administrator-level Windows PowerShell command prompt on the domain controller virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="dca6df49-24b2-4575-b188-95cc3dbb11d5" xml:space="preserve">
+          <source>The SharePoint farms have a pre-configured endpoint to allow unauthenticated web traffic (TCP port 80) to the SharePoint web server for an Internet-connected client computer.</source>
+          <target state="new">The SharePoint farms have a pre-configured endpoint to allow unauthenticated web traffic (TCP port 80) to the SharePoint web server for an Internet-connected client computer.</target>
+        </trans-unit>
+        <trans-unit id="700b8cee-5c32-4fa9-a9b3-3a3de4fe7c5a" xml:space="preserve">
+          <source>This endpoint is to a pre-configured team site.</source>
+          <target state="new">This endpoint is to a pre-configured team site.</target>
+        </trans-unit>
+        <trans-unit id="0a5fb877-9028-4906-8062-1261d6daa396" xml:space="preserve">
+          <source>To access this team site:</source>
+          <target state="new">To access this team site:</target>
+        </trans-unit>
+        <trans-unit id="e236d25a-cf24-4aee-ba27-9568ceb58350" xml:space="preserve">
+          <source>From the Azure Preview Portal, click <bpt id="3e56c91e-199c-4c01-8a3c-483c75342db9">&lt;strong&gt;</bpt>Browse<ept id="3e56c91e-199c-4c01-8a3c-483c75342db9">&lt;/strong&gt;</ept>, and then click <bpt id="14fc7e71-1ff4-43df-9a1e-1b1e367293c8">&lt;strong&gt;</bpt>Resource Groups<ept id="14fc7e71-1ff4-43df-9a1e-1b1e367293c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Preview Portal, click <bpt id="3e56c91e-199c-4c01-8a3c-483c75342db9">&lt;strong&gt;</bpt>Browse<ept id="3e56c91e-199c-4c01-8a3c-483c75342db9">&lt;/strong&gt;</ept>, and then click <bpt id="14fc7e71-1ff4-43df-9a1e-1b1e367293c8">&lt;strong&gt;</bpt>Resource Groups<ept id="14fc7e71-1ff4-43df-9a1e-1b1e367293c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="241d3f7f-9cb3-4741-8a13-ec7c19c715e6" xml:space="preserve">
+          <source>In the list of resource groups, click the name of your SharePoint farm resource group.</source>
+          <target state="new">In the list of resource groups, click the name of your SharePoint farm resource group.</target>
+        </trans-unit>
+        <trans-unit id="8ec9a529-b5c8-45d0-add4-7bac95200063" xml:space="preserve">
+          <source>In the pane for your SharePoint farm resource group, click <bpt id="496e3ddf-74da-4cbf-ac26-78d09766f5cd">&lt;strong&gt;</bpt>Deployment history<ept id="496e3ddf-74da-4cbf-ac26-78d09766f5cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pane for your SharePoint farm resource group, click <bpt id="496e3ddf-74da-4cbf-ac26-78d09766f5cd">&lt;strong&gt;</bpt>Deployment history<ept id="496e3ddf-74da-4cbf-ac26-78d09766f5cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88ba475f-7fac-444d-8100-f4e1fdceddae" xml:space="preserve">
+          <source>In the <bpt id="06589f2b-6f06-42bd-ba94-d982943c7676">&lt;strong&gt;</bpt>Deployment history<ept id="06589f2b-6f06-42bd-ba94-d982943c7676">&lt;/strong&gt;</ept> pane, click <bpt id="154660bc-881f-4b91-984d-8232d575b1be">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="154660bc-881f-4b91-984d-8232d575b1be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="06589f2b-6f06-42bd-ba94-d982943c7676">&lt;strong&gt;</bpt>Deployment history<ept id="06589f2b-6f06-42bd-ba94-d982943c7676">&lt;/strong&gt;</ept> pane, click <bpt id="154660bc-881f-4b91-984d-8232d575b1be">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="154660bc-881f-4b91-984d-8232d575b1be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d192f2a-41e0-49dc-a6ef-6790046380d9" xml:space="preserve">
+          <source>In the <bpt id="73c69a52-f743-4598-a7a7-d7088c45b8d1">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="73c69a52-f743-4598-a7a7-d7088c45b8d1">&lt;/strong&gt;</ept> pane, select the URL in the <bpt id="2149984e-884e-4d44-b092-4271ebd185fe">&lt;strong&gt;</bpt>SHAREPOINTSITEURL<ept id="2149984e-884e-4d44-b092-4271ebd185fe">&lt;/strong&gt;</ept> field and copy it.</source>
+          <target state="new">In the <bpt id="73c69a52-f743-4598-a7a7-d7088c45b8d1">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="73c69a52-f743-4598-a7a7-d7088c45b8d1">&lt;/strong&gt;</ept> pane, select the URL in the <bpt id="2149984e-884e-4d44-b092-4271ebd185fe">&lt;strong&gt;</bpt>SHAREPOINTSITEURL<ept id="2149984e-884e-4d44-b092-4271ebd185fe">&lt;/strong&gt;</ept> field and copy it.</target>
+        </trans-unit>
+        <trans-unit id="4563a334-38fa-45d1-a58b-18285c7fc09d" xml:space="preserve">
+          <source>From your Internet browser, paste the URL into the address field.</source>
+          <target state="new">From your Internet browser, paste the URL into the address field.</target>
+        </trans-unit>
+        <trans-unit id="eee35c75-9050-48c7-a877-872989701aa0" xml:space="preserve">
+          <source>When prompted, enter the user account credentials that you specified when you created the farm.</source>
+          <target state="new">When prompted, enter the user account credentials that you specified when you created the farm.</target>
+        </trans-unit>
+        <trans-unit id="1579cd83-391b-4b01-a8d4-0ed525514944" xml:space="preserve">
+          <source>From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality.</source>
+          <target state="new">From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality.</target>
+        </trans-unit>
+        <trans-unit id="963ce90e-4eef-48a4-b7e2-120156ede6ac" xml:space="preserve">
+          <source>For more information, see <bpt id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;linkText&gt;</bpt>Configure SharePoint 2013<ept id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;/linkText&gt;</ept><bpt id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;title&gt;</bpt><ept id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;linkText&gt;</bpt>Configure SharePoint 2013<ept id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;/linkText&gt;</ept><bpt id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;title&gt;</bpt><ept id="f122fb60-e563-4a00-ad71-0ce08be9a001">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52231bf5-7a4b-46da-aefc-4af50005100a" xml:space="preserve">
+          <source>To access the Central Administration SharePoint site:</source>
+          <target state="new">To access the Central Administration SharePoint site:</target>
+        </trans-unit>
+        <trans-unit id="a1449d76-2e27-4afd-91b7-1aaa28087e0a" xml:space="preserve">
+          <source>From the Azure Preview Portal, click <bpt id="3fec7b25-aeec-4413-98bb-40d5ec936fdf">&lt;strong&gt;</bpt>Browse<ept id="3fec7b25-aeec-4413-98bb-40d5ec936fdf">&lt;/strong&gt;</ept>, and then click <bpt id="bbe6f15e-d71c-48c6-ac59-86b348f57d6f">&lt;strong&gt;</bpt>Resource Groups<ept id="bbe6f15e-d71c-48c6-ac59-86b348f57d6f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Azure Preview Portal, click <bpt id="3fec7b25-aeec-4413-98bb-40d5ec936fdf">&lt;strong&gt;</bpt>Browse<ept id="3fec7b25-aeec-4413-98bb-40d5ec936fdf">&lt;/strong&gt;</ept>, and then click <bpt id="bbe6f15e-d71c-48c6-ac59-86b348f57d6f">&lt;strong&gt;</bpt>Resource Groups<ept id="bbe6f15e-d71c-48c6-ac59-86b348f57d6f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fa215b6-a31e-4195-a8aa-16f4c78f867a" xml:space="preserve">
+          <source>In the list of resource groups, click the name of your SharePoint farm resource group.</source>
+          <target state="new">In the list of resource groups, click the name of your SharePoint farm resource group.</target>
+        </trans-unit>
+        <trans-unit id="399ad99a-409b-4eed-b758-d4b73f3acbc8" xml:space="preserve">
+          <source>In the pane for your SharePoint farm resource group, click <bpt id="300e1d85-39e5-45b0-80b1-ea8d5cf19df2">&lt;strong&gt;</bpt>Deployment history<ept id="300e1d85-39e5-45b0-80b1-ea8d5cf19df2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pane for your SharePoint farm resource group, click <bpt id="300e1d85-39e5-45b0-80b1-ea8d5cf19df2">&lt;strong&gt;</bpt>Deployment history<ept id="300e1d85-39e5-45b0-80b1-ea8d5cf19df2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47f5f580-e3f3-4af8-89b2-592cf68db48a" xml:space="preserve">
+          <source>In the <bpt id="2aa4f49f-b5a9-4019-bb99-32c79c455b5a">&lt;strong&gt;</bpt>Deployment history<ept id="2aa4f49f-b5a9-4019-bb99-32c79c455b5a">&lt;/strong&gt;</ept> pane, click <bpt id="4753f850-cfa4-47c1-9ea4-303d9e58f8bd">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="4753f850-cfa4-47c1-9ea4-303d9e58f8bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2aa4f49f-b5a9-4019-bb99-32c79c455b5a">&lt;strong&gt;</bpt>Deployment history<ept id="2aa4f49f-b5a9-4019-bb99-32c79c455b5a">&lt;/strong&gt;</ept> pane, click <bpt id="4753f850-cfa4-47c1-9ea4-303d9e58f8bd">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="4753f850-cfa4-47c1-9ea4-303d9e58f8bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c8e9873-fe62-46ca-bc09-bb797103c5ca" xml:space="preserve">
+          <source>In the <bpt id="230879b4-6f53-4baf-807a-07c2e98bf0b2">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="230879b4-6f53-4baf-807a-07c2e98bf0b2">&lt;/strong&gt;</ept> pane, select the URL in the <bpt id="e71ef1eb-646a-4c20-864a-c8a72dcd7cb8">&lt;strong&gt;</bpt>SHAREPOINTCENTRALADMINURL<ept id="e71ef1eb-646a-4c20-864a-c8a72dcd7cb8">&lt;/strong&gt;</ept> field and copy it.</source>
+          <target state="new">In the <bpt id="230879b4-6f53-4baf-807a-07c2e98bf0b2">&lt;strong&gt;</bpt>Microsoft.SharePointFarm<ept id="230879b4-6f53-4baf-807a-07c2e98bf0b2">&lt;/strong&gt;</ept> pane, select the URL in the <bpt id="e71ef1eb-646a-4c20-864a-c8a72dcd7cb8">&lt;strong&gt;</bpt>SHAREPOINTCENTRALADMINURL<ept id="e71ef1eb-646a-4c20-864a-c8a72dcd7cb8">&lt;/strong&gt;</ept> field and copy it.</target>
+        </trans-unit>
+        <trans-unit id="37c27afc-3207-410e-a293-661576170a34" xml:space="preserve">
+          <source>From your Internet browser, paste the URL into the address field.</source>
+          <target state="new">From your Internet browser, paste the URL into the address field.</target>
+        </trans-unit>
+        <trans-unit id="68515aff-28a7-49f9-900f-acaab9949131" xml:space="preserve">
+          <source>When prompted, enter the user account credentials that you specified when you created the farm.</source>
+          <target state="new">When prompted, enter the user account credentials that you specified when you created the farm.</target>
+        </trans-unit>
+        <trans-unit id="2fde8bb3-6625-40d6-8b3d-244414716335" xml:space="preserve">
+          <source>Notes:</source>
+          <target state="new">Notes:</target>
+        </trans-unit>
+        <trans-unit id="6faf6387-4cd8-4794-b7d4-ebefe9645baa" xml:space="preserve">
+          <source>The Azure Preview Portal creates these virtual machines within the specified subscription.</source>
+          <target state="new">The Azure Preview Portal creates these virtual machines within the specified subscription.</target>
+        </trans-unit>
+        <trans-unit id="7412c561-737d-4396-90a9-fa68d75f9eb5" xml:space="preserve">
+          <source>The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence.</source>
+          <target state="new">The Azure Preview Portal creates both of these farms in a cloud-only virtual network with an Internet-facing web presence.</target>
+        </trans-unit>
+        <trans-unit id="6ab747b8-ab57-4645-9538-8795d4b5ed57" xml:space="preserve">
+          <source>There is no site-to-site VPN or ExpressRoute connection back to your organization network.</source>
+          <target state="new">There is no site-to-site VPN or ExpressRoute connection back to your organization network.</target>
+        </trans-unit>
+        <trans-unit id="0e1dc15f-51ea-4193-bb44-32da174d37d6" xml:space="preserve">
+          <source>You can administer these servers through Remote Desktop connections.</source>
+          <target state="new">You can administer these servers through Remote Desktop connections.</target>
+        </trans-unit>
+        <trans-unit id="df940f13-3ac9-4d21-aada-e1712fe19ab1" xml:space="preserve">
+          <source>For more information, see <bpt id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;/linkText&gt;</ept><bpt id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;title&gt;</bpt><ept id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;/linkText&gt;</ept><bpt id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;title&gt;</bpt><ept id="7c2211f0-1ffa-4c08-932d-6eebd36d4546">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d900170-fa81-485f-83a7-e0467486b212" xml:space="preserve">
+          <source>The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management.</source>
+          <target state="new">The SharePoint Server Farm feature of the Azure Preview Portal creates virtual machines in Service Management.</target>
+        </trans-unit>
+        <trans-unit id="104ffa81-2e9e-4d44-bcd5-14aebc6c7212" xml:space="preserve">
+          <source>To create SharePoint Server 2013 farms in Resource Manager, see <bpt id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;linkText&gt;</bpt>Deploy SharePoint Farms with Azure Resource Manager Templates<ept id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;/linkText&gt;</ept><bpt id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;title&gt;</bpt><ept id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create SharePoint Server 2013 farms in Resource Manager, see <bpt id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;linkText&gt;</bpt>Deploy SharePoint Farms with Azure Resource Manager Templates<ept id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;/linkText&gt;</ept><bpt id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;title&gt;</bpt><ept id="01c5dd50-b85d-4a88-8529-f2f4f7bb0a1f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="007b6495-ebed-468f-b95f-a44653a00d97" xml:space="preserve">
+          <source><bpt id="07542f46-1871-420b-9409-f3cca8623813">&lt;linkText&gt;</bpt>SharePoint Server Farm Configuration Details<ept id="07542f46-1871-420b-9409-f3cca8623813">&lt;/linkText&gt;</ept><bpt id="07542f46-1871-420b-9409-f3cca8623813">&lt;title&gt;</bpt><ept id="07542f46-1871-420b-9409-f3cca8623813">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07542f46-1871-420b-9409-f3cca8623813">&lt;linkText&gt;</bpt>SharePoint Server Farm Configuration Details<ept id="07542f46-1871-420b-9409-f3cca8623813">&lt;/linkText&gt;</ept><bpt id="07542f46-1871-420b-9409-f3cca8623813">&lt;title&gt;</bpt><ept id="07542f46-1871-420b-9409-f3cca8623813">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4881bf2-243c-497d-a3fc-ca04d89b4aba" xml:space="preserve">
+          <source><bpt id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;linkText&gt;</bpt>SharePoint on Azure Infrastructure Services<ept id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;/linkText&gt;</ept><bpt id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;title&gt;</bpt><ept id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;linkText&gt;</bpt>SharePoint on Azure Infrastructure Services<ept id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;/linkText&gt;</ept><bpt id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;title&gt;</bpt><ept id="5ecfa7b3-9456-4343-9056-309a75013dc9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8d92af9-57dd-4553-8443-276bf2ebb377" xml:space="preserve">
+          <source><bpt id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;/linkText&gt;</ept><bpt id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;title&gt;</bpt><ept id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;/linkText&gt;</ept><bpt id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;title&gt;</bpt><ept id="d9457033-fb68-4b11-8983-85b83e616e5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2152b1a7-d11d-4897-a21f-faf1f004713a" xml:space="preserve">
+          <source><bpt id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;/linkText&gt;</ept><bpt id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;title&gt;</bpt><ept id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;/linkText&gt;</ept><bpt id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;title&gt;</bpt><ept id="2c79b543-0c87-4a27-8165-e0c85a8a4cdf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

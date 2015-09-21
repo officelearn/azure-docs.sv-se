@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d407c1ba-4d8c-464d-b3c0-eedcbd7f33cb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d407c1ba-4d8c-464d-b3c0-eedcbd7f33cb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57e92da9-608d-473d-927a-fa393357e1d5">
+        <trans-unit id="16e2d75b-4ba2-47f3-b153-b9060997c5d3" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less"
+    description="Test drive Azure RemoteApp functionality without installing the service." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Try Azure RemoteApp on your device in 3 minutes or less"
+    description="Test drive Azure RemoteApp functionality without installing the service." 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="37327753-a4b0-4c02-a095-7733d60b09d0" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="mbaldwin" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="e940a5aa-70ac-445d-8ade-dea05ec47d3b" xml:space="preserve">
+          <source>Want to see Azure RemoteApp on your device?</source>
+          <target state="new">Want to see Azure RemoteApp on your device?</target>
+        </trans-unit>
+        <trans-unit id="dd3adb52-81fa-4253-aa7c-7a77911a6ec9" xml:space="preserve">
+          <source>You can access our demo deployment for 10 minutes, as long as you have a Microsoft account.</source>
+          <target state="new">You can access our demo deployment for 10 minutes, as long as you have a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="08f4f666-dc49-468e-b247-7f5c8097c1e2" xml:space="preserve">
+          <source>We have Office and a few other applications available.</source>
+          <target state="new">We have Office and a few other applications available.</target>
+        </trans-unit>
+        <trans-unit id="d8f93637-b325-4ccb-8b9e-6f64e4822c29" xml:space="preserve">
+          <source>This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.</source>
+          <target state="new">This is a great way to test drive the user experience for Azure RemoteApp in less than 3 minutes.</target>
+        </trans-unit>
+        <trans-unit id="a78eacb5-ed3c-4230-8ce6-6713b54cb4ab" xml:space="preserve">
+          <source>Interested?</source>
+          <target state="new">Interested?</target>
+        </trans-unit>
+        <trans-unit id="9e96f8ee-9969-4eb2-a2b6-c9df1249c2ee" xml:space="preserve">
+          <source>Go to to <bpt id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;linkText&gt;</bpt>http://remoteapp.azure.com<ept id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;/linkText&gt;</ept><bpt id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;title&gt;</bpt><ept id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go to to <bpt id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;linkText&gt;</bpt>http://remoteapp.azure.com<ept id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;/linkText&gt;</ept><bpt id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;title&gt;</bpt><ept id="6787f67e-81d7-4eae-a1ea-a30f915db8b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf19eb5c-09a2-4e5a-b64e-00e4dfe29922" xml:space="preserve">
+          <source>Click <bpt id="75e4269e-64da-474b-83cd-c94a7921da8d">&lt;strong&gt;</bpt>Install Client<ept id="75e4269e-64da-474b-83cd-c94a7921da8d">&lt;/strong&gt;</ept> in the upper right corner.</source>
+          <target state="new">Click <bpt id="75e4269e-64da-474b-83cd-c94a7921da8d">&lt;strong&gt;</bpt>Install Client<ept id="75e4269e-64da-474b-83cd-c94a7921da8d">&lt;/strong&gt;</ept> in the upper right corner.</target>
+        </trans-unit>
+        <trans-unit id="1394745b-5b76-4f8f-b025-e5971b53a0f7" xml:space="preserve">
+          <source>The system automatically detects your device and will take you to the client for your device.</source>
+          <target state="new">The system automatically detects your device and will take you to the client for your device.</target>
+        </trans-unit>
+        <trans-unit id="a7f0fddc-be5f-4533-907f-76b85255c6c8" xml:space="preserve">
+          <source>Install the client.</source>
+          <target state="new">Install the client.</target>
+        </trans-unit>
+        <trans-unit id="c96e6710-988a-49c4-b06f-eab9a517824e" xml:space="preserve">
+          <source>Go back <bpt id="1267acea-608c-4437-b162-54fd13b3e336">&lt;linkText&gt;</bpt>http://remoteapp.azure.com<ept id="1267acea-608c-4437-b162-54fd13b3e336">&lt;/linkText&gt;</ept><bpt id="1267acea-608c-4437-b162-54fd13b3e336">&lt;title&gt;</bpt><ept id="1267acea-608c-4437-b162-54fd13b3e336">&lt;/title&gt;</ept> and  sign in with your Microsoft account.</source>
+          <target state="new">Go back <bpt id="1267acea-608c-4437-b162-54fd13b3e336">&lt;linkText&gt;</bpt>http://remoteapp.azure.com<ept id="1267acea-608c-4437-b162-54fd13b3e336">&lt;/linkText&gt;</ept><bpt id="1267acea-608c-4437-b162-54fd13b3e336">&lt;title&gt;</bpt><ept id="1267acea-608c-4437-b162-54fd13b3e336">&lt;/title&gt;</ept> and  sign in with your Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="b378a519-aefe-4f58-b5f1-79c2abf62de0" xml:space="preserve">
+          <source>You can now access applications running in real time on Azure RemoteApp.</source>
+          <target state="new">You can now access applications running in real time on Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="3a0c5c2f-d7ec-4bb2-bfd6-3d6dcb3ed42f" xml:space="preserve">
+          <source>Your opinion matters.</source>
+          <target state="new">Your opinion matters.</target>
+        </trans-unit>
+        <trans-unit id="05dec9b3-a73f-41a9-a106-8bf91a0af785" xml:space="preserve">
+          <source>At the end of each session, you will see a dialog box for your feedback.</source>
+          <target state="new">At the end of each session, you will see a dialog box for your feedback.</target>
+        </trans-unit>
+        <trans-unit id="1b0eb6c1-70cf-4d9c-bdb0-dbaecda5606f" xml:space="preserve">
+          <source>If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.</source>
+          <target state="new">If you have a minute, tell us your thoughts and let us know whether you would like Microsoft to contact you for additional information.</target>
+        </trans-unit>
+        <trans-unit id="1b55e3b8-586b-4310-a343-ae8560f29a39" xml:space="preserve">
+          <source>Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy &amp; Paste) and USB and printer redirection are disabled.  </source>
+          <target state="new">Because this is a controlled environment for demo use, we have not enabled external internet access from the published demo applications. Because of this, services like OneDrive are not accessible. Also, clipboard sharing (Copy &amp; Paste) and USB and printer redirection are disabled.  </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

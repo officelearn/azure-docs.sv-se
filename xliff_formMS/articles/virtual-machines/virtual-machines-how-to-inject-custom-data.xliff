@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c2da4e46-74dd-408d-8a6f-f68a48fb75c6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c2da4e46-74dd-408d-8a6f-f68a48fb75c6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e1ed665-b8b8-4d1c-8614-1362465a62cb">
+        <trans-unit id="5cd053f1-1d1c-4a46-9813-312d503bbc40" xml:space="preserve">
+          <source>Injecting Custom Data into Azure Virtual Machines</source>
+          <target state="new">Injecting Custom Data into Azure Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="7952929a-8893-453f-8bb1-ce42ace41362" xml:space="preserve">
+          <source>This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux.</source>
+          <target state="new">This topic describes how to inject custom data into an Azure virtual machine when the instance is created and how to locate the custom data on either Windows or Linux.</target>
+        </trans-unit>
+        <trans-unit id="95390596-ccbc-4f38-93eb-c70aee3570e1" xml:space="preserve">
+          <source>Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution.</source>
+          <target state="new">Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution.</target>
+        </trans-unit>
+        <trans-unit id="858e5a1a-faff-434d-8c26-23c54f3e7fed" xml:space="preserve">
+          <source>This topic describes how to:</source>
+          <target state="new">This topic describes how to:</target>
+        </trans-unit>
+        <trans-unit id="959c36d9-59b3-44d6-914a-c0c5f86ef4e3" xml:space="preserve">
+          <source>Inject data into an Azure virtual machine when it is being provisioned.</source>
+          <target state="new">Inject data into an Azure virtual machine when it is being provisioned.</target>
+        </trans-unit>
+        <trans-unit id="3b71dd6b-4b12-4630-91da-f1ec3c89ab23" xml:space="preserve">
+          <source>Retrieve it for both Windows and Linux.</source>
+          <target state="new">Retrieve it for both Windows and Linux.</target>
+        </trans-unit>
+        <trans-unit id="99bb02c3-732d-4662-a070-89d10c667b21" xml:space="preserve">
+          <source>Use special tools available on some systems to detect and handle custom data automatically.</source>
+          <target state="new">Use special tools available on some systems to detect and handle custom data automatically.</target>
+        </trans-unit>
+        <trans-unit id="65b182a0-0b46-420a-825a-c6cda8318158" xml:space="preserve">
+          <source>This article describes how custom data can be injected by using a VM created with the Azure Service Management API.</source>
+          <target state="new">This article describes how custom data can be injected by using a VM created with the Azure Service Management API.</target>
+        </trans-unit>
+        <trans-unit id="f114a277-4997-416d-80f1-f808fe78b16e" xml:space="preserve">
+          <source>To see how to use the Azure Resource Management API, see <bpt id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;linkText&gt;</bpt>the example template<ept id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;/linkText&gt;</ept><bpt id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;title&gt;</bpt><ept id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see how to use the Azure Resource Management API, see <bpt id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;linkText&gt;</bpt>the example template<ept id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;/linkText&gt;</ept><bpt id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;title&gt;</bpt><ept id="81eb942b-6969-403e-892e-e2ea18631b67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="452d89e9-9d46-4135-8345-09743c20c8f8" xml:space="preserve">
+          <source>This feature is currently supported only in the <bpt id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;linkText&gt;</bpt>Azure Command-Line Interface<ept id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;/linkText&gt;</ept><bpt id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;title&gt;</bpt><ept id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;/title&gt;</ept>.</source>
+          <target state="new">This feature is currently supported only in the <bpt id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;linkText&gt;</bpt>Azure Command-Line Interface<ept id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;/linkText&gt;</ept><bpt id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;title&gt;</bpt><ept id="3d955c10-9f30-49f2-aeb1-c842d019394d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c1d3769-7665-40cf-bdcd-82987c88b4aa" xml:space="preserve">
+          <source>Although you may use any of the options for the <bpt id="22ff575d-91e6-4ab0-8672-a3b500d23bc7">&lt;code&gt;</bpt>azure vm create<ept id="22ff575d-91e6-4ab0-8672-a3b500d23bc7">&lt;/code&gt;</ept> command, the following demonstrates one very basic approach.</source>
+          <target state="new">Although you may use any of the options for the <bpt id="22ff575d-91e6-4ab0-8672-a3b500d23bc7">&lt;code&gt;</bpt>azure vm create<ept id="22ff575d-91e6-4ab0-8672-a3b500d23bc7">&lt;/code&gt;</ept> command, the following demonstrates one very basic approach.</target>
+        </trans-unit>
+        <trans-unit id="3d56f3aa-d2d3-49b3-b0f8-ee7bc4f66927" xml:space="preserve">
+          <source>If your Azure virtual machine is a Windows-based virtual machine, then the custom data file is saved to <bpt id="15e0bc7b-4eeb-4922-aa4c-83185799ef23">&lt;code&gt;</bpt>%SYSTEMDRIVE%\AzureData\CustomData.bin<ept id="15e0bc7b-4eeb-4922-aa4c-83185799ef23">&lt;/code&gt;</ept>.</source>
+          <target state="new">If your Azure virtual machine is a Windows-based virtual machine, then the custom data file is saved to <bpt id="15e0bc7b-4eeb-4922-aa4c-83185799ef23">&lt;code&gt;</bpt>%SYSTEMDRIVE%\AzureData\CustomData.bin<ept id="15e0bc7b-4eeb-4922-aa4c-83185799ef23">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f476616-b881-448f-9705-1adc2a4f5a0e" xml:space="preserve">
+          <source>Although it was base64-encoded to transfer from the local computer to the new virtual machine, it is automatically decoded and can be opened or used immediately.</source>
+          <target state="new">Although it was base64-encoded to transfer from the local computer to the new virtual machine, it is automatically decoded and can be opened or used immediately.</target>
+        </trans-unit>
+        <trans-unit id="e1759556-b5a8-4d23-9527-dd4348334e77" xml:space="preserve">
+          <source>If the file exists, it is overwritten.</source>
+          <target state="new">If the file exists, it is overwritten.</target>
+        </trans-unit>
+        <trans-unit id="d1832fa1-9e16-4f59-a233-1db7713412c8" xml:space="preserve">
+          <source>The security on the directory is set to <bpt id="267af48b-5676-4122-b182-49c7fb8a2044">&lt;strong&gt;</bpt>System:Full Control<ept id="267af48b-5676-4122-b182-49c7fb8a2044">&lt;/strong&gt;</ept> and <bpt id="a9b5a1f5-bdac-442c-9cb5-0f22a13d0ba4">&lt;strong&gt;</bpt>Administrators:Full Control<ept id="a9b5a1f5-bdac-442c-9cb5-0f22a13d0ba4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The security on the directory is set to <bpt id="267af48b-5676-4122-b182-49c7fb8a2044">&lt;strong&gt;</bpt>System:Full Control<ept id="267af48b-5676-4122-b182-49c7fb8a2044">&lt;/strong&gt;</ept> and <bpt id="a9b5a1f5-bdac-442c-9cb5-0f22a13d0ba4">&lt;strong&gt;</bpt>Administrators:Full Control<ept id="a9b5a1f5-bdac-442c-9cb5-0f22a13d0ba4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07cabe09-6719-4fd8-ab76-14a99586ef90" xml:space="preserve">
+          <source>If your Azure virtual machine is a Linux-based virtual machine, then the custom data file will be located in the following two places.</source>
+          <target state="new">If your Azure virtual machine is a Linux-based virtual machine, then the custom data file will be located in the following two places.</target>
+        </trans-unit>
+        <trans-unit id="87967edd-393d-4424-a9d2-4959170d1cc8" xml:space="preserve">
+          <source>The data will be base64-encoded, so you will need to decode the data first.</source>
+          <target state="new">The data will be base64-encoded, so you will need to decode the data first.</target>
+        </trans-unit>
+        <trans-unit id="5b401523-f336-4416-b9b5-d2c8ff6afac6" xml:space="preserve">
+          <source>At <bpt id="8a9f8f9f-78d4-4996-ac40-95811983456f">&lt;code&gt;</bpt>/var/lib/waagent/ovf-env.xml<ept id="8a9f8f9f-78d4-4996-ac40-95811983456f">&lt;/code&gt;</ept></source>
+          <target state="new">At <bpt id="8a9f8f9f-78d4-4996-ac40-95811983456f">&lt;code&gt;</bpt>/var/lib/waagent/ovf-env.xml<ept id="8a9f8f9f-78d4-4996-ac40-95811983456f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c99b6550-03b9-449c-9170-ab1f5ed292a8" xml:space="preserve">
+          <source>At <bpt id="807fa12a-5aeb-4be4-bfc6-7ce035300fbb">&lt;code&gt;</bpt>/var/lib/waagent/CustomData<ept id="807fa12a-5aeb-4be4-bfc6-7ce035300fbb">&lt;/code&gt;</ept></source>
+          <target state="new">At <bpt id="807fa12a-5aeb-4be4-bfc6-7ce035300fbb">&lt;code&gt;</bpt>/var/lib/waagent/CustomData<ept id="807fa12a-5aeb-4be4-bfc6-7ce035300fbb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3414121d-3acc-4477-8058-7e9e6562b0f2" xml:space="preserve">
+          <source>If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init.</source>
+          <target state="new">If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init.</target>
+        </trans-unit>
+        <trans-unit id="81782eba-5210-4e7d-b4a0-e173b2c53f49" xml:space="preserve">
+          <source>Or if your custom data file is a script, then cloud-init can simply execute it.</source>
+          <target state="new">Or if your custom data file is a script, then cloud-init can simply execute it.</target>
+        </trans-unit>
+        <trans-unit id="5efa4025-5434-410b-aa43-98cc93a3b8ab" xml:space="preserve">
+          <source>In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file.</source>
+          <target state="new">In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file.</target>
+        </trans-unit>
+        <trans-unit id="baf99a35-408a-446a-8c3b-c5699213737d" xml:space="preserve">
+          <source>See <bpt id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;linkText&gt;</bpt>Azure Linux Agent user guide<ept id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;/linkText&gt;</ept><bpt id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;title&gt;</bpt><ept id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;linkText&gt;</bpt>Azure Linux Agent user guide<ept id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;/linkText&gt;</ept><bpt id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;title&gt;</bpt><ept id="664a6db9-fa84-45ef-83a6-2d89481243cd">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="42dd7cf2-1995-414d-a93e-a943b2b85f1c" xml:space="preserve">
+          <source>However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition.</source>
+          <target state="new">However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition.</target>
+        </trans-unit>
+        <trans-unit id="a47a06cf-0605-4efa-a392-c72d090340be" xml:space="preserve">
+          <source>See the following page on the Ubuntu wiki for more details: <bpt id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;linkText&gt;</bpt>AzureSwapPartitions<ept id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;/linkText&gt;</ept><bpt id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;title&gt;</bpt><ept id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the following page on the Ubuntu wiki for more details: <bpt id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;linkText&gt;</bpt>AzureSwapPartitions<ept id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;/linkText&gt;</ept><bpt id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;title&gt;</bpt><ept id="a668b44a-6eee-43f0-aa18-1068e627b646">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76f69773-5b7b-41c2-8c51-a6790c81b9bb" xml:space="preserve">
+          <source>For further information, see the <bpt id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;linkText&gt;</bpt>cloud-init documentation for Ubuntu<ept id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;/linkText&gt;</ept><bpt id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;title&gt;</bpt><ept id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further information, see the <bpt id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;linkText&gt;</bpt>cloud-init documentation for Ubuntu<ept id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;/linkText&gt;</ept><bpt id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;title&gt;</bpt><ept id="849d67a3-5ac8-43d6-a8ab-98ad1d512c8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="450e0775-ff47-4d68-a079-e94b0dd00753" xml:space="preserve">
+          <source><bpt id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;linkText&gt;</bpt>Add Role Service Management REST API Reference<ept id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;/linkText&gt;</ept><bpt id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;title&gt;</bpt><ept id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;linkText&gt;</bpt>Add Role Service Management REST API Reference<ept id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;/linkText&gt;</ept><bpt id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;title&gt;</bpt><ept id="22f73f80-b8ee-427e-bf92-56e4a070c15a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27a8d6a4-5ea4-46c3-a7ec-12a338fa55ed" xml:space="preserve">
+          <source><bpt id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;linkText&gt;</bpt>Azure Command-line Interface<ept id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;/linkText&gt;</ept><bpt id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;title&gt;</bpt><ept id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;linkText&gt;</bpt>Azure Command-line Interface<ept id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;/linkText&gt;</ept><bpt id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;title&gt;</bpt><ept id="7d064d09-45ee-48ea-bc8f-f2b36707f0df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

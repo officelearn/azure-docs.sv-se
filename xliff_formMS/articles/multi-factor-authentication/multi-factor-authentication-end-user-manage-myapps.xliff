@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="838818a9-574f-4621-b455-fa32574fad80" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="838818a9-574f-4621-b455-fa32574fad80" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="94705ed8-474b-46ed-bde1-8c8cd0a054c3">
+        <trans-unit id="7aa6722e-c6c6-46ae-9e6b-0f4f659773da" xml:space="preserve">
+          <source>Manage your Azure MFA settings in the Myapps portal</source>
+          <target state="new">Manage your Azure MFA settings in the Myapps portal</target>
+        </trans-unit>
+        <trans-unit id="a7c0c996-b033-4cce-94df-fc562a527af5" xml:space="preserve">
+          <source>This page will show users where in the Myapps portal they need to go to manage their Azure MFA settings.</source>
+          <target state="new">This page will show users where in the Myapps portal they need to go to manage their Azure MFA settings.</target>
+        </trans-unit>
+        <trans-unit id="ef56322b-c397-4439-bb8c-8f2d9801db9a" xml:space="preserve">
+          <source>If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.</source>
+          <target state="new">If you use multi-factor authentication with Office 365 you will want to manage your additional security verification settings through the Office 365 portal.</target>
+        </trans-unit>
+        <trans-unit id="4de57b43-c637-40fe-b049-d45599097fc8" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;Sign-in to <bpt id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;/linkText&gt;</ept><bpt id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;title&gt;</bpt><ept id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;/title&gt;</ept>&lt;/li&gt;    
+&lt;li&gt;At the top, select profile.&lt;/li&gt;
+&lt;li&gt;Click on your user name and select Additional Security Verification.&lt;/li&gt;</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;Sign-in to <bpt id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;/linkText&gt;</ept><bpt id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;title&gt;</bpt><ept id="85a0219b-a5a9-4739-8454-dba91a96b651">&lt;/title&gt;</ept>&lt;/li&gt;    
+&lt;li&gt;At the top, select profile.&lt;/li&gt;
+&lt;li&gt;Click on your user name and select Additional Security Verification.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="dd9fbb6e-96cc-4594-80a0-15f355a6d0ea" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="38f2b609-b8b4-427e-bc79-d210e7cd22b3">&lt;linkText&gt;</bpt>Cloud<ept id="38f2b609-b8b4-427e-bc79-d210e7cd22b3">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="38f2b609-b8b4-427e-bc79-d210e7cd22b3">&lt;linkText&gt;</bpt>Cloud<ept id="38f2b609-b8b4-427e-bc79-d210e7cd22b3">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="f014833c-9162-49d1-973f-a0edf82597a4" xml:space="preserve">
+          <source>&lt;li&gt;You should now be on the proof-up page and you can change your settings.&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;You should now be on the proof-up page and you can change your settings.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="0e829847-90a8-4030-8a39-a1140f4de083" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="7ddb1558-b1c5-4637-9fdf-0aa42b33133d">&lt;linkText&gt;</bpt>Setup<ept id="7ddb1558-b1c5-4637-9fdf-0aa42b33133d">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="7ddb1558-b1c5-4637-9fdf-0aa42b33133d">&lt;linkText&gt;</bpt>Setup<ept id="7ddb1558-b1c5-4637-9fdf-0aa42b33133d">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

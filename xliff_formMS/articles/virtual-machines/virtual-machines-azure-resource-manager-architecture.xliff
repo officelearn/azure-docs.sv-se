@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b0ef8a02-a498-462e-9e37-4c1c8d907131" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b0ef8a02-a498-462e-9e37-4c1c8d907131" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fe32b1bd-404d-41d5-bcf1-887bed6dee08">
+        <trans-unit id="65c2d568-b58d-4414-b54e-9767ea367325" xml:space="preserve">
+          <source>Azure Resource Manager Architecture</source>
+          <target state="new">Azure Resource Manager Architecture</target>
+        </trans-unit>
+        <trans-unit id="83ef8323-d9e2-4989-a97e-24644b1631a9" xml:space="preserve">
+          <source>Learn about the architecture of Resource Manager and the relationships between the compute, network, and storage resource providers.</source>
+          <target state="new">Learn about the architecture of Resource Manager and the relationships between the compute, network, and storage resource providers.</target>
+        </trans-unit>
+        <trans-unit id="a98e28ab-e280-4db1-bd32-db5d3567a2f4" xml:space="preserve">
+          <source>This article provides an overview of both the Service Management and Resource Manager architectures for creating infrastructure-based applications and workloads.</source>
+          <target state="new">This article provides an overview of both the Service Management and Resource Manager architectures for creating infrastructure-based applications and workloads.</target>
+        </trans-unit>
+        <trans-unit id="97d78a0a-997f-4aa5-922b-5efabd01a070" xml:space="preserve">
+          <source>Before we discuss the architecture of Azure Resource Manager and the various resource providers, let's review the architecture that currently exists for Azure Service Management.</source>
+          <target state="new">Before we discuss the architecture of Azure Resource Manager and the various resource providers, let's review the architecture that currently exists for Azure Service Management.</target>
+        </trans-unit>
+        <trans-unit id="d7619dbb-3d8c-49c4-a91e-7061ac49b5fc" xml:space="preserve">
+          <source>In Azure Service Management, the compute, storage, or network resources for hosting virtual machines are provided by:</source>
+          <target state="new">In Azure Service Management, the compute, storage, or network resources for hosting virtual machines are provided by:</target>
+        </trans-unit>
+        <trans-unit id="4ee7057a-04e8-4fa9-8752-bddcaee26c7d" xml:space="preserve">
+          <source>A required cloud service that acts as a container for hosting virtual machines (compute).</source>
+          <target state="new">A required cloud service that acts as a container for hosting virtual machines (compute).</target>
+        </trans-unit>
+        <trans-unit id="28cb0a84-8a58-498c-a7f6-6e3032ea2064" xml:space="preserve">
+          <source>Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure.</source>
+          <target state="new">Virtual machines are automatically provided with a network interface card (NIC) and an IP address assigned by Azure.</target>
+        </trans-unit>
+        <trans-unit id="e17abf8e-b75e-411e-8574-38e4d1db1211" xml:space="preserve">
+          <source>Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.</source>
+          <target state="new">Additionally, the cloud service contains an external load balancer instance, a public IP address, and default endpoints to allow remote desktop and remote PowerShell traffic for Windows-based virtual machines and Secure Shell (SSH) traffic for Linux-based virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="4e665e71-8f3a-47b7-8219-7c25c7f4774c" xml:space="preserve">
+          <source>A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).</source>
+          <target state="new">A required storage account that stores the VHDs for a virtual machine, including the operating system, temporary, and additional data disks (storage).</target>
+        </trans-unit>
+        <trans-unit id="7edd3a5f-d95a-4d93-84e0-d34a8f6a4002" xml:space="preserve">
+          <source>An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).</source>
+          <target state="new">An optional virtual network that acts as an additional container, in which you can create a subnetted structure and designate the subnet on which the virtual machine is located (network).</target>
+        </trans-unit>
+        <trans-unit id="3ca2dae4-8447-4042-8b49-11123254eac6" xml:space="preserve">
+          <source>Here are the components and their relationships for Azure Service Management.</source>
+          <target state="new">Here are the components and their relationships for Azure Service Management.</target>
+        </trans-unit>
+        <trans-unit id="f130dc14-a2d9-4f5c-b25b-2b386fd95751" xml:space="preserve">
+          <source><bpt id="9c4faf4d-f6ee-438f-affb-bb9157ab1be8">&lt;linkText&gt;</bpt><ept id="9c4faf4d-f6ee-438f-affb-bb9157ab1be8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c4faf4d-f6ee-438f-affb-bb9157ab1be8">&lt;linkText&gt;</bpt><ept id="9c4faf4d-f6ee-438f-affb-bb9157ab1be8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68d8c684-4bcf-4d2c-8be1-0db8eadcd2da" xml:space="preserve">
+          <source>For Azure Resource Manager, resource providers support the individual resources for creating functioning virtual machines in the configuration that you need.</source>
+          <target state="new">For Azure Resource Manager, resource providers support the individual resources for creating functioning virtual machines in the configuration that you need.</target>
+        </trans-unit>
+        <trans-unit id="009744d5-03fe-4cc0-bccc-51a3731f9570" xml:space="preserve">
+          <source>For virtual machines, there are three main resource providers:</source>
+          <target state="new">For virtual machines, there are three main resource providers:</target>
+        </trans-unit>
+        <trans-unit id="f3edf1d7-a564-4eb2-b57b-77012c1105d3" xml:space="preserve">
+          <source>Compute Resource Provider (CRP): Supports instances of virtual machines and optional availability sets.</source>
+          <target state="new">Compute Resource Provider (CRP): Supports instances of virtual machines and optional availability sets.</target>
+        </trans-unit>
+        <trans-unit id="e2546f7b-bbaa-4b37-8935-f1f6719eef64" xml:space="preserve">
+          <source>Storage Resource Provider (SRP): Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.</source>
+          <target state="new">Storage Resource Provider (SRP): Supports required storage accounts that store the VHDs for virtual machines, including their operating system and additional data disks.</target>
+        </trans-unit>
+        <trans-unit id="af93d407-4803-4ef0-8684-05b9792cada8" xml:space="preserve">
+          <source>Network Resource Provider (NRP): Supports required NICs, virtual machine IP addresses, and subnets within virtual networks and optional load balancers, load balancer IP addresses, and Network Security Groups.</source>
+          <target state="new">Network Resource Provider (NRP): Supports required NICs, virtual machine IP addresses, and subnets within virtual networks and optional load balancers, load balancer IP addresses, and Network Security Groups.</target>
+        </trans-unit>
+        <trans-unit id="a5691958-9a64-40d3-8605-8f3667aa5cf6" xml:space="preserve">
+          <source>Additionally, there are relationships between the resources within the resource providers:</source>
+          <target state="new">Additionally, there are relationships between the resources within the resource providers:</target>
+        </trans-unit>
+        <trans-unit id="32ac6e39-f22b-4d55-9ef3-45ef303ed3e7" xml:space="preserve">
+          <source>A virtual machine depends on a specific storage account defined in the SRP to store its disks in blob storage (required).</source>
+          <target state="new">A virtual machine depends on a specific storage account defined in the SRP to store its disks in blob storage (required).</target>
+        </trans-unit>
+        <trans-unit id="3d975d0c-d759-4ef1-8143-381a093abbea" xml:space="preserve">
+          <source>A virtual machine references a specific NIC defined in the NRP (required) and an availability set defined in the CRP (optional).</source>
+          <target state="new">A virtual machine references a specific NIC defined in the NRP (required) and an availability set defined in the CRP (optional).</target>
+        </trans-unit>
+        <trans-unit id="3b57f317-ee34-42b7-a4c4-9a71c6ac5f04" xml:space="preserve">
+          <source>A NIC references the virtual machine's assigned IP address (required), the subnet of the virtual network for the virtual machine (required), and to a Network Security Group (optional).</source>
+          <target state="new">A NIC references the virtual machine's assigned IP address (required), the subnet of the virtual network for the virtual machine (required), and to a Network Security Group (optional).</target>
+        </trans-unit>
+        <trans-unit id="0f326c6e-57ef-40f5-a151-290b444c29bc" xml:space="preserve">
+          <source>A subnet within a virtual network references a Network Security Group (optional).</source>
+          <target state="new">A subnet within a virtual network references a Network Security Group (optional).</target>
+        </trans-unit>
+        <trans-unit id="bc30bfd2-28f2-4147-81da-85c32e2177b5" xml:space="preserve">
+          <source>A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional).</source>
+          <target state="new">A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional).</target>
+        </trans-unit>
+        <trans-unit id="597a35ba-5e0b-49a2-8847-1906bef88ad8" xml:space="preserve">
+          <source><bpt id="df24c41f-285d-4bd9-a6bc-be47889ca663">&lt;linkText&gt;</bpt><ept id="df24c41f-285d-4bd9-a6bc-be47889ca663">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df24c41f-285d-4bd9-a6bc-be47889ca663">&lt;linkText&gt;</bpt><ept id="df24c41f-285d-4bd9-a6bc-be47889ca663">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c663290-37d3-4226-b3c4-36d5cb9b57a1" xml:space="preserve">
+          <source>The componentization of resources allows for more flexibility when configuring the infrastructure for an IT workload hosted in Azure.</source>
+          <target state="new">The componentization of resources allows for more flexibility when configuring the infrastructure for an IT workload hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="6cd61876-341f-4871-87ec-a9db00a6874f" xml:space="preserve">
+          <source>Azure Resource Manager templates take advantage of this flexibility to create the set of dependent resources needed for a specific configuration.</source>
+          <target state="new">Azure Resource Manager templates take advantage of this flexibility to create the set of dependent resources needed for a specific configuration.</target>
+        </trans-unit>
+        <trans-unit id="2d0ebdce-8fb9-4bcd-a9d6-9bacaafa1acc" xml:space="preserve">
+          <source>When executing a template, Resource Manager ensures that the resources for a configuration are created in the correct order to preserve the dependencies and references.</source>
+          <target state="new">When executing a template, Resource Manager ensures that the resources for a configuration are created in the correct order to preserve the dependencies and references.</target>
+        </trans-unit>
+        <trans-unit id="dc80e456-c6c3-4f55-91c1-81cf7153d043" xml:space="preserve">
+          <source>For example, Resource Manager will not create the NIC for a virtual machine until it has created the virtual network with a subnet and an IP address (a Network Security Group is optional).</source>
+          <target state="new">For example, Resource Manager will not create the NIC for a virtual machine until it has created the virtual network with a subnet and an IP address (a Network Security Group is optional).</target>
+        </trans-unit>
+        <trans-unit id="7f0b3d26-6ef3-4acc-9578-eb7b603f06b3" xml:space="preserve">
+          <source>A resource group is a logical container that holds related resources for an application, which can consist of multiple virtual machines, NICs, IP addresses, load balancers, subnets, and Network Security Groups.</source>
+          <target state="new">A resource group is a logical container that holds related resources for an application, which can consist of multiple virtual machines, NICs, IP addresses, load balancers, subnets, and Network Security Groups.</target>
+        </trans-unit>
+        <trans-unit id="c8fd0cb5-33f6-4fb9-92dc-4e39b5dafed0" xml:space="preserve">
+          <source>For example, you can manage all of the resources of the application as a single management unit.</source>
+          <target state="new">For example, you can manage all of the resources of the application as a single management unit.</target>
+        </trans-unit>
+        <trans-unit id="e88a8427-fb61-48cc-ba23-09c3e31b6b29" xml:space="preserve">
+          <source>You can create, update, and delete all of them together.</source>
+          <target state="new">You can create, update, and delete all of them together.</target>
+        </trans-unit>
+        <trans-unit id="43596208-0e6b-4a03-99bd-d175fcbd8d0b" xml:space="preserve">
+          <source>Here is an example application deployed in a single resource group.</source>
+          <target state="new">Here is an example application deployed in a single resource group.</target>
+        </trans-unit>
+        <trans-unit id="209aa5dd-6510-4486-b1de-8814a8ad5bba" xml:space="preserve">
+          <source><bpt id="caa6abc2-65a6-402a-b5b7-7e9d24bdc249">&lt;linkText&gt;</bpt><ept id="caa6abc2-65a6-402a-b5b7-7e9d24bdc249">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="caa6abc2-65a6-402a-b5b7-7e9d24bdc249">&lt;linkText&gt;</bpt><ept id="caa6abc2-65a6-402a-b5b7-7e9d24bdc249">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47e36696-d085-4049-8c40-03613b502ff4" xml:space="preserve">
+          <source>This application consists of:</source>
+          <target state="new">This application consists of:</target>
+        </trans-unit>
+        <trans-unit id="d007286c-bfa2-4ddf-9bff-05c11c9c87f5" xml:space="preserve">
+          <source>Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.</source>
+          <target state="new">Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b6a1329d-511b-46b5-99a0-4640a6024861" xml:space="preserve">
+          <source>A single NIC and VM IP address for each virtual machine.</source>
+          <target state="new">A single NIC and VM IP address for each virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c6c2c614-bc61-4ba5-ae00-3f0fa1657b7f" xml:space="preserve">
+          <source>An external load balancer that distributes Internet traffic to the NICs of the two virtual machines.</source>
+          <target state="new">An external load balancer that distributes Internet traffic to the NICs of the two virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0f974a50-2a12-470f-afa8-d0a68a8207af" xml:space="preserve">
+          <source>All of these resources of this application are managed through the single resource group that contains them.</source>
+          <target state="new">All of these resources of this application are managed through the single resource group that contains them.</target>
+        </trans-unit>
+        <trans-unit id="a9a47e6b-7760-4b73-9241-299d74befefd" xml:space="preserve">
+          <source>You can also see the componentization and dependent relationships between resources when you create a Resource Manager-based virtual machine using Azure PowerShell or the Azure CLI.</source>
+          <target state="new">You can also see the componentization and dependent relationships between resources when you create a Resource Manager-based virtual machine using Azure PowerShell or the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="d8b990f3-b319-423f-97b2-88b73e42a830" xml:space="preserve">
+          <source>Before you can run the command that creates the virtual machine, you must create a resource group, a storage account, a virtual network with a subnet, and a NIC with an IP address.</source>
+          <target state="new">Before you can run the command that creates the virtual machine, you must create a resource group, a storage account, a virtual network with a subnet, and a NIC with an IP address.</target>
+        </trans-unit>
+        <trans-unit id="f78d5ec0-6f1b-46bb-a37a-71afdbe122a0" xml:space="preserve">
+          <source>For more information, see <bpt id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;/linkText&gt;</ept><bpt id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;title&gt;</bpt><ept id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;/linkText&gt;</ept><bpt id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;title&gt;</bpt><ept id="76384184-7a09-4457-abc9-85aed9c94bc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c9f1328-42da-45a3-a6c5-0ed0b759f3cc" xml:space="preserve">
+          <source><bpt id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;linkText&gt;</bpt>Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI<ept id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;/linkText&gt;</ept><bpt id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;title&gt;</bpt><ept id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;linkText&gt;</bpt>Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI<ept id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;/linkText&gt;</ept><bpt id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;title&gt;</bpt><ept id="0eb06aea-155c-4792-bba4-c201737fe160">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4dd571f-4b78-4514-b484-de1270635ea6" xml:space="preserve">
+          <source><bpt id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;linkText&gt;</bpt>Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell<ept id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;/linkText&gt;</ept><bpt id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;title&gt;</bpt><ept id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;linkText&gt;</bpt>Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell<ept id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;/linkText&gt;</ept><bpt id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;title&gt;</bpt><ept id="ae2cb2ce-1a6e-49ab-b8ce-2ea0abccfb59">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af239f05-50a0-45c1-b5a8-0be34948bcaf" xml:space="preserve">
+          <source><bpt id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;linkText&gt;</bpt>Azure Compute, Network and Storage Providers under Azure Resource Manager<ept id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;/linkText&gt;</ept><bpt id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;title&gt;</bpt><ept id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;linkText&gt;</bpt>Azure Compute, Network and Storage Providers under Azure Resource Manager<ept id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;/linkText&gt;</ept><bpt id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;title&gt;</bpt><ept id="4927f7e3-13ca-424d-bf8a-3c367a2247fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f23268f8-eab8-4419-9039-f7cb69e2df21" xml:space="preserve">
+          <source><bpt id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;/linkText&gt;</ept><bpt id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;title&gt;</bpt><ept id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;/linkText&gt;</ept><bpt id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;title&gt;</bpt><ept id="de5cf565-50ac-4a50-ac62-7d9c77dac56c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

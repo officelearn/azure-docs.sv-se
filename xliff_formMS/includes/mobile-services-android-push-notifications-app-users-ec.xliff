@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1f3f040e-f50d-4b2c-86f3-d64d2fc6b126" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1f3f040e-f50d-4b2c-86f3-d64d2fc6b126" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e8e34c03-3b74-4410-b37d-6ec044266eb2">
+        <trans-unit id="fae1ed88-d119-4049-b06e-41d7c0a4fb86" xml:space="preserve">
+          <source>Next, you need to change when you register for notifications to make sure that the user is authenticated before registration is attempted.</source>
+          <target state="new">Next, you need to change when you register for notifications to make sure that the user is authenticated before registration is attempted.</target>
+        </trans-unit>
+        <trans-unit id="b0993acd-2615-4469-b3ea-117d07e2c6e1" xml:space="preserve">
+          <source>In Package Explorer in Eclipse, open the ToDoActivity.java file and find the <bpt id="0317f5d0-059a-42a5-b644-804ac1ceba90">&lt;code&gt;</bpt>onCreate<ept id="0317f5d0-059a-42a5-b644-804ac1ceba90">&lt;/code&gt;</ept> method.</source>
+          <target state="new">In Package Explorer in Eclipse, open the ToDoActivity.java file and find the <bpt id="0317f5d0-059a-42a5-b644-804ac1ceba90">&lt;code&gt;</bpt>onCreate<ept id="0317f5d0-059a-42a5-b644-804ac1ceba90">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="cd8cfc6b-08c3-425d-a02d-b044f62f488f" xml:space="preserve">
+          <source>Move the following code from the <bpt id="0974ab90-1f62-4333-909d-f52592f1bc21">&lt;code&gt;</bpt>onCreate<ept id="0974ab90-1f62-4333-909d-f52592f1bc21">&lt;/code&gt;</ept> method to the beginning of the <bpt id="e32b4f24-c6a0-46d4-a7cc-ade367ff9937">&lt;code&gt;</bpt>createTable<ept id="e32b4f24-c6a0-46d4-a7cc-ade367ff9937">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Move the following code from the <bpt id="0974ab90-1f62-4333-909d-f52592f1bc21">&lt;code&gt;</bpt>onCreate<ept id="0974ab90-1f62-4333-909d-f52592f1bc21">&lt;/code&gt;</ept> method to the beginning of the <bpt id="e32b4f24-c6a0-46d4-a7cc-ade367ff9937">&lt;code&gt;</bpt>createTable<ept id="e32b4f24-c6a0-46d4-a7cc-ade367ff9937">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="b340ef6d-3828-4267-a7ff-0d159be8ea62" xml:space="preserve">
+          <source>The <bpt id="1df72314-bea5-4aa0-90e6-cca22ee8e015">&lt;code&gt;</bpt>createTable<ept id="1df72314-bea5-4aa0-90e6-cca22ee8e015">&lt;/code&gt;</ept> method is called when <bpt id="b6c88453-4714-4f62-8ae0-e763f1f12c8b">&lt;code&gt;</bpt>authenticate<ept id="b6c88453-4714-4f62-8ae0-e763f1f12c8b">&lt;/code&gt;</ept> method completes.</source>
+          <target state="new">The <bpt id="1df72314-bea5-4aa0-90e6-cca22ee8e015">&lt;code&gt;</bpt>createTable<ept id="1df72314-bea5-4aa0-90e6-cca22ee8e015">&lt;/code&gt;</ept> method is called when <bpt id="b6c88453-4714-4f62-8ae0-e763f1f12c8b">&lt;code&gt;</bpt>authenticate<ept id="b6c88453-4714-4f62-8ae0-e763f1f12c8b">&lt;/code&gt;</ept> method completes.</target>
+        </trans-unit>
+        <trans-unit id="b58df98d-20b4-4996-bcd2-da41a7c6f29c" xml:space="preserve">
+          <source>Your entire <bpt id="140d8581-fe63-4c33-852d-671ace867bfc">&lt;code&gt;</bpt>createTable<ept id="140d8581-fe63-4c33-852d-671ace867bfc">&lt;/code&gt;</ept> method should look similar to the following.</source>
+          <target state="new">Your entire <bpt id="140d8581-fe63-4c33-852d-671ace867bfc">&lt;code&gt;</bpt>createTable<ept id="140d8581-fe63-4c33-852d-671ace867bfc">&lt;/code&gt;</ept> method should look similar to the following.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

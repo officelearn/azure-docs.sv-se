@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="96c58e6e-c894-4ba2-862e-44066ca34a62" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="96c58e6e-c894-4ba2-862e-44066ca34a62" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="73890587-d403-49f0-ad1c-f914ff8b78cb">
+        <trans-unit id="9991a0ff-1864-4dc3-abbd-3c4d5cb6ec86" xml:space="preserve">
+          <source>In the Solution Explorer window of Visual Studio, right click the project and click <bpt id="ef6df516-20b0-47e6-ad47-f82b03ea7dcd">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="ef6df516-20b0-47e6-ad47-f82b03ea7dcd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Solution Explorer window of Visual Studio, right click the project and click <bpt id="ef6df516-20b0-47e6-ad47-f82b03ea7dcd">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="ef6df516-20b0-47e6-ad47-f82b03ea7dcd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3366b6ff-d2b7-442e-9619-b73c4ad939ee" xml:space="preserve">
+          <source>In the NuGet Package manager, click <bpt id="c63d06b8-0874-4c80-8997-0b0e461cbbf5">&lt;strong&gt;</bpt>Online<ept id="c63d06b8-0874-4c80-8997-0b0e461cbbf5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the NuGet Package manager, click <bpt id="c63d06b8-0874-4c80-8997-0b0e461cbbf5">&lt;strong&gt;</bpt>Online<ept id="c63d06b8-0874-4c80-8997-0b0e461cbbf5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f17c7148-e986-4220-beb4-689a2ac0c043" xml:space="preserve">
+          <source>Enter <bpt id="5d87d975-343b-41fb-95c7-9e142a414f24">&lt;strong&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="5d87d975-343b-41fb-95c7-9e142a414f24">&lt;/strong&gt;</ept> as a search term.</source>
+          <target state="new">Enter <bpt id="5d87d975-343b-41fb-95c7-9e142a414f24">&lt;strong&gt;</bpt>Microsoft.IdentityModel.Clients.ActiveDirectory<ept id="5d87d975-343b-41fb-95c7-9e142a414f24">&lt;/strong&gt;</ept> as a search term.</target>
+        </trans-unit>
+        <trans-unit id="e73dce94-cf8c-4895-a151-0ad6a8392013" xml:space="preserve">
+          <source>Then click <bpt id="789e04f4-29c5-42be-a649-2a63d921e1c4">&lt;strong&gt;</bpt>Install<ept id="789e04f4-29c5-42be-a649-2a63d921e1c4">&lt;/strong&gt;</ept> to install the Active Directory Authentication Library Nuget package.</source>
+          <target state="new">Then click <bpt id="789e04f4-29c5-42be-a649-2a63d921e1c4">&lt;strong&gt;</bpt>Install<ept id="789e04f4-29c5-42be-a649-2a63d921e1c4">&lt;/strong&gt;</ept> to install the Active Directory Authentication Library Nuget package.</target>
+        </trans-unit>
+        <trans-unit id="2629b8de-f69c-496d-a00e-ec4c6b91f9bd" xml:space="preserve">
+          <source><bpt id="15f39a58-7a30-44bf-8626-1c1e925b646d">&lt;linkText&gt;</bpt><ept id="15f39a58-7a30-44bf-8626-1c1e925b646d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="15f39a58-7a30-44bf-8626-1c1e925b646d">&lt;linkText&gt;</bpt><ept id="15f39a58-7a30-44bf-8626-1c1e925b646d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

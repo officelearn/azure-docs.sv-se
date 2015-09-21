@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9f5b2516-e62d-4ae3-96d7-351f832df0dd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9f5b2516-e62d-4ae3-96d7-351f832df0dd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="da230567-b4f6-4805-9345-e49393838976">
+        <trans-unit id="2218f353-a37b-457c-b56c-abe461f224e1" xml:space="preserve">
+          <source>Install and use Giraph on Hadoop clusters in HDInsight | Microsoft Azure</source>
+          <target state="new">Install and use Giraph on Hadoop clusters in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="552bc403-21fc-4cf8-b2d9-71df22d53fb6" xml:space="preserve">
+          <source>Learn how to customize HDInsight cluster with Giraph. You'll use a Script Action configuration option to use a script to install Giraph.</source>
+          <target state="new">Learn how to customize HDInsight cluster with Giraph. You'll use a Script Action configuration option to use a script to install Giraph.</target>
+        </trans-unit>
+        <trans-unit id="8ded5b51-694b-4687-b672-3ad2a19d0fa6" xml:space="preserve">
+          <source>You can install Giraph on any type of cluster in Hadoop on Azure HDInsight by using <bpt id="d407feff-a13f-451e-9c27-1d704a16b0e8">&lt;strong&gt;</bpt>Script Action<ept id="d407feff-a13f-451e-9c27-1d704a16b0e8">&lt;/strong&gt;</ept> cluster customization.</source>
+          <target state="new">You can install Giraph on any type of cluster in Hadoop on Azure HDInsight by using <bpt id="d407feff-a13f-451e-9c27-1d704a16b0e8">&lt;strong&gt;</bpt>Script Action<ept id="d407feff-a13f-451e-9c27-1d704a16b0e8">&lt;/strong&gt;</ept> cluster customization.</target>
+        </trans-unit>
+        <trans-unit id="a1e30178-98f4-44a9-9f26-556118fe39a3" xml:space="preserve">
+          <source>Script Action lets you run scripts to customize a cluster, only when the cluster is being created.</source>
+          <target state="new">Script Action lets you run scripts to customize a cluster, only when the cluster is being created.</target>
+        </trans-unit>
+        <trans-unit id="ad8b09bc-a8c5-46e4-b0fc-474161113a24" xml:space="preserve">
+          <source>For more information, see <bpt id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;/linkText&gt;</ept><bpt id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;title&gt;</bpt><ept id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;/linkText&gt;</ept><bpt id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;title&gt;</bpt><ept id="beef6fd5-c4cb-4fbb-a070-98792a636226">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b6b771c-cc0f-4520-b7e9-2b6ee1820206" xml:space="preserve">
+          <source>In this topic, you will learn how to install Giraph by using Script Action.</source>
+          <target state="new">In this topic, you will learn how to install Giraph by using Script Action.</target>
+        </trans-unit>
+        <trans-unit id="87791d0b-2c8b-4e79-b25d-57035cbfabf4" xml:space="preserve">
+          <source>Once you have installed Giraph, you'll also learn how to use Giraph for most typical applications, which is to process large-scale graphs.</source>
+          <target state="new">Once you have installed Giraph, you'll also learn how to use Giraph for most typical applications, which is to process large-scale graphs.</target>
+        </trans-unit>
+        <trans-unit id="d7f5286f-8dda-4b56-b0dd-b372c7e23151" xml:space="preserve">
+          <source>The information in this article is specific to Linux-based HDInsight clusters.</source>
+          <target state="new">The information in this article is specific to Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="603e137b-36da-455c-8ec1-2dbf1df19664" xml:space="preserve">
+          <source>For information on working with Windows-based clusters, see <bpt id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;linkText&gt;</bpt>Install Giraph on HDInsight Hadoop clusters (Windows)<ept id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;/linkText&gt;</ept><bpt id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;title&gt;</bpt><ept id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;/title&gt;</ept></source>
+          <target state="new">For information on working with Windows-based clusters, see <bpt id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;linkText&gt;</bpt>Install Giraph on HDInsight Hadoop clusters (Windows)<ept id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;/linkText&gt;</ept><bpt id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;title&gt;</bpt><ept id="12288f5a-e0da-4d37-b835-d50ba48e22fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0243182d-429e-4034-9c87-95b59f0db27e" xml:space="preserve">
+          <source><bpt id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;linkText&gt;</bpt>Apache Giraph<ept id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;/linkText&gt;</ept><bpt id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;title&gt;</bpt><ept id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;/title&gt;</ept> allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.</source>
+          <target state="new"><bpt id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;linkText&gt;</bpt>Apache Giraph<ept id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;/linkText&gt;</ept><bpt id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;title&gt;</bpt><ept id="5454e4b9-c3ca-415a-adad-a0f01823fdaa">&lt;/title&gt;</ept> allows you to perform graph processing by using Hadoop, and can be used with Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="25ca62c2-676e-493c-a932-459d62c9def1" xml:space="preserve">
+          <source>Graphs model relationships between objects, such as the connections between routers on a large network like the Internet, or relationships between people on social networks (sometimes referred to as a social graph).</source>
+          <target state="new">Graphs model relationships between objects, such as the connections between routers on a large network like the Internet, or relationships between people on social networks (sometimes referred to as a social graph).</target>
+        </trans-unit>
+        <trans-unit id="355897fe-b25d-4fcc-92a9-65fde3163b76" xml:space="preserve">
+          <source>Graph processing allows you to reason about the relationships between objects in a graph, such as:</source>
+          <target state="new">Graph processing allows you to reason about the relationships between objects in a graph, such as:</target>
+        </trans-unit>
+        <trans-unit id="08634876-0ceb-413b-ae5e-7b7b57548428" xml:space="preserve">
+          <source>Identifying potential friends based on your current relationships.</source>
+          <target state="new">Identifying potential friends based on your current relationships.</target>
+        </trans-unit>
+        <trans-unit id="51fb7457-b13c-470f-806d-a0532d29ccfb" xml:space="preserve">
+          <source>Identifying the shortest route between two computers in a network.</source>
+          <target state="new">Identifying the shortest route between two computers in a network.</target>
+        </trans-unit>
+        <trans-unit id="6143b8aa-72a6-4903-bb72-3dc0c6bf51ec" xml:space="preserve">
+          <source>Calculating the page rank of webpages.</source>
+          <target state="new">Calculating the page rank of webpages.</target>
+        </trans-unit>
+        <trans-unit id="3a3c8f1f-8eb5-4984-914d-199225abc709" xml:space="preserve">
+          <source>This script performs the following actions:</source>
+          <target state="new">This script performs the following actions:</target>
+        </trans-unit>
+        <trans-unit id="bf0f6599-4fb3-4dd2-a053-cf610a7ea378" xml:space="preserve">
+          <source>Installs Giraph to <bpt id="78205ef0-cf41-4226-a2f1-d2f7467fdde3">&lt;code&gt;</bpt>/usr/hdp/current/giraph<ept id="78205ef0-cf41-4226-a2f1-d2f7467fdde3">&lt;/code&gt;</ept></source>
+          <target state="new">Installs Giraph to <bpt id="78205ef0-cf41-4226-a2f1-d2f7467fdde3">&lt;code&gt;</bpt>/usr/hdp/current/giraph<ept id="78205ef0-cf41-4226-a2f1-d2f7467fdde3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba6fca7a-fad3-4cbf-b270-2a0a780ac381" xml:space="preserve">
+          <source>Copies the <bpt id="ba0f4f45-7988-4fba-94d9-7203d70354cd">&lt;code&gt;</bpt>giraph-examples.jar<ept id="ba0f4f45-7988-4fba-94d9-7203d70354cd">&lt;/code&gt;</ept> file to default storage (WASB) for your cluster: <bpt id="9cc75af3-6472-4614-9710-0c48fa5d7394">&lt;code&gt;</bpt>/example/jars/giraph-examples.jar<ept id="9cc75af3-6472-4614-9710-0c48fa5d7394">&lt;/code&gt;</ept></source>
+          <target state="new">Copies the <bpt id="ba0f4f45-7988-4fba-94d9-7203d70354cd">&lt;code&gt;</bpt>giraph-examples.jar<ept id="ba0f4f45-7988-4fba-94d9-7203d70354cd">&lt;/code&gt;</ept> file to default storage (WASB) for your cluster: <bpt id="9cc75af3-6472-4614-9710-0c48fa5d7394">&lt;code&gt;</bpt>/example/jars/giraph-examples.jar<ept id="9cc75af3-6472-4614-9710-0c48fa5d7394">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cc31012-76b7-4235-92f6-3aa179f6d145" xml:space="preserve">
+          <source>A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at <bpt id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh<ept id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;/linkText&gt;</ept><bpt id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;title&gt;</bpt><ept id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;/title&gt;</ept>.</source>
+          <target state="new">A sample script to install Giraph on an HDInsight cluster is available from a read-only Azure storage blob at <bpt id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh<ept id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;/linkText&gt;</ept><bpt id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;title&gt;</bpt><ept id="a36e95e3-bce8-4c0b-802c-bdd425c79663">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e010f7c-17d1-458c-8fb9-0279a1c92977" xml:space="preserve">
+          <source>This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal.</source>
+          <target state="new">This section provides instructions on how to use the sample script while provisioning the cluster by using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="ab38abd3-ebdc-414e-ace0-e409c00a9872" xml:space="preserve">
+          <source>You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script.</source>
+          <target state="new">You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script.</target>
+        </trans-unit>
+        <trans-unit id="e52c47fd-4f26-4d04-9f4b-bda5c85d31d0" xml:space="preserve">
+          <source>For more information on using these methods, see <bpt id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;linkText&gt;</bpt>Customize HDInsight clusters with Script Actions<ept id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;/linkText&gt;</ept><bpt id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;title&gt;</bpt><ept id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using these methods, see <bpt id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;linkText&gt;</bpt>Customize HDInsight clusters with Script Actions<ept id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;/linkText&gt;</ept><bpt id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;title&gt;</bpt><ept id="1823c0db-2614-4dd2-8e72-c5e9fdbef59b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4814e6c7-b89a-4ee7-a83d-0879cf17f71f" xml:space="preserve">
+          <source>Start provisioning a cluster by using the steps in <bpt id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;linkText&gt;</bpt>Provision Linux-based HDInsight clusters<ept id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;/linkText&gt;</ept><bpt id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;title&gt;</bpt><ept id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;/title&gt;</ept>, but do not complete provisioning.</source>
+          <target state="new">Start provisioning a cluster by using the steps in <bpt id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;linkText&gt;</bpt>Provision Linux-based HDInsight clusters<ept id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;/linkText&gt;</ept><bpt id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;title&gt;</bpt><ept id="6242feb7-9c55-446d-a451-b015d22942cf">&lt;/title&gt;</ept>, but do not complete provisioning.</target>
+        </trans-unit>
+        <trans-unit id="047459a3-252c-402c-a2b6-d932bc5eb90b" xml:space="preserve">
+          <source>On the <bpt id="06169dfe-43df-4c08-869d-cf0d8bba65f6">&lt;strong&gt;</bpt>Optional Configuration<ept id="06169dfe-43df-4c08-869d-cf0d8bba65f6">&lt;/strong&gt;</ept> blade, select <bpt id="891baec3-c4c1-4280-86eb-872f6b092959">&lt;strong&gt;</bpt>Script Actions<ept id="891baec3-c4c1-4280-86eb-872f6b092959">&lt;/strong&gt;</ept>, and provide the information below:</source>
+          <target state="new">On the <bpt id="06169dfe-43df-4c08-869d-cf0d8bba65f6">&lt;strong&gt;</bpt>Optional Configuration<ept id="06169dfe-43df-4c08-869d-cf0d8bba65f6">&lt;/strong&gt;</ept> blade, select <bpt id="891baec3-c4c1-4280-86eb-872f6b092959">&lt;strong&gt;</bpt>Script Actions<ept id="891baec3-c4c1-4280-86eb-872f6b092959">&lt;/strong&gt;</ept>, and provide the information below:</target>
+        </trans-unit>
+        <trans-unit id="61729171-0260-4665-be5f-b8c3b6f4af0e" xml:space="preserve">
+          <source><bpt id="5b18cb7d-4134-4d50-9207-ebb994c5f05c">&lt;strong&gt;</bpt>NAME<ept id="5b18cb7d-4134-4d50-9207-ebb994c5f05c">&lt;/strong&gt;</ept>: Enter a friendly name for the script action.</source>
+          <target state="new"><bpt id="5b18cb7d-4134-4d50-9207-ebb994c5f05c">&lt;strong&gt;</bpt>NAME<ept id="5b18cb7d-4134-4d50-9207-ebb994c5f05c">&lt;/strong&gt;</ept>: Enter a friendly name for the script action.</target>
+        </trans-unit>
+        <trans-unit id="184111ff-7abe-40d4-9df9-2d3cdaa99f43" xml:space="preserve">
+          <source><bpt id="6d6d7b3f-ef70-4321-b415-02f180eca2f4">&lt;strong&gt;</bpt>SCRIPT URI<ept id="6d6d7b3f-ef70-4321-b415-02f180eca2f4">&lt;/strong&gt;</ept>: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh</source>
+          <target state="new"><bpt id="6d6d7b3f-ef70-4321-b415-02f180eca2f4">&lt;strong&gt;</bpt>SCRIPT URI<ept id="6d6d7b3f-ef70-4321-b415-02f180eca2f4">&lt;/strong&gt;</ept>: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh</target>
+        </trans-unit>
+        <trans-unit id="81f1d657-7cbf-4ce4-8f2e-316db77f94e6" xml:space="preserve">
+          <source><bpt id="c5dfccf5-51ae-4265-a41e-84de76c36068">&lt;strong&gt;</bpt>HEAD<ept id="c5dfccf5-51ae-4265-a41e-84de76c36068">&lt;/strong&gt;</ept>: Check this option</source>
+          <target state="new"><bpt id="c5dfccf5-51ae-4265-a41e-84de76c36068">&lt;strong&gt;</bpt>HEAD<ept id="c5dfccf5-51ae-4265-a41e-84de76c36068">&lt;/strong&gt;</ept>: Check this option</target>
+        </trans-unit>
+        <trans-unit id="4763d3bb-85fb-4226-9531-41f00cb0ad9d" xml:space="preserve">
+          <source><bpt id="65edcc01-cd3b-419d-8eb6-faad79a975a3">&lt;strong&gt;</bpt>WORKER<ept id="65edcc01-cd3b-419d-8eb6-faad79a975a3">&lt;/strong&gt;</ept>: Check this option</source>
+          <target state="new"><bpt id="65edcc01-cd3b-419d-8eb6-faad79a975a3">&lt;strong&gt;</bpt>WORKER<ept id="65edcc01-cd3b-419d-8eb6-faad79a975a3">&lt;/strong&gt;</ept>: Check this option</target>
+        </trans-unit>
+        <trans-unit id="6e9fd41b-1b3a-4802-9f7c-3d947c9728d1" xml:space="preserve">
+          <source><bpt id="580249d9-3b25-4224-beee-202f60c1b2c7">&lt;strong&gt;</bpt>ZOOKEEPER<ept id="580249d9-3b25-4224-beee-202f60c1b2c7">&lt;/strong&gt;</ept>: Check this option to install on the Zookeeper node.</source>
+          <target state="new"><bpt id="580249d9-3b25-4224-beee-202f60c1b2c7">&lt;strong&gt;</bpt>ZOOKEEPER<ept id="580249d9-3b25-4224-beee-202f60c1b2c7">&lt;/strong&gt;</ept>: Check this option to install on the Zookeeper node.</target>
+        </trans-unit>
+        <trans-unit id="7ebcba2a-e493-441c-90e3-e8b754bfe339" xml:space="preserve">
+          <source><bpt id="17f8ad83-d896-4ab3-b5c7-c419b595656e">&lt;strong&gt;</bpt>PARAMETERS<ept id="17f8ad83-d896-4ab3-b5c7-c419b595656e">&lt;/strong&gt;</ept>: Leave this field blank</source>
+          <target state="new"><bpt id="17f8ad83-d896-4ab3-b5c7-c419b595656e">&lt;strong&gt;</bpt>PARAMETERS<ept id="17f8ad83-d896-4ab3-b5c7-c419b595656e">&lt;/strong&gt;</ept>: Leave this field blank</target>
+        </trans-unit>
+        <trans-unit id="dac360fe-ce54-499c-b112-3fc3d8b36454" xml:space="preserve">
+          <source>At the bottom of the <bpt id="b218659b-211b-4aba-ba71-fba2dbdf0611">&lt;strong&gt;</bpt>Script Actions<ept id="b218659b-211b-4aba-ba71-fba2dbdf0611">&lt;/strong&gt;</ept>, use the <bpt id="ea46103d-8c72-4c6c-bf3f-6119c3c77f7c">&lt;strong&gt;</bpt>Select<ept id="ea46103d-8c72-4c6c-bf3f-6119c3c77f7c">&lt;/strong&gt;</ept> button to save the configuration.</source>
+          <target state="new">At the bottom of the <bpt id="b218659b-211b-4aba-ba71-fba2dbdf0611">&lt;strong&gt;</bpt>Script Actions<ept id="b218659b-211b-4aba-ba71-fba2dbdf0611">&lt;/strong&gt;</ept>, use the <bpt id="ea46103d-8c72-4c6c-bf3f-6119c3c77f7c">&lt;strong&gt;</bpt>Select<ept id="ea46103d-8c72-4c6c-bf3f-6119c3c77f7c">&lt;/strong&gt;</ept> button to save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="3698a011-6773-4ce1-be29-c25504a5ffee" xml:space="preserve">
+          <source>Finally, use the <bpt id="6131f7dd-6476-4953-9b0a-c4c510f48f4b">&lt;strong&gt;</bpt>Select<ept id="6131f7dd-6476-4953-9b0a-c4c510f48f4b">&lt;/strong&gt;</ept> button at the bottom of the <bpt id="1ba81831-48eb-4408-893b-fb2130647dfa">&lt;strong&gt;</bpt>Optional Configuration<ept id="1ba81831-48eb-4408-893b-fb2130647dfa">&lt;/strong&gt;</ept> blade to save the optional configuration information.</source>
+          <target state="new">Finally, use the <bpt id="6131f7dd-6476-4953-9b0a-c4c510f48f4b">&lt;strong&gt;</bpt>Select<ept id="6131f7dd-6476-4953-9b0a-c4c510f48f4b">&lt;/strong&gt;</ept> button at the bottom of the <bpt id="1ba81831-48eb-4408-893b-fb2130647dfa">&lt;strong&gt;</bpt>Optional Configuration<ept id="1ba81831-48eb-4408-893b-fb2130647dfa">&lt;/strong&gt;</ept> blade to save the optional configuration information.</target>
+        </trans-unit>
+        <trans-unit id="ceffd9c9-f59c-434d-b776-5adac42a7720" xml:space="preserve">
+          <source>Continue provisioning the cluster as described in <bpt id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;linkText&gt;</bpt>Provision Linux-based HDInsight clusters<ept id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;/linkText&gt;</ept><bpt id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;title&gt;</bpt><ept id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Continue provisioning the cluster as described in <bpt id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;linkText&gt;</bpt>Provision Linux-based HDInsight clusters<ept id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;/linkText&gt;</ept><bpt id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;title&gt;</bpt><ept id="4cc1e43f-5bcf-4a27-9a40-23e5380a35b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35139ecb-e046-4d62-9c91-6f0232ace614" xml:space="preserve">
+          <source>Once the cluster has finished provisioning, use the following steps to run the SimpleShortestPathsComputation example included with Giraph.</source>
+          <target state="new">Once the cluster has finished provisioning, use the following steps to run the SimpleShortestPathsComputation example included with Giraph.</target>
+        </trans-unit>
+        <trans-unit id="1b0b51a2-0a4e-49cf-8478-2967a21aacdf" xml:space="preserve">
+          <source>This implements the basic &lt;a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf"&gt;Pregel&lt;/a&gt; implementation for finding the shortest path between objects in a graph.</source>
+          <target state="new">This implements the basic &lt;a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf"&gt;Pregel&lt;/a&gt; implementation for finding the shortest path between objects in a graph.</target>
+        </trans-unit>
+        <trans-unit id="f6da2bad-3d7d-455e-966d-6428914d22b7" xml:space="preserve">
+          <source>Connect to the HDInsight cluster using SSH:</source>
+          <target state="new">Connect to the HDInsight cluster using SSH:</target>
+        </trans-unit>
+        <trans-unit id="e6d5f21e-6217-4e3f-b7ca-6349bd4805b3" xml:space="preserve">
+          <source>For more information on using SSH with HDInsight, see the following:</source>
+          <target state="new">For more information on using SSH with HDInsight, see the following:</target>
+        </trans-unit>
+        <trans-unit id="d4ae8f58-a227-4b9a-b97c-5c3cb7ed0d94" xml:space="preserve">
+          <source><bpt id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;/linkText&gt;</ept><bpt id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;title&gt;</bpt><ept id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;/linkText&gt;</ept><bpt id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;title&gt;</bpt><ept id="0f53f575-e858-4cfb-82f0-642ecb1ffc52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40c66468-3f39-40fe-9775-6ba5a4f8bb0b" xml:space="preserve">
+          <source><bpt id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;/linkText&gt;</ept><bpt id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;title&gt;</bpt><ept id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;/linkText&gt;</ept><bpt id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;title&gt;</bpt><ept id="1a64966f-8b3e-4ae0-ae7a-6bf36f4eca37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1b57c43-bfcf-4002-a60d-649c0bff2959" xml:space="preserve">
+          <source>Use the following to create a new file named <bpt id="52576abb-c3c6-456b-a059-c2ac955bdcda">&lt;strong&gt;</bpt>tiny_graph.txt<ept id="52576abb-c3c6-456b-a059-c2ac955bdcda">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Use the following to create a new file named <bpt id="52576abb-c3c6-456b-a059-c2ac955bdcda">&lt;strong&gt;</bpt>tiny_graph.txt<ept id="52576abb-c3c6-456b-a059-c2ac955bdcda">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a1290323-44d7-4cb9-a5bb-b26309ea2603" xml:space="preserve">
+          <source>Use the following as the contents of this file:</source>
+          <target state="new">Use the following as the contents of this file:</target>
+        </trans-unit>
+        <trans-unit id="9ed3a0a6-2d4d-49e6-a1dc-189d7e0860dd" xml:space="preserve">
+          <source>This data describes a relationship between objects in a directed graph, by using the format [source\<bpt id="5f2824c3-92f7-4930-a8e6-04adbb38ed27">&lt;em&gt;</bpt>id, source\<ept id="5f2824c3-92f7-4930-a8e6-04adbb38ed27">&lt;/em&gt;</ept>value,[[dest\<bpt id="6cbe0bc7-54be-49d1-95ef-44a4fef16171">&lt;em&gt;</bpt>id], [edge\<ept id="6cbe0bc7-54be-49d1-95ef-44a4fef16171">&lt;/em&gt;</ept>value],...]]. Each line represents a relationship between a <bpt id="237b2bc9-73bf-49bd-a829-b3d8b73a3cdb">&lt;strong&gt;</bpt>source\_id<ept id="237b2bc9-73bf-49bd-a829-b3d8b73a3cdb">&lt;/strong&gt;</ept> object and one or more <bpt id="bf067194-c26c-450f-ac12-2db653e34e5e">&lt;strong&gt;</bpt>dest\_id<ept id="bf067194-c26c-450f-ac12-2db653e34e5e">&lt;/strong&gt;</ept> objects.</source>
+          <target state="new">This data describes a relationship between objects in a directed graph, by using the format [source\<bpt id="5f2824c3-92f7-4930-a8e6-04adbb38ed27">&lt;em&gt;</bpt>id, source\<ept id="5f2824c3-92f7-4930-a8e6-04adbb38ed27">&lt;/em&gt;</ept>value,[[dest\<bpt id="6cbe0bc7-54be-49d1-95ef-44a4fef16171">&lt;em&gt;</bpt>id], [edge\<ept id="6cbe0bc7-54be-49d1-95ef-44a4fef16171">&lt;/em&gt;</ept>value],...]]. Each line represents a relationship between a <bpt id="237b2bc9-73bf-49bd-a829-b3d8b73a3cdb">&lt;strong&gt;</bpt>source\_id<ept id="237b2bc9-73bf-49bd-a829-b3d8b73a3cdb">&lt;/strong&gt;</ept> object and one or more <bpt id="bf067194-c26c-450f-ac12-2db653e34e5e">&lt;strong&gt;</bpt>dest\_id<ept id="bf067194-c26c-450f-ac12-2db653e34e5e">&lt;/strong&gt;</ept> objects.</target>
+        </trans-unit>
+        <trans-unit id="2167076f-10a5-4227-901d-e845cbe1d317" xml:space="preserve">
+          <source>The <bpt id="a2d0372f-f2e1-494b-ada6-318b47c903d2">&lt;strong&gt;</bpt>edge\_value<ept id="a2d0372f-f2e1-494b-ada6-318b47c903d2">&lt;/strong&gt;</ept> (or weight) can be thought of as the strength or distance of the connection between <bpt id="bda923df-404f-4ef6-8ea1-bff00ab234c2">&lt;strong&gt;</bpt>source_id<ept id="bda923df-404f-4ef6-8ea1-bff00ab234c2">&lt;/strong&gt;</ept> and <bpt id="7f0b1cba-766c-43b4-af69-a9068aff0b87">&lt;strong&gt;</bpt>dest\_id<ept id="7f0b1cba-766c-43b4-af69-a9068aff0b87">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="a2d0372f-f2e1-494b-ada6-318b47c903d2">&lt;strong&gt;</bpt>edge\_value<ept id="a2d0372f-f2e1-494b-ada6-318b47c903d2">&lt;/strong&gt;</ept> (or weight) can be thought of as the strength or distance of the connection between <bpt id="bda923df-404f-4ef6-8ea1-bff00ab234c2">&lt;strong&gt;</bpt>source_id<ept id="bda923df-404f-4ef6-8ea1-bff00ab234c2">&lt;/strong&gt;</ept> and <bpt id="7f0b1cba-766c-43b4-af69-a9068aff0b87">&lt;strong&gt;</bpt>dest\_id<ept id="7f0b1cba-766c-43b4-af69-a9068aff0b87">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="861bae4c-11b3-45e3-a047-0fa8609244f2" xml:space="preserve">
+          <source>Drawn out, and using the value (or weight) as the distance between objects, the above data might look like this:</source>
+          <target state="new">Drawn out, and using the value (or weight) as the distance between objects, the above data might look like this:</target>
+        </trans-unit>
+        <trans-unit id="e894d973-1827-4260-ab55-f35940389373" xml:space="preserve">
+          <source><bpt id="4e2ff663-2a63-4a92-a362-48eb151c4c35">&lt;linkText&gt;</bpt>tiny_graph.txt drawn as circles with lines of varying distance between<ept id="4e2ff663-2a63-4a92-a362-48eb151c4c35">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e2ff663-2a63-4a92-a362-48eb151c4c35">&lt;linkText&gt;</bpt>tiny_graph.txt drawn as circles with lines of varying distance between<ept id="4e2ff663-2a63-4a92-a362-48eb151c4c35">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b506e75b-dff3-4c24-8964-5db0eebdd61d" xml:space="preserve">
+          <source>To save the file, use <bpt id="fecc6546-092e-4683-a60d-c95044b21377">&lt;strong&gt;</bpt>Ctrl+X<ept id="fecc6546-092e-4683-a60d-c95044b21377">&lt;/strong&gt;</ept>, then <bpt id="be56f809-2487-4143-9966-66192a03a550">&lt;strong&gt;</bpt>Y<ept id="be56f809-2487-4143-9966-66192a03a550">&lt;/strong&gt;</ept>, and finally <bpt id="4c4d4ceb-2181-42dc-8958-56fff3caa937">&lt;strong&gt;</bpt>Enter<ept id="4c4d4ceb-2181-42dc-8958-56fff3caa937">&lt;/strong&gt;</ept> to accept the file name.</source>
+          <target state="new">To save the file, use <bpt id="fecc6546-092e-4683-a60d-c95044b21377">&lt;strong&gt;</bpt>Ctrl+X<ept id="fecc6546-092e-4683-a60d-c95044b21377">&lt;/strong&gt;</ept>, then <bpt id="be56f809-2487-4143-9966-66192a03a550">&lt;strong&gt;</bpt>Y<ept id="be56f809-2487-4143-9966-66192a03a550">&lt;/strong&gt;</ept>, and finally <bpt id="4c4d4ceb-2181-42dc-8958-56fff3caa937">&lt;strong&gt;</bpt>Enter<ept id="4c4d4ceb-2181-42dc-8958-56fff3caa937">&lt;/strong&gt;</ept> to accept the file name.</target>
+        </trans-unit>
+        <trans-unit id="a6563e9d-3d99-4053-a986-e6a7c79c88a9" xml:space="preserve">
+          <source>Use the following to store the data into primary storage for your HDInsight cluster:</source>
+          <target state="new">Use the following to store the data into primary storage for your HDInsight cluster:</target>
+        </trans-unit>
+        <trans-unit id="9eff89cf-6470-4f1d-a246-e83ddaacaf1f" xml:space="preserve">
+          <source>Run the SimpleShortestPathsComputation example using the following command:</source>
+          <target state="new">Run the SimpleShortestPathsComputation example using the following command:</target>
+        </trans-unit>
+        <trans-unit id="9239bfb2-28e4-4bcc-b798-4d01545b7552" xml:space="preserve">
+          <source>The parameters used with this command are described in the following table.</source>
+          <target state="new">The parameters used with this command are described in the following table.</target>
+        </trans-unit>
+        <trans-unit id="5475c25d-b0d3-4c80-9b90-16bb62731e45" xml:space="preserve">
+          <source>| Parameter | What it does |
+| --------- | ------------ |
+| <bpt id="dde3e67b-3c78-46ab-b1fe-69c77713ae5b">&lt;code&gt;</bpt>jar /usr/hdp/current/giraph/giraph-examples.jar<ept id="dde3e67b-3c78-46ab-b1fe-69c77713ae5b">&lt;/code&gt;</ept> | The jar file containing the examples.</source>
+          <target state="new">| Parameter | What it does |
+| --------- | ------------ |
+| <bpt id="dde3e67b-3c78-46ab-b1fe-69c77713ae5b">&lt;code&gt;</bpt>jar /usr/hdp/current/giraph/giraph-examples.jar<ept id="dde3e67b-3c78-46ab-b1fe-69c77713ae5b">&lt;/code&gt;</ept> | The jar file containing the examples.</target>
+        </trans-unit>
+        <trans-unit id="28edc063-c58d-49a6-9a92-ad2c1e64aeb3" xml:space="preserve">
+          <source>|
+| <bpt id="b34ca677-ce6a-4247-baab-16868eeb39da">&lt;code&gt;</bpt>org.apache.giraph.GiraphRunner<ept id="b34ca677-ce6a-4247-baab-16868eeb39da">&lt;/code&gt;</ept> | The class used to start the examples.</source>
+          <target state="new">|
+| <bpt id="b34ca677-ce6a-4247-baab-16868eeb39da">&lt;code&gt;</bpt>org.apache.giraph.GiraphRunner<ept id="b34ca677-ce6a-4247-baab-16868eeb39da">&lt;/code&gt;</ept> | The class used to start the examples.</target>
+        </trans-unit>
+        <trans-unit id="cdf758aa-a314-406c-b8dc-1b383ff3d578" xml:space="preserve">
+          <source>|
+| <bpt id="d5babb90-f40d-4c30-b7aa-c62767410d8e">&lt;code&gt;</bpt>org.apache.giraph.examples.SimpleShortestPathsCoputation<ept id="d5babb90-f40d-4c30-b7aa-c62767410d8e">&lt;/code&gt;</ept> | The example that will be ran.</source>
+          <target state="new">|
+| <bpt id="d5babb90-f40d-4c30-b7aa-c62767410d8e">&lt;code&gt;</bpt>org.apache.giraph.examples.SimpleShortestPathsCoputation<ept id="d5babb90-f40d-4c30-b7aa-c62767410d8e">&lt;/code&gt;</ept> | The example that will be ran.</target>
+        </trans-unit>
+        <trans-unit id="17e6b562-dafd-4cfe-b167-dff5bbc54e55" xml:space="preserve">
+          <source>In this case, it will compute the shortest path between ID 1 and all other IDs in the graph.</source>
+          <target state="new">In this case, it will compute the shortest path between ID 1 and all other IDs in the graph.</target>
+        </trans-unit>
+        <trans-unit id="5e531f24-586b-4b77-a517-fbb3db7975b3" xml:space="preserve">
+          <source>|
+| <bpt id="cb36c3ec-d87f-4f9a-ae2c-6fe8803c56be">&lt;code&gt;</bpt>-ca mapred.job.tracker=headnode0:9010<ept id="cb36c3ec-d87f-4f9a-ae2c-6fe8803c56be">&lt;/code&gt;</ept> | The headnode for the cluster.</source>
+          <target state="new">|
+| <bpt id="cb36c3ec-d87f-4f9a-ae2c-6fe8803c56be">&lt;code&gt;</bpt>-ca mapred.job.tracker=headnode0:9010<ept id="cb36c3ec-d87f-4f9a-ae2c-6fe8803c56be">&lt;/code&gt;</ept> | The headnode for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="593e48f1-a3a2-43bf-8517-9a227350a926" xml:space="preserve">
+          <source>|
+| <bpt id="30be3f50-7da5-4a7d-b2ca-444babbeb2e7">&lt;code&gt;</bpt>-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat<ept id="30be3f50-7da5-4a7d-b2ca-444babbeb2e7">&lt;/code&gt;</ept> | The input format to use for the input data.</source>
+          <target state="new">|
+| <bpt id="30be3f50-7da5-4a7d-b2ca-444babbeb2e7">&lt;code&gt;</bpt>-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat<ept id="30be3f50-7da5-4a7d-b2ca-444babbeb2e7">&lt;/code&gt;</ept> | The input format to use for the input data.</target>
+        </trans-unit>
+        <trans-unit id="0c811bb5-e5ba-4b9d-8586-36f3881f7f93" xml:space="preserve">
+          <source>|
+| <bpt id="a715ee61-6f01-4963-b4f2-e54045a7de44">&lt;code&gt;</bpt>-vip /example/data/tiny_graph.txt<ept id="a715ee61-6f01-4963-b4f2-e54045a7de44">&lt;/code&gt;</ept> | The input data file.</source>
+          <target state="new">|
+| <bpt id="a715ee61-6f01-4963-b4f2-e54045a7de44">&lt;code&gt;</bpt>-vip /example/data/tiny_graph.txt<ept id="a715ee61-6f01-4963-b4f2-e54045a7de44">&lt;/code&gt;</ept> | The input data file.</target>
+        </trans-unit>
+        <trans-unit id="a4d5e794-1e77-4ff5-9f60-99a8d233263c" xml:space="preserve">
+          <source>|
+| <bpt id="bdb7f730-fafa-4653-8baf-0fa5a1f384d8">&lt;code&gt;</bpt>-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat<ept id="bdb7f730-fafa-4653-8baf-0fa5a1f384d8">&lt;/code&gt;</ept> | The output format.</source>
+          <target state="new">|
+| <bpt id="bdb7f730-fafa-4653-8baf-0fa5a1f384d8">&lt;code&gt;</bpt>-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat<ept id="bdb7f730-fafa-4653-8baf-0fa5a1f384d8">&lt;/code&gt;</ept> | The output format.</target>
+        </trans-unit>
+        <trans-unit id="78766477-f9c3-45eb-9e96-cf9805e1368a" xml:space="preserve">
+          <source>In this case, ID and value as plain text.</source>
+          <target state="new">In this case, ID and value as plain text.</target>
+        </trans-unit>
+        <trans-unit id="b3a824e0-449f-45fe-97ff-bc9f88eb6b4c" xml:space="preserve">
+          <source>|
+| <bpt id="063d1d54-bf0c-4604-9493-c62434c17c89">&lt;code&gt;</bpt>-op /example/output/shortestpaths<ept id="063d1d54-bf0c-4604-9493-c62434c17c89">&lt;/code&gt;</ept> | The output location.</source>
+          <target state="new">|
+| <bpt id="063d1d54-bf0c-4604-9493-c62434c17c89">&lt;code&gt;</bpt>-op /example/output/shortestpaths<ept id="063d1d54-bf0c-4604-9493-c62434c17c89">&lt;/code&gt;</ept> | The output location.</target>
+        </trans-unit>
+        <trans-unit id="dbb1b174-d76c-4777-949c-1cbba4a71a37" xml:space="preserve">
+          <source>|
+| <bpt id="b3413262-d39e-4708-8680-14a190030379">&lt;code&gt;</bpt>-w 2<ept id="b3413262-d39e-4708-8680-14a190030379">&lt;/code&gt;</ept> | The number of workers to use.</source>
+          <target state="new">|
+| <bpt id="b3413262-d39e-4708-8680-14a190030379">&lt;code&gt;</bpt>-w 2<ept id="b3413262-d39e-4708-8680-14a190030379">&lt;/code&gt;</ept> | The number of workers to use.</target>
+        </trans-unit>
+        <trans-unit id="4bfb30b4-fa1d-447a-b130-f81b7dcd9ef0" xml:space="preserve">
+          <source>In this case, 2.</source>
+          <target state="new">In this case, 2.</target>
+        </trans-unit>
+        <trans-unit id="6a8fb230-753b-40f9-b90f-84e32efb258d" xml:space="preserve">
+          <source>|</source>
+          <target state="new">|</target>
+        </trans-unit>
+        <trans-unit id="051a02c8-b6fb-4d11-8a33-f024e6a34c45" xml:space="preserve">
+          <source>For more information on these, and other parameters used with Giraph samples, see the <bpt id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;linkText&gt;</bpt>Giraph quickstart<ept id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;/linkText&gt;</ept><bpt id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;title&gt;</bpt><ept id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on these, and other parameters used with Giraph samples, see the <bpt id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;linkText&gt;</bpt>Giraph quickstart<ept id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;/linkText&gt;</ept><bpt id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;title&gt;</bpt><ept id="7355fd81-d4c2-4826-8735-c81d2b7f0bce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9217fa4-22e9-4573-926b-621808ca3f0a" xml:space="preserve">
+          <source>Once the job has finished, the results will be stored in the <bpt id="1ba350bd-27f1-48da-9c10-d595b5142703">&lt;strong&gt;</bpt>wasb:///example/out/shotestpaths<ept id="1ba350bd-27f1-48da-9c10-d595b5142703">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new">Once the job has finished, the results will be stored in the <bpt id="1ba350bd-27f1-48da-9c10-d595b5142703">&lt;strong&gt;</bpt>wasb:///example/out/shotestpaths<ept id="1ba350bd-27f1-48da-9c10-d595b5142703">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="4148f2af-a92c-4446-8a95-f13dbb51bc66" xml:space="preserve">
+          <source>The files created will begin with <bpt id="ac25ade6-be0b-4464-baaa-6010d241a45f">&lt;strong&gt;</bpt>part-m-<ept id="ac25ade6-be0b-4464-baaa-6010d241a45f">&lt;/strong&gt;</ept> and end with a number indicating the first, second, etc. file.</source>
+          <target state="new">The files created will begin with <bpt id="ac25ade6-be0b-4464-baaa-6010d241a45f">&lt;strong&gt;</bpt>part-m-<ept id="ac25ade6-be0b-4464-baaa-6010d241a45f">&lt;/strong&gt;</ept> and end with a number indicating the first, second, etc. file.</target>
+        </trans-unit>
+        <trans-unit id="d9011a8d-0c74-4c99-853b-551ad1dcbcce" xml:space="preserve">
+          <source>Use the following to view the output:</source>
+          <target state="new">Use the following to view the output:</target>
+        </trans-unit>
+        <trans-unit id="0266d7b1-8e2d-41d4-a995-cc8189601abe" xml:space="preserve">
+          <source>The output should appear similar to the following:</source>
+          <target state="new">The output should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="8ed521ab-e34a-4bf5-a6fc-10b249b760f5" xml:space="preserve">
+          <source>The SimpleShortestPathComputation example is hard coded to start with object ID 1 and find the shortest path to other objects.</source>
+          <target state="new">The SimpleShortestPathComputation example is hard coded to start with object ID 1 and find the shortest path to other objects.</target>
+        </trans-unit>
+        <trans-unit id="e684d67c-5e94-442b-8568-0a1807b86f36" xml:space="preserve">
+          <source>So the output should be read as <bpt id="a2eafdcf-7078-4345-b97f-df0fe432f8c0">&lt;code&gt;</bpt>destination_id distance<ept id="a2eafdcf-7078-4345-b97f-df0fe432f8c0">&lt;/code&gt;</ept>, where distance is the value (or weight) of the edges traveled between object ID 1 and the target ID.</source>
+          <target state="new">So the output should be read as <bpt id="a2eafdcf-7078-4345-b97f-df0fe432f8c0">&lt;code&gt;</bpt>destination_id distance<ept id="a2eafdcf-7078-4345-b97f-df0fe432f8c0">&lt;/code&gt;</ept>, where distance is the value (or weight) of the edges traveled between object ID 1 and the target ID.</target>
+        </trans-unit>
+        <trans-unit id="28a99095-7c6b-4ecb-b426-ba73c37eb448" xml:space="preserve">
+          <source>Visualizing this, you can verify the results by traveling the shortest paths between ID 1 and all other objects.</source>
+          <target state="new">Visualizing this, you can verify the results by traveling the shortest paths between ID 1 and all other objects.</target>
+        </trans-unit>
+        <trans-unit id="15a55a8d-f687-4247-a0db-5b861d88ac3a" xml:space="preserve">
+          <source>Note that the shortest path between ID 1 and ID 4 is 5.</source>
+          <target state="new">Note that the shortest path between ID 1 and ID 4 is 5.</target>
+        </trans-unit>
+        <trans-unit id="5b7a3da4-bc55-46c6-9384-f1500c0ce0fa" xml:space="preserve">
+          <source>This is the total distance between &lt;span style="color:orange"&gt;ID 1 and 3&lt;/span&gt;, and then &lt;span style="color:red"&gt;ID 3 and 4&lt;/span&gt;.</source>
+          <target state="new">This is the total distance between &lt;span style="color:orange"&gt;ID 1 and 3&lt;/span&gt;, and then &lt;span style="color:red"&gt;ID 3 and 4&lt;/span&gt;.</target>
+        </trans-unit>
+        <trans-unit id="f3892234-772a-431d-8212-17225ef472e1" xml:space="preserve">
+          <source><bpt id="16ae0cc6-9d92-4c94-9709-c2ef04f3a4bc">&lt;linkText&gt;</bpt>Drawing of objects as circles with shortest paths drawn between<ept id="16ae0cc6-9d92-4c94-9709-c2ef04f3a4bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16ae0cc6-9d92-4c94-9709-c2ef04f3a4bc">&lt;linkText&gt;</bpt>Drawing of objects as circles with shortest paths drawn between<ept id="16ae0cc6-9d92-4c94-9709-c2ef04f3a4bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62b72d44-9ba7-4ab6-90a9-7583ecb6eefd" xml:space="preserve">
+          <source><bpt id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;linkText&gt;</bpt>Install and use Hue on HDInsight clusters<ept id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;/linkText&gt;</ept><bpt id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;title&gt;</bpt><ept id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;linkText&gt;</bpt>Install and use Hue on HDInsight clusters<ept id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;/linkText&gt;</ept><bpt id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;title&gt;</bpt><ept id="776b5d0e-8431-45be-8add-6db71df1a864">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e3dd429-391c-4efb-9ac8-7bfc54fc403d" xml:space="preserve">
+          <source>Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.</source>
+          <target state="new">Hue is a web UI that makes it easy to create, run and save Pig and Hive jobs, as well as browse the default storage for your HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="aa627772-662a-4bf5-ac56-80ab5d4f2755" xml:space="preserve">
+          <source><bpt id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;/linkText&gt;</ept><bpt id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;title&gt;</bpt><ept id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;/title&gt;</ept>: Instructions on how to use cluster customization to install and use Spark on HDInsight Hadoop clusters.</source>
+          <target state="new"><bpt id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;/linkText&gt;</ept><bpt id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;title&gt;</bpt><ept id="2f6bcc34-8625-455a-bb37-bf6d47f8ab44">&lt;/title&gt;</ept>: Instructions on how to use cluster customization to install and use Spark on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="b3e8c94b-463f-47a8-80b9-d5024183cf07" xml:space="preserve">
+          <source>Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.</source>
+          <target state="new">Spark is an open-source parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications.</target>
+        </trans-unit>
+        <trans-unit id="26061c1e-0374-4c4f-a308-7bd5d07186d0" xml:space="preserve">
+          <source><bpt id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;linkText&gt;</bpt>Install R on HDInsight clusters<ept id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;/linkText&gt;</ept><bpt id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;title&gt;</bpt><ept id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;/title&gt;</ept>: Instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters.</source>
+          <target state="new"><bpt id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;linkText&gt;</bpt>Install R on HDInsight clusters<ept id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;/linkText&gt;</ept><bpt id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;title&gt;</bpt><ept id="36978c6a-6dbe-45a4-9526-23cd38e1ccc3">&lt;/title&gt;</ept>: Instructions on how to use cluster customization to install and use R on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="97d88867-b9ed-4a26-b4c3-9446d1a8557a" xml:space="preserve">
+          <source>R is an open-source language and environment for statistical computing.</source>
+          <target state="new">R is an open-source language and environment for statistical computing.</target>
+        </trans-unit>
+        <trans-unit id="c1b0578c-602d-4eb1-8262-50c66a1a8819" xml:space="preserve">
+          <source>It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming.</source>
+          <target state="new">It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming.</target>
+        </trans-unit>
+        <trans-unit id="09653a3b-0e3b-4056-b2a8-05cc1242a199" xml:space="preserve">
+          <source>It also provides extensive graphical capabilities.</source>
+          <target state="new">It also provides extensive graphical capabilities.</target>
+        </trans-unit>
+        <trans-unit id="807e8e82-f119-4933-8ef1-ff9e25f695f4" xml:space="preserve">
+          <source><bpt id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;linkText&gt;</bpt>Install Solr on HDInsight clusters<ept id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;/linkText&gt;</ept><bpt id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;title&gt;</bpt><ept id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;linkText&gt;</bpt>Install Solr on HDInsight clusters<ept id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;/linkText&gt;</ept><bpt id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;title&gt;</bpt><ept id="47e57f8d-36c3-4b42-bf9a-b7807a49b59d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4be2051-bbd1-4dbf-8319-00f0fb125930" xml:space="preserve">
+          <source>Use cluster customization to install Solr on HDInsight Hadoop clusters.</source>
+          <target state="new">Use cluster customization to install Solr on HDInsight Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="d3de0e7f-5d1f-47fa-bee6-943736fdb156" xml:space="preserve">
+          <source>Solr allows you to perform powerful search operations on data stored.</source>
+          <target state="new">Solr allows you to perform powerful search operations on data stored.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

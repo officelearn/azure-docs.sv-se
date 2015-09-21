@@ -1,0 +1,596 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e6fd03d7-6946-48c5-aa0c-c6dc1a5f2239" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e6fd03d7-6946-48c5-aa0c-c6dc1a5f2239" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ec7442bb-5c76-4871-9501-cbd04c5f5b8f">
+        <trans-unit id="ed09c295-a9c4-45c4-8c47-8f6aa709e8bf" xml:space="preserve">
+          <source>Use the Azure Storage Emulator for Development and Testing | Microsoft Azure</source>
+          <target state="new">Use the Azure Storage Emulator for Development and Testing | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="713428b7-9957-4c62-94a2-ee1d07edaa3c" xml:space="preserve">
+          <source>The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.</source>
+          <target state="new">The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.</target>
+        </trans-unit>
+        <trans-unit id="2ba61945-7dbc-4b8e-8ecf-cf6bdf55596c" xml:space="preserve">
+          <source>The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes.</source>
+          <target state="new">The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes.</target>
+        </trans-unit>
+        <trans-unit id="053966dd-1006-4880-9d3a-be1e4d93b062" xml:space="preserve">
+          <source>Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs.</source>
+          <target state="new">Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs.</target>
+        </trans-unit>
+        <trans-unit id="afad560f-1440-441e-b983-0f24f7a4bd53" xml:space="preserve">
+          <source>When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.</source>
+          <target state="new">When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="fcbb6bdf-8c1a-4d12-8683-2b2af13210db" xml:space="preserve">
+          <source>The storage emulator is available as part of the <bpt id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;linkText&gt;</bpt>Microsoft Azure SDK<ept id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;/linkText&gt;</ept><bpt id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;title&gt;</bpt><ept id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;/title&gt;</ept>.</source>
+          <target state="new">The storage emulator is available as part of the <bpt id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;linkText&gt;</bpt>Microsoft Azure SDK<ept id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;/linkText&gt;</ept><bpt id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;title&gt;</bpt><ept id="d416d3cc-1653-47d4-9f4b-60716d37dae4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4022725-8afa-4575-9074-44df02c9eaf8" xml:space="preserve">
+          <source>You can also install the storage emulator as a standalone package.</source>
+          <target state="new">You can also install the storage emulator as a standalone package.</target>
+        </trans-unit>
+        <trans-unit id="6ce7de71-c417-4f70-8135-1e83ccc0fb2e" xml:space="preserve">
+          <source>To configure the storage emulator, you must have administrative privileges on the computer.</source>
+          <target state="new">To configure the storage emulator, you must have administrative privileges on the computer.</target>
+        </trans-unit>
+        <trans-unit id="519c6d2d-a3eb-4490-b828-d3eb30008979" xml:space="preserve">
+          <source>Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version.</source>
+          <target state="new">Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version.</target>
+        </trans-unit>
+        <trans-unit id="365187ab-2fe4-4ca2-bcb5-917bf1ef9eed" xml:space="preserve">
+          <source>If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.</source>
+          <target state="new">If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="726a0d9a-6bae-48e6-b133-be7a5d3f24cd" xml:space="preserve">
+          <source>The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate the Azure storage services.</source>
+          <target state="new">The storage emulator uses a local Microsoft SQL Server instance and the local file system to emulate the Azure storage services.</target>
+        </trans-unit>
+        <trans-unit id="eab12125-71c7-4008-8d39-17a6a1b1875e" xml:space="preserve">
+          <source>By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB.</source>
+          <target state="new">By default, the storage emulator uses a database in Microsoft SQL Server 2012 Express LocalDB.</target>
+        </trans-unit>
+        <trans-unit id="3b088eef-32da-4193-8ce8-2667c9d2f09c" xml:space="preserve">
+          <source>You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance.</source>
+          <target state="new">You can choose to configure the storage emulator to access a local instance of SQL Server instead of the LocalDB instance.</target>
+        </trans-unit>
+        <trans-unit id="6901ec50-ae2d-4142-a4ca-be75cbba64ab" xml:space="preserve">
+          <source>See <bpt id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;linkText&gt;</bpt>Start and initialize the storage emulator<ept id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;/linkText&gt;</ept><bpt id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;title&gt;</bpt><ept id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;/title&gt;</ept> below for more information.</source>
+          <target state="new">See <bpt id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;linkText&gt;</bpt>Start and initialize the storage emulator<ept id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;/linkText&gt;</ept><bpt id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;title&gt;</bpt><ept id="f9aa8290-b161-4386-ba0f-8e2da461754a">&lt;/title&gt;</ept> below for more information.</target>
+        </trans-unit>
+        <trans-unit id="f89926a3-e056-408c-ad24-370a356421ab" xml:space="preserve">
+          <source>You can install SQL Server Management Studio Express to manage your LocalDB installation.</source>
+          <target state="new">You can install SQL Server Management Studio Express to manage your LocalDB installation.</target>
+        </trans-unit>
+        <trans-unit id="6b2bfe4b-552d-4755-ab27-f10a3a963da4" xml:space="preserve">
+          <source>The storage emulator connects to SQL Server or LocalDB using Windows authentication.</source>
+          <target state="new">The storage emulator connects to SQL Server or LocalDB using Windows authentication.</target>
+        </trans-unit>
+        <trans-unit id="95834f6d-618e-4fa5-8e28-157ae8a0e218" xml:space="preserve">
+          <source>Some differences in functionality exist between the storage emulator and Azure storage services.</source>
+          <target state="new">Some differences in functionality exist between the storage emulator and Azure storage services.</target>
+        </trans-unit>
+        <trans-unit id="ef3f02f5-5b9b-401a-a977-c0776e13a9d6" xml:space="preserve">
+          <source>For more information about these differences, see <bpt id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;linkText&gt;</bpt>Differences between the storage emulator and Azure Storage<ept id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;/linkText&gt;</ept><bpt id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;title&gt;</bpt><ept id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about these differences, see <bpt id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;linkText&gt;</bpt>Differences between the storage emulator and Azure Storage<ept id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;/linkText&gt;</ept><bpt id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;title&gt;</bpt><ept id="f37a60ea-6d05-493d-acd7-9475fced75cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7922feb-a844-40d6-b760-43a32568402b" xml:space="preserve">
+          <source>Just as with Azure Storage in the cloud, every request that you make against the storage emulator must be authenticated, unless it is an anonymous request.</source>
+          <target state="new">Just as with Azure Storage in the cloud, every request that you make against the storage emulator must be authenticated, unless it is an anonymous request.</target>
+        </trans-unit>
+        <trans-unit id="a4429980-4c89-43d6-aacc-41ed9943d798" xml:space="preserve">
+          <source>You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).</source>
+          <target state="new">You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).</target>
+        </trans-unit>
+        <trans-unit id="d36335b0-df9b-4d1b-aded-aafc41d2cadc" xml:space="preserve">
+          <source><bpt id="77f21e2f-20b0-4156-8546-c1bc1c9f4fd6">&lt;token href="../../includes/storage-emulator-connection-string-include.md"&gt;</bpt><ept id="77f21e2f-20b0-4156-8546-c1bc1c9f4fd6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="77f21e2f-20b0-4156-8546-c1bc1c9f4fd6">&lt;token href="../../includes/storage-emulator-connection-string-include.md"&gt;</bpt><ept id="77f21e2f-20b0-4156-8546-c1bc1c9f4fd6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="243bb62f-f40a-4f36-bfb3-02a772dc40e5" xml:space="preserve">
+          <source>For more details on connection strings, see <bpt id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;linkText&gt;</bpt>Configure a Connection String to Azure Storage<ept id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;/linkText&gt;</ept><bpt id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;title&gt;</bpt><ept id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details on connection strings, see <bpt id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;linkText&gt;</bpt>Configure a Connection String to Azure Storage<ept id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;/linkText&gt;</ept><bpt id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;title&gt;</bpt><ept id="15b97940-9a84-4d17-acba-9817e2208cb9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="512fc632-3c0d-4c45-84c1-e62a27eeaa9c" xml:space="preserve">
+          <source>Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token.</source>
+          <target state="new">Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token.</target>
+        </trans-unit>
+        <trans-unit id="b00119ad-0eec-4ed1-8849-7a95ba394bb4" xml:space="preserve">
+          <source>You will need to create this SAS token using a tool or application that supports Shared Key authentication.</source>
+          <target state="new">You will need to create this SAS token using a tool or application that supports Shared Key authentication.</target>
+        </trans-unit>
+        <trans-unit id="35e4e8ff-60f5-42e8-8580-7aab8c4298a5" xml:space="preserve">
+          <source>An easy way to generate the SAS token is via Azure PowerShell:</source>
+          <target state="new">An easy way to generate the SAS token is via Azure PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="4a833dcd-16fb-45af-b44e-1c6b286eaf32" xml:space="preserve">
+          <source>Install Azure PowerShell if you haven't already.</source>
+          <target state="new">Install Azure PowerShell if you haven't already.</target>
+        </trans-unit>
+        <trans-unit id="776ffa75-1ed2-4e12-901c-184e3530acc1" xml:space="preserve">
+          <source>Using the latest version of the Azure PowerShell cmdlets is recommended.</source>
+          <target state="new">Using the latest version of the Azure PowerShell cmdlets is recommended.</target>
+        </trans-unit>
+        <trans-unit id="f6f7a626-95f2-4ccb-9c93-c899e51efd0f" xml:space="preserve">
+          <source>See <bpt id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;/linkText&gt;</ept><bpt id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;title&gt;</bpt><ept id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;/title&gt;</ept> for installation instructions.</source>
+          <target state="new">See <bpt id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;/linkText&gt;</ept><bpt id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;title&gt;</bpt><ept id="1c07161b-36e8-4e77-b4c7-080d70a796f4">&lt;/title&gt;</ept> for installation instructions.</target>
+        </trans-unit>
+        <trans-unit id="0eb84690-15c5-43ec-9c6e-a85509c996a2" xml:space="preserve">
+          <source>Open Azure PowerShell and run the following commands.</source>
+          <target state="new">Open Azure PowerShell and run the following commands.</target>
+        </trans-unit>
+        <trans-unit id="1eec2a8d-ba78-4603-8e1e-49e78a984496" xml:space="preserve">
+          <source>Remember to replace <bpt id="b452495c-4238-45b0-901a-01269042c5aa">&lt;em&gt;</bpt>ACCOUNT_NAME<ept id="b452495c-4238-45b0-901a-01269042c5aa">&lt;/em&gt;</ept> and <bpt id="e9ca84a9-91f3-4076-8dc9-528e806c1a1d">&lt;em&gt;</bpt>ACCOUNT_KEY==<ept id="e9ca84a9-91f3-4076-8dc9-528e806c1a1d">&lt;/em&gt;</ept> with your own credentials.</source>
+          <target state="new">Remember to replace <bpt id="b452495c-4238-45b0-901a-01269042c5aa">&lt;em&gt;</bpt>ACCOUNT_NAME<ept id="b452495c-4238-45b0-901a-01269042c5aa">&lt;/em&gt;</ept> and <bpt id="e9ca84a9-91f3-4076-8dc9-528e806c1a1d">&lt;em&gt;</bpt>ACCOUNT_KEY==<ept id="e9ca84a9-91f3-4076-8dc9-528e806c1a1d">&lt;/em&gt;</ept> with your own credentials.</target>
+        </trans-unit>
+        <trans-unit id="f0504cd5-aac7-4066-aa30-8f64f31e09ab" xml:space="preserve">
+          <source>Replace <bpt id="613e6fa7-0cbc-4fc1-ac5f-e6f9eced7e67">&lt;em&gt;</bpt>CONTAINER_NAME<ept id="613e6fa7-0cbc-4fc1-ac5f-e6f9eced7e67">&lt;/em&gt;</ept> with a name of your choosing.</source>
+          <target state="new">Replace <bpt id="613e6fa7-0cbc-4fc1-ac5f-e6f9eced7e67">&lt;em&gt;</bpt>CONTAINER_NAME<ept id="613e6fa7-0cbc-4fc1-ac5f-e6f9eced7e67">&lt;/em&gt;</ept> with a name of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="fbb793cf-eda7-491f-8d22-d3fae3e2914a" xml:space="preserve">
+          <source>The resulting shared access signature URI for the new container should be similar to the following:</source>
+          <target state="new">The resulting shared access signature URI for the new container should be similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="85f66aa2-a307-4461-a293-4c4faa7f2241" xml:space="preserve">
+          <source>The shared access signature created with this example is valid for one day.</source>
+          <target state="new">The shared access signature created with this example is valid for one day.</target>
+        </trans-unit>
+        <trans-unit id="a67fe77d-0258-441c-a3ba-4c4af54ab9c8" xml:space="preserve">
+          <source>The signature grants full access (i.e. read, write, delete, list) to blobs within the container.</source>
+          <target state="new">The signature grants full access (i.e. read, write, delete, list) to blobs within the container.</target>
+        </trans-unit>
+        <trans-unit id="c32e8b6c-24b5-482c-b1cf-ee691f2ea6b1" xml:space="preserve">
+          <source>For more information on shared access signatures, see <bpt id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;linkText&gt;</bpt>Shared Access Signatures: Understanding the SAS Model<ept id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;/linkText&gt;</ept><bpt id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;title&gt;</bpt><ept id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on shared access signatures, see <bpt id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;linkText&gt;</bpt>Shared Access Signatures: Understanding the SAS Model<ept id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;/linkText&gt;</ept><bpt id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;title&gt;</bpt><ept id="e31a032f-2d36-4eb3-ba9d-dbdc5cae830e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="636643b6-5f62-444c-a22d-d68f21441cad" xml:space="preserve">
+          <source>To start the Azure storage emulator, select the Start button or press the Windows key.</source>
+          <target state="new">To start the Azure storage emulator, select the Start button or press the Windows key.</target>
+        </trans-unit>
+        <trans-unit id="2fcf6e24-b12a-409a-b416-73f6344174ea" xml:space="preserve">
+          <source>Begin typing <bpt id="1d80d276-305f-45ac-a120-e4a30ddec050">&lt;strong&gt;</bpt>Azure Storage Emulator<ept id="1d80d276-305f-45ac-a120-e4a30ddec050">&lt;/strong&gt;</ept>, and select the emulator from the list of applications.</source>
+          <target state="new">Begin typing <bpt id="1d80d276-305f-45ac-a120-e4a30ddec050">&lt;strong&gt;</bpt>Azure Storage Emulator<ept id="1d80d276-305f-45ac-a120-e4a30ddec050">&lt;/strong&gt;</ept>, and select the emulator from the list of applications.</target>
+        </trans-unit>
+        <trans-unit id="1ac19d91-c0ec-4b20-bdbc-a49dcd9efc16" xml:space="preserve">
+          <source>When the emulator is running, you'll see an icon in the Windows taskbar notification area.</source>
+          <target state="new">When the emulator is running, you'll see an icon in the Windows taskbar notification area.</target>
+        </trans-unit>
+        <trans-unit id="06cd6eab-696e-499d-914a-b2080517d231" xml:space="preserve">
+          <source>When the storage emulator starts, a command-line window will appear.</source>
+          <target state="new">When the storage emulator starts, a command-line window will appear.</target>
+        </trans-unit>
+        <trans-unit id="f81d0248-6ba7-45bc-adeb-38d6bf5320ae" xml:space="preserve">
+          <source>You can use this command-line window to start and stop the storage emulator as well as clear data, get current status, and initialize the emulator.</source>
+          <target state="new">You can use this command-line window to start and stop the storage emulator as well as clear data, get current status, and initialize the emulator.</target>
+        </trans-unit>
+        <trans-unit id="fdd11f33-ec1c-43fb-a8c7-6f0801fc8e9c" xml:space="preserve">
+          <source>For more information, see <bpt id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;linkText&gt;</bpt>Storage Emulator Command-Line Tool Reference<ept id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;/linkText&gt;</ept><bpt id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;title&gt;</bpt><ept id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;linkText&gt;</bpt>Storage Emulator Command-Line Tool Reference<ept id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;/linkText&gt;</ept><bpt id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;title&gt;</bpt><ept id="bd655d57-03d9-402d-94df-388d9ade0ba2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07d19bf6-35eb-43cb-a58d-77e97889f3dc" xml:space="preserve">
+          <source>When the command line window is closed, the storage emulator continues to run.</source>
+          <target state="new">When the command line window is closed, the storage emulator continues to run.</target>
+        </trans-unit>
+        <trans-unit id="26a4a8c7-6fb2-4d6e-9662-990b42d6fd40" xml:space="preserve">
+          <source>To bring up the command line again, follow the steps above as if starting the storage emulator.</source>
+          <target state="new">To bring up the command line again, follow the steps above as if starting the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="fb7d955b-30a6-44dc-8681-ff2c218e5903" xml:space="preserve">
+          <source>The first time you run the storage emulator, the local storage environment is initialized for you.</source>
+          <target state="new">The first time you run the storage emulator, the local storage environment is initialized for you.</target>
+        </trans-unit>
+        <trans-unit id="f2952b5c-6d93-4458-981d-c48b4c22ca57" xml:space="preserve">
+          <source>The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service.</source>
+          <target state="new">The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service.</target>
+        </trans-unit>
+        <trans-unit id="bcd5df06-b496-489f-890d-f00c1597b6f6" xml:space="preserve">
+          <source>The storage emulator is installed by default to the C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator directory.</source>
+          <target state="new">The storage emulator is installed by default to the C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator directory.</target>
+        </trans-unit>
+        <trans-unit id="d89123a6-8a34-4bff-bd3a-3c49a48110a8" xml:space="preserve">
+          <source>You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance.</source>
+          <target state="new">You can use the storage emulator command-line tool to initialize the storage emulator to point to a SQL database instance other than the default LocalDB instance.</target>
+        </trans-unit>
+        <trans-unit id="3539ee33-c0ed-400b-8ea4-d431dc981b81" xml:space="preserve">
+          <source>Note that you must be running the command-line tool with administrative privileges to initialize the back-end database for the storage emulator:</source>
+          <target state="new">Note that you must be running the command-line tool with administrative privileges to initialize the back-end database for the storage emulator:</target>
+        </trans-unit>
+        <trans-unit id="815d006f-5eb9-444f-967b-53cdeef8fc82" xml:space="preserve">
+          <source>Click the <bpt id="d53e73b7-30b6-40e3-8f64-40026094eb38">&lt;strong&gt;</bpt>Start<ept id="d53e73b7-30b6-40e3-8f64-40026094eb38">&lt;/strong&gt;</ept> button or press the <bpt id="15e2f731-fa01-47eb-b990-b91aa509b45e">&lt;strong&gt;</bpt>Windows<ept id="15e2f731-fa01-47eb-b990-b91aa509b45e">&lt;/strong&gt;</ept> key.</source>
+          <target state="new">Click the <bpt id="d53e73b7-30b6-40e3-8f64-40026094eb38">&lt;strong&gt;</bpt>Start<ept id="d53e73b7-30b6-40e3-8f64-40026094eb38">&lt;/strong&gt;</ept> button or press the <bpt id="15e2f731-fa01-47eb-b990-b91aa509b45e">&lt;strong&gt;</bpt>Windows<ept id="15e2f731-fa01-47eb-b990-b91aa509b45e">&lt;/strong&gt;</ept> key.</target>
+        </trans-unit>
+        <trans-unit id="8a20d9ca-f563-4501-80f4-4b3345f9aea5" xml:space="preserve">
+          <source>Begin typing <bpt id="345b1041-1576-47a1-b6cc-5f731d6d13ed">&lt;code&gt;</bpt>Azure Storage Emulator<ept id="345b1041-1576-47a1-b6cc-5f731d6d13ed">&lt;/code&gt;</ept> and select it when it appears to bring up the storage emulator command-line tool.</source>
+          <target state="new">Begin typing <bpt id="345b1041-1576-47a1-b6cc-5f731d6d13ed">&lt;code&gt;</bpt>Azure Storage Emulator<ept id="345b1041-1576-47a1-b6cc-5f731d6d13ed">&lt;/code&gt;</ept> and select it when it appears to bring up the storage emulator command-line tool.</target>
+        </trans-unit>
+        <trans-unit id="afdb336d-ba77-4eb1-ac20-39cb654c858d" xml:space="preserve">
+          <source>In the command prompt window, type the following command, where <bpt id="ae8d8eae-d4a6-4ad7-83a9-af103f1d6799">&lt;code&gt;</bpt>&lt;SQLServerInstance&gt;<ept id="ae8d8eae-d4a6-4ad7-83a9-af103f1d6799">&lt;/code&gt;</ept> is the name of the SQL Server instance. To use LocalDb, specify <bpt id="8fe88223-1f7a-4351-8915-d9bf7d2235a4">&lt;code&gt;</bpt>(localdb)\v11.0<ept id="8fe88223-1f7a-4351-8915-d9bf7d2235a4">&lt;/code&gt;</ept> as the SQL Server instance.</source>
+          <target state="new">In the command prompt window, type the following command, where <bpt id="ae8d8eae-d4a6-4ad7-83a9-af103f1d6799">&lt;code&gt;</bpt>&lt;SQLServerInstance&gt;<ept id="ae8d8eae-d4a6-4ad7-83a9-af103f1d6799">&lt;/code&gt;</ept> is the name of the SQL Server instance. To use LocalDb, specify <bpt id="8fe88223-1f7a-4351-8915-d9bf7d2235a4">&lt;code&gt;</bpt>(localdb)\v11.0<ept id="8fe88223-1f7a-4351-8915-d9bf7d2235a4">&lt;/code&gt;</ept> as the SQL Server instance.</target>
+        </trans-unit>
+        <trans-unit id="560887cb-e46c-4fa3-b76e-44a8b04cbe6b" xml:space="preserve">
+          <source>You can also use the following command, which directs the emulator to use the default SQL Server instance:</source>
+          <target state="new">You can also use the following command, which directs the emulator to use the default SQL Server instance:</target>
+        </trans-unit>
+        <trans-unit id="591723e8-820a-42f0-be9d-ccedb423c124" xml:space="preserve">
+          <source>Or, you can use the following command, which re-initializes the database to the default LocalDB instance:</source>
+          <target state="new">Or, you can use the following command, which re-initializes the database to the default LocalDB instance:</target>
+        </trans-unit>
+        <trans-unit id="52ab2058-bbfb-4bed-9a12-43302b5cf194" xml:space="preserve">
+          <source>For more information about these commands, see <bpt id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;linkText&gt;</bpt>Storage Emulator Command-Line Tool Reference<ept id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;/linkText&gt;</ept><bpt id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;title&gt;</bpt><ept id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about these commands, see <bpt id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;linkText&gt;</bpt>Storage Emulator Command-Line Tool Reference<ept id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;/linkText&gt;</ept><bpt id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;title&gt;</bpt><ept id="8b20575a-9c98-4237-8e2d-88e10bf8bb06">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4220116b-d40c-42b4-bb73-75609b5eefac" xml:space="preserve">
+          <source>The service endpoints for the storage emulator are different from those of an Azure storage account.</source>
+          <target state="new">The service endpoints for the storage emulator are different from those of an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="9383650a-1494-4063-9d65-a66eecf77594" xml:space="preserve">
+          <source>The difference is due to the fact that the local computer does not perform domain name resolution, so the storage emulator endpoints require a local address rather than a domain name.</source>
+          <target state="new">The difference is due to the fact that the local computer does not perform domain name resolution, so the storage emulator endpoints require a local address rather than a domain name.</target>
+        </trans-unit>
+        <trans-unit id="e0a3e70f-722e-45e4-b21f-3e08ab2c8273" xml:space="preserve">
+          <source>When you address a resource in an Azure storage account, you use the following scheme, where the account name is part of the URI host name, and the resource being addressed is part of the URI path:</source>
+          <target state="new">When you address a resource in an Azure storage account, you use the following scheme, where the account name is part of the URI host name, and the resource being addressed is part of the URI path:</target>
+        </trans-unit>
+        <trans-unit id="8b14d1a2-3725-4c79-983f-23fcefa07465" xml:space="preserve">
+          <source>For example, the following URI is a valid address for a blob in an Azure storage account:</source>
+          <target state="new">For example, the following URI is a valid address for a blob in an Azure storage account:</target>
+        </trans-unit>
+        <trans-unit id="3f88f3fc-019d-4e89-9288-5209a46600ec" xml:space="preserve">
+          <source>In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name.</source>
+          <target state="new">In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name.</target>
+        </trans-unit>
+        <trans-unit id="b05ce493-1e67-40af-8d36-87294cd475e6" xml:space="preserve">
+          <source>You use the following scheme for a resource running in the storage emulator:</source>
+          <target state="new">You use the following scheme for a resource running in the storage emulator:</target>
+        </trans-unit>
+        <trans-unit id="fe4553e9-c721-441a-952c-9b293f36cd50" xml:space="preserve">
+          <source>For example, the following address might be used for accessing a blob in the storage emulator:</source>
+          <target state="new">For example, the following address might be used for accessing a blob in the storage emulator:</target>
+        </trans-unit>
+        <trans-unit id="4b65e7d4-d2cc-4023-982c-fd4e14fb3517" xml:space="preserve">
+          <source>The service endpoints for the storage emulator are:</source>
+          <target state="new">The service endpoints for the storage emulator are:</target>
+        </trans-unit>
+        <trans-unit id="e0149c97-8018-4969-a946-8db8266d68b7" xml:space="preserve">
+          <source>Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS).</source>
+          <target state="new">Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS).</target>
+        </trans-unit>
+        <trans-unit id="7f4415f1-65a9-4d23-93cf-19d5b5d04378" xml:space="preserve">
+          <source>For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name.</source>
+          <target state="new">For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name.</target>
+        </trans-unit>
+        <trans-unit id="0e1be2f3-6e2d-4f9a-89dd-9944c386b8a0" xml:space="preserve">
+          <source>For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:</source>
+          <target state="new">For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:</target>
+        </trans-unit>
+        <trans-unit id="e8ed28ba-98a4-4f5d-9b8b-f7bc4f1707d3" xml:space="preserve">
+          <source>For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</source>
+          <target state="new">For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</target>
+        </trans-unit>
+        <trans-unit id="b0f16e91-d0fd-4b43-8fdb-8645b8590ffd" xml:space="preserve">
+          <source>See the <bpt id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;linkText&gt;</bpt>Storage Client Library Reference<ept id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;/linkText&gt;</ept><bpt id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;title&gt;</bpt><ept id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See the <bpt id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;linkText&gt;</bpt>Storage Client Library Reference<ept id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;/linkText&gt;</ept><bpt id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;title&gt;</bpt><ept id="92658a56-7b95-49bc-b1ec-bddd5559b5c7">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="4f961dd6-d56a-4a70-abc3-39e58b89ae3d" xml:space="preserve">
+          <source>Starting in version 3.0, when you launch the Storage Emulator, you will see a command-line window pop up.</source>
+          <target state="new">Starting in version 3.0, when you launch the Storage Emulator, you will see a command-line window pop up.</target>
+        </trans-unit>
+        <trans-unit id="800a9ef9-85ec-4ffa-891c-fe0785480536" xml:space="preserve">
+          <source>Use the command-line window to start and stop the emulator as well as to query for status and perform other operations.</source>
+          <target state="new">Use the command-line window to start and stop the emulator as well as to query for status and perform other operations.</target>
+        </trans-unit>
+        <trans-unit id="ae56a93c-a6d8-417a-ba86-d41bb5634e01" xml:space="preserve">
+          <source>If you have the Microsoft Azure compute emulator installed, a system tray icon will appear when you launch the Storage Emulator.</source>
+          <target state="new">If you have the Microsoft Azure compute emulator installed, a system tray icon will appear when you launch the Storage Emulator.</target>
+        </trans-unit>
+        <trans-unit id="c6b3b73b-4cc4-404e-9233-8813cf82b02e" xml:space="preserve">
+          <source>Right-click on the icon to reveal a menu, which provides a graphical way to start and stop the Storage Emulator.</source>
+          <target state="new">Right-click on the icon to reveal a menu, which provides a graphical way to start and stop the Storage Emulator.</target>
+        </trans-unit>
+        <trans-unit id="0664d134-de32-4ce4-8bbb-6625ba7b0d92" xml:space="preserve">
+          <source>To view the list of options, type <bpt id="7298fef3-94b8-4de6-b289-745137b6a151">&lt;code&gt;</bpt>/help<ept id="7298fef3-94b8-4de6-b289-745137b6a151">&lt;/code&gt;</ept> at the command prompt.</source>
+          <target state="new">To view the list of options, type <bpt id="7298fef3-94b8-4de6-b289-745137b6a151">&lt;code&gt;</bpt>/help<ept id="7298fef3-94b8-4de6-b289-745137b6a151">&lt;/code&gt;</ept> at the command prompt.</target>
+        </trans-unit>
+        <trans-unit id="1c87713c-95d9-4484-a585-418d4269f222" xml:space="preserve">
+          <source>Option</source>
+          <target state="new">Option</target>
+        </trans-unit>
+        <trans-unit id="9b4cd31c-fab7-4379-8917-f18b23e002ad" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="588d0ea6-891b-4c72-af91-1474a05fc69c" xml:space="preserve">
+          <source>Command</source>
+          <target state="new">Command</target>
+        </trans-unit>
+        <trans-unit id="dd11abbc-48aa-49a4-8dd8-dfcfe72b6937" xml:space="preserve">
+          <source>Arguments</source>
+          <target state="new">Arguments</target>
+        </trans-unit>
+        <trans-unit id="ecd3f61c-5034-4721-805f-c00b19d70340" xml:space="preserve">
+          <source><bpt id="6630e892-b2ae-4d3f-afcf-76a83982d3f5">&lt;strong&gt;</bpt>Start<ept id="6630e892-b2ae-4d3f-afcf-76a83982d3f5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6630e892-b2ae-4d3f-afcf-76a83982d3f5">&lt;strong&gt;</bpt>Start<ept id="6630e892-b2ae-4d3f-afcf-76a83982d3f5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5bf7fd2-8e0f-45bc-8392-a94047cc3bdc" xml:space="preserve">
+          <source>Starts up the storage emulator.</source>
+          <target state="new">Starts up the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="65313b51-829a-4d36-997f-12e803cd59cb" xml:space="preserve">
+          <source><bpt id="ceac56e4-afb9-46e7-b1b2-98000fbf22e0">&lt;code&gt;</bpt>AzureStorageEmulator start [-inprocess]<ept id="ceac56e4-afb9-46e7-b1b2-98000fbf22e0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ceac56e4-afb9-46e7-b1b2-98000fbf22e0">&lt;code&gt;</bpt>AzureStorageEmulator start [-inprocess]<ept id="ceac56e4-afb9-46e7-b1b2-98000fbf22e0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78184ef3-9762-4bfd-ba2e-674399c6e7e2" xml:space="preserve">
+          <source><bpt id="1a432524-4f72-4596-b04a-282f6c840f08">&lt;em&gt;</bpt>-inprocess<ept id="1a432524-4f72-4596-b04a-282f6c840f08">&lt;/em&gt;</ept>: Start the emulator in the current process instead of creating a new process.</source>
+          <target state="new"><bpt id="1a432524-4f72-4596-b04a-282f6c840f08">&lt;em&gt;</bpt>-inprocess<ept id="1a432524-4f72-4596-b04a-282f6c840f08">&lt;/em&gt;</ept>: Start the emulator in the current process instead of creating a new process.</target>
+        </trans-unit>
+        <trans-unit id="01c0e806-104a-4e18-a51e-0b2e58aded95" xml:space="preserve">
+          <source><bpt id="99f6c2f7-7f64-450b-ac1f-782c293b6e80">&lt;strong&gt;</bpt>Stop<ept id="99f6c2f7-7f64-450b-ac1f-782c293b6e80">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="99f6c2f7-7f64-450b-ac1f-782c293b6e80">&lt;strong&gt;</bpt>Stop<ept id="99f6c2f7-7f64-450b-ac1f-782c293b6e80">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91287f82-0600-4b10-b822-ed55ca037c46" xml:space="preserve">
+          <source>Stops the storage emulator.</source>
+          <target state="new">Stops the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="479f67fd-b5c6-4441-8dda-1c5d34f1eb8b" xml:space="preserve">
+          <source><bpt id="bc1399f7-89ff-47ec-9ca1-530059c8997d">&lt;code&gt;</bpt>AzureStorageEmulator stop<ept id="bc1399f7-89ff-47ec-9ca1-530059c8997d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bc1399f7-89ff-47ec-9ca1-530059c8997d">&lt;code&gt;</bpt>AzureStorageEmulator stop<ept id="bc1399f7-89ff-47ec-9ca1-530059c8997d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfa5f0e3-a793-4b3c-85b8-11300c222737" xml:space="preserve">
+          <source><bpt id="8c177b89-be55-4e6c-84b7-7d5b947b2bbd">&lt;strong&gt;</bpt>Status<ept id="8c177b89-be55-4e6c-84b7-7d5b947b2bbd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8c177b89-be55-4e6c-84b7-7d5b947b2bbd">&lt;strong&gt;</bpt>Status<ept id="8c177b89-be55-4e6c-84b7-7d5b947b2bbd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62480604-5a93-4a63-ab98-e742fb100435" xml:space="preserve">
+          <source>Prints the status of the storage emulator.</source>
+          <target state="new">Prints the status of the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="bc6c806c-8a99-4ca7-b2f4-856c1f42a4db" xml:space="preserve">
+          <source><bpt id="936f821e-834a-45ed-913e-213dd26c60c9">&lt;code&gt;</bpt>AzureStorageEmulator status<ept id="936f821e-834a-45ed-913e-213dd26c60c9">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="936f821e-834a-45ed-913e-213dd26c60c9">&lt;code&gt;</bpt>AzureStorageEmulator status<ept id="936f821e-834a-45ed-913e-213dd26c60c9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9da569e6-b5b1-4cd1-a828-12e08e31caae" xml:space="preserve">
+          <source><bpt id="ecd5f534-9c42-4bce-b453-e00afb6c1899">&lt;strong&gt;</bpt>Clear<ept id="ecd5f534-9c42-4bce-b453-e00afb6c1899">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ecd5f534-9c42-4bce-b453-e00afb6c1899">&lt;strong&gt;</bpt>Clear<ept id="ecd5f534-9c42-4bce-b453-e00afb6c1899">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5961c66c-cac1-4a40-b9f2-532d0e3a2444" xml:space="preserve">
+          <source>Clears the data in all services specified on the command line.</source>
+          <target state="new">Clears the data in all services specified on the command line.</target>
+        </trans-unit>
+        <trans-unit id="c1b64d7f-1397-4064-ab1c-61b10c03d97d" xml:space="preserve">
+          <source><bpt id="ee8a4b76-f03c-46f7-8ae5-620beef3e267">&lt;code&gt;</bpt>AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    <ept id="ee8a4b76-f03c-46f7-8ae5-620beef3e267">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ee8a4b76-f03c-46f7-8ae5-620beef3e267">&lt;code&gt;</bpt>AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    <ept id="ee8a4b76-f03c-46f7-8ae5-620beef3e267">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="901c1337-4f99-4947-ba06-9ca230011727" xml:space="preserve">
+          <source><bpt id="c90dacc5-4e0e-4855-80f6-ad8b8913ef85">&lt;em&gt;</bpt>blob<ept id="c90dacc5-4e0e-4855-80f6-ad8b8913ef85">&lt;/em&gt;</ept>: Clears blob data.</source>
+          <target state="new"><bpt id="c90dacc5-4e0e-4855-80f6-ad8b8913ef85">&lt;em&gt;</bpt>blob<ept id="c90dacc5-4e0e-4855-80f6-ad8b8913ef85">&lt;/em&gt;</ept>: Clears blob data.</target>
+        </trans-unit>
+        <trans-unit id="38f95e1b-e11f-4428-898f-9b3ebc419b59" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="6ecbbcd1-3698-487d-9db0-fbc44a26eee9">&lt;em&gt;</bpt>queue<ept id="6ecbbcd1-3698-487d-9db0-fbc44a26eee9">&lt;/em&gt;</ept>: Clears queue data.</source>
+          <target state="new">&lt;br/&gt;<bpt id="6ecbbcd1-3698-487d-9db0-fbc44a26eee9">&lt;em&gt;</bpt>queue<ept id="6ecbbcd1-3698-487d-9db0-fbc44a26eee9">&lt;/em&gt;</ept>: Clears queue data.</target>
+        </trans-unit>
+        <trans-unit id="1fcc1ea0-1cf4-46ae-a9b2-969055f8b02e" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="20d70cd5-31e5-4e7c-9c37-c7e905769fe4">&lt;em&gt;</bpt>table<ept id="20d70cd5-31e5-4e7c-9c37-c7e905769fe4">&lt;/em&gt;</ept>: Clears table data.</source>
+          <target state="new">&lt;br/&gt;<bpt id="20d70cd5-31e5-4e7c-9c37-c7e905769fe4">&lt;em&gt;</bpt>table<ept id="20d70cd5-31e5-4e7c-9c37-c7e905769fe4">&lt;/em&gt;</ept>: Clears table data.</target>
+        </trans-unit>
+        <trans-unit id="94ad423c-01c7-4d63-b1ee-5c011491ead3" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="8f175fd0-64a0-4c79-b1b0-e9af49710b6e">&lt;em&gt;</bpt>all<ept id="8f175fd0-64a0-4c79-b1b0-e9af49710b6e">&lt;/em&gt;</ept>: Clears all data in all services.</source>
+          <target state="new">&lt;br/&gt;<bpt id="8f175fd0-64a0-4c79-b1b0-e9af49710b6e">&lt;em&gt;</bpt>all<ept id="8f175fd0-64a0-4c79-b1b0-e9af49710b6e">&lt;/em&gt;</ept>: Clears all data in all services.</target>
+        </trans-unit>
+        <trans-unit id="9312338c-1c04-42d5-ab72-e67daa48a508" xml:space="preserve">
+          <source><bpt id="2d697e27-44de-4c50-965e-85e75e69743d">&lt;strong&gt;</bpt>Init<ept id="2d697e27-44de-4c50-965e-85e75e69743d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2d697e27-44de-4c50-965e-85e75e69743d">&lt;strong&gt;</bpt>Init<ept id="2d697e27-44de-4c50-965e-85e75e69743d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51f6dff8-9003-4c9a-bdc7-c8ad0d6cbcaa" xml:space="preserve">
+          <source>Performs one-time initialization to set up the emulator.</source>
+          <target state="new">Performs one-time initialization to set up the emulator.</target>
+        </trans-unit>
+        <trans-unit id="8fa2be0d-b077-43ed-a73c-f59355821899" xml:space="preserve">
+          <source><bpt id="d9617b91-53f4-4f42-9fc2-ac091d9e7abf">&lt;code&gt;</bpt>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]<ept id="d9617b91-53f4-4f42-9fc2-ac091d9e7abf">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d9617b91-53f4-4f42-9fc2-ac091d9e7abf">&lt;code&gt;</bpt>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]<ept id="d9617b91-53f4-4f42-9fc2-ac091d9e7abf">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72d564c9-f205-4f8b-9100-1323fb9c5c63" xml:space="preserve">
+          <source><bpt id="ef9c07af-bcd9-42f3-aec9-433fba29ca93">&lt;em&gt;</bpt>-server serverName\instanceName<ept id="ef9c07af-bcd9-42f3-aec9-433fba29ca93">&lt;/em&gt;</ept>: Specifies the server hosting the SQL instance.</source>
+          <target state="new"><bpt id="ef9c07af-bcd9-42f3-aec9-433fba29ca93">&lt;em&gt;</bpt>-server serverName\instanceName<ept id="ef9c07af-bcd9-42f3-aec9-433fba29ca93">&lt;/em&gt;</ept>: Specifies the server hosting the SQL instance.</target>
+        </trans-unit>
+        <trans-unit id="a6c6e4ad-b94f-4b47-a496-6baa3b00a703" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="253e52fb-6d30-4f63-b9ed-ff2feb6e284a">&lt;em&gt;</bpt>-sqlinstance instanceName<ept id="253e52fb-6d30-4f63-b9ed-ff2feb6e284a">&lt;/em&gt;</ept>: Specifies the name of the SQL instance to be used in the default server instance.</source>
+          <target state="new">&lt;br/&gt;<bpt id="253e52fb-6d30-4f63-b9ed-ff2feb6e284a">&lt;em&gt;</bpt>-sqlinstance instanceName<ept id="253e52fb-6d30-4f63-b9ed-ff2feb6e284a">&lt;/em&gt;</ept>: Specifies the name of the SQL instance to be used in the default server instance.</target>
+        </trans-unit>
+        <trans-unit id="eb1c7b08-4354-4971-9975-fe9ec3a8f4d7" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="16331fc2-eb96-4bd5-8045-9e76ee7d7f36">&lt;em&gt;</bpt>-forcecreate<ept id="16331fc2-eb96-4bd5-8045-9e76ee7d7f36">&lt;/em&gt;</ept>: Forces creation of the SQL database, even if it already exists.</source>
+          <target state="new">&lt;br/&gt;<bpt id="16331fc2-eb96-4bd5-8045-9e76ee7d7f36">&lt;em&gt;</bpt>-forcecreate<ept id="16331fc2-eb96-4bd5-8045-9e76ee7d7f36">&lt;/em&gt;</ept>: Forces creation of the SQL database, even if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="be28e597-ebbf-45de-a15d-5954779750b5" xml:space="preserve">
+          <source>&lt;br/&gt;<bpt id="47fcc500-4f09-420e-b21a-350c88aca714">&lt;em&gt;</bpt>-inprocess<ept id="47fcc500-4f09-420e-b21a-350c88aca714">&lt;/em&gt;</ept>: Performs initialization in the current process instead of spawning a new process.</source>
+          <target state="new">&lt;br/&gt;<bpt id="47fcc500-4f09-420e-b21a-350c88aca714">&lt;em&gt;</bpt>-inprocess<ept id="47fcc500-4f09-420e-b21a-350c88aca714">&lt;/em&gt;</ept>: Performs initialization in the current process instead of spawning a new process.</target>
+        </trans-unit>
+        <trans-unit id="b3b852fb-2f9b-44a0-87ee-fdb4bae15e06" xml:space="preserve">
+          <source>You must launch the current process with elevated permissions in order to perform initialization.</source>
+          <target state="new">You must launch the current process with elevated permissions in order to perform initialization.</target>
+        </trans-unit>
+        <trans-unit id="a1780f9a-e575-4c07-8768-47325937af86" xml:space="preserve">
+          <source>Because the storage emulator is an emulated enviroment running in a local SQL instance, there are some differences in functionality between the emulator and an Azure storage account in the cloud:</source>
+          <target state="new">Because the storage emulator is an emulated enviroment running in a local SQL instance, there are some differences in functionality between the emulator and an Azure storage account in the cloud:</target>
+        </trans-unit>
+        <trans-unit id="b1aeb1c1-8c6f-497e-85c3-dbd6ae11ab70" xml:space="preserve">
+          <source>The storage emulator supports only a single fixed account and a well-known authentication key.</source>
+          <target state="new">The storage emulator supports only a single fixed account and a well-known authentication key.</target>
+        </trans-unit>
+        <trans-unit id="21f31b54-c2cd-455b-9461-dac1aa90035d" xml:space="preserve">
+          <source>The storage emulator is not a scalable storage service and will not support a large number of concurrent clients.</source>
+          <target state="new">The storage emulator is not a scalable storage service and will not support a large number of concurrent clients.</target>
+        </trans-unit>
+        <trans-unit id="7e9626a0-62d5-4826-a4d3-8671383b3d35" xml:space="preserve">
+          <source>As described in <bpt id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;linkText&gt;</bpt>Addressing resources in the storage emulator<ept id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;/linkText&gt;</ept><bpt id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;title&gt;</bpt><ept id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;/title&gt;</ept>, resources are addressed differently in the storage emulator versus an Azure storage account.</source>
+          <target state="new">As described in <bpt id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;linkText&gt;</bpt>Addressing resources in the storage emulator<ept id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;/linkText&gt;</ept><bpt id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;title&gt;</bpt><ept id="8904e930-c65e-48f8-99fb-0aeda4195d4f">&lt;/title&gt;</ept>, resources are addressed differently in the storage emulator versus an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="7b484574-2ead-4021-bd7c-af8f6f643472" xml:space="preserve">
+          <source>This difference is due to the fact that domain name resolution is available in the cloud but not on the local computer.</source>
+          <target state="new">This difference is due to the fact that domain name resolution is available in the cloud but not on the local computer.</target>
+        </trans-unit>
+        <trans-unit id="e8e94426-833f-40a2-8be2-e16e36c69c59" xml:space="preserve">
+          <source>Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS).</source>
+          <target state="new">Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS).</target>
+        </trans-unit>
+        <trans-unit id="c70f152a-e0e9-4cc1-8520-4b16ace0619d" xml:space="preserve">
+          <source>In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas.</source>
+          <target state="new">In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas.</target>
+        </trans-unit>
+        <trans-unit id="af28e367-4393-46e2-908f-b3e544b2b3c1" xml:space="preserve">
+          <source>The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the <bpt id="3733d344-78d0-4e39-ba24-830730742582">&lt;code&gt;</bpt>LastSyncTime<ept id="3733d344-78d0-4e39-ba24-830730742582">&lt;/code&gt;</ept> response element as the current time according to the underlying SQL database.</source>
+          <target state="new">The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the <bpt id="3733d344-78d0-4e39-ba24-830730742582">&lt;code&gt;</bpt>LastSyncTime<ept id="3733d344-78d0-4e39-ba24-830730742582">&lt;/code&gt;</ept> response element as the current time according to the underlying SQL database.</target>
+        </trans-unit>
+        <trans-unit id="b9e188b3-6d6e-4750-92c0-e24590d9ca67" xml:space="preserve">
+          <source>For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</source>
+          <target state="new">For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</target>
+        </trans-unit>
+        <trans-unit id="37e1f355-d9c0-4032-a680-4efd8bb230d6" xml:space="preserve">
+          <source>See the <bpt id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;linkText&gt;</bpt>Storage Client Library Reference<ept id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;/linkText&gt;</ept><bpt id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;title&gt;</bpt><ept id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See the <bpt id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;linkText&gt;</bpt>Storage Client Library Reference<ept id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;/linkText&gt;</ept><bpt id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;title&gt;</bpt><ept id="3427a2e3-b7da-4347-a5dc-b7913798dc49">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="fe18a6a2-1bb5-45d6-a57c-fffbacbf7708" xml:space="preserve">
+          <source>The File service and SMB protocol service endpoints are not currently supported in the storage emulator.</source>
+          <target state="new">The File service and SMB protocol service endpoints are not currently supported in the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="2448793d-b4f0-4adb-b6dd-ab5494ab3d65" xml:space="preserve">
+          <source>The storage emulator returns a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request) if you use a version of the storage services that is not yet supported by the version of the emulator you are using.</source>
+          <target state="new">The storage emulator returns a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request) if you use a version of the storage services that is not yet supported by the version of the emulator you are using.</target>
+        </trans-unit>
+        <trans-unit id="43bbb2e8-de71-4245-8ea2-e0b990a4068c" xml:space="preserve">
+          <source>The following differences apply to Blob storage in the emulator:</source>
+          <target state="new">The following differences apply to Blob storage in the emulator:</target>
+        </trans-unit>
+        <trans-unit id="62d691c0-fe38-4504-a50e-850d83a16e42" xml:space="preserve">
+          <source>The storage emulator only supports blob sizes up to 2 GB.</source>
+          <target state="new">The storage emulator only supports blob sizes up to 2 GB.</target>
+        </trans-unit>
+        <trans-unit id="4605c723-ad28-479c-96fc-324a2518efec" xml:space="preserve">
+          <source>A Put Blob operation may succeed against a blob that exists in the storage emulator and has an active lease, even if the lease ID has not been specified as part of the request.</source>
+          <target state="new">A Put Blob operation may succeed against a blob that exists in the storage emulator and has an active lease, even if the lease ID has not been specified as part of the request.</target>
+        </trans-unit>
+        <trans-unit id="9229a226-0eb4-42a4-bac4-43f451fb9855" xml:space="preserve">
+          <source>Append Blob operations are not supported by the emulator.</source>
+          <target state="new">Append Blob operations are not supported by the emulator.</target>
+        </trans-unit>
+        <trans-unit id="a444d6d5-a1b5-46e7-a881-99f312f14abf" xml:space="preserve">
+          <source>Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).</source>
+          <target state="new">Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).</target>
+        </trans-unit>
+        <trans-unit id="53cd4393-2515-4fec-ad87-29a932efd255" xml:space="preserve">
+          <source>The following differences apply to Table storage in the emulator:</source>
+          <target state="new">The following differences apply to Table storage in the emulator:</target>
+        </trans-unit>
+        <trans-unit id="784c84d7-9f02-465a-a857-91d3453bb433" xml:space="preserve">
+          <source>Date properties in the Table service in the storage emulator support only the range supported by SQL Server 2005 (<bpt id="7ea2e64e-bfef-4ec6-ab93-63b80a8d905d">&lt;em&gt;</bpt>i.e.<ept id="7ea2e64e-bfef-4ec6-ab93-63b80a8d905d">&lt;/em&gt;</ept>, they are required to be later than January 1, 1753).</source>
+          <target state="new">Date properties in the Table service in the storage emulator support only the range supported by SQL Server 2005 (<bpt id="7ea2e64e-bfef-4ec6-ab93-63b80a8d905d">&lt;em&gt;</bpt>i.e.<ept id="7ea2e64e-bfef-4ec6-ab93-63b80a8d905d">&lt;/em&gt;</ept>, they are required to be later than January 1, 1753).</target>
+        </trans-unit>
+        <trans-unit id="dc4fef42-c655-4d33-b1f2-d8b732cd27a6" xml:space="preserve">
+          <source>All dates before January 1, 1753 are changed to this value.</source>
+          <target state="new">All dates before January 1, 1753 are changed to this value.</target>
+        </trans-unit>
+        <trans-unit id="564458c8-b213-45e0-9a85-5262e3ee3580" xml:space="preserve">
+          <source>The precision of dates is limited to the precision of SQL Server 2005, meaning that dates are precise to 1/300th of a second.</source>
+          <target state="new">The precision of dates is limited to the precision of SQL Server 2005, meaning that dates are precise to 1/300th of a second.</target>
+        </trans-unit>
+        <trans-unit id="e03b5e86-0d4f-4311-8ae0-5c58eab70728" xml:space="preserve">
+          <source>The storage emulator supports partition key and row key property values of less than 512 bytes each.</source>
+          <target state="new">The storage emulator supports partition key and row key property values of less than 512 bytes each.</target>
+        </trans-unit>
+        <trans-unit id="57c61932-4404-4e13-acea-c0f4aef870ea" xml:space="preserve">
+          <source>Additionally, the total size of the account name, table name, and key property names together cannot exceed 900 bytes.</source>
+          <target state="new">Additionally, the total size of the account name, table name, and key property names together cannot exceed 900 bytes.</target>
+        </trans-unit>
+        <trans-unit id="c849779a-52d5-4eac-8104-c566388e1e29" xml:space="preserve">
+          <source>The total size of a row in a table in the storage emulator is limited to less than 1 MB.</source>
+          <target state="new">The total size of a row in a table in the storage emulator is limited to less than 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="143030ca-6b36-41c2-b15e-36651f26c013" xml:space="preserve">
+          <source>In the storage emulator, properties of data type <bpt id="185099c3-da11-4ff1-9cf8-e9da6ccc85d4">&lt;code&gt;</bpt>Edm.Guid<ept id="185099c3-da11-4ff1-9cf8-e9da6ccc85d4">&lt;/code&gt;</ept> or <bpt id="3d7182d8-71e2-45bb-847b-9ae2141bec39">&lt;code&gt;</bpt>Edm.Binary<ept id="3d7182d8-71e2-45bb-847b-9ae2141bec39">&lt;/code&gt;</ept> support only the <bpt id="99b5a51d-17f5-4269-85fd-db3f17ab3c7d">&lt;code&gt;</bpt>Equal (eq)<ept id="99b5a51d-17f5-4269-85fd-db3f17ab3c7d">&lt;/code&gt;</ept> and <bpt id="74a5d574-226e-4f7d-a807-fb3504bcfb6e">&lt;code&gt;</bpt>NotEqual (ne)<ept id="74a5d574-226e-4f7d-a807-fb3504bcfb6e">&lt;/code&gt;</ept> comparison operators in query filter strings.</source>
+          <target state="new">In the storage emulator, properties of data type <bpt id="185099c3-da11-4ff1-9cf8-e9da6ccc85d4">&lt;code&gt;</bpt>Edm.Guid<ept id="185099c3-da11-4ff1-9cf8-e9da6ccc85d4">&lt;/code&gt;</ept> or <bpt id="3d7182d8-71e2-45bb-847b-9ae2141bec39">&lt;code&gt;</bpt>Edm.Binary<ept id="3d7182d8-71e2-45bb-847b-9ae2141bec39">&lt;/code&gt;</ept> support only the <bpt id="99b5a51d-17f5-4269-85fd-db3f17ab3c7d">&lt;code&gt;</bpt>Equal (eq)<ept id="99b5a51d-17f5-4269-85fd-db3f17ab3c7d">&lt;/code&gt;</ept> and <bpt id="74a5d574-226e-4f7d-a807-fb3504bcfb6e">&lt;code&gt;</bpt>NotEqual (ne)<ept id="74a5d574-226e-4f7d-a807-fb3504bcfb6e">&lt;/code&gt;</ept> comparison operators in query filter strings.</target>
+        </trans-unit>
+        <trans-unit id="0c4dc0eb-b602-4d9f-aae0-9c797020e579" xml:space="preserve">
+          <source>There are no differences specific to Queue storage in the emulator.</source>
+          <target state="new">There are no differences specific to Queue storage in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="883d5f7b-5570-4778-bb2a-4850b50ee674" xml:space="preserve">
+          <source>The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints, with the exception of the new Append Blob features.</source>
+          <target state="new">The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints, with the exception of the new Append Blob features.</target>
+        </trans-unit>
+        <trans-unit id="d446122e-6189-447c-81ed-70dc01f5c1bf" xml:space="preserve">
+          <source>The storage emulator now returns a meaningful error message if you use a version of the storage services that is not yet supported by that version of the emulator.</source>
+          <target state="new">The storage emulator now returns a meaningful error message if you use a version of the storage services that is not yet supported by that version of the emulator.</target>
+        </trans-unit>
+        <trans-unit id="119747ef-3028-4084-897e-136e5eac91fa" xml:space="preserve">
+          <source>We recommend using the latest version of the emulator.</source>
+          <target state="new">We recommend using the latest version of the emulator.</target>
+        </trans-unit>
+        <trans-unit id="611eb10e-ef96-4e00-875b-9dcdb636ab99" xml:space="preserve">
+          <source>If you encounter a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request), please download the latest version of the storage emulator.</source>
+          <target state="new">If you encounter a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request), please download the latest version of the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="0d01a439-93f9-4404-9362-af7a488065f7" xml:space="preserve">
+          <source>Fixed a bug wherein a race condition caused table entity data to be incorrect during concurrent merge operations.</source>
+          <target state="new">Fixed a bug wherein a race condition caused table entity data to be incorrect during concurrent merge operations.</target>
+        </trans-unit>
+        <trans-unit id="cecfdbb5-d1e5-48d3-8f25-c0f13b9a7afc" xml:space="preserve">
+          <source>The storage emulator executable has been renamed to <bpt id="003ef4f7-e71e-435a-9a8f-e5332bad1f8f">&lt;em&gt;</bpt>AzureStorageEmulator.exe<ept id="003ef4f7-e71e-435a-9a8f-e5332bad1f8f">&lt;/em&gt;</ept>.</source>
+          <target state="new">The storage emulator executable has been renamed to <bpt id="003ef4f7-e71e-435a-9a8f-e5332bad1f8f">&lt;em&gt;</bpt>AzureStorageEmulator.exe<ept id="003ef4f7-e71e-435a-9a8f-e5332bad1f8f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d85ce280-80f7-4b8d-9566-631eed9f5634" xml:space="preserve">
+          <source>The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints.</source>
+          <target state="new">The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints.</target>
+        </trans-unit>
+        <trans-unit id="5c8adc56-0bf8-43bc-9e00-ac951027ced7" xml:space="preserve">
+          <source>Note that File service endpoints are not currently supported in the storage emulator.</source>
+          <target state="new">Note that File service endpoints are not currently supported in the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="ff02e58c-6e8b-4909-9c66-57fd4cbcdb01" xml:space="preserve">
+          <source>See <bpt id="76736533-5131-4797-b690-8fe686e670ac">&lt;linkText&gt;</bpt>Versioning for the Azure Storage Services<ept id="76736533-5131-4797-b690-8fe686e670ac">&lt;/linkText&gt;</ept><bpt id="76736533-5131-4797-b690-8fe686e670ac">&lt;title&gt;</bpt><ept id="76736533-5131-4797-b690-8fe686e670ac">&lt;/title&gt;</ept> for details about version 2014-02-14.</source>
+          <target state="new">See <bpt id="76736533-5131-4797-b690-8fe686e670ac">&lt;linkText&gt;</bpt>Versioning for the Azure Storage Services<ept id="76736533-5131-4797-b690-8fe686e670ac">&lt;/linkText&gt;</ept><bpt id="76736533-5131-4797-b690-8fe686e670ac">&lt;title&gt;</bpt><ept id="76736533-5131-4797-b690-8fe686e670ac">&lt;/title&gt;</ept> for details about version 2014-02-14.</target>
+        </trans-unit>
+        <trans-unit id="e58c96ed-8d5d-468a-9e9b-0d385e986f69" xml:space="preserve">
+          <source>Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator.</source>
+          <target state="new">Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="d782e41a-d211-4703-840f-b6110e7cd9c0" xml:space="preserve">
+          <source>The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database.</source>
+          <target state="new">The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database.</target>
+        </trans-unit>
+        <trans-unit id="be846dfb-7f4a-4c8c-a048-35ff3246e686" xml:space="preserve">
+          <source>For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</source>
+          <target state="new">For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later.</target>
+        </trans-unit>
+        <trans-unit id="1f96be44-3327-4ec8-9693-0cab6ec378b3" xml:space="preserve">
+          <source>See the Storage Client Library Reference for details.</source>
+          <target state="new">See the Storage Client Library Reference for details.</target>
+        </trans-unit>
+        <trans-unit id="2d900439-8d04-4042-af68-9ba263e573cc" xml:space="preserve">
+          <source>The Azure storage emulator is no longer shipped in the same package as the compute emulator.</source>
+          <target state="new">The Azure storage emulator is no longer shipped in the same package as the compute emulator.</target>
+        </trans-unit>
+        <trans-unit id="d5d2015a-c89f-4c30-a9ee-9af642a6e6d0" xml:space="preserve">
+          <source>The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface.</source>
+          <target state="new">The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface.</target>
+        </trans-unit>
+        <trans-unit id="02395da1-9ea9-422d-8c60-6b8607b5a034" xml:space="preserve">
+          <source>For details on the command line interface, see Storage Emulator Command-Line Tool Reference.</source>
+          <target state="new">For details on the command line interface, see Storage Emulator Command-Line Tool Reference.</target>
+        </trans-unit>
+        <trans-unit id="4907f206-ff82-4a80-8318-d242a4d54ae4" xml:space="preserve">
+          <source>The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.</source>
+          <target state="new">The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.</target>
+        </trans-unit>
+        <trans-unit id="6de7ec5a-e122-4846-91df-8bed6563deb4" xml:space="preserve">
+          <source>Version 2013-08-15 of the Azure storage services is now fully supported.</source>
+          <target state="new">Version 2013-08-15 of the Azure storage services is now fully supported.</target>
+        </trans-unit>
+        <trans-unit id="ef20ce93-c608-4943-b55a-fe46ae89b991" xml:space="preserve">
+          <source>(Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)</source>
+          <target state="new">(Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

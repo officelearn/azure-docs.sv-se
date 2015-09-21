@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="558894a5-cd92-47fe-9d7f-66530d4d7853" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="558894a5-cd92-47fe-9d7f-66530d4d7853" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="54c15b71-3703-492e-bc7b-a2fc94d540c8">
+        <trans-unit id="52828e83-7d53-4c82-a630-815d00e57577" xml:space="preserve">
+          <source>Deploy WebJobs using Visual Studio</source>
+          <target state="new">Deploy WebJobs using Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="d92dc150-eff1-4287-9eaa-aee1c3869dc2" xml:space="preserve">
+          <source>Learn how to deploy Azure WebJobs to Azure App Service Web Apps using Visual Studio.</source>
+          <target state="new">Learn how to deploy Azure WebJobs to Azure App Service Web Apps using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="a4fd639a-a5e5-4728-bdd4-f96e0b4ac9da" xml:space="preserve">
+          <source>This topic explains how to use Visual Studio to deploy a Console Application project to a web app in <bpt id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;linkText&gt;</bpt>App Service<ept id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;/linkText&gt;</ept><bpt id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;title&gt;</bpt><ept id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;/title&gt;</ept> as an <bpt id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;linkText&gt;</bpt>Azure WebJob<ept id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;/linkText&gt;</ept><bpt id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;title&gt;</bpt><ept id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic explains how to use Visual Studio to deploy a Console Application project to a web app in <bpt id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;linkText&gt;</bpt>App Service<ept id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;/linkText&gt;</ept><bpt id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;title&gt;</bpt><ept id="fed76212-3cc7-41dc-a903-69afb8829f47">&lt;/title&gt;</ept> as an <bpt id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;linkText&gt;</bpt>Azure WebJob<ept id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;/linkText&gt;</ept><bpt id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;title&gt;</bpt><ept id="bfeb644c-88d8-4340-9c0c-e702e75129fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36e8aac4-b39a-4208-a539-a5b7720500fc" xml:space="preserve">
+          <source>For information about how to deploy WebJobs by using the <bpt id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;linkText&gt;</bpt>Azure Portal<ept id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;/linkText&gt;</ept><bpt id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;title&gt;</bpt><ept id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;/title&gt;</ept>, see <bpt id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;linkText&gt;</bpt>Run Background tasks with WebJobs<ept id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;/linkText&gt;</ept><bpt id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;title&gt;</bpt><ept id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to deploy WebJobs by using the <bpt id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;linkText&gt;</bpt>Azure Portal<ept id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;/linkText&gt;</ept><bpt id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;title&gt;</bpt><ept id="544e9fdf-dc2c-42b2-8be3-0658f8cbd9cf">&lt;/title&gt;</ept>, see <bpt id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;linkText&gt;</bpt>Run Background tasks with WebJobs<ept id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;/linkText&gt;</ept><bpt id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;title&gt;</bpt><ept id="e23dce56-93bd-4f9d-b71f-aeefe5f2baa7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3323bff4-07cf-49f1-9258-823f5bba6bb1" xml:space="preserve">
+          <source>When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:</source>
+          <target state="new">When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:</target>
+        </trans-unit>
+        <trans-unit id="d28ca842-9133-40a4-b14d-6a90904d0f11" xml:space="preserve">
+          <source>Copies runtime files to the appropriate folder in the web app (<bpt id="32f57c1c-09f7-46a2-b667-e256c8707ce6">&lt;em&gt;</bpt>App_Data/jobs/continuous<ept id="32f57c1c-09f7-46a2-b667-e256c8707ce6">&lt;/em&gt;</ept> for continuous WebJobs, <bpt id="0ab970d9-ea47-490a-94cc-83e6aed5cf70">&lt;em&gt;</bpt>App_Data/jobs/triggered<ept id="0ab970d9-ea47-490a-94cc-83e6aed5cf70">&lt;/em&gt;</ept> for scheduled and on-demand WebJobs).</source>
+          <target state="new">Copies runtime files to the appropriate folder in the web app (<bpt id="32f57c1c-09f7-46a2-b667-e256c8707ce6">&lt;em&gt;</bpt>App_Data/jobs/continuous<ept id="32f57c1c-09f7-46a2-b667-e256c8707ce6">&lt;/em&gt;</ept> for continuous WebJobs, <bpt id="0ab970d9-ea47-490a-94cc-83e6aed5cf70">&lt;em&gt;</bpt>App_Data/jobs/triggered<ept id="0ab970d9-ea47-490a-94cc-83e6aed5cf70">&lt;/em&gt;</ept> for scheduled and on-demand WebJobs).</target>
+        </trans-unit>
+        <trans-unit id="5c3f2404-256c-469b-b338-bede0f983161" xml:space="preserve">
+          <source>Sets up <bpt id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;linkText&gt;</bpt>Azure Scheduler jobs<ept id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;/linkText&gt;</ept><bpt id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;title&gt;</bpt><ept id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;/title&gt;</ept> for WebJobs that are scheduled to run at particular times.</source>
+          <target state="new">Sets up <bpt id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;linkText&gt;</bpt>Azure Scheduler jobs<ept id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;/linkText&gt;</ept><bpt id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;title&gt;</bpt><ept id="b9f23ec1-811d-4a36-b2e0-a39627b76453">&lt;/title&gt;</ept> for WebJobs that are scheduled to run at particular times.</target>
+        </trans-unit>
+        <trans-unit id="aaa36ead-81bc-45b9-b65c-925d03baebd5" xml:space="preserve">
+          <source>(This is not needed for continuous WebJobs.)</source>
+          <target state="new">(This is not needed for continuous WebJobs.)</target>
+        </trans-unit>
+        <trans-unit id="fa937a59-98a5-4b31-b3c9-704cfe4baa90" xml:space="preserve">
+          <source>A WebJobs-enabled project has the following items added to it:</source>
+          <target state="new">A WebJobs-enabled project has the following items added to it:</target>
+        </trans-unit>
+        <trans-unit id="1f28bb2f-ae2a-4c3a-b90b-361d786b11a9" xml:space="preserve">
+          <source>The <bpt id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;linkText&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;/linkText&gt;</ept><bpt id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;title&gt;</bpt><ept id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;/title&gt;</ept> NuGet package.</source>
+          <target state="new">The <bpt id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;linkText&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;/linkText&gt;</ept><bpt id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;title&gt;</bpt><ept id="4e34917c-789f-4e38-b51d-df9002b2f4c2">&lt;/title&gt;</ept> NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="82cc75ac-bed8-4ebc-904b-b4de45c50145" xml:space="preserve">
+          <source>A <bpt id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;linkText&gt;</bpt>webjob-publish-settings.json<ept id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;/linkText&gt;</ept><bpt id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;title&gt;</bpt><ept id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;/title&gt;</ept> file that contains deployment and scheduler settings.</source>
+          <target state="new">A <bpt id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;linkText&gt;</bpt>webjob-publish-settings.json<ept id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;/linkText&gt;</ept><bpt id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;title&gt;</bpt><ept id="ebaa646f-505a-44f5-ae02-5c43765c45aa">&lt;/title&gt;</ept> file that contains deployment and scheduler settings.</target>
+        </trans-unit>
+        <trans-unit id="88e60444-dab7-4c0f-8fad-9a3d29efe8a8" xml:space="preserve">
+          <source><bpt id="ebc56056-7b7d-49f4-b1e6-3681c346861d">&lt;linkText&gt;</bpt>Diagram showing what is added to a Console App to enable deployment as a WebJob<ept id="ebc56056-7b7d-49f4-b1e6-3681c346861d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebc56056-7b7d-49f4-b1e6-3681c346861d">&lt;linkText&gt;</bpt>Diagram showing what is added to a Console App to enable deployment as a WebJob<ept id="ebc56056-7b7d-49f4-b1e6-3681c346861d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c651b61-f388-4a10-9ce3-3e1923fae202" xml:space="preserve">
+          <source>You can add these items to an existing Console Application project or use a template to create a new WebJobs-enabled Console Application project.</source>
+          <target state="new">You can add these items to an existing Console Application project or use a template to create a new WebJobs-enabled Console Application project.</target>
+        </trans-unit>
+        <trans-unit id="42f1089c-2985-437e-8e68-b2bf5774b84e" xml:space="preserve">
+          <source>You can deploy a project as a WebJob by itself, or link it to a web project so that it automatically deploys whenever you deploy the web project.</source>
+          <target state="new">You can deploy a project as a WebJob by itself, or link it to a web project so that it automatically deploys whenever you deploy the web project.</target>
+        </trans-unit>
+        <trans-unit id="867f422c-37c0-49ea-b8d8-a4e7d13724da" xml:space="preserve">
+          <source>To link projects, Visual Studio includes the name of the WebJobs-enabled project in a <bpt id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;linkText&gt;</bpt>webjobs-list.json<ept id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;/linkText&gt;</ept><bpt id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;title&gt;</bpt><ept id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;/title&gt;</ept> file in the web project.</source>
+          <target state="new">To link projects, Visual Studio includes the name of the WebJobs-enabled project in a <bpt id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;linkText&gt;</bpt>webjobs-list.json<ept id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;/linkText&gt;</ept><bpt id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;title&gt;</bpt><ept id="4d119032-7e24-449d-8ebf-471739f103e7">&lt;/title&gt;</ept> file in the web project.</target>
+        </trans-unit>
+        <trans-unit id="6e028670-84e5-49ec-810e-1d68c81e74bb" xml:space="preserve">
+          <source><bpt id="53a90cda-81fb-4572-ab86-dce77e12c28d">&lt;linkText&gt;</bpt>Diagram showing WebJob project linking to web project<ept id="53a90cda-81fb-4572-ab86-dce77e12c28d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53a90cda-81fb-4572-ab86-dce77e12c28d">&lt;linkText&gt;</bpt>Diagram showing WebJob project linking to web project<ept id="53a90cda-81fb-4572-ab86-dce77e12c28d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b4a2e96-0115-472b-98b9-546ac5e75651" xml:space="preserve">
+          <source>WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later versions:</source>
+          <target state="new">WebJobs deployment features are available in Visual Studio 2013 when you install Azure SDK version 2.4 or later versions:</target>
+        </trans-unit>
+        <trans-unit id="ba9ed979-21db-4145-8c7f-69053b31b835" xml:space="preserve">
+          <source><bpt id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2013<ept id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;/linkText&gt;</ept><bpt id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;title&gt;</bpt><ept id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;linkText&gt;</bpt>Azure SDK for Visual Studio 2013<ept id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;/linkText&gt;</ept><bpt id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;title&gt;</bpt><ept id="260c6d1b-7e1a-4af4-aea1-e03d6e2de2eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aebeaea4-9902-42ba-b7a6-a4120997bfe3" xml:space="preserve">
+          <source>The WebJobs deployment features are also included in <bpt id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;linkText&gt;</bpt>Visual Studio 2013 Update 3<ept id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;/linkText&gt;</ept><bpt id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;title&gt;</bpt><ept id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;/title&gt;</ept> and later updates.</source>
+          <target state="new">The WebJobs deployment features are also included in <bpt id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;linkText&gt;</bpt>Visual Studio 2013 Update 3<ept id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;/linkText&gt;</ept><bpt id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;title&gt;</bpt><ept id="f9904a7f-1318-4dc6-b4df-6c12e18e719b">&lt;/title&gt;</ept> and later updates.</target>
+        </trans-unit>
+        <trans-unit id="97270cec-13d6-4681-8b48-b5059d628f85" xml:space="preserve">
+          <source>You have two options:</source>
+          <target state="new">You have two options:</target>
+        </trans-unit>
+        <trans-unit id="2045ff70-f44c-469c-8361-19165d48ca5f" xml:space="preserve">
+          <source><bpt id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;linkText&gt;</bpt>Enable automatic deployment with a web project<ept id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;/linkText&gt;</ept><bpt id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;title&gt;</bpt><ept id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;linkText&gt;</bpt>Enable automatic deployment with a web project<ept id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;/linkText&gt;</ept><bpt id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;title&gt;</bpt><ept id="a65db511-5866-40d4-bd36-4bcbc6181f27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9df37fb-5a80-4b3e-83e4-efe3b2172278" xml:space="preserve">
+          <source>Configure an existing Console Application project so that it automatically deploys as a WebJob when you deploy a web project.</source>
+          <target state="new">Configure an existing Console Application project so that it automatically deploys as a WebJob when you deploy a web project.</target>
+        </trans-unit>
+        <trans-unit id="1e0b44ab-675b-4238-8c09-f8fe647f056a" xml:space="preserve">
+          <source>Use this option when you want to run your WebJob in the same web app in which you run the related web application.</source>
+          <target state="new">Use this option when you want to run your WebJob in the same web app in which you run the related web application.</target>
+        </trans-unit>
+        <trans-unit id="3ed7e447-dd23-46a6-a61c-46e9a9d6b16a" xml:space="preserve">
+          <source><bpt id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;linkText&gt;</bpt>Enable deployment without a web project<ept id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;/linkText&gt;</ept><bpt id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;title&gt;</bpt><ept id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;linkText&gt;</bpt>Enable deployment without a web project<ept id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;/linkText&gt;</ept><bpt id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;title&gt;</bpt><ept id="96cb8596-e819-448d-89fb-592e2bb9a8f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b389083-3551-441c-9e3d-d3209e764a2b" xml:space="preserve">
+          <source>Configure an existing Console Application project to deploy as a WebJob by itself, with no link to a web project.</source>
+          <target state="new">Configure an existing Console Application project to deploy as a WebJob by itself, with no link to a web project.</target>
+        </trans-unit>
+        <trans-unit id="e63420a2-beed-436d-b904-f444d2ad1967" xml:space="preserve">
+          <source>Use this option when you want to run a WebJob in a web app by itself, with no web application running in the web app.</source>
+          <target state="new">Use this option when you want to run a WebJob in a web app by itself, with no web application running in the web app.</target>
+        </trans-unit>
+        <trans-unit id="e46e092f-e03b-49ea-9f79-869506f6198a" xml:space="preserve">
+          <source>You might want to do this in order to be able to scale your WebJob resources independently of your web application resources.</source>
+          <target state="new">You might want to do this in order to be able to scale your WebJob resources independently of your web application resources.</target>
+        </trans-unit>
+        <trans-unit id="31b5bef6-4b83-4f85-aa86-d350ac03bcc1" xml:space="preserve">
+          <source>Right-click the web project in <bpt id="b8ed53fb-2802-4b9a-92a1-74cf18d542a3">&lt;strong&gt;</bpt>Solution Explorer<ept id="b8ed53fb-2802-4b9a-92a1-74cf18d542a3">&lt;/strong&gt;</ept>, and then click <bpt id="055ad384-5f0e-4e1b-98d4-047b1f243922">&lt;strong&gt;</bpt>Add<ept id="055ad384-5f0e-4e1b-98d4-047b1f243922">&lt;/strong&gt;</ept> &gt; <bpt id="d15cf73a-b174-402d-a0c2-7a62279f9b97">&lt;strong&gt;</bpt>Existing Project as Azure WebJob<ept id="d15cf73a-b174-402d-a0c2-7a62279f9b97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the web project in <bpt id="b8ed53fb-2802-4b9a-92a1-74cf18d542a3">&lt;strong&gt;</bpt>Solution Explorer<ept id="b8ed53fb-2802-4b9a-92a1-74cf18d542a3">&lt;/strong&gt;</ept>, and then click <bpt id="055ad384-5f0e-4e1b-98d4-047b1f243922">&lt;strong&gt;</bpt>Add<ept id="055ad384-5f0e-4e1b-98d4-047b1f243922">&lt;/strong&gt;</ept> &gt; <bpt id="d15cf73a-b174-402d-a0c2-7a62279f9b97">&lt;strong&gt;</bpt>Existing Project as Azure WebJob<ept id="d15cf73a-b174-402d-a0c2-7a62279f9b97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5e8e207-52d5-486f-849e-84588e513ec2" xml:space="preserve">
+          <source><bpt id="c8444e97-0e69-45ef-8c4c-68821b39a3dc">&lt;linkText&gt;</bpt>Existing Project as Azure WebJob<ept id="c8444e97-0e69-45ef-8c4c-68821b39a3dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8444e97-0e69-45ef-8c4c-68821b39a3dc">&lt;linkText&gt;</bpt>Existing Project as Azure WebJob<ept id="c8444e97-0e69-45ef-8c4c-68821b39a3dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="829d0780-415a-497b-9bf5-648daf6291e1" xml:space="preserve">
+          <source>The <bpt id="5e06db17-44fe-416e-9617-319913f71817">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="5e06db17-44fe-416e-9617-319913f71817">&lt;/linkText&gt;</ept><bpt id="5e06db17-44fe-416e-9617-319913f71817">&lt;title&gt;</bpt><ept id="5e06db17-44fe-416e-9617-319913f71817">&lt;/title&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="5e06db17-44fe-416e-9617-319913f71817">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="5e06db17-44fe-416e-9617-319913f71817">&lt;/linkText&gt;</ept><bpt id="5e06db17-44fe-416e-9617-319913f71817">&lt;title&gt;</bpt><ept id="5e06db17-44fe-416e-9617-319913f71817">&lt;/title&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="de2daf41-ff89-45a4-b067-bed787815d57" xml:space="preserve">
+          <source>In the <bpt id="887ec515-6e0a-4440-a0f9-bc1125970bec">&lt;strong&gt;</bpt>Project name<ept id="887ec515-6e0a-4440-a0f9-bc1125970bec">&lt;/strong&gt;</ept> drop-down list, select the Console Application project to add as a WebJob.</source>
+          <target state="new">In the <bpt id="887ec515-6e0a-4440-a0f9-bc1125970bec">&lt;strong&gt;</bpt>Project name<ept id="887ec515-6e0a-4440-a0f9-bc1125970bec">&lt;/strong&gt;</ept> drop-down list, select the Console Application project to add as a WebJob.</target>
+        </trans-unit>
+        <trans-unit id="6e65f8a1-4a00-44bc-b03e-89b5cd5daf5f" xml:space="preserve">
+          <source><bpt id="16a04e0f-14e9-487c-8a5d-aaba625f568d">&lt;linkText&gt;</bpt>Selecting project in Add Azure WebJob dialog<ept id="16a04e0f-14e9-487c-8a5d-aaba625f568d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16a04e0f-14e9-487c-8a5d-aaba625f568d">&lt;linkText&gt;</bpt>Selecting project in Add Azure WebJob dialog<ept id="16a04e0f-14e9-487c-8a5d-aaba625f568d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="552b85dc-2ac0-4b50-b744-ac7aa6f88f04" xml:space="preserve">
+          <source>Complete the <bpt id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;/linkText&gt;</ept><bpt id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;title&gt;</bpt><ept id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;/title&gt;</ept> dialog, and then click <bpt id="f0145b34-550a-4c2e-a7e1-f5b7109bedd0">&lt;strong&gt;</bpt>OK<ept id="f0145b34-550a-4c2e-a7e1-f5b7109bedd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Complete the <bpt id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;/linkText&gt;</ept><bpt id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;title&gt;</bpt><ept id="20c40c50-ff53-446e-bdcc-c335c848de19">&lt;/title&gt;</ept> dialog, and then click <bpt id="f0145b34-550a-4c2e-a7e1-f5b7109bedd0">&lt;strong&gt;</bpt>OK<ept id="f0145b34-550a-4c2e-a7e1-f5b7109bedd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="291aa009-9aa1-41b2-a1cb-8290f84cf3d7" xml:space="preserve">
+          <source>Right-click the Console Application project in <bpt id="c90555dd-4a05-4803-bf89-9813a7d5733c">&lt;strong&gt;</bpt>Solution Explorer<ept id="c90555dd-4a05-4803-bf89-9813a7d5733c">&lt;/strong&gt;</ept>, and then click <bpt id="13d50d33-92d1-45ab-aef9-42de0c3ab54a">&lt;strong&gt;</bpt>Publish as Azure WebJob<ept id="13d50d33-92d1-45ab-aef9-42de0c3ab54a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the Console Application project in <bpt id="c90555dd-4a05-4803-bf89-9813a7d5733c">&lt;strong&gt;</bpt>Solution Explorer<ept id="c90555dd-4a05-4803-bf89-9813a7d5733c">&lt;/strong&gt;</ept>, and then click <bpt id="13d50d33-92d1-45ab-aef9-42de0c3ab54a">&lt;strong&gt;</bpt>Publish as Azure WebJob<ept id="13d50d33-92d1-45ab-aef9-42de0c3ab54a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="826ccf71-3dc1-4269-a781-0e9405f367b9" xml:space="preserve">
+          <source><bpt id="727544fb-edc6-4fb3-b20b-caeaa6b9a37a">&lt;linkText&gt;</bpt>Publish as Azure WebJob<ept id="727544fb-edc6-4fb3-b20b-caeaa6b9a37a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="727544fb-edc6-4fb3-b20b-caeaa6b9a37a">&lt;linkText&gt;</bpt>Publish as Azure WebJob<ept id="727544fb-edc6-4fb3-b20b-caeaa6b9a37a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c93e41e-d8f6-41d1-a0af-fedbad7df512" xml:space="preserve">
+          <source>The <bpt id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;/linkText&gt;</ept><bpt id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;title&gt;</bpt><ept id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;/title&gt;</ept> dialog box appears, with the project selected in the <bpt id="1db1a225-3171-49c4-9068-f19c00315850">&lt;strong&gt;</bpt>Project name<ept id="1db1a225-3171-49c4-9068-f19c00315850">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">The <bpt id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;/linkText&gt;</ept><bpt id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;title&gt;</bpt><ept id="10ab2d38-727f-4c5b-b59b-972fee82bfde">&lt;/title&gt;</ept> dialog box appears, with the project selected in the <bpt id="1db1a225-3171-49c4-9068-f19c00315850">&lt;strong&gt;</bpt>Project name<ept id="1db1a225-3171-49c4-9068-f19c00315850">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="d8ebcd00-b8c6-4f4b-8d7e-52ec468fc43c" xml:space="preserve">
+          <source>Complete the <bpt id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;/linkText&gt;</ept><bpt id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;title&gt;</bpt><ept id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;/title&gt;</ept> dialog box, and then click <bpt id="253dfea9-5c11-4515-92f6-dc4f02722291">&lt;strong&gt;</bpt>OK<ept id="253dfea9-5c11-4515-92f6-dc4f02722291">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Complete the <bpt id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;/linkText&gt;</ept><bpt id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;title&gt;</bpt><ept id="69c44a95-4905-4bed-939b-56621e3c7d5a">&lt;/title&gt;</ept> dialog box, and then click <bpt id="253dfea9-5c11-4515-92f6-dc4f02722291">&lt;strong&gt;</bpt>OK<ept id="253dfea9-5c11-4515-92f6-dc4f02722291">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57233b42-e20b-4e35-9e0c-5106ac499316" xml:space="preserve">
+          <source>The <bpt id="c8dff354-5db4-42b2-b4e3-2971da8e0354">&lt;strong&gt;</bpt>Publish Web<ept id="c8dff354-5db4-42b2-b4e3-2971da8e0354">&lt;/strong&gt;</ept> wizard appears.</source>
+          <target state="new">The <bpt id="c8dff354-5db4-42b2-b4e3-2971da8e0354">&lt;strong&gt;</bpt>Publish Web<ept id="c8dff354-5db4-42b2-b4e3-2971da8e0354">&lt;/strong&gt;</ept> wizard appears.</target>
+        </trans-unit>
+        <trans-unit id="024e53f2-22ae-4843-b6a5-67d330f1dd63" xml:space="preserve">
+          <source>If you don't want to publish immediately, close the wizard.</source>
+          <target state="new">If you don't want to publish immediately, close the wizard.</target>
+        </trans-unit>
+        <trans-unit id="c243b81f-50e5-4d32-8304-75e5e29df935" xml:space="preserve">
+          <source>The settings that you've entered are saved for when you do want to <bpt id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;linkText&gt;</bpt>deploy the project<ept id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;/linkText&gt;</ept><bpt id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;title&gt;</bpt><ept id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;/title&gt;</ept>.</source>
+          <target state="new">The settings that you've entered are saved for when you do want to <bpt id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;linkText&gt;</bpt>deploy the project<ept id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;/linkText&gt;</ept><bpt id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;title&gt;</bpt><ept id="e69e9bc4-e236-4291-a5f1-9948e87e7cc2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60c95461-2f2e-4501-9e0d-3bc552d477c9" xml:space="preserve">
+          <source>To create a new WebJobs-enabled project, you can use the Console Application project template and enable WebJobs deployment as explained in <bpt id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;linkText&gt;</bpt>the previous section<ept id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;/linkText&gt;</ept><bpt id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;title&gt;</bpt><ept id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a new WebJobs-enabled project, you can use the Console Application project template and enable WebJobs deployment as explained in <bpt id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;linkText&gt;</bpt>the previous section<ept id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;/linkText&gt;</ept><bpt id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;title&gt;</bpt><ept id="34641e0f-3915-4fec-87b9-f199ca883bbb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad107d2d-5845-4613-8a17-5a7631814cd8" xml:space="preserve">
+          <source>As an alternative, you can use the WebJobs new-project template:</source>
+          <target state="new">As an alternative, you can use the WebJobs new-project template:</target>
+        </trans-unit>
+        <trans-unit id="a7c0e18c-351d-4509-a6e0-65411ebe59e3" xml:space="preserve">
+          <source><bpt id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;linkText&gt;</bpt>Use the WebJobs new-project template for an independent WebJob<ept id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;/linkText&gt;</ept><bpt id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;title&gt;</bpt><ept id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;linkText&gt;</bpt>Use the WebJobs new-project template for an independent WebJob<ept id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;/linkText&gt;</ept><bpt id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;title&gt;</bpt><ept id="a5f0537e-b954-4f89-97c7-484280d25c9f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="153a5304-6780-4f94-96f0-2ed17e0ce1a2" xml:space="preserve">
+          <source>Create a project and configure it to deploy by itself as a WebJob, with no link to a web project.</source>
+          <target state="new">Create a project and configure it to deploy by itself as a WebJob, with no link to a web project.</target>
+        </trans-unit>
+        <trans-unit id="6db37fea-c5f1-4175-9e5b-c2017ef07b51" xml:space="preserve">
+          <source>Use this option when you want to run a WebJob in a web app by itself, with no web application running in the web app.</source>
+          <target state="new">Use this option when you want to run a WebJob in a web app by itself, with no web application running in the web app.</target>
+        </trans-unit>
+        <trans-unit id="e0f35366-eee0-4af3-99f6-8878d4c164ed" xml:space="preserve">
+          <source>You might want to do this in order to be able to scale your WebJob resources independently of your web application resources.</source>
+          <target state="new">You might want to do this in order to be able to scale your WebJob resources independently of your web application resources.</target>
+        </trans-unit>
+        <trans-unit id="48e2eff8-a47f-410a-bca1-fe465df28405" xml:space="preserve">
+          <source><bpt id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;linkText&gt;</bpt>Use the WebJobs new-project template for a WebJob linked to a web project<ept id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;/linkText&gt;</ept><bpt id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;title&gt;</bpt><ept id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;linkText&gt;</bpt>Use the WebJobs new-project template for a WebJob linked to a web project<ept id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;/linkText&gt;</ept><bpt id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;title&gt;</bpt><ept id="e0ee5791-bd95-4256-892f-e26c989880b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28e8a593-548a-4273-9de1-337e2db1c6e4" xml:space="preserve">
+          <source>Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed.</source>
+          <target state="new">Create a project that is configured to deploy automatically as a WebJob when a web project in the same solution is deployed.</target>
+        </trans-unit>
+        <trans-unit id="277ef11f-1c44-44a5-ae73-c41e680d88d1" xml:space="preserve">
+          <source>Use this option when you want to run your WebJob in the same web app in which you run the related web application.</source>
+          <target state="new">Use this option when you want to run your WebJob in the same web app in which you run the related web application.</target>
+        </trans-unit>
+        <trans-unit id="333ea211-4eab-4658-8cc0-ce7b4ec99f7d" xml:space="preserve">
+          <source>In the SDK 2.4 release, the WebJobs new-project template isn't much easier than creating a Console Application project and enabling WebJobs deployment.</source>
+          <target state="new">In the SDK 2.4 release, the WebJobs new-project template isn't much easier than creating a Console Application project and enabling WebJobs deployment.</target>
+        </trans-unit>
+        <trans-unit id="8ef1da07-9cbe-4198-94b9-6403755003db" xml:space="preserve">
+          <source>In the future, the WebJobs new-project template will be more convenient for <bpt id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;/linkText&gt;</ept><bpt id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;title&gt;</bpt><ept id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;/title&gt;</ept> development, because it will automatically install the appropriate WebJobs SDK NuGet packages.</source>
+          <target state="new">In the future, the WebJobs new-project template will be more convenient for <bpt id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;/linkText&gt;</ept><bpt id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;title&gt;</bpt><ept id="f9765724-eeac-4e0d-8727-d98df5c30990">&lt;/title&gt;</ept> development, because it will automatically install the appropriate WebJobs SDK NuGet packages.</target>
+        </trans-unit>
+        <trans-unit id="3c73354b-b607-47ab-b919-7c0ca5d10e8d" xml:space="preserve">
+          <source>Until then, you can configure a project to use the WebJobs SDK by installing the packages manually as shown in the <bpt id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;linkText&gt;</bpt>WebJobs SDK tutorial<ept id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;/linkText&gt;</ept><bpt id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;title&gt;</bpt><ept id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;/title&gt;</ept>.</source>
+          <target state="new">Until then, you can configure a project to use the WebJobs SDK by installing the packages manually as shown in the <bpt id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;linkText&gt;</bpt>WebJobs SDK tutorial<ept id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;/linkText&gt;</ept><bpt id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;title&gt;</bpt><ept id="a77adb4a-9b0e-40af-bdd2-b0022ef6f197">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41830097-c6e3-46dd-954e-9323cd79c620" xml:space="preserve">
+          <source>Click <bpt id="bb125baf-06d4-4e6b-8fdb-56e4c2324448">&lt;strong&gt;</bpt>File<ept id="bb125baf-06d4-4e6b-8fdb-56e4c2324448">&lt;/strong&gt;</ept> &gt; <bpt id="1f20a24a-05ed-4306-b32c-11d425b8c5b0">&lt;strong&gt;</bpt>New Project<ept id="1f20a24a-05ed-4306-b32c-11d425b8c5b0">&lt;/strong&gt;</ept>, and then in the <bpt id="1b41759c-53d3-499f-acb1-76f05a364e49">&lt;strong&gt;</bpt>New Project<ept id="1b41759c-53d3-499f-acb1-76f05a364e49">&lt;/strong&gt;</ept> dialog box click <bpt id="98eadd6b-0bba-40de-a259-5b6aeda65ed2">&lt;strong&gt;</bpt>Cloud<ept id="98eadd6b-0bba-40de-a259-5b6aeda65ed2">&lt;/strong&gt;</ept> &gt; <bpt id="e70085a1-546c-41bb-818a-cb070f1c3a2a">&lt;strong&gt;</bpt>Microsoft Azure WebJob<ept id="e70085a1-546c-41bb-818a-cb070f1c3a2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bb125baf-06d4-4e6b-8fdb-56e4c2324448">&lt;strong&gt;</bpt>File<ept id="bb125baf-06d4-4e6b-8fdb-56e4c2324448">&lt;/strong&gt;</ept> &gt; <bpt id="1f20a24a-05ed-4306-b32c-11d425b8c5b0">&lt;strong&gt;</bpt>New Project<ept id="1f20a24a-05ed-4306-b32c-11d425b8c5b0">&lt;/strong&gt;</ept>, and then in the <bpt id="1b41759c-53d3-499f-acb1-76f05a364e49">&lt;strong&gt;</bpt>New Project<ept id="1b41759c-53d3-499f-acb1-76f05a364e49">&lt;/strong&gt;</ept> dialog box click <bpt id="98eadd6b-0bba-40de-a259-5b6aeda65ed2">&lt;strong&gt;</bpt>Cloud<ept id="98eadd6b-0bba-40de-a259-5b6aeda65ed2">&lt;/strong&gt;</ept> &gt; <bpt id="e70085a1-546c-41bb-818a-cb070f1c3a2a">&lt;strong&gt;</bpt>Microsoft Azure WebJob<ept id="e70085a1-546c-41bb-818a-cb070f1c3a2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dad51c2d-e397-4fd7-869c-7fc65507d9f2" xml:space="preserve">
+          <source><bpt id="ba1af3f2-710f-441c-b02d-4ab1cd7f4535">&lt;linkText&gt;</bpt>New Project dialog showing WebJob template<ept id="ba1af3f2-710f-441c-b02d-4ab1cd7f4535">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba1af3f2-710f-441c-b02d-4ab1cd7f4535">&lt;linkText&gt;</bpt>New Project dialog showing WebJob template<ept id="ba1af3f2-710f-441c-b02d-4ab1cd7f4535">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47b75db0-42f5-422f-8a15-071b7515a42f" xml:space="preserve">
+          <source>Follow the directions shown earlier to <bpt id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;linkText&gt;</bpt>make the Console Application project an independent WebJobs project<ept id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;/linkText&gt;</ept><bpt id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;title&gt;</bpt><ept id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow the directions shown earlier to <bpt id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;linkText&gt;</bpt>make the Console Application project an independent WebJobs project<ept id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;/linkText&gt;</ept><bpt id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;title&gt;</bpt><ept id="4485d30d-b92c-492e-a4b1-d04b668a81d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40a27a0f-570b-4787-a6a9-e5c815b0ceef" xml:space="preserve">
+          <source>Right-click the web project in <bpt id="a6fe176c-240b-436a-a43f-071185ee3118">&lt;strong&gt;</bpt>Solution Explorer<ept id="a6fe176c-240b-436a-a43f-071185ee3118">&lt;/strong&gt;</ept>, and then click <bpt id="9571ac35-0e80-4f36-8eca-80f5d0f12bb1">&lt;strong&gt;</bpt>Add<ept id="9571ac35-0e80-4f36-8eca-80f5d0f12bb1">&lt;/strong&gt;</ept> &gt; <bpt id="cff684b7-9057-4e9d-9878-15d26742f975">&lt;strong&gt;</bpt>New Azure WebJob Project<ept id="cff684b7-9057-4e9d-9878-15d26742f975">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the web project in <bpt id="a6fe176c-240b-436a-a43f-071185ee3118">&lt;strong&gt;</bpt>Solution Explorer<ept id="a6fe176c-240b-436a-a43f-071185ee3118">&lt;/strong&gt;</ept>, and then click <bpt id="9571ac35-0e80-4f36-8eca-80f5d0f12bb1">&lt;strong&gt;</bpt>Add<ept id="9571ac35-0e80-4f36-8eca-80f5d0f12bb1">&lt;/strong&gt;</ept> &gt; <bpt id="cff684b7-9057-4e9d-9878-15d26742f975">&lt;strong&gt;</bpt>New Azure WebJob Project<ept id="cff684b7-9057-4e9d-9878-15d26742f975">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9992b22b-451c-4655-90d3-c89e749d47f0" xml:space="preserve">
+          <source><bpt id="06910da5-4f72-40f6-b60d-5e7d3c959668">&lt;linkText&gt;</bpt>New Azure WebJob Project menu entry<ept id="06910da5-4f72-40f6-b60d-5e7d3c959668">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06910da5-4f72-40f6-b60d-5e7d3c959668">&lt;linkText&gt;</bpt>New Azure WebJob Project menu entry<ept id="06910da5-4f72-40f6-b60d-5e7d3c959668">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f04352f-924a-4286-bd97-70b48a945435" xml:space="preserve">
+          <source>The <bpt id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;/linkText&gt;</ept><bpt id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;title&gt;</bpt><ept id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;/title&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;/linkText&gt;</ept><bpt id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;title&gt;</bpt><ept id="9b909313-a7eb-4bb1-a8e3-0eb756d3d217">&lt;/title&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="818d7c93-3ff1-4f8e-a028-45a1a03fcbc5" xml:space="preserve">
+          <source>Complete the <bpt id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;/linkText&gt;</ept><bpt id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;title&gt;</bpt><ept id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;/title&gt;</ept> dialog box, and then click <bpt id="e5371eff-9ee8-47f0-a1e8-ac09277980fa">&lt;strong&gt;</bpt>OK<ept id="e5371eff-9ee8-47f0-a1e8-ac09277980fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Complete the <bpt id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;linkText&gt;</bpt>Add Azure WebJob<ept id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;/linkText&gt;</ept><bpt id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;title&gt;</bpt><ept id="af65e70e-41a7-4250-9e5f-a684222ed4e3">&lt;/title&gt;</ept> dialog box, and then click <bpt id="e5371eff-9ee8-47f0-a1e8-ac09277980fa">&lt;strong&gt;</bpt>OK<ept id="e5371eff-9ee8-47f0-a1e8-ac09277980fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6d11c89-823a-41af-b457-86653b150259" xml:space="preserve">
+          <source>The <bpt id="561e0ebe-8f7d-45bd-b244-8e1411591ecd">&lt;strong&gt;</bpt>Add Azure WebJob<ept id="561e0ebe-8f7d-45bd-b244-8e1411591ecd">&lt;/strong&gt;</ept> dialog enables you to enter WebJob name and scheduling settings for your WebJob.</source>
+          <target state="new">The <bpt id="561e0ebe-8f7d-45bd-b244-8e1411591ecd">&lt;strong&gt;</bpt>Add Azure WebJob<ept id="561e0ebe-8f7d-45bd-b244-8e1411591ecd">&lt;/strong&gt;</ept> dialog enables you to enter WebJob name and scheduling settings for your WebJob.</target>
+        </trans-unit>
+        <trans-unit id="f861b352-26d3-44c7-a7f1-cc426484e844" xml:space="preserve">
+          <source><bpt id="83b62768-b6f3-4aeb-b14d-7a75b51a5b1a">&lt;linkText&gt;</bpt>Add Azure WebJob dialog<ept id="83b62768-b6f3-4aeb-b14d-7a75b51a5b1a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83b62768-b6f3-4aeb-b14d-7a75b51a5b1a">&lt;linkText&gt;</bpt>Add Azure WebJob dialog<ept id="83b62768-b6f3-4aeb-b14d-7a75b51a5b1a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f3709a6-ed64-42c9-b280-6aeb026d6dcc" xml:space="preserve">
+          <source>The fields in this dialog correspond to fields on the <bpt id="9c03d783-0196-4ea9-9fba-af44614eb503">&lt;strong&gt;</bpt>New Job<ept id="9c03d783-0196-4ea9-9fba-af44614eb503">&lt;/strong&gt;</ept> dialog of the Azure Management Portal.</source>
+          <target state="new">The fields in this dialog correspond to fields on the <bpt id="9c03d783-0196-4ea9-9fba-af44614eb503">&lt;strong&gt;</bpt>New Job<ept id="9c03d783-0196-4ea9-9fba-af44614eb503">&lt;/strong&gt;</ept> dialog of the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="dfac9ed8-3d6f-48fd-9745-0c92e188a9e7" xml:space="preserve">
+          <source>For more information, see <bpt id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;linkText&gt;</bpt>Run Background tasks with WebJobs<ept id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;/linkText&gt;</ept><bpt id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;title&gt;</bpt><ept id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;linkText&gt;</bpt>Run Background tasks with WebJobs<ept id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;/linkText&gt;</ept><bpt id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;title&gt;</bpt><ept id="8cd29759-adcd-4ff1-8938-db3a4971093a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f50892f-eed6-4d84-990f-2bc6faa7e03d" xml:space="preserve">
+          <source>For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an <bpt id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;linkText&gt;</bpt>Azure Scheduler<ept id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;/linkText&gt;</ept><bpt id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;title&gt;</bpt><ept id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;/title&gt;</ept> job collection if one doesn't exist yet, and it creates a job in the collection:</source>
+          <target state="new">For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an <bpt id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;linkText&gt;</bpt>Azure Scheduler<ept id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;/linkText&gt;</ept><bpt id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;title&gt;</bpt><ept id="bff43ed5-e4cc-4dcf-8f28-f42b8949665e">&lt;/title&gt;</ept> job collection if one doesn't exist yet, and it creates a job in the collection:</target>
+        </trans-unit>
+        <trans-unit id="5a33630e-b649-4170-b87c-2a0389aa374a" xml:space="preserve">
+          <source>The scheduler job collection is named <bpt id="b8d5cecd-76bd-4b64-b6eb-7eba039e7220">&lt;em&gt;</bpt>WebJobs-{regionname}<ept id="b8d5cecd-76bd-4b64-b6eb-7eba039e7220">&lt;/em&gt;</ept> where <bpt id="23cc72d9-4526-4745-b7be-3c8601e35cde">&lt;em&gt;</bpt>{regionname}<ept id="23cc72d9-4526-4745-b7be-3c8601e35cde">&lt;/em&gt;</ept> refers to the region the web app is hosted in.</source>
+          <target state="new">The scheduler job collection is named <bpt id="b8d5cecd-76bd-4b64-b6eb-7eba039e7220">&lt;em&gt;</bpt>WebJobs-{regionname}<ept id="b8d5cecd-76bd-4b64-b6eb-7eba039e7220">&lt;/em&gt;</ept> where <bpt id="23cc72d9-4526-4745-b7be-3c8601e35cde">&lt;em&gt;</bpt>{regionname}<ept id="23cc72d9-4526-4745-b7be-3c8601e35cde">&lt;/em&gt;</ept> refers to the region the web app is hosted in.</target>
+        </trans-unit>
+        <trans-unit id="8bd103de-56ff-4155-bc9b-204f9751fc46" xml:space="preserve">
+          <source>For example: WebJobs-WestUS.</source>
+          <target state="new">For example: WebJobs-WestUS.</target>
+        </trans-unit>
+        <trans-unit id="c4f6d35f-8c5c-4936-8625-2bc56300e174" xml:space="preserve">
+          <source>The scheduler job is named <bpt id="42dd2c3e-41ed-4205-9226-6aa624c31288">&lt;em&gt;</bpt>{webappname}-{webjobname}<ept id="42dd2c3e-41ed-4205-9226-6aa624c31288">&lt;/em&gt;</ept>.</source>
+          <target state="new">The scheduler job is named <bpt id="42dd2c3e-41ed-4205-9226-6aa624c31288">&lt;em&gt;</bpt>{webappname}-{webjobname}<ept id="42dd2c3e-41ed-4205-9226-6aa624c31288">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="385897f4-ca50-40ab-8a08-0c35c9e50471" xml:space="preserve">
+          <source>For example: MyWebApp-MyWebJob.</source>
+          <target state="new">For example: MyWebApp-MyWebJob.</target>
+        </trans-unit>
+        <trans-unit id="e2923d08-5a38-4aa0-a21b-04bc44436ea4" xml:space="preserve">
+          <source>For information about command-line deployment, see <bpt id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;linkText&gt;</bpt>Enabling Command-line or Continuous Delivery of Azure WebJobs<ept id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;/linkText&gt;</ept><bpt id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;title&gt;</bpt><ept id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about command-line deployment, see <bpt id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;linkText&gt;</bpt>Enabling Command-line or Continuous Delivery of Azure WebJobs<ept id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;/linkText&gt;</ept><bpt id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;title&gt;</bpt><ept id="dc40b8c3-17b3-40f9-969e-3c3a3ab7d52c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d9e1d88-7209-43d2-989e-a31efe034e54" xml:space="preserve">
+          <source>If you configure a <bpt id="21b2b6cb-8976-480c-bbdf-dd90158ce08d">&lt;strong&gt;</bpt>Recurring Job<ept id="21b2b6cb-8976-480c-bbdf-dd90158ce08d">&lt;/strong&gt;</ept> and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free.</source>
+          <target state="new">If you configure a <bpt id="21b2b6cb-8976-480c-bbdf-dd90158ce08d">&lt;strong&gt;</bpt>Recurring Job<ept id="21b2b6cb-8976-480c-bbdf-dd90158ce08d">&lt;/strong&gt;</ept> and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free.</target>
+        </trans-unit>
+        <trans-unit id="a664e3d4-4cac-4f26-8107-1f49885b3df2" xml:space="preserve">
+          <source>Other frequencies (hours, days, and so forth) are free.</source>
+          <target state="new">Other frequencies (hours, days, and so forth) are free.</target>
+        </trans-unit>
+        <trans-unit id="87c7b892-6036-41fc-8130-3a0584750b81" xml:space="preserve">
+          <source>If you deploy a WebJob and then decide you want to change the type of WebJob and redeploy, you'll need to delete the webjobs-publish-settings.json file.</source>
+          <target state="new">If you deploy a WebJob and then decide you want to change the type of WebJob and redeploy, you'll need to delete the webjobs-publish-settings.json file.</target>
+        </trans-unit>
+        <trans-unit id="187038af-d09e-47ec-9928-8fffd824693e" xml:space="preserve">
+          <source>This will make Visual Studio show the publishing options again, so you can change the type of WebJob.</source>
+          <target state="new">This will make Visual Studio show the publishing options again, so you can change the type of WebJob.</target>
+        </trans-unit>
+        <trans-unit id="326f6517-2abe-4627-8162-14d9f8f84ff1" xml:space="preserve">
+          <source>If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy.</source>
+          <target state="new">If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy.</target>
+        </trans-unit>
+        <trans-unit id="7622f5af-8b2a-41da-9371-af342b6d99b2" xml:space="preserve">
+          <source>If you change other scheduling settings but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job rather than create a new one.</source>
+          <target state="new">If you change other scheduling settings but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job rather than create a new one.</target>
+        </trans-unit>
+        <trans-unit id="5ed738f8-a71f-4053-9cc3-2dfb8ca2d962" xml:space="preserve">
+          <source>When you configure a Console Application for WebJobs deployment, Visual Studio installs the <bpt id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;linkText&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;/linkText&gt;</ept><bpt id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;title&gt;</bpt><ept id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;/title&gt;</ept> NuGet package 
+and stores scheduling information in a <bpt id="8a10bb92-635c-4aa2-88bf-24273b481223">&lt;em&gt;</bpt>webjob-publish-settings.json<ept id="8a10bb92-635c-4aa2-88bf-24273b481223">&lt;/em&gt;</ept> file in the project <bpt id="66a5d287-f7d9-491d-9df7-c8f2aedce3ad">&lt;em&gt;</bpt>Properties<ept id="66a5d287-f7d9-491d-9df7-c8f2aedce3ad">&lt;/em&gt;</ept> folder of the WebJobs project.</source>
+          <target state="new">When you configure a Console Application for WebJobs deployment, Visual Studio installs the <bpt id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;linkText&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;/linkText&gt;</ept><bpt id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;title&gt;</bpt><ept id="21e8adf2-35cb-4e58-a112-86cd04b98aed">&lt;/title&gt;</ept> NuGet package 
+and stores scheduling information in a <bpt id="8a10bb92-635c-4aa2-88bf-24273b481223">&lt;em&gt;</bpt>webjob-publish-settings.json<ept id="8a10bb92-635c-4aa2-88bf-24273b481223">&lt;/em&gt;</ept> file in the project <bpt id="66a5d287-f7d9-491d-9df7-c8f2aedce3ad">&lt;em&gt;</bpt>Properties<ept id="66a5d287-f7d9-491d-9df7-c8f2aedce3ad">&lt;/em&gt;</ept> folder of the WebJobs project.</target>
+        </trans-unit>
+        <trans-unit id="d3aa92de-5cc7-412d-a289-b7442aba7816" xml:space="preserve">
+          <source>Here is an example of that file:</source>
+          <target state="new">Here is an example of that file:</target>
+        </trans-unit>
+        <trans-unit id="2e4460ab-60cc-4cd6-ac5b-f2837a43540b" xml:space="preserve">
+          <source>You can edit this file directly, and Visual Studio provides IntelliSense.</source>
+          <target state="new">You can edit this file directly, and Visual Studio provides IntelliSense.</target>
+        </trans-unit>
+        <trans-unit id="1fd0a38e-9014-4684-865d-21611ff67263" xml:space="preserve">
+          <source>The file schema is stored at <bpt id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;linkText&gt;</bpt>http://schemastore.org<ept id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;/linkText&gt;</ept><bpt id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;title&gt;</bpt><ept id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;/title&gt;</ept> and can be viewed there.</source>
+          <target state="new">The file schema is stored at <bpt id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;linkText&gt;</bpt>http://schemastore.org<ept id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;/linkText&gt;</ept><bpt id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;title&gt;</bpt><ept id="2780ad9c-8638-4052-95c4-4dfd50dbab45">&lt;/title&gt;</ept> and can be viewed there.</target>
+        </trans-unit>
+        <trans-unit id="89179dd8-f01f-4f41-91c1-c0248b3412fe" xml:space="preserve">
+          <source>If you configure a <bpt id="08c44db7-0b67-4ae9-96ab-c207dbf5e29d">&lt;strong&gt;</bpt>Recurring Job<ept id="08c44db7-0b67-4ae9-96ab-c207dbf5e29d">&lt;/strong&gt;</ept> and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free.</source>
+          <target state="new">If you configure a <bpt id="08c44db7-0b67-4ae9-96ab-c207dbf5e29d">&lt;strong&gt;</bpt>Recurring Job<ept id="08c44db7-0b67-4ae9-96ab-c207dbf5e29d">&lt;/strong&gt;</ept> and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free.</target>
+        </trans-unit>
+        <trans-unit id="fe35295e-ffd2-4b87-982c-e5fe910f8a0e" xml:space="preserve">
+          <source>Other frequencies (hours, days, and so forth) are free.</source>
+          <target state="new">Other frequencies (hours, days, and so forth) are free.</target>
+        </trans-unit>
+        <trans-unit id="1fe8ee1b-c076-4ea3-b802-50387ae0a2bd" xml:space="preserve">
+          <source>When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a <bpt id="6edc85f7-ac99-4dba-bae7-3e850c5126e5">&lt;em&gt;</bpt>webjobs-list.json<ept id="6edc85f7-ac99-4dba-bae7-3e850c5126e5">&lt;/em&gt;</ept> file in the web project's <bpt id="0c303977-b80f-42cb-b035-6107dacece16">&lt;em&gt;</bpt>Properties<ept id="0c303977-b80f-42cb-b035-6107dacece16">&lt;/em&gt;</ept> folder.</source>
+          <target state="new">When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a <bpt id="6edc85f7-ac99-4dba-bae7-3e850c5126e5">&lt;em&gt;</bpt>webjobs-list.json<ept id="6edc85f7-ac99-4dba-bae7-3e850c5126e5">&lt;/em&gt;</ept> file in the web project's <bpt id="0c303977-b80f-42cb-b035-6107dacece16">&lt;em&gt;</bpt>Properties<ept id="0c303977-b80f-42cb-b035-6107dacece16">&lt;/em&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="d06186ce-dae4-478b-8905-0f02d6fdc27c" xml:space="preserve">
+          <source>The list may contain multiple WebJobs projects, as shown in the following example:</source>
+          <target state="new">The list may contain multiple WebJobs projects, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="fffebb22-ffb0-4b52-a06f-2b7ac818ab78" xml:space="preserve">
+          <source>You can edit this file directly, and Visual Studio provides IntelliSense.</source>
+          <target state="new">You can edit this file directly, and Visual Studio provides IntelliSense.</target>
+        </trans-unit>
+        <trans-unit id="97966016-1de0-4a2e-8375-6974a5ea9286" xml:space="preserve">
+          <source>The file schema is stored at <bpt id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;linkText&gt;</bpt>http://schemastore.org<ept id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;/linkText&gt;</ept><bpt id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;title&gt;</bpt><ept id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;/title&gt;</ept> and can be viewed there.</source>
+          <target state="new">The file schema is stored at <bpt id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;linkText&gt;</bpt>http://schemastore.org<ept id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;/linkText&gt;</ept><bpt id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;title&gt;</bpt><ept id="1bf55c50-96fd-4b3e-b408-19a0efa54326">&lt;/title&gt;</ept> and can be viewed there.</target>
+        </trans-unit>
+        <trans-unit id="1251e19e-0ca1-4b0b-8477-f0675675d29a" xml:space="preserve">
+          <source>A WebJobs project that you have linked to a web project deploys automatically with the web project.</source>
+          <target state="new">A WebJobs project that you have linked to a web project deploys automatically with the web project.</target>
+        </trans-unit>
+        <trans-unit id="09bffa7c-3f6d-4ed4-a1a9-cbc58b074299" xml:space="preserve">
+          <source>For information about web project deployment, see <bpt id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;linkText&gt;</bpt>How to deploy to Web Apps<ept id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;/linkText&gt;</ept><bpt id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;title&gt;</bpt><ept id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about web project deployment, see <bpt id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;linkText&gt;</bpt>How to deploy to Web Apps<ept id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;/linkText&gt;</ept><bpt id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;title&gt;</bpt><ept id="73680a19-d79a-4847-918f-e97b12a3ee80">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34eeaf28-018d-4602-9d9e-05339bf4877f" xml:space="preserve">
+          <source>To deploy a WebJobs project by itself, right-click the project in <bpt id="55098248-d865-431f-831a-2a260d7356fd">&lt;strong&gt;</bpt>Solution Explorer<ept id="55098248-d865-431f-831a-2a260d7356fd">&lt;/strong&gt;</ept>, and click <bpt id="8cf57699-be76-4be1-b9d2-269beef964f8">&lt;strong&gt;</bpt>Publish as Azure WebJob<ept id="8cf57699-be76-4be1-b9d2-269beef964f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To deploy a WebJobs project by itself, right-click the project in <bpt id="55098248-d865-431f-831a-2a260d7356fd">&lt;strong&gt;</bpt>Solution Explorer<ept id="55098248-d865-431f-831a-2a260d7356fd">&lt;/strong&gt;</ept>, and click <bpt id="8cf57699-be76-4be1-b9d2-269beef964f8">&lt;strong&gt;</bpt>Publish as Azure WebJob<ept id="8cf57699-be76-4be1-b9d2-269beef964f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ba86098-efa3-4cdf-848f-6ebd132dc554" xml:space="preserve">
+          <source><bpt id="ab476693-eb5f-4445-8d14-75a92db3b939">&lt;linkText&gt;</bpt>Publish as Azure WebJob<ept id="ab476693-eb5f-4445-8d14-75a92db3b939">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab476693-eb5f-4445-8d14-75a92db3b939">&lt;linkText&gt;</bpt>Publish as Azure WebJob<ept id="ab476693-eb5f-4445-8d14-75a92db3b939">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bb60001-3830-4653-a092-4f6f274f4592" xml:space="preserve">
+          <source>For an independent WebJob, the same <bpt id="c0722125-45cf-4d1b-9df4-73c5d61ca8b4">&lt;strong&gt;</bpt>Publish Web<ept id="c0722125-45cf-4d1b-9df4-73c5d61ca8b4">&lt;/strong&gt;</ept> wizard that is used for web projects appears, but with fewer settings available to change.</source>
+          <target state="new">For an independent WebJob, the same <bpt id="c0722125-45cf-4d1b-9df4-73c5d61ca8b4">&lt;strong&gt;</bpt>Publish Web<ept id="c0722125-45cf-4d1b-9df4-73c5d61ca8b4">&lt;/strong&gt;</ept> wizard that is used for web projects appears, but with fewer settings available to change.</target>
+        </trans-unit>
+        <trans-unit id="0060da50-b1fc-43b3-8598-ab07c7cf321f" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;linkText&gt;</bpt>Try App Service<ept id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;/linkText&gt;</ept><bpt id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;title&gt;</bpt><ept id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;linkText&gt;</bpt>Try App Service<ept id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;/linkText&gt;</ept><bpt id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;title&gt;</bpt><ept id="d31c823c-91cd-4682-98c4-07f800d464e5">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="ed85f0d1-7566-44aa-9f3d-21916a422546" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="c1451f6a-da82-4fcd-82d1-9236a725f9cb" xml:space="preserve">
+          <source>This article has explained how to deploy WebJobs by using Visual Studio.</source>
+          <target state="new">This article has explained how to deploy WebJobs by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="0061774c-bbeb-4270-8203-2a88e4e598a1" xml:space="preserve">
+          <source>For information about how to deploy Azure WebJobs from Visual Studio and by using a continuous delivery process, see <bpt id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;linkText&gt;</bpt>Azure WebJobs - Recommended Resources - Deployment<ept id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;/linkText&gt;</ept><bpt id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;title&gt;</bpt><ept id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to deploy Azure WebJobs from Visual Studio and by using a continuous delivery process, see <bpt id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;linkText&gt;</bpt>Azure WebJobs - Recommended Resources - Deployment<ept id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;/linkText&gt;</ept><bpt id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;title&gt;</bpt><ept id="84fbceff-6b96-4690-8fd6-2d944c464733">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce282df0-f532-4cb5-88ce-aa7fb78d5271" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;/linkText&gt;</ept><bpt id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;title&gt;</bpt><ept id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;/linkText&gt;</ept><bpt id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;title&gt;</bpt><ept id="d85a7053-ce6c-4ff1-89b6-b015419efc12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f33c03e-07d4-4ab6-bde6-d1540f725249" xml:space="preserve">
+          <source>For a guide to the change of the Azure portal to the Azure preview portal see: <bpt id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;/linkText&gt;</ept><bpt id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;title&gt;</bpt><ept id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the Azure portal to the Azure preview portal see: <bpt id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;/linkText&gt;</ept><bpt id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;title&gt;</bpt><ept id="0c622c10-5dac-46da-b39b-8555a3dc41d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

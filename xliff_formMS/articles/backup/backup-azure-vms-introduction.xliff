@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1295514e-ba03-4339-8433-78f4103a3557" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1295514e-ba03-4339-8433-78f4103a3557" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="149bfe76-7fe7-452f-9aac-43faf50595cd">
+        <trans-unit id="dd096ff2-4f60-417e-82f2-8dc41f468284" xml:space="preserve">
+          <source>Introduction to Azure machine virtual backup</source>
+          <target state="new">Introduction to Azure machine virtual backup</target>
+        </trans-unit>
+        <trans-unit id="bc35920b-1dfe-4cad-adf2-f0f66b84435d" xml:space="preserve">
+          <source>An introduction to backing up virtual machines in Azure using the Azure Backup service</source>
+          <target state="new">An introduction to backing up virtual machines in Azure using the Azure Backup service</target>
+        </trans-unit>
+        <trans-unit id="68194595-3ef8-4e04-9679-46524d07bbed" xml:space="preserve">
+          <source>This section provides an introduction to using Microsoft Azure Backup to protect your Azure virtual machines.</source>
+          <target state="new">This section provides an introduction to using Microsoft Azure Backup to protect your Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="d3cb6757-4656-400a-8a48-7de72ace11b2" xml:space="preserve">
+          <source>By reading it you’ll learn about:</source>
+          <target state="new">By reading it you’ll learn about:</target>
+        </trans-unit>
+        <trans-unit id="7cb5d1ba-1d87-4eda-908e-9c26b8a481c6" xml:space="preserve">
+          <source>How Azure virtual machine backup works</source>
+          <target state="new">How Azure virtual machine backup works</target>
+        </trans-unit>
+        <trans-unit id="da9f2334-b77b-4f05-990d-2c133816d3c1" xml:space="preserve">
+          <source>The procedure to back up your Azure virtual machine</source>
+          <target state="new">The procedure to back up your Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="f6a4b89a-7b85-4b13-af57-083bce4051e4" xml:space="preserve">
+          <source>The prerequisites to achieve a smooth backup experience</source>
+          <target state="new">The prerequisites to achieve a smooth backup experience</target>
+        </trans-unit>
+        <trans-unit id="39c2a255-0bad-40ee-9f59-76cddc7cbb38" xml:space="preserve">
+          <source>The typical errors encountered and how to deal with them</source>
+          <target state="new">The typical errors encountered and how to deal with them</target>
+        </trans-unit>
+        <trans-unit id="8e7fd5b4-3d76-4fc9-8ed2-96738eb8db24" xml:space="preserve">
+          <source>The list of unsupported scenarios and how to influence changes to the product</source>
+          <target state="new">The list of unsupported scenarios and how to influence changes to the product</target>
+        </trans-unit>
+        <trans-unit id="f567d47f-c8ca-4d25-a1e9-f6f921c5f975" xml:space="preserve">
+          <source>To learn more about Azure virtual machines quickly, see the <bpt id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;linkText&gt;</bpt>Virtual Machine documentation<ept id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;/linkText&gt;</ept><bpt id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;title&gt;</bpt><ept id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure virtual machines quickly, see the <bpt id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;linkText&gt;</bpt>Virtual Machine documentation<ept id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;/linkText&gt;</ept><bpt id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;title&gt;</bpt><ept id="81943750-6d7d-4ead-a043-90d67c206b3b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65daf2e7-6d62-4593-9dd2-d5392148f53e" xml:space="preserve">
+          <source>Cloud computing enables applications to execute in a scalable and highly available environment – which is why Microsoft developed Azure virtual machines.</source>
+          <target state="new">Cloud computing enables applications to execute in a scalable and highly available environment – which is why Microsoft developed Azure virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="245cd804-7e94-46af-8738-87659e8ce79e" xml:space="preserve">
+          <source>The data generated from these Azure virtual machines is important, and requires backup for safekeeping.</source>
+          <target state="new">The data generated from these Azure virtual machines is important, and requires backup for safekeeping.</target>
+        </trans-unit>
+        <trans-unit id="8dd11606-d24c-4011-a71d-caea4b920b71" xml:space="preserve">
+          <source>Typical scenarios that require data to be restored from backups are:</source>
+          <target state="new">Typical scenarios that require data to be restored from backups are:</target>
+        </trans-unit>
+        <trans-unit id="86eeeb54-1ada-4292-85ba-9d3dae0ab832" xml:space="preserve">
+          <source>Accidental or malicious deletion of files</source>
+          <target state="new">Accidental or malicious deletion of files</target>
+        </trans-unit>
+        <trans-unit id="1839d0d1-f0cc-4f3f-8867-db9624338468" xml:space="preserve">
+          <source>Corruption of the virtual machine during a patch update</source>
+          <target state="new">Corruption of the virtual machine during a patch update</target>
+        </trans-unit>
+        <trans-unit id="731b1199-29d3-42c2-97b7-24dfa479b5f8" xml:space="preserve">
+          <source>Accidental or malicious deletion of the entire virtual machine</source>
+          <target state="new">Accidental or malicious deletion of the entire virtual machine</target>
+        </trans-unit>
+        <trans-unit id="059bc47e-fee1-4a1b-8514-39f514542103" xml:space="preserve">
+          <source>Data can be backed up from these virtual machines in two distinct ways:</source>
+          <target state="new">Data can be backed up from these virtual machines in two distinct ways:</target>
+        </trans-unit>
+        <trans-unit id="d8185ab2-3586-4a67-9557-80a805041892" xml:space="preserve">
+          <source>Back up the individual sources of data from within the virtual machine</source>
+          <target state="new">Back up the individual sources of data from within the virtual machine</target>
+        </trans-unit>
+        <trans-unit id="95e4a77c-7cb1-48b6-91f6-b2acef2909e6" xml:space="preserve">
+          <source>Back up the whole virtual machine</source>
+          <target state="new">Back up the whole virtual machine</target>
+        </trans-unit>
+        <trans-unit id="ba7a234f-b19d-4de3-8d80-29af5d0523b9" xml:space="preserve">
+          <source>Back up of the entire virtual machine is popular because it is far simpler to manage and it also facilitates easy restores of the entire application and operating system.</source>
+          <target state="new">Back up of the entire virtual machine is popular because it is far simpler to manage and it also facilitates easy restores of the entire application and operating system.</target>
+        </trans-unit>
+        <trans-unit id="b55017d6-7995-4bcc-b21a-717329a73667" xml:space="preserve">
+          <source>Azure Backup can be used for in-guest data backup or backup of the complete virtual machine.</source>
+          <target state="new">Azure Backup can be used for in-guest data backup or backup of the complete virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c77229a3-9493-4671-a1fd-93056c6eee92" xml:space="preserve">
+          <source>The business benefits of using Azure Backup for virtual machine backup are:</source>
+          <target state="new">The business benefits of using Azure Backup for virtual machine backup are:</target>
+        </trans-unit>
+        <trans-unit id="58a0618f-2ac5-4f54-9413-9678f6ba12ad" xml:space="preserve">
+          <source>Automation of the backup and recovery workflows for your virtual machines</source>
+          <target state="new">Automation of the backup and recovery workflows for your virtual machines</target>
+        </trans-unit>
+        <trans-unit id="4a5ec006-fd19-4ddf-ba9c-114e3b51a85f" xml:space="preserve">
+          <source>Application-consistent backups to ensure that recovered data starts from a consistent state.</source>
+          <target state="new">Application-consistent backups to ensure that recovered data starts from a consistent state.</target>
+        </trans-unit>
+        <trans-unit id="91769031-18f0-48d1-8df8-173720109b75" xml:space="preserve">
+          <source>No downtime involved during virtual machine backup.</source>
+          <target state="new">No downtime involved during virtual machine backup.</target>
+        </trans-unit>
+        <trans-unit id="72be64ef-f170-4511-af9d-860dc40f3919" xml:space="preserve">
+          <source>Windows or Linux virtual machines can be backed up.</source>
+          <target state="new">Windows or Linux virtual machines can be backed up.</target>
+        </trans-unit>
+        <trans-unit id="4d9e7950-95b9-433b-a2ee-4c10aadc0875" xml:space="preserve">
+          <source>Recovery points are available for easy restore in the Azure Backup vault.</source>
+          <target state="new">Recovery points are available for easy restore in the Azure Backup vault.</target>
+        </trans-unit>
+        <trans-unit id="394f9078-1610-45e2-92ac-020765025308" xml:space="preserve">
+          <source>Automatic pruning and garbage collection of older recovery points.</source>
+          <target state="new">Automatic pruning and garbage collection of older recovery points.</target>
+        </trans-unit>
+        <trans-unit id="d6d79283-291a-4315-83b2-cf5ee4005e02" xml:space="preserve">
+          <source>To back up a virtual machine, first a point-in-time snapshot of the data is needed.</source>
+          <target state="new">To back up a virtual machine, first a point-in-time snapshot of the data is needed.</target>
+        </trans-unit>
+        <trans-unit id="07b8a3f2-848f-4f2b-9966-24aa0a847d4e" xml:space="preserve">
+          <source>The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot.</source>
+          <target state="new">The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot.</target>
+        </trans-unit>
+        <trans-unit id="79d0028f-73d3-40c6-a7aa-faa2a8513296" xml:space="preserve">
+          <source>The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached.</source>
+          <target state="new">The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached.</target>
+        </trans-unit>
+        <trans-unit id="c00866f2-e92d-44c2-94f6-c9161c953d17" xml:space="preserve">
+          <source>This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.</source>
+          <target state="new">This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.</target>
+        </trans-unit>
+        <trans-unit id="9d974c34-3b1a-4454-82bf-a38bdd5f9b33" xml:space="preserve">
+          <source>After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault.</source>
+          <target state="new">After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="10c7de9e-210c-499e-94a0-7849f0f6da15" xml:space="preserve">
+          <source>The service takes care of identifying and transferring only the blocks that have changed from the last backup – making the backups storage efficient.</source>
+          <target state="new">The service takes care of identifying and transferring only the blocks that have changed from the last backup – making the backups storage efficient.</target>
+        </trans-unit>
+        <trans-unit id="4f64745b-ae9a-4109-9c9c-1378c59c173c" xml:space="preserve">
+          <source>When the data transfer is completed, the snapshot is removed and a recovery point is created.</source>
+          <target state="new">When the data transfer is completed, the snapshot is removed and a recovery point is created.</target>
+        </trans-unit>
+        <trans-unit id="22a1d129-589c-4b17-bb0b-f7fb6a244443" xml:space="preserve">
+          <source>This recovery point can be seen in the Azure management portal.</source>
+          <target state="new">This recovery point can be seen in the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="98a7f556-f84f-49b7-884b-a6a9beff7ff3" xml:space="preserve">
+          <source><bpt id="e286e873-5c81-4b3d-873c-c98a1a5ebe07">&lt;linkText&gt;</bpt>Azure virtual machine backup architecture<ept id="e286e873-5c81-4b3d-873c-c98a1a5ebe07">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e286e873-5c81-4b3d-873c-c98a1a5ebe07">&lt;linkText&gt;</bpt>Azure virtual machine backup architecture<ept id="e286e873-5c81-4b3d-873c-c98a1a5ebe07">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="797c022e-0c44-4173-afba-5d332f26d39b" xml:space="preserve">
+          <source>For Linux virtual machines, only file-consistent backup is possible.</source>
+          <target state="new">For Linux virtual machines, only file-consistent backup is possible.</target>
+        </trans-unit>
+        <trans-unit id="1c196936-a895-45c2-85d7-4989daef5a12" xml:space="preserve">
+          <source>Azure virtual machines that are backed up using Azure Backup will be subject to <bpt id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;linkText&gt;</bpt>Azure Backup pricing<ept id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;/linkText&gt;</ept><bpt id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;title&gt;</bpt><ept id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure virtual machines that are backed up using Azure Backup will be subject to <bpt id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;linkText&gt;</bpt>Azure Backup pricing<ept id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;/linkText&gt;</ept><bpt id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;title&gt;</bpt><ept id="4db3b164-e0c2-4a49-8282-8ca55b163e7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65194199-c44d-4dd5-8cf2-f56a8657ddc4" xml:space="preserve">
+          <source>The Protected Instances calculation is based on the <bpt id="5c30d41c-cf6a-40a3-a5c2-dc19ff617ea4">&lt;em&gt;</bpt>actual<ept id="5c30d41c-cf6a-40a3-a5c2-dc19ff617ea4">&lt;/em&gt;</ept> size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”.</source>
+          <target state="new">The Protected Instances calculation is based on the <bpt id="5c30d41c-cf6a-40a3-a5c2-dc19ff617ea4">&lt;em&gt;</bpt>actual<ept id="5c30d41c-cf6a-40a3-a5c2-dc19ff617ea4">&lt;/em&gt;</ept> size of the virtual machine, which is the sum of all the data in the virtual machine – excluding the “resource disk”.</target>
+        </trans-unit>
+        <trans-unit id="eb27c12e-2ecf-4fd4-a406-3bc84fdf6309" xml:space="preserve">
+          <source>You are <bpt id="391a6f9b-80df-497b-b843-706b112b1834">&lt;em&gt;</bpt>not<ept id="391a6f9b-80df-497b-b843-706b112b1834">&lt;/em&gt;</ept> billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk.</source>
+          <target state="new">You are <bpt id="391a6f9b-80df-497b-b843-706b112b1834">&lt;em&gt;</bpt>not<ept id="391a6f9b-80df-497b-b843-706b112b1834">&lt;/em&gt;</ept> billed based on the maximum size supported for each data disk attached to the virtual machine, but on the actual data stored in the data disk.</target>
+        </trans-unit>
+        <trans-unit id="255c2d5e-3a80-40ac-9273-093d18d77a12" xml:space="preserve">
+          <source>Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.</source>
+          <target state="new">Similarly, the backup storage bill is based on the amount of data stored with Azure Backup, which is the sum of the actual data in each recovery point.</target>
+        </trans-unit>
+        <trans-unit id="ff443040-7206-4185-9442-3847c8247f40" xml:space="preserve">
+          <source>For example, take an A2-Standard sized virtual machine that has two additional data disks with a maximum size of 1TB each.</source>
+          <target state="new">For example, take an A2-Standard sized virtual machine that has two additional data disks with a maximum size of 1TB each.</target>
+        </trans-unit>
+        <trans-unit id="dc2715d7-b0eb-446e-9624-746b809c2679" xml:space="preserve">
+          <source>The table below gives the actual data stored on each of these disks:</source>
+          <target state="new">The table below gives the actual data stored on each of these disks:</target>
+        </trans-unit>
+        <trans-unit id="dfe751f8-3406-480b-906b-c4fdc7fe5f58" xml:space="preserve">
+          <source>Disk type</source>
+          <target state="new">Disk type</target>
+        </trans-unit>
+        <trans-unit id="28b74705-e627-43bb-a4ea-b584f300b2f1" xml:space="preserve">
+          <source>Max size</source>
+          <target state="new">Max size</target>
+        </trans-unit>
+        <trans-unit id="e0b5081b-9805-430a-8ec9-83733dd9fe4f" xml:space="preserve">
+          <source>Actual data present</source>
+          <target state="new">Actual data present</target>
+        </trans-unit>
+        <trans-unit id="63a2012e-2253-4de3-b752-9a13dea74dd1" xml:space="preserve">
+          <source>OS disk</source>
+          <target state="new">OS disk</target>
+        </trans-unit>
+        <trans-unit id="0f948f7e-f4d1-488d-bfae-e255915a6751" xml:space="preserve">
+          <source>1023GB</source>
+          <target state="new">1023GB</target>
+        </trans-unit>
+        <trans-unit id="6b1f664f-0401-4c24-885d-39246ae80f64" xml:space="preserve">
+          <source>17GB</source>
+          <target state="new">17GB</target>
+        </trans-unit>
+        <trans-unit id="24e743e0-90ed-4d1f-a9df-c3d5379f428d" xml:space="preserve">
+          <source>Local disk / Resource disk</source>
+          <target state="new">Local disk / Resource disk</target>
+        </trans-unit>
+        <trans-unit id="ec1c8008-9e44-44a6-9631-974f968efcdf" xml:space="preserve">
+          <source>135GB</source>
+          <target state="new">135GB</target>
+        </trans-unit>
+        <trans-unit id="f2a0e7b2-c8f4-4f23-9266-5b2a6f90319f" xml:space="preserve">
+          <source>5GB (not included for backup)</source>
+          <target state="new">5GB (not included for backup)</target>
+        </trans-unit>
+        <trans-unit id="b9349144-9b9e-4769-85ca-531e2511d335" xml:space="preserve">
+          <source>Data disk 1</source>
+          <target state="new">Data disk 1</target>
+        </trans-unit>
+        <trans-unit id="9fde3d7c-1785-4bac-850b-ec1d4b2c6a1f" xml:space="preserve">
+          <source>1023GB</source>
+          <target state="new">1023GB</target>
+        </trans-unit>
+        <trans-unit id="4f95e4b4-c42c-4ab2-ae40-314d4008a923" xml:space="preserve">
+          <source>30GB</source>
+          <target state="new">30GB</target>
+        </trans-unit>
+        <trans-unit id="3812b802-daf8-46e8-8be8-fbd664f03c5f" xml:space="preserve">
+          <source>Data disk 2</source>
+          <target state="new">Data disk 2</target>
+        </trans-unit>
+        <trans-unit id="e319b183-d8bf-4577-a5bc-cd4ee1d70e66" xml:space="preserve">
+          <source>1023GB</source>
+          <target state="new">1023GB</target>
+        </trans-unit>
+        <trans-unit id="d8ec53ae-8c0a-463e-ba18-ce6c40662ef2" xml:space="preserve">
+          <source>0GB</source>
+          <target state="new">0GB</target>
+        </trans-unit>
+        <trans-unit id="a8bba3cb-082d-4792-9ee8-c32c9006d97d" xml:space="preserve">
+          <source>The <bpt id="de34b1fe-136f-4624-a389-37f0da9ffba2">&lt;em&gt;</bpt>actual<ept id="de34b1fe-136f-4624-a389-37f0da9ffba2">&lt;/em&gt;</ept> size of the virtual machine in this case is 17GB + 30GB + 0GB = 47GB.</source>
+          <target state="new">The <bpt id="de34b1fe-136f-4624-a389-37f0da9ffba2">&lt;em&gt;</bpt>actual<ept id="de34b1fe-136f-4624-a389-37f0da9ffba2">&lt;/em&gt;</ept> size of the virtual machine in this case is 17GB + 30GB + 0GB = 47GB.</target>
+        </trans-unit>
+        <trans-unit id="8297ea1f-8b62-4e41-b665-ddfd996c2759" xml:space="preserve">
+          <source>This becomes the Protected Instance size that the monthly bill is based on.</source>
+          <target state="new">This becomes the Protected Instance size that the monthly bill is based on.</target>
+        </trans-unit>
+        <trans-unit id="ed8885f8-6d02-40f0-8e70-b2652464d3ff" xml:space="preserve">
+          <source>As the amount of data in the virtual machine grows, the Protected Instance size used for billing also will change appropriately.</source>
+          <target state="new">As the amount of data in the virtual machine grows, the Protected Instance size used for billing also will change appropriately.</target>
+        </trans-unit>
+        <trans-unit id="72e89715-02c0-4f3f-aa39-e202ffe7a587" xml:space="preserve">
+          <source>The billing does not start until the first successful backup is completed.</source>
+          <target state="new">The billing does not start until the first successful backup is completed.</target>
+        </trans-unit>
+        <trans-unit id="d0805920-2f81-43ac-953c-d7093c867f5d" xml:space="preserve">
+          <source>At this point the billing for both Storage and Protected Instances will begin.</source>
+          <target state="new">At this point the billing for both Storage and Protected Instances will begin.</target>
+        </trans-unit>
+        <trans-unit id="0023d2bd-bbb9-4bd7-b4db-b16fc708e9a7" xml:space="preserve">
+          <source>The billing continues as long as there is <bpt id="8ee24b0f-518d-4627-bff9-0db18b055ef1">&lt;em&gt;</bpt>any backup data stored with Azure Backup<ept id="8ee24b0f-518d-4627-bff9-0db18b055ef1">&lt;/em&gt;</ept> for the virtual machine.</source>
+          <target state="new">The billing continues as long as there is <bpt id="8ee24b0f-518d-4627-bff9-0db18b055ef1">&lt;em&gt;</bpt>any backup data stored with Azure Backup<ept id="8ee24b0f-518d-4627-bff9-0db18b055ef1">&lt;/em&gt;</ept> for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0acb8095-4bbd-4e8d-b3dc-4db6da36fd41" xml:space="preserve">
+          <source>Performing the Stop Protection operation does not stop the billing if the backup data is retained.</source>
+          <target state="new">Performing the Stop Protection operation does not stop the billing if the backup data is retained.</target>
+        </trans-unit>
+        <trans-unit id="374c6bc8-2e5b-4836-acaf-89a6a63a8a78" xml:space="preserve">
+          <source>The billing for a specified virtual machine will be discontinued only if the protection is stopped <bpt id="fec8d657-84cc-4b3e-9859-7db177d13f77">&lt;em&gt;</bpt>and<ept id="fec8d657-84cc-4b3e-9859-7db177d13f77">&lt;/em&gt;</ept> any backup data is deleted.</source>
+          <target state="new">The billing for a specified virtual machine will be discontinued only if the protection is stopped <bpt id="fec8d657-84cc-4b3e-9859-7db177d13f77">&lt;em&gt;</bpt>and<ept id="fec8d657-84cc-4b3e-9859-7db177d13f77">&lt;/em&gt;</ept> any backup data is deleted.</target>
+        </trans-unit>
+        <trans-unit id="cca8c7e5-9251-4eb9-9bc0-a0e088edc5cf" xml:space="preserve">
+          <source>When there are no active backup jobs (when protection has been stopped), the size of the virtual machine at the time of the last successful backup becomes the Protected Instance size that the monthly bill is based on.</source>
+          <target state="new">When there are no active backup jobs (when protection has been stopped), the size of the virtual machine at the time of the last successful backup becomes the Protected Instance size that the monthly bill is based on.</target>
+        </trans-unit>
+        <trans-unit id="5986b481-aeff-4fa9-ab88-76df4963e4e4" xml:space="preserve">
+          <source>To start backing up your Azure virtual machines, you need to first create a backup vault.</source>
+          <target state="new">To start backing up your Azure virtual machines, you need to first create a backup vault.</target>
+        </trans-unit>
+        <trans-unit id="74de538f-b804-4bde-be57-64cff2d4fc19" xml:space="preserve">
+          <source>The vault is an entity that stores all the backups and recovery points that have been created over time.</source>
+          <target state="new">The vault is an entity that stores all the backups and recovery points that have been created over time.</target>
+        </trans-unit>
+        <trans-unit id="8b457b5d-fc5f-4391-b0bb-764aad25c609" xml:space="preserve">
+          <source>The vault also contains the backup policies that will be applied to the virtual machines being backed up.</source>
+          <target state="new">The vault also contains the backup policies that will be applied to the virtual machines being backed up.</target>
+        </trans-unit>
+        <trans-unit id="5aa6e68e-adb4-4807-83ff-69da88939f8d" xml:space="preserve">
+          <source>The image below shows the relationships between the various Azure Backup entities:
+<bpt id="16ec2e0b-565a-4fc5-997b-801be42582e5">&lt;linkText&gt;</bpt>Azure Backup entities and relationship<ept id="16ec2e0b-565a-4fc5-997b-801be42582e5">&lt;/linkText&gt;</ept></source>
+          <target state="new">The image below shows the relationships between the various Azure Backup entities:
+<bpt id="16ec2e0b-565a-4fc5-997b-801be42582e5">&lt;linkText&gt;</bpt>Azure Backup entities and relationship<ept id="16ec2e0b-565a-4fc5-997b-801be42582e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="640dc605-58b1-46e6-ba92-e615b88fd9b1" xml:space="preserve">
+          <source>Sign in to the <bpt id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;linkText&gt;</bpt>Management Portal<ept id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;/linkText&gt;</ept><bpt id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;title&gt;</bpt><ept id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;linkText&gt;</bpt>Management Portal<ept id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;/linkText&gt;</ept><bpt id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;title&gt;</bpt><ept id="72a67428-ecb7-4084-a612-f3be2cc536f3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a8e5e47-60fc-420f-aaaa-a11e1cc5028b" xml:space="preserve">
+          <source>Click <bpt id="f5dc57c4-df5a-4449-baf3-698366b12ed9">&lt;strong&gt;</bpt>New<ept id="f5dc57c4-df5a-4449-baf3-698366b12ed9">&lt;/strong&gt;</ept> &gt; <bpt id="7ee1560f-a3c6-4810-a5e8-7a32eb2e346d">&lt;strong&gt;</bpt>Data Services<ept id="7ee1560f-a3c6-4810-a5e8-7a32eb2e346d">&lt;/strong&gt;</ept> &gt; <bpt id="f9447e3f-49ce-4e6b-a48a-80d4ad4f61bd">&lt;strong&gt;</bpt>Recovery Services<ept id="f9447e3f-49ce-4e6b-a48a-80d4ad4f61bd">&lt;/strong&gt;</ept> &gt; <bpt id="6d669ac7-6830-4794-b578-ab95d3c3ab08">&lt;strong&gt;</bpt>Backup Vault<ept id="6d669ac7-6830-4794-b578-ab95d3c3ab08">&lt;/strong&gt;</ept> &gt; <bpt id="5aa67ae9-8d8f-45b0-888f-d19a31c8b475">&lt;strong&gt;</bpt>Quick Create<ept id="5aa67ae9-8d8f-45b0-888f-d19a31c8b475">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f5dc57c4-df5a-4449-baf3-698366b12ed9">&lt;strong&gt;</bpt>New<ept id="f5dc57c4-df5a-4449-baf3-698366b12ed9">&lt;/strong&gt;</ept> &gt; <bpt id="7ee1560f-a3c6-4810-a5e8-7a32eb2e346d">&lt;strong&gt;</bpt>Data Services<ept id="7ee1560f-a3c6-4810-a5e8-7a32eb2e346d">&lt;/strong&gt;</ept> &gt; <bpt id="f9447e3f-49ce-4e6b-a48a-80d4ad4f61bd">&lt;strong&gt;</bpt>Recovery Services<ept id="f9447e3f-49ce-4e6b-a48a-80d4ad4f61bd">&lt;/strong&gt;</ept> &gt; <bpt id="6d669ac7-6830-4794-b578-ab95d3c3ab08">&lt;strong&gt;</bpt>Backup Vault<ept id="6d669ac7-6830-4794-b578-ab95d3c3ab08">&lt;/strong&gt;</ept> &gt; <bpt id="5aa67ae9-8d8f-45b0-888f-d19a31c8b475">&lt;strong&gt;</bpt>Quick Create<ept id="5aa67ae9-8d8f-45b0-888f-d19a31c8b475">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de7ffb71-0f65-41d4-ba96-cb017e39f804" xml:space="preserve">
+          <source>If you have multiple subscriptions associated with your organizational account, choose the correct subscription to associate with the backup vault.</source>
+          <target state="new">If you have multiple subscriptions associated with your organizational account, choose the correct subscription to associate with the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="3c68c961-efa9-45ea-86bb-fbcef18339f6" xml:space="preserve">
+          <source>In each Azure subscription you can have multiple backup vaults to organize the virtual machines being protected.</source>
+          <target state="new">In each Azure subscription you can have multiple backup vaults to organize the virtual machines being protected.</target>
+        </trans-unit>
+        <trans-unit id="a743431f-86c0-498b-bf9d-990c90012861" xml:space="preserve">
+          <source>In <bpt id="9a9dc941-84e0-4a4d-8f20-fc0eb4f0cf36">&lt;strong&gt;</bpt>Name<ept id="9a9dc941-84e0-4a4d-8f20-fc0eb4f0cf36">&lt;/strong&gt;</ept>, enter a friendly name to identify the vault.</source>
+          <target state="new">In <bpt id="9a9dc941-84e0-4a4d-8f20-fc0eb4f0cf36">&lt;strong&gt;</bpt>Name<ept id="9a9dc941-84e0-4a4d-8f20-fc0eb4f0cf36">&lt;/strong&gt;</ept>, enter a friendly name to identify the vault.</target>
+        </trans-unit>
+        <trans-unit id="23beefa3-648b-4bf1-9fdf-01d8ccbfd661" xml:space="preserve">
+          <source>This needs to be unique for each subscription.</source>
+          <target state="new">This needs to be unique for each subscription.</target>
+        </trans-unit>
+        <trans-unit id="e835592c-85ff-470e-9c43-5a2a326be812" xml:space="preserve">
+          <source>In <bpt id="d5d27e9b-d23f-4aa8-8035-c9e4582ebe63">&lt;strong&gt;</bpt>Region<ept id="d5d27e9b-d23f-4aa8-8035-c9e4582ebe63">&lt;/strong&gt;</ept>, select the geographic region for the vault.</source>
+          <target state="new">In <bpt id="d5d27e9b-d23f-4aa8-8035-c9e4582ebe63">&lt;strong&gt;</bpt>Region<ept id="d5d27e9b-d23f-4aa8-8035-c9e4582ebe63">&lt;/strong&gt;</ept>, select the geographic region for the vault.</target>
+        </trans-unit>
+        <trans-unit id="a46f7965-6159-429e-86b5-b1b5b7eecb10" xml:space="preserve">
+          <source>Note that the vault must be in the same region as the virtual machines you want to protect.</source>
+          <target state="new">Note that the vault must be in the same region as the virtual machines you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="34a1f6c4-635a-4574-ab1e-a4e25cd72320" xml:space="preserve">
+          <source>If you have virtual machines in different regions create a vault in each one.</source>
+          <target state="new">If you have virtual machines in different regions create a vault in each one.</target>
+        </trans-unit>
+        <trans-unit id="975085f1-3f5d-459f-a107-81a98b8dfb2b" xml:space="preserve">
+          <source>There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service will handle this automatically.</source>
+          <target state="new">There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service will handle this automatically.</target>
+        </trans-unit>
+        <trans-unit id="c23b7f4c-bafe-449d-b5af-29e0abae1f0c" xml:space="preserve">
+          <source><bpt id="cddaa0eb-a641-47e4-ae8a-53016ab7a1cd">&lt;linkText&gt;</bpt>Create backup vault<ept id="cddaa0eb-a641-47e4-ae8a-53016ab7a1cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cddaa0eb-a641-47e4-ae8a-53016ab7a1cd">&lt;linkText&gt;</bpt>Create backup vault<ept id="cddaa0eb-a641-47e4-ae8a-53016ab7a1cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03b2387d-1597-4991-a0af-eda9ade5f62f" xml:space="preserve">
+          <source>Click on <bpt id="0910b610-a195-4432-8c26-b636f561ca3a">&lt;strong&gt;</bpt>Create Vault<ept id="0910b610-a195-4432-8c26-b636f561ca3a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click on <bpt id="0910b610-a195-4432-8c26-b636f561ca3a">&lt;strong&gt;</bpt>Create Vault<ept id="0910b610-a195-4432-8c26-b636f561ca3a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eed963b1-ce2c-48e3-8f0d-7d192391e414" xml:space="preserve">
+          <source>It can take a while for the backup vault to be created.</source>
+          <target state="new">It can take a while for the backup vault to be created.</target>
+        </trans-unit>
+        <trans-unit id="9b98b539-0c5c-45fd-9168-55544188ca07" xml:space="preserve">
+          <source>Monitor the status notifications at the bottom of the portal.</source>
+          <target state="new">Monitor the status notifications at the bottom of the portal.</target>
+        </trans-unit>
+        <trans-unit id="e56830e4-cc96-49a1-a449-7699965f337e" xml:space="preserve">
+          <source><bpt id="d36af681-b7b6-4a4a-a678-781055b7ab70">&lt;linkText&gt;</bpt>Create vault toast notification<ept id="d36af681-b7b6-4a4a-a678-781055b7ab70">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d36af681-b7b6-4a4a-a678-781055b7ab70">&lt;linkText&gt;</bpt>Create vault toast notification<ept id="d36af681-b7b6-4a4a-a678-781055b7ab70">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="113db99a-2ddc-4e58-8ad2-7ea7cd0dacb0" xml:space="preserve">
+          <source>A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active.</source>
+          <target state="new">A message confirms that the vault has been successfully created and it will be listed in the Recovery Services page as Active.</target>
+        </trans-unit>
+        <trans-unit id="4348cf1d-b867-4ede-8669-b93fb642a45e" xml:space="preserve">
+          <source>Ensure that the appropriate storage redundancy option is chosen right after the vault has been created.</source>
+          <target state="new">Ensure that the appropriate storage redundancy option is chosen right after the vault has been created.</target>
+        </trans-unit>
+        <trans-unit id="9dbde822-f586-44d1-ad57-1d81f6a4e987" xml:space="preserve">
+          <source>Read more about <bpt id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;linkText&gt;</bpt>setting the storage redundancy option in the backup vault<ept id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;/linkText&gt;</ept><bpt id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;title&gt;</bpt><ept id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;linkText&gt;</bpt>setting the storage redundancy option in the backup vault<ept id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;/linkText&gt;</ept><bpt id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;title&gt;</bpt><ept id="e6137577-6dd6-48b9-82c0-733aa6cbb3e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9714c7c6-ad17-42a6-8e85-975216527ff1" xml:space="preserve">
+          <source><bpt id="fb224e36-2970-4115-8e0d-111a2d2281d9">&lt;linkText&gt;</bpt>List of backup vaults<ept id="fb224e36-2970-4115-8e0d-111a2d2281d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb224e36-2970-4115-8e0d-111a2d2281d9">&lt;linkText&gt;</bpt>List of backup vaults<ept id="fb224e36-2970-4115-8e0d-111a2d2281d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5666eea3-2f0c-4d22-b145-1750776d006c" xml:space="preserve">
+          <source>Clicking on the backup vault goes to the <bpt id="8011ffed-a1a7-4371-9698-c95da6d7a99d">&lt;strong&gt;</bpt>Quick Start<ept id="8011ffed-a1a7-4371-9698-c95da6d7a99d">&lt;/strong&gt;</ept> page, where the instructions for backup of Azure virtual machines are shown.</source>
+          <target state="new">Clicking on the backup vault goes to the <bpt id="8011ffed-a1a7-4371-9698-c95da6d7a99d">&lt;strong&gt;</bpt>Quick Start<ept id="8011ffed-a1a7-4371-9698-c95da6d7a99d">&lt;/strong&gt;</ept> page, where the instructions for backup of Azure virtual machines are shown.</target>
+        </trans-unit>
+        <trans-unit id="b2ac096c-c047-42c1-8312-e9db4daf8d7b" xml:space="preserve">
+          <source><bpt id="ef5a54be-d718-4ae1-8841-098a55cf84e2">&lt;linkText&gt;</bpt>Virtual machine backup instructions in the Dashboard page<ept id="ef5a54be-d718-4ae1-8841-098a55cf84e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef5a54be-d718-4ae1-8841-098a55cf84e2">&lt;linkText&gt;</bpt>Virtual machine backup instructions in the Dashboard page<ept id="ef5a54be-d718-4ae1-8841-098a55cf84e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="665291cf-645f-4769-8563-45081bd9ca6d" xml:space="preserve">
+          <source>Before you can start to backup the Azure virtual machine, ensure that the Azure VM Agent is correctly installed on the virtual machine.</source>
+          <target state="new">Before you can start to backup the Azure virtual machine, ensure that the Azure VM Agent is correctly installed on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d7ef334f-afa0-40f3-8682-592b6c763f09" xml:space="preserve">
+          <source>In order to backup the virtual machine, the Azure Backup service installs an extension to the VM Agent.</source>
+          <target state="new">In order to backup the virtual machine, the Azure Backup service installs an extension to the VM Agent.</target>
+        </trans-unit>
+        <trans-unit id="4b5812a2-469b-4c21-a521-209dcb7bec3b" xml:space="preserve">
+          <source>Since the VM agent is an optional component at the time that the virtual machine is created, you need to ensure that the checkbox for the VM agent is selected before the virtual machine is provisioned.</source>
+          <target state="new">Since the VM agent is an optional component at the time that the virtual machine is created, you need to ensure that the checkbox for the VM agent is selected before the virtual machine is provisioned.</target>
+        </trans-unit>
+        <trans-unit id="f823e00a-e349-49c1-9086-23ac866d533a" xml:space="preserve">
+          <source>Learn about the <bpt id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;linkText&gt;</bpt>VM Agent<ept id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;/linkText&gt;</ept><bpt id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;title&gt;</bpt><ept id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;/title&gt;</ept> and <bpt id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;linkText&gt;</bpt>how to install it<ept id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;/linkText&gt;</ept><bpt id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;title&gt;</bpt><ept id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about the <bpt id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;linkText&gt;</bpt>VM Agent<ept id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;/linkText&gt;</ept><bpt id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;title&gt;</bpt><ept id="bb1c8aca-f0db-4ab1-ae80-d4c08d2ed411">&lt;/title&gt;</ept> and <bpt id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;linkText&gt;</bpt>how to install it<ept id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;/linkText&gt;</ept><bpt id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;title&gt;</bpt><ept id="69d03b91-3c4e-4ce6-a011-2c0a9704bec7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32ed9d2a-f1fc-4061-a7e9-1566dd440245" xml:space="preserve">
+          <source>Backup of IaaS (V2) virtual machines is not supported.</source>
+          <target state="new">Backup of IaaS (V2) virtual machines is not supported.</target>
+        </trans-unit>
+        <trans-unit id="a1e1f4d0-919b-4650-886e-ce9f61642af4" xml:space="preserve">
+          <source>Backup of virtual machines with more than 16 data disks is not supported.</source>
+          <target state="new">Backup of virtual machines with more than 16 data disks is not supported.</target>
+        </trans-unit>
+        <trans-unit id="7dc65ea2-bb07-4064-8088-38cfbc39c9e6" xml:space="preserve">
+          <source>Backup of virtual machines using Premium storage is not supported.</source>
+          <target state="new">Backup of virtual machines using Premium storage is not supported.</target>
+        </trans-unit>
+        <trans-unit id="0b12f112-c5d9-44e0-b636-19d41e5828e1" xml:space="preserve">
+          <source>Backup of virtual machines using multiple NICs or in a load-balanced configuration is not supported.</source>
+          <target state="new">Backup of virtual machines using multiple NICs or in a load-balanced configuration is not supported.</target>
+        </trans-unit>
+        <trans-unit id="73689cc4-c5c7-4f97-a774-9b7cf90443b4" xml:space="preserve">
+          <source>Replacing an existing virtual machine during restore is not supported.</source>
+          <target state="new">Replacing an existing virtual machine during restore is not supported.</target>
+        </trans-unit>
+        <trans-unit id="5a0b933e-327c-4b7a-b8a0-9d644119b120" xml:space="preserve">
+          <source>First delete the existing virtual machine and any associated disks, and then restore the data from backup.</source>
+          <target state="new">First delete the existing virtual machine and any associated disks, and then restore the data from backup.</target>
+        </trans-unit>
+        <trans-unit id="e65f12d4-f48d-483c-aada-fa8a73647709" xml:space="preserve">
+          <source>Cross-region backup and restore is not supported.</source>
+          <target state="new">Cross-region backup and restore is not supported.</target>
+        </trans-unit>
+        <trans-unit id="6697a2fc-23f0-44ae-ba13-69e9f559181c" xml:space="preserve">
+          <source>Virtual machine backup using the Azure Backup service is only supported in select regions.</source>
+          <target state="new">Virtual machine backup using the Azure Backup service is only supported in select regions.</target>
+        </trans-unit>
+        <trans-unit id="5775b604-35d6-41ab-aa74-ce7c61b567de" xml:space="preserve">
+          <source>Check list of <bpt id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;linkText&gt;</bpt>supported regions<ept id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;/linkText&gt;</ept><bpt id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;title&gt;</bpt><ept id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check list of <bpt id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;linkText&gt;</bpt>supported regions<ept id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;/linkText&gt;</ept><bpt id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;title&gt;</bpt><ept id="ddabb6ad-ee88-478d-8489-45a42f2f8934">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e61d7e9e-edda-4360-a6c6-f68a2739efaf" xml:space="preserve">
+          <source>If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.</source>
+          <target state="new">If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.</target>
+        </trans-unit>
+        <trans-unit id="b55dfc85-6463-42ae-8710-a42923236fa4" xml:space="preserve">
+          <source>Virtual machine backup using the Azure Backup service is only supported only for select Operating System versions:</source>
+          <target state="new">Virtual machine backup using the Azure Backup service is only supported only for select Operating System versions:</target>
+        </trans-unit>
+        <trans-unit id="d895f156-cf3d-4193-a4f3-aa121a14e727" xml:space="preserve">
+          <source><bpt id="05bf8fab-e55f-4030-8c0d-06d7a0a2c375">&lt;strong&gt;</bpt>Linux<ept id="05bf8fab-e55f-4030-8c0d-06d7a0a2c375">&lt;/strong&gt;</ept>: The list of distributions endorsed by Azure is available <bpt id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;linkText&gt;</bpt>here<ept id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;/linkText&gt;</ept><bpt id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;title&gt;</bpt><ept id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="05bf8fab-e55f-4030-8c0d-06d7a0a2c375">&lt;strong&gt;</bpt>Linux<ept id="05bf8fab-e55f-4030-8c0d-06d7a0a2c375">&lt;/strong&gt;</ept>: The list of distributions endorsed by Azure is available <bpt id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;linkText&gt;</bpt>here<ept id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;/linkText&gt;</ept><bpt id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;title&gt;</bpt><ept id="e25866f7-6b75-40ff-a841-cb456812aa68">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4de23144-c965-4b74-934d-e0a2492564de" xml:space="preserve">
+          <source>Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.</source>
+          <target state="new">Other Bring-Your-Own-Linux distributions also should work as long as the VM Agent is available on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5cea7e75-dff2-4f57-a843-e00027ca243e" xml:space="preserve">
+          <source><bpt id="25676574-717a-4716-8a8d-5cb1fe27b7ce">&lt;strong&gt;</bpt>Windows Server<ept id="25676574-717a-4716-8a8d-5cb1fe27b7ce">&lt;/strong&gt;</ept>:  Versions older than Windows Server 2008 R2 are not supported.</source>
+          <target state="new"><bpt id="25676574-717a-4716-8a8d-5cb1fe27b7ce">&lt;strong&gt;</bpt>Windows Server<ept id="25676574-717a-4716-8a8d-5cb1fe27b7ce">&lt;/strong&gt;</ept>:  Versions older than Windows Server 2008 R2 are not supported.</target>
+        </trans-unit>
+        <trans-unit id="707a27f2-3cb1-421e-a5c5-5f0dfe6f636c" xml:space="preserve">
+          <source>Restoring a domain controller VM that is part of a multi-DC configuration is supported only through PowerShell.</source>
+          <target state="new">Restoring a domain controller VM that is part of a multi-DC configuration is supported only through PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="406e814a-d9a6-4670-93a2-ce17a0bf7615" xml:space="preserve">
+          <source>Read more about <bpt id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;linkText&gt;</bpt>restoring a multi-DC domain controller<ept id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;/linkText&gt;</ept><bpt id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;title&gt;</bpt><ept id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;/title&gt;</ept></source>
+          <target state="new">Read more about <bpt id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;linkText&gt;</bpt>restoring a multi-DC domain controller<ept id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;/linkText&gt;</ept><bpt id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;title&gt;</bpt><ept id="4febde98-b0e4-486b-9faf-88f7b5c3344f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca49d82a-e145-4d18-bfe8-06e37c7e0696" xml:space="preserve">
+          <source>If there is any feature that you would like to see included, <bpt id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;linkText&gt;</bpt>send us feedback<ept id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;/linkText&gt;</ept><bpt id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;title&gt;</bpt><ept id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If there is any feature that you would like to see included, <bpt id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;linkText&gt;</bpt>send us feedback<ept id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;/linkText&gt;</ept><bpt id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;title&gt;</bpt><ept id="fcb7c3e9-b4a4-4445-9f30-477d1170ee6b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87b71959-2eca-4fc9-95a5-b06af1bbca73" xml:space="preserve">
+          <source>To get started with virtual machine backup, learn how to:</source>
+          <target state="new">To get started with virtual machine backup, learn how to:</target>
+        </trans-unit>
+        <trans-unit id="6a0e98c8-f1aa-445b-93dd-e495a6370bfb" xml:space="preserve">
+          <source><bpt id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;linkText&gt;</bpt>Backup virtual machines<ept id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;/linkText&gt;</ept><bpt id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;title&gt;</bpt><ept id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;linkText&gt;</bpt>Backup virtual machines<ept id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;/linkText&gt;</ept><bpt id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;title&gt;</bpt><ept id="a2299c01-5635-4622-9285-bbab7b4e3074">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b34f726-fb5d-48d8-a61b-6744c2a6482b" xml:space="preserve">
+          <source><bpt id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;linkText&gt;</bpt>Restore virtual machines<ept id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;/linkText&gt;</ept><bpt id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;title&gt;</bpt><ept id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;linkText&gt;</bpt>Restore virtual machines<ept id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;/linkText&gt;</ept><bpt id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;title&gt;</bpt><ept id="79a6f90d-23f0-479a-9be1-dcaa85b0533e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bbf60d2-d51a-4af3-8b3d-ad1437463da5" xml:space="preserve">
+          <source><bpt id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;linkText&gt;</bpt>Manage virtual machine backup<ept id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;/linkText&gt;</ept><bpt id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;title&gt;</bpt><ept id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;linkText&gt;</bpt>Manage virtual machine backup<ept id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;/linkText&gt;</ept><bpt id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;title&gt;</bpt><ept id="42a78206-4126-4e52-a8bc-4ab28a39fcc7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

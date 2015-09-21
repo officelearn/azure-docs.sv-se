@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42e0fd5e-3de9-4cbc-9acc-49db98874b8d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42e0fd5e-3de9-4cbc-9acc-49db98874b8d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="81c5204b-1b5d-4d9d-a244-988976e5f766">
+        <trans-unit id="e7e00f75-5dd5-43ef-9ac5-1d2bca30578f" xml:space="preserve">
+          <source>Resource Balancer Service Descriptions</source>
+          <target state="new">Resource Balancer Service Descriptions</target>
+        </trans-unit>
+        <trans-unit id="361514bd-d3e6-42e1-be4b-751451638324" xml:space="preserve">
+          <source>An overview of configuring service descriptions for the Resource Balancer to use</source>
+          <target state="new">An overview of configuring service descriptions for the Resource Balancer to use</target>
+        </trans-unit>
+        <trans-unit id="8d80a38c-917a-4381-99f1-e823ec59b4af" xml:space="preserve">
+          <source><bpt id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;linkText&gt;</bpt>Placement Constraints<ept id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;/linkText&gt;</ept><bpt id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;title&gt;</bpt><ept id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;/title&gt;</ept> on a service are the mechanism whereby a particular service instance selects the node properties that it requires.</source>
+          <target state="new"><bpt id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;linkText&gt;</bpt>Placement Constraints<ept id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;/linkText&gt;</ept><bpt id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;title&gt;</bpt><ept id="ee3f1336-2e23-4ef4-8088-082fe0345dfa">&lt;/title&gt;</ept> on a service are the mechanism whereby a particular service instance selects the node properties that it requires.</target>
+        </trans-unit>
+        <trans-unit id="2288372c-ee26-4f70-957a-ce580e5199fa" xml:space="preserve">
+          <source>Just like node properties, they are key/value pairs which describe the property name and the service’s requirements for the value.</source>
+          <target state="new">Just like node properties, they are key/value pairs which describe the property name and the service’s requirements for the value.</target>
+        </trans-unit>
+        <trans-unit id="f3a2fe74-f3bd-46e1-ae1c-1143cb29e269" xml:space="preserve">
+          <source>Individual statements can be grouped together with simple Boolean logic to create the necessary constraint.</source>
+          <target state="new">Individual statements can be grouped together with simple Boolean logic to create the necessary constraint.</target>
+        </trans-unit>
+        <trans-unit id="b50a8fbc-f48b-4c3b-9de8-bd8d18178282" xml:space="preserve">
+          <source>Note that the Service Fabric Resource Balancer interprets the constraints.</source>
+          <target state="new">Note that the Service Fabric Resource Balancer interprets the constraints.</target>
+        </trans-unit>
+        <trans-unit id="5136ecd4-4f68-41cf-beea-7ed050afce9c" xml:space="preserve">
+          <source>Service placement constraints can be defined either via the service or application manifest or directly in code.</source>
+          <target state="new">Service placement constraints can be defined either via the service or application manifest or directly in code.</target>
+        </trans-unit>
+        <trans-unit id="a3131215-5880-42cc-be98-a656082dbc00" xml:space="preserve">
+          <source>The service manifest provides the ServiceTypes definitions.</source>
+          <target state="new">The service manifest provides the ServiceTypes definitions.</target>
+        </trans-unit>
+        <trans-unit id="89c94ad9-724d-4da5-ad69-b5560e3c57e0" xml:space="preserve">
+          <source>The application manifest provides the ServiceTemplates or the DefaultServices definitions.</source>
+          <target state="new">The application manifest provides the ServiceTemplates or the DefaultServices definitions.</target>
+        </trans-unit>
+        <trans-unit id="ab540e6d-27c5-4468-967c-4c0983f0a29b" xml:space="preserve">
+          <source>The following diagram shows that in the cluster with nodes, the only valid node for placement of this service is N5.</source>
+          <target state="new">The following diagram shows that in the cluster with nodes, the only valid node for placement of this service is N5.</target>
+        </trans-unit>
+        <trans-unit id="a396e855-f219-4008-9e91-18205af720c0" xml:space="preserve">
+          <source><bpt id="a8607353-93f6-44ca-a525-96fb5684cdcd">&lt;linkText&gt;</bpt>Placement Constraints<ept id="a8607353-93f6-44ca-a525-96fb5684cdcd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a8607353-93f6-44ca-a525-96fb5684cdcd">&lt;linkText&gt;</bpt>Placement Constraints<ept id="a8607353-93f6-44ca-a525-96fb5684cdcd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fe2bbb6-436c-478e-b15e-2d4814d13b30" xml:space="preserve">
+          <source>If the service specifies a constraint for a property that a specific node does not have defined, that node is not considered a match regardless of the specified value.</source>
+          <target state="new">If the service specifies a constraint for a property that a specific node does not have defined, that node is not considered a match regardless of the specified value.</target>
+        </trans-unit>
+        <trans-unit id="33a10054-d0d7-4d07-b1d7-3c591349d95d" xml:space="preserve">
+          <source>A special form of placement constraint, service affinity enables the description of different services which for varying reasons have a local dependency on each other, which means that both of the services must be running on the same node for them to work.</source>
+          <target state="new">A special form of placement constraint, service affinity enables the description of different services which for varying reasons have a local dependency on each other, which means that both of the services must be running on the same node for them to work.</target>
+        </trans-unit>
+        <trans-unit id="8b2e90ca-206a-48f1-b6e4-8bbd44862ab5" xml:space="preserve">
+          <source>While this sort of architecture is not expected to be common among Service Fabric applications, Service Fabric recognizes that it is a possible transitional architecture for certain types of legacy applications, and therefore makes this capability available.</source>
+          <target state="new">While this sort of architecture is not expected to be common among Service Fabric applications, Service Fabric recognizes that it is a possible transitional architecture for certain types of legacy applications, and therefore makes this capability available.</target>
+        </trans-unit>
+        <trans-unit id="d627b623-db28-4950-a53c-86aba3164fe4" xml:space="preserve">
+          <source>Establishing service affinity between two services ensures that the Primary replicas of those services are always collocated on the same node.</source>
+          <target state="new">Establishing service affinity between two services ensures that the Primary replicas of those services are always collocated on the same node.</target>
+        </trans-unit>
+        <trans-unit id="6b141e1e-518b-4245-b585-67a2bf846332" xml:space="preserve">
+          <source>Affinity relationships are represented by a parent-child hierarchy, that is, there are "parents" and "children".</source>
+          <target state="new">Affinity relationships are represented by a parent-child hierarchy, that is, there are "parents" and "children".</target>
+        </trans-unit>
+        <trans-unit id="6880f72e-ddd0-4ce9-91d7-bd63e54624d3" xml:space="preserve">
+          <source>The service that is established first is the parent, and the service that is established second is the child in the relationship.</source>
+          <target state="new">The service that is established first is the parent, and the service that is established second is the child in the relationship.</target>
+        </trans-unit>
+        <trans-unit id="c3b237dd-fc29-422d-82be-334fcc09ce79" xml:space="preserve">
+          <source>The relationship is modeled as a "hard" constraint.</source>
+          <target state="new">The relationship is modeled as a "hard" constraint.</target>
+        </trans-unit>
+        <trans-unit id="d99bc1ab-b2df-49ef-88ce-b3bd102d84ab" xml:space="preserve">
+          <source>Service affinity currently has the following limitations:</source>
+          <target state="new">Service affinity currently has the following limitations:</target>
+        </trans-unit>
+        <trans-unit id="cdcd6cca-59c8-4ae2-a839-8c0b8a9bbbfb" xml:space="preserve">
+          <source>Cannot be used across stateless and stateful services.</source>
+          <target state="new">Cannot be used across stateless and stateful services.</target>
+        </trans-unit>
+        <trans-unit id="2179195c-e3e1-4fa7-8750-90f0d92c97cd" xml:space="preserve">
+          <source>Cannot be used across stateless services with different instance counts, for example both stateless services should have the same InstanceCount property when they are created.</source>
+          <target state="new">Cannot be used across stateless services with different instance counts, for example both stateless services should have the same InstanceCount property when they are created.</target>
+        </trans-unit>
+        <trans-unit id="a3474a8c-b548-457f-9ead-1e69d64ec845" xml:space="preserve">
+          <source>Cannot be used across stateful volatile or persistent services with different numbers of replicas, for example, both services must have the same specified Target and Min ReplicaSetSizes values.</source>
+          <target state="new">Cannot be used across stateful volatile or persistent services with different numbers of replicas, for example, both services must have the same specified Target and Min ReplicaSetSizes values.</target>
+        </trans-unit>
+        <trans-unit id="b5276558-39d1-41d3-a9b0-4cc7e9015eb2" xml:space="preserve">
+          <source>Cannot be used with partitioned services.</source>
+          <target state="new">Cannot be used with partitioned services.</target>
+        </trans-unit>
+        <trans-unit id="f48fa620-3317-4d14-ae91-bf9b07c84295" xml:space="preserve">
+          <source>Each service must have a FABRIC<bpt id="24ca2cf2-6a9a-4ef2-bb4b-f1fcb456f028">&lt;em&gt;</bpt>PARTITION<ept id="24ca2cf2-6a9a-4ef2-bb4b-f1fcb456f028">&lt;/em&gt;</ept>SCHEME_SINGLETON partition scheme.</source>
+          <target state="new">Each service must have a FABRIC<bpt id="24ca2cf2-6a9a-4ef2-bb4b-f1fcb456f028">&lt;em&gt;</bpt>PARTITION<ept id="24ca2cf2-6a9a-4ef2-bb4b-f1fcb456f028">&lt;/em&gt;</ept>SCHEME_SINGLETON partition scheme.</target>
+        </trans-unit>
+        <trans-unit id="433b7560-3254-4966-b8d6-e760a80e0c20" xml:space="preserve">
+          <source>Affinity relationships, like other properties of the service description, are set when the service is created and cannot be modified.</source>
+          <target state="new">Affinity relationships, like other properties of the service description, are set when the service is created and cannot be modified.</target>
+        </trans-unit>
+        <trans-unit id="f730e53a-5e14-4405-b600-f22938eb3ff0" xml:space="preserve">
+          <source>Chains of services are not allowed.</source>
+          <target state="new">Chains of services are not allowed.</target>
+        </trans-unit>
+        <trans-unit id="cef68723-9dfc-4a5a-a0ad-ed828005cc77" xml:space="preserve">
+          <source>If multiple services must be brought into an affinity relationship, they must use a "star" model.</source>
+          <target state="new">If multiple services must be brought into an affinity relationship, they must use a "star" model.</target>
+        </trans-unit>
+        <trans-unit id="664e65e2-b83b-46d8-93e3-246d9647bfa8" xml:space="preserve">
+          <source>The code example shows the alternate use of the DefaultServices definitions.</source>
+          <target state="new">The code example shows the alternate use of the DefaultServices definitions.</target>
+        </trans-unit>
+        <trans-unit id="5829e144-48b0-4614-9471-2f94226c1f6e" xml:space="preserve">
+          <source>The code example shows how to create an affinity relationship after the containing application has been created.</source>
+          <target state="new">The code example shows how to create an affinity relationship after the containing application has been created.</target>
+        </trans-unit>
+        <trans-unit id="d7449f45-75d1-499f-aa69-d778902571f0" xml:space="preserve">
+          <source>While service placement constraints and node properties represent the hard rules and policies that describe what arrangements of services are valid, Resource Balancing Metrics generally help describe the optimal arrangement of services within the cluster.</source>
+          <target state="new">While service placement constraints and node properties represent the hard rules and policies that describe what arrangements of services are valid, Resource Balancing Metrics generally help describe the optimal arrangement of services within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="efe7c1ba-66d4-4a8a-91c7-0e419cb77995" xml:space="preserve">
+          <source>The metrics that are defined by the service have several different properties which describe how they are used within the cluster.</source>
+          <target state="new">The metrics that are defined by the service have several different properties which describe how they are used within the cluster.</target>
+        </trans-unit>
+        <trans-unit id="9e218417-1476-4fa6-b307-234d44bb8b14" xml:space="preserve">
+          <source>The first thing to understand is that dealing with Resource Metrics is completely optional for services, and that by default the Service Fabric Resource Balancer uses some "built-in" system metrics to perform basic resource balancing without requiring that service or cluster administrators take any actions.</source>
+          <target state="new">The first thing to understand is that dealing with Resource Metrics is completely optional for services, and that by default the Service Fabric Resource Balancer uses some "built-in" system metrics to perform basic resource balancing without requiring that service or cluster administrators take any actions.</target>
+        </trans-unit>
+        <trans-unit id="4ec2f0cc-d183-4cbb-8a95-8c3fec417696" xml:space="preserve">
+          <source>The default metrics that the Service Fabric Resource Balancer tracks and balances within the cluster are PrimaryCount, ReplicaCount, and Count.</source>
+          <target state="new">The default metrics that the Service Fabric Resource Balancer tracks and balances within the cluster are PrimaryCount, ReplicaCount, and Count.</target>
+        </trans-unit>
+        <trans-unit id="98b254b1-b90d-4932-b5b0-00eb9e237b34" xml:space="preserve">
+          <source>PrimaryCount is the count of Primary stateful service replicas on a node.</source>
+          <target state="new">PrimaryCount is the count of Primary stateful service replicas on a node.</target>
+        </trans-unit>
+        <trans-unit id="bc5c7329-b95a-48c2-95d2-f972a69c64a6" xml:space="preserve">
+          <source>ReplicaCount is the count of all stateful replicas on a node.</source>
+          <target state="new">ReplicaCount is the count of all stateful replicas on a node.</target>
+        </trans-unit>
+        <trans-unit id="d3da6143-43ca-4c4a-af6c-a5be71a69ffd" xml:space="preserve">
+          <source>Count is the total count of all service objects on the node, including both stateless and stateful services.</source>
+          <target state="new">Count is the total count of all service objects on the node, including both stateless and stateful services.</target>
+        </trans-unit>
+        <trans-unit id="dd0cb038-43fb-499b-83c4-8dced549b865" xml:space="preserve">
+          <source>Generally the PrimaryCount metric is considered the most important, and therefore has the highest weight as described in the following section.</source>
+          <target state="new">Generally the PrimaryCount metric is considered the most important, and therefore has the highest weight as described in the following section.</target>
+        </trans-unit>
+        <trans-unit id="5b72ee67-186a-4cb9-aa94-0e34ff04e5fa" xml:space="preserve">
+          <source>The PrimaryCount metric is followed by the ReplicaCount metric and finally by the Count metric.</source>
+          <target state="new">The PrimaryCount metric is followed by the ReplicaCount metric and finally by the Count metric.</target>
+        </trans-unit>
+        <trans-unit id="84c5b399-1510-4884-ba71-8a36c29ecba5" xml:space="preserve">
+          <source>The following diagram shows an example of default balancing of three stateful services with three replicas each.</source>
+          <target state="new">The following diagram shows an example of default balancing of three stateful services with three replicas each.</target>
+        </trans-unit>
+        <trans-unit id="39619ba6-00d9-4e39-8da4-b7f6771c407b" xml:space="preserve">
+          <source><bpt id="63bb79c2-a569-4335-bc52-0ce8ade933c9">&lt;linkText&gt;</bpt>Default Metrics<ept id="63bb79c2-a569-4335-bc52-0ce8ade933c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63bb79c2-a569-4335-bc52-0ce8ade933c9">&lt;linkText&gt;</bpt>Default Metrics<ept id="63bb79c2-a569-4335-bc52-0ce8ade933c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a917c1bb-13e8-45ad-9e4c-1c69d1575580" xml:space="preserve">
+          <source>Generally the default metrics are sufficient for many services and should be used unless there is a specific requirement for additional metrics or capabilities.</source>
+          <target state="new">Generally the default metrics are sufficient for many services and should be used unless there is a specific requirement for additional metrics or capabilities.</target>
+        </trans-unit>
+        <trans-unit id="8c72738a-33fa-47f7-88e7-d9e105ac7a21" xml:space="preserve">
+          <source>If the default metrics are insufficient for a particular service, or that service has known requirements for requirements around a particular resource such as disk space or memory, custom medics should be used.</source>
+          <target state="new">If the default metrics are insufficient for a particular service, or that service has known requirements for requirements around a particular resource such as disk space or memory, custom medics should be used.</target>
+        </trans-unit>
+        <trans-unit id="16f9aa83-52ab-4ef0-9ef6-6fad6a8280eb" xml:space="preserve">
+          <source>Custom metrics are useful when a service has one or more resources that must be balanced well to prevent contention.</source>
+          <target state="new">Custom metrics are useful when a service has one or more resources that must be balanced well to prevent contention.</target>
+        </trans-unit>
+        <trans-unit id="b0513650-92aa-4908-b6d2-f2e43ca2419f" xml:space="preserve">
+          <source>When the use of those metrics can vary significantly between replicas within the cluster, for example, one Primary might be using 100 percent of the metric, while another may be using only 20 percent.</source>
+          <target state="new">When the use of those metrics can vary significantly between replicas within the cluster, for example, one Primary might be using 100 percent of the metric, while another may be using only 20 percent.</target>
+        </trans-unit>
+        <trans-unit id="5f15e65f-a36a-4531-a5cb-102c3e7a4de2" xml:space="preserve">
+          <source>It can also be useful to use custom metrics to capture any resource which is severely limited on a computer, such as memory, disk space, or connections.</source>
+          <target state="new">It can also be useful to use custom metrics to capture any resource which is severely limited on a computer, such as memory, disk space, or connections.</target>
+        </trans-unit>
+        <trans-unit id="b10acf48-4934-4e6e-b176-15d65b785c6e" xml:space="preserve">
+          <source>Additional custom metrics can sometimes be created, which capture or represent metrics that have no upper limits on nodes, but do represent work and resource consumption from the service’s perspective, for example, a "current outstanding transactions" metric.</source>
+          <target state="new">Additional custom metrics can sometimes be created, which capture or represent metrics that have no upper limits on nodes, but do represent work and resource consumption from the service’s perspective, for example, a "current outstanding transactions" metric.</target>
+        </trans-unit>
+        <trans-unit id="0dc98bca-3c18-4194-b392-b26a82e7dbc5" xml:space="preserve">
+          <source>While there might not be a limit to this metric a "capacity" on a given node, there is still a performance benefit by ensuring that this metric is distributed evenly throughout the cluster.</source>
+          <target state="new">While there might not be a limit to this metric a "capacity" on a given node, there is still a performance benefit by ensuring that this metric is distributed evenly throughout the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f857d3a3-871b-4050-9357-f7dc9f1f8527" xml:space="preserve">
+          <source>Note that if a service defines any custom metric, the service does not use the default system-provided metrics.</source>
+          <target state="new">Note that if a service defines any custom metric, the service does not use the default system-provided metrics.</target>
+        </trans-unit>
+        <trans-unit id="c0d39f7c-679e-4f19-82ca-fc21247537cb" xml:space="preserve">
+          <source>The default metrics can still be used, but they must be explicitly re-included in the service’s list of metrics on creation.</source>
+          <target state="new">The default metrics can still be used, but they must be explicitly re-included in the service’s list of metrics on creation.</target>
+        </trans-unit>
+        <trans-unit id="44584489-34cb-4fe0-8939-0191ad84ea82" xml:space="preserve">
+          <source>Custom metrics can be created merely by defining a Metric Name when you create a service.</source>
+          <target state="new">Custom metrics can be created merely by defining a Metric Name when you create a service.</target>
+        </trans-unit>
+        <trans-unit id="15479d18-ee13-460b-af30-6828710e346e" xml:space="preserve">
+          <source>Note that the Service Fabric Resource Balancer associates metrics via their name, so if the metric is used as a capacity within node definitions or across services, then the metric names must match exactly so that the Service Fabric Resource Balancer can relate them.</source>
+          <target state="new">Note that the Service Fabric Resource Balancer associates metrics via their name, so if the metric is used as a capacity within node definitions or across services, then the metric names must match exactly so that the Service Fabric Resource Balancer can relate them.</target>
+        </trans-unit>
+        <trans-unit id="71b9c6ba-5968-4a99-9fe0-38f3ff6ee985" xml:space="preserve">
+          <source>When a service defines multiple metrics, it is also useful to define the metric weights for those metrics.</source>
+          <target state="new">When a service defines multiple metrics, it is also useful to define the metric weights for those metrics.</target>
+        </trans-unit>
+        <trans-unit id="750e2f5b-e96f-48a3-b956-371469aa0bbd" xml:space="preserve">
+          <source>Different metric weights instruct the Service Fabric Resource Balancer which metric is more important to the function of the service.</source>
+          <target state="new">Different metric weights instruct the Service Fabric Resource Balancer which metric is more important to the function of the service.</target>
+        </trans-unit>
+        <trans-unit id="331db6b6-7246-49bf-aad5-097ab393a9f5" xml:space="preserve">
+          <source>For example, an in-memory queue might be affected by network bandwidth but is probably most constraint by actual memory use on the node.</source>
+          <target state="new">For example, an in-memory queue might be affected by network bandwidth but is probably most constraint by actual memory use on the node.</target>
+        </trans-unit>
+        <trans-unit id="36144cf4-4d30-4e2d-b741-3d0048bd5c27" xml:space="preserve">
+          <source>Thus, while the queue might have multiple metrics, the metric that represents memory usage has the highest weight.</source>
+          <target state="new">Thus, while the queue might have multiple metrics, the metric that represents memory usage has the highest weight.</target>
+        </trans-unit>
+        <trans-unit id="a7db5a0d-beb2-4042-96ce-e167570a8475" xml:space="preserve">
+          <source>Similarly, a persistent database probably depends on both memory and disk usage, but while limited memory reduces the ability to process complex queries, to run out of disk space would prevent further storage operations, which is probably a more critical situation.</source>
+          <target state="new">Similarly, a persistent database probably depends on both memory and disk usage, but while limited memory reduces the ability to process complex queries, to run out of disk space would prevent further storage operations, which is probably a more critical situation.</target>
+        </trans-unit>
+        <trans-unit id="649a1649-d886-4b38-9b56-de623d936d06" xml:space="preserve">
+          <source>Therefore, the persistent store probably chooses disk space as the metric with the higher weight.</source>
+          <target state="new">Therefore, the persistent store probably chooses disk space as the metric with the higher weight.</target>
+        </trans-unit>
+        <trans-unit id="608814d6-8ef8-4a56-8743-2479de488eb7" xml:space="preserve">
+          <source>Note that weight is really only used within the Service Fabric Resource Balancer when it cannot fully balance a set of metrics, and thus must find solutions where one metric ends up less balanced overall than another metric.</source>
+          <target state="new">Note that weight is really only used within the Service Fabric Resource Balancer when it cannot fully balance a set of metrics, and thus must find solutions where one metric ends up less balanced overall than another metric.</target>
+        </trans-unit>
+        <trans-unit id="48d821fe-5ea7-4372-af0a-ec12140042ec" xml:space="preserve">
+          <source>In this case, the balance of the metric with the lower weight is determined to be of lower priority than the metric with the higher weight, so the Service Fabric Resource Balancer comes up with proposals that favor the balancer of the higher weighted metric.</source>
+          <target state="new">In this case, the balance of the metric with the lower weight is determined to be of lower priority than the metric with the higher weight, so the Service Fabric Resource Balancer comes up with proposals that favor the balancer of the higher weighted metric.</target>
+        </trans-unit>
+        <trans-unit id="d4ccacb8-6e5f-4209-a12b-d40116646e40" xml:space="preserve">
+          <source>Also when the Service Fabric Resource Balancer recognizes that multiple services have defined the same metric by name, it considers those metrics to be the same metric.</source>
+          <target state="new">Also when the Service Fabric Resource Balancer recognizes that multiple services have defined the same metric by name, it considers those metrics to be the same metric.</target>
+        </trans-unit>
+        <trans-unit id="6f36cca3-70e1-4c03-ac32-f1a3f2e87b6d" xml:space="preserve">
+          <source>In cases where the metric is the same, but the weights are different, the Resource Balancer averages the specified weights to determine the actual weights that to be used during runtime.</source>
+          <target state="new">In cases where the metric is the same, but the weights are different, the Resource Balancer averages the specified weights to determine the actual weights that to be used during runtime.</target>
+        </trans-unit>
+        <trans-unit id="06d8387e-3d73-47f1-9fb8-b9263aeee0f5" xml:space="preserve">
+          <source>Therefore, if one service defines a weight of Zero, which indicates that it does not require balancing, but another service defines the same metric as having a weight of High, the real weight ends up somewhere in between.</source>
+          <target state="new">Therefore, if one service defines a weight of Zero, which indicates that it does not require balancing, but another service defines the same metric as having a weight of High, the real weight ends up somewhere in between.</target>
+        </trans-unit>
+        <trans-unit id="88e1c879-1b41-4cf0-92a2-1fedba4882b1" xml:space="preserve">
+          <source><bpt id="13ea23a2-d145-4a87-90f3-9f13867e4dd0">&lt;linkText&gt;</bpt>Metric Weights<ept id="13ea23a2-d145-4a87-90f3-9f13867e4dd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13ea23a2-d145-4a87-90f3-9f13867e4dd0">&lt;linkText&gt;</bpt>Metric Weights<ept id="13ea23a2-d145-4a87-90f3-9f13867e4dd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d9a01e1-3ae2-44ec-95b7-d7466a74c5f1" xml:space="preserve">
+          <source>This example shows how two different metric weight scenarios result in two different balancing results where the more highly prioritized metric is better distributed over all.</source>
+          <target state="new">This example shows how two different metric weight scenarios result in two different balancing results where the more highly prioritized metric is better distributed over all.</target>
+        </trans-unit>
+        <trans-unit id="c73b2a82-0b5b-45db-8827-30d62663d8a4" xml:space="preserve">
+          <source>In the left example, B is better balanced, while on the right, A is better balanced.</source>
+          <target state="new">In the left example, B is better balanced, while on the right, A is better balanced.</target>
+        </trans-unit>
+        <trans-unit id="c66e6d08-292a-4aee-bdf7-8e0e6d0ad5b5" xml:space="preserve">
+          <source>Because in this example there is no balancing solution that results in balance of both metrics, the Service Fabric Resource Balancer uses the Weight of the metrics to determine which is more important, and therefore which metric to prefer during balancing.</source>
+          <target state="new">Because in this example there is no balancing solution that results in balance of both metrics, the Service Fabric Resource Balancer uses the Weight of the metrics to determine which is more important, and therefore which metric to prefer during balancing.</target>
+        </trans-unit>
+        <trans-unit id="1f634984-be21-4929-99d8-fdd1e2edcdbd" xml:space="preserve">
+          <source>Note that the metric weight of Zero is provided for cases where a service tracks a metric but does not require balancing that is based on this metric.</source>
+          <target state="new">Note that the metric weight of Zero is provided for cases where a service tracks a metric but does not require balancing that is based on this metric.</target>
+        </trans-unit>
+        <trans-unit id="ac97df44-2bac-4aa8-bc5b-9720b8f4bb98" xml:space="preserve">
+          <source>For example, consider a metric which has an explicit limit on several nodes, but for which "even utilization across nodes", which is what resource balancing normally guarantees is unimportant.</source>
+          <target state="new">For example, consider a metric which has an explicit limit on several nodes, but for which "even utilization across nodes", which is what resource balancing normally guarantees is unimportant.</target>
+        </trans-unit>
+        <trans-unit id="47ab8ec9-81d1-407a-b95f-e52ee9dc8c5e" xml:space="preserve">
+          <source>For these sorts of metrics that do not require balancing, but require enforcement of set limits at nodes, the balancing weight of Zero can be defined.</source>
+          <target state="new">For these sorts of metrics that do not require balancing, but require enforcement of set limits at nodes, the balancing weight of Zero can be defined.</target>
+        </trans-unit>
+        <trans-unit id="db7cd069-226e-4de6-b227-b14d829f448f" xml:space="preserve">
+          <source>During runtime, the Service Fabric Resource Balancer enforces capacity, but does not attempt to balance the metric proactively even if the use of that metric is very imbalanced across nodes.</source>
+          <target state="new">During runtime, the Service Fabric Resource Balancer enforces capacity, but does not attempt to balance the metric proactively even if the use of that metric is very imbalanced across nodes.</target>
+        </trans-unit>
+        <trans-unit id="386abd74-e571-42a1-b56f-c97bdc629697" xml:space="preserve">
+          <source>When you define a metric for a service, provide the expected consumption for that metric when the service is in either a Primary or Secondary role.</source>
+          <target state="new">When you define a metric for a service, provide the expected consumption for that metric when the service is in either a Primary or Secondary role.</target>
+        </trans-unit>
+        <trans-unit id="0d5026cd-7877-413a-97ef-f4e1d9981fe8" xml:space="preserve">
+          <source>This information not only helps the Resource Balancer to initially place the service in an efficient way, but can serve as a good approximation of actual service use of the metrics it is related to throughout its lifetime.</source>
+          <target state="new">This information not only helps the Resource Balancer to initially place the service in an efficient way, but can serve as a good approximation of actual service use of the metrics it is related to throughout its lifetime.</target>
+        </trans-unit>
+        <trans-unit id="8a682577-84aa-4d3d-8476-df2868b8c1b2" xml:space="preserve">
+          <source>The Service Fabric Resource Balancer automatically takes this metric consumption into account not just when placing your service, but any time it must move replicas around due to balancing or to other changes in the cluster.</source>
+          <target state="new">The Service Fabric Resource Balancer automatically takes this metric consumption into account not just when placing your service, but any time it must move replicas around due to balancing or to other changes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="1d742fcd-ca86-46e2-971c-1287f6bbafe6" xml:space="preserve">
+          <source>If a service’s load is fairly predictable and stable, then this means that by setting these values, the service can opt out of having to report load during runtime.</source>
+          <target state="new">If a service’s load is fairly predictable and stable, then this means that by setting these values, the service can opt out of having to report load during runtime.</target>
+        </trans-unit>
+        <trans-unit id="4f394a0c-1d45-4a08-b42e-8e7f07a09042" xml:space="preserve">
+          <source>The following code example shows a service which fully defines two custom metrics, one for memory usage and the other for disk space.</source>
+          <target state="new">The following code example shows a service which fully defines two custom metrics, one for memory usage and the other for disk space.</target>
+        </trans-unit>
+        <trans-unit id="c20d585e-68c6-40eb-a9f7-fa1e0bc8c8c8" xml:space="preserve">
+          <source>The code example shows ServiceTypes definitions via the service manifest.</source>
+          <target state="new">The code example shows ServiceTypes definitions via the service manifest.</target>
+        </trans-unit>
+        <trans-unit id="be8f7789-a558-4f10-84a9-b59360d19e93" xml:space="preserve">
+          <source>The code example shows ServiceTemplates definitions via the application manifest.</source>
+          <target state="new">The code example shows ServiceTemplates definitions via the application manifest.</target>
+        </trans-unit>
+        <trans-unit id="b7876c92-feaa-4f87-97af-b71e87d4c09f" xml:space="preserve">
+          <source>The code example shows the DefaultServices definitions via application manifest.</source>
+          <target state="new">The code example shows the DefaultServices definitions via application manifest.</target>
+        </trans-unit>
+        <trans-unit id="a7997257-1d7b-4159-8993-b8b95f5fc7e9" xml:space="preserve">
+          <source>Because the default load values are not updated unless services specifically opt in to report load at runtime via code, the values can also be used to institute more of a "capacity reservation" resource balancing model.</source>
+          <target state="new">Because the default load values are not updated unless services specifically opt in to report load at runtime via code, the values can also be used to institute more of a "capacity reservation" resource balancing model.</target>
+        </trans-unit>
+        <trans-unit id="e3da6a76-2b5c-47f9-a2a7-33f5a0bfc9ac" xml:space="preserve">
+          <source>For example, if workloads generally fall into several size buckets, and a known number of units of work can be placed on a node at any time, a custom metric of "units" can be created, and then both node capacity and service default load are defined in terms of units.</source>
+          <target state="new">For example, if workloads generally fall into several size buckets, and a known number of units of work can be placed on a node at any time, a custom metric of "units" can be created, and then both node capacity and service default load are defined in terms of units.</target>
+        </trans-unit>
+        <trans-unit id="6856ee0e-cad9-41ff-8955-db74d57bebe6" xml:space="preserve">
+          <source>For more information: <bpt id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;/linkText&gt;</ept><bpt id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;title&gt;</bpt><ept id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;/title&gt;</ept>, <bpt id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;linkText&gt;</bpt>Placement Constraints<ept id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;/linkText&gt;</ept><bpt id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;title&gt;</bpt><ept id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;/title&gt;</ept></source>
+          <target state="new">For more information: <bpt id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;linkText&gt;</bpt>Resource Balancer Architecture<ept id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;/linkText&gt;</ept><bpt id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;title&gt;</bpt><ept id="2fa2bee7-671e-421c-bb3b-020fdd681d4d">&lt;/title&gt;</ept>, <bpt id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;linkText&gt;</bpt>Placement Constraints<ept id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;/linkText&gt;</ept><bpt id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;title&gt;</bpt><ept id="352b9e97-f405-4b95-9eee-6e51eca2931d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79829c08-792d-492a-a188-4a6f7e5067a2" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-service-description/PC.png</source>
+          <target state="new">media/service-fabric-resource-balancer-service-description/PC.png</target>
+        </trans-unit>
+        <trans-unit id="86bcb80c-a747-4066-9185-b47ab7007136" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-service-description/DM.png</source>
+          <target state="new">media/service-fabric-resource-balancer-service-description/DM.png</target>
+        </trans-unit>
+        <trans-unit id="967a5f68-aca0-4500-bb6d-2fe41a18a0dc" xml:space="preserve">
+          <source>media/service-fabric-resource-balancer-service-description/MW.png</source>
+          <target state="new">media/service-fabric-resource-balancer-service-description/MW.png</target>
+        </trans-unit>
+      </group>
+      <group id="36351964-45fb-4198-b536-d3bacc1f7a40" />
+    </body>
+  </file>
+</xliff>

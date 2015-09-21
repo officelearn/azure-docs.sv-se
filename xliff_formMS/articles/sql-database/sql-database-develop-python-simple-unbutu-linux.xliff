@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5486e337-efa7-4c83-a92c-29119e168ee9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5486e337-efa7-4c83-a92c-29119e168ee9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bfc48c21-e6c6-4073-af99-1f50d055f7c6">
+        <trans-unit id="00b2d6e1-018b-46a4-a25e-7ed66a2e853c" xml:space="preserve">
+          <source>Connect to SQL Database by using Python with pymssql on Ubuntu</source>
+          <target state="new">Connect to SQL Database by using Python with pymssql on Ubuntu</target>
+        </trans-unit>
+        <trans-unit id="c30a443c-42d9-4bfe-b674-02a02a4103b5" xml:space="preserve">
+          <source>Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer.</source>
+          <target state="new">Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer.</target>
+        </trans-unit>
+        <trans-unit id="8cc0ce1a-0ecb-476e-83bb-4ed3988df503" xml:space="preserve">
+          <source><bpt id="37e2d253-644a-46b3-9a88-5ec2b421d7f4">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="37e2d253-644a-46b3-9a88-5ec2b421d7f4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="37e2d253-644a-46b3-9a88-5ec2b421d7f4">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="37e2d253-644a-46b3-9a88-5ec2b421d7f4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec01ae0b-5513-4539-a9b0-402147f56779" xml:space="preserve">
+          <source>This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.</source>
+          <target state="new">This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.</target>
+        </trans-unit>
+        <trans-unit id="a69332b6-9646-496a-82aa-98a4dc346f52" xml:space="preserve">
+          <source><bpt id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;/linkText&gt;</ept><bpt id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;title&gt;</bpt><ept id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;/linkText&gt;</ept><bpt id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;title&gt;</bpt><ept id="31641664-ae66-4d29-b3d3-23ba7c8a9c42">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49a68b99-0731-45a0-bf11-090b20364065" xml:space="preserve">
+          <source>Open your terminal and navigate to a directory where you plan on creating your python script.</source>
+          <target state="new">Open your terminal and navigate to a directory where you plan on creating your python script.</target>
+        </trans-unit>
+        <trans-unit id="73323e81-221f-40c7-aa4b-f3a856650079" xml:space="preserve">
+          <source>Enter the following commands to install <bpt id="56ed842e-e3fb-4a75-b339-ac1bad2513d0">&lt;strong&gt;</bpt>FreeTDS<ept id="56ed842e-e3fb-4a75-b339-ac1bad2513d0">&lt;/strong&gt;</ept> and <bpt id="b4d6cee6-8f8e-4d71-8339-76ab460f280d">&lt;strong&gt;</bpt>pymssql<ept id="b4d6cee6-8f8e-4d71-8339-76ab460f280d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the following commands to install <bpt id="56ed842e-e3fb-4a75-b339-ac1bad2513d0">&lt;strong&gt;</bpt>FreeTDS<ept id="56ed842e-e3fb-4a75-b339-ac1bad2513d0">&lt;/strong&gt;</ept> and <bpt id="b4d6cee6-8f8e-4d71-8339-76ab460f280d">&lt;strong&gt;</bpt>pymssql<ept id="b4d6cee6-8f8e-4d71-8339-76ab460f280d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e13eb3d2-b09d-4fbc-8432-c9fcfeb9b382" xml:space="preserve">
+          <source>pymssql uses FreeTDS to connect to SQL Databases.</source>
+          <target state="new">pymssql uses FreeTDS to connect to SQL Databases.</target>
+        </trans-unit>
+        <trans-unit id="37bdb944-d7b8-4d92-a31a-8b52168489ff" xml:space="preserve">
+          <source>See the <bpt id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;linkText&gt;</bpt>getting started page<ept id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;/linkText&gt;</ept><bpt id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;title&gt;</bpt><ept id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;/title&gt;</ept> to learn how to create a sample database and get your connection string.</source>
+          <target state="new">See the <bpt id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;linkText&gt;</bpt>getting started page<ept id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;/linkText&gt;</ept><bpt id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;title&gt;</bpt><ept id="1c6d8042-5a2b-40cc-9b16-17e99313bbf4">&lt;/title&gt;</ept> to learn how to create a sample database and get your connection string.</target>
+        </trans-unit>
+        <trans-unit id="2eef3f12-1ad2-455b-9cef-6794ba938365" xml:space="preserve">
+          <source>It is important you follow the guide to create an <bpt id="8adc5306-1b5e-491a-8c11-25b048810658">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="8adc5306-1b5e-491a-8c11-25b048810658">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important you follow the guide to create an <bpt id="8adc5306-1b5e-491a-8c11-25b048810658">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="8adc5306-1b5e-491a-8c11-25b048810658">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1de2df1-4db6-4f4f-b4b2-cf677c038d13" xml:space="preserve">
+          <source>The samples shown below only work with the <bpt id="e9881712-185c-4e72-9cae-8d1f0076f971">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="e9881712-185c-4e72-9cae-8d1f0076f971">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The samples shown below only work with the <bpt id="e9881712-185c-4e72-9cae-8d1f0076f971">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="e9881712-185c-4e72-9cae-8d1f0076f971">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d58638cf-10b3-418d-b716-780d03c743c3" xml:space="preserve">
+          <source>The <bpt id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;linkText&gt;</bpt>pymssql.connect<ept id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;/linkText&gt;</ept><bpt id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;title&gt;</bpt><ept id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;/title&gt;</ept> function is used to connect to SQL Database.</source>
+          <target state="new">The <bpt id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;linkText&gt;</bpt>pymssql.connect<ept id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;/linkText&gt;</ept><bpt id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;title&gt;</bpt><ept id="99a04cc1-43a2-4abf-b7af-e8619054fd39">&lt;/title&gt;</ept> function is used to connect to SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="d80d13d2-a2da-4f4a-8bfe-5a546212b07e" xml:space="preserve">
+          <source>The <bpt id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;linkText&gt;</bpt>cursor.execute<ept id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;/linkText&gt;</ept><bpt id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;title&gt;</bpt><ept id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</source>
+          <target state="new">The <bpt id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;linkText&gt;</bpt>cursor.execute<ept id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;/linkText&gt;</ept><bpt id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;title&gt;</bpt><ept id="e72da9b0-b556-4ba1-9265-9ab350f2fec7">&lt;/title&gt;</ept> function can be used to retrieve a result set from a query against SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="f03ccd55-01da-4c60-ab03-c1735ce91d61" xml:space="preserve">
+          <source>This function essentially accepts any query and returns a result set which can be iterated over with the use of <bpt id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;linkText&gt;</bpt>cursor.fetchone()<ept id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;/linkText&gt;</ept><bpt id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;title&gt;</bpt><ept id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">This function essentially accepts any query and returns a result set which can be iterated over with the use of <bpt id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;linkText&gt;</bpt>cursor.fetchone()<ept id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;/linkText&gt;</ept><bpt id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;title&gt;</bpt><ept id="ee5ad4a5-e7b6-4611-9f63-ee46e0ac46a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63c847ab-5387-4272-bd0f-4cb8fc9e5d2c" xml:space="preserve">
+          <source>In SQL Database the <bpt id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;linkText&gt;</bpt>IDENTITY<ept id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;/linkText&gt;</ept><bpt id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;title&gt;</bpt><ept id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;/title&gt;</ept> property and the <bpt id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;linkText&gt;</bpt>SEQUENECE<ept id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;/linkText&gt;</ept><bpt id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;title&gt;</bpt><ept id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;linkText&gt;</bpt>primary key<ept id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;/linkText&gt;</ept><bpt id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;title&gt;</bpt><ept id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;/title&gt;</ept> values.</source>
+          <target state="new">In SQL Database the <bpt id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;linkText&gt;</bpt>IDENTITY<ept id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;/linkText&gt;</ept><bpt id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;title&gt;</bpt><ept id="9d1d385a-05c9-432c-86a2-75782866aade">&lt;/title&gt;</ept> property and the <bpt id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;linkText&gt;</bpt>SEQUENECE<ept id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;/linkText&gt;</ept><bpt id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;title&gt;</bpt><ept id="cd78a1c1-d3d4-4d2c-b0dc-4f90d756a2ce">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;linkText&gt;</bpt>primary key<ept id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;/linkText&gt;</ept><bpt id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;title&gt;</bpt><ept id="f9296e35-ce5f-4fbe-ae97-497dbff15906">&lt;/title&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="fb426719-eabb-44c0-a971-142a04c9bd4e" xml:space="preserve">
+          <source>This code example demonstrates the use of transactions in which you:</source>
+          <target state="new">This code example demonstrates the use of transactions in which you:</target>
+        </trans-unit>
+        <trans-unit id="7c84b1f3-ccb1-4665-a174-c38144b2ed31" xml:space="preserve">
+          <source>-Begin a transaction</source>
+          <target state="new">-Begin a transaction</target>
+        </trans-unit>
+        <trans-unit id="47e5d2fe-a8ec-4db3-ad4d-ec60be27bf19" xml:space="preserve">
+          <source>-Insert a row of data</source>
+          <target state="new">-Insert a row of data</target>
+        </trans-unit>
+        <trans-unit id="7bd9ca6e-95bb-4091-9469-3971952fbb88" xml:space="preserve">
+          <source>-Rollback your transaction to undo the insert</source>
+          <target state="new">-Rollback your transaction to undo the insert</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

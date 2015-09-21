@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6c19e70-5519-4fc0-b1ed-501108cb0c07" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6c19e70-5519-4fc0-b1ed-501108cb0c07" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2bc3bbad-e749-4a17-9781-e41a17bbd726">
+        <trans-unit id="8370ff27-13eb-44a2-b449-1a4f5048fee1" xml:space="preserve">
+          <source>This dataset contains a series of records from steel annealing trials with the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.&lt;p&gt; &lt;/p&gt;Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;. Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;A useful guide to steel grades can be found here: &lt;a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf"&gt;http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf&lt;/a&gt;</source>
+          <target state="new">This dataset contains a series of records from steel annealing trials with the physical attributes (width, thickness, type (coil, sheet, etc.) of the resulting steel types.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict any of two numeric class attributes; hardness or strength. You might also analyze correlations among attributes.&lt;p&gt; &lt;/p&gt;Steel grades follow a set standard, defined by SAE and other organizations. You are looking for a specific 'grade' (the class variable) and want to understand the values needed. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Sterling, D. &amp; Buntine, W., (NA). UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;. Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;A useful guide to steel grades can be found here: &lt;a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf"&gt;http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf&lt;/a&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

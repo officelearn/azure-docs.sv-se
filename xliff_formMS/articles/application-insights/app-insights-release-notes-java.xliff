@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="11c157cf-f58f-4b32-b8e4-df850425f446" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="11c157cf-f58f-4b32-b8e4-df850425f446" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="49b39602-429b-4cdd-92bb-30975ecfada4">
+        <trans-unit id="dc4cfe15-ee5c-47c2-a8ea-6b656d18be3b" xml:space="preserve">
+          <source>Release notes for Application Insights for Java</source>
+          <target state="new">Release notes for Application Insights for Java</target>
+        </trans-unit>
+        <trans-unit id="47b9c054-412e-4de1-940c-4a9e6b98d5ee" xml:space="preserve">
+          <source>The latest updates.</source>
+          <target state="new">The latest updates.</target>
+        </trans-unit>
+        <trans-unit id="a83202bd-c1a7-4c1d-80a0-cce6174cc4bb" xml:space="preserve">
+          <source>The <bpt id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;linkText&gt;</bpt>Application Insights SDK for Java<ept id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;/linkText&gt;</ept><bpt id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;title&gt;</bpt><ept id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;/title&gt;</ept> sends telemetry about your live app to <bpt id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;linkText&gt;</bpt>Application Insights<ept id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;/linkText&gt;</ept><bpt id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;title&gt;</bpt><ept id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;/title&gt;</ept>, where you can analyze its usage and performance.</source>
+          <target state="new">The <bpt id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;linkText&gt;</bpt>Application Insights SDK for Java<ept id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;/linkText&gt;</ept><bpt id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;title&gt;</bpt><ept id="f71f70e7-26dc-43f9-93e3-f05c01d14f14">&lt;/title&gt;</ept> sends telemetry about your live app to <bpt id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;linkText&gt;</bpt>Application Insights<ept id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;/linkText&gt;</ept><bpt id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;title&gt;</bpt><ept id="f40ea6b1-37c2-4363-a196-49c49c4fce36">&lt;/title&gt;</ept>, where you can analyze its usage and performance.</target>
+        </trans-unit>
+        <trans-unit id="e0ca058e-cc72-49c9-9dd9-c8574b2f3988" xml:space="preserve">
+          <source>See <bpt id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;linkText&gt;</bpt>Get started with the SDK for Java<ept id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;/linkText&gt;</ept><bpt id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;title&gt;</bpt><ept id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;linkText&gt;</bpt>Get started with the SDK for Java<ept id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;/linkText&gt;</ept><bpt id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;title&gt;</bpt><ept id="76c44e26-d114-407a-8b87-50c5ca20da29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce980ea4-dfe4-4659-a654-6e5c2917b1bf" xml:space="preserve">
+          <source>After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.xml.</source>
+          <target state="new">After you upgrade, you'll need to merge back any customizations you made to ApplicationInsights.xml.</target>
+        </trans-unit>
+        <trans-unit id="d14008b0-e694-4ff0-b4f5-6a8230691c43" xml:space="preserve">
+          <source>Take a copy of it to compare with the new file.</source>
+          <target state="new">Take a copy of it to compare with the new file.</target>
+        </trans-unit>
+        <trans-unit id="5c9cc96b-bc21-4f61-aa0d-f19f72c62e8a" xml:space="preserve">
+          <source><bpt id="ff180de0-af72-4787-9d6b-ef143b8b6e83">&lt;em&gt;</bpt>If you're using Maven or Gradle<ept id="ff180de0-af72-4787-9d6b-ef143b8b6e83">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ff180de0-af72-4787-9d6b-ef143b8b6e83">&lt;em&gt;</bpt>If you're using Maven or Gradle<ept id="ff180de0-af72-4787-9d6b-ef143b8b6e83">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="725a433d-eecc-4315-adea-b33e2b45ed0f" xml:space="preserve">
+          <source>If you specified a particular version number in pom.xml or build.gradle, update it.</source>
+          <target state="new">If you specified a particular version number in pom.xml or build.gradle, update it.</target>
+        </trans-unit>
+        <trans-unit id="8239f4fb-40c7-4678-9cc3-738f570d2a58" xml:space="preserve">
+          <source>Refresh your project's dependencies.</source>
+          <target state="new">Refresh your project's dependencies.</target>
+        </trans-unit>
+        <trans-unit id="685884c6-8080-4f96-8213-9d9fc09f8e6f" xml:space="preserve">
+          <source><bpt id="9e16ff6f-7b81-42a2-b9ab-c8c6499aadca">&lt;em&gt;</bpt>Otherwise<ept id="9e16ff6f-7b81-42a2-b9ab-c8c6499aadca">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="9e16ff6f-7b81-42a2-b9ab-c8c6499aadca">&lt;em&gt;</bpt>Otherwise<ept id="9e16ff6f-7b81-42a2-b9ab-c8c6499aadca">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd7351be-ad73-46d6-ad30-c3c2ec15550e" xml:space="preserve">
+          <source>Download the latest version of <bpt id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;linkText&gt;</bpt>Azure Libraries for Java<ept id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;/linkText&gt;</ept><bpt id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;title&gt;</bpt><ept id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;/title&gt;</ept> and replace the old ones.</source>
+          <target state="new">Download the latest version of <bpt id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;linkText&gt;</bpt>Azure Libraries for Java<ept id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;/linkText&gt;</ept><bpt id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;title&gt;</bpt><ept id="b1177546-2654-4e34-b733-525cb9c0b9c6">&lt;/title&gt;</ept> and replace the old ones.</target>
+        </trans-unit>
+        <trans-unit id="b7977d88-3b3d-4b5c-9f69-fe82546bd723" xml:space="preserve">
+          <source>Compare the old and new ApplicationInsights.xml.</source>
+          <target state="new">Compare the old and new ApplicationInsights.xml.</target>
+        </trans-unit>
+        <trans-unit id="ed245fd6-24a3-471f-9183-907bc8876a9a" xml:space="preserve">
+          <source>Many of the changes you see are because we added and removed modules.</source>
+          <target state="new">Many of the changes you see are because we added and removed modules.</target>
+        </trans-unit>
+        <trans-unit id="7164f844-8651-4997-bc21-f7c33f8f9040" xml:space="preserve">
+          <source>Reinstate any customizations that you made.</source>
+          <target state="new">Reinstate any customizations that you made.</target>
+        </trans-unit>
+        <trans-unit id="a38f4758-e569-451b-aa3c-62d4a9387352" xml:space="preserve">
+          <source>The Java agent supports collecting dependency information about the following:</source>
+          <target state="new">The Java agent supports collecting dependency information about the following:</target>
+        </trans-unit>
+        <trans-unit id="6a155d32-dfa2-427b-b4b3-304d1b1cb16f" xml:space="preserve">
+          <source>HTTP calls made via HttpClient, OkHttp and RestTemplate (Spring).</source>
+          <target state="new">HTTP calls made via HttpClient, OkHttp and RestTemplate (Spring).</target>
+        </trans-unit>
+        <trans-unit id="f3a6b147-2525-4240-9687-288fc6592862" xml:space="preserve">
+          <source>Calls to Redis made via the Jedis client.</source>
+          <target state="new">Calls to Redis made via the Jedis client.</target>
+        </trans-unit>
+        <trans-unit id="e8a8b8b0-b387-4499-8f45-0e829ac6c68d" xml:space="preserve">
+          <source>When a configurable threshold is passed, the SDK will also fetch the call arguments.</source>
+          <target state="new">When a configurable threshold is passed, the SDK will also fetch the call arguments.</target>
+        </trans-unit>
+        <trans-unit id="11025345-0e0a-40db-991f-25de2992a440" xml:space="preserve">
+          <source>JDBC calls made with Oracle DB and Apache Derby DB clients.</source>
+          <target state="new">JDBC calls made with Oracle DB and Apache Derby DB clients.</target>
+        </trans-unit>
+        <trans-unit id="7d9e9888-e03a-4b2c-a0c7-4fb2bba2b5fd" xml:space="preserve">
+          <source>Support the ‘executeBatch’ query type for prepared statements – The SDK will show the statement with the number of batches.</source>
+          <target state="new">Support the ‘executeBatch’ query type for prepared statements – The SDK will show the statement with the number of batches.</target>
+        </trans-unit>
+        <trans-unit id="82b664e3-7d23-4e4c-a10d-50fe5ca8da61" xml:space="preserve">
+          <source>Provide the query plan for JDBC clients that has support for that (MySql, PostgreSql) – The query plan is fetched only when a configurable threshold is crossed</source>
+          <target state="new">Provide the query plan for JDBC clients that has support for that (MySql, PostgreSql) – The query plan is fetched only when a configurable threshold is crossed</target>
+        </trans-unit>
+        <trans-unit id="a0d5454d-78dc-44c1-b60e-c180c05b889a" xml:space="preserve">
+          <source>Adding support for the Application Insights writer plugin for CollectD.</source>
+          <target state="new">Adding support for the Application Insights writer plugin for CollectD.</target>
+        </trans-unit>
+        <trans-unit id="17f50e58-0a6e-4fd5-8926-db713003d8cf" xml:space="preserve">
+          <source>Adding support for the Application Insights Java agent.</source>
+          <target state="new">Adding support for the Application Insights Java agent.</target>
+        </trans-unit>
+        <trans-unit id="a08535e8-a8be-470f-b0dc-c192bf1efe5c" xml:space="preserve">
+          <source>Fix for a compatibility issue with supporting HttpClient versions 4.2 and later.</source>
+          <target state="new">Fix for a compatibility issue with supporting HttpClient versions 4.2 and later.</target>
+        </trans-unit>
+        <trans-unit id="09957412-449b-460f-b9a5-5c54cb0362e9" xml:space="preserve">
+          <source>Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3.</source>
+          <target state="new">Make the Java SDK compatible with servlet v2.5 and HttpClient pre-v4.3.</target>
+        </trans-unit>
+        <trans-unit id="df3ae50a-321e-49bb-b9df-56a7ea58fa53" xml:space="preserve">
+          <source>Adding support for Java EE interceptors.</source>
+          <target state="new">Adding support for Java EE interceptors.</target>
+        </trans-unit>
+        <trans-unit id="631f77e8-f89b-42bd-a733-3613e6b734bc" xml:space="preserve">
+          <source>Removing redundant dependencies from the Logback appender.</source>
+          <target state="new">Removing redundant dependencies from the Logback appender.</target>
+        </trans-unit>
+        <trans-unit id="82a6597c-cffa-478e-9ce3-b6ec96024e90" xml:space="preserve">
+          <source>Fix for an issue where custom events are not correlated with Users/Sessions due to cookie parsing errors.</source>
+          <target state="new">Fix for an issue where custom events are not correlated with Users/Sessions due to cookie parsing errors.</target>
+        </trans-unit>
+        <trans-unit id="1024ec13-8c9a-4fba-8a2c-5d5ab31b67a9" xml:space="preserve">
+          <source>Improved logic for resolving the location of the ApplicationInsights.xml configuration file.</source>
+          <target state="new">Improved logic for resolving the location of the ApplicationInsights.xml configuration file.</target>
+        </trans-unit>
+        <trans-unit id="1a3980d8-a0e2-4363-86f9-3ab9b318d5cd" xml:space="preserve">
+          <source>Anonymous User and Session cookies will not be generated on the server side.</source>
+          <target state="new">Anonymous User and Session cookies will not be generated on the server side.</target>
+        </trans-unit>
+        <trans-unit id="a4c3842b-f358-4b60-8f52-21fe98ea777d" xml:space="preserve">
+          <source>To implement user and session tracking for web apps, instrumentation with the JavaScript SDK is now required – cookies from the JavaScript SDK are still respected.</source>
+          <target state="new">To implement user and session tracking for web apps, instrumentation with the JavaScript SDK is now required – cookies from the JavaScript SDK are still respected.</target>
+        </trans-unit>
+        <trans-unit id="dc1fec8f-caa4-4f1a-bbbe-e152d61549d1" xml:space="preserve">
+          <source>Note that this change may cause a significant restatement of user and session counts as only user-originated sessions are being counted now.</source>
+          <target state="new">Note that this change may cause a significant restatement of user and session counts as only user-originated sessions are being counted now.</target>
+        </trans-unit>
+        <trans-unit id="6937bd10-f19f-4273-8a4e-08ace41d15f6" xml:space="preserve">
+          <source>Support collecting performance counters from 32-bit Windows machines.</source>
+          <target state="new">Support collecting performance counters from 32-bit Windows machines.</target>
+        </trans-unit>
+        <trans-unit id="d774e854-3d62-4082-9fbb-c540ca9ef37f" xml:space="preserve">
+          <source>Support manual tracking of dependencies using a new <bpt id="fcd0c142-90ed-42d8-a603-09844af1f9ce">&lt;code&gt;</bpt>trackDependency<ept id="fcd0c142-90ed-42d8-a603-09844af1f9ce">&lt;/code&gt;</ept> method API.</source>
+          <target state="new">Support manual tracking of dependencies using a new <bpt id="fcd0c142-90ed-42d8-a603-09844af1f9ce">&lt;code&gt;</bpt>trackDependency<ept id="fcd0c142-90ed-42d8-a603-09844af1f9ce">&lt;/code&gt;</ept> method API.</target>
+        </trans-unit>
+        <trans-unit id="4c26a560-8111-4301-916a-1ef6f6b818aa" xml:space="preserve">
+          <source>Ability to tag a telemetry item as synthetic, by adding a <bpt id="2f34dc23-d02f-40e2-938e-6e21d861f260">&lt;code&gt;</bpt>SyntheticSource<ept id="2f34dc23-d02f-40e2-938e-6e21d861f260">&lt;/code&gt;</ept> property to the reported item.</source>
+          <target state="new">Ability to tag a telemetry item as synthetic, by adding a <bpt id="2f34dc23-d02f-40e2-938e-6e21d861f260">&lt;code&gt;</bpt>SyntheticSource<ept id="2f34dc23-d02f-40e2-938e-6e21d861f260">&lt;/code&gt;</ept> property to the reported item.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9abba287-0d11-49b5-9dde-8354cc13866f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9abba287-0d11-49b5-9dde-8354cc13866f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3ab4c22e-a873-4d51-ac88-b10be28960db">
+        <trans-unit id="8a3a6271-5f39-4a83-859c-322514d31c6c" xml:space="preserve">
+          <source>Tips for using Hadoop on Linux-based HDInsight | Microsoft Azure</source>
+          <target state="new">Tips for using Hadoop on Linux-based HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="eb82b090-993e-4ae0-bdd7-ec2db4a7d89e" xml:space="preserve">
+          <source>Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.</source>
+          <target state="new">Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="48bde381-0b12-40cf-956a-3aa4c6c78daf" xml:space="preserve">
+          <source>Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud.</source>
+          <target state="new">Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="198659e5-fb52-48d4-8404-71730dd48e1f" xml:space="preserve">
+          <source>For most things, it should work exactly as any other Hadoop-on-Linux installation.</source>
+          <target state="new">For most things, it should work exactly as any other Hadoop-on-Linux installation.</target>
+        </trans-unit>
+        <trans-unit id="5196cc31-bcc3-4079-8338-687a646d33bc" xml:space="preserve">
+          <source>This document calls out specific differences that you should be aware of.</source>
+          <target state="new">This document calls out specific differences that you should be aware of.</target>
+        </trans-unit>
+        <trans-unit id="93477f3d-a7d7-47bf-a040-1a547642a605" xml:space="preserve">
+          <source>The fully qualified domain name (FQDN) to use when connecting to the cluster is <bpt id="ae5eff23-6be5-4fb1-98ac-5261bcee3610">&lt;strong&gt;</bpt>&amp;lt;clustername&gt;.azurehdinsight.net<ept id="ae5eff23-6be5-4fb1-98ac-5261bcee3610">&lt;/strong&gt;</ept> or (for SSH only) <bpt id="6c32bb19-7bdb-4f19-ad93-d5f975f729f5">&lt;strong&gt;</bpt>&amp;lt;clustername-ssh&gt;.azurehdinsight.net<ept id="6c32bb19-7bdb-4f19-ad93-d5f975f729f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The fully qualified domain name (FQDN) to use when connecting to the cluster is <bpt id="ae5eff23-6be5-4fb1-98ac-5261bcee3610">&lt;strong&gt;</bpt>&amp;lt;clustername&gt;.azurehdinsight.net<ept id="ae5eff23-6be5-4fb1-98ac-5261bcee3610">&lt;/strong&gt;</ept> or (for SSH only) <bpt id="6c32bb19-7bdb-4f19-ad93-d5f975f729f5">&lt;strong&gt;</bpt>&amp;lt;clustername-ssh&gt;.azurehdinsight.net<ept id="6c32bb19-7bdb-4f19-ad93-d5f975f729f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5ef87cc-730c-4bfc-b94d-e25eb923b469" xml:space="preserve">
+          <source><bpt id="0f90e713-c868-4b46-a542-d7520705313c">&lt;strong&gt;</bpt>Ambari (web)<ept id="0f90e713-c868-4b46-a542-d7520705313c">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net</source>
+          <target state="new"><bpt id="0f90e713-c868-4b46-a542-d7520705313c">&lt;strong&gt;</bpt>Ambari (web)<ept id="0f90e713-c868-4b46-a542-d7520705313c">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net</target>
+        </trans-unit>
+        <trans-unit id="ed9d2dcc-f0ab-4083-ab08-683a7b5b5ac5" xml:space="preserve">
+          <source>Authenticate by using the cluster administrator user and password, and then log in to Ambari.</source>
+          <target state="new">Authenticate by using the cluster administrator user and password, and then log in to Ambari.</target>
+        </trans-unit>
+        <trans-unit id="1ba39c37-dc70-4a28-971b-fcf1bb990762" xml:space="preserve">
+          <source>This also uses the cluster administrator user and password.</source>
+          <target state="new">This also uses the cluster administrator user and password.</target>
+        </trans-unit>
+        <trans-unit id="c70eff87-0701-43a2-b25c-de23393c07fe" xml:space="preserve">
+          <source>Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</source>
+          <target state="new">Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</target>
+        </trans-unit>
+        <trans-unit id="85a21687-c789-49bf-804f-90374cf655f0" xml:space="preserve">
+          <source>While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster.</source>
+          <target state="new">While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster.</target>
+        </trans-unit>
+        <trans-unit id="630f01af-f511-4710-8b96-0232651eacff" xml:space="preserve">
+          <source>Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.</source>
+          <target state="new">Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="c1e3eeee-bbda-48e4-b467-a10d5b1d79f4" xml:space="preserve">
+          <source>To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node.</source>
+          <target state="new">To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node.</target>
+        </trans-unit>
+        <trans-unit id="e7b1a56e-e0e2-4710-a703-13ae4d24b42d" xml:space="preserve">
+          <source>Use the <bpt id="e32d2a2b-e340-4df0-891e-2a334205d201">&lt;strong&gt;</bpt>SSH tunneling<ept id="e32d2a2b-e340-4df0-891e-2a334205d201">&lt;/strong&gt;</ept> section of the following articles to create an SSH tunnel from a port on your local machine to the cluster:</source>
+          <target state="new">Use the <bpt id="e32d2a2b-e340-4df0-891e-2a334205d201">&lt;strong&gt;</bpt>SSH tunneling<ept id="e32d2a2b-e340-4df0-891e-2a334205d201">&lt;/strong&gt;</ept> section of the following articles to create an SSH tunnel from a port on your local machine to the cluster:</target>
+        </trans-unit>
+        <trans-unit id="72dabe34-b3f1-4978-a6b0-e4b62577c9e6" xml:space="preserve">
+          <source><bpt id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;/linkText&gt;</ept><bpt id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;title&gt;</bpt><ept id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;/title&gt;</ept>: Steps on creating an SSH tunnel by using the <bpt id="70f7da40-730e-4e15-ad44-9765b0efa83c">&lt;code&gt;</bpt>ssh<ept id="70f7da40-730e-4e15-ad44-9765b0efa83c">&lt;/code&gt;</ept> command.</source>
+          <target state="new"><bpt id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;/linkText&gt;</ept><bpt id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;title&gt;</bpt><ept id="1e376237-8197-42da-bf05-2f107eb96a2f">&lt;/title&gt;</ept>: Steps on creating an SSH tunnel by using the <bpt id="70f7da40-730e-4e15-ad44-9765b0efa83c">&lt;code&gt;</bpt>ssh<ept id="70f7da40-730e-4e15-ad44-9765b0efa83c">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="252e1f0c-1b12-4198-beed-c09ce579cb7f" xml:space="preserve">
+          <source><bpt id="38438b39-a88e-43d0-952a-631937e0a108">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="38438b39-a88e-43d0-952a-631937e0a108">&lt;/linkText&gt;</ept><bpt id="38438b39-a88e-43d0-952a-631937e0a108">&lt;title&gt;</bpt><ept id="38438b39-a88e-43d0-952a-631937e0a108">&lt;/title&gt;</ept>: Steps on using PuTTY to create an SSH tunnel.</source>
+          <target state="new"><bpt id="38438b39-a88e-43d0-952a-631937e0a108">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="38438b39-a88e-43d0-952a-631937e0a108">&lt;/linkText&gt;</ept><bpt id="38438b39-a88e-43d0-952a-631937e0a108">&lt;title&gt;</bpt><ept id="38438b39-a88e-43d0-952a-631937e0a108">&lt;/title&gt;</ept>: Steps on using PuTTY to create an SSH tunnel.</target>
+        </trans-unit>
+        <trans-unit id="7d6baa6d-f25f-4d75-99a3-883772f51ac0" xml:space="preserve">
+          <source><bpt id="3a8096bc-b879-4970-976f-8aad4a1ceb56">&lt;strong&gt;</bpt>Ambari (REST)<ept id="3a8096bc-b879-4970-976f-8aad4a1ceb56">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net/ambari</source>
+          <target state="new"><bpt id="3a8096bc-b879-4970-976f-8aad4a1ceb56">&lt;strong&gt;</bpt>Ambari (REST)<ept id="3a8096bc-b879-4970-976f-8aad4a1ceb56">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net/ambari</target>
+        </trans-unit>
+        <trans-unit id="3fc674c8-4dce-488f-89bc-fda8309acf96" xml:space="preserve">
+          <source>Authenticate by using the cluster administrator user and password.</source>
+          <target state="new">Authenticate by using the cluster administrator user and password.</target>
+        </trans-unit>
+        <trans-unit id="4973d734-515f-4958-ab16-35c83a5e707e" xml:space="preserve">
+          <source>Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</source>
+          <target state="new">Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</target>
+        </trans-unit>
+        <trans-unit id="e4855195-2962-40ae-a97c-9cd1046c068e" xml:space="preserve">
+          <source><bpt id="9d89de35-e9f2-49c4-9770-8f1d4cfe80b6">&lt;strong&gt;</bpt>WebHCat (Templeton)<ept id="9d89de35-e9f2-49c4-9770-8f1d4cfe80b6">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net/templeton</source>
+          <target state="new"><bpt id="9d89de35-e9f2-49c4-9770-8f1d4cfe80b6">&lt;strong&gt;</bpt>WebHCat (Templeton)<ept id="9d89de35-e9f2-49c4-9770-8f1d4cfe80b6">&lt;/strong&gt;</ept> - https://&amp;lt;clustername&gt;.azurehdinsight.net/templeton</target>
+        </trans-unit>
+        <trans-unit id="79189633-1075-4295-a6f5-3c00b220e2d5" xml:space="preserve">
+          <source>Authenticate by using the cluster administrator user and password.</source>
+          <target state="new">Authenticate by using the cluster administrator user and password.</target>
+        </trans-unit>
+        <trans-unit id="0f957f1a-969a-4a91-8744-f6d8b41dd9a5" xml:space="preserve">
+          <source>Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</source>
+          <target state="new">Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.</target>
+        </trans-unit>
+        <trans-unit id="e38355cd-cb3c-4968-816c-f304fcdf0b80" xml:space="preserve">
+          <source><bpt id="23ee939d-ab21-4a9d-88ea-20534219ae85">&lt;strong&gt;</bpt>SSH<ept id="23ee939d-ab21-4a9d-88ea-20534219ae85">&lt;/strong&gt;</ept> - &amp;lt;clustername&gt;-ssh.azurehdinsight.net on port 22 or 23.</source>
+          <target state="new"><bpt id="23ee939d-ab21-4a9d-88ea-20534219ae85">&lt;strong&gt;</bpt>SSH<ept id="23ee939d-ab21-4a9d-88ea-20534219ae85">&lt;/strong&gt;</ept> - &amp;lt;clustername&gt;-ssh.azurehdinsight.net on port 22 or 23.</target>
+        </trans-unit>
+        <trans-unit id="ff44d4b4-2eaf-48fa-8a2f-a84e4ae2ab2c" xml:space="preserve">
+          <source>Port 22 is used to connect to headnode0, while 23 is used to connect to headnode1.</source>
+          <target state="new">Port 22 is used to connect to headnode0, while 23 is used to connect to headnode1.</target>
+        </trans-unit>
+        <trans-unit id="a05341e0-92aa-4318-90bd-f92a8f674992" xml:space="preserve">
+          <source>For more information on the head nodes, see <bpt id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;linkText&gt;</bpt>Availability and reliability of Hadoop clusters in HDInsight<ept id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;/linkText&gt;</ept><bpt id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;title&gt;</bpt><ept id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the head nodes, see <bpt id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;linkText&gt;</bpt>Availability and reliability of Hadoop clusters in HDInsight<ept id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;/linkText&gt;</ept><bpt id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;title&gt;</bpt><ept id="5002cb91-f5b4-4379-bf54-2c2e3b36aa72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce4c4f2b-ce72-493d-afb0-a117f7624ee1" xml:space="preserve">
+          <source>You can only access the cluster head nodes through SSH from a client machine.</source>
+          <target state="new">You can only access the cluster head nodes through SSH from a client machine.</target>
+        </trans-unit>
+        <trans-unit id="c512a6de-22de-4997-8f82-75f1269b161c" xml:space="preserve">
+          <source>Once connected, you can then access the worker nodes by using SSH from the head node.</source>
+          <target state="new">Once connected, you can then access the worker nodes by using SSH from the head node.</target>
+        </trans-unit>
+        <trans-unit id="46fa20a6-b586-4040-8e7a-ef35708d6709" xml:space="preserve">
+          <source>Hadoop-related files can be found on the cluster nodes at <bpt id="37370db3-6178-4d8e-82d1-afb352b6fc3d">&lt;code&gt;</bpt>/usr/hdp<ept id="37370db3-6178-4d8e-82d1-afb352b6fc3d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Hadoop-related files can be found on the cluster nodes at <bpt id="37370db3-6178-4d8e-82d1-afb352b6fc3d">&lt;code&gt;</bpt>/usr/hdp<ept id="37370db3-6178-4d8e-82d1-afb352b6fc3d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3fa4bac-d47a-4d70-813d-715a3c3c4318" xml:space="preserve">
+          <source>This directory contains the following subdirectories:</source>
+          <target state="new">This directory contains the following subdirectories:</target>
+        </trans-unit>
+        <trans-unit id="c39ef5d3-cdeb-44eb-a9ae-0b8fa40f248e" xml:space="preserve">
+          <source><bpt id="0fb19169-3ffb-4182-980f-5f090c5516f7">&lt;strong&gt;</bpt>2.2.4.9-1<ept id="0fb19169-3ffb-4182-980f-5f090c5516f7">&lt;/strong&gt;</ept>: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.</source>
+          <target state="new"><bpt id="0fb19169-3ffb-4182-980f-5f090c5516f7">&lt;strong&gt;</bpt>2.2.4.9-1<ept id="0fb19169-3ffb-4182-980f-5f090c5516f7">&lt;/strong&gt;</ept>: This directory is named for the version of the Hortonworks Data Platform used by HDInsight, so the number on your cluster may be different than the one listed here.</target>
+        </trans-unit>
+        <trans-unit id="2c4baa62-285f-418f-8c15-a0b199484e6d" xml:space="preserve">
+          <source><bpt id="5445f14c-1165-4f34-bbec-6fd1d178e3b5">&lt;strong&gt;</bpt>current<ept id="5445f14c-1165-4f34-bbec-6fd1d178e3b5">&lt;/strong&gt;</ept>: This directory contains links to directories under the <bpt id="342bd8b6-18eb-4b7a-83ce-ff334e2678e1">&lt;strong&gt;</bpt>2.2.4.9-1<ept id="342bd8b6-18eb-4b7a-83ce-ff334e2678e1">&lt;/strong&gt;</ept> directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.</source>
+          <target state="new"><bpt id="5445f14c-1165-4f34-bbec-6fd1d178e3b5">&lt;strong&gt;</bpt>current<ept id="5445f14c-1165-4f34-bbec-6fd1d178e3b5">&lt;/strong&gt;</ept>: This directory contains links to directories under the <bpt id="342bd8b6-18eb-4b7a-83ce-ff334e2678e1">&lt;strong&gt;</bpt>2.2.4.9-1<ept id="342bd8b6-18eb-4b7a-83ce-ff334e2678e1">&lt;/strong&gt;</ept> directory, and exists so that you don't have to type a version number (that might change,) every time you want to access a file.</target>
+        </trans-unit>
+        <trans-unit id="b7792ed1-7992-4ea2-a7a6-fdc09be1e56d" xml:space="preserve">
+          <source>Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasb:///example'.</source>
+          <target state="new">Example data and JAR files can be found on Hadoop Distributed File System (HDFS) or Azure Blob storage at '/example' or 'wasb:///example'.</target>
+        </trans-unit>
+        <trans-unit id="8b50c855-0603-4922-8745-76ee1d02028d" xml:space="preserve">
+          <source>In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster.</source>
+          <target state="new">In most Hadoop distributions, HDFS is backed by local storage on the machines in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="110284f9-b964-43ed-912d-376eebff13b1" xml:space="preserve">
+          <source>While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.</source>
+          <target state="new">While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.</target>
+        </trans-unit>
+        <trans-unit id="eeadc4f5-dcb1-412f-bccd-c005a877e233" xml:space="preserve">
+          <source>HDInsight uses Azure Blob storage as the default store, which provides the following benefits:</source>
+          <target state="new">HDInsight uses Azure Blob storage as the default store, which provides the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="ea7f6d2f-a24d-4444-b527-e118e3540718" xml:space="preserve">
+          <source>Cheap long-term storage</source>
+          <target state="new">Cheap long-term storage</target>
+        </trans-unit>
+        <trans-unit id="e2cd0526-03ed-43c5-9d49-50b68ed98867" xml:space="preserve">
+          <source>Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers</source>
+          <target state="new">Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers</target>
+        </trans-unit>
+        <trans-unit id="ba8ff0ea-82d6-4db9-b844-4d265c81b171" xml:space="preserve">
+          <source>Since it is the default store for HDInsight, you normally don't have to do anything to use it.</source>
+          <target state="new">Since it is the default store for HDInsight, you normally don't have to do anything to use it.</target>
+        </trans-unit>
+        <trans-unit id="2e6076dc-0a0e-4d82-9e24-efa1aee9ed24" xml:space="preserve">
+          <source>For example, the following command will list files in the <bpt id="1b1c2c01-269e-4865-9e63-d10954bf0cf2">&lt;strong&gt;</bpt>/example/data<ept id="1b1c2c01-269e-4865-9e63-d10954bf0cf2">&lt;/strong&gt;</ept> folder, which is stored on Azure Blob storage:</source>
+          <target state="new">For example, the following command will list files in the <bpt id="1b1c2c01-269e-4865-9e63-d10954bf0cf2">&lt;strong&gt;</bpt>/example/data<ept id="1b1c2c01-269e-4865-9e63-d10954bf0cf2">&lt;/strong&gt;</ept> folder, which is stored on Azure Blob storage:</target>
+        </trans-unit>
+        <trans-unit id="8bfefaec-5ab8-483b-bbe5-bddd50373ddf" xml:space="preserve">
+          <source>Some commands may require you to specify that you are using Blob storage.</source>
+          <target state="new">Some commands may require you to specify that you are using Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="50df7196-9124-4528-baea-f091c715427c" xml:space="preserve">
+          <source>For these, you can prefix the command with <bpt id="1034616b-8607-44d7-bc31-6cf6cece3651">&lt;strong&gt;</bpt>WASB://<ept id="1034616b-8607-44d7-bc31-6cf6cece3651">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For these, you can prefix the command with <bpt id="1034616b-8607-44d7-bc31-6cf6cece3651">&lt;strong&gt;</bpt>WASB://<ept id="1034616b-8607-44d7-bc31-6cf6cece3651">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03ca8e18-7fa3-45a8-8458-2c4cfe83b3d5" xml:space="preserve">
+          <source>HDInsight also allows you to associate multiple Blob storage accounts with a cluster.</source>
+          <target state="new">HDInsight also allows you to associate multiple Blob storage accounts with a cluster.</target>
+        </trans-unit>
+        <trans-unit id="5753a2f5-a89a-4db2-9f61-cc6d3d4cc0eb" xml:space="preserve">
+          <source>To access data on a non-default Blob storage account, you can use the format <bpt id="5f3fa58e-ce9d-4a1d-8556-c6f93ed3cc26">&lt;strong&gt;</bpt>WASB://&amp;lt;container-name&gt;@&amp;lt;account-name&gt;.blob.core.windows.net/<ept id="5f3fa58e-ce9d-4a1d-8556-c6f93ed3cc26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To access data on a non-default Blob storage account, you can use the format <bpt id="5f3fa58e-ce9d-4a1d-8556-c6f93ed3cc26">&lt;strong&gt;</bpt>WASB://&amp;lt;container-name&gt;@&amp;lt;account-name&gt;.blob.core.windows.net/<ept id="5f3fa58e-ce9d-4a1d-8556-c6f93ed3cc26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89c0250c-0b9a-415c-ad2f-b2f16f797a4f" xml:space="preserve">
+          <source>For example, the following will list the contents of the <bpt id="98ebf9e4-9df5-471a-a3b3-23c6285641fc">&lt;strong&gt;</bpt>/example/data<ept id="98ebf9e4-9df5-471a-a3b3-23c6285641fc">&lt;/strong&gt;</ept> directory for the specified container and Blob storage account:</source>
+          <target state="new">For example, the following will list the contents of the <bpt id="98ebf9e4-9df5-471a-a3b3-23c6285641fc">&lt;strong&gt;</bpt>/example/data<ept id="98ebf9e4-9df5-471a-a3b3-23c6285641fc">&lt;/strong&gt;</ept> directory for the specified container and Blob storage account:</target>
+        </trans-unit>
+        <trans-unit id="54798427-e08a-48f4-8cb5-5332ff82db56" xml:space="preserve">
+          <source>During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one.</source>
+          <target state="new">During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="dca3595f-292b-4dfc-ade6-3aad437de5df" xml:space="preserve">
+          <source>Then, you probably forgot about it.</source>
+          <target state="new">Then, you probably forgot about it.</target>
+        </trans-unit>
+        <trans-unit id="75e66bba-fe4f-47fd-9270-c78e2852fa25" xml:space="preserve">
+          <source>You can find the default storage account and container by using the Ambari REST API.</source>
+          <target state="new">You can find the default storage account and container by using the Ambari REST API.</target>
+        </trans-unit>
+        <trans-unit id="174d56d4-4030-4a39-8e7c-acecbd79dfe8" xml:space="preserve">
+          <source>Use the following command to retrieve HDFS configuration information:</source>
+          <target state="new">Use the following command to retrieve HDFS configuration information:</target>
+        </trans-unit>
+        <trans-unit id="5d58b47a-ebf6-47dd-a5d1-eb3a183d5def" xml:space="preserve">
+          <source>In the JSON data returned, find the <bpt id="e466105e-bf71-4585-bb95-ad539fc8fab7">&lt;code&gt;</bpt>fs.defaultFS<ept id="e466105e-bf71-4585-bb95-ad539fc8fab7">&lt;/code&gt;</ept> entry.</source>
+          <target state="new">In the JSON data returned, find the <bpt id="e466105e-bf71-4585-bb95-ad539fc8fab7">&lt;code&gt;</bpt>fs.defaultFS<ept id="e466105e-bf71-4585-bb95-ad539fc8fab7">&lt;/code&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="e57c291d-57a6-466f-a2de-13dc3fb06d3d" xml:space="preserve">
+          <source>This will contain default container and storage account name in a format similar to the following:</source>
+          <target state="new">This will contain default container and storage account name in a format similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="0c59177d-4a9b-48b4-a3fa-6d484fc8be5f" xml:space="preserve">
+          <source>If you have installed <bpt id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;linkText&gt;</bpt>jq<ept id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;/linkText&gt;</ept><bpt id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;title&gt;</bpt><ept id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;/title&gt;</ept>, you can use the following to return just the <bpt id="7e102a0d-0d10-45bd-8fdd-35bd99b972ab">&lt;code&gt;</bpt>fs.defaultFS<ept id="7e102a0d-0d10-45bd-8fdd-35bd99b972ab">&lt;/code&gt;</ept> entry:</source>
+          <target state="new">If you have installed <bpt id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;linkText&gt;</bpt>jq<ept id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;/linkText&gt;</ept><bpt id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;title&gt;</bpt><ept id="8f01c285-dd63-48e5-a0d5-551bf71f68f0">&lt;/title&gt;</ept>, you can use the following to return just the <bpt id="7e102a0d-0d10-45bd-8fdd-35bd99b972ab">&lt;code&gt;</bpt>fs.defaultFS<ept id="7e102a0d-0d10-45bd-8fdd-35bd99b972ab">&lt;/code&gt;</ept> entry:</target>
+        </trans-unit>
+        <trans-unit id="8aa63cfa-c0c7-4bd9-bdf2-292d58515bbc" xml:space="preserve">
+          <source><bpt id="e0386d2a-9ebe-4c76-9244-abb1c3edb7c6">&lt;code&gt;</bpt>curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&amp;service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'<ept id="e0386d2a-9ebe-4c76-9244-abb1c3edb7c6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e0386d2a-9ebe-4c76-9244-abb1c3edb7c6">&lt;code&gt;</bpt>curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&amp;service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'<ept id="e0386d2a-9ebe-4c76-9244-abb1c3edb7c6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3c1bbc9-64d1-484c-9de4-3c38be73e559" xml:space="preserve">
+          <source>To find the key used to authenticate to the storage account, or to find any secondary storage accounts associated with the cluster, use the following:</source>
+          <target state="new">To find the key used to authenticate to the storage account, or to find any secondary storage accounts associated with the cluster, use the following:</target>
+        </trans-unit>
+        <trans-unit id="f30fd00f-b6dc-4b58-86e7-6e370144c3cb" xml:space="preserve">
+          <source>In the JSON data returned, find the entries that begin with <bpt id="a4318b76-9abd-4b83-8d8b-f00ce76949bc">&lt;code&gt;</bpt>fs.azure.account.key<ept id="a4318b76-9abd-4b83-8d8b-f00ce76949bc">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the JSON data returned, find the entries that begin with <bpt id="a4318b76-9abd-4b83-8d8b-f00ce76949bc">&lt;code&gt;</bpt>fs.azure.account.key<ept id="a4318b76-9abd-4b83-8d8b-f00ce76949bc">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4120714a-c727-4e5b-a965-63ef4520fb57" xml:space="preserve">
+          <source>The remainder of the entry name is the storage account name.</source>
+          <target state="new">The remainder of the entry name is the storage account name.</target>
+        </trans-unit>
+        <trans-unit id="0c0aa77b-ebd1-4b8b-aa06-443f840ccd68" xml:space="preserve">
+          <source>For example, <bpt id="7c03a403-09a9-4766-b946-efad95f1794c">&lt;code&gt;</bpt>fs.azure.account.key.mystorage.blob.core.windows.net<ept id="7c03a403-09a9-4766-b946-efad95f1794c">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="7c03a403-09a9-4766-b946-efad95f1794c">&lt;code&gt;</bpt>fs.azure.account.key.mystorage.blob.core.windows.net<ept id="7c03a403-09a9-4766-b946-efad95f1794c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1712556-c2f1-4deb-a9dc-5f5c08636f5e" xml:space="preserve">
+          <source>The value stored in this entry is the key used to authenticate to the storage account.</source>
+          <target state="new">The value stored in this entry is the key used to authenticate to the storage account.</target>
+        </trans-unit>
+        <trans-unit id="701a27ce-b779-42c4-a561-90d694615db7" xml:space="preserve">
+          <source>If you have installed <bpt id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;linkText&gt;</bpt>jq<ept id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;/linkText&gt;</ept><bpt id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;title&gt;</bpt><ept id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;/title&gt;</ept>, you can use the following to return a list of the keys and values:</source>
+          <target state="new">If you have installed <bpt id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;linkText&gt;</bpt>jq<ept id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;/linkText&gt;</ept><bpt id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;title&gt;</bpt><ept id="0c45d527-852b-497f-a225-d104c6eac83f">&lt;/title&gt;</ept>, you can use the following to return a list of the keys and values:</target>
+        </trans-unit>
+        <trans-unit id="2b0c8864-281b-4d45-8d03-a596ef7f9f74" xml:space="preserve">
+          <source><bpt id="10160230-45dd-48bb-bbb4-c1f99c9b9731">&lt;code&gt;</bpt>curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&amp;service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'<ept id="10160230-45dd-48bb-bbb4-c1f99c9b9731">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="10160230-45dd-48bb-bbb4-c1f99c9b9731">&lt;code&gt;</bpt>curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&amp;service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'<ept id="10160230-45dd-48bb-bbb4-c1f99c9b9731">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98b0e8fe-3bcd-47cd-8caa-e0769a55bb37" xml:space="preserve">
+          <source>Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:</source>
+          <target state="new">Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:</target>
+        </trans-unit>
+        <trans-unit id="79698665-0f65-40bd-b436-f036fd3ba558" xml:space="preserve">
+          <source><bpt id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;linkText&gt;</bpt>Azure CLI for Mac, Linux and Windows<ept id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;/linkText&gt;</ept><bpt id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;title&gt;</bpt><ept id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;/title&gt;</ept>: Command-Line interface commands for working with Azure.</source>
+          <target state="new"><bpt id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;linkText&gt;</bpt>Azure CLI for Mac, Linux and Windows<ept id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;/linkText&gt;</ept><bpt id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;title&gt;</bpt><ept id="b89058e1-4aad-466c-b483-e7e7457cde65">&lt;/title&gt;</ept>: Command-Line interface commands for working with Azure.</target>
+        </trans-unit>
+        <trans-unit id="fa15ead3-b669-445f-88cc-b251fe95f325" xml:space="preserve">
+          <source>After installing, use the <bpt id="98932c2d-126b-47ab-ae79-102ccf04010f">&lt;code&gt;</bpt>azure storage<ept id="98932c2d-126b-47ab-ae79-102ccf04010f">&lt;/code&gt;</ept> command for help on using storage, or <bpt id="5ebd48b6-4a91-413f-befc-0ac2a37d0ce9">&lt;code&gt;</bpt>azure blob<ept id="5ebd48b6-4a91-413f-befc-0ac2a37d0ce9">&lt;/code&gt;</ept> for blob-specific commands.</source>
+          <target state="new">After installing, use the <bpt id="98932c2d-126b-47ab-ae79-102ccf04010f">&lt;code&gt;</bpt>azure storage<ept id="98932c2d-126b-47ab-ae79-102ccf04010f">&lt;/code&gt;</ept> command for help on using storage, or <bpt id="5ebd48b6-4a91-413f-befc-0ac2a37d0ce9">&lt;code&gt;</bpt>azure blob<ept id="5ebd48b6-4a91-413f-befc-0ac2a37d0ce9">&lt;/code&gt;</ept> for blob-specific commands.</target>
+        </trans-unit>
+        <trans-unit id="984547dd-32b5-4465-98f4-43f49690a90e" xml:space="preserve">
+          <source><bpt id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;linkText&gt;</bpt>blobxfer.py<ept id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;/linkText&gt;</ept><bpt id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;title&gt;</bpt><ept id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;/title&gt;</ept>: A python script for working with blobs in Azure Storage.</source>
+          <target state="new"><bpt id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;linkText&gt;</bpt>blobxfer.py<ept id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;/linkText&gt;</ept><bpt id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;title&gt;</bpt><ept id="4ab20c66-6f92-4f1a-9be2-ead505306758">&lt;/title&gt;</ept>: A python script for working with blobs in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="06004edf-b6dd-47cc-9b61-4d2da6c88627" xml:space="preserve">
+          <source>A variety of SDKs:</source>
+          <target state="new">A variety of SDKs:</target>
+        </trans-unit>
+        <trans-unit id="2c801c01-3c78-4b03-a31e-93d3f8ae66b5" xml:space="preserve">
+          <source><bpt id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;linkText&gt;</bpt>Java<ept id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;/linkText&gt;</ept><bpt id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;title&gt;</bpt><ept id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;linkText&gt;</bpt>Java<ept id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;/linkText&gt;</ept><bpt id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;title&gt;</bpt><ept id="20a83bb6-01b4-42a8-a348-64a6dad0c639">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0e27076-a432-4ba4-8da5-a4850ec84f90" xml:space="preserve">
+          <source><bpt id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;linkText&gt;</bpt>Node.js<ept id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;/linkText&gt;</ept><bpt id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;title&gt;</bpt><ept id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;linkText&gt;</bpt>Node.js<ept id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;/linkText&gt;</ept><bpt id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;title&gt;</bpt><ept id="8e38f597-3303-4faf-b625-102b47a2a3ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0b4d4eb-4372-431d-81ae-5c4df048967a" xml:space="preserve">
+          <source><bpt id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;linkText&gt;</bpt>PHP<ept id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;/linkText&gt;</ept><bpt id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;title&gt;</bpt><ept id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;linkText&gt;</bpt>PHP<ept id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;/linkText&gt;</ept><bpt id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;title&gt;</bpt><ept id="480a0a33-6cd5-4c3d-b142-f1381913caa1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb2a3682-2ac6-4b11-b25d-2935d638e957" xml:space="preserve">
+          <source><bpt id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;linkText&gt;</bpt>Python<ept id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;/linkText&gt;</ept><bpt id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;title&gt;</bpt><ept id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;linkText&gt;</bpt>Python<ept id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;/linkText&gt;</ept><bpt id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;title&gt;</bpt><ept id="9b776753-0e06-48a3-aeaf-910c21500533">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0c274bf-bd89-45e0-8990-e7f8fec5161e" xml:space="preserve">
+          <source><bpt id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;linkText&gt;</bpt>Ruby<ept id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;/linkText&gt;</ept><bpt id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;title&gt;</bpt><ept id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;linkText&gt;</bpt>Ruby<ept id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;/linkText&gt;</ept><bpt id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;title&gt;</bpt><ept id="462a40d3-422b-4207-b97d-ba4efd13ff63">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0a87095-1dd2-4107-b67c-3087938ed35d" xml:space="preserve">
+          <source><bpt id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;linkText&gt;</bpt>.NET<ept id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;/linkText&gt;</ept><bpt id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;title&gt;</bpt><ept id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;linkText&gt;</bpt>.NET<ept id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;/linkText&gt;</ept><bpt id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;title&gt;</bpt><ept id="aee3f430-b72d-497a-9d86-b3646af84b4f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55582c9a-fbab-4905-9c20-d9d623dabe99" xml:space="preserve">
+          <source><bpt id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;linkText&gt;</bpt>Storage REST API<ept id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;/linkText&gt;</ept><bpt id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;title&gt;</bpt><ept id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;linkText&gt;</bpt>Storage REST API<ept id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;/linkText&gt;</ept><bpt id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;title&gt;</bpt><ept id="b3fe4014-6c64-4da5-bfd2-1f710fac9807">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19ac99a6-63b4-4e1b-996d-9d143d8933c0" xml:space="preserve">
+          <source><bpt id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;/linkText&gt;</ept><bpt id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;title&gt;</bpt><ept id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;/linkText&gt;</ept><bpt id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;title&gt;</bpt><ept id="8e856ae8-8f47-492d-9580-d9ee21025af2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="deeb4227-76c4-42e3-b8b4-dbc61678d070" xml:space="preserve">
+          <source><bpt id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;/linkText&gt;</ept><bpt id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;title&gt;</bpt><ept id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;/linkText&gt;</ept><bpt id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;title&gt;</bpt><ept id="0d5bf7aa-3243-4342-a1dc-bdacea464bc2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6624a611-a8a9-4860-a10b-edc8a0fbf562" xml:space="preserve">
+          <source><bpt id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight<ept id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;/linkText&gt;</ept><bpt id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;title&gt;</bpt><ept id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;linkText&gt;</bpt>Use MapReduce jobs with HDInsight<ept id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;/linkText&gt;</ept><bpt id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;title&gt;</bpt><ept id="9f584867-6ad7-40b0-b7d5-6c2d7ca1d0ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

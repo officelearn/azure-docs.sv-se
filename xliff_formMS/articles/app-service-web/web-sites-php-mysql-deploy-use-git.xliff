@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1e41e512-c9ff-4c56-b6b3-6071fa460ea3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1e41e512-c9ff-4c56-b6b3-6071fa460ea3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="54ebf5c4-ae8b-4c37-a218-5c3f59057f28">
+        <trans-unit id="de77f218-36d4-45c2-bec6-81fa999fa239" xml:space="preserve">
+          <source>Create a PHP-MySQL web app in Azure App Service and deploy using Git</source>
+          <target state="new">Create a PHP-MySQL web app in Azure App Service and deploy using Git</target>
+        </trans-unit>
+        <trans-unit id="1a541f38-5eaf-46ae-8141-113c5e3253bc" xml:space="preserve">
+          <source>A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use Git deployment to Azure.</source>
+          <target state="new">A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use Git deployment to Azure.</target>
+        </trans-unit>
+        <trans-unit id="c591b290-baa7-4c1c-8bbf-1f9868ac8108" xml:space="preserve">
+          <source>This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to <bpt id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;linkText&gt;</bpt>App Service<ept id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;/linkText&gt;</ept><bpt id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;title&gt;</bpt><ept id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;/title&gt;</ept> using Git.</source>
+          <target state="new">This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to <bpt id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;linkText&gt;</bpt>App Service<ept id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;/linkText&gt;</ept><bpt id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;title&gt;</bpt><ept id="f1c34208-36ac-49b9-b4b4-b5fef5ad07bc">&lt;/title&gt;</ept> using Git.</target>
+        </trans-unit>
+        <trans-unit id="e93fcca6-b4d0-44cc-9810-1ae1d8f1a3bf" xml:space="preserve">
+          <source>You will use <bpt id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;/linkText&gt;</ept><bpt id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;title&gt;</bpt><ept id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;/title&gt;</ept>, the MySQL Command-Line Tool (part of <bpt id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;/linkText&gt;</ept><bpt id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;title&gt;</bpt><ept id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;/title&gt;</ept>), a web server, and <bpt id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;linkText&gt;</bpt>Git[install-git]<ept id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;/linkText&gt;</ept><bpt id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;title&gt;</bpt><ept id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;/title&gt;</ept> installed on your computer.</source>
+          <target state="new">You will use <bpt id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;/linkText&gt;</ept><bpt id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;title&gt;</bpt><ept id="46e7481c-4e1a-4ed8-868a-1fa5e92aeb62">&lt;/title&gt;</ept>, the MySQL Command-Line Tool (part of <bpt id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;/linkText&gt;</ept><bpt id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;title&gt;</bpt><ept id="b2ab33e8-3585-4414-bde0-c99b2d5b9ced">&lt;/title&gt;</ept>), a web server, and <bpt id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;linkText&gt;</bpt>Git[install-git]<ept id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;/linkText&gt;</ept><bpt id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;title&gt;</bpt><ept id="d4b0d031-d1ab-42fc-bfae-45de9622ff79">&lt;/title&gt;</ept> installed on your computer.</target>
+        </trans-unit>
+        <trans-unit id="f07bb0b2-804d-479e-9518-dcaa96ce1431" xml:space="preserve">
+          <source>The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux.</source>
+          <target state="new">The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux.</target>
+        </trans-unit>
+        <trans-unit id="f0f8fa76-76ad-4224-b9d7-919439223ece" xml:space="preserve">
+          <source>Upon completing this guide, you will have a PHP/MySQL web app running in Azure.</source>
+          <target state="new">Upon completing this guide, you will have a PHP/MySQL web app running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="211b2286-6a78-45b6-8838-f72b83a21ccf" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="169984d3-9571-410c-862b-18751c41cc40" xml:space="preserve">
+          <source>How to create a web app and a MySQL database using the <bpt id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;linkText&gt;</bpt>Azure Portal<ept id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;/linkText&gt;</ept><bpt id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;title&gt;</bpt><ept id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;/title&gt;</ept>.</source>
+          <target state="new">How to create a web app and a MySQL database using the <bpt id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;linkText&gt;</bpt>Azure Portal<ept id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;/linkText&gt;</ept><bpt id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;title&gt;</bpt><ept id="081ba4d2-e8d7-4852-a518-668fcb091c3c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88e5d2a4-308b-4c1c-8e72-a0c702634ee9" xml:space="preserve">
+          <source>Because PHP is enabled in <bpt id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;/linkText&gt;</ept><bpt id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;title&gt;</bpt><ept id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;/title&gt;</ept> by default, nothing special is required to run your PHP code.</source>
+          <target state="new">Because PHP is enabled in <bpt id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;/linkText&gt;</ept><bpt id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;title&gt;</bpt><ept id="b5226c95-70ac-4cee-b465-f7ffdbdfa2c2">&lt;/title&gt;</ept> by default, nothing special is required to run your PHP code.</target>
+        </trans-unit>
+        <trans-unit id="9549dd94-6f09-4e4b-88c7-bee9419efabb" xml:space="preserve">
+          <source>How to publish and re-publish your application to Azure using Git.</source>
+          <target state="new">How to publish and re-publish your application to Azure using Git.</target>
+        </trans-unit>
+        <trans-unit id="0565298d-c551-4bf7-8614-a84003773892" xml:space="preserve">
+          <source>By following this tutorial, you will build a simple registration web app in PHP.</source>
+          <target state="new">By following this tutorial, you will build a simple registration web app in PHP.</target>
+        </trans-unit>
+        <trans-unit id="21d7cfe5-9e04-4173-815f-96c320bb9a66" xml:space="preserve">
+          <source>The application will be hosted in Web Apps.</source>
+          <target state="new">The application will be hosted in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="c5005d5a-6c77-4151-9932-8b4873ac2273" xml:space="preserve">
+          <source>A screenshot of the completed application is below:</source>
+          <target state="new">A screenshot of the completed application is below:</target>
+        </trans-unit>
+        <trans-unit id="c2cf13db-dacd-4d60-bb3c-0e22de438c31" xml:space="preserve">
+          <source><bpt id="b285538f-db3b-43e0-ba32-1a5c0eb738aa">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="b285538f-db3b-43e0-ba32-1a5c0eb738aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b285538f-db3b-43e0-ba32-1a5c0eb738aa">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="b285538f-db3b-43e0-ba32-1a5c0eb738aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb20ff83-cb2b-4c7e-86d2-0dc7b27ec3dd" xml:space="preserve">
+          <source>This tutorial assumes you have <bpt id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;/linkText&gt;</ept><bpt id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;title&gt;</bpt><ept id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;/title&gt;</ept>, the MySQL Command-Line Tool (part of <bpt id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;/linkText&gt;</ept><bpt id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;title&gt;</bpt><ept id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;/title&gt;</ept>), a web server, and <bpt id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;linkText&gt;</bpt>Git[install-git]<ept id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;/linkText&gt;</ept><bpt id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;title&gt;</bpt><ept id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;/title&gt;</ept> installed on your computer.</source>
+          <target state="new">This tutorial assumes you have <bpt id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;/linkText&gt;</ept><bpt id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;title&gt;</bpt><ept id="ea06d86b-4c2b-4440-b13f-42dd31f02628">&lt;/title&gt;</ept>, the MySQL Command-Line Tool (part of <bpt id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;linkText&gt;</bpt>MySQL[install-mysql]<ept id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;/linkText&gt;</ept><bpt id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;title&gt;</bpt><ept id="b4f485c6-08c9-4a4a-b036-f6090e5ec331">&lt;/title&gt;</ept>), a web server, and <bpt id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;linkText&gt;</bpt>Git[install-git]<ept id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;/linkText&gt;</ept><bpt id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;title&gt;</bpt><ept id="425d0b16-43ec-447f-8d1e-45386d9904ca">&lt;/title&gt;</ept> installed on your computer.</target>
+        </trans-unit>
+        <trans-unit id="1d68be42-0fc2-4e9f-98cd-8db31aa2540e" xml:space="preserve">
+          <source>If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the &lt;a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids"&gt;Azure SDK for PHP&lt;/a&gt;.</source>
+          <target state="new">If you are performing this tutorial on Windows, you can set up your machine for PHP and automatically configure IIS (the built-in web server in Windows) by installing the &lt;a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids"&gt;Azure SDK for PHP&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="882e4ee4-16ce-4a5f-a339-b98d74c022f6" xml:space="preserve">
+          <source>Follow these steps to create a web app and a MySQL database:</source>
+          <target state="new">Follow these steps to create a web app and a MySQL database:</target>
+        </trans-unit>
+        <trans-unit id="1ce9547d-84f8-4517-963b-7f90709249d7" xml:space="preserve">
+          <source>Login to the <bpt id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;/linkText&gt;</ept><bpt id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;title&gt;</bpt><ept id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;/linkText&gt;</ept><bpt id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;title&gt;</bpt><ept id="a48b9e0f-0175-42e6-9ae7-575ab94aaadc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d84744a5-6cd3-46b7-a656-18eaa11cba2c" xml:space="preserve">
+          <source>Click the <bpt id="824884a5-9dea-409a-836a-f529512d89fb">&lt;strong&gt;</bpt>New<ept id="824884a5-9dea-409a-836a-f529512d89fb">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">Click the <bpt id="824884a5-9dea-409a-836a-f529512d89fb">&lt;strong&gt;</bpt>New<ept id="824884a5-9dea-409a-836a-f529512d89fb">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="e6ea1369-a1c6-4169-a129-7ecc047226f5" xml:space="preserve">
+          <source>Click <bpt id="6ca78b2c-64bb-4661-9af1-57dd0f56d101">&lt;strong&gt;</bpt>Web + Mobile<ept id="6ca78b2c-64bb-4661-9af1-57dd0f56d101">&lt;/strong&gt;</ept>, then <bpt id="d4c0ba4b-c293-455e-968a-40e480014bd2">&lt;strong&gt;</bpt>Azure Marketplace<ept id="d4c0ba4b-c293-455e-968a-40e480014bd2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6ca78b2c-64bb-4661-9af1-57dd0f56d101">&lt;strong&gt;</bpt>Web + Mobile<ept id="6ca78b2c-64bb-4661-9af1-57dd0f56d101">&lt;/strong&gt;</ept>, then <bpt id="d4c0ba4b-c293-455e-968a-40e480014bd2">&lt;strong&gt;</bpt>Azure Marketplace<ept id="d4c0ba4b-c293-455e-968a-40e480014bd2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1945f4d1-d6a9-401f-8263-8ea620e1340d" xml:space="preserve">
+          <source>Click <bpt id="f8c64674-b042-4b12-89ab-72f1032dfaa8">&lt;strong&gt;</bpt>Web Apps<ept id="f8c64674-b042-4b12-89ab-72f1032dfaa8">&lt;/strong&gt;</ept>, then <bpt id="d3b4da04-ea8f-4795-8bef-3d507990848a">&lt;strong&gt;</bpt>Web app + MySQL<ept id="d3b4da04-ea8f-4795-8bef-3d507990848a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f8c64674-b042-4b12-89ab-72f1032dfaa8">&lt;strong&gt;</bpt>Web Apps<ept id="f8c64674-b042-4b12-89ab-72f1032dfaa8">&lt;/strong&gt;</ept>, then <bpt id="d3b4da04-ea8f-4795-8bef-3d507990848a">&lt;strong&gt;</bpt>Web app + MySQL<ept id="d3b4da04-ea8f-4795-8bef-3d507990848a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbe0d0e1-a868-4c49-ae70-609b7773d7ec" xml:space="preserve">
+          <source>Then, click <bpt id="6ffaaf8b-a2bf-43e9-9cab-13e947fca4e4">&lt;strong&gt;</bpt>Create<ept id="6ffaaf8b-a2bf-43e9-9cab-13e947fca4e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="6ffaaf8b-a2bf-43e9-9cab-13e947fca4e4">&lt;strong&gt;</bpt>Create<ept id="6ffaaf8b-a2bf-43e9-9cab-13e947fca4e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89a78a27-3077-4cb0-9b32-18e432f3aca3" xml:space="preserve">
+          <source>Enter a valid name for your resource group.</source>
+          <target state="new">Enter a valid name for your resource group.</target>
+        </trans-unit>
+        <trans-unit id="673c26bb-82a5-4c7b-b4e2-64d3c51ee7a3" xml:space="preserve">
+          <source><bpt id="904598e2-81e2-4444-bff9-e1bbb8ff0123">&lt;linkText&gt;</bpt>Set resource group name<ept id="904598e2-81e2-4444-bff9-e1bbb8ff0123">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="904598e2-81e2-4444-bff9-e1bbb8ff0123">&lt;linkText&gt;</bpt>Set resource group name<ept id="904598e2-81e2-4444-bff9-e1bbb8ff0123">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="673389f6-158b-440f-95af-185f87d6d714" xml:space="preserve">
+          <source>Enter values for your new web app.</source>
+          <target state="new">Enter values for your new web app.</target>
+        </trans-unit>
+        <trans-unit id="47658ec5-bb27-4e41-b921-cb67943a43e2" xml:space="preserve">
+          <source><bpt id="6441ed46-3d2d-4cb5-916f-ebfedbb8494f">&lt;linkText&gt;</bpt>Create web app<ept id="6441ed46-3d2d-4cb5-916f-ebfedbb8494f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6441ed46-3d2d-4cb5-916f-ebfedbb8494f">&lt;linkText&gt;</bpt>Create web app<ept id="6441ed46-3d2d-4cb5-916f-ebfedbb8494f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4a2ee9a-faee-4a20-b338-53eb17137ac7" xml:space="preserve">
+          <source>Enter values for your new database, including agreeing to the legal terms.</source>
+          <target state="new">Enter values for your new database, including agreeing to the legal terms.</target>
+        </trans-unit>
+        <trans-unit id="464b3696-06c4-4b0d-a4a6-cfe350cf32c5" xml:space="preserve">
+          <source><bpt id="40ba1659-95d6-4d19-8525-50fccf7f7c63">&lt;linkText&gt;</bpt>Create new MySQL database<ept id="40ba1659-95d6-4d19-8525-50fccf7f7c63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40ba1659-95d6-4d19-8525-50fccf7f7c63">&lt;linkText&gt;</bpt>Create new MySQL database<ept id="40ba1659-95d6-4d19-8525-50fccf7f7c63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68d5fc8d-f5b9-4396-83fc-31d80e2996ec" xml:space="preserve">
+          <source>When the web app has been created, you will see the new resource group.</source>
+          <target state="new">When the web app has been created, you will see the new resource group.</target>
+        </trans-unit>
+        <trans-unit id="3a7b8c8e-955b-4101-88db-b64dc07a4758" xml:space="preserve">
+          <source>Click the name of the web app to configure its settings.</source>
+          <target state="new">Click the name of the web app to configure its settings.</target>
+        </trans-unit>
+        <trans-unit id="83110881-6923-48c1-9c39-5aae8649edee" xml:space="preserve">
+          <source>Click <bpt id="6db40f77-1019-4bcc-b148-dcb7836b262a">&lt;strong&gt;</bpt>Set up continuous deployment<ept id="6db40f77-1019-4bcc-b148-dcb7836b262a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6db40f77-1019-4bcc-b148-dcb7836b262a">&lt;strong&gt;</bpt>Set up continuous deployment<ept id="6db40f77-1019-4bcc-b148-dcb7836b262a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="334aa432-867f-4b10-834a-f92f746d470c" xml:space="preserve">
+          <source><bpt id="13355c80-3a3e-454e-889d-bc66c94d0a90">&lt;linkText&gt;</bpt>Set up Git publishing<ept id="13355c80-3a3e-454e-889d-bc66c94d0a90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="13355c80-3a3e-454e-889d-bc66c94d0a90">&lt;linkText&gt;</bpt>Set up Git publishing<ept id="13355c80-3a3e-454e-889d-bc66c94d0a90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6382332-2529-46fb-9e15-2abc7c83b5b6" xml:space="preserve">
+          <source>Select <bpt id="e3a8aa7d-833a-4b2d-8752-1223f137d2d5">&lt;strong&gt;</bpt>Local Git Repository<ept id="e3a8aa7d-833a-4b2d-8752-1223f137d2d5">&lt;/strong&gt;</ept> for the source.</source>
+          <target state="new">Select <bpt id="e3a8aa7d-833a-4b2d-8752-1223f137d2d5">&lt;strong&gt;</bpt>Local Git Repository<ept id="e3a8aa7d-833a-4b2d-8752-1223f137d2d5">&lt;/strong&gt;</ept> for the source.</target>
+        </trans-unit>
+        <trans-unit id="c62b2044-4620-4df9-9091-f7eeab0f9c81" xml:space="preserve">
+          <source><bpt id="a0041b7a-09e4-473a-8ba8-4c3633ecc2ba">&lt;linkText&gt;</bpt>Set up Git repository<ept id="a0041b7a-09e4-473a-8ba8-4c3633ecc2ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0041b7a-09e4-473a-8ba8-4c3633ecc2ba">&lt;linkText&gt;</bpt>Set up Git repository<ept id="a0041b7a-09e4-473a-8ba8-4c3633ecc2ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86b78362-cd25-4679-a624-93dabfbe19d3" xml:space="preserve">
+          <source>To enable Git publishing, you must provide a user name and password.</source>
+          <target state="new">To enable Git publishing, you must provide a user name and password.</target>
+        </trans-unit>
+        <trans-unit id="89d99e2a-3c6a-443e-a612-f444888d5c13" xml:space="preserve">
+          <source>Make a note of the user name and password you create.</source>
+          <target state="new">Make a note of the user name and password you create.</target>
+        </trans-unit>
+        <trans-unit id="d9028b53-7811-4f89-8cc6-40802c82ce88" xml:space="preserve">
+          <source>(If you have set up a Git repository before, this step will be skipped.)</source>
+          <target state="new">(If you have set up a Git repository before, this step will be skipped.)</target>
+        </trans-unit>
+        <trans-unit id="a6bbd181-e16d-4e40-9acd-c9bff852da09" xml:space="preserve">
+          <source><bpt id="2af9d2cc-67b5-40a4-88ee-f0bc63c8833a">&lt;linkText&gt;</bpt>Create publishing credentials<ept id="2af9d2cc-67b5-40a4-88ee-f0bc63c8833a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2af9d2cc-67b5-40a4-88ee-f0bc63c8833a">&lt;linkText&gt;</bpt>Create publishing credentials<ept id="2af9d2cc-67b5-40a4-88ee-f0bc63c8833a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f43c1292-7aa1-4302-bb42-484144613e79" xml:space="preserve">
+          <source>To connect to the MySQL database that is running in Web Apps, your will need the connection information.</source>
+          <target state="new">To connect to the MySQL database that is running in Web Apps, your will need the connection information.</target>
+        </trans-unit>
+        <trans-unit id="b35bde68-1c5f-47aa-a837-892b9cae5c6f" xml:space="preserve">
+          <source>To get MySQL connection information, follow these steps:</source>
+          <target state="new">To get MySQL connection information, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="cb000fa1-9408-4a27-9543-93686ceb1082" xml:space="preserve">
+          <source>From your resource group, click the database:</source>
+          <target state="new">From your resource group, click the database:</target>
+        </trans-unit>
+        <trans-unit id="22051eb8-5798-4861-a11c-412de2a339ee" xml:space="preserve">
+          <source><bpt id="082ef5f0-4115-40e2-8714-27f4431d7394">&lt;linkText&gt;</bpt>Select database<ept id="082ef5f0-4115-40e2-8714-27f4431d7394">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="082ef5f0-4115-40e2-8714-27f4431d7394">&lt;linkText&gt;</bpt>Select database<ept id="082ef5f0-4115-40e2-8714-27f4431d7394">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01f367a9-00ac-4d97-8fec-83bdc2e078cd" xml:space="preserve">
+          <source>From the database sumamry, select <bpt id="cbc9a720-a55b-45d4-b251-66c2dfbab7f8">&lt;strong&gt;</bpt>Properties<ept id="cbc9a720-a55b-45d4-b251-66c2dfbab7f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the database sumamry, select <bpt id="cbc9a720-a55b-45d4-b251-66c2dfbab7f8">&lt;strong&gt;</bpt>Properties<ept id="cbc9a720-a55b-45d4-b251-66c2dfbab7f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9de32ffe-c74f-4c46-9060-23a95bfbd1b8" xml:space="preserve">
+          <source><bpt id="821b25ad-32ff-4e82-afab-f20bdc495ed9">&lt;linkText&gt;</bpt>Select properties<ept id="821b25ad-32ff-4e82-afab-f20bdc495ed9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="821b25ad-32ff-4e82-afab-f20bdc495ed9">&lt;linkText&gt;</bpt>Select properties<ept id="821b25ad-32ff-4e82-afab-f20bdc495ed9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="441840e0-16bc-4f7c-8463-a7ce4e2d70e3" xml:space="preserve">
+          <source>Make note of the values for <bpt id="9ff5ee4e-d883-4ea2-a851-61de4a61b421">&lt;code&gt;</bpt>Database<ept id="9ff5ee4e-d883-4ea2-a851-61de4a61b421">&lt;/code&gt;</ept>, <bpt id="8e88bd73-d9bb-40c4-935d-f3d1c1a15813">&lt;code&gt;</bpt>Host<ept id="8e88bd73-d9bb-40c4-935d-f3d1c1a15813">&lt;/code&gt;</ept>, <bpt id="f90701e8-a05f-4656-9db6-7a9d52359a4a">&lt;code&gt;</bpt>User Id<ept id="f90701e8-a05f-4656-9db6-7a9d52359a4a">&lt;/code&gt;</ept>, and <bpt id="cc2888ef-ec61-405d-829c-0872381f4ab4">&lt;code&gt;</bpt>Password<ept id="cc2888ef-ec61-405d-829c-0872381f4ab4">&lt;/code&gt;</ept>.</source>
+          <target state="new">Make note of the values for <bpt id="9ff5ee4e-d883-4ea2-a851-61de4a61b421">&lt;code&gt;</bpt>Database<ept id="9ff5ee4e-d883-4ea2-a851-61de4a61b421">&lt;/code&gt;</ept>, <bpt id="8e88bd73-d9bb-40c4-935d-f3d1c1a15813">&lt;code&gt;</bpt>Host<ept id="8e88bd73-d9bb-40c4-935d-f3d1c1a15813">&lt;/code&gt;</ept>, <bpt id="f90701e8-a05f-4656-9db6-7a9d52359a4a">&lt;code&gt;</bpt>User Id<ept id="f90701e8-a05f-4656-9db6-7a9d52359a4a">&lt;/code&gt;</ept>, and <bpt id="cc2888ef-ec61-405d-829c-0872381f4ab4">&lt;code&gt;</bpt>Password<ept id="cc2888ef-ec61-405d-829c-0872381f4ab4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="138199b2-a3c0-4684-a942-d7b340460236" xml:space="preserve">
+          <source><bpt id="e6eb1a60-8e4f-4725-9196-c99ebf94ed7f">&lt;linkText&gt;</bpt>Note properties<ept id="e6eb1a60-8e4f-4725-9196-c99ebf94ed7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e6eb1a60-8e4f-4725-9196-c99ebf94ed7f">&lt;linkText&gt;</bpt>Note properties<ept id="e6eb1a60-8e4f-4725-9196-c99ebf94ed7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b4c58f5-d643-4562-abe4-f35f4e39b394" xml:space="preserve">
+          <source>Now that you have created a web app, you can develop your application locally, then deploy it after testing.</source>
+          <target state="new">Now that you have created a web app, you can develop your application locally, then deploy it after testing.</target>
+        </trans-unit>
+        <trans-unit id="03edf05b-94c6-4f59-92a1-ea2da23fbf20" xml:space="preserve">
+          <source>The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address.</source>
+          <target state="new">The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address.</target>
+        </trans-unit>
+        <trans-unit id="5699816e-30d2-4950-8db4-d370a2937852" xml:space="preserve">
+          <source>Information about previous registrants is displayed in a table.</source>
+          <target state="new">Information about previous registrants is displayed in a table.</target>
+        </trans-unit>
+        <trans-unit id="3d4a3c7a-29c1-4986-9638-d130db6e60a0" xml:space="preserve">
+          <source>Registration information is stored in a MySQL database.</source>
+          <target state="new">Registration information is stored in a MySQL database.</target>
+        </trans-unit>
+        <trans-unit id="11d1ff78-fc59-4c4c-9768-c3f355d5c2d2" xml:space="preserve">
+          <source>The application consists of one file (copy/paste code available below):</source>
+          <target state="new">The application consists of one file (copy/paste code available below):</target>
+        </trans-unit>
+        <trans-unit id="41bb352d-6da2-4acc-b60d-13888d0bceb1" xml:space="preserve">
+          <source><bpt id="776d156c-9a93-48c4-8831-3fabd9d7ddd0">&lt;strong&gt;</bpt>index.php<ept id="776d156c-9a93-48c4-8831-3fabd9d7ddd0">&lt;/strong&gt;</ept>: Displays a form for registration and a table containing registrant information.</source>
+          <target state="new"><bpt id="776d156c-9a93-48c4-8831-3fabd9d7ddd0">&lt;strong&gt;</bpt>index.php<ept id="776d156c-9a93-48c4-8831-3fabd9d7ddd0">&lt;/strong&gt;</ept>: Displays a form for registration and a table containing registrant information.</target>
+        </trans-unit>
+        <trans-unit id="202be76c-7f8d-4da2-b037-25f796b2bc0b" xml:space="preserve">
+          <source>To build and run the application locally, follow the steps below.</source>
+          <target state="new">To build and run the application locally, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="44ed8267-8038-4762-8b69-ebf53f8cec2a" xml:space="preserve">
+          <source>Note that these steps assume you have PHP, the MySQL Command-Line Tool (part of MySQL), and a web server set up on your local machine, and that you have enabled the <bpt id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;linkText&gt;</bpt>PDO extension for MySQL[pdo-mysql]<ept id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;/linkText&gt;</ept><bpt id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;title&gt;</bpt><ept id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;/title&gt;</ept>.</source>
+          <target state="new">Note that these steps assume you have PHP, the MySQL Command-Line Tool (part of MySQL), and a web server set up on your local machine, and that you have enabled the <bpt id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;linkText&gt;</bpt>PDO extension for MySQL[pdo-mysql]<ept id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;/linkText&gt;</ept><bpt id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;title&gt;</bpt><ept id="17ec7234-654a-4132-8fb7-3fdabbcde666">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6673dd25-d88a-4099-aac9-58ac24c07a12" xml:space="preserve">
+          <source>Connect to the remote MySQL server, using the value for <bpt id="ca449f33-4523-4c76-9b49-a41d5b802616">&lt;code&gt;</bpt>Data Source<ept id="ca449f33-4523-4c76-9b49-a41d5b802616">&lt;/code&gt;</ept>, <bpt id="6ca91e6e-095e-4eaa-a82f-48cebe224e91">&lt;code&gt;</bpt>User Id<ept id="6ca91e6e-095e-4eaa-a82f-48cebe224e91">&lt;/code&gt;</ept>, <bpt id="81ebe6aa-8a52-45bf-93ac-3e021fc3c91f">&lt;code&gt;</bpt>Password<ept id="81ebe6aa-8a52-45bf-93ac-3e021fc3c91f">&lt;/code&gt;</ept>, and <bpt id="b3948867-4986-46e7-ba02-4e8f489d1a61">&lt;code&gt;</bpt>Database<ept id="b3948867-4986-46e7-ba02-4e8f489d1a61">&lt;/code&gt;</ept> that you retrieved earlier:</source>
+          <target state="new">Connect to the remote MySQL server, using the value for <bpt id="ca449f33-4523-4c76-9b49-a41d5b802616">&lt;code&gt;</bpt>Data Source<ept id="ca449f33-4523-4c76-9b49-a41d5b802616">&lt;/code&gt;</ept>, <bpt id="6ca91e6e-095e-4eaa-a82f-48cebe224e91">&lt;code&gt;</bpt>User Id<ept id="6ca91e6e-095e-4eaa-a82f-48cebe224e91">&lt;/code&gt;</ept>, <bpt id="81ebe6aa-8a52-45bf-93ac-3e021fc3c91f">&lt;code&gt;</bpt>Password<ept id="81ebe6aa-8a52-45bf-93ac-3e021fc3c91f">&lt;/code&gt;</ept>, and <bpt id="b3948867-4986-46e7-ba02-4e8f489d1a61">&lt;code&gt;</bpt>Database<ept id="b3948867-4986-46e7-ba02-4e8f489d1a61">&lt;/code&gt;</ept> that you retrieved earlier:</target>
+        </trans-unit>
+        <trans-unit id="1e50c040-cd26-4123-9ce9-d800caa4743a" xml:space="preserve">
+          <source>The MySQL command prompt will appear:</source>
+          <target state="new">The MySQL command prompt will appear:</target>
+        </trans-unit>
+        <trans-unit id="f50547d0-c3dc-4375-a1c1-341d34bde9c2" xml:space="preserve">
+          <source>Paste in the following <bpt id="6d7f0445-750a-49c4-9b1a-09ee4aa087c1">&lt;code&gt;</bpt>CREATE TABLE<ept id="6d7f0445-750a-49c4-9b1a-09ee4aa087c1">&lt;/code&gt;</ept> command to create the <bpt id="6e341361-a34d-4239-831e-d000f677c82e">&lt;code&gt;</bpt>registration_tbl<ept id="6e341361-a34d-4239-831e-d000f677c82e">&lt;/code&gt;</ept> table in your database:</source>
+          <target state="new">Paste in the following <bpt id="6d7f0445-750a-49c4-9b1a-09ee4aa087c1">&lt;code&gt;</bpt>CREATE TABLE<ept id="6d7f0445-750a-49c4-9b1a-09ee4aa087c1">&lt;/code&gt;</ept> command to create the <bpt id="6e341361-a34d-4239-831e-d000f677c82e">&lt;code&gt;</bpt>registration_tbl<ept id="6e341361-a34d-4239-831e-d000f677c82e">&lt;/code&gt;</ept> table in your database:</target>
+        </trans-unit>
+        <trans-unit id="3794d232-dc81-40dc-a4b9-a00534f48859" xml:space="preserve">
+          <source>In your web server's root directory, create a folder called <bpt id="4122bb56-eca2-493e-b251-de8f2cf4f03b">&lt;code&gt;</bpt>registration<ept id="4122bb56-eca2-493e-b251-de8f2cf4f03b">&lt;/code&gt;</ept> and create a file in it called <bpt id="148f78bb-fe3d-4719-a2b9-ae86fe5449ce">&lt;code&gt;</bpt>index.php<ept id="148f78bb-fe3d-4719-a2b9-ae86fe5449ce">&lt;/code&gt;</ept>.</source>
+          <target state="new">In your web server's root directory, create a folder called <bpt id="4122bb56-eca2-493e-b251-de8f2cf4f03b">&lt;code&gt;</bpt>registration<ept id="4122bb56-eca2-493e-b251-de8f2cf4f03b">&lt;/code&gt;</ept> and create a file in it called <bpt id="148f78bb-fe3d-4719-a2b9-ae86fe5449ce">&lt;code&gt;</bpt>index.php<ept id="148f78bb-fe3d-4719-a2b9-ae86fe5449ce">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18b47911-b323-415c-bc5c-0ec91ee13bf4" xml:space="preserve">
+          <source>Open the <bpt id="e6c22689-0bec-424c-9ff6-a58970929cdb">&lt;strong&gt;</bpt>index.php<ept id="e6c22689-0bec-424c-9ff6-a58970929cdb">&lt;/strong&gt;</ept> file in a text editor or IDE and add the following code, and complete the necessary changes marked with <bpt id="7fe6287f-e8bd-4a7d-812e-6f9675b4f814">&lt;code&gt;</bpt>//TODO:<ept id="7fe6287f-e8bd-4a7d-812e-6f9675b4f814">&lt;/code&gt;</ept> comments.</source>
+          <target state="new">Open the <bpt id="e6c22689-0bec-424c-9ff6-a58970929cdb">&lt;strong&gt;</bpt>index.php<ept id="e6c22689-0bec-424c-9ff6-a58970929cdb">&lt;/strong&gt;</ept> file in a text editor or IDE and add the following code, and complete the necessary changes marked with <bpt id="7fe6287f-e8bd-4a7d-812e-6f9675b4f814">&lt;code&gt;</bpt>//TODO:<ept id="7fe6287f-e8bd-4a7d-812e-6f9675b4f814">&lt;/code&gt;</ept> comments.</target>
+        </trans-unit>
+        <trans-unit id="d20599ff-e7d2-46ae-a71e-7f29bc607e74" xml:space="preserve">
+          <source>You can now browse to <bpt id="4424d94a-1d36-4cee-aea1-172ffff8470b">&lt;strong&gt;</bpt>http://localhost/registration/index.php<ept id="4424d94a-1d36-4cee-aea1-172ffff8470b">&lt;/strong&gt;</ept> to test the application.</source>
+          <target state="new">You can now browse to <bpt id="4424d94a-1d36-4cee-aea1-172ffff8470b">&lt;strong&gt;</bpt>http://localhost/registration/index.php<ept id="4424d94a-1d36-4cee-aea1-172ffff8470b">&lt;/strong&gt;</ept> to test the application.</target>
+        </trans-unit>
+        <trans-unit id="ae0d1084-e282-484d-8568-31fac35a3ab7" xml:space="preserve">
+          <source>After you have tested your app locally, you can publish it to Web Apps using Git.</source>
+          <target state="new">After you have tested your app locally, you can publish it to Web Apps using Git.</target>
+        </trans-unit>
+        <trans-unit id="4e4818df-88af-4716-9a26-b5ad972fa2f5" xml:space="preserve">
+          <source>You will initialize your local Git repository and publish the application.</source>
+          <target state="new">You will initialize your local Git repository and publish the application.</target>
+        </trans-unit>
+        <trans-unit id="d47f2396-61a4-4013-be1f-df8d4a973d20" xml:space="preserve">
+          <source>These are the same steps shown in the portal at the end of the Create a web app and Set up Git Publishing section above.</source>
+          <target state="new">These are the same steps shown in the portal at the end of the Create a web app and Set up Git Publishing section above.</target>
+        </trans-unit>
+        <trans-unit id="7a948111-b8d6-4524-ba14-7588334e9c18" xml:space="preserve">
+          <source>(Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the web app properties on the portal.</source>
+          <target state="new">(Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the web app properties on the portal.</target>
+        </trans-unit>
+        <trans-unit id="79f93dd4-5194-42af-822c-bd6a09531677" xml:space="preserve">
+          <source>Open GitBash (or a terminal, if Git is in your <bpt id="207f2081-3209-42aa-8cef-7460b56f71b3">&lt;code&gt;</bpt>PATH<ept id="207f2081-3209-42aa-8cef-7460b56f71b3">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</source>
+          <target state="new">Open GitBash (or a terminal, if Git is in your <bpt id="207f2081-3209-42aa-8cef-7460b56f71b3">&lt;code&gt;</bpt>PATH<ept id="207f2081-3209-42aa-8cef-7460b56f71b3">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="368a8866-bb93-4cb7-a4a7-a986d78df71b" xml:space="preserve">
+          <source>You will be prompted for the password you created earlier.</source>
+          <target state="new">You will be prompted for the password you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="2299dd13-f6e7-48ff-aaf6-f2cad520b8a3" xml:space="preserve">
+          <source><bpt id="08e009b1-11b2-4b6b-b9d3-71b297677295">&lt;linkText&gt;</bpt>Initial Push to Azure via Git<ept id="08e009b1-11b2-4b6b-b9d3-71b297677295">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08e009b1-11b2-4b6b-b9d3-71b297677295">&lt;linkText&gt;</bpt>Initial Push to Azure via Git<ept id="08e009b1-11b2-4b6b-b9d3-71b297677295">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3527873-269d-4fbc-ad1c-805959301592" xml:space="preserve">
+          <source>Browse to <bpt id="16ca5c2d-0eb5-4c62-a150-b6d6d6e5ed4c">&lt;strong&gt;</bpt>http://[site name].azurewebsites.net/index.php<ept id="16ca5c2d-0eb5-4c62-a150-b6d6d6e5ed4c">&lt;/strong&gt;</ept> to begin using the application (this information will be stored on your account dashboard):</source>
+          <target state="new">Browse to <bpt id="16ca5c2d-0eb5-4c62-a150-b6d6d6e5ed4c">&lt;strong&gt;</bpt>http://[site name].azurewebsites.net/index.php<ept id="16ca5c2d-0eb5-4c62-a150-b6d6d6e5ed4c">&lt;/strong&gt;</ept> to begin using the application (this information will be stored on your account dashboard):</target>
+        </trans-unit>
+        <trans-unit id="85a593e3-1263-4e5b-960d-b85410d8149c" xml:space="preserve">
+          <source><bpt id="978281c7-5359-486b-9372-ca918ddc692c">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="978281c7-5359-486b-9372-ca918ddc692c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="978281c7-5359-486b-9372-ca918ddc692c">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="978281c7-5359-486b-9372-ca918ddc692c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5548b164-9176-4d65-ad79-88030c658404" xml:space="preserve">
+          <source>After you have published your app, you can begin making changes to it and use Git to publish them.</source>
+          <target state="new">After you have published your app, you can begin making changes to it and use Git to publish them.</target>
+        </trans-unit>
+        <trans-unit id="4d1eaccd-1693-449b-b6ac-347522ddfe95" xml:space="preserve">
+          <source>To publish changes to your app, follow these steps:</source>
+          <target state="new">To publish changes to your app, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="bee8d7bc-fc90-4fad-8daf-5fb2ddbe02f2" xml:space="preserve">
+          <source>Make changes to your app locally.</source>
+          <target state="new">Make changes to your app locally.</target>
+        </trans-unit>
+        <trans-unit id="0b3f9fbb-d86b-4c4b-9750-645bd1010c59" xml:space="preserve">
+          <source>Open GitBash (or a terminal, it Git is in your <bpt id="19cb600c-3ff6-4f23-808f-d8c477326357">&lt;code&gt;</bpt>PATH<ept id="19cb600c-3ff6-4f23-808f-d8c477326357">&lt;/code&gt;</ept>), change directories to the root directory of your app, and run the following commands:</source>
+          <target state="new">Open GitBash (or a terminal, it Git is in your <bpt id="19cb600c-3ff6-4f23-808f-d8c477326357">&lt;code&gt;</bpt>PATH<ept id="19cb600c-3ff6-4f23-808f-d8c477326357">&lt;/code&gt;</ept>), change directories to the root directory of your app, and run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="702b98bb-2f1c-4db5-9740-137998ce98c0" xml:space="preserve">
+          <source>You will be prompted for the password you created earlier.</source>
+          <target state="new">You will be prompted for the password you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="2fb37899-7f02-42ab-93b9-38c62d75c8a4" xml:space="preserve">
+          <source><bpt id="3b75103b-7f8d-4fcf-8064-d9f8784266b5">&lt;linkText&gt;</bpt>Pushing site changes to Azure via Git<ept id="3b75103b-7f8d-4fcf-8064-d9f8784266b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b75103b-7f8d-4fcf-8064-d9f8784266b5">&lt;linkText&gt;</bpt>Pushing site changes to Azure via Git<ept id="3b75103b-7f8d-4fcf-8064-d9f8784266b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbe3a696-16d4-4442-9d53-c6215f9911bf" xml:space="preserve">
+          <source>Browse to <bpt id="0d5414a4-f720-4cd2-a3bd-9c70004c9c47">&lt;strong&gt;</bpt>http://[site name].azurewebsites.net/index.php<ept id="0d5414a4-f720-4cd2-a3bd-9c70004c9c47">&lt;/strong&gt;</ept> to see your app and any changes you may have made:</source>
+          <target state="new">Browse to <bpt id="0d5414a4-f720-4cd2-a3bd-9c70004c9c47">&lt;strong&gt;</bpt>http://[site name].azurewebsites.net/index.php<ept id="0d5414a4-f720-4cd2-a3bd-9c70004c9c47">&lt;/strong&gt;</ept> to see your app and any changes you may have made:</target>
+        </trans-unit>
+        <trans-unit id="1374cf01-724a-421d-9a6d-90254014e913" xml:space="preserve">
+          <source><bpt id="1cb13fa9-0fb8-4bc2-946e-3fcfab7abb85">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="1cb13fa9-0fb8-4bc2-946e-3fcfab7abb85">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cb13fa9-0fb8-4bc2-946e-3fcfab7abb85">&lt;linkText&gt;</bpt>Azure PHP web site<ept id="1cb13fa9-0fb8-4bc2-946e-3fcfab7abb85">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42b80715-1956-418c-a871-fd1305d0f601" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;linkText&gt;</bpt>Try App Service<ept id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;/linkText&gt;</ept><bpt id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;title&gt;</bpt><ept id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;linkText&gt;</bpt>Try App Service<ept id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;/linkText&gt;</ept><bpt id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;title&gt;</bpt><ept id="4be6fd09-7f9c-4ae3-996c-72defe9e94c4">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="55f9633b-2596-4ac4-afc9-789e129ee991" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="92598f13-34ac-46a6-aadf-f2c71d32f3d8" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;/linkText&gt;</ept><bpt id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;title&gt;</bpt><ept id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;/linkText&gt;</ept><bpt id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;title&gt;</bpt><ept id="1ecfd0e4-640d-44da-82aa-04a452338bcd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2979b7d-8735-4a31-aa9f-cb97e66188da" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;/linkText&gt;</ept><bpt id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;title&gt;</bpt><ept id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;/linkText&gt;</ept><bpt id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;title&gt;</bpt><ept id="69e8d963-db09-4c8c-8eec-43e7a10dd7d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5a84666-d892-494d-ad1a-b1387be8e6a8" xml:space="preserve">
+          <source>http://www.php.net/manual/en/install.php</source>
+          <target state="new">http://www.php.net/manual/en/install.php</target>
+        </trans-unit>
+        <trans-unit id="f589afc5-10f8-4e15-aa04-feb2e2fb9ce2" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=29062</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=29062</target>
+        </trans-unit>
+        <trans-unit id="86eb6f59-50e5-480f-81a2-f04979dd354a" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=20098</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=20098</target>
+        </trans-unit>
+        <trans-unit id="ca5fa0f7-99d3-49a6-87de-3e55b8468f55" xml:space="preserve">
+          <source>http://git-scm.com/</source>
+          <target state="new">http://git-scm.com/</target>
+        </trans-unit>
+        <trans-unit id="949f2b0b-c00a-46c9-94a9-985d6125635e" xml:space="preserve">
+          <source>http://dev.mysql.com/downloads/mysql/</source>
+          <target state="new">http://dev.mysql.com/downloads/mysql/</target>
+        </trans-unit>
+        <trans-unit id="1cb0dba1-01c0-40c4-8feb-58b9747dae71" xml:space="preserve">
+          <source>http://www.php.net/manual/en/ref.pdo-mysql.php</source>
+          <target state="new">http://www.php.net/manual/en/ref.pdo-mysql.php</target>
+        </trans-unit>
+        <trans-unit id="c570d512-6c3a-4a7d-89b0-d28ca4fbd55a" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/running_app_2.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/running_app_2.png</target>
+        </trans-unit>
+        <trans-unit id="f7615779-0b62-4f0e-8880-c584146f491e" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/new_website2.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/new_website2.png</target>
+        </trans-unit>
+        <trans-unit id="8dd87429-4c05-47b7-afed-93b6125c3f27" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png</target>
+        </trans-unit>
+        <trans-unit id="d962ecad-8fc4-4c5d-816e-d8be0fc42c42" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/website_details.jpg</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/website_details.jpg</target>
+        </trans-unit>
+        <trans-unit id="1fbc0c5a-e270-4410-8be4-addf6d416ce0" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/create_db.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/create_db.png</target>
+        </trans-unit>
+        <trans-unit id="f71a4062-e163-4c33-afbe-34f96a39add9" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/select_webapp.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/select_webapp.png</target>
+        </trans-unit>
+        <trans-unit id="fb5f28ea-8be2-471c-8f0e-2fb201a40ac3" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png</target>
+        </trans-unit>
+        <trans-unit id="42e14378-e738-40ae-8dfb-c754b1c34e33" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/save_credentials.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/save_credentials.png</target>
+        </trans-unit>
+        <trans-unit id="df4a028d-7917-4729-b933-16a4b86b50c4" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/set_group.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/set_group.png</target>
+        </trans-unit>
+        <trans-unit id="a4afe87c-287d-4186-bc17-4ef1cdc48517" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/create_wa.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/create_wa.png</target>
+        </trans-unit>
+        <trans-unit id="a0079d99-cca0-4c18-a71f-f4bcdbed8030" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/setup_deploy.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/setup_deploy.png</target>
+        </trans-unit>
+        <trans-unit id="1a6d22e1-8566-48a5-8932-9b6d1bff96a5" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/select_local_git.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/select_local_git.png</target>
+        </trans-unit>
+        <trans-unit id="71e8ef35-c738-4654-882e-598a4cc8a8dd" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/select_database.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/select_database.png</target>
+        </trans-unit>
+        <trans-unit id="c3b66f24-c43a-448a-a756-e35e7eb376c5" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/select_properties.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/select_properties.png</target>
+        </trans-unit>
+        <trans-unit id="a7ffec1c-da65-4f06-91c1-751e1d2ac338" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/note-properties.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/note-properties.png</target>
+        </trans-unit>
+        <trans-unit id="aac2882c-6bc8-4e40-bdab-881fc44525ef" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/git-instructions.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/git-instructions.png</target>
+        </trans-unit>
+        <trans-unit id="257afdc2-454c-4049-9bec-cca46b331cad" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png</target>
+        </trans-unit>
+        <trans-unit id="c08c8ae7-ac33-49ca-a95b-a65b754de909" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png</target>
+        </trans-unit>
+        <trans-unit id="31b3e722-cc2d-4bc2-840b-baf5d7e435ea" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png</target>
+        </trans-unit>
+        <trans-unit id="9a0f94d3-9b02-4426-ae52-5e420c9610aa" xml:space="preserve">
+          <source>./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png</source>
+          <target state="new">./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png</target>
+        </trans-unit>
+        <trans-unit id="e002bcf1-f3d1-474c-b4c7-d31d41f4d688" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="c53f6e5f-f84a-4a2a-985c-c1e6bda37fcd" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ee621788.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ee621788.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="8d768b75-9eb1-496a-acb2-1e7257b136ff" />
+    </body>
+  </file>
+</xliff>

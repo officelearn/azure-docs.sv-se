@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="165b2b90-94e4-4347-aae7-89f59f05a7e7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="165b2b90-94e4-4347-aae7-89f59f05a7e7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2068737b-7447-4dae-ba9d-e737041d323c">
+        <trans-unit id="c04b02dc-15bc-4dae-a505-48c770100f9c" xml:space="preserve">
+          <source>Login to your Azure account.</source>
+          <target state="new">Login to your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="8b5ab531-a2e6-4a77-91e8-b72c7dbcf38a" xml:space="preserve">
+          <source>After providing your credentials, the command returns the result of your login.</source>
+          <target state="new">After providing your credentials, the command returns the result of your login.</target>
+        </trans-unit>
+        <trans-unit id="d29787fb-e330-4fca-84c7-ccb45e1b819e" xml:space="preserve">
+          <source>If you have multiple subscriptions, provide the subscription id you wish to use for deployment.</source>
+          <target state="new">If you have multiple subscriptions, provide the subscription id you wish to use for deployment.</target>
+        </trans-unit>
+        <trans-unit id="8b5580d0-01dc-44c1-a8bd-a74b874eea0c" xml:space="preserve">
+          <source>Switch to Azure Resource Manager module</source>
+          <target state="new">Switch to Azure Resource Manager module</target>
+        </trans-unit>
+        <trans-unit id="6c4b0246-9f3a-4be4-9c5a-de0072095c3b" xml:space="preserve">
+          <source>You will receive confirmation of the new mode.</source>
+          <target state="new">You will receive confirmation of the new mode.</target>
+        </trans-unit>
+        <trans-unit id="8dff144a-999c-4fcd-90dc-fd13cc88d427" xml:space="preserve">
+          <source>If you do not have an existing resource group, create a new resource group.</source>
+          <target state="new">If you do not have an existing resource group, create a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="53ec52ab-bb90-444b-a933-0b0675ec4689" xml:space="preserve">
+          <source>Provide the name of the resource group and location that you need for your solution.</source>
+          <target state="new">Provide the name of the resource group and location that you need for your solution.</target>
+        </trans-unit>
+        <trans-unit id="c9495d3f-90a5-44c9-bff8-3a8eb3ac9e51" xml:space="preserve">
+          <source>A summary of the new resource group is returned.</source>
+          <target state="new">A summary of the new resource group is returned.</target>
+        </trans-unit>
+        <trans-unit id="103857ad-3941-41e8-ba59-86f1c5fabcbc" xml:space="preserve">
+          <source>To create a new deployment for your resource group, run the following command and provide the necessary parameters.</source>
+          <target state="new">To create a new deployment for your resource group, run the following command and provide the necessary parameters.</target>
+        </trans-unit>
+        <trans-unit id="4f7937da-dd3b-4302-919f-70881f0102ef" xml:space="preserve">
+          <source>The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.</source>
+          <target state="new">The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.</target>
+        </trans-unit>
+        <trans-unit id="aeedbeb4-dbd0-4f1d-ba65-87a5db01f370" xml:space="preserve">
+          <source>You have the following options for providing parameter values:</source>
+          <target state="new">You have the following options for providing parameter values:</target>
+        </trans-unit>
+        <trans-unit id="db1be868-36e6-4a55-adcd-8570bacf6d3b" xml:space="preserve">
+          <source>Use inline parameters and a local template.</source>
+          <target state="new">Use inline parameters and a local template.</target>
+        </trans-unit>
+        <trans-unit id="6612e350-ad7f-4168-9c14-b1063e6e25c4" xml:space="preserve">
+          <source>Use inline parameters and a link to a template.</source>
+          <target state="new">Use inline parameters and a link to a template.</target>
+        </trans-unit>
+        <trans-unit id="0c418159-3eec-4777-9c84-09ccf6e7a92a" xml:space="preserve">
+          <source>Use a parameter file.</source>
+          <target state="new">Use a parameter file.</target>
+        </trans-unit>
+        <trans-unit id="5a1577b2-89ae-45eb-9739-6ba1f7db5366" xml:space="preserve">
+          <source>When the resource group has been deployed, you will see a summary of the deployment.</source>
+          <target state="new">When the resource group has been deployed, you will see a summary of the deployment.</target>
+        </trans-unit>
+        <trans-unit id="ff346205-f50b-47a0-967d-a1da8e25e9c6" xml:space="preserve">
+          <source>To get information about your latest deployment.</source>
+          <target state="new">To get information about your latest deployment.</target>
+        </trans-unit>
+        <trans-unit id="b2c7d13f-091b-412b-8624-321c72c0ff00" xml:space="preserve">
+          <source>To get detailed information about deployment failures.</source>
+          <target state="new">To get detailed information about deployment failures.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

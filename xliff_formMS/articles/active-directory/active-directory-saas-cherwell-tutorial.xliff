@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a4f6eeb0-3cfe-40ea-8b55-d96176af313b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a4f6eeb0-3cfe-40ea-8b55-d96176af313b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b1c167b2-4902-4ccb-b241-8bec9f066fc7">
+        <trans-unit id="c35e0482-103a-4005-9434-14d7ba2ce08c" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Cherwell | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Cherwell | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="16c20e73-e50f-4b78-b396-4ba748157873" xml:space="preserve">
+          <source>Learn how to use Cherwell with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Cherwell with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="bc44c661-c6f3-4d4f-970f-5ad60d608d4f" xml:space="preserve">
+          <source>For feedback, click <bpt id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;linkText&gt;</bpt>here<ept id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;/linkText&gt;</ept><bpt id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;title&gt;</bpt><ept id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;linkText&gt;</bpt>here<ept id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;/linkText&gt;</ept><bpt id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;title&gt;</bpt><ept id="21c8db12-46fb-4f60-bd49-3fa362cd5f61">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eef93cdf-e5dd-4d39-b8ea-7405b7d299c6" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Cherwell.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Cherwell.</target>
+        </trans-unit>
+        <trans-unit id="ef2419f6-adc0-4c58-b989-5b5db3930f76" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="1f098b61-8bc1-4947-a202-78b0ea900089" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="751a4c43-7dbd-480a-b4d9-74e8703b25af" xml:space="preserve">
+          <source>A Cherwell single sign-on enabled subscription</source>
+          <target state="new">A Cherwell single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="91fec823-3426-47b2-b1fc-e60c05e80cef" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Cherwell will be able to single sign into the application at your Cherwell company site (service provider initiated sign on), or using the <bpt id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;/linkText&gt;</ept><bpt id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;title&gt;</bpt><ept id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Cherwell will be able to single sign into the application at your Cherwell company site (service provider initiated sign on), or using the <bpt id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;/linkText&gt;</ept><bpt id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;title&gt;</bpt><ept id="f324dc32-7ad0-4b1f-a94e-604556dc8a85">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3ed8348-5c47-4c47-83d3-bcf65d2e1f71" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="c36ee44d-7ab3-4a20-956f-eaa5abb56cfe" xml:space="preserve">
+          <source>Enabling the application integration for Cherwell</source>
+          <target state="new">Enabling the application integration for Cherwell</target>
+        </trans-unit>
+        <trans-unit id="a6452361-5703-45b3-b01b-d6ec2b525945" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="2ffb3908-2df4-4843-8834-ef6f086e9bef" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="e77fb50b-05cb-4403-8fc4-c63be80972f6" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="af513400-d11e-45ab-9746-92f79b2b3746" xml:space="preserve">
+          <source><bpt id="172e062f-222b-4149-ac86-6cf5e4a740e3">&lt;linkText&gt;</bpt>Scenario<ept id="172e062f-222b-4149-ac86-6cf5e4a740e3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="172e062f-222b-4149-ac86-6cf5e4a740e3">&lt;linkText&gt;</bpt>Scenario<ept id="172e062f-222b-4149-ac86-6cf5e4a740e3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d758a005-8dcc-4353-8cbb-7047120da26b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Cherwell.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Cherwell.</target>
+        </trans-unit>
+        <trans-unit id="b38f727e-67b8-493f-9dd6-4e0ea4594e28" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="61a04198-1408-47fc-a2d9-dedba4186090">&lt;strong&gt;</bpt>Active Directory<ept id="61a04198-1408-47fc-a2d9-dedba4186090">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="61a04198-1408-47fc-a2d9-dedba4186090">&lt;strong&gt;</bpt>Active Directory<ept id="61a04198-1408-47fc-a2d9-dedba4186090">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="098d63ad-387a-433f-a298-e037b45296b2" xml:space="preserve">
+          <source><bpt id="f1df7492-f6c8-498c-b681-60b85bd75937">&lt;linkText&gt;</bpt>Active Directory<ept id="f1df7492-f6c8-498c-b681-60b85bd75937">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1df7492-f6c8-498c-b681-60b85bd75937">&lt;linkText&gt;</bpt>Active Directory<ept id="f1df7492-f6c8-498c-b681-60b85bd75937">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="003dd91d-badc-4f8c-9eaa-cf67518a3164" xml:space="preserve">
+          <source>From the <bpt id="74aacef2-68c1-4780-bd56-b175dc242d6a">&lt;strong&gt;</bpt>Directory<ept id="74aacef2-68c1-4780-bd56-b175dc242d6a">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="74aacef2-68c1-4780-bd56-b175dc242d6a">&lt;strong&gt;</bpt>Directory<ept id="74aacef2-68c1-4780-bd56-b175dc242d6a">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ee833318-8719-4298-a3a6-fa8e1a43af05" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="07fe8d33-ff4b-409a-a844-38ad340eb3b6">&lt;strong&gt;</bpt>Applications<ept id="07fe8d33-ff4b-409a-a844-38ad340eb3b6">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="07fe8d33-ff4b-409a-a844-38ad340eb3b6">&lt;strong&gt;</bpt>Applications<ept id="07fe8d33-ff4b-409a-a844-38ad340eb3b6">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="60b00382-e14d-4529-bd0a-388074ca89c2" xml:space="preserve">
+          <source><bpt id="b99d5ed6-6cb7-4c57-aa58-b7b3f42eb46e">&lt;linkText&gt;</bpt>Applications<ept id="b99d5ed6-6cb7-4c57-aa58-b7b3f42eb46e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b99d5ed6-6cb7-4c57-aa58-b7b3f42eb46e">&lt;linkText&gt;</bpt>Applications<ept id="b99d5ed6-6cb7-4c57-aa58-b7b3f42eb46e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f191cf8-f737-48db-b8b6-0ca2e240bed5" xml:space="preserve">
+          <source>Click <bpt id="4b31c535-dd0c-404a-8a21-f8a8b541cf69">&lt;strong&gt;</bpt>Add<ept id="4b31c535-dd0c-404a-8a21-f8a8b541cf69">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="4b31c535-dd0c-404a-8a21-f8a8b541cf69">&lt;strong&gt;</bpt>Add<ept id="4b31c535-dd0c-404a-8a21-f8a8b541cf69">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="a4fadb78-5726-455a-9778-e51e61f27f5f" xml:space="preserve">
+          <source><bpt id="4f0f1ac0-0ba5-4d2c-9298-001ed741750d">&lt;linkText&gt;</bpt>Add application<ept id="4f0f1ac0-0ba5-4d2c-9298-001ed741750d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f0f1ac0-0ba5-4d2c-9298-001ed741750d">&lt;linkText&gt;</bpt>Add application<ept id="4f0f1ac0-0ba5-4d2c-9298-001ed741750d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ca0120a-7c6a-45e3-961b-e7c95c946cd9" xml:space="preserve">
+          <source>On the <bpt id="f261652b-e4de-4218-9343-941a6060ee70">&lt;strong&gt;</bpt>What do you want to do<ept id="f261652b-e4de-4218-9343-941a6060ee70">&lt;/strong&gt;</ept> dialog, click <bpt id="5fd7970b-8b24-4cdd-8fcb-31b5aafc65c4">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5fd7970b-8b24-4cdd-8fcb-31b5aafc65c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f261652b-e4de-4218-9343-941a6060ee70">&lt;strong&gt;</bpt>What do you want to do<ept id="f261652b-e4de-4218-9343-941a6060ee70">&lt;/strong&gt;</ept> dialog, click <bpt id="5fd7970b-8b24-4cdd-8fcb-31b5aafc65c4">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="5fd7970b-8b24-4cdd-8fcb-31b5aafc65c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c3c12df-32d9-47cb-85df-5ddc9c488bb8" xml:space="preserve">
+          <source><bpt id="2ea8ad15-dbdc-4d52-a051-514535527c50">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2ea8ad15-dbdc-4d52-a051-514535527c50">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ea8ad15-dbdc-4d52-a051-514535527c50">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="2ea8ad15-dbdc-4d52-a051-514535527c50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dc33c6d-911b-4514-8b6c-6c4835e6316e" xml:space="preserve">
+          <source>In the <bpt id="35cde733-f139-4413-ad6a-f52173eca855">&lt;strong&gt;</bpt>search box<ept id="35cde733-f139-4413-ad6a-f52173eca855">&lt;/strong&gt;</ept>, type <bpt id="0e366f8a-81e4-4e94-a771-9fc6d586d1b5">&lt;strong&gt;</bpt>Cherwell<ept id="0e366f8a-81e4-4e94-a771-9fc6d586d1b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="35cde733-f139-4413-ad6a-f52173eca855">&lt;strong&gt;</bpt>search box<ept id="35cde733-f139-4413-ad6a-f52173eca855">&lt;/strong&gt;</ept>, type <bpt id="0e366f8a-81e4-4e94-a771-9fc6d586d1b5">&lt;strong&gt;</bpt>Cherwell<ept id="0e366f8a-81e4-4e94-a771-9fc6d586d1b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e966be4-0055-4b3b-b8d7-9fd29f45b117" xml:space="preserve">
+          <source><bpt id="10a968fb-5a80-4446-bae3-11c512a604fc">&lt;linkText&gt;</bpt>Cherwell<ept id="10a968fb-5a80-4446-bae3-11c512a604fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10a968fb-5a80-4446-bae3-11c512a604fc">&lt;linkText&gt;</bpt>Cherwell<ept id="10a968fb-5a80-4446-bae3-11c512a604fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a51deee-0658-4097-8c71-38be450edddc" xml:space="preserve">
+          <source>In the results pane, select <bpt id="315f5e02-2374-4372-9204-894baf5baae1">&lt;strong&gt;</bpt>Cherwell<ept id="315f5e02-2374-4372-9204-894baf5baae1">&lt;/strong&gt;</ept>, and then click <bpt id="b988ceeb-5fe5-4728-8551-f0c9f67619d3">&lt;strong&gt;</bpt>Complete<ept id="b988ceeb-5fe5-4728-8551-f0c9f67619d3">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="315f5e02-2374-4372-9204-894baf5baae1">&lt;strong&gt;</bpt>Cherwell<ept id="315f5e02-2374-4372-9204-894baf5baae1">&lt;/strong&gt;</ept>, and then click <bpt id="b988ceeb-5fe5-4728-8551-f0c9f67619d3">&lt;strong&gt;</bpt>Complete<ept id="b988ceeb-5fe5-4728-8551-f0c9f67619d3">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="2fcfd7da-d6cb-451f-ae2e-0b1393f45de8" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Cherwell with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Cherwell with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="77d7ab66-60b5-46d9-92d1-833c719f53ca" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="9181cfe2-0526-4320-9ced-512a37375636">&lt;strong&gt;</bpt>Cherwell<ept id="9181cfe2-0526-4320-9ced-512a37375636">&lt;/strong&gt;</ept> application integration page, click <bpt id="e72fc341-f155-407c-9671-69d114fd265d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e72fc341-f155-407c-9671-69d114fd265d">&lt;/strong&gt;</ept> to open the <bpt id="cb5d8bfc-00e9-41d1-8707-d3a139873b2a">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="cb5d8bfc-00e9-41d1-8707-d3a139873b2a">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="9181cfe2-0526-4320-9ced-512a37375636">&lt;strong&gt;</bpt>Cherwell<ept id="9181cfe2-0526-4320-9ced-512a37375636">&lt;/strong&gt;</ept> application integration page, click <bpt id="e72fc341-f155-407c-9671-69d114fd265d">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e72fc341-f155-407c-9671-69d114fd265d">&lt;/strong&gt;</ept> to open the <bpt id="cb5d8bfc-00e9-41d1-8707-d3a139873b2a">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="cb5d8bfc-00e9-41d1-8707-d3a139873b2a">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="98066793-058b-40a7-ad76-33616a1f7d20" xml:space="preserve">
+          <source><bpt id="7cef92fd-6974-4eee-9497-2ee689e98dca">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7cef92fd-6974-4eee-9497-2ee689e98dca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7cef92fd-6974-4eee-9497-2ee689e98dca">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7cef92fd-6974-4eee-9497-2ee689e98dca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a234151e-f090-4fc0-9643-0fa207005509" xml:space="preserve">
+          <source>On the <bpt id="de411821-dd4c-4ef2-8676-40d5747d18d8">&lt;strong&gt;</bpt>How would you like users to sign on to Cherwell<ept id="de411821-dd4c-4ef2-8676-40d5747d18d8">&lt;/strong&gt;</ept> page, select <bpt id="25868ce4-0d98-4345-acc5-a3290b938ad5">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="25868ce4-0d98-4345-acc5-a3290b938ad5">&lt;/strong&gt;</ept>, and then click <bpt id="4dbab317-f614-493c-b5b9-5055d5010df4">&lt;strong&gt;</bpt>Next<ept id="4dbab317-f614-493c-b5b9-5055d5010df4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="de411821-dd4c-4ef2-8676-40d5747d18d8">&lt;strong&gt;</bpt>How would you like users to sign on to Cherwell<ept id="de411821-dd4c-4ef2-8676-40d5747d18d8">&lt;/strong&gt;</ept> page, select <bpt id="25868ce4-0d98-4345-acc5-a3290b938ad5">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="25868ce4-0d98-4345-acc5-a3290b938ad5">&lt;/strong&gt;</ept>, and then click <bpt id="4dbab317-f614-493c-b5b9-5055d5010df4">&lt;strong&gt;</bpt>Next<ept id="4dbab317-f614-493c-b5b9-5055d5010df4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e42207d-8042-4341-99e9-bd4b6ee0e094" xml:space="preserve">
+          <source><bpt id="215ff1fa-8524-407c-8edf-bf59b9f1e39a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="215ff1fa-8524-407c-8edf-bf59b9f1e39a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="215ff1fa-8524-407c-8edf-bf59b9f1e39a">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="215ff1fa-8524-407c-8edf-bf59b9f1e39a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c94a787-d63a-4faf-966b-94dcfcf10afe" xml:space="preserve">
+          <source>On the <bpt id="031b1385-2140-49ab-8d3e-39d6de5747ab">&lt;strong&gt;</bpt>Configure App URL<ept id="031b1385-2140-49ab-8d3e-39d6de5747ab">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="031b1385-2140-49ab-8d3e-39d6de5747ab">&lt;strong&gt;</bpt>Configure App URL<ept id="031b1385-2140-49ab-8d3e-39d6de5747ab">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="85578451-1482-4c08-aa1a-bfab08111e4f" xml:space="preserve">
+          <source><bpt id="22d05faa-f3d8-462d-9fce-7ccf2fcf80d2">&lt;linkText&gt;</bpt>Configure App URL<ept id="22d05faa-f3d8-462d-9fce-7ccf2fcf80d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22d05faa-f3d8-462d-9fce-7ccf2fcf80d2">&lt;linkText&gt;</bpt>Configure App URL<ept id="22d05faa-f3d8-462d-9fce-7ccf2fcf80d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3fa3037-bdec-40f6-ad7d-b904828e4c48" xml:space="preserve">
+          <source>In the <bpt id="12361175-b14e-44b1-b8a4-58a5d593addf">&lt;strong&gt;</bpt>Sign On URL<ept id="12361175-b14e-44b1-b8a4-58a5d593addf">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign into your <bpt id="cb30dc66-965a-46cf-a8f9-3b330c03d517">&lt;strong&gt;</bpt>Cherwell<ept id="cb30dc66-965a-46cf-a8f9-3b330c03d517">&lt;/strong&gt;</ept> (e.g.: <bpt id="34ef6d3d-042b-49e4-8ebe-aef11ee01602">&lt;em&gt;</bpt>https://pictdev.cherwellondemand.com/cherwellclient<ept id="34ef6d3d-042b-49e4-8ebe-aef11ee01602">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="12361175-b14e-44b1-b8a4-58a5d593addf">&lt;strong&gt;</bpt>Sign On URL<ept id="12361175-b14e-44b1-b8a4-58a5d593addf">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign into your <bpt id="cb30dc66-965a-46cf-a8f9-3b330c03d517">&lt;strong&gt;</bpt>Cherwell<ept id="cb30dc66-965a-46cf-a8f9-3b330c03d517">&lt;/strong&gt;</ept> (e.g.: <bpt id="34ef6d3d-042b-49e4-8ebe-aef11ee01602">&lt;em&gt;</bpt>https://pictdev.cherwellondemand.com/cherwellclient<ept id="34ef6d3d-042b-49e4-8ebe-aef11ee01602">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="3657c2dc-dba2-499f-aa26-6e7abea3215d" xml:space="preserve">
+          <source>Click <bpt id="345e14ea-b863-4625-b41f-ce5a14676a8f">&lt;strong&gt;</bpt>Next<ept id="345e14ea-b863-4625-b41f-ce5a14676a8f">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="345e14ea-b863-4625-b41f-ce5a14676a8f">&lt;strong&gt;</bpt>Next<ept id="345e14ea-b863-4625-b41f-ce5a14676a8f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fd7c642-768b-4f01-972c-39ce38b1bd6c" xml:space="preserve">
+          <source>On the <bpt id="38c5fff6-c631-4358-9d92-e3d385becde6">&lt;strong&gt;</bpt>Configure single sign-on at Cherwell<ept id="38c5fff6-c631-4358-9d92-e3d385becde6">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="38c5fff6-c631-4358-9d92-e3d385becde6">&lt;strong&gt;</bpt>Configure single sign-on at Cherwell<ept id="38c5fff6-c631-4358-9d92-e3d385becde6">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="de18f39b-5343-4c4e-a316-782c8b5a9849" xml:space="preserve">
+          <source><bpt id="e61a769f-4cbc-4bc3-8e33-841023831542">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e61a769f-4cbc-4bc3-8e33-841023831542">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e61a769f-4cbc-4bc3-8e33-841023831542">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="e61a769f-4cbc-4bc3-8e33-841023831542">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="114df3a3-36db-43ab-a367-36446891da63" xml:space="preserve">
+          <source>Click <bpt id="24973bfd-3754-4e74-9c5e-302f22c8ef1f">&lt;strong&gt;</bpt>Download certificate<ept id="24973bfd-3754-4e74-9c5e-302f22c8ef1f">&lt;/strong&gt;</ept>, and then save the certificate locally on your computer.</source>
+          <target state="new">Click <bpt id="24973bfd-3754-4e74-9c5e-302f22c8ef1f">&lt;strong&gt;</bpt>Download certificate<ept id="24973bfd-3754-4e74-9c5e-302f22c8ef1f">&lt;/strong&gt;</ept>, and then save the certificate locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="a9b33d62-cf68-4779-a3b4-1d8e2089bc1e" xml:space="preserve">
+          <source>Copy the <bpt id="b777fee7-52e9-4ef6-aeba-2abe6572b68d">&lt;strong&gt;</bpt>Identity Provider URL<ept id="b777fee7-52e9-4ef6-aeba-2abe6572b68d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the <bpt id="b777fee7-52e9-4ef6-aeba-2abe6572b68d">&lt;strong&gt;</bpt>Identity Provider URL<ept id="b777fee7-52e9-4ef6-aeba-2abe6572b68d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aae42a82-d2ac-4826-a2c3-c5944e38339b" xml:space="preserve">
+          <source>Copy the <bpt id="60ea967d-09cf-418a-b241-a51e50acd8ca">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="60ea967d-09cf-418a-b241-a51e50acd8ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy the <bpt id="60ea967d-09cf-418a-b241-a51e50acd8ca">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="60ea967d-09cf-418a-b241-a51e50acd8ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91aff953-a302-46c3-9819-56b8797063dc" xml:space="preserve">
+          <source>Click <bpt id="89123c53-bc7b-4d9d-aeb4-63da59e9b0b3">&lt;strong&gt;</bpt>Next<ept id="89123c53-bc7b-4d9d-aeb4-63da59e9b0b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="89123c53-bc7b-4d9d-aeb4-63da59e9b0b3">&lt;strong&gt;</bpt>Next<ept id="89123c53-bc7b-4d9d-aeb4-63da59e9b0b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba2575a7-b7d9-4757-a038-714a8e8ef778" xml:space="preserve">
+          <source>Submit the downloaded certificate, the <bpt id="721c0d01-cd61-4ece-802b-6e969d6b5c13">&lt;strong&gt;</bpt>Identity Provider URL<ept id="721c0d01-cd61-4ece-802b-6e969d6b5c13">&lt;/strong&gt;</ept> and the <bpt id="85f46266-0e4c-424f-8019-019e7b61256e">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="85f46266-0e4c-424f-8019-019e7b61256e">&lt;/strong&gt;</ept> to your Cherwell support team.</source>
+          <target state="new">Submit the downloaded certificate, the <bpt id="721c0d01-cd61-4ece-802b-6e969d6b5c13">&lt;strong&gt;</bpt>Identity Provider URL<ept id="721c0d01-cd61-4ece-802b-6e969d6b5c13">&lt;/strong&gt;</ept> and the <bpt id="85f46266-0e4c-424f-8019-019e7b61256e">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="85f46266-0e4c-424f-8019-019e7b61256e">&lt;/strong&gt;</ept> to your Cherwell support team.</target>
+        </trans-unit>
+        <trans-unit id="0791b49c-20c7-4803-b8e8-594614672285" xml:space="preserve">
+          <source>Your Cherwell support team has to do the actual SSO configuration.</source>
+          <target state="new">Your Cherwell support team has to do the actual SSO configuration.</target>
+        </trans-unit>
+        <trans-unit id="69611b7f-857c-4a1e-bac2-9188f89ca27b" xml:space="preserve">
+          <source>You will get a notification when SSO has been enabled for your subscription.</source>
+          <target state="new">You will get a notification when SSO has been enabled for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="4745c362-9206-4bda-8ff9-23417876948e" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="b754edd6-8040-4de9-8a09-5777cb2899bc">&lt;strong&gt;</bpt>Complete<ept id="b754edd6-8040-4de9-8a09-5777cb2899bc">&lt;/strong&gt;</ept> to close the <bpt id="1d5904c5-532d-430a-af61-018ac1c95997">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1d5904c5-532d-430a-af61-018ac1c95997">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="b754edd6-8040-4de9-8a09-5777cb2899bc">&lt;strong&gt;</bpt>Complete<ept id="b754edd6-8040-4de9-8a09-5777cb2899bc">&lt;/strong&gt;</ept> to close the <bpt id="1d5904c5-532d-430a-af61-018ac1c95997">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1d5904c5-532d-430a-af61-018ac1c95997">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="2a3f3e78-ef53-44ec-aca7-4de864b34c6a" xml:space="preserve">
+          <source><bpt id="2de02235-d483-4d6d-bfcb-4d1f84c4cf95">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2de02235-d483-4d6d-bfcb-4d1f84c4cf95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2de02235-d483-4d6d-bfcb-4d1f84c4cf95">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="2de02235-d483-4d6d-bfcb-4d1f84c4cf95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2619ecc-233a-4f11-a704-bf56ae88f40e" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Cherwell, they must be provisioned into Cherwell.</source>
+          <target state="new">In order to enable Azure AD users to log into Cherwell, they must be provisioned into Cherwell.</target>
+        </trans-unit>
+        <trans-unit id="5bf124ce-ae05-4750-bee8-cfb45bf3825c" xml:space="preserve">
+          <source>In the case of Cherwell, the user accounts need to be created by your Cherwell support team.</source>
+          <target state="new">In the case of Cherwell, the user accounts need to be created by your Cherwell support team.</target>
+        </trans-unit>
+        <trans-unit id="1ec8a54a-61c6-43ef-ac3b-def3b99dd58c" xml:space="preserve">
+          <source>You can use any other Cherwell user account creation tools or APIs provided by Cherwell to provision Azure Active Directory user accounts.</source>
+          <target state="new">You can use any other Cherwell user account creation tools or APIs provided by Cherwell to provision Azure Active Directory user accounts.</target>
+        </trans-unit>
+        <trans-unit id="8a4184f5-7249-4b61-ae54-50638cbc9864" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="cbeee3f1-b053-4dd5-9255-efcc118aebde" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="3afb743d-fae0-4c4b-8a63-ea357f036ecc" xml:space="preserve">
+          <source>On the <bpt id="8ce74dbd-0ecf-4f21-9439-63b308182af1">&lt;strong&gt;</bpt>Cherwell **application integration page, click **Assign users<ept id="8ce74dbd-0ecf-4f21-9439-63b308182af1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8ce74dbd-0ecf-4f21-9439-63b308182af1">&lt;strong&gt;</bpt>Cherwell **application integration page, click **Assign users<ept id="8ce74dbd-0ecf-4f21-9439-63b308182af1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29f40190-7f70-40f0-b565-6cc0e3f09528" xml:space="preserve">
+          <source><bpt id="c88708a2-beef-4dcc-9a2a-1f11a3e7ceca">&lt;linkText&gt;</bpt>Assign Users<ept id="c88708a2-beef-4dcc-9a2a-1f11a3e7ceca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c88708a2-beef-4dcc-9a2a-1f11a3e7ceca">&lt;linkText&gt;</bpt>Assign Users<ept id="c88708a2-beef-4dcc-9a2a-1f11a3e7ceca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68c53d2f-062b-42b9-84a5-0f0a66e78e29" xml:space="preserve">
+          <source>Select your test user, click <bpt id="e0cd3dcf-b36d-41b7-a520-fb145e9deec2">&lt;strong&gt;</bpt>Assign<ept id="e0cd3dcf-b36d-41b7-a520-fb145e9deec2">&lt;/strong&gt;</ept>, and then click <bpt id="4091fad5-0e71-4126-946b-854e19c88e1f">&lt;strong&gt;</bpt>Yes<ept id="4091fad5-0e71-4126-946b-854e19c88e1f">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="e0cd3dcf-b36d-41b7-a520-fb145e9deec2">&lt;strong&gt;</bpt>Assign<ept id="e0cd3dcf-b36d-41b7-a520-fb145e9deec2">&lt;/strong&gt;</ept>, and then click <bpt id="4091fad5-0e71-4126-946b-854e19c88e1f">&lt;strong&gt;</bpt>Yes<ept id="4091fad5-0e71-4126-946b-854e19c88e1f">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="4c4d0254-60de-4b16-8658-8eadff2cb580" xml:space="preserve">
+          <source><bpt id="456254c5-2bc6-439c-accd-751a3ad08d2b">&lt;linkText&gt;</bpt>Yes<ept id="456254c5-2bc6-439c-accd-751a3ad08d2b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="456254c5-2bc6-439c-accd-751a3ad08d2b">&lt;linkText&gt;</bpt>Yes<ept id="456254c5-2bc6-439c-accd-751a3ad08d2b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e4f8dd4-c324-452e-a466-6406fb390b9c" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="4188b725-7e5b-4136-ae8b-7a209081a3c4" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;/linkText&gt;</ept><bpt id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;title&gt;</bpt><ept id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;/linkText&gt;</ept><bpt id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;title&gt;</bpt><ept id="c74b5eb2-e06d-4a25-9bda-57e0a6bfa30e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,732 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d31d1949-507f-4add-80bd-2575944d2fdc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d31d1949-507f-4add-80bd-2575944d2fdc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ecff744c-cab9-49c9-9bad-cf65266b2c27">
+        <trans-unit id="8d34198e-8fac-4733-ba13-1977afa86d97" xml:space="preserve">
+          <source>Site Recovery overview</source>
+          <target state="new">Site Recovery overview</target>
+        </trans-unit>
+        <trans-unit id="f4e4231a-7c1f-4af7-a19b-22a8482ab092" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</target>
+        </trans-unit>
+        <trans-unit id="8d52e01e-91cc-4ef9-86de-6ccdda2a0465" xml:space="preserve">
+          <source>The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</source>
+          <target state="new">The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="50156b19-6dca-4986-80b1-18514e95e529" xml:space="preserve">
+          <source><bpt id="a3e046d3-a5f7-41c0-acc6-dd7166577c4c">&lt;strong&gt;</bpt>Simplify<ept id="a3e046d3-a5f7-41c0-acc6-dd7166577c4c">&lt;/strong&gt;</ept>-Site Recovery helps simplify your BCDR strategy by making it easy to configure replication, and run failover and recovery for your on-premises workloads and applications.</source>
+          <target state="new"><bpt id="a3e046d3-a5f7-41c0-acc6-dd7166577c4c">&lt;strong&gt;</bpt>Simplify<ept id="a3e046d3-a5f7-41c0-acc6-dd7166577c4c">&lt;/strong&gt;</ept>-Site Recovery helps simplify your BCDR strategy by making it easy to configure replication, and run failover and recovery for your on-premises workloads and applications.</target>
+        </trans-unit>
+        <trans-unit id="e5d28c60-270a-4f5d-a742-fc25edc598a1" xml:space="preserve">
+          <source><bpt id="85421a91-5341-4485-abee-2298869273e1">&lt;strong&gt;</bpt>Replication<ept id="85421a91-5341-4485-abee-2298869273e1">&lt;/strong&gt;</ept>-You can replicate on-premises workloads to Azure storage, or to a secondary datacenter.</source>
+          <target state="new"><bpt id="85421a91-5341-4485-abee-2298869273e1">&lt;strong&gt;</bpt>Replication<ept id="85421a91-5341-4485-abee-2298869273e1">&lt;/strong&gt;</ept>-You can replicate on-premises workloads to Azure storage, or to a secondary datacenter.</target>
+        </trans-unit>
+        <trans-unit id="736cf79a-dfb2-4ff2-ba53-8825385850d9" xml:space="preserve">
+          <source><bpt id="7f16dd40-2e8e-42dd-8413-df1d1664e580">&lt;strong&gt;</bpt>Vault<ept id="7f16dd40-2e8e-42dd-8413-df1d1664e580">&lt;/strong&gt;</ept>-To manage replication you set up a Site Recovery vault in an Azure region you select.</source>
+          <target state="new"><bpt id="7f16dd40-2e8e-42dd-8413-df1d1664e580">&lt;strong&gt;</bpt>Vault<ept id="7f16dd40-2e8e-42dd-8413-df1d1664e580">&lt;/strong&gt;</ept>-To manage replication you set up a Site Recovery vault in an Azure region you select.</target>
+        </trans-unit>
+        <trans-unit id="7adc3cdc-3a91-4503-8622-4857559af56e" xml:space="preserve">
+          <source>All metadata remains within that region.</source>
+          <target state="new">All metadata remains within that region.</target>
+        </trans-unit>
+        <trans-unit id="52bc71ce-07fe-4817-a010-2641f3370489" xml:space="preserve">
+          <source><bpt id="4516533c-ee7f-4e0d-a0df-b5399acb6731">&lt;strong&gt;</bpt>Metadata<ept id="4516533c-ee7f-4e0d-a0df-b5399acb6731">&lt;/strong&gt;</ept>-No application data is send to Azure.</source>
+          <target state="new"><bpt id="4516533c-ee7f-4e0d-a0df-b5399acb6731">&lt;strong&gt;</bpt>Metadata<ept id="4516533c-ee7f-4e0d-a0df-b5399acb6731">&lt;/strong&gt;</ept>-No application data is send to Azure.</target>
+        </trans-unit>
+        <trans-unit id="a7a19866-5e15-4553-a439-f161e9d458f0" xml:space="preserve">
+          <source>Site Recovery only needs metadata such as virtual machine and VMM cloud names, in order to orchestrate replication and failover.</source>
+          <target state="new">Site Recovery only needs metadata such as virtual machine and VMM cloud names, in order to orchestrate replication and failover.</target>
+        </trans-unit>
+        <trans-unit id="f57484b4-a778-43f1-ae3f-5a70aa62c553" xml:space="preserve">
+          <source><bpt id="d4ab87f4-ce81-4f1a-a0b4-cb25204df392">&lt;strong&gt;</bpt>Connection to Azure<ept id="d4ab87f4-ce81-4f1a-a0b4-cb25204df392">&lt;/strong&gt;</ept>-Management servers communicate with Azure depending on your deployment scenario.</source>
+          <target state="new"><bpt id="d4ab87f4-ce81-4f1a-a0b4-cb25204df392">&lt;strong&gt;</bpt>Connection to Azure<ept id="d4ab87f4-ce81-4f1a-a0b4-cb25204df392">&lt;/strong&gt;</ept>-Management servers communicate with Azure depending on your deployment scenario.</target>
+        </trans-unit>
+        <trans-unit id="43a69a47-72d4-4805-af5c-d9e8a0ebd1e2" xml:space="preserve">
+          <source>For example if you're replicating virtual machines located in an on-premises VMM cloud, the VMM server communicates with Site Recovery over an encrypted outbound HTTPS connection.</source>
+          <target state="new">For example if you're replicating virtual machines located in an on-premises VMM cloud, the VMM server communicates with Site Recovery over an encrypted outbound HTTPS connection.</target>
+        </trans-unit>
+        <trans-unit id="34964d2a-1754-4008-847d-b8fa09f96acf" xml:space="preserve">
+          <source>No connection is required from the virtual machines or Hyper-V hosts.</source>
+          <target state="new">No connection is required from the virtual machines or Hyper-V hosts.</target>
+        </trans-unit>
+        <trans-unit id="69cccf44-f34a-4cc8-a22d-d408ee5a1bd5" xml:space="preserve">
+          <source><bpt id="7923597c-29c3-46dd-837a-b23fef27f8a0">&lt;strong&gt;</bpt>Hyper-V Replica<ept id="7923597c-29c3-46dd-837a-b23fef27f8a0">&lt;/strong&gt;</ept>-Azure Site Recovery leverages Hyper-V Replica for the replication process, and can also use SAN replication if you're replicating between two on-premises VMM sites.</source>
+          <target state="new"><bpt id="7923597c-29c3-46dd-837a-b23fef27f8a0">&lt;strong&gt;</bpt>Hyper-V Replica<ept id="7923597c-29c3-46dd-837a-b23fef27f8a0">&lt;/strong&gt;</ept>-Azure Site Recovery leverages Hyper-V Replica for the replication process, and can also use SAN replication if you're replicating between two on-premises VMM sites.</target>
+        </trans-unit>
+        <trans-unit id="da552680-bb9a-400a-83f8-bf2722189820" xml:space="preserve">
+          <source>Site Recovery uses smart replication, replicating only data blocks and not the entire VHD for the initial replication.</source>
+          <target state="new">Site Recovery uses smart replication, replicating only data blocks and not the entire VHD for the initial replication.</target>
+        </trans-unit>
+        <trans-unit id="4c52829c-5315-4ede-8b1f-9c666f40134c" xml:space="preserve">
+          <source>For ongoing replication only delta changes are replicated.</source>
+          <target state="new">For ongoing replication only delta changes are replicated.</target>
+        </trans-unit>
+        <trans-unit id="23ba3a26-0794-4b50-b26b-dfa40c412c68" xml:space="preserve">
+          <source>Site Recovery supports offline data transfer and works with WAN optimizers.</source>
+          <target state="new">Site Recovery supports offline data transfer and works with WAN optimizers.</target>
+        </trans-unit>
+        <trans-unit id="e1fcb15f-b3fa-4c5c-bad8-1f4180fa68d6" xml:space="preserve">
+          <source><bpt id="76c1a354-0ecc-43f4-a54d-3e539d6ed262">&lt;strong&gt;</bpt>Pricing<ept id="76c1a354-0ecc-43f4-a54d-3e539d6ed262">&lt;/strong&gt;</ept>-You can <bpt id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;linkText&gt;</bpt>Read more<ept id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;/linkText&gt;</ept><bpt id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;title&gt;</bpt><ept id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;/title&gt;</ept> about Site Recovery pricing.</source>
+          <target state="new"><bpt id="76c1a354-0ecc-43f4-a54d-3e539d6ed262">&lt;strong&gt;</bpt>Pricing<ept id="76c1a354-0ecc-43f4-a54d-3e539d6ed262">&lt;/strong&gt;</ept>-You can <bpt id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;linkText&gt;</bpt>Read more<ept id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;/linkText&gt;</ept><bpt id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;title&gt;</bpt><ept id="13f2ffb8-6fc6-4a59-8b89-d6e6371b91d5">&lt;/title&gt;</ept> about Site Recovery pricing.</target>
+        </trans-unit>
+        <trans-unit id="37b4db9e-8d47-4170-812b-62263481f725" xml:space="preserve">
+          <source>This table summarizes the replication scenarios supported by Site Recovery.</source>
+          <target state="new">This table summarizes the replication scenarios supported by Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="7da08bf9-742b-43f7-898f-0e12f3887b6a" xml:space="preserve">
+          <source><bpt id="15a7f3dd-4012-40a3-9ee9-e3a66cccee8f">&lt;strong&gt;</bpt>Replicate to<ept id="15a7f3dd-4012-40a3-9ee9-e3a66cccee8f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="15a7f3dd-4012-40a3-9ee9-e3a66cccee8f">&lt;strong&gt;</bpt>Replicate to<ept id="15a7f3dd-4012-40a3-9ee9-e3a66cccee8f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66affa56-b2be-4c09-8d3e-41ce151b181e" xml:space="preserve">
+          <source><bpt id="15f7d808-e6fb-42f4-acfd-7a61accd9c25">&lt;strong&gt;</bpt>Replicate from (on-premises)<ept id="15f7d808-e6fb-42f4-acfd-7a61accd9c25">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="15f7d808-e6fb-42f4-acfd-7a61accd9c25">&lt;strong&gt;</bpt>Replicate from (on-premises)<ept id="15f7d808-e6fb-42f4-acfd-7a61accd9c25">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22944376-5e68-4eab-a8b9-def876efbbce" xml:space="preserve">
+          <source><bpt id="fdf7cecc-b259-413d-935f-a271e4a339e8">&lt;strong&gt;</bpt>Details<ept id="fdf7cecc-b259-413d-935f-a271e4a339e8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fdf7cecc-b259-413d-935f-a271e4a339e8">&lt;strong&gt;</bpt>Details<ept id="fdf7cecc-b259-413d-935f-a271e4a339e8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1305a0bf-d2ff-4e3b-9c94-8b1960befea6" xml:space="preserve">
+          <source><bpt id="3ccd58b4-c2a4-4c30-83f2-d81f92532f0f">&lt;strong&gt;</bpt>Article<ept id="3ccd58b4-c2a4-4c30-83f2-d81f92532f0f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3ccd58b4-c2a4-4c30-83f2-d81f92532f0f">&lt;strong&gt;</bpt>Article<ept id="3ccd58b4-c2a4-4c30-83f2-d81f92532f0f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f78d5d4-093c-49f5-a59a-2c91cde2e9a1" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="3f985675-30f7-4d0d-9fba-be3c91ed37a1" xml:space="preserve">
+          <source>Hyper-V site</source>
+          <target state="new">Hyper-V site</target>
+        </trans-unit>
+        <trans-unit id="0620d9b2-c318-4f92-8648-d702a80914f1" xml:space="preserve">
+          <source>Replicate virtual machine on one or more on-premises Hyper-V host servers that are defined as a Hyper-V site to Azure.</source>
+          <target state="new">Replicate virtual machine on one or more on-premises Hyper-V host servers that are defined as a Hyper-V site to Azure.</target>
+        </trans-unit>
+        <trans-unit id="593f7483-71e8-46dd-bcad-a325a794e7a0" xml:space="preserve">
+          <source>No VMM server required.</source>
+          <target state="new">No VMM server required.</target>
+        </trans-unit>
+        <trans-unit id="687c17b6-2e39-423a-a936-c41e4b3b2110" xml:space="preserve">
+          <source><bpt id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;linkText&gt;</bpt>Read more<ept id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;/linkText&gt;</ept><bpt id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;title&gt;</bpt><ept id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;linkText&gt;</bpt>Read more<ept id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;/linkText&gt;</ept><bpt id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;title&gt;</bpt><ept id="0e4f0380-dc04-43c5-b568-0cf402ba8e84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73272822-0893-491d-8ce3-8c2a79e2c912" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="1f1839f1-0069-4fed-b01d-e332d4bac347" xml:space="preserve">
+          <source>VMM server</source>
+          <target state="new">VMM server</target>
+        </trans-unit>
+        <trans-unit id="97c8fea1-6554-4899-b7de-1f66f8ac2852" xml:space="preserve">
+          <source>Replicate virtual machines on one or more on-premises Hyper-V host servers located in a VMM cloud to Azure.</source>
+          <target state="new">Replicate virtual machines on one or more on-premises Hyper-V host servers located in a VMM cloud to Azure.</target>
+        </trans-unit>
+        <trans-unit id="5b224544-b257-45d9-93cc-1dbae60cb09a" xml:space="preserve">
+          <source><bpt id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;linkText&gt;</bpt>Read more<ept id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;/linkText&gt;</ept><bpt id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;title&gt;</bpt><ept id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;linkText&gt;</bpt>Read more<ept id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;/linkText&gt;</ept><bpt id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;title&gt;</bpt><ept id="657131b7-48f4-4362-b33d-32c41a3b2e4b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="736e9699-c458-40f6-a68e-e97308435230" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="1656196b-9fcf-4bb9-9dec-fad97f611fb8" xml:space="preserve">
+          <source>Physical Windows server</source>
+          <target state="new">Physical Windows server</target>
+        </trans-unit>
+        <trans-unit id="5b8926df-c0a2-4c90-aa9f-a5e09be50cea" xml:space="preserve">
+          <source>Replicate a physical Windows or Linux server to Azure</source>
+          <target state="new">Replicate a physical Windows or Linux server to Azure</target>
+        </trans-unit>
+        <trans-unit id="73a513cc-8caa-4e16-a35e-5a5c7463e184" xml:space="preserve">
+          <source><bpt id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;linkText&gt;</bpt>Read more<ept id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;/linkText&gt;</ept><bpt id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;title&gt;</bpt><ept id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;linkText&gt;</bpt>Read more<ept id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;/linkText&gt;</ept><bpt id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;title&gt;</bpt><ept id="d003751d-c4ae-4f41-987c-3b91c8023cf0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f7206bb-d5bd-457e-a6f3-39397030f4ad" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="c3df0528-bf43-4474-801f-19d899735ed1" xml:space="preserve">
+          <source>VMware virtual machine</source>
+          <target state="new">VMware virtual machine</target>
+        </trans-unit>
+        <trans-unit id="667c8d88-0f83-41f5-bbfe-103ee49bfb52" xml:space="preserve">
+          <source>Replicate VMware virtual machines to Azure</source>
+          <target state="new">Replicate VMware virtual machines to Azure</target>
+        </trans-unit>
+        <trans-unit id="30dfba35-97c4-493d-8196-a4c4d607ff19" xml:space="preserve">
+          <source><bpt id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;linkText&gt;</bpt>Read more<ept id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;/linkText&gt;</ept><bpt id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;title&gt;</bpt><ept id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;linkText&gt;</bpt>Read more<ept id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;/linkText&gt;</ept><bpt id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;title&gt;</bpt><ept id="41a0eb21-3610-4a24-9df7-f4194a0a46e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24c503bf-4e45-4ba0-a41e-9d6bb15fe338" xml:space="preserve">
+          <source>Secondary datacenter</source>
+          <target state="new">Secondary datacenter</target>
+        </trans-unit>
+        <trans-unit id="309b9aaa-c515-40b2-8c6e-ff9f2022f841" xml:space="preserve">
+          <source>VMM server</source>
+          <target state="new">VMM server</target>
+        </trans-unit>
+        <trans-unit id="c3876c57-68b0-44aa-b052-4150b66f0bbf" xml:space="preserve">
+          <source>Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter</source>
+          <target state="new">Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter</target>
+        </trans-unit>
+        <trans-unit id="20ed4f02-d0ed-4c5c-b925-513962b52a09" xml:space="preserve">
+          <source><bpt id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;linkText&gt;</bpt>Read more<ept id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;/linkText&gt;</ept><bpt id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;title&gt;</bpt><ept id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;linkText&gt;</bpt>Read more<ept id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;/linkText&gt;</ept><bpt id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;title&gt;</bpt><ept id="118f0e69-4fa3-4820-8bf0-f7ea6ac5d631">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe0251f6-fd7a-4bd0-8084-23e6abc97b53" xml:space="preserve">
+          <source>Secondary datacenter</source>
+          <target state="new">Secondary datacenter</target>
+        </trans-unit>
+        <trans-unit id="375a3036-6b5d-4c34-967e-1ebb343c2be3" xml:space="preserve">
+          <source>VMM server with SAN</source>
+          <target state="new">VMM server with SAN</target>
+        </trans-unit>
+        <trans-unit id="80e267b4-6a96-4d0f-890d-7e25efb1f02f" xml:space="preserve">
+          <source>Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter using SAN replication</source>
+          <target state="new">Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary VMM server in another datacenter using SAN replication</target>
+        </trans-unit>
+        <trans-unit id="d0ec15f1-c077-4b7f-a97c-af1414066403" xml:space="preserve">
+          <source><bpt id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;linkText&gt;</bpt>Read more<ept id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;/linkText&gt;</ept><bpt id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;title&gt;</bpt><ept id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;linkText&gt;</bpt>Read more<ept id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;/linkText&gt;</ept><bpt id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;title&gt;</bpt><ept id="f91869f2-42d6-4939-b142-6e64902ba569">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a9ec021-9760-4a34-b7c2-f471cf8fd4de" xml:space="preserve">
+          <source>Secondary datacenter</source>
+          <target state="new">Secondary datacenter</target>
+        </trans-unit>
+        <trans-unit id="45e85171-f076-4016-a0d8-2f3b663fcc10" xml:space="preserve">
+          <source>Single VMM server</source>
+          <target state="new">Single VMM server</target>
+        </trans-unit>
+        <trans-unit id="8011973d-6770-4e5f-b790-3ca0d18ff171" xml:space="preserve">
+          <source>Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary cloud on the same VMM server</source>
+          <target state="new">Replicate virtual machines on on-premises Hyper-V host servers located in a VMM cloud to a secondary cloud on the same VMM server</target>
+        </trans-unit>
+        <trans-unit id="dccbbd7c-bdd2-4228-b576-007423e16e4e" xml:space="preserve">
+          <source><bpt id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;linkText&gt;</bpt>Read more<ept id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;/linkText&gt;</ept><bpt id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;title&gt;</bpt><ept id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;linkText&gt;</bpt>Read more<ept id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;/linkText&gt;</ept><bpt id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;title&gt;</bpt><ept id="1de9a87f-7022-4cef-b2ca-3e6bc71258b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64312529-701d-4f29-8407-ed5a3239a9d6" xml:space="preserve">
+          <source>ASR replication technologies are compatible with any application running in a virtual machine.</source>
+          <target state="new">ASR replication technologies are compatible with any application running in a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="181d25ef-b1b4-452f-8e56-8f8b094f9d05" xml:space="preserve">
+          <source>We have conducted additional testing in partnership with application product teams to further support each application.</source>
+          <target state="new">We have conducted additional testing in partnership with application product teams to further support each application.</target>
+        </trans-unit>
+        <trans-unit id="8a8373aa-59f3-479d-a709-2b6b2c37daab" xml:space="preserve">
+          <source><bpt id="f47c4a10-111e-40fd-8df7-88db4d071f9d">&lt;strong&gt;</bpt>Workload<ept id="f47c4a10-111e-40fd-8df7-88db4d071f9d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f47c4a10-111e-40fd-8df7-88db4d071f9d">&lt;strong&gt;</bpt>Workload<ept id="f47c4a10-111e-40fd-8df7-88db4d071f9d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b0cc40a-2893-4dd1-a381-3dfd7a9281a1" xml:space="preserve">
+          <source>&lt;p&gt;<bpt id="dba1afe5-78fd-4b16-8395-5ca48051a00a">&lt;strong&gt;</bpt>Replicate Hyper-V virtual machines<ept id="dba1afe5-78fd-4b16-8395-5ca48051a00a">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="ccf5f6a5-6e1c-4de7-8206-c5d1954c6e0a">&lt;strong&gt;</bpt>(to secondary site)<ept id="ccf5f6a5-6e1c-4de7-8206-c5d1954c6e0a">&lt;/strong&gt;</ept>&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;<bpt id="dba1afe5-78fd-4b16-8395-5ca48051a00a">&lt;strong&gt;</bpt>Replicate Hyper-V virtual machines<ept id="dba1afe5-78fd-4b16-8395-5ca48051a00a">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="ccf5f6a5-6e1c-4de7-8206-c5d1954c6e0a">&lt;strong&gt;</bpt>(to secondary site)<ept id="ccf5f6a5-6e1c-4de7-8206-c5d1954c6e0a">&lt;/strong&gt;</ept>&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="51c2d53e-51ee-494f-ab4a-8510bbe3025a" xml:space="preserve">
+          <source>&lt;p&gt;<bpt id="8d2af4a5-0a6b-41e0-b78a-bbba0ea17765">&lt;strong&gt;</bpt>Replicate Hyper-V virtual machines<ept id="8d2af4a5-0a6b-41e0-b78a-bbba0ea17765">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="5aae798a-6cd8-404e-9d37-26d6d849a059">&lt;strong&gt;</bpt>(to Azure)<ept id="5aae798a-6cd8-404e-9d37-26d6d849a059">&lt;/strong&gt;</ept>&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;<bpt id="8d2af4a5-0a6b-41e0-b78a-bbba0ea17765">&lt;strong&gt;</bpt>Replicate Hyper-V virtual machines<ept id="8d2af4a5-0a6b-41e0-b78a-bbba0ea17765">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="5aae798a-6cd8-404e-9d37-26d6d849a059">&lt;strong&gt;</bpt>(to Azure)<ept id="5aae798a-6cd8-404e-9d37-26d6d849a059">&lt;/strong&gt;</ept>&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="de204795-df91-42d8-8743-63fe37e657c6" xml:space="preserve">
+          <source>&lt;p&gt;<bpt id="6ea1e761-0e37-4a74-84a9-1f74fc327f99">&lt;strong&gt;</bpt>Replicate VMware virtual machines<ept id="6ea1e761-0e37-4a74-84a9-1f74fc327f99">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="406f7475-bce2-4305-93c1-3fa08c26a4de">&lt;strong&gt;</bpt>(to secondary site)<ept id="406f7475-bce2-4305-93c1-3fa08c26a4de">&lt;/strong&gt;</ept>&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;<bpt id="6ea1e761-0e37-4a74-84a9-1f74fc327f99">&lt;strong&gt;</bpt>Replicate VMware virtual machines<ept id="6ea1e761-0e37-4a74-84a9-1f74fc327f99">&lt;/strong&gt;</ept>&lt;/p&gt; &lt;p&gt;<bpt id="406f7475-bce2-4305-93c1-3fa08c26a4de">&lt;strong&gt;</bpt>(to secondary site)<ept id="406f7475-bce2-4305-93c1-3fa08c26a4de">&lt;/strong&gt;</ept>&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="7e007d7b-a2a4-4875-8cc5-eda3c204eced" xml:space="preserve">
+          <source>&lt;p&gt;<bpt id="7d8031c0-9c0c-4ddf-b19c-07ec339e5b27">&lt;strong&gt;</bpt>Replicate VMware virtual machines<ept id="7d8031c0-9c0c-4ddf-b19c-07ec339e5b27">&lt;/strong&gt;</ept>&lt;/p&gt;&lt;p&gt;<bpt id="0efcf11b-a6b2-40fd-a9fb-2b06ad6a5105">&lt;strong&gt;</bpt>(to Azure)<ept id="0efcf11b-a6b2-40fd-a9fb-2b06ad6a5105">&lt;/strong&gt;</ept>&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;<bpt id="7d8031c0-9c0c-4ddf-b19c-07ec339e5b27">&lt;strong&gt;</bpt>Replicate VMware virtual machines<ept id="7d8031c0-9c0c-4ddf-b19c-07ec339e5b27">&lt;/strong&gt;</ept>&lt;/p&gt;&lt;p&gt;<bpt id="0efcf11b-a6b2-40fd-a9fb-2b06ad6a5105">&lt;strong&gt;</bpt>(to Azure)<ept id="0efcf11b-a6b2-40fd-a9fb-2b06ad6a5105">&lt;/strong&gt;</ept>&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9ad2d523-feed-4e6e-9e64-5c949bcf788e" xml:space="preserve">
+          <source>Active Directory, DNS</source>
+          <target state="new">Active Directory, DNS</target>
+        </trans-unit>
+        <trans-unit id="6ade175d-9408-49a4-a13d-94f297bf74d6" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="f4474152-becb-4636-a2f7-1916f163248e" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="6889550a-48ca-48db-906f-3a9f7ccf12d1" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="f5687713-c3dd-4df6-ab2d-2b32530f5bca" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="69e9c976-0a82-4343-9d1b-a45c424b6050" xml:space="preserve">
+          <source>Web apps (IIS, SQL)</source>
+          <target state="new">Web apps (IIS, SQL)</target>
+        </trans-unit>
+        <trans-unit id="87e65086-b874-4c22-95c1-b476154f5d6e" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="d819335d-1033-447d-9d29-ca8937cb675c" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="2193e9d6-64dd-4af3-9a74-9833f3798a66" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="c94c53c6-c7dd-41b9-ac36-594b3003516b" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="a408369f-d5b3-4289-89e6-58dc9fc8af39" xml:space="preserve">
+          <source>SCOM</source>
+          <target state="new">SCOM</target>
+        </trans-unit>
+        <trans-unit id="7b22284d-dba5-48ea-9078-c7423ce356f0" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="20646f75-ac85-4083-b12f-8272ed33d472" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="725aec72-951b-4b6a-89a1-aa9b44537282" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="811395d0-b165-4c36-aa23-3590b37f7efd" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="865008fd-bbd4-49a8-8c34-aac45db57409" xml:space="preserve">
+          <source>Sharepoint</source>
+          <target state="new">Sharepoint</target>
+        </trans-unit>
+        <trans-unit id="ddda47f2-94c2-40a3-a1db-c02471aecd85" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="27cddd78-6171-4b85-9bad-dbb509d0f06b" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="9994da10-28c7-4f30-9179-451662cf97ba" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="ab2114a6-d21e-4dc0-be63-00458868ccdb" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="921416ab-3059-48d6-9503-c78c2b0bdfef" xml:space="preserve">
+          <source>&lt;p&gt;SAP&lt;/p&gt;&lt;p&gt;Replicate SAP site to Azure for non cluster&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;SAP&lt;/p&gt;&lt;p&gt;Replicate SAP site to Azure for non cluster&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="815d9caa-186c-4ef3-874c-ea5bf228c29b" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="3f4ab182-3845-47c7-8548-8ccf927811b3" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="e562e039-744e-44a2-b091-4b6cc6bcd195" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="e96298aa-7549-4b12-a661-09c27cab392f" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="1369e553-a968-42ea-8b30-78eaf4acacd0" xml:space="preserve">
+          <source>Exchange (non-DAG)</source>
+          <target state="new">Exchange (non-DAG)</target>
+        </trans-unit>
+        <trans-unit id="79d09c36-4531-4610-a845-30abc42650a2" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="747a2c0d-4b05-4a10-ab7d-1d2153d1217a" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="08d0f479-bdf4-428a-9f98-3a586f0dd0c5" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="ffd303a4-b667-4d39-b8b8-c7e2e3e1a00b" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="406bf906-9d56-435b-a3a2-11b93d5baab8" xml:space="preserve">
+          <source>Remote Desktop/VDI</source>
+          <target state="new">Remote Desktop/VDI</target>
+        </trans-unit>
+        <trans-unit id="ff1ff4c1-24ab-4fb1-9472-149618f89386" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="4e2a042e-63ac-47a6-beb1-a281baf424d8" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="96651b0f-36dc-407e-b461-b2713eb8bff5" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="19f17d96-a44d-41fe-97c4-644ac9496160" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="747e26e8-ead2-476b-b4a9-22f21ab4a2e6" xml:space="preserve">
+          <source>&lt;p&gt;Linux&lt;/p&gt; &lt;p&gt;(operating system and apps)&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Linux&lt;/p&gt; &lt;p&gt;(operating system and apps)&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="f45e3cff-f9df-4c31-9f71-ffde574ed92a" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="830a2063-29fa-466f-afb8-8b7ee4546356" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="27c292a9-b142-4c4e-8d34-b30fc9b1805f" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="7019348d-2f44-401f-ab28-78e1865b32be" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="9e84f12c-228e-46ed-97bb-10b33fc20bfa" xml:space="preserve">
+          <source>Dynamics AX</source>
+          <target state="new">Dynamics AX</target>
+        </trans-unit>
+        <trans-unit id="04bd0912-2650-44a5-b8f4-7bece0f21d20" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="e1024cf0-b4d0-4c71-b393-2732d5409bc4" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="60e59daf-beac-48fa-8233-bb1e87769157" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="126a0971-2f70-427a-81b4-d522bc938e16" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="66eb50e3-745f-44f7-99e2-2c691c0b8798" xml:space="preserve">
+          <source>Dynamics CRM</source>
+          <target state="new">Dynamics CRM</target>
+        </trans-unit>
+        <trans-unit id="9346aa6f-7563-4282-9292-b04c85d482df" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="dc2d1384-426d-4e80-b681-b1c66cf76721" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="b9c3ab22-5a27-45d7-b683-2b553aac22e3" xml:space="preserve">
+          <source>Y</source>
+          <target state="new">Y</target>
+        </trans-unit>
+        <trans-unit id="bb43d758-9aa1-47b5-9ae7-75702c3f3e01" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="81c2217b-9d4d-487e-9b93-61b6695365b7" xml:space="preserve">
+          <source>Oracle</source>
+          <target state="new">Oracle</target>
+        </trans-unit>
+        <trans-unit id="78cd1e82-deef-4bfd-8fc1-7c9ea1e2eee9" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="4907738f-6c6e-41be-bef3-0f2863066833" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="37a33eec-04d7-4649-963d-e2d262a55781" xml:space="preserve">
+          <source>Y (tested by Microsoft)</source>
+          <target state="new">Y (tested by Microsoft)</target>
+        </trans-unit>
+        <trans-unit id="8bc268bc-fba7-4f92-8226-72d5d2c724b9" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="243f9700-a392-436f-917a-e3215b0ed508" xml:space="preserve">
+          <source>This table summarizes the main Site Recovery features and how they're handled during replication to Azure, replication to a secondary site using the default Hyper-V Replica replication, and using SAN.</source>
+          <target state="new">This table summarizes the main Site Recovery features and how they're handled during replication to Azure, replication to a secondary site using the default Hyper-V Replica replication, and using SAN.</target>
+        </trans-unit>
+        <trans-unit id="239aa806-8ba2-4ed3-a2c6-906ead8f31ae" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="41412745-12d6-4c1a-85f1-f0eebae24e99" xml:space="preserve">
+          <source>Replicate to Azure</source>
+          <target state="new">Replicate to Azure</target>
+        </trans-unit>
+        <trans-unit id="c2f4470e-fa69-4301-b28a-55a36e97dde3" xml:space="preserve">
+          <source>Replicate to a secondary site (Hyper-V Replica)</source>
+          <target state="new">Replicate to a secondary site (Hyper-V Replica)</target>
+        </trans-unit>
+        <trans-unit id="b7bd45ac-4665-4b95-9198-4855911f8a53" xml:space="preserve">
+          <source>Replicate to a secondary site (SAN)</source>
+          <target state="new">Replicate to a secondary site (SAN)</target>
+        </trans-unit>
+        <trans-unit id="fd3272c2-51e5-4e92-9d05-485132f5e0ce" xml:space="preserve">
+          <source>Data replication</source>
+          <target state="new">Data replication</target>
+        </trans-unit>
+        <trans-unit id="92279769-cbba-4f54-b406-63badb976d78" xml:space="preserve">
+          <source>Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in Azure storage.</source>
+          <target state="new">Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="7b04c020-4a17-4d63-a4fa-54f13b2ed7a0" xml:space="preserve">
+          <source>Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in the location specified by the target Hyper-V server.</source>
+          <target state="new">Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in the location specified by the target Hyper-V server.</target>
+        </trans-unit>
+        <trans-unit id="ca29b542-62d6-4bde-9cc1-64bce6992b1c" xml:space="preserve">
+          <source>Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in the target array storage.</source>
+          <target state="new">Metadata about on-premises servers and virtual machines is stored in the Site Recovery vault.&lt;/p&gt; &lt;p&gt;Replicated data is stored in the target array storage.</target>
+        </trans-unit>
+        <trans-unit id="3fc34916-c498-43f5-91f7-54602aa83f3d" xml:space="preserve">
+          <source>Vault requirements</source>
+          <target state="new">Vault requirements</target>
+        </trans-unit>
+        <trans-unit id="a43eda70-2437-4180-a0fc-2bf9ac1d7939" xml:space="preserve">
+          <source>Azure account with the Site Recovery service</source>
+          <target state="new">Azure account with the Site Recovery service</target>
+        </trans-unit>
+        <trans-unit id="89704303-b23c-4e2e-b77a-0e628b9f0dd3" xml:space="preserve">
+          <source>Azure account with the Site Recovery service</source>
+          <target state="new">Azure account with the Site Recovery service</target>
+        </trans-unit>
+        <trans-unit id="27008761-75c9-41de-af35-941b5c3a5f56" xml:space="preserve">
+          <source>Azure account with the Site Recovery service</source>
+          <target state="new">Azure account with the Site Recovery service</target>
+        </trans-unit>
+        <trans-unit id="91e996a2-0690-4692-9458-820852ea5c4d" xml:space="preserve">
+          <source>Replication</source>
+          <target state="new">Replication</target>
+        </trans-unit>
+        <trans-unit id="3d2cced8-87cb-4cb3-8b25-c99f74c201ff" xml:space="preserve">
+          <source>Replicate virtual machine from source Hyper-V host to Azure storage.</source>
+          <target state="new">Replicate virtual machine from source Hyper-V host to Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="cbe0be73-9516-4761-bd6b-508138e12742" xml:space="preserve">
+          <source>Fail back to the source location.</source>
+          <target state="new">Fail back to the source location.</target>
+        </trans-unit>
+        <trans-unit id="ee5956bd-d946-4c3a-80c0-ebbe6297cbc0" xml:space="preserve">
+          <source>Replicate virtual machine from source Hyper-V host to target Hyper-V host.</source>
+          <target state="new">Replicate virtual machine from source Hyper-V host to target Hyper-V host.</target>
+        </trans-unit>
+        <trans-unit id="ee0a88a4-9ec5-4391-9839-8ddddc62235a" xml:space="preserve">
+          <source>Fail back to the source location.</source>
+          <target state="new">Fail back to the source location.</target>
+        </trans-unit>
+        <trans-unit id="7d4a7776-77f8-4676-8c8e-c277990b228d" xml:space="preserve">
+          <source>Replicate virtual machines from source SAN storage device to target SAN device.</source>
+          <target state="new">Replicate virtual machines from source SAN storage device to target SAN device.</target>
+        </trans-unit>
+        <trans-unit id="c4d2c1dc-44ea-419b-93d7-c13867475c6a" xml:space="preserve">
+          <source>Fail back to the source location.</source>
+          <target state="new">Fail back to the source location.</target>
+        </trans-unit>
+        <trans-unit id="5d15c7e6-476d-4ac4-a3f4-73581546fd43" xml:space="preserve">
+          <source>Virtual machine</source>
+          <target state="new">Virtual machine</target>
+        </trans-unit>
+        <trans-unit id="6f9b377d-9b17-494a-b933-e81e8c260c40" xml:space="preserve">
+          <source>Virtual machine hard disk stored in Azure storage</source>
+          <target state="new">Virtual machine hard disk stored in Azure storage</target>
+        </trans-unit>
+        <trans-unit id="b476595a-290c-4359-8d56-09c6564f25bb" xml:space="preserve">
+          <source>Virtual machine hard disk stored on Hyper-V host</source>
+          <target state="new">Virtual machine hard disk stored on Hyper-V host</target>
+        </trans-unit>
+        <trans-unit id="26f18ee8-fd97-481c-8578-484f51c1ef20" xml:space="preserve">
+          <source>Virtual machine hard disk stored on SAN storage array</source>
+          <target state="new">Virtual machine hard disk stored on SAN storage array</target>
+        </trans-unit>
+        <trans-unit id="e772f96d-4240-4879-9cf0-1fd039df98c6" xml:space="preserve">
+          <source>Azure storage</source>
+          <target state="new">Azure storage</target>
+        </trans-unit>
+        <trans-unit id="1e224c99-bba9-4a09-bb6b-09065f4f6038" xml:space="preserve">
+          <source>Required to store replicated virtual machine hard disks</source>
+          <target state="new">Required to store replicated virtual machine hard disks</target>
+        </trans-unit>
+        <trans-unit id="7163d050-7864-46ae-8735-315428f8bf97" xml:space="preserve">
+          <source>Not applicable</source>
+          <target state="new">Not applicable</target>
+        </trans-unit>
+        <trans-unit id="612a1393-e241-4824-af94-3b1466851b5f" xml:space="preserve">
+          <source>Not applicable</source>
+          <target state="new">Not applicable</target>
+        </trans-unit>
+        <trans-unit id="dc389917-47fe-446e-9218-4f8f3a21feea" xml:space="preserve">
+          <source>SAN storage array</source>
+          <target state="new">SAN storage array</target>
+        </trans-unit>
+        <trans-unit id="b8cc4071-681c-46cc-87ae-78cf772ec627" xml:space="preserve">
+          <source>Not applicable</source>
+          <target state="new">Not applicable</target>
+        </trans-unit>
+        <trans-unit id="31e5bbae-2283-41e6-ae46-23676e334f9a" xml:space="preserve">
+          <source>Not applicable</source>
+          <target state="new">Not applicable</target>
+        </trans-unit>
+        <trans-unit id="6267330a-c86d-495c-89cc-1032bc0c31d1" xml:space="preserve">
+          <source>SAN storage array must be available in both the source and target sites and managed by VMM</source>
+          <target state="new">SAN storage array must be available in both the source and target sites and managed by VMM</target>
+        </trans-unit>
+        <trans-unit id="28284384-163f-419f-bb6c-90cfa63ea2b3" xml:space="preserve">
+          <source>VMM server</source>
+          <target state="new">VMM server</target>
+        </trans-unit>
+        <trans-unit id="3d8a7164-a863-48f3-b742-5da07acf6cd3" xml:space="preserve">
+          <source>VMM server only in the source site only.</source>
+          <target state="new">VMM server only in the source site only.</target>
+        </trans-unit>
+        <trans-unit id="2126ca84-9c04-4c53-b71e-2157398e759b" xml:space="preserve">
+          <source>VMM servers in source and target sites are recommended.</source>
+          <target state="new">VMM servers in source and target sites are recommended.</target>
+        </trans-unit>
+        <trans-unit id="0d88b921-1ec2-462b-8b5d-7bdf97e7c915" xml:space="preserve">
+          <source>You can replicate between clouds on a single VMM server.</source>
+          <target state="new">You can replicate between clouds on a single VMM server.</target>
+        </trans-unit>
+        <trans-unit id="d1ab40d3-acfa-4346-ac17-437b21410d62" xml:space="preserve">
+          <source>VMM server in source and target VMM sites.</source>
+          <target state="new">VMM server in source and target VMM sites.</target>
+        </trans-unit>
+        <trans-unit id="04e038bc-82eb-49e3-9253-c69fa7be2626" xml:space="preserve">
+          <source>Clouds must contain at least one Hyper-V cluster.</source>
+          <target state="new">Clouds must contain at least one Hyper-V cluster.</target>
+        </trans-unit>
+        <trans-unit id="20d0ec52-3627-4510-bd00-f4798f4f5141" xml:space="preserve">
+          <source>VMM  version</source>
+          <target state="new">VMM  version</target>
+        </trans-unit>
+        <trans-unit id="ea8c0351-ca59-4c2a-b244-32be83683257" xml:space="preserve">
+          <source>System Center 2012 R2&lt;p&gt;System Center 2012 with SP1</source>
+          <target state="new">System Center 2012 R2&lt;p&gt;System Center 2012 with SP1</target>
+        </trans-unit>
+        <trans-unit id="be64d75f-53e6-4cf7-9be4-58ffe9755b76" xml:space="preserve">
+          <source>System Center 2012 R2</source>
+          <target state="new">System Center 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="d3342f93-c874-4f62-b95d-ffe48215b6db" xml:space="preserve">
+          <source>System Center 2012 R2 with VMM Update Rollup 5.0</source>
+          <target state="new">System Center 2012 R2 with VMM Update Rollup 5.0</target>
+        </trans-unit>
+        <trans-unit id="a809a1ce-8903-428c-b3e3-2bb52a419431" xml:space="preserve">
+          <source>VMM configuration</source>
+          <target state="new">VMM configuration</target>
+        </trans-unit>
+        <trans-unit id="943ff87c-6157-424d-8507-c07ef76ade9d" xml:space="preserve">
+          <source>Set up clouds in source and target sites&lt;/p&gt;&lt;p&gt;Set up VM networks in source and target site&lt;p&gt;Set up storage classifications in source and target sites &lt;p&gt;Install the Provider on source and target VMM servers</source>
+          <target state="new">Set up clouds in source and target sites&lt;/p&gt;&lt;p&gt;Set up VM networks in source and target site&lt;p&gt;Set up storage classifications in source and target sites &lt;p&gt;Install the Provider on source and target VMM servers</target>
+        </trans-unit>
+        <trans-unit id="1e20a940-8350-40c2-8c08-ecf4681d4cd7" xml:space="preserve">
+          <source>Set up clouds in source site&lt;/p&gt;&lt;p&gt;Set up SAN storage&lt;/p&gt;&lt;p&gt;Set up VM networks in source site&lt;/p&gt;&lt;p&gt;Install the Provider on source VMM server&lt;/p&gt;&lt;p&gt;Enable virtual machine protection</source>
+          <target state="new">Set up clouds in source site&lt;/p&gt;&lt;p&gt;Set up SAN storage&lt;/p&gt;&lt;p&gt;Set up VM networks in source site&lt;/p&gt;&lt;p&gt;Install the Provider on source VMM server&lt;/p&gt;&lt;p&gt;Enable virtual machine protection</target>
+        </trans-unit>
+        <trans-unit id="f0eba3c4-bd21-4b77-b5df-028806389517" xml:space="preserve">
+          <source>Set up clouds in source and target sites&lt;/p&gt;&lt;p&gt;Set up VM networks in source and target sites&lt;/p&gt;&lt;p&gt;Install the Provider on source and target VMM server&lt;/p&gt;&lt;p&gt;Enable virtual machine protection</source>
+          <target state="new">Set up clouds in source and target sites&lt;/p&gt;&lt;p&gt;Set up VM networks in source and target sites&lt;/p&gt;&lt;p&gt;Install the Provider on source and target VMM server&lt;/p&gt;&lt;p&gt;Enable virtual machine protection</target>
+        </trans-unit>
+        <trans-unit id="dd69ad3c-96eb-4ed0-a81f-1a655f8af976" xml:space="preserve">
+          <source>Azure Site Recovery Provider&lt;/p&gt;&lt;p&gt;Used to connected over HTTPS to Site Recovery</source>
+          <target state="new">Azure Site Recovery Provider&lt;/p&gt;&lt;p&gt;Used to connected over HTTPS to Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="adf7bcfb-c70b-41ed-80fc-c69eeec7c38d" xml:space="preserve">
+          <source>Install on source VMM server</source>
+          <target state="new">Install on source VMM server</target>
+        </trans-unit>
+        <trans-unit id="7f37b062-6fc0-4aa0-9505-f7d976b35042" xml:space="preserve">
+          <source>Install on source and target VMM servers</source>
+          <target state="new">Install on source and target VMM servers</target>
+        </trans-unit>
+        <trans-unit id="39ea9dcb-78d9-4413-899a-345fcb961941" xml:space="preserve">
+          <source>Install on source and target VMM servers</source>
+          <target state="new">Install on source and target VMM servers</target>
+        </trans-unit>
+        <trans-unit id="71d1f2de-7e02-48da-bdc1-41b1ca28e802" xml:space="preserve">
+          <source>Azure Recovery Services Agent&lt;/p&gt;&lt;p&gt;Used to connected over HTTPS to Site Recovery</source>
+          <target state="new">Azure Recovery Services Agent&lt;/p&gt;&lt;p&gt;Used to connected over HTTPS to Site Recovery</target>
+        </trans-unit>
+        <trans-unit id="93ee69b0-c8b5-4297-9328-884dfa5aea49" xml:space="preserve">
+          <source>Install on Hyper-V host servers</source>
+          <target state="new">Install on Hyper-V host servers</target>
+        </trans-unit>
+        <trans-unit id="e926a6ee-b58b-494f-9481-921415104ea8" xml:space="preserve">
+          <source>Not required</source>
+          <target state="new">Not required</target>
+        </trans-unit>
+        <trans-unit id="fde843d2-b34a-4c6a-974a-91d0bf1dc259" xml:space="preserve">
+          <source>Not required</source>
+          <target state="new">Not required</target>
+        </trans-unit>
+        <trans-unit id="1be4d884-ec1a-49f4-9e7b-db9a3265d880" xml:space="preserve">
+          <source>Virtual machine recovery points</source>
+          <target state="new">Virtual machine recovery points</target>
+        </trans-unit>
+        <trans-unit id="67c4d3e2-a54f-4f1d-8888-a519c5af43e0" xml:space="preserve">
+          <source>Set recovery points by time.&lt;/p&gt; &lt;p&gt;Specifies how long a recovery point should be kept (0-24 hours)</source>
+          <target state="new">Set recovery points by time.&lt;/p&gt; &lt;p&gt;Specifies how long a recovery point should be kept (0-24 hours)</target>
+        </trans-unit>
+        <trans-unit id="b597aac7-a070-45a5-aae0-1b499896472a" xml:space="preserve">
+          <source>Set recovery points by amount.&lt;/p&gt; &lt;p&gt;Specifies how many additional recovery points should be kept (0-15). By default a recovery point is created every hour</source>
+          <target state="new">Set recovery points by amount.&lt;/p&gt; &lt;p&gt;Specifies how many additional recovery points should be kept (0-15). By default a recovery point is created every hour</target>
+        </trans-unit>
+        <trans-unit id="7465f17d-d975-4e81-9497-dfb6cf9e870b" xml:space="preserve">
+          <source>Configured in array storage settings</source>
+          <target state="new">Configured in array storage settings</target>
+        </trans-unit>
+        <trans-unit id="e87a4f55-9924-4250-ba7d-eff73f445214" xml:space="preserve">
+          <source>Network mapping</source>
+          <target state="new">Network mapping</target>
+        </trans-unit>
+        <trans-unit id="f7d7cc42-0096-4751-a851-351c78e17125" xml:space="preserve">
+          <source>Map VM networks to Azure networks.&lt;/p&gt; &lt;p&gt;Network mapping ensures that all virtual machines that fail over in the same source VM network can connect after failover. In addition if there's a network gateway on the target Azure network then virtual machines can connect to on-premises virtual machines. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled only virtual machines that fail over in the same recovery plan can connect to each other after failover to Azure.</source>
+          <target state="new">Map VM networks to Azure networks.&lt;/p&gt; &lt;p&gt;Network mapping ensures that all virtual machines that fail over in the same source VM network can connect after failover. In addition if there's a network gateway on the target Azure network then virtual machines can connect to on-premises virtual machines. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled only virtual machines that fail over in the same recovery plan can connect to each other after failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="88c609d8-4139-4fa8-94bb-609e88602880" xml:space="preserve">
+          <source>Map source VM networks to target VM networks.&lt;/p&gt; &lt;p&gt;Network mapping is used to place replicated virtual machines on optimal Hyper-V host servers, and ensures that virtual machines associated with the source VM network are associated with the mapped target network after failover. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled replicated virtual machines won't be connected to a network.</source>
+          <target state="new">Map source VM networks to target VM networks.&lt;/p&gt; &lt;p&gt;Network mapping is used to place replicated virtual machines on optimal Hyper-V host servers, and ensures that virtual machines associated with the source VM network are associated with the mapped target network after failover. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled replicated virtual machines won't be connected to a network.</target>
+        </trans-unit>
+        <trans-unit id="dab46f48-a497-4fc4-bac8-94bb25bc8d69" xml:space="preserve">
+          <source>Map source VM networks to target VM networks.&lt;/p&gt; &lt;p&gt;Network mapping ensures that virtual machines associated with the source VM network are associated with the mapped target network after failover. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled replicated virtual machines won't be connected to a network.</source>
+          <target state="new">Map source VM networks to target VM networks.&lt;/p&gt; &lt;p&gt;Network mapping ensures that virtual machines associated with the source VM network are associated with the mapped target network after failover. &lt;/p&gt;&lt;p&gt;If mapping isn't enabled replicated virtual machines won't be connected to a network.</target>
+        </trans-unit>
+        <trans-unit id="177554c2-bfc3-4bc9-aaa6-5cd85353caf6" xml:space="preserve">
+          <source>Storage mapping</source>
+          <target state="new">Storage mapping</target>
+        </trans-unit>
+        <trans-unit id="13f7fd55-638a-4837-871a-3f44a65c4c11" xml:space="preserve">
+          <source>Not applicable</source>
+          <target state="new">Not applicable</target>
+        </trans-unit>
+        <trans-unit id="a87cbfdf-f905-4a29-98e8-4f9383b5dfa0" xml:space="preserve">
+          <source>Maps storage classifications on source VMM servers to storage classifications on target VMM servers.&lt;/p&gt; &lt;p&gt;With mapping enable virtual machine hard disks in the source storage classification will be located in the target storage classification after failover.&lt;/p&gt;&lt;p&gt;If storage mapping isn't enabled replicated virtual hard disks will be stored in the default location on the target Hyper-V host server.</source>
+          <target state="new">Maps storage classifications on source VMM servers to storage classifications on target VMM servers.&lt;/p&gt; &lt;p&gt;With mapping enable virtual machine hard disks in the source storage classification will be located in the target storage classification after failover.&lt;/p&gt;&lt;p&gt;If storage mapping isn't enabled replicated virtual hard disks will be stored in the default location on the target Hyper-V host server.</target>
+        </trans-unit>
+        <trans-unit id="5f0667d7-4a24-46c3-be81-37145132daaf" xml:space="preserve">
+          <source>Maps between storage arrays and pools in the primary and secondary sites.</source>
+          <target state="new">Maps between storage arrays and pools in the primary and secondary sites.</target>
+        </trans-unit>
+        <trans-unit id="31890ee2-fce4-4ec7-a99d-f23893baca5a" xml:space="preserve">
+          <source>After you're finished this overview <bpt id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;linkText&gt;</bpt>read the best practices<ept id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;/linkText&gt;</ept><bpt id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;title&gt;</bpt><ept id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;/title&gt;</ept> to help you get started with deployment planning.</source>
+          <target state="new">After you're finished this overview <bpt id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;linkText&gt;</bpt>read the best practices<ept id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;/linkText&gt;</ept><bpt id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;title&gt;</bpt><ept id="00096db6-2e5c-4f05-a309-c26e725ead86">&lt;/title&gt;</ept> to help you get started with deployment planning.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

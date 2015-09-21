@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6448bbf1-10c1-43de-b195-f06f4d1ee235" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6448bbf1-10c1-43de-b195-f06f4d1ee235" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5f32b36-69fc-4bec-a823-3960c036f97c">
+        <trans-unit id="f3c9f4e5-3c57-418f-9218-aafaecf69b56" xml:space="preserve">
+          <source>Receive alert notifications</source>
+          <target state="new">Receive alert notifications</target>
+        </trans-unit>
+        <trans-unit id="af569149-ea18-46bf-86c8-1e88f17adc5b" xml:space="preserve">
+          <source>Be notified when alert rules conditions are met.</source>
+          <target state="new">Be notified when alert rules conditions are met.</target>
+        </trans-unit>
+        <trans-unit id="26ba10d7-98c8-492d-a7ed-c63e06a4be87" xml:space="preserve">
+          <source>You can receive an alert based on monitoring metrics for, or events on, your Azure services.</source>
+          <target state="new">You can receive an alert based on monitoring metrics for, or events on, your Azure services.</target>
+        </trans-unit>
+        <trans-unit id="2a0506fd-f21e-4084-b9d1-9a78c9643b69" xml:space="preserve">
+          <source>For an alert rule on a metric value, when the value of a specified metric crosses a threshold assigned, the alert rule becomes active and can send a notification.</source>
+          <target state="new">For an alert rule on a metric value, when the value of a specified metric crosses a threshold assigned, the alert rule becomes active and can send a notification.</target>
+        </trans-unit>
+        <trans-unit id="af4a93f7-2c94-4c2a-98d8-95b192607008" xml:space="preserve">
+          <source>For an alert rule on events, a rule can send a notification on <bpt id="e10c3e6f-895d-4c2e-a323-c9e2b4174401">&lt;em&gt;</bpt>every<ept id="e10c3e6f-895d-4c2e-a323-c9e2b4174401">&lt;/em&gt;</ept> event, or, only when a certain number of events happen.</source>
+          <target state="new">For an alert rule on events, a rule can send a notification on <bpt id="e10c3e6f-895d-4c2e-a323-c9e2b4174401">&lt;em&gt;</bpt>every<ept id="e10c3e6f-895d-4c2e-a323-c9e2b4174401">&lt;/em&gt;</ept> event, or, only when a certain number of events happen.</target>
+        </trans-unit>
+        <trans-unit id="35011e2a-b651-4f62-911d-78afbafdc98d" xml:space="preserve">
+          <source>When you create an alert rule, you can select options to send an email notification to the service administrator and co-administrators or to another administrator that you can specify.</source>
+          <target state="new">When you create an alert rule, you can select options to send an email notification to the service administrator and co-administrators or to another administrator that you can specify.</target>
+        </trans-unit>
+        <trans-unit id="a5905ed1-8885-45eb-a5fb-92a7e6877b7f" xml:space="preserve">
+          <source>A notification email is sent when the rule becomes active, and when an alert condition is resolved.</source>
+          <target state="new">A notification email is sent when the rule becomes active, and when an alert condition is resolved.</target>
+        </trans-unit>
+        <trans-unit id="72710892-6c20-4749-bc5c-4d0300f839bf" xml:space="preserve">
+          <source>You can use the <bpt id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;linkText&gt;</bpt>REST API<ept id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;/linkText&gt;</ept><bpt id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;title&gt;</bpt><ept id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;/title&gt;</ept> or <bpt id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;linkText&gt;</bpt>.NET SDK<ept id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;/linkText&gt;</ept><bpt id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;title&gt;</bpt><ept id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;/title&gt;</ept> to configure and get information about alert rules programmatically.</source>
+          <target state="new">You can use the <bpt id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;linkText&gt;</bpt>REST API<ept id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;/linkText&gt;</ept><bpt id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;title&gt;</bpt><ept id="2bb6f3c4-dc35-4be8-81fd-3ecf745bdbc2">&lt;/title&gt;</ept> or <bpt id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;linkText&gt;</bpt>.NET SDK<ept id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;/linkText&gt;</ept><bpt id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;title&gt;</bpt><ept id="577db1a7-c9ec-426d-ad03-d49e57520992">&lt;/title&gt;</ept> to configure and get information about alert rules programmatically.</target>
+        </trans-unit>
+        <trans-unit id="583ecd90-40c9-4121-9b8b-ab23975e5f17" xml:space="preserve">
+          <source>In the <bpt id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;linkText&gt;</bpt>portal<ept id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;/linkText&gt;</ept><bpt id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;title&gt;</bpt><ept id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;/title&gt;</ept>, click <bpt id="38252925-d849-4b80-afe5-bd1e8fee437d">&lt;strong&gt;</bpt>Browse<ept id="38252925-d849-4b80-afe5-bd1e8fee437d">&lt;/strong&gt;</ept>, and then a resource you're interested in monitoring.</source>
+          <target state="new">In the <bpt id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;linkText&gt;</bpt>portal<ept id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;/linkText&gt;</ept><bpt id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;title&gt;</bpt><ept id="a0f492a4-a600-477f-a875-a7d7c79646ba">&lt;/title&gt;</ept>, click <bpt id="38252925-d849-4b80-afe5-bd1e8fee437d">&lt;strong&gt;</bpt>Browse<ept id="38252925-d849-4b80-afe5-bd1e8fee437d">&lt;/strong&gt;</ept>, and then a resource you're interested in monitoring.</target>
+        </trans-unit>
+        <trans-unit id="21487df5-86f9-4284-a230-a3c756eea5cc" xml:space="preserve">
+          <source>Click on the  <bpt id="c873b192-f94a-467d-81cb-ec6d06bd1096">&lt;strong&gt;</bpt>Alert rules<ept id="c873b192-f94a-467d-81cb-ec6d06bd1096">&lt;/strong&gt;</ept> tile in the <bpt id="de2edb2f-4f61-4d31-867c-c35e131697c7">&lt;strong&gt;</bpt>Operations<ept id="de2edb2f-4f61-4d31-867c-c35e131697c7">&lt;/strong&gt;</ept> lens.</source>
+          <target state="new">Click on the  <bpt id="c873b192-f94a-467d-81cb-ec6d06bd1096">&lt;strong&gt;</bpt>Alert rules<ept id="c873b192-f94a-467d-81cb-ec6d06bd1096">&lt;/strong&gt;</ept> tile in the <bpt id="de2edb2f-4f61-4d31-867c-c35e131697c7">&lt;strong&gt;</bpt>Operations<ept id="de2edb2f-4f61-4d31-867c-c35e131697c7">&lt;/strong&gt;</ept> lens.</target>
+        </trans-unit>
+        <trans-unit id="76815487-212e-4516-974e-a3ca43f4df0a" xml:space="preserve">
+          <source>Click the <bpt id="d3704106-5dc0-4554-8993-22a2f79b90d9">&lt;strong&gt;</bpt>Add alert<ept id="d3704106-5dc0-4554-8993-22a2f79b90d9">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Click the <bpt id="d3704106-5dc0-4554-8993-22a2f79b90d9">&lt;strong&gt;</bpt>Add alert<ept id="d3704106-5dc0-4554-8993-22a2f79b90d9">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="4262cc77-324f-4a5f-a3c8-cf3bdd3989e9" xml:space="preserve">
+          <source><bpt id="5808e6fd-8216-497a-bb13-03a6a46f6699">&lt;linkText&gt;</bpt>Add alert<ept id="5808e6fd-8216-497a-bb13-03a6a46f6699">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5808e6fd-8216-497a-bb13-03a6a46f6699">&lt;linkText&gt;</bpt>Add alert<ept id="5808e6fd-8216-497a-bb13-03a6a46f6699">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ece227a6-531a-4aec-8af6-d071137982b4" xml:space="preserve">
+          <source>You can name your alert rule, and choose a description that will show up in the notification email.</source>
+          <target state="new">You can name your alert rule, and choose a description that will show up in the notification email.</target>
+        </trans-unit>
+        <trans-unit id="7d6ed938-3638-4af3-8231-e0c7182ff80d" xml:space="preserve">
+          <source>When you select <bpt id="7f8a137c-2fd9-462e-aa3b-79908371acd7">&lt;strong&gt;</bpt>Metrics<ept id="7f8a137c-2fd9-462e-aa3b-79908371acd7">&lt;/strong&gt;</ept> you'll choose a condition and threshold Value for the metric.</source>
+          <target state="new">When you select <bpt id="7f8a137c-2fd9-462e-aa3b-79908371acd7">&lt;strong&gt;</bpt>Metrics<ept id="7f8a137c-2fd9-462e-aa3b-79908371acd7">&lt;/strong&gt;</ept> you'll choose a condition and threshold Value for the metric.</target>
+        </trans-unit>
+        <trans-unit id="70d45c22-8a59-4732-8110-fe3755cc57f9" xml:space="preserve">
+          <source>This is the period of time that Azure uses to monitor and plot alert activity.</source>
+          <target state="new">This is the period of time that Azure uses to monitor and plot alert activity.</target>
+        </trans-unit>
+        <trans-unit id="30f1af8c-1f19-433e-ac82-7f1ef208c8ed" xml:space="preserve">
+          <source><bpt id="f18fdb86-a4fd-48e5-8776-0a83b2ec045a">&lt;linkText&gt;</bpt>Condition and threshold<ept id="f18fdb86-a4fd-48e5-8776-0a83b2ec045a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f18fdb86-a4fd-48e5-8776-0a83b2ec045a">&lt;linkText&gt;</bpt>Condition and threshold<ept id="f18fdb86-a4fd-48e5-8776-0a83b2ec045a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1640f03e-6aae-4aaa-91ef-069739c1031e" xml:space="preserve">
+          <source>You can also choose <bpt id="7d5cf867-189f-4fef-bee4-d285226832be">&lt;strong&gt;</bpt>Events<ept id="7d5cf867-189f-4fef-bee4-d285226832be">&lt;/strong&gt;</ept>, and get a notification when a certain event happens.</source>
+          <target state="new">You can also choose <bpt id="7d5cf867-189f-4fef-bee4-d285226832be">&lt;strong&gt;</bpt>Events<ept id="7d5cf867-189f-4fef-bee4-d285226832be">&lt;/strong&gt;</ept>, and get a notification when a certain event happens.</target>
+        </trans-unit>
+        <trans-unit id="71f5eef5-b483-4fb5-ab8d-8562b9c5efcd" xml:space="preserve">
+          <source><bpt id="87ea6304-8de7-4543-ab1b-ece193117b04">&lt;linkText&gt;</bpt>Events<ept id="87ea6304-8de7-4543-ab1b-ece193117b04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87ea6304-8de7-4543-ab1b-ece193117b04">&lt;linkText&gt;</bpt>Events<ept id="87ea6304-8de7-4543-ab1b-ece193117b04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa6fa0a8-6728-464d-bc6d-8925795bec91" xml:space="preserve">
+          <source>Finally, you can choose to send email notification to responsible administrators.</source>
+          <target state="new">Finally, you can choose to send email notification to responsible administrators.</target>
+        </trans-unit>
+        <trans-unit id="61a7f871-ae08-4176-aede-b5915e1545cc" xml:space="preserve">
+          <source>After you click <bpt id="b913bba4-4394-49d0-bf34-db0f9d597b49">&lt;strong&gt;</bpt>Save<ept id="b913bba4-4394-49d0-bf34-db0f9d597b49">&lt;/strong&gt;</ept>, within a few minutes you will be informed whenever the metric you choose exceeds the threshold.</source>
+          <target state="new">After you click <bpt id="b913bba4-4394-49d0-bf34-db0f9d597b49">&lt;strong&gt;</bpt>Save<ept id="b913bba4-4394-49d0-bf34-db0f9d597b49">&lt;/strong&gt;</ept>, within a few minutes you will be informed whenever the metric you choose exceeds the threshold.</target>
+        </trans-unit>
+        <trans-unit id="b6e4f23d-4a70-42f5-aa61-787372cce1c8" xml:space="preserve">
+          <source>Once you have created an alert rule, you can view  a preview of your alert threshold compared the metric from the previous day.</source>
+          <target state="new">Once you have created an alert rule, you can view  a preview of your alert threshold compared the metric from the previous day.</target>
+        </trans-unit>
+        <trans-unit id="2323d876-6d3c-4f8a-931b-d41dd3963568" xml:space="preserve">
+          <source><bpt id="0728dc18-c779-4188-915e-4142331b0f21">&lt;linkText&gt;</bpt>Events<ept id="0728dc18-c779-4188-915e-4142331b0f21">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0728dc18-c779-4188-915e-4142331b0f21">&lt;linkText&gt;</bpt>Events<ept id="0728dc18-c779-4188-915e-4142331b0f21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f74c586-631e-4477-a346-221b40446dd5" xml:space="preserve">
+          <source>You can of course edit this alert rule, and <bpt id="1f075c98-f7ed-4dbe-a0e3-d7b209e61714">&lt;strong&gt;</bpt>Disable<ept id="1f075c98-f7ed-4dbe-a0e3-d7b209e61714">&lt;/strong&gt;</ept> or <bpt id="25a23476-c976-4bb0-b938-6ac337dcec23">&lt;strong&gt;</bpt>Enable<ept id="25a23476-c976-4bb0-b938-6ac337dcec23">&lt;/strong&gt;</ept> it if you want to temporarily stop receiving notifications about it.</source>
+          <target state="new">You can of course edit this alert rule, and <bpt id="1f075c98-f7ed-4dbe-a0e3-d7b209e61714">&lt;strong&gt;</bpt>Disable<ept id="1f075c98-f7ed-4dbe-a0e3-d7b209e61714">&lt;/strong&gt;</ept> or <bpt id="25a23476-c976-4bb0-b938-6ac337dcec23">&lt;strong&gt;</bpt>Enable<ept id="25a23476-c976-4bb0-b938-6ac337dcec23">&lt;/strong&gt;</ept> it if you want to temporarily stop receiving notifications about it.</target>
+        </trans-unit>
+        <trans-unit id="c45fca52-4783-436c-a02d-ba6805fcfa46" xml:space="preserve">
+          <source><bpt id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;/linkText&gt;</ept><bpt id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;title&gt;</bpt><ept id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;/title&gt;</ept> to make sure your service is available and responsive.</source>
+          <target state="new"><bpt id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;/linkText&gt;</ept><bpt id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;title&gt;</bpt><ept id="3e24cca4-f010-4a55-a12f-fc367908ac83">&lt;/title&gt;</ept> to make sure your service is available and responsive.</target>
+        </trans-unit>
+        <trans-unit id="d3256c76-c3d2-44d3-841e-c2442960e604" xml:space="preserve">
+          <source><bpt id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;/linkText&gt;</ept><bpt id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;title&gt;</bpt><ept id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</source>
+          <target state="new"><bpt id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;/linkText&gt;</ept><bpt id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;title&gt;</bpt><ept id="0f64fb70-c0a6-433a-bc96-8383270cd385">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</target>
+        </trans-unit>
+        <trans-unit id="e5b081e8-da75-4467-aa81-67701fb8364a" xml:space="preserve">
+          <source><bpt id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;/linkText&gt;</ept><bpt id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;title&gt;</bpt><ept id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</source>
+          <target state="new"><bpt id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;/linkText&gt;</ept><bpt id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;title&gt;</bpt><ept id="08fc6dd3-3405-4ec7-b891-472e272f3232">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</target>
+        </trans-unit>
+        <trans-unit id="83ccc309-6841-456b-9801-d2a8ede779f5" xml:space="preserve">
+          <source><bpt id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;linkText&gt;</bpt>Monitor application performance<ept id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;/linkText&gt;</ept><bpt id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;title&gt;</bpt><ept id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</source>
+          <target state="new"><bpt id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;linkText&gt;</bpt>Monitor application performance<ept id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;/linkText&gt;</ept><bpt id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;title&gt;</bpt><ept id="8f291a12-e35f-4764-aeba-b9e0af263108">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="723933b9-48dc-492c-81c0-ec7182e6d302" xml:space="preserve">
+          <source><bpt id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;linkText&gt;</bpt>View events and audit logs<ept id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;/linkText&gt;</ept><bpt id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;title&gt;</bpt><ept id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;/title&gt;</ept> to learn everything that has happened in your service.</source>
+          <target state="new"><bpt id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;linkText&gt;</bpt>View events and audit logs<ept id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;/linkText&gt;</ept><bpt id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;title&gt;</bpt><ept id="f30f8377-fd82-48de-9f1c-9ff13d5b7e4d">&lt;/title&gt;</ept> to learn everything that has happened in your service.</target>
+        </trans-unit>
+        <trans-unit id="c77d0f00-435a-4d2e-8a4c-dee6ee8d18f9" xml:space="preserve">
+          <source><bpt id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;linkText&gt;</bpt>Track service health<ept id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;/linkText&gt;</ept><bpt id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;title&gt;</bpt><ept id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;/title&gt;</ept> to find out when Azure has experienced performance degradation or service interruptions.</source>
+          <target state="new"><bpt id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;linkText&gt;</bpt>Track service health<ept id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;/linkText&gt;</ept><bpt id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;title&gt;</bpt><ept id="075b7e60-79c5-4faa-9cd1-404504d66c1c">&lt;/title&gt;</ept> to find out when Azure has experienced performance degradation or service interruptions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

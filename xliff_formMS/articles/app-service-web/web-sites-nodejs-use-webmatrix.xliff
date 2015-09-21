@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fd8548e4-d2ee-451e-9cdd-bbea79641f48" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fd8548e4-d2ee-451e-9cdd-bbea79641f48" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0a08dbcf-c399-433f-bfb4-4823af039d82">
+        <trans-unit id="6df14761-0194-4759-b7c6-da5ecb4d8773" xml:space="preserve">
+          <source>Build and deploy a Node.js web app to Azure using WebMatrix</source>
+          <target state="new">Build and deploy a Node.js web app to Azure using WebMatrix</target>
+        </trans-unit>
+        <trans-unit id="c9fda821-441c-4da8-9b05-ba02e58a13b4" xml:space="preserve">
+          <source>A tutorial that teaches you how to use WebMatrix to develop a Node.js application and deploy it to Azure App Service Web Apps.</source>
+          <target state="new">A tutorial that teaches you how to use WebMatrix to develop a Node.js application and deploy it to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="fc40a6f6-c6a3-4d57-93bf-20bd493161a0" xml:space="preserve">
+          <source>This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to <bpt id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;linkText&gt;</bpt>Azure App Service<ept id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;/linkText&gt;</ept><bpt id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;title&gt;</bpt><ept id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;/title&gt;</ept> Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about <bpt id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;linkText&gt;</bpt>WebMatrix for Azure<ept id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;/linkText&gt;</ept><bpt id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;title&gt;</bpt><ept id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to <bpt id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;linkText&gt;</bpt>Azure App Service<ept id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;/linkText&gt;</ept><bpt id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;title&gt;</bpt><ept id="f1454797-7bed-4209-bd8d-e2fa8900ecde">&lt;/title&gt;</ept> Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about <bpt id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;linkText&gt;</bpt>WebMatrix for Azure<ept id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;/linkText&gt;</ept><bpt id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;title&gt;</bpt><ept id="101be907-4c4c-4ed3-863b-b644fd55ffb9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9ceb2a8-bd8a-41b1-a0bf-3144669c0c3b" xml:space="preserve">
+          <source>Upon completing this guide, you will have a Node.js web app running in Azure App Service.</source>
+          <target state="new">Upon completing this guide, you will have a Node.js web app running in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="94a7df08-457a-483d-8643-7db5c8f59966" xml:space="preserve">
+          <source>A screenshot of the completed application is below:</source>
+          <target state="new">A screenshot of the completed application is below:</target>
+        </trans-unit>
+        <trans-unit id="d6a1d908-64da-49cd-ad99-057262f11c5e" xml:space="preserve">
+          <source><bpt id="9d9032d8-d525-4a69-8d0e-9697200b9ab8">&lt;linkText&gt;</bpt>Azure node Web site<ept id="9d9032d8-d525-4a69-8d0e-9697200b9ab8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d9032d8-d525-4a69-8d0e-9697200b9ab8">&lt;linkText&gt;</bpt>Azure node Web site<ept id="9d9032d8-d525-4a69-8d0e-9697200b9ab8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="865c9882-7aa7-4148-a14c-990ef73205c2" xml:space="preserve">
+          <source><bpt id="14784899-1fdb-47ae-86b4-27bf96f4d18a">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="14784899-1fdb-47ae-86b4-27bf96f4d18a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="14784899-1fdb-47ae-86b4-27bf96f4d18a">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="14784899-1fdb-47ae-86b4-27bf96f4d18a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50cdbfdc-9f86-460e-b2d9-02a58cd1b885" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;linkText&gt;</bpt>Try App Service<ept id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;/linkText&gt;</ept><bpt id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;title&gt;</bpt><ept id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;linkText&gt;</bpt>Try App Service<ept id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;/linkText&gt;</ept><bpt id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;title&gt;</bpt><ept id="698bceed-4f29-4680-9980-3d9982d089f0">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="7772d391-0fae-41ee-844e-672ac64d50df" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="b03237cd-1cff-4947-9f8e-7f9f8841f153" xml:space="preserve">
+          <source>Follow these steps to create a web app in Azure App Service.</source>
+          <target state="new">Follow these steps to create a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="2578b3ea-b522-4935-a6ab-09e76037a274" xml:space="preserve">
+          <source>Launch WebMatrix</source>
+          <target state="new">Launch WebMatrix</target>
+        </trans-unit>
+        <trans-unit id="0df66dbd-ced1-48c0-abd0-c28b22fcfedc" xml:space="preserve">
+          <source>If this is the first time you've used WebMatrix, you will be prompted to sign into Azure.</source>
+          <target state="new">If this is the first time you've used WebMatrix, you will be prompted to sign into Azure.</target>
+        </trans-unit>
+        <trans-unit id="b5a7cb34-f43b-488c-b462-ae050ba02960" xml:space="preserve">
+          <source>Otherwise, you can click on the <bpt id="1ac7e2b5-6860-475b-aa07-6e84c1777234">&lt;strong&gt;</bpt>Sign In<ept id="1ac7e2b5-6860-475b-aa07-6e84c1777234">&lt;/strong&gt;</ept> button, and choose <bpt id="25ed252f-5203-43de-9047-4dbdf069851d">&lt;strong&gt;</bpt>Add Account<ept id="25ed252f-5203-43de-9047-4dbdf069851d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Otherwise, you can click on the <bpt id="1ac7e2b5-6860-475b-aa07-6e84c1777234">&lt;strong&gt;</bpt>Sign In<ept id="1ac7e2b5-6860-475b-aa07-6e84c1777234">&lt;/strong&gt;</ept> button, and choose <bpt id="25ed252f-5203-43de-9047-4dbdf069851d">&lt;strong&gt;</bpt>Add Account<ept id="25ed252f-5203-43de-9047-4dbdf069851d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c47ae16-53f0-417c-90cd-fe3d28babb79" xml:space="preserve">
+          <source>Select to <bpt id="26d618f5-d22d-4a1c-8c81-7344a2089225">&lt;strong&gt;</bpt>Sign in<ept id="26d618f5-d22d-4a1c-8c81-7344a2089225">&lt;/strong&gt;</ept> using your Microsoft Account.</source>
+          <target state="new">Select to <bpt id="26d618f5-d22d-4a1c-8c81-7344a2089225">&lt;strong&gt;</bpt>Sign in<ept id="26d618f5-d22d-4a1c-8c81-7344a2089225">&lt;/strong&gt;</ept> using your Microsoft Account.</target>
+        </trans-unit>
+        <trans-unit id="d30cf095-11bb-4d5d-8e78-762fcfd8041a" xml:space="preserve">
+          <source><bpt id="7db884e9-a90b-4ec0-9849-24896a2e3d4e">&lt;linkText&gt;</bpt>Add Account<ept id="7db884e9-a90b-4ec0-9849-24896a2e3d4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7db884e9-a90b-4ec0-9849-24896a2e3d4e">&lt;linkText&gt;</bpt>Add Account<ept id="7db884e9-a90b-4ec0-9849-24896a2e3d4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed85a56-816d-4835-a3ff-de5596e4ee37" xml:space="preserve">
+          <source>If you have signed up for an Azure account, you may log in using your Microsoft Account:</source>
+          <target state="new">If you have signed up for an Azure account, you may log in using your Microsoft Account:</target>
+        </trans-unit>
+        <trans-unit id="e2adbb84-8400-43d2-ac2e-c28a5e1a1563" xml:space="preserve">
+          <source><bpt id="f9e8a978-5f86-4019-a1c8-42eedb9f83e2">&lt;linkText&gt;</bpt>Sign into Azure<ept id="f9e8a978-5f86-4019-a1c8-42eedb9f83e2">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="f9e8a978-5f86-4019-a1c8-42eedb9f83e2">&lt;linkText&gt;</bpt>Sign into Azure<ept id="f9e8a978-5f86-4019-a1c8-42eedb9f83e2">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="b73bb39d-c209-4635-9f24-40696e6ab3ce" xml:space="preserve">
+          <source>On the start screen, click the <bpt id="05ceb0c6-91e3-469c-b029-87d1f387d960">&lt;strong&gt;</bpt>New<ept id="05ceb0c6-91e3-469c-b029-87d1f387d960">&lt;/strong&gt;</ept> button, and choose <bpt id="814043cc-b6f7-40f9-861f-bf4360e11dcd">&lt;strong&gt;</bpt>Template Gallery<ept id="814043cc-b6f7-40f9-861f-bf4360e11dcd">&lt;/strong&gt;</ept> to create a new site from the Template Gallery:</source>
+          <target state="new">On the start screen, click the <bpt id="05ceb0c6-91e3-469c-b029-87d1f387d960">&lt;strong&gt;</bpt>New<ept id="05ceb0c6-91e3-469c-b029-87d1f387d960">&lt;/strong&gt;</ept> button, and choose <bpt id="814043cc-b6f7-40f9-861f-bf4360e11dcd">&lt;strong&gt;</bpt>Template Gallery<ept id="814043cc-b6f7-40f9-861f-bf4360e11dcd">&lt;/strong&gt;</ept> to create a new site from the Template Gallery:</target>
+        </trans-unit>
+        <trans-unit id="3c0bdf50-3d47-459a-93e9-b9b1c15f7a72" xml:space="preserve">
+          <source><bpt id="00c05c07-0d96-4c75-bfcf-3b1cde83c889">&lt;linkText&gt;</bpt>New site from Template Gallery<ept id="00c05c07-0d96-4c75-bfcf-3b1cde83c889">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00c05c07-0d96-4c75-bfcf-3b1cde83c889">&lt;linkText&gt;</bpt>New site from Template Gallery<ept id="00c05c07-0d96-4c75-bfcf-3b1cde83c889">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f82e4224-a24b-407c-8b7a-21ed71d0ae82" xml:space="preserve">
+          <source>In the <bpt id="7ef4298e-4c1a-45cd-8bad-e2a7188eb6f8">&lt;strong&gt;</bpt>Site from Template<ept id="7ef4298e-4c1a-45cd-8bad-e2a7188eb6f8">&lt;/strong&gt;</ept> dialog, select <bpt id="bf3a942d-dc07-45ea-b65c-7d38300e8447">&lt;strong&gt;</bpt>Node<ept id="bf3a942d-dc07-45ea-b65c-7d38300e8447">&lt;/strong&gt;</ept> and then select <bpt id="d603afae-e245-4f98-b301-a2c7c67b1d3c">&lt;strong&gt;</bpt>Express Site<ept id="d603afae-e245-4f98-b301-a2c7c67b1d3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7ef4298e-4c1a-45cd-8bad-e2a7188eb6f8">&lt;strong&gt;</bpt>Site from Template<ept id="7ef4298e-4c1a-45cd-8bad-e2a7188eb6f8">&lt;/strong&gt;</ept> dialog, select <bpt id="bf3a942d-dc07-45ea-b65c-7d38300e8447">&lt;strong&gt;</bpt>Node<ept id="bf3a942d-dc07-45ea-b65c-7d38300e8447">&lt;/strong&gt;</ept> and then select <bpt id="d603afae-e245-4f98-b301-a2c7c67b1d3c">&lt;strong&gt;</bpt>Express Site<ept id="d603afae-e245-4f98-b301-a2c7c67b1d3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f46a4482-4f69-4085-a209-80f669536f14" xml:space="preserve">
+          <source>Finally, click <bpt id="ad6ee66a-b9ef-4233-b4fa-0aac594d35b9">&lt;strong&gt;</bpt>Next<ept id="ad6ee66a-b9ef-4233-b4fa-0aac594d35b9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, click <bpt id="ad6ee66a-b9ef-4233-b4fa-0aac594d35b9">&lt;strong&gt;</bpt>Next<ept id="ad6ee66a-b9ef-4233-b4fa-0aac594d35b9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d0c84aa-da54-4730-b7ed-d083ff5165d3" xml:space="preserve">
+          <source>If you are missing any prerequisites for the <bpt id="ac2ca975-6363-48e7-95ef-4e618ba8a22b">&lt;strong&gt;</bpt>Express Site<ept id="ac2ca975-6363-48e7-95ef-4e618ba8a22b">&lt;/strong&gt;</ept> template, you will be prompted to install them.</source>
+          <target state="new">If you are missing any prerequisites for the <bpt id="ac2ca975-6363-48e7-95ef-4e618ba8a22b">&lt;strong&gt;</bpt>Express Site<ept id="ac2ca975-6363-48e7-95ef-4e618ba8a22b">&lt;/strong&gt;</ept> template, you will be prompted to install them.</target>
+        </trans-unit>
+        <trans-unit id="ba363af3-df29-46d4-b0a6-e03c6a1c10b7" xml:space="preserve">
+          <source><bpt id="8382a481-90c1-40bd-9737-2db2e5532e20">&lt;linkText&gt;</bpt>select express template<ept id="8382a481-90c1-40bd-9737-2db2e5532e20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8382a481-90c1-40bd-9737-2db2e5532e20">&lt;linkText&gt;</bpt>select express template<ept id="8382a481-90c1-40bd-9737-2db2e5532e20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac664981-7ca3-47ef-b274-0dabfb61525a" xml:space="preserve">
+          <source>If you are signed into Azure, you now have the option to create an App Service web app for your local site.</source>
+          <target state="new">If you are signed into Azure, you now have the option to create an App Service web app for your local site.</target>
+        </trans-unit>
+        <trans-unit id="f064beb2-6cdb-4c37-8086-e60ff9be7088" xml:space="preserve">
+          <source>Choose a unique name, and select the datacenter where you would like your App Service web app to be created:</source>
+          <target state="new">Choose a unique name, and select the datacenter where you would like your App Service web app to be created:</target>
+        </trans-unit>
+        <trans-unit id="49222489-5b18-46c8-ac6e-1811f5208d9e" xml:space="preserve">
+          <source><bpt id="45824a79-c278-410d-b767-19bf41bf4129">&lt;linkText&gt;</bpt>Create site on Azure<ept id="45824a79-c278-410d-b767-19bf41bf4129">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45824a79-c278-410d-b767-19bf41bf4129">&lt;linkText&gt;</bpt>Create site on Azure<ept id="45824a79-c278-410d-b767-19bf41bf4129">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f31c1104-b0bf-444a-a654-26f2bdff087c" xml:space="preserve">
+          <source>After WebMatrix finishes building the local site and creating the App Service web app, the WebMatrix IDE is displayed.</source>
+          <target state="new">After WebMatrix finishes building the local site and creating the App Service web app, the WebMatrix IDE is displayed.</target>
+        </trans-unit>
+        <trans-unit id="79b8098c-0575-4a06-82d8-dd86e6529118" xml:space="preserve">
+          <source><bpt id="6912010d-633b-4df9-838f-3b65740f18fe">&lt;linkText&gt;</bpt>webmatrix ide<ept id="6912010d-633b-4df9-838f-3b65740f18fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6912010d-633b-4df9-838f-3b65740f18fe">&lt;linkText&gt;</bpt>webmatrix ide<ept id="6912010d-633b-4df9-838f-3b65740f18fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02c8d65c-fc65-4bc7-a2bf-6e55daf2deba" xml:space="preserve">
+          <source>In WebMatrix, click <bpt id="60825044-d9a7-4638-9d76-5cf25d9442cd">&lt;strong&gt;</bpt>Publish<ept id="60825044-d9a7-4638-9d76-5cf25d9442cd">&lt;/strong&gt;</ept> from the <bpt id="7f310a1d-b67f-4193-a1be-e4699491e2b2">&lt;strong&gt;</bpt>Home<ept id="7f310a1d-b67f-4193-a1be-e4699491e2b2">&lt;/strong&gt;</ept> ribbon to display the <bpt id="ff627c35-eb33-4f9e-b51a-4a61ad8c31d8">&lt;strong&gt;</bpt>Publish Preview<ept id="ff627c35-eb33-4f9e-b51a-4a61ad8c31d8">&lt;/strong&gt;</ept> dialog box for the site.</source>
+          <target state="new">In WebMatrix, click <bpt id="60825044-d9a7-4638-9d76-5cf25d9442cd">&lt;strong&gt;</bpt>Publish<ept id="60825044-d9a7-4638-9d76-5cf25d9442cd">&lt;/strong&gt;</ept> from the <bpt id="7f310a1d-b67f-4193-a1be-e4699491e2b2">&lt;strong&gt;</bpt>Home<ept id="7f310a1d-b67f-4193-a1be-e4699491e2b2">&lt;/strong&gt;</ept> ribbon to display the <bpt id="ff627c35-eb33-4f9e-b51a-4a61ad8c31d8">&lt;strong&gt;</bpt>Publish Preview<ept id="ff627c35-eb33-4f9e-b51a-4a61ad8c31d8">&lt;/strong&gt;</ept> dialog box for the site.</target>
+        </trans-unit>
+        <trans-unit id="81a6c952-c436-40aa-ab23-1acb5128560a" xml:space="preserve">
+          <source><bpt id="07de000a-517e-4b07-96df-00f4c3deff4d">&lt;linkText&gt;</bpt>publish preview<ept id="07de000a-517e-4b07-96df-00f4c3deff4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07de000a-517e-4b07-96df-00f4c3deff4d">&lt;linkText&gt;</bpt>publish preview<ept id="07de000a-517e-4b07-96df-00f4c3deff4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="499e7771-3f14-403c-a3a1-3ab5b4b9c673" xml:space="preserve">
+          <source>Click <bpt id="24e640f5-99f2-43ae-a79d-486cff9a0a0d">&lt;strong&gt;</bpt>Continue<ept id="24e640f5-99f2-43ae-a79d-486cff9a0a0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="24e640f5-99f2-43ae-a79d-486cff9a0a0d">&lt;strong&gt;</bpt>Continue<ept id="24e640f5-99f2-43ae-a79d-486cff9a0a0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75662caf-8177-4bcc-a58f-b502f3a98512" xml:space="preserve">
+          <source>When publishing is complete, the URL for the App Service web app is displayed at the bottom of the WebMatrix IDE</source>
+          <target state="new">When publishing is complete, the URL for the App Service web app is displayed at the bottom of the WebMatrix IDE</target>
+        </trans-unit>
+        <trans-unit id="58ed7356-45b2-46f7-afd8-3773d2e76332" xml:space="preserve">
+          <source><bpt id="44412bd1-e037-4f99-8c54-4023164fbaf2">&lt;linkText&gt;</bpt>publish complete<ept id="44412bd1-e037-4f99-8c54-4023164fbaf2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44412bd1-e037-4f99-8c54-4023164fbaf2">&lt;linkText&gt;</bpt>publish complete<ept id="44412bd1-e037-4f99-8c54-4023164fbaf2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb97117d-a6d3-4082-96f4-5a5a5c8eca9e" xml:space="preserve">
+          <source>Click the link to open the App Service web app in your browser.</source>
+          <target state="new">Click the link to open the App Service web app in your browser.</target>
+        </trans-unit>
+        <trans-unit id="a35b97c4-15ea-4eb1-9667-c54228f8b277" xml:space="preserve">
+          <source><bpt id="df21631b-18f9-4d0d-9b78-112483ce5d01">&lt;linkText&gt;</bpt>Express web app<ept id="df21631b-18f9-4d0d-9b78-112483ce5d01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df21631b-18f9-4d0d-9b78-112483ce5d01">&lt;linkText&gt;</bpt>Express web app<ept id="df21631b-18f9-4d0d-9b78-112483ce5d01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bceda05c-a3da-4c64-b108-1d6da9190a4c" xml:space="preserve">
+          <source>You can easily modify and republish your application.</source>
+          <target state="new">You can easily modify and republish your application.</target>
+        </trans-unit>
+        <trans-unit id="bc412f38-d8c5-45dd-b578-f1b3e8e3cc96" xml:space="preserve">
+          <source>Here, you will make a simple change to the heading in in the <bpt id="16d26ff9-628f-4929-9c7f-a37d8b2da66a">&lt;strong&gt;</bpt>index.jade<ept id="16d26ff9-628f-4929-9c7f-a37d8b2da66a">&lt;/strong&gt;</ept> file, and republish the application.</source>
+          <target state="new">Here, you will make a simple change to the heading in in the <bpt id="16d26ff9-628f-4929-9c7f-a37d8b2da66a">&lt;strong&gt;</bpt>index.jade<ept id="16d26ff9-628f-4929-9c7f-a37d8b2da66a">&lt;/strong&gt;</ept> file, and republish the application.</target>
+        </trans-unit>
+        <trans-unit id="f75e6a02-86b2-4571-9f8e-7ad8420e9e34" xml:space="preserve">
+          <source>In WebMatrix, select <bpt id="f93cde34-3267-4913-8489-8fc9df60dc84">&lt;strong&gt;</bpt>Files<ept id="f93cde34-3267-4913-8489-8fc9df60dc84">&lt;/strong&gt;</ept>, and then expend the <bpt id="a384dc82-63e3-4581-8aee-dd632d80abec">&lt;strong&gt;</bpt>views<ept id="a384dc82-63e3-4581-8aee-dd632d80abec">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">In WebMatrix, select <bpt id="f93cde34-3267-4913-8489-8fc9df60dc84">&lt;strong&gt;</bpt>Files<ept id="f93cde34-3267-4913-8489-8fc9df60dc84">&lt;/strong&gt;</ept>, and then expend the <bpt id="a384dc82-63e3-4581-8aee-dd632d80abec">&lt;strong&gt;</bpt>views<ept id="a384dc82-63e3-4581-8aee-dd632d80abec">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="ab142008-66f2-481b-a63b-6050d6a66f04" xml:space="preserve">
+          <source>Open the <bpt id="d032437f-38fb-402c-80b4-7bd3f5eba135">&lt;strong&gt;</bpt>index.jade<ept id="d032437f-38fb-402c-80b4-7bd3f5eba135">&lt;/strong&gt;</ept> file by double-clicking it.</source>
+          <target state="new">Open the <bpt id="d032437f-38fb-402c-80b4-7bd3f5eba135">&lt;strong&gt;</bpt>index.jade<ept id="d032437f-38fb-402c-80b4-7bd3f5eba135">&lt;/strong&gt;</ept> file by double-clicking it.</target>
+        </trans-unit>
+        <trans-unit id="7b044de4-203b-47cb-bf34-1a168ffd01e3" xml:space="preserve">
+          <source><bpt id="97729acc-1309-4d92-9837-c21f928c89b3">&lt;linkText&gt;</bpt>webmatrix viewing index.jade<ept id="97729acc-1309-4d92-9837-c21f928c89b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97729acc-1309-4d92-9837-c21f928c89b3">&lt;linkText&gt;</bpt>webmatrix viewing index.jade<ept id="97729acc-1309-4d92-9837-c21f928c89b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="069072b0-8a38-4a72-9548-b6a7fe2728a8" xml:space="preserve">
+          <source>Change the second line to the following:</source>
+          <target state="new">Change the second line to the following:</target>
+        </trans-unit>
+        <trans-unit id="42b48f07-9df1-415a-bbe0-9fbd78d01904" xml:space="preserve">
+          <source>Save your changes, and then click the publish icon.</source>
+          <target state="new">Save your changes, and then click the publish icon.</target>
+        </trans-unit>
+        <trans-unit id="8961928e-0d5c-480d-9fb2-99544a946088" xml:space="preserve">
+          <source>Finally, click <bpt id="8258e734-d7f0-49f4-883c-4e7c5a8448c9">&lt;strong&gt;</bpt>Continue<ept id="8258e734-d7f0-49f4-883c-4e7c5a8448c9">&lt;/strong&gt;</ept> in the <bpt id="a244a5b8-d8c1-4d56-9166-beb6e6783b52">&lt;strong&gt;</bpt>Publish Preview<ept id="a244a5b8-d8c1-4d56-9166-beb6e6783b52">&lt;/strong&gt;</ept> dialog and wait for the update to be published.</source>
+          <target state="new">Finally, click <bpt id="8258e734-d7f0-49f4-883c-4e7c5a8448c9">&lt;strong&gt;</bpt>Continue<ept id="8258e734-d7f0-49f4-883c-4e7c5a8448c9">&lt;/strong&gt;</ept> in the <bpt id="a244a5b8-d8c1-4d56-9166-beb6e6783b52">&lt;strong&gt;</bpt>Publish Preview<ept id="a244a5b8-d8c1-4d56-9166-beb6e6783b52">&lt;/strong&gt;</ept> dialog and wait for the update to be published.</target>
+        </trans-unit>
+        <trans-unit id="9dbee273-619f-42c3-97cd-6a7bf3be08e3" xml:space="preserve">
+          <source><bpt id="a65cd970-7eb7-41b3-b03d-d56aebdd5bc7">&lt;linkText&gt;</bpt>publish preview<ept id="a65cd970-7eb7-41b3-b03d-d56aebdd5bc7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a65cd970-7eb7-41b3-b03d-d56aebdd5bc7">&lt;linkText&gt;</bpt>publish preview<ept id="a65cd970-7eb7-41b3-b03d-d56aebdd5bc7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="419e9242-f431-4c8d-8618-9c60eca2053b" xml:space="preserve">
+          <source>When publishing has completed, use the link returned when the publish process is complete to see the updated App Service web app.</source>
+          <target state="new">When publishing has completed, use the link returned when the publish process is complete to see the updated App Service web app.</target>
+        </trans-unit>
+        <trans-unit id="caf2bc97-db46-44b2-a2ef-d4871eccc083" xml:space="preserve">
+          <source><bpt id="1814d360-8a0b-4308-a2c0-0c9c8944989e">&lt;linkText&gt;</bpt>Azure node web app<ept id="1814d360-8a0b-4308-a2c0-0c9c8944989e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1814d360-8a0b-4308-a2c0-0c9c8944989e">&lt;linkText&gt;</bpt>Azure node web app<ept id="1814d360-8a0b-4308-a2c0-0c9c8944989e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b253f13-732f-46fa-bbfc-e88b6329645a" xml:space="preserve">
+          <source>To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see <bpt id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;linkText&gt;</bpt>Specifying a Node.js version in an Azure application<ept id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;/linkText&gt;</ept><bpt id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;title&gt;</bpt><ept id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see <bpt id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;linkText&gt;</bpt>Specifying a Node.js version in an Azure application<ept id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;/linkText&gt;</ept><bpt id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;title&gt;</bpt><ept id="a41b1d7d-ef03-44c8-91f3-63d089cd490d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="287a3168-3b99-419a-a8ca-7fcd917a904c" xml:space="preserve">
+          <source>If you encounter problems with your application after it has been deployed to Azure, see <bpt id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;linkText&gt;</bpt>How to debug a Node.js web app in Azure App Service<ept id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;/linkText&gt;</ept><bpt id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;title&gt;</bpt><ept id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;/title&gt;</ept> for information on diagnosing the problem.</source>
+          <target state="new">If you encounter problems with your application after it has been deployed to Azure, see <bpt id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;linkText&gt;</bpt>How to debug a Node.js web app in Azure App Service<ept id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;/linkText&gt;</ept><bpt id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;title&gt;</bpt><ept id="d669797f-71cf-438e-bb19-4e0f530822f9">&lt;/title&gt;</ept> for information on diagnosing the problem.</target>
+        </trans-unit>
+        <trans-unit id="1e2e0959-7d87-4b58-8071-3d19ac8357a1" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;/linkText&gt;</ept><bpt id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;title&gt;</bpt><ept id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;/linkText&gt;</ept><bpt id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;title&gt;</bpt><ept id="9cd5d481-95b9-436e-a646-f75eb9c98cb9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="175442ea-4382-40ea-86b9-35021a9c796a" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;/linkText&gt;</ept><bpt id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;title&gt;</bpt><ept id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;/linkText&gt;</ept><bpt id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;title&gt;</bpt><ept id="0cfe5327-2126-4ac6-afbd-10649838cf0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5c9896e-ea6d-440e-9baf-2abadcf7dedd" xml:space="preserve">
+          <source>http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398</source>
+          <target state="new">http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398</target>
+        </trans-unit>
+        <trans-unit id="b98125f1-a204-4b69-9977-d2d07f9ea046" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=253622&amp;clcid=0x409</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=253622&amp;clcid=0x409</target>
+        </trans-unit>
+        <trans-unit id="08763bfc-04a6-4972-a124-c4df2df1e811" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png</target>
+        </trans-unit>
+        <trans-unit id="5acb6b1b-6c3e-47be-8de6-1e3128678786" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-templates.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-templates.png</target>
+        </trans-unit>
+        <trans-unit id="e2014334-dcb2-45eb-a08b-3cd313dc59b0" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-publishpreview.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-publishpreview.png</target>
+        </trans-unit>
+        <trans-unit id="3680225a-619e-4927-b386-310f9c6a5b61" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-ide.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-ide.png</target>
+        </trans-unit>
+        <trans-unit id="a6ef7206-a265-469c-b154-2f62cc93dfac" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-publish-complete.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-publish-complete.png</target>
+        </trans-unit>
+        <trans-unit id="6cd440e3-bc32-409f-9bda-0d857863c8ab" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-express-webiste.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-express-webiste.png</target>
+        </trans-unit>
+        <trans-unit id="e306f82f-d5f0-4f37-85f6-8f97ce2515e1" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-node-edit.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-node-edit.png</target>
+        </trans-unit>
+        <trans-unit id="6384eaf4-e672-4523-abac-1d7ebe251a21" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-republish.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-republish.png</target>
+        </trans-unit>
+        <trans-unit id="ceb11296-d6a1-4a6e-8790-ea1da54f66aa" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-add-account.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-add-account.png</target>
+        </trans-unit>
+        <trans-unit id="256b0c68-23e5-4287-8230-1cd283143595" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png</target>
+        </trans-unit>
+        <trans-unit id="27c40c00-378e-4d21-832a-57f2282cc9c7" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png</target>
+        </trans-unit>
+        <trans-unit id="377c4cde-6b16-4ddc-8483-44c3345ed5c0" xml:space="preserve">
+          <source>./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png</source>
+          <target state="new">./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png</target>
+        </trans-unit>
+      </group>
+      <group id="73ad050c-da2e-4fb4-b6bb-95c665e38f9c" />
+    </body>
+  </file>
+</xliff>

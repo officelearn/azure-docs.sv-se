@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e060f466-09af-43d0-bd74-3d1ed43896b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e060f466-09af-43d0-bd74-3d1ed43896b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="efe069cc-d8b6-4a32-a56a-e0f65d7f32a7">
+        <trans-unit id="470e1bfe-e5a0-4c3f-93d7-b0606b2a41d4" xml:space="preserve">
+          <source>Managing databases and logins in Azure SQL Database | Microsoft Azure</source>
+          <target state="new">Managing databases and logins in Azure SQL Database | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0a30b8a4-9287-44bd-8ca5-acce51ae6cbb" xml:space="preserve">
+          <source>How you can use the server-level principal and other accounts to manage logins and databases in SQL Database</source>
+          <target state="new">How you can use the server-level principal and other accounts to manage logins and databases in SQL Database</target>
+        </trans-unit>
+        <trans-unit id="9fbbc357-9341-4964-a87f-f65b3c52ad75" xml:space="preserve">
+          <source>In Microsoft Azure SQL Database, when you sign up for the service, the provisioning process creates an Azure SQL Database server, a database named <bpt id="3f83b239-552a-4a53-8a56-9c28705ae9f6">&lt;strong&gt;</bpt>master<ept id="3f83b239-552a-4a53-8a56-9c28705ae9f6">&lt;/strong&gt;</ept>, and a login that is the server-level principal of your Azure SQL Database server.</source>
+          <target state="new">In Microsoft Azure SQL Database, when you sign up for the service, the provisioning process creates an Azure SQL Database server, a database named <bpt id="3f83b239-552a-4a53-8a56-9c28705ae9f6">&lt;strong&gt;</bpt>master<ept id="3f83b239-552a-4a53-8a56-9c28705ae9f6">&lt;/strong&gt;</ept>, and a login that is the server-level principal of your Azure SQL Database server.</target>
+        </trans-unit>
+        <trans-unit id="0b02d4b2-85cb-4847-99a4-d95620023b2d" xml:space="preserve">
+          <source>That login is similar to the server-level principal, <bpt id="f7656a6e-1f3d-4110-ac04-bc79ed4410dc">&lt;strong&gt;</bpt>sa<ept id="f7656a6e-1f3d-4110-ac04-bc79ed4410dc">&lt;/strong&gt;</ept>, for an instance of SQL Server on your premises.</source>
+          <target state="new">That login is similar to the server-level principal, <bpt id="f7656a6e-1f3d-4110-ac04-bc79ed4410dc">&lt;strong&gt;</bpt>sa<ept id="f7656a6e-1f3d-4110-ac04-bc79ed4410dc">&lt;/strong&gt;</ept>, for an instance of SQL Server on your premises.</target>
+        </trans-unit>
+        <trans-unit id="17b19d45-54c6-45c7-9373-d6785d80da60" xml:space="preserve">
+          <source>The Azure SQL Database server-level principal account always has permission to manage all server-level and database-level security.</source>
+          <target state="new">The Azure SQL Database server-level principal account always has permission to manage all server-level and database-level security.</target>
+        </trans-unit>
+        <trans-unit id="e6d9b241-07c5-46b9-aaa6-17363b88a4b6" xml:space="preserve">
+          <source>This topic describes how you can use the server-level principal and other accounts to manage logins and databases in SQL Database.</source>
+          <target state="new">This topic describes how you can use the server-level principal and other accounts to manage logins and databases in SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="6123e677-a2d5-4dec-ab64-2bb16b47ddf6" xml:space="preserve">
+          <source>SQL Database V12 allows users to authenticate at the database by using contained database users.</source>
+          <target state="new">SQL Database V12 allows users to authenticate at the database by using contained database users.</target>
+        </trans-unit>
+        <trans-unit id="3a326f27-3b35-4708-846c-f1159dabe41c" xml:space="preserve">
+          <source>Contained database users do not require logins.</source>
+          <target state="new">Contained database users do not require logins.</target>
+        </trans-unit>
+        <trans-unit id="0bf02353-2389-45c7-b51f-ff70b60cd80e" xml:space="preserve">
+          <source>This makes databases more portable but reduces the ability of the server-level principal to control access to the database.</source>
+          <target state="new">This makes databases more portable but reduces the ability of the server-level principal to control access to the database.</target>
+        </trans-unit>
+        <trans-unit id="9573cf7d-8b1a-438d-ba1a-a58dc8e7f9a3" xml:space="preserve">
+          <source>Enabling contained database users has important security impacts.</source>
+          <target state="new">Enabling contained database users has important security impacts.</target>
+        </trans-unit>
+        <trans-unit id="0f549dc2-79f1-4afa-8b96-3253a09bfdde" xml:space="preserve">
+          <source>For more information, see <bpt id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;linkText&gt;</bpt>Contained Database Users - Making Your Database Portable<ept id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;/linkText&gt;</ept><bpt id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;title&gt;</bpt><ept id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;/title&gt;</ept>, <bpt id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;/linkText&gt;</ept><bpt id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;title&gt;</bpt><ept id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;/title&gt;</ept>, and <bpt id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;linkText&gt;</bpt>Contained Databases<ept id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;/linkText&gt;</ept><bpt id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;title&gt;</bpt><ept id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;linkText&gt;</bpt>Contained Database Users - Making Your Database Portable<ept id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;/linkText&gt;</ept><bpt id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;title&gt;</bpt><ept id="cc0e7235-7faa-4515-b6bc-7c0ccd0bb440">&lt;/title&gt;</ept>, <bpt id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;/linkText&gt;</ept><bpt id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;title&gt;</bpt><ept id="45b9396b-d592-48d2-9bcd-ea853b2c1b22">&lt;/title&gt;</ept>, and <bpt id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;linkText&gt;</bpt>Contained Databases<ept id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;/linkText&gt;</ept><bpt id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;title&gt;</bpt><ept id="e76b8fd0-ee2d-406a-be6c-27f6c6acc368">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43e94767-c159-4f45-8d09-6d76d5c50a1c" xml:space="preserve">
+          <source>Security administration in SQL Database is similar to security administration for an on-premises instance of SQL Server.</source>
+          <target state="new">Security administration in SQL Database is similar to security administration for an on-premises instance of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="34503960-a155-4590-8d85-5bb702b6f8a6" xml:space="preserve">
+          <source>Managing security at the database-level is almost identical, with differences only in the parameters available.</source>
+          <target state="new">Managing security at the database-level is almost identical, with differences only in the parameters available.</target>
+        </trans-unit>
+        <trans-unit id="dab5c5c4-6796-4992-9270-230309959639" xml:space="preserve">
+          <source>Because SQL Databases can scale to one or more physical computers, Azure SQL Database uses a different strategy for server-level administration.</source>
+          <target state="new">Because SQL Databases can scale to one or more physical computers, Azure SQL Database uses a different strategy for server-level administration.</target>
+        </trans-unit>
+        <trans-unit id="cc81f3bc-eccf-49ca-abb5-d3a68cd11c29" xml:space="preserve">
+          <source>The following table summarizes how security administration for an on-premise SQL Server is different than in Azure SQL Database.</source>
+          <target state="new">The following table summarizes how security administration for an on-premise SQL Server is different than in Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="3791618c-1867-4f67-889a-d7fc51e8e69c" xml:space="preserve">
+          <source>Point of Difference</source>
+          <target state="new">Point of Difference</target>
+        </trans-unit>
+        <trans-unit id="5fe060ec-2e54-4c96-bc27-f8757ba2cf56" xml:space="preserve">
+          <source>On-premises SQL Server</source>
+          <target state="new">On-premises SQL Server</target>
+        </trans-unit>
+        <trans-unit id="806d10aa-7fe8-4f20-967d-e11777a9dc2f" xml:space="preserve">
+          <source>Azure SQL Database</source>
+          <target state="new">Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="de48ef6c-0092-4965-9081-b67b6abf6f1a" xml:space="preserve">
+          <source>Where you manage server-level security</source>
+          <target state="new">Where you manage server-level security</target>
+        </trans-unit>
+        <trans-unit id="da2c662c-3daa-42fd-88bc-66310383d152" xml:space="preserve">
+          <source>The Security folder in SQL Server Management Studio's Object Explorer</source>
+          <target state="new">The Security folder in SQL Server Management Studio's Object Explorer</target>
+        </trans-unit>
+        <trans-unit id="09c66324-bf6d-40ae-a348-db4a45bf5541" xml:space="preserve">
+          <source>The master database and through the Azure portal</source>
+          <target state="new">The master database and through the Azure portal</target>
+        </trans-unit>
+        <trans-unit id="be1fc66f-51ac-4daf-99f0-9d2f38372710" xml:space="preserve">
+          <source>Server-level security role for creating logins</source>
+          <target state="new">Server-level security role for creating logins</target>
+        </trans-unit>
+        <trans-unit id="2b36df60-dccd-4c39-8d94-4bc8f08d4a04" xml:space="preserve">
+          <source>securityadmin fixed server role For more information, see Server-Level Roles</source>
+          <target state="new">securityadmin fixed server role For more information, see Server-Level Roles</target>
+        </trans-unit>
+        <trans-unit id="f722ed04-c0fc-4734-945e-839ad2abf6e5" xml:space="preserve">
+          <source>loginmanager database role in the master</source>
+          <target state="new">loginmanager database role in the master</target>
+        </trans-unit>
+        <trans-unit id="c1d57064-a19a-4bdb-b949-c883e1e50559" xml:space="preserve">
+          <source>Commands for managing logins</source>
+          <target state="new">Commands for managing logins</target>
+        </trans-unit>
+        <trans-unit id="ffc4fd38-dc29-4ae6-adf8-8ee77f344410" xml:space="preserve">
+          <source>CREATE LOGIN, ALTER LOGIN, DROP LOGIN</source>
+          <target state="new">CREATE LOGIN, ALTER LOGIN, DROP LOGIN</target>
+        </trans-unit>
+        <trans-unit id="7812a665-8f29-4366-a214-0d0d9b4af077" xml:space="preserve">
+          <source>CREATE LOGIN, ALTER LOGIN, DROP LOGIN (There are some parameter limitations and you must be connected to the master database)</source>
+          <target state="new">CREATE LOGIN, ALTER LOGIN, DROP LOGIN (There are some parameter limitations and you must be connected to the master database)</target>
+        </trans-unit>
+        <trans-unit id="d966e217-21e1-4595-8165-04acd6a42569" xml:space="preserve">
+          <source>View that shows all logins</source>
+          <target state="new">View that shows all logins</target>
+        </trans-unit>
+        <trans-unit id="1497c12b-d92f-48d7-81f8-475e871a2b4e" xml:space="preserve">
+          <source>sys.server_principals</source>
+          <target state="new">sys.server_principals</target>
+        </trans-unit>
+        <trans-unit id="8c66b48b-67c7-446a-9cc7-a4491177512d" xml:space="preserve">
+          <source>sys.sql_logins (You must be connected to the master database)</source>
+          <target state="new">sys.sql_logins (You must be connected to the master database)</target>
+        </trans-unit>
+        <trans-unit id="9b8ba850-3eac-4d6e-9876-10aa0ccdec54" xml:space="preserve">
+          <source>Server-level role for creating databases</source>
+          <target state="new">Server-level role for creating databases</target>
+        </trans-unit>
+        <trans-unit id="d3ad424f-9b25-4aaa-bb73-7b04eb31ff64" xml:space="preserve">
+          <source>dbcreator fixed database role For more information, see Server-Level Roles</source>
+          <target state="new">dbcreator fixed database role For more information, see Server-Level Roles</target>
+        </trans-unit>
+        <trans-unit id="0f3c5e20-be7d-443c-afb1-8de143b5afd8" xml:space="preserve">
+          <source>dbmanager  database role in the master database</source>
+          <target state="new">dbmanager  database role in the master database</target>
+        </trans-unit>
+        <trans-unit id="6f623999-4f1e-42ff-abdb-340e03b1569b" xml:space="preserve">
+          <source>Command for creating a database</source>
+          <target state="new">Command for creating a database</target>
+        </trans-unit>
+        <trans-unit id="bcb43c5e-7ac2-4003-a3f6-407c4116fff4" xml:space="preserve">
+          <source>CREATE DATABASE</source>
+          <target state="new">CREATE DATABASE</target>
+        </trans-unit>
+        <trans-unit id="4906bea3-512a-4f70-ac6e-927d85c56b74" xml:space="preserve">
+          <source>CREATE DATABASE (There are some parameter limitations and you must be connected to the master database)</source>
+          <target state="new">CREATE DATABASE (There are some parameter limitations and you must be connected to the master database)</target>
+        </trans-unit>
+        <trans-unit id="7560e6d5-a1fd-41ef-8109-417e382c15ab" xml:space="preserve">
+          <source>View that lists all databases</source>
+          <target state="new">View that lists all databases</target>
+        </trans-unit>
+        <trans-unit id="26a5c441-698c-4fd1-8f58-f62c897d7b39" xml:space="preserve">
+          <source>sys.databases</source>
+          <target state="new">sys.databases</target>
+        </trans-unit>
+        <trans-unit id="d6ef1957-8534-43a7-a44c-0d8f46000999" xml:space="preserve">
+          <source>sys.databases  (You must be connected to the master database)</source>
+          <target state="new">sys.databases  (You must be connected to the master database)</target>
+        </trans-unit>
+        <trans-unit id="e6526903-c9cc-4177-9cef-82a18f0e0bf9" xml:space="preserve">
+          <source>Your Azure SQL Database server is an abstraction that defines a grouping of databases.</source>
+          <target state="new">Your Azure SQL Database server is an abstraction that defines a grouping of databases.</target>
+        </trans-unit>
+        <trans-unit id="fe44182f-65f6-4e01-a069-d99bc42bd87e" xml:space="preserve">
+          <source>Databases associated with your Azure SQL Database server may reside on separate physical computers at the Microsoft data center.</source>
+          <target state="new">Databases associated with your Azure SQL Database server may reside on separate physical computers at the Microsoft data center.</target>
+        </trans-unit>
+        <trans-unit id="a7bac73e-63a0-41be-83f4-cf9223c6ece8" xml:space="preserve">
+          <source>Perform server-level administration for all of them by using a single database named master.</source>
+          <target state="new">Perform server-level administration for all of them by using a single database named master.</target>
+        </trans-unit>
+        <trans-unit id="1724807d-b438-44dc-b10d-6aaf1e7439a1" xml:space="preserve">
+          <source>The master database keeps track of logins, and which logins have permission to create databases or other logins.</source>
+          <target state="new">The master database keeps track of logins, and which logins have permission to create databases or other logins.</target>
+        </trans-unit>
+        <trans-unit id="f581f439-5912-4efa-9486-2f6c9c132dca" xml:space="preserve">
+          <source>You must be connected to the master database whenever you create, alter, or drop logins or databases.</source>
+          <target state="new">You must be connected to the master database whenever you create, alter, or drop logins or databases.</target>
+        </trans-unit>
+        <trans-unit id="36d398ee-5572-49f3-98ca-18504c12308f" xml:space="preserve">
+          <source>The <bpt id="349f8f04-4f61-43bc-972e-e086ecc25b7d">&lt;strong&gt;</bpt>master<ept id="349f8f04-4f61-43bc-972e-e086ecc25b7d">&lt;/strong&gt;</ept> database also has the <bpt id="97fb4606-0dd8-47cb-b7b6-f98aacc3dea6">&lt;code&gt;</bpt>sys.sql_logins<ept id="97fb4606-0dd8-47cb-b7b6-f98aacc3dea6">&lt;/code&gt;</ept> and <bpt id="68e60e7d-6d1e-4d22-bb3b-2c713768f40d">&lt;code&gt;</bpt>sys.databases<ept id="68e60e7d-6d1e-4d22-bb3b-2c713768f40d">&lt;/code&gt;</ept> views that you can use to view logins and databases, respectively.</source>
+          <target state="new">The <bpt id="349f8f04-4f61-43bc-972e-e086ecc25b7d">&lt;strong&gt;</bpt>master<ept id="349f8f04-4f61-43bc-972e-e086ecc25b7d">&lt;/strong&gt;</ept> database also has the <bpt id="97fb4606-0dd8-47cb-b7b6-f98aacc3dea6">&lt;code&gt;</bpt>sys.sql_logins<ept id="97fb4606-0dd8-47cb-b7b6-f98aacc3dea6">&lt;/code&gt;</ept> and <bpt id="68e60e7d-6d1e-4d22-bb3b-2c713768f40d">&lt;code&gt;</bpt>sys.databases<ept id="68e60e7d-6d1e-4d22-bb3b-2c713768f40d">&lt;/code&gt;</ept> views that you can use to view logins and databases, respectively.</target>
+        </trans-unit>
+        <trans-unit id="d44fbc9e-9349-45fe-9e11-8a897f98ecca" xml:space="preserve">
+          <source>The <bpt id="d24d9758-cd83-4874-8073-3825b69d81ad">&lt;code&gt;</bpt>USE<ept id="d24d9758-cd83-4874-8073-3825b69d81ad">&lt;/code&gt;</ept> command is not supported for switching between databases.</source>
+          <target state="new">The <bpt id="d24d9758-cd83-4874-8073-3825b69d81ad">&lt;code&gt;</bpt>USE<ept id="d24d9758-cd83-4874-8073-3825b69d81ad">&lt;/code&gt;</ept> command is not supported for switching between databases.</target>
+        </trans-unit>
+        <trans-unit id="e4062a68-361a-4c7d-9078-a981292b2b4b" xml:space="preserve">
+          <source>Establish a connection directly to the target database.</source>
+          <target state="new">Establish a connection directly to the target database.</target>
+        </trans-unit>
+        <trans-unit id="9c7d7274-452e-4c15-9039-d11be7d9111c" xml:space="preserve">
+          <source>You can manage database-level security for users and objects in Microsoft Azure SQL Database the same way you do for an on-premises instance of SQL Server.</source>
+          <target state="new">You can manage database-level security for users and objects in Microsoft Azure SQL Database the same way you do for an on-premises instance of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="727e6cce-721a-4034-8d41-b54f42f7f3fb" xml:space="preserve">
+          <source>There are differences only in the parameters available to the corresponding commands.</source>
+          <target state="new">There are differences only in the parameters available to the corresponding commands.</target>
+        </trans-unit>
+        <trans-unit id="b7f37da9-3fb0-4c08-8c39-7796e8e9dc72" xml:space="preserve">
+          <source>For more information, see <bpt id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;linkText&gt;</bpt>Azure SQL Database security guidelines and limitations<ept id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;/linkText&gt;</ept><bpt id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;title&gt;</bpt><ept id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;linkText&gt;</bpt>Azure SQL Database security guidelines and limitations<ept id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;/linkText&gt;</ept><bpt id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;title&gt;</bpt><ept id="60a92579-6289-4e04-94e6-9a0263b9592b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="713cb8e1-8bc4-4955-aef8-90e3742c108e" xml:space="preserve">
+          <source>Manage logins with the server-level principal login by connecting to the master database.</source>
+          <target state="new">Manage logins with the server-level principal login by connecting to the master database.</target>
+        </trans-unit>
+        <trans-unit id="f77cd5d9-78ae-463f-b148-ed35059a2903" xml:space="preserve">
+          <source>You can use the <bpt id="7c80832e-f5c6-4c4e-9876-636e47afe776">&lt;code&gt;</bpt>CREATE LOGIN<ept id="7c80832e-f5c6-4c4e-9876-636e47afe776">&lt;/code&gt;</ept>, <bpt id="f7af9396-a494-4c85-9fac-1a331c600a0d">&lt;code&gt;</bpt>ALTER LOGIN<ept id="f7af9396-a494-4c85-9fac-1a331c600a0d">&lt;/code&gt;</ept>, or <bpt id="edac6472-0735-458a-a216-e1fdd59515b5">&lt;code&gt;</bpt>DROP LOGIN<ept id="edac6472-0735-458a-a216-e1fdd59515b5">&lt;/code&gt;</ept> statements.</source>
+          <target state="new">You can use the <bpt id="7c80832e-f5c6-4c4e-9876-636e47afe776">&lt;code&gt;</bpt>CREATE LOGIN<ept id="7c80832e-f5c6-4c4e-9876-636e47afe776">&lt;/code&gt;</ept>, <bpt id="f7af9396-a494-4c85-9fac-1a331c600a0d">&lt;code&gt;</bpt>ALTER LOGIN<ept id="f7af9396-a494-4c85-9fac-1a331c600a0d">&lt;/code&gt;</ept>, or <bpt id="edac6472-0735-458a-a216-e1fdd59515b5">&lt;code&gt;</bpt>DROP LOGIN<ept id="edac6472-0735-458a-a216-e1fdd59515b5">&lt;/code&gt;</ept> statements.</target>
+        </trans-unit>
+        <trans-unit id="38af30b0-9723-4c4a-aab1-a7a380f487cb" xml:space="preserve">
+          <source>The following example creates a login named <bpt id="d4b1cb5e-b8cf-41a1-800d-ad786c113dfc">&lt;strong&gt;</bpt>login1<ept id="d4b1cb5e-b8cf-41a1-800d-ad786c113dfc">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following example creates a login named <bpt id="d4b1cb5e-b8cf-41a1-800d-ad786c113dfc">&lt;strong&gt;</bpt>login1<ept id="d4b1cb5e-b8cf-41a1-800d-ad786c113dfc">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="445701fc-ed88-4638-a1b2-b048ab31ea7b" xml:space="preserve">
+          <source>You must use a strong password when creating a login.</source>
+          <target state="new">You must use a strong password when creating a login.</target>
+        </trans-unit>
+        <trans-unit id="35754bd3-0977-4bd1-876f-4cba2641fac2" xml:space="preserve">
+          <source>For more information, see <bpt id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;linkText&gt;</bpt>Strong Passwords<ept id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;/linkText&gt;</ept><bpt id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;title&gt;</bpt><ept id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;linkText&gt;</bpt>Strong Passwords<ept id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;/linkText&gt;</ept><bpt id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;title&gt;</bpt><ept id="009140a3-7f1b-4c66-8bb3-4c4eb1118846">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40b9af11-d4c1-499b-a3de-54fa986d4420" xml:space="preserve">
+          <source>In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the <bpt id="4e0ae3f0-bf16-4dbc-a314-b34a4c4407d5">&lt;code&gt;</bpt>CREATE USER<ept id="4e0ae3f0-bf16-4dbc-a314-b34a4c4407d5">&lt;/code&gt;</ept> command.</source>
+          <target state="new">In order to connect to Microsoft Azure SQL Database using the logins you create, you must first grant each login database-level permissions by using the <bpt id="4e0ae3f0-bf16-4dbc-a314-b34a4c4407d5">&lt;code&gt;</bpt>CREATE USER<ept id="4e0ae3f0-bf16-4dbc-a314-b34a4c4407d5">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="5884ea3c-ac43-42e5-89c5-bddf4d02877e" xml:space="preserve">
+          <source>For more information, see Granting Database-Level Permissions to a Login.</source>
+          <target state="new">For more information, see Granting Database-Level Permissions to a Login.</target>
+        </trans-unit>
+        <trans-unit id="1f5cad23-854e-4748-aac1-c1fb78724858" xml:space="preserve">
+          <source>Because some tools implement tabular data stream (TDS) differently, you may need to append the Azure SQL Database server name to the login in the connection string using the <bpt id="200801a5-f3f6-4cb8-9b52-c393a0d45fc0">&lt;code&gt;</bpt>&lt;login&gt;@&lt;server&gt;<ept id="200801a5-f3f6-4cb8-9b52-c393a0d45fc0">&lt;/code&gt;</ept> notation. In these cases, separate the login and Azure SQL Database server name with the <bpt id="e2c0bb01-f0ce-4923-b551-1c9d8d0503c1">&lt;code&gt;</bpt>@<ept id="e2c0bb01-f0ce-4923-b551-1c9d8d0503c1">&lt;/code&gt;</ept> symbol. For example, if your login was named <bpt id="bca95397-7282-4203-bb00-3e79b7e5a9c9">&lt;strong&gt;</bpt>login1<ept id="bca95397-7282-4203-bb00-3e79b7e5a9c9">&lt;/strong&gt;</ept> and the fully qualified name of your Azure SQL Database server is <bpt id="b5a815bb-9f7f-4e2a-b49b-49c1b6d5e710">&lt;strong&gt;</bpt>servername.database.windows.net<ept id="b5a815bb-9f7f-4e2a-b49b-49c1b6d5e710">&lt;/strong&gt;</ept>, the username parameter of your connection string should be: <bpt id="5e7b7ca5-1708-4308-9999-74994d35619a">&lt;strong&gt;</bpt>login1@servername<ept id="5e7b7ca5-1708-4308-9999-74994d35619a">&lt;/strong&gt;</ept>. This restriction places limitations on the text you can choose for the login name. For more information, see <bpt id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;/linkText&gt;</ept><bpt id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;title&gt;</bpt><ept id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;/title&gt;</ept>.</source>
+          <target state="new">Because some tools implement tabular data stream (TDS) differently, you may need to append the Azure SQL Database server name to the login in the connection string using the <bpt id="200801a5-f3f6-4cb8-9b52-c393a0d45fc0">&lt;code&gt;</bpt>&lt;login&gt;@&lt;server&gt;<ept id="200801a5-f3f6-4cb8-9b52-c393a0d45fc0">&lt;/code&gt;</ept> notation. In these cases, separate the login and Azure SQL Database server name with the <bpt id="e2c0bb01-f0ce-4923-b551-1c9d8d0503c1">&lt;code&gt;</bpt>@<ept id="e2c0bb01-f0ce-4923-b551-1c9d8d0503c1">&lt;/code&gt;</ept> symbol. For example, if your login was named <bpt id="bca95397-7282-4203-bb00-3e79b7e5a9c9">&lt;strong&gt;</bpt>login1<ept id="bca95397-7282-4203-bb00-3e79b7e5a9c9">&lt;/strong&gt;</ept> and the fully qualified name of your Azure SQL Database server is <bpt id="b5a815bb-9f7f-4e2a-b49b-49c1b6d5e710">&lt;strong&gt;</bpt>servername.database.windows.net<ept id="b5a815bb-9f7f-4e2a-b49b-49c1b6d5e710">&lt;/strong&gt;</ept>, the username parameter of your connection string should be: <bpt id="5e7b7ca5-1708-4308-9999-74994d35619a">&lt;strong&gt;</bpt>login1@servername<ept id="5e7b7ca5-1708-4308-9999-74994d35619a">&lt;/strong&gt;</ept>. This restriction places limitations on the text you can choose for the login name. For more information, see <bpt id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;/linkText&gt;</ept><bpt id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;title&gt;</bpt><ept id="3551748c-aa16-4fc8-a2d3-bd6c6fcf2247">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c96db2b-399a-414e-8534-133d99c44669" xml:space="preserve">
+          <source>In order for logins other than the server-level principal to manage server-level security, Microsoft Azure SQL Database offers two security roles: <bpt id="3cba577e-faa3-490b-a594-b97e94940e37">&lt;strong&gt;</bpt>loginmanager<ept id="3cba577e-faa3-490b-a594-b97e94940e37">&lt;/strong&gt;</ept>, for creating logins and <bpt id="db9ed290-1d90-4487-bed9-02e5dc76d7a9">&lt;strong&gt;</bpt>dbmanager<ept id="db9ed290-1d90-4487-bed9-02e5dc76d7a9">&lt;/strong&gt;</ept> for creating databases.</source>
+          <target state="new">In order for logins other than the server-level principal to manage server-level security, Microsoft Azure SQL Database offers two security roles: <bpt id="3cba577e-faa3-490b-a594-b97e94940e37">&lt;strong&gt;</bpt>loginmanager<ept id="3cba577e-faa3-490b-a594-b97e94940e37">&lt;/strong&gt;</ept>, for creating logins and <bpt id="db9ed290-1d90-4487-bed9-02e5dc76d7a9">&lt;strong&gt;</bpt>dbmanager<ept id="db9ed290-1d90-4487-bed9-02e5dc76d7a9">&lt;/strong&gt;</ept> for creating databases.</target>
+        </trans-unit>
+        <trans-unit id="fbeacaea-69fc-49fa-a3a5-591e9ad21823" xml:space="preserve">
+          <source>Only users in the <bpt id="0348fc86-f65b-49a4-abd9-b81fac02a3ac">&lt;strong&gt;</bpt>master<ept id="0348fc86-f65b-49a4-abd9-b81fac02a3ac">&lt;/strong&gt;</ept> database can be added to these database roles.</source>
+          <target state="new">Only users in the <bpt id="0348fc86-f65b-49a4-abd9-b81fac02a3ac">&lt;strong&gt;</bpt>master<ept id="0348fc86-f65b-49a4-abd9-b81fac02a3ac">&lt;/strong&gt;</ept> database can be added to these database roles.</target>
+        </trans-unit>
+        <trans-unit id="46559fb0-8086-46de-9708-50660b324bd6" xml:space="preserve">
+          <source>To create logins or databases, you must be connected to the <bpt id="62a08366-864c-491b-b206-29dd19cfb032">&lt;strong&gt;</bpt>master<ept id="62a08366-864c-491b-b206-29dd19cfb032">&lt;/strong&gt;</ept> database (which is a logical representation of <bpt id="acc4b5f0-a25f-4c07-9acb-af6f73547edf">&lt;strong&gt;</bpt>master<ept id="acc4b5f0-a25f-4c07-9acb-af6f73547edf">&lt;/strong&gt;</ept>).</source>
+          <target state="new">To create logins or databases, you must be connected to the <bpt id="62a08366-864c-491b-b206-29dd19cfb032">&lt;strong&gt;</bpt>master<ept id="62a08366-864c-491b-b206-29dd19cfb032">&lt;/strong&gt;</ept> database (which is a logical representation of <bpt id="acc4b5f0-a25f-4c07-9acb-af6f73547edf">&lt;strong&gt;</bpt>master<ept id="acc4b5f0-a25f-4c07-9acb-af6f73547edf">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="7099e9d3-5f90-4015-8ab1-28052bd4ad2c" xml:space="preserve">
+          <source>Like the <bpt id="3b8c87d1-e2fc-4ceb-99df-f003ee0d390e">&lt;strong&gt;</bpt>securityadmin<ept id="3b8c87d1-e2fc-4ceb-99df-f003ee0d390e">&lt;/strong&gt;</ept> fixed server role for an on-premises instance of SQL Server, the <bpt id="6762edd6-e534-4b50-9d17-b3239089d884">&lt;strong&gt;</bpt>loginmanager<ept id="6762edd6-e534-4b50-9d17-b3239089d884">&lt;/strong&gt;</ept> database role in Microsoft Azure SQL Database is has permission to create logins.</source>
+          <target state="new">Like the <bpt id="3b8c87d1-e2fc-4ceb-99df-f003ee0d390e">&lt;strong&gt;</bpt>securityadmin<ept id="3b8c87d1-e2fc-4ceb-99df-f003ee0d390e">&lt;/strong&gt;</ept> fixed server role for an on-premises instance of SQL Server, the <bpt id="6762edd6-e534-4b50-9d17-b3239089d884">&lt;strong&gt;</bpt>loginmanager<ept id="6762edd6-e534-4b50-9d17-b3239089d884">&lt;/strong&gt;</ept> database role in Microsoft Azure SQL Database is has permission to create logins.</target>
+        </trans-unit>
+        <trans-unit id="d7af9a6c-4f7f-4eff-9a30-e12af39c7622" xml:space="preserve">
+          <source>Only the server-level principal login (created by the provisioning process) or members of the <bpt id="33680a58-804c-4f36-afaa-dc9c3e3765c2">&lt;strong&gt;</bpt>loginmanager<ept id="33680a58-804c-4f36-afaa-dc9c3e3765c2">&lt;/strong&gt;</ept> database role can create new logins.</source>
+          <target state="new">Only the server-level principal login (created by the provisioning process) or members of the <bpt id="33680a58-804c-4f36-afaa-dc9c3e3765c2">&lt;strong&gt;</bpt>loginmanager<ept id="33680a58-804c-4f36-afaa-dc9c3e3765c2">&lt;/strong&gt;</ept> database role can create new logins.</target>
+        </trans-unit>
+        <trans-unit id="1824246f-6972-487e-8a8d-4ec30ecd6b5a" xml:space="preserve">
+          <source>The Microsoft Azure SQL Database <bpt id="87142659-eaec-41b5-8aaf-e32d3755a1e5">&lt;strong&gt;</bpt>dbmanager<ept id="87142659-eaec-41b5-8aaf-e32d3755a1e5">&lt;/strong&gt;</ept> database role is similar to the <bpt id="8c90defd-2ce8-4490-a49c-d76cb76401a6">&lt;strong&gt;</bpt>dbcreator<ept id="8c90defd-2ce8-4490-a49c-d76cb76401a6">&lt;/strong&gt;</ept> fixed server role for an on-premises instance of SQL Server.</source>
+          <target state="new">The Microsoft Azure SQL Database <bpt id="87142659-eaec-41b5-8aaf-e32d3755a1e5">&lt;strong&gt;</bpt>dbmanager<ept id="87142659-eaec-41b5-8aaf-e32d3755a1e5">&lt;/strong&gt;</ept> database role is similar to the <bpt id="8c90defd-2ce8-4490-a49c-d76cb76401a6">&lt;strong&gt;</bpt>dbcreator<ept id="8c90defd-2ce8-4490-a49c-d76cb76401a6">&lt;/strong&gt;</ept> fixed server role for an on-premises instance of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="95eb2485-cff4-4649-9fb9-0186184a0fdc" xml:space="preserve">
+          <source>Only the server-level principal login (created by the provisioning process) or members of the <bpt id="ab80c92f-d431-4e57-8179-10dace2ada9c">&lt;strong&gt;</bpt>dbmanager<ept id="ab80c92f-d431-4e57-8179-10dace2ada9c">&lt;/strong&gt;</ept> database role can create databases.</source>
+          <target state="new">Only the server-level principal login (created by the provisioning process) or members of the <bpt id="ab80c92f-d431-4e57-8179-10dace2ada9c">&lt;strong&gt;</bpt>dbmanager<ept id="ab80c92f-d431-4e57-8179-10dace2ada9c">&lt;/strong&gt;</ept> database role can create databases.</target>
+        </trans-unit>
+        <trans-unit id="039c795f-cf5d-4c20-afb9-77285e938ce0" xml:space="preserve">
+          <source>Once a user is a member of the <bpt id="cb81bb00-0e07-45b5-b0fa-447453966e9f">&lt;strong&gt;</bpt>dbmanager<ept id="cb81bb00-0e07-45b5-b0fa-447453966e9f">&lt;/strong&gt;</ept> database role, it can create a database with the Azure SQL Database <bpt id="f77f924a-47df-4f58-87a3-61db84a9c3a9">&lt;code&gt;</bpt>CREATE DATABASE<ept id="f77f924a-47df-4f58-87a3-61db84a9c3a9">&lt;/code&gt;</ept> command, but that command must be executed in the master database.</source>
+          <target state="new">Once a user is a member of the <bpt id="cb81bb00-0e07-45b5-b0fa-447453966e9f">&lt;strong&gt;</bpt>dbmanager<ept id="cb81bb00-0e07-45b5-b0fa-447453966e9f">&lt;/strong&gt;</ept> database role, it can create a database with the Azure SQL Database <bpt id="f77f924a-47df-4f58-87a3-61db84a9c3a9">&lt;code&gt;</bpt>CREATE DATABASE<ept id="f77f924a-47df-4f58-87a3-61db84a9c3a9">&lt;/code&gt;</ept> command, but that command must be executed in the master database.</target>
+        </trans-unit>
+        <trans-unit id="a1aebd97-cfe3-4280-88bf-42429a779a6c" xml:space="preserve">
+          <source>For more information, see <bpt id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Server Transact-SQL)<ept id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;/linkText&gt;</ept><bpt id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;title&gt;</bpt><ept id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Server Transact-SQL)<ept id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;/linkText&gt;</ept><bpt id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;title&gt;</bpt><ept id="2db77896-90f4-415e-a3bd-008edb32f3a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b309d0ea-06bf-442e-a57f-24f56ff05087" xml:space="preserve">
+          <source>To create a login and associated user that can create databases or other logins, perform the following steps:</source>
+          <target state="new">To create a login and associated user that can create databases or other logins, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="3e2e5586-1d8b-4be9-ab93-f7b7cc0b2e2c" xml:space="preserve">
+          <source>Connect to the <bpt id="11593fac-c9fd-40ac-abfe-dceda9a08dd9">&lt;strong&gt;</bpt>master<ept id="11593fac-c9fd-40ac-abfe-dceda9a08dd9">&lt;/strong&gt;</ept> database using the credentials of the server-level principal login (created by the provisioning process) or the credentials of an existing member of the <bpt id="5028c745-007b-4baa-b91e-c43c65169012">&lt;strong&gt;</bpt>loginmanager<ept id="5028c745-007b-4baa-b91e-c43c65169012">&lt;/strong&gt;</ept> database role.</source>
+          <target state="new">Connect to the <bpt id="11593fac-c9fd-40ac-abfe-dceda9a08dd9">&lt;strong&gt;</bpt>master<ept id="11593fac-c9fd-40ac-abfe-dceda9a08dd9">&lt;/strong&gt;</ept> database using the credentials of the server-level principal login (created by the provisioning process) or the credentials of an existing member of the <bpt id="5028c745-007b-4baa-b91e-c43c65169012">&lt;strong&gt;</bpt>loginmanager<ept id="5028c745-007b-4baa-b91e-c43c65169012">&lt;/strong&gt;</ept> database role.</target>
+        </trans-unit>
+        <trans-unit id="829c1782-a609-4114-b81e-6fe99bbd6305" xml:space="preserve">
+          <source>Create a login using the <bpt id="8351238d-2c15-43ba-980a-0118778c6761">&lt;code&gt;</bpt>CREATE LOGIN<ept id="8351238d-2c15-43ba-980a-0118778c6761">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Create a login using the <bpt id="8351238d-2c15-43ba-980a-0118778c6761">&lt;code&gt;</bpt>CREATE LOGIN<ept id="8351238d-2c15-43ba-980a-0118778c6761">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="573793dc-32aa-4e1e-8141-4e26a49f4815" xml:space="preserve">
+          <source>For more information, see <bpt id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;/linkText&gt;</ept><bpt id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;title&gt;</bpt><ept id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;/linkText&gt;</ept><bpt id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;title&gt;</bpt><ept id="d4f50c77-c3ca-4497-a563-218ae9149608">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="720fbec7-8736-4451-9f74-de65b7750b87" xml:space="preserve">
+          <source>Create a new user for that login in the master database using the <bpt id="cb9f1734-4563-4dc9-9da1-de8f9033085d">&lt;code&gt;</bpt>CREATE USER<ept id="cb9f1734-4563-4dc9-9da1-de8f9033085d">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Create a new user for that login in the master database using the <bpt id="cb9f1734-4563-4dc9-9da1-de8f9033085d">&lt;code&gt;</bpt>CREATE USER<ept id="cb9f1734-4563-4dc9-9da1-de8f9033085d">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="01e5c1b6-db25-4972-b412-29491ec793bd" xml:space="preserve">
+          <source>For more information, see <bpt id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;/linkText&gt;</ept><bpt id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;title&gt;</bpt><ept id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;/linkText&gt;</ept><bpt id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;title&gt;</bpt><ept id="a9042cb0-ad28-4b1d-ac1f-57576e080d60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="565a46b5-dc80-4224-a3c0-9f99b0b87943" xml:space="preserve">
+          <source>Use the stored procedure <bpt id="7ad36bef-cb17-4994-ac92-78a394463666">&lt;code&gt;</bpt>sp_addrolememeber<ept id="7ad36bef-cb17-4994-ac92-78a394463666">&lt;/code&gt;</ept> to add new user to the <bpt id="aa3caf95-bdd3-4a0b-9067-32e281ef439a">&lt;strong&gt;</bpt>dbmanager<ept id="aa3caf95-bdd3-4a0b-9067-32e281ef439a">&lt;/strong&gt;</ept> database role, the loginmanager database role, or both.</source>
+          <target state="new">Use the stored procedure <bpt id="7ad36bef-cb17-4994-ac92-78a394463666">&lt;code&gt;</bpt>sp_addrolememeber<ept id="7ad36bef-cb17-4994-ac92-78a394463666">&lt;/code&gt;</ept> to add new user to the <bpt id="aa3caf95-bdd3-4a0b-9067-32e281ef439a">&lt;strong&gt;</bpt>dbmanager<ept id="aa3caf95-bdd3-4a0b-9067-32e281ef439a">&lt;/strong&gt;</ept> database role, the loginmanager database role, or both.</target>
+        </trans-unit>
+        <trans-unit id="be9c0776-d9cc-4942-b19d-66dcf61b474f" xml:space="preserve">
+          <source>The following code example shows how to create a login named <bpt id="732aa1f3-04fd-486d-b68f-336ff27a1c25">&lt;strong&gt;</bpt>login1<ept id="732aa1f3-04fd-486d-b68f-336ff27a1c25">&lt;/strong&gt;</ept>, and a corresponding database user named <bpt id="4dd2a00f-8c01-4cce-8347-6920c2e27a98">&lt;strong&gt;</bpt>login1User<ept id="4dd2a00f-8c01-4cce-8347-6920c2e27a98">&lt;/strong&gt;</ept> that is able to create databases or other logins while connected to the <bpt id="7be39ce7-6843-491f-8bdb-93d719771ff8">&lt;strong&gt;</bpt>master<ept id="7be39ce7-6843-491f-8bdb-93d719771ff8">&lt;/strong&gt;</ept> database:</source>
+          <target state="new">The following code example shows how to create a login named <bpt id="732aa1f3-04fd-486d-b68f-336ff27a1c25">&lt;strong&gt;</bpt>login1<ept id="732aa1f3-04fd-486d-b68f-336ff27a1c25">&lt;/strong&gt;</ept>, and a corresponding database user named <bpt id="4dd2a00f-8c01-4cce-8347-6920c2e27a98">&lt;strong&gt;</bpt>login1User<ept id="4dd2a00f-8c01-4cce-8347-6920c2e27a98">&lt;/strong&gt;</ept> that is able to create databases or other logins while connected to the <bpt id="7be39ce7-6843-491f-8bdb-93d719771ff8">&lt;strong&gt;</bpt>master<ept id="7be39ce7-6843-491f-8bdb-93d719771ff8">&lt;/strong&gt;</ept> database:</target>
+        </trans-unit>
+        <trans-unit id="8b3acb5f-4280-4059-898b-ecd6b08084f8" xml:space="preserve">
+          <source>You must use a strong password when creating a login.</source>
+          <target state="new">You must use a strong password when creating a login.</target>
+        </trans-unit>
+        <trans-unit id="61a3884c-fbf6-4397-81b4-f6a13d14fae5" xml:space="preserve">
+          <source>For more information, see <bpt id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;linkText&gt;</bpt>Strong Passwords<ept id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;/linkText&gt;</ept><bpt id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;title&gt;</bpt><ept id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;linkText&gt;</bpt>Strong Passwords<ept id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;/linkText&gt;</ept><bpt id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;title&gt;</bpt><ept id="4ae3a3f2-7aa8-4c45-9c11-ddb34a777c72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="155daae8-c283-49f7-a847-90f1edc4283b" xml:space="preserve">
+          <source>All logins must be created in the master database.</source>
+          <target state="new">All logins must be created in the master database.</target>
+        </trans-unit>
+        <trans-unit id="418dea8a-c83d-4bf2-974d-4e6df8dc29dc" xml:space="preserve">
+          <source>After a login has been created, you can create a user account in another database for that login.</source>
+          <target state="new">After a login has been created, you can create a user account in another database for that login.</target>
+        </trans-unit>
+        <trans-unit id="c36aba2d-7d7c-472e-be88-5c364d80d757" xml:space="preserve">
+          <source>Microsoft Azure SQL Database also supports database roles in the same way that an on-premises instance of SQL Server does.</source>
+          <target state="new">Microsoft Azure SQL Database also supports database roles in the same way that an on-premises instance of SQL Server does.</target>
+        </trans-unit>
+        <trans-unit id="7101da7f-773c-465c-a019-1fe1ef3b5879" xml:space="preserve">
+          <source>To create a user account in another database, assuming you have not created a login or a database, perform the following steps:</source>
+          <target state="new">To create a user account in another database, assuming you have not created a login or a database, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="f38a0033-f759-4f2b-935d-4171091fbe10" xml:space="preserve">
+          <source>Connect to the <bpt id="31eb758b-967f-4a3c-b757-c1d33f865ecb">&lt;strong&gt;</bpt>master<ept id="31eb758b-967f-4a3c-b757-c1d33f865ecb">&lt;/strong&gt;</ept> database (with a login having the <bpt id="5cd33c44-89ec-44af-a8f4-3a432c7225ec">&lt;strong&gt;</bpt>loginmanager<ept id="5cd33c44-89ec-44af-a8f4-3a432c7225ec">&lt;/strong&gt;</ept> and <bpt id="92f040c5-488a-4f2a-80e0-01795261868f">&lt;strong&gt;</bpt>dbmanager<ept id="92f040c5-488a-4f2a-80e0-01795261868f">&lt;/strong&gt;</ept> roles).</source>
+          <target state="new">Connect to the <bpt id="31eb758b-967f-4a3c-b757-c1d33f865ecb">&lt;strong&gt;</bpt>master<ept id="31eb758b-967f-4a3c-b757-c1d33f865ecb">&lt;/strong&gt;</ept> database (with a login having the <bpt id="5cd33c44-89ec-44af-a8f4-3a432c7225ec">&lt;strong&gt;</bpt>loginmanager<ept id="5cd33c44-89ec-44af-a8f4-3a432c7225ec">&lt;/strong&gt;</ept> and <bpt id="92f040c5-488a-4f2a-80e0-01795261868f">&lt;strong&gt;</bpt>dbmanager<ept id="92f040c5-488a-4f2a-80e0-01795261868f">&lt;/strong&gt;</ept> roles).</target>
+        </trans-unit>
+        <trans-unit id="ba46a366-f1c0-4832-8e18-f37ae764542c" xml:space="preserve">
+          <source>Create a new login using the <bpt id="34feb512-8bb7-43a4-bb4d-ee97803f02cf">&lt;code&gt;</bpt>CREATE LOGIN<ept id="34feb512-8bb7-43a4-bb4d-ee97803f02cf">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Create a new login using the <bpt id="34feb512-8bb7-43a4-bb4d-ee97803f02cf">&lt;code&gt;</bpt>CREATE LOGIN<ept id="34feb512-8bb7-43a4-bb4d-ee97803f02cf">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="7f9eca83-f778-4028-a1e2-ab9ad563a5b3" xml:space="preserve">
+          <source>For more information, see <bpt id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;/linkText&gt;</ept><bpt id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;title&gt;</bpt><ept id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;linkText&gt;</bpt>CREATE LOGIN (Transact-SQL)<ept id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;/linkText&gt;</ept><bpt id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;title&gt;</bpt><ept id="5640a83b-f417-40b7-99c8-4201b52e1ee5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad3fa117-3002-49b5-9c6b-50be3a9fb15e" xml:space="preserve">
+          <source>Windows Authentication is not supported.</source>
+          <target state="new">Windows Authentication is not supported.</target>
+        </trans-unit>
+        <trans-unit id="4d05ae0b-978c-472f-82b2-7fea93803718" xml:space="preserve">
+          <source>Create a new database using the <bpt id="5f1f7f45-a0d9-45a2-af34-f653044b0d13">&lt;code&gt;</bpt>CREATE DATABASE<ept id="5f1f7f45-a0d9-45a2-af34-f653044b0d13">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Create a new database using the <bpt id="5f1f7f45-a0d9-45a2-af34-f653044b0d13">&lt;code&gt;</bpt>CREATE DATABASE<ept id="5f1f7f45-a0d9-45a2-af34-f653044b0d13">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="1ab765e2-ad2c-4951-82d5-7087e8c1fe36" xml:space="preserve">
+          <source>For more information, see <bpt id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Server Transact-SQL)<ept id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;/linkText&gt;</ept><bpt id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;title&gt;</bpt><ept id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Server Transact-SQL)<ept id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;/linkText&gt;</ept><bpt id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;title&gt;</bpt><ept id="6ddd4324-f2a6-4469-988c-0e2b21e155bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39036975-167e-4c8a-9a21-c0b945554874" xml:space="preserve">
+          <source>Establish a connection to the new database (with the login that created the database).</source>
+          <target state="new">Establish a connection to the new database (with the login that created the database).</target>
+        </trans-unit>
+        <trans-unit id="0a26c109-5c6e-4f60-b65c-9128b16863d3" xml:space="preserve">
+          <source>Create a new user on the new database using the <bpt id="6bc1888e-7bfa-4c79-bfcf-0f8e4e1b0c60">&lt;code&gt;</bpt>CREATE USER<ept id="6bc1888e-7bfa-4c79-bfcf-0f8e4e1b0c60">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Create a new user on the new database using the <bpt id="6bc1888e-7bfa-4c79-bfcf-0f8e4e1b0c60">&lt;code&gt;</bpt>CREATE USER<ept id="6bc1888e-7bfa-4c79-bfcf-0f8e4e1b0c60">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="4519dcb3-171f-475e-915c-ffe576d2958e" xml:space="preserve">
+          <source>For more information, see <bpt id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;/linkText&gt;</ept><bpt id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;title&gt;</bpt><ept id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;linkText&gt;</bpt>CREATE USER (Transact-SQL)<ept id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;/linkText&gt;</ept><bpt id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;title&gt;</bpt><ept id="9f04750a-0e26-4b9c-86c8-bfacee6dc84d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ee12b46-ac4e-412d-bed6-570018b08796" xml:space="preserve">
+          <source>The following code example shows how to create a login named <bpt id="5f4086a8-f7a5-43fe-945d-05e93d98a475">&lt;strong&gt;</bpt>login1<ept id="5f4086a8-f7a5-43fe-945d-05e93d98a475">&lt;/strong&gt;</ept> and a database named <bpt id="4d972c51-49db-4da0-958b-2b9641ee447a">&lt;strong&gt;</bpt>database1<ept id="4d972c51-49db-4da0-958b-2b9641ee447a">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following code example shows how to create a login named <bpt id="5f4086a8-f7a5-43fe-945d-05e93d98a475">&lt;strong&gt;</bpt>login1<ept id="5f4086a8-f7a5-43fe-945d-05e93d98a475">&lt;/strong&gt;</ept> and a database named <bpt id="4d972c51-49db-4da0-958b-2b9641ee447a">&lt;strong&gt;</bpt>database1<ept id="4d972c51-49db-4da0-958b-2b9641ee447a">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="fd32402d-419c-4fbf-859e-1312d75147d8" xml:space="preserve">
+          <source>You must use a strong password when creating a login.</source>
+          <target state="new">You must use a strong password when creating a login.</target>
+        </trans-unit>
+        <trans-unit id="ef7f9bec-2e33-4b9b-9954-77bc071d764f" xml:space="preserve">
+          <source>For more information, see <bpt id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;linkText&gt;</bpt>Strong Passwords<ept id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;/linkText&gt;</ept><bpt id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;title&gt;</bpt><ept id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;linkText&gt;</bpt>Strong Passwords<ept id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;/linkText&gt;</ept><bpt id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;title&gt;</bpt><ept id="c728027f-26ab-4713-98ef-befc508c9bad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77eb86e0-ab48-4f40-9c32-5d5a320c359b" xml:space="preserve">
+          <source>This next example shows how to create a database user named <bpt id="0d3da69d-7986-4c38-bafe-6d14ebd6bebd">&lt;strong&gt;</bpt>login1User<ept id="0d3da69d-7986-4c38-bafe-6d14ebd6bebd">&lt;/strong&gt;</ept> in the database <bpt id="5d2ea8d3-789e-460f-9e8d-13943c2c799b">&lt;strong&gt;</bpt>database1<ept id="5d2ea8d3-789e-460f-9e8d-13943c2c799b">&lt;/strong&gt;</ept> that corresponds to the login <bpt id="99b0a071-87b9-41b3-90b1-369207bc7bdc">&lt;strong&gt;</bpt>login1<ept id="99b0a071-87b9-41b3-90b1-369207bc7bdc">&lt;/strong&gt;</ept>:</source>
+          <target state="new">This next example shows how to create a database user named <bpt id="0d3da69d-7986-4c38-bafe-6d14ebd6bebd">&lt;strong&gt;</bpt>login1User<ept id="0d3da69d-7986-4c38-bafe-6d14ebd6bebd">&lt;/strong&gt;</ept> in the database <bpt id="5d2ea8d3-789e-460f-9e8d-13943c2c799b">&lt;strong&gt;</bpt>database1<ept id="5d2ea8d3-789e-460f-9e8d-13943c2c799b">&lt;/strong&gt;</ept> that corresponds to the login <bpt id="99b0a071-87b9-41b3-90b1-369207bc7bdc">&lt;strong&gt;</bpt>login1<ept id="99b0a071-87b9-41b3-90b1-369207bc7bdc">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1c36b74e-5e84-4d02-8f1d-0a5b647d5191" xml:space="preserve">
+          <source>This database-level permission model in Microsoft Azure SQL Database is same as an on-premise instance of SQL Server.</source>
+          <target state="new">This database-level permission model in Microsoft Azure SQL Database is same as an on-premise instance of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="fc4cb383-15b1-4422-bff5-410689089a9a" xml:space="preserve">
+          <source>For information, see the following topics in SQL Server Books Online references.</source>
+          <target state="new">For information, see the following topics in SQL Server Books Online references.</target>
+        </trans-unit>
+        <trans-unit id="841d9f3d-a96d-413e-96c1-4ba947ef96fd" xml:space="preserve">
+          <source><bpt id="919253ff-4642-4d66-aa92-afe879a35048">&lt;linkText&gt;</bpt>Managing Logins, Users, and Schemas How-to Topics<ept id="919253ff-4642-4d66-aa92-afe879a35048">&lt;/linkText&gt;</ept><bpt id="919253ff-4642-4d66-aa92-afe879a35048">&lt;title&gt;</bpt><ept id="919253ff-4642-4d66-aa92-afe879a35048">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="919253ff-4642-4d66-aa92-afe879a35048">&lt;linkText&gt;</bpt>Managing Logins, Users, and Schemas How-to Topics<ept id="919253ff-4642-4d66-aa92-afe879a35048">&lt;/linkText&gt;</ept><bpt id="919253ff-4642-4d66-aa92-afe879a35048">&lt;title&gt;</bpt><ept id="919253ff-4642-4d66-aa92-afe879a35048">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="69ae545c-2a5d-43f2-9235-f3a00c25ae0f" xml:space="preserve">
+          <source><bpt id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;linkText&gt;</bpt>Lesson 2: Configuring Permissions on Database Objects<ept id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;/linkText&gt;</ept><bpt id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;title&gt;</bpt><ept id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;linkText&gt;</bpt>Lesson 2: Configuring Permissions on Database Objects<ept id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;/linkText&gt;</ept><bpt id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;title&gt;</bpt><ept id="4d9f5b27-59b6-4bef-8307-5877d8e1d1e6">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="bfc46888-14dc-45b3-ba1f-cce1498202cd" xml:space="preserve">
+          <source>Security-related Transact-SQL statements in Microsoft Azure SQL Database may differ slightly in the parameters that are available.</source>
+          <target state="new">Security-related Transact-SQL statements in Microsoft Azure SQL Database may differ slightly in the parameters that are available.</target>
+        </trans-unit>
+        <trans-unit id="728cb07d-cfa7-4d3d-b3b9-2bb292d39e4f" xml:space="preserve">
+          <source>For more information, see <bpt id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;linkText&gt;</bpt>Azure SQL Database Transact-SQL Reference<ept id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;/linkText&gt;</ept><bpt id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;title&gt;</bpt><ept id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;linkText&gt;</bpt>Azure SQL Database Transact-SQL Reference<ept id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;/linkText&gt;</ept><bpt id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;title&gt;</bpt><ept id="d24e558b-28f9-4ecd-8d1b-4d6c29b1c0cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6236136-95ef-4d50-82d0-335c4aec964b" xml:space="preserve">
+          <source>To view logins and databases on your Azure SQL Database server, use the master database's <bpt id="0d65261d-4e84-4a6a-86a6-28d3bebb6503">&lt;code&gt;</bpt>sys.sql_logins<ept id="0d65261d-4e84-4a6a-86a6-28d3bebb6503">&lt;/code&gt;</ept> and <bpt id="ad718674-11d9-48d9-aecf-25fe99374bb5">&lt;code&gt;</bpt>sys.databases<ept id="ad718674-11d9-48d9-aecf-25fe99374bb5">&lt;/code&gt;</ept> views, respectively.</source>
+          <target state="new">To view logins and databases on your Azure SQL Database server, use the master database's <bpt id="0d65261d-4e84-4a6a-86a6-28d3bebb6503">&lt;code&gt;</bpt>sys.sql_logins<ept id="0d65261d-4e84-4a6a-86a6-28d3bebb6503">&lt;/code&gt;</ept> and <bpt id="ad718674-11d9-48d9-aecf-25fe99374bb5">&lt;code&gt;</bpt>sys.databases<ept id="ad718674-11d9-48d9-aecf-25fe99374bb5">&lt;/code&gt;</ept> views, respectively.</target>
+        </trans-unit>
+        <trans-unit id="51b6c710-d81e-471b-9bb4-45b5adb63afb" xml:space="preserve">
+          <source>The following example shows how to display a list of all the logins and databases on your Azure SQL Database server.</source>
+          <target state="new">The following example shows how to display a list of all the logins and databases on your Azure SQL Database server.</target>
+        </trans-unit>
+        <trans-unit id="0e10cdda-7dec-4f82-9699-6cc8862bfc55" xml:space="preserve">
+          <source><bpt id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;linkText&gt;</bpt>Azure SQL Database security guidelines and limitations<ept id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;/linkText&gt;</ept><bpt id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;title&gt;</bpt><ept id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;linkText&gt;</bpt>Azure SQL Database security guidelines and limitations<ept id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;/linkText&gt;</ept><bpt id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;title&gt;</bpt><ept id="1d231f64-a7b4-467e-b34f-616f478e85a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9cdc546c-8070-45fe-a466-e8fd962d21c8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9cdc546c-8070-45fe-a466-e8fd962d21c8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ca90eaaf-fd4c-452d-9ef8-2125ea8f9ba5">
+        <trans-unit id="d66fd543-9e20-4f76-858f-f88327d6a506" xml:space="preserve">
+          <source>Using the Box Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the Box Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="13e6f5a9-75e8-4e78-b43f-84d06e57c1c5" xml:space="preserve">
+          <source>How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="8cff05b5-02f4-4a9b-b9b3-daa40384037c" xml:space="preserve">
+          <source>Connect to your Box to get, upload, delete.</source>
+          <target state="new">Connect to your Box to get, upload, delete.</target>
+        </trans-unit>
+        <trans-unit id="0982a82c-de2a-4fc2-af79-6817d5e32142" xml:space="preserve">
+          <source>and more to your files.</source>
+          <target state="new">and more to your files.</target>
+        </trans-unit>
+        <trans-unit id="65624514-3c20-4343-ac4b-66c75fdef9d3" xml:space="preserve">
+          <source>Connectors are used in Logic Apps as a part of a "workflow".</source>
+          <target state="new">Connectors are used in Logic Apps as a part of a "workflow".</target>
+        </trans-unit>
+        <trans-unit id="274a45e7-6982-4d10-936a-db1e33187a8c" xml:space="preserve">
+          <source>You may have scenarios where you may need to work with Box that allows you to share data securely with anyone – even if they’re outside your firewall.</source>
+          <target state="new">You may have scenarios where you may need to work with Box that allows you to share data securely with anyone – even if they’re outside your firewall.</target>
+        </trans-unit>
+        <trans-unit id="3a2742e2-769f-46f0-b007-ca382d7fef88" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="f6054733-2a05-469c-8497-e63e5feb745d" xml:space="preserve">
+          <source>The Box gallery app provides you Actions as mechanisms to interact with Box:</source>
+          <target state="new">The Box gallery app provides you Actions as mechanisms to interact with Box:</target>
+        </trans-unit>
+        <trans-unit id="d293e30b-882b-4fc0-beba-5564f4243be7" xml:space="preserve">
+          <source><bpt id="643d1e72-768f-400f-aece-141f1c1f0561">&lt;strong&gt;</bpt>Actions<ept id="643d1e72-768f-400f-aece-141f1c1f0561">&lt;/strong&gt;</ept>: The actions lets you perform predefined actions on the Box account configured with the logic app.</source>
+          <target state="new"><bpt id="643d1e72-768f-400f-aece-141f1c1f0561">&lt;strong&gt;</bpt>Actions<ept id="643d1e72-768f-400f-aece-141f1c1f0561">&lt;/strong&gt;</ept>: The actions lets you perform predefined actions on the Box account configured with the logic app.</target>
+        </trans-unit>
+        <trans-unit id="92a62cd3-0a9e-460d-8e02-d105cbdeeea6" xml:space="preserve">
+          <source>Following are the actions that can be performed on Box account using Box connector:</source>
+          <target state="new">Following are the actions that can be performed on Box account using Box connector:</target>
+        </trans-unit>
+        <trans-unit id="69938f03-2ab4-4cd1-a964-b86337ace163" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="4ebf7f20-071d-4cd3-9e94-7b7b5a7826d3" xml:space="preserve">
+          <source><bpt id="f8e14047-a603-40e8-ade2-6be5727e739e">&lt;em&gt;</bpt>List Files:<ept id="f8e14047-a603-40e8-ade2-6be5727e739e">&lt;/em&gt;</ept> This operation returns the information of all files in a folder.</source>
+          <target state="new"><bpt id="f8e14047-a603-40e8-ade2-6be5727e739e">&lt;em&gt;</bpt>List Files:<ept id="f8e14047-a603-40e8-ade2-6be5727e739e">&lt;/em&gt;</ept> This operation returns the information of all files in a folder.</target>
+        </trans-unit>
+        <trans-unit id="5ca994cd-cfb3-41a0-bc10-dc3b6a12383c" xml:space="preserve">
+          <source>List of parameters required for the action:</source>
+          <target state="new">List of parameters required for the action:</target>
+        </trans-unit>
+        <trans-unit id="457cc2ce-ba73-4033-962d-709a3e7fa61b" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="dffa694c-77f0-49a2-a0f7-bbe390f5ef1a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="7863ee07-3066-4063-a4ca-49ac71e7197e" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="2eb91713-e147-4e79-9828-3bcef16d0a5f" xml:space="preserve">
+          <source>Folder Path</source>
+          <target state="new">Folder Path</target>
+        </trans-unit>
+        <trans-unit id="061554b4-f05d-46b0-938b-47211cf89662" xml:space="preserve">
+          <source>Path of the folder to list.</source>
+          <target state="new">Path of the folder to list.</target>
+        </trans-unit>
+        <trans-unit id="cad6ab3a-8f3d-440b-93f1-cd4a16e9998b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="490b3a42-02c0-4a4f-a340-699da413df86" xml:space="preserve">
+          <source>It does not return any file content.</source>
+          <target state="new">It does not return any file content.</target>
+        </trans-unit>
+        <trans-unit id="905bd638-d76f-409d-b12a-65338cf46ace" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="13387caa-eb46-4964-99c8-25d64b7e424b" xml:space="preserve">
+          <source><bpt id="1e36c70d-670a-4bf2-912b-775c286232ef">&lt;em&gt;</bpt>Get File:<ept id="1e36c70d-670a-4bf2-912b-775c286232ef">&lt;/em&gt;</ept> This operation retrieves a file including its content and properties.</source>
+          <target state="new"><bpt id="1e36c70d-670a-4bf2-912b-775c286232ef">&lt;em&gt;</bpt>Get File:<ept id="1e36c70d-670a-4bf2-912b-775c286232ef">&lt;/em&gt;</ept> This operation retrieves a file including its content and properties.</target>
+        </trans-unit>
+        <trans-unit id="c9efa03b-aab6-4918-813a-c9ffd0c05a57" xml:space="preserve">
+          <source>List of parameters required for the action:</source>
+          <target state="new">List of parameters required for the action:</target>
+        </trans-unit>
+        <trans-unit id="37ce83ae-b502-47b5-bcfa-2e9a2cf473c4" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="02c3f3e9-61b2-4f2c-8d3e-56ba80a88969" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="955ae1c8-6a0a-4a7e-880c-7d72c1cb4196" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="590b7568-37f1-44e4-9ec5-3a8ec5e3eb4c" xml:space="preserve">
+          <source>File Path</source>
+          <target state="new">File Path</target>
+        </trans-unit>
+        <trans-unit id="8a546feb-0c0e-49eb-9da3-86b5975d2fc8" xml:space="preserve">
+          <source>Path of the Folder where the File resides.</source>
+          <target state="new">Path of the Folder where the File resides.</target>
+        </trans-unit>
+        <trans-unit id="77471024-2565-4b8b-b9f8-d8a7eeeb103c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="78485d61-885d-467a-b1b0-bc59facfedd3" xml:space="preserve">
+          <source>File Type</source>
+          <target state="new">File Type</target>
+        </trans-unit>
+        <trans-unit id="4ef22b07-6db8-4e3f-9da3-d116a52c37ed" xml:space="preserve">
+          <source>Specifies if the file is Text or Binary.</source>
+          <target state="new">Specifies if the file is Text or Binary.</target>
+        </trans-unit>
+        <trans-unit id="d7ed6c5e-c1be-4b0a-b773-9a36bb980506" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="70614812-e8fe-427d-bfb9-165c67294277" xml:space="preserve">
+          <source>This operation does not delete the file after reading it.</source>
+          <target state="new">This operation does not delete the file after reading it.</target>
+        </trans-unit>
+        <trans-unit id="ed14a784-d4c9-4116-8cb7-8d7b0fcc6efa" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="21a0f6b5-89ea-4909-9193-eef524d5b93f" xml:space="preserve">
+          <source><bpt id="53f257af-ef24-4746-99f9-f5c5a5288d1f">&lt;em&gt;</bpt>Upload File<ept id="53f257af-ef24-4746-99f9-f5c5a5288d1f">&lt;/em&gt;</ept>: As the name suggests, the action uploads the file to Box account.</source>
+          <target state="new"><bpt id="53f257af-ef24-4746-99f9-f5c5a5288d1f">&lt;em&gt;</bpt>Upload File<ept id="53f257af-ef24-4746-99f9-f5c5a5288d1f">&lt;/em&gt;</ept>: As the name suggests, the action uploads the file to Box account.</target>
+        </trans-unit>
+        <trans-unit id="977a7fd0-553a-42a0-8dcf-6ccae16d2059" xml:space="preserve">
+          <source>If file already exists, then it is not overwritten and error is thrown.</source>
+          <target state="new">If file already exists, then it is not overwritten and error is thrown.</target>
+        </trans-unit>
+        <trans-unit id="c251cb41-e2da-49b2-a832-72b61a86ddc7" xml:space="preserve">
+          <source>List of parameters required for the action:</source>
+          <target state="new">List of parameters required for the action:</target>
+        </trans-unit>
+        <trans-unit id="c54cf56a-0ab6-422c-af23-f6e50d197bce" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="2eaa6f6e-d78d-4f34-8709-c17594570487" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="343a5579-75f8-4b24-a318-1d8fecced70b" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="d1795c0e-dbea-4ee2-908b-60504bc83e34" xml:space="preserve">
+          <source>File Path</source>
+          <target state="new">File Path</target>
+        </trans-unit>
+        <trans-unit id="6217eeab-1720-4ad7-b754-145249469ffd" xml:space="preserve">
+          <source>Path to the file.</source>
+          <target state="new">Path to the file.</target>
+        </trans-unit>
+        <trans-unit id="68508e7b-a13f-4497-92f8-b824ea558b5e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="94f5b2c2-a10d-405b-abb4-d5f2b5f7b438" xml:space="preserve">
+          <source>File Content</source>
+          <target state="new">File Content</target>
+        </trans-unit>
+        <trans-unit id="9a88dc64-53f2-4c08-a7a8-d880e23ca6ea" xml:space="preserve">
+          <source>File content to be uploaded.</source>
+          <target state="new">File content to be uploaded.</target>
+        </trans-unit>
+        <trans-unit id="db8fe866-42a7-4b89-8c37-9298901c93fa" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e56a5f60-6968-49cf-b9b9-ec8d1029f61c" xml:space="preserve">
+          <source>Content Transfer Encoding</source>
+          <target state="new">Content Transfer Encoding</target>
+        </trans-unit>
+        <trans-unit id="8ece6418-573b-42d3-b296-15e58b612a79" xml:space="preserve">
+          <source>Encoding type of the content: Base64 or None.</source>
+          <target state="new">Encoding type of the content: Base64 or None.</target>
+        </trans-unit>
+        <trans-unit id="37705c4a-f124-4633-bcd2-4478bf4a6a9b" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="f9ba8420-31c4-4541-8074-5d399d7ff494" xml:space="preserve">
+          <source><bpt id="d61b7148-1c79-4dfe-a0d7-611f2034d055">&lt;em&gt;</bpt>Delete File<ept id="d61b7148-1c79-4dfe-a0d7-611f2034d055">&lt;/em&gt;</ept>: The action deletes the specified file from a folder.</source>
+          <target state="new"><bpt id="d61b7148-1c79-4dfe-a0d7-611f2034d055">&lt;em&gt;</bpt>Delete File<ept id="d61b7148-1c79-4dfe-a0d7-611f2034d055">&lt;/em&gt;</ept>: The action deletes the specified file from a folder.</target>
+        </trans-unit>
+        <trans-unit id="c4c61b20-3735-4a38-ab87-9dcc64d41fae" xml:space="preserve">
+          <source>If the file/folder is not found, an exception is thrown.</source>
+          <target state="new">If the file/folder is not found, an exception is thrown.</target>
+        </trans-unit>
+        <trans-unit id="9ed2f21d-5309-4567-89b6-2384d879e7e9" xml:space="preserve">
+          <source>List of parameters required for the action:</source>
+          <target state="new">List of parameters required for the action:</target>
+        </trans-unit>
+        <trans-unit id="cb9517ce-8fce-49a6-899e-03c5867f0ed2" xml:space="preserve">
+          <source>Parameter Name</source>
+          <target state="new">Parameter Name</target>
+        </trans-unit>
+        <trans-unit id="bf2f283a-efdf-473f-918f-bd323d7b2104" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1f722f6b-300a-44f9-ad4f-7a9968abe58c" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="293e917b-cb9c-4e48-a5e6-ed9ac3bdb494" xml:space="preserve">
+          <source>File Path</source>
+          <target state="new">File Path</target>
+        </trans-unit>
+        <trans-unit id="1d0d51ee-1e6f-403b-94b0-2beb427ba76b" xml:space="preserve">
+          <source>Complete File Path including Folders.</source>
+          <target state="new">Complete File Path including Folders.</target>
+        </trans-unit>
+        <trans-unit id="cfeba0d0-a41a-4ffe-be83-8cf2144c75c7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="56f3dce4-ffad-4112-beb1-0b594057d9b4" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="7bad3d87-df6b-41ee-9738-6f2b46681976" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="ec358123-d916-4e7c-af01-d92dba5e2edd" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="26ef8a3c-5ff5-47b3-865c-eca4db5ec74c">&lt;strong&gt;</bpt>Marketplace<ept id="26ef8a3c-5ff5-47b3-865c-eca4db5ec74c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="26ef8a3c-5ff5-47b3-865c-eca4db5ec74c">&lt;strong&gt;</bpt>Marketplace<ept id="26ef8a3c-5ff5-47b3-865c-eca4db5ec74c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15c1f3b3-df7d-4c68-986b-865194b82e5b" xml:space="preserve">
+          <source>Search for “Box Connector”, select it, and select <bpt id="d522fcdc-b8bf-4fc1-9648-918e291d9e19">&lt;strong&gt;</bpt>Create<ept id="d522fcdc-b8bf-4fc1-9648-918e291d9e19">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “Box Connector”, select it, and select <bpt id="d522fcdc-b8bf-4fc1-9648-918e291d9e19">&lt;strong&gt;</bpt>Create<ept id="d522fcdc-b8bf-4fc1-9648-918e291d9e19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f747cd7f-f6fc-407d-a0a7-68cc5bca5e61" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties:  
+<bpt id="af366b3a-cb64-4678-8aab-beb6cbec1306">&lt;linkText&gt;</bpt><ept id="af366b3a-cb64-4678-8aab-beb6cbec1306">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the Name, App Service Plan, and other properties:  
+<bpt id="af366b3a-cb64-4678-8aab-beb6cbec1306">&lt;linkText&gt;</bpt><ept id="af366b3a-cb64-4678-8aab-beb6cbec1306">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2256f57a-0075-4420-ab17-434c9ba32015" xml:space="preserve">
+          <source>Select <bpt id="1902993a-9f10-410a-994d-d07daa5d188d">&lt;strong&gt;</bpt>Create<ept id="1902993a-9f10-410a-994d-d07daa5d188d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="1902993a-9f10-410a-994d-d07daa5d188d">&lt;strong&gt;</bpt>Create<ept id="1902993a-9f10-410a-994d-d07daa5d188d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68805f62-ec39-4a24-8042-fcaee5e1ec1d" xml:space="preserve">
+          <source>Once your API app is created, you can now use the Box Connector as an action in your Logic App.</source>
+          <target state="new">Once your API app is created, you can now use the Box Connector as an action in your Logic App.</target>
+        </trans-unit>
+        <trans-unit id="76728b28-cce0-48dd-9a89-941cc941afb5" xml:space="preserve">
+          <source>To do this:</source>
+          <target state="new">To do this:</target>
+        </trans-unit>
+        <trans-unit id="4934da76-09e5-4103-ae40-4fc91cbd4647" xml:space="preserve">
+          <source>In your logic app, open <bpt id="60236364-f6a6-4878-92e4-39cab9563015">&lt;strong&gt;</bpt>Triggers and Actions<ept id="60236364-f6a6-4878-92e4-39cab9563015">&lt;/strong&gt;</ept> to open the Logic Apps Designer and configure your flow.</source>
+          <target state="new">In your logic app, open <bpt id="60236364-f6a6-4878-92e4-39cab9563015">&lt;strong&gt;</bpt>Triggers and Actions<ept id="60236364-f6a6-4878-92e4-39cab9563015">&lt;/strong&gt;</ept> to open the Logic Apps Designer and configure your flow.</target>
+        </trans-unit>
+        <trans-unit id="66f1b140-bf71-4ffc-a0a0-bc3c65e87f41" xml:space="preserve">
+          <source>The Box Connector is listed in the gallery.</source>
+          <target state="new">The Box Connector is listed in the gallery.</target>
+        </trans-unit>
+        <trans-unit id="4a889003-210c-4070-9a5d-761f54cd89db" xml:space="preserve">
+          <source>Select it to automatically add it to your the logic apps designer.</source>
+          <target state="new">Select it to automatically add it to your the logic apps designer.</target>
+        </trans-unit>
+        <trans-unit id="db7969b2-19a7-4ea9-a598-c79e4f788152" xml:space="preserve">
+          <source>If the Box connector is selected at the start of the logic app, it acts like trigger.</source>
+          <target state="new">If the Box connector is selected at the start of the logic app, it acts like trigger.</target>
+        </trans-unit>
+        <trans-unit id="e61b39b8-fc4c-48d9-8f81-004a97f22dff" xml:space="preserve">
+          <source>Otherwise, actions can be taken on Box account using the connector.</source>
+          <target state="new">Otherwise, actions can be taken on Box account using the connector.</target>
+        </trans-unit>
+        <trans-unit id="41f42b2d-2b9d-4d0c-b053-d437f6876e6f" xml:space="preserve">
+          <source>The Box Connector doesn't have any triggers as of this writing.</source>
+          <target state="new">The Box Connector doesn't have any triggers as of this writing.</target>
+        </trans-unit>
+        <trans-unit id="cb4cf354-e86b-4518-a026-a144de011dab" xml:space="preserve">
+          <source>Authenticate and authorize logic apps to perform operations on your behalf.</source>
+          <target state="new">Authenticate and authorize logic apps to perform operations on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="24f0ab70-0de0-4890-83ae-314e570923dc" xml:space="preserve">
+          <source>Select <bpt id="b16881eb-7a44-4406-8cf7-0a660b9d62ab">&lt;strong&gt;</bpt>Authorize<ept id="b16881eb-7a44-4406-8cf7-0a660b9d62ab">&lt;/strong&gt;</ept> on Box Connector:  
+<bpt id="228e7084-6856-40ab-8c85-1144ba9c443d">&lt;linkText&gt;</bpt><ept id="228e7084-6856-40ab-8c85-1144ba9c443d">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select <bpt id="b16881eb-7a44-4406-8cf7-0a660b9d62ab">&lt;strong&gt;</bpt>Authorize<ept id="b16881eb-7a44-4406-8cf7-0a660b9d62ab">&lt;/strong&gt;</ept> on Box Connector:  
+<bpt id="228e7084-6856-40ab-8c85-1144ba9c443d">&lt;linkText&gt;</bpt><ept id="228e7084-6856-40ab-8c85-1144ba9c443d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91464d13-ef36-4872-88ff-795a54103b6e" xml:space="preserve">
+          <source>Enter the sign in details of the Box account on which you want to perform the operations:  
+<bpt id="beae75df-f8d0-4f2a-b4cb-7a914f7b0d51">&lt;linkText&gt;</bpt><ept id="beae75df-f8d0-4f2a-b4cb-7a914f7b0d51">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the sign in details of the Box account on which you want to perform the operations:  
+<bpt id="beae75df-f8d0-4f2a-b4cb-7a914f7b0d51">&lt;linkText&gt;</bpt><ept id="beae75df-f8d0-4f2a-b4cb-7a914f7b0d51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28dd26fa-26ff-4e71-a7e0-9724745b9671" xml:space="preserve">
+          <source>Grant logic apps access to your account to perform operation on your behalf:  
+<bpt id="f9f2bcab-f1a4-45e8-b4f0-4a3b3739f27b">&lt;linkText&gt;</bpt><ept id="f9f2bcab-f1a4-45e8-b4f0-4a3b3739f27b">&lt;/linkText&gt;</ept></source>
+          <target state="new">Grant logic apps access to your account to perform operation on your behalf:  
+<bpt id="f9f2bcab-f1a4-45e8-b4f0-4a3b3739f27b">&lt;linkText&gt;</bpt><ept id="f9f2bcab-f1a4-45e8-b4f0-4a3b3739f27b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b9a0584-0e30-4942-80f0-8c75e014438a" xml:space="preserve">
+          <source>List of actions is displayed and you can choose appropriate operation that you want to perform:  
+<bpt id="dc458e4e-4440-49d2-bc8f-3ecb7cb268a5">&lt;linkText&gt;</bpt><ept id="dc458e4e-4440-49d2-bc8f-3ecb7cb268a5">&lt;/linkText&gt;</ept></source>
+          <target state="new">List of actions is displayed and you can choose appropriate operation that you want to perform:  
+<bpt id="dc458e4e-4440-49d2-bc8f-3ecb7cb268a5">&lt;linkText&gt;</bpt><ept id="dc458e4e-4440-49d2-bc8f-3ecb7cb268a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3f04902-30f4-4966-889c-4cfbd1f2af10" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="cdd765c9-48cb-4faf-9a3a-798bed74fb6f" xml:space="preserve">
+          <source>See <bpt id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;/linkText&gt;</ept><bpt id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;title&gt;</bpt><ept id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;/linkText&gt;</ept><bpt id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;title&gt;</bpt><ept id="09e6a19f-2a12-4639-a34f-7f08de71a6c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8812370-ecf9-4a0e-8b3d-eec60d61c264" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;/linkText&gt;</ept><bpt id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;title&gt;</bpt><ept id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;/linkText&gt;</ept><bpt id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;title&gt;</bpt><ept id="c53d2490-4888-4a7d-b91c-e92ca3158449">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c726ac6f-ee3d-4a05-b487-14efa5e0ddd1" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="15eaf0ca-4794-4963-9d63-787c0429a243" xml:space="preserve">
+          <source>See <bpt id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;/linkText&gt;</ept><bpt id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;title&gt;</bpt><ept id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;/linkText&gt;</ept><bpt id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;title&gt;</bpt><ept id="f273ac30-6d67-4e98-8588-a8ae8ae44c28">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55839d44-02fa-4a52-9ff1-5588bd855aee" xml:space="preserve">
+          <source>./media/app-service-logic-connector-box/image_0.jpg</source>
+          <target state="new">./media/app-service-logic-connector-box/image_0.jpg</target>
+        </trans-unit>
+        <trans-unit id="5da161b8-e1d2-46fb-b8fa-331f0ada9653" xml:space="preserve">
+          <source>./media/app-service-logic-connector-box/image_1.jpg</source>
+          <target state="new">./media/app-service-logic-connector-box/image_1.jpg</target>
+        </trans-unit>
+        <trans-unit id="28d81b17-09e7-4667-bbbc-f223207dd569" xml:space="preserve">
+          <source>./media/app-service-logic-connector-box/image_2.jpg</source>
+          <target state="new">./media/app-service-logic-connector-box/image_2.jpg</target>
+        </trans-unit>
+        <trans-unit id="5a1575dd-9f6a-4a21-a2a6-d23ec55e8e57" xml:space="preserve">
+          <source>./media/app-service-logic-connector-box/image_3.jpg</source>
+          <target state="new">./media/app-service-logic-connector-box/image_3.jpg</target>
+        </trans-unit>
+        <trans-unit id="3b9abf69-0512-4cc5-9716-225ad878ef88" xml:space="preserve">
+          <source>./media/app-service-logic-connector-box/image_4.jpg</source>
+          <target state="new">./media/app-service-logic-connector-box/image_4.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="d6d7fb98-b3b3-4d3c-a0c0-462865255224" />
+    </body>
+  </file>
+</xliff>

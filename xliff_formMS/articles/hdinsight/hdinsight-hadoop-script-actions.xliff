@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ffd1eb15-d273-41b1-a21a-64f587f79cc5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ffd1eb15-d273-41b1-a21a-64f587f79cc5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="23d1c7bc-b54c-45bd-bc40-92a6bce32407">
+        <trans-unit id="5449adce-de3c-409e-b058-b672f70b2df9" xml:space="preserve">
+          <source>Script Action development with HDInsight | Microsoft Azure</source>
+          <target state="new">Script Action development with HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7372ee86-739f-49fe-a8af-ceba466d14ae" xml:space="preserve">
+          <source>Learn how to customize Hadoop clusters with Script Action.</source>
+          <target state="new">Learn how to customize Hadoop clusters with Script Action.</target>
+        </trans-unit>
+        <trans-unit id="18b36aed-6811-4479-9b4e-f7ea2e75bc79" xml:space="preserve">
+          <source>Learn how to write Script Action scripts for HDInsight.</source>
+          <target state="new">Learn how to write Script Action scripts for HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="fffe23bd-7bfa-4365-9790-c6d7db2e9ce3" xml:space="preserve">
+          <source>For information on using Script Action scripts, see <bpt id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;/linkText&gt;</ept><bpt id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;title&gt;</bpt><ept id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on using Script Action scripts, see <bpt id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;/linkText&gt;</ept><bpt id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;title&gt;</bpt><ept id="cd99a5b8-85de-4345-ad55-fc24948486f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5dc774c-1fe5-4425-a441-8b01972425b8" xml:space="preserve">
+          <source>For the same article written for the HDInsight cluster on Linux operating system, see <bpt id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;linkText&gt;</bpt>Develop Script Action scripts for HDInsight<ept id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;/linkText&gt;</ept><bpt id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;title&gt;</bpt><ept id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the same article written for the HDInsight cluster on Linux operating system, see <bpt id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;linkText&gt;</bpt>Develop Script Action scripts for HDInsight<ept id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;/linkText&gt;</ept><bpt id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;title&gt;</bpt><ept id="8daf1438-2a79-4599-98eb-6c476c788e93">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41581625-7182-4401-b094-5639f0f35038" xml:space="preserve">
+          <source>Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster.</source>
+          <target state="new">Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster.</target>
+        </trans-unit>
+        <trans-unit id="76240a03-9df2-4fbd-a526-84a8000df6c4" xml:space="preserve">
+          <source>Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration.</source>
+          <target state="new">Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration.</target>
+        </trans-unit>
+        <trans-unit id="d39e88fb-5aaa-4281-badf-0fa3a1e751c3" xml:space="preserve">
+          <source>A script action is executed under system admin account privileges and provides full access rights to the cluster nodes.</source>
+          <target state="new">A script action is executed under system admin account privileges and provides full access rights to the cluster nodes.</target>
+        </trans-unit>
+        <trans-unit id="5dc9f8dc-36fb-4804-bfef-3cc66be4de57" xml:space="preserve">
+          <source>Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.</source>
+          <target state="new">Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.</target>
+        </trans-unit>
+        <trans-unit id="f1703dc3-1158-4054-a340-b8da6b362733" xml:space="preserve">
+          <source>If you experience the following error message: </source>
+          <target state="new">If you experience the following error message: </target>
+        </trans-unit>
+        <trans-unit id="2492fdb3-48b3-4c6f-adbf-fde4c4892706" xml:space="preserve">
+          <source>For provisioning HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script.The following is a sample script for configure the site configuration files:</source>
+          <target state="new">For provisioning HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script.The following is a sample script for configure the site configuration files:</target>
+        </trans-unit>
+        <trans-unit id="849476b5-1fb3-49bb-b32d-4d68c15bbf23" xml:space="preserve">
+          <source>The script takes four parameters, the configuration file name, the property you want to modify, the value you want to set, and a description.</source>
+          <target state="new">The script takes four parameters, the configuration file name, the property you want to modify, the value you want to set, and a description.</target>
+        </trans-unit>
+        <trans-unit id="79858c15-a533-4b3a-ba69-6db35cccd8f7" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="e9becf36-56b2-476d-aba4-2f4c5a2d45a0" xml:space="preserve">
+          <source>These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.</source>
+          <target state="new">These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.</target>
+        </trans-unit>
+        <trans-unit id="978c48c6-0cb0-40c7-bb28-b4293da2456f" xml:space="preserve">
+          <source>The default value is 60 seconds.</source>
+          <target state="new">The default value is 60 seconds.</target>
+        </trans-unit>
+        <trans-unit id="4d34a8d0-8f07-4f74-bc41-7f6c0162b409" xml:space="preserve">
+          <source>This sample script can also be found at <bpt id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;linkText&gt;</bpt>https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1<ept id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;/linkText&gt;</ept><bpt id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;title&gt;</bpt><ept id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;/title&gt;</ept>.</source>
+          <target state="new">This sample script can also be found at <bpt id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;linkText&gt;</bpt>https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1<ept id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;/linkText&gt;</ept><bpt id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;title&gt;</bpt><ept id="dc9ebee5-77de-448d-91d7-7ca61aa746c5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee3f564f-a27d-40a2-a6fa-b4c1cbb51bd3" xml:space="preserve">
+          <source>HDInsight provides several scripts to install additional components on HDInsight clusters:</source>
+          <target state="new">HDInsight provides several scripts to install additional components on HDInsight clusters:</target>
+        </trans-unit>
+        <trans-unit id="7a02507a-9d79-4a67-81c5-f44899dbc9cf" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="a69b9b03-1045-43a9-b99a-8a58cffc5123" xml:space="preserve">
+          <source>Script</source>
+          <target state="new">Script</target>
+        </trans-unit>
+        <trans-unit id="feeb25ce-3e01-4738-808e-2e13ebce5925" xml:space="preserve">
+          <source><bpt id="ad3b9383-f63d-4dc1-a278-2ad09de7bc41">&lt;strong&gt;</bpt>Install Spark<ept id="ad3b9383-f63d-4dc1-a278-2ad09de7bc41">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ad3b9383-f63d-4dc1-a278-2ad09de7bc41">&lt;strong&gt;</bpt>Install Spark<ept id="ad3b9383-f63d-4dc1-a278-2ad09de7bc41">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b547dc5b-133e-4c39-b0c3-25d8642b585b" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1.</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1.</target>
+        </trans-unit>
+        <trans-unit id="eb95bc7c-8c15-4b9e-8584-f725752ae59a" xml:space="preserve">
+          <source>See <bpt id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters[hdinsight-install-spark]<ept id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;/linkText&gt;</ept><bpt id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;title&gt;</bpt><ept id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters[hdinsight-install-spark]<ept id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;/linkText&gt;</ept><bpt id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;title&gt;</bpt><ept id="752cf5e4-452f-4c97-b51c-e20417e40254">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58ae8530-7604-4360-a4d6-3f9e9697e335" xml:space="preserve">
+          <source><bpt id="aca3e159-2823-4f7c-a3c6-482feac7cd76">&lt;strong&gt;</bpt>Install R<ept id="aca3e159-2823-4f7c-a3c6-482feac7cd76">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="aca3e159-2823-4f7c-a3c6-482feac7cd76">&lt;strong&gt;</bpt>Install R<ept id="aca3e159-2823-4f7c-a3c6-482feac7cd76">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4be7dd5-94ef-4f9d-88ee-cf7ff55c9b7c" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1.</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1.</target>
+        </trans-unit>
+        <trans-unit id="6976e185-a9a9-42ad-9b16-930794cd52f1" xml:space="preserve">
+          <source>See <bpt id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;linkText&gt;</bpt>Install and use R on HDInsight clusters[hdinsight-r-scripts]<ept id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;/linkText&gt;</ept><bpt id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;title&gt;</bpt><ept id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;linkText&gt;</bpt>Install and use R on HDInsight clusters[hdinsight-r-scripts]<ept id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;/linkText&gt;</ept><bpt id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;title&gt;</bpt><ept id="e6d777f3-d4cb-41b3-bbf3-d2f93662dd58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27b27992-78ff-447f-8e84-7590ce1b1179" xml:space="preserve">
+          <source><bpt id="6160269d-4da7-40d9-ae89-f9d11572481f">&lt;strong&gt;</bpt>Install Solr<ept id="6160269d-4da7-40d9-ae89-f9d11572481f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6160269d-4da7-40d9-ae89-f9d11572481f">&lt;strong&gt;</bpt>Install Solr<ept id="6160269d-4da7-40d9-ae89-f9d11572481f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="910f365b-d325-432f-8a5c-a78360be5dac" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1.</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1.</target>
+        </trans-unit>
+        <trans-unit id="2c3976f5-eaab-4e46-b2ee-d7a4de49b36d" xml:space="preserve">
+          <source>See <bpt id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;/linkText&gt;</ept><bpt id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;title&gt;</bpt><ept id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;/linkText&gt;</ept><bpt id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;title&gt;</bpt><ept id="67adf8a1-e9ab-4519-82c8-815d8bbcf665">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02b93f67-c889-4d2c-b872-a13a219d9c93" xml:space="preserve">
+          <source><bpt id="4e30405e-cd8a-44d9-913c-f5fa0fc66f89">&lt;strong&gt;</bpt>Install Giraph<ept id="4e30405e-cd8a-44d9-913c-f5fa0fc66f89">&lt;/strong&gt;</ept> | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1.</source>
+          <target state="new"><bpt id="4e30405e-cd8a-44d9-913c-f5fa0fc66f89">&lt;strong&gt;</bpt>Install Giraph<ept id="4e30405e-cd8a-44d9-913c-f5fa0fc66f89">&lt;/strong&gt;</ept> | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1.</target>
+        </trans-unit>
+        <trans-unit id="665def39-3961-4ebd-b27e-64f823c3b37f" xml:space="preserve">
+          <source>See <bpt id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;/linkText&gt;</ept><bpt id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;title&gt;</bpt><ept id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;/linkText&gt;</ept><bpt id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;title&gt;</bpt><ept id="53fb62cb-d92a-4236-ab6a-fcd98ee59a6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8861d4c-d79d-4f4c-8d05-33a37bfd9ffb" xml:space="preserve">
+          <source>Script Action can be deployed from the Azure preview portal, Azure PowerShell or by using the HDInsight .NET SDK.</source>
+          <target state="new">Script Action can be deployed from the Azure preview portal, Azure PowerShell or by using the HDInsight .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="252044d0-e054-4df5-a645-65d6eed798fa" xml:space="preserve">
+          <source>For more information, see <bpt id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action[hdinsight-cluster-customize]<ept id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;/linkText&gt;</ept><bpt id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;title&gt;</bpt><ept id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action[hdinsight-cluster-customize]<ept id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;/linkText&gt;</ept><bpt id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;title&gt;</bpt><ept id="d7d62b46-c953-418b-97b6-69dc17118a17">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec37b2af-6d1b-4136-816e-cce57e993a21" xml:space="preserve">
+          <source>The sample scripts work only with HDInsight cluster version 3.1 or above.</source>
+          <target state="new">The sample scripts work only with HDInsight cluster version 3.1 or above.</target>
+        </trans-unit>
+        <trans-unit id="c381b5b2-38f8-4d7f-82ce-99126be65db8" xml:space="preserve">
+          <source>For more information on HDInsight cluster versions, see <bpt id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;linkText&gt;</bpt>HDInsight cluster versions<ept id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;/linkText&gt;</ept><bpt id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;title&gt;</bpt><ept id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on HDInsight cluster versions, see <bpt id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;linkText&gt;</bpt>HDInsight cluster versions<ept id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;/linkText&gt;</ept><bpt id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;title&gt;</bpt><ept id="8c0b6329-d657-4dab-ac16-dfa972ba854a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca5c3ddd-328e-4aea-b091-43a3838e75dc" xml:space="preserve">
+          <source>Script Action helper methods are utilities that you can use while writing custom scripts.</source>
+          <target state="new">Script Action helper methods are utilities that you can use while writing custom scripts.</target>
+        </trans-unit>
+        <trans-unit id="0cfe8c34-a9a2-4513-9ff5-ac8f7c0ecc24" xml:space="preserve">
+          <source>These are defined in <bpt id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1<ept id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;/linkText&gt;</ept><bpt id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;title&gt;</bpt><ept id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;/title&gt;</ept>, and can be included in your scripts using the following:</source>
+          <target state="new">These are defined in <bpt id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1<ept id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;/linkText&gt;</ept><bpt id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;title&gt;</bpt><ept id="57d4ed9c-ad30-4b61-99e9-a2a94458144d">&lt;/title&gt;</ept>, and can be included in your scripts using the following:</target>
+        </trans-unit>
+        <trans-unit id="8708fa33-2275-48cf-bfb4-904f1ab779e8" xml:space="preserve">
+          <source>Here are the helper methods that are provided by this script:</source>
+          <target state="new">Here are the helper methods that are provided by this script:</target>
+        </trans-unit>
+        <trans-unit id="f0c711f2-c362-4e3e-b2f6-ceaa7f0fffb8" xml:space="preserve">
+          <source>Helper method</source>
+          <target state="new">Helper method</target>
+        </trans-unit>
+        <trans-unit id="0fa86957-d90d-47f2-b887-8170a9deebbb" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1037b4e5-3e91-4386-93ba-41b291eb0949" xml:space="preserve">
+          <source><bpt id="c9353d5b-9119-4cc8-aff8-d572a83cc8ba">&lt;strong&gt;</bpt>Save-HDIFile<ept id="c9353d5b-9119-4cc8-aff8-d572a83cc8ba">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c9353d5b-9119-4cc8-aff8-d572a83cc8ba">&lt;strong&gt;</bpt>Save-HDIFile<ept id="c9353d5b-9119-4cc8-aff8-d572a83cc8ba">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dae5a47-4553-48c6-9e84-6a9049825fd2" xml:space="preserve">
+          <source>Download a file from the specified Uniform Resource Identifier (URI) to a location on the local disk that is associated with the Azure VM node assigned to the cluster.</source>
+          <target state="new">Download a file from the specified Uniform Resource Identifier (URI) to a location on the local disk that is associated with the Azure VM node assigned to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="2dce43ac-a894-4e3b-b507-fcf7d0d3fe76" xml:space="preserve">
+          <source><bpt id="97254c16-eec7-4175-845c-5f0460814414">&lt;strong&gt;</bpt>Expand-HDIZippedFile<ept id="97254c16-eec7-4175-845c-5f0460814414">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="97254c16-eec7-4175-845c-5f0460814414">&lt;strong&gt;</bpt>Expand-HDIZippedFile<ept id="97254c16-eec7-4175-845c-5f0460814414">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4cafad9-2a0e-44d3-ab5d-23d16840bb21" xml:space="preserve">
+          <source>Unzip a zipped file.</source>
+          <target state="new">Unzip a zipped file.</target>
+        </trans-unit>
+        <trans-unit id="f7288399-affb-48cf-93aa-21131becda97" xml:space="preserve">
+          <source><bpt id="0427e695-341e-4d1c-be5e-e5551708ab82">&lt;strong&gt;</bpt>Invoke-HDICmdScript<ept id="0427e695-341e-4d1c-be5e-e5551708ab82">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0427e695-341e-4d1c-be5e-e5551708ab82">&lt;strong&gt;</bpt>Invoke-HDICmdScript<ept id="0427e695-341e-4d1c-be5e-e5551708ab82">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="067fe68e-b4c3-4bf1-9f6e-3b31f79b086d" xml:space="preserve">
+          <source>Run a script from cmd.exe.</source>
+          <target state="new">Run a script from cmd.exe.</target>
+        </trans-unit>
+        <trans-unit id="8c967c68-e5b6-4d97-9c01-c9111862d79d" xml:space="preserve">
+          <source><bpt id="52e8e561-0e3f-486f-84f7-3ee5ce3b9de7">&lt;strong&gt;</bpt>Write-HDILog<ept id="52e8e561-0e3f-486f-84f7-3ee5ce3b9de7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="52e8e561-0e3f-486f-84f7-3ee5ce3b9de7">&lt;strong&gt;</bpt>Write-HDILog<ept id="52e8e561-0e3f-486f-84f7-3ee5ce3b9de7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed108154-b64e-4692-af8f-6301b8feeed1" xml:space="preserve">
+          <source>Write output from the custom script used for a script action.</source>
+          <target state="new">Write output from the custom script used for a script action.</target>
+        </trans-unit>
+        <trans-unit id="0b63ad29-3477-4142-93a1-aeed5f8450a3" xml:space="preserve">
+          <source><bpt id="4b5b63a9-a265-42a5-94d2-db17854b3d9f">&lt;strong&gt;</bpt>Get-Services<ept id="4b5b63a9-a265-42a5-94d2-db17854b3d9f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4b5b63a9-a265-42a5-94d2-db17854b3d9f">&lt;strong&gt;</bpt>Get-Services<ept id="4b5b63a9-a265-42a5-94d2-db17854b3d9f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42cfe11e-d150-4a72-a337-4d6dfb7539ff" xml:space="preserve">
+          <source>Get a list of services running on the machine where the script executes.</source>
+          <target state="new">Get a list of services running on the machine where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="ef01ccbd-0c8f-45ae-a028-d4acd60e8acf" xml:space="preserve">
+          <source><bpt id="6f034018-73a0-4b1a-b5ba-eb614ac3f489">&lt;strong&gt;</bpt>Get-Service<ept id="6f034018-73a0-4b1a-b5ba-eb614ac3f489">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6f034018-73a0-4b1a-b5ba-eb614ac3f489">&lt;strong&gt;</bpt>Get-Service<ept id="6f034018-73a0-4b1a-b5ba-eb614ac3f489">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50226e6a-2fe0-4436-9b2d-3736d429d3ce" xml:space="preserve">
+          <source>With the specific service name as input, get detailed information for a specific service (service name, process ID, state, etc.)</source>
+          <target state="new">With the specific service name as input, get detailed information for a specific service (service name, process ID, state, etc.)</target>
+        </trans-unit>
+        <trans-unit id="a1dd9f54-44b8-4e4e-b7bd-2204fa5e49c3" xml:space="preserve">
+          <source>on the machine where the script executes.</source>
+          <target state="new">on the machine where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="48997df7-89cd-462a-aafa-08fa50f16bc3" xml:space="preserve">
+          <source><bpt id="01fe199a-7e6d-4f7a-8c8b-f51a18240a29">&lt;strong&gt;</bpt>Get-HDIServices<ept id="01fe199a-7e6d-4f7a-8c8b-f51a18240a29">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="01fe199a-7e6d-4f7a-8c8b-f51a18240a29">&lt;strong&gt;</bpt>Get-HDIServices<ept id="01fe199a-7e6d-4f7a-8c8b-f51a18240a29">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7f187c0-7224-4e6a-8c8f-8659eda6fa46" xml:space="preserve">
+          <source>Get a list of HDInsight services running on the computer where the script executes.</source>
+          <target state="new">Get a list of HDInsight services running on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="4dafc3d9-fd28-4ba0-bf85-f81cbec46313" xml:space="preserve">
+          <source><bpt id="7b374d87-de31-41bc-8b8b-6308e02ef2d0">&lt;strong&gt;</bpt>Get-HDIService<ept id="7b374d87-de31-41bc-8b8b-6308e02ef2d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7b374d87-de31-41bc-8b8b-6308e02ef2d0">&lt;strong&gt;</bpt>Get-HDIService<ept id="7b374d87-de31-41bc-8b8b-6308e02ef2d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b5c222b-f37e-49e6-a6a3-82d4338690ea" xml:space="preserve">
+          <source>With the specific HDInsight service name as input, get detailed information for a specific service (service name, process ID, state, etc.)</source>
+          <target state="new">With the specific HDInsight service name as input, get detailed information for a specific service (service name, process ID, state, etc.)</target>
+        </trans-unit>
+        <trans-unit id="01e5e856-81a8-4872-bc98-b88050386f4f" xml:space="preserve">
+          <source>on the machine where the script executes.</source>
+          <target state="new">on the machine where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="384c814d-173d-432d-a38e-7487e566d84a" xml:space="preserve">
+          <source><bpt id="eb6f7bc8-52d4-4493-aab7-0d27b9236e99">&lt;strong&gt;</bpt>Get-ServicesRunning<ept id="eb6f7bc8-52d4-4493-aab7-0d27b9236e99">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eb6f7bc8-52d4-4493-aab7-0d27b9236e99">&lt;strong&gt;</bpt>Get-ServicesRunning<ept id="eb6f7bc8-52d4-4493-aab7-0d27b9236e99">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da6f2a68-d2a7-4a2a-826f-ce55271c8e22" xml:space="preserve">
+          <source>Get a list of services that are running on the computer where the script executes.</source>
+          <target state="new">Get a list of services that are running on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="aca5c181-8d82-4cbd-b84f-aa2a9849adcb" xml:space="preserve">
+          <source><bpt id="b745f3ab-d6e2-46b8-b50f-6d20cfe2b771">&lt;strong&gt;</bpt>Get-ServiceRunning<ept id="b745f3ab-d6e2-46b8-b50f-6d20cfe2b771">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b745f3ab-d6e2-46b8-b50f-6d20cfe2b771">&lt;strong&gt;</bpt>Get-ServiceRunning<ept id="b745f3ab-d6e2-46b8-b50f-6d20cfe2b771">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="171c0b75-228a-484c-b880-25e5f342f60c" xml:space="preserve">
+          <source>Check if a specific service (by name) is running on the computer where the script executes.</source>
+          <target state="new">Check if a specific service (by name) is running on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="fdabeb8b-57db-4de0-8cef-5a53004ca318" xml:space="preserve">
+          <source><bpt id="87337a41-c60c-4285-8df5-813049615351">&lt;strong&gt;</bpt>Get-HDIServicesRunning<ept id="87337a41-c60c-4285-8df5-813049615351">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="87337a41-c60c-4285-8df5-813049615351">&lt;strong&gt;</bpt>Get-HDIServicesRunning<ept id="87337a41-c60c-4285-8df5-813049615351">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6793347-36d9-4501-8a86-cb750a2f73e1" xml:space="preserve">
+          <source>Get a list of HDInsight services running on the computer where the script executes.</source>
+          <target state="new">Get a list of HDInsight services running on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="fb73ff61-2bb9-4ec4-bb46-bc14629bdeca" xml:space="preserve">
+          <source><bpt id="f2380329-e635-4be3-9ee0-cf19d76056ac">&lt;strong&gt;</bpt>Get-HDIServiceRunning<ept id="f2380329-e635-4be3-9ee0-cf19d76056ac">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f2380329-e635-4be3-9ee0-cf19d76056ac">&lt;strong&gt;</bpt>Get-HDIServiceRunning<ept id="f2380329-e635-4be3-9ee0-cf19d76056ac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e30a1ef-e959-4ffc-a281-e2648f768116" xml:space="preserve">
+          <source>Check if a specific HDInsight service (by name) is running on the computer where the script executes.</source>
+          <target state="new">Check if a specific HDInsight service (by name) is running on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="76e37a81-ee99-4d4c-a653-197dacd71f58" xml:space="preserve">
+          <source><bpt id="0b52f5bb-0c3e-4141-a01c-6fa2a7d77127">&lt;strong&gt;</bpt>Get-HDIHadoopVersion<ept id="0b52f5bb-0c3e-4141-a01c-6fa2a7d77127">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0b52f5bb-0c3e-4141-a01c-6fa2a7d77127">&lt;strong&gt;</bpt>Get-HDIHadoopVersion<ept id="0b52f5bb-0c3e-4141-a01c-6fa2a7d77127">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27d47411-4658-4370-ac22-d1d7b02c4d1f" xml:space="preserve">
+          <source>Get the version of Hadoop installed on the computer where the script executes.</source>
+          <target state="new">Get the version of Hadoop installed on the computer where the script executes.</target>
+        </trans-unit>
+        <trans-unit id="2e8cb7f7-37f4-4d8a-84f5-cd785ccfc88b" xml:space="preserve">
+          <source><bpt id="87a4a91b-6c91-4b8a-9aca-f671dafc0d42">&lt;strong&gt;</bpt>Test-IsHDIHeadNode<ept id="87a4a91b-6c91-4b8a-9aca-f671dafc0d42">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="87a4a91b-6c91-4b8a-9aca-f671dafc0d42">&lt;strong&gt;</bpt>Test-IsHDIHeadNode<ept id="87a4a91b-6c91-4b8a-9aca-f671dafc0d42">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51972b71-1f78-4b9d-b222-445fa753d0f3" xml:space="preserve">
+          <source>Check if the computer where the script executes is a head node.</source>
+          <target state="new">Check if the computer where the script executes is a head node.</target>
+        </trans-unit>
+        <trans-unit id="c2a346d5-35b8-4f30-8167-25a2eec22fa8" xml:space="preserve">
+          <source><bpt id="20174562-6819-4064-8f04-870e0df2624c">&lt;strong&gt;</bpt>Test-IsActiveHDIHeadNode<ept id="20174562-6819-4064-8f04-870e0df2624c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="20174562-6819-4064-8f04-870e0df2624c">&lt;strong&gt;</bpt>Test-IsActiveHDIHeadNode<ept id="20174562-6819-4064-8f04-870e0df2624c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52550c8d-9f85-4cf8-bce1-7948c82a9d0f" xml:space="preserve">
+          <source>Check if the computer where the script executes is an active head node.</source>
+          <target state="new">Check if the computer where the script executes is an active head node.</target>
+        </trans-unit>
+        <trans-unit id="c1b30351-88c8-4347-9d2d-7710186ad845" xml:space="preserve">
+          <source><bpt id="45f6e164-989a-4ef2-99f8-caf6dd00ff1a">&lt;strong&gt;</bpt>Test-IsHDIDataNode<ept id="45f6e164-989a-4ef2-99f8-caf6dd00ff1a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="45f6e164-989a-4ef2-99f8-caf6dd00ff1a">&lt;strong&gt;</bpt>Test-IsHDIDataNode<ept id="45f6e164-989a-4ef2-99f8-caf6dd00ff1a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d06b2509-2b81-4f74-8555-a980d1ea4b7a" xml:space="preserve">
+          <source>Check if the computer where the script executes is a data node.</source>
+          <target state="new">Check if the computer where the script executes is a data node.</target>
+        </trans-unit>
+        <trans-unit id="2bbd4419-ca84-47cf-bff1-46aed3aed29e" xml:space="preserve">
+          <source><bpt id="27ad3505-2df8-4b36-a129-4756a2f5c85b">&lt;strong&gt;</bpt>Edit-HDIConfigFile<ept id="27ad3505-2df8-4b36-a129-4756a2f5c85b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="27ad3505-2df8-4b36-a129-4756a2f5c85b">&lt;strong&gt;</bpt>Edit-HDIConfigFile<ept id="27ad3505-2df8-4b36-a129-4756a2f5c85b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4489c85-955c-4211-b750-0c729b5273a4" xml:space="preserve">
+          <source>Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.</source>
+          <target state="new">Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.</target>
+        </trans-unit>
+        <trans-unit id="0ac853cb-20ba-4628-871b-35afc5e7c8a5" xml:space="preserve">
+          <source>When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:</source>
+          <target state="new">When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:</target>
+        </trans-unit>
+        <trans-unit id="bebc91c1-9683-4dce-9037-a4cf1a77db90" xml:space="preserve">
+          <source>Check for the Hadoop version</source>
+          <target state="new">Check for the Hadoop version</target>
+        </trans-unit>
+        <trans-unit id="b0411510-f559-4ef6-ba8c-24d0efe35373" xml:space="preserve">
+          <source>Only HDInsight version 3.1 (Hadoop 2.4) and above support using Script Action to install custom components on a cluster.</source>
+          <target state="new">Only HDInsight version 3.1 (Hadoop 2.4) and above support using Script Action to install custom components on a cluster.</target>
+        </trans-unit>
+        <trans-unit id="c5708073-b526-4908-8250-d7cb0eec8183" xml:space="preserve">
+          <source>In your custom script, you must use the <bpt id="0ca2a2d3-fcfd-49c8-a2b1-d95a5d87712c">&lt;strong&gt;</bpt>Get-HDIHadoopVersion<ept id="0ca2a2d3-fcfd-49c8-a2b1-d95a5d87712c">&lt;/strong&gt;</ept> helper method to check the Hadoop version before proceeding with performing other tasks in the script.</source>
+          <target state="new">In your custom script, you must use the <bpt id="0ca2a2d3-fcfd-49c8-a2b1-d95a5d87712c">&lt;strong&gt;</bpt>Get-HDIHadoopVersion<ept id="0ca2a2d3-fcfd-49c8-a2b1-d95a5d87712c">&lt;/strong&gt;</ept> helper method to check the Hadoop version before proceeding with performing other tasks in the script.</target>
+        </trans-unit>
+        <trans-unit id="264d3c0c-36c0-4dd4-a276-a036bdbe9481" xml:space="preserve">
+          <source>Provide stable links to script resources</source>
+          <target state="new">Provide stable links to script resources</target>
+        </trans-unit>
+        <trans-unit id="d3cdbfd5-ba78-4c98-a525-e27ce68a41c2" xml:space="preserve">
+          <source>Users should make sure that all of the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration.</source>
+          <target state="new">Users should make sure that all of the scripts and other artifacts used in the customization of a cluster remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration.</target>
+        </trans-unit>
+        <trans-unit id="356e82cc-ebc0-47b3-9322-0b548d9f7a15" xml:space="preserve">
+          <source>These resources are required if the re-imaging of nodes in the cluster is required.</source>
+          <target state="new">These resources are required if the re-imaging of nodes in the cluster is required.</target>
+        </trans-unit>
+        <trans-unit id="f8754a88-b127-45b0-b181-c223f1aae7c3" xml:space="preserve">
+          <source>The best practice is to download and archive everything in a Storage account that the user controls.</source>
+          <target state="new">The best practice is to download and archive everything in a Storage account that the user controls.</target>
+        </trans-unit>
+        <trans-unit id="a22e47e7-e2ca-4084-b59c-9013afc652d4" xml:space="preserve">
+          <source>This can be the default Storage account or any of the additional Storage accounts specified at the time of deployment for a customized cluster.</source>
+          <target state="new">This can be the default Storage account or any of the additional Storage accounts specified at the time of deployment for a customized cluster.</target>
+        </trans-unit>
+        <trans-unit id="788d171c-f52f-4ba1-88fa-2b7c6234f599" xml:space="preserve">
+          <source>In the Spark and R customized cluster samples provided in the documentation, for example, we have made a local copy of the resources in this Storage account: https://hdiconfigactions.blob.core.windows.net/.</source>
+          <target state="new">In the Spark and R customized cluster samples provided in the documentation, for example, we have made a local copy of the resources in this Storage account: https://hdiconfigactions.blob.core.windows.net/.</target>
+        </trans-unit>
+        <trans-unit id="9f9f10b4-cc73-4f41-9972-60c48673a605" xml:space="preserve">
+          <source>Ensure that the cluster customization script is idempotent</source>
+          <target state="new">Ensure that the cluster customization script is idempotent</target>
+        </trans-unit>
+        <trans-unit id="59fbe82c-6c41-4968-a459-839d5913bdde" xml:space="preserve">
+          <source>You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime.</source>
+          <target state="new">You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime.</target>
+        </trans-unit>
+        <trans-unit id="331813b6-2903-4080-85ec-9754afa12db1" xml:space="preserve">
+          <source>The cluster customization script is run whenever a cluster is re-imaged.</source>
+          <target state="new">The cluster customization script is run whenever a cluster is re-imaged.</target>
+        </trans-unit>
+        <trans-unit id="ed140e27-7fe7-453b-93d7-cbb72e30b8a4" xml:space="preserve">
+          <source>This script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same customized state that it was in just after the script ran for the first time when the cluster was initially created.</source>
+          <target state="new">This script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same customized state that it was in just after the script ran for the first time when the cluster was initially created.</target>
+        </trans-unit>
+        <trans-unit id="7a8930a8-6e94-4bc0-b9da-6c5b578482c9" xml:space="preserve">
+          <source>For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, upon re-imaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.</source>
+          <target state="new">For example, if a custom script installed an application at D:\AppLocation on its first run, then on each subsequent run, upon re-imaging, the script should check whether the application exists at the D:\AppLocation location before proceeding with other steps in the script.</target>
+        </trans-unit>
+        <trans-unit id="094a714e-c967-4a3c-a02f-81b7a7fe9211" xml:space="preserve">
+          <source>Install custom components in the optimal location</source>
+          <target state="new">Install custom components in the optimal location</target>
+        </trans-unit>
+        <trans-unit id="26058dd6-3107-40dc-b67d-dd2ab4aab713" xml:space="preserve">
+          <source>When cluster nodes are re-imaged, the C:\ resource drive and D:\ system drive can be re-formatted, resulting in the loss of data and applications that had been installed on those drives.</source>
+          <target state="new">When cluster nodes are re-imaged, the C:\ resource drive and D:\ system drive can be re-formatted, resulting in the loss of data and applications that had been installed on those drives.</target>
+        </trans-unit>
+        <trans-unit id="2316a584-70a0-4fff-b279-99d8de38da14" xml:space="preserve">
+          <source>This could also happen if an Azure virtual machine (VM) node that is part of the cluster goes down and is replaced by a new node.</source>
+          <target state="new">This could also happen if an Azure virtual machine (VM) node that is part of the cluster goes down and is replaced by a new node.</target>
+        </trans-unit>
+        <trans-unit id="2af01c1a-2711-4841-ae76-6efdd0525f72" xml:space="preserve">
+          <source>You can install components on the D:\ drive or in the C:\apps location on the cluster.</source>
+          <target state="new">You can install components on the D:\ drive or in the C:\apps location on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="edab0fae-479d-4479-8d69-63cfaaac5e75" xml:space="preserve">
+          <source>All other locations on the C:\ drive are reserved.</source>
+          <target state="new">All other locations on the C:\ drive are reserved.</target>
+        </trans-unit>
+        <trans-unit id="e27df23c-62cc-4752-bbd2-8d25862f5dd8" xml:space="preserve">
+          <source>Specify the location where applications or libraries are to be installed in the cluster customization script.</source>
+          <target state="new">Specify the location where applications or libraries are to be installed in the cluster customization script.</target>
+        </trans-unit>
+        <trans-unit id="49abf913-f171-4be6-b40d-a970efcc45be" xml:space="preserve">
+          <source>Ensure high availability of the cluster architecture</source>
+          <target state="new">Ensure high availability of the cluster architecture</target>
+        </trans-unit>
+        <trans-unit id="b04cc1ab-4733-4356-aaaf-adf2dbe7b1f2" xml:space="preserve">
+          <source>HDInsight has an active-passive architecture for high availability, in which one head node is in active mode (where the HDInsight services are running) and the other head node is in standby mode (in which HDInsight services are not running).</source>
+          <target state="new">HDInsight has an active-passive architecture for high availability, in which one head node is in active mode (where the HDInsight services are running) and the other head node is in standby mode (in which HDInsight services are not running).</target>
+        </trans-unit>
+        <trans-unit id="2e8e6ace-548b-4d33-a0f8-11708ee7f028" xml:space="preserve">
+          <source>The nodes switch active and passive modes if HDInsight services are interrupted.</source>
+          <target state="new">The nodes switch active and passive modes if HDInsight services are interrupted.</target>
+        </trans-unit>
+        <trans-unit id="934d1f20-ebf1-4219-a196-b01f8dc521f4" xml:space="preserve">
+          <source>If a script action is used to install services on both head nodes for high availability, note that the HDInsight failover mechanism will not be able to automatically fail over these user-installed services.</source>
+          <target state="new">If a script action is used to install services on both head nodes for high availability, note that the HDInsight failover mechanism will not be able to automatically fail over these user-installed services.</target>
+        </trans-unit>
+        <trans-unit id="865d8082-87c3-4c0a-adf0-c65ce2be2e90" xml:space="preserve">
+          <source>So user-installed services on HDInsight head nodes that are expected to be highly available must either have their own failover mechanism if in active-passive mode or be in active-active mode.</source>
+          <target state="new">So user-installed services on HDInsight head nodes that are expected to be highly available must either have their own failover mechanism if in active-passive mode or be in active-active mode.</target>
+        </trans-unit>
+        <trans-unit id="f1b4273c-3275-4d6b-bb4a-6cc99908bc8d" xml:space="preserve">
+          <source>An HDInsight Script Action command runs on both head nodes when the head-node role is specified as a value in the <bpt id="05d05596-5290-42ba-9bc5-383bd2e70b3b">&lt;em&gt;</bpt>ClusterRoleCollection<ept id="05d05596-5290-42ba-9bc5-383bd2e70b3b">&lt;/em&gt;</ept> parameter (documented below in the section <bpt id="425b1663-dba6-44fa-b17a-20790589d568">&lt;linkText&gt;</bpt>How to run a script action<ept id="425b1663-dba6-44fa-b17a-20790589d568">&lt;/linkText&gt;</ept><bpt id="425b1663-dba6-44fa-b17a-20790589d568">&lt;title&gt;</bpt><ept id="425b1663-dba6-44fa-b17a-20790589d568">&lt;/title&gt;</ept>).</source>
+          <target state="new">An HDInsight Script Action command runs on both head nodes when the head-node role is specified as a value in the <bpt id="05d05596-5290-42ba-9bc5-383bd2e70b3b">&lt;em&gt;</bpt>ClusterRoleCollection<ept id="05d05596-5290-42ba-9bc5-383bd2e70b3b">&lt;/em&gt;</ept> parameter (documented below in the section <bpt id="425b1663-dba6-44fa-b17a-20790589d568">&lt;linkText&gt;</bpt>How to run a script action<ept id="425b1663-dba6-44fa-b17a-20790589d568">&lt;/linkText&gt;</ept><bpt id="425b1663-dba6-44fa-b17a-20790589d568">&lt;title&gt;</bpt><ept id="425b1663-dba6-44fa-b17a-20790589d568">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0ad1237a-2907-4261-8626-5647d4845cd7" xml:space="preserve">
+          <source>So when you design a custom script, make sure that your script is aware of this setup.</source>
+          <target state="new">So when you design a custom script, make sure that your script is aware of this setup.</target>
+        </trans-unit>
+        <trans-unit id="9ed0bb95-8165-4937-a58f-262a16435a84" xml:space="preserve">
+          <source>You should not run into problems where the same services are installed and started on both of the head nodes and they end up competing with each other.</source>
+          <target state="new">You should not run into problems where the same services are installed and started on both of the head nodes and they end up competing with each other.</target>
+        </trans-unit>
+        <trans-unit id="c34e519e-df2b-43f7-8a00-a61f45da9f72" xml:space="preserve">
+          <source>Also, be aware that data will be lost during re-imaging, so software installed via Script Action has to be resilient to such events.</source>
+          <target state="new">Also, be aware that data will be lost during re-imaging, so software installed via Script Action has to be resilient to such events.</target>
+        </trans-unit>
+        <trans-unit id="7cf3937b-2d3d-4185-af20-1f28a8224665" xml:space="preserve">
+          <source>Applications should be designed to work with highly available data that is distributed across many nodes.</source>
+          <target state="new">Applications should be designed to work with highly available data that is distributed across many nodes.</target>
+        </trans-unit>
+        <trans-unit id="ffe34c2d-aed7-4ac3-9fe3-747dd14201c2" xml:space="preserve">
+          <source>Note that as many as 1/5 of the nodes in a cluster can be re-imaged at the same time.</source>
+          <target state="new">Note that as many as 1/5 of the nodes in a cluster can be re-imaged at the same time.</target>
+        </trans-unit>
+        <trans-unit id="3f5a0e85-3edd-418e-8957-9a2946aa2e80" xml:space="preserve">
+          <source>Configure the custom components to use Azure Blob storage</source>
+          <target state="new">Configure the custom components to use Azure Blob storage</target>
+        </trans-unit>
+        <trans-unit id="8756a7f4-786d-4509-b576-dd4e35379cd9" xml:space="preserve">
+          <source>The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage.</source>
+          <target state="new">The custom components that you install on the cluster nodes might have a default configuration to use Hadoop Distributed File System (HDFS) storage.</target>
+        </trans-unit>
+        <trans-unit id="e81c6f5e-2636-4019-88a5-1be695372104" xml:space="preserve">
+          <source>You should change the configuration to use Azure Blob storage instead.</source>
+          <target state="new">You should change the configuration to use Azure Blob storage instead.</target>
+        </trans-unit>
+        <trans-unit id="d640690b-ca08-4abd-8495-1c7355688687" xml:space="preserve">
+          <source>On a cluster re-image, the HDFS file system gets formatted and you would lose any data that is stored there.</source>
+          <target state="new">On a cluster re-image, the HDFS file system gets formatted and you would lose any data that is stored there.</target>
+        </trans-unit>
+        <trans-unit id="9dafde00-cf62-4b2a-95cd-c141c5e93283" xml:space="preserve">
+          <source>Using Azure Blob storage instead ensures that your data will be retained.</source>
+          <target state="new">Using Azure Blob storage instead ensures that your data will be retained.</target>
+        </trans-unit>
+        <trans-unit id="a62a465d-e303-4084-9f79-ba1c4cc7708e" xml:space="preserve">
+          <source>This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.</source>
+          <target state="new">This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.</target>
+        </trans-unit>
+        <trans-unit id="aaa93780-351e-44ca-a893-8537c1e16451" xml:space="preserve">
+          <source>Often in script action development, you will feel the need to set environment variables.</source>
+          <target state="new">Often in script action development, you will feel the need to set environment variables.</target>
+        </trans-unit>
+        <trans-unit id="277411ed-2f0c-45d0-b1c8-38d3208c7719" xml:space="preserve">
+          <source>For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable.</source>
+          <target state="new">For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable.</target>
+        </trans-unit>
+        <trans-unit id="4d6c3073-f1f4-4eb0-b2f0-9fe7bcca598c" xml:space="preserve">
+          <source>The following snippet shows you how to set environment variables in the custom script.</source>
+          <target state="new">The following snippet shows you how to set environment variables in the custom script.</target>
+        </trans-unit>
+        <trans-unit id="faa2b13a-736f-475c-ad1d-bd670df89ae4" xml:space="preserve">
+          <source>This statement sets the environment variable <bpt id="caf74958-db17-4bcd-a5b6-49a048590a6f">&lt;strong&gt;</bpt>MDS_RUNNER_CUSTOM_CLUSTER<ept id="caf74958-db17-4bcd-a5b6-49a048590a6f">&lt;/strong&gt;</ept> to the value 'true' and also sets the scope of this variable to be machine-wide.</source>
+          <target state="new">This statement sets the environment variable <bpt id="caf74958-db17-4bcd-a5b6-49a048590a6f">&lt;strong&gt;</bpt>MDS_RUNNER_CUSTOM_CLUSTER<ept id="caf74958-db17-4bcd-a5b6-49a048590a6f">&lt;/strong&gt;</ept> to the value 'true' and also sets the scope of this variable to be machine-wide.</target>
+        </trans-unit>
+        <trans-unit id="1ed34872-4a7c-4fd2-ba87-673983da2699" xml:space="preserve">
+          <source>At times it is important that environment variables are set at the appropriate scope – machine or user.</source>
+          <target state="new">At times it is important that environment variables are set at the appropriate scope – machine or user.</target>
+        </trans-unit>
+        <trans-unit id="b9baeddc-69dd-4a5a-a3ea-e1c30a5cf54f" xml:space="preserve">
+          <source>Refer <bpt id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;linkText&gt;</bpt>here[1]<ept id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;/linkText&gt;</ept><bpt id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;title&gt;</bpt><ept id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;/title&gt;</ept> for more information on setting environment variables.</source>
+          <target state="new">Refer <bpt id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;linkText&gt;</bpt>here[1]<ept id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;/linkText&gt;</ept><bpt id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;title&gt;</bpt><ept id="b1c1b74e-bc37-40b5-a2a1-42c7d4005679">&lt;/title&gt;</ept> for more information on setting environment variables.</target>
+        </trans-unit>
+        <trans-unit id="e689e931-b1c8-44e9-abc7-939ca474affa" xml:space="preserve">
+          <source>Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account.</source>
+          <target state="new">Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account.</target>
+        </trans-unit>
+        <trans-unit id="b5a79d92-b145-40bf-aae9-9edaef1ebc94" xml:space="preserve">
+          <source>If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only).</source>
+          <target state="new">If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only).</target>
+        </trans-unit>
+        <trans-unit id="d2adf231-9b01-4675-a5a2-65c06036135e" xml:space="preserve">
+          <source>For instance you might want to access a file and save it using the SaveFile-HDI command.</source>
+          <target state="new">For instance you might want to access a file and save it using the SaveFile-HDI command.</target>
+        </trans-unit>
+        <trans-unit id="7239f614-aa79-40f6-b5bd-56375d3a7fe4" xml:space="preserve">
+          <source>In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible.</source>
+          <target state="new">In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible.</target>
+        </trans-unit>
+        <trans-unit id="c4c88458-a4f0-4d90-9f96-9fec91204f08" xml:space="preserve">
+          <source>Otherwise, the script will throw a ‘Not Found’ exception and fail.</source>
+          <target state="new">Otherwise, the script will throw a ‘Not Found’ exception and fail.</target>
+        </trans-unit>
+        <trans-unit id="6df032aa-4f71-42c4-be01-87201f452d76" xml:space="preserve">
+          <source>To pass multiple parameters to the Add-AzureHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script.</source>
+          <target state="new">To pass multiple parameters to the Add-AzureHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script.</target>
+        </trans-unit>
+        <trans-unit id="0d76d911-bae6-42c9-84ed-8dd8bba809af" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="ccf78767-9a79-402b-bcb5-dfb13597eb87" xml:space="preserve">
+          <source>or</source>
+          <target state="new">or</target>
+        </trans-unit>
+        <trans-unit id="2138857e-e889-4af0-b81c-7abedc245fa5" xml:space="preserve">
+          <source>If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster provisioning.</source>
+          <target state="new">If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster provisioning.</target>
+        </trans-unit>
+        <trans-unit id="6e7ff935-c2c6-4d36-aee1-487ce0e50423" xml:space="preserve">
+          <source>For instance, you might want to process a file if it exists and handle the error case where the file does not exist.</source>
+          <target state="new">For instance, you might want to process a file if it exists and handle the error case where the file does not exist.</target>
+        </trans-unit>
+        <trans-unit id="5425766f-fe8e-4689-ad37-17669825c1b6" xml:space="preserve">
+          <source>This would ensure that the script exits gracefully and the state of the cluster is correctly known.</source>
+          <target state="new">This would ensure that the script exits gracefully and the state of the cluster is correctly known.</target>
+        </trans-unit>
+        <trans-unit id="449c8db6-e661-4e90-a124-c182766b1896" xml:space="preserve">
+          <source>The following snippet gives an example of how to achieve this:</source>
+          <target state="new">The following snippet gives an example of how to achieve this:</target>
+        </trans-unit>
+        <trans-unit id="f015bdee-3c0d-4da0-9934-b059886951fa" xml:space="preserve">
+          <source>In this snippet, if the file did not exist, it would lead to a state where the script actually exits gracefully after printing the error message, and the cluster reaches running state assuming it "successfully" completed cluster customization process.</source>
+          <target state="new">In this snippet, if the file did not exist, it would lead to a state where the script actually exits gracefully after printing the error message, and the cluster reaches running state assuming it "successfully" completed cluster customization process.</target>
+        </trans-unit>
+        <trans-unit id="e880c3c4-310a-44c4-aaf8-84422773f80b" xml:space="preserve">
+          <source>If you want to be accurately notified of the fact that cluster customization essentially did not succeed as expected because of a missing file, it is more appropriate to throw an exception and fail the cluster customization step.</source>
+          <target state="new">If you want to be accurately notified of the fact that cluster customization essentially did not succeed as expected because of a missing file, it is more appropriate to throw an exception and fail the cluster customization step.</target>
+        </trans-unit>
+        <trans-unit id="b290fbae-f3cf-4feb-b2e2-fcd8487e3ac0" xml:space="preserve">
+          <source>To achieve this you must use the following sample code snippet instead.</source>
+          <target state="new">To achieve this you must use the following sample code snippet instead.</target>
+        </trans-unit>
+        <trans-unit id="4316f147-fa06-4773-b4ce-6b85fd150217" xml:space="preserve">
+          <source>Here are the steps we took when preparing to deploy these scripts:</source>
+          <target state="new">Here are the steps we took when preparing to deploy these scripts:</target>
+        </trans-unit>
+        <trans-unit id="4d1b72f2-78ab-4dab-a658-33efe4fd5296" xml:space="preserve">
+          <source>Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.</source>
+          <target state="new">Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.</target>
+        </trans-unit>
+        <trans-unit id="99cff219-4e3b-40dc-8cf0-705c96184201" xml:space="preserve">
+          <source>This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.</source>
+          <target state="new">This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.</target>
+        </trans-unit>
+        <trans-unit id="14a63d0c-7df6-4e94-981a-d3e8e27366f4" xml:space="preserve">
+          <source>Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.</source>
+          <target state="new">Add checks into scripts to make sure that they execute idempotently, so that the script can be executed multiple times on the same node.</target>
+        </trans-unit>
+        <trans-unit id="6842117f-0247-48b1-bf63-4e55642e3329" xml:space="preserve">
+          <source>Use the <bpt id="966fb738-440d-46d7-b1f4-c42f68f61c90">&lt;strong&gt;</bpt>Write-Output<ept id="966fb738-440d-46d7-b1f4-c42f68f61c90">&lt;/strong&gt;</ept> Azure PowerShell cmdlet to print to STDOUT as well as STDERR.</source>
+          <target state="new">Use the <bpt id="966fb738-440d-46d7-b1f4-c42f68f61c90">&lt;strong&gt;</bpt>Write-Output<ept id="966fb738-440d-46d7-b1f4-c42f68f61c90">&lt;/strong&gt;</ept> Azure PowerShell cmdlet to print to STDOUT as well as STDERR.</target>
+        </trans-unit>
+        <trans-unit id="127afb31-ccfc-45a4-8b08-278abe7f31b5" xml:space="preserve">
+          <source>Do not use <bpt id="c69f398c-0518-4ce3-9c13-756960dd51f0">&lt;strong&gt;</bpt>Write-Host<ept id="c69f398c-0518-4ce3-9c13-756960dd51f0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Do not use <bpt id="c69f398c-0518-4ce3-9c13-756960dd51f0">&lt;strong&gt;</bpt>Write-Host<ept id="c69f398c-0518-4ce3-9c13-756960dd51f0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1879d814-d269-40bd-b5cc-a8200a11bbc3" xml:space="preserve">
+          <source>Use a temporary file folder, such as $env:TEMP, to keep the downloaded file used by the scripts and then clean them up after scripts have executed.</source>
+          <target state="new">Use a temporary file folder, such as $env:TEMP, to keep the downloaded file used by the scripts and then clean them up after scripts have executed.</target>
+        </trans-unit>
+        <trans-unit id="11016a47-1fe8-4403-8bb1-0670e7e1b1c6" xml:space="preserve">
+          <source>Install custom software only at D:\ or C:\apps.</source>
+          <target state="new">Install custom software only at D:\ or C:\apps.</target>
+        </trans-unit>
+        <trans-unit id="d8bfb106-f542-4653-ab9b-a1bbb4453726" xml:space="preserve">
+          <source>Other locations on the C: drive should not be used as they are reserved.</source>
+          <target state="new">Other locations on the C: drive should not be used as they are reserved.</target>
+        </trans-unit>
+        <trans-unit id="9a3a0344-1b32-4609-b642-668e049784e2" xml:space="preserve">
+          <source>Note that installing files on the C: drive outside of the C:\apps folder may result in setup failures during re-images of the node.</source>
+          <target state="new">Note that installing files on the C: drive outside of the C:\apps folder may result in setup failures during re-images of the node.</target>
+        </trans-unit>
+        <trans-unit id="ef53bf30-4389-47d0-9948-8dea7d5cb5ab" xml:space="preserve">
+          <source>In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.</source>
+          <target state="new">In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.</target>
+        </trans-unit>
+        <trans-unit id="32b61acc-f0b7-42b5-bffd-9ac144d07e44" xml:space="preserve">
+          <source>A straight-forward way to test a custom script before using it in the HDInsight Script Action command is to run it on the HDInsight Emulator.</source>
+          <target state="new">A straight-forward way to test a custom script before using it in the HDInsight Script Action command is to run it on the HDInsight Emulator.</target>
+        </trans-unit>
+        <trans-unit id="a5c0fbfd-449d-4f24-9926-c4897adfa0e8" xml:space="preserve">
+          <source>You can install the HDInsight Emulator locally or on an Azure infrastructure as a service (IaaS) Windows Server 2012 R2 VM or on a local machine and observe if the script behaves correctly.</source>
+          <target state="new">You can install the HDInsight Emulator locally or on an Azure infrastructure as a service (IaaS) Windows Server 2012 R2 VM or on a local machine and observe if the script behaves correctly.</target>
+        </trans-unit>
+        <trans-unit id="a803320a-3d02-43ab-a255-18bf3b4a64d6" xml:space="preserve">
+          <source>Note that the Windows Server 2012 R2 VM is the same VM that HDInsight uses for its nodes.</source>
+          <target state="new">Note that the Windows Server 2012 R2 VM is the same VM that HDInsight uses for its nodes.</target>
+        </trans-unit>
+        <trans-unit id="58eaeb40-6747-433b-b55e-269344dcc423" xml:space="preserve">
+          <source>This section outlines the procedure for using the HDInsight Emulator locally for testing purposes, but the procedure for using a VM is similar.</source>
+          <target state="new">This section outlines the procedure for using the HDInsight Emulator locally for testing purposes, but the procedure for using a VM is similar.</target>
+        </trans-unit>
+        <trans-unit id="28dd0e9b-8b55-4635-ba42-9d96f73accb7" xml:space="preserve">
+          <source><bpt id="d424fe44-f0ec-4f12-8c2c-8a7bf0d7f7d1">&lt;strong&gt;</bpt>Install the HDInsight Emulator<ept id="d424fe44-f0ec-4f12-8c2c-8a7bf0d7f7d1">&lt;/strong&gt;</ept> - To run Script Action locally, you must have the HDInsight Emulator installed.</source>
+          <target state="new"><bpt id="d424fe44-f0ec-4f12-8c2c-8a7bf0d7f7d1">&lt;strong&gt;</bpt>Install the HDInsight Emulator<ept id="d424fe44-f0ec-4f12-8c2c-8a7bf0d7f7d1">&lt;/strong&gt;</ept> - To run Script Action locally, you must have the HDInsight Emulator installed.</target>
+        </trans-unit>
+        <trans-unit id="454af6b9-fc85-4aa3-b60d-c71fb06f61e8" xml:space="preserve">
+          <source>For instructions on how to install it, see <bpt id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator<ept id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;/linkText&gt;</ept><bpt id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;title&gt;</bpt><ept id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to install it, see <bpt id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;linkText&gt;</bpt>Get started with the HDInsight Emulator<ept id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;/linkText&gt;</ept><bpt id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;title&gt;</bpt><ept id="eeb903b4-9d1a-4f92-b534-da79a5d24c16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85d9f971-9e9b-4916-8c54-15e38d7cf14c" xml:space="preserve">
+          <source><bpt id="17c91f39-16b3-41a4-bb89-e66ff7a07ca8">&lt;strong&gt;</bpt>Set the execution policy for Azure PowerShell<ept id="17c91f39-16b3-41a4-bb89-e66ff7a07ca8">&lt;/strong&gt;</ept> - Open Azure PowerShell and run (as administrator) the following command to set the execution policy to <bpt id="1d0aa377-90bd-4eba-b243-9f70df73b880">&lt;em&gt;</bpt>LocalMachine<ept id="1d0aa377-90bd-4eba-b243-9f70df73b880">&lt;/em&gt;</ept> and to be <bpt id="d882af74-6bfd-4861-9430-bd1eeb70a719">&lt;em&gt;</bpt>Unrestricted<ept id="d882af74-6bfd-4861-9430-bd1eeb70a719">&lt;/em&gt;</ept>:</source>
+          <target state="new"><bpt id="17c91f39-16b3-41a4-bb89-e66ff7a07ca8">&lt;strong&gt;</bpt>Set the execution policy for Azure PowerShell<ept id="17c91f39-16b3-41a4-bb89-e66ff7a07ca8">&lt;/strong&gt;</ept> - Open Azure PowerShell and run (as administrator) the following command to set the execution policy to <bpt id="1d0aa377-90bd-4eba-b243-9f70df73b880">&lt;em&gt;</bpt>LocalMachine<ept id="1d0aa377-90bd-4eba-b243-9f70df73b880">&lt;/em&gt;</ept> and to be <bpt id="d882af74-6bfd-4861-9430-bd1eeb70a719">&lt;em&gt;</bpt>Unrestricted<ept id="d882af74-6bfd-4861-9430-bd1eeb70a719">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a20fb178-5697-4ace-82a0-48e7e77bef16" xml:space="preserve">
+          <source>We need this policy to be unrestricted as scripts are not signed.</source>
+          <target state="new">We need this policy to be unrestricted as scripts are not signed.</target>
+        </trans-unit>
+        <trans-unit id="76a482af-f828-4c32-955d-23b37c32c20a" xml:space="preserve">
+          <source><bpt id="9cc16ae0-d230-4b0c-b794-1e30f5c939f6">&lt;strong&gt;</bpt>Download the script action<ept id="9cc16ae0-d230-4b0c-b794-1e30f5c939f6">&lt;/strong&gt;</ept> that you want to run to a local destination.</source>
+          <target state="new"><bpt id="9cc16ae0-d230-4b0c-b794-1e30f5c939f6">&lt;strong&gt;</bpt>Download the script action<ept id="9cc16ae0-d230-4b0c-b794-1e30f5c939f6">&lt;/strong&gt;</ept> that you want to run to a local destination.</target>
+        </trans-unit>
+        <trans-unit id="c4d1463f-ec43-418c-9b5c-74a42b26031c" xml:space="preserve">
+          <source>The following sample scripts are available to download from the following locations:</source>
+          <target state="new">The following sample scripts are available to download from the following locations:</target>
+        </trans-unit>
+        <trans-unit id="5a38a532-b884-428e-92ce-29c71efaa161" xml:space="preserve">
+          <source><bpt id="13e10a91-9e15-4d00-acf7-bc5adc630406">&lt;strong&gt;</bpt>Spark<ept id="13e10a91-9e15-4d00-acf7-bc5adc630406">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="13e10a91-9e15-4d00-acf7-bc5adc630406">&lt;strong&gt;</bpt>Spark<ept id="13e10a91-9e15-4d00-acf7-bc5adc630406">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="061475b3-79a7-4a61-b37b-12581706a65c" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1</target>
+        </trans-unit>
+        <trans-unit id="a7f21e7a-0e57-4e68-b1a5-7e00d4379166" xml:space="preserve">
+          <source><bpt id="72145fbb-ee20-497a-962e-5fb9c714b843">&lt;strong&gt;</bpt>R<ept id="72145fbb-ee20-497a-962e-5fb9c714b843">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="72145fbb-ee20-497a-962e-5fb9c714b843">&lt;strong&gt;</bpt>R<ept id="72145fbb-ee20-497a-962e-5fb9c714b843">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7012786-52e0-4152-95e0-5147962a3eef" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</target>
+        </trans-unit>
+        <trans-unit id="55a7ccdb-7f5e-4fcf-a505-553df33c3c1b" xml:space="preserve">
+          <source><bpt id="f99ead63-f042-47f0-b800-66cd95060cb3">&lt;strong&gt;</bpt>Solr<ept id="f99ead63-f042-47f0-b800-66cd95060cb3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f99ead63-f042-47f0-b800-66cd95060cb3">&lt;strong&gt;</bpt>Solr<ept id="f99ead63-f042-47f0-b800-66cd95060cb3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c269e4eb-5929-424f-bf4d-4edd4e1f0c1c" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</target>
+        </trans-unit>
+        <trans-unit id="73f6fc80-6232-4bec-807a-deef7eceb81d" xml:space="preserve">
+          <source><bpt id="f1cfaa01-5d28-4b52-81b5-452513834dd0">&lt;strong&gt;</bpt>Giraph<ept id="f1cfaa01-5d28-4b52-81b5-452513834dd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f1cfaa01-5d28-4b52-81b5-452513834dd0">&lt;strong&gt;</bpt>Giraph<ept id="f1cfaa01-5d28-4b52-81b5-452513834dd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="549673e1-5bf2-4475-9b9d-0d770411663c" xml:space="preserve">
+          <source>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</source>
+          <target state="new">https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</target>
+        </trans-unit>
+        <trans-unit id="52afee5b-393e-41ca-8ad7-603cdaa9b189" xml:space="preserve">
+          <source><bpt id="88c983a3-ec41-4346-8fcf-e4b82b1faaf7">&lt;strong&gt;</bpt>Run the script action<ept id="88c983a3-ec41-4346-8fcf-e4b82b1faaf7">&lt;/strong&gt;</ept> - Open a new Azure PowerShell window in admin mode and run the Spark or R installation script from the local location where they were saved.</source>
+          <target state="new"><bpt id="88c983a3-ec41-4346-8fcf-e4b82b1faaf7">&lt;strong&gt;</bpt>Run the script action<ept id="88c983a3-ec41-4346-8fcf-e4b82b1faaf7">&lt;/strong&gt;</ept> - Open a new Azure PowerShell window in admin mode and run the Spark or R installation script from the local location where they were saved.</target>
+        </trans-unit>
+        <trans-unit id="de2697e0-081e-4e3f-b3c7-17dcf3383569" xml:space="preserve">
+          <source><bpt id="0a412d21-99cd-4881-97f7-af6cbe99b2dd">&lt;strong&gt;</bpt>Usage examples<ept id="0a412d21-99cd-4881-97f7-af6cbe99b2dd">&lt;/strong&gt;</ept>
+When you're using the Spark and R clusters, data files needed may not be present in the HDInsight Emulator.</source>
+          <target state="new"><bpt id="0a412d21-99cd-4881-97f7-af6cbe99b2dd">&lt;strong&gt;</bpt>Usage examples<ept id="0a412d21-99cd-4881-97f7-af6cbe99b2dd">&lt;/strong&gt;</ept>
+When you're using the Spark and R clusters, data files needed may not be present in the HDInsight Emulator.</target>
+        </trans-unit>
+        <trans-unit id="7737f4ba-9f6a-42c3-892e-0d5569684fe3" xml:space="preserve">
+          <source>So you may need to upload relevant .txt files that contain data to a path in HDFS and then use that path to access the data.</source>
+          <target state="new">So you may need to upload relevant .txt files that contain data to a path in HDFS and then use that path to access the data.</target>
+        </trans-unit>
+        <trans-unit id="d43aa0bc-396f-4909-889b-37ea50d75751" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="0a02bcfc-47fe-44b2-a054-567cf923d4ab" xml:space="preserve">
+          <source>Note that in some cases a custom script may actually depend on HDInsight components, such as detecting whether certain Hadoop services are up.</source>
+          <target state="new">Note that in some cases a custom script may actually depend on HDInsight components, such as detecting whether certain Hadoop services are up.</target>
+        </trans-unit>
+        <trans-unit id="df3380ef-e76d-4811-b9da-067ca62fbfc2" xml:space="preserve">
+          <source>In this case, you will have to test your custom scripts by deploying them on an actual HDInsight cluster.</source>
+          <target state="new">In this case, you will have to test your custom scripts by deploying them on an actual HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="3f135366-ae93-4704-ae49-e3d14a23f8e4" xml:space="preserve">
+          <source>The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name <bpt id="83b8cac3-c0f5-4a9a-beff-bc01b98f8944">&lt;em&gt;</bpt>u&lt;\cluster-name-fragment&gt;&lt;\time-stamp&gt;setuplog<ept id="83b8cac3-c0f5-4a9a-beff-bc01b98f8944">&lt;/em&gt;</ept>. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
+An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see <bpt id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;linkText&gt;</bpt>Get started using Visual Studio Hadoop tools for HDInsight<ept id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;/linkText&gt;</ept><bpt id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;title&gt;</bpt><ept id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;/title&gt;</ept></source>
+          <target state="new">The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name <bpt id="83b8cac3-c0f5-4a9a-beff-bc01b98f8944">&lt;em&gt;</bpt>u&lt;\cluster-name-fragment&gt;&lt;\time-stamp&gt;setuplog<ept id="83b8cac3-c0f5-4a9a-beff-bc01b98f8944">&lt;/em&gt;</ept>. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
+An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see <bpt id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;linkText&gt;</bpt>Get started using Visual Studio Hadoop tools for HDInsight<ept id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;/linkText&gt;</ept><bpt id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;title&gt;</bpt><ept id="023bae71-137c-4e21-a1d6-a441a4a65596">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="333c7486-23fe-423c-b308-7b8a073893d1" xml:space="preserve">
+          <source><bpt id="e5b70606-e114-4c18-a756-865aa56329c8">&lt;strong&gt;</bpt>To check the log using Visual Studio<ept id="e5b70606-e114-4c18-a756-865aa56329c8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e5b70606-e114-4c18-a756-865aa56329c8">&lt;strong&gt;</bpt>To check the log using Visual Studio<ept id="e5b70606-e114-4c18-a756-865aa56329c8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c70b4c94-1424-47d1-bea6-3cea10d99eca" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="03bea7b3-cac2-4af5-a5cd-2cc8ffb8d446" xml:space="preserve">
+          <source>Click <bpt id="ee293d49-9ea8-461a-82c9-c887ef06db16">&lt;strong&gt;</bpt>View<ept id="ee293d49-9ea8-461a-82c9-c887ef06db16">&lt;/strong&gt;</ept>, and then click <bpt id="92fd7a0c-0dd3-4066-b325-375337fd67bb">&lt;strong&gt;</bpt>Server Explorer<ept id="92fd7a0c-0dd3-4066-b325-375337fd67bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ee293d49-9ea8-461a-82c9-c887ef06db16">&lt;strong&gt;</bpt>View<ept id="ee293d49-9ea8-461a-82c9-c887ef06db16">&lt;/strong&gt;</ept>, and then click <bpt id="92fd7a0c-0dd3-4066-b325-375337fd67bb">&lt;strong&gt;</bpt>Server Explorer<ept id="92fd7a0c-0dd3-4066-b325-375337fd67bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="315f70e2-77af-4bb0-a70b-59e4bbdc8db1" xml:space="preserve">
+          <source>Right-click "Azure", click Connect to <bpt id="98188f55-7539-4acc-9f97-668e5875b728">&lt;strong&gt;</bpt>Microsoft Azure Subscriptions<ept id="98188f55-7539-4acc-9f97-668e5875b728">&lt;/strong&gt;</ept>, and then enter your credentials.</source>
+          <target state="new">Right-click "Azure", click Connect to <bpt id="98188f55-7539-4acc-9f97-668e5875b728">&lt;strong&gt;</bpt>Microsoft Azure Subscriptions<ept id="98188f55-7539-4acc-9f97-668e5875b728">&lt;/strong&gt;</ept>, and then enter your credentials.</target>
+        </trans-unit>
+        <trans-unit id="2f658432-6724-4d55-88b2-b34037f43d55" xml:space="preserve">
+          <source>Expand <bpt id="f7299c76-2b00-4c7f-977e-a7891a054d70">&lt;strong&gt;</bpt>Storage<ept id="f7299c76-2b00-4c7f-977e-a7891a054d70">&lt;/strong&gt;</ept>, expand the Azure storage account used as the default file system, expand <bpt id="ef682c65-0672-4c84-b351-769eecdae30b">&lt;strong&gt;</bpt>Tables<ept id="ef682c65-0672-4c84-b351-769eecdae30b">&lt;/strong&gt;</ept>, and then double-click the table name.</source>
+          <target state="new">Expand <bpt id="f7299c76-2b00-4c7f-977e-a7891a054d70">&lt;strong&gt;</bpt>Storage<ept id="f7299c76-2b00-4c7f-977e-a7891a054d70">&lt;/strong&gt;</ept>, expand the Azure storage account used as the default file system, expand <bpt id="ef682c65-0672-4c84-b351-769eecdae30b">&lt;strong&gt;</bpt>Tables<ept id="ef682c65-0672-4c84-b351-769eecdae30b">&lt;/strong&gt;</ept>, and then double-click the table name.</target>
+        </trans-unit>
+        <trans-unit id="c7cd4d33-8ede-43ea-8873-b586318b1ba4" xml:space="preserve">
+          <source>You can also remote into the cluster nodes to see the both STDOUT and STDERR for custom scripts.</source>
+          <target state="new">You can also remote into the cluster nodes to see the both STDOUT and STDERR for custom scripts.</target>
+        </trans-unit>
+        <trans-unit id="11153d43-b60f-40dd-9320-99676ef17c26" xml:space="preserve">
+          <source>The logs on each node are specific only to that node and are logged into <bpt id="08f30a7e-54e4-4860-a9c3-6ea5edf35bcf">&lt;strong&gt;</bpt>C:\HDInsightLogs\DeploymentAgent.log<ept id="08f30a7e-54e4-4860-a9c3-6ea5edf35bcf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The logs on each node are specific only to that node and are logged into <bpt id="08f30a7e-54e4-4860-a9c3-6ea5edf35bcf">&lt;strong&gt;</bpt>C:\HDInsightLogs\DeploymentAgent.log<ept id="08f30a7e-54e4-4860-a9c3-6ea5edf35bcf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd41a66e-4d83-43c1-86b3-99ab4e4ac825" xml:space="preserve">
+          <source>These log files record all outputs from the custom script.</source>
+          <target state="new">These log files record all outputs from the custom script.</target>
+        </trans-unit>
+        <trans-unit id="56f80e1f-cf63-436a-8466-17765f6be7ba" xml:space="preserve">
+          <source>An example log snippet for a Spark script action looks like this:</source>
+          <target state="new">An example log snippet for a Spark script action looks like this:</target>
+        </trans-unit>
+        <trans-unit id="56892047-b89d-4432-beb4-dff6124bfcae" xml:space="preserve">
+          <source>In this log, it is clear that the Spark script action has been executed on the VM named HEADNODE0 and that no exceptions were thrown during the execution.</source>
+          <target state="new">In this log, it is clear that the Spark script action has been executed on the VM named HEADNODE0 and that no exceptions were thrown during the execution.</target>
+        </trans-unit>
+        <trans-unit id="0cddd629-e4ea-4746-b27e-3978cceff526" xml:space="preserve">
+          <source>In the event that an execution failure occurs, the output describing it will also be contained in this log file.</source>
+          <target state="new">In the event that an execution failure occurs, the output describing it will also be contained in this log file.</target>
+        </trans-unit>
+        <trans-unit id="b0763b66-b9cb-4bb5-b88f-a24ac67fa4f9" xml:space="preserve">
+          <source>The information provided in these logs should be helpful in debugging script problems that may arise.</source>
+          <target state="new">The information provided in these logs should be helpful in debugging script problems that may arise.</target>
+        </trans-unit>
+        <trans-unit id="61225ec4-61ae-47ef-91bf-f07775e98ead" xml:space="preserve">
+          <source><bpt id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action[hdinsight-cluster-customize]<ept id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;/linkText&gt;</ept><bpt id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;title&gt;</bpt><ept id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action[hdinsight-cluster-customize]<ept id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;/linkText&gt;</ept><bpt id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;title&gt;</bpt><ept id="ba7456c7-6d66-42ed-9896-d436a056f590">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac7e5ce8-e29c-4749-8749-a9e3ed95ae99" xml:space="preserve">
+          <source><bpt id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters[hdinsight-install-spark]<ept id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;/linkText&gt;</ept><bpt id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;title&gt;</bpt><ept id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters[hdinsight-install-spark]<ept id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;/linkText&gt;</ept><bpt id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;title&gt;</bpt><ept id="3885188c-c67d-4682-8fb2-c7a182bb1922">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6549c85-3a8d-40d4-a794-90a6d42f01f3" xml:space="preserve">
+          <source><bpt id="81265814-3096-4702-b2f8-6a024f699c22">&lt;linkText&gt;</bpt>Install and use R on HDInsight clusters[hdinsight-r-scripts]<ept id="81265814-3096-4702-b2f8-6a024f699c22">&lt;/linkText&gt;</ept><bpt id="81265814-3096-4702-b2f8-6a024f699c22">&lt;title&gt;</bpt><ept id="81265814-3096-4702-b2f8-6a024f699c22">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="81265814-3096-4702-b2f8-6a024f699c22">&lt;linkText&gt;</bpt>Install and use R on HDInsight clusters[hdinsight-r-scripts]<ept id="81265814-3096-4702-b2f8-6a024f699c22">&lt;/linkText&gt;</ept><bpt id="81265814-3096-4702-b2f8-6a024f699c22">&lt;title&gt;</bpt><ept id="81265814-3096-4702-b2f8-6a024f699c22">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a8ae9e6-0174-4a6b-a7b9-d5149aef9865" xml:space="preserve">
+          <source><bpt id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;/linkText&gt;</ept><bpt id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;title&gt;</bpt><ept id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;/linkText&gt;</ept><bpt id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;title&gt;</bpt><ept id="3f43833e-96fb-4582-a0c9-69a509c6a555">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e04fd29-6cf9-400b-94da-c7362891aed6" xml:space="preserve">
+          <source><bpt id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;/linkText&gt;</ept><bpt id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;title&gt;</bpt><ept id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;/linkText&gt;</ept><bpt id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;title&gt;</bpt><ept id="89010ef0-409f-44be-97e6-80cd3d34eae5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de2dd640-ec90-437b-8205-c330e9c29358" xml:space="preserve">
+          <source>../hdinsight-provision-clusters/</source>
+          <target state="new">../hdinsight-provision-clusters/</target>
+        </trans-unit>
+        <trans-unit id="01ae149f-d88a-402c-8d35-8e670af095d9" xml:space="preserve">
+          <source>../hdinsight-hadoop-customize-cluster</source>
+          <target state="new">../hdinsight-hadoop-customize-cluster</target>
+        </trans-unit>
+        <trans-unit id="8aca88ed-1d20-40c9-b6cd-d02f201829b2" xml:space="preserve">
+          <source>../hdinsight-hadoop-spark-install/</source>
+          <target state="new">../hdinsight-hadoop-spark-install/</target>
+        </trans-unit>
+        <trans-unit id="dfb21dbb-4c69-4f89-957f-1905ee0bac2c" xml:space="preserve">
+          <source>../hdinsight-hadoop-r-scripts/</source>
+          <target state="new">../hdinsight-hadoop-r-scripts/</target>
+        </trans-unit>
+        <trans-unit id="6225adbd-60e4-4c55-8022-2b63a7c5e257" xml:space="preserve">
+          <source>../install-configure-powershell/</source>
+          <target state="new">../install-configure-powershell/</target>
+        </trans-unit>
+        <trans-unit id="70b7717a-7716-4a5e-a0ac-6efd26612af9" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="d290be14-3ff6-4873-8e65-1b0d58df9cb6" />
+    </body>
+  </file>
+</xliff>

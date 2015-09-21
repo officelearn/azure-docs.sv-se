@@ -1,0 +1,1040 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ca5f8781-8043-472b-80f5-079239c36cc6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ca5f8781-8043-472b-80f5-079239c36cc6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6d07fd05-736d-4742-bffb-8f1482f5b334">
+        <trans-unit id="256f2d8b-f1fb-43e9-8a0c-328bfb3970b0" xml:space="preserve">
+          <source>List of Tutorials for SaaS App Integrations with Azure AD | Microsoft Azure</source>
+          <target state="new">List of Tutorials for SaaS App Integrations with Azure AD | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c7273c7a-b2a5-4d82-948f-056f88725e98" xml:space="preserve">
+          <source>Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications.</source>
+          <target state="new">Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="59fd9481-2feb-44be-8a7b-00cf7125146f" xml:space="preserve">
+          <source>To help you integrate all of your cloud (SaaS) applications with Azure Active Directory, we have developed a collection of tutorials that show you each of the necessary configuration steps.</source>
+          <target state="new">To help you integrate all of your cloud (SaaS) applications with Azure Active Directory, we have developed a collection of tutorials that show you each of the necessary configuration steps.</target>
+        </trans-unit>
+        <trans-unit id="39fffe20-862f-49cc-b60a-f2123592df5b" xml:space="preserve">
+          <source>For the comprehensive list of SaaS apps that have been pre-integrated into Azure AD, please see the <bpt id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;linkText&gt;</bpt>Active Directory Marketplace<ept id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;/linkText&gt;</ept><bpt id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;title&gt;</bpt><ept id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the comprehensive list of SaaS apps that have been pre-integrated into Azure AD, please see the <bpt id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;linkText&gt;</bpt>Active Directory Marketplace<ept id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;/linkText&gt;</ept><bpt id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;title&gt;</bpt><ept id="6ba21b47-909e-4514-b692-b3736265bbbb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ecc0b40-0ee9-4c33-82f8-2d828f9b47fd" xml:space="preserve">
+          <source>Logo</source>
+          <target state="new">Logo</target>
+        </trans-unit>
+        <trans-unit id="9db6d6e2-767a-4a39-a3ed-86e051f9fa89" xml:space="preserve">
+          <source>App Name</source>
+          <target state="new">App Name</target>
+        </trans-unit>
+        <trans-unit id="14067b02-178c-44c6-8143-793ca283f770" xml:space="preserve">
+          <source><bpt id="f1e6668d-2f68-49e1-8b05-e2f17239eb62">&lt;linkText&gt;</bpt>logo<ept id="f1e6668d-2f68-49e1-8b05-e2f17239eb62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1e6668d-2f68-49e1-8b05-e2f17239eb62">&lt;linkText&gt;</bpt>logo<ept id="f1e6668d-2f68-49e1-8b05-e2f17239eb62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9b75c26-c4b6-447b-a649-662b3c95309d" xml:space="preserve">
+          <source><bpt id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;linkText&gt;</bpt>15Five<ept id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;/linkText&gt;</ept><bpt id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;title&gt;</bpt><ept id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;linkText&gt;</bpt>15Five<ept id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;/linkText&gt;</ept><bpt id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;title&gt;</bpt><ept id="767c96ca-34a8-4021-9ff6-cd94f1506d88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5810fa4-b318-462c-bbbf-c3b22f1383fb" xml:space="preserve">
+          <source><bpt id="b794481f-3710-41ce-93a4-7516f860bf71">&lt;linkText&gt;</bpt>logo<ept id="b794481f-3710-41ce-93a4-7516f860bf71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b794481f-3710-41ce-93a4-7516f860bf71">&lt;linkText&gt;</bpt>logo<ept id="b794481f-3710-41ce-93a4-7516f860bf71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df2c71a0-0497-4381-8783-883acd13a3a2" xml:space="preserve">
+          <source><bpt id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;linkText&gt;</bpt>ABa Sainsburys Connect<ept id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;/linkText&gt;</ept><bpt id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;title&gt;</bpt><ept id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;linkText&gt;</bpt>ABa Sainsburys Connect<ept id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;/linkText&gt;</ept><bpt id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;title&gt;</bpt><ept id="86a94e41-b31d-4423-8130-cdaf08248b03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="740bd630-e158-40b7-a415-3ebf5fedcaa9" xml:space="preserve">
+          <source><bpt id="2483fd83-1cdb-4764-99ef-560ba6fe9b00">&lt;linkText&gt;</bpt>logo<ept id="2483fd83-1cdb-4764-99ef-560ba6fe9b00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2483fd83-1cdb-4764-99ef-560ba6fe9b00">&lt;linkText&gt;</bpt>logo<ept id="2483fd83-1cdb-4764-99ef-560ba6fe9b00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0990aef0-fb44-4ea9-b374-10de1c257e12" xml:space="preserve">
+          <source><bpt id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;linkText&gt;</bpt>Abintegro<ept id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;/linkText&gt;</ept><bpt id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;title&gt;</bpt><ept id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;linkText&gt;</bpt>Abintegro<ept id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;/linkText&gt;</ept><bpt id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;title&gt;</bpt><ept id="0438daa0-1a58-46fb-8917-8d6313393787">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22939f16-5dbd-4f80-b415-0a3791b9678f" xml:space="preserve">
+          <source><bpt id="e82c9be7-7e3f-4f2b-895d-510259cd4306">&lt;linkText&gt;</bpt>logo<ept id="e82c9be7-7e3f-4f2b-895d-510259cd4306">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e82c9be7-7e3f-4f2b-895d-510259cd4306">&lt;linkText&gt;</bpt>logo<ept id="e82c9be7-7e3f-4f2b-895d-510259cd4306">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab72591f-704c-4d22-b2d3-5b350612d30a" xml:space="preserve">
+          <source><bpt id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;linkText&gt;</bpt>Adaptive Suite<ept id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;/linkText&gt;</ept><bpt id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;title&gt;</bpt><ept id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;linkText&gt;</bpt>Adaptive Suite<ept id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;/linkText&gt;</ept><bpt id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;title&gt;</bpt><ept id="2262cc6b-9268-47fe-8a2c-9645fe9d87b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c4d3532-4738-4ec4-b13a-7e833cdb14eb" xml:space="preserve">
+          <source><bpt id="07902f32-f144-44cc-a56d-057ebe1e8057">&lt;linkText&gt;</bpt>logo<ept id="07902f32-f144-44cc-a56d-057ebe1e8057">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07902f32-f144-44cc-a56d-057ebe1e8057">&lt;linkText&gt;</bpt>logo<ept id="07902f32-f144-44cc-a56d-057ebe1e8057">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b81a0a8d-44d4-4e06-a5e0-6e66dca8f951" xml:space="preserve">
+          <source><bpt id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;linkText&gt;</bpt>Adobe EchoSign<ept id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;/linkText&gt;</ept><bpt id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;title&gt;</bpt><ept id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;linkText&gt;</bpt>Adobe EchoSign<ept id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;/linkText&gt;</ept><bpt id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;title&gt;</bpt><ept id="1d3b1d69-29aa-4829-a841-bf907848ed8b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9384d5f6-ba29-4c2f-b2ab-32bbc1fc643f" xml:space="preserve">
+          <source><bpt id="0c3d51fd-91d3-4276-ab06-218f0901fa20">&lt;linkText&gt;</bpt>logo<ept id="0c3d51fd-91d3-4276-ab06-218f0901fa20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c3d51fd-91d3-4276-ab06-218f0901fa20">&lt;linkText&gt;</bpt>logo<ept id="0c3d51fd-91d3-4276-ab06-218f0901fa20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e26dad9-f81f-423d-a179-cadd5994be50" xml:space="preserve">
+          <source><bpt id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;linkText&gt;</bpt>Aha!<ept id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;/linkText&gt;</ept><bpt id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;title&gt;</bpt><ept id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;linkText&gt;</bpt>Aha!<ept id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;/linkText&gt;</ept><bpt id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;title&gt;</bpt><ept id="d3edcddb-fd07-46ce-ae92-d95535b1b5ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbedd78f-2cbe-4e8d-9638-eaf4a598dd44" xml:space="preserve">
+          <source><bpt id="aa49f2e2-bf41-42a0-9040-146057bc9740">&lt;linkText&gt;</bpt>logo<ept id="aa49f2e2-bf41-42a0-9040-146057bc9740">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa49f2e2-bf41-42a0-9040-146057bc9740">&lt;linkText&gt;</bpt>logo<ept id="aa49f2e2-bf41-42a0-9040-146057bc9740">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="812bf176-b634-4589-b7f1-521bfc303789" xml:space="preserve">
+          <source><bpt id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;linkText&gt;</bpt>AirWatch<ept id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;/linkText&gt;</ept><bpt id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;title&gt;</bpt><ept id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;linkText&gt;</bpt>AirWatch<ept id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;/linkText&gt;</ept><bpt id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;title&gt;</bpt><ept id="a27bb69c-bd03-452e-80c5-9b75e5e4479b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="990db195-0f0f-4c76-951a-dab50acb09db" xml:space="preserve">
+          <source><bpt id="35d007dc-3a05-46c0-b151-eb5481a78eca">&lt;linkText&gt;</bpt>logo<ept id="35d007dc-3a05-46c0-b151-eb5481a78eca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35d007dc-3a05-46c0-b151-eb5481a78eca">&lt;linkText&gt;</bpt>logo<ept id="35d007dc-3a05-46c0-b151-eb5481a78eca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6920e0b-004b-4980-aef4-e6e7efd16842" xml:space="preserve">
+          <source><bpt id="9b56d069-7561-43c3-a663-05835f09011d">&lt;linkText&gt;</bpt>Amazon Web Service<ept id="9b56d069-7561-43c3-a663-05835f09011d">&lt;/linkText&gt;</ept><bpt id="9b56d069-7561-43c3-a663-05835f09011d">&lt;title&gt;</bpt><ept id="9b56d069-7561-43c3-a663-05835f09011d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b56d069-7561-43c3-a663-05835f09011d">&lt;linkText&gt;</bpt>Amazon Web Service<ept id="9b56d069-7561-43c3-a663-05835f09011d">&lt;/linkText&gt;</ept><bpt id="9b56d069-7561-43c3-a663-05835f09011d">&lt;title&gt;</bpt><ept id="9b56d069-7561-43c3-a663-05835f09011d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e6eced3-cd57-453c-89c2-270a89e32954" xml:space="preserve">
+          <source><bpt id="b6039772-45b3-4498-8220-0336ab085708">&lt;linkText&gt;</bpt>logo<ept id="b6039772-45b3-4498-8220-0336ab085708">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b6039772-45b3-4498-8220-0336ab085708">&lt;linkText&gt;</bpt>logo<ept id="b6039772-45b3-4498-8220-0336ab085708">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e64ba132-f085-45be-a85f-b0342257856f" xml:space="preserve">
+          <source><bpt id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;linkText&gt;</bpt>AnswerHub<ept id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;/linkText&gt;</ept><bpt id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;title&gt;</bpt><ept id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;linkText&gt;</bpt>AnswerHub<ept id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;/linkText&gt;</ept><bpt id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;title&gt;</bpt><ept id="811e34c1-a799-42c8-b85f-7f0b76bcfc83">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfc437fe-72cc-45c5-8e4d-6c1a8534e6e8" xml:space="preserve">
+          <source><bpt id="63202340-22d3-4612-b85a-e57020eb467e">&lt;linkText&gt;</bpt>logo<ept id="63202340-22d3-4612-b85a-e57020eb467e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="63202340-22d3-4612-b85a-e57020eb467e">&lt;linkText&gt;</bpt>logo<ept id="63202340-22d3-4612-b85a-e57020eb467e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83e7a3f2-8ab3-4663-b28c-d764800af88e" xml:space="preserve">
+          <source><bpt id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;linkText&gt;</bpt>AppDynamics<ept id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;/linkText&gt;</ept><bpt id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;title&gt;</bpt><ept id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;linkText&gt;</bpt>AppDynamics<ept id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;/linkText&gt;</ept><bpt id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;title&gt;</bpt><ept id="ee876fc3-24a1-4fba-88b1-e0d76b65b7e9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="907ba09b-6e22-4619-be5c-9a27749cce51" xml:space="preserve">
+          <source><bpt id="1ff438d7-dc44-4c7c-a033-75dd92645330">&lt;linkText&gt;</bpt>logo<ept id="1ff438d7-dc44-4c7c-a033-75dd92645330">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ff438d7-dc44-4c7c-a033-75dd92645330">&lt;linkText&gt;</bpt>logo<ept id="1ff438d7-dc44-4c7c-a033-75dd92645330">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="859f84fd-b71d-4b0f-b777-1b534c558f98" xml:space="preserve">
+          <source><bpt id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;linkText&gt;</bpt>ArcGIS<ept id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;/linkText&gt;</ept><bpt id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;title&gt;</bpt><ept id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;linkText&gt;</bpt>ArcGIS<ept id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;/linkText&gt;</ept><bpt id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;title&gt;</bpt><ept id="f17b74b7-01a5-4cde-9ded-888346318526">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63dbb8b0-2828-44df-95ac-8b68a039de48" xml:space="preserve">
+          <source><bpt id="0d250958-820b-431a-9bda-1992c4187df9">&lt;linkText&gt;</bpt>logo<ept id="0d250958-820b-431a-9bda-1992c4187df9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d250958-820b-431a-9bda-1992c4187df9">&lt;linkText&gt;</bpt>logo<ept id="0d250958-820b-431a-9bda-1992c4187df9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec594168-8d98-40bd-b925-5acad4416266" xml:space="preserve">
+          <source><bpt id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;linkText&gt;</bpt>Bamboo HR<ept id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;/linkText&gt;</ept><bpt id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;title&gt;</bpt><ept id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;linkText&gt;</bpt>Bamboo HR<ept id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;/linkText&gt;</ept><bpt id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;title&gt;</bpt><ept id="21a741b5-9bf1-44ff-ae45-33286f096970">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94afbc7c-5a35-41f2-a9b4-e9321be5fb98" xml:space="preserve">
+          <source><bpt id="0e29eada-b265-4271-864a-9e4e5154adc5">&lt;linkText&gt;</bpt>logo<ept id="0e29eada-b265-4271-864a-9e4e5154adc5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e29eada-b265-4271-864a-9e4e5154adc5">&lt;linkText&gt;</bpt>logo<ept id="0e29eada-b265-4271-864a-9e4e5154adc5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="365050ce-0560-45f9-bb78-a3ce4c93155b" xml:space="preserve">
+          <source><bpt id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;linkText&gt;</bpt>Benefitsolver<ept id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;/linkText&gt;</ept><bpt id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;title&gt;</bpt><ept id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;linkText&gt;</bpt>Benefitsolver<ept id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;/linkText&gt;</ept><bpt id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;title&gt;</bpt><ept id="63292d22-7406-4baa-99a8-1e5d98cff108">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c139692-152c-4081-804e-c887ab3e8101" xml:space="preserve">
+          <source><bpt id="1e4a4ee4-b662-4e42-99e5-d8d84ab093c6">&lt;linkText&gt;</bpt>logo<ept id="1e4a4ee4-b662-4e42-99e5-d8d84ab093c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e4a4ee4-b662-4e42-99e5-d8d84ab093c6">&lt;linkText&gt;</bpt>logo<ept id="1e4a4ee4-b662-4e42-99e5-d8d84ab093c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a112d85c-3c80-48ad-a034-959543338230" xml:space="preserve">
+          <source><bpt id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;linkText&gt;</bpt>Bime<ept id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;/linkText&gt;</ept><bpt id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;title&gt;</bpt><ept id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;linkText&gt;</bpt>Bime<ept id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;/linkText&gt;</ept><bpt id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;title&gt;</bpt><ept id="e560800c-7f4b-4d46-8920-269e6b8a887d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="450374f2-ccbc-4157-95a2-a401731c2ad0" xml:space="preserve">
+          <source><bpt id="cff75e65-57a5-4045-af06-18c0be8e8ab2">&lt;linkText&gt;</bpt>logo<ept id="cff75e65-57a5-4045-af06-18c0be8e8ab2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cff75e65-57a5-4045-af06-18c0be8e8ab2">&lt;linkText&gt;</bpt>logo<ept id="cff75e65-57a5-4045-af06-18c0be8e8ab2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92c6a3a6-c3a6-485f-864d-725533616fb3" xml:space="preserve">
+          <source><bpt id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;linkText&gt;</bpt>BlueJeans<ept id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;/linkText&gt;</ept><bpt id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;title&gt;</bpt><ept id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;linkText&gt;</bpt>BlueJeans<ept id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;/linkText&gt;</ept><bpt id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;title&gt;</bpt><ept id="de8d2fed-90dc-455d-b3ae-fdfddf27a35a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c95b46b-d19d-49ff-b8ff-9299d2b8247f" xml:space="preserve">
+          <source><bpt id="9c278c0d-d696-498f-b9cf-3947f6612c98">&lt;linkText&gt;</bpt>logo<ept id="9c278c0d-d696-498f-b9cf-3947f6612c98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c278c0d-d696-498f-b9cf-3947f6612c98">&lt;linkText&gt;</bpt>logo<ept id="9c278c0d-d696-498f-b9cf-3947f6612c98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13234fb2-d666-49be-9245-a3b62d22729e" xml:space="preserve">
+          <source><bpt id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;linkText&gt;</bpt>Bonus.ly<ept id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;/linkText&gt;</ept><bpt id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;title&gt;</bpt><ept id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;linkText&gt;</bpt>Bonus.ly<ept id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;/linkText&gt;</ept><bpt id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;title&gt;</bpt><ept id="5e4e05fb-e835-4b6b-a69d-48ded16d4ce6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08d60072-a786-472b-9829-de2000500552" xml:space="preserve">
+          <source><bpt id="72e2095f-e93a-4b7a-9914-909966d5dce4">&lt;linkText&gt;</bpt>logo<ept id="72e2095f-e93a-4b7a-9914-909966d5dce4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72e2095f-e93a-4b7a-9914-909966d5dce4">&lt;linkText&gt;</bpt>logo<ept id="72e2095f-e93a-4b7a-9914-909966d5dce4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9cb83bd-623b-468a-891b-942bba631073" xml:space="preserve">
+          <source><bpt id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;linkText&gt;</bpt>Boomi<ept id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;/linkText&gt;</ept><bpt id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;title&gt;</bpt><ept id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;linkText&gt;</bpt>Boomi<ept id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;/linkText&gt;</ept><bpt id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;title&gt;</bpt><ept id="05b6fd1b-9c55-4f8d-afd6-bf2846984c10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ee069ec-d5d1-495f-9469-419e6bbca5af" xml:space="preserve">
+          <source><bpt id="5b0b06ac-82b2-49b1-b301-4ac906ce4f7f">&lt;linkText&gt;</bpt>logo<ept id="5b0b06ac-82b2-49b1-b301-4ac906ce4f7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b0b06ac-82b2-49b1-b301-4ac906ce4f7f">&lt;linkText&gt;</bpt>logo<ept id="5b0b06ac-82b2-49b1-b301-4ac906ce4f7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f60a31f8-b039-4146-9f68-443a3f683474" xml:space="preserve">
+          <source><bpt id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;linkText&gt;</bpt>Box<ept id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;/linkText&gt;</ept><bpt id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;title&gt;</bpt><ept id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;linkText&gt;</bpt>Box<ept id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;/linkText&gt;</ept><bpt id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;title&gt;</bpt><ept id="6641750f-d9ba-479e-beb2-25ed6f15e5d4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b08f28d2-c7c5-48eb-ad02-3e7691511d98" xml:space="preserve">
+          <source><bpt id="8085b7a4-5c61-4825-b84a-20ecdfe16f49">&lt;linkText&gt;</bpt>logo<ept id="8085b7a4-5c61-4825-b84a-20ecdfe16f49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8085b7a4-5c61-4825-b84a-20ecdfe16f49">&lt;linkText&gt;</bpt>logo<ept id="8085b7a4-5c61-4825-b84a-20ecdfe16f49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e9bb9c7-8a9c-4943-add1-92a8bf81da2b" xml:space="preserve">
+          <source><bpt id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;linkText&gt;</bpt>Brightspace by Desire2Learn<ept id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;/linkText&gt;</ept><bpt id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;title&gt;</bpt><ept id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;linkText&gt;</bpt>Brightspace by Desire2Learn<ept id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;/linkText&gt;</ept><bpt id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;title&gt;</bpt><ept id="25a5de38-9a53-4af4-8611-940ccd92af6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d06ae19-7f35-441c-b5a2-7f976d1a6682" xml:space="preserve">
+          <source><bpt id="33ce02d5-5df1-4ab8-af46-fb2226f31742">&lt;linkText&gt;</bpt>logo<ept id="33ce02d5-5df1-4ab8-af46-fb2226f31742">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33ce02d5-5df1-4ab8-af46-fb2226f31742">&lt;linkText&gt;</bpt>logo<ept id="33ce02d5-5df1-4ab8-af46-fb2226f31742">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd26135a-285c-40e8-b4ca-ab0ed850e4b3" xml:space="preserve">
+          <source><bpt id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;linkText&gt;</bpt>Canvas LMS<ept id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;/linkText&gt;</ept><bpt id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;title&gt;</bpt><ept id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;linkText&gt;</bpt>Canvas LMS<ept id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;/linkText&gt;</ept><bpt id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;title&gt;</bpt><ept id="47c9c4dc-5a39-47c9-9449-acc62577e2d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ba63a58-afcd-4d5a-a0a6-ea9626e708a2" xml:space="preserve">
+          <source><bpt id="55e47f46-9264-4ec5-a7f1-42dc4184ddea">&lt;linkText&gt;</bpt>logo<ept id="55e47f46-9264-4ec5-a7f1-42dc4184ddea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55e47f46-9264-4ec5-a7f1-42dc4184ddea">&lt;linkText&gt;</bpt>logo<ept id="55e47f46-9264-4ec5-a7f1-42dc4184ddea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="272f5d76-ce1c-4931-a493-05e0edf96cd7" xml:space="preserve">
+          <source><bpt id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;linkText&gt;</bpt>Central Desktop<ept id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;/linkText&gt;</ept><bpt id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;title&gt;</bpt><ept id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;linkText&gt;</bpt>Central Desktop<ept id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;/linkText&gt;</ept><bpt id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;title&gt;</bpt><ept id="60700531-e2a0-42ad-91b4-94858b2d2d88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="981d74af-3dac-4389-9483-a71323f9b35b" xml:space="preserve">
+          <source><bpt id="4c1e2296-cadb-4bca-aeaa-c3c9ac18ede1">&lt;linkText&gt;</bpt>logo<ept id="4c1e2296-cadb-4bca-aeaa-c3c9ac18ede1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c1e2296-cadb-4bca-aeaa-c3c9ac18ede1">&lt;linkText&gt;</bpt>logo<ept id="4c1e2296-cadb-4bca-aeaa-c3c9ac18ede1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30345f3d-acbe-4ef2-91cf-47f14bb4842b" xml:space="preserve">
+          <source><bpt id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;linkText&gt;</bpt>Cherwell<ept id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;/linkText&gt;</ept><bpt id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;title&gt;</bpt><ept id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;linkText&gt;</bpt>Cherwell<ept id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;/linkText&gt;</ept><bpt id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;title&gt;</bpt><ept id="541c4b0f-a15b-4b88-81e9-7943fb05da5b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59455c71-6a87-4cf4-8c33-3bfe55b37c1a" xml:space="preserve">
+          <source><bpt id="e23326b5-3153-44e9-99a7-3d0b23de607d">&lt;linkText&gt;</bpt>logo<ept id="e23326b5-3153-44e9-99a7-3d0b23de607d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e23326b5-3153-44e9-99a7-3d0b23de607d">&lt;linkText&gt;</bpt>logo<ept id="e23326b5-3153-44e9-99a7-3d0b23de607d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c37c7cd-bc90-43b6-8bab-f89cd3a92b07" xml:space="preserve">
+          <source><bpt id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;linkText&gt;</bpt>Chromeriver<ept id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;/linkText&gt;</ept><bpt id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;title&gt;</bpt><ept id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;linkText&gt;</bpt>Chromeriver<ept id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;/linkText&gt;</ept><bpt id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;title&gt;</bpt><ept id="18437f33-050d-41cd-8473-2c4bc060740f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="905a8dd9-1171-4e9c-abe1-5f9fb3cc7481" xml:space="preserve">
+          <source><bpt id="b78c51b0-ae9f-4ac7-a2d8-60a6839a687f">&lt;linkText&gt;</bpt>logo<ept id="b78c51b0-ae9f-4ac7-a2d8-60a6839a687f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b78c51b0-ae9f-4ac7-a2d8-60a6839a687f">&lt;linkText&gt;</bpt>logo<ept id="b78c51b0-ae9f-4ac7-a2d8-60a6839a687f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d188bab-4837-4f78-bc1d-2f60a45936e6" xml:space="preserve">
+          <source><bpt id="203f38c5-febf-488b-a64c-c59193717d84">&lt;linkText&gt;</bpt>Cisco Webex<ept id="203f38c5-febf-488b-a64c-c59193717d84">&lt;/linkText&gt;</ept><bpt id="203f38c5-febf-488b-a64c-c59193717d84">&lt;title&gt;</bpt><ept id="203f38c5-febf-488b-a64c-c59193717d84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="203f38c5-febf-488b-a64c-c59193717d84">&lt;linkText&gt;</bpt>Cisco Webex<ept id="203f38c5-febf-488b-a64c-c59193717d84">&lt;/linkText&gt;</ept><bpt id="203f38c5-febf-488b-a64c-c59193717d84">&lt;title&gt;</bpt><ept id="203f38c5-febf-488b-a64c-c59193717d84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34e4d916-8e5c-4c5b-8804-ff7097337a48" xml:space="preserve">
+          <source><bpt id="fa587421-6e21-42d5-b47d-0a4a9a60a7f1">&lt;linkText&gt;</bpt>logo<ept id="fa587421-6e21-42d5-b47d-0a4a9a60a7f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa587421-6e21-42d5-b47d-0a4a9a60a7f1">&lt;linkText&gt;</bpt>logo<ept id="fa587421-6e21-42d5-b47d-0a4a9a60a7f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9157e42-aa78-4dec-ab59-d9664c899cd5" xml:space="preserve">
+          <source><bpt id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;linkText&gt;</bpt>Citrix GoToMeeting<ept id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;/linkText&gt;</ept><bpt id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;title&gt;</bpt><ept id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;linkText&gt;</bpt>Citrix GoToMeeting<ept id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;/linkText&gt;</ept><bpt id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;title&gt;</bpt><ept id="7c044099-857d-48c4-8e2e-7631776747e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53055b1b-9580-4de7-adc9-07eb9a0c95e7" xml:space="preserve">
+          <source><bpt id="ff2d58a1-1e57-4004-a6f0-a959b0a2580e">&lt;linkText&gt;</bpt>logo<ept id="ff2d58a1-1e57-4004-a6f0-a959b0a2580e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff2d58a1-1e57-4004-a6f0-a959b0a2580e">&lt;linkText&gt;</bpt>logo<ept id="ff2d58a1-1e57-4004-a6f0-a959b0a2580e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1920464b-313a-4d60-971a-c9ba3426cd26" xml:space="preserve">
+          <source><bpt id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;linkText&gt;</bpt>Citrix ShareFile<ept id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;/linkText&gt;</ept><bpt id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;title&gt;</bpt><ept id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;linkText&gt;</bpt>Citrix ShareFile<ept id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;/linkText&gt;</ept><bpt id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;title&gt;</bpt><ept id="c89320a9-5234-44d9-a3d2-ff0cfb47da46">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16a2ac38-60e4-4233-ada2-0acf118dedaa" xml:space="preserve">
+          <source><bpt id="c6a2c0e4-6bfa-4a89-b28b-a3321e3d1014">&lt;linkText&gt;</bpt>logo<ept id="c6a2c0e4-6bfa-4a89-b28b-a3321e3d1014">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6a2c0e4-6bfa-4a89-b28b-a3321e3d1014">&lt;linkText&gt;</bpt>logo<ept id="c6a2c0e4-6bfa-4a89-b28b-a3321e3d1014">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d5b71af-db51-476e-a503-df92edae40cc" xml:space="preserve">
+          <source><bpt id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;linkText&gt;</bpt>Clarizen<ept id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;/linkText&gt;</ept><bpt id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;title&gt;</bpt><ept id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;linkText&gt;</bpt>Clarizen<ept id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;/linkText&gt;</ept><bpt id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;title&gt;</bpt><ept id="e3edc2f4-3d97-4f5b-b250-aafe08e8456b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f711f229-d335-41b2-bda3-8dc19a8e5fa2" xml:space="preserve">
+          <source><bpt id="67f841c2-de7c-4f05-a810-64032101be1b">&lt;linkText&gt;</bpt>logo<ept id="67f841c2-de7c-4f05-a810-64032101be1b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67f841c2-de7c-4f05-a810-64032101be1b">&lt;linkText&gt;</bpt>logo<ept id="67f841c2-de7c-4f05-a810-64032101be1b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae5e030-146b-4f46-9225-b198d79a9c20" xml:space="preserve">
+          <source><bpt id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;linkText&gt;</bpt>Clever<ept id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;/linkText&gt;</ept><bpt id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;title&gt;</bpt><ept id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;linkText&gt;</bpt>Clever<ept id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;/linkText&gt;</ept><bpt id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;title&gt;</bpt><ept id="c875b035-2dd6-4c7a-8f5f-1a91487a710b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c32b4284-6c39-4040-924d-21245e7573ea" xml:space="preserve">
+          <source><bpt id="380d97c9-d798-45c4-884b-4f0e575c8583">&lt;linkText&gt;</bpt>logo<ept id="380d97c9-d798-45c4-884b-4f0e575c8583">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="380d97c9-d798-45c4-884b-4f0e575c8583">&lt;linkText&gt;</bpt>logo<ept id="380d97c9-d798-45c4-884b-4f0e575c8583">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="feec4918-3eb8-4214-a698-f919d92f7b02" xml:space="preserve">
+          <source><bpt id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;linkText&gt;</bpt>ClickTime<ept id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;/linkText&gt;</ept><bpt id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;title&gt;</bpt><ept id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;linkText&gt;</bpt>ClickTime<ept id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;/linkText&gt;</ept><bpt id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;title&gt;</bpt><ept id="aec1adfd-5dc0-4ce7-bae6-955987d45de4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d457a8b-de40-46e4-b5f0-54a26c256ed4" xml:space="preserve">
+          <source><bpt id="169ea7ec-96f9-4d9e-9e23-91bb6fcd7d54">&lt;linkText&gt;</bpt>logo<ept id="169ea7ec-96f9-4d9e-9e23-91bb6fcd7d54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="169ea7ec-96f9-4d9e-9e23-91bb6fcd7d54">&lt;linkText&gt;</bpt>logo<ept id="169ea7ec-96f9-4d9e-9e23-91bb6fcd7d54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48f2f2ee-00bd-4ecb-bfb8-72ce6e4ba371" xml:space="preserve">
+          <source><bpt id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;linkText&gt;</bpt>CloudBees<ept id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;/linkText&gt;</ept><bpt id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;title&gt;</bpt><ept id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;linkText&gt;</bpt>CloudBees<ept id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;/linkText&gt;</ept><bpt id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;title&gt;</bpt><ept id="d8fe8487-c5ac-4981-86ba-a67e8e052716">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="041ca2dd-26a8-4e5d-91c9-3cec0728064e" xml:space="preserve">
+          <source><bpt id="e72a4980-f3bd-429b-83a5-4cba7555a524">&lt;linkText&gt;</bpt>logo<ept id="e72a4980-f3bd-429b-83a5-4cba7555a524">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e72a4980-f3bd-429b-83a5-4cba7555a524">&lt;linkText&gt;</bpt>logo<ept id="e72a4980-f3bd-429b-83a5-4cba7555a524">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3153bd4e-3be8-4368-adae-68cad171655b" xml:space="preserve">
+          <source><bpt id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;linkText&gt;</bpt>Concur<ept id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;/linkText&gt;</ept><bpt id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;title&gt;</bpt><ept id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;linkText&gt;</bpt>Concur<ept id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;/linkText&gt;</ept><bpt id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;title&gt;</bpt><ept id="63ab77b4-aa34-4c4a-952d-630ffe70fefb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73b03fd9-2acd-47f8-9197-4815c6811e4a" xml:space="preserve">
+          <source><bpt id="850cb1a3-4d58-4e2d-97af-93ba33e732af">&lt;linkText&gt;</bpt>logo<ept id="850cb1a3-4d58-4e2d-97af-93ba33e732af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="850cb1a3-4d58-4e2d-97af-93ba33e732af">&lt;linkText&gt;</bpt>logo<ept id="850cb1a3-4d58-4e2d-97af-93ba33e732af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02e7fa45-72ef-4351-8c1d-241faa3bc6f3" xml:space="preserve">
+          <source><bpt id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;linkText&gt;</bpt>Coupa<ept id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;/linkText&gt;</ept><bpt id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;title&gt;</bpt><ept id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;linkText&gt;</bpt>Coupa<ept id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;/linkText&gt;</ept><bpt id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;title&gt;</bpt><ept id="66df332a-bd88-408a-946c-836f6aecc0d4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53c1a910-9b3b-4ca2-b473-7cef44d624eb" xml:space="preserve">
+          <source><bpt id="7c396b28-cc51-487d-ac02-6a6e3021a053">&lt;linkText&gt;</bpt>logo<ept id="7c396b28-cc51-487d-ac02-6a6e3021a053">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c396b28-cc51-487d-ac02-6a6e3021a053">&lt;linkText&gt;</bpt>logo<ept id="7c396b28-cc51-487d-ac02-6a6e3021a053">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9adecbc5-6824-4780-a811-55c3735cee3d" xml:space="preserve">
+          <source><bpt id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;linkText&gt;</bpt>Cornerstone OnDemand<ept id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;/linkText&gt;</ept><bpt id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;title&gt;</bpt><ept id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;linkText&gt;</bpt>Cornerstone OnDemand<ept id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;/linkText&gt;</ept><bpt id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;title&gt;</bpt><ept id="ba23b6e9-d6ef-45bf-b757-dcf798323f93">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45532508-d6f7-4299-9765-132f984ddc2b" xml:space="preserve">
+          <source><bpt id="ea7f3f76-8ffb-4b42-8eb8-111bac67cef8">&lt;linkText&gt;</bpt>logo<ept id="ea7f3f76-8ffb-4b42-8eb8-111bac67cef8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea7f3f76-8ffb-4b42-8eb8-111bac67cef8">&lt;linkText&gt;</bpt>logo<ept id="ea7f3f76-8ffb-4b42-8eb8-111bac67cef8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba39e60a-40b8-4d41-bcdf-05d73dd855a3" xml:space="preserve">
+          <source><bpt id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;linkText&gt;</bpt>Directions on Microsoft<ept id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;/linkText&gt;</ept><bpt id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;title&gt;</bpt><ept id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;linkText&gt;</bpt>Directions on Microsoft<ept id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;/linkText&gt;</ept><bpt id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;title&gt;</bpt><ept id="f6406808-1773-468a-acaf-e92b81cc7c0a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb07e11b-8647-4bea-914d-bf1cdef180c2" xml:space="preserve">
+          <source><bpt id="2a76b428-ce9a-4393-9349-918f34f6247e">&lt;linkText&gt;</bpt>logo<ept id="2a76b428-ce9a-4393-9349-918f34f6247e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a76b428-ce9a-4393-9349-918f34f6247e">&lt;linkText&gt;</bpt>logo<ept id="2a76b428-ce9a-4393-9349-918f34f6247e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="768ca47d-919a-4b3d-b746-ad511d5865c8" xml:space="preserve">
+          <source><bpt id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;linkText&gt;</bpt>Dropbox for Business<ept id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;/linkText&gt;</ept><bpt id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;title&gt;</bpt><ept id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;linkText&gt;</bpt>Dropbox for Business<ept id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;/linkText&gt;</ept><bpt id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;title&gt;</bpt><ept id="89afee3e-05c9-4655-9f8b-5c85e2046bbd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76a0f13d-195a-4c27-a638-740beacf254a" xml:space="preserve">
+          <source><bpt id="132874e2-47da-4879-930a-89be638215ce">&lt;linkText&gt;</bpt>logo<ept id="132874e2-47da-4879-930a-89be638215ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="132874e2-47da-4879-930a-89be638215ce">&lt;linkText&gt;</bpt>logo<ept id="132874e2-47da-4879-930a-89be638215ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7df222a-4333-4fee-b3f1-5fa22dc50985" xml:space="preserve">
+          <source><bpt id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;linkText&gt;</bpt>Druva<ept id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;/linkText&gt;</ept><bpt id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;title&gt;</bpt><ept id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;linkText&gt;</bpt>Druva<ept id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;/linkText&gt;</ept><bpt id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;title&gt;</bpt><ept id="b961680b-5f30-4cfb-bdfb-6ef0552619d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83c93426-199a-435f-aa2a-e7474258b04d" xml:space="preserve">
+          <source><bpt id="38ec45e7-8951-4ba7-a88c-a6101d9528f9">&lt;linkText&gt;</bpt>logo<ept id="38ec45e7-8951-4ba7-a88c-a6101d9528f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38ec45e7-8951-4ba7-a88c-a6101d9528f9">&lt;linkText&gt;</bpt>logo<ept id="38ec45e7-8951-4ba7-a88c-a6101d9528f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4d64241-b4da-414d-8235-bbc75a848ab6" xml:space="preserve">
+          <source><bpt id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;linkText&gt;</bpt>e-Builder<ept id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;/linkText&gt;</ept><bpt id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;title&gt;</bpt><ept id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;linkText&gt;</bpt>e-Builder<ept id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;/linkText&gt;</ept><bpt id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;title&gt;</bpt><ept id="7109926d-2fb2-4848-ace5-bfac7f049b6d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80765355-035b-4a05-ba71-289d30d5f5a5" xml:space="preserve">
+          <source><bpt id="5d929526-2ca9-4d06-9aa7-a8597e61cb75">&lt;linkText&gt;</bpt>logo<ept id="5d929526-2ca9-4d06-9aa7-a8597e61cb75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d929526-2ca9-4d06-9aa7-a8597e61cb75">&lt;linkText&gt;</bpt>logo<ept id="5d929526-2ca9-4d06-9aa7-a8597e61cb75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bbe331f7-e794-4c20-bbd5-a1f849fff192" xml:space="preserve">
+          <source><bpt id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;linkText&gt;</bpt>Egnyte<ept id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;/linkText&gt;</ept><bpt id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;title&gt;</bpt><ept id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;linkText&gt;</bpt>Egnyte<ept id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;/linkText&gt;</ept><bpt id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;title&gt;</bpt><ept id="f805d67e-f862-4b56-a8a9-c0d88192baaf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03849c0c-f607-4642-bbaf-d78e8e1eac34" xml:space="preserve">
+          <source><bpt id="d57459b1-0c06-4647-9b65-2677f2b1c149">&lt;linkText&gt;</bpt>logo<ept id="d57459b1-0c06-4647-9b65-2677f2b1c149">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d57459b1-0c06-4647-9b65-2677f2b1c149">&lt;linkText&gt;</bpt>logo<ept id="d57459b1-0c06-4647-9b65-2677f2b1c149">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd40c455-63d9-4cfc-a311-7184b6f42aab" xml:space="preserve">
+          <source><bpt id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;linkText&gt;</bpt>EmpCenter<ept id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;/linkText&gt;</ept><bpt id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;title&gt;</bpt><ept id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;linkText&gt;</bpt>EmpCenter<ept id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;/linkText&gt;</ept><bpt id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;title&gt;</bpt><ept id="140bf9f5-7c4d-4dc2-adbe-0852bc94386d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df74a981-2bdf-44cd-a2b6-551b58b48795" xml:space="preserve">
+          <source><bpt id="af17db73-3f6f-48db-9342-c4d86b33f764">&lt;linkText&gt;</bpt>logo<ept id="af17db73-3f6f-48db-9342-c4d86b33f764">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af17db73-3f6f-48db-9342-c4d86b33f764">&lt;linkText&gt;</bpt>logo<ept id="af17db73-3f6f-48db-9342-c4d86b33f764">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5f8251f-6bb4-4db9-b499-c69fb0a29b97" xml:space="preserve">
+          <source><bpt id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;linkText&gt;</bpt>Envoy<ept id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;/linkText&gt;</ept><bpt id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;title&gt;</bpt><ept id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;linkText&gt;</bpt>Envoy<ept id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;/linkText&gt;</ept><bpt id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;title&gt;</bpt><ept id="f7661447-00d8-410c-bcb4-372bbd1631de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70052a4a-efb6-42ea-9d38-ba12c7628742" xml:space="preserve">
+          <source><bpt id="d143744c-570f-4e32-b02c-4185d731ddca">&lt;linkText&gt;</bpt>logo<ept id="d143744c-570f-4e32-b02c-4185d731ddca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d143744c-570f-4e32-b02c-4185d731ddca">&lt;linkText&gt;</bpt>logo<ept id="d143744c-570f-4e32-b02c-4185d731ddca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fdc86e6-47d9-42c6-a6d7-0f73b98772d1" xml:space="preserve">
+          <source><bpt id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;linkText&gt;</bpt>FM: Systems<ept id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;/linkText&gt;</ept><bpt id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;title&gt;</bpt><ept id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;linkText&gt;</bpt>FM: Systems<ept id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;/linkText&gt;</ept><bpt id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;title&gt;</bpt><ept id="0c67c0c9-1f15-4991-bea7-68fe120999e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47acd1c0-d990-4e73-8718-b8f596a0e716" xml:space="preserve">
+          <source><bpt id="522eb6ca-bd8d-4614-8df1-68fcee4a6a71">&lt;linkText&gt;</bpt>logo<ept id="522eb6ca-bd8d-4614-8df1-68fcee4a6a71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="522eb6ca-bd8d-4614-8df1-68fcee4a6a71">&lt;linkText&gt;</bpt>logo<ept id="522eb6ca-bd8d-4614-8df1-68fcee4a6a71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d00608e8-6580-45c7-8cea-e8d0980b0c60" xml:space="preserve">
+          <source><bpt id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;linkText&gt;</bpt>Freshdesk<ept id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;/linkText&gt;</ept><bpt id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;title&gt;</bpt><ept id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;linkText&gt;</bpt>Freshdesk<ept id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;/linkText&gt;</ept><bpt id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;title&gt;</bpt><ept id="7c091307-63f0-4953-b039-465b6cc84b5c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6658bc14-fd9d-4e8f-8dc6-4a26878a7e7c" xml:space="preserve">
+          <source><bpt id="4ec918a0-fcda-4fe7-96d5-509f7072e441">&lt;linkText&gt;</bpt>logo<ept id="4ec918a0-fcda-4fe7-96d5-509f7072e441">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ec918a0-fcda-4fe7-96d5-509f7072e441">&lt;linkText&gt;</bpt>logo<ept id="4ec918a0-fcda-4fe7-96d5-509f7072e441">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af24a017-2f3d-421f-9340-9d8d127fc4a7" xml:space="preserve">
+          <source><bpt id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;linkText&gt;</bpt>FreshService<ept id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;/linkText&gt;</ept><bpt id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;title&gt;</bpt><ept id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;linkText&gt;</bpt>FreshService<ept id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;/linkText&gt;</ept><bpt id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;title&gt;</bpt><ept id="6db72e8c-809a-4a03-b0ff-f621929fd34d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8713eee6-7d41-4288-ab25-dafc31864a50" xml:space="preserve">
+          <source><bpt id="67244879-5b60-4a98-aad2-b2ea628e1ee6">&lt;linkText&gt;</bpt>logo<ept id="67244879-5b60-4a98-aad2-b2ea628e1ee6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67244879-5b60-4a98-aad2-b2ea628e1ee6">&lt;linkText&gt;</bpt>logo<ept id="67244879-5b60-4a98-aad2-b2ea628e1ee6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92dbb338-b6cd-4c81-903d-70a9fb898108" xml:space="preserve">
+          <source><bpt id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;linkText&gt;</bpt>Gigya<ept id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;/linkText&gt;</ept><bpt id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;title&gt;</bpt><ept id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;linkText&gt;</bpt>Gigya<ept id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;/linkText&gt;</ept><bpt id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;title&gt;</bpt><ept id="d9a6d6a3-77cf-4c1b-884b-63e80502d442">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c247275-11eb-4109-8679-f8b103b4f24c" xml:space="preserve">
+          <source><bpt id="f88036cb-afb4-401e-89df-c026a1840f30">&lt;linkText&gt;</bpt>logo<ept id="f88036cb-afb4-401e-89df-c026a1840f30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f88036cb-afb4-401e-89df-c026a1840f30">&lt;linkText&gt;</bpt>logo<ept id="f88036cb-afb4-401e-89df-c026a1840f30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df29999d-1c79-4578-9b3c-55d83380f37a" xml:space="preserve">
+          <source><bpt id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;linkText&gt;</bpt>Google Apps<ept id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;/linkText&gt;</ept><bpt id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;title&gt;</bpt><ept id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;linkText&gt;</bpt>Google Apps<ept id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;/linkText&gt;</ept><bpt id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;title&gt;</bpt><ept id="d4a63ee1-8282-4b16-a3a4-51d2b3829bc6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b1e95d5-ae2c-436c-ae35-bbe3400ab1bb" xml:space="preserve">
+          <source><bpt id="b1d698a5-9b1d-4511-a5f1-5af2e307f6c1">&lt;linkText&gt;</bpt>logo<ept id="b1d698a5-9b1d-4511-a5f1-5af2e307f6c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1d698a5-9b1d-4511-a5f1-5af2e307f6c1">&lt;linkText&gt;</bpt>logo<ept id="b1d698a5-9b1d-4511-a5f1-5af2e307f6c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cab93bb-7236-4606-899f-5db41a513f15" xml:space="preserve">
+          <source><bpt id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;linkText&gt;</bpt>Greenhouse<ept id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;/linkText&gt;</ept><bpt id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;title&gt;</bpt><ept id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;linkText&gt;</bpt>Greenhouse<ept id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;/linkText&gt;</ept><bpt id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;title&gt;</bpt><ept id="8e216cff-a063-4864-bded-85f5c42aec86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a2fc502-e50e-406b-b4eb-edf03fd91c2b" xml:space="preserve">
+          <source><bpt id="af332e58-503e-4a4c-b43b-70d597e4f110">&lt;linkText&gt;</bpt>logo<ept id="af332e58-503e-4a4c-b43b-70d597e4f110">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af332e58-503e-4a4c-b43b-70d597e4f110">&lt;linkText&gt;</bpt>logo<ept id="af332e58-503e-4a4c-b43b-70d597e4f110">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7c463aa-f592-4566-a382-fb14a982e243" xml:space="preserve">
+          <source><bpt id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;linkText&gt;</bpt>Huddle<ept id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;/linkText&gt;</ept><bpt id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;title&gt;</bpt><ept id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;linkText&gt;</bpt>Huddle<ept id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;/linkText&gt;</ept><bpt id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;title&gt;</bpt><ept id="2b2027a7-4b0f-4562-9d42-dbf7957804d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cff707f-63ce-4c5c-ad6f-0d32a6019ca5" xml:space="preserve">
+          <source><bpt id="6f057914-888c-4a21-91d4-231bb748dc15">&lt;linkText&gt;</bpt>logo<ept id="6f057914-888c-4a21-91d4-231bb748dc15">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f057914-888c-4a21-91d4-231bb748dc15">&lt;linkText&gt;</bpt>logo<ept id="6f057914-888c-4a21-91d4-231bb748dc15">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7403a79-cb10-43bd-9d91-c308e73cb3e4" xml:space="preserve">
+          <source><bpt id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;linkText&gt;</bpt>IdeaScale<ept id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;/linkText&gt;</ept><bpt id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;title&gt;</bpt><ept id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;linkText&gt;</bpt>IdeaScale<ept id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;/linkText&gt;</ept><bpt id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;title&gt;</bpt><ept id="1856c1b7-157d-4be3-84f4-c360c207d7a7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad603020-96fe-46ce-a280-ae6fc43bbc1a" xml:space="preserve">
+          <source><bpt id="57b44f5c-19e9-4337-9f68-4498092deb0c">&lt;linkText&gt;</bpt>logo<ept id="57b44f5c-19e9-4337-9f68-4498092deb0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57b44f5c-19e9-4337-9f68-4498092deb0c">&lt;linkText&gt;</bpt>logo<ept id="57b44f5c-19e9-4337-9f68-4498092deb0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65190f4c-3264-4658-bbcb-e098396729d7" xml:space="preserve">
+          <source><bpt id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;linkText&gt;</bpt>Igloo Software<ept id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;/linkText&gt;</ept><bpt id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;title&gt;</bpt><ept id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;linkText&gt;</bpt>Igloo Software<ept id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;/linkText&gt;</ept><bpt id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;title&gt;</bpt><ept id="6850a1e6-2b10-4b9b-bc72-b565c997f111">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59af5ea8-83b9-45ba-a0b4-0245bf432bfb" xml:space="preserve">
+          <source><bpt id="e8ce45db-b439-48e1-8034-63f7323a8c98">&lt;linkText&gt;</bpt>logo<ept id="e8ce45db-b439-48e1-8034-63f7323a8c98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8ce45db-b439-48e1-8034-63f7323a8c98">&lt;linkText&gt;</bpt>logo<ept id="e8ce45db-b439-48e1-8034-63f7323a8c98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="626a33bd-7564-4156-bedf-9c4646cb5162" xml:space="preserve">
+          <source><bpt id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;linkText&gt;</bpt>Innotas<ept id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;/linkText&gt;</ept><bpt id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;title&gt;</bpt><ept id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;linkText&gt;</bpt>Innotas<ept id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;/linkText&gt;</ept><bpt id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;title&gt;</bpt><ept id="9e36ede4-7a91-479d-a703-d9b9f1c20f85">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d934e00-4044-4f59-a729-8682f88ec07b" xml:space="preserve">
+          <source><bpt id="a10f8f46-1e28-4518-890d-3a412e9f1f82">&lt;linkText&gt;</bpt>logo<ept id="a10f8f46-1e28-4518-890d-3a412e9f1f82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a10f8f46-1e28-4518-890d-3a412e9f1f82">&lt;linkText&gt;</bpt>logo<ept id="a10f8f46-1e28-4518-890d-3a412e9f1f82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1149d994-06da-4ae7-81bb-1e540db43b6b" xml:space="preserve">
+          <source><bpt id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;linkText&gt;</bpt>InsideView<ept id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;/linkText&gt;</ept><bpt id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;title&gt;</bpt><ept id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;linkText&gt;</bpt>InsideView<ept id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;/linkText&gt;</ept><bpt id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;title&gt;</bpt><ept id="53c49baa-351a-433a-b8f8-898af18925e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66b4be50-afff-4fc5-808d-4e703405239a" xml:space="preserve">
+          <source><bpt id="ad15bec4-5fe5-4859-a442-5fb80b24ba4c">&lt;linkText&gt;</bpt>logo<ept id="ad15bec4-5fe5-4859-a442-5fb80b24ba4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad15bec4-5fe5-4859-a442-5fb80b24ba4c">&lt;linkText&gt;</bpt>logo<ept id="ad15bec4-5fe5-4859-a442-5fb80b24ba4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10a14b02-52c0-417d-8126-1f6abe0f49e6" xml:space="preserve">
+          <source><bpt id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;linkText&gt;</bpt>Intacct<ept id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;/linkText&gt;</ept><bpt id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;title&gt;</bpt><ept id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;linkText&gt;</bpt>Intacct<ept id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;/linkText&gt;</ept><bpt id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;title&gt;</bpt><ept id="1e531d1d-f3b7-4e34-b5fc-48ada2ad3c52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a31a9b91-fb74-4bdb-83a3-b9ca8bfa7f95" xml:space="preserve">
+          <source><bpt id="ab214a77-c82b-4779-a47b-29dd5fec2e12">&lt;linkText&gt;</bpt>logo<ept id="ab214a77-c82b-4779-a47b-29dd5fec2e12">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab214a77-c82b-4779-a47b-29dd5fec2e12">&lt;linkText&gt;</bpt>logo<ept id="ab214a77-c82b-4779-a47b-29dd5fec2e12">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8068038b-8131-47b7-abd5-2a3c27f74ce8" xml:space="preserve">
+          <source><bpt id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;linkText&gt;</bpt>ITRP<ept id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;/linkText&gt;</ept><bpt id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;title&gt;</bpt><ept id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;linkText&gt;</bpt>ITRP<ept id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;/linkText&gt;</ept><bpt id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;title&gt;</bpt><ept id="ccb999ac-ee50-48ef-b53e-e614fe19f190">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b06c2c6-5dbe-41c6-bf72-e520d7b6ba38" xml:space="preserve">
+          <source><bpt id="441ecc44-170c-477b-93c1-6ba93e6692e2">&lt;linkText&gt;</bpt>logo<ept id="441ecc44-170c-477b-93c1-6ba93e6692e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="441ecc44-170c-477b-93c1-6ba93e6692e2">&lt;linkText&gt;</bpt>logo<ept id="441ecc44-170c-477b-93c1-6ba93e6692e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d73339a2-9ddc-49b9-99cf-7f40313331aa" xml:space="preserve">
+          <source><bpt id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;linkText&gt;</bpt>Jitbit Helpdesk<ept id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;/linkText&gt;</ept><bpt id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;title&gt;</bpt><ept id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;linkText&gt;</bpt>Jitbit Helpdesk<ept id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;/linkText&gt;</ept><bpt id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;title&gt;</bpt><ept id="46da78b0-f90f-4d60-ba3e-df0d8c9b6a28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9b21e3d-06c9-4ffb-9cbc-9b0a3e5e0f3b" xml:space="preserve">
+          <source><bpt id="8658f725-f80a-4151-bacc-75bbba17881a">&lt;linkText&gt;</bpt>logo<ept id="8658f725-f80a-4151-bacc-75bbba17881a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8658f725-f80a-4151-bacc-75bbba17881a">&lt;linkText&gt;</bpt>logo<ept id="8658f725-f80a-4151-bacc-75bbba17881a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04bbda10-d8c9-45f2-a6b7-ad28e487883d" xml:space="preserve">
+          <source><bpt id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;linkText&gt;</bpt>Jive<ept id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;/linkText&gt;</ept><bpt id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;title&gt;</bpt><ept id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;linkText&gt;</bpt>Jive<ept id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;/linkText&gt;</ept><bpt id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;title&gt;</bpt><ept id="4f763ecd-bcd0-410b-a41c-ae080576fbc1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eca97336-97c2-4043-89ba-8052c63689b4" xml:space="preserve">
+          <source><bpt id="39ec9213-10d3-4b2e-b239-6a8d9cc09eb7">&lt;linkText&gt;</bpt>logo<ept id="39ec9213-10d3-4b2e-b239-6a8d9cc09eb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39ec9213-10d3-4b2e-b239-6a8d9cc09eb7">&lt;linkText&gt;</bpt>logo<ept id="39ec9213-10d3-4b2e-b239-6a8d9cc09eb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09adeadc-5283-411f-9f6c-7aa33e582985" xml:space="preserve">
+          <source><bpt id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;linkText&gt;</bpt>Jobscience<ept id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;/linkText&gt;</ept><bpt id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;title&gt;</bpt><ept id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;linkText&gt;</bpt>Jobscience<ept id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;/linkText&gt;</ept><bpt id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;title&gt;</bpt><ept id="611af846-a777-4c03-bbd3-ab69b69a86a9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="463bae39-a04c-442c-872a-a1656f7b116b" xml:space="preserve">
+          <source><bpt id="e1473f11-4d61-466c-b19f-af02237ed7b5">&lt;linkText&gt;</bpt>logo<ept id="e1473f11-4d61-466c-b19f-af02237ed7b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1473f11-4d61-466c-b19f-af02237ed7b5">&lt;linkText&gt;</bpt>logo<ept id="e1473f11-4d61-466c-b19f-af02237ed7b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73395c6b-8e5e-4ccd-a5c1-948138a51f52" xml:space="preserve">
+          <source><bpt id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;linkText&gt;</bpt>Kintone<ept id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;/linkText&gt;</ept><bpt id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;title&gt;</bpt><ept id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;linkText&gt;</bpt>Kintone<ept id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;/linkText&gt;</ept><bpt id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;title&gt;</bpt><ept id="3bfcd327-b575-415d-bf2f-b015a277bb28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39917a50-5a50-4ec7-8913-c9fb68ef9949" xml:space="preserve">
+          <source><bpt id="7f2f9ad1-4468-49f3-bdd2-45bbc1cee9f3">&lt;linkText&gt;</bpt>logo<ept id="7f2f9ad1-4468-49f3-bdd2-45bbc1cee9f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f2f9ad1-4468-49f3-bdd2-45bbc1cee9f3">&lt;linkText&gt;</bpt>logo<ept id="7f2f9ad1-4468-49f3-bdd2-45bbc1cee9f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b258f165-84de-4e42-b7c0-9a6689d6a7b4" xml:space="preserve">
+          <source><bpt id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;linkText&gt;</bpt>Kontiki<ept id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;/linkText&gt;</ept><bpt id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;title&gt;</bpt><ept id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;linkText&gt;</bpt>Kontiki<ept id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;/linkText&gt;</ept><bpt id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;title&gt;</bpt><ept id="1a63a4af-3a21-444a-b91c-906f9bab4bfb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e7896e2-a750-43bc-a52d-534b6079d436" xml:space="preserve">
+          <source><bpt id="2d7b23c5-cc62-49e6-a9b9-efb6175f9318">&lt;linkText&gt;</bpt>logo<ept id="2d7b23c5-cc62-49e6-a9b9-efb6175f9318">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d7b23c5-cc62-49e6-a9b9-efb6175f9318">&lt;linkText&gt;</bpt>logo<ept id="2d7b23c5-cc62-49e6-a9b9-efb6175f9318">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b164d6f5-061f-4f6f-aacc-13d601815db6" xml:space="preserve">
+          <source><bpt id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;linkText&gt;</bpt>Kudos<ept id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;/linkText&gt;</ept><bpt id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;title&gt;</bpt><ept id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;linkText&gt;</bpt>Kudos<ept id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;/linkText&gt;</ept><bpt id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;title&gt;</bpt><ept id="c5d78c64-ca3a-44eb-9d0b-bf29cd640538">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92a5b368-7edb-416a-bf68-8ddeffd892b6" xml:space="preserve">
+          <source><bpt id="e6a07434-e475-4766-8af8-23e9d1e2d64a">&lt;linkText&gt;</bpt>logo<ept id="e6a07434-e475-4766-8af8-23e9d1e2d64a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e6a07434-e475-4766-8af8-23e9d1e2d64a">&lt;linkText&gt;</bpt>logo<ept id="e6a07434-e475-4766-8af8-23e9d1e2d64a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31bed3e0-caa1-44cc-843d-9132bc8cdc8f" xml:space="preserve">
+          <source><bpt id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;linkText&gt;</bpt>Learningpool<ept id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;/linkText&gt;</ept><bpt id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;title&gt;</bpt><ept id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;linkText&gt;</bpt>Learningpool<ept id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;/linkText&gt;</ept><bpt id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;title&gt;</bpt><ept id="2571d49a-9f04-47cd-93f2-f623cbaeb9e2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="404482c0-289d-417c-92b4-2a48ba85adf0" xml:space="preserve">
+          <source><bpt id="51c19c73-236f-43b0-bea4-e520a039f0dd">&lt;linkText&gt;</bpt>logo<ept id="51c19c73-236f-43b0-bea4-e520a039f0dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51c19c73-236f-43b0-bea4-e520a039f0dd">&lt;linkText&gt;</bpt>logo<ept id="51c19c73-236f-43b0-bea4-e520a039f0dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f464d684-b6da-4bff-86fb-c174a35e7b1a" xml:space="preserve">
+          <source><bpt id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;linkText&gt;</bpt>LogicMonitor<ept id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;/linkText&gt;</ept><bpt id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;title&gt;</bpt><ept id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;linkText&gt;</bpt>LogicMonitor<ept id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;/linkText&gt;</ept><bpt id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;title&gt;</bpt><ept id="5fbe6e84-7aa5-4253-b49d-b9693c6ca6d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="338e0de7-2063-4fec-b430-3dff020a8d34" xml:space="preserve">
+          <source><bpt id="d37ba98d-85da-4d60-8a5e-fe1ad9e8403c">&lt;linkText&gt;</bpt>logo<ept id="d37ba98d-85da-4d60-8a5e-fe1ad9e8403c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d37ba98d-85da-4d60-8a5e-fe1ad9e8403c">&lt;linkText&gt;</bpt>logo<ept id="d37ba98d-85da-4d60-8a5e-fe1ad9e8403c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47320c08-0bea-4ee8-bc6a-220ef11aa912" xml:space="preserve">
+          <source><bpt id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;linkText&gt;</bpt>Lucidchart<ept id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;/linkText&gt;</ept><bpt id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;title&gt;</bpt><ept id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;linkText&gt;</bpt>Lucidchart<ept id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;/linkText&gt;</ept><bpt id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;title&gt;</bpt><ept id="ed77ad7f-3a20-4f78-b696-45c0996e7fe9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="563acb35-69fd-47fc-87f4-83cba0aae9b0" xml:space="preserve">
+          <source><bpt id="fe743aca-7e1a-40a9-a0c5-6769fbea720d">&lt;linkText&gt;</bpt>logo<ept id="fe743aca-7e1a-40a9-a0c5-6769fbea720d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe743aca-7e1a-40a9-a0c5-6769fbea720d">&lt;linkText&gt;</bpt>logo<ept id="fe743aca-7e1a-40a9-a0c5-6769fbea720d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7415eab-c565-4c0c-b62a-04ea4ab44930" xml:space="preserve">
+          <source><bpt id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;linkText&gt;</bpt>Lynda.com<ept id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;/linkText&gt;</ept><bpt id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;title&gt;</bpt><ept id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;linkText&gt;</bpt>Lynda.com<ept id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;/linkText&gt;</ept><bpt id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;title&gt;</bpt><ept id="82d4c82b-9d37-43c8-8c17-3998f6cb7b97">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68300583-190f-4856-9886-282ab54c19cc" xml:space="preserve">
+          <source><bpt id="da669adf-f8ce-442a-b4a1-5df9c7b389d9">&lt;linkText&gt;</bpt>logo<ept id="da669adf-f8ce-442a-b4a1-5df9c7b389d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da669adf-f8ce-442a-b4a1-5df9c7b389d9">&lt;linkText&gt;</bpt>logo<ept id="da669adf-f8ce-442a-b4a1-5df9c7b389d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dfcb680-89bb-499a-b175-22d53a5bc37b" xml:space="preserve">
+          <source><bpt id="df938a13-0747-4e5f-9141-23632845ca99">&lt;linkText&gt;</bpt>Mindflash<ept id="df938a13-0747-4e5f-9141-23632845ca99">&lt;/linkText&gt;</ept><bpt id="df938a13-0747-4e5f-9141-23632845ca99">&lt;title&gt;</bpt><ept id="df938a13-0747-4e5f-9141-23632845ca99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df938a13-0747-4e5f-9141-23632845ca99">&lt;linkText&gt;</bpt>Mindflash<ept id="df938a13-0747-4e5f-9141-23632845ca99">&lt;/linkText&gt;</ept><bpt id="df938a13-0747-4e5f-9141-23632845ca99">&lt;title&gt;</bpt><ept id="df938a13-0747-4e5f-9141-23632845ca99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="357e8054-2a25-43b8-a80f-adc391101ddf" xml:space="preserve">
+          <source><bpt id="92f26abb-e0da-492b-b006-9fefe8199cbe">&lt;linkText&gt;</bpt>logo<ept id="92f26abb-e0da-492b-b006-9fefe8199cbe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="92f26abb-e0da-492b-b006-9fefe8199cbe">&lt;linkText&gt;</bpt>logo<ept id="92f26abb-e0da-492b-b006-9fefe8199cbe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37a25b29-f9aa-4fb3-b6cb-f2ebefccb5fb" xml:space="preserve">
+          <source><bpt id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;linkText&gt;</bpt>Mimecast Admin Console<ept id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;/linkText&gt;</ept><bpt id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;title&gt;</bpt><ept id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;linkText&gt;</bpt>Mimecast Admin Console<ept id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;/linkText&gt;</ept><bpt id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;title&gt;</bpt><ept id="24c81138-3169-46f6-be41-2e98fa640ea2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f33ac7dc-ad2c-4a40-bf65-085670c2ef46" xml:space="preserve">
+          <source><bpt id="24b09262-1653-4fef-8b0a-46c3f54478ed">&lt;linkText&gt;</bpt>logo<ept id="24b09262-1653-4fef-8b0a-46c3f54478ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24b09262-1653-4fef-8b0a-46c3f54478ed">&lt;linkText&gt;</bpt>logo<ept id="24b09262-1653-4fef-8b0a-46c3f54478ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10784abb-ef95-4d87-867b-5bbdb2803d75" xml:space="preserve">
+          <source><bpt id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;linkText&gt;</bpt>Mimecast Personal Portal<ept id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;/linkText&gt;</ept><bpt id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;title&gt;</bpt><ept id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;linkText&gt;</bpt>Mimecast Personal Portal<ept id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;/linkText&gt;</ept><bpt id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;title&gt;</bpt><ept id="7d1aaa4b-3f03-4003-a6e2-b0ea3e8de45c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae2a5cd4-341f-4971-85e5-e55876708094" xml:space="preserve">
+          <source><bpt id="2eff7a6b-a7d2-42c5-a7e1-bca70019f0fb">&lt;linkText&gt;</bpt>logo<ept id="2eff7a6b-a7d2-42c5-a7e1-bca70019f0fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2eff7a6b-a7d2-42c5-a7e1-bca70019f0fb">&lt;linkText&gt;</bpt>logo<ept id="2eff7a6b-a7d2-42c5-a7e1-bca70019f0fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="872b74e6-6aaf-4c0d-a470-994553c1d5ae" xml:space="preserve">
+          <source><bpt id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;linkText&gt;</bpt>Mozy Enterprise<ept id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;/linkText&gt;</ept><bpt id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;title&gt;</bpt><ept id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;linkText&gt;</bpt>Mozy Enterprise<ept id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;/linkText&gt;</ept><bpt id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;title&gt;</bpt><ept id="17aa20c0-56a7-45fb-ac95-57aa2f6f6b5f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c1aff5b-9f92-4b61-a7eb-3413b4c93e05" xml:space="preserve">
+          <source><bpt id="b3e70152-3aba-4715-8fb2-51e93a4b8eb5">&lt;linkText&gt;</bpt>logo<ept id="b3e70152-3aba-4715-8fb2-51e93a4b8eb5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b3e70152-3aba-4715-8fb2-51e93a4b8eb5">&lt;linkText&gt;</bpt>logo<ept id="b3e70152-3aba-4715-8fb2-51e93a4b8eb5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab139667-5a2b-4d9a-916c-136ea85a0da3" xml:space="preserve">
+          <source><bpt id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;linkText&gt;</bpt>NetDocuments<ept id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;/linkText&gt;</ept><bpt id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;title&gt;</bpt><ept id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;linkText&gt;</bpt>NetDocuments<ept id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;/linkText&gt;</ept><bpt id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;title&gt;</bpt><ept id="57946251-3b8c-4d04-b8f5-e42947c9258a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="341796b3-6129-4c55-84c5-61d3245f3bc3" xml:space="preserve">
+          <source><bpt id="652f6344-b456-42ec-b137-b6a89a01a0f2">&lt;linkText&gt;</bpt>logo<ept id="652f6344-b456-42ec-b137-b6a89a01a0f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="652f6344-b456-42ec-b137-b6a89a01a0f2">&lt;linkText&gt;</bpt>logo<ept id="652f6344-b456-42ec-b137-b6a89a01a0f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d55eed8-53ff-4a92-aa63-f0c96b713936" xml:space="preserve">
+          <source><bpt id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;linkText&gt;</bpt>NetSuite<ept id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;/linkText&gt;</ept><bpt id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;title&gt;</bpt><ept id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;linkText&gt;</bpt>NetSuite<ept id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;/linkText&gt;</ept><bpt id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;title&gt;</bpt><ept id="c8e14353-106e-4fc1-a875-f13a999e20ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="901f1253-6325-4e87-b649-a871f1dad1db" xml:space="preserve">
+          <source><bpt id="fd8bd984-2d87-40bc-9f57-dc66526ec7cc">&lt;linkText&gt;</bpt>logo<ept id="fd8bd984-2d87-40bc-9f57-dc66526ec7cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd8bd984-2d87-40bc-9f57-dc66526ec7cc">&lt;linkText&gt;</bpt>logo<ept id="fd8bd984-2d87-40bc-9f57-dc66526ec7cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c85e572f-25c3-4467-9eb4-f16523081785" xml:space="preserve">
+          <source><bpt id="2da5869b-5428-4eba-9f09-97876794496f">&lt;linkText&gt;</bpt>New Relic<ept id="2da5869b-5428-4eba-9f09-97876794496f">&lt;/linkText&gt;</ept><bpt id="2da5869b-5428-4eba-9f09-97876794496f">&lt;title&gt;</bpt><ept id="2da5869b-5428-4eba-9f09-97876794496f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2da5869b-5428-4eba-9f09-97876794496f">&lt;linkText&gt;</bpt>New Relic<ept id="2da5869b-5428-4eba-9f09-97876794496f">&lt;/linkText&gt;</ept><bpt id="2da5869b-5428-4eba-9f09-97876794496f">&lt;title&gt;</bpt><ept id="2da5869b-5428-4eba-9f09-97876794496f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7382758a-4871-492d-b61c-37ffcf1a54fe" xml:space="preserve">
+          <source><bpt id="ef8064f1-c06f-4691-94e2-d4e4923c762e">&lt;linkText&gt;</bpt>logo<ept id="ef8064f1-c06f-4691-94e2-d4e4923c762e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef8064f1-c06f-4691-94e2-d4e4923c762e">&lt;linkText&gt;</bpt>logo<ept id="ef8064f1-c06f-4691-94e2-d4e4923c762e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a2c9ec1-fb16-4f56-84ed-455641585082" xml:space="preserve">
+          <source><bpt id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;linkText&gt;</bpt>OfficeSpace Software<ept id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;/linkText&gt;</ept><bpt id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;title&gt;</bpt><ept id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;linkText&gt;</bpt>OfficeSpace Software<ept id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;/linkText&gt;</ept><bpt id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;title&gt;</bpt><ept id="312b98ef-4926-4a5c-a079-6de60eb2f511">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9a76035-809a-41f8-9e7c-4b5e4917078a" xml:space="preserve">
+          <source><bpt id="6239ec14-a128-4945-bd22-6694ce045d4d">&lt;linkText&gt;</bpt>logo<ept id="6239ec14-a128-4945-bd22-6694ce045d4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6239ec14-a128-4945-bd22-6694ce045d4d">&lt;linkText&gt;</bpt>logo<ept id="6239ec14-a128-4945-bd22-6694ce045d4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb615096-30c0-41cb-8f1f-d5777eafb62a" xml:space="preserve">
+          <source><bpt id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;linkText&gt;</bpt>Onit<ept id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;/linkText&gt;</ept><bpt id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;title&gt;</bpt><ept id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;linkText&gt;</bpt>Onit<ept id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;/linkText&gt;</ept><bpt id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;title&gt;</bpt><ept id="c8ede09a-be55-4cde-bb9a-1fc4adb2f770">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36dcf218-15ca-4a58-8ef3-41a271ee67b5" xml:space="preserve">
+          <source><bpt id="7d28c75c-e6d6-4121-836a-e9a832e48a8d">&lt;linkText&gt;</bpt>logo<ept id="7d28c75c-e6d6-4121-836a-e9a832e48a8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d28c75c-e6d6-4121-836a-e9a832e48a8d">&lt;linkText&gt;</bpt>logo<ept id="7d28c75c-e6d6-4121-836a-e9a832e48a8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90c4f8c2-b4e2-41a1-a576-d79efd29e99f" xml:space="preserve">
+          <source><bpt id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;linkText&gt;</bpt>Overdrive Books<ept id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;/linkText&gt;</ept><bpt id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;title&gt;</bpt><ept id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;linkText&gt;</bpt>Overdrive Books<ept id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;/linkText&gt;</ept><bpt id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;title&gt;</bpt><ept id="ee282557-6905-463c-86a5-f3add98f01a5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8064c10d-e33b-4e86-b59a-cb344b48ac34" xml:space="preserve">
+          <source><bpt id="9096fadd-89c4-4799-887b-acd3ddd65c0e">&lt;linkText&gt;</bpt>logo<ept id="9096fadd-89c4-4799-887b-acd3ddd65c0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9096fadd-89c4-4799-887b-acd3ddd65c0e">&lt;linkText&gt;</bpt>logo<ept id="9096fadd-89c4-4799-887b-acd3ddd65c0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce99fad4-485b-492a-acec-0185673ced1d" xml:space="preserve">
+          <source><bpt id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;linkText&gt;</bpt>Pagerduty<ept id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;/linkText&gt;</ept><bpt id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;title&gt;</bpt><ept id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;linkText&gt;</bpt>Pagerduty<ept id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;/linkText&gt;</ept><bpt id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;title&gt;</bpt><ept id="367601e4-81d4-4cc0-af94-66abb23612ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f4bc47c-57e6-491d-9c64-8e5aceb25739" xml:space="preserve">
+          <source><bpt id="72056956-7e2d-4afb-a1e8-7a1f34ba6c4c">&lt;linkText&gt;</bpt>logo<ept id="72056956-7e2d-4afb-a1e8-7a1f34ba6c4c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72056956-7e2d-4afb-a1e8-7a1f34ba6c4c">&lt;linkText&gt;</bpt>logo<ept id="72056956-7e2d-4afb-a1e8-7a1f34ba6c4c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="994f0e09-59fd-4ddd-97d7-0491ff511759" xml:space="preserve">
+          <source><bpt id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;linkText&gt;</bpt>Panopto<ept id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;/linkText&gt;</ept><bpt id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;title&gt;</bpt><ept id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;linkText&gt;</bpt>Panopto<ept id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;/linkText&gt;</ept><bpt id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;title&gt;</bpt><ept id="3ed1ec2d-27ca-4753-b466-cecfa82ed812">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83618bcb-8dc0-412f-a09d-772e8563ab3d" xml:space="preserve">
+          <source><bpt id="165d8153-deb3-4843-b2fc-54ff4773dd41">&lt;linkText&gt;</bpt>logo<ept id="165d8153-deb3-4843-b2fc-54ff4773dd41">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="165d8153-deb3-4843-b2fc-54ff4773dd41">&lt;linkText&gt;</bpt>logo<ept id="165d8153-deb3-4843-b2fc-54ff4773dd41">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebd2d56f-2dfa-4585-ba57-51b1d6b4048c" xml:space="preserve">
+          <source><bpt id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;linkText&gt;</bpt>Panorama9<ept id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;/linkText&gt;</ept><bpt id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;title&gt;</bpt><ept id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;linkText&gt;</bpt>Panorama9<ept id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;/linkText&gt;</ept><bpt id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;title&gt;</bpt><ept id="d427e20e-4e91-4729-96c7-80ad22859a94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5435e163-9f80-4e0f-8065-d66be96c5ad7" xml:space="preserve">
+          <source><bpt id="70bcc422-57eb-4b46-b458-0329cff86790">&lt;linkText&gt;</bpt>logo<ept id="70bcc422-57eb-4b46-b458-0329cff86790">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70bcc422-57eb-4b46-b458-0329cff86790">&lt;linkText&gt;</bpt>logo<ept id="70bcc422-57eb-4b46-b458-0329cff86790">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82c6e13b-36d0-45cd-968b-937fe2a8d474" xml:space="preserve">
+          <source><bpt id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;linkText&gt;</bpt>Picturepark<ept id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;/linkText&gt;</ept><bpt id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;title&gt;</bpt><ept id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;linkText&gt;</bpt>Picturepark<ept id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;/linkText&gt;</ept><bpt id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;title&gt;</bpt><ept id="18652847-3695-432f-83c6-bdd5d7320ddb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5ffdc2c-1ad7-4b4e-8c5f-e28c89053364" xml:space="preserve">
+          <source><bpt id="57455234-c061-4391-a7a4-5217bb2aaa29">&lt;linkText&gt;</bpt>logo<ept id="57455234-c061-4391-a7a4-5217bb2aaa29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57455234-c061-4391-a7a4-5217bb2aaa29">&lt;linkText&gt;</bpt>logo<ept id="57455234-c061-4391-a7a4-5217bb2aaa29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="735e06a3-8dd5-4ddc-81bd-ba4e89f81aff" xml:space="preserve">
+          <source><bpt id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;linkText&gt;</bpt>Projectplace<ept id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;/linkText&gt;</ept><bpt id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;title&gt;</bpt><ept id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;linkText&gt;</bpt>Projectplace<ept id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;/linkText&gt;</ept><bpt id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;title&gt;</bpt><ept id="fb47b296-fda2-4041-b544-e5644d32494a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="760cd345-2d6b-4f09-aa0e-7f568a4b5ad4" xml:space="preserve">
+          <source><bpt id="24d8d948-133a-4e41-95a7-8b2b202d07f3">&lt;linkText&gt;</bpt>logo<ept id="24d8d948-133a-4e41-95a7-8b2b202d07f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24d8d948-133a-4e41-95a7-8b2b202d07f3">&lt;linkText&gt;</bpt>logo<ept id="24d8d948-133a-4e41-95a7-8b2b202d07f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03f3c657-ee00-4f71-9377-9cac2992a716" xml:space="preserve">
+          <source><bpt id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;linkText&gt;</bpt>Qualtrics<ept id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;/linkText&gt;</ept><bpt id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;title&gt;</bpt><ept id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;linkText&gt;</bpt>Qualtrics<ept id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;/linkText&gt;</ept><bpt id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;title&gt;</bpt><ept id="609fcf45-638d-4f5c-be1f-0ebe1f311bbe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74a800dd-3b7f-4d49-8e23-4e494dfae299" xml:space="preserve">
+          <source><bpt id="9189b191-22d5-43bf-b4ae-0b0c3cf76ce1">&lt;linkText&gt;</bpt>logo<ept id="9189b191-22d5-43bf-b4ae-0b0c3cf76ce1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9189b191-22d5-43bf-b4ae-0b0c3cf76ce1">&lt;linkText&gt;</bpt>logo<ept id="9189b191-22d5-43bf-b4ae-0b0c3cf76ce1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee2569ab-cd44-41bd-af63-e268397938cf" xml:space="preserve">
+          <source><bpt id="d4763655-d627-4caf-8eba-f798112066ae">&lt;linkText&gt;</bpt>Rally Software<ept id="d4763655-d627-4caf-8eba-f798112066ae">&lt;/linkText&gt;</ept><bpt id="d4763655-d627-4caf-8eba-f798112066ae">&lt;title&gt;</bpt><ept id="d4763655-d627-4caf-8eba-f798112066ae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d4763655-d627-4caf-8eba-f798112066ae">&lt;linkText&gt;</bpt>Rally Software<ept id="d4763655-d627-4caf-8eba-f798112066ae">&lt;/linkText&gt;</ept><bpt id="d4763655-d627-4caf-8eba-f798112066ae">&lt;title&gt;</bpt><ept id="d4763655-d627-4caf-8eba-f798112066ae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18210037-194c-4deb-913e-fce3703c0e74" xml:space="preserve">
+          <source><bpt id="b8e5db06-2938-4dfb-9307-1f081112f463">&lt;linkText&gt;</bpt>logo<ept id="b8e5db06-2938-4dfb-9307-1f081112f463">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8e5db06-2938-4dfb-9307-1f081112f463">&lt;linkText&gt;</bpt>logo<ept id="b8e5db06-2938-4dfb-9307-1f081112f463">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a766172d-5420-48ec-9e41-d1c9224cb699" xml:space="preserve">
+          <source><bpt id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;linkText&gt;</bpt>Replicon<ept id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;/linkText&gt;</ept><bpt id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;title&gt;</bpt><ept id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;linkText&gt;</bpt>Replicon<ept id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;/linkText&gt;</ept><bpt id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;title&gt;</bpt><ept id="fae7e5be-eb89-4905-8c0d-fa1a7e9b7961">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f82ab5d5-034d-472d-b3be-c1a3c175cce0" xml:space="preserve">
+          <source><bpt id="9893c152-bb7a-4918-988f-fd5068b35220">&lt;linkText&gt;</bpt>logo<ept id="9893c152-bb7a-4918-988f-fd5068b35220">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9893c152-bb7a-4918-988f-fd5068b35220">&lt;linkText&gt;</bpt>logo<ept id="9893c152-bb7a-4918-988f-fd5068b35220">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0ea41df-fe22-46eb-8ff8-d4cf8051311f" xml:space="preserve">
+          <source><bpt id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;linkText&gt;</bpt>RunMyProcess<ept id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;/linkText&gt;</ept><bpt id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;title&gt;</bpt><ept id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;linkText&gt;</bpt>RunMyProcess<ept id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;/linkText&gt;</ept><bpt id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;title&gt;</bpt><ept id="dee23eb8-4bd2-4d4e-9074-f3529cddd125">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22fda57e-02a7-4aca-a79b-2fe0d68a48ab" xml:space="preserve">
+          <source><bpt id="768c7e49-67ec-4b93-8081-02593f55035a">&lt;linkText&gt;</bpt>logo<ept id="768c7e49-67ec-4b93-8081-02593f55035a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="768c7e49-67ec-4b93-8081-02593f55035a">&lt;linkText&gt;</bpt>logo<ept id="768c7e49-67ec-4b93-8081-02593f55035a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae4d632a-a4e5-4da6-b320-83fd9d2524cb" xml:space="preserve">
+          <source><bpt id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;linkText&gt;</bpt>Salesforce<ept id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;/linkText&gt;</ept><bpt id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;title&gt;</bpt><ept id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;linkText&gt;</bpt>Salesforce<ept id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;/linkText&gt;</ept><bpt id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;title&gt;</bpt><ept id="7064bb84-e60d-4a86-9f31-13475e38358b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f4a6efe-64c2-466d-a5fc-f9a4f84f76ae" xml:space="preserve">
+          <source><bpt id="3aa27bc7-1ca9-442d-bb6a-8d2abd628fe5">&lt;linkText&gt;</bpt>logo<ept id="3aa27bc7-1ca9-442d-bb6a-8d2abd628fe5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3aa27bc7-1ca9-442d-bb6a-8d2abd628fe5">&lt;linkText&gt;</bpt>logo<ept id="3aa27bc7-1ca9-442d-bb6a-8d2abd628fe5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="126470b7-5a9d-4c1f-8e8a-c71a90e855f5" xml:space="preserve">
+          <source><bpt id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;linkText&gt;</bpt>Salesforce Sandbox<ept id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;/linkText&gt;</ept><bpt id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;title&gt;</bpt><ept id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;linkText&gt;</bpt>Salesforce Sandbox<ept id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;/linkText&gt;</ept><bpt id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;title&gt;</bpt><ept id="c94ff7e2-71e1-496f-8c3d-a0a8c76a28d8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e26157f8-3ab9-4360-b935-d4e8b81e171b" xml:space="preserve">
+          <source><bpt id="0c8dae39-5fa3-48dd-9ffb-b8807ef451dc">&lt;linkText&gt;</bpt>logo<ept id="0c8dae39-5fa3-48dd-9ffb-b8807ef451dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c8dae39-5fa3-48dd-9ffb-b8807ef451dc">&lt;linkText&gt;</bpt>logo<ept id="0c8dae39-5fa3-48dd-9ffb-b8807ef451dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c45e793-e9bf-4376-8f48-9abf1ff77bbd" xml:space="preserve">
+          <source><bpt id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;linkText&gt;</bpt>Samanage<ept id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;/linkText&gt;</ept><bpt id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;title&gt;</bpt><ept id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;linkText&gt;</bpt>Samanage<ept id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;/linkText&gt;</ept><bpt id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;title&gt;</bpt><ept id="9c0fd234-eca5-4933-9ace-27ee96078e95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="698fbf8c-578b-4284-8844-179e722ad9f0" xml:space="preserve">
+          <source><bpt id="71bc449e-03d0-477e-93b7-c8bb0340ca0b">&lt;linkText&gt;</bpt>logo<ept id="71bc449e-03d0-477e-93b7-c8bb0340ca0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71bc449e-03d0-477e-93b7-c8bb0340ca0b">&lt;linkText&gt;</bpt>logo<ept id="71bc449e-03d0-477e-93b7-c8bb0340ca0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b10bd8fa-8c04-4b0c-9241-43154b6b9201" xml:space="preserve">
+          <source><bpt id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;linkText&gt;</bpt>SAP HANA Cloud Platform<ept id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;/linkText&gt;</ept><bpt id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;title&gt;</bpt><ept id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;linkText&gt;</bpt>SAP HANA Cloud Platform<ept id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;/linkText&gt;</ept><bpt id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;title&gt;</bpt><ept id="934d3996-2ddb-4728-b900-d1fc213ffcd2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8a846e8-3597-4685-80fd-7cf174d4cb0e" xml:space="preserve">
+          <source><bpt id="4e7c9443-7dd9-4a28-bef7-dad7ceb27c73">&lt;linkText&gt;</bpt>logo<ept id="4e7c9443-7dd9-4a28-bef7-dad7ceb27c73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e7c9443-7dd9-4a28-bef7-dad7ceb27c73">&lt;linkText&gt;</bpt>logo<ept id="4e7c9443-7dd9-4a28-bef7-dad7ceb27c73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b15efc20-b766-4525-96ea-16ca499801a2" xml:space="preserve">
+          <source><bpt id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;linkText&gt;</bpt>SCC LifeCycle<ept id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;/linkText&gt;</ept><bpt id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;title&gt;</bpt><ept id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;linkText&gt;</bpt>SCC LifeCycle<ept id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;/linkText&gt;</ept><bpt id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;title&gt;</bpt><ept id="49e9aa4d-ff49-41a7-8e5b-4d6d3f54d2db">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7932111-3d7f-420e-83eb-20d7536231f4" xml:space="preserve">
+          <source><bpt id="a33ca524-50fd-4a2c-bccd-f6a221c32520">&lt;linkText&gt;</bpt>logo<ept id="a33ca524-50fd-4a2c-bccd-f6a221c32520">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a33ca524-50fd-4a2c-bccd-f6a221c32520">&lt;linkText&gt;</bpt>logo<ept id="a33ca524-50fd-4a2c-bccd-f6a221c32520">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e157ee8c-c546-4b60-bca1-040d0b04441c" xml:space="preserve">
+          <source><bpt id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;linkText&gt;</bpt>Sciforma<ept id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;/linkText&gt;</ept><bpt id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;title&gt;</bpt><ept id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;linkText&gt;</bpt>Sciforma<ept id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;/linkText&gt;</ept><bpt id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;title&gt;</bpt><ept id="250d69ba-6a35-443a-b0e0-e85a8f98bf08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="155e45e5-4882-47c7-bdcd-cc1f64190782" xml:space="preserve">
+          <source><bpt id="1c74b3c3-44ce-4da2-a575-bf2e7739956d">&lt;linkText&gt;</bpt>logo<ept id="1c74b3c3-44ce-4da2-a575-bf2e7739956d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c74b3c3-44ce-4da2-a575-bf2e7739956d">&lt;linkText&gt;</bpt>logo<ept id="1c74b3c3-44ce-4da2-a575-bf2e7739956d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e1ce308-3323-4080-864a-460be43c67dc" xml:space="preserve">
+          <source><bpt id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;linkText&gt;</bpt>SciQuest Spend Director<ept id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;/linkText&gt;</ept><bpt id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;title&gt;</bpt><ept id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;linkText&gt;</bpt>SciQuest Spend Director<ept id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;/linkText&gt;</ept><bpt id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;title&gt;</bpt><ept id="d97472e4-a128-4580-971a-896f6c18e53c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b70f80c9-9805-4354-b710-f972389d627b" xml:space="preserve">
+          <source><bpt id="b50f1a4e-eacc-45a4-a589-fa42ed1d54bf">&lt;linkText&gt;</bpt>logo<ept id="b50f1a4e-eacc-45a4-a589-fa42ed1d54bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b50f1a4e-eacc-45a4-a589-fa42ed1d54bf">&lt;linkText&gt;</bpt>logo<ept id="b50f1a4e-eacc-45a4-a589-fa42ed1d54bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd954f0c-2ef6-4068-b530-edac8ab4263a" xml:space="preserve">
+          <source><bpt id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;linkText&gt;</bpt>ScreenSteps<ept id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;/linkText&gt;</ept><bpt id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;title&gt;</bpt><ept id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;linkText&gt;</bpt>ScreenSteps<ept id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;/linkText&gt;</ept><bpt id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;title&gt;</bpt><ept id="d764be15-aa48-4195-8cfd-7c418fd39888">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b5327c7-0101-4a0f-ab1a-723d60b649d9" xml:space="preserve">
+          <source><bpt id="aabc862e-8cab-40bc-9733-12d2cf4d91d3">&lt;linkText&gt;</bpt>logo<ept id="aabc862e-8cab-40bc-9733-12d2cf4d91d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aabc862e-8cab-40bc-9733-12d2cf4d91d3">&lt;linkText&gt;</bpt>logo<ept id="aabc862e-8cab-40bc-9733-12d2cf4d91d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4151ba36-bfdf-4258-9a75-7aa3369c1eb5" xml:space="preserve">
+          <source><bpt id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;linkText&gt;</bpt>ServiceNow<ept id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;/linkText&gt;</ept><bpt id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;title&gt;</bpt><ept id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;linkText&gt;</bpt>ServiceNow<ept id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;/linkText&gt;</ept><bpt id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;title&gt;</bpt><ept id="10007be4-685a-4821-a301-92d1c9b63d8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46cef1fb-9cbc-468f-93cc-387801e3b0fd" xml:space="preserve">
+          <source><bpt id="34674b7d-1ac6-4934-9022-f783814b8954">&lt;linkText&gt;</bpt>logo<ept id="34674b7d-1ac6-4934-9022-f783814b8954">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34674b7d-1ac6-4934-9022-f783814b8954">&lt;linkText&gt;</bpt>logo<ept id="34674b7d-1ac6-4934-9022-f783814b8954">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce1fac46-dcf0-475b-ac6c-b67932472d46" xml:space="preserve">
+          <source><bpt id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;linkText&gt;</bpt>ShiftPlanning<ept id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;/linkText&gt;</ept><bpt id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;title&gt;</bpt><ept id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;linkText&gt;</bpt>ShiftPlanning<ept id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;/linkText&gt;</ept><bpt id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;title&gt;</bpt><ept id="f0136ba0-b0dc-49e4-8eb8-a2f7bda28104">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fdd3fb9-3df9-4e64-b0f9-9b167bd24d21" xml:space="preserve">
+          <source><bpt id="bed367e6-64b1-4aed-b12a-00107f39ebd0">&lt;linkText&gt;</bpt>logo<ept id="bed367e6-64b1-4aed-b12a-00107f39ebd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bed367e6-64b1-4aed-b12a-00107f39ebd0">&lt;linkText&gt;</bpt>logo<ept id="bed367e6-64b1-4aed-b12a-00107f39ebd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fca6af0-75b2-4858-9fef-dddc16c5d94e" xml:space="preserve">
+          <source><bpt id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;linkText&gt;</bpt>SimpleNexus<ept id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;/linkText&gt;</ept><bpt id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;title&gt;</bpt><ept id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;linkText&gt;</bpt>SimpleNexus<ept id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;/linkText&gt;</ept><bpt id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;title&gt;</bpt><ept id="2c4a895f-a804-49dc-b760-7fa0a9154f0b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d01c077-8d5f-4ed0-99cb-aeb8f598843a" xml:space="preserve">
+          <source><bpt id="f1241da2-7be8-42a6-8fab-8666095432c3">&lt;linkText&gt;</bpt>logo<ept id="f1241da2-7be8-42a6-8fab-8666095432c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1241da2-7be8-42a6-8fab-8666095432c3">&lt;linkText&gt;</bpt>logo<ept id="f1241da2-7be8-42a6-8fab-8666095432c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b55afde-62dc-4f90-b93a-b428d4a39eba" xml:space="preserve">
+          <source><bpt id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;linkText&gt;</bpt>Slack<ept id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;/linkText&gt;</ept><bpt id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;title&gt;</bpt><ept id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;linkText&gt;</bpt>Slack<ept id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;/linkText&gt;</ept><bpt id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;title&gt;</bpt><ept id="5196719a-c5f0-4087-aa5b-4aab472840be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8100fc10-bfe7-473d-bb80-de2985f71ba8" xml:space="preserve">
+          <source><bpt id="ffde2620-23fc-44be-9176-0b301e5a6ac0">&lt;linkText&gt;</bpt>logo<ept id="ffde2620-23fc-44be-9176-0b301e5a6ac0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffde2620-23fc-44be-9176-0b301e5a6ac0">&lt;linkText&gt;</bpt>logo<ept id="ffde2620-23fc-44be-9176-0b301e5a6ac0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="297dad84-a0e5-451c-9afb-4d2334cfbb6f" xml:space="preserve">
+          <source><bpt id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;linkText&gt;</bpt>SmarterU<ept id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;/linkText&gt;</ept><bpt id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;title&gt;</bpt><ept id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;linkText&gt;</bpt>SmarterU<ept id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;/linkText&gt;</ept><bpt id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;title&gt;</bpt><ept id="000b2cc5-07bc-4cc0-8058-eacf58ec7c7b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b62f8484-55a2-4a7b-814e-84e14467ef3d" xml:space="preserve">
+          <source><bpt id="179c21c3-72fe-4109-8afc-9a3ce7df0743">&lt;linkText&gt;</bpt>logo<ept id="179c21c3-72fe-4109-8afc-9a3ce7df0743">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="179c21c3-72fe-4109-8afc-9a3ce7df0743">&lt;linkText&gt;</bpt>logo<ept id="179c21c3-72fe-4109-8afc-9a3ce7df0743">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e24388fe-d062-471b-a85d-93bf174b14aa" xml:space="preserve">
+          <source><bpt id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;linkText&gt;</bpt>Spring CM<ept id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;/linkText&gt;</ept><bpt id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;title&gt;</bpt><ept id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;linkText&gt;</bpt>Spring CM<ept id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;/linkText&gt;</ept><bpt id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;title&gt;</bpt><ept id="fa59005c-627c-400a-93b1-34d329a3ac6c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d7cba30-b12a-4350-84ce-95c00a52fbc5" xml:space="preserve">
+          <source><bpt id="e5c7df32-b073-45f5-96d4-a7a1c63e1ff0">&lt;linkText&gt;</bpt>logo<ept id="e5c7df32-b073-45f5-96d4-a7a1c63e1ff0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5c7df32-b073-45f5-96d4-a7a1c63e1ff0">&lt;linkText&gt;</bpt>logo<ept id="e5c7df32-b073-45f5-96d4-a7a1c63e1ff0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4373512a-9602-4c05-8663-a2eb8c38905c" xml:space="preserve">
+          <source><bpt id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;linkText&gt;</bpt>Sprinklr<ept id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;/linkText&gt;</ept><bpt id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;title&gt;</bpt><ept id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;linkText&gt;</bpt>Sprinklr<ept id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;/linkText&gt;</ept><bpt id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;title&gt;</bpt><ept id="46cf0f08-b224-4562-8ffb-f955129a12e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0c12968-8ccd-4ec7-8128-878b44babefc" xml:space="preserve">
+          <source><bpt id="55bf4634-7b0c-402a-8baa-94ed5f5e7064">&lt;linkText&gt;</bpt>logo<ept id="55bf4634-7b0c-402a-8baa-94ed5f5e7064">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55bf4634-7b0c-402a-8baa-94ed5f5e7064">&lt;linkText&gt;</bpt>logo<ept id="55bf4634-7b0c-402a-8baa-94ed5f5e7064">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1a58a5b-2dbf-4ee8-9614-0f3815097a69" xml:space="preserve">
+          <source><bpt id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;linkText&gt;</bpt>SuccessFactors<ept id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;/linkText&gt;</ept><bpt id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;title&gt;</bpt><ept id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;linkText&gt;</bpt>SuccessFactors<ept id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;/linkText&gt;</ept><bpt id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;title&gt;</bpt><ept id="f1bb995a-0893-4df7-8f62-154c6338834d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d90bfe39-4d93-4b84-b985-c20ebcf0d325" xml:space="preserve">
+          <source><bpt id="571505cb-1635-4131-b22a-5ca4e5573f5c">&lt;linkText&gt;</bpt>logo<ept id="571505cb-1635-4131-b22a-5ca4e5573f5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="571505cb-1635-4131-b22a-5ca4e5573f5c">&lt;linkText&gt;</bpt>logo<ept id="571505cb-1635-4131-b22a-5ca4e5573f5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="174ad932-5963-4a54-b99f-550c8fd21644" xml:space="preserve">
+          <source><bpt id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;linkText&gt;</bpt>SugarCRM<ept id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;/linkText&gt;</ept><bpt id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;title&gt;</bpt><ept id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;linkText&gt;</bpt>SugarCRM<ept id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;/linkText&gt;</ept><bpt id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;title&gt;</bpt><ept id="13942fdc-4092-4e65-bdf1-d9207bb1a910">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22e3f546-4231-4352-9672-e1ea42d6e981" xml:space="preserve">
+          <source><bpt id="91bf7864-a8e9-4110-9596-0a5281b1b21b">&lt;linkText&gt;</bpt>logo<ept id="91bf7864-a8e9-4110-9596-0a5281b1b21b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91bf7864-a8e9-4110-9596-0a5281b1b21b">&lt;linkText&gt;</bpt>logo<ept id="91bf7864-a8e9-4110-9596-0a5281b1b21b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb18e59f-8a67-40a8-9de3-e66b839c53c5" xml:space="preserve">
+          <source><bpt id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;linkText&gt;</bpt>SumoLogic<ept id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;/linkText&gt;</ept><bpt id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;title&gt;</bpt><ept id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;linkText&gt;</bpt>SumoLogic<ept id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;/linkText&gt;</ept><bpt id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;title&gt;</bpt><ept id="57dcd40c-f7e4-40b4-a281-fcb2e964d132">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8aeee73-f269-45b2-8343-a08c472ec4e5" xml:space="preserve">
+          <source><bpt id="2f28580c-1358-4184-9acc-6ac4f77cf0af">&lt;linkText&gt;</bpt>logo<ept id="2f28580c-1358-4184-9acc-6ac4f77cf0af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f28580c-1358-4184-9acc-6ac4f77cf0af">&lt;linkText&gt;</bpt>logo<ept id="2f28580c-1358-4184-9acc-6ac4f77cf0af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="766dfc89-6f8d-4ade-a0bf-fada0f586748" xml:space="preserve">
+          <source><bpt id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;linkText&gt;</bpt>Syncplicity<ept id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;/linkText&gt;</ept><bpt id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;title&gt;</bpt><ept id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;linkText&gt;</bpt>Syncplicity<ept id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;/linkText&gt;</ept><bpt id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;title&gt;</bpt><ept id="7bc28b93-51d6-496f-9794-392c4244ac22">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edd51aea-625f-4dc3-90d3-9437076f4afb" xml:space="preserve">
+          <source><bpt id="40f34617-4a53-483c-a7d8-efb5e7c7e332">&lt;linkText&gt;</bpt>logo<ept id="40f34617-4a53-483c-a7d8-efb5e7c7e332">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40f34617-4a53-483c-a7d8-efb5e7c7e332">&lt;linkText&gt;</bpt>logo<ept id="40f34617-4a53-483c-a7d8-efb5e7c7e332">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c69a6dc8-b029-476a-9967-ac57c48a87fb" xml:space="preserve">
+          <source><bpt id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;linkText&gt;</bpt>TalentLMS<ept id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;/linkText&gt;</ept><bpt id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;title&gt;</bpt><ept id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;linkText&gt;</bpt>TalentLMS<ept id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;/linkText&gt;</ept><bpt id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;title&gt;</bpt><ept id="1b4d37a3-6ffb-448c-8737-e407411bd99b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7987844e-8fb0-4bbc-b633-e82373a7ee78" xml:space="preserve">
+          <source><bpt id="c3f707f7-a9ca-443c-bde8-295cd9cef156">&lt;linkText&gt;</bpt>logo<ept id="c3f707f7-a9ca-443c-bde8-295cd9cef156">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3f707f7-a9ca-443c-bde8-295cd9cef156">&lt;linkText&gt;</bpt>logo<ept id="c3f707f7-a9ca-443c-bde8-295cd9cef156">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb9c2b88-42dd-418a-9781-498fe495e0d3" xml:space="preserve">
+          <source><bpt id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;linkText&gt;</bpt>TeamSeer<ept id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;/linkText&gt;</ept><bpt id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;title&gt;</bpt><ept id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;linkText&gt;</bpt>TeamSeer<ept id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;/linkText&gt;</ept><bpt id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;title&gt;</bpt><ept id="bf79c59c-6cfa-4ab1-b97c-1b887b55272c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e00eb8df-d345-4cfe-ba53-5072c4c6ae8f" xml:space="preserve">
+          <source><bpt id="4403fa97-74d4-4356-b2c2-55b24cb57008">&lt;linkText&gt;</bpt>logo<ept id="4403fa97-74d4-4356-b2c2-55b24cb57008">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4403fa97-74d4-4356-b2c2-55b24cb57008">&lt;linkText&gt;</bpt>logo<ept id="4403fa97-74d4-4356-b2c2-55b24cb57008">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fe49ce7-de17-4e27-8da1-4d2f1bdf69fa" xml:space="preserve">
+          <source><bpt id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;linkText&gt;</bpt>Thirdlight<ept id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;/linkText&gt;</ept><bpt id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;title&gt;</bpt><ept id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;linkText&gt;</bpt>Thirdlight<ept id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;/linkText&gt;</ept><bpt id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;title&gt;</bpt><ept id="a919fb06-7863-4aca-a8a8-40e163b19588">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e782318d-d004-496a-b44e-2cc3edcf8297" xml:space="preserve">
+          <source><bpt id="2a18b9c2-a14a-4fd8-abb5-76aaf89358b9">&lt;linkText&gt;</bpt>logo<ept id="2a18b9c2-a14a-4fd8-abb5-76aaf89358b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a18b9c2-a14a-4fd8-abb5-76aaf89358b9">&lt;linkText&gt;</bpt>logo<ept id="2a18b9c2-a14a-4fd8-abb5-76aaf89358b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="498e5a42-b31f-4efe-8ebb-c8fb57743bf2" xml:space="preserve">
+          <source><bpt id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;linkText&gt;</bpt>Thoughtworks Mingle<ept id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;/linkText&gt;</ept><bpt id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;title&gt;</bpt><ept id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;linkText&gt;</bpt>Thoughtworks Mingle<ept id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;/linkText&gt;</ept><bpt id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;title&gt;</bpt><ept id="3d8538d6-7d95-4105-ad8a-0ac5a53cabfc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f20cdeb-f30a-45eb-8ec4-64b3c7bcebe7" xml:space="preserve">
+          <source><bpt id="ca2b6442-0a6d-4e54-b6bd-58860932f90e">&lt;linkText&gt;</bpt>logo<ept id="ca2b6442-0a6d-4e54-b6bd-58860932f90e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca2b6442-0a6d-4e54-b6bd-58860932f90e">&lt;linkText&gt;</bpt>logo<ept id="ca2b6442-0a6d-4e54-b6bd-58860932f90e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0c5935a-3452-4b63-ba1c-f05587e9b983" xml:space="preserve">
+          <source><bpt id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;linkText&gt;</bpt>ThousandEyes<ept id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;/linkText&gt;</ept><bpt id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;title&gt;</bpt><ept id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;linkText&gt;</bpt>ThousandEyes<ept id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;/linkText&gt;</ept><bpt id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;title&gt;</bpt><ept id="0876d9b9-5966-4e93-a262-b977609b2a7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6e2ebdd-1e69-43cc-b1d8-14467cd65ffa" xml:space="preserve">
+          <source><bpt id="3e251510-706f-49af-aa33-797e1f15e1ea">&lt;linkText&gt;</bpt>logo<ept id="3e251510-706f-49af-aa33-797e1f15e1ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e251510-706f-49af-aa33-797e1f15e1ea">&lt;linkText&gt;</bpt>logo<ept id="3e251510-706f-49af-aa33-797e1f15e1ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c7078e7-4e17-420e-8cbf-fd3e5168d9d8" xml:space="preserve">
+          <source><bpt id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;linkText&gt;</bpt>TimeOffManager<ept id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;/linkText&gt;</ept><bpt id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;title&gt;</bpt><ept id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;linkText&gt;</bpt>TimeOffManager<ept id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;/linkText&gt;</ept><bpt id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;title&gt;</bpt><ept id="3899c67c-d929-433f-9b76-e743d8d77742">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cebdaad-e92a-4526-a66d-baa1cdd7ec75" xml:space="preserve">
+          <source><bpt id="e2fae164-6e45-40db-bc56-d197f4f195cc">&lt;linkText&gt;</bpt>logo<ept id="e2fae164-6e45-40db-bc56-d197f4f195cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2fae164-6e45-40db-bc56-d197f4f195cc">&lt;linkText&gt;</bpt>logo<ept id="e2fae164-6e45-40db-bc56-d197f4f195cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af219e91-e413-4442-a98d-cfd1b39700ed" xml:space="preserve">
+          <source><bpt id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;linkText&gt;</bpt>Tinfoil Security<ept id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;/linkText&gt;</ept><bpt id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;title&gt;</bpt><ept id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;linkText&gt;</bpt>Tinfoil Security<ept id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;/linkText&gt;</ept><bpt id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;title&gt;</bpt><ept id="12401fd2-2355-4454-b45a-6adce9aad4f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a22a024f-b169-4639-918a-e646cb93dcf9" xml:space="preserve">
+          <source><bpt id="23180a73-f097-4cc7-ac4a-7e00b59d3683">&lt;linkText&gt;</bpt>logo<ept id="23180a73-f097-4cc7-ac4a-7e00b59d3683">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23180a73-f097-4cc7-ac4a-7e00b59d3683">&lt;linkText&gt;</bpt>logo<ept id="23180a73-f097-4cc7-ac4a-7e00b59d3683">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aede9432-cd7d-4db6-9c07-718e3def70d1" xml:space="preserve">
+          <source><bpt id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;linkText&gt;</bpt>TOPdesk - Public<ept id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;/linkText&gt;</ept><bpt id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;title&gt;</bpt><ept id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;linkText&gt;</bpt>TOPdesk - Public<ept id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;/linkText&gt;</ept><bpt id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;title&gt;</bpt><ept id="d6b9e950-45ed-4847-b59b-b3eee5c73a30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23e47431-20d5-48ab-b885-5049fa3d8645" xml:space="preserve">
+          <source><bpt id="714f6091-c1e9-451c-84f2-90243f4eb8cf">&lt;linkText&gt;</bpt>logo<ept id="714f6091-c1e9-451c-84f2-90243f4eb8cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="714f6091-c1e9-451c-84f2-90243f4eb8cf">&lt;linkText&gt;</bpt>logo<ept id="714f6091-c1e9-451c-84f2-90243f4eb8cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0003df0-e1de-41bd-ab96-81045a75b0b1" xml:space="preserve">
+          <source><bpt id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;linkText&gt;</bpt>TOPdesk - Secure<ept id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;/linkText&gt;</ept><bpt id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;title&gt;</bpt><ept id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;linkText&gt;</bpt>TOPdesk - Secure<ept id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;/linkText&gt;</ept><bpt id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;title&gt;</bpt><ept id="96930862-916d-442a-9704-cb5e46e9f13a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47c98e2c-02ab-4628-a348-d99465e0c9c2" xml:space="preserve">
+          <source><bpt id="043fdebc-6fa8-4f98-b0a2-308feac3bfd1">&lt;linkText&gt;</bpt>logo<ept id="043fdebc-6fa8-4f98-b0a2-308feac3bfd1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="043fdebc-6fa8-4f98-b0a2-308feac3bfd1">&lt;linkText&gt;</bpt>logo<ept id="043fdebc-6fa8-4f98-b0a2-308feac3bfd1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9477d27e-0e09-4d19-ba00-786f5c97d36b" xml:space="preserve">
+          <source><bpt id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;linkText&gt;</bpt>UserVoice<ept id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;/linkText&gt;</ept><bpt id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;title&gt;</bpt><ept id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;linkText&gt;</bpt>UserVoice<ept id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;/linkText&gt;</ept><bpt id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;title&gt;</bpt><ept id="02a01596-5be1-457f-a126-7091cf2a1bf9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a84862e-c11b-4513-9aa8-5950176b79ac" xml:space="preserve">
+          <source><bpt id="180b56d3-9485-4743-9a18-e7a798ac0ba8">&lt;linkText&gt;</bpt>logo<ept id="180b56d3-9485-4743-9a18-e7a798ac0ba8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="180b56d3-9485-4743-9a18-e7a798ac0ba8">&lt;linkText&gt;</bpt>logo<ept id="180b56d3-9485-4743-9a18-e7a798ac0ba8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0eaaf73-94a9-46f2-a605-dfc0435bdcb9" xml:space="preserve">
+          <source><bpt id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;linkText&gt;</bpt>Veracode<ept id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;/linkText&gt;</ept><bpt id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;title&gt;</bpt><ept id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;linkText&gt;</bpt>Veracode<ept id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;/linkText&gt;</ept><bpt id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;title&gt;</bpt><ept id="49ea4e2f-e6d9-43f3-8029-90c3f934eca4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25661456-0583-4b62-a62c-fe72b88eb24e" xml:space="preserve">
+          <source><bpt id="7737118e-6a13-481b-bd3c-4ea26baa63da">&lt;linkText&gt;</bpt>logo<ept id="7737118e-6a13-481b-bd3c-4ea26baa63da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7737118e-6a13-481b-bd3c-4ea26baa63da">&lt;linkText&gt;</bpt>logo<ept id="7737118e-6a13-481b-bd3c-4ea26baa63da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08c3df99-2cdb-4636-8584-9b4d039a3afc" xml:space="preserve">
+          <source><bpt id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;linkText&gt;</bpt>Wikispaces<ept id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;/linkText&gt;</ept><bpt id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;title&gt;</bpt><ept id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;linkText&gt;</bpt>Wikispaces<ept id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;/linkText&gt;</ept><bpt id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;title&gt;</bpt><ept id="b45f05d3-a1d5-4d73-96c8-b48ca75ca148">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e20a8cd-eb25-4585-9cb5-c8f981505a6b" xml:space="preserve">
+          <source><bpt id="5f510285-17df-4a41-ac0c-be3b82b9f947">&lt;linkText&gt;</bpt>logo<ept id="5f510285-17df-4a41-ac0c-be3b82b9f947">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f510285-17df-4a41-ac0c-be3b82b9f947">&lt;linkText&gt;</bpt>logo<ept id="5f510285-17df-4a41-ac0c-be3b82b9f947">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2f84c99-b53f-485d-97ba-cb20de0bb56a" xml:space="preserve">
+          <source><bpt id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;linkText&gt;</bpt>Work.com<ept id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;/linkText&gt;</ept><bpt id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;title&gt;</bpt><ept id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;linkText&gt;</bpt>Work.com<ept id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;/linkText&gt;</ept><bpt id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;title&gt;</bpt><ept id="c584a5bb-81de-4d89-b7df-bf02bb4ec281">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3c3473c-f4f3-4c3b-9680-e9a3dc2cb66f" xml:space="preserve">
+          <source><bpt id="50946b85-2c9a-47cf-ab7e-ddab032aac32">&lt;linkText&gt;</bpt>logo<ept id="50946b85-2c9a-47cf-ab7e-ddab032aac32">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50946b85-2c9a-47cf-ab7e-ddab032aac32">&lt;linkText&gt;</bpt>logo<ept id="50946b85-2c9a-47cf-ab7e-ddab032aac32">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e8e44de-c465-4f8e-8d4e-253b4f004f49" xml:space="preserve">
+          <source><bpt id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;linkText&gt;</bpt>Workday<ept id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;/linkText&gt;</ept><bpt id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;title&gt;</bpt><ept id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;linkText&gt;</bpt>Workday<ept id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;/linkText&gt;</ept><bpt id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;title&gt;</bpt><ept id="de3aeb21-4657-4340-8276-cca0213dfca0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7696b65b-5ea0-4199-8497-5a80a685ea16" xml:space="preserve">
+          <source><bpt id="5991c0ae-847c-4660-8f2b-4e61ebdd0453">&lt;linkText&gt;</bpt>logo<ept id="5991c0ae-847c-4660-8f2b-4e61ebdd0453">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5991c0ae-847c-4660-8f2b-4e61ebdd0453">&lt;linkText&gt;</bpt>logo<ept id="5991c0ae-847c-4660-8f2b-4e61ebdd0453">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e6a8a80-aa29-4474-82d4-0d7983de8aec" xml:space="preserve">
+          <source><bpt id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;linkText&gt;</bpt>Workday Inbound Synchronization<ept id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;/linkText&gt;</ept><bpt id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;title&gt;</bpt><ept id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;linkText&gt;</bpt>Workday Inbound Synchronization<ept id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;/linkText&gt;</ept><bpt id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;title&gt;</bpt><ept id="1f755f54-967e-42dd-b89f-82f9c89aa554">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d57986ff-356c-4900-aaba-18a843e85499" xml:space="preserve">
+          <source><bpt id="59d6c3c8-4cae-40e6-a82d-c31bc631a84a">&lt;linkText&gt;</bpt>logo<ept id="59d6c3c8-4cae-40e6-a82d-c31bc631a84a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59d6c3c8-4cae-40e6-a82d-c31bc631a84a">&lt;linkText&gt;</bpt>logo<ept id="59d6c3c8-4cae-40e6-a82d-c31bc631a84a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11d05c88-1960-4913-ad87-e37c55d3f9e7" xml:space="preserve">
+          <source><bpt id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;linkText&gt;</bpt>xMatters OnDemand<ept id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;/linkText&gt;</ept><bpt id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;title&gt;</bpt><ept id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;linkText&gt;</bpt>xMatters OnDemand<ept id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;/linkText&gt;</ept><bpt id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;title&gt;</bpt><ept id="1241b36f-823c-473c-8ac8-54c5db810607">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b654f47a-25eb-407d-bf34-5402af93f523" xml:space="preserve">
+          <source><bpt id="bb5d66d6-4e5e-4912-abcd-c7d7410b33e7">&lt;linkText&gt;</bpt>logo<ept id="bb5d66d6-4e5e-4912-abcd-c7d7410b33e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb5d66d6-4e5e-4912-abcd-c7d7410b33e7">&lt;linkText&gt;</bpt>logo<ept id="bb5d66d6-4e5e-4912-abcd-c7d7410b33e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55025aa9-e725-4154-8d80-2b4eb1ef288f" xml:space="preserve">
+          <source><bpt id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;linkText&gt;</bpt>Zendesk<ept id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;/linkText&gt;</ept><bpt id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;title&gt;</bpt><ept id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;linkText&gt;</bpt>Zendesk<ept id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;/linkText&gt;</ept><bpt id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;title&gt;</bpt><ept id="2f5a980b-ef3e-4170-9d5c-1c3d9e4ff472">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b932c94-dcdd-4545-a078-d5a3003c001a" xml:space="preserve">
+          <source><bpt id="837d27a7-a428-48c5-a8b8-9330ef52f883">&lt;linkText&gt;</bpt>logo<ept id="837d27a7-a428-48c5-a8b8-9330ef52f883">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="837d27a7-a428-48c5-a8b8-9330ef52f883">&lt;linkText&gt;</bpt>logo<ept id="837d27a7-a428-48c5-a8b8-9330ef52f883">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="644ec79d-7d9d-41b7-ada0-da289310d8d3" xml:space="preserve">
+          <source><bpt id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;linkText&gt;</bpt>Zoho Mail<ept id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;/linkText&gt;</ept><bpt id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;title&gt;</bpt><ept id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;linkText&gt;</bpt>Zoho Mail<ept id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;/linkText&gt;</ept><bpt id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;title&gt;</bpt><ept id="87a59322-5333-40e1-8df8-cc9fa197c6ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="999be888-feb6-4642-8ffd-15597386e8f3" xml:space="preserve">
+          <source><bpt id="b418c226-a5eb-4b54-930d-906b4f804bce">&lt;linkText&gt;</bpt>logo<ept id="b418c226-a5eb-4b54-930d-906b4f804bce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b418c226-a5eb-4b54-930d-906b4f804bce">&lt;linkText&gt;</bpt>logo<ept id="b418c226-a5eb-4b54-930d-906b4f804bce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ba50bf6-9d76-4f98-a552-5aba1262f884" xml:space="preserve">
+          <source><bpt id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;linkText&gt;</bpt>Zoom<ept id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;/linkText&gt;</ept><bpt id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;title&gt;</bpt><ept id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;linkText&gt;</bpt>Zoom<ept id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;/linkText&gt;</ept><bpt id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;title&gt;</bpt><ept id="3d82b6ef-f506-40df-a627-d767fdda8a42">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdff3e82-28e2-476c-b0b2-f14d4ee5ab74" xml:space="preserve">
+          <source><bpt id="645005cb-ca16-41fb-9f8d-0eff344aac90">&lt;linkText&gt;</bpt>logo<ept id="645005cb-ca16-41fb-9f8d-0eff344aac90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="645005cb-ca16-41fb-9f8d-0eff344aac90">&lt;linkText&gt;</bpt>logo<ept id="645005cb-ca16-41fb-9f8d-0eff344aac90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0ee5fbf-cbad-475e-96b7-bff4c3386312" xml:space="preserve">
+          <source><bpt id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;linkText&gt;</bpt>Zscaler<ept id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;/linkText&gt;</ept><bpt id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;title&gt;</bpt><ept id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;linkText&gt;</bpt>Zscaler<ept id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;/linkText&gt;</ept><bpt id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;title&gt;</bpt><ept id="aa40ed3c-51f3-48f8-8af8-79ab2bf361c1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5908796e-3c26-4f29-a926-5d4f466429f1" xml:space="preserve">
+          <source><bpt id="17068052-fba6-4a1a-8bb0-50bef18a8a41">&lt;linkText&gt;</bpt>logo<ept id="17068052-fba6-4a1a-8bb0-50bef18a8a41">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17068052-fba6-4a1a-8bb0-50bef18a8a41">&lt;linkText&gt;</bpt>logo<ept id="17068052-fba6-4a1a-8bb0-50bef18a8a41">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a08ed349-2847-47a8-ab74-79b82c77744e" xml:space="preserve">
+          <source><bpt id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;linkText&gt;</bpt>Zscaler ZSCloud<ept id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;/linkText&gt;</ept><bpt id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;title&gt;</bpt><ept id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;linkText&gt;</bpt>Zscaler ZSCloud<ept id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;/linkText&gt;</ept><bpt id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;title&gt;</bpt><ept id="aba565b1-8d06-4f09-8c91-70a3df23265a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="707430d4-2a86-470c-9e48-a4b08313212f" xml:space="preserve">
+          <source><bpt id="ec20aafa-5c0b-4696-aded-7b23b3218be7">&lt;linkText&gt;</bpt>logo<ept id="ec20aafa-5c0b-4696-aded-7b23b3218be7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec20aafa-5c0b-4696-aded-7b23b3218be7">&lt;linkText&gt;</bpt>logo<ept id="ec20aafa-5c0b-4696-aded-7b23b3218be7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e3cfeb5-9b36-4951-8ea9-45267bd275d6" xml:space="preserve">
+          <source><bpt id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;linkText&gt;</bpt>Zscaler Beta<ept id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;/linkText&gt;</ept><bpt id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;title&gt;</bpt><ept id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;linkText&gt;</bpt>Zscaler Beta<ept id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;/linkText&gt;</ept><bpt id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;title&gt;</bpt><ept id="a0e32898-bf9d-4719-ab21-fe87e59dcb2c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15c8dce3-d7da-4d73-aab3-497f91ea0083" xml:space="preserve">
+          <source><bpt id="75415655-562c-4841-b32a-813599ea6eb2">&lt;linkText&gt;</bpt>logo<ept id="75415655-562c-4841-b32a-813599ea6eb2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="75415655-562c-4841-b32a-813599ea6eb2">&lt;linkText&gt;</bpt>logo<ept id="75415655-562c-4841-b32a-813599ea6eb2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6aa0ad2-73f5-4199-b992-a5b338984b02" xml:space="preserve">
+          <source><bpt id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;linkText&gt;</bpt>Zscaler One<ept id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;/linkText&gt;</ept><bpt id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;title&gt;</bpt><ept id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;linkText&gt;</bpt>Zscaler One<ept id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;/linkText&gt;</ept><bpt id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;title&gt;</bpt><ept id="a71c8e24-3bb1-4c38-ab0a-f7b1cb8a9432">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="813bee21-af31-4d41-888d-2524b35e57c9" xml:space="preserve">
+          <source><bpt id="1970969a-f014-49f8-93ee-724d7aa73f6c">&lt;linkText&gt;</bpt>logo<ept id="1970969a-f014-49f8-93ee-724d7aa73f6c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1970969a-f014-49f8-93ee-724d7aa73f6c">&lt;linkText&gt;</bpt>logo<ept id="1970969a-f014-49f8-93ee-724d7aa73f6c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="473a94af-0bc5-4e15-ab82-370f47b36867" xml:space="preserve">
+          <source><bpt id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;linkText&gt;</bpt>Zscaler Two<ept id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;/linkText&gt;</ept><bpt id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;title&gt;</bpt><ept id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;linkText&gt;</bpt>Zscaler Two<ept id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;/linkText&gt;</ept><bpt id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;title&gt;</bpt><ept id="b1b1d8e9-c8fb-483a-b4b6-fb2684a7622b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="387a9e6e-188c-452d-8443-46c8e4d255e8" xml:space="preserve">
+          <source><bpt id="80b32544-e7ee-467e-9aa9-b102290bd19c">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="80b32544-e7ee-467e-9aa9-b102290bd19c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="80b32544-e7ee-467e-9aa9-b102290bd19c">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="80b32544-e7ee-467e-9aa9-b102290bd19c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

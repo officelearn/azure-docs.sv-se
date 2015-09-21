@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ac502bc5-d05b-47d7-8cb8-319078a6fe30" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ac502bc5-d05b-47d7-8cb8-319078a6fe30" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5b62f94b-3165-477f-b368-fcf19165b206">
+        <trans-unit id="397a54d8-d228-40f5-8013-9ccb93d48f44" xml:space="preserve">
+          <source>Using the Yammer Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the Yammer Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="6e8c24b6-4598-455d-be9e-e99199f69529" xml:space="preserve">
+          <source>How to create and configure the Yammer Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the Yammer Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="ff15b448-173b-4d42-ad65-f3421bf93415" xml:space="preserve">
+          <source>Connect to Yammer and Post Messages action and a trigger to retrieve new message.</source>
+          <target state="new">Connect to Yammer and Post Messages action and a trigger to retrieve new message.</target>
+        </trans-unit>
+        <trans-unit id="e668dfee-b549-41b8-89c4-6753d9e8ddaf" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="3b26e73b-d930-481b-bc9d-94f481ff431d" xml:space="preserve">
+          <source>To use the Yammer connector, you need to first create an instance of the Yammer connector API app.</source>
+          <target state="new">To use the Yammer connector, you need to first create an instance of the Yammer connector API app.</target>
+        </trans-unit>
+        <trans-unit id="2279ee87-fc53-44bf-9f9f-9902ab9e8a87" xml:space="preserve">
+          <source>This can be done as follows:</source>
+          <target state="new">This can be done as follows:</target>
+        </trans-unit>
+        <trans-unit id="33506a56-46d4-4230-b91c-7e93282e2591" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="9ac82d90-86a1-4817-8139-d26747664b54">&lt;strong&gt;</bpt>Marketplace<ept id="9ac82d90-86a1-4817-8139-d26747664b54">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="9ac82d90-86a1-4817-8139-d26747664b54">&lt;strong&gt;</bpt>Marketplace<ept id="9ac82d90-86a1-4817-8139-d26747664b54">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="617cafa6-9891-414b-a094-974e7c2817ac" xml:space="preserve">
+          <source>Search for “Yammer Connector”, select it, and select <bpt id="a18bbd30-9860-4ce2-befb-b1ae51fc3754">&lt;strong&gt;</bpt>Create<ept id="a18bbd30-9860-4ce2-befb-b1ae51fc3754">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “Yammer Connector”, select it, and select <bpt id="a18bbd30-9860-4ce2-befb-b1ae51fc3754">&lt;strong&gt;</bpt>Create<ept id="a18bbd30-9860-4ce2-befb-b1ae51fc3754">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fe094d0-143d-43d2-8075-91475950434b" xml:space="preserve">
+          <source>Configure the Yammer connector as follows:  
+<bpt id="e5109985-3e32-438f-bedf-d65ab664121b">&lt;linkText&gt;</bpt><ept id="e5109985-3e32-438f-bedf-d65ab664121b">&lt;/linkText&gt;</ept></source>
+          <target state="new">Configure the Yammer connector as follows:  
+<bpt id="e5109985-3e32-438f-bedf-d65ab664121b">&lt;linkText&gt;</bpt><ept id="e5109985-3e32-438f-bedf-d65ab664121b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa097d65-f513-433b-bcc8-721630e92037" xml:space="preserve">
+          <source><bpt id="c29ca272-914f-40f4-90cf-5da1d127d8a4">&lt;strong&gt;</bpt>Location<ept id="c29ca272-914f-40f4-90cf-5da1d127d8a4">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</source>
+          <target state="new"><bpt id="c29ca272-914f-40f4-90cf-5da1d127d8a4">&lt;strong&gt;</bpt>Location<ept id="c29ca272-914f-40f4-90cf-5da1d127d8a4">&lt;/strong&gt;</ept> - choose the geographic location where you would like the connector to be deployed</target>
+        </trans-unit>
+        <trans-unit id="d890db26-066e-4d41-aa15-a9f70fd299b7" xml:space="preserve">
+          <source><bpt id="108ac3e6-fc8f-4b02-a0e8-b7209d497026">&lt;strong&gt;</bpt>Subscription<ept id="108ac3e6-fc8f-4b02-a0e8-b7209d497026">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</source>
+          <target state="new"><bpt id="108ac3e6-fc8f-4b02-a0e8-b7209d497026">&lt;strong&gt;</bpt>Subscription<ept id="108ac3e6-fc8f-4b02-a0e8-b7209d497026">&lt;/strong&gt;</ept> - choose a subscription you want this connector to be created in</target>
+        </trans-unit>
+        <trans-unit id="db4628c7-2448-4743-b405-b441ee482995" xml:space="preserve">
+          <source><bpt id="68c2257f-cc69-4e77-b9a8-dcb0730360b5">&lt;strong&gt;</bpt>Resource group<ept id="68c2257f-cc69-4e77-b9a8-dcb0730360b5">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</source>
+          <target state="new"><bpt id="68c2257f-cc69-4e77-b9a8-dcb0730360b5">&lt;strong&gt;</bpt>Resource group<ept id="68c2257f-cc69-4e77-b9a8-dcb0730360b5">&lt;/strong&gt;</ept> - select or create a resource group where the connector should reside</target>
+        </trans-unit>
+        <trans-unit id="1ac9aded-147f-4ad4-afc3-f12b855c75ae" xml:space="preserve">
+          <source><bpt id="e9cfc427-c9c9-42ea-b639-6d0121e0f35f">&lt;strong&gt;</bpt>App Service plan<ept id="e9cfc427-c9c9-42ea-b639-6d0121e0f35f">&lt;/strong&gt;</ept> - select or create a web hosting plan</source>
+          <target state="new"><bpt id="e9cfc427-c9c9-42ea-b639-6d0121e0f35f">&lt;strong&gt;</bpt>App Service plan<ept id="e9cfc427-c9c9-42ea-b639-6d0121e0f35f">&lt;/strong&gt;</ept> - select or create a web hosting plan</target>
+        </trans-unit>
+        <trans-unit id="597e9842-62c0-48cb-b1df-a15733cd8de8" xml:space="preserve">
+          <source><bpt id="465778e1-e2f0-4700-a855-3bc12397086f">&lt;strong&gt;</bpt>Pricing tier<ept id="465778e1-e2f0-4700-a855-3bc12397086f">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</source>
+          <target state="new"><bpt id="465778e1-e2f0-4700-a855-3bc12397086f">&lt;strong&gt;</bpt>Pricing tier<ept id="465778e1-e2f0-4700-a855-3bc12397086f">&lt;/strong&gt;</ept> - choose a pricing tier for the connector</target>
+        </trans-unit>
+        <trans-unit id="abb9b09c-5a06-41f8-949a-f4ee9c66ab2e" xml:space="preserve">
+          <source><bpt id="eab8ba6d-1784-40a3-8041-6897240f7fe5">&lt;strong&gt;</bpt>Name<ept id="eab8ba6d-1784-40a3-8041-6897240f7fe5">&lt;/strong&gt;</ept> - give a name for your Yammer Connector</source>
+          <target state="new"><bpt id="eab8ba6d-1784-40a3-8041-6897240f7fe5">&lt;strong&gt;</bpt>Name<ept id="eab8ba6d-1784-40a3-8041-6897240f7fe5">&lt;/strong&gt;</ept> - give a name for your Yammer Connector</target>
+        </trans-unit>
+        <trans-unit id="9f97eccd-f974-4d83-9e76-adfe7de32d53" xml:space="preserve">
+          <source>Click on Create.</source>
+          <target state="new">Click on Create.</target>
+        </trans-unit>
+        <trans-unit id="9a374811-bf07-48ea-9497-ae53fd41a70d" xml:space="preserve">
+          <source>A new Yammer Connector is created.</source>
+          <target state="new">A new Yammer Connector is created.</target>
+        </trans-unit>
+        <trans-unit id="0ef2c4e9-9a37-4515-bba3-2e85a53c8752" xml:space="preserve">
+          <source>Once the API app instance is created, you can create a logic App to use the Yammer connector.</source>
+          <target state="new">Once the API app instance is created, you can create a logic App to use the Yammer connector.</target>
+        </trans-unit>
+        <trans-unit id="d8f9bd08-c151-47fe-8d58-5ce1a09452ac" xml:space="preserve">
+          <source>Once your API app is created, you can now use the Yammer connector as a trigger/action for your Logic App.</source>
+          <target state="new">Once your API app is created, you can now use the Yammer connector as a trigger/action for your Logic App.</target>
+        </trans-unit>
+        <trans-unit id="cf13e548-0c24-4c1c-899b-c4ed765540c6" xml:space="preserve">
+          <source>To do this, you need to:</source>
+          <target state="new">To do this, you need to:</target>
+        </trans-unit>
+        <trans-unit id="5a2db17e-d5c1-49d9-bfd9-f7dfbccc79f5" xml:space="preserve">
+          <source>Create a new Logic App:  
+<bpt id="7aa674b3-9d06-43ca-bdc6-4db0c15bf22f">&lt;linkText&gt;</bpt><ept id="7aa674b3-9d06-43ca-bdc6-4db0c15bf22f">&lt;/linkText&gt;</ept></source>
+          <target state="new">Create a new Logic App:  
+<bpt id="7aa674b3-9d06-43ca-bdc6-4db0c15bf22f">&lt;linkText&gt;</bpt><ept id="7aa674b3-9d06-43ca-bdc6-4db0c15bf22f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c065e556-514a-4316-ad5a-3ac7c33903a4" xml:space="preserve">
+          <source>Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow:  
+<bpt id="676b97ee-59b9-46e4-8494-af64c7770bf6">&lt;linkText&gt;</bpt><ept id="676b97ee-59b9-46e4-8494-af64c7770bf6">&lt;/linkText&gt;</ept></source>
+          <target state="new">Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow:  
+<bpt id="676b97ee-59b9-46e4-8494-af64c7770bf6">&lt;linkText&gt;</bpt><ept id="676b97ee-59b9-46e4-8494-af64c7770bf6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="316da87f-121a-42a1-aef7-686927414ba3" xml:space="preserve">
+          <source>The Yammer connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side:  
+<bpt id="52f3f59d-dfdb-42aa-886b-ee5212b23607">&lt;linkText&gt;</bpt><ept id="52f3f59d-dfdb-42aa-886b-ee5212b23607">&lt;/linkText&gt;</ept></source>
+          <target state="new">The Yammer connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side:  
+<bpt id="52f3f59d-dfdb-42aa-886b-ee5212b23607">&lt;linkText&gt;</bpt><ept id="52f3f59d-dfdb-42aa-886b-ee5212b23607">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b1b8c54-acd3-42a9-934f-daae9b0e225a" xml:space="preserve">
+          <source>You can drop the Yammer Connector API app into the editor by clicking on the “Yammer Connector”.</source>
+          <target state="new">You can drop the Yammer Connector API app into the editor by clicking on the “Yammer Connector”.</target>
+        </trans-unit>
+        <trans-unit id="9c2dfb7c-3b40-4dbd-b61c-2082c74912ad" xml:space="preserve">
+          <source>Click on the Authorize button.</source>
+          <target state="new">Click on the Authorize button.</target>
+        </trans-unit>
+        <trans-unit id="483e68cf-cd9a-4a40-9c35-54c5fc4c04ef" xml:space="preserve">
+          <source>Provide your Yammer credentials.</source>
+          <target state="new">Provide your Yammer credentials.</target>
+        </trans-unit>
+        <trans-unit id="63ef4202-1e80-4a89-bf7e-d06c3af51777" xml:space="preserve">
+          <source>Click “Allow”:  
+<bpt id="4f15eb94-6de7-4f4e-b7aa-f97f0cf7575c">&lt;linkText&gt;</bpt><ept id="4f15eb94-6de7-4f4e-b7aa-f97f0cf7575c">&lt;/linkText&gt;</ept>  
+<bpt id="4d7a4952-d4e3-457a-ad36-881e864ee6e5">&lt;linkText&gt;</bpt><ept id="4d7a4952-d4e3-457a-ad36-881e864ee6e5">&lt;/linkText&gt;</ept>  
+<bpt id="09e8b40a-5cd5-418d-9dbd-9b0aa3442c5d">&lt;linkText&gt;</bpt><ept id="09e8b40a-5cd5-418d-9dbd-9b0aa3442c5d">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click “Allow”:  
+<bpt id="4f15eb94-6de7-4f4e-b7aa-f97f0cf7575c">&lt;linkText&gt;</bpt><ept id="4f15eb94-6de7-4f4e-b7aa-f97f0cf7575c">&lt;/linkText&gt;</ept>  
+<bpt id="4d7a4952-d4e3-457a-ad36-881e864ee6e5">&lt;linkText&gt;</bpt><ept id="4d7a4952-d4e3-457a-ad36-881e864ee6e5">&lt;/linkText&gt;</ept>  
+<bpt id="09e8b40a-5cd5-418d-9dbd-9b0aa3442c5d">&lt;linkText&gt;</bpt><ept id="09e8b40a-5cd5-418d-9dbd-9b0aa3442c5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d1bf6a0-d4d1-431f-8467-56c8d6b93244" xml:space="preserve">
+          <source>You can now use Yammer connector in the flow.</source>
+          <target state="new">You can now use Yammer connector in the flow.</target>
+        </trans-unit>
+        <trans-unit id="7cd90410-5bcb-4463-be46-b3abc6b7469a" xml:space="preserve">
+          <source>You can use the new message retrieved from the Yammer trigger ("New Message") in other actions in the flow.</source>
+          <target state="new">You can use the new message retrieved from the Yammer trigger ("New Message") in other actions in the flow.</target>
+        </trans-unit>
+        <trans-unit id="195754d7-c8f7-46de-a96c-42bffe47d4ff" xml:space="preserve">
+          <source>Configure the input properties of Yammer trigger as follows:</source>
+          <target state="new">Configure the input properties of Yammer trigger as follows:</target>
+        </trans-unit>
+        <trans-unit id="b7bfdfd4-0e30-45bd-aac6-bd4ebda4310e" xml:space="preserve">
+          <source><bpt id="fbbbec90-5629-44e0-8e6b-89e6374809ea">&lt;strong&gt;</bpt>Group ID<ept id="fbbbec90-5629-44e0-8e6b-89e6374809ea">&lt;/strong&gt;</ept> - The ID of the group from which the new message should be retrieved.</source>
+          <target state="new"><bpt id="fbbbec90-5629-44e0-8e6b-89e6374809ea">&lt;strong&gt;</bpt>Group ID<ept id="fbbbec90-5629-44e0-8e6b-89e6374809ea">&lt;/strong&gt;</ept> - The ID of the group from which the new message should be retrieved.</target>
+        </trans-unit>
+        <trans-unit id="c1c9fe91-901c-4d78-9da7-3db687397ea7" xml:space="preserve">
+          <source>If the Group ID is not provided, the message will be retrieved from the Following Feed.</source>
+          <target state="new">If the Group ID is not provided, the message will be retrieved from the Following Feed.</target>
+        </trans-unit>
+        <trans-unit id="8e9828ce-7c20-49af-923e-a3b470ea233c" xml:space="preserve">
+          <source>Group ID can be retrieved from the Group URL in Yammer.</source>
+          <target state="new">Group ID can be retrieved from the Group URL in Yammer.</target>
+        </trans-unit>
+        <trans-unit id="ac483a3a-eb7e-4c84-9fdc-461cf3018bf7" xml:space="preserve">
+          <source>Example: Group ID in the following URL is "5453203":  
+https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&amp;feedId=5453203  
+<bpt id="c4a5a9c8-3747-47ee-ac6a-fa71233a20ae">&lt;linkText&gt;</bpt><ept id="c4a5a9c8-3747-47ee-ac6a-fa71233a20ae">&lt;/linkText&gt;</ept>  
+<bpt id="1c65927a-fbc8-4658-aaf2-fc94e1c4ffef">&lt;linkText&gt;</bpt><ept id="1c65927a-fbc8-4658-aaf2-fc94e1c4ffef">&lt;/linkText&gt;</ept></source>
+          <target state="new">Example: Group ID in the following URL is "5453203":  
+https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&amp;feedId=5453203  
+<bpt id="c4a5a9c8-3747-47ee-ac6a-fa71233a20ae">&lt;linkText&gt;</bpt><ept id="c4a5a9c8-3747-47ee-ac6a-fa71233a20ae">&lt;/linkText&gt;</ept>  
+<bpt id="1c65927a-fbc8-4658-aaf2-fc94e1c4ffef">&lt;linkText&gt;</bpt><ept id="1c65927a-fbc8-4658-aaf2-fc94e1c4ffef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23bce0f6-6991-4a40-9b1b-5e5505e6c7ff" xml:space="preserve">
+          <source>You can also use the Yammer connector as an action in your logic apps.</source>
+          <target state="new">You can also use the Yammer connector as an action in your logic apps.</target>
+        </trans-unit>
+        <trans-unit id="9b5b8691-dae5-45a4-827b-77b07bdbc67c" xml:space="preserve">
+          <source>First, specify a trigger for your logic app or check 'run this logic manually' (as shown below).</source>
+          <target state="new">First, specify a trigger for your logic app or check 'run this logic manually' (as shown below).</target>
+        </trans-unit>
+        <trans-unit id="d32f592e-766e-4bf6-9a4a-e452d874687d" xml:space="preserve">
+          <source>Add the yammer connector, authorize as appropriate and choose the "Post Message" action.</source>
+          <target state="new">Add the yammer connector, authorize as appropriate and choose the "Post Message" action.</target>
+        </trans-unit>
+        <trans-unit id="af955fa7-f829-4422-a0ff-273c702c593b" xml:space="preserve">
+          <source>Configure the input properties for "Post Message" action  as follows:</source>
+          <target state="new">Configure the input properties for "Post Message" action  as follows:</target>
+        </trans-unit>
+        <trans-unit id="936e3244-b664-44cc-9d02-a701278b77a2" xml:space="preserve">
+          <source><bpt id="7064dd17-7b48-40de-a193-b990ac7ee7e3">&lt;strong&gt;</bpt>Message Text<ept id="7064dd17-7b48-40de-a193-b990ac7ee7e3">&lt;/strong&gt;</ept> - Text content of the message to be posted</source>
+          <target state="new"><bpt id="7064dd17-7b48-40de-a193-b990ac7ee7e3">&lt;strong&gt;</bpt>Message Text<ept id="7064dd17-7b48-40de-a193-b990ac7ee7e3">&lt;/strong&gt;</ept> - Text content of the message to be posted</target>
+        </trans-unit>
+        <trans-unit id="76cfbe9d-7690-48c1-8895-7e35c051442c" xml:space="preserve">
+          <source><bpt id="7e8c7bb7-858e-4c75-a9b5-b10239eae373">&lt;strong&gt;</bpt>Group ID<ept id="7e8c7bb7-858e-4c75-a9b5-b10239eae373">&lt;/strong&gt;</ept> - Specify the ID of the group to which new message should be posted.</source>
+          <target state="new"><bpt id="7e8c7bb7-858e-4c75-a9b5-b10239eae373">&lt;strong&gt;</bpt>Group ID<ept id="7e8c7bb7-858e-4c75-a9b5-b10239eae373">&lt;/strong&gt;</ept> - Specify the ID of the group to which new message should be posted.</target>
+        </trans-unit>
+        <trans-unit id="2a37bef1-5e50-41bf-ac8e-f516063d71a5" xml:space="preserve">
+          <source>If Group ID is not provided the message will be posted to All Company Feed.</source>
+          <target state="new">If Group ID is not provided the message will be posted to All Company Feed.</target>
+        </trans-unit>
+        <trans-unit id="be247237-80f4-46fc-be47-80417d3cddbc" xml:space="preserve">
+          <source>Group ID can be retrieved from the Group URL in Yammer.</source>
+          <target state="new">Group ID can be retrieved from the Group URL in Yammer.</target>
+        </trans-unit>
+        <trans-unit id="f801da38-7bc6-44e5-985c-cd1820929515" xml:space="preserve">
+          <source>Example: Group ID in the following URL is "5453203":  
+https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&amp;feedId=5453203</source>
+          <target state="new">Example: Group ID in the following URL is "5453203":  
+https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&amp;feedId=5453203</target>
+        </trans-unit>
+        <trans-unit id="95980460-ddd3-4648-8620-d9b40218b220" xml:space="preserve">
+          <source><bpt id="c9ab8999-006d-4c8f-a621-ce586b0b767c">&lt;strong&gt;</bpt>Tag Users<ept id="c9ab8999-006d-4c8f-a621-ce586b0b767c">&lt;/strong&gt;</ept> - Array of user network names who needs to be tagged in the message:  
+<bpt id="6179cab3-4d21-4e31-b528-f485d1aeb7e3">&lt;linkText&gt;</bpt><ept id="6179cab3-4d21-4e31-b528-f485d1aeb7e3">&lt;/linkText&gt;</ept>  
+<bpt id="6292d9a3-b309-4e15-abd5-aca0d7d376cc">&lt;linkText&gt;</bpt><ept id="6292d9a3-b309-4e15-abd5-aca0d7d376cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9ab8999-006d-4c8f-a621-ce586b0b767c">&lt;strong&gt;</bpt>Tag Users<ept id="c9ab8999-006d-4c8f-a621-ce586b0b767c">&lt;/strong&gt;</ept> - Array of user network names who needs to be tagged in the message:  
+<bpt id="6179cab3-4d21-4e31-b528-f485d1aeb7e3">&lt;linkText&gt;</bpt><ept id="6179cab3-4d21-4e31-b528-f485d1aeb7e3">&lt;/linkText&gt;</ept>  
+<bpt id="6292d9a3-b309-4e15-abd5-aca0d7d376cc">&lt;linkText&gt;</bpt><ept id="6292d9a3-b309-4e15-abd5-aca0d7d376cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cf585a0-31b9-4379-93de-b7f5b6bb7903" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="801b33a5-db5d-4feb-bee3-e47dfced7e2e" xml:space="preserve">
+          <source>See <bpt id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;/linkText&gt;</ept><bpt id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;title&gt;</bpt><ept id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;/linkText&gt;</ept><bpt id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;title&gt;</bpt><ept id="8e571c04-778e-4716-986c-b671a8521ec0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69a2ddef-6a20-4b8d-bccd-9c24071e56b1" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;/linkText&gt;</ept><bpt id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;title&gt;</bpt><ept id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;/linkText&gt;</ept><bpt id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;title&gt;</bpt><ept id="8a170917-2505-4e27-9d82-cf5fb15eaeb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98c0fafd-f249-494f-a8be-af2793f82f18" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="7735a1f4-5cc8-4583-95de-c73fad19d190" xml:space="preserve">
+          <source>See <bpt id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;/linkText&gt;</ept><bpt id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;title&gt;</bpt><ept id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;/linkText&gt;</ept><bpt id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;title&gt;</bpt><ept id="86d88c94-4d5e-42c4-932b-531e17573c69">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90101ec4-b706-4e2d-a4af-b5ceb152036c" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img1.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img1.PNG</target>
+        </trans-unit>
+        <trans-unit id="31d27a59-b907-4d65-a1cb-647cd941a5e3" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img2.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img2.PNG</target>
+        </trans-unit>
+        <trans-unit id="1415858f-9c23-45a8-abe9-c58fa6702587" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img3.png</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img3.png</target>
+        </trans-unit>
+        <trans-unit id="186aa87c-7cba-473b-a3d9-bde85914f801" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img4.png</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img4.png</target>
+        </trans-unit>
+        <trans-unit id="4813b3cc-1989-4587-b1fc-ff785980aa7b" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img5.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img5.PNG</target>
+        </trans-unit>
+        <trans-unit id="9251a1be-68d5-4fa3-81b3-80f29a15996d" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img6.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img6.PNG</target>
+        </trans-unit>
+        <trans-unit id="10de3783-e866-4f53-828a-53d61661ff14" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img7.png</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img7.png</target>
+        </trans-unit>
+        <trans-unit id="538bb0ad-1361-4c5b-b454-d24f035a66b9" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img8.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img8.PNG</target>
+        </trans-unit>
+        <trans-unit id="cae68d4b-177f-4c9d-9925-e95b63701082" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img9.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img9.PNG</target>
+        </trans-unit>
+        <trans-unit id="792a4061-0f66-4ab3-b303-3a819dc415b2" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img10.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img10.PNG</target>
+        </trans-unit>
+        <trans-unit id="2be5a587-b143-4bab-a1cc-a0baf1575858" xml:space="preserve">
+          <source>./media/app-service-logic-connector-yammer/img11.PNG</source>
+          <target state="new">./media/app-service-logic-connector-yammer/img11.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="729caacf-f06c-4a96-9c15-4c15e6d2a410" />
+    </body>
+  </file>
+</xliff>

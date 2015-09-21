@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ac3160f7-cf18-4a5c-9208-0a6d04b71b93" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ac3160f7-cf18-4a5c-9208-0a6d04b71b93" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7714ab1f-41a7-4172-a010-bd4eacc3cbf9">
+        <trans-unit id="0bc588d0-3215-471a-a017-d6092aab6458" xml:space="preserve">
+          <source>Change the StorSimple data encryption key</source>
+          <target state="new">Change the StorSimple data encryption key</target>
+        </trans-unit>
+        <trans-unit id="070ec145-aa63-4d58-95a1-c97c03ac7042" xml:space="preserve">
+          <source>Describes how to authorize a StorSimple device so that it can change the data encryption key, and then explains the key change process.</source>
+          <target state="new">Describes how to authorize a StorSimple device so that it can change the data encryption key, and then explains the key change process.</target>
+        </trans-unit>
+        <trans-unit id="e557cfaf-cef1-4c29-b965-49f17122e618" xml:space="preserve">
+          <source>Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys.</source>
+          <target state="new">Typically, the device administrator will request that the service administrator authorize a device to change service data encryption keys.</target>
+        </trans-unit>
+        <trans-unit id="746626c9-5c7c-40da-8f7f-3a93c2b1d048" xml:space="preserve">
+          <source>The service administrator will then authorize the device to change the key.</source>
+          <target state="new">The service administrator will then authorize the device to change the key.</target>
+        </trans-unit>
+        <trans-unit id="d9604685-0edd-45dc-9b31-317ef7653d2d" xml:space="preserve">
+          <source>This step is performed in the Management Portal.</source>
+          <target state="new">This step is performed in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8e575ce3-e5f9-452c-93c6-baa9f780e27a" xml:space="preserve">
+          <source>The service administrator can select a device from a displayed list of the devices that are eligible to be authorized.</source>
+          <target state="new">The service administrator can select a device from a displayed list of the devices that are eligible to be authorized.</target>
+        </trans-unit>
+        <trans-unit id="2058b598-87ff-48f2-ae3a-940b12facc0c" xml:space="preserve">
+          <source>The device is then authorized to start the service data encryption key change process.</source>
+          <target state="new">The device is then authorized to start the service data encryption key change process.</target>
+        </trans-unit>
+        <trans-unit id="109b5119-fb80-4ba0-9e16-255ed26aca0b" xml:space="preserve">
+          <source>A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:</source>
+          <target state="new">A device must meet the following criteria before it can be authorized to initiate service data encryption key changes:</target>
+        </trans-unit>
+        <trans-unit id="9290b563-debd-4a5b-94ab-80205d41ae27" xml:space="preserve">
+          <source>The device must be online to be eligible for service data encryption key change authorization.</source>
+          <target state="new">The device must be online to be eligible for service data encryption key change authorization.</target>
+        </trans-unit>
+        <trans-unit id="004746a4-e1da-4d5f-a78d-41d65a360303" xml:space="preserve">
+          <source>You can authorize the same device again after 30 minutes if the key change has not been initiated.</source>
+          <target state="new">You can authorize the same device again after 30 minutes if the key change has not been initiated.</target>
+        </trans-unit>
+        <trans-unit id="0a4a47d7-6afa-4574-b027-27c75dc574bd" xml:space="preserve">
+          <source>You can authorize a different device, provided that the key change has not been initiated by the previously authorized device.</source>
+          <target state="new">You can authorize a different device, provided that the key change has not been initiated by the previously authorized device.</target>
+        </trans-unit>
+        <trans-unit id="14985ca0-2192-4138-80c3-96a54852766f" xml:space="preserve">
+          <source>After the new device has been authorized, the old device cannot initiate the change.</source>
+          <target state="new">After the new device has been authorized, the old device cannot initiate the change.</target>
+        </trans-unit>
+        <trans-unit id="e37acfc7-9114-426c-92ee-5111de5c2e9b" xml:space="preserve">
+          <source>You cannot authorize a device while the rollover of the service data encryption key is in progress.</source>
+          <target state="new">You cannot authorize a device while the rollover of the service data encryption key is in progress.</target>
+        </trans-unit>
+        <trans-unit id="6a93f19c-5c13-4a77-ba7a-518cf37c21d2" xml:space="preserve">
+          <source>You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not.</source>
+          <target state="new">You can authorize a device when some of the devices registered with the service have rolled over the encryption while others have not.</target>
+        </trans-unit>
+        <trans-unit id="e21216f9-404b-433a-b81e-90d8f75ed955" xml:space="preserve">
+          <source>In such cases, the eligible devices are the ones that have completed the service data encryption key change.</source>
+          <target state="new">In such cases, the eligible devices are the ones that have completed the service data encryption key change.</target>
+        </trans-unit>
+        <trans-unit id="6c51bb49-2628-4ee1-b655-52538fd5796b" xml:space="preserve">
+          <source>In the Management Portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.</source>
+          <target state="new">In the Management Portal, StorSimple virtual devices are not shown in the list of devices that can be authorized to start the key change.</target>
+        </trans-unit>
+        <trans-unit id="b256a740-4445-41e2-89a2-41bf5aeea2c6" xml:space="preserve">
+          <source>Perform the following steps to select and authorize a device to initiate the service data encryption key change.</source>
+          <target state="new">Perform the following steps to select and authorize a device to initiate the service data encryption key change.</target>
+        </trans-unit>
+        <trans-unit id="35fda31a-79b4-4b9c-b25a-d8f70d21c1cd" xml:space="preserve">
+          <source>On the service dashboard page, click <bpt id="a6abdf5a-031c-48d7-9fb7-9def073d762d">&lt;strong&gt;</bpt>Change service data encryption key<ept id="a6abdf5a-031c-48d7-9fb7-9def073d762d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the service dashboard page, click <bpt id="a6abdf5a-031c-48d7-9fb7-9def073d762d">&lt;strong&gt;</bpt>Change service data encryption key<ept id="a6abdf5a-031c-48d7-9fb7-9def073d762d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cc3c94b-632c-4865-9459-e33144bde219" xml:space="preserve">
+          <source><bpt id="52c641a2-ee2a-429c-9765-f7f1d92908c9">&lt;linkText&gt;</bpt>Change service encryption key<ept id="52c641a2-ee2a-429c-9765-f7f1d92908c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="52c641a2-ee2a-429c-9765-f7f1d92908c9">&lt;linkText&gt;</bpt>Change service encryption key<ept id="52c641a2-ee2a-429c-9765-f7f1d92908c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e024aa4-c4aa-4fb8-abb7-a507e2d236bf" xml:space="preserve">
+          <source>In the <bpt id="2a74a0b4-e2d1-49d4-b396-34cd58485ba4">&lt;strong&gt;</bpt>Change service data encryption key<ept id="2a74a0b4-e2d1-49d4-b396-34cd58485ba4">&lt;/strong&gt;</ept> dialog box, select and authorize a device to initiate the service data encryption key change.</source>
+          <target state="new">In the <bpt id="2a74a0b4-e2d1-49d4-b396-34cd58485ba4">&lt;strong&gt;</bpt>Change service data encryption key<ept id="2a74a0b4-e2d1-49d4-b396-34cd58485ba4">&lt;/strong&gt;</ept> dialog box, select and authorize a device to initiate the service data encryption key change.</target>
+        </trans-unit>
+        <trans-unit id="165d616f-cac9-46b4-bc0a-548a7151c878" xml:space="preserve">
+          <source>The drop-down list has all the eligible devices that can be authorized.</source>
+          <target state="new">The drop-down list has all the eligible devices that can be authorized.</target>
+        </trans-unit>
+        <trans-unit id="aa0d6bcf-4314-428f-954e-20875760a03b" xml:space="preserve">
+          <source>Click the check icon <bpt id="252e97ea-d8a6-45b4-8165-cea4da6305c8">&lt;linkText&gt;</bpt>check icon<ept id="252e97ea-d8a6-45b4-8165-cea4da6305c8">&lt;/linkText&gt;</ept>.</source>
+          <target state="new">Click the check icon <bpt id="252e97ea-d8a6-45b4-8165-cea4da6305c8">&lt;linkText&gt;</bpt>check icon<ept id="252e97ea-d8a6-45b4-8165-cea4da6305c8">&lt;/linkText&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5174f439-5dca-4abb-866b-a9478eaa5039" xml:space="preserve">
+          <source>This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.</source>
+          <target state="new">This step is performed in the Windows PowerShell for StorSimple interface on the authorized StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="313d0719-fcec-49fb-822a-e183cc8ea5b3" xml:space="preserve">
+          <source>No operations can be performed in the Management Portal of your StorSimple Manager service until the key rollover is completed.</source>
+          <target state="new">No operations can be performed in the Management Portal of your StorSimple Manager service until the key rollover is completed.</target>
+        </trans-unit>
+        <trans-unit id="5e5907b3-6871-4665-aa8b-66a96695c3bc" xml:space="preserve">
+          <source>If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.</source>
+          <target state="new">If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="e35de911-4a17-4562-acb7-fce4fbf3bd00" xml:space="preserve">
+          <source>Select option 1 to log on with full access.</source>
+          <target state="new">Select option 1 to log on with full access.</target>
+        </trans-unit>
+        <trans-unit id="81b74156-ee6f-4a34-9ca4-ceee7c57ac5f" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="a6e31bdb-de45-4dbe-b796-1b392f5b8464" xml:space="preserve">
+          <source> <bpt id="9736669b-de6b-4388-a1d7-fcdc25b3dd72">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="9736669b-de6b-4388-a1d7-fcdc25b3dd72">&lt;/code&gt;</ept></source>
+          <target state="new"> <bpt id="9736669b-de6b-4388-a1d7-fcdc25b3dd72">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange<ept id="9736669b-de6b-4388-a1d7-fcdc25b3dd72">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8a53071-a174-4202-ba7a-a596203eaa74" xml:space="preserve">
+          <source>After the cmdlet has successfully completed, you will get a new service data encryption key.</source>
+          <target state="new">After the cmdlet has successfully completed, you will get a new service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="924c8a7f-cfd2-4674-92ba-45ba637c1ab5" xml:space="preserve">
+          <source>Copy and save this key for use in step 3 of this process.</source>
+          <target state="new">Copy and save this key for use in step 3 of this process.</target>
+        </trans-unit>
+        <trans-unit id="10bde7ed-0059-483b-8ddf-a0d48067c632" xml:space="preserve">
+          <source>This key will be used to update all the remaining devices registered with the StorSimple Manager service.</source>
+          <target state="new">This key will be used to update all the remaining devices registered with the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="2d6ea130-d88b-4aed-9d73-756d4530808b" xml:space="preserve">
+          <source>This process must be initiated within four hours of authorizing a StorSimple device.</source>
+          <target state="new">This process must be initiated within four hours of authorizing a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="5023665b-14d0-42b3-9bf6-444b30449582" xml:space="preserve">
+          <source>This new key is then sent to the service to be pushed to all the devices that are registered with the service.</source>
+          <target state="new">This new key is then sent to the service to be pushed to all the devices that are registered with the service.</target>
+        </trans-unit>
+        <trans-unit id="ddf74234-24d2-490e-aa62-5439f97f3377" xml:space="preserve">
+          <source>An alert will then appear on the service dashboard.</source>
+          <target state="new">An alert will then appear on the service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="22f7e1cb-105b-4d7d-b0d7-9e7b569bf259" xml:space="preserve">
+          <source>The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices.</source>
+          <target state="new">The service will disable all the operations on the registered devices, and the device administrator will then need to update the service data encryption key on the other devices.</target>
+        </trans-unit>
+        <trans-unit id="3f44d6ab-bd3a-495a-9954-78e33249a3a5" xml:space="preserve">
+          <source>However, the I/Os (hosts sending data to the cloud) will not be disrupted.</source>
+          <target state="new">However, the I/Os (hosts sending data to the cloud) will not be disrupted.</target>
+        </trans-unit>
+        <trans-unit id="5688b322-5d3e-4655-92f4-52c279363d12" xml:space="preserve">
+          <source>If you have a single device registered to your service, the rollover process is now complete and you can skip the next step.</source>
+          <target state="new">If you have a single device registered to your service, the rollover process is now complete and you can skip the next step.</target>
+        </trans-unit>
+        <trans-unit id="e5c329a7-988e-48a5-85b7-07d14cf80d2a" xml:space="preserve">
+          <source>If you have multiple devices registered to your service, proceed to step 3.</source>
+          <target state="new">If you have multiple devices registered to your service, proceed to step 3.</target>
+        </trans-unit>
+        <trans-unit id="ad4da444-4196-4ff3-92fc-3693491423e8" xml:space="preserve">
+          <source>These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service.</source>
+          <target state="new">These steps must be performed in the Windows PowerShell interface of your StorSimple device if you have multiple devices registered to your StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="56ede753-e2dc-48e6-973b-9cda7784731d" xml:space="preserve">
+          <source>The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.</source>
+          <target state="new">The key that you obtained in Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change must be used to update all the remaining StorSimple device registered with the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="32d01d47-592a-4dc8-86ed-541ddf9927c7" xml:space="preserve">
+          <source>Perform the following steps to update the service data encryption on your device.</source>
+          <target state="new">Perform the following steps to update the service data encryption on your device.</target>
+        </trans-unit>
+        <trans-unit id="f475ac87-ca76-40c2-854c-5a2407e9b349" xml:space="preserve">
+          <source>Use Windows PowerShell for StorSimple to connect to the console.</source>
+          <target state="new">Use Windows PowerShell for StorSimple to connect to the console.</target>
+        </trans-unit>
+        <trans-unit id="feae020f-7113-4f62-a6c4-0f7cb7d8dcc7" xml:space="preserve">
+          <source>Select option 1 to log on with full access.</source>
+          <target state="new">Select option 1 to log on with full access.</target>
+        </trans-unit>
+        <trans-unit id="47a0b96d-21d0-490e-911f-c53e4cb50874" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="39d61023-db95-450e-8746-34fbadc54441" xml:space="preserve">
+          <source><bpt id="e40eba5d-a20c-4ca0-bbdc-938cb28b484c">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey<ept id="e40eba5d-a20c-4ca0-bbdc-938cb28b484c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e40eba5d-a20c-4ca0-bbdc-938cb28b484c">&lt;code&gt;</bpt>Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey<ept id="e40eba5d-a20c-4ca0-bbdc-938cb28b484c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc0c363e-ba40-4443-a3d1-76fe28c1e1d8" xml:space="preserve">
+          <source>Provide the service data encryption key that you obtained in <bpt id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;linkText&gt;</bpt>Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change<ept id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;/linkText&gt;</ept><bpt id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;title&gt;</bpt><ept id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Provide the service data encryption key that you obtained in <bpt id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;linkText&gt;</bpt>Step 2: Use Windows PowerShell for StorSimple to initiate the service data encryption key change<ept id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;/linkText&gt;</ept><bpt id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;title&gt;</bpt><ept id="87e00cb4-9317-49c4-b553-f274db96d5dd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

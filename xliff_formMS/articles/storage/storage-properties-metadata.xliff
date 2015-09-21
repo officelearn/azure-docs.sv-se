@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="95fa2a46-ad9f-465d-9fcb-26993452b2fb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="95fa2a46-ad9f-465d-9fcb-26993452b2fb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5502f32-104d-4836-a5c4-17ca5490fc05">
+        <trans-unit id="c3e6fbee-0023-47f1-af0f-3ad1c526a0fe" xml:space="preserve">
+          <source>&lt;properties 
+  pageTitle="Set and retrieve Properties and Metadata for Storage Resources | Microsoft Azure" 
+  description="Learn how to set and retrieve properties and metadata for Azure Storage resources." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/&gt;</source>
+          <target state="new">&lt;properties 
+  pageTitle="Set and retrieve Properties and Metadata for Storage Resources | Microsoft Azure" 
+  description="Learn how to set and retrieve properties and metadata for Azure Storage resources." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b9b177c2-e5f5-4539-8ce8-ffc6820cdb6b" xml:space="preserve">
+          <source>&lt;tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="08/04/2015" 
+  ms.author="tamram"/&gt;</source>
+          <target state="new">&lt;tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="08/04/2015" 
+  ms.author="tamram"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="7de10bb9-984f-4f2c-86b2-2976d8ead426" xml:space="preserve">
+          <source>Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain:</source>
+          <target state="new">Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain:</target>
+        </trans-unit>
+        <trans-unit id="29405bbc-07bf-4030-942e-ec9b2539086b" xml:space="preserve">
+          <source><bpt id="7d019bdb-8ffa-46ca-9b73-d10431233b0b">&lt;strong&gt;</bpt>System properties.<ept id="7d019bdb-8ffa-46ca-9b73-d10431233b0b">&lt;/strong&gt;</ept> System properties exist on each storage resource.</source>
+          <target state="new"><bpt id="7d019bdb-8ffa-46ca-9b73-d10431233b0b">&lt;strong&gt;</bpt>System properties.<ept id="7d019bdb-8ffa-46ca-9b73-d10431233b0b">&lt;/strong&gt;</ept> System properties exist on each storage resource.</target>
+        </trans-unit>
+        <trans-unit id="75b824e7-0717-4a69-813c-b2597c462fd9" xml:space="preserve">
+          <source>Some of them can be read or set, while others are read-only.</source>
+          <target state="new">Some of them can be read or set, while others are read-only.</target>
+        </trans-unit>
+        <trans-unit id="f5e92a51-4fd0-4af0-b9f3-e6cdef4e0a7a" xml:space="preserve">
+          <source>Under the covers, some system properties correspond to certain standard HTTP headers.</source>
+          <target state="new">Under the covers, some system properties correspond to certain standard HTTP headers.</target>
+        </trans-unit>
+        <trans-unit id="f194540d-c830-4d68-8ae4-7f994a2ae1c6" xml:space="preserve">
+          <source>The Azure storage client library maintains these for you.</source>
+          <target state="new">The Azure storage client library maintains these for you.</target>
+        </trans-unit>
+        <trans-unit id="d8f78fba-77dd-4978-af6e-6b736bedc103" xml:space="preserve">
+          <source><bpt id="9d8829e5-bf5a-4436-b7d5-227b2ee566f1">&lt;strong&gt;</bpt>User-defined metadata.<ept id="9d8829e5-bf5a-4436-b7d5-227b2ee566f1">&lt;/strong&gt;</ept> User-defined metadata is metadata that you specify on a given resource, in the form of a name-value pair.</source>
+          <target state="new"><bpt id="9d8829e5-bf5a-4436-b7d5-227b2ee566f1">&lt;strong&gt;</bpt>User-defined metadata.<ept id="9d8829e5-bf5a-4436-b7d5-227b2ee566f1">&lt;/strong&gt;</ept> User-defined metadata is metadata that you specify on a given resource, in the form of a name-value pair.</target>
+        </trans-unit>
+        <trans-unit id="f60d18ab-20cf-4af9-978b-5f74f0c1034b" xml:space="preserve">
+          <source>You can use metadata to store additional values with a storage resource; these values are for your own purposes only and do not affect how the resource behaves.</source>
+          <target state="new">You can use metadata to store additional values with a storage resource; these values are for your own purposes only and do not affect how the resource behaves.</target>
+        </trans-unit>
+        <trans-unit id="c0c116b8-1876-4443-876c-dd3002005448" xml:space="preserve">
+          <source>Retrieving property and metadata values for a storage resource is a two-step process.</source>
+          <target state="new">Retrieving property and metadata values for a storage resource is a two-step process.</target>
+        </trans-unit>
+        <trans-unit id="fdd8f0d7-7d5c-41d6-b4ff-7055da518fd7" xml:space="preserve">
+          <source>Before you can read these values, you must explicitly fetch them by calling either the <bpt id="8496b544-6bb9-411d-8b38-5fde1f7a30bf">&lt;strong&gt;</bpt>FetchAttributes<ept id="8496b544-6bb9-411d-8b38-5fde1f7a30bf">&lt;/strong&gt;</ept> or <bpt id="8c9a255d-195d-43df-9c29-e9d1d5c48dec">&lt;strong&gt;</bpt>FetchAttributesAsync<ept id="8c9a255d-195d-43df-9c29-e9d1d5c48dec">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Before you can read these values, you must explicitly fetch them by calling either the <bpt id="8496b544-6bb9-411d-8b38-5fde1f7a30bf">&lt;strong&gt;</bpt>FetchAttributes<ept id="8496b544-6bb9-411d-8b38-5fde1f7a30bf">&lt;/strong&gt;</ept> or <bpt id="8c9a255d-195d-43df-9c29-e9d1d5c48dec">&lt;strong&gt;</bpt>FetchAttributesAsync<ept id="8c9a255d-195d-43df-9c29-e9d1d5c48dec">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="52759415-c719-4315-97d2-348f467c5d67" xml:space="preserve">
+          <source>Property and metadata values for a storage resource are not populated unless you call one of the <bpt id="72970463-92c4-4e2d-ba19-d854a85a414f">&lt;strong&gt;</bpt>FetchAttributes<ept id="72970463-92c4-4e2d-ba19-d854a85a414f">&lt;/strong&gt;</ept> methods.</source>
+          <target state="new">Property and metadata values for a storage resource are not populated unless you call one of the <bpt id="72970463-92c4-4e2d-ba19-d854a85a414f">&lt;strong&gt;</bpt>FetchAttributes<ept id="72970463-92c4-4e2d-ba19-d854a85a414f">&lt;/strong&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="b331fc2e-d540-4e11-a4b7-997079c9b9a2" xml:space="preserve">
+          <source>To set properties on a blob, specify the property value, then call the <bpt id="87a46649-1ebd-45c8-99d3-ba38e1c95d85">&lt;strong&gt;</bpt>SetProperties<ept id="87a46649-1ebd-45c8-99d3-ba38e1c95d85">&lt;/strong&gt;</ept> or <bpt id="1219c90a-4b91-4a9f-8982-836c00a77ffc">&lt;strong&gt;</bpt>SetPropertiesAsync<ept id="1219c90a-4b91-4a9f-8982-836c00a77ffc">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To set properties on a blob, specify the property value, then call the <bpt id="87a46649-1ebd-45c8-99d3-ba38e1c95d85">&lt;strong&gt;</bpt>SetProperties<ept id="87a46649-1ebd-45c8-99d3-ba38e1c95d85">&lt;/strong&gt;</ept> or <bpt id="1219c90a-4b91-4a9f-8982-836c00a77ffc">&lt;strong&gt;</bpt>SetPropertiesAsync<ept id="1219c90a-4b91-4a9f-8982-836c00a77ffc">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="edc2cf26-d4bf-4167-852e-e432da079083" xml:space="preserve">
+          <source>The following code example creates a container and writes property values to a console window:</source>
+          <target state="new">The following code example creates a container and writes property values to a console window:</target>
+        </trans-unit>
+        <trans-unit id="4115a693-6a50-44ff-b67e-33175517b514" xml:space="preserve">
+          <source>You can specify metadata as one or more name-value pairs on a blob or container resource.</source>
+          <target state="new">You can specify metadata as one or more name-value pairs on a blob or container resource.</target>
+        </trans-unit>
+        <trans-unit id="f868e326-9c24-413b-9830-7d9ae5678663" xml:space="preserve">
+          <source>To set metadata, add name-value pairs to the <bpt id="b8415191-5a1a-4e27-8b96-6442c123f32e">&lt;strong&gt;</bpt>Metadata<ept id="b8415191-5a1a-4e27-8b96-6442c123f32e">&lt;/strong&gt;</ept> collection on the resource, then call the <bpt id="dc018911-91cc-4779-aab6-d7cf410f0d1f">&lt;strong&gt;</bpt>SetMetadata<ept id="dc018911-91cc-4779-aab6-d7cf410f0d1f">&lt;/strong&gt;</ept> method to save the values to the service.</source>
+          <target state="new">To set metadata, add name-value pairs to the <bpt id="b8415191-5a1a-4e27-8b96-6442c123f32e">&lt;strong&gt;</bpt>Metadata<ept id="b8415191-5a1a-4e27-8b96-6442c123f32e">&lt;/strong&gt;</ept> collection on the resource, then call the <bpt id="dc018911-91cc-4779-aab6-d7cf410f0d1f">&lt;strong&gt;</bpt>SetMetadata<ept id="dc018911-91cc-4779-aab6-d7cf410f0d1f">&lt;/strong&gt;</ept> method to save the values to the service.</target>
+        </trans-unit>
+        <trans-unit id="e91c576b-e302-4896-8b34-22d576e29810" xml:space="preserve">
+          <source>: The name of your metadata must conform to the naming conventions for C# identifiers.</source>
+          <target state="new">: The name of your metadata must conform to the naming conventions for C# identifiers.</target>
+        </trans-unit>
+        <trans-unit id="fed69d5d-e404-4394-8289-55daf5b39b86" xml:space="preserve">
+          <source>To retrieve metadata, call the <bpt id="39fd9461-7084-4c01-8cd4-0d924ae8b5ab">&lt;strong&gt;</bpt>FetchAttributes<ept id="39fd9461-7084-4c01-8cd4-0d924ae8b5ab">&lt;/strong&gt;</ept> method on your blob or container to populate the <bpt id="b282b3d3-c57c-4862-9308-422184dba28f">&lt;strong&gt;</bpt>Metadata<ept id="b282b3d3-c57c-4862-9308-422184dba28f">&lt;/strong&gt;</ept> collection, then read the values.</source>
+          <target state="new">To retrieve metadata, call the <bpt id="39fd9461-7084-4c01-8cd4-0d924ae8b5ab">&lt;strong&gt;</bpt>FetchAttributes<ept id="39fd9461-7084-4c01-8cd4-0d924ae8b5ab">&lt;/strong&gt;</ept> method on your blob or container to populate the <bpt id="b282b3d3-c57c-4862-9308-422184dba28f">&lt;strong&gt;</bpt>Metadata<ept id="b282b3d3-c57c-4862-9308-422184dba28f">&lt;/strong&gt;</ept> collection, then read the values.</target>
+        </trans-unit>
+        <trans-unit id="bd362762-d0e0-463f-82dd-9dfe2c42b21d" xml:space="preserve">
+          <source>The following code example creates a new container and sets metadata for it, then reads the metadata values back out:</source>
+          <target state="new">The following code example creates a new container and sets metadata for it, then reads the metadata values back out:</target>
+        </trans-unit>
+        <trans-unit id="332e0971-0464-4688-950e-c69ab2854a9b" xml:space="preserve">
+          <source>[Azure Storage Client Library Reference](http://msdn.microsoft.com/library/azure/wa<bpt id="e866d782-68b9-4ee9-8691-d9945ba482f3">&lt;em&gt;</bpt>storage<ept id="e866d782-68b9-4ee9-8691-d9945ba482f3">&lt;/em&gt;</ept>30<bpt id="1c6bbb0a-1357-42b2-a114-23484fb61728">&lt;em&gt;</bpt>reference<ept id="1c6bbb0a-1357-42b2-a114-23484fb61728">&lt;/em&gt;</ept>home.aspx)</source>
+          <target state="new">[Azure Storage Client Library Reference](http://msdn.microsoft.com/library/azure/wa<bpt id="e866d782-68b9-4ee9-8691-d9945ba482f3">&lt;em&gt;</bpt>storage<ept id="e866d782-68b9-4ee9-8691-d9945ba482f3">&lt;/em&gt;</ept>30<bpt id="1c6bbb0a-1357-42b2-a114-23484fb61728">&lt;em&gt;</bpt>reference<ept id="1c6bbb0a-1357-42b2-a114-23484fb61728">&lt;/em&gt;</ept>home.aspx)</target>
+        </trans-unit>
+        <trans-unit id="d970836f-3b02-4c29-af58-4d5db09f228a" xml:space="preserve">
+          <source><bpt id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;linkText&gt;</bpt>Get Started with the Blob Storage for .NET<ept id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;/linkText&gt;</ept><bpt id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;title&gt;</bpt><ept id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;linkText&gt;</bpt>Get Started with the Blob Storage for .NET<ept id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;/linkText&gt;</ept><bpt id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;title&gt;</bpt><ept id="2e66b3e9-4c1a-4954-b138-7da346ea954c">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

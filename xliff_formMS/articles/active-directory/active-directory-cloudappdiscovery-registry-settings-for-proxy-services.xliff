@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e5e3a2c-5c6c-4957-95a2-9484b771b371" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e5e3a2c-5c6c-4957-95a2-9484b771b371" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="88f833ee-e655-4bdc-8d15-4791df99f705">
+        <trans-unit id="808209aa-e4eb-4fef-9bc6-855ff0dc97ac" xml:space="preserve">
+          <source>Cloud App Discovery Registry Settings for Proxy Services</source>
+          <target state="new">Cloud App Discovery Registry Settings for Proxy Services</target>
+        </trans-unit>
+        <trans-unit id="07ac76ce-17e2-4e81-a9d0-5e5439403574" xml:space="preserve">
+          <source>The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.</source>
+          <target state="new">The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.</target>
+        </trans-unit>
+        <trans-unit id="e70f1619-9d0b-47d3-b8da-e7f941d015c1" xml:space="preserve">
+          <source>By default, the Cloud App Discovery agent is configured to use only the ports 80 or 443.</source>
+          <target state="new">By default, the Cloud App Discovery agent is configured to use only the ports 80 or 443.</target>
+        </trans-unit>
+        <trans-unit id="72452aa4-f2fe-487f-8e1b-84c4ccd9ff1b" xml:space="preserve">
+          <source>If you are planning on installing Cloud App Discovery in an environment with a proxy server that is using a custom port (neither 80 nor 443), you need to configure your agents to use this port.</source>
+          <target state="new">If you are planning on installing Cloud App Discovery in an environment with a proxy server that is using a custom port (neither 80 nor 443), you need to configure your agents to use this port.</target>
+        </trans-unit>
+        <trans-unit id="c344c8b1-e460-46aa-9773-d69c309261b8" xml:space="preserve">
+          <source>The configuration is based on a registry key.</source>
+          <target state="new">The configuration is based on a registry key.</target>
+        </trans-unit>
+        <trans-unit id="e6790bc3-b1d5-4161-88dd-113a47bfd206" xml:space="preserve">
+          <source>The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.</source>
+          <target state="new">The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.</target>
+        </trans-unit>
+        <trans-unit id="72f07d43-d024-4fb6-98ff-269daa1bcfcf" xml:space="preserve">
+          <source><bpt id="74592d3c-f0aa-4a56-9671-954eeaf15d3e">&lt;strong&gt;</bpt>To modify the port used by the computer running the Cloud App Discovery agent, perform the following steps:<ept id="74592d3c-f0aa-4a56-9671-954eeaf15d3e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="74592d3c-f0aa-4a56-9671-954eeaf15d3e">&lt;strong&gt;</bpt>To modify the port used by the computer running the Cloud App Discovery agent, perform the following steps:<ept id="74592d3c-f0aa-4a56-9671-954eeaf15d3e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0132e7f-ed59-4556-a342-69138fa7c5c9" xml:space="preserve">
+          <source>Start the registry editor. &lt;br&gt; <bpt id="930bbdea-b3a4-44d2-8dfa-dc17adc5fde1">&lt;linkText&gt;</bpt>Run<ept id="930bbdea-b3a4-44d2-8dfa-dc17adc5fde1">&lt;/linkText&gt;</ept></source>
+          <target state="new">Start the registry editor. &lt;br&gt; <bpt id="930bbdea-b3a4-44d2-8dfa-dc17adc5fde1">&lt;linkText&gt;</bpt>Run<ept id="930bbdea-b3a4-44d2-8dfa-dc17adc5fde1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e5bd25f-7a50-4230-98d7-04350506fe49" xml:space="preserve">
+          <source>Navigate to or create the following registry key: &lt;br&gt; <bpt id="58ed433d-d931-4960-b4af-2bc0b25834b2">&lt;strong&gt;</bpt>HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint<ept id="58ed433d-d931-4960-b4af-2bc0b25834b2">&lt;/strong&gt;</ept> </source>
+          <target state="new">Navigate to or create the following registry key: &lt;br&gt; <bpt id="58ed433d-d931-4960-b4af-2bc0b25834b2">&lt;strong&gt;</bpt>HKLM_LOCAL_MACHINE\Software\Microsoft\Cloud App Discovery\Endpoint<ept id="58ed433d-d931-4960-b4af-2bc0b25834b2">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="394bef38-e2ff-465c-9912-fd11056b7b66" xml:space="preserve">
+          <source>Create a new <bpt id="075eee12-147c-4e7f-a0cc-92812b87b308">&lt;strong&gt;</bpt>multi-string<ept id="075eee12-147c-4e7f-a0cc-92812b87b308">&lt;/strong&gt;</ept> value called <bpt id="1680fcd0-dbfb-41fb-be68-f72e428d71e1">&lt;strong&gt;</bpt>Ports<ept id="1680fcd0-dbfb-41fb-be68-f72e428d71e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new <bpt id="075eee12-147c-4e7f-a0cc-92812b87b308">&lt;strong&gt;</bpt>multi-string<ept id="075eee12-147c-4e7f-a0cc-92812b87b308">&lt;/strong&gt;</ept> value called <bpt id="1680fcd0-dbfb-41fb-be68-f72e428d71e1">&lt;strong&gt;</bpt>Ports<ept id="1680fcd0-dbfb-41fb-be68-f72e428d71e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7da26786-cc67-45f5-966d-3b552cedf13b" xml:space="preserve">
+          <source><bpt id="8c08d02c-f45d-43d5-ab15-fa575909dfc1">&lt;linkText&gt;</bpt>New<ept id="8c08d02c-f45d-43d5-ab15-fa575909dfc1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c08d02c-f45d-43d5-ab15-fa575909dfc1">&lt;linkText&gt;</bpt>New<ept id="8c08d02c-f45d-43d5-ab15-fa575909dfc1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e2c6922-12a4-4532-8595-5ac8748d680b" xml:space="preserve">
+          <source>To open the <bpt id="27c71eb9-3515-4b97-bb76-ec312a7b2899">&lt;strong&gt;</bpt>Edit Multi-String<ept id="27c71eb9-3515-4b97-bb76-ec312a7b2899">&lt;/strong&gt;</ept> dialog, double-click the Ports value.</source>
+          <target state="new">To open the <bpt id="27c71eb9-3515-4b97-bb76-ec312a7b2899">&lt;strong&gt;</bpt>Edit Multi-String<ept id="27c71eb9-3515-4b97-bb76-ec312a7b2899">&lt;/strong&gt;</ept> dialog, double-click the Ports value.</target>
+        </trans-unit>
+        <trans-unit id="2468c5c4-8a3c-4a87-8a8c-132c3610ce38" xml:space="preserve">
+          <source>In the Value data textbox, type the following values and add all custom ports that are used by your organization: &lt;br&gt;&lt;br&gt;
+<bpt id="e42447ea-41cf-4b57-a557-c4e76edb2e11">&lt;strong&gt;</bpt>80<ept id="e42447ea-41cf-4b57-a557-c4e76edb2e11">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="18aea457-bd5b-4830-94c8-ba89eda0dcff">&lt;strong&gt;</bpt>8080<ept id="18aea457-bd5b-4830-94c8-ba89eda0dcff">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="76a157f5-8521-48e2-b7de-2221dc2bea63">&lt;strong&gt;</bpt>8118<ept id="76a157f5-8521-48e2-b7de-2221dc2bea63">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="8363fb45-662b-498f-ba21-a06145234cb3">&lt;strong&gt;</bpt>8888<ept id="8363fb45-662b-498f-ba21-a06145234cb3">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="19ead1db-4a4a-4042-acd4-23df40cebfa7">&lt;strong&gt;</bpt>81<ept id="19ead1db-4a4a-4042-acd4-23df40cebfa7">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="3cf23464-ef25-4e39-98ee-4f881818458b">&lt;strong&gt;</bpt>12080<ept id="3cf23464-ef25-4e39-98ee-4f881818458b">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="ad1d8076-8727-4425-bde1-af911f7d3a01">&lt;strong&gt;</bpt>6999<ept id="ad1d8076-8727-4425-bde1-af911f7d3a01">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="03ea7c86-bf2d-4aac-98c0-b65e9ff7b591">&lt;strong&gt;</bpt>30606<ept id="03ea7c86-bf2d-4aac-98c0-b65e9ff7b591">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="789d1fef-dea8-4a90-821d-300e6f887554">&lt;strong&gt;</bpt>31595<ept id="789d1fef-dea8-4a90-821d-300e6f887554">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="38792407-0e9f-44dc-b942-c08cbe386c5e">&lt;strong&gt;</bpt>4080<ept id="38792407-0e9f-44dc-b942-c08cbe386c5e">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="924bcc61-71ae-4bf1-8190-9ad9875a5d1b">&lt;strong&gt;</bpt>443<ept id="924bcc61-71ae-4bf1-8190-9ad9875a5d1b">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="02646d1d-c716-4202-9f25-fdf3fbb1db4e">&lt;strong&gt;</bpt>1110<ept id="02646d1d-c716-4202-9f25-fdf3fbb1db4e">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;
+<bpt id="1878518c-e8d2-4209-a77a-eb92d9329dad">&lt;linkText&gt;</bpt>Edit Multi-String<ept id="1878518c-e8d2-4209-a77a-eb92d9329dad">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the Value data textbox, type the following values and add all custom ports that are used by your organization: &lt;br&gt;&lt;br&gt;
+<bpt id="e42447ea-41cf-4b57-a557-c4e76edb2e11">&lt;strong&gt;</bpt>80<ept id="e42447ea-41cf-4b57-a557-c4e76edb2e11">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="18aea457-bd5b-4830-94c8-ba89eda0dcff">&lt;strong&gt;</bpt>8080<ept id="18aea457-bd5b-4830-94c8-ba89eda0dcff">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="76a157f5-8521-48e2-b7de-2221dc2bea63">&lt;strong&gt;</bpt>8118<ept id="76a157f5-8521-48e2-b7de-2221dc2bea63">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="8363fb45-662b-498f-ba21-a06145234cb3">&lt;strong&gt;</bpt>8888<ept id="8363fb45-662b-498f-ba21-a06145234cb3">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="19ead1db-4a4a-4042-acd4-23df40cebfa7">&lt;strong&gt;</bpt>81<ept id="19ead1db-4a4a-4042-acd4-23df40cebfa7">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="3cf23464-ef25-4e39-98ee-4f881818458b">&lt;strong&gt;</bpt>12080<ept id="3cf23464-ef25-4e39-98ee-4f881818458b">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="ad1d8076-8727-4425-bde1-af911f7d3a01">&lt;strong&gt;</bpt>6999<ept id="ad1d8076-8727-4425-bde1-af911f7d3a01">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="03ea7c86-bf2d-4aac-98c0-b65e9ff7b591">&lt;strong&gt;</bpt>30606<ept id="03ea7c86-bf2d-4aac-98c0-b65e9ff7b591">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="789d1fef-dea8-4a90-821d-300e6f887554">&lt;strong&gt;</bpt>31595<ept id="789d1fef-dea8-4a90-821d-300e6f887554">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="38792407-0e9f-44dc-b942-c08cbe386c5e">&lt;strong&gt;</bpt>4080<ept id="38792407-0e9f-44dc-b942-c08cbe386c5e">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="924bcc61-71ae-4bf1-8190-9ad9875a5d1b">&lt;strong&gt;</bpt>443<ept id="924bcc61-71ae-4bf1-8190-9ad9875a5d1b">&lt;/strong&gt;</ept> &lt;br&gt;
+<bpt id="02646d1d-c716-4202-9f25-fdf3fbb1db4e">&lt;strong&gt;</bpt>1110<ept id="02646d1d-c716-4202-9f25-fdf3fbb1db4e">&lt;/strong&gt;</ept> &lt;br&gt;&lt;br&gt;
+<bpt id="1878518c-e8d2-4209-a77a-eb92d9329dad">&lt;linkText&gt;</bpt>Edit Multi-String<ept id="1878518c-e8d2-4209-a77a-eb92d9329dad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8482979d-9b76-4537-963c-64e5dbf6b449" xml:space="preserve">
+          <source>Click <bpt id="a7405539-4c1e-4da1-a32a-e734a915a870">&lt;strong&gt;</bpt>OK<ept id="a7405539-4c1e-4da1-a32a-e734a915a870">&lt;/strong&gt;</ept> to close the <bpt id="b82ccfad-a2d3-4eaa-9c96-8abc61af1ed3">&lt;strong&gt;</bpt>Edit Multi-String<ept id="b82ccfad-a2d3-4eaa-9c96-8abc61af1ed3">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Click <bpt id="a7405539-4c1e-4da1-a32a-e734a915a870">&lt;strong&gt;</bpt>OK<ept id="a7405539-4c1e-4da1-a32a-e734a915a870">&lt;/strong&gt;</ept> to close the <bpt id="b82ccfad-a2d3-4eaa-9c96-8abc61af1ed3">&lt;strong&gt;</bpt>Edit Multi-String<ept id="b82ccfad-a2d3-4eaa-9c96-8abc61af1ed3">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="e2c7862d-c539-478b-80e6-1185b61256ec" xml:space="preserve">
+          <source><bpt id="2b73ffcb-e3ff-4083-8c80-5e51c6ecbf01">&lt;strong&gt;</bpt>Additional Resources<ept id="2b73ffcb-e3ff-4083-8c80-5e51c6ecbf01">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2b73ffcb-e3ff-4083-8c80-5e51c6ecbf01">&lt;strong&gt;</bpt>Additional Resources<ept id="2b73ffcb-e3ff-4083-8c80-5e51c6ecbf01">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0192e75c-71a3-4623-acb6-4a9adc01d7da" xml:space="preserve">
+          <source><bpt id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;/linkText&gt;</ept><bpt id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;title&gt;</bpt><ept id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;/linkText&gt;</ept><bpt id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;title&gt;</bpt><ept id="8784f0fe-3b32-4fd7-9a67-a8ac4764ca28">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

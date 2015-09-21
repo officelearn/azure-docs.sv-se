@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="068eae1f-fbbf-45a3-899c-a9d0308ba973" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="068eae1f-fbbf-45a3-899c-a9d0308ba973" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f4efdd78-ebad-489f-9d03-6cde89818f11">
+        <trans-unit id="9ba76ed4-96ef-4e2a-bdc5-cfb93b96bb19" xml:space="preserve">
+          <source>How to configure notifications and email templates in Azure API Management</source>
+          <target state="new">How to configure notifications and email templates in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="cbd496f9-24ab-46bb-8cb9-d7cf70dde1a0" xml:space="preserve">
+          <source>Learn how to configure notifications and email templates in Azure API Management.</source>
+          <target state="new">Learn how to configure notifications and email templates in Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="fb04f4ff-8ff1-4e25-93f7-16e2aa4eecae" xml:space="preserve">
+          <source>API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance.</source>
+          <target state="new">API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance.</target>
+        </trans-unit>
+        <trans-unit id="d44f3a3c-cd5b-48c3-9269-7c5d14fcae09" xml:space="preserve">
+          <source>This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.</source>
+          <target state="new">This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.</target>
+        </trans-unit>
+        <trans-unit id="78c51df1-2c2d-4088-bb6f-fe0d3c9b00c8" xml:space="preserve">
+          <source>To configure notifications, click <bpt id="b22054e8-ad48-4cb3-9d43-261453262389">&lt;strong&gt;</bpt>Manage<ept id="b22054e8-ad48-4cb3-9d43-261453262389">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">To configure notifications, click <bpt id="b22054e8-ad48-4cb3-9d43-261453262389">&lt;strong&gt;</bpt>Manage<ept id="b22054e8-ad48-4cb3-9d43-261453262389">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="f3b444fd-737e-47f8-a68b-ed2ddee5f8e5" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="a786aba4-050b-48e3-961b-f629cb212bbd" xml:space="preserve">
+          <source><bpt id="f9807d77-8e79-4a3f-839e-692e4e717c91">&lt;linkText&gt;</bpt>Publisher portal<ept id="f9807d77-8e79-4a3f-839e-692e4e717c91">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9807d77-8e79-4a3f-839e-692e4e717c91">&lt;linkText&gt;</bpt>Publisher portal<ept id="f9807d77-8e79-4a3f-839e-692e4e717c91">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37a10698-85c8-4147-8914-27d414dde856" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;/linkText&gt;</ept><bpt id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;title&gt;</bpt><ept id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;/title&gt;</ept> in the <bpt id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;/linkText&gt;</ept><bpt id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;title&gt;</bpt><ept id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;/linkText&gt;</ept><bpt id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;title&gt;</bpt><ept id="6f95b971-f891-48e4-a57a-aaa7bfd87aac">&lt;/title&gt;</ept> in the <bpt id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;/linkText&gt;</ept><bpt id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;title&gt;</bpt><ept id="2cdcf0fe-a785-4f00-9c50-911402b6e3e1">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="2c1439f1-a113-4c7f-a62f-0d08a0072508" xml:space="preserve">
+          <source>Click <bpt id="3298d333-5597-4711-a705-fcad7e76be07">&lt;strong&gt;</bpt>Notifications<ept id="3298d333-5597-4711-a705-fcad7e76be07">&lt;/strong&gt;</ept> from the <bpt id="c5539ea6-78c5-42e6-a261-87df5eacbfa7">&lt;strong&gt;</bpt>API Management<ept id="c5539ea6-78c5-42e6-a261-87df5eacbfa7">&lt;/strong&gt;</ept> menu on the left to view the available notifications.</source>
+          <target state="new">Click <bpt id="3298d333-5597-4711-a705-fcad7e76be07">&lt;strong&gt;</bpt>Notifications<ept id="3298d333-5597-4711-a705-fcad7e76be07">&lt;/strong&gt;</ept> from the <bpt id="c5539ea6-78c5-42e6-a261-87df5eacbfa7">&lt;strong&gt;</bpt>API Management<ept id="c5539ea6-78c5-42e6-a261-87df5eacbfa7">&lt;/strong&gt;</ept> menu on the left to view the available notifications.</target>
+        </trans-unit>
+        <trans-unit id="ba5c5c49-6a2f-49c4-8426-6ec8b7f2c312" xml:space="preserve">
+          <source><bpt id="eec70deb-1be2-4074-9737-256630601cb7">&lt;linkText&gt;</bpt>Publisher notifications<ept id="eec70deb-1be2-4074-9737-256630601cb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eec70deb-1be2-4074-9737-256630601cb7">&lt;linkText&gt;</bpt>Publisher notifications<ept id="eec70deb-1be2-4074-9737-256630601cb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a17851da-c04c-4a41-9576-92030e63acec" xml:space="preserve">
+          <source>The following list of events can be configured for notifications.</source>
+          <target state="new">The following list of events can be configured for notifications.</target>
+        </trans-unit>
+        <trans-unit id="16c18730-a1f8-4d74-9d5c-5afa76d7de9c" xml:space="preserve">
+          <source><bpt id="b4241c75-df3f-4b2d-9c6c-a284e60e5890">&lt;strong&gt;</bpt>Subscription requests (requiring approval)<ept id="b4241c75-df3f-4b2d-9c6c-a284e60e5890">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.</source>
+          <target state="new"><bpt id="b4241c75-df3f-4b2d-9c6c-a284e60e5890">&lt;strong&gt;</bpt>Subscription requests (requiring approval)<ept id="b4241c75-df3f-4b2d-9c6c-a284e60e5890">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications about subscription requests for API products requiring approval.</target>
+        </trans-unit>
+        <trans-unit id="4255ee72-041f-460c-8934-57a404474785" xml:space="preserve">
+          <source><bpt id="e8a1a634-5f42-464a-8a3f-41297ac6dab3">&lt;strong&gt;</bpt>New subscriptions<ept id="e8a1a634-5f42-464a-8a3f-41297ac6dab3">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications about new API product subscriptions.</source>
+          <target state="new"><bpt id="e8a1a634-5f42-464a-8a3f-41297ac6dab3">&lt;strong&gt;</bpt>New subscriptions<ept id="e8a1a634-5f42-464a-8a3f-41297ac6dab3">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications about new API product subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="52cbd0a2-b4b6-4fb4-b182-2721e76cb7b2" xml:space="preserve">
+          <source><bpt id="64bee712-ef94-4452-8f20-ec5d90de463a">&lt;strong&gt;</bpt>Application gallery requests<ept id="64bee712-ef94-4452-8f20-ec5d90de463a">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.</source>
+          <target state="new"><bpt id="64bee712-ef94-4452-8f20-ec5d90de463a">&lt;strong&gt;</bpt>Application gallery requests<ept id="64bee712-ef94-4452-8f20-ec5d90de463a">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery.</target>
+        </trans-unit>
+        <trans-unit id="33817f8f-fbb6-4dcb-bcff-0d1a970e5ca7" xml:space="preserve">
+          <source><bpt id="da17dd8c-66e7-44bd-a9cf-4358dd3d09b2">&lt;strong&gt;</bpt>BCC<ept id="da17dd8c-66e7-44bd-a9cf-4358dd3d09b2">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.</source>
+          <target state="new"><bpt id="da17dd8c-66e7-44bd-a9cf-4358dd3d09b2">&lt;strong&gt;</bpt>BCC<ept id="da17dd8c-66e7-44bd-a9cf-4358dd3d09b2">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.</target>
+        </trans-unit>
+        <trans-unit id="caac27c3-3cf2-41d0-945a-a3caced93fb7" xml:space="preserve">
+          <source><bpt id="1996a2af-f386-48a7-98c6-0a06f9cfbc1e">&lt;strong&gt;</bpt>New issue or comment<ept id="1996a2af-f386-48a7-98c6-0a06f9cfbc1e">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.</source>
+          <target state="new"><bpt id="1996a2af-f386-48a7-98c6-0a06f9cfbc1e">&lt;strong&gt;</bpt>New issue or comment<ept id="1996a2af-f386-48a7-98c6-0a06f9cfbc1e">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the developer portal.</target>
+        </trans-unit>
+        <trans-unit id="a5e2bf1b-1d88-40f3-b3db-9cc70f7ab504" xml:space="preserve">
+          <source><bpt id="fd05b5ef-2757-4445-b054-cb84863cdd7c">&lt;strong&gt;</bpt>Close account message<ept id="fd05b5ef-2757-4445-b054-cb84863cdd7c">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when an account is closed.</source>
+          <target state="new"><bpt id="fd05b5ef-2757-4445-b054-cb84863cdd7c">&lt;strong&gt;</bpt>Close account message<ept id="fd05b5ef-2757-4445-b054-cb84863cdd7c">&lt;/strong&gt;</ept> - The specified email recipients and users will receive email notifications when an account is closed.</target>
+        </trans-unit>
+        <trans-unit id="2353778b-8a99-46af-8c97-61ed26e0fb88" xml:space="preserve">
+          <source><bpt id="d72cd3c1-ca1f-4cc9-8cbe-db3e6be43d01">&lt;strong&gt;</bpt>Approaching subscription quota limit<ept id="d72cd3c1-ca1f-4cc9-8cbe-db3e6be43d01">&lt;/strong&gt;</ept> - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.</source>
+          <target state="new"><bpt id="d72cd3c1-ca1f-4cc9-8cbe-db3e6be43d01">&lt;strong&gt;</bpt>Approaching subscription quota limit<ept id="d72cd3c1-ca1f-4cc9-8cbe-db3e6be43d01">&lt;/strong&gt;</ept> - The following email recipients and users will receive email notifications when subscription usage gets close to usage quota.</target>
+        </trans-unit>
+        <trans-unit id="521ead21-392d-4f8c-bcbe-e28a262e39e8" xml:space="preserve">
+          <source>For each event, you can specify email recipients using the email address text box or you can select users from a list.</source>
+          <target state="new">For each event, you can specify email recipients using the email address text box or you can select users from a list.</target>
+        </trans-unit>
+        <trans-unit id="2217a22c-fb39-40f0-a87e-12b3b4edb448" xml:space="preserve">
+          <source>To specify the email addresses to be notified, enter them in the email address text box.</source>
+          <target state="new">To specify the email addresses to be notified, enter them in the email address text box.</target>
+        </trans-unit>
+        <trans-unit id="7e6354df-14e4-46cc-a80a-aea8d8f8c8e7" xml:space="preserve">
+          <source>If you have multiple email addresses, separate them using commas.</source>
+          <target state="new">If you have multiple email addresses, separate them using commas.</target>
+        </trans-unit>
+        <trans-unit id="73981572-7674-4346-b3c7-87be64e4c68b" xml:space="preserve">
+          <source><bpt id="075f3afd-9c1b-4006-aa99-04cd64b2d686">&lt;linkText&gt;</bpt>Notification recipients<ept id="075f3afd-9c1b-4006-aa99-04cd64b2d686">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="075f3afd-9c1b-4006-aa99-04cd64b2d686">&lt;linkText&gt;</bpt>Notification recipients<ept id="075f3afd-9c1b-4006-aa99-04cd64b2d686">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6fd1a9c-c1b6-4585-871e-a7610766e776" xml:space="preserve">
+          <source>To specify the users to be notified, click <bpt id="f6727d98-7130-4057-94a6-b3975ab717cf">&lt;strong&gt;</bpt>add recipient<ept id="f6727d98-7130-4057-94a6-b3975ab717cf">&lt;/strong&gt;</ept>, check the box beside the users to be notified, and click <bpt id="91c05069-5e22-47ff-89e2-3c9608afd0a1">&lt;strong&gt;</bpt>OK<ept id="91c05069-5e22-47ff-89e2-3c9608afd0a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To specify the users to be notified, click <bpt id="f6727d98-7130-4057-94a6-b3975ab717cf">&lt;strong&gt;</bpt>add recipient<ept id="f6727d98-7130-4057-94a6-b3975ab717cf">&lt;/strong&gt;</ept>, check the box beside the users to be notified, and click <bpt id="91c05069-5e22-47ff-89e2-3c9608afd0a1">&lt;strong&gt;</bpt>OK<ept id="91c05069-5e22-47ff-89e2-3c9608afd0a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="339c51a6-407e-46ba-8a00-60a405dc15ef" xml:space="preserve">
+          <source>Note that only administrators are displayed in the list.</source>
+          <target state="new">Note that only administrators are displayed in the list.</target>
+        </trans-unit>
+        <trans-unit id="c5779430-81f0-43cc-9c30-921732f3c2c6" xml:space="preserve">
+          <source>After configuring the notification recipients, click <bpt id="3c44bf76-729f-40c7-bb3b-de95a81456c8">&lt;strong&gt;</bpt>Save<ept id="3c44bf76-729f-40c7-bb3b-de95a81456c8">&lt;/strong&gt;</ept> to apply the updated notification recipients.</source>
+          <target state="new">After configuring the notification recipients, click <bpt id="3c44bf76-729f-40c7-bb3b-de95a81456c8">&lt;strong&gt;</bpt>Save<ept id="3c44bf76-729f-40c7-bb3b-de95a81456c8">&lt;/strong&gt;</ept> to apply the updated notification recipients.</target>
+        </trans-unit>
+        <trans-unit id="56a79f1e-7173-4f1c-8de7-1a9ae6519b70" xml:space="preserve">
+          <source>If you navigate away from the <bpt id="81116cd5-6069-43d8-aa1c-eea23b6f4b43">&lt;strong&gt;</bpt>Publisher Notifications<ept id="81116cd5-6069-43d8-aa1c-eea23b6f4b43">&lt;/strong&gt;</ept> tab the API Management portal alerts you if there are unsaved changes.</source>
+          <target state="new">If you navigate away from the <bpt id="81116cd5-6069-43d8-aa1c-eea23b6f4b43">&lt;strong&gt;</bpt>Publisher Notifications<ept id="81116cd5-6069-43d8-aa1c-eea23b6f4b43">&lt;/strong&gt;</ept> tab the API Management portal alerts you if there are unsaved changes.</target>
+        </trans-unit>
+        <trans-unit id="ea4e6e39-0e46-4175-8c7c-64b1189dfe4c" xml:space="preserve">
+          <source>API Management provides email templates for the email messages that are sent in the course of administering and using the service.</source>
+          <target state="new">API Management provides email templates for the email messages that are sent in the course of administering and using the service.</target>
+        </trans-unit>
+        <trans-unit id="e13b17fe-f128-4bee-b0d0-be60db3f741d" xml:space="preserve">
+          <source>The following email templates are provided.</source>
+          <target state="new">The following email templates are provided.</target>
+        </trans-unit>
+        <trans-unit id="ec046df8-62a7-446a-8f00-55d48acecdec" xml:space="preserve">
+          <source>Application gallery submission approved</source>
+          <target state="new">Application gallery submission approved</target>
+        </trans-unit>
+        <trans-unit id="bd6d1631-5311-438f-877e-be484d2e4a77" xml:space="preserve">
+          <source>Developer farewell letter</source>
+          <target state="new">Developer farewell letter</target>
+        </trans-unit>
+        <trans-unit id="8a089e8a-ee2b-4181-9316-ae0a3643552c" xml:space="preserve">
+          <source>Developer quota limit approaching notification</source>
+          <target state="new">Developer quota limit approaching notification</target>
+        </trans-unit>
+        <trans-unit id="11d06134-4ab2-4f48-93c3-4f5492c458f8" xml:space="preserve">
+          <source>Invite user</source>
+          <target state="new">Invite user</target>
+        </trans-unit>
+        <trans-unit id="443a8c27-c60c-499f-9561-b92714610433" xml:space="preserve">
+          <source>New comment added to an issue</source>
+          <target state="new">New comment added to an issue</target>
+        </trans-unit>
+        <trans-unit id="62243ff9-bd08-4c51-8a91-575af9b0397e" xml:space="preserve">
+          <source>New issue received</source>
+          <target state="new">New issue received</target>
+        </trans-unit>
+        <trans-unit id="548bcb94-24c9-4e25-be55-16200685a236" xml:space="preserve">
+          <source>New subscription activated</source>
+          <target state="new">New subscription activated</target>
+        </trans-unit>
+        <trans-unit id="4e34ba5f-49ca-40ce-b1cd-4ac64edf27c3" xml:space="preserve">
+          <source>Subscription renewed confirmation</source>
+          <target state="new">Subscription renewed confirmation</target>
+        </trans-unit>
+        <trans-unit id="28e048a3-60e3-441e-8327-e41c133e5576" xml:space="preserve">
+          <source>Subscription request declines</source>
+          <target state="new">Subscription request declines</target>
+        </trans-unit>
+        <trans-unit id="2f52ed4c-a363-427b-9ce4-37546ff841e9" xml:space="preserve">
+          <source>Subscription request received</source>
+          <target state="new">Subscription request received</target>
+        </trans-unit>
+        <trans-unit id="15211219-6a36-4fcf-9a35-164fb874b690" xml:space="preserve">
+          <source>These templates can be modified as desired.</source>
+          <target state="new">These templates can be modified as desired.</target>
+        </trans-unit>
+        <trans-unit id="f5c6d81f-edd1-4fd6-89ab-423d1641871a" xml:space="preserve">
+          <source>To view and configure the email templates for your API Management instance, click <bpt id="80e01afa-e90b-46d2-b1ba-670e95467489">&lt;strong&gt;</bpt>Notifications<ept id="80e01afa-e90b-46d2-b1ba-670e95467489">&lt;/strong&gt;</ept> from the <bpt id="a667e57f-e7af-4512-9116-d75444646bc5">&lt;strong&gt;</bpt>API Management<ept id="a667e57f-e7af-4512-9116-d75444646bc5">&lt;/strong&gt;</ept> menu on the left, and select the <bpt id="5844ccec-b32c-43ad-86ad-9c6eec7a9501">&lt;strong&gt;</bpt>Email Templates<ept id="5844ccec-b32c-43ad-86ad-9c6eec7a9501">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To view and configure the email templates for your API Management instance, click <bpt id="80e01afa-e90b-46d2-b1ba-670e95467489">&lt;strong&gt;</bpt>Notifications<ept id="80e01afa-e90b-46d2-b1ba-670e95467489">&lt;/strong&gt;</ept> from the <bpt id="a667e57f-e7af-4512-9116-d75444646bc5">&lt;strong&gt;</bpt>API Management<ept id="a667e57f-e7af-4512-9116-d75444646bc5">&lt;/strong&gt;</ept> menu on the left, and select the <bpt id="5844ccec-b32c-43ad-86ad-9c6eec7a9501">&lt;strong&gt;</bpt>Email Templates<ept id="5844ccec-b32c-43ad-86ad-9c6eec7a9501">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a28c9aa5-5490-4965-ab32-a0f458e84410" xml:space="preserve">
+          <source><bpt id="c6d5ba26-f434-4012-b99a-2eb18c4aa963">&lt;linkText&gt;</bpt>Email templates<ept id="c6d5ba26-f434-4012-b99a-2eb18c4aa963">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6d5ba26-f434-4012-b99a-2eb18c4aa963">&lt;linkText&gt;</bpt>Email templates<ept id="c6d5ba26-f434-4012-b99a-2eb18c4aa963">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ffc0dae-11c2-48c0-a75f-978b9e653e31" xml:space="preserve">
+          <source>To view or modify a specific template, select it from the <bpt id="28f4da9b-70ac-4597-b28f-a7becbb87c1b">&lt;strong&gt;</bpt>Templates<ept id="28f4da9b-70ac-4597-b28f-a7becbb87c1b">&lt;/strong&gt;</ept> drop-down list.</source>
+          <target state="new">To view or modify a specific template, select it from the <bpt id="28f4da9b-70ac-4597-b28f-a7becbb87c1b">&lt;strong&gt;</bpt>Templates<ept id="28f4da9b-70ac-4597-b28f-a7becbb87c1b">&lt;/strong&gt;</ept> drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="f9080dd0-224a-4672-aa9d-927652642bfb" xml:space="preserve">
+          <source><bpt id="e563bdfb-0ded-47fa-82fd-1669c88bb049">&lt;linkText&gt;</bpt>Email templates list<ept id="e563bdfb-0ded-47fa-82fd-1669c88bb049">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e563bdfb-0ded-47fa-82fd-1669c88bb049">&lt;linkText&gt;</bpt>Email templates list<ept id="e563bdfb-0ded-47fa-82fd-1669c88bb049">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5634bac9-e08d-491d-a467-60e107a9d0eb" xml:space="preserve">
+          <source>Each email template has a subject in plain text, and a body definition in HTML format.</source>
+          <target state="new">Each email template has a subject in plain text, and a body definition in HTML format.</target>
+        </trans-unit>
+        <trans-unit id="b7572fa8-d045-4d2c-824d-3e9669505652" xml:space="preserve">
+          <source>Each item can be customized as desired.</source>
+          <target state="new">Each item can be customized as desired.</target>
+        </trans-unit>
+        <trans-unit id="b709d5fe-4ed4-4358-a5df-a9916a89ccdb" xml:space="preserve">
+          <source><bpt id="46b6b9c1-a12d-4d64-a7de-dc8122ce103b">&lt;linkText&gt;</bpt>Email template editor<ept id="46b6b9c1-a12d-4d64-a7de-dc8122ce103b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46b6b9c1-a12d-4d64-a7de-dc8122ce103b">&lt;linkText&gt;</bpt>Email template editor<ept id="46b6b9c1-a12d-4d64-a7de-dc8122ce103b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d465d43-4e8d-423d-a824-2224ef663449" xml:space="preserve">
+          <source>The <bpt id="df48c22e-c5b4-439f-a49e-827ef55d9335">&lt;strong&gt;</bpt>Parameters<ept id="df48c22e-c5b4-439f-a49e-827ef55d9335">&lt;/strong&gt;</ept> list contains a list of parameters, which when inserted into the subject or body, will be replaced the designated value when the email is sent.</source>
+          <target state="new">The <bpt id="df48c22e-c5b4-439f-a49e-827ef55d9335">&lt;strong&gt;</bpt>Parameters<ept id="df48c22e-c5b4-439f-a49e-827ef55d9335">&lt;/strong&gt;</ept> list contains a list of parameters, which when inserted into the subject or body, will be replaced the designated value when the email is sent.</target>
+        </trans-unit>
+        <trans-unit id="a9f62bf2-e3d0-4d9a-a079-79c2b76a4263" xml:space="preserve">
+          <source>To insert a parameter, place the cursor where you wish the parameter to go, and click the arrow to the left of the parameter name.</source>
+          <target state="new">To insert a parameter, place the cursor where you wish the parameter to go, and click the arrow to the left of the parameter name.</target>
+        </trans-unit>
+        <trans-unit id="050e0fc1-fdb3-4f26-ac99-82127611cce5" xml:space="preserve">
+          <source>Click <bpt id="c866635c-c5ce-4231-89f0-a05ddf9bfd5c">&lt;strong&gt;</bpt>Preview<ept id="c866635c-c5ce-4231-89f0-a05ddf9bfd5c">&lt;/strong&gt;</ept> or <bpt id="cebeb98e-0ae3-49f9-9a55-2699efc1110d">&lt;strong&gt;</bpt>Send a test<ept id="cebeb98e-0ae3-49f9-9a55-2699efc1110d">&lt;/strong&gt;</ept> to see how the email will look or send a test email.</source>
+          <target state="new">Click <bpt id="c866635c-c5ce-4231-89f0-a05ddf9bfd5c">&lt;strong&gt;</bpt>Preview<ept id="c866635c-c5ce-4231-89f0-a05ddf9bfd5c">&lt;/strong&gt;</ept> or <bpt id="cebeb98e-0ae3-49f9-9a55-2699efc1110d">&lt;strong&gt;</bpt>Send a test<ept id="cebeb98e-0ae3-49f9-9a55-2699efc1110d">&lt;/strong&gt;</ept> to see how the email will look or send a test email.</target>
+        </trans-unit>
+        <trans-unit id="3662fb6e-a4a1-4147-8541-cbdd94666c9b" xml:space="preserve">
+          <source>Note that the parameters are not replaced with actual values when previewing or sending a test.</source>
+          <target state="new">Note that the parameters are not replaced with actual values when previewing or sending a test.</target>
+        </trans-unit>
+        <trans-unit id="9132b8f8-7044-459d-8e70-4972a6a20ee1" xml:space="preserve">
+          <source>To save the changes to the email template, click <bpt id="a58a10d5-8373-4450-b604-52c522c20541">&lt;strong&gt;</bpt>Save<ept id="a58a10d5-8373-4450-b604-52c522c20541">&lt;/strong&gt;</ept>, or to cancel the changes click <bpt id="aa16be16-3b14-4881-902d-1c21ce431e16">&lt;strong&gt;</bpt>Cancel<ept id="aa16be16-3b14-4881-902d-1c21ce431e16">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To save the changes to the email template, click <bpt id="a58a10d5-8373-4450-b604-52c522c20541">&lt;strong&gt;</bpt>Save<ept id="a58a10d5-8373-4450-b604-52c522c20541">&lt;/strong&gt;</ept>, or to cancel the changes click <bpt id="aa16be16-3b14-4881-902d-1c21ce431e16">&lt;strong&gt;</bpt>Cancel<ept id="aa16be16-3b14-4881-902d-1c21ce431e16">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="818361d8-9211-4ce3-9ee3-d82a6813baea" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="61b0c938-0d70-4efd-ad90-40675ae6b5b0" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png</target>
+        </trans-unit>
+        <trans-unit id="43009d62-dbb9-4578-bbf7-f587f8481cc6" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-email-addresses.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-email-addresses.png</target>
+        </trans-unit>
+        <trans-unit id="7d90a59c-ad54-475f-99ee-38d8dcfab29a" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-email-templates.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-email-templates.png</target>
+        </trans-unit>
+        <trans-unit id="631d9744-3459-4bdb-b630-1178c156e8bb" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-email-templates-list.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-email-templates-list.png</target>
+        </trans-unit>
+        <trans-unit id="147c9b99-6523-4870-b236-35e713527848" xml:space="preserve">
+          <source>./media/api-management-howto-configure-notifications/api-management-email-template.png</source>
+          <target state="new">./media/api-management-howto-configure-notifications/api-management-email-template.png</target>
+        </trans-unit>
+        <trans-unit id="e0f1d840-3946-4308-996b-269bb1a989e1" xml:space="preserve">
+          <source>#publisher-notifications</source>
+          <target state="new">#publisher-notifications</target>
+        </trans-unit>
+        <trans-unit id="74f3a4d4-b7f0-43a8-9591-9d7c325d4784" xml:space="preserve">
+          <source>#email-templates</source>
+          <target state="new">#email-templates</target>
+        </trans-unit>
+        <trans-unit id="e6c30a28-9f5e-40ae-9a11-86b618277e7d" xml:space="preserve">
+          <source>api-management-howto-create-groups.md</source>
+          <target state="new">api-management-howto-create-groups.md</target>
+        </trans-unit>
+        <trans-unit id="6dd363d1-22b9-44aa-ac7f-a4f595996558" xml:space="preserve">
+          <source>api-management-howto-create-groups.md#associate-group-developer</source>
+          <target state="new">api-management-howto-create-groups.md#associate-group-developer</target>
+        </trans-unit>
+        <trans-unit id="55ceb38b-c295-4ec2-a718-ac617a6e35fe" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9ce115fe-bce3-41ee-9e5c-63560a3938dd" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+      </group>
+      <group id="fe87e1a6-766f-4d15-ae82-5861136467c4" />
+    </body>
+  </file>
+</xliff>

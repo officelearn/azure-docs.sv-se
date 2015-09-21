@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="03a98fc3-bc31-4ef1-8c3d-a1e4854e9e18" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="03a98fc3-bc31-4ef1-8c3d-a1e4854e9e18" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="810589fc-52b8-41e9-a4a3-e3baf24dbe9f">
+        <trans-unit id="f85b5b5b-00ec-4d31-b887-2ab613ecdb08" xml:space="preserve">
+          <source>Getting started with elastic database jobs</source>
+          <target state="new">Getting started with elastic database jobs</target>
+        </trans-unit>
+        <trans-unit id="182b6b06-d67e-4c6c-823f-a3f1ec583095" xml:space="preserve">
+          <source>how to use elastic database jobs</source>
+          <target state="new">how to use elastic database jobs</target>
+        </trans-unit>
+        <trans-unit id="9d3a6309-cb8a-40d2-acab-f0dcc0161152" xml:space="preserve">
+          <source>Elastic Database jobs (preview) for Azure SQL Database allows you to reliability execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees.</source>
+          <target state="new">Elastic Database jobs (preview) for Azure SQL Database allows you to reliability execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees.</target>
+        </trans-unit>
+        <trans-unit id="28d7e76c-d18d-4869-b207-8c7c2b1b3f63" xml:space="preserve">
+          <source>For more information about the Elastic Database job feature, please see the <bpt id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;linkText&gt;</bpt>feature overview page<ept id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;/linkText&gt;</ept><bpt id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;title&gt;</bpt><ept id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Elastic Database job feature, please see the <bpt id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;linkText&gt;</bpt>feature overview page<ept id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;/linkText&gt;</ept><bpt id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;title&gt;</bpt><ept id="cb2221c2-9585-4133-96f4-487f800a6a08">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4f32725-ba28-4c12-a1c4-aaab61bc9487" xml:space="preserve">
+          <source>This topic extends the sample found in <bpt id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;linkText&gt;</bpt>Getting started with Elastic Database tools<ept id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;/linkText&gt;</ept><bpt id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;title&gt;</bpt><ept id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic extends the sample found in <bpt id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;linkText&gt;</bpt>Getting started with Elastic Database tools<ept id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;/linkText&gt;</ept><bpt id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;title&gt;</bpt><ept id="534ec419-1b42-43d4-838a-7cd33d042a90">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a70fcd8b-e231-40cc-8196-652c669a81a2" xml:space="preserve">
+          <source>When completed, you will: learn how to create and manage jobs that manage a group of related databases.</source>
+          <target state="new">When completed, you will: learn how to create and manage jobs that manage a group of related databases.</target>
+        </trans-unit>
+        <trans-unit id="2ab891eb-4911-4280-abb9-c18e5fb68035" xml:space="preserve">
+          <source>Download and run the <bpt id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;linkText&gt;</bpt>Getting started with Elastic Database tools sample<ept id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;/linkText&gt;</ept><bpt id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;title&gt;</bpt><ept id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download and run the <bpt id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;linkText&gt;</bpt>Getting started with Elastic Database tools sample<ept id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;/linkText&gt;</ept><bpt id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;title&gt;</bpt><ept id="2f91baf9-163d-4bfc-8669-17ed3fa56188">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3e29e4c-ce7e-46d7-8fec-f392287e7d1c" xml:space="preserve">
+          <source>Here you will create a shard map manager along with several shards, followed by insertion of data into the shards.</source>
+          <target state="new">Here you will create a shard map manager along with several shards, followed by insertion of data into the shards.</target>
+        </trans-unit>
+        <trans-unit id="55727c7f-31b7-48d1-8d75-b600532ab850" xml:space="preserve">
+          <source>If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.</source>
+          <target state="new">If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.</target>
+        </trans-unit>
+        <trans-unit id="24ead223-e099-4e8f-95df-3dcf69e20b86" xml:space="preserve">
+          <source>Build and run the <bpt id="ad10931f-6e6e-4bad-8bab-1b517a6e7cc9">&lt;strong&gt;</bpt>Getting started with Elastic Database tools<ept id="ad10931f-6e6e-4bad-8bab-1b517a6e7cc9">&lt;/strong&gt;</ept> sample application.</source>
+          <target state="new">Build and run the <bpt id="ad10931f-6e6e-4bad-8bab-1b517a6e7cc9">&lt;strong&gt;</bpt>Getting started with Elastic Database tools<ept id="ad10931f-6e6e-4bad-8bab-1b517a6e7cc9">&lt;/strong&gt;</ept> sample application.</target>
+        </trans-unit>
+        <trans-unit id="9afa423e-c121-4ab9-9da8-4f15a6b3f1c7" xml:space="preserve">
+          <source>Follow the steps until step 7 in the section <bpt id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;linkText&gt;</bpt>Download and run the sample app<ept id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;/linkText&gt;</ept><bpt id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;title&gt;</bpt><ept id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow the steps until step 7 in the section <bpt id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;linkText&gt;</bpt>Download and run the sample app<ept id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;/linkText&gt;</ept><bpt id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;title&gt;</bpt><ept id="da7c88d6-c569-4353-a1ca-d1240d01084d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="242d3ed4-5390-49dc-a785-3bf8421d9496" xml:space="preserve">
+          <source>At the end of Step 7, you will see the following command prompt:</source>
+          <target state="new">At the end of Step 7, you will see the following command prompt:</target>
+        </trans-unit>
+        <trans-unit id="dce1bb6e-cebf-4538-9527-c56bd2f6ee53" xml:space="preserve">
+          <source><bpt id="3e217905-d38e-4f21-a0e5-7f2b8f3904e0">&lt;linkText&gt;</bpt>command prompt<ept id="3e217905-d38e-4f21-a0e5-7f2b8f3904e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e217905-d38e-4f21-a0e5-7f2b8f3904e0">&lt;linkText&gt;</bpt>command prompt<ept id="3e217905-d38e-4f21-a0e5-7f2b8f3904e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19e75c83-7647-434e-9bfd-112b9b812ba2" xml:space="preserve">
+          <source>In the command window, type "1" and press <bpt id="a7da11d3-1800-4cd1-a583-a0d3d299ad06">&lt;strong&gt;</bpt>Enter<ept id="a7da11d3-1800-4cd1-a583-a0d3d299ad06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the command window, type "1" and press <bpt id="a7da11d3-1800-4cd1-a583-a0d3d299ad06">&lt;strong&gt;</bpt>Enter<ept id="a7da11d3-1800-4cd1-a583-a0d3d299ad06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="993166dc-a7c8-4877-88cb-f1358d49952e" xml:space="preserve">
+          <source>This creates the shard map manager, and adds two shards to the server.</source>
+          <target state="new">This creates the shard map manager, and adds two shards to the server.</target>
+        </trans-unit>
+        <trans-unit id="00a4a0dc-e3cd-492c-9bc1-7238604737d4" xml:space="preserve">
+          <source>Then type "3" and press <bpt id="a843961c-d2f6-40c1-ad8a-5e8d163ed07f">&lt;strong&gt;</bpt>Enter<ept id="a843961c-d2f6-40c1-ad8a-5e8d163ed07f">&lt;/strong&gt;</ept>; repeat the action four times.</source>
+          <target state="new">Then type "3" and press <bpt id="a843961c-d2f6-40c1-ad8a-5e8d163ed07f">&lt;strong&gt;</bpt>Enter<ept id="a843961c-d2f6-40c1-ad8a-5e8d163ed07f">&lt;/strong&gt;</ept>; repeat the action four times.</target>
+        </trans-unit>
+        <trans-unit id="d8c614fd-c536-4f0a-aaff-ef2a63b3bc0a" xml:space="preserve">
+          <source>This inserts sample data rows in your shards.</source>
+          <target state="new">This inserts sample data rows in your shards.</target>
+        </trans-unit>
+        <trans-unit id="255aca46-28a9-4c86-ad59-41dc0ba02ac3" xml:space="preserve">
+          <source>The <bpt id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;linkText&gt;</bpt>Azure preview portal<ept id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;/linkText&gt;</ept><bpt id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;title&gt;</bpt><ept id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;/title&gt;</ept> should show three new databases in your v12 server:</source>
+          <target state="new">The <bpt id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;linkText&gt;</bpt>Azure preview portal<ept id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;/linkText&gt;</ept><bpt id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;title&gt;</bpt><ept id="94560741-feed-4383-baf5-ed42e4bf7d73">&lt;/title&gt;</ept> should show three new databases in your v12 server:</target>
+        </trans-unit>
+        <trans-unit id="05ca311b-0cf8-4f08-a34d-e08d2dfebc20" xml:space="preserve">
+          <source><bpt id="d66ea05d-67a0-4951-9a53-85a04f469335">&lt;linkText&gt;</bpt>Visual Studio confirmation<ept id="d66ea05d-67a0-4951-9a53-85a04f469335">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d66ea05d-67a0-4951-9a53-85a04f469335">&lt;linkText&gt;</bpt>Visual Studio confirmation<ept id="d66ea05d-67a0-4951-9a53-85a04f469335">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="246de560-a4ec-447d-b63a-4be705446b4d" xml:space="preserve">
+          <source>At this point, we will create a custom database collection that reflects all the databases in the shard map.</source>
+          <target state="new">At this point, we will create a custom database collection that reflects all the databases in the shard map.</target>
+        </trans-unit>
+        <trans-unit id="da9e361b-6939-4085-a66a-515a56993522" xml:space="preserve">
+          <source>This will allow us to create and execute a job that add a new table across shards.</source>
+          <target state="new">This will allow us to create and execute a job that add a new table across shards.</target>
+        </trans-unit>
+        <trans-unit id="daaf48a7-5490-4676-8c5a-46a93a2d58b6" xml:space="preserve">
+          <source>Now here we would usually create a shard map target, using the <bpt id="448452a9-eef8-4222-b9ca-60c7ceef8e73">&lt;strong&gt;</bpt>New-AzureSqlJobTarget<ept id="448452a9-eef8-4222-b9ca-60c7ceef8e73">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">Now here we would usually create a shard map target, using the <bpt id="448452a9-eef8-4222-b9ca-60c7ceef8e73">&lt;strong&gt;</bpt>New-AzureSqlJobTarget<ept id="448452a9-eef8-4222-b9ca-60c7ceef8e73">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="acc7208b-49d1-4695-b794-d443005c4c70" xml:space="preserve">
+          <source>The shard map manager database must be set as a database target and then the specific shard map is specified as a target.</source>
+          <target state="new">The shard map manager database must be set as a database target and then the specific shard map is specified as a target.</target>
+        </trans-unit>
+        <trans-unit id="b5e13489-dedd-47cb-aa5e-cfaacef70a0d" xml:space="preserve">
+          <source>Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.</source>
+          <target state="new">Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.</target>
+        </trans-unit>
+        <trans-unit id="f9bf9d3e-3b8c-4d1c-bdec-c8f5fc9c543d" xml:space="preserve">
+          <source>The following PowerShell script can be used to execute an existing job:</source>
+          <target state="new">The following PowerShell script can be used to execute an existing job:</target>
+        </trans-unit>
+        <trans-unit id="d1809593-8701-47ae-8576-487fee5e5825" xml:space="preserve">
+          <source>Update the following variable to reflect the desired job name to have executed:</source>
+          <target state="new">Update the following variable to reflect the desired job name to have executed:</target>
+        </trans-unit>
+        <trans-unit id="d5068e0f-83c6-4f32-a228-29d47be808b0" xml:space="preserve">
+          <source>Use the same <bpt id="86f9a3dd-8721-48a1-8485-e4f00b44c5ee">&lt;strong&gt;</bpt>Get-AzureSqlJobExecution<ept id="86f9a3dd-8721-48a1-8485-e4f00b44c5ee">&lt;/strong&gt;</ept> cmdlet with the <bpt id="5e782774-3f66-4844-a4be-32228932784d">&lt;strong&gt;</bpt>IncludeChildren<ept id="5e782774-3f66-4844-a4be-32228932784d">&lt;/strong&gt;</ept> parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.</source>
+          <target state="new">Use the same <bpt id="86f9a3dd-8721-48a1-8485-e4f00b44c5ee">&lt;strong&gt;</bpt>Get-AzureSqlJobExecution<ept id="86f9a3dd-8721-48a1-8485-e4f00b44c5ee">&lt;/strong&gt;</ept> cmdlet with the <bpt id="5e782774-3f66-4844-a4be-32228932784d">&lt;strong&gt;</bpt>IncludeChildren<ept id="5e782774-3f66-4844-a4be-32228932784d">&lt;/strong&gt;</ept> parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.</target>
+        </trans-unit>
+        <trans-unit id="a939c8b3-8519-4fe0-9d32-47c114f5cd5e" xml:space="preserve">
+          <source>The <bpt id="79ed100a-8051-4e35-a4ce-f8c47cb6ebcf">&lt;strong&gt;</bpt>Get-AzureSqlJobExecution<ept id="79ed100a-8051-4e35-a4ce-f8c47cb6ebcf">&lt;/strong&gt;</ept> cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters.</source>
+          <target state="new">The <bpt id="79ed100a-8051-4e35-a4ce-f8c47cb6ebcf">&lt;strong&gt;</bpt>Get-AzureSqlJobExecution<ept id="79ed100a-8051-4e35-a4ce-f8c47cb6ebcf">&lt;/strong&gt;</ept> cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters.</target>
+        </trans-unit>
+        <trans-unit id="752918e0-c5f4-40a2-92b5-014bb4a50c2e" xml:space="preserve">
+          <source>The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:</source>
+          <target state="new">The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:</target>
+        </trans-unit>
+        <trans-unit id="fc6a90ae-ee06-4a8b-b67a-e850fcb5d152" xml:space="preserve">
+          <source>Retrieve all active top level job executions:</source>
+          <target state="new">Retrieve all active top level job executions:</target>
+        </trans-unit>
+        <trans-unit id="d2aa8b39-3fb5-42e0-92b8-b7e45d69be69" xml:space="preserve">
+          <source>Retrieve all top level job executions, including inactive job executions:</source>
+          <target state="new">Retrieve all top level job executions, including inactive job executions:</target>
+        </trans-unit>
+        <trans-unit id="72fd55b9-fb7f-4dce-9402-dffe79ee01e7" xml:space="preserve">
+          <source>Retrieve all child job executions of a provided job execution ID, including inactive job executions:</source>
+          <target state="new">Retrieve all child job executions of a provided job execution ID, including inactive job executions:</target>
+        </trans-unit>
+        <trans-unit id="f77f4764-1187-45f3-8ed1-e124947390ed" xml:space="preserve">
+          <source>Retrieve all job executions created using a schedule / job combination, including inactive jobs:</source>
+          <target state="new">Retrieve all job executions created using a schedule / job combination, including inactive jobs:</target>
+        </trans-unit>
+        <trans-unit id="8d4c3dbb-5655-476b-a1f7-0305a6a3fa9c" xml:space="preserve">
+          <source>Retrieve all jobs targeting a specified shard map, including inactive jobs:</source>
+          <target state="new">Retrieve all jobs targeting a specified shard map, including inactive jobs:</target>
+        </trans-unit>
+        <trans-unit id="262ed4f9-92bc-4bae-8bdf-dac1af4f89ca" xml:space="preserve">
+          <source>Retrieve all jobs targeting a specified custom collection, including inactive jobs:</source>
+          <target state="new">Retrieve all jobs targeting a specified custom collection, including inactive jobs:</target>
+        </trans-unit>
+        <trans-unit id="ed56c5ab-918e-4827-8983-951157548b47" xml:space="preserve">
+          <source>Retrieve the list of job task executions within a specific job execution:</source>
+          <target state="new">Retrieve the list of job task executions within a specific job execution:</target>
+        </trans-unit>
+        <trans-unit id="e179ae39-8a62-4093-bd71-5530598391fb" xml:space="preserve">
+          <source>Retrieve job task execution details:</source>
+          <target state="new">Retrieve job task execution details:</target>
+        </trans-unit>
+        <trans-unit id="85d2b704-92f6-48eb-afe1-cacaedba5fe5" xml:space="preserve">
+          <source>The following PowerShell script can be used to view the details of a job task execution, which is particularly useful when debugging execution failures.</source>
+          <target state="new">The following PowerShell script can be used to view the details of a job task execution, which is particularly useful when debugging execution failures.</target>
+        </trans-unit>
+        <trans-unit id="ba9cc3ec-7dd4-48b3-90b1-3fc6c481d2b3" xml:space="preserve">
+          <source>The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property.</source>
+          <target state="new">The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property.</target>
+        </trans-unit>
+        <trans-unit id="d15af86e-8d60-46c2-b510-e188c897503a" xml:space="preserve">
+          <source>If a job task execution failed, the Lifecycle property will be set to <bpt id="92caa29c-381c-4f9c-aa07-95f0cbf4c2cd">&lt;em&gt;</bpt>Failed<ept id="92caa29c-381c-4f9c-aa07-95f0cbf4c2cd">&lt;/em&gt;</ept> and the Message property will be set to the resulting exception message and its stack.</source>
+          <target state="new">If a job task execution failed, the Lifecycle property will be set to <bpt id="92caa29c-381c-4f9c-aa07-95f0cbf4c2cd">&lt;em&gt;</bpt>Failed<ept id="92caa29c-381c-4f9c-aa07-95f0cbf4c2cd">&lt;/em&gt;</ept> and the Message property will be set to the resulting exception message and its stack.</target>
+        </trans-unit>
+        <trans-unit id="063d07f0-576e-43f5-b7da-083c8b5a1491" xml:space="preserve">
+          <source>If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.</source>
+          <target state="new">If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.</target>
+        </trans-unit>
+        <trans-unit id="53ab3239-518d-4974-9979-c7b0f5d5565d" xml:space="preserve">
+          <source>The following PowerShell script can be used to wait for a job task to complete:</source>
+          <target state="new">The following PowerShell script can be used to wait for a job task to complete:</target>
+        </trans-unit>
+        <trans-unit id="ffabade2-c95c-4240-9d69-dfb87c8314ce" xml:space="preserve">
+          <source>Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.</source>
+          <target state="new">Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.</target>
+        </trans-unit>
+        <trans-unit id="e9895e36-a27f-400c-b5a4-f3311c66dbf4" xml:space="preserve">
+          <source>Execution policies currently allow for defining:</source>
+          <target state="new">Execution policies currently allow for defining:</target>
+        </trans-unit>
+        <trans-unit id="43a1f087-01db-439c-9618-2f6210c60573" xml:space="preserve">
+          <source>Name: Identifier for the execution policy.</source>
+          <target state="new">Name: Identifier for the execution policy.</target>
+        </trans-unit>
+        <trans-unit id="1c493e7c-658e-4a60-a66e-da994d30a109" xml:space="preserve">
+          <source>Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.</source>
+          <target state="new">Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.</target>
+        </trans-unit>
+        <trans-unit id="3e348901-d8b0-463b-bc26-7e0146b43ed8" xml:space="preserve">
+          <source>Initial Retry Interval: Interval to wait before first retry.</source>
+          <target state="new">Initial Retry Interval: Interval to wait before first retry.</target>
+        </trans-unit>
+        <trans-unit id="c303a50d-dcb0-49b4-80d7-dc9c8cc9b167" xml:space="preserve">
+          <source>Maximum Retry Interval: Cap of retry intervals to use.</source>
+          <target state="new">Maximum Retry Interval: Cap of retry intervals to use.</target>
+        </trans-unit>
+        <trans-unit id="250a826e-5856-4e7a-8df9-d1d95701d0b5" xml:space="preserve">
+          <source>Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.</source>
+          <target state="new">Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.</target>
+        </trans-unit>
+        <trans-unit id="a855142e-8400-4951-b941-e2911775285b" xml:space="preserve">
+          <source>The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2).</source>
+          <target state="new">The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2).</target>
+        </trans-unit>
+        <trans-unit id="e1fd8358-64da-41c8-805e-f4b148c687de" xml:space="preserve">
+          <source>Maximum Attempts: The maximum number of retry attempts to perform within a job.</source>
+          <target state="new">Maximum Attempts: The maximum number of retry attempts to perform within a job.</target>
+        </trans-unit>
+        <trans-unit id="b344378a-2ad5-44f5-a7fa-ab4b896af8e2" xml:space="preserve">
+          <source>The default execution policy uses the following values:</source>
+          <target state="new">The default execution policy uses the following values:</target>
+        </trans-unit>
+        <trans-unit id="b97d21b2-5035-4ae4-a0de-f5d4065abe9f" xml:space="preserve">
+          <source>Name: Default execution policy</source>
+          <target state="new">Name: Default execution policy</target>
+        </trans-unit>
+        <trans-unit id="88a9bfde-2ebb-4273-aa4e-367f724336b2" xml:space="preserve">
+          <source>Job Timeout: 1 week</source>
+          <target state="new">Job Timeout: 1 week</target>
+        </trans-unit>
+        <trans-unit id="644f62d8-2a59-45cc-879c-44222395bd16" xml:space="preserve">
+          <source>Initial Retry Interval:  100 milliseconds</source>
+          <target state="new">Initial Retry Interval:  100 milliseconds</target>
+        </trans-unit>
+        <trans-unit id="cc7d61f2-1cf6-4254-a0a0-613b4b6d16c6" xml:space="preserve">
+          <source>Maximum Retry Interval: 30 minutes</source>
+          <target state="new">Maximum Retry Interval: 30 minutes</target>
+        </trans-unit>
+        <trans-unit id="bd96303b-05fc-4ba3-8295-a01083ea88a6" xml:space="preserve">
+          <source>Retry Interval Coefficient: 2</source>
+          <target state="new">Retry Interval Coefficient: 2</target>
+        </trans-unit>
+        <trans-unit id="584aa2a9-4ee8-4471-938d-eea60bfc5ebc" xml:space="preserve">
+          <source>Maximum Attempts: 2,147,483,647</source>
+          <target state="new">Maximum Attempts: 2,147,483,647</target>
+        </trans-unit>
+        <trans-unit id="3de6b72a-6163-4fa6-95f0-4161ddc54c55" xml:space="preserve">
+          <source>Create the desired execution policy:</source>
+          <target state="new">Create the desired execution policy:</target>
+        </trans-unit>
+        <trans-unit id="b659bb86-a4e8-49ef-91d8-887bc984c620" xml:space="preserve">
+          <source>Update the desired execution policy to update:</source>
+          <target state="new">Update the desired execution policy to update:</target>
+        </trans-unit>
+        <trans-unit id="a29c31ef-2dbe-4707-a5eb-4fef2f7f1cad" xml:space="preserve">
+          <source>Elastic Database Jobs supports cancellation requests of jobs.</source>
+          <target state="new">Elastic Database Jobs supports cancellation requests of jobs.</target>
+        </trans-unit>
+        <trans-unit id="12ec760b-6b9d-4436-9a8e-92baf6c9ab52" xml:space="preserve">
+          <source>If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.</source>
+          <target state="new">If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.</target>
+        </trans-unit>
+        <trans-unit id="c446c44e-c824-4225-966e-43d0c00f516c" xml:space="preserve">
+          <source>There are two different ways that Elastic Database Jobs can perform a cancellation:</source>
+          <target state="new">There are two different ways that Elastic Database Jobs can perform a cancellation:</target>
+        </trans-unit>
+        <trans-unit id="9f1cd08b-195a-4421-a5d1-7ded01c98dfd" xml:space="preserve">
+          <source>Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation will be attempted within the currently executing aspect of the task.</source>
+          <target state="new">Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation will be attempted within the currently executing aspect of the task.</target>
+        </trans-unit>
+        <trans-unit id="451b8625-2a3f-49a8-8234-28d357b51678" xml:space="preserve">
+          <source>For example: If there is a long running query currently being performed when a cancellation is attempted, there will be an attempt to cancel the query.</source>
+          <target state="new">For example: If there is a long running query currently being performed when a cancellation is attempted, there will be an attempt to cancel the query.</target>
+        </trans-unit>
+        <trans-unit id="0d69bdbf-5ec3-4146-8f17-f57bc268af65" xml:space="preserve">
+          <source>Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread will avoid launching the task and declare the request as canceled.</source>
+          <target state="new">Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread will avoid launching the task and declare the request as canceled.</target>
+        </trans-unit>
+        <trans-unit id="31075c9e-ea42-4ef8-8b5b-4a4ee57f2e15" xml:space="preserve">
+          <source>If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.</source>
+          <target state="new">If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.</target>
+        </trans-unit>
+        <trans-unit id="1da16ec0-29fe-46a8-8d1d-71b13f4e0375" xml:space="preserve">
+          <source>To submit a cancellation request, use the <bpt id="41a4e1b3-a502-40b1-b23e-d5d4c037c0d3">&lt;strong&gt;</bpt>Stop-AzureSqlJobExecution<ept id="41a4e1b3-a502-40b1-b23e-d5d4c037c0d3">&lt;/strong&gt;</ept> cmdlet and set the <bpt id="6602e52f-6a67-48a7-b1c4-6a6268b4619a">&lt;strong&gt;</bpt>JobExecutionId<ept id="6602e52f-6a67-48a7-b1c4-6a6268b4619a">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To submit a cancellation request, use the <bpt id="41a4e1b3-a502-40b1-b23e-d5d4c037c0d3">&lt;strong&gt;</bpt>Stop-AzureSqlJobExecution<ept id="41a4e1b3-a502-40b1-b23e-d5d4c037c0d3">&lt;/strong&gt;</ept> cmdlet and set the <bpt id="6602e52f-6a67-48a7-b1c4-6a6268b4619a">&lt;strong&gt;</bpt>JobExecutionId<ept id="6602e52f-6a67-48a7-b1c4-6a6268b4619a">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="c624af38-af06-4d39-aabc-4ba8b3d86599" xml:space="preserve">
+          <source>Elastic Database jobs supports asynchronous deletion of jobs.</source>
+          <target state="new">Elastic Database jobs supports asynchronous deletion of jobs.</target>
+        </trans-unit>
+        <trans-unit id="4550c89f-36a8-4d13-83d6-e7f06bfac1e8" xml:space="preserve">
+          <source>A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job.</source>
+          <target state="new">A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job.</target>
+        </trans-unit>
+        <trans-unit id="78b04acc-b598-443d-87ac-50613275f3de" xml:space="preserve">
+          <source>The system will not automatically cancel active job executions.</source>
+          <target state="new">The system will not automatically cancel active job executions.</target>
+        </trans-unit>
+        <trans-unit id="92a46f39-bb51-4339-a9bc-1deb26d3751c" xml:space="preserve">
+          <source>Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.</source>
+          <target state="new">Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.</target>
+        </trans-unit>
+        <trans-unit id="ad97c5bd-6bf5-4e24-8839-66d48c0bdbd2" xml:space="preserve">
+          <source>To trigger job deletion, use the <bpt id="c66884df-239b-48a2-b937-8247b5887486">&lt;strong&gt;</bpt>Remove-AzureSqlJob<ept id="c66884df-239b-48a2-b937-8247b5887486">&lt;/strong&gt;</ept> cmdlet and set the <bpt id="ebaecc51-b94d-4704-bc11-fa24bfdf7572">&lt;strong&gt;</bpt>JobName<ept id="ebaecc51-b94d-4704-bc11-fa24bfdf7572">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To trigger job deletion, use the <bpt id="c66884df-239b-48a2-b937-8247b5887486">&lt;strong&gt;</bpt>Remove-AzureSqlJob<ept id="c66884df-239b-48a2-b937-8247b5887486">&lt;/strong&gt;</ept> cmdlet and set the <bpt id="ebaecc51-b94d-4704-bc11-fa24bfdf7572">&lt;strong&gt;</bpt>JobName<ept id="ebaecc51-b94d-4704-bc11-fa24bfdf7572">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="3183bbee-1398-424f-8b02-6a214ae7ec80" xml:space="preserve">
+          <source>Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group.</source>
+          <target state="new">Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group.</target>
+        </trans-unit>
+        <trans-unit id="fed4ed59-dd89-4c10-9921-8433e1c96211" xml:space="preserve">
+          <source>Since <bpt id="3e55702e-f04e-4ec0-981f-a868fc8e5f2a">&lt;strong&gt;</bpt>Elastic Database pools<ept id="3e55702e-f04e-4ec0-981f-a868fc8e5f2a">&lt;/strong&gt;</ept> are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.</source>
+          <target state="new">Since <bpt id="3e55702e-f04e-4ec0-981f-a868fc8e5f2a">&lt;strong&gt;</bpt>Elastic Database pools<ept id="3e55702e-f04e-4ec0-981f-a868fc8e5f2a">&lt;/strong&gt;</ept> are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.</target>
+        </trans-unit>
+        <trans-unit id="28639243-7591-4b83-9748-81583abc892e" xml:space="preserve">
+          <source>Set the following variables to reflect the desired database information:</source>
+          <target state="new">Set the following variables to reflect the desired database information:</target>
+        </trans-unit>
+        <trans-unit id="8f5b9c34-032a-41d8-a2f7-f2457acd27dc" xml:space="preserve">
+          <source>A custom database collection target can be defined to enable execution across multiple defined database targets.</source>
+          <target state="new">A custom database collection target can be defined to enable execution across multiple defined database targets.</target>
+        </trans-unit>
+        <trans-unit id="3adfa362-27cf-4726-9fb5-f0ab7c957a0a" xml:space="preserve">
+          <source>After a database group is created, databases can be associated to the custom collection target.</source>
+          <target state="new">After a database group is created, databases can be associated to the custom collection target.</target>
+        </trans-unit>
+        <trans-unit id="1bba9f7a-171f-49d4-adca-133a65513b5b" xml:space="preserve">
+          <source>Set the following variables to reflect the desired custom collection target configuration:</source>
+          <target state="new">Set the following variables to reflect the desired custom collection target configuration:</target>
+        </trans-unit>
+        <trans-unit id="9cb5626f-accd-4999-bc5e-683a94634e4d" xml:space="preserve">
+          <source>Database targets can be associated with custom database collection targets to create a group of databases.</source>
+          <target state="new">Database targets can be associated with custom database collection targets to create a group of databases.</target>
+        </trans-unit>
+        <trans-unit id="c808ca18-1c3c-451b-99f6-4f8184e8b0dc" xml:space="preserve">
+          <source>Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.</source>
+          <target state="new">Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.</target>
+        </trans-unit>
+        <trans-unit id="9d11adaa-18e3-4eac-bc5a-44044bcee474" xml:space="preserve">
+          <source>Add the desired database to a specific custom collection:</source>
+          <target state="new">Add the desired database to a specific custom collection:</target>
+        </trans-unit>
+        <trans-unit id="b544a015-91cd-4ae9-9dc0-9ce3a9d8ad8c" xml:space="preserve">
+          <source>Use the <bpt id="a2172027-a807-4586-b6ca-c9c2be4bc18b">&lt;strong&gt;</bpt>Get-AzureSqlJobTarget<ept id="a2172027-a807-4586-b6ca-c9c2be4bc18b">&lt;/strong&gt;</ept> cmdlet to retrieve the child databases within a custom database collection target.</source>
+          <target state="new">Use the <bpt id="a2172027-a807-4586-b6ca-c9c2be4bc18b">&lt;strong&gt;</bpt>Get-AzureSqlJobTarget<ept id="a2172027-a807-4586-b6ca-c9c2be4bc18b">&lt;/strong&gt;</ept> cmdlet to retrieve the child databases within a custom database collection target.</target>
+        </trans-unit>
+        <trans-unit id="2a64d68b-b8cf-4843-843d-ecd6f3b4f4e9" xml:space="preserve">
+          <source>Use the <bpt id="09ad60c9-610c-4329-950d-43203ed33c7e">&lt;strong&gt;</bpt>New-AzureSqlJob<ept id="09ad60c9-610c-4329-950d-43203ed33c7e">&lt;/strong&gt;</ept> cmdlet to create a job against a group of databases defined by a custom database collection target.</source>
+          <target state="new">Use the <bpt id="09ad60c9-610c-4329-950d-43203ed33c7e">&lt;strong&gt;</bpt>New-AzureSqlJob<ept id="09ad60c9-610c-4329-950d-43203ed33c7e">&lt;/strong&gt;</ept> cmdlet to create a job against a group of databases defined by a custom database collection target.</target>
+        </trans-unit>
+        <trans-unit id="c43327eb-82b6-4ff3-a74b-a6a841b9b543" xml:space="preserve">
+          <source>Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database.</source>
+          <target state="new">Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database.</target>
+        </trans-unit>
+        <trans-unit id="7a3a3b91-85cd-4054-b91a-1ad5be5757a8" xml:space="preserve">
+          <source>Again, it is important that scripts are idempotent to be resilient to retries.</source>
+          <target state="new">Again, it is important that scripts are idempotent to be resilient to retries.</target>
+        </trans-unit>
+        <trans-unit id="5ee4da6c-1dc7-4d69-8292-5d9f3b43aa68" xml:space="preserve">
+          <source><bpt id="579cdee0-61bf-4974-93b5-ed2686e906b1">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="579cdee0-61bf-4974-93b5-ed2686e906b1">&lt;/strong&gt;</ept> supports executing a query across a group of databases and sends the results to a specified database’s table.</source>
+          <target state="new"><bpt id="579cdee0-61bf-4974-93b5-ed2686e906b1">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="579cdee0-61bf-4974-93b5-ed2686e906b1">&lt;/strong&gt;</ept> supports executing a query across a group of databases and sends the results to a specified database’s table.</target>
+        </trans-unit>
+        <trans-unit id="2b87b8b5-324c-44b0-8311-94b430c8f218" xml:space="preserve">
+          <source>The table can be queried after the fact to see the query’s results from each database.</source>
+          <target state="new">The table can be queried after the fact to see the query’s results from each database.</target>
+        </trans-unit>
+        <trans-unit id="9a13a6a9-dfea-439f-813e-afbea00227ed" xml:space="preserve">
+          <source>This provides an asynchronous mechanism to execute a query across many databases.</source>
+          <target state="new">This provides an asynchronous mechanism to execute a query across many databases.</target>
+        </trans-unit>
+        <trans-unit id="57e1c25e-bf76-4276-b993-f155e5182c03" xml:space="preserve">
+          <source>Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.</source>
+          <target state="new">Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.</target>
+        </trans-unit>
+        <trans-unit id="074b2818-35f3-4377-a8a3-6b3990165f3b" xml:space="preserve">
+          <source>The specified destination table will be automatically created if it does not yet exist matching the schema of the returned result set.</source>
+          <target state="new">The specified destination table will be automatically created if it does not yet exist matching the schema of the returned result set.</target>
+        </trans-unit>
+        <trans-unit id="0ec1d043-2a39-4f25-a830-26f076e4df76" xml:space="preserve">
+          <source>If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.</source>
+          <target state="new">If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.</target>
+        </trans-unit>
+        <trans-unit id="be4343f0-1c09-48c2-9d2a-d9e84d04753e" xml:space="preserve">
+          <source>The following PowerShell script can be used to execute a script collecting its results into a specified table.</source>
+          <target state="new">The following PowerShell script can be used to execute a script collecting its results into a specified table.</target>
+        </trans-unit>
+        <trans-unit id="de442dcf-4945-4dad-a4d7-4a3686276487" xml:space="preserve">
+          <source>This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.</source>
+          <target state="new">This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.</target>
+        </trans-unit>
+        <trans-unit id="73663ef8-e719-4a96-ac22-7b9ccd8ee8ed" xml:space="preserve">
+          <source>Set the following to reflect the desired script, credentials, and execution target:</source>
+          <target state="new">Set the following to reflect the desired script, credentials, and execution target:</target>
+        </trans-unit>
+        <trans-unit id="04294588-7028-4848-839e-b62d88f6d4d0" xml:space="preserve">
+          <source>The following PowerShell script can be used to create a reoccurring schedule.</source>
+          <target state="new">The following PowerShell script can be used to create a reoccurring schedule.</target>
+        </trans-unit>
+        <trans-unit id="1bd1636c-ba1a-4a69-94fa-19d521851e16" xml:space="preserve">
+          <source>This script uses a minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters.</source>
+          <target state="new">This script uses a minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters.</target>
+        </trans-unit>
+        <trans-unit id="c665154d-915f-47ac-aaf3-9164aed04b7f" xml:space="preserve">
+          <source>Schedules that execute only once can be created by passing -OneTime.</source>
+          <target state="new">Schedules that execute only once can be created by passing -OneTime.</target>
+        </trans-unit>
+        <trans-unit id="a00e93fa-365d-43d5-9ea8-df5623296612" xml:space="preserve">
+          <source>Create a new schedule:</source>
+          <target state="new">Create a new schedule:</target>
+        </trans-unit>
+        <trans-unit id="96c2ac12-815c-47cc-b9f1-bd3b8aa2b81f" xml:space="preserve">
+          <source>A job trigger can be defined to have a job executed according to a time schedule.</source>
+          <target state="new">A job trigger can be defined to have a job executed according to a time schedule.</target>
+        </trans-unit>
+        <trans-unit id="e03a1b23-d355-4c7b-a9d2-91b7043aeed9" xml:space="preserve">
+          <source>The following PowerShell script can be used to create a job trigger.</source>
+          <target state="new">The following PowerShell script can be used to create a job trigger.</target>
+        </trans-unit>
+        <trans-unit id="5e434317-7e36-4410-8125-8645e4957596" xml:space="preserve">
+          <source>Set the following variables to correspond to the desired job and schedule:</source>
+          <target state="new">Set the following variables to correspond to the desired job and schedule:</target>
+        </trans-unit>
+        <trans-unit id="976d1509-7c31-4aba-86d0-bf02dca1e7a2" xml:space="preserve">
+          <source>To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.</source>
+          <target state="new">To discontinue reoccurring job execution through a job trigger, the job trigger can be removed.</target>
+        </trans-unit>
+        <trans-unit id="4d082560-81ac-4147-bdff-f148b734b89b" xml:space="preserve">
+          <source>Remove a job trigger to stop a job from being executed according to a schedule using the <bpt id="d86bcc42-0221-478d-835c-260f691b95d7">&lt;strong&gt;</bpt>Remove-AzureSqlJobTrigger<ept id="d86bcc42-0221-478d-835c-260f691b95d7">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">Remove a job trigger to stop a job from being executed according to a schedule using the <bpt id="d86bcc42-0221-478d-835c-260f691b95d7">&lt;strong&gt;</bpt>Remove-AzureSqlJobTrigger<ept id="d86bcc42-0221-478d-835c-260f691b95d7">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="8b3f3e78-2bf9-4191-9456-e1add304bff3" xml:space="preserve">
+          <source> You can import the results from of a query to an Excel file.</source>
+          <target state="new"> You can import the results from of a query to an Excel file.</target>
+        </trans-unit>
+        <trans-unit id="65743b73-0ae4-4cfb-a8ef-ab6993d0904b" xml:space="preserve">
+          <source>Launch Excel 2013.</source>
+          <target state="new">Launch Excel 2013.</target>
+        </trans-unit>
+        <trans-unit id="6b3e471b-c3a4-42f7-8bf9-240ab328d62e" xml:space="preserve">
+          <source>Navigate to the <bpt id="8ef1d321-63eb-414e-99af-1f835ecf7feb">&lt;strong&gt;</bpt>Data<ept id="8ef1d321-63eb-414e-99af-1f835ecf7feb">&lt;/strong&gt;</ept> ribbon.</source>
+          <target state="new">Navigate to the <bpt id="8ef1d321-63eb-414e-99af-1f835ecf7feb">&lt;strong&gt;</bpt>Data<ept id="8ef1d321-63eb-414e-99af-1f835ecf7feb">&lt;/strong&gt;</ept> ribbon.</target>
+        </trans-unit>
+        <trans-unit id="c9cd1977-620a-4cf1-bb8f-49ef422d7e75" xml:space="preserve">
+          <source>Click <bpt id="99ffe039-9077-4b9b-a412-177ec6858ccf">&lt;strong&gt;</bpt>From Other Sources<ept id="99ffe039-9077-4b9b-a412-177ec6858ccf">&lt;/strong&gt;</ept> and click <bpt id="2645aede-8232-4125-9918-9a4b77f0479e">&lt;strong&gt;</bpt>From SQL Server<ept id="2645aede-8232-4125-9918-9a4b77f0479e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="99ffe039-9077-4b9b-a412-177ec6858ccf">&lt;strong&gt;</bpt>From Other Sources<ept id="99ffe039-9077-4b9b-a412-177ec6858ccf">&lt;/strong&gt;</ept> and click <bpt id="2645aede-8232-4125-9918-9a4b77f0479e">&lt;strong&gt;</bpt>From SQL Server<ept id="2645aede-8232-4125-9918-9a4b77f0479e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64ec6c82-df0e-43e4-a555-4e291a22b4de" xml:space="preserve">
+          <source><bpt id="3d55a965-06ab-4dda-8a95-3bea55f36b7d">&lt;linkText&gt;</bpt>Excel import from other sources<ept id="3d55a965-06ab-4dda-8a95-3bea55f36b7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d55a965-06ab-4dda-8a95-3bea55f36b7d">&lt;linkText&gt;</bpt>Excel import from other sources<ept id="3d55a965-06ab-4dda-8a95-3bea55f36b7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="247f8d68-773c-4343-8302-226bb7ef2901" xml:space="preserve">
+          <source>In the <bpt id="91c6f6c2-8393-449c-8fa7-f28680b3fe4d">&lt;strong&gt;</bpt>Data Connection Wizard<ept id="91c6f6c2-8393-449c-8fa7-f28680b3fe4d">&lt;/strong&gt;</ept> type the server name and login credentials.</source>
+          <target state="new">In the <bpt id="91c6f6c2-8393-449c-8fa7-f28680b3fe4d">&lt;strong&gt;</bpt>Data Connection Wizard<ept id="91c6f6c2-8393-449c-8fa7-f28680b3fe4d">&lt;/strong&gt;</ept> type the server name and login credentials.</target>
+        </trans-unit>
+        <trans-unit id="d2ad076f-ac1a-4d16-bb03-eef4b8eac274" xml:space="preserve">
+          <source>Then click <bpt id="8e98d15c-4856-41ca-a6ae-35b66c22268d">&lt;strong&gt;</bpt>Next<ept id="8e98d15c-4856-41ca-a6ae-35b66c22268d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="8e98d15c-4856-41ca-a6ae-35b66c22268d">&lt;strong&gt;</bpt>Next<ept id="8e98d15c-4856-41ca-a6ae-35b66c22268d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="138d5192-d980-4bc0-94cd-d0aebc3e887f" xml:space="preserve">
+          <source>In the dialog box <bpt id="f20b19dc-bccf-4a5b-b0e7-e1942df6fe4e">&lt;strong&gt;</bpt>Select the database that contains the data you want<ept id="f20b19dc-bccf-4a5b-b0e7-e1942df6fe4e">&lt;/strong&gt;</ept>, select the <bpt id="94cadb39-879a-4892-a162-9e14c411131e">&lt;strong&gt;</bpt>ElasticDBQuery<ept id="94cadb39-879a-4892-a162-9e14c411131e">&lt;/strong&gt;</ept> database.</source>
+          <target state="new">In the dialog box <bpt id="f20b19dc-bccf-4a5b-b0e7-e1942df6fe4e">&lt;strong&gt;</bpt>Select the database that contains the data you want<ept id="f20b19dc-bccf-4a5b-b0e7-e1942df6fe4e">&lt;/strong&gt;</ept>, select the <bpt id="94cadb39-879a-4892-a162-9e14c411131e">&lt;strong&gt;</bpt>ElasticDBQuery<ept id="94cadb39-879a-4892-a162-9e14c411131e">&lt;/strong&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="f1a9ad76-977f-46b5-ab77-980da9ac2fcb" xml:space="preserve">
+          <source>Select the <bpt id="cf688daf-81ad-48b9-978f-a36b445e6c63">&lt;strong&gt;</bpt>Customers<ept id="cf688daf-81ad-48b9-978f-a36b445e6c63">&lt;/strong&gt;</ept> table in the list view and click <bpt id="3eb86312-a638-409a-9373-58130ff1c5fa">&lt;strong&gt;</bpt>Next<ept id="3eb86312-a638-409a-9373-58130ff1c5fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="cf688daf-81ad-48b9-978f-a36b445e6c63">&lt;strong&gt;</bpt>Customers<ept id="cf688daf-81ad-48b9-978f-a36b445e6c63">&lt;/strong&gt;</ept> table in the list view and click <bpt id="3eb86312-a638-409a-9373-58130ff1c5fa">&lt;strong&gt;</bpt>Next<ept id="3eb86312-a638-409a-9373-58130ff1c5fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3964342-062b-470b-acd1-e9bee129305c" xml:space="preserve">
+          <source>Then click <bpt id="688081b4-2019-45a7-9ce1-f02ece6d2ad1">&lt;strong&gt;</bpt>Finish<ept id="688081b4-2019-45a7-9ce1-f02ece6d2ad1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="688081b4-2019-45a7-9ce1-f02ece6d2ad1">&lt;strong&gt;</bpt>Finish<ept id="688081b4-2019-45a7-9ce1-f02ece6d2ad1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0639eda-4807-49e5-9ab9-b22a3cfb8f47" xml:space="preserve">
+          <source>In the <bpt id="5100b074-3103-4b81-b9e3-d3276371fe37">&lt;strong&gt;</bpt>Import Data<ept id="5100b074-3103-4b81-b9e3-d3276371fe37">&lt;/strong&gt;</ept> form, under <bpt id="1933a74a-9202-4047-8bdc-48566100d3ec">&lt;strong&gt;</bpt>Select how you want to view this data in your workbook<ept id="1933a74a-9202-4047-8bdc-48566100d3ec">&lt;/strong&gt;</ept>, select <bpt id="38addcc3-6047-42aa-97a3-9fea2a4b817c">&lt;strong&gt;</bpt>Table<ept id="38addcc3-6047-42aa-97a3-9fea2a4b817c">&lt;/strong&gt;</ept> and click <bpt id="74d0d12d-a2d0-4d84-a667-88a744d5d68c">&lt;strong&gt;</bpt>OK<ept id="74d0d12d-a2d0-4d84-a667-88a744d5d68c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5100b074-3103-4b81-b9e3-d3276371fe37">&lt;strong&gt;</bpt>Import Data<ept id="5100b074-3103-4b81-b9e3-d3276371fe37">&lt;/strong&gt;</ept> form, under <bpt id="1933a74a-9202-4047-8bdc-48566100d3ec">&lt;strong&gt;</bpt>Select how you want to view this data in your workbook<ept id="1933a74a-9202-4047-8bdc-48566100d3ec">&lt;/strong&gt;</ept>, select <bpt id="38addcc3-6047-42aa-97a3-9fea2a4b817c">&lt;strong&gt;</bpt>Table<ept id="38addcc3-6047-42aa-97a3-9fea2a4b817c">&lt;/strong&gt;</ept> and click <bpt id="74d0d12d-a2d0-4d84-a667-88a744d5d68c">&lt;strong&gt;</bpt>OK<ept id="74d0d12d-a2d0-4d84-a667-88a744d5d68c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e96616d1-139b-486a-af40-1bd5e13d8f29" xml:space="preserve">
+          <source>All the rows from <bpt id="0f3c54ef-619d-4e25-aade-1371ec0d609c">&lt;strong&gt;</bpt>Customers<ept id="0f3c54ef-619d-4e25-aade-1371ec0d609c">&lt;/strong&gt;</ept> table, stored in different shards populate the Excel sheet.</source>
+          <target state="new">All the rows from <bpt id="0f3c54ef-619d-4e25-aade-1371ec0d609c">&lt;strong&gt;</bpt>Customers<ept id="0f3c54ef-619d-4e25-aade-1371ec0d609c">&lt;/strong&gt;</ept> table, stored in different shards populate the Excel sheet.</target>
+        </trans-unit>
+        <trans-unit id="b1fc9090-177b-4358-a563-4bda6a0bd117" xml:space="preserve">
+          <source>You can now use Excel’s powerful data functions.</source>
+          <target state="new">You can now use Excel’s powerful data functions.</target>
+        </trans-unit>
+        <trans-unit id="ed7c08f9-7d99-47eb-b54d-c46d2f512efb" xml:space="preserve">
+          <source>You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database.</source>
+          <target state="new">You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database.</target>
+        </trans-unit>
+        <trans-unit id="9f213dde-13fd-4c19-b70e-0ac0bc9c885a" xml:space="preserve">
+          <source>Make sure that SQL Server is supported as a data source for your tool.</source>
+          <target state="new">Make sure that SQL Server is supported as a data source for your tool.</target>
+        </trans-unit>
+        <trans-unit id="aeda67df-11f6-43e2-b46b-2862f07979a8" xml:space="preserve">
+          <source>You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.</source>
+          <target state="new">You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.</target>
+        </trans-unit>
+        <trans-unit id="77ad8067-3b87-4607-9628-1d5deb2e1215" xml:space="preserve">
+          <source>There is no additional charge for using the Elastic Database Query feature.</source>
+          <target state="new">There is no additional charge for using the Elastic Database Query feature.</target>
+        </trans-unit>
+        <trans-unit id="e147c13d-1b4f-4e81-b0da-d37a3882acdb" xml:space="preserve">
+          <source>However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.</source>
+          <target state="new">However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.</target>
+        </trans-unit>
+        <trans-unit id="e5c13a40-e50c-4bb1-9919-b4a112de1c85" xml:space="preserve">
+          <source>For pricing information see <bpt id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;linkText&gt;</bpt>SQL Database Pricing Details<ept id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;/linkText&gt;</ept><bpt id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;title&gt;</bpt><ept id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing information see <bpt id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;linkText&gt;</bpt>SQL Database Pricing Details<ept id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;/linkText&gt;</ept><bpt id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;title&gt;</bpt><ept id="c0796bd7-3593-4ec2-8403-e75cccefe485">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68a01af6-08a9-4d6b-9416-afa80cebcc54" xml:space="preserve">
+          <source><bpt id="b2bf2371-ee2b-40ab-9e4c-1e0514f32d4b">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="b2bf2371-ee2b-40ab-9e4c-1e0514f32d4b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b2bf2371-ee2b-40ab-9e4c-1e0514f32d4b">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="b2bf2371-ee2b-40ab-9e4c-1e0514f32d4b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="209c839f-c1ea-488d-8039-c08afa6f709d" xml:space="preserve">
+          <source>./media/sql-database-elastic-query-getting-started/cmd-prompt.png</source>
+          <target state="new">./media/sql-database-elastic-query-getting-started/cmd-prompt.png</target>
+        </trans-unit>
+        <trans-unit id="f877c93e-e19e-4547-a74f-2c15072ec178" xml:space="preserve">
+          <source>./media/sql-database-elastic-query-getting-started/portal.png</source>
+          <target state="new">./media/sql-database-elastic-query-getting-started/portal.png</target>
+        </trans-unit>
+        <trans-unit id="06fa182c-b18f-4160-ab61-a54fc710e76e" xml:space="preserve">
+          <source>./media/sql-database-elastic-query-getting-started/tiers.png</source>
+          <target state="new">./media/sql-database-elastic-query-getting-started/tiers.png</target>
+        </trans-unit>
+        <trans-unit id="5701c0be-2d82-44c5-a941-e8bbdbd0c57c" xml:space="preserve">
+          <source>./media/sql-database-elastic-query-getting-started/details.png</source>
+          <target state="new">./media/sql-database-elastic-query-getting-started/details.png</target>
+        </trans-unit>
+        <trans-unit id="4ffe7012-3a54-4f4f-834f-1300afc27123" xml:space="preserve">
+          <source>./media/sql-database-elastic-query-getting-started/exel-sources.png</source>
+          <target state="new">./media/sql-database-elastic-query-getting-started/exel-sources.png</target>
+        </trans-unit>
+      </group>
+      <group id="36b829f0-7077-4560-8605-0f59d9208d22" />
+    </body>
+  </file>
+</xliff>

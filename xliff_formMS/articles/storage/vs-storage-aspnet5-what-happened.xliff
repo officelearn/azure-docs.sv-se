@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a5b3d3c8-a805-440c-bb5f-e3997361bdb2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a5b3d3c8-a805-440c-bb5f-e3997361bdb2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="54bc04e6-429c-42a1-8dcd-40dd43a787cc">
+        <trans-unit id="35aae36b-9c7c-4645-99f8-9555eb18e99b" xml:space="preserve">
+          <source>Get Started with Azure Storage | Microsoft Azure</source>
+          <target state="new">Get Started with Azure Storage | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a2884b3e-8455-484b-a6dd-9abe4503e2a9" xml:space="preserve">
+          <source>Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project</source>
+          <target state="new">Describes what happened when creating an Azure storage in a Visual Studio ASP.NET 5 project</target>
+        </trans-unit>
+        <trans-unit id="6a88ba51-b4e0-40b7-bbb6-bdaa7c5dcf85" xml:space="preserve">
+          <source>The Azure Storage NuGet package was added to your Visual Studio project.</source>
+          <target state="new">The Azure Storage NuGet package was added to your Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="5426878e-534f-4c7b-a9d7-e0d3bf9e741c" xml:space="preserve">
+          <source>This package adds the following .NET references:</source>
+          <target state="new">This package adds the following .NET references:</target>
+        </trans-unit>
+        <trans-unit id="89da312e-48f0-4cd5-ae48-bc0e7b99cb16" xml:space="preserve">
+          <source><bpt id="a957b5f7-8a98-4151-989d-54b6246273df">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="a957b5f7-8a98-4151-989d-54b6246273df">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a957b5f7-8a98-4151-989d-54b6246273df">&lt;code&gt;</bpt>Microsoft.Data.Edm<ept id="a957b5f7-8a98-4151-989d-54b6246273df">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="309512cb-4c35-4d2f-94ba-6c7919934911" xml:space="preserve">
+          <source><bpt id="c20bdc7c-ba20-4a78-816b-187621de5bc3">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="c20bdc7c-ba20-4a78-816b-187621de5bc3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c20bdc7c-ba20-4a78-816b-187621de5bc3">&lt;code&gt;</bpt>Microsoft.Data.OData<ept id="c20bdc7c-ba20-4a78-816b-187621de5bc3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0742aa5-449c-45fc-b993-d8ba1844d6fd" xml:space="preserve">
+          <source><bpt id="28b077e0-2973-428c-880d-20d25ba878fe">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="28b077e0-2973-428c-880d-20d25ba878fe">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="28b077e0-2973-428c-880d-20d25ba878fe">&lt;code&gt;</bpt>Microsoft.Data.Services.Client<ept id="28b077e0-2973-428c-880d-20d25ba878fe">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9260127-16c1-42ca-b04e-2c3ffa1ee73c" xml:space="preserve">
+          <source><bpt id="b3cb50fa-638d-40ad-9112-82a349485a70">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Configuration<ept id="b3cb50fa-638d-40ad-9112-82a349485a70">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="b3cb50fa-638d-40ad-9112-82a349485a70">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Configuration<ept id="b3cb50fa-638d-40ad-9112-82a349485a70">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="002449e5-0c19-4637-acbb-7a3be9dec622" xml:space="preserve">
+          <source><bpt id="1258a677-d49f-4119-a75c-04a43d50892d">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="1258a677-d49f-4119-a75c-04a43d50892d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1258a677-d49f-4119-a75c-04a43d50892d">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Storage<ept id="1258a677-d49f-4119-a75c-04a43d50892d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cff88fb-1de0-4939-9973-3cb8180da74b" xml:space="preserve">
+          <source><bpt id="778fdee4-24f5-4cb5-bb13-ed70747ddd09">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="778fdee4-24f5-4cb5-bb13-ed70747ddd09">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="778fdee4-24f5-4cb5-bb13-ed70747ddd09">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="778fdee4-24f5-4cb5-bb13-ed70747ddd09">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce58add9-f279-4c31-a0e8-94a142e2e505" xml:space="preserve">
+          <source><bpt id="3016f3e7-d321-414b-af46-c2c0f8aa47c3">&lt;code&gt;</bpt>System.Data<ept id="3016f3e7-d321-414b-af46-c2c0f8aa47c3">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3016f3e7-d321-414b-af46-c2c0f8aa47c3">&lt;code&gt;</bpt>System.Data<ept id="3016f3e7-d321-414b-af46-c2c0f8aa47c3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1140aad-d2d7-4a62-bd2e-97bd008fd894" xml:space="preserve">
+          <source><bpt id="ae686cad-73e8-4278-9edc-d4985cc42c9f">&lt;code&gt;</bpt>System.Spatial<ept id="ae686cad-73e8-4278-9edc-d4985cc42c9f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ae686cad-73e8-4278-9edc-d4985cc42c9f">&lt;code&gt;</bpt>System.Spatial<ept id="ae686cad-73e8-4278-9edc-d4985cc42c9f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b85fc78-7e44-49ad-81ee-9eea04892e82" xml:space="preserve">
+          <source>Also, the NuGet package <bpt id="3ff73695-5e30-489b-baf6-ea64d025f0db">&lt;strong&gt;</bpt>Microsoft.Framework.Configuration.Json<ept id="3ff73695-5e30-489b-baf6-ea64d025f0db">&lt;/strong&gt;</ept> was added.</source>
+          <target state="new">Also, the NuGet package <bpt id="3ff73695-5e30-489b-baf6-ea64d025f0db">&lt;strong&gt;</bpt>Microsoft.Framework.Configuration.Json<ept id="3ff73695-5e30-489b-baf6-ea64d025f0db">&lt;/strong&gt;</ept> was added.</target>
+        </trans-unit>
+        <trans-unit id="d16a388f-d908-49f8-8263-63e7a6fe910d" xml:space="preserve">
+          <source>In the config.json file of your project, an element was created with the selected storage account's connection string and key.</source>
+          <target state="new">In the config.json file of your project, an element was created with the selected storage account's connection string and key.</target>
+        </trans-unit>
+        <trans-unit id="de6a2574-114c-46ee-a087-1cf25338da49" xml:space="preserve">
+          <source>For more information, see <bpt id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;linkText&gt;</bpt>ASP.NET 5<ept id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;/linkText&gt;</ept><bpt id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;title&gt;</bpt><ept id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;linkText&gt;</bpt>ASP.NET 5<ept id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;/linkText&gt;</ept><bpt id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;title&gt;</bpt><ept id="8481cb8a-6c59-4497-bfbd-3b91b94e019d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c07e0f4b-8255-41a1-b125-d0a74d2dd221" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c07e0f4b-8255-41a1-b125-d0a74d2dd221" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a22c033a-ad15-4b3f-93b6-8b53eaeafa24">
+        <trans-unit id="3c81d0e8-32cb-4d32-bf86-cfa4fa19cca9" xml:space="preserve">
+          <source>The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the App Service every time that the app starts.</source>
+          <target state="new">The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the App Service every time that the app starts.</target>
+        </trans-unit>
+        <trans-unit id="aaea8f00-96fe-433b-898b-0a7763351ff4" xml:space="preserve">
+          <source>Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time.</source>
+          <target state="new">Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time.</target>
+        </trans-unit>
+        <trans-unit id="a215fd92-2999-4fc0-9c68-3e2bc09f6bd8" xml:space="preserve">
+          <source>A better approach is to cache the authorization token returned by your App Service and try to use this first before using a provider-based sign-in.</source>
+          <target state="new">A better approach is to cache the authorization token returned by your App Service and try to use this first before using a provider-based sign-in.</target>
+        </trans-unit>
+        <trans-unit id="329ebdb6-96bb-4207-aaa1-86f27f11858e" xml:space="preserve">
+          <source>You can cache the token issued by App Services regardless of whether you are using client-managed or service-managed authentication.</source>
+          <target state="new">You can cache the token issued by App Services regardless of whether you are using client-managed or service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="1e35fa77-b9f4-4ffd-a8f7-7aea6b804560" xml:space="preserve">
+          <source>This tutorial uses service-managed authentication.</source>
+          <target state="new">This tutorial uses service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="6f077b35-6bb8-42c9-ae70-6366daf69926" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, add the following <bpt id="1f2abc73-6d07-4be2-8e25-9af79ba7c8db">&lt;strong&gt;</bpt>using<ept id="1f2abc73-6d07-4be2-8e25-9af79ba7c8db">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">In the MainPage.xaml.cs project file, add the following <bpt id="1f2abc73-6d07-4be2-8e25-9af79ba7c8db">&lt;strong&gt;</bpt>using<ept id="1f2abc73-6d07-4be2-8e25-9af79ba7c8db">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="6693b870-cc40-4976-9326-e36399a81bcf" xml:space="preserve">
+          <source>Replace the <bpt id="ac581080-75a7-4770-8b10-f66502f3eaba">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="ac581080-75a7-4770-8b10-f66502f3eaba">&lt;/strong&gt;</ept> method with the following code:</source>
+          <target state="new">Replace the <bpt id="ac581080-75a7-4770-8b10-f66502f3eaba">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="ac581080-75a7-4770-8b10-f66502f3eaba">&lt;/strong&gt;</ept> method with the following code:</target>
+        </trans-unit>
+        <trans-unit id="6095a02e-1987-419b-b041-8c71925a4cdd" xml:space="preserve">
+          <source>In this version of <bpt id="d8eb06e5-3d1a-4f68-812e-6154069fc04d">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="d8eb06e5-3d1a-4f68-812e-6154069fc04d">&lt;/strong&gt;</ept>, the app tries to use credentials stored in the <bpt id="4b2e7917-561b-4108-a54b-b9208f1ea08a">&lt;strong&gt;</bpt>PasswordVault<ept id="4b2e7917-561b-4108-a54b-b9208f1ea08a">&lt;/strong&gt;</ept> to access the Mobile App.</source>
+          <target state="new">In this version of <bpt id="d8eb06e5-3d1a-4f68-812e-6154069fc04d">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="d8eb06e5-3d1a-4f68-812e-6154069fc04d">&lt;/strong&gt;</ept>, the app tries to use credentials stored in the <bpt id="4b2e7917-561b-4108-a54b-b9208f1ea08a">&lt;strong&gt;</bpt>PasswordVault<ept id="4b2e7917-561b-4108-a54b-b9208f1ea08a">&lt;/strong&gt;</ept> to access the Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="3eedfde1-0702-4126-a876-159ec9d202c6" xml:space="preserve">
+          <source>A simple query is sent to verify that the stored token is not expired.</source>
+          <target state="new">A simple query is sent to verify that the stored token is not expired.</target>
+        </trans-unit>
+        <trans-unit id="6a706e10-2feb-4687-b341-8edd1db9bbf6" xml:space="preserve">
+          <source>When a 401 is returned, a regular provider-based sign-in is attempted.</source>
+          <target state="new">When a 401 is returned, a regular provider-based sign-in is attempted.</target>
+        </trans-unit>
+        <trans-unit id="1c37e6c3-c12d-42ab-8113-cfab4db2de78" xml:space="preserve">
+          <source>A regular sign-in is also performed when there is no stored credential.</source>
+          <target state="new">A regular sign-in is also performed when there is no stored credential.</target>
+        </trans-unit>
+        <trans-unit id="c0ad2112-048d-4445-b408-0940438e095f" xml:space="preserve">
+          <source>This app tests for expired tokens during login, but token expiration can occur after authentication when the app is in use.</source>
+          <target state="new">This app tests for expired tokens during login, but token expiration can occur after authentication when the app is in use.</target>
+        </trans-unit>
+        <trans-unit id="d1588084-7f36-4df4-b157-8ec3f7e945ff" xml:space="preserve">
+          <source>For a solution to handling authorization errors related to expiring tokens, see the post <bpt id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;linkText&gt;</bpt>Caching and handling expired tokens in Azure Mobile Services managed SDK<ept id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;/linkText&gt;</ept><bpt id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;title&gt;</bpt><ept id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a solution to handling authorization errors related to expiring tokens, see the post <bpt id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;linkText&gt;</bpt>Caching and handling expired tokens in Azure Mobile Services managed SDK<ept id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;/linkText&gt;</ept><bpt id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;title&gt;</bpt><ept id="994bdf3d-614c-4c65-a552-caefa7672474">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ce142dd-69b2-444b-a34c-449d056282e5" xml:space="preserve">
+          <source>Restart the app twice.</source>
+          <target state="new">Restart the app twice.</target>
+        </trans-unit>
+        <trans-unit id="1d7d8505-c415-4567-9c6c-1cd2d74720f7" xml:space="preserve">
+          <source>Notice that on the first start-up, sign-in with the provider is again required.</source>
+          <target state="new">Notice that on the first start-up, sign-in with the provider is again required.</target>
+        </trans-unit>
+        <trans-unit id="a6cda7a8-29cd-45e2-a942-fd11e1512038" xml:space="preserve">
+          <source>However, on the second restart the cached credentials are used and sign-in is bypassed.</source>
+          <target state="new">However, on the second restart the cached credentials are used and sign-in is bypassed.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

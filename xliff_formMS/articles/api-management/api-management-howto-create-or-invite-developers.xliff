@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="753c0c5a-ddc2-4e46-b35e-24acdd21d695" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="753c0c5a-ddc2-4e46-b35e-24acdd21d695" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5b369d36-1cf9-4b6a-ac9a-4a94f12037f2">
+        <trans-unit id="5f5a8893-767f-4f08-bb77-0fc06f7ba79b" xml:space="preserve">
+          <source>How manage user accounts in Azure API Management</source>
+          <target state="new">How manage user accounts in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="bad3b85a-81ab-4c0f-8901-20f7ad6b0d2d" xml:space="preserve">
+          <source>Learn how to create or invite users in Azure API Management</source>
+          <target state="new">Learn how to create or invite users in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="5773bdf7-f2fc-42a1-83e8-bda40b68766b" xml:space="preserve">
+          <source>In API Management, developers are the users of the APIs that you expose using API Management.</source>
+          <target state="new">In API Management, developers are the users of the APIs that you expose using API Management.</target>
+        </trans-unit>
+        <trans-unit id="e21a256d-76d1-4548-b4e1-8a24756a72b7" xml:space="preserve">
+          <source>This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.</source>
+          <target state="new">This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance.</target>
+        </trans-unit>
+        <trans-unit id="7b4ce594-a699-4ba7-aa40-8df8a4771a3d" xml:space="preserve">
+          <source>To create a new developer, click <bpt id="3335caec-5ca8-4775-8468-11ae093a6683">&lt;strong&gt;</bpt>Manage<ept id="3335caec-5ca8-4775-8468-11ae093a6683">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">To create a new developer, click <bpt id="3335caec-5ca8-4775-8468-11ae093a6683">&lt;strong&gt;</bpt>Manage<ept id="3335caec-5ca8-4775-8468-11ae093a6683">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="682c497e-f899-443b-8d1e-f82da29ddbb1" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="8c00a699-f3b8-4c78-89ac-222898d2e2bf" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;/linkText&gt;</ept><bpt id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;title&gt;</bpt><ept id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;/title&gt;</ept> in the <bpt id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;/linkText&gt;</ept><bpt id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;title&gt;</bpt><ept id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;/linkText&gt;</ept><bpt id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;title&gt;</bpt><ept id="4e2906c2-2fe7-4c93-9ec3-5c9adbbfd38b">&lt;/title&gt;</ept> in the <bpt id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;/linkText&gt;</ept><bpt id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;title&gt;</bpt><ept id="f3ec500e-5fbb-4123-9abe-7891be991110">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="79c3d3c8-21bf-4ca0-a41f-2782808aee94" xml:space="preserve">
+          <source><bpt id="213faab5-7717-40b0-a0bb-0c7edd46b32a">&lt;linkText&gt;</bpt>Publisher portal<ept id="213faab5-7717-40b0-a0bb-0c7edd46b32a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="213faab5-7717-40b0-a0bb-0c7edd46b32a">&lt;linkText&gt;</bpt>Publisher portal<ept id="213faab5-7717-40b0-a0bb-0c7edd46b32a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d59c97d-68bf-46eb-b7d0-c80236abc890" xml:space="preserve">
+          <source>Click <bpt id="956f5e3c-9e62-447f-9c22-bc9f3c1ab325">&lt;strong&gt;</bpt>Developers<ept id="956f5e3c-9e62-447f-9c22-bc9f3c1ab325">&lt;/strong&gt;</ept> from the <bpt id="5fe483db-2b61-4985-a589-c9d985b45b43">&lt;strong&gt;</bpt>API Management<ept id="5fe483db-2b61-4985-a589-c9d985b45b43">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="54fbb242-f46e-46d7-aac6-28d87ebc443e">&lt;strong&gt;</bpt>add user<ept id="54fbb242-f46e-46d7-aac6-28d87ebc443e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="956f5e3c-9e62-447f-9c22-bc9f3c1ab325">&lt;strong&gt;</bpt>Developers<ept id="956f5e3c-9e62-447f-9c22-bc9f3c1ab325">&lt;/strong&gt;</ept> from the <bpt id="5fe483db-2b61-4985-a589-c9d985b45b43">&lt;strong&gt;</bpt>API Management<ept id="5fe483db-2b61-4985-a589-c9d985b45b43">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="54fbb242-f46e-46d7-aac6-28d87ebc443e">&lt;strong&gt;</bpt>add user<ept id="54fbb242-f46e-46d7-aac6-28d87ebc443e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="624f8d1a-939e-4790-a36a-384acaea22b4" xml:space="preserve">
+          <source><bpt id="5636a09e-662a-4fc7-af45-a5c902ca406f">&lt;linkText&gt;</bpt>Create developer<ept id="5636a09e-662a-4fc7-af45-a5c902ca406f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5636a09e-662a-4fc7-af45-a5c902ca406f">&lt;linkText&gt;</bpt>Create developer<ept id="5636a09e-662a-4fc7-af45-a5c902ca406f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4fd97d9-21a2-4de9-a739-a9ee90a561cb" xml:space="preserve">
+          <source>Enter the <bpt id="24c41c58-d873-4ffe-bd20-3e2dadb80a79">&lt;strong&gt;</bpt>Email<ept id="24c41c58-d873-4ffe-bd20-3e2dadb80a79">&lt;/strong&gt;</ept>, <bpt id="d4793ced-6a8c-4e6a-b37f-e2ae482d4c78">&lt;strong&gt;</bpt>Password<ept id="d4793ced-6a8c-4e6a-b37f-e2ae482d4c78">&lt;/strong&gt;</ept>, and <bpt id="7bb53c84-d6a0-430f-9378-6f9eb217e746">&lt;strong&gt;</bpt>Name<ept id="7bb53c84-d6a0-430f-9378-6f9eb217e746">&lt;/strong&gt;</ept> for the new developer and click <bpt id="f70c99e2-3f32-492c-bcb1-f1f3a34cc82f">&lt;strong&gt;</bpt>Save<ept id="f70c99e2-3f32-492c-bcb1-f1f3a34cc82f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="24c41c58-d873-4ffe-bd20-3e2dadb80a79">&lt;strong&gt;</bpt>Email<ept id="24c41c58-d873-4ffe-bd20-3e2dadb80a79">&lt;/strong&gt;</ept>, <bpt id="d4793ced-6a8c-4e6a-b37f-e2ae482d4c78">&lt;strong&gt;</bpt>Password<ept id="d4793ced-6a8c-4e6a-b37f-e2ae482d4c78">&lt;/strong&gt;</ept>, and <bpt id="7bb53c84-d6a0-430f-9378-6f9eb217e746">&lt;strong&gt;</bpt>Name<ept id="7bb53c84-d6a0-430f-9378-6f9eb217e746">&lt;/strong&gt;</ept> for the new developer and click <bpt id="f70c99e2-3f32-492c-bcb1-f1f3a34cc82f">&lt;strong&gt;</bpt>Save<ept id="f70c99e2-3f32-492c-bcb1-f1f3a34cc82f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab842d7f-a183-47e9-b0ff-b4a1a5096a40" xml:space="preserve">
+          <source><bpt id="0dbad78e-7d2b-4f40-924f-2686fc043e6f">&lt;linkText&gt;</bpt>Create developer<ept id="0dbad78e-7d2b-4f40-924f-2686fc043e6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0dbad78e-7d2b-4f40-924f-2686fc043e6f">&lt;linkText&gt;</bpt>Create developer<ept id="0dbad78e-7d2b-4f40-924f-2686fc043e6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4a7cb22-48a7-4985-94b4-6752872b77dc" xml:space="preserve">
+          <source>By default, newly created developer accounts are <bpt id="2bb2813d-e9c8-412a-be30-c958ca801557">&lt;strong&gt;</bpt>Active<ept id="2bb2813d-e9c8-412a-be30-c958ca801557">&lt;/strong&gt;</ept>, and associated with the <bpt id="a2373b7d-3974-4230-82f1-159243a39a59">&lt;strong&gt;</bpt>Developers<ept id="a2373b7d-3974-4230-82f1-159243a39a59">&lt;/strong&gt;</ept> group.</source>
+          <target state="new">By default, newly created developer accounts are <bpt id="2bb2813d-e9c8-412a-be30-c958ca801557">&lt;strong&gt;</bpt>Active<ept id="2bb2813d-e9c8-412a-be30-c958ca801557">&lt;/strong&gt;</ept>, and associated with the <bpt id="a2373b7d-3974-4230-82f1-159243a39a59">&lt;strong&gt;</bpt>Developers<ept id="a2373b7d-3974-4230-82f1-159243a39a59">&lt;/strong&gt;</ept> group.</target>
+        </trans-unit>
+        <trans-unit id="2f257ecd-3570-4b45-a929-906d60e71a20" xml:space="preserve">
+          <source><bpt id="b14817db-eb8e-447b-8ba6-1f9bc8179ab8">&lt;linkText&gt;</bpt>New developer<ept id="b14817db-eb8e-447b-8ba6-1f9bc8179ab8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b14817db-eb8e-447b-8ba6-1f9bc8179ab8">&lt;linkText&gt;</bpt>New developer<ept id="b14817db-eb8e-447b-8ba6-1f9bc8179ab8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a37bbc8-9fe9-4496-a953-6702230d873e" xml:space="preserve">
+          <source>Developer accounts that are in an <bpt id="26d6556d-ae12-4518-97e7-70ed55a23d52">&lt;strong&gt;</bpt>active<ept id="26d6556d-ae12-4518-97e7-70ed55a23d52">&lt;/strong&gt;</ept> state can be used to access all of the APIs for which they have subscriptions.</source>
+          <target state="new">Developer accounts that are in an <bpt id="26d6556d-ae12-4518-97e7-70ed55a23d52">&lt;strong&gt;</bpt>active<ept id="26d6556d-ae12-4518-97e7-70ed55a23d52">&lt;/strong&gt;</ept> state can be used to access all of the APIs for which they have subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="6fb62b98-a51a-4403-a8dd-e7f9dcd08bc7" xml:space="preserve">
+          <source>To associate the newly created developer with additional groups, see <bpt id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;linkText&gt;</bpt>How to associate groups with developers<ept id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;/linkText&gt;</ept><bpt id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;title&gt;</bpt><ept id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">To associate the newly created developer with additional groups, see <bpt id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;linkText&gt;</bpt>How to associate groups with developers<ept id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;/linkText&gt;</ept><bpt id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;title&gt;</bpt><ept id="f241d506-fa77-437d-a7d7-1fa6f8c554f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95272481-8445-40bf-873a-e9587aa16305" xml:space="preserve">
+          <source>To invite a developer, click <bpt id="2599e578-778b-441e-a3dc-26ca0832b48f">&lt;strong&gt;</bpt>Developers<ept id="2599e578-778b-441e-a3dc-26ca0832b48f">&lt;/strong&gt;</ept> from the <bpt id="01de53ce-9754-4987-a7ee-f3a49c7fa39a">&lt;strong&gt;</bpt>API Management<ept id="01de53ce-9754-4987-a7ee-f3a49c7fa39a">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="3a7bd138-89e3-497c-89f4-b3c272808bb5">&lt;strong&gt;</bpt>Invite User<ept id="3a7bd138-89e3-497c-89f4-b3c272808bb5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To invite a developer, click <bpt id="2599e578-778b-441e-a3dc-26ca0832b48f">&lt;strong&gt;</bpt>Developers<ept id="2599e578-778b-441e-a3dc-26ca0832b48f">&lt;/strong&gt;</ept> from the <bpt id="01de53ce-9754-4987-a7ee-f3a49c7fa39a">&lt;strong&gt;</bpt>API Management<ept id="01de53ce-9754-4987-a7ee-f3a49c7fa39a">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="3a7bd138-89e3-497c-89f4-b3c272808bb5">&lt;strong&gt;</bpt>Invite User<ept id="3a7bd138-89e3-497c-89f4-b3c272808bb5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a822da63-7ae8-42ef-9e51-243c7ef33d3a" xml:space="preserve">
+          <source><bpt id="3846c42d-38cc-4447-8795-7003a0f2b196">&lt;linkText&gt;</bpt>Invite developer<ept id="3846c42d-38cc-4447-8795-7003a0f2b196">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3846c42d-38cc-4447-8795-7003a0f2b196">&lt;linkText&gt;</bpt>Invite developer<ept id="3846c42d-38cc-4447-8795-7003a0f2b196">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b976cb0c-5105-4c89-a133-c1b99afdc13b" xml:space="preserve">
+          <source>Enter the name and email address of the developer, and click <bpt id="25a566a7-eb6c-4354-b223-cdb736a96823">&lt;strong&gt;</bpt>Invite<ept id="25a566a7-eb6c-4354-b223-cdb736a96823">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the name and email address of the developer, and click <bpt id="25a566a7-eb6c-4354-b223-cdb736a96823">&lt;strong&gt;</bpt>Invite<ept id="25a566a7-eb6c-4354-b223-cdb736a96823">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f708401a-c375-4f20-b01c-ac903cbda764" xml:space="preserve">
+          <source><bpt id="cb6865a2-7f5c-4cbb-b14e-4fb820a0c3b8">&lt;linkText&gt;</bpt>Invite developer<ept id="cb6865a2-7f5c-4cbb-b14e-4fb820a0c3b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb6865a2-7f5c-4cbb-b14e-4fb820a0c3b8">&lt;linkText&gt;</bpt>Invite developer<ept id="cb6865a2-7f5c-4cbb-b14e-4fb820a0c3b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a35c387a-5a0d-427a-8241-cd337f0bb8a3" xml:space="preserve">
+          <source>A confirmation message is displayed, but the newly invited developer does not appear in the list until after the accept the invitation.</source>
+          <target state="new">A confirmation message is displayed, but the newly invited developer does not appear in the list until after the accept the invitation.</target>
+        </trans-unit>
+        <trans-unit id="d7bb899e-078e-4934-8ba8-7131d0a7c2bc" xml:space="preserve">
+          <source><bpt id="870095c8-37e5-4334-a27d-91ba69a6c239">&lt;linkText&gt;</bpt>Invite confirmation<ept id="870095c8-37e5-4334-a27d-91ba69a6c239">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="870095c8-37e5-4334-a27d-91ba69a6c239">&lt;linkText&gt;</bpt>Invite confirmation<ept id="870095c8-37e5-4334-a27d-91ba69a6c239">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51af87b1-b9dc-4d80-ab2f-049b8074361a" xml:space="preserve">
+          <source>When a developer is invited, an email is sent to the developer.</source>
+          <target state="new">When a developer is invited, an email is sent to the developer.</target>
+        </trans-unit>
+        <trans-unit id="d78281a1-2435-4676-a6e2-116632d46609" xml:space="preserve">
+          <source>This email is generated using a template and is customizable.</source>
+          <target state="new">This email is generated using a template and is customizable.</target>
+        </trans-unit>
+        <trans-unit id="7aed1f6c-afc1-4c5f-8c91-17cec07b3b43" xml:space="preserve">
+          <source>For more information, see <bpt id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;linkText&gt;</bpt>Configure email templates<ept id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;/linkText&gt;</ept><bpt id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;title&gt;</bpt><ept id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;linkText&gt;</bpt>Configure email templates<ept id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;/linkText&gt;</ept><bpt id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;title&gt;</bpt><ept id="e3bf2be3-0cd9-4b13-a1c8-5da352e6e87a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eeb1811e-f86a-4e55-8835-119847f1f581" xml:space="preserve">
+          <source>Once the invitation is accepted, the account becomes active.</source>
+          <target state="new">Once the invitation is accepted, the account becomes active.</target>
+        </trans-unit>
+        <trans-unit id="bf767981-d7b4-4d44-b800-1404acfc6075" xml:space="preserve">
+          <source>By default, newly created or invited developer accounts are <bpt id="4899a29b-c16f-4786-bb8d-8bc3c534b556">&lt;strong&gt;</bpt>Active<ept id="4899a29b-c16f-4786-bb8d-8bc3c534b556">&lt;/strong&gt;</ept>.</source>
+          <target state="new">By default, newly created or invited developer accounts are <bpt id="4899a29b-c16f-4786-bb8d-8bc3c534b556">&lt;strong&gt;</bpt>Active<ept id="4899a29b-c16f-4786-bb8d-8bc3c534b556">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d76e191-943b-4f2d-b4f3-bd4a3bd6ba17" xml:space="preserve">
+          <source>To deactivate a developer account, click <bpt id="aaf1380d-3a99-4e4a-b725-4425f79cc777">&lt;strong&gt;</bpt>Block<ept id="aaf1380d-3a99-4e4a-b725-4425f79cc777">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To deactivate a developer account, click <bpt id="aaf1380d-3a99-4e4a-b725-4425f79cc777">&lt;strong&gt;</bpt>Block<ept id="aaf1380d-3a99-4e4a-b725-4425f79cc777">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="090053d2-6332-4798-afb0-41fe05242fee" xml:space="preserve">
+          <source>To reactivate a blocked developer account, click <bpt id="8f856da3-da8b-4f2d-bee1-4a24cdf615b3">&lt;strong&gt;</bpt>Activate<ept id="8f856da3-da8b-4f2d-bee1-4a24cdf615b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To reactivate a blocked developer account, click <bpt id="8f856da3-da8b-4f2d-bee1-4a24cdf615b3">&lt;strong&gt;</bpt>Activate<ept id="8f856da3-da8b-4f2d-bee1-4a24cdf615b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99fe7aa1-d9c4-4fc5-9c45-2fee80aa1d2e" xml:space="preserve">
+          <source>A blocked developer account can not access the developer portal or call any APIs.</source>
+          <target state="new">A blocked developer account can not access the developer portal or call any APIs.</target>
+        </trans-unit>
+        <trans-unit id="86ee31f1-fa8d-456e-b453-20faa8eb8dc6" xml:space="preserve">
+          <source><bpt id="cb89b9e8-bcd2-458f-b3f7-10061193ad0a">&lt;linkText&gt;</bpt>Block developer<ept id="cb89b9e8-bcd2-458f-b3f7-10061193ad0a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb89b9e8-bcd2-458f-b3f7-10061193ad0a">&lt;linkText&gt;</bpt>Block developer<ept id="cb89b9e8-bcd2-458f-b3f7-10061193ad0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3096ee9-3b9c-4f5d-88b0-02057690c894" xml:space="preserve">
+          <source>Once a developer account is created, you can associate it with roles and subscribe it to products and APIs.</source>
+          <target state="new">Once a developer account is created, you can associate it with roles and subscribe it to products and APIs.</target>
+        </trans-unit>
+        <trans-unit id="49c34fa8-9f78-46f3-b08b-86d1af0af0a6" xml:space="preserve">
+          <source>For more information, see <bpt id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;linkText&gt;</bpt>How to create and use groups<ept id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;/linkText&gt;</ept><bpt id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;title&gt;</bpt><ept id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;linkText&gt;</bpt>How to create and use groups<ept id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;/linkText&gt;</ept><bpt id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;title&gt;</bpt><ept id="c78e56ff-26f3-4849-8cb6-97e6719f1d79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd5a3200-3e34-454c-b461-06c81d36cd88" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="6cb070e2-d4cb-4c9d-b917-0266e831268b" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png</target>
+        </trans-unit>
+        <trans-unit id="8f8ab9bf-82e0-42b4-81e5-6924bfd82c35" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png</target>
+        </trans-unit>
+        <trans-unit id="d2101c3e-0ad6-46bf-b92d-6f38b47d2f18" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-invite-developer.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-invite-developer.png</target>
+        </trans-unit>
+        <trans-unit id="394df6ae-9042-484c-878e-32da30c5c681" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-new-developer.png</target>
+        </trans-unit>
+        <trans-unit id="62c29415-d1ea-4128-90f6-14a8a8505086" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-window.png</target>
+        </trans-unit>
+        <trans-unit id="fe8d1fc6-271b-4b91-b45e-7d423f48fbef" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-invite-developer-confirmation.png</target>
+        </trans-unit>
+        <trans-unit id="0c12c798-fcf3-43bc-9a98-8a1a47b0a1d6" xml:space="preserve">
+          <source>./media/api-management-howto-create-or-invite-developers/api-management-.png</source>
+          <target state="new">./media/api-management-howto-create-or-invite-developers/api-management-.png</target>
+        </trans-unit>
+        <trans-unit id="cf0fe3c8-fc44-455a-a41d-6e2c7ce5f282" xml:space="preserve">
+          <source>#create-developer</source>
+          <target state="new">#create-developer</target>
+        </trans-unit>
+        <trans-unit id="aa449d07-347f-47d8-8561-ea579d9df87d" xml:space="preserve">
+          <source>#invite-developer</source>
+          <target state="new">#invite-developer</target>
+        </trans-unit>
+        <trans-unit id="aadf150e-b3fb-473c-8430-3a88aa757d4a" xml:space="preserve">
+          <source>#block-developer</source>
+          <target state="new">#block-developer</target>
+        </trans-unit>
+        <trans-unit id="2562019b-1168-417e-9ebd-a4369bf724d9" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="f7de2e5b-29d9-43d5-98a0-c098d5d3e9b1" xml:space="preserve">
+          <source>api-management-howto-create-groups.md</source>
+          <target state="new">api-management-howto-create-groups.md</target>
+        </trans-unit>
+        <trans-unit id="493166c3-fbdd-4bda-8bfa-273289f4b3d1" xml:space="preserve">
+          <source>api-management-howto-create-groups.md#associate-group-developer</source>
+          <target state="new">api-management-howto-create-groups.md#associate-group-developer</target>
+        </trans-unit>
+        <trans-unit id="6206a369-e99e-46ad-8efd-5013f7bda8d5" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="e9ca4b1d-6ccd-45e7-8a24-d67c4cd67431" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="ca8e4ea7-d629-4c2f-8d58-c3b41a6ee1a6" xml:space="preserve">
+          <source>api-management-howto-configure-notifications.md#email-templates</source>
+          <target state="new">api-management-howto-configure-notifications.md#email-templates</target>
+        </trans-unit>
+      </group>
+      <group id="143e4cf8-597f-4d49-96e5-99f937589fd5" />
+    </body>
+  </file>
+</xliff>

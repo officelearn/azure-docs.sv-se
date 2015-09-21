@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1d76c9f0-31ad-4c38-80f1-9992d085fabf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1d76c9f0-31ad-4c38-80f1-9992d085fabf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="49cefab7-6d38-4deb-9e04-938af2fdf884">
+        <trans-unit id="0f6bc8c5-e889-47b7-bdd1-f7267652ea18" xml:space="preserve">
+          <source>About virtual machine extensions and features | Microsoft Azure</source>
+          <target state="new">About virtual machine extensions and features | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e023b805-c1ac-4242-8f7c-04e709155c96" xml:space="preserve">
+          <source>Describes many of the virtual machine extensions, grouped by what they provide or improve, such as connectivity and basic management.</source>
+          <target state="new">Describes many of the virtual machine extensions, grouped by what they provide or improve, such as connectivity and basic management.</target>
+        </trans-unit>
+        <trans-unit id="48271e9b-4636-4ad8-91ea-8dbab1ed49fb" xml:space="preserve">
+          <source>Microsoft Azure provides VM Extensions built by both Microsoft and by trusted third-party providers to enable security, runtime, debugging, management, and other features you can take advantage of to increase your productivity with Azure Virtual Machines.</source>
+          <target state="new">Microsoft Azure provides VM Extensions built by both Microsoft and by trusted third-party providers to enable security, runtime, debugging, management, and other features you can take advantage of to increase your productivity with Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="86ca2773-1738-446f-8e16-10543911a3ab" xml:space="preserve">
+          <source>This topic describes the various features that Azure VM Extensions provide to both Windows and Linux Virtual Machines for your use and points toward documentation for each one.</source>
+          <target state="new">This topic describes the various features that Azure VM Extensions provide to both Windows and Linux Virtual Machines for your use and points toward documentation for each one.</target>
+        </trans-unit>
+        <trans-unit id="afd13c99-cb33-4110-bb57-056691681b74" xml:space="preserve">
+          <source>For details about the VM Agents and how they work to support VM Extensions, see <bpt id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;linkText&gt;</bpt>VM Agent and VM Extensions Overview<ept id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;/linkText&gt;</ept><bpt id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;title&gt;</bpt><ept id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about the VM Agents and how they work to support VM Extensions, see <bpt id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;linkText&gt;</bpt>VM Agent and VM Extensions Overview<ept id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;/linkText&gt;</ept><bpt id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;title&gt;</bpt><ept id="366ce8fb-fadd-4e96-874d-b55744531f1b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50bdbf47-fe32-4e0b-9702-870ab710d355" xml:space="preserve">
+          <source>VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others.</source>
+          <target state="new">VM Extensions implement most of the critical functionality that you want to use with your VMs, including basic functionality like resetting passwords, configuring RDP, and many, many others.</target>
+        </trans-unit>
+        <trans-unit id="05aa30f7-54e0-4d77-a048-27c5d1446aa3" xml:space="preserve">
+          <source>Because new extensions are added all the time, the number of possible features your VMs support in Azure continues to increase.</source>
+          <target state="new">Because new extensions are added all the time, the number of possible features your VMs support in Azure continues to increase.</target>
+        </trans-unit>
+        <trans-unit id="41e7a51c-5641-4525-8851-3a035af37e5f" xml:space="preserve">
+          <source>By default, several basic VM extensions are installed when you create your VM from the Image Gallery, including <bpt id="d00e109a-efad-4c41-8c72-b970a7a86b47">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="d00e109a-efad-4c41-8c72-b970a7a86b47">&lt;/strong&gt;</ept> (currently Windows VMs only), <bpt id="07b937b3-b377-41e2-8ed4-178ca1fec1ab">&lt;strong&gt;</bpt>VMAccess<ept id="07b937b3-b377-41e2-8ed4-178ca1fec1ab">&lt;/strong&gt;</ept>, and <bpt id="4542d8fd-f6e1-4914-b0dd-c9101e861eb8">&lt;strong&gt;</bpt>BGInfo<ept id="4542d8fd-f6e1-4914-b0dd-c9101e861eb8">&lt;/strong&gt;</ept> (also currently Windows only).</source>
+          <target state="new">By default, several basic VM extensions are installed when you create your VM from the Image Gallery, including <bpt id="d00e109a-efad-4c41-8c72-b970a7a86b47">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="d00e109a-efad-4c41-8c72-b970a7a86b47">&lt;/strong&gt;</ept> (currently Windows VMs only), <bpt id="07b937b3-b377-41e2-8ed4-178ca1fec1ab">&lt;strong&gt;</bpt>VMAccess<ept id="07b937b3-b377-41e2-8ed4-178ca1fec1ab">&lt;/strong&gt;</ept>, and <bpt id="4542d8fd-f6e1-4914-b0dd-c9101e861eb8">&lt;strong&gt;</bpt>BGInfo<ept id="4542d8fd-f6e1-4914-b0dd-c9101e861eb8">&lt;/strong&gt;</ept> (also currently Windows only).</target>
+        </trans-unit>
+        <trans-unit id="c62fc322-452e-4a7f-bdfe-15be4e30e248" xml:space="preserve">
+          <source>However, not all extensions are implemented on both Windows and Linux at any specific time, due to the constant flow of feature updates and new extensions.</source>
+          <target state="new">However, not all extensions are implemented on both Windows and Linux at any specific time, due to the constant flow of feature updates and new extensions.</target>
+        </trans-unit>
+        <trans-unit id="2f02d726-0f8b-4015-adce-ccdf8a747313" xml:space="preserve">
+          <source>The following extensions are critical to enabling, re-enabling, or disabling basic connectivity with your VMs once they are created and running.</source>
+          <target state="new">The following extensions are critical to enabling, re-enabling, or disabling basic connectivity with your VMs once they are created and running.</target>
+        </trans-unit>
+        <trans-unit id="65e78547-c648-45f6-afb4-38922542f914" xml:space="preserve">
+          <source>VM Extension Name</source>
+          <target state="new">VM Extension Name</target>
+        </trans-unit>
+        <trans-unit id="5cec1c95-e48e-4797-a220-fb992cedb2a5" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="a24dd4d7-aef5-4c3a-9f01-b97fea054e34" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="90bc0bf4-6e00-4c9c-bb9d-497514ae35a6" xml:space="preserve">
+          <source>VMAccessAgent (Windows)</source>
+          <target state="new">VMAccessAgent (Windows)</target>
+        </trans-unit>
+        <trans-unit id="54e9ea5d-69a3-46b4-8a4e-ee91fc98d6e6" xml:space="preserve">
+          <source>Create, update, and reset user information and RDP and SSH connection configurations.</source>
+          <target state="new">Create, update, and reset user information and RDP and SSH connection configurations.</target>
+        </trans-unit>
+        <trans-unit id="2133f175-7de7-431a-afbe-9a4548d3fd58" xml:space="preserve">
+          <source><bpt id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;linkText&gt;</bpt>Windows<ept id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;/linkText&gt;</ept><bpt id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;title&gt;</bpt><ept id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;linkText&gt;</bpt>Windows<ept id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;/linkText&gt;</ept><bpt id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;title&gt;</bpt><ept id="b407a28a-1907-4316-8b91-5387d1e8efe6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90eaaceb-288a-4c44-9acd-43d5271acf3d" xml:space="preserve">
+          <source>VMAccessForLinux (Linux)</source>
+          <target state="new">VMAccessForLinux (Linux)</target>
+        </trans-unit>
+        <trans-unit id="74cc8c5b-6725-4adc-8c4a-794ae24daa95" xml:space="preserve">
+          <source>Create, update, and reset user information and RDP and SSH connection configurations.</source>
+          <target state="new">Create, update, and reset user information and RDP and SSH connection configurations.</target>
+        </trans-unit>
+        <trans-unit id="42c0d41d-7989-493f-88e1-82b53d35d825" xml:space="preserve">
+          <source><bpt id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;linkText&gt;</bpt>Linux<ept id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;/linkText&gt;</ept><bpt id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;title&gt;</bpt><ept id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;linkText&gt;</bpt>Linux<ept id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;/linkText&gt;</ept><bpt id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;title&gt;</bpt><ept id="5ba9d4fc-61f0-4020-81fa-340428f0b921">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f3f3af2-7809-402b-bf84-b815032e0625" xml:space="preserve">
+          <source>The following extensions support different kinds of deployment and configuration management scenarios and features.</source>
+          <target state="new">The following extensions support different kinds of deployment and configuration management scenarios and features.</target>
+        </trans-unit>
+        <trans-unit id="55aa7ca2-5d8c-4727-9d5e-101d4363c144" xml:space="preserve">
+          <source>See also the section on VM Operations and Management, below.</source>
+          <target state="new">See also the section on VM Operations and Management, below.</target>
+        </trans-unit>
+        <trans-unit id="12bcacc5-d3e5-4b5f-82d9-2a0dcfe3f3de" xml:space="preserve">
+          <source>VM Extension Name</source>
+          <target state="new">VM Extension Name</target>
+        </trans-unit>
+        <trans-unit id="25b70aaa-f887-4092-91c7-e94daa183f58" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="11046098-d05f-4dfc-8e53-c79be89c4e14" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="d299201d-77c3-4bf6-8fb2-0f5aba0a41b1" xml:space="preserve">
+          <source><bpt id="0c62347a-cd71-4352-ae86-3f0d5af30d1b">&lt;strong&gt;</bpt>MSEnterpriseApplication<ept id="0c62347a-cd71-4352-ae86-3f0d5af30d1b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0c62347a-cd71-4352-ae86-3f0d5af30d1b">&lt;strong&gt;</bpt>MSEnterpriseApplication<ept id="0c62347a-cd71-4352-ae86-3f0d5af30d1b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="009a2014-56c6-40df-989e-760133f6aa33" xml:space="preserve">
+          <source>Implements features for support by Windows System Center.</source>
+          <target state="new">Implements features for support by Windows System Center.</target>
+        </trans-unit>
+        <trans-unit id="949c9f40-8368-4bf2-a533-2a87a32a0fc2" xml:space="preserve">
+          <source><bpt id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;linkText&gt;</bpt>System Center 2012 R2 Virtual Machine Roles<ept id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;/linkText&gt;</ept><bpt id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;title&gt;</bpt><ept id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;linkText&gt;</bpt>System Center 2012 R2 Virtual Machine Roles<ept id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;/linkText&gt;</ept><bpt id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;title&gt;</bpt><ept id="f064695c-cf64-4159-905e-c6f9493b27f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="485d70a8-72ee-4521-90b6-262ae2836f70" xml:space="preserve">
+          <source><bpt id="fcc9760a-8234-4076-bb58-dad956b6197b">&lt;strong&gt;</bpt>Octopus Deploy<ept id="fcc9760a-8234-4076-bb58-dad956b6197b">&lt;/strong&gt;</ept> (DSC Extension-based)</source>
+          <target state="new"><bpt id="fcc9760a-8234-4076-bb58-dad956b6197b">&lt;strong&gt;</bpt>Octopus Deploy<ept id="fcc9760a-8234-4076-bb58-dad956b6197b">&lt;/strong&gt;</ept> (DSC Extension-based)</target>
+        </trans-unit>
+        <trans-unit id="bfde568f-0ff5-4406-b185-ba1ed8c24fc2" xml:space="preserve">
+          <source>Supports automated deployment of ASP.NET web applications and Windows Services into development, test, and production environments.</source>
+          <target state="new">Supports automated deployment of ASP.NET web applications and Windows Services into development, test, and production environments.</target>
+        </trans-unit>
+        <trans-unit id="d536468e-9a0b-4cfa-aa7c-1be688350d09" xml:space="preserve">
+          <source><bpt id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;linkText&gt;</bpt>Getting Started with Octopus Deploy<ept id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;/linkText&gt;</ept><bpt id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;title&gt;</bpt><ept id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;linkText&gt;</bpt>Getting Started with Octopus Deploy<ept id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;/linkText&gt;</ept><bpt id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;title&gt;</bpt><ept id="c80829e2-7933-4e3e-b44d-943d0f1f1154">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de6bd332-72c2-4d8f-b8bc-5e473f26f49d" xml:space="preserve">
+          <source><bpt id="5de722c8-6bb0-4da2-94d9-45f891097d85">&lt;strong&gt;</bpt>Visual Studio Release Manager<ept id="5de722c8-6bb0-4da2-94d9-45f891097d85">&lt;/strong&gt;</ept> (DSC Extension-based)</source>
+          <target state="new"><bpt id="5de722c8-6bb0-4da2-94d9-45f891097d85">&lt;strong&gt;</bpt>Visual Studio Release Manager<ept id="5de722c8-6bb0-4da2-94d9-45f891097d85">&lt;/strong&gt;</ept> (DSC Extension-based)</target>
+        </trans-unit>
+        <trans-unit id="93acf535-4b87-48e0-8c51-64cc7332c806" xml:space="preserve">
+          <source>Supports continuous deployment with Visual Studio.</source>
+          <target state="new">Supports continuous deployment with Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="4b4ef504-3265-4adb-8524-f10471c72442" xml:space="preserve">
+          <source><bpt id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;linkText&gt;</bpt>Automate deployments with Release Management<ept id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;/linkText&gt;</ept><bpt id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;title&gt;</bpt><ept id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;linkText&gt;</bpt>Automate deployments with Release Management<ept id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;/linkText&gt;</ept><bpt id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;title&gt;</bpt><ept id="9eba2199-e78b-4f14-b0a0-3dc9a3391d47">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ca27f5a-1474-470e-b305-70404d7c8ec3" xml:space="preserve">
+          <source><bpt id="f8d83eb8-af60-43ba-a445-5349d3537042">&lt;strong&gt;</bpt>CentosChefClient<ept id="f8d83eb8-af60-43ba-a445-5349d3537042">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f8d83eb8-af60-43ba-a445-5349d3537042">&lt;strong&gt;</bpt>CentosChefClient<ept id="f8d83eb8-af60-43ba-a445-5349d3537042">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f86f90f-d8e5-4681-978a-adce906a2fac" xml:space="preserve">
+          <source><bpt id="1f377bc6-02e1-4c1f-95ae-50d4613c9974">&lt;strong&gt;</bpt>ChefClient<ept id="1f377bc6-02e1-4c1f-95ae-50d4613c9974">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1f377bc6-02e1-4c1f-95ae-50d4613c9974">&lt;strong&gt;</bpt>ChefClient<ept id="1f377bc6-02e1-4c1f-95ae-50d4613c9974">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00b84095-0be7-40d7-8e1a-a1d407100873" xml:space="preserve">
+          <source>Creates a Chef client on Windows.</source>
+          <target state="new">Creates a Chef client on Windows.</target>
+        </trans-unit>
+        <trans-unit id="6f87d0b6-a2ab-4bd3-b715-95ab9846a68f" xml:space="preserve">
+          <source>(Can also use the DSC extension, below.)</source>
+          <target state="new">(Can also use the DSC extension, below.)</target>
+        </trans-unit>
+        <trans-unit id="96fe57e3-024c-4c29-8881-a23631e0bc48" xml:space="preserve">
+          <source><bpt id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;linkText&gt;</bpt>Chef and Microsoft Azure<ept id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;/linkText&gt;</ept><bpt id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;title&gt;</bpt><ept id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;linkText&gt;</bpt>Chef and Microsoft Azure<ept id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;/linkText&gt;</ept><bpt id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;title&gt;</bpt><ept id="be61fa9c-509f-4a23-8da4-2f12dc243594">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="258bd634-3263-49ac-9b3a-646b9aa46dc0" xml:space="preserve">
+          <source><bpt id="ba0113fd-841f-49aa-8bbc-1360962a917e">&lt;strong&gt;</bpt>LinuxChefClient<ept id="ba0113fd-841f-49aa-8bbc-1360962a917e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ba0113fd-841f-49aa-8bbc-1360962a917e">&lt;strong&gt;</bpt>LinuxChefClient<ept id="ba0113fd-841f-49aa-8bbc-1360962a917e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f9eab30-b924-4f02-a9ef-99fcb064fd12" xml:space="preserve">
+          <source><bpt id="968de0b8-a6ea-4412-9b42-1bf3da04758e">&lt;strong&gt;</bpt>DockerExtension<ept id="968de0b8-a6ea-4412-9b42-1bf3da04758e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="968de0b8-a6ea-4412-9b42-1bf3da04758e">&lt;strong&gt;</bpt>DockerExtension<ept id="968de0b8-a6ea-4412-9b42-1bf3da04758e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c80a295c-2271-49b9-96ca-7e39f6f86ee7" xml:space="preserve">
+          <source>Installs the Docker daemon to support remote Docker commands.</source>
+          <target state="new">Installs the Docker daemon to support remote Docker commands.</target>
+        </trans-unit>
+        <trans-unit id="f8199d72-2000-4f51-bca0-dbcef3dee681" xml:space="preserve">
+          <source><bpt id="75cf231e-266a-4742-b3de-fa2290010992">&lt;linkText&gt;</bpt>How to Use the Docker Virtual Machine Extension<ept id="75cf231e-266a-4742-b3de-fa2290010992">&lt;/linkText&gt;</ept><bpt id="75cf231e-266a-4742-b3de-fa2290010992">&lt;title&gt;</bpt><ept id="75cf231e-266a-4742-b3de-fa2290010992">&lt;/title&gt;</ept>For more extensive information, see the <bpt id="873706c5-949a-4643-a018-1de3125688d1">&lt;linkText&gt;</bpt>Docker VM Extension User Guide<ept id="873706c5-949a-4643-a018-1de3125688d1">&lt;/linkText&gt;</ept><bpt id="873706c5-949a-4643-a018-1de3125688d1">&lt;title&gt;</bpt><ept id="873706c5-949a-4643-a018-1de3125688d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75cf231e-266a-4742-b3de-fa2290010992">&lt;linkText&gt;</bpt>How to Use the Docker Virtual Machine Extension<ept id="75cf231e-266a-4742-b3de-fa2290010992">&lt;/linkText&gt;</ept><bpt id="75cf231e-266a-4742-b3de-fa2290010992">&lt;title&gt;</bpt><ept id="75cf231e-266a-4742-b3de-fa2290010992">&lt;/title&gt;</ept>For more extensive information, see the <bpt id="873706c5-949a-4643-a018-1de3125688d1">&lt;linkText&gt;</bpt>Docker VM Extension User Guide<ept id="873706c5-949a-4643-a018-1de3125688d1">&lt;/linkText&gt;</ept><bpt id="873706c5-949a-4643-a018-1de3125688d1">&lt;title&gt;</bpt><ept id="873706c5-949a-4643-a018-1de3125688d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8e5bc98-2157-4099-9563-8f97f152722d" xml:space="preserve">
+          <source><bpt id="fa7dca6c-7f15-467f-996a-765e480576e6">&lt;strong&gt;</bpt>DSC<ept id="fa7dca6c-7f15-467f-996a-765e480576e6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fa7dca6c-7f15-467f-996a-765e480576e6">&lt;strong&gt;</bpt>DSC<ept id="fa7dca6c-7f15-467f-996a-765e480576e6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d12ca5bb-30b1-44f6-86b4-e532149899fc" xml:space="preserve">
+          <source>PowerShell DSC (Desired State Configuration) extension.</source>
+          <target state="new">PowerShell DSC (Desired State Configuration) extension.</target>
+        </trans-unit>
+        <trans-unit id="21864ee0-415e-4965-a6ff-bc9648a33a30" xml:space="preserve">
+          <source><bpt id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;linkText&gt;</bpt>Azure PowerShell DSC (Desired State Configuration) extension<ept id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;/linkText&gt;</ept><bpt id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;title&gt;</bpt><ept id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;linkText&gt;</bpt>Azure PowerShell DSC (Desired State Configuration) extension<ept id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;/linkText&gt;</ept><bpt id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;title&gt;</bpt><ept id="e757446b-5a34-4037-a715-d46c872aeca7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="316473dd-9b18-434f-818b-136bc3698046" xml:space="preserve">
+          <source><bpt id="c58cd620-4871-40a1-b0a1-4631d827a0f4">&lt;strong&gt;</bpt>PuppetEnterpriseAgent<ept id="c58cd620-4871-40a1-b0a1-4631d827a0f4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c58cd620-4871-40a1-b0a1-4631d827a0f4">&lt;strong&gt;</bpt>PuppetEnterpriseAgent<ept id="c58cd620-4871-40a1-b0a1-4631d827a0f4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac65aea4-aaee-412d-86d2-964d7db2b78f" xml:space="preserve">
+          <source>Implements the features of Puppet Enterprise.</source>
+          <target state="new">Implements the features of Puppet Enterprise.</target>
+        </trans-unit>
+        <trans-unit id="b8149105-0018-47ef-839e-9d41ef7882f3" xml:space="preserve">
+          <source><bpt id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;linkText&gt;</bpt>Puppet on Azure<ept id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;/linkText&gt;</ept><bpt id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;title&gt;</bpt><ept id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;linkText&gt;</bpt>Puppet on Azure<ept id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;/linkText&gt;</ept><bpt id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;title&gt;</bpt><ept id="25ba4195-3581-448b-b9ba-1710acd0b419">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="587d8637-9705-4d42-9a46-d4462a37a46d" xml:space="preserve">
+          <source><bpt id="44a8a026-abd2-42a4-bf65-329d741f052a">&lt;strong&gt;</bpt>CustomScriptExtension<ept id="44a8a026-abd2-42a4-bf65-329d741f052a">&lt;/strong&gt;</ept> (Windows)<bpt id="766484bb-19fd-4db9-b3a1-93e28bb6c63e">&lt;strong&gt;</bpt>CustomScriptForLinux<ept id="766484bb-19fd-4db9-b3a1-93e28bb6c63e">&lt;/strong&gt;</ept> (Linux)</source>
+          <target state="new"><bpt id="44a8a026-abd2-42a4-bf65-329d741f052a">&lt;strong&gt;</bpt>CustomScriptExtension<ept id="44a8a026-abd2-42a4-bf65-329d741f052a">&lt;/strong&gt;</ept> (Windows)<bpt id="766484bb-19fd-4db9-b3a1-93e28bb6c63e">&lt;strong&gt;</bpt>CustomScriptForLinux<ept id="766484bb-19fd-4db9-b3a1-93e28bb6c63e">&lt;/strong&gt;</ept> (Linux)</target>
+        </trans-unit>
+        <trans-unit id="5c628c43-a158-4e0d-ac72-ac1d33cb37a1" xml:space="preserve">
+          <source>Invokes custom scripts on the VM at any time: startup or during lifetime.</source>
+          <target state="new">Invokes custom scripts on the VM at any time: startup or during lifetime.</target>
+        </trans-unit>
+        <trans-unit id="e88a051f-042a-46ea-bb23-a157678e482e" xml:space="preserve">
+          <source><bpt id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;linkText&gt;</bpt>Custom Script Extension<ept id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;/linkText&gt;</ept><bpt id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;title&gt;</bpt><ept id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;/title&gt;</ept><bpt id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;linkText&gt;</bpt>Linux<ept id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;/linkText&gt;</ept><bpt id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;title&gt;</bpt><ept id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;linkText&gt;</bpt>Custom Script Extension<ept id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;/linkText&gt;</ept><bpt id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;title&gt;</bpt><ept id="d436f823-68de-476e-8f5c-1dee8cf1c294">&lt;/title&gt;</ept><bpt id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;linkText&gt;</bpt>Linux<ept id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;/linkText&gt;</ept><bpt id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;title&gt;</bpt><ept id="c54e5572-4b45-4bb0-8532-2a0531046715">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="703bbf91-c293-48e1-ad94-f95992d27f34" xml:space="preserve">
+          <source><bpt id="62e27a56-31f9-4cac-9099-ed97fe17d08b">&lt;strong&gt;</bpt>AzureCATExtensionHandler<ept id="62e27a56-31f9-4cac-9099-ed97fe17d08b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="62e27a56-31f9-4cac-9099-ed97fe17d08b">&lt;strong&gt;</bpt>AzureCATExtensionHandler<ept id="62e27a56-31f9-4cac-9099-ed97fe17d08b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="047dce21-7295-4499-be3f-9e7ee4916aa2" xml:space="preserve">
+          <source>Consumes the diagnostic data collected by <bpt id="0ed32a14-198d-4c13-9745-4a6960b891f3">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="0ed32a14-198d-4c13-9745-4a6960b891f3">&lt;/strong&gt;</ept> and few other data sources such as <bpt id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;linkText&gt;</bpt>Azure Storage Analytics Metrics<ept id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;/linkText&gt;</ept><bpt id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;title&gt;</bpt><ept id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;/title&gt;</ept> and transforms it into an aggregated data set appropriate for SAP Host control process to consume</source>
+          <target state="new">Consumes the diagnostic data collected by <bpt id="0ed32a14-198d-4c13-9745-4a6960b891f3">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="0ed32a14-198d-4c13-9745-4a6960b891f3">&lt;/strong&gt;</ept> and few other data sources such as <bpt id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;linkText&gt;</bpt>Azure Storage Analytics Metrics<ept id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;/linkText&gt;</ept><bpt id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;title&gt;</bpt><ept id="5e888746-54fc-4061-bb97-00515e530a6f">&lt;/title&gt;</ept> and transforms it into an aggregated data set appropriate for SAP Host control process to consume</target>
+        </trans-unit>
+        <trans-unit id="a6b1a2b4-97d0-4adf-8299-e8aa007c8a90" xml:space="preserve">
+          <source><bpt id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;linkText&gt;</bpt>Azure Enhanced Monitoring for SAP<ept id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;/linkText&gt;</ept><bpt id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;title&gt;</bpt><ept id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;linkText&gt;</bpt>Azure Enhanced Monitoring for SAP<ept id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;/linkText&gt;</ept><bpt id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;title&gt;</bpt><ept id="7c93f79e-b2d7-4928-95c4-eb8b69c2c5fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eb8a596-9639-495c-86f3-61cc496b6824" xml:space="preserve">
+          <source>The extensions in this section provide critical security features for your Azure VMs.</source>
+          <target state="new">The extensions in this section provide critical security features for your Azure VMs.</target>
+        </trans-unit>
+        <trans-unit id="ed2aee8d-08b8-400c-918c-9f91332b703b" xml:space="preserve">
+          <source>VM Extension Name</source>
+          <target state="new">VM Extension Name</target>
+        </trans-unit>
+        <trans-unit id="c6170120-1809-4fd2-b3cf-abcb547a1bd3" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="820562ec-563f-4af8-a85e-8583ed54311c" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="25ee6d5e-e45a-4b2d-ba5a-b7cf38b84909" xml:space="preserve">
+          <source><bpt id="4d57099c-74cb-4005-82ca-a7e239521c80">&lt;strong&gt;</bpt>CloudLinkSecureVMWindowsAgent<ept id="4d57099c-74cb-4005-82ca-a7e239521c80">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4d57099c-74cb-4005-82ca-a7e239521c80">&lt;strong&gt;</bpt>CloudLinkSecureVMWindowsAgent<ept id="4d57099c-74cb-4005-82ca-a7e239521c80">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e71e553-c9f8-4949-acd2-68c3c27aa97f" xml:space="preserve">
+          <source>Provides Microsoft Azure customers with the capability to encrypt their virtual machine data on a multi-tenant shared infrastructure and fully control of the encryption keys for their encrypted data on Azure storage infrastructure.</source>
+          <target state="new">Provides Microsoft Azure customers with the capability to encrypt their virtual machine data on a multi-tenant shared infrastructure and fully control of the encryption keys for their encrypted data on Azure storage infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="b4afc90c-ddea-4696-9eab-bbbcf4ef5160" xml:space="preserve">
+          <source><bpt id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;linkText&gt;</bpt>Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption<ept id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;/linkText&gt;</ept><bpt id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;title&gt;</bpt><ept id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;linkText&gt;</bpt>Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption<ept id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;/linkText&gt;</ept><bpt id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;title&gt;</bpt><ept id="d2eca3b2-8f56-465b-bcd5-3336e62750aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc0c8f52-6a44-4fad-a5ba-06a98a952be7" xml:space="preserve">
+          <source><bpt id="cde6def2-7f7f-4874-abb7-6030ade355a7">&lt;strong&gt;</bpt>McAfeeEndpointSecurity<ept id="cde6def2-7f7f-4874-abb7-6030ade355a7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cde6def2-7f7f-4874-abb7-6030ade355a7">&lt;strong&gt;</bpt>McAfeeEndpointSecurity<ept id="cde6def2-7f7f-4874-abb7-6030ade355a7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3b49316-2ce8-40bc-b3d1-b691e2f03968" xml:space="preserve">
+          <source>Protects your VM against malicious software.</source>
+          <target state="new">Protects your VM against malicious software.</target>
+        </trans-unit>
+        <trans-unit id="b21d92c5-efd4-46c8-a53a-16c0a8fa6c12" xml:space="preserve">
+          <source><bpt id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;linkText&gt;</bpt>McAfee<ept id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;/linkText&gt;</ept><bpt id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;title&gt;</bpt><ept id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;linkText&gt;</bpt>McAfee<ept id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;/linkText&gt;</ept><bpt id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;title&gt;</bpt><ept id="54432051-0fc6-4699-9a79-0a3752a60721">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fd22eb2-8c8a-4247-a348-2ba1d3fdde4f" xml:space="preserve">
+          <source><bpt id="63db8d43-ff5a-47bb-881a-52a0395f143e">&lt;strong&gt;</bpt>TrendMicroDSA<ept id="63db8d43-ff5a-47bb-881a-52a0395f143e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="63db8d43-ff5a-47bb-881a-52a0395f143e">&lt;strong&gt;</bpt>TrendMicroDSA<ept id="63db8d43-ff5a-47bb-881a-52a0395f143e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6742ac06-ff2f-4c35-b8a8-0ba4f4640977" xml:space="preserve">
+          <source>Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.</source>
+          <target state="new">Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.</target>
+        </trans-unit>
+        <trans-unit id="79c6ad8f-1682-4b03-a0dc-086b9f95464d" xml:space="preserve">
+          <source><bpt id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;linkText&gt;</bpt>How to install and configure Trend Micro Deep Security as a Service on an Azure VM<ept id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;/linkText&gt;</ept><bpt id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;title&gt;</bpt><ept id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;linkText&gt;</bpt>How to install and configure Trend Micro Deep Security as a Service on an Azure VM<ept id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;/linkText&gt;</ept><bpt id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;title&gt;</bpt><ept id="fe0cb952-4f28-4b00-ba94-ef9771638aee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7846c5f9-eae3-4a04-b404-e368c1322029" xml:space="preserve">
+          <source><bpt id="e0445e18-e609-4085-8a58-fe4cd1c04b18">&lt;strong&gt;</bpt>PortalProtectExtension<ept id="e0445e18-e609-4085-8a58-fe4cd1c04b18">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e0445e18-e609-4085-8a58-fe4cd1c04b18">&lt;strong&gt;</bpt>PortalProtectExtension<ept id="e0445e18-e609-4085-8a58-fe4cd1c04b18">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c80cee3d-ffe6-4373-8540-dd396429e61d" xml:space="preserve">
+          <source>Guards against threats to your Microsoft SharePoint environment.</source>
+          <target state="new">Guards against threats to your Microsoft SharePoint environment.</target>
+        </trans-unit>
+        <trans-unit id="ea1b74da-e56b-4596-bb30-d8c6fb990692" xml:space="preserve">
+          <source><bpt id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;linkText&gt;</bpt>Securing Your SharePoint Deployment on Azure<ept id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;/linkText&gt;</ept><bpt id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;title&gt;</bpt><ept id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;linkText&gt;</bpt>Securing Your SharePoint Deployment on Azure<ept id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;/linkText&gt;</ept><bpt id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;title&gt;</bpt><ept id="889a7def-a24a-4359-b5e1-8466d677b04f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b22a3c7f-6e88-4984-b3bb-e6079bfd8dd1" xml:space="preserve">
+          <source><bpt id="7f559a87-fae2-4c75-b3b1-9060ce46b8a3">&lt;strong&gt;</bpt>IaaSAntimalware<ept id="7f559a87-fae2-4c75-b3b1-9060ce46b8a3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7f559a87-fae2-4c75-b3b1-9060ce46b8a3">&lt;strong&gt;</bpt>IaaSAntimalware<ept id="7f559a87-fae2-4c75-b3b1-9060ce46b8a3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99d023f1-d140-45b2-9b4b-a00b32fc9851" xml:space="preserve">
+          <source>Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.</source>
+          <target state="new">Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.</target>
+        </trans-unit>
+        <trans-unit id="459a0d5a-2e1b-416e-806e-8993f0c96dcd" xml:space="preserve">
+          <source><bpt id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;linkText&gt;</bpt>Download antimalware documentation<ept id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;/linkText&gt;</ept><bpt id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;title&gt;</bpt><ept id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;linkText&gt;</bpt>Download antimalware documentation<ept id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;/linkText&gt;</ept><bpt id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;title&gt;</bpt><ept id="4a3f19fc-6101-4bd1-a75b-f6eefb8f1174">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32556f0c-ca9d-497c-a5e5-ee2183dfc681" xml:space="preserve">
+          <source><bpt id="dda94367-f93b-4541-aa3e-a2489cb3222c">&lt;strong&gt;</bpt>SymantecEndpointProtection<ept id="dda94367-f93b-4541-aa3e-a2489cb3222c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dda94367-f93b-4541-aa3e-a2489cb3222c">&lt;strong&gt;</bpt>SymantecEndpointProtection<ept id="dda94367-f93b-4541-aa3e-a2489cb3222c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bd860d3-a31d-4c84-8e0d-8f3913ef30d4" xml:space="preserve">
+          <source>Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.</source>
+          <target state="new">Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.</target>
+        </trans-unit>
+        <trans-unit id="63cc4f57-72f4-4c81-820b-6522caa2f181" xml:space="preserve">
+          <source><bpt id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;linkText&gt;</bpt>How to install and configure Symantec Endpoint Protection on an Azure VM<ept id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;/linkText&gt;</ept><bpt id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;title&gt;</bpt><ept id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;linkText&gt;</bpt>How to install and configure Symantec Endpoint Protection on an Azure VM<ept id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;/linkText&gt;</ept><bpt id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;title&gt;</bpt><ept id="2a20c655-30f1-4b8c-b43f-906c22fa56e2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6565f2a4-9890-468f-9151-7246de2663b7" xml:space="preserve">
+          <source>Supports common operations management features and behavior.</source>
+          <target state="new">Supports common operations management features and behavior.</target>
+        </trans-unit>
+        <trans-unit id="5700aa60-79fe-4ab2-960b-cc96a9b5688e" xml:space="preserve">
+          <source>See also the section on Deployment and Configuration Management, above.</source>
+          <target state="new">See also the section on Deployment and Configuration Management, above.</target>
+        </trans-unit>
+        <trans-unit id="a0d6ce26-1d38-4282-bc1e-d3fe21594d9f" xml:space="preserve">
+          <source><bpt id="c817357c-09d3-44f4-87bb-56ba05302222">&lt;strong&gt;</bpt>VM Extension Name<ept id="c817357c-09d3-44f4-87bb-56ba05302222">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c817357c-09d3-44f4-87bb-56ba05302222">&lt;strong&gt;</bpt>VM Extension Name<ept id="c817357c-09d3-44f4-87bb-56ba05302222">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="384464ae-6fee-433e-a646-99fe03a9ce86" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="4e3dfcc7-7724-4ae8-988c-1dcc2cf598cf" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="d67d0084-6bfa-4342-95e6-fc9a75a04927" xml:space="preserve">
+          <source><bpt id="47dd27f2-fe15-4370-82d6-752716b6ed2d">&lt;strong&gt;</bpt>AzureVmLogCollector<ept id="47dd27f2-fe15-4370-82d6-752716b6ed2d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="47dd27f2-fe15-4370-82d6-752716b6ed2d">&lt;strong&gt;</bpt>AzureVmLogCollector<ept id="47dd27f2-fe15-4370-82d6-752716b6ed2d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e443aba1-f4ff-4421-aec8-313ff3ccd612" xml:space="preserve">
+          <source>You can use the <bpt id="f4c72a31-de61-4c95-9a9b-708fefdd6d56">&lt;strong&gt;</bpt>AzureVMLogCollector<ept id="f4c72a31-de61-4c95-9a9b-708fefdd6d56">&lt;/strong&gt;</ept> extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.</source>
+          <target state="new">You can use the <bpt id="f4c72a31-de61-4c95-9a9b-708fefdd6d56">&lt;strong&gt;</bpt>AzureVMLogCollector<ept id="f4c72a31-de61-4c95-9a9b-708fefdd6d56">&lt;/strong&gt;</ept> extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.</target>
+        </trans-unit>
+        <trans-unit id="a01eeefb-eca5-451f-b1df-e873a5edb9cb" xml:space="preserve">
+          <source><bpt id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;linkText&gt;</bpt>AzureLogCollector Extension<ept id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;/linkText&gt;</ept><bpt id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;title&gt;</bpt><ept id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;linkText&gt;</bpt>AzureLogCollector Extension<ept id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;/linkText&gt;</ept><bpt id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;title&gt;</bpt><ept id="871afde8-90f8-4738-aaff-30f80231f84b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="931b1ab7-c392-495a-bd9f-a3d3bff2e740" xml:space="preserve">
+          <source><bpt id="6047a581-44a6-4760-9cf8-cb44d2ab36f9">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="6047a581-44a6-4760-9cf8-cb44d2ab36f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6047a581-44a6-4760-9cf8-cb44d2ab36f9">&lt;strong&gt;</bpt>IaaSDiagnostics<ept id="6047a581-44a6-4760-9cf8-cb44d2ab36f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="764dcce6-dd0f-4f2a-a40d-52e3fba195d1" xml:space="preserve">
+          <source>Enables, disables, and configures Azure Diagnostics, and is also used by the <bpt id="3d2b7a8d-350c-4e9e-84de-d92c34775aab">&lt;strong&gt;</bpt>AzureCATExtensionHandler<ept id="3d2b7a8d-350c-4e9e-84de-d92c34775aab">&lt;/strong&gt;</ept> to support SAP monitoring.</source>
+          <target state="new">Enables, disables, and configures Azure Diagnostics, and is also used by the <bpt id="3d2b7a8d-350c-4e9e-84de-d92c34775aab">&lt;strong&gt;</bpt>AzureCATExtensionHandler<ept id="3d2b7a8d-350c-4e9e-84de-d92c34775aab">&lt;/strong&gt;</ept> to support SAP monitoring.</target>
+        </trans-unit>
+        <trans-unit id="efad54e9-40bb-44f6-b334-a24b627ac199" xml:space="preserve">
+          <source><bpt id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;linkText&gt;</bpt>Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension<ept id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;/linkText&gt;</ept><bpt id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;title&gt;</bpt><ept id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;linkText&gt;</bpt>Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension<ept id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;/linkText&gt;</ept><bpt id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;title&gt;</bpt><ept id="29ad7fa7-6d3a-4de8-b186-0dce861f3e8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="778282a6-7b0f-40b7-80e0-3b1f5c42232f" xml:space="preserve">
+          <source><bpt id="7861fe41-d332-4259-b391-53b342fd01a9">&lt;strong&gt;</bpt>OSPatchingForLinux<ept id="7861fe41-d332-4259-b391-53b342fd01a9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7861fe41-d332-4259-b391-53b342fd01a9">&lt;strong&gt;</bpt>OSPatchingForLinux<ept id="7861fe41-d332-4259-b391-53b342fd01a9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5216a878-dd9e-47d9-83bb-3f73ce30ea57" xml:space="preserve">
+          <source>Enables the Azure VM administrators to automate the VM OS updates with the customized configurations.</source>
+          <target state="new">Enables the Azure VM administrators to automate the VM OS updates with the customized configurations.</target>
+        </trans-unit>
+        <trans-unit id="50d8111b-880a-45fd-a12d-20240b6f80dc" xml:space="preserve">
+          <source>You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates</source>
+          <target state="new">You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates</target>
+        </trans-unit>
+        <trans-unit id="7887bf8e-a312-457e-a39f-136b403322fc" xml:space="preserve">
+          <source><bpt id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;linkText&gt;</bpt>OS Patching Extension Blog Post<ept id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;/linkText&gt;</ept><bpt id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;title&gt;</bpt><ept id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;linkText&gt;</bpt>OS Patching Extension Blog Post<ept id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;/linkText&gt;</ept><bpt id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;title&gt;</bpt><ept id="d0c2f5cf-ca1d-4a15-85d1-52177cb009ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62fd0421-ee6a-4d7f-89bd-0d8653d6aa43" xml:space="preserve">
+          <source>See also the readme and source on Github at <bpt id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;linkText&gt;</bpt>OS Patching Extension<ept id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;/linkText&gt;</ept><bpt id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;title&gt;</bpt><ept id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;/title&gt;</ept>.</source>
+          <target state="new">See also the readme and source on Github at <bpt id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;linkText&gt;</bpt>OS Patching Extension<ept id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;/linkText&gt;</ept><bpt id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;title&gt;</bpt><ept id="7d712781-64e6-4c93-b3e6-3eb17b055ebb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a0e7cf2-bfc4-4768-81d3-cf42c639de79" xml:space="preserve">
+          <source>These VM extensions are listed here for completeness, as they provide support for Visual Studio-related features and are not intended to be used directly.</source>
+          <target state="new">These VM extensions are listed here for completeness, as they provide support for Visual Studio-related features and are not intended to be used directly.</target>
+        </trans-unit>
+        <trans-unit id="25032d36-d2f8-4e9a-94b8-db0b49e2f101" xml:space="preserve">
+          <source>VM Extension Name</source>
+          <target state="new">VM Extension Name</target>
+        </trans-unit>
+        <trans-unit id="ad8cf0c8-9d79-469f-886e-3c0b7e6bd7d1" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="5e13f6d3-337b-4f22-bcdb-fe168f81b6b0" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="e3fd8171-51de-4fb2-8a02-594f3eeee909" xml:space="preserve">
+          <source><bpt id="ccf3d4bf-2daf-4789-97d9-aa8b8f7dfc7c">&lt;strong&gt;</bpt>VS14CTPDebugger<ept id="ccf3d4bf-2daf-4789-97d9-aa8b8f7dfc7c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ccf3d4bf-2daf-4789-97d9-aa8b8f7dfc7c">&lt;strong&gt;</bpt>VS14CTPDebugger<ept id="ccf3d4bf-2daf-4789-97d9-aa8b8f7dfc7c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14d18128-217a-476d-bfee-6d501d514e6f" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.4</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.4</target>
+        </trans-unit>
+        <trans-unit id="d2378f06-2453-4bcc-8208-957666c9f504" xml:space="preserve">
+          <source><bpt id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;linkText&gt;</bpt>Remote Debugging in Visual Studio<ept id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;/linkText&gt;</ept><bpt id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;title&gt;</bpt><ept id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;linkText&gt;</bpt>Remote Debugging in Visual Studio<ept id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;/linkText&gt;</ept><bpt id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;title&gt;</bpt><ept id="8b699f7c-8aed-4e6f-87e9-e91232c63d3d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23e92e5c-3220-4c50-a1f9-425e1783b5dd" xml:space="preserve">
+          <source><bpt id="203bc071-ab4b-4a70-91c2-6330c51cd50e">&lt;strong&gt;</bpt>VS2013Debugger<ept id="203bc071-ab4b-4a70-91c2-6330c51cd50e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="203bc071-ab4b-4a70-91c2-6330c51cd50e">&lt;strong&gt;</bpt>VS2013Debugger<ept id="203bc071-ab4b-4a70-91c2-6330c51cd50e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="528eedc2-2fb6-44d2-9f9f-99fb59015915" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.4</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.4</target>
+        </trans-unit>
+        <trans-unit id="ca006d9b-93bd-42d5-8133-a8f49b004231" xml:space="preserve">
+          <source><bpt id="dcf0591c-7f09-4881-a5ec-f9ffb9f57295">&lt;strong&gt;</bpt>VS2012Debugger<ept id="dcf0591c-7f09-4881-a5ec-f9ffb9f57295">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dcf0591c-7f09-4881-a5ec-f9ffb9f57295">&lt;strong&gt;</bpt>VS2012Debugger<ept id="dcf0591c-7f09-4881-a5ec-f9ffb9f57295">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb08ad1a-d902-44ad-bfa3-90b6642a70b8" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.4</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.4</target>
+        </trans-unit>
+        <trans-unit id="5619f848-7358-4ac1-831e-272fc1682198" xml:space="preserve">
+          <source><bpt id="e8f1f8b0-6d14-4692-93d3-8890309d71c4">&lt;strong&gt;</bpt>RemoteDebugVS14CTP<ept id="e8f1f8b0-6d14-4692-93d3-8890309d71c4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e8f1f8b0-6d14-4692-93d3-8890309d71c4">&lt;strong&gt;</bpt>RemoteDebugVS14CTP<ept id="e8f1f8b0-6d14-4692-93d3-8890309d71c4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef776fcf-d880-424b-8716-6b83b55d0ac0" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.3</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.3</target>
+        </trans-unit>
+        <trans-unit id="f9fb1c6f-acd2-4b25-9a97-c8a7264ea328" xml:space="preserve">
+          <source><bpt id="273a6b34-fc2a-4fc0-ace4-74604eb5248b">&lt;strong&gt;</bpt>RemoteDebugVS2013<ept id="273a6b34-fc2a-4fc0-ace4-74604eb5248b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="273a6b34-fc2a-4fc0-ace4-74604eb5248b">&lt;strong&gt;</bpt>RemoteDebugVS2013<ept id="273a6b34-fc2a-4fc0-ace4-74604eb5248b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6d20f24e-c36d-43a5-a213-3dc8ab16957a" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.3</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.3</target>
+        </trans-unit>
+        <trans-unit id="eabdf34b-853f-448d-8ff9-c0b1145fa98a" xml:space="preserve">
+          <source><bpt id="68b5aea1-7b97-4817-b992-5609ea88b72f">&lt;strong&gt;</bpt>RemoteDebugVS2012<ept id="68b5aea1-7b97-4817-b992-5609ea88b72f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="68b5aea1-7b97-4817-b992-5609ea88b72f">&lt;strong&gt;</bpt>RemoteDebugVS2012<ept id="68b5aea1-7b97-4817-b992-5609ea88b72f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdb70d94-ef0b-486f-9b85-32459e8b26f8" xml:space="preserve">
+          <source>Supports remote debugging from VS using the Azure SDK 2.3</source>
+          <target state="new">Supports remote debugging from VS using the Azure SDK 2.3</target>
+        </trans-unit>
+        <trans-unit id="e89d4a20-0d19-47d7-94be-43b30d00a62e" xml:space="preserve">
+          <source><bpt id="6b8ce371-149c-4fe9-aaa7-deaee65bab96">&lt;strong&gt;</bpt>WebDeployForVSDevTest<ept id="6b8ce371-149c-4fe9-aaa7-deaee65bab96">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6b8ce371-149c-4fe9-aaa7-deaee65bab96">&lt;strong&gt;</bpt>WebDeployForVSDevTest<ept id="6b8ce371-149c-4fe9-aaa7-deaee65bab96">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed3c1da-c643-4653-93da-99bc39d42e06" xml:space="preserve">
+          <source>Installs and configures IIS and Web Deploy on Windows Server.</source>
+          <target state="new">Installs and configures IIS and Web Deploy on Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="72eb4629-8a71-41e3-8bf7-9dd8522d10e7" xml:space="preserve">
+          <source>Removing or disabling it is not supported.</source>
+          <target state="new">Removing or disabling it is not supported.</target>
+        </trans-unit>
+        <trans-unit id="86a903d7-bc0b-4dd9-8d18-713d574ebd50" xml:space="preserve">
+          <source>These extensions provide support for other VM features that might be useful.</source>
+          <target state="new">These extensions provide support for other VM features that might be useful.</target>
+        </trans-unit>
+        <trans-unit id="cfd90954-db29-48ed-9341-28ff35409d81" xml:space="preserve">
+          <source>VM Extension Name</source>
+          <target state="new">VM Extension Name</target>
+        </trans-unit>
+        <trans-unit id="465cc92a-0b20-4ae5-8130-c326c9e5d4f4" xml:space="preserve">
+          <source>Feature Description</source>
+          <target state="new">Feature Description</target>
+        </trans-unit>
+        <trans-unit id="678ff808-b4ce-4b1f-8e18-84cf710ad593" xml:space="preserve">
+          <source>More Information</source>
+          <target state="new">More Information</target>
+        </trans-unit>
+        <trans-unit id="21bfe52d-2693-4dd0-b6cd-95e5b14ec7ae" xml:space="preserve">
+          <source><bpt id="cff0cf56-23e4-47f9-bcbf-639f6f28fa28">&lt;strong&gt;</bpt>BGInfo<ept id="cff0cf56-23e4-47f9-bcbf-639f6f28fa28">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cff0cf56-23e4-47f9-bcbf-639f6f28fa28">&lt;strong&gt;</bpt>BGInfo<ept id="cff0cf56-23e4-47f9-bcbf-639f6f28fa28">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b675bf44-e78b-490b-8519-b6f0d263f533" xml:space="preserve">
+          <source>Presents a consolidated picture of useful server information on the desktop when using RDP.</source>
+          <target state="new">Presents a consolidated picture of useful server information on the desktop when using RDP.</target>
+        </trans-unit>
+        <trans-unit id="a7abefe4-f895-426b-9e23-22f2efa7c84c" xml:space="preserve">
+          <source><bpt id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;linkText&gt;</bpt>BGInfo Extension<ept id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;/linkText&gt;</ept><bpt id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;title&gt;</bpt><ept id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;linkText&gt;</bpt>BGInfo Extension<ept id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;/linkText&gt;</ept><bpt id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;title&gt;</bpt><ept id="76bd4937-b380-4eb3-8e77-7cb5b02b36ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dde9f8f9-264a-40bc-a49a-7755d2d4e152" xml:space="preserve">
+          <source><bpt id="cb90ee8d-8974-4bc4-a1f7-4ed60fed9505">&lt;strong&gt;</bpt>HpcVmDrivers<ept id="cb90ee8d-8974-4bc4-a1f7-4ed60fed9505">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cb90ee8d-8974-4bc4-a1f7-4ed60fed9505">&lt;strong&gt;</bpt>HpcVmDrivers<ept id="cb90ee8d-8974-4bc4-a1f7-4ed60fed9505">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03d3f323-17fc-4ebb-ad02-f6d8c20e8672" xml:space="preserve">
+          <source>Installs, configures, and maintains the following network device drivers on a size A8 or A9 virtual machine so that the VM can access the Azure remote direct-memory access (RDMA) network.</source>
+          <target state="new">Installs, configures, and maintains the following network device drivers on a size A8 or A9 virtual machine so that the VM can access the Azure remote direct-memory access (RDMA) network.</target>
+        </trans-unit>
+        <trans-unit id="a0c4cacb-6cb0-4ee5-9e4f-245b7bb6089f" xml:space="preserve">
+          <source><bpt id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;linkText&gt;</bpt>HpcVmDrivers Extension<ept id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;/linkText&gt;</ept><bpt id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;title&gt;</bpt><ept id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;linkText&gt;</bpt>HpcVmDrivers Extension<ept id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;/linkText&gt;</ept><bpt id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;title&gt;</bpt><ept id="380145a3-c3ea-4ff1-9b78-ffa4b482f0b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f09d4990-69b6-478b-8300-35824d0c5fde" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f09d4990-69b6-478b-8300-35824d0c5fde" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="07f0523c-fe69-422f-82af-abe1642f77bc">
+        <trans-unit id="ecb55feb-93d8-4dca-b909-2c6daf81b38d" xml:space="preserve">
+          <source>List of Oracle virtual machine images</source>
+          <target state="new">List of Oracle virtual machine images</target>
+        </trans-unit>
+        <trans-unit id="06e97100-6bcf-4271-8423-d7b33947fcaf" xml:space="preserve">
+          <source>Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine based on one.</source>
+          <target state="new">Get the list of Oracle images in the Azure Gallery and learn how to create an Oracle virtual machine based on one.</target>
+        </trans-unit>
+        <trans-unit id="8768ea0b-490e-4f33-96af-56ceb50d4e3a" xml:space="preserve">
+          <source>To create virtual machines based on Oracle images, sign in to the <bpt id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;linkText&gt;</bpt>Azure portal<ept id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;/linkText&gt;</ept><bpt id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;title&gt;</bpt><ept id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;/title&gt;</ept>, click <bpt id="df5f05ed-bb1c-4ded-a012-a2a43efeb746">&lt;strong&gt;</bpt>Marketplace<ept id="df5f05ed-bb1c-4ded-a012-a2a43efeb746">&lt;/strong&gt;</ept>, click <bpt id="96a8ca7d-8bd5-4598-bd66-795cd862f0aa">&lt;strong&gt;</bpt>Compute<ept id="96a8ca7d-8bd5-4598-bd66-795cd862f0aa">&lt;/strong&gt;</ept>, and then type <bpt id="ed5d8f7f-915d-4b63-b6f8-5e721742b72b">&lt;strong&gt;</bpt>Oracle<ept id="ed5d8f7f-915d-4b63-b6f8-5e721742b72b">&lt;/strong&gt;</ept> into the Search box.</source>
+          <target state="new">To create virtual machines based on Oracle images, sign in to the <bpt id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;linkText&gt;</bpt>Azure portal<ept id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;/linkText&gt;</ept><bpt id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;title&gt;</bpt><ept id="898717f3-c49d-4035-86d3-8dd40929a14f">&lt;/title&gt;</ept>, click <bpt id="df5f05ed-bb1c-4ded-a012-a2a43efeb746">&lt;strong&gt;</bpt>Marketplace<ept id="df5f05ed-bb1c-4ded-a012-a2a43efeb746">&lt;/strong&gt;</ept>, click <bpt id="96a8ca7d-8bd5-4598-bd66-795cd862f0aa">&lt;strong&gt;</bpt>Compute<ept id="96a8ca7d-8bd5-4598-bd66-795cd862f0aa">&lt;/strong&gt;</ept>, and then type <bpt id="ed5d8f7f-915d-4b63-b6f8-5e721742b72b">&lt;strong&gt;</bpt>Oracle<ept id="ed5d8f7f-915d-4b63-b6f8-5e721742b72b">&lt;/strong&gt;</ept> into the Search box.</target>
+        </trans-unit>
+        <trans-unit id="b022852d-7b5d-4c77-b8db-b1264583e417" xml:space="preserve">
+          <source>Select an image and follow the instructions to set up the image on Microsoft Azure.</source>
+          <target state="new">Select an image and follow the instructions to set up the image on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="c78dc1a5-cf66-49ec-8524-a5f083f05e4d" xml:space="preserve">
+          <source>Note that Oracle images by Microsoft on the <bpt id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;linkText&gt;</bpt>Azure portal<ept id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;/linkText&gt;</ept><bpt id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;title&gt;</bpt><ept id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;/title&gt;</ept> run on Windows, and Oracle images by Oracle run on Oracle Linux.</source>
+          <target state="new">Note that Oracle images by Microsoft on the <bpt id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;linkText&gt;</bpt>Azure portal<ept id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;/linkText&gt;</ept><bpt id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;title&gt;</bpt><ept id="516739e1-5224-4b3b-918e-4f16952d954d">&lt;/title&gt;</ept> run on Windows, and Oracle images by Oracle run on Oracle Linux.</target>
+        </trans-unit>
+        <trans-unit id="c0e19b91-38be-419f-8f8b-5de77c71757b" xml:space="preserve">
+          <source><bpt id="0ec8d359-ca76-4f7e-af46-f77ab589c15f">&lt;linkText&gt;</bpt><ept id="0ec8d359-ca76-4f7e-af46-f77ab589c15f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ec8d359-ca76-4f7e-af46-f77ab589c15f">&lt;linkText&gt;</bpt><ept id="0ec8d359-ca76-4f7e-af46-f77ab589c15f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e09745-7f9a-43ce-aca8-82776ad0b499" xml:space="preserve">
+          <source>The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure.</source>
+          <target state="new">The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure.</target>
+        </trans-unit>
+        <trans-unit id="97e1cefe-aea1-4ea2-baca-42bb5c243cd0" xml:space="preserve">
+          <source>These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images.</source>
+          <target state="new">These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images.</target>
+        </trans-unit>
+        <trans-unit id="569635a3-c52e-43bf-9793-68545dff2892" xml:space="preserve">
+          <source>You can also bring your own license to run Oracle software on Windows or Linux.</source>
+          <target state="new">You can also bring your own license to run Oracle software on Windows or Linux.</target>
+        </trans-unit>
+        <trans-unit id="bf45d07c-50ee-4584-a5a2-5516bc7c31cf" xml:space="preserve">
+          <source>Here are complete details on <bpt id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;linkText&gt;</bpt>pricing and licensing for Azure Virtual Machines and virtual machine gallery images<ept id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;/linkText&gt;</ept><bpt id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;title&gt;</bpt><ept id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Here are complete details on <bpt id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;linkText&gt;</bpt>pricing and licensing for Azure Virtual Machines and virtual machine gallery images<ept id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;/linkText&gt;</ept><bpt id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;title&gt;</bpt><ept id="67fc5e85-dd15-4e7d-b666-912c6013ebb8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2db59f5-9390-42cd-a051-349c082ef485" xml:space="preserve">
+          <source>Click the <bpt id="ac3616dc-717f-4ec3-91ab-f32b9e8c38cc">&lt;strong&gt;</bpt>Oracle<ept id="ac3616dc-717f-4ec3-91ab-f32b9e8c38cc">&lt;/strong&gt;</ept> tab for details on specific Oracle pricing.</source>
+          <target state="new">Click the <bpt id="ac3616dc-717f-4ec3-91ab-f32b9e8c38cc">&lt;strong&gt;</bpt>Oracle<ept id="ac3616dc-717f-4ec3-91ab-f32b9e8c38cc">&lt;/strong&gt;</ept> tab for details on specific Oracle pricing.</target>
+        </trans-unit>
+        <trans-unit id="8a75e59d-c606-4fba-98d5-b36f8d67f7c7" xml:space="preserve">
+          <source>Oracle Database 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="db6056cd-8f56-491d-8f91-94c539781cc9" xml:space="preserve">
+          <source>Oracle Database 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="f655338f-9f6b-431e-8a51-b5fa75143bf5" xml:space="preserve">
+          <source>Oracle Database 12c with Popular Options</source>
+          <target state="new">Oracle Database 12c with Popular Options</target>
+        </trans-unit>
+        <trans-unit id="95211f29-6369-424b-b39f-6a4f4e6b10fa" xml:space="preserve">
+          <source>Oracle Database 12c with Advanced Options</source>
+          <target state="new">Oracle Database 12c with Advanced Options</target>
+        </trans-unit>
+        <trans-unit id="7629d6ad-0642-4328-8932-4506ce5ff39e" xml:space="preserve">
+          <source>Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="3da2b82c-2fe0-4ef7-a192-057d63732b70" xml:space="preserve">
+          <source>Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="5d70149b-2ef1-48b8-8761-99b78f4598c4" xml:space="preserve">
+          <source>Oracle Database 11g R2 EE with Popular Options</source>
+          <target state="new">Oracle Database 11g R2 EE with Popular Options</target>
+        </trans-unit>
+        <trans-unit id="0dbd7361-ed4f-4e12-affe-22917e6071a0" xml:space="preserve">
+          <source>Oracle Database 11g R2 EE with Advanced Options  </source>
+          <target state="new">Oracle Database 11g R2 EE with Advanced Options  </target>
+        </trans-unit>
+        <trans-unit id="642d9b69-5c7b-437c-b4ae-c39d564cb5c8" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="2daffbab-cc6a-43a1-83cf-a049b0e821f7" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle WebLogic Server 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="01a9c6a9-3d45-44f7-be11-fdd1a10227f9" xml:space="preserve">
+          <source>Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="e5606443-1c8f-42b8-86dd-981ed7deba5d" xml:space="preserve">
+          <source>Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2  </source>
+          <target state="new">Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2  </target>
+        </trans-unit>
+        <trans-unit id="df2d458f-0935-41c7-8090-32c637653d99" xml:space="preserve">
+          <source>Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="63fc0a75-a5ae-41db-b939-9fcb04f131da" xml:space="preserve">
+          <source>Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012</source>
+          <target state="new">Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="29579706-d064-4bd1-8652-78358f61c753" xml:space="preserve">
+          <source>Oracle Database 11g and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="3b910b87-43fc-4ac6-9ebc-f4ffe5ece639" xml:space="preserve">
+          <source>Oracle Database 11g and WebLogic Server 11g Standard Edition on Windows Server 2008 R2</source>
+          <target state="new">Oracle Database 11g and WebLogic Server 11g Standard Edition on Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="77f2d388-5922-48b9-81e1-4cf45f00337c" xml:space="preserve">
+          <source>JDK 8 on Windows Server 2012 R2</source>
+          <target state="new">JDK 8 on Windows Server 2012 R2</target>
+        </trans-unit>
+        <trans-unit id="115c28e4-70fe-4501-928e-448e43129698" xml:space="preserve">
+          <source>JDK 7 on Windows Server 2012</source>
+          <target state="new">JDK 7 on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="3ea70e4e-66c6-41ff-ad88-ce0320015583" xml:space="preserve">
+          <source>JDK 6 on Windows Server 2012</source>
+          <target state="new">JDK 6 on Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="210a3808-9b05-4aca-af0e-20b122df091a" xml:space="preserve">
+          <source>The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure.</source>
+          <target state="new">The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure.</target>
+        </trans-unit>
+        <trans-unit id="c9b46597-6430-45b4-8aa4-592048d6db94" xml:space="preserve">
+          <source>You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images.</source>
+          <target state="new">You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images.</target>
+        </trans-unit>
+        <trans-unit id="d3ea8c27-81ba-4727-8778-4f12e28199e6" xml:space="preserve">
+          <source>You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux.</source>
+          <target state="new">You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux.</target>
+        </trans-unit>
+        <trans-unit id="ed2ab755-fc62-42ea-8a39-f9a033a1bb90" xml:space="preserve">
+          <source>Here are complete details on <bpt id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;linkText&gt;</bpt>Oracle licensing on Azure<ept id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;/linkText&gt;</ept><bpt id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;title&gt;</bpt><ept id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Here are complete details on <bpt id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;linkText&gt;</bpt>Oracle licensing on Azure<ept id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;/linkText&gt;</ept><bpt id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;title&gt;</bpt><ept id="113dc249-840b-4867-88ba-cea59ceacbc8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ea669af-d0bd-4d70-ba87-a07857846146" xml:space="preserve">
+          <source>And here are details on creating virtual machines using <bpt id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;linkText&gt;</bpt>your own images<ept id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;/linkText&gt;</ept><bpt id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;title&gt;</bpt><ept id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;/title&gt;</ept>.</source>
+          <target state="new">And here are details on creating virtual machines using <bpt id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;linkText&gt;</bpt>your own images<ept id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;/linkText&gt;</ept><bpt id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;title&gt;</bpt><ept id="5dd873b3-048b-40bf-9a4d-a06744ae0b2c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5b869ec-80dd-4279-90eb-c43feeab8735" xml:space="preserve">
+          <source>To learn about this and other methods of migrating Oracle and other workloads to Azure, see <bpt id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;linkText&gt;</bpt>Different ways to create a Windows-based virtual machine<ept id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;/linkText&gt;</ept><bpt id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;title&gt;</bpt><ept id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about this and other methods of migrating Oracle and other workloads to Azure, see <bpt id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;linkText&gt;</bpt>Different ways to create a Windows-based virtual machine<ept id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;/linkText&gt;</ept><bpt id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;title&gt;</bpt><ept id="a231bea6-b11f-4b6a-999b-d20ca180e82b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce230ff5-35f6-4609-b0f9-3d26504ac318" xml:space="preserve">
+          <source>Oracle Database 12c Enterprise Edition on Oracle Linux</source>
+          <target state="new">Oracle Database 12c Enterprise Edition on Oracle Linux</target>
+        </trans-unit>
+        <trans-unit id="4695b35e-ab50-4f49-b49b-17732711f51b" xml:space="preserve">
+          <source>Oracle Database 12c Standard Edition on Oracle Linux</source>
+          <target state="new">Oracle Database 12c Standard Edition on Oracle Linux</target>
+        </trans-unit>
+        <trans-unit id="83333741-693c-44a3-9d87-be0425fe68fa" xml:space="preserve">
+          <source>Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux</source>
+          <target state="new">Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux</target>
+        </trans-unit>
+        <trans-unit id="7bca5ef2-8936-45d9-b26e-c4e6c82a5806" xml:space="preserve">
+          <source>Oracle Linux 6.4.0.0.0</source>
+          <target state="new">Oracle Linux 6.4.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="2c50df39-5b78-4ddc-a7d5-8dab7f42da91" xml:space="preserve">
+          <source>Oracle Linux 7.0.0.0.0</source>
+          <target state="new">Oracle Linux 7.0.0.0.0</target>
+        </trans-unit>
+        <trans-unit id="a57cf97c-aa7f-4be8-ac99-3cf5dc161fae" xml:space="preserve">
+          <source><bpt id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;linkText&gt;</bpt>New all-in-one Oracle images in the Azure Marketplace<ept id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;/linkText&gt;</ept><bpt id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;title&gt;</bpt><ept id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;linkText&gt;</bpt>New all-in-one Oracle images in the Azure Marketplace<ept id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;/linkText&gt;</ept><bpt id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;title&gt;</bpt><ept id="75622e40-d925-4e27-9fa6-368841cfc44c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cfeb05c-9317-492f-b7dc-9ca3152d00b6" xml:space="preserve">
+          <source><bpt id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;linkText&gt;</bpt>Oracle virtual machine images - miscellaneous considerations<ept id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;/linkText&gt;</ept><bpt id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;title&gt;</bpt><ept id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;linkText&gt;</bpt>Oracle virtual machine images - miscellaneous considerations<ept id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;/linkText&gt;</ept><bpt id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;title&gt;</bpt><ept id="0ef30a3b-99ac-48be-abd9-d8b36780b139">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

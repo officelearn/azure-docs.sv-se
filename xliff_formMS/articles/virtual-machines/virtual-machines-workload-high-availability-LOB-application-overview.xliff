@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9c79bf63-6363-4096-870b-68c37c50ae76" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9c79bf63-6363-4096-870b-68c37c50ae76" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="932ad6c3-6a26-415d-8d30-d382a5e58bb7">
+        <trans-unit id="4aa958a6-c786-4c60-8a1d-3d3df54dd6a7" xml:space="preserve">
+          <source>Deploy a line of business application | Microsoft Azure</source>
+          <target state="new">Deploy a line of business application | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7ebecf10-71e0-4aee-be09-9fb66df8af56" xml:space="preserve">
+          <source>Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases.</source>
+          <target state="new">Deploy a web-based, highly-available, line of business application with SQL Server AlwaysOn Availability Groups in Azure in five phases.</target>
+        </trans-unit>
+        <trans-unit id="53c8b1df-47b7-4db3-89dc-8184169fa6ce" xml:space="preserve">
+          <source>This article contains links to the step-by-step instructions for deploying a high-availability, intranet-only, web-based line of business application with SQL Server AlwaysOn Availability Groups in Azure infrastructure services.</source>
+          <target state="new">This article contains links to the step-by-step instructions for deploying a high-availability, intranet-only, web-based line of business application with SQL Server AlwaysOn Availability Groups in Azure infrastructure services.</target>
+        </trans-unit>
+        <trans-unit id="b79e9b12-e186-44fe-8346-61c35ce97c11" xml:space="preserve">
+          <source>The application is hosted on these computers:</source>
+          <target state="new">The application is hosted on these computers:</target>
+        </trans-unit>
+        <trans-unit id="9add4c67-ece4-4a64-bcd6-c8f175a046ea" xml:space="preserve">
+          <source>Two web servers</source>
+          <target state="new">Two web servers</target>
+        </trans-unit>
+        <trans-unit id="7d3a637a-188b-4a4e-8c98-2000000aac8e" xml:space="preserve">
+          <source>Two database servers</source>
+          <target state="new">Two database servers</target>
+        </trans-unit>
+        <trans-unit id="d97cde59-d119-405b-82cd-720a036c1ca7" xml:space="preserve">
+          <source>One cluster majority node server</source>
+          <target state="new">One cluster majority node server</target>
+        </trans-unit>
+        <trans-unit id="7722cea7-24af-45d2-b019-fd5b09b6972e" xml:space="preserve">
+          <source>Two domain controllers</source>
+          <target state="new">Two domain controllers</target>
+        </trans-unit>
+        <trans-unit id="61bba1ed-93dc-4ec9-af5e-0f0e785778df" xml:space="preserve">
+          <source>This is the configuration, with placeholder names for each server.</source>
+          <target state="new">This is the configuration, with placeholder names for each server.</target>
+        </trans-unit>
+        <trans-unit id="dd00bb6c-6e19-4a8d-9939-9a743969df82" xml:space="preserve">
+          <source><bpt id="a509fe9a-e445-48b0-91da-29ac0e5492a2">&lt;linkText&gt;</bpt><ept id="a509fe9a-e445-48b0-91da-29ac0e5492a2">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="a509fe9a-e445-48b0-91da-29ac0e5492a2">&lt;linkText&gt;</bpt><ept id="a509fe9a-e445-48b0-91da-29ac0e5492a2">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3407e241-558f-4afb-b2ea-bf2c3db7e38f" xml:space="preserve">
+          <source>At least two machines for each role ensure high availability.</source>
+          <target state="new">At least two machines for each role ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="78bc5b11-3ea8-4f0e-8d7d-1fcfee6e76c6" xml:space="preserve">
+          <source>All of the virtual machines are in a single Azure location (also known as a region).</source>
+          <target state="new">All of the virtual machines are in a single Azure location (also known as a region).</target>
+        </trans-unit>
+        <trans-unit id="72e7e88e-ed2b-4169-b6a5-36ede13ab686" xml:space="preserve">
+          <source>Each group of virtual machines for a specific role is in their own availability set.</source>
+          <target state="new">Each group of virtual machines for a specific role is in their own availability set.</target>
+        </trans-unit>
+        <trans-unit id="eca7b952-9138-4873-a5c7-d251de7aedd7" xml:space="preserve">
+          <source>You deploy this configuration in the following phases:</source>
+          <target state="new">You deploy this configuration in the following phases:</target>
+        </trans-unit>
+        <trans-unit id="fe9415b2-7987-4daa-b890-4f7bb5af25bd" xml:space="preserve">
+          <source><bpt id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;/linkText&gt;</ept><bpt id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;title&gt;</bpt><ept id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;/linkText&gt;</ept><bpt id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;title&gt;</bpt><ept id="f2de8eac-7c8e-415f-a541-04fa073add58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b341ed5c-a058-4753-bf6e-ec08d54ce166" xml:space="preserve">
+          <source>Create storage accounts, availability sets, and a cross-premises virtual network.</source>
+          <target state="new">Create storage accounts, availability sets, and a cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="73e4782f-3f66-4caa-9c89-3c53a4b08348" xml:space="preserve">
+          <source><bpt id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;linkText&gt;</bpt>Phase 2: Configure domain controllers<ept id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;/linkText&gt;</ept><bpt id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;title&gt;</bpt><ept id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;linkText&gt;</bpt>Phase 2: Configure domain controllers<ept id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;/linkText&gt;</ept><bpt id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;title&gt;</bpt><ept id="3fa00525-7a01-4ce4-87b3-1aff594529cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="941a3e3d-aea9-4225-90c1-85969f93132b" xml:space="preserve">
+          <source>Create and configure replica Active Directory Domain Services (AD DS) domain controllers.</source>
+          <target state="new">Create and configure replica Active Directory Domain Services (AD DS) domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="63a9c178-e72b-448a-a440-196d276b6b0d" xml:space="preserve">
+          <source><bpt id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;/linkText&gt;</ept><bpt id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;title&gt;</bpt><ept id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;/linkText&gt;</ept><bpt id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;title&gt;</bpt><ept id="7386e363-a9f0-4672-bb44-f1be29942ffa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e846f66-f327-4a5e-bd01-676223e88872" xml:space="preserve">
+          <source>Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.</source>
+          <target state="new">Create and configure the virtual machines running SQL Server, create the cluster, and enable SQL Server AlwaysOn Availability Groups.</target>
+        </trans-unit>
+        <trans-unit id="72d51eb2-388f-4c91-801e-984ad783c1bd" xml:space="preserve">
+          <source><bpt id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;linkText&gt;</bpt>Phase 4: Configure web servers<ept id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;/linkText&gt;</ept><bpt id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;title&gt;</bpt><ept id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;linkText&gt;</bpt>Phase 4: Configure web servers<ept id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;/linkText&gt;</ept><bpt id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;title&gt;</bpt><ept id="1a1cd31e-3528-4259-9eeb-87554e54d772">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1e5a79b-2570-4235-81f6-147fca96a4b3" xml:space="preserve">
+          <source>Create and configure the two web server virtual machines.</source>
+          <target state="new">Create and configure the two web server virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="4dada198-efa9-46cd-963b-1f1f3ab7b419" xml:space="preserve">
+          <source><bpt id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;linkText&gt;</bpt>Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group<ept id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;/linkText&gt;</ept><bpt id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;title&gt;</bpt><ept id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;linkText&gt;</bpt>Phase 5: Add the application databases to a SQL Server AlwaysOn Availability Group<ept id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;/linkText&gt;</ept><bpt id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;title&gt;</bpt><ept id="78715c31-4172-4a49-b862-8e18564d8c58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8633c846-6306-4a87-933d-b0f9200ec470" xml:space="preserve">
+          <source>Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.</source>
+          <target state="new">Prepare the line of business application databases and add them to a SQL Server AlwaysOn Availability Group.</target>
+        </trans-unit>
+        <trans-unit id="76617575-c363-4812-bf32-30f5c65b8eec" xml:space="preserve">
+          <source>This deployment is designed to accompany the <bpt id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;/linkText&gt;</ept><bpt id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;title&gt;</bpt><ept id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;/title&gt;</ept> and incorporate the latest recommendations.</source>
+          <target state="new">This deployment is designed to accompany the <bpt id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;/linkText&gt;</ept><bpt id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;title&gt;</bpt><ept id="72e4adc9-e61b-4308-b1db-608914718e6f">&lt;/title&gt;</ept> and incorporate the latest recommendations.</target>
+        </trans-unit>
+        <trans-unit id="ea5e05a3-a95e-4524-851b-42a3a89980fa" xml:space="preserve">
+          <source>This is a prescriptive, pre-defined architecture.</source>
+          <target state="new">This is a prescriptive, pre-defined architecture.</target>
+        </trans-unit>
+        <trans-unit id="19b13b81-09b8-4147-8315-869d586aa002" xml:space="preserve">
+          <source>Keep the following in mind:</source>
+          <target state="new">Keep the following in mind:</target>
+        </trans-unit>
+        <trans-unit id="6d734f01-9415-4cde-9024-0c14b3c29949" xml:space="preserve">
+          <source>If you are an experienced web-based, line of business application implementer, please feel free to adapt the instructions in Phases 3 through 5 and build the application infrastructure that best suits your needs.</source>
+          <target state="new">If you are an experienced web-based, line of business application implementer, please feel free to adapt the instructions in Phases 3 through 5 and build the application infrastructure that best suits your needs.</target>
+        </trans-unit>
+        <trans-unit id="0b46c742-9d51-41d3-ba7d-72e7c391b8a8" xml:space="preserve">
+          <source>If you already have an existing Azure hybrid cloud implementation, please feel free to adapt or skip the instructions in Phases 1 and 2 to host the virtual machines for the new application on the appropriate subnet.</source>
+          <target state="new">If you already have an existing Azure hybrid cloud implementation, please feel free to adapt or skip the instructions in Phases 1 and 2 to host the virtual machines for the new application on the appropriate subnet.</target>
+        </trans-unit>
+        <trans-unit id="07190da1-e753-4809-8472-45f96d8d1154" xml:space="preserve">
+          <source>All of the servers are located on a single subnet in the Azure virtual network.</source>
+          <target state="new">All of the servers are located on a single subnet in the Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="eca61b1b-45fb-4f59-912e-0854febde435" xml:space="preserve">
+          <source>If you want to provide additional security equivalent to subnet isolation, you can use <bpt id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;linkText&gt;</bpt>Network Security Groups<ept id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;/linkText&gt;</ept><bpt id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;title&gt;</bpt><ept id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to provide additional security equivalent to subnet isolation, you can use <bpt id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;linkText&gt;</bpt>Network Security Groups<ept id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;/linkText&gt;</ept><bpt id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;title&gt;</bpt><ept id="3a203465-90b4-4f49-954d-4ded8876fdc5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3752225a-473d-4dcd-8bf6-e65630c8d5bf" xml:space="preserve">
+          <source>To build a dev/test environment or a proof-of-concept of this configuration, see <bpt id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;/linkText&gt;</ept><bpt id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;title&gt;</bpt><ept id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;/title&gt;</ept>.</source>
+          <target state="new">To build a dev/test environment or a proof-of-concept of this configuration, see <bpt id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;/linkText&gt;</ept><bpt id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;title&gt;</bpt><ept id="e4fb364e-b093-4a98-99aa-c9196c1e7de3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e0cb92c-e006-4702-9d99-04a9644584ab" xml:space="preserve">
+          <source>For additional information about designing IT workloads for Azure, see <bpt id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;/linkText&gt;</ept><bpt id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;title&gt;</bpt><ept id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about designing IT workloads for Azure, see <bpt id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;/linkText&gt;</ept><bpt id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;title&gt;</bpt><ept id="d517e707-8035-46d3-a7de-fcf7393b8252">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73af9a99-33e7-402f-9f93-01053532555d" xml:space="preserve">
+          <source>To start the configuration of this workload, go to <bpt id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;/linkText&gt;</ept><bpt id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;title&gt;</bpt><ept id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To start the configuration of this workload, go to <bpt id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;/linkText&gt;</ept><bpt id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;title&gt;</bpt><ept id="0cca5181-2b72-4878-ad82-ef7e0c72678c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="637575e3-2d66-46b2-adbd-3012033ae12b" xml:space="preserve">
+          <source><bpt id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;/linkText&gt;</ept><bpt id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;title&gt;</bpt><ept id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;/linkText&gt;</ept><bpt id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;title&gt;</bpt><ept id="6cfe06c4-9025-4fda-9679-6b4b8d9fc6b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e83aaee4-fb41-4122-aead-3dc382665fa1" xml:space="preserve">
+          <source><bpt id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;/linkText&gt;</ept><bpt id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;title&gt;</bpt><ept id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;/linkText&gt;</ept><bpt id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;title&gt;</bpt><ept id="69f67d18-d73a-44fd-868d-f6a5cf4347ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e709a3c-36bf-4abf-bb75-d1b150d0a4d0" xml:space="preserve">
+          <source><bpt id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;/linkText&gt;</ept><bpt id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;title&gt;</bpt><ept id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;/linkText&gt;</ept><bpt id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;title&gt;</bpt><ept id="30d2dc1c-f10e-42b0-857a-e76eeca4ae0f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81d30522-71dd-4788-91ae-f8e49e294844" xml:space="preserve">
+          <source><bpt id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;/linkText&gt;</ept><bpt id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;title&gt;</bpt><ept id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;/linkText&gt;</ept><bpt id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;title&gt;</bpt><ept id="c1c257b9-f14a-45d0-8987-74601c1374eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="918c9b3a-6f9f-4b6e-9f58-295315977ddb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="918c9b3a-6f9f-4b6e-9f58-295315977ddb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d6a7bad1-3927-4bde-aed0-1053f18fa62f">
+        <trans-unit id="fe669bdd-4e7e-40ea-8d15-7c0adbb9b9f7" xml:space="preserve">
+          <source>Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure</source>
+          <target state="new">Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f57d80a0-72a7-405d-9fb7-efc8e065eb84" xml:space="preserve">
+          <source>Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.</source>
+          <target state="new">Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.</target>
+        </trans-unit>
+        <trans-unit id="f3ce5fce-d25d-4bd3-8e3a-58df19ddc3bc" xml:space="preserve">
+          <source>Social websites are one of the major driving forces for big-data adoption.</source>
+          <target state="new">Social websites are one of the major driving forces for big-data adoption.</target>
+        </trans-unit>
+        <trans-unit id="fdd86005-96f1-40d3-a371-e240d120cea4" xml:space="preserve">
+          <source>Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.</source>
+          <target state="new">Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends.</target>
+        </trans-unit>
+        <trans-unit id="275684f4-52bf-4683-bc9a-7b4277ccb982" xml:space="preserve">
+          <source>In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.</source>
+          <target state="new">In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.</target>
+        </trans-unit>
+        <trans-unit id="fe974e51-e913-44f6-ab68-18e2f6214ed5" xml:space="preserve">
+          <source>The steps in this document require a Windows-based HDInsight cluster.</source>
+          <target state="new">The steps in this document require a Windows-based HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="9abfa246-62fd-471e-a8ec-debcb63fb45b" xml:space="preserve">
+          <source>For steps specific to a Linux-based cluster, see <bpt id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight (Linux)<ept id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;/linkText&gt;</ept><bpt id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;title&gt;</bpt><ept id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For steps specific to a Linux-based cluster, see <bpt id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight (Linux)<ept id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;/linkText&gt;</ept><bpt id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;title&gt;</bpt><ept id="bf602cd9-f85e-4ea6-867e-ff7f759cb7fe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adeceb77-6cab-47ba-b718-ba9d0fbd0926" xml:space="preserve">
+          <source>A similar sample is in the HDInsight Sample Gallery.</source>
+          <target state="new">A similar sample is in the HDInsight Sample Gallery.</target>
+        </trans-unit>
+        <trans-unit id="52f87df6-a9dc-4b2f-ae8b-a8600b486779" xml:space="preserve">
+          <source>Watch the Channel 9 video: &lt;a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank"&gt;Analyze Twitter trends using Apache Hive in HDInsight&lt;/a&gt;.</source>
+          <target state="new">Watch the Channel 9 video: &lt;a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank"&gt;Analyze Twitter trends using Apache Hive in HDInsight&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="d34188bd-3e0a-4f29-b162-982f4b88e2ff" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="641f204a-1a8a-4aad-b994-9437f00a77b1" xml:space="preserve">
+          <source><bpt id="a87a4e50-f824-4765-82ab-55f798d186ce">&lt;strong&gt;</bpt>A workstation<ept id="a87a4e50-f824-4765-82ab-55f798d186ce">&lt;/strong&gt;</ept> with Azure PowerShell installed and configured.</source>
+          <target state="new"><bpt id="a87a4e50-f824-4765-82ab-55f798d186ce">&lt;strong&gt;</bpt>A workstation<ept id="a87a4e50-f824-4765-82ab-55f798d186ce">&lt;/strong&gt;</ept> with Azure PowerShell installed and configured.</target>
+        </trans-unit>
+        <trans-unit id="716c4782-71bb-428b-b9e3-d94dfc3f580b" xml:space="preserve">
+          <source>See <bpt id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;/linkText&gt;</ept><bpt id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;title&gt;</bpt><ept id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;/linkText&gt;</ept><bpt id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;title&gt;</bpt><ept id="40391be8-43b4-4b85-8435-8151b18bc8cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18e4e781-173b-4886-b0d6-2e0e373e0c6f" xml:space="preserve">
+          <source>To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="135d0040-33e0-4f0e-8fbc-7b539eb2cb35">&lt;em&gt;</bpt>RemoteSigned<ept id="135d0040-33e0-4f0e-8fbc-7b539eb2cb35">&lt;/em&gt;</ept>.</source>
+          <target state="new">To execute Windows PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="135d0040-33e0-4f0e-8fbc-7b539eb2cb35">&lt;em&gt;</bpt>RemoteSigned<ept id="135d0040-33e0-4f0e-8fbc-7b539eb2cb35">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d82b5a5-0afd-4c8b-a118-a32a046597a2" xml:space="preserve">
+          <source>See <bpt id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;linkText&gt;</bpt>Run Windows PowerShell scripts[powershell-script]<ept id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;/linkText&gt;</ept><bpt id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;title&gt;</bpt><ept id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;linkText&gt;</bpt>Run Windows PowerShell scripts[powershell-script]<ept id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;/linkText&gt;</ept><bpt id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;title&gt;</bpt><ept id="8d532618-4573-4d88-af6a-93b9f2d51067">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caf329de-8c1c-4e4b-8b75-a8cbdd80fe74" xml:space="preserve">
+          <source>Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:</source>
+          <target state="new">Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="81736c2c-a0e7-41d0-88fe-dfb52a97eead" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</source>
+          <target state="new">If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</target>
+        </trans-unit>
+        <trans-unit id="24225dfb-c693-4196-b478-c919f8cf2422" xml:space="preserve">
+          <source><bpt id="3aa8fd98-ff2a-4a71-8fab-39f83914c764">&lt;strong&gt;</bpt>An Azure HDInsight cluster<ept id="3aa8fd98-ff2a-4a71-8fab-39f83914c764">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3aa8fd98-ff2a-4a71-8fab-39f83914c764">&lt;strong&gt;</bpt>An Azure HDInsight cluster<ept id="3aa8fd98-ff2a-4a71-8fab-39f83914c764">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b37621b-9027-4646-9114-f9445775d095" xml:space="preserve">
+          <source>For instructions on cluster provisioning, see <bpt id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;linkText&gt;</bpt>Get started using HDInsight[hdinsight-get-started]<ept id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;/linkText&gt;</ept><bpt id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;title&gt;</bpt><ept id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;/title&gt;</ept> or <bpt id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;/linkText&gt;</ept><bpt id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;title&gt;</bpt><ept id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on cluster provisioning, see <bpt id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;linkText&gt;</bpt>Get started using HDInsight[hdinsight-get-started]<ept id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;/linkText&gt;</ept><bpt id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;title&gt;</bpt><ept id="527ec09d-985d-4a5c-9d28-5bd1ba50a12c">&lt;/title&gt;</ept> or <bpt id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;/linkText&gt;</ept><bpt id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;title&gt;</bpt><ept id="bec7dd80-e6bd-4fff-b70f-9f30f7d8b12c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d10a79dd-9f01-4362-9e79-096d5b985e30" xml:space="preserve">
+          <source>You will need the cluster name later in the tutorial.</source>
+          <target state="new">You will need the cluster name later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="edf8b9c9-7b07-41aa-b42c-504a449834ac" xml:space="preserve">
+          <source><bpt id="ff68608d-74a3-468e-835b-80a05ab8cb1b">&lt;strong&gt;</bpt>Understand HDInsight storage<ept id="ff68608d-74a3-468e-835b-80a05ab8cb1b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ff68608d-74a3-468e-835b-80a05ab8cb1b">&lt;strong&gt;</bpt>Understand HDInsight storage<ept id="ff68608d-74a3-468e-835b-80a05ab8cb1b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8617f74-aa54-4276-9a8a-915827a10351" xml:space="preserve">
+          <source>HDInsight uses Azure Blob storage for data storage.</source>
+          <target state="new">HDInsight uses Azure Blob storage for data storage.</target>
+        </trans-unit>
+        <trans-unit id="6bf5e450-d660-4db3-961d-a249d1008941" xml:space="preserve">
+          <source>Azure Blob storage is Microsoft's implementation of Hadoop Distributed File System (HDFS).</source>
+          <target state="new">Azure Blob storage is Microsoft's implementation of Hadoop Distributed File System (HDFS).</target>
+        </trans-unit>
+        <trans-unit id="61a0b014-fa8c-4404-b6ea-c5312efd4217" xml:space="preserve">
+          <source>For more information see <bpt id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;/linkText&gt;</ept><bpt id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;title&gt;</bpt><ept id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;/linkText&gt;</ept><bpt id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;title&gt;</bpt><ept id="d536cfa8-6c3c-4bc0-84ce-974d17dcc404">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c76cc04-2ef5-4de9-a781-1cc9e1dfaf3a" xml:space="preserve">
+          <source>When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS.</source>
+          <target state="new">When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS.</target>
+        </trans-unit>
+        <trans-unit id="9565cd0a-0c4e-4b94-8440-f35cda948423" xml:space="preserve">
+          <source>In addition to this container, you can add containers from either the same Azure storage account or different Azure storage accounts during the provisioning process.</source>
+          <target state="new">In addition to this container, you can add containers from either the same Azure storage account or different Azure storage accounts during the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="6ee2bd60-7b29-46f4-8ba0-b7e89d4f6f6e" xml:space="preserve">
+          <source>For instructions on adding storage accounts, see <bpt id="24aed302-2f65-497a-8470-4544a8819687">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="24aed302-2f65-497a-8470-4544a8819687">&lt;/linkText&gt;</ept><bpt id="24aed302-2f65-497a-8470-4544a8819687">&lt;title&gt;</bpt><ept id="24aed302-2f65-497a-8470-4544a8819687">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on adding storage accounts, see <bpt id="24aed302-2f65-497a-8470-4544a8819687">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="24aed302-2f65-497a-8470-4544a8819687">&lt;/linkText&gt;</ept><bpt id="24aed302-2f65-497a-8470-4544a8819687">&lt;title&gt;</bpt><ept id="24aed302-2f65-497a-8470-4544a8819687">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26acbd11-9457-4def-9149-198c556cf68e" xml:space="preserve">
+          <source>To simplify the Windows PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at <bpt id="8bde3ac0-bb69-4339-91af-53de5e4ee8f3">&lt;em&gt;</bpt>/tutorials/twitter<ept id="8bde3ac0-bb69-4339-91af-53de5e4ee8f3">&lt;/em&gt;</ept>.</source>
+          <target state="new">To simplify the Windows PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at <bpt id="8bde3ac0-bb69-4339-91af-53de5e4ee8f3">&lt;em&gt;</bpt>/tutorials/twitter<ept id="8bde3ac0-bb69-4339-91af-53de5e4ee8f3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="489be1e9-cf3b-4096-85c8-a14a41779e04" xml:space="preserve">
+          <source>By default this container has the same name as the HDInsight cluster name.</source>
+          <target state="new">By default this container has the same name as the HDInsight cluster name.</target>
+        </trans-unit>
+        <trans-unit id="5124a60c-ba87-4496-8c6c-c31faa8a184e" xml:space="preserve">
+          <source>If you choose to use a different container to store these files, please update the script accordingly.</source>
+          <target state="new">If you choose to use a different container to store these files, please update the script accordingly.</target>
+        </trans-unit>
+        <trans-unit id="70e72707-7848-4b5a-a934-49d9c27a46ca" xml:space="preserve">
+          <source>The Azure Blob storage syntax is:</source>
+          <target state="new">The Azure Blob storage syntax is:</target>
+        </trans-unit>
+        <trans-unit id="4915f890-748a-44eb-b06c-363377b962c0" xml:space="preserve">
+          <source>Only the <bpt id="cfd0da97-3ae8-4d2c-8494-d1da46bcdce2">&lt;em&gt;</bpt>wasb://<ept id="cfd0da97-3ae8-4d2c-8494-d1da46bcdce2">&lt;/em&gt;</ept> syntax is supported in HDInsight cluster version 3.0.</source>
+          <target state="new">Only the <bpt id="cfd0da97-3ae8-4d2c-8494-d1da46bcdce2">&lt;em&gt;</bpt>wasb://<ept id="cfd0da97-3ae8-4d2c-8494-d1da46bcdce2">&lt;/em&gt;</ept> syntax is supported in HDInsight cluster version 3.0.</target>
+        </trans-unit>
+        <trans-unit id="b4b08881-bb3a-49d1-abda-0e0e6854de18" xml:space="preserve">
+          <source>The older <bpt id="5ff2192e-a680-4ee4-9df7-49e76ceb828b">&lt;em&gt;</bpt>asv://<ept id="5ff2192e-a680-4ee4-9df7-49e76ceb828b">&lt;/em&gt;</ept> syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.</source>
+          <target state="new">The older <bpt id="5ff2192e-a680-4ee4-9df7-49e76ceb828b">&lt;em&gt;</bpt>asv://<ept id="5ff2192e-a680-4ee4-9df7-49e76ceb828b">&lt;/em&gt;</ept> syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters and it will not be supported in later versions.</target>
+        </trans-unit>
+        <trans-unit id="91b6a3d1-eba7-44a8-a834-193c0e32978f" xml:space="preserve">
+          <source>The Azure Blob storage path is a virtual path.</source>
+          <target state="new">The Azure Blob storage path is a virtual path.</target>
+        </trans-unit>
+        <trans-unit id="a4237add-7647-41a1-8084-31d96ecbdda1" xml:space="preserve">
+          <source>For more information see <bpt id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;/linkText&gt;</ept><bpt id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;title&gt;</bpt><ept id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;/linkText&gt;</ept><bpt id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;title&gt;</bpt><ept id="4f485701-bc2a-4abd-96b9-90ee3c59a99b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dab0425-ef0d-4324-ab40-a89a94f16aed" xml:space="preserve">
+          <source>A file stored in the default file system container can be accessed from HDInsight by using any of the following Uniform Resource Identifiers (URIs).</source>
+          <target state="new">A file stored in the default file system container can be accessed from HDInsight by using any of the following Uniform Resource Identifiers (URIs).</target>
+        </trans-unit>
+        <trans-unit id="289bd29c-3bb5-41a3-94c3-1243faba6996" xml:space="preserve">
+          <source>These URIs use tweets.txt as an example.</source>
+          <target state="new">These URIs use tweets.txt as an example.</target>
+        </trans-unit>
+        <trans-unit id="a16f884f-0712-41a0-b87c-1dd7fe7bc7e0" xml:space="preserve">
+          <source>If you want to access the file directly from the storage account, the blob name for the file is:</source>
+          <target state="new">If you want to access the file directly from the storage account, the blob name for the file is:</target>
+        </trans-unit>
+        <trans-unit id="2c72fc75-8ed9-45d3-822f-7dd393f0d2d2" xml:space="preserve">
+          <source>The following table lists the files used in this tutorial:</source>
+          <target state="new">The following table lists the files used in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="383371c1-66e5-486b-8ba0-58caaf91cf0a" xml:space="preserve">
+          <source>Files</source>
+          <target state="new">Files</target>
+        </trans-unit>
+        <trans-unit id="f2db73a7-4860-40dd-867e-424d7e2e37e7" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="661ed99a-e507-4b7a-83e7-63e61acada35" xml:space="preserve">
+          <source>/tutorials/twitter/data/tweets.txt</source>
+          <target state="new">/tutorials/twitter/data/tweets.txt</target>
+        </trans-unit>
+        <trans-unit id="bb972ee4-db20-4d7d-ade3-482acc7724ec" xml:space="preserve">
+          <source>The source data for the Hive job.</source>
+          <target state="new">The source data for the Hive job.</target>
+        </trans-unit>
+        <trans-unit id="ac761e8f-99d1-4223-9979-f5ec492238a0" xml:space="preserve">
+          <source>/tutorials/twitter/output</source>
+          <target state="new">/tutorials/twitter/output</target>
+        </trans-unit>
+        <trans-unit id="70576724-9565-42c4-acdc-b27aa3759c6f" xml:space="preserve">
+          <source>The output folder for the Hive job.</source>
+          <target state="new">The output folder for the Hive job.</target>
+        </trans-unit>
+        <trans-unit id="789adb68-ea14-4339-944d-0e4b5b5052b8" xml:space="preserve">
+          <source>The default Hive job output file name is <bpt id="c8dfc3b9-b78c-4a0e-8fba-9df8d2bad35a">&lt;strong&gt;</bpt>000000_0<ept id="c8dfc3b9-b78c-4a0e-8fba-9df8d2bad35a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default Hive job output file name is <bpt id="c8dfc3b9-b78c-4a0e-8fba-9df8d2bad35a">&lt;strong&gt;</bpt>000000_0<ept id="c8dfc3b9-b78c-4a0e-8fba-9df8d2bad35a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c70b619-5aaf-411c-ab40-efd148dc695b" xml:space="preserve">
+          <source>tutorials/twitter/twitter.hql</source>
+          <target state="new">tutorials/twitter/twitter.hql</target>
+        </trans-unit>
+        <trans-unit id="2fb47eea-c101-4616-82f5-02edc488b9b8" xml:space="preserve">
+          <source>The HiveQL script file.</source>
+          <target state="new">The HiveQL script file.</target>
+        </trans-unit>
+        <trans-unit id="f027bd35-faea-4c6e-8ac3-b88aeb96aaa1" xml:space="preserve">
+          <source>/tutorials/twitter/jobstatus</source>
+          <target state="new">/tutorials/twitter/jobstatus</target>
+        </trans-unit>
+        <trans-unit id="9cc39e72-c709-431a-83f4-225446165964" xml:space="preserve">
+          <source>The Hadoop job status.</source>
+          <target state="new">The Hadoop job status.</target>
+        </trans-unit>
+        <trans-unit id="77a2ea91-1373-442a-b6b4-5b2e5a12904a" xml:space="preserve">
+          <source>In this tutorial, you will use the <bpt id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;linkText&gt;</bpt>Twitter streaming APIs[twitter-streaming-api]<ept id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;/linkText&gt;</ept><bpt id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;title&gt;</bpt><ept id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;/title&gt;</ept>.</source>
+          <target state="new">In this tutorial, you will use the <bpt id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;linkText&gt;</bpt>Twitter streaming APIs[twitter-streaming-api]<ept id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;/linkText&gt;</ept><bpt id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;title&gt;</bpt><ept id="dd30d40a-c0cb-451a-9f1f-8910a0d1470c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fa3a87a-8703-422a-8d4d-c2a44582db7e" xml:space="preserve">
+          <source>The specific Twitter streaming API you will use is <bpt id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;linkText&gt;</bpt>statuses/filter[twitter-statuses-filter]<ept id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;/linkText&gt;</ept><bpt id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;title&gt;</bpt><ept id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;/title&gt;</ept>.</source>
+          <target state="new">The specific Twitter streaming API you will use is <bpt id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;linkText&gt;</bpt>statuses/filter[twitter-statuses-filter]<ept id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;/linkText&gt;</ept><bpt id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;title&gt;</bpt><ept id="cb158556-b61a-42f6-b1d6-1820f04fa563">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="375fafb4-89f5-4c71-b583-45d283c63269" xml:space="preserve">
+          <source>A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container.</source>
+          <target state="new">A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container.</target>
+        </trans-unit>
+        <trans-unit id="3754caa5-1880-4e92-8e6b-b6cc7ecd470e" xml:space="preserve">
+          <source>You can skip this section if you want to use the uploaded files.</source>
+          <target state="new">You can skip this section if you want to use the uploaded files.</target>
+        </trans-unit>
+        <trans-unit id="10066d47-045f-4ac7-ac8d-05babe8dd474" xml:space="preserve">
+          <source><bpt id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;linkText&gt;</bpt>Tweets data<ept id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;/linkText&gt;</ept><bpt id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;title&gt;</bpt><ept id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;/title&gt;</ept> is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure.</source>
+          <target state="new"><bpt id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;linkText&gt;</bpt>Tweets data<ept id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;/linkText&gt;</ept><bpt id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;title&gt;</bpt><ept id="6e55fbf8-325a-4fae-b967-14ee31a22f61">&lt;/title&gt;</ept> is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure.</target>
+        </trans-unit>
+        <trans-unit id="c6cade1f-18ae-4d1b-ae5d-1fc1f1c741aa" xml:space="preserve">
+          <source>Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.</source>
+          <target state="new">Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.</target>
+        </trans-unit>
+        <trans-unit id="db4878ee-2ff2-4ab5-9230-6fe067772b82" xml:space="preserve">
+          <source>Twitter uses OAuth to provide authorized access to its API.</source>
+          <target state="new">Twitter uses OAuth to provide authorized access to its API.</target>
+        </trans-unit>
+        <trans-unit id="d21fb35f-7b16-4319-a8b6-437bbdc7b734" xml:space="preserve">
+          <source>OAuth is an authentication protocol that allows users to approve applications to act on their behalf without sharing their password.</source>
+          <target state="new">OAuth is an authentication protocol that allows users to approve applications to act on their behalf without sharing their password.</target>
+        </trans-unit>
+        <trans-unit id="593bb7a9-9028-4b26-86fb-77c4061a1bad" xml:space="preserve">
+          <source>More information can be found at <bpt id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;linkText&gt;</bpt>oauth.net<ept id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;/linkText&gt;</ept><bpt id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;title&gt;</bpt><ept id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;/title&gt;</ept> or in the excellent <bpt id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;linkText&gt;</bpt>Beginner's Guide to OAuth<ept id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;/linkText&gt;</ept><bpt id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;title&gt;</bpt><ept id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;/title&gt;</ept> from Hueniverse.</source>
+          <target state="new">More information can be found at <bpt id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;linkText&gt;</bpt>oauth.net<ept id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;/linkText&gt;</ept><bpt id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;title&gt;</bpt><ept id="a3dbd0ae-c933-47d8-a337-a1cbef649490">&lt;/title&gt;</ept> or in the excellent <bpt id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;linkText&gt;</bpt>Beginner's Guide to OAuth<ept id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;/linkText&gt;</ept><bpt id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;title&gt;</bpt><ept id="8cea33b7-be89-4eb8-b362-6edcee82941e">&lt;/title&gt;</ept> from Hueniverse.</target>
+        </trans-unit>
+        <trans-unit id="f8a44f14-4b27-4726-8bbb-828cea09519c" xml:space="preserve">
+          <source>The first step to use OAuth is to create a new application on the Twitter Developer site.</source>
+          <target state="new">The first step to use OAuth is to create a new application on the Twitter Developer site.</target>
+        </trans-unit>
+        <trans-unit id="9789470f-23af-4d9c-84c1-ec5a89d006f1" xml:space="preserve">
+          <source><bpt id="9d38ec6a-51a8-4eaa-a270-5c61c2bf87b2">&lt;strong&gt;</bpt>To create a Twitter application<ept id="9d38ec6a-51a8-4eaa-a270-5c61c2bf87b2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9d38ec6a-51a8-4eaa-a270-5c61c2bf87b2">&lt;strong&gt;</bpt>To create a Twitter application<ept id="9d38ec6a-51a8-4eaa-a270-5c61c2bf87b2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c8f6490-35e5-486b-b739-f3b35e8f986c" xml:space="preserve">
+          <source>Sign in to <bpt id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;linkText&gt;</bpt>https://apps.twitter.com/<ept id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;/linkText&gt;</ept><bpt id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;title&gt;</bpt><ept id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to <bpt id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;linkText&gt;</bpt>https://apps.twitter.com/<ept id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;/linkText&gt;</ept><bpt id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;title&gt;</bpt><ept id="913e3704-5524-4778-9b0f-6f51aaad06b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23576c7c-6a30-4558-aa74-19ed6161a6c7" xml:space="preserve">
+          <source>Click the <bpt id="61968235-9820-4493-8ae0-bea3e9734870">&lt;strong&gt;</bpt>Sign up now<ept id="61968235-9820-4493-8ae0-bea3e9734870">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</source>
+          <target state="new">Click the <bpt id="61968235-9820-4493-8ae0-bea3e9734870">&lt;strong&gt;</bpt>Sign up now<ept id="61968235-9820-4493-8ae0-bea3e9734870">&lt;/strong&gt;</ept> link if you don't have a Twitter account.</target>
+        </trans-unit>
+        <trans-unit id="2c68367b-4b3a-44c0-b33b-4b05b81a0e4e" xml:space="preserve">
+          <source>Click <bpt id="1b362df8-ebf9-4424-9b87-a2c501db80e0">&lt;strong&gt;</bpt>Create New App<ept id="1b362df8-ebf9-4424-9b87-a2c501db80e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1b362df8-ebf9-4424-9b87-a2c501db80e0">&lt;strong&gt;</bpt>Create New App<ept id="1b362df8-ebf9-4424-9b87-a2c501db80e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c676aa45-5b19-4390-ac58-82a810353dd1" xml:space="preserve">
+          <source>Enter <bpt id="da43efeb-234f-4aef-b7da-cc072b61dc77">&lt;strong&gt;</bpt>Name<ept id="da43efeb-234f-4aef-b7da-cc072b61dc77">&lt;/strong&gt;</ept>, <bpt id="62f4110f-8638-42c2-95c1-f44330f9d15b">&lt;strong&gt;</bpt>Description<ept id="62f4110f-8638-42c2-95c1-f44330f9d15b">&lt;/strong&gt;</ept>, <bpt id="5184e97d-a88c-4b98-9dd1-40bcb02377c5">&lt;strong&gt;</bpt>Website<ept id="5184e97d-a88c-4b98-9dd1-40bcb02377c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter <bpt id="da43efeb-234f-4aef-b7da-cc072b61dc77">&lt;strong&gt;</bpt>Name<ept id="da43efeb-234f-4aef-b7da-cc072b61dc77">&lt;/strong&gt;</ept>, <bpt id="62f4110f-8638-42c2-95c1-f44330f9d15b">&lt;strong&gt;</bpt>Description<ept id="62f4110f-8638-42c2-95c1-f44330f9d15b">&lt;/strong&gt;</ept>, <bpt id="5184e97d-a88c-4b98-9dd1-40bcb02377c5">&lt;strong&gt;</bpt>Website<ept id="5184e97d-a88c-4b98-9dd1-40bcb02377c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76fc538a-90f1-44cc-8593-6e21af3c204a" xml:space="preserve">
+          <source>You can make up a URL for the <bpt id="99a146bc-86ce-4e7b-9ef6-d77a2990bc67">&lt;strong&gt;</bpt>Website<ept id="99a146bc-86ce-4e7b-9ef6-d77a2990bc67">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">You can make up a URL for the <bpt id="99a146bc-86ce-4e7b-9ef6-d77a2990bc67">&lt;strong&gt;</bpt>Website<ept id="99a146bc-86ce-4e7b-9ef6-d77a2990bc67">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="eab0b924-38ee-450e-a8ee-62cdf72e1255" xml:space="preserve">
+          <source>The following table shows some sample values to use:</source>
+          <target state="new">The following table shows some sample values to use:</target>
+        </trans-unit>
+        <trans-unit id="ed337c18-1678-4a3e-ae8d-f92dda28878e" xml:space="preserve">
+          <source>Field</source>
+          <target state="new">Field</target>
+        </trans-unit>
+        <trans-unit id="322c3607-4c38-4457-ab38-5a4efacceff1" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="24bdc5ec-c9a4-4240-91f7-fb0545378267" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="d8e83dd3-6f42-4883-ad80-014d5de8d6c1" xml:space="preserve">
+          <source>MyHDInsightApp</source>
+          <target state="new">MyHDInsightApp</target>
+        </trans-unit>
+        <trans-unit id="ef3a2026-47c8-4e7d-9f0f-415e8e9d975f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="14b25b23-4d8d-4679-8d70-664321a73892" xml:space="preserve">
+          <source>MyHDInsightApp</source>
+          <target state="new">MyHDInsightApp</target>
+        </trans-unit>
+        <trans-unit id="7da71cd2-b469-46ad-bf20-630c3761b12b" xml:space="preserve">
+          <source>Website</source>
+          <target state="new">Website</target>
+        </trans-unit>
+        <trans-unit id="e49385d6-4ea3-4c7e-b7ed-150f437359d9" xml:space="preserve">
+          <source>http://www.myhdinsightapp.com</source>
+          <target state="new">http://www.myhdinsightapp.com</target>
+        </trans-unit>
+        <trans-unit id="b5d6ac5d-e4a3-4d61-ba38-e3c1acc7a2af" xml:space="preserve">
+          <source>Check <bpt id="31f0e990-3f22-460e-9706-af3c7ebaa8d5">&lt;strong&gt;</bpt>Yes, I agree<ept id="31f0e990-3f22-460e-9706-af3c7ebaa8d5">&lt;/strong&gt;</ept>, and then click <bpt id="5646bf4d-2f3f-4fe3-98a2-4efe00ef325f">&lt;strong&gt;</bpt>Create your Twitter application<ept id="5646bf4d-2f3f-4fe3-98a2-4efe00ef325f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Check <bpt id="31f0e990-3f22-460e-9706-af3c7ebaa8d5">&lt;strong&gt;</bpt>Yes, I agree<ept id="31f0e990-3f22-460e-9706-af3c7ebaa8d5">&lt;/strong&gt;</ept>, and then click <bpt id="5646bf4d-2f3f-4fe3-98a2-4efe00ef325f">&lt;strong&gt;</bpt>Create your Twitter application<ept id="5646bf4d-2f3f-4fe3-98a2-4efe00ef325f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ebc5082-1e67-4b27-b11a-02ba630a4133" xml:space="preserve">
+          <source>Click the <bpt id="2c6766b5-7476-4b9a-a77d-a0202ac5733f">&lt;strong&gt;</bpt>Permissions<ept id="2c6766b5-7476-4b9a-a77d-a0202ac5733f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="2c6766b5-7476-4b9a-a77d-a0202ac5733f">&lt;strong&gt;</bpt>Permissions<ept id="2c6766b5-7476-4b9a-a77d-a0202ac5733f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="865f83cb-2750-4dd6-bb06-5f802298b283" xml:space="preserve">
+          <source>The default permission is <bpt id="7c89a5ea-6759-4271-a18b-bec1b53f129f">&lt;strong&gt;</bpt>Read only<ept id="7c89a5ea-6759-4271-a18b-bec1b53f129f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default permission is <bpt id="7c89a5ea-6759-4271-a18b-bec1b53f129f">&lt;strong&gt;</bpt>Read only<ept id="7c89a5ea-6759-4271-a18b-bec1b53f129f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17b398d5-f6e5-45cb-a3c5-c8c6d8f5f27c" xml:space="preserve">
+          <source>This is sufficient for this tutorial.</source>
+          <target state="new">This is sufficient for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3d532fc8-a38a-41b3-9755-5286c63e4e17" xml:space="preserve">
+          <source>Click the <bpt id="6c4bdc85-4487-4e84-afd5-4840a3e796fa">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="6c4bdc85-4487-4e84-afd5-4840a3e796fa">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="6c4bdc85-4487-4e84-afd5-4840a3e796fa">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="6c4bdc85-4487-4e84-afd5-4840a3e796fa">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="dd1b15e6-e0b3-4f6a-92e9-0b6203af9e90" xml:space="preserve">
+          <source>Click <bpt id="d30996eb-d874-4406-a895-17fb098f8470">&lt;strong&gt;</bpt>Create my access token<ept id="d30996eb-d874-4406-a895-17fb098f8470">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d30996eb-d874-4406-a895-17fb098f8470">&lt;strong&gt;</bpt>Create my access token<ept id="d30996eb-d874-4406-a895-17fb098f8470">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab54dc67-9440-431f-8ad3-ead9613f153d" xml:space="preserve">
+          <source>Click <bpt id="2310a5c5-f083-47c0-9849-f70ed5c59286">&lt;strong&gt;</bpt>Test OAuth<ept id="2310a5c5-f083-47c0-9849-f70ed5c59286">&lt;/strong&gt;</ept> in the upper-right corner of the page.</source>
+          <target state="new">Click <bpt id="2310a5c5-f083-47c0-9849-f70ed5c59286">&lt;strong&gt;</bpt>Test OAuth<ept id="2310a5c5-f083-47c0-9849-f70ed5c59286">&lt;/strong&gt;</ept> in the upper-right corner of the page.</target>
+        </trans-unit>
+        <trans-unit id="6e40f2a3-559c-4b11-8d63-8724d290e887" xml:space="preserve">
+          <source>Write down <bpt id="2b146a3a-4c04-49be-aff1-01aadd69efa8">&lt;strong&gt;</bpt>consumer key<ept id="2b146a3a-4c04-49be-aff1-01aadd69efa8">&lt;/strong&gt;</ept>, <bpt id="23a5a635-d744-49d6-84e6-22d8fbc942d3">&lt;strong&gt;</bpt>Consumer secret<ept id="23a5a635-d744-49d6-84e6-22d8fbc942d3">&lt;/strong&gt;</ept>, <bpt id="c9732e3c-473e-4366-b695-30243ee0b85a">&lt;strong&gt;</bpt>Access token<ept id="c9732e3c-473e-4366-b695-30243ee0b85a">&lt;/strong&gt;</ept>, and <bpt id="24bcd479-294e-44d6-b1ec-d4f5c0930818">&lt;strong&gt;</bpt>Access token secret<ept id="24bcd479-294e-44d6-b1ec-d4f5c0930818">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Write down <bpt id="2b146a3a-4c04-49be-aff1-01aadd69efa8">&lt;strong&gt;</bpt>consumer key<ept id="2b146a3a-4c04-49be-aff1-01aadd69efa8">&lt;/strong&gt;</ept>, <bpt id="23a5a635-d744-49d6-84e6-22d8fbc942d3">&lt;strong&gt;</bpt>Consumer secret<ept id="23a5a635-d744-49d6-84e6-22d8fbc942d3">&lt;/strong&gt;</ept>, <bpt id="c9732e3c-473e-4366-b695-30243ee0b85a">&lt;strong&gt;</bpt>Access token<ept id="c9732e3c-473e-4366-b695-30243ee0b85a">&lt;/strong&gt;</ept>, and <bpt id="24bcd479-294e-44d6-b1ec-d4f5c0930818">&lt;strong&gt;</bpt>Access token secret<ept id="24bcd479-294e-44d6-b1ec-d4f5c0930818">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73c5574b-d294-462d-b266-606cebb599fe" xml:space="preserve">
+          <source>You will need the values later in the tutorial.</source>
+          <target state="new">You will need the values later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="9a3c5900-f18b-4fde-a767-1a533301bb43" xml:space="preserve">
+          <source>In this tutorial, you will use Windows PowerShell to make the web service call.</source>
+          <target state="new">In this tutorial, you will use Windows PowerShell to make the web service call.</target>
+        </trans-unit>
+        <trans-unit id="2a7a1686-b96f-4ba4-a8b0-383c1defae07" xml:space="preserve">
+          <source>For a .NET C# sample, see <bpt id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase in HDInsight[hdinsight-hbase-twitter-sentiment]<ept id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;/linkText&gt;</ept><bpt id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;title&gt;</bpt><ept id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a .NET C# sample, see <bpt id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase in HDInsight[hdinsight-hbase-twitter-sentiment]<ept id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;/linkText&gt;</ept><bpt id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;title&gt;</bpt><ept id="520e71ab-961b-4f89-bdda-b1d4ba16a4d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0546ec7-b4ac-4512-a4aa-460541588621" xml:space="preserve">
+          <source>The other popular tool to make web service calls is <bpt id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;linkText&gt;</bpt>*Curl*[curl]<ept id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;/linkText&gt;</ept><bpt id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;title&gt;</bpt><ept id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;/title&gt;</ept>.</source>
+          <target state="new">The other popular tool to make web service calls is <bpt id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;linkText&gt;</bpt>*Curl*[curl]<ept id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;/linkText&gt;</ept><bpt id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;title&gt;</bpt><ept id="ea63cbcc-1568-404f-98cc-6f4999d184c7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb5e120d-2367-4394-a59f-462043624846" xml:space="preserve">
+          <source>Curl can be downloaded from <bpt id="483a7f29-4385-4119-96e8-556f301cb828">&lt;linkText&gt;</bpt>here[curl-download]<ept id="483a7f29-4385-4119-96e8-556f301cb828">&lt;/linkText&gt;</ept><bpt id="483a7f29-4385-4119-96e8-556f301cb828">&lt;title&gt;</bpt><ept id="483a7f29-4385-4119-96e8-556f301cb828">&lt;/title&gt;</ept>.</source>
+          <target state="new">Curl can be downloaded from <bpt id="483a7f29-4385-4119-96e8-556f301cb828">&lt;linkText&gt;</bpt>here[curl-download]<ept id="483a7f29-4385-4119-96e8-556f301cb828">&lt;/linkText&gt;</ept><bpt id="483a7f29-4385-4119-96e8-556f301cb828">&lt;title&gt;</bpt><ept id="483a7f29-4385-4119-96e8-556f301cb828">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1343021-fef9-4389-b169-6e51761064d8" xml:space="preserve">
+          <source>When you use the curl command in Windows, use double quotes instead of single quotes for the option values.</source>
+          <target state="new">When you use the curl command in Windows, use double quotes instead of single quotes for the option values.</target>
+        </trans-unit>
+        <trans-unit id="6723f256-5f22-48e4-a663-8e9f3d96172f" xml:space="preserve">
+          <source><bpt id="feb6bf12-840b-45d1-b8fd-7c7f6e55767e">&lt;strong&gt;</bpt>To get tweets<ept id="feb6bf12-840b-45d1-b8fd-7c7f6e55767e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="feb6bf12-840b-45d1-b8fd-7c7f6e55767e">&lt;strong&gt;</bpt>To get tweets<ept id="feb6bf12-840b-45d1-b8fd-7c7f6e55767e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36a46718-51b8-4aa0-89ca-644bd903004b" xml:space="preserve">
+          <source>Open the Windows PowerShell Integrated Scripting Environment (ISE).</source>
+          <target state="new">Open the Windows PowerShell Integrated Scripting Environment (ISE).</target>
+        </trans-unit>
+        <trans-unit id="e05bc177-6360-44ef-80d3-35c069dcd9bc" xml:space="preserve">
+          <source>(On the Windows 8 Start screen, type <bpt id="79077c13-1bb5-4ec7-b76d-994be6469239">&lt;strong&gt;</bpt>PowerShell_ISE<ept id="79077c13-1bb5-4ec7-b76d-994be6469239">&lt;/strong&gt;</ept> and then click <bpt id="6561917c-b324-48d0-8c2a-660d714dd1c4">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="6561917c-b324-48d0-8c2a-660d714dd1c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">(On the Windows 8 Start screen, type <bpt id="79077c13-1bb5-4ec7-b76d-994be6469239">&lt;strong&gt;</bpt>PowerShell_ISE<ept id="79077c13-1bb5-4ec7-b76d-994be6469239">&lt;/strong&gt;</ept> and then click <bpt id="6561917c-b324-48d0-8c2a-660d714dd1c4">&lt;strong&gt;</bpt>Windows PowerShell ISE<ept id="6561917c-b324-48d0-8c2a-660d714dd1c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d5e7f68-42ea-49ed-a9b5-af2478f565f6" xml:space="preserve">
+          <source>See <bpt id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;linkText&gt;</bpt>Start Windows PowerShell on Windows 8 and Windows[powershell-start]<ept id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;/linkText&gt;</ept><bpt id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;title&gt;</bpt><ept id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;/title&gt;</ept>.)</source>
+          <target state="new">See <bpt id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;linkText&gt;</bpt>Start Windows PowerShell on Windows 8 and Windows[powershell-start]<ept id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;/linkText&gt;</ept><bpt id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;title&gt;</bpt><ept id="c8bb7d68-c116-42f9-b7fb-8192d7cf31c0">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="7b90cad8-738e-423c-9b45-e61cf5227954" xml:space="preserve">
+          <source>Copy the following script into the script pane:</source>
+          <target state="new">Copy the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="87b045ba-290a-478f-bba8-2260ddf1885d" xml:space="preserve">
+          <source>Set the first five to eight variables in the script:</source>
+          <target state="new">Set the first five to eight variables in the script:</target>
+        </trans-unit>
+        <trans-unit id="e96adb65-f571-4a80-b889-2700866b31d1" xml:space="preserve">
+          <source>Variable</source>
+          <target state="new">Variable</target>
+        </trans-unit>
+        <trans-unit id="623bb288-d467-4ef0-9d90-5fb5e2bf329c" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="ede9c5f9-17b7-4742-97df-3508b00bd74d" xml:space="preserve">
+          <source>$clusterName</source>
+          <target state="new">$clusterName</target>
+        </trans-unit>
+        <trans-unit id="2626c008-1b8f-416e-8757-4e989ec0c4e4" xml:space="preserve">
+          <source>This is the name of the HDInsight cluster where you want to run the application.</source>
+          <target state="new">This is the name of the HDInsight cluster where you want to run the application.</target>
+        </trans-unit>
+        <trans-unit id="85e4fef9-409f-42c9-baf3-bea622bc7040" xml:space="preserve">
+          <source>$oauth<bpt id="0756e49b-4191-49cf-8da2-7f7445b8ee7c">&lt;em&gt;</bpt>consumer<ept id="0756e49b-4191-49cf-8da2-7f7445b8ee7c">&lt;/em&gt;</ept>key</source>
+          <target state="new">$oauth<bpt id="0756e49b-4191-49cf-8da2-7f7445b8ee7c">&lt;em&gt;</bpt>consumer<ept id="0756e49b-4191-49cf-8da2-7f7445b8ee7c">&lt;/em&gt;</ept>key</target>
+        </trans-unit>
+        <trans-unit id="e7441454-167e-457d-827d-e1b53b961272" xml:space="preserve">
+          <source>This is the Twitter application <bpt id="6105a596-bedc-473c-a9a8-addc0f2f47c6">&lt;strong&gt;</bpt>consumer key<ept id="6105a596-bedc-473c-a9a8-addc0f2f47c6">&lt;/strong&gt;</ept> you wrote down earlier when you created the Twitter application.</source>
+          <target state="new">This is the Twitter application <bpt id="6105a596-bedc-473c-a9a8-addc0f2f47c6">&lt;strong&gt;</bpt>consumer key<ept id="6105a596-bedc-473c-a9a8-addc0f2f47c6">&lt;/strong&gt;</ept> you wrote down earlier when you created the Twitter application.</target>
+        </trans-unit>
+        <trans-unit id="4e75c975-8897-43d6-a714-b35e52615b4f" xml:space="preserve">
+          <source>$oauth<bpt id="2253bb48-dbb7-4c25-95a4-224ff8ab8fe2">&lt;em&gt;</bpt>consumer<ept id="2253bb48-dbb7-4c25-95a4-224ff8ab8fe2">&lt;/em&gt;</ept>secret</source>
+          <target state="new">$oauth<bpt id="2253bb48-dbb7-4c25-95a4-224ff8ab8fe2">&lt;em&gt;</bpt>consumer<ept id="2253bb48-dbb7-4c25-95a4-224ff8ab8fe2">&lt;/em&gt;</ept>secret</target>
+        </trans-unit>
+        <trans-unit id="b29754dd-77d6-4e5a-b033-5ce19a197b1c" xml:space="preserve">
+          <source>This is the Twitter application <bpt id="dad05f2a-e147-4af7-b94f-13e2437ae919">&lt;strong&gt;</bpt>consumer secret<ept id="dad05f2a-e147-4af7-b94f-13e2437ae919">&lt;/strong&gt;</ept> you wrote down earlier.</source>
+          <target state="new">This is the Twitter application <bpt id="dad05f2a-e147-4af7-b94f-13e2437ae919">&lt;strong&gt;</bpt>consumer secret<ept id="dad05f2a-e147-4af7-b94f-13e2437ae919">&lt;/strong&gt;</ept> you wrote down earlier.</target>
+        </trans-unit>
+        <trans-unit id="3e0ccc8f-2835-4065-b7e6-46b53cf0e91a" xml:space="preserve">
+          <source>$oauth_token</source>
+          <target state="new">$oauth_token</target>
+        </trans-unit>
+        <trans-unit id="97b2e2ef-0416-4bc6-8bb0-04af5dbde6f1" xml:space="preserve">
+          <source>This is the Twitter application <bpt id="8ad781b8-c34a-4cf3-91ea-23e469fccdcd">&lt;strong&gt;</bpt>access token<ept id="8ad781b8-c34a-4cf3-91ea-23e469fccdcd">&lt;/strong&gt;</ept> you wrote down earlier.</source>
+          <target state="new">This is the Twitter application <bpt id="8ad781b8-c34a-4cf3-91ea-23e469fccdcd">&lt;strong&gt;</bpt>access token<ept id="8ad781b8-c34a-4cf3-91ea-23e469fccdcd">&lt;/strong&gt;</ept> you wrote down earlier.</target>
+        </trans-unit>
+        <trans-unit id="e1579b9c-93f1-4e22-8209-2613a8810c72" xml:space="preserve">
+          <source>$oauth<bpt id="118f6f6b-0731-4241-973a-e311031a9278">&lt;em&gt;</bpt>token<ept id="118f6f6b-0731-4241-973a-e311031a9278">&lt;/em&gt;</ept>secret</source>
+          <target state="new">$oauth<bpt id="118f6f6b-0731-4241-973a-e311031a9278">&lt;em&gt;</bpt>token<ept id="118f6f6b-0731-4241-973a-e311031a9278">&lt;/em&gt;</ept>secret</target>
+        </trans-unit>
+        <trans-unit id="6272031f-8bcc-4d84-be6e-f086683cc686" xml:space="preserve">
+          <source>This is the Twitter application <bpt id="271531ec-eb5a-4e60-bca8-f68d60c6ba46">&lt;strong&gt;</bpt>access token secret<ept id="271531ec-eb5a-4e60-bca8-f68d60c6ba46">&lt;/strong&gt;</ept> you wrote down earlier.</source>
+          <target state="new">This is the Twitter application <bpt id="271531ec-eb5a-4e60-bca8-f68d60c6ba46">&lt;strong&gt;</bpt>access token secret<ept id="271531ec-eb5a-4e60-bca8-f68d60c6ba46">&lt;/strong&gt;</ept> you wrote down earlier.</target>
+        </trans-unit>
+        <trans-unit id="c19c26fb-1d50-4fd2-a225-879e4d10a879" xml:space="preserve">
+          <source>$destBlobName</source>
+          <target state="new">$destBlobName</target>
+        </trans-unit>
+        <trans-unit id="415bb2bf-9b42-4e0b-b211-afe4433600b5" xml:space="preserve">
+          <source>This is the output blob name.</source>
+          <target state="new">This is the output blob name.</target>
+        </trans-unit>
+        <trans-unit id="cae1ee56-e10c-44e9-9345-40fa6c696d83" xml:space="preserve">
+          <source>The default value is <bpt id="8cb19d6e-de9d-42c8-8c7d-5ecd7faf113e">&lt;strong&gt;</bpt>tutorials/twitter/data/tweets.txt<ept id="8cb19d6e-de9d-42c8-8c7d-5ecd7faf113e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default value is <bpt id="8cb19d6e-de9d-42c8-8c7d-5ecd7faf113e">&lt;strong&gt;</bpt>tutorials/twitter/data/tweets.txt<ept id="8cb19d6e-de9d-42c8-8c7d-5ecd7faf113e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6028d605-f83c-44a8-8628-3f86fb3bc0b7" xml:space="preserve">
+          <source>If you change the default value, you will need to update the Windows PowerShell scripts accordingly.</source>
+          <target state="new">If you change the default value, you will need to update the Windows PowerShell scripts accordingly.</target>
+        </trans-unit>
+        <trans-unit id="a82b8ddb-911f-4911-93db-fa85e43c62f2" xml:space="preserve">
+          <source>$trackString</source>
+          <target state="new">$trackString</target>
+        </trans-unit>
+        <trans-unit id="bdbab231-96e5-4a7c-98c7-2bab38416d99" xml:space="preserve">
+          <source>The web service will return tweets related to these keywords.</source>
+          <target state="new">The web service will return tweets related to these keywords.</target>
+        </trans-unit>
+        <trans-unit id="c2915adb-7cec-4bee-9668-e5299a89b608" xml:space="preserve">
+          <source>The default value is <bpt id="77bb5665-7c3a-47c8-ab77-7015f505bc2f">&lt;strong&gt;</bpt>Azure, Cloud, HDInsight<ept id="77bb5665-7c3a-47c8-ab77-7015f505bc2f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default value is <bpt id="77bb5665-7c3a-47c8-ab77-7015f505bc2f">&lt;strong&gt;</bpt>Azure, Cloud, HDInsight<ept id="77bb5665-7c3a-47c8-ab77-7015f505bc2f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d5ef856-16c2-4138-8083-694b5baaa00b" xml:space="preserve">
+          <source>If you change the default value, you will update the Windows PowerShell scripts accordingly.</source>
+          <target state="new">If you change the default value, you will update the Windows PowerShell scripts accordingly.</target>
+        </trans-unit>
+        <trans-unit id="c3457e6f-8935-410d-b3c6-f91bfb9ce1a3" xml:space="preserve">
+          <source>$lineMax</source>
+          <target state="new">$lineMax</target>
+        </trans-unit>
+        <trans-unit id="9aa9c78d-180d-4efb-bd47-42b38128ef75" xml:space="preserve">
+          <source>The value determines how many tweets the script will read.</source>
+          <target state="new">The value determines how many tweets the script will read.</target>
+        </trans-unit>
+        <trans-unit id="0b14f6cb-d4e3-4782-a5ba-c85bb78300ea" xml:space="preserve">
+          <source>It takes about three minutes to read 100 tweets.</source>
+          <target state="new">It takes about three minutes to read 100 tweets.</target>
+        </trans-unit>
+        <trans-unit id="ba0a982c-a708-4247-8539-1b5ee0a9d2cb" xml:space="preserve">
+          <source>You can set a larger number, but it will take more time to download.</source>
+          <target state="new">You can set a larger number, but it will take more time to download.</target>
+        </trans-unit>
+        <trans-unit id="f0092e11-c234-4e93-966b-5a5d5d01ddd7" xml:space="preserve">
+          <source>Press <bpt id="37d6d954-6a99-47ed-aa76-773ea8806546">&lt;strong&gt;</bpt>F5<ept id="37d6d954-6a99-47ed-aa76-773ea8806546">&lt;/strong&gt;</ept> to run the script.</source>
+          <target state="new">Press <bpt id="37d6d954-6a99-47ed-aa76-773ea8806546">&lt;strong&gt;</bpt>F5<ept id="37d6d954-6a99-47ed-aa76-773ea8806546">&lt;/strong&gt;</ept> to run the script.</target>
+        </trans-unit>
+        <trans-unit id="f4834d4b-e118-4fb8-972a-6db7250136f4" xml:space="preserve">
+          <source>If you run into problems, as a workaround, select all the lines, and then press <bpt id="3d383d8a-f98c-4a41-8a08-0e1d5ebb0822">&lt;strong&gt;</bpt>F8<ept id="3d383d8a-f98c-4a41-8a08-0e1d5ebb0822">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you run into problems, as a workaround, select all the lines, and then press <bpt id="3d383d8a-f98c-4a41-8a08-0e1d5ebb0822">&lt;strong&gt;</bpt>F8<ept id="3d383d8a-f98c-4a41-8a08-0e1d5ebb0822">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9edb0666-81a5-4722-96d9-71e7c4fd6faf" xml:space="preserve">
+          <source>You shall see "Complete!"</source>
+          <target state="new">You shall see "Complete!"</target>
+        </trans-unit>
+        <trans-unit id="a5f5c54e-1abd-44ef-911c-fd9cc26354dc" xml:space="preserve">
+          <source>at the end of the output.</source>
+          <target state="new">at the end of the output.</target>
+        </trans-unit>
+        <trans-unit id="41efb60a-ff21-4ae5-b8e1-23291735e0c3" xml:space="preserve">
+          <source>Any error messages will be displayed in red.</source>
+          <target state="new">Any error messages will be displayed in red.</target>
+        </trans-unit>
+        <trans-unit id="5ae8e983-8655-4da6-b241-97eb81d204bf" xml:space="preserve">
+          <source>As a validation procedure, you can check the output file, <bpt id="b4bb3b32-eba0-4042-9a8b-839a59499a42">&lt;strong&gt;</bpt>/tutorials/twitter/data/tweets.txt<ept id="b4bb3b32-eba0-4042-9a8b-839a59499a42">&lt;/strong&gt;</ept>, on your Azure Blob storage by using an Azure storage explorer or Azure PowerShell.</source>
+          <target state="new">As a validation procedure, you can check the output file, <bpt id="b4bb3b32-eba0-4042-9a8b-839a59499a42">&lt;strong&gt;</bpt>/tutorials/twitter/data/tweets.txt<ept id="b4bb3b32-eba0-4042-9a8b-839a59499a42">&lt;/strong&gt;</ept>, on your Azure Blob storage by using an Azure storage explorer or Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="e7d828d3-a69e-4df5-a866-82a55adbdbfb" xml:space="preserve">
+          <source>For a sample Windows PowerShell script for listing files, see <bpt id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;linkText&gt;</bpt>Use Blob storage with HDInsight[hdinsight-storage-powershell]<ept id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;/linkText&gt;</ept><bpt id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;title&gt;</bpt><ept id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a sample Windows PowerShell script for listing files, see <bpt id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;linkText&gt;</bpt>Use Blob storage with HDInsight[hdinsight-storage-powershell]<ept id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;/linkText&gt;</ept><bpt id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;title&gt;</bpt><ept id="d9ef1455-ca7f-4b70-8d07-b9fc9b5bd916">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a8fa49a-4cfe-41b3-a685-9ee31f46de4a" xml:space="preserve">
+          <source>Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file.</source>
+          <target state="new">Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file.</target>
+        </trans-unit>
+        <trans-unit id="22889253-6ed2-42e5-844c-5da69a69e726" xml:space="preserve">
+          <source>In this tutorial, you will create a HiveQL script.</source>
+          <target state="new">In this tutorial, you will create a HiveQL script.</target>
+        </trans-unit>
+        <trans-unit id="cfad7f27-a059-4d82-b6c1-dfb5e2f7f718" xml:space="preserve">
+          <source>The script file must be uploaded to Azure Blob storage.</source>
+          <target state="new">The script file must be uploaded to Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="ae670cd0-5289-4f79-b9f6-50c6a04a7887" xml:space="preserve">
+          <source>In the next section, you will run the script file by using Azure PowerShell.</source>
+          <target state="new">In the next section, you will run the script file by using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="5a4998d3-9d96-46c8-910a-125a0ec3f5a8" xml:space="preserve">
+          <source>The Hive script file and a file containing 10,000 tweets have been uploaded in a public Blob container.</source>
+          <target state="new">The Hive script file and a file containing 10,000 tweets have been uploaded in a public Blob container.</target>
+        </trans-unit>
+        <trans-unit id="b588df6f-e73a-4281-81fc-fd100b2bf667" xml:space="preserve">
+          <source>You can skip this section if you want to use the uploaded files.</source>
+          <target state="new">You can skip this section if you want to use the uploaded files.</target>
+        </trans-unit>
+        <trans-unit id="2e30a225-acb4-4ea5-9143-f0edb504c186" xml:space="preserve">
+          <source>The HiveQL script will perform the following:</source>
+          <target state="new">The HiveQL script will perform the following:</target>
+        </trans-unit>
+        <trans-unit id="d01184be-de1b-4ab1-acf9-94e36ab61d7e" xml:space="preserve">
+          <source><bpt id="2ec6d968-e526-464a-98fe-2976bbd5cb17">&lt;strong&gt;</bpt>Drop the tweets_raw table<ept id="2ec6d968-e526-464a-98fe-2976bbd5cb17">&lt;/strong&gt;</ept> in case the table already exists.</source>
+          <target state="new"><bpt id="2ec6d968-e526-464a-98fe-2976bbd5cb17">&lt;strong&gt;</bpt>Drop the tweets_raw table<ept id="2ec6d968-e526-464a-98fe-2976bbd5cb17">&lt;/strong&gt;</ept> in case the table already exists.</target>
+        </trans-unit>
+        <trans-unit id="4593740a-ac04-49b1-b7b3-7e69c2516d30" xml:space="preserve">
+          <source><bpt id="3f93ceaf-bc70-4da5-bd19-715860872b0a">&lt;strong&gt;</bpt>Create the tweets_raw Hive table<ept id="3f93ceaf-bc70-4da5-bd19-715860872b0a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3f93ceaf-bc70-4da5-bd19-715860872b0a">&lt;strong&gt;</bpt>Create the tweets_raw Hive table<ept id="3f93ceaf-bc70-4da5-bd19-715860872b0a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3056dd8-3754-4ac2-884d-28c290794468" xml:space="preserve">
+          <source>This temporary Hive structured table holds the data for further extract, transform, and load (ETL) processing.</source>
+          <target state="new">This temporary Hive structured table holds the data for further extract, transform, and load (ETL) processing.</target>
+        </trans-unit>
+        <trans-unit id="e4646f87-a7d0-455b-8f75-d19c38139143" xml:space="preserve">
+          <source>For information on partitions, see <bpt id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;linkText&gt;</bpt>Hive tutorial[apache-hive-tutorial]<ept id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;/linkText&gt;</ept><bpt id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;title&gt;</bpt><ept id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on partitions, see <bpt id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;linkText&gt;</bpt>Hive tutorial[apache-hive-tutorial]<ept id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;/linkText&gt;</ept><bpt id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;title&gt;</bpt><ept id="ee05b62c-1d0f-4d87-90f9-f84386ca8b2a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a609d21-3eca-4761-bca5-d693ca2a0b0b" xml:space="preserve">
+          <source><bpt id="ed8eadb0-c758-4f4f-93d0-567d9636b1b2">&lt;strong&gt;</bpt>Load data<ept id="ed8eadb0-c758-4f4f-93d0-567d9636b1b2">&lt;/strong&gt;</ept> from the source folder, /tutorials/twitter/data.</source>
+          <target state="new"><bpt id="ed8eadb0-c758-4f4f-93d0-567d9636b1b2">&lt;strong&gt;</bpt>Load data<ept id="ed8eadb0-c758-4f4f-93d0-567d9636b1b2">&lt;/strong&gt;</ept> from the source folder, /tutorials/twitter/data.</target>
+        </trans-unit>
+        <trans-unit id="b0c720b7-1f56-4cc0-bedc-c2c84af9ae15" xml:space="preserve">
+          <source>The large tweets dataset in nested JSON format has now been transformed into a temporary Hive table structure.</source>
+          <target state="new">The large tweets dataset in nested JSON format has now been transformed into a temporary Hive table structure.</target>
+        </trans-unit>
+        <trans-unit id="3f9abed6-6a57-471a-8a42-b7f5c32abb13" xml:space="preserve">
+          <source><bpt id="8a5271c6-db8c-469d-aed3-898597e5456f">&lt;strong&gt;</bpt>Drop the tweets table<ept id="8a5271c6-db8c-469d-aed3-898597e5456f">&lt;/strong&gt;</ept> in case the table already exists.</source>
+          <target state="new"><bpt id="8a5271c6-db8c-469d-aed3-898597e5456f">&lt;strong&gt;</bpt>Drop the tweets table<ept id="8a5271c6-db8c-469d-aed3-898597e5456f">&lt;/strong&gt;</ept> in case the table already exists.</target>
+        </trans-unit>
+        <trans-unit id="983f5ec3-c9f9-4de8-8b62-00aab8f29bb2" xml:space="preserve">
+          <source><bpt id="ff3b74fe-fafa-46db-a162-421bcfe8d346">&lt;strong&gt;</bpt>Create the tweets table<ept id="ff3b74fe-fafa-46db-a162-421bcfe8d346">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ff3b74fe-fafa-46db-a162-421bcfe8d346">&lt;strong&gt;</bpt>Create the tweets table<ept id="ff3b74fe-fafa-46db-a162-421bcfe8d346">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b78e37a-a399-4ef9-be97-e29484f87eb9" xml:space="preserve">
+          <source>Before you can query against the tweets dataset by using Hive, you need to run another ETL process.</source>
+          <target state="new">Before you can query against the tweets dataset by using Hive, you need to run another ETL process.</target>
+        </trans-unit>
+        <trans-unit id="0403e32d-42b6-4c37-9abd-fa629eab6708" xml:space="preserve">
+          <source>This ETL process defines a more detailed table schema for the data that you have stored in the "twitter_raw" table.</source>
+          <target state="new">This ETL process defines a more detailed table schema for the data that you have stored in the "twitter_raw" table.</target>
+        </trans-unit>
+        <trans-unit id="e6a1a70f-ffd2-44e2-aa35-1fe79cb24fab" xml:space="preserve">
+          <source><bpt id="f1acb82b-c4e7-4548-b6b5-0ddbac7f8096">&lt;strong&gt;</bpt>Insert overwrite table<ept id="f1acb82b-c4e7-4548-b6b5-0ddbac7f8096">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f1acb82b-c4e7-4548-b6b5-0ddbac7f8096">&lt;strong&gt;</bpt>Insert overwrite table<ept id="f1acb82b-c4e7-4548-b6b5-0ddbac7f8096">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7eb21f7a-37f6-4aaa-82d3-f45becb131cd" xml:space="preserve">
+          <source>This complex Hive script will kick off a set of long MapReduce jobs by the Hadoop cluster.</source>
+          <target state="new">This complex Hive script will kick off a set of long MapReduce jobs by the Hadoop cluster.</target>
+        </trans-unit>
+        <trans-unit id="c840174e-408b-4e2f-96a1-31a1276121c4" xml:space="preserve">
+          <source>Depending on your dataset and the size of your cluster, this could take about 10 minutes.</source>
+          <target state="new">Depending on your dataset and the size of your cluster, this could take about 10 minutes.</target>
+        </trans-unit>
+        <trans-unit id="8c09a2ca-1daf-464b-be90-daab42ea80f5" xml:space="preserve">
+          <source><bpt id="77d959b8-7975-43b4-8285-05fc2e35a9b8">&lt;strong&gt;</bpt>Insert overwrite directory<ept id="77d959b8-7975-43b4-8285-05fc2e35a9b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="77d959b8-7975-43b4-8285-05fc2e35a9b8">&lt;strong&gt;</bpt>Insert overwrite directory<ept id="77d959b8-7975-43b4-8285-05fc2e35a9b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b805849f-1915-412c-98b4-39e1e9488986" xml:space="preserve">
+          <source>Run a query and output the dataset to a file.</source>
+          <target state="new">Run a query and output the dataset to a file.</target>
+        </trans-unit>
+        <trans-unit id="badc1b1c-771d-4243-b5c7-c0e94667d8d0" xml:space="preserve">
+          <source>This query will return a list of Twitter users who sent most tweets that contained the word "Azure".</source>
+          <target state="new">This query will return a list of Twitter users who sent most tweets that contained the word "Azure".</target>
+        </trans-unit>
+        <trans-unit id="fd353452-53dc-4a4f-b5c8-56ebd233fae9" xml:space="preserve">
+          <source><bpt id="5d843430-748f-46be-838c-58a083807286">&lt;strong&gt;</bpt>To create a Hive script and upload it to Azure<ept id="5d843430-748f-46be-838c-58a083807286">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5d843430-748f-46be-838c-58a083807286">&lt;strong&gt;</bpt>To create a Hive script and upload it to Azure<ept id="5d843430-748f-46be-838c-58a083807286">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6489310a-858e-48fb-a9a9-3d648c6715ce" xml:space="preserve">
+          <source>Open Windows PowerShell ISE.</source>
+          <target state="new">Open Windows PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="12c64e2a-2050-4f84-b334-0e39c93e2a16" xml:space="preserve">
+          <source>Copy the following script into the script pane:</source>
+          <target state="new">Copy the following script into the script pane:</target>
+        </trans-unit>
+        <trans-unit id="f2c2b560-a0cc-432d-b78a-ebd42676f661" xml:space="preserve">
+          <source>Set the first two variables in the script:</source>
+          <target state="new">Set the first two variables in the script:</target>
+        </trans-unit>
+        <trans-unit id="d34ef719-4a9e-4fa8-8728-83507031f739" xml:space="preserve">
+          <source>Variable</source>
+          <target state="new">Variable</target>
+        </trans-unit>
+        <trans-unit id="1016f5be-ab9d-447b-825a-e9714ceaec93" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="586cc2ca-efb8-4b11-9b11-406debfd3583" xml:space="preserve">
+          <source>$clusterName</source>
+          <target state="new">$clusterName</target>
+        </trans-unit>
+        <trans-unit id="151f4463-3775-437a-afa7-eb73442f9bb4" xml:space="preserve">
+          <source>Enter the HDInsight cluster name where you want to run the application.</source>
+          <target state="new">Enter the HDInsight cluster name where you want to run the application.</target>
+        </trans-unit>
+        <trans-unit id="acd73282-30c3-46b1-b447-fbc925ef9d95" xml:space="preserve">
+          <source>$sourceDataPath</source>
+          <target state="new">$sourceDataPath</target>
+        </trans-unit>
+        <trans-unit id="e23f5460-b166-4885-99c3-8f72119106ee" xml:space="preserve">
+          <source>The Azure Blob storage location where the Hive queries will read the data from.</source>
+          <target state="new">The Azure Blob storage location where the Hive queries will read the data from.</target>
+        </trans-unit>
+        <trans-unit id="f0a266e9-d29c-4028-8fa3-c66e019360e2" xml:space="preserve">
+          <source>You don't need to change this variable.</source>
+          <target state="new">You don't need to change this variable.</target>
+        </trans-unit>
+        <trans-unit id="c164b727-c287-43d8-876d-fffbfa660218" xml:space="preserve">
+          <source>$outputPath</source>
+          <target state="new">$outputPath</target>
+        </trans-unit>
+        <trans-unit id="5bfcae26-8bd2-4881-a3eb-1031eb85f90e" xml:space="preserve">
+          <source>The Azure Blob storage location where the Hive queries will output the results.</source>
+          <target state="new">The Azure Blob storage location where the Hive queries will output the results.</target>
+        </trans-unit>
+        <trans-unit id="0c730625-b2dd-4715-bcfa-c6eb63b9ca23" xml:space="preserve">
+          <source>You don't need to change this variable.</source>
+          <target state="new">You don't need to change this variable.</target>
+        </trans-unit>
+        <trans-unit id="901b835b-c34a-483d-a9b4-5dff535af452" xml:space="preserve">
+          <source>$hqlScriptFile</source>
+          <target state="new">$hqlScriptFile</target>
+        </trans-unit>
+        <trans-unit id="72c39dbd-816c-4757-9274-f94fead5ff4e" xml:space="preserve">
+          <source>The location and the file name of the HiveQL script file.</source>
+          <target state="new">The location and the file name of the HiveQL script file.</target>
+        </trans-unit>
+        <trans-unit id="75cb2d2c-df6c-47f6-9e25-38450b8e0977" xml:space="preserve">
+          <source>You don't need to change this variable.</source>
+          <target state="new">You don't need to change this variable.</target>
+        </trans-unit>
+        <trans-unit id="713db5fe-e6dc-436f-9239-0c486b38095d" xml:space="preserve">
+          <source>Press <bpt id="9ba6240a-25bc-4f62-a794-9c4e98633672">&lt;strong&gt;</bpt>F5<ept id="9ba6240a-25bc-4f62-a794-9c4e98633672">&lt;/strong&gt;</ept> to run the script.</source>
+          <target state="new">Press <bpt id="9ba6240a-25bc-4f62-a794-9c4e98633672">&lt;strong&gt;</bpt>F5<ept id="9ba6240a-25bc-4f62-a794-9c4e98633672">&lt;/strong&gt;</ept> to run the script.</target>
+        </trans-unit>
+        <trans-unit id="2a28468d-b2e7-4720-b047-096bf3730d10" xml:space="preserve">
+          <source>If you run into problems, as a workaround, select all the lines, and then press <bpt id="8d0f7d7b-209b-4b29-9e52-a7ee051d399c">&lt;strong&gt;</bpt>F8<ept id="8d0f7d7b-209b-4b29-9e52-a7ee051d399c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you run into problems, as a workaround, select all the lines, and then press <bpt id="8d0f7d7b-209b-4b29-9e52-a7ee051d399c">&lt;strong&gt;</bpt>F8<ept id="8d0f7d7b-209b-4b29-9e52-a7ee051d399c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e59946be-8abc-4c43-b861-c5dbdc19d264" xml:space="preserve">
+          <source>You shall see "Complete!"</source>
+          <target state="new">You shall see "Complete!"</target>
+        </trans-unit>
+        <trans-unit id="a61737d7-3ad7-427d-aa2f-69723d93531a" xml:space="preserve">
+          <source>at the end of the output.</source>
+          <target state="new">at the end of the output.</target>
+        </trans-unit>
+        <trans-unit id="df143a71-cb48-4bb5-9bcd-e30ffefbeaae" xml:space="preserve">
+          <source>Any error messages will be displayed in red.</source>
+          <target state="new">Any error messages will be displayed in red.</target>
+        </trans-unit>
+        <trans-unit id="ed01f81c-3db1-4d7e-a1ca-29976e190e98" xml:space="preserve">
+          <source>As a validation procedure, you can check the output file, <bpt id="b262b0f4-f629-421c-9bb0-0128d7d72688">&lt;strong&gt;</bpt>/tutorials/twitter/twitter.hql<ept id="b262b0f4-f629-421c-9bb0-0128d7d72688">&lt;/strong&gt;</ept>, on your Azure Blob storage by using an Azure storage explorer or Azure PowerShell.</source>
+          <target state="new">As a validation procedure, you can check the output file, <bpt id="b262b0f4-f629-421c-9bb0-0128d7d72688">&lt;strong&gt;</bpt>/tutorials/twitter/twitter.hql<ept id="b262b0f4-f629-421c-9bb0-0128d7d72688">&lt;/strong&gt;</ept>, on your Azure Blob storage by using an Azure storage explorer or Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="ac53f2b0-7633-44f7-9484-e223ba6ff0df" xml:space="preserve">
+          <source>For a sample Windows PowerShell script for listing files, see <bpt id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;linkText&gt;</bpt>Use Blob storage with HDInsight[hdinsight-storage-powershell]<ept id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;/linkText&gt;</ept><bpt id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;title&gt;</bpt><ept id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a sample Windows PowerShell script for listing files, see <bpt id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;linkText&gt;</bpt>Use Blob storage with HDInsight[hdinsight-storage-powershell]<ept id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;/linkText&gt;</ept><bpt id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;title&gt;</bpt><ept id="d25d0c4f-2cfd-4a76-bdb1-f6a397dfc422">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a528937f-efa1-4ebb-abdc-4743daf85569" xml:space="preserve">
+          <source>You have finished all the preparation work.</source>
+          <target state="new">You have finished all the preparation work.</target>
+        </trans-unit>
+        <trans-unit id="c1abfc97-7019-4e87-8835-11afceb1b76c" xml:space="preserve">
+          <source>Now, you can invoke the Hive script and check the results.</source>
+          <target state="new">Now, you can invoke the Hive script and check the results.</target>
+        </trans-unit>
+        <trans-unit id="b78d5a2d-316f-4d59-a8d6-3d4e08d13da3" xml:space="preserve">
+          <source>Use the following Windows PowerShell script to run the Hive script.</source>
+          <target state="new">Use the following Windows PowerShell script to run the Hive script.</target>
+        </trans-unit>
+        <trans-unit id="df26d266-52c4-426a-937b-17bac753dd57" xml:space="preserve">
+          <source>You will need to set the first variable.</source>
+          <target state="new">You will need to set the first variable.</target>
+        </trans-unit>
+        <trans-unit id="8e1dc0d5-d358-46ff-a30f-5491d4cdcebc" xml:space="preserve">
+          <source>To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql".</source>
+          <target state="new">To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql".</target>
+        </trans-unit>
+        <trans-unit id="0dc645e5-8c84-48a2-a883-98cac2220e4d" xml:space="preserve">
+          <source>To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".</source>
+          <target state="new">To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".</target>
+        </trans-unit>
+        <trans-unit id="a0568aef-4644-46e3-a31a-8812093b2ed8" xml:space="preserve">
+          <source>Use the following Windows PowerShell script to check the Hive job output.</source>
+          <target state="new">Use the following Windows PowerShell script to check the Hive job output.</target>
+        </trans-unit>
+        <trans-unit id="72b3ac14-d470-4d3d-b688-2a2462ff48cf" xml:space="preserve">
+          <source>You will need to set the first two variables.</source>
+          <target state="new">You will need to set the first two variables.</target>
+        </trans-unit>
+        <trans-unit id="9ef5040f-5340-4251-81a8-f5517e5c458b" xml:space="preserve">
+          <source>The Hive table uses \001 as the field delimiter.</source>
+          <target state="new">The Hive table uses \001 as the field delimiter.</target>
+        </trans-unit>
+        <trans-unit id="ca80572c-d958-437a-a261-829fbfdd1394" xml:space="preserve">
+          <source>The delimiter is not visible in the output.</source>
+          <target state="new">The delimiter is not visible in the output.</target>
+        </trans-unit>
+        <trans-unit id="b400d765-fde6-45ad-b4b0-2cdbe108d863" xml:space="preserve">
+          <source>After the analysis results have been placed in Azure Blob storage, you can export the data to an Azure SQL database/SQL server, export the data to Excel by using Power Query, or connect your application to the data by using the Hive ODBC Driver.</source>
+          <target state="new">After the analysis results have been placed in Azure Blob storage, you can export the data to an Azure SQL database/SQL server, export the data to Excel by using Power Query, or connect your application to the data by using the Hive ODBC Driver.</target>
+        </trans-unit>
+        <trans-unit id="5237bc2d-7f34-453b-81f2-7058a298996e" xml:space="preserve">
+          <source>For more information, see <bpt id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;/linkText&gt;</ept><bpt id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;title&gt;</bpt><ept id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;/title&gt;</ept>, <bpt id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;/linkText&gt;</ept><bpt id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;title&gt;</bpt><ept id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;/title&gt;</ept>, <bpt id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;/linkText&gt;</ept><bpt id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;title&gt;</bpt><ept id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;/title&gt;</ept>, and <bpt id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-hive-odbc]<ept id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;/linkText&gt;</ept><bpt id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;title&gt;</bpt><ept id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;/linkText&gt;</ept><bpt id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;title&gt;</bpt><ept id="b9c1e5fc-d545-4c60-a21e-9003bbadb772">&lt;/title&gt;</ept>, <bpt id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;/linkText&gt;</ept><bpt id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;title&gt;</bpt><ept id="30c034fa-577f-469d-9b1f-b44f83991083">&lt;/title&gt;</ept>, <bpt id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;/linkText&gt;</ept><bpt id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;title&gt;</bpt><ept id="98109ca5-ddaf-45e2-99b3-88dd1b763313">&lt;/title&gt;</ept>, and <bpt id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-hive-odbc]<ept id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;/linkText&gt;</ept><bpt id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;title&gt;</bpt><ept id="255e7651-39dd-4f31-8d3d-ddbe86218e3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34da26fa-293f-442a-88e8-f1fdbf73fa1e" xml:space="preserve">
+          <source>In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure.</source>
+          <target state="new">In this tutorial we have seen how to transform an unstructured JSON dataset into a structured Hive table to query, explore, and analyze data from Twitter by using HDInsight on Azure.</target>
+        </trans-unit>
+        <trans-unit id="2fb6a785-cd49-46e8-880a-334bda325e1c" xml:space="preserve">
+          <source>To learn more, see:</source>
+          <target state="new">To learn more, see:</target>
+        </trans-unit>
+        <trans-unit id="c3a7390b-8792-4fcb-93ef-86ad4aa113c1" xml:space="preserve">
+          <source><bpt id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;/linkText&gt;</ept><bpt id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;title&gt;</bpt><ept id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;/linkText&gt;</ept><bpt id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;title&gt;</bpt><ept id="10def299-24eb-45d2-b8d4-bb59f6e2b6c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d4b3442-fd8e-4046-99ed-823d48ace529" xml:space="preserve">
+          <source><bpt id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase in HDInsight[hdinsight-hbase-twitter-sentiment]<ept id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;/linkText&gt;</ept><bpt id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;title&gt;</bpt><ept id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase in HDInsight[hdinsight-hbase-twitter-sentiment]<ept id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;/linkText&gt;</ept><bpt id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;title&gt;</bpt><ept id="a2405606-72ba-4e96-844b-5eac960a8313">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="059a3f16-e211-42f1-9531-fb1744189aab" xml:space="preserve">
+          <source><bpt id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;/linkText&gt;</ept><bpt id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;title&gt;</bpt><ept id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;linkText&gt;</bpt>Analyze flight delay data using HDInsight[hdinsight-analyze-flight-delay-data]<ept id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;/linkText&gt;</ept><bpt id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;title&gt;</bpt><ept id="09398fe1-c885-4fde-b004-8445f74fc119">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="873371f7-bde7-47ae-b06f-b5c548aa2dad" xml:space="preserve">
+          <source><bpt id="3c743995-4586-470f-ab03-cf366931faf3">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="3c743995-4586-470f-ab03-cf366931faf3">&lt;/linkText&gt;</ept><bpt id="3c743995-4586-470f-ab03-cf366931faf3">&lt;title&gt;</bpt><ept id="3c743995-4586-470f-ab03-cf366931faf3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3c743995-4586-470f-ab03-cf366931faf3">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with Power Query[hdinsight-power-query]<ept id="3c743995-4586-470f-ab03-cf366931faf3">&lt;/linkText&gt;</ept><bpt id="3c743995-4586-470f-ab03-cf366931faf3">&lt;title&gt;</bpt><ept id="3c743995-4586-470f-ab03-cf366931faf3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92878de9-dd4c-47ed-8d39-3c5d002341e6" xml:space="preserve">
+          <source><bpt id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-hive-odbc]<ept id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;/linkText&gt;</ept><bpt id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;title&gt;</bpt><ept id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-hive-odbc]<ept id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;/linkText&gt;</ept><bpt id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;title&gt;</bpt><ept id="c9febfde-8c23-4f60-9bb2-ee4f83f32b85">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a109216-43fa-4b8f-b5ae-bdf319b1b0ee" xml:space="preserve">
+          <source><bpt id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;/linkText&gt;</ept><bpt id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;title&gt;</bpt><ept id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;/linkText&gt;</ept><bpt id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;title&gt;</bpt><ept id="ecb0e88d-1d92-4484-9237-756212e6f382">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59b6df5f-adc7-4c9b-b695-c7ea2532931d" xml:space="preserve">
+          <source>http://curl.haxx.se</source>
+          <target state="new">http://curl.haxx.se</target>
+        </trans-unit>
+        <trans-unit id="23754994-a45e-444c-93e2-7a02335b5cbe" xml:space="preserve">
+          <source>http://curl.haxx.se/download.html</source>
+          <target state="new">http://curl.haxx.se/download.html</target>
+        </trans-unit>
+        <trans-unit id="61847bf5-c3c6-4f2a-b200-511df21a9314" xml:space="preserve">
+          <source>https://cwiki.apache.org/confluence/display/Hive/Tutorial</source>
+          <target state="new">https://cwiki.apache.org/confluence/display/Hive/Tutorial</target>
+        </trans-unit>
+        <trans-unit id="d3f6195c-fe55-453e-b174-2d958dbaa575" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/streaming-apis</source>
+          <target state="new">https://dev.twitter.com/docs/streaming-apis</target>
+        </trans-unit>
+        <trans-unit id="d337c483-2a6d-433e-bac8-dd8ac2e7f43a" xml:space="preserve">
+          <source>https://dev.twitter.com/docs/api/1.1/post/statuses/filter</source>
+          <target state="new">https://dev.twitter.com/docs/api/1.1/post/statuses/filter</target>
+        </trans-unit>
+        <trans-unit id="65aa1956-ebab-4c8f-915b-aa30516f69ea" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/hh847889.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/hh847889.aspx</target>
+        </trans-unit>
+        <trans-unit id="79c0c925-92e1-4e65-a619-5c9b518a772c" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="ea6a7316-1656-4c39-8357-23191a906ec3" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/ee176961.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/ee176961.aspx</target>
+        </trans-unit>
+        <trans-unit id="020eef26-a567-49f0-bb93-70baed76160c" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="4230a4b6-742f-425a-a117-2d8202896094" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="f1471819-8b63-4896-bf32-cceb5f048121" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md#powershell</source>
+          <target state="new">../hdinsight-use-blob-storage.md#powershell</target>
+        </trans-unit>
+        <trans-unit id="63621ca8-326b-46c9-8eba-a7bd16d2a835" xml:space="preserve">
+          <source>hdinsight-analyze-flight-delay-data.md</source>
+          <target state="new">hdinsight-analyze-flight-delay-data.md</target>
+        </trans-unit>
+        <trans-unit id="d034d2f7-b333-4909-bf8d-b0b291fb1473" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="d8197d93-b9a9-4448-be02-cc0c47543daa" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="aa228017-93b9-414e-8217-0e241d706948" xml:space="preserve">
+          <source>hdinsight-connect-excel-power-query.md</source>
+          <target state="new">hdinsight-connect-excel-power-query.md</target>
+        </trans-unit>
+        <trans-unit id="faa44bf6-4e9a-4da4-b59d-17e7a829e795" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+        <trans-unit id="4222b389-cf7e-444c-bd8b-003bec238f5d" xml:space="preserve">
+          <source>hdinsight-hbase-analyze-twitter-sentiment.md</source>
+          <target state="new">hdinsight-hbase-analyze-twitter-sentiment.md</target>
+        </trans-unit>
+      </group>
+      <group id="9a1521b7-1196-4774-9f4e-4d0566ffbe1b" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="204d06bb-e1fc-4bc0-9908-2304d5b26bc7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="204d06bb-e1fc-4bc0-9908-2304d5b26bc7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cea4b477-6091-4af7-9ef5-ce2edf1400c7">
+        <trans-unit id="1f99822a-b870-42e8-a8bd-726cee9aee04" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="7613f5b7-c6fb-4404-8735-27325e0fe941" xml:space="preserve">
+          <source>Default Limit</source>
+          <target state="new">Default Limit</target>
+        </trans-unit>
+        <trans-unit id="6c9f77b9-6b4e-49fc-86c0-cda3e23a8b3a" xml:space="preserve">
+          <source>Maximum Limit</source>
+          <target state="new">Maximum Limit</target>
+        </trans-unit>
+        <trans-unit id="b0db2a8a-e13c-4d15-bced-56389d5bac11" xml:space="preserve">
+          <source><bpt id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;linkText&gt;</bpt>Virtual machines<ept id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;/linkText&gt;</ept><bpt id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;title&gt;</bpt><ept id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;/title&gt;</ept> per cloud service&lt;sup&gt;1&lt;/sup&gt;</source>
+          <target state="new"><bpt id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;linkText&gt;</bpt>Virtual machines<ept id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;/linkText&gt;</ept><bpt id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;title&gt;</bpt><ept id="b90aac21-188e-469e-8022-1776e41a0d96">&lt;/title&gt;</ept> per cloud service&lt;sup&gt;1&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="b8a8bb27-1f72-405e-a261-3597a363269f" xml:space="preserve">
+          <source>50</source>
+          <target state="new">50</target>
+        </trans-unit>
+        <trans-unit id="c50d2dcb-df3f-4a44-9b0c-2234e2721292" xml:space="preserve">
+          <source>50</source>
+          <target state="new">50</target>
+        </trans-unit>
+        <trans-unit id="d9d023b5-ecb0-4f1e-a939-bc4d62fc05c4" xml:space="preserve">
+          <source>Input endpoints per cloud service&lt;sup&gt;2&lt;/sup&gt;</source>
+          <target state="new">Input endpoints per cloud service&lt;sup&gt;2&lt;/sup&gt;</target>
+        </trans-unit>
+        <trans-unit id="48ba1069-ca05-4352-b9ca-8d4fd7e29672" xml:space="preserve">
+          <source>150</source>
+          <target state="new">150</target>
+        </trans-unit>
+        <trans-unit id="aa0f942c-f834-4499-b290-06dbe99a3b4a" xml:space="preserve">
+          <source>150</source>
+          <target state="new">150</target>
+        </trans-unit>
+        <trans-unit id="3d6abac5-6e4b-4b5f-835d-b67939b1cd17" xml:space="preserve">
+          <source>&lt;sup&gt;1&lt;/sup&gt;Virtual machines created in Service Management (instead of Resource Manager) are automatically stored in a cloud service.</source>
+          <target state="new">&lt;sup&gt;1&lt;/sup&gt;Virtual machines created in Service Management (instead of Resource Manager) are automatically stored in a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="b2ce6f0e-d210-4c73-a9f5-cfcada552f56" xml:space="preserve">
+          <source>You can add more virtual machines to that cloud service for load balancing and availability.</source>
+          <target state="new">You can add more virtual machines to that cloud service for load balancing and availability.</target>
+        </trans-unit>
+        <trans-unit id="713fff14-90d8-46ca-bfdb-15b1c1445d8b" xml:space="preserve">
+          <source>See  <bpt id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;linkText&gt;</bpt>How to Connect Virtual Machines with a Virtual Network or Cloud Service<ept id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;/linkText&gt;</ept><bpt id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;title&gt;</bpt><ept id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;/title&gt;</ept>.</source>
+          <target state="new">See  <bpt id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;linkText&gt;</bpt>How to Connect Virtual Machines with a Virtual Network or Cloud Service<ept id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;/linkText&gt;</ept><bpt id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;title&gt;</bpt><ept id="0d90dc8b-9704-471e-82da-ffdd15c7aa67">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33ae4ff8-54ee-4df1-bdce-f299fbb44b4e" xml:space="preserve">
+          <source>&lt;sup&gt;2&lt;/sup&gt;Input endpoints allow communications to a virtual machine from outside the virtual machine's cloud service.</source>
+          <target state="new">&lt;sup&gt;2&lt;/sup&gt;Input endpoints allow communications to a virtual machine from outside the virtual machine's cloud service.</target>
+        </trans-unit>
+        <trans-unit id="b994a3b7-9db9-4f1e-af51-57058fb0dddb" xml:space="preserve">
+          <source>Virtual machines in the same cloud service or virtual network can automatically communicate with each other.</source>
+          <target state="new">Virtual machines in the same cloud service or virtual network can automatically communicate with each other.</target>
+        </trans-unit>
+        <trans-unit id="ec56163b-8f08-4a21-acf3-5914f977a008" xml:space="preserve">
+          <source>See <bpt id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;/linkText&gt;</ept><bpt id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;title&gt;</bpt><ept id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;/linkText&gt;</ept><bpt id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;title&gt;</bpt><ept id="381fa865-b28b-4631-91a8-30cd019eb34e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

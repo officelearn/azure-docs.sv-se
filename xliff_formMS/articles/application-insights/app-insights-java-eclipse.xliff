@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2ee569de-bdd6-4feb-9c4f-fff91951871d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2ee569de-bdd6-4feb-9c4f-fff91951871d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7cc9114b-990c-46e3-a97a-4bb0166454a5">
+        <trans-unit id="c75266be-3778-4562-ad21-de834ca00aac" xml:space="preserve">
+          <source>Get started with Application Insights with Java in Eclipse</source>
+          <target state="new">Get started with Application Insights with Java in Eclipse</target>
+        </trans-unit>
+        <trans-unit id="5155c543-f183-47b4-abf2-abb6b845f630" xml:space="preserve">
+          <source>Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights</source>
+          <target state="new">Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="6533e579-0e05-45e6-8c52-3c5775a1bac2" xml:space="preserve">
+          <source>The Application Insights SDK sends telemetry from your Java web application so that you can analyze usage and performance.</source>
+          <target state="new">The Application Insights SDK sends telemetry from your Java web application so that you can analyze usage and performance.</target>
+        </trans-unit>
+        <trans-unit id="ced72484-a104-4221-8fbe-5d4528429b69" xml:space="preserve">
+          <source>The Eclipse plug-in for Application Insights automatically installs the SDK in your project so that you get out of the box telemetry, plus an API that you can use to write custom telemetry.</source>
+          <target state="new">The Eclipse plug-in for Application Insights automatically installs the SDK in your project so that you get out of the box telemetry, plus an API that you can use to write custom telemetry.</target>
+        </trans-unit>
+        <trans-unit id="eff4a6a0-5797-4148-84a7-ef82bb0d1902" xml:space="preserve">
+          <source>Currently the plug-in works for Dynamic Web Projects in Eclipse.</source>
+          <target state="new">Currently the plug-in works for Dynamic Web Projects in Eclipse.</target>
+        </trans-unit>
+        <trans-unit id="dc8b21d0-2145-4fe4-a177-5311a892073b" xml:space="preserve">
+          <source>(<bpt id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;linkText&gt;</bpt>Add Application Insights to other types of Java project[java]<ept id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;/linkText&gt;</ept><bpt id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;title&gt;</bpt><ept id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(<bpt id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;linkText&gt;</bpt>Add Application Insights to other types of Java project[java]<ept id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;/linkText&gt;</ept><bpt id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;title&gt;</bpt><ept id="c08c6d53-4d30-413b-bbda-678ea8f6a02c">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="554f05c8-a91f-42cd-9d1c-8b9a9fc7e66e" xml:space="preserve">
+          <source>You'll need:</source>
+          <target state="new">You'll need:</target>
+        </trans-unit>
+        <trans-unit id="48abdcd0-cf01-45e7-8fea-a7bdb9c4c653" xml:space="preserve">
+          <source>Oracle JRE 1.6 or later</source>
+          <target state="new">Oracle JRE 1.6 or later</target>
+        </trans-unit>
+        <trans-unit id="2372ec9e-8eee-4ca1-9c97-abf1f65a594d" xml:space="preserve">
+          <source>A subscription to <bpt id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;/linkText&gt;</ept><bpt id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;title&gt;</bpt><ept id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;/title&gt;</ept>.</source>
+          <target state="new">A subscription to <bpt id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;/linkText&gt;</ept><bpt id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;title&gt;</bpt><ept id="01c3f26b-3314-4b47-98e5-795de02f17c2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7e7917c-bd4b-4ccc-be7b-35288e2b613c" xml:space="preserve">
+          <source>(You could start with the <bpt id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;linkText&gt;</bpt>free trial<ept id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;/linkText&gt;</ept><bpt id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;title&gt;</bpt><ept id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(You could start with the <bpt id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;linkText&gt;</bpt>free trial<ept id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;/linkText&gt;</ept><bpt id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;title&gt;</bpt><ept id="4bbe7789-681b-41df-a797-09d6b6d66aac">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="42fc4c17-7a05-406a-990b-871d3a85d008" xml:space="preserve">
+          <source><bpt id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;linkText&gt;</bpt>Eclipse IDE for Java EE Developers<ept id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;/linkText&gt;</ept><bpt id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;title&gt;</bpt><ept id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;/title&gt;</ept>, Indigo or later.</source>
+          <target state="new"><bpt id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;linkText&gt;</bpt>Eclipse IDE for Java EE Developers<ept id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;/linkText&gt;</ept><bpt id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;title&gt;</bpt><ept id="9e91656e-194a-4d34-a8a5-a33f9c9adde8">&lt;/title&gt;</ept>, Indigo or later.</target>
+        </trans-unit>
+        <trans-unit id="ddfa9016-c101-40fd-ae4f-46258cef8799" xml:space="preserve">
+          <source>Windows 7 or later, or Windows Server 2008 or later</source>
+          <target state="new">Windows 7 or later, or Windows Server 2008 or later</target>
+        </trans-unit>
+        <trans-unit id="2a4377cf-e10b-4fa5-99eb-d69676ecd8e8" xml:space="preserve">
+          <source>You only have to do this one time per machine.</source>
+          <target state="new">You only have to do this one time per machine.</target>
+        </trans-unit>
+        <trans-unit id="40eb9db7-dc86-4652-a641-30ed43e0d2ab" xml:space="preserve">
+          <source>This step installs a toolkit which can then add the SDK to each Dynamic Web Project.</source>
+          <target state="new">This step installs a toolkit which can then add the SDK to each Dynamic Web Project.</target>
+        </trans-unit>
+        <trans-unit id="01d237a3-32e3-49e1-a96e-f06642bd6620" xml:space="preserve">
+          <source>In Eclipse, click Help, Install New Software.</source>
+          <target state="new">In Eclipse, click Help, Install New Software.</target>
+        </trans-unit>
+        <trans-unit id="fe26f27e-081d-4494-9bcf-f6cb679c4ed3" xml:space="preserve">
+          <source><bpt id="c7dc95c8-c7c3-4ae8-b57b-9487d9570f95">&lt;linkText&gt;</bpt>Help, Install New Software<ept id="c7dc95c8-c7c3-4ae8-b57b-9487d9570f95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c7dc95c8-c7c3-4ae8-b57b-9487d9570f95">&lt;linkText&gt;</bpt>Help, Install New Software<ept id="c7dc95c8-c7c3-4ae8-b57b-9487d9570f95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9300217-7cdf-4eb8-975f-59efb6ec4756" xml:space="preserve">
+          <source>The SDK is in http://dl.windowsazure.com/eclipse, under Azure Toolkit.</source>
+          <target state="new">The SDK is in http://dl.windowsazure.com/eclipse, under Azure Toolkit.</target>
+        </trans-unit>
+        <trans-unit id="30718a8f-c6ec-46b3-8896-b06f1958afbd" xml:space="preserve">
+          <source>Uncheck <bpt id="52acc5ab-7ac6-478c-b481-fdaf8eb1aa03">&lt;strong&gt;</bpt>Contact all update sites...<ept id="52acc5ab-7ac6-478c-b481-fdaf8eb1aa03">&lt;/strong&gt;</ept></source>
+          <target state="new">Uncheck <bpt id="52acc5ab-7ac6-478c-b481-fdaf8eb1aa03">&lt;strong&gt;</bpt>Contact all update sites...<ept id="52acc5ab-7ac6-478c-b481-fdaf8eb1aa03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21c08d60-4135-4f4f-b458-b77328b2c7b4" xml:space="preserve">
+          <source><bpt id="59aa4811-cd11-477f-aec2-0d924e38e3c4">&lt;linkText&gt;</bpt>For Application Insights SDK, clear Contact all update sites<ept id="59aa4811-cd11-477f-aec2-0d924e38e3c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59aa4811-cd11-477f-aec2-0d924e38e3c4">&lt;linkText&gt;</bpt>For Application Insights SDK, clear Contact all update sites<ept id="59aa4811-cd11-477f-aec2-0d924e38e3c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5675fb5-b67c-40a8-b268-000a511dc930" xml:space="preserve">
+          <source>Follow the remaining steps for each Java project.</source>
+          <target state="new">Follow the remaining steps for each Java project.</target>
+        </trans-unit>
+        <trans-unit id="aa75586d-02af-468d-9a2d-045eb4fc53b0" xml:space="preserve">
+          <source>Your usage and performance analytics will be displayed in an Azure resource in the Azure web portal.</source>
+          <target state="new">Your usage and performance analytics will be displayed in an Azure resource in the Azure web portal.</target>
+        </trans-unit>
+        <trans-unit id="0e4a8e1f-2cba-4264-bfe5-f2b4462ab335" xml:space="preserve">
+          <source>In this step, you set up an Azure resource for your application.</source>
+          <target state="new">In this step, you set up an Azure resource for your application.</target>
+        </trans-unit>
+        <trans-unit id="bdba828f-587d-40f9-9890-a2f9cf8a8779" xml:space="preserve">
+          <source>Log into the <bpt id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;linkText&gt;</bpt>Microsoft Azure Portal<ept id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;/linkText&gt;</ept><bpt id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;title&gt;</bpt><ept id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log into the <bpt id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;linkText&gt;</bpt>Microsoft Azure Portal<ept id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;/linkText&gt;</ept><bpt id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;title&gt;</bpt><ept id="82aa97b9-52a5-4bfe-b947-87d53646cac2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25a9782b-0892-4ca5-8127-31c15578a2d9" xml:space="preserve">
+          <source>(You'll need an <bpt id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;linkText&gt;</bpt>Azure subscription<ept id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;/linkText&gt;</ept><bpt id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;title&gt;</bpt><ept id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(You'll need an <bpt id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;linkText&gt;</bpt>Azure subscription<ept id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;/linkText&gt;</ept><bpt id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;title&gt;</bpt><ept id="09030438-dbd4-4a8a-a3d0-537f04fbb847">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="8a2249c3-3bf7-435d-ab89-487e7ae9984f" xml:space="preserve">
+          <source>Create a new Application Insights resource</source>
+          <target state="new">Create a new Application Insights resource</target>
+        </trans-unit>
+        <trans-unit id="959bafba-9222-4762-9714-4d90abbd1e3c" xml:space="preserve">
+          <source><bpt id="69ed448a-c73c-419e-a9d9-a89d83ed6938">&lt;linkText&gt;</bpt>Click + and choose Application Insights<ept id="69ed448a-c73c-419e-a9d9-a89d83ed6938">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69ed448a-c73c-419e-a9d9-a89d83ed6938">&lt;linkText&gt;</bpt>Click + and choose Application Insights<ept id="69ed448a-c73c-419e-a9d9-a89d83ed6938">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="517177c0-ccdf-46e9-9dff-c7a0e6daac75" xml:space="preserve">
+          <source>Set the application type to Java web application.</source>
+          <target state="new">Set the application type to Java web application.</target>
+        </trans-unit>
+        <trans-unit id="2eba1d94-fb5c-4ccf-ad42-6c685e3cc17d" xml:space="preserve">
+          <source><bpt id="44a58e7a-7e26-42eb-8578-37f282be934d">&lt;linkText&gt;</bpt>Fill a name, choose Java web app, and click Create<ept id="44a58e7a-7e26-42eb-8578-37f282be934d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44a58e7a-7e26-42eb-8578-37f282be934d">&lt;linkText&gt;</bpt>Fill a name, choose Java web app, and click Create<ept id="44a58e7a-7e26-42eb-8578-37f282be934d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a22ff4ec-17fd-44ef-827a-7d1408a3dcf1" xml:space="preserve">
+          <source>Find the instrumentation key of the new resource.</source>
+          <target state="new">Find the instrumentation key of the new resource.</target>
+        </trans-unit>
+        <trans-unit id="7015af1d-79a1-4ef9-af40-279daed79b90" xml:space="preserve">
+          <source>You'll need to paste this into your project in Eclipse.</source>
+          <target state="new">You'll need to paste this into your project in Eclipse.</target>
+        </trans-unit>
+        <trans-unit id="0b05f5a8-01f8-4c3c-8d07-50d2871a7091" xml:space="preserve">
+          <source><bpt id="96c82845-efa9-41de-8f83-6c11e395615b">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="96c82845-efa9-41de-8f83-6c11e395615b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96c82845-efa9-41de-8f83-6c11e395615b">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="96c82845-efa9-41de-8f83-6c11e395615b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53a0140f-db74-4b40-969b-2a21a6438bfd" xml:space="preserve">
+          <source>Add Application Insights from the context menu of your web project.</source>
+          <target state="new">Add Application Insights from the context menu of your web project.</target>
+        </trans-unit>
+        <trans-unit id="c467a71d-34e7-4790-83f3-d0437971bd20" xml:space="preserve">
+          <source><bpt id="e0a6d2cb-375a-4417-95d0-032e8c374a8b">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="e0a6d2cb-375a-4417-95d0-032e8c374a8b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0a6d2cb-375a-4417-95d0-032e8c374a8b">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="e0a6d2cb-375a-4417-95d0-032e8c374a8b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fe1e40e-9588-4d9c-9847-77ee94a6dc90" xml:space="preserve">
+          <source>Paste the instrumentation key that you got from the Azure portal.</source>
+          <target state="new">Paste the instrumentation key that you got from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="fadd4930-9f77-4cdb-a134-8abf6942f06e" xml:space="preserve">
+          <source><bpt id="f1d89a7c-fc62-4945-99eb-589ad0ec4a0d">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="f1d89a7c-fc62-4945-99eb-589ad0ec4a0d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1d89a7c-fc62-4945-99eb-589ad0ec4a0d">&lt;linkText&gt;</bpt>In the new resource overview, click Properties and copy the Instrumentation Key<ept id="f1d89a7c-fc62-4945-99eb-589ad0ec4a0d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3887c5c-813e-4914-b321-fb558065fbda" xml:space="preserve">
+          <source>The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.</source>
+          <target state="new">The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.</target>
+        </trans-unit>
+        <trans-unit id="706de414-a9c3-49c9-9108-ddd9d0829a96" xml:space="preserve">
+          <source>Run your application.</source>
+          <target state="new">Run your application.</target>
+        </trans-unit>
+        <trans-unit id="32423bbd-222f-478e-8ed8-2612ee6a2bab" xml:space="preserve">
+          <source>Return to your Application Insights resource in Microsoft Azure.</source>
+          <target state="new">Return to your Application Insights resource in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="eb89509c-c753-4bba-8d5f-f8029fd81bd7" xml:space="preserve">
+          <source>HTTP requests data will appear on the overview blade.</source>
+          <target state="new">HTTP requests data will appear on the overview blade.</target>
+        </trans-unit>
+        <trans-unit id="b04d436b-498a-4bc7-b5d7-c79f4ff0a7e7" xml:space="preserve">
+          <source>(If it isn't there, wait a few seconds and then click Refresh.)</source>
+          <target state="new">(If it isn't there, wait a few seconds and then click Refresh.)</target>
+        </trans-unit>
+        <trans-unit id="6ee439a3-3901-42b2-92b6-258a151f77a2" xml:space="preserve">
+          <source><bpt id="f61a2eb7-ff5e-41d0-936c-021d3945b9a7">&lt;linkText&gt;</bpt>Server response, request counts, and failures <ept id="f61a2eb7-ff5e-41d0-936c-021d3945b9a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f61a2eb7-ff5e-41d0-936c-021d3945b9a7">&lt;linkText&gt;</bpt>Server response, request counts, and failures <ept id="f61a2eb7-ff5e-41d0-936c-021d3945b9a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51b3adc2-0ec4-40d0-963b-c3d35ec579ea" xml:space="preserve">
+          <source>Click through any chart to see more detailed metrics.</source>
+          <target state="new">Click through any chart to see more detailed metrics.</target>
+        </trans-unit>
+        <trans-unit id="dbe775fc-e9f8-4a72-b424-b1b08b3f97cb" xml:space="preserve">
+          <source><bpt id="ff5eca5a-5908-43f8-8b6c-79d946a9fdb1">&lt;linkText&gt;</bpt>Request counts by name<ept id="ff5eca5a-5908-43f8-8b6c-79d946a9fdb1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff5eca5a-5908-43f8-8b6c-79d946a9fdb1">&lt;linkText&gt;</bpt>Request counts by name<ept id="ff5eca5a-5908-43f8-8b6c-79d946a9fdb1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5ccae4a-fdea-47d9-afce-35f2e13e9f04" xml:space="preserve">
+          <source><bpt id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;linkText&gt;</bpt>Learn more about metrics.[metrics]<ept id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;/linkText&gt;</ept><bpt id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;title&gt;</bpt><ept id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;linkText&gt;</bpt>Learn more about metrics.[metrics]<ept id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;/linkText&gt;</ept><bpt id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;title&gt;</bpt><ept id="43985ee2-0d05-460f-97ed-fd4e9cbd172e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d9f5e14-eec5-4471-b800-95befacfbe52" xml:space="preserve">
+          <source>And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.</source>
+          <target state="new">And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.</target>
+        </trans-unit>
+        <trans-unit id="8e6f45a8-586a-4ceb-8baa-7423f3ee9329" xml:space="preserve">
+          <source><bpt id="dacee840-265d-4439-91b5-1d09766a0843">&lt;linkText&gt;</bpt>All traces for this request<ept id="dacee840-265d-4439-91b5-1d09766a0843">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dacee840-265d-4439-91b5-1d09766a0843">&lt;linkText&gt;</bpt>All traces for this request<ept id="dacee840-265d-4439-91b5-1d09766a0843">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0090435-c832-481c-9789-4ee5583751c1" xml:space="preserve">
+          <source>From the QuickStart blade, click Get code to monitor my web pages: </source>
+          <target state="new">From the QuickStart blade, click Get code to monitor my web pages: </target>
+        </trans-unit>
+        <trans-unit id="b508abb6-9326-42ae-8e6e-c34ae14b076d" xml:space="preserve">
+          <source>![On your app overview blade, choose Quick Start, Get code to monitor my web pages.</source>
+          <target state="new">![On your app overview blade, choose Quick Start, Get code to monitor my web pages.</target>
+        </trans-unit>
+        <trans-unit id="4d72f25c-002b-4cf9-9292-87f7885e3124" xml:space="preserve">
+          <source>Copy the script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)</source>
+          <target state="new">Copy the script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)</target>
+        </trans-unit>
+        <trans-unit id="153f63ef-43fc-4f72-b71d-6d9db0eae377" xml:space="preserve">
+          <source>Insert the code snippet in the head of your HTML files.</source>
+          <target state="new">Insert the code snippet in the head of your HTML files.</target>
+        </trans-unit>
+        <trans-unit id="ab2578c4-855f-4770-b97d-b00ddbcaaf04" xml:space="preserve">
+          <source>Open your updated web pages and use them.</source>
+          <target state="new">Open your updated web pages and use them.</target>
+        </trans-unit>
+        <trans-unit id="4b4323f2-f0bc-42ec-99ed-0d7deb634057" xml:space="preserve">
+          <source>Wait a minute or two, then return to Application Insights and refresh the usage blade.</source>
+          <target state="new">Wait a minute or two, then return to Application Insights and refresh the usage blade.</target>
+        </trans-unit>
+        <trans-unit id="4ec40bb4-2345-4ef8-90ca-e07153fea952" xml:space="preserve">
+          <source>Page view, user, and session metrics will appear on the usage blade:</source>
+          <target state="new">Page view, user, and session metrics will appear on the usage blade:</target>
+        </trans-unit>
+        <trans-unit id="b605a657-1618-4064-ac28-d4171764adf5" xml:space="preserve">
+          <source><bpt id="a37d7965-c8d1-44d7-a5ee-3d96075586c3">&lt;linkText&gt;</bpt>Sessions, users and page views<ept id="a37d7965-c8d1-44d7-a5ee-3d96075586c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a37d7965-c8d1-44d7-a5ee-3d96075586c3">&lt;linkText&gt;</bpt>Sessions, users and page views<ept id="a37d7965-c8d1-44d7-a5ee-3d96075586c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c898dae0-4689-47ea-a6d1-4cd5f868db55" xml:space="preserve">
+          <source><bpt id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;linkText&gt;</bpt>Learn more about setting up client-side telemetry.[usage]<ept id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;/linkText&gt;</ept><bpt id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;title&gt;</bpt><ept id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;linkText&gt;</bpt>Learn more about setting up client-side telemetry.[usage]<ept id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;/linkText&gt;</ept><bpt id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;title&gt;</bpt><ept id="e13392e8-4100-41a6-9898-d671fcd89b42">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fd1c0b7-2bd8-45db-824f-1ca09a4e6d11" xml:space="preserve">
+          <source>Application Insights can test your website at regular intervals to check that it's up and responding well.</source>
+          <target state="new">Application Insights can test your website at regular intervals to check that it's up and responding well.</target>
+        </trans-unit>
+        <trans-unit id="441379c2-3c40-455d-8cf0-cc62b18d972c" xml:space="preserve">
+          <source>To set up, click through the empty web tests chart on the overview blade, and provide your public URL.</source>
+          <target state="new">To set up, click through the empty web tests chart on the overview blade, and provide your public URL.</target>
+        </trans-unit>
+        <trans-unit id="f0b9fba4-5215-48a5-94bb-d0f066342204" xml:space="preserve">
+          <source>You'll get charts of response times, plus email notifications if your site goes down.</source>
+          <target state="new">You'll get charts of response times, plus email notifications if your site goes down.</target>
+        </trans-unit>
+        <trans-unit id="8a06ae92-b90b-497e-a7af-6f1430295cfa" xml:space="preserve">
+          <source><bpt id="86084f6f-4408-48c8-8386-9efe86381ea7">&lt;linkText&gt;</bpt>Web test example<ept id="86084f6f-4408-48c8-8386-9efe86381ea7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86084f6f-4408-48c8-8386-9efe86381ea7">&lt;linkText&gt;</bpt>Web test example<ept id="86084f6f-4408-48c8-8386-9efe86381ea7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19d3b7a5-e7f7-4418-ae76-45cf9e67f2ef" xml:space="preserve">
+          <source><bpt id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;linkText&gt;</bpt>Learn more about availability web tests.[availability]<ept id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;/linkText&gt;</ept><bpt id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;title&gt;</bpt><ept id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;linkText&gt;</bpt>Learn more about availability web tests.[availability]<ept id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;/linkText&gt;</ept><bpt id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;title&gt;</bpt><ept id="ad1ece4d-4d1a-4e45-9dac-8522840934dc">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="974d46e7-2996-4b08-b389-8c6b0a713745" xml:space="preserve">
+          <source>If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.</source>
+          <target state="new">If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.</target>
+        </trans-unit>
+        <trans-unit id="7ff453d3-9b53-4a97-b79d-c63dfdf4203b" xml:space="preserve">
+          <source><bpt id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;linkText&gt;</bpt>Learn more about diagnostic logs[javalogs]<ept id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;/linkText&gt;</ept><bpt id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;title&gt;</bpt><ept id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;linkText&gt;</bpt>Learn more about diagnostic logs[javalogs]<ept id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;/linkText&gt;</ept><bpt id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;title&gt;</bpt><ept id="50d2ecb3-9263-4efb-a798-fa2b1dd99c9e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a06e7c2-8bff-4bca-9767-ba6cfb2698f7" xml:space="preserve">
+          <source>Insert a few lines of code in your Java web application to find out what users are doing with it or to help diagnose problems.</source>
+          <target state="new">Insert a few lines of code in your Java web application to find out what users are doing with it or to help diagnose problems.</target>
+        </trans-unit>
+        <trans-unit id="4f1d082e-b343-41f2-86f1-cfc6c540e271" xml:space="preserve">
+          <source>You can insert code both in web page JavaScript and in the server-side Java.</source>
+          <target state="new">You can insert code both in web page JavaScript and in the server-side Java.</target>
+        </trans-unit>
+        <trans-unit id="a9598f89-90f0-4370-a965-b5b00cb3416b" xml:space="preserve">
+          <source><bpt id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;linkText&gt;</bpt>Learn about custom telemetry[track]<ept id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;/linkText&gt;</ept><bpt id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;title&gt;</bpt><ept id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;linkText&gt;</bpt>Learn about custom telemetry[track]<ept id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;/linkText&gt;</ept><bpt id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;title&gt;</bpt><ept id="545659bf-039e-4bd1-b33a-853dd421e038">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81a95b1b-d10c-49f0-acc6-ad3177dd5ff8" xml:space="preserve">
+          <source><bpt id="530d922c-1c31-4428-b72f-d332276107aa">&lt;linkText&gt;</bpt>Add web client telemetry[usage]<ept id="530d922c-1c31-4428-b72f-d332276107aa">&lt;/linkText&gt;</ept><bpt id="530d922c-1c31-4428-b72f-d332276107aa">&lt;title&gt;</bpt><ept id="530d922c-1c31-4428-b72f-d332276107aa">&lt;/title&gt;</ept> to get performance telemetry from the web client.</source>
+          <target state="new"><bpt id="530d922c-1c31-4428-b72f-d332276107aa">&lt;linkText&gt;</bpt>Add web client telemetry[usage]<ept id="530d922c-1c31-4428-b72f-d332276107aa">&lt;/linkText&gt;</ept><bpt id="530d922c-1c31-4428-b72f-d332276107aa">&lt;title&gt;</bpt><ept id="530d922c-1c31-4428-b72f-d332276107aa">&lt;/title&gt;</ept> to get performance telemetry from the web client.</target>
+        </trans-unit>
+        <trans-unit id="a0ea7662-c8e5-4a54-9479-b2023a4e9454" xml:space="preserve">
+          <source><bpt id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;linkText&gt;</bpt>Set up web tests[availability]<ept id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;/linkText&gt;</ept><bpt id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;title&gt;</bpt><ept id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;/title&gt;</ept> to make sure your application stays live and responsive.</source>
+          <target state="new"><bpt id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;linkText&gt;</bpt>Set up web tests[availability]<ept id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;/linkText&gt;</ept><bpt id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;title&gt;</bpt><ept id="d30557cb-94dc-4e84-9b7f-020d953412ed">&lt;/title&gt;</ept> to make sure your application stays live and responsive.</target>
+        </trans-unit>
+        <trans-unit id="2e587ee7-3406-4d85-9b53-6f5a83f61bc1" xml:space="preserve">
+          <source><bpt id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;linkText&gt;</bpt>Search events and logs[diagnostic]<ept id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;/linkText&gt;</ept><bpt id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;title&gt;</bpt><ept id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;/title&gt;</ept> to help diagnose problems.</source>
+          <target state="new"><bpt id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;linkText&gt;</bpt>Search events and logs[diagnostic]<ept id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;/linkText&gt;</ept><bpt id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;title&gt;</bpt><ept id="b749ffd3-99c7-44dd-aeb2-d0522ac885f8">&lt;/title&gt;</ept> to help diagnose problems.</target>
+        </trans-unit>
+        <trans-unit id="dec3891a-6072-4e4f-a76f-086fb2704567" xml:space="preserve">
+          <source><bpt id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;linkText&gt;</bpt>Capture Log4J or Logback traces[javalogs]<ept id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;/linkText&gt;</ept><bpt id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;title&gt;</bpt><ept id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;linkText&gt;</bpt>Capture Log4J or Logback traces[javalogs]<ept id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;/linkText&gt;</ept><bpt id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;title&gt;</bpt><ept id="4266dd52-5135-43eb-93c5-24420691abb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df888e99-fd82-4260-8d65-51c66b300db0" xml:space="preserve">
+          <source><bpt id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;linkText&gt;</bpt>Add web client telemetry[usage]<ept id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;/linkText&gt;</ept><bpt id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;title&gt;</bpt><ept id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;/title&gt;</ept> to monitor page views and basic user metrics.</source>
+          <target state="new"><bpt id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;linkText&gt;</bpt>Add web client telemetry[usage]<ept id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;/linkText&gt;</ept><bpt id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;title&gt;</bpt><ept id="f75c609c-d7f0-4e51-914b-9d9850c724c4">&lt;/title&gt;</ept> to monitor page views and basic user metrics.</target>
+        </trans-unit>
+        <trans-unit id="1d7e180c-a1a6-4c8a-b35d-9f43153e68b2" xml:space="preserve">
+          <source><bpt id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;linkText&gt;</bpt>Track custom events and metrics[track]<ept id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;/linkText&gt;</ept><bpt id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;title&gt;</bpt><ept id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;/title&gt;</ept> to learn about how your application is used, both at the client and the server.</source>
+          <target state="new"><bpt id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;linkText&gt;</bpt>Track custom events and metrics[track]<ept id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;/linkText&gt;</ept><bpt id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;title&gt;</bpt><ept id="59dcaaca-3dd5-449e-bb4a-1c90963b5f83">&lt;/title&gt;</ept> to learn about how your application is used, both at the client and the server.</target>
+        </trans-unit>
+        <trans-unit id="dc06e57d-f8d1-43bd-a393-88c3e4d9d41a" xml:space="preserve">
+          <source>app-insights-monitor-web-app-availability.md</source>
+          <target state="new">app-insights-monitor-web-app-availability.md</target>
+        </trans-unit>
+        <trans-unit id="cd68eb5f-2d70-403f-bdbc-5388930c880b" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="44b77d92-a24c-4b1f-ace3-74d97567e5af" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="085f690d-1e98-4ddb-b746-d99dc091d949" xml:space="preserve">
+          <source>app-insights-java-trace-logs.md</source>
+          <target state="new">app-insights-java-trace-logs.md</target>
+        </trans-unit>
+        <trans-unit id="6b1f54ed-368c-4095-a831-69cb6a7fc191" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="1e83907e-6f54-4d8b-bcf8-3d87b57e61a6" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="30907e36-e2ff-487c-953d-291a2e9c3e23" xml:space="preserve">
+          <source>app-insights-web-track-usage.md</source>
+          <target state="new">app-insights-web-track-usage.md</target>
+        </trans-unit>
+      </group>
+      <group id="326b5367-1b17-4d75-999e-d8012b7314a3" />
+    </body>
+  </file>
+</xliff>

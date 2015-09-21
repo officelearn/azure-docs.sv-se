@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d42fef19-afdd-4022-96af-d8c12e3bfda2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d42fef19-afdd-4022-96af-d8c12e3bfda2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4db78061-f26a-40e6-a7da-e80474d0cafd">
+        <trans-unit id="c957f096-66ca-4e7c-b025-7973f7175be3" xml:space="preserve">
+          <source>StorSimple 8000 Series Update 0.3 release notes - February 2015 | Microsoft Azure</source>
+          <target state="new">StorSimple 8000 Series Update 0.3 release notes - February 2015 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0a759773-b05f-484d-ab93-504e23c60bd0" xml:space="preserve">
+          <source>Describes the new features, issues, and workarounds for the February 2015 StorSimple release.</source>
+          <target state="new">Describes the new features, issues, and workarounds for the February 2015 StorSimple release.</target>
+        </trans-unit>
+        <trans-unit id="87f9c23e-5841-488a-b0a9-4ca32255956e" xml:space="preserve">
+          <source>The following release notes identify the critical open issues for  StorSimple 8000 Series Update 0.3 released in February 2015.</source>
+          <target state="new">The following release notes identify the critical open issues for  StorSimple 8000 Series Update 0.3 released in February 2015.</target>
+        </trans-unit>
+        <trans-unit id="e7c5dc98-9b61-4a6a-85fc-619e800d386e" xml:space="preserve">
+          <source>They also contain a list of the StorSimple software and firmware updates included in this release.</source>
+          <target state="new">They also contain a list of the StorSimple software and firmware updates included in this release.</target>
+        </trans-unit>
+        <trans-unit id="47991ffe-9267-438c-9dd3-925c66cce42c" xml:space="preserve">
+          <source>This is the third release after the StorSimple 8000 Series Release version was made generally available in July 2014.</source>
+          <target state="new">This is the third release after the StorSimple 8000 Series Release version was made generally available in July 2014.</target>
+        </trans-unit>
+        <trans-unit id="6cd88d52-77be-4f2d-a57f-d93899ad58ed" xml:space="preserve">
+          <source>This update does not change the device software version from the January update.</source>
+          <target state="new">This update does not change the device software version from the January update.</target>
+        </trans-unit>
+        <trans-unit id="3994c752-b886-449e-92a0-70dc03cdbf34" xml:space="preserve">
+          <source>It continues to be version 6.3.9600.17312.</source>
+          <target state="new">It continues to be version 6.3.9600.17312.</target>
+        </trans-unit>
+        <trans-unit id="6c37b06f-aea7-441d-a4ce-c592cba56ce4" xml:space="preserve">
+          <source>You can confirm that the update has been installed by checking the <bpt id="adfbd003-2f55-45bb-8949-fb03dab64381">&lt;strong&gt;</bpt>Last Updated<ept id="adfbd003-2f55-45bb-8949-fb03dab64381">&lt;/strong&gt;</ept> date.</source>
+          <target state="new">You can confirm that the update has been installed by checking the <bpt id="adfbd003-2f55-45bb-8949-fb03dab64381">&lt;strong&gt;</bpt>Last Updated<ept id="adfbd003-2f55-45bb-8949-fb03dab64381">&lt;/strong&gt;</ept> date.</target>
+        </trans-unit>
+        <trans-unit id="8148fafb-18cb-4ade-82ad-2b953216d410" xml:space="preserve">
+          <source>If the date is 2/10/2015 or later, then the update has been installed successfully.</source>
+          <target state="new">If the date is 2/10/2015 or later, then the update has been installed successfully.</target>
+        </trans-unit>
+        <trans-unit id="ebed66af-9169-4dd3-8b37-75c23d8055a6" xml:space="preserve">
+          <source>We recommend that you scan for and apply any available updates immediately after you install your StorSimple device.</source>
+          <target state="new">We recommend that you scan for and apply any available updates immediately after you install your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="7bdcace5-a96e-48ba-8abb-c9ebf51328c3" xml:space="preserve">
+          <source>You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released.</source>
+          <target state="new">You can also turn on automatic updates to download and install high-priority updates from Microsoft as soon as they are released.</target>
+        </trans-unit>
+        <trans-unit id="45868bca-5469-4670-af37-a3a4b7d68d4c" xml:space="preserve">
+          <source>For more information, see <bpt id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;linkText&gt;</bpt>Update your StorSimple device<ept id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;/linkText&gt;</ept><bpt id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;title&gt;</bpt><ept id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;linkText&gt;</bpt>Update your StorSimple device<ept id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;/linkText&gt;</ept><bpt id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;title&gt;</bpt><ept id="486a9ae9-e6c9-4304-bc29-d2e408f3a677">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29984788-ca42-4e43-ad33-0a6090a9b082" xml:space="preserve">
+          <source>Please review the information contained in the release notes before you deploy the update in your StorSimple solution.</source>
+          <target state="new">Please review the information contained in the release notes before you deploy the update in your StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="26c91e98-ce33-496d-8681-793ad4895ccf" xml:space="preserve">
+          <source>Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install the February update.</source>
+          <target state="new">Use the StorSimple Manager service and not Windows PowerShell for StorSimple to install the February update.</target>
+        </trans-unit>
+        <trans-unit id="7c77d654-cb33-41ba-8e0e-ea5a77f94720" xml:space="preserve">
+          <source>It takes approximately an hour to install this update.</source>
+          <target state="new">It takes approximately an hour to install this update.</target>
+        </trans-unit>
+        <trans-unit id="5ccf9530-41cf-4dd5-9140-3f77308f35c9" xml:space="preserve">
+          <source>However, if you are installing cumulative updates, the process can take about 3 hours to complete.</source>
+          <target state="new">However, if you are installing cumulative updates, the process can take about 3 hours to complete.</target>
+        </trans-unit>
+        <trans-unit id="8a9512c4-99b7-465b-a2ea-f14aaf951ce2" xml:space="preserve">
+          <source>The February release of StorSimple does not contain any updates to the StorSimple virtual device.</source>
+          <target state="new">The February release of StorSimple does not contain any updates to the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="920c93b8-0a33-4c07-af42-5b98b1b5c9b2" xml:space="preserve">
+          <source>You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the virtual device.</source>
+          <target state="new">You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="05cf231d-d070-4e6f-afc3-4f5f530b358d" xml:space="preserve">
+          <source>Make sure that the following prerequisites are met prior to updating your StorSimple device.</source>
+          <target state="new">Make sure that the following prerequisites are met prior to updating your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="ab05b47e-611c-453e-9c92-45502500f60b" xml:space="preserve">
+          <source>Ensure that both device controllers are running before you scan for updates.</source>
+          <target state="new">Ensure that both device controllers are running before you scan for updates.</target>
+        </trans-unit>
+        <trans-unit id="b03275e2-888c-4787-9690-b188777ada76" xml:space="preserve">
+          <source>If either controller is not running, the scan will fail.</source>
+          <target state="new">If either controller is not running, the scan will fail.</target>
+        </trans-unit>
+        <trans-unit id="8f24cbe6-e882-4e40-8a62-7beb4d00103c" xml:space="preserve">
+          <source>To verify that the controllers are in a healthy state, navigate to <bpt id="2da19512-8471-4b74-b3b6-ee15123ecd1e">&lt;strong&gt;</bpt>Hardware Status<ept id="2da19512-8471-4b74-b3b6-ee15123ecd1e">&lt;/strong&gt;</ept> under the <bpt id="56a781c2-7701-4f09-bed5-d3c1a33d853b">&lt;strong&gt;</bpt>Maintenance<ept id="56a781c2-7701-4f09-bed5-d3c1a33d853b">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">To verify that the controllers are in a healthy state, navigate to <bpt id="2da19512-8471-4b74-b3b6-ee15123ecd1e">&lt;strong&gt;</bpt>Hardware Status<ept id="2da19512-8471-4b74-b3b6-ee15123ecd1e">&lt;/strong&gt;</ept> under the <bpt id="56a781c2-7701-4f09-bed5-d3c1a33d853b">&lt;strong&gt;</bpt>Maintenance<ept id="56a781c2-7701-4f09-bed5-d3c1a33d853b">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="048d2587-96a3-44e2-af1f-2e241c63ffce" xml:space="preserve">
+          <source>If there are components that <bpt id="ce019298-7f55-4a98-afa7-4a7c7c7fc036">&lt;strong&gt;</bpt>Need attention<ept id="ce019298-7f55-4a98-afa7-4a7c7c7fc036">&lt;/strong&gt;</ept>, contact Microsoft Support before proceeding any further.</source>
+          <target state="new">If there are components that <bpt id="ce019298-7f55-4a98-afa7-4a7c7c7fc036">&lt;strong&gt;</bpt>Need attention<ept id="ce019298-7f55-4a98-afa7-4a7c7c7fc036">&lt;/strong&gt;</ept>, contact Microsoft Support before proceeding any further.</target>
+        </trans-unit>
+        <trans-unit id="32918ac5-798c-4e21-8c9c-b3fbac3b542d" xml:space="preserve">
+          <source>Ensure that fixed IPs for both controller 0 and controller 1 are routable and can connect to the Internet as these are used for servicing the updates to the device.</source>
+          <target state="new">Ensure that fixed IPs for both controller 0 and controller 1 are routable and can connect to the Internet as these are used for servicing the updates to the device.</target>
+        </trans-unit>
+        <trans-unit id="f4431528-a4a7-4eea-9fe5-4b0d6b9dc455" xml:space="preserve">
+          <source>You can use the <bpt id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;linkText&gt;</bpt>Test-Connection cmdlet<ept id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;/linkText&gt;</ept><bpt id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;title&gt;</bpt><ept id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;/title&gt;</ept> to ping a known address outside of the network, such as outlook.com, to verify that the controller has connectivity to the outside network.</source>
+          <target state="new">You can use the <bpt id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;linkText&gt;</bpt>Test-Connection cmdlet<ept id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;/linkText&gt;</ept><bpt id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;title&gt;</bpt><ept id="7666fa10-440a-4d21-bdf1-0d5d18d8dee2">&lt;/title&gt;</ept> to ping a known address outside of the network, such as outlook.com, to verify that the controller has connectivity to the outside network.</target>
+        </trans-unit>
+        <trans-unit id="a7567302-3084-444f-a0e6-b3604d8c7e81" xml:space="preserve">
+          <source>Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication.</source>
+          <target state="new">Ensure that ports 80 and 443 are available on your StorSimple device for outbound communication.</target>
+        </trans-unit>
+        <trans-unit id="945cae64-374d-401a-b697-2aaa18a521f4" xml:space="preserve">
+          <source>For more information, see the <bpt id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;linkText&gt;</bpt>Networking requirements for your StorSimple device<ept id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;/linkText&gt;</ept><bpt id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;title&gt;</bpt><ept id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;linkText&gt;</bpt>Networking requirements for your StorSimple device<ept id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;/linkText&gt;</ept><bpt id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;title&gt;</bpt><ept id="f2a3adbe-3a20-457d-aa10-c56804ca8ea6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfeb6343-dc19-4412-ae48-f208a63a7149" xml:space="preserve">
+          <source>If the device software version is older than 6.3.9600.17312 (October 2014 update), disable the Data 2 and Data 3 ports, if enabled, before starting the update.</source>
+          <target state="new">If the device software version is older than 6.3.9600.17312 (October 2014 update), disable the Data 2 and Data 3 ports, if enabled, before starting the update.</target>
+        </trans-unit>
+        <trans-unit id="be8547dd-330e-4889-a147-a528170ce5b5" xml:space="preserve">
+          <source>Leaving the Data 2 or Data 3 ports enabled when you apply the update might cause your device controller to go into recovery mode.</source>
+          <target state="new">Leaving the Data 2 or Data 3 ports enabled when you apply the update might cause your device controller to go into recovery mode.</target>
+        </trans-unit>
+        <trans-unit id="bc05270a-09f5-444e-af82-793cdefd41c2" xml:space="preserve">
+          <source>Please note that when you disable the network interfaces, all the associated volumes will be taken offline and the I/Os will be disrupted for the duration of the update.</source>
+          <target state="new">Please note that when you disable the network interfaces, all the associated volumes will be taken offline and the I/Os will be disrupted for the duration of the update.</target>
+        </trans-unit>
+        <trans-unit id="b52493ff-47be-42e8-a1bd-c2a27850f67d" xml:space="preserve">
+          <source>This update contains a fix for the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release.</source>
+          <target state="new">This update contains a fix for the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release.</target>
+        </trans-unit>
+        <trans-unit id="47482e9e-4af0-4a79-9789-fa486daa681e" xml:space="preserve">
+          <source>For more information, see <bpt id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;linkText&gt;</bpt>Issues fixed in this release<ept id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;/linkText&gt;</ept><bpt id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;title&gt;</bpt><ept id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;linkText&gt;</bpt>Issues fixed in this release<ept id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;/linkText&gt;</ept><bpt id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;title&gt;</bpt><ept id="86115604-01be-4bab-8db9-ee98dfcf6805">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa8bbdc2-0dd3-44cf-b056-850f70f9f49c" xml:space="preserve">
+          <source>This update does not contain new features or functionality.</source>
+          <target state="new">This update does not contain new features or functionality.</target>
+        </trans-unit>
+        <trans-unit id="518a1538-8451-4ce8-98d5-42c93e19cd51" xml:space="preserve">
+          <source>The following table describes the issue that was fixed in this update.</source>
+          <target state="new">The following table describes the issue that was fixed in this update.</target>
+        </trans-unit>
+        <trans-unit id="70869e08-3ee4-462c-ab32-4ca379374a77" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="6334cfea-bf5d-4777-9a7e-5e7b70f49e50" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="efb533e3-b61a-465c-8a5a-8648a465b796" xml:space="preserve">
+          <source>Issue</source>
+          <target state="new">Issue</target>
+        </trans-unit>
+        <trans-unit id="9d0794d6-fc40-43f1-a9e8-c2c2f007e5d5" xml:space="preserve">
+          <source>Applies to physical device</source>
+          <target state="new">Applies to physical device</target>
+        </trans-unit>
+        <trans-unit id="d2876d5d-eb0a-471e-93e8-5eafbf989bdc" xml:space="preserve">
+          <source>Applies to virtual device</source>
+          <target state="new">Applies to virtual device</target>
+        </trans-unit>
+        <trans-unit id="9ccaa4df-fea1-4f1f-8697-5532497574db" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="7291502f-6818-4fd8-a004-f4853a720816" xml:space="preserve">
+          <source>Factory reset</source>
+          <target state="new">Factory reset</target>
+        </trans-unit>
+        <trans-unit id="ab999cec-afbd-42db-af72-9f696ccf12b4" xml:space="preserve">
+          <source>You try to perform a factory reset on a device that originally had the GA release (version 6.3.9600.17215) installed but has been updated to the October release (version 6.3.9600.17312).</source>
+          <target state="new">You try to perform a factory reset on a device that originally had the GA release (version 6.3.9600.17215) installed but has been updated to the October release (version 6.3.9600.17312).</target>
+        </trans-unit>
+        <trans-unit id="c603e0e4-5efd-4d19-be51-3604103b5a0f" xml:space="preserve">
+          <source>The factory reset fails and the device becomes unstable.</source>
+          <target state="new">The factory reset fails and the device becomes unstable.</target>
+        </trans-unit>
+        <trans-unit id="941e6e70-b17f-44a7-a1d7-d4cc67e07073" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="8a9d2b15-bf16-4f8f-8082-c59b5c1db242" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0ebc3dd6-4984-4c7d-b826-4ab73ac0c3f6" xml:space="preserve">
+          <source>The following table provides a summary of known issues in this release.</source>
+          <target state="new">The following table provides a summary of known issues in this release.</target>
+        </trans-unit>
+        <trans-unit id="56af966e-0198-4e03-ba0d-a39121575720" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="5ef7e1ab-513a-4ba6-853e-dd88db3d3da1" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="a7135051-1e3a-4e43-b02b-284a2c3bc163" xml:space="preserve">
+          <source>Issue</source>
+          <target state="new">Issue</target>
+        </trans-unit>
+        <trans-unit id="8e70983d-6280-4caa-a38e-18f6e1141520" xml:space="preserve">
+          <source>Comments/workaround</source>
+          <target state="new">Comments/workaround</target>
+        </trans-unit>
+        <trans-unit id="9c47e379-7a81-405a-ab84-14fd8ae13134" xml:space="preserve">
+          <source>Applies to physical device</source>
+          <target state="new">Applies to physical device</target>
+        </trans-unit>
+        <trans-unit id="ad9b15fa-a7b4-44b9-b829-646bf7b01500" xml:space="preserve">
+          <source>Applies to virtual device</source>
+          <target state="new">Applies to virtual device</target>
+        </trans-unit>
+        <trans-unit id="180dede2-d27b-4c02-9775-8bd0405c7b13" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="2a2f7fe5-5297-4be7-a64e-8e56a4b1f213" xml:space="preserve">
+          <source>Factory reset</source>
+          <target state="new">Factory reset</target>
+        </trans-unit>
+        <trans-unit id="51542817-64d7-462e-8abb-0ab3bcebac9f" xml:space="preserve">
+          <source>In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: <bpt id="775a57dc-7dbc-4ab1-87b5-e5a8dd9c7250">&lt;strong&gt;</bpt>Reset to factory is in progress (phase 8)<ept id="775a57dc-7dbc-4ab1-87b5-e5a8dd9c7250">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In some instances, when you perform a factory reset, the StorSimple device may be stuck and display this message: <bpt id="775a57dc-7dbc-4ab1-87b5-e5a8dd9c7250">&lt;strong&gt;</bpt>Reset to factory is in progress (phase 8)<ept id="775a57dc-7dbc-4ab1-87b5-e5a8dd9c7250">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc0d5c72-2e10-4807-a39d-96b112d98c71" xml:space="preserve">
+          <source>This happens if you press CTRL+C while the cmdlet is in progress.</source>
+          <target state="new">This happens if you press CTRL+C while the cmdlet is in progress.</target>
+        </trans-unit>
+        <trans-unit id="52690ffd-481e-49fc-8f99-9770a3867f76" xml:space="preserve">
+          <source>Do not press CTRL+C after initiating a factory reset.</source>
+          <target state="new">Do not press CTRL+C after initiating a factory reset.</target>
+        </trans-unit>
+        <trans-unit id="8f5ca34a-b36b-47cf-8105-f8e2e663c079" xml:space="preserve">
+          <source>If you are already in this state, please contact Microsoft Support for next steps.</source>
+          <target state="new">If you are already in this state, please contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="f2bc0689-49b0-4c74-927a-5e1bb99e3274" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="cf0c486e-f789-4f6c-97c3-70df40517c38" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5f0c5cf9-8014-4dba-a46c-bd44288afcb2" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="c637df36-51d0-4ad3-b6bb-6360c354f411" xml:space="preserve">
+          <source>Disk quorum</source>
+          <target state="new">Disk quorum</target>
+        </trans-unit>
+        <trans-unit id="ea9e36c0-894b-4ba8-9b57-4296847ca81a" xml:space="preserve">
+          <source>In rare instances, if the majority of disks in the EBOD enclosure of an 8600device are disconnected resulting in no disk quorum, then the storage pool will be offline.</source>
+          <target state="new">In rare instances, if the majority of disks in the EBOD enclosure of an 8600device are disconnected resulting in no disk quorum, then the storage pool will be offline.</target>
+        </trans-unit>
+        <trans-unit id="9ce6eecf-3b4f-4c6e-8c15-870186f13bf9" xml:space="preserve">
+          <source>It will stay offline even if the disks are reconnected.</source>
+          <target state="new">It will stay offline even if the disks are reconnected.</target>
+        </trans-unit>
+        <trans-unit id="48a910ef-ee1c-4d8c-af53-930fa761b5df" xml:space="preserve">
+          <source>You will need to reboot the device.</source>
+          <target state="new">You will need to reboot the device.</target>
+        </trans-unit>
+        <trans-unit id="9f457aa7-36fc-4f86-acf8-4c3968940a2a" xml:space="preserve">
+          <source>If the issue persists, please contact Microsoft Support for next steps.</source>
+          <target state="new">If the issue persists, please contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="215c0b05-b54c-463a-961c-2edc1b872108" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c606d8a2-86a4-4f86-9ff6-daa1f0d6ae38" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f654a202-ad5b-4e48-bc15-6522070cf476" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="4dc05bf4-601a-41d5-a097-cb076e1a727d" xml:space="preserve">
+          <source>Cloud snapshot failures</source>
+          <target state="new">Cloud snapshot failures</target>
+        </trans-unit>
+        <trans-unit id="6f4b500b-289c-4ec4-97e4-e7783af067d0" xml:space="preserve">
+          <source>In rare instances, a cloud snapshot may fail with the error <bpt id="45e7124f-5a4f-4b45-a319-87ba4fdf9646">&lt;strong&gt;</bpt>Maximum backup limit reached<ept id="45e7124f-5a4f-4b45-a319-87ba4fdf9646">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In rare instances, a cloud snapshot may fail with the error <bpt id="45e7124f-5a4f-4b45-a319-87ba4fdf9646">&lt;strong&gt;</bpt>Maximum backup limit reached<ept id="45e7124f-5a4f-4b45-a319-87ba4fdf9646">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="875d54ab-e261-45c1-917c-a57a892c20b1" xml:space="preserve">
+          <source>This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted.</source>
+          <target state="new">This occurs if you exceed 255 online clones on the same device, from the same original volume which has been deleted.</target>
+        </trans-unit>
+        <trans-unit id="2364f90d-1ef9-4c58-9a10-eaccddbfdf93" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4ac9783f-fbb0-4fde-a2b9-1325fedd69b8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="700beb0d-dab7-4307-8ef4-2b578b474ed0" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="9e0e121f-ec26-401d-a39b-80784a5320cb" xml:space="preserve">
+          <source>Incorrect controller ID</source>
+          <target state="new">Incorrect controller ID</target>
+        </trans-unit>
+        <trans-unit id="d98dceff-12ea-484d-a3cd-97bbaa6b06a4" xml:space="preserve">
+          <source>When a controller replacement is performed, controller 0 may show up as controller 1.</source>
+          <target state="new">When a controller replacement is performed, controller 0 may show up as controller 1.</target>
+        </trans-unit>
+        <trans-unit id="cf4e6678-810d-4d9f-85cd-54b0abe29aca" xml:space="preserve">
+          <source>During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID.</source>
+          <target state="new">During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID.</target>
+        </trans-unit>
+        <trans-unit id="8f095239-3b63-4284-93f0-ee13dd648a1b" xml:space="preserve">
+          <source>In rare instances, this behavior may also be seen after a system reboot.</source>
+          <target state="new">In rare instances, this behavior may also be seen after a system reboot.</target>
+        </trans-unit>
+        <trans-unit id="1575e71e-f2ee-4aa8-9289-f259a3e1cd19" xml:space="preserve">
+          <source>No user action is required.</source>
+          <target state="new">No user action is required.</target>
+        </trans-unit>
+        <trans-unit id="ee795b45-0276-439a-8e6a-2d79be4f6440" xml:space="preserve">
+          <source>This situation will resolve itself after the controller replacement is complete.</source>
+          <target state="new">This situation will resolve itself after the controller replacement is complete.</target>
+        </trans-unit>
+        <trans-unit id="852e2815-afec-4149-8c5a-e7f745015142" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4b556f7a-c9fa-4c1e-91b8-7f204a0c9e59" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c04cad14-affa-495e-adc5-b7ee8b2bd438" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="387c44f3-3b41-46ba-bc16-4d2f548bb6b8" xml:space="preserve">
+          <source>Device monitoring charts</source>
+          <target state="new">Device monitoring charts</target>
+        </trans-unit>
+        <trans-unit id="c40b97df-6289-414f-b01f-dbf67043af6c" xml:space="preserve">
+          <source>In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device.</source>
+          <target state="new">In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device.</target>
+        </trans-unit>
+        <trans-unit id="79d8e628-f726-409c-baf3-ed5eb660c313" xml:space="preserve">
+          <source>Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE.</source>
+          <target state="new">Modify the web proxy configuration for the device registered with your StorSimple Manager service so that authentication is set to NONE.</target>
+        </trans-unit>
+        <trans-unit id="14cfeb49-9a45-4d4d-8e4e-fe4da6cc890a" xml:space="preserve">
+          <source>To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet.</source>
+          <target state="new">To do this, run the the Windows PowerShell for StorSimple Set-HcsWebProxy cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="11346bc8-0d9c-4c1a-b81d-066b796a16bc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="14a1d99f-80e6-49d8-a9e3-d6354fe16423" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bc709418-844b-432d-b40e-f82c42d71909" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="759268a4-0a3b-4071-8c5e-cf78e5de77df" xml:space="preserve">
+          <source>Storage accounts</source>
+          <target state="new">Storage accounts</target>
+        </trans-unit>
+        <trans-unit id="5243a9f6-3e13-4d4e-9bf0-81c767c826e8" xml:space="preserve">
+          <source>Using the Storage service to delete the storage account is an unsupported scenario.</source>
+          <target state="new">Using the Storage service to delete the storage account is an unsupported scenario.</target>
+        </trans-unit>
+        <trans-unit id="efc53d0e-3035-48f0-9823-73ab67181030" xml:space="preserve">
+          <source>This will lead to a situation in which user data cannot be retrieved.</source>
+          <target state="new">This will lead to a situation in which user data cannot be retrieved.</target>
+        </trans-unit>
+        <trans-unit id="7d6aa0f4-ebdf-46b6-ad15-00baac5b5c9d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="241f67e3-960c-496f-8365-6ce6c37348e3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ad5c8a19-8964-4c2a-b351-f197bab3d63b" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="b4238ff2-14a6-4f1a-9de9-3fb2955c3c82" xml:space="preserve">
+          <source>Device failover</source>
+          <target state="new">Device failover</target>
+        </trans-unit>
+        <trans-unit id="f75e05e7-3169-47ff-9153-f39a4cc2932c" xml:space="preserve">
+          <source>Multiple failovers of a volume container from the same source device to different target devices is not supported.</source>
+          <target state="new">Multiple failovers of a volume container from the same source device to different target devices is not supported.</target>
+        </trans-unit>
+        <trans-unit id="61932984-43a5-4e6c-ac31-075d4d0ec412" xml:space="preserve">
+          <source>Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership.</source>
+          <target state="new">Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership.</target>
+        </trans-unit>
+        <trans-unit id="dceb2174-4163-4764-a438-dd060c183a25" xml:space="preserve">
+          <source>After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal.</source>
+          <target state="new">After such a failover, these volume containers will appear or behave differently when you view them in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="20089aa2-b546-4bd1-8f0c-1abd53262961" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9eb8d0c5-0186-441b-8584-a343ac354ca1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="090fa3f6-8310-4292-9f92-291ebe59c947" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="2cdfc5e9-2035-4081-a36f-cb3e21ebbe58" xml:space="preserve">
+          <source>Installation</source>
+          <target state="new">Installation</target>
+        </trans-unit>
+        <trans-unit id="87109414-380e-4481-b770-63dd03c1fd31" xml:space="preserve">
+          <source>During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.</source>
+          <target state="new">During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully.</target>
+        </trans-unit>
+        <trans-unit id="daac6c14-cc47-4cbe-997b-b504671972ed" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b08ebd60-381a-4b5b-bdf3-afa75ea7e5e0" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b9e937ff-b6b9-444c-af94-f64a83ee26b9" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="a4a212bf-dfda-4520-9e17-038ea0d6f576" xml:space="preserve">
+          <source>Web proxy</source>
+          <target state="new">Web proxy</target>
+        </trans-unit>
+        <trans-unit id="211ede32-868f-469d-a30a-5fc82ddf6162" xml:space="preserve">
+          <source>If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline.</source>
+          <target state="new">If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline.</target>
+        </trans-unit>
+        <trans-unit id="072ed21a-1a3d-4d18-929d-5df8e4e65e9f" xml:space="preserve">
+          <source>Support packages will also be generated in the process, consuming significant resources on your device.</source>
+          <target state="new">Support packages will also be generated in the process, consuming significant resources on your device.</target>
+        </trans-unit>
+        <trans-unit id="16d5c237-4162-4aad-9c09-07cc3483ebda" xml:space="preserve">
+          <source>Make sure that the web proxy URL has HTTP as the specified protocol.</source>
+          <target state="new">Make sure that the web proxy URL has HTTP as the specified protocol.</target>
+        </trans-unit>
+        <trans-unit id="cd942842-58c5-409f-8e13-08fb1696e779" xml:space="preserve">
+          <source>More information on how to <bpt id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;linkText&gt;</bpt>Configure web proxy for your device<ept id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;/linkText&gt;</ept><bpt id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;title&gt;</bpt><ept id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information on how to <bpt id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;linkText&gt;</bpt>Configure web proxy for your device<ept id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;/linkText&gt;</ept><bpt id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;title&gt;</bpt><ept id="2c667db3-efd5-4e7a-afa7-0c0ba50afbc4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b13aac6-a30f-4b68-8255-db3ef332dd9d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="db37a6a4-8c8f-4e6a-a732-2b9cdd328784" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0c4bac33-48df-4cf6-9b93-069606578a78" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="f35a2956-e17d-4385-95da-efc1ac8d39b2" xml:space="preserve">
+          <source>Web proxy</source>
+          <target state="new">Web proxy</target>
+        </trans-unit>
+        <trans-unit id="e64aad5a-5bee-49f6-837b-9eb814fc0471" xml:space="preserve">
+          <source>If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device.</source>
+          <target state="new">If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device.</target>
+        </trans-unit>
+        <trans-unit id="d411dffd-cdcb-4607-a3ed-7daf0b7a05af" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f41e4937-8c22-419f-aff2-0c99eb1c7f94" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a5899833-d811-4fc0-8a2b-aa1022a557ca" xml:space="preserve">
+          <source>11</source>
+          <target state="new">11</target>
+        </trans-unit>
+        <trans-unit id="a1c91d34-3695-480e-82a1-7233032159a4" xml:space="preserve">
+          <source>High cloud latency and high I/O workload</source>
+          <target state="new">High cloud latency and high I/O workload</target>
+        </trans-unit>
+        <trans-unit id="89f0e32d-fbb7-4044-842c-767796884cd2" xml:space="preserve">
+          <source>When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error.</source>
+          <target state="new">When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error.</target>
+        </trans-unit>
+        <trans-unit id="f0a25dbb-bf40-4035-8422-b09b6c49a45a" xml:space="preserve">
+          <source>You will need to manually reboot the device controllers or perform a device failover to recover from this situation.</source>
+          <target state="new">You will need to manually reboot the device controllers or perform a device failover to recover from this situation.</target>
+        </trans-unit>
+        <trans-unit id="27548d0f-67b1-40ba-875e-e9bc9d68aca1" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="95c84f22-1786-447c-a650-97d840ebab70" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="2313a800-30e4-4a7d-b1a5-37d7d1b8a97a" xml:space="preserve">
+          <source>This update fixes the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release.</source>
+          <target state="new">This update fixes the factory reset issue that occurred on devices that had been upgraded from the GA release to the October 2014 release.</target>
+        </trans-unit>
+        <trans-unit id="04019fcc-218b-4fdc-a007-792940d64e30" xml:space="preserve">
+          <source>It does not contain any other updates to the StorSimple device.</source>
+          <target state="new">It does not contain any other updates to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="0bc468a1-8c5d-48ed-be5b-382900bf785f" xml:space="preserve">
+          <source>This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware.</source>
+          <target state="new">This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware.</target>
+        </trans-unit>
+        <trans-unit id="92032e71-d9ab-43f8-a423-01f333def36a" xml:space="preserve">
+          <source>The driver update was in the October, 2014 release.</source>
+          <target state="new">The driver update was in the October, 2014 release.</target>
+        </trans-unit>
+        <trans-unit id="f365eee8-d3e0-459f-bfb7-223c874b8e19" xml:space="preserve">
+          <source>This release does not contain any updates for the virtual device.</source>
+          <target state="new">This release does not contain any updates for the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="eec2908e-6561-4b4e-9e4a-ab68077b2511" xml:space="preserve">
+          <source>Applying this update will not change the software version of a virtual device.</source>
+          <target state="new">Applying this update will not change the software version of a virtual device.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7a186bba-9864-4f9a-955b-16daaffcd389" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7a186bba-9864-4f9a-955b-16daaffcd389" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="370c5d42-34bd-4abc-9fa2-84ee14f084e4">
+        <trans-unit id="6b30cd22-a6cd-4bee-93c3-d335460978bd" xml:space="preserve">
+          <source>Azure App Service Web Apps Offerings for Enterprise</source>
+          <target state="new">Azure App Service Web Apps Offerings for Enterprise</target>
+        </trans-unit>
+        <trans-unit id="218d8f87-4e14-4152-a2bf-a4b0c174b3d6" xml:space="preserve">
+          <source>Shows how to use Azure App Service Web Apps to create enterprise website solutions for your business</source>
+          <target state="new">Shows how to use Azure App Service Web Apps to create enterprise website solutions for your business</target>
+        </trans-unit>
+        <trans-unit id="c63493c4-390b-4bbb-a0d0-90e51e9975b7" xml:space="preserve">
+          <source>The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers.</source>
+          <target state="new">The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers.</target>
+        </trans-unit>
+        <trans-unit id="0e9a13f3-1635-4b30-90c4-912ce2d7d37e" xml:space="preserve">
+          <source>Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device.</source>
+          <target state="new">Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device.</target>
+        </trans-unit>
+        <trans-unit id="16ba24c3-9058-43c7-978a-f171143164f2" xml:space="preserve">
+          <source>At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce.</source>
+          <target state="new">At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce.</target>
+        </trans-unit>
+        <trans-unit id="2215d0d0-8237-4a81-b4e2-74a2744fa794" xml:space="preserve">
+          <source><bpt id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;/linkText&gt;</ept><bpt id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;title&gt;</bpt><ept id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;/title&gt;</ept> is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites.</source>
+          <target state="new"><bpt id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;/linkText&gt;</ept><bpt id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;title&gt;</bpt><ept id="53ac8c68-e236-44a2-bfaf-73c953d74eda">&lt;/title&gt;</ept> is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites.</target>
+        </trans-unit>
+        <trans-unit id="438f47c2-5766-4397-a7d7-d3223c4cd3d2" xml:space="preserve">
+          <source>It can be used to run corporate websites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices.</source>
+          <target state="new">It can be used to run corporate websites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices.</target>
+        </trans-unit>
+        <trans-unit id="8b41dc7b-bd5d-41d6-9608-631049cb82f2" xml:space="preserve">
+          <source>This whitepaper highlights the capabilities of the <bpt id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;linkText&gt;</bpt>Web Apps<ept id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;/linkText&gt;</ept><bpt id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;title&gt;</bpt><ept id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;/title&gt;</ept> service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform.</source>
+          <target state="new">This whitepaper highlights the capabilities of the <bpt id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;linkText&gt;</bpt>Web Apps<ept id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;/linkText&gt;</ept><bpt id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;title&gt;</bpt><ept id="77683774-cd3d-46a6-b8f3-5ee3334c39c0">&lt;/title&gt;</ept> service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform.</target>
+        </trans-unit>
+        <trans-unit id="f721341e-63e5-4118-a762-d14b4f645123" xml:space="preserve">
+          <source>IT Professionals, architects, and managers who are looking to migrate to the cloud web workloads that are currently running on-premises.</source>
+          <target state="new">IT Professionals, architects, and managers who are looking to migrate to the cloud web workloads that are currently running on-premises.</target>
+        </trans-unit>
+        <trans-unit id="4540684f-276e-4565-b93f-5e3ef36f251e" xml:space="preserve">
+          <source>Web workloads can span either Business to Employee or Business to Partners web applications.</source>
+          <target state="new">Web workloads can span either Business to Employee or Business to Partners web applications.</target>
+        </trans-unit>
+        <trans-unit id="cb5a909c-d02d-4013-9831-31248f31017e" xml:space="preserve">
+          <source>App Service Web Apps is an ideal platform on which to host both external and internal web applications and services as it provides a cost-effective, highly scalable, managed solution allowing you to concentrate on delivering business value for your users rather than spending significant amounts of time and money maintaining and supporting separate environments.</source>
+          <target state="new">App Service Web Apps is an ideal platform on which to host both external and internal web applications and services as it provides a cost-effective, highly scalable, managed solution allowing you to concentrate on delivering business value for your users rather than spending significant amounts of time and money maintaining and supporting separate environments.</target>
+        </trans-unit>
+        <trans-unit id="2c3f35e2-fd3e-4dd5-bfb6-ce6818525ae8" xml:space="preserve">
+          <source>Web Apps offers a flexible platform on which to deploy your enterprise web applications offering the ability to continue to authenticate against on-premises Active Directory via integration with Microsoft Azure Active Directory, support of easy and quick deployments making use of your internal continuous integration and deployment practices, while automatically scaling to grow with the business needs - all on a managed platform that allows you to focus on your application and not your infrastructure.</source>
+          <target state="new">Web Apps offers a flexible platform on which to deploy your enterprise web applications offering the ability to continue to authenticate against on-premises Active Directory via integration with Microsoft Azure Active Directory, support of easy and quick deployments making use of your internal continuous integration and deployment practices, while automatically scaling to grow with the business needs - all on a managed platform that allows you to focus on your application and not your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="6d5f0630-34f9-4bbd-ab7e-095c12ada84d" xml:space="preserve">
+          <source>The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load.</source>
+          <target state="new">The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load.</target>
+        </trans-unit>
+        <trans-unit id="2d15ab3d-ddbc-4bfe-b731-1017edcfcac5" xml:space="preserve">
+          <source>IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility.</source>
+          <target state="new">IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility.</target>
+        </trans-unit>
+        <trans-unit id="3b231176-480a-49a2-8ba6-687e7d23fffc" xml:space="preserve">
+          <source>The end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs.</source>
+          <target state="new">The end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs.</target>
+        </trans-unit>
+        <trans-unit id="c633da0f-f235-4b70-ae57-a4ed2c991aff" xml:space="preserve">
+          <source>In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is.</source>
+          <target state="new">In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is.</target>
+        </trans-unit>
+        <trans-unit id="74c1e3bb-8c88-4f64-aadf-4379aaa6bc4e" xml:space="preserve">
+          <source>Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.</source>
+          <target state="new">Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.</target>
+        </trans-unit>
+        <trans-unit id="cea11ef6-cba1-4ca5-b8f9-2db851079ecf" xml:space="preserve">
+          <source>Business needs change monthly, weekly, daily.</source>
+          <target state="new">Business needs change monthly, weekly, daily.</target>
+        </trans-unit>
+        <trans-unit id="178e74f0-fcba-4f8e-b7f1-1e8a55405c89" xml:space="preserve">
+          <source>Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally.</source>
+          <target state="new">Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally.</target>
+        </trans-unit>
+        <trans-unit id="df00af19-4000-4674-affa-d9c6d8e71578" xml:space="preserve">
+          <source>Users have higher expectations, with many making use of services in their own private lives such as Office365.</source>
+          <target state="new">Users have higher expectations, with many making use of services in their own private lives such as Office365.</target>
+        </trans-unit>
+        <trans-unit id="cabe72ec-bae1-4d7f-80e6-6256840d7185" xml:space="preserve">
+          <source>They expect to have access to similar, up to date, feature rich services in their work life.</source>
+          <target state="new">They expect to have access to similar, up to date, feature rich services in their work life.</target>
+        </trans-unit>
+        <trans-unit id="cb4ec61b-f70d-49b4-9798-7dfded46fdf7" xml:space="preserve">
+          <source>To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.</source>
+          <target state="new">To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.</target>
+        </trans-unit>
+        <trans-unit id="211d38e2-5fe0-47f7-811c-9035bfe510bf" xml:space="preserve">
+          <source>Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis.</source>
+          <target state="new">Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis.</target>
+        </trans-unit>
+        <trans-unit id="9b64b8f5-40d3-4610-97b2-dcaba2b2f826" xml:space="preserve">
+          <source>They are looking for a cost effective, reliable platform which integrates with their existing tools and practices – development, test, release; and working together with IT departments automates deployment, management and alerting, all with the goal of zero downtime.</source>
+          <target state="new">They are looking for a cost effective, reliable platform which integrates with their existing tools and practices – development, test, release; and working together with IT departments automates deployment, management and alerting, all with the goal of zero downtime.</target>
+        </trans-unit>
+        <trans-unit id="390772f2-9b48-481c-882f-c06197501d7e" xml:space="preserve">
+          <source>&lt;a href="highlevel" /&gt;</source>
+          <target state="new">&lt;a href="highlevel" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="27fb030b-3cc7-4602-9373-42ca8e1d1e05" xml:space="preserve">
+          <source>Web platforms and frameworks are increasingly being used to develop, test and host line of business applications.</source>
+          <target state="new">Web platforms and frameworks are increasingly being used to develop, test and host line of business applications.</target>
+        </trans-unit>
+        <trans-unit id="f2e7964c-58cf-45f2-a34d-9175951f830e" xml:space="preserve">
+          <source>With a typical line of business application, such as an internal employee expense system, often consisting solely of a web app with a backing database to store the data connected with the application.</source>
+          <target state="new">With a typical line of business application, such as an internal employee expense system, often consisting solely of a web app with a backing database to store the data connected with the application.</target>
+        </trans-unit>
+        <trans-unit id="901b2120-ff1e-47e0-8f7b-13ec34db4597" xml:space="preserve">
+          <source>App Service Web Apps is a good option for hosting such applications, offering scalable and reliable infrastructure which is managed and patched with near zero manual intervention and downtime.</source>
+          <target state="new">App Service Web Apps is a good option for hosting such applications, offering scalable and reliable infrastructure which is managed and patched with near zero manual intervention and downtime.</target>
+        </trans-unit>
+        <trans-unit id="82fe0210-9214-4a5c-8ca7-2a8c723e296f" xml:space="preserve">
+          <source>The Microsoft Azure platform provides many data storage options to support web applications hosted on Web Apps from Microsoft Azure SQL Database, a managed scalable relational database-as-a-service, to popular services from our partners such as ClearDB MySQL Database and MongoDB.</source>
+          <target state="new">The Microsoft Azure platform provides many data storage options to support web applications hosted on Web Apps from Microsoft Azure SQL Database, a managed scalable relational database-as-a-service, to popular services from our partners such as ClearDB MySQL Database and MongoDB.</target>
+        </trans-unit>
+        <trans-unit id="3cf46b05-8686-4c46-8f1c-c27a5f40af3d" xml:space="preserve">
+          <source>An alternative approach is to make use of your existing investment on premise.</source>
+          <target state="new">An alternative approach is to make use of your existing investment on premise.</target>
+        </trans-unit>
+        <trans-unit id="f98311f5-c5f4-4312-84a7-20cafd36043e" xml:space="preserve">
+          <source>In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure.</source>
+          <target state="new">In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="1ca86995-dff8-4f2d-bc18-f6405b831c67" xml:space="preserve">
+          <source>This could be for integration with internal systems (reporting, payroll, billing etc.)</source>
+          <target state="new">This could be for integration with internal systems (reporting, payroll, billing etc.)</target>
+        </trans-unit>
+        <trans-unit id="b697fc2a-21f9-40fd-a0dd-1104a824fc80" xml:space="preserve">
+          <source>or to satisfy an IT governance requirement.</source>
+          <target state="new">or to satisfy an IT governance requirement.</target>
+        </trans-unit>
+        <trans-unit id="41a36e36-3251-49c4-bdda-5ba6eb868fbf" xml:space="preserve">
+          <source>Web Apps provides two methods of enabling you to connect to your on premises infrastructure:</source>
+          <target state="new">Web Apps provides two methods of enabling you to connect to your on premises infrastructure:</target>
+        </trans-unit>
+        <trans-unit id="9d1f3c7d-d44e-42ff-a228-8b32bc6bc1db" xml:space="preserve">
+          <source><bpt id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;/linkText&gt;</ept><bpt id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;title&gt;</bpt><ept id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;/title&gt;</ept> – Hybrid Connections are a feature of Microsoft Azure BizTalk Services and enable Web Apps to connect to on premises resources securely, for example SQL Server, MySQL, Web APIs and custom web services.</source>
+          <target state="new"><bpt id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;/linkText&gt;</ept><bpt id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;title&gt;</bpt><ept id="ac27ca33-216c-4cb8-8908-fcc6171ddc33">&lt;/title&gt;</ept> – Hybrid Connections are a feature of Microsoft Azure BizTalk Services and enable Web Apps to connect to on premises resources securely, for example SQL Server, MySQL, Web APIs and custom web services.</target>
+        </trans-unit>
+        <trans-unit id="9c250b49-f145-4c15-8333-4a6745a6379b" xml:space="preserve">
+          <source><bpt id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;linkText&gt;</bpt>Virtual Network Integration<ept id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;/linkText&gt;</ept><bpt id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;title&gt;</bpt><ept id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;/title&gt;</ept> – Web Apps integrtaion with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN.</source>
+          <target state="new"><bpt id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;linkText&gt;</bpt>Virtual Network Integration<ept id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;/linkText&gt;</ept><bpt id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;title&gt;</bpt><ept id="0079cb98-48ac-41fc-ab06-57556c476f3f">&lt;/title&gt;</ept> – Web Apps integrtaion with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN.</target>
+        </trans-unit>
+        <trans-unit id="71949382-cb54-4d77-93cb-64d77ce2e44e" xml:space="preserve">
+          <source>The following diagram is an example high-level solution with connectivity options for on premises resources.</source>
+          <target state="new">The following diagram is an example high-level solution with connectivity options for on premises resources.</target>
+        </trans-unit>
+        <trans-unit id="93fe92af-2edd-42a0-9866-14113faac2da" xml:space="preserve">
+          <source><bpt id="ed1cb5e6-3981-43b1-a8a6-a19cd1653a0e">&lt;linkText&gt;</bpt><ept id="ed1cb5e6-3981-43b1-a8a6-a19cd1653a0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed1cb5e6-3981-43b1-a8a6-a19cd1653a0e">&lt;linkText&gt;</bpt><ept id="ed1cb5e6-3981-43b1-a8a6-a19cd1653a0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdfd5bcb-e12b-41e8-8181-25f6a17fd1d8" xml:space="preserve">
+          <source>App Service Web Apps provides a host of business benefits which enable your function to be much more cost-effective and agile in delivering for the business needs.</source>
+          <target state="new">App Service Web Apps provides a host of business benefits which enable your function to be much more cost-effective and agile in delivering for the business needs.</target>
+        </trans-unit>
+        <trans-unit id="be785715-f7a9-44bd-8e60-42f20e58c183" xml:space="preserve">
+          <source>App Service Web Apps is built on a Platform as a Service model which provides a number of cost and efficiency savings.</source>
+          <target state="new">App Service Web Apps is built on a Platform as a Service model which provides a number of cost and efficiency savings.</target>
+        </trans-unit>
+        <trans-unit id="28cc9231-e0b3-46d0-9e4c-c8acd2a423ae" xml:space="preserve">
+          <source>No longer do you need to spend hours managing VMs, patching Operating Systems and Frameworks.</source>
+          <target state="new">No longer do you need to spend hours managing VMs, patching Operating Systems and Frameworks.</target>
+        </trans-unit>
+        <trans-unit id="c7a66952-6bd9-4824-adc1-d1c8115d4f6e" xml:space="preserve">
+          <source>Web Apps is an automatically patched environment which enables you to focus on managing your web applications and not VMs, leaving teams free to provide additional business value.</source>
+          <target state="new">Web Apps is an automatically patched environment which enables you to focus on managing your web applications and not VMs, leaving teams free to provide additional business value.</target>
+        </trans-unit>
+        <trans-unit id="b9e183dd-189e-49c0-8a20-75ac7323231f" xml:space="preserve">
+          <source>The PaaS Model underpinning Web Apps enables practitioners of the DevOps methodology to fulfill their goals.</source>
+          <target state="new">The PaaS Model underpinning Web Apps enables practitioners of the DevOps methodology to fulfill their goals.</target>
+        </trans-unit>
+        <trans-unit id="80a17be5-ec10-4ba9-868c-833ebaffc537" xml:space="preserve">
+          <source>As a business this means full management and integration throughout the application entire life cycle, including development, testing, release, monitoring and management, and support.</source>
+          <target state="new">As a business this means full management and integration throughout the application entire life cycle, including development, testing, release, monitoring and management, and support.</target>
+        </trans-unit>
+        <trans-unit id="593d980a-2f84-42c5-af9b-1c665f634229" xml:space="preserve">
+          <source>For development teams, continuous integration and deployment workflows can be configured from Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure.</source>
+          <target state="new">For development teams, continuous integration and deployment workflows can be configured from Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="059b2dc8-67a2-45d4-b9ec-592761c4242b" xml:space="preserve">
+          <source>Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow.</source>
+          <target state="new">Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow.</target>
+        </trans-unit>
+        <trans-unit id="60f81fdb-f433-4cfb-97fd-353e48ef4f18" xml:space="preserve">
+          <source>As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.</source>
+          <target state="new">As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.</target>
+        </trans-unit>
+        <trans-unit id="130132b5-0ea6-4609-8ba3-f285da6867e2" xml:space="preserve">
+          <source>Operations teams can feel confident that they are in the best possible position to react to any issues with any of their web applications hosted on Web Apps with the built in monitoring and alerts features.</source>
+          <target state="new">Operations teams can feel confident that they are in the best possible position to react to any issues with any of their web applications hosted on Web Apps with the built in monitoring and alerts features.</target>
+        </trans-unit>
+        <trans-unit id="b1471d6e-c8a4-45c6-92dc-82d7525733f7" xml:space="preserve">
+          <source>Should Operations Teams have already invested in analytics and monitoring solutions such from Microsoft Visual Studio Application Insights, New Relic and AppDynamics.</source>
+          <target state="new">Should Operations Teams have already invested in analytics and monitoring solutions such from Microsoft Visual Studio Application Insights, New Relic and AppDynamics.</target>
+        </trans-unit>
+        <trans-unit id="3ee041f8-e664-4027-ad1d-512b564c3f41" xml:space="preserve">
+          <source>These are also fully supported on Web Apps enabling continuity and a familiar environments from which to monitor your web applications.</source>
+          <target state="new">These are also fully supported on Web Apps enabling continuity and a familiar environments from which to monitor your web applications.</target>
+        </trans-unit>
+        <trans-unit id="6ef37e00-3ce3-42a5-a058-1b3925a7ec1f" xml:space="preserve">
+          <source>Finally, Web Apps provides functionality to automatically back up your app(s) and hosted database(s) direct to an Azure Blob Storage container.</source>
+          <target state="new">Finally, Web Apps provides functionality to automatically back up your app(s) and hosted database(s) direct to an Azure Blob Storage container.</target>
+        </trans-unit>
+        <trans-unit id="4b7204a8-fdac-4973-a668-749a171a183d" xml:space="preserve">
+          <source>Providing you with an easy way and very cost effective method with which to recover from disaster, reducing the need for complex on premises hardware and software.</source>
+          <target state="new">Providing you with an easy way and very cost effective method with which to recover from disaster, reducing the need for complex on premises hardware and software.</target>
+        </trans-unit>
+        <trans-unit id="73ae1de6-ee8d-4059-ac61-b846801ab26e" xml:space="preserve">
+          <source>Hardware maintenance and rotation is a key issue for businesses as release cycles for hardware and operating systems speed up.</source>
+          <target state="new">Hardware maintenance and rotation is a key issue for businesses as release cycles for hardware and operating systems speed up.</target>
+        </trans-unit>
+        <trans-unit id="2ffb9f78-1d42-4138-ac37-7429df0476cc" xml:space="preserve">
+          <source>Maybe you have a number of Windows Server 2003 R2 servers which are coming to the end of support in 2015 but they are still hosting key web applications for your business?</source>
+          <target state="new">Maybe you have a number of Windows Server 2003 R2 servers which are coming to the end of support in 2015 but they are still hosting key web applications for your business?</target>
+        </trans-unit>
+        <trans-unit id="1ae92a6c-2b0a-4c88-af6a-49d2ad285c4e" xml:space="preserve">
+          <source>App Service Web Apps is a great candidate on which to host those web applications and for you to rationalize the business hardware estate.</source>
+          <target state="new">App Service Web Apps is a great candidate on which to host those web applications and for you to rationalize the business hardware estate.</target>
+        </trans-unit>
+        <trans-unit id="daec77c8-0ca3-49c3-9491-12614afe467d" xml:space="preserve">
+          <source>Web Apps gives you access to a range of hardware specifications which are managed and maintained as part of the service, eliminating the need to factor in replacement and management costs as part of your infrastructure budget.</source>
+          <target state="new">Web Apps gives you access to a range of hardware specifications which are managed and maintained as part of the service, eliminating the need to factor in replacement and management costs as part of your infrastructure budget.</target>
+        </trans-unit>
+        <trans-unit id="804c93c3-ee00-4f0b-a500-62ba0432c376" xml:space="preserve">
+          <source>Migration can be as simple as a copy and paste operation from your existing deployment to Web Apps or a more complex migration where using the Web Apps Migration Assistant will add value.</source>
+          <target state="new">Migration can be as simple as a copy and paste operation from your existing deployment to Web Apps or a more complex migration where using the Web Apps Migration Assistant will add value.</target>
+        </trans-unit>
+        <trans-unit id="fd0c5170-2bcd-4370-b950-e7e74ca51dd3" xml:space="preserve">
+          <source>Migrated web applications enjoy the full spectrum of Azure services, integrating additional services to the web applications.</source>
+          <target state="new">Migrated web applications enjoy the full spectrum of Azure services, integrating additional services to the web applications.</target>
+        </trans-unit>
+        <trans-unit id="82bc4b01-0936-4d12-95e6-9017f96fb6ae" xml:space="preserve">
+          <source>For example, you can consider adding Azure Active Directory to control access to your application based on users’ association to security groups.</source>
+          <target state="new">For example, you can consider adding Azure Active Directory to control access to your application based on users’ association to security groups.</target>
+        </trans-unit>
+        <trans-unit id="e52e9b0e-4686-48e2-b55e-f83147592a78" xml:space="preserve">
+          <source>Another example can be adding Cache Services to improve performance and reduce latency, providing overall better user experience.</source>
+          <target state="new">Another example can be adding Cache Services to improve performance and reduce latency, providing overall better user experience.</target>
+        </trans-unit>
+        <trans-unit id="0ddde40e-61c8-48a3-8fe2-9b2b0640f756" xml:space="preserve">
+          <source>App Service Web Apps provides a stable, reliable platform which has been proven to be able to handle a wide variety of business needs from small internal development and test workloads, to highly scaled high traffic websites.</source>
+          <target state="new">App Service Web Apps provides a stable, reliable platform which has been proven to be able to handle a wide variety of business needs from small internal development and test workloads, to highly scaled high traffic websites.</target>
+        </trans-unit>
+        <trans-unit id="e48e6b9d-88dc-42ed-bd62-1baf2a14ba48" xml:space="preserve">
+          <source>By using Web Apps, you are making use of the same enterprise class hosting platform that Microsoft as a company uses for high value web workloads.</source>
+          <target state="new">By using Web Apps, you are making use of the same enterprise class hosting platform that Microsoft as a company uses for high value web workloads.</target>
+        </trans-unit>
+        <trans-unit id="dc7af6e2-4fe1-47ba-9f6f-cfe1a08a9d51" xml:space="preserve">
+          <source>Web Apps, along with all services on the Azure platform, are built with security and compliance with regulatory requirements, such as ISO (ISO/IEC 27001:2005); SOC1 and SOC2 SSAE 16/ISAE 3402 Attestations, HIPAA BAA, PCI and Fedramp, at the very heart of each element and feature, for more information please see <bpt id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;linkText&gt;</bpt>http://aka.ms/azurecompliance<ept id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;/linkText&gt;</ept><bpt id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;title&gt;</bpt><ept id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Web Apps, along with all services on the Azure platform, are built with security and compliance with regulatory requirements, such as ISO (ISO/IEC 27001:2005); SOC1 and SOC2 SSAE 16/ISAE 3402 Attestations, HIPAA BAA, PCI and Fedramp, at the very heart of each element and feature, for more information please see <bpt id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;linkText&gt;</bpt>http://aka.ms/azurecompliance<ept id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;/linkText&gt;</ept><bpt id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;title&gt;</bpt><ept id="b496fc3c-a11d-4c07-b8d2-0a87dde2444c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="323f70aa-d272-4955-a039-0bb911b31074" xml:space="preserve">
+          <source>Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps.</source>
+          <target state="new">Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="c75dfb24-431b-45ad-965d-f9d436a99cb5" xml:space="preserve">
+          <source>RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app.</source>
+          <target state="new">RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app.</target>
+        </trans-unit>
+        <trans-unit id="e8f5ec7c-45a9-4d20-a3d6-09282a23a168" xml:space="preserve">
+          <source>For more information on RBAC in Azure, see <bpt id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;linkText&gt;</bpt>http://aka.ms/azurerbac<ept id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;/linkText&gt;</ept><bpt id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;title&gt;</bpt><ept id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on RBAC in Azure, see <bpt id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;linkText&gt;</bpt>http://aka.ms/azurerbac<ept id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;/linkText&gt;</ept><bpt id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;title&gt;</bpt><ept id="f45749f5-edc3-4038-9fdb-66ca35ae8492">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="051f56be-adcd-4ff2-8781-380b2e0fa4dc" xml:space="preserve">
+          <source>By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed.</source>
+          <target state="new">By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed.</target>
+        </trans-unit>
+        <trans-unit id="1c166a24-3e62-48ee-8ff7-11622af6b632" xml:space="preserve">
+          <source>Additionally, Web Apps is also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment.</source>
+          <target state="new">Additionally, Web Apps is also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment.</target>
+        </trans-unit>
+        <trans-unit id="b5c60805-4851-4fda-856d-c1cc4761953c" xml:space="preserve">
+          <source>As discussed in [High Level solution] you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.</source>
+          <target state="new">As discussed in [High Level solution] you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.</target>
+        </trans-unit>
+        <trans-unit id="c8b5e00b-6e57-4ee1-977d-d22fc242e400" xml:space="preserve">
+          <source>App Service Web Apps is a global and scalable platform, enabling your web applications to grow and adapt to the needs of a growing business quickly and with minimal long term planning and cost.</source>
+          <target state="new">App Service Web Apps is a global and scalable platform, enabling your web applications to grow and adapt to the needs of a growing business quickly and with minimal long term planning and cost.</target>
+        </trans-unit>
+        <trans-unit id="08a05671-fa0d-4715-9c65-6dccf1a0ec7f" xml:space="preserve">
+          <source>In typical on premises infrastructure scenarios, expansion and increase in demand both locally and geographically would require a large amount of management, planning and expenditure to provision and manage additional infrastructure.</source>
+          <target state="new">In typical on premises infrastructure scenarios, expansion and increase in demand both locally and geographically would require a large amount of management, planning and expenditure to provision and manage additional infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="f593d442-33ae-4e46-aba5-53e91476ae77" xml:space="preserve">
+          <source>Web Apps offers the ability to scale your web applications with the ebb and flow of your requirements.</source>
+          <target state="new">Web Apps offers the ability to scale your web applications with the ebb and flow of your requirements.</target>
+        </trans-unit>
+        <trans-unit id="33d59c23-22d3-4e06-b4c9-4321c207f7ab" xml:space="preserve">
+          <source>For example using the expenses application as an example, for the majority of the month your users are light users of the application but as the deadline each month for expense submissions to be entered and usage increases on your application, Web Apps has the capability to automatically provision more infrastructure for your application and then once the usage has subsided again it can scale back to the baseline infrastructure you define.</source>
+          <target state="new">For example using the expenses application as an example, for the majority of the month your users are light users of the application but as the deadline each month for expense submissions to be entered and usage increases on your application, Web Apps has the capability to automatically provision more infrastructure for your application and then once the usage has subsided again it can scale back to the baseline infrastructure you define.</target>
+        </trans-unit>
+        <trans-unit id="a02bfb43-6729-4cd6-9828-59a1d8b36fc6" xml:space="preserve">
+          <source>Web Apps is available globally in 17 datacenters worldwide, and growing.</source>
+          <target state="new">Web Apps is available globally in 17 datacenters worldwide, and growing.</target>
+        </trans-unit>
+        <trans-unit id="4f339baf-306a-45d4-a2cf-60daa1b0b5ec" xml:space="preserve">
+          <source>For the most updated list of regions and location, see <bpt id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;linkText&gt;</bpt>http://aka.ms/azlocations<ept id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;/linkText&gt;</ept><bpt id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;title&gt;</bpt><ept id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the most updated list of regions and location, see <bpt id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;linkText&gt;</bpt>http://aka.ms/azlocations<ept id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;/linkText&gt;</ept><bpt id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;title&gt;</bpt><ept id="664b1667-9314-4d20-b4b7-2e84c5c339ad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43298620-772c-43d8-941f-4a6db2440f23" xml:space="preserve">
+          <source>With Web Apps, your business can easily achieve global reach and scale.</source>
+          <target state="new">With Web Apps, your business can easily achieve global reach and scale.</target>
+        </trans-unit>
+        <trans-unit id="3b1ae96c-e787-4098-8918-203f8f8d0e70" xml:space="preserve">
+          <source>As your company grows into new regions, the reporting application dashboards that you use and host on Web Apps can easily be deployed into additional datacenters and serve local users far more quickly through the combination of Web Apps and Azure Traffic Manager, all with the added benefit of the scalable infrastructure underneath being able to contract and expand as the needs of the regional offices change.</source>
+          <target state="new">As your company grows into new regions, the reporting application dashboards that you use and host on Web Apps can easily be deployed into additional datacenters and serve local users far more quickly through the combination of Web Apps and Azure Traffic Manager, all with the added benefit of the scalable infrastructure underneath being able to contract and expand as the needs of the regional offices change.</target>
+        </trans-unit>
+        <trans-unit id="a7e0aba1-9fa6-4663-bad2-89c5eaab0173" xml:space="preserve">
+          <source>Let’s look at an example of an application migration scenario.</source>
+          <target state="new">Let’s look at an example of an application migration scenario.</target>
+        </trans-unit>
+        <trans-unit id="787e9a43-aaa5-4917-9960-e87a962e8c30" xml:space="preserve">
+          <source>This outlines the details of how App Service Web Apps features come to together to provide great solution and business value.</source>
+          <target state="new">This outlines the details of how App Service Web Apps features come to together to provide great solution and business value.</target>
+        </trans-unit>
+        <trans-unit id="3d27d532-8b33-43fd-9cbd-62f504f2948f" xml:space="preserve">
+          <source>Throughout this example the line of business application we will be discussing is an expense reporting application that enables employees to submit their expenses for reimbursement.</source>
+          <target state="new">Throughout this example the line of business application we will be discussing is an expense reporting application that enables employees to submit their expenses for reimbursement.</target>
+        </trans-unit>
+        <trans-unit id="b8350684-836b-48f9-b52f-5b436c9cac4d" xml:space="preserve">
+          <source>The application is hosted on a Windows Server 2003 R2 running IIS6 and the database is a SQL Server 2005 database.</source>
+          <target state="new">The application is hosted on a Windows Server 2003 R2 running IIS6 and the database is a SQL Server 2005 database.</target>
+        </trans-unit>
+        <trans-unit id="ea8f9f41-0a38-4a8a-a905-c28839906b59" xml:space="preserve">
+          <source>The reason we choose older server lies with the coming End of Service for Windows Server 2003 R2 and SQL Server 2005, and we have <bpt id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;linkText&gt;</bpt>tools<ept id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;/linkText&gt;</ept><bpt id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;title&gt;</bpt><ept id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;/title&gt;</ept> and <bpt id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;linkText&gt;</bpt>guidance<ept id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;/linkText&gt;</ept><bpt id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;title&gt;</bpt><ept id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;/title&gt;</ept> to automatically migrate workloads into Azure.</source>
+          <target state="new">The reason we choose older server lies with the coming End of Service for Windows Server 2003 R2 and SQL Server 2005, and we have <bpt id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;linkText&gt;</bpt>tools<ept id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;/linkText&gt;</ept><bpt id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;title&gt;</bpt><ept id="52c7ee37-5605-4d3c-8d59-ee0c760b63c8">&lt;/title&gt;</ept> and <bpt id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;linkText&gt;</bpt>guidance<ept id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;/linkText&gt;</ept><bpt id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;title&gt;</bpt><ept id="b7982057-be6c-42dd-8b39-b002e53e6778">&lt;/title&gt;</ept> to automatically migrate workloads into Azure.</target>
+        </trans-unit>
+        <trans-unit id="3fca2766-e527-4f7d-9d33-11d03df99779" xml:space="preserve">
+          <source>With that in mind, the pattern used in this example apply to a wide verity of migration scenarios.</source>
+          <target state="new">With that in mind, the pattern used in this example apply to a wide verity of migration scenarios.</target>
+        </trans-unit>
+        <trans-unit id="c87d88c8-c283-4f64-96fd-4d8432733020" xml:space="preserve">
+          <source>Step one of the overall solution for moving a line-of-business application to Web Apps is to identify the existing application assets and architecture.</source>
+          <target state="new">Step one of the overall solution for moving a line-of-business application to Web Apps is to identify the existing application assets and architecture.</target>
+        </trans-unit>
+        <trans-unit id="49251ef3-b60b-4701-85ff-3131db19110e" xml:space="preserve">
+          <source>The example in this paper is an ASP.NET web application hosted on a single IIS Server with the database hosted on a separate SQL Server, as shown in the figure below.</source>
+          <target state="new">The example in this paper is an ASP.NET web application hosted on a single IIS Server with the database hosted on a separate SQL Server, as shown in the figure below.</target>
+        </trans-unit>
+        <trans-unit id="66bef53f-b86e-4fa5-a58f-2f180bb78189" xml:space="preserve">
+          <source>Employees login to the system using a username and password combination, they enter details of expenses and upload scanned copies of receipts, into the database, for each item of expense.</source>
+          <target state="new">Employees login to the system using a username and password combination, they enter details of expenses and upload scanned copies of receipts, into the database, for each item of expense.</target>
+        </trans-unit>
+        <trans-unit id="c8982264-df6d-4716-8cd9-55624922a4c6" xml:space="preserve">
+          <source><bpt id="0f39bac3-f3d3-4b06-8227-8a9fc69631c1">&lt;linkText&gt;</bpt><ept id="0f39bac3-f3d3-4b06-8227-8a9fc69631c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f39bac3-f3d3-4b06-8227-8a9fc69631c1">&lt;linkText&gt;</bpt><ept id="0f39bac3-f3d3-4b06-8227-8a9fc69631c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d289fe39-a1d0-4f1c-868c-fdaef5edf61e" xml:space="preserve">
+          <source>When migration application from an on-premises environment, you might want to keep in mind, few Web Apps constraints.</source>
+          <target state="new">When migration application from an on-premises environment, you might want to keep in mind, few Web Apps constraints.</target>
+        </trans-unit>
+        <trans-unit id="4bb77658-5bbc-4c6b-bc5d-e117da79bb1e" xml:space="preserve">
+          <source>Here are some key topics to be aware of when migrating web applications to Web Apps (<bpt id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;linkText&gt;</bpt>http://aka.ms/websitesmigrationresources<ept id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;/linkText&gt;</ept><bpt id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;title&gt;</bpt><ept id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;/title&gt;</ept>):</source>
+          <target state="new">Here are some key topics to be aware of when migrating web applications to Web Apps (<bpt id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;linkText&gt;</bpt>http://aka.ms/websitesmigrationresources<ept id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;/linkText&gt;</ept><bpt id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;title&gt;</bpt><ept id="8c900cb1-0ddc-4f19-8764-dc8a171ae87c">&lt;/title&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="43a5f415-8e85-4fb9-9dc3-5bb1439b3041" xml:space="preserve">
+          <source>Port Bindings – Web Apps only supports port 80 for HTTP and port 443 for HTTPS traffic.</source>
+          <target state="new">Port Bindings – Web Apps only supports port 80 for HTTP and port 443 for HTTPS traffic.</target>
+        </trans-unit>
+        <trans-unit id="4f0afb52-0a66-4071-a4fe-cce51a02aaae" xml:space="preserve">
+          <source>If your application uses any other port, then once migrated the application will make use of port 80 for HTTP and port 443 for HTTPS traffic.</source>
+          <target state="new">If your application uses any other port, then once migrated the application will make use of port 80 for HTTP and port 443 for HTTPS traffic.</target>
+        </trans-unit>
+        <trans-unit id="fa693663-8342-4b58-872b-130996fda7b9" xml:space="preserve">
+          <source>This is often a harmless issue as it is common in on premises deployments to make use of different ports in order to overcome the use of domain names, especially in development and test environments</source>
+          <target state="new">This is often a harmless issue as it is common in on premises deployments to make use of different ports in order to overcome the use of domain names, especially in development and test environments</target>
+        </trans-unit>
+        <trans-unit id="0032ccb7-7550-4dd8-9749-7b3efa182dc2" xml:space="preserve">
+          <source>Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication as identified by an application.</source>
+          <target state="new">Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication as identified by an application.</target>
+        </trans-unit>
+        <trans-unit id="ccc2bcc2-c1e9-49bb-b7cb-64faa2923eb9" xml:space="preserve">
+          <source>Web Apps can offer Windows Authentication when the application is integrated with Azure Active Directory and ADFS only.</source>
+          <target state="new">Web Apps can offer Windows Authentication when the application is integrated with Azure Active Directory and ADFS only.</target>
+        </trans-unit>
+        <trans-unit id="6d936ea2-5f2f-41e0-9124-4511c51019ba" xml:space="preserve">
+          <source>This is a feature which is discussed in more detail <bpt id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;linkText&gt;</bpt>here<ept id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;/linkText&gt;</ept><bpt id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;title&gt;</bpt><ept id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;/title&gt;</ept></source>
+          <target state="new">This is a feature which is discussed in more detail <bpt id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;linkText&gt;</bpt>here<ept id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;/linkText&gt;</ept><bpt id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;title&gt;</bpt><ept id="4d47b58a-3fde-43da-99f6-052891fc3d6d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30eb9f12-97eb-49fb-a45f-da1e8e8d446b" xml:space="preserve">
+          <source>GAC based assemblies – Web Apps does not allow the deployment of assemblies to the Global Assembly Cache (GAC).</source>
+          <target state="new">GAC based assemblies – Web Apps does not allow the deployment of assemblies to the Global Assembly Cache (GAC).</target>
+        </trans-unit>
+        <trans-unit id="9b2b69c5-04c8-489e-a119-6704d020b54e" xml:space="preserve">
+          <source>Therefore, if the application being migrated makes use of this feature on-premises, consider moving the assemblies to the bin folder of the application.</source>
+          <target state="new">Therefore, if the application being migrated makes use of this feature on-premises, consider moving the assemblies to the bin folder of the application.</target>
+        </trans-unit>
+        <trans-unit id="dbc20c02-7562-4541-acb4-67178b951d13" xml:space="preserve">
+          <source>IIS5 Compatibility Mode – Web Apps does not support IIS5 Compatibility Mode, and as such each Web Apps instance and all web applications under the parent Web Apps instance run in the same worker process within a single application pool.</source>
+          <target state="new">IIS5 Compatibility Mode – Web Apps does not support IIS5 Compatibility Mode, and as such each Web Apps instance and all web applications under the parent Web Apps instance run in the same worker process within a single application pool.</target>
+        </trans-unit>
+        <trans-unit id="138efc7a-0cf2-4d24-80d4-077ba6d78d5a" xml:space="preserve">
+          <source>Use of COM Libraries – Web Apps does not allow the registration of COM Components on the platform.</source>
+          <target state="new">Use of COM Libraries – Web Apps does not allow the registration of COM Components on the platform.</target>
+        </trans-unit>
+        <trans-unit id="a2a536c5-8684-4aa6-ac2e-3af98886dd68" xml:space="preserve">
+          <source>Therefore if the application is making use of any COM Components, these would need to be rewritten in managed code and deployed with the application.</source>
+          <target state="new">Therefore if the application is making use of any COM Components, these would need to be rewritten in managed code and deployed with the application.</target>
+        </trans-unit>
+        <trans-unit id="71495c30-c6a9-4695-866d-82958406a743" xml:space="preserve">
+          <source>ISAPI Filters – ISAPI Filters can be supported on Web Apps.</source>
+          <target state="new">ISAPI Filters – ISAPI Filters can be supported on Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="554058f3-f2fe-433c-9536-99825267f356" xml:space="preserve">
+          <source>They will need to be deployed as part of the application and registered in the web application's web.config file.</source>
+          <target state="new">They will need to be deployed as part of the application and registered in the web application's web.config file.</target>
+        </trans-unit>
+        <trans-unit id="7fdf5818-fd68-418b-908d-69b8205b8629" xml:space="preserve">
+          <source>For more information, see <bpt id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;linkText&gt;</bpt>http://aka.ms/azurewebsitesxdt<ept id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;/linkText&gt;</ept><bpt id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;title&gt;</bpt><ept id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;linkText&gt;</bpt>http://aka.ms/azurewebsitesxdt<ept id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;/linkText&gt;</ept><bpt id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;title&gt;</bpt><ept id="22caa365-0400-413b-9de9-7bde2f0f181f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfc80efa-64bd-44c4-9125-ce1339331258" xml:space="preserve">
+          <source>Once these topics have been considered, your web application should be ready for the Cloud.</source>
+          <target state="new">Once these topics have been considered, your web application should be ready for the Cloud.</target>
+        </trans-unit>
+        <trans-unit id="26f2911a-b19e-4e99-9eec-bf58f0bff5f3" xml:space="preserve">
+          <source>And don’t worry if some topics are not fully met, the migration tool will give best effort to migration.</source>
+          <target state="new">And don’t worry if some topics are not fully met, the migration tool will give best effort to migration.</target>
+        </trans-unit>
+        <trans-unit id="3c6e49f4-d4df-4a00-82b9-c3f3cac261a0" xml:space="preserve">
+          <source>The next steps in the migration process are to create an App Service web app and an Azure SQL Database.</source>
+          <target state="new">The next steps in the migration process are to create an App Service web app and an Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="e543e1dd-2519-4240-bca4-31172fb4d5d6" xml:space="preserve">
+          <source>There are multiple sizes of Web Apps instances with varying number of CPU Cores and RAM amounts available for you to select based on your web applications requirement.</source>
+          <target state="new">There are multiple sizes of Web Apps instances with varying number of CPU Cores and RAM amounts available for you to select based on your web applications requirement.</target>
+        </trans-unit>
+        <trans-unit id="d7299f03-315e-4659-aa55-59bb557aabf5" xml:space="preserve">
+          <source>For more information and pricing, see <bpt id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;linkText&gt;</bpt>http://aka.ms/azurewebsitesskus<ept id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;/linkText&gt;</ept><bpt id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;title&gt;</bpt><ept id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and pricing, see <bpt id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;linkText&gt;</bpt>http://aka.ms/azurewebsitesskus<ept id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;/linkText&gt;</ept><bpt id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;title&gt;</bpt><ept id="02a4d291-d940-4ee4-a667-5bf436d903ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="563430bc-776c-4d91-8d29-34fe86290bb9" xml:space="preserve">
+          <source>Likewise, Microsoft Azure SQL Database caters to all of a business’ needs with various service tiers and performance levels to fulfill requirements.</source>
+          <target state="new">Likewise, Microsoft Azure SQL Database caters to all of a business’ needs with various service tiers and performance levels to fulfill requirements.</target>
+        </trans-unit>
+        <trans-unit id="347f0d86-3eab-4472-9b8c-12f07e76dba5" xml:space="preserve">
+          <source>Further information can be found at <bpt id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;linkText&gt;</bpt>http://aka.ms/azuresqldbskus<ept id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;/linkText&gt;</ept><bpt id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;title&gt;</bpt><ept id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;/title&gt;</ept>.</source>
+          <target state="new">Further information can be found at <bpt id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;linkText&gt;</bpt>http://aka.ms/azuresqldbskus<ept id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;/linkText&gt;</ept><bpt id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;title&gt;</bpt><ept id="1bfe530a-e3ea-4fe8-9f41-cdf7c1b7d116">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91273050-361e-4ceb-8103-4c851d82a49a" xml:space="preserve">
+          <source>Once created, the application is uploaded to App Service Web Apps, either via FTP or WebDeploy and then move onto the database.</source>
+          <target state="new">Once created, the application is uploaded to App Service Web Apps, either via FTP or WebDeploy and then move onto the database.</target>
+        </trans-unit>
+        <trans-unit id="66bb291f-8f36-4268-b017-d09144553f81" xml:space="preserve">
+          <source>In this migration the solution uses Azure SQL Database but that is not the only database that is supported on Azure.</source>
+          <target state="new">In this migration the solution uses Azure SQL Database but that is not the only database that is supported on Azure.</target>
+        </trans-unit>
+        <trans-unit id="e0350a26-bba1-4824-a5de-62ee5a6bdba6" xml:space="preserve">
+          <source>Companies can also make use of MySQL, MongoDB, Azure DocumentDB and many more via add-ons which can be purchased at the <bpt id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;linkText&gt;</bpt>Azure Store<ept id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;/linkText&gt;</ept><bpt id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;title&gt;</bpt><ept id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Companies can also make use of MySQL, MongoDB, Azure DocumentDB and many more via add-ons which can be purchased at the <bpt id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;linkText&gt;</bpt>Azure Store<ept id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;/linkText&gt;</ept><bpt id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;title&gt;</bpt><ept id="8431cd7d-2fde-41cd-8e1b-29b1483999d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c24a98cf-cbad-4e83-a00a-8e5d4403eebc" xml:space="preserve">
+          <source>When creating an Azure SQL Database a number of options are available to import an existing database from an on-premises server from generating a script of an existing database to using the <bpt id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;linkText&gt;</bpt>Data-tier Application Export and Import<ept id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;/linkText&gt;</ept><bpt id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;title&gt;</bpt><ept id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;/title&gt;</ept>.</source>
+          <target state="new">When creating an Azure SQL Database a number of options are available to import an existing database from an on-premises server from generating a script of an existing database to using the <bpt id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;linkText&gt;</bpt>Data-tier Application Export and Import<ept id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;/linkText&gt;</ept><bpt id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;title&gt;</bpt><ept id="b7d72c08-4215-4f25-b020-dda551b61ba6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ea02acc-c7a0-407d-abb2-1cb5a55b2096" xml:space="preserve">
+          <source>The expenses application database was created by creating a new Azure SQL Database, connecting to the database using SQL Server Management Studio and then running a script to build the database schema and populate it with data from the on-premises database.</source>
+          <target state="new">The expenses application database was created by creating a new Azure SQL Database, connecting to the database using SQL Server Management Studio and then running a script to build the database schema and populate it with data from the on-premises database.</target>
+        </trans-unit>
+        <trans-unit id="0bb4aa2d-84fb-4819-8aec-c3c42575398f" xml:space="preserve">
+          <source>The final step in this first stage of the migration requires the updating of connection strings to the database for the application.</source>
+          <target state="new">The final step in this first stage of the migration requires the updating of connection strings to the database for the application.</target>
+        </trans-unit>
+        <trans-unit id="6db611a9-5b9e-49cf-88bb-8c49ae5d540e" xml:space="preserve">
+          <source>This can be achieved via the Azure portal.</source>
+          <target state="new">This can be achieved via the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="116ee3a0-df01-405d-972b-51da0580a151" xml:space="preserve">
+          <source>For each web app you can modify application specific settings, including any connection strings being used by the application to connect to any database being used.</source>
+          <target state="new">For each web app you can modify application specific settings, including any connection strings being used by the application to connect to any database being used.</target>
+        </trans-unit>
+        <trans-unit id="5bf5dbc4-90e2-4001-953d-47ee4483af7f" xml:space="preserve">
+          <source>The Azure platform offers a number of alternatives to using Azure SQL Database as a web applications primary database, this is to enable different workloads i.e. use of a NoSQL Solution or to enable the platform to suit a business’ data needs.</source>
+          <target state="new">The Azure platform offers a number of alternatives to using Azure SQL Database as a web applications primary database, this is to enable different workloads i.e. use of a NoSQL Solution or to enable the platform to suit a business’ data needs.</target>
+        </trans-unit>
+        <trans-unit id="62593beb-107a-4a9e-8262-4704e2c1ac42" xml:space="preserve">
+          <source>For example, a business may hold data that must not be stored off-site or in a public cloud environment, and therefore would look to maintain the use of their on-premises database.</source>
+          <target state="new">For example, a business may hold data that must not be stored off-site or in a public cloud environment, and therefore would look to maintain the use of their on-premises database.</target>
+        </trans-unit>
+        <trans-unit id="8d1c5e6c-3fa4-4381-a855-ef237b2679e1" xml:space="preserve">
+          <source>App Service Web Apps offers two methods of connecting to on premises resources, such as databases, enabling reuse of existing high value infrastructure.</source>
+          <target state="new">App Service Web Apps offers two methods of connecting to on premises resources, such as databases, enabling reuse of existing high value infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="63abec4d-0b1c-4649-a60b-ebe1fcfe5905" xml:space="preserve">
+          <source>The two methods are Web Apps Virtual Network Integration and Hybrid Connections:</source>
+          <target state="new">The two methods are Web Apps Virtual Network Integration and Hybrid Connections:</target>
+        </trans-unit>
+        <trans-unit id="fd342a77-d654-4816-b51e-e07ebeb37da7" xml:space="preserve">
+          <source>Web Apps Virtual Network Integration supports integration between Web Apps and an Azure Virtual Network, allowing you access to resources running in your Virtual Network which, if connected to your on premises network with site-to-site VPN, allows connectivity direct to your on premises systems.</source>
+          <target state="new">Web Apps Virtual Network Integration supports integration between Web Apps and an Azure Virtual Network, allowing you access to resources running in your Virtual Network which, if connected to your on premises network with site-to-site VPN, allows connectivity direct to your on premises systems.</target>
+        </trans-unit>
+        <trans-unit id="ea5be984-3821-4d9e-b00d-e85211e22c96" xml:space="preserve">
+          <source>Hybrid Connections are a feature of Azure BizTalk Services and provide an easy way to connect to individual on-premises resources such as SQL Server, MySQL, HTTP Web APIs and most custom Web Services.</source>
+          <target state="new">Hybrid Connections are a feature of Azure BizTalk Services and provide an easy way to connect to individual on-premises resources such as SQL Server, MySQL, HTTP Web APIs and most custom Web Services.</target>
+        </trans-unit>
+        <trans-unit id="eb063313-9a59-4b3c-9825-ac28394f6f22" xml:space="preserve">
+          <source>As a business grows its workforce, via acquisitions or natural organic growth, so too must web applications scale to meet these new demands.</source>
+          <target state="new">As a business grows its workforce, via acquisitions or natural organic growth, so too must web applications scale to meet these new demands.</target>
+        </trans-unit>
+        <trans-unit id="d82b6094-8921-4844-84d6-ec87e8405490" xml:space="preserve">
+          <source>Indeed today it is common to see an even greater spread of co-located teams and remote employees, for example companies with offices in the United States, Europe and Asia, with a mobile sales force in many more territories.</source>
+          <target state="new">Indeed today it is common to see an even greater spread of co-located teams and remote employees, for example companies with offices in the United States, Europe and Asia, with a mobile sales force in many more territories.</target>
+        </trans-unit>
+        <trans-unit id="c045bec8-62c8-47a5-86d3-b9add6632a76" xml:space="preserve">
+          <source>Web Apps has the capability to handle elastic changes in scale comfortably and automatically.</source>
+          <target state="new">Web Apps has the capability to handle elastic changes in scale comfortably and automatically.</target>
+        </trans-unit>
+        <trans-unit id="8c5d62e9-a77c-4786-be4b-86a9f44e4bc6" xml:space="preserve">
+          <source>App Service Web Apps allows web applications to be configured to scale automatically via the Azure portal, depending on two vectors – scheduled times or by CPU usage.</source>
+          <target state="new">App Service Web Apps allows web applications to be configured to scale automatically via the Azure portal, depending on two vectors – scheduled times or by CPU usage.</target>
+        </trans-unit>
+        <trans-unit id="43d0bf0c-47ff-4bcf-91b0-5e39b4ebc982" xml:space="preserve">
+          <source>Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion.</source>
+          <target state="new">Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion.</target>
+        </trans-unit>
+        <trans-unit id="c4ca2afd-cbda-4201-8d2b-845707bb0f8c" xml:space="preserve">
+          <source>For more information and guidance on scaling your web applications using Web Apps, see <bpt id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;linkText&gt;</bpt>How to Scale Websites<ept id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;/linkText&gt;</ept><bpt id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;title&gt;</bpt><ept id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information and guidance on scaling your web applications using Web Apps, see <bpt id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;linkText&gt;</bpt>How to Scale Websites<ept id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;/linkText&gt;</ept><bpt id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;title&gt;</bpt><ept id="3167a108-6ce4-4319-83da-7617aebe8d92">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e00db04-cfad-4a66-bb8f-80f2a8b3e3fc" xml:space="preserve">
+          <source>In addition to the scaling flexibility of Web Apps, the overall platform enables business continuity and resiliency through the possible distribution of web applications and their assets across multiple datacenters and geographic regions.</source>
+          <target state="new">In addition to the scaling flexibility of Web Apps, the overall platform enables business continuity and resiliency through the possible distribution of web applications and their assets across multiple datacenters and geographic regions.</target>
+        </trans-unit>
+        <trans-unit id="2e709f23-cae4-4c97-a426-49312b3ad02f" xml:space="preserve">
+          <source>App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment.</source>
+          <target state="new">App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment.</target>
+        </trans-unit>
+        <trans-unit id="cb4cee0a-ebde-4f16-988e-60d97c37862e" xml:space="preserve">
+          <source>Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.</source>
+          <target state="new">Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.</target>
+        </trans-unit>
+        <trans-unit id="395ee8d1-e6ff-433c-a89b-1f3835fcfb30" xml:space="preserve">
+          <source>For more information on the Azure App Service Web Apps service, visit <bpt id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;linkText&gt;</bpt>http://aka.ms/enterprisewebsites<ept id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;/linkText&gt;</ept><bpt id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;title&gt;</bpt><ept id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;/title&gt;</ept> where more information can be sourced, and sign up for a trial today at <bpt id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;linkText&gt;</bpt>http://aka.ms/azuretrial<ept id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;/linkText&gt;</ept><bpt id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;title&gt;</bpt><ept id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;/title&gt;</ept> to evaluate the service and discover the benefits for your business.</source>
+          <target state="new">For more information on the Azure App Service Web Apps service, visit <bpt id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;linkText&gt;</bpt>http://aka.ms/enterprisewebsites<ept id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;/linkText&gt;</ept><bpt id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;title&gt;</bpt><ept id="9bcad766-6472-4860-b2f1-a55c68fb77ee">&lt;/title&gt;</ept> where more information can be sourced, and sign up for a trial today at <bpt id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;linkText&gt;</bpt>http://aka.ms/azuretrial<ept id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;/linkText&gt;</ept><bpt id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;title&gt;</bpt><ept id="720b4406-bd2c-45fb-a20d-238a8dcfff29">&lt;/title&gt;</ept> to evaluate the service and discover the benefits for your business.</target>
+        </trans-unit>
+        <trans-unit id="e7165be1-24a1-4fee-ad2f-cbe334376fca" xml:space="preserve">
+          <source><bpt id="35d9acf4-fe35-40ed-8ff2-eb2cb07ec497">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="35d9acf4-fe35-40ed-8ff2-eb2cb07ec497">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="35d9acf4-fe35-40ed-8ff2-eb2cb07ec497">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="35d9acf4-fe35-40ed-8ff2-eb2cb07ec497">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="983ad0c4-5d1b-446d-b257-440f1aa327e5" xml:space="preserve">
+          <source><bpt id="675c9fc5-ca49-4231-ac01-a595096f23df">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="675c9fc5-ca49-4231-ac01-a595096f23df">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="675c9fc5-ca49-4231-ac01-a595096f23df">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="675c9fc5-ca49-4231-ac01-a595096f23df">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

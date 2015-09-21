@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c3e2124e-b20d-4109-9ab8-8e6b7909d0e9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c3e2124e-b20d-4109-9ab8-8e6b7909d0e9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="532be7e4-d08e-462d-b8e1-55266f745b13">
+        <trans-unit id="e97b1622-f2fe-4066-9249-b69d3dbfa24e" xml:space="preserve">
+          <source>Set up a Linux RDMA cluster to run MPI applications | Microsoft Azure</source>
+          <target state="new">Set up a Linux RDMA cluster to run MPI applications | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c2c86f07-6b2b-4968-8f4c-6ae50ed68b78" xml:space="preserve">
+          <source>Learn how to create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps.</source>
+          <target state="new">Learn how to create a Linux cluster of size A8 or A9 VMs to use RDMA to run MPI apps.</target>
+        </trans-unit>
+        <trans-unit id="7f09ad85-2b80-4640-a0b6-3838914bd016" xml:space="preserve">
+          <source>This article shows you how to set up a Linux RDMA cluster in Azure with <bpt id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;linkText&gt;</bpt>size A8 and A9 virtual machines<ept id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;/linkText&gt;</ept><bpt id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;title&gt;</bpt><ept id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;/title&gt;</ept> to run parallel Message Passing Interface (MPI) applications.</source>
+          <target state="new">This article shows you how to set up a Linux RDMA cluster in Azure with <bpt id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;linkText&gt;</bpt>size A8 and A9 virtual machines<ept id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;/linkText&gt;</ept><bpt id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;title&gt;</bpt><ept id="26511c42-7df8-4c69-89f3-fd19d7367597">&lt;/title&gt;</ept> to run parallel Message Passing Interface (MPI) applications.</target>
+        </trans-unit>
+        <trans-unit id="d31211d3-a75a-4e8f-916c-2f32da447053" xml:space="preserve">
+          <source>When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.</source>
+          <target state="new">When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.</target>
+        </trans-unit>
+        <trans-unit id="3cb8505b-8770-4ee1-9cbc-d06c2b8f90cc" xml:space="preserve">
+          <source>Azure Linux RDMA is currently supported with Intel MPI Library version 5.0 running on SUSE Linux Enterprise Server 12 (SLES 12).</source>
+          <target state="new">Azure Linux RDMA is currently supported with Intel MPI Library version 5.0 running on SUSE Linux Enterprise Server 12 (SLES 12).</target>
+        </trans-unit>
+        <trans-unit id="ba30ab64-eb4b-4c2b-b8f2-fdfe080866a3" xml:space="preserve">
+          <source>Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network.</source>
+          <target state="new">Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network.</target>
+        </trans-unit>
+        <trans-unit id="097af0a0-d3aa-4a6a-bae2-f2b00466e716" xml:space="preserve">
+          <source>To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.</source>
+          <target state="new">To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.</target>
+        </trans-unit>
+        <trans-unit id="5943716c-b600-45fa-af9c-3aa16de03292" xml:space="preserve">
+          <source>Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.</source>
+          <target state="new">Following are methods you can use to create a Linux RDMA cluster either with or without a job scheduler.</target>
+        </trans-unit>
+        <trans-unit id="ea3f8ad1-5df0-4e6f-bc78-71b5a4efc1db" xml:space="preserve">
+          <source><bpt id="3272ddb3-2718-471d-9563-1fd51e7ccbce">&lt;strong&gt;</bpt>HPC Pack<ept id="3272ddb3-2718-471d-9563-1fd51e7ccbce">&lt;/strong&gt;</ept> - You can create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions (supported starting in HPC Pack 2012 R2 Update 2).</source>
+          <target state="new"><bpt id="3272ddb3-2718-471d-9563-1fd51e7ccbce">&lt;strong&gt;</bpt>HPC Pack<ept id="3272ddb3-2718-471d-9563-1fd51e7ccbce">&lt;/strong&gt;</ept> - You can create a Microsoft HPC Pack cluster in Azure and add compute nodes that run supported Linux distributions (supported starting in HPC Pack 2012 R2 Update 2).</target>
+        </trans-unit>
+        <trans-unit id="4a35a8e2-dcdd-4cae-b2ea-c987cd68e7dc" xml:space="preserve">
+          <source>Some Linux nodes can be configured to access the RDMA network.</source>
+          <target state="new">Some Linux nodes can be configured to access the RDMA network.</target>
+        </trans-unit>
+        <trans-unit id="f601dd85-8103-41c4-b449-b95909855fec" xml:space="preserve">
+          <source>See the <bpt id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;linkText&gt;</bpt>HPC Pack documentation<ept id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;/linkText&gt;</ept><bpt id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;title&gt;</bpt><ept id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;/title&gt;</ept> to get started.</source>
+          <target state="new">See the <bpt id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;linkText&gt;</bpt>HPC Pack documentation<ept id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;/linkText&gt;</ept><bpt id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;title&gt;</bpt><ept id="5ed5598c-2374-4d73-ae26-2d5cf0775bb1">&lt;/title&gt;</ept> to get started.</target>
+        </trans-unit>
+        <trans-unit id="aedc6094-7946-4f0e-b1b4-79113cdf83b0" xml:space="preserve">
+          <source><bpt id="c8c90c10-ef1b-421f-ac09-6faa65897dde">&lt;strong&gt;</bpt>Azure CLI scripts<ept id="c8c90c10-ef1b-421f-ac09-6faa65897dde">&lt;/strong&gt;</ept> - You can use the <bpt id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;linkText&gt;</bpt>Azure Command Line Interface<ept id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;/linkText&gt;</ept><bpt id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;title&gt;</bpt><ept id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;/title&gt;</ept> (CLI) for Mac, Linux, and Windows to build your own scripts to deploy a virtual network and the other necessary components to create a Linux cluster.</source>
+          <target state="new"><bpt id="c8c90c10-ef1b-421f-ac09-6faa65897dde">&lt;strong&gt;</bpt>Azure CLI scripts<ept id="c8c90c10-ef1b-421f-ac09-6faa65897dde">&lt;/strong&gt;</ept> - You can use the <bpt id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;linkText&gt;</bpt>Azure Command Line Interface<ept id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;/linkText&gt;</ept><bpt id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;title&gt;</bpt><ept id="d2033cc9-3d1b-439c-a6e9-9c6b645bde99">&lt;/title&gt;</ept> (CLI) for Mac, Linux, and Windows to build your own scripts to deploy a virtual network and the other necessary components to create a Linux cluster.</target>
+        </trans-unit>
+        <trans-unit id="dd5a32cc-43b9-473c-963d-eb4a5a815b95" xml:space="preserve">
+          <source>The CLI in Azure Service Management (asm) mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment.</source>
+          <target state="new">The CLI in Azure Service Management (asm) mode will deploy the cluster nodes serially, so if you are deploying many compute nodes it might take several minutes to complete the deployment.</target>
+        </trans-unit>
+        <trans-unit id="c1d48f1c-96e1-4953-96ea-8822ec8ad68c" xml:space="preserve">
+          <source>See steps in the rest of this article for an example.</source>
+          <target state="new">See steps in the rest of this article for an example.</target>
+        </trans-unit>
+        <trans-unit id="64296769-69bf-4ed1-b271-e9a0fbc6a792" xml:space="preserve">
+          <source><bpt id="a7d66cff-ce5c-4bd9-b7d3-169f4184d4c8">&lt;strong&gt;</bpt>Azure Resource Manager templates<ept id="a7d66cff-ce5c-4bd9-b7d3-169f4184d4c8">&lt;/strong&gt;</ept> - By creating a straightforward Azure Resource Manager JSON template file and running Azure CLI arm-mode commands or using the Azure Preview Portal, you can deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources to create a compute cluster that can take advantage of the RDMA network and run MPI workloads.</source>
+          <target state="new"><bpt id="a7d66cff-ce5c-4bd9-b7d3-169f4184d4c8">&lt;strong&gt;</bpt>Azure Resource Manager templates<ept id="a7d66cff-ce5c-4bd9-b7d3-169f4184d4c8">&lt;/strong&gt;</ept> - By creating a straightforward Azure Resource Manager JSON template file and running Azure CLI arm-mode commands or using the Azure Preview Portal, you can deploy multiple A8 and A9 Linux VMs as well as define virtual networks, static IP addresses, DNS settings, and other resources to create a compute cluster that can take advantage of the RDMA network and run MPI workloads.</target>
+        </trans-unit>
+        <trans-unit id="62deeec6-0244-4904-bc07-bad5aaa27919" xml:space="preserve">
+          <source>You can <bpt id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;linkText&gt;</bpt>create your own template<ept id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;/linkText&gt;</ept><bpt id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;title&gt;</bpt><ept id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;/title&gt;</ept>, or check the <bpt id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;linkText&gt;</bpt>Azure Quickstart Templates page<ept id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;/linkText&gt;</ept><bpt id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;title&gt;</bpt><ept id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;/title&gt;</ept> for templates contributed by Microsoft or the community to deploy the solution you want.</source>
+          <target state="new">You can <bpt id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;linkText&gt;</bpt>create your own template<ept id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;/linkText&gt;</ept><bpt id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;title&gt;</bpt><ept id="51ce2b20-0512-4b90-9b13-11a5d4157b48">&lt;/title&gt;</ept>, or check the <bpt id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;linkText&gt;</bpt>Azure Quickstart Templates page<ept id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;/linkText&gt;</ept><bpt id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;title&gt;</bpt><ept id="c9f2a14f-d042-44db-80c5-bf7aca195e4e">&lt;/title&gt;</ept> for templates contributed by Microsoft or the community to deploy the solution you want.</target>
+        </trans-unit>
+        <trans-unit id="163fe457-8f70-4d76-ad2d-9d0d02d34fb2" xml:space="preserve">
+          <source>Resource Manager templates generally provide the fastest and most reliable way to deploy a Linux cluster.</source>
+          <target state="new">Resource Manager templates generally provide the fastest and most reliable way to deploy a Linux cluster.</target>
+        </trans-unit>
+        <trans-unit id="f85e093e-bf28-410b-864b-205e1ddb01e4" xml:space="preserve">
+          <source>The following steps will help you use the Azure CLI to deploy a SLES 12 VM, install Intel MPI Library and other customizations, create a custom VM image, and then script the deployment of a cluster of A8 or A9 VMs.</source>
+          <target state="new">The following steps will help you use the Azure CLI to deploy a SLES 12 VM, install Intel MPI Library and other customizations, create a custom VM image, and then script the deployment of a cluster of A8 or A9 VMs.</target>
+        </trans-unit>
+        <trans-unit id="a7e8a1f3-9a99-40ee-9d81-30e0ae54473b" xml:space="preserve">
+          <source><bpt id="192e50c8-480b-48d9-b5cf-0228235a2d66">&lt;strong&gt;</bpt>Client computer<ept id="192e50c8-480b-48d9-b5cf-0228235a2d66">&lt;/strong&gt;</ept> - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure.</source>
+          <target state="new"><bpt id="192e50c8-480b-48d9-b5cf-0228235a2d66">&lt;strong&gt;</bpt>Client computer<ept id="192e50c8-480b-48d9-b5cf-0228235a2d66">&lt;/strong&gt;</ept> - You'll need a Mac, Linux, or Windows-based client computer to communicate with Azure.</target>
+        </trans-unit>
+        <trans-unit id="e6e5e3a5-8833-4893-a5eb-c821d2a72cc6" xml:space="preserve">
+          <source><bpt id="10e7b73b-9546-4462-ae25-c87c101fefd6">&lt;strong&gt;</bpt>Azure subscription<ept id="10e7b73b-9546-4462-ae25-c87c101fefd6">&lt;/strong&gt;</ept> - If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new"><bpt id="10e7b73b-9546-4462-ae25-c87c101fefd6">&lt;strong&gt;</bpt>Azure subscription<ept id="10e7b73b-9546-4462-ae25-c87c101fefd6">&lt;/strong&gt;</ept> - If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="7f2f07f3-320a-492b-a3ca-ab0bed1d2416" xml:space="preserve">
+          <source>For details, see <bpt id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;/linkText&gt;</ept><bpt id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;title&gt;</bpt><ept id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;/linkText&gt;</ept><bpt id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;title&gt;</bpt><ept id="8e56a504-9781-41e8-bcaf-674664bef2c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f39315a5-7919-4873-aff3-f19e455fd851" xml:space="preserve">
+          <source><bpt id="77fc6321-d8a7-4d57-bbec-2cccfff2e37c">&lt;strong&gt;</bpt>Cores quota<ept id="77fc6321-d8a7-4d57-bbec-2cccfff2e37c">&lt;/strong&gt;</ept> - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs.</source>
+          <target state="new"><bpt id="77fc6321-d8a7-4d57-bbec-2cccfff2e37c">&lt;strong&gt;</bpt>Cores quota<ept id="77fc6321-d8a7-4d57-bbec-2cccfff2e37c">&lt;/strong&gt;</ept> - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs.</target>
+        </trans-unit>
+        <trans-unit id="533483d7-fc3d-491b-bcca-c74e0945455e" xml:space="preserve">
+          <source>For example, you will need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article.</source>
+          <target state="new">For example, you will need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article.</target>
+        </trans-unit>
+        <trans-unit id="fc2828a7-52c0-4709-8c18-48e881af251a" xml:space="preserve">
+          <source>To increase a quota, <bpt id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;linkText&gt;</bpt>open an online customer support request<ept id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;/linkText&gt;</ept><bpt id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;title&gt;</bpt><ept id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;/title&gt;</ept> at no charge.</source>
+          <target state="new">To increase a quota, <bpt id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;linkText&gt;</bpt>open an online customer support request<ept id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;/linkText&gt;</ept><bpt id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;title&gt;</bpt><ept id="623fc32b-5fee-46c9-8b72-e877bb941161">&lt;/title&gt;</ept> at no charge.</target>
+        </trans-unit>
+        <trans-unit id="f9b0b195-6028-4e15-a552-0e522085fb9c" xml:space="preserve">
+          <source><bpt id="4974c7bc-212c-4ea5-b0f3-bbfa0db60665">&lt;strong&gt;</bpt>Azure CLI<ept id="4974c7bc-212c-4ea5-b0f3-bbfa0db60665">&lt;/strong&gt;</ept> - <bpt id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;linkText&gt;</bpt>Install<ept id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;/linkText&gt;</ept><bpt id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;title&gt;</bpt><ept id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;/title&gt;</ept> the Azure CLI and <bpt id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;linkText&gt;</bpt>configure it <ept id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;/linkText&gt;</ept><bpt id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;title&gt;</bpt><ept id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;/title&gt;</ept> to use your Azure subscription on the client computer.</source>
+          <target state="new"><bpt id="4974c7bc-212c-4ea5-b0f3-bbfa0db60665">&lt;strong&gt;</bpt>Azure CLI<ept id="4974c7bc-212c-4ea5-b0f3-bbfa0db60665">&lt;/strong&gt;</ept> - <bpt id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;linkText&gt;</bpt>Install<ept id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;/linkText&gt;</ept><bpt id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;title&gt;</bpt><ept id="7b940168-4b92-4632-b5e9-ba5e6cb5fee0">&lt;/title&gt;</ept> the Azure CLI and <bpt id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;linkText&gt;</bpt>configure it <ept id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;/linkText&gt;</ept><bpt id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;title&gt;</bpt><ept id="f88b03ac-c601-4340-911b-14bcb0274c63">&lt;/title&gt;</ept> to use your Azure subscription on the client computer.</target>
+        </trans-unit>
+        <trans-unit id="45875b4b-5ca7-49e0-b1e1-b5787b3c2faf" xml:space="preserve">
+          <source>After logging in to Azure with the Azure CLI, run the <bpt id="ef2b4417-307a-4af3-8668-62134938c21c">&lt;code&gt;</bpt>azure config list<ept id="ef2b4417-307a-4af3-8668-62134938c21c">&lt;/code&gt;</ept> command to confirm that the CLI is in Azure Service Management (asm) mode.</source>
+          <target state="new">After logging in to Azure with the Azure CLI, run the <bpt id="ef2b4417-307a-4af3-8668-62134938c21c">&lt;code&gt;</bpt>azure config list<ept id="ef2b4417-307a-4af3-8668-62134938c21c">&lt;/code&gt;</ept> command to confirm that the CLI is in Azure Service Management (asm) mode.</target>
+        </trans-unit>
+        <trans-unit id="af404c35-1a68-44c0-a712-6ae8ece98842" xml:space="preserve">
+          <source>If it is not, set the mode by running this command:</source>
+          <target state="new">If it is not, set the mode by running this command:</target>
+        </trans-unit>
+        <trans-unit id="907ddba3-3f59-496e-8f8d-e93b0a515285" xml:space="preserve">
+          <source>Type the following to list all the subscriptions you are authorized to use:</source>
+          <target state="new">Type the following to list all the subscriptions you are authorized to use:</target>
+        </trans-unit>
+        <trans-unit id="7ac9661f-bea9-4e81-93d9-37236a82d8e8" xml:space="preserve">
+          <source>The current active subscription will be identified with <bpt id="cc29f890-589d-457a-9a8a-d6c07b2c122e">&lt;code&gt;</bpt>Current<ept id="cc29f890-589d-457a-9a8a-d6c07b2c122e">&lt;/code&gt;</ept> set to <bpt id="0a912652-61c5-40d5-9eb0-1db416302a28">&lt;code&gt;</bpt>true<ept id="0a912652-61c5-40d5-9eb0-1db416302a28">&lt;/code&gt;</ept>.</source>
+          <target state="new">The current active subscription will be identified with <bpt id="cc29f890-589d-457a-9a8a-d6c07b2c122e">&lt;code&gt;</bpt>Current<ept id="cc29f890-589d-457a-9a8a-d6c07b2c122e">&lt;/code&gt;</ept> set to <bpt id="0a912652-61c5-40d5-9eb0-1db416302a28">&lt;code&gt;</bpt>true<ept id="0a912652-61c5-40d5-9eb0-1db416302a28">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98c56387-30c0-410c-9eeb-1fa20bab469c" xml:space="preserve">
+          <source>If this is not the subscription you want to use to create the cluster, set the appropriate subscription number as the active subscription:</source>
+          <target state="new">If this is not the subscription you want to use to create the cluster, set the appropriate subscription number as the active subscription:</target>
+        </trans-unit>
+        <trans-unit id="51735e97-e829-4c51-a9b2-c7c51db3c184" xml:space="preserve">
+          <source>To see the publicly available SLES 12 HPC images in Azure, run a command similar to the following, if your shell environment supports <bpt id="dfbb8d11-1a1f-4848-a9a4-d2db0d2d13f7">&lt;strong&gt;</bpt>grep<ept id="dfbb8d11-1a1f-4848-a9a4-d2db0d2d13f7">&lt;/strong&gt;</ept>:</source>
+          <target state="new">To see the publicly available SLES 12 HPC images in Azure, run a command similar to the following, if your shell environment supports <bpt id="dfbb8d11-1a1f-4848-a9a4-d2db0d2d13f7">&lt;strong&gt;</bpt>grep<ept id="dfbb8d11-1a1f-4848-a9a4-d2db0d2d13f7">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3bfbe2c4-4a49-48cb-b527-0319d9fe2765" xml:space="preserve">
+          <source>The SLES 12 HPC images are preconfigured with the necessary Linux RDMA drivers for Azure.</source>
+          <target state="new">The SLES 12 HPC images are preconfigured with the necessary Linux RDMA drivers for Azure.</target>
+        </trans-unit>
+        <trans-unit id="39b20536-15be-4617-bad0-ccdd53de6bfe" xml:space="preserve">
+          <source>Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following:</source>
+          <target state="new">Now provision a size A9 VM with an available SLES 12 HPC image by running a command similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="f10b3b27-0400-4fb6-91bd-e3d0c8753fa5" xml:space="preserve">
+          <source>where</source>
+          <target state="new">where</target>
+        </trans-unit>
+        <trans-unit id="c6f5d83b-88df-427c-9bd3-28d59ad980a7" xml:space="preserve">
+          <source>the size (A9 in this example) can be A8 or A9</source>
+          <target state="new">the size (A9 in this example) can be A8 or A9</target>
+        </trans-unit>
+        <trans-unit id="d8df58c0-89fc-40bb-b9de-004c1f873a0d" xml:space="preserve">
+          <source>the external SSH port number (10004 in this example) is any valid port number; the internal SSH  port number will be set to 22</source>
+          <target state="new">the external SSH port number (10004 in this example) is any valid port number; the internal SSH  port number will be set to 22</target>
+        </trans-unit>
+        <trans-unit id="d6dfe328-64d6-4d14-a88c-43316b6f1170" xml:space="preserve">
+          <source>a new cloud service will be created in the Azure region specified by the location; specify a location such as "West US" in which the A8 and A9 instances are available</source>
+          <target state="new">a new cloud service will be created in the Azure region specified by the location; specify a location such as "West US" in which the A8 and A9 instances are available</target>
+        </trans-unit>
+        <trans-unit id="342b5179-40e6-4ead-899a-6fa0f14989e6" xml:space="preserve">
+          <source>the image name currently can be <bpt id="d3727c7a-7ba8-4455-8ed0-0f9c421c41a4">&lt;code&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708<ept id="d3727c7a-7ba8-4455-8ed0-0f9c421c41a4">&lt;/code&gt;</ept> (free of charge) or <bpt id="efb183ae-4f7a-455d-b1f1-7367fc294c89">&lt;code&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708<ept id="efb183ae-4f7a-455d-b1f1-7367fc294c89">&lt;/code&gt;</ept> for SUSE priority support (charges will apply)</source>
+          <target state="new">the image name currently can be <bpt id="d3727c7a-7ba8-4455-8ed0-0f9c421c41a4">&lt;code&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708<ept id="d3727c7a-7ba8-4455-8ed0-0f9c421c41a4">&lt;/code&gt;</ept> (free of charge) or <bpt id="efb183ae-4f7a-455d-b1f1-7367fc294c89">&lt;code&gt;</bpt>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708<ept id="efb183ae-4f7a-455d-b1f1-7367fc294c89">&lt;/code&gt;</ept> for SUSE priority support (charges will apply)</target>
+        </trans-unit>
+        <trans-unit id="eb0fca63-7fb4-4deb-922e-3173006c430d" xml:space="preserve">
+          <source>After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it.</source>
+          <target state="new">After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it.</target>
+        </trans-unit>
+        <trans-unit id="8c7439d5-0b50-439c-b393-d6a9238db3ea" xml:space="preserve">
+          <source>For connection details, see <bpt id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;/linkText&gt;</ept><bpt id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;title&gt;</bpt><ept id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For connection details, see <bpt id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;/linkText&gt;</ept><bpt id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;title&gt;</bpt><ept id="eb764f50-1dc6-4182-a5ad-198f374a099a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e57ee497-9614-47b3-acae-0d565c0a8fbf" xml:space="preserve">
+          <source>Microsoft Azure does not provide root access to Linux VMs.</source>
+          <target state="new">Microsoft Azure does not provide root access to Linux VMs.</target>
+        </trans-unit>
+        <trans-unit id="3bc93934-90f5-4145-903c-42fb1aaa9069" xml:space="preserve">
+          <source>To gain administrative access when connected as a user you can use <bpt id="f2f7202a-51c3-47f4-94a7-bb4f97c671d7">&lt;code&gt;</bpt>sudo –s<ept id="f2f7202a-51c3-47f4-94a7-bb4f97c671d7">&lt;/code&gt;</ept>.</source>
+          <target state="new">To gain administrative access when connected as a user you can use <bpt id="f2f7202a-51c3-47f4-94a7-bb4f97c671d7">&lt;code&gt;</bpt>sudo –s<ept id="f2f7202a-51c3-47f4-94a7-bb4f97c671d7">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02519d76-c9a3-421a-98ea-6d1abb95b395" xml:space="preserve">
+          <source><bpt id="3ec63159-f34a-473c-916d-dd70a59264b6">&lt;strong&gt;</bpt>Updates<ept id="3ec63159-f34a-473c-916d-dd70a59264b6">&lt;/strong&gt;</ept> - You can install updates using <bpt id="65043db6-8fdd-4f1d-a66f-b82bac81eb67">&lt;strong&gt;</bpt>zypper<ept id="65043db6-8fdd-4f1d-a66f-b82bac81eb67">&lt;/strong&gt;</ept>, and also NFS utilities.</source>
+          <target state="new"><bpt id="3ec63159-f34a-473c-916d-dd70a59264b6">&lt;strong&gt;</bpt>Updates<ept id="3ec63159-f34a-473c-916d-dd70a59264b6">&lt;/strong&gt;</ept> - You can install updates using <bpt id="65043db6-8fdd-4f1d-a66f-b82bac81eb67">&lt;strong&gt;</bpt>zypper<ept id="65043db6-8fdd-4f1d-a66f-b82bac81eb67">&lt;/strong&gt;</ept>, and also NFS utilities.</target>
+        </trans-unit>
+        <trans-unit id="4ae860b0-0f80-4263-a627-0100bf0e7325" xml:space="preserve">
+          <source>At this time we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.</source>
+          <target state="new">At this time we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.</target>
+        </trans-unit>
+        <trans-unit id="e579aed6-540d-468d-91db-cd99b04476b5" xml:space="preserve">
+          <source><bpt id="ae5d62ef-079c-43b6-8e0d-0b7faf9ec2db">&lt;strong&gt;</bpt>Intel MPI<ept id="ae5d62ef-079c-43b6-8e0d-0b7faf9ec2db">&lt;/strong&gt;</ept> - Download and install the Intel MPI Library 5.0 runtime from the <bpt id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;linkText&gt;</bpt>Intel.com site<ept id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;/linkText&gt;</ept><bpt id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;title&gt;</bpt><ept id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ae5d62ef-079c-43b6-8e0d-0b7faf9ec2db">&lt;strong&gt;</bpt>Intel MPI<ept id="ae5d62ef-079c-43b6-8e0d-0b7faf9ec2db">&lt;/strong&gt;</ept> - Download and install the Intel MPI Library 5.0 runtime from the <bpt id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;linkText&gt;</bpt>Intel.com site<ept id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;/linkText&gt;</ept><bpt id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;title&gt;</bpt><ept id="5dd2bd0e-3e3c-46e8-80f9-0cf7fb6b0e44">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20ee2ba5-1896-446e-b787-23c684aad9f7" xml:space="preserve">
+          <source>After you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI.</source>
+          <target state="new">After you register with Intel, follow the link in the confirmation email to the related web page and copy the download link for the .tgz file for the appropriate version of Intel MPI.</target>
+        </trans-unit>
+        <trans-unit id="6b183807-5100-431f-aa3d-f35bc4e50bac" xml:space="preserve">
+          <source>Run commands similar to the following to install Intel MPI on the VM:</source>
+          <target state="new">Run commands similar to the following to install Intel MPI on the VM:</target>
+        </trans-unit>
+        <trans-unit id="d30444dd-31e0-4ba4-8390-f8c609a83bbd" xml:space="preserve">
+          <source><bpt id="b2d87113-09c3-4440-b79f-699e70796ebc">&lt;strong&gt;</bpt>Lock memory<ept id="b2d87113-09c3-4440-b79f-699e70796ebc">&lt;/strong&gt;</ept> - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf file:</source>
+          <target state="new"><bpt id="b2d87113-09c3-4440-b79f-699e70796ebc">&lt;strong&gt;</bpt>Lock memory<ept id="b2d87113-09c3-4440-b79f-699e70796ebc">&lt;/strong&gt;</ept> - For MPI codes to lock the memory available for RDMA, you need to add or change the following settings in the /etc/security/limits.conf file:</target>
+        </trans-unit>
+        <trans-unit id="b1249f10-4cb9-44c9-bd26-1bee6edd59ec" xml:space="preserve">
+          <source>For testing purposes, you can also set memlock to unlimited. For example: <bpt id="e24c340f-21e7-40f0-9991-7d1ad6df93bd">&lt;code&gt;</bpt>&lt;User or group name&gt;    hard    memlock unlimited<ept id="e24c340f-21e7-40f0-9991-7d1ad6df93bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">For testing purposes, you can also set memlock to unlimited. For example: <bpt id="e24c340f-21e7-40f0-9991-7d1ad6df93bd">&lt;code&gt;</bpt>&lt;User or group name&gt;    hard    memlock unlimited<ept id="e24c340f-21e7-40f0-9991-7d1ad6df93bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15d6e67a-aae8-4100-943d-d478d0923130" xml:space="preserve">
+          <source><bpt id="5038c715-f5cc-48c8-86c7-cfb0870c966f">&lt;strong&gt;</bpt>SSH keys<ept id="5038c715-f5cc-48c8-86c7-cfb0870c966f">&lt;/strong&gt;</ept> - Establish trust for the user name and password that you used to create this VM among all the compute nodes in the cluster.</source>
+          <target state="new"><bpt id="5038c715-f5cc-48c8-86c7-cfb0870c966f">&lt;strong&gt;</bpt>SSH keys<ept id="5038c715-f5cc-48c8-86c7-cfb0870c966f">&lt;/strong&gt;</ept> - Establish trust for the user name and password that you used to create this VM among all the compute nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="db031a82-03b1-4f35-b2cb-26888cfbb632" xml:space="preserve">
+          <source>Use the following command to create SSH keys:</source>
+          <target state="new">Use the following command to create SSH keys:</target>
+        </trans-unit>
+        <trans-unit id="4e4d4442-9ab1-42b1-b384-b52a24b1c3b8" xml:space="preserve">
+          <source>Save the public key in a default location and remember the passphrase entered.</source>
+          <target state="new">Save the public key in a default location and remember the passphrase entered.</target>
+        </trans-unit>
+        <trans-unit id="e9cfc123-eb6e-4eed-b5af-95de5c427fbe" xml:space="preserve">
+          <source>In the ~/.ssh directory edit or create the ssh_config file.</source>
+          <target state="new">In the ~/.ssh directory edit or create the ssh_config file.</target>
+        </trans-unit>
+        <trans-unit id="71a6d30c-19ac-46d9-9483-e03937df4d8a" xml:space="preserve">
+          <source>Provide the IP address range of the private network that you will use in Azure:</source>
+          <target state="new">Provide the IP address range of the private network that you will use in Azure:</target>
+        </trans-unit>
+        <trans-unit id="11e6dafd-7803-4945-8e35-0ce5eac7eb95" xml:space="preserve">
+          <source>Alternatively, you can list the private network IP address of each VM in your cluster as follows:</source>
+          <target state="new">Alternatively, you can list the private network IP address of each VM in your cluster as follows:</target>
+        </trans-unit>
+        <trans-unit id="509a582e-1fc2-4a67-b41e-b539186dfc8b" xml:space="preserve">
+          <source>Configuring <bpt id="4f791baf-5039-4a6a-9dfb-f36fae179159">&lt;code&gt;</bpt>StrictHostKeyChecking no<ept id="4f791baf-5039-4a6a-9dfb-f36fae179159">&lt;/code&gt;</ept> can create a potential security risk if a specific IP address or range is not specified as shown above.</source>
+          <target state="new">Configuring <bpt id="4f791baf-5039-4a6a-9dfb-f36fae179159">&lt;code&gt;</bpt>StrictHostKeyChecking no<ept id="4f791baf-5039-4a6a-9dfb-f36fae179159">&lt;/code&gt;</ept> can create a potential security risk if a specific IP address or range is not specified as shown above.</target>
+        </trans-unit>
+        <trans-unit id="17d20d40-9fd5-4ff6-b660-a8992bfc5688" xml:space="preserve">
+          <source><bpt id="69648990-e555-47c9-b883-a276bd515bde">&lt;strong&gt;</bpt>Applications<ept id="69648990-e555-47c9-b883-a276bd515bde">&lt;/strong&gt;</ept> - Copy any applications you need onto this VM or perform other customizations before you capture the image.</source>
+          <target state="new"><bpt id="69648990-e555-47c9-b883-a276bd515bde">&lt;strong&gt;</bpt>Applications<ept id="69648990-e555-47c9-b883-a276bd515bde">&lt;/strong&gt;</ept> - Copy any applications you need onto this VM or perform other customizations before you capture the image.</target>
+        </trans-unit>
+        <trans-unit id="1d62a683-0ca3-43d6-9535-0fa16b15fbc2" xml:space="preserve">
+          <source>To capture the image, first run the following command in the Linux VM:</source>
+          <target state="new">To capture the image, first run the following command in the Linux VM:</target>
+        </trans-unit>
+        <trans-unit id="844d9af2-0747-4e07-b397-01ecb7eb3d1e" xml:space="preserve">
+          <source>Then, from your client computer, run the following Azure CLI commands to capture the image.</source>
+          <target state="new">Then, from your client computer, run the following Azure CLI commands to capture the image.</target>
+        </trans-unit>
+        <trans-unit id="86c6ba79-937d-4e52-9f8c-644d0cf0ab71" xml:space="preserve">
+          <source>See <bpt id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;linkText&gt;</bpt>How to Capture a Linux Virtual Machine to Use as a Template<ept id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;/linkText&gt;</ept><bpt id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;title&gt;</bpt><ept id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;linkText&gt;</bpt>How to Capture a Linux Virtual Machine to Use as a Template<ept id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;/linkText&gt;</ept><bpt id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;title&gt;</bpt><ept id="b98e17ff-accd-4604-8818-7a516f205a33">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="d2874b25-b617-4849-9109-2bb230c4702d" xml:space="preserve">
+          <source>After you run these commands, the VM image will be captured for your use and the VM will be deleted.</source>
+          <target state="new">After you run these commands, the VM image will be captured for your use and the VM will be deleted.</target>
+        </trans-unit>
+        <trans-unit id="1c51f68a-d7d1-4251-abf0-d7280902292d" xml:space="preserve">
+          <source>Now you have your custom image ready to deploy a cluster.</source>
+          <target state="new">Now you have your custom image ready to deploy a cluster.</target>
+        </trans-unit>
+        <trans-unit id="067b7714-94a5-4b99-b2dd-f7bbf61b666c" xml:space="preserve">
+          <source>Modify the following script with appropriate values for your environment, and run it from your client computer.</source>
+          <target state="new">Modify the following script with appropriate values for your environment, and run it from your client computer.</target>
+        </trans-unit>
+        <trans-unit id="8df59b00-cf20-4a70-b1ab-fe4e735113ac" xml:space="preserve">
+          <source>Becuase the ASM deployment method deploys the VMs serially, it will take a few minutes to deploy the 8 A9 VMs suggested in this script.</source>
+          <target state="new">Becuase the ASM deployment method deploys the VMs serially, it will take a few minutes to deploy the 8 A9 VMs suggested in this script.</target>
+        </trans-unit>
+        <trans-unit id="a0c3d2b4-3ec7-44e1-acc8-69b549b48ede" xml:space="preserve">
+          <source>To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI.</source>
+          <target state="new">To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI.</target>
+        </trans-unit>
+        <trans-unit id="39b83357-c22b-4ab4-9f15-130b6c6bbe84" xml:space="preserve">
+          <source>Here is a sample script to configure the variables and run an application.</source>
+          <target state="new">Here is a sample script to configure the variables and run an application.</target>
+        </trans-unit>
+        <trans-unit id="12ab64a2-f8e9-4fb5-95a8-20809724247b" xml:space="preserve">
+          <source>The format of the host file is as follows.</source>
+          <target state="new">The format of the host file is as follows.</target>
+        </trans-unit>
+        <trans-unit id="5b030bf1-8fc0-40b3-84f8-b09e7ba59b60" xml:space="preserve">
+          <source>Add one line for each node in your cluster.</source>
+          <target state="new">Add one line for each node in your cluster.</target>
+        </trans-unit>
+        <trans-unit id="3293740e-060b-4160-9790-d4941a0b930c" xml:space="preserve">
+          <source>Specify private IP addresses from the VNet defined earlier, not DNS names.</source>
+          <target state="new">Specify private IP addresses from the VNet defined earlier, not DNS names.</target>
+        </trans-unit>
+        <trans-unit id="25572774-de42-4c1a-9a46-866a3b649c31" xml:space="preserve">
+          <source>You can run the following Intel MPI commands to verify the cluster configuration by using a pingpong benchmark.</source>
+          <target state="new">You can run the following Intel MPI commands to verify the cluster configuration by using a pingpong benchmark.</target>
+        </trans-unit>
+        <trans-unit id="51417682-f2d6-41ea-a17a-32cadafbe991" xml:space="preserve">
+          <source>You should see output similar to the following on a working cluster with two nodes:</source>
+          <target state="new">You should see output similar to the following on a working cluster with two nodes:</target>
+        </trans-unit>
+        <trans-unit id="79312dbb-7711-4dd3-8da6-8bdb4692203d" xml:space="preserve">
+          <source>On Linux VMs, Eth1 is reserved for RDMA network traffic.</source>
+          <target state="new">On Linux VMs, Eth1 is reserved for RDMA network traffic.</target>
+        </trans-unit>
+        <trans-unit id="99ec788c-fff3-425d-b416-89b2966b0e81" xml:space="preserve">
+          <source>Do not change any Eth1 settings or any information in the configuration file referring to this network.</source>
+          <target state="new">Do not change any Eth1 settings or any information in the configuration file referring to this network.</target>
+        </trans-unit>
+        <trans-unit id="1da4f079-05bf-49ec-8702-1baff62471ce" xml:space="preserve">
+          <source>In Azure IP over Infiniband (IB) is not supported.</source>
+          <target state="new">In Azure IP over Infiniband (IB) is not supported.</target>
+        </trans-unit>
+        <trans-unit id="a769c4f0-707c-4947-821a-1be4486f4ec4" xml:space="preserve">
+          <source>Only RDMA over IB is supported.</source>
+          <target state="new">Only RDMA over IB is supported.</target>
+        </trans-unit>
+        <trans-unit id="c875c4fd-2fea-449e-953a-1723c8a4aa7b" xml:space="preserve">
+          <source>On Linux VMs, Eth0 is reserved for regular Azure network traffic.</source>
+          <target state="new">On Linux VMs, Eth0 is reserved for regular Azure network traffic.</target>
+        </trans-unit>
+        <trans-unit id="e3aa79e4-0a56-4b43-bcf5-81451de16166" xml:space="preserve">
+          <source>Try deploying and running your Linux MPI applications on your Linux cluster.</source>
+          <target state="new">Try deploying and running your Linux MPI applications on your Linux cluster.</target>
+        </trans-unit>
+        <trans-unit id="99e7b3d6-571b-4670-ba74-bdd59a8d4028" xml:space="preserve">
+          <source>See the <bpt id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;linkText&gt;</bpt>Intel MPI Library documentation<ept id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;/linkText&gt;</ept><bpt id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;title&gt;</bpt><ept id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;/title&gt;</ept> for guidance on Intel MPI.</source>
+          <target state="new">See the <bpt id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;linkText&gt;</bpt>Intel MPI Library documentation<ept id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;/linkText&gt;</ept><bpt id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;title&gt;</bpt><ept id="eebf5ef9-fec9-482b-93d7-762ed1821bc4">&lt;/title&gt;</ept> for guidance on Intel MPI.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

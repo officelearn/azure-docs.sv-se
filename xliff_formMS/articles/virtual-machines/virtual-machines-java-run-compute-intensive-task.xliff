@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="46aa4ec2-7203-49b1-bc9c-3c7afff7f9a8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="46aa4ec2-7203-49b1-bc9c-3c7afff7f9a8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="311dde05-8dc6-4cac-b2e8-cadc2ccd99de">
+        <trans-unit id="4ad6ed58-6c86-455a-8741-e72e31404601" xml:space="preserve">
+          <source>Compute-intensive Java application on a VM | Microsoft Azure</source>
+          <target state="new">Compute-intensive Java application on a VM | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="41777992-7d0f-4246-af9c-7c939f5dec1b" xml:space="preserve">
+          <source>Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.</source>
+          <target state="new">Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.</target>
+        </trans-unit>
+        <trans-unit id="55da4687-6271-4d91-987e-81fb367b3fbb" xml:space="preserve">
+          <source>With Azure, you can use a virtual machine to handle compute-intensive tasks.</source>
+          <target state="new">With Azure, you can use a virtual machine to handle compute-intensive tasks.</target>
+        </trans-unit>
+        <trans-unit id="7f8debec-64c9-49ad-8dd4-ef35b2691e8d" xml:space="preserve">
+          <source>For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications.</source>
+          <target state="new">For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications.</target>
+        </trans-unit>
+        <trans-unit id="75ccea5d-d367-4df0-94f8-9fb6d763f4f8" xml:space="preserve">
+          <source>After reading this article, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.</source>
+          <target state="new">After reading this article, you will have an understanding of how to create a virtual machine that runs a compute-intensive Java application that can be monitored by another Java application.</target>
+        </trans-unit>
+        <trans-unit id="78acc863-ca93-446f-8b8d-8463ecd4469b" xml:space="preserve">
+          <source>This tutorial assumes you know how to create Java console applications, can import libraries to your Java application, and can generate a Java archive (JAR).</source>
+          <target state="new">This tutorial assumes you know how to create Java console applications, can import libraries to your Java application, and can generate a Java archive (JAR).</target>
+        </trans-unit>
+        <trans-unit id="9d4f5ec5-1e84-4fff-b646-2c4178a22f06" xml:space="preserve">
+          <source>No knowledge of Microsoft Azure is assumed.</source>
+          <target state="new">No knowledge of Microsoft Azure is assumed.</target>
+        </trans-unit>
+        <trans-unit id="f439d49d-aa2c-453c-90d1-ecb107dabdc5" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="978d56a2-7c61-4715-953b-e6b2f3f7347a" xml:space="preserve">
+          <source>How to create a virtual machine with a Java Development Kit (JDK) already installed.</source>
+          <target state="new">How to create a virtual machine with a Java Development Kit (JDK) already installed.</target>
+        </trans-unit>
+        <trans-unit id="59fcdfd8-aa38-4842-921e-8161c0f90e94" xml:space="preserve">
+          <source>How to remotely log in to your virtual machine.</source>
+          <target state="new">How to remotely log in to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3990c720-e09e-4a10-a0c7-3ce96d669ca6" xml:space="preserve">
+          <source>How to create a service bus namespace.</source>
+          <target state="new">How to create a service bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="18e5fc97-122e-45d8-afc0-957cc18b890a" xml:space="preserve">
+          <source>How to create a Java application that performs a compute-intensive task.</source>
+          <target state="new">How to create a Java application that performs a compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="1358d758-1160-4c39-99fc-6eb9bd3d0ceb" xml:space="preserve">
+          <source>How to create a Java application that monitors the progress of the compute-intensive task.</source>
+          <target state="new">How to create a Java application that monitors the progress of the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="1daa7146-b5ce-408f-909a-83e5c2fec9f5" xml:space="preserve">
+          <source>How to run the Java applications.</source>
+          <target state="new">How to run the Java applications.</target>
+        </trans-unit>
+        <trans-unit id="8dd277a1-c10e-4796-adb2-08522eace9a2" xml:space="preserve">
+          <source>How to stop the Java applications.</source>
+          <target state="new">How to stop the Java applications.</target>
+        </trans-unit>
+        <trans-unit id="7a62fbdc-c747-4853-9f38-c2b369feba8b" xml:space="preserve">
+          <source>This tutorial will use the Traveling Salesman Problem for the compute-intensive task.</source>
+          <target state="new">This tutorial will use the Traveling Salesman Problem for the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="abfd9432-19dd-4c2b-972d-727b5a1db7db" xml:space="preserve">
+          <source>The following is an example of the Java application running the compute-intensive task.</source>
+          <target state="new">The following is an example of the Java application running the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="13460217-1f8a-480a-94d5-bc685050303a" xml:space="preserve">
+          <source><bpt id="0b1acb58-3b4e-4a6c-a12d-e4770813af3b">&lt;linkText&gt;</bpt>Traveling Salesman Problem solver<ept id="0b1acb58-3b4e-4a6c-a12d-e4770813af3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0b1acb58-3b4e-4a6c-a12d-e4770813af3b">&lt;linkText&gt;</bpt>Traveling Salesman Problem solver<ept id="0b1acb58-3b4e-4a6c-a12d-e4770813af3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7dbffc2-5ce0-4503-932b-9b2975d6de44" xml:space="preserve">
+          <source>The following is an example of the Java application monitoring the compute-intensive task.</source>
+          <target state="new">The following is an example of the Java application monitoring the compute-intensive task.</target>
+        </trans-unit>
+        <trans-unit id="96a3dbbf-3470-44a3-8a15-27ef4a8f7413" xml:space="preserve">
+          <source><bpt id="9ceab158-db67-42a9-8cf2-dc30df568a68">&lt;linkText&gt;</bpt>Traveling Salesman Problem client<ept id="9ceab158-db67-42a9-8cf2-dc30df568a68">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ceab158-db67-42a9-8cf2-dc30df568a68">&lt;linkText&gt;</bpt>Traveling Salesman Problem client<ept id="9ceab158-db67-42a9-8cf2-dc30df568a68">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76f41f85-f3a4-44a5-a8eb-2a79b19aa04a" xml:space="preserve">
+          <source><bpt id="b4d120a4-683e-4a89-b81b-ac3d65472826">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="b4d120a4-683e-4a89-b81b-ac3d65472826">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b4d120a4-683e-4a89-b81b-ac3d65472826">&lt;token href="../../includes/create-account-and-vms-note.md"&gt;</bpt><ept id="b4d120a4-683e-4a89-b81b-ac3d65472826">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccb33e0e-2f47-4e07-82c2-c53643aeaf9e" xml:space="preserve">
+          <source>Log in to the <bpt id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;/linkText&gt;</ept><bpt id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;title&gt;</bpt><ept id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;/linkText&gt;</ept><bpt id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;title&gt;</bpt><ept id="1b7da0e1-17fd-40dc-8dac-038c67aa9743">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9222ee1b-0d06-4be1-b549-974a0611e6e4" xml:space="preserve">
+          <source>Click <bpt id="b88c8729-bcca-407c-8fc2-79b016bc5d9a">&lt;strong&gt;</bpt>New<ept id="b88c8729-bcca-407c-8fc2-79b016bc5d9a">&lt;/strong&gt;</ept>, click <bpt id="408283bf-cbc5-4205-96f7-a59513086139">&lt;strong&gt;</bpt>Compute<ept id="408283bf-cbc5-4205-96f7-a59513086139">&lt;/strong&gt;</ept>, click <bpt id="7f994542-f4c1-4f4e-a69d-c95ef27916fa">&lt;strong&gt;</bpt>Virtual machine<ept id="7f994542-f4c1-4f4e-a69d-c95ef27916fa">&lt;/strong&gt;</ept>, and then click <bpt id="cc9a02dc-3767-47e1-bf96-b08f9593e3d1">&lt;strong&gt;</bpt>From Gallery<ept id="cc9a02dc-3767-47e1-bf96-b08f9593e3d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b88c8729-bcca-407c-8fc2-79b016bc5d9a">&lt;strong&gt;</bpt>New<ept id="b88c8729-bcca-407c-8fc2-79b016bc5d9a">&lt;/strong&gt;</ept>, click <bpt id="408283bf-cbc5-4205-96f7-a59513086139">&lt;strong&gt;</bpt>Compute<ept id="408283bf-cbc5-4205-96f7-a59513086139">&lt;/strong&gt;</ept>, click <bpt id="7f994542-f4c1-4f4e-a69d-c95ef27916fa">&lt;strong&gt;</bpt>Virtual machine<ept id="7f994542-f4c1-4f4e-a69d-c95ef27916fa">&lt;/strong&gt;</ept>, and then click <bpt id="cc9a02dc-3767-47e1-bf96-b08f9593e3d1">&lt;strong&gt;</bpt>From Gallery<ept id="cc9a02dc-3767-47e1-bf96-b08f9593e3d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6c5d52c-e5d4-458a-b037-65d3965ae4db" xml:space="preserve">
+          <source>In the <bpt id="29a16297-4056-4895-b2ce-4c42ce173bf3">&lt;strong&gt;</bpt>Virtual machine image select<ept id="29a16297-4056-4895-b2ce-4c42ce173bf3">&lt;/strong&gt;</ept> dialog box, select <bpt id="3760cfb6-4c92-4828-be7c-6c98d22cd11b">&lt;strong&gt;</bpt>JDK 7 Windows Server 2012<ept id="3760cfb6-4c92-4828-be7c-6c98d22cd11b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="29a16297-4056-4895-b2ce-4c42ce173bf3">&lt;strong&gt;</bpt>Virtual machine image select<ept id="29a16297-4056-4895-b2ce-4c42ce173bf3">&lt;/strong&gt;</ept> dialog box, select <bpt id="3760cfb6-4c92-4828-be7c-6c98d22cd11b">&lt;strong&gt;</bpt>JDK 7 Windows Server 2012<ept id="3760cfb6-4c92-4828-be7c-6c98d22cd11b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acf15233-9731-4e98-85e0-04bbb01389d1" xml:space="preserve">
+          <source>Note that <bpt id="af58a690-f84e-4b81-878a-7b8a36f40732">&lt;strong&gt;</bpt>JDK 6 Windows Server 2012<ept id="af58a690-f84e-4b81-878a-7b8a36f40732">&lt;/strong&gt;</ept> is available in case you have legacy applications that are not yet ready to run in JDK 7.</source>
+          <target state="new">Note that <bpt id="af58a690-f84e-4b81-878a-7b8a36f40732">&lt;strong&gt;</bpt>JDK 6 Windows Server 2012<ept id="af58a690-f84e-4b81-878a-7b8a36f40732">&lt;/strong&gt;</ept> is available in case you have legacy applications that are not yet ready to run in JDK 7.</target>
+        </trans-unit>
+        <trans-unit id="10dd6609-1350-4757-9e37-815492e2b731" xml:space="preserve">
+          <source>Click <bpt id="f93d4553-6a6f-4a12-9f03-092b95b413c1">&lt;strong&gt;</bpt>Next<ept id="f93d4553-6a6f-4a12-9f03-092b95b413c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f93d4553-6a6f-4a12-9f03-092b95b413c1">&lt;strong&gt;</bpt>Next<ept id="f93d4553-6a6f-4a12-9f03-092b95b413c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c46197b-115d-497c-8186-24109683c52f" xml:space="preserve">
+          <source>In the <bpt id="266f706e-d901-4a6c-aeab-5498875cae88">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="266f706e-d901-4a6c-aeab-5498875cae88">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="266f706e-d901-4a6c-aeab-5498875cae88">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="266f706e-d901-4a6c-aeab-5498875cae88">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="b5ec1a66-bcfa-4f5e-bc0b-b36e0316e9d3" xml:space="preserve">
+          <source>Specify a name for the virtual machine.</source>
+          <target state="new">Specify a name for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="34c8b596-2d30-43f9-afb0-bf7726364ab7" xml:space="preserve">
+          <source>Specify the size to use for the virtual machine.</source>
+          <target state="new">Specify the size to use for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="424510be-7966-4750-9bc0-e00b02d5f122" xml:space="preserve">
+          <source>Enter a name for the administrator in the <bpt id="1d3394e1-16a4-4f5b-a08d-22289b3cd746">&lt;strong&gt;</bpt>User Name<ept id="1d3394e1-16a4-4f5b-a08d-22289b3cd746">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a name for the administrator in the <bpt id="1d3394e1-16a4-4f5b-a08d-22289b3cd746">&lt;strong&gt;</bpt>User Name<ept id="1d3394e1-16a4-4f5b-a08d-22289b3cd746">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="9ae4a6c2-a238-425f-ae1e-0f01e60bfc3b" xml:space="preserve">
+          <source>Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.</source>
+          <target state="new">Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3b620b0e-7e99-4b6f-a811-656ced324632" xml:space="preserve">
+          <source>Enter a password in the <bpt id="affc255f-dad4-46e9-bdd7-42ebb82b9642">&lt;strong&gt;</bpt>New password<ept id="affc255f-dad4-46e9-bdd7-42ebb82b9642">&lt;/strong&gt;</ept> field, and re-enter it in the <bpt id="d315bf11-7e67-4f89-805e-375844ae6993">&lt;strong&gt;</bpt>Confirm<ept id="d315bf11-7e67-4f89-805e-375844ae6993">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter a password in the <bpt id="affc255f-dad4-46e9-bdd7-42ebb82b9642">&lt;strong&gt;</bpt>New password<ept id="affc255f-dad4-46e9-bdd7-42ebb82b9642">&lt;/strong&gt;</ept> field, and re-enter it in the <bpt id="d315bf11-7e67-4f89-805e-375844ae6993">&lt;strong&gt;</bpt>Confirm<ept id="d315bf11-7e67-4f89-805e-375844ae6993">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="8b241f17-ca20-405c-8ae7-e8d38e517bed" xml:space="preserve">
+          <source>This is the Administrator account password.</source>
+          <target state="new">This is the Administrator account password.</target>
+        </trans-unit>
+        <trans-unit id="f87970d7-20d3-4872-9648-771a5ea64396" xml:space="preserve">
+          <source>Click <bpt id="f187aa12-47dd-4486-9649-36ed85f03a76">&lt;strong&gt;</bpt>Next<ept id="f187aa12-47dd-4486-9649-36ed85f03a76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f187aa12-47dd-4486-9649-36ed85f03a76">&lt;strong&gt;</bpt>Next<ept id="f187aa12-47dd-4486-9649-36ed85f03a76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="468e2857-01ef-4492-adac-e2fa40186fa3" xml:space="preserve">
+          <source>In the next <bpt id="beb8fcbc-cb37-49a5-9a1f-dd51abe764a3">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="beb8fcbc-cb37-49a5-9a1f-dd51abe764a3">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the next <bpt id="beb8fcbc-cb37-49a5-9a1f-dd51abe764a3">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="beb8fcbc-cb37-49a5-9a1f-dd51abe764a3">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="c376ae63-1540-4d52-9c1c-04eb1185546a" xml:space="preserve">
+          <source>For <bpt id="a55bed1e-9a2c-4cac-a22e-801185f2d009">&lt;strong&gt;</bpt>Cloud service<ept id="a55bed1e-9a2c-4cac-a22e-801185f2d009">&lt;/strong&gt;</ept>, use the default <bpt id="1747b747-c717-407c-9265-037d6d5a5da4">&lt;strong&gt;</bpt>Create a new cloud service<ept id="1747b747-c717-407c-9265-037d6d5a5da4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="a55bed1e-9a2c-4cac-a22e-801185f2d009">&lt;strong&gt;</bpt>Cloud service<ept id="a55bed1e-9a2c-4cac-a22e-801185f2d009">&lt;/strong&gt;</ept>, use the default <bpt id="1747b747-c717-407c-9265-037d6d5a5da4">&lt;strong&gt;</bpt>Create a new cloud service<ept id="1747b747-c717-407c-9265-037d6d5a5da4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e2d3f50-c1cb-4e91-98e5-cf814760ff52" xml:space="preserve">
+          <source>The value for <bpt id="35adeb42-8c99-430c-bcc1-e9b1d1d34deb">&lt;strong&gt;</bpt>Cloud service DNS name<ept id="35adeb42-8c99-430c-bcc1-e9b1d1d34deb">&lt;/strong&gt;</ept> must be unique across cloudapp.net.</source>
+          <target state="new">The value for <bpt id="35adeb42-8c99-430c-bcc1-e9b1d1d34deb">&lt;strong&gt;</bpt>Cloud service DNS name<ept id="35adeb42-8c99-430c-bcc1-e9b1d1d34deb">&lt;/strong&gt;</ept> must be unique across cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="0b089648-e7cd-417b-a6d4-81cac842ffa2" xml:space="preserve">
+          <source>If needed, modify this value so that Azure indicates it is unique.</source>
+          <target state="new">If needed, modify this value so that Azure indicates it is unique.</target>
+        </trans-unit>
+        <trans-unit id="7164c623-8511-435e-903a-6f9a7a8d0fe4" xml:space="preserve">
+          <source>Specify a region, affinity group, or virtual network.</source>
+          <target state="new">Specify a region, affinity group, or virtual network.</target>
+        </trans-unit>
+        <trans-unit id="938765c8-12ed-4ec9-871f-fe31fbaecb0d" xml:space="preserve">
+          <source>For purposes of this tutorial, specify a region such as <bpt id="e75c8e35-b33a-4ca9-bb50-e478c3203d5c">&lt;strong&gt;</bpt>West US<ept id="e75c8e35-b33a-4ca9-bb50-e478c3203d5c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For purposes of this tutorial, specify a region such as <bpt id="e75c8e35-b33a-4ca9-bb50-e478c3203d5c">&lt;strong&gt;</bpt>West US<ept id="e75c8e35-b33a-4ca9-bb50-e478c3203d5c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ede6acc2-94e8-4941-a6d0-6a1c8c05db9b" xml:space="preserve">
+          <source>For <bpt id="dfc820cf-2cfa-45ec-81c3-723b3cf6da2e">&lt;strong&gt;</bpt>Storage Account<ept id="dfc820cf-2cfa-45ec-81c3-723b3cf6da2e">&lt;/strong&gt;</ept>, select <bpt id="3f2902e6-63c2-4d5f-ac58-38c62d166ead">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="3f2902e6-63c2-4d5f-ac58-38c62d166ead">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="dfc820cf-2cfa-45ec-81c3-723b3cf6da2e">&lt;strong&gt;</bpt>Storage Account<ept id="dfc820cf-2cfa-45ec-81c3-723b3cf6da2e">&lt;/strong&gt;</ept>, select <bpt id="3f2902e6-63c2-4d5f-ac58-38c62d166ead">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="3f2902e6-63c2-4d5f-ac58-38c62d166ead">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce5694c0-4ccf-43c4-a73f-ddec19e54619" xml:space="preserve">
+          <source>For <bpt id="70ba9908-6cda-47ee-81db-738bbb34ff45">&lt;strong&gt;</bpt>Availability Set<ept id="70ba9908-6cda-47ee-81db-738bbb34ff45">&lt;/strong&gt;</ept>, select <bpt id="c91996e8-b1b9-44e9-9fdb-f7e38ac80247">&lt;strong&gt;</bpt>(None)<ept id="c91996e8-b1b9-44e9-9fdb-f7e38ac80247">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="70ba9908-6cda-47ee-81db-738bbb34ff45">&lt;strong&gt;</bpt>Availability Set<ept id="70ba9908-6cda-47ee-81db-738bbb34ff45">&lt;/strong&gt;</ept>, select <bpt id="c91996e8-b1b9-44e9-9fdb-f7e38ac80247">&lt;strong&gt;</bpt>(None)<ept id="c91996e8-b1b9-44e9-9fdb-f7e38ac80247">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00d5b935-27c0-4c66-9b50-960e80b6e02f" xml:space="preserve">
+          <source>Click <bpt id="c1396400-a7f3-4b22-8e9d-7ac049f4ebd9">&lt;strong&gt;</bpt>Next<ept id="c1396400-a7f3-4b22-8e9d-7ac049f4ebd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c1396400-a7f3-4b22-8e9d-7ac049f4ebd9">&lt;strong&gt;</bpt>Next<ept id="c1396400-a7f3-4b22-8e9d-7ac049f4ebd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4668c8c7-c1cb-4fb3-be3a-d9eb1f0ab610" xml:space="preserve">
+          <source>In the final <bpt id="e3564894-6eda-44b4-b4a0-aa5c084ad316">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="e3564894-6eda-44b4-b4a0-aa5c084ad316">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the final <bpt id="e3564894-6eda-44b4-b4a0-aa5c084ad316">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="e3564894-6eda-44b4-b4a0-aa5c084ad316">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="7e867e20-249c-4ed4-9d82-3a709ae0794c" xml:space="preserve">
+          <source>Accept the default endpoint entries.</source>
+          <target state="new">Accept the default endpoint entries.</target>
+        </trans-unit>
+        <trans-unit id="fc29595d-cf69-44a9-b5d1-4a6a7cb6b21f" xml:space="preserve">
+          <source>Click <bpt id="9fc66a33-7fce-4662-8707-ae18003e3a81">&lt;strong&gt;</bpt>Complete<ept id="9fc66a33-7fce-4662-8707-ae18003e3a81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9fc66a33-7fce-4662-8707-ae18003e3a81">&lt;strong&gt;</bpt>Complete<ept id="9fc66a33-7fce-4662-8707-ae18003e3a81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ae85ecb-b3a7-48d7-b37c-60729cac26e4" xml:space="preserve">
+          <source>Log on to the <bpt id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;linkText&gt;</bpt>Management Portal<ept id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;/linkText&gt;</ept><bpt id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;title&gt;</bpt><ept id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the <bpt id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;linkText&gt;</bpt>Management Portal<ept id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;/linkText&gt;</ept><bpt id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;title&gt;</bpt><ept id="d2adac7e-1fa6-4642-8514-1bd5ab29c655">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7671ded7-7ee2-49d4-9f91-06964c90c9c2" xml:space="preserve">
+          <source>Click <bpt id="0bf001f9-ee0c-47af-8ea6-6efc13399ce9">&lt;strong&gt;</bpt>Virtual machines<ept id="0bf001f9-ee0c-47af-8ea6-6efc13399ce9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0bf001f9-ee0c-47af-8ea6-6efc13399ce9">&lt;strong&gt;</bpt>Virtual machines<ept id="0bf001f9-ee0c-47af-8ea6-6efc13399ce9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fe3cea2-1fb7-4c47-ac68-2897b685536d" xml:space="preserve">
+          <source>Click the name of the virtual machine that you want to log in to.</source>
+          <target state="new">Click the name of the virtual machine that you want to log in to.</target>
+        </trans-unit>
+        <trans-unit id="a83d640a-beab-41e9-ae66-7ec267648df2" xml:space="preserve">
+          <source>Click <bpt id="00fdae5d-4a3f-4a5f-8033-f18165cf4288">&lt;strong&gt;</bpt>Connect<ept id="00fdae5d-4a3f-4a5f-8033-f18165cf4288">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="00fdae5d-4a3f-4a5f-8033-f18165cf4288">&lt;strong&gt;</bpt>Connect<ept id="00fdae5d-4a3f-4a5f-8033-f18165cf4288">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b47082c-ecaa-454e-bb91-32e687d386cf" xml:space="preserve">
+          <source>Respond to the prompts as needed to connect to the virtual machine.</source>
+          <target state="new">Respond to the prompts as needed to connect to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6783e32f-5d26-48c8-a5bf-3dee30e5599e" xml:space="preserve">
+          <source>When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.</source>
+          <target state="new">When prompted for the administrator name and password, use the values that you provided when you created the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="046b990b-4215-453b-9967-479599c82d55" xml:space="preserve">
+          <source>Note that the Azure Service Bus functionality requires the Baltimore CyberTrust Root certificate to be installed as part of your JRE's <bpt id="deeb28c2-6a14-4a80-9034-b842620a3eb1">&lt;strong&gt;</bpt>cacerts<ept id="deeb28c2-6a14-4a80-9034-b842620a3eb1">&lt;/strong&gt;</ept> store.</source>
+          <target state="new">Note that the Azure Service Bus functionality requires the Baltimore CyberTrust Root certificate to be installed as part of your JRE's <bpt id="deeb28c2-6a14-4a80-9034-b842620a3eb1">&lt;strong&gt;</bpt>cacerts<ept id="deeb28c2-6a14-4a80-9034-b842620a3eb1">&lt;/strong&gt;</ept> store.</target>
+        </trans-unit>
+        <trans-unit id="937599ae-5a7f-4b94-b410-e3b48dd9b197" xml:space="preserve">
+          <source>This certificate is automatically included in the Java Runtime Environment (JRE) used by this tutorial.</source>
+          <target state="new">This certificate is automatically included in the Java Runtime Environment (JRE) used by this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="d5056c77-398b-4d5f-b785-2c7b2679ae04" xml:space="preserve">
+          <source>If you do not have this certificate in your JRE <bpt id="2814924b-0e7b-4516-a7ab-345b821d11e7">&lt;strong&gt;</bpt>cacerts<ept id="2814924b-0e7b-4516-a7ab-345b821d11e7">&lt;/strong&gt;</ept> store, see <bpt id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;/linkText&gt;</ept><bpt id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;title&gt;</bpt><ept id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;/title&gt;</ept> for information on adding it (as well as information on viewing the certificates in your cacerts store).</source>
+          <target state="new">If you do not have this certificate in your JRE <bpt id="2814924b-0e7b-4516-a7ab-345b821d11e7">&lt;strong&gt;</bpt>cacerts<ept id="2814924b-0e7b-4516-a7ab-345b821d11e7">&lt;/strong&gt;</ept> store, see <bpt id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;linkText&gt;</bpt>Adding a Certificate to the Java CA Certificate Store[add_ca_cert]<ept id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;/linkText&gt;</ept><bpt id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;title&gt;</bpt><ept id="6741bf73-def0-4b1b-9a15-924f4af87d07">&lt;/title&gt;</ept> for information on adding it (as well as information on viewing the certificates in your cacerts store).</target>
+        </trans-unit>
+        <trans-unit id="30dc39d1-fc1b-4d51-8a21-dc02081164d6" xml:space="preserve">
+          <source>To begin using Service Bus queues in Azure, you must first
+create a service namespace.</source>
+          <target state="new">To begin using Service Bus queues in Azure, you must first
+create a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="e7e2248b-7ada-477c-b7ce-a48cf1d2848e" xml:space="preserve">
+          <source>A service namespace provides a scoping
+container for addressing Service Bus resources within your application.</source>
+          <target state="new">A service namespace provides a scoping
+container for addressing Service Bus resources within your application.</target>
+        </trans-unit>
+        <trans-unit id="aecb3a09-7418-47cc-bae9-7eb94c933ad6" xml:space="preserve">
+          <source>To create a service namespace:</source>
+          <target state="new">To create a service namespace:</target>
+        </trans-unit>
+        <trans-unit id="e5b3c4e6-8d00-4d38-9ef7-b13cfb51cddb" xml:space="preserve">
+          <source>Log on to the <bpt id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;/linkText&gt;</ept><bpt id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;title&gt;</bpt><ept id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the <bpt id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;/linkText&gt;</ept><bpt id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;title&gt;</bpt><ept id="ca85bb62-b120-4da7-8573-3d40357b2c76">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91305dcd-cd6f-4783-8008-74315e5c616e" xml:space="preserve">
+          <source>In the lower-left navigation pane of the Management Portal, click <bpt id="27efd4fc-0299-423d-8b46-746da27fe2ae">&lt;strong&gt;</bpt>Service Bus, Access Control &amp; Caching<ept id="27efd4fc-0299-423d-8b46-746da27fe2ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the lower-left navigation pane of the Management Portal, click <bpt id="27efd4fc-0299-423d-8b46-746da27fe2ae">&lt;strong&gt;</bpt>Service Bus, Access Control &amp; Caching<ept id="27efd4fc-0299-423d-8b46-746da27fe2ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d03f56eb-fcf8-4152-b644-fdbbb487b4c2" xml:space="preserve">
+          <source>In the upper-left pane of the Management Portal, click the <bpt id="4c882e36-1a8c-4976-9dc7-915e804149da">&lt;strong&gt;</bpt>Service
+Bus<ept id="4c882e36-1a8c-4976-9dc7-915e804149da">&lt;/strong&gt;</ept> node, and then click the <bpt id="db33a5ad-3765-4ddc-a435-3a9bbdf3f223">&lt;strong&gt;</bpt>New<ept id="db33a5ad-3765-4ddc-a435-3a9bbdf3f223">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the upper-left pane of the Management Portal, click the <bpt id="4c882e36-1a8c-4976-9dc7-915e804149da">&lt;strong&gt;</bpt>Service
+Bus<ept id="4c882e36-1a8c-4976-9dc7-915e804149da">&lt;/strong&gt;</ept> node, and then click the <bpt id="db33a5ad-3765-4ddc-a435-3a9bbdf3f223">&lt;strong&gt;</bpt>New<ept id="db33a5ad-3765-4ddc-a435-3a9bbdf3f223">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="57e5feca-bf3d-46ac-b51f-a53f118a738f" xml:space="preserve">
+          <source><bpt id="d095cdc4-0676-4b4c-9caf-84a369b340c0">&lt;linkText&gt;</bpt>Service Bus Node screenshot<ept id="d095cdc4-0676-4b4c-9caf-84a369b340c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d095cdc4-0676-4b4c-9caf-84a369b340c0">&lt;linkText&gt;</bpt>Service Bus Node screenshot<ept id="d095cdc4-0676-4b4c-9caf-84a369b340c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f40d7929-cdd0-4e78-b215-85420f783561" xml:space="preserve">
+          <source>In the <bpt id="3d729eac-5e84-4dab-ad54-a376adeb518a">&lt;strong&gt;</bpt>Create a new Service Namespace<ept id="3d729eac-5e84-4dab-ad54-a376adeb518a">&lt;/strong&gt;</ept> dialog box, enter a
+<bpt id="218037c7-a647-4f06-a0f3-7f621922374e">&lt;strong&gt;</bpt>Namespace<ept id="218037c7-a647-4f06-a0f3-7f621922374e">&lt;/strong&gt;</ept>, and then to make sure that it is unique, click the
+<bpt id="57e139e1-d091-41b5-bbb1-98e9b24fd0eb">&lt;strong&gt;</bpt>Check Availability<ept id="57e139e1-d091-41b5-bbb1-98e9b24fd0eb">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="3d729eac-5e84-4dab-ad54-a376adeb518a">&lt;strong&gt;</bpt>Create a new Service Namespace<ept id="3d729eac-5e84-4dab-ad54-a376adeb518a">&lt;/strong&gt;</ept> dialog box, enter a
+<bpt id="218037c7-a647-4f06-a0f3-7f621922374e">&lt;strong&gt;</bpt>Namespace<ept id="218037c7-a647-4f06-a0f3-7f621922374e">&lt;/strong&gt;</ept>, and then to make sure that it is unique, click the
+<bpt id="57e139e1-d091-41b5-bbb1-98e9b24fd0eb">&lt;strong&gt;</bpt>Check Availability<ept id="57e139e1-d091-41b5-bbb1-98e9b24fd0eb">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="37cc1dac-78c9-4f7a-9aed-9ff29e800685" xml:space="preserve">
+          <source><bpt id="2b2704d0-b6ea-47ec-977d-b056be5a6b83">&lt;linkText&gt;</bpt>Create a New Namespace screenshot<ept id="2b2704d0-b6ea-47ec-977d-b056be5a6b83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b2704d0-b6ea-47ec-977d-b056be5a6b83">&lt;linkText&gt;</bpt>Create a New Namespace screenshot<ept id="2b2704d0-b6ea-47ec-977d-b056be5a6b83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="909759b1-3c73-478b-8b06-e737c563294c" xml:space="preserve">
+          <source>After making sure the namespace name is available, choose the
+country or region in which your namespace should be hosted, and then click the <bpt id="2e471460-b399-407c-b82d-deb7a3a9e309">&lt;strong&gt;</bpt>Create Namespace<ept id="2e471460-b399-407c-b82d-deb7a3a9e309">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">After making sure the namespace name is available, choose the
+country or region in which your namespace should be hosted, and then click the <bpt id="2e471460-b399-407c-b82d-deb7a3a9e309">&lt;strong&gt;</bpt>Create Namespace<ept id="2e471460-b399-407c-b82d-deb7a3a9e309">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="abcccb15-2036-43a6-9f7f-0646de674be1" xml:space="preserve">
+          <source>The namespace you created will then appear in the Management Portal
+and takes a moment to activate.</source>
+          <target state="new">The namespace you created will then appear in the Management Portal
+and takes a moment to activate.</target>
+        </trans-unit>
+        <trans-unit id="a6fb9a0f-e3ca-4acc-a162-d206d6bf7019" xml:space="preserve">
+          <source>Wait until the status is <bpt id="cdb1d44e-6b12-41de-b4d0-b2c3e6a37bc3">&lt;strong&gt;</bpt>Active<ept id="cdb1d44e-6b12-41de-b4d0-b2c3e6a37bc3">&lt;/strong&gt;</ept> before continuing with the next step.</source>
+          <target state="new">Wait until the status is <bpt id="cdb1d44e-6b12-41de-b4d0-b2c3e6a37bc3">&lt;strong&gt;</bpt>Active<ept id="cdb1d44e-6b12-41de-b4d0-b2c3e6a37bc3">&lt;/strong&gt;</ept> before continuing with the next step.</target>
+        </trans-unit>
+        <trans-unit id="00eb62db-6ada-4b79-863b-85145c6682ee" xml:space="preserve">
+          <source>In order to perform management operations, such as creating a queue, on
+the new namespace, you need to obtain the management credentials for the
+namespace.</source>
+          <target state="new">In order to perform management operations, such as creating a queue, on
+the new namespace, you need to obtain the management credentials for the
+namespace.</target>
+        </trans-unit>
+        <trans-unit id="c8d1d8e1-18af-42d9-9661-bbf159fbfddf" xml:space="preserve">
+          <source>In the left navigation pane, click the <bpt id="9e28b2f5-9442-4061-b2db-581aedb1b971">&lt;strong&gt;</bpt>Service Bus<ept id="9e28b2f5-9442-4061-b2db-581aedb1b971">&lt;/strong&gt;</ept> node to
+display the list of available namespaces.</source>
+          <target state="new">In the left navigation pane, click the <bpt id="9e28b2f5-9442-4061-b2db-581aedb1b971">&lt;strong&gt;</bpt>Service Bus<ept id="9e28b2f5-9442-4061-b2db-581aedb1b971">&lt;/strong&gt;</ept> node to
+display the list of available namespaces.</target>
+        </trans-unit>
+        <trans-unit id="b52061ca-6a2b-451b-8934-959d72012364" xml:space="preserve">
+          <source><bpt id="60cc02de-2100-4159-8e3d-65b22fecd1ac">&lt;linkText&gt;</bpt>Available Namespaces screenshot<ept id="60cc02de-2100-4159-8e3d-65b22fecd1ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60cc02de-2100-4159-8e3d-65b22fecd1ac">&lt;linkText&gt;</bpt>Available Namespaces screenshot<ept id="60cc02de-2100-4159-8e3d-65b22fecd1ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8efb1618-7465-4256-86ae-8f899dbfa459" xml:space="preserve">
+          <source>Select the namespace you just created from the list shown.</source>
+          <target state="new">Select the namespace you just created from the list shown.</target>
+        </trans-unit>
+        <trans-unit id="92c18101-7e6a-402a-9cf1-1610822d027f" xml:space="preserve">
+          <source><bpt id="8e764d66-3ce1-4f63-a45b-f64b7de11c43">&lt;linkText&gt;</bpt>Namespace List screenshot<ept id="8e764d66-3ce1-4f63-a45b-f64b7de11c43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e764d66-3ce1-4f63-a45b-f64b7de11c43">&lt;linkText&gt;</bpt>Namespace List screenshot<ept id="8e764d66-3ce1-4f63-a45b-f64b7de11c43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8476d265-1f25-416a-ae0c-e8e5a262d408" xml:space="preserve">
+          <source>The right-hand <bpt id="00bdb6f1-93b6-44ba-88c3-dbef86e1943e">&lt;strong&gt;</bpt>Properties<ept id="00bdb6f1-93b6-44ba-88c3-dbef86e1943e">&lt;/strong&gt;</ept> pane lists the properties for the
+new namespace.</source>
+          <target state="new">The right-hand <bpt id="00bdb6f1-93b6-44ba-88c3-dbef86e1943e">&lt;strong&gt;</bpt>Properties<ept id="00bdb6f1-93b6-44ba-88c3-dbef86e1943e">&lt;/strong&gt;</ept> pane lists the properties for the
+new namespace.</target>
+        </trans-unit>
+        <trans-unit id="a4439e50-6d9f-4d4b-a0ba-e1b88b89fcf7" xml:space="preserve">
+          <source><bpt id="a23cdcf2-27aa-460f-818f-8f2c73a0f2a0">&lt;linkText&gt;</bpt>Properties Pane screenshot<ept id="a23cdcf2-27aa-460f-818f-8f2c73a0f2a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a23cdcf2-27aa-460f-818f-8f2c73a0f2a0">&lt;linkText&gt;</bpt>Properties Pane screenshot<ept id="a23cdcf2-27aa-460f-818f-8f2c73a0f2a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7185095b-82b0-4a43-937f-202d6c18af4f" xml:space="preserve">
+          <source>The <bpt id="de6dfac3-7ecd-401e-ad7e-96607971cd17">&lt;strong&gt;</bpt>Default Key<ept id="de6dfac3-7ecd-401e-ad7e-96607971cd17">&lt;/strong&gt;</ept> is hidden.</source>
+          <target state="new">The <bpt id="de6dfac3-7ecd-401e-ad7e-96607971cd17">&lt;strong&gt;</bpt>Default Key<ept id="de6dfac3-7ecd-401e-ad7e-96607971cd17">&lt;/strong&gt;</ept> is hidden.</target>
+        </trans-unit>
+        <trans-unit id="e581d5b5-1232-461a-b81b-8d7e577fa769" xml:space="preserve">
+          <source>Click the <bpt id="be68a59b-8183-40e8-b0a8-8df96217b80d">&lt;strong&gt;</bpt>View<ept id="be68a59b-8183-40e8-b0a8-8df96217b80d">&lt;/strong&gt;</ept> button to display
+the security credentials.</source>
+          <target state="new">Click the <bpt id="be68a59b-8183-40e8-b0a8-8df96217b80d">&lt;strong&gt;</bpt>View<ept id="be68a59b-8183-40e8-b0a8-8df96217b80d">&lt;/strong&gt;</ept> button to display
+the security credentials.</target>
+        </trans-unit>
+        <trans-unit id="4b3e883c-3100-4536-8d28-45c9b19836eb" xml:space="preserve">
+          <source><bpt id="ef4528f6-a116-41d7-9669-36e7ea851cfc">&lt;linkText&gt;</bpt>Default Key screenshot<ept id="ef4528f6-a116-41d7-9669-36e7ea851cfc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef4528f6-a116-41d7-9669-36e7ea851cfc">&lt;linkText&gt;</bpt>Default Key screenshot<ept id="ef4528f6-a116-41d7-9669-36e7ea851cfc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8ca1a6b-3508-4475-ac8f-933ad09e516b" xml:space="preserve">
+          <source>Make a note of the <bpt id="2eb955a6-a88a-4b5e-b7a6-0cc7b98a56f3">&lt;strong&gt;</bpt>Default Issuer<ept id="2eb955a6-a88a-4b5e-b7a6-0cc7b98a56f3">&lt;/strong&gt;</ept> and the <bpt id="e3ce6c05-494a-4267-9685-e5b34c171b0a">&lt;strong&gt;</bpt>Default Key<ept id="e3ce6c05-494a-4267-9685-e5b34c171b0a">&lt;/strong&gt;</ept> as you
+will use this information below to perform operations with the
+namespace.</source>
+          <target state="new">Make a note of the <bpt id="2eb955a6-a88a-4b5e-b7a6-0cc7b98a56f3">&lt;strong&gt;</bpt>Default Issuer<ept id="2eb955a6-a88a-4b5e-b7a6-0cc7b98a56f3">&lt;/strong&gt;</ept> and the <bpt id="e3ce6c05-494a-4267-9685-e5b34c171b0a">&lt;strong&gt;</bpt>Default Key<ept id="e3ce6c05-494a-4267-9685-e5b34c171b0a">&lt;/strong&gt;</ept> as you
+will use this information below to perform operations with the
+namespace.</target>
+        </trans-unit>
+        <trans-unit id="7bb9d771-ddb9-420a-8780-54b1a5d848b8" xml:space="preserve">
+          <source>On your development machine (which does not have to be the virtual machine that you created), download the <bpt id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;/linkText&gt;</ept><bpt id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;title&gt;</bpt><ept id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;/title&gt;</ept>.</source>
+          <target state="new">On your development machine (which does not have to be the virtual machine that you created), download the <bpt id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;linkText&gt;</bpt>Azure SDK for Java<ept id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;/linkText&gt;</ept><bpt id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;title&gt;</bpt><ept id="cc497f49-404f-4552-b769-23ecf95cf450">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8ca9499-f337-4a68-9f09-add276f770fc" xml:space="preserve">
+          <source>Create a Java console application using the example code at the end of this section.</source>
+          <target state="new">Create a Java console application using the example code at the end of this section.</target>
+        </trans-unit>
+        <trans-unit id="546320b1-81ed-48f5-aa42-177fbe2e8e3e" xml:space="preserve">
+          <source>In this tutorial, we'll use <bpt id="f4d589c0-c65b-47fb-aac7-c37a72e15e4f">&lt;strong&gt;</bpt>TSPSolver.java<ept id="f4d589c0-c65b-47fb-aac7-c37a72e15e4f">&lt;/strong&gt;</ept> as the Java file name.</source>
+          <target state="new">In this tutorial, we'll use <bpt id="f4d589c0-c65b-47fb-aac7-c37a72e15e4f">&lt;strong&gt;</bpt>TSPSolver.java<ept id="f4d589c0-c65b-47fb-aac7-c37a72e15e4f">&lt;/strong&gt;</ept> as the Java file name.</target>
+        </trans-unit>
+        <trans-unit id="eec699f5-6586-4054-ba3a-e6a6aa80a37a" xml:space="preserve">
+          <source>Modify the <bpt id="3993c6ae-6a1e-403d-96cb-82901c7461fe">&lt;strong&gt;</bpt>your\_service\_bus\_namespace<ept id="3993c6ae-6a1e-403d-96cb-82901c7461fe">&lt;/strong&gt;</ept>, <bpt id="db585df4-894c-4a41-b764-b60197f8aae5">&lt;strong&gt;</bpt>your\_service\_bus\_owner<ept id="db585df4-894c-4a41-b764-b60197f8aae5">&lt;/strong&gt;</ept>, and <bpt id="06c05b0d-735b-4316-8362-94149fc3ec13">&lt;strong&gt;</bpt>your\_service\_bus\_key<ept id="06c05b0d-735b-4316-8362-94149fc3ec13">&lt;/strong&gt;</ept> placeholders to use your service bus <bpt id="0b2d3b13-1643-4928-b1dd-4b665a3153c0">&lt;strong&gt;</bpt>namespace<ept id="0b2d3b13-1643-4928-b1dd-4b665a3153c0">&lt;/strong&gt;</ept>, <bpt id="577a2d07-d3fd-475b-aabc-c7ccdb312efe">&lt;strong&gt;</bpt>Default Issuer<ept id="577a2d07-d3fd-475b-aabc-c7ccdb312efe">&lt;/strong&gt;</ept> and <bpt id="ff29c40e-1c98-476f-8995-15f39125b91f">&lt;strong&gt;</bpt>Default Key<ept id="ff29c40e-1c98-476f-8995-15f39125b91f">&lt;/strong&gt;</ept> values, respectively.</source>
+          <target state="new">Modify the <bpt id="3993c6ae-6a1e-403d-96cb-82901c7461fe">&lt;strong&gt;</bpt>your\_service\_bus\_namespace<ept id="3993c6ae-6a1e-403d-96cb-82901c7461fe">&lt;/strong&gt;</ept>, <bpt id="db585df4-894c-4a41-b764-b60197f8aae5">&lt;strong&gt;</bpt>your\_service\_bus\_owner<ept id="db585df4-894c-4a41-b764-b60197f8aae5">&lt;/strong&gt;</ept>, and <bpt id="06c05b0d-735b-4316-8362-94149fc3ec13">&lt;strong&gt;</bpt>your\_service\_bus\_key<ept id="06c05b0d-735b-4316-8362-94149fc3ec13">&lt;/strong&gt;</ept> placeholders to use your service bus <bpt id="0b2d3b13-1643-4928-b1dd-4b665a3153c0">&lt;strong&gt;</bpt>namespace<ept id="0b2d3b13-1643-4928-b1dd-4b665a3153c0">&lt;/strong&gt;</ept>, <bpt id="577a2d07-d3fd-475b-aabc-c7ccdb312efe">&lt;strong&gt;</bpt>Default Issuer<ept id="577a2d07-d3fd-475b-aabc-c7ccdb312efe">&lt;/strong&gt;</ept> and <bpt id="ff29c40e-1c98-476f-8995-15f39125b91f">&lt;strong&gt;</bpt>Default Key<ept id="ff29c40e-1c98-476f-8995-15f39125b91f">&lt;/strong&gt;</ept> values, respectively.</target>
+        </trans-unit>
+        <trans-unit id="f7689cc5-b135-4a5a-93a6-3bb3b01af88b" xml:space="preserve">
+          <source>After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR.</source>
+          <target state="new">After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR.</target>
+        </trans-unit>
+        <trans-unit id="a3e36d83-5870-42b3-b3e0-dec5fee179c0" xml:space="preserve">
+          <source>In this tutorial, we'll use <bpt id="b566b48c-44d9-4b7a-af5a-d160b118c931">&lt;strong&gt;</bpt>TSPSolver.jar<ept id="b566b48c-44d9-4b7a-af5a-d160b118c931">&lt;/strong&gt;</ept> as the generated JAR name.</source>
+          <target state="new">In this tutorial, we'll use <bpt id="b566b48c-44d9-4b7a-af5a-d160b118c931">&lt;strong&gt;</bpt>TSPSolver.jar<ept id="b566b48c-44d9-4b7a-af5a-d160b118c931">&lt;/strong&gt;</ept> as the generated JAR name.</target>
+        </trans-unit>
+        <trans-unit id="ed03c943-adf3-41cd-b4a5-a8c28daa1a97" xml:space="preserve">
+          <source>&lt;p/&gt;</source>
+          <target state="new">&lt;p/&gt;</target>
+        </trans-unit>
+        <trans-unit id="7a0809e5-4515-42c2-9345-f36a22666910" xml:space="preserve">
+          <source>On your development machine, create a Java console application using the example code at the end of this section.</source>
+          <target state="new">On your development machine, create a Java console application using the example code at the end of this section.</target>
+        </trans-unit>
+        <trans-unit id="5c90a7ec-34d1-4a89-a01b-f84a79b9ff2a" xml:space="preserve">
+          <source>In this tutorial, we'll use <bpt id="0b0f53e9-c4d6-486a-8212-1c709bb0984d">&lt;strong&gt;</bpt>TSPClient.java<ept id="0b0f53e9-c4d6-486a-8212-1c709bb0984d">&lt;/strong&gt;</ept> as the Java file name.</source>
+          <target state="new">In this tutorial, we'll use <bpt id="0b0f53e9-c4d6-486a-8212-1c709bb0984d">&lt;strong&gt;</bpt>TSPClient.java<ept id="0b0f53e9-c4d6-486a-8212-1c709bb0984d">&lt;/strong&gt;</ept> as the Java file name.</target>
+        </trans-unit>
+        <trans-unit id="cd3d9bc4-c671-415c-854e-a355ae44987e" xml:space="preserve">
+          <source>As shown earlier, modify the <bpt id="73a799d6-6b7d-4f7f-9afe-17c1292002be">&lt;strong&gt;</bpt>your\_service\_bus\_namespace<ept id="73a799d6-6b7d-4f7f-9afe-17c1292002be">&lt;/strong&gt;</ept>, <bpt id="0c9c9d83-d14c-4a16-80f2-2c1b9a56b2e7">&lt;strong&gt;</bpt>your\_service\_bus\_owner<ept id="0c9c9d83-d14c-4a16-80f2-2c1b9a56b2e7">&lt;/strong&gt;</ept>, and <bpt id="8099047a-8ae7-4c62-ae58-e4bb20ccff87">&lt;strong&gt;</bpt>your\_service\_bus\_key<ept id="8099047a-8ae7-4c62-ae58-e4bb20ccff87">&lt;/strong&gt;</ept> placeholders to use your service bus <bpt id="a1d90487-6b3e-43cb-bc9a-94d884a6fe2c">&lt;strong&gt;</bpt>namespace<ept id="a1d90487-6b3e-43cb-bc9a-94d884a6fe2c">&lt;/strong&gt;</ept>, <bpt id="3022bc0a-69aa-46b8-abde-89d79f599686">&lt;strong&gt;</bpt>Default Issuer<ept id="3022bc0a-69aa-46b8-abde-89d79f599686">&lt;/strong&gt;</ept> and <bpt id="52558acc-6efa-4399-891d-db7b62b4c34e">&lt;strong&gt;</bpt>Default Key<ept id="52558acc-6efa-4399-891d-db7b62b4c34e">&lt;/strong&gt;</ept> values, respectively.</source>
+          <target state="new">As shown earlier, modify the <bpt id="73a799d6-6b7d-4f7f-9afe-17c1292002be">&lt;strong&gt;</bpt>your\_service\_bus\_namespace<ept id="73a799d6-6b7d-4f7f-9afe-17c1292002be">&lt;/strong&gt;</ept>, <bpt id="0c9c9d83-d14c-4a16-80f2-2c1b9a56b2e7">&lt;strong&gt;</bpt>your\_service\_bus\_owner<ept id="0c9c9d83-d14c-4a16-80f2-2c1b9a56b2e7">&lt;/strong&gt;</ept>, and <bpt id="8099047a-8ae7-4c62-ae58-e4bb20ccff87">&lt;strong&gt;</bpt>your\_service\_bus\_key<ept id="8099047a-8ae7-4c62-ae58-e4bb20ccff87">&lt;/strong&gt;</ept> placeholders to use your service bus <bpt id="a1d90487-6b3e-43cb-bc9a-94d884a6fe2c">&lt;strong&gt;</bpt>namespace<ept id="a1d90487-6b3e-43cb-bc9a-94d884a6fe2c">&lt;/strong&gt;</ept>, <bpt id="3022bc0a-69aa-46b8-abde-89d79f599686">&lt;strong&gt;</bpt>Default Issuer<ept id="3022bc0a-69aa-46b8-abde-89d79f599686">&lt;/strong&gt;</ept> and <bpt id="52558acc-6efa-4399-891d-db7b62b4c34e">&lt;strong&gt;</bpt>Default Key<ept id="52558acc-6efa-4399-891d-db7b62b4c34e">&lt;/strong&gt;</ept> values, respectively.</target>
+        </trans-unit>
+        <trans-unit id="e79c2368-7932-494e-b2e1-c8edca6ce158" xml:space="preserve">
+          <source>Export the application to a runnable JAR, and package the required libraries into the generated JAR.</source>
+          <target state="new">Export the application to a runnable JAR, and package the required libraries into the generated JAR.</target>
+        </trans-unit>
+        <trans-unit id="c55f087a-b870-4dda-83e3-49156860296f" xml:space="preserve">
+          <source>In this tutorial, we'll use <bpt id="fddb56f9-31cc-4ad9-ae07-a61c08e3d629">&lt;strong&gt;</bpt>TSPClient.jar<ept id="fddb56f9-31cc-4ad9-ae07-a61c08e3d629">&lt;/strong&gt;</ept> as the generated JAR name.</source>
+          <target state="new">In this tutorial, we'll use <bpt id="fddb56f9-31cc-4ad9-ae07-a61c08e3d629">&lt;strong&gt;</bpt>TSPClient.jar<ept id="fddb56f9-31cc-4ad9-ae07-a61c08e3d629">&lt;/strong&gt;</ept> as the generated JAR name.</target>
+        </trans-unit>
+        <trans-unit id="07eb4d21-8e3a-416c-88bb-99d046eb4f4e" xml:space="preserve">
+          <source>&lt;p/&gt;</source>
+          <target state="new">&lt;p/&gt;</target>
+        </trans-unit>
+        <trans-unit id="c33382b8-116e-429b-aa54-099b27306038" xml:space="preserve">
+          <source>Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, which will add the current best route to the service bus queue.</source>
+          <target state="new">Run the compute-intensive application, first to create the queue, then to solve the Traveling Saleseman Problem, which will add the current best route to the service bus queue.</target>
+        </trans-unit>
+        <trans-unit id="9df260cb-4ed8-4c57-b0b9-aad6a0d102aa" xml:space="preserve">
+          <source>While the compute-intensive application is running (or afterwards), run the client to display results from the service bus queue.</source>
+          <target state="new">While the compute-intensive application is running (or afterwards), run the client to display results from the service bus queue.</target>
+        </trans-unit>
+        <trans-unit id="0980fcb6-c2ff-41ea-9363-12d3f12fcdc0" xml:space="preserve">
+          <source>Log on to your virtual machine.</source>
+          <target state="new">Log on to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f7f60407-6619-4b79-a2a2-3cb4aaba4170" xml:space="preserve">
+          <source>Create a folder where you will run your application.</source>
+          <target state="new">Create a folder where you will run your application.</target>
+        </trans-unit>
+        <trans-unit id="c266b5ed-0e7f-4d82-af18-a3e754e23e37" xml:space="preserve">
+          <source>For example, <bpt id="33b407a5-2d8f-446b-8f70-dac149472071">&lt;strong&gt;</bpt>c:\TSP<ept id="33b407a5-2d8f-446b-8f70-dac149472071">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="33b407a5-2d8f-446b-8f70-dac149472071">&lt;strong&gt;</bpt>c:\TSP<ept id="33b407a5-2d8f-446b-8f70-dac149472071">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c06262b-7603-479f-9ef4-e7efadd3ac28" xml:space="preserve">
+          <source>Copy <bpt id="ca17d27a-cc49-4ef6-8eb3-0520203374f2">&lt;strong&gt;</bpt>TSPSolver.jar<ept id="ca17d27a-cc49-4ef6-8eb3-0520203374f2">&lt;/strong&gt;</ept> to <bpt id="0b294b7a-d605-4ce3-ad73-29cc748e7d42">&lt;strong&gt;</bpt>c:\TSP<ept id="0b294b7a-d605-4ce3-ad73-29cc748e7d42">&lt;/strong&gt;</ept>,</source>
+          <target state="new">Copy <bpt id="ca17d27a-cc49-4ef6-8eb3-0520203374f2">&lt;strong&gt;</bpt>TSPSolver.jar<ept id="ca17d27a-cc49-4ef6-8eb3-0520203374f2">&lt;/strong&gt;</ept> to <bpt id="0b294b7a-d605-4ce3-ad73-29cc748e7d42">&lt;strong&gt;</bpt>c:\TSP<ept id="0b294b7a-d605-4ce3-ad73-29cc748e7d42">&lt;/strong&gt;</ept>,</target>
+        </trans-unit>
+        <trans-unit id="e89c3f70-494e-4d13-9058-c52e48d882a6" xml:space="preserve">
+          <source>Create a file named <bpt id="c43ad553-9c61-4de3-bcee-51e794f1e8d4">&lt;strong&gt;</bpt>c:\TSP\cities.txt<ept id="c43ad553-9c61-4de3-bcee-51e794f1e8d4">&lt;/strong&gt;</ept> with the following contents.</source>
+          <target state="new">Create a file named <bpt id="c43ad553-9c61-4de3-bcee-51e794f1e8d4">&lt;strong&gt;</bpt>c:\TSP\cities.txt<ept id="c43ad553-9c61-4de3-bcee-51e794f1e8d4">&lt;/strong&gt;</ept> with the following contents.</target>
+        </trans-unit>
+        <trans-unit id="1c3c73d9-b159-425b-8826-2f2d05906c83" xml:space="preserve">
+          <source>At a command prompt, change directories to c:\TSP.</source>
+          <target state="new">At a command prompt, change directories to c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="e2deb629-f174-4c2f-9817-daae825b5598" xml:space="preserve">
+          <source>Ensure the JRE's bin folder is in the PATH environment variable.</source>
+          <target state="new">Ensure the JRE's bin folder is in the PATH environment variable.</target>
+        </trans-unit>
+        <trans-unit id="f7202182-b35c-4536-b5cc-2047c1661062" xml:space="preserve">
+          <source>You'll need to create the service bus queue before you run the TSP solver permutations.</source>
+          <target state="new">You'll need to create the service bus queue before you run the TSP solver permutations.</target>
+        </trans-unit>
+        <trans-unit id="b0158791-3525-424a-b58f-68e04577ff7e" xml:space="preserve">
+          <source>Run the following command to create the service bus queue.</source>
+          <target state="new">Run the following command to create the service bus queue.</target>
+        </trans-unit>
+        <trans-unit id="dfa75eb2-f84a-40ad-8abc-6891d9fccf53" xml:space="preserve">
+          <source>Now that the queue is created, you can run the TSP solver permutations.</source>
+          <target state="new">Now that the queue is created, you can run the TSP solver permutations.</target>
+        </trans-unit>
+        <trans-unit id="0e5bbde5-7def-417f-892b-9c1f801ff225" xml:space="preserve">
+          <source>For example, run the following command to run the solver for 8 cities.</source>
+          <target state="new">For example, run the following command to run the solver for 8 cities.</target>
+        </trans-unit>
+        <trans-unit id="c0fa1b47-f130-4eeb-93c7-988201dd7b61" xml:space="preserve">
+          <source>If you don't specify a number, it will run for 10 cities.</source>
+          <target state="new">If you don't specify a number, it will run for 10 cities.</target>
+        </trans-unit>
+        <trans-unit id="019c0402-e6a3-4029-8575-fa919721018d" xml:space="preserve">
+          <source>As the solver finds current shortest routes, it will add them to the queue.</source>
+          <target state="new">As the solver finds current shortest routes, it will add them to the queue.</target>
+        </trans-unit>
+        <trans-unit id="496ece26-19cf-4f30-942d-b7d35e6aaff0" xml:space="preserve">
+          <source>The larger the number that you specify, the longer the solver will run.</source>
+          <target state="new">The larger the number that you specify, the longer the solver will run.</target>
+        </trans-unit>
+        <trans-unit id="53700321-83f4-49b1-a8be-b531c0db8828" xml:space="preserve">
+          <source>For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours.</source>
+          <target state="new">For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours.</target>
+        </trans-unit>
+        <trans-unit id="d94d262d-4c07-499c-a03f-2909c79d0638" xml:space="preserve">
+          <source>Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years).</source>
+          <target state="new">Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years).</target>
+        </trans-unit>
+        <trans-unit id="26d3d369-706f-41e2-bd4c-e1ae27470f30" xml:space="preserve">
+          <source>This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.</source>
+          <target state="new">This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.</target>
+        </trans-unit>
+        <trans-unit id="b7de5d57-2f20-424b-9563-1828b3b93e20" xml:space="preserve">
+          <source>Log on to your machine where you will run the client application.</source>
+          <target state="new">Log on to your machine where you will run the client application.</target>
+        </trans-unit>
+        <trans-unit id="09ea8ead-2396-4376-8206-082bfa4b0a0e" xml:space="preserve">
+          <source>This does not need to be the same machine running the <bpt id="c5c201e0-ee3d-4e03-86b6-c17ca4dfb5b2">&lt;strong&gt;</bpt>TSPSolver<ept id="c5c201e0-ee3d-4e03-86b6-c17ca4dfb5b2">&lt;/strong&gt;</ept> application, although it can be.</source>
+          <target state="new">This does not need to be the same machine running the <bpt id="c5c201e0-ee3d-4e03-86b6-c17ca4dfb5b2">&lt;strong&gt;</bpt>TSPSolver<ept id="c5c201e0-ee3d-4e03-86b6-c17ca4dfb5b2">&lt;/strong&gt;</ept> application, although it can be.</target>
+        </trans-unit>
+        <trans-unit id="9b5c2265-e0e1-4f20-81f7-eb26a8d34625" xml:space="preserve">
+          <source>Create a folder where you will run your application.</source>
+          <target state="new">Create a folder where you will run your application.</target>
+        </trans-unit>
+        <trans-unit id="db091163-5802-4fbf-8f09-4101921bd64a" xml:space="preserve">
+          <source>For example, <bpt id="f54f7da5-8f78-4b1c-a9af-ea408f028704">&lt;strong&gt;</bpt>c:\TSP<ept id="f54f7da5-8f78-4b1c-a9af-ea408f028704">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="f54f7da5-8f78-4b1c-a9af-ea408f028704">&lt;strong&gt;</bpt>c:\TSP<ept id="f54f7da5-8f78-4b1c-a9af-ea408f028704">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8fb6a6e-0800-45e1-9f9f-7cf09623b8d9" xml:space="preserve">
+          <source>Copy <bpt id="d4158c11-e56d-4c60-9bdb-79918198952d">&lt;strong&gt;</bpt>TSPClient.jar<ept id="d4158c11-e56d-4c60-9bdb-79918198952d">&lt;/strong&gt;</ept> to <bpt id="206f464c-a846-44c3-bc18-2f6689f3b169">&lt;strong&gt;</bpt>c:\TSP<ept id="206f464c-a846-44c3-bc18-2f6689f3b169">&lt;/strong&gt;</ept>,</source>
+          <target state="new">Copy <bpt id="d4158c11-e56d-4c60-9bdb-79918198952d">&lt;strong&gt;</bpt>TSPClient.jar<ept id="d4158c11-e56d-4c60-9bdb-79918198952d">&lt;/strong&gt;</ept> to <bpt id="206f464c-a846-44c3-bc18-2f6689f3b169">&lt;strong&gt;</bpt>c:\TSP<ept id="206f464c-a846-44c3-bc18-2f6689f3b169">&lt;/strong&gt;</ept>,</target>
+        </trans-unit>
+        <trans-unit id="ca354a89-6fd3-4783-9301-5f617b05a214" xml:space="preserve">
+          <source>Ensure the JRE's bin folder is in the PATH environment variable.</source>
+          <target state="new">Ensure the JRE's bin folder is in the PATH environment variable.</target>
+        </trans-unit>
+        <trans-unit id="baba8fbf-b774-4b2f-b037-f43f10cad0ac" xml:space="preserve">
+          <source>At a command prompt, change directories to c:\TSP.</source>
+          <target state="new">At a command prompt, change directories to c:\TSP.</target>
+        </trans-unit>
+        <trans-unit id="d5e82cce-77c4-4da8-96a3-b330d879b087" xml:space="preserve">
+          <source>Run the following command.</source>
+          <target state="new">Run the following command.</target>
+        </trans-unit>
+        <trans-unit id="35e6540e-8889-4ff9-bf1c-1f69689a67f8" xml:space="preserve">
+          <source>Optionally, specify the number of minutes to sleep in between checking the queue, by passing in a command-line argument.</source>
+          <target state="new">Optionally, specify the number of minutes to sleep in between checking the queue, by passing in a command-line argument.</target>
+        </trans-unit>
+        <trans-unit id="7166b67c-3273-427c-b6f3-ae78ba57da5a" xml:space="preserve">
+          <source>The default sleep period for checking the queue is 3 minutes, which is used if no command-line argument is passed to <bpt id="33a99f57-bbf8-4b1a-8d42-c998ec0e084d">&lt;strong&gt;</bpt>TSPClient<ept id="33a99f57-bbf8-4b1a-8d42-c998ec0e084d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default sleep period for checking the queue is 3 minutes, which is used if no command-line argument is passed to <bpt id="33a99f57-bbf8-4b1a-8d42-c998ec0e084d">&lt;strong&gt;</bpt>TSPClient<ept id="33a99f57-bbf8-4b1a-8d42-c998ec0e084d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6aec83b-b4ec-49cd-aecf-85aaf16c1e0c" xml:space="preserve">
+          <source>If you want to use a different value for the sleep interval, for example, one minute, run the following command.</source>
+          <target state="new">If you want to use a different value for the sleep interval, for example, one minute, run the following command.</target>
+        </trans-unit>
+        <trans-unit id="f515ffa6-e9a6-44eb-8b18-779ef7e16c93" xml:space="preserve">
+          <source>The client will run until it sees a queue message of "Complete".</source>
+          <target state="new">The client will run until it sees a queue message of "Complete".</target>
+        </trans-unit>
+        <trans-unit id="1efea466-9ea0-4d45-89cf-2cbb9a7fc699" xml:space="preserve">
+          <source>Note that if you run multiple occurrences of the solver without running the client, you may need to run the client multiple times to completely empty the queue.</source>
+          <target state="new">Note that if you run multiple occurrences of the solver without running the client, you may need to run the client multiple times to completely empty the queue.</target>
+        </trans-unit>
+        <trans-unit id="05cf612b-088b-4210-9aab-471ba0f5210f" xml:space="preserve">
+          <source>Alternatively, you can delete the queue and then create it again.</source>
+          <target state="new">Alternatively, you can delete the queue and then create it again.</target>
+        </trans-unit>
+        <trans-unit id="19ef663a-4602-4397-9196-82358b78d42f" xml:space="preserve">
+          <source>To delete the queue, run the following <bpt id="3ae4e2b4-71b7-42be-b00e-c452fe0ff1bf">&lt;strong&gt;</bpt>TSPSolver<ept id="3ae4e2b4-71b7-42be-b00e-c452fe0ff1bf">&lt;/strong&gt;</ept> (not <bpt id="42bde003-dbb5-41f7-92c6-9e2f16d9c29c">&lt;strong&gt;</bpt>TSPClient<ept id="42bde003-dbb5-41f7-92c6-9e2f16d9c29c">&lt;/strong&gt;</ept>)  command.</source>
+          <target state="new">To delete the queue, run the following <bpt id="3ae4e2b4-71b7-42be-b00e-c452fe0ff1bf">&lt;strong&gt;</bpt>TSPSolver<ept id="3ae4e2b4-71b7-42be-b00e-c452fe0ff1bf">&lt;/strong&gt;</ept> (not <bpt id="42bde003-dbb5-41f7-92c6-9e2f16d9c29c">&lt;strong&gt;</bpt>TSPClient<ept id="42bde003-dbb5-41f7-92c6-9e2f16d9c29c">&lt;/strong&gt;</ept>)  command.</target>
+        </trans-unit>
+        <trans-unit id="0e97b491-3964-4c8e-8f84-30596414dc63" xml:space="preserve">
+          <source>The solver will run until it finishes examining all routes.</source>
+          <target state="new">The solver will run until it finishes examining all routes.</target>
+        </trans-unit>
+        <trans-unit id="7b7a4da2-902f-40ac-b5b2-e0bf5f686dc3" xml:space="preserve">
+          <source>For both the solver and client applications, you can press <bpt id="dd905ad1-3d1e-43df-81bf-3a46de8ca11c">&lt;strong&gt;</bpt>Ctrl+C<ept id="dd905ad1-3d1e-43df-81bf-3a46de8ca11c">&lt;/strong&gt;</ept> to exit if you want to end prior to normal completion.</source>
+          <target state="new">For both the solver and client applications, you can press <bpt id="dd905ad1-3d1e-43df-81bf-3a46de8ca11c">&lt;strong&gt;</bpt>Ctrl+C<ept id="dd905ad1-3d1e-43df-81bf-3a46de8ca11c">&lt;/strong&gt;</ept> to exit if you want to end prior to normal completion.</target>
+        </trans-unit>
+        <trans-unit id="82cfbff4-b8c4-4bd7-bd46-879c36783d32" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png</target>
+        </trans-unit>
+        <trans-unit id="8471ea71-0852-48c6-ad05-4e0d28890d7c" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPClient.png</target>
+        </trans-unit>
+        <trans-unit id="8360ba75-2f81-4613-a310-2bbb018b343c" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_02_SvcBusNode.jpg</target>
+        </trans-unit>
+        <trans-unit id="32bfe3f1-75b6-48b4-8ec2-4de2b2e065ad" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_03_CreateNewSvcNamespace.jpg</target>
+        </trans-unit>
+        <trans-unit id="0e807449-63b7-4fd1-aab3-1b58a3b9850a" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg</target>
+        </trans-unit>
+        <trans-unit id="4bc82409-4adf-4a2b-9a80-b505a5f466bf" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg</target>
+        </trans-unit>
+        <trans-unit id="7843ecf3-45eb-45dc-9b75-9b421247dbcc" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg</target>
+        </trans-unit>
+        <trans-unit id="ba23eb57-85ba-4c5d-86a7-75e675cd82da" xml:space="preserve">
+          <source>./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg</source>
+          <target state="new">./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg</target>
+        </trans-unit>
+        <trans-unit id="c8000c44-2fe2-4878-b650-3e827dedfa39" xml:space="preserve">
+          <source>../java-add-certificate-ca-store.md</source>
+          <target state="new">../java-add-certificate-ca-store.md</target>
+        </trans-unit>
+      </group>
+      <group id="74e9ea96-14c8-456f-b5b1-795920bc8367" />
+    </body>
+  </file>
+</xliff>

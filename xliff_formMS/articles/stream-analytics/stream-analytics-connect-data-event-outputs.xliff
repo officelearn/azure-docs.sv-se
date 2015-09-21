@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20af9464-e4cd-46b2-874c-0007d5b4cefb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20af9464-e4cd-46b2-874c-0007d5b4cefb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ceb5ee97-3b98-4bb7-82e8-f7e6bd628466">
+        <trans-unit id="f0c91d75-eab8-46d5-a9e9-1738d7beee60" xml:space="preserve">
+          <source>Create Stream Analytics Outputs | Microsoft Azure</source>
+          <target state="new">Create Stream Analytics Outputs | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a91e8285-d9af-479c-8e22-e2f7c3416177" xml:space="preserve">
+          <source>Learn how to connect to and configure the output targets for Stream Analytics solutions.</source>
+          <target state="new">Learn how to connect to and configure the output targets for Stream Analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="71b31088-e259-4b2d-855e-c27d9aea7d76" xml:space="preserve">
+          <source>When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed.</source>
+          <target state="new">When creating a Stream Analytics job, one of the considerations is how the output of the job is consumed.</target>
+        </trans-unit>
+        <trans-unit id="804212f3-3f56-4638-b961-92e36d3fb512" xml:space="preserve">
+          <source>How are the consumers of the data transformation viewing the results of the Stream Analytics job?</source>
+          <target state="new">How are the consumers of the data transformation viewing the results of the Stream Analytics job?</target>
+        </trans-unit>
+        <trans-unit id="76c3b00a-07da-4d37-8738-32a03ed6c0f1" xml:space="preserve">
+          <source>What tool(s) will they be using to analyze the output?</source>
+          <target state="new">What tool(s) will they be using to analyze the output?</target>
+        </trans-unit>
+        <trans-unit id="3846d4cc-eda7-4b68-8acb-9018265f1878" xml:space="preserve">
+          <source>Is data retention or warehousing a requirement?</source>
+          <target state="new">Is data retention or warehousing a requirement?</target>
+        </trans-unit>
+        <trans-unit id="75119241-ced6-4ee5-a846-1a31e162c1d6" xml:space="preserve">
+          <source>Azure Stream Analytics provides seven different methods for storing and viewing job outputs.</source>
+          <target state="new">Azure Stream Analytics provides seven different methods for storing and viewing job outputs.</target>
+        </trans-unit>
+        <trans-unit id="35233ca7-0cbe-480c-8ebc-890fa4879034" xml:space="preserve">
+          <source>SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage.</source>
+          <target state="new">SQL Database, Blob storage, Event Hubs, Service Bus Queues, Service Bus Topics, Power BI and Table storage.</target>
+        </trans-unit>
+        <trans-unit id="26b97426-fe8a-44c7-8717-0ffabd128adc" xml:space="preserve">
+          <source>This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.</source>
+          <target state="new">This provides for both ease of viewing job output and flexibility in the consumption and storage of the job output for data warehousing and other purposes.</target>
+        </trans-unit>
+        <trans-unit id="5c956a45-0186-4892-8ed4-fdcfcc52dad9" xml:space="preserve">
+          <source>A SQL Database can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database.</source>
+          <target state="new">A SQL Database can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database.</target>
+        </trans-unit>
+        <trans-unit id="8ffd28fb-7a0b-46ee-8f49-846f2dcbd0f5" xml:space="preserve">
+          <source>For more information on Azure SQL databases see <bpt id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;linkText&gt;</bpt>Azure SQL Databases<ept id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;/linkText&gt;</ept><bpt id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;title&gt;</bpt><ept id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on Azure SQL databases see <bpt id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;linkText&gt;</bpt>Azure SQL Databases<ept id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;/linkText&gt;</ept><bpt id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;title&gt;</bpt><ept id="733fbef7-f16d-4863-8eb3-39773a387e16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62981929-ac81-4746-93be-314225b0124f" xml:space="preserve">
+          <source>To start using a SQL Database, the following information will be needed about the SQL Database:</source>
+          <target state="new">To start using a SQL Database, the following information will be needed about the SQL Database:</target>
+        </trans-unit>
+        <trans-unit id="3466094f-9da3-41ce-b79f-a1d13a7972bf" xml:space="preserve">
+          <source>Server Name</source>
+          <target state="new">Server Name</target>
+        </trans-unit>
+        <trans-unit id="13cf8140-92f8-4e03-b5c4-a15da641db4e" xml:space="preserve">
+          <source>Database Name</source>
+          <target state="new">Database Name</target>
+        </trans-unit>
+        <trans-unit id="8025ce17-a93e-4459-b961-086b75bff3e8" xml:space="preserve">
+          <source>A valid username/password combination</source>
+          <target state="new">A valid username/password combination</target>
+        </trans-unit>
+        <trans-unit id="d0db4b12-c036-4956-8ce8-04f9fbad5f47" xml:space="preserve">
+          <source>Output table name.</source>
+          <target state="new">Output table name.</target>
+        </trans-unit>
+        <trans-unit id="ab5938a5-324a-4c27-8119-8c5e3c48a5bb" xml:space="preserve">
+          <source>This table must already exist, the job will not create it.</source>
+          <target state="new">This table must already exist, the job will not create it.</target>
+        </trans-unit>
+        <trans-unit id="68cf6fd4-95a7-4bc7-b05f-85a666c601c2" xml:space="preserve">
+          <source><bpt id="c419054f-8ad2-453d-9684-e887df7db8df">&lt;linkText&gt;</bpt>graphic1<ept id="c419054f-8ad2-453d-9684-e887df7db8df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c419054f-8ad2-453d-9684-e887df7db8df">&lt;linkText&gt;</bpt>graphic1<ept id="c419054f-8ad2-453d-9684-e887df7db8df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87ba02cc-a262-4adc-898e-f4b8148e7fcc" xml:space="preserve">
+          <source>Go to the outputs tab of the job, and click on the <bpt id="9b2343a8-8fba-4c88-9446-f0e55c2295a7">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="9b2343a8-8fba-4c88-9446-f0e55c2295a7">&lt;/strong&gt;</ept> command and click next.</source>
+          <target state="new">Go to the outputs tab of the job, and click on the <bpt id="9b2343a8-8fba-4c88-9446-f0e55c2295a7">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="9b2343a8-8fba-4c88-9446-f0e55c2295a7">&lt;/strong&gt;</ept> command and click next.</target>
+        </trans-unit>
+        <trans-unit id="42b0f463-d735-4cf0-a03a-23c20807a95d" xml:space="preserve">
+          <source><bpt id="40b4abbc-76ae-461b-b37c-e25625497bf2">&lt;linkText&gt;</bpt>graphic2<ept id="40b4abbc-76ae-461b-b37c-e25625497bf2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40b4abbc-76ae-461b-b37c-e25625497bf2">&lt;linkText&gt;</bpt>graphic2<ept id="40b4abbc-76ae-461b-b37c-e25625497bf2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f4aec8f-b437-44ba-918d-21382926f4a3" xml:space="preserve">
+          <source>Choose <bpt id="30154c09-2dc6-407f-8539-bc0a212e1457">&lt;strong&gt;</bpt>SQL Database<ept id="30154c09-2dc6-407f-8539-bc0a212e1457">&lt;/strong&gt;</ept> as the output.</source>
+          <target state="new">Choose <bpt id="30154c09-2dc6-407f-8539-bc0a212e1457">&lt;strong&gt;</bpt>SQL Database<ept id="30154c09-2dc6-407f-8539-bc0a212e1457">&lt;/strong&gt;</ept> as the output.</target>
+        </trans-unit>
+        <trans-unit id="522d588a-cdee-4d68-ae02-263471f42a82" xml:space="preserve">
+          <source><bpt id="422c5155-54a1-474d-9301-a21ecf4953f8">&lt;linkText&gt;</bpt>graphic3<ept id="422c5155-54a1-474d-9301-a21ecf4953f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="422c5155-54a1-474d-9301-a21ecf4953f8">&lt;linkText&gt;</bpt>graphic3<ept id="422c5155-54a1-474d-9301-a21ecf4953f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a82edbbf-a455-42bd-98d0-479075842d4e" xml:space="preserve">
+          <source>Enter the database information on the next page.</source>
+          <target state="new">Enter the database information on the next page.</target>
+        </trans-unit>
+        <trans-unit id="6ada53e9-2bae-4fd9-bde7-5c72431335e9" xml:space="preserve">
+          <source>The output alias is a friendly name used in queries to direct the query output to this database.</source>
+          <target state="new">The output alias is a friendly name used in queries to direct the query output to this database.</target>
+        </trans-unit>
+        <trans-unit id="8d92a8b4-f2fb-457f-80e8-c3fdafd4e7ad" xml:space="preserve">
+          <source>The default alias if if only a single output is present is "output".</source>
+          <target state="new">The default alias if if only a single output is present is "output".</target>
+        </trans-unit>
+        <trans-unit id="e9cfd668-0615-4bb0-a03c-e39c95da02f8" xml:space="preserve">
+          <source><bpt id="00fe86e7-cf60-45e2-be3b-122031f61b95">&lt;linkText&gt;</bpt>graphic4<ept id="00fe86e7-cf60-45e2-be3b-122031f61b95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00fe86e7-cf60-45e2-be3b-122031f61b95">&lt;linkText&gt;</bpt>graphic4<ept id="00fe86e7-cf60-45e2-be3b-122031f61b95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8b8e7f3-0795-47ed-810a-5755d13177e4" xml:space="preserve">
+          <source>If the database exists within the same subscription as the Stream Analytics job, the option to select "Use SQL Database from Current Subscription", is available.</source>
+          <target state="new">If the database exists within the same subscription as the Stream Analytics job, the option to select "Use SQL Database from Current Subscription", is available.</target>
+        </trans-unit>
+        <trans-unit id="f25a1252-6edd-41dd-9b3b-c6833aaf3621" xml:space="preserve">
+          <source>Then select the database from the drop down list.</source>
+          <target state="new">Then select the database from the drop down list.</target>
+        </trans-unit>
+        <trans-unit id="6fd97617-1ce2-4bef-843a-cd98a2b20b11" xml:space="preserve">
+          <source><bpt id="a49d0e93-1c37-4e28-8dfc-ebe31cb9ba9c">&lt;linkText&gt;</bpt>graphic5<ept id="a49d0e93-1c37-4e28-8dfc-ebe31cb9ba9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a49d0e93-1c37-4e28-8dfc-ebe31cb9ba9c">&lt;linkText&gt;</bpt>graphic5<ept id="a49d0e93-1c37-4e28-8dfc-ebe31cb9ba9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cd4d097-0ae3-45bd-abc3-b4a604f1f3d9" xml:space="preserve">
+          <source>Click next to add this output.</source>
+          <target state="new">Click next to add this output.</target>
+        </trans-unit>
+        <trans-unit id="8501c85a-8a56-4274-8c9c-bf0a9db1e653" xml:space="preserve">
+          <source>Two operations should start, the first is to add the output.</source>
+          <target state="new">Two operations should start, the first is to add the output.</target>
+        </trans-unit>
+        <trans-unit id="fa46eb7d-bf27-4bc6-9cfd-2033d7c363e3" xml:space="preserve">
+          <source><bpt id="04d21f25-1139-41a2-af41-861297adbaa9">&lt;linkText&gt;</bpt>graphic6<ept id="04d21f25-1139-41a2-af41-861297adbaa9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04d21f25-1139-41a2-af41-861297adbaa9">&lt;linkText&gt;</bpt>graphic6<ept id="04d21f25-1139-41a2-af41-861297adbaa9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a229c00-58e0-43fd-97de-01d53622ad7e" xml:space="preserve">
+          <source>The second operation is to test the connection.</source>
+          <target state="new">The second operation is to test the connection.</target>
+        </trans-unit>
+        <trans-unit id="02d891b2-694b-4697-881c-6ad15616e424" xml:space="preserve">
+          <source>Azure Stream Analytics will try to connect to the SQL Database and verify the credentials entered are correct and that the table is accessible.</source>
+          <target state="new">Azure Stream Analytics will try to connect to the SQL Database and verify the credentials entered are correct and that the table is accessible.</target>
+        </trans-unit>
+        <trans-unit id="ef68dbb3-718f-4f94-a16e-ced2710e1975" xml:space="preserve">
+          <source>For an introduction on Azure Blob storage and its usage, see the documentation at <bpt id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;linkText&gt;</bpt>How to use Blobs<ept id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;/linkText&gt;</ept><bpt id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;title&gt;</bpt><ept id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an introduction on Azure Blob storage and its usage, see the documentation at <bpt id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;linkText&gt;</bpt>How to use Blobs<ept id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;/linkText&gt;</ept><bpt id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;title&gt;</bpt><ept id="fb209b78-fd74-458a-a71a-ce7f8de6355c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eac3fbbc-95dd-44ca-8b0f-ff44f4a20304" xml:space="preserve">
+          <source>To start using a Blob storage output, the following information will be needed:</source>
+          <target state="new">To start using a Blob storage output, the following information will be needed:</target>
+        </trans-unit>
+        <trans-unit id="65635555-0020-4994-80a9-d1893aa59efa" xml:space="preserve">
+          <source>If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.</source>
+          <target state="new">If the storage account is in a different subscription than the streaming job then fields will appear to provide the Storage Account Name and Storage Account Key.</target>
+        </trans-unit>
+        <trans-unit id="a1988e73-01f2-48cb-89dc-30cc42f5ef26" xml:space="preserve">
+          <source>The container name.</source>
+          <target state="new">The container name.</target>
+        </trans-unit>
+        <trans-unit id="5e9eda00-cdbe-4719-b96f-cf66447aae86" xml:space="preserve">
+          <source>The file name prefix.</source>
+          <target state="new">The file name prefix.</target>
+        </trans-unit>
+        <trans-unit id="bf3e1a67-e8c6-4d1c-abb3-74adf1e0d23e" xml:space="preserve">
+          <source>What serialization format is utilized for the data (Avro, CSV, JSON).</source>
+          <target state="new">What serialization format is utilized for the data (Avro, CSV, JSON).</target>
+        </trans-unit>
+        <trans-unit id="2dccb793-58a1-4a95-ad05-fea5b8405edf" xml:space="preserve">
+          <source>Select output to Blob storage.</source>
+          <target state="new">Select output to Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="537632c5-c8ba-4867-ad33-9e470296e610" xml:space="preserve">
+          <source><bpt id="33eb492e-a454-4923-b8d4-f2c4774e62fd">&lt;linkText&gt;</bpt>graphic20<ept id="33eb492e-a454-4923-b8d4-f2c4774e62fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33eb492e-a454-4923-b8d4-f2c4774e62fd">&lt;linkText&gt;</bpt>graphic20<ept id="33eb492e-a454-4923-b8d4-f2c4774e62fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fe4b83c-c818-455c-b433-512b68dce82d" xml:space="preserve">
+          <source>Then supply the details as shown below:</source>
+          <target state="new">Then supply the details as shown below:</target>
+        </trans-unit>
+        <trans-unit id="f6c2d621-8d26-42cd-9568-7727f977b893" xml:space="preserve">
+          <source><bpt id="6ad2d020-c63a-4ffc-8b29-92a71133a344">&lt;linkText&gt;</bpt>graphic21<ept id="6ad2d020-c63a-4ffc-8b29-92a71133a344">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ad2d020-c63a-4ffc-8b29-92a71133a344">&lt;linkText&gt;</bpt>graphic21<ept id="6ad2d020-c63a-4ffc-8b29-92a71133a344">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5a993e4-6960-466a-bc39-4d160cdccd96" xml:space="preserve">
+          <source>Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress.</source>
+          <target state="new">Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress.</target>
+        </trans-unit>
+        <trans-unit id="26aa8460-69c3-4ff5-90fa-cc983f50eb19" xml:space="preserve">
+          <source>Their robust handling of high numbers of events also make them perfect for job output.</source>
+          <target state="new">Their robust handling of high numbers of events also make them perfect for job output.</target>
+        </trans-unit>
+        <trans-unit id="dc1c4d71-fb83-46e6-91de-bc7b668bfa7f" xml:space="preserve">
+          <source>One use of an Event Hub as output is when the output of an Stream Analytics job will be the input of another streaming job.</source>
+          <target state="new">One use of an Event Hub as output is when the output of an Stream Analytics job will be the input of another streaming job.</target>
+        </trans-unit>
+        <trans-unit id="224fad14-9d69-498d-897a-c07b6de7770d" xml:space="preserve">
+          <source>For further details on Event Hubs visit the portal at <bpt id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;linkText&gt;</bpt>Event Hubs<ept id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;/linkText&gt;</ept><bpt id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;title&gt;</bpt>Event Hubs<ept id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further details on Event Hubs visit the portal at <bpt id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;linkText&gt;</bpt>Event Hubs<ept id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;/linkText&gt;</ept><bpt id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;title&gt;</bpt>Event Hubs<ept id="59665157-b7e3-4733-af16-8ee43f1dafa4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebab9415-2125-4727-83f1-d4e9ab0cbc7c" xml:space="preserve">
+          <source>There are a few parameters that are needed to configure Event Hub data streams.</source>
+          <target state="new">There are a few parameters that are needed to configure Event Hub data streams.</target>
+        </trans-unit>
+        <trans-unit id="52bd41b8-2a54-40b8-8caf-3d3d1151918d" xml:space="preserve">
+          <source>Service Bus Namespace: Service Bus Namespace of the Event Hub.</source>
+          <target state="new">Service Bus Namespace: Service Bus Namespace of the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="f6a7a243-8ec3-43d2-844c-3a896034a2b2" xml:space="preserve">
+          <source>A Service Bus namespace is a container for a set of messaging entities.</source>
+          <target state="new">A Service Bus namespace is a container for a set of messaging entities.</target>
+        </trans-unit>
+        <trans-unit id="c80caca8-2273-4d22-946a-feb8471f69a2" xml:space="preserve">
+          <source>When creating a new Event Hub, a Service Bus namespace is also created.</source>
+          <target state="new">When creating a new Event Hub, a Service Bus namespace is also created.</target>
+        </trans-unit>
+        <trans-unit id="fb1fc65f-7d37-4205-8b05-d7fe11cad134" xml:space="preserve">
+          <source>Event Hub Name: Name of the Event Hub.</source>
+          <target state="new">Event Hub Name: Name of the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="69bb9dfe-4b05-480b-813e-35db605cacb5" xml:space="preserve">
+          <source>It’s the name specified when creating a new Event Hub.</source>
+          <target state="new">It’s the name specified when creating a new Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="352b787f-77a3-4ae9-ac25-b1b1394f3ef3" xml:space="preserve">
+          <source>Event Hub Policy Name: The name of the shared access policy for accessing the Event Hub.</source>
+          <target state="new">Event Hub Policy Name: The name of the shared access policy for accessing the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="3b1ec6bd-6d20-4932-a383-c3917913190e" xml:space="preserve">
+          <source>Shared access policies can be configured for an Event Hub on the Configure tab.</source>
+          <target state="new">Shared access policies can be configured for an Event Hub on the Configure tab.</target>
+        </trans-unit>
+        <trans-unit id="82aa7bbc-9f46-45ee-8303-cf2d4f2d2e55" xml:space="preserve">
+          <source>Each shared access policy will have a name, permissions set, and access keys generated.</source>
+          <target state="new">Each shared access policy will have a name, permissions set, and access keys generated.</target>
+        </trans-unit>
+        <trans-unit id="8fa763ed-f097-4ba1-877b-5844cf9721f3" xml:space="preserve">
+          <source>Event Hub Policy Key:  The primary or secondary key of the shared access policy for accessing the Event Hub.</source>
+          <target state="new">Event Hub Policy Key:  The primary or secondary key of the shared access policy for accessing the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="e40b53aa-de16-4292-9ff1-a883aac7fc8a" xml:space="preserve">
+          <source>Partition Key Column:  Optional parameter for Event Hub outputs.</source>
+          <target state="new">Partition Key Column:  Optional parameter for Event Hub outputs.</target>
+        </trans-unit>
+        <trans-unit id="850837bf-0179-46d2-89b8-c479b4d0414a" xml:space="preserve">
+          <source>This column contains the partition key for Event Hub output.</source>
+          <target state="new">This column contains the partition key for Event Hub output.</target>
+        </trans-unit>
+        <trans-unit id="6f9bf711-857d-471e-b7a9-f1b34a7ea778" xml:space="preserve">
+          <source>Click <bpt id="69cc8964-89c3-4472-9f1c-5c34d360f8b9">&lt;strong&gt;</bpt>Output<ept id="69cc8964-89c3-4472-9f1c-5c34d360f8b9">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="7d9f2a56-8977-41d0-b383-eb1b16164000">&lt;strong&gt;</bpt>Add Output<ept id="7d9f2a56-8977-41d0-b383-eb1b16164000">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="69cc8964-89c3-4472-9f1c-5c34d360f8b9">&lt;strong&gt;</bpt>Output<ept id="69cc8964-89c3-4472-9f1c-5c34d360f8b9">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="7d9f2a56-8977-41d0-b383-eb1b16164000">&lt;strong&gt;</bpt>Add Output<ept id="7d9f2a56-8977-41d0-b383-eb1b16164000">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dcbeaf1-ab2b-485f-90e8-76dd104420f2" xml:space="preserve">
+          <source>Select Event Hub as the output option and click the right button at the bottom of the window.</source>
+          <target state="new">Select Event Hub as the output option and click the right button at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="84e70b71-5b2d-4be7-8b4c-ce42b34be61a" xml:space="preserve">
+          <source><bpt id="5b870141-d3cf-43bf-b686-8cf9e6fc2568">&lt;linkText&gt;</bpt>graphic38<ept id="5b870141-d3cf-43bf-b686-8cf9e6fc2568">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b870141-d3cf-43bf-b686-8cf9e6fc2568">&lt;linkText&gt;</bpt>graphic38<ept id="5b870141-d3cf-43bf-b686-8cf9e6fc2568">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7705afdb-7fad-4766-b902-d15c80356317" xml:space="preserve">
+          <source>Provide the relevant information into the fields for the output and when finished click the right button at the bottom of the window to proceed.</source>
+          <target state="new">Provide the relevant information into the fields for the output and when finished click the right button at the bottom of the window to proceed.</target>
+        </trans-unit>
+        <trans-unit id="182ff1d4-75ff-4c15-84b4-db116a928fd7" xml:space="preserve">
+          <source><bpt id="12c19676-0c79-488a-a020-5d4a3f9e67b7">&lt;linkText&gt;</bpt>graphic36<ept id="12c19676-0c79-488a-a020-5d4a3f9e67b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12c19676-0c79-488a-a020-5d4a3f9e67b7">&lt;linkText&gt;</bpt>graphic36<ept id="12c19676-0c79-488a-a020-5d4a3f9e67b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75aef830-227b-464c-837d-29dcdea851b5" xml:space="preserve">
+          <source>Validate the Event Serialization Format, Encoding type and Format are set to the appropriate values and click the check box to complete the action.</source>
+          <target state="new">Validate the Event Serialization Format, Encoding type and Format are set to the appropriate values and click the check box to complete the action.</target>
+        </trans-unit>
+        <trans-unit id="7e6537cf-86ee-4633-a696-6fcea83b02ea" xml:space="preserve">
+          <source><bpt id="9eeb6182-4d52-44d3-8306-946d4d2abf51">&lt;linkText&gt;</bpt>graphic37<ept id="9eeb6182-4d52-44d3-8306-946d4d2abf51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9eeb6182-4d52-44d3-8306-946d4d2abf51">&lt;linkText&gt;</bpt>graphic37<ept id="9eeb6182-4d52-44d3-8306-946d4d2abf51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e4a6366-f596-4cab-8327-e766c7294d1b" xml:space="preserve">
+          <source>Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users.</source>
+          <target state="new">Power BI can be utilized as an output for a Stream Analytics job to provide for a rich visualization experience for Stream Analytics users.</target>
+        </trans-unit>
+        <trans-unit id="b1eca901-5cf9-4847-821a-a1652ec49fd0" xml:space="preserve">
+          <source>This capability can be utilized for operational dashboards, report generation and metric driven reporting.</source>
+          <target state="new">This capability can be utilized for operational dashboards, report generation and metric driven reporting.</target>
+        </trans-unit>
+        <trans-unit id="b50d5869-e0e1-4a10-bd7e-c35ac8ccba8c" xml:space="preserve">
+          <source>For more information on Power BI visit the <bpt id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;linkText&gt;</bpt>Power BI<ept id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;/linkText&gt;</ept><bpt id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;title&gt;</bpt><ept id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;/title&gt;</ept> site.</source>
+          <target state="new">For more information on Power BI visit the <bpt id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;linkText&gt;</bpt>Power BI<ept id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;/linkText&gt;</ept><bpt id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;title&gt;</bpt><ept id="71487cbc-98da-4b90-98d2-02fc5c1ac182">&lt;/title&gt;</ept> site.</target>
+        </trans-unit>
+        <trans-unit id="eab8ed2a-62e0-4472-86e6-6ac0c267a77d" xml:space="preserve">
+          <source>There are a few parameters that are needed to configure a Power BI output.</source>
+          <target state="new">There are a few parameters that are needed to configure a Power BI output.</target>
+        </trans-unit>
+        <trans-unit id="4aee6293-c046-4a20-861b-5cd0ca5ea16d" xml:space="preserve">
+          <source>Output Alias – Any friendly-named output alias that is easy to refer to.</source>
+          <target state="new">Output Alias – Any friendly-named output alias that is easy to refer to.</target>
+        </trans-unit>
+        <trans-unit id="02ec0063-3c0c-496b-a5c9-68dad12ebf1c" xml:space="preserve">
+          <source>This output alias is particularly helpful if it is decided to have multiple outputs for a job.</source>
+          <target state="new">This output alias is particularly helpful if it is decided to have multiple outputs for a job.</target>
+        </trans-unit>
+        <trans-unit id="e04236c7-7bbb-402f-be43-7a39ffec2051" xml:space="preserve">
+          <source>In that case, this alias will be referred to in your query.</source>
+          <target state="new">In that case, this alias will be referred to in your query.</target>
+        </trans-unit>
+        <trans-unit id="eae7fb55-3b0b-4ec8-8298-29e5d7eec263" xml:space="preserve">
+          <source>For example, use the output alias value = “OutPbi”.</source>
+          <target state="new">For example, use the output alias value = “OutPbi”.</target>
+        </trans-unit>
+        <trans-unit id="d3f56c12-3a60-47e3-b52b-cbc6ecb48c88" xml:space="preserve">
+          <source>Dataset Name - Provide a dataset name that it is desired for the Power BI output to use.</source>
+          <target state="new">Dataset Name - Provide a dataset name that it is desired for the Power BI output to use.</target>
+        </trans-unit>
+        <trans-unit id="4aed0780-61fb-452b-b125-71768d184d5a" xml:space="preserve">
+          <source>For example, use “pbidemo”.</source>
+          <target state="new">For example, use “pbidemo”.</target>
+        </trans-unit>
+        <trans-unit id="4f779f79-d766-4945-91a7-4864bbb9ec30" xml:space="preserve">
+          <source>Table Name - Provide a table name under the dataset of the Power BI output.</source>
+          <target state="new">Table Name - Provide a table name under the dataset of the Power BI output.</target>
+        </trans-unit>
+        <trans-unit id="c9c554d8-30b0-4137-9fea-a2b8f5b7dffb" xml:space="preserve">
+          <source>For example, use “pbidemo”.</source>
+          <target state="new">For example, use “pbidemo”.</target>
+        </trans-unit>
+        <trans-unit id="2f8d93f0-dd91-451e-aadd-0b7671a16141" xml:space="preserve">
+          <source><bpt id="76317ed8-37a3-4e9b-8499-a0ef72ea1eaf">&lt;strong&gt;</bpt>Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.<ept id="76317ed8-37a3-4e9b-8499-a0ef72ea1eaf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="76317ed8-37a3-4e9b-8499-a0ef72ea1eaf">&lt;strong&gt;</bpt>Currently, Power BI output from Stream Analytics jobs may only have one table in a dataset.<ept id="76317ed8-37a3-4e9b-8499-a0ef72ea1eaf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7098094-a010-4ebf-bdc1-9524ad548a93" xml:space="preserve">
+          <source>Click <bpt id="07ab06bd-9f62-4fdf-922c-89ceacbab0d8">&lt;strong&gt;</bpt>Output<ept id="07ab06bd-9f62-4fdf-922c-89ceacbab0d8">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="e87b38aa-aac4-4b34-a5fa-33cd7a869191">&lt;strong&gt;</bpt>Add Output<ept id="e87b38aa-aac4-4b34-a5fa-33cd7a869191">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="07ab06bd-9f62-4fdf-922c-89ceacbab0d8">&lt;strong&gt;</bpt>Output<ept id="07ab06bd-9f62-4fdf-922c-89ceacbab0d8">&lt;/strong&gt;</ept> from the top of the page, and then click <bpt id="e87b38aa-aac4-4b34-a5fa-33cd7a869191">&lt;strong&gt;</bpt>Add Output<ept id="e87b38aa-aac4-4b34-a5fa-33cd7a869191">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1acc99c4-bf6b-43f1-985c-3626e8f8f213" xml:space="preserve">
+          <source>Select Power BI as the output option.</source>
+          <target state="new">Select Power BI as the output option.</target>
+        </trans-unit>
+        <trans-unit id="99ad9995-8c93-496a-9c7a-f54032042ff8" xml:space="preserve">
+          <source><bpt id="b66d318a-bf31-44f8-bc8b-48ae26a392a4">&lt;linkText&gt;</bpt>graphic22<ept id="b66d318a-bf31-44f8-bc8b-48ae26a392a4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b66d318a-bf31-44f8-bc8b-48ae26a392a4">&lt;linkText&gt;</bpt>graphic22<ept id="b66d318a-bf31-44f8-bc8b-48ae26a392a4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ddce5907-48ff-48e1-b375-d78efc1ec503" xml:space="preserve">
+          <source>A screen like the following is presented.</source>
+          <target state="new">A screen like the following is presented.</target>
+        </trans-unit>
+        <trans-unit id="1d94ad4a-c786-46e9-9d05-2da60237e111" xml:space="preserve">
+          <source><bpt id="78e07880-6e69-4d9d-8a06-ff90529f0797">&lt;linkText&gt;</bpt>graphic23<ept id="78e07880-6e69-4d9d-8a06-ff90529f0797">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78e07880-6e69-4d9d-8a06-ff90529f0797">&lt;linkText&gt;</bpt>graphic23<ept id="78e07880-6e69-4d9d-8a06-ff90529f0797">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69a16892-edb8-4a0f-880b-688a6e5ce58b" xml:space="preserve">
+          <source>In this step, provide the work or school account for authorizing the Power BI output.</source>
+          <target state="new">In this step, provide the work or school account for authorizing the Power BI output.</target>
+        </trans-unit>
+        <trans-unit id="677a34be-1e79-44ce-811c-2402d46f94b5" xml:space="preserve">
+          <source>If you are not already signed up for Power BI, choose <bpt id="ed699bb1-dd9e-4d35-a5d1-516b99ef06a1">&lt;strong&gt;</bpt>Sign up now<ept id="ed699bb1-dd9e-4d35-a5d1-516b99ef06a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are not already signed up for Power BI, choose <bpt id="ed699bb1-dd9e-4d35-a5d1-516b99ef06a1">&lt;strong&gt;</bpt>Sign up now<ept id="ed699bb1-dd9e-4d35-a5d1-516b99ef06a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1af018d4-02da-4a5c-bd23-ee43bf46f07b" xml:space="preserve">
+          <source>Next a screen like the following will be presented.</source>
+          <target state="new">Next a screen like the following will be presented.</target>
+        </trans-unit>
+        <trans-unit id="7abbbbdb-b711-4b39-bd7c-8c943085e2a4" xml:space="preserve">
+          <source><bpt id="ab6746eb-7959-4d90-bea7-42bf7a26dd6a">&lt;linkText&gt;</bpt>graphic24<ept id="ab6746eb-7959-4d90-bea7-42bf7a26dd6a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab6746eb-7959-4d90-bea7-42bf7a26dd6a">&lt;linkText&gt;</bpt>graphic24<ept id="ab6746eb-7959-4d90-bea7-42bf7a26dd6a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e71c1fb4-7b6a-4a0e-9d2d-dba23fe9f347" xml:space="preserve">
+          <source>One should not explicitly create the dataset and table in the Power BI dashboard.</source>
+          <target state="new">One should not explicitly create the dataset and table in the Power BI dashboard.</target>
+        </trans-unit>
+        <trans-unit id="3bfe5d1e-4e15-4653-a0cf-32c7e6621613" xml:space="preserve">
+          <source>The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI.</source>
+          <target state="new">The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI.</target>
+        </trans-unit>
+        <trans-unit id="d0cd853f-024d-4f54-be22-b149ab914dde" xml:space="preserve">
+          <source>Note that if the job query doesn’t return any results, the dataset and table will not be created.</source>
+          <target state="new">Note that if the job query doesn’t return any results, the dataset and table will not be created.</target>
+        </trans-unit>
+        <trans-unit id="2542b703-e788-4ab2-9c41-90058404c189" xml:space="preserve">
+          <source>Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.</source>
+          <target state="new">Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.</target>
+        </trans-unit>
+        <trans-unit id="8dbb00be-2b04-4c1b-a75d-65f2f5e34e40" xml:space="preserve">
+          <source>Click <bpt id="25736966-439d-4f6d-9578-aedd746a44d2">&lt;strong&gt;</bpt>OK<ept id="25736966-439d-4f6d-9578-aedd746a44d2">&lt;/strong&gt;</ept>, <bpt id="fa55043b-7b7f-45c1-9969-70feafd45050">&lt;strong&gt;</bpt>Test Connection<ept id="fa55043b-7b7f-45c1-9969-70feafd45050">&lt;/strong&gt;</ept> and now the output configuration is complete.</source>
+          <target state="new">Click <bpt id="25736966-439d-4f6d-9578-aedd746a44d2">&lt;strong&gt;</bpt>OK<ept id="25736966-439d-4f6d-9578-aedd746a44d2">&lt;/strong&gt;</ept>, <bpt id="fa55043b-7b7f-45c1-9969-70feafd45050">&lt;strong&gt;</bpt>Test Connection<ept id="fa55043b-7b7f-45c1-9969-70feafd45050">&lt;/strong&gt;</ept> and now the output configuration is complete.</target>
+        </trans-unit>
+        <trans-unit id="1ce6b0fe-6fd9-422b-baae-d95810a38b49" xml:space="preserve">
+          <source>Table storage offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand.</source>
+          <target state="new">Table storage offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand.</target>
+        </trans-unit>
+        <trans-unit id="72496074-47f2-4646-844d-6e89f57ad915" xml:space="preserve">
+          <source>Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema.</source>
+          <target state="new">Table storage is Microsoft’s NoSQL key/attribute store which one can leverage for structured data with less constraints on the schema.</target>
+        </trans-unit>
+        <trans-unit id="781fbfd6-de95-462d-bd93-dc8a6dd5dc57" xml:space="preserve">
+          <source>Azure Table storage can be used to store data for persistence and efficient retrieval.</source>
+          <target state="new">Azure Table storage can be used to store data for persistence and efficient retrieval.</target>
+        </trans-unit>
+        <trans-unit id="63310252-90f4-4730-8b5f-74258321cc96" xml:space="preserve">
+          <source>For further information on Azure Table storage visit <bpt id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;linkText&gt;</bpt>Azure Table storage<ept id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;/linkText&gt;</ept><bpt id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;title&gt;</bpt><ept id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further information on Azure Table storage visit <bpt id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;linkText&gt;</bpt>Azure Table storage<ept id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;/linkText&gt;</ept><bpt id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;title&gt;</bpt><ept id="a22ac3a0-fba3-46e0-9d75-bb07e1b9e8ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3835f8b-54c0-4a6c-9afa-bcbc9db3a3cd" xml:space="preserve">
+          <source>To start using an Azure Table storage, the following information is needed:</source>
+          <target state="new">To start using an Azure Table storage, the following information is needed:</target>
+        </trans-unit>
+        <trans-unit id="896549db-f6ff-47dc-a5f1-d4efe1479d36" xml:space="preserve">
+          <source>Storage account name (if this storage is in a different subscription from the streaming job).</source>
+          <target state="new">Storage account name (if this storage is in a different subscription from the streaming job).</target>
+        </trans-unit>
+        <trans-unit id="4b4ebdbd-f0b1-43df-9293-bfa50ddd05b3" xml:space="preserve">
+          <source>Storage account key (if this storage is in a different subscription from the streaming job).</source>
+          <target state="new">Storage account key (if this storage is in a different subscription from the streaming job).</target>
+        </trans-unit>
+        <trans-unit id="1f439c29-0d1d-4c4b-a1e5-ad35c61375d0" xml:space="preserve">
+          <source>Output table name (will be created if not exist).</source>
+          <target state="new">Output table name (will be created if not exist).</target>
+        </trans-unit>
+        <trans-unit id="8b1f18ae-9631-491d-8c59-a894c949b126" xml:space="preserve">
+          <source>Partition Key (required).</source>
+          <target state="new">Partition Key (required).</target>
+        </trans-unit>
+        <trans-unit id="15e1a06f-fd29-42b3-8a8a-6b317127b484" xml:space="preserve">
+          <source>Row key</source>
+          <target state="new">Row key</target>
+        </trans-unit>
+        <trans-unit id="9cb949dd-cc0b-488e-a140-1fc2e4cd4880" xml:space="preserve">
+          <source>For a better design of Partition key and Row key, please refer article below
+<bpt id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;linkText&gt;</bpt>Designing a Scalable Partitioning Strategy for Azure Table Storage<ept id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;/linkText&gt;</ept><bpt id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;title&gt;</bpt><ept id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a better design of Partition key and Row key, please refer article below
+<bpt id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;linkText&gt;</bpt>Designing a Scalable Partitioning Strategy for Azure Table Storage<ept id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;/linkText&gt;</ept><bpt id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;title&gt;</bpt><ept id="a00aa7e6-0614-4f4b-9281-8e2cabc32685">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0256859-0056-412b-b702-9b7c926c07a1" xml:space="preserve">
+          <source><bpt id="87be2f82-a8b8-4dfa-82a7-494994dccc0c">&lt;linkText&gt;</bpt>graphic11<ept id="87be2f82-a8b8-4dfa-82a7-494994dccc0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87be2f82-a8b8-4dfa-82a7-494994dccc0c">&lt;linkText&gt;</bpt>graphic11<ept id="87be2f82-a8b8-4dfa-82a7-494994dccc0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0d557d8-03b2-4f3b-b42c-82507bc24b0a" xml:space="preserve">
+          <source>Go to the outputs tab of the job, and click on the <bpt id="f389e479-11e4-482e-a2db-70d3d6692cb6">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="f389e479-11e4-482e-a2db-70d3d6692cb6">&lt;/strong&gt;</ept> command and click next.</source>
+          <target state="new">Go to the outputs tab of the job, and click on the <bpt id="f389e479-11e4-482e-a2db-70d3d6692cb6">&lt;strong&gt;</bpt>ADD OUTPUT<ept id="f389e479-11e4-482e-a2db-70d3d6692cb6">&lt;/strong&gt;</ept> command and click next.</target>
+        </trans-unit>
+        <trans-unit id="7fe57109-fbc8-4375-9c7e-62891755543a" xml:space="preserve">
+          <source><bpt id="60ae88b9-6fca-4378-bd19-9bf48eed3374">&lt;linkText&gt;</bpt>graphic12<ept id="60ae88b9-6fca-4378-bd19-9bf48eed3374">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60ae88b9-6fca-4378-bd19-9bf48eed3374">&lt;linkText&gt;</bpt>graphic12<ept id="60ae88b9-6fca-4378-bd19-9bf48eed3374">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c772468-e871-425f-ab7b-892ef6a59c6f" xml:space="preserve">
+          <source>Choose <bpt id="12751fab-c602-4838-95d4-2902c62b8175">&lt;strong&gt;</bpt>Table storage<ept id="12751fab-c602-4838-95d4-2902c62b8175">&lt;/strong&gt;</ept> as the output.</source>
+          <target state="new">Choose <bpt id="12751fab-c602-4838-95d4-2902c62b8175">&lt;strong&gt;</bpt>Table storage<ept id="12751fab-c602-4838-95d4-2902c62b8175">&lt;/strong&gt;</ept> as the output.</target>
+        </trans-unit>
+        <trans-unit id="1ad3b3d7-4803-4897-a2f8-ab3bc5f7c65b" xml:space="preserve">
+          <source><bpt id="7575e35d-a672-48f9-96cf-5d5ba6084d37">&lt;linkText&gt;</bpt>graphic13<ept id="7575e35d-a672-48f9-96cf-5d5ba6084d37">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7575e35d-a672-48f9-96cf-5d5ba6084d37">&lt;linkText&gt;</bpt>graphic13<ept id="7575e35d-a672-48f9-96cf-5d5ba6084d37">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbdb0d74-36b5-4197-909d-f4f507706613" xml:space="preserve">
+          <source>Enter the Azure Table information on the next page.</source>
+          <target state="new">Enter the Azure Table information on the next page.</target>
+        </trans-unit>
+        <trans-unit id="f8d2165b-8cdb-4402-b874-f18c074ffc7a" xml:space="preserve">
+          <source>The output alias is the name that can be used in the query to direct the query output to this table.</source>
+          <target state="new">The output alias is the name that can be used in the query to direct the query output to this table.</target>
+        </trans-unit>
+        <trans-unit id="a65d534c-d066-42fe-902b-ea9900ef5cb7" xml:space="preserve">
+          <source><bpt id="4e99c9d1-0c5d-4280-95b1-7445aec5f83f">&lt;linkText&gt;</bpt>graphic14<ept id="4e99c9d1-0c5d-4280-95b1-7445aec5f83f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e99c9d1-0c5d-4280-95b1-7445aec5f83f">&lt;linkText&gt;</bpt>graphic14<ept id="4e99c9d1-0c5d-4280-95b1-7445aec5f83f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f16bfc3-98ed-48a9-96aa-08b00aa74046" xml:space="preserve">
+          <source><bpt id="f3be6d46-b04a-4d66-ad78-ef56383e12b8">&lt;linkText&gt;</bpt>graphic15<ept id="f3be6d46-b04a-4d66-ad78-ef56383e12b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f3be6d46-b04a-4d66-ad78-ef56383e12b8">&lt;linkText&gt;</bpt>graphic15<ept id="f3be6d46-b04a-4d66-ad78-ef56383e12b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ab36598-c4fc-463d-ac2d-ad56c9b4af3d" xml:space="preserve">
+          <source>Batch Size is the number of records for a batch operation.</source>
+          <target state="new">Batch Size is the number of records for a batch operation.</target>
+        </trans-unit>
+        <trans-unit id="f025c679-437d-4fd4-8b06-475f91e75733" xml:space="preserve">
+          <source>Typically the default is sufficient for most jobs, refer to the <bpt id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;linkText&gt;</bpt>Table Batch Operation spec<ept id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;/linkText&gt;</ept><bpt id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;title&gt;</bpt><ept id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;/title&gt;</ept> for more details on modifying this setting.</source>
+          <target state="new">Typically the default is sufficient for most jobs, refer to the <bpt id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;linkText&gt;</bpt>Table Batch Operation spec<ept id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;/linkText&gt;</ept><bpt id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;title&gt;</bpt><ept id="25ed64d4-1bac-425f-bff9-f8e81c813d2a">&lt;/title&gt;</ept> for more details on modifying this setting.</target>
+        </trans-unit>
+        <trans-unit id="1890e81e-0e83-4238-8050-f58f390a6f51" xml:space="preserve">
+          <source>If an Azure Storage account exists within the same subscription being used to create the job, select "Use Storage Account from Current Subscription", and select the Storage Account from the drop down.</source>
+          <target state="new">If an Azure Storage account exists within the same subscription being used to create the job, select "Use Storage Account from Current Subscription", and select the Storage Account from the drop down.</target>
+        </trans-unit>
+        <trans-unit id="b857a235-39db-4258-9a74-eb0db8a844aa" xml:space="preserve">
+          <source>Click next to add this output.</source>
+          <target state="new">Click next to add this output.</target>
+        </trans-unit>
+        <trans-unit id="e578d948-1dc5-4d03-b26c-a5f7b8be066e" xml:space="preserve">
+          <source>Two two operations should start, the first is to add the output.</source>
+          <target state="new">Two two operations should start, the first is to add the output.</target>
+        </trans-unit>
+        <trans-unit id="3857af00-1b95-49fb-84a1-17f188a49543" xml:space="preserve">
+          <source><bpt id="19f470bc-5f7f-41e2-9ac6-0563fa8557e9">&lt;linkText&gt;</bpt>graphic16<ept id="19f470bc-5f7f-41e2-9ac6-0563fa8557e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19f470bc-5f7f-41e2-9ac6-0563fa8557e9">&lt;linkText&gt;</bpt>graphic16<ept id="19f470bc-5f7f-41e2-9ac6-0563fa8557e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c451059-e155-40c2-a18a-0ebe623e5b39" xml:space="preserve">
+          <source>The second one is to test the connection.</source>
+          <target state="new">The second one is to test the connection.</target>
+        </trans-unit>
+        <trans-unit id="6579726f-4f25-4e8a-b366-1a3713313002" xml:space="preserve">
+          <source>Azure Stream Analytics will try to connect to that Storage Account and verify the credentials entered are correct.</source>
+          <target state="new">Azure Stream Analytics will try to connect to that Storage Account and verify the credentials entered are correct.</target>
+        </trans-unit>
+        <trans-unit id="be3ff4b8-11f1-40b6-9796-a975b414df68" xml:space="preserve">
+          <source>Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or more competing consumers.</source>
+          <target state="new">Service Bus Queues offer a First In, First Out (FIFO) message delivery to one or more competing consumers.</target>
+        </trans-unit>
+        <trans-unit id="3a50e79e-7765-498a-973c-fb8d34c1ed08" xml:space="preserve">
+          <source>Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.</source>
+          <target state="new">Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.</target>
+        </trans-unit>
+        <trans-unit id="5caa947b-f7e8-42d6-ba35-e007b9afb9e7" xml:space="preserve">
+          <source>For further information on Service Bus Queues see <bpt id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;linkText&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;/linkText&gt;</ept><bpt id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;title&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;/title&gt;</ept> and <bpt id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;linkText&gt;</bpt>An Introduction to Service Bus Queues<ept id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;/linkText&gt;</ept><bpt id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;title&gt;</bpt>An Introduction to Service Bus Queues<ept id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further information on Service Bus Queues see <bpt id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;linkText&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;/linkText&gt;</ept><bpt id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;title&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="db5442d2-17ad-4f19-91f1-9d62ac42e499">&lt;/title&gt;</ept> and <bpt id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;linkText&gt;</bpt>An Introduction to Service Bus Queues<ept id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;/linkText&gt;</ept><bpt id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;title&gt;</bpt>An Introduction to Service Bus Queues<ept id="9c1f7ef6-e3e8-475f-9826-fe2a075e5b9e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7c0519f-3735-47ed-86e7-19820935eaa3" xml:space="preserve">
+          <source>To start using a Service Bus Queues output, the following information will be needed:</source>
+          <target state="new">To start using a Service Bus Queues output, the following information will be needed:</target>
+        </trans-unit>
+        <trans-unit id="277aa3fc-1088-4bc8-b981-cec94ddeeb86" xml:space="preserve">
+          <source>Output Alias – Any friendly-named output alias that is easy to refer to.</source>
+          <target state="new">Output Alias – Any friendly-named output alias that is easy to refer to.</target>
+        </trans-unit>
+        <trans-unit id="54065144-d425-4c20-9346-7b92ee6b3aad" xml:space="preserve">
+          <source>This output alias is particularly helpful if it is decided to have multiple outputs for a job.</source>
+          <target state="new">This output alias is particularly helpful if it is decided to have multiple outputs for a job.</target>
+        </trans-unit>
+        <trans-unit id="d565d139-8ddf-486b-aa50-b25382db531e" xml:space="preserve">
+          <source>In that case, this alias will be referred to in the job query.</source>
+          <target state="new">In that case, this alias will be referred to in the job query.</target>
+        </trans-unit>
+        <trans-unit id="f1dd3ee0-2dca-47cc-952c-ffdc12ed777a" xml:space="preserve">
+          <source>The namespace and service bus name.</source>
+          <target state="new">The namespace and service bus name.</target>
+        </trans-unit>
+        <trans-unit id="34e057ed-7a6d-43c1-ba4e-dcfc328af138" xml:space="preserve">
+          <source>Queue Name - Queues are messaging entities, similar to event hubs and topics.</source>
+          <target state="new">Queue Name - Queues are messaging entities, similar to event hubs and topics.</target>
+        </trans-unit>
+        <trans-unit id="f2cb8fa2-14da-4250-a39b-74da951b61b6" xml:space="preserve">
+          <source>They're designed to collect event streams from a number of different devices and services.</source>
+          <target state="new">They're designed to collect event streams from a number of different devices and services.</target>
+        </trans-unit>
+        <trans-unit id="247adc98-3da6-4f72-b80b-ba06384a7b80" xml:space="preserve">
+          <source>When a queue is created it is also given a specific name.</source>
+          <target state="new">When a queue is created it is also given a specific name.</target>
+        </trans-unit>
+        <trans-unit id="60e1c86b-4a8b-4e9f-9b28-4fd39099c28d" xml:space="preserve">
+          <source>What serialization format is utilized for the data (Avro, CSV, JSON).</source>
+          <target state="new">What serialization format is utilized for the data (Avro, CSV, JSON).</target>
+        </trans-unit>
+        <trans-unit id="7c0326da-27d2-43f6-8373-32b2e87f87cc" xml:space="preserve">
+          <source><bpt id="2f640390-6ccb-46af-8034-f450507a96f6">&lt;linkText&gt;</bpt>graphic31<ept id="2f640390-6ccb-46af-8034-f450507a96f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f640390-6ccb-46af-8034-f450507a96f6">&lt;linkText&gt;</bpt>graphic31<ept id="2f640390-6ccb-46af-8034-f450507a96f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64df7fd3-dcdb-40b3-ad37-4505dac2e864" xml:space="preserve">
+          <source>Then supply the details as shown below and select next.</source>
+          <target state="new">Then supply the details as shown below and select next.</target>
+        </trans-unit>
+        <trans-unit id="f18409f7-29ce-423b-be18-e46c8089d28d" xml:space="preserve">
+          <source><bpt id="fa01b818-5bbd-4eb9-b8db-efd03435cbbf">&lt;linkText&gt;</bpt>graphic32<ept id="fa01b818-5bbd-4eb9-b8db-efd03435cbbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa01b818-5bbd-4eb9-b8db-efd03435cbbf">&lt;linkText&gt;</bpt>graphic32<ept id="fa01b818-5bbd-4eb9-b8db-efd03435cbbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="066f4a77-29fe-4b68-b564-06591e93db6f" xml:space="preserve">
+          <source>Verify your data format and serialization are correct.</source>
+          <target state="new">Verify your data format and serialization are correct.</target>
+        </trans-unit>
+        <trans-unit id="52b567b5-1ab9-4d58-8dcf-00cd9624d7db" xml:space="preserve">
+          <source><bpt id="10106a0b-cfe2-4414-b804-ebae330c027e">&lt;linkText&gt;</bpt>graphic33<ept id="10106a0b-cfe2-4414-b804-ebae330c027e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10106a0b-cfe2-4414-b804-ebae330c027e">&lt;linkText&gt;</bpt>graphic33<ept id="10106a0b-cfe2-4414-b804-ebae330c027e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01621818-4105-4a5a-9f08-c37084244f09" xml:space="preserve">
+          <source>While Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics provide a one-to-many form of communication.</source>
+          <target state="new">While Service Bus Queues provide a one to one communication method from sender to receiver, Service Bus Topics provide a one-to-many form of communication.</target>
+        </trans-unit>
+        <trans-unit id="b4d7fba2-55a8-4841-9e97-ca191a859bb5" xml:space="preserve">
+          <source>For further information on Service Bus Topics see <bpt id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;linkText&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;/linkText&gt;</ept><bpt id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;title&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;/title&gt;</ept> and <bpt id="191ace94-e812-4a5e-b442-bf718715104e">&lt;linkText&gt;</bpt>An Introduction to Service Bus Topics<ept id="191ace94-e812-4a5e-b442-bf718715104e">&lt;/linkText&gt;</ept><bpt id="191ace94-e812-4a5e-b442-bf718715104e">&lt;title&gt;</bpt>An Introduction to Service Bus Topics<ept id="191ace94-e812-4a5e-b442-bf718715104e">&lt;/title&gt;</ept></source>
+          <target state="new">For further information on Service Bus Topics see <bpt id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;linkText&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;/linkText&gt;</ept><bpt id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;title&gt;</bpt>Service Bus Queues, Topics, and Subscriptions<ept id="45471a49-32b3-47c4-9fc8-8aede49b0aa4">&lt;/title&gt;</ept> and <bpt id="191ace94-e812-4a5e-b442-bf718715104e">&lt;linkText&gt;</bpt>An Introduction to Service Bus Topics<ept id="191ace94-e812-4a5e-b442-bf718715104e">&lt;/linkText&gt;</ept><bpt id="191ace94-e812-4a5e-b442-bf718715104e">&lt;title&gt;</bpt>An Introduction to Service Bus Topics<ept id="191ace94-e812-4a5e-b442-bf718715104e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a399786-af01-4ff7-b4db-25b63d0416e1" xml:space="preserve">
+          <source>To start using a Service Bus Topics output, the following information will be needed:</source>
+          <target state="new">To start using a Service Bus Topics output, the following information will be needed:</target>
+        </trans-unit>
+        <trans-unit id="391e3d64-c6b6-448f-ade0-ab5a5b8c7a12" xml:space="preserve">
+          <source>Output Alias – Any friendly-named output alias that is easy to refer to.</source>
+          <target state="new">Output Alias – Any friendly-named output alias that is easy to refer to.</target>
+        </trans-unit>
+        <trans-unit id="f5b8a8da-8d17-476e-b3cc-e9821d553fd0" xml:space="preserve">
+          <source>This output alias is particularly helpful if it is decided to have multiple outputs for a job.</source>
+          <target state="new">This output alias is particularly helpful if it is decided to have multiple outputs for a job.</target>
+        </trans-unit>
+        <trans-unit id="01ebe746-1008-48cc-be2b-b7f189ba3b29" xml:space="preserve">
+          <source>In that case, this alias will be referred to in your query.</source>
+          <target state="new">In that case, this alias will be referred to in your query.</target>
+        </trans-unit>
+        <trans-unit id="9d1f9869-c533-4375-a6c7-59057758cd6d" xml:space="preserve">
+          <source>The namespace and service bus name.</source>
+          <target state="new">The namespace and service bus name.</target>
+        </trans-unit>
+        <trans-unit id="03cf128a-0482-4da4-873e-59457ef97a6f" xml:space="preserve">
+          <source>Topic Name - Topics are messaging entities, similar to event hubs and queues.</source>
+          <target state="new">Topic Name - Topics are messaging entities, similar to event hubs and queues.</target>
+        </trans-unit>
+        <trans-unit id="e5d73b90-c44d-47e4-8285-dc8325a12652" xml:space="preserve">
+          <source>They're designed to collect event streams from a number of different devices and services.</source>
+          <target state="new">They're designed to collect event streams from a number of different devices and services.</target>
+        </trans-unit>
+        <trans-unit id="007734a7-1dc0-46c3-9866-4e7a3e8b81df" xml:space="preserve">
+          <source>When a topic is created, it is also given a specific name.</source>
+          <target state="new">When a topic is created, it is also given a specific name.</target>
+        </trans-unit>
+        <trans-unit id="cbfaef2f-fca5-41b0-8890-3e45cc870572" xml:space="preserve">
+          <source>The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic.</source>
+          <target state="new">The messages sent to a Topic will not be available unless a subscription is created, so ensure there are one or more subscriptions under the topic.</target>
+        </trans-unit>
+        <trans-unit id="bda0224a-858b-4bf4-b60b-7d6dddfe6f6f" xml:space="preserve">
+          <source>What serialization format is utilized for the data (Avro, CSV, JSON).</source>
+          <target state="new">What serialization format is utilized for the data (Avro, CSV, JSON).</target>
+        </trans-unit>
+        <trans-unit id="89784ffa-606e-4f7b-8f7d-07c73718ca8a" xml:space="preserve">
+          <source>Select output to Service Bus Topics.</source>
+          <target state="new">Select output to Service Bus Topics.</target>
+        </trans-unit>
+        <trans-unit id="3035c84c-7e2d-4833-8731-57931482cfc1" xml:space="preserve">
+          <source><bpt id="87ba421c-589c-4eb9-81a1-69e105f68af2">&lt;linkText&gt;</bpt>graphic34<ept id="87ba421c-589c-4eb9-81a1-69e105f68af2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87ba421c-589c-4eb9-81a1-69e105f68af2">&lt;linkText&gt;</bpt>graphic34<ept id="87ba421c-589c-4eb9-81a1-69e105f68af2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17aa78f5-5a8b-4979-beb5-4ce2fd9d78e2" xml:space="preserve">
+          <source>Then supply the details as shown below and select next.</source>
+          <target state="new">Then supply the details as shown below and select next.</target>
+        </trans-unit>
+        <trans-unit id="4742a9e0-f2f2-40be-84d7-9f280fded678" xml:space="preserve">
+          <source><bpt id="b25313d2-fe0c-421b-889a-1d6cb9bf0e25">&lt;linkText&gt;</bpt>graphic35<ept id="b25313d2-fe0c-421b-889a-1d6cb9bf0e25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b25313d2-fe0c-421b-889a-1d6cb9bf0e25">&lt;linkText&gt;</bpt>graphic35<ept id="b25313d2-fe0c-421b-889a-1d6cb9bf0e25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca0029b3-3fc8-4e4d-aab9-c0d3f6100a50" xml:space="preserve">
+          <source>Verify your data format and serialization are correct.</source>
+          <target state="new">Verify your data format and serialization are correct.</target>
+        </trans-unit>
+        <trans-unit id="5462454f-e8aa-4c55-a659-12d20f067e56" xml:space="preserve">
+          <source><bpt id="209cb8a3-a29c-462e-bbce-1308630b09c0">&lt;linkText&gt;</bpt>graphic33<ept id="209cb8a3-a29c-462e-bbce-1308630b09c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="209cb8a3-a29c-462e-bbce-1308630b09c0">&lt;linkText&gt;</bpt>graphic33<ept id="209cb8a3-a29c-462e-bbce-1308630b09c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de9e41e3-3d1d-48ea-a249-8b9da7f00abc" xml:space="preserve">
+          <source>For further assistance, try our <bpt id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;/linkText&gt;</ept><bpt id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;title&gt;</bpt><ept id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;/title&gt;</ept></source>
+          <target state="new">For further assistance, try our <bpt id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;/linkText&gt;</ept><bpt id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;title&gt;</bpt><ept id="84a5048a-a824-4740-aea1-d720c1b21963">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8ed5ad8-bf63-43d9-98d5-9020f2f89a30" xml:space="preserve">
+          <source><bpt id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;/linkText&gt;</ept><bpt id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;title&gt;</bpt><ept id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;/linkText&gt;</ept><bpt id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;title&gt;</bpt><ept id="b8b4b91b-1e0f-44e5-8e6a-54c2a5096565">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5647bb88-d0b1-47a2-bc37-882f6fa3d5a6" xml:space="preserve">
+          <source><bpt id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;/linkText&gt;</ept><bpt id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;title&gt;</bpt><ept id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;/linkText&gt;</ept><bpt id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;title&gt;</bpt><ept id="f195285a-5f25-415a-b900-6449b1a942ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b7bf647-ba78-4df9-b7df-3a4a12084b9b" xml:space="preserve">
+          <source><bpt id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;/linkText&gt;</ept><bpt id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;title&gt;</bpt><ept id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;/linkText&gt;</ept><bpt id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;title&gt;</bpt><ept id="e135a777-7696-4a46-9718-3e94b8a7d733">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea7020c4-b776-4c53-8195-63c1babee6cc" xml:space="preserve">
+          <source><bpt id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;/linkText&gt;</ept><bpt id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;title&gt;</bpt><ept id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;/linkText&gt;</ept><bpt id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;title&gt;</bpt><ept id="6eb3fdce-ec73-43b3-b2f0-190121818ef6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55764b26-1d13-4a54-bba5-e150bb2507d3" xml:space="preserve">
+          <source><bpt id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;/linkText&gt;</ept><bpt id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;title&gt;</bpt><ept id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;/linkText&gt;</ept><bpt id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;title&gt;</bpt><ept id="07e5c45f-e476-41b3-893c-bd4faa3fad3a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="628f0bc1-4437-47df-a963-5e7c8736758c" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/1-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/1-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="15c0946e-73fa-46c2-8ad6-d4bd01e747fe" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/2-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/2-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="5b748ecf-b335-434d-8f6b-dac3b8d289fb" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/3-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/3-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="827e33e6-5f41-4354-940d-60393bae390f" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/4-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/4-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="9cc813ad-aa13-46d1-8b8f-6ffe97695ca7" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/5-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/5-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="913efff2-3003-43de-916b-4c5aed01212a" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/6-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/6-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="4b07a180-259c-4ab3-8ecd-c495eeaa5267" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/7-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/7-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="f205cf55-efb1-43d0-9078-beee86d2667f" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/8-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/8-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="600b3274-db83-4cbf-ab74-39dd07159e4e" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/9-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/9-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="754bfffc-66ec-4bd0-a1eb-397f9a3565a4" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/10-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/10-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="f7a36515-e975-4895-be3c-8dda6025b64d" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/11-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/11-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="84b86d14-3656-45d8-8ec4-f597919c1aef" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/12-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/12-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="a9825e73-e977-4b3f-8881-bee04147ac0d" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/13-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/13-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="ae6ebb7a-7dc2-47a1-90f1-c1dde7d11d8e" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/14-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/14-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="cdc24c90-a9f1-46bf-a499-5d1b508cd402" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/15-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/15-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="11d918c8-79a5-4339-946a-62192b0b2a1a" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/16-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/16-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="fe9a5a5f-0b07-45ba-8b80-3942ad1cd544" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/17-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/17-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="35c957cb-0f2f-4ae6-8238-2c716523a3a9" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/18-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/18-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="f09744a5-2298-4302-b2b6-77f4080637d2" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/19-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/19-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="79c199a6-0d36-473a-8cb2-1dba09b6a36f" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/20-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/20-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="d1a38bef-1b3c-4bdb-bff6-6139f8f3032f" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/21-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/21-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="5fe2ade2-efd5-4615-a76f-8057c2a6dc6a" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/22-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/22-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="1e2de99e-bda8-4c52-8741-3108ec7b1dd4" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/23-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/23-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="92c2e2f7-6be5-4aed-9f11-ced12fe60db1" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/24-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/24-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="bf005797-03c7-4b0e-a264-93b812b685db" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/25-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/25-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="9eef6b44-4694-44ed-90e7-69e64b2579a4" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/26-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/26-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="e25cb6ad-7f34-44f1-a459-6f2a8cbfeea4" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/27-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/27-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="aac024b8-2933-4564-8c5a-e4aeee3aed8e" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/28-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/28-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="7e8679a0-49bf-46c8-88a6-29473fdb1466" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/29-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/29-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="d905b09c-6762-465d-adf3-ad76163acde9" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/30-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/30-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="ea3cc52b-71d0-4353-8cbd-f498b1365d65" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/31-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/31-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="2f837b8c-bba1-4ee7-b5eb-56baf9008926" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/32-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/32-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="2cad9566-869e-4e4c-bcd4-cf558cf6e0df" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/33-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/33-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="459a979c-609a-411e-a534-5a34b9085c91" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/34-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/34-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="7273e43a-800c-4851-b1d1-92e48bc05e8b" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/35-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/35-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="915ff4e5-be7b-41b5-9858-912e93332154" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/36-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/36-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="e373e4a3-0438-428e-bbfd-4a33a8ad99b4" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+        <trans-unit id="fcda59ed-3883-4285-888f-c75490bf16fb" xml:space="preserve">
+          <source>./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png</source>
+          <target state="new">./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png</target>
+        </trans-unit>
+      </group>
+      <group id="a64ab68a-197d-4b88-bb19-786309afa935" />
+    </body>
+  </file>
+</xliff>

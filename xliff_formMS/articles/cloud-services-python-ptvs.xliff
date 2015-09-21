@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69185540-031e-4e28-94e3-749099b1ea53" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69185540-031e-4e28-94e3-749099b1ea53" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6dc51ca7-9eca-4e58-ac2d-480798aab18c">
+        <trans-unit id="13ee8cce-54b4-41ce-8633-51082c81c0ec" xml:space="preserve">
+          <source>Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure</source>
+          <target state="new">Python web and worker roles with Python Tools 2.2 for Visual Studio | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7a42dcc8-1696-40f2-8425-6826d216fd0f" xml:space="preserve">
+          <source>Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.</source>
+          <target state="new">Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.</target>
+        </trans-unit>
+        <trans-unit id="fad7195b-bf7a-48e4-be56-adbccbb07a9f" xml:space="preserve">
+          <source>This article provides an overview of using Python web and worker roles using <bpt id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;/linkText&gt;</ept><bpt id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;title&gt;</bpt><ept id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article provides an overview of using Python web and worker roles using <bpt id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;linkText&gt;</bpt>Python Tools for Visual Studio<ept id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;/linkText&gt;</ept><bpt id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;title&gt;</bpt><ept id="73a0daf5-a710-4598-82bf-adad168eff48">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f9a28bf-c846-4599-81ed-d61d8ff67c92" xml:space="preserve">
+          <source>Visual Studio 2013 or 2015</source>
+          <target state="new">Visual Studio 2013 or 2015</target>
+        </trans-unit>
+        <trans-unit id="b6811e50-16e7-4610-a238-15c7501973a3" xml:space="preserve">
+          <source><bpt id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;linkText&gt;</bpt>Python Tools 2.2 for Visual Studio<ept id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;/linkText&gt;</ept><bpt id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;title&gt;</bpt><ept id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;/title&gt;</ept> (PTVS)</source>
+          <target state="new"><bpt id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;linkText&gt;</bpt>Python Tools 2.2 for Visual Studio<ept id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;/linkText&gt;</ept><bpt id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;title&gt;</bpt><ept id="6c7c001d-5cb6-4f6b-83e6-4ef0832aca69">&lt;/title&gt;</ept> (PTVS)</target>
+        </trans-unit>
+        <trans-unit id="5e62487e-d0d7-48ad-8dc4-dbef44177caa" xml:space="preserve">
+          <source><bpt id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;linkText&gt;</bpt>Azure SDK Tools for VS 2013<ept id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;/linkText&gt;</ept><bpt id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;title&gt;</bpt><ept id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;/title&gt;</ept> or <bpt id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;linkText&gt;</bpt>Azure SDK Tools for VS 2015<ept id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;/linkText&gt;</ept><bpt id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;title&gt;</bpt><ept id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;linkText&gt;</bpt>Azure SDK Tools for VS 2013<ept id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;/linkText&gt;</ept><bpt id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;title&gt;</bpt><ept id="66720989-2d7b-4bc2-aa95-4fbe97e38941">&lt;/title&gt;</ept> or <bpt id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;linkText&gt;</bpt>Azure SDK Tools for VS 2015<ept id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;/linkText&gt;</ept><bpt id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;title&gt;</bpt><ept id="34bae861-227e-4f31-9fea-bcfc63ececa6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04ae86e9-a27f-49ea-8078-6d8223bdb5f3" xml:space="preserve">
+          <source><bpt id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;linkText&gt;</bpt>Python 2.7 32-bit<ept id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;/linkText&gt;</ept><bpt id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;title&gt;</bpt><ept id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;/title&gt;</ept> or <bpt id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;linkText&gt;</bpt>Python 3.4 32-bit<ept id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;/linkText&gt;</ept><bpt id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;title&gt;</bpt><ept id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;linkText&gt;</bpt>Python 2.7 32-bit<ept id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;/linkText&gt;</ept><bpt id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;title&gt;</bpt><ept id="6b68f52b-e857-42dd-90d3-1d50314b4b4a">&lt;/title&gt;</ept> or <bpt id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;linkText&gt;</bpt>Python 3.4 32-bit<ept id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;/linkText&gt;</ept><bpt id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;title&gt;</bpt><ept id="9f0e137f-6495-4487-9610-3d0548c28691">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39a14965-c1aa-401f-9248-a24fb7679cc3" xml:space="preserve">
+          <source><bpt id="0a26bb73-ac4f-4e33-b1d5-e83eb3aa3d9a">&lt;token href="../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="0a26bb73-ac4f-4e33-b1d5-e83eb3aa3d9a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0a26bb73-ac4f-4e33-b1d5-e83eb3aa3d9a">&lt;token href="../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="0a26bb73-ac4f-4e33-b1d5-e83eb3aa3d9a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4994b748-f135-4392-9c78-da7f52153a80" xml:space="preserve">
+          <source>Azure provides three compute models for running applications: <bpt id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;linkText&gt;</bpt>Web Apps feature in Azure App Service[execution model-web sites]<ept id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;/linkText&gt;</ept><bpt id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;title&gt;</bpt><ept id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;/title&gt;</ept>, <bpt id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;linkText&gt;</bpt>Azure Virtual Machines[execution model-vms]<ept id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;/linkText&gt;</ept><bpt id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;title&gt;</bpt><ept id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;/title&gt;</ept>, and <bpt id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;linkText&gt;</bpt>Azure Cloud Services[execution model-cloud services]<ept id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;/linkText&gt;</ept><bpt id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;title&gt;</bpt><ept id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure provides three compute models for running applications: <bpt id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;linkText&gt;</bpt>Web Apps feature in Azure App Service[execution model-web sites]<ept id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;/linkText&gt;</ept><bpt id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;title&gt;</bpt><ept id="419bdf9f-5943-493a-b5ab-4bde14bdd661">&lt;/title&gt;</ept>, <bpt id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;linkText&gt;</bpt>Azure Virtual Machines[execution model-vms]<ept id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;/linkText&gt;</ept><bpt id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;title&gt;</bpt><ept id="d12dcb10-56e7-4f90-96b3-0e2748c1f345">&lt;/title&gt;</ept>, and <bpt id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;linkText&gt;</bpt>Azure Cloud Services[execution model-cloud services]<ept id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;/linkText&gt;</ept><bpt id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;title&gt;</bpt><ept id="e6354aea-07f0-4036-9d17-97a39d4ba460">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55baca5c-1289-4d0e-af5c-eaf4ecbe3234" xml:space="preserve">
+          <source>All three models support Python.</source>
+          <target state="new">All three models support Python.</target>
+        </trans-unit>
+        <trans-unit id="393fe519-4fb3-43c8-bb6b-c4d7ad36ca25" xml:space="preserve">
+          <source>Cloud Services, which include web and worker roles, provide <bpt id="45c43c54-a9f0-41b6-8fa6-94878131ea0e">&lt;em&gt;</bpt>Platform as a Service (PaaS)<ept id="45c43c54-a9f0-41b6-8fa6-94878131ea0e">&lt;/em&gt;</ept>.</source>
+          <target state="new">Cloud Services, which include web and worker roles, provide <bpt id="45c43c54-a9f0-41b6-8fa6-94878131ea0e">&lt;em&gt;</bpt>Platform as a Service (PaaS)<ept id="45c43c54-a9f0-41b6-8fa6-94878131ea0e">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2ac9744-0e01-4ae9-ae78-2187fc26e0ad" xml:space="preserve">
+          <source>Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.</source>
+          <target state="new">Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications, while a worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.</target>
+        </trans-unit>
+        <trans-unit id="6d74bc90-d4af-4f8c-bb47-9c5da7901fad" xml:space="preserve">
+          <source>For more information, see [What is a Cloud Service?].</source>
+          <target state="new">For more information, see [What is a Cloud Service?].</target>
+        </trans-unit>
+        <trans-unit id="8e3f755f-efbc-4820-b00b-a81c00c6fefa" xml:space="preserve">
+          <source><bpt id="6a266763-ca5e-4b5d-81db-25e199a50265">&lt;em&gt;</bpt>Looking to build a simple website?<ept id="6a266763-ca5e-4b5d-81db-25e199a50265">&lt;/em&gt;</ept>
+If your scenario involves just a simple website front-end, consider using the lightweight Web Apps feature in Azure App Service.</source>
+          <target state="new"><bpt id="6a266763-ca5e-4b5d-81db-25e199a50265">&lt;em&gt;</bpt>Looking to build a simple website?<ept id="6a266763-ca5e-4b5d-81db-25e199a50265">&lt;/em&gt;</ept>
+If your scenario involves just a simple website front-end, consider using the lightweight Web Apps feature in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="549ad94b-f787-46cc-a763-abd55ea08f9f" xml:space="preserve">
+          <source>You can easily upgrade to a Cloud Service as your website grows and your requirements change.</source>
+          <target state="new">You can easily upgrade to a Cloud Service as your website grows and your requirements change.</target>
+        </trans-unit>
+        <trans-unit id="7dd7a327-664b-41b5-b3b7-534a76f730dd" xml:space="preserve">
+          <source>See the &lt;a href="/develop/python/"&gt;Python Developer Center&lt;/a&gt; for articles that cover development of the Web Apps feature in Azure App Service.</source>
+          <target state="new">See the &lt;a href="/develop/python/"&gt;Python Developer Center&lt;/a&gt; for articles that cover development of the Web Apps feature in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="515b4db7-0cb5-46c4-b660-b750be46d998" xml:space="preserve">
+          <source>&lt;br /&gt;</source>
+          <target state="new">&lt;br /&gt;</target>
+        </trans-unit>
+        <trans-unit id="15089643-f52d-4ba1-b788-5e00eea767bd" xml:space="preserve">
+          <source>In Visual Studio, you can select <bpt id="2ed47883-af86-4059-a160-7822ea6ea2c9">&lt;strong&gt;</bpt>Azure Cloud Service<ept id="2ed47883-af86-4059-a160-7822ea6ea2c9">&lt;/strong&gt;</ept> in the <bpt id="4792a2bf-84fa-4b2b-bc9f-94c48cb2e85a">&lt;strong&gt;</bpt>New Project<ept id="4792a2bf-84fa-4b2b-bc9f-94c48cb2e85a">&lt;/strong&gt;</ept> dialog box, under <bpt id="64dc13e4-d947-45a7-8b59-181e260105b5">&lt;strong&gt;</bpt>Python<ept id="64dc13e4-d947-45a7-8b59-181e260105b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, you can select <bpt id="2ed47883-af86-4059-a160-7822ea6ea2c9">&lt;strong&gt;</bpt>Azure Cloud Service<ept id="2ed47883-af86-4059-a160-7822ea6ea2c9">&lt;/strong&gt;</ept> in the <bpt id="4792a2bf-84fa-4b2b-bc9f-94c48cb2e85a">&lt;strong&gt;</bpt>New Project<ept id="4792a2bf-84fa-4b2b-bc9f-94c48cb2e85a">&lt;/strong&gt;</ept> dialog box, under <bpt id="64dc13e4-d947-45a7-8b59-181e260105b5">&lt;strong&gt;</bpt>Python<ept id="64dc13e4-d947-45a7-8b59-181e260105b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a51d2e38-a82d-4555-9fc2-16278874ab51" xml:space="preserve">
+          <source><bpt id="760988b9-885c-44a5-b583-9bca3f2af07a">&lt;linkText&gt;</bpt>New Project Dialog<ept id="760988b9-885c-44a5-b583-9bca3f2af07a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="760988b9-885c-44a5-b583-9bca3f2af07a">&lt;linkText&gt;</bpt>New Project Dialog<ept id="760988b9-885c-44a5-b583-9bca3f2af07a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4edf838-f301-4325-a1c2-8adc286f7904" xml:space="preserve">
+          <source>In the Azure Cloud Service wizard, you can create new web and worker roles.</source>
+          <target state="new">In the Azure Cloud Service wizard, you can create new web and worker roles.</target>
+        </trans-unit>
+        <trans-unit id="9b6b18be-755a-4c3b-b264-5a9a7b6f562c" xml:space="preserve">
+          <source><bpt id="77e183cd-ecf2-41af-9e21-9b0a72bda85d">&lt;linkText&gt;</bpt>Azure Cloud Service Dialog<ept id="77e183cd-ecf2-41af-9e21-9b0a72bda85d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="77e183cd-ecf2-41af-9e21-9b0a72bda85d">&lt;linkText&gt;</bpt>Azure Cloud Service Dialog<ept id="77e183cd-ecf2-41af-9e21-9b0a72bda85d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad67675f-1e9d-4c0a-bc8d-862a28ed1472" xml:space="preserve">
+          <source>The worker role template comes with boilerplate code to connect to a Azure storage account or Azure Service Bus.</source>
+          <target state="new">The worker role template comes with boilerplate code to connect to a Azure storage account or Azure Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="d4629591-5f03-43be-aaef-3cc5a261f83d" xml:space="preserve">
+          <source><bpt id="a4313b33-335b-4132-a8ac-a72543b857fa">&lt;linkText&gt;</bpt>Cloud Service Solution<ept id="a4313b33-335b-4132-a8ac-a72543b857fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4313b33-335b-4132-a8ac-a72543b857fa">&lt;linkText&gt;</bpt>Cloud Service Solution<ept id="a4313b33-335b-4132-a8ac-a72543b857fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f667d6de-1272-4401-907c-6d9edddb701b" xml:space="preserve">
+          <source>You can add web or worker roles to an existing cloud service at any time.</source>
+          <target state="new">You can add web or worker roles to an existing cloud service at any time.</target>
+        </trans-unit>
+        <trans-unit id="11883fe7-7ba5-4e87-9308-288d1e75e6a3" xml:space="preserve">
+          <source>You can choose to add existing projects in your solution, or create new ones.</source>
+          <target state="new">You can choose to add existing projects in your solution, or create new ones.</target>
+        </trans-unit>
+        <trans-unit id="e6072f0d-dee9-47f3-bcf2-c6f84181d8fc" xml:space="preserve">
+          <source><bpt id="0f9f16ea-aa6a-4785-bd4e-ae603386a89e">&lt;linkText&gt;</bpt>Add Role Command<ept id="0f9f16ea-aa6a-4785-bd4e-ae603386a89e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f9f16ea-aa6a-4785-bd4e-ae603386a89e">&lt;linkText&gt;</bpt>Add Role Command<ept id="0f9f16ea-aa6a-4785-bd4e-ae603386a89e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa5273c9-8e70-4a40-a873-15e9f0b71769" xml:space="preserve">
+          <source>Your cloud service can contain roles implemented in different languages.</source>
+          <target state="new">Your cloud service can contain roles implemented in different languages.</target>
+        </trans-unit>
+        <trans-unit id="470c6357-e719-4d1a-a81e-909e74cacc70" xml:space="preserve">
+          <source>For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles.</source>
+          <target state="new">For example, you can have a Python web role implemented using Django, with Python, or with C# worker roles.</target>
+        </trans-unit>
+        <trans-unit id="5889f2c4-6f09-4069-b8da-349b85385ade" xml:space="preserve">
+          <source>You can easily communicate between your roles using Service Bus queues or storage queues.</source>
+          <target state="new">You can easily communicate between your roles using Service Bus queues or storage queues.</target>
+        </trans-unit>
+        <trans-unit id="0a5fc401-9b6e-4efc-ad3d-6374723790ea" xml:space="preserve">
+          <source>If you set your cloud service project as the startup project and press F5, the cloud service will run in the local Azure emulator.</source>
+          <target state="new">If you set your cloud service project as the startup project and press F5, the cloud service will run in the local Azure emulator.</target>
+        </trans-unit>
+        <trans-unit id="5a0d71cf-6cdd-40cd-a5c2-f1a33bd54e73" xml:space="preserve">
+          <source>Although PTVS supports launching in the emulator, debugging (for example, breakpoints) will not work.</source>
+          <target state="new">Although PTVS supports launching in the emulator, debugging (for example, breakpoints) will not work.</target>
+        </trans-unit>
+        <trans-unit id="a7d13890-03d9-443b-b6cf-d8efdad67745" xml:space="preserve">
+          <source>To debug your web and worker roles, you can set the role project as the startup project and debug that instead.</source>
+          <target state="new">To debug your web and worker roles, you can set the role project as the startup project and debug that instead.</target>
+        </trans-unit>
+        <trans-unit id="da488f98-b6f9-4843-be7b-405206d0b73f" xml:space="preserve">
+          <source>You can also set multiple startup projects.</source>
+          <target state="new">You can also set multiple startup projects.</target>
+        </trans-unit>
+        <trans-unit id="37f8b5d0-178e-4617-83ae-ec80b31b2b6e" xml:space="preserve">
+          <source>Right-click the solution and then select <bpt id="910a56a2-668e-4583-91cb-f6fea80a1271">&lt;strong&gt;</bpt>Set StartUp Projects<ept id="910a56a2-668e-4583-91cb-f6fea80a1271">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the solution and then select <bpt id="910a56a2-668e-4583-91cb-f6fea80a1271">&lt;strong&gt;</bpt>Set StartUp Projects<ept id="910a56a2-668e-4583-91cb-f6fea80a1271">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b814fec4-4d19-4a04-9bb4-020533f74347" xml:space="preserve">
+          <source><bpt id="40034fa3-ecd8-4f17-b6ef-6c432064450f">&lt;linkText&gt;</bpt>Solution Startup Project Properties<ept id="40034fa3-ecd8-4f17-b6ef-6c432064450f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40034fa3-ecd8-4f17-b6ef-6c432064450f">&lt;linkText&gt;</bpt>Solution Startup Project Properties<ept id="40034fa3-ecd8-4f17-b6ef-6c432064450f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0800d890-94c8-4873-a37b-0ee54ba3636a" xml:space="preserve">
+          <source>To publish, right-click the cloud service project in the solution and then select <bpt id="a6a9d46c-9705-4ce6-8695-d5d7598c8495">&lt;strong&gt;</bpt>Publish<ept id="a6a9d46c-9705-4ce6-8695-d5d7598c8495">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To publish, right-click the cloud service project in the solution and then select <bpt id="a6a9d46c-9705-4ce6-8695-d5d7598c8495">&lt;strong&gt;</bpt>Publish<ept id="a6a9d46c-9705-4ce6-8695-d5d7598c8495">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f5fcceb-6731-48db-83ac-47988310aba5" xml:space="preserve">
+          <source><bpt id="7a48d085-9ab8-4383-a15e-7a71e04d1f39">&lt;linkText&gt;</bpt>Microsoft Azure Publish Sign In<ept id="7a48d085-9ab8-4383-a15e-7a71e04d1f39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a48d085-9ab8-4383-a15e-7a71e04d1f39">&lt;linkText&gt;</bpt>Microsoft Azure Publish Sign In<ept id="7a48d085-9ab8-4383-a15e-7a71e04d1f39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbf72a5a-55ab-4651-8297-a7b8ce9714c1" xml:space="preserve">
+          <source>On the settings page, select the cloud service you want to publish to.</source>
+          <target state="new">On the settings page, select the cloud service you want to publish to.</target>
+        </trans-unit>
+        <trans-unit id="106b945f-effa-4ea3-ac31-5c01ce2170b0" xml:space="preserve">
+          <source><bpt id="420e3d78-9597-4f7f-8457-6c7290e6ce87">&lt;linkText&gt;</bpt>Microsoft Azure Publish Settings<ept id="420e3d78-9597-4f7f-8457-6c7290e6ce87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="420e3d78-9597-4f7f-8457-6c7290e6ce87">&lt;linkText&gt;</bpt>Microsoft Azure Publish Settings<ept id="420e3d78-9597-4f7f-8457-6c7290e6ce87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06f4cf41-6059-4661-b844-4bcee302248f" xml:space="preserve">
+          <source>You can create a new cloud service if you don't already have one available.</source>
+          <target state="new">You can create a new cloud service if you don't already have one available.</target>
+        </trans-unit>
+        <trans-unit id="bdf19d1f-d987-4ad7-8ec3-b36183c4b75e" xml:space="preserve">
+          <source><bpt id="969fa984-b147-4803-8673-3aff3d9590e2">&lt;linkText&gt;</bpt>Create Cloud Service Dialog<ept id="969fa984-b147-4803-8673-3aff3d9590e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="969fa984-b147-4803-8673-3aff3d9590e2">&lt;linkText&gt;</bpt>Create Cloud Service Dialog<ept id="969fa984-b147-4803-8673-3aff3d9590e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eca069c6-8b1d-47a8-a944-f991dacd16b4" xml:space="preserve">
+          <source>It's also useful to enable remote desktop connections to the machine(s) for debugging failures.</source>
+          <target state="new">It's also useful to enable remote desktop connections to the machine(s) for debugging failures.</target>
+        </trans-unit>
+        <trans-unit id="e569fef6-69db-4868-ab20-2ec38d944bd3" xml:space="preserve">
+          <source><bpt id="806aa136-08e1-447f-bcea-ab0164895357">&lt;linkText&gt;</bpt>Remote Desktop Configuration Dialog<ept id="806aa136-08e1-447f-bcea-ab0164895357">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="806aa136-08e1-447f-bcea-ab0164895357">&lt;linkText&gt;</bpt>Remote Desktop Configuration Dialog<ept id="806aa136-08e1-447f-bcea-ab0164895357">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9e0045f-e6bf-43dd-a274-849793a2b371" xml:space="preserve">
+          <source>When you are done configuring settings, click <bpt id="ea5f9e5b-e872-4771-a79b-28cdc480ce88">&lt;strong&gt;</bpt>Publish<ept id="ea5f9e5b-e872-4771-a79b-28cdc480ce88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are done configuring settings, click <bpt id="ea5f9e5b-e872-4771-a79b-28cdc480ce88">&lt;strong&gt;</bpt>Publish<ept id="ea5f9e5b-e872-4771-a79b-28cdc480ce88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="388db10e-bff2-4082-9e52-e6ea94249d32" xml:space="preserve">
+          <source>Some progress will appear in the output window, then you'll see the Microsoft Azure Activity Log window.</source>
+          <target state="new">Some progress will appear in the output window, then you'll see the Microsoft Azure Activity Log window.</target>
+        </trans-unit>
+        <trans-unit id="5803f2e8-6fff-459c-8372-565824ffab50" xml:space="preserve">
+          <source><bpt id="7d81fbe5-45c0-4cad-b549-9993bae18574">&lt;linkText&gt;</bpt>Microsoft Azure Activity Log Window<ept id="7d81fbe5-45c0-4cad-b549-9993bae18574">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7d81fbe5-45c0-4cad-b549-9993bae18574">&lt;linkText&gt;</bpt>Microsoft Azure Activity Log Window<ept id="7d81fbe5-45c0-4cad-b549-9993bae18574">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc8ece9e-3c06-41be-adae-e09b3bcc11ba" xml:space="preserve">
+          <source>Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!</source>
+          <target state="new">Deployment will take several minutes to complete, then your web and/or worker roles will be running on Azure!</target>
+        </trans-unit>
+        <trans-unit id="1cdd1529-2dc9-4997-bd50-2b6c64777853" xml:space="preserve">
+          <source>For more detailed information about working with web and worker roles in Python Tools for Visual Studio, see the PTVS documentation:</source>
+          <target state="new">For more detailed information about working with web and worker roles in Python Tools for Visual Studio, see the PTVS documentation:</target>
+        </trans-unit>
+        <trans-unit id="5f2f475b-f2c4-464e-918f-c33dc37df634" xml:space="preserve">
+          <source><bpt id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;linkText&gt;</bpt>Cloud Service Projects<ept id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;/linkText&gt;</ept><bpt id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;title&gt;</bpt><ept id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;linkText&gt;</bpt>Cloud Service Projects<ept id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;/linkText&gt;</ept><bpt id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;title&gt;</bpt><ept id="e92ef6ef-afac-4ad3-bb01-48bc8ad81d2d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09e7f334-8a6e-4f6b-971d-c19b45a7203f" xml:space="preserve">
+          <source>For more details about using Azure services from your web and worker roles, such as using Azure Storage or Service Bus, see the following articles.</source>
+          <target state="new">For more details about using Azure services from your web and worker roles, such as using Azure Storage or Service Bus, see the following articles.</target>
+        </trans-unit>
+        <trans-unit id="8ed1a9a1-b0ce-4b63-bb7b-717d6a206d46" xml:space="preserve">
+          <source><bpt id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;linkText&gt;</bpt>Blob Service<ept id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;/linkText&gt;</ept><bpt id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;title&gt;</bpt><ept id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;linkText&gt;</bpt>Blob Service<ept id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;/linkText&gt;</ept><bpt id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;title&gt;</bpt><ept id="bcc91737-57ce-4030-baeb-79499000a7d8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93bfac36-3b15-4d76-92f1-b734f08530ff" xml:space="preserve">
+          <source><bpt id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;linkText&gt;</bpt>Table Service<ept id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;/linkText&gt;</ept><bpt id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;title&gt;</bpt><ept id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;linkText&gt;</bpt>Table Service<ept id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;/linkText&gt;</ept><bpt id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;title&gt;</bpt><ept id="f103c1ca-6c47-42ab-bbc1-dd987494d6e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8c657a1-5c15-456a-a199-554e235ea8e4" xml:space="preserve">
+          <source><bpt id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;linkText&gt;</bpt>Queue Service<ept id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;/linkText&gt;</ept><bpt id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;title&gt;</bpt><ept id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;linkText&gt;</bpt>Queue Service<ept id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;/linkText&gt;</ept><bpt id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;title&gt;</bpt><ept id="ddaaaea8-0aa4-47c5-933b-cde804807d78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd179b0c-a027-481f-a99b-e12d68a19c76" xml:space="preserve">
+          <source><bpt id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;linkText&gt;</bpt>Service Bus Queues<ept id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;/linkText&gt;</ept><bpt id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;title&gt;</bpt><ept id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;linkText&gt;</bpt>Service Bus Queues<ept id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;/linkText&gt;</ept><bpt id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;title&gt;</bpt><ept id="4f1aef9b-a032-4caf-b721-04090c7f3473">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c98570a4-9c06-4915-8e3e-bb67caf26355" xml:space="preserve">
+          <source><bpt id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;linkText&gt;</bpt>Service Bus Topics<ept id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;/linkText&gt;</ept><bpt id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;title&gt;</bpt><ept id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;linkText&gt;</bpt>Service Bus Topics<ept id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;/linkText&gt;</ept><bpt id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;title&gt;</bpt><ept id="624485cb-3fd3-461f-9557-4c3ead3b6c04">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59dc4c70-e114-4504-b0a6-0f6490c26388" xml:space="preserve">
+          <source>/manage/services/cloud-services/what-is-a-cloud-service/</source>
+          <target state="new">/manage/services/cloud-services/what-is-a-cloud-service/</target>
+        </trans-unit>
+        <trans-unit id="9c321ea4-b17a-49d7-b711-d448c8c05423" xml:space="preserve">
+          <source>fundamentals-application-models.md#WebSites</source>
+          <target state="new">fundamentals-application-models.md#WebSites</target>
+        </trans-unit>
+        <trans-unit id="87676cc5-d9e7-4156-951d-1eccc8526c33" xml:space="preserve">
+          <source>fundamentals-application-models.md#VMachine</source>
+          <target state="new">fundamentals-application-models.md#VMachine</target>
+        </trans-unit>
+        <trans-unit id="1fd739e0-9704-4d9c-ab27-a3179a4435ff" xml:space="preserve">
+          <source>fundamentals-application-models.md#CloudServices</source>
+          <target state="new">fundamentals-application-models.md#CloudServices</target>
+        </trans-unit>
+        <trans-unit id="25553537-a991-4e22-be37-49aa4f21019d" xml:space="preserve">
+          <source>/develop/python/</source>
+          <target state="new">/develop/python/</target>
+        </trans-unit>
+        <trans-unit id="42821f3b-c798-4e96-ac29-2f87abfd945e" xml:space="preserve">
+          <source>storage-python-how-to-use-blob-storage.md</source>
+          <target state="new">storage-python-how-to-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="4c38a32c-9fe0-43ef-b505-15c504f5753d" xml:space="preserve">
+          <source>storage-python-how-to-use-queue-storage.md</source>
+          <target state="new">storage-python-how-to-use-queue-storage.md</target>
+        </trans-unit>
+        <trans-unit id="7be85693-59d4-4af8-82e7-647a74f07928" xml:space="preserve">
+          <source>storage-python-how-to-use-table-storage.md</source>
+          <target state="new">storage-python-how-to-use-table-storage.md</target>
+        </trans-unit>
+        <trans-unit id="b77a6f3b-0a17-4515-a434-28b0b0b2393b" xml:space="preserve">
+          <source>service-bus-python-how-to-use-queues.md</source>
+          <target state="new">service-bus-python-how-to-use-queues.md</target>
+        </trans-unit>
+        <trans-unit id="3af803bc-f41f-485e-84a8-89bf00986dec" xml:space="preserve">
+          <source>service-bus-python-how-to-use-topics-subscriptions.md</source>
+          <target state="new">service-bus-python-how-to-use-topics-subscriptions.md</target>
+        </trans-unit>
+        <trans-unit id="541a2255-ad03-4f5f-9964-051d8b303717" xml:space="preserve">
+          <source>http://aka.ms/ptvs</source>
+          <target state="new">http://aka.ms/ptvs</target>
+        </trans-unit>
+        <trans-unit id="cc0345fe-f4d2-4c3b-bfca-b0d585c0387c" xml:space="preserve">
+          <source>http://aka.ms/ptvsdocs</source>
+          <target state="new">http://aka.ms/ptvsdocs</target>
+        </trans-unit>
+        <trans-unit id="a81e9ac5-0f0e-4fe0-a5f5-8da675a64c6b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=624028</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=624028</target>
+        </trans-unit>
+        <trans-unit id="cc66585a-a3c6-4f9a-bbb6-849ea8f7cf45" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=624025</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=624025</target>
+        </trans-unit>
+        <trans-unit id="e6b02a35-bcbd-48c2-b282-e7fd365a127b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=323510</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=323510</target>
+        </trans-unit>
+        <trans-unit id="424ae147-652f-4116-bb98-04ba078ab9ee" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=518003</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=518003</target>
+        </trans-unit>
+        <trans-unit id="b5ec2813-775f-4f11-922e-b0ea1b45ff60" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517190</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517190</target>
+        </trans-unit>
+        <trans-unit id="39a90762-6f89-4a4a-8819-2d8082737593" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517191</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517191</target>
+        </trans-unit>
+      </group>
+      <group id="c891464b-c046-42cc-addd-697db14236cb" />
+    </body>
+  </file>
+</xliff>

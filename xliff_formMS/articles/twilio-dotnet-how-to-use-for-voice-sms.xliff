@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a8b38ae0-87ff-426f-88ee-b6b00b37a355" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a8b38ae0-87ff-426f-88ee-b6b00b37a355" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ff0831df-40ba-4611-9154-28c31d86d8d7">
+        <trans-unit id="84d7e550-3e66-4061-800d-4e624ff41030" xml:space="preserve">
+          <source>How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure</source>
+          <target state="new">How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="88cf536b-533c-4baa-bf16-b7bc1c345f15" xml:space="preserve">
+          <source>Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.</source>
+          <target state="new">Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.</target>
+        </trans-unit>
+        <trans-unit id="3c22972e-55ab-47ab-94ad-7d01dc6df698" xml:space="preserve">
+          <source>This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure.</source>
+          <target state="new">This guide demonstrates how to perform common programming tasks with the Twilio API service on Azure.</target>
+        </trans-unit>
+        <trans-unit id="765d509c-0978-4845-83f5-2fbb57f7f419" xml:space="preserve">
+          <source>The scenarios covered include making a phone call and sending a Short Message Service (SMS) message.</source>
+          <target state="new">The scenarios covered include making a phone call and sending a Short Message Service (SMS) message.</target>
+        </trans-unit>
+        <trans-unit id="a490270c-671c-4c35-90da-e1f850e0e1be" xml:space="preserve">
+          <source>For more information on Twilio and using voice and SMS in your applications, see the <bpt id="90236884-af39-487d-8696-7e0066864b52">&lt;linkText&gt;</bpt>Next steps<ept id="90236884-af39-487d-8696-7e0066864b52">&lt;/linkText&gt;</ept><bpt id="90236884-af39-487d-8696-7e0066864b52">&lt;title&gt;</bpt><ept id="90236884-af39-487d-8696-7e0066864b52">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on Twilio and using voice and SMS in your applications, see the <bpt id="90236884-af39-487d-8696-7e0066864b52">&lt;linkText&gt;</bpt>Next steps<ept id="90236884-af39-487d-8696-7e0066864b52">&lt;/linkText&gt;</ept><bpt id="90236884-af39-487d-8696-7e0066864b52">&lt;title&gt;</bpt><ept id="90236884-af39-487d-8696-7e0066864b52">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="6033acc6-dd21-4b01-9a22-426ddfcd3bd3" xml:space="preserve">
+          <source>Twilio is powering the future of business communications, enabling developers to embed voice, VoIP, and messaging into applications.</source>
+          <target state="new">Twilio is powering the future of business communications, enabling developers to embed voice, VoIP, and messaging into applications.</target>
+        </trans-unit>
+        <trans-unit id="aa99951d-df9c-4016-8aa6-a0c5feaea20d" xml:space="preserve">
+          <source>They virtualize all infrastructure needed in a cloud-based, global environment, exposing it through the Twilio communications API platform.</source>
+          <target state="new">They virtualize all infrastructure needed in a cloud-based, global environment, exposing it through the Twilio communications API platform.</target>
+        </trans-unit>
+        <trans-unit id="766808e6-d03d-4c1e-9dae-9f564e5c81c1" xml:space="preserve">
+          <source>Applications are simple to build and scalable.</source>
+          <target state="new">Applications are simple to build and scalable.</target>
+        </trans-unit>
+        <trans-unit id="e3f7a80a-f05b-4eab-b392-61e14bc37f55" xml:space="preserve">
+          <source>Enjoy flexibility with pay-as-you go pricing, and benefit from cloud reliability.</source>
+          <target state="new">Enjoy flexibility with pay-as-you go pricing, and benefit from cloud reliability.</target>
+        </trans-unit>
+        <trans-unit id="a43f84b3-b997-42b4-a189-eabe89916bcb" xml:space="preserve">
+          <source><bpt id="93041822-242f-43e5-bad8-f8fb15ec7fea">&lt;strong&gt;</bpt>Twilio Voice<ept id="93041822-242f-43e5-bad8-f8fb15ec7fea">&lt;/strong&gt;</ept> allows your applications to make and receive phone calls.</source>
+          <target state="new"><bpt id="93041822-242f-43e5-bad8-f8fb15ec7fea">&lt;strong&gt;</bpt>Twilio Voice<ept id="93041822-242f-43e5-bad8-f8fb15ec7fea">&lt;/strong&gt;</ept> allows your applications to make and receive phone calls.</target>
+        </trans-unit>
+        <trans-unit id="64bb08c2-e6a3-4be0-8689-3142da5de816" xml:space="preserve">
+          <source><bpt id="6b4437a1-6f19-481f-8b44-159bdd1eef8d">&lt;strong&gt;</bpt>Twilio SMS<ept id="6b4437a1-6f19-481f-8b44-159bdd1eef8d">&lt;/strong&gt;</ept> enables your applications to send and receive SMS messages.</source>
+          <target state="new"><bpt id="6b4437a1-6f19-481f-8b44-159bdd1eef8d">&lt;strong&gt;</bpt>Twilio SMS<ept id="6b4437a1-6f19-481f-8b44-159bdd1eef8d">&lt;/strong&gt;</ept> enables your applications to send and receive SMS messages.</target>
+        </trans-unit>
+        <trans-unit id="63887e89-6d09-4fb8-9202-199e40352c3e" xml:space="preserve">
+          <source><bpt id="1b011684-d243-4989-b8d6-67b1a652758c">&lt;strong&gt;</bpt>Twilio Client<ept id="1b011684-d243-4989-b8d6-67b1a652758c">&lt;/strong&gt;</ept> allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.</source>
+          <target state="new"><bpt id="1b011684-d243-4989-b8d6-67b1a652758c">&lt;strong&gt;</bpt>Twilio Client<ept id="1b011684-d243-4989-b8d6-67b1a652758c">&lt;/strong&gt;</ept> allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.</target>
+        </trans-unit>
+        <trans-unit id="1d1bbd48-a1fb-4a7c-83f7-7d1a42bf56bc" xml:space="preserve">
+          <source>Azure customers receive a <bpt id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;linkText&gt;</bpt>special offer<ept id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;/linkText&gt;</ept><bpt id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;title&gt;</bpt><ept id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;/title&gt;</ept>: complimentary $10 of Twilio Credit when you upgrade your Twilio Account.</source>
+          <target state="new">Azure customers receive a <bpt id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;linkText&gt;</bpt>special offer<ept id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;/linkText&gt;</ept><bpt id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;title&gt;</bpt><ept id="bc426615-3b04-4d99-a55d-1125f69a6ba3">&lt;/title&gt;</ept>: complimentary $10 of Twilio Credit when you upgrade your Twilio Account.</target>
+        </trans-unit>
+        <trans-unit id="ec1ddcaf-1b72-462a-b85e-13a0e393b44e" xml:space="preserve">
+          <source>This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination).</source>
+          <target state="new">This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination).</target>
+        </trans-unit>
+        <trans-unit id="467d7a4f-c179-40bd-bb3d-240372f460ee" xml:space="preserve">
+          <source>Redeem this Twilio credit and get started at <bpt id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;linkText&gt;</bpt>ahoy.twilio.com/azure<ept id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;/linkText&gt;</ept><bpt id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;title&gt;</bpt><ept id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;/title&gt;</ept>.</source>
+          <target state="new">Redeem this Twilio credit and get started at <bpt id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;linkText&gt;</bpt>ahoy.twilio.com/azure<ept id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;/linkText&gt;</ept><bpt id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;title&gt;</bpt><ept id="54d75429-066e-4c85-bd05-60c0608ce513">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="867fa33c-1163-4583-88dc-46892ab48885" xml:space="preserve">
+          <source>Twilio is a pay-as-you-go service.</source>
+          <target state="new">Twilio is a pay-as-you-go service.</target>
+        </trans-unit>
+        <trans-unit id="8feb0182-2efb-42ab-8cf5-5ea6c6941146" xml:space="preserve">
+          <source>There are no set-up fees and you can close your account at any time.</source>
+          <target state="new">There are no set-up fees and you can close your account at any time.</target>
+        </trans-unit>
+        <trans-unit id="de706fa9-9099-4c46-a174-85a471a0e81a" xml:space="preserve">
+          <source>You can find more details at <bpt id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;linkText&gt;</bpt>Twilio Pricing<ept id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;/linkText&gt;</ept><bpt id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;title&gt;</bpt><ept id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more details at <bpt id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;linkText&gt;</bpt>Twilio Pricing<ept id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;/linkText&gt;</ept><bpt id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;title&gt;</bpt><ept id="3572d54b-9f69-49eb-aa04-856c7d9ca892">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b377b159-8edd-4e00-87f1-7afc608ba15a" xml:space="preserve">
+          <source>The Twilio API is a RESTful API that provides voice and SMS functionality for applications.</source>
+          <target state="new">The Twilio API is a RESTful API that provides voice and SMS functionality for applications.</target>
+        </trans-unit>
+        <trans-unit id="350aac81-c41f-491d-847f-0f37fcca8ad0" xml:space="preserve">
+          <source>Client libraries are available in multiple languages; for a list, see <bpt id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;linkText&gt;</bpt>Twilio API Libraries[twilio_libraries]<ept id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;/linkText&gt;</ept><bpt id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;title&gt;</bpt><ept id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Client libraries are available in multiple languages; for a list, see <bpt id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;linkText&gt;</bpt>Twilio API Libraries[twilio_libraries]<ept id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;/linkText&gt;</ept><bpt id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;title&gt;</bpt><ept id="38bd1cc0-7e30-4e48-b334-1d07d0f89f9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22ce886d-f79f-4507-8c3e-0c57f47354cb" xml:space="preserve">
+          <source>Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).</source>
+          <target state="new">Key aspects of the Twilio API are Twilio verbs and Twilio Markup Language (TwiML).</target>
+        </trans-unit>
+        <trans-unit id="11fe721c-9371-4406-bfd4-262d11150228" xml:space="preserve">
+          <source>The API makes use of Twilio verbs; for example, the <bpt id="aff541f3-d9eb-483e-bf7f-0b54caffad11">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="aff541f3-d9eb-483e-bf7f-0b54caffad11">&lt;/strong&gt;</ept> verb instructs Twilio to audibly deliver a message on a call.</source>
+          <target state="new">The API makes use of Twilio verbs; for example, the <bpt id="aff541f3-d9eb-483e-bf7f-0b54caffad11">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="aff541f3-d9eb-483e-bf7f-0b54caffad11">&lt;/strong&gt;</ept> verb instructs Twilio to audibly deliver a message on a call.</target>
+        </trans-unit>
+        <trans-unit id="60c8432c-1c37-4406-8bb4-301ee9d60f6e" xml:space="preserve">
+          <source>The following is a list of Twilio verbs.</source>
+          <target state="new">The following is a list of Twilio verbs.</target>
+        </trans-unit>
+        <trans-unit id="c7543818-4868-41dc-af0d-a6c3a8216223" xml:space="preserve">
+          <source>Learn about the other verbs and capabilities via <bpt id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;linkText&gt;</bpt>Twilio Markup Language documentation<ept id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;/linkText&gt;</ept><bpt id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;title&gt;</bpt><ept id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn about the other verbs and capabilities via <bpt id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;linkText&gt;</bpt>Twilio Markup Language documentation<ept id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;/linkText&gt;</ept><bpt id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;title&gt;</bpt><ept id="ae2862ce-3c46-4138-9e70-2369657f1865">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="542ed3a3-2b3d-4302-b782-0ba444ef880b" xml:space="preserve">
+          <source><bpt id="1a1542fd-598f-4f69-8b87-36a07d182da0">&lt;strong&gt;</bpt>&amp;lt;Dial&amp;gt;<ept id="1a1542fd-598f-4f69-8b87-36a07d182da0">&lt;/strong&gt;</ept>: Connects the caller to another phone.</source>
+          <target state="new"><bpt id="1a1542fd-598f-4f69-8b87-36a07d182da0">&lt;strong&gt;</bpt>&amp;lt;Dial&amp;gt;<ept id="1a1542fd-598f-4f69-8b87-36a07d182da0">&lt;/strong&gt;</ept>: Connects the caller to another phone.</target>
+        </trans-unit>
+        <trans-unit id="fdaed704-6f58-419f-8257-e45c0bc0ab59" xml:space="preserve">
+          <source><bpt id="8bc6ef46-89a1-47cd-a741-36e4aec69a76">&lt;strong&gt;</bpt>&amp;lt;Gather&amp;gt;<ept id="8bc6ef46-89a1-47cd-a741-36e4aec69a76">&lt;/strong&gt;</ept>: Collects numeric digits entered on the telephone keypad.</source>
+          <target state="new"><bpt id="8bc6ef46-89a1-47cd-a741-36e4aec69a76">&lt;strong&gt;</bpt>&amp;lt;Gather&amp;gt;<ept id="8bc6ef46-89a1-47cd-a741-36e4aec69a76">&lt;/strong&gt;</ept>: Collects numeric digits entered on the telephone keypad.</target>
+        </trans-unit>
+        <trans-unit id="a23898c8-eaff-4389-b761-ba09c569c0ee" xml:space="preserve">
+          <source><bpt id="e3a5b71b-f098-401b-a082-6fb1b36ae697">&lt;strong&gt;</bpt>&amp;lt;Hangup&amp;gt;<ept id="e3a5b71b-f098-401b-a082-6fb1b36ae697">&lt;/strong&gt;</ept>: Ends a call.</source>
+          <target state="new"><bpt id="e3a5b71b-f098-401b-a082-6fb1b36ae697">&lt;strong&gt;</bpt>&amp;lt;Hangup&amp;gt;<ept id="e3a5b71b-f098-401b-a082-6fb1b36ae697">&lt;/strong&gt;</ept>: Ends a call.</target>
+        </trans-unit>
+        <trans-unit id="5479ac8a-2b9c-4d43-9b19-3be3841f9388" xml:space="preserve">
+          <source><bpt id="ff5935bc-0899-46d9-815e-ae6b40b8bb42">&lt;strong&gt;</bpt>&amp;lt;Play&amp;gt;<ept id="ff5935bc-0899-46d9-815e-ae6b40b8bb42">&lt;/strong&gt;</ept>: Plays an audio file.</source>
+          <target state="new"><bpt id="ff5935bc-0899-46d9-815e-ae6b40b8bb42">&lt;strong&gt;</bpt>&amp;lt;Play&amp;gt;<ept id="ff5935bc-0899-46d9-815e-ae6b40b8bb42">&lt;/strong&gt;</ept>: Plays an audio file.</target>
+        </trans-unit>
+        <trans-unit id="c7b36edf-8d6e-4fb2-a4c6-f70bd37c4a1a" xml:space="preserve">
+          <source><bpt id="0afef9b9-3063-42d5-9312-cd9f25840ccb">&lt;strong&gt;</bpt>&amp;lt;Pause&amp;gt;<ept id="0afef9b9-3063-42d5-9312-cd9f25840ccb">&lt;/strong&gt;</ept>: Waits silently for a specified number of seconds.</source>
+          <target state="new"><bpt id="0afef9b9-3063-42d5-9312-cd9f25840ccb">&lt;strong&gt;</bpt>&amp;lt;Pause&amp;gt;<ept id="0afef9b9-3063-42d5-9312-cd9f25840ccb">&lt;/strong&gt;</ept>: Waits silently for a specified number of seconds.</target>
+        </trans-unit>
+        <trans-unit id="afae12cd-01b5-431e-95a1-c27aac0606f1" xml:space="preserve">
+          <source><bpt id="686b6ce6-5ac1-435c-b1ab-aa92687644c4">&lt;strong&gt;</bpt>&amp;lt;Record&amp;gt;<ept id="686b6ce6-5ac1-435c-b1ab-aa92687644c4">&lt;/strong&gt;</ept>: Records the caller's voice and returns a URL of a file that contains the recording.</source>
+          <target state="new"><bpt id="686b6ce6-5ac1-435c-b1ab-aa92687644c4">&lt;strong&gt;</bpt>&amp;lt;Record&amp;gt;<ept id="686b6ce6-5ac1-435c-b1ab-aa92687644c4">&lt;/strong&gt;</ept>: Records the caller's voice and returns a URL of a file that contains the recording.</target>
+        </trans-unit>
+        <trans-unit id="3b208e45-f647-41ce-b53a-3837c9f9350f" xml:space="preserve">
+          <source><bpt id="0465709e-7fef-4723-96d1-6111da036dea">&lt;strong&gt;</bpt>&amp;lt;Redirect&amp;gt;<ept id="0465709e-7fef-4723-96d1-6111da036dea">&lt;/strong&gt;</ept>: Transfers control of a call or SMS to the TwiML at a different URL.</source>
+          <target state="new"><bpt id="0465709e-7fef-4723-96d1-6111da036dea">&lt;strong&gt;</bpt>&amp;lt;Redirect&amp;gt;<ept id="0465709e-7fef-4723-96d1-6111da036dea">&lt;/strong&gt;</ept>: Transfers control of a call or SMS to the TwiML at a different URL.</target>
+        </trans-unit>
+        <trans-unit id="256ac856-3392-4718-8cda-008142d86261" xml:space="preserve">
+          <source><bpt id="bfa0f6ed-65e2-460c-874f-3154907152dd">&lt;strong&gt;</bpt>&amp;lt;Reject&amp;gt;<ept id="bfa0f6ed-65e2-460c-874f-3154907152dd">&lt;/strong&gt;</ept>: Rejects an incoming call to your Twilio number without billing you</source>
+          <target state="new"><bpt id="bfa0f6ed-65e2-460c-874f-3154907152dd">&lt;strong&gt;</bpt>&amp;lt;Reject&amp;gt;<ept id="bfa0f6ed-65e2-460c-874f-3154907152dd">&lt;/strong&gt;</ept>: Rejects an incoming call to your Twilio number without billing you</target>
+        </trans-unit>
+        <trans-unit id="e54d981e-b913-4212-83c1-4877cf3501ba" xml:space="preserve">
+          <source><bpt id="8556c87d-4ff4-4e03-ab86-04ccfc921586">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="8556c87d-4ff4-4e03-ab86-04ccfc921586">&lt;/strong&gt;</ept>: Converts text to speech that is made on a call.</source>
+          <target state="new"><bpt id="8556c87d-4ff4-4e03-ab86-04ccfc921586">&lt;strong&gt;</bpt>&amp;lt;Say&amp;gt;<ept id="8556c87d-4ff4-4e03-ab86-04ccfc921586">&lt;/strong&gt;</ept>: Converts text to speech that is made on a call.</target>
+        </trans-unit>
+        <trans-unit id="6dfa8f60-be46-4116-9f02-cadca869583a" xml:space="preserve">
+          <source><bpt id="73934016-0d4c-4393-b91c-415b25ded9f6">&lt;strong&gt;</bpt>&amp;lt;Sms&amp;gt;<ept id="73934016-0d4c-4393-b91c-415b25ded9f6">&lt;/strong&gt;</ept>: Sends an SMS message.</source>
+          <target state="new"><bpt id="73934016-0d4c-4393-b91c-415b25ded9f6">&lt;strong&gt;</bpt>&amp;lt;Sms&amp;gt;<ept id="73934016-0d4c-4393-b91c-415b25ded9f6">&lt;/strong&gt;</ept>: Sends an SMS message.</target>
+        </trans-unit>
+        <trans-unit id="4a46ad61-c3a6-46f3-bf56-6b6dd3c7423f" xml:space="preserve">
+          <source>TwiML is a set of XML-based instructions based on the Twilio verbs that inform Twilio of how to process a call or SMS.</source>
+          <target state="new">TwiML is a set of XML-based instructions based on the Twilio verbs that inform Twilio of how to process a call or SMS.</target>
+        </trans-unit>
+        <trans-unit id="1433171d-fa59-48d7-9e80-a41e3d025154" xml:space="preserve">
+          <source>As an example, the following TwiML would convert the text <bpt id="48eb44c0-fc8e-424f-bd20-2ad259319aa5">&lt;strong&gt;</bpt>Hello World<ept id="48eb44c0-fc8e-424f-bd20-2ad259319aa5">&lt;/strong&gt;</ept> to speech.</source>
+          <target state="new">As an example, the following TwiML would convert the text <bpt id="48eb44c0-fc8e-424f-bd20-2ad259319aa5">&lt;strong&gt;</bpt>Hello World<ept id="48eb44c0-fc8e-424f-bd20-2ad259319aa5">&lt;/strong&gt;</ept> to speech.</target>
+        </trans-unit>
+        <trans-unit id="d359136f-2977-4b6f-8bdd-fd5ca73426a3" xml:space="preserve">
+          <source>When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response.</source>
+          <target state="new">When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response.</target>
+        </trans-unit>
+        <trans-unit id="5793105e-e70a-4618-9b5f-c88aa0e7cff2" xml:space="preserve">
+          <source>For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications.</source>
+          <target state="new">For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications.</target>
+        </trans-unit>
+        <trans-unit id="42d8ea36-5133-4a0e-ac37-e254f54524c9" xml:space="preserve">
+          <source>You could also host your own URLs to produce the TwiML responses, and another option is to use the <bpt id="673fe4a2-4da4-40fd-bf66-d261fd929dbf">&lt;strong&gt;</bpt>TwiMLResponse<ept id="673fe4a2-4da4-40fd-bf66-d261fd929dbf">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">You could also host your own URLs to produce the TwiML responses, and another option is to use the <bpt id="673fe4a2-4da4-40fd-bf66-d261fd929dbf">&lt;strong&gt;</bpt>TwiMLResponse<ept id="673fe4a2-4da4-40fd-bf66-d261fd929dbf">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="cdf6481a-268c-4c59-be8c-96bcd3791abb" xml:space="preserve">
+          <source>For more information about Twilio verbs, their attributes, and TwiML, see <bpt id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;linkText&gt;</bpt>TwiML[twiml]<ept id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;/linkText&gt;</ept><bpt id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;title&gt;</bpt><ept id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Twilio verbs, their attributes, and TwiML, see <bpt id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;linkText&gt;</bpt>TwiML[twiml]<ept id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;/linkText&gt;</ept><bpt id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;title&gt;</bpt><ept id="e92caaf2-672d-4ed9-a2e6-a2f1c84bd587">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="261ee0a4-d1e9-4200-a725-a990ffb62914" xml:space="preserve">
+          <source>For additional information about the Twilio API, see <bpt id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;linkText&gt;</bpt>Twilio API[twilio_api]<ept id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;/linkText&gt;</ept><bpt id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;title&gt;</bpt><ept id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about the Twilio API, see <bpt id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;linkText&gt;</bpt>Twilio API[twilio_api]<ept id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;/linkText&gt;</ept><bpt id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;title&gt;</bpt><ept id="fd2e37df-1462-4a71-b822-0cd755b0f184">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a706b2a-7690-4627-bbf0-63ae95745c08" xml:space="preserve">
+          <source>When you're ready to get a Twilio account, sign up at <bpt id="fd01661a-3e4f-4968-a844-82853468d332">&lt;linkText&gt;</bpt>Try Twilio[try_twilio]<ept id="fd01661a-3e4f-4968-a844-82853468d332">&lt;/linkText&gt;</ept><bpt id="fd01661a-3e4f-4968-a844-82853468d332">&lt;title&gt;</bpt><ept id="fd01661a-3e4f-4968-a844-82853468d332">&lt;/title&gt;</ept>.</source>
+          <target state="new">When you're ready to get a Twilio account, sign up at <bpt id="fd01661a-3e4f-4968-a844-82853468d332">&lt;linkText&gt;</bpt>Try Twilio[try_twilio]<ept id="fd01661a-3e4f-4968-a844-82853468d332">&lt;/linkText&gt;</ept><bpt id="fd01661a-3e4f-4968-a844-82853468d332">&lt;title&gt;</bpt><ept id="fd01661a-3e4f-4968-a844-82853468d332">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="946ecd08-4718-40dd-913d-da92fc424c2a" xml:space="preserve">
+          <source>You can start with a free account, and upgrade your account later.</source>
+          <target state="new">You can start with a free account, and upgrade your account later.</target>
+        </trans-unit>
+        <trans-unit id="0bb8887f-1b51-4877-ac36-466456bbe9b1" xml:space="preserve">
+          <source>When you sign up for a Twilio account, you'll receive an account ID and an authentication token.</source>
+          <target state="new">When you sign up for a Twilio account, you'll receive an account ID and an authentication token.</target>
+        </trans-unit>
+        <trans-unit id="cd450920-ec94-4e78-8fcb-b95fc0a8e2bb" xml:space="preserve">
+          <source>Both will be needed to make Twilio API calls.</source>
+          <target state="new">Both will be needed to make Twilio API calls.</target>
+        </trans-unit>
+        <trans-unit id="2be0ddb4-417a-4888-b08e-42bf7fd274b8" xml:space="preserve">
+          <source>To prevent unauthorized access to your account, keep your authentication token secure.</source>
+          <target state="new">To prevent unauthorized access to your account, keep your authentication token secure.</target>
+        </trans-unit>
+        <trans-unit id="0e7cb09d-e57a-4912-8254-2285645a77a2" xml:space="preserve">
+          <source>Your account ID and authentication token are viewable at the <bpt id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;linkText&gt;</bpt>Twilio account page[twilio_account]<ept id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;/linkText&gt;</ept><bpt id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;title&gt;</bpt><ept id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;/title&gt;</ept>, in the fields labeled <bpt id="929a49da-4086-4f25-bbed-572ecd4ee8cb">&lt;strong&gt;</bpt>ACCOUNT SID<ept id="929a49da-4086-4f25-bbed-572ecd4ee8cb">&lt;/strong&gt;</ept> and <bpt id="680767ab-0a66-40d7-a8a8-4f6b2c525c71">&lt;strong&gt;</bpt>AUTH TOKEN<ept id="680767ab-0a66-40d7-a8a8-4f6b2c525c71">&lt;/strong&gt;</ept>, respectively.</source>
+          <target state="new">Your account ID and authentication token are viewable at the <bpt id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;linkText&gt;</bpt>Twilio account page[twilio_account]<ept id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;/linkText&gt;</ept><bpt id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;title&gt;</bpt><ept id="c274514f-ddac-42b0-9f91-a68f5ea64de9">&lt;/title&gt;</ept>, in the fields labeled <bpt id="929a49da-4086-4f25-bbed-572ecd4ee8cb">&lt;strong&gt;</bpt>ACCOUNT SID<ept id="929a49da-4086-4f25-bbed-572ecd4ee8cb">&lt;/strong&gt;</ept> and <bpt id="680767ab-0a66-40d7-a8a8-4f6b2c525c71">&lt;strong&gt;</bpt>AUTH TOKEN<ept id="680767ab-0a66-40d7-a8a8-4f6b2c525c71">&lt;/strong&gt;</ept>, respectively.</target>
+        </trans-unit>
+        <trans-unit id="34296f79-60e6-4e7a-ad1b-3d5ed2c22d53" xml:space="preserve">
+          <source>An Azure application that hosts a Twilio enabled application is no different from any other Azure application.</source>
+          <target state="new">An Azure application that hosts a Twilio enabled application is no different from any other Azure application.</target>
+        </trans-unit>
+        <trans-unit id="4e6403ca-4b89-4c23-81cd-803057309989" xml:space="preserve">
+          <source>You add the Twilio .NET library and configure the role to use the Twilio .NET libraries.</source>
+          <target state="new">You add the Twilio .NET library and configure the role to use the Twilio .NET libraries.</target>
+        </trans-unit>
+        <trans-unit id="4547b3a8-37ea-4da2-b8a0-99c5ef3c4038" xml:space="preserve">
+          <source>For information on creating an initial Azure project, see <bpt id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;linkText&gt;</bpt>Creating an Azure project with Visual Studio[vs_project]<ept id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;/linkText&gt;</ept><bpt id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;title&gt;</bpt><ept id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on creating an initial Azure project, see <bpt id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;linkText&gt;</bpt>Creating an Azure project with Visual Studio[vs_project]<ept id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;/linkText&gt;</ept><bpt id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;title&gt;</bpt><ept id="fbc9d2ca-33b2-4a15-866d-456147af82de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb8993c3-9ff4-4a59-b91f-679a5e0826b1" xml:space="preserve">
+          <source>Twilio provides a set of .NET helper libraries that wrap various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.</source>
+          <target state="new">Twilio provides a set of .NET helper libraries that wrap various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.</target>
+        </trans-unit>
+        <trans-unit id="e111a5af-4e85-46dc-8b64-4aa56a8f6b90" xml:space="preserve">
+          <source>Twilio provides five libraries for .NET developers:</source>
+          <target state="new">Twilio provides five libraries for .NET developers:</target>
+        </trans-unit>
+        <trans-unit id="19bb8fa0-96a8-4d0b-9dc3-9ceef44971c9" xml:space="preserve">
+          <source>Library</source>
+          <target state="new">Library</target>
+        </trans-unit>
+        <trans-unit id="ca8660a0-566d-43c6-828a-25f4bc60d388" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c1a88d68-e526-45d9-a892-169028ac10c5" xml:space="preserve">
+          <source>Twilio.API</source>
+          <target state="new">Twilio.API</target>
+        </trans-unit>
+        <trans-unit id="9f2eea9b-16e9-4860-80b7-e7fca11da58a" xml:space="preserve">
+          <source>The core Twilio library that wraps the Twilio REST API in a friendly .NET library.</source>
+          <target state="new">The core Twilio library that wraps the Twilio REST API in a friendly .NET library.</target>
+        </trans-unit>
+        <trans-unit id="3c9d9cfd-fe63-4d68-9e44-03ff82d4b5a4" xml:space="preserve">
+          <source>This library is available for .NET, Silverlight, and Windows Phone 7.</source>
+          <target state="new">This library is available for .NET, Silverlight, and Windows Phone 7.</target>
+        </trans-unit>
+        <trans-unit id="c556e48b-95a3-425d-8687-37bc40c76c93" xml:space="preserve">
+          <source>Twilio.TwiML</source>
+          <target state="new">Twilio.TwiML</target>
+        </trans-unit>
+        <trans-unit id="3bfe231c-35a4-46f1-a19c-8acb843567e5" xml:space="preserve">
+          <source>Provides a .NET friendly way to generate TwiML markup.</source>
+          <target state="new">Provides a .NET friendly way to generate TwiML markup.</target>
+        </trans-unit>
+        <trans-unit id="4a9ae870-9796-4602-990f-248f6c1a3821" xml:space="preserve">
+          <source>Twilio.MVC</source>
+          <target state="new">Twilio.MVC</target>
+        </trans-unit>
+        <trans-unit id="6d810d14-8ad5-480f-85f4-910513dc6394" xml:space="preserve">
+          <source>For developers using ASP.NET MVC, this library includes a TwilioController, TwiML ActionResult and request validation attribute.</source>
+          <target state="new">For developers using ASP.NET MVC, this library includes a TwilioController, TwiML ActionResult and request validation attribute.</target>
+        </trans-unit>
+        <trans-unit id="0082bf77-3054-49b9-87d4-e681768531ae" xml:space="preserve">
+          <source>Twilio.WebMatrix</source>
+          <target state="new">Twilio.WebMatrix</target>
+        </trans-unit>
+        <trans-unit id="c4f8869f-62b6-4ba9-aa99-6bc82845ea2c" xml:space="preserve">
+          <source>For developers using Microsoft's free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions.</source>
+          <target state="new">For developers using Microsoft's free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions.</target>
+        </trans-unit>
+        <trans-unit id="4b86d4bd-a4e2-4964-910a-c0db9efa372a" xml:space="preserve">
+          <source>Twilio.Client.Capability</source>
+          <target state="new">Twilio.Client.Capability</target>
+        </trans-unit>
+        <trans-unit id="54049883-b167-4dcd-8071-1a2f83969b70" xml:space="preserve">
+          <source>Contains the Capability token generator for use with the Twilio Client JavaScript SDK.</source>
+          <target state="new">Contains the Capability token generator for use with the Twilio Client JavaScript SDK.</target>
+        </trans-unit>
+        <trans-unit id="97a01db7-75f8-44fd-ba14-392b7c1b7825" xml:space="preserve">
+          <source>Note that all libraries require .NET 3.5, Silverlight 4, or Windows Phone 7 or later.</source>
+          <target state="new">Note that all libraries require .NET 3.5, Silverlight 4, or Windows Phone 7 or later.</target>
+        </trans-unit>
+        <trans-unit id="e4f4fe15-39ff-40d8-9f3e-13e98e879a32" xml:space="preserve">
+          <source>The samples provided in this guide use the Twilio.API library.</source>
+          <target state="new">The samples provided in this guide use the Twilio.API library.</target>
+        </trans-unit>
+        <trans-unit id="fb302188-d185-41e4-9359-47c77aa40ffa" xml:space="preserve">
+          <source>The libraries can be <bpt id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;linkText&gt;</bpt>installed using the NuGet package manager extension<ept id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;/linkText&gt;</ept><bpt id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;title&gt;</bpt><ept id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;/title&gt;</ept> available for Visual Studio 2010 and 2012.</source>
+          <target state="new">The libraries can be <bpt id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;linkText&gt;</bpt>installed using the NuGet package manager extension<ept id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;/linkText&gt;</ept><bpt id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;title&gt;</bpt><ept id="aa8c0bf9-33e0-46f8-934c-cfe2cd3da9d0">&lt;/title&gt;</ept> available for Visual Studio 2010 and 2012.</target>
+        </trans-unit>
+        <trans-unit id="486c74a2-39cc-4006-bf13-dbe3dc8dd5d7" xml:space="preserve">
+          <source>The source code is hosted on <bpt id="3151442a-ace2-4abe-8382-859041d47957">&lt;linkText&gt;</bpt>GitHub[twilio_github_repo]<ept id="3151442a-ace2-4abe-8382-859041d47957">&lt;/linkText&gt;</ept><bpt id="3151442a-ace2-4abe-8382-859041d47957">&lt;title&gt;</bpt><ept id="3151442a-ace2-4abe-8382-859041d47957">&lt;/title&gt;</ept>, which includes a Wiki that contains complete documentation for using the libraries.</source>
+          <target state="new">The source code is hosted on <bpt id="3151442a-ace2-4abe-8382-859041d47957">&lt;linkText&gt;</bpt>GitHub[twilio_github_repo]<ept id="3151442a-ace2-4abe-8382-859041d47957">&lt;/linkText&gt;</ept><bpt id="3151442a-ace2-4abe-8382-859041d47957">&lt;title&gt;</bpt><ept id="3151442a-ace2-4abe-8382-859041d47957">&lt;/title&gt;</ept>, which includes a Wiki that contains complete documentation for using the libraries.</target>
+        </trans-unit>
+        <trans-unit id="c76e1403-f02c-43a2-a60c-9a745bed9cee" xml:space="preserve">
+          <source>By default, Microsoft Visual Studio 2010 installs version 1.2 of NuGet.</source>
+          <target state="new">By default, Microsoft Visual Studio 2010 installs version 1.2 of NuGet.</target>
+        </trans-unit>
+        <trans-unit id="26962f68-fbf8-49b0-8a38-1c77f6f52884" xml:space="preserve">
+          <source>Installing the Twilio libraries requires version 1.6 of NuGet or higher.</source>
+          <target state="new">Installing the Twilio libraries requires version 1.6 of NuGet or higher.</target>
+        </trans-unit>
+        <trans-unit id="94663752-b886-4a6b-a319-66bd76e0cbbb" xml:space="preserve">
+          <source>For information on installing or updating NuGet, see <bpt id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;linkText&gt;</bpt>http://nuget.org/[nuget]<ept id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;/linkText&gt;</ept><bpt id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;title&gt;</bpt><ept id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on installing or updating NuGet, see <bpt id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;linkText&gt;</bpt>http://nuget.org/[nuget]<ept id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;/linkText&gt;</ept><bpt id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;title&gt;</bpt><ept id="dd19f7a8-904d-4740-b253-a90f9397619a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec8feaf-4417-4b13-ae99-64a2d8efb346" xml:space="preserve">
+          <source>To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager.</source>
+          <target state="new">To install the latest verison of NuGet, you must first uninstall the loaded version using the Visual Studio Extension Manager.</target>
+        </trans-unit>
+        <trans-unit id="74f8040d-601c-4222-8737-f7791bfecd28" xml:space="preserve">
+          <source>To do so, you must run Visual Studio as administrator.</source>
+          <target state="new">To do so, you must run Visual Studio as administrator.</target>
+        </trans-unit>
+        <trans-unit id="02c2ba92-454a-4ab0-b0f7-12301c3aad35" xml:space="preserve">
+          <source>Otherwise, the Uninstall button is disabled.</source>
+          <target state="new">Otherwise, the Uninstall button is disabled.</target>
+        </trans-unit>
+        <trans-unit id="0a38a934-8cbc-490c-9581-ea1618a73ce8" xml:space="preserve">
+          <source>Open your solution in Visual Studio.</source>
+          <target state="new">Open your solution in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="1103bb89-fabe-49c3-9adf-df981cfa4158" xml:space="preserve">
+          <source>Right-click <bpt id="e8921f3b-bc58-4f7f-b9fa-88d2a2a00563">&lt;strong&gt;</bpt>References<ept id="e8921f3b-bc58-4f7f-b9fa-88d2a2a00563">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="e8921f3b-bc58-4f7f-b9fa-88d2a2a00563">&lt;strong&gt;</bpt>References<ept id="e8921f3b-bc58-4f7f-b9fa-88d2a2a00563">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35e0746d-7334-4ca3-8a53-817e8c4891c9" xml:space="preserve">
+          <source>Click <bpt id="22b4d85a-4af3-46a1-afef-e711c57021ff">&lt;strong&gt;</bpt>Manage NuGet Packages...<ept id="22b4d85a-4af3-46a1-afef-e711c57021ff">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="22b4d85a-4af3-46a1-afef-e711c57021ff">&lt;strong&gt;</bpt>Manage NuGet Packages...<ept id="22b4d85a-4af3-46a1-afef-e711c57021ff">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15fc3aad-4427-484c-9283-30038807e9e6" xml:space="preserve">
+          <source>Click <bpt id="9eb9ea62-173f-4a3f-9ce7-c27dd48d83eb">&lt;strong&gt;</bpt>Online<ept id="9eb9ea62-173f-4a3f-9ce7-c27dd48d83eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9eb9ea62-173f-4a3f-9ce7-c27dd48d83eb">&lt;strong&gt;</bpt>Online<ept id="9eb9ea62-173f-4a3f-9ce7-c27dd48d83eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab9092b6-e31e-46db-b962-0f652bf10f39" xml:space="preserve">
+          <source>In the search online box, type <bpt id="743e256e-28d2-4d8b-bb89-db1b1e28ae0c">&lt;em&gt;</bpt>twilio<ept id="743e256e-28d2-4d8b-bb89-db1b1e28ae0c">&lt;/em&gt;</ept>.</source>
+          <target state="new">In the search online box, type <bpt id="743e256e-28d2-4d8b-bb89-db1b1e28ae0c">&lt;em&gt;</bpt>twilio<ept id="743e256e-28d2-4d8b-bb89-db1b1e28ae0c">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcddefbe-5219-4426-9262-8fe866bb1aec" xml:space="preserve">
+          <source>Click <bpt id="40786dc4-3968-4875-bcc0-6f1200d44850">&lt;strong&gt;</bpt>Install<ept id="40786dc4-3968-4875-bcc0-6f1200d44850">&lt;/strong&gt;</ept> on the Twilio package.</source>
+          <target state="new">Click <bpt id="40786dc4-3968-4875-bcc0-6f1200d44850">&lt;strong&gt;</bpt>Install<ept id="40786dc4-3968-4875-bcc0-6f1200d44850">&lt;/strong&gt;</ept> on the Twilio package.</target>
+        </trans-unit>
+        <trans-unit id="61e90694-d27e-4392-a8f3-75e4ef1d2e1e" xml:space="preserve">
+          <source>The following shows how to make an outgoing call using the <bpt id="dd77033a-d375-4e0d-80a6-0a1f3abc571b">&lt;strong&gt;</bpt>TwilioRestClient<ept id="dd77033a-d375-4e0d-80a6-0a1f3abc571b">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">The following shows how to make an outgoing call using the <bpt id="dd77033a-d375-4e0d-80a6-0a1f3abc571b">&lt;strong&gt;</bpt>TwilioRestClient<ept id="dd77033a-d375-4e0d-80a6-0a1f3abc571b">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="60d20731-5eb9-46c8-84bd-22cdcae3cc26" xml:space="preserve">
+          <source>This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response.</source>
+          <target state="new">This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response.</target>
+        </trans-unit>
+        <trans-unit id="bd2a2bbb-ef2d-4ff3-b1e3-293fcac07ec0" xml:space="preserve">
+          <source>Substitute your values for the <bpt id="257db2a9-d59d-4f53-a795-dcdbc0b1f1c5">&lt;strong&gt;</bpt>From<ept id="257db2a9-d59d-4f53-a795-dcdbc0b1f1c5">&lt;/strong&gt;</ept> and <bpt id="8961cb10-03d7-4227-a742-e89fa01c162c">&lt;strong&gt;</bpt>To<ept id="8961cb10-03d7-4227-a742-e89fa01c162c">&lt;/strong&gt;</ept> phone numbers, and ensure that you verify the <bpt id="6214c904-ee98-47cb-a2af-eeaaf512a9f3">&lt;strong&gt;</bpt>From<ept id="6214c904-ee98-47cb-a2af-eeaaf512a9f3">&lt;/strong&gt;</ept> phone number for your Twilio account prior to running the code.</source>
+          <target state="new">Substitute your values for the <bpt id="257db2a9-d59d-4f53-a795-dcdbc0b1f1c5">&lt;strong&gt;</bpt>From<ept id="257db2a9-d59d-4f53-a795-dcdbc0b1f1c5">&lt;/strong&gt;</ept> and <bpt id="8961cb10-03d7-4227-a742-e89fa01c162c">&lt;strong&gt;</bpt>To<ept id="8961cb10-03d7-4227-a742-e89fa01c162c">&lt;/strong&gt;</ept> phone numbers, and ensure that you verify the <bpt id="6214c904-ee98-47cb-a2af-eeaaf512a9f3">&lt;strong&gt;</bpt>From<ept id="6214c904-ee98-47cb-a2af-eeaaf512a9f3">&lt;/strong&gt;</ept> phone number for your Twilio account prior to running the code.</target>
+        </trans-unit>
+        <trans-unit id="fb47a713-70e9-478f-a165-d96825fd3957" xml:space="preserve">
+          <source>For more information about the parameters passed in to the <bpt id="a2bc53b3-2617-4236-96a5-03a1c4864403">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="a2bc53b3-2617-4236-96a5-03a1c4864403">&lt;/strong&gt;</ept> method, see <bpt id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/rest/making-calls[twilio_rest_making_calls]<ept id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;/linkText&gt;</ept><bpt id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;title&gt;</bpt><ept id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the parameters passed in to the <bpt id="a2bc53b3-2617-4236-96a5-03a1c4864403">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="a2bc53b3-2617-4236-96a5-03a1c4864403">&lt;/strong&gt;</ept> method, see <bpt id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;linkText&gt;</bpt>http://www.twilio.com/docs/api/rest/making-calls[twilio_rest_making_calls]<ept id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;/linkText&gt;</ept><bpt id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;title&gt;</bpt><ept id="43bbddae-0dd5-4f47-9f65-c7364b00dd41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf22ea82-1252-49c5-ab96-2b5c1662eaa4" xml:space="preserve">
+          <source>As mentioned, this code uses a Twilio-provided site to return the TwiML response.</source>
+          <target state="new">As mentioned, this code uses a Twilio-provided site to return the TwiML response.</target>
+        </trans-unit>
+        <trans-unit id="396e6254-f606-4748-a0d5-939d92b4d1ee" xml:space="preserve">
+          <source>You could instead use your own site to provide the TwiML response.</source>
+          <target state="new">You could instead use your own site to provide the TwiML response.</target>
+        </trans-unit>
+        <trans-unit id="cc753de4-a12e-4478-9837-974c7862c2b5" xml:space="preserve">
+          <source>For more information, see [How to: Provide TwiML responses from your own web site](#howto<bpt id="5cd2da64-67b7-4c99-a37b-92237020bc28">&lt;em&gt;</bpt>provide<ept id="5cd2da64-67b7-4c99-a37b-92237020bc28">&lt;/em&gt;</ept>twiml_responses).</source>
+          <target state="new">For more information, see [How to: Provide TwiML responses from your own web site](#howto<bpt id="5cd2da64-67b7-4c99-a37b-92237020bc28">&lt;em&gt;</bpt>provide<ept id="5cd2da64-67b7-4c99-a37b-92237020bc28">&lt;/em&gt;</ept>twiml_responses).</target>
+        </trans-unit>
+        <trans-unit id="ea9f9c31-7d57-4bb3-b88c-8c47d97350e8" xml:space="preserve">
+          <source>The following screenshot shows how to send an SMS message using the <bpt id="715436f4-815b-4707-a387-e39580d2695c">&lt;strong&gt;</bpt>TwilioRestClient<ept id="715436f4-815b-4707-a387-e39580d2695c">&lt;/strong&gt;</ept>  class.</source>
+          <target state="new">The following screenshot shows how to send an SMS message using the <bpt id="715436f4-815b-4707-a387-e39580d2695c">&lt;strong&gt;</bpt>TwilioRestClient<ept id="715436f4-815b-4707-a387-e39580d2695c">&lt;/strong&gt;</ept>  class.</target>
+        </trans-unit>
+        <trans-unit id="f020ab7f-fa54-4ccb-8943-5fcd15ce58c3" xml:space="preserve">
+          <source>The <bpt id="a4ed21ee-1924-4023-a099-8bccf217c034">&lt;strong&gt;</bpt>From<ept id="a4ed21ee-1924-4023-a099-8bccf217c034">&lt;/strong&gt;</ept> number is provided by Twilio for trial accounts to send SMS messages.</source>
+          <target state="new">The <bpt id="a4ed21ee-1924-4023-a099-8bccf217c034">&lt;strong&gt;</bpt>From<ept id="a4ed21ee-1924-4023-a099-8bccf217c034">&lt;/strong&gt;</ept> number is provided by Twilio for trial accounts to send SMS messages.</target>
+        </trans-unit>
+        <trans-unit id="94fd7933-1629-4695-af0c-9f9ab65f2b0e" xml:space="preserve">
+          <source>The <bpt id="210d93a4-ba12-4cc4-a03b-ed2bbb61f7ca">&lt;strong&gt;</bpt>To<ept id="210d93a4-ba12-4cc4-a03b-ed2bbb61f7ca">&lt;/strong&gt;</ept> number must be verified for your Twilio account before you run the code.</source>
+          <target state="new">The <bpt id="210d93a4-ba12-4cc4-a03b-ed2bbb61f7ca">&lt;strong&gt;</bpt>To<ept id="210d93a4-ba12-4cc4-a03b-ed2bbb61f7ca">&lt;/strong&gt;</ept> number must be verified for your Twilio account before you run the code.</target>
+        </trans-unit>
+        <trans-unit id="f6721bce-98b3-4eda-8144-4bf3c2d9fb59" xml:space="preserve">
+          <source>When your application initiates a call to the Twilio API - for example, via the <bpt id="9d296841-850a-438e-920b-a2a0af06738d">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="9d296841-850a-438e-920b-a2a0af06738d">&lt;/strong&gt;</ept> method - Twilio sends your request to a URL that is expected to return a TwiML response.</source>
+          <target state="new">When your application initiates a call to the Twilio API - for example, via the <bpt id="9d296841-850a-438e-920b-a2a0af06738d">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="9d296841-850a-438e-920b-a2a0af06738d">&lt;/strong&gt;</ept> method - Twilio sends your request to a URL that is expected to return a TwiML response.</target>
+        </trans-unit>
+        <trans-unit id="e0dbd465-1820-486c-b219-153fd85417d4" xml:space="preserve">
+          <source>The example in [How to: Make an outgoing call](#howto<bpt id="9264f085-a725-461f-a358-cf5a17c5dae7">&lt;em&gt;</bpt>make<ept id="9264f085-a725-461f-a358-cf5a17c5dae7">&lt;/em&gt;</ept>call) uses the Twilio-provided URL <bpt id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;/linkText&gt;</ept><bpt id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;title&gt;</bpt><ept id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;/title&gt;</ept> to return the response.</source>
+          <target state="new">The example in [How to: Make an outgoing call](#howto<bpt id="9264f085-a725-461f-a358-cf5a17c5dae7">&lt;em&gt;</bpt>make<ept id="9264f085-a725-461f-a358-cf5a17c5dae7">&lt;/em&gt;</ept>call) uses the Twilio-provided URL <bpt id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;linkText&gt;</bpt>http://twimlets.com/message[twimlet_message_url]<ept id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;/linkText&gt;</ept><bpt id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;title&gt;</bpt><ept id="43e0663c-9460-4507-8d70-d93dc60a8639">&lt;/title&gt;</ept> to return the response.</target>
+        </trans-unit>
+        <trans-unit id="caa2acec-9a8c-430e-aecd-cb80fda8f259" xml:space="preserve">
+          <source>While TwiML is designed for use by web services, you can view the TwiML in your browser.</source>
+          <target state="new">While TwiML is designed for use by web services, you can view the TwiML in your browser.</target>
+        </trans-unit>
+        <trans-unit id="f35d63a4-76e7-4d33-b2ed-def51e0e7eba" xml:space="preserve">
+          <source>For example, click [http://twimlets.com/message](twimlet<bpt id="a1263fce-d931-4482-a5a0-ad2e70de688f">&lt;em&gt;</bpt>message<ept id="a1263fce-d931-4482-a5a0-ad2e70de688f">&lt;/em&gt;</ept>url) to see an empty &amp;lt;Response&amp;gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet<bpt id="8f9e786f-a335-47d2-9a15-31c32c01a058">&lt;em&gt;</bpt>message<ept id="8f9e786f-a335-47d2-9a15-31c32c01a058">&lt;/em&gt;</ept>url<bpt id="2e635d1d-9375-4ab0-8a1f-e21984abc8b1">&lt;em&gt;</bpt>hello<ept id="2e635d1d-9375-4ab0-8a1f-e21984abc8b1">&lt;/em&gt;</ept>world) to see a &amp;lt;Response&amp;gt; element that contains a &amp;lt;Say&amp;gt; element.</source>
+          <target state="new">For example, click [http://twimlets.com/message](twimlet<bpt id="a1263fce-d931-4482-a5a0-ad2e70de688f">&lt;em&gt;</bpt>message<ept id="a1263fce-d931-4482-a5a0-ad2e70de688f">&lt;/em&gt;</ept>url) to see an empty &amp;lt;Response&amp;gt; element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World](twimlet<bpt id="8f9e786f-a335-47d2-9a15-31c32c01a058">&lt;em&gt;</bpt>message<ept id="8f9e786f-a335-47d2-9a15-31c32c01a058">&lt;/em&gt;</ept>url<bpt id="2e635d1d-9375-4ab0-8a1f-e21984abc8b1">&lt;em&gt;</bpt>hello<ept id="2e635d1d-9375-4ab0-8a1f-e21984abc8b1">&lt;/em&gt;</ept>world) to see a &amp;lt;Response&amp;gt; element that contains a &amp;lt;Say&amp;gt; element.</target>
+        </trans-unit>
+        <trans-unit id="2dbdeef8-4583-4ab6-88e2-c84343c3df57" xml:space="preserve">
+          <source>Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses.</source>
+          <target state="new">Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses.</target>
+        </trans-unit>
+        <trans-unit id="b0dd8fb8-0953-4e37-b148-6af93101f5e2" xml:space="preserve">
+          <source>You can create the site in any language that returns HTTP responses.</source>
+          <target state="new">You can create the site in any language that returns HTTP responses.</target>
+        </trans-unit>
+        <trans-unit id="030ae1d6-6922-4f18-a9a1-3fb7bef13bf9" xml:space="preserve">
+          <source>This topic assumes you'll be hosting the URL from an ASP.NET generic handler.</source>
+          <target state="new">This topic assumes you'll be hosting the URL from an ASP.NET generic handler.</target>
+        </trans-unit>
+        <trans-unit id="213276e1-ce36-4d4b-918a-96c6dad82f53" xml:space="preserve">
+          <source>The following ASP.NET Handler crafts a TwiML response that says <bpt id="2c6ea588-e6c1-43a7-a3db-1ec64a2baa80">&lt;strong&gt;</bpt>Hello World<ept id="2c6ea588-e6c1-43a7-a3db-1ec64a2baa80">&lt;/strong&gt;</ept> on the call.</source>
+          <target state="new">The following ASP.NET Handler crafts a TwiML response that says <bpt id="2c6ea588-e6c1-43a7-a3db-1ec64a2baa80">&lt;strong&gt;</bpt>Hello World<ept id="2c6ea588-e6c1-43a7-a3db-1ec64a2baa80">&lt;/strong&gt;</ept> on the call.</target>
+        </trans-unit>
+        <trans-unit id="21dc16ca-4c3f-4a53-8e2e-cf289b1e8dad" xml:space="preserve">
+          <source>As you can see from the example above, the TwiML response is simply an XML document.</source>
+          <target state="new">As you can see from the example above, the TwiML response is simply an XML document.</target>
+        </trans-unit>
+        <trans-unit id="1d1ac5b6-7692-4aa5-9437-63b3af672688" xml:space="preserve">
+          <source>The Twilio.TwiML library contains classes that will generate TwiML for you.</source>
+          <target state="new">The Twilio.TwiML library contains classes that will generate TwiML for you.</target>
+        </trans-unit>
+        <trans-unit id="ac2801a9-d2b6-430b-a575-efa568f103a7" xml:space="preserve">
+          <source>The example below produces the equivalent response as shown above, but uses the TwilioResponse class.</source>
+          <target state="new">The example below produces the equivalent response as shown above, but uses the TwilioResponse class.</target>
+        </trans-unit>
+        <trans-unit id="05cb64f3-f92d-4610-be93-547c88137e62" xml:space="preserve">
+          <source>For more information about TwiML, see <bpt id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/api/twiml<ept id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;/linkText&gt;</ept><bpt id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;title&gt;</bpt><ept id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about TwiML, see <bpt id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;linkText&gt;</bpt>https://www.twilio.com/docs/api/twiml<ept id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;/linkText&gt;</ept><bpt id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;title&gt;</bpt><ept id="80c03901-14b0-467a-a2b9-d95042ae8a72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80e777dc-207e-4819-ba22-ff3aa9c8d322" xml:space="preserve">
+          <source>Once you have set up a way to provide TwiML responses, you can pass that URL into the <bpt id="01169696-5a56-4e59-b14f-22c1a6ed347b">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="01169696-5a56-4e59-b14f-22c1a6ed347b">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Once you have set up a way to provide TwiML responses, you can pass that URL into the <bpt id="01169696-5a56-4e59-b14f-22c1a6ed347b">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="01169696-5a56-4e59-b14f-22c1a6ed347b">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="3c7ca0de-5fb0-4005-9d6f-6fb5c0692f13" xml:space="preserve">
+          <source>For example, if you have a web application named MyTwiML deployed to an Azure cloud service, and the name of your ASP.NET Handler is mytwiml.ashx, the URL can be passed to <bpt id="8b6e6947-c074-46d2-b619-275b85c649a3">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="8b6e6947-c074-46d2-b619-275b85c649a3">&lt;/strong&gt;</ept> as shown in the following code sample:</source>
+          <target state="new">For example, if you have a web application named MyTwiML deployed to an Azure cloud service, and the name of your ASP.NET Handler is mytwiml.ashx, the URL can be passed to <bpt id="8b6e6947-c074-46d2-b619-275b85c649a3">&lt;strong&gt;</bpt>client.InitiateOutboundCall<ept id="8b6e6947-c074-46d2-b619-275b85c649a3">&lt;/strong&gt;</ept> as shown in the following code sample:</target>
+        </trans-unit>
+        <trans-unit id="79b3970e-96f2-4028-add2-b41d6e51f584" xml:space="preserve">
+          <source>For additional information about using Twilio on Azure with ASP.NET, see <bpt id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;linkText&gt;</bpt>How to make a phone call using Twilio in a web role on Azure[howto_phonecall_dotnet]<ept id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;/linkText&gt;</ept><bpt id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;title&gt;</bpt><ept id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about using Twilio on Azure with ASP.NET, see <bpt id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;linkText&gt;</bpt>How to make a phone call using Twilio in a web role on Azure[howto_phonecall_dotnet]<ept id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;/linkText&gt;</ept><bpt id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;title&gt;</bpt><ept id="3a77548b-300b-49ca-8533-cdcd56f59b61">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15a00ab3-ced3-4d44-b213-a16222b0d8ef" xml:space="preserve">
+          <source><bpt id="af161144-e9c9-4d3b-8bef-47007cf66875">&lt;token href="../includes/twilio_additional_services_and_next_steps.md"&gt;</bpt><ept id="af161144-e9c9-4d3b-8bef-47007cf66875">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="af161144-e9c9-4d3b-8bef-47007cf66875">&lt;token href="../includes/twilio_additional_services_and_next_steps.md"&gt;</bpt><ept id="af161144-e9c9-4d3b-8bef-47007cf66875">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2065d6bc-adde-47b7-ae08-32a473589041" xml:space="preserve">
+          <source>partner-twilio-cloud-services-dotnet-phone-call-web-role.md</source>
+          <target state="new">partner-twilio-cloud-services-dotnet-phone-call-web-role.md</target>
+        </trans-unit>
+        <trans-unit id="089d1fd4-0d5d-40b3-b066-908d7ce5ad55" xml:space="preserve">
+          <source>http://twimlets.com/message</source>
+          <target state="new">http://twimlets.com/message</target>
+        </trans-unit>
+        <trans-unit id="ad0c17e6-8da1-4aa9-a297-476c95be82e1" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/rest/making-calls</source>
+          <target state="new">http://www.twilio.com/docs/api/rest/making-calls</target>
+        </trans-unit>
+        <trans-unit id="8d558876-d5e4-4beb-85b0-28c5483107b6" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/ee405487.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/ee405487.aspx</target>
+        </trans-unit>
+        <trans-unit id="39b539be-b578-4920-90c8-3f20d9959a92" xml:space="preserve">
+          <source>http://nuget.org/</source>
+          <target state="new">http://nuget.org/</target>
+        </trans-unit>
+        <trans-unit id="9d0aa17d-8cf9-4f78-a6f4-39456a1cff96" xml:space="preserve">
+          <source>https://github.com/twilio/twilio-csharp</source>
+          <target state="new">https://github.com/twilio/twilio-csharp</target>
+        </trans-unit>
+        <trans-unit id="f222762b-b1b3-4938-8a3f-c781e7f74cf7" xml:space="preserve">
+          <source>https://www.twilio.com/docs/libraries</source>
+          <target state="new">https://www.twilio.com/docs/libraries</target>
+        </trans-unit>
+        <trans-unit id="089a1342-6ea5-4f72-a790-ff27f8f2f118" xml:space="preserve">
+          <source>http://www.twilio.com/docs/api/twiml</source>
+          <target state="new">http://www.twilio.com/docs/api/twiml</target>
+        </trans-unit>
+        <trans-unit id="f3da68cc-92d8-435d-b0c1-cdc7e74d06a0" xml:space="preserve">
+          <source>http://www.twilio.com/api</source>
+          <target state="new">http://www.twilio.com/api</target>
+        </trans-unit>
+        <trans-unit id="3850955c-b028-4123-aec5-3a27a419d04c" xml:space="preserve">
+          <source>https://www.twilio.com/try-twilio</source>
+          <target state="new">https://www.twilio.com/try-twilio</target>
+        </trans-unit>
+        <trans-unit id="c82ebae0-b5f8-4e92-85e9-ae4ddb98f7b9" xml:space="preserve">
+          <source>https://www.twilio.com/user/account</source>
+          <target state="new">https://www.twilio.com/user/account</target>
+        </trans-unit>
+        <trans-unit id="12401fa5-b267-4073-bc66-49b31ef494f3" xml:space="preserve">
+          <source>https://www.twilio.com/user/account/phone-numbers/verified#</source>
+          <target state="new">https://www.twilio.com/user/account/phone-numbers/verified#</target>
+        </trans-unit>
+      </group>
+      <group id="ae26ad85-0d66-4ea2-a2ec-35bca81cc4f8" />
+    </body>
+  </file>
+</xliff>

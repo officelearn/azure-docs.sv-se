@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1555db2f-7360-4785-b476-d54ebf9961a6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1555db2f-7360-4785-b476-d54ebf9961a6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="61133888-416e-49aa-a518-0f1b72730b26">
+        <trans-unit id="26a39521-3f3e-47fa-9239-0d9d825851fb" xml:space="preserve">
+          <source>Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication</source>
+          <target state="new">Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication</target>
+        </trans-unit>
+        <trans-unit id="a0e8ebdd-049a-4653-8633-5db1a04628f5" xml:space="preserve">
+          <source>Learn how to create an ASP.NET MVC line-of-business application in Azure App Service that authenticates with Azure Active Directory</source>
+          <target state="new">Learn how to create an ASP.NET MVC line-of-business application in Azure App Service that authenticates with Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="e91c886e-a3a8-4f24-b6d5-f10ff6ca42ad" xml:space="preserve">
+          <source>In this article, you will learn how to create an ASP.NET MVC line-of-business application in <bpt id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;/linkText&gt;</ept><bpt id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;title&gt;</bpt><ept id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;/title&gt;</ept> using <bpt id="49a60210-b986-486d-8d48-968619add698">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="49a60210-b986-486d-8d48-968619add698">&lt;/linkText&gt;</ept><bpt id="49a60210-b986-486d-8d48-968619add698">&lt;title&gt;</bpt><ept id="49a60210-b986-486d-8d48-968619add698">&lt;/title&gt;</ept> as the identity provider.</source>
+          <target state="new">In this article, you will learn how to create an ASP.NET MVC line-of-business application in <bpt id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;linkText&gt;</bpt>Azure App Service Web Apps<ept id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;/linkText&gt;</ept><bpt id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;title&gt;</bpt><ept id="9c20b40c-1671-4a9e-a7da-7087556d0b15">&lt;/title&gt;</ept> using <bpt id="49a60210-b986-486d-8d48-968619add698">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="49a60210-b986-486d-8d48-968619add698">&lt;/linkText&gt;</ept><bpt id="49a60210-b986-486d-8d48-968619add698">&lt;title&gt;</bpt><ept id="49a60210-b986-486d-8d48-968619add698">&lt;/title&gt;</ept> as the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="bea8e92a-27c8-4944-9a9f-6f7097034449" xml:space="preserve">
+          <source>You will also learn how to use the <bpt id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;linkText&gt;</bpt>Azure Active Directory Graph Client Library<ept id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;/linkText&gt;</ept><bpt id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;title&gt;</bpt><ept id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;/title&gt;</ept> to query directory data in the application.</source>
+          <target state="new">You will also learn how to use the <bpt id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;linkText&gt;</bpt>Azure Active Directory Graph Client Library<ept id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;/linkText&gt;</ept><bpt id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;title&gt;</bpt><ept id="6f827bbd-de59-44fa-b0fe-8227d51b7f34">&lt;/title&gt;</ept> to query directory data in the application.</target>
+        </trans-unit>
+        <trans-unit id="493c9aed-c804-45c4-b8b0-405f2cce7d85" xml:space="preserve">
+          <source>The Azure Active Directory tenant that you use can be an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.</source>
+          <target state="new">The Azure Active Directory tenant that you use can be an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.</target>
+        </trans-unit>
+        <trans-unit id="e6246b40-0f52-40d8-82a3-df2dc2f3a7ba" xml:space="preserve">
+          <source>For Azure App Service Web Apps you can configure authentication against an Azure Active Directory tenant with a few clicks of a button.</source>
+          <target state="new">For Azure App Service Web Apps you can configure authentication against an Azure Active Directory tenant with a few clicks of a button.</target>
+        </trans-unit>
+        <trans-unit id="e9f333df-6b46-4784-9201-c4b9b19de9cf" xml:space="preserve">
+          <source>For more information, see <bpt id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;linkText&gt;</bpt>Use Active Directory for authentication in Azure App Service<ept id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;/linkText&gt;</ept><bpt id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;title&gt;</bpt><ept id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;linkText&gt;</bpt>Use Active Directory for authentication in Azure App Service<ept id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;/linkText&gt;</ept><bpt id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;title&gt;</bpt><ept id="1a16f90b-6c17-4241-867d-21969fbb6026">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69952261-f8bd-4f8f-b7fd-b1b28ffbe1fe" xml:space="preserve">
+          <source><bpt id="e47786cb-52ca-4fb4-97c9-094cc3eec554">&lt;bookmark&gt;</bpt><ept id="e47786cb-52ca-4fb4-97c9-094cc3eec554">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e47786cb-52ca-4fb4-97c9-094cc3eec554">&lt;bookmark&gt;</bpt><ept id="e47786cb-52ca-4fb4-97c9-094cc3eec554">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a26dfafc-8f44-460d-8d86-7d7e05b2826b" xml:space="preserve">
+          <source>You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks work items with the following features:</source>
+          <target state="new">You will build a simple line-of-business Create-Read-Update-Delete (CRUD) application in App Service Web Apps that tracks work items with the following features:</target>
+        </trans-unit>
+        <trans-unit id="c6546483-835e-4895-9b3b-7114d245ccd1" xml:space="preserve">
+          <source>Authenticates users against Azure Active Directory</source>
+          <target state="new">Authenticates users against Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="c84b8361-ac43-4a0e-8f2a-bb1b8f3a67f5" xml:space="preserve">
+          <source>Implements sign-in and sign-out functionality</source>
+          <target state="new">Implements sign-in and sign-out functionality</target>
+        </trans-unit>
+        <trans-unit id="766dcb3e-8d40-4e97-805f-66ddbb618d91" xml:space="preserve">
+          <source>Uses <bpt id="cbd98364-5443-46e7-b351-7b90c15eed6d">&lt;code&gt;</bpt>[Authorize]<ept id="cbd98364-5443-46e7-b351-7b90c15eed6d">&lt;/code&gt;</ept> to authorize users for different CRUD actions</source>
+          <target state="new">Uses <bpt id="cbd98364-5443-46e7-b351-7b90c15eed6d">&lt;code&gt;</bpt>[Authorize]<ept id="cbd98364-5443-46e7-b351-7b90c15eed6d">&lt;/code&gt;</ept> to authorize users for different CRUD actions</target>
+        </trans-unit>
+        <trans-unit id="52c5a519-85a7-4058-90dc-fa5c159ef8b7" xml:space="preserve">
+          <source>Queries Azure Active Directory data using <bpt id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;linkText&gt;</bpt>Azure Active Directory Graph API<ept id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;/linkText&gt;</ept><bpt id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;title&gt;</bpt><ept id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;/title&gt;</ept></source>
+          <target state="new">Queries Azure Active Directory data using <bpt id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;linkText&gt;</bpt>Azure Active Directory Graph API<ept id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;/linkText&gt;</ept><bpt id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;title&gt;</bpt><ept id="18cffa2c-342c-45bf-83c5-a6d481c14d4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afc29947-c63d-4131-887d-5c17783933ec" xml:space="preserve">
+          <source>Uses <bpt id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;linkText&gt;</bpt>Microsoft.Owin<ept id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;/linkText&gt;</ept><bpt id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;title&gt;</bpt><ept id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;/title&gt;</ept> (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF</source>
+          <target state="new">Uses <bpt id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;linkText&gt;</bpt>Microsoft.Owin<ept id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;/linkText&gt;</ept><bpt id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;title&gt;</bpt><ept id="d2432373-83dc-4006-a2d5-3437b4bbe635">&lt;/title&gt;</ept> (instead of Windows Identity Foundation, i.e. WIF), which is the future of ASP.NET and much simpler to set up for authentication and authorization than WIF</target>
+        </trans-unit>
+        <trans-unit id="477110d3-359d-44a0-9682-26cebf9e53a9" xml:space="preserve">
+          <source><bpt id="345380b3-1276-4327-b919-9806efb6b649">&lt;bookmark&gt;</bpt><ept id="345380b3-1276-4327-b919-9806efb6b649">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="345380b3-1276-4327-b919-9806efb6b649">&lt;bookmark&gt;</bpt><ept id="345380b3-1276-4327-b919-9806efb6b649">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba85007d-13e4-4b6f-90e6-93dbce80f079" xml:space="preserve">
+          <source><bpt id="b7ef004b-ab13-4f30-824e-4518890c16c8">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="b7ef004b-ab13-4f30-824e-4518890c16c8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b7ef004b-ab13-4f30-824e-4518890c16c8">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="b7ef004b-ab13-4f30-824e-4518890c16c8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ccf6c3f-7c36-4ae8-9637-163e9a83b608" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;linkText&gt;</bpt>Try App Service<ept id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;/linkText&gt;</ept><bpt id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;title&gt;</bpt><ept id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;linkText&gt;</bpt>Try App Service<ept id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;/linkText&gt;</ept><bpt id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;title&gt;</bpt><ept id="0d2a6f0b-93bf-43d5-be1c-34137dfb1771">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="a2ebb29a-c98b-42e1-a2c5-04d986d6b66e" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="0b99048c-0d77-425a-8d87-ef80af45119b" xml:space="preserve">
+          <source>You need the following to complete this tutorial:</source>
+          <target state="new">You need the following to complete this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="8b824e12-c291-4db8-8730-a2a3d515121d" xml:space="preserve">
+          <source>An Azure Active Directory tenant with users in various groups</source>
+          <target state="new">An Azure Active Directory tenant with users in various groups</target>
+        </trans-unit>
+        <trans-unit id="45f585e2-042d-4730-a5b3-0265621b6051" xml:space="preserve">
+          <source>Permissions to create applications on the Azure Active Directory tenant</source>
+          <target state="new">Permissions to create applications on the Azure Active Directory tenant</target>
+        </trans-unit>
+        <trans-unit id="0ccaca75-f7ec-4f1d-b484-135c32675c1a" xml:space="preserve">
+          <source>Visual Studio 2013</source>
+          <target state="new">Visual Studio 2013</target>
+        </trans-unit>
+        <trans-unit id="26984a6d-2ea1-43ed-93b5-b459c727b3ee" xml:space="preserve">
+          <source><bpt id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;linkText&gt;</bpt>Azure SDK 2.5.1<ept id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;/linkText&gt;</ept><bpt id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;title&gt;</bpt><ept id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;/title&gt;</ept> or later</source>
+          <target state="new"><bpt id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;linkText&gt;</bpt>Azure SDK 2.5.1<ept id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;/linkText&gt;</ept><bpt id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;title&gt;</bpt><ept id="4295bc76-5518-4772-afa9-2b586ed44c14">&lt;/title&gt;</ept> or later</target>
+        </trans-unit>
+        <trans-unit id="703c0d0b-921e-4106-835b-fb94bc01f1d0" xml:space="preserve">
+          <source><bpt id="06a1f872-a7aa-45b9-bc48-53376e3b499b">&lt;bookmark&gt;</bpt><ept id="06a1f872-a7aa-45b9-bc48-53376e3b499b">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="06a1f872-a7aa-45b9-bc48-53376e3b499b">&lt;bookmark&gt;</bpt><ept id="06a1f872-a7aa-45b9-bc48-53376e3b499b">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cd7aef7-0579-4996-8afe-6782f4ef9767" xml:space="preserve">
+          <source>The sample application in this tutorial, <bpt id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;linkText&gt;</bpt>WebApp-GroupClaims-DotNet<ept id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;/linkText&gt;</ept><bpt id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;title&gt;</bpt><ept id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;/title&gt;</ept>, is created by the Azure Active Directory team and can be used as a template to create new line-of-business applications with ease.</source>
+          <target state="new">The sample application in this tutorial, <bpt id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;linkText&gt;</bpt>WebApp-GroupClaims-DotNet<ept id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;/linkText&gt;</ept><bpt id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;title&gt;</bpt><ept id="ab2265b8-67e8-40c9-b9bf-66214fcba3c8">&lt;/title&gt;</ept>, is created by the Azure Active Directory team and can be used as a template to create new line-of-business applications with ease.</target>
+        </trans-unit>
+        <trans-unit id="7d08a3ff-e07f-4e98-b4bd-d152d293b5b9" xml:space="preserve">
+          <source>It has the following built-in features:</source>
+          <target state="new">It has the following built-in features:</target>
+        </trans-unit>
+        <trans-unit id="921d0896-199d-439f-9bc7-697c6fe3dc20" xml:space="preserve">
+          <source>Uses <bpt id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;linkText&gt;</bpt>OpenID Connect<ept id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;/linkText&gt;</ept><bpt id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;title&gt;</bpt><ept id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;/title&gt;</ept> to authenticate with Azure Active Directory</source>
+          <target state="new">Uses <bpt id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;linkText&gt;</bpt>OpenID Connect<ept id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;/linkText&gt;</ept><bpt id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;title&gt;</bpt><ept id="30e2b1bd-6c2d-44ef-a9c3-a8c6a7f3ed51">&lt;/title&gt;</ept> to authenticate with Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="5f6ef4a5-3fec-4c1f-b392-605672955f91" xml:space="preserve">
+          <source><bpt id="b61c6609-87e9-4c77-b44a-bbfdd225d76e">&lt;code&gt;</bpt>Roles<ept id="b61c6609-87e9-4c77-b44a-bbfdd225d76e">&lt;/code&gt;</ept> controller that contains an Azure Active Directory search filter and enables you to easily map Azure Active Directory users or groups to application roles.</source>
+          <target state="new"><bpt id="b61c6609-87e9-4c77-b44a-bbfdd225d76e">&lt;code&gt;</bpt>Roles<ept id="b61c6609-87e9-4c77-b44a-bbfdd225d76e">&lt;/code&gt;</ept> controller that contains an Azure Active Directory search filter and enables you to easily map Azure Active Directory users or groups to application roles.</target>
+        </trans-unit>
+        <trans-unit id="c4c9d165-c402-45fe-82b1-b5c286b41240" xml:space="preserve">
+          <source>Sample <bpt id="1baff10c-8085-47c2-9b23-ec0c375014a5">&lt;code&gt;</bpt>TaskTracker<ept id="1baff10c-8085-47c2-9b23-ec0c375014a5">&lt;/code&gt;</ept> controller that demonstrates how you can authorize different roles for specific actions in the application, including the standard usage of <bpt id="aa0f808a-d5b3-484b-9e17-f31a7104aede">&lt;code&gt;</bpt>[Authorize]<ept id="aa0f808a-d5b3-484b-9e17-f31a7104aede">&lt;/code&gt;</ept>.</source>
+          <target state="new">Sample <bpt id="1baff10c-8085-47c2-9b23-ec0c375014a5">&lt;code&gt;</bpt>TaskTracker<ept id="1baff10c-8085-47c2-9b23-ec0c375014a5">&lt;/code&gt;</ept> controller that demonstrates how you can authorize different roles for specific actions in the application, including the standard usage of <bpt id="aa0f808a-d5b3-484b-9e17-f31a7104aede">&lt;code&gt;</bpt>[Authorize]<ept id="aa0f808a-d5b3-484b-9e17-f31a7104aede">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9da82075-acf6-46a6-9005-b61285d175f1" xml:space="preserve">
+          <source><bpt id="3e7d7042-a4e7-44c2-bf19-68f754c8fad1">&lt;linkText&gt;</bpt><ept id="3e7d7042-a4e7-44c2-bf19-68f754c8fad1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e7d7042-a4e7-44c2-bf19-68f754c8fad1">&lt;linkText&gt;</bpt><ept id="3e7d7042-a4e7-44c2-bf19-68f754c8fad1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="986f80eb-a977-49f0-a4c0-c7d680151ca1" xml:space="preserve">
+          <source><bpt id="95abef33-6cc7-4ef2-aa08-56de039ba455">&lt;bookmark&gt;</bpt><ept id="95abef33-6cc7-4ef2-aa08-56de039ba455">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="95abef33-6cc7-4ef2-aa08-56de039ba455">&lt;bookmark&gt;</bpt><ept id="95abef33-6cc7-4ef2-aa08-56de039ba455">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b699eb2b-2d73-4dbf-81de-c884b5dd8050" xml:space="preserve">
+          <source>Clone or download the sample solution at <bpt id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;linkText&gt;</bpt>WebApp-GroupClaims-DotNet<ept id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;/linkText&gt;</ept><bpt id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;title&gt;</bpt><ept id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;/title&gt;</ept> to your local directory.</source>
+          <target state="new">Clone or download the sample solution at <bpt id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;linkText&gt;</bpt>WebApp-GroupClaims-DotNet<ept id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;/linkText&gt;</ept><bpt id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;title&gt;</bpt><ept id="e069033a-2dac-4dcc-aba5-dac2756dd584">&lt;/title&gt;</ept> to your local directory.</target>
+        </trans-unit>
+        <trans-unit id="14a43278-de2f-4727-82ef-8c2169a59b0e" xml:space="preserve">
+          <source>Follow the instructions at <bpt id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;linkText&gt;</bpt>README.md<ept id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;/linkText&gt;</ept><bpt id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;title&gt;</bpt><ept id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;/title&gt;</ept> to set up the Azure Active Directory application and project.</source>
+          <target state="new">Follow the instructions at <bpt id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;linkText&gt;</bpt>README.md<ept id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;/linkText&gt;</ept><bpt id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;title&gt;</bpt><ept id="e66c8ea8-a6f8-43e3-a4a9-8b90e2231bf1">&lt;/title&gt;</ept> to set up the Azure Active Directory application and project.</target>
+        </trans-unit>
+        <trans-unit id="a8232d9e-3243-46c9-acff-97a859f1da74" xml:space="preserve">
+          <source>The permissions configured in the Azure Active Directory application requires the &lt;strong&gt;User&lt;/strong&gt; role; not <bpt id="2300b73c-ba00-4c70-8411-3f4a574c2440">&lt;strong&gt;</bpt>Global Administrator<ept id="2300b73c-ba00-4c70-8411-3f4a574c2440">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The permissions configured in the Azure Active Directory application requires the &lt;strong&gt;User&lt;/strong&gt; role; not <bpt id="2300b73c-ba00-4c70-8411-3f4a574c2440">&lt;strong&gt;</bpt>Global Administrator<ept id="2300b73c-ba00-4c70-8411-3f4a574c2440">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa1062c8-4cdc-412f-aa86-0c4692ddda43" xml:space="preserve">
+          <source>Once you're finished configuring the application, type <bpt id="bc62a2b5-61f5-4938-a556-f1d83d7dccff">&lt;code&gt;</bpt>F5<ept id="bc62a2b5-61f5-4938-a556-f1d83d7dccff">&lt;/code&gt;</ept> to run the application.</source>
+          <target state="new">Once you're finished configuring the application, type <bpt id="bc62a2b5-61f5-4938-a556-f1d83d7dccff">&lt;code&gt;</bpt>F5<ept id="bc62a2b5-61f5-4938-a556-f1d83d7dccff">&lt;/code&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="1dfea240-7cd0-4da7-bca6-5156b09acc1e" xml:space="preserve">
+          <source>Once the application loads, click <bpt id="0a8decac-5fb3-4b45-aff1-1f991ebc10a8">&lt;strong&gt;</bpt>Sign In<ept id="0a8decac-5fb3-4b45-aff1-1f991ebc10a8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the application loads, click <bpt id="0a8decac-5fb3-4b45-aff1-1f991ebc10a8">&lt;strong&gt;</bpt>Sign In<ept id="0a8decac-5fb3-4b45-aff1-1f991ebc10a8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99950f95-51ad-4bdf-bece-f9d1171266a3" xml:space="preserve">
+          <source>If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in.</source>
+          <target state="new">If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in.</target>
+        </trans-unit>
+        <trans-unit id="6639bec6-dab2-472a-aee6-63c98fdda750" xml:space="preserve">
+          <source>Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner.</source>
+          <target state="new">Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner.</target>
+        </trans-unit>
+        <trans-unit id="a4571b33-cde8-4da1-a567-72c06ac9b5d5" xml:space="preserve">
+          <source>In Startup.Auth.cs of the sample project, note that the application has a method called &lt;code&gt;AddOwnerAdminClaim&lt;/code&gt;, which it uses to add the application owner into the Admin role.</source>
+          <target state="new">In Startup.Auth.cs of the sample project, note that the application has a method called &lt;code&gt;AddOwnerAdminClaim&lt;/code&gt;, which it uses to add the application owner into the Admin role.</target>
+        </trans-unit>
+        <trans-unit id="bd90c429-9af3-476c-8778-266fad5565b8" xml:space="preserve">
+          <source>This enables you to immediately start managing application roles in the &lt;code&gt;Roles&lt;/code&gt; controller.</source>
+          <target state="new">This enables you to immediately start managing application roles in the &lt;code&gt;Roles&lt;/code&gt; controller.</target>
+        </trans-unit>
+        <trans-unit id="92705eba-7021-4441-8f25-34fda789b750" xml:space="preserve">
+          <source>Once signed in, click <bpt id="cdd06401-59ab-480f-af00-f336cc5f6dd1">&lt;strong&gt;</bpt>Roles<ept id="cdd06401-59ab-480f-af00-f336cc5f6dd1">&lt;/strong&gt;</ept> to manage application roles.</source>
+          <target state="new">Once signed in, click <bpt id="cdd06401-59ab-480f-af00-f336cc5f6dd1">&lt;strong&gt;</bpt>Roles<ept id="cdd06401-59ab-480f-af00-f336cc5f6dd1">&lt;/strong&gt;</ept> to manage application roles.</target>
+        </trans-unit>
+        <trans-unit id="0e1e1922-139c-41c0-ae8b-1a48c8f6046b" xml:space="preserve">
+          <source>In <bpt id="14b0f613-dec0-44f9-bd39-2dfcaf3245d2">&lt;strong&gt;</bpt>Search for Users/Groups<ept id="14b0f613-dec0-44f9-bd39-2dfcaf3245d2">&lt;/strong&gt;</ept>, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your Azure Active Directory tenant.</source>
+          <target state="new">In <bpt id="14b0f613-dec0-44f9-bd39-2dfcaf3245d2">&lt;strong&gt;</bpt>Search for Users/Groups<ept id="14b0f613-dec0-44f9-bd39-2dfcaf3245d2">&lt;/strong&gt;</ept>, start typing the desired user name or group name and notice that a dropdown list shows a filtered list of users and/or groups from your Azure Active Directory tenant.</target>
+        </trans-unit>
+        <trans-unit id="8c5eaff9-bac1-45fc-9a86-53d63eece201" xml:space="preserve">
+          <source><bpt id="8dfd6ade-09d6-4455-97a3-5efbb9c8e56b">&lt;linkText&gt;</bpt><ept id="8dfd6ade-09d6-4455-97a3-5efbb9c8e56b">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="8dfd6ade-09d6-4455-97a3-5efbb9c8e56b">&lt;linkText&gt;</bpt><ept id="8dfd6ade-09d6-4455-97a3-5efbb9c8e56b">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="19f95679-cafa-4430-ac8c-3e9b1c16e663" xml:space="preserve">
+          <source>In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called &lt;code&gt;AadPicker&lt;/code&gt; (defined in Scripts\AadPickerLibrary.js) to access the &lt;code&gt;Search&lt;/code&gt; action in the &lt;code&gt;Roles&lt;/code&gt; controller.</source>
+          <target state="new">In Views\Roles\Index.cshtml, you will see that the view uses a JavaScript object called &lt;code&gt;AadPicker&lt;/code&gt; (defined in Scripts\AadPickerLibrary.js) to access the &lt;code&gt;Search&lt;/code&gt; action in the &lt;code&gt;Roles&lt;/code&gt; controller.</target>
+        </trans-unit>
+        <trans-unit id="0f06a6aa-e274-46cd-9b7c-acb72e4dc679" xml:space="preserve">
+          <source>&lt;pre class="prettyprint"&gt;var searchUrl = window.location.protocol + "//" + window.location.host + "&lt;mark&gt;/Roles/Search&lt;/mark&gt;";
+...
+var picker = new &lt;mark&gt;AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)&lt;/mark&gt;;&lt;/pre&gt;
+    In Controllers\RolesController.cs, you will see the &lt;code&gt;Search&lt;/code&gt; action, which sends the actual request to the Azure Active Directory Graph API and returns the response back to the page.</source>
+          <target state="new">&lt;pre class="prettyprint"&gt;var searchUrl = window.location.protocol + "//" + window.location.host + "&lt;mark&gt;/Roles/Search&lt;/mark&gt;";
+...
+var picker = new &lt;mark&gt;AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)&lt;/mark&gt;;&lt;/pre&gt;
+    In Controllers\RolesController.cs, you will see the &lt;code&gt;Search&lt;/code&gt; action, which sends the actual request to the Azure Active Directory Graph API and returns the response back to the page.</target>
+        </trans-unit>
+        <trans-unit id="1a01df34-12bc-4b3c-b22f-cb7b062907ad" xml:space="preserve">
+          <source>Later, you will use the same method to create simple functionality in your application.</source>
+          <target state="new">Later, you will use the same method to create simple functionality in your application.</target>
+        </trans-unit>
+        <trans-unit id="73457f93-682f-4256-b892-431da48c7eea" xml:space="preserve">
+          <source>Select a user or group from the dropdown, select a role, and click <bpt id="0acd1dae-cf34-41f0-a2d9-00c3a2fd4a33">&lt;strong&gt;</bpt>Assign Role<ept id="0acd1dae-cf34-41f0-a2d9-00c3a2fd4a33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a user or group from the dropdown, select a role, and click <bpt id="0acd1dae-cf34-41f0-a2d9-00c3a2fd4a33">&lt;strong&gt;</bpt>Assign Role<ept id="0acd1dae-cf34-41f0-a2d9-00c3a2fd4a33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b97f365f-2438-4a90-8f86-9df4c4e3b695" xml:space="preserve">
+          <source><bpt id="abfefc31-44d7-4ef2-b449-55b890322e47">&lt;bookmark&gt;</bpt><ept id="abfefc31-44d7-4ef2-b449-55b890322e47">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="abfefc31-44d7-4ef2-b449-55b890322e47">&lt;bookmark&gt;</bpt><ept id="abfefc31-44d7-4ef2-b449-55b890322e47">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ba2faec-bcd5-4fd3-88ce-2ab51391d400" xml:space="preserve">
+          <source>Here, you will publish the application to a web app in Azure App Service.</source>
+          <target state="new">Here, you will publish the application to a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="5002e8ff-919b-415e-848b-7cc204c27927" xml:space="preserve">
+          <source>There are already instructions at <bpt id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;linkText&gt;</bpt>README.md<ept id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;/linkText&gt;</ept><bpt id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;title&gt;</bpt><ept id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;/title&gt;</ept> for deploying to App Service Web Apps, but those steps also annul the configuration for your local debug environment.</source>
+          <target state="new">There are already instructions at <bpt id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;linkText&gt;</bpt>README.md<ept id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;/linkText&gt;</ept><bpt id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;title&gt;</bpt><ept id="3a95b324-b1ba-4f67-9d29-b1671e25119f">&lt;/title&gt;</ept> for deploying to App Service Web Apps, but those steps also annul the configuration for your local debug environment.</target>
+        </trans-unit>
+        <trans-unit id="e43edd38-d4fe-4d00-b93a-b02ff5a3bff4" xml:space="preserve">
+          <source>I'll show you how to deploy while preserving the debug configuration.</source>
+          <target state="new">I'll show you how to deploy while preserving the debug configuration.</target>
+        </trans-unit>
+        <trans-unit id="e07d0a2c-8109-4ff8-9c53-7be37af31838" xml:space="preserve">
+          <source>Right-click your project and select <bpt id="50408652-97b1-4698-88b2-aa3f4d6db88e">&lt;strong&gt;</bpt>Publish<ept id="50408652-97b1-4698-88b2-aa3f4d6db88e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your project and select <bpt id="50408652-97b1-4698-88b2-aa3f4d6db88e">&lt;strong&gt;</bpt>Publish<ept id="50408652-97b1-4698-88b2-aa3f4d6db88e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9caca1f3-8498-412f-b52c-6dd9c749363e" xml:space="preserve">
+          <source><bpt id="855898db-5e8f-4260-a94f-47e4cbd25166">&lt;linkText&gt;</bpt><ept id="855898db-5e8f-4260-a94f-47e4cbd25166">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="855898db-5e8f-4260-a94f-47e4cbd25166">&lt;linkText&gt;</bpt><ept id="855898db-5e8f-4260-a94f-47e4cbd25166">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12f9558b-1a9c-41e2-96f6-a4e8c979b30f" xml:space="preserve">
+          <source>Select <bpt id="caa701da-6900-45e7-b096-8370eda0effa">&lt;strong&gt;</bpt>Microsoft Azure Web Apps<ept id="caa701da-6900-45e7-b096-8370eda0effa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="caa701da-6900-45e7-b096-8370eda0effa">&lt;strong&gt;</bpt>Microsoft Azure Web Apps<ept id="caa701da-6900-45e7-b096-8370eda0effa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a48d55b-408f-4887-8c03-14a47749c987" xml:space="preserve">
+          <source>If you haven't signed in to Azure, click <bpt id="f49c44d5-d642-454c-a50a-22e6232038a1">&lt;strong&gt;</bpt>Sign In<ept id="f49c44d5-d642-454c-a50a-22e6232038a1">&lt;/strong&gt;</ept> and use the Microsoft account for your Azure subscription to sign in.</source>
+          <target state="new">If you haven't signed in to Azure, click <bpt id="f49c44d5-d642-454c-a50a-22e6232038a1">&lt;strong&gt;</bpt>Sign In<ept id="f49c44d5-d642-454c-a50a-22e6232038a1">&lt;/strong&gt;</ept> and use the Microsoft account for your Azure subscription to sign in.</target>
+        </trans-unit>
+        <trans-unit id="835624ff-d859-4586-a104-1077f01616f4" xml:space="preserve">
+          <source>Once signed in, click <bpt id="bc32b4a2-84f9-4e7f-be43-5b69a19313bf">&lt;strong&gt;</bpt>New<ept id="bc32b4a2-84f9-4e7f-be43-5b69a19313bf">&lt;/strong&gt;</ept> to create a new web app in Azure.</source>
+          <target state="new">Once signed in, click <bpt id="bc32b4a2-84f9-4e7f-be43-5b69a19313bf">&lt;strong&gt;</bpt>New<ept id="bc32b4a2-84f9-4e7f-be43-5b69a19313bf">&lt;/strong&gt;</ept> to create a new web app in Azure.</target>
+        </trans-unit>
+        <trans-unit id="59d1586b-9c0b-4a40-979b-a5abaed8943d" xml:space="preserve">
+          <source>Fill in all required fields.</source>
+          <target state="new">Fill in all required fields.</target>
+        </trans-unit>
+        <trans-unit id="dfb76ef3-fc36-4ddd-9e6f-c45700f250fd" xml:space="preserve">
+          <source>You will need a database connection for this application to store role mappings, cached tokens, and any application data.</source>
+          <target state="new">You will need a database connection for this application to store role mappings, cached tokens, and any application data.</target>
+        </trans-unit>
+        <trans-unit id="12d8d1f8-aa21-40a1-a7a5-243849f4bb7c" xml:space="preserve">
+          <source><bpt id="cb164e46-90a2-46b4-ad44-5a9d8d6b13f0">&lt;linkText&gt;</bpt><ept id="cb164e46-90a2-46b4-ad44-5a9d8d6b13f0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb164e46-90a2-46b4-ad44-5a9d8d6b13f0">&lt;linkText&gt;</bpt><ept id="cb164e46-90a2-46b4-ad44-5a9d8d6b13f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89468bdb-ca3d-4021-be5e-d38f633146f5" xml:space="preserve">
+          <source>Click <bpt id="e714ebd3-463b-4868-8471-f3f2a8800d29">&lt;strong&gt;</bpt>Create<ept id="e714ebd3-463b-4868-8471-f3f2a8800d29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e714ebd3-463b-4868-8471-f3f2a8800d29">&lt;strong&gt;</bpt>Create<ept id="e714ebd3-463b-4868-8471-f3f2a8800d29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d40d4676-d2af-46ce-95fb-7f65961bca05" xml:space="preserve">
+          <source>Once the web app is created, the <bpt id="b0292c3c-ca40-49bd-8f19-ece02a4ff17d">&lt;strong&gt;</bpt>Publish Web<ept id="b0292c3c-ca40-49bd-8f19-ece02a4ff17d">&lt;/strong&gt;</ept> dialog is opened.</source>
+          <target state="new">Once the web app is created, the <bpt id="b0292c3c-ca40-49bd-8f19-ece02a4ff17d">&lt;strong&gt;</bpt>Publish Web<ept id="b0292c3c-ca40-49bd-8f19-ece02a4ff17d">&lt;/strong&gt;</ept> dialog is opened.</target>
+        </trans-unit>
+        <trans-unit id="25fe3824-5fdb-45d5-a7f2-9d06b64406b1" xml:space="preserve">
+          <source>In <bpt id="6bd425cf-0d5a-41b8-9f35-657074363414">&lt;strong&gt;</bpt>Destination URL<ept id="6bd425cf-0d5a-41b8-9f35-657074363414">&lt;/strong&gt;</ept>, change <bpt id="b573f0e8-ebf3-49d4-9b4b-b5a706aa891e">&lt;strong&gt;</bpt>http<ept id="b573f0e8-ebf3-49d4-9b4b-b5a706aa891e">&lt;/strong&gt;</ept> to <bpt id="86f62bc2-c3b1-443e-8cf0-307332a01ced">&lt;strong&gt;</bpt>https<ept id="86f62bc2-c3b1-443e-8cf0-307332a01ced">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="6bd425cf-0d5a-41b8-9f35-657074363414">&lt;strong&gt;</bpt>Destination URL<ept id="6bd425cf-0d5a-41b8-9f35-657074363414">&lt;/strong&gt;</ept>, change <bpt id="b573f0e8-ebf3-49d4-9b4b-b5a706aa891e">&lt;strong&gt;</bpt>http<ept id="b573f0e8-ebf3-49d4-9b4b-b5a706aa891e">&lt;/strong&gt;</ept> to <bpt id="86f62bc2-c3b1-443e-8cf0-307332a01ced">&lt;strong&gt;</bpt>https<ept id="86f62bc2-c3b1-443e-8cf0-307332a01ced">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19c968bc-a381-4a65-9fe4-27bff0aad94a" xml:space="preserve">
+          <source>Copy the entire URL to a text editor.</source>
+          <target state="new">Copy the entire URL to a text editor.</target>
+        </trans-unit>
+        <trans-unit id="cc080cf1-06d3-4cc5-9030-1413c2b7a3a8" xml:space="preserve">
+          <source>You will use it later.</source>
+          <target state="new">You will use it later.</target>
+        </trans-unit>
+        <trans-unit id="eade6658-4e61-4c8a-afa9-a946e28f6b21" xml:space="preserve">
+          <source>Then, click <bpt id="9940fa7d-a409-4d75-b5ba-6d270d92406f">&lt;strong&gt;</bpt>Next<ept id="9940fa7d-a409-4d75-b5ba-6d270d92406f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, click <bpt id="9940fa7d-a409-4d75-b5ba-6d270d92406f">&lt;strong&gt;</bpt>Next<ept id="9940fa7d-a409-4d75-b5ba-6d270d92406f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dacd4733-0248-41bb-8ca6-83b3f3827d30" xml:space="preserve">
+          <source><bpt id="264cc3ae-a584-4feb-a971-9c03e120a573">&lt;linkText&gt;</bpt><ept id="264cc3ae-a584-4feb-a971-9c03e120a573">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="264cc3ae-a584-4feb-a971-9c03e120a573">&lt;linkText&gt;</bpt><ept id="264cc3ae-a584-4feb-a971-9c03e120a573">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f5e35f8-7985-4591-bf65-5ccc8fd920c8" xml:space="preserve">
+          <source>Clear the <bpt id="8d0191b9-5331-4723-a6e7-5e966f80499a">&lt;strong&gt;</bpt>Enable Organizational Authentication<ept id="8d0191b9-5331-4723-a6e7-5e966f80499a">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Clear the <bpt id="8d0191b9-5331-4723-a6e7-5e966f80499a">&lt;strong&gt;</bpt>Enable Organizational Authentication<ept id="8d0191b9-5331-4723-a6e7-5e966f80499a">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="2b9b65a1-dbc6-4107-ac41-717e9728845b" xml:space="preserve">
+          <source><bpt id="95425c58-c6f1-4a8e-b1eb-1b1ab588ecae">&lt;linkText&gt;</bpt><ept id="95425c58-c6f1-4a8e-b1eb-1b1ab588ecae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95425c58-c6f1-4a8e-b1eb-1b1ab588ecae">&lt;linkText&gt;</bpt><ept id="95425c58-c6f1-4a8e-b1eb-1b1ab588ecae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0241849-9c02-4068-badd-d1bb714b4c8f" xml:space="preserve">
+          <source>Instead of clicking <bpt id="1e1fa6e3-8a32-4086-87e8-6b9ee127ab82">&lt;strong&gt;</bpt>Publish<ept id="1e1fa6e3-8a32-4086-87e8-6b9ee127ab82">&lt;/strong&gt;</ept> to go through with the web publish, click <bpt id="9b6e1f06-7ed8-449f-84c7-9f9d67a7a691">&lt;strong&gt;</bpt>Close<ept id="9b6e1f06-7ed8-449f-84c7-9f9d67a7a691">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Instead of clicking <bpt id="1e1fa6e3-8a32-4086-87e8-6b9ee127ab82">&lt;strong&gt;</bpt>Publish<ept id="1e1fa6e3-8a32-4086-87e8-6b9ee127ab82">&lt;/strong&gt;</ept> to go through with the web publish, click <bpt id="9b6e1f06-7ed8-449f-84c7-9f9d67a7a691">&lt;strong&gt;</bpt>Close<ept id="9b6e1f06-7ed8-449f-84c7-9f9d67a7a691">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3282fe2-8fe2-47d8-9398-ba85c5a81a62" xml:space="preserve">
+          <source>Click <bpt id="8ae5426f-0101-490a-a4e4-014c153715f9">&lt;strong&gt;</bpt>Yes<ept id="8ae5426f-0101-490a-a4e4-014c153715f9">&lt;/strong&gt;</ept> to save the changes to the publishing profile.</source>
+          <target state="new">Click <bpt id="8ae5426f-0101-490a-a4e4-014c153715f9">&lt;strong&gt;</bpt>Yes<ept id="8ae5426f-0101-490a-a4e4-014c153715f9">&lt;/strong&gt;</ept> to save the changes to the publishing profile.</target>
+        </trans-unit>
+        <trans-unit id="b6e971da-9373-4678-b1e4-ff86cf263089" xml:space="preserve">
+          <source>In the <bpt id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;linkText&gt;</bpt>Azure management portal<ept id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;/linkText&gt;</ept><bpt id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;title&gt;</bpt><ept id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;/title&gt;</ept>, go to your Azure Active Directory tenant and click the <bpt id="8a1f7d5e-74e0-43c1-bad0-289134b44224">&lt;strong&gt;</bpt>Applications<ept id="8a1f7d5e-74e0-43c1-bad0-289134b44224">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the <bpt id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;linkText&gt;</bpt>Azure management portal<ept id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;/linkText&gt;</ept><bpt id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;title&gt;</bpt><ept id="0410a47b-c28c-465c-b493-c935a0ed76cc">&lt;/title&gt;</ept>, go to your Azure Active Directory tenant and click the <bpt id="8a1f7d5e-74e0-43c1-bad0-289134b44224">&lt;strong&gt;</bpt>Applications<ept id="8a1f7d5e-74e0-43c1-bad0-289134b44224">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="51fbda23-bee2-4be9-bc2d-33ce3672ed56" xml:space="preserve">
+          <source>Click <bpt id="f2a10e59-c984-4b0a-992c-d2458e4cc8a8">&lt;strong&gt;</bpt>Add<ept id="f2a10e59-c984-4b0a-992c-d2458e4cc8a8">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="f2a10e59-c984-4b0a-992c-d2458e4cc8a8">&lt;strong&gt;</bpt>Add<ept id="f2a10e59-c984-4b0a-992c-d2458e4cc8a8">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="5ba4c396-2cea-4c99-8924-663ec720ed41" xml:space="preserve">
+          <source>Select <bpt id="d484755a-a450-46e0-a918-301e50acd8a3">&lt;strong&gt;</bpt>Web Application And/Or Web API<ept id="d484755a-a450-46e0-a918-301e50acd8a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="d484755a-a450-46e0-a918-301e50acd8a3">&lt;strong&gt;</bpt>Web Application And/Or Web API<ept id="d484755a-a450-46e0-a918-301e50acd8a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c6946f3-c4ec-49dc-b314-2237494085e7" xml:space="preserve">
+          <source>Give the application a name and click <bpt id="713cd08f-058b-4eb4-89c8-e752d25fbfec">&lt;strong&gt;</bpt>Next<ept id="713cd08f-058b-4eb4-89c8-e752d25fbfec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Give the application a name and click <bpt id="713cd08f-058b-4eb4-89c8-e752d25fbfec">&lt;strong&gt;</bpt>Next<ept id="713cd08f-058b-4eb4-89c8-e752d25fbfec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25c175b0-7bd6-4323-918d-ae4916ca74c0" xml:space="preserve">
+          <source>In App Properties, set <bpt id="6441c81f-f3a8-4ed0-97e2-b0a38f77a39e">&lt;strong&gt;</bpt>Sign-On URL<ept id="6441c81f-f3a8-4ed0-97e2-b0a38f77a39e">&lt;/strong&gt;</ept> to the web app URL that you saved earler (e.g. <bpt id="db859f7d-8889-4eca-8c7a-c939de4af8c2">&lt;code&gt;</bpt>https://&lt;site-name&gt;.azurewebsites.net<ept id="db859f7d-8889-4eca-8c7a-c939de4af8c2">&lt;/code&gt;</ept>), and the <bpt id="7b4f56a1-f733-4fd7-a93e-93bd198748e1">&lt;strong&gt;</bpt>APP ID URI<ept id="7b4f56a1-f733-4fd7-a93e-93bd198748e1">&lt;/strong&gt;</ept> to <bpt id="e7399ed7-f592-457f-978e-78b400ac0506">&lt;code&gt;</bpt>https://&lt;aad-tenanet-name&gt;/&lt;app-name&gt;<ept id="e7399ed7-f592-457f-978e-78b400ac0506">&lt;/code&gt;</ept>. Then, click <bpt id="63c30d2a-926f-4dd0-be0c-42351b660de2">&lt;strong&gt;</bpt>Complete<ept id="63c30d2a-926f-4dd0-be0c-42351b660de2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In App Properties, set <bpt id="6441c81f-f3a8-4ed0-97e2-b0a38f77a39e">&lt;strong&gt;</bpt>Sign-On URL<ept id="6441c81f-f3a8-4ed0-97e2-b0a38f77a39e">&lt;/strong&gt;</ept> to the web app URL that you saved earler (e.g. <bpt id="db859f7d-8889-4eca-8c7a-c939de4af8c2">&lt;code&gt;</bpt>https://&lt;site-name&gt;.azurewebsites.net<ept id="db859f7d-8889-4eca-8c7a-c939de4af8c2">&lt;/code&gt;</ept>), and the <bpt id="7b4f56a1-f733-4fd7-a93e-93bd198748e1">&lt;strong&gt;</bpt>APP ID URI<ept id="7b4f56a1-f733-4fd7-a93e-93bd198748e1">&lt;/strong&gt;</ept> to <bpt id="e7399ed7-f592-457f-978e-78b400ac0506">&lt;code&gt;</bpt>https://&lt;aad-tenanet-name&gt;/&lt;app-name&gt;<ept id="e7399ed7-f592-457f-978e-78b400ac0506">&lt;/code&gt;</ept>. Then, click <bpt id="63c30d2a-926f-4dd0-be0c-42351b660de2">&lt;strong&gt;</bpt>Complete<ept id="63c30d2a-926f-4dd0-be0c-42351b660de2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db44ae08-e1f0-434c-abe4-8bb55adadf9a" xml:space="preserve">
+          <source><bpt id="0e26003b-a011-431b-9923-b8ff74f50c73">&lt;linkText&gt;</bpt><ept id="0e26003b-a011-431b-9923-b8ff74f50c73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e26003b-a011-431b-9923-b8ff74f50c73">&lt;linkText&gt;</bpt><ept id="0e26003b-a011-431b-9923-b8ff74f50c73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2dada84-97ef-4e16-80c3-e7d602ca529e" xml:space="preserve">
+          <source>Once the application is created, click <bpt id="4c1eba13-38ff-494e-ac78-57616160998f">&lt;strong&gt;</bpt>Configure<ept id="4c1eba13-38ff-494e-ac78-57616160998f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the application is created, click <bpt id="4c1eba13-38ff-494e-ac78-57616160998f">&lt;strong&gt;</bpt>Configure<ept id="4c1eba13-38ff-494e-ac78-57616160998f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8c711d3-2d59-45af-a6f9-ca34f89cfcd7" xml:space="preserve">
+          <source>Under <bpt id="82230771-1ec0-4c9e-b1dd-7c296c455f11">&lt;strong&gt;</bpt>Keys<ept id="82230771-1ec0-4c9e-b1dd-7c296c455f11">&lt;/strong&gt;</ept>, create a new key by selecting <bpt id="89138a2f-6d7e-4c6d-8db1-ccfcb2978cee">&lt;strong&gt;</bpt>1 year<ept id="89138a2f-6d7e-4c6d-8db1-ccfcb2978cee">&lt;/strong&gt;</ept> in the dropdown.</source>
+          <target state="new">Under <bpt id="82230771-1ec0-4c9e-b1dd-7c296c455f11">&lt;strong&gt;</bpt>Keys<ept id="82230771-1ec0-4c9e-b1dd-7c296c455f11">&lt;/strong&gt;</ept>, create a new key by selecting <bpt id="89138a2f-6d7e-4c6d-8db1-ccfcb2978cee">&lt;strong&gt;</bpt>1 year<ept id="89138a2f-6d7e-4c6d-8db1-ccfcb2978cee">&lt;/strong&gt;</ept> in the dropdown.</target>
+        </trans-unit>
+        <trans-unit id="70c71445-6b2c-41ae-9813-11f13d1a1d49" xml:space="preserve">
+          <source>Under <bpt id="f485a870-a6dd-49e4-9532-d64f2f539ae6">&lt;strong&gt;</bpt>Permissions to other applications<ept id="f485a870-a6dd-49e4-9532-d64f2f539ae6">&lt;/strong&gt;</ept>, for the <bpt id="e76256b6-382e-403b-8c0c-480438bb91a7">&lt;strong&gt;</bpt>Azure Active Directory<ept id="e76256b6-382e-403b-8c0c-480438bb91a7">&lt;/strong&gt;</ept> entry, select <bpt id="a59e8e02-d2d2-4ff2-9830-f5f2467bba50">&lt;strong&gt;</bpt>Access your organization's directory<ept id="a59e8e02-d2d2-4ff2-9830-f5f2467bba50">&lt;/strong&gt;</ept> in the <bpt id="b2ed8944-226e-4664-8fbf-b859ff7e784e">&lt;strong&gt;</bpt>Delegated Permissions<ept id="b2ed8944-226e-4664-8fbf-b859ff7e784e">&lt;/strong&gt;</ept> dropdown.</source>
+          <target state="new">Under <bpt id="f485a870-a6dd-49e4-9532-d64f2f539ae6">&lt;strong&gt;</bpt>Permissions to other applications<ept id="f485a870-a6dd-49e4-9532-d64f2f539ae6">&lt;/strong&gt;</ept>, for the <bpt id="e76256b6-382e-403b-8c0c-480438bb91a7">&lt;strong&gt;</bpt>Azure Active Directory<ept id="e76256b6-382e-403b-8c0c-480438bb91a7">&lt;/strong&gt;</ept> entry, select <bpt id="a59e8e02-d2d2-4ff2-9830-f5f2467bba50">&lt;strong&gt;</bpt>Access your organization's directory<ept id="a59e8e02-d2d2-4ff2-9830-f5f2467bba50">&lt;/strong&gt;</ept> in the <bpt id="b2ed8944-226e-4664-8fbf-b859ff7e784e">&lt;strong&gt;</bpt>Delegated Permissions<ept id="b2ed8944-226e-4664-8fbf-b859ff7e784e">&lt;/strong&gt;</ept> dropdown.</target>
+        </trans-unit>
+        <trans-unit id="35deb3db-fca2-4df7-8dc2-d7a3906fbc0d" xml:space="preserve">
+          <source>The exact permissions you need here depends on the desired functionality of your application.</source>
+          <target state="new">The exact permissions you need here depends on the desired functionality of your application.</target>
+        </trans-unit>
+        <trans-unit id="2b336c69-6125-4f1e-bbfb-24e7b5d7f909" xml:space="preserve">
+          <source>Some permissions require the <bpt id="45d993cd-f09f-4193-b6d3-974095a62c29">&lt;strong&gt;</bpt>Global Administrator<ept id="45d993cd-f09f-4193-b6d3-974095a62c29">&lt;/strong&gt;</ept> role to set, but the permissions required by this tutorial only requires the <bpt id="df849139-974f-43e8-8adf-07e34909b480">&lt;strong&gt;</bpt>User<ept id="df849139-974f-43e8-8adf-07e34909b480">&lt;/strong&gt;</ept> role.</source>
+          <target state="new">Some permissions require the <bpt id="45d993cd-f09f-4193-b6d3-974095a62c29">&lt;strong&gt;</bpt>Global Administrator<ept id="45d993cd-f09f-4193-b6d3-974095a62c29">&lt;/strong&gt;</ept> role to set, but the permissions required by this tutorial only requires the <bpt id="df849139-974f-43e8-8adf-07e34909b480">&lt;strong&gt;</bpt>User<ept id="df849139-974f-43e8-8adf-07e34909b480">&lt;/strong&gt;</ept> role.</target>
+        </trans-unit>
+        <trans-unit id="46175023-4503-4a43-b37f-6a5de1f68764" xml:space="preserve">
+          <source>Click <bpt id="85c85a80-d920-48fc-b034-08a5e2405a52">&lt;strong&gt;</bpt>Save<ept id="85c85a80-d920-48fc-b034-08a5e2405a52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="85c85a80-d920-48fc-b034-08a5e2405a52">&lt;strong&gt;</bpt>Save<ept id="85c85a80-d920-48fc-b034-08a5e2405a52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df8374f6-c06b-4a54-903b-a4de169703a8" xml:space="preserve">
+          <source>Before you navigate away from the saved configuration page, copy the following information into a text editor.</source>
+          <target state="new">Before you navigate away from the saved configuration page, copy the following information into a text editor.</target>
+        </trans-unit>
+        <trans-unit id="a0f41bf1-6d88-4601-a46d-b429827b4896" xml:space="preserve">
+          <source>Client ID</source>
+          <target state="new">Client ID</target>
+        </trans-unit>
+        <trans-unit id="7666dc57-4825-410c-8ef9-f6d90f998301" xml:space="preserve">
+          <source>Key (if you navigate away from the page, you will not be able to see the key again)</source>
+          <target state="new">Key (if you navigate away from the page, you will not be able to see the key again)</target>
+        </trans-unit>
+        <trans-unit id="28d66a44-5efd-4239-af33-0c1ab0351bb3" xml:space="preserve">
+          <source>In Visual Studio, open <bpt id="7baebace-7d68-4c21-81e6-72b2dad7f43c">&lt;strong&gt;</bpt>Web.Release.config<ept id="7baebace-7d68-4c21-81e6-72b2dad7f43c">&lt;/strong&gt;</ept> in your project. Insert the following XML into the <bpt id="4a879a02-9c21-4cb9-a2c4-3f8ba024de50">&lt;code&gt;</bpt>&lt;configuration&gt;<ept id="4a879a02-9c21-4cb9-a2c4-3f8ba024de50">&lt;/code&gt;</ept> tag, and replace the value of each key with the information that you saved for your new Azure Active Directory application.  </source>
+          <target state="new">In Visual Studio, open <bpt id="7baebace-7d68-4c21-81e6-72b2dad7f43c">&lt;strong&gt;</bpt>Web.Release.config<ept id="7baebace-7d68-4c21-81e6-72b2dad7f43c">&lt;/strong&gt;</ept> in your project. Insert the following XML into the <bpt id="4a879a02-9c21-4cb9-a2c4-3f8ba024de50">&lt;code&gt;</bpt>&lt;configuration&gt;<ept id="4a879a02-9c21-4cb9-a2c4-3f8ba024de50">&lt;/code&gt;</ept> tag, and replace the value of each key with the information that you saved for your new Azure Active Directory application.  </target>
+        </trans-unit>
+        <trans-unit id="95b9e79b-39fa-4179-9663-115fec8f1293" xml:space="preserve">
+          <source>
+&amp;lt;appSettings&amp;gt;
+&amp;lt;add key="ida:ClientId" value="</source>
+          <target state="new">
+&amp;lt;appSettings&amp;gt;
+&amp;lt;add key="ida:ClientId" value="</target>
+        </trans-unit>
+        <trans-unit id="7f8ac075-437e-4d70-ae5f-f1fd32624e5e" xml:space="preserve">
+          <source>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</source>
+          <target state="new">[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</target>
+        </trans-unit>
+        <trans-unit id="8950d832-225e-4adc-8d2b-8037108247b9" xml:space="preserve">
+          <source>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;add key="ida:AppKey" value="</source>
+          <target state="new">" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;add key="ida:AppKey" value="</target>
+        </trans-unit>
+        <trans-unit id="29f19f4f-51f2-4e7e-b8b5-72ffc88d1fb3" xml:space="preserve">
+          <source>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</source>
+          <target state="new">[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</target>
+        </trans-unit>
+        <trans-unit id="4b3a38b0-a2a8-49e4-a4c5-aada901f1d23" xml:space="preserve">
+          <source>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;add key="ida:PostLogoutRedirectUri" value="</source>
+          <target state="new">" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;add key="ida:PostLogoutRedirectUri" value="</target>
+        </trans-unit>
+        <trans-unit id="2cdb4eef-d5ca-4388-8c63-5c88a007bab1" xml:space="preserve">
+          <source>[e.g. https://mylobapp.azurewebsites.net/]</source>
+          <target state="new">[e.g. https://mylobapp.azurewebsites.net/]</target>
+        </trans-unit>
+        <trans-unit id="18448bb6-cc86-4154-b753-24c38bc00222" xml:space="preserve">
+          <source>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;/appSettings&amp;gt;</source>
+          <target state="new">" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&amp;gt;
+&amp;lt;/appSettings&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="37859dd6-6881-4e39-8477-a7130dbd4a76" xml:space="preserve">
+          <source>Make sure that the value of ida:PostLogoutRedirectUri ends with a slash "/".</source>
+          <target state="new">Make sure that the value of ida:PostLogoutRedirectUri ends with a slash "/".</target>
+        </trans-unit>
+        <trans-unit id="574274b4-91c3-4f0b-a3f8-cdd340922a28" xml:space="preserve">
+          <source>Right-click your project and select <bpt id="3795d1f2-dbb7-4b17-a8e8-13ecb12bdeca">&lt;strong&gt;</bpt>Publish<ept id="3795d1f2-dbb7-4b17-a8e8-13ecb12bdeca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your project and select <bpt id="3795d1f2-dbb7-4b17-a8e8-13ecb12bdeca">&lt;strong&gt;</bpt>Publish<ept id="3795d1f2-dbb7-4b17-a8e8-13ecb12bdeca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa948bc6-bab3-4c5f-b451-f2a96c5fc2d9" xml:space="preserve">
+          <source>Click <bpt id="86e462f8-da0c-45df-ab4a-ebf2a38e6949">&lt;strong&gt;</bpt>Publish<ept id="86e462f8-da0c-45df-ab4a-ebf2a38e6949">&lt;/strong&gt;</ept> to publish to Azure App Service Web Apps.</source>
+          <target state="new">Click <bpt id="86e462f8-da0c-45df-ab4a-ebf2a38e6949">&lt;strong&gt;</bpt>Publish<ept id="86e462f8-da0c-45df-ab4a-ebf2a38e6949">&lt;/strong&gt;</ept> to publish to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="8d5c6a30-ba5c-4fad-86f0-fdee9e7b5fa9" xml:space="preserve">
+          <source>When you're done, you have two Azure Active Directory applications configured in the Azure management portal: one for your debug environment in Visual Studio, and one for the published web app in Azure.</source>
+          <target state="new">When you're done, you have two Azure Active Directory applications configured in the Azure management portal: one for your debug environment in Visual Studio, and one for the published web app in Azure.</target>
+        </trans-unit>
+        <trans-unit id="53248dee-a023-493a-a965-0068a18e61fe" xml:space="preserve">
+          <source>During debugging, the app settings in Web.config are used to make your <bpt id="da6f462e-70d4-4a01-b0f8-dd21429fffdc">&lt;strong&gt;</bpt>Debug<ept id="da6f462e-70d4-4a01-b0f8-dd21429fffdc">&lt;/strong&gt;</ept> configuration work with Azure Active Directory, and when it's published (by default, the <bpt id="2dd776b5-05c3-4b63-8c0f-d7e8d8192dac">&lt;strong&gt;</bpt>Release<ept id="2dd776b5-05c3-4b63-8c0f-d7e8d8192dac">&lt;/strong&gt;</ept> configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.</source>
+          <target state="new">During debugging, the app settings in Web.config are used to make your <bpt id="da6f462e-70d4-4a01-b0f8-dd21429fffdc">&lt;strong&gt;</bpt>Debug<ept id="da6f462e-70d4-4a01-b0f8-dd21429fffdc">&lt;/strong&gt;</ept> configuration work with Azure Active Directory, and when it's published (by default, the <bpt id="2dd776b5-05c3-4b63-8c0f-d7e8d8192dac">&lt;strong&gt;</bpt>Release<ept id="2dd776b5-05c3-4b63-8c0f-d7e8d8192dac">&lt;/strong&gt;</ept> configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.</target>
+        </trans-unit>
+        <trans-unit id="1815404e-58e8-4272-ad69-345116cac12b" xml:space="preserve">
+          <source>If you want to attach the published web app to the debugger (you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the Azure Active Directory settings from Web.Release.config.</source>
+          <target state="new">If you want to attach the published web app to the debugger (you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the Azure Active Directory settings from Web.Release.config.</target>
+        </trans-unit>
+        <trans-unit id="faf16b07-43e4-4b82-a619-744925460b58" xml:space="preserve">
+          <source>This allows you to maintain a static configuration across the different environments.</source>
+          <target state="new">This allows you to maintain a static configuration across the different environments.</target>
+        </trans-unit>
+        <trans-unit id="de716fb5-9585-4fd0-9cb2-9cb3597887df" xml:space="preserve">
+          <source><bpt id="3e4088ce-a820-4888-9fc0-d2ea41e451c1">&lt;bookmark&gt;</bpt><ept id="3e4088ce-a820-4888-9fc0-d2ea41e451c1">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="3e4088ce-a820-4888-9fc0-d2ea41e451c1">&lt;bookmark&gt;</bpt><ept id="3e4088ce-a820-4888-9fc0-d2ea41e451c1">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4b50f52-da07-46ac-a14e-5c694e0b699f" xml:space="preserve">
+          <source>In this part of the tutorial, you will learn how to build out the desired line-of-business functionality based on the sample application.</source>
+          <target state="new">In this part of the tutorial, you will learn how to build out the desired line-of-business functionality based on the sample application.</target>
+        </trans-unit>
+        <trans-unit id="2b2f6d09-fa56-4292-8708-41a0549b9c97" xml:space="preserve">
+          <source>You will create a simple CRUD work items tracker, similar to the TaskTracker controller but using standard CRUD scaffolding and design pattern.</source>
+          <target state="new">You will create a simple CRUD work items tracker, similar to the TaskTracker controller but using standard CRUD scaffolding and design pattern.</target>
+        </trans-unit>
+        <trans-unit id="cbbcb8db-2cfa-4a86-8b63-ec8b2ca290c8" xml:space="preserve">
+          <source>You will also use the included Scripts\AadPickerLibrary.js to enrich your application with data from the Azure Active Directory Graph API.</source>
+          <target state="new">You will also use the included Scripts\AadPickerLibrary.js to enrich your application with data from the Azure Active Directory Graph API.</target>
+        </trans-unit>
+        <trans-unit id="80254109-2864-494c-a4b4-7c7c404b3142" xml:space="preserve">
+          <source>In the Models folder, create a new model called WorkItem.cs, and replace the code with the code below:</source>
+          <target state="new">In the Models folder, create a new model called WorkItem.cs, and replace the code with the code below:</target>
+        </trans-unit>
+        <trans-unit id="cccbb3de-020f-4947-9aa8-482e4d17b9e3" xml:space="preserve">
+          <source>Open DAL\GroupClaimContext.cs and add the highlighted code:  </source>
+          <target state="new">Open DAL\GroupClaimContext.cs and add the highlighted code:  </target>
+        </trans-unit>
+        <trans-unit id="adbc4ffe-2639-409f-9a2b-9e2be2dd0afb" xml:space="preserve">
+          <source>
+public class GroupClaimContext : DbContext
+{
+    public GroupClaimContext() : base("GroupClaimContext") { }
+
+    public DbSet&amp;lt;RoleMapping&amp;gt; RoleMappings { get; set; }
+    public DbSet&amp;lt;Task&amp;gt; Tasks { get; set; }
+    </source>
+          <target state="new">
+public class GroupClaimContext : DbContext
+{
+    public GroupClaimContext() : base("GroupClaimContext") { }
+
+    public DbSet&amp;lt;RoleMapping&amp;gt; RoleMappings { get; set; }
+    public DbSet&amp;lt;Task&amp;gt; Tasks { get; set; }
+    </target>
+        </trans-unit>
+        <trans-unit id="6a1753b7-5a9b-4446-a006-963b5d7fba51" xml:space="preserve">
+          <source>public DbSet&amp;lt;WorkItem&amp;gt; WorkItems { get; set; }</source>
+          <target state="new">public DbSet&amp;lt;WorkItem&amp;gt; WorkItems { get; set; }</target>
+        </trans-unit>
+        <trans-unit id="12dc9723-f84f-4283-86bf-cc29275a360c" xml:space="preserve">
+          <source>
+    public DbSet&amp;lt;TokenCacheEntry&amp;gt; TokenCacheEntries { get; set; }
+}</source>
+          <target state="new">
+    public DbSet&amp;lt;TokenCacheEntry&amp;gt; TokenCacheEntries { get; set; }
+}</target>
+        </trans-unit>
+        <trans-unit id="8faca058-3980-4f0d-9fe8-eb50f30f427f" xml:space="preserve">
+          <source>Build the project to make your new model accessible to the scaffolding logic in Visual Studio.</source>
+          <target state="new">Build the project to make your new model accessible to the scaffolding logic in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="6c443925-d31d-45e1-ae42-8f28fbfe7d12" xml:space="preserve">
+          <source>Add a new scaffolded item <bpt id="9f69c959-e064-4d4d-bb55-b3290da61028">&lt;code&gt;</bpt>WorkItemsController<ept id="9f69c959-e064-4d4d-bb55-b3290da61028">&lt;/code&gt;</ept> to the Controllers folder.</source>
+          <target state="new">Add a new scaffolded item <bpt id="9f69c959-e064-4d4d-bb55-b3290da61028">&lt;code&gt;</bpt>WorkItemsController<ept id="9f69c959-e064-4d4d-bb55-b3290da61028">&lt;/code&gt;</ept> to the Controllers folder.</target>
+        </trans-unit>
+        <trans-unit id="a1bde26a-25b3-4671-b857-a56b36187fc9" xml:space="preserve">
+          <source>To do this, right-click <bpt id="d8ac7cda-cbac-4d0a-ad2d-b75a1caa25c5">&lt;strong&gt;</bpt>Controllers<ept id="d8ac7cda-cbac-4d0a-ad2d-b75a1caa25c5">&lt;/strong&gt;</ept>, point to <bpt id="ed000d77-14a8-4629-9fde-f2994cebfdf4">&lt;strong&gt;</bpt>Add<ept id="ed000d77-14a8-4629-9fde-f2994cebfdf4">&lt;/strong&gt;</ept>, and select <bpt id="fa67dbf7-0a61-4233-b31b-20644a2d2aa4">&lt;strong&gt;</bpt>New scaffolded item<ept id="fa67dbf7-0a61-4233-b31b-20644a2d2aa4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To do this, right-click <bpt id="d8ac7cda-cbac-4d0a-ad2d-b75a1caa25c5">&lt;strong&gt;</bpt>Controllers<ept id="d8ac7cda-cbac-4d0a-ad2d-b75a1caa25c5">&lt;/strong&gt;</ept>, point to <bpt id="ed000d77-14a8-4629-9fde-f2994cebfdf4">&lt;strong&gt;</bpt>Add<ept id="ed000d77-14a8-4629-9fde-f2994cebfdf4">&lt;/strong&gt;</ept>, and select <bpt id="fa67dbf7-0a61-4233-b31b-20644a2d2aa4">&lt;strong&gt;</bpt>New scaffolded item<ept id="fa67dbf7-0a61-4233-b31b-20644a2d2aa4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9743bab-a1ed-4f87-a962-e9d9d0e1e552" xml:space="preserve">
+          <source>Select <bpt id="b2195a19-32ee-4cb7-ae69-8f0ae27d23cf">&lt;strong&gt;</bpt>MVC 5 Controller with views, using Entity Framework<ept id="b2195a19-32ee-4cb7-ae69-8f0ae27d23cf">&lt;/strong&gt;</ept> and click <bpt id="c83b0cad-647b-4358-98b5-ceb65b5b8b44">&lt;strong&gt;</bpt>Add<ept id="c83b0cad-647b-4358-98b5-ceb65b5b8b44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="b2195a19-32ee-4cb7-ae69-8f0ae27d23cf">&lt;strong&gt;</bpt>MVC 5 Controller with views, using Entity Framework<ept id="b2195a19-32ee-4cb7-ae69-8f0ae27d23cf">&lt;/strong&gt;</ept> and click <bpt id="c83b0cad-647b-4358-98b5-ceb65b5b8b44">&lt;strong&gt;</bpt>Add<ept id="c83b0cad-647b-4358-98b5-ceb65b5b8b44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2e6f650-9bbe-4954-a866-4994f101690e" xml:space="preserve">
+          <source>Select the model that you just created and click <bpt id="1f2f1959-3b93-4d03-b7a8-0e29dae30764">&lt;strong&gt;</bpt>Add<ept id="1f2f1959-3b93-4d03-b7a8-0e29dae30764">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the model that you just created and click <bpt id="1f2f1959-3b93-4d03-b7a8-0e29dae30764">&lt;strong&gt;</bpt>Add<ept id="1f2f1959-3b93-4d03-b7a8-0e29dae30764">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf8ccc9a-719e-4962-a3b7-01366da6f373" xml:space="preserve">
+          <source><bpt id="b61cd8e8-33f7-4615-af93-ce3691053bb7">&lt;linkText&gt;</bpt><ept id="b61cd8e8-33f7-4615-af93-ce3691053bb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b61cd8e8-33f7-4615-af93-ce3691053bb7">&lt;linkText&gt;</bpt><ept id="b61cd8e8-33f7-4615-af93-ce3691053bb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8268d7e7-6ba9-48b7-b869-191933f5972a" xml:space="preserve">
+          <source>Open Controllers\WorkItemsController.cs</source>
+          <target state="new">Open Controllers\WorkItemsController.cs</target>
+        </trans-unit>
+        <trans-unit id="4efafc83-cbc0-4fdc-89b7-9db602b3a075" xml:space="preserve">
+          <source>Add the highlighted [Authorize] decorations to the respective actions below.</source>
+          <target state="new">Add the highlighted [Authorize] decorations to the respective actions below.</target>
+        </trans-unit>
+        <trans-unit id="8f3022a7-d35d-4b74-aff6-2e54263aa6c2" xml:space="preserve">
+          <source>
+...
+
+</source>
+          <target state="new">
+...
+
+</target>
+        </trans-unit>
+        <trans-unit id="69b133bd-a079-4512-b777-f4aa835f0cb2" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Observer, Writer, Approver")]</target>
+        </trans-unit>
+        <trans-unit id="42075905-bc21-4ca5-99c2-62f520e66026" xml:space="preserve">
+          <source>
+public class WorkItemsController : Controller
+{
+    ...
+
+    </source>
+          <target state="new">
+public class WorkItemsController : Controller
+{
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="939fac22-d20d-40b8-8504-20f25cd05b05" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer")]</target>
+        </trans-unit>
+        <trans-unit id="a63fffe9-f008-439e-afc6-bda10b0256b8" xml:space="preserve">
+          <source>
+    public ActionResult Create()
+    ...
+
+    </source>
+          <target state="new">
+    public ActionResult Create()
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="98376d59-a994-42bd-88a4-195b25f7ca04" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer")]</target>
+        </trans-unit>
+        <trans-unit id="30dbd913-3b21-4a2e-9fa4-d1962f9fc10b" xml:space="preserve">
+          <source>
+    public async Task&amp;lt;ActionResult&amp;gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
+
+    </source>
+          <target state="new">
+    public async Task&amp;lt;ActionResult&amp;gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="a0b97066-3cbd-4a0c-9039-5f424c313eb1" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer")]</target>
+        </trans-unit>
+        <trans-unit id="2088b81e-2390-4d53-aa49-e370bc00e4e8" xml:space="preserve">
+          <source>
+    public async Task&amp;lt;ActionResult&amp;gt; Edit(int? id)
+    ...
+
+    </source>
+          <target state="new">
+    public async Task&amp;lt;ActionResult&amp;gt; Edit(int? id)
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="72cdef15-e495-472c-bdda-120e1e76a718" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer")]</target>
+        </trans-unit>
+        <trans-unit id="d590bc23-42c3-4dd6-8282-419cc552158f" xml:space="preserve">
+          <source>
+    public async Task&amp;lt;ActionResult&amp;gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
+
+    </source>
+          <target state="new">
+    public async Task&amp;lt;ActionResult&amp;gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="95e7e488-17c5-48dc-9b56-b741dcf2e1b0" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer, Approver")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer, Approver")]</target>
+        </trans-unit>
+        <trans-unit id="37726e99-f8c4-4e7e-bfe3-f57354dfcece" xml:space="preserve">
+          <source>
+    public async Task&amp;lt;ActionResult&amp;gt; Delete(int? id)
+    ...
+
+    </source>
+          <target state="new">
+    public async Task&amp;lt;ActionResult&amp;gt; Delete(int? id)
+    ...
+
+    </target>
+        </trans-unit>
+        <trans-unit id="1576c059-d11f-4306-8d65-1506500c96ca" xml:space="preserve">
+          <source>[Authorize(Roles = "Admin, Writer, Approver")]</source>
+          <target state="new">[Authorize(Roles = "Admin, Writer, Approver")]</target>
+        </trans-unit>
+        <trans-unit id="34fd88ee-226e-4453-8114-5b07bbfbb0e1" xml:space="preserve">
+          <source>
+    public async Task&amp;lt;ActionResult&amp;gt; DeleteConfirmed(int id)
+    ...
+}</source>
+          <target state="new">
+    public async Task&amp;lt;ActionResult&amp;gt; DeleteConfirmed(int id)
+    ...
+}</target>
+        </trans-unit>
+        <trans-unit id="f479aa32-5dca-42e3-a837-48f16f4ca663" xml:space="preserve">
+          <source>Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.</source>
+          <target state="new">Since you take care of role mappings in the Roles controller, all you need to do is make sure that each action authorizes the right roles.</target>
+        </trans-unit>
+        <trans-unit id="2d1c01d0-97a0-4ed7-ad70-101c48cc2ddc" xml:space="preserve">
+          <source>You may have noticed the &lt;code&gt;[ValidateAntiForgeryToken]&lt;/code&gt; decoration on some of the actions.</source>
+          <target state="new">You may have noticed the &lt;code&gt;[ValidateAntiForgeryToken]&lt;/code&gt; decoration on some of the actions.</target>
+        </trans-unit>
+        <trans-unit id="dd1d2f23-fed0-49a0-a659-a1ed910e1d21" xml:space="preserve">
+          <source>Due to the behavior described by <bpt id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;linkText&gt;</bpt>Brock Allen<ept id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;/linkText&gt;</ept><bpt id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;title&gt;</bpt><ept id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;/title&gt;</ept> at <bpt id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;linkText&gt;</bpt>MVC 4, AntiForgeryToken and Claims<ept id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;/linkText&gt;</ept><bpt id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;title&gt;</bpt><ept id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;/title&gt;</ept> your HTTP POST may fail anti-forgery token validation because:</source>
+          <target state="new">Due to the behavior described by <bpt id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;linkText&gt;</bpt>Brock Allen<ept id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;/linkText&gt;</ept><bpt id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;title&gt;</bpt><ept id="a7bcd358-111d-4df5-9d0e-9c8a2349b421">&lt;/title&gt;</ept> at <bpt id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;linkText&gt;</bpt>MVC 4, AntiForgeryToken and Claims<ept id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;/linkText&gt;</ept><bpt id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;title&gt;</bpt><ept id="a7d0903b-128d-43d3-be5a-c7890f0c771f">&lt;/title&gt;</ept> your HTTP POST may fail anti-forgery token validation because:</target>
+        </trans-unit>
+        <trans-unit id="0ca5560a-8e59-4081-95b6-1eab1ff034d9" xml:space="preserve">
+          <source>Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.</source>
+          <target state="new">Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.</target>
+        </trans-unit>
+        <trans-unit id="ed7185cc-4482-45c7-a282-05aa3806fa4b" xml:space="preserve">
+          <source>If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.</source>
+          <target state="new">If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually configure AD FS to send this claim.</target>
+        </trans-unit>
+        <trans-unit id="b2651e42-b7a2-4f48-b940-9f219f22ca04" xml:space="preserve">
+          <source>You will take care of this in the next step.</source>
+          <target state="new">You will take care of this in the next step.</target>
+        </trans-unit>
+        <trans-unit id="25fb4107-091f-4f58-b5aa-8240898a800d" xml:space="preserve">
+          <source>In App_Start\Startup.Auth.cs, add the following line of code in the <bpt id="bdd2f636-47e7-46bb-8a66-302686aeb601">&lt;code&gt;</bpt>ConfigureAuth<ept id="bdd2f636-47e7-46bb-8a66-302686aeb601">&lt;/code&gt;</ept> method:</source>
+          <target state="new">In App_Start\Startup.Auth.cs, add the following line of code in the <bpt id="bdd2f636-47e7-46bb-8a66-302686aeb601">&lt;code&gt;</bpt>ConfigureAuth<ept id="bdd2f636-47e7-46bb-8a66-302686aeb601">&lt;/code&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="f67967aa-319c-427a-8aa8-e9a324908e97" xml:space="preserve">
+          <source><bpt id="dfb755db-6591-49e5-92b8-436e367e5ace">&lt;code&gt;</bpt>ClaimTypes.NameIdentifies<ept id="dfb755db-6591-49e5-92b8-436e367e5ace">&lt;/code&gt;</ept> specifies the claim <bpt id="498ed8ed-2f68-415c-9e85-924987f5614a">&lt;code&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier<ept id="498ed8ed-2f68-415c-9e85-924987f5614a">&lt;/code&gt;</ept>, which Azure Active Directory does supply.</source>
+          <target state="new"><bpt id="dfb755db-6591-49e5-92b8-436e367e5ace">&lt;code&gt;</bpt>ClaimTypes.NameIdentifies<ept id="dfb755db-6591-49e5-92b8-436e367e5ace">&lt;/code&gt;</ept> specifies the claim <bpt id="498ed8ed-2f68-415c-9e85-924987f5614a">&lt;code&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier<ept id="498ed8ed-2f68-415c-9e85-924987f5614a">&lt;/code&gt;</ept>, which Azure Active Directory does supply.</target>
+        </trans-unit>
+        <trans-unit id="985d5315-51f8-44f9-aef9-d9271b686e79" xml:space="preserve">
+          <source>Now that you have taken care of the authorization part (seriously, that didn't take long), you can devote your time to the actual functionality of the actions.</source>
+          <target state="new">Now that you have taken care of the authorization part (seriously, that didn't take long), you can devote your time to the actual functionality of the actions.</target>
+        </trans-unit>
+        <trans-unit id="068fc05f-2da3-4220-8d9b-5a5526ab13c2" xml:space="preserve">
+          <source>In Create() and Edit() add following code to make some variables available to your JavaScript later:
+        ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+        ViewData["tenant"] = ConfigHelper.Tenant;</source>
+          <target state="new">In Create() and Edit() add following code to make some variables available to your JavaScript later:
+        ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+        ViewData["tenant"] = ConfigHelper.Tenant;</target>
+        </trans-unit>
+        <trans-unit id="c87aaf70-57ba-421d-9fe1-08fb85a863f1" xml:space="preserve">
+          <source>In Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the <bpt id="63f688a7-ccd9-40f5-abe6-063ccb298696">&lt;code&gt;</bpt>Html.BeginForm<ept id="63f688a7-ccd9-40f5-abe6-063ccb298696">&lt;/code&gt;</ept> helper method and modify it as follows:  </source>
+          <target state="new">In Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the <bpt id="63f688a7-ccd9-40f5-abe6-063ccb298696">&lt;code&gt;</bpt>Html.BeginForm<ept id="63f688a7-ccd9-40f5-abe6-063ccb298696">&lt;/code&gt;</ept> helper method and modify it as follows:  </target>
+        </trans-unit>
+        <trans-unit id="0265b77a-defc-49da-b460-ee3a87f0eacb" xml:space="preserve">
+          <source>@using (Html.BeginForm(</source>
+          <target state="new">@using (Html.BeginForm(</target>
+        </trans-unit>
+        <trans-unit id="ebff37d7-6eef-4651-806f-3e6dff0e5125" xml:space="preserve">
+          <source>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</source>
+          <target state="new">"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</target>
+        </trans-unit>
+        <trans-unit id="4231e3a9-eb6c-4a1f-9fc9-eff532aa94bf" xml:space="preserve">
+          <source>))
+{
+    @Html.AntiForgeryToken()
+
+    &amp;lt;div class="form-horizontal"&amp;gt;
+        &amp;lt;h4&amp;gt;WorkItem&amp;lt;/h4&amp;gt;
+        &amp;lt;hr /&amp;gt;
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        &amp;lt;div class="form-group"&amp;gt;
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"</source>
+          <target state="new">))
+{
+    @Html.AntiForgeryToken()
+
+    &amp;lt;div class="form-horizontal"&amp;gt;
+        &amp;lt;h4&amp;gt;WorkItem&amp;lt;/h4&amp;gt;
+        &amp;lt;hr /&amp;gt;
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        &amp;lt;div class="form-group"&amp;gt;
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"</target>
+        </trans-unit>
+        <trans-unit id="b996ba19-3f86-482a-a1f2-247cd9f4d2aa" xml:space="preserve">
+          <source>, @type="hidden"</source>
+          <target state="new">, @type="hidden"</target>
+        </trans-unit>
+        <trans-unit id="959f4bdf-a99e-43f9-be9a-8fec4146d870" xml:space="preserve">
+          <source> } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.AssignedToID, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.AssignedToName, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.Description, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EnumDropDownListFor(model =&amp;gt; model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model =&amp;gt; model.Status, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            &amp;lt;div class="col-md-offset-2 col-md-10"&amp;gt;
+                &amp;lt;input type="submit" value="Create" class="btn btn-default" </source>
+          <target state="new"> } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.AssignedToID, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.AssignedToName, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EditorFor(model =&amp;gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model =&amp;gt; model.Description, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            @Html.LabelFor(model =&amp;gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            &amp;lt;div class="col-md-10"&amp;gt;
+                @Html.EnumDropDownListFor(model =&amp;gt; model.Status, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model =&amp;gt; model.Status, "", new { @class = "text-danger" })
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+
+        &amp;lt;div class="form-group"&amp;gt;
+            &amp;lt;div class="col-md-offset-2 col-md-10"&amp;gt;
+                &amp;lt;input type="submit" value="Create" class="btn btn-default" </target>
+        </trans-unit>
+        <trans-unit id="4af2c4a5-2d99-41d1-91da-35700b9a9df8" xml:space="preserve">
+          <source>id="submit-button"</source>
+          <target state="new">id="submit-button"</target>
+        </trans-unit>
+        <trans-unit id="45a6f76e-b30c-4e60-ab15-31af91ae2b4a" xml:space="preserve">
+          <source> /&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    </source>
+          <target state="new"> /&amp;gt;
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    </target>
+        </trans-unit>
+        <trans-unit id="6d5863ac-b74e-4f01-8b56-777ff1dc1bbd" xml:space="preserve">
+          <source>&amp;lt;script&amp;gt;
+            // People/Group Picker Code
+            var maxResultsPerPage = 14;
+            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
+            var input = document.getElementById("AssignedToName");
+            var token = "@ViewData["token"]";
+            var tenant = "@ViewData["tenant"]";
+
+            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+
+            // Submit the selected user/group to be asssigned.
+            $("#submit-button").click({ picker: picker }, function () {
+                if (!picker.Selected())
+                    return;
+                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+            });
+    &amp;lt;/script&amp;gt;</source>
+          <target state="new">&amp;lt;script&amp;gt;
+            // People/Group Picker Code
+            var maxResultsPerPage = 14;
+            var searchUrl = window.location.protocol + "//" + window.location.host + "/Roles/Search";
+            var input = document.getElementById("AssignedToName");
+            var token = "@ViewData["token"]";
+            var tenant = "@ViewData["tenant"]";
+
+            var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
+
+            // Submit the selected user/group to be asssigned.
+            $("#submit-button").click({ picker: picker }, function () {
+                if (!picker.Selected())
+                    return;
+                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
+            });
+    &amp;lt;/script&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="dfc76f80-f43d-4e25-bd28-f96205cbc0de" xml:space="preserve">
+          <source>
+
+}</source>
+          <target state="new">
+
+}</target>
+        </trans-unit>
+        <trans-unit id="786c59e3-94d5-47d8-a09f-0021b931f630" xml:space="preserve">
+          <source>In the script, the AadPicker object searches the <bpt id="362ed650-21b2-4791-8d4d-5070a0aee07b">&lt;code&gt;</bpt>~/Roles/Search<ept id="362ed650-21b2-4791-8d4d-5070a0aee07b">&lt;/code&gt;</ept> action for Azure Active Directory users and groups that match the input.</source>
+          <target state="new">In the script, the AadPicker object searches the <bpt id="362ed650-21b2-4791-8d4d-5070a0aee07b">&lt;code&gt;</bpt>~/Roles/Search<ept id="362ed650-21b2-4791-8d4d-5070a0aee07b">&lt;/code&gt;</ept> action for Azure Active Directory users and groups that match the input.</target>
+        </trans-unit>
+        <trans-unit id="d832a41b-dbb9-41e8-959e-1188cfd3f713" xml:space="preserve">
+          <source>Then, when the submit button is clicked, the AadPicker object saves the user ID to the hidden <bpt id="d5e68820-5990-4d3d-b464-ffcfa415cd8e">&lt;code&gt;</bpt>AssignedToID<ept id="d5e68820-5990-4d3d-b464-ffcfa415cd8e">&lt;/code&gt;</ept> field.</source>
+          <target state="new">Then, when the submit button is clicked, the AadPicker object saves the user ID to the hidden <bpt id="d5e68820-5990-4d3d-b464-ffcfa415cd8e">&lt;code&gt;</bpt>AssignedToID<ept id="d5e68820-5990-4d3d-b464-ffcfa415cd8e">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="3b6ff625-43d8-4b04-8a22-9ca01482e609" xml:space="preserve">
+          <source>Now either run the app in the Visual Studio debugger or publish to Azure App Service Web Apps.</source>
+          <target state="new">Now either run the app in the Visual Studio debugger or publish to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="c588dadb-4bb1-4a3c-b437-8b10267a3999" xml:space="preserve">
+          <source>Log in as the application owner and navigate to <bpt id="4340b299-e7df-4608-99ad-5d90b9beb7a2">&lt;code&gt;</bpt>~/WorkItems/Create<ept id="4340b299-e7df-4608-99ad-5d90b9beb7a2">&lt;/code&gt;</ept>.</source>
+          <target state="new">Log in as the application owner and navigate to <bpt id="4340b299-e7df-4608-99ad-5d90b9beb7a2">&lt;code&gt;</bpt>~/WorkItems/Create<ept id="4340b299-e7df-4608-99ad-5d90b9beb7a2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a61a57e-6e78-4412-a650-c2c983ffbcd0" xml:space="preserve">
+          <source>For my published line-of-business app, I navigate to <bpt id="f94aa45d-4689-4ab9-abb4-8c794e4055c1">&lt;code&gt;</bpt>https://mylobapp.azurewebsites.net/WorkItems/Create<ept id="f94aa45d-4689-4ab9-abb4-8c794e4055c1">&lt;/code&gt;</ept>.</source>
+          <target state="new">For my published line-of-business app, I navigate to <bpt id="f94aa45d-4689-4ab9-abb4-8c794e4055c1">&lt;code&gt;</bpt>https://mylobapp.azurewebsites.net/WorkItems/Create<ept id="f94aa45d-4689-4ab9-abb4-8c794e4055c1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c12a97c0-db2a-403d-baf5-09f9ac1b138e" xml:space="preserve">
+          <source>You'll see now that you you can use the same AadPicker search filter to pick an Azure Active Directory user.</source>
+          <target state="new">You'll see now that you you can use the same AadPicker search filter to pick an Azure Active Directory user.</target>
+        </trans-unit>
+        <trans-unit id="45f1e499-67a5-4a1c-b6ef-6f7cef9b7880" xml:space="preserve">
+          <source><bpt id="e9c10322-7fed-443f-8b14-3eed65197d04">&lt;linkText&gt;</bpt><ept id="e9c10322-7fed-443f-8b14-3eed65197d04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9c10322-7fed-443f-8b14-3eed65197d04">&lt;linkText&gt;</bpt><ept id="e9c10322-7fed-443f-8b14-3eed65197d04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e72ab9b6-0fb3-4708-806a-1a2a135539b0" xml:space="preserve">
+          <source>Fill out the rest of the form and click <bpt id="b1a7bc07-ec98-48d3-812a-b28ceeb5a104">&lt;strong&gt;</bpt>Create<ept id="b1a7bc07-ec98-48d3-812a-b28ceeb5a104">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Fill out the rest of the form and click <bpt id="b1a7bc07-ec98-48d3-812a-b28ceeb5a104">&lt;strong&gt;</bpt>Create<ept id="b1a7bc07-ec98-48d3-812a-b28ceeb5a104">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b038646-1f9e-4a31-aa6a-edf1e29f6a8d" xml:space="preserve">
+          <source>The ~/WorkItems/Index page now shows the newly created work item.</source>
+          <target state="new">The ~/WorkItems/Index page now shows the newly created work item.</target>
+        </trans-unit>
+        <trans-unit id="cf1cc5e1-985c-4fa6-8fd9-ca82eed49aaf" xml:space="preserve">
+          <source>You'll also notice in the screenshot below that I removed the <bpt id="9aecc1ba-11bb-47a1-88dc-80ae9cea7a6c">&lt;code&gt;</bpt>AssignedToID<ept id="9aecc1ba-11bb-47a1-88dc-80ae9cea7a6c">&lt;/code&gt;</ept> column in Views\WorkItems\Index.cshtml.</source>
+          <target state="new">You'll also notice in the screenshot below that I removed the <bpt id="9aecc1ba-11bb-47a1-88dc-80ae9cea7a6c">&lt;code&gt;</bpt>AssignedToID<ept id="9aecc1ba-11bb-47a1-88dc-80ae9cea7a6c">&lt;/code&gt;</ept> column in Views\WorkItems\Index.cshtml.</target>
+        </trans-unit>
+        <trans-unit id="bb3e825a-923c-47ae-8103-47d7bf7e17c5" xml:space="preserve">
+          <source><bpt id="9840bc56-e7e2-46af-aa06-128c5e69658f">&lt;linkText&gt;</bpt><ept id="9840bc56-e7e2-46af-aa06-128c5e69658f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9840bc56-e7e2-46af-aa06-128c5e69658f">&lt;linkText&gt;</bpt><ept id="9840bc56-e7e2-46af-aa06-128c5e69658f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebd8866e-2bf1-4ab3-aa23-628e935c89cd" xml:space="preserve">
+          <source>Now, make similar changes to the <bpt id="0f1eafea-f90d-46ee-8eab-04edb215d4a6">&lt;strong&gt;</bpt>Edit<ept id="0f1eafea-f90d-46ee-8eab-04edb215d4a6">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">Now, make similar changes to the <bpt id="0f1eafea-f90d-46ee-8eab-04edb215d4a6">&lt;strong&gt;</bpt>Edit<ept id="0f1eafea-f90d-46ee-8eab-04edb215d4a6">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="25bb62af-6828-406d-9e6a-3e76256c7a3b" xml:space="preserve">
+          <source>In Views\WorkItems\Edit.cshtml, make the changes to the <bpt id="8740917a-1f23-4da3-80c0-5ebc5ee7547e">&lt;code&gt;</bpt>Html.BeginForm<ept id="8740917a-1f23-4da3-80c0-5ebc5ee7547e">&lt;/code&gt;</ept> helper method that are identical to the ones for Views\WorkItems\Create.cshtml in the previous step (replace "Create" with "Edit" in the highlighted code above).</source>
+          <target state="new">In Views\WorkItems\Edit.cshtml, make the changes to the <bpt id="8740917a-1f23-4da3-80c0-5ebc5ee7547e">&lt;code&gt;</bpt>Html.BeginForm<ept id="8740917a-1f23-4da3-80c0-5ebc5ee7547e">&lt;/code&gt;</ept> helper method that are identical to the ones for Views\WorkItems\Create.cshtml in the previous step (replace "Create" with "Edit" in the highlighted code above).</target>
+        </trans-unit>
+        <trans-unit id="3c721e94-da05-4d1d-b89f-a9e72c2b6ea6" xml:space="preserve">
+          <source>That's it!</source>
+          <target state="new">That's it!</target>
+        </trans-unit>
+        <trans-unit id="dee4943d-dcce-4a8f-9e3f-8c5ac63b2856" xml:space="preserve">
+          <source>Now that you have configured the authorizations and line-of-business functionality for the different actions in the WorkItems controller, you can try to log in as users of different application roles.</source>
+          <target state="new">Now that you have configured the authorizations and line-of-business functionality for the different actions in the WorkItems controller, you can try to log in as users of different application roles.</target>
+        </trans-unit>
+        <trans-unit id="5d02ff05-9ce8-40a8-a948-1524a5a58879" xml:space="preserve">
+          <source><bpt id="9f3887f0-f60a-45a1-9fb0-045097e0afca">&lt;linkText&gt;</bpt><ept id="9f3887f0-f60a-45a1-9fb0-045097e0afca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f3887f0-f60a-45a1-9fb0-045097e0afca">&lt;linkText&gt;</bpt><ept id="9f3887f0-f60a-45a1-9fb0-045097e0afca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd906a18-10dc-41a5-b308-622a4a0762fa" xml:space="preserve">
+          <source><bpt id="2bfc8a81-edfc-4ada-a8cd-3f980179db16">&lt;bookmark&gt;</bpt><ept id="2bfc8a81-edfc-4ada-a8cd-3f980179db16">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2bfc8a81-edfc-4ada-a8cd-3f980179db16">&lt;bookmark&gt;</bpt><ept id="2bfc8a81-edfc-4ada-a8cd-3f980179db16">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a6fbc40-25c8-44a2-9988-d036cb88e90c" xml:space="preserve">
+          <source><bpt id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;linkText&gt;</bpt>Protect the Application with SSL and the Authorize Attribute<ept id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;/linkText&gt;</ept><bpt id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;title&gt;</bpt><ept id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;linkText&gt;</bpt>Protect the Application with SSL and the Authorize Attribute<ept id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;/linkText&gt;</ept><bpt id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;title&gt;</bpt><ept id="f3e83698-22b6-4eb5-af8f-565a45eea2be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f40ed645-76cf-40ad-862f-7588dfb0b403" xml:space="preserve">
+          <source><bpt id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;linkText&gt;</bpt>Use Active Directory for authentication in Azure App Service<ept id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;/linkText&gt;</ept><bpt id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;title&gt;</bpt><ept id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;linkText&gt;</bpt>Use Active Directory for authentication in Azure App Service<ept id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;/linkText&gt;</ept><bpt id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;title&gt;</bpt><ept id="ca7df056-f137-4967-8e9a-b6941ae9a675">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="589dc596-545b-4994-a4c1-4061a179209d" xml:space="preserve">
+          <source><bpt id="0b91b970-a851-4702-a649-699e400f933f">&lt;linkText&gt;</bpt>Create a .NET MVC web app in Azure App Service with AD FS authentication<ept id="0b91b970-a851-4702-a649-699e400f933f">&lt;/linkText&gt;</ept><bpt id="0b91b970-a851-4702-a649-699e400f933f">&lt;title&gt;</bpt><ept id="0b91b970-a851-4702-a649-699e400f933f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b91b970-a851-4702-a649-699e400f933f">&lt;linkText&gt;</bpt>Create a .NET MVC web app in Azure App Service with AD FS authentication<ept id="0b91b970-a851-4702-a649-699e400f933f">&lt;/linkText&gt;</ept><bpt id="0b91b970-a851-4702-a649-699e400f933f">&lt;title&gt;</bpt><ept id="0b91b970-a851-4702-a649-699e400f933f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8a187a1-681d-448a-812a-6369d0a67a85" xml:space="preserve">
+          <source><bpt id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Samples and Documentation<ept id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;/linkText&gt;</ept><bpt id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;title&gt;</bpt><ept id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Samples and Documentation<ept id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;/linkText&gt;</ept><bpt id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;title&gt;</bpt><ept id="21a47237-c6dd-4791-8cb5-7090d4a385da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56513ae4-e26f-4822-b37c-12e2c83f444d" xml:space="preserve">
+          <source><bpt id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;linkText&gt;</bpt>Vittorio Bertocci's blog<ept id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;/linkText&gt;</ept><bpt id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;title&gt;</bpt><ept id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;linkText&gt;</bpt>Vittorio Bertocci's blog<ept id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;/linkText&gt;</ept><bpt id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;title&gt;</bpt><ept id="6399ad3d-ec8b-4b4a-a37e-99e366492fef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aa4295f-5bd1-4eab-a8a2-5a5f93d955eb" xml:space="preserve">
+          <source><bpt id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;linkText&gt;</bpt>Migrate a VS2013 Web Project From WIF to Katana<ept id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;/linkText&gt;</ept><bpt id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;title&gt;</bpt><ept id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;linkText&gt;</bpt>Migrate a VS2013 Web Project From WIF to Katana<ept id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;/linkText&gt;</ept><bpt id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;title&gt;</bpt><ept id="6e51ff28-ae98-4b3c-bcc9-cf6ae6656552">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60460091-17cf-418d-9dcd-551be9ee0176" xml:space="preserve">
+          <source><bpt id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;linkText&gt;</bpt>Azure's new Hybrid Connections not your father's #hybridCloud<ept id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;/linkText&gt;</ept><bpt id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;title&gt;</bpt><ept id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;linkText&gt;</bpt>Azure's new Hybrid Connections not your father's #hybridCloud<ept id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;/linkText&gt;</ept><bpt id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;title&gt;</bpt><ept id="b2cc01c0-84a5-4292-85e1-9529c4c28aca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd7450d8-2809-4cdd-89e7-4fccf49c6439" xml:space="preserve">
+          <source><bpt id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;linkText&gt;</bpt>Similarities between Active Directory and Azure Active Directory<ept id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;/linkText&gt;</ept><bpt id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;title&gt;</bpt><ept id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;linkText&gt;</bpt>Similarities between Active Directory and Azure Active Directory<ept id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;/linkText&gt;</ept><bpt id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;title&gt;</bpt><ept id="401b18b0-1b43-40d1-af49-6b6511dcda1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="227315cc-68d1-4cad-84ce-6751f4abec78" xml:space="preserve">
+          <source><bpt id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;linkText&gt;</bpt>Directory Sync with Single Sign-On Scenario<ept id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;/linkText&gt;</ept><bpt id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;title&gt;</bpt><ept id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;linkText&gt;</bpt>Directory Sync with Single Sign-On Scenario<ept id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;/linkText&gt;</ept><bpt id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;title&gt;</bpt><ept id="7b976209-6c2d-4e00-9023-827195f16ff7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="545f78a4-51b4-4066-83de-b651b0c62abf" xml:space="preserve">
+          <source><bpt id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;linkText&gt;</bpt>Azure Active Directory Supported Token and Claim Types<ept id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;/linkText&gt;</ept><bpt id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;title&gt;</bpt><ept id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;linkText&gt;</bpt>Azure Active Directory Supported Token and Claim Types<ept id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;/linkText&gt;</ept><bpt id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;title&gt;</bpt><ept id="68bd6afc-ec85-4972-a6b8-950e4d1632b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="433610a8-3423-49ac-8ec8-f10300fabd41" xml:space="preserve">
+          <source><bpt id="abe9afcd-1248-4118-b860-636a5822ecba">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="abe9afcd-1248-4118-b860-636a5822ecba">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="abe9afcd-1248-4118-b860-636a5822ecba">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="abe9afcd-1248-4118-b860-636a5822ecba">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cb5a016-a0ef-4f28-8141-76f88831bf69" xml:space="preserve">
+          <source><bpt id="8c1f1c9d-6346-4516-b3cd-f25b541fd1eb">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="8c1f1c9d-6346-4516-b3cd-f25b541fd1eb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8c1f1c9d-6346-4516-b3cd-f25b541fd1eb">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="8c1f1c9d-6346-4516-b3cd-f25b541fd1eb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

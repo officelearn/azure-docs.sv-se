@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d159073-b2fc-4132-9071-03c61c67b517" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d159073-b2fc-4132-9071-03c61c67b517" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e0ea5968-a899-438e-93cb-33781b529fa4">
+        <trans-unit id="0724acfa-f458-4195-a00c-15db4a49cb83" xml:space="preserve">
+          <source>&lt;properties writer="kathydav" editor="tysonn" manager="jeffreyg" /&gt; </source>
+          <target state="new">&lt;properties writer="kathydav" editor="tysonn" manager="jeffreyg" /&gt; </target>
+        </trans-unit>
+        <trans-unit id="e5a06bc6-4cb5-403e-81bd-e763cb671c23" xml:space="preserve">
+          <source><bpt id="206271c4-5eae-497d-b44c-8dc9b4ef541d">&lt;strong&gt;</bpt>Note<ept id="206271c4-5eae-497d-b44c-8dc9b4ef541d">&lt;/strong&gt;</ept>: This article creates a virtual machine that is not connected to a virtual network.</source>
+          <target state="new"><bpt id="206271c4-5eae-497d-b44c-8dc9b4ef541d">&lt;strong&gt;</bpt>Note<ept id="206271c4-5eae-497d-b44c-8dc9b4ef541d">&lt;/strong&gt;</ept>: This article creates a virtual machine that is not connected to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b9eb44f2-8f98-4494-a9a4-949338b46d60" xml:space="preserve">
+          <source>If you want your virtual machine to use a virtual network so you can connect to your virtual machines directly by hostname or set up
+cross-premises connections, use the <bpt id="695bea80-3ed3-4bb2-8d52-10a0221ce6eb">&lt;strong&gt;</bpt>From Gallery<ept id="695bea80-3ed3-4bb2-8d52-10a0221ce6eb">&lt;/strong&gt;</ept> method instead and specify the virtual network when you create the virtual machine.</source>
+          <target state="new">If you want your virtual machine to use a virtual network so you can connect to your virtual machines directly by hostname or set up
+cross-premises connections, use the <bpt id="695bea80-3ed3-4bb2-8d52-10a0221ce6eb">&lt;strong&gt;</bpt>From Gallery<ept id="695bea80-3ed3-4bb2-8d52-10a0221ce6eb">&lt;/strong&gt;</ept> method instead and specify the virtual network when you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="36d11709-d57d-4679-a4a5-e81e1c6e75d0" xml:space="preserve">
+          <source>For more information about virtual networks, see <bpt id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;/linkText&gt;</ept><bpt id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;title&gt;</bpt><ept id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about virtual networks, see <bpt id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;linkText&gt;</bpt>Azure Virtual Network Overview<ept id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;/linkText&gt;</ept><bpt id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;title&gt;</bpt><ept id="3896e71c-d9ae-49ea-a5cf-242ab88c6423">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="168ae56a-8397-49c3-ad8d-80cc4f8c01f5" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal using your Azure account.</source>
+          <target state="new">Sign in to the Azure Management Portal using your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="f068ce81-5ce9-42b8-85c1-310908cf833b" xml:space="preserve">
+          <source>In the Management Portal, at the bottom left of the web page, click <bpt id="4bca4686-040d-42f0-a506-38be881e2acc">&lt;strong&gt;</bpt>+New<ept id="4bca4686-040d-42f0-a506-38be881e2acc">&lt;/strong&gt;</ept>, click <bpt id="a0cb6615-4ac2-49ac-8733-6208efb7d4e0">&lt;strong&gt;</bpt>Virtual Machine<ept id="a0cb6615-4ac2-49ac-8733-6208efb7d4e0">&lt;/strong&gt;</ept>, and then click <bpt id="f4912af5-dfcd-4481-a705-a553f39f6793">&lt;strong&gt;</bpt>From Gallery<ept id="f4912af5-dfcd-4481-a705-a553f39f6793">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, at the bottom left of the web page, click <bpt id="4bca4686-040d-42f0-a506-38be881e2acc">&lt;strong&gt;</bpt>+New<ept id="4bca4686-040d-42f0-a506-38be881e2acc">&lt;/strong&gt;</ept>, click <bpt id="a0cb6615-4ac2-49ac-8733-6208efb7d4e0">&lt;strong&gt;</bpt>Virtual Machine<ept id="a0cb6615-4ac2-49ac-8733-6208efb7d4e0">&lt;/strong&gt;</ept>, and then click <bpt id="f4912af5-dfcd-4481-a705-a553f39f6793">&lt;strong&gt;</bpt>From Gallery<ept id="f4912af5-dfcd-4481-a705-a553f39f6793">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd9a9782-ff3f-4e0b-aed9-ca37cf4ff7a1" xml:space="preserve">
+          <source><bpt id="a9f8e0d8-f355-4f2e-95a8-4817559c8554">&lt;linkText&gt;</bpt>Create a New Virtual Machine<ept id="a9f8e0d8-f355-4f2e-95a8-4817559c8554">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9f8e0d8-f355-4f2e-95a8-4817559c8554">&lt;linkText&gt;</bpt>Create a New Virtual Machine<ept id="a9f8e0d8-f355-4f2e-95a8-4817559c8554">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e315749c-4974-4e3d-a7e0-c105a99c5a89" xml:space="preserve">
+          <source>Select a CentOS virtual machine image from <bpt id="0b2b394c-380f-427e-9869-76ec28e1a7aa">&lt;strong&gt;</bpt>Platform Images<ept id="0b2b394c-380f-427e-9869-76ec28e1a7aa">&lt;/strong&gt;</ept>, and then click the next arrow at the bottom right of the page.</source>
+          <target state="new">Select a CentOS virtual machine image from <bpt id="0b2b394c-380f-427e-9869-76ec28e1a7aa">&lt;strong&gt;</bpt>Platform Images<ept id="0b2b394c-380f-427e-9869-76ec28e1a7aa">&lt;/strong&gt;</ept>, and then click the next arrow at the bottom right of the page.</target>
+        </trans-unit>
+        <trans-unit id="a863f23d-da4f-474b-bdba-229f4022e00d" xml:space="preserve">
+          <source>On the <bpt id="6e4ac0e6-bf03-4e1d-889d-84ba005fd90f">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="6e4ac0e6-bf03-4e1d-889d-84ba005fd90f">&lt;/strong&gt;</ept> page, provide the following information:</source>
+          <target state="new">On the <bpt id="6e4ac0e6-bf03-4e1d-889d-84ba005fd90f">&lt;strong&gt;</bpt>Virtual machine configuration<ept id="6e4ac0e6-bf03-4e1d-889d-84ba005fd90f">&lt;/strong&gt;</ept> page, provide the following information:</target>
+        </trans-unit>
+        <trans-unit id="eb32e658-3217-4092-96ce-7f88b431842f" xml:space="preserve">
+          <source>Provide a <bpt id="f5f2a8e8-6f0c-4d8c-a046-a2ba9a01b3b7">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="f5f2a8e8-6f0c-4d8c-a046-a2ba9a01b3b7">&lt;/strong&gt;</ept>, such as "testlinuxvm".</source>
+          <target state="new">Provide a <bpt id="f5f2a8e8-6f0c-4d8c-a046-a2ba9a01b3b7">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="f5f2a8e8-6f0c-4d8c-a046-a2ba9a01b3b7">&lt;/strong&gt;</ept>, such as "testlinuxvm".</target>
+        </trans-unit>
+        <trans-unit id="cfa575bc-cc37-4304-9d9d-5dc80367e940" xml:space="preserve">
+          <source>Specify a <bpt id="20a9040a-4279-4bef-b070-3d1418e24381">&lt;strong&gt;</bpt>New User Name<ept id="20a9040a-4279-4bef-b070-3d1418e24381">&lt;/strong&gt;</ept>, such as "newuser", which will be added to the Sudoers list file.</source>
+          <target state="new">Specify a <bpt id="20a9040a-4279-4bef-b070-3d1418e24381">&lt;strong&gt;</bpt>New User Name<ept id="20a9040a-4279-4bef-b070-3d1418e24381">&lt;/strong&gt;</ept>, such as "newuser", which will be added to the Sudoers list file.</target>
+        </trans-unit>
+        <trans-unit id="14a2fe1e-2cae-43c0-97a8-6a6cf2129dbf" xml:space="preserve">
+          <source>In the <bpt id="4d24338c-6821-4f45-84b8-104d4b6895e1">&lt;strong&gt;</bpt>New Password<ept id="4d24338c-6821-4f45-84b8-104d4b6895e1">&lt;/strong&gt;</ept> box, type a <bpt id="66a38064-3803-4959-a5dc-932217802b14">&lt;linkText&gt;</bpt>strong password<ept id="66a38064-3803-4959-a5dc-932217802b14">&lt;/linkText&gt;</ept><bpt id="66a38064-3803-4959-a5dc-932217802b14">&lt;title&gt;</bpt><ept id="66a38064-3803-4959-a5dc-932217802b14">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4d24338c-6821-4f45-84b8-104d4b6895e1">&lt;strong&gt;</bpt>New Password<ept id="4d24338c-6821-4f45-84b8-104d4b6895e1">&lt;/strong&gt;</ept> box, type a <bpt id="66a38064-3803-4959-a5dc-932217802b14">&lt;linkText&gt;</bpt>strong password<ept id="66a38064-3803-4959-a5dc-932217802b14">&lt;/linkText&gt;</ept><bpt id="66a38064-3803-4959-a5dc-932217802b14">&lt;title&gt;</bpt><ept id="66a38064-3803-4959-a5dc-932217802b14">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b0f1367-7716-4f50-8bdb-c15fac1060ae" xml:space="preserve">
+          <source>In the <bpt id="5170628b-5c67-447a-83b7-42c75859e1d1">&lt;strong&gt;</bpt>Confirm Password<ept id="5170628b-5c67-447a-83b7-42c75859e1d1">&lt;/strong&gt;</ept> box, retype the password.</source>
+          <target state="new">In the <bpt id="5170628b-5c67-447a-83b7-42c75859e1d1">&lt;strong&gt;</bpt>Confirm Password<ept id="5170628b-5c67-447a-83b7-42c75859e1d1">&lt;/strong&gt;</ept> box, retype the password.</target>
+        </trans-unit>
+        <trans-unit id="79d527e7-e7c3-45af-bf7f-65698bfb874b" xml:space="preserve">
+          <source>Select the appropriate <bpt id="6bb8b086-e0d6-415b-9abe-7a4cc8543024">&lt;strong&gt;</bpt>Size<ept id="6bb8b086-e0d6-415b-9abe-7a4cc8543024">&lt;/strong&gt;</ept> from the drop down list.</source>
+          <target state="new">Select the appropriate <bpt id="6bb8b086-e0d6-415b-9abe-7a4cc8543024">&lt;strong&gt;</bpt>Size<ept id="6bb8b086-e0d6-415b-9abe-7a4cc8543024">&lt;/strong&gt;</ept> from the drop down list.</target>
+        </trans-unit>
+        <trans-unit id="f0623625-ae3a-40d0-a95a-1f3518ee1351" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="08c59b2f-3470-4cde-874e-77586e83cd9d" xml:space="preserve">
+          <source>On the <bpt id="8ee289be-0836-4df0-8326-41794947317f">&lt;strong&gt;</bpt>Virtual machine mode<ept id="8ee289be-0836-4df0-8326-41794947317f">&lt;/strong&gt;</ept> page, provide the following information:</source>
+          <target state="new">On the <bpt id="8ee289be-0836-4df0-8326-41794947317f">&lt;strong&gt;</bpt>Virtual machine mode<ept id="8ee289be-0836-4df0-8326-41794947317f">&lt;/strong&gt;</ept> page, provide the following information:</target>
+        </trans-unit>
+        <trans-unit id="6d3aec21-0ad4-40f3-8e09-ea3d099f57cf" xml:space="preserve">
+          <source>Select <bpt id="ff7185f5-2d7e-401d-a41a-8cb1093e4ff6">&lt;strong&gt;</bpt>Standalone Virtual Machine<ept id="ff7185f5-2d7e-401d-a41a-8cb1093e4ff6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="ff7185f5-2d7e-401d-a41a-8cb1093e4ff6">&lt;strong&gt;</bpt>Standalone Virtual Machine<ept id="ff7185f5-2d7e-401d-a41a-8cb1093e4ff6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd79a07a-311e-4414-a94b-c34cde0d6e8a" xml:space="preserve">
+          <source>In the <bpt id="29c41a33-9f8b-4b17-86de-d6bfdc9f14a7">&lt;strong&gt;</bpt>DNS Name<ept id="29c41a33-9f8b-4b17-86de-d6bfdc9f14a7">&lt;/strong&gt;</ept> box, type a valid DNS address.</source>
+          <target state="new">In the <bpt id="29c41a33-9f8b-4b17-86de-d6bfdc9f14a7">&lt;strong&gt;</bpt>DNS Name<ept id="29c41a33-9f8b-4b17-86de-d6bfdc9f14a7">&lt;/strong&gt;</ept> box, type a valid DNS address.</target>
+        </trans-unit>
+        <trans-unit id="a6c2b8a2-9cf7-431c-bbae-0eecc6ed6245" xml:space="preserve">
+          <source>For example,  "testlinuxvm"</source>
+          <target state="new">For example,  "testlinuxvm"</target>
+        </trans-unit>
+        <trans-unit id="7d6c09ec-61f7-4f89-b8f3-5eed88d016aa" xml:space="preserve">
+          <source>In the <bpt id="9f8ef68a-2202-4cca-a797-673ab8bf9598">&lt;strong&gt;</bpt>Storage Account<ept id="9f8ef68a-2202-4cca-a797-673ab8bf9598">&lt;/strong&gt;</ept> box, select <bpt id="ab581a18-aeef-4e7b-862d-926b02248b73">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="ab581a18-aeef-4e7b-862d-926b02248b73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9f8ef68a-2202-4cca-a797-673ab8bf9598">&lt;strong&gt;</bpt>Storage Account<ept id="9f8ef68a-2202-4cca-a797-673ab8bf9598">&lt;/strong&gt;</ept> box, select <bpt id="ab581a18-aeef-4e7b-862d-926b02248b73">&lt;strong&gt;</bpt>Use an automatically generated storage account<ept id="ab581a18-aeef-4e7b-862d-926b02248b73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94f2ece1-8aaa-4719-b1de-7b1c77b8fce1" xml:space="preserve">
+          <source>In the <bpt id="597de2dd-01af-4c33-a5aa-e1ae12759480">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="597de2dd-01af-4c33-a5aa-e1ae12759480">&lt;/strong&gt;</ept> box, select a region where this virtual image will be hosted.</source>
+          <target state="new">In the <bpt id="597de2dd-01af-4c33-a5aa-e1ae12759480">&lt;strong&gt;</bpt>Region/Affinity Group/Virtual Network<ept id="597de2dd-01af-4c33-a5aa-e1ae12759480">&lt;/strong&gt;</ept> box, select a region where this virtual image will be hosted.</target>
+        </trans-unit>
+        <trans-unit id="4c103d36-621e-47a9-a51c-1b52b1818ecf" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="af341053-81ae-4b40-af36-35f3d6f31cf0" xml:space="preserve">
+          <source>On the <bpt id="a84235b4-b714-4da2-a440-2800c48e51a0">&lt;strong&gt;</bpt>Virtual machine options<ept id="a84235b4-b714-4da2-a440-2800c48e51a0">&lt;/strong&gt;</ept> page, select <bpt id="64a86545-34a5-4c29-8967-8f6341047e41">&lt;strong&gt;</bpt>(none)<ept id="64a86545-34a5-4c29-8967-8f6341047e41">&lt;/strong&gt;</ept> in the <bpt id="7adf2075-576a-4dbb-a2f3-024f5293d7c7">&lt;strong&gt;</bpt>Availability Set<ept id="7adf2075-576a-4dbb-a2f3-024f5293d7c7">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">On the <bpt id="a84235b4-b714-4da2-a440-2800c48e51a0">&lt;strong&gt;</bpt>Virtual machine options<ept id="a84235b4-b714-4da2-a440-2800c48e51a0">&lt;/strong&gt;</ept> page, select <bpt id="64a86545-34a5-4c29-8967-8f6341047e41">&lt;strong&gt;</bpt>(none)<ept id="64a86545-34a5-4c29-8967-8f6341047e41">&lt;/strong&gt;</ept> in the <bpt id="7adf2075-576a-4dbb-a2f3-024f5293d7c7">&lt;strong&gt;</bpt>Availability Set<ept id="7adf2075-576a-4dbb-a2f3-024f5293d7c7">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="a17eadc7-8bcc-4c73-a1a7-57205fc81463" xml:space="preserve">
+          <source>Click the check mark to continue.</source>
+          <target state="new">Click the check mark to continue.</target>
+        </trans-unit>
+        <trans-unit id="08428633-e352-4091-9eff-01eb8042ac9f" xml:space="preserve">
+          <source>Wait while Azure prepares your virtual machine.</source>
+          <target state="new">Wait while Azure prepares your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="dbf6b56a-be5c-4e5f-9962-5a91dbfaf046" xml:space="preserve">
+          <source>After the virtual machine is created, configure endpoints in order to remotely connect.</source>
+          <target state="new">After the virtual machine is created, configure endpoints in order to remotely connect.</target>
+        </trans-unit>
+        <trans-unit id="f30475e7-a8e5-4a19-b190-3c6b7fb0ecfa" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="625f8ad6-3580-4540-80f6-fa18d04e02fa">&lt;strong&gt;</bpt>Virtual Machines<ept id="625f8ad6-3580-4540-80f6-fa18d04e02fa">&lt;/strong&gt;</ept>, click the name of your new virtual machine, then click <bpt id="bfb4ddd6-763e-4e5b-90cf-65135bd1f38c">&lt;strong&gt;</bpt>Endpoints<ept id="bfb4ddd6-763e-4e5b-90cf-65135bd1f38c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Management Portal, click <bpt id="625f8ad6-3580-4540-80f6-fa18d04e02fa">&lt;strong&gt;</bpt>Virtual Machines<ept id="625f8ad6-3580-4540-80f6-fa18d04e02fa">&lt;/strong&gt;</ept>, click the name of your new virtual machine, then click <bpt id="bfb4ddd6-763e-4e5b-90cf-65135bd1f38c">&lt;strong&gt;</bpt>Endpoints<ept id="bfb4ddd6-763e-4e5b-90cf-65135bd1f38c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d78266e2-6c3e-4b37-892b-b529915e872c" xml:space="preserve">
+          <source>Click <bpt id="ce683488-25c2-4229-a4f3-7dc20f65f9b3">&lt;strong&gt;</bpt>Edit Endpoint<ept id="ce683488-25c2-4229-a4f3-7dc20f65f9b3">&lt;/strong&gt;</ept> at the bottom of the page, and edit the SSH endpoint so that its <bpt id="1f04e661-ff59-46ab-b9f4-49e03382f7ff">&lt;strong&gt;</bpt>Public Port<ept id="1f04e661-ff59-46ab-b9f4-49e03382f7ff">&lt;/strong&gt;</ept> is 22.</source>
+          <target state="new">Click <bpt id="ce683488-25c2-4229-a4f3-7dc20f65f9b3">&lt;strong&gt;</bpt>Edit Endpoint<ept id="ce683488-25c2-4229-a4f3-7dc20f65f9b3">&lt;/strong&gt;</ept> at the bottom of the page, and edit the SSH endpoint so that its <bpt id="1f04e661-ff59-46ab-b9f4-49e03382f7ff">&lt;strong&gt;</bpt>Public Port<ept id="1f04e661-ff59-46ab-b9f4-49e03382f7ff">&lt;/strong&gt;</ept> is 22.</target>
+        </trans-unit>
+        <trans-unit id="25ecf253-6cc0-4f84-82e3-73f2f3c5c8fe" xml:space="preserve">
+          <source>When the virtual machine has been provisioned and the endpoints configured you can connect to it using SSH or PuTTY.</source>
+          <target state="new">When the virtual machine has been provisioned and the endpoints configured you can connect to it using SSH or PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="7652fa4a-ae2f-43bc-ad4f-9bbe00bdac8f" xml:space="preserve">
+          <source>If you are using Linux, connect to the virtual machine using SSH.</source>
+          <target state="new">If you are using Linux, connect to the virtual machine using SSH.</target>
+        </trans-unit>
+        <trans-unit id="7a6bcf00-af70-4ce5-b568-af24a1e705d0" xml:space="preserve">
+          <source>At the command prompt, run:</source>
+          <target state="new">At the command prompt, run:</target>
+        </trans-unit>
+        <trans-unit id="f8b713ac-6c6e-4dc7-81f2-639109c5e9f9" xml:space="preserve">
+          <source>Enter the user's password.</source>
+          <target state="new">Enter the user's password.</target>
+        </trans-unit>
+        <trans-unit id="4220d73b-25f3-4aee-be46-6243e95081cc" xml:space="preserve">
+          <source>If you are using a Windows computer, connect to the VM using PuTTY.</source>
+          <target state="new">If you are using a Windows computer, connect to the VM using PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="cbff2a51-63c1-43e7-acf1-5b0383cd5dea" xml:space="preserve">
+          <source>PuTTY can be downloaded from the <bpt id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;linkText&gt;</bpt>PuTTY Download Page[puttydownload]<ept id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;/linkText&gt;</ept><bpt id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;title&gt;</bpt><ept id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;/title&gt;</ept>.</source>
+          <target state="new">PuTTY can be downloaded from the <bpt id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;linkText&gt;</bpt>PuTTY Download Page[puttydownload]<ept id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;/linkText&gt;</ept><bpt id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;title&gt;</bpt><ept id="62115f79-6506-4f6f-bdb8-8ad66ced3908">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29eb435e-b888-4bd8-9e70-326c45fab295" xml:space="preserve">
+          <source>Download and save <bpt id="44285072-f706-42ca-8782-9dd375383195">&lt;strong&gt;</bpt>putty.exe<ept id="44285072-f706-42ca-8782-9dd375383195">&lt;/strong&gt;</ept> to a directory on your computer.</source>
+          <target state="new">Download and save <bpt id="44285072-f706-42ca-8782-9dd375383195">&lt;strong&gt;</bpt>putty.exe<ept id="44285072-f706-42ca-8782-9dd375383195">&lt;/strong&gt;</ept> to a directory on your computer.</target>
+        </trans-unit>
+        <trans-unit id="69a755d3-d5b1-40d0-bc7e-d16edc608fb1" xml:space="preserve">
+          <source>Open a command prompt, navigate to that folder, and execute <bpt id="6bdb5b54-677d-470d-861c-689cb8ccd44d">&lt;strong&gt;</bpt>putty.exe<ept id="6bdb5b54-677d-470d-861c-689cb8ccd44d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open a command prompt, navigate to that folder, and execute <bpt id="6bdb5b54-677d-470d-861c-689cb8ccd44d">&lt;strong&gt;</bpt>putty.exe<ept id="6bdb5b54-677d-470d-861c-689cb8ccd44d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a920bd48-4536-464b-8138-863f3379f6ee" xml:space="preserve">
+          <source>Enter "testlinuxvm.cloudapp.net" for the <bpt id="140fcbef-59e8-40d9-8e52-c67a4101e94f">&lt;strong&gt;</bpt>Host Name<ept id="140fcbef-59e8-40d9-8e52-c67a4101e94f">&lt;/strong&gt;</ept> and "22" for the <bpt id="68214a16-bc01-4713-9c40-40506f76ca3b">&lt;strong&gt;</bpt>Port<ept id="68214a16-bc01-4713-9c40-40506f76ca3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter "testlinuxvm.cloudapp.net" for the <bpt id="140fcbef-59e8-40d9-8e52-c67a4101e94f">&lt;strong&gt;</bpt>Host Name<ept id="140fcbef-59e8-40d9-8e52-c67a4101e94f">&lt;/strong&gt;</ept> and "22" for the <bpt id="68214a16-bc01-4713-9c40-40506f76ca3b">&lt;strong&gt;</bpt>Port<ept id="68214a16-bc01-4713-9c40-40506f76ca3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b89ed470-7e4c-430a-ae3f-01952f3fffd2" xml:space="preserve">
+          <source><bpt id="19714b72-bcf3-4fe0-980a-e424353dc36d">&lt;linkText&gt;</bpt>PuTTY Screen<ept id="19714b72-bcf3-4fe0-980a-e424353dc36d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19714b72-bcf3-4fe0-980a-e424353dc36d">&lt;linkText&gt;</bpt>PuTTY Screen<ept id="19714b72-bcf3-4fe0-980a-e424353dc36d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7dae5070-a8c4-411d-884e-55d4eede4c33" xml:space="preserve">
+          <source>Once you've connected to the virtual machine, you can optionally install updates.</source>
+          <target state="new">Once you've connected to the virtual machine, you can optionally install updates.</target>
+        </trans-unit>
+        <trans-unit id="3b16b9a1-2cf6-42f7-99b4-171ab639fe5a" xml:space="preserve">
+          <source>Run:</source>
+          <target state="new">Run:</target>
+        </trans-unit>
+        <trans-unit id="9229a034-1a03-48de-8e68-034d7bd29972" xml:space="preserve">
+          <source>Enter the password again.</source>
+          <target state="new">Enter the password again.</target>
+        </trans-unit>
+        <trans-unit id="0a17d644-6d91-4e4d-ad8b-7c51c21b8e54" xml:space="preserve">
+          <source>Wait while updates install.</source>
+          <target state="new">Wait while updates install.</target>
+        </trans-unit>
+        <trans-unit id="146dd18b-b9ab-4b7e-9937-4108fc2a7cd9" xml:space="preserve">
+          <source>http://www.puttyssh.org/download.html</source>
+          <target state="new">http://www.puttyssh.org/download.html</target>
+        </trans-unit>
+        <trans-unit id="019c4c5e-8f29-40f6-a973-0951189b9429" xml:space="preserve">
+          <source>./media/create-and-configure-centos-vm-in-portal/CreateVM.png</source>
+          <target state="new">./media/create-and-configure-centos-vm-in-portal/CreateVM.png</target>
+        </trans-unit>
+        <trans-unit id="f4b66544-acbf-4769-9796-70caddac43ad" xml:space="preserve">
+          <source>./media/create-and-configure-centos-vm-in-portal/putty.png</source>
+          <target state="new">./media/create-and-configure-centos-vm-in-portal/putty.png</target>
+        </trans-unit>
+      </group>
+      <group id="b1ac6870-dc7d-4882-a713-02ec3355e6b4" />
+    </body>
+  </file>
+</xliff>

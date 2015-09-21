@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e461d12f-2985-4001-8bbc-6a6ac011c3e1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e461d12f-2985-4001-8bbc-6a6ac011c3e1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2685f5db-f9ad-449a-a6b0-87bfe5346ecf">
+        <trans-unit id="f889e0ba-c9a4-4c15-b207-02741ba726fc" xml:space="preserve">
+          <source>Exploring Metrics in Application Insights</source>
+          <target state="new">Exploring Metrics in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="0158af7f-9d24-4291-aa7f-6e372b9182ee" xml:space="preserve">
+          <source>Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.</source>
+          <target state="new">Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="f3188180-c322-432d-b222-1a9676e5d875" xml:space="preserve">
+          <source>Metrics in <bpt id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;linkText&gt;</bpt>Application Insights[start]<ept id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;/linkText&gt;</ept><bpt id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;title&gt;</bpt><ept id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;/title&gt;</ept> are measured values and counts of events that are sent in telemetry from your application.</source>
+          <target state="new">Metrics in <bpt id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;linkText&gt;</bpt>Application Insights[start]<ept id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;/linkText&gt;</ept><bpt id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;title&gt;</bpt><ept id="a8fa16a4-1a66-4f3b-b9a3-a82ba222aa84">&lt;/title&gt;</ept> are measured values and counts of events that are sent in telemetry from your application.</target>
+        </trans-unit>
+        <trans-unit id="e4932489-0ffd-48aa-9ef2-5f6f4ebe51a9" xml:space="preserve">
+          <source>They help you detect performance issues and watch trends in how your application is being used.</source>
+          <target state="new">They help you detect performance issues and watch trends in how your application is being used.</target>
+        </trans-unit>
+        <trans-unit id="3b622854-72d5-4181-b4c7-67cb2246e008" xml:space="preserve">
+          <source>There's a wide range of standard metrics, and you can also create your own custom metrics and events.</source>
+          <target state="new">There's a wide range of standard metrics, and you can also create your own custom metrics and events.</target>
+        </trans-unit>
+        <trans-unit id="c8bde21c-ece5-4c7e-9825-f353b3d9f646" xml:space="preserve">
+          <source>Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.</source>
+          <target state="new">Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.</target>
+        </trans-unit>
+        <trans-unit id="db76a012-a4a9-45cc-b3fc-2f650abdec9e" xml:space="preserve">
+          <source>Here's a sample chart:</source>
+          <target state="new">Here's a sample chart:</target>
+        </trans-unit>
+        <trans-unit id="7461fcfb-4f3f-4d46-ae32-247ed4d43368" xml:space="preserve">
+          <source><bpt id="45e115d2-6470-416d-b1f1-a52d417ea6d9">&lt;linkText&gt;</bpt>Open the overview blade of your application in the Azure portal<ept id="45e115d2-6470-416d-b1f1-a52d417ea6d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45e115d2-6470-416d-b1f1-a52d417ea6d9">&lt;linkText&gt;</bpt>Open the overview blade of your application in the Azure portal<ept id="45e115d2-6470-416d-b1f1-a52d417ea6d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d835abd1-5ca3-4e69-b227-314138eaa8d9" xml:space="preserve">
+          <source>Some charts are segmented: the total height of the chart at any point is the sum of the metrics displayed.</source>
+          <target state="new">Some charts are segmented: the total height of the chart at any point is the sum of the metrics displayed.</target>
+        </trans-unit>
+        <trans-unit id="c084767e-d5b0-4707-828d-70e7e125b48c" xml:space="preserve">
+          <source>The legend by default shows the largest quantities.</source>
+          <target state="new">The legend by default shows the largest quantities.</target>
+        </trans-unit>
+        <trans-unit id="98bce6bc-f8f4-46e1-9b34-96b21d6284c8" xml:space="preserve">
+          <source>Dotted lines show the value of the metric one week previously.</source>
+          <target state="new">Dotted lines show the value of the metric one week previously.</target>
+        </trans-unit>
+        <trans-unit id="3ddaf002-c56d-4cf3-a9ce-d6a5f4a5ee4a" xml:space="preserve">
+          <source>You can change the Time range covered by the charts or grids on any blade.</source>
+          <target state="new">You can change the Time range covered by the charts or grids on any blade.</target>
+        </trans-unit>
+        <trans-unit id="71b53c92-83e9-4b9f-bc90-8ee65646d0cc" xml:space="preserve">
+          <source><bpt id="26d5cadf-35aa-457b-9c8a-5457c9784b82">&lt;linkText&gt;</bpt>Open the overview blade of your application in the Azure portal<ept id="26d5cadf-35aa-457b-9c8a-5457c9784b82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26d5cadf-35aa-457b-9c8a-5457c9784b82">&lt;linkText&gt;</bpt>Open the overview blade of your application in the Azure portal<ept id="26d5cadf-35aa-457b-9c8a-5457c9784b82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f794b33f-bd1f-4e46-8710-a13b524934f9" xml:space="preserve">
+          <source>If you're expecting some data that hasn't appeared yet, click Refresh.</source>
+          <target state="new">If you're expecting some data that hasn't appeared yet, click Refresh.</target>
+        </trans-unit>
+        <trans-unit id="be399f53-be6e-44d1-a018-59adf602bc61" xml:space="preserve">
+          <source>Charts refresh themselves at intervals, but the intervals are longer for larger time ranges.</source>
+          <target state="new">Charts refresh themselves at intervals, but the intervals are longer for larger time ranges.</target>
+        </trans-unit>
+        <trans-unit id="648d68c2-ac07-484f-baa9-8c970ca0c436" xml:space="preserve">
+          <source>In release mode, it can take a while for data to come through the analysis pipeline onto a chart.</source>
+          <target state="new">In release mode, it can take a while for data to come through the analysis pipeline onto a chart.</target>
+        </trans-unit>
+        <trans-unit id="d44ab7bf-2035-4592-8cd9-d3747041bece" xml:space="preserve">
+          <source>To zoom into part of a chart, drag over it and then click the magnifier symbol:</source>
+          <target state="new">To zoom into part of a chart, drag over it and then click the magnifier symbol:</target>
+        </trans-unit>
+        <trans-unit id="bb0d341a-e32e-4a04-a4cb-9f46686b8f58" xml:space="preserve">
+          <source><bpt id="f906a920-407b-4cf7-a465-f931774dcf92">&lt;linkText&gt;</bpt>Drag across part of a chart.<ept id="f906a920-407b-4cf7-a465-f931774dcf92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f906a920-407b-4cf7-a465-f931774dcf92">&lt;linkText&gt;</bpt>Drag across part of a chart.<ept id="f906a920-407b-4cf7-a465-f931774dcf92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="770c4fdf-2965-47ba-af2b-15b7b1a9ff93" xml:space="preserve">
+          <source>Hover your mouse over the chart to display the values of the metrics at that point.</source>
+          <target state="new">Hover your mouse over the chart to display the values of the metrics at that point.</target>
+        </trans-unit>
+        <trans-unit id="8caa94f9-afe4-4fab-b40e-6178a101a842" xml:space="preserve">
+          <source><bpt id="545faade-65cb-4d8a-9cac-632cad27a989">&lt;linkText&gt;</bpt>Hover the mouse over a chart<ept id="545faade-65cb-4d8a-9cac-632cad27a989">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="545faade-65cb-4d8a-9cac-632cad27a989">&lt;linkText&gt;</bpt>Hover the mouse over a chart<ept id="545faade-65cb-4d8a-9cac-632cad27a989">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5750ee6f-1cac-4f1b-8bd4-69276824d469" xml:space="preserve">
+          <source>The value of the metric at a particular point is aggregated over the preceding sampling interval.</source>
+          <target state="new">The value of the metric at a particular point is aggregated over the preceding sampling interval.</target>
+        </trans-unit>
+        <trans-unit id="4a206477-1559-47b9-965d-d8873c754d15" xml:space="preserve">
+          <source>The sampling interval or "granularity" is shown at the top of the blade.</source>
+          <target state="new">The sampling interval or "granularity" is shown at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="fa50f41d-8375-4040-b35d-096293024746" xml:space="preserve">
+          <source><bpt id="05ece512-8407-4cf5-8077-21ed062dce8d">&lt;linkText&gt;</bpt>The header of a blade.<ept id="05ece512-8407-4cf5-8077-21ed062dce8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05ece512-8407-4cf5-8077-21ed062dce8d">&lt;linkText&gt;</bpt>The header of a blade.<ept id="05ece512-8407-4cf5-8077-21ed062dce8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="690eaae0-946f-482a-80e1-a7cf559a0a74" xml:space="preserve">
+          <source>You can adjust the granularity in the Time range blade:</source>
+          <target state="new">You can adjust the granularity in the Time range blade:</target>
+        </trans-unit>
+        <trans-unit id="d03abf27-5804-43a5-b70a-cfe6031171f7" xml:space="preserve">
+          <source><bpt id="583d37fb-0f5a-4f42-ab01-889f92178210">&lt;linkText&gt;</bpt>The header of a blade.<ept id="583d37fb-0f5a-4f42-ab01-889f92178210">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="583d37fb-0f5a-4f42-ab01-889f92178210">&lt;linkText&gt;</bpt>The header of a blade.<ept id="583d37fb-0f5a-4f42-ab01-889f92178210">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e8bc5f8-17bb-431d-9f13-2cba6d6a3004" xml:space="preserve">
+          <source>The granularities available depend on the time range you select.</source>
+          <target state="new">The granularities available depend on the time range you select.</target>
+        </trans-unit>
+        <trans-unit id="e9161056-c2e9-4adc-9923-831537be087c" xml:space="preserve">
+          <source>The explicit granularities are alternatives to the "automatic" granularity for the time range.</source>
+          <target state="new">The explicit granularities are alternatives to the "automatic" granularity for the time range.</target>
+        </trans-unit>
+        <trans-unit id="e0ee1d87-33da-49ce-b8ca-7069cf232cef" xml:space="preserve">
+          <source>Click through any chart on the overview blade to see a more detailed set of related charts and grids.</source>
+          <target state="new">Click through any chart on the overview blade to see a more detailed set of related charts and grids.</target>
+        </trans-unit>
+        <trans-unit id="59cfd54f-5c40-4113-8105-1779c905ecc9" xml:space="preserve">
+          <source>You can edit these charts and grids to focus on the details you're interested in.</source>
+          <target state="new">You can edit these charts and grids to focus on the details you're interested in.</target>
+        </trans-unit>
+        <trans-unit id="9eafcd87-6559-4f9f-8ba0-94dcb8e05485" xml:space="preserve">
+          <source>For example, click through the web app's Failed Requests chart:</source>
+          <target state="new">For example, click through the web app's Failed Requests chart:</target>
+        </trans-unit>
+        <trans-unit id="4927996b-77e9-465c-b260-6058a0434bec" xml:space="preserve">
+          <source><bpt id="4fe23893-35e3-4c63-a08a-cc344ad1ea81">&lt;linkText&gt;</bpt>On the overview blade, click a chart<ept id="4fe23893-35e3-4c63-a08a-cc344ad1ea81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4fe23893-35e3-4c63-a08a-cc344ad1ea81">&lt;linkText&gt;</bpt>On the overview blade, click a chart<ept id="4fe23893-35e3-4c63-a08a-cc344ad1ea81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a06c184a-d0a1-4077-b7a1-4b0d1872257a" xml:space="preserve">
+          <source>The legend at the side by default shows the aggregated value over the period of the chart.</source>
+          <target state="new">The legend at the side by default shows the aggregated value over the period of the chart.</target>
+        </trans-unit>
+        <trans-unit id="ec1513fd-3c10-4aab-95f4-8282b742091c" xml:space="preserve">
+          <source>Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "granularity".</source>
+          <target state="new">Each data point on the chart is also an aggregate of the data values received in the preceding sampling interval or "granularity".</target>
+        </trans-unit>
+        <trans-unit id="6e9f7eed-a08c-4f76-90a7-866460651936" xml:space="preserve">
+          <source>The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.</source>
+          <target state="new">The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.</target>
+        </trans-unit>
+        <trans-unit id="9dac0483-098c-4dd3-820e-c2f3e8d0a4cf" xml:space="preserve">
+          <source>Different metrics are aggregated in different ways: </source>
+          <target state="new">Different metrics are aggregated in different ways: </target>
+        </trans-unit>
+        <trans-unit id="a767acef-3018-4540-a3f0-3f8a4d383f4b" xml:space="preserve">
+          <source>For a metric such as response time, values are <bpt id="c11ed304-cdae-439c-b3f6-118211ce69da">&lt;strong&gt;</bpt>averaged<ept id="c11ed304-cdae-439c-b3f6-118211ce69da">&lt;/strong&gt;</ept> over the period of the chart.</source>
+          <target state="new">For a metric such as response time, values are <bpt id="c11ed304-cdae-439c-b3f6-118211ce69da">&lt;strong&gt;</bpt>averaged<ept id="c11ed304-cdae-439c-b3f6-118211ce69da">&lt;/strong&gt;</ept> over the period of the chart.</target>
+        </trans-unit>
+        <trans-unit id="997e58a8-e1dc-4494-809f-88e2977075b0" xml:space="preserve">
+          <source>For counts of events such as failed requests, the aggregate is the <bpt id="6e9ab249-78f2-4fe0-8ddd-66198b276266">&lt;strong&gt;</bpt>sum<ept id="6e9ab249-78f2-4fe0-8ddd-66198b276266">&lt;/strong&gt;</ept> of counts over the period.</source>
+          <target state="new">For counts of events such as failed requests, the aggregate is the <bpt id="6e9ab249-78f2-4fe0-8ddd-66198b276266">&lt;strong&gt;</bpt>sum<ept id="6e9ab249-78f2-4fe0-8ddd-66198b276266">&lt;/strong&gt;</ept> of counts over the period.</target>
+        </trans-unit>
+        <trans-unit id="3daa875e-4a01-4bb5-b929-a28b9174812e" xml:space="preserve">
+          <source>For counts of users, the aggregate is the number of <bpt id="33b0a558-3412-4047-8fc6-b86852e557a6">&lt;strong&gt;</bpt>unique<ept id="33b0a558-3412-4047-8fc6-b86852e557a6">&lt;/strong&gt;</ept> users over the period.</source>
+          <target state="new">For counts of users, the aggregate is the number of <bpt id="33b0a558-3412-4047-8fc6-b86852e557a6">&lt;strong&gt;</bpt>unique<ept id="33b0a558-3412-4047-8fc6-b86852e557a6">&lt;/strong&gt;</ept> users over the period.</target>
+        </trans-unit>
+        <trans-unit id="3dc5ab22-a257-4a4c-b085-3530169f9959" xml:space="preserve">
+          <source>(If a user is tracked more than once in the period, they are counted only once.)</source>
+          <target state="new">(If a user is tracked more than once in the period, they are counted only once.)</target>
+        </trans-unit>
+        <trans-unit id="f1c5b2b5-e496-4b52-b8e3-8f3db1c30586" xml:space="preserve">
+          <source>To find out whether the value is a sum, average, or unique click the chart and scroll down to the selected value.</source>
+          <target state="new">To find out whether the value is a sum, average, or unique click the chart and scroll down to the selected value.</target>
+        </trans-unit>
+        <trans-unit id="aa96f0e8-3645-4949-9279-83e4b3cea59d" xml:space="preserve">
+          <source>You can also get a short description of the metric.</source>
+          <target state="new">You can also get a short description of the metric.</target>
+        </trans-unit>
+        <trans-unit id="afc64504-870f-47ff-8bde-0f58cebce504" xml:space="preserve">
+          <source><bpt id="d90af5e0-8e4d-44d6-80af-fa84b7a29c81">&lt;linkText&gt;</bpt>Hover over (i)<ept id="d90af5e0-8e4d-44d6-80af-fa84b7a29c81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d90af5e0-8e4d-44d6-80af-fa84b7a29c81">&lt;linkText&gt;</bpt>Hover over (i)<ept id="d90af5e0-8e4d-44d6-80af-fa84b7a29c81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="214eb2e1-3dff-49c0-9768-4607ddd253d8" xml:space="preserve">
+          <source>To add a new chart to the blade:</source>
+          <target state="new">To add a new chart to the blade:</target>
+        </trans-unit>
+        <trans-unit id="deff14d9-ce2d-4f63-8da7-8c06e4a46eaa" xml:space="preserve">
+          <source><bpt id="b77b43a8-22d2-4d77-b6f0-4bcb370db859">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Add Chart<ept id="b77b43a8-22d2-4d77-b6f0-4bcb370db859">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b77b43a8-22d2-4d77-b6f0-4bcb370db859">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Add Chart<ept id="b77b43a8-22d2-4d77-b6f0-4bcb370db859">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42009d9a-d842-47b6-a7e3-3c26339b0f83" xml:space="preserve">
+          <source>Select an existing or new chart to edit what it shows:</source>
+          <target state="new">Select an existing or new chart to edit what it shows:</target>
+        </trans-unit>
+        <trans-unit id="480dfc97-46b5-4021-a2a7-729da2b503f5" xml:space="preserve">
+          <source><bpt id="ed9f5428-f24d-45be-ad30-636629744162">&lt;linkText&gt;</bpt>Select one or more metrics<ept id="ed9f5428-f24d-45be-ad30-636629744162">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed9f5428-f24d-45be-ad30-636629744162">&lt;linkText&gt;</bpt>Select one or more metrics<ept id="ed9f5428-f24d-45be-ad30-636629744162">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="340b3210-bb95-40e7-a84f-2cf046559df8" xml:space="preserve">
+          <source>You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together.</source>
+          <target state="new">You can display more than one metric on a chart, though there are restrictions about the combinations that can be displayed together.</target>
+        </trans-unit>
+        <trans-unit id="bbbb06c6-f5aa-4f16-af83-11b98bd501d7" xml:space="preserve">
+          <source>As soon as you choose one metric, some of the others are disabled.</source>
+          <target state="new">As soon as you choose one metric, some of the others are disabled.</target>
+        </trans-unit>
+        <trans-unit id="65d0f145-ea69-4997-9693-52302678402b" xml:space="preserve">
+          <source>If you coded <bpt id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;linkText&gt;</bpt>custom metrics[track]<ept id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;/linkText&gt;</ept><bpt id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;title&gt;</bpt><ept id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;/title&gt;</ept> into your app (calls to TrackMetric and TrackEvent) they will be listed here.</source>
+          <target state="new">If you coded <bpt id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;linkText&gt;</bpt>custom metrics[track]<ept id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;/linkText&gt;</ept><bpt id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;title&gt;</bpt><ept id="1eb8a90a-1879-45a7-90c9-f4279905a2b6">&lt;/title&gt;</ept> into your app (calls to TrackMetric and TrackEvent) they will be listed here.</target>
+        </trans-unit>
+        <trans-unit id="8523766e-7539-4c16-a1e4-ee2e78ce595e" xml:space="preserve">
+          <source>Select a chart or grid, switch on grouping and pick a property to group by:</source>
+          <target state="new">Select a chart or grid, switch on grouping and pick a property to group by:</target>
+        </trans-unit>
+        <trans-unit id="0b085e8e-3f96-4ad9-8059-9695ce078c21" xml:space="preserve">
+          <source><bpt id="3958c06a-50c1-4db2-a7bc-b2458f86ab6f">&lt;linkText&gt;</bpt>Select Grouping On, then set select a property in Group By<ept id="3958c06a-50c1-4db2-a7bc-b2458f86ab6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3958c06a-50c1-4db2-a7bc-b2458f86ab6f">&lt;linkText&gt;</bpt>Select Grouping On, then set select a property in Group By<ept id="3958c06a-50c1-4db2-a7bc-b2458f86ab6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12808a0f-e5dc-4338-b852-76958af0654d" xml:space="preserve">
+          <source>If you coded <bpt id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;linkText&gt;</bpt>custom metrics[track]<ept id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;/linkText&gt;</ept><bpt id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;title&gt;</bpt><ept id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;/title&gt;</ept> into your app and they include property values, you'll be able to select the property in the list.</source>
+          <target state="new">If you coded <bpt id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;linkText&gt;</bpt>custom metrics[track]<ept id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;/linkText&gt;</ept><bpt id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;title&gt;</bpt><ept id="b4c1595b-8bf1-4e16-aae7-3458ee6dca70">&lt;/title&gt;</ept> into your app and they include property values, you'll be able to select the property in the list.</target>
+        </trans-unit>
+        <trans-unit id="01c726bb-2440-494c-af31-e7ea27e7c61b" xml:space="preserve">
+          <source>Is the chart too small for segmented data?</source>
+          <target state="new">Is the chart too small for segmented data?</target>
+        </trans-unit>
+        <trans-unit id="29647998-9a80-4383-8cc9-bc964cf4c470" xml:space="preserve">
+          <source>Adjust its height:</source>
+          <target state="new">Adjust its height:</target>
+        </trans-unit>
+        <trans-unit id="35818183-985e-4679-b087-a8e2c5fd4089" xml:space="preserve">
+          <source><bpt id="baf2f957-92b2-4e38-8cad-09289db489ed">&lt;linkText&gt;</bpt>Adjust the slider<ept id="baf2f957-92b2-4e38-8cad-09289db489ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="baf2f957-92b2-4e38-8cad-09289db489ed">&lt;linkText&gt;</bpt>Adjust the slider<ept id="baf2f957-92b2-4e38-8cad-09289db489ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8231d207-bfb3-4946-b82e-dc2ba1c5d218" xml:space="preserve">
+          <source>To see just the metrics for a selected set of property values:</source>
+          <target state="new">To see just the metrics for a selected set of property values:</target>
+        </trans-unit>
+        <trans-unit id="79d6df88-5c05-4588-b0cd-b20ebd3b1709" xml:space="preserve">
+          <source><bpt id="907114ca-fe3b-4bce-8e2d-7fd0c3c5d045">&lt;linkText&gt;</bpt>Click Filter, expand a property, and check some values<ept id="907114ca-fe3b-4bce-8e2d-7fd0c3c5d045">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="907114ca-fe3b-4bce-8e2d-7fd0c3c5d045">&lt;linkText&gt;</bpt>Click Filter, expand a property, and check some values<ept id="907114ca-fe3b-4bce-8e2d-7fd0c3c5d045">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5acbd612-2e8f-4768-8405-49ba63d7d4ac" xml:space="preserve">
+          <source>If you don't select any values for a particular property, it's the same as selecting them all: there is no filter on that property.</source>
+          <target state="new">If you don't select any values for a particular property, it's the same as selecting them all: there is no filter on that property.</target>
+        </trans-unit>
+        <trans-unit id="e483d199-f76a-4b94-abfa-694c824d9da5" xml:space="preserve">
+          <source>Notice the counts of events alongside each property value.</source>
+          <target state="new">Notice the counts of events alongside each property value.</target>
+        </trans-unit>
+        <trans-unit id="ec7aafc7-e06e-4747-9ee4-3ef6e72ffe9b" xml:space="preserve">
+          <source>When you select values of one property, the counts alongside other property values are adjusted.</source>
+          <target state="new">When you select values of one property, the counts alongside other property values are adjusted.</target>
+        </trans-unit>
+        <trans-unit id="5ea98275-8068-4936-ae14-074d99c8a113" xml:space="preserve">
+          <source>Use the filter <bpt id="75e3381f-3beb-44ab-8d0e-7b24b6e4d89b">&lt;strong&gt;</bpt>Real or synthetic traffic<ept id="75e3381f-3beb-44ab-8d0e-7b24b6e4d89b">&lt;/strong&gt;</ept> and check <bpt id="25899c44-99d8-4aa3-a02a-754ee4640d3f">&lt;strong&gt;</bpt>Real<ept id="25899c44-99d8-4aa3-a02a-754ee4640d3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the filter <bpt id="75e3381f-3beb-44ab-8d0e-7b24b6e4d89b">&lt;strong&gt;</bpt>Real or synthetic traffic<ept id="75e3381f-3beb-44ab-8d0e-7b24b6e4d89b">&lt;/strong&gt;</ept> and check <bpt id="25899c44-99d8-4aa3-a02a-754ee4640d3f">&lt;strong&gt;</bpt>Real<ept id="25899c44-99d8-4aa3-a02a-754ee4640d3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37989f45-f0c1-41fd-93d6-3a7391648243" xml:space="preserve">
+          <source>You can also filter by <bpt id="29693ebc-daea-4fb1-ae76-b2015625a9e7">&lt;strong&gt;</bpt>Source of synthetic traffic<ept id="29693ebc-daea-4fb1-ae76-b2015625a9e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also filter by <bpt id="29693ebc-daea-4fb1-ae76-b2015625a9e7">&lt;strong&gt;</bpt>Source of synthetic traffic<ept id="29693ebc-daea-4fb1-ae76-b2015625a9e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef2bb381-8ebc-4e98-aa84-762be8645e85" xml:space="preserve">
+          <source>In particular, notice that you can switch between grids and graphs:</source>
+          <target state="new">In particular, notice that you can switch between grids and graphs:</target>
+        </trans-unit>
+        <trans-unit id="d7204ad2-7a83-4c61-a28e-9a6f655ee17a" xml:space="preserve">
+          <source><bpt id="78441224-703b-4aa0-86a5-0397943420d3">&lt;linkText&gt;</bpt>Select a grid or graph, then choose a chart type<ept id="78441224-703b-4aa0-86a5-0397943420d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78441224-703b-4aa0-86a5-0397943420d3">&lt;linkText&gt;</bpt>Select a grid or graph, then choose a chart type<ept id="78441224-703b-4aa0-86a5-0397943420d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebcc9e4c-6f6e-4137-9959-cd80ef69e573" xml:space="preserve">
+          <source>When you've created some charts, save them as a favorite.</source>
+          <target state="new">When you've created some charts, save them as a favorite.</target>
+        </trans-unit>
+        <trans-unit id="01289c30-2748-407c-bb79-4ad145e202f5" xml:space="preserve">
+          <source>You can choose whether to share it with other team members, if you use an organizational account.</source>
+          <target state="new">You can choose whether to share it with other team members, if you use an organizational account.</target>
+        </trans-unit>
+        <trans-unit id="5c407b98-647c-4e4f-9ba2-f1ba56772924" xml:space="preserve">
+          <source><bpt id="556c7cff-fb83-4e9f-a0cb-8f69fcd58a4f">&lt;linkText&gt;</bpt>Choose Favorite<ept id="556c7cff-fb83-4e9f-a0cb-8f69fcd58a4f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="556c7cff-fb83-4e9f-a0cb-8f69fcd58a4f">&lt;linkText&gt;</bpt>Choose Favorite<ept id="556c7cff-fb83-4e9f-a0cb-8f69fcd58a4f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e5afc12-e5aa-4fb2-b876-39f9ab0ba261" xml:space="preserve">
+          <source>To see the blade again, <bpt id="53edd97a-6929-4fb0-9ca2-6ec9118bd1f9">&lt;strong&gt;</bpt>go to the overview blade<ept id="53edd97a-6929-4fb0-9ca2-6ec9118bd1f9">&lt;/strong&gt;</ept> and open Favorites:</source>
+          <target state="new">To see the blade again, <bpt id="53edd97a-6929-4fb0-9ca2-6ec9118bd1f9">&lt;strong&gt;</bpt>go to the overview blade<ept id="53edd97a-6929-4fb0-9ca2-6ec9118bd1f9">&lt;/strong&gt;</ept> and open Favorites:</target>
+        </trans-unit>
+        <trans-unit id="c3dcc96b-1c29-48de-8fcb-bb7e46a2464e" xml:space="preserve">
+          <source><bpt id="a8ec0920-df7a-4c93-8bdf-a6d48abbcf19">&lt;linkText&gt;</bpt>In the Overview blade, choose Favorites<ept id="a8ec0920-df7a-4c93-8bdf-a6d48abbcf19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a8ec0920-df7a-4c93-8bdf-a6d48abbcf19">&lt;linkText&gt;</bpt>In the Overview blade, choose Favorites<ept id="a8ec0920-df7a-4c93-8bdf-a6d48abbcf19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45980974-6dde-48c4-8b86-9a64fd49e2ae" xml:space="preserve">
+          <source>If you chose Relative time range when you saved, the blade will be updated with the latest metrics.</source>
+          <target state="new">If you chose Relative time range when you saved, the blade will be updated with the latest metrics.</target>
+        </trans-unit>
+        <trans-unit id="4d1752b5-779c-4c1b-a66a-208524eba81a" xml:space="preserve">
+          <source>If you chose Absolute time range, it will show the same data every time.</source>
+          <target state="new">If you chose Absolute time range, it will show the same data every time.</target>
+        </trans-unit>
+        <trans-unit id="fa1500df-9586-463d-bab6-15a0f368cf64" xml:space="preserve">
+          <source>If you edit a blade but then you'd like to get back to the original saved set, just click Reset.</source>
+          <target state="new">If you edit a blade but then you'd like to get back to the original saved set, just click Reset.</target>
+        </trans-unit>
+        <trans-unit id="c6126f35-cfeb-4d6e-924e-3cf0a6b08c22" xml:space="preserve">
+          <source><bpt id="93215adb-7ddf-4fd8-aa0d-72a4ba42fa2d">&lt;linkText&gt;</bpt>In the buttons at the top of Metric Explorer<ept id="93215adb-7ddf-4fd8-aa0d-72a4ba42fa2d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93215adb-7ddf-4fd8-aa0d-72a4ba42fa2d">&lt;linkText&gt;</bpt>In the buttons at the top of Metric Explorer<ept id="93215adb-7ddf-4fd8-aa0d-72a4ba42fa2d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39e4f044-a620-4375-86af-58e63b9ad080" xml:space="preserve">
+          <source>To be notified by email of unusual values of any metric, add an alert.</source>
+          <target state="new">To be notified by email of unusual values of any metric, add an alert.</target>
+        </trans-unit>
+        <trans-unit id="771fbefe-9d41-4d6d-abc2-ce25a5c40567" xml:space="preserve">
+          <source>You can choose either to send the email to the account administrators, or to specific email addresses.</source>
+          <target state="new">You can choose either to send the email to the account administrators, or to specific email addresses.</target>
+        </trans-unit>
+        <trans-unit id="8c42f549-4ff0-422b-86d3-a468660c8864" xml:space="preserve">
+          <source><bpt id="df179156-3578-4a31-9469-967a4c9a7228">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Alert rules, Add Alert<ept id="df179156-3578-4a31-9469-967a4c9a7228">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df179156-3578-4a31-9469-967a4c9a7228">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Alert rules, Add Alert<ept id="df179156-3578-4a31-9469-967a4c9a7228">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ad906da-35cc-47cb-93d9-387a6f2b5c19" xml:space="preserve">
+          <source><bpt id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;linkText&gt;</bpt>Learn more about alerts[alerts]<ept id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;/linkText&gt;</ept><bpt id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;title&gt;</bpt><ept id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;linkText&gt;</bpt>Learn more about alerts[alerts]<ept id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;/linkText&gt;</ept><bpt id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;title&gt;</bpt><ept id="6e186774-d6e1-422d-8ea3-d8c3899d64fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fff838a3-b844-4960-aaa0-1883e5394c6c" xml:space="preserve">
+          <source>You can export metric data that is displayed in Metric Explorer to an Excel file.</source>
+          <target state="new">You can export metric data that is displayed in Metric Explorer to an Excel file.</target>
+        </trans-unit>
+        <trans-unit id="b4b875c4-50f5-40df-b5e3-262bece75719" xml:space="preserve">
+          <source>The exported data includes data from all charts and tables as seen in the portal.</source>
+          <target state="new">The exported data includes data from all charts and tables as seen in the portal.</target>
+        </trans-unit>
+        <trans-unit id="255b4f4a-127c-4af8-81b4-8292feb92cab" xml:space="preserve">
+          <source><bpt id="83c2cb49-d022-48be-8afe-eda687d1effa">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Alert rules, Add Alert<ept id="83c2cb49-d022-48be-8afe-eda687d1effa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83c2cb49-d022-48be-8afe-eda687d1effa">&lt;linkText&gt;</bpt>In Metrics Explorer, choose Alert rules, Add Alert<ept id="83c2cb49-d022-48be-8afe-eda687d1effa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5836121-de52-4138-aa3c-c42aa87d5521" xml:space="preserve">
+          <source>The data for each chart or table is exported to a separate sheet in the Excel file.</source>
+          <target state="new">The data for each chart or table is exported to a separate sheet in the Excel file.</target>
+        </trans-unit>
+        <trans-unit id="a7f407fb-8ce2-4eb4-bbc9-64e3b0497450" xml:space="preserve">
+          <source>What you see is what gets exported.</source>
+          <target state="new">What you see is what gets exported.</target>
+        </trans-unit>
+        <trans-unit id="4a70a863-0b67-4e69-90c3-efb7bec67a26" xml:space="preserve">
+          <source>Change the time range or filters if you want to change the range of data exported.</source>
+          <target state="new">Change the time range or filters if you want to change the range of data exported.</target>
+        </trans-unit>
+        <trans-unit id="e59f6b1c-6312-4169-9104-f8e27958af7e" xml:space="preserve">
+          <source>For tables, if the <bpt id="615bf04a-ae44-463e-a4ec-5e7ef48e74c6">&lt;strong&gt;</bpt>load more<ept id="615bf04a-ae44-463e-a4ec-5e7ef48e74c6">&lt;/strong&gt;</ept> command is showing, you can click it before you click Export, to have more data exported.</source>
+          <target state="new">For tables, if the <bpt id="615bf04a-ae44-463e-a4ec-5e7ef48e74c6">&lt;strong&gt;</bpt>load more<ept id="615bf04a-ae44-463e-a4ec-5e7ef48e74c6">&lt;/strong&gt;</ept> command is showing, you can click it before you click Export, to have more data exported.</target>
+        </trans-unit>
+        <trans-unit id="115cd49c-7a7b-477b-9dbc-4852c4d7dfe0" xml:space="preserve">
+          <source>*Export works only for Internet Explorer and Chrome at present.</source>
+          <target state="new">*Export works only for Internet Explorer and Chrome at present.</target>
+        </trans-unit>
+        <trans-unit id="49738426-4e4b-4788-bed1-fbce30fdd41f" xml:space="preserve">
+          <source>We’re working on adding support for other browsers.*</source>
+          <target state="new">We’re working on adding support for other browsers.*</target>
+        </trans-unit>
+        <trans-unit id="66d2d298-ada3-4516-8bf2-2a8801daaaed" xml:space="preserve">
+          <source>If you want data continuously exported so that you can process it externally, consider using <bpt id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;linkText&gt;</bpt>Continous export<ept id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;/linkText&gt;</ept><bpt id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;title&gt;</bpt><ept id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want data continuously exported so that you can process it externally, consider using <bpt id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;linkText&gt;</bpt>Continous export<ept id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;/linkText&gt;</ept><bpt id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;title&gt;</bpt><ept id="f383c9e4-05d1-4445-a74a-5c1306814ffa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62548b30-c0b2-4f82-bedf-a97872a77e7b" xml:space="preserve">
+          <source>If you want even richer views of your data, you can <bpt id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;linkText&gt;</bpt>export to Power BI<ept id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;/linkText&gt;</ept><bpt id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;title&gt;</bpt><ept id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want even richer views of your data, you can <bpt id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;linkText&gt;</bpt>export to Power BI<ept id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;/linkText&gt;</ept><bpt id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;title&gt;</bpt><ept id="6244adf3-e75a-4dff-bd87-23d6dfb05d3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f71dee2-8dc0-431f-b7c1-36cfc00bbb5c" xml:space="preserve">
+          <source><bpt id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;linkText&gt;</bpt>Monitoring usage with Application Insights<ept id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;/linkText&gt;</ept><bpt id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;title&gt;</bpt><ept id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;linkText&gt;</bpt>Monitoring usage with Application Insights<ept id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;/linkText&gt;</ept><bpt id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;title&gt;</bpt><ept id="7730f3c5-962d-4e9e-a942-bdf3c07d6bd1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef8ac2d3-3401-4d1d-ae47-f2a5b752463c" xml:space="preserve">
+          <source><bpt id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;linkText&gt;</bpt>Using Diagnostic Search<ept id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;/linkText&gt;</ept><bpt id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;title&gt;</bpt><ept id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;linkText&gt;</bpt>Using Diagnostic Search<ept id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;/linkText&gt;</ept><bpt id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;title&gt;</bpt><ept id="3f13f27c-8ae4-4a18-951e-808fd5a71383">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a34ebf2-9b0b-4923-9260-88eb06faea98" xml:space="preserve">
+          <source>app-insights-alerts.md</source>
+          <target state="new">app-insights-alerts.md</target>
+        </trans-unit>
+        <trans-unit id="2f94d610-ed06-4d5f-aa1d-b9b4c3443e3f" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="e94f7048-bc3f-42ab-82ec-e9ed8661b1e2" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+      </group>
+      <group id="f0868538-00ed-4f93-be7e-80bb9c614ce9" />
+    </body>
+  </file>
+</xliff>

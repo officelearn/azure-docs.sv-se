@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7f24165c-0793-4b4a-bfe6-c56bd8814feb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7f24165c-0793-4b4a-bfe6-c56bd8814feb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6b47492a-e6b7-48e8-8b10-e88557c4ea59">
+        <trans-unit id="c9c5f061-5f1e-404b-982b-12ae1dbdc128" xml:space="preserve">
+          <source>Usage analysis with Application Insights</source>
+          <target state="new">Usage analysis with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="48780da4-85e6-4cbb-a0b0-dcacf41b0ec6" xml:space="preserve">
+          <source>Overview of usage analytics with Application Insights</source>
+          <target state="new">Overview of usage analytics with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="0c13b051-9918-47e6-8f42-9aea003b5496" xml:space="preserve">
+          <source>Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve.</source>
+          <target state="new">Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve.</target>
+        </trans-unit>
+        <trans-unit id="24fca39e-191d-465e-997d-c8be576b83f6" xml:space="preserve">
+          <source>Application Insights can provide a clear view of your application's usage, helping you to improve your users' experience, and meet your business goals.</source>
+          <target state="new">Application Insights can provide a clear view of your application's usage, helping you to improve your users' experience, and meet your business goals.</target>
+        </trans-unit>
+        <trans-unit id="0391ca35-cf2e-41af-a062-a7b79b50655a" xml:space="preserve">
+          <source>Application Insights works for both stand-alone apps (on iOS, Android and Windows) and for web apps (hosted on .NET or J2EE).</source>
+          <target state="new">Application Insights works for both stand-alone apps (on iOS, Android and Windows) and for web apps (hosted on .NET or J2EE).</target>
+        </trans-unit>
+        <trans-unit id="8bcad1b1-91a2-4708-a5d5-1747e07e5215" xml:space="preserve">
+          <source>To get started, get a subscription to <bpt id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;/linkText&gt;</ept><bpt id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;title&gt;</bpt><ept id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, get a subscription to <bpt id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;/linkText&gt;</ept><bpt id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;title&gt;</bpt><ept id="1d79011c-e807-43fb-b7a0-93bd6536a85e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c67fd5e-fba2-4fe3-9880-aa6e6c7f3dc5" xml:space="preserve">
+          <source>(There's a free trial, and after the trial period, you can continue with the free tier of the service.)</source>
+          <target state="new">(There's a free trial, and after the trial period, you can continue with the free tier of the service.)</target>
+        </trans-unit>
+        <trans-unit id="52b51a07-f81c-492f-9222-7b027467fc46" xml:space="preserve">
+          <source>In the <bpt id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;linkText&gt;</bpt>Azure portal<ept id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;/linkText&gt;</ept><bpt id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;title&gt;</bpt><ept id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;/title&gt;</ept>, create an Application Insights resource.</source>
+          <target state="new">In the <bpt id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;linkText&gt;</bpt>Azure portal<ept id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;/linkText&gt;</ept><bpt id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;title&gt;</bpt><ept id="168c196b-7399-450c-a8c1-d1d7f7ae6958">&lt;/title&gt;</ept>, create an Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="96c1dc9f-37a2-47dc-84bf-b16378cf3334" xml:space="preserve">
+          <source>This is where you'll see usage and performance data about your app.</source>
+          <target state="new">This is where you'll see usage and performance data about your app.</target>
+        </trans-unit>
+        <trans-unit id="95f6f26e-289c-4ad7-a5b4-3250532489ce" xml:space="preserve">
+          <source><bpt id="a10af32b-174e-49ad-8f58-e49682f61dd5">&lt;linkText&gt;</bpt>In Azure, click New, Developer Services, Application Insights<ept id="a10af32b-174e-49ad-8f58-e49682f61dd5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a10af32b-174e-49ad-8f58-e49682f61dd5">&lt;linkText&gt;</bpt>In Azure, click New, Developer Services, Application Insights<ept id="a10af32b-174e-49ad-8f58-e49682f61dd5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7daacd9d-3038-4631-aecf-e051e1ad90d5" xml:space="preserve">
+          <source><bpt id="b00e9818-d3ce-46ce-b405-b0d2de362a77">&lt;strong&gt;</bpt>If your app is a device app,<ept id="b00e9818-d3ce-46ce-b405-b0d2de362a77">&lt;/strong&gt;</ept> add the Application Insights SDK to your project.</source>
+          <target state="new"><bpt id="b00e9818-d3ce-46ce-b405-b0d2de362a77">&lt;strong&gt;</bpt>If your app is a device app,<ept id="b00e9818-d3ce-46ce-b405-b0d2de362a77">&lt;/strong&gt;</ept> add the Application Insights SDK to your project.</target>
+        </trans-unit>
+        <trans-unit id="f8778c39-a901-4563-bbd6-392f577c1c85" xml:space="preserve">
+          <source>The exact procedure varies depending on your <bpt id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;linkText&gt;</bpt>IDE and platform<ept id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;/linkText&gt;</ept><bpt id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;title&gt;</bpt><ept id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">The exact procedure varies depending on your <bpt id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;linkText&gt;</bpt>IDE and platform<ept id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;/linkText&gt;</ept><bpt id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;title&gt;</bpt><ept id="769716eb-2db6-4dd1-adc0-20fb749a18d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2dc39ec-ade0-4763-9f89-ab5515409563" xml:space="preserve">
+          <source>For Windows apps, just right-click the project in Visual Studio and choose "Add Application Insights."</source>
+          <target state="new">For Windows apps, just right-click the project in Visual Studio and choose "Add Application Insights."</target>
+        </trans-unit>
+        <trans-unit id="d977861f-069d-4fc1-ab9b-63b17404ae42" xml:space="preserve">
+          <source><bpt id="926bd51b-6d08-4cb1-9807-abfeda468439">&lt;strong&gt;</bpt>If it's a web app,<ept id="926bd51b-6d08-4cb1-9807-abfeda468439">&lt;/strong&gt;</ept> open the Quick Start blade and get the code snippet to add to your web pages.</source>
+          <target state="new"><bpt id="926bd51b-6d08-4cb1-9807-abfeda468439">&lt;strong&gt;</bpt>If it's a web app,<ept id="926bd51b-6d08-4cb1-9807-abfeda468439">&lt;/strong&gt;</ept> open the Quick Start blade and get the code snippet to add to your web pages.</target>
+        </trans-unit>
+        <trans-unit id="9f4beeb8-0470-44e7-a08f-21e43e3a0425" xml:space="preserve">
+          <source>Republish them with this snippet.</source>
+          <target state="new">Republish them with this snippet.</target>
+        </trans-unit>
+        <trans-unit id="103cb071-4917-4209-98d8-645758f07f96" xml:space="preserve">
+          <source>![Open Quick start and click Get code to monitor my web pages.</source>
+          <target state="new">![Open Quick start and click Get code to monitor my web pages.</target>
+        </trans-unit>
+        <trans-unit id="ec0867b1-ea0a-4ced-b948-3ff638cac30e" xml:space="preserve">
+          <source>Copy the script into the head of your master web page.](./media/app-insights-overview-usage/02-monitor-web-page.png)</source>
+          <target state="new">Copy the script into the head of your master web page.](./media/app-insights-overview-usage/02-monitor-web-page.png)</target>
+        </trans-unit>
+        <trans-unit id="de866b5f-16f1-4879-8217-ae24441bc0a1" xml:space="preserve">
+          <source>You can also add Application Insights to your <bpt id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;linkText&gt;</bpt>ASP.NET<ept id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;/linkText&gt;</ept><bpt id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;title&gt;</bpt><ept id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;/title&gt;</ept> or <bpt id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;linkText&gt;</bpt>J2EE<ept id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;/linkText&gt;</ept><bpt id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;title&gt;</bpt><ept id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;/title&gt;</ept> server code so as to combine telemetry from both client and server.</source>
+          <target state="new">You can also add Application Insights to your <bpt id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;linkText&gt;</bpt>ASP.NET<ept id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;/linkText&gt;</ept><bpt id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;title&gt;</bpt><ept id="b4fc4101-c83f-45f7-9869-e8956bbb46f8">&lt;/title&gt;</ept> or <bpt id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;linkText&gt;</bpt>J2EE<ept id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;/linkText&gt;</ept><bpt id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;title&gt;</bpt><ept id="df46d3cf-f773-4a93-804d-23fa86e196b1">&lt;/title&gt;</ept> server code so as to combine telemetry from both client and server.</target>
+        </trans-unit>
+        <trans-unit id="4ba7e992-9f5c-45e0-b3cd-2e076aa35173" xml:space="preserve">
+          <source>Run your project in debug mode for a few minutes, and then go to the <bpt id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;linkText&gt;</bpt>Azure portal<ept id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;/linkText&gt;</ept><bpt id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;title&gt;</bpt><ept id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;/title&gt;</ept> and browse to your project resource in Application Insights.</source>
+          <target state="new">Run your project in debug mode for a few minutes, and then go to the <bpt id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;linkText&gt;</bpt>Azure portal<ept id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;/linkText&gt;</ept><bpt id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;title&gt;</bpt><ept id="fc8cb8ec-e74e-44c9-a479-94d924206c14">&lt;/title&gt;</ept> and browse to your project resource in Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="22f4a555-aa07-4312-8894-23506d8698c3" xml:space="preserve">
+          <source><bpt id="3eafb0b4-5fb8-43a6-94a3-6b8f92334f9c">&lt;linkText&gt;</bpt>In Azure, click Browse, Application Insights, and select your project<ept id="3eafb0b4-5fb8-43a6-94a3-6b8f92334f9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3eafb0b4-5fb8-43a6-94a3-6b8f92334f9c">&lt;linkText&gt;</bpt>In Azure, click Browse, Application Insights, and select your project<ept id="3eafb0b4-5fb8-43a6-94a3-6b8f92334f9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c99787e-2bec-46e1-a349-5086ebf2ec05" xml:space="preserve">
+          <source>Publish your app to get more telemetry and find out what your users are doing with your app.</source>
+          <target state="new">Publish your app to get more telemetry and find out what your users are doing with your app.</target>
+        </trans-unit>
+        <trans-unit id="a1fa40aa-1836-4554-a757-b2f8c4aa4c60" xml:space="preserve">
+          <source>Click the Page Views tile to see usage details.</source>
+          <target state="new">Click the Page Views tile to see usage details.</target>
+        </trans-unit>
+        <trans-unit id="f6547891-02c6-495b-9deb-1542cbe7e963" xml:space="preserve">
+          <source><bpt id="56aebfc0-5f3b-4da3-87e5-0a8db9b75595">&lt;linkText&gt;</bpt>In Azure, Browse &gt; Application Insights &gt; your project and scroll down to the Page Views tile<ept id="56aebfc0-5f3b-4da3-87e5-0a8db9b75595">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="56aebfc0-5f3b-4da3-87e5-0a8db9b75595">&lt;linkText&gt;</bpt>In Azure, Browse &gt; Application Insights &gt; your project and scroll down to the Page Views tile<ept id="56aebfc0-5f3b-4da3-87e5-0a8db9b75595">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3b80293-ffff-4e38-81b7-78fa9f68c731" xml:space="preserve">
+          <source>Hover in the blank part above a graph to see the counts at a particular point.</source>
+          <target state="new">Hover in the blank part above a graph to see the counts at a particular point.</target>
+        </trans-unit>
+        <trans-unit id="ee146bbc-e25d-414f-a275-82beed624fbf" xml:space="preserve">
+          <source>Otherwise, the numbers show the value aggregated over the period, such as an average, a total, or a count of distinct users over the period.</source>
+          <target state="new">Otherwise, the numbers show the value aggregated over the period, such as an average, a total, or a count of distinct users over the period.</target>
+        </trans-unit>
+        <trans-unit id="30639e50-ca84-467e-b4ad-8a4b9a9a784d" xml:space="preserve">
+          <source>In web applications, users are counted by using cookies.</source>
+          <target state="new">In web applications, users are counted by using cookies.</target>
+        </trans-unit>
+        <trans-unit id="e8dea4c0-ce9d-4a94-8c71-22fc1f8b8315" xml:space="preserve">
+          <source>A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.</source>
+          <target state="new">A person who uses several browsers, clears cookies, or uses the privacy feature will be counted several times.</target>
+        </trans-unit>
+        <trans-unit id="cabceeab-b2f3-4cc3-8a03-ba74737b5a21" xml:space="preserve">
+          <source>A web session is counted after 30 minutes of inactivity.</source>
+          <target state="new">A web session is counted after 30 minutes of inactivity.</target>
+        </trans-unit>
+        <trans-unit id="6e367c6c-3fec-4efe-9993-73f64350b86d" xml:space="preserve">
+          <source>A session on a phone or other device is counted when the app is suspended for more than a few seconds.</source>
+          <target state="new">A session on a phone or other device is counted when the app is suspended for more than a few seconds.</target>
+        </trans-unit>
+        <trans-unit id="0acf10b3-8a56-4d5c-962c-23b343d1449c" xml:space="preserve">
+          <source>Click through any chart to see more detail.</source>
+          <target state="new">Click through any chart to see more detail.</target>
+        </trans-unit>
+        <trans-unit id="239214b7-e321-42a3-a38b-61eacd7ce9b5" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="b8f2a143-a63e-4283-94ab-617708f0b92e" xml:space="preserve">
+          <source><bpt id="97915a6d-1b95-462c-97c3-0031abdb4674">&lt;linkText&gt;</bpt>On the overview blade, click the Sessions chart<ept id="97915a6d-1b95-462c-97c3-0031abdb4674">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97915a6d-1b95-462c-97c3-0031abdb4674">&lt;linkText&gt;</bpt>On the overview blade, click the Sessions chart<ept id="97915a6d-1b95-462c-97c3-0031abdb4674">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eac2deea-3ff8-465a-9c3f-f8a059b496eb" xml:space="preserve">
+          <source>(This example is from a website, but the charts look similar for apps that run on devices.)</source>
+          <target state="new">(This example is from a website, but the charts look similar for apps that run on devices.)</target>
+        </trans-unit>
+        <trans-unit id="dfa86418-df8c-4fba-adff-daf59434c2de" xml:space="preserve">
+          <source>Compare with the previous week to see if things are changing:</source>
+          <target state="new">Compare with the previous week to see if things are changing:</target>
+        </trans-unit>
+        <trans-unit id="8384a373-ce08-4d2e-9872-d4ba18c663b8" xml:space="preserve">
+          <source><bpt id="27ef7026-a8f0-467e-9ad4-5c26e5686d10">&lt;linkText&gt;</bpt>Select a chart that shows a single metric, switch on Prior Week<ept id="27ef7026-a8f0-467e-9ad4-5c26e5686d10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27ef7026-a8f0-467e-9ad4-5c26e5686d10">&lt;linkText&gt;</bpt>Select a chart that shows a single metric, switch on Prior Week<ept id="27ef7026-a8f0-467e-9ad4-5c26e5686d10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9eed700-91cb-4948-91b4-55d063b2946f" xml:space="preserve">
+          <source>Compare two metrics, for example users and new users:</source>
+          <target state="new">Compare two metrics, for example users and new users:</target>
+        </trans-unit>
+        <trans-unit id="c381489c-eb20-4f66-9e7e-736444e11b30" xml:space="preserve">
+          <source><bpt id="c2728ee6-ff46-4a65-8a19-a766b7527b3b">&lt;linkText&gt;</bpt>Select a chart, search for and check or uncheck metrics.<ept id="c2728ee6-ff46-4a65-8a19-a766b7527b3b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2728ee6-ff46-4a65-8a19-a766b7527b3b">&lt;linkText&gt;</bpt>Select a chart, search for and check or uncheck metrics.<ept id="c2728ee6-ff46-4a65-8a19-a766b7527b3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5fb5fa5-a3e9-4abb-a819-977e6cb748f7" xml:space="preserve">
+          <source>Group (segment) data by a property such as Browser, Operating System, or City:</source>
+          <target state="new">Group (segment) data by a property such as Browser, Operating System, or City:</target>
+        </trans-unit>
+        <trans-unit id="6353ebd6-d45b-42bf-afb1-3703e952a247" xml:space="preserve">
+          <source><bpt id="beb83910-ace4-4211-b6c6-ce4b5eefd97b">&lt;linkText&gt;</bpt>Select a chart that shows a single metric, switch on Grouping, and choose a property<ept id="beb83910-ace4-4211-b6c6-ce4b5eefd97b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="beb83910-ace4-4211-b6c6-ce4b5eefd97b">&lt;linkText&gt;</bpt>Select a chart that shows a single metric, switch on Grouping, and choose a property<ept id="beb83910-ace4-4211-b6c6-ce4b5eefd97b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86dc9d5c-0c39-49b5-b6c2-c1e309816893" xml:space="preserve">
+          <source>Click the page views tile to get a a breakdown of your most popular pages:</source>
+          <target state="new">Click the page views tile to get a a breakdown of your most popular pages:</target>
+        </trans-unit>
+        <trans-unit id="977c43bf-f199-4aaf-9b62-e05372abb9ae" xml:space="preserve">
+          <source><bpt id="05a5d732-a331-415f-94fb-ba3b74bb5a82">&lt;linkText&gt;</bpt>From the Overview blade, click the Page views chart<ept id="05a5d732-a331-415f-94fb-ba3b74bb5a82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05a5d732-a331-415f-94fb-ba3b74bb5a82">&lt;linkText&gt;</bpt>From the Overview blade, click the Page views chart<ept id="05a5d732-a331-415f-94fb-ba3b74bb5a82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c7e5ff1-4e7b-4814-8170-4e4604bb8bb7" xml:space="preserve">
+          <source>The example above is from a games website.</source>
+          <target state="new">The example above is from a games website.</target>
+        </trans-unit>
+        <trans-unit id="e1d5ad2c-5337-4424-af42-490f56f11ee2" xml:space="preserve">
+          <source>From it we can instantly see:</source>
+          <target state="new">From it we can instantly see:</target>
+        </trans-unit>
+        <trans-unit id="0df75057-9883-4ec5-b7a7-e0436ace06d8" xml:space="preserve">
+          <source>Usage hasn't improved in the past week.</source>
+          <target state="new">Usage hasn't improved in the past week.</target>
+        </trans-unit>
+        <trans-unit id="79a7ae08-4133-4bb9-b314-a0b3a3fabfae" xml:space="preserve">
+          <source>Maybe we should think about search engine optimization?</source>
+          <target state="new">Maybe we should think about search engine optimization?</target>
+        </trans-unit>
+        <trans-unit id="2be62b78-d5b7-452f-ae9c-7c0467884f9d" xml:space="preserve">
+          <source>Many fewer people see the games pages than the Home page.</source>
+          <target state="new">Many fewer people see the games pages than the Home page.</target>
+        </trans-unit>
+        <trans-unit id="f3d507ba-d82b-4947-b0ac-de392c797a57" xml:space="preserve">
+          <source>Why doesn't our Home page attract people to play games?</source>
+          <target state="new">Why doesn't our Home page attract people to play games?</target>
+        </trans-unit>
+        <trans-unit id="92ce5a88-3de6-47f7-88a9-512d9aae149c" xml:space="preserve">
+          <source>'Crossword' is the most popular game.</source>
+          <target state="new">'Crossword' is the most popular game.</target>
+        </trans-unit>
+        <trans-unit id="2366acc9-657e-4424-8be4-14b9d26c807b" xml:space="preserve">
+          <source>We should give priority to new ideas and improvements there.</source>
+          <target state="new">We should give priority to new ideas and improvements there.</target>
+        </trans-unit>
+        <trans-unit id="9cd3b706-16e5-416f-b82c-aa924f4e9367" xml:space="preserve">
+          <source>Let's suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page.</source>
+          <target state="new">Let's suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page.</target>
+        </trans-unit>
+        <trans-unit id="5be47192-5b00-4985-9bc4-2160971f6c91" xml:space="preserve">
+          <source>This allows the user to switch quickly between one game and another, or even have several games on one page.</source>
+          <target state="new">This allows the user to switch quickly between one game and another, or even have several games on one page.</target>
+        </trans-unit>
+        <trans-unit id="ebd54b03-8093-4dad-aa3d-1d3527b39799" xml:space="preserve">
+          <source>But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages.</source>
+          <target state="new">But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages.</target>
+        </trans-unit>
+        <trans-unit id="a4a8d300-4e07-4e00-8525-c65e36407d5c" xml:space="preserve">
+          <source>That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:</source>
+          <target state="new">That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:</target>
+        </trans-unit>
+        <trans-unit id="04f8587a-5f2c-4db9-b4f8-c0bee8eec087" xml:space="preserve">
+          <source>You can use telemetry in many ways to understand how your application is being used.</source>
+          <target state="new">You can use telemetry in many ways to understand how your application is being used.</target>
+        </trans-unit>
+        <trans-unit id="5e02ecbc-6600-4e62-a787-06891dfd68ed" xml:space="preserve">
+          <source>But you don't always want to mix the messages up with page views.</source>
+          <target state="new">But you don't always want to mix the messages up with page views.</target>
+        </trans-unit>
+        <trans-unit id="a7721bb3-87b6-4478-afc1-8b6d75e31058" xml:space="preserve">
+          <source>Instead, use custom events.</source>
+          <target state="new">Instead, use custom events.</target>
+        </trans-unit>
+        <trans-unit id="5c46e40b-cd73-4c49-842c-25fdc2dbe9fb" xml:space="preserve">
+          <source>You can send them from device apps, web pages or a web server:</source>
+          <target state="new">You can send them from device apps, web pages or a web server:</target>
+        </trans-unit>
+        <trans-unit id="115fc62e-063a-442d-aed6-4e2463a81563" xml:space="preserve">
+          <source>(JavaScript)</source>
+          <target state="new">(JavaScript)</target>
+        </trans-unit>
+        <trans-unit id="01e4226b-475e-498a-9791-78b660a3ef33" xml:space="preserve">
+          <source>(C#)</source>
+          <target state="new">(C#)</target>
+        </trans-unit>
+        <trans-unit id="61a6e411-c205-446c-a2b1-294322f0efc0" xml:space="preserve">
+          <source>(VB)</source>
+          <target state="new">(VB)</target>
+        </trans-unit>
+        <trans-unit id="4f6928d2-ce50-4324-9275-b5534ee268cf" xml:space="preserve">
+          <source>The most frequent custom events are listed on the overview blade.</source>
+          <target state="new">The most frequent custom events are listed on the overview blade.</target>
+        </trans-unit>
+        <trans-unit id="6a4620c2-658c-45fa-b6bb-ad7748d30004" xml:space="preserve">
+          <source><bpt id="ade8a9e5-a185-4e51-8bfc-3e7fdf812ba5">&lt;linkText&gt;</bpt>On the Overview blade, scroll down to and click Custom Events.<ept id="ade8a9e5-a185-4e51-8bfc-3e7fdf812ba5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ade8a9e5-a185-4e51-8bfc-3e7fdf812ba5">&lt;linkText&gt;</bpt>On the Overview blade, scroll down to and click Custom Events.<ept id="ade8a9e5-a185-4e51-8bfc-3e7fdf812ba5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="529f1447-7abe-4fc4-bd9d-370b5d2d335b" xml:space="preserve">
+          <source>Click the head of the table to see total numbers of events.</source>
+          <target state="new">Click the head of the table to see total numbers of events.</target>
+        </trans-unit>
+        <trans-unit id="6dced5eb-82c5-4204-aec3-a0a54a69f815" xml:space="preserve">
+          <source>You can segment the chart by various attributes such as the event name:</source>
+          <target state="new">You can segment the chart by various attributes such as the event name:</target>
+        </trans-unit>
+        <trans-unit id="756b72af-467c-48fd-bc93-6e88b901a327" xml:space="preserve">
+          <source>![Select a chart that shows just one metric.</source>
+          <target state="new">![Select a chart that shows just one metric.</target>
+        </trans-unit>
+        <trans-unit id="48d7d69e-657c-4c8a-acb6-bc7647d21de0" xml:space="preserve">
+          <source>Switch on Grouping.</source>
+          <target state="new">Switch on Grouping.</target>
+        </trans-unit>
+        <trans-unit id="c5c846c9-2fac-432f-bc57-82c90b2a6f03" xml:space="preserve">
+          <source>Choose a property.</source>
+          <target state="new">Choose a property.</target>
+        </trans-unit>
+        <trans-unit id="a529f02e-0d74-46f1-a720-47cda459ea68" xml:space="preserve">
+          <source>Not all properties are available.](./media/app-insights-overview-usage/06-eventsSegment.png)</source>
+          <target state="new">Not all properties are available.](./media/app-insights-overview-usage/06-eventsSegment.png)</target>
+        </trans-unit>
+        <trans-unit id="88e365c2-1941-4a68-90f7-6a48793e1883" xml:space="preserve">
+          <source>The particularly useful feature of timelines is that you can correlate changes with other metrics and events.</source>
+          <target state="new">The particularly useful feature of timelines is that you can correlate changes with other metrics and events.</target>
+        </trans-unit>
+        <trans-unit id="ba9811a9-01cc-4b72-9135-6dded471c373" xml:space="preserve">
+          <source>For example, at times when more games are played, you'd expect to see a rise in abandoned games as well.</source>
+          <target state="new">For example, at times when more games are played, you'd expect to see a rise in abandoned games as well.</target>
+        </trans-unit>
+        <trans-unit id="919dd7e1-dbce-44e8-97d9-2706239054d1" xml:space="preserve">
+          <source>But the rise in abandoned games is disproportionate, you'd want to find out whether the high load is causing problems that users find unacceptable.</source>
+          <target state="new">But the rise in abandoned games is disproportionate, you'd want to find out whether the high load is causing problems that users find unacceptable.</target>
+        </trans-unit>
+        <trans-unit id="62a4e6fb-9b2f-47c5-ac9c-3340e6efbd1f" xml:space="preserve">
+          <source>To get a better understanding of how a typical session goes, you might want to focus on a specific user session that contains a particular type of event.</source>
+          <target state="new">To get a better understanding of how a typical session goes, you might want to focus on a specific user session that contains a particular type of event.</target>
+        </trans-unit>
+        <trans-unit id="11fecd4b-1882-45e0-959d-9eecc5d60321" xml:space="preserve">
+          <source>In this example, we coded a custom event "NoGame" that is called if the user logs out without actually starting a game.</source>
+          <target state="new">In this example, we coded a custom event "NoGame" that is called if the user logs out without actually starting a game.</target>
+        </trans-unit>
+        <trans-unit id="95471aa3-d238-43ea-b4a2-da998f5dac61" xml:space="preserve">
+          <source>Why would a user do that?</source>
+          <target state="new">Why would a user do that?</target>
+        </trans-unit>
+        <trans-unit id="0e173b8e-1399-4c61-b4e1-83951e9d8c35" xml:space="preserve">
+          <source>Maybe if we drill into some specific occurrences, we'll get a clue.</source>
+          <target state="new">Maybe if we drill into some specific occurrences, we'll get a clue.</target>
+        </trans-unit>
+        <trans-unit id="abb55f6e-a0e3-4058-8ec7-072494954ec2" xml:space="preserve">
+          <source>The custom events received from the app are listed by name on the overview blade:</source>
+          <target state="new">The custom events received from the app are listed by name on the overview blade:</target>
+        </trans-unit>
+        <trans-unit id="b415788b-0e8d-4d5b-85ac-d5bff26ad4d1" xml:space="preserve">
+          <source><bpt id="cf8bc9a4-7b7b-423f-b389-984f7362da24">&lt;linkText&gt;</bpt>On the Overview blade, click one of the custom event types.<ept id="cf8bc9a4-7b7b-423f-b389-984f7362da24">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf8bc9a4-7b7b-423f-b389-984f7362da24">&lt;linkText&gt;</bpt>On the Overview blade, click one of the custom event types.<ept id="cf8bc9a4-7b7b-423f-b389-984f7362da24">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daed7643-da82-45a5-ba97-48e60da4be1f" xml:space="preserve">
+          <source>Click through the event of interest, and select a recent specific occurrence:</source>
+          <target state="new">Click through the event of interest, and select a recent specific occurrence:</target>
+        </trans-unit>
+        <trans-unit id="9e8707d6-d412-4aeb-bf3e-c7d291cd6c5b" xml:space="preserve">
+          <source><bpt id="fac4b426-850d-4a62-af2f-d638c43821f1">&lt;linkText&gt;</bpt>In the list under the summary chart, click an event<ept id="fac4b426-850d-4a62-af2f-d638c43821f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fac4b426-850d-4a62-af2f-d638c43821f1">&lt;linkText&gt;</bpt>In the list under the summary chart, click an event<ept id="fac4b426-850d-4a62-af2f-d638c43821f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be7a0cbf-45dd-45dc-8252-5c07be5e260b" xml:space="preserve">
+          <source>Let's look at all the telemetry for the session in which that particular NoGame event occurred.</source>
+          <target state="new">Let's look at all the telemetry for the session in which that particular NoGame event occurred.</target>
+        </trans-unit>
+        <trans-unit id="23dff3c2-9efb-4659-a59c-a28a7f2a773a" xml:space="preserve">
+          <source><bpt id="95825151-5b5d-43f1-97b9-d0ec7a1bf3cf">&lt;linkText&gt;</bpt>Click 'all telemetry for session'<ept id="95825151-5b5d-43f1-97b9-d0ec7a1bf3cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95825151-5b5d-43f1-97b9-d0ec7a1bf3cf">&lt;linkText&gt;</bpt>Click 'all telemetry for session'<ept id="95825151-5b5d-43f1-97b9-d0ec7a1bf3cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae2ca59c-0a84-4849-8e7c-b293985340de" xml:space="preserve">
+          <source>There were no exceptions, so the user wasn't prevented from playing by some failure.</source>
+          <target state="new">There were no exceptions, so the user wasn't prevented from playing by some failure.</target>
+        </trans-unit>
+        <trans-unit id="20bb4bac-23ee-4e31-90ca-b0e9a1149eb0" xml:space="preserve">
+          <source>We can filter out all types of telemetry except page views for this session:</source>
+          <target state="new">We can filter out all types of telemetry except page views for this session:</target>
+        </trans-unit>
+        <trans-unit id="aeee1aef-bc06-41be-9982-b6859bf063f4" xml:space="preserve">
+          <source><bpt id="c1053a41-1bcb-4770-9e7d-3758700f3938">&lt;linkText&gt;</bpt><ept id="c1053a41-1bcb-4770-9e7d-3758700f3938">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c1053a41-1bcb-4770-9e7d-3758700f3938">&lt;linkText&gt;</bpt><ept id="c1053a41-1bcb-4770-9e7d-3758700f3938">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9b90b89-1c2e-49a9-bc50-f2483eee5091" xml:space="preserve">
+          <source>And now we can see that this user logged in simply to check the latest scores.</source>
+          <target state="new">And now we can see that this user logged in simply to check the latest scores.</target>
+        </trans-unit>
+        <trans-unit id="a4051ab7-a8ae-4d45-bb05-c582a09b6883" xml:space="preserve">
+          <source>Maybe we should consider developing a user story that makes it easier to do that.</source>
+          <target state="new">Maybe we should consider developing a user story that makes it easier to do that.</target>
+        </trans-unit>
+        <trans-unit id="2caad139-e098-41d0-8046-66d8ef57b657" xml:space="preserve">
+          <source>(And we should implement a custom event to report when this specific story occurs.)</source>
+          <target state="new">(And we should implement a custom event to report when this specific story occurs.)</target>
+        </trans-unit>
+        <trans-unit id="acff6c28-0eb9-45e0-bd25-a97c7bd26d93" xml:space="preserve">
+          <source>You can attach arbitrary tags and numeric values to events.</source>
+          <target state="new">You can attach arbitrary tags and numeric values to events.</target>
+        </trans-unit>
+        <trans-unit id="d685e4e3-080b-485d-ad0e-3f485acae56b" xml:space="preserve">
+          <source>JavaScript at client</source>
+          <target state="new">JavaScript at client</target>
+        </trans-unit>
+        <trans-unit id="c1fe1ce9-d084-4177-9cf4-382081f6cdcc" xml:space="preserve">
+          <source>C# at server</source>
+          <target state="new">C# at server</target>
+        </trans-unit>
+        <trans-unit id="01ccee93-4ff6-4140-a029-cdc0ab3bcbfb" xml:space="preserve">
+          <source>VB at server</source>
+          <target state="new">VB at server</target>
+        </trans-unit>
+        <trans-unit id="246cb879-05d8-472b-a1d3-2dab300ec253" xml:space="preserve">
+          <source>Attach properties to page views in the same way:</source>
+          <target state="new">Attach properties to page views in the same way:</target>
+        </trans-unit>
+        <trans-unit id="e8138df3-93d2-43eb-b212-68a78fc7ec8f" xml:space="preserve">
+          <source>JavaScript at client</source>
+          <target state="new">JavaScript at client</target>
+        </trans-unit>
+        <trans-unit id="ca15244b-f3c6-4e1c-9ff4-d3d23f3bfb7f" xml:space="preserve">
+          <source>In Diagnostic Search, view the properties by clicking through an individual occurrence of an event.</source>
+          <target state="new">In Diagnostic Search, view the properties by clicking through an individual occurrence of an event.</target>
+        </trans-unit>
+        <trans-unit id="9db3c2d4-45bd-4399-94b5-e5daecd89372" xml:space="preserve">
+          <source><bpt id="f9d9aa1e-39ff-48c3-9e2b-ee0b1ef3c4cc">&lt;linkText&gt;</bpt>In the list of events, open an event, and then click '...' to see more properties<ept id="f9d9aa1e-39ff-48c3-9e2b-ee0b1ef3c4cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9d9aa1e-39ff-48c3-9e2b-ee0b1ef3c4cc">&lt;linkText&gt;</bpt>In the list of events, open an event, and then click '...' to see more properties<ept id="f9d9aa1e-39ff-48c3-9e2b-ee0b1ef3c4cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d627399-4d61-4b7d-a13e-82528cb5f8e5" xml:space="preserve">
+          <source>Use the Search field to see event occurrences with a particular property value.</source>
+          <target state="new">Use the Search field to see event occurrences with a particular property value.</target>
+        </trans-unit>
+        <trans-unit id="cc536312-2843-4f52-b655-0f21e012564c" xml:space="preserve">
+          <source><bpt id="c3ade627-2faf-4cef-91ad-5424fed145b3">&lt;linkText&gt;</bpt>Type a value into the Search field<ept id="c3ade627-2faf-4cef-91ad-5424fed145b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3ade627-2faf-4cef-91ad-5424fed145b3">&lt;linkText&gt;</bpt>Type a value into the Search field<ept id="c3ade627-2faf-4cef-91ad-5424fed145b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="040e91a3-6618-448e-a0be-4ac1872e013d" xml:space="preserve">
+          <source>If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users.</source>
+          <target state="new">If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users.</target>
+        </trans-unit>
+        <trans-unit id="fa51611e-3362-4c30-81e6-999f610f029d" xml:space="preserve">
+          <source>Measure the success of each, and then move to a unified version.</source>
+          <target state="new">Measure the success of each, and then move to a unified version.</target>
+        </trans-unit>
+        <trans-unit id="e05128a9-10fd-458e-905e-9f506304b194" xml:space="preserve">
+          <source>For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app.</source>
+          <target state="new">For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app.</target>
+        </trans-unit>
+        <trans-unit id="8a0c292a-6f87-45d5-b8f2-e927f4b3d1e9" xml:space="preserve">
+          <source>You can do that by defining properties in the active TelemetryContext.</source>
+          <target state="new">You can do that by defining properties in the active TelemetryContext.</target>
+        </trans-unit>
+        <trans-unit id="a4890d9d-c037-4265-91c1-1206579cd615" xml:space="preserve">
+          <source>These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well.</source>
+          <target state="new">These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well.</target>
+        </trans-unit>
+        <trans-unit id="3e9978de-ba2a-40d2-a0d1-9124063d946c" xml:space="preserve">
+          <source>In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.</source>
+          <target state="new">In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.</target>
+        </trans-unit>
+        <trans-unit id="40b68af6-874b-4a2c-bfb1-24281e15b37c" xml:space="preserve">
+          <source>C# at server</source>
+          <target state="new">C# at server</target>
+        </trans-unit>
+        <trans-unit id="3b50d20b-338e-4f78-a305-c64376ac7db5" xml:space="preserve">
+          <source>VB at server</source>
+          <target state="new">VB at server</target>
+        </trans-unit>
+        <trans-unit id="0706236f-b199-4770-abd5-a8eae2ffd9ff" xml:space="preserve">
+          <source>Individual telemetry can override the default values.</source>
+          <target state="new">Individual telemetry can override the default values.</target>
+        </trans-unit>
+        <trans-unit id="71b94972-826e-4446-b706-8cec667a3420" xml:space="preserve">
+          <source>You can set up a universal initializer so that all new TelemetryClients automatically use your context.</source>
+          <target state="new">You can set up a universal initializer so that all new TelemetryClients automatically use your context.</target>
+        </trans-unit>
+        <trans-unit id="a728292d-c622-43e3-a24a-57104bb8a479" xml:space="preserve">
+          <source>In the app initializer such as Global.asax.cs:</source>
+          <target state="new">In the app initializer such as Global.asax.cs:</target>
+        </trans-unit>
+        <trans-unit id="4832f88f-ae88-4ee2-956f-ee6dc108a808" xml:space="preserve">
+          <source>When you use analytics, it becomes an integrated part of your development cycle - not just something you think about to help solve problems.</source>
+          <target state="new">When you use analytics, it becomes an integrated part of your development cycle - not just something you think about to help solve problems.</target>
+        </trans-unit>
+        <trans-unit id="6ad41a62-972e-415b-91a9-420ca9260a6f" xml:space="preserve">
+          <source>Here are some tips:</source>
+          <target state="new">Here are some tips:</target>
+        </trans-unit>
+        <trans-unit id="0e67962a-ede1-4d18-8184-5ed5103b7285" xml:space="preserve">
+          <source>Determine the key metric of your application.</source>
+          <target state="new">Determine the key metric of your application.</target>
+        </trans-unit>
+        <trans-unit id="962a4a92-7dc9-4a25-b95e-9578704c1346" xml:space="preserve">
+          <source>Do you want as many users as possible, or would you prefer a small set of very happy users?</source>
+          <target state="new">Do you want as many users as possible, or would you prefer a small set of very happy users?</target>
+        </trans-unit>
+        <trans-unit id="bdcbf306-f646-4b26-bdff-ee671cc97c5e" xml:space="preserve">
+          <source>Do you want to maximize visits or sales?</source>
+          <target state="new">Do you want to maximize visits or sales?</target>
+        </trans-unit>
+        <trans-unit id="056f4418-d2a2-437a-a2ad-59f2bdb27cd9" xml:space="preserve">
+          <source>Plan to measure each story.</source>
+          <target state="new">Plan to measure each story.</target>
+        </trans-unit>
+        <trans-unit id="d83760b7-498a-4ff8-b915-a263a71b16ff" xml:space="preserve">
+          <source>When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change.</source>
+          <target state="new">When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change.</target>
+        </trans-unit>
+        <trans-unit id="3d45cdff-b139-4f26-a5e4-f51a89b5347b" xml:space="preserve">
+          <source>Before coding starts, ask "What effect will this have on our metrics, if it works?</source>
+          <target state="new">Before coding starts, ask "What effect will this have on our metrics, if it works?</target>
+        </trans-unit>
+        <trans-unit id="9d075ef4-6252-44e9-ba57-8a84a2aeb551" xml:space="preserve">
+          <source>Should we track any new events?"</source>
+          <target state="new">Should we track any new events?"</target>
+        </trans-unit>
+        <trans-unit id="5f7cae1e-79de-42a3-8afa-f6c491cc790e" xml:space="preserve">
+          <source>And of course, when the feature is live, make sure you look at the analytics and act on the results.</source>
+          <target state="new">And of course, when the feature is live, make sure you look at the analytics and act on the results.</target>
+        </trans-unit>
+        <trans-unit id="860407ca-4284-4309-9b8f-bbb3772af803" xml:space="preserve">
+          <source>Relate other metrics to the key metric.</source>
+          <target state="new">Relate other metrics to the key metric.</target>
+        </trans-unit>
+        <trans-unit id="e73fee4d-5eb5-4572-84f2-08e891aa5748" xml:space="preserve">
+          <source>For example, if you add a 'favorites' feature, you'd like to know how often users add favorites.</source>
+          <target state="new">For example, if you add a 'favorites' feature, you'd like to know how often users add favorites.</target>
+        </trans-unit>
+        <trans-unit id="9cebc23f-f501-467d-aefd-00ec17c5abe6" xml:space="preserve">
+          <source>But it's perhaps more interesting to know how often they come back to their favorites.</source>
+          <target state="new">But it's perhaps more interesting to know how often they come back to their favorites.</target>
+        </trans-unit>
+        <trans-unit id="f265526d-6045-407b-9df1-6dc166bd9807" xml:space="preserve">
+          <source>And, most importantly, do customers who use favorites ultimately buy more of your product?</source>
+          <target state="new">And, most importantly, do customers who use favorites ultimately buy more of your product?</target>
+        </trans-unit>
+        <trans-unit id="20191610-8151-4318-866b-2da966e62d1e" xml:space="preserve">
+          <source>Canary testing.</source>
+          <target state="new">Canary testing.</target>
+        </trans-unit>
+        <trans-unit id="b4833616-b312-402e-8c27-e0d823e96c8a" xml:space="preserve">
+          <source>Set up a feature switch that allows you to make a new feature visible only to some users.</source>
+          <target state="new">Set up a feature switch that allows you to make a new feature visible only to some users.</target>
+        </trans-unit>
+        <trans-unit id="d2b6dc28-1a9e-45a8-bc0d-40f89c836fb2" xml:space="preserve">
+          <source>Use Application Insights to see whether the new feature is being used in the way you envisaged.</source>
+          <target state="new">Use Application Insights to see whether the new feature is being used in the way you envisaged.</target>
+        </trans-unit>
+        <trans-unit id="d971c6e5-5be4-4c50-bb41-6b4e2fe3de31" xml:space="preserve">
+          <source>Make adjustments, then release it to a wider audience.</source>
+          <target state="new">Make adjustments, then release it to a wider audience.</target>
+        </trans-unit>
+        <trans-unit id="66ddad88-1194-4d68-83d8-c326d68a2cf4" xml:space="preserve">
+          <source>Talk to your users!</source>
+          <target state="new">Talk to your users!</target>
+        </trans-unit>
+        <trans-unit id="7b25b994-5a2e-4ccc-91a0-a269382cf356" xml:space="preserve">
+          <source>Analytics is not enough on its own, but complementary to maintaining a good customer relationship.</source>
+          <target state="new">Analytics is not enough on its own, but complementary to maintaining a good customer relationship.</target>
+        </trans-unit>
+        <trans-unit id="dbdaaf44-c63c-4664-869e-9565a77cafff" xml:space="preserve">
+          <source><bpt id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;linkText&gt;</bpt>Detect, triage and diagnose crashes and performance issues in your app<ept id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;/linkText&gt;</ept><bpt id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;title&gt;</bpt><ept id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;linkText&gt;</bpt>Detect, triage and diagnose crashes and performance issues in your app<ept id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;/linkText&gt;</ept><bpt id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;title&gt;</bpt><ept id="8e53c324-068d-41c7-9946-80dad68fe442">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="881aa1f6-d31b-4fa5-8781-761d8ffeda03" xml:space="preserve">
+          <source><bpt id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;linkText&gt;</bpt>Get started with Application Insights on many platforms<ept id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;/linkText&gt;</ept><bpt id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;title&gt;</bpt><ept id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;linkText&gt;</bpt>Get started with Application Insights on many platforms<ept id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;/linkText&gt;</ept><bpt id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;title&gt;</bpt><ept id="71d5b637-aa7b-4a26-a21f-eba38c78860d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ea9f25f-dc8f-4fc6-bc6e-9559f3f1ab8f" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="37509e74-a562-4a61-8a72-337de4ca7107" />
+    </body>
+  </file>
+</xliff>

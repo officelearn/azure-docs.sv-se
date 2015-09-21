@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="07b9e84f-76d8-4354-9602-099ae074f1ad" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="07b9e84f-76d8-4354-9602-099ae074f1ad" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="52d1153b-254e-43ed-8499-7a8127342a4f">
+        <trans-unit id="edb44d21-7e9b-4b47-925a-7e47150e98c5" xml:space="preserve">
+          <source>How to use CDN | Microsoft Azure</source>
+          <target state="new">How to use CDN | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0eacdc52-c463-443f-9790-628a130f11c2" xml:space="preserve">
+          <source>Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content.</source>
+          <target state="new">Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content.</target>
+        </trans-unit>
+        <trans-unit id="59318ce6-35d0-4564-aeff-8a123699603b" xml:space="preserve">
+          <source>The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP application in Azure.</source>
+          <target state="new">The Azure Content Delivery Network (CDN) is the fundamental building block to scale any HTTP application in Azure.</target>
+        </trans-unit>
+        <trans-unit id="3cd8ebc2-8f68-4ab6-83cd-ba0f74c5ec2a" xml:space="preserve">
+          <source>It offers Azure customers a global solution by caching and delivering content close to end users.</source>
+          <target state="new">It offers Azure customers a global solution by caching and delivering content close to end users.</target>
+        </trans-unit>
+        <trans-unit id="288e2125-66e6-4909-8c67-2f95c0f1b491" xml:space="preserve">
+          <source>As a result, instead of hitting origin every single time, user requests get intelligently routed to the best performed CDN edge POP.</source>
+          <target state="new">As a result, instead of hitting origin every single time, user requests get intelligently routed to the best performed CDN edge POP.</target>
+        </trans-unit>
+        <trans-unit id="c2341a29-2d81-457e-9b3c-c152545ed306" xml:space="preserve">
+          <source>This significantly increases the performance and user experience.</source>
+          <target state="new">This significantly increases the performance and user experience.</target>
+        </trans-unit>
+        <trans-unit id="426e5176-4dde-4381-8e0b-a643e0efd234" xml:space="preserve">
+          <source>For a current list of
+CDN node locations, see [Azure CDN Node Locations].</source>
+          <target state="new">For a current list of
+CDN node locations, see [Azure CDN Node Locations].</target>
+        </trans-unit>
+        <trans-unit id="ae1b20b5-d5e0-4fbb-ad30-e07991736b1b" xml:space="preserve">
+          <source>The benefits of using CDN to cache Azure data include:</source>
+          <target state="new">The benefits of using CDN to cache Azure data include:</target>
+        </trans-unit>
+        <trans-unit id="c4e7641f-a67a-46de-a943-9d5cf8dd4544" xml:space="preserve">
+          <source>Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content</source>
+          <target state="new">Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content</target>
+        </trans-unit>
+        <trans-unit id="78893f3f-9a7b-4c71-b7e9-0875170ed3c0" xml:space="preserve">
+          <source>Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch</source>
+          <target state="new">Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch</target>
+        </trans-unit>
+        <trans-unit id="f1965abd-16e4-4550-b2df-bea2acd60209" xml:space="preserve">
+          <source>By distributing user requests and serving content from global edge POPs, less traffic is sent to origin thus offload the origin.</source>
+          <target state="new">By distributing user requests and serving content from global edge POPs, less traffic is sent to origin thus offload the origin.</target>
+        </trans-unit>
+        <trans-unit id="4aaf51a6-5ae4-4a75-a381-f13c5aab4441" xml:space="preserve">
+          <source>Existing CDN customers can now use the Azure CDN in the [Azure Management Portal].</source>
+          <target state="new">Existing CDN customers can now use the Azure CDN in the [Azure Management Portal].</target>
+        </trans-unit>
+        <trans-unit id="12d47945-e8a8-4982-beb5-503f209be710" xml:space="preserve">
+          <source>The CDN is an add-on feature to your subscription and has a separate [billing plan].</source>
+          <target state="new">The CDN is an add-on feature to your subscription and has a separate [billing plan].</target>
+        </trans-unit>
+        <trans-unit id="a3b4e5f4-d261-4fb1-8b38-2084a2ef7cd6" xml:space="preserve">
+          <source>CDN origin is the location from which CDN fetch content and cache at the edge POPs.</source>
+          <target state="new">CDN origin is the location from which CDN fetch content and cache at the edge POPs.</target>
+        </trans-unit>
+        <trans-unit id="0e0022af-5b35-4bff-aca4-0d69f2aa0bea" xml:space="preserve">
+          <source>The integrated Azure origin includes Azure Apps, Cloud Services, Storage and Media services.</source>
+          <target state="new">The integrated Azure origin includes Azure Apps, Cloud Services, Storage and Media services.</target>
+        </trans-unit>
+        <trans-unit id="1e80aa05-a430-4f89-a745-9d9d89776120" xml:space="preserve">
+          <source>Once your origin is set up, it will be available in the origin list when you <bpt id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;linkText&gt;</bpt>create a new CDN endpoint<ept id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;/linkText&gt;</ept><bpt id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;title&gt;</bpt><ept id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Once your origin is set up, it will be available in the origin list when you <bpt id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;linkText&gt;</bpt>create a new CDN endpoint<ept id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;/linkText&gt;</ept><bpt id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;title&gt;</bpt><ept id="aebed55a-5fbd-46fb-866c-0f80894508b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9be401b8-5578-4e9c-9bd1-28639bd0b0ed" xml:space="preserve">
+          <source>The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network.</source>
+          <target state="new">The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network.</target>
+        </trans-unit>
+        <trans-unit id="d1b21a47-2747-4971-8b2f-751b6cceb6fb" xml:space="preserve">
+          <source>Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.</source>
+          <target state="new">Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.</target>
+        </trans-unit>
+        <trans-unit id="f154b865-8d39-4234-b20a-d35dfae6334c" xml:space="preserve">
+          <source>You can enable a number of features for your CDN endpoint, such as caching policy, query string caching, etc.  </source>
+          <target state="new">You can enable a number of features for your CDN endpoint, such as caching policy, query string caching, etc.  </target>
+        </trans-unit>
+        <trans-unit id="e8ab3156-ea33-4870-bae3-c42d974c638c" xml:space="preserve">
+          <source>To access cached content on the CDN, use the CDN URL provided in the portal. For example, the address for a cached blob will be similar to the following: http://&lt;<bpt id="b9356ac4-aa1b-4ce6-aa2f-f2e1a0125b6b">&lt;em&gt;</bpt>CDNNamespace<ept id="b9356ac4-aa1b-4ce6-aa2f-f2e1a0125b6b">&lt;/em&gt;</ept>\&gt;.vo.msecnd.net/&lt;<bpt id="f59ef38d-3096-40fb-8a9f-258c07dac3c1">&lt;em&gt;</bpt>myPublicContainer<ept id="f59ef38d-3096-40fb-8a9f-258c07dac3c1">&lt;/em&gt;</ept>\&gt;/&lt;<bpt id="e1ae1458-a7c6-42c3-9280-361c59a87b54">&lt;em&gt;</bpt>BlobName<ept id="e1ae1458-a7c6-42c3-9280-361c59a87b54">&lt;/em&gt;</ept>\&gt;</source>
+          <target state="new">To access cached content on the CDN, use the CDN URL provided in the portal. For example, the address for a cached blob will be similar to the following: http://&lt;<bpt id="b9356ac4-aa1b-4ce6-aa2f-f2e1a0125b6b">&lt;em&gt;</bpt>CDNNamespace<ept id="b9356ac4-aa1b-4ce6-aa2f-f2e1a0125b6b">&lt;/em&gt;</ept>\&gt;.vo.msecnd.net/&lt;<bpt id="f59ef38d-3096-40fb-8a9f-258c07dac3c1">&lt;em&gt;</bpt>myPublicContainer<ept id="f59ef38d-3096-40fb-8a9f-258c07dac3c1">&lt;/em&gt;</ept>\&gt;/&lt;<bpt id="e1ae1458-a7c6-42c3-9280-361c59a87b54">&lt;em&gt;</bpt>BlobName<ept id="e1ae1458-a7c6-42c3-9280-361c59a87b54">&lt;/em&gt;</ept>\&gt;</target>
+        </trans-unit>
+        <trans-unit id="053702b1-8959-468b-88a8-bffee5f343b2" xml:space="preserve">
+          <source><bpt id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;/linkText&gt;</ept><bpt id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;title&gt;</bpt><ept id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;/linkText&gt;</ept><bpt id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;title&gt;</bpt><ept id="b836b3ae-12b5-4b97-a054-cf1f0e433f57">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

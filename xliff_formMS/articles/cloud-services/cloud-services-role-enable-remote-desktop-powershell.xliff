@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="40820535-5fec-4894-90d9-2017447cd9ef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="40820535-5fec-4894-90d9-2017447cd9ef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="20dedbfc-2941-4657-bb39-c04fb5fa3dd7">
+        <trans-unit id="5807e27d-87dc-4bad-a125-a63b5ae74ac9" xml:space="preserve">
+          <source>Enable Remote Desktop Connection for a Role in Azure Cloud Services</source>
+          <target state="new">Enable Remote Desktop Connection for a Role in Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="7673fb85-96a3-49b0-ab74-6b3197f66d0c" xml:space="preserve">
+          <source>How to configure your azure cloud service application to allow remote desktop connections</source>
+          <target state="new">How to configure your azure cloud service application to allow remote desktop connections</target>
+        </trans-unit>
+        <trans-unit id="d479609e-1c7f-4ad2-9bc4-d192cf8f4140" xml:space="preserve">
+          <source>Remote Desktop enables you to access the desktop of a role running in Azure.</source>
+          <target state="new">Remote Desktop enables you to access the desktop of a role running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ef52595f-d011-4f79-863c-9d7517404688" xml:space="preserve">
+          <source>You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.</source>
+          <target state="new">You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.</target>
+        </trans-unit>
+        <trans-unit id="b58705d1-97d3-476b-9475-72c440f4276a" xml:space="preserve">
+          <source>This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell.</source>
+          <target state="new">This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="de84f949-06d1-4d45-a813-495ae6f99525" xml:space="preserve">
+          <source>See <bpt id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;/linkText&gt;</ept><bpt id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;title&gt;</bpt><ept id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;/title&gt;</ept> for the prerequisites needed for this article.</source>
+          <target state="new">See <bpt id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;/linkText&gt;</ept><bpt id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;title&gt;</bpt><ept id="37b844b4-5e6e-4b35-b253-be0531a3e71e">&lt;/title&gt;</ept> for the prerequisites needed for this article.</target>
+        </trans-unit>
+        <trans-unit id="6a6faf1d-21b1-4730-b8ba-d2c07174c4f3" xml:space="preserve">
+          <source>PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed.</source>
+          <target state="new">PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed.</target>
+        </trans-unit>
+        <trans-unit id="97d33591-d3fc-44da-a4f7-1dca55349bba" xml:space="preserve">
+          <source>The <bpt id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;linkText&gt;</bpt>Set-AzureServiceRemoteDesktopExtension<ept id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;/linkText&gt;</ept><bpt id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;title&gt;</bpt><ept id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;/title&gt;</ept> cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment.</source>
+          <target state="new">The <bpt id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;linkText&gt;</bpt>Set-AzureServiceRemoteDesktopExtension<ept id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;/linkText&gt;</ept><bpt id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;title&gt;</bpt><ept id="1562b66d-6b32-441d-93de-12f9df19a866">&lt;/title&gt;</ept> cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment.</target>
+        </trans-unit>
+        <trans-unit id="7f778518-33cc-4550-8c93-30e8414f63a3" xml:space="preserve">
+          <source>The cmdlet lets you specify the Username and Password for the remote desktop user through the <bpt id="0f1eaafb-1de7-4d66-9324-e93eddcb2b9e">&lt;em&gt;</bpt>Credential<ept id="0f1eaafb-1de7-4d66-9324-e93eddcb2b9e">&lt;/em&gt;</ept> parameter which accepts a PSCredential object.</source>
+          <target state="new">The cmdlet lets you specify the Username and Password for the remote desktop user through the <bpt id="0f1eaafb-1de7-4d66-9324-e93eddcb2b9e">&lt;em&gt;</bpt>Credential<ept id="0f1eaafb-1de7-4d66-9324-e93eddcb2b9e">&lt;/em&gt;</ept> parameter which accepts a PSCredential object.</target>
+        </trans-unit>
+        <trans-unit id="a174268a-6220-45bc-98d5-2c7390dd308a" xml:space="preserve">
+          <source>If you are using PowerShell interactively you can easily set the PSCredential object by calling the <bpt id="87e6c050-c928-487b-a88b-06b553577115">&lt;linkText&gt;</bpt>Get-Credentials<ept id="87e6c050-c928-487b-a88b-06b553577115">&lt;/linkText&gt;</ept><bpt id="87e6c050-c928-487b-a88b-06b553577115">&lt;title&gt;</bpt><ept id="87e6c050-c928-487b-a88b-06b553577115">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">If you are using PowerShell interactively you can easily set the PSCredential object by calling the <bpt id="87e6c050-c928-487b-a88b-06b553577115">&lt;linkText&gt;</bpt>Get-Credentials<ept id="87e6c050-c928-487b-a88b-06b553577115">&lt;/linkText&gt;</ept><bpt id="87e6c050-c928-487b-a88b-06b553577115">&lt;title&gt;</bpt><ept id="87e6c050-c928-487b-a88b-06b553577115">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="9b8e55bd-7bf9-4958-8cab-9c35adcab1fa" xml:space="preserve">
+          <source>This will display a dialog box allowing you to enter the username and password for the remote user in a secure manner.</source>
+          <target state="new">This will display a dialog box allowing you to enter the username and password for the remote user in a secure manner.</target>
+        </trans-unit>
+        <trans-unit id="8c47de75-0164-411e-8b76-63859579e190" xml:space="preserve">
+          <source>Since PowerShell will mostly be used for automation scenarios you can also setup the PSCredential object in a way that doesn't require user interaction.</source>
+          <target state="new">Since PowerShell will mostly be used for automation scenarios you can also setup the PSCredential object in a way that doesn't require user interaction.</target>
+        </trans-unit>
+        <trans-unit id="f6dda973-dfc6-44c1-80f5-740f675ccea4" xml:space="preserve">
+          <source>To do this first you need to setup a secure password.</source>
+          <target state="new">To do this first you need to setup a secure password.</target>
+        </trans-unit>
+        <trans-unit id="71195e2c-77a0-4669-8a27-06644b3f4eb5" xml:space="preserve">
+          <source>You begin with specifying a plain text password convert it to a secure string using <bpt id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;linkText&gt;</bpt>ConvertTo-SecureString<ept id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;/linkText&gt;</ept><bpt id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;title&gt;</bpt><ept id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;/title&gt;</ept>.</source>
+          <target state="new">You begin with specifying a plain text password convert it to a secure string using <bpt id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;linkText&gt;</bpt>ConvertTo-SecureString<ept id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;/linkText&gt;</ept><bpt id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;title&gt;</bpt><ept id="a8537da2-9adf-4210-ac78-d00daa85d460">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ca5cbab-d6ad-4cb2-99a8-d12e43fee72a" xml:space="preserve">
+          <source>Next you need to convert this secure string into an encrypted standard string using <bpt id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;linkText&gt;</bpt>ConvertFrom-SecureString<ept id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;/linkText&gt;</ept><bpt id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;title&gt;</bpt><ept id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Next you need to convert this secure string into an encrypted standard string using <bpt id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;linkText&gt;</bpt>ConvertFrom-SecureString<ept id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;/linkText&gt;</ept><bpt id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;title&gt;</bpt><ept id="f1fde835-9d7b-4a2b-8851-a83b9c6a43bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc27dbfe-fa48-4314-9b46-948e7c6e5b55" xml:space="preserve">
+          <source>Now you can save this encrypted standard string to a file using <bpt id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;linkText&gt;</bpt>Set-Content<ept id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;/linkText&gt;</ept><bpt id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;title&gt;</bpt><ept id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Now you can save this encrypted standard string to a file using <bpt id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;linkText&gt;</bpt>Set-Content<ept id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;/linkText&gt;</ept><bpt id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;title&gt;</bpt><ept id="02030921-c6d7-4781-b848-5ec6372b97cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24255d3b-3797-413f-abf5-10cd0fa083f9" xml:space="preserve">
+          <source>When creating the PSCredential object you can read from this file to set the password in a secure way without having to specify the password on a prompt or storing the password as plain text.</source>
+          <target state="new">When creating the PSCredential object you can read from this file to set the password in a secure way without having to specify the password on a prompt or storing the password as plain text.</target>
+        </trans-unit>
+        <trans-unit id="db3f01e5-e617-458d-ba70-4596310b718f" xml:space="preserve">
+          <source>Use the following PowerShell to create a secure password file:  </source>
+          <target state="new">Use the following PowerShell to create a secure password file:  </target>
+        </trans-unit>
+        <trans-unit id="9d404323-dee7-4189-9fb9-719caaae3b8b" xml:space="preserve">
+          <source>Once the password file (password.txt) is created you will only be using this file and will not have to specify the password in plain text.</source>
+          <target state="new">Once the password file (password.txt) is created you will only be using this file and will not have to specify the password in plain text.</target>
+        </trans-unit>
+        <trans-unit id="079fc4e3-e2c5-4fc0-b89d-99797a134800" xml:space="preserve">
+          <source>If you need to update the password then you can run the above powershell again with the new password to generate a new password.txt file.</source>
+          <target state="new">If you need to update the password then you can run the above powershell again with the new password to generate a new password.txt file.</target>
+        </trans-unit>
+        <trans-unit id="7a389c49-7222-49e9-badc-94a9ad7aa8b1" xml:space="preserve">
+          <source>When setting the password make sure you meet the <bpt id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;linkText&gt;</bpt>complexity requirements<ept id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;/linkText&gt;</ept><bpt id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;title&gt;</bpt><ept id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;/title&gt;</ept>.</source>
+          <target state="new">When setting the password make sure you meet the <bpt id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;linkText&gt;</bpt>complexity requirements<ept id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;/linkText&gt;</ept><bpt id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;title&gt;</bpt><ept id="641d8ab9-1a67-41f8-a30c-baea28d83fc0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02ff7207-974c-4f01-8eff-9fa3d563b50b" xml:space="preserve">
+          <source>To create the credential object from the secure password file you must read the file contents and convert them back to a secure string using <bpt id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;linkText&gt;</bpt>ConvertTo-SecureString<ept id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;/linkText&gt;</ept><bpt id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;title&gt;</bpt><ept id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create the credential object from the secure password file you must read the file contents and convert them back to a secure string using <bpt id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;linkText&gt;</bpt>ConvertTo-SecureString<ept id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;/linkText&gt;</ept><bpt id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;title&gt;</bpt><ept id="a27bbcbd-5685-4bb7-9d00-ffd417e34392">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d7681bc-a9d6-4a37-baad-55a37b90869a" xml:space="preserve">
+          <source>In addition to credentials the <bpt id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;linkText&gt;</bpt>Set-AzureServiceRemoteDesktopExtension<ept id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;/linkText&gt;</ept><bpt id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;title&gt;</bpt><ept id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;/title&gt;</ept> cmdlet also accepts an <bpt id="1e42716d-5605-4d79-95ee-ad9c82ea2360">&lt;em&gt;</bpt>Expiration<ept id="1e42716d-5605-4d79-95ee-ad9c82ea2360">&lt;/em&gt;</ept> parameter which specifies a DateTime at which the user account will expire.</source>
+          <target state="new">In addition to credentials the <bpt id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;linkText&gt;</bpt>Set-AzureServiceRemoteDesktopExtension<ept id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;/linkText&gt;</ept><bpt id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;title&gt;</bpt><ept id="9c1ca700-0ccd-41c1-a744-8c97ead2cb54">&lt;/title&gt;</ept> cmdlet also accepts an <bpt id="1e42716d-5605-4d79-95ee-ad9c82ea2360">&lt;em&gt;</bpt>Expiration<ept id="1e42716d-5605-4d79-95ee-ad9c82ea2360">&lt;/em&gt;</ept> parameter which specifies a DateTime at which the user account will expire.</target>
+        </trans-unit>
+        <trans-unit id="ad2942c8-be72-42f6-987d-049af325266a" xml:space="preserve">
+          <source>You get set it by specifying a static date and time or you could simply choose to expire the account a few days from the current date.</source>
+          <target state="new">You get set it by specifying a static date and time or you could simply choose to expire the account a few days from the current date.</target>
+        </trans-unit>
+        <trans-unit id="b3d1ddbf-c42c-418a-a4b4-67537d4c9009" xml:space="preserve">
+          <source>This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:   </source>
+          <target state="new">This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:   </target>
+        </trans-unit>
+        <trans-unit id="fd477833-166b-4bd8-a2d1-9320c0f7c801" xml:space="preserve">
+          <source>You can also optionally specify the deployment slot and roles that you want to enable remote desktop on.</source>
+          <target state="new">You can also optionally specify the deployment slot and roles that you want to enable remote desktop on.</target>
+        </trans-unit>
+        <trans-unit id="74253045-8438-4295-96a8-1894cd1b41af" xml:space="preserve">
+          <source>If these parameters are not specified the cmdlet will default to using the Production deployment slot and enable remote desktop on all roles in the production deployment.</source>
+          <target state="new">If these parameters are not specified the cmdlet will default to using the Production deployment slot and enable remote desktop on all roles in the production deployment.</target>
+        </trans-unit>
+        <trans-unit id="cae63ca6-908d-44d5-9a06-fa330652071d" xml:space="preserve">
+          <source>The Remote Desktop extension is associated with a deployment.</source>
+          <target state="new">The Remote Desktop extension is associated with a deployment.</target>
+        </trans-unit>
+        <trans-unit id="196966fb-fde9-43ac-b062-f6a104086e66" xml:space="preserve">
+          <source>If you were to create a new deployment for the service then you will have to enable remote desktop on the new deployment again.</source>
+          <target state="new">If you were to create a new deployment for the service then you will have to enable remote desktop on the new deployment again.</target>
+        </trans-unit>
+        <trans-unit id="22fcb1c2-2e59-47e8-b773-fed8f1b78475" xml:space="preserve">
+          <source>If you want to always have remote desktop enabled on your deployments then you should consider integrating the PowerShell scripts to enable remote desktop into your deployment workflow.</source>
+          <target state="new">If you want to always have remote desktop enabled on your deployments then you should consider integrating the PowerShell scripts to enable remote desktop into your deployment workflow.</target>
+        </trans-unit>
+        <trans-unit id="fbb44397-d943-4f38-84e5-fe131ee23ef1" xml:space="preserve">
+          <source>The <bpt id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;linkText&gt;</bpt>Get-AzureRemoteDesktopFile<ept id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;/linkText&gt;</ept><bpt id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;title&gt;</bpt><ept id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;/title&gt;</ept> cmdlet can be used to remote desktop into a specific role instance of your cloud service.</source>
+          <target state="new">The <bpt id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;linkText&gt;</bpt>Get-AzureRemoteDesktopFile<ept id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;/linkText&gt;</ept><bpt id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;title&gt;</bpt><ept id="7f6d11f6-f82f-4ced-9b7e-86d5b641afbf">&lt;/title&gt;</ept> cmdlet can be used to remote desktop into a specific role instance of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="45cf6d12-527e-4305-bbfa-40421a263bef" xml:space="preserve">
+          <source>You can use the <bpt id="befdee94-5a8f-4b76-8c96-24a3bd48001a">&lt;em&gt;</bpt>LocalPath<ept id="befdee94-5a8f-4b76-8c96-24a3bd48001a">&lt;/em&gt;</ept> parameter on the cmdlet to download the RDP file locally or you can use the <bpt id="e27ca123-2b3f-4bb0-a193-b7cd5b67ca1f">&lt;em&gt;</bpt>Launch<ept id="e27ca123-2b3f-4bb0-a193-b7cd5b67ca1f">&lt;/em&gt;</ept> parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.</source>
+          <target state="new">You can use the <bpt id="befdee94-5a8f-4b76-8c96-24a3bd48001a">&lt;em&gt;</bpt>LocalPath<ept id="befdee94-5a8f-4b76-8c96-24a3bd48001a">&lt;/em&gt;</ept> parameter on the cmdlet to download the RDP file locally or you can use the <bpt id="e27ca123-2b3f-4bb0-a193-b7cd5b67ca1f">&lt;em&gt;</bpt>Launch<ept id="e27ca123-2b3f-4bb0-a193-b7cd5b67ca1f">&lt;/em&gt;</ept> parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.</target>
+        </trans-unit>
+        <trans-unit id="f4f81d64-0f62-420b-ae86-48dcb3f2e1f9" xml:space="preserve">
+          <source>The <bpt id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;linkText&gt;</bpt>Get-AzureServiceRemoteDesktopExtension<ept id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;/linkText&gt;</ept><bpt id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;title&gt;</bpt><ept id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;/title&gt;</ept> cmdlet displays whether remote desktop is enabled on a service deployment.</source>
+          <target state="new">The <bpt id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;linkText&gt;</bpt>Get-AzureServiceRemoteDesktopExtension<ept id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;/linkText&gt;</ept><bpt id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;title&gt;</bpt><ept id="a7fd0228-8752-424e-9bba-9e38ec937bd4">&lt;/title&gt;</ept> cmdlet displays whether remote desktop is enabled on a service deployment.</target>
+        </trans-unit>
+        <trans-unit id="52de0677-1253-4be7-8c63-698c4290227e" xml:space="preserve">
+          <source>The cmdlet will return the username for the remote desktop user and the roles that the remote desktop extension is enabled on.</source>
+          <target state="new">The cmdlet will return the username for the remote desktop user and the roles that the remote desktop extension is enabled on.</target>
+        </trans-unit>
+        <trans-unit id="eb83312e-5ee9-4af6-a7ef-96bf673b6366" xml:space="preserve">
+          <source>You can optionally specify a deployment slot with the default being production.</source>
+          <target state="new">You can optionally specify a deployment slot with the default being production.</target>
+        </trans-unit>
+        <trans-unit id="ab92eca3-305f-4fb7-aa6c-30f5b13b2570" xml:space="preserve">
+          <source>If you have already enabled the remote desktop extension on a deployment and need to update the remote desktop settings then you must first remove the remote desktop extension and then enable it again with the new settings.</source>
+          <target state="new">If you have already enabled the remote desktop extension on a deployment and need to update the remote desktop settings then you must first remove the remote desktop extension and then enable it again with the new settings.</target>
+        </trans-unit>
+        <trans-unit id="c5abfeb8-82f6-403a-9933-a055d54e8dff" xml:space="preserve">
+          <source>For example if you want to set a new password for the remote user account or if the user account has expired then you need to remove the extension and then add it again with the new password or expiration.</source>
+          <target state="new">For example if you want to set a new password for the remote user account or if the user account has expired then you need to remove the extension and then add it again with the new password or expiration.</target>
+        </trans-unit>
+        <trans-unit id="58a29a32-01b0-4fed-984f-75d1db6739ca" xml:space="preserve">
+          <source>This is only required on existing deployments which have the remote desktop extension enabled.</source>
+          <target state="new">This is only required on existing deployments which have the remote desktop extension enabled.</target>
+        </trans-unit>
+        <trans-unit id="7c4c591d-ee87-439d-a545-274136ace8ee" xml:space="preserve">
+          <source>For new deployments you can call simply apply the extension directly.</source>
+          <target state="new">For new deployments you can call simply apply the extension directly.</target>
+        </trans-unit>
+        <trans-unit id="39b8401d-c382-4765-8a4c-d7253764da6d" xml:space="preserve">
+          <source>To remove the remote desktop extension from s service deployment you can use the <bpt id="1090555c-62b8-4515-ab74-600712559d4e">&lt;linkText&gt;</bpt>Remove-AzureServiceRemoteDesktopExtension<ept id="1090555c-62b8-4515-ab74-600712559d4e">&lt;/linkText&gt;</ept><bpt id="1090555c-62b8-4515-ab74-600712559d4e">&lt;title&gt;</bpt><ept id="1090555c-62b8-4515-ab74-600712559d4e">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To remove the remote desktop extension from s service deployment you can use the <bpt id="1090555c-62b8-4515-ab74-600712559d4e">&lt;linkText&gt;</bpt>Remove-AzureServiceRemoteDesktopExtension<ept id="1090555c-62b8-4515-ab74-600712559d4e">&lt;/linkText&gt;</ept><bpt id="1090555c-62b8-4515-ab74-600712559d4e">&lt;title&gt;</bpt><ept id="1090555c-62b8-4515-ab74-600712559d4e">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="d608ea02-562b-4efc-a697-6ae411c42859" xml:space="preserve">
+          <source>You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension.</source>
+          <target state="new">You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension.</target>
+        </trans-unit>
+        <trans-unit id="0bad8fbf-41be-4ad4-952b-5c840162616c" xml:space="preserve">
+          <source>The <bpt id="5f657920-1f96-4da2-9281-9dda5dbddb71">&lt;em&gt;</bpt>UninstallConfiguration<ept id="5f657920-1f96-4da2-9281-9dda5dbddb71">&lt;/em&gt;</ept> parameter will uninstall any extension configuration that was applied to the service.</source>
+          <target state="new">The <bpt id="5f657920-1f96-4da2-9281-9dda5dbddb71">&lt;em&gt;</bpt>UninstallConfiguration<ept id="5f657920-1f96-4da2-9281-9dda5dbddb71">&lt;/em&gt;</ept> parameter will uninstall any extension configuration that was applied to the service.</target>
+        </trans-unit>
+        <trans-unit id="8ed1f7de-f439-427f-b37c-22865a1efe2d" xml:space="preserve">
+          <source>All extension configuration is associated with the service configuration to activate the extension with a deployment the deployment must be associated with that extension configuration.</source>
+          <target state="new">All extension configuration is associated with the service configuration to activate the extension with a deployment the deployment must be associated with that extension configuration.</target>
+        </trans-unit>
+        <trans-unit id="541f2923-6770-42ae-adcc-908f98125701" xml:space="preserve">
+          <source>Calling the Remove cmdlet without <bpt id="43fff9a3-eda6-49f6-8b38-f6925f4a48a0">&lt;em&gt;</bpt>UninstallConfiguration<ept id="43fff9a3-eda6-49f6-8b38-f6925f4a48a0">&lt;/em&gt;</ept> will disassociate the deployment from the extension configuration thus effectively removing the extension from the deployment.</source>
+          <target state="new">Calling the Remove cmdlet without <bpt id="43fff9a3-eda6-49f6-8b38-f6925f4a48a0">&lt;em&gt;</bpt>UninstallConfiguration<ept id="43fff9a3-eda6-49f6-8b38-f6925f4a48a0">&lt;/em&gt;</ept> will disassociate the deployment from the extension configuration thus effectively removing the extension from the deployment.</target>
+        </trans-unit>
+        <trans-unit id="1b5cef82-e865-40ae-800b-aea78b06717d" xml:space="preserve">
+          <source>However the extension configuration will still remain associated with the service.</source>
+          <target state="new">However the extension configuration will still remain associated with the service.</target>
+        </trans-unit>
+        <trans-unit id="403634e6-bcb9-4363-9365-4167dd2827f7" xml:space="preserve">
+          <source>To completely remove the extension configuration you should call the Remove cmdlet with the <bpt id="d3b28c08-5da5-4894-9a66-720fda331339">&lt;em&gt;</bpt>UninstallConfiguration<ept id="d3b28c08-5da5-4894-9a66-720fda331339">&lt;/em&gt;</ept> parameter.</source>
+          <target state="new">To completely remove the extension configuration you should call the Remove cmdlet with the <bpt id="d3b28c08-5da5-4894-9a66-720fda331339">&lt;em&gt;</bpt>UninstallConfiguration<ept id="d3b28c08-5da5-4894-9a66-720fda331339">&lt;/em&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="5b47dd2f-832e-480f-8f52-83c87a300287" xml:space="preserve">
+          <source><bpt id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;linkText&gt;</bpt>How to Configure Cloud Services<ept id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;/linkText&gt;</ept><bpt id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;title&gt;</bpt><ept id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;linkText&gt;</bpt>How to Configure Cloud Services<ept id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;/linkText&gt;</ept><bpt id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;title&gt;</bpt><ept id="05364188-1750-423c-9ceb-c4c1dde2440d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

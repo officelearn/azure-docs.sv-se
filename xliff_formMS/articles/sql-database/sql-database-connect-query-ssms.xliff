@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6ac88dde-4831-42b7-aab4-0cf1aad8a79c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6ac88dde-4831-42b7-aab4-0cf1aad8a79c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fd0bc3d8-fd1f-40ad-9b70-9cf7605ed0f6">
+        <trans-unit id="bc4c3ff1-789d-4939-ab57-bfd8320626fb" xml:space="preserve">
+          <source>How to connect to an Azure SQL database using SSMS | Microsoft Azure</source>
+          <target state="new">How to connect to an Azure SQL database using SSMS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="634a1c82-5c77-4b65-8cab-c9dce5a6ccfa" xml:space="preserve">
+          <source>Learn how to connect to an Azure SQL database using SSMS.</source>
+          <target state="new">Learn how to connect to an Azure SQL database using SSMS.</target>
+        </trans-unit>
+        <trans-unit id="df5a2204-bd19-43ea-ae80-3f10d8a0556d" xml:space="preserve">
+          <source>This article shows you how to install SQL Server Management Studio (SSMS), connect to a database server in Azure, and then perform a simple query using Transact-SQL statements.</source>
+          <target state="new">This article shows you how to install SQL Server Management Studio (SSMS), connect to a database server in Azure, and then perform a simple query using Transact-SQL statements.</target>
+        </trans-unit>
+        <trans-unit id="762e062d-3a30-4a44-9488-0cca0c20de46" xml:space="preserve">
+          <source>You'll need a SQL database in Azure first.</source>
+          <target state="new">You'll need a SQL database in Azure first.</target>
+        </trans-unit>
+        <trans-unit id="3cef5622-fb54-4006-9f8d-3da0abe750c9" xml:space="preserve">
+          <source>You can create one quickly with the instructions in <bpt id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;/linkText&gt;</ept><bpt id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;title&gt;</bpt><ept id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create one quickly with the instructions in <bpt id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;/linkText&gt;</ept><bpt id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;title&gt;</bpt><ept id="978c4966-04c4-4c00-a559-c1898bc8a40d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72b2cfb7-53c9-43c0-8c6f-48ae2b1057d9" xml:space="preserve">
+          <source>The examples here are based on the AdventureWorks sample database you create in that article, but the same steps, up until you perform the query, apply to any SQL database.</source>
+          <target state="new">The examples here are based on the AdventureWorks sample database you create in that article, but the same steps, up until you perform the query, apply to any SQL database.</target>
+        </trans-unit>
+        <trans-unit id="de9f6b80-281b-49cc-b6a4-bde95c3f054f" xml:space="preserve">
+          <source>When working with SQL Database, you should use the most recent version of SSMS.</source>
+          <target state="new">When working with SQL Database, you should use the most recent version of SSMS.</target>
+        </trans-unit>
+        <trans-unit id="2a15a817-bb7e-4a2d-8962-89807327fabe" xml:space="preserve">
+          <source>See <bpt id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;linkText&gt;</bpt>Download SQL Server Management Studio<ept id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;/linkText&gt;</ept><bpt id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;title&gt;</bpt><ept id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;/title&gt;</ept> to get it.</source>
+          <target state="new">See <bpt id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;linkText&gt;</bpt>Download SQL Server Management Studio<ept id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;/linkText&gt;</ept><bpt id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;title&gt;</bpt><ept id="94e6d725-54ca-4cb8-9f8e-6a553d4b1c29">&lt;/title&gt;</ept> to get it.</target>
+        </trans-unit>
+        <trans-unit id="0b697e57-2e38-460e-bfe5-bc472a1f123f" xml:space="preserve">
+          <source>With the most recent version, SSMS automatically notifies you when the most recent update is available.</source>
+          <target state="new">With the most recent version, SSMS automatically notifies you when the most recent update is available.</target>
+        </trans-unit>
+        <trans-unit id="d208e04b-5812-4b36-a39a-3cdb3b5ccbeb" xml:space="preserve">
+          <source>Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.</source>
+          <target state="new">Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.</target>
+        </trans-unit>
+        <trans-unit id="475eb934-7e15-4705-a0ca-5606a8714d74" xml:space="preserve">
+          <source>In the <bpt id="309d0e55-c893-40e8-ad16-c81969d49bd2">&lt;strong&gt;</bpt>Connect to Server<ept id="309d0e55-c893-40e8-ad16-c81969d49bd2">&lt;/strong&gt;</ept> dialog box, in the <bpt id="6f487baa-8306-48bf-8f28-8738570acae8">&lt;strong&gt;</bpt>Server name<ept id="6f487baa-8306-48bf-8f28-8738570acae8">&lt;/strong&gt;</ept> box, type the name of the server that hosts your SQL database in the format <bpt id="118d9768-d8b2-4b0a-88c3-dec85aa5c5e1">&lt;em&gt;</bpt>&amp;lt;servername&gt;<ept id="118d9768-d8b2-4b0a-88c3-dec85aa5c5e1">&lt;/em&gt;</ept>.<bpt id="80e4a4bf-5218-486c-9ecb-d1dadcca2294">&lt;strong&gt;</bpt>database.windows.net<ept id="80e4a4bf-5218-486c-9ecb-d1dadcca2294">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="309d0e55-c893-40e8-ad16-c81969d49bd2">&lt;strong&gt;</bpt>Connect to Server<ept id="309d0e55-c893-40e8-ad16-c81969d49bd2">&lt;/strong&gt;</ept> dialog box, in the <bpt id="6f487baa-8306-48bf-8f28-8738570acae8">&lt;strong&gt;</bpt>Server name<ept id="6f487baa-8306-48bf-8f28-8738570acae8">&lt;/strong&gt;</ept> box, type the name of the server that hosts your SQL database in the format <bpt id="118d9768-d8b2-4b0a-88c3-dec85aa5c5e1">&lt;em&gt;</bpt>&amp;lt;servername&gt;<ept id="118d9768-d8b2-4b0a-88c3-dec85aa5c5e1">&lt;/em&gt;</ept>.<bpt id="80e4a4bf-5218-486c-9ecb-d1dadcca2294">&lt;strong&gt;</bpt>database.windows.net<ept id="80e4a4bf-5218-486c-9ecb-d1dadcca2294">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ceedf7b-a476-49ea-9fdb-5559f8ee4f99" xml:space="preserve">
+          <source>Choose <bpt id="c111df07-1f16-4c8a-9439-7d1225cffa5d">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="c111df07-1f16-4c8a-9439-7d1225cffa5d">&lt;/strong&gt;</ept> from the <bpt id="f5d55c1f-3e03-438d-bfaa-ec95a1948e2c">&lt;strong&gt;</bpt>Authentication<ept id="f5d55c1f-3e03-438d-bfaa-ec95a1948e2c">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Choose <bpt id="c111df07-1f16-4c8a-9439-7d1225cffa5d">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="c111df07-1f16-4c8a-9439-7d1225cffa5d">&lt;/strong&gt;</ept> from the <bpt id="f5d55c1f-3e03-438d-bfaa-ec95a1948e2c">&lt;strong&gt;</bpt>Authentication<ept id="f5d55c1f-3e03-438d-bfaa-ec95a1948e2c">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="5d85526b-135c-4ee7-ac43-be7f9ea47c27" xml:space="preserve">
+          <source>Type the <bpt id="96da16ad-e633-475e-b2fb-bd910866805f">&lt;strong&gt;</bpt>Login<ept id="96da16ad-e633-475e-b2fb-bd910866805f">&lt;/strong&gt;</ept> and <bpt id="5563308b-3bf9-4961-952b-64901f6bdc18">&lt;strong&gt;</bpt>Password<ept id="5563308b-3bf9-4961-952b-64901f6bdc18">&lt;/strong&gt;</ept> you set up when you created the server, and then click <bpt id="3719879d-b1f5-4da7-b0e6-76b7e649aaf9">&lt;strong&gt;</bpt>Connect<ept id="3719879d-b1f5-4da7-b0e6-76b7e649aaf9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the <bpt id="96da16ad-e633-475e-b2fb-bd910866805f">&lt;strong&gt;</bpt>Login<ept id="96da16ad-e633-475e-b2fb-bd910866805f">&lt;/strong&gt;</ept> and <bpt id="5563308b-3bf9-4961-952b-64901f6bdc18">&lt;strong&gt;</bpt>Password<ept id="5563308b-3bf9-4961-952b-64901f6bdc18">&lt;/strong&gt;</ept> you set up when you created the server, and then click <bpt id="3719879d-b1f5-4da7-b0e6-76b7e649aaf9">&lt;strong&gt;</bpt>Connect<ept id="3719879d-b1f5-4da7-b0e6-76b7e649aaf9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99f513ba-7940-43e7-a7e1-8585335857fb" xml:space="preserve">
+          <source><bpt id="7870b3ce-9bfd-45ff-9dd8-eb8632beaa60">&lt;linkText&gt;</bpt>SSMS Connect to Azure SQL Database server<ept id="7870b3ce-9bfd-45ff-9dd8-eb8632beaa60">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7870b3ce-9bfd-45ff-9dd8-eb8632beaa60">&lt;linkText&gt;</bpt>SSMS Connect to Azure SQL Database server<ept id="7870b3ce-9bfd-45ff-9dd8-eb8632beaa60">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d47796f4-23a1-49da-b941-5aa0d517d572" xml:space="preserve">
+          <source>The most common reason for connection failures are mistakes in the server name, user name, or password, as well as the server not allowing connections for security reasons.</source>
+          <target state="new">The most common reason for connection failures are mistakes in the server name, user name, or password, as well as the server not allowing connections for security reasons.</target>
+        </trans-unit>
+        <trans-unit id="f61c2cef-2dfa-44ae-9a67-05822a9ca280" xml:space="preserve">
+          <source>Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses.</source>
+          <target state="new">Make sure that the firewall settings of the server allow connections from your local computer's IP address and the IP address that the SSMS client uses.</target>
+        </trans-unit>
+        <trans-unit id="8299ec8b-db0b-4f5f-b764-cc30f397534b" xml:space="preserve">
+          <source>Sometimes they're different.</source>
+          <target state="new">Sometimes they're different.</target>
+        </trans-unit>
+        <trans-unit id="be3641f5-8114-42cc-81dd-87fcab592f1b" xml:space="preserve">
+          <source>If the connection fails because of a firewall rule, the IP address is reported in the error message.</source>
+          <target state="new">If the connection fails because of a firewall rule, the IP address is reported in the error message.</target>
+        </trans-unit>
+        <trans-unit id="55f7ffcd-9c29-444c-8dfe-e0707b26826c" xml:space="preserve">
+          <source>Add this IP address to the server firewall rule.</source>
+          <target state="new">Add this IP address to the server firewall rule.</target>
+        </trans-unit>
+        <trans-unit id="8f2736f7-cb47-47cc-9078-13adf540bbc4" xml:space="preserve">
+          <source>For more information, see <bpt id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;linkText&gt;</bpt>How to: Configure Firewall Settings (Azure SQL Database)<ept id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;/linkText&gt;</ept><bpt id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;title&gt;</bpt><ept id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;linkText&gt;</bpt>How to: Configure Firewall Settings (Azure SQL Database)<ept id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;/linkText&gt;</ept><bpt id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;title&gt;</bpt><ept id="cafa6a04-d716-49c8-a6e8-b3f3ef168204">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4131dfa-134a-40bc-9632-6184cfed64ed" xml:space="preserve">
+          <source>After you connect, you can run a sample query.</source>
+          <target state="new">After you connect, you can run a sample query.</target>
+        </trans-unit>
+        <trans-unit id="65631b81-3f39-46d4-bdf5-85d231a3234a" xml:space="preserve">
+          <source>If you didn't create the database using the AdventureWorks sample in <bpt id="40e24540-f6bf-4464-868c-204e036cc712">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="40e24540-f6bf-4464-868c-204e036cc712">&lt;/linkText&gt;</ept><bpt id="40e24540-f6bf-4464-868c-204e036cc712">&lt;title&gt;</bpt><ept id="40e24540-f6bf-4464-868c-204e036cc712">&lt;/title&gt;</ept>, this query won't work.</source>
+          <target state="new">If you didn't create the database using the AdventureWorks sample in <bpt id="40e24540-f6bf-4464-868c-204e036cc712">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="40e24540-f6bf-4464-868c-204e036cc712">&lt;/linkText&gt;</ept><bpt id="40e24540-f6bf-4464-868c-204e036cc712">&lt;title&gt;</bpt><ept id="40e24540-f6bf-4464-868c-204e036cc712">&lt;/title&gt;</ept>, this query won't work.</target>
+        </trans-unit>
+        <trans-unit id="fa2d60a7-1e49-47de-a8b9-a9782767465d" xml:space="preserve">
+          <source>Skip straight to Next Steps to learn more.</source>
+          <target state="new">Skip straight to Next Steps to learn more.</target>
+        </trans-unit>
+        <trans-unit id="f0ece7a6-c852-417f-8f76-cdd6cdc4e5d9" xml:space="preserve">
+          <source>In <bpt id="7e8c35dd-8c29-44fc-ae23-7d821906d74d">&lt;strong&gt;</bpt>Object Explorer<ept id="7e8c35dd-8c29-44fc-ae23-7d821906d74d">&lt;/strong&gt;</ept>, navigate to the <bpt id="21ef2015-0252-465d-ab5d-89e6495622c1">&lt;strong&gt;</bpt>AdventureWorks<ept id="21ef2015-0252-465d-ab5d-89e6495622c1">&lt;/strong&gt;</ept> database.</source>
+          <target state="new">In <bpt id="7e8c35dd-8c29-44fc-ae23-7d821906d74d">&lt;strong&gt;</bpt>Object Explorer<ept id="7e8c35dd-8c29-44fc-ae23-7d821906d74d">&lt;/strong&gt;</ept>, navigate to the <bpt id="21ef2015-0252-465d-ab5d-89e6495622c1">&lt;strong&gt;</bpt>AdventureWorks<ept id="21ef2015-0252-465d-ab5d-89e6495622c1">&lt;/strong&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="574b94a9-26d5-4b3f-8060-bda9ddc0e3e8" xml:space="preserve">
+          <source>Right-click the database and then select <bpt id="44cb0bfd-3f59-4169-b3b7-4889617c3f4e">&lt;strong&gt;</bpt>New Query<ept id="44cb0bfd-3f59-4169-b3b7-4889617c3f4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the database and then select <bpt id="44cb0bfd-3f59-4169-b3b7-4889617c3f4e">&lt;strong&gt;</bpt>New Query<ept id="44cb0bfd-3f59-4169-b3b7-4889617c3f4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8882b573-7faf-4cb9-a5eb-b83c944ecb43" xml:space="preserve">
+          <source><bpt id="05cb0938-1bd4-4fea-8b2c-2382fd8810ec">&lt;linkText&gt;</bpt>New query<ept id="05cb0938-1bd4-4fea-8b2c-2382fd8810ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05cb0938-1bd4-4fea-8b2c-2382fd8810ec">&lt;linkText&gt;</bpt>New query<ept id="05cb0938-1bd4-4fea-8b2c-2382fd8810ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c92b892-2165-4fd0-b4c7-cc3f43d6bac8" xml:space="preserve">
+          <source>In the query window, copy and paste the following code.</source>
+          <target state="new">In the query window, copy and paste the following code.</target>
+        </trans-unit>
+        <trans-unit id="0a680159-e804-46ad-8e85-d0b1b2d23632" xml:space="preserve">
+          <source>Click the <bpt id="866dcb3f-bcce-4498-885b-ddade97933a4">&lt;strong&gt;</bpt>Execute<ept id="866dcb3f-bcce-4498-885b-ddade97933a4">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="866dcb3f-bcce-4498-885b-ddade97933a4">&lt;strong&gt;</bpt>Execute<ept id="866dcb3f-bcce-4498-885b-ddade97933a4">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="6d6b5f6c-1e92-4b17-9a9b-cd1464f7d62a" xml:space="preserve">
+          <source>The following screen shot shows a successful query.</source>
+          <target state="new">The following screen shot shows a successful query.</target>
+        </trans-unit>
+        <trans-unit id="8799aa10-3921-469f-ac0d-7d0ac921c1a1" xml:space="preserve">
+          <source><bpt id="9b1347bd-d2c6-4574-95b2-634aac3d12d1">&lt;linkText&gt;</bpt>Sucess<ept id="9b1347bd-d2c6-4574-95b2-634aac3d12d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b1347bd-d2c6-4574-95b2-634aac3d12d1">&lt;linkText&gt;</bpt>Sucess<ept id="9b1347bd-d2c6-4574-95b2-634aac3d12d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1da1337e-0001-413f-ac8a-a10800ac6ef2" xml:space="preserve">
+          <source>You can use Transact-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server.</source>
+          <target state="new">You can use Transact-SQL statements to create and manage databases in Azure in much the same way you can with SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="616386aa-acbc-4001-8521-5b7c8ae3ba80" xml:space="preserve">
+          <source>If you're familiar with using Transact-SQL with SQL Server, see <bpt id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;linkText&gt;</bpt>Azure SQL Database Transact-SQL information)<ept id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;/linkText&gt;</ept><bpt id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;title&gt;</bpt><ept id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;/title&gt;</ept> for a summary of differences.</source>
+          <target state="new">If you're familiar with using Transact-SQL with SQL Server, see <bpt id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;linkText&gt;</bpt>Azure SQL Database Transact-SQL information)<ept id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;/linkText&gt;</ept><bpt id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;title&gt;</bpt><ept id="24fc6bc2-18de-4829-b2ac-5bfddd87244f">&lt;/title&gt;</ept> for a summary of differences.</target>
+        </trans-unit>
+        <trans-unit id="32b1c47e-0b4a-406f-b5e4-c6de6f126435" xml:space="preserve">
+          <source>If you're new to Transact-SQL, see <bpt id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;linkText&gt;</bpt>Tutorial: Writing Transact-SQL Statements<ept id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;/linkText&gt;</ept><bpt id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;title&gt;</bpt><ept id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;/title&gt;</ept> and the <bpt id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;linkText&gt;</bpt>Transact-SQL Reference (Database Engine)<ept id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;/linkText&gt;</ept><bpt id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;title&gt;</bpt><ept id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're new to Transact-SQL, see <bpt id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;linkText&gt;</bpt>Tutorial: Writing Transact-SQL Statements<ept id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;/linkText&gt;</ept><bpt id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;title&gt;</bpt><ept id="96263c61-9318-42e3-ae90-43fedb340f90">&lt;/title&gt;</ept> and the <bpt id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;linkText&gt;</bpt>Transact-SQL Reference (Database Engine)<ept id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;/linkText&gt;</ept><bpt id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;title&gt;</bpt><ept id="15bbc7bd-0049-4129-a40a-474bab1c1455">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

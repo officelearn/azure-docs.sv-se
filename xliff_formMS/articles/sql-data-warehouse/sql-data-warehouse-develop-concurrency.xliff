@@ -1,0 +1,1409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="591afefd-03ab-4f95-a855-aa4fd9e6ff83" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="591afefd-03ab-4f95-a855-aa4fd9e6ff83" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="db4308cb-3d99-46b8-8cb8-33c2ac7cd951">
+        <trans-unit id="3225af78-4118-4670-8fda-9fa2209a8afa" xml:space="preserve">
+          <source>Concurrency and workload management in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Concurrency and workload management in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="05138b01-e9a2-4733-bc78-2cf99870dd39" xml:space="preserve">
+          <source>Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="c09d9fc2-c5f6-4a64-b552-cbba98b8a8c9" xml:space="preserve">
+          <source>To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.</source>
+          <target state="new">To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.</target>
+        </trans-unit>
+        <trans-unit id="d1d77467-ef39-40f1-9bd4-14af3872f292" xml:space="preserve">
+          <source>This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.</source>
+          <target state="new">This article introduces you to the concepts of concurrency and workload management; explaining how both features have been implemented and how you can control them in your data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="03bb5cef-3448-4e0b-aeab-cb5c068d239a" xml:space="preserve">
+          <source>It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; <bpt id="9c6fdc7f-c5b8-458f-b214-a73f2d1f1293">&lt;strong&gt;</bpt>concurrent queries<ept id="9c6fdc7f-c5b8-458f-b214-a73f2d1f1293">&lt;/strong&gt;</ept> and <bpt id="fb69e906-bd5a-4ccb-a09b-869f34dd03ca">&lt;strong&gt;</bpt>concurrency slots<ept id="fb69e906-bd5a-4ccb-a09b-869f34dd03ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important to understand that concurrency in SQL Data Warehouse is governed by two concepts; <bpt id="9c6fdc7f-c5b8-458f-b214-a73f2d1f1293">&lt;strong&gt;</bpt>concurrent queries<ept id="9c6fdc7f-c5b8-458f-b214-a73f2d1f1293">&lt;/strong&gt;</ept> and <bpt id="fb69e906-bd5a-4ccb-a09b-869f34dd03ca">&lt;strong&gt;</bpt>concurrency slots<ept id="fb69e906-bd5a-4ccb-a09b-869f34dd03ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56e4ba0c-da41-4e7a-bc10-49b76443fd8d" xml:space="preserve">
+          <source>Concurrent queries equates to the number of queries executing at the same time.</source>
+          <target state="new">Concurrent queries equates to the number of queries executing at the same time.</target>
+        </trans-unit>
+        <trans-unit id="837837aa-0998-4b33-95a8-29bcc24303f1" xml:space="preserve">
+          <source>SQL Data Warehouse supports up to 32 <bpt id="08db32b4-4954-4288-b2b4-848231415dbe">&lt;strong&gt;</bpt>concurrent queries<ept id="08db32b4-4954-4288-b2b4-848231415dbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">SQL Data Warehouse supports up to 32 <bpt id="08db32b4-4954-4288-b2b4-848231415dbe">&lt;strong&gt;</bpt>concurrent queries<ept id="08db32b4-4954-4288-b2b4-848231415dbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c72e4072-1f73-4327-9301-fd39807aa760" xml:space="preserve">
+          <source>Each query execution counts as a single query regardless of whether it is a serial query (single threaded) or parallel query (multi-threaded).</source>
+          <target state="new">Each query execution counts as a single query regardless of whether it is a serial query (single threaded) or parallel query (multi-threaded).</target>
+        </trans-unit>
+        <trans-unit id="f42cb16f-0e51-4d9b-868b-22709150a52e" xml:space="preserve">
+          <source>This is a fixed cap and applies to all service levels and all queries.</source>
+          <target state="new">This is a fixed cap and applies to all service levels and all queries.</target>
+        </trans-unit>
+        <trans-unit id="776e4c67-644b-453f-98be-5c680d0c16e3" xml:space="preserve">
+          <source>Concurrency slots is a more dynamic concept and is relative to the Data Warehouse Unit (DWU) service level objective for your data warehouse.</source>
+          <target state="new">Concurrency slots is a more dynamic concept and is relative to the Data Warehouse Unit (DWU) service level objective for your data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="e007f35d-b6cf-4b5a-b579-199cf295a037" xml:space="preserve">
+          <source>As you increase the number of DWU allocated to SQL Data Warehouse more compute resources are assigned.</source>
+          <target state="new">As you increase the number of DWU allocated to SQL Data Warehouse more compute resources are assigned.</target>
+        </trans-unit>
+        <trans-unit id="453ba847-67c7-4142-843f-985b10ea77ca" xml:space="preserve">
+          <source>However, increasing DWU also increases the number of <bpt id="c9d492ac-4a26-4814-9544-9db12690dfa9">&lt;strong&gt;</bpt>concurrency slots<ept id="c9d492ac-4a26-4814-9544-9db12690dfa9">&lt;/strong&gt;</ept> available.</source>
+          <target state="new">However, increasing DWU also increases the number of <bpt id="c9d492ac-4a26-4814-9544-9db12690dfa9">&lt;strong&gt;</bpt>concurrency slots<ept id="c9d492ac-4a26-4814-9544-9db12690dfa9">&lt;/strong&gt;</ept> available.</target>
+        </trans-unit>
+        <trans-unit id="b71106ac-bebf-4ffe-ba4d-5393dc0b8c74" xml:space="preserve">
+          <source>As a general rule, each concurrently executing query consumes one or more concurrency slots.</source>
+          <target state="new">As a general rule, each concurrently executing query consumes one or more concurrency slots.</target>
+        </trans-unit>
+        <trans-unit id="d3cae9ef-a02e-49cd-a153-d915ff163618" xml:space="preserve">
+          <source>The exact number of slots depends on three factors:</source>
+          <target state="new">The exact number of slots depends on three factors:</target>
+        </trans-unit>
+        <trans-unit id="290dcf38-5741-4740-bdde-b75c49779518" xml:space="preserve">
+          <source>The DWU setting for the SQL Data Warehouse</source>
+          <target state="new">The DWU setting for the SQL Data Warehouse</target>
+        </trans-unit>
+        <trans-unit id="424485e3-f954-4a22-ae1b-29f56cdf63dd" xml:space="preserve">
+          <source>The <bpt id="071b5631-3576-44fb-82e6-8fca47ccca40">&lt;strong&gt;</bpt>resource class<ept id="071b5631-3576-44fb-82e6-8fca47ccca40">&lt;/strong&gt;</ept> that the user belongs to</source>
+          <target state="new">The <bpt id="071b5631-3576-44fb-82e6-8fca47ccca40">&lt;strong&gt;</bpt>resource class<ept id="071b5631-3576-44fb-82e6-8fca47ccca40">&lt;/strong&gt;</ept> that the user belongs to</target>
+        </trans-unit>
+        <trans-unit id="30f40e46-2b9e-4229-bfb9-17d841ac5da2" xml:space="preserve">
+          <source>Whether the query or operation is governed by the concurrency slot model </source>
+          <target state="new">Whether the query or operation is governed by the concurrency slot model </target>
+        </trans-unit>
+        <trans-unit id="fee7ff31-f22f-450a-a774-48e9fbdb524c" xml:space="preserve">
+          <source>It is worth noting that not every query is governed by the concurrency slot query rule.</source>
+          <target state="new">It is worth noting that not every query is governed by the concurrency slot query rule.</target>
+        </trans-unit>
+        <trans-unit id="d2f35d4a-dd8f-4e8d-93be-200260392ba4" xml:space="preserve">
+          <source>However, most user queries are.</source>
+          <target state="new">However, most user queries are.</target>
+        </trans-unit>
+        <trans-unit id="5b9e9e19-729e-4190-8fd0-bbe4ee36b05c" xml:space="preserve">
+          <source>Some queries and operations do not consume concurrency slots at all.</source>
+          <target state="new">Some queries and operations do not consume concurrency slots at all.</target>
+        </trans-unit>
+        <trans-unit id="1d5abb08-a97f-46d3-b444-3620176f4253" xml:space="preserve">
+          <source>These queries and operations are still limited by the concurrent query limit which is why both rules are described.</source>
+          <target state="new">These queries and operations are still limited by the concurrent query limit which is why both rules are described.</target>
+        </trans-unit>
+        <trans-unit id="6d05cac6-4ac9-4143-9172-c0640e18f28b" xml:space="preserve">
+          <source>Please refer to the <bpt id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;linkText&gt;</bpt>resource class exceptions<ept id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;/linkText&gt;</ept><bpt id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;title&gt;</bpt><ept id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;/title&gt;</ept> section below for more details.</source>
+          <target state="new">Please refer to the <bpt id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;linkText&gt;</bpt>resource class exceptions<ept id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;/linkText&gt;</ept><bpt id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;title&gt;</bpt><ept id="3845c22b-a454-4c78-861a-f1ce5328761a">&lt;/title&gt;</ept> section below for more details.</target>
+        </trans-unit>
+        <trans-unit id="f477f03d-0af5-4465-be8b-da863f1a8026" xml:space="preserve">
+          <source>The table below describes the limits for both concurrent queries and concurrency slots; assuming your query is resource governed.</source>
+          <target state="new">The table below describes the limits for both concurrent queries and concurrency slots; assuming your query is resource governed.</target>
+        </trans-unit>
+        <trans-unit id="282cd423-99be-462f-90c9-56fcc606c8ed" xml:space="preserve">
+          <source>Concurrency Slot Consumption</source>
+          <target state="new">Concurrency Slot Consumption</target>
+        </trans-unit>
+        <trans-unit id="626d9e1e-1558-4f43-9ccd-34cc229edb99" xml:space="preserve">
+          <source>DW100</source>
+          <target state="new">DW100</target>
+        </trans-unit>
+        <trans-unit id="443a578b-8abf-4ec7-82c5-697b0ea34b9a" xml:space="preserve">
+          <source>DW200</source>
+          <target state="new">DW200</target>
+        </trans-unit>
+        <trans-unit id="24d2dfdc-d5a3-4691-81b9-f8be7d6acf7e" xml:space="preserve">
+          <source>DW300</source>
+          <target state="new">DW300</target>
+        </trans-unit>
+        <trans-unit id="5210e1e6-ea47-4121-a4dd-b1a964d06432" xml:space="preserve">
+          <source>DW400</source>
+          <target state="new">DW400</target>
+        </trans-unit>
+        <trans-unit id="5c9ef9ef-8ba0-454f-be9a-0afc728642f0" xml:space="preserve">
+          <source>DW500</source>
+          <target state="new">DW500</target>
+        </trans-unit>
+        <trans-unit id="49ec8a5e-e959-482c-a848-c546b92c3a1b" xml:space="preserve">
+          <source>DW600</source>
+          <target state="new">DW600</target>
+        </trans-unit>
+        <trans-unit id="6b993120-a81c-46a9-b0c4-e13d45e9220b" xml:space="preserve">
+          <source>DW1000</source>
+          <target state="new">DW1000</target>
+        </trans-unit>
+        <trans-unit id="aec7e1bd-119e-45d7-9fc2-0c0fc5343cca" xml:space="preserve">
+          <source>DW1200</source>
+          <target state="new">DW1200</target>
+        </trans-unit>
+        <trans-unit id="ce53d679-46eb-4ac4-a1c9-f4715c851d1b" xml:space="preserve">
+          <source>DW1500</source>
+          <target state="new">DW1500</target>
+        </trans-unit>
+        <trans-unit id="325213a1-faa4-4351-90c0-02a3802476f2" xml:space="preserve">
+          <source>DW2000</source>
+          <target state="new">DW2000</target>
+        </trans-unit>
+        <trans-unit id="94b376f4-db55-44b2-a0a0-8e39a386a038" xml:space="preserve">
+          <source>Max Concurrent Queries</source>
+          <target state="new">Max Concurrent Queries</target>
+        </trans-unit>
+        <trans-unit id="e4c55af7-1884-4149-87cb-1af8b2bfba10" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="af36a3d7-f20b-4a0f-aeca-e6dc9977f13b" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="92ac815e-e05f-4b0c-bc24-b907a8fa384b" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="1da995c4-dbaa-471b-8c6b-07c9859b3e7f" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="6304c5f8-fa3f-4f2d-84ba-e631a43bbb98" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="23715169-3f52-470d-8e7c-dc1e77c47676" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="3ac876c1-6b5b-439d-90a4-e7b7a27ee30a" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="ab5b80be-9c3e-47f1-8375-4478fcf345ce" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="816d8011-ee4f-426b-858d-f1b0ae8058bf" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="cc3e1137-26ec-44bb-b089-6f9e94a7a47b" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="fb2fc869-c003-4e97-89e8-a29252100f89" xml:space="preserve">
+          <source>Max Concurrency Slots</source>
+          <target state="new">Max Concurrency Slots</target>
+        </trans-unit>
+        <trans-unit id="b2bc0062-8c5d-438e-b42d-833ddaff45e1" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="daec60cc-858a-4b64-ac68-5b23d101ef18" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="7f3a8a67-c1ca-40a0-8281-fd8561ef0f6d" xml:space="preserve">
+          <source>12</source>
+          <target state="new">12</target>
+        </trans-unit>
+        <trans-unit id="465ed5c2-266a-45d8-9406-0d75edc2fccb" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="5c3940a6-74be-42b7-82ab-24e0b0aaaacf" xml:space="preserve">
+          <source>20</source>
+          <target state="new">20</target>
+        </trans-unit>
+        <trans-unit id="2bd73e0f-0de7-41e0-9c6f-4268d2ac8757" xml:space="preserve">
+          <source>24</source>
+          <target state="new">24</target>
+        </trans-unit>
+        <trans-unit id="76fc1906-85ab-4e57-814e-388775caa1f7" xml:space="preserve">
+          <source>40</source>
+          <target state="new">40</target>
+        </trans-unit>
+        <trans-unit id="ffd07260-a56c-4cde-a742-bada747ddd3a" xml:space="preserve">
+          <source>48</source>
+          <target state="new">48</target>
+        </trans-unit>
+        <trans-unit id="d20c32ff-7ce4-4349-88ec-7a75595f4352" xml:space="preserve">
+          <source>60</source>
+          <target state="new">60</target>
+        </trans-unit>
+        <trans-unit id="f203eff3-f2f0-4c62-9c23-0af8ca0dd7a2" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="4e153ece-d648-4911-9074-c785599d7b5b" xml:space="preserve">
+          <source>SQL Data Warehouse query workloads have to live within these thresholds.</source>
+          <target state="new">SQL Data Warehouse query workloads have to live within these thresholds.</target>
+        </trans-unit>
+        <trans-unit id="c2b84242-95d1-4bf7-a7e1-37d6729cbf9b" xml:space="preserve">
+          <source>If there are more than 32 concurrent queries or you exceed the number of concurrency slots then the query will be queued until both thresholds can be satisfied.</source>
+          <target state="new">If there are more than 32 concurrent queries or you exceed the number of concurrency slots then the query will be queued until both thresholds can be satisfied.</target>
+        </trans-unit>
+        <trans-unit id="f5d16cf8-5a86-4042-9497-43db5186d83c" xml:space="preserve">
+          <source>SQL Data Warehouse exposes four different resource classes in the form of <bpt id="8bffea8a-7e70-4f9c-92d9-6c83031e1bc0">&lt;strong&gt;</bpt>database roles<ept id="8bffea8a-7e70-4f9c-92d9-6c83031e1bc0">&lt;/strong&gt;</ept> as part of its workload management implementation.</source>
+          <target state="new">SQL Data Warehouse exposes four different resource classes in the form of <bpt id="8bffea8a-7e70-4f9c-92d9-6c83031e1bc0">&lt;strong&gt;</bpt>database roles<ept id="8bffea8a-7e70-4f9c-92d9-6c83031e1bc0">&lt;/strong&gt;</ept> as part of its workload management implementation.</target>
+        </trans-unit>
+        <trans-unit id="4344b138-3688-43a4-ae29-907134ac4281" xml:space="preserve">
+          <source>The roles are:</source>
+          <target state="new">The roles are:</target>
+        </trans-unit>
+        <trans-unit id="86981c19-cccb-4238-9823-529548ef88a3" xml:space="preserve">
+          <source>smallrc</source>
+          <target state="new">smallrc</target>
+        </trans-unit>
+        <trans-unit id="4f9c4610-5f92-47bb-9699-d78a29edd113" xml:space="preserve">
+          <source>mediumrc</source>
+          <target state="new">mediumrc</target>
+        </trans-unit>
+        <trans-unit id="f9279cce-6b1d-4ca8-b79d-8d80036188dc" xml:space="preserve">
+          <source>largerc</source>
+          <target state="new">largerc</target>
+        </trans-unit>
+        <trans-unit id="1c767450-4865-4cb2-bc76-75726f7f2d57" xml:space="preserve">
+          <source>xlargerc</source>
+          <target state="new">xlargerc</target>
+        </trans-unit>
+        <trans-unit id="46b94f03-de4c-4b5c-99f5-68c6a52d6bad" xml:space="preserve">
+          <source>Resource classes are an essential part of SQL Data Warehouse workload management.</source>
+          <target state="new">Resource classes are an essential part of SQL Data Warehouse workload management.</target>
+        </trans-unit>
+        <trans-unit id="1364c249-b9fa-4b0e-b884-1761602eba31" xml:space="preserve">
+          <source>They govern the computational resources allocated to the query.</source>
+          <target state="new">They govern the computational resources allocated to the query.</target>
+        </trans-unit>
+        <trans-unit id="cdd56e06-cb1e-4388-bb02-8857f822b1e0" xml:space="preserve">
+          <source>By default each user is a member of the small resource class - smallrc.</source>
+          <target state="new">By default each user is a member of the small resource class - smallrc.</target>
+        </trans-unit>
+        <trans-unit id="40ca3d8a-3b67-461f-8954-1510360c090f" xml:space="preserve">
+          <source>However, any user can be added to one or more of the higher resource classes.</source>
+          <target state="new">However, any user can be added to one or more of the higher resource classes.</target>
+        </trans-unit>
+        <trans-unit id="4ad124c8-3d0b-49cf-b8ce-ebb3b26b58f3" xml:space="preserve">
+          <source>As a general rule, SQL Data Warehouse will take the highest role membership for query execution.</source>
+          <target state="new">As a general rule, SQL Data Warehouse will take the highest role membership for query execution.</target>
+        </trans-unit>
+        <trans-unit id="ae4f3be3-12bf-48d5-8a19-1d8f645e1715" xml:space="preserve">
+          <source>Adding a user to a higher resource class will increase the resources for that user but it will also consume greater concurrency slots; potentially limiting your concurrency.</source>
+          <target state="new">Adding a user to a higher resource class will increase the resources for that user but it will also consume greater concurrency slots; potentially limiting your concurrency.</target>
+        </trans-unit>
+        <trans-unit id="d36017d1-8b17-4b4c-8600-25e8e092380f" xml:space="preserve">
+          <source>This is due to the fact that as more resources are allocated to one query the system needs to limit resources consumed by others.</source>
+          <target state="new">This is due to the fact that as more resources are allocated to one query the system needs to limit resources consumed by others.</target>
+        </trans-unit>
+        <trans-unit id="79e69e87-59a1-4e21-96e8-934760d29cb4" xml:space="preserve">
+          <source>There is no free lunch.</source>
+          <target state="new">There is no free lunch.</target>
+        </trans-unit>
+        <trans-unit id="00025e07-d0f7-4d73-978f-e655f4289ac9" xml:space="preserve">
+          <source>The most important resource governed by the higher resource class is memory.</source>
+          <target state="new">The most important resource governed by the higher resource class is memory.</target>
+        </trans-unit>
+        <trans-unit id="2b5fadf4-519f-4023-b9e3-28238242f932" xml:space="preserve">
+          <source>Most data warehouse tables of any meaningful size will be using clustered columnstore indexes.</source>
+          <target state="new">Most data warehouse tables of any meaningful size will be using clustered columnstore indexes.</target>
+        </trans-unit>
+        <trans-unit id="46aa349c-2909-4cf9-a31c-7d5105a6d0f9" xml:space="preserve">
+          <source>Whilst this typically provides the best performance for data warehouse workloads maintaining them is a memory intensive operation.</source>
+          <target state="new">Whilst this typically provides the best performance for data warehouse workloads maintaining them is a memory intensive operation.</target>
+        </trans-unit>
+        <trans-unit id="8700789f-3fad-4779-9073-342cbdc6868a" xml:space="preserve">
+          <source>It is often highly beneficial to use the higher resource classes for data management operations such as index rebuilds.</source>
+          <target state="new">It is often highly beneficial to use the higher resource classes for data management operations such as index rebuilds.</target>
+        </trans-unit>
+        <trans-unit id="6c78cdfe-2b90-4410-9e86-4bce731c06b7" xml:space="preserve">
+          <source>SQL Data Warehouse has implemented resource classes through the use of database roles.</source>
+          <target state="new">SQL Data Warehouse has implemented resource classes through the use of database roles.</target>
+        </trans-unit>
+        <trans-unit id="526ac6e4-1c2a-4c76-befb-0ebffc940477" xml:space="preserve">
+          <source>To become a member of a higher resource class and increase your memory simply and priority you simply add your database user to one of the roles / resource classes mentioned above.</source>
+          <target state="new">To become a member of a higher resource class and increase your memory simply and priority you simply add your database user to one of the roles / resource classes mentioned above.</target>
+        </trans-unit>
+        <trans-unit id="dcced5ca-fd8f-4da5-8a93-96099cb95b8d" xml:space="preserve">
+          <source>You can add and remove yourself to the workload management database role using the <bpt id="3720d87c-5821-4b3d-9886-dfda20a30e3a">&lt;code&gt;</bpt>sp_addrolemember<ept id="3720d87c-5821-4b3d-9886-dfda20a30e3a">&lt;/code&gt;</ept> and <bpt id="5558b5c8-1cc9-4c84-8649-5602b4092bb9">&lt;code&gt;</bpt>sp_droprolemember<ept id="5558b5c8-1cc9-4c84-8649-5602b4092bb9">&lt;/code&gt;</ept> procedures.</source>
+          <target state="new">You can add and remove yourself to the workload management database role using the <bpt id="3720d87c-5821-4b3d-9886-dfda20a30e3a">&lt;code&gt;</bpt>sp_addrolemember<ept id="3720d87c-5821-4b3d-9886-dfda20a30e3a">&lt;/code&gt;</ept> and <bpt id="5558b5c8-1cc9-4c84-8649-5602b4092bb9">&lt;code&gt;</bpt>sp_droprolemember<ept id="5558b5c8-1cc9-4c84-8649-5602b4092bb9">&lt;/code&gt;</ept> procedures.</target>
+        </trans-unit>
+        <trans-unit id="3258c6c4-7ac5-4fa7-9c37-de31ee5af808" xml:space="preserve">
+          <source>Note you will require <bpt id="ce4ff988-3baa-4fd5-a141-b7f260b08cb6">&lt;code&gt;</bpt>ALTER ROLE<ept id="ce4ff988-3baa-4fd5-a141-b7f260b08cb6">&lt;/code&gt;</ept> permission to do this.</source>
+          <target state="new">Note you will require <bpt id="ce4ff988-3baa-4fd5-a141-b7f260b08cb6">&lt;code&gt;</bpt>ALTER ROLE<ept id="ce4ff988-3baa-4fd5-a141-b7f260b08cb6">&lt;/code&gt;</ept> permission to do this.</target>
+        </trans-unit>
+        <trans-unit id="d3edadb8-6d7b-422c-8fe6-496af71be3f9" xml:space="preserve">
+          <source>You are not able to use the ALTER ROLE DDL syntax.</source>
+          <target state="new">You are not able to use the ALTER ROLE DDL syntax.</target>
+        </trans-unit>
+        <trans-unit id="049b6b7d-bfe0-49eb-a271-1ccad8c5bc85" xml:space="preserve">
+          <source>You must use the aforementioned stored procedures.</source>
+          <target state="new">You must use the aforementioned stored procedures.</target>
+        </trans-unit>
+        <trans-unit id="0603e9a0-696c-4c35-a5db-d4ccb30e6eb2" xml:space="preserve">
+          <source>A full example of how to create logins and users is provided in the [managing users)[#managing-users] section at the end of this article.</source>
+          <target state="new">A full example of how to create logins and users is provided in the [managing users)[#managing-users] section at the end of this article.</target>
+        </trans-unit>
+        <trans-unit id="37c0443d-18ad-409e-b8e0-9dee2f371cd0" xml:space="preserve">
+          <source>Rather than adding a user into and out of a workload management group it is often simpler to initiate those more intensive operations through a separate login/user that is permanently assigned to the higher resource class.</source>
+          <target state="new">Rather than adding a user into and out of a workload management group it is often simpler to initiate those more intensive operations through a separate login/user that is permanently assigned to the higher resource class.</target>
+        </trans-unit>
+        <trans-unit id="950504a6-c704-47bc-a33f-b8dc4fe772e0" xml:space="preserve">
+          <source>The following table details the increase in memory available to each query; subject to the resource class applied to the user executing it:</source>
+          <target state="new">The following table details the increase in memory available to each query; subject to the resource class applied to the user executing it:</target>
+        </trans-unit>
+        <trans-unit id="ebb23c42-861c-4fdd-8376-f7c776b39112" xml:space="preserve">
+          <source>Memory Available (per dist)</source>
+          <target state="new">Memory Available (per dist)</target>
+        </trans-unit>
+        <trans-unit id="1756af6c-e08e-4ca3-8e9c-17476ebbf432" xml:space="preserve">
+          <source>DW100</source>
+          <target state="new">DW100</target>
+        </trans-unit>
+        <trans-unit id="532466e5-669b-422d-9b5a-9dfcaf351d40" xml:space="preserve">
+          <source>DW200</source>
+          <target state="new">DW200</target>
+        </trans-unit>
+        <trans-unit id="951fc8c8-831f-4413-b897-f19aef4c264f" xml:space="preserve">
+          <source>DW300</source>
+          <target state="new">DW300</target>
+        </trans-unit>
+        <trans-unit id="355c7d9c-872f-4578-9477-d2f2fa58e456" xml:space="preserve">
+          <source>DW400</source>
+          <target state="new">DW400</target>
+        </trans-unit>
+        <trans-unit id="f760910e-0263-4f8b-be95-f0892d302836" xml:space="preserve">
+          <source>DW500</source>
+          <target state="new">DW500</target>
+        </trans-unit>
+        <trans-unit id="e9f0a8ca-3890-4424-afab-3007b9084186" xml:space="preserve">
+          <source>DW600</source>
+          <target state="new">DW600</target>
+        </trans-unit>
+        <trans-unit id="be1dc78c-5921-4d6d-a5bd-5b8ed60bda41" xml:space="preserve">
+          <source>DW1000</source>
+          <target state="new">DW1000</target>
+        </trans-unit>
+        <trans-unit id="d90b6db9-1603-4ebd-b562-211e9985403e" xml:space="preserve">
+          <source>DW1200</source>
+          <target state="new">DW1200</target>
+        </trans-unit>
+        <trans-unit id="42efb87e-6a3d-4352-8610-256bc783bf65" xml:space="preserve">
+          <source>DW1500</source>
+          <target state="new">DW1500</target>
+        </trans-unit>
+        <trans-unit id="4b60294b-9430-4733-9cae-a492ab30b909" xml:space="preserve">
+          <source>DW2000</source>
+          <target state="new">DW2000</target>
+        </trans-unit>
+        <trans-unit id="4c842030-b00c-4ce8-a3b1-6a1781e83eb0" xml:space="preserve">
+          <source>smallrc(default) (s)</source>
+          <target state="new">smallrc(default) (s)</target>
+        </trans-unit>
+        <trans-unit id="2df4f6a0-8555-462b-afd5-707456345d97" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="d139c24f-a0ea-4efe-8e96-07fea2dc9abb" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="516a36d0-7c1b-47c0-aeba-f31524acb9c6" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="83753b56-ce77-41a5-92d7-bf68cf10e857" xml:space="preserve">
+          <source>100  MB</source>
+          <target state="new">100  MB</target>
+        </trans-unit>
+        <trans-unit id="ed576b4f-c0ab-4954-8485-002dade5626d" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="4ec6737f-c540-4d52-bbc8-2c9fa23753f8" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="9c8f2478-29b8-46bb-9b58-dab2b3672054" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="c20d94d9-98ae-4547-ba98-4641be759ba4" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="e3c68fdc-5164-4171-a9ab-36a5dbab92d0" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="2ec1c79c-3798-4c14-80bb-00c9ab59697c" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="1306d34d-dc3f-43a5-ba78-2b53647dfea0" xml:space="preserve">
+          <source>mediumrc (m)</source>
+          <target state="new">mediumrc (m)</target>
+        </trans-unit>
+        <trans-unit id="12c40528-1242-4137-8e4b-1e6ea276494c" xml:space="preserve">
+          <source>100 MB</source>
+          <target state="new">100 MB</target>
+        </trans-unit>
+        <trans-unit id="a674cf68-00e0-44fb-8454-f559191aa132" xml:space="preserve">
+          <source>200 MB</source>
+          <target state="new">200 MB</target>
+        </trans-unit>
+        <trans-unit id="9d1a1cf8-1d77-411a-8b7d-f25ea1ebdd52" xml:space="preserve">
+          <source>200 MB</source>
+          <target state="new">200 MB</target>
+        </trans-unit>
+        <trans-unit id="1486ab1d-2261-460d-87c7-9f2f222a8680" xml:space="preserve">
+          <source>400  MB</source>
+          <target state="new">400  MB</target>
+        </trans-unit>
+        <trans-unit id="71242777-d032-4658-add5-3e6499663ca1" xml:space="preserve">
+          <source>400 MB</source>
+          <target state="new">400 MB</target>
+        </trans-unit>
+        <trans-unit id="633fdc8b-d6bc-4dcf-8cb1-f8540c4cc07c" xml:space="preserve">
+          <source>400 MB</source>
+          <target state="new">400 MB</target>
+        </trans-unit>
+        <trans-unit id="7ae5929e-8e5f-451f-a81a-73cf5d104b10" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="b8cdbcd1-a146-499f-892b-fc2ee47b97f9" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="d53827af-bb60-4f40-a5be-ec6fb4cff3b3" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="5171b905-2317-4229-bb4a-c625692650d2" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="e509e54d-75d6-4d46-9b0b-547736f9f0a0" xml:space="preserve">
+          <source>largerc (l)</source>
+          <target state="new">largerc (l)</target>
+        </trans-unit>
+        <trans-unit id="184791bf-c0b5-43f6-8d79-494e7d20f011" xml:space="preserve">
+          <source>200 MB</source>
+          <target state="new">200 MB</target>
+        </trans-unit>
+        <trans-unit id="154fe477-571e-4cb2-a8d4-90ac4c3c4eab" xml:space="preserve">
+          <source>400 MB</source>
+          <target state="new">400 MB</target>
+        </trans-unit>
+        <trans-unit id="b04b71f4-41e0-49f1-b3fb-1832439aa7d3" xml:space="preserve">
+          <source>400 MB</source>
+          <target state="new">400 MB</target>
+        </trans-unit>
+        <trans-unit id="dfa44b3e-3ad8-40c0-93cd-3c7bec504f69" xml:space="preserve">
+          <source>800  MB</source>
+          <target state="new">800  MB</target>
+        </trans-unit>
+        <trans-unit id="c69be761-bfd0-4a81-8934-127712c7efa4" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="7d0ff191-6ef0-441f-acfb-fbe57347dfdf" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="b70ab821-a7d5-4cb3-97f1-dd3a07565e7a" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="40bcf36e-bd62-4666-85ee-6873dd453fb1" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="3bddebfc-e49a-4be2-9169-1285039f0344" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="c630d970-0256-4012-b34a-ba6c74f6cee8" xml:space="preserve">
+          <source>3200 MB</source>
+          <target state="new">3200 MB</target>
+        </trans-unit>
+        <trans-unit id="78365189-f8bf-4b32-89f5-a23dcfc5f1d4" xml:space="preserve">
+          <source>xlargerc (xl)</source>
+          <target state="new">xlargerc (xl)</target>
+        </trans-unit>
+        <trans-unit id="81a7a276-cff2-4ba6-86ea-f05854095c4b" xml:space="preserve">
+          <source>400 MB</source>
+          <target state="new">400 MB</target>
+        </trans-unit>
+        <trans-unit id="d7708f22-340b-442d-895b-06d8414db83b" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="1b7fb817-e8cc-45b5-a388-336120c2b1a8" xml:space="preserve">
+          <source>800 MB</source>
+          <target state="new">800 MB</target>
+        </trans-unit>
+        <trans-unit id="5c7327ce-277b-40b7-8a6a-a5785cfcfe6d" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="51c50fb3-a8df-4b8a-8beb-d60292dad2ef" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="e53bc961-f51a-4fab-a37c-7ec1b43814e9" xml:space="preserve">
+          <source>1600 MB</source>
+          <target state="new">1600 MB</target>
+        </trans-unit>
+        <trans-unit id="7e6b4960-a6a1-44f2-ba07-f28953809bf8" xml:space="preserve">
+          <source>3200 MB</source>
+          <target state="new">3200 MB</target>
+        </trans-unit>
+        <trans-unit id="68286bfe-f314-4cea-a38c-0a80409708b9" xml:space="preserve">
+          <source>3200 MB</source>
+          <target state="new">3200 MB</target>
+        </trans-unit>
+        <trans-unit id="6c732727-5111-49d3-81fe-bb6e94b04d6e" xml:space="preserve">
+          <source>3200 MB</source>
+          <target state="new">3200 MB</target>
+        </trans-unit>
+        <trans-unit id="be052949-b653-49b2-b678-f7eba649fab7" xml:space="preserve">
+          <source>6400 MB</source>
+          <target state="new">6400 MB</target>
+        </trans-unit>
+        <trans-unit id="4143c0b0-0879-427b-ae51-45284e59c062" xml:space="preserve">
+          <source>Furthermore, as mentioned above, the higher the resource class assigned to the user the greater the concurrency slot consumption.</source>
+          <target state="new">Furthermore, as mentioned above, the higher the resource class assigned to the user the greater the concurrency slot consumption.</target>
+        </trans-unit>
+        <trans-unit id="4f8e44bc-11f3-44fe-8449-f8de57f0f464" xml:space="preserve">
+          <source>The following table documents the consumption of concurrency slots by queries in a given resource class.</source>
+          <target state="new">The following table documents the consumption of concurrency slots by queries in a given resource class.</target>
+        </trans-unit>
+        <trans-unit id="1d9abdf1-6a00-4518-8d76-facbc0574fab" xml:space="preserve">
+          <source>Consumption</source>
+          <target state="new">Consumption</target>
+        </trans-unit>
+        <trans-unit id="b1dbe484-404f-420f-96d0-1adcb5477da8" xml:space="preserve">
+          <source>DW100</source>
+          <target state="new">DW100</target>
+        </trans-unit>
+        <trans-unit id="3ee8b311-bd69-4c3f-aacd-adfdc5c597c7" xml:space="preserve">
+          <source>DW200</source>
+          <target state="new">DW200</target>
+        </trans-unit>
+        <trans-unit id="176da313-e8f4-4699-a8a3-1db7270f3782" xml:space="preserve">
+          <source>DW300</source>
+          <target state="new">DW300</target>
+        </trans-unit>
+        <trans-unit id="f771d53b-4600-4436-9ed6-8f83b919c675" xml:space="preserve">
+          <source>DW400</source>
+          <target state="new">DW400</target>
+        </trans-unit>
+        <trans-unit id="93bf9b49-62c1-400c-a8c0-e4558710c3df" xml:space="preserve">
+          <source>DW500</source>
+          <target state="new">DW500</target>
+        </trans-unit>
+        <trans-unit id="0fce36d8-6437-4cfc-992c-b083d78b7f86" xml:space="preserve">
+          <source>DW600</source>
+          <target state="new">DW600</target>
+        </trans-unit>
+        <trans-unit id="6addb8fa-7e77-46d2-bc99-bd34043fbeaf" xml:space="preserve">
+          <source>DW1000</source>
+          <target state="new">DW1000</target>
+        </trans-unit>
+        <trans-unit id="e2598d96-95af-4216-aec5-83d94ae47e62" xml:space="preserve">
+          <source>DW1200</source>
+          <target state="new">DW1200</target>
+        </trans-unit>
+        <trans-unit id="01245730-ab4d-46c9-af16-7d9d346478dd" xml:space="preserve">
+          <source>DW1500</source>
+          <target state="new">DW1500</target>
+        </trans-unit>
+        <trans-unit id="090a9978-f59e-4c8a-97b2-67a2a40b750c" xml:space="preserve">
+          <source>DW2000</source>
+          <target state="new">DW2000</target>
+        </trans-unit>
+        <trans-unit id="58c4f868-6855-4181-8968-bf278b6e9649" xml:space="preserve">
+          <source>Max Concurrent Queries</source>
+          <target state="new">Max Concurrent Queries</target>
+        </trans-unit>
+        <trans-unit id="b5a18857-bfac-43b9-96b3-b5af093dae7e" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="4674cae4-0d60-4a6c-a27c-4ee5448efd6a" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="6dd00d09-d5cc-4a98-931d-25b1fedc7b06" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="cd3c70d8-c335-44e7-9edb-26ea334bb5f3" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="d45755f3-fa8a-4911-84dc-a9b0f098e84c" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="02a99514-1a28-4481-b6ce-a90a45e4b6ec" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="2f0c8622-b217-491a-b425-b61fc53f1cd2" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="8826366c-5153-4a7f-9d74-9d902420e598" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="9eb2da74-f422-4a6f-bff0-0f51630567a8" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="dc942a32-b9d7-4abc-8170-6c3051181e61" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="05b66c9b-f868-4ce9-a3c3-74959504f6a0" xml:space="preserve">
+          <source>Max Concurrency Slots</source>
+          <target state="new">Max Concurrency Slots</target>
+        </trans-unit>
+        <trans-unit id="79408424-24fe-404e-a1fe-9bf410ed81c8" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="65c2a9b7-8b29-4814-ab8d-0dfba7620e78" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="7172cf90-5518-440c-b806-5a9f5460386f" xml:space="preserve">
+          <source>12</source>
+          <target state="new">12</target>
+        </trans-unit>
+        <trans-unit id="7ecec1e9-e34a-4a23-a949-ff037f29ca7d" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="122d7d4f-336a-459d-b4af-11821b2b7035" xml:space="preserve">
+          <source>20</source>
+          <target state="new">20</target>
+        </trans-unit>
+        <trans-unit id="ce388eda-7590-4b3b-9210-0d8fece2b85b" xml:space="preserve">
+          <source>24</source>
+          <target state="new">24</target>
+        </trans-unit>
+        <trans-unit id="cdd3a12a-70bd-4235-9603-3fd7c9ff80be" xml:space="preserve">
+          <source>40</source>
+          <target state="new">40</target>
+        </trans-unit>
+        <trans-unit id="d238e358-ae9c-4f05-9f12-2abbc9eee91f" xml:space="preserve">
+          <source>48</source>
+          <target state="new">48</target>
+        </trans-unit>
+        <trans-unit id="07ce3976-2f84-48c9-8d2c-02f1cf452a5e" xml:space="preserve">
+          <source>60</source>
+          <target state="new">60</target>
+        </trans-unit>
+        <trans-unit id="c46c145f-4dad-467d-b336-c8fe64f3c860" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="b9049481-211b-4963-9ced-1481fa673c6f" xml:space="preserve">
+          <source>smallrc(default) (s)</source>
+          <target state="new">smallrc(default) (s)</target>
+        </trans-unit>
+        <trans-unit id="7d3f226c-1901-4fe4-95d0-859f6d0686ba" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="8cca2c5f-c115-472e-b1ff-48ce4872377c" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="5e657ec5-6212-47fb-a662-8b0643fe3890" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="32a59cb5-5f74-49d7-a61f-85cf32fbf49d" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="92fe03ed-5626-4abf-8cd4-985976df601d" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="29b3f3f6-88a0-468f-b11d-7fa72ca65439" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="d5c53d34-5f91-466f-924d-0020d4c37b29" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="120ef5fc-0e37-4775-ac4d-fe675c04af27" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="57cb8a58-6157-4bc8-8db8-ad3ffa8c2be1" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="b7a72f9f-a0aa-40d5-a330-f58b284182fd" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="985835e1-0e98-4dfb-8dbf-f83d50abb847" xml:space="preserve">
+          <source>mediumrc (m)</source>
+          <target state="new">mediumrc (m)</target>
+        </trans-unit>
+        <trans-unit id="37a5889e-6c4e-4870-a614-2dff0dae8b13" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="a48d3bf9-1703-4d05-ad62-3b241faad097" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="3a770438-413c-49b6-8421-3466eef44137" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="ed5a9064-b651-4dc1-aab3-3a499fd7e745" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="09529f52-a24b-41c6-817f-b86fae9d4b8d" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="1243edb1-f263-4612-a07b-fc621f2d9605" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="edf2d2fe-0fb9-45db-a591-656372dc4b44" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="aea5c480-b882-463d-affe-6a0c3127709f" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="a44c9efc-c994-4375-bc50-052952cac618" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="3366be66-6cc0-4fab-8b1f-7fec92dea9a1" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="545419d9-3fe5-49a1-9fcd-18fb8d2dae8e" xml:space="preserve">
+          <source>largerc (l)</source>
+          <target state="new">largerc (l)</target>
+        </trans-unit>
+        <trans-unit id="4917244b-67ad-4bf6-9283-ef8e8531cf84" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="58684f9b-5989-4a35-a67c-3d4bdc0c1320" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="2f3b5183-8c41-4071-b6f2-b96488c9cd5f" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="ff97091b-d06c-4c06-bc6e-09a375336f9c" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="14e58e51-9fe4-49d4-aa7f-ad964980a4e7" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="a3e9233a-74b3-41eb-8826-b890a0e81c4a" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="b24eef0e-fbb5-401d-9760-a3d30515575e" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="a6ed4202-a19c-4dc8-b206-2b02e651ff07" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="ef3e7712-63de-4a75-9ff0-759ee2a4aed8" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="5ab202a9-a93d-4c46-adc7-5d116eaf19af" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="26cd43f4-6f94-49cf-ba30-376b27cdc01c" xml:space="preserve">
+          <source>xlargerc (xl)</source>
+          <target state="new">xlargerc (xl)</target>
+        </trans-unit>
+        <trans-unit id="9c3f0ba3-f124-4808-b42f-7ffa1119afd5" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="b6ce9285-a473-47da-b12d-22db403a177a" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="d8b3f1bd-22eb-488c-8436-bf928dbee3ae" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="e8c2e7b3-3ff4-4ea4-951d-62a22f34bab7" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="9ebbfe27-fd0f-4c8f-abed-7352a1047c97" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="cd59d6e9-1a66-4156-ae46-e306e026e8a2" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="001f1601-fd8b-4b88-ba39-158d7a0df1b2" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="87e011c6-572b-4525-a8c4-051fdbb28c5f" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="f7f301cb-bbe2-42f8-b5b9-294b16d27300" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="d6269d5c-8d9f-4e9c-8822-b4efb4fb162a" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="09aef221-7d05-4d3e-a836-6cc81182f4e9" xml:space="preserve">
+          <source>There are occasions where membership of a higher resource class does not alter the resources assigned to the query or operation.</source>
+          <target state="new">There are occasions where membership of a higher resource class does not alter the resources assigned to the query or operation.</target>
+        </trans-unit>
+        <trans-unit id="36cd0d78-b56d-44ed-85dd-62d5ba34cef0" xml:space="preserve">
+          <source>Typically this occurs when the resources required to fulfil the action are low.</source>
+          <target state="new">Typically this occurs when the resources required to fulfil the action are low.</target>
+        </trans-unit>
+        <trans-unit id="883a5293-4d44-41fb-ae7b-c2bc5ad94fcc" xml:space="preserve">
+          <source>In these cases the default or small resource class (smallrc) is always used irrespective of the resource class assigned to the user.</source>
+          <target state="new">In these cases the default or small resource class (smallrc) is always used irrespective of the resource class assigned to the user.</target>
+        </trans-unit>
+        <trans-unit id="b6480720-8765-4b35-a374-e2f1df8d46ca" xml:space="preserve">
+          <source>As an example, <bpt id="0decd6b9-36f6-42ad-8462-d4817f8d2570">&lt;code&gt;</bpt>CREATE LOGIN<ept id="0decd6b9-36f6-42ad-8462-d4817f8d2570">&lt;/code&gt;</ept> will always run in the smallrc.</source>
+          <target state="new">As an example, <bpt id="0decd6b9-36f6-42ad-8462-d4817f8d2570">&lt;code&gt;</bpt>CREATE LOGIN<ept id="0decd6b9-36f6-42ad-8462-d4817f8d2570">&lt;/code&gt;</ept> will always run in the smallrc.</target>
+        </trans-unit>
+        <trans-unit id="fd199066-13d5-45e4-9fb5-9ef8bf12268c" xml:space="preserve">
+          <source>The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model.</source>
+          <target state="new">The resources required to fulfil this operation are very low and so it would not make sense to include the query in the concurrency slot model.</target>
+        </trans-unit>
+        <trans-unit id="022b3bf8-1050-4748-8e4e-74c8b3efcea6" xml:space="preserve">
+          <source>It would be wasteful to pre-allocate large amounts of memory for this action.</source>
+          <target state="new">It would be wasteful to pre-allocate large amounts of memory for this action.</target>
+        </trans-unit>
+        <trans-unit id="6bcd3d2b-5e83-46ef-a580-e1cef6911c52" xml:space="preserve">
+          <source>By excluding <bpt id="b181f930-3a11-4c7e-ab0c-e02a8bfff2c0">&lt;code&gt;</bpt>CREATE LOGIN<ept id="b181f930-3a11-4c7e-ab0c-e02a8bfff2c0">&lt;/code&gt;</ept> from the concurrency slot model SQL Data Warehouse can be much more efficient.</source>
+          <target state="new">By excluding <bpt id="b181f930-3a11-4c7e-ab0c-e02a8bfff2c0">&lt;code&gt;</bpt>CREATE LOGIN<ept id="b181f930-3a11-4c7e-ab0c-e02a8bfff2c0">&lt;/code&gt;</ept> from the concurrency slot model SQL Data Warehouse can be much more efficient.</target>
+        </trans-unit>
+        <trans-unit id="350db78d-ed06-4237-b24c-7afea3e88671" xml:space="preserve">
+          <source>Below is a list of statements and operations that <bpt id="9a489dce-0373-4468-a2e3-678ee1aa25a4">&lt;strong&gt;</bpt>are<ept id="9a489dce-0373-4468-a2e3-678ee1aa25a4">&lt;/strong&gt;</ept> governed by resource classes:</source>
+          <target state="new">Below is a list of statements and operations that <bpt id="9a489dce-0373-4468-a2e3-678ee1aa25a4">&lt;strong&gt;</bpt>are<ept id="9a489dce-0373-4468-a2e3-678ee1aa25a4">&lt;/strong&gt;</ept> governed by resource classes:</target>
+        </trans-unit>
+        <trans-unit id="cd7629a7-a5b5-4988-8b52-9ac8edc94ab9" xml:space="preserve">
+          <source>INSERT-SELECT</source>
+          <target state="new">INSERT-SELECT</target>
+        </trans-unit>
+        <trans-unit id="8ded45fd-7c17-49f3-a038-d6d127e2147a" xml:space="preserve">
+          <source>UPDATE</source>
+          <target state="new">UPDATE</target>
+        </trans-unit>
+        <trans-unit id="322d89b1-0bd9-46b5-aa19-7029451de0d4" xml:space="preserve">
+          <source>DELETE</source>
+          <target state="new">DELETE</target>
+        </trans-unit>
+        <trans-unit id="d3bfe76a-864d-4257-830f-3c546af0a73c" xml:space="preserve">
+          <source>SELECT (when not exclusively querying DMVs)</source>
+          <target state="new">SELECT (when not exclusively querying DMVs)</target>
+        </trans-unit>
+        <trans-unit id="46565fa1-62e8-42a3-a95a-b2d156292844" xml:space="preserve">
+          <source>ALTER INDEX REBUILD</source>
+          <target state="new">ALTER INDEX REBUILD</target>
+        </trans-unit>
+        <trans-unit id="6817aee3-d7b5-4c86-8de4-31f290f2361a" xml:space="preserve">
+          <source>ALTER INDEX REORGANIZE</source>
+          <target state="new">ALTER INDEX REORGANIZE</target>
+        </trans-unit>
+        <trans-unit id="da34dcbf-17d6-4915-9add-56b18ef51dfa" xml:space="preserve">
+          <source>ALTER TABLE REBUILD</source>
+          <target state="new">ALTER TABLE REBUILD</target>
+        </trans-unit>
+        <trans-unit id="5a3d7f54-2e1f-400e-b641-b5b313360eec" xml:space="preserve">
+          <source>CREATE CLUSTERED INDEX</source>
+          <target state="new">CREATE CLUSTERED INDEX</target>
+        </trans-unit>
+        <trans-unit id="7e2e648c-41ab-45f4-bdd3-a6eeb62d10a5" xml:space="preserve">
+          <source>CREATE CLUSTERED COLUMNSTORE INDEX</source>
+          <target state="new">CREATE CLUSTERED COLUMNSTORE INDEX</target>
+        </trans-unit>
+        <trans-unit id="59263d5f-ba4a-448e-8780-08b7472d0ccb" xml:space="preserve">
+          <source>CREATE TABLE AS SELECT </source>
+          <target state="new">CREATE TABLE AS SELECT </target>
+        </trans-unit>
+        <trans-unit id="cf96907e-130a-447a-a0ab-24077769d367" xml:space="preserve">
+          <source>Data loading </source>
+          <target state="new">Data loading </target>
+        </trans-unit>
+        <trans-unit id="f817d5f1-c029-434c-97e2-5f32f37c7e79" xml:space="preserve">
+          <source>It is worth highlighting that <bpt id="487edc34-dc3a-435b-9e2c-407d69f0323a">&lt;code&gt;</bpt>SELECT<ept id="487edc34-dc3a-435b-9e2c-407d69f0323a">&lt;/code&gt;</ept> queries executing exclusively against dynamic management views and catalog views are <bpt id="9eaaf138-c3c9-4e5a-89a5-393db7893cea">&lt;strong&gt;</bpt>not<ept id="9eaaf138-c3c9-4e5a-89a5-393db7893cea">&lt;/strong&gt;</ept> governed by resource classes.</source>
+          <target state="new">It is worth highlighting that <bpt id="487edc34-dc3a-435b-9e2c-407d69f0323a">&lt;code&gt;</bpt>SELECT<ept id="487edc34-dc3a-435b-9e2c-407d69f0323a">&lt;/code&gt;</ept> queries executing exclusively against dynamic management views and catalog views are <bpt id="9eaaf138-c3c9-4e5a-89a5-393db7893cea">&lt;strong&gt;</bpt>not<ept id="9eaaf138-c3c9-4e5a-89a5-393db7893cea">&lt;/strong&gt;</ept> governed by resource classes.</target>
+        </trans-unit>
+        <trans-unit id="2c8e88ac-c1d4-4ede-8cb9-c297fec3d8b7" xml:space="preserve">
+          <source>It is important to remember that the majority of end user queries are likely to be governed by resource classes.</source>
+          <target state="new">It is important to remember that the majority of end user queries are likely to be governed by resource classes.</target>
+        </trans-unit>
+        <trans-unit id="0f9f85c7-e237-4265-912f-06552359023b" xml:space="preserve">
+          <source>The general rule is that the active query workload must fit inside both the concurrent query and concurrency slot thresholds unless it has been specifically excluded by the platform.</source>
+          <target state="new">The general rule is that the active query workload must fit inside both the concurrent query and concurrency slot thresholds unless it has been specifically excluded by the platform.</target>
+        </trans-unit>
+        <trans-unit id="1e699c79-4a9b-46b6-94d8-5b29d4cbadee" xml:space="preserve">
+          <source>As an end user you cannot choose to exclude a query from the concurrency slot model.</source>
+          <target state="new">As an end user you cannot choose to exclude a query from the concurrency slot model.</target>
+        </trans-unit>
+        <trans-unit id="b0521b6d-1a76-48dc-9baa-7d528f7a374f" xml:space="preserve">
+          <source>Once either threshold has been exceeded queries will begin to queue.</source>
+          <target state="new">Once either threshold has been exceeded queries will begin to queue.</target>
+        </trans-unit>
+        <trans-unit id="e7d5a8b3-b6a3-470a-988a-ac8044433c40" xml:space="preserve">
+          <source>Queued queries will be addressed in priority order followed by submission time.</source>
+          <target state="new">Queued queries will be addressed in priority order followed by submission time.</target>
+        </trans-unit>
+        <trans-unit id="a88df821-3138-4717-b8be-e932e2de5720" xml:space="preserve">
+          <source>Under the covers of SQL Data Warehouse's workload management things are a little bit more complicated.</source>
+          <target state="new">Under the covers of SQL Data Warehouse's workload management things are a little bit more complicated.</target>
+        </trans-unit>
+        <trans-unit id="49f24277-68a1-4aa7-a6b7-9f98d61c7f35" xml:space="preserve">
+          <source>The resource classes are dynamically mapped to a generic set of workload management groups within resource governor.</source>
+          <target state="new">The resource classes are dynamically mapped to a generic set of workload management groups within resource governor.</target>
+        </trans-unit>
+        <trans-unit id="e385e577-61f6-456b-8954-d1810faf7bf7" xml:space="preserve">
+          <source>The groups used will depend on the DWU value for the warehouse.</source>
+          <target state="new">The groups used will depend on the DWU value for the warehouse.</target>
+        </trans-unit>
+        <trans-unit id="d3a9b2d6-dfee-4c06-ade9-bb3418b44656" xml:space="preserve">
+          <source>However, there are total of eight workload groups used by SQL Data Warehouse.</source>
+          <target state="new">However, there are total of eight workload groups used by SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="51712498-3095-4b3a-b0b6-df6c181c66c3" xml:space="preserve">
+          <source>They are:</source>
+          <target state="new">They are:</target>
+        </trans-unit>
+        <trans-unit id="0166b195-2f52-40f5-903b-cce2f159a72c" xml:space="preserve">
+          <source>SloDWGroupC00</source>
+          <target state="new">SloDWGroupC00</target>
+        </trans-unit>
+        <trans-unit id="eebd2e1f-28f6-4779-8321-f8f57c05db41" xml:space="preserve">
+          <source>SloDWGroupC01</source>
+          <target state="new">SloDWGroupC01</target>
+        </trans-unit>
+        <trans-unit id="97210041-8051-4eae-8544-cffc061e1c34" xml:space="preserve">
+          <source>SloDWGroupC02</source>
+          <target state="new">SloDWGroupC02</target>
+        </trans-unit>
+        <trans-unit id="71e7bae1-a8e4-488c-b16b-1a801f9975d7" xml:space="preserve">
+          <source>SloDWGroupC03</source>
+          <target state="new">SloDWGroupC03</target>
+        </trans-unit>
+        <trans-unit id="d212b25e-66f3-4269-bfe2-8221309b28e6" xml:space="preserve">
+          <source>SloDWGroupC04</source>
+          <target state="new">SloDWGroupC04</target>
+        </trans-unit>
+        <trans-unit id="c6d9bb20-0376-4c75-b788-033aaebbb9e9" xml:space="preserve">
+          <source>SloDWGroupC05</source>
+          <target state="new">SloDWGroupC05</target>
+        </trans-unit>
+        <trans-unit id="a1ae0d1a-1642-421f-b7b2-ebbced3c52be" xml:space="preserve">
+          <source>SloDWGroupC06</source>
+          <target state="new">SloDWGroupC06</target>
+        </trans-unit>
+        <trans-unit id="e114d532-eda7-48ad-847a-4a0c9337810b" xml:space="preserve">
+          <source>SloDWGroupC07</source>
+          <target state="new">SloDWGroupC07</target>
+        </trans-unit>
+        <trans-unit id="12b0121b-7586-4c5d-b7f1-ee8df544f104" xml:space="preserve">
+          <source>These 8 groups map across to the concurrency slot consumption</source>
+          <target state="new">These 8 groups map across to the concurrency slot consumption</target>
+        </trans-unit>
+        <trans-unit id="460e96ed-2094-4056-9a5e-dd7084b33fae" xml:space="preserve">
+          <source>Workload Group</source>
+          <target state="new">Workload Group</target>
+        </trans-unit>
+        <trans-unit id="f3c8edf1-7cbc-4556-a427-b4a60ca9b7d3" xml:space="preserve">
+          <source>Concurrency Slot Mapping</source>
+          <target state="new">Concurrency Slot Mapping</target>
+        </trans-unit>
+        <trans-unit id="a2b88f41-061c-44b9-b245-e608083f4e39" xml:space="preserve">
+          <source>Priority Mapping</source>
+          <target state="new">Priority Mapping</target>
+        </trans-unit>
+        <trans-unit id="58236e89-ed0c-4197-a20a-8804302bd552" xml:space="preserve">
+          <source>SloDWGroupC00</source>
+          <target state="new">SloDWGroupC00</target>
+        </trans-unit>
+        <trans-unit id="359a0693-1461-4f93-b430-4ebeebf70779" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="a02d0f75-4111-4851-a853-09ddbaff313d" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="f8b8d634-3024-4c20-ae2c-c7e650cc9297" xml:space="preserve">
+          <source>SloDWGroupC01</source>
+          <target state="new">SloDWGroupC01</target>
+        </trans-unit>
+        <trans-unit id="e0fd31e1-e5e8-4064-b03e-14e101f33f6b" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="0efc2dda-2315-4aee-83be-f5cad60bb29c" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="3a08a039-67fb-4e80-8520-a9380602d305" xml:space="preserve">
+          <source>SloDWGroupC02</source>
+          <target state="new">SloDWGroupC02</target>
+        </trans-unit>
+        <trans-unit id="a095b404-a429-4b09-a73b-682d8d6142e9" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="aecdf02d-ab82-4c4a-b8b5-8f9939140843" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="d36b3b15-9e91-4818-8089-38f85133c39b" xml:space="preserve">
+          <source>SloDWGroupC03</source>
+          <target state="new">SloDWGroupC03</target>
+        </trans-unit>
+        <trans-unit id="3d08e637-db0e-4766-8770-5256e82b3f3d" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="2457c121-e261-4808-986f-e2411063f74d" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="5752337a-7651-45b0-acb3-5b248d44402f" xml:space="preserve">
+          <source>SloDWGroupC04</source>
+          <target state="new">SloDWGroupC04</target>
+        </trans-unit>
+        <trans-unit id="79bfb089-bdc1-4f1e-b8f3-fb8671cf8e44" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="fa7b853a-fd39-4724-b2f3-628819420d85" xml:space="preserve">
+          <source>High</source>
+          <target state="new">High</target>
+        </trans-unit>
+        <trans-unit id="c8873f83-8398-430c-be3a-9c5713b50fd4" xml:space="preserve">
+          <source>SloDWGroupC05</source>
+          <target state="new">SloDWGroupC05</target>
+        </trans-unit>
+        <trans-unit id="7c557cb9-232f-44ce-9b1c-914ba5051262" xml:space="preserve">
+          <source>32</source>
+          <target state="new">32</target>
+        </trans-unit>
+        <trans-unit id="c19a6f51-f30d-433b-9ecb-f59f8ffad150" xml:space="preserve">
+          <source>High</source>
+          <target state="new">High</target>
+        </trans-unit>
+        <trans-unit id="29b8e18c-a9f7-4ae4-b1de-3765ecd5b3a9" xml:space="preserve">
+          <source>SloDWGroupC06</source>
+          <target state="new">SloDWGroupC06</target>
+        </trans-unit>
+        <trans-unit id="1a385678-84ac-40fe-b618-b54bc4064a91" xml:space="preserve">
+          <source>64</source>
+          <target state="new">64</target>
+        </trans-unit>
+        <trans-unit id="f4556b35-a274-4381-b108-0db7ccc6ab41" xml:space="preserve">
+          <source>High</source>
+          <target state="new">High</target>
+        </trans-unit>
+        <trans-unit id="94726a2c-13cc-4f0a-94c8-c039c42952ac" xml:space="preserve">
+          <source>SloDWGroupC07</source>
+          <target state="new">SloDWGroupC07</target>
+        </trans-unit>
+        <trans-unit id="d00a2261-9c4e-48aa-ad2f-4e8bbbc67f5d" xml:space="preserve">
+          <source>128</source>
+          <target state="new">128</target>
+        </trans-unit>
+        <trans-unit id="33074241-2c3a-4b62-a7c8-c8aa1ab0bae8" xml:space="preserve">
+          <source>High</source>
+          <target state="new">High</target>
+        </trans-unit>
+        <trans-unit id="4eec6d7b-98cb-458f-82ed-339c2e6314f3" xml:space="preserve">
+          <source>So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse then the active workload groups would be mapped to the resource classes as follows:</source>
+          <target state="new">So, for example, if DW500 is the current DWU setting for your SQL Data Warehouse then the active workload groups would be mapped to the resource classes as follows:</target>
+        </trans-unit>
+        <trans-unit id="eeba0bb3-88aa-4aad-af4d-fa6c2e401089" xml:space="preserve">
+          <source>Resource Class</source>
+          <target state="new">Resource Class</target>
+        </trans-unit>
+        <trans-unit id="faa8bb4b-bd82-47b6-aaab-bf301f339520" xml:space="preserve">
+          <source>Workload Group</source>
+          <target state="new">Workload Group</target>
+        </trans-unit>
+        <trans-unit id="d611fc57-c785-4ee9-9758-5ec66ed6364b" xml:space="preserve">
+          <source>Concurrency Slots Used</source>
+          <target state="new">Concurrency Slots Used</target>
+        </trans-unit>
+        <trans-unit id="cf5853d8-42a9-4515-b71c-b850a0ecace4" xml:space="preserve">
+          <source>Importance</source>
+          <target state="new">Importance</target>
+        </trans-unit>
+        <trans-unit id="17ce0709-3644-4014-ac0c-0c4b80665d36" xml:space="preserve">
+          <source>smallrc</source>
+          <target state="new">smallrc</target>
+        </trans-unit>
+        <trans-unit id="a2215b58-824b-445a-8ccc-fbd210cb87dd" xml:space="preserve">
+          <source>SloDWGroupC00</source>
+          <target state="new">SloDWGroupC00</target>
+        </trans-unit>
+        <trans-unit id="2e4c325e-6a1d-4557-ae7b-83da6348c9fc" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="777456c9-40a1-4044-96a7-e6502d214989" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="4c7b8cdb-d0ff-4407-8d7d-31006ea37b33" xml:space="preserve">
+          <source>mediumrc</source>
+          <target state="new">mediumrc</target>
+        </trans-unit>
+        <trans-unit id="a8101c26-79f3-49e7-8677-914ee91e5264" xml:space="preserve">
+          <source>SloDWGroupC02</source>
+          <target state="new">SloDWGroupC02</target>
+        </trans-unit>
+        <trans-unit id="aac9199c-5518-4475-ba76-7a6967fe012d" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="6b2acc14-12d8-44b2-accf-357ffd75c729" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="6727078c-d823-4f79-ae5c-fa8e83be18af" xml:space="preserve">
+          <source>largerc</source>
+          <target state="new">largerc</target>
+        </trans-unit>
+        <trans-unit id="f1ddcdd9-05cb-4472-952e-0c0fa46da058" xml:space="preserve">
+          <source>SloDWGroupC03</source>
+          <target state="new">SloDWGroupC03</target>
+        </trans-unit>
+        <trans-unit id="79aceaf9-b0f6-49a3-b3d1-f5cf67a0389a" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="06b61753-e71a-440b-ae3e-650f47b806e7" xml:space="preserve">
+          <source>Medium</source>
+          <target state="new">Medium</target>
+        </trans-unit>
+        <trans-unit id="ad5fdd82-e37c-4cfe-82a8-9a0d945fdf2b" xml:space="preserve">
+          <source>xlargerc</source>
+          <target state="new">xlargerc</target>
+        </trans-unit>
+        <trans-unit id="b5cf4f83-7104-419b-9281-e771562c9ed2" xml:space="preserve">
+          <source>SloDWGroupC04</source>
+          <target state="new">SloDWGroupC04</target>
+        </trans-unit>
+        <trans-unit id="3bec66ee-bee3-4abb-8a23-d7d854a87f00" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="dd593043-d082-4a40-8831-058982aca331" xml:space="preserve">
+          <source>High</source>
+          <target state="new">High</target>
+        </trans-unit>
+        <trans-unit id="9c7b2520-0c17-42e6-9e9a-71ab225f5ec0" xml:space="preserve">
+          <source>To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:</source>
+          <target state="new">To look at the differences in memory resource allocation in detail from the perspective of the resource governor use the following query:</target>
+        </trans-unit>
+        <trans-unit id="894f6ac7-645a-40d4-af92-e3158cb869d7" xml:space="preserve">
+          <source>The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting </source>
+          <target state="new">The query above can also be used to analyse active and historic usage of the workload groups when troubleshooting </target>
+        </trans-unit>
+        <trans-unit id="096fc851-5a44-4b30-a941-b3b7b2701263" xml:space="preserve">
+          <source>This section provides some additional examples to work through for managing users and detecting queries that are queuing.</source>
+          <target state="new">This section provides some additional examples to work through for managing users and detecting queries that are queuing.</target>
+        </trans-unit>
+        <trans-unit id="53564b70-4e75-4601-9b84-8b122580b57b" xml:space="preserve">
+          <source>To grant access to a user to the SQL Data Warehouse they will first need a login.</source>
+          <target state="new">To grant access to a user to the SQL Data Warehouse they will first need a login.</target>
+        </trans-unit>
+        <trans-unit id="a4b088ab-1d29-435b-9298-95cf7e7a2043" xml:space="preserve">
+          <source>Open a connection to the master database for your SQL Data Warehouse and execute the following commands:</source>
+          <target state="new">Open a connection to the master database for your SQL Data Warehouse and execute the following commands:</target>
+        </trans-unit>
+        <trans-unit id="34dcb9c1-6abe-4b39-8226-f40419bc8530" xml:space="preserve">
+          <source>it is a good idea to create users for your logins in the master database for when working with both Azure SQL database and SQL Data Warehouse.</source>
+          <target state="new">it is a good idea to create users for your logins in the master database for when working with both Azure SQL database and SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="bffc5b4b-0317-412b-bb26-c4825d427011" xml:space="preserve">
+          <source>There are two server roles available at this level that require the login to have a user in master in order to grant membership.</source>
+          <target state="new">There are two server roles available at this level that require the login to have a user in master in order to grant membership.</target>
+        </trans-unit>
+        <trans-unit id="ac39f015-0215-4988-86b9-0a1c17d5df42" xml:space="preserve">
+          <source>The roles are <bpt id="b539eebc-49e4-4402-9e6b-772a5d80197f">&lt;code&gt;</bpt>Loginmanager<ept id="b539eebc-49e4-4402-9e6b-772a5d80197f">&lt;/code&gt;</ept> and <bpt id="3ea40318-a667-4647-a5d2-f5df59782b0d">&lt;code&gt;</bpt>dbmanager<ept id="3ea40318-a667-4647-a5d2-f5df59782b0d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The roles are <bpt id="b539eebc-49e4-4402-9e6b-772a5d80197f">&lt;code&gt;</bpt>Loginmanager<ept id="b539eebc-49e4-4402-9e6b-772a5d80197f">&lt;/code&gt;</ept> and <bpt id="3ea40318-a667-4647-a5d2-f5df59782b0d">&lt;code&gt;</bpt>dbmanager<ept id="3ea40318-a667-4647-a5d2-f5df59782b0d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c48b5584-0648-45fd-b124-18e3818b8439" xml:space="preserve">
+          <source>In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases.</source>
+          <target state="new">In both Azure SQL database and SQL Data Warehouse these roles grant rights to manage logins and to create databases.</target>
+        </trans-unit>
+        <trans-unit id="b4e6c17f-3daa-49e3-9137-14cec8c12d14" xml:space="preserve">
+          <source>This is different to SQL Server.</source>
+          <target state="new">This is different to SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="3a8370f1-3682-49c7-a595-3a9068f182c0" xml:space="preserve">
+          <source>For more details please refer to the [Managing Databases and Logins in Azure SQL Database] article for more details.</source>
+          <target state="new">For more details please refer to the [Managing Databases and Logins in Azure SQL Database] article for more details.</target>
+        </trans-unit>
+        <trans-unit id="35846ee8-7b1d-4fc3-a79d-79512bbed7fb" xml:space="preserve">
+          <source>Once the login has been created then a user account now needs to be added.</source>
+          <target state="new">Once the login has been created then a user account now needs to be added.</target>
+        </trans-unit>
+        <trans-unit id="c93fa30f-226e-4bcd-be00-8dd53f6079dc" xml:space="preserve">
+          <source>Open a connection to the SQL Data Warehouse database and execute the following command:</source>
+          <target state="new">Open a connection to the SQL Data Warehouse database and execute the following command:</target>
+        </trans-unit>
+        <trans-unit id="be654b57-7836-4fa5-9a0a-67cbf7042a10" xml:space="preserve">
+          <source>Once complete permissions will need to be granted to the user.</source>
+          <target state="new">Once complete permissions will need to be granted to the user.</target>
+        </trans-unit>
+        <trans-unit id="86313384-34f5-4e56-a867-70da9f67c773" xml:space="preserve">
+          <source>The example below grants <bpt id="d68f845a-151f-4aa0-9cbf-8c19101f3d38">&lt;code&gt;</bpt>CONTROL<ept id="d68f845a-151f-4aa0-9cbf-8c19101f3d38">&lt;/code&gt;</ept> on the SQL Data Warehouse database.</source>
+          <target state="new">The example below grants <bpt id="d68f845a-151f-4aa0-9cbf-8c19101f3d38">&lt;code&gt;</bpt>CONTROL<ept id="d68f845a-151f-4aa0-9cbf-8c19101f3d38">&lt;/code&gt;</ept> on the SQL Data Warehouse database.</target>
+        </trans-unit>
+        <trans-unit id="1df314d4-44b2-4439-b53d-498cc832ea4c" xml:space="preserve">
+          <source><bpt id="3af7ff21-d4e1-4009-a044-91994453d6aa">&lt;code&gt;</bpt>CONTROL<ept id="3af7ff21-d4e1-4009-a044-91994453d6aa">&lt;/code&gt;</ept> at the database level is the equivalent of db_owner in SQL Server.</source>
+          <target state="new"><bpt id="3af7ff21-d4e1-4009-a044-91994453d6aa">&lt;code&gt;</bpt>CONTROL<ept id="3af7ff21-d4e1-4009-a044-91994453d6aa">&lt;/code&gt;</ept> at the database level is the equivalent of db_owner in SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="acf0bc71-fb18-467b-adca-9dc2e12ee128" xml:space="preserve">
+          <source>To see the workload management roles use the following query:</source>
+          <target state="new">To see the workload management roles use the following query:</target>
+        </trans-unit>
+        <trans-unit id="7013e6ca-a0d1-418a-85a8-85bc9ad8f905" xml:space="preserve">
+          <source>To add a user to an increase workload management role use the following query:</source>
+          <target state="new">To add a user to an increase workload management role use the following query:</target>
+        </trans-unit>
+        <trans-unit id="013b37ef-92f4-4306-a32a-72ab40ac3aff" xml:space="preserve">
+          <source>To remove a user from an workload management role use the following query:</source>
+          <target state="new">To remove a user from an workload management role use the following query:</target>
+        </trans-unit>
+        <trans-unit id="f3009cb7-61d0-4c90-bb1d-66ad9ac1b026" xml:space="preserve">
+          <source>It is not possible to remove a user from the smallrc.</source>
+          <target state="new">It is not possible to remove a user from the smallrc.</target>
+        </trans-unit>
+        <trans-unit id="4854b105-035a-4341-a711-ac640ee6c6e3" xml:space="preserve">
+          <source>To see which users are members of a given role use the following query:</source>
+          <target state="new">To see which users are members of a given role use the following query:</target>
+        </trans-unit>
+        <trans-unit id="1d393b25-580c-45d7-8770-edce0cbd9931" xml:space="preserve">
+          <source>To identify queries that are held in a concurrency queue you can always refer to the <bpt id="e71de08a-cb5f-4bfc-a6a8-8350e4827c3a">&lt;code&gt;</bpt>sys.dm_pdw_exec_requests<ept id="e71de08a-cb5f-4bfc-a6a8-8350e4827c3a">&lt;/code&gt;</ept> DMV.</source>
+          <target state="new">To identify queries that are held in a concurrency queue you can always refer to the <bpt id="e71de08a-cb5f-4bfc-a6a8-8350e4827c3a">&lt;code&gt;</bpt>sys.dm_pdw_exec_requests<ept id="e71de08a-cb5f-4bfc-a6a8-8350e4827c3a">&lt;/code&gt;</ept> DMV.</target>
+        </trans-unit>
+        <trans-unit id="5dd5321d-f903-46f0-a1e5-ba513f903132" xml:space="preserve">
+          <source>SQL Data Warehouse has specific wait types for measuring concurrency.</source>
+          <target state="new">SQL Data Warehouse has specific wait types for measuring concurrency.</target>
+        </trans-unit>
+        <trans-unit id="7a366ce1-edcf-4a4b-b7f8-3900251cea49" xml:space="preserve">
+          <source>They are:</source>
+          <target state="new">They are:</target>
+        </trans-unit>
+        <trans-unit id="8f295c20-ebe6-45ee-a8bf-363ff57592aa" xml:space="preserve">
+          <source>LocalQueriesConcurrencyResourceType</source>
+          <target state="new">LocalQueriesConcurrencyResourceType</target>
+        </trans-unit>
+        <trans-unit id="7a4b6ad4-088a-4310-ae59-0f958b613cad" xml:space="preserve">
+          <source>UserConcurrencyResourceType</source>
+          <target state="new">UserConcurrencyResourceType</target>
+        </trans-unit>
+        <trans-unit id="3681b398-43e8-47bd-b361-4c95fe67dfb8" xml:space="preserve">
+          <source>DmsConcurrencyResourceType</source>
+          <target state="new">DmsConcurrencyResourceType</target>
+        </trans-unit>
+        <trans-unit id="a09408e6-2509-4d0b-8cdf-ed93942f2c76" xml:space="preserve">
+          <source>BackupConcurrencyResourceType</source>
+          <target state="new">BackupConcurrencyResourceType</target>
+        </trans-unit>
+        <trans-unit id="21c88c74-0a72-413e-b20c-a9ed20580cf4" xml:space="preserve">
+          <source>The LocalQueriesConcurrencyResourceType refers to queries that sit outside of the concurrency slot framework.</source>
+          <target state="new">The LocalQueriesConcurrencyResourceType refers to queries that sit outside of the concurrency slot framework.</target>
+        </trans-unit>
+        <trans-unit id="19fe9361-b4fd-4c3a-b201-eec36df85872" xml:space="preserve">
+          <source>DMV queries and system functions such as <bpt id="feaf9f90-fa9a-40ab-8cdb-2ee3f1865a96">&lt;code&gt;</bpt>SELECT @@VERSION<ept id="feaf9f90-fa9a-40ab-8cdb-2ee3f1865a96">&lt;/code&gt;</ept> are examples of local queries.</source>
+          <target state="new">DMV queries and system functions such as <bpt id="feaf9f90-fa9a-40ab-8cdb-2ee3f1865a96">&lt;code&gt;</bpt>SELECT @@VERSION<ept id="feaf9f90-fa9a-40ab-8cdb-2ee3f1865a96">&lt;/code&gt;</ept> are examples of local queries.</target>
+        </trans-unit>
+        <trans-unit id="eae808b4-248f-46ac-aa40-96cf607857b9" xml:space="preserve">
+          <source>The UserConcurrencyResourceType refers to queries that sit inside the concurrency slot framework.</source>
+          <target state="new">The UserConcurrencyResourceType refers to queries that sit inside the concurrency slot framework.</target>
+        </trans-unit>
+        <trans-unit id="79a79ba9-e853-4e1e-a2c2-94fb2b85d078" xml:space="preserve">
+          <source>Queries against end user tables represent examples which would use this resource type.</source>
+          <target state="new">Queries against end user tables represent examples which would use this resource type.</target>
+        </trans-unit>
+        <trans-unit id="d1187ca3-4bc3-4511-8b6e-778b166a4d39" xml:space="preserve">
+          <source>The DmsConcurrencyResourceType refers to waits resulting from data movement operations.</source>
+          <target state="new">The DmsConcurrencyResourceType refers to waits resulting from data movement operations.</target>
+        </trans-unit>
+        <trans-unit id="cd948bc3-aea6-452e-a52b-66707c36915c" xml:space="preserve">
+          <source>The BackupConcurrencyResourceType can be seen when a database is being backed up.</source>
+          <target state="new">The BackupConcurrencyResourceType can be seen when a database is being backed up.</target>
+        </trans-unit>
+        <trans-unit id="89d77779-063a-491c-a966-d5379e8e5bba" xml:space="preserve">
+          <source>The maximum value for this resource type is 1.</source>
+          <target state="new">The maximum value for this resource type is 1.</target>
+        </trans-unit>
+        <trans-unit id="1f2d2bab-3944-4bec-8522-830080eddc22" xml:space="preserve">
+          <source>If multiple backups have been requested at the same time the others will queue.</source>
+          <target state="new">If multiple backups have been requested at the same time the others will queue.</target>
+        </trans-unit>
+        <trans-unit id="0fd47729-ecdc-431b-b420-0d21d3f08649" xml:space="preserve">
+          <source>To perform analysis of currently queued queries to find out what resources a request is waiting for please refer to the <bpt id="990ed214-56c0-49d4-b4f9-1010137c5246">&lt;code&gt;</bpt>sys.dm_pdw_waits<ept id="990ed214-56c0-49d4-b4f9-1010137c5246">&lt;/code&gt;</ept> DMV.</source>
+          <target state="new">To perform analysis of currently queued queries to find out what resources a request is waiting for please refer to the <bpt id="990ed214-56c0-49d4-b4f9-1010137c5246">&lt;code&gt;</bpt>sys.dm_pdw_waits<ept id="990ed214-56c0-49d4-b4f9-1010137c5246">&lt;/code&gt;</ept> DMV.</target>
+        </trans-unit>
+        <trans-unit id="fb8f65d6-a274-4da2-ae3b-436bdf97c62c" xml:space="preserve">
+          <source>To view just the resource waits consumed by a given query you can refer to the <bpt id="4b4ec6d5-3994-4732-8fc6-59da20fea5b6">&lt;code&gt;</bpt>sys.dm_pdw_resource_waits<ept id="4b4ec6d5-3994-4732-8fc6-59da20fea5b6">&lt;/code&gt;</ept> DMV.</source>
+          <target state="new">To view just the resource waits consumed by a given query you can refer to the <bpt id="4b4ec6d5-3994-4732-8fc6-59da20fea5b6">&lt;code&gt;</bpt>sys.dm_pdw_resource_waits<ept id="4b4ec6d5-3994-4732-8fc6-59da20fea5b6">&lt;/code&gt;</ept> DMV.</target>
+        </trans-unit>
+        <trans-unit id="a59f7333-c2c0-4047-8b5e-1274fd13b799" xml:space="preserve">
+          <source>Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU.</source>
+          <target state="new">Resource wait time only measures the time waiting for resources to be provided as opposed to signal wait time which is the time it takes for the underlying SQL Server's to schedule the query onto the CPU.</target>
+        </trans-unit>
+        <trans-unit id="86478341-8caf-4f54-831b-ffd9a0eef30a" xml:space="preserve">
+          <source>Finally, for historic trend analysis of waits then SQL Datawarehouse provides the <bpt id="43587eb0-a066-4ac9-b55b-0e166f35a8d0">&lt;code&gt;</bpt>sys.dm_pdw_wait_stats<ept id="43587eb0-a066-4ac9-b55b-0e166f35a8d0">&lt;/code&gt;</ept> DMV.</source>
+          <target state="new">Finally, for historic trend analysis of waits then SQL Datawarehouse provides the <bpt id="43587eb0-a066-4ac9-b55b-0e166f35a8d0">&lt;code&gt;</bpt>sys.dm_pdw_wait_stats<ept id="43587eb0-a066-4ac9-b55b-0e166f35a8d0">&lt;/code&gt;</ept> DMV.</target>
+        </trans-unit>
+        <trans-unit id="d4eb1dfa-e690-4ca5-9118-8499c0c8014d" xml:space="preserve">
+          <source>For more development tips, see <bpt id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;linkText&gt;</bpt>development overview<ept id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;/linkText&gt;</ept><bpt id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;title&gt;</bpt><ept id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;linkText&gt;</bpt>development overview<ept id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;/linkText&gt;</ept><bpt id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;title&gt;</bpt><ept id="969ce691-c313-4470-b86f-e9ca934bc0c1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8952cad3-7eba-4eba-a428-b91bba9b5fec" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="0919ef6c-9de7-457e-92c3-fc67e49464bc" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="ab42d633-dde7-4404-a37d-c8123c4184fb" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c9b279f0-6fb9-4347-a469-92114420e85b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c9b279f0-6fb9-4347-a469-92114420e85b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2c6d55c9-5641-4d65-b107-7f40c03a2c0c">
+        <trans-unit id="9188568a-6ed8-4343-b079-413531de7f8e" xml:space="preserve">
+          <source>Hosting Web Apps in Docker | Microsoft Azure</source>
+          <target state="new">Hosting Web Apps in Docker | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="93267941-b38b-4f4c-88e9-ddec06fb44fa" xml:space="preserve">
+          <source>Learn how to use Visual Studio to host a web app in a Docker container.</source>
+          <target state="new">Learn how to use Visual Studio to host a web app in a Docker container.</target>
+        </trans-unit>
+        <trans-unit id="255e5187-dabf-475b-825c-4108aeabd086" xml:space="preserve">
+          <source><bpt id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;linkText&gt;</bpt>Docker<ept id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;/linkText&gt;</ept><bpt id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;title&gt;</bpt><ept id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;/title&gt;</ept> is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.</source>
+          <target state="new"><bpt id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;linkText&gt;</bpt>Docker<ept id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;/linkText&gt;</ept><bpt id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;title&gt;</bpt><ept id="37ee99bf-4da0-4e32-b0ac-3075b232b7a2">&lt;/title&gt;</ept> is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.</target>
+        </trans-unit>
+        <trans-unit id="75f1727c-6ab5-4e7b-a452-64a48e3c3f9e" xml:space="preserve">
+          <source>Visual Studio supports Docker on Ubuntu, CoreOS, and Windows.</source>
+          <target state="new">Visual Studio supports Docker on Ubuntu, CoreOS, and Windows.</target>
+        </trans-unit>
+        <trans-unit id="238c270b-dcba-460d-bb3a-f50b698f73f7" xml:space="preserve">
+          <source>This example shows you how to use the Visual Studio 2015 Tools for Docker extension to publish an ASP.NET 5 app to an Ubuntu Linux virtual machine (referred to here as a Docker host) on Azure with the Docker extension installed, along with an ASP.NET 5 web application.</source>
+          <target state="new">This example shows you how to use the Visual Studio 2015 Tools for Docker extension to publish an ASP.NET 5 app to an Ubuntu Linux virtual machine (referred to here as a Docker host) on Azure with the Docker extension installed, along with an ASP.NET 5 web application.</target>
+        </trans-unit>
+        <trans-unit id="55a9cc56-77b7-41ae-abe2-dd6d975118aa" xml:space="preserve">
+          <source>The same experience can be used to publish to a Windows container.</source>
+          <target state="new">The same experience can be used to publish to a Windows container.</target>
+        </trans-unit>
+        <trans-unit id="3eeb2c21-5b12-4039-8ed6-761417f0e1cd" xml:space="preserve">
+          <source>You can publish the app to a new Docker host hosted on Azure, or to an on-premise server, Hyper-V, or Boot2Docker host by using the <bpt id="13b9213a-572b-42b0-8eb0-56e8d374394d">&lt;strong&gt;</bpt>Custom Host<ept id="13b9213a-572b-42b0-8eb0-56e8d374394d">&lt;/strong&gt;</ept> setting.</source>
+          <target state="new">You can publish the app to a new Docker host hosted on Azure, or to an on-premise server, Hyper-V, or Boot2Docker host by using the <bpt id="13b9213a-572b-42b0-8eb0-56e8d374394d">&lt;strong&gt;</bpt>Custom Host<ept id="13b9213a-572b-42b0-8eb0-56e8d374394d">&lt;/strong&gt;</ept> setting.</target>
+        </trans-unit>
+        <trans-unit id="2bebaf3c-490d-4296-bab1-a184263f3374" xml:space="preserve">
+          <source>After publishing your app to a Docker host, you can use Docker command-line tools to interact with the container your app has been published to.</source>
+          <target state="new">After publishing your app to a Docker host, you can use Docker command-line tools to interact with the container your app has been published to.</target>
+        </trans-unit>
+        <trans-unit id="38b5b069-6c6f-439e-b90d-951d035adfd8" xml:space="preserve">
+          <source>In these procedures, you'll create a new ASP.NET 5 web application project, create container host, then build and run the web app project in the Docker container.</source>
+          <target state="new">In these procedures, you'll create a new ASP.NET 5 web application project, create container host, then build and run the web app project in the Docker container.</target>
+        </trans-unit>
+        <trans-unit id="c0e1d31a-6c3b-48ec-9ed6-3d5f75ae1777" xml:space="preserve">
+          <source>To get started, download and install the <bpt id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;linkText&gt;</bpt>Visual Studio 2015 Tools for Docker<ept id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;/linkText&gt;</ept><bpt id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;title&gt;</bpt><ept id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, download and install the <bpt id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;linkText&gt;</bpt>Visual Studio 2015 Tools for Docker<ept id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;/linkText&gt;</ept><bpt id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;title&gt;</bpt><ept id="e7b0ef65-8651-4c29-b790-a05930fe09b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b2dc8fd-251c-44ec-8c25-0b5539180aec" xml:space="preserve">
+          <source>Create a new ASP.NET web application project.</source>
+          <target state="new">Create a new ASP.NET web application project.</target>
+        </trans-unit>
+        <trans-unit id="c7596606-3915-4227-9e2e-489f3c6174d5" xml:space="preserve">
+          <source>On the main menu, choose <bpt id="4d1701bf-9859-4fcf-a570-d12483eafe5c">&lt;strong&gt;</bpt>File<ept id="4d1701bf-9859-4fcf-a570-d12483eafe5c">&lt;/strong&gt;</ept>, <bpt id="ae5638e6-0e66-4096-a27d-9a88bd770b3c">&lt;strong&gt;</bpt>New Project<ept id="ae5638e6-0e66-4096-a27d-9a88bd770b3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the main menu, choose <bpt id="4d1701bf-9859-4fcf-a570-d12483eafe5c">&lt;strong&gt;</bpt>File<ept id="4d1701bf-9859-4fcf-a570-d12483eafe5c">&lt;/strong&gt;</ept>, <bpt id="ae5638e6-0e66-4096-a27d-9a88bd770b3c">&lt;strong&gt;</bpt>New Project<ept id="ae5638e6-0e66-4096-a27d-9a88bd770b3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="962589d2-d857-49d0-99ce-e71942e1a4a7" xml:space="preserve">
+          <source>Under <bpt id="3afa0ec6-e86a-442c-ad0c-88af88c916a8">&lt;strong&gt;</bpt>C#<ept id="3afa0ec6-e86a-442c-ad0c-88af88c916a8">&lt;/strong&gt;</ept>, <bpt id="a407d0fd-09e9-4d0b-aae1-0144fee9ba9a">&lt;strong&gt;</bpt>Web<ept id="a407d0fd-09e9-4d0b-aae1-0144fee9ba9a">&lt;/strong&gt;</ept>, choose <bpt id="6ed522ba-c2a1-4960-9540-0031e44fdd16">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6ed522ba-c2a1-4960-9540-0031e44fdd16">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="3afa0ec6-e86a-442c-ad0c-88af88c916a8">&lt;strong&gt;</bpt>C#<ept id="3afa0ec6-e86a-442c-ad0c-88af88c916a8">&lt;/strong&gt;</ept>, <bpt id="a407d0fd-09e9-4d0b-aae1-0144fee9ba9a">&lt;strong&gt;</bpt>Web<ept id="a407d0fd-09e9-4d0b-aae1-0144fee9ba9a">&lt;/strong&gt;</ept>, choose <bpt id="6ed522ba-c2a1-4960-9540-0031e44fdd16">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="6ed522ba-c2a1-4960-9540-0031e44fdd16">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6344c555-33b4-4fbd-b058-abeeae7941ff" xml:space="preserve">
+          <source>In the list of <bpt id="a552697f-0f3d-43db-adea-d47b7b63b2aa">&lt;strong&gt;</bpt>ASP.NET 5 Preview Templates<ept id="a552697f-0f3d-43db-adea-d47b7b63b2aa">&lt;/strong&gt;</ept>, choose <bpt id="1f44d62f-7a99-4191-ba48-824a3ba34015">&lt;strong&gt;</bpt>Web Site<ept id="1f44d62f-7a99-4191-ba48-824a3ba34015">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the list of <bpt id="a552697f-0f3d-43db-adea-d47b7b63b2aa">&lt;strong&gt;</bpt>ASP.NET 5 Preview Templates<ept id="a552697f-0f3d-43db-adea-d47b7b63b2aa">&lt;/strong&gt;</ept>, choose <bpt id="1f44d62f-7a99-4191-ba48-824a3ba34015">&lt;strong&gt;</bpt>Web Site<ept id="1f44d62f-7a99-4191-ba48-824a3ba34015">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea6c8804-930a-4883-b985-77798b146c6d" xml:space="preserve">
+          <source>Since the web app will be hosted/run in Docker, clear the <bpt id="5d90aa3c-009e-4ac2-81f3-b9244f29a518">&lt;strong&gt;</bpt>Host in the cloud<ept id="5d90aa3c-009e-4ac2-81f3-b9244f29a518">&lt;/strong&gt;</ept> checkbox if it's selected and then choose the <bpt id="a1aa27d3-2ceb-4516-bb8e-105301648f6f">&lt;strong&gt;</bpt>OK<ept id="a1aa27d3-2ceb-4516-bb8e-105301648f6f">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Since the web app will be hosted/run in Docker, clear the <bpt id="5d90aa3c-009e-4ac2-81f3-b9244f29a518">&lt;strong&gt;</bpt>Host in the cloud<ept id="5d90aa3c-009e-4ac2-81f3-b9244f29a518">&lt;/strong&gt;</ept> checkbox if it's selected and then choose the <bpt id="a1aa27d3-2ceb-4516-bb8e-105301648f6f">&lt;strong&gt;</bpt>OK<ept id="a1aa27d3-2ceb-4516-bb8e-105301648f6f">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="2302265f-d5f1-4e61-9b8d-cf78f618bde2" xml:space="preserve">
+          <source><bpt id="650090d4-4857-4009-bd7d-3293130e2ee6">&lt;linkText&gt;</bpt><ept id="650090d4-4857-4009-bd7d-3293130e2ee6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="650090d4-4857-4009-bd7d-3293130e2ee6">&lt;linkText&gt;</bpt><ept id="650090d4-4857-4009-bd7d-3293130e2ee6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29f09123-2bbc-41b1-bdf8-b855d4eda7e2" xml:space="preserve">
+          <source>This is the point where you'd typically add code to the web app to make it do something useful, but for this example, let's just leave it at its default settings.</source>
+          <target state="new">This is the point where you'd typically add code to the web app to make it do something useful, but for this example, let's just leave it at its default settings.</target>
+        </trans-unit>
+        <trans-unit id="fbc00438-bf13-4ed8-b1ac-be312c0df0f0" xml:space="preserve">
+          <source>(Note that you can also choose to use existing ASP.NET 5 web apps.)</source>
+          <target state="new">(Note that you can also choose to use existing ASP.NET 5 web apps.)</target>
+        </trans-unit>
+        <trans-unit id="f38fd6a7-d369-46a6-be12-508be5ab689f" xml:space="preserve">
+          <source>On the ASP.NET project's context menu, choose <bpt id="41bedd9e-cb13-44fc-9326-53071aabc4eb">&lt;strong&gt;</bpt>Publish<ept id="41bedd9e-cb13-44fc-9326-53071aabc4eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the ASP.NET project's context menu, choose <bpt id="41bedd9e-cb13-44fc-9326-53071aabc4eb">&lt;strong&gt;</bpt>Publish<ept id="41bedd9e-cb13-44fc-9326-53071aabc4eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="108d775e-e682-4b65-9910-7c82552dd313" xml:space="preserve">
+          <source>In the <bpt id="7ccdec5a-8303-4789-a9b7-037c674e875a">&lt;strong&gt;</bpt>Select a publish target<ept id="7ccdec5a-8303-4789-a9b7-037c674e875a">&lt;/strong&gt;</ept> section of the <bpt id="77576088-1fdf-4569-bad9-8abb9def0a30">&lt;strong&gt;</bpt>Publish Web<ept id="77576088-1fdf-4569-bad9-8abb9def0a30">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="15fceebc-d37a-45af-9d22-aa4f4475d239">&lt;strong&gt;</bpt>Docker Containers<ept id="15fceebc-d37a-45af-9d22-aa4f4475d239">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="7ccdec5a-8303-4789-a9b7-037c674e875a">&lt;strong&gt;</bpt>Select a publish target<ept id="7ccdec5a-8303-4789-a9b7-037c674e875a">&lt;/strong&gt;</ept> section of the <bpt id="77576088-1fdf-4569-bad9-8abb9def0a30">&lt;strong&gt;</bpt>Publish Web<ept id="77576088-1fdf-4569-bad9-8abb9def0a30">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="15fceebc-d37a-45af-9d22-aa4f4475d239">&lt;strong&gt;</bpt>Docker Containers<ept id="15fceebc-d37a-45af-9d22-aa4f4475d239">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="a5b4b5cc-e80f-473e-b8f1-3686b3f3b886" xml:space="preserve">
+          <source>If you don't see a Docker Containers option, make sure you have installed the Visual Studio 2015 Tools for Docker and that you selected an ASP.NET 5 Web Site template in the previous procedure.</source>
+          <target state="new">If you don't see a Docker Containers option, make sure you have installed the Visual Studio 2015 Tools for Docker and that you selected an ASP.NET 5 Web Site template in the previous procedure.</target>
+        </trans-unit>
+        <trans-unit id="ca009ed4-d787-410e-a244-a0af12d860b5" xml:space="preserve">
+          <source><bpt id="a79e5cdc-2b52-4b72-a60b-04bcbbddb738">&lt;linkText&gt;</bpt><ept id="a79e5cdc-2b52-4b72-a60b-04bcbbddb738">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a79e5cdc-2b52-4b72-a60b-04bcbbddb738">&lt;linkText&gt;</bpt><ept id="a79e5cdc-2b52-4b72-a60b-04bcbbddb738">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28bfd870-d4fe-471d-b9bc-60ce5cd2f922" xml:space="preserve">
+          <source>The <bpt id="f95a28b0-f78a-4dcf-8f6b-c5090476ae9e">&lt;strong&gt;</bpt>Select Docker Virtual Machine<ept id="f95a28b0-f78a-4dcf-8f6b-c5090476ae9e">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="f95a28b0-f78a-4dcf-8f6b-c5090476ae9e">&lt;strong&gt;</bpt>Select Docker Virtual Machine<ept id="f95a28b0-f78a-4dcf-8f6b-c5090476ae9e">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="1c068c78-85b7-43f7-9edf-2c0d7551afc7" xml:space="preserve">
+          <source>This lets you specify the Docker host in which you want to publish the project.</source>
+          <target state="new">This lets you specify the Docker host in which you want to publish the project.</target>
+        </trans-unit>
+        <trans-unit id="bc0bab8d-a5cf-46f2-a16d-d120adae7922" xml:space="preserve">
+          <source>You can create a new Docker host or choose an existing VM hosted on Azure or elsewhere.</source>
+          <target state="new">You can create a new Docker host or choose an existing VM hosted on Azure or elsewhere.</target>
+        </trans-unit>
+        <trans-unit id="fe7d5a57-2d99-4e17-94d5-fa857d15a23f" xml:space="preserve">
+          <source>Later in this example, we'll create a new Azure Docker host.</source>
+          <target state="new">Later in this example, we'll create a new Azure Docker host.</target>
+        </trans-unit>
+        <trans-unit id="73bef10a-32f5-43b2-89f9-409d5c4cbc13" xml:space="preserve">
+          <source>If you're already logged into an Azure account, skip to step 5.</source>
+          <target state="new">If you're already logged into an Azure account, skip to step 5.</target>
+        </trans-unit>
+        <trans-unit id="8cd755ef-384a-4ef1-8d76-8378dc923b7c" xml:space="preserve">
+          <source>If you're not logged into an account, choose the <bpt id="04544e78-4df5-484f-9714-1f53431ca1e8">&lt;strong&gt;</bpt>Add an account<ept id="04544e78-4df5-484f-9714-1f53431ca1e8">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">If you're not logged into an account, choose the <bpt id="04544e78-4df5-484f-9714-1f53431ca1e8">&lt;strong&gt;</bpt>Add an account<ept id="04544e78-4df5-484f-9714-1f53431ca1e8">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="4b836759-bf19-4609-a2b8-14b2972b169b" xml:space="preserve">
+          <source><bpt id="8883d4d9-a5ab-48e4-8b65-1b7ab49c3250">&lt;linkText&gt;</bpt><ept id="8883d4d9-a5ab-48e4-8b65-1b7ab49c3250">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8883d4d9-a5ab-48e4-8b65-1b7ab49c3250">&lt;linkText&gt;</bpt><ept id="8883d4d9-a5ab-48e4-8b65-1b7ab49c3250">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8247801c-c20a-4975-b17e-515d69920b1d" xml:space="preserve">
+          <source>In the <bpt id="3684a5ab-646a-4df8-84df-945f075896c9">&lt;strong&gt;</bpt>Sign in to Visual Studio<ept id="3684a5ab-646a-4df8-84df-945f075896c9">&lt;/strong&gt;</ept> dialog box, enter the email account for your Azure subscription and then choose the <bpt id="44012499-c8d0-44a8-8d00-484b0d1fccc7">&lt;strong&gt;</bpt>Continue<ept id="44012499-c8d0-44a8-8d00-484b0d1fccc7">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the <bpt id="3684a5ab-646a-4df8-84df-945f075896c9">&lt;strong&gt;</bpt>Sign in to Visual Studio<ept id="3684a5ab-646a-4df8-84df-945f075896c9">&lt;/strong&gt;</ept> dialog box, enter the email account for your Azure subscription and then choose the <bpt id="44012499-c8d0-44a8-8d00-484b0d1fccc7">&lt;strong&gt;</bpt>Continue<ept id="44012499-c8d0-44a8-8d00-484b0d1fccc7">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="0d0045d4-f221-4643-8d03-7eb93debf1f5" xml:space="preserve">
+          <source>Choose the <bpt id="4b22176c-4023-42fe-90e2-61338f05095a">&lt;strong&gt;</bpt>New<ept id="4b22176c-4023-42fe-90e2-61338f05095a">&lt;/strong&gt;</ept> button to create a new Azure Docker VM and then choose the <bpt id="5632271d-c690-49ef-9755-e20d1a8c4ab2">&lt;strong&gt;</bpt>OK<ept id="5632271d-c690-49ef-9755-e20d1a8c4ab2">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Choose the <bpt id="4b22176c-4023-42fe-90e2-61338f05095a">&lt;strong&gt;</bpt>New<ept id="4b22176c-4023-42fe-90e2-61338f05095a">&lt;/strong&gt;</ept> button to create a new Azure Docker VM and then choose the <bpt id="5632271d-c690-49ef-9755-e20d1a8c4ab2">&lt;strong&gt;</bpt>OK<ept id="5632271d-c690-49ef-9755-e20d1a8c4ab2">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="23972f75-436c-48f2-8971-4b8297638308" xml:space="preserve">
+          <source><bpt id="4e971d48-477b-4594-a5af-eed4065f069a">&lt;linkText&gt;</bpt><ept id="4e971d48-477b-4594-a5af-eed4065f069a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e971d48-477b-4594-a5af-eed4065f069a">&lt;linkText&gt;</bpt><ept id="4e971d48-477b-4594-a5af-eed4065f069a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61f6f947-d7e7-4622-bc0b-f53db015e781" xml:space="preserve">
+          <source>Note that you also have the choice of using an existing Docker host.</source>
+          <target state="new">Note that you also have the choice of using an existing Docker host.</target>
+        </trans-unit>
+        <trans-unit id="70ce418a-e208-462d-a0e6-adcd0ec1fcbd" xml:space="preserve">
+          <source>To do this, choose it in the <bpt id="37a05a33-a22e-4c33-a060-ab2de1c86a9f">&lt;strong&gt;</bpt>Existing Azure Docker Virtual Machines<ept id="37a05a33-a22e-4c33-a060-ab2de1c86a9f">&lt;/strong&gt;</ept> dropdown list rather than choose the <bpt id="df3cd38e-3548-456d-af51-295dc93eb534">&lt;strong&gt;</bpt>New<ept id="df3cd38e-3548-456d-af51-295dc93eb534">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To do this, choose it in the <bpt id="37a05a33-a22e-4c33-a060-ab2de1c86a9f">&lt;strong&gt;</bpt>Existing Azure Docker Virtual Machines<ept id="37a05a33-a22e-4c33-a060-ab2de1c86a9f">&lt;/strong&gt;</ept> dropdown list rather than choose the <bpt id="df3cd38e-3548-456d-af51-295dc93eb534">&lt;strong&gt;</bpt>New<ept id="df3cd38e-3548-456d-af51-295dc93eb534">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="018d9dd7-670e-49a9-a08c-c1ca18a90d14" xml:space="preserve">
+          <source>This list doesn't show only container hosts, it lists all of the VMs in your Azure tenant.</source>
+          <target state="new">This list doesn't show only container hosts, it lists all of the VMs in your Azure tenant.</target>
+        </trans-unit>
+        <trans-unit id="f789281f-33d1-4dab-a845-8ae42ae1cfa8" xml:space="preserve">
+          <source>As an alternative, you can choose to publish to a custom Docker host.</source>
+          <target state="new">As an alternative, you can choose to publish to a custom Docker host.</target>
+        </trans-unit>
+        <trans-unit id="51ccbbc0-89bd-4c8f-b585-7566d9da0fcd" xml:space="preserve">
+          <source>See <bpt id="eeb81956-8b41-4017-bd52-4addad8d8e84">&lt;strong&gt;</bpt>Provide a custom Docker host<ept id="eeb81956-8b41-4017-bd52-4addad8d8e84">&lt;/strong&gt;</ept> later in this topic for more information.</source>
+          <target state="new">See <bpt id="eeb81956-8b41-4017-bd52-4addad8d8e84">&lt;strong&gt;</bpt>Provide a custom Docker host<ept id="eeb81956-8b41-4017-bd52-4addad8d8e84">&lt;/strong&gt;</ept> later in this topic for more information.</target>
+        </trans-unit>
+        <trans-unit id="8d795258-cf34-466b-9a98-977837a7bcaf" xml:space="preserve">
+          <source>Enter the following information in the <bpt id="a3c7f44f-311e-4349-b111-95b44ddee065">&lt;strong&gt;</bpt>Create a virtual machine on Microsoft Azure<ept id="a3c7f44f-311e-4349-b111-95b44ddee065">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">Enter the following information in the <bpt id="a3c7f44f-311e-4349-b111-95b44ddee065">&lt;strong&gt;</bpt>Create a virtual machine on Microsoft Azure<ept id="a3c7f44f-311e-4349-b111-95b44ddee065">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="c2b2df48-71a9-49dd-801a-1ddf2165daec" xml:space="preserve">
+          <source>When you're done, choose the <bpt id="d38accdf-a213-426e-a64e-50b6d69ebf8e">&lt;strong&gt;</bpt>OK<ept id="d38accdf-a213-426e-a64e-50b6d69ebf8e">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">When you're done, choose the <bpt id="d38accdf-a213-426e-a64e-50b6d69ebf8e">&lt;strong&gt;</bpt>OK<ept id="d38accdf-a213-426e-a64e-50b6d69ebf8e">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="805322bd-ffb8-4c44-9c4c-6c2241846a8c" xml:space="preserve">
+          <source>This creates a Linux virtual machine with a configured Docker extension.</source>
+          <target state="new">This creates a Linux virtual machine with a configured Docker extension.</target>
+        </trans-unit>
+        <trans-unit id="4dbdbf7b-5198-4b0b-81f2-74ec70fb3828" xml:space="preserve">
+          <source><bpt id="3ae2b173-7050-4365-980f-3b27a538b615">&lt;linkText&gt;</bpt><ept id="3ae2b173-7050-4365-980f-3b27a538b615">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ae2b173-7050-4365-980f-3b27a538b615">&lt;linkText&gt;</bpt><ept id="3ae2b173-7050-4365-980f-3b27a538b615">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="008821c7-17f0-4ff0-9a4c-f560b3fc7893" xml:space="preserve">
+          <source>Note that you also now have the option of creating a Windows Container HOST using Windows Server 2016 Technical Preview 3 (TP3).</source>
+          <target state="new">Note that you also now have the option of creating a Windows Container HOST using Windows Server 2016 Technical Preview 3 (TP3).</target>
+        </trans-unit>
+        <trans-unit id="c310722c-8a41-4f4a-b63d-1a575d1b7d81" xml:space="preserve">
+          <source><bpt id="a1e8d05f-32e9-4e9a-8c08-63104b967dad">&lt;linkText&gt;</bpt><ept id="a1e8d05f-32e9-4e9a-8c08-63104b967dad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1e8d05f-32e9-4e9a-8c08-63104b967dad">&lt;linkText&gt;</bpt><ept id="a1e8d05f-32e9-4e9a-8c08-63104b967dad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e9f9795-fae1-48d9-b636-8a86b541a039" xml:space="preserve">
+          <source>|Property Name|Setting|
+|---|---|
+|Location|Change this setting to the region closest to your locale.|
+|DNS Name|Enter a unique name for the virtual machine.</source>
+          <target state="new">|Property Name|Setting|
+|---|---|
+|Location|Change this setting to the region closest to your locale.|
+|DNS Name|Enter a unique name for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="adfc9dfa-0ee0-47e9-ac59-77d3f66fbdee" xml:space="preserve">
+          <source>If the name is accepted by Azure, a green circle with a white checkmark appears to the right.</source>
+          <target state="new">If the name is accepted by Azure, a green circle with a white checkmark appears to the right.</target>
+        </trans-unit>
+        <trans-unit id="f8b32065-ddcf-4216-8a16-5e8ef5ecc4d0" xml:space="preserve">
+          <source>If the name isn't accepted, a red circle with a white x appears.</source>
+          <target state="new">If the name isn't accepted, a red circle with a white x appears.</target>
+        </trans-unit>
+        <trans-unit id="10af1d37-2ffe-455f-9213-e8b399ae40c4" xml:space="preserve">
+          <source>In that case, enter a new unique name.|
+|Image|Choose an OS image to use in the Docker host, if any.</source>
+          <target state="new">In that case, enter a new unique name.|
+|Image|Choose an OS image to use in the Docker host, if any.</target>
+        </trans-unit>
+        <trans-unit id="0b4516a5-222f-42c4-96b1-c695f166f2df" xml:space="preserve">
+          <source>For this example, choose an Ubuntu Server image.</source>
+          <target state="new">For this example, choose an Ubuntu Server image.</target>
+        </trans-unit>
+        <trans-unit id="fe390ec6-041f-49c8-a35c-1b99cdf6fd44" xml:space="preserve">
+          <source>(Note that a Windows Server image is now available in the list of available images.)|
+|Username|Enter a unique user name for the virtual machine.|
+|Passwords|Enter a password for the user and then confirm it.|
+|Certificates directory |This specifies the folder where your Docker certificates are stored.</source>
+          <target state="new">(Note that a Windows Server image is now available in the list of available images.)|
+|Username|Enter a unique user name for the virtual machine.|
+|Passwords|Enter a password for the user and then confirm it.|
+|Certificates directory |This specifies the folder where your Docker certificates are stored.</target>
+        </trans-unit>
+        <trans-unit id="96e6de3d-4a97-43e4-8060-5cfd462516f3" xml:space="preserve">
+          <source>While you can create a new folder or point to an existing folder, it's recommended that you use the default certificates folder (C:\\Users\\[<bpt id="0792aa6e-d775-4b45-a621-11767cf053f8">&lt;em&gt;</bpt>username<ept id="0792aa6e-d775-4b45-a621-11767cf053f8">&lt;/em&gt;</ept>]\\.docker).</source>
+          <target state="new">While you can create a new folder or point to an existing folder, it's recommended that you use the default certificates folder (C:\\Users\\[<bpt id="0792aa6e-d775-4b45-a621-11767cf053f8">&lt;em&gt;</bpt>username<ept id="0792aa6e-d775-4b45-a621-11767cf053f8">&lt;/em&gt;</ept>]\\.docker).</target>
+        </trans-unit>
+        <trans-unit id="260cd2b8-403b-4048-b95d-a9ec8399f55c" xml:space="preserve">
+          <source>Otherwise, the Auth options can't be automatically retrieved if you reuse the same host on another project or system.|</source>
+          <target state="new">Otherwise, the Auth options can't be automatically retrieved if you reuse the same host on another project or system.|</target>
+        </trans-unit>
+        <trans-unit id="97250b41-93be-4215-9c45-0debab1aa3c7" xml:space="preserve">
+          <source>Choose the ellipsis (...) button next to the <bpt id="f49d8bf9-a26a-4523-b8ca-896cfc26860e">&lt;strong&gt;</bpt>Certificates directory<ept id="f49d8bf9-a26a-4523-b8ca-896cfc26860e">&lt;/strong&gt;</ept> entry and then either create new folder for Docker certificates, or navigate to an existing Docker certificates folder.</source>
+          <target state="new">Choose the ellipsis (...) button next to the <bpt id="f49d8bf9-a26a-4523-b8ca-896cfc26860e">&lt;strong&gt;</bpt>Certificates directory<ept id="f49d8bf9-a26a-4523-b8ca-896cfc26860e">&lt;/strong&gt;</ept> entry and then either create new folder for Docker certificates, or navigate to an existing Docker certificates folder.</target>
+        </trans-unit>
+        <trans-unit id="eb0ead9c-3e95-4fdb-8e2b-7d875e13a811" xml:space="preserve">
+          <source>If the Docker certificates needed for the VM aren't found, an exclamation icon appears next to the entry, letting you know that the required certificates weren't found, and that continuing will delete and then recreate any existing certificates.</source>
+          <target state="new">If the Docker certificates needed for the VM aren't found, an exclamation icon appears next to the entry, letting you know that the required certificates weren't found, and that continuing will delete and then recreate any existing certificates.</target>
+        </trans-unit>
+        <trans-unit id="36e3dbc2-10da-4c9a-a28c-83e1b7bfdce4" xml:space="preserve">
+          <source>Choose the <bpt id="b13d6d77-155a-4299-9db3-088993084734">&lt;strong&gt;</bpt>OK<ept id="b13d6d77-155a-4299-9db3-088993084734">&lt;/strong&gt;</ept> button to begin creating the VM.</source>
+          <target state="new">Choose the <bpt id="b13d6d77-155a-4299-9db3-088993084734">&lt;strong&gt;</bpt>OK<ept id="b13d6d77-155a-4299-9db3-088993084734">&lt;/strong&gt;</ept> button to begin creating the VM.</target>
+        </trans-unit>
+        <trans-unit id="a219570e-2a3d-43e9-a6ea-58770e88efcb" xml:space="preserve">
+          <source>You'll get a message that the virtual machine is being created in Azure.</source>
+          <target state="new">You'll get a message that the virtual machine is being created in Azure.</target>
+        </trans-unit>
+        <trans-unit id="dc35dbd0-4617-4cd6-b37f-c143d3836084" xml:space="preserve">
+          <source>Visual Studio creates an Azure Resource Manager (ARM) template file, parameters file, and a PowerShell script so you can execute the commands again in the future.</source>
+          <target state="new">Visual Studio creates an Azure Resource Manager (ARM) template file, parameters file, and a PowerShell script so you can execute the commands again in the future.</target>
+        </trans-unit>
+        <trans-unit id="3d667070-00b0-47fb-8a51-11ad7dc0db14" xml:space="preserve">
+          <source><bpt id="d03edc9e-5caf-4cb5-a69f-de9a55d9b292">&lt;linkText&gt;</bpt><ept id="d03edc9e-5caf-4cb5-a69f-de9a55d9b292">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d03edc9e-5caf-4cb5-a69f-de9a55d9b292">&lt;linkText&gt;</bpt><ept id="d03edc9e-5caf-4cb5-a69f-de9a55d9b292">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4532130-4f96-43cb-aa12-8c551aa75f11" xml:space="preserve">
+          <source>Visual Studio outputs the progress of the operation to the <bpt id="ecd79537-f715-462f-8e19-18cdb740b662">&lt;strong&gt;</bpt>Output<ept id="ecd79537-f715-462f-8e19-18cdb740b662">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Visual Studio outputs the progress of the operation to the <bpt id="ecd79537-f715-462f-8e19-18cdb740b662">&lt;strong&gt;</bpt>Output<ept id="ecd79537-f715-462f-8e19-18cdb740b662">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="133d8931-31d2-4f43-b970-2bc8c895e663" xml:space="preserve">
+          <source>Visual Studio calls a PowerShell script to deploy the VM.</source>
+          <target state="new">Visual Studio calls a PowerShell script to deploy the VM.</target>
+        </trans-unit>
+        <trans-unit id="4b40ad29-04cc-453d-ba05-073e34b38df5" xml:space="preserve">
+          <source>The script uses Azure PowerShell cmdlets to deploy Azure Resource Group.</source>
+          <target state="new">The script uses Azure PowerShell cmdlets to deploy Azure Resource Group.</target>
+        </trans-unit>
+        <trans-unit id="addd55f5-274a-43f1-aba9-2cb98f27e3ae" xml:space="preserve">
+          <source>Later, another PowerShell script uses issues Docker commands to publish, just as you would if you were creating the Docker host manually.</source>
+          <target state="new">Later, another PowerShell script uses issues Docker commands to publish, just as you would if you were creating the Docker host manually.</target>
+        </trans-unit>
+        <trans-unit id="0fb026d0-e0ec-4b0b-bb50-5f7a2f31f61a" xml:space="preserve">
+          <source>Provisioning the Docker host can take a while, so check the status in the Output window to see when the job completes.</source>
+          <target state="new">Provisioning the Docker host can take a while, so check the status in the Output window to see when the job completes.</target>
+        </trans-unit>
+        <trans-unit id="1cb3c9fb-410c-43d3-83b5-22dc19d1158d" xml:space="preserve">
+          <source>After the Docker host is fully provisioned in Azure, you can check your account on the Azure portal.</source>
+          <target state="new">After the Docker host is fully provisioned in Azure, you can check your account on the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="73d2caa0-77c9-4817-95af-d04371506e03" xml:space="preserve">
+          <source>You should be able to see the new virtual machine under the <bpt id="03cd4b8d-9122-4996-a377-bdfed5ea07c9">&lt;strong&gt;</bpt>Virtual Machine<ept id="03cd4b8d-9122-4996-a377-bdfed5ea07c9">&lt;/strong&gt;</ept> category on the Azure portal.</source>
+          <target state="new">You should be able to see the new virtual machine under the <bpt id="03cd4b8d-9122-4996-a377-bdfed5ea07c9">&lt;strong&gt;</bpt>Virtual Machine<ept id="03cd4b8d-9122-4996-a377-bdfed5ea07c9">&lt;/strong&gt;</ept> category on the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="41035533-01c6-49da-bdd0-4a1f16765645" xml:space="preserve">
+          <source>Once the Docker host is ready, go back and publish the web app project.</source>
+          <target state="new">Once the Docker host is ready, go back and publish the web app project.</target>
+        </trans-unit>
+        <trans-unit id="da9aa49d-f6b3-4b91-b085-f4cca1dc972d" xml:space="preserve">
+          <source>On the context menu for the web application project's node in <bpt id="89556313-a6d9-4a79-9e87-cbfa20401fea">&lt;strong&gt;</bpt>Solution Explorer<ept id="89556313-a6d9-4a79-9e87-cbfa20401fea">&lt;/strong&gt;</ept>, choose <bpt id="e1186c46-1ca8-42bd-9b27-5508c837e957">&lt;strong&gt;</bpt>Publish<ept id="e1186c46-1ca8-42bd-9b27-5508c837e957">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the context menu for the web application project's node in <bpt id="89556313-a6d9-4a79-9e87-cbfa20401fea">&lt;strong&gt;</bpt>Solution Explorer<ept id="89556313-a6d9-4a79-9e87-cbfa20401fea">&lt;/strong&gt;</ept>, choose <bpt id="e1186c46-1ca8-42bd-9b27-5508c837e957">&lt;strong&gt;</bpt>Publish<ept id="e1186c46-1ca8-42bd-9b27-5508c837e957">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fb729a3-3c02-4497-9788-504268e7c8e4" xml:space="preserve">
+          <source>Visual Studio creates a publish file based on the VM you created.</source>
+          <target state="new">Visual Studio creates a publish file based on the VM you created.</target>
+        </trans-unit>
+        <trans-unit id="d3216777-6afe-4bfe-a439-c12e09da285d" xml:space="preserve">
+          <source>On the <bpt id="69d5ab39-b16d-42bc-8add-e07e79e95f54">&lt;strong&gt;</bpt>Connection<ept id="69d5ab39-b16d-42bc-8add-e07e79e95f54">&lt;/strong&gt;</ept> tab in the <bpt id="74cfa7db-8c0c-431b-a79d-6766418ae03a">&lt;strong&gt;</bpt>Publish Web<ept id="74cfa7db-8c0c-431b-a79d-6766418ae03a">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="fc2569dc-c020-49cb-8a1f-29027211bdd6">&lt;strong&gt;</bpt>Validate Connection<ept id="fc2569dc-c020-49cb-8a1f-29027211bdd6">&lt;/strong&gt;</ept> box to make sure the Docker host is ready.</source>
+          <target state="new">On the <bpt id="69d5ab39-b16d-42bc-8add-e07e79e95f54">&lt;strong&gt;</bpt>Connection<ept id="69d5ab39-b16d-42bc-8add-e07e79e95f54">&lt;/strong&gt;</ept> tab in the <bpt id="74cfa7db-8c0c-431b-a79d-6766418ae03a">&lt;strong&gt;</bpt>Publish Web<ept id="74cfa7db-8c0c-431b-a79d-6766418ae03a">&lt;/strong&gt;</ept> dialog box, choose the <bpt id="fc2569dc-c020-49cb-8a1f-29027211bdd6">&lt;strong&gt;</bpt>Validate Connection<ept id="fc2569dc-c020-49cb-8a1f-29027211bdd6">&lt;/strong&gt;</ept> box to make sure the Docker host is ready.</target>
+        </trans-unit>
+        <trans-unit id="460437d3-3df5-4bb7-9b78-2bf25c4f6423" xml:space="preserve">
+          <source>If the connection is good, choose the <bpt id="f175a37b-f576-4f96-83cc-3cf58271f4cc">&lt;strong&gt;</bpt>Publish<ept id="f175a37b-f576-4f96-83cc-3cf58271f4cc">&lt;/strong&gt;</ept> button to publish the web app.</source>
+          <target state="new">If the connection is good, choose the <bpt id="f175a37b-f576-4f96-83cc-3cf58271f4cc">&lt;strong&gt;</bpt>Publish<ept id="f175a37b-f576-4f96-83cc-3cf58271f4cc">&lt;/strong&gt;</ept> button to publish the web app.</target>
+        </trans-unit>
+        <trans-unit id="77002311-85f7-4ffe-b163-7abd6d02340f" xml:space="preserve">
+          <source>The first time you publish an app to a Docker host, it will take time to download any of the base images that are referenced in your Docker file (such as <bpt id="8c5cb33b-de45-42a1-9758-a3aad2f7ed95">&lt;strong&gt;</bpt>FROM<ept id="8c5cb33b-de45-42a1-9758-a3aad2f7ed95">&lt;/strong&gt;</ept> <bpt id="f8cb6531-8ced-463e-82b4-7d2e106ff962">&lt;em&gt;</bpt>imagename<ept id="f8cb6531-8ced-463e-82b4-7d2e106ff962">&lt;/em&gt;</ept>).</source>
+          <target state="new">The first time you publish an app to a Docker host, it will take time to download any of the base images that are referenced in your Docker file (such as <bpt id="8c5cb33b-de45-42a1-9758-a3aad2f7ed95">&lt;strong&gt;</bpt>FROM<ept id="8c5cb33b-de45-42a1-9758-a3aad2f7ed95">&lt;/strong&gt;</ept> <bpt id="f8cb6531-8ced-463e-82b4-7d2e106ff962">&lt;em&gt;</bpt>imagename<ept id="f8cb6531-8ced-463e-82b4-7d2e106ff962">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0e444457-d66c-4589-b503-3e076bb7ad6f" xml:space="preserve">
+          <source>Note that the Docker file is specific to the operating system.</source>
+          <target state="new">Note that the Docker file is specific to the operating system.</target>
+        </trans-unit>
+        <trans-unit id="a5db1327-7f22-407c-a131-3dee1bde490f" xml:space="preserve">
+          <source>If you choose to republish to a different OS, you'll need to rename the Docker file so that Visual Studio can create a new default based on the target OS.</source>
+          <target state="new">If you choose to republish to a different OS, you'll need to rename the Docker file so that Visual Studio can create a new default based on the target OS.</target>
+        </trans-unit>
+        <trans-unit id="a47f3d42-0435-41f6-81ce-28e39f66b3b2" xml:space="preserve">
+          <source>For instance, if you first publish to a Linux container and later decide to publish to Windows, you should rename the Docker file to a unique name, such as DockerLinux.</source>
+          <target state="new">For instance, if you first publish to a Linux container and later decide to publish to Windows, you should rename the Docker file to a unique name, such as DockerLinux.</target>
+        </trans-unit>
+        <trans-unit id="09e13fd8-fd13-43e7-a8ce-bb19f48c98dd" xml:space="preserve">
+          <source>Then, when you republish to Windows, Visual studio will recreate the default Docker file for Windows.</source>
+          <target state="new">Then, when you republish to Windows, Visual studio will recreate the default Docker file for Windows.</target>
+        </trans-unit>
+        <trans-unit id="5b0fbe9c-baf5-43ca-a8c7-3dbe187288a7" xml:space="preserve">
+          <source>Later, when you republish either one, just select the appropriate Docker file for the OS.</source>
+          <target state="new">Later, when you republish either one, just select the appropriate Docker file for the OS.</target>
+        </trans-unit>
+        <trans-unit id="a50c2dea-46e2-407b-ae50-afa27051d610" xml:space="preserve">
+          <source>The previous procedure had you create a Docker virtual machine hosted on Azure.</source>
+          <target state="new">The previous procedure had you create a Docker virtual machine hosted on Azure.</target>
+        </trans-unit>
+        <trans-unit id="698dae4a-76b4-4374-af32-d69162703964" xml:space="preserve">
+          <source>However, if you already have an existing Docker host elsewhere, you can choose to publish to it instead of Azure.</source>
+          <target state="new">However, if you already have an existing Docker host elsewhere, you can choose to publish to it instead of Azure.</target>
+        </trans-unit>
+        <trans-unit id="40679ce0-ab95-42c5-9f3b-cae8a188fad4" xml:space="preserve">
+          <source>In the <bpt id="e00cc461-1516-4f6e-9fc7-bc1f4e1efb11">&lt;strong&gt;</bpt>Select Docker Virtual Machine<ept id="e00cc461-1516-4f6e-9fc7-bc1f4e1efb11">&lt;/strong&gt;</ept> dialog box, select the <bpt id="eda930b4-ff68-4e68-b0be-5f8393c9d6a4">&lt;strong&gt;</bpt>Custom Docker Host<ept id="eda930b4-ff68-4e68-b0be-5f8393c9d6a4">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">In the <bpt id="e00cc461-1516-4f6e-9fc7-bc1f4e1efb11">&lt;strong&gt;</bpt>Select Docker Virtual Machine<ept id="e00cc461-1516-4f6e-9fc7-bc1f4e1efb11">&lt;/strong&gt;</ept> dialog box, select the <bpt id="eda930b4-ff68-4e68-b0be-5f8393c9d6a4">&lt;strong&gt;</bpt>Custom Docker Host<ept id="eda930b4-ff68-4e68-b0be-5f8393c9d6a4">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="edec5331-693c-4005-b488-8d2a1ad03555" xml:space="preserve">
+          <source><bpt id="a31c7c0b-53f0-4ca4-9210-a7cec70d3e80">&lt;linkText&gt;</bpt><ept id="a31c7c0b-53f0-4ca4-9210-a7cec70d3e80">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a31c7c0b-53f0-4ca4-9210-a7cec70d3e80">&lt;linkText&gt;</bpt><ept id="a31c7c0b-53f0-4ca4-9210-a7cec70d3e80">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bbcca32-bde2-4117-8196-ef4e298d493d" xml:space="preserve">
+          <source>Choose the <bpt id="8622ab03-da9c-42bc-9f32-365d5126d3a0">&lt;strong&gt;</bpt>OK<ept id="8622ab03-da9c-42bc-9f32-365d5126d3a0">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Choose the <bpt id="8622ab03-da9c-42bc-9f32-365d5126d3a0">&lt;strong&gt;</bpt>OK<ept id="8622ab03-da9c-42bc-9f32-365d5126d3a0">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="acd37292-a009-4810-92ea-e69f06e914b2" xml:space="preserve">
+          <source>In the <bpt id="15b7c7b6-adee-4197-9b70-338351b4232d">&lt;strong&gt;</bpt>Publish Web<ept id="15b7c7b6-adee-4197-9b70-338351b4232d">&lt;/strong&gt;</ept> dialog box, add values to the settings in the <bpt id="946b7588-c535-4e68-95f0-5cad89758b17">&lt;strong&gt;</bpt>CustomDockerHost<ept id="946b7588-c535-4e68-95f0-5cad89758b17">&lt;/strong&gt;</ept> section, such as: the server URL, image name, Dockerfile location, and host and container port numbers.</source>
+          <target state="new">In the <bpt id="15b7c7b6-adee-4197-9b70-338351b4232d">&lt;strong&gt;</bpt>Publish Web<ept id="15b7c7b6-adee-4197-9b70-338351b4232d">&lt;/strong&gt;</ept> dialog box, add values to the settings in the <bpt id="946b7588-c535-4e68-95f0-5cad89758b17">&lt;strong&gt;</bpt>CustomDockerHost<ept id="946b7588-c535-4e68-95f0-5cad89758b17">&lt;/strong&gt;</ept> section, such as: the server URL, image name, Dockerfile location, and host and container port numbers.</target>
+        </trans-unit>
+        <trans-unit id="ddbea7e7-b676-4673-8f84-e6903dcd32df" xml:space="preserve">
+          <source>In the <bpt id="be7b1638-95a0-4095-9351-3dfd3c3acf83">&lt;strong&gt;</bpt>Docker Advanced Options<ept id="be7b1638-95a0-4095-9351-3dfd3c3acf83">&lt;/strong&gt;</ept> section, you can view or change the Auth and Run options as well as the Docker command line.</source>
+          <target state="new">In the <bpt id="be7b1638-95a0-4095-9351-3dfd3c3acf83">&lt;strong&gt;</bpt>Docker Advanced Options<ept id="be7b1638-95a0-4095-9351-3dfd3c3acf83">&lt;/strong&gt;</ept> section, you can view or change the Auth and Run options as well as the Docker command line.</target>
+        </trans-unit>
+        <trans-unit id="6e77505e-781b-4982-bcad-4eff12e2a740" xml:space="preserve">
+          <source><bpt id="6bd4611a-1ee0-404f-b90a-8d7de4967197">&lt;linkText&gt;</bpt><ept id="6bd4611a-1ee0-404f-b90a-8d7de4967197">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bd4611a-1ee0-404f-b90a-8d7de4967197">&lt;linkText&gt;</bpt><ept id="6bd4611a-1ee0-404f-b90a-8d7de4967197">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7425ea09-b92b-435f-a707-bd57b2597e56" xml:space="preserve">
+          <source>After you've entered all the required values, choose the <bpt id="ca0cea44-0343-44bd-8b78-09a0bd0ef7ff">&lt;strong&gt;</bpt>Validate Connection<ept id="ca0cea44-0343-44bd-8b78-09a0bd0ef7ff">&lt;/strong&gt;</ept> button to ensure the connection to the Docker host works properly.</source>
+          <target state="new">After you've entered all the required values, choose the <bpt id="ca0cea44-0343-44bd-8b78-09a0bd0ef7ff">&lt;strong&gt;</bpt>Validate Connection<ept id="ca0cea44-0343-44bd-8b78-09a0bd0ef7ff">&lt;/strong&gt;</ept> button to ensure the connection to the Docker host works properly.</target>
+        </trans-unit>
+        <trans-unit id="ce882530-c295-4b9c-81df-1a68f3141be2" xml:space="preserve">
+          <source>If the connection works properly, you can choose the <bpt id="a53d7d48-0b71-4571-aced-4cbeafb1c5dd">&lt;strong&gt;</bpt>Next<ept id="a53d7d48-0b71-4571-aced-4cbeafb1c5dd">&lt;/strong&gt;</ept> button to see a list of the components that will be published, or you can choose the <bpt id="64053574-ada7-4e40-93a6-8b31fbc5bb2b">&lt;strong&gt;</bpt>Publish<ept id="64053574-ada7-4e40-93a6-8b31fbc5bb2b">&lt;/strong&gt;</ept> button to immediately publish the project.</source>
+          <target state="new">If the connection works properly, you can choose the <bpt id="a53d7d48-0b71-4571-aced-4cbeafb1c5dd">&lt;strong&gt;</bpt>Next<ept id="a53d7d48-0b71-4571-aced-4cbeafb1c5dd">&lt;/strong&gt;</ept> button to see a list of the components that will be published, or you can choose the <bpt id="64053574-ada7-4e40-93a6-8b31fbc5bb2b">&lt;strong&gt;</bpt>Publish<ept id="64053574-ada7-4e40-93a6-8b31fbc5bb2b">&lt;/strong&gt;</ept> button to immediately publish the project.</target>
+        </trans-unit>
+        <trans-unit id="e7722424-a5c4-4d25-8a27-1cbd4eb945eb" xml:space="preserve">
+          <source>Now that the project has been published to a Docker host on Azure, you can test it by checking its settings.</source>
+          <target state="new">Now that the project has been published to a Docker host on Azure, you can test it by checking its settings.</target>
+        </trans-unit>
+        <trans-unit id="4c6803cf-7b80-4301-af7f-0ba853e2e5fc" xml:space="preserve">
+          <source>Because the Docker command line tools install with the Visual Studio extension, you can issue commands to Docker directly from a Windows command prompt.</source>
+          <target state="new">Because the Docker command line tools install with the Visual Studio extension, you can issue commands to Docker directly from a Windows command prompt.</target>
+        </trans-unit>
+        <trans-unit id="6e06fe8a-3481-4f5f-8d40-d045288d0d5b" xml:space="preserve">
+          <source>The procedure below is for communicating with a Docker host that's been deployed to Azure.</source>
+          <target state="new">The procedure below is for communicating with a Docker host that's been deployed to Azure.</target>
+        </trans-unit>
+        <trans-unit id="5798c656-5c1f-4e5a-a737-c8cec4e4904b" xml:space="preserve">
+          <source>Open a Windows command prompt.</source>
+          <target state="new">Open a Windows command prompt.</target>
+        </trans-unit>
+        <trans-unit id="062f532e-542f-453e-8d34-34f46561e88c" xml:space="preserve">
+          <source>Assign the Docker host and verify to environment variables.</source>
+          <target state="new">Assign the Docker host and verify to environment variables.</target>
+        </trans-unit>
+        <trans-unit id="d16f849b-da67-469e-b56d-fee052499071" xml:space="preserve">
+          <source>To do this, enter the following commands in the command prompt.</source>
+          <target state="new">To do this, enter the following commands in the command prompt.</target>
+        </trans-unit>
+        <trans-unit id="fef6b74b-3718-42ec-8926-0a309a780b40" xml:space="preserve">
+          <source>(Substitute the name of your Docker host for <bpt id="d9d61a91-93e4-4fbd-81cd-2acd5fa7cb41">&lt;em&gt;</bpt>NameofAzureVM<ept id="d9d61a91-93e4-4fbd-81cd-2acd5fa7cb41">&lt;/em&gt;</ept>.)</source>
+          <target state="new">(Substitute the name of your Docker host for <bpt id="d9d61a91-93e4-4fbd-81cd-2acd5fa7cb41">&lt;em&gt;</bpt>NameofAzureVM<ept id="d9d61a91-93e4-4fbd-81cd-2acd5fa7cb41">&lt;/em&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="d82ca0d3-87e1-4549-b0a5-1f82e98eb991" xml:space="preserve">
+          <source>Now you can issue commands like these to test whether the Docker host is present and functioning.</source>
+          <target state="new">Now you can issue commands like these to test whether the Docker host is present and functioning.</target>
+        </trans-unit>
+        <trans-unit id="9021c8fb-20b2-4384-9041-45fdbb7d6099" xml:space="preserve">
+          <source>|Command line|Description|
+|---|---|
+|<bpt id="0bdbfe00-358c-45a8-a11a-ee41784851b3">&lt;code&gt;</bpt>docker info<ept id="0bdbfe00-358c-45a8-a11a-ee41784851b3">&lt;/code&gt;</ept>|Get Docker version info.|
+|<bpt id="7d6367f8-4913-4bcf-b154-5bbb17c3d8e5">&lt;code&gt;</bpt>docker ps<ept id="7d6367f8-4913-4bcf-b154-5bbb17c3d8e5">&lt;/code&gt;</ept>|Get a list of running containers.|
+|<bpt id="521bcfe0-e046-4e4d-82ab-3bebbffc1f4e">&lt;code&gt;</bpt>docker ps –a<ept id="521bcfe0-e046-4e4d-82ab-3bebbffc1f4e">&lt;/code&gt;</ept>|Get a list of containers, including ones that are stopped.|
+|<bpt id="552dca83-429b-4c17-ab42-2b87bab80d45">&lt;code&gt;</bpt>docker logs &lt;Docker container name&gt;<ept id="552dca83-429b-4c17-ab42-2b87bab80d45">&lt;/code&gt;</ept>|Get a log for the specified container.|
+|<bpt id="579e3a26-36e1-4181-82b7-4904a091c484">&lt;code&gt;</bpt>docker images<ept id="579e3a26-36e1-4181-82b7-4904a091c484">&lt;/code&gt;</ept>|Get a list of images.|</source>
+          <target state="new">|Command line|Description|
+|---|---|
+|<bpt id="0bdbfe00-358c-45a8-a11a-ee41784851b3">&lt;code&gt;</bpt>docker info<ept id="0bdbfe00-358c-45a8-a11a-ee41784851b3">&lt;/code&gt;</ept>|Get Docker version info.|
+|<bpt id="7d6367f8-4913-4bcf-b154-5bbb17c3d8e5">&lt;code&gt;</bpt>docker ps<ept id="7d6367f8-4913-4bcf-b154-5bbb17c3d8e5">&lt;/code&gt;</ept>|Get a list of running containers.|
+|<bpt id="521bcfe0-e046-4e4d-82ab-3bebbffc1f4e">&lt;code&gt;</bpt>docker ps –a<ept id="521bcfe0-e046-4e4d-82ab-3bebbffc1f4e">&lt;/code&gt;</ept>|Get a list of containers, including ones that are stopped.|
+|<bpt id="552dca83-429b-4c17-ab42-2b87bab80d45">&lt;code&gt;</bpt>docker logs &lt;Docker container name&gt;<ept id="552dca83-429b-4c17-ab42-2b87bab80d45">&lt;/code&gt;</ept>|Get a log for the specified container.|
+|<bpt id="579e3a26-36e1-4181-82b7-4904a091c484">&lt;code&gt;</bpt>docker images<ept id="579e3a26-36e1-4181-82b7-4904a091c484">&lt;/code&gt;</ept>|Get a list of images.|</target>
+        </trans-unit>
+        <trans-unit id="d2009ef1-4924-4d3a-ad63-f57e6086d98c" xml:space="preserve">
+          <source>For a full list of Docker commands, just enter the command <bpt id="1ed71744-3252-4f26-bb42-68c88239a08b">&lt;code&gt;</bpt>docker<ept id="1ed71744-3252-4f26-bb42-68c88239a08b">&lt;/code&gt;</ept> in the command prompt.</source>
+          <target state="new">For a full list of Docker commands, just enter the command <bpt id="1ed71744-3252-4f26-bb42-68c88239a08b">&lt;code&gt;</bpt>docker<ept id="1ed71744-3252-4f26-bb42-68c88239a08b">&lt;/code&gt;</ept> in the command prompt.</target>
+        </trans-unit>
+        <trans-unit id="56b22519-fd77-4cdf-8f4a-9ffae7e3addf" xml:space="preserve">
+          <source>For more information, see <bpt id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;linkText&gt;</bpt>Docker Command Line<ept id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;/linkText&gt;</ept><bpt id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;title&gt;</bpt><ept id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;linkText&gt;</bpt>Docker Command Line<ept id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;/linkText&gt;</ept><bpt id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;title&gt;</bpt><ept id="da9d2288-f92a-4980-8598-28494d17cd2a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44262dfb-3482-4489-9544-d21201e95d4c" xml:space="preserve">
+          <source>Now that you have a Docker host, you can issue Docker commands to it.</source>
+          <target state="new">Now that you have a Docker host, you can issue Docker commands to it.</target>
+        </trans-unit>
+        <trans-unit id="1552b5cc-ed9a-4c68-839a-574fd1dbf7f0" xml:space="preserve">
+          <source>To learn more about Docker, see the <bpt id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;linkText&gt;</bpt>Docker documentation<ept id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;/linkText&gt;</ept><bpt id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;title&gt;</bpt><ept id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;/title&gt;</ept> and the <bpt id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;linkText&gt;</bpt>Docker online tutorial<ept id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;/linkText&gt;</ept><bpt id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;title&gt;</bpt><ept id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Docker, see the <bpt id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;linkText&gt;</bpt>Docker documentation<ept id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;/linkText&gt;</ept><bpt id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;title&gt;</bpt><ept id="1bb6bfd0-1344-4c10-8696-4ebcbdf776ed">&lt;/title&gt;</ept> and the <bpt id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;linkText&gt;</bpt>Docker online tutorial<ept id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;/linkText&gt;</ept><bpt id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;title&gt;</bpt><ept id="82241b1e-1cdc-440c-bbbd-9a40f617a907">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="130c7fa1-8f1e-42f8-9d16-15e2f23a42ce" xml:space="preserve">
+          <source>To learn about using the Docker VM extension for Linux on Azure, see <bpt id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;linkText&gt;</bpt>The Docker Virtual Machine Extension for Linux on Azure<ept id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;/linkText&gt;</ept><bpt id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;title&gt;</bpt><ept id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about using the Docker VM extension for Linux on Azure, see <bpt id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;linkText&gt;</bpt>The Docker Virtual Machine Extension for Linux on Azure<ept id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;/linkText&gt;</ept><bpt id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;title&gt;</bpt><ept id="db7b3d04-6c8e-428a-b080-c47289002f16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bb717b5-b32f-45d0-b7aa-05ce1ffd5fd9" xml:space="preserve">
+          <source>For issues with using Docker in Visual Studio, see <bpt id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;linkText&gt;</bpt>Troubleshooting Docker Client Errors on Windows Using Visual Studio<ept id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;/linkText&gt;</ept><bpt id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;title&gt;</bpt><ept id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For issues with using Docker in Visual Studio, see <bpt id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;linkText&gt;</bpt>Troubleshooting Docker Client Errors on Windows Using Visual Studio<ept id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;/linkText&gt;</ept><bpt id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;title&gt;</bpt><ept id="a676c363-44b2-4f11-9199-3a7d8ace5ad4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30c56232-c7b3-4497-a58e-58b737ae6a70" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796678.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796678.png</target>
+        </trans-unit>
+        <trans-unit id="df86dac5-fec1-42bb-abd2-3a1911302906" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796679.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796679.png</target>
+        </trans-unit>
+        <trans-unit id="853b7607-6520-4e31-aa9f-03533659bbb2" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796680.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796680.png</target>
+        </trans-unit>
+        <trans-unit id="48acfc77-d4bf-442c-a27b-f953ee1b3862" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796681.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796681.png</target>
+        </trans-unit>
+        <trans-unit id="98200f19-4d14-484c-ae1b-6046baa87131" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796682.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796682.png</target>
+        </trans-unit>
+        <trans-unit id="5580af45-1f45-4239-bf6a-0f6c5ac65fa2" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796683.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796683.png</target>
+        </trans-unit>
+        <trans-unit id="81721635-9186-4470-b910-bd129994c5cc" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796684.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796684.png</target>
+        </trans-unit>
+        <trans-unit id="a3fb3ab9-594d-4930-a311-3ae295c55ca0" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png</target>
+        </trans-unit>
+        <trans-unit id="180f5323-4b4e-4645-9ccc-00ad3f4d004c" xml:space="preserve">
+          <source>./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png</source>
+          <target state="new">./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png</target>
+        </trans-unit>
+      </group>
+      <group id="e1b4b0e0-57fb-490a-8df8-f78639b5d651" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="43551897-e91f-4c72-8886-61442f83e6b3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="43551897-e91f-4c72-8886-61442f83e6b3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9a05f0bc-5998-4f06-b652-5c9f305ae68f">
+        <trans-unit id="e9e92302-1212-4941-90b0-ba921aaff283" xml:space="preserve">
+          <source>Azure AD service limits and restrictions</source>
+          <target state="new">Azure AD service limits and restrictions</target>
+        </trans-unit>
+        <trans-unit id="1d9c16cd-cff8-42ce-a182-7638e3d332c8" xml:space="preserve">
+          <source>Usage constraints and other service limits for the Azure Active Directory service.</source>
+          <target state="new">Usage constraints and other service limits for the Azure Active Directory service.</target>
+        </trans-unit>
+        <trans-unit id="884cd594-b83e-4da0-80de-b250dcf1409b" xml:space="preserve">
+          <source> If you’re looking for the full set of Microsoft Azure service limits, see <bpt id="64bac660-05c8-4a13-b957-435262aba36b">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="64bac660-05c8-4a13-b957-435262aba36b">&lt;/linkText&gt;</ept><bpt id="64bac660-05c8-4a13-b957-435262aba36b">&lt;title&gt;</bpt><ept id="64bac660-05c8-4a13-b957-435262aba36b">&lt;/title&gt;</ept>.</source>
+          <target state="new"> If you’re looking for the full set of Microsoft Azure service limits, see <bpt id="64bac660-05c8-4a13-b957-435262aba36b">&lt;linkText&gt;</bpt>Azure Subscription and Service Limits, Quotas, and Constraints<ept id="64bac660-05c8-4a13-b957-435262aba36b">&lt;/linkText&gt;</ept><bpt id="64bac660-05c8-4a13-b957-435262aba36b">&lt;title&gt;</bpt><ept id="64bac660-05c8-4a13-b957-435262aba36b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb4814c9-da1e-4502-89e0-bbefcce263da" xml:space="preserve">
+          <source><bpt id="b5cc0fc2-2cfd-4495-9f3c-8d2e8d1447c6">&lt;token href="../../includes/active-directory-service-limits-include.md"&gt;</bpt><ept id="b5cc0fc2-2cfd-4495-9f3c-8d2e8d1447c6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b5cc0fc2-2cfd-4495-9f3c-8d2e8d1447c6">&lt;token href="../../includes/active-directory-service-limits-include.md"&gt;</bpt><ept id="b5cc0fc2-2cfd-4495-9f3c-8d2e8d1447c6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4865cd6f-2697-422b-be49-bcc160c61d62" xml:space="preserve">
+          <source><bpt id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;/linkText&gt;</ept><bpt id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;title&gt;</bpt><ept id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;/linkText&gt;</ept><bpt id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;title&gt;</bpt><ept id="4330c6b1-bab0-4e4c-94e7-203e329986c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc639fa2-a8d4-4b35-9fdc-5235723552dc" xml:space="preserve">
+          <source><bpt id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;linkText&gt;</bpt>How Azure subscriptions are associated with Azure AD<ept id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;/linkText&gt;</ept><bpt id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;title&gt;</bpt><ept id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;linkText&gt;</bpt>How Azure subscriptions are associated with Azure AD<ept id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;/linkText&gt;</ept><bpt id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;title&gt;</bpt><ept id="911e8b4e-b53e-48b7-9acf-91220bd33732">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69a42c8f-6649-4866-a555-b01737afa260" xml:space="preserve">
+          <source><bpt id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;linkText&gt;</bpt>Azure AD terminology<ept id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;/linkText&gt;</ept><bpt id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;title&gt;</bpt><ept id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;linkText&gt;</bpt>Azure AD terminology<ept id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;/linkText&gt;</ept><bpt id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;title&gt;</bpt><ept id="5bc0bd85-7229-4ff4-b72b-aa249cfd12d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

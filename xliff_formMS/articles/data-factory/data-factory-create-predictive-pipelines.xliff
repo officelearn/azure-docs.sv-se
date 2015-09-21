@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="80fb9e39-1258-47aa-a403-213f40ad9e60" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="80fb9e39-1258-47aa-a403-213f40ad9e60" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e63de2c-efbf-4f25-89a9-ddcd85c5b5d7">
+        <trans-unit id="afb2ea1d-ce72-4622-8923-ec1dd37fa2f1" xml:space="preserve">
+          <source>Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Microsoft Azure</source>
+          <target state="new">Data Factory - Create Predictive Pipelines using Data Factory and Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e219e23b-a4da-46d3-9cd4-41c16fd0b44a" xml:space="preserve">
+          <source>Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning</source>
+          <target state="new">Describes how to create create predictive pipelines using Azuer Data Factory and Azure Machine Learning</target>
+        </trans-unit>
+        <trans-unit id="fe166f0b-3107-4dcc-bb50-e32c3a319a62" xml:space="preserve">
+          <source>Azure Data Factory enables you to easily create pipelines that leverages a published <bpt id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;linkText&gt;</bpt>Azure Machine Learning[azure-machine-learning]<ept id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;/linkText&gt;</ept><bpt id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;title&gt;</bpt><ept id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;/title&gt;</ept> web service for predictive analytics.</source>
+          <target state="new">Azure Data Factory enables you to easily create pipelines that leverages a published <bpt id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;linkText&gt;</bpt>Azure Machine Learning[azure-machine-learning]<ept id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;/linkText&gt;</ept><bpt id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;title&gt;</bpt><ept id="6314966c-1140-46f9-a1fb-6824c260d83f">&lt;/title&gt;</ept> web service for predictive analytics.</target>
+        </trans-unit>
+        <trans-unit id="3d3672e1-9b98-46d3-9fe6-22db6194ecae" xml:space="preserve">
+          <source>This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning.</source>
+          <target state="new">This enables you to use Azure Data Factory to orchestrate  data movement and processing, and then perform batch scoring using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="7c94609b-d7c0-413c-892d-a19865b38bee" xml:space="preserve">
+          <source>To achieve this, you will need to do the following:</source>
+          <target state="new">To achieve this, you will need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="28aa3c92-e22d-477a-a299-d790dc427233" xml:space="preserve">
+          <source>Use the <bpt id="b7873612-e0ca-4798-a922-e366f54ceba5">&lt;strong&gt;</bpt>AzureMLBatchScoring<ept id="b7873612-e0ca-4798-a922-e366f54ceba5">&lt;/strong&gt;</ept> activity.</source>
+          <target state="new">Use the <bpt id="b7873612-e0ca-4798-a922-e366f54ceba5">&lt;strong&gt;</bpt>AzureMLBatchScoring<ept id="b7873612-e0ca-4798-a922-e366f54ceba5">&lt;/strong&gt;</ept> activity.</target>
+        </trans-unit>
+        <trans-unit id="2cdd199a-fd88-45e3-b5cb-b3a5d6c97082" xml:space="preserve">
+          <source><bpt id="6934f917-f045-4398-a14e-b561654d3a33">&lt;strong&gt;</bpt>Request URI<ept id="6934f917-f045-4398-a14e-b561654d3a33">&lt;/strong&gt;</ept> for the Batch Execution API.</source>
+          <target state="new"><bpt id="6934f917-f045-4398-a14e-b561654d3a33">&lt;strong&gt;</bpt>Request URI<ept id="6934f917-f045-4398-a14e-b561654d3a33">&lt;/strong&gt;</ept> for the Batch Execution API.</target>
+        </trans-unit>
+        <trans-unit id="3049ed56-7c71-4120-9efe-60d1c20d7829" xml:space="preserve">
+          <source>You can find the Request URI by clicking on the <bpt id="f68e67f9-f6fa-45db-aa00-2590313afd43">&lt;strong&gt;</bpt>BATCH EXECUTION<ept id="f68e67f9-f6fa-45db-aa00-2590313afd43">&lt;/strong&gt;</ept> link in the web services page (shown below).</source>
+          <target state="new">You can find the Request URI by clicking on the <bpt id="f68e67f9-f6fa-45db-aa00-2590313afd43">&lt;strong&gt;</bpt>BATCH EXECUTION<ept id="f68e67f9-f6fa-45db-aa00-2590313afd43">&lt;/strong&gt;</ept> link in the web services page (shown below).</target>
+        </trans-unit>
+        <trans-unit id="c7c561d9-3e57-41f8-98c8-2d407416329c" xml:space="preserve">
+          <source><bpt id="9a4f655d-2451-4df6-99c7-fb1c6a5e6f6a">&lt;strong&gt;</bpt>API key<ept id="9a4f655d-2451-4df6-99c7-fb1c6a5e6f6a">&lt;/strong&gt;</ept> for the published Azure Machine Learning web service.</source>
+          <target state="new"><bpt id="9a4f655d-2451-4df6-99c7-fb1c6a5e6f6a">&lt;strong&gt;</bpt>API key<ept id="9a4f655d-2451-4df6-99c7-fb1c6a5e6f6a">&lt;/strong&gt;</ept> for the published Azure Machine Learning web service.</target>
+        </trans-unit>
+        <trans-unit id="9138bd8b-832b-451c-9e37-e17b42472bb6" xml:space="preserve">
+          <source>You can find this information by clicking on the web service that you have published.</source>
+          <target state="new">You can find this information by clicking on the web service that you have published.</target>
+        </trans-unit>
+        <trans-unit id="8fb35539-632f-4625-a4ef-c25997863c34" xml:space="preserve">
+          <source><bpt id="06c5d0da-167f-4696-b0f2-20e143a0e2d4">&lt;linkText&gt;</bpt>Machine Learning Dashboard<ept id="06c5d0da-167f-4696-b0f2-20e143a0e2d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06c5d0da-167f-4696-b0f2-20e143a0e2d4">&lt;linkText&gt;</bpt>Machine Learning Dashboard<ept id="06c5d0da-167f-4696-b0f2-20e143a0e2d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="853bdaa4-cac2-475b-81e5-7e44ad2ea066" xml:space="preserve">
+          <source>A <bpt id="e4c90b1c-3ff1-4f62-9124-a18d835c1a05">&lt;strong&gt;</bpt>predictive pipeline<ept id="e4c90b1c-3ff1-4f62-9124-a18d835c1a05">&lt;/strong&gt;</ept> has these parts:</source>
+          <target state="new">A <bpt id="e4c90b1c-3ff1-4f62-9124-a18d835c1a05">&lt;strong&gt;</bpt>predictive pipeline<ept id="e4c90b1c-3ff1-4f62-9124-a18d835c1a05">&lt;/strong&gt;</ept> has these parts:</target>
+        </trans-unit>
+        <trans-unit id="0e61c129-f6e6-4b65-b871-ef3227b638bd" xml:space="preserve">
+          <source>Input and output tables</source>
+          <target state="new">Input and output tables</target>
+        </trans-unit>
+        <trans-unit id="76d7e261-f4f0-465b-a5c0-359b26ff9ad4" xml:space="preserve">
+          <source>Azure Storage/Azure SQL and Azure ML linked services</source>
+          <target state="new">Azure Storage/Azure SQL and Azure ML linked services</target>
+        </trans-unit>
+        <trans-unit id="2c29d803-0264-49f8-8c4d-a898d8b51cc3" xml:space="preserve">
+          <source>A pipeline with Azure ML Batch Scoring Activity</source>
+          <target state="new">A pipeline with Azure ML Batch Scoring Activity</target>
+        </trans-unit>
+        <trans-unit id="b48fc173-3b90-4518-8a45-bb24ad60c7af" xml:space="preserve">
+          <source>You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines.</source>
+          <target state="new">You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines.</target>
+        </trans-unit>
+        <trans-unit id="984341d4-ae37-4a6c-8650-87ebed4b6992" xml:space="preserve">
+          <source>For more information, see the Web Service Parameters section in this article.</source>
+          <target state="new">For more information, see the Web Service Parameters section in this article.</target>
+        </trans-unit>
+        <trans-unit id="79c8e85b-c343-4f19-961b-57f256b9a18f" xml:space="preserve">
+          <source>This example uses Azure Storage to hold both the input and output data.</source>
+          <target state="new">This example uses Azure Storage to hold both the input and output data.</target>
+        </trans-unit>
+        <trans-unit id="54ede619-3649-4b19-a1f6-3ad33fad6dab" xml:space="preserve">
+          <source>You can also use Azure SQL Database instead of using Azure Storage.</source>
+          <target state="new">You can also use Azure SQL Database instead of using Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="f6fc4fe8-014c-477b-902c-25793ea51a80" xml:space="preserve">
+          <source>We recommend that you go through the <bpt id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;linkText&gt;</bpt>Build your first pipeline with Data Factory[adf-build-1st-pipeline]<ept id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;/linkText&gt;</ept><bpt id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;title&gt;</bpt><ept id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;/title&gt;</ept> tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.</source>
+          <target state="new">We recommend that you go through the <bpt id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;linkText&gt;</bpt>Build your first pipeline with Data Factory[adf-build-1st-pipeline]<ept id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;/linkText&gt;</ept><bpt id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;title&gt;</bpt><ept id="c9b9c6a2-5d12-4c69-b05a-d04c04bd1945">&lt;/title&gt;</ept> tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.</target>
+        </trans-unit>
+        <trans-unit id="516f863d-74f2-4b43-92c1-9e6f15dfe374" xml:space="preserve">
+          <source>Create a <bpt id="be58a686-6274-4d2b-a436-f4250afbb1f6">&lt;strong&gt;</bpt>linked service<ept id="be58a686-6274-4d2b-a436-f4250afbb1f6">&lt;/strong&gt;</ept> for your <bpt id="9ead1dee-89b3-43f4-a645-37812e87311b">&lt;strong&gt;</bpt>Azure Storage<ept id="9ead1dee-89b3-43f4-a645-37812e87311b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a <bpt id="be58a686-6274-4d2b-a436-f4250afbb1f6">&lt;strong&gt;</bpt>linked service<ept id="be58a686-6274-4d2b-a436-f4250afbb1f6">&lt;/strong&gt;</ept> for your <bpt id="9ead1dee-89b3-43f4-a645-37812e87311b">&lt;strong&gt;</bpt>Azure Storage<ept id="9ead1dee-89b3-43f4-a645-37812e87311b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58eae77d-77e9-45bb-ab20-5c82f987c0ef" xml:space="preserve">
+          <source>If the scoring input and output files will be in different storage accounts, you will need two linked services.</source>
+          <target state="new">If the scoring input and output files will be in different storage accounts, you will need two linked services.</target>
+        </trans-unit>
+        <trans-unit id="1b1f2f67-a91a-44c3-adc4-0b1ad10592bb" xml:space="preserve">
+          <source>Here is a JSON example:</source>
+          <target state="new">Here is a JSON example:</target>
+        </trans-unit>
+        <trans-unit id="665d499a-20d9-4575-a7d7-44e82c7f7b05" xml:space="preserve">
+          <source>Create the <bpt id="b516b4b3-5ade-4142-ae2e-ff68e126d244">&lt;strong&gt;</bpt>input<ept id="b516b4b3-5ade-4142-ae2e-ff68e126d244">&lt;/strong&gt;</ept> Azure Data Factory <bpt id="203cb702-03a1-41b2-ba6c-1200e4c17417">&lt;strong&gt;</bpt>table<ept id="203cb702-03a1-41b2-ba6c-1200e4c17417">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create the <bpt id="b516b4b3-5ade-4142-ae2e-ff68e126d244">&lt;strong&gt;</bpt>input<ept id="b516b4b3-5ade-4142-ae2e-ff68e126d244">&lt;/strong&gt;</ept> Azure Data Factory <bpt id="203cb702-03a1-41b2-ba6c-1200e4c17417">&lt;strong&gt;</bpt>table<ept id="203cb702-03a1-41b2-ba6c-1200e4c17417">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5307cb48-e7a7-4faf-94bc-257c9f804593" xml:space="preserve">
+          <source>Note that unlike some other Data Factory tables, these must both contain both <bpt id="a84d390f-a08c-4b0b-97b8-3e56e5d313b0">&lt;strong&gt;</bpt>folderPath<ept id="a84d390f-a08c-4b0b-97b8-3e56e5d313b0">&lt;/strong&gt;</ept> and <bpt id="c258e32c-65c1-4545-869c-eca878dd503c">&lt;strong&gt;</bpt>fileName<ept id="c258e32c-65c1-4545-869c-eca878dd503c">&lt;/strong&gt;</ept> values.</source>
+          <target state="new">Note that unlike some other Data Factory tables, these must both contain both <bpt id="a84d390f-a08c-4b0b-97b8-3e56e5d313b0">&lt;strong&gt;</bpt>folderPath<ept id="a84d390f-a08c-4b0b-97b8-3e56e5d313b0">&lt;/strong&gt;</ept> and <bpt id="c258e32c-65c1-4545-869c-eca878dd503c">&lt;strong&gt;</bpt>fileName<ept id="c258e32c-65c1-4545-869c-eca878dd503c">&lt;/strong&gt;</ept> values.</target>
+        </trans-unit>
+        <trans-unit id="377c46f3-0fbe-42e5-99df-459372fcddfd" xml:space="preserve">
+          <source>You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files.</source>
+          <target state="new">You can use partitioning to cause each batch execution (each data slice) to process or produce unique input and output files.</target>
+        </trans-unit>
+        <trans-unit id="f909c835-a072-465b-8c0a-af934148ff7f" xml:space="preserve">
+          <source>You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice.</source>
+          <target state="new">You will likely need to include some upstream activity to transform the input into the CSV file format and place it in the storage account for each slice.</target>
+        </trans-unit>
+        <trans-unit id="b9fba8a2-ccac-4f1b-9a0f-0ba3f3e4aa8c" xml:space="preserve">
+          <source>In that case, you would not include the <bpt id="e9ecc74e-67ff-4e7a-94d5-9d3cfaeb62b2">&lt;strong&gt;</bpt>external<ept id="e9ecc74e-67ff-4e7a-94d5-9d3cfaeb62b2">&lt;/strong&gt;</ept> and <bpt id="c3a24b5a-ac73-4b5b-baa5-29322bcd402f">&lt;strong&gt;</bpt>externalData<ept id="c3a24b5a-ac73-4b5b-baa5-29322bcd402f">&lt;/strong&gt;</ept> settings shown in the example below, and your ScoringInputBlob would be the output table of a different Activity.</source>
+          <target state="new">In that case, you would not include the <bpt id="e9ecc74e-67ff-4e7a-94d5-9d3cfaeb62b2">&lt;strong&gt;</bpt>external<ept id="e9ecc74e-67ff-4e7a-94d5-9d3cfaeb62b2">&lt;/strong&gt;</ept> and <bpt id="c3a24b5a-ac73-4b5b-baa5-29322bcd402f">&lt;strong&gt;</bpt>externalData<ept id="c3a24b5a-ac73-4b5b-baa5-29322bcd402f">&lt;/strong&gt;</ept> settings shown in the example below, and your ScoringInputBlob would be the output table of a different Activity.</target>
+        </trans-unit>
+        <trans-unit id="634eef36-8109-487f-863d-7a8deb5aa99d" xml:space="preserve">
+          <source>Your batch scoring csv file must have the column header row.</source>
+          <target state="new">Your batch scoring csv file must have the column header row.</target>
+        </trans-unit>
+        <trans-unit id="0fdc1192-eb15-4a11-a50b-6b32e5c5d805" xml:space="preserve">
+          <source>If you are using the <bpt id="1a43040a-00d2-4994-9a30-872073e40311">&lt;strong&gt;</bpt>Copy Activity<ept id="1a43040a-00d2-4994-9a30-872073e40311">&lt;/strong&gt;</ept> to create/move the csv into the blob storage, you should set the sink property <bpt id="7711dfa7-1ffd-416f-ab8b-50feece0b3e3">&lt;strong&gt;</bpt>blobWriterAddHeader<ept id="7711dfa7-1ffd-416f-ab8b-50feece0b3e3">&lt;/strong&gt;</ept> to <bpt id="403524e8-7636-400d-9b5d-8cad51fd8b00">&lt;strong&gt;</bpt>true<ept id="403524e8-7636-400d-9b5d-8cad51fd8b00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are using the <bpt id="1a43040a-00d2-4994-9a30-872073e40311">&lt;strong&gt;</bpt>Copy Activity<ept id="1a43040a-00d2-4994-9a30-872073e40311">&lt;/strong&gt;</ept> to create/move the csv into the blob storage, you should set the sink property <bpt id="7711dfa7-1ffd-416f-ab8b-50feece0b3e3">&lt;strong&gt;</bpt>blobWriterAddHeader<ept id="7711dfa7-1ffd-416f-ab8b-50feece0b3e3">&lt;/strong&gt;</ept> to <bpt id="403524e8-7636-400d-9b5d-8cad51fd8b00">&lt;strong&gt;</bpt>true<ept id="403524e8-7636-400d-9b5d-8cad51fd8b00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9997049-cade-4071-856e-1ba7b8e338b5" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="b0547cd5-95a9-4bff-82d9-a0a3b2f06984" xml:space="preserve">
+          <source>If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string.</source>
+          <target state="new">If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string.</target>
+        </trans-unit>
+        <trans-unit id="8ceddf2a-9ce9-4672-b26b-272ed540399d" xml:space="preserve">
+          <source>Unexpected token: StartObject.</source>
+          <target state="new">Unexpected token: StartObject.</target>
+        </trans-unit>
+        <trans-unit id="7c8fa596-57bb-4818-8f9b-23b84849d4ae" xml:space="preserve">
+          <source>Path '', line 1, position 1**.</source>
+          <target state="new">Path '', line 1, position 1**.</target>
+        </trans-unit>
+        <trans-unit id="153f78e9-1190-4665-95a7-2b8d9b4f03db" xml:space="preserve">
+          <source>Create the <bpt id="84bdd517-7c3c-4af3-8cb7-5ca4c605cda1">&lt;strong&gt;</bpt>output<ept id="84bdd517-7c3c-4af3-8cb7-5ca4c605cda1">&lt;/strong&gt;</ept> Azure Data Factory <bpt id="4adf4653-43f1-4c53-bd4d-e5309177c199">&lt;strong&gt;</bpt>table<ept id="4adf4653-43f1-4c53-bd4d-e5309177c199">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create the <bpt id="84bdd517-7c3c-4af3-8cb7-5ca4c605cda1">&lt;strong&gt;</bpt>output<ept id="84bdd517-7c3c-4af3-8cb7-5ca4c605cda1">&lt;/strong&gt;</ept> Azure Data Factory <bpt id="4adf4653-43f1-4c53-bd4d-e5309177c199">&lt;strong&gt;</bpt>table<ept id="4adf4653-43f1-4c53-bd4d-e5309177c199">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="224dab45-a002-433d-aa5d-c831d8acd147" xml:space="preserve">
+          <source>This example uses partitioning to create a unique output path for each slice execution.</source>
+          <target state="new">This example uses partitioning to create a unique output path for each slice execution.</target>
+        </trans-unit>
+        <trans-unit id="14d651cf-4c55-4a60-8cbd-7aae488b0612" xml:space="preserve">
+          <source>Without this, the activity would overwrite the file.</source>
+          <target state="new">Without this, the activity would overwrite the file.</target>
+        </trans-unit>
+        <trans-unit id="12ac1c3c-ab04-4a89-8065-d3b843dd56fb" xml:space="preserve">
+          <source>Create a <bpt id="39e2f3ed-6761-41ca-92af-67fbdd55a876">&lt;strong&gt;</bpt>linked service<ept id="39e2f3ed-6761-41ca-92af-67fbdd55a876">&lt;/strong&gt;</ept> of type: <bpt id="b66be09b-297d-4426-a0c0-9f33c6a1f106">&lt;strong&gt;</bpt>AzureMLLinkedService<ept id="b66be09b-297d-4426-a0c0-9f33c6a1f106">&lt;/strong&gt;</ept>, providing the API key and model batch scoring URL.</source>
+          <target state="new">Create a <bpt id="39e2f3ed-6761-41ca-92af-67fbdd55a876">&lt;strong&gt;</bpt>linked service<ept id="39e2f3ed-6761-41ca-92af-67fbdd55a876">&lt;/strong&gt;</ept> of type: <bpt id="b66be09b-297d-4426-a0c0-9f33c6a1f106">&lt;strong&gt;</bpt>AzureMLLinkedService<ept id="b66be09b-297d-4426-a0c0-9f33c6a1f106">&lt;/strong&gt;</ept>, providing the API key and model batch scoring URL.</target>
+        </trans-unit>
+        <trans-unit id="e2547950-6d69-40eb-a378-e1aa6c4dd0ef" xml:space="preserve">
+          <source>Finally, author a pipeline containing an <bpt id="6118d024-c9d1-46c9-a160-c3be22eaff89">&lt;strong&gt;</bpt>AzureMLBatchScoringActivity<ept id="6118d024-c9d1-46c9-a160-c3be22eaff89">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, author a pipeline containing an <bpt id="6118d024-c9d1-46c9-a160-c3be22eaff89">&lt;strong&gt;</bpt>AzureMLBatchScoringActivity<ept id="6118d024-c9d1-46c9-a160-c3be22eaff89">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2581815-ab1d-432c-b629-194d49d1100e" xml:space="preserve">
+          <source>It will get the location of the input file from your input tables, call the AzureML batch scoring API, and copy the batch scoring output to the blob given in your output table.</source>
+          <target state="new">It will get the location of the input file from your input tables, call the AzureML batch scoring API, and copy the batch scoring output to the blob given in your output table.</target>
+        </trans-unit>
+        <trans-unit id="11814113-6767-400f-babe-215563cc9885" xml:space="preserve">
+          <source>Unlike some other Data Factory activities, AzureMLBatchScoringActivity can have only one input and one output table.</source>
+          <target state="new">Unlike some other Data Factory activities, AzureMLBatchScoringActivity can have only one input and one output table.</target>
+        </trans-unit>
+        <trans-unit id="155a6f6d-4e3c-41c7-aeef-72c981045b56" xml:space="preserve">
+          <source>You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines.</source>
+          <target state="new">You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines.</target>
+        </trans-unit>
+        <trans-unit id="3364288a-963a-4ef0-aac4-73c73e558ba0" xml:space="preserve">
+          <source>You can create an experiment in Azure Machine Learning and publish it as a web service, and then use that web service in multiple ADF pipelines or activities, passing in different inputs via the Web Service Parameters.</source>
+          <target state="new">You can create an experiment in Azure Machine Learning and publish it as a web service, and then use that web service in multiple ADF pipelines or activities, passing in different inputs via the Web Service Parameters.</target>
+        </trans-unit>
+        <trans-unit id="444f7799-1fce-4e21-8781-160e4efa5217" xml:space="preserve">
+          <source>Add a <bpt id="e1628a03-d146-4e25-993e-9e1625a0b4d5">&lt;strong&gt;</bpt>typeProperties<ept id="e1628a03-d146-4e25-993e-9e1625a0b4d5">&lt;/strong&gt;</ept> section to the <bpt id="1c456804-59d7-4dae-b767-68d3ea64ad17">&lt;strong&gt;</bpt>AzureMLBatchScoringActivty<ept id="1c456804-59d7-4dae-b767-68d3ea64ad17">&lt;/strong&gt;</ept> section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: </source>
+          <target state="new">Add a <bpt id="e1628a03-d146-4e25-993e-9e1625a0b4d5">&lt;strong&gt;</bpt>typeProperties<ept id="e1628a03-d146-4e25-993e-9e1625a0b4d5">&lt;/strong&gt;</ept> section to the <bpt id="1c456804-59d7-4dae-b767-68d3ea64ad17">&lt;strong&gt;</bpt>AzureMLBatchScoringActivty<ept id="1c456804-59d7-4dae-b767-68d3ea64ad17">&lt;/strong&gt;</ept> section in the pipeline JSON to specify values for Web service parameters in that section as shown in the following example: </target>
+        </trans-unit>
+        <trans-unit id="839c84b6-0b2e-44e0-b16f-df9f6924e6c4" xml:space="preserve">
+          <source>You can also use <bpt id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;linkText&gt;</bpt>Data Factory Functions<ept id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;/linkText&gt;</ept><bpt id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;title&gt;</bpt><ept id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;/title&gt;</ept> in passing values for the Web service parameters as shown in the following example:</source>
+          <target state="new">You can also use <bpt id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;linkText&gt;</bpt>Data Factory Functions<ept id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;/linkText&gt;</ept><bpt id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;title&gt;</bpt><ept id="6d58e4ae-22cf-4618-b0e2-53ffcd7e45e5">&lt;/title&gt;</ept> in passing values for the Web service parameters as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="bd89d155-37fc-44c9-a260-07bac1f05bfc" xml:space="preserve">
+          <source>The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.</source>
+          <target state="new">The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service.</target>
+        </trans-unit>
+        <trans-unit id="c81086e1-98ff-4ca3-8595-6671cea1e7cb" xml:space="preserve">
+          <source>A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers.</source>
+          <target state="new">A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers.</target>
+        </trans-unit>
+        <trans-unit id="8fb2acdc-9654-40dc-978d-387ebdb8bd1b" xml:space="preserve">
+          <source>The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.</source>
+          <target state="new">The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="3d5aadf5-9693-408e-b838-24879db04455" xml:space="preserve">
+          <source>For details about Azure Blob/Azure SQL reader/writer, see <bpt id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;linkText&gt;</bpt>Reader<ept id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;/linkText&gt;</ept><bpt id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;title&gt;</bpt><ept id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;/title&gt;</ept> and <bpt id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;linkText&gt;</bpt>Writer<ept id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;/linkText&gt;</ept><bpt id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;title&gt;</bpt><ept id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;/title&gt;</ept> topics on MSDN Library.</source>
+          <target state="new">For details about Azure Blob/Azure SQL reader/writer, see <bpt id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;linkText&gt;</bpt>Reader<ept id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;/linkText&gt;</ept><bpt id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;title&gt;</bpt><ept id="707d22db-5e8f-44de-9fdc-b7e322e57aee">&lt;/title&gt;</ept> and <bpt id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;linkText&gt;</bpt>Writer<ept id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;/linkText&gt;</ept><bpt id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;title&gt;</bpt><ept id="83cba9d2-e1e9-4481-8da2-1e88f1e6800e">&lt;/title&gt;</ept> topics on MSDN Library.</target>
+        </trans-unit>
+        <trans-unit id="052c264d-3129-459c-b338-17796e7790ed" xml:space="preserve">
+          <source>The example in the previous section used the Azure Blob reader and Azure Blob writer.</source>
+          <target state="new">The example in the previous section used the Azure Blob reader and Azure Blob writer.</target>
+        </trans-unit>
+        <trans-unit id="7ee9c9d6-9e35-419a-bec4-e1f8ff74d9da" xml:space="preserve">
+          <source>This section discusses using Azure SQL reader and Azure SQL writer.</source>
+          <target state="new">This section discusses using Azure SQL reader and Azure SQL writer.</target>
+        </trans-unit>
+        <trans-unit id="67469f80-d00d-4f0f-bf9f-eb7d85654342" xml:space="preserve">
+          <source>In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input.</source>
+          <target state="new">In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input.</target>
+        </trans-unit>
+        <trans-unit id="8c76c7c7-2df9-467c-9197-a446f80153c2" xml:space="preserve">
+          <source>The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.</source>
+          <target state="new">The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.</target>
+        </trans-unit>
+        <trans-unit id="fe183838-0f28-40ad-ae1f-00f16141775d" xml:space="preserve">
+          <source>At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters.</source>
+          <target state="new">At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters.</target>
+        </trans-unit>
+        <trans-unit id="815aee88-e4ce-4b4c-be9d-085d78877d0c" xml:space="preserve">
+          <source>Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.</source>
+          <target state="new">Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.</target>
+        </trans-unit>
+        <trans-unit id="c407821c-6486-4f28-9487-fd1602e978da" xml:space="preserve">
+          <source>If you have any additional Web service parameters, use the <bpt id="1896fac9-f1c5-482b-8b0d-852078a79836">&lt;strong&gt;</bpt>webServiceParameters<ept id="1896fac9-f1c5-482b-8b0d-852078a79836">&lt;/strong&gt;</ept> section of the activity JSON.</source>
+          <target state="new">If you have any additional Web service parameters, use the <bpt id="1896fac9-f1c5-482b-8b0d-852078a79836">&lt;strong&gt;</bpt>webServiceParameters<ept id="1896fac9-f1c5-482b-8b0d-852078a79836">&lt;/strong&gt;</ept> section of the activity JSON.</target>
+        </trans-unit>
+        <trans-unit id="77367adf-6906-4d9b-955e-52038e602c71" xml:space="preserve">
+          <source>If you specify values for Azure SQL Reader parameters in this section, the values will override the values picked up from the input Azure SQL linked service.</source>
+          <target state="new">If you specify values for Azure SQL Reader parameters in this section, the values will override the values picked up from the input Azure SQL linked service.</target>
+        </trans-unit>
+        <trans-unit id="f3134ba6-1e9a-432c-a233-41ff8394248e" xml:space="preserve">
+          <source>We do not recommend you specify values for Azure SQL Reader directly in the webServiceParameters section.</source>
+          <target state="new">We do not recommend you specify values for Azure SQL Reader directly in the webServiceParameters section.</target>
+        </trans-unit>
+        <trans-unit id="6d291655-1b4a-4c6a-bb81-8a76d2292901" xml:space="preserve">
+          <source>Use the section to pass values for any additional parameters.</source>
+          <target state="new">Use the section to pass values for any additional parameters.</target>
+        </trans-unit>
+        <trans-unit id="99b7f25f-a3fa-451c-956e-b9c07bd8a1fc" xml:space="preserve">
+          <source>To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following: </source>
+          <target state="new">To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following: </target>
+        </trans-unit>
+        <trans-unit id="61139acf-ff41-4377-a951-97ff707d676b" xml:space="preserve">
+          <source>Create an <bpt id="597b35b9-fb59-4c51-88af-7ae2bc5d41da">&lt;strong&gt;</bpt>Azure SQL linked service<ept id="597b35b9-fb59-4c51-88af-7ae2bc5d41da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create an <bpt id="597b35b9-fb59-4c51-88af-7ae2bc5d41da">&lt;strong&gt;</bpt>Azure SQL linked service<ept id="597b35b9-fb59-4c51-88af-7ae2bc5d41da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48fd7f8b-5f6c-4f45-98c0-3d8ca4c46201" xml:space="preserve">
+          <source>Create a Data Factory <bpt id="7db4187f-4a0a-4407-9969-86cce70ff06d">&lt;strong&gt;</bpt>table<ept id="7db4187f-4a0a-4407-9969-86cce70ff06d">&lt;/strong&gt;</ept> that uses <bpt id="b83a513f-3bbc-4c2a-adc5-4e931fce69bc">&lt;strong&gt;</bpt>AzureSqlTable<ept id="b83a513f-3bbc-4c2a-adc5-4e931fce69bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a Data Factory <bpt id="7db4187f-4a0a-4407-9969-86cce70ff06d">&lt;strong&gt;</bpt>table<ept id="7db4187f-4a0a-4407-9969-86cce70ff06d">&lt;/strong&gt;</ept> that uses <bpt id="b83a513f-3bbc-4c2a-adc5-4e931fce69bc">&lt;strong&gt;</bpt>AzureSqlTable<ept id="b83a513f-3bbc-4c2a-adc5-4e931fce69bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cf2683c-e4c8-42b1-afbd-97e086dab01a" xml:space="preserve">
+          <source>Set that Data Factory <bpt id="dd7db423-68a8-4479-9b7c-f0ada29c99d6">&lt;strong&gt;</bpt>table<ept id="dd7db423-68a8-4479-9b7c-f0ada29c99d6">&lt;/strong&gt;</ept> as the <bpt id="4e306a32-b0e2-4f03-a249-8ae4b4ee4159">&lt;strong&gt;</bpt>input<ept id="4e306a32-b0e2-4f03-a249-8ae4b4ee4159">&lt;/strong&gt;</ept> for the <bpt id="8cfb31a7-267c-42dd-a28f-412265744c47">&lt;strong&gt;</bpt>AzureMLBatchScoringActivity<ept id="8cfb31a7-267c-42dd-a28f-412265744c47">&lt;/strong&gt;</ept> in the pipeline JSON.</source>
+          <target state="new">Set that Data Factory <bpt id="dd7db423-68a8-4479-9b7c-f0ada29c99d6">&lt;strong&gt;</bpt>table<ept id="dd7db423-68a8-4479-9b7c-f0ada29c99d6">&lt;/strong&gt;</ept> as the <bpt id="4e306a32-b0e2-4f03-a249-8ae4b4ee4159">&lt;strong&gt;</bpt>input<ept id="4e306a32-b0e2-4f03-a249-8ae4b4ee4159">&lt;/strong&gt;</ept> for the <bpt id="8cfb31a7-267c-42dd-a28f-412265744c47">&lt;strong&gt;</bpt>AzureMLBatchScoringActivity<ept id="8cfb31a7-267c-42dd-a28f-412265744c47">&lt;/strong&gt;</ept> in the pipeline JSON.</target>
+        </trans-unit>
+        <trans-unit id="5096cd19-c837-4aaa-8d46-82d1eed0f37f" xml:space="preserve">
+          <source>As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters.</source>
+          <target state="new">As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters.</target>
+        </trans-unit>
+        <trans-unit id="94a9f3d1-4f4c-45cb-8890-9d14f645d652" xml:space="preserve">
+          <source>An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table.</source>
+          <target state="new">An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table.</target>
+        </trans-unit>
+        <trans-unit id="28dfea1b-cfc8-4fb1-90cd-3668f88e8b3d" xml:space="preserve">
+          <source>The following table describes when the input linked service is used vs. output linked service.</source>
+          <target state="new">The following table describes when the input linked service is used vs. output linked service.</target>
+        </trans-unit>
+        <trans-unit id="3e30b259-ea35-4c16-961e-a4c539c1884b" xml:space="preserve">
+          <source>Output/Input</source>
+          <target state="new">Output/Input</target>
+        </trans-unit>
+        <trans-unit id="588a6573-99f5-4661-97ab-bd51c88ac47b" xml:space="preserve">
+          <source>Input is Azure SQL</source>
+          <target state="new">Input is Azure SQL</target>
+        </trans-unit>
+        <trans-unit id="40951256-a104-4a22-bf17-912cafdc8c0d" xml:space="preserve">
+          <source>Input is Azure Blob</source>
+          <target state="new">Input is Azure Blob</target>
+        </trans-unit>
+        <trans-unit id="60b1a557-8e27-4b38-a292-ca5e0e1380b2" xml:space="preserve">
+          <source>Output is Azure SQL</source>
+          <target state="new">Output is Azure SQL</target>
+        </trans-unit>
+        <trans-unit id="204d0399-f223-4f8b-ad91-21fed659dec0" xml:space="preserve">
+          <source>&lt;p&gt;The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.&lt;/p&gt;&lt;p&gt;If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.&lt;/p&gt;&lt;p&gt;You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.&lt;/p&gt;&lt;p&gt;If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.&lt;/p&gt;&lt;p&gt;You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="38fa7444-4400-4ad8-b357-9c17990d4111" xml:space="preserve">
+          <source>&lt;p&gt;The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.&lt;/p&gt;&lt;p&gt;You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . &lt;p&gt;Input blob will be used as input location.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.&lt;/p&gt;&lt;p&gt;You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . &lt;p&gt;Input blob will be used as input location.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="4a68c9d7-7ed6-4059-b54e-ddaa03b02c73" xml:space="preserve">
+          <source>Output is Azure Blob</source>
+          <target state="new">Output is Azure Blob</target>
+        </trans-unit>
+        <trans-unit id="deaa28f3-28a5-479a-bafd-29597a6350a8" xml:space="preserve">
+          <source>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password".</source>
+          <target state="new">The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password".</target>
+        </trans-unit>
+        <trans-unit id="3d38de94-a60a-4b95-afc3-923e65c174b4" xml:space="preserve">
+          <source>Note that you must use these default names for Web service parameters in Azure ML Studio.</source>
+          <target state="new">Note that you must use these default names for Web service parameters in Azure ML Studio.</target>
+        </trans-unit>
+        <trans-unit id="875fdf99-efe3-4774-9632-41c1dbf19228" xml:space="preserve">
+          <source>&lt;p&gt;You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.&lt;/p&gt;&lt;p&gt;Blobs will be used as input and output locations.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.&lt;/p&gt;&lt;p&gt;Blobs will be used as input and output locations.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="fb8ff65b-2267-4245-9504-fc3cf1017bb7" xml:space="preserve">
+          <source>Azure SQL Writer may encounter key violations if it is overwriting an identity column.</source>
+          <target state="new">Azure SQL Writer may encounter key violations if it is overwriting an identity column.</target>
+        </trans-unit>
+        <trans-unit id="2810c917-8e4b-436c-8bbc-b081e061646b" xml:space="preserve">
+          <source>You should ensure that you structure your output table to avoid this situation.</source>
+          <target state="new">You should ensure that you structure your output table to avoid this situation.</target>
+        </trans-unit>
+        <trans-unit id="6908f9b7-4bcb-4782-883b-3a442c588fcc" xml:space="preserve">
+          <source>You can use staging tables with a Stored Procedure Activity to merge rows, or to truncate the data before scoring.</source>
+          <target state="new">You can use staging tables with a Stored Procedure Activity to merge rows, or to truncate the data before scoring.</target>
+        </trans-unit>
+        <trans-unit id="95874f9c-e5c5-4582-b42c-371506718438" xml:space="preserve">
+          <source>If you use this approach, set concurrency setting of the executionPolicy to 1.</source>
+          <target state="new">If you use this approach, set concurrency setting of the executionPolicy to 1.</target>
+        </trans-unit>
+        <trans-unit id="b63150f2-13ad-4fd6-9a3b-5e1123a941c2" xml:space="preserve">
+          <source>When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input.</source>
+          <target state="new">When using the Reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input.</target>
+        </trans-unit>
+        <trans-unit id="cf2ee8d4-2f1f-4b7e-8732-da3f229c7bcf" xml:space="preserve">
+          <source>The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight.</source>
+          <target state="new">The files in the Azure blob storage can be the output files (e.g. 000000_0) that are produced by a Pig and Hive script running on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="e9191ee1-3f10-4666-9f19-20f7616ddbf3" xml:space="preserve">
+          <source>The Reader module allows you to read files (with no extensions) by configuring the <bpt id="e8fabf4d-f938-4251-8acd-b7a35abd68ea">&lt;strong&gt;</bpt>Path to container, directory or blob<ept id="e8fabf4d-f938-4251-8acd-b7a35abd68ea">&lt;/strong&gt;</ept> property of the reader module to point to the container/folder that contains the files as shown below.</source>
+          <target state="new">The Reader module allows you to read files (with no extensions) by configuring the <bpt id="e8fabf4d-f938-4251-8acd-b7a35abd68ea">&lt;strong&gt;</bpt>Path to container, directory or blob<ept id="e8fabf4d-f938-4251-8acd-b7a35abd68ea">&lt;/strong&gt;</ept> property of the reader module to point to the container/folder that contains the files as shown below.</target>
+        </trans-unit>
+        <trans-unit id="a3d0f0eb-a0fa-41dd-a02e-7032e05a541e" xml:space="preserve">
+          <source>Note, the asterisk (i.e. \*) <bpt id="b160b55a-740f-416f-b96d-f913dbfdd502">&lt;strong&gt;</bpt>specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)<ept id="b160b55a-740f-416f-b96d-f913dbfdd502">&lt;/strong&gt;</ept> will be read as part of the experiment.</source>
+          <target state="new">Note, the asterisk (i.e. \*) <bpt id="b160b55a-740f-416f-b96d-f913dbfdd502">&lt;strong&gt;</bpt>specifies that all the files in the container/folder (i.e. data/aggregateddata/year=2014/month-6/\*)<ept id="b160b55a-740f-416f-b96d-f913dbfdd502">&lt;/strong&gt;</ept> will be read as part of the experiment.</target>
+        </trans-unit>
+        <trans-unit id="69d006a8-6878-4295-9534-6e7d253d6df1" xml:space="preserve">
+          <source><bpt id="897c3950-584c-4b8a-a431-d05d83b5418f">&lt;linkText&gt;</bpt>Azure Blob properties<ept id="897c3950-584c-4b8a-a431-d05d83b5418f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="897c3950-584c-4b8a-a431-d05d83b5418f">&lt;linkText&gt;</bpt>Azure Blob properties<ept id="897c3950-584c-4b8a-a431-d05d83b5418f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fecb05f-8947-45b2-bac1-fb255a2e1925" xml:space="preserve">
+          <source>In the above JSON example:</source>
+          <target state="new">In the above JSON example:</target>
+        </trans-unit>
+        <trans-unit id="6218518b-3594-4e71-9bda-391b9b1daf1f" xml:space="preserve">
+          <source>The Azure ML model uses both Azure SQL Reader and Azure SQL Writer</source>
+          <target state="new">The Azure ML model uses both Azure SQL Reader and Azure SQL Writer</target>
+        </trans-unit>
+        <trans-unit id="689a5006-2c45-489a-913b-c84823f3305d" xml:space="preserve">
+          <source>When exposed via Web service, the default names are used for the parameters</source>
+          <target state="new">When exposed via Web service, the default names are used for the parameters</target>
+        </trans-unit>
+        <trans-unit id="b63c8c08-b45e-48ba-bc20-337f6f825aee" xml:space="preserve">
+          <source>For the <bpt id="630661a8-77ea-40a5-b268-c4cfdb856b5c">&lt;strong&gt;</bpt>reader<ept id="630661a8-77ea-40a5-b268-c4cfdb856b5c">&lt;/strong&gt;</ept>: Database server name, Database name, Server user account name, and Server user account password.</source>
+          <target state="new">For the <bpt id="630661a8-77ea-40a5-b268-c4cfdb856b5c">&lt;strong&gt;</bpt>reader<ept id="630661a8-77ea-40a5-b268-c4cfdb856b5c">&lt;/strong&gt;</ept>: Database server name, Database name, Server user account name, and Server user account password.</target>
+        </trans-unit>
+        <trans-unit id="a25831bc-7f75-4b8c-8a8b-8b4c4fa7d6f7" xml:space="preserve">
+          <source>For the <bpt id="df66b870-47e2-47b9-a676-751bf80b134e">&lt;strong&gt;</bpt>writer<ept id="df66b870-47e2-47b9-a676-751bf80b134e">&lt;/strong&gt;</ept>: Database server name1, Database name1, Server user account name1, and Server user account password1.</source>
+          <target state="new">For the <bpt id="df66b870-47e2-47b9-a676-751bf80b134e">&lt;strong&gt;</bpt>writer<ept id="df66b870-47e2-47b9-a676-751bf80b134e">&lt;/strong&gt;</ept>: Database server name1, Database name1, Server user account name1, and Server user account password1.</target>
+        </trans-unit>
+        <trans-unit id="51386cff-a311-4095-8bae-22a71466cb16" xml:space="preserve">
+          <source>Note that the reader and writer do not share parameters in this case.</source>
+          <target state="new">Note that the reader and writer do not share parameters in this case.</target>
+        </trans-unit>
+        <trans-unit id="c493d044-98bd-4a5a-abf1-1c4a7218968f" xml:space="preserve">
+          <source>The Data Factory service automatically generates values for Web service parameters with the names <bpt id="12ce181d-f874-47d2-8515-9d89f2091f86">&lt;strong&gt;</bpt>Database server name<ept id="12ce181d-f874-47d2-8515-9d89f2091f86">&lt;/strong&gt;</ept>, <bpt id="13ab5fc4-df63-4f19-a5df-112cf03da4fc">&lt;strong&gt;</bpt>Database name<ept id="13ab5fc4-df63-4f19-a5df-112cf03da4fc">&lt;/strong&gt;</ept>, <bpt id="4223f1f3-8f16-4916-bad0-d17fbd2405df">&lt;strong&gt;</bpt>Server user account name<ept id="4223f1f3-8f16-4916-bad0-d17fbd2405df">&lt;/strong&gt;</ept>, and <bpt id="bb7606cd-355f-459c-a087-924f3506c6c4">&lt;strong&gt;</bpt>Server user account password<ept id="bb7606cd-355f-459c-a087-924f3506c6c4">&lt;/strong&gt;</ept>, which match the names of the input reader.</source>
+          <target state="new">The Data Factory service automatically generates values for Web service parameters with the names <bpt id="12ce181d-f874-47d2-8515-9d89f2091f86">&lt;strong&gt;</bpt>Database server name<ept id="12ce181d-f874-47d2-8515-9d89f2091f86">&lt;/strong&gt;</ept>, <bpt id="13ab5fc4-df63-4f19-a5df-112cf03da4fc">&lt;strong&gt;</bpt>Database name<ept id="13ab5fc4-df63-4f19-a5df-112cf03da4fc">&lt;/strong&gt;</ept>, <bpt id="4223f1f3-8f16-4916-bad0-d17fbd2405df">&lt;strong&gt;</bpt>Server user account name<ept id="4223f1f3-8f16-4916-bad0-d17fbd2405df">&lt;/strong&gt;</ept>, and <bpt id="bb7606cd-355f-459c-a087-924f3506c6c4">&lt;strong&gt;</bpt>Server user account password<ept id="bb7606cd-355f-459c-a087-924f3506c6c4">&lt;/strong&gt;</ept>, which match the names of the input reader.</target>
+        </trans-unit>
+        <trans-unit id="8ef848aa-ebe1-43a1-bbdf-0e12ae37d060" xml:space="preserve">
+          <source>Therefore, you do not need to explicitly pass the values for these parameters via <bpt id="f2ab5c26-4d8e-4883-9588-b9cee68de3af">&lt;strong&gt;</bpt>webServiceParameters<ept id="f2ab5c26-4d8e-4883-9588-b9cee68de3af">&lt;/strong&gt;</ept> in the activity JSON below.</source>
+          <target state="new">Therefore, you do not need to explicitly pass the values for these parameters via <bpt id="f2ab5c26-4d8e-4883-9588-b9cee68de3af">&lt;strong&gt;</bpt>webServiceParameters<ept id="f2ab5c26-4d8e-4883-9588-b9cee68de3af">&lt;/strong&gt;</ept> in the activity JSON below.</target>
+        </trans-unit>
+        <trans-unit id="01fc46e3-6540-42f9-83e7-ce158d3c2295" xml:space="preserve">
+          <source>The parameters for writer (the ones with '1' suffix) are not automatically filled in by the Data Factory service.</source>
+          <target state="new">The parameters for writer (the ones with '1' suffix) are not automatically filled in by the Data Factory service.</target>
+        </trans-unit>
+        <trans-unit id="a756bf51-c9f0-49e9-b12c-42369cab2c9f" xml:space="preserve">
+          <source>Therefore, you need to specify values for these parameters in the <bpt id="e0716c99-9778-4aba-9c95-7358ef4200c9">&lt;strong&gt;</bpt>webServiceParameters<ept id="e0716c99-9778-4aba-9c95-7358ef4200c9">&lt;/strong&gt;</ept> section of the activity JSON.</source>
+          <target state="new">Therefore, you need to specify values for these parameters in the <bpt id="e0716c99-9778-4aba-9c95-7358ef4200c9">&lt;strong&gt;</bpt>webServiceParameters<ept id="e0716c99-9778-4aba-9c95-7358ef4200c9">&lt;/strong&gt;</ept> section of the activity JSON.</target>
+        </trans-unit>
+        <trans-unit id="f0da3926-32e4-4626-8fec-ddb4705c7989" xml:space="preserve">
+          <source><bpt id="3e56ea9f-ae52-4b83-a01b-4f0b2a7d14ab">&lt;strong&gt;</bpt>Customer ID<ept id="3e56ea9f-ae52-4b83-a01b-4f0b2a7d14ab">&lt;/strong&gt;</ept>, <bpt id="a43fb18a-d7cf-488c-baac-a3696bd21044">&lt;strong&gt;</bpt>scored labels<ept id="a43fb18a-d7cf-488c-baac-a3696bd21044">&lt;/strong&gt;</ept>, and <bpt id="c5a90090-d9a9-4283-b34b-f9e447902e3f">&lt;strong&gt;</bpt>scored probabilities<ept id="c5a90090-d9a9-4283-b34b-f9e447902e3f">&lt;/strong&gt;</ept> are saved as comma separated columns.</source>
+          <target state="new"><bpt id="3e56ea9f-ae52-4b83-a01b-4f0b2a7d14ab">&lt;strong&gt;</bpt>Customer ID<ept id="3e56ea9f-ae52-4b83-a01b-4f0b2a7d14ab">&lt;/strong&gt;</ept>, <bpt id="a43fb18a-d7cf-488c-baac-a3696bd21044">&lt;strong&gt;</bpt>scored labels<ept id="a43fb18a-d7cf-488c-baac-a3696bd21044">&lt;/strong&gt;</ept>, and <bpt id="c5a90090-d9a9-4283-b34b-f9e447902e3f">&lt;strong&gt;</bpt>scored probabilities<ept id="c5a90090-d9a9-4283-b34b-f9e447902e3f">&lt;/strong&gt;</ept> are saved as comma separated columns.</target>
+        </trans-unit>
+        <trans-unit id="ce9642f4-fd0b-4bae-a59b-5cb5e606ec94" xml:space="preserve">
+          <source>The <bpt id="c8632726-a701-451a-81a3-3d4f4bf2088c">&lt;strong&gt;</bpt>Data table name<ept id="c8632726-a701-451a-81a3-3d4f4bf2088c">&lt;/strong&gt;</ept> in this example corresponds to a table in the output database.</source>
+          <target state="new">The <bpt id="c8632726-a701-451a-81a3-3d4f4bf2088c">&lt;strong&gt;</bpt>Data table name<ept id="c8632726-a701-451a-81a3-3d4f4bf2088c">&lt;/strong&gt;</ept> in this example corresponds to a table in the output database.</target>
+        </trans-unit>
+        <trans-unit id="908b9fb1-34da-4b20-914a-55ffea846882" xml:space="preserve">
+          <source>Both <bpt id="bf435bb6-a8f7-47f8-9c71-a59102b55521">&lt;strong&gt;</bpt>start<ept id="bf435bb6-a8f7-47f8-9c71-a59102b55521">&lt;/strong&gt;</ept> and <bpt id="4c4c80d2-8489-47bc-a393-44a026fc1b34">&lt;strong&gt;</bpt>end<ept id="4c4c80d2-8489-47bc-a393-44a026fc1b34">&lt;/strong&gt;</ept> datetimes must be in <bpt id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;linkText&gt;</bpt>ISO format<ept id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;/linkText&gt;</ept><bpt id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;title&gt;</bpt><ept id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;/title&gt;</ept>.</source>
+          <target state="new">Both <bpt id="bf435bb6-a8f7-47f8-9c71-a59102b55521">&lt;strong&gt;</bpt>start<ept id="bf435bb6-a8f7-47f8-9c71-a59102b55521">&lt;/strong&gt;</ept> and <bpt id="4c4c80d2-8489-47bc-a393-44a026fc1b34">&lt;strong&gt;</bpt>end<ept id="4c4c80d2-8489-47bc-a393-44a026fc1b34">&lt;/strong&gt;</ept> datetimes must be in <bpt id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;linkText&gt;</bpt>ISO format<ept id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;/linkText&gt;</ept><bpt id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;title&gt;</bpt><ept id="b1ca56d2-81fc-4968-bc17-fe70e38d2849">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc513e66-a9cf-4aec-8594-bee4800d9b84" xml:space="preserve">
+          <source>For example: 2014-10-14T16:32:41Z.</source>
+          <target state="new">For example: 2014-10-14T16:32:41Z.</target>
+        </trans-unit>
+        <trans-unit id="389a639e-00e4-42c2-9b76-cd891125b9cb" xml:space="preserve">
+          <source>The <bpt id="ff907ddc-73a9-4258-98d0-c2912d6386b8">&lt;strong&gt;</bpt>end<ept id="ff907ddc-73a9-4258-98d0-c2912d6386b8">&lt;/strong&gt;</ept> time is optional.</source>
+          <target state="new">The <bpt id="ff907ddc-73a9-4258-98d0-c2912d6386b8">&lt;strong&gt;</bpt>end<ept id="ff907ddc-73a9-4258-98d0-c2912d6386b8">&lt;/strong&gt;</ept> time is optional.</target>
+        </trans-unit>
+        <trans-unit id="cd58b0cf-0e48-4130-b905-da7c4960c2db" xml:space="preserve">
+          <source>If you do not specify value for the <bpt id="88412ad1-a121-42f7-86c1-ba90ea081de5">&lt;strong&gt;</bpt>end<ept id="88412ad1-a121-42f7-86c1-ba90ea081de5">&lt;/strong&gt;</ept> property, it is calculated as "<bpt id="d7db050e-1267-462d-b366-2dd1df49d38d">&lt;strong&gt;</bpt>start + 48 hours<ept id="d7db050e-1267-462d-b366-2dd1df49d38d">&lt;/strong&gt;</ept>".</source>
+          <target state="new">If you do not specify value for the <bpt id="88412ad1-a121-42f7-86c1-ba90ea081de5">&lt;strong&gt;</bpt>end<ept id="88412ad1-a121-42f7-86c1-ba90ea081de5">&lt;/strong&gt;</ept> property, it is calculated as "<bpt id="d7db050e-1267-462d-b366-2dd1df49d38d">&lt;strong&gt;</bpt>start + 48 hours<ept id="d7db050e-1267-462d-b366-2dd1df49d38d">&lt;/strong&gt;</ept>".</target>
+        </trans-unit>
+        <trans-unit id="d1dd9423-9a4a-4d95-904e-19e0e54452d1" xml:space="preserve">
+          <source>To run the pipeline indefinitely, specify <bpt id="bd702aa2-c0b9-4f47-9700-375d934ac96f">&lt;strong&gt;</bpt>9999-09-09<ept id="bd702aa2-c0b9-4f47-9700-375d934ac96f">&lt;/strong&gt;</ept> as the value for the <bpt id="3262c35c-524a-44d9-982c-d33204e2271c">&lt;strong&gt;</bpt>end<ept id="3262c35c-524a-44d9-982c-d33204e2271c">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">To run the pipeline indefinitely, specify <bpt id="bd702aa2-c0b9-4f47-9700-375d934ac96f">&lt;strong&gt;</bpt>9999-09-09<ept id="bd702aa2-c0b9-4f47-9700-375d934ac96f">&lt;/strong&gt;</ept> as the value for the <bpt id="3262c35c-524a-44d9-982c-d33204e2271c">&lt;strong&gt;</bpt>end<ept id="3262c35c-524a-44d9-982c-d33204e2271c">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="d3d9f695-767d-4946-abc1-f21acc64a734" xml:space="preserve">
+          <source>See <bpt id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;linkText&gt;</bpt>JSON Scripting Reference<ept id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;/linkText&gt;</ept><bpt id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;title&gt;</bpt><ept id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;/title&gt;</ept> for details about JSON properties.</source>
+          <target state="new">See <bpt id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;linkText&gt;</bpt>JSON Scripting Reference<ept id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;/linkText&gt;</ept><bpt id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;title&gt;</bpt><ept id="11ef5818-c260-4e14-a68e-182107d5ab83">&lt;/title&gt;</ept> for details about JSON properties.</target>
+        </trans-unit>
+        <trans-unit id="9e855fd8-0023-4cdf-b456-5809f495693b" xml:space="preserve">
+          <source>data-factory-build-your-first-pipeline.md</source>
+          <target state="new">data-factory-build-your-first-pipeline.md</target>
+        </trans-unit>
+        <trans-unit id="62631a62-8edc-422f-8877-898cba1ffc6a" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/machine-learning/</source>
+          <target state="new">http://azure.microsoft.com/services/machine-learning/</target>
+        </trans-unit>
+        <trans-unit id="dc1ae4bd-4f3d-4866-b833-6bbdae255396" xml:space="preserve">
+          <source>./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png</source>
+          <target state="new">./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png</target>
+        </trans-unit>
+      </group>
+      <group id="9dc7bf42-c68e-4d7b-ab8b-a78a9bdbe030" />
+    </body>
+  </file>
+</xliff>

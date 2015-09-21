@@ -1,0 +1,2052 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8226c641-fc2f-4dc2-bf38-3d2741d1035d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8226c641-fc2f-4dc2-bf38-3d2741d1035d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="990c19c7-1f83-4dee-a2a2-8294de8de5da">
+        <trans-unit id="c290cc6b-5dcb-4ae0-af82-6f7b46a4db05" xml:space="preserve">
+          <source>CDN - Country codes</source>
+          <target state="new">CDN - Country codes</target>
+        </trans-unit>
+        <trans-unit id="c2ab4a83-36cb-454c-8739-edc26a485d4c" xml:space="preserve">
+          <source>The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</source>
+          <target state="new">The Country Filtering feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</target>
+        </trans-unit>
+        <trans-unit id="fc973753-f2ba-4517-8d99-c74cde5422f0" xml:space="preserve">
+          <source>The <bpt id="436f109e-b274-45a4-964a-7d71d2504e88">&lt;strong&gt;</bpt>Country Filtering<ept id="436f109e-b274-45a4-964a-7d71d2504e88">&lt;/strong&gt;</ept> feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</source>
+          <target state="new">The <bpt id="436f109e-b274-45a4-964a-7d71d2504e88">&lt;strong&gt;</bpt>Country Filtering<ept id="436f109e-b274-45a4-964a-7d71d2504e88">&lt;/strong&gt;</ept> feature uses country codes to define the countries from which a request will be allowed or blocked for a secured directory.</target>
+        </trans-unit>
+        <trans-unit id="90e367fc-5313-4822-8200-d105f669cf37" xml:space="preserve">
+          <source>The table that follows contains all the country codes.</source>
+          <target state="new">The table that follows contains all the country codes.</target>
+        </trans-unit>
+        <trans-unit id="1709735c-47ce-44be-9cf4-4e74c3d79d39" xml:space="preserve">
+          <source>If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.</source>
+          <target state="new">If you specify “EU” (Europe) or "AP" (Asia/Pacific), a subset of IP addresses that originate from any country in that regions will be blocked or allowed.</target>
+        </trans-unit>
+        <trans-unit id="a3d4a4d8-4810-4c86-8de5-a14113e6cb73" xml:space="preserve">
+          <source>For details on how to use the country filtering feature, see <bpt id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;linkText&gt;</bpt>How to restrict access to your content by country<ept id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;/linkText&gt;</ept><bpt id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;title&gt;</bpt><ept id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on how to use the country filtering feature, see <bpt id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;linkText&gt;</bpt>How to restrict access to your content by country<ept id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;/linkText&gt;</ept><bpt id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;title&gt;</bpt><ept id="c2b7a3f0-2fd4-48fe-9ec9-e8cc40e2dc41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c52e819f-15f6-4290-8933-c550ecacde3f" xml:space="preserve">
+          <source>Code</source>
+          <target state="new">Code</target>
+        </trans-unit>
+        <trans-unit id="67c6c00a-9203-4a79-8c57-45bff088f943" xml:space="preserve">
+          <source>Country</source>
+          <target state="new">Country</target>
+        </trans-unit>
+        <trans-unit id="687c8a60-90b3-483f-a0f1-eccbd4b803d4" xml:space="preserve">
+          <source>Additional Information</source>
+          <target state="new">Additional Information</target>
+        </trans-unit>
+        <trans-unit id="307bf66d-3c8f-4710-84fc-9d8113a8d4c7" xml:space="preserve">
+          <source>A1</source>
+          <target state="new">A1</target>
+        </trans-unit>
+        <trans-unit id="3a76969d-08f3-488d-9647-a3636f95a97e" xml:space="preserve">
+          <source>Anonymous Proxy</source>
+          <target state="new">Anonymous Proxy</target>
+        </trans-unit>
+        <trans-unit id="3193b39d-7391-46f5-a58c-03d86404951c" xml:space="preserve">
+          <source>This country code identifies a set of IP addresses used by anonymizers or VPN services.</source>
+          <target state="new">This country code identifies a set of IP addresses used by anonymizers or VPN services.</target>
+        </trans-unit>
+        <trans-unit id="459e72ef-54d7-4ce3-88fb-5a09bf554356" xml:space="preserve">
+          <source>These types of services may be used to circumvent IP geolocation restrictions.</source>
+          <target state="new">These types of services may be used to circumvent IP geolocation restrictions.</target>
+        </trans-unit>
+        <trans-unit id="c295bd43-4cc3-4903-830b-c7035c016180" xml:space="preserve">
+          <source>A2</source>
+          <target state="new">A2</target>
+        </trans-unit>
+        <trans-unit id="7a6eed8d-23bf-4d7c-8270-9c16e9ae8bba" xml:space="preserve">
+          <source>Satellite Provider</source>
+          <target state="new">Satellite Provider</target>
+        </trans-unit>
+        <trans-unit id="cf5e00ad-1bea-492d-a7a6-ee5380d97371" xml:space="preserve">
+          <source>This country code identifies a set of IP addresses used by Satellite ISPs to provide Internet service to multiple countries (e.g., Nigeria and Ghana).</source>
+          <target state="new">This country code identifies a set of IP addresses used by Satellite ISPs to provide Internet service to multiple countries (e.g., Nigeria and Ghana).</target>
+        </trans-unit>
+        <trans-unit id="295726d3-ceae-4e1e-b331-b9557db690c1" xml:space="preserve">
+          <source>AF</source>
+          <target state="new">AF</target>
+        </trans-unit>
+        <trans-unit id="6c8abed4-e55c-40e3-be98-41ba90f533ec" xml:space="preserve">
+          <source>Afghanistan</source>
+          <target state="new">Afghanistan</target>
+        </trans-unit>
+        <trans-unit id="ef47add6-7080-452f-8df1-16b0f320759f" xml:space="preserve">
+          <source>AL</source>
+          <target state="new">AL</target>
+        </trans-unit>
+        <trans-unit id="d884b249-d7f7-4e3e-94b8-dcdfcec04ddc" xml:space="preserve">
+          <source>Albania</source>
+          <target state="new">Albania</target>
+        </trans-unit>
+        <trans-unit id="c334cc47-f5a1-4748-bb81-69ae7403c56d" xml:space="preserve">
+          <source>DZ</source>
+          <target state="new">DZ</target>
+        </trans-unit>
+        <trans-unit id="f227cc0f-f3a0-47ad-b05c-7448a05c5ae1" xml:space="preserve">
+          <source>Algeria</source>
+          <target state="new">Algeria</target>
+        </trans-unit>
+        <trans-unit id="d23d07b0-9b79-47c0-957b-c3f8684f2e4e" xml:space="preserve">
+          <source>AS</source>
+          <target state="new">AS</target>
+        </trans-unit>
+        <trans-unit id="e6e4ca48-1869-4e54-8810-0b62cdf02bd7" xml:space="preserve">
+          <source>American Samoa</source>
+          <target state="new">American Samoa</target>
+        </trans-unit>
+        <trans-unit id="07fbb231-7111-4824-a0f6-6c0154a51574" xml:space="preserve">
+          <source>AD</source>
+          <target state="new">AD</target>
+        </trans-unit>
+        <trans-unit id="348aabd7-4e4f-4bd8-8998-072a27984217" xml:space="preserve">
+          <source>Andorra</source>
+          <target state="new">Andorra</target>
+        </trans-unit>
+        <trans-unit id="aab2b47a-7698-402c-a88b-d2592b8db932" xml:space="preserve">
+          <source>AO</source>
+          <target state="new">AO</target>
+        </trans-unit>
+        <trans-unit id="64a5ad85-6a52-4b8b-8590-fbff8e02fde0" xml:space="preserve">
+          <source>Angola</source>
+          <target state="new">Angola</target>
+        </trans-unit>
+        <trans-unit id="23c89527-ba7e-4e02-8726-62b8d05c709d" xml:space="preserve">
+          <source>AI</source>
+          <target state="new">AI</target>
+        </trans-unit>
+        <trans-unit id="f409009d-78f1-4cca-aa71-a602b0dc412c" xml:space="preserve">
+          <source>Anguilla</source>
+          <target state="new">Anguilla</target>
+        </trans-unit>
+        <trans-unit id="98de106a-cea5-4ed8-a194-8fd7abb6d0ad" xml:space="preserve">
+          <source>AQ</source>
+          <target state="new">AQ</target>
+        </trans-unit>
+        <trans-unit id="c404463f-ee54-4d79-87e1-af6af5ddc4e9" xml:space="preserve">
+          <source>Antarctica</source>
+          <target state="new">Antarctica</target>
+        </trans-unit>
+        <trans-unit id="b471b734-380c-4cae-b93a-a194055a3ff0" xml:space="preserve">
+          <source>AG</source>
+          <target state="new">AG</target>
+        </trans-unit>
+        <trans-unit id="44c44d04-77cc-4a3c-b9e6-8239489cf843" xml:space="preserve">
+          <source>Antigua and Barbuda</source>
+          <target state="new">Antigua and Barbuda</target>
+        </trans-unit>
+        <trans-unit id="ab0c87d2-ecfb-423c-8838-a00d1b9182f7" xml:space="preserve">
+          <source>AR</source>
+          <target state="new">AR</target>
+        </trans-unit>
+        <trans-unit id="3e595309-5d2e-41ac-947e-ad3e140df0c0" xml:space="preserve">
+          <source>Argentina</source>
+          <target state="new">Argentina</target>
+        </trans-unit>
+        <trans-unit id="7ed1d926-31c3-4672-8a16-e49b704a16ad" xml:space="preserve">
+          <source>AM</source>
+          <target state="new">AM</target>
+        </trans-unit>
+        <trans-unit id="81384ec2-547b-4b19-9436-48e3465ea3eb" xml:space="preserve">
+          <source>Armenia</source>
+          <target state="new">Armenia</target>
+        </trans-unit>
+        <trans-unit id="47e802d2-db6a-4923-9355-3ad49fe0a73d" xml:space="preserve">
+          <source>AW</source>
+          <target state="new">AW</target>
+        </trans-unit>
+        <trans-unit id="946b3b85-2a8a-4682-93ac-1e6031505ce4" xml:space="preserve">
+          <source>Aruba</source>
+          <target state="new">Aruba</target>
+        </trans-unit>
+        <trans-unit id="49ddd4a0-cdb4-4311-873c-d15d8a1e884d" xml:space="preserve">
+          <source>AP</source>
+          <target state="new">AP</target>
+        </trans-unit>
+        <trans-unit id="9b38a906-a8d5-477f-8abc-4e414e2c9dec" xml:space="preserve">
+          <source>Asia/Pacific Region</source>
+          <target state="new">Asia/Pacific Region</target>
+        </trans-unit>
+        <trans-unit id="e9064a4c-4f0c-47ac-894f-438ac3d30b5e" xml:space="preserve">
+          <source>This country code identifies a set of IP addresses that are spread out through the Asia/Pacific region.</source>
+          <target state="new">This country code identifies a set of IP addresses that are spread out through the Asia/Pacific region.</target>
+        </trans-unit>
+        <trans-unit id="b6d28efa-d913-4fbb-9118-80fb10a5fe6e" xml:space="preserve">
+          <source>The country of origin for this set of IP addresses is unknown.</source>
+          <target state="new">The country of origin for this set of IP addresses is unknown.</target>
+        </trans-unit>
+        <trans-unit id="873eb21f-e72b-460d-b18e-552cee42afca" xml:space="preserve">
+          <source>More importantly, this country code does not cover all IP addresses in the Asia/Pacific region.</source>
+          <target state="new">More importantly, this country code does not cover all IP addresses in the Asia/Pacific region.</target>
+        </trans-unit>
+        <trans-unit id="9e24c079-faa6-4439-8d48-6600824efece" xml:space="preserve">
+          <source>[Learn more](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge<bpt id="f2e1a99c-5cb2-4010-856b-c058d6c1e11a">&lt;em&gt;</bpt>Base/Geolocation<ept id="f2e1a99c-5cb2-4010-856b-c058d6c1e11a">&lt;/em&gt;</ept>EU_AP.htm).</source>
+          <target state="new">[Learn more](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge<bpt id="f2e1a99c-5cb2-4010-856b-c058d6c1e11a">&lt;em&gt;</bpt>Base/Geolocation<ept id="f2e1a99c-5cb2-4010-856b-c058d6c1e11a">&lt;/em&gt;</ept>EU_AP.htm).</target>
+        </trans-unit>
+        <trans-unit id="45d95eca-b4e0-4c5b-b27e-7e3bd0a08396" xml:space="preserve">
+          <source>AU</source>
+          <target state="new">AU</target>
+        </trans-unit>
+        <trans-unit id="f1b20a27-a4d9-4f30-9b5d-6b087759703e" xml:space="preserve">
+          <source>Australia</source>
+          <target state="new">Australia</target>
+        </trans-unit>
+        <trans-unit id="f571d374-196d-4042-8eeb-edfe4085d30a" xml:space="preserve">
+          <source>AT</source>
+          <target state="new">AT</target>
+        </trans-unit>
+        <trans-unit id="35111aa3-d5ad-4665-b0c0-77a1ef7fd251" xml:space="preserve">
+          <source>Austria</source>
+          <target state="new">Austria</target>
+        </trans-unit>
+        <trans-unit id="dc580c87-81a7-4610-9abb-faa2604561ee" xml:space="preserve">
+          <source>AZ</source>
+          <target state="new">AZ</target>
+        </trans-unit>
+        <trans-unit id="df74b90b-398f-4d3d-b4ac-75c5135ec769" xml:space="preserve">
+          <source>Azerbaijan</source>
+          <target state="new">Azerbaijan</target>
+        </trans-unit>
+        <trans-unit id="3fa9b50d-8d92-4940-b165-2c6f76bd8428" xml:space="preserve">
+          <source>BS</source>
+          <target state="new">BS</target>
+        </trans-unit>
+        <trans-unit id="2b9fb9ad-b25f-4a01-8352-f51c1de5e449" xml:space="preserve">
+          <source>Bahamas</source>
+          <target state="new">Bahamas</target>
+        </trans-unit>
+        <trans-unit id="249c24c6-a252-42da-9dea-285a34f0f710" xml:space="preserve">
+          <source>BH</source>
+          <target state="new">BH</target>
+        </trans-unit>
+        <trans-unit id="fb973a15-d84f-481c-bec9-edfa30541b36" xml:space="preserve">
+          <source>Bahrain</source>
+          <target state="new">Bahrain</target>
+        </trans-unit>
+        <trans-unit id="0660ef1e-3f70-4b6f-8d19-77db293c9039" xml:space="preserve">
+          <source>BD</source>
+          <target state="new">BD</target>
+        </trans-unit>
+        <trans-unit id="622fce9a-8f8f-4281-897d-b84d67c1afb2" xml:space="preserve">
+          <source>Bangladesh</source>
+          <target state="new">Bangladesh</target>
+        </trans-unit>
+        <trans-unit id="6e7f7449-066d-4af0-adf9-49a20d7b5638" xml:space="preserve">
+          <source>BB</source>
+          <target state="new">BB</target>
+        </trans-unit>
+        <trans-unit id="2de44ffc-45d2-46c1-8e0a-a2e299de3bd6" xml:space="preserve">
+          <source>Barbados</source>
+          <target state="new">Barbados</target>
+        </trans-unit>
+        <trans-unit id="370dd8d7-09b4-4c0f-ab5c-ddd1ad3958fd" xml:space="preserve">
+          <source>BY</source>
+          <target state="new">BY</target>
+        </trans-unit>
+        <trans-unit id="d2e329e4-effa-4d90-9be0-9905c40c4797" xml:space="preserve">
+          <source>Belarus</source>
+          <target state="new">Belarus</target>
+        </trans-unit>
+        <trans-unit id="e84634af-a22d-4c58-8802-e6896d65107c" xml:space="preserve">
+          <source>BE</source>
+          <target state="new">BE</target>
+        </trans-unit>
+        <trans-unit id="9b964b4f-e15a-42fe-b374-c0c52e85b4ea" xml:space="preserve">
+          <source>Belgium</source>
+          <target state="new">Belgium</target>
+        </trans-unit>
+        <trans-unit id="e6307034-4b31-478e-ac63-35039dc481df" xml:space="preserve">
+          <source>BZ</source>
+          <target state="new">BZ</target>
+        </trans-unit>
+        <trans-unit id="87c9472c-1df8-4b7f-8140-5addede9866e" xml:space="preserve">
+          <source>Belize</source>
+          <target state="new">Belize</target>
+        </trans-unit>
+        <trans-unit id="1b321415-f887-4eac-8f8a-d607599e8f9f" xml:space="preserve">
+          <source>BJ</source>
+          <target state="new">BJ</target>
+        </trans-unit>
+        <trans-unit id="a8bde97c-269d-4e99-8a6d-b5553ec2dc8b" xml:space="preserve">
+          <source>Benin</source>
+          <target state="new">Benin</target>
+        </trans-unit>
+        <trans-unit id="d7936f80-3827-4264-a78d-4dcbec961a6d" xml:space="preserve">
+          <source>BM</source>
+          <target state="new">BM</target>
+        </trans-unit>
+        <trans-unit id="8c7e147e-d7b3-497a-9e29-1d1aca69a632" xml:space="preserve">
+          <source>Bermuda</source>
+          <target state="new">Bermuda</target>
+        </trans-unit>
+        <trans-unit id="190d52c0-63a7-458b-b926-d4a08345d3ad" xml:space="preserve">
+          <source>BT</source>
+          <target state="new">BT</target>
+        </trans-unit>
+        <trans-unit id="bfe8a9d6-4c6b-4f8e-87c3-15b41db38d31" xml:space="preserve">
+          <source>Bhutan</source>
+          <target state="new">Bhutan</target>
+        </trans-unit>
+        <trans-unit id="65c79067-29ba-4ed1-bd5e-26881f3625c5" xml:space="preserve">
+          <source>BO</source>
+          <target state="new">BO</target>
+        </trans-unit>
+        <trans-unit id="27c69103-d5e7-4e47-8d1e-be9f2f5cbaa8" xml:space="preserve">
+          <source>Bolivia</source>
+          <target state="new">Bolivia</target>
+        </trans-unit>
+        <trans-unit id="355b806c-2ea2-4a02-8782-1f4f5b4b3e25" xml:space="preserve">
+          <source>BA</source>
+          <target state="new">BA</target>
+        </trans-unit>
+        <trans-unit id="7292c0ed-f158-4861-994f-caa4dbff8268" xml:space="preserve">
+          <source>Bosnia and Herzegovina</source>
+          <target state="new">Bosnia and Herzegovina</target>
+        </trans-unit>
+        <trans-unit id="418f8281-1877-4a4a-99bf-9d6c57cd2e19" xml:space="preserve">
+          <source>BW</source>
+          <target state="new">BW</target>
+        </trans-unit>
+        <trans-unit id="1ca8bd32-742a-4988-88dc-75dbeaedf911" xml:space="preserve">
+          <source>Botswana</source>
+          <target state="new">Botswana</target>
+        </trans-unit>
+        <trans-unit id="6b5e808a-6451-4f3f-bdae-b8183725c579" xml:space="preserve">
+          <source>BV</source>
+          <target state="new">BV</target>
+        </trans-unit>
+        <trans-unit id="641f8aa8-5e43-42c9-be99-063c4a48aa84" xml:space="preserve">
+          <source>Bouvet Island</source>
+          <target state="new">Bouvet Island</target>
+        </trans-unit>
+        <trans-unit id="0e370d0d-627d-447c-b131-61d94620c328" xml:space="preserve">
+          <source>BR</source>
+          <target state="new">BR</target>
+        </trans-unit>
+        <trans-unit id="a0c0b54b-7c08-4528-b452-edd6f9e634ec" xml:space="preserve">
+          <source>Brazil</source>
+          <target state="new">Brazil</target>
+        </trans-unit>
+        <trans-unit id="e67ca1d4-4124-4159-b7a6-b6a3eea50eb4" xml:space="preserve">
+          <source>IO</source>
+          <target state="new">IO</target>
+        </trans-unit>
+        <trans-unit id="97968daf-1c83-4e7f-9f1d-2e628fb163c1" xml:space="preserve">
+          <source>British Indian Ocean Territory</source>
+          <target state="new">British Indian Ocean Territory</target>
+        </trans-unit>
+        <trans-unit id="5f7ae4ad-3eb1-43ce-a4f6-5a7156091adb" xml:space="preserve">
+          <source>BN</source>
+          <target state="new">BN</target>
+        </trans-unit>
+        <trans-unit id="88b05d22-934a-46b8-9f46-613283d48dbe" xml:space="preserve">
+          <source>Brunei Darussalam</source>
+          <target state="new">Brunei Darussalam</target>
+        </trans-unit>
+        <trans-unit id="f4fe2458-cda3-4fa3-9c1b-12f594f4ec18" xml:space="preserve">
+          <source>BG</source>
+          <target state="new">BG</target>
+        </trans-unit>
+        <trans-unit id="55415904-cbd9-4fab-899b-11dfc187ae71" xml:space="preserve">
+          <source>Bulgaria</source>
+          <target state="new">Bulgaria</target>
+        </trans-unit>
+        <trans-unit id="6ee10696-9264-4f9f-b08c-1a4685a77e2c" xml:space="preserve">
+          <source>BF</source>
+          <target state="new">BF</target>
+        </trans-unit>
+        <trans-unit id="3b98c9fb-3dfe-4926-a919-a60b5f50fdd5" xml:space="preserve">
+          <source>Burkina Faso</source>
+          <target state="new">Burkina Faso</target>
+        </trans-unit>
+        <trans-unit id="63d8ca87-a8dd-4733-99ad-ea28c11fb347" xml:space="preserve">
+          <source>BI</source>
+          <target state="new">BI</target>
+        </trans-unit>
+        <trans-unit id="2bc16975-ce53-4065-98fe-8e2ae84abd73" xml:space="preserve">
+          <source>Burundi</source>
+          <target state="new">Burundi</target>
+        </trans-unit>
+        <trans-unit id="61892a85-da91-43b6-977a-5d0f3146506b" xml:space="preserve">
+          <source>KH</source>
+          <target state="new">KH</target>
+        </trans-unit>
+        <trans-unit id="edd38c89-8cc3-47af-b748-46feeb01a42f" xml:space="preserve">
+          <source>Cambodia</source>
+          <target state="new">Cambodia</target>
+        </trans-unit>
+        <trans-unit id="48107035-8f3e-4073-bebf-b59cdde208af" xml:space="preserve">
+          <source>CM</source>
+          <target state="new">CM</target>
+        </trans-unit>
+        <trans-unit id="5576252e-b32f-4b43-9158-2f8cd6926712" xml:space="preserve">
+          <source>Cameroon</source>
+          <target state="new">Cameroon</target>
+        </trans-unit>
+        <trans-unit id="bc41f577-f1b8-4413-a755-5760196809c0" xml:space="preserve">
+          <source>CA</source>
+          <target state="new">CA</target>
+        </trans-unit>
+        <trans-unit id="b274c8f5-e591-496d-b365-90be9a7fceba" xml:space="preserve">
+          <source>Canada</source>
+          <target state="new">Canada</target>
+        </trans-unit>
+        <trans-unit id="dd0fb7f1-9134-41d6-aa25-f37a5ae08070" xml:space="preserve">
+          <source>CV</source>
+          <target state="new">CV</target>
+        </trans-unit>
+        <trans-unit id="9d4076cc-dc45-428c-b254-34aea0c4a1cd" xml:space="preserve">
+          <source>Cape Verde</source>
+          <target state="new">Cape Verde</target>
+        </trans-unit>
+        <trans-unit id="75c4e57c-9977-448e-8020-8be67adaa0c6" xml:space="preserve">
+          <source>KY</source>
+          <target state="new">KY</target>
+        </trans-unit>
+        <trans-unit id="985fbdc2-593f-4349-9ad8-4c58f92f6041" xml:space="preserve">
+          <source>Cayman Islands</source>
+          <target state="new">Cayman Islands</target>
+        </trans-unit>
+        <trans-unit id="f2b79173-ff30-48f7-8b70-a18eb1c67bd8" xml:space="preserve">
+          <source>CF</source>
+          <target state="new">CF</target>
+        </trans-unit>
+        <trans-unit id="41115789-f1a7-437e-96fa-548fb37990bb" xml:space="preserve">
+          <source>Central African Republic</source>
+          <target state="new">Central African Republic</target>
+        </trans-unit>
+        <trans-unit id="133b2dd8-90c9-4a29-b278-99aad05c44df" xml:space="preserve">
+          <source>TD</source>
+          <target state="new">TD</target>
+        </trans-unit>
+        <trans-unit id="427d76f4-b063-4270-8c90-afe982693d34" xml:space="preserve">
+          <source>Chad</source>
+          <target state="new">Chad</target>
+        </trans-unit>
+        <trans-unit id="640ce1a5-af2b-49b6-b08a-90bc194dd374" xml:space="preserve">
+          <source>CL</source>
+          <target state="new">CL</target>
+        </trans-unit>
+        <trans-unit id="87136850-c9fd-4817-9c46-fe8e536c3dca" xml:space="preserve">
+          <source>Chile</source>
+          <target state="new">Chile</target>
+        </trans-unit>
+        <trans-unit id="e0ee3652-b650-4417-94c9-c32dc01067a8" xml:space="preserve">
+          <source>CN</source>
+          <target state="new">CN</target>
+        </trans-unit>
+        <trans-unit id="eecfdcc8-cc83-4579-8a2a-81a7e879eda7" xml:space="preserve">
+          <source>China</source>
+          <target state="new">China</target>
+        </trans-unit>
+        <trans-unit id="a42d4dcf-7ac1-4b11-86bd-bad254a978c9" xml:space="preserve">
+          <source>CX</source>
+          <target state="new">CX</target>
+        </trans-unit>
+        <trans-unit id="1d25d26b-30de-4bee-8e49-d59901a0c954" xml:space="preserve">
+          <source>Christmas Island</source>
+          <target state="new">Christmas Island</target>
+        </trans-unit>
+        <trans-unit id="4071ca78-533c-44d7-b2c6-8f79131f1551" xml:space="preserve">
+          <source>CC</source>
+          <target state="new">CC</target>
+        </trans-unit>
+        <trans-unit id="5939b910-bfdc-415f-87ab-698a5c9fcc16" xml:space="preserve">
+          <source>Cocos (Keeling) Islands</source>
+          <target state="new">Cocos (Keeling) Islands</target>
+        </trans-unit>
+        <trans-unit id="e87468c8-e1f9-4dc8-b3be-9af61d847650" xml:space="preserve">
+          <source>CO</source>
+          <target state="new">CO</target>
+        </trans-unit>
+        <trans-unit id="d84ac546-24f0-4671-a885-c6b29cb1d7b1" xml:space="preserve">
+          <source>Colombia</source>
+          <target state="new">Colombia</target>
+        </trans-unit>
+        <trans-unit id="ea4af268-69ca-4464-91d0-7989add0fb62" xml:space="preserve">
+          <source>KM</source>
+          <target state="new">KM</target>
+        </trans-unit>
+        <trans-unit id="f1b0bdc8-ddd1-4907-a7e6-537664c02065" xml:space="preserve">
+          <source>Comoros</source>
+          <target state="new">Comoros</target>
+        </trans-unit>
+        <trans-unit id="e4e007bd-fee9-4002-add9-7dd5748c3207" xml:space="preserve">
+          <source>CG</source>
+          <target state="new">CG</target>
+        </trans-unit>
+        <trans-unit id="dcf3a6eb-0d34-42a2-a1b0-1f9ce2cbb6e5" xml:space="preserve">
+          <source>Congo</source>
+          <target state="new">Congo</target>
+        </trans-unit>
+        <trans-unit id="ee451a10-1c24-45fc-a501-c90999ae30d5" xml:space="preserve">
+          <source>CD</source>
+          <target state="new">CD</target>
+        </trans-unit>
+        <trans-unit id="cc382d3f-c959-4b42-a62d-194f1e04a965" xml:space="preserve">
+          <source>Congo, The Democratic Republic of the</source>
+          <target state="new">Congo, The Democratic Republic of the</target>
+        </trans-unit>
+        <trans-unit id="3343dda8-8a15-4d3a-9666-86fa65d99eb2" xml:space="preserve">
+          <source>CK</source>
+          <target state="new">CK</target>
+        </trans-unit>
+        <trans-unit id="b613f4ed-6285-48e5-89eb-805c8ff66382" xml:space="preserve">
+          <source>Cook Islands</source>
+          <target state="new">Cook Islands</target>
+        </trans-unit>
+        <trans-unit id="76f212eb-6845-4e61-8071-7277b3673425" xml:space="preserve">
+          <source>CR</source>
+          <target state="new">CR</target>
+        </trans-unit>
+        <trans-unit id="65d1eed5-67eb-4c25-92db-a64c73bada0e" xml:space="preserve">
+          <source>Costa Rica</source>
+          <target state="new">Costa Rica</target>
+        </trans-unit>
+        <trans-unit id="2715be11-afc3-4475-af57-1b55021906de" xml:space="preserve">
+          <source>CI</source>
+          <target state="new">CI</target>
+        </trans-unit>
+        <trans-unit id="d7657a35-b70a-4551-b11c-aa162f45f602" xml:space="preserve">
+          <source>Cote d'Ivoire</source>
+          <target state="new">Cote d'Ivoire</target>
+        </trans-unit>
+        <trans-unit id="acb34180-43b1-4bd2-89f0-d63f27277854" xml:space="preserve">
+          <source>HR</source>
+          <target state="new">HR</target>
+        </trans-unit>
+        <trans-unit id="68d7aa7c-3843-467f-a70e-c34d2ce9e838" xml:space="preserve">
+          <source>Croatia</source>
+          <target state="new">Croatia</target>
+        </trans-unit>
+        <trans-unit id="720bfdfe-597d-4223-8482-2ca133e598a1" xml:space="preserve">
+          <source>CU</source>
+          <target state="new">CU</target>
+        </trans-unit>
+        <trans-unit id="ed7d4ef1-13e0-4586-a4d5-9678eb36d315" xml:space="preserve">
+          <source>Cuba</source>
+          <target state="new">Cuba</target>
+        </trans-unit>
+        <trans-unit id="b3806922-436f-4ebf-8505-c6e839770dc4" xml:space="preserve">
+          <source>CY</source>
+          <target state="new">CY</target>
+        </trans-unit>
+        <trans-unit id="89a07fd0-2731-48b8-94cf-20cecec9e779" xml:space="preserve">
+          <source>Cyprus</source>
+          <target state="new">Cyprus</target>
+        </trans-unit>
+        <trans-unit id="0f2bafa3-41a5-4e36-b3d5-9d4693bcc812" xml:space="preserve">
+          <source>CZ</source>
+          <target state="new">CZ</target>
+        </trans-unit>
+        <trans-unit id="2799cfe7-0797-45e6-9b7a-ce06e189fd47" xml:space="preserve">
+          <source>Czech Republic</source>
+          <target state="new">Czech Republic</target>
+        </trans-unit>
+        <trans-unit id="35622bd9-0197-4302-ac40-12ccab3764ac" xml:space="preserve">
+          <source>DK</source>
+          <target state="new">DK</target>
+        </trans-unit>
+        <trans-unit id="1f91375d-6291-4645-9e58-339a7aa73c75" xml:space="preserve">
+          <source>Denmark</source>
+          <target state="new">Denmark</target>
+        </trans-unit>
+        <trans-unit id="c0647140-335c-4e4a-b09f-4e3e46d698c7" xml:space="preserve">
+          <source>DJ</source>
+          <target state="new">DJ</target>
+        </trans-unit>
+        <trans-unit id="e350c61e-3291-44b8-a20d-37658fbfb041" xml:space="preserve">
+          <source>Djibouti</source>
+          <target state="new">Djibouti</target>
+        </trans-unit>
+        <trans-unit id="15a12b44-ef21-4cbc-9e0f-fa3ae2a6e931" xml:space="preserve">
+          <source>DM</source>
+          <target state="new">DM</target>
+        </trans-unit>
+        <trans-unit id="76d64400-5b18-4355-8270-fc7d53b72f74" xml:space="preserve">
+          <source>Dominica</source>
+          <target state="new">Dominica</target>
+        </trans-unit>
+        <trans-unit id="a59c5760-261f-4d30-8532-2df43a3372ed" xml:space="preserve">
+          <source>DO</source>
+          <target state="new">DO</target>
+        </trans-unit>
+        <trans-unit id="7c2152b6-7135-4af8-9e42-adf85e831b0e" xml:space="preserve">
+          <source>Dominican Republic</source>
+          <target state="new">Dominican Republic</target>
+        </trans-unit>
+        <trans-unit id="98b87bc7-90bf-444c-9c9d-b39feb3b48b1" xml:space="preserve">
+          <source>EC</source>
+          <target state="new">EC</target>
+        </trans-unit>
+        <trans-unit id="3974b2cd-57f0-4d16-bd1d-51f001e3e4e1" xml:space="preserve">
+          <source>Ecuador</source>
+          <target state="new">Ecuador</target>
+        </trans-unit>
+        <trans-unit id="3a6641bb-3617-4ea1-bcfb-fded922c6f8f" xml:space="preserve">
+          <source>EG</source>
+          <target state="new">EG</target>
+        </trans-unit>
+        <trans-unit id="b9456c07-7b6b-4a07-a598-db651c193b2f" xml:space="preserve">
+          <source>Egypt</source>
+          <target state="new">Egypt</target>
+        </trans-unit>
+        <trans-unit id="ad457a20-1178-4d17-925f-b26ad81c62a4" xml:space="preserve">
+          <source>SV</source>
+          <target state="new">SV</target>
+        </trans-unit>
+        <trans-unit id="2d6f1344-18d3-4c46-a16e-a25fc9e027f3" xml:space="preserve">
+          <source>El Salvador</source>
+          <target state="new">El Salvador</target>
+        </trans-unit>
+        <trans-unit id="a8c66229-1f9d-4927-b2bd-d1a153d6be12" xml:space="preserve">
+          <source>GQ</source>
+          <target state="new">GQ</target>
+        </trans-unit>
+        <trans-unit id="814b694f-6c52-4161-9676-0c7d15f7a806" xml:space="preserve">
+          <source>Equatorial Guinea</source>
+          <target state="new">Equatorial Guinea</target>
+        </trans-unit>
+        <trans-unit id="31403dcb-e55b-4da4-bea9-5077dc1a77ba" xml:space="preserve">
+          <source>ER</source>
+          <target state="new">ER</target>
+        </trans-unit>
+        <trans-unit id="9617f81b-9bca-40b6-9314-ccfbfc4f35ed" xml:space="preserve">
+          <source>Eritrea</source>
+          <target state="new">Eritrea</target>
+        </trans-unit>
+        <trans-unit id="ada021e1-2db0-4225-b4e5-929de929f497" xml:space="preserve">
+          <source>EE</source>
+          <target state="new">EE</target>
+        </trans-unit>
+        <trans-unit id="359c677b-4a86-4cd1-8869-2803d6f814e2" xml:space="preserve">
+          <source>Estonia</source>
+          <target state="new">Estonia</target>
+        </trans-unit>
+        <trans-unit id="24e75cf5-768d-47b3-a183-79695604ab72" xml:space="preserve">
+          <source>ET</source>
+          <target state="new">ET</target>
+        </trans-unit>
+        <trans-unit id="3dccf08f-c048-4531-a07c-f6c5ea7e6bb3" xml:space="preserve">
+          <source>Ethiopia</source>
+          <target state="new">Ethiopia</target>
+        </trans-unit>
+        <trans-unit id="9b98f7b7-0f1a-42f0-8be6-a8e7d36f3e7a" xml:space="preserve">
+          <source>EU</source>
+          <target state="new">EU</target>
+        </trans-unit>
+        <trans-unit id="08faa50a-2658-4e08-9784-adceb3651a08" xml:space="preserve">
+          <source>Europe</source>
+          <target state="new">Europe</target>
+        </trans-unit>
+        <trans-unit id="649eaa47-e647-4e25-9572-c49c152bf62b" xml:space="preserve">
+          <source>This country code identifies a set of IP addresses that are spread out through Europe.</source>
+          <target state="new">This country code identifies a set of IP addresses that are spread out through Europe.</target>
+        </trans-unit>
+        <trans-unit id="73325f1c-2c6a-4f1c-939c-1ba55c92c301" xml:space="preserve">
+          <source>The country of origin for this set of IP addresses is unknown.</source>
+          <target state="new">The country of origin for this set of IP addresses is unknown.</target>
+        </trans-unit>
+        <trans-unit id="544d689d-e9c6-4d5c-adf5-109147c1afa5" xml:space="preserve">
+          <source>More importantly, this country code does not cover all IP addresses in Europe.</source>
+          <target state="new">More importantly, this country code does not cover all IP addresses in Europe.</target>
+        </trans-unit>
+        <trans-unit id="357931be-7dbb-4e63-bce4-e9f041ec8fd5" xml:space="preserve">
+          <source>[Learn more](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge<bpt id="fc1d3d53-ae9d-480d-bb5b-a8331ca8aed6">&lt;em&gt;</bpt>Base/Geolocation<ept id="fc1d3d53-ae9d-480d-bb5b-a8331ca8aed6">&lt;/em&gt;</ept>EU_AP.htm).</source>
+          <target state="new">[Learn more](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge<bpt id="fc1d3d53-ae9d-480d-bb5b-a8331ca8aed6">&lt;em&gt;</bpt>Base/Geolocation<ept id="fc1d3d53-ae9d-480d-bb5b-a8331ca8aed6">&lt;/em&gt;</ept>EU_AP.htm).</target>
+        </trans-unit>
+        <trans-unit id="35bec951-132c-4062-9129-c89f1d07b3b8" xml:space="preserve">
+          <source>FK</source>
+          <target state="new">FK</target>
+        </trans-unit>
+        <trans-unit id="0fa1205f-6278-45af-b658-280ad8136fad" xml:space="preserve">
+          <source>Falkland Islands (Malvinas)</source>
+          <target state="new">Falkland Islands (Malvinas)</target>
+        </trans-unit>
+        <trans-unit id="36275073-37c5-469c-8dbc-ec6792449e3c" xml:space="preserve">
+          <source>FO</source>
+          <target state="new">FO</target>
+        </trans-unit>
+        <trans-unit id="de10ef7e-f32d-41b5-a7ca-ca77d5cbe711" xml:space="preserve">
+          <source>Faroe Islands</source>
+          <target state="new">Faroe Islands</target>
+        </trans-unit>
+        <trans-unit id="6d2aeec1-2b23-44ac-8540-f13de40c79e5" xml:space="preserve">
+          <source>FJ</source>
+          <target state="new">FJ</target>
+        </trans-unit>
+        <trans-unit id="c816b9a6-ccb5-41d6-a688-0883bc39af72" xml:space="preserve">
+          <source>Fiji</source>
+          <target state="new">Fiji</target>
+        </trans-unit>
+        <trans-unit id="b6943e6c-4ce4-4d56-b3d9-f9fdd9e39992" xml:space="preserve">
+          <source>FI</source>
+          <target state="new">FI</target>
+        </trans-unit>
+        <trans-unit id="acec82bd-3a15-4591-9640-5fc9d4a112a1" xml:space="preserve">
+          <source>Finland</source>
+          <target state="new">Finland</target>
+        </trans-unit>
+        <trans-unit id="13f04259-bae5-4853-ae11-eb6818ffcbc8" xml:space="preserve">
+          <source>FR</source>
+          <target state="new">FR</target>
+        </trans-unit>
+        <trans-unit id="0906982b-77c4-48b4-850a-6008aeb57f59" xml:space="preserve">
+          <source>France</source>
+          <target state="new">France</target>
+        </trans-unit>
+        <trans-unit id="0122aaa3-5112-4429-95be-50d598df210e" xml:space="preserve">
+          <source>GF</source>
+          <target state="new">GF</target>
+        </trans-unit>
+        <trans-unit id="debfc0af-5b8d-4ef3-abc6-e8f9f6c62914" xml:space="preserve">
+          <source>French Guiana</source>
+          <target state="new">French Guiana</target>
+        </trans-unit>
+        <trans-unit id="cceb3dff-0114-4ebd-9342-faddf17cfabf" xml:space="preserve">
+          <source>PF</source>
+          <target state="new">PF</target>
+        </trans-unit>
+        <trans-unit id="f454d907-4550-4a86-a227-b7c9da4d7119" xml:space="preserve">
+          <source>French Polynesia</source>
+          <target state="new">French Polynesia</target>
+        </trans-unit>
+        <trans-unit id="4e0228fd-3957-4918-8d5e-8e4efded9e31" xml:space="preserve">
+          <source>TF</source>
+          <target state="new">TF</target>
+        </trans-unit>
+        <trans-unit id="703bd6ca-9010-487c-9f83-9898104bbf82" xml:space="preserve">
+          <source>French Southern Territories</source>
+          <target state="new">French Southern Territories</target>
+        </trans-unit>
+        <trans-unit id="2e7385a1-88d6-441e-a144-84d6535f4d39" xml:space="preserve">
+          <source>GA</source>
+          <target state="new">GA</target>
+        </trans-unit>
+        <trans-unit id="51dc4864-4955-4591-8041-8816c3f6793e" xml:space="preserve">
+          <source>Gabon</source>
+          <target state="new">Gabon</target>
+        </trans-unit>
+        <trans-unit id="3025225c-ae9c-4643-94f2-bc4f667c3983" xml:space="preserve">
+          <source>GM</source>
+          <target state="new">GM</target>
+        </trans-unit>
+        <trans-unit id="44d72301-a54f-41d4-9926-0700c7c0a526" xml:space="preserve">
+          <source>Gambia</source>
+          <target state="new">Gambia</target>
+        </trans-unit>
+        <trans-unit id="d9063833-f67f-47c0-9421-dfd9ae279263" xml:space="preserve">
+          <source>GE</source>
+          <target state="new">GE</target>
+        </trans-unit>
+        <trans-unit id="954d3d06-9652-4ba9-9fbd-2627da809c9a" xml:space="preserve">
+          <source>Georgia</source>
+          <target state="new">Georgia</target>
+        </trans-unit>
+        <trans-unit id="a669a1c2-dd6b-4a50-ad98-ae95f19ce075" xml:space="preserve">
+          <source>DE</source>
+          <target state="new">DE</target>
+        </trans-unit>
+        <trans-unit id="43a2e10e-a680-42ca-a7a8-6c11054262c6" xml:space="preserve">
+          <source>Germany</source>
+          <target state="new">Germany</target>
+        </trans-unit>
+        <trans-unit id="7851de1f-ed72-4aef-8ae6-5a2083107167" xml:space="preserve">
+          <source>GG</source>
+          <target state="new">GG</target>
+        </trans-unit>
+        <trans-unit id="b325ccd0-f0c9-4391-afda-05a55c392bac" xml:space="preserve">
+          <source>Guernsey</source>
+          <target state="new">Guernsey</target>
+        </trans-unit>
+        <trans-unit id="28597f67-5857-4b68-8c84-e25620428bd1" xml:space="preserve">
+          <source>GH</source>
+          <target state="new">GH</target>
+        </trans-unit>
+        <trans-unit id="50f1f027-df1a-4e81-aa9b-551b9895f73b" xml:space="preserve">
+          <source>Ghana</source>
+          <target state="new">Ghana</target>
+        </trans-unit>
+        <trans-unit id="48b964ad-2c6f-44bc-9c32-d9c0a569e1a2" xml:space="preserve">
+          <source>GI</source>
+          <target state="new">GI</target>
+        </trans-unit>
+        <trans-unit id="430e27ad-16c7-4333-aab8-e498f1a82b6f" xml:space="preserve">
+          <source>Gibraltar</source>
+          <target state="new">Gibraltar</target>
+        </trans-unit>
+        <trans-unit id="373e63dc-e135-4857-a894-c23fe74d22c4" xml:space="preserve">
+          <source>GR</source>
+          <target state="new">GR</target>
+        </trans-unit>
+        <trans-unit id="b55e4505-739a-4292-887c-330a8a7e75c3" xml:space="preserve">
+          <source>Greece</source>
+          <target state="new">Greece</target>
+        </trans-unit>
+        <trans-unit id="97f21304-91a9-420d-b2e0-475ec83dd58c" xml:space="preserve">
+          <source>GL</source>
+          <target state="new">GL</target>
+        </trans-unit>
+        <trans-unit id="7dfc230a-0b51-4c88-8e1a-ad2960d7e7fb" xml:space="preserve">
+          <source>Greenland</source>
+          <target state="new">Greenland</target>
+        </trans-unit>
+        <trans-unit id="5c2b85c0-d885-44dc-aefe-28240c62d738" xml:space="preserve">
+          <source>GD</source>
+          <target state="new">GD</target>
+        </trans-unit>
+        <trans-unit id="26d10dec-2dc1-4fca-b7bc-0e7d7aff94eb" xml:space="preserve">
+          <source>Grenada</source>
+          <target state="new">Grenada</target>
+        </trans-unit>
+        <trans-unit id="47f2ceb6-f0b9-48e3-9454-8a97228ac611" xml:space="preserve">
+          <source>GP</source>
+          <target state="new">GP</target>
+        </trans-unit>
+        <trans-unit id="248ce7e7-fda7-4cce-8590-aeccb234cee8" xml:space="preserve">
+          <source>Guadeloupe</source>
+          <target state="new">Guadeloupe</target>
+        </trans-unit>
+        <trans-unit id="8a757168-e229-4cce-b0b1-303884218b27" xml:space="preserve">
+          <source>GU</source>
+          <target state="new">GU</target>
+        </trans-unit>
+        <trans-unit id="905cd331-d45e-4f39-8b4e-19c4b5d333c1" xml:space="preserve">
+          <source>Guam</source>
+          <target state="new">Guam</target>
+        </trans-unit>
+        <trans-unit id="ba4b1633-de4a-4c4a-839f-1f4afc3b12d9" xml:space="preserve">
+          <source>GT</source>
+          <target state="new">GT</target>
+        </trans-unit>
+        <trans-unit id="e5a49108-7375-40b6-a3bd-cad022ca6a6f" xml:space="preserve">
+          <source>Guatemala</source>
+          <target state="new">Guatemala</target>
+        </trans-unit>
+        <trans-unit id="a14d54cb-15bc-4a7c-a327-ebdc12428140" xml:space="preserve">
+          <source>GN</source>
+          <target state="new">GN</target>
+        </trans-unit>
+        <trans-unit id="e0e2ae94-32bc-438a-81c8-c8f16cb4b0e0" xml:space="preserve">
+          <source>Guinea</source>
+          <target state="new">Guinea</target>
+        </trans-unit>
+        <trans-unit id="6ba4189b-56a5-472c-9ef7-5f951fb7f95b" xml:space="preserve">
+          <source>GW</source>
+          <target state="new">GW</target>
+        </trans-unit>
+        <trans-unit id="d356d964-d9d8-4db8-9744-6692f6109530" xml:space="preserve">
+          <source>Guinea-Bissau</source>
+          <target state="new">Guinea-Bissau</target>
+        </trans-unit>
+        <trans-unit id="a2f8ea8d-ee58-4f45-a370-055c215bd651" xml:space="preserve">
+          <source>GY</source>
+          <target state="new">GY</target>
+        </trans-unit>
+        <trans-unit id="468c6bb9-43db-4658-95cb-7921e2ef91d9" xml:space="preserve">
+          <source>Guyana</source>
+          <target state="new">Guyana</target>
+        </trans-unit>
+        <trans-unit id="bbc94e0c-9974-4e8f-a95a-dfcf57964f35" xml:space="preserve">
+          <source>HT</source>
+          <target state="new">HT</target>
+        </trans-unit>
+        <trans-unit id="1a691411-9935-403a-a48e-b9e4b84a1692" xml:space="preserve">
+          <source>Haiti</source>
+          <target state="new">Haiti</target>
+        </trans-unit>
+        <trans-unit id="b41aa906-836c-4e84-97c8-2597ce14fca2" xml:space="preserve">
+          <source>HM</source>
+          <target state="new">HM</target>
+        </trans-unit>
+        <trans-unit id="ac5b8f63-70c6-4026-958b-7506f6ae6620" xml:space="preserve">
+          <source>Heard Island and McDonald Islands</source>
+          <target state="new">Heard Island and McDonald Islands</target>
+        </trans-unit>
+        <trans-unit id="8f594298-ee35-4e1e-af72-6b9c48cedb38" xml:space="preserve">
+          <source>VA</source>
+          <target state="new">VA</target>
+        </trans-unit>
+        <trans-unit id="f6628210-b1d7-4af8-bb58-a53047b4a62e" xml:space="preserve">
+          <source>Holy See (Vatican City State)</source>
+          <target state="new">Holy See (Vatican City State)</target>
+        </trans-unit>
+        <trans-unit id="10b542f6-075b-41bd-b3c9-5088d1a7d931" xml:space="preserve">
+          <source>HN</source>
+          <target state="new">HN</target>
+        </trans-unit>
+        <trans-unit id="3afe5766-17c9-4209-923b-baa7eedf734d" xml:space="preserve">
+          <source>Honduras</source>
+          <target state="new">Honduras</target>
+        </trans-unit>
+        <trans-unit id="f6eff353-5452-4470-b53a-bf40e317a333" xml:space="preserve">
+          <source>HK</source>
+          <target state="new">HK</target>
+        </trans-unit>
+        <trans-unit id="1fe071dd-e482-4d33-a531-f69a06a2fb48" xml:space="preserve">
+          <source>Hong Kong</source>
+          <target state="new">Hong Kong</target>
+        </trans-unit>
+        <trans-unit id="f15b8875-fc6e-4f4a-88fb-fc337e498c73" xml:space="preserve">
+          <source>HU</source>
+          <target state="new">HU</target>
+        </trans-unit>
+        <trans-unit id="e9485c1b-4264-487c-91ee-a3bc2618ef04" xml:space="preserve">
+          <source>Hungary</source>
+          <target state="new">Hungary</target>
+        </trans-unit>
+        <trans-unit id="47a8a413-683e-4fe7-8fb1-d98822c9bd93" xml:space="preserve">
+          <source>IS</source>
+          <target state="new">IS</target>
+        </trans-unit>
+        <trans-unit id="3bb5706c-5306-4772-b8c3-282bf993c1b7" xml:space="preserve">
+          <source>Iceland</source>
+          <target state="new">Iceland</target>
+        </trans-unit>
+        <trans-unit id="be18473b-c590-4987-bd35-906c76ccd932" xml:space="preserve">
+          <source>IM</source>
+          <target state="new">IM</target>
+        </trans-unit>
+        <trans-unit id="05a1d38e-ad60-4737-b0e0-3239c58dc0f2" xml:space="preserve">
+          <source>Isle of Man</source>
+          <target state="new">Isle of Man</target>
+        </trans-unit>
+        <trans-unit id="6b983fe6-41fc-40fc-98a6-57a0aab2b66a" xml:space="preserve">
+          <source>IN</source>
+          <target state="new">IN</target>
+        </trans-unit>
+        <trans-unit id="1c388ce2-89b8-4b51-9f3d-921ece17564e" xml:space="preserve">
+          <source>India</source>
+          <target state="new">India</target>
+        </trans-unit>
+        <trans-unit id="cef4e0a4-6204-4f82-b742-b936cb78ffd7" xml:space="preserve">
+          <source>ID</source>
+          <target state="new">ID</target>
+        </trans-unit>
+        <trans-unit id="f2a98d4f-9076-4920-a300-f3aa740afefa" xml:space="preserve">
+          <source>Indonesia</source>
+          <target state="new">Indonesia</target>
+        </trans-unit>
+        <trans-unit id="003d3402-39ad-422e-a597-af38f33d4118" xml:space="preserve">
+          <source>IR</source>
+          <target state="new">IR</target>
+        </trans-unit>
+        <trans-unit id="e8ce1b5b-e6eb-4fb3-be10-ff37198e4a97" xml:space="preserve">
+          <source>Iran, Islamic Republic of</source>
+          <target state="new">Iran, Islamic Republic of</target>
+        </trans-unit>
+        <trans-unit id="881c091e-0931-48d1-acba-c9b69baf86df" xml:space="preserve">
+          <source>IQ</source>
+          <target state="new">IQ</target>
+        </trans-unit>
+        <trans-unit id="f3a6a84c-ec38-4eb5-b109-609bdf4fccdb" xml:space="preserve">
+          <source>Iraq</source>
+          <target state="new">Iraq</target>
+        </trans-unit>
+        <trans-unit id="49fe4543-3a54-4325-b868-dc24765cbdac" xml:space="preserve">
+          <source>IE</source>
+          <target state="new">IE</target>
+        </trans-unit>
+        <trans-unit id="e671b957-d10b-4ad2-a4ca-c4f74f599396" xml:space="preserve">
+          <source>Ireland</source>
+          <target state="new">Ireland</target>
+        </trans-unit>
+        <trans-unit id="f9dfa7b5-9c48-44da-b00d-abc338eee09b" xml:space="preserve">
+          <source>IL</source>
+          <target state="new">IL</target>
+        </trans-unit>
+        <trans-unit id="fbdc307f-6f74-4384-b3ac-5b9e87396253" xml:space="preserve">
+          <source>Israel</source>
+          <target state="new">Israel</target>
+        </trans-unit>
+        <trans-unit id="a0d950aa-6ba6-4148-9fac-accae0257796" xml:space="preserve">
+          <source>IT</source>
+          <target state="new">IT</target>
+        </trans-unit>
+        <trans-unit id="0924e53a-b72c-461f-99f3-54fb16088e86" xml:space="preserve">
+          <source>Italy</source>
+          <target state="new">Italy</target>
+        </trans-unit>
+        <trans-unit id="5c9ad902-90fe-4a5b-a1df-4d616dbe61cc" xml:space="preserve">
+          <source>JE</source>
+          <target state="new">JE</target>
+        </trans-unit>
+        <trans-unit id="7dddbc48-a49c-4330-9f1f-af438849ceea" xml:space="preserve">
+          <source>Jersey</source>
+          <target state="new">Jersey</target>
+        </trans-unit>
+        <trans-unit id="cf92b400-bb50-499a-9f79-8d7c2471f363" xml:space="preserve">
+          <source>JM</source>
+          <target state="new">JM</target>
+        </trans-unit>
+        <trans-unit id="725bd975-6584-4514-bb4f-fc5687d5da4a" xml:space="preserve">
+          <source>Jamaica</source>
+          <target state="new">Jamaica</target>
+        </trans-unit>
+        <trans-unit id="3fbe7cb9-1267-4e7e-b5f0-50f027ecbc15" xml:space="preserve">
+          <source>JP</source>
+          <target state="new">JP</target>
+        </trans-unit>
+        <trans-unit id="917ce958-3eb7-43c8-8370-036ba894f170" xml:space="preserve">
+          <source>Japan</source>
+          <target state="new">Japan</target>
+        </trans-unit>
+        <trans-unit id="42f99bbc-5dea-40db-a010-cc7ff9fd1003" xml:space="preserve">
+          <source>JO</source>
+          <target state="new">JO</target>
+        </trans-unit>
+        <trans-unit id="907d1912-1c18-4be2-9f29-1cd7a7171d1d" xml:space="preserve">
+          <source>Jordan</source>
+          <target state="new">Jordan</target>
+        </trans-unit>
+        <trans-unit id="faf40907-37d8-4523-a964-c3c531436048" xml:space="preserve">
+          <source>KZ</source>
+          <target state="new">KZ</target>
+        </trans-unit>
+        <trans-unit id="271c2f78-5f52-4500-a764-0cbacf9bc09b" xml:space="preserve">
+          <source>Kazakhstan</source>
+          <target state="new">Kazakhstan</target>
+        </trans-unit>
+        <trans-unit id="6501aa0c-1438-4756-bd93-ad2799d7cf27" xml:space="preserve">
+          <source>KE</source>
+          <target state="new">KE</target>
+        </trans-unit>
+        <trans-unit id="925578f0-ce0f-46ae-adf4-e4866d8f731e" xml:space="preserve">
+          <source>Kenya</source>
+          <target state="new">Kenya</target>
+        </trans-unit>
+        <trans-unit id="819ef123-5447-4de1-a2af-892f57d9ef80" xml:space="preserve">
+          <source>KI</source>
+          <target state="new">KI</target>
+        </trans-unit>
+        <trans-unit id="c54e1111-71cc-4f98-9742-5e691cc1c7c6" xml:space="preserve">
+          <source>Kiribati</source>
+          <target state="new">Kiribati</target>
+        </trans-unit>
+        <trans-unit id="93358423-9096-4695-9575-10c1142c746e" xml:space="preserve">
+          <source>KP</source>
+          <target state="new">KP</target>
+        </trans-unit>
+        <trans-unit id="aa8b0c41-ebe5-4a35-b299-7f204ac0a023" xml:space="preserve">
+          <source>Korea, Democratic People's Republic of</source>
+          <target state="new">Korea, Democratic People's Republic of</target>
+        </trans-unit>
+        <trans-unit id="6da333be-535b-4a43-82e3-6ab85da93d6a" xml:space="preserve">
+          <source>KR</source>
+          <target state="new">KR</target>
+        </trans-unit>
+        <trans-unit id="02a2d166-c788-4cdd-9bd1-a5015d964a99" xml:space="preserve">
+          <source>Korea, Republic of</source>
+          <target state="new">Korea, Republic of</target>
+        </trans-unit>
+        <trans-unit id="6550e87f-ffe9-4198-99e3-4240efcc39dd" xml:space="preserve">
+          <source>KW</source>
+          <target state="new">KW</target>
+        </trans-unit>
+        <trans-unit id="230f849d-20ef-4c78-81c6-ae31a8ce35ec" xml:space="preserve">
+          <source>Kuwait</source>
+          <target state="new">Kuwait</target>
+        </trans-unit>
+        <trans-unit id="4706db6d-0151-4180-8afd-6a045a0bbe77" xml:space="preserve">
+          <source>KG</source>
+          <target state="new">KG</target>
+        </trans-unit>
+        <trans-unit id="66962d06-31ba-4b62-a37b-ccada87cb940" xml:space="preserve">
+          <source>Kyrgyzstan</source>
+          <target state="new">Kyrgyzstan</target>
+        </trans-unit>
+        <trans-unit id="37da830b-aefc-42d2-b2d8-003be4baf4c9" xml:space="preserve">
+          <source>LA</source>
+          <target state="new">LA</target>
+        </trans-unit>
+        <trans-unit id="f574232c-6fe5-4661-936f-e47140a17f0b" xml:space="preserve">
+          <source>Lao People's Democratic Republic</source>
+          <target state="new">Lao People's Democratic Republic</target>
+        </trans-unit>
+        <trans-unit id="a8796286-b8d8-4290-babc-9567f25f9f59" xml:space="preserve">
+          <source>LV</source>
+          <target state="new">LV</target>
+        </trans-unit>
+        <trans-unit id="3f3b9b09-c6c1-4d34-9085-35079e6156e8" xml:space="preserve">
+          <source>Latvia</source>
+          <target state="new">Latvia</target>
+        </trans-unit>
+        <trans-unit id="6d75caa4-05d0-4d1a-8856-36f64c450c0c" xml:space="preserve">
+          <source>LB</source>
+          <target state="new">LB</target>
+        </trans-unit>
+        <trans-unit id="65eba1e4-e433-4137-a362-6ba1d1a537eb" xml:space="preserve">
+          <source>Lebanon</source>
+          <target state="new">Lebanon</target>
+        </trans-unit>
+        <trans-unit id="76fa5e5f-c5e5-4bc5-947d-7031d0ed66ed" xml:space="preserve">
+          <source>LS</source>
+          <target state="new">LS</target>
+        </trans-unit>
+        <trans-unit id="384edd8a-85db-497b-abc9-9425774539f4" xml:space="preserve">
+          <source>Lesotho</source>
+          <target state="new">Lesotho</target>
+        </trans-unit>
+        <trans-unit id="50535033-ebdf-4f4c-9b89-bb5b4aae2d4a" xml:space="preserve">
+          <source>LR</source>
+          <target state="new">LR</target>
+        </trans-unit>
+        <trans-unit id="c73ab4a3-bccf-4ef5-b9e4-d2c0be6d07dd" xml:space="preserve">
+          <source>Liberia</source>
+          <target state="new">Liberia</target>
+        </trans-unit>
+        <trans-unit id="76b74b71-bddc-42dd-a93d-a2aa5b239ee6" xml:space="preserve">
+          <source>LY</source>
+          <target state="new">LY</target>
+        </trans-unit>
+        <trans-unit id="f817dc1e-f375-4330-8d74-55df6bbe4d73" xml:space="preserve">
+          <source>Libyan Arab Jamahiriya</source>
+          <target state="new">Libyan Arab Jamahiriya</target>
+        </trans-unit>
+        <trans-unit id="d52fb760-3bc0-4ffd-89c6-26edaeb65ad0" xml:space="preserve">
+          <source>LI</source>
+          <target state="new">LI</target>
+        </trans-unit>
+        <trans-unit id="d1f3e5a0-fb9c-48a9-a737-bd07410e0bff" xml:space="preserve">
+          <source>Liechtenstein</source>
+          <target state="new">Liechtenstein</target>
+        </trans-unit>
+        <trans-unit id="db02d06f-63d4-45dc-bf72-a3e0ca1fec40" xml:space="preserve">
+          <source>LT</source>
+          <target state="new">LT</target>
+        </trans-unit>
+        <trans-unit id="c7a5db52-d6a6-4a4d-a1b7-cacbf0d1f95e" xml:space="preserve">
+          <source>Lithuania</source>
+          <target state="new">Lithuania</target>
+        </trans-unit>
+        <trans-unit id="08a46503-8243-4062-9ada-acf317df6889" xml:space="preserve">
+          <source>LU</source>
+          <target state="new">LU</target>
+        </trans-unit>
+        <trans-unit id="5fedcd15-4f5a-4e39-97fe-7b4884bad2c6" xml:space="preserve">
+          <source>Luxembourg</source>
+          <target state="new">Luxembourg</target>
+        </trans-unit>
+        <trans-unit id="0153844a-85b2-4ae8-bff4-79e869b5e019" xml:space="preserve">
+          <source>MO</source>
+          <target state="new">MO</target>
+        </trans-unit>
+        <trans-unit id="2d7b7639-a126-4659-aea3-15898884e0ac" xml:space="preserve">
+          <source>Macao</source>
+          <target state="new">Macao</target>
+        </trans-unit>
+        <trans-unit id="15372a3f-c5ab-4e2d-a7ac-53e4e5f30276" xml:space="preserve">
+          <source>MK</source>
+          <target state="new">MK</target>
+        </trans-unit>
+        <trans-unit id="d013a005-0cea-4f01-8daa-c44f6dd69b44" xml:space="preserve">
+          <source>Macedonia</source>
+          <target state="new">Macedonia</target>
+        </trans-unit>
+        <trans-unit id="11f9a528-3e99-4bac-a680-68e06876e4aa" xml:space="preserve">
+          <source>MG</source>
+          <target state="new">MG</target>
+        </trans-unit>
+        <trans-unit id="63cc4723-c966-4f62-815f-c48b2e3a207d" xml:space="preserve">
+          <source>Madagascar</source>
+          <target state="new">Madagascar</target>
+        </trans-unit>
+        <trans-unit id="c56d2db7-f1bc-4a04-bb6d-b7b48a1974b1" xml:space="preserve">
+          <source>MW</source>
+          <target state="new">MW</target>
+        </trans-unit>
+        <trans-unit id="8998a725-2d54-42cb-bfbb-e8467207919a" xml:space="preserve">
+          <source>Malawi</source>
+          <target state="new">Malawi</target>
+        </trans-unit>
+        <trans-unit id="e233c986-1c72-4089-a52a-081e65f14603" xml:space="preserve">
+          <source>MY</source>
+          <target state="new">MY</target>
+        </trans-unit>
+        <trans-unit id="f65b6862-596a-453d-a112-67a700902f13" xml:space="preserve">
+          <source>Malaysia</source>
+          <target state="new">Malaysia</target>
+        </trans-unit>
+        <trans-unit id="0e8c3dd1-4430-41a4-9cce-98037a879321" xml:space="preserve">
+          <source>MV</source>
+          <target state="new">MV</target>
+        </trans-unit>
+        <trans-unit id="3b75472e-20f1-4bb7-97f5-bf2c789a7902" xml:space="preserve">
+          <source>Maldives</source>
+          <target state="new">Maldives</target>
+        </trans-unit>
+        <trans-unit id="ff0ecd83-8784-4fc7-992d-fd7a936535c8" xml:space="preserve">
+          <source>ML</source>
+          <target state="new">ML</target>
+        </trans-unit>
+        <trans-unit id="3849a51b-0085-410c-80e5-4ac7bedd7858" xml:space="preserve">
+          <source>Mali</source>
+          <target state="new">Mali</target>
+        </trans-unit>
+        <trans-unit id="c9a8bf2d-7576-475b-a6dd-4329a3768820" xml:space="preserve">
+          <source>MT</source>
+          <target state="new">MT</target>
+        </trans-unit>
+        <trans-unit id="5ff57ef5-1e76-42fe-bf1b-c8d105323cd3" xml:space="preserve">
+          <source>Malta</source>
+          <target state="new">Malta</target>
+        </trans-unit>
+        <trans-unit id="3580d282-b0f8-4c20-a6ae-9d6e4732eb27" xml:space="preserve">
+          <source>MH</source>
+          <target state="new">MH</target>
+        </trans-unit>
+        <trans-unit id="700cd70e-3e35-4f84-83aa-9d921728504f" xml:space="preserve">
+          <source>Marshall Islands</source>
+          <target state="new">Marshall Islands</target>
+        </trans-unit>
+        <trans-unit id="1e188ef8-74e5-48fb-ba31-d901c38a9dab" xml:space="preserve">
+          <source>MQ</source>
+          <target state="new">MQ</target>
+        </trans-unit>
+        <trans-unit id="4996fe52-7f87-4b3c-b639-4ece5bfbc0cd" xml:space="preserve">
+          <source>Martinique</source>
+          <target state="new">Martinique</target>
+        </trans-unit>
+        <trans-unit id="75fc05af-29b1-45a5-aa6e-586675849582" xml:space="preserve">
+          <source>MR</source>
+          <target state="new">MR</target>
+        </trans-unit>
+        <trans-unit id="a605e042-9628-48ec-9e30-5b4574877170" xml:space="preserve">
+          <source>Mauritania</source>
+          <target state="new">Mauritania</target>
+        </trans-unit>
+        <trans-unit id="0cb42cf3-d9c0-4b33-9054-103b5735ec4c" xml:space="preserve">
+          <source>MU</source>
+          <target state="new">MU</target>
+        </trans-unit>
+        <trans-unit id="c25f8dfd-aaad-4f4a-ac8b-23e6d1c9a2a0" xml:space="preserve">
+          <source>Mauritius</source>
+          <target state="new">Mauritius</target>
+        </trans-unit>
+        <trans-unit id="8822f094-ffef-482e-8598-6b5bf7ced4f2" xml:space="preserve">
+          <source>YT</source>
+          <target state="new">YT</target>
+        </trans-unit>
+        <trans-unit id="37a520c9-02d7-430d-af06-f0327e96d38f" xml:space="preserve">
+          <source>Mayotte</source>
+          <target state="new">Mayotte</target>
+        </trans-unit>
+        <trans-unit id="a6fc0c2f-f69f-431b-845a-3a36719f51a7" xml:space="preserve">
+          <source>MX</source>
+          <target state="new">MX</target>
+        </trans-unit>
+        <trans-unit id="fc3c3e7b-6b75-427d-8e3a-e61f87889758" xml:space="preserve">
+          <source>Mexico</source>
+          <target state="new">Mexico</target>
+        </trans-unit>
+        <trans-unit id="b5b57119-5190-42fa-ac3d-ce9d535516d7" xml:space="preserve">
+          <source>FM</source>
+          <target state="new">FM</target>
+        </trans-unit>
+        <trans-unit id="7666d0c9-de78-4a7b-a42b-ae551fad3a0f" xml:space="preserve">
+          <source>Micronesia, Federated States of</source>
+          <target state="new">Micronesia, Federated States of</target>
+        </trans-unit>
+        <trans-unit id="44216d89-2556-4843-9c24-30195eada46e" xml:space="preserve">
+          <source>MD</source>
+          <target state="new">MD</target>
+        </trans-unit>
+        <trans-unit id="1d588dcf-57f6-440c-9669-a53d8fbb188b" xml:space="preserve">
+          <source>Moldova, Republic of</source>
+          <target state="new">Moldova, Republic of</target>
+        </trans-unit>
+        <trans-unit id="8e4ef942-5ae7-41ce-b040-24184f774817" xml:space="preserve">
+          <source>MC</source>
+          <target state="new">MC</target>
+        </trans-unit>
+        <trans-unit id="1d1bc693-c6f0-4d07-a575-914309a32f01" xml:space="preserve">
+          <source>Monaco</source>
+          <target state="new">Monaco</target>
+        </trans-unit>
+        <trans-unit id="544b7415-60a7-47bd-8ce6-f3e477d2f1ff" xml:space="preserve">
+          <source>MN</source>
+          <target state="new">MN</target>
+        </trans-unit>
+        <trans-unit id="ab4429dd-47bd-4789-8696-6e4e8b469f2e" xml:space="preserve">
+          <source>Mongolia</source>
+          <target state="new">Mongolia</target>
+        </trans-unit>
+        <trans-unit id="506c62c9-e39b-4c43-b82b-a5fb91dc8434" xml:space="preserve">
+          <source>ME</source>
+          <target state="new">ME</target>
+        </trans-unit>
+        <trans-unit id="b3748658-14ef-468a-bc2e-ed2f71473d1f" xml:space="preserve">
+          <source>Montenegro</source>
+          <target state="new">Montenegro</target>
+        </trans-unit>
+        <trans-unit id="4dfe7e32-8b86-4a70-a09e-1741d3cc7bb4" xml:space="preserve">
+          <source>MS</source>
+          <target state="new">MS</target>
+        </trans-unit>
+        <trans-unit id="a86a525b-2226-42fb-8955-c9e5fafb8f7a" xml:space="preserve">
+          <source>Montserrat</source>
+          <target state="new">Montserrat</target>
+        </trans-unit>
+        <trans-unit id="8478d300-97c6-497d-9b90-90cc572fe13e" xml:space="preserve">
+          <source>MA</source>
+          <target state="new">MA</target>
+        </trans-unit>
+        <trans-unit id="54cc5b1d-f807-4319-b4d9-a34e56b5ef33" xml:space="preserve">
+          <source>Morocco</source>
+          <target state="new">Morocco</target>
+        </trans-unit>
+        <trans-unit id="70d12b72-d62a-4528-b0a0-448bad61ad0b" xml:space="preserve">
+          <source>MZ</source>
+          <target state="new">MZ</target>
+        </trans-unit>
+        <trans-unit id="2bc4d22e-b486-4886-8e45-26f785ce5e7d" xml:space="preserve">
+          <source>Mozambique</source>
+          <target state="new">Mozambique</target>
+        </trans-unit>
+        <trans-unit id="5b829a77-9f6c-4477-bb4d-6aa22336d31a" xml:space="preserve">
+          <source>MM</source>
+          <target state="new">MM</target>
+        </trans-unit>
+        <trans-unit id="bd6f0740-91cd-4dd8-8ecb-ffada5407646" xml:space="preserve">
+          <source>Myanmar</source>
+          <target state="new">Myanmar</target>
+        </trans-unit>
+        <trans-unit id="a624aeff-d321-4e62-a306-8e517110ac7f" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="80255a17-63cb-463b-a5a2-a044082b571c" xml:space="preserve">
+          <source>Namibia</source>
+          <target state="new">Namibia</target>
+        </trans-unit>
+        <trans-unit id="6f91e800-2f66-40f1-bd17-bd9b15e2c903" xml:space="preserve">
+          <source>NR</source>
+          <target state="new">NR</target>
+        </trans-unit>
+        <trans-unit id="a327a645-67f6-4542-b81d-2338512830ac" xml:space="preserve">
+          <source>Nauru</source>
+          <target state="new">Nauru</target>
+        </trans-unit>
+        <trans-unit id="2135a697-1100-4e06-94b9-d7e6c44ebc2b" xml:space="preserve">
+          <source>NP</source>
+          <target state="new">NP</target>
+        </trans-unit>
+        <trans-unit id="b9b594cd-1bc2-4605-8826-ff8b561b7b07" xml:space="preserve">
+          <source>Nepal</source>
+          <target state="new">Nepal</target>
+        </trans-unit>
+        <trans-unit id="ce3211cb-5a24-4f53-baca-d334a9a7572d" xml:space="preserve">
+          <source>NL</source>
+          <target state="new">NL</target>
+        </trans-unit>
+        <trans-unit id="1193a4c2-d6ff-4a96-96a7-6c2c9a2aeb9e" xml:space="preserve">
+          <source>Netherlands</source>
+          <target state="new">Netherlands</target>
+        </trans-unit>
+        <trans-unit id="6ac00f67-512b-49eb-8212-b7fc6dc68df9" xml:space="preserve">
+          <source>AN</source>
+          <target state="new">AN</target>
+        </trans-unit>
+        <trans-unit id="ea3cee09-037c-48e4-bf31-cf7399841178" xml:space="preserve">
+          <source>Netherlands Antilles</source>
+          <target state="new">Netherlands Antilles</target>
+        </trans-unit>
+        <trans-unit id="0d6661f2-83a5-4455-a474-abf1cf2f847a" xml:space="preserve">
+          <source>NC</source>
+          <target state="new">NC</target>
+        </trans-unit>
+        <trans-unit id="2528825f-11b8-4fb5-9092-89c36c5e2b44" xml:space="preserve">
+          <source>New Caledonia</source>
+          <target state="new">New Caledonia</target>
+        </trans-unit>
+        <trans-unit id="685c9b3e-5932-46db-b78b-e198915134b3" xml:space="preserve">
+          <source>NZ</source>
+          <target state="new">NZ</target>
+        </trans-unit>
+        <trans-unit id="c05e7d22-0852-4d2c-89b8-d5e60448272e" xml:space="preserve">
+          <source>New Zealand</source>
+          <target state="new">New Zealand</target>
+        </trans-unit>
+        <trans-unit id="4b71552a-151f-4512-971f-78d0cc2ea2f8" xml:space="preserve">
+          <source>NI</source>
+          <target state="new">NI</target>
+        </trans-unit>
+        <trans-unit id="8fde10d6-ac9e-44c9-ada7-2e4465732a85" xml:space="preserve">
+          <source>Nicaragua</source>
+          <target state="new">Nicaragua</target>
+        </trans-unit>
+        <trans-unit id="afbeb6b0-b52f-4eec-b5ec-954d1481cdcb" xml:space="preserve">
+          <source>NE</source>
+          <target state="new">NE</target>
+        </trans-unit>
+        <trans-unit id="5b382109-b83a-497b-a465-5f6915fd6bae" xml:space="preserve">
+          <source>Niger</source>
+          <target state="new">Niger</target>
+        </trans-unit>
+        <trans-unit id="50dc959c-29ff-4abb-8aa4-b9f0a720565d" xml:space="preserve">
+          <source>NG</source>
+          <target state="new">NG</target>
+        </trans-unit>
+        <trans-unit id="d24e3dd7-3430-429b-9972-626642a919dd" xml:space="preserve">
+          <source>Nigeria</source>
+          <target state="new">Nigeria</target>
+        </trans-unit>
+        <trans-unit id="33648581-a1fd-42be-8a51-4c912327f9be" xml:space="preserve">
+          <source>NU</source>
+          <target state="new">NU</target>
+        </trans-unit>
+        <trans-unit id="98a2d640-bddc-42ee-93ea-e4c10dadaff6" xml:space="preserve">
+          <source>Niue</source>
+          <target state="new">Niue</target>
+        </trans-unit>
+        <trans-unit id="17b2ebbc-d020-4b55-9b52-eb39b7ae3230" xml:space="preserve">
+          <source>NF</source>
+          <target state="new">NF</target>
+        </trans-unit>
+        <trans-unit id="4fcb609b-40c8-4720-b32e-9fbc6c0cda07" xml:space="preserve">
+          <source>Norfolk Island</source>
+          <target state="new">Norfolk Island</target>
+        </trans-unit>
+        <trans-unit id="556a3e04-7ae6-433a-b87f-d39322f10f7c" xml:space="preserve">
+          <source>MP</source>
+          <target state="new">MP</target>
+        </trans-unit>
+        <trans-unit id="87e78d0b-ba5f-4802-9a51-8824f7ccf78a" xml:space="preserve">
+          <source>Northern Mariana Islands</source>
+          <target state="new">Northern Mariana Islands</target>
+        </trans-unit>
+        <trans-unit id="9a8a1ae8-2cf6-4b15-9fbe-777904c0f0b9" xml:space="preserve">
+          <source>NO</source>
+          <target state="new">NO</target>
+        </trans-unit>
+        <trans-unit id="31245049-ce34-4df5-8670-5dfddf5e3a25" xml:space="preserve">
+          <source>Norway</source>
+          <target state="new">Norway</target>
+        </trans-unit>
+        <trans-unit id="4a552bb2-4a6a-40d3-b9ec-95a0433f67df" xml:space="preserve">
+          <source>OM</source>
+          <target state="new">OM</target>
+        </trans-unit>
+        <trans-unit id="b1b73d9d-161c-4064-8f82-badb995be12a" xml:space="preserve">
+          <source>Oman</source>
+          <target state="new">Oman</target>
+        </trans-unit>
+        <trans-unit id="5ba38913-e587-4c7f-902e-69de40899733" xml:space="preserve">
+          <source>PK</source>
+          <target state="new">PK</target>
+        </trans-unit>
+        <trans-unit id="7b6957b4-c5fe-4378-9ac8-f09d2cbd6ae9" xml:space="preserve">
+          <source>Pakistan</source>
+          <target state="new">Pakistan</target>
+        </trans-unit>
+        <trans-unit id="59bcf43f-9486-49a6-acf5-53628867f225" xml:space="preserve">
+          <source>PW</source>
+          <target state="new">PW</target>
+        </trans-unit>
+        <trans-unit id="f720b509-7822-4180-9edc-c59c19fe9c3d" xml:space="preserve">
+          <source>Palau</source>
+          <target state="new">Palau</target>
+        </trans-unit>
+        <trans-unit id="cacdef43-477d-4c0f-8f3c-b6ca02f93a2c" xml:space="preserve">
+          <source>PS</source>
+          <target state="new">PS</target>
+        </trans-unit>
+        <trans-unit id="ba26800b-78d8-4dd9-8838-b75b2f681749" xml:space="preserve">
+          <source>Palestinian Territory</source>
+          <target state="new">Palestinian Territory</target>
+        </trans-unit>
+        <trans-unit id="6f08591f-122c-4ec5-b9d0-474a1b232ccf" xml:space="preserve">
+          <source>PA</source>
+          <target state="new">PA</target>
+        </trans-unit>
+        <trans-unit id="759f6ca5-b1cb-42d1-baca-5d1c94534ca5" xml:space="preserve">
+          <source>Panama</source>
+          <target state="new">Panama</target>
+        </trans-unit>
+        <trans-unit id="183ec287-72d5-4dcf-84d1-2f90040eb4e6" xml:space="preserve">
+          <source>PG</source>
+          <target state="new">PG</target>
+        </trans-unit>
+        <trans-unit id="25ca8f3b-4f56-487f-aebc-f665a0f4ea9c" xml:space="preserve">
+          <source>Papua New Guinea</source>
+          <target state="new">Papua New Guinea</target>
+        </trans-unit>
+        <trans-unit id="a6e6e66c-270f-43f9-975c-72b081bc3b92" xml:space="preserve">
+          <source>PY</source>
+          <target state="new">PY</target>
+        </trans-unit>
+        <trans-unit id="d7d6ecf7-97d1-44eb-bc80-92da3c4566b3" xml:space="preserve">
+          <source>Paraguay</source>
+          <target state="new">Paraguay</target>
+        </trans-unit>
+        <trans-unit id="5b42447e-187c-4106-b169-10a3855f6308" xml:space="preserve">
+          <source>PE</source>
+          <target state="new">PE</target>
+        </trans-unit>
+        <trans-unit id="a8b1ed34-c44b-4662-8647-f37aef4239a3" xml:space="preserve">
+          <source>Peru</source>
+          <target state="new">Peru</target>
+        </trans-unit>
+        <trans-unit id="77391879-6d36-4d84-b0f2-aa65e6eb7323" xml:space="preserve">
+          <source>PH</source>
+          <target state="new">PH</target>
+        </trans-unit>
+        <trans-unit id="04564d44-d85c-4f07-899e-b0febb31fd0d" xml:space="preserve">
+          <source>Philippines</source>
+          <target state="new">Philippines</target>
+        </trans-unit>
+        <trans-unit id="3436a3b4-b58d-4ce8-a3ed-fe0275a7f2b0" xml:space="preserve">
+          <source>PL</source>
+          <target state="new">PL</target>
+        </trans-unit>
+        <trans-unit id="a87ece39-d21f-4b0c-96fe-a289d35ba95a" xml:space="preserve">
+          <source>Poland</source>
+          <target state="new">Poland</target>
+        </trans-unit>
+        <trans-unit id="24c55601-3b6d-4b46-ace8-9c6d633b1303" xml:space="preserve">
+          <source>PT</source>
+          <target state="new">PT</target>
+        </trans-unit>
+        <trans-unit id="bc1ed962-5b86-4b7e-8acf-742b88b94ce7" xml:space="preserve">
+          <source>Portugal</source>
+          <target state="new">Portugal</target>
+        </trans-unit>
+        <trans-unit id="3b7c1880-3e0c-4f66-b89a-8f0bf0fe40a5" xml:space="preserve">
+          <source>PR</source>
+          <target state="new">PR</target>
+        </trans-unit>
+        <trans-unit id="68ed8ed2-131c-40d4-aef6-26745f2c909f" xml:space="preserve">
+          <source>Puerto Rico</source>
+          <target state="new">Puerto Rico</target>
+        </trans-unit>
+        <trans-unit id="7ef56510-2456-49ef-a30b-092ab602a707" xml:space="preserve">
+          <source>QA</source>
+          <target state="new">QA</target>
+        </trans-unit>
+        <trans-unit id="1e6790e7-6bdc-4865-9c40-8ead735613bf" xml:space="preserve">
+          <source>Qatar</source>
+          <target state="new">Qatar</target>
+        </trans-unit>
+        <trans-unit id="97f574b1-8aa8-4883-8ac1-becc6efa164c" xml:space="preserve">
+          <source>RE</source>
+          <target state="new">RE</target>
+        </trans-unit>
+        <trans-unit id="9699cc28-bc51-4f9c-bbd8-732ac8dae8f2" xml:space="preserve">
+          <source>Reunion</source>
+          <target state="new">Reunion</target>
+        </trans-unit>
+        <trans-unit id="59585b10-8c3d-4de8-ae56-266673a0f94f" xml:space="preserve">
+          <source>RO</source>
+          <target state="new">RO</target>
+        </trans-unit>
+        <trans-unit id="44c70c74-2b48-485b-9447-8d45fd2a019d" xml:space="preserve">
+          <source>Romania</source>
+          <target state="new">Romania</target>
+        </trans-unit>
+        <trans-unit id="af18f0a1-39b8-488e-ab3a-f58f588ef79c" xml:space="preserve">
+          <source>RU</source>
+          <target state="new">RU</target>
+        </trans-unit>
+        <trans-unit id="804a71b1-e1a6-432c-8b7e-c2c067ad94b4" xml:space="preserve">
+          <source>Russian Federation</source>
+          <target state="new">Russian Federation</target>
+        </trans-unit>
+        <trans-unit id="8a3c64c5-976c-4376-9d8d-f3f373b7eaa6" xml:space="preserve">
+          <source>RW</source>
+          <target state="new">RW</target>
+        </trans-unit>
+        <trans-unit id="f37e9c8b-8a3c-4208-b49c-ed9dea131769" xml:space="preserve">
+          <source>Rwanda</source>
+          <target state="new">Rwanda</target>
+        </trans-unit>
+        <trans-unit id="b571cf1a-23ff-443f-aad7-0f82043ae05a" xml:space="preserve">
+          <source>SH</source>
+          <target state="new">SH</target>
+        </trans-unit>
+        <trans-unit id="beccce4a-04f3-49ed-9223-9156ac09f968" xml:space="preserve">
+          <source>Saint Helena</source>
+          <target state="new">Saint Helena</target>
+        </trans-unit>
+        <trans-unit id="fe4eacbd-709b-4c05-8b63-e6602413ca0d" xml:space="preserve">
+          <source>KN</source>
+          <target state="new">KN</target>
+        </trans-unit>
+        <trans-unit id="8cda52cc-c227-49eb-90f6-7865a3427a2f" xml:space="preserve">
+          <source>Saint Kitts and Nevis</source>
+          <target state="new">Saint Kitts and Nevis</target>
+        </trans-unit>
+        <trans-unit id="c25b1f9e-ce59-4f4e-b81a-816873c682ea" xml:space="preserve">
+          <source>LC</source>
+          <target state="new">LC</target>
+        </trans-unit>
+        <trans-unit id="92f7bc05-e1dc-4748-9ab7-508cad5ecb03" xml:space="preserve">
+          <source>Saint Lucia</source>
+          <target state="new">Saint Lucia</target>
+        </trans-unit>
+        <trans-unit id="d6a1c344-65a7-4ea5-ba56-94ca372f5c03" xml:space="preserve">
+          <source>PM</source>
+          <target state="new">PM</target>
+        </trans-unit>
+        <trans-unit id="7b9f59a9-3920-4a66-9060-4dc3442a7604" xml:space="preserve">
+          <source>Saint Pierre and Miquelon</source>
+          <target state="new">Saint Pierre and Miquelon</target>
+        </trans-unit>
+        <trans-unit id="cecb757e-69f2-4e98-8005-e62190e0016a" xml:space="preserve">
+          <source>VC</source>
+          <target state="new">VC</target>
+        </trans-unit>
+        <trans-unit id="e40ce749-4f54-4ae3-8f6d-c3dd25c2dcf3" xml:space="preserve">
+          <source>Saint Vincent and the Grenadines</source>
+          <target state="new">Saint Vincent and the Grenadines</target>
+        </trans-unit>
+        <trans-unit id="66a75379-19fe-4650-b709-f599414a4bfa" xml:space="preserve">
+          <source>WS</source>
+          <target state="new">WS</target>
+        </trans-unit>
+        <trans-unit id="0e17696d-396b-4dbc-8e61-6679d44fb90a" xml:space="preserve">
+          <source>Samoa</source>
+          <target state="new">Samoa</target>
+        </trans-unit>
+        <trans-unit id="253955c2-7c81-40a7-a7bb-e54eb3d02e04" xml:space="preserve">
+          <source>SM</source>
+          <target state="new">SM</target>
+        </trans-unit>
+        <trans-unit id="7ed28772-5567-409a-b88e-8c84f31b25e2" xml:space="preserve">
+          <source>San Marino</source>
+          <target state="new">San Marino</target>
+        </trans-unit>
+        <trans-unit id="5c89040f-d44b-4baf-ac95-5557d8291d97" xml:space="preserve">
+          <source>ST</source>
+          <target state="new">ST</target>
+        </trans-unit>
+        <trans-unit id="d9f8b7fa-5b8d-40dd-8514-4ced63b3370c" xml:space="preserve">
+          <source>Sao Tome and Principe</source>
+          <target state="new">Sao Tome and Principe</target>
+        </trans-unit>
+        <trans-unit id="2a15e08c-23cd-4f5a-8c01-35981c3af3dd" xml:space="preserve">
+          <source>SA</source>
+          <target state="new">SA</target>
+        </trans-unit>
+        <trans-unit id="6d76821c-0c6f-40e2-94c3-939c17584e5a" xml:space="preserve">
+          <source>Saudi Arabia</source>
+          <target state="new">Saudi Arabia</target>
+        </trans-unit>
+        <trans-unit id="47f9d688-b01e-4c9e-b701-cb27b1296d7f" xml:space="preserve">
+          <source>SN</source>
+          <target state="new">SN</target>
+        </trans-unit>
+        <trans-unit id="79db9f81-e649-4a3e-a65b-772ca95d08cc" xml:space="preserve">
+          <source>Senegal</source>
+          <target state="new">Senegal</target>
+        </trans-unit>
+        <trans-unit id="b71884c5-13cf-4c62-ab03-aa8d426d36f7" xml:space="preserve">
+          <source>RS</source>
+          <target state="new">RS</target>
+        </trans-unit>
+        <trans-unit id="edb23d31-1c52-4120-a8fd-74ab015dcc2b" xml:space="preserve">
+          <source>Serbia</source>
+          <target state="new">Serbia</target>
+        </trans-unit>
+        <trans-unit id="9a3b5792-f64a-48ee-a1e1-9becb1b029cb" xml:space="preserve">
+          <source>SC</source>
+          <target state="new">SC</target>
+        </trans-unit>
+        <trans-unit id="2ca9cea6-86d2-45ff-b186-cb45b8388424" xml:space="preserve">
+          <source>Seychelles</source>
+          <target state="new">Seychelles</target>
+        </trans-unit>
+        <trans-unit id="abd7f8b9-ce44-4b14-a7c4-2998fe68e364" xml:space="preserve">
+          <source>SL</source>
+          <target state="new">SL</target>
+        </trans-unit>
+        <trans-unit id="8da1c42c-3f98-4fa1-9d2b-99587c37d4f9" xml:space="preserve">
+          <source>Sierra Leone</source>
+          <target state="new">Sierra Leone</target>
+        </trans-unit>
+        <trans-unit id="6e3e4736-7f1b-45b4-a5e2-56f3fa23088c" xml:space="preserve">
+          <source>SG</source>
+          <target state="new">SG</target>
+        </trans-unit>
+        <trans-unit id="edb2fe31-5503-4a37-b395-05c4818f5d0b" xml:space="preserve">
+          <source>Singapore</source>
+          <target state="new">Singapore</target>
+        </trans-unit>
+        <trans-unit id="c074fd57-d967-4293-9679-de6e8ccac0af" xml:space="preserve">
+          <source>SK</source>
+          <target state="new">SK</target>
+        </trans-unit>
+        <trans-unit id="3c93aa3d-0a11-4847-929b-3598acd27dfb" xml:space="preserve">
+          <source>Slovakia</source>
+          <target state="new">Slovakia</target>
+        </trans-unit>
+        <trans-unit id="83a23f5a-59f6-427d-8ca7-2f6bf6fed577" xml:space="preserve">
+          <source>SI</source>
+          <target state="new">SI</target>
+        </trans-unit>
+        <trans-unit id="49f6d78a-07bb-4f00-ae93-6dc6698bf399" xml:space="preserve">
+          <source>Slovenia</source>
+          <target state="new">Slovenia</target>
+        </trans-unit>
+        <trans-unit id="3a9d06b3-e219-40e4-880a-b3da39b318b4" xml:space="preserve">
+          <source>SB</source>
+          <target state="new">SB</target>
+        </trans-unit>
+        <trans-unit id="6d231096-c9a4-44ae-af3f-6bb242fe6cca" xml:space="preserve">
+          <source>Solomon Islands</source>
+          <target state="new">Solomon Islands</target>
+        </trans-unit>
+        <trans-unit id="bd4890e6-2efe-4c81-b777-56c199e57683" xml:space="preserve">
+          <source>SO</source>
+          <target state="new">SO</target>
+        </trans-unit>
+        <trans-unit id="03b3fe38-d930-4592-9c0b-cb8b7317351a" xml:space="preserve">
+          <source>Somalia</source>
+          <target state="new">Somalia</target>
+        </trans-unit>
+        <trans-unit id="e14fcd02-c4a2-420d-8f0e-0494abc9cdfa" xml:space="preserve">
+          <source>ZA</source>
+          <target state="new">ZA</target>
+        </trans-unit>
+        <trans-unit id="2cf35fff-44e8-4b05-b6ec-8d3e5a9f9daf" xml:space="preserve">
+          <source>South Africa</source>
+          <target state="new">South Africa</target>
+        </trans-unit>
+        <trans-unit id="6e361f11-4e19-4479-b395-d82f4cd4fd36" xml:space="preserve">
+          <source>GS</source>
+          <target state="new">GS</target>
+        </trans-unit>
+        <trans-unit id="fd45c9c7-f1ba-478f-ad6d-fd2878519a75" xml:space="preserve">
+          <source>South Georgia and the South Sandwich Islands</source>
+          <target state="new">South Georgia and the South Sandwich Islands</target>
+        </trans-unit>
+        <trans-unit id="903a4c19-950f-4704-bcf3-cadecee6cc2e" xml:space="preserve">
+          <source>ES</source>
+          <target state="new">ES</target>
+        </trans-unit>
+        <trans-unit id="ab4949e8-8b04-483a-93c2-e607830eb9a7" xml:space="preserve">
+          <source>Spain</source>
+          <target state="new">Spain</target>
+        </trans-unit>
+        <trans-unit id="849bf1a4-2061-44e8-bdb0-17c30944ddce" xml:space="preserve">
+          <source>LK</source>
+          <target state="new">LK</target>
+        </trans-unit>
+        <trans-unit id="54ccd281-1940-4065-9f18-9dba466a361e" xml:space="preserve">
+          <source>Sri Lanka</source>
+          <target state="new">Sri Lanka</target>
+        </trans-unit>
+        <trans-unit id="748dae43-860f-43d7-828b-676cfc97b080" xml:space="preserve">
+          <source>SD</source>
+          <target state="new">SD</target>
+        </trans-unit>
+        <trans-unit id="c0fe1f7c-705b-4c27-9577-c39417164425" xml:space="preserve">
+          <source>Sudan</source>
+          <target state="new">Sudan</target>
+        </trans-unit>
+        <trans-unit id="7bf1f313-4b18-493e-963d-5b2f883fd6fc" xml:space="preserve">
+          <source>SR</source>
+          <target state="new">SR</target>
+        </trans-unit>
+        <trans-unit id="788faf63-5818-4a03-9f20-6dadc867751b" xml:space="preserve">
+          <source>Suriname</source>
+          <target state="new">Suriname</target>
+        </trans-unit>
+        <trans-unit id="8b015b5d-5cd3-4a82-9fc2-63642e37f1ce" xml:space="preserve">
+          <source>SJ</source>
+          <target state="new">SJ</target>
+        </trans-unit>
+        <trans-unit id="54fe64e6-b080-4716-95c3-b5a90fee91ec" xml:space="preserve">
+          <source>Svalbard and Jan Mayen</source>
+          <target state="new">Svalbard and Jan Mayen</target>
+        </trans-unit>
+        <trans-unit id="c4834bde-010b-4ede-bfa2-e3c6b7917972" xml:space="preserve">
+          <source>SZ</source>
+          <target state="new">SZ</target>
+        </trans-unit>
+        <trans-unit id="d82b92ff-2dd8-4bc4-836f-ac2f4ceecc44" xml:space="preserve">
+          <source>Swaziland</source>
+          <target state="new">Swaziland</target>
+        </trans-unit>
+        <trans-unit id="8453a306-aaf2-4e5a-a90f-2bb1de9a2a3a" xml:space="preserve">
+          <source>SE</source>
+          <target state="new">SE</target>
+        </trans-unit>
+        <trans-unit id="63e4c0a5-5e3e-4629-baf4-fc5bbc3deccb" xml:space="preserve">
+          <source>Sweden</source>
+          <target state="new">Sweden</target>
+        </trans-unit>
+        <trans-unit id="64aac389-ef4e-4d2b-9413-46b4f27f11ac" xml:space="preserve">
+          <source>CH</source>
+          <target state="new">CH</target>
+        </trans-unit>
+        <trans-unit id="58bf2a5f-8291-4df3-8f3a-ed487e99f023" xml:space="preserve">
+          <source>Switzerland</source>
+          <target state="new">Switzerland</target>
+        </trans-unit>
+        <trans-unit id="a76daa8f-5ec3-40ba-9d35-f79d97549043" xml:space="preserve">
+          <source>SY</source>
+          <target state="new">SY</target>
+        </trans-unit>
+        <trans-unit id="dbee50c2-7ae6-42ec-b1d7-3bb4861152a3" xml:space="preserve">
+          <source>Syrian Arab Republic</source>
+          <target state="new">Syrian Arab Republic</target>
+        </trans-unit>
+        <trans-unit id="07ba8ffb-73c4-4f3f-9fdc-6bbfa09e222e" xml:space="preserve">
+          <source>TW</source>
+          <target state="new">TW</target>
+        </trans-unit>
+        <trans-unit id="c3ee441d-fae9-4717-a37c-0bd948d9a1a6" xml:space="preserve">
+          <source>Taiwan</source>
+          <target state="new">Taiwan</target>
+        </trans-unit>
+        <trans-unit id="450dbd7d-4dad-48be-86b4-fbf92f32f3d6" xml:space="preserve">
+          <source>TJ</source>
+          <target state="new">TJ</target>
+        </trans-unit>
+        <trans-unit id="a62e0f5e-18be-4d33-a860-04cacf341659" xml:space="preserve">
+          <source>Tajikistan</source>
+          <target state="new">Tajikistan</target>
+        </trans-unit>
+        <trans-unit id="fb717735-1a4a-4caa-abf9-606169320404" xml:space="preserve">
+          <source>TZ</source>
+          <target state="new">TZ</target>
+        </trans-unit>
+        <trans-unit id="eeb8b54f-2a83-401f-ae3c-15ab87a8e6c2" xml:space="preserve">
+          <source>Tanzania, United Republic of</source>
+          <target state="new">Tanzania, United Republic of</target>
+        </trans-unit>
+        <trans-unit id="380354cb-6382-4c81-8221-da61ad0dca1e" xml:space="preserve">
+          <source>TH</source>
+          <target state="new">TH</target>
+        </trans-unit>
+        <trans-unit id="46679d71-8588-409d-9932-1216e2847acd" xml:space="preserve">
+          <source>Thailand</source>
+          <target state="new">Thailand</target>
+        </trans-unit>
+        <trans-unit id="0a6959c7-6e7a-4593-9353-b0b1279493ac" xml:space="preserve">
+          <source>TG</source>
+          <target state="new">TG</target>
+        </trans-unit>
+        <trans-unit id="261c3218-6412-428f-b891-014a5fb46f29" xml:space="preserve">
+          <source>Togo</source>
+          <target state="new">Togo</target>
+        </trans-unit>
+        <trans-unit id="fae8c741-1388-4835-aa82-22224fc18ba8" xml:space="preserve">
+          <source>TK</source>
+          <target state="new">TK</target>
+        </trans-unit>
+        <trans-unit id="cf79678d-ce46-47bf-9633-45019effce85" xml:space="preserve">
+          <source>Tokelau</source>
+          <target state="new">Tokelau</target>
+        </trans-unit>
+        <trans-unit id="03fe0572-ad8a-49ab-9bd8-566bb7aa506d" xml:space="preserve">
+          <source>TO</source>
+          <target state="new">TO</target>
+        </trans-unit>
+        <trans-unit id="dcd91414-d570-4b14-ab04-c238711b988f" xml:space="preserve">
+          <source>Tonga</source>
+          <target state="new">Tonga</target>
+        </trans-unit>
+        <trans-unit id="0effefc1-e158-4da8-a09c-c6e677c1d9be" xml:space="preserve">
+          <source>TT</source>
+          <target state="new">TT</target>
+        </trans-unit>
+        <trans-unit id="1e4496c7-e8e0-4bf3-bcc9-a57f1c7369f6" xml:space="preserve">
+          <source>Trinidad and Tobago</source>
+          <target state="new">Trinidad and Tobago</target>
+        </trans-unit>
+        <trans-unit id="8534396e-6fdd-45bf-b991-108627ad1502" xml:space="preserve">
+          <source>TN</source>
+          <target state="new">TN</target>
+        </trans-unit>
+        <trans-unit id="e7725d39-6641-4974-9ac5-0421f42a983e" xml:space="preserve">
+          <source>Tunisia</source>
+          <target state="new">Tunisia</target>
+        </trans-unit>
+        <trans-unit id="5a7ee2cb-236b-4041-add3-497f2600cd92" xml:space="preserve">
+          <source>TR</source>
+          <target state="new">TR</target>
+        </trans-unit>
+        <trans-unit id="5fb2b08e-9bda-4546-94f8-ba4e11a551a3" xml:space="preserve">
+          <source>Turkey</source>
+          <target state="new">Turkey</target>
+        </trans-unit>
+        <trans-unit id="5ec8a86c-0126-40cd-be71-b0fff03c6a6d" xml:space="preserve">
+          <source>TM</source>
+          <target state="new">TM</target>
+        </trans-unit>
+        <trans-unit id="e6da6e75-81f3-42a6-b54f-b1c5100ac7e3" xml:space="preserve">
+          <source>Turkmenistan</source>
+          <target state="new">Turkmenistan</target>
+        </trans-unit>
+        <trans-unit id="17a97fbb-c6ef-4548-9202-c9082da657c7" xml:space="preserve">
+          <source>TC</source>
+          <target state="new">TC</target>
+        </trans-unit>
+        <trans-unit id="96461167-12b7-4ea0-86c2-4d4bb33dec7d" xml:space="preserve">
+          <source>Turks and Caicos Islands</source>
+          <target state="new">Turks and Caicos Islands</target>
+        </trans-unit>
+        <trans-unit id="4f86b527-ce53-4124-9b11-85cacfa8decf" xml:space="preserve">
+          <source>TV</source>
+          <target state="new">TV</target>
+        </trans-unit>
+        <trans-unit id="46022ed4-f3ac-48c3-bbe8-12e29abd2ab3" xml:space="preserve">
+          <source>Tuvalu</source>
+          <target state="new">Tuvalu</target>
+        </trans-unit>
+        <trans-unit id="7ec4b5be-a505-483d-aa77-77dd4481f94e" xml:space="preserve">
+          <source>UG</source>
+          <target state="new">UG</target>
+        </trans-unit>
+        <trans-unit id="e32a0d71-f033-4648-860b-33bfcd53053b" xml:space="preserve">
+          <source>Uganda</source>
+          <target state="new">Uganda</target>
+        </trans-unit>
+        <trans-unit id="6a9ba9b0-813b-45c1-9fd3-051ea0f58a2e" xml:space="preserve">
+          <source>UA</source>
+          <target state="new">UA</target>
+        </trans-unit>
+        <trans-unit id="c0e7ed2a-264a-4e11-a188-e9354a95492d" xml:space="preserve">
+          <source>Ukraine</source>
+          <target state="new">Ukraine</target>
+        </trans-unit>
+        <trans-unit id="89308df6-0f88-483c-97a5-9ab8d89d1c86" xml:space="preserve">
+          <source>AE</source>
+          <target state="new">AE</target>
+        </trans-unit>
+        <trans-unit id="85152247-60ed-4fb6-9784-05f9c459d29d" xml:space="preserve">
+          <source>United Arab Emirates</source>
+          <target state="new">United Arab Emirates</target>
+        </trans-unit>
+        <trans-unit id="826d651f-4326-4f49-83e8-55b525013d7c" xml:space="preserve">
+          <source>GB</source>
+          <target state="new">GB</target>
+        </trans-unit>
+        <trans-unit id="346b67b5-fd64-4de4-855e-83bdde47a5dd" xml:space="preserve">
+          <source>United Kingdom</source>
+          <target state="new">United Kingdom</target>
+        </trans-unit>
+        <trans-unit id="54be6e5d-2b06-4612-af63-811a810432c4" xml:space="preserve">
+          <source>US</source>
+          <target state="new">US</target>
+        </trans-unit>
+        <trans-unit id="4bea1f99-65dd-40d0-8b2a-fc764901c7f2" xml:space="preserve">
+          <source>United States</source>
+          <target state="new">United States</target>
+        </trans-unit>
+        <trans-unit id="8eabf825-4676-488d-8bbb-20343d8393ce" xml:space="preserve">
+          <source>UM</source>
+          <target state="new">UM</target>
+        </trans-unit>
+        <trans-unit id="a8b232dc-8609-4d3d-a2f7-84d48861e763" xml:space="preserve">
+          <source>United States Minor Outlying Islands</source>
+          <target state="new">United States Minor Outlying Islands</target>
+        </trans-unit>
+        <trans-unit id="4f7f4d42-de14-4316-ac24-ab76d950f8b7" xml:space="preserve">
+          <source>UY</source>
+          <target state="new">UY</target>
+        </trans-unit>
+        <trans-unit id="6f1244bf-cb36-4de9-a141-53e54238a254" xml:space="preserve">
+          <source>Uruguay</source>
+          <target state="new">Uruguay</target>
+        </trans-unit>
+        <trans-unit id="ccb6d13b-0176-4c8e-8fbb-fe4cdb491bb8" xml:space="preserve">
+          <source>UZ</source>
+          <target state="new">UZ</target>
+        </trans-unit>
+        <trans-unit id="2079cf6e-b4ec-4f00-8462-86500482e189" xml:space="preserve">
+          <source>Uzbekistan</source>
+          <target state="new">Uzbekistan</target>
+        </trans-unit>
+        <trans-unit id="8578fb9b-10df-481d-b5d2-41fc100f5e87" xml:space="preserve">
+          <source>VU</source>
+          <target state="new">VU</target>
+        </trans-unit>
+        <trans-unit id="36e7a67c-33cf-4297-b7d3-3544218b1d39" xml:space="preserve">
+          <source>Vanuatu</source>
+          <target state="new">Vanuatu</target>
+        </trans-unit>
+        <trans-unit id="87463852-49e4-4e2c-bd45-5a8878eef73f" xml:space="preserve">
+          <source>VE</source>
+          <target state="new">VE</target>
+        </trans-unit>
+        <trans-unit id="2601c096-3214-4856-897f-916c38fb4e03" xml:space="preserve">
+          <source>Venezuela</source>
+          <target state="new">Venezuela</target>
+        </trans-unit>
+        <trans-unit id="331b7374-38fb-40ac-a1d5-e79a182cf07c" xml:space="preserve">
+          <source>VN</source>
+          <target state="new">VN</target>
+        </trans-unit>
+        <trans-unit id="7108bf85-05f6-420a-b6fe-3da3982af594" xml:space="preserve">
+          <source>Vietnam</source>
+          <target state="new">Vietnam</target>
+        </trans-unit>
+        <trans-unit id="43675799-b5f6-4671-85e3-8c327f42d73b" xml:space="preserve">
+          <source>VG</source>
+          <target state="new">VG</target>
+        </trans-unit>
+        <trans-unit id="50df83ab-29ea-436a-a47c-f1f39af010bb" xml:space="preserve">
+          <source>Virgin Islands, British</source>
+          <target state="new">Virgin Islands, British</target>
+        </trans-unit>
+        <trans-unit id="72aa9d66-f924-4bd1-abba-133427f2dd2c" xml:space="preserve">
+          <source>VI</source>
+          <target state="new">VI</target>
+        </trans-unit>
+        <trans-unit id="68abaf6f-dd18-4c1d-b668-daa6459dcba3" xml:space="preserve">
+          <source>Virgin Islands, U.S.</source>
+          <target state="new">Virgin Islands, U.S.</target>
+        </trans-unit>
+        <trans-unit id="cd5d0ecb-019c-41d0-8e81-440db3de87eb" xml:space="preserve">
+          <source>WF</source>
+          <target state="new">WF</target>
+        </trans-unit>
+        <trans-unit id="944a37ce-ad18-477e-92f2-d33f7a10edc2" xml:space="preserve">
+          <source>Wallis and Futuna</source>
+          <target state="new">Wallis and Futuna</target>
+        </trans-unit>
+        <trans-unit id="98ba22f9-86ec-4118-9a47-6ed9f1cc97d9" xml:space="preserve">
+          <source>EH</source>
+          <target state="new">EH</target>
+        </trans-unit>
+        <trans-unit id="4c478b49-d03e-4ce8-bf3d-d65b654bfdee" xml:space="preserve">
+          <source>Western Sahara</source>
+          <target state="new">Western Sahara</target>
+        </trans-unit>
+        <trans-unit id="41425095-7826-4f3c-b374-70752f2e444f" xml:space="preserve">
+          <source>YE</source>
+          <target state="new">YE</target>
+        </trans-unit>
+        <trans-unit id="829b6b22-a810-4e3e-a815-e6f8906c67d7" xml:space="preserve">
+          <source>Yemen</source>
+          <target state="new">Yemen</target>
+        </trans-unit>
+        <trans-unit id="7c9c8ae8-e74d-4d49-a21b-5840776bce76" xml:space="preserve">
+          <source>ZM</source>
+          <target state="new">ZM</target>
+        </trans-unit>
+        <trans-unit id="6a28b012-e7d1-4323-91d6-bb40c9830a44" xml:space="preserve">
+          <source>Zambia</source>
+          <target state="new">Zambia</target>
+        </trans-unit>
+        <trans-unit id="5d9f7869-c169-4145-8f48-1e3f9a9ab0c2" xml:space="preserve">
+          <source>ZW</source>
+          <target state="new">ZW</target>
+        </trans-unit>
+        <trans-unit id="a7717365-6897-4920-a9b8-40498919b5d3" xml:space="preserve">
+          <source>Zimbabwe</source>
+          <target state="new">Zimbabwe</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

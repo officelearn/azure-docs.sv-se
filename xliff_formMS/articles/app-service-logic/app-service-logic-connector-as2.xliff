@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bf23809d-9b80-49c8-9235-ec8fec147043" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bf23809d-9b80-49c8-9235-ec8fec147043" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9ad7599c-b90c-46e4-a5b5-047fc427afd5">
+        <trans-unit id="07b79b2d-a8eb-4a75-bdf4-657cb2764c1c" xml:space="preserve">
+          <source>Using the AS2 Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the AS2 Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="692e84c1-3769-4609-bd4e-39b7116f53b1" xml:space="preserve">
+          <source>How to create and configure the AS2 connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the AS2 connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="1ccdef46-a104-424f-b55f-a5f2ba119f8a" xml:space="preserve">
+          <source>Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications.</source>
+          <target state="new">Use the AS2 Connector to receive and send messages over the AS2 (Applicability Statement 2) transport protocol in business-to-business communications.</target>
+        </trans-unit>
+        <trans-unit id="be0007f4-3e1c-4c69-bf24-6072f18740d5" xml:space="preserve">
+          <source>Data is transported securely and reliably over the Internet.</source>
+          <target state="new">Data is transported securely and reliably over the Internet.</target>
+        </trans-unit>
+        <trans-unit id="a7d42be0-861f-403d-b587-786632c1d52f" xml:space="preserve">
+          <source>Security is achieved using digital certificates and encryption.</source>
+          <target state="new">Security is achieved using digital certificates and encryption.</target>
+        </trans-unit>
+        <trans-unit id="c61495ff-2dac-423c-854a-62d58e73194d" xml:space="preserve">
+          <source>You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App.</source>
+          <target state="new">You can add the AS2 Connecto to your business workflow and process data as part of a business-to-business workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="73d4f158-75fa-4f8e-adf3-d9de47a4bcec" xml:space="preserve">
+          <source>A Trigger starts a new instance based on a specific event, like the arrival of an AS2 message from a partner.</source>
+          <target state="new">A Trigger starts a new instance based on a specific event, like the arrival of an AS2 message from a partner.</target>
+        </trans-unit>
+        <trans-unit id="0d7e052b-3345-4fdf-91fc-b4f423e346eb" xml:space="preserve">
+          <source>An Action is the result, like after receiving an AS2 message, then send the message using AS2.</source>
+          <target state="new">An Action is the result, like after receiving an AS2 message, then send the message using AS2.</target>
+        </trans-unit>
+        <trans-unit id="f6fe2b2a-3b25-4d57-a215-bfaf45a2b767" xml:space="preserve">
+          <source>The AS2 Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats.</source>
+          <target state="new">The AS2 Connector can be used as a trigger or an action in a logic app and supports data in JSON and XML formats.</target>
+        </trans-unit>
+        <trans-unit id="5eda3eb7-e99e-4f35-a700-b788702644ac" xml:space="preserve">
+          <source>The AS2 Connector has the following Triggers and Actions available:</source>
+          <target state="new">The AS2 Connector has the following Triggers and Actions available:</target>
+        </trans-unit>
+        <trans-unit id="723c9e48-2bfe-4865-b842-005af1d60215" xml:space="preserve">
+          <source>Triggers</source>
+          <target state="new">Triggers</target>
+        </trans-unit>
+        <trans-unit id="6bd321c1-d318-4d1d-b4c9-ece34bffec98" xml:space="preserve">
+          <source>Actions</source>
+          <target state="new">Actions</target>
+        </trans-unit>
+        <trans-unit id="95711063-18ec-458f-9b50-44cef215ee2f" xml:space="preserve">
+          <source>Receive &amp; Decode</source>
+          <target state="new">Receive &amp; Decode</target>
+        </trans-unit>
+        <trans-unit id="83f04a9d-ecb3-4061-ba31-dd3143dfe58b" xml:space="preserve">
+          <source>Encode &amp; Send</source>
+          <target state="new">Encode &amp; Send</target>
+        </trans-unit>
+        <trans-unit id="bfa7370e-3c1c-4855-a9ef-0243e93789cb" xml:space="preserve">
+          <source>The following items must be created by you before they can be used by the AS2 connector:</source>
+          <target state="new">The following items must be created by you before they can be used by the AS2 connector:</target>
+        </trans-unit>
+        <trans-unit id="3ab9c0ed-6135-4fb6-85d7-9c00f155925b" xml:space="preserve">
+          <source>Requirement</source>
+          <target state="new">Requirement</target>
+        </trans-unit>
+        <trans-unit id="adbb0397-bc4b-459d-a59e-043a52e62601" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="5ab59d19-53c0-4c43-8450-f214d53b54cc" xml:space="preserve">
+          <source>TPM API App</source>
+          <target state="new">TPM API App</target>
+        </trans-unit>
+        <trans-unit id="92ee435d-f452-44f8-959f-f06d6e6ec140" xml:space="preserve">
+          <source>Before creating an AS2 connector, you have to create a <bpt id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;linkText&gt;</bpt>BizTalk Trading Partner Management Connector[1]<ept id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;/linkText&gt;</ept><bpt id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;title&gt;</bpt><ept id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before creating an AS2 connector, you have to create a <bpt id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;linkText&gt;</bpt>BizTalk Trading Partner Management Connector[1]<ept id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;/linkText&gt;</ept><bpt id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;title&gt;</bpt><ept id="2552f049-fea3-47f9-8232-bd49a4eab249">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cfc49c9-8804-429b-9498-182bfd62ca2e" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="f0a3bcc7-f8a5-4b23-8f8b-b4755a5f5014">&lt;strong&gt;</bpt>Note<ept id="f0a3bcc7-f8a5-4b23-8f8b-b4755a5f5014">&lt;/strong&gt;</ept> Know the name of your TPM API App.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="f0a3bcc7-f8a5-4b23-8f8b-b4755a5f5014">&lt;strong&gt;</bpt>Note<ept id="f0a3bcc7-f8a5-4b23-8f8b-b4755a5f5014">&lt;/strong&gt;</ept> Know the name of your TPM API App.</target>
+        </trans-unit>
+        <trans-unit id="0f2f8ab9-4563-449f-97ec-59b85645f707" xml:space="preserve">
+          <source>Azure SQL Database</source>
+          <target state="new">Azure SQL Database</target>
+        </trans-unit>
+        <trans-unit id="635582db-a921-4113-980b-80c3cb8421bd" xml:space="preserve">
+          <source>Stores B2B items including partners, schemas, certificates, and agreeements.</source>
+          <target state="new">Stores B2B items including partners, schemas, certificates, and agreeements.</target>
+        </trans-unit>
+        <trans-unit id="8937257f-fef7-4370-9355-2a85ca97d53b" xml:space="preserve">
+          <source>Each of the B2B API Apps requires its own Azure SQL Database.</source>
+          <target state="new">Each of the B2B API Apps requires its own Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="3d518b26-01fe-425e-99f9-bd1a939581e7" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="393b0d4d-88a3-4b0b-b14c-ca2b2ed65576">&lt;strong&gt;</bpt>Note<ept id="393b0d4d-88a3-4b0b-b14c-ca2b2ed65576">&lt;/strong&gt;</ept> Copy the connection string to this database.&lt;br/&gt;&lt;br/&gt;<bpt id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;linkText&gt;</bpt>Create an Azure SQL Database<ept id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;/linkText&gt;</ept><bpt id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;title&gt;</bpt><ept id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;/title&gt;</ept></source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="393b0d4d-88a3-4b0b-b14c-ca2b2ed65576">&lt;strong&gt;</bpt>Note<ept id="393b0d4d-88a3-4b0b-b14c-ca2b2ed65576">&lt;/strong&gt;</ept> Copy the connection string to this database.&lt;br/&gt;&lt;br/&gt;<bpt id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;linkText&gt;</bpt>Create an Azure SQL Database<ept id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;/linkText&gt;</ept><bpt id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;title&gt;</bpt><ept id="e41a94d5-289e-4987-8573-14fe7bd8c647">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53a6e883-5354-4495-bcbb-ff01d3b4c38b" xml:space="preserve">
+          <source>Azure Blob Storage container</source>
+          <target state="new">Azure Blob Storage container</target>
+        </trans-unit>
+        <trans-unit id="0a8c94a6-b9ef-4866-9f0e-99aa895d7381" xml:space="preserve">
+          <source>Stores message properties when AS2 archiving is enabled.</source>
+          <target state="new">Stores message properties when AS2 archiving is enabled.</target>
+        </trans-unit>
+        <trans-unit id="9a77179a-b6ec-46b3-9ab4-4f3345a48832" xml:space="preserve">
+          <source>If you don't need AS2 message archiving, a Storage container is not needed.</source>
+          <target state="new">If you don't need AS2 message archiving, a Storage container is not needed.</target>
+        </trans-unit>
+        <trans-unit id="5d718d65-f80d-421c-bfb2-3a1aa47b821c" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;<bpt id="2f0255a3-1813-453e-9385-6592c2efbe0c">&lt;strong&gt;</bpt>Note<ept id="2f0255a3-1813-453e-9385-6592c2efbe0c">&lt;/strong&gt;</ept> If you are enabling archiving, copy the connection string to this Blob Storage.&lt;br/&gt;&lt;br/&gt;<bpt id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;/linkText&gt;</ept><bpt id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;title&gt;</bpt><ept id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;/title&gt;</ept>.</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;<bpt id="2f0255a3-1813-453e-9385-6592c2efbe0c">&lt;strong&gt;</bpt>Note<ept id="2f0255a3-1813-453e-9385-6592c2efbe0c">&lt;/strong&gt;</ept> If you are enabling archiving, copy the connection string to this Blob Storage.&lt;br/&gt;&lt;br/&gt;<bpt id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;/linkText&gt;</ept><bpt id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;title&gt;</bpt><ept id="659c77f7-d5aa-4b8e-b261-c4fad86216eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42a5a23d-5de7-4c61-bd23-4649dce3aa32" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="73c53659-80f8-4f4f-897f-e1b0cfc632a2" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="98618ce6-ddff-4736-b0b0-f130c577ec76" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="e35c8e9c-bf79-4d46-b9cc-1292f7bfb9f6">&lt;strong&gt;</bpt>Marketplace<ept id="e35c8e9c-bf79-4d46-b9cc-1292f7bfb9f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="e35c8e9c-bf79-4d46-b9cc-1292f7bfb9f6">&lt;strong&gt;</bpt>Marketplace<ept id="e35c8e9c-bf79-4d46-b9cc-1292f7bfb9f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db5103f7-fbae-465b-98dc-b50cff5c9b96" xml:space="preserve">
+          <source>Search for “AS2 Connector”, select it, and select <bpt id="62264f2b-871e-4973-8677-10bf271f7abd">&lt;strong&gt;</bpt>Create<ept id="62264f2b-871e-4973-8677-10bf271f7abd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “AS2 Connector”, select it, and select <bpt id="62264f2b-871e-4973-8677-10bf271f7abd">&lt;strong&gt;</bpt>Create<ept id="62264f2b-871e-4973-8677-10bf271f7abd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56b92fd2-c42b-40d7-b773-e29e21a659b0" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties.</source>
+          <target state="new">Enter the Name, App Service Plan, and other properties.</target>
+        </trans-unit>
+        <trans-unit id="4027c21e-aebf-4032-aaa6-56a8e33ff83c" xml:space="preserve">
+          <source>Enter the following package settings:</source>
+          <target state="new">Enter the following package settings:</target>
+        </trans-unit>
+        <trans-unit id="cc999168-310b-4a9a-b0cd-d06e9131bc97" xml:space="preserve">
+          <source>Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</source>
+          <target state="new">Property | Description
+--- | --- 
+Database Connection String | Enter the ADO.NET connection string to the Azure SQL Database you created.</target>
+        </trans-unit>
+        <trans-unit id="4fb90cdc-5452-45be-871b-545bd62ffc21" xml:space="preserve">
+          <source>When you copy the connection string, the password is not added to the connection string.</source>
+          <target state="new">When you copy the connection string, the password is not added to the connection string.</target>
+        </trans-unit>
+        <trans-unit id="3d0897fb-e68f-44e1-8379-70c5a4ad7888" xml:space="preserve">
+          <source>Be sure to enter the password in the connection string before you paste.</source>
+          <target state="new">Be sure to enter the password in the connection string before you paste.</target>
+        </trans-unit>
+        <trans-unit id="24abd227-26d1-4e1d-a586-8a8c01c3f290" xml:space="preserve">
+          <source>Enable Archiving for incoming messages | Optional.</source>
+          <target state="new">Enable Archiving for incoming messages | Optional.</target>
+        </trans-unit>
+        <trans-unit id="f8251d28-ab34-465b-8728-277212050113" xml:space="preserve">
+          <source>Enable this property to store the message properties of an incoming AS2 message received from a partner.</source>
+          <target state="new">Enable this property to store the message properties of an incoming AS2 message received from a partner.</target>
+        </trans-unit>
+        <trans-unit id="f52e3461-3a11-41c9-88ba-6d24c24ae613" xml:space="preserve">
+          <source>Azure Blob Storage Connection String  | Enter the connection string to the Azure Blob Storage container you created.</source>
+          <target state="new">Azure Blob Storage Connection String  | Enter the connection string to the Azure Blob Storage container you created.</target>
+        </trans-unit>
+        <trans-unit id="17a165bf-1b0d-40f5-a5ce-df85962efb21" xml:space="preserve">
+          <source>When Archiving is enabled, the encoded and decoded messages are stored in this Storage container.</source>
+          <target state="new">When Archiving is enabled, the encoded and decoded messages are stored in this Storage container.</target>
+        </trans-unit>
+        <trans-unit id="82a44bac-1a28-4016-8422-ae3a31b6e67f" xml:space="preserve">
+          <source>TPM Instance Name | Enter the name of the <bpt id="c8d7f2b1-d596-4dac-80f2-4d64833d3088">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="c8d7f2b1-d596-4dac-80f2-4d64833d3088">&lt;/strong&gt;</ept> API App you previously created.</source>
+          <target state="new">TPM Instance Name | Enter the name of the <bpt id="c8d7f2b1-d596-4dac-80f2-4d64833d3088">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="c8d7f2b1-d596-4dac-80f2-4d64833d3088">&lt;/strong&gt;</ept> API App you previously created.</target>
+        </trans-unit>
+        <trans-unit id="7965429c-505c-4f18-a737-4536ee7d85ba" xml:space="preserve">
+          <source>When you create the AS2 connector, this connector executes only the AS2 agreements within this specific TPM instance.</source>
+          <target state="new">When you create the AS2 connector, this connector executes only the AS2 agreements within this specific TPM instance.</target>
+        </trans-unit>
+        <trans-unit id="37dc5afb-3b83-42b0-97d2-8df766a63bfc" xml:space="preserve">
+          <source>Select <bpt id="e5ca1a79-bfda-4138-9d98-e2cab81f1902">&lt;strong&gt;</bpt>Create<ept id="e5ca1a79-bfda-4138-9d98-e2cab81f1902">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e5ca1a79-bfda-4138-9d98-e2cab81f1902">&lt;strong&gt;</bpt>Create<ept id="e5ca1a79-bfda-4138-9d98-e2cab81f1902">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4610df73-5a2e-48a2-80ee-5c34346761c1" xml:space="preserve">
+          <source>Trading partners are the entities involved in B2B (Business-to-Business) communications.</source>
+          <target state="new">Trading partners are the entities involved in B2B (Business-to-Business) communications.</target>
+        </trans-unit>
+        <trans-unit id="f5eae6d9-ca21-42a3-91dd-763192a1f1a0" xml:space="preserve">
+          <source>When two partners establish a relationship, this is referred to as an Agreement.</source>
+          <target state="new">When two partners establish a relationship, this is referred to as an Agreement.</target>
+        </trans-unit>
+        <trans-unit id="edfe0bf2-d456-494f-a817-8c11d0deb18c" xml:space="preserve">
+          <source>The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</source>
+          <target state="new">The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.</target>
+        </trans-unit>
+        <trans-unit id="cca47757-7660-4098-8b1a-f3534a6d6d00" xml:space="preserve">
+          <source>Steps involved in creating a trading partner agreement are documented <bpt id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;linkText&gt;</bpt>here[2]<ept id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;/linkText&gt;</ept><bpt id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;title&gt;</bpt><ept id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;/title&gt;</ept>.</source>
+          <target state="new">Steps involved in creating a trading partner agreement are documented <bpt id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;linkText&gt;</bpt>here[2]<ept id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;/linkText&gt;</ept><bpt id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;title&gt;</bpt><ept id="e743ca19-7330-48a2-aab2-b32ec024ee79">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2621a8c4-7a30-44b2-8326-1cd409924151" xml:space="preserve">
+          <source>When creating or editing a logic app, select the AS2 Connector you created from the right pane:  
+<bpt id="644c30ab-de92-4fcf-b85a-1378b66266c8">&lt;linkText&gt;</bpt>Trigger settings<ept id="644c30ab-de92-4fcf-b85a-1378b66266c8">&lt;/linkText&gt;</ept></source>
+          <target state="new">When creating or editing a logic app, select the AS2 Connector you created from the right pane:  
+<bpt id="644c30ab-de92-4fcf-b85a-1378b66266c8">&lt;linkText&gt;</bpt>Trigger settings<ept id="644c30ab-de92-4fcf-b85a-1378b66266c8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="701a96f3-99cf-42fe-b4c0-bf1c7c83693a" xml:space="preserve">
+          <source>Click the right arrow →:  
+<bpt id="72442df0-06a4-4081-8cbc-bd0755c01a7e">&lt;linkText&gt;</bpt>Trigger options<ept id="72442df0-06a4-4081-8cbc-bd0755c01a7e">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click the right arrow →:  
+<bpt id="72442df0-06a4-4081-8cbc-bd0755c01a7e">&lt;linkText&gt;</bpt>Trigger options<ept id="72442df0-06a4-4081-8cbc-bd0755c01a7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de6b2545-2003-4070-a768-b4945fb73e08" xml:space="preserve">
+          <source>The AS2 Connector exposes a single trigger. Select <bpt id="1ba79787-ad07-4756-9219-7b1ce13395ec">&lt;em&gt;</bpt>Receive &amp; Decode<ept id="1ba79787-ad07-4756-9219-7b1ce13395ec">&lt;/em&gt;</ept>:  
+<bpt id="4c897a51-605b-4580-9865-a3d80831c88d">&lt;linkText&gt;</bpt>Receive and decode input<ept id="4c897a51-605b-4580-9865-a3d80831c88d">&lt;/linkText&gt;</ept></source>
+          <target state="new">The AS2 Connector exposes a single trigger. Select <bpt id="1ba79787-ad07-4756-9219-7b1ce13395ec">&lt;em&gt;</bpt>Receive &amp; Decode<ept id="1ba79787-ad07-4756-9219-7b1ce13395ec">&lt;/em&gt;</ept>:  
+<bpt id="4c897a51-605b-4580-9865-a3d80831c88d">&lt;linkText&gt;</bpt>Receive and decode input<ept id="4c897a51-605b-4580-9865-a3d80831c88d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d482881c-400b-4393-93f8-f624e732aa09" xml:space="preserve">
+          <source>This trigger has no inputs.</source>
+          <target state="new">This trigger has no inputs.</target>
+        </trans-unit>
+        <trans-unit id="c2ee9744-ab75-4d9a-b04e-3b134ac95271" xml:space="preserve">
+          <source>Click the right arrow →:  
+<bpt id="25982231-1676-4e57-b404-47752358e3bd">&lt;linkText&gt;</bpt>Receive and decode configured<ept id="25982231-1676-4e57-b404-47752358e3bd">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click the right arrow →:  
+<bpt id="25982231-1676-4e57-b404-47752358e3bd">&lt;linkText&gt;</bpt>Receive and decode configured<ept id="25982231-1676-4e57-b404-47752358e3bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75246a04-abf8-4a37-b2b1-2139d217de47" xml:space="preserve">
+          <source>As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.</source>
+          <target state="new">As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.</target>
+        </trans-unit>
+        <trans-unit id="a6c7177c-e483-4732-9ac2-557f0a6f3d52" xml:space="preserve">
+          <source>The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/decode.</source>
+          <target state="new">The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/decode.</target>
+        </trans-unit>
+        <trans-unit id="8bf28f67-8793-420f-bb5e-1d040c8a69c8" xml:space="preserve">
+          <source>You can find the Host URL in the API App settings.</source>
+          <target state="new">You can find the Host URL in the API App settings.</target>
+        </trans-unit>
+        <trans-unit id="50363f9d-fcdd-4ffd-bb26-4602e4888c9c" xml:space="preserve">
+          <source>You may also need to change the Access Level of the API App in Application Settings to Public (authenticated or anonymous).</source>
+          <target state="new">You may also need to change the Access Level of the API App in Application Settings to Public (authenticated or anonymous).</target>
+        </trans-unit>
+        <trans-unit id="a0b5fe8f-70bf-42ad-ae17-d9c4b57c9426" xml:space="preserve">
+          <source>After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:  
+<bpt id="d565c07f-9f1c-4471-804f-01482ee96008">&lt;linkText&gt;</bpt>Action settings<ept id="d565c07f-9f1c-4471-804f-01482ee96008">&lt;/linkText&gt;</ept></source>
+          <target state="new">After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:  
+<bpt id="d565c07f-9f1c-4471-804f-01482ee96008">&lt;linkText&gt;</bpt>Action settings<ept id="d565c07f-9f1c-4471-804f-01482ee96008">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d13dc6df-20d6-4c13-b33f-0df3069f2367" xml:space="preserve">
+          <source>Click the right arrow →:  
+<bpt id="d0e06b90-5a4e-45e4-9145-3bd502e78726">&lt;linkText&gt;</bpt>List of Actions<ept id="d0e06b90-5a4e-45e4-9145-3bd502e78726">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click the right arrow →:  
+<bpt id="d0e06b90-5a4e-45e4-9145-3bd502e78726">&lt;linkText&gt;</bpt>List of Actions<ept id="d0e06b90-5a4e-45e4-9145-3bd502e78726">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97f18aa1-f6cf-44ac-9dc1-082fdfdec7f3" xml:space="preserve">
+          <source>The AS2 connector supports only one action.</source>
+          <target state="new">The AS2 connector supports only one action.</target>
+        </trans-unit>
+        <trans-unit id="260cafc3-8525-4026-8430-75ee6f5fab4c" xml:space="preserve">
+          <source>Select <bpt id="0a8ef267-3c85-4211-bb18-497ad49387ed">&lt;em&gt;</bpt>Encode and Send<ept id="0a8ef267-3c85-4211-bb18-497ad49387ed">&lt;/em&gt;</ept>:  
+<bpt id="39733e8d-6ed8-4c42-9818-9bdea66c0f83">&lt;linkText&gt;</bpt>Encode and send input<ept id="39733e8d-6ed8-4c42-9818-9bdea66c0f83">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select <bpt id="0a8ef267-3c85-4211-bb18-497ad49387ed">&lt;em&gt;</bpt>Encode and Send<ept id="0a8ef267-3c85-4211-bb18-497ad49387ed">&lt;/em&gt;</ept>:  
+<bpt id="39733e8d-6ed8-4c42-9818-9bdea66c0f83">&lt;linkText&gt;</bpt>Encode and send input<ept id="39733e8d-6ed8-4c42-9818-9bdea66c0f83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be219363-7579-4a39-8854-97223c294665" xml:space="preserve">
+          <source>Enter the inputs for the action and configure it:  
+<bpt id="d008b0c3-416d-4d4c-bceb-653a68735520">&lt;linkText&gt;</bpt>Encode and send configured<ept id="d008b0c3-416d-4d4c-bceb-653a68735520">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the inputs for the action and configure it:  
+<bpt id="d008b0c3-416d-4d4c-bceb-653a68735520">&lt;linkText&gt;</bpt>Encode and send configured<ept id="d008b0c3-416d-4d4c-bceb-653a68735520">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1474248-199f-4c20-aeb1-2a0242b44f2a" xml:space="preserve">
+          <source>Parameters include: </source>
+          <target state="new">Parameters include: </target>
+        </trans-unit>
+        <trans-unit id="f285712a-33dd-4cbf-9d8b-e66876a9038b" xml:space="preserve">
+          <source>Parameter | Type | Description
+--- | --- | ---
+Payload | object| The content of the payload to encode and post to the configured end point.</source>
+          <target state="new">Parameter | Type | Description
+--- | --- | ---
+Payload | object| The content of the payload to encode and post to the configured end point.</target>
+        </trans-unit>
+        <trans-unit id="45f97139-e05b-4354-95e9-6075b8c1fc36" xml:space="preserve">
+          <source>The payload needs to be provided as a JSON Object.</source>
+          <target state="new">The payload needs to be provided as a JSON Object.</target>
+        </trans-unit>
+        <trans-unit id="9af0fef0-d91f-4aeb-a778-7cb35b846eac" xml:space="preserve">
+          <source>AS2 From | string | The AS2 identity of the sender of the AS2 message.</source>
+          <target state="new">AS2 From | string | The AS2 identity of the sender of the AS2 message.</target>
+        </trans-unit>
+        <trans-unit id="d83bf431-70b8-4d05-a358-130b6592b801" xml:space="preserve">
+          <source>This parameter is used to lookup the appropriate agreement for sending the message.</source>
+          <target state="new">This parameter is used to lookup the appropriate agreement for sending the message.</target>
+        </trans-unit>
+        <trans-unit id="b1f1a9fb-4f04-424e-b242-04554aecb4c9" xml:space="preserve">
+          <source>AS2 To | string | The AS2 identity of the receiver of the AS2 message.</source>
+          <target state="new">AS2 To | string | The AS2 identity of the receiver of the AS2 message.</target>
+        </trans-unit>
+        <trans-unit id="d61a1766-57c9-4984-9904-37dd0585c668" xml:space="preserve">
+          <source>This parameter is used to lookup the appropriate agreement for sending the message.</source>
+          <target state="new">This parameter is used to lookup the appropriate agreement for sending the message.</target>
+        </trans-unit>
+        <trans-unit id="e97d6a7c-1a37-4ff5-b4b3-ecfb98e79ec4" xml:space="preserve">
+          <source>Partner URL | string | The end point of the partner to which the message needs to be sent.</source>
+          <target state="new">Partner URL | string | The end point of the partner to which the message needs to be sent.</target>
+        </trans-unit>
+        <trans-unit id="1ebec131-4a61-46a0-b04a-81a83f972d21" xml:space="preserve">
+          <source>Enable Archiving | boolean | Determines if the outbound message should be archived.</source>
+          <target state="new">Enable Archiving | boolean | Determines if the outbound message should be archived.</target>
+        </trans-unit>
+        <trans-unit id="438210f2-542e-4049-ac0c-f57c34d72092" xml:space="preserve">
+          <source>The action returns a HTTP 200 response code on successful completion.</source>
+          <target state="new">The action returns a HTTP 200 response code on successful completion.</target>
+        </trans-unit>
+        <trans-unit id="349cc7bb-09e1-40a6-bf5a-a21e7f28755f" xml:space="preserve">
+          <source>More on logic apps at <bpt id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;/linkText&gt;</ept><bpt id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;title&gt;</bpt><ept id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;/title&gt;</ept>.</source>
+          <target state="new">More on logic apps at <bpt id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;/linkText&gt;</ept><bpt id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;title&gt;</bpt><ept id="7ef54a2a-2a7b-4cbb-be86-f5745d417b45">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45195d21-0c71-4b5c-8fbb-a6f92a0ebb59" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;/linkText&gt;</ept><bpt id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;title&gt;</bpt><ept id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;/linkText&gt;</ept><bpt id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;title&gt;</bpt><ept id="69442b95-ff76-409b-a187-c68d2ad41510">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7209cdbb-5452-4480-93ac-d3cd255f50ef" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="2af6f874-ce4c-4ee3-a1f3-2ae214647af0" xml:space="preserve">
+          <source>See <bpt id="19afce8d-f49f-4f46-8104-c29573223446">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="19afce8d-f49f-4f46-8104-c29573223446">&lt;/linkText&gt;</ept><bpt id="19afce8d-f49f-4f46-8104-c29573223446">&lt;title&gt;</bpt><ept id="19afce8d-f49f-4f46-8104-c29573223446">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="19afce8d-f49f-4f46-8104-c29573223446">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="19afce8d-f49f-4f46-8104-c29573223446">&lt;/linkText&gt;</ept><bpt id="19afce8d-f49f-4f46-8104-c29573223446">&lt;title&gt;</bpt><ept id="19afce8d-f49f-4f46-8104-c29573223446">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80f34add-3eab-4f33-885b-9ff2aa16544a" xml:space="preserve">
+          <source>app-service-logic-connector-tpm.md</source>
+          <target state="new">app-service-logic-connector-tpm.md</target>
+        </trans-unit>
+        <trans-unit id="810014c9-c329-4b23-9366-b9bf6b6373e8" xml:space="preserve">
+          <source>app-service-logic-create-a-trading-partner-agreement.md</source>
+          <target state="new">app-service-logic-create-a-trading-partner-agreement.md</target>
+        </trans-unit>
+        <trans-unit id="5f600d29-5388-4dcf-b0cb-2cfe548e24d1" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/TriggerSettings.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/TriggerSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="645d258e-ed4f-47e8-8956-ddfa28d9b445" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/TriggerOptions.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/TriggerOptions.PNG</target>
+        </trans-unit>
+        <trans-unit id="2205ae6f-b017-47cc-9cc9-8eeca40d69f0" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/ReceiveAndDecodeInput.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/ReceiveAndDecodeInput.PNG</target>
+        </trans-unit>
+        <trans-unit id="25a563c2-5085-4b0c-8d49-2696df396c85" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/ReceiveAndDecodeConfigured.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/ReceiveAndDecodeConfigured.PNG</target>
+        </trans-unit>
+        <trans-unit id="a7b7b339-0567-4c56-b315-3c977161063c" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/ActionSettings.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/ActionSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="143f240c-4a88-4dea-b554-508ef977ce4e" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/ListOfActions.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/ListOfActions.PNG</target>
+        </trans-unit>
+        <trans-unit id="f12ab7c9-ccdc-431e-bc8d-56f591d2fd77" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG</target>
+        </trans-unit>
+        <trans-unit id="aef7f72d-4ac8-4d0a-b414-bd4fabe29c85" xml:space="preserve">
+          <source>./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG</source>
+          <target state="new">./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="16581e33-cd4d-4658-915f-f4d681393cb1" />
+    </body>
+  </file>
+</xliff>

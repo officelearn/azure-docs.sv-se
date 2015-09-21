@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1080ad8b-a557-4b9a-a245-1c47f64e94b2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1080ad8b-a557-4b9a-a245-1c47f64e94b2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="055ba384-80ba-4454-8996-0e67d18305aa">
+        <trans-unit id="385a5328-29ac-40f7-be8e-50bf7f1102a8" xml:space="preserve">
+          <source>Connect to SQL Database by using Node.js on Windows</source>
+          <target state="new">Connect to SQL Database by using Node.js on Windows</target>
+        </trans-unit>
+        <trans-unit id="4bcb5679-da41-433d-800b-f84245f4936a" xml:space="preserve">
+          <source>Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer.</source>
+          <target state="new">Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer.</target>
+        </trans-unit>
+        <trans-unit id="428de2ff-8b1c-42cb-950e-b61e6a32503a" xml:space="preserve">
+          <source><bpt id="0c315acf-e344-4584-8375-78a2d6242bb1">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="0c315acf-e344-4584-8375-78a2d6242bb1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0c315acf-e344-4584-8375-78a2d6242bb1">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="0c315acf-e344-4584-8375-78a2d6242bb1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccaa104b-7124-47a9-99f0-51f26f31a62a" xml:space="preserve">
+          <source>This topic presents a Node.js code sample that you can use to connect to Azure SQL Database.</source>
+          <target state="new">This topic presents a Node.js code sample that you can use to connect to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="b035cf4e-9e59-466d-a62e-b1b9f70ecd91" xml:space="preserve">
+          <source>The Node.js program runs on a Windows client computer.</source>
+          <target state="new">The Node.js program runs on a Windows client computer.</target>
+        </trans-unit>
+        <trans-unit id="12ac4409-431f-479d-9e46-ecfb69ccd308" xml:space="preserve">
+          <source>To manage the connection, the msnodesql driver is used.</source>
+          <target state="new">To manage the connection, the msnodesql driver is used.</target>
+        </trans-unit>
+        <trans-unit id="6be04619-48f7-45c3-9a27-3269ac97dc3e" xml:space="preserve">
+          <source>The following software items must exist on your client development computer.</source>
+          <target state="new">The following software items must exist on your client development computer.</target>
+        </trans-unit>
+        <trans-unit id="887250cf-a70b-4d48-9d4d-467b877f308b" xml:space="preserve">
+          <source>Node.js – <bpt id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;linkText&gt;</bpt>Version 0.8.9 (32 bit version)<ept id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;/linkText&gt;</ept><bpt id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;title&gt;</bpt><ept id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">Node.js – <bpt id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;linkText&gt;</bpt>Version 0.8.9 (32 bit version)<ept id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;/linkText&gt;</ept><bpt id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;title&gt;</bpt><ept id="c82279f4-205a-4b24-8866-7de8d427e0ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb93fdea-b0ac-434c-80c9-afd4134666fe" xml:space="preserve">
+          <source>Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.</source>
+          <target state="new">Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.</target>
+        </trans-unit>
+        <trans-unit id="4cf2a607-fbe8-45f9-9bb3-a343f44ff17b" xml:space="preserve">
+          <source><bpt id="edadf269-c919-4741-86e9-645adc213940">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="edadf269-c919-4741-86e9-645adc213940">&lt;/linkText&gt;</ept><bpt id="edadf269-c919-4741-86e9-645adc213940">&lt;title&gt;</bpt><ept id="edadf269-c919-4741-86e9-645adc213940">&lt;/title&gt;</ept>, the installer for either x86 or x64.</source>
+          <target state="new"><bpt id="edadf269-c919-4741-86e9-645adc213940">&lt;linkText&gt;</bpt>Python 2.7.6<ept id="edadf269-c919-4741-86e9-645adc213940">&lt;/linkText&gt;</ept><bpt id="edadf269-c919-4741-86e9-645adc213940">&lt;title&gt;</bpt><ept id="edadf269-c919-4741-86e9-645adc213940">&lt;/title&gt;</ept>, the installer for either x86 or x64.</target>
+        </trans-unit>
+        <trans-unit id="6e049aaa-c2de-4d4b-91f7-afb3e22b01bf" xml:space="preserve">
+          <source><bpt id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;linkText&gt;</bpt>Visual C++ 2010<ept id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;/linkText&gt;</ept><bpt id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;title&gt;</bpt><ept id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;/title&gt;</ept> - the Express edition is freely available from Microsoft.</source>
+          <target state="new"><bpt id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;linkText&gt;</bpt>Visual C++ 2010<ept id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;/linkText&gt;</ept><bpt id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;title&gt;</bpt><ept id="b879c1c2-1bf7-4171-b03b-7016fd6a9d89">&lt;/title&gt;</ept> - the Express edition is freely available from Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="8c79de90-675a-4b28-97cf-6fdd14f1772b" xml:space="preserve">
+          <source>SQL Server Native Client 11.0 - available as Microsoft SQL Server 2012 Native Client found in the <bpt id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;linkText&gt;</bpt>SQL Server 2012 Feature Pack<ept id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;/linkText&gt;</ept><bpt id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;title&gt;</bpt><ept id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;/title&gt;</ept>.</source>
+          <target state="new">SQL Server Native Client 11.0 - available as Microsoft SQL Server 2012 Native Client found in the <bpt id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;linkText&gt;</bpt>SQL Server 2012 Feature Pack<ept id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;/linkText&gt;</ept><bpt id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;title&gt;</bpt><ept id="5c7508da-0d6b-4ec2-a367-e7fe4ccca39e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f4a6769-4a62-4054-be4e-cefc7628de22" xml:space="preserve">
+          <source>Once you satisfy the requirements, make sure you are on Node.js version 0.8.9. You can check this by using the following command from your command line terminal: node -v.
+&lt;br&gt;In a <bpt id="6af5c28e-f470-478b-939c-5db816a5e55f">&lt;strong&gt;</bpt>cmd.exe<ept id="6af5c28e-f470-478b-939c-5db816a5e55f">&lt;/strong&gt;</ept> command line window, navigate to your project directory- for example C:\NodeJSSQLProject. Enter the following commands in the sequence shown. </source>
+          <target state="new">Once you satisfy the requirements, make sure you are on Node.js version 0.8.9. You can check this by using the following command from your command line terminal: node -v.
+&lt;br&gt;In a <bpt id="6af5c28e-f470-478b-939c-5db816a5e55f">&lt;strong&gt;</bpt>cmd.exe<ept id="6af5c28e-f470-478b-939c-5db816a5e55f">&lt;/strong&gt;</ept> command line window, navigate to your project directory- for example C:\NodeJSSQLProject. Enter the following commands in the sequence shown. </target>
+        </trans-unit>
+        <trans-unit id="a876ee7b-0527-4bc4-86c6-2437a4403d35" xml:space="preserve">
+          <source>Next navigate to node_modules\msnodesql folder and run the <bpt id="8131fb8d-4aff-4b8e-ac4a-055bf48a6560">&lt;strong&gt;</bpt>msnodesql-0.2.1-v0.8-ia32<ept id="8131fb8d-4aff-4b8e-ac4a-055bf48a6560">&lt;/strong&gt;</ept> executible.</source>
+          <target state="new">Next navigate to node_modules\msnodesql folder and run the <bpt id="8131fb8d-4aff-4b8e-ac4a-055bf48a6560">&lt;strong&gt;</bpt>msnodesql-0.2.1-v0.8-ia32<ept id="8131fb8d-4aff-4b8e-ac4a-055bf48a6560">&lt;/strong&gt;</ept> executible.</target>
+        </trans-unit>
+        <trans-unit id="59736517-10ac-4f54-8e88-dd358541db80" xml:space="preserve">
+          <source>Follow the steps from the installation wizard and hit finish when you are done.</source>
+          <target state="new">Follow the steps from the installation wizard and hit finish when you are done.</target>
+        </trans-unit>
+        <trans-unit id="9d51ca6d-81e6-444b-9151-c24224c6cd2f" xml:space="preserve">
+          <source>At this point you should have the Node.js SQL Server driver installed.</source>
+          <target state="new">At this point you should have the Node.js SQL Server driver installed.</target>
+        </trans-unit>
+        <trans-unit id="c54ab7e7-ef3e-4134-a282-d87a32fd2741" xml:space="preserve">
+          <source>Follow the next steps to get your connection string and then you should be able to connect to Azure SQL DB from your Node.js application.</source>
+          <target state="new">Follow the next steps to get your connection string and then you should be able to connect to Azure SQL DB from your Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="b951067c-ae97-41a3-8762-5e91dd5ca3e9" xml:space="preserve">
+          <source>See the <bpt id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;linkText&gt;</bpt>Get Started topic<ept id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;/linkText&gt;</ept><bpt id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;title&gt;</bpt><ept id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</source>
+          <target state="new">See the <bpt id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;linkText&gt;</bpt>Get Started topic<ept id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;/linkText&gt;</ept><bpt id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;title&gt;</bpt><ept id="852daeb8-a96e-46eb-becf-cdfbe76b0bb6">&lt;/title&gt;</ept> to learn how to create a sample database and retrieve your connection string.</target>
+        </trans-unit>
+        <trans-unit id="b14bd7ce-0a39-47cc-9e87-6c3380879db3" xml:space="preserve">
+          <source>It is important you follow the guide to create an <bpt id="65171f71-292e-4483-97f7-75f745a856d5">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="65171f71-292e-4483-97f7-75f745a856d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is important you follow the guide to create an <bpt id="65171f71-292e-4483-97f7-75f745a856d5">&lt;strong&gt;</bpt>AdventureWorks database template<ept id="65171f71-292e-4483-97f7-75f745a856d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a93b0a1-fd80-45cb-b9b6-eb26da54bac4" xml:space="preserve">
+          <source>The samples shown below will only work with the <bpt id="0f16a1df-ca00-4279-97ab-faa1ef96718c">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="0f16a1df-ca00-4279-97ab-faa1ef96718c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The samples shown below will only work with the <bpt id="0f16a1df-ca00-4279-97ab-faa1ef96718c">&lt;strong&gt;</bpt>AdventureWorks schema<ept id="0f16a1df-ca00-4279-97ab-faa1ef96718c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34a24be8-00b8-4df8-a657-539f0a532f6d" xml:space="preserve">
+          <source>Copy the following code in a .js file located in your project directory.</source>
+          <target state="new">Copy the following code in a .js file located in your project directory.</target>
+        </trans-unit>
+        <trans-unit id="05f497dc-6cd3-478c-850f-a1c2087f528c" xml:space="preserve">
+          <source>Now run your .js file by issuing the following command.</source>
+          <target state="new">Now run your .js file by issuing the following command.</target>
+        </trans-unit>
+        <trans-unit id="c87ea964-4fc4-4027-88a9-115d3fc17197" xml:space="preserve">
+          <source>The method <bpt id="1dc15e0e-11a1-45b8-b610-411a7b2ab1e6">&lt;strong&gt;</bpt>conn.beginTransactions<ept id="1dc15e0e-11a1-45b8-b610-411a7b2ab1e6">&lt;/strong&gt;</ept> will not work in Azure SQL Database.</source>
+          <target state="new">The method <bpt id="1dc15e0e-11a1-45b8-b610-411a7b2ab1e6">&lt;strong&gt;</bpt>conn.beginTransactions<ept id="1dc15e0e-11a1-45b8-b610-411a7b2ab1e6">&lt;/strong&gt;</ept> will not work in Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="3d3fd6f8-62aa-4a2b-9b67-3163112a39d8" xml:space="preserve">
+          <source>Instead, follow the code sample to perform transactions in SQL Database.</source>
+          <target state="new">Instead, follow the code sample to perform transactions in SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="3c6d6b81-adfe-418c-be0f-2ae7fec48869" xml:space="preserve">
+          <source>For this code sample to work, you must first have or create a stored procedure that inputs no parameters.</source>
+          <target state="new">For this code sample to work, you must first have or create a stored procedure that inputs no parameters.</target>
+        </trans-unit>
+        <trans-unit id="3e6e2ffc-c5b0-4920-a7a6-ae7b0945a0b0" xml:space="preserve">
+          <source>You can create a stored procedure with a tool such as SQL Server Management Studio (SSMS.exe).</source>
+          <target state="new">You can create a stored procedure with a tool such as SQL Server Management Studio (SSMS.exe).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

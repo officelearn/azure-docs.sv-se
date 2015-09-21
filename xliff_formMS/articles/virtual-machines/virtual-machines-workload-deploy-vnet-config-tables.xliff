@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f5fb59c5-3e2e-4294-8812-a946b6a3bb04" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f5fb59c5-3e2e-4294-8812-a946b6a3bb04" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ff424000-b620-434f-89b2-d5d74026b8a6">
+        <trans-unit id="92c7db9c-93c2-47bf-b79f-69edce077ba6" xml:space="preserve">
+          <source>Virtual network using configuration tables | Microsoft Azure</source>
+          <target state="new">Virtual network using configuration tables | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="de1c6c37-6829-45eb-bca4-ed19a8703a97" xml:space="preserve">
+          <source>Learn how to configure a cross-premises Azure virtual network with settings from a configuration table with pre-determined settings.</source>
+          <target state="new">Learn how to configure a cross-premises Azure virtual network with settings from a configuration table with pre-determined settings.</target>
+        </trans-unit>
+        <trans-unit id="949ef229-0602-4c68-8dbb-4bc5af4f7397" xml:space="preserve">
+          <source>This topic steps you through the creation of a cross-premises virtual network by using settings previously specified in the following set of configuration tables:</source>
+          <target state="new">This topic steps you through the creation of a cross-premises virtual network by using settings previously specified in the following set of configuration tables:</target>
+        </trans-unit>
+        <trans-unit id="5c73d941-14e8-4d01-9e30-1143d39b9c72" xml:space="preserve">
+          <source>Table V: Cross-premises virtual network configuration</source>
+          <target state="new">Table V: Cross-premises virtual network configuration</target>
+        </trans-unit>
+        <trans-unit id="a7d5c339-3e21-45b0-a5ad-319e589f3aef" xml:space="preserve">
+          <source>Table S: Subnets in the virtual network</source>
+          <target state="new">Table S: Subnets in the virtual network</target>
+        </trans-unit>
+        <trans-unit id="ef2796ea-8b57-43e0-9fc4-4973ec9d5d75" xml:space="preserve">
+          <source>Table D: On-premises DNS servers</source>
+          <target state="new">Table D: On-premises DNS servers</target>
+        </trans-unit>
+        <trans-unit id="f819d0d7-997f-4db3-a801-b0b0b9e8680d" xml:space="preserve">
+          <source>Table L: Address prefixes for the local network</source>
+          <target state="new">Table L: Address prefixes for the local network</target>
+        </trans-unit>
+        <trans-unit id="6023dc6b-620f-4e7b-a153-abdfef624211" xml:space="preserve">
+          <source>These tables are typically filled out in a topic that describes the configuration of an IT workload in Azure and includes a cross-premises virtual network.</source>
+          <target state="new">These tables are typically filled out in a topic that describes the configuration of an IT workload in Azure and includes a cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9a634902-23c3-4490-a27f-d8ae462ef1d2" xml:space="preserve">
+          <source>See <bpt id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;/linkText&gt;</ept><bpt id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;title&gt;</bpt><ept id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;/title&gt;</ept> for an example.</source>
+          <target state="new">See <bpt id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;/linkText&gt;</ept><bpt id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;title&gt;</bpt><ept id="ee7030ed-5dd7-43ab-a734-50e1a2b6278a">&lt;/title&gt;</ept> for an example.</target>
+        </trans-unit>
+        <trans-unit id="8e7de513-8249-457c-9dd3-9636628c5f64" xml:space="preserve">
+          <source>The following procedure references the information in these tables to guide you through the virtual network configuration process.</source>
+          <target state="new">The following procedure references the information in these tables to guide you through the virtual network configuration process.</target>
+        </trans-unit>
+        <trans-unit id="2850bcc1-63df-4853-a03c-b20580e65d88" xml:space="preserve">
+          <source>If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see <bpt id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure virtual network<ept id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;/linkText&gt;</ept><bpt id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;title&gt;</bpt><ept id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see <bpt id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure virtual network<ept id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;/linkText&gt;</ept><bpt id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;title&gt;</bpt><ept id="3c2393ab-67c1-43e1-a3d6-50b647103c43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e42b739d-9790-49e4-8004-8d8b1f298cad" xml:space="preserve">
+          <source>This procedure steps you through creating a virtual network that uses a site-to-site VPN connection.</source>
+          <target state="new">This procedure steps you through creating a virtual network that uses a site-to-site VPN connection.</target>
+        </trans-unit>
+        <trans-unit id="57c81ef8-94f2-4039-8b60-fb51a5ab828a" xml:space="preserve">
+          <source>For information about using Azure ExpressRoute for your site-to-site connection, see <bpt id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;linkText&gt;</bpt>ExpressRoute technical overview<ept id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;/linkText&gt;</ept><bpt id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;title&gt;</bpt><ept id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure ExpressRoute for your site-to-site connection, see <bpt id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;linkText&gt;</bpt>ExpressRoute technical overview<ept id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;/linkText&gt;</ept><bpt id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;title&gt;</bpt><ept id="055fcfa1-037f-4f9d-8c91-658a4813cbd3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5019231e-773c-4248-91ee-b931189b4b53" xml:space="preserve">
+          <source>Sign in to the <bpt id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;linkText&gt;</bpt>Azure portal<ept id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;/linkText&gt;</ept><bpt id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;title&gt;</bpt><ept id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;linkText&gt;</bpt>Azure portal<ept id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;/linkText&gt;</ept><bpt id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;title&gt;</bpt><ept id="45366c6d-7dd3-42c4-88d5-a02e370066fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cbd1ebc-a48a-41b1-87a9-413fa0dedb56" xml:space="preserve">
+          <source>From the taskbar, click <bpt id="d60d0931-389f-473d-b379-29bbc22d63ae">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Custom Create<ept id="d60d0931-389f-473d-b379-29bbc22d63ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the taskbar, click <bpt id="d60d0931-389f-473d-b379-29bbc22d63ae">&lt;strong&gt;</bpt>New &gt; Network Services &gt; Virtual Network &gt; Custom Create<ept id="d60d0931-389f-473d-b379-29bbc22d63ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bb9f3d2-250c-49f1-bd12-0cb316b6d516" xml:space="preserve">
+          <source>On the <bpt id="91bf541a-ee4d-47c6-b615-a8917122ea2f">&lt;strong&gt;</bpt>Virtual Network Details<ept id="91bf541a-ee4d-47c6-b615-a8917122ea2f">&lt;/strong&gt;</ept> page:</source>
+          <target state="new">On the <bpt id="91bf541a-ee4d-47c6-b615-a8917122ea2f">&lt;strong&gt;</bpt>Virtual Network Details<ept id="91bf541a-ee4d-47c6-b615-a8917122ea2f">&lt;/strong&gt;</ept> page:</target>
+        </trans-unit>
+        <trans-unit id="af321af8-f219-4e2d-a014-4accb8262733" xml:space="preserve">
+          <source>In <bpt id="39089563-5f9e-445c-9e34-7dbf25b45b40">&lt;strong&gt;</bpt>Name<ept id="39089563-5f9e-445c-9e34-7dbf25b45b40">&lt;/strong&gt;</ept>, type the name from Item 1 in Table V.</source>
+          <target state="new">In <bpt id="39089563-5f9e-445c-9e34-7dbf25b45b40">&lt;strong&gt;</bpt>Name<ept id="39089563-5f9e-445c-9e34-7dbf25b45b40">&lt;/strong&gt;</ept>, type the name from Item 1 in Table V.</target>
+        </trans-unit>
+        <trans-unit id="e5672ca6-8493-4e14-9e5e-50e3aa1fa273" xml:space="preserve">
+          <source>In <bpt id="a661bc0b-acf9-450f-85e8-1c0e1a7e6fad">&lt;strong&gt;</bpt>Location<ept id="a661bc0b-acf9-450f-85e8-1c0e1a7e6fad">&lt;/strong&gt;</ept>, select the region from Item 2 in Table V.</source>
+          <target state="new">In <bpt id="a661bc0b-acf9-450f-85e8-1c0e1a7e6fad">&lt;strong&gt;</bpt>Location<ept id="a661bc0b-acf9-450f-85e8-1c0e1a7e6fad">&lt;/strong&gt;</ept>, select the region from Item 2 in Table V.</target>
+        </trans-unit>
+        <trans-unit id="3f08a4fe-48e0-4add-8fe6-80314fb4976e" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="95eccfda-6ba9-48f5-a037-b5077ab05aa3" xml:space="preserve">
+          <source>On the <bpt id="21605669-2450-420b-a07c-8089c232f650">&lt;strong&gt;</bpt>DNS Servers and VPN Connectivity<ept id="21605669-2450-420b-a07c-8089c232f650">&lt;/strong&gt;</ept> page:</source>
+          <target state="new">On the <bpt id="21605669-2450-420b-a07c-8089c232f650">&lt;strong&gt;</bpt>DNS Servers and VPN Connectivity<ept id="21605669-2450-420b-a07c-8089c232f650">&lt;/strong&gt;</ept> page:</target>
+        </trans-unit>
+        <trans-unit id="d5b95062-dd66-4478-918b-875bda4547e5" xml:space="preserve">
+          <source>In <bpt id="348656c8-0d7f-4d1a-9970-4c51c854eb33">&lt;strong&gt;</bpt>DNS Servers<ept id="348656c8-0d7f-4d1a-9970-4c51c854eb33">&lt;/strong&gt;</ept>, for each entry in Table D, configure the friendly name and IP address of your on-premises DNS servers.</source>
+          <target state="new">In <bpt id="348656c8-0d7f-4d1a-9970-4c51c854eb33">&lt;strong&gt;</bpt>DNS Servers<ept id="348656c8-0d7f-4d1a-9970-4c51c854eb33">&lt;/strong&gt;</ept>, for each entry in Table D, configure the friendly name and IP address of your on-premises DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="6e0c7cfa-49f8-4fc6-9812-8acdb37e4cbd" xml:space="preserve">
+          <source>In <bpt id="98f6fd87-4a2b-4d09-8c11-2a24b7ee32c2">&lt;strong&gt;</bpt>Site-To-Site Connectivity<ept id="98f6fd87-4a2b-4d09-8c11-2a24b7ee32c2">&lt;/strong&gt;</ept>, select <bpt id="cf1181bb-5a9f-4695-ad48-1e01e25ef338">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="cf1181bb-5a9f-4695-ad48-1e01e25ef338">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="98f6fd87-4a2b-4d09-8c11-2a24b7ee32c2">&lt;strong&gt;</bpt>Site-To-Site Connectivity<ept id="98f6fd87-4a2b-4d09-8c11-2a24b7ee32c2">&lt;/strong&gt;</ept>, select <bpt id="cf1181bb-5a9f-4695-ad48-1e01e25ef338">&lt;strong&gt;</bpt>Configure a site-to-site VPN<ept id="cf1181bb-5a9f-4695-ad48-1e01e25ef338">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="552739d1-2f70-450c-ba5e-15db8e24bd2d" xml:space="preserve">
+          <source>If you have already configured a local network and want to use it, select its name in <bpt id="fb0f8c6d-2f55-4052-89cb-69f8e6e67795">&lt;strong&gt;</bpt>Local Network<ept id="fb0f8c6d-2f55-4052-89cb-69f8e6e67795">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have already configured a local network and want to use it, select its name in <bpt id="fb0f8c6d-2f55-4052-89cb-69f8e6e67795">&lt;strong&gt;</bpt>Local Network<ept id="fb0f8c6d-2f55-4052-89cb-69f8e6e67795">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b512a14e-8300-4645-a7e6-41381622c028" xml:space="preserve">
+          <source>If you want to create a new local network, select <bpt id="7c1b3fb5-8bd2-4744-906e-ca76fffa2960">&lt;strong&gt;</bpt>Specify a New Local Network<ept id="7c1b3fb5-8bd2-4744-906e-ca76fffa2960">&lt;/strong&gt;</ept> in <bpt id="42f31530-2fe2-4672-a18f-cf4c3cad4656">&lt;strong&gt;</bpt>Local Network<ept id="42f31530-2fe2-4672-a18f-cf4c3cad4656">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to create a new local network, select <bpt id="7c1b3fb5-8bd2-4744-906e-ca76fffa2960">&lt;strong&gt;</bpt>Specify a New Local Network<ept id="7c1b3fb5-8bd2-4744-906e-ca76fffa2960">&lt;/strong&gt;</ept> in <bpt id="42f31530-2fe2-4672-a18f-cf4c3cad4656">&lt;strong&gt;</bpt>Local Network<ept id="42f31530-2fe2-4672-a18f-cf4c3cad4656">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec52ef72-1c9e-48db-9011-aff8b6aaecaa" xml:space="preserve">
+          <source>If you have not already configured a local network for your subscription, you will not see the <bpt id="03b6160c-b9f9-4840-b810-3314943b8ed6">&lt;strong&gt;</bpt>Local Network<ept id="03b6160c-b9f9-4840-b810-3314943b8ed6">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">If you have not already configured a local network for your subscription, you will not see the <bpt id="03b6160c-b9f9-4840-b810-3314943b8ed6">&lt;strong&gt;</bpt>Local Network<ept id="03b6160c-b9f9-4840-b810-3314943b8ed6">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="db34736c-548c-42e9-9b95-e61270fafbbb" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="de4e40ec-b9a1-451a-b087-9da42626b7cf" xml:space="preserve">
+          <source>On the <bpt id="cdc2cab3-df83-446e-93c4-23a27e6c1fa5">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="cdc2cab3-df83-446e-93c4-23a27e6c1fa5">&lt;/strong&gt;</ept> page (if you selected <bpt id="3f767d32-a4be-465e-a933-88fa6422aa34">&lt;strong&gt;</bpt>Specify a New Local Network<ept id="3f767d32-a4be-465e-a933-88fa6422aa34">&lt;/strong&gt;</ept> in step 5):</source>
+          <target state="new">On the <bpt id="cdc2cab3-df83-446e-93c4-23a27e6c1fa5">&lt;strong&gt;</bpt>Site-to-Site Connectivity<ept id="cdc2cab3-df83-446e-93c4-23a27e6c1fa5">&lt;/strong&gt;</ept> page (if you selected <bpt id="3f767d32-a4be-465e-a933-88fa6422aa34">&lt;strong&gt;</bpt>Specify a New Local Network<ept id="3f767d32-a4be-465e-a933-88fa6422aa34">&lt;/strong&gt;</ept> in step 5):</target>
+        </trans-unit>
+        <trans-unit id="7ad1d8f8-5aa5-40aa-8725-ce2eb57e36ee" xml:space="preserve">
+          <source>In <bpt id="24bd2872-fd1e-4f8d-b233-007b17c06bd8">&lt;strong&gt;</bpt>Name<ept id="24bd2872-fd1e-4f8d-b233-007b17c06bd8">&lt;/strong&gt;</ept>, type the name from Item 3 in Table V (the local network name).</source>
+          <target state="new">In <bpt id="24bd2872-fd1e-4f8d-b233-007b17c06bd8">&lt;strong&gt;</bpt>Name<ept id="24bd2872-fd1e-4f8d-b233-007b17c06bd8">&lt;/strong&gt;</ept>, type the name from Item 3 in Table V (the local network name).</target>
+        </trans-unit>
+        <trans-unit id="74cd7283-7b7d-4a03-b625-7b8a2e37c666" xml:space="preserve">
+          <source>In <bpt id="cd9bd27a-91b7-4845-a39a-b77e848db9b8">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="cd9bd27a-91b7-4845-a39a-b77e848db9b8">&lt;/strong&gt;</ept>, type the address from Item 4 in Table V.</source>
+          <target state="new">In <bpt id="cd9bd27a-91b7-4845-a39a-b77e848db9b8">&lt;strong&gt;</bpt>VPN Device IP Address<ept id="cd9bd27a-91b7-4845-a39a-b77e848db9b8">&lt;/strong&gt;</ept>, type the address from Item 4 in Table V.</target>
+        </trans-unit>
+        <trans-unit id="a30efbbd-2ad0-4c53-bece-2fd0af2fcce9" xml:space="preserve">
+          <source>In <bpt id="d50f1972-ae2f-4063-9686-b73991afc1bf">&lt;strong&gt;</bpt>Address Space<ept id="d50f1972-ae2f-4063-9686-b73991afc1bf">&lt;/strong&gt;</ept>, for each entry in Table L, enter the IP address spaces of your organization network in terms of the prefix (in <bpt id="7d5cb0c8-58d8-4c52-aa74-ce333006de33">&lt;strong&gt;</bpt>Starting IP<ept id="7d5cb0c8-58d8-4c52-aa74-ce333006de33">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="0976336c-ca1f-4275-881e-b4f1a31784eb">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="0976336c-ca1f-4275-881e-b4f1a31784eb">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In <bpt id="d50f1972-ae2f-4063-9686-b73991afc1bf">&lt;strong&gt;</bpt>Address Space<ept id="d50f1972-ae2f-4063-9686-b73991afc1bf">&lt;/strong&gt;</ept>, for each entry in Table L, enter the IP address spaces of your organization network in terms of the prefix (in <bpt id="7d5cb0c8-58d8-4c52-aa74-ce333006de33">&lt;strong&gt;</bpt>Starting IP<ept id="7d5cb0c8-58d8-4c52-aa74-ce333006de33">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="0976336c-ca1f-4275-881e-b4f1a31784eb">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="0976336c-ca1f-4275-881e-b4f1a31784eb">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="29e1f813-d1ad-42e0-8a0c-accf7df511fd" xml:space="preserve">
+          <source>Click the next arrow to continue.</source>
+          <target state="new">Click the next arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="63e70f78-d3a1-4349-bf88-ea2761904edd" xml:space="preserve">
+          <source>On the <bpt id="482e2bd2-3eea-4928-b970-24615d09ab8f">&lt;strong&gt;</bpt>Virtual Network Address Spaces<ept id="482e2bd2-3eea-4928-b970-24615d09ab8f">&lt;/strong&gt;</ept> page:</source>
+          <target state="new">On the <bpt id="482e2bd2-3eea-4928-b970-24615d09ab8f">&lt;strong&gt;</bpt>Virtual Network Address Spaces<ept id="482e2bd2-3eea-4928-b970-24615d09ab8f">&lt;/strong&gt;</ept> page:</target>
+        </trans-unit>
+        <trans-unit id="d09d9c5a-be50-4bc3-a81b-87d37e92558e" xml:space="preserve">
+          <source>In     <bpt id="392a8df5-8f13-4c55-b2f1-09746d07e969">&lt;strong&gt;</bpt>Address Space<ept id="392a8df5-8f13-4c55-b2f1-09746d07e969">&lt;/strong&gt;</ept>, enter the private IP address space of the virtual network from Item 5 in Table V, in terms of the prefix (in <bpt id="f2de98f2-1de8-4eb6-aec6-7ec45754b6c9">&lt;strong&gt;</bpt>Starting IP<ept id="f2de98f2-1de8-4eb6-aec6-7ec45754b6c9">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="b906b590-2ddd-4759-9143-de729ceb4c9d">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="b906b590-2ddd-4759-9143-de729ceb4c9d">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In     <bpt id="392a8df5-8f13-4c55-b2f1-09746d07e969">&lt;strong&gt;</bpt>Address Space<ept id="392a8df5-8f13-4c55-b2f1-09746d07e969">&lt;/strong&gt;</ept>, enter the private IP address space of the virtual network from Item 5 in Table V, in terms of the prefix (in <bpt id="f2de98f2-1de8-4eb6-aec6-7ec45754b6c9">&lt;strong&gt;</bpt>Starting IP<ept id="f2de98f2-1de8-4eb6-aec6-7ec45754b6c9">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="b906b590-2ddd-4759-9143-de729ceb4c9d">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="b906b590-2ddd-4759-9143-de729ceb4c9d">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="48c4f86e-ba43-4dfc-a64e-456ffc782131" xml:space="preserve">
+          <source>In <bpt id="ab2386ca-54af-4c6c-8fd9-6781232e68ac">&lt;strong&gt;</bpt>Subnets<ept id="ab2386ca-54af-4c6c-8fd9-6781232e68ac">&lt;/strong&gt;</ept>, for each entry in Table S:</source>
+          <target state="new">In <bpt id="ab2386ca-54af-4c6c-8fd9-6781232e68ac">&lt;strong&gt;</bpt>Subnets<ept id="ab2386ca-54af-4c6c-8fd9-6781232e68ac">&lt;/strong&gt;</ept>, for each entry in Table S:</target>
+        </trans-unit>
+        <trans-unit id="dfa1b12b-e053-4958-aad5-daa393caf2cc" xml:space="preserve">
+          <source>Type the name of the subnet in the <bpt id="2b2b1b40-c88d-4e90-a94f-86d8c39ff9e6">&lt;strong&gt;</bpt>Subnets<ept id="2b2b1b40-c88d-4e90-a94f-86d8c39ff9e6">&lt;/strong&gt;</ept> column, overwriting the default name if needed.</source>
+          <target state="new">Type the name of the subnet in the <bpt id="2b2b1b40-c88d-4e90-a94f-86d8c39ff9e6">&lt;strong&gt;</bpt>Subnets<ept id="2b2b1b40-c88d-4e90-a94f-86d8c39ff9e6">&lt;/strong&gt;</ept> column, overwriting the default name if needed.</target>
+        </trans-unit>
+        <trans-unit id="50f11401-becc-4215-956a-be6e569fc2fb" xml:space="preserve">
+          <source>Type the private IP address space of the subnet, in terms of the prefix (in <bpt id="1f2ebc6a-d1f4-43aa-a65f-24be20ed628b">&lt;strong&gt;</bpt>Starting IP<ept id="1f2ebc6a-d1f4-43aa-a65f-24be20ed628b">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="cee120f4-a848-4560-9300-97500f522b44">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="cee120f4-a848-4560-9300-97500f522b44">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Type the private IP address space of the subnet, in terms of the prefix (in <bpt id="1f2ebc6a-d1f4-43aa-a65f-24be20ed628b">&lt;strong&gt;</bpt>Starting IP<ept id="1f2ebc6a-d1f4-43aa-a65f-24be20ed628b">&lt;/strong&gt;</ept>) and the prefix length (in <bpt id="cee120f4-a848-4560-9300-97500f522b44">&lt;strong&gt;</bpt>CIDR (Address Count)<ept id="cee120f4-a848-4560-9300-97500f522b44">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="c1ffc014-f13a-4114-a907-ec2888ef92e9" xml:space="preserve">
+          <source>Click <bpt id="6e539792-e279-4db4-bee8-d1f8535a4355">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="6e539792-e279-4db4-bee8-d1f8535a4355">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6e539792-e279-4db4-bee8-d1f8535a4355">&lt;strong&gt;</bpt>Add Gateway Subnet<ept id="6e539792-e279-4db4-bee8-d1f8535a4355">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49d2543c-9241-43e8-98eb-55acea3d079a" xml:space="preserve">
+          <source>Click the check mark to complete the configuration.</source>
+          <target state="new">Click the check mark to complete the configuration.</target>
+        </trans-unit>
+        <trans-unit id="a67282b6-8752-4b05-8be7-4065ae6ca4f8" xml:space="preserve">
+          <source><bpt id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;linkText&gt;</bpt>Virtual network overview<ept id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;/linkText&gt;</ept><bpt id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;title&gt;</bpt><ept id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;linkText&gt;</bpt>Virtual network overview<ept id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;/linkText&gt;</ept><bpt id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;title&gt;</bpt><ept id="003e4d12-55ce-4ee6-9a5f-c64a203b7838">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="278a4511-ce42-48f6-b4dc-5240ec74d2bd" xml:space="preserve">
+          <source><bpt id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;linkText&gt;</bpt>Virtual network configuration tasks<ept id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;/linkText&gt;</ept><bpt id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;title&gt;</bpt><ept id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;linkText&gt;</bpt>Virtual network configuration tasks<ept id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;/linkText&gt;</ept><bpt id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;title&gt;</bpt><ept id="98e57755-0e36-4c5b-97a5-dc5879c4bbb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e67fdc4d-7900-4a15-9bb0-31a8581fa05d" xml:space="preserve">
+          <source><bpt id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure virtual network<ept id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;/linkText&gt;</ept><bpt id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;title&gt;</bpt><ept id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;linkText&gt;</bpt>Configure a cross-premises site-to-site connection to an Azure virtual network<ept id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;/linkText&gt;</ept><bpt id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;title&gt;</bpt><ept id="2a5a4c6c-cf33-4590-81a2-da66eaea494c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9bdfb7b1-2ec8-4ca6-9589-c30962165795" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9bdfb7b1-2ec8-4ca6-9589-c30962165795" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="50d699be-4249-4f37-b1fb-894f9f82d570">
+        <trans-unit id="2a132994-ef1a-45eb-8b40-48db9152b906" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with InsideView | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with InsideView | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f78a5b11-81a1-4ed0-81b0-c09b158c6993" xml:space="preserve">
+          <source>Learn how to use InsideView with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use InsideView with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="161740a0-5fe0-4e23-91fe-d10f3d7e58c5" xml:space="preserve">
+          <source>For feedback, click <bpt id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;linkText&gt;</bpt>here<ept id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;/linkText&gt;</ept><bpt id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;title&gt;</bpt><ept id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;linkText&gt;</bpt>here<ept id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;/linkText&gt;</ept><bpt id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;title&gt;</bpt><ept id="6ba1c851-ff6f-4d8c-96af-eb6539cd9f53">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ff9e902-47b3-49f0-91c7-174d93df9ea7" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and InsideView.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and InsideView.</target>
+        </trans-unit>
+        <trans-unit id="fb179435-a0cf-4778-93f7-673d2c00f64b" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="e816179c-69fd-49ab-a49b-0aa6fd4b4dc8" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="feb30da4-d638-43b2-8532-09ada5354f37" xml:space="preserve">
+          <source>A InsideView tenant</source>
+          <target state="new">A InsideView tenant</target>
+        </trans-unit>
+        <trans-unit id="514afc7c-2d76-4357-b7d4-afb010e5ef00" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to InsideView will be able to single sign into the application at your InsideView company site (service provider initiated sign on), or using the <bpt id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;/linkText&gt;</ept><bpt id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;title&gt;</bpt><ept id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to InsideView will be able to single sign into the application at your InsideView company site (service provider initiated sign on), or using the <bpt id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;/linkText&gt;</ept><bpt id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;title&gt;</bpt><ept id="237d2718-8c13-4718-994c-1bd47d01873f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c59298b-3331-420a-8a40-26451be346ee" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="51e99678-4167-466f-8e5f-a866f2c5137f" xml:space="preserve">
+          <source>Enabling the application integration for InsideView</source>
+          <target state="new">Enabling the application integration for InsideView</target>
+        </trans-unit>
+        <trans-unit id="b7411e6c-a3eb-454f-bed3-e43ce3ec3dae" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="1c87167a-6b5a-4348-a376-a18aac97e90d" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="0a6bbb7d-70f3-4d05-a6b9-55686b7443d5" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="6b03a43c-f82c-42aa-8cbd-c746a7361ec4" xml:space="preserve">
+          <source><bpt id="3fe73f38-e419-4739-9ec7-df933f177de9">&lt;linkText&gt;</bpt>Scenario<ept id="3fe73f38-e419-4739-9ec7-df933f177de9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3fe73f38-e419-4739-9ec7-df933f177de9">&lt;linkText&gt;</bpt>Scenario<ept id="3fe73f38-e419-4739-9ec7-df933f177de9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea5d6b82-6588-4f3f-b48e-a0d8236d854f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for InsideView.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for InsideView.</target>
+        </trans-unit>
+        <trans-unit id="60e6b2d1-b5ae-4024-b439-3cb4d9b11a1a" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="1c02b701-11c7-43d2-9ece-b1bb754eb094">&lt;strong&gt;</bpt>Active Directory<ept id="1c02b701-11c7-43d2-9ece-b1bb754eb094">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="1c02b701-11c7-43d2-9ece-b1bb754eb094">&lt;strong&gt;</bpt>Active Directory<ept id="1c02b701-11c7-43d2-9ece-b1bb754eb094">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac5817c4-b524-4e80-a589-393043e28b05" xml:space="preserve">
+          <source><bpt id="0a5b5b26-f951-41fc-9210-ce015068bb85">&lt;linkText&gt;</bpt>Active Directory<ept id="0a5b5b26-f951-41fc-9210-ce015068bb85">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a5b5b26-f951-41fc-9210-ce015068bb85">&lt;linkText&gt;</bpt>Active Directory<ept id="0a5b5b26-f951-41fc-9210-ce015068bb85">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb0d7597-be2f-4b98-b99c-ba4cf6a0fb5c" xml:space="preserve">
+          <source>From the <bpt id="c4b8c14b-180f-4661-9744-f489b1450453">&lt;strong&gt;</bpt>Directory<ept id="c4b8c14b-180f-4661-9744-f489b1450453">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="c4b8c14b-180f-4661-9744-f489b1450453">&lt;strong&gt;</bpt>Directory<ept id="c4b8c14b-180f-4661-9744-f489b1450453">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="6e59d38a-b1dc-4745-b84c-6380f9d228c4" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="c5b1d744-e949-4f08-820a-3512d2f7aea2">&lt;strong&gt;</bpt>Applications<ept id="c5b1d744-e949-4f08-820a-3512d2f7aea2">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="c5b1d744-e949-4f08-820a-3512d2f7aea2">&lt;strong&gt;</bpt>Applications<ept id="c5b1d744-e949-4f08-820a-3512d2f7aea2">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="90b3e386-1d51-4fdf-8287-4e003b00eed4" xml:space="preserve">
+          <source><bpt id="60ab26cc-39af-43ea-bed1-af4b11752077">&lt;linkText&gt;</bpt>Applications<ept id="60ab26cc-39af-43ea-bed1-af4b11752077">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60ab26cc-39af-43ea-bed1-af4b11752077">&lt;linkText&gt;</bpt>Applications<ept id="60ab26cc-39af-43ea-bed1-af4b11752077">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5df700fd-4e57-440f-bc25-1028ca97dc1e" xml:space="preserve">
+          <source>Click <bpt id="2c765d72-7882-4518-b8da-de1702fdb560">&lt;strong&gt;</bpt>Add<ept id="2c765d72-7882-4518-b8da-de1702fdb560">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="2c765d72-7882-4518-b8da-de1702fdb560">&lt;strong&gt;</bpt>Add<ept id="2c765d72-7882-4518-b8da-de1702fdb560">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="308f1fbf-aaa1-4134-91be-abdcd991284a" xml:space="preserve">
+          <source><bpt id="fdfe3c8a-c3e1-4769-9958-6a898cf4a82e">&lt;linkText&gt;</bpt>Add application<ept id="fdfe3c8a-c3e1-4769-9958-6a898cf4a82e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fdfe3c8a-c3e1-4769-9958-6a898cf4a82e">&lt;linkText&gt;</bpt>Add application<ept id="fdfe3c8a-c3e1-4769-9958-6a898cf4a82e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02749ea6-0282-46c3-beaf-dc07f6c0bff0" xml:space="preserve">
+          <source>On the <bpt id="c751f8cf-bec9-4f2f-9c02-907242cfad31">&lt;strong&gt;</bpt>What do you want to do<ept id="c751f8cf-bec9-4f2f-9c02-907242cfad31">&lt;/strong&gt;</ept> dialog, click <bpt id="53a92c92-f40a-4890-80ce-856eee394d99">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="53a92c92-f40a-4890-80ce-856eee394d99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c751f8cf-bec9-4f2f-9c02-907242cfad31">&lt;strong&gt;</bpt>What do you want to do<ept id="c751f8cf-bec9-4f2f-9c02-907242cfad31">&lt;/strong&gt;</ept> dialog, click <bpt id="53a92c92-f40a-4890-80ce-856eee394d99">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="53a92c92-f40a-4890-80ce-856eee394d99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1756a48-55e9-4a7a-ac28-157fc4ab7edb" xml:space="preserve">
+          <source><bpt id="b6702b39-c341-409b-8855-3883b248e92d">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b6702b39-c341-409b-8855-3883b248e92d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b6702b39-c341-409b-8855-3883b248e92d">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b6702b39-c341-409b-8855-3883b248e92d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb5f23ab-e609-4c26-a252-49cea65b5624" xml:space="preserve">
+          <source>In the <bpt id="1e9d053e-5fd1-443e-9eb7-20660f568634">&lt;strong&gt;</bpt>search box<ept id="1e9d053e-5fd1-443e-9eb7-20660f568634">&lt;/strong&gt;</ept>, type <bpt id="76845e2e-4308-446b-a4c7-add45a8605a3">&lt;strong&gt;</bpt>InsideView<ept id="76845e2e-4308-446b-a4c7-add45a8605a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1e9d053e-5fd1-443e-9eb7-20660f568634">&lt;strong&gt;</bpt>search box<ept id="1e9d053e-5fd1-443e-9eb7-20660f568634">&lt;/strong&gt;</ept>, type <bpt id="76845e2e-4308-446b-a4c7-add45a8605a3">&lt;strong&gt;</bpt>InsideView<ept id="76845e2e-4308-446b-a4c7-add45a8605a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1518c2e4-1541-4cad-93e0-dfa92d158f88" xml:space="preserve">
+          <source><bpt id="23244e4b-c0e2-4eb4-ab1e-2e7f799811d3">&lt;linkText&gt;</bpt>Application Gallery<ept id="23244e4b-c0e2-4eb4-ab1e-2e7f799811d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23244e4b-c0e2-4eb4-ab1e-2e7f799811d3">&lt;linkText&gt;</bpt>Application Gallery<ept id="23244e4b-c0e2-4eb4-ab1e-2e7f799811d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bfde1ea-0f2a-44af-8e16-274b96998ce3" xml:space="preserve">
+          <source>In the results pane, select <bpt id="2be0978d-133c-4193-b415-974c4b11a0bf">&lt;strong&gt;</bpt>InsideView<ept id="2be0978d-133c-4193-b415-974c4b11a0bf">&lt;/strong&gt;</ept>, and then click <bpt id="506aa1a0-c684-4627-8dad-2caef9a7c273">&lt;strong&gt;</bpt>Complete<ept id="506aa1a0-c684-4627-8dad-2caef9a7c273">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="2be0978d-133c-4193-b415-974c4b11a0bf">&lt;strong&gt;</bpt>InsideView<ept id="2be0978d-133c-4193-b415-974c4b11a0bf">&lt;/strong&gt;</ept>, and then click <bpt id="506aa1a0-c684-4627-8dad-2caef9a7c273">&lt;strong&gt;</bpt>Complete<ept id="506aa1a0-c684-4627-8dad-2caef9a7c273">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="a2332c80-c020-4941-8a6e-2238dd06dcad" xml:space="preserve">
+          <source><bpt id="b165450a-a653-4424-a030-7ca76a688bfe">&lt;linkText&gt;</bpt>InsideView<ept id="b165450a-a653-4424-a030-7ca76a688bfe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b165450a-a653-4424-a030-7ca76a688bfe">&lt;linkText&gt;</bpt>InsideView<ept id="b165450a-a653-4424-a030-7ca76a688bfe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="239af2eb-4ff7-4577-9bf6-3ef4a352943a" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to InsideView with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to InsideView with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="5338d6ef-fbce-4a05-9e74-bd258ec135d9" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="bbbfdf58-34b6-414f-8d4e-615dd59a15ef" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;/linkText&gt;</ept><bpt id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;title&gt;</bpt><ept id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;/linkText&gt;</ept><bpt id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;title&gt;</bpt><ept id="da60f628-a6f2-478f-9c87-3fa8ab335052">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9d14f5b-1fb1-451c-9db4-cea75b0c0ef9" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="7be7c322-7ec3-4253-a576-3435dd4a8a44">&lt;strong&gt;</bpt>InsideView<ept id="7be7c322-7ec3-4253-a576-3435dd4a8a44">&lt;/strong&gt;</ept> application integration page, click <bpt id="4828d044-a845-449a-b5fd-67556acc3b05">&lt;strong&gt;</bpt>Configure single sign-on<ept id="4828d044-a845-449a-b5fd-67556acc3b05">&lt;/strong&gt;</ept> to open the <bpt id="e49ae68e-14bb-43d6-9d05-4fbf43092eec">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e49ae68e-14bb-43d6-9d05-4fbf43092eec">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="7be7c322-7ec3-4253-a576-3435dd4a8a44">&lt;strong&gt;</bpt>InsideView<ept id="7be7c322-7ec3-4253-a576-3435dd4a8a44">&lt;/strong&gt;</ept> application integration page, click <bpt id="4828d044-a845-449a-b5fd-67556acc3b05">&lt;strong&gt;</bpt>Configure single sign-on<ept id="4828d044-a845-449a-b5fd-67556acc3b05">&lt;/strong&gt;</ept> to open the <bpt id="e49ae68e-14bb-43d6-9d05-4fbf43092eec">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="e49ae68e-14bb-43d6-9d05-4fbf43092eec">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="2a32a750-6bd4-4085-970c-7d547ffebff7" xml:space="preserve">
+          <source><bpt id="56c35320-dc45-423c-a54a-75e1929de43c">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="56c35320-dc45-423c-a54a-75e1929de43c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="56c35320-dc45-423c-a54a-75e1929de43c">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="56c35320-dc45-423c-a54a-75e1929de43c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d95ac2c9-c1a6-40fa-bf02-b75d7f478676" xml:space="preserve">
+          <source>On the <bpt id="c2d59f9d-51af-4961-bab9-8edae0a5562e">&lt;strong&gt;</bpt>How would you like users to sign on to InsideView<ept id="c2d59f9d-51af-4961-bab9-8edae0a5562e">&lt;/strong&gt;</ept> page, select <bpt id="bd18993d-860c-45d3-aae8-1fd422745a9d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bd18993d-860c-45d3-aae8-1fd422745a9d">&lt;/strong&gt;</ept>, and then click <bpt id="95002f81-3e97-4691-9c8f-27099dbb996f">&lt;strong&gt;</bpt>Next<ept id="95002f81-3e97-4691-9c8f-27099dbb996f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c2d59f9d-51af-4961-bab9-8edae0a5562e">&lt;strong&gt;</bpt>How would you like users to sign on to InsideView<ept id="c2d59f9d-51af-4961-bab9-8edae0a5562e">&lt;/strong&gt;</ept> page, select <bpt id="bd18993d-860c-45d3-aae8-1fd422745a9d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bd18993d-860c-45d3-aae8-1fd422745a9d">&lt;/strong&gt;</ept>, and then click <bpt id="95002f81-3e97-4691-9c8f-27099dbb996f">&lt;strong&gt;</bpt>Next<ept id="95002f81-3e97-4691-9c8f-27099dbb996f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52d792fe-ecab-414c-9a2e-f58fdadef110" xml:space="preserve">
+          <source><bpt id="b9121f4d-64ca-48f7-9734-a2be2b34a4ce">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="b9121f4d-64ca-48f7-9734-a2be2b34a4ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9121f4d-64ca-48f7-9734-a2be2b34a4ce">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="b9121f4d-64ca-48f7-9734-a2be2b34a4ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df8e3353-c4e9-4d1c-b67a-d3f4148a0a90" xml:space="preserve">
+          <source>On the <bpt id="b2910898-83ad-41d9-a5f6-ff3ac681c613">&lt;strong&gt;</bpt>Configure App URL<ept id="b2910898-83ad-41d9-a5f6-ff3ac681c613">&lt;/strong&gt;</ept> page, in the <bpt id="3c9c9c19-c322-433a-a53a-c9f2af826250">&lt;strong&gt;</bpt>InsideView Reply URL<ept id="3c9c9c19-c322-433a-a53a-c9f2af826250">&lt;/strong&gt;</ept> textbox, type your InsideView SSO URL (e.g.: <bpt id="bdd4f2f1-cd6c-4e48-8175-9c9ae6b1d5a9">&lt;code&gt;</bpt>https://my.insideview.com/iv/&lt;STS Name&gt;/login.iv<ept id="bdd4f2f1-cd6c-4e48-8175-9c9ae6b1d5a9">&lt;/code&gt;</ept>), and then click <bpt id="4b5edf34-f4e2-42bd-9aa7-19075cf1dc6e">&lt;strong&gt;</bpt>Next<ept id="4b5edf34-f4e2-42bd-9aa7-19075cf1dc6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b2910898-83ad-41d9-a5f6-ff3ac681c613">&lt;strong&gt;</bpt>Configure App URL<ept id="b2910898-83ad-41d9-a5f6-ff3ac681c613">&lt;/strong&gt;</ept> page, in the <bpt id="3c9c9c19-c322-433a-a53a-c9f2af826250">&lt;strong&gt;</bpt>InsideView Reply URL<ept id="3c9c9c19-c322-433a-a53a-c9f2af826250">&lt;/strong&gt;</ept> textbox, type your InsideView SSO URL (e.g.: <bpt id="bdd4f2f1-cd6c-4e48-8175-9c9ae6b1d5a9">&lt;code&gt;</bpt>https://my.insideview.com/iv/&lt;STS Name&gt;/login.iv<ept id="bdd4f2f1-cd6c-4e48-8175-9c9ae6b1d5a9">&lt;/code&gt;</ept>), and then click <bpt id="4b5edf34-f4e2-42bd-9aa7-19075cf1dc6e">&lt;strong&gt;</bpt>Next<ept id="4b5edf34-f4e2-42bd-9aa7-19075cf1dc6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddd82d93-af09-4eeb-a95f-dd801785eb2e" xml:space="preserve">
+          <source><bpt id="7464cfac-61ff-4e2d-a660-bb3803113de9">&lt;linkText&gt;</bpt>Configure App URL<ept id="7464cfac-61ff-4e2d-a660-bb3803113de9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7464cfac-61ff-4e2d-a660-bb3803113de9">&lt;linkText&gt;</bpt>Configure App URL<ept id="7464cfac-61ff-4e2d-a660-bb3803113de9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2138ce8c-cc4f-48ef-8c06-62e76551bc22" xml:space="preserve">
+          <source>On the <bpt id="b558ea73-522a-4c63-a76e-e323fe6ae09c">&lt;strong&gt;</bpt>Configure single sign-on at InsideView<ept id="b558ea73-522a-4c63-a76e-e323fe6ae09c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="277528d6-ae3c-4e5b-b2e8-eb67c4931d07">&lt;strong&gt;</bpt>Download certificate<ept id="277528d6-ae3c-4e5b-b2e8-eb67c4931d07">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="b558ea73-522a-4c63-a76e-e323fe6ae09c">&lt;strong&gt;</bpt>Configure single sign-on at InsideView<ept id="b558ea73-522a-4c63-a76e-e323fe6ae09c">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="277528d6-ae3c-4e5b-b2e8-eb67c4931d07">&lt;strong&gt;</bpt>Download certificate<ept id="277528d6-ae3c-4e5b-b2e8-eb67c4931d07">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="f75d333a-63ec-49d7-bc77-1708df07b882" xml:space="preserve">
+          <source><bpt id="c8eed23e-50b7-4e9e-aff1-be10f44dd15b">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="c8eed23e-50b7-4e9e-aff1-be10f44dd15b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8eed23e-50b7-4e9e-aff1-be10f44dd15b">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="c8eed23e-50b7-4e9e-aff1-be10f44dd15b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f260206-fec3-4077-9363-8cf59399e90e" xml:space="preserve">
+          <source>In a different web browser window, log into your InsideView company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your InsideView company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="0e022a00-1850-4dec-9bd4-4c69fc1fed42" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="f314e10f-e031-49bc-b4be-96004b3baa7a">&lt;strong&gt;</bpt>Admin<ept id="f314e10f-e031-49bc-b4be-96004b3baa7a">&lt;/strong&gt;</ept>, <bpt id="d5ee3007-0e56-4ec0-a3c0-6809305ac577">&lt;strong&gt;</bpt>SingleSignOn Settings<ept id="d5ee3007-0e56-4ec0-a3c0-6809305ac577">&lt;/strong&gt;</ept>, and then click <bpt id="54262d41-38a4-4aa4-9dcd-bd7e5dad6159">&lt;strong&gt;</bpt>Add SAML<ept id="54262d41-38a4-4aa4-9dcd-bd7e5dad6159">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="f314e10f-e031-49bc-b4be-96004b3baa7a">&lt;strong&gt;</bpt>Admin<ept id="f314e10f-e031-49bc-b4be-96004b3baa7a">&lt;/strong&gt;</ept>, <bpt id="d5ee3007-0e56-4ec0-a3c0-6809305ac577">&lt;strong&gt;</bpt>SingleSignOn Settings<ept id="d5ee3007-0e56-4ec0-a3c0-6809305ac577">&lt;/strong&gt;</ept>, and then click <bpt id="54262d41-38a4-4aa4-9dcd-bd7e5dad6159">&lt;strong&gt;</bpt>Add SAML<ept id="54262d41-38a4-4aa4-9dcd-bd7e5dad6159">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="270621cc-4b17-4ac4-9c6d-f644bb8a76d8" xml:space="preserve">
+          <source><bpt id="8cae788f-f5a2-4c7d-a075-5dfbcd19d90d">&lt;linkText&gt;</bpt>SAML Single Sign On Settings<ept id="8cae788f-f5a2-4c7d-a075-5dfbcd19d90d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8cae788f-f5a2-4c7d-a075-5dfbcd19d90d">&lt;linkText&gt;</bpt>SAML Single Sign On Settings<ept id="8cae788f-f5a2-4c7d-a075-5dfbcd19d90d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5af5dcd9-c596-4a16-b14d-f4cd71da3fa9" xml:space="preserve">
+          <source>In the <bpt id="3b9ad085-ed28-402c-9774-cadefb56f8a3">&lt;strong&gt;</bpt>Add a New SAML<ept id="3b9ad085-ed28-402c-9774-cadefb56f8a3">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="3b9ad085-ed28-402c-9774-cadefb56f8a3">&lt;strong&gt;</bpt>Add a New SAML<ept id="3b9ad085-ed28-402c-9774-cadefb56f8a3">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="36a2e582-42c7-4090-a509-4f668687de01" xml:space="preserve">
+          <source><bpt id="d7647718-be80-43cc-832e-c6c873ec1ea2">&lt;linkText&gt;</bpt>Add a New SAML<ept id="d7647718-be80-43cc-832e-c6c873ec1ea2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7647718-be80-43cc-832e-c6c873ec1ea2">&lt;linkText&gt;</bpt>Add a New SAML<ept id="d7647718-be80-43cc-832e-c6c873ec1ea2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41d9c864-6a80-4344-985f-995757ce6ff7" xml:space="preserve">
+          <source>In the <bpt id="1eb66095-731d-447a-aa18-1062e169d50d">&lt;strong&gt;</bpt>STS Name<ept id="1eb66095-731d-447a-aa18-1062e169d50d">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</source>
+          <target state="new">In the <bpt id="1eb66095-731d-447a-aa18-1062e169d50d">&lt;strong&gt;</bpt>STS Name<ept id="1eb66095-731d-447a-aa18-1062e169d50d">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="7051e062-6d75-4b34-808b-38cd38c563b2" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="a1e5f118-8c41-4f0b-99e3-0d7c74c4539a">&lt;strong&gt;</bpt>Configure single sign-on at InsideView<ept id="a1e5f118-8c41-4f0b-99e3-0d7c74c4539a">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="26f7dcfc-da11-4ce3-93d8-a46667467987">&lt;strong&gt;</bpt>Service Provider (SP) Initiated Endpoint<ept id="26f7dcfc-da11-4ce3-93d8-a46667467987">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="b2fafa4a-6e82-4cc8-a81e-ced61491774b">&lt;strong&gt;</bpt>SamlP/WS-Fed Unsolicated EndPoint<ept id="b2fafa4a-6e82-4cc8-a81e-ced61491774b">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="a1e5f118-8c41-4f0b-99e3-0d7c74c4539a">&lt;strong&gt;</bpt>Configure single sign-on at InsideView<ept id="a1e5f118-8c41-4f0b-99e3-0d7c74c4539a">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="26f7dcfc-da11-4ce3-93d8-a46667467987">&lt;strong&gt;</bpt>Service Provider (SP) Initiated Endpoint<ept id="26f7dcfc-da11-4ce3-93d8-a46667467987">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="b2fafa4a-6e82-4cc8-a81e-ced61491774b">&lt;strong&gt;</bpt>SamlP/WS-Fed Unsolicated EndPoint<ept id="b2fafa4a-6e82-4cc8-a81e-ced61491774b">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="472c53dc-1c11-40ed-87cd-8392f0581bd8" xml:space="preserve">
+          <source>Create a <bpt id="723e1ede-cbf6-419b-9727-eae5833f5aad">&lt;strong&gt;</bpt>base-64 encoded<ept id="723e1ede-cbf6-419b-9727-eae5833f5aad">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="723e1ede-cbf6-419b-9727-eae5833f5aad">&lt;strong&gt;</bpt>base-64 encoded<ept id="723e1ede-cbf6-419b-9727-eae5833f5aad">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="584698ef-b0e1-48ef-b0f4-cb428dd9791b" xml:space="preserve">
+          <source>For more details, see <bpt id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;/linkText&gt;</ept><bpt id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;title&gt;</bpt><ept id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;/linkText&gt;</ept><bpt id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;title&gt;</bpt><ept id="ed98fbaa-1f9c-4205-8733-c79e93e9d36c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba90c9ef-03a0-4de3-8d73-969b7bdc0037" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="eb0b6c7e-5d7b-41df-ab48-05168ddd5cdd">&lt;strong&gt;</bpt>STS Certificate<ept id="eb0b6c7e-5d7b-41df-ab48-05168ddd5cdd">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="eb0b6c7e-5d7b-41df-ab48-05168ddd5cdd">&lt;strong&gt;</bpt>STS Certificate<ept id="eb0b6c7e-5d7b-41df-ab48-05168ddd5cdd">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="918007ad-ac4a-4c3a-aac6-590caf75e067" xml:space="preserve">
+          <source>In the <bpt id="76be73ce-d9df-4efd-baf5-d53af089a82b">&lt;strong&gt;</bpt>Crm User Id Mapping<ept id="76be73ce-d9df-4efd-baf5-d53af089a82b">&lt;/strong&gt;</ept> textbox, type <bpt id="14857c8d-ddb9-4018-a511-7f23beb6b0fd">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="14857c8d-ddb9-4018-a511-7f23beb6b0fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="76be73ce-d9df-4efd-baf5-d53af089a82b">&lt;strong&gt;</bpt>Crm User Id Mapping<ept id="76be73ce-d9df-4efd-baf5-d53af089a82b">&lt;/strong&gt;</ept> textbox, type <bpt id="14857c8d-ddb9-4018-a511-7f23beb6b0fd">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="14857c8d-ddb9-4018-a511-7f23beb6b0fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a600c6ee-937d-4aca-a3cb-6b73ff6e314a" xml:space="preserve">
+          <source>In the <bpt id="1e562e54-8998-496f-9238-78075627b06b">&lt;strong&gt;</bpt>Crm Email Mapping<ept id="1e562e54-8998-496f-9238-78075627b06b">&lt;/strong&gt;</ept> textbox, type <bpt id="96408a75-510f-4f86-8c7c-dc07bddb398f">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="96408a75-510f-4f86-8c7c-dc07bddb398f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1e562e54-8998-496f-9238-78075627b06b">&lt;strong&gt;</bpt>Crm Email Mapping<ept id="1e562e54-8998-496f-9238-78075627b06b">&lt;/strong&gt;</ept> textbox, type <bpt id="96408a75-510f-4f86-8c7c-dc07bddb398f">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="96408a75-510f-4f86-8c7c-dc07bddb398f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb0d3673-9a60-4003-89d5-9ef08dddf618" xml:space="preserve">
+          <source>In the <bpt id="b18b34a6-ba35-497b-b9f6-ebb69cd10e7e">&lt;strong&gt;</bpt>Crm First Name Mapping<ept id="b18b34a6-ba35-497b-b9f6-ebb69cd10e7e">&lt;/strong&gt;</ept> textbox, type <bpt id="88b4be4d-a5a2-4b0c-ab0b-bb9939293e6d">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname<ept id="88b4be4d-a5a2-4b0c-ab0b-bb9939293e6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b18b34a6-ba35-497b-b9f6-ebb69cd10e7e">&lt;strong&gt;</bpt>Crm First Name Mapping<ept id="b18b34a6-ba35-497b-b9f6-ebb69cd10e7e">&lt;/strong&gt;</ept> textbox, type <bpt id="88b4be4d-a5a2-4b0c-ab0b-bb9939293e6d">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname<ept id="88b4be4d-a5a2-4b0c-ab0b-bb9939293e6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38a73c66-74cd-49a8-8437-04709a55c288" xml:space="preserve">
+          <source>In the <bpt id="fe612557-5ac2-4670-8512-36460843765e">&lt;strong&gt;</bpt>Crm lastName Mapping<ept id="fe612557-5ac2-4670-8512-36460843765e">&lt;/strong&gt;</ept> textbox, type <bpt id="33edc345-d90c-4a40-bfba-6e0c14cebd70">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname<ept id="33edc345-d90c-4a40-bfba-6e0c14cebd70">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fe612557-5ac2-4670-8512-36460843765e">&lt;strong&gt;</bpt>Crm lastName Mapping<ept id="fe612557-5ac2-4670-8512-36460843765e">&lt;/strong&gt;</ept> textbox, type <bpt id="33edc345-d90c-4a40-bfba-6e0c14cebd70">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname<ept id="33edc345-d90c-4a40-bfba-6e0c14cebd70">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a17e759-449e-455e-afde-28983d390e21" xml:space="preserve">
+          <source>Click <bpt id="bdc8cc73-e07d-4aac-8a91-288b0e477d9e">&lt;strong&gt;</bpt>Save<ept id="bdc8cc73-e07d-4aac-8a91-288b0e477d9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bdc8cc73-e07d-4aac-8a91-288b0e477d9e">&lt;strong&gt;</bpt>Save<ept id="bdc8cc73-e07d-4aac-8a91-288b0e477d9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdde16f9-59f8-4801-8a73-4e4cbee6d5b9" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d58e3567-c57e-4b94-b763-ebcb3aba293c">&lt;strong&gt;</bpt>Complete<ept id="d58e3567-c57e-4b94-b763-ebcb3aba293c">&lt;/strong&gt;</ept> to close the <bpt id="386d74e2-ffd4-4085-9808-34a2771871f1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="386d74e2-ffd4-4085-9808-34a2771871f1">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="d58e3567-c57e-4b94-b763-ebcb3aba293c">&lt;strong&gt;</bpt>Complete<ept id="d58e3567-c57e-4b94-b763-ebcb3aba293c">&lt;/strong&gt;</ept> to close the <bpt id="386d74e2-ffd4-4085-9808-34a2771871f1">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="386d74e2-ffd4-4085-9808-34a2771871f1">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="babda007-e5e0-4d78-b870-6b1f47b22759" xml:space="preserve">
+          <source><bpt id="00790b0f-9aea-4875-89d2-40f30ab5477a">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="00790b0f-9aea-4875-89d2-40f30ab5477a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00790b0f-9aea-4875-89d2-40f30ab5477a">&lt;linkText&gt;</bpt>Configure Single SignOn<ept id="00790b0f-9aea-4875-89d2-40f30ab5477a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e86af1d3-14fe-4d24-8809-d464a12901a0" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into InsideView, they must be provisioned into InsideView.</source>
+          <target state="new">In order to enable Azure AD users to log into InsideView, they must be provisioned into InsideView.</target>
+        </trans-unit>
+        <trans-unit id="63083672-f177-4076-a518-a220776fe232" xml:space="preserve">
+          <source>In the case of InsideView, provisioning is a manual task.</source>
+          <target state="new">In the case of InsideView, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="71e6fe8f-5cd1-4877-8e12-423456611706" xml:space="preserve">
+          <source>To get users or contacts created in InsideView, contact your customer success manager or send email to <bpt id="1179f9c0-04a8-4709-b535-5ab9f660dfd8">&lt;strong&gt;</bpt>support@insideview.com<ept id="1179f9c0-04a8-4709-b535-5ab9f660dfd8">&lt;/strong&gt;</ept></source>
+          <target state="new">To get users or contacts created in InsideView, contact your customer success manager or send email to <bpt id="1179f9c0-04a8-4709-b535-5ab9f660dfd8">&lt;strong&gt;</bpt>support@insideview.com<ept id="1179f9c0-04a8-4709-b535-5ab9f660dfd8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="265c4735-a657-4139-929d-d7b8cdc5460b" xml:space="preserve">
+          <source>You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.</source>
+          <target state="new">You can use any other InsideView user account creation tools or APIs provided by InsideView to provision Azure AD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="db18e224-c869-4289-b641-a415e77f255f" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="cce86cc9-7558-45d2-9111-6c3ad021c1b8" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="04e65a7b-62fd-437e-bfa7-aa3ddf8beb9f" xml:space="preserve">
+          <source>On the <bpt id="2bc2906e-ee07-40ee-8421-3b0f7ca50d76">&lt;strong&gt;</bpt>InsideView **application integration page, click **Assign users<ept id="2bc2906e-ee07-40ee-8421-3b0f7ca50d76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="2bc2906e-ee07-40ee-8421-3b0f7ca50d76">&lt;strong&gt;</bpt>InsideView **application integration page, click **Assign users<ept id="2bc2906e-ee07-40ee-8421-3b0f7ca50d76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a27979f-5d2b-4292-a34b-5d8e4d2fe64c" xml:space="preserve">
+          <source><bpt id="83200d51-b95e-40d5-8572-17bab8e0c3fb">&lt;linkText&gt;</bpt>Assign Users<ept id="83200d51-b95e-40d5-8572-17bab8e0c3fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83200d51-b95e-40d5-8572-17bab8e0c3fb">&lt;linkText&gt;</bpt>Assign Users<ept id="83200d51-b95e-40d5-8572-17bab8e0c3fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50b4e103-9c56-42c6-97ca-671588e4931a" xml:space="preserve">
+          <source>Select your test user, click <bpt id="6ecf7dd0-986d-4ffc-9174-23ae16cbaf78">&lt;strong&gt;</bpt>Assign<ept id="6ecf7dd0-986d-4ffc-9174-23ae16cbaf78">&lt;/strong&gt;</ept>, and then click <bpt id="f2368f74-586b-4b2d-8109-7b16ece17ddf">&lt;strong&gt;</bpt>Yes<ept id="f2368f74-586b-4b2d-8109-7b16ece17ddf">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="6ecf7dd0-986d-4ffc-9174-23ae16cbaf78">&lt;strong&gt;</bpt>Assign<ept id="6ecf7dd0-986d-4ffc-9174-23ae16cbaf78">&lt;/strong&gt;</ept>, and then click <bpt id="f2368f74-586b-4b2d-8109-7b16ece17ddf">&lt;strong&gt;</bpt>Yes<ept id="f2368f74-586b-4b2d-8109-7b16ece17ddf">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="128ac0ca-db12-447c-9d14-a21ffa573b3a" xml:space="preserve">
+          <source><bpt id="cbaf76b9-fd33-413e-b8c0-38a179412088">&lt;linkText&gt;</bpt>Yes<ept id="cbaf76b9-fd33-413e-b8c0-38a179412088">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbaf76b9-fd33-413e-b8c0-38a179412088">&lt;linkText&gt;</bpt>Yes<ept id="cbaf76b9-fd33-413e-b8c0-38a179412088">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74506494-d2e2-489a-abd9-257635b696ed" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="a050f4bd-e21c-4fdc-8359-2237c1bb6986" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;/linkText&gt;</ept><bpt id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;title&gt;</bpt><ept id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;/linkText&gt;</ept><bpt id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;title&gt;</bpt><ept id="aa6a513c-fd8f-4276-909e-db029ca09ce2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

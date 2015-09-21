@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b2daff7e-4b40-4ab0-bb78-f4bc7a9092bf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b2daff7e-4b40-4ab0-bb78-f4bc7a9092bf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5ddd9975-404e-49b5-8e29-12bf37fc6e1b">
+        <trans-unit id="a0662f0e-24f2-462b-bc78-40bce1afd2b9" xml:space="preserve">
+          <source>How to Use docker-machine with Azure</source>
+          <target state="new">How to Use docker-machine with Azure</target>
+        </trans-unit>
+        <trans-unit id="b58c5db7-4af9-4223-a8e2-7b73f436d8f6" xml:space="preserve">
+          <source>Shows how to get up and running on Azure with Docker Machine on Ubuntu.</source>
+          <target state="new">Shows how to get up and running on Azure with Docker Machine on Ubuntu.</target>
+        </trans-unit>
+        <trans-unit id="265a0672-0ba1-4f4b-ab4c-0126ace3963a" xml:space="preserve">
+          <source>This topic describes how to use <bpt id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;linkText&gt;</bpt>Docker<ept id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;/linkText&gt;</ept><bpt id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;title&gt;</bpt><ept id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;/title&gt;</ept> with <bpt id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;linkText&gt;</bpt>machine<ept id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;/linkText&gt;</ept><bpt id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;title&gt;</bpt><ept id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;/title&gt;</ept> and the <bpt id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;linkText&gt;</bpt>Azure CLI<ept id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;/linkText&gt;</ept><bpt id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;title&gt;</bpt><ept id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;/title&gt;</ept> to create an Azure Virtual Machine to quickly and easily manage Linux containers from a computer running Ubuntu.</source>
+          <target state="new">This topic describes how to use <bpt id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;linkText&gt;</bpt>Docker<ept id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;/linkText&gt;</ept><bpt id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;title&gt;</bpt><ept id="ad7d144b-c551-46a7-a32a-c456811c0dbf">&lt;/title&gt;</ept> with <bpt id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;linkText&gt;</bpt>machine<ept id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;/linkText&gt;</ept><bpt id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;title&gt;</bpt><ept id="feec2014-25af-4fcc-a6bd-b846b39aa553">&lt;/title&gt;</ept> and the <bpt id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;linkText&gt;</bpt>Azure CLI<ept id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;/linkText&gt;</ept><bpt id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;title&gt;</bpt><ept id="df60e446-5fde-45b7-b622-fd780e1d182a">&lt;/title&gt;</ept> to create an Azure Virtual Machine to quickly and easily manage Linux containers from a computer running Ubuntu.</target>
+        </trans-unit>
+        <trans-unit id="2861151c-dbe5-477f-afbe-4140253e6472" xml:space="preserve">
+          <source>To demonstrate, the tutorial shows how to deploy both the [busybox Docker Hub image](https://registry.hub.docker.com/<bpt id="f9d2c3e8-91cd-4e0c-b8df-b392b91dfb82">&lt;em&gt;</bpt>/busybox/) image and also the [nginx Docker Hub image](https://registry.hub.docker.com/<ept id="f9d2c3e8-91cd-4e0c-b8df-b392b91dfb82">&lt;/em&gt;</ept>/nginx/) and configures the container to route web requests to the nginx container.</source>
+          <target state="new">To demonstrate, the tutorial shows how to deploy both the [busybox Docker Hub image](https://registry.hub.docker.com/<bpt id="f9d2c3e8-91cd-4e0c-b8df-b392b91dfb82">&lt;em&gt;</bpt>/busybox/) image and also the [nginx Docker Hub image](https://registry.hub.docker.com/<ept id="f9d2c3e8-91cd-4e0c-b8df-b392b91dfb82">&lt;/em&gt;</ept>/nginx/) and configures the container to route web requests to the nginx container.</target>
+        </trans-unit>
+        <trans-unit id="89ed5389-eb2f-4a07-b377-884bdc0e4a8c" xml:space="preserve">
+          <source>(The Docker <bpt id="979777bf-7a5a-4196-995d-77eb6041d088">&lt;strong&gt;</bpt>machine<ept id="979777bf-7a5a-4196-995d-77eb6041d088">&lt;/strong&gt;</ept> documentation describes how to modify these instructions for other platforms.)</source>
+          <target state="new">(The Docker <bpt id="979777bf-7a5a-4196-995d-77eb6041d088">&lt;strong&gt;</bpt>machine<ept id="979777bf-7a5a-4196-995d-77eb6041d088">&lt;/strong&gt;</ept> documentation describes how to modify these instructions for other platforms.)</target>
+        </trans-unit>
+        <trans-unit id="a967b56a-18dc-4edb-a67a-b7e995c3afbe" xml:space="preserve">
+          <source>There are some prerequisites for completing this tutorial.</source>
+          <target state="new">There are some prerequisites for completing this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3afe12b9-9604-4dc7-b0f3-95362cf6507c" xml:space="preserve">
+          <source>You will need to install the following:</source>
+          <target state="new">You will need to install the following:</target>
+        </trans-unit>
+        <trans-unit id="e9d664ba-5a0e-45d9-9d8c-e93349915981" xml:space="preserve">
+          <source><bpt id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;linkText&gt;</bpt>npm<ept id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;/linkText&gt;</ept><bpt id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;title&gt;</bpt><ept id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;/title&gt;</ept> and <bpt id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;linkText&gt;</bpt>Node.js<ept id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;/linkText&gt;</ept><bpt id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;title&gt;</bpt><ept id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;linkText&gt;</bpt>npm<ept id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;/linkText&gt;</ept><bpt id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;title&gt;</bpt><ept id="d8c22704-a390-4c76-a131-d75dae8b4438">&lt;/title&gt;</ept> and <bpt id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;linkText&gt;</bpt>Node.js<ept id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;/linkText&gt;</ept><bpt id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;title&gt;</bpt><ept id="c71cd50e-caf7-4b69-a8da-351490198330">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35019453-2dc7-4d96-baff-fc7a84807c35" xml:space="preserve">
+          <source><bpt id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;linkText&gt;</bpt>The Azure CLI<ept id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;/linkText&gt;</ept><bpt id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;title&gt;</bpt><ept id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;linkText&gt;</bpt>The Azure CLI<ept id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;/linkText&gt;</ept><bpt id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;title&gt;</bpt><ept id="291677ac-aa8b-4c3a-88af-70fa301fa767">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cb10734-fd74-41d2-89fc-f6e92a9b4d32" xml:space="preserve">
+          <source>A <bpt id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;linkText&gt;</bpt>Docker client<ept id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;/linkText&gt;</ept><bpt id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;title&gt;</bpt><ept id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;/title&gt;</ept></source>
+          <target state="new">A <bpt id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;linkText&gt;</bpt>Docker client<ept id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;/linkText&gt;</ept><bpt id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;title&gt;</bpt><ept id="3fe56d5c-b4b3-4f2e-8679-e2d2fa4a7e09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b601da89-1960-49ac-80f9-8341d3c28522" xml:space="preserve">
+          <source>If you install those items in that order, your Ubuntu computer will be ready for the tutorial.</source>
+          <target state="new">If you install those items in that order, your Ubuntu computer will be ready for the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a3c422f0-565e-482c-ab68-9fce1a3ddc6a" xml:space="preserve">
+          <source>(This tutorial should be largely the same for any other dpkg-based distro such as Debian.</source>
+          <target state="new">(This tutorial should be largely the same for any other dpkg-based distro such as Debian.</target>
+        </trans-unit>
+        <trans-unit id="0bb93c20-a8bf-49ab-b078-349bbd50d298" xml:space="preserve">
+          <source>Let us know in comments if you discover extra requirements or steps.)</source>
+          <target state="new">Let us know in comments if you discover extra requirements or steps.)</target>
+        </trans-unit>
+        <trans-unit id="874ae50f-5cb7-4575-a681-e3a8e8e69f17" xml:space="preserve">
+          <source>The quickest way to get going with <bpt id="84ee3469-b574-4142-a736-0d8a7b51cc34">&lt;strong&gt;</bpt>docker-machine<ept id="84ee3469-b574-4142-a736-0d8a7b51cc34">&lt;/strong&gt;</ept> is to download the appropriate release directly from the <bpt id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;linkText&gt;</bpt>release share<ept id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;/linkText&gt;</ept><bpt id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;title&gt;</bpt><ept id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">The quickest way to get going with <bpt id="84ee3469-b574-4142-a736-0d8a7b51cc34">&lt;strong&gt;</bpt>docker-machine<ept id="84ee3469-b574-4142-a736-0d8a7b51cc34">&lt;/strong&gt;</ept> is to download the appropriate release directly from the <bpt id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;linkText&gt;</bpt>release share<ept id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;/linkText&gt;</ept><bpt id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;title&gt;</bpt><ept id="462eaa17-8c6e-4362-9fbf-c79a0fb0a9e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e23fd515-b7a0-43c5-ba00-7cb09823f77c" xml:space="preserve">
+          <source>The client computer in this tutorial was running Ubuntu on an x64 computer, so the <bpt id="21db7854-fe11-4898-b713-6089b0b32369">&lt;strong&gt;</bpt>docker-machine_linux-amd64<ept id="21db7854-fe11-4898-b713-6089b0b32369">&lt;/strong&gt;</ept> image is the one used.</source>
+          <target state="new">The client computer in this tutorial was running Ubuntu on an x64 computer, so the <bpt id="21db7854-fe11-4898-b713-6089b0b32369">&lt;strong&gt;</bpt>docker-machine_linux-amd64<ept id="21db7854-fe11-4898-b713-6089b0b32369">&lt;/strong&gt;</ept> image is the one used.</target>
+        </trans-unit>
+        <trans-unit id="30281dac-c7cd-4e46-bd28-62e0e9726e49" xml:space="preserve">
+          <source>You can also build your <bpt id="cda934b1-c554-42a2-98e1-9322f895cce9">&lt;strong&gt;</bpt>docker-machine<ept id="cda934b1-c554-42a2-98e1-9322f895cce9">&lt;/strong&gt;</ept> yourself by following the steps for <bpt id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;linkText&gt;</bpt>contributing to machine<ept id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;/linkText&gt;</ept><bpt id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;title&gt;</bpt><ept id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also build your <bpt id="cda934b1-c554-42a2-98e1-9322f895cce9">&lt;strong&gt;</bpt>docker-machine<ept id="cda934b1-c554-42a2-98e1-9322f895cce9">&lt;/strong&gt;</ept> yourself by following the steps for <bpt id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;linkText&gt;</bpt>contributing to machine<ept id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;/linkText&gt;</ept><bpt id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;title&gt;</bpt><ept id="ae8c4130-e5e1-4e7a-9a31-7392074a9c4a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1db0bab-5eee-40cc-9807-b5c6a4b41143" xml:space="preserve">
+          <source>You should be ready to download as much as 1 GB or more to perform the build, but by doing so you can customize your experience precisely the way you want.</source>
+          <target state="new">You should be ready to download as much as 1 GB or more to perform the build, but by doing so you can customize your experience precisely the way you want.</target>
+        </trans-unit>
+        <trans-unit id="a3621141-ee59-4ed5-a494-5812f00b5685" xml:space="preserve">
+          <source>You might well create a <bpt id="df2b8d66-e366-4442-8502-13983250c974">&lt;linkText&gt;</bpt>symbolic link<ept id="df2b8d66-e366-4442-8502-13983250c974">&lt;/linkText&gt;</ept><bpt id="df2b8d66-e366-4442-8502-13983250c974">&lt;title&gt;</bpt><ept id="df2b8d66-e366-4442-8502-13983250c974">&lt;/title&gt;</ept> to your platform version of it, but this tutorial uses the binary directly to demonstrate behavior very clearly.</source>
+          <target state="new">You might well create a <bpt id="df2b8d66-e366-4442-8502-13983250c974">&lt;linkText&gt;</bpt>symbolic link<ept id="df2b8d66-e366-4442-8502-13983250c974">&lt;/linkText&gt;</ept><bpt id="df2b8d66-e366-4442-8502-13983250c974">&lt;title&gt;</bpt><ept id="df2b8d66-e366-4442-8502-13983250c974">&lt;/title&gt;</ept> to your platform version of it, but this tutorial uses the binary directly to demonstrate behavior very clearly.</target>
+        </trans-unit>
+        <trans-unit id="ff80fa36-8e63-4487-84e8-45b47bc854e8" xml:space="preserve">
+          <source>The result is that instead of commands such as <bpt id="136b867e-1958-4615-8ce5-3bb7ed60b915">&lt;code&gt;</bpt>docker-machine env<ept id="136b867e-1958-4615-8ce5-3bb7ed60b915">&lt;/code&gt;</ept> as the <bpt id="9548f35f-16ec-474a-9c7e-2d476a4a675d">&lt;strong&gt;</bpt>docker-machine<ept id="9548f35f-16ec-474a-9c7e-2d476a4a675d">&lt;/strong&gt;</ept> documentation shows, this tutorial  uses <bpt id="2ca245be-1ff2-417d-9d9b-4ce801d9fafe">&lt;code&gt;</bpt>docker-machine_linux-amd64 env<ept id="2ca245be-1ff2-417d-9d9b-4ce801d9fafe">&lt;/code&gt;</ept> instead.</source>
+          <target state="new">The result is that instead of commands such as <bpt id="136b867e-1958-4615-8ce5-3bb7ed60b915">&lt;code&gt;</bpt>docker-machine env<ept id="136b867e-1958-4615-8ce5-3bb7ed60b915">&lt;/code&gt;</ept> as the <bpt id="9548f35f-16ec-474a-9c7e-2d476a4a675d">&lt;strong&gt;</bpt>docker-machine<ept id="9548f35f-16ec-474a-9c7e-2d476a4a675d">&lt;/strong&gt;</ept> documentation shows, this tutorial  uses <bpt id="2ca245be-1ff2-417d-9d9b-4ce801d9fafe">&lt;code&gt;</bpt>docker-machine_linux-amd64 env<ept id="2ca245be-1ff2-417d-9d9b-4ce801d9fafe">&lt;/code&gt;</ept> instead.</target>
+        </trans-unit>
+        <trans-unit id="938e56ac-31b2-4512-aff2-5c0a62841299" xml:space="preserve">
+          <source>Whether you create a symlink or just use the binary name directly is up to you, but if you change the name you are using, remember to modify the name in the instructions below.</source>
+          <target state="new">Whether you create a symlink or just use the binary name directly is up to you, but if you change the name you are using, remember to modify the name in the instructions below.</target>
+        </trans-unit>
+        <trans-unit id="a9894b8d-9459-4fae-8945-64081ce442d2" xml:space="preserve">
+          <source>&lt;br /&gt;</source>
+          <target state="new">&lt;br /&gt;</target>
+        </trans-unit>
+        <trans-unit id="746f1c1a-63c5-423d-83e3-c59c7c5fe465" xml:space="preserve">
+          <source>Whichever method you choose, you must either call in the binary directly on the command line or place the binary the path such as <bpt id="25c2cd5c-9b59-4cc4-b425-b23166d36cda">&lt;strong&gt;</bpt>/usr/local/bin<ept id="25c2cd5c-9b59-4cc4-b425-b23166d36cda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Whichever method you choose, you must either call in the binary directly on the command line or place the binary the path such as <bpt id="25c2cd5c-9b59-4cc4-b425-b23166d36cda">&lt;strong&gt;</bpt>/usr/local/bin<ept id="25c2cd5c-9b59-4cc4-b425-b23166d36cda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17fbb1c5-76d4-4317-a8e4-19920aafe2a0" xml:space="preserve">
+          <source>Remember to make sure it is marked as executable by typing <bpt id="548c37d7-dcf1-4ad0-b24f-ab695b35b592">&lt;code&gt;</bpt>chmod +x<ept id="548c37d7-dcf1-4ad0-b24f-ab695b35b592">&lt;/code&gt;</ept> &amp;lt;*<bpt id="bf9b1d65-4fad-4c5c-addd-63a4387ae9aa">&lt;code&gt;</bpt>binaryName<ept id="bf9b1d65-4fad-4c5c-addd-63a4387ae9aa">&lt;/code&gt;</ept><bpt id="0ae0379d-f4ab-40bf-a5c7-1be7d835ea30">&lt;em&gt;</bpt>&amp;gt; where &amp;lt;<ept id="0ae0379d-f4ab-40bf-a5c7-1be7d835ea30">&lt;/em&gt;</ept><bpt id="40e7c8ae-a199-40a4-bb92-6db01573cce7">&lt;code&gt;</bpt>binaryName<ept id="40e7c8ae-a199-40a4-bb92-6db01573cce7">&lt;/code&gt;</ept>*&amp;gt; is the name of your Docker machine executable.</source>
+          <target state="new">Remember to make sure it is marked as executable by typing <bpt id="548c37d7-dcf1-4ad0-b24f-ab695b35b592">&lt;code&gt;</bpt>chmod +x<ept id="548c37d7-dcf1-4ad0-b24f-ab695b35b592">&lt;/code&gt;</ept> &amp;lt;*<bpt id="bf9b1d65-4fad-4c5c-addd-63a4387ae9aa">&lt;code&gt;</bpt>binaryName<ept id="bf9b1d65-4fad-4c5c-addd-63a4387ae9aa">&lt;/code&gt;</ept><bpt id="0ae0379d-f4ab-40bf-a5c7-1be7d835ea30">&lt;em&gt;</bpt>&amp;gt; where &amp;lt;<ept id="0ae0379d-f4ab-40bf-a5c7-1be7d835ea30">&lt;/em&gt;</ept><bpt id="40e7c8ae-a199-40a4-bb92-6db01573cce7">&lt;code&gt;</bpt>binaryName<ept id="40e7c8ae-a199-40a4-bb92-6db01573cce7">&lt;/code&gt;</ept>*&amp;gt; is the name of your Docker machine executable.</target>
+        </trans-unit>
+        <trans-unit id="8e53d376-a791-44ff-9a9b-e1cd80baf90d" xml:space="preserve">
+          <source>This tutorial uses <bpt id="6f79c3cd-c3c3-42de-ba00-636857adea39">&lt;strong&gt;</bpt>docker-machine_linux-amd64<ept id="6f79c3cd-c3c3-42de-ba00-636857adea39">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This tutorial uses <bpt id="6f79c3cd-c3c3-42de-ba00-636857adea39">&lt;strong&gt;</bpt>docker-machine_linux-amd64<ept id="6f79c3cd-c3c3-42de-ba00-636857adea39">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f4011b3-1878-407f-84f6-02cee6b746c2" xml:space="preserve">
+          <source>Now you must create the certificate and key files that Azure needs to confirm your identity and permissions as well as those <bpt id="09c79e75-e1b0-45b0-b1f0-412969054156">&lt;strong&gt;</bpt>docker-machine<ept id="09c79e75-e1b0-45b0-b1f0-412969054156">&lt;/strong&gt;</ept> needs to communicate with your Azure Virtual Machine to create and manage containers remotely.</source>
+          <target state="new">Now you must create the certificate and key files that Azure needs to confirm your identity and permissions as well as those <bpt id="09c79e75-e1b0-45b0-b1f0-412969054156">&lt;strong&gt;</bpt>docker-machine<ept id="09c79e75-e1b0-45b0-b1f0-412969054156">&lt;/strong&gt;</ept> needs to communicate with your Azure Virtual Machine to create and manage containers remotely.</target>
+        </trans-unit>
+        <trans-unit id="cb8fa148-5e77-4969-a5ef-6df9f19f9dc0" xml:space="preserve">
+          <source>If you already have these files in a directory -- perhaps for use with docker -- you can reuse them.</source>
+          <target state="new">If you already have these files in a directory -- perhaps for use with docker -- you can reuse them.</target>
+        </trans-unit>
+        <trans-unit id="d07164f0-fe24-49e6-9e38-ed19f882a072" xml:space="preserve">
+          <source>However, the best practice for testing <bpt id="497c1d37-360b-4a19-a8ef-904689cb714d">&lt;strong&gt;</bpt>docker-machine<ept id="497c1d37-360b-4a19-a8ef-904689cb714d">&lt;/strong&gt;</ept> would be to create them in a separate directory and point docker-machine at them.</source>
+          <target state="new">However, the best practice for testing <bpt id="497c1d37-360b-4a19-a8ef-904689cb714d">&lt;strong&gt;</bpt>docker-machine<ept id="497c1d37-360b-4a19-a8ef-904689cb714d">&lt;/strong&gt;</ept> would be to create them in a separate directory and point docker-machine at them.</target>
+        </trans-unit>
+        <trans-unit id="c67d8c0c-bec6-42f5-9426-f8b53029d085" xml:space="preserve">
+          <source>If you end up trying <bpt id="f66ddac7-e972-458a-828d-4e221965d923">&lt;strong&gt;</bpt>docker-machine<ept id="f66ddac7-e972-458a-828d-4e221965d923">&lt;/strong&gt;</ept> over and over again, be sure to either reuse the same certificate and key files.</source>
+          <target state="new">If you end up trying <bpt id="f66ddac7-e972-458a-828d-4e221965d923">&lt;strong&gt;</bpt>docker-machine<ept id="f66ddac7-e972-458a-828d-4e221965d923">&lt;/strong&gt;</ept> over and over again, be sure to either reuse the same certificate and key files.</target>
+        </trans-unit>
+        <trans-unit id="01d11424-51cd-41e6-b88a-8b31198604bb" xml:space="preserve">
+          <source><bpt id="49d6152c-d78e-44ca-aa2f-8dcc6febf0bc">&lt;strong&gt;</bpt>docker-machine<ept id="49d6152c-d78e-44ca-aa2f-8dcc6febf0bc">&lt;/strong&gt;</ept> creates a set of client certs as well -- everything it creates can be examined in <bpt id="ade3e10e-960a-4822-b02b-271c5e4238fa">&lt;code&gt;</bpt>~/.docker/machine<ept id="ade3e10e-960a-4822-b02b-271c5e4238fa">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="49d6152c-d78e-44ca-aa2f-8dcc6febf0bc">&lt;strong&gt;</bpt>docker-machine<ept id="49d6152c-d78e-44ca-aa2f-8dcc6febf0bc">&lt;/strong&gt;</ept> creates a set of client certs as well -- everything it creates can be examined in <bpt id="ade3e10e-960a-4822-b02b-271c5e4238fa">&lt;code&gt;</bpt>~/.docker/machine<ept id="ade3e10e-960a-4822-b02b-271c5e4238fa">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b594ed05-c50e-4fce-8585-8e07bd687538" xml:space="preserve">
+          <source>If you move those certs to another computer, you'll need to move the <bpt id="8030b267-3691-460f-ac60-de6a806bc78d">&lt;strong&gt;</bpt>docker-machine<ept id="8030b267-3691-460f-ac60-de6a806bc78d">&lt;/strong&gt;</ept> certificate folders as well.</source>
+          <target state="new">If you move those certs to another computer, you'll need to move the <bpt id="8030b267-3691-460f-ac60-de6a806bc78d">&lt;strong&gt;</bpt>docker-machine<ept id="8030b267-3691-460f-ac60-de6a806bc78d">&lt;/strong&gt;</ept> certificate folders as well.</target>
+        </trans-unit>
+        <trans-unit id="8c9d2532-3f62-4a19-aa68-225ca2548477" xml:space="preserve">
+          <source>This makes a difference if you're going to use <bpt id="3e80d503-b2f8-428f-9f55-52191ada2746">&lt;strong&gt;</bpt>docker-machine<ept id="3e80d503-b2f8-428f-9f55-52191ada2746">&lt;/strong&gt;</ept> on another platform, for example, just to see how it all works.</source>
+          <target state="new">This makes a difference if you're going to use <bpt id="3e80d503-b2f8-428f-9f55-52191ada2746">&lt;strong&gt;</bpt>docker-machine<ept id="3e80d503-b2f8-428f-9f55-52191ada2746">&lt;/strong&gt;</ept> on another platform, for example, just to see how it all works.</target>
+        </trans-unit>
+        <trans-unit id="865070d1-5c2d-4f44-bf40-de42f3998149" xml:space="preserve">
+          <source>If you have experience with Linux distributions, you may already have these files available to use on your computer in a specific place, and the <bpt id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;linkText&gt;</bpt>Docker HTTPS documentation explains these steps well<ept id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;/linkText&gt;</ept><bpt id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;title&gt;</bpt><ept id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have experience with Linux distributions, you may already have these files available to use on your computer in a specific place, and the <bpt id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;linkText&gt;</bpt>Docker HTTPS documentation explains these steps well<ept id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;/linkText&gt;</ept><bpt id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;title&gt;</bpt><ept id="3254d894-691d-4e8c-9728-bbffbe267ee3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85621750-bd2b-4001-b6ab-1d56229df0e9" xml:space="preserve">
+          <source>However, the following is the simplest form of this step.</source>
+          <target state="new">However, the following is the simplest form of this step.</target>
+        </trans-unit>
+        <trans-unit id="499b66bc-2604-42dc-924b-ca4cdf24f547" xml:space="preserve">
+          <source>Create a local folder and on the command-line, navigate to that folder and type:</source>
+          <target state="new">Create a local folder and on the command-line, navigate to that folder and type:</target>
+        </trans-unit>
+        <trans-unit id="af2a581f-58aa-4802-935c-133bfdd62039" xml:space="preserve">
+          <source>Be ready here to enter the export password for your certificate and capture it for future usage.</source>
+          <target state="new">Be ready here to enter the export password for your certificate and capture it for future usage.</target>
+        </trans-unit>
+        <trans-unit id="4815154f-ccad-4a13-801c-275a9d49827d" xml:space="preserve">
+          <source>Then type:</source>
+          <target state="new">Then type:</target>
+        </trans-unit>
+        <trans-unit id="e4b9682a-495d-45aa-9a9e-c61d5b1e04a2" xml:space="preserve">
+          <source>Upload your certificate's .cer file to Azure.</source>
+          <target state="new">Upload your certificate's .cer file to Azure.</target>
+        </trans-unit>
+        <trans-unit id="e515704e-ee78-4dd4-aff5-2213233ebd21" xml:space="preserve">
+          <source>In the <bpt id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;linkText&gt;</bpt>Azure Portal<ept id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;/linkText&gt;</ept><bpt id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;title&gt;</bpt><ept id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;/title&gt;</ept>, click <bpt id="7dce224e-13b4-46b1-9b62-bdf7f177b4c2">&lt;strong&gt;</bpt>Settings<ept id="7dce224e-13b4-46b1-9b62-bdf7f177b4c2">&lt;/strong&gt;</ept> in the bottom left of the service area (shown below)</source>
+          <target state="new">In the <bpt id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;linkText&gt;</bpt>Azure Portal<ept id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;/linkText&gt;</ept><bpt id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;title&gt;</bpt><ept id="f02c003c-fb3f-4754-adc4-2a92fbcc6838">&lt;/title&gt;</ept>, click <bpt id="7dce224e-13b4-46b1-9b62-bdf7f177b4c2">&lt;strong&gt;</bpt>Settings<ept id="7dce224e-13b4-46b1-9b62-bdf7f177b4c2">&lt;/strong&gt;</ept> in the bottom left of the service area (shown below)</target>
+        </trans-unit>
+        <trans-unit id="8e38f880-6d5e-4bac-bd24-c58a2dd899c7" xml:space="preserve">
+          <source><bpt id="a6201846-f09e-48c9-a92d-91d120bbc496">&lt;linkText&gt;</bpt><ept id="a6201846-f09e-48c9-a92d-91d120bbc496">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6201846-f09e-48c9-a92d-91d120bbc496">&lt;linkText&gt;</bpt><ept id="a6201846-f09e-48c9-a92d-91d120bbc496">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3fe2a79-e706-415f-8b12-79279031823f" xml:space="preserve">
+          <source>and then click <bpt id="da70ca31-c14c-4200-86fa-b024a73988dd">&lt;strong&gt;</bpt>Management Certificates<ept id="da70ca31-c14c-4200-86fa-b024a73988dd">&lt;/strong&gt;</ept>:</source>
+          <target state="new">and then click <bpt id="da70ca31-c14c-4200-86fa-b024a73988dd">&lt;strong&gt;</bpt>Management Certificates<ept id="da70ca31-c14c-4200-86fa-b024a73988dd">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0d6878da-7245-483b-bed6-93f6ffab414b" xml:space="preserve">
+          <source><bpt id="ba361691-3748-46f2-a7b2-b906290833f4">&lt;linkText&gt;</bpt><ept id="ba361691-3748-46f2-a7b2-b906290833f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba361691-3748-46f2-a7b2-b906290833f4">&lt;linkText&gt;</bpt><ept id="ba361691-3748-46f2-a7b2-b906290833f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5f3d060-da26-4dc1-ac59-c57aff479936" xml:space="preserve">
+          <source>and then <bpt id="5a37373f-cd35-4845-a86e-16b2e6b633eb">&lt;strong&gt;</bpt>Upload<ept id="5a37373f-cd35-4845-a86e-16b2e6b633eb">&lt;/strong&gt;</ept> (at the bottom of the page) <bpt id="2dfd3064-ce88-44cf-8da9-2018963da0f1">&lt;linkText&gt;</bpt><ept id="2dfd3064-ce88-44cf-8da9-2018963da0f1">&lt;/linkText&gt;</ept> to upload the <bpt id="046bf4a1-02a2-4c5b-a974-59908549df62">&lt;strong&gt;</bpt>mycert.cer<ept id="046bf4a1-02a2-4c5b-a974-59908549df62">&lt;/strong&gt;</ept> file you created in the previous step.</source>
+          <target state="new">and then <bpt id="5a37373f-cd35-4845-a86e-16b2e6b633eb">&lt;strong&gt;</bpt>Upload<ept id="5a37373f-cd35-4845-a86e-16b2e6b633eb">&lt;/strong&gt;</ept> (at the bottom of the page) <bpt id="2dfd3064-ce88-44cf-8da9-2018963da0f1">&lt;linkText&gt;</bpt><ept id="2dfd3064-ce88-44cf-8da9-2018963da0f1">&lt;/linkText&gt;</ept> to upload the <bpt id="046bf4a1-02a2-4c5b-a974-59908549df62">&lt;strong&gt;</bpt>mycert.cer<ept id="046bf4a1-02a2-4c5b-a974-59908549df62">&lt;/strong&gt;</ept> file you created in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="1fd272f1-c5f9-412d-add3-92ec753ddccd" xml:space="preserve">
+          <source>In the same <bpt id="2d5d4920-bdd1-49aa-a79d-4223f9361a75">&lt;strong&gt;</bpt>Settings<ept id="2d5d4920-bdd1-49aa-a79d-4223f9361a75">&lt;/strong&gt;</ept> pane in the portal, click <bpt id="1d4bc483-4b11-4cda-828b-caf4fc3742f1">&lt;strong&gt;</bpt>Subscriptions<ept id="1d4bc483-4b11-4cda-828b-caf4fc3742f1">&lt;/strong&gt;</ept> and capture the subscription ID to use when creating your VM, because you'll use it in the next step.</source>
+          <target state="new">In the same <bpt id="2d5d4920-bdd1-49aa-a79d-4223f9361a75">&lt;strong&gt;</bpt>Settings<ept id="2d5d4920-bdd1-49aa-a79d-4223f9361a75">&lt;/strong&gt;</ept> pane in the portal, click <bpt id="1d4bc483-4b11-4cda-828b-caf4fc3742f1">&lt;strong&gt;</bpt>Subscriptions<ept id="1d4bc483-4b11-4cda-828b-caf4fc3742f1">&lt;/strong&gt;</ept> and capture the subscription ID to use when creating your VM, because you'll use it in the next step.</target>
+        </trans-unit>
+        <trans-unit id="9bb17238-70fa-44ee-9922-71f7aac92e16" xml:space="preserve">
+          <source>(You can also locate the subscription id on the command line using the Azure CLI command <bpt id="53f8818b-90bd-4051-be7e-c5779cda304b">&lt;code&gt;</bpt>azure account list<ept id="53f8818b-90bd-4051-be7e-c5779cda304b">&lt;/code&gt;</ept>, which displays the subscription id for each subscription you have in the account.)</source>
+          <target state="new">(You can also locate the subscription id on the command line using the Azure CLI command <bpt id="53f8818b-90bd-4051-be7e-c5779cda304b">&lt;code&gt;</bpt>azure account list<ept id="53f8818b-90bd-4051-be7e-c5779cda304b">&lt;/code&gt;</ept>, which displays the subscription id for each subscription you have in the account.)</target>
+        </trans-unit>
+        <trans-unit id="616b3118-536c-4c82-9aa0-5d470b75733f" xml:space="preserve">
+          <source>Create a docker host VM on Azure using the <bpt id="686e1a62-aec8-4aed-8b97-2ee1706f0dbb">&lt;strong&gt;</bpt>docker-machine create<ept id="686e1a62-aec8-4aed-8b97-2ee1706f0dbb">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Create a docker host VM on Azure using the <bpt id="686e1a62-aec8-4aed-8b97-2ee1706f0dbb">&lt;strong&gt;</bpt>docker-machine create<ept id="686e1a62-aec8-4aed-8b97-2ee1706f0dbb">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="52702035-1634-4cf1-92be-7fbc49019754" xml:space="preserve">
+          <source>The command requires the subscription ID you just captured in the previous step and the path to the <bpt id="04cf3c87-f76f-474e-824b-f03da691389b">&lt;strong&gt;</bpt>.pem<ept id="04cf3c87-f76f-474e-824b-f03da691389b">&lt;/strong&gt;</ept> file you created in step 1.</source>
+          <target state="new">The command requires the subscription ID you just captured in the previous step and the path to the <bpt id="04cf3c87-f76f-474e-824b-f03da691389b">&lt;strong&gt;</bpt>.pem<ept id="04cf3c87-f76f-474e-824b-f03da691389b">&lt;/strong&gt;</ept> file you created in step 1.</target>
+        </trans-unit>
+        <trans-unit id="47ad960d-e759-4403-be73-6208479d0f00" xml:space="preserve">
+          <source>This topic uses "machine-name" as the Azure Cloud Service (and your VM) name, but you should replace that with your own choice and remember to use your cloud service name in any other step that requires the vm name.</source>
+          <target state="new">This topic uses "machine-name" as the Azure Cloud Service (and your VM) name, but you should replace that with your own choice and remember to use your cloud service name in any other step that requires the vm name.</target>
+        </trans-unit>
+        <trans-unit id="8d94387e-91f6-4bd2-8a9e-7cdb087123fa" xml:space="preserve">
+          <source>(Remember that in this example, we are using the full binary name and not a <bpt id="794d4294-4c11-4734-9491-cf1b1089211f">&lt;strong&gt;</bpt>docker-machine<ept id="794d4294-4c11-4734-9491-cf1b1089211f">&lt;/strong&gt;</ept> symlink.)</source>
+          <target state="new">(Remember that in this example, we are using the full binary name and not a <bpt id="794d4294-4c11-4734-9491-cf1b1089211f">&lt;strong&gt;</bpt>docker-machine<ept id="794d4294-4c11-4734-9491-cf1b1089211f">&lt;/strong&gt;</ept> symlink.)</target>
+        </trans-unit>
+        <trans-unit id="01ea5c8f-ee67-460c-b1de-1b633a03877b" xml:space="preserve">
+          <source>As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following.</source>
+          <target state="new">As the first two steps require the creation of a new VM and the loading of the Linux Azure agent as well as the updating of the new VM, you should see something like the following.</target>
+        </trans-unit>
+        <trans-unit id="f0aee291-b649-4b22-ac90-2a179048359e" xml:space="preserve">
+          <source>Because a VM is being created, it may take a few minutes to be in a ready state.</source>
+          <target state="new">Because a VM is being created, it may take a few minutes to be in a ready state.</target>
+        </trans-unit>
+        <trans-unit id="84e61b63-0e45-4536-87b9-fa3d3f69bf60" xml:space="preserve">
+          <source>While you're waiting, you can check the state of your new Docker host by typing <bpt id="4edabb13-2f66-494e-8cdd-76812dca2eca">&lt;code&gt;</bpt>azure vm list<ept id="4edabb13-2f66-494e-8cdd-76812dca2eca">&lt;/code&gt;</ept> using the Azure CLI until you see your VMs with the <bpt id="c4ac945e-a768-4d78-bf84-ad57149320f4">&lt;strong&gt;</bpt>ReadyRole<ept id="c4ac945e-a768-4d78-bf84-ad57149320f4">&lt;/strong&gt;</ept> status.</source>
+          <target state="new">While you're waiting, you can check the state of your new Docker host by typing <bpt id="4edabb13-2f66-494e-8cdd-76812dca2eca">&lt;code&gt;</bpt>azure vm list<ept id="4edabb13-2f66-494e-8cdd-76812dca2eca">&lt;/code&gt;</ept> using the Azure CLI until you see your VMs with the <bpt id="c4ac945e-a768-4d78-bf84-ad57149320f4">&lt;strong&gt;</bpt>ReadyRole<ept id="c4ac945e-a768-4d78-bf84-ad57149320f4">&lt;/strong&gt;</ept> status.</target>
+        </trans-unit>
+        <trans-unit id="e9a67e50-b087-452c-905f-1d12daec404a" xml:space="preserve">
+          <source>Set the docker and machine environment variables for the terminal session.</source>
+          <target state="new">Set the docker and machine environment variables for the terminal session.</target>
+        </trans-unit>
+        <trans-unit id="16816cfc-50ff-42db-8d03-c69f0febf075" xml:space="preserve">
+          <source>The last line of feedback suggest that you immediately run the <bpt id="069e66f5-1bbe-455d-8b80-1a9129df72ec">&lt;strong&gt;</bpt>env<ept id="069e66f5-1bbe-455d-8b80-1a9129df72ec">&lt;/strong&gt;</ept> command to export the environment variables necessary to use your docker client directly with a specific machine.</source>
+          <target state="new">The last line of feedback suggest that you immediately run the <bpt id="069e66f5-1bbe-455d-8b80-1a9129df72ec">&lt;strong&gt;</bpt>env<ept id="069e66f5-1bbe-455d-8b80-1a9129df72ec">&lt;/strong&gt;</ept> command to export the environment variables necessary to use your docker client directly with a specific machine.</target>
+        </trans-unit>
+        <trans-unit id="f50fafab-77d2-4893-9da2-c77d4e3c61cd" xml:space="preserve">
+          <source>Once you do so, you do not need any special commands to use your local docker client to connect to the VM that Docker <bpt id="3c5570d8-0684-47e8-8bd7-23860a028b2c">&lt;strong&gt;</bpt>machine<ept id="3c5570d8-0684-47e8-8bd7-23860a028b2c">&lt;/strong&gt;</ept> created.</source>
+          <target state="new">Once you do so, you do not need any special commands to use your local docker client to connect to the VM that Docker <bpt id="3c5570d8-0684-47e8-8bd7-23860a028b2c">&lt;strong&gt;</bpt>machine<ept id="3c5570d8-0684-47e8-8bd7-23860a028b2c">&lt;/strong&gt;</ept> created.</target>
+        </trans-unit>
+        <trans-unit id="d39a62be-7054-477a-8738-6996e336e788" xml:space="preserve">
+          <source>This tutorial shows <bpt id="5f90630b-6044-4584-b22b-af0e34df941e">&lt;strong&gt;</bpt>docker-machine<ept id="5f90630b-6044-4584-b22b-af0e34df941e">&lt;/strong&gt;</ept> creating one VM. However, you can repeat the steps to create as many machines as you want. If you do so, the best way to switch between VMs with docker is to use the <bpt id="27454f63-fbd5-4ab4-a5da-d3a359a084fa">&lt;strong&gt;</bpt>env<ept id="27454f63-fbd5-4ab4-a5da-d3a359a084fa">&lt;/strong&gt;</ept> command inline to set the <bpt id="fc524ed0-d83e-4bc9-8e8d-81eb01f1c382">&lt;strong&gt;</bpt>docker<ept id="fc524ed0-d83e-4bc9-8e8d-81eb01f1c382">&lt;/strong&gt;</ept> environment variables for each individual command. For example, to use <bpt id="5fc9a313-d628-4dc0-99f2-0958dfd26298">&lt;strong&gt;</bpt>docker info<ept id="5fc9a313-d628-4dc0-99f2-0958dfd26298">&lt;/strong&gt;</ept> with a different VM, you can type <bpt id="b0fcca4a-ce8b-4eea-868f-cad86f5faba6">&lt;code&gt;</bpt>docker $(docker-machine env &lt;VM name&gt;) info<ept id="b0fcca4a-ce8b-4eea-868f-cad86f5faba6">&lt;/code&gt;</ept> and the <bpt id="7a48d4aa-c7ee-4d65-8e80-f6e98e08253b">&lt;strong&gt;</bpt>env<ept id="7a48d4aa-c7ee-4d65-8e80-f6e98e08253b">&lt;/strong&gt;</ept> command fills in the docker connection information to use with that VM.</source>
+          <target state="new">This tutorial shows <bpt id="5f90630b-6044-4584-b22b-af0e34df941e">&lt;strong&gt;</bpt>docker-machine<ept id="5f90630b-6044-4584-b22b-af0e34df941e">&lt;/strong&gt;</ept> creating one VM. However, you can repeat the steps to create as many machines as you want. If you do so, the best way to switch between VMs with docker is to use the <bpt id="27454f63-fbd5-4ab4-a5da-d3a359a084fa">&lt;strong&gt;</bpt>env<ept id="27454f63-fbd5-4ab4-a5da-d3a359a084fa">&lt;/strong&gt;</ept> command inline to set the <bpt id="fc524ed0-d83e-4bc9-8e8d-81eb01f1c382">&lt;strong&gt;</bpt>docker<ept id="fc524ed0-d83e-4bc9-8e8d-81eb01f1c382">&lt;/strong&gt;</ept> environment variables for each individual command. For example, to use <bpt id="5fc9a313-d628-4dc0-99f2-0958dfd26298">&lt;strong&gt;</bpt>docker info<ept id="5fc9a313-d628-4dc0-99f2-0958dfd26298">&lt;/strong&gt;</ept> with a different VM, you can type <bpt id="b0fcca4a-ce8b-4eea-868f-cad86f5faba6">&lt;code&gt;</bpt>docker $(docker-machine env &lt;VM name&gt;) info<ept id="b0fcca4a-ce8b-4eea-868f-cad86f5faba6">&lt;/code&gt;</ept> and the <bpt id="7a48d4aa-c7ee-4d65-8e80-f6e98e08253b">&lt;strong&gt;</bpt>env<ept id="7a48d4aa-c7ee-4d65-8e80-f6e98e08253b">&lt;/strong&gt;</ept> command fills in the docker connection information to use with that VM.</target>
+        </trans-unit>
+        <trans-unit id="9db8a61c-5899-499b-b92f-35506fa6bfc3" xml:space="preserve">
+          <source>You can now use docker in the normal way to create an application in the container.</source>
+          <target state="new">You can now use docker in the normal way to create an application in the container.</target>
+        </trans-unit>
+        <trans-unit id="7b6747be-f787-4ce7-9617-8cf3257daaa1" xml:space="preserve">
+          <source>The easiest to demonstrate is <bpt id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;linkText&gt;</bpt>busybox<ept id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;/linkText&gt;</ept><bpt id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;title&gt;</bpt><ept id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;/title&gt;</ept>:</source>
+          <target state="new">The easiest to demonstrate is <bpt id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;linkText&gt;</bpt>busybox<ept id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;/linkText&gt;</ept><bpt id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;title&gt;</bpt><ept id="8458131b-cd2c-4dc0-8e5c-ca6d4406bda7">&lt;/title&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3a55a949-bfe2-414d-82af-416dbce4b40e" xml:space="preserve">
+          <source>However, you may want to create an application that you can see immediately on the internet, such as the <bpt id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;linkText&gt;</bpt>nginx<ept id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;/linkText&gt;</ept><bpt id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;title&gt;</bpt><ept id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;/title&gt;</ept> from the <bpt id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;linkText&gt;</bpt>Docker Hub<ept id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;/linkText&gt;</ept><bpt id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;title&gt;</bpt><ept id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">However, you may want to create an application that you can see immediately on the internet, such as the <bpt id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;linkText&gt;</bpt>nginx<ept id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;/linkText&gt;</ept><bpt id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;title&gt;</bpt><ept id="f89535c3-28a5-4120-a6c9-e63348260b94">&lt;/title&gt;</ept> from the <bpt id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;linkText&gt;</bpt>Docker Hub<ept id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;/linkText&gt;</ept><bpt id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;title&gt;</bpt><ept id="21cb5dca-6abb-4f77-8a8b-9c5261130a5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b334c3bd-8a29-4a68-9252-d53e3fc82331" xml:space="preserve">
+          <source>Remember to use the <bpt id="01b15727-69d9-4e87-a0e4-4fe1999be190">&lt;strong&gt;</bpt>-P<ept id="01b15727-69d9-4e87-a0e4-4fe1999be190">&lt;/strong&gt;</ept> option to have <bpt id="e5ca62bf-b75c-48aa-9f76-e5aad8a89b8e">&lt;strong&gt;</bpt>docker<ept id="e5ca62bf-b75c-48aa-9f76-e5aad8a89b8e">&lt;/strong&gt;</ept> assign random ports to the image, and <bpt id="434eacc6-de6b-4095-aa65-969384a6fc54">&lt;strong&gt;</bpt>-d<ept id="434eacc6-de6b-4095-aa65-969384a6fc54">&lt;/strong&gt;</ept> to ensure that the container runs in the background continuously.</source>
+          <target state="new">Remember to use the <bpt id="01b15727-69d9-4e87-a0e4-4fe1999be190">&lt;strong&gt;</bpt>-P<ept id="01b15727-69d9-4e87-a0e4-4fe1999be190">&lt;/strong&gt;</ept> option to have <bpt id="e5ca62bf-b75c-48aa-9f76-e5aad8a89b8e">&lt;strong&gt;</bpt>docker<ept id="e5ca62bf-b75c-48aa-9f76-e5aad8a89b8e">&lt;/strong&gt;</ept> assign random ports to the image, and <bpt id="434eacc6-de6b-4095-aa65-969384a6fc54">&lt;strong&gt;</bpt>-d<ept id="434eacc6-de6b-4095-aa65-969384a6fc54">&lt;/strong&gt;</ept> to ensure that the container runs in the background continuously.</target>
+        </trans-unit>
+        <trans-unit id="e2707402-f7e0-469c-a291-b41ad9acee72" xml:space="preserve">
+          <source>(If you forget, you'll start nginx and then it will immediately shut down.</source>
+          <target state="new">(If you forget, you'll start nginx and then it will immediately shut down.</target>
+        </trans-unit>
+        <trans-unit id="c9818998-0474-4cd5-8413-de56053ac1d6" xml:space="preserve">
+          <source>Don't forget!)</source>
+          <target state="new">Don't forget!)</target>
+        </trans-unit>
+        <trans-unit id="62bfb988-a51b-422d-b336-c8aa3746f9df" xml:space="preserve">
+          <source>To see it from the internet, create a public endpoint on port 80 for the Azure VM and map that port to the nginx container's port.</source>
+          <target state="new">To see it from the internet, create a public endpoint on port 80 for the Azure VM and map that port to the nginx container's port.</target>
+        </trans-unit>
+        <trans-unit id="7454571c-5255-4ce2-ae6c-456cc4b98070" xml:space="preserve">
+          <source>First, use <bpt id="2be110a3-c3b2-4c26-a897-fdf989c6c834">&lt;code&gt;</bpt>docker ps -a<ept id="2be110a3-c3b2-4c26-a897-fdf989c6c834">&lt;/code&gt;</ept> to locate the container and find which ports <bpt id="8dd19444-5e2c-4e80-a544-99f7c8cdf063">&lt;strong&gt;</bpt>docker<ept id="8dd19444-5e2c-4e80-a544-99f7c8cdf063">&lt;/strong&gt;</ept> has assigned to the container's port 80.</source>
+          <target state="new">First, use <bpt id="2be110a3-c3b2-4c26-a897-fdf989c6c834">&lt;code&gt;</bpt>docker ps -a<ept id="2be110a3-c3b2-4c26-a897-fdf989c6c834">&lt;/code&gt;</ept> to locate the container and find which ports <bpt id="8dd19444-5e2c-4e80-a544-99f7c8cdf063">&lt;strong&gt;</bpt>docker<ept id="8dd19444-5e2c-4e80-a544-99f7c8cdf063">&lt;/strong&gt;</ept> has assigned to the container's port 80.</target>
+        </trans-unit>
+        <trans-unit id="6b805575-6e0b-4da7-bb95-0c03395b5aad" xml:space="preserve">
+          <source>(Below the displayed information is edited to show only port information; you'll see more.)</source>
+          <target state="new">(Below the displayed information is edited to show only port information; you'll see more.)</target>
+        </trans-unit>
+        <trans-unit id="b4dccd62-6f5e-468a-9d19-6e0dacb07f5f" xml:space="preserve">
+          <source>We can see that docker has assigned the container's port 80 to the VM's port 49153.</source>
+          <target state="new">We can see that docker has assigned the container's port 80 to the VM's port 49153.</target>
+        </trans-unit>
+        <trans-unit id="a4deb8b6-4c8d-4207-9517-a9332317be45" xml:space="preserve">
+          <source>We can now use the Azure CLI to map the external Cloud Service's public port 80 to port 49153 on the VM.</source>
+          <target state="new">We can now use the Azure CLI to map the external Cloud Service's public port 80 to port 49153 on the VM.</target>
+        </trans-unit>
+        <trans-unit id="d1dbec28-b19e-4d9f-ade5-885ea0ef0127" xml:space="preserve">
+          <source>Docker then ensures that inbound tcp traffic on VM port 49153 is routed to the nginx container.</source>
+          <target state="new">Docker then ensures that inbound tcp traffic on VM port 49153 is routed to the nginx container.</target>
+        </trans-unit>
+        <trans-unit id="459134d4-a2dc-4d81-a601-9e9ff43887a9" xml:space="preserve">
+          <source>Open your favorite browser and have a look.</source>
+          <target state="new">Open your favorite browser and have a look.</target>
+        </trans-unit>
+        <trans-unit id="eab8cb43-26b6-4c9b-a42e-224e90979f59" xml:space="preserve">
+          <source><bpt id="e78c2b91-8931-47ff-916e-326ae8b248f7">&lt;linkText&gt;</bpt><ept id="e78c2b91-8931-47ff-916e-326ae8b248f7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e78c2b91-8931-47ff-916e-326ae8b248f7">&lt;linkText&gt;</bpt><ept id="e78c2b91-8931-47ff-916e-326ae8b248f7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c53f5ec3-673b-43fe-b73b-5e6950c3503b" xml:space="preserve">
+          <source>Go to the <bpt id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;linkText&gt;</bpt>Docker user guide<ept id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;/linkText&gt;</ept><bpt id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;title&gt;</bpt><ept id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;/title&gt;</ept> and create some applications on Microsoft Azure.</source>
+          <target state="new">Go to the <bpt id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;linkText&gt;</bpt>Docker user guide<ept id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;/linkText&gt;</ept><bpt id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;title&gt;</bpt><ept id="bf01b0ce-5c2b-44be-a3ab-cc03cdfcb81c">&lt;/title&gt;</ept> and create some applications on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="10450368-2c84-46ff-8824-d715d3e5b83f" xml:space="preserve">
+          <source>Or, go play with [<bpt id="f089d734-dd66-4dfa-9b02-b8d4d788270f">&lt;strong&gt;</bpt>docker<ept id="f089d734-dd66-4dfa-9b02-b8d4d788270f">&lt;/strong&gt;</ept> and swarm](https://github.com/docker/swarm) on Azure](virtual-machines-docker-swarm) and see how swarm can be used with docker and Azure.</source>
+          <target state="new">Or, go play with [<bpt id="f089d734-dd66-4dfa-9b02-b8d4d788270f">&lt;strong&gt;</bpt>docker<ept id="f089d734-dd66-4dfa-9b02-b8d4d788270f">&lt;/strong&gt;</ept> and swarm](https://github.com/docker/swarm) on Azure](virtual-machines-docker-swarm) and see how swarm can be used with docker and Azure.</target>
+        </trans-unit>
+        <trans-unit id="a96a5990-f13b-4cfb-8a8b-542a8c6e190a" xml:space="preserve">
+          <source>./media/virtual-machines-docker-machine/nginxondocker.png</source>
+          <target state="new">./media/virtual-machines-docker-machine/nginxondocker.png</target>
+        </trans-unit>
+        <trans-unit id="ad7463ca-3c8e-43b8-b4a9-728d756f9dce" xml:space="preserve">
+          <source>./media/virtual-machines-docker-machine/portalsettingsitem.png</source>
+          <target state="new">./media/virtual-machines-docker-machine/portalsettingsitem.png</target>
+        </trans-unit>
+        <trans-unit id="1542429e-692b-42bc-95c5-31ca1241a223" xml:space="preserve">
+          <source>./media/virtual-machines-docker-machine/managementcertificatesitem.png</source>
+          <target state="new">./media/virtual-machines-docker-machine/managementcertificatesitem.png</target>
+        </trans-unit>
+        <trans-unit id="7bd5a5d5-5cc9-4825-8fc9-7850bb4190da" xml:space="preserve">
+          <source>./media/virtual-machines-docker-machine/uploaditem.png</source>
+          <target state="new">./media/virtual-machines-docker-machine/uploaditem.png</target>
+        </trans-unit>
+        <trans-unit id="46e9ecda-0f48-438f-9df1-69e669f72039" xml:space="preserve">
+          <source>virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="1167f9b8-4aa6-42ab-9868-e72e9adce27a" xml:space="preserve">
+          <source>../web-sites-custom-domain-name.md</source>
+          <target state="new">../web-sites-custom-domain-name.md</target>
+        </trans-unit>
+        <trans-unit id="8db9ce00-41ab-4e25-802a-e2e5d6e14e21" xml:space="preserve">
+          <source>../storage-whatis-account.md</source>
+          <target state="new">../storage-whatis-account.md</target>
+        </trans-unit>
+      </group>
+      <group id="00c82ae8-a1a4-4f1b-b162-83614a561698" />
+    </body>
+  </file>
+</xliff>

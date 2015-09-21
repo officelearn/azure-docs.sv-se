@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d3415a35-30b4-462e-b449-8c714846fca6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d3415a35-30b4-462e-b449-8c714846fca6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e063c24-8470-4f57-b31e-e924fe6e62c6">
+        <trans-unit id="83d1d5f2-714a-4103-9695-f86b4f5a15d2" xml:space="preserve">
+          <source>Azure Mobile Engagement iOS SDK Integration</source>
+          <target state="new">Azure Mobile Engagement iOS SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="684c0d01-20dd-43b4-aba0-d136d99c1263" xml:space="preserve">
+          <source>Latest updates and procedures for iOS SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for iOS SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="8ce9fb72-b467-4a3f-9956-717720bb873e" xml:space="preserve">
+          <source>This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.</source>
+          <target state="new">This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.</target>
+        </trans-unit>
+        <trans-unit id="7b063a2b-81b8-4a71-bfe3-8805c2fb7054" xml:space="preserve">
+          <source>The Engagement SDK requires iOS6+: the deployment target of your application must be at least iOS 6.</source>
+          <target state="new">The Engagement SDK requires iOS6+: the deployment target of your application must be at least iOS 6.</target>
+        </trans-unit>
+        <trans-unit id="96590aac-aa73-4e10-b5a6-78218c132f22" xml:space="preserve">
+          <source>The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals.</source>
+          <target state="new">The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals.</target>
+        </trans-unit>
+        <trans-unit id="cb339f0b-1871-48c3-a356-138c37b59a32" xml:space="preserve">
+          <source>The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see <bpt id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your iOS app<ept id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;/linkText&gt;</ept><bpt id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;title&gt;</bpt><ept id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;/title&gt;</ept> since these statistics are application dependent.</source>
+          <target state="new">The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see <bpt id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;linkText&gt;</bpt>How to use the advanced Mobile Engagement tagging API in your iOS app<ept id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;/linkText&gt;</ept><bpt id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;title&gt;</bpt><ept id="1ef65fc7-901f-4b02-859a-807f99adc6a5">&lt;/title&gt;</ept> since these statistics are application dependent.</target>
+        </trans-unit>
+        <trans-unit id="dae59839-bc94-4ee2-8a45-3bba3ef10c88" xml:space="preserve">
+          <source>Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select <bpt id="9ee76def-7fe4-43b9-81b4-70ff8f5bd4a2">&lt;strong&gt;</bpt>"Add files to ..."<ept id="9ee76def-7fe4-43b9-81b4-70ff8f5bd4a2">&lt;/strong&gt;</ept> and choose the <bpt id="8ea87d65-374d-4461-b197-88f42a7f50ed">&lt;code&gt;</bpt>EngagementSDK<ept id="8ea87d65-374d-4461-b197-88f42a7f50ed">&lt;/code&gt;</ept> folder.</source>
+          <target state="new">Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select <bpt id="9ee76def-7fe4-43b9-81b4-70ff8f5bd4a2">&lt;strong&gt;</bpt>"Add files to ..."<ept id="9ee76def-7fe4-43b9-81b4-70ff8f5bd4a2">&lt;/strong&gt;</ept> and choose the <bpt id="8ea87d65-374d-4461-b197-88f42a7f50ed">&lt;code&gt;</bpt>EngagementSDK<ept id="8ea87d65-374d-4461-b197-88f42a7f50ed">&lt;/code&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="5925cef2-2607-440a-98f6-08660562e3f7" xml:space="preserve">
+          <source>Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target.</source>
+          <target state="new">Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target.</target>
+        </trans-unit>
+        <trans-unit id="81f899f1-0fcb-4cde-9586-795e46354102" xml:space="preserve">
+          <source>Then, open the <bpt id="664062d1-fe58-4442-b7ad-f6d7951cc0ea">&lt;strong&gt;</bpt>"Build phases"<ept id="664062d1-fe58-4442-b7ad-f6d7951cc0ea">&lt;/strong&gt;</ept> tab and in the <bpt id="2988e693-78b4-4873-a5b4-0e4cbe894952">&lt;strong&gt;</bpt>"Link Binary With Libraries"<ept id="2988e693-78b4-4873-a5b4-0e4cbe894952">&lt;/strong&gt;</ept> menu, add these frameworks:</source>
+          <target state="new">Then, open the <bpt id="664062d1-fe58-4442-b7ad-f6d7951cc0ea">&lt;strong&gt;</bpt>"Build phases"<ept id="664062d1-fe58-4442-b7ad-f6d7951cc0ea">&lt;/strong&gt;</ept> tab and in the <bpt id="2988e693-78b4-4873-a5b4-0e4cbe894952">&lt;strong&gt;</bpt>"Link Binary With Libraries"<ept id="2988e693-78b4-4873-a5b4-0e4cbe894952">&lt;/strong&gt;</ept> menu, add these frameworks:</target>
+        </trans-unit>
+        <trans-unit id="543b8a30-e71a-4636-a213-4a4f211528fe" xml:space="preserve">
+          <source><bpt id="da2c8da9-5e6c-442c-94c0-002cdd50d48c">&lt;code&gt;</bpt>AdSupport.framework<ept id="da2c8da9-5e6c-442c-94c0-002cdd50d48c">&lt;/code&gt;</ept> - set the link as <bpt id="fe504b50-6995-4fb2-a5e8-dceec9fefd0c">&lt;code&gt;</bpt>Optional<ept id="fe504b50-6995-4fb2-a5e8-dceec9fefd0c">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="da2c8da9-5e6c-442c-94c0-002cdd50d48c">&lt;code&gt;</bpt>AdSupport.framework<ept id="da2c8da9-5e6c-442c-94c0-002cdd50d48c">&lt;/code&gt;</ept> - set the link as <bpt id="fe504b50-6995-4fb2-a5e8-dceec9fefd0c">&lt;code&gt;</bpt>Optional<ept id="fe504b50-6995-4fb2-a5e8-dceec9fefd0c">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="140dacb4-ea01-4e6c-b4b8-81341bb1d2b2" xml:space="preserve">
+          <source><bpt id="bed98031-dcfe-4f2e-9fef-61c63a4ab6e2">&lt;code&gt;</bpt>SystemConfiguration.framework<ept id="bed98031-dcfe-4f2e-9fef-61c63a4ab6e2">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="bed98031-dcfe-4f2e-9fef-61c63a4ab6e2">&lt;code&gt;</bpt>SystemConfiguration.framework<ept id="bed98031-dcfe-4f2e-9fef-61c63a4ab6e2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8a872fa-04eb-4a71-a21e-80bcb4360080" xml:space="preserve">
+          <source><bpt id="598f248d-f68c-40a0-a4b0-f2ddbc74d50f">&lt;code&gt;</bpt>CoreTelephony.framework<ept id="598f248d-f68c-40a0-a4b0-f2ddbc74d50f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="598f248d-f68c-40a0-a4b0-f2ddbc74d50f">&lt;code&gt;</bpt>CoreTelephony.framework<ept id="598f248d-f68c-40a0-a4b0-f2ddbc74d50f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2d9de71-d92b-4c4d-9ec5-0ad05b4ec42d" xml:space="preserve">
+          <source><bpt id="0152cc04-3a88-4ef4-ad9a-0496e599ca04">&lt;code&gt;</bpt>CFNetwork.framework<ept id="0152cc04-3a88-4ef4-ad9a-0496e599ca04">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="0152cc04-3a88-4ef4-ad9a-0496e599ca04">&lt;code&gt;</bpt>CFNetwork.framework<ept id="0152cc04-3a88-4ef4-ad9a-0496e599ca04">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5619153-36dc-46e1-baa3-4bd7760be466" xml:space="preserve">
+          <source><bpt id="332e9afe-2146-4a81-933e-f71f21b7b5fa">&lt;code&gt;</bpt>CoreLocation.framework<ept id="332e9afe-2146-4a81-933e-f71f21b7b5fa">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="332e9afe-2146-4a81-933e-f71f21b7b5fa">&lt;code&gt;</bpt>CoreLocation.framework<ept id="332e9afe-2146-4a81-933e-f71f21b7b5fa">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b94cea63-9605-4ec8-a6b1-b1f46221a5a2" xml:space="preserve">
+          <source><bpt id="5c932405-ac6c-441b-b675-7f7f5a624193">&lt;code&gt;</bpt>libxml2.dylib<ept id="5c932405-ac6c-441b-b675-7f7f5a624193">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5c932405-ac6c-441b-b675-7f7f5a624193">&lt;code&gt;</bpt>libxml2.dylib<ept id="5c932405-ac6c-441b-b675-7f7f5a624193">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="587ab676-60ce-4035-ab08-00a1b910de6f" xml:space="preserve">
+          <source>The AdSupport framework can be removed. Engagement needs this framework to collect the IDFA. However, IDFA collection can be disabled \&lt;ios-sdk-engagement-idfa\&gt; to comply with the new Apple policy regarding this ID.</source>
+          <target state="new">The AdSupport framework can be removed. Engagement needs this framework to collect the IDFA. However, IDFA collection can be disabled \&lt;ios-sdk-engagement-idfa\&gt; to comply with the new Apple policy regarding this ID.</target>
+        </trans-unit>
+        <trans-unit id="db8f428f-c7ce-4c72-957a-4588f043d82d" xml:space="preserve">
+          <source>You need to modify your Application Delegate:</source>
+          <target state="new">You need to modify your Application Delegate:</target>
+        </trans-unit>
+        <trans-unit id="a7bcb0b7-3f83-4f8d-aefc-6322e244a047" xml:space="preserve">
+          <source>At the top of your implementation file, import the Engagement agent:</source>
+          <target state="new">At the top of your implementation file, import the Engagement agent:</target>
+        </trans-unit>
+        <trans-unit id="65255a8b-8eb6-443b-a6fb-c3617ddbd032" xml:space="preserve">
+          <source>Initialize Engagement inside the method '<bpt id="9f639f95-2713-43f5-aca5-f2229593c54b">&lt;strong&gt;</bpt>applicationDidFinishLaunching:<ept id="9f639f95-2713-43f5-aca5-f2229593c54b">&lt;/strong&gt;</ept>' or '<bpt id="322871c2-a4ef-4530-9853-18ab9e4c1e04">&lt;strong&gt;</bpt>application:didFinishLaunchingWithOptions:<ept id="322871c2-a4ef-4530-9853-18ab9e4c1e04">&lt;/strong&gt;</ept>':</source>
+          <target state="new">Initialize Engagement inside the method '<bpt id="9f639f95-2713-43f5-aca5-f2229593c54b">&lt;strong&gt;</bpt>applicationDidFinishLaunching:<ept id="9f639f95-2713-43f5-aca5-f2229593c54b">&lt;/strong&gt;</ept>' or '<bpt id="322871c2-a4ef-4530-9853-18ab9e4c1e04">&lt;strong&gt;</bpt>application:didFinishLaunchingWithOptions:<ept id="322871c2-a4ef-4530-9853-18ab9e4c1e04">&lt;/strong&gt;</ept>':</target>
+        </trans-unit>
+        <trans-unit id="3fa23750-465c-4123-9beb-b638991f5cb5" xml:space="preserve">
+          <source>In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you can simply make all your <bpt id="a939fd9a-f18f-44a6-9fea-59732da3ce2e">&lt;code&gt;</bpt>UIViewController<ept id="a939fd9a-f18f-44a6-9fea-59732da3ce2e">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="ed3a8968-b779-4ae4-88e1-4d32e51e349b">&lt;code&gt;</bpt>EngagementViewController<ept id="ed3a8968-b779-4ae4-88e1-4d32e51e349b">&lt;/code&gt;</ept> classes (same rule for <bpt id="9733ef71-7db2-45b3-9b93-cd98917d19de">&lt;code&gt;</bpt>UITableViewController<ept id="9733ef71-7db2-45b3-9b93-cd98917d19de">&lt;/code&gt;</ept> -\&gt; <bpt id="d4410bf7-96dd-4c98-b8f4-b48648e7ab05">&lt;code&gt;</bpt>EngagementTableViewController<ept id="d4410bf7-96dd-4c98-b8f4-b48648e7ab05">&lt;/code&gt;</ept>).</source>
+          <target state="new">In order to activate the report of all the logs required by Engagement to compute Users, Sessions, Activities, Crashes and Technical statistics, you can simply make all your <bpt id="a939fd9a-f18f-44a6-9fea-59732da3ce2e">&lt;code&gt;</bpt>UIViewController<ept id="a939fd9a-f18f-44a6-9fea-59732da3ce2e">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="ed3a8968-b779-4ae4-88e1-4d32e51e349b">&lt;code&gt;</bpt>EngagementViewController<ept id="ed3a8968-b779-4ae4-88e1-4d32e51e349b">&lt;/code&gt;</ept> classes (same rule for <bpt id="9733ef71-7db2-45b3-9b93-cd98917d19de">&lt;code&gt;</bpt>UITableViewController<ept id="9733ef71-7db2-45b3-9b93-cd98917d19de">&lt;/code&gt;</ept> -\&gt; <bpt id="d4410bf7-96dd-4c98-b8f4-b48648e7ab05">&lt;code&gt;</bpt>EngagementTableViewController<ept id="d4410bf7-96dd-4c98-b8f4-b48648e7ab05">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="0787701b-7912-484d-aa56-4deff36b3216" xml:space="preserve">
+          <source><bpt id="f45b381f-e5de-4824-ae69-317f9f0ade66">&lt;strong&gt;</bpt>Without Engagement :<ept id="f45b381f-e5de-4824-ae69-317f9f0ade66">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f45b381f-e5de-4824-ae69-317f9f0ade66">&lt;strong&gt;</bpt>Without Engagement :<ept id="f45b381f-e5de-4824-ae69-317f9f0ade66">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6511a9de-543d-4861-962b-740dedbf7c17" xml:space="preserve">
+          <source><bpt id="899520ec-2e2f-4795-a343-181c1f8196d9">&lt;strong&gt;</bpt>With Engagement :<ept id="899520ec-2e2f-4795-a343-181c1f8196d9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="899520ec-2e2f-4795-a343-181c1f8196d9">&lt;strong&gt;</bpt>With Engagement :<ept id="899520ec-2e2f-4795-a343-181c1f8196d9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc7b0550-5baa-47f8-8d93-faed47151786" xml:space="preserve">
+          <source>If you cannot or do not want to overload your <bpt id="b83657f5-0c11-4a71-997b-72b17037f28f">&lt;code&gt;</bpt>UIViewController<ept id="b83657f5-0c11-4a71-997b-72b17037f28f">&lt;/code&gt;</ept> classes, you can instead start your activities by calling <bpt id="a52caf03-25ab-4388-b106-0c601f4afdb8">&lt;code&gt;</bpt>EngagementAgent<ept id="a52caf03-25ab-4388-b106-0c601f4afdb8">&lt;/code&gt;</ept>'s methods directly.</source>
+          <target state="new">If you cannot or do not want to overload your <bpt id="b83657f5-0c11-4a71-997b-72b17037f28f">&lt;code&gt;</bpt>UIViewController<ept id="b83657f5-0c11-4a71-997b-72b17037f28f">&lt;/code&gt;</ept> classes, you can instead start your activities by calling <bpt id="a52caf03-25ab-4388-b106-0c601f4afdb8">&lt;code&gt;</bpt>EngagementAgent<ept id="a52caf03-25ab-4388-b106-0c601f4afdb8">&lt;/code&gt;</ept>'s methods directly.</target>
+        </trans-unit>
+        <trans-unit id="4f85ee10-3f85-46ad-a8ba-d8689ea719d4" xml:space="preserve">
+          <source>The iOS SDK automatically calls the <bpt id="365f3890-e554-41ee-9550-d7fe812fa2d6">&lt;code&gt;</bpt>endActivity()<ept id="365f3890-e554-41ee-9550-d7fe812fa2d6">&lt;/code&gt;</ept> method when the application is closed.</source>
+          <target state="new">The iOS SDK automatically calls the <bpt id="365f3890-e554-41ee-9550-d7fe812fa2d6">&lt;code&gt;</bpt>endActivity()<ept id="365f3890-e554-41ee-9550-d7fe812fa2d6">&lt;/code&gt;</ept> method when the application is closed.</target>
+        </trans-unit>
+        <trans-unit id="998532f9-bb32-4d47-a0cb-662633515ee4" xml:space="preserve">
+          <source>Thus, it is <bpt id="45885f0a-9c5f-4724-83ea-18194d704fad">&lt;em&gt;</bpt>HIGHLY<ept id="45885f0a-9c5f-4724-83ea-18194d704fad">&lt;/em&gt;</ept> recommended to call the <bpt id="2f9fa91f-157b-4cc2-a24a-0dce4747102c">&lt;code&gt;</bpt>startActivity<ept id="2f9fa91f-157b-4cc2-a24a-0dce4747102c">&lt;/code&gt;</ept> method whenever the activity of the user change, and to <bpt id="a6a17958-f5a4-4714-86bd-650dde4ebf8e">&lt;em&gt;</bpt>NEVER<ept id="a6a17958-f5a4-4714-86bd-650dde4ebf8e">&lt;/em&gt;</ept> call the <bpt id="6e6ac431-edd6-4ee6-9a99-82f34b3b6fe1">&lt;code&gt;</bpt>endActivity<ept id="6e6ac431-edd6-4ee6-9a99-82f34b3b6fe1">&lt;/code&gt;</ept> method, since calling this method forces the current session to be ended.</source>
+          <target state="new">Thus, it is <bpt id="45885f0a-9c5f-4724-83ea-18194d704fad">&lt;em&gt;</bpt>HIGHLY<ept id="45885f0a-9c5f-4724-83ea-18194d704fad">&lt;/em&gt;</ept> recommended to call the <bpt id="2f9fa91f-157b-4cc2-a24a-0dce4747102c">&lt;code&gt;</bpt>startActivity<ept id="2f9fa91f-157b-4cc2-a24a-0dce4747102c">&lt;/code&gt;</ept> method whenever the activity of the user change, and to <bpt id="a6a17958-f5a4-4714-86bd-650dde4ebf8e">&lt;em&gt;</bpt>NEVER<ept id="a6a17958-f5a4-4714-86bd-650dde4ebf8e">&lt;/em&gt;</ept> call the <bpt id="6e6ac431-edd6-4ee6-9a99-82f34b3b6fe1">&lt;code&gt;</bpt>endActivity<ept id="6e6ac431-edd6-4ee6-9a99-82f34b3b6fe1">&lt;/code&gt;</ept> method, since calling this method forces the current session to be ended.</target>
+        </trans-unit>
+        <trans-unit id="0bdf52bf-62a6-4277-9b91-8c4bd4961168" xml:space="preserve">
+          <source>Apple terms of service do not allow applications to use location tracking for statistics purpose only.</source>
+          <target state="new">Apple terms of service do not allow applications to use location tracking for statistics purpose only.</target>
+        </trans-unit>
+        <trans-unit id="72287f2d-b6bf-46d9-bb1a-6a81200c1dfd" xml:space="preserve">
+          <source>Thus, it is recommended to enable location reports only if your application also use the location tracking for another reason.</source>
+          <target state="new">Thus, it is recommended to enable location reports only if your application also use the location tracking for another reason.</target>
+        </trans-unit>
+        <trans-unit id="b4f60c38-e1db-4053-ae14-f568730f3b3a" xml:space="preserve">
+          <source>Starting with iOS 8, you must provide a description for how your app uses location services by setting a string for the key [NSLocationWhenInUseUsageDescription] or [NSLocationAlwaysUsageDescription] in your app's Info.plist file.</source>
+          <target state="new">Starting with iOS 8, you must provide a description for how your app uses location services by setting a string for the key [NSLocationWhenInUseUsageDescription] or [NSLocationAlwaysUsageDescription] in your app's Info.plist file.</target>
+        </trans-unit>
+        <trans-unit id="bf25b4a6-1652-4c3a-afcd-9c6b546a30e6" xml:space="preserve">
+          <source>If you want to report location in the background with Engagement, add the key NSLocationAlwaysUsageDescription.</source>
+          <target state="new">If you want to report location in the background with Engagement, add the key NSLocationAlwaysUsageDescription.</target>
+        </trans-unit>
+        <trans-unit id="732bee88-e584-4bec-872b-7058fc86c936" xml:space="preserve">
+          <source>In all other cases, add the key NSLocationWhenInUseUsageDescription.</source>
+          <target state="new">In all other cases, add the key NSLocationWhenInUseUsageDescription.</target>
+        </trans-unit>
+        <trans-unit id="cb6c6b4a-4142-43e3-a86b-1b2acaa3be03" xml:space="preserve">
+          <source>Lazy area location reporting allows to report the country, region and locality associated to devices.</source>
+          <target state="new">Lazy area location reporting allows to report the country, region and locality associated to devices.</target>
+        </trans-unit>
+        <trans-unit id="762d08f3-909c-4f0b-8af6-e690859e9d0b" xml:space="preserve">
+          <source>This type of location reporting only uses network locations (based on Cell ID or WIFI).</source>
+          <target state="new">This type of location reporting only uses network locations (based on Cell ID or WIFI).</target>
+        </trans-unit>
+        <trans-unit id="82be2187-446c-46ac-b90f-a7eaa3a7983f" xml:space="preserve">
+          <source>The device area is reported at most once per session.</source>
+          <target state="new">The device area is reported at most once per session.</target>
+        </trans-unit>
+        <trans-unit id="1a61291f-6c98-4ad3-baec-3506eba7d3f1" xml:space="preserve">
+          <source>The GPS is never used, and thus this type of location report has very few (not to say no) impact on the battery.</source>
+          <target state="new">The GPS is never used, and thus this type of location report has very few (not to say no) impact on the battery.</target>
+        </trans-unit>
+        <trans-unit id="a2f894f0-6b7a-48fe-b78b-7df878df39de" xml:space="preserve">
+          <source>Reported areas are used to compute geographic statistics about users, sessions, events and errors.</source>
+          <target state="new">Reported areas are used to compute geographic statistics about users, sessions, events and errors.</target>
+        </trans-unit>
+        <trans-unit id="5021547e-b182-4625-91e6-2247feb5849a" xml:space="preserve">
+          <source>They can also be used as criterion in Reach campaigns.</source>
+          <target state="new">They can also be used as criterion in Reach campaigns.</target>
+        </trans-unit>
+        <trans-unit id="14dc6517-9c15-4d34-be54-55273263bf6c" xml:space="preserve">
+          <source>The last known area reported for a device can be retrieved thanks to the [Device API].</source>
+          <target state="new">The last known area reported for a device can be retrieved thanks to the [Device API].</target>
+        </trans-unit>
+        <trans-unit id="349856c4-6d22-4118-8278-7aacaae88a88" xml:space="preserve">
+          <source>To enable lazy area location reporting, add the following line after initializing the Engagement agent:</source>
+          <target state="new">To enable lazy area location reporting, add the following line after initializing the Engagement agent:</target>
+        </trans-unit>
+        <trans-unit id="eda56419-454d-4fcd-bb7f-0aa0caa502e5" xml:space="preserve">
+          <source>Real time location reporting allows to report the latitude and longitude associated to devices.</source>
+          <target state="new">Real time location reporting allows to report the latitude and longitude associated to devices.</target>
+        </trans-unit>
+        <trans-unit id="ef0bddb9-b0b0-41b1-9ab0-4abec42e1585" xml:space="preserve">
+          <source>By default, this type of location reporting only uses network locations (based on Cell ID or WIFI), and the reporting is only active when the application runs in foreground (i.e. during a session).</source>
+          <target state="new">By default, this type of location reporting only uses network locations (based on Cell ID or WIFI), and the reporting is only active when the application runs in foreground (i.e. during a session).</target>
+        </trans-unit>
+        <trans-unit id="7d21e821-3863-4931-a9a4-46817576e61c" xml:space="preserve">
+          <source>Real time locations are <bpt id="8621b43e-9f8f-4ab6-8b8e-df0aa8b6794d">&lt;em&gt;</bpt>NOT<ept id="8621b43e-9f8f-4ab6-8b8e-df0aa8b6794d">&lt;/em&gt;</ept> used to compute statistics. Their only purpose is to allow the use of real time
+geo-fencing \&lt;Reach-Audience-geofencing\&gt; criterion in Reach campaigns.</source>
+          <target state="new">Real time locations are <bpt id="8621b43e-9f8f-4ab6-8b8e-df0aa8b6794d">&lt;em&gt;</bpt>NOT<ept id="8621b43e-9f8f-4ab6-8b8e-df0aa8b6794d">&lt;/em&gt;</ept> used to compute statistics. Their only purpose is to allow the use of real time
+geo-fencing \&lt;Reach-Audience-geofencing\&gt; criterion in Reach campaigns.</target>
+        </trans-unit>
+        <trans-unit id="fd4f9802-33f0-482c-9bea-39cee58b4f96" xml:space="preserve">
+          <source>To enable real time location reporting, add the following line after initializing the Engagement agent:</source>
+          <target state="new">To enable real time location reporting, add the following line after initializing the Engagement agent:</target>
+        </trans-unit>
+        <trans-unit id="77dd672b-d795-47e8-888f-12a13950b06c" xml:space="preserve">
+          <source>By default, real time location reporting only uses network based locations.</source>
+          <target state="new">By default, real time location reporting only uses network based locations.</target>
+        </trans-unit>
+        <trans-unit id="5e09e2a3-84ad-4a0f-bbad-97950f8c0153" xml:space="preserve">
+          <source>To enable the use of GPS based locations (which are far more precise), add:</source>
+          <target state="new">To enable the use of GPS based locations (which are far more precise), add:</target>
+        </trans-unit>
+        <trans-unit id="b54a4e50-06a2-492a-8de1-9bf2127aafac" xml:space="preserve">
+          <source>By default, real time location reporting is only active when the application runs in foreground (i.e. during a session).</source>
+          <target state="new">By default, real time location reporting is only active when the application runs in foreground (i.e. during a session).</target>
+        </trans-unit>
+        <trans-unit id="bf35a18c-58a1-41bf-b52f-a35f7a474115" xml:space="preserve">
+          <source>To enable the reporting also in background, add:</source>
+          <target state="new">To enable the reporting also in background, add:</target>
+        </trans-unit>
+        <trans-unit id="9d75c6f1-0418-4ac9-97f7-30a6b0701a8f" xml:space="preserve">
+          <source>When the application runs in background, only network based locations are reported, even if you enabled the GPS.</source>
+          <target state="new">When the application runs in background, only network based locations are reported, even if you enabled the GPS.</target>
+        </trans-unit>
+        <trans-unit id="118da01f-c03f-435a-a13d-74fad01c5134" xml:space="preserve">
+          <source>Implementation of this function will call [startMonitoringSignificantLocationChanges] when your application goes into the background.</source>
+          <target state="new">Implementation of this function will call [startMonitoringSignificantLocationChanges] when your application goes into the background.</target>
+        </trans-unit>
+        <trans-unit id="1946eb17-2e10-45f7-bc41-c169de1fa902" xml:space="preserve">
+          <source>Be aware that it will automatically relaunch your application into the background if a new location event arrives.</source>
+          <target state="new">Be aware that it will automatically relaunch your application into the background if a new location event arrives.</target>
+        </trans-unit>
+        <trans-unit id="44640bb3-68e8-4a59-87c6-6290ffeff69a" xml:space="preserve">
+          <source>Optionally, if you want to report application specific events, errors and jobs, you need to use the Engagement API through the methods of the <bpt id="757b1186-826b-4ef7-b936-040de7f53106">&lt;code&gt;</bpt>EngagementAgent<ept id="757b1186-826b-4ef7-b936-040de7f53106">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Optionally, if you want to report application specific events, errors and jobs, you need to use the Engagement API through the methods of the <bpt id="757b1186-826b-4ef7-b936-040de7f53106">&lt;code&gt;</bpt>EngagementAgent<ept id="757b1186-826b-4ef7-b936-040de7f53106">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="cde95faa-177b-4f55-b01e-45ee11552138" xml:space="preserve">
+          <source>An object of this class can be retrieved by calling the <bpt id="22a84698-8980-48c6-905b-15b3ff2e9918">&lt;code&gt;</bpt>[EngagementAgent shared]<ept id="22a84698-8980-48c6-905b-15b3ff2e9918">&lt;/code&gt;</ept> static method.</source>
+          <target state="new">An object of this class can be retrieved by calling the <bpt id="22a84698-8980-48c6-905b-15b3ff2e9918">&lt;code&gt;</bpt>[EngagementAgent shared]<ept id="22a84698-8980-48c6-905b-15b3ff2e9918">&lt;/code&gt;</ept> static method.</target>
+        </trans-unit>
+        <trans-unit id="583ba730-205e-4b2a-883c-cdaf0126d4ab" xml:space="preserve">
+          <source>The Engagement API allows to use all of Engagement's advanced capabilities and is detailed in the How to Use the
+Engagement API on iOS (as well as in the technical documentation of the <bpt id="50348dae-ca8d-451b-b063-8dc51ca8854f">&lt;code&gt;</bpt>EngagementAgent<ept id="50348dae-ca8d-451b-b063-8dc51ca8854f">&lt;/code&gt;</ept> class).</source>
+          <target state="new">The Engagement API allows to use all of Engagement's advanced capabilities and is detailed in the How to Use the
+Engagement API on iOS (as well as in the technical documentation of the <bpt id="50348dae-ca8d-451b-b063-8dc51ca8854f">&lt;code&gt;</bpt>EngagementAgent<ept id="50348dae-ca8d-451b-b063-8dc51ca8854f">&lt;/code&gt;</ept> class).</target>
+        </trans-unit>
+        <trans-unit id="cd5678b7-fe17-4a49-b345-7d0e30a4fb92" xml:space="preserve">
+          <source>By default, Engagement will use the [IDFA] to uniquely identify a user.</source>
+          <target state="new">By default, Engagement will use the [IDFA] to uniquely identify a user.</target>
+        </trans-unit>
+        <trans-unit id="bf788b63-3296-4fd6-8a4e-adeae3ca65b1" xml:space="preserve">
+          <source>But if you’re not using advertising elsewhere in the app, you might be rejected by the App Store review process.</source>
+          <target state="new">But if you’re not using advertising elsewhere in the app, you might be rejected by the App Store review process.</target>
+        </trans-unit>
+        <trans-unit id="15e985f2-57f9-46f2-bc8c-2e17fe3f94e4" xml:space="preserve">
+          <source>IDFA collection can be disabled by adding the preprocessor macro <bpt id="a3f10656-e45b-4c4d-ad6d-8f54359b692c">&lt;code&gt;</bpt>ENGAGEMENT_DISABLE_IDFA<ept id="a3f10656-e45b-4c4d-ad6d-8f54359b692c">&lt;/code&gt;</ept> in your pch file (or in the <bpt id="428fdb85-3aff-412f-8912-6836c9fdb9bc">&lt;code&gt;</bpt>Build Settings<ept id="428fdb85-3aff-412f-8912-6836c9fdb9bc">&lt;/code&gt;</ept> of your application).</source>
+          <target state="new">IDFA collection can be disabled by adding the preprocessor macro <bpt id="a3f10656-e45b-4c4d-ad6d-8f54359b692c">&lt;code&gt;</bpt>ENGAGEMENT_DISABLE_IDFA<ept id="a3f10656-e45b-4c4d-ad6d-8f54359b692c">&lt;/code&gt;</ept> in your pch file (or in the <bpt id="428fdb85-3aff-412f-8912-6836c9fdb9bc">&lt;code&gt;</bpt>Build Settings<ept id="428fdb85-3aff-412f-8912-6836c9fdb9bc">&lt;/code&gt;</ept> of your application).</target>
+        </trans-unit>
+        <trans-unit id="c9320236-c619-4a8b-979a-694d2515220c" xml:space="preserve">
+          <source>This will ensure that there is no references to <bpt id="9327737d-b694-416d-a8c3-d80bc93648f8">&lt;code&gt;</bpt>ASIdentifierManager<ept id="9327737d-b694-416d-a8c3-d80bc93648f8">&lt;/code&gt;</ept>, <bpt id="d42105b9-ddc4-4040-9af9-0712e5a1a6f3">&lt;code&gt;</bpt>advertisingIdentifier<ept id="d42105b9-ddc4-4040-9af9-0712e5a1a6f3">&lt;/code&gt;</ept> or <bpt id="77cd2605-8160-424c-a7f9-baeed4151579">&lt;code&gt;</bpt>isAdvertisingTrackingEnabled<ept id="77cd2605-8160-424c-a7f9-baeed4151579">&lt;/code&gt;</ept> in the application build.</source>
+          <target state="new">This will ensure that there is no references to <bpt id="9327737d-b694-416d-a8c3-d80bc93648f8">&lt;code&gt;</bpt>ASIdentifierManager<ept id="9327737d-b694-416d-a8c3-d80bc93648f8">&lt;/code&gt;</ept>, <bpt id="d42105b9-ddc4-4040-9af9-0712e5a1a6f3">&lt;code&gt;</bpt>advertisingIdentifier<ept id="d42105b9-ddc4-4040-9af9-0712e5a1a6f3">&lt;/code&gt;</ept> or <bpt id="77cd2605-8160-424c-a7f9-baeed4151579">&lt;code&gt;</bpt>isAdvertisingTrackingEnabled<ept id="77cd2605-8160-424c-a7f9-baeed4151579">&lt;/code&gt;</ept> in the application build.</target>
+        </trans-unit>
+        <trans-unit id="473a7710-5dff-4c79-a607-7ae910a6e765" xml:space="preserve">
+          <source>Integration in the <bpt id="59ee56c0-d53d-452b-8751-36d9ecbc47dd">&lt;strong&gt;</bpt>prefix.pch<ept id="59ee56c0-d53d-452b-8751-36d9ecbc47dd">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Integration in the <bpt id="59ee56c0-d53d-452b-8751-36d9ecbc47dd">&lt;strong&gt;</bpt>prefix.pch<ept id="59ee56c0-d53d-452b-8751-36d9ecbc47dd">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="5c0e4a1b-aeba-47d0-a24a-fbb096ddb636" xml:space="preserve">
+          <source>You can verify that the IDFA collection is properly disabled in your application by checking the Engagement test logs. See the Integration Test\&lt;ios-sdk-engagement-test-idfa\&gt; documentation for further information.</source>
+          <target state="new">You can verify that the IDFA collection is properly disabled in your application by checking the Engagement test logs. See the Integration Test\&lt;ios-sdk-engagement-test-idfa\&gt; documentation for further information.</target>
+        </trans-unit>
+        <trans-unit id="b8131c0d-23da-47dd-a6cc-2707436f967a" xml:space="preserve">
+          <source>If you want Engagement to stop sending logs, you can call:</source>
+          <target state="new">If you want Engagement to stop sending logs, you can call:</target>
+        </trans-unit>
+        <trans-unit id="68711b84-f13d-49bc-8a69-07d862f9e16e" xml:space="preserve">
+          <source>This call is persistent: it uses <bpt id="01908a8c-a871-450b-9811-3423ee3ff765">&lt;code&gt;</bpt>NSUserDefaults<ept id="01908a8c-a871-450b-9811-3423ee3ff765">&lt;/code&gt;</ept> to store the information.</source>
+          <target state="new">This call is persistent: it uses <bpt id="01908a8c-a871-450b-9811-3423ee3ff765">&lt;code&gt;</bpt>NSUserDefaults<ept id="01908a8c-a871-450b-9811-3423ee3ff765">&lt;/code&gt;</ept> to store the information.</target>
+        </trans-unit>
+        <trans-unit id="11a77559-36a7-404b-8542-ce63c6157e0e" xml:space="preserve">
+          <source>You can enable log reporting again by calling the same function with <bpt id="62e0c83e-2b2b-415f-8eb1-21f501787528">&lt;code&gt;</bpt>YES<ept id="62e0c83e-2b2b-415f-8eb1-21f501787528">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can enable log reporting again by calling the same function with <bpt id="62e0c83e-2b2b-415f-8eb1-21f501787528">&lt;code&gt;</bpt>YES<ept id="62e0c83e-2b2b-415f-8eb1-21f501787528">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e930998-11fb-401f-a96f-91972c074f7c" xml:space="preserve">
+          <source>Instead of calling this function, you can also integrate this setting directly in your existing <bpt id="84e6fac9-4d0c-4810-a4af-eb308319cebb">&lt;code&gt;</bpt>Settings.bundle<ept id="84e6fac9-4d0c-4810-a4af-eb308319cebb">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Instead of calling this function, you can also integrate this setting directly in your existing <bpt id="84e6fac9-4d0c-4810-a4af-eb308319cebb">&lt;code&gt;</bpt>Settings.bundle<ept id="84e6fac9-4d0c-4810-a4af-eb308319cebb">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="c2c93fe5-646e-4dae-aead-81ac70fba4ee" xml:space="preserve">
+          <source>The string <bpt id="41fa02fe-c54d-4a9c-a988-78d0f5d75434">&lt;code&gt;</bpt>engagement_agent_enabled<ept id="41fa02fe-c54d-4a9c-a988-78d0f5d75434">&lt;/code&gt;</ept> must be used as a the preference identifier and it must be associated to a toggle switch(<bpt id="df79343e-cd4e-45b6-8ca7-60a6322cab0d">&lt;code&gt;</bpt>PSToggleSwitchSpecifier<ept id="df79343e-cd4e-45b6-8ca7-60a6322cab0d">&lt;/code&gt;</ept>).</source>
+          <target state="new">The string <bpt id="41fa02fe-c54d-4a9c-a988-78d0f5d75434">&lt;code&gt;</bpt>engagement_agent_enabled<ept id="41fa02fe-c54d-4a9c-a988-78d0f5d75434">&lt;/code&gt;</ept> must be used as a the preference identifier and it must be associated to a toggle switch(<bpt id="df79343e-cd4e-45b6-8ca7-60a6322cab0d">&lt;code&gt;</bpt>PSToggleSwitchSpecifier<ept id="df79343e-cd4e-45b6-8ca7-60a6322cab0d">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="bd2ea351-6e8c-4e9b-a70e-9bc5c5d59854" xml:space="preserve">
+          <source>The following example of <bpt id="721a7e36-8ac5-4e2f-9b58-5598ec72f1f7">&lt;code&gt;</bpt>Settings.bundle<ept id="721a7e36-8ac5-4e2f-9b58-5598ec72f1f7">&lt;/code&gt;</ept> shows how to implement it:</source>
+          <target state="new">The following example of <bpt id="721a7e36-8ac5-4e2f-9b58-5598ec72f1f7">&lt;code&gt;</bpt>Settings.bundle<ept id="721a7e36-8ac5-4e2f-9b58-5598ec72f1f7">&lt;/code&gt;</ept> shows how to implement it:</target>
+        </trans-unit>
+        <trans-unit id="adbefec5-0948-4b12-a090-8e153363662d" xml:space="preserve">
+          <source>http://go.microsoft.com/?linkid=9876094</source>
+          <target state="new">http://go.microsoft.com/?linkid=9876094</target>
+        </trans-unit>
+        <trans-unit id="417b1125-b565-4673-b29c-2c697b5a74e5" xml:space="preserve">
+          <source>https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26</source>
+          <target state="new">https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW26</target>
+        </trans-unit>
+        <trans-unit id="ffe5c254-6e38-41ea-8a32-80232615edc0" xml:space="preserve">
+          <source>https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18</source>
+          <target state="new">https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW18</target>
+        </trans-unit>
+        <trans-unit id="6acae889-1247-4533-add7-8bad10183f65" xml:space="preserve">
+          <source>http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges</source>
+          <target state="new">http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges</target>
+        </trans-unit>
+        <trans-unit id="7dea9398-3b4d-4cd8-ae29-b9afacc430a1" xml:space="preserve">
+          <source>https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier</source>
+          <target state="new">https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier</target>
+        </trans-unit>
+      </group>
+      <group id="2c1feccb-6101-412d-95ed-e38059b1c479" />
+    </body>
+  </file>
+</xliff>

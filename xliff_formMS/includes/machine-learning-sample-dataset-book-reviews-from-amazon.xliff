@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5dc73775-ba53-4085-b06c-5e9d1e62eaba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5dc73775-ba53-4085-b06c-5e9d1e62eaba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c61ebfb5-d415-4d32-9fbd-43a6208d6dfa">
+        <trans-unit id="554922fd-3f0e-4ad1-8546-1bca9ce9ad64" xml:space="preserve">
+          <source>Reviews of books in Amazon, taken from the amazon.com website by University of Pennsylvania researchers (&lt;a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/"&gt;sentiment&lt;/a&gt;).</source>
+          <target state="new">Reviews of books in Amazon, taken from the amazon.com website by University of Pennsylvania researchers (&lt;a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/"&gt;sentiment&lt;/a&gt;).</target>
+        </trans-unit>
+        <trans-unit id="360d6636-419a-4b1d-859a-d1f6042d8234" xml:space="preserve">
+          <source>See the research paper, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.&lt;p&gt; &lt;/p&gt;The original dataset has 975K reviews with rankings 1, 2, 3, 4, or 5.</source>
+          <target state="new">See the research paper, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.&lt;p&gt; &lt;/p&gt;The original dataset has 975K reviews with rankings 1, 2, 3, 4, or 5.</target>
+        </trans-unit>
+        <trans-unit id="2d2fcc50-0c59-437a-be2a-adb71ff348a5" xml:space="preserve">
+          <source>The reviews were written in English and are from the time period 1997-2007.</source>
+          <target state="new">The reviews were written in English and are from the time period 1997-2007.</target>
+        </trans-unit>
+        <trans-unit id="91415e50-6a2b-421c-bfde-70072d9c0798" xml:space="preserve">
+          <source>This dataset has been down-sampled to 10K reviews.</source>
+          <target state="new">This dataset has been down-sampled to 10K reviews.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="91d44b66-3a6e-4436-8a6f-51fdf91ddb3a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="91d44b66-3a6e-4436-8a6f-51fdf91ddb3a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="69739bdc-4314-4a84-9f77-fae5890ed9ed">
+        <trans-unit id="5469ff14-309d-470c-b3f2-f6ba82a62c07" xml:space="preserve">
+          <source>Notification Hubs - Enterprise Push Architecture</source>
+          <target state="new">Notification Hubs - Enterprise Push Architecture</target>
+        </trans-unit>
+        <trans-unit id="85b9ee1d-0ee1-41d8-8195-7b862b4cd37a" xml:space="preserve">
+          <source>Guidance on using Azure Notification Hubs in an enterprise environment</source>
+          <target state="new">Guidance on using Azure Notification Hubs in an enterprise environment</target>
+        </trans-unit>
+        <trans-unit id="5e1fcb1a-7db9-4b44-8177-3c0e1cf38c62" xml:space="preserve">
+          <source>Enterprises today are gradually moving towards creating mobile applications for either their end users (external) or for the employees (internal).</source>
+          <target state="new">Enterprises today are gradually moving towards creating mobile applications for either their end users (external) or for the employees (internal).</target>
+        </trans-unit>
+        <trans-unit id="90876b1c-9934-4706-bc4a-feaa45d0d22e" xml:space="preserve">
+          <source>They have existing backend systems in place be it mainframes or some LoB applications which must be integrated into the mobile application architecture.</source>
+          <target state="new">They have existing backend systems in place be it mainframes or some LoB applications which must be integrated into the mobile application architecture.</target>
+        </trans-unit>
+        <trans-unit id="da1d394f-bcbf-4bb4-b092-e44fb3953aef" xml:space="preserve">
+          <source>This guide will talk about how best to do this integration recommending possible solution to common scenarios.</source>
+          <target state="new">This guide will talk about how best to do this integration recommending possible solution to common scenarios.</target>
+        </trans-unit>
+        <trans-unit id="d19f4309-0e09-4442-9459-6d721ef08b51" xml:space="preserve">
+          <source>A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems.</source>
+          <target state="new">A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems.</target>
+        </trans-unit>
+        <trans-unit id="3bcfc2c2-9fd1-4cab-bad2-4fba6bd155d3" xml:space="preserve">
+          <source>E.g. a bank customer who has the bank's banking app on her iPhone wants to be notified when a debit is made above a certain amount from her account or an intranet scenario where an employee from finance department who has a budget approval app on his Windows Phone wants to be notified when he gets an approval request.</source>
+          <target state="new">E.g. a bank customer who has the bank's banking app on her iPhone wants to be notified when a debit is made above a certain amount from her account or an intranet scenario where an employee from finance department who has a budget approval app on his Windows Phone wants to be notified when he gets an approval request.</target>
+        </trans-unit>
+        <trans-unit id="4f71fe9a-88db-457c-aeee-b21a43111c0b" xml:space="preserve">
+          <source>The bank account or approval processing is likely to be done in some backend system which must initiate a push to the user.</source>
+          <target state="new">The bank account or approval processing is likely to be done in some backend system which must initiate a push to the user.</target>
+        </trans-unit>
+        <trans-unit id="6437bf30-59b7-4288-8fae-1c8d9dacbb2b" xml:space="preserve">
+          <source>There may be multiple such backend systems which must all build same kind of logic to implement push when an event triggers a notification.</source>
+          <target state="new">There may be multiple such backend systems which must all build same kind of logic to implement push when an event triggers a notification.</target>
+        </trans-unit>
+        <trans-unit id="1cf8dd92-0e62-4930-99d3-d76ad9f3a02c" xml:space="preserve">
+          <source>The complexity here lies in integrating several backend together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications e.g. in the case of intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems.</source>
+          <target state="new">The complexity here lies in integrating several backend together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications e.g. in the case of intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems.</target>
+        </trans-unit>
+        <trans-unit id="2a393f6f-8225-4340-8666-333867b720ca" xml:space="preserve">
+          <source>The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.</source>
+          <target state="new">The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.</target>
+        </trans-unit>
+        <trans-unit id="53179223-9279-4ae5-8c5a-e8b908bb295b" xml:space="preserve">
+          <source>Here we will talk about an even better solution using Azure Service Bus - Topic/Subscription model which will reduce the complexity while making the solution scalable.</source>
+          <target state="new">Here we will talk about an even better solution using Azure Service Bus - Topic/Subscription model which will reduce the complexity while making the solution scalable.</target>
+        </trans-unit>
+        <trans-unit id="9460ba85-1b68-47e4-a448-1ed3f1ce5df1" xml:space="preserve">
+          <source>Here is the general architecture of the solution (generalized with multiple mobile apps but equally applicable when there is only one mobile app)</source>
+          <target state="new">Here is the general architecture of the solution (generalized with multiple mobile apps but equally applicable when there is only one mobile app)</target>
+        </trans-unit>
+        <trans-unit id="f9b2a8a4-fc53-4d83-b5ba-623e2deabc28" xml:space="preserve">
+          <source><bpt id="f8997fb6-b244-4b4b-8520-062342468951">&lt;linkText&gt;</bpt><ept id="f8997fb6-b244-4b4b-8520-062342468951">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8997fb6-b244-4b4b-8520-062342468951">&lt;linkText&gt;</bpt><ept id="f8997fb6-b244-4b4b-8520-062342468951">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dad2a99b-9b10-4ac7-a10e-b556c166b530" xml:space="preserve">
+          <source>The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]).</source>
+          <target state="new">The key piece in this architectural diagram is Azure Service Bus which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]).</target>
+        </trans-unit>
+        <trans-unit id="75e91024-9b3e-4408-95a1-2265dfde23a1" xml:space="preserve">
+          <source>The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems.</source>
+          <target state="new">The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which will initiate a push to the mobile apps) does not receive messages directly from the backend systems but instead we have an intermediate abstraction layer provided by [Azure Service Bus] which enables mobile backend to receive messages from one or more backend systems.</target>
+        </trans-unit>
+        <trans-unit id="0524883a-f677-4697-ba67-f519fa893b3a" xml:space="preserve">
+          <source>A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification.</source>
+          <target state="new">A Service Bus Topic needs to be created for each of the backend systems e.g. Account, HR, Finance which are basically "topics" of interest which will initiate messages to be sent as push notification.</target>
+        </trans-unit>
+        <trans-unit id="d2e70f5c-7c3e-464d-b780-1bd5df17cb8a" xml:space="preserve">
+          <source>The backend systems will send messages to these topics.</source>
+          <target state="new">The backend systems will send messages to these topics.</target>
+        </trans-unit>
+        <trans-unit id="3fc1c700-97a2-41b3-93a5-dcb2b069f4b5" xml:space="preserve">
+          <source>A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription.</source>
+          <target state="new">A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription.</target>
+        </trans-unit>
+        <trans-unit id="c02e9e08-8ce5-45c2-9f54-81313c132458" xml:space="preserve">
+          <source>This will entitle the mobile backend to receive a notification from the corresponding backend system.</source>
+          <target state="new">This will entitle the mobile backend to receive a notification from the corresponding backend system.</target>
+        </trans-unit>
+        <trans-unit id="66eaf84d-3538-4514-bfb9-48d19922675f" xml:space="preserve">
+          <source>Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub.</source>
+          <target state="new">Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub.</target>
+        </trans-unit>
+        <trans-unit id="1bb468e7-2663-4dcb-9de6-956242cf0e70" xml:space="preserve">
+          <source>Notification hubs then eventually delivers the message to the mobile app.</source>
+          <target state="new">Notification hubs then eventually delivers the message to the mobile app.</target>
+        </trans-unit>
+        <trans-unit id="bfa102db-1ca6-4d2c-8290-ba12ef4965bf" xml:space="preserve">
+          <source>So to summarize the key components, we have:</source>
+          <target state="new">So to summarize the key components, we have:</target>
+        </trans-unit>
+        <trans-unit id="85ff4fd3-7826-4c2f-90dc-d837092be4f2" xml:space="preserve">
+          <source>Backend systems (LoB/Legacy systems)</source>
+          <target state="new">Backend systems (LoB/Legacy systems)</target>
+        </trans-unit>
+        <trans-unit id="13a18e33-9489-4d7f-9fbd-776f0c25d2fa" xml:space="preserve">
+          <source>Creates Service Bus Topic</source>
+          <target state="new">Creates Service Bus Topic</target>
+        </trans-unit>
+        <trans-unit id="6325181c-f014-4d55-b107-86020a7dd008" xml:space="preserve">
+          <source>Sends Message</source>
+          <target state="new">Sends Message</target>
+        </trans-unit>
+        <trans-unit id="9e2c3dcd-b1ba-4bf1-86b5-1bb77061729f" xml:space="preserve">
+          <source>Mobile backend</source>
+          <target state="new">Mobile backend</target>
+        </trans-unit>
+        <trans-unit id="9143b4b2-8233-4dae-abc8-0a3b9b8db197" xml:space="preserve">
+          <source>Creates Service Subscription</source>
+          <target state="new">Creates Service Subscription</target>
+        </trans-unit>
+        <trans-unit id="201268aa-696d-41c5-829d-c3a7b179b59e" xml:space="preserve">
+          <source>Receives Message (from Backend system)</source>
+          <target state="new">Receives Message (from Backend system)</target>
+        </trans-unit>
+        <trans-unit id="da1be22c-7e67-47ab-8956-30137c44fbbb" xml:space="preserve">
+          <source>Sends notification to clients (via Azure Notification Hub)</source>
+          <target state="new">Sends notification to clients (via Azure Notification Hub)</target>
+        </trans-unit>
+        <trans-unit id="02456209-b1e5-40d8-8271-026fe995da9a" xml:space="preserve">
+          <source>Mobile Application</source>
+          <target state="new">Mobile Application</target>
+        </trans-unit>
+        <trans-unit id="554f2413-e2ba-4da6-8a86-fa9f06508e68" xml:space="preserve">
+          <source>Receives and display notification</source>
+          <target state="new">Receives and display notification</target>
+        </trans-unit>
+        <trans-unit id="41b2e75f-4063-47bf-9275-4ca6a951432d" xml:space="preserve">
+          <source>The decoupling between the receiver (mobile app/service via Notification Hub) and sender (backend systems) enables additional backend systems being integrated with minimal change.</source>
+          <target state="new">The decoupling between the receiver (mobile app/service via Notification Hub) and sender (backend systems) enables additional backend systems being integrated with minimal change.</target>
+        </trans-unit>
+        <trans-unit id="030a7d3d-93f2-40ca-8c78-9288707f8946" xml:space="preserve">
+          <source>This also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.</source>
+          <target state="new">This also makes the scenario of multiple mobile apps being able to receive events from one or more backend systems.</target>
+        </trans-unit>
+        <trans-unit id="7794bd6c-227c-4611-9f0a-52ca0a7a0990" xml:space="preserve">
+          <source>You should complete the following tutorials to familiarize with the concepts as well as common creation &amp; configuration steps:</source>
+          <target state="new">You should complete the following tutorials to familiarize with the concepts as well as common creation &amp; configuration steps:</target>
+        </trans-unit>
+        <trans-unit id="075eba74-ca2c-4494-84d5-76de0997c0bf" xml:space="preserve">
+          <source>[Service Bus Pub/Sub programming] - This explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send &amp; receive messages from them.</source>
+          <target state="new">[Service Bus Pub/Sub programming] - This explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send &amp; receive messages from them.</target>
+        </trans-unit>
+        <trans-unit id="934e2012-7eee-45f6-9b3d-04f682892a5d" xml:space="preserve">
+          <source>[Notification Hubs - Windows Universal tutorial] - This explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.</source>
+          <target state="new">[Notification Hubs - Windows Universal tutorial] - This explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.</target>
+        </trans-unit>
+        <trans-unit id="ca77c104-bbdd-4920-b99e-96961c948e78" xml:space="preserve">
+          <source>The full sample code is available at [Notification Hub Samples].</source>
+          <target state="new">The full sample code is available at [Notification Hub Samples].</target>
+        </trans-unit>
+        <trans-unit id="fbd66267-1fa0-4684-bd89-3bc0561953c7" xml:space="preserve">
+          <source>It is split into three components:</source>
+          <target state="new">It is split into three components:</target>
+        </trans-unit>
+        <trans-unit id="ef3c5baa-8d06-413e-8a1f-d1233f40ae60" xml:space="preserve">
+          <source><bpt id="e9eded3b-07e2-45ea-8edc-08b655a94281">&lt;strong&gt;</bpt>EnterprisePushBackendSystem<ept id="e9eded3b-07e2-45ea-8edc-08b655a94281">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e9eded3b-07e2-45ea-8edc-08b655a94281">&lt;strong&gt;</bpt>EnterprisePushBackendSystem<ept id="e9eded3b-07e2-45ea-8edc-08b655a94281">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64601a45-c788-4b74-a7d9-79c24eabbbea" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="51f43e11-bc93-48a2-96ce-824b53561bd6" xml:space="preserve">
+          <source>This project uses the <bpt id="3753daa1-69c1-4bf0-836c-695be15f39d7">&lt;em&gt;</bpt>WindowsAzure.ServiceBus<ept id="3753daa1-69c1-4bf0-836c-695be15f39d7">&lt;/em&gt;</ept> Nuget package and is  based on [Service Bus Pub/Sub programming].</source>
+          <target state="new">This project uses the <bpt id="3753daa1-69c1-4bf0-836c-695be15f39d7">&lt;em&gt;</bpt>WindowsAzure.ServiceBus<ept id="3753daa1-69c1-4bf0-836c-695be15f39d7">&lt;/em&gt;</ept> Nuget package and is  based on [Service Bus Pub/Sub programming].</target>
+        </trans-unit>
+        <trans-unit id="92f4be8d-6cb2-4428-84cf-0949169097a0" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="b9744d45-cb86-4df0-b208-83b220c868df" xml:space="preserve">
+          <source>This is a simple C# console app to simulate an LoB system which initiates the message to be delivered to the mobile app.</source>
+          <target state="new">This is a simple C# console app to simulate an LoB system which initiates the message to be delivered to the mobile app.</target>
+        </trans-unit>
+        <trans-unit id="c922dd40-6f8a-4fe2-b2b3-44514fbf4ec8" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="02fc3787-a7cc-4e72-be4c-2d88334f6060" xml:space="preserve">
+          <source><bpt id="fe4e5bee-9686-4ba9-8313-cff00b1985ca">&lt;code&gt;</bpt>CreateTopic<ept id="fe4e5bee-9686-4ba9-8313-cff00b1985ca">&lt;/code&gt;</ept> is used to create the Service Bus topic where we will send messages.</source>
+          <target state="new"><bpt id="fe4e5bee-9686-4ba9-8313-cff00b1985ca">&lt;code&gt;</bpt>CreateTopic<ept id="fe4e5bee-9686-4ba9-8313-cff00b1985ca">&lt;/code&gt;</ept> is used to create the Service Bus topic where we will send messages.</target>
+        </trans-unit>
+        <trans-unit id="5580c5a0-361c-4771-9355-c27ea84cb7cd" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="7a7976bc-590d-42db-9c43-ecabfad9ca01" xml:space="preserve">
+          <source><bpt id="e8c1046f-d294-4f5e-ab0a-6cf2b6d10386">&lt;code&gt;</bpt>SendMessage<ept id="e8c1046f-d294-4f5e-ab0a-6cf2b6d10386">&lt;/code&gt;</ept> is used to send the messages to this Service Bus Topic.</source>
+          <target state="new"><bpt id="e8c1046f-d294-4f5e-ab0a-6cf2b6d10386">&lt;code&gt;</bpt>SendMessage<ept id="e8c1046f-d294-4f5e-ab0a-6cf2b6d10386">&lt;/code&gt;</ept> is used to send the messages to this Service Bus Topic.</target>
+        </trans-unit>
+        <trans-unit id="1517c4e7-58a9-46e4-b9ec-8d72ba552c13" xml:space="preserve">
+          <source>Here we are simply sending a set of random messages to the topic periodically for the purpose of the sample.</source>
+          <target state="new">Here we are simply sending a set of random messages to the topic periodically for the purpose of the sample.</target>
+        </trans-unit>
+        <trans-unit id="753cbd90-3125-41e7-9195-80685b8fdc6c" xml:space="preserve">
+          <source>Normally there will be a backend system which will send messages when an event occurs.</source>
+          <target state="new">Normally there will be a backend system which will send messages when an event occurs.</target>
+        </trans-unit>
+        <trans-unit id="23400483-9289-45ce-94c5-5e59b4ad3dc6" xml:space="preserve">
+          <source><bpt id="68cc214d-a96f-48da-920c-dfdd0e9ee140">&lt;strong&gt;</bpt>ReceiveAndSendNotification<ept id="68cc214d-a96f-48da-920c-dfdd0e9ee140">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="68cc214d-a96f-48da-920c-dfdd0e9ee140">&lt;strong&gt;</bpt>ReceiveAndSendNotification<ept id="68cc214d-a96f-48da-920c-dfdd0e9ee140">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e60082f-0643-4f9e-ada8-c6a5a5536627" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="72b8bc8e-d026-41cc-9e60-e3ca9e165c6e" xml:space="preserve">
+          <source>This project uses the <bpt id="7cbd9474-0690-4a64-8a27-bbc7f80879a2">&lt;em&gt;</bpt>WindowsAzure.ServiceBus<ept id="7cbd9474-0690-4a64-8a27-bbc7f80879a2">&lt;/em&gt;</ept> and <bpt id="31f53ab2-84fa-40c4-a7db-5f1fa1c6882b">&lt;em&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="31f53ab2-84fa-40c4-a7db-5f1fa1c6882b">&lt;/em&gt;</ept> Nuget packages and is based on [Service Bus Pub/Sub programming].</source>
+          <target state="new">This project uses the <bpt id="7cbd9474-0690-4a64-8a27-bbc7f80879a2">&lt;em&gt;</bpt>WindowsAzure.ServiceBus<ept id="7cbd9474-0690-4a64-8a27-bbc7f80879a2">&lt;/em&gt;</ept> and <bpt id="31f53ab2-84fa-40c4-a7db-5f1fa1c6882b">&lt;em&gt;</bpt>Microsoft.Web.WebJobs.Publish<ept id="31f53ab2-84fa-40c4-a7db-5f1fa1c6882b">&lt;/em&gt;</ept> Nuget packages and is based on [Service Bus Pub/Sub programming].</target>
+        </trans-unit>
+        <trans-unit id="5d45fecf-51ff-4b42-849a-1ce928651158" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="dcb20705-8b35-4270-a651-065275ebe25d" xml:space="preserve">
+          <source>This is another C# console app which we will run as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems.</source>
+          <target state="new">This is another C# console app which we will run as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems.</target>
+        </trans-unit>
+        <trans-unit id="658e6ba7-4048-41c1-9f52-ca9957a44f6b" xml:space="preserve">
+          <source>This will be part of your Mobile backend.</source>
+          <target state="new">This will be part of your Mobile backend.</target>
+        </trans-unit>
+        <trans-unit id="7079f30b-781a-453a-830e-661ed18e68aa" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="50f3ee24-f6d9-4d4b-85d3-2bf96e0da05a" xml:space="preserve">
+          <source><bpt id="46389134-eb55-48e7-bf93-9cc53c6bbff9">&lt;code&gt;</bpt>CreateSubscription<ept id="46389134-eb55-48e7-bf93-9cc53c6bbff9">&lt;/code&gt;</ept> is used to create a Service Bus subscription for the topic where the backend system will send messages.</source>
+          <target state="new"><bpt id="46389134-eb55-48e7-bf93-9cc53c6bbff9">&lt;code&gt;</bpt>CreateSubscription<ept id="46389134-eb55-48e7-bf93-9cc53c6bbff9">&lt;/code&gt;</ept> is used to create a Service Bus subscription for the topic where the backend system will send messages.</target>
+        </trans-unit>
+        <trans-unit id="eae95fbc-9c65-48f3-a307-4dc560c006f6" xml:space="preserve">
+          <source>Depending on the business scenario, this component will create one or more subscriptions to corresponding topics (e.g. some may be receiving messages from HR system, some from Finance system, and so on)</source>
+          <target state="new">Depending on the business scenario, this component will create one or more subscriptions to corresponding topics (e.g. some may be receiving messages from HR system, some from Finance system, and so on)</target>
+        </trans-unit>
+        <trans-unit id="57a0d4bf-2df8-4dd6-b5e6-0030cfd58ab6" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="02fd264d-1e94-4d18-bf6b-8a18c427001b" xml:space="preserve">
+          <source>ReceiveMessageAndSendNotification is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.</source>
+          <target state="new">ReceiveMessageAndSendNotification is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="94342ebd-1009-4f70-a640-06cbc68ab6a8" xml:space="preserve">
+          <source>e.</source>
+          <target state="new">e.</target>
+        </trans-unit>
+        <trans-unit id="756cd14a-736b-4429-9262-23a976f915e4" xml:space="preserve">
+          <source>For publishing this as a <bpt id="c096a7d6-9fd4-40ec-9935-c0d9abe581d1">&lt;strong&gt;</bpt>WebJob<ept id="c096a7d6-9fd4-40ec-9935-c0d9abe581d1">&lt;/strong&gt;</ept>, right click on the solution in Visual Studio and select <bpt id="29dc72c4-fe58-4dd2-96fb-6d8bfdbcac23">&lt;strong&gt;</bpt>Publish as WebJob<ept id="29dc72c4-fe58-4dd2-96fb-6d8bfdbcac23">&lt;/strong&gt;</ept></source>
+          <target state="new">For publishing this as a <bpt id="c096a7d6-9fd4-40ec-9935-c0d9abe581d1">&lt;strong&gt;</bpt>WebJob<ept id="c096a7d6-9fd4-40ec-9935-c0d9abe581d1">&lt;/strong&gt;</ept>, right click on the solution in Visual Studio and select <bpt id="29dc72c4-fe58-4dd2-96fb-6d8bfdbcac23">&lt;strong&gt;</bpt>Publish as WebJob<ept id="29dc72c4-fe58-4dd2-96fb-6d8bfdbcac23">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="754af315-e553-4a4c-b867-a8de6b44f8ee" xml:space="preserve">
+          <source><bpt id="0656cc93-fa20-4976-b82b-08b85d54a6d9">&lt;linkText&gt;</bpt><ept id="0656cc93-fa20-4976-b82b-08b85d54a6d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0656cc93-fa20-4976-b82b-08b85d54a6d9">&lt;linkText&gt;</bpt><ept id="0656cc93-fa20-4976-b82b-08b85d54a6d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb8e2f05-869e-4e4e-9f2f-12486f04d752" xml:space="preserve">
+          <source>f.</source>
+          <target state="new">f.</target>
+        </trans-unit>
+        <trans-unit id="d31b6200-c659-4b2a-abd2-7d1376ff28da" xml:space="preserve">
+          <source>Select your publishing profile and create a new Azure WebSite if it doesnt exist already which will host this WebJob and once you have the WebSite then <bpt id="fc1d3147-a642-499d-8c91-36b830823438">&lt;strong&gt;</bpt>Publish<ept id="fc1d3147-a642-499d-8c91-36b830823438">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select your publishing profile and create a new Azure WebSite if it doesnt exist already which will host this WebJob and once you have the WebSite then <bpt id="fc1d3147-a642-499d-8c91-36b830823438">&lt;strong&gt;</bpt>Publish<ept id="fc1d3147-a642-499d-8c91-36b830823438">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da0bcfae-9f3a-46c3-912b-b7a8daa309ae" xml:space="preserve">
+          <source><bpt id="0e44d18d-e100-4260-ade0-d69b90612cf2">&lt;linkText&gt;</bpt><ept id="0e44d18d-e100-4260-ade0-d69b90612cf2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e44d18d-e100-4260-ade0-d69b90612cf2">&lt;linkText&gt;</bpt><ept id="0e44d18d-e100-4260-ade0-d69b90612cf2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f07c9ca8-d4ae-4fd7-91d1-51e18c1a6f4c" xml:space="preserve">
+          <source>g.</source>
+          <target state="new">g.</target>
+        </trans-unit>
+        <trans-unit id="6d270883-74c8-462b-a914-92b6df9223fb" xml:space="preserve">
+          <source>Configure the job to be "Run Continuously" so that when you log in to the Azure management portal you should something like the following:</source>
+          <target state="new">Configure the job to be "Run Continuously" so that when you log in to the Azure management portal you should something like the following:</target>
+        </trans-unit>
+        <trans-unit id="ba7a9665-95af-41aa-84e2-a8374100a01c" xml:space="preserve">
+          <source><bpt id="21dec9c0-dc71-4f1d-8fb4-b5dd9e79fd5d">&lt;linkText&gt;</bpt><ept id="21dec9c0-dc71-4f1d-8fb4-b5dd9e79fd5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21dec9c0-dc71-4f1d-8fb4-b5dd9e79fd5d">&lt;linkText&gt;</bpt><ept id="21dec9c0-dc71-4f1d-8fb4-b5dd9e79fd5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="363dfd50-b175-47ef-8c6a-505301ce1427" xml:space="preserve">
+          <source><bpt id="4a53f492-36da-4ec5-a690-93fb24db4127">&lt;strong&gt;</bpt>EnterprisePushMobileApp<ept id="4a53f492-36da-4ec5-a690-93fb24db4127">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4a53f492-36da-4ec5-a690-93fb24db4127">&lt;strong&gt;</bpt>EnterprisePushMobileApp<ept id="4a53f492-36da-4ec5-a690-93fb24db4127">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7fd66ea-8f38-463a-b52d-50cb50b7b578" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="153c81fc-d392-4139-a83b-ebc71661181b" xml:space="preserve">
+          <source>This is a Windows Store application which will receive toast notifications from the WebJob running as part of your Mobile backend and display it.</source>
+          <target state="new">This is a Windows Store application which will receive toast notifications from the WebJob running as part of your Mobile backend and display it.</target>
+        </trans-unit>
+        <trans-unit id="40e29b05-d38e-41c7-ac9a-c84ccc932298" xml:space="preserve">
+          <source>This is based on [Notification Hubs - Windows Universal tutorial].</source>
+          <target state="new">This is based on [Notification Hubs - Windows Universal tutorial].</target>
+        </trans-unit>
+        <trans-unit id="9c77123c-eb8a-4716-9085-d7860a816a22" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="b372dbff-7386-47b0-83f1-ee75ad3728e4" xml:space="preserve">
+          <source>Ensure that your application is enabled to receive toast notifications.</source>
+          <target state="new">Ensure that your application is enabled to receive toast notifications.</target>
+        </trans-unit>
+        <trans-unit id="460beb98-ea73-4c16-8c1e-62e38b828d6b" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="0f433ec4-7be4-499f-bc95-1cd8125a550c" xml:space="preserve">
+          <source>Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the <bpt id="4d6c8dd3-9f75-445d-a7c0-b8f69407b1fb">&lt;em&gt;</bpt>HubName<ept id="4d6c8dd3-9f75-445d-a7c0-b8f69407b1fb">&lt;/em&gt;</ept> and <bpt id="8d8693fc-b002-40f5-81cc-e8243956dda8">&lt;em&gt;</bpt>DefaultListenSharedAccessSignature<ept id="8d8693fc-b002-40f5-81cc-e8243956dda8">&lt;/em&gt;</ept>:</source>
+          <target state="new">Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the <bpt id="4d6c8dd3-9f75-445d-a7c0-b8f69407b1fb">&lt;em&gt;</bpt>HubName<ept id="4d6c8dd3-9f75-445d-a7c0-b8f69407b1fb">&lt;/em&gt;</ept> and <bpt id="8d8693fc-b002-40f5-81cc-e8243956dda8">&lt;em&gt;</bpt>DefaultListenSharedAccessSignature<ept id="8d8693fc-b002-40f5-81cc-e8243956dda8">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f2db8064-7fd5-459b-b6e9-42eaaee0b1cd" xml:space="preserve">
+          <source>Ensure that your WebJob is running successfully and scheduled to "Run Continuously".</source>
+          <target state="new">Ensure that your WebJob is running successfully and scheduled to "Run Continuously".</target>
+        </trans-unit>
+        <trans-unit id="242f5ff4-e269-4b41-8dbd-8b736c6df381" xml:space="preserve">
+          <source>Run the <bpt id="1eccb349-582e-457d-800e-150278d241ed">&lt;strong&gt;</bpt>EnterprisePushMobileApp<ept id="1eccb349-582e-457d-800e-150278d241ed">&lt;/strong&gt;</ept> which will start the Windows Store app.</source>
+          <target state="new">Run the <bpt id="1eccb349-582e-457d-800e-150278d241ed">&lt;strong&gt;</bpt>EnterprisePushMobileApp<ept id="1eccb349-582e-457d-800e-150278d241ed">&lt;/strong&gt;</ept> which will start the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="5a6747a0-fe4f-4b82-9bfa-3015a47a8ce6" xml:space="preserve">
+          <source>Run the <bpt id="a3ba66f0-9f28-4374-948b-90704b708bf2">&lt;strong&gt;</bpt>EnterprisePushBackendSystem<ept id="a3ba66f0-9f28-4374-948b-90704b708bf2">&lt;/strong&gt;</ept> console application which will simulate the LoB backend and will start sending messages and you should see toast notifications appearing like the following:</source>
+          <target state="new">Run the <bpt id="a3ba66f0-9f28-4374-948b-90704b708bf2">&lt;strong&gt;</bpt>EnterprisePushBackendSystem<ept id="a3ba66f0-9f28-4374-948b-90704b708bf2">&lt;/strong&gt;</ept> console application which will simulate the LoB backend and will start sending messages and you should see toast notifications appearing like the following:</target>
+        </trans-unit>
+        <trans-unit id="8c4c6684-cda7-4fa6-91fd-7133c2304337" xml:space="preserve">
+          <source><bpt id="a4d28113-8e87-4a98-bbfd-cfabac97c467">&lt;linkText&gt;</bpt><ept id="a4d28113-8e87-4a98-bbfd-cfabac97c467">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4d28113-8e87-4a98-bbfd-cfabac97c467">&lt;linkText&gt;</bpt><ept id="a4d28113-8e87-4a98-bbfd-cfabac97c467">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de7c46d1-0a68-4ff2-85ea-6f0ea059803a" xml:space="preserve">
+          <source>The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job.</source>
+          <target state="new">The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job.</target>
+        </trans-unit>
+        <trans-unit id="b2c9b67b-905b-4c3f-8d9c-10ef99a1c421" xml:space="preserve">
+          <source>Once a message was received, a notification was created and sent to the mobile app.</source>
+          <target state="new">Once a message was received, a notification was created and sent to the mobile app.</target>
+        </trans-unit>
+        <trans-unit id="107e30d4-e1df-45a2-849c-2b85c94e2987" xml:space="preserve">
+          <source>You can look through the WebJob logs to confirm the processing when you go to the Logs link in Azure Management portal for your Web Job:</source>
+          <target state="new">You can look through the WebJob logs to confirm the processing when you go to the Logs link in Azure Management portal for your Web Job:</target>
+        </trans-unit>
+        <trans-unit id="c815f835-7094-47e5-9859-315711dda5aa" xml:space="preserve">
+          <source><bpt id="75c85faa-fd6b-4ec5-89fe-752cdc7b3c15">&lt;linkText&gt;</bpt><ept id="75c85faa-fd6b-4ec5-89fe-752cdc7b3c15">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="75c85faa-fd6b-4ec5-89fe-752cdc7b3c15">&lt;linkText&gt;</bpt><ept id="75c85faa-fd6b-4ec5-89fe-752cdc7b3c15">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42fdd0e7-10f2-4e2b-a620-2e3bc6b22569" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/architecture.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/architecture.png</target>
+        </trans-unit>
+        <trans-unit id="d9c81881-9d67-4431-8860-296dcb6ea488" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/WebJobsContextMenu.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/WebJobsContextMenu.png</target>
+        </trans-unit>
+        <trans-unit id="fb8eca7f-8784-4e7b-8890-eab5711894c9" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png</target>
+        </trans-unit>
+        <trans-unit id="dfc62a86-a20e-4c00-bd61-669635c4d1e5" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/WebJob.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/WebJob.png</target>
+        </trans-unit>
+        <trans-unit id="06dff0dd-53fa-4bf8-b6a2-ecc813192945" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/Notifications.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/Notifications.png</target>
+        </trans-unit>
+        <trans-unit id="3477a036-934c-4595-9b22-2f866870f839" xml:space="preserve">
+          <source>./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png</source>
+          <target state="new">./media/notification-hubs-enterprise-push-architecture/WebJobsLog.png</target>
+        </trans-unit>
+        <trans-unit id="88220b9e-18b3-49d7-ab36-40c48094121c" xml:space="preserve">
+          <source>https://github.com/Azure/azure-notificationhubs-samples</source>
+          <target state="new">https://github.com/Azure/azure-notificationhubs-samples</target>
+        </trans-unit>
+        <trans-unit id="1abcb2bb-6797-4d99-9035-b8fdd5260176" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/mobile-services/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/mobile-services/</target>
+        </trans-unit>
+        <trans-unit id="9e16dab7-8b76-4873-ac16-785f914b32e9" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/</target>
+        </trans-unit>
+        <trans-unit id="d765a8cd-ce2a-491c-a5d6-700ad93345c0" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/</target>
+        </trans-unit>
+        <trans-unit id="c76d40a6-9448-4b5b-b6d7-5da48ae815a7" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/</target>
+        </trans-unit>
+        <trans-unit id="1b7fc25a-5922-4730-9395-3cca47600c77" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/</target>
+        </trans-unit>
+      </group>
+      <group id="fe432694-bf86-4e9b-b49a-669c923e54d6" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="01682d95-7e88-4705-b315-b615d4c6dd00" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="01682d95-7e88-4705-b315-b615d4c6dd00" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e77eac49-d39e-4af2-9a08-04df022dede3">
+        <trans-unit id="682b73c0-5ed8-4c94-b49b-3a93b9abeba1" xml:space="preserve">
+          <source>Line of business application Phase 3 | Microsoft Azure</source>
+          <target state="new">Line of business application Phase 3 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5d158c84-51da-418c-908a-9c9f69c3fad4" xml:space="preserve">
+          <source>Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the line of business application in Azure.</source>
+          <target state="new">Create the computers and the SQL Server cluster and enable Availability Groups in Phase 3 of the line of business application in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c087c0ff-0853-4cfd-bef5-4077f117ea37" xml:space="preserve">
+          <source>In this phase of deploying a a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster.</source>
+          <target state="new">In this phase of deploying a a high-availability line of business application in Azure infrastructure services, you configure the two computers running SQL Server and the cluster majority node computer, and then combine them into a Windows Server cluster.</target>
+        </trans-unit>
+        <trans-unit id="7fba8a5b-8f1f-4168-bc66-d4798972922d" xml:space="preserve">
+          <source>You must complete this phase before moving on to <bpt id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;linkText&gt;</bpt>Phase 4<ept id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;/linkText&gt;</ept><bpt id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;title&gt;</bpt><ept id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must complete this phase before moving on to <bpt id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;linkText&gt;</bpt>Phase 4<ept id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;/linkText&gt;</ept><bpt id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;title&gt;</bpt><ept id="fc5f4e22-f646-4a1d-9274-82003afa4be5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4635846-337f-48d4-9427-9f4da628f58f" xml:space="preserve">
+          <source>See <bpt id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;linkText&gt;</bpt>Deploy a High-Availability Line of Business Application in Azure<ept id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;/linkText&gt;</ept><bpt id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;title&gt;</bpt><ept id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;/title&gt;</ept> for all of the phases.</source>
+          <target state="new">See <bpt id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;linkText&gt;</bpt>Deploy a High-Availability Line of Business Application in Azure<ept id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;/linkText&gt;</ept><bpt id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;title&gt;</bpt><ept id="222f7ad3-0187-49b7-9ca3-2d9022cefdaa">&lt;/title&gt;</ept> for all of the phases.</target>
+        </trans-unit>
+        <trans-unit id="536a44dd-d4c3-43c9-9fe3-26f733c8eca7" xml:space="preserve">
+          <source>These instructions use a SQL Server image in the Azure image gallery and are charged ongoing costs for the use of the SQL Server license.</source>
+          <target state="new">These instructions use a SQL Server image in the Azure image gallery and are charged ongoing costs for the use of the SQL Server license.</target>
+        </trans-unit>
+        <trans-unit id="53037b0f-da32-4eee-8168-11de4320dc40" xml:space="preserve">
+          <source>It is also possible to create virtual machines in Azure and install your own SQL Server licenses, but those instructions are not included here.</source>
+          <target state="new">It is also possible to create virtual machines in Azure and install your own SQL Server licenses, but those instructions are not included here.</target>
+        </trans-unit>
+        <trans-unit id="8765d925-ac49-4eb0-9194-7764d69aea69" xml:space="preserve">
+          <source>There are two virtual machines running SQL Server.</source>
+          <target state="new">There are two virtual machines running SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="82e5a702-fc71-4c09-9c85-906439ad36b8" xml:space="preserve">
+          <source>One virtual machine contains the primary database replica of an Availability Group and the second virtual machine contains the secondary (backup) replica.</source>
+          <target state="new">One virtual machine contains the primary database replica of an Availability Group and the second virtual machine contains the secondary (backup) replica.</target>
+        </trans-unit>
+        <trans-unit id="f58c9672-a43e-4e03-bef5-2c3b332379fa" xml:space="preserve">
+          <source>The backup exists to support high-availability.</source>
+          <target state="new">The backup exists to support high-availability.</target>
+        </trans-unit>
+        <trans-unit id="d115f841-a579-4496-95a7-5a253867947e" xml:space="preserve">
+          <source>An additional virtual machine is for the cluster majority node.</source>
+          <target state="new">An additional virtual machine is for the cluster majority node.</target>
+        </trans-unit>
+        <trans-unit id="2d3ac1ef-1c17-4a21-916c-04206e44c4fa" xml:space="preserve">
+          <source>Use the following block of PowerShell commands to create the virtual machines for the three servers. Specify the values for the variables, removing the &lt; and &gt; characters. Note that this PowerShell command set uses values from the following tables:</source>
+          <target state="new">Use the following block of PowerShell commands to create the virtual machines for the three servers. Specify the values for the variables, removing the &lt; and &gt; characters. Note that this PowerShell command set uses values from the following tables:</target>
+        </trans-unit>
+        <trans-unit id="7e78a0a1-e0c7-4e55-9271-32f002649ef3" xml:space="preserve">
+          <source>Table M, for your virtual machines</source>
+          <target state="new">Table M, for your virtual machines</target>
+        </trans-unit>
+        <trans-unit id="f04ef8e6-58e2-4289-9f10-3334e2f40b24" xml:space="preserve">
+          <source>Table V, for your virtual network settings</source>
+          <target state="new">Table V, for your virtual network settings</target>
+        </trans-unit>
+        <trans-unit id="0022c997-b9d0-4116-b851-996000e80e46" xml:space="preserve">
+          <source>Table S, for your subnet</source>
+          <target state="new">Table S, for your subnet</target>
+        </trans-unit>
+        <trans-unit id="a8b9c35e-b506-416c-9264-bd2a18a62b06" xml:space="preserve">
+          <source>Table ST, for your storage accounts</source>
+          <target state="new">Table ST, for your storage accounts</target>
+        </trans-unit>
+        <trans-unit id="a6a58640-3a2c-453b-8812-a8f97ad8aee6" xml:space="preserve">
+          <source>Table A, for your availability sets</source>
+          <target state="new">Table A, for your availability sets</target>
+        </trans-unit>
+        <trans-unit id="43b2f488-4dac-4584-91d7-81003c76440a" xml:space="preserve">
+          <source>Recall that you defined Table M in <bpt id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;linkText&gt;</bpt>Phase 2<ept id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;/linkText&gt;</ept><bpt id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;title&gt;</bpt><ept id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;/title&gt;</ept> and Tables V, S, ST, and A in <bpt id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;linkText&gt;</bpt>Phase 1<ept id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;/linkText&gt;</ept><bpt id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;title&gt;</bpt><ept id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;/title&gt;</ept>.</source>
+          <target state="new">Recall that you defined Table M in <bpt id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;linkText&gt;</bpt>Phase 2<ept id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;/linkText&gt;</ept><bpt id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;title&gt;</bpt><ept id="facb857c-e59e-4653-8989-29ae6bf3e008">&lt;/title&gt;</ept> and Tables V, S, ST, and A in <bpt id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;linkText&gt;</bpt>Phase 1<ept id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;/linkText&gt;</ept><bpt id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;title&gt;</bpt><ept id="bdafab46-3ff0-4183-856e-985659f20f27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de38b1f8-38fe-402d-a356-bf9260fb3357" xml:space="preserve">
+          <source>When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</source>
+          <target state="new">When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="b9da77ea-15ec-4a88-8587-78ff41254721" xml:space="preserve">
+          <source>For each virtual machine running SQL Server, use the remote desktop client of your choice and create a remote desktop connection to the first domain controller virtual machine.</source>
+          <target state="new">For each virtual machine running SQL Server, use the remote desktop client of your choice and create a remote desktop connection to the first domain controller virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="24b91a38-d9ba-4dda-bf10-58beb08e70ca" xml:space="preserve">
+          <source>Use its intranet DNS or computer name and the credentials of the local administrator account.</source>
+          <target state="new">Use its intranet DNS or computer name and the credentials of the local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="020e47b6-a096-4c00-87c2-5f77d5323e1b" xml:space="preserve">
+          <source>For each virtual machine running SQL Server, join them to the appropriate AD DS domain with these commands at the Windows PowerShell prompt.</source>
+          <target state="new">For each virtual machine running SQL Server, join them to the appropriate AD DS domain with these commands at the Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="ccc564d0-baeb-4c3a-8c7e-27cabc7792f3" xml:space="preserve">
+          <source>Note that you must supply domain account credentials after entering the Add-Computer command.</source>
+          <target state="new">Note that you must supply domain account credentials after entering the Add-Computer command.</target>
+        </trans-unit>
+        <trans-unit id="6bdd02f2-287a-4cef-91a1-50b48565bc03" xml:space="preserve">
+          <source>After they restart, reconnect to them using an account that has local administrator privileges.</source>
+          <target state="new">After they restart, reconnect to them using an account that has local administrator privileges.</target>
+        </trans-unit>
+        <trans-unit id="cf424b3e-136f-4e7b-8c16-fe1ca69a4002" xml:space="preserve">
+          <source>Use the following procedure twice, once for each virtual machine running SQL Server, to add the extra data disk and create folders on the new volume.</source>
+          <target state="new">Use the following procedure twice, once for each virtual machine running SQL Server, to add the extra data disk and create folders on the new volume.</target>
+        </trans-unit>
+        <trans-unit id="70cd0f64-ac03-4d58-b70f-13611452e768" xml:space="preserve">
+          <source>In the left pane of Server Manager, click <bpt id="a8de317b-4d0e-4cf4-bf55-3a18975f56f7">&lt;strong&gt;</bpt>File and Storage Services<ept id="a8de317b-4d0e-4cf4-bf55-3a18975f56f7">&lt;/strong&gt;</ept>, and then click <bpt id="ec726da0-0790-4b2b-8f5c-5ec449bb7f3b">&lt;strong&gt;</bpt>Disks<ept id="ec726da0-0790-4b2b-8f5c-5ec449bb7f3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of Server Manager, click <bpt id="a8de317b-4d0e-4cf4-bf55-3a18975f56f7">&lt;strong&gt;</bpt>File and Storage Services<ept id="a8de317b-4d0e-4cf4-bf55-3a18975f56f7">&lt;/strong&gt;</ept>, and then click <bpt id="ec726da0-0790-4b2b-8f5c-5ec449bb7f3b">&lt;strong&gt;</bpt>Disks<ept id="ec726da0-0790-4b2b-8f5c-5ec449bb7f3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0584d1f3-f5f7-48d9-a808-ef590f816bcf" xml:space="preserve">
+          <source>In the contents pane, in the <bpt id="4e328d19-7daa-40a4-961e-9145482e2db8">&lt;strong&gt;</bpt>Disks<ept id="4e328d19-7daa-40a4-961e-9145482e2db8">&lt;/strong&gt;</ept> group, click disk <bpt id="12be0e74-0049-4ed0-a045-72092ea25b4d">&lt;strong&gt;</bpt>2<ept id="12be0e74-0049-4ed0-a045-72092ea25b4d">&lt;/strong&gt;</ept> (with the <bpt id="b8ee3129-4354-492b-a9c6-4794cefaf191">&lt;strong&gt;</bpt>Partition<ept id="b8ee3129-4354-492b-a9c6-4794cefaf191">&lt;/strong&gt;</ept> set to <bpt id="0b4f1545-adab-4a88-ade9-9d6b002aeeee">&lt;strong&gt;</bpt>Unknown<ept id="0b4f1545-adab-4a88-ade9-9d6b002aeeee">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In the contents pane, in the <bpt id="4e328d19-7daa-40a4-961e-9145482e2db8">&lt;strong&gt;</bpt>Disks<ept id="4e328d19-7daa-40a4-961e-9145482e2db8">&lt;/strong&gt;</ept> group, click disk <bpt id="12be0e74-0049-4ed0-a045-72092ea25b4d">&lt;strong&gt;</bpt>2<ept id="12be0e74-0049-4ed0-a045-72092ea25b4d">&lt;/strong&gt;</ept> (with the <bpt id="b8ee3129-4354-492b-a9c6-4794cefaf191">&lt;strong&gt;</bpt>Partition<ept id="b8ee3129-4354-492b-a9c6-4794cefaf191">&lt;/strong&gt;</ept> set to <bpt id="0b4f1545-adab-4a88-ade9-9d6b002aeeee">&lt;strong&gt;</bpt>Unknown<ept id="0b4f1545-adab-4a88-ade9-9d6b002aeeee">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="cfb0d932-bfc4-4654-999a-30938ba82e98" xml:space="preserve">
+          <source>Click <bpt id="8db23179-46a5-4c25-b96a-ad2fec5b334b">&lt;strong&gt;</bpt>Tasks<ept id="8db23179-46a5-4c25-b96a-ad2fec5b334b">&lt;/strong&gt;</ept>, and then click <bpt id="38fa3ce0-9480-4689-96d9-1c15f8358611">&lt;strong&gt;</bpt>New Volume<ept id="38fa3ce0-9480-4689-96d9-1c15f8358611">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8db23179-46a5-4c25-b96a-ad2fec5b334b">&lt;strong&gt;</bpt>Tasks<ept id="8db23179-46a5-4c25-b96a-ad2fec5b334b">&lt;/strong&gt;</ept>, and then click <bpt id="38fa3ce0-9480-4689-96d9-1c15f8358611">&lt;strong&gt;</bpt>New Volume<ept id="38fa3ce0-9480-4689-96d9-1c15f8358611">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b61c9d4-4394-4019-a7c6-5d965938e73f" xml:space="preserve">
+          <source>On the Before you begin page of the New Volume Wizard, click <bpt id="332317ab-5873-4105-8a2b-7cccfad25086">&lt;strong&gt;</bpt>Next<ept id="332317ab-5873-4105-8a2b-7cccfad25086">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page of the New Volume Wizard, click <bpt id="332317ab-5873-4105-8a2b-7cccfad25086">&lt;strong&gt;</bpt>Next<ept id="332317ab-5873-4105-8a2b-7cccfad25086">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77bebc5d-2bf7-47bd-8ed8-91ee7a614cfa" xml:space="preserve">
+          <source>On the Select the server and disk page, click <bpt id="8a69ce05-4716-4a85-9418-97c4f837196e">&lt;strong&gt;</bpt>Disk 2<ept id="8a69ce05-4716-4a85-9418-97c4f837196e">&lt;/strong&gt;</ept>, and then click <bpt id="5aa16b8e-9b48-43ff-9616-aefbd50e9898">&lt;strong&gt;</bpt>Next<ept id="5aa16b8e-9b48-43ff-9616-aefbd50e9898">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select the server and disk page, click <bpt id="8a69ce05-4716-4a85-9418-97c4f837196e">&lt;strong&gt;</bpt>Disk 2<ept id="8a69ce05-4716-4a85-9418-97c4f837196e">&lt;/strong&gt;</ept>, and then click <bpt id="5aa16b8e-9b48-43ff-9616-aefbd50e9898">&lt;strong&gt;</bpt>Next<ept id="5aa16b8e-9b48-43ff-9616-aefbd50e9898">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a8e1aa0-086b-4218-ad5f-91b1343193d6" xml:space="preserve">
+          <source>When prompted, click <bpt id="0a3c04da-9bdc-4b6c-beec-41de14bcca6e">&lt;strong&gt;</bpt>OK<ept id="0a3c04da-9bdc-4b6c-beec-41de14bcca6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="0a3c04da-9bdc-4b6c-beec-41de14bcca6e">&lt;strong&gt;</bpt>OK<ept id="0a3c04da-9bdc-4b6c-beec-41de14bcca6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26acfce7-8442-4541-9219-76d89a65a142" xml:space="preserve">
+          <source>On the Specify the size of the volume page, click <bpt id="3a8953c3-2128-46d5-860e-a74f476d92b3">&lt;strong&gt;</bpt>Next<ept id="3a8953c3-2128-46d5-860e-a74f476d92b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the size of the volume page, click <bpt id="3a8953c3-2128-46d5-860e-a74f476d92b3">&lt;strong&gt;</bpt>Next<ept id="3a8953c3-2128-46d5-860e-a74f476d92b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59d2868f-6c96-4380-a2b5-bd2b2f7d38bd" xml:space="preserve">
+          <source>On the Assign to a drive letter or folder page, click <bpt id="87f04cbf-496a-4e74-bf2a-504829967b1a">&lt;strong&gt;</bpt>Next<ept id="87f04cbf-496a-4e74-bf2a-504829967b1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Assign to a drive letter or folder page, click <bpt id="87f04cbf-496a-4e74-bf2a-504829967b1a">&lt;strong&gt;</bpt>Next<ept id="87f04cbf-496a-4e74-bf2a-504829967b1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5292c078-b98b-4569-9487-b6745645acbb" xml:space="preserve">
+          <source>On the Select file system settings page, click <bpt id="f3381e2b-db09-4b8a-865c-f9d36699a199">&lt;strong&gt;</bpt>Next<ept id="f3381e2b-db09-4b8a-865c-f9d36699a199">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select file system settings page, click <bpt id="f3381e2b-db09-4b8a-865c-f9d36699a199">&lt;strong&gt;</bpt>Next<ept id="f3381e2b-db09-4b8a-865c-f9d36699a199">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26863dcf-2fb5-40d6-a5f4-504fbd1d098b" xml:space="preserve">
+          <source>On the Confirm selections page, click <bpt id="1d8a75d7-54a9-4165-b842-f03ec2f12452">&lt;strong&gt;</bpt>Create<ept id="1d8a75d7-54a9-4165-b842-f03ec2f12452">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Confirm selections page, click <bpt id="1d8a75d7-54a9-4165-b842-f03ec2f12452">&lt;strong&gt;</bpt>Create<ept id="1d8a75d7-54a9-4165-b842-f03ec2f12452">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9cb5b6f-e173-42e6-ada9-8b80bfa1b56d" xml:space="preserve">
+          <source>When complete, click <bpt id="6d96f280-3bb0-4d15-bc7e-b98fe781f87d">&lt;strong&gt;</bpt>Close<ept id="6d96f280-3bb0-4d15-bc7e-b98fe781f87d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When complete, click <bpt id="6d96f280-3bb0-4d15-bc7e-b98fe781f87d">&lt;strong&gt;</bpt>Close<ept id="6d96f280-3bb0-4d15-bc7e-b98fe781f87d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc40675e-4798-4954-9715-ff48dd04e26b" xml:space="preserve">
+          <source>Run the following commands from a Windows PowerShell prompt:</source>
+          <target state="new">Run the following commands from a Windows PowerShell prompt:</target>
+        </trans-unit>
+        <trans-unit id="ac24e4e3-f7e6-4b9c-aa10-4b2ab16df5d4" xml:space="preserve">
+          <source>md f:\Data</source>
+          <target state="new">md f:\Data</target>
+        </trans-unit>
+        <trans-unit id="32864717-0c2a-4475-99e4-54fc1db54d32" xml:space="preserve">
+          <source>md f:\Log</source>
+          <target state="new">md f:\Log</target>
+        </trans-unit>
+        <trans-unit id="f2ca8c02-79f1-410c-b679-7b554bedd024" xml:space="preserve">
+          <source>md f:\Backup</source>
+          <target state="new">md f:\Backup</target>
+        </trans-unit>
+        <trans-unit id="ec591acc-1a99-49db-817d-e8033a36052f" xml:space="preserve">
+          <source>Use the following procedure twice, once for each virtual machine running SQL Server, to configure them to use the F: drive for new databases and for accounts and permissions.</source>
+          <target state="new">Use the following procedure twice, once for each virtual machine running SQL Server, to configure them to use the F: drive for new databases and for accounts and permissions.</target>
+        </trans-unit>
+        <trans-unit id="6f37e1a2-af09-4fc4-973b-5520e2b782de" xml:space="preserve">
+          <source>On the Start screen, type <bpt id="ffa80ab6-9cd7-44b7-8497-6876e16d21b0">&lt;strong&gt;</bpt>SQL Studio<ept id="ffa80ab6-9cd7-44b7-8497-6876e16d21b0">&lt;/strong&gt;</ept>, and then click <bpt id="926cea12-833a-4e80-9d66-1ad65da3ae4f">&lt;strong&gt;</bpt>SQL Server 2014 Management Studio<ept id="926cea12-833a-4e80-9d66-1ad65da3ae4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Start screen, type <bpt id="ffa80ab6-9cd7-44b7-8497-6876e16d21b0">&lt;strong&gt;</bpt>SQL Studio<ept id="ffa80ab6-9cd7-44b7-8497-6876e16d21b0">&lt;/strong&gt;</ept>, and then click <bpt id="926cea12-833a-4e80-9d66-1ad65da3ae4f">&lt;strong&gt;</bpt>SQL Server 2014 Management Studio<ept id="926cea12-833a-4e80-9d66-1ad65da3ae4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f01e1509-69a1-4f43-893d-4eef348cdf55" xml:space="preserve">
+          <source>In <bpt id="c3f767ba-d621-4c9b-be9f-8dac120e4bbf">&lt;strong&gt;</bpt>Connect to Server<ept id="c3f767ba-d621-4c9b-be9f-8dac120e4bbf">&lt;/strong&gt;</ept>, click <bpt id="0b50eb1d-2ed4-44fc-ba60-12da25a55c44">&lt;strong&gt;</bpt>Connect<ept id="0b50eb1d-2ed4-44fc-ba60-12da25a55c44">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="c3f767ba-d621-4c9b-be9f-8dac120e4bbf">&lt;strong&gt;</bpt>Connect to Server<ept id="c3f767ba-d621-4c9b-be9f-8dac120e4bbf">&lt;/strong&gt;</ept>, click <bpt id="0b50eb1d-2ed4-44fc-ba60-12da25a55c44">&lt;strong&gt;</bpt>Connect<ept id="0b50eb1d-2ed4-44fc-ba60-12da25a55c44">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8cc3e06-ed78-4754-89b6-955c4444f6c7" xml:space="preserve">
+          <source>In the left pane, right-click the top node—the default instance named after the machine—and then click <bpt id="4222858e-f845-4989-b4e7-cf86657a33e7">&lt;strong&gt;</bpt>Properties<ept id="4222858e-f845-4989-b4e7-cf86657a33e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, right-click the top node—the default instance named after the machine—and then click <bpt id="4222858e-f845-4989-b4e7-cf86657a33e7">&lt;strong&gt;</bpt>Properties<ept id="4222858e-f845-4989-b4e7-cf86657a33e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c60def1-ecf2-498c-9d5a-a6defc8f6788" xml:space="preserve">
+          <source>In <bpt id="a9bca35d-0e15-4822-bb2b-dd71de2d50b3">&lt;strong&gt;</bpt>Server Properties<ept id="a9bca35d-0e15-4822-bb2b-dd71de2d50b3">&lt;/strong&gt;</ept>, click <bpt id="c08a1e7d-3104-4f11-bd0d-85c8d9aed00a">&lt;strong&gt;</bpt>Database Settings<ept id="c08a1e7d-3104-4f11-bd0d-85c8d9aed00a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="a9bca35d-0e15-4822-bb2b-dd71de2d50b3">&lt;strong&gt;</bpt>Server Properties<ept id="a9bca35d-0e15-4822-bb2b-dd71de2d50b3">&lt;/strong&gt;</ept>, click <bpt id="c08a1e7d-3104-4f11-bd0d-85c8d9aed00a">&lt;strong&gt;</bpt>Database Settings<ept id="c08a1e7d-3104-4f11-bd0d-85c8d9aed00a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efceac51-b4f7-447a-9af1-4ca5389d8997" xml:space="preserve">
+          <source>In <bpt id="a4e5b0e5-ba0c-4780-8df3-2313f3877d31">&lt;strong&gt;</bpt>Database default locations<ept id="a4e5b0e5-ba0c-4780-8df3-2313f3877d31">&lt;/strong&gt;</ept>, set the following values: </source>
+          <target state="new">In <bpt id="a4e5b0e5-ba0c-4780-8df3-2313f3877d31">&lt;strong&gt;</bpt>Database default locations<ept id="a4e5b0e5-ba0c-4780-8df3-2313f3877d31">&lt;/strong&gt;</ept>, set the following values: </target>
+        </trans-unit>
+        <trans-unit id="5f1ec4e3-bfa2-45e0-be31-cdd99e6fb910" xml:space="preserve">
+          <source>For <bpt id="7d2a7e4b-4f15-421b-a0d7-5c18300b4807">&lt;strong&gt;</bpt>Data<ept id="7d2a7e4b-4f15-421b-a0d7-5c18300b4807">&lt;/strong&gt;</ept>, set the path to <bpt id="53478e25-1253-4530-8268-ea704fa614e8">&lt;strong&gt;</bpt>f:\Data<ept id="53478e25-1253-4530-8268-ea704fa614e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="7d2a7e4b-4f15-421b-a0d7-5c18300b4807">&lt;strong&gt;</bpt>Data<ept id="7d2a7e4b-4f15-421b-a0d7-5c18300b4807">&lt;/strong&gt;</ept>, set the path to <bpt id="53478e25-1253-4530-8268-ea704fa614e8">&lt;strong&gt;</bpt>f:\Data<ept id="53478e25-1253-4530-8268-ea704fa614e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="188adea5-7337-427e-b2e1-356f7056c8c7" xml:space="preserve">
+          <source>For <bpt id="70061ef8-4c65-47ad-b721-0463a848c9b1">&lt;strong&gt;</bpt>Log<ept id="70061ef8-4c65-47ad-b721-0463a848c9b1">&lt;/strong&gt;</ept>, set the path to <bpt id="01e45b2e-4fbb-45b2-9f91-aaa89049072e">&lt;strong&gt;</bpt>f:\Log<ept id="01e45b2e-4fbb-45b2-9f91-aaa89049072e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="70061ef8-4c65-47ad-b721-0463a848c9b1">&lt;strong&gt;</bpt>Log<ept id="70061ef8-4c65-47ad-b721-0463a848c9b1">&lt;/strong&gt;</ept>, set the path to <bpt id="01e45b2e-4fbb-45b2-9f91-aaa89049072e">&lt;strong&gt;</bpt>f:\Log<ept id="01e45b2e-4fbb-45b2-9f91-aaa89049072e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c187336-3c76-4b2b-8bf6-6da83d95b61e" xml:space="preserve">
+          <source>For <bpt id="492fb299-c6de-4508-b828-39a371cd09ea">&lt;strong&gt;</bpt>Backup<ept id="492fb299-c6de-4508-b828-39a371cd09ea">&lt;/strong&gt;</ept>, set the path to <bpt id="3e1ad4ac-3464-4430-a7e5-02fdedcad466">&lt;strong&gt;</bpt>f:\Backup<ept id="3e1ad4ac-3464-4430-a7e5-02fdedcad466">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="492fb299-c6de-4508-b828-39a371cd09ea">&lt;strong&gt;</bpt>Backup<ept id="492fb299-c6de-4508-b828-39a371cd09ea">&lt;/strong&gt;</ept>, set the path to <bpt id="3e1ad4ac-3464-4430-a7e5-02fdedcad466">&lt;strong&gt;</bpt>f:\Backup<ept id="3e1ad4ac-3464-4430-a7e5-02fdedcad466">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07ea626f-2329-47f7-a1ab-7ec1faf5a190" xml:space="preserve">
+          <source>Only new databases use these locations.</source>
+          <target state="new">Only new databases use these locations.</target>
+        </trans-unit>
+        <trans-unit id="9d3da9b7-7347-419e-a8b2-254ea0cd6247" xml:space="preserve">
+          <source>Click <bpt id="5ae0457f-8138-429c-82fd-6b3e4402e2c9">&lt;strong&gt;</bpt>OK<ept id="5ae0457f-8138-429c-82fd-6b3e4402e2c9">&lt;/strong&gt;</ept> to close the window.</source>
+          <target state="new">Click <bpt id="5ae0457f-8138-429c-82fd-6b3e4402e2c9">&lt;strong&gt;</bpt>OK<ept id="5ae0457f-8138-429c-82fd-6b3e4402e2c9">&lt;/strong&gt;</ept> to close the window.</target>
+        </trans-unit>
+        <trans-unit id="1d5d1b03-5312-4ca0-be78-5e9aabd0e13e" xml:space="preserve">
+          <source>In the left pane, expand the <bpt id="a7c1fbbc-ac52-44d4-8ed8-22a42bd9db17">&lt;strong&gt;</bpt>Security folder<ept id="a7c1fbbc-ac52-44d4-8ed8-22a42bd9db17">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, expand the <bpt id="a7c1fbbc-ac52-44d4-8ed8-22a42bd9db17">&lt;strong&gt;</bpt>Security folder<ept id="a7c1fbbc-ac52-44d4-8ed8-22a42bd9db17">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e99efc3d-1431-4b40-af29-3acbf8623f4b" xml:space="preserve">
+          <source>Right-click <bpt id="36afe4dd-369c-44f8-877a-b7d2e7f730ab">&lt;strong&gt;</bpt>Logins<ept id="36afe4dd-369c-44f8-877a-b7d2e7f730ab">&lt;/strong&gt;</ept>, and then click <bpt id="17492229-9e63-4074-8f5b-5bbbd5260d50">&lt;strong&gt;</bpt>New login<ept id="17492229-9e63-4074-8f5b-5bbbd5260d50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="36afe4dd-369c-44f8-877a-b7d2e7f730ab">&lt;strong&gt;</bpt>Logins<ept id="36afe4dd-369c-44f8-877a-b7d2e7f730ab">&lt;/strong&gt;</ept>, and then click <bpt id="17492229-9e63-4074-8f5b-5bbbd5260d50">&lt;strong&gt;</bpt>New login<ept id="17492229-9e63-4074-8f5b-5bbbd5260d50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="103bb56d-314a-4022-bda1-7231dbd984d3" xml:space="preserve">
+          <source>In <bpt id="80f385a8-f4b0-4bc2-a98b-7908ef41a977">&lt;strong&gt;</bpt>Login name<ept id="80f385a8-f4b0-4bc2-a98b-7908ef41a977">&lt;/strong&gt;</ept>, type <bpt id="8092a9ea-1d9e-44d1-b503-2c9acadb1a34">&lt;em&gt;</bpt>domain<ept id="8092a9ea-1d9e-44d1-b503-2c9acadb1a34">&lt;/em&gt;</ept>\sqladmin in (in which <bpt id="7a3a73bb-958b-4028-9a82-ccd2860b6aee">&lt;em&gt;</bpt>domain<ept id="7a3a73bb-958b-4028-9a82-ccd2860b6aee">&lt;/em&gt;</ept> is the name of the domain in which the sqladmin account was created in <bpt id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;linkText&gt;</bpt>Phase 2<ept id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;/linkText&gt;</ept><bpt id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;title&gt;</bpt><ept id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;/title&gt;</ept>).</source>
+          <target state="new">In <bpt id="80f385a8-f4b0-4bc2-a98b-7908ef41a977">&lt;strong&gt;</bpt>Login name<ept id="80f385a8-f4b0-4bc2-a98b-7908ef41a977">&lt;/strong&gt;</ept>, type <bpt id="8092a9ea-1d9e-44d1-b503-2c9acadb1a34">&lt;em&gt;</bpt>domain<ept id="8092a9ea-1d9e-44d1-b503-2c9acadb1a34">&lt;/em&gt;</ept>\sqladmin in (in which <bpt id="7a3a73bb-958b-4028-9a82-ccd2860b6aee">&lt;em&gt;</bpt>domain<ept id="7a3a73bb-958b-4028-9a82-ccd2860b6aee">&lt;/em&gt;</ept> is the name of the domain in which the sqladmin account was created in <bpt id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;linkText&gt;</bpt>Phase 2<ept id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;/linkText&gt;</ept><bpt id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;title&gt;</bpt><ept id="7abae932-4afe-4e5f-834b-f664fa417e24">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="09c2f7a1-f10e-4906-bed1-15c710d22e7c" xml:space="preserve">
+          <source>Under <bpt id="2cda44b2-ff97-483a-a1c5-ad6b09122312">&lt;strong&gt;</bpt>Select a page<ept id="2cda44b2-ff97-483a-a1c5-ad6b09122312">&lt;/strong&gt;</ept>, click <bpt id="d8e07c60-7769-48b1-bedd-e4a515627f25">&lt;strong&gt;</bpt>Server Roles<ept id="d8e07c60-7769-48b1-bedd-e4a515627f25">&lt;/strong&gt;</ept>, click <bpt id="f3892114-0671-49a6-a0f9-14b67a8c1087">&lt;strong&gt;</bpt>sysadmin<ept id="f3892114-0671-49a6-a0f9-14b67a8c1087">&lt;/strong&gt;</ept>, and then click <bpt id="960910ca-0d38-45de-9b04-702e16b11884">&lt;strong&gt;</bpt>OK<ept id="960910ca-0d38-45de-9b04-702e16b11884">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="2cda44b2-ff97-483a-a1c5-ad6b09122312">&lt;strong&gt;</bpt>Select a page<ept id="2cda44b2-ff97-483a-a1c5-ad6b09122312">&lt;/strong&gt;</ept>, click <bpt id="d8e07c60-7769-48b1-bedd-e4a515627f25">&lt;strong&gt;</bpt>Server Roles<ept id="d8e07c60-7769-48b1-bedd-e4a515627f25">&lt;/strong&gt;</ept>, click <bpt id="f3892114-0671-49a6-a0f9-14b67a8c1087">&lt;strong&gt;</bpt>sysadmin<ept id="f3892114-0671-49a6-a0f9-14b67a8c1087">&lt;/strong&gt;</ept>, and then click <bpt id="960910ca-0d38-45de-9b04-702e16b11884">&lt;strong&gt;</bpt>OK<ept id="960910ca-0d38-45de-9b04-702e16b11884">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3973e85-cdd6-4d34-9424-47eab33eb48f" xml:space="preserve">
+          <source>Close SQL Server 2014 Management Studio.</source>
+          <target state="new">Close SQL Server 2014 Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="66b5cddc-74ac-4c9c-9303-44a4f9391561" xml:space="preserve">
+          <source>Use the following procedure twice, once for each SQL server, to allow remote desktop connections using the sqladmin account.</source>
+          <target state="new">Use the following procedure twice, once for each SQL server, to allow remote desktop connections using the sqladmin account.</target>
+        </trans-unit>
+        <trans-unit id="8df905a6-8190-4ec2-9abd-d5c5a1afa90b" xml:space="preserve">
+          <source>On the Start screen, right-click <bpt id="7e37a572-bbf1-44ed-96c8-93978a7f32a8">&lt;strong&gt;</bpt>This PC<ept id="7e37a572-bbf1-44ed-96c8-93978a7f32a8">&lt;/strong&gt;</ept>, and then click <bpt id="94355fa1-6060-4553-8299-fa4311515e66">&lt;strong&gt;</bpt>Properties<ept id="94355fa1-6060-4553-8299-fa4311515e66">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Start screen, right-click <bpt id="7e37a572-bbf1-44ed-96c8-93978a7f32a8">&lt;strong&gt;</bpt>This PC<ept id="7e37a572-bbf1-44ed-96c8-93978a7f32a8">&lt;/strong&gt;</ept>, and then click <bpt id="94355fa1-6060-4553-8299-fa4311515e66">&lt;strong&gt;</bpt>Properties<ept id="94355fa1-6060-4553-8299-fa4311515e66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac21d3c0-567d-4f82-9b26-bf1d01db56cd" xml:space="preserve">
+          <source>In the <bpt id="b4a1f975-6fd5-4da5-9b26-7b20522a16fd">&lt;strong&gt;</bpt>System<ept id="b4a1f975-6fd5-4da5-9b26-7b20522a16fd">&lt;/strong&gt;</ept> window, click <bpt id="e22d3bd3-0574-4537-aecc-2243599fee1c">&lt;strong&gt;</bpt>Remote Settings<ept id="e22d3bd3-0574-4537-aecc-2243599fee1c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b4a1f975-6fd5-4da5-9b26-7b20522a16fd">&lt;strong&gt;</bpt>System<ept id="b4a1f975-6fd5-4da5-9b26-7b20522a16fd">&lt;/strong&gt;</ept> window, click <bpt id="e22d3bd3-0574-4537-aecc-2243599fee1c">&lt;strong&gt;</bpt>Remote Settings<ept id="e22d3bd3-0574-4537-aecc-2243599fee1c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="005b761c-f488-4951-82a2-f95ba4162794" xml:space="preserve">
+          <source>In the <bpt id="aac4c6d4-069b-4c1e-89c9-5807d9e517e9">&lt;strong&gt;</bpt>Remote Desktop<ept id="aac4c6d4-069b-4c1e-89c9-5807d9e517e9">&lt;/strong&gt;</ept> section, click <bpt id="9a1e71f9-296f-47cc-81a7-7d558b8529e9">&lt;strong&gt;</bpt>Select Users<ept id="9a1e71f9-296f-47cc-81a7-7d558b8529e9">&lt;/strong&gt;</ept>, and then click <bpt id="3844b83e-76d0-43f6-ac6d-536aca7605fd">&lt;strong&gt;</bpt>Add<ept id="3844b83e-76d0-43f6-ac6d-536aca7605fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="aac4c6d4-069b-4c1e-89c9-5807d9e517e9">&lt;strong&gt;</bpt>Remote Desktop<ept id="aac4c6d4-069b-4c1e-89c9-5807d9e517e9">&lt;/strong&gt;</ept> section, click <bpt id="9a1e71f9-296f-47cc-81a7-7d558b8529e9">&lt;strong&gt;</bpt>Select Users<ept id="9a1e71f9-296f-47cc-81a7-7d558b8529e9">&lt;/strong&gt;</ept>, and then click <bpt id="3844b83e-76d0-43f6-ac6d-536aca7605fd">&lt;strong&gt;</bpt>Add<ept id="3844b83e-76d0-43f6-ac6d-536aca7605fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="83e0046b-6c17-4742-a694-f01418d0f8b3" xml:space="preserve">
+          <source>In <bpt id="dd1ffe6b-14cd-4bb4-af8b-c40c4e47a0d0">&lt;strong&gt;</bpt>Enter the object names to select<ept id="dd1ffe6b-14cd-4bb4-af8b-c40c4e47a0d0">&lt;/strong&gt;</ept>, type [domain]<bpt id="b7d01db3-2bab-4a77-963a-5d50abb7d663">&lt;strong&gt;</bpt>\sqladmin<ept id="b7d01db3-2bab-4a77-963a-5d50abb7d663">&lt;/strong&gt;</ept>, and then click <bpt id="b782b3e2-2b88-4b4d-90c2-7af32de246ec">&lt;strong&gt;</bpt>OK<ept id="b782b3e2-2b88-4b4d-90c2-7af32de246ec">&lt;/strong&gt;</ept> three times.</source>
+          <target state="new">In <bpt id="dd1ffe6b-14cd-4bb4-af8b-c40c4e47a0d0">&lt;strong&gt;</bpt>Enter the object names to select<ept id="dd1ffe6b-14cd-4bb4-af8b-c40c4e47a0d0">&lt;/strong&gt;</ept>, type [domain]<bpt id="b7d01db3-2bab-4a77-963a-5d50abb7d663">&lt;strong&gt;</bpt>\sqladmin<ept id="b7d01db3-2bab-4a77-963a-5d50abb7d663">&lt;/strong&gt;</ept>, and then click <bpt id="b782b3e2-2b88-4b4d-90c2-7af32de246ec">&lt;strong&gt;</bpt>OK<ept id="b782b3e2-2b88-4b4d-90c2-7af32de246ec">&lt;/strong&gt;</ept> three times.</target>
+        </trans-unit>
+        <trans-unit id="3a7a0ed5-845a-4ec1-becc-4306b8943603" xml:space="preserve">
+          <source>The SQL Server service requires a port that clients use to access the database server.</source>
+          <target state="new">The SQL Server service requires a port that clients use to access the database server.</target>
+        </trans-unit>
+        <trans-unit id="b0405cc6-3125-42c8-9597-13266d1ac08c" xml:space="preserve">
+          <source>It also needs ports to connect with the SQL Server Management Studio and to manage the high-availability group.</source>
+          <target state="new">It also needs ports to connect with the SQL Server Management Studio and to manage the high-availability group.</target>
+        </trans-unit>
+        <trans-unit id="7fc6f779-f957-4a00-a079-a54f44def373" xml:space="preserve">
+          <source>Next, run the following command at an administrator-level Windows PowerShell prompt twice, once for each SQL Server virtual machine, to add a firewall rule that allows this type of inbound traffic.</source>
+          <target state="new">Next, run the following command at an administrator-level Windows PowerShell prompt twice, once for each SQL Server virtual machine, to add a firewall rule that allows this type of inbound traffic.</target>
+        </trans-unit>
+        <trans-unit id="6cee43a8-852b-4bf8-9e06-dc094b96164d" xml:space="preserve">
+          <source>For each of the SQL Server virtual machines, sign out as the local administrator.</source>
+          <target state="new">For each of the SQL Server virtual machines, sign out as the local administrator.</target>
+        </trans-unit>
+        <trans-unit id="a0f32321-8b10-454e-8096-f31ff263d5b2" xml:space="preserve">
+          <source>For information about optimizing SQL Server performance in Azure, see <bpt id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;/linkText&gt;</ept><bpt id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;title&gt;</bpt><ept id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about optimizing SQL Server performance in Azure, see <bpt id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;linkText&gt;</bpt>Performance Best Practices for SQL Server in Azure Virtual Machines<ept id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;/linkText&gt;</ept><bpt id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;title&gt;</bpt><ept id="ea783876-0ae1-4294-bc6f-689ffa2c44c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a48bd71-8f94-4c75-861e-c16ea2a265da" xml:space="preserve">
+          <source>You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.</source>
+          <target state="new">You can also disable Geo Redundant Storage (GRS) for the line of business application storage account and use storage spaces to optimize IOPs.</target>
+        </trans-unit>
+        <trans-unit id="a09c11e5-485b-450d-a577-50c544e8146d" xml:space="preserve">
+          <source>Use the remote desktop client of your choice and create a remote desktop connection to the cluster majority node server virtual machine.</source>
+          <target state="new">Use the remote desktop client of your choice and create a remote desktop connection to the cluster majority node server virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="ff1a053c-3f88-49b8-b477-08254705a76d" xml:space="preserve">
+          <source>Use its intranet DNS or computer name and the credentials of the local administrator account.</source>
+          <target state="new">Use its intranet DNS or computer name and the credentials of the local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="b8e316bb-203f-429b-96db-d9d738d82afb" xml:space="preserve">
+          <source>Join the cluster majority node server to the appropriate AD DS domain with these commands at the Windows PowerShell prompt.</source>
+          <target state="new">Join the cluster majority node server to the appropriate AD DS domain with these commands at the Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="8087419b-dfc1-4cf5-8b20-db4525120fc0" xml:space="preserve">
+          <source>Note that you must supply domain account credentials when running the <bpt id="d27dcb32-ace6-4c2f-8169-c7106d44b67c">&lt;strong&gt;</bpt>Add-Computer<ept id="d27dcb32-ace6-4c2f-8169-c7106d44b67c">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Note that you must supply domain account credentials when running the <bpt id="d27dcb32-ace6-4c2f-8169-c7106d44b67c">&lt;strong&gt;</bpt>Add-Computer<ept id="d27dcb32-ace6-4c2f-8169-c7106d44b67c">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="3a013ac5-da3f-4e05-a1b5-ab133d75f610" xml:space="preserve">
+          <source>After it restarts, reconnect with an account that has local administrator privileges.</source>
+          <target state="new">After it restarts, reconnect with an account that has local administrator privileges.</target>
+        </trans-unit>
+        <trans-unit id="c7ff4794-c7bc-40d0-b4a0-75069f4c4e83" xml:space="preserve">
+          <source>SQL Server AlwaysOn Availability Groups rely on the Windows Server Failover Clustering (WSFC) feature of Windows Server.</source>
+          <target state="new">SQL Server AlwaysOn Availability Groups rely on the Windows Server Failover Clustering (WSFC) feature of Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="29a66088-d227-4bf3-91c5-b67c0ddd25a0" xml:space="preserve">
+          <source>The feature allows several machines to participate as a group in a cluster.</source>
+          <target state="new">The feature allows several machines to participate as a group in a cluster.</target>
+        </trans-unit>
+        <trans-unit id="33500a0a-b7e3-4e2c-8947-0ac0e24c04ec" xml:space="preserve">
+          <source>When one machine fails, a second machine is ready to take its place.</source>
+          <target state="new">When one machine fails, a second machine is ready to take its place.</target>
+        </trans-unit>
+        <trans-unit id="ace8bed2-6974-43dc-896c-50f0a152e8ab" xml:space="preserve">
+          <source>Therefore the first task is to enable the Failover Clustering feature on all of the participating machines, which include:</source>
+          <target state="new">Therefore the first task is to enable the Failover Clustering feature on all of the participating machines, which include:</target>
+        </trans-unit>
+        <trans-unit id="c1c484f4-f822-417c-8e77-8a90634a18e3" xml:space="preserve">
+          <source>The primary virtual machine running SQL Server</source>
+          <target state="new">The primary virtual machine running SQL Server</target>
+        </trans-unit>
+        <trans-unit id="00e4577f-d0f8-45aa-bcc0-e212f67f0369" xml:space="preserve">
+          <source>The secondary virtual machine running SQL Server</source>
+          <target state="new">The secondary virtual machine running SQL Server</target>
+        </trans-unit>
+        <trans-unit id="f420fd64-f451-409a-b05d-0bea9c4494b5" xml:space="preserve">
+          <source>The cluster majority node</source>
+          <target state="new">The cluster majority node</target>
+        </trans-unit>
+        <trans-unit id="04bc2671-56e3-4878-8022-ceea47b1f416" xml:space="preserve">
+          <source>The failover cluster requires at least three virtual machines.</source>
+          <target state="new">The failover cluster requires at least three virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="7c172373-cf4d-4715-870b-17101f7db45c" xml:space="preserve">
+          <source>Two machines host SQL Server, in which the secondary virtual machine is a synchronous secondary replica, ensuring zero data loss if the primary machine fails.</source>
+          <target state="new">Two machines host SQL Server, in which the secondary virtual machine is a synchronous secondary replica, ensuring zero data loss if the primary machine fails.</target>
+        </trans-unit>
+        <trans-unit id="73c1166a-2d97-4d40-ba94-76bb63680131" xml:space="preserve">
+          <source>The third virtual machine does not need to host SQL Server.</source>
+          <target state="new">The third virtual machine does not need to host SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="ff636bc7-6fd0-4d25-89cd-c63f2f1e30ce" xml:space="preserve">
+          <source>The cluster majority node functions as a quorum witness in the WSFC.</source>
+          <target state="new">The cluster majority node functions as a quorum witness in the WSFC.</target>
+        </trans-unit>
+        <trans-unit id="0ea7b968-0b08-43d9-8045-227f5a158aa7" xml:space="preserve">
+          <source>Because the WSFC cluster relies on a quorum to monitor health, there must always be a majority to ensure that the WSFC cluster is online.</source>
+          <target state="new">Because the WSFC cluster relies on a quorum to monitor health, there must always be a majority to ensure that the WSFC cluster is online.</target>
+        </trans-unit>
+        <trans-unit id="dff22a84-9b07-4611-a4c4-6526b5208900" xml:space="preserve">
+          <source>If only two machines are in a cluster, and one fails, there can be no majority when only one out of two fails.</source>
+          <target state="new">If only two machines are in a cluster, and one fails, there can be no majority when only one out of two fails.</target>
+        </trans-unit>
+        <trans-unit id="25d79ec2-1cc9-49c8-bd1d-3e2b05e7c22e" xml:space="preserve">
+          <source>For more information, see <bpt id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;linkText&gt;</bpt>WSFC Quorum Modes and Voting Configuration (SQL Server)<ept id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;/linkText&gt;</ept><bpt id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;title&gt;</bpt><ept id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;linkText&gt;</bpt>WSFC Quorum Modes and Voting Configuration (SQL Server)<ept id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;/linkText&gt;</ept><bpt id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;title&gt;</bpt><ept id="d0f5ad89-8288-456c-a13b-f2ebd03e98df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2335e1e4-7c0f-4950-8d31-06d4c77ed8c2" xml:space="preserve">
+          <source>For both SQL Server virtual machines and for the cluster majority node, run the following command at an administrator-level Windows PowerShell prompt:</source>
+          <target state="new">For both SQL Server virtual machines and for the cluster majority node, run the following command at an administrator-level Windows PowerShell prompt:</target>
+        </trans-unit>
+        <trans-unit id="774f63db-791c-4ba5-a3e0-df0277fd39a8" xml:space="preserve">
+          <source>Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Windows Server Failover Cluster (WSFC) cluster can fail.</source>
+          <target state="new">Due to current non-RFC-compliant behavior by DHCP in Azure, creation of a Windows Server Failover Cluster (WSFC) cluster can fail.</target>
+        </trans-unit>
+        <trans-unit id="8ff48ce7-4270-49cd-97a7-173b35a621d9" xml:space="preserve">
+          <source>For details, search for "WSFC cluster behavior in Azure networking" in High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines.</source>
+          <target state="new">For details, search for "WSFC cluster behavior in Azure networking" in High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="2dbd90e1-ce6e-4724-9f76-63d533ab1406" xml:space="preserve">
+          <source>However, there is a workaround.</source>
+          <target state="new">However, there is a workaround.</target>
+        </trans-unit>
+        <trans-unit id="15aa7608-127a-4513-84f4-1c37d51f044e" xml:space="preserve">
+          <source>Use the following steps to create the cluster.</source>
+          <target state="new">Use the following steps to create the cluster.</target>
+        </trans-unit>
+        <trans-unit id="0ce7c1a6-2984-43da-aeba-7e6ad34b342e" xml:space="preserve">
+          <source>Log on to the primary SQL Server virtual machine with the sqladmin account created in <bpt id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;linkText&gt;</bpt>Phase 2<ept id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;/linkText&gt;</ept><bpt id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;title&gt;</bpt><ept id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the primary SQL Server virtual machine with the sqladmin account created in <bpt id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;linkText&gt;</bpt>Phase 2<ept id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;/linkText&gt;</ept><bpt id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;title&gt;</bpt><ept id="1a7b5bd6-1849-4eed-bb84-bd089c1eb92d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b34a588e-c6d8-41c3-b19e-d658a981e1c7" xml:space="preserve">
+          <source>From the Start screen, type <bpt id="e809820f-6808-4db5-9cde-567f4f3cc9fb">&lt;strong&gt;</bpt>Failover<ept id="e809820f-6808-4db5-9cde-567f4f3cc9fb">&lt;/strong&gt;</ept>, and then click <bpt id="105d0045-6507-4cbf-97dd-e152021ab5fa">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="105d0045-6507-4cbf-97dd-e152021ab5fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen, type <bpt id="e809820f-6808-4db5-9cde-567f4f3cc9fb">&lt;strong&gt;</bpt>Failover<ept id="e809820f-6808-4db5-9cde-567f4f3cc9fb">&lt;/strong&gt;</ept>, and then click <bpt id="105d0045-6507-4cbf-97dd-e152021ab5fa">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="105d0045-6507-4cbf-97dd-e152021ab5fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e315ecf-bcbb-4a19-89fb-45c2352fc946" xml:space="preserve">
+          <source>In the left pane, right-click <bpt id="40b00d37-a0fe-403d-a1eb-a73837f26905">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="40b00d37-a0fe-403d-a1eb-a73837f26905">&lt;/strong&gt;</ept>, and then click <bpt id="c61d3899-5ce9-4edd-b054-81d7ce514378">&lt;strong&gt;</bpt>Create Cluster<ept id="c61d3899-5ce9-4edd-b054-81d7ce514378">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, right-click <bpt id="40b00d37-a0fe-403d-a1eb-a73837f26905">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="40b00d37-a0fe-403d-a1eb-a73837f26905">&lt;/strong&gt;</ept>, and then click <bpt id="c61d3899-5ce9-4edd-b054-81d7ce514378">&lt;strong&gt;</bpt>Create Cluster<ept id="c61d3899-5ce9-4edd-b054-81d7ce514378">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79146982-0d8a-4c96-adfe-d2194f6cb190" xml:space="preserve">
+          <source>On the <bpt id="c4fa24f2-f5c0-408d-b67e-64575876d533">&lt;strong&gt;</bpt>Before You Begin<ept id="c4fa24f2-f5c0-408d-b67e-64575876d533">&lt;/strong&gt;</ept> page, click <bpt id="d6d7c308-8c03-4537-9656-2e1f3fa346cb">&lt;strong&gt;</bpt>Next<ept id="d6d7c308-8c03-4537-9656-2e1f3fa346cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c4fa24f2-f5c0-408d-b67e-64575876d533">&lt;strong&gt;</bpt>Before You Begin<ept id="c4fa24f2-f5c0-408d-b67e-64575876d533">&lt;/strong&gt;</ept> page, click <bpt id="d6d7c308-8c03-4537-9656-2e1f3fa346cb">&lt;strong&gt;</bpt>Next<ept id="d6d7c308-8c03-4537-9656-2e1f3fa346cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93a7d338-1187-42ec-988a-804b94bde166" xml:space="preserve">
+          <source>On the <bpt id="83a94df8-7e85-4313-9b9b-1141ec2f40e1">&lt;strong&gt;</bpt>Select Servers<ept id="83a94df8-7e85-4313-9b9b-1141ec2f40e1">&lt;/strong&gt;</ept> page, type the name of the primary SQL Server machine, click <bpt id="5fbdc202-31f2-4f2d-baba-5729c59f7f11">&lt;strong&gt;</bpt>Add<ept id="5fbdc202-31f2-4f2d-baba-5729c59f7f11">&lt;/strong&gt;</ept>, and then click <bpt id="f5530cab-3156-45e9-b90a-6f139cf39425">&lt;strong&gt;</bpt>Next<ept id="f5530cab-3156-45e9-b90a-6f139cf39425">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="83a94df8-7e85-4313-9b9b-1141ec2f40e1">&lt;strong&gt;</bpt>Select Servers<ept id="83a94df8-7e85-4313-9b9b-1141ec2f40e1">&lt;/strong&gt;</ept> page, type the name of the primary SQL Server machine, click <bpt id="5fbdc202-31f2-4f2d-baba-5729c59f7f11">&lt;strong&gt;</bpt>Add<ept id="5fbdc202-31f2-4f2d-baba-5729c59f7f11">&lt;/strong&gt;</ept>, and then click <bpt id="f5530cab-3156-45e9-b90a-6f139cf39425">&lt;strong&gt;</bpt>Next<ept id="f5530cab-3156-45e9-b90a-6f139cf39425">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="daae7a8d-6b8d-4cb0-9483-0ae137075df5" xml:space="preserve">
+          <source>On the <bpt id="5c2d4517-66f3-4d80-957d-90fab9e5c1b9">&lt;strong&gt;</bpt>Validation Warning<ept id="5c2d4517-66f3-4d80-957d-90fab9e5c1b9">&lt;/strong&gt;</ept> page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests.</source>
+          <target state="new">On the <bpt id="5c2d4517-66f3-4d80-957d-90fab9e5c1b9">&lt;strong&gt;</bpt>Validation Warning<ept id="5c2d4517-66f3-4d80-957d-90fab9e5c1b9">&lt;/strong&gt;</ept> page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests.</target>
+        </trans-unit>
+        <trans-unit id="93a12ab5-46ca-43e3-b4a5-57d9d8285e31" xml:space="preserve">
+          <source>When I click Next, continue creating the cluster.<bpt id="a4e50752-c4c3-4145-be61-a2f920a18019">&lt;strong&gt;</bpt>, and then click **Next<ept id="a4e50752-c4c3-4145-be61-a2f920a18019">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When I click Next, continue creating the cluster.<bpt id="a4e50752-c4c3-4145-be61-a2f920a18019">&lt;strong&gt;</bpt>, and then click **Next<ept id="a4e50752-c4c3-4145-be61-a2f920a18019">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dfebd28-123a-46c2-a482-49b88003ff23" xml:space="preserve">
+          <source>On the <bpt id="09f0ce45-f771-4507-a3c6-d3ce18c231a2">&lt;strong&gt;</bpt>Access Point for Administering the Cluster<ept id="09f0ce45-f771-4507-a3c6-d3ce18c231a2">&lt;/strong&gt;</ept> page, in the <bpt id="02c4585a-58ac-477d-9faf-63b8ea68066e">&lt;strong&gt;</bpt>Cluster Nam<ept id="02c4585a-58ac-477d-9faf-63b8ea68066e">&lt;/strong&gt;</ept>e text box, type the name for your cluster, and then click <bpt id="09492ad3-2c03-4f8a-8399-f185949ad706">&lt;strong&gt;</bpt>Next<ept id="09492ad3-2c03-4f8a-8399-f185949ad706">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="09f0ce45-f771-4507-a3c6-d3ce18c231a2">&lt;strong&gt;</bpt>Access Point for Administering the Cluster<ept id="09f0ce45-f771-4507-a3c6-d3ce18c231a2">&lt;/strong&gt;</ept> page, in the <bpt id="02c4585a-58ac-477d-9faf-63b8ea68066e">&lt;strong&gt;</bpt>Cluster Nam<ept id="02c4585a-58ac-477d-9faf-63b8ea68066e">&lt;/strong&gt;</ept>e text box, type the name for your cluster, and then click <bpt id="09492ad3-2c03-4f8a-8399-f185949ad706">&lt;strong&gt;</bpt>Next<ept id="09492ad3-2c03-4f8a-8399-f185949ad706">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b1fe847-50aa-4da4-b66d-77b5f18e3bd0" xml:space="preserve">
+          <source>In the <bpt id="5d7f0e18-436d-4c6f-9c25-22c303af2eea">&lt;strong&gt;</bpt>Confirmation<ept id="5d7f0e18-436d-4c6f-9c25-22c303af2eea">&lt;/strong&gt;</ept> page, click <bpt id="6e81b167-41f8-41ef-b72b-fec329b1b780">&lt;strong&gt;</bpt>Next<ept id="6e81b167-41f8-41ef-b72b-fec329b1b780">&lt;/strong&gt;</ept> to begin cluster creation.</source>
+          <target state="new">In the <bpt id="5d7f0e18-436d-4c6f-9c25-22c303af2eea">&lt;strong&gt;</bpt>Confirmation<ept id="5d7f0e18-436d-4c6f-9c25-22c303af2eea">&lt;/strong&gt;</ept> page, click <bpt id="6e81b167-41f8-41ef-b72b-fec329b1b780">&lt;strong&gt;</bpt>Next<ept id="6e81b167-41f8-41ef-b72b-fec329b1b780">&lt;/strong&gt;</ept> to begin cluster creation.</target>
+        </trans-unit>
+        <trans-unit id="cbb6e548-64dd-46a7-a03f-f5bd7f444586" xml:space="preserve">
+          <source>On the <bpt id="9a8fc233-e788-4ecc-be96-472c3d2ccde5">&lt;strong&gt;</bpt>Summary<ept id="9a8fc233-e788-4ecc-be96-472c3d2ccde5">&lt;/strong&gt;</ept> page, click <bpt id="40d63665-5213-4ae6-a093-aca397e90978">&lt;strong&gt;</bpt>Finish<ept id="40d63665-5213-4ae6-a093-aca397e90978">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9a8fc233-e788-4ecc-be96-472c3d2ccde5">&lt;strong&gt;</bpt>Summary<ept id="9a8fc233-e788-4ecc-be96-472c3d2ccde5">&lt;/strong&gt;</ept> page, click <bpt id="40d63665-5213-4ae6-a093-aca397e90978">&lt;strong&gt;</bpt>Finish<ept id="40d63665-5213-4ae6-a093-aca397e90978">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ef3fe8f-67e0-4871-a591-f95bfa0f4b60" xml:space="preserve">
+          <source>In the left pane, click your new cluster.</source>
+          <target state="new">In the left pane, click your new cluster.</target>
+        </trans-unit>
+        <trans-unit id="7abca3e6-f49a-46c5-bf16-159749ba6a0f" xml:space="preserve">
+          <source>In the <bpt id="4c0b2fcd-d48f-4728-9cef-60aabd5cfdba">&lt;strong&gt;</bpt>Cluster Core Resources<ept id="4c0b2fcd-d48f-4728-9cef-60aabd5cfdba">&lt;/strong&gt;</ept> section of the contents pane, open your server cluster name.</source>
+          <target state="new">In the <bpt id="4c0b2fcd-d48f-4728-9cef-60aabd5cfdba">&lt;strong&gt;</bpt>Cluster Core Resources<ept id="4c0b2fcd-d48f-4728-9cef-60aabd5cfdba">&lt;/strong&gt;</ept> section of the contents pane, open your server cluster name.</target>
+        </trans-unit>
+        <trans-unit id="b1766e15-5771-466b-8787-3428b16492b3" xml:space="preserve">
+          <source>The <bpt id="95c305e1-fa43-4714-b1a8-11ba27ae1a01">&lt;strong&gt;</bpt>IP Address<ept id="95c305e1-fa43-4714-b1a8-11ba27ae1a01">&lt;/strong&gt;</ept> resource appears in the <bpt id="8b09c845-de63-4357-bce4-7619b3e361a6">&lt;strong&gt;</bpt>Failed<ept id="8b09c845-de63-4357-bce4-7619b3e361a6">&lt;/strong&gt;</ept> state.</source>
+          <target state="new">The <bpt id="95c305e1-fa43-4714-b1a8-11ba27ae1a01">&lt;strong&gt;</bpt>IP Address<ept id="95c305e1-fa43-4714-b1a8-11ba27ae1a01">&lt;/strong&gt;</ept> resource appears in the <bpt id="8b09c845-de63-4357-bce4-7619b3e361a6">&lt;strong&gt;</bpt>Failed<ept id="8b09c845-de63-4357-bce4-7619b3e361a6">&lt;/strong&gt;</ept> state.</target>
+        </trans-unit>
+        <trans-unit id="55a4f277-2999-4055-ad51-606719082be3" xml:space="preserve">
+          <source>The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself.</source>
+          <target state="new">The IP address resource cannot be brought online because the cluster is assigned the same IP address as that of the machine itself.</target>
+        </trans-unit>
+        <trans-unit id="09aeddf9-b684-4315-bb2f-acbd5f95a8a9" xml:space="preserve">
+          <source>The result is a duplicate address.</source>
+          <target state="new">The result is a duplicate address.</target>
+        </trans-unit>
+        <trans-unit id="a9767535-f97f-44e2-89f6-c70fc2352e7c" xml:space="preserve">
+          <source>Right-click the failed <bpt id="ae3caf4a-ee6e-4f24-9392-ddcc8a5b3e74">&lt;strong&gt;</bpt>IP Address<ept id="ae3caf4a-ee6e-4f24-9392-ddcc8a5b3e74">&lt;/strong&gt;</ept> resource, and then click <bpt id="1ad94618-db2a-455a-93d9-f5077018b29c">&lt;strong&gt;</bpt>Properties<ept id="1ad94618-db2a-455a-93d9-f5077018b29c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the failed <bpt id="ae3caf4a-ee6e-4f24-9392-ddcc8a5b3e74">&lt;strong&gt;</bpt>IP Address<ept id="ae3caf4a-ee6e-4f24-9392-ddcc8a5b3e74">&lt;/strong&gt;</ept> resource, and then click <bpt id="1ad94618-db2a-455a-93d9-f5077018b29c">&lt;strong&gt;</bpt>Properties<ept id="1ad94618-db2a-455a-93d9-f5077018b29c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b6f7551-136b-4a38-ad20-2a58345ca21e" xml:space="preserve">
+          <source>In the <bpt id="30ddafcc-9d8a-4a25-b5d8-8c5007d47d2e">&lt;strong&gt;</bpt>IP Address Properties<ept id="30ddafcc-9d8a-4a25-b5d8-8c5007d47d2e">&lt;/strong&gt;</ept> dialog box, click <bpt id="e598e93e-6d1c-476d-9d52-516e147d75c6">&lt;strong&gt;</bpt>Static IP Address<ept id="e598e93e-6d1c-476d-9d52-516e147d75c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="30ddafcc-9d8a-4a25-b5d8-8c5007d47d2e">&lt;strong&gt;</bpt>IP Address Properties<ept id="30ddafcc-9d8a-4a25-b5d8-8c5007d47d2e">&lt;/strong&gt;</ept> dialog box, click <bpt id="e598e93e-6d1c-476d-9d52-516e147d75c6">&lt;strong&gt;</bpt>Static IP Address<ept id="e598e93e-6d1c-476d-9d52-516e147d75c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09d973f1-4ee2-4bac-a7d5-8c8965748a25" xml:space="preserve">
+          <source>Type an unused IP in the address range corresponding to the subnet on which the SQL server is located, and then click <bpt id="5e40afd3-7b67-4def-b901-0f3f2e071642">&lt;strong&gt;</bpt>OK<ept id="5e40afd3-7b67-4def-b901-0f3f2e071642">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type an unused IP in the address range corresponding to the subnet on which the SQL server is located, and then click <bpt id="5e40afd3-7b67-4def-b901-0f3f2e071642">&lt;strong&gt;</bpt>OK<ept id="5e40afd3-7b67-4def-b901-0f3f2e071642">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99ae771e-2a4e-4575-87f9-da956471184d" xml:space="preserve">
+          <source>Right-click the failed IP Address resource, and then click <bpt id="a1538612-981b-4b4e-892c-6f2325371ace">&lt;strong&gt;</bpt>Bring Online<ept id="a1538612-981b-4b4e-892c-6f2325371ace">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the failed IP Address resource, and then click <bpt id="a1538612-981b-4b4e-892c-6f2325371ace">&lt;strong&gt;</bpt>Bring Online<ept id="a1538612-981b-4b4e-892c-6f2325371ace">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7438720c-0ffc-4ef7-b0bc-f97dc5031bff" xml:space="preserve">
+          <source>Wait until both resources are online.</source>
+          <target state="new">Wait until both resources are online.</target>
+        </trans-unit>
+        <trans-unit id="faca6251-e8a4-4a3a-bcce-e59f889ce229" xml:space="preserve">
+          <source>When the cluster name resource comes online, it updates the domain controller with a new Active Directory (AD) computer account.</source>
+          <target state="new">When the cluster name resource comes online, it updates the domain controller with a new Active Directory (AD) computer account.</target>
+        </trans-unit>
+        <trans-unit id="e9eec628-2c8a-4c83-b9b7-1c07016bd65c" xml:space="preserve">
+          <source>This AD account is later used to run the availability group clustered service.</source>
+          <target state="new">This AD account is later used to run the availability group clustered service.</target>
+        </trans-unit>
+        <trans-unit id="67b8b75d-6e63-456e-9d75-7c45a215de96" xml:space="preserve">
+          <source>Now that the AD account is created, bring the cluster name offline.</source>
+          <target state="new">Now that the AD account is created, bring the cluster name offline.</target>
+        </trans-unit>
+        <trans-unit id="39b1832f-b6a6-4ee5-9c0a-4b828da6c133" xml:space="preserve">
+          <source>Right-click the cluster name in <bpt id="9d2eaa96-01ee-4b59-ac64-0f244ba60167">&lt;strong&gt;</bpt>Cluster Core Resources<ept id="9d2eaa96-01ee-4b59-ac64-0f244ba60167">&lt;/strong&gt;</ept>, and then click <bpt id="6d8da21a-71c1-4994-936b-bbf0c8a34900">&lt;strong&gt;</bpt>Take Offline<ept id="6d8da21a-71c1-4994-936b-bbf0c8a34900">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the cluster name in <bpt id="9d2eaa96-01ee-4b59-ac64-0f244ba60167">&lt;strong&gt;</bpt>Cluster Core Resources<ept id="9d2eaa96-01ee-4b59-ac64-0f244ba60167">&lt;/strong&gt;</ept>, and then click <bpt id="6d8da21a-71c1-4994-936b-bbf0c8a34900">&lt;strong&gt;</bpt>Take Offline<ept id="6d8da21a-71c1-4994-936b-bbf0c8a34900">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0671173c-1224-45de-a18d-d6425591700f" xml:space="preserve">
+          <source>To remove the cluster IP address, right-click <bpt id="148aeb60-4ad0-4efe-9a8a-d4737203da93">&lt;strong&gt;</bpt>IP Address<ept id="148aeb60-4ad0-4efe-9a8a-d4737203da93">&lt;/strong&gt;</ept>, click <bpt id="cfc3a5db-e7a5-445c-9ff0-03ac50f8743c">&lt;strong&gt;</bpt>Remove<ept id="cfc3a5db-e7a5-445c-9ff0-03ac50f8743c">&lt;/strong&gt;</ept>, and then click <bpt id="661473f0-3a67-4df3-88c8-faf4ac239c6c">&lt;strong&gt;</bpt>Yes<ept id="661473f0-3a67-4df3-88c8-faf4ac239c6c">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">To remove the cluster IP address, right-click <bpt id="148aeb60-4ad0-4efe-9a8a-d4737203da93">&lt;strong&gt;</bpt>IP Address<ept id="148aeb60-4ad0-4efe-9a8a-d4737203da93">&lt;/strong&gt;</ept>, click <bpt id="cfc3a5db-e7a5-445c-9ff0-03ac50f8743c">&lt;strong&gt;</bpt>Remove<ept id="cfc3a5db-e7a5-445c-9ff0-03ac50f8743c">&lt;/strong&gt;</ept>, and then click <bpt id="661473f0-3a67-4df3-88c8-faf4ac239c6c">&lt;strong&gt;</bpt>Yes<ept id="661473f0-3a67-4df3-88c8-faf4ac239c6c">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="100fdcb3-3964-4709-82e8-9c8c1ea27b53" xml:space="preserve">
+          <source>The cluster resource can no longer come online because it depends on the IP address resource.</source>
+          <target state="new">The cluster resource can no longer come online because it depends on the IP address resource.</target>
+        </trans-unit>
+        <trans-unit id="f5c854d7-3b39-4a26-8e02-b93deaabd9e6" xml:space="preserve">
+          <source>However, an availability group does not depend on the cluster name or IP address in order to work properly.</source>
+          <target state="new">However, an availability group does not depend on the cluster name or IP address in order to work properly.</target>
+        </trans-unit>
+        <trans-unit id="2de7a06a-fe15-414a-a297-81809f840a3a" xml:space="preserve">
+          <source>So the cluster name can be left offline.</source>
+          <target state="new">So the cluster name can be left offline.</target>
+        </trans-unit>
+        <trans-unit id="fa4675da-0746-4b1b-bb5a-822eee6d031c" xml:space="preserve">
+          <source>To add the remaining nodes to the cluster, right-click your cluster name in the left pane, and then click <bpt id="6fc74a99-bce6-45dc-9929-b2dbd781e590">&lt;strong&gt;</bpt>Add Node<ept id="6fc74a99-bce6-45dc-9929-b2dbd781e590">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add the remaining nodes to the cluster, right-click your cluster name in the left pane, and then click <bpt id="6fc74a99-bce6-45dc-9929-b2dbd781e590">&lt;strong&gt;</bpt>Add Node<ept id="6fc74a99-bce6-45dc-9929-b2dbd781e590">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36983a6b-0034-4c83-bdf2-7c7a0776a407" xml:space="preserve">
+          <source>On the <bpt id="efe5bcd2-7768-4731-b619-fe7d307397d8">&lt;strong&gt;</bpt>Before You Begin<ept id="efe5bcd2-7768-4731-b619-fe7d307397d8">&lt;/strong&gt;</ept> page, click <bpt id="1508a43b-7fd6-41be-bc8a-c9a9085a8a93">&lt;strong&gt;</bpt>Next<ept id="1508a43b-7fd6-41be-bc8a-c9a9085a8a93">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="efe5bcd2-7768-4731-b619-fe7d307397d8">&lt;strong&gt;</bpt>Before You Begin<ept id="efe5bcd2-7768-4731-b619-fe7d307397d8">&lt;/strong&gt;</ept> page, click <bpt id="1508a43b-7fd6-41be-bc8a-c9a9085a8a93">&lt;strong&gt;</bpt>Next<ept id="1508a43b-7fd6-41be-bc8a-c9a9085a8a93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c891c5ad-2a91-40eb-8506-c0a02985f7ee" xml:space="preserve">
+          <source>On the <bpt id="bdb79fed-30c0-47df-acdb-f77970fceb3e">&lt;strong&gt;</bpt>Select Servers<ept id="bdb79fed-30c0-47df-acdb-f77970fceb3e">&lt;/strong&gt;</ept> page, type the name and then click <bpt id="99be81a1-2054-41f8-adef-344f38fd2c6f">&lt;strong&gt;</bpt>Add<ept id="99be81a1-2054-41f8-adef-344f38fd2c6f">&lt;/strong&gt;</ept> to add both the secondary SQL server and cluster majority node to the cluster.</source>
+          <target state="new">On the <bpt id="bdb79fed-30c0-47df-acdb-f77970fceb3e">&lt;strong&gt;</bpt>Select Servers<ept id="bdb79fed-30c0-47df-acdb-f77970fceb3e">&lt;/strong&gt;</ept> page, type the name and then click <bpt id="99be81a1-2054-41f8-adef-344f38fd2c6f">&lt;strong&gt;</bpt>Add<ept id="99be81a1-2054-41f8-adef-344f38fd2c6f">&lt;/strong&gt;</ept> to add both the secondary SQL server and cluster majority node to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="0815a4ca-f52b-4c1d-9422-735c322524b3" xml:space="preserve">
+          <source>After adding the two computers, click <bpt id="64876875-f69c-4f43-8cb4-3e58ee020c2e">&lt;strong&gt;</bpt>Next<ept id="64876875-f69c-4f43-8cb4-3e58ee020c2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After adding the two computers, click <bpt id="64876875-f69c-4f43-8cb4-3e58ee020c2e">&lt;strong&gt;</bpt>Next<ept id="64876875-f69c-4f43-8cb4-3e58ee020c2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="074293c4-cb38-413c-bd2f-7a19b1a783b6" xml:space="preserve">
+          <source>If a machine cannot be added, and the error message is "the Remote Registry is not running," do the following.</source>
+          <target state="new">If a machine cannot be added, and the error message is "the Remote Registry is not running," do the following.</target>
+        </trans-unit>
+        <trans-unit id="3b2843be-f1d3-431f-b44f-25264dabd130" xml:space="preserve">
+          <source>Log on to the machine, open the Services snap-in (services.msc), and enable the Remote Registry.</source>
+          <target state="new">Log on to the machine, open the Services snap-in (services.msc), and enable the Remote Registry.</target>
+        </trans-unit>
+        <trans-unit id="952bc260-c275-468a-ade2-f7d32b086def" xml:space="preserve">
+          <source>For more information, see <bpt id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;linkText&gt;</bpt>Unable to connect to Remote Registry service<ept id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;/linkText&gt;</ept><bpt id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;title&gt;</bpt><ept id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;linkText&gt;</bpt>Unable to connect to Remote Registry service<ept id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;/linkText&gt;</ept><bpt id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;title&gt;</bpt><ept id="da22fdcc-f67b-4961-8d23-f4838a1c50a6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="673c3a61-d176-4762-9c53-d79bb5c62713" xml:space="preserve">
+          <source>On the <bpt id="84f42492-afb0-44ea-bb80-27bdfbdd9c26">&lt;strong&gt;</bpt>Validation Warning<ept id="84f42492-afb0-44ea-bb80-27bdfbdd9c26">&lt;/strong&gt;</ept> page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests.</source>
+          <target state="new">On the <bpt id="84f42492-afb0-44ea-bb80-27bdfbdd9c26">&lt;strong&gt;</bpt>Validation Warning<ept id="84f42492-afb0-44ea-bb80-27bdfbdd9c26">&lt;/strong&gt;</ept> page, click **No, I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests.</target>
+        </trans-unit>
+        <trans-unit id="eb9e5c7f-7bbc-408c-838a-0ea1487b2dfb" xml:space="preserve">
+          <source>When I click Next, continue creating the cluster.<bpt id="5140b57f-2d0e-456f-b577-1650bd927fe6">&lt;strong&gt;</bpt>, and then click **Next<ept id="5140b57f-2d0e-456f-b577-1650bd927fe6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When I click Next, continue creating the cluster.<bpt id="5140b57f-2d0e-456f-b577-1650bd927fe6">&lt;strong&gt;</bpt>, and then click **Next<ept id="5140b57f-2d0e-456f-b577-1650bd927fe6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90056010-9fc7-4fd2-abd7-8bbcac83fe2f" xml:space="preserve">
+          <source>On the <bpt id="17a7bb6b-5a05-4f64-b651-868af26f6b3b">&lt;strong&gt;</bpt>Confirmation<ept id="17a7bb6b-5a05-4f64-b651-868af26f6b3b">&lt;/strong&gt;</ept> page, click <bpt id="ab2b74e6-b7b1-433b-b05c-a9c9a74781c1">&lt;strong&gt;</bpt>Next<ept id="ab2b74e6-b7b1-433b-b05c-a9c9a74781c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="17a7bb6b-5a05-4f64-b651-868af26f6b3b">&lt;strong&gt;</bpt>Confirmation<ept id="17a7bb6b-5a05-4f64-b651-868af26f6b3b">&lt;/strong&gt;</ept> page, click <bpt id="ab2b74e6-b7b1-433b-b05c-a9c9a74781c1">&lt;strong&gt;</bpt>Next<ept id="ab2b74e6-b7b1-433b-b05c-a9c9a74781c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b94afa1-057c-407f-81d7-4567d399b08e" xml:space="preserve">
+          <source>On the <bpt id="3d3416dc-2bbf-4c93-824f-d9129f3fad5a">&lt;strong&gt;</bpt>Summary<ept id="3d3416dc-2bbf-4c93-824f-d9129f3fad5a">&lt;/strong&gt;</ept> page, click <bpt id="350d5c7b-3aba-4018-a015-e37eddefec45">&lt;strong&gt;</bpt>Finish<ept id="350d5c7b-3aba-4018-a015-e37eddefec45">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="3d3416dc-2bbf-4c93-824f-d9129f3fad5a">&lt;strong&gt;</bpt>Summary<ept id="3d3416dc-2bbf-4c93-824f-d9129f3fad5a">&lt;/strong&gt;</ept> page, click <bpt id="350d5c7b-3aba-4018-a015-e37eddefec45">&lt;strong&gt;</bpt>Finish<ept id="350d5c7b-3aba-4018-a015-e37eddefec45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ed6c6b4-e4c6-4982-894c-3d3666d3387b" xml:space="preserve">
+          <source>In the left pane, click <bpt id="9f3af640-0e84-4dda-9186-a3e0d422f732">&lt;strong&gt;</bpt>Nodes<ept id="9f3af640-0e84-4dda-9186-a3e0d422f732">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="9f3af640-0e84-4dda-9186-a3e0d422f732">&lt;strong&gt;</bpt>Nodes<ept id="9f3af640-0e84-4dda-9186-a3e0d422f732">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf8e1cb2-1e8a-40c3-bcd7-f1a9827d0da3" xml:space="preserve">
+          <source>You should see all three computers listed.</source>
+          <target state="new">You should see all three computers listed.</target>
+        </trans-unit>
+        <trans-unit id="bf2ff664-e42c-406d-bd95-c3248291d1f9" xml:space="preserve">
+          <source>The next step is to enable AlwaysOn Availability Groups using the SQL Server Configuration Manager.</source>
+          <target state="new">The next step is to enable AlwaysOn Availability Groups using the SQL Server Configuration Manager.</target>
+        </trans-unit>
+        <trans-unit id="eef78e0a-f961-4366-afb8-96f736324737" xml:space="preserve">
+          <source>Note that an availability group in SQL Server differs from an Azure availability set.</source>
+          <target state="new">Note that an availability group in SQL Server differs from an Azure availability set.</target>
+        </trans-unit>
+        <trans-unit id="697d1683-5be8-4375-a537-bd0bb02e55db" xml:space="preserve">
+          <source>An availability group contains databases that are highly-available and recoverable.</source>
+          <target state="new">An availability group contains databases that are highly-available and recoverable.</target>
+        </trans-unit>
+        <trans-unit id="a1c152af-497e-46f7-b423-f4b04dc22096" xml:space="preserve">
+          <source>An Azure availability set allocates virtual machines to different fault domains.</source>
+          <target state="new">An Azure availability set allocates virtual machines to different fault domains.</target>
+        </trans-unit>
+        <trans-unit id="5d737397-7a7e-4793-b32b-020b840df6ce" xml:space="preserve">
+          <source>For more information about fault domains, see <bpt id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;/linkText&gt;</ept><bpt id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;title&gt;</bpt><ept id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about fault domains, see <bpt id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;/linkText&gt;</ept><bpt id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;title&gt;</bpt><ept id="8e837412-c14a-4ff3-951d-4fdf150a5883">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77c6166b-3d55-48fc-80f6-7b43903c4916" xml:space="preserve">
+          <source>Use these steps to enable AlwaysOn Availability Groups on SQL Server.</source>
+          <target state="new">Use these steps to enable AlwaysOn Availability Groups on SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="2e8fbe02-479b-49ea-bef9-d8eb9967208b" xml:space="preserve">
+          <source>Log on to the primary SQL Server virtual machine with the sqladmin account created in <bpt id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;linkText&gt;</bpt>Phase 2<ept id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;/linkText&gt;</ept><bpt id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;title&gt;</bpt><ept id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">Log on to the primary SQL Server virtual machine with the sqladmin account created in <bpt id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;linkText&gt;</bpt>Phase 2<ept id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;/linkText&gt;</ept><bpt id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;title&gt;</bpt><ept id="b21440dc-6fa2-475d-8a0e-61197b7636cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d3d12a3-d555-4fc5-8f1b-e38e6ef284a2" xml:space="preserve">
+          <source>On the Start screen, type <bpt id="84d8fe5f-8064-4ce0-94f5-3ced7c4851bf">&lt;strong&gt;</bpt>SQL Server Configuration<ept id="84d8fe5f-8064-4ce0-94f5-3ced7c4851bf">&lt;/strong&gt;</ept>, and then click <bpt id="f17b0bdb-24e2-43c7-9e15-0b3c0e1a02a0">&lt;strong&gt;</bpt>SQL Server Configuration Manager<ept id="f17b0bdb-24e2-43c7-9e15-0b3c0e1a02a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Start screen, type <bpt id="84d8fe5f-8064-4ce0-94f5-3ced7c4851bf">&lt;strong&gt;</bpt>SQL Server Configuration<ept id="84d8fe5f-8064-4ce0-94f5-3ced7c4851bf">&lt;/strong&gt;</ept>, and then click <bpt id="f17b0bdb-24e2-43c7-9e15-0b3c0e1a02a0">&lt;strong&gt;</bpt>SQL Server Configuration Manager<ept id="f17b0bdb-24e2-43c7-9e15-0b3c0e1a02a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97897df5-3681-4498-8506-5363bbce79d1" xml:space="preserve">
+          <source>In the left pane, click <bpt id="9a61c847-647d-4b65-b6c8-4b8cd7a37da7">&lt;strong&gt;</bpt>SQL Server Services<ept id="9a61c847-647d-4b65-b6c8-4b8cd7a37da7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="9a61c847-647d-4b65-b6c8-4b8cd7a37da7">&lt;strong&gt;</bpt>SQL Server Services<ept id="9a61c847-647d-4b65-b6c8-4b8cd7a37da7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89cb99d5-930e-4924-9d13-32bd4fb0940f" xml:space="preserve">
+          <source>In the contents pane, double-click <bpt id="5dfa0042-8f49-47c2-a07a-9152e4ef3a2b">&lt;strong&gt;</bpt>SQL Server (MSSQLSERVER)<ept id="5dfa0042-8f49-47c2-a07a-9152e4ef3a2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the contents pane, double-click <bpt id="5dfa0042-8f49-47c2-a07a-9152e4ef3a2b">&lt;strong&gt;</bpt>SQL Server (MSSQLSERVER)<ept id="5dfa0042-8f49-47c2-a07a-9152e4ef3a2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63f15f0c-b485-4d14-891f-8c44cc2772ee" xml:space="preserve">
+          <source>In <bpt id="51ce0030-7a4b-4e58-9f0a-60499678484b">&lt;strong&gt;</bpt>SQL Server (MSSQLSERVER) Properties<ept id="51ce0030-7a4b-4e58-9f0a-60499678484b">&lt;/strong&gt;</ept>, click the <bpt id="713250cd-f763-40eb-8097-0ad14df9278d">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="713250cd-f763-40eb-8097-0ad14df9278d">&lt;/strong&gt;</ept> tab, select <bpt id="a30544a9-e4d5-4784-b271-19ea9605f129">&lt;strong&gt;</bpt>Enable AlwaysOn Availability Group<ept id="a30544a9-e4d5-4784-b271-19ea9605f129">&lt;/strong&gt;</ept>s, click <bpt id="e59605b5-ae8f-4157-a20d-e924660ab418">&lt;strong&gt;</bpt>Apply<ept id="e59605b5-ae8f-4157-a20d-e924660ab418">&lt;/strong&gt;</ept>, and then click <bpt id="e7b59521-429d-4708-ab0c-7e76ee092e1d">&lt;strong&gt;</bpt>OK<ept id="e7b59521-429d-4708-ab0c-7e76ee092e1d">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">In <bpt id="51ce0030-7a4b-4e58-9f0a-60499678484b">&lt;strong&gt;</bpt>SQL Server (MSSQLSERVER) Properties<ept id="51ce0030-7a4b-4e58-9f0a-60499678484b">&lt;/strong&gt;</ept>, click the <bpt id="713250cd-f763-40eb-8097-0ad14df9278d">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="713250cd-f763-40eb-8097-0ad14df9278d">&lt;/strong&gt;</ept> tab, select <bpt id="a30544a9-e4d5-4784-b271-19ea9605f129">&lt;strong&gt;</bpt>Enable AlwaysOn Availability Group<ept id="a30544a9-e4d5-4784-b271-19ea9605f129">&lt;/strong&gt;</ept>s, click <bpt id="e59605b5-ae8f-4157-a20d-e924660ab418">&lt;strong&gt;</bpt>Apply<ept id="e59605b5-ae8f-4157-a20d-e924660ab418">&lt;/strong&gt;</ept>, and then click <bpt id="e7b59521-429d-4708-ab0c-7e76ee092e1d">&lt;strong&gt;</bpt>OK<ept id="e7b59521-429d-4708-ab0c-7e76ee092e1d">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="1f464f96-3ebd-4fd7-97d2-6bcade5c6ee0" xml:space="preserve">
+          <source>Do not close the properties window yet.</source>
+          <target state="new">Do not close the properties window yet.</target>
+        </trans-unit>
+        <trans-unit id="07de6eed-48b0-47b2-91ef-83d1e4dfa2ab" xml:space="preserve">
+          <source>Click the virtual-machines-manage-availability tab, then type [Domain]<bpt id="c3c43e12-7c71-456d-96db-9c2c1c6d5eb3">&lt;strong&gt;</bpt>\sqlservice<ept id="c3c43e12-7c71-456d-96db-9c2c1c6d5eb3">&lt;/strong&gt;</ept> in <bpt id="0af6a9ff-81b2-46c5-a6f2-a972738bf480">&lt;strong&gt;</bpt>Account Name<ept id="0af6a9ff-81b2-46c5-a6f2-a972738bf480">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the virtual-machines-manage-availability tab, then type [Domain]<bpt id="c3c43e12-7c71-456d-96db-9c2c1c6d5eb3">&lt;strong&gt;</bpt>\sqlservice<ept id="c3c43e12-7c71-456d-96db-9c2c1c6d5eb3">&lt;/strong&gt;</ept> in <bpt id="0af6a9ff-81b2-46c5-a6f2-a972738bf480">&lt;strong&gt;</bpt>Account Name<ept id="0af6a9ff-81b2-46c5-a6f2-a972738bf480">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2d9d4a0-3bd2-4f12-8209-bb1ad2cfd794" xml:space="preserve">
+          <source>Type the sqlservice account password in <bpt id="6f8a79e8-27f6-4663-9901-f978a6774559">&lt;strong&gt;</bpt>Password<ept id="6f8a79e8-27f6-4663-9901-f978a6774559">&lt;/strong&gt;</ept> and <bpt id="2ae352c3-c109-470d-a124-13c4dc28fede">&lt;strong&gt;</bpt>Confirm password<ept id="2ae352c3-c109-470d-a124-13c4dc28fede">&lt;/strong&gt;</ept>, and then click <bpt id="c273130b-3ab7-4f43-a47d-2bbaa209ef9d">&lt;strong&gt;</bpt>OK<ept id="c273130b-3ab7-4f43-a47d-2bbaa209ef9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the sqlservice account password in <bpt id="6f8a79e8-27f6-4663-9901-f978a6774559">&lt;strong&gt;</bpt>Password<ept id="6f8a79e8-27f6-4663-9901-f978a6774559">&lt;/strong&gt;</ept> and <bpt id="2ae352c3-c109-470d-a124-13c4dc28fede">&lt;strong&gt;</bpt>Confirm password<ept id="2ae352c3-c109-470d-a124-13c4dc28fede">&lt;/strong&gt;</ept>, and then click <bpt id="c273130b-3ab7-4f43-a47d-2bbaa209ef9d">&lt;strong&gt;</bpt>OK<ept id="c273130b-3ab7-4f43-a47d-2bbaa209ef9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf15da89-27ad-48c2-8331-c9c181153c57" xml:space="preserve">
+          <source>In the message window, click <bpt id="2fc5fae4-3a2b-4c04-95e5-81a1a4bd4574">&lt;strong&gt;</bpt>Yes<ept id="2fc5fae4-3a2b-4c04-95e5-81a1a4bd4574">&lt;/strong&gt;</ept> to restart the SQL Server service.</source>
+          <target state="new">In the message window, click <bpt id="2fc5fae4-3a2b-4c04-95e5-81a1a4bd4574">&lt;strong&gt;</bpt>Yes<ept id="2fc5fae4-3a2b-4c04-95e5-81a1a4bd4574">&lt;/strong&gt;</ept> to restart the SQL Server service.</target>
+        </trans-unit>
+        <trans-unit id="64395bdb-e2cb-4d57-aced-f7331760e039" xml:space="preserve">
+          <source>Log on to the secondary SQL Server virtual machine with the sqladmin account and repeat steps 2 through 7.</source>
+          <target state="new">Log on to the secondary SQL Server virtual machine with the sqladmin account and repeat steps 2 through 7.</target>
+        </trans-unit>
+        <trans-unit id="d345df17-04f9-4a3d-81a4-7732ddcb923a" xml:space="preserve">
+          <source>This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.</source>
+          <target state="new">This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.</target>
+        </trans-unit>
+        <trans-unit id="ec463592-f70d-4aa4-9a9d-23f3fc740247" xml:space="preserve">
+          <source><bpt id="194b5aea-91f2-40d8-a4cc-30ffe0bf9e75">&lt;linkText&gt;</bpt><ept id="194b5aea-91f2-40d8-a4cc-30ffe0bf9e75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="194b5aea-91f2-40d8-a4cc-30ffe0bf9e75">&lt;linkText&gt;</bpt><ept id="194b5aea-91f2-40d8-a4cc-30ffe0bf9e75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1324a0fb-5835-495e-bf72-ae4ba73e2e80" xml:space="preserve">
+          <source>To continue with the configuration of this workload, go to <bpt id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;linkText&gt;</bpt>Phase 4: Configure Web Servers<ept id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;/linkText&gt;</ept><bpt id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;title&gt;</bpt><ept id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To continue with the configuration of this workload, go to <bpt id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;linkText&gt;</bpt>Phase 4: Configure Web Servers<ept id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;/linkText&gt;</ept><bpt id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;title&gt;</bpt><ept id="b60f7f36-506b-40ca-91ee-ae8da99fd5b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4d64ca6-cc97-4636-b973-1c490eb8c1d1" xml:space="preserve">
+          <source><bpt id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;/linkText&gt;</ept><bpt id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;title&gt;</bpt><ept id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;/linkText&gt;</ept><bpt id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;title&gt;</bpt><ept id="f25bf0fd-f3d4-4d4f-aa5f-fe8574b447e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adb6baa7-9163-499b-b2fc-63539214cb1e" xml:space="preserve">
+          <source><bpt id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;/linkText&gt;</ept><bpt id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;title&gt;</bpt><ept id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;/linkText&gt;</ept><bpt id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;title&gt;</bpt><ept id="dcb8346a-7181-4f96-963f-00e4fc738269">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87b15692-b54d-4762-b325-91c7f2ad82fd" xml:space="preserve">
+          <source><bpt id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;/linkText&gt;</ept><bpt id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;title&gt;</bpt><ept id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;/linkText&gt;</ept><bpt id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;title&gt;</bpt><ept id="6c9ceb11-4f0f-45a1-8953-ecbdac0d9e3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0909e8a9-ac4f-49de-b55a-41acea6ae227" xml:space="preserve">
+          <source><bpt id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;/linkText&gt;</ept><bpt id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;title&gt;</bpt><ept id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;/linkText&gt;</ept><bpt id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;title&gt;</bpt><ept id="80dc4c50-8c5b-41e7-97bd-b483baa35c3a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02655fc6-5580-4ef2-9829-7ee8ce37f4a9" xml:space="preserve">
+          <source><bpt id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;/linkText&gt;</ept><bpt id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;title&gt;</bpt><ept id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;/linkText&gt;</ept><bpt id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;title&gt;</bpt><ept id="38aa9a8b-42c6-4aab-9054-645a2ba51be2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a1c8d9b2-3e0b-4f3c-b51a-9423a8ae4b6e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a1c8d9b2-3e0b-4f3c-b51a-9423a8ae4b6e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3c0f1d6-b4c6-472e-989b-c9e71020259c">
+        <trans-unit id="b11a1bd7-5a7c-4121-a891-a6830c173802" xml:space="preserve">
+          <source>Deploy StorSimple device in Government Portal | Microsoft Azure</source>
+          <target state="new">Deploy StorSimple device in Government Portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d0eb6fc8-2581-4740-8605-b880e933aa70" xml:space="preserve">
+          <source>Describes the steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal.</source>
+          <target state="new">Describes the steps and best practices for deploying the StorSimple Update 1 device and service in the Azure Government portal.</target>
+        </trans-unit>
+        <trans-unit id="c3c9c86e-df47-4e3e-96b4-5a98c56605d8" xml:space="preserve">
+          <source>Welcome to Microsoft Azure StorSimple device deployment.</source>
+          <target state="new">Welcome to Microsoft Azure StorSimple device deployment.</target>
+        </trans-unit>
+        <trans-unit id="1fcc858f-bb4d-4cad-a223-c67c8fa329c8" xml:space="preserve">
+          <source>These deployment tutorials apply to the StorSimple 8000 Series running Update 1 software in the Azure Government Portal.</source>
+          <target state="new">These deployment tutorials apply to the StorSimple 8000 Series running Update 1 software in the Azure Government Portal.</target>
+        </trans-unit>
+        <trans-unit id="63111ef6-c193-4a64-a188-60f71835db4c" xml:space="preserve">
+          <source>This series of tutorials describes how to configure your StorSimple device, and includes a configuration checklist, configuration prerequisites, and detailed configuration steps.</source>
+          <target state="new">This series of tutorials describes how to configure your StorSimple device, and includes a configuration checklist, configuration prerequisites, and detailed configuration steps.</target>
+        </trans-unit>
+        <trans-unit id="6a58ab43-1c85-412a-8095-d9451aef0d2a" xml:space="preserve">
+          <source>The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device.</source>
+          <target state="new">The information in these tutorials assumes that you have reviewed the safety precautions, and unpacked, racked, and cabled your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="b83a7b1c-b9f3-47d2-9184-6e39d856d9cf" xml:space="preserve">
+          <source>If you still need to perform those tasks, start with reviewing the <bpt id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;linkText&gt;</bpt>safety precautions<ept id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;/linkText&gt;</ept><bpt id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;title&gt;</bpt><ept id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you still need to perform those tasks, start with reviewing the <bpt id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;linkText&gt;</bpt>safety precautions<ept id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;/linkText&gt;</ept><bpt id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;title&gt;</bpt><ept id="83a6ccc4-448f-4ba3-9264-6d7ac0b56990">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f2f80a1-298a-4c77-9c94-a9a9c8b4bc47" xml:space="preserve">
+          <source>Depending on your device model, you can then unpack, rack mount, and cable by following the instructions in:</source>
+          <target state="new">Depending on your device model, you can then unpack, rack mount, and cable by following the instructions in:</target>
+        </trans-unit>
+        <trans-unit id="4a027132-eb27-4e30-9110-6291e82b24de" xml:space="preserve">
+          <source><bpt id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8100<ept id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;/linkText&gt;</ept><bpt id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;title&gt;</bpt><ept id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8100<ept id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;/linkText&gt;</ept><bpt id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;title&gt;</bpt><ept id="3014ee4e-b469-441a-8014-ac136d8e1706">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="934f0cca-cbce-45f5-ab3f-3221da11245a" xml:space="preserve">
+          <source><bpt id="82b455b5-99af-436d-af27-071edeefee81">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8600<ept id="82b455b5-99af-436d-af27-071edeefee81">&lt;/linkText&gt;</ept><bpt id="82b455b5-99af-436d-af27-071edeefee81">&lt;title&gt;</bpt><ept id="82b455b5-99af-436d-af27-071edeefee81">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82b455b5-99af-436d-af27-071edeefee81">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8600<ept id="82b455b5-99af-436d-af27-071edeefee81">&lt;/linkText&gt;</ept><bpt id="82b455b5-99af-436d-af27-071edeefee81">&lt;title&gt;</bpt><ept id="82b455b5-99af-436d-af27-071edeefee81">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4ea9c8e-b0e4-4436-aab9-27798053d81e" xml:space="preserve">
+          <source>You will need administrator privileges to complete the setup and configuration process.</source>
+          <target state="new">You will need administrator privileges to complete the setup and configuration process.</target>
+        </trans-unit>
+        <trans-unit id="e8df5318-a7b7-4b6b-be32-5a7149ec1755" xml:space="preserve">
+          <source>We recommend that you review the configuration checklist before you begin.</source>
+          <target state="new">We recommend that you review the configuration checklist before you begin.</target>
+        </trans-unit>
+        <trans-unit id="075708d7-2029-48a4-90fd-a8296e2c68e5" xml:space="preserve">
+          <source>The deployment and configuration process can take some time to complete.</source>
+          <target state="new">The deployment and configuration process can take some time to complete.</target>
+        </trans-unit>
+        <trans-unit id="0e11272b-4971-488f-93f4-49005ccee8c6" xml:space="preserve">
+          <source>The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only.</source>
+          <target state="new">The StorSimple deployment information published on the Microsoft Azure website applies to StorSimple 8000 series devices only.</target>
+        </trans-unit>
+        <trans-unit id="36b9127a-b482-4706-82d1-096e86bb5a56" xml:space="preserve">
+          <source>For complete information about the 7000 series devices, go to: <bpt id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;linkText&gt;</bpt>http://onlinehelp.storsimple.com/<ept id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;/linkText&gt;</ept><bpt id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;title&gt;</bpt><ept id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete information about the 7000 series devices, go to: <bpt id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;linkText&gt;</bpt>http://onlinehelp.storsimple.com/<ept id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;/linkText&gt;</ept><bpt id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;title&gt;</bpt><ept id="578fd4af-1149-4765-b4bb-d066ab798063">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47d9ca5c-848c-4d86-85b0-330eea56cb23" xml:space="preserve">
+          <source>For 7000 series deployment information, see the <bpt id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;linkText&gt;</bpt>StorSimple System Quick Start Guide<ept id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;/linkText&gt;</ept><bpt id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;title&gt;</bpt><ept id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;/title&gt;</ept>.</source>
+          <target state="new">For 7000 series deployment information, see the <bpt id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;linkText&gt;</bpt>StorSimple System Quick Start Guide<ept id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;/linkText&gt;</ept><bpt id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;title&gt;</bpt><ept id="15bbbef3-25e5-48a9-8b74-5087bec5cc76">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75fe043d-7bb1-4e54-a1b3-f0fdad9a953c" xml:space="preserve">
+          <source>Perform these required steps to configure your StorSimple device and connect it to your StorSimple Manager service.</source>
+          <target state="new">Perform these required steps to configure your StorSimple device and connect it to your StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="47e0fc68-a3f8-4f7a-80cf-94a9c69e6a49" xml:space="preserve">
+          <source>In addition to the required steps, there are optional steps and procedures you may need during the deployment.</source>
+          <target state="new">In addition to the required steps, there are optional steps and procedures you may need during the deployment.</target>
+        </trans-unit>
+        <trans-unit id="0af6c981-abca-4486-82a4-caa906ed61ca" xml:space="preserve">
+          <source>The step-by-step deployment instructions indicate when you should perform each of these optional steps.</source>
+          <target state="new">The step-by-step deployment instructions indicate when you should perform each of these optional steps.</target>
+        </trans-unit>
+        <trans-unit id="b850e39c-8d7c-4aee-9efc-7a57af73a774" xml:space="preserve">
+          <source>Step</source>
+          <target state="new">Step</target>
+        </trans-unit>
+        <trans-unit id="69ade23a-4625-487b-8f35-4409ae41c2ff" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="cc4e9c46-ff0b-4345-ad7b-f7c68fbda541" xml:space="preserve">
+          <source><bpt id="4d8c5d83-57b9-4b2e-b413-cc47aa07a760">&lt;strong&gt;</bpt>PREREQUISITES<ept id="4d8c5d83-57b9-4b2e-b413-cc47aa07a760">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4d8c5d83-57b9-4b2e-b413-cc47aa07a760">&lt;strong&gt;</bpt>PREREQUISITES<ept id="4d8c5d83-57b9-4b2e-b413-cc47aa07a760">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea23a885-dda5-4aa4-8688-48c038ac9fa5" xml:space="preserve">
+          <source>These need to be completed in preparation for the upcoming deployment.</source>
+          <target state="new">These need to be completed in preparation for the upcoming deployment.</target>
+        </trans-unit>
+        <trans-unit id="80c674da-8aa2-4415-ad12-960cbe724da3" xml:space="preserve">
+          <source>Deployment configuration checklist.</source>
+          <target state="new">Deployment configuration checklist.</target>
+        </trans-unit>
+        <trans-unit id="d6eab842-d8fc-4ffd-9055-131c9188cdb7" xml:space="preserve">
+          <source>Use this checklist to gather and record information prior to and during the deployment.</source>
+          <target state="new">Use this checklist to gather and record information prior to and during the deployment.</target>
+        </trans-unit>
+        <trans-unit id="fe5fb25f-2df5-4a28-bf80-3c373362a24b" xml:space="preserve">
+          <source>Deployment prerequisites.</source>
+          <target state="new">Deployment prerequisites.</target>
+        </trans-unit>
+        <trans-unit id="c43eb393-60cd-4cdd-8230-edca29922939" xml:space="preserve">
+          <source>These  validate the environment is ready for deployment.</source>
+          <target state="new">These  validate the environment is ready for deployment.</target>
+        </trans-unit>
+        <trans-unit id="6b74cff7-e9fe-442c-9131-276cc1fdfb76" xml:space="preserve">
+          <source><bpt id="65553d75-2383-4ea5-a577-f35506a028ba">&lt;strong&gt;</bpt>STEP-BY-STEP DEPLOYMENT<ept id="65553d75-2383-4ea5-a577-f35506a028ba">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="65553d75-2383-4ea5-a577-f35506a028ba">&lt;strong&gt;</bpt>STEP-BY-STEP DEPLOYMENT<ept id="65553d75-2383-4ea5-a577-f35506a028ba">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fad4136e-2152-44c3-bc51-f638bfeb144c" xml:space="preserve">
+          <source>These steps are required to deploy your StorSimple device in production.</source>
+          <target state="new">These steps are required to deploy your StorSimple device in production.</target>
+        </trans-unit>
+        <trans-unit id="137a519f-e29a-4c9b-818d-3225ef498261" xml:space="preserve">
+          <source>Step 1: Create a new service.</source>
+          <target state="new">Step 1: Create a new service.</target>
+        </trans-unit>
+        <trans-unit id="aedc99f5-30d3-4c27-855c-b602a74de319" xml:space="preserve">
+          <source>Set up cloud management and storage for your   StorSimple device.</source>
+          <target state="new">Set up cloud management and storage for your   StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="52896d6f-1dab-45ff-96fd-49b87471a73d" xml:space="preserve">
+          <source>Skip this step if you have an existing service for other StorSimple devices.</source>
+          <target state="new">Skip this step if you have an existing service for other StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="e4a06b3f-f6de-4d31-91ab-8aed5ed5cb11" xml:space="preserve">
+          <source>Step 2: Get the service registration key.</source>
+          <target state="new">Step 2: Get the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="0535320c-e0d3-46d6-9a52-e3db7666fe1d" xml:space="preserve">
+          <source>Use this key to register &amp; connect your StorSimple device with the management service.</source>
+          <target state="new">Use this key to register &amp; connect your StorSimple device with the management service.</target>
+        </trans-unit>
+        <trans-unit id="971caa05-76c7-4975-a034-28727ddfa3d1" xml:space="preserve">
+          <source>Step 3: Configure and register the device through Windows PowerShell for StorSimple.</source>
+          <target state="new">Step 3: Configure and register the device through Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="90eeb3b2-0850-4bf6-a71c-9c4928d8cd92" xml:space="preserve">
+          <source>Connect the device to your network and register it with Azure to complete   the setup using the management service.</source>
+          <target state="new">Connect the device to your network and register it with Azure to complete   the setup using the management service.</target>
+        </trans-unit>
+        <trans-unit id="3369a0b4-4343-4007-967b-a557f408d8b9" xml:space="preserve">
+          <source>Step 4: Complete minimum device setup&lt;/br&gt;Optional: Update your StorSimple device.</source>
+          <target state="new">Step 4: Complete minimum device setup&lt;/br&gt;Optional: Update your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="766aa335-3c88-481b-bc3e-c77aae951b04" xml:space="preserve">
+          <source>Use the management service to complete the device setup and enable it to provide storage.</source>
+          <target state="new">Use the management service to complete the device setup and enable it to provide storage.</target>
+        </trans-unit>
+        <trans-unit id="9dc0e9f2-a658-45b0-aa37-028edd56787a" xml:space="preserve">
+          <source>Step 5: Create a volume container.</source>
+          <target state="new">Step 5: Create a volume container.</target>
+        </trans-unit>
+        <trans-unit id="e754a92c-9378-4e81-9dcb-774467bdd4ae" xml:space="preserve">
+          <source>Create a container to provision volumes.</source>
+          <target state="new">Create a container to provision volumes.</target>
+        </trans-unit>
+        <trans-unit id="1d1fa2b7-b4de-4964-8b99-d80ae29e8716" xml:space="preserve">
+          <source>A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.</source>
+          <target state="new">A volume container has storage   account, bandwidth, and encryption settings for all the volumes contained in it.</target>
+        </trans-unit>
+        <trans-unit id="6aec6f80-66a2-420d-8f53-477c53adff9c" xml:space="preserve">
+          <source>Step 6: Create a volume.</source>
+          <target state="new">Step 6: Create a volume.</target>
+        </trans-unit>
+        <trans-unit id="3d3ebff1-c52b-44af-8f55-58e746f7768f" xml:space="preserve">
+          <source>Provision storage volume(s) on the StorSimple device for your servers.</source>
+          <target state="new">Provision storage volume(s) on the StorSimple device for your servers.</target>
+        </trans-unit>
+        <trans-unit id="f2727347-f747-4bc5-b4df-b1d2f6bee1ed" xml:space="preserve">
+          <source>Step 7: Mount, initialize, and format a volume.&lt;/br&gt;Optional: Configure MPIO.</source>
+          <target state="new">Step 7: Mount, initialize, and format a volume.&lt;/br&gt;Optional: Configure MPIO.</target>
+        </trans-unit>
+        <trans-unit id="0a90307e-0929-4e58-8d7f-7743719be11c" xml:space="preserve">
+          <source>Connect your servers to the iSCSI storage provided by the device.</source>
+          <target state="new">Connect your servers to the iSCSI storage provided by the device.</target>
+        </trans-unit>
+        <trans-unit id="25bb8209-ef90-4d90-80d4-f77777f115d9" xml:space="preserve">
+          <source>Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.</source>
+          <target state="new">Optionally configure MPIO to ensure that your servers can tolerate link, network and itnerface failure.</target>
+        </trans-unit>
+        <trans-unit id="33d15102-b0e6-484b-8ae9-47ec82ace048" xml:space="preserve">
+          <source>Step 8: Take a backup.</source>
+          <target state="new">Step 8: Take a backup.</target>
+        </trans-unit>
+        <trans-unit id="b39b6b9b-d955-4771-9b8a-a5afe6e191be" xml:space="preserve">
+          <source>Set up your backup policy to protect your data</source>
+          <target state="new">Set up your backup policy to protect your data</target>
+        </trans-unit>
+        <trans-unit id="858a01a3-cd4c-4826-8de9-995aadbfd7bc" xml:space="preserve">
+          <source><bpt id="3bbd40e7-2473-4885-9ada-95c18ef9de94">&lt;strong&gt;</bpt>OTHER PROCEDURES<ept id="3bbd40e7-2473-4885-9ada-95c18ef9de94">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3bbd40e7-2473-4885-9ada-95c18ef9de94">&lt;strong&gt;</bpt>OTHER PROCEDURES<ept id="3bbd40e7-2473-4885-9ada-95c18ef9de94">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34b5dcbe-8cb9-419e-b587-698d44d5425a" xml:space="preserve">
+          <source>You may need to refer to these procedures as you deploy your solution.</source>
+          <target state="new">You may need to refer to these procedures as you deploy your solution.</target>
+        </trans-unit>
+        <trans-unit id="0f1e738f-6974-4707-9292-e35efc47cad1" xml:space="preserve">
+          <source>Configure a new storage account for the service.</source>
+          <target state="new">Configure a new storage account for the service.</target>
+        </trans-unit>
+        <trans-unit id="776f9490-2457-4f2b-8180-d8368537be0c" xml:space="preserve">
+          <source>Use PuTTY to connect to the device serial console.</source>
+          <target state="new">Use PuTTY to connect to the device serial console.</target>
+        </trans-unit>
+        <trans-unit id="202514e5-6b0a-4083-8b0c-2527a2eb5e07" xml:space="preserve">
+          <source>Scan for and apply updates.</source>
+          <target state="new">Scan for and apply updates.</target>
+        </trans-unit>
+        <trans-unit id="30063b9d-825c-4e4d-a267-8f721991df32" xml:space="preserve">
+          <source>Get the IQN of a Windows Server host.</source>
+          <target state="new">Get the IQN of a Windows Server host.</target>
+        </trans-unit>
+        <trans-unit id="45632a39-0c9c-4387-b5c5-d6c50e12794b" xml:space="preserve">
+          <source>Create a manual backup.</source>
+          <target state="new">Create a manual backup.</target>
+        </trans-unit>
+        <trans-unit id="9797a970-46a7-4134-a1d9-68617ab297d3" xml:space="preserve">
+          <source>Configure MPIO.</source>
+          <target state="new">Configure MPIO.</target>
+        </trans-unit>
+        <trans-unit id="a369d028-dd48-4460-aeb8-cd120fe52502" xml:space="preserve">
+          <source>The following deployment configuration checklist describes the information that you need to collect before and as you configure the software on your StorSimple device.</source>
+          <target state="new">The following deployment configuration checklist describes the information that you need to collect before and as you configure the software on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="d5bddb34-8a2e-41ba-b430-7405818fc3f0" xml:space="preserve">
+          <source>Preparing some of this information ahead of time will help streamline the process of deploying the StorSimple device in your environment.</source>
+          <target state="new">Preparing some of this information ahead of time will help streamline the process of deploying the StorSimple device in your environment.</target>
+        </trans-unit>
+        <trans-unit id="bb373c46-b36a-435d-95d1-fa4b71f4860b" xml:space="preserve">
+          <source>Use this checklist to also note down the configuration details as you deploy your device.</source>
+          <target state="new">Use this checklist to also note down the configuration details as you deploy your device.</target>
+        </trans-unit>
+        <trans-unit id="848e1571-05d0-4566-b488-1ba1da8aa592" xml:space="preserve">
+          <source>Stage</source>
+          <target state="new">Stage</target>
+        </trans-unit>
+        <trans-unit id="33176f4f-763a-44bd-99d9-81853010f77b" xml:space="preserve">
+          <source>Parameter</source>
+          <target state="new">Parameter</target>
+        </trans-unit>
+        <trans-unit id="ebb0518f-a8a1-4238-b34d-5de1ae1579f1" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit id="768dd953-7a0b-47df-8835-5aef973154db" xml:space="preserve">
+          <source>Values</source>
+          <target state="new">Values</target>
+        </trans-unit>
+        <trans-unit id="51b3c39b-16fa-4501-b661-bcb0f447854f" xml:space="preserve">
+          <source><bpt id="0b75c77e-0762-442d-beaa-82d445377c67">&lt;strong&gt;</bpt>Cable your device<ept id="0b75c77e-0762-442d-beaa-82d445377c67">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0b75c77e-0762-442d-beaa-82d445377c67">&lt;strong&gt;</bpt>Cable your device<ept id="0b75c77e-0762-442d-beaa-82d445377c67">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e41a2f6-7b51-4008-ad8d-478b52d1db38" xml:space="preserve">
+          <source>Serial access</source>
+          <target state="new">Serial access</target>
+        </trans-unit>
+        <trans-unit id="cd0af20d-2038-40dc-99fb-6a26d28a70ce" xml:space="preserve">
+          <source>Initial device configuration</source>
+          <target state="new">Initial device configuration</target>
+        </trans-unit>
+        <trans-unit id="af869aad-9302-402f-8012-0af920c6df06" xml:space="preserve">
+          <source>Yes/No</source>
+          <target state="new">Yes/No</target>
+        </trans-unit>
+        <trans-unit id="27182265-b6fd-484e-a564-63844aed5a07" xml:space="preserve">
+          <source><bpt id="611fad51-6f8a-4b37-beda-8eb8851a6320">&lt;strong&gt;</bpt>Configure and register device<ept id="611fad51-6f8a-4b37-beda-8eb8851a6320">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="611fad51-6f8a-4b37-beda-8eb8851a6320">&lt;strong&gt;</bpt>Configure and register device<ept id="611fad51-6f8a-4b37-beda-8eb8851a6320">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49a76692-1c2c-474f-a692-a547374699f3" xml:space="preserve">
+          <source>Data 0 network settings</source>
+          <target state="new">Data 0 network settings</target>
+        </trans-unit>
+        <trans-unit id="e01a75ef-4ae6-49c2-8011-a6b76d91528f" xml:space="preserve">
+          <source>Data 0 IP Address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:&lt;/br&gt;Primary DNS server:&lt;/br&gt;Primary NTP server:&lt;/br&gt;Web proxy server IP/FQDN (optional):&lt;/br&gt;Web proxy port:</source>
+          <target state="new">Data 0 IP Address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:&lt;/br&gt;Primary DNS server:&lt;/br&gt;Primary NTP server:&lt;/br&gt;Web proxy server IP/FQDN (optional):&lt;/br&gt;Web proxy port:</target>
+        </trans-unit>
+        <trans-unit id="fc6d4479-0dea-4fc0-ad99-89df424e0f87" xml:space="preserve">
+          <source>Device administrator password</source>
+          <target state="new">Device administrator password</target>
+        </trans-unit>
+        <trans-unit id="72e264a1-b014-4a1e-b829-2fcc5e4ff1f4" xml:space="preserve">
+          <source>Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters.</source>
+          <target state="new">Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters.</target>
+        </trans-unit>
+        <trans-unit id="cae9dd33-fe47-4d37-bd3c-5897e1f61cc2" xml:space="preserve">
+          <source>StorSimple Snapshot Manager password</source>
+          <target state="new">StorSimple Snapshot Manager password</target>
+        </trans-unit>
+        <trans-unit id="be43a973-08bc-4545-bc4b-7fbbcac42988" xml:space="preserve">
+          <source>Password must be 14 or 15 characters containing lowercase, uppercase, numeric and special characters.</source>
+          <target state="new">Password must be 14 or 15 characters containing lowercase, uppercase, numeric and special characters.</target>
+        </trans-unit>
+        <trans-unit id="1f720220-cba2-4d30-ac39-a676e478e2b4" xml:space="preserve">
+          <source>Service Registration Key</source>
+          <target state="new">Service Registration Key</target>
+        </trans-unit>
+        <trans-unit id="d580a9ed-e929-4b83-926a-6bd94c443e1c" xml:space="preserve">
+          <source>This key is generated from the Azure portal.</source>
+          <target state="new">This key is generated from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="837912b5-0f4e-4892-b3df-bd88acfc7e8b" xml:space="preserve">
+          <source>Service Data Encryption Key</source>
+          <target state="new">Service Data Encryption Key</target>
+        </trans-unit>
+        <trans-unit id="84c1095f-2525-4524-87d3-66f343154d5f" xml:space="preserve">
+          <source>This key is created when the device is registered with the management service via the Windows PowerShell for StorSimple.</source>
+          <target state="new">This key is created when the device is registered with the management service via the Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="9ee4a8bb-d84c-46e8-af0b-ddce70b0132e" xml:space="preserve">
+          <source>Copy this key and save it in a safe location.</source>
+          <target state="new">Copy this key and save it in a safe location.</target>
+        </trans-unit>
+        <trans-unit id="351373f6-f794-42a2-9e7a-04db1b1b18f1" xml:space="preserve">
+          <source><bpt id="adb84137-58f2-40b5-adf3-7d0aa3c6c18c">&lt;strong&gt;</bpt>Complete minimum device setup<ept id="adb84137-58f2-40b5-adf3-7d0aa3c6c18c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="adb84137-58f2-40b5-adf3-7d0aa3c6c18c">&lt;strong&gt;</bpt>Complete minimum device setup<ept id="adb84137-58f2-40b5-adf3-7d0aa3c6c18c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9722460-57bc-434c-b18a-f426f166f2c9" xml:space="preserve">
+          <source>Friendly name for your device</source>
+          <target state="new">Friendly name for your device</target>
+        </trans-unit>
+        <trans-unit id="2bffd8b8-f744-43ca-bdc9-19db1338f2a1" xml:space="preserve">
+          <source>This is a descriptive name for the device.</source>
+          <target state="new">This is a descriptive name for the device.</target>
+        </trans-unit>
+        <trans-unit id="c34917ab-161e-49dd-b82c-220dab7d3c96" xml:space="preserve">
+          <source>Timezone</source>
+          <target state="new">Timezone</target>
+        </trans-unit>
+        <trans-unit id="13bdc431-4550-4832-b0b9-c4580938a37f" xml:space="preserve">
+          <source>Your device will use this time zone for all scheduled operations.</source>
+          <target state="new">Your device will use this time zone for all scheduled operations.</target>
+        </trans-unit>
+        <trans-unit id="d3af3c98-d9ba-4b09-8344-246914514e52" xml:space="preserve">
+          <source>Secondary DNS server</source>
+          <target state="new">Secondary DNS server</target>
+        </trans-unit>
+        <trans-unit id="7f9eaadc-dd79-4258-8acc-740371125229" xml:space="preserve">
+          <source>This is a required configuration.</source>
+          <target state="new">This is a required configuration.</target>
+        </trans-unit>
+        <trans-unit id="076aa418-346c-4889-b5e0-41742139ecbe" xml:space="preserve">
+          <source>Network interface: Data 0 controller fixed IPs</source>
+          <target state="new">Network interface: Data 0 controller fixed IPs</target>
+        </trans-unit>
+        <trans-unit id="9a1b4c14-e7e4-4bb3-bb3b-f5aa2ca2657c" xml:space="preserve">
+          <source>These IP’s should be routable to the Internet.&lt;/br&gt;Controller 0 fixed IP address:&lt;/br&gt;Controller 1 fixed IP address:</source>
+          <target state="new">These IP’s should be routable to the Internet.&lt;/br&gt;Controller 0 fixed IP address:&lt;/br&gt;Controller 1 fixed IP address:</target>
+        </trans-unit>
+        <trans-unit id="7e2b35b9-aefb-4739-b856-ce247c256228" xml:space="preserve">
+          <source><bpt id="8b42dc36-335e-454a-b083-6cc5417e61c5">&lt;strong&gt;</bpt>Additional network interface settings<ept id="8b42dc36-335e-454a-b083-6cc5417e61c5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8b42dc36-335e-454a-b083-6cc5417e61c5">&lt;strong&gt;</bpt>Additional network interface settings<ept id="8b42dc36-335e-454a-b083-6cc5417e61c5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="724823cf-ab30-4fa1-8ca1-6d1ce8b9fda7" xml:space="preserve">
+          <source>Network interface: Data 1&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</source>
+          <target state="new">Network interface: Data 1&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</target>
+        </trans-unit>
+        <trans-unit id="04268e95-9975-4f7c-b34b-3e3decceca91" xml:space="preserve">
+          <source>Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</source>
+          <target state="new">Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</target>
+        </trans-unit>
+        <trans-unit id="c425fb1c-aab0-4810-9705-61e5232a4bd7" xml:space="preserve">
+          <source>Network interface: Data 2&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</source>
+          <target state="new">Network interface: Data 2&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</target>
+        </trans-unit>
+        <trans-unit id="7fdcf3e6-2447-4bcb-8793-efa2def20550" xml:space="preserve">
+          <source>Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</source>
+          <target state="new">Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</target>
+        </trans-unit>
+        <trans-unit id="e9062a90-a3af-476b-8411-65ce31cbeb5a" xml:space="preserve">
+          <source>Network interface: Data 3&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</source>
+          <target state="new">Network interface: Data 3&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</target>
+        </trans-unit>
+        <trans-unit id="970b1d4a-f224-4406-8f84-0bb10a4d0aa7" xml:space="preserve">
+          <source>Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</source>
+          <target state="new">Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</target>
+        </trans-unit>
+        <trans-unit id="c4f26d84-7256-4ff1-9fda-082207419440" xml:space="preserve">
+          <source>Network interface: Data 4&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</source>
+          <target state="new">Network interface: Data 4&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</target>
+        </trans-unit>
+        <trans-unit id="3bf2be37-da01-46ed-8b38-6ee27ff0195a" xml:space="preserve">
+          <source>Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</source>
+          <target state="new">Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</target>
+        </trans-unit>
+        <trans-unit id="dc35dfe5-3199-46c9-86b2-bcad07cdf308" xml:space="preserve">
+          <source>Network interface: Data 5&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</source>
+          <target state="new">Network interface: Data 5&lt;/br&gt;If iSCSI enabled, do not configure the Gateway.</target>
+        </trans-unit>
+        <trans-unit id="c672a6dd-74f6-4c12-bef1-fe0b5ef2cc5f" xml:space="preserve">
+          <source>Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</source>
+          <target state="new">Purpose: Cloud/iSCSI/Not used&lt;/br&gt;IP address:&lt;/br&gt;Subnet mask:&lt;/br&gt;Gateway:</target>
+        </trans-unit>
+        <trans-unit id="af32c184-cbf2-4035-97d4-060e83296180" xml:space="preserve">
+          <source><bpt id="c3aae07d-188e-4992-84f5-e4359fca4fe2">&lt;strong&gt;</bpt>Create a volume container<ept id="c3aae07d-188e-4992-84f5-e4359fca4fe2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c3aae07d-188e-4992-84f5-e4359fca4fe2">&lt;strong&gt;</bpt>Create a volume container<ept id="c3aae07d-188e-4992-84f5-e4359fca4fe2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6bb6287d-9869-4fdd-b37a-e49ec1c4df10" xml:space="preserve">
+          <source>Volume container name:</source>
+          <target state="new">Volume container name:</target>
+        </trans-unit>
+        <trans-unit id="8d901108-d65e-484c-943f-a402dd9cc3a7" xml:space="preserve">
+          <source>Name for the container</source>
+          <target state="new">Name for the container</target>
+        </trans-unit>
+        <trans-unit id="c825bd6c-6a25-4ded-85fa-b262b0a3d6b7" xml:space="preserve">
+          <source>Azure storage account:</source>
+          <target state="new">Azure storage account:</target>
+        </trans-unit>
+        <trans-unit id="c87d1134-3030-4122-ab95-be4ac2aeead6" xml:space="preserve">
+          <source>Storage account name &amp; access key to associate with this volume container</source>
+          <target state="new">Storage account name &amp; access key to associate with this volume container</target>
+        </trans-unit>
+        <trans-unit id="669b8fea-1756-4255-81bc-6eb4f29bb45d" xml:space="preserve">
+          <source>Cloud storage encryption key:</source>
+          <target state="new">Cloud storage encryption key:</target>
+        </trans-unit>
+        <trans-unit id="77e02a05-9972-47a3-91b6-6a0cc7a81acd" xml:space="preserve">
+          <source>Encryption key for storage in each container</source>
+          <target state="new">Encryption key for storage in each container</target>
+        </trans-unit>
+        <trans-unit id="5c41ac01-9157-4af4-82ca-f6a55f831a25" xml:space="preserve">
+          <source><bpt id="febe34e9-f5f2-4bce-9e3b-4709b0c1fb19">&lt;strong&gt;</bpt>Create a volume<ept id="febe34e9-f5f2-4bce-9e3b-4709b0c1fb19">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="febe34e9-f5f2-4bce-9e3b-4709b0c1fb19">&lt;strong&gt;</bpt>Create a volume<ept id="febe34e9-f5f2-4bce-9e3b-4709b0c1fb19">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1dd1bd60-3e16-4c5e-8191-a3e3cb6b7dc5" xml:space="preserve">
+          <source>Details for each volume</source>
+          <target state="new">Details for each volume</target>
+        </trans-unit>
+        <trans-unit id="521c3ad4-1067-4cbc-ab21-ffd9600d2407" xml:space="preserve">
+          <source>Volume name:</source>
+          <target state="new">Volume name:</target>
+        </trans-unit>
+        <trans-unit id="0c997675-1ead-4713-91a8-50ca18e6bec5" xml:space="preserve">
+          <source>Size:</source>
+          <target state="new">Size:</target>
+        </trans-unit>
+        <trans-unit id="838ec3db-c1b5-4dd7-a8ed-21ae56ab257f" xml:space="preserve">
+          <source>Usage type:</source>
+          <target state="new">Usage type:</target>
+        </trans-unit>
+        <trans-unit id="a6aab10d-b60b-4070-a514-9a62766246b8" xml:space="preserve">
+          <source>ACR name:</source>
+          <target state="new">ACR name:</target>
+        </trans-unit>
+        <trans-unit id="8870e617-338f-4a95-b85d-8d22e988a895" xml:space="preserve">
+          <source>Default backup policy:</source>
+          <target state="new">Default backup policy:</target>
+        </trans-unit>
+        <trans-unit id="d6b5e1cb-dcd3-47e3-ae80-73ad5b8d3b45" xml:space="preserve">
+          <source><bpt id="ab8bb38e-831b-4f08-be76-3e20d43eb561">&lt;strong&gt;</bpt>Mount, initialize, and format a volume<ept id="ab8bb38e-831b-4f08-be76-3e20d43eb561">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ab8bb38e-831b-4f08-be76-3e20d43eb561">&lt;strong&gt;</bpt>Mount, initialize, and format a volume<ept id="ab8bb38e-831b-4f08-be76-3e20d43eb561">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12d8ad58-fa1e-481f-bc77-eb29a21f35c0" xml:space="preserve">
+          <source>Details for each host server connecting to the storage</source>
+          <target state="new">Details for each host server connecting to the storage</target>
+        </trans-unit>
+        <trans-unit id="5879d001-9ff8-43d6-94c3-fb2b2751ba01" xml:space="preserve">
+          <source>Windows Server name:</source>
+          <target state="new">Windows Server name:</target>
+        </trans-unit>
+        <trans-unit id="0372f40b-2fae-4792-b51f-860f9ace2806" xml:space="preserve">
+          <source>Windows Server IQN:</source>
+          <target state="new">Windows Server IQN:</target>
+        </trans-unit>
+        <trans-unit id="2c13e3e3-4fd9-4c63-b110-ace643375021" xml:space="preserve">
+          <source>Windows Server volume name:</source>
+          <target state="new">Windows Server volume name:</target>
+        </trans-unit>
+        <trans-unit id="18ba8356-1f88-49bc-ba32-556c277ef47d" xml:space="preserve">
+          <source>NTFS mount point/Drive letter:</source>
+          <target state="new">NTFS mount point/Drive letter:</target>
+        </trans-unit>
+        <trans-unit id="6a486709-3295-48e0-b344-dbcc55a36658" xml:space="preserve">
+          <source>The following sections explain the configuration prerequisites for your StorSimple Manager service and your StorSimple device.</source>
+          <target state="new">The following sections explain the configuration prerequisites for your StorSimple Manager service and your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="0d43b6cb-eb9a-4a96-9a77-fe8151a33f2a" xml:space="preserve">
+          <source>Before you begin, make sure that:</source>
+          <target state="new">Before you begin, make sure that:</target>
+        </trans-unit>
+        <trans-unit id="48ec86af-8f04-4a13-acc1-c24a21c64056" xml:space="preserve">
+          <source>You have your Microsoft account with access credentials.</source>
+          <target state="new">You have your Microsoft account with access credentials.</target>
+        </trans-unit>
+        <trans-unit id="98153f36-f9ee-4818-bb9d-5de46315a27a" xml:space="preserve">
+          <source>You have your Microsoft Azure storage account with access credentials.</source>
+          <target state="new">You have your Microsoft Azure storage account with access credentials.</target>
+        </trans-unit>
+        <trans-unit id="108e96cf-f542-4081-a6d9-c777921a110f" xml:space="preserve">
+          <source>Your Microsoft Azure subscription is enabled for the StorSimple Manager service.</source>
+          <target state="new">Your Microsoft Azure subscription is enabled for the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="60d000d1-e1c9-4be4-9768-c75971875e4e" xml:space="preserve">
+          <source>Your subscription should be purchased through the <bpt id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;linkText&gt;</bpt>Enterprise Agreement<ept id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;/linkText&gt;</ept><bpt id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;title&gt;</bpt><ept id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Your subscription should be purchased through the <bpt id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;linkText&gt;</bpt>Enterprise Agreement<ept id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;/linkText&gt;</ept><bpt id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;title&gt;</bpt><ept id="590c872f-741f-4c5e-9f0e-397a0cb85ea5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1854420a-71b4-43d5-ae99-5eea1b24ab0a" xml:space="preserve">
+          <source>You have access to terminal emulation software such as PuTTY.</source>
+          <target state="new">You have access to terminal emulation software such as PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="b4359dee-2274-4e30-a7b2-9663bce56c47" xml:space="preserve">
+          <source>Before configuring the device, make sure that:</source>
+          <target state="new">Before configuring the device, make sure that:</target>
+        </trans-unit>
+        <trans-unit id="899874c9-e070-4139-b2dc-6baedf565093" xml:space="preserve">
+          <source>Your device is fully unpacked, mounted on a rack and fully cabled for power, network, and serial access as described in:</source>
+          <target state="new">Your device is fully unpacked, mounted on a rack and fully cabled for power, network, and serial access as described in:</target>
+        </trans-unit>
+        <trans-unit id="433d9db5-70cb-4a4b-9bc4-f6e14e43a1a0" xml:space="preserve">
+          <source><bpt id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8100 device<ept id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;/linkText&gt;</ept><bpt id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;title&gt;</bpt><ept id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8100 device<ept id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;/linkText&gt;</ept><bpt id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;title&gt;</bpt><ept id="b3169bf0-b822-4e3d-8bb3-9bcc219ee5d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4090184-add2-4974-abfc-a35535dfa72b" xml:space="preserve">
+          <source><bpt id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8600 device<ept id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;/linkText&gt;</ept><bpt id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;title&gt;</bpt><ept id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;linkText&gt;</bpt>Unpack, rack mount, and cable your 8600 device<ept id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;/linkText&gt;</ept><bpt id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;title&gt;</bpt><ept id="712f2af7-3a75-4d25-bdac-1cee90d6ec49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d99ae0a8-c9f7-4d9f-82c5-f5956ed6a75e" xml:space="preserve">
+          <source>Before you begin, make sure that:</source>
+          <target state="new">Before you begin, make sure that:</target>
+        </trans-unit>
+        <trans-unit id="83a22259-4686-4e4d-a93e-1702ef7d7ae6" xml:space="preserve">
+          <source>The ports in your datacenter firewall are opened to allow for iSCSI and cloud traffic as described in <bpt id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;linkText&gt;</bpt>Networking requirements for your StorSimple device<ept id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;/linkText&gt;</ept><bpt id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;title&gt;</bpt><ept id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;/title&gt;</ept>.</source>
+          <target state="new">The ports in your datacenter firewall are opened to allow for iSCSI and cloud traffic as described in <bpt id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;linkText&gt;</bpt>Networking requirements for your StorSimple device<ept id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;/linkText&gt;</ept><bpt id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;title&gt;</bpt><ept id="fa6b546d-2e80-41a3-b697-da09ec9cb333">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de4ee553-949c-41fc-b25b-872a200ec555" xml:space="preserve">
+          <source>Use the following step-by-step instructions to deploy your StorSimple device in the datacenter.</source>
+          <target state="new">Use the following step-by-step instructions to deploy your StorSimple device in the datacenter.</target>
+        </trans-unit>
+        <trans-unit id="59835c38-94a6-4e85-a678-08722a1744b4" xml:space="preserve">
+          <source>A StorSimple Manager service can manage multiple StorSimple devices.</source>
+          <target state="new">A StorSimple Manager service can manage multiple StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="070da5b1-e939-4909-a971-6862edcf845a" xml:space="preserve">
+          <source>Perform the following steps to create a new instance of the StorSimple Manager service.</source>
+          <target state="new">Perform the following steps to create a new instance of the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="461e98b9-d27e-4d8e-b7d2-3fadfa5d4ed7" xml:space="preserve">
+          <source><bpt id="f8d6939a-f709-44db-af4c-b74972d52857">&lt;token href="../../includes/storsimple-create-new-service-gov.md"&gt;</bpt><ept id="f8d6939a-f709-44db-af4c-b74972d52857">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f8d6939a-f709-44db-af4c-b74972d52857">&lt;token href="../../includes/storsimple-create-new-service-gov.md"&gt;</bpt><ept id="f8d6939a-f709-44db-af4c-b74972d52857">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f9fdf3f-d132-4d0a-8067-32867adac8d3" xml:space="preserve">
+          <source>If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.</source>
+          <target state="new">If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.</target>
+        </trans-unit>
+        <trans-unit id="a7389a0b-e9bd-419f-9a3c-ebf25836ecb4" xml:space="preserve">
+          <source>This storage account will be used when you create a volume container.</source>
+          <target state="new">This storage account will be used when you create a volume container.</target>
+        </trans-unit>
+        <trans-unit id="93030bbd-27f8-48b5-bf8b-40ffb529d986" xml:space="preserve">
+          <source>If you did not create a storage account automatically, go to <bpt id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;linkText&gt;</bpt>Configure a new storage account for the service<ept id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;/linkText&gt;</ept><bpt id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;title&gt;</bpt><ept id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;/title&gt;</ept> for detailed instructions.</source>
+          <target state="new">If you did not create a storage account automatically, go to <bpt id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;linkText&gt;</bpt>Configure a new storage account for the service<ept id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;/linkText&gt;</ept><bpt id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;title&gt;</bpt><ept id="996e31c8-2f2b-4cef-88eb-3e643dc647d8">&lt;/title&gt;</ept> for detailed instructions.</target>
+        </trans-unit>
+        <trans-unit id="81a2a920-8eef-4186-9718-8acbbb63609e" xml:space="preserve">
+          <source>If you enabled the automatic creation of a storage account, go to <bpt id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;linkText&gt;</bpt>Step 2: Get the service registration key<ept id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;/linkText&gt;</ept><bpt id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;title&gt;</bpt><ept id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you enabled the automatic creation of a storage account, go to <bpt id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;linkText&gt;</bpt>Step 2: Get the service registration key<ept id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;/linkText&gt;</ept><bpt id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;title&gt;</bpt><ept id="37c39675-fb71-40d8-82d6-9298395bb4ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0fed0a20-d77e-4e2b-9eee-41cdf91dda3f" xml:space="preserve">
+          <source>After the StorSimple Manager service is up and running, you will need to get the service registration key.</source>
+          <target state="new">After the StorSimple Manager service is up and running, you will need to get the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="18691afe-eb73-4459-8cf5-cd58e03efc26" xml:space="preserve">
+          <source>This key is used to register and connect your StorSimple device with the service.</source>
+          <target state="new">This key is used to register and connect your StorSimple device with the service.</target>
+        </trans-unit>
+        <trans-unit id="4db97934-5ba8-4c95-975b-bc68b2f7acc4" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal.</source>
+          <target state="new">Perform the following steps in the Government Portal.</target>
+        </trans-unit>
+        <trans-unit id="8a3d7626-9bf8-457f-aa28-44a17ed9b2bf" xml:space="preserve">
+          <source><bpt id="2ea218f7-2062-409a-a553-4c123412cd2e">&lt;token href="../../includes/storsimple-get-service-registration-key-gov.md"&gt;</bpt><ept id="2ea218f7-2062-409a-a553-4c123412cd2e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2ea218f7-2062-409a-a553-4c123412cd2e">&lt;token href="../../includes/storsimple-get-service-registration-key-gov.md"&gt;</bpt><ept id="2ea218f7-2062-409a-a553-4c123412cd2e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="138a93b8-bc78-47a7-8dcd-e848e4290fa5" xml:space="preserve">
+          <source>Use Windows PowerShell for StorSimple to complete the initial setup of your StorSimple device as explained in the following procedure.</source>
+          <target state="new">Use Windows PowerShell for StorSimple to complete the initial setup of your StorSimple device as explained in the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="e14bbd66-db40-4ef5-8972-cd5854a246f6" xml:space="preserve">
+          <source>You will need to use terminal emulation software to complete this step.</source>
+          <target state="new">You will need to use terminal emulation software to complete this step.</target>
+        </trans-unit>
+        <trans-unit id="f5a59883-fd47-4c6b-ad11-a08097a5d592" xml:space="preserve">
+          <source>For more information, see <bpt id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;/linkText&gt;</ept><bpt id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;title&gt;</bpt><ept id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;/linkText&gt;</ept><bpt id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;title&gt;</bpt><ept id="5e1c933d-851f-4884-b86e-9aabf03ef60d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87bdff57-4a0b-45e4-9844-80b57622e129" xml:space="preserve">
+          <source><bpt id="f1035a4e-cdcb-4fb1-8785-ab733d54b9e8">&lt;token href="../../includes/storsimple-configure-and-register-device-gov.md"&gt;</bpt><ept id="f1035a4e-cdcb-4fb1-8785-ab733d54b9e8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f1035a4e-cdcb-4fb1-8785-ab733d54b9e8">&lt;token href="../../includes/storsimple-configure-and-register-device-gov.md"&gt;</bpt><ept id="f1035a4e-cdcb-4fb1-8785-ab733d54b9e8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0aa4b009-06e5-41d4-ba1f-b684d4212b34" xml:space="preserve">
+          <source>For the minimum device configuration of your StorSimple device, you are required to: </source>
+          <target state="new">For the minimum device configuration of your StorSimple device, you are required to: </target>
+        </trans-unit>
+        <trans-unit id="81c84c44-27cb-4bb2-8a76-0f2bc91002c8" xml:space="preserve">
+          <source>Set up the secondary DNS server.</source>
+          <target state="new">Set up the secondary DNS server.</target>
+        </trans-unit>
+        <trans-unit id="de04fc01-ebe4-490c-8167-dece864a08d3" xml:space="preserve">
+          <source>Enable iSCSI on at least one network interface.</source>
+          <target state="new">Enable iSCSI on at least one network interface.</target>
+        </trans-unit>
+        <trans-unit id="242e04a2-bb99-4318-bcc9-52427a91d055" xml:space="preserve">
+          <source>Assign fixed IP addresses to both the controllers.</source>
+          <target state="new">Assign fixed IP addresses to both the controllers.</target>
+        </trans-unit>
+        <trans-unit id="b5000c20-92d0-44cb-bc5b-ac62ca209ccf" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal to complete the minimum device setup.</source>
+          <target state="new">Perform the following steps in the Government Portal to complete the minimum device setup.</target>
+        </trans-unit>
+        <trans-unit id="a045eca8-5b3a-43bf-b6ff-2b4cc926a016" xml:space="preserve">
+          <source><bpt id="dadb7549-fca2-4775-9733-a1ee946dc26d">&lt;token href="../../includes/storsimple-complete-minimum-device-setup-u1.md"&gt;</bpt><ept id="dadb7549-fca2-4775-9733-a1ee946dc26d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="dadb7549-fca2-4775-9733-a1ee946dc26d">&lt;token href="../../includes/storsimple-complete-minimum-device-setup-u1.md"&gt;</bpt><ept id="dadb7549-fca2-4775-9733-a1ee946dc26d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09ec11a7-82c7-4618-912f-451930446381" xml:space="preserve">
+          <source>A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it.</source>
+          <target state="new">A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it.</target>
+        </trans-unit>
+        <trans-unit id="ef9d035f-fca7-428f-a2ca-fdf894409a36" xml:space="preserve">
+          <source>You will need to create a volume container before you can start provisioning volumes on your StorSimple device.</source>
+          <target state="new">You will need to create a volume container before you can start provisioning volumes on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="a267f6ac-7020-4827-9cb7-8206f8019b46" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal to create a volume container.</source>
+          <target state="new">Perform the following steps in the Government Portal to create a volume container.</target>
+        </trans-unit>
+        <trans-unit id="7248c035-d880-4019-a3c5-0c1b8cfbae20" xml:space="preserve">
+          <source><bpt id="56f4483e-04a4-401f-b939-75b3f9af49c3">&lt;token href="../../includes/storsimple-create-volume-container.md"&gt;</bpt><ept id="56f4483e-04a4-401f-b939-75b3f9af49c3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="56f4483e-04a4-401f-b939-75b3f9af49c3">&lt;token href="../../includes/storsimple-create-volume-container.md"&gt;</bpt><ept id="56f4483e-04a4-401f-b939-75b3f9af49c3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fccc3bb1-9171-4bb0-a83c-0cee3b64fe11" xml:space="preserve">
+          <source>After you create a volume container, you can provision a storage volume on the StorSimple device for your servers.</source>
+          <target state="new">After you create a volume container, you can provision a storage volume on the StorSimple device for your servers.</target>
+        </trans-unit>
+        <trans-unit id="abdedf35-731c-4fbc-857e-08a8081bbed8" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal to create a volume.</source>
+          <target state="new">Perform the following steps in the Government Portal to create a volume.</target>
+        </trans-unit>
+        <trans-unit id="d3d065f0-7857-4d1e-b384-320a4abaa368" xml:space="preserve">
+          <source>Azure StorSimple can create only thinly provisioned volumes.</source>
+          <target state="new">Azure StorSimple can create only thinly provisioned volumes.</target>
+        </trans-unit>
+        <trans-unit id="12319e96-0efe-4326-9a7e-9bbb85a8622d" xml:space="preserve">
+          <source>You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.</source>
+          <target state="new">You cannot create fully provisioned or partially provisioned volumes on an Azure StorSimple system.</target>
+        </trans-unit>
+        <trans-unit id="1717b149-60d6-4429-8fd9-e3778b85cdf9" xml:space="preserve">
+          <source><bpt id="722823b4-9f16-4627-98c8-280209fc04d2">&lt;token href="../../includes/storsimple-create-volume.md"&gt;</bpt><ept id="722823b4-9f16-4627-98c8-280209fc04d2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="722823b4-9f16-4627-98c8-280209fc04d2">&lt;token href="../../includes/storsimple-create-volume.md"&gt;</bpt><ept id="722823b4-9f16-4627-98c8-280209fc04d2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd41df8f-126e-4ced-b6b6-2dde6c90982c" xml:space="preserve">
+          <source>Perform these steps on your Windows Server host.</source>
+          <target state="new">Perform these steps on your Windows Server host.</target>
+        </trans-unit>
+        <trans-unit id="1b0a2289-877d-4732-9a4e-ef62a3a47d73" xml:space="preserve">
+          <source>For the high availability of your StorSimple solution, we recommend that you configure MPIO on your host servers (optional) prior to configuring iSCSI.</source>
+          <target state="new">For the high availability of your StorSimple solution, we recommend that you configure MPIO on your host servers (optional) prior to configuring iSCSI.</target>
+        </trans-unit>
+        <trans-unit id="4045973a-1dcc-43fe-9b61-da6bed0dcac0" xml:space="preserve">
+          <source>MPIO configuration on host servers will ensure that the servers can tolerate a link, network, or interface failure.</source>
+          <target state="new">MPIO configuration on host servers will ensure that the servers can tolerate a link, network, or interface failure.</target>
+        </trans-unit>
+        <trans-unit id="64a4e682-753a-42ac-8ca6-86c5fd358d7d" xml:space="preserve">
+          <source>For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to <bpt id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;/linkText&gt;</ept><bpt id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;title&gt;</bpt><ept id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;/title&gt;</ept>.</source>
+          <target state="new">For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to <bpt id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;/linkText&gt;</ept><bpt id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;title&gt;</bpt><ept id="f9b5c9f9-2a24-4207-ab3a-7b6e607b7632">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5802e9b-6e4e-432b-b5a2-5144130ed7ef" xml:space="preserve">
+          <source>These will also include the steps to mount, initialize and format StorSimple volumes.</source>
+          <target state="new">These will also include the steps to mount, initialize and format StorSimple volumes.</target>
+        </trans-unit>
+        <trans-unit id="69d38373-7723-4f01-860a-cd6ca10a255c" xml:space="preserve">
+          <source>For MPIO and iSCSI installation and configuration instructions on a Linux host, go to <bpt id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple Linux host<ept id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;/linkText&gt;</ept><bpt id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;title&gt;</bpt><ept id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;/title&gt;</ept></source>
+          <target state="new">For MPIO and iSCSI installation and configuration instructions on a Linux host, go to <bpt id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple Linux host<ept id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;/linkText&gt;</ept><bpt id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;title&gt;</bpt><ept id="621ae59d-c60c-4ed6-9ccf-c43cfa61dfe0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26cb3746-3249-4b8a-bdaa-26b622b67b0b" xml:space="preserve">
+          <source>If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.</source>
+          <target state="new">If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.</target>
+        </trans-unit>
+        <trans-unit id="0a2164c5-0ff8-4750-9471-04089b7283e9" xml:space="preserve">
+          <source><bpt id="66d6377c-8da6-41ea-bd41-d058078fa190">&lt;token href="../../includes/storsimple-mount-initialize-format-volume.md"&gt;</bpt><ept id="66d6377c-8da6-41ea-bd41-d058078fa190">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="66d6377c-8da6-41ea-bd41-d058078fa190">&lt;token href="../../includes/storsimple-mount-initialize-format-volume.md"&gt;</bpt><ept id="66d6377c-8da6-41ea-bd41-d058078fa190">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fc20abc-c559-48c9-9191-d5e09d438c05" xml:space="preserve">
+          <source>Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times.</source>
+          <target state="new">Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times.</target>
+        </trans-unit>
+        <trans-unit id="ff6171b3-a70d-44cc-b0ff-b145fead0070" xml:space="preserve">
+          <source>You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots.</source>
+          <target state="new">You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots.</target>
+        </trans-unit>
+        <trans-unit id="c8b8c29f-723b-4264-89d0-805c945d572a" xml:space="preserve">
+          <source>Each of these backup types can be <bpt id="2637fe7d-4b63-4ce4-b02f-6d00793956da">&lt;strong&gt;</bpt>Scheduled<ept id="2637fe7d-4b63-4ce4-b02f-6d00793956da">&lt;/strong&gt;</ept> or <bpt id="f36dd08f-27ae-4fe0-a345-deae2d4501b1">&lt;strong&gt;</bpt>Manual<ept id="f36dd08f-27ae-4fe0-a345-deae2d4501b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Each of these backup types can be <bpt id="2637fe7d-4b63-4ce4-b02f-6d00793956da">&lt;strong&gt;</bpt>Scheduled<ept id="2637fe7d-4b63-4ce4-b02f-6d00793956da">&lt;/strong&gt;</ept> or <bpt id="f36dd08f-27ae-4fe0-a345-deae2d4501b1">&lt;strong&gt;</bpt>Manual<ept id="f36dd08f-27ae-4fe0-a345-deae2d4501b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5568c712-1c09-4c8d-a613-9c747290dfe0" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal to create a scheduled backup.</source>
+          <target state="new">Perform the following steps in the Government Portal to create a scheduled backup.</target>
+        </trans-unit>
+        <trans-unit id="201a76ee-9956-450b-8a76-d6df15e4c835" xml:space="preserve">
+          <source><bpt id="d1c69bdf-abc6-4c5f-985e-cc17924bbccc">&lt;token href="../../includes/storsimple-take-backup.md"&gt;</bpt><ept id="d1c69bdf-abc6-4c5f-985e-cc17924bbccc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d1c69bdf-abc6-4c5f-985e-cc17924bbccc">&lt;token href="../../includes/storsimple-take-backup.md"&gt;</bpt><ept id="d1c69bdf-abc6-4c5f-985e-cc17924bbccc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="991a0b43-cd92-41b0-bd47-b3e56573f433" xml:space="preserve">
+          <source>You can take a manual backup at any time.</source>
+          <target state="new">You can take a manual backup at any time.</target>
+        </trans-unit>
+        <trans-unit id="8203c442-94f1-45fe-ae41-a18db51ae248" xml:space="preserve">
+          <source>For procedures, go to <bpt id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;linkText&gt;</bpt>Create a manual backup<ept id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;/linkText&gt;</ept><bpt id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;title&gt;</bpt><ept id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;/title&gt;</ept>.</source>
+          <target state="new">For procedures, go to <bpt id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;linkText&gt;</bpt>Create a manual backup<ept id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;/linkText&gt;</ept><bpt id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;title&gt;</bpt><ept id="1c050e8c-c515-47da-bd71-f603aab76a85">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f639d344-9294-44d6-a0a4-a58fbeb0eaa7" xml:space="preserve">
+          <source>This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service.</source>
+          <target state="new">This is an optional step that you need to perform only if you did not enable the automatic creation of a storage account with your service.</target>
+        </trans-unit>
+        <trans-unit id="2803dc52-449e-49a5-a6fb-1511f470f62e" xml:space="preserve">
+          <source>A Microsoft Azure storage account is required to create a StorSimple volume container.</source>
+          <target state="new">A Microsoft Azure storage account is required to create a StorSimple volume container.</target>
+        </trans-unit>
+        <trans-unit id="1e11c5e6-e0df-4e86-b13f-dab54f7577ee" xml:space="preserve">
+          <source>If you need to create an Azure storage account in a different region, see <bpt id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;/linkText&gt;</ept><bpt id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;title&gt;</bpt><ept id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;/title&gt;</ept> for step-by-step instructions.</source>
+          <target state="new">If you need to create an Azure storage account in a different region, see <bpt id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;linkText&gt;</bpt>About Azure Storage Accounts<ept id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;/linkText&gt;</ept><bpt id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;title&gt;</bpt><ept id="8066bd80-5a34-495e-ae25-46b70b201bf2">&lt;/title&gt;</ept> for step-by-step instructions.</target>
+        </trans-unit>
+        <trans-unit id="857021db-ec10-451f-acf5-4abd25be5f39" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal, on the <bpt id="9c4e9c0c-4e58-4854-9b6f-daf2e098b091">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="9c4e9c0c-4e58-4854-9b6f-daf2e098b091">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Perform the following steps in the Government Portal, on the <bpt id="9c4e9c0c-4e58-4854-9b6f-daf2e098b091">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="9c4e9c0c-4e58-4854-9b6f-daf2e098b091">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="b09da573-b965-4bc4-b348-419d8cb5368e" xml:space="preserve">
+          <source><bpt id="a4c9f020-fbd7-479d-bcb3-1de1aab9160b">&lt;token href="../../includes/storsimple-configure-new-storage-account-u1.md"&gt;</bpt><ept id="a4c9f020-fbd7-479d-bcb3-1de1aab9160b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a4c9f020-fbd7-479d-bcb3-1de1aab9160b">&lt;token href="../../includes/storsimple-configure-new-storage-account-u1.md"&gt;</bpt><ept id="a4c9f020-fbd7-479d-bcb3-1de1aab9160b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c23a5e1-8064-4736-8ffb-09d2b7bea482" xml:space="preserve">
+          <source>To connect to Windows PowerShell for StorSimple, you need to use terminal emulation software such as PuTTY.</source>
+          <target state="new">To connect to Windows PowerShell for StorSimple, you need to use terminal emulation software such as PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="d10fbd88-0de3-4d6a-81f9-4723646f9816" xml:space="preserve">
+          <source>You can use PuTTY when you access the device directly through the serial console or by opening a telnet session from a remote computer.</source>
+          <target state="new">You can use PuTTY when you access the device directly through the serial console or by opening a telnet session from a remote computer.</target>
+        </trans-unit>
+        <trans-unit id="841b62ce-667e-4df0-ac67-2e255bf34e07" xml:space="preserve">
+          <source><bpt id="cd88c62a-a13e-41f4-ad99-800cef1a7110">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="cd88c62a-a13e-41f4-ad99-800cef1a7110">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="cd88c62a-a13e-41f4-ad99-800cef1a7110">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="cd88c62a-a13e-41f4-ad99-800cef1a7110">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="612cc4a4-c5d4-4a85-ba3f-33e4bdc80588" xml:space="preserve">
+          <source>Updating your device can take several hours.</source>
+          <target state="new">Updating your device can take several hours.</target>
+        </trans-unit>
+        <trans-unit id="5c524af7-45a1-44c8-b632-82ac9366cf6b" xml:space="preserve">
+          <source>Perform the following steps to scan for and apply updates on your device.</source>
+          <target state="new">Perform the following steps to scan for and apply updates on your device.</target>
+        </trans-unit>
+        <trans-unit id="d3d914a1-8b9f-453c-beff-c0baf832cd5e" xml:space="preserve">
+          <source>On the device <bpt id="6e6d433b-bb5d-4ed0-a841-71b5fb3d94c3">&lt;strong&gt;</bpt>Quick Start<ept id="6e6d433b-bb5d-4ed0-a841-71b5fb3d94c3">&lt;/strong&gt;</ept> page, click <bpt id="2c081cb6-0a1d-47db-8261-0671ca319232">&lt;strong&gt;</bpt>Devices<ept id="2c081cb6-0a1d-47db-8261-0671ca319232">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the device <bpt id="6e6d433b-bb5d-4ed0-a841-71b5fb3d94c3">&lt;strong&gt;</bpt>Quick Start<ept id="6e6d433b-bb5d-4ed0-a841-71b5fb3d94c3">&lt;/strong&gt;</ept> page, click <bpt id="2c081cb6-0a1d-47db-8261-0671ca319232">&lt;strong&gt;</bpt>Devices<ept id="2c081cb6-0a1d-47db-8261-0671ca319232">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d097f1e-f888-4e61-8e80-7697828cb037" xml:space="preserve">
+          <source>Select the physical device, click <bpt id="ec529bdd-2fbb-47a0-b915-5e8a6b0ec0ba">&lt;strong&gt;</bpt>Maintenance<ept id="ec529bdd-2fbb-47a0-b915-5e8a6b0ec0ba">&lt;/strong&gt;</ept> and then click <bpt id="b4b97930-027d-475a-a4b5-ad71a55417fe">&lt;strong&gt;</bpt>Scan Updates<ept id="b4b97930-027d-475a-a4b5-ad71a55417fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the physical device, click <bpt id="ec529bdd-2fbb-47a0-b915-5e8a6b0ec0ba">&lt;strong&gt;</bpt>Maintenance<ept id="ec529bdd-2fbb-47a0-b915-5e8a6b0ec0ba">&lt;/strong&gt;</ept> and then click <bpt id="b4b97930-027d-475a-a4b5-ad71a55417fe">&lt;strong&gt;</bpt>Scan Updates<ept id="b4b97930-027d-475a-a4b5-ad71a55417fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5cc2f8ef-acec-4758-914b-662b0e80bd5b" xml:space="preserve">
+          <source>A job to scan for available updates is created.</source>
+          <target state="new">A job to scan for available updates is created.</target>
+        </trans-unit>
+        <trans-unit id="6252a439-59c3-4b01-b1da-9414f7f6ba5a" xml:space="preserve">
+          <source>If updates are available, the <bpt id="2586b7f6-fb50-4f8c-961c-6da1c7f38396">&lt;strong&gt;</bpt>Scan Updates<ept id="2586b7f6-fb50-4f8c-961c-6da1c7f38396">&lt;/strong&gt;</ept> changes to <bpt id="bdfc47b9-ec68-40d2-8ef8-138fb6af03e2">&lt;strong&gt;</bpt>Install Updates<ept id="bdfc47b9-ec68-40d2-8ef8-138fb6af03e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If updates are available, the <bpt id="2586b7f6-fb50-4f8c-961c-6da1c7f38396">&lt;strong&gt;</bpt>Scan Updates<ept id="2586b7f6-fb50-4f8c-961c-6da1c7f38396">&lt;/strong&gt;</ept> changes to <bpt id="bdfc47b9-ec68-40d2-8ef8-138fb6af03e2">&lt;strong&gt;</bpt>Install Updates<ept id="bdfc47b9-ec68-40d2-8ef8-138fb6af03e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6b59743-9af4-4414-b824-65bcc03735e7" xml:space="preserve">
+          <source>Click <bpt id="ca9f8d12-db8a-46a5-8416-c61d3534a1b0">&lt;strong&gt;</bpt>Install Updates<ept id="ca9f8d12-db8a-46a5-8416-c61d3534a1b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ca9f8d12-db8a-46a5-8416-c61d3534a1b0">&lt;strong&gt;</bpt>Install Updates<ept id="ca9f8d12-db8a-46a5-8416-c61d3534a1b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf812e7c-f472-4c49-972d-ab02a5a54abc" xml:space="preserve">
+          <source>An update job will be created.</source>
+          <target state="new">An update job will be created.</target>
+        </trans-unit>
+        <trans-unit id="a834a380-d14f-41ba-942b-1b085e899cce" xml:space="preserve">
+          <source>Monitor the status of your update by navigating to <bpt id="124b2333-86cc-4082-b2f8-cf455cc3c1bb">&lt;strong&gt;</bpt>Jobs<ept id="124b2333-86cc-4082-b2f8-cf455cc3c1bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Monitor the status of your update by navigating to <bpt id="124b2333-86cc-4082-b2f8-cf455cc3c1bb">&lt;strong&gt;</bpt>Jobs<ept id="124b2333-86cc-4082-b2f8-cf455cc3c1bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3edda22-f31b-4562-8847-7f98df0523d2" xml:space="preserve">
+          <source>When the update job starts, it immediately displays the status as 50 percent.</source>
+          <target state="new">When the update job starts, it immediately displays the status as 50 percent.</target>
+        </trans-unit>
+        <trans-unit id="ce693d5f-3919-42a2-8ec4-7f035e2a0105" xml:space="preserve">
+          <source>The status changes to 100 percent only after the update job is complete.</source>
+          <target state="new">The status changes to 100 percent only after the update job is complete.</target>
+        </trans-unit>
+        <trans-unit id="4b151de7-845e-448d-b257-debf0075673d" xml:space="preserve">
+          <source>There is no real-time status for the update process.</source>
+          <target state="new">There is no real-time status for the update process.</target>
+        </trans-unit>
+        <trans-unit id="c8a12c5a-8737-4dd2-8acf-4e23c275dde9" xml:space="preserve">
+          <source>After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.</source>
+          <target state="new">After the device is successfully updated, enable Data 2 and Data 3 network interfaces if these were disabled.</target>
+        </trans-unit>
+        <trans-unit id="f862f17e-1a4b-4abf-a825-a7337db37965" xml:space="preserve">
+          <source>Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows host that is running Windows Server® 2012.</source>
+          <target state="new">Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows host that is running Windows Server® 2012.</target>
+        </trans-unit>
+        <trans-unit id="9e5976f3-88cf-4b23-a043-9122a9be6de6" xml:space="preserve">
+          <source><bpt id="d8eefa54-e9ae-4c72-a00b-b3cd69e6b13f">&lt;token href="../../includes/storsimple-get-iqn.md"&gt;</bpt><ept id="d8eefa54-e9ae-4c72-a00b-b3cd69e6b13f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d8eefa54-e9ae-4c72-a00b-b3cd69e6b13f">&lt;token href="../../includes/storsimple-get-iqn.md"&gt;</bpt><ept id="d8eefa54-e9ae-4c72-a00b-b3cd69e6b13f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="850eb191-7371-4c5b-ac18-9e22b6719166" xml:space="preserve">
+          <source>Perform the following steps in the Government Portal to create an on-demand manual backup for a single volume on your StorSimple device.</source>
+          <target state="new">Perform the following steps in the Government Portal to create an on-demand manual backup for a single volume on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="3774109e-a802-4a2a-acd5-d1454bde8d8e" xml:space="preserve">
+          <source><bpt id="e6a1b15a-9d6c-447f-9974-76464cfa4f2c">&lt;token href="../../includes/storsimple-create-manual-backup-gov.md"&gt;</bpt><ept id="e6a1b15a-9d6c-447f-9974-76464cfa4f2c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e6a1b15a-9d6c-447f-9974-76464cfa4f2c">&lt;token href="../../includes/storsimple-create-manual-backup-gov.md"&gt;</bpt><ept id="e6a1b15a-9d6c-447f-9974-76464cfa4f2c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="915d4170-8830-4eec-8417-2439e1c06dcf" xml:space="preserve">
+          <source>Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default.</source>
+          <target state="new">Multipath I/O (MPIO) is an optional feature and is not installed on Windows Server by default.</target>
+        </trans-unit>
+        <trans-unit id="0b9a8430-0933-41d8-aa8c-ad13ee1ec9b2" xml:space="preserve">
+          <source>It should be installed as a feature through Server Manager.</source>
+          <target state="new">It should be installed as a feature through Server Manager.</target>
+        </trans-unit>
+        <trans-unit id="dba70db5-d0bd-450e-b93c-256bc9f7b0a7" xml:space="preserve">
+          <source>For MPIO installation instructions, go to <bpt id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;/linkText&gt;</ept><bpt id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;title&gt;</bpt><ept id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;/title&gt;</ept>.</source>
+          <target state="new">For MPIO installation instructions, go to <bpt id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;linkText&gt;</bpt>Configure MPIO for your StorSimple device<ept id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;/linkText&gt;</ept><bpt id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;title&gt;</bpt><ept id="8a13d9e6-6310-4baa-9b77-41b006d92332">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a48b0678-4500-41a0-8e60-f31362b007c7" xml:space="preserve">
+          <source>For MPIO installation instructions for a StorSimple device connected to a Linux host, go to <bpt id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;linkText&gt;</bpt>Configure MPIO for your Linux host<ept id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;/linkText&gt;</ept><bpt id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;title&gt;</bpt><ept id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;/title&gt;</ept>.</source>
+          <target state="new">For MPIO installation instructions for a StorSimple device connected to a Linux host, go to <bpt id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;linkText&gt;</bpt>Configure MPIO for your Linux host<ept id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;/linkText&gt;</ept><bpt id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;title&gt;</bpt><ept id="8de5a0b4-df1a-4316-a277-e8572926b078">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="116598a4-b0c1-4f09-8abd-46bd574b2843" xml:space="preserve">
+          <source>MPIO is not supported on a StorSimple virtual device.</source>
+          <target state="new">MPIO is not supported on a StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="eb17b24e-5c06-4b72-b066-832ceae28fd1" xml:space="preserve">
+          <source>Configure a <bpt id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;linkText&gt;</bpt>virtual device<ept id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;/linkText&gt;</ept><bpt id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;title&gt;</bpt><ept id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;/title&gt;</ept>.</source>
+          <target state="new">Configure a <bpt id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;linkText&gt;</bpt>virtual device<ept id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;/linkText&gt;</ept><bpt id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;title&gt;</bpt><ept id="5020e96a-0eac-459d-8517-8ee2125b3279">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e05bcae-d2f8-4ea4-aef9-4ad3799956c1" xml:space="preserve">
+          <source>Use the <bpt id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;linkText&gt;</bpt>StorSimple Manager service<ept id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;/linkText&gt;</ept><bpt id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;title&gt;</bpt><ept id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;/title&gt;</ept> to manage your StorSimple device.</source>
+          <target state="new">Use the <bpt id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;linkText&gt;</bpt>StorSimple Manager service<ept id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;/linkText&gt;</ept><bpt id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;title&gt;</bpt><ept id="91beb915-c94d-4f2e-b681-7b4ae27c1a3b">&lt;/title&gt;</ept> to manage your StorSimple device.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

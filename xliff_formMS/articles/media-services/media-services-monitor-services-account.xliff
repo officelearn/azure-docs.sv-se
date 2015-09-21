@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84953128-2a99-448a-b0bb-c116c9bab3aa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84953128-2a99-448a-b0bb-c116c9bab3aa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bb5fb3dc-4b73-41ea-ae9f-9e793e40e57c">
+        <trans-unit id="e0ca69d1-83d3-4402-8c54-723e72a582dc" xml:space="preserve">
+          <source>Monitor a Media Services Account</source>
+          <target state="new">Monitor a Media Services Account</target>
+        </trans-unit>
+        <trans-unit id="97616299-b016-47f2-90a1-eeb5c6477c19" xml:space="preserve">
+          <source>Describes how to configure monitoring for your Media Services account in Azure.</source>
+          <target state="new">Describes how to configure monitoring for your Media Services account in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ea7e5a68-a5fa-4cea-b65b-338a0b090f2c" xml:space="preserve">
+          <source>The Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.</source>
+          <target state="new">The Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="69e9107c-a41d-449f-af5b-ed75a4678733" xml:space="preserve">
+          <source>You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account.</source>
+          <target state="new">You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="f368e5ad-ad1b-45a3-bce7-752747661a1b" xml:space="preserve">
+          <source>In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well.</source>
+          <target state="new">In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well.</target>
+        </trans-unit>
+        <trans-unit id="71ddbedd-78bf-4019-b7ae-5441ecbbc2c0" xml:space="preserve">
+          <source>You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.</source>
+          <target state="new">You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.</target>
+        </trans-unit>
+        <trans-unit id="8be001b8-759d-4866-946d-d98878a0af21" xml:space="preserve">
+          <source>Additional costs are associated with monitoring storage data in the Azure Management Portal.</source>
+          <target state="new">Additional costs are associated with monitoring storage data in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5dfb2ee3-922a-41c2-ba19-910d8de2e0f5" xml:space="preserve">
+          <source>For more information, see <bpt id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;linkText&gt;</bpt>Storage Analytics and Billing<ept id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;/linkText&gt;</ept><bpt id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;title&gt;</bpt><ept id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;linkText&gt;</bpt>Storage Analytics and Billing<ept id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;/linkText&gt;</ept><bpt id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;title&gt;</bpt><ept id="ae2c4baa-5595-4201-8df2-0ec82bae8b60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27a4ecb9-1234-46a2-8297-b95fb7509ef8" xml:space="preserve">
+          <source>In the <bpt id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;linkText&gt;</bpt>Management Portal<ept id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;/linkText&gt;</ept><bpt id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;title&gt;</bpt><ept id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;/title&gt;</ept>, click <bpt id="b2fa58f9-f4b9-42c6-8e6e-4a91c2b45e30">&lt;strong&gt;</bpt>Media Services<ept id="b2fa58f9-f4b9-42c6-8e6e-4a91c2b45e30">&lt;/strong&gt;</ept>, and then click the Media Services account name to open the dashboard.</source>
+          <target state="new">In the <bpt id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;linkText&gt;</bpt>Management Portal<ept id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;/linkText&gt;</ept><bpt id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;title&gt;</bpt><ept id="28670adb-bbb0-4a53-a218-820c53f5932d">&lt;/title&gt;</ept>, click <bpt id="b2fa58f9-f4b9-42c6-8e6e-4a91c2b45e30">&lt;strong&gt;</bpt>Media Services<ept id="b2fa58f9-f4b9-42c6-8e6e-4a91c2b45e30">&lt;/strong&gt;</ept>, and then click the Media Services account name to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="6970e493-cc9e-40e6-ae32-0b5581c475ab" xml:space="preserve">
+          <source><bpt id="87f5b88f-8a23-45e4-82e9-cd3e2e13e3b7">&lt;linkText&gt;</bpt>MediaServices_Dashboard<ept id="87f5b88f-8a23-45e4-82e9-cd3e2e13e3b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87f5b88f-8a23-45e4-82e9-cd3e2e13e3b7">&lt;linkText&gt;</bpt>MediaServices_Dashboard<ept id="87f5b88f-8a23-45e4-82e9-cd3e2e13e3b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e00ebb4f-84ac-49a3-bc3c-88c535007750" xml:space="preserve">
+          <source>To monitor your encoding jobs or data, simply begin submitting encoding jobs to Media Services, or start streaming content to customers through the use of Azure Media On-Demand Streaming.</source>
+          <target state="new">To monitor your encoding jobs or data, simply begin submitting encoding jobs to Media Services, or start streaming content to customers through the use of Azure Media On-Demand Streaming.</target>
+        </trans-unit>
+        <trans-unit id="826713c9-24c7-453b-9506-530947358008" xml:space="preserve">
+          <source>You should start seeing monitoring data on the dashboard after about an hour.</source>
+          <target state="new">You should start seeing monitoring data on the dashboard after about an hour.</target>
+        </trans-unit>
+        <trans-unit id="85d4de74-48b5-4986-9de1-af3799f0f98a" xml:space="preserve">
+          <source>Click the <bpt id="871784f8-f506-4d85-831d-a6925fc5ddda">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="871784f8-f506-4d85-831d-a6925fc5ddda">&lt;/strong&gt;</ept> name under the <bpt id="70307195-0d96-48f3-8a5a-6f97cfe604df">&lt;strong&gt;</bpt>quick glance<ept id="70307195-0d96-48f3-8a5a-6f97cfe604df">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Click the <bpt id="871784f8-f506-4d85-831d-a6925fc5ddda">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="871784f8-f506-4d85-831d-a6925fc5ddda">&lt;/strong&gt;</ept> name under the <bpt id="70307195-0d96-48f3-8a5a-6f97cfe604df">&lt;strong&gt;</bpt>quick glance<ept id="70307195-0d96-48f3-8a5a-6f97cfe604df">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="61e3ceaa-3019-4516-a50c-e5dc69308101" xml:space="preserve">
+          <source>On the storage account page, click the <bpt id="6fb2109b-2393-4b52-a3a8-cb71be222da5">&lt;strong&gt;</bpt>configure page<ept id="6fb2109b-2393-4b52-a3a8-cb71be222da5">&lt;/strong&gt;</ept> link, and scroll down to the <bpt id="672d2a0c-7472-487e-8a2e-201467df5e1e">&lt;strong&gt;</bpt>monitoring<ept id="672d2a0c-7472-487e-8a2e-201467df5e1e">&lt;/strong&gt;</ept> settings for the Blob, Table, and Queue services, shown below.</source>
+          <target state="new">On the storage account page, click the <bpt id="6fb2109b-2393-4b52-a3a8-cb71be222da5">&lt;strong&gt;</bpt>configure page<ept id="6fb2109b-2393-4b52-a3a8-cb71be222da5">&lt;/strong&gt;</ept> link, and scroll down to the <bpt id="672d2a0c-7472-487e-8a2e-201467df5e1e">&lt;strong&gt;</bpt>monitoring<ept id="672d2a0c-7472-487e-8a2e-201467df5e1e">&lt;/strong&gt;</ept> settings for the Blob, Table, and Queue services, shown below.</target>
+        </trans-unit>
+        <trans-unit id="a43d52f7-1c89-4ec5-9162-80eff173f344" xml:space="preserve">
+          <source>Blobs are the only supported storage type in Media Services.</source>
+          <target state="new">Blobs are the only supported storage type in Media Services.</target>
+        </trans-unit>
+        <trans-unit id="3eb3f93f-ade9-400b-b61a-7c8743de3dc5" xml:space="preserve">
+          <source><bpt id="3d04e309-699b-4747-86aa-4ec09ec179ae">&lt;linkText&gt;</bpt>StorageOptions<ept id="3d04e309-699b-4747-86aa-4ec09ec179ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d04e309-699b-4747-86aa-4ec09ec179ae">&lt;linkText&gt;</bpt>StorageOptions<ept id="3d04e309-699b-4747-86aa-4ec09ec179ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54eec161-554d-4e81-8019-03c52fb43666" xml:space="preserve">
+          <source>In <bpt id="bc2f2998-345f-4978-863d-a6343df8f071">&lt;strong&gt;</bpt>monitoring<ept id="bc2f2998-345f-4978-863d-a6343df8f071">&lt;/strong&gt;</ept>, set the level of monitoring and the data retention policy for Blobs:</source>
+          <target state="new">In <bpt id="bc2f2998-345f-4978-863d-a6343df8f071">&lt;strong&gt;</bpt>monitoring<ept id="bc2f2998-345f-4978-863d-a6343df8f071">&lt;/strong&gt;</ept>, set the level of monitoring and the data retention policy for Blobs:</target>
+        </trans-unit>
+        <trans-unit id="7dea1a86-f66f-4836-9b1d-a5e536f145e6" xml:space="preserve">
+          <source>To set the monitoring level, select one of the following:</source>
+          <target state="new">To set the monitoring level, select one of the following:</target>
+        </trans-unit>
+        <trans-unit id="ad460e1c-9036-4111-a7ef-9502c6bb05f8" xml:space="preserve">
+          <source><bpt id="87b667e3-25a4-40a3-8dec-32222e7ab2e1">&lt;strong&gt;</bpt>Minimal<ept id="87b667e3-25a4-40a3-8dec-32222e7ab2e1">&lt;/strong&gt;</ept> - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.</source>
+          <target state="new"><bpt id="87b667e3-25a4-40a3-8dec-32222e7ab2e1">&lt;strong&gt;</bpt>Minimal<ept id="87b667e3-25a4-40a3-8dec-32222e7ab2e1">&lt;/strong&gt;</ept> - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the Blob, Table, and Queue services.</target>
+        </trans-unit>
+        <trans-unit id="8ab27fc1-a793-4cd2-8783-1343e3d1ad7a" xml:space="preserve">
+          <source><bpt id="2ee3a966-ea23-46a0-b675-bdd7bbd6e962">&lt;strong&gt;</bpt>Verbose<ept id="2ee3a966-ea23-46a0-b675-bdd7bbd6e962">&lt;/strong&gt;</ept> - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Azure Storage Service API.</source>
+          <target state="new"><bpt id="2ee3a966-ea23-46a0-b675-bdd7bbd6e962">&lt;strong&gt;</bpt>Verbose<ept id="2ee3a966-ea23-46a0-b675-bdd7bbd6e962">&lt;/strong&gt;</ept> - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Azure Storage Service API.</target>
+        </trans-unit>
+        <trans-unit id="324a0517-7716-4475-9c30-3847f977fc13" xml:space="preserve">
+          <source>Verbose metrics enable closer analysis of issues that occur during application operations.</source>
+          <target state="new">Verbose metrics enable closer analysis of issues that occur during application operations.</target>
+        </trans-unit>
+        <trans-unit id="36d4be9a-e3be-4d6a-88d5-a7d0c020c14c" xml:space="preserve">
+          <source><bpt id="c828662f-4e63-4cec-92b3-13aec3fba661">&lt;strong&gt;</bpt>Off<ept id="c828662f-4e63-4cec-92b3-13aec3fba661">&lt;/strong&gt;</ept> - Turns off monitoring.</source>
+          <target state="new"><bpt id="c828662f-4e63-4cec-92b3-13aec3fba661">&lt;strong&gt;</bpt>Off<ept id="c828662f-4e63-4cec-92b3-13aec3fba661">&lt;/strong&gt;</ept> - Turns off monitoring.</target>
+        </trans-unit>
+        <trans-unit id="92a73400-a378-4214-bfb1-ad52c0a885dc" xml:space="preserve">
+          <source>Existing monitoring data is persisted through the end of the retention period.</source>
+          <target state="new">Existing monitoring data is persisted through the end of the retention period.</target>
+        </trans-unit>
+        <trans-unit id="501bd67b-7c67-4636-92c9-59a396fe3491" xml:space="preserve">
+          <source>To set the data retention policy, in <bpt id="60fb4e6d-9f4c-486c-bc9f-c7e0c2b4bdc3">&lt;strong&gt;</bpt>Retention (in days)<ept id="60fb4e6d-9f4c-486c-bc9f-c7e0c2b4bdc3">&lt;/strong&gt;</ept>, type the number of days of data to retain from 1 to 365 days.</source>
+          <target state="new">To set the data retention policy, in <bpt id="60fb4e6d-9f4c-486c-bc9f-c7e0c2b4bdc3">&lt;strong&gt;</bpt>Retention (in days)<ept id="60fb4e6d-9f4c-486c-bc9f-c7e0c2b4bdc3">&lt;/strong&gt;</ept>, type the number of days of data to retain from 1 to 365 days.</target>
+        </trans-unit>
+        <trans-unit id="da46cb03-0d6e-4abc-8858-6e5884103ae6" xml:space="preserve">
+          <source>If you do not want to set a retention policy, enter zero.</source>
+          <target state="new">If you do not want to set a retention policy, enter zero.</target>
+        </trans-unit>
+        <trans-unit id="67935553-3a80-4602-ac74-a9cf8d580f55" xml:space="preserve">
+          <source>If there is no retention policy, it is up to you to delete the monitoring data.</source>
+          <target state="new">If there is no retention policy, it is up to you to delete the monitoring data.</target>
+        </trans-unit>
+        <trans-unit id="1077159b-4a40-4984-aa67-5fcd18612453" xml:space="preserve">
+          <source>We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost.</source>
+          <target state="new">We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by the system at no cost.</target>
+        </trans-unit>
+        <trans-unit id="6e37f2b9-6ff3-4011-84d8-c2d8e26e3351" xml:space="preserve">
+          <source>When you finish the monitoring configuration, click <bpt id="2bd2f47f-789e-4b22-8b27-6d9837be4857">&lt;strong&gt;</bpt>Save<ept id="2bd2f47f-789e-4b22-8b27-6d9837be4857">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you finish the monitoring configuration, click <bpt id="2bd2f47f-789e-4b22-8b27-6d9837be4857">&lt;strong&gt;</bpt>Save<ept id="2bd2f47f-789e-4b22-8b27-6d9837be4857">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1a703fc-00ca-41d5-831f-00fa06f2a96e" xml:space="preserve">
+          <source>Similar to Media Services metrics, you should start seeing monitoring data on the dashboard after about an hour.</source>
+          <target state="new">Similar to Media Services metrics, you should start seeing monitoring data on the dashboard after about an hour.</target>
+        </trans-unit>
+        <trans-unit id="5d079779-7994-4f86-a0f3-25f7481da851" xml:space="preserve">
+          <source>Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob.</source>
+          <target state="new">Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob.</target>
+        </trans-unit>
+        <trans-unit id="654cdb0d-da33-4203-b0d5-af737d2fa623" xml:space="preserve">
+          <source>For more information, see <bpt id="4d434455-8621-4de5-9779-fd5551752cff">&lt;linkText&gt;</bpt>Storage Analytics Metrics<ept id="4d434455-8621-4de5-9779-fd5551752cff">&lt;/linkText&gt;</ept><bpt id="4d434455-8621-4de5-9779-fd5551752cff">&lt;title&gt;</bpt><ept id="4d434455-8621-4de5-9779-fd5551752cff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4d434455-8621-4de5-9779-fd5551752cff">&lt;linkText&gt;</bpt>Storage Analytics Metrics<ept id="4d434455-8621-4de5-9779-fd5551752cff">&lt;/linkText&gt;</ept><bpt id="4d434455-8621-4de5-9779-fd5551752cff">&lt;title&gt;</bpt><ept id="4d434455-8621-4de5-9779-fd5551752cff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8cc8951-9549-4c36-809e-47c73bb7badc" xml:space="preserve">
+          <source>./media/media-services-monitor-services-account/media-services-dashboard.png</source>
+          <target state="new">./media/media-services-monitor-services-account/media-services-dashboard.png</target>
+        </trans-unit>
+        <trans-unit id="3c876ef2-97ba-45a1-b3b2-a5db75b5de29" xml:space="preserve">
+          <source>./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png</source>
+          <target state="new">./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png</target>
+        </trans-unit>
+      </group>
+      <group id="b7887e71-fc75-473c-9d53-10f983248b86" />
+    </body>
+  </file>
+</xliff>

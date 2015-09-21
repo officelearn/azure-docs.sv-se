@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a1c1390e-9c76-4b1a-bc55-91438113a91f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a1c1390e-9c76-4b1a-bc55-91438113a91f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d8d5cddd-e60c-4ed9-b6c6-c8890af3aba3">
+        <trans-unit id="10f2644c-eaba-4241-b0d0-9c1fe8cb24f4" xml:space="preserve">
+          <source>Manage Azure Storage using Azure Automation</source>
+          <target state="new">Manage Azure Storage using Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="60f080bd-d223-4eb2-ae5d-1e333a914754" xml:space="preserve">
+          <source>Learn about how the Azure Automation service can be used to manage Azure Storage at scale.</source>
+          <target state="new">Learn about how the Azure Automation service can be used to manage Azure Storage at scale.</target>
+        </trans-unit>
+        <trans-unit id="23a23f6a-58bc-45ff-9736-be6d755d6bdb" xml:space="preserve">
+          <source>This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure Storage blobs, tables, and queues.</source>
+          <target state="new">This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure Storage blobs, tables, and queues.</target>
+        </trans-unit>
+        <trans-unit id="ef0a6fc7-9872-48eb-b8ba-24ed415c7f74" xml:space="preserve">
+          <source><bpt id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;linkText&gt;</bpt>Azure Automation<ept id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;/linkText&gt;</ept><bpt id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;title&gt;</bpt><ept id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</source>
+          <target state="new"><bpt id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;linkText&gt;</bpt>Azure Automation<ept id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;/linkText&gt;</ept><bpt id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;title&gt;</bpt><ept id="c75b7d40-e757-4ef1-ac85-2588542bbf4b">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</target>
+        </trans-unit>
+        <trans-unit id="06b4a2d8-1db4-4823-a74d-50a16f222766" xml:space="preserve">
+          <source>Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.</source>
+          <target state="new">Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.</target>
+        </trans-unit>
+        <trans-unit id="e382297d-e0b1-4639-864c-d8409ec95b6a" xml:space="preserve">
+          <source>Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows.</source>
+          <target state="new">Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows.</target>
+        </trans-unit>
+        <trans-unit id="e6d44ef0-b1e9-431d-ad18-43362f417008" xml:space="preserve">
+          <source>In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</source>
+          <target state="new">In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</target>
+        </trans-unit>
+        <trans-unit id="7f60055d-c3a3-45e9-bf10-36b734c4fcc4" xml:space="preserve">
+          <source>Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</source>
+          <target state="new">Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="deba2028-6de3-4f17-a462-d0edf2dfb268" xml:space="preserve">
+          <source>Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in the <bpt id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;/linkText&gt;</ept><bpt id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;title&gt;</bpt><ept id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Storage can be managed in Azure Automation by using the PowerShell cmdlets that are available in the <bpt id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;linkText&gt;</bpt>Azure PowerShell tools<ept id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;/linkText&gt;</ept><bpt id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;title&gt;</bpt><ept id="3c3a0f36-d74c-422a-84c9-3d4b65dc0f4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6b2523a-216f-4a4e-ac0e-c64bbb419156" xml:space="preserve">
+          <source>Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service.</source>
+          <target state="new">Azure Automation has these Storage PowerShell cmdlets available out of the box, so that you can perform all of your blob, table, and queue management tasks within the service.</target>
+        </trans-unit>
+        <trans-unit id="cac2e6bb-e533-4472-8bf4-06aa45b0b816" xml:space="preserve">
+          <source>You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</source>
+          <target state="new">You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="3386ab8e-8df7-4d7f-b90e-f6f85980c7c5" xml:space="preserve">
+          <source>The <bpt id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;linkText&gt;</bpt>Azure Automation runbook gallery<ept id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;/linkText&gt;</ept><bpt id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;title&gt;</bpt><ept id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;/title&gt;</ept> contains a variety of product team and community runbooks to get started automating management of Azure Storage, other Azure services, and 3rd party systems.</source>
+          <target state="new">The <bpt id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;linkText&gt;</bpt>Azure Automation runbook gallery<ept id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;/linkText&gt;</ept><bpt id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;title&gt;</bpt><ept id="ff154371-bbd3-4c3b-96b5-006a238316cb">&lt;/title&gt;</ept> contains a variety of product team and community runbooks to get started automating management of Azure Storage, other Azure services, and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="89ff2955-cddb-44ee-874a-3e132de2fa6a" xml:space="preserve">
+          <source>Gallery runbooks include:</source>
+          <target state="new">Gallery runbooks include:</target>
+        </trans-unit>
+        <trans-unit id="a49aada3-9e58-4f42-817c-57fa009163a0" xml:space="preserve">
+          <source><bpt id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;linkText&gt;</bpt>Remove Azure Storage blobs older than X days old<ept id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;/linkText&gt;</ept><bpt id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;title&gt;</bpt><ept id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;linkText&gt;</bpt>Remove Azure Storage blobs older than X days old<ept id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;/linkText&gt;</ept><bpt id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;title&gt;</bpt><ept id="e65c7d69-48e4-4796-ac17-6100c7c1149c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6810fda3-6012-46bb-a0e2-1c9fb0bfedd8" xml:space="preserve">
+          <source><bpt id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;linkText&gt;</bpt>Download a blob from Azure Storage to Azure Automation<ept id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;/linkText&gt;</ept><bpt id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;title&gt;</bpt><ept id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;linkText&gt;</bpt>Download a blob from Azure Storage to Azure Automation<ept id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;/linkText&gt;</ept><bpt id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;title&gt;</bpt><ept id="8a7a0a26-41fe-4d27-9fa1-79419f36be3e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48d60725-4d18-46e8-9a28-7764e9647810" xml:space="preserve">
+          <source><bpt id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;linkText&gt;</bpt>Create copies of Azure VM data disks in an Azure Cloud Service<ept id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;/linkText&gt;</ept><bpt id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;title&gt;</bpt><ept id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;linkText&gt;</bpt>Create copies of Azure VM data disks in an Azure Cloud Service<ept id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;/linkText&gt;</ept><bpt id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;title&gt;</bpt><ept id="f5d639c7-2ed8-47a4-9a9c-bffb7131f1f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b4614d2-44bd-440c-a501-a6ae64ac687f" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Storage blobs, tables, and queues, follow these links to learn more about Azure Automation.</source>
+          <target state="new">Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Storage blobs, tables, and queues, follow these links to learn more about Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="688e58e6-1e0d-4055-8365-48e0cd28d05c" xml:space="preserve">
+          <source>See the Azure Automation <bpt id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;/linkText&gt;</ept><bpt id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;title&gt;</bpt><ept id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;/title&gt;</ept></source>
+          <target state="new">See the Azure Automation <bpt id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;/linkText&gt;</ept><bpt id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;title&gt;</bpt><ept id="fc3d3bd5-3318-4dd8-a8a7-3e0d07510e54">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

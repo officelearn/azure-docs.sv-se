@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="557062af-e15b-44b0-8de2-eb704d294215" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="557062af-e15b-44b0-8de2-eb704d294215" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="171091e1-9271-4ab2-a5e9-fb41b62e64ec">
+        <trans-unit id="b8ca78d9-bdeb-4b1a-8f43-56362b116666" xml:space="preserve">
+          <source>Azure Government Developers Guide</source>
+          <target state="new">Azure Government Developers Guide</target>
+        </trans-unit>
+        <trans-unit id="ffec4de4-7ba0-4e5f-8e5c-216714e292d2" xml:space="preserve">
+          <source>This provides a comparision of features and guidance on developing applications for Azure Government</source>
+          <target state="new">This provides a comparision of features and guidance on developing applications for Azure Government</target>
+        </trans-unit>
+        <trans-unit id="e4acb082-ef4a-4a46-bac0-6972c34fe0f7" xml:space="preserve">
+          <source>&lt;p&gt; Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.</source>
+          <target state="new">&lt;p&gt; Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.</target>
+        </trans-unit>
+        <trans-unit id="8e008cc3-604b-4ba8-bb15-d3520a6dc6e0" xml:space="preserve">
+          <source><bpt id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;linkText&gt;</bpt>Overview<ept id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;/linkText&gt;</ept><bpt id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;title&gt;</bpt><ept id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;linkText&gt;</bpt>Overview<ept id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;/linkText&gt;</ept><bpt id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;title&gt;</bpt><ept id="99f74c89-f405-4bb1-94a7-2878d4fc3abb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f24d820-7d15-4d31-9750-28377f617160" xml:space="preserve">
+          <source><bpt id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;linkText&gt;</bpt>Guidance for Developers<ept id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;/linkText&gt;</ept><bpt id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;title&gt;</bpt><ept id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;linkText&gt;</bpt>Guidance for Developers<ept id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;/linkText&gt;</ept><bpt id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;title&gt;</bpt><ept id="67dacafa-01cf-4fd9-95c2-6058b1525d1d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ab2faa2-8943-43d9-869b-119373935f58" xml:space="preserve">
+          <source><bpt id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;linkText&gt;</bpt>Features currently available in Microsoft Azure Government<ept id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;/linkText&gt;</ept><bpt id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;title&gt;</bpt><ept id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;linkText&gt;</bpt>Features currently available in Microsoft Azure Government<ept id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;/linkText&gt;</ept><bpt id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;title&gt;</bpt><ept id="d7291e8a-1876-438c-9f0d-d3dbf7deedce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52a4b479-9e0b-4a21-bfe6-3c6852386257" xml:space="preserve">
+          <source><bpt id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;linkText&gt;</bpt>Endpoint Mapping<ept id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;/linkText&gt;</ept><bpt id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;title&gt;</bpt><ept id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;linkText&gt;</bpt>Endpoint Mapping<ept id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;/linkText&gt;</ept><bpt id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;title&gt;</bpt><ept id="29be830c-461c-442f-8387-3e2dcf4396b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="705b76d4-83bd-43c7-8973-6754028e217e" xml:space="preserve">
+          <source><bpt id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;linkText&gt;</bpt>Next Steps<ept id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;/linkText&gt;</ept><bpt id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;title&gt;</bpt><ept id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;linkText&gt;</bpt>Next Steps<ept id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;/linkText&gt;</ept><bpt id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;title&gt;</bpt><ept id="49d4f959-6a95-4015-9db4-d5c6c38568b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a8db8b0-af34-4cd5-bb50-c650e4dd31fc" xml:space="preserve">
+          <source>Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers.</source>
+          <target state="new">Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers.</target>
+        </trans-unit>
+        <trans-unit id="88b657bf-393d-42ac-a8ca-606e0df58e89" xml:space="preserve">
+          <source>Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel.</source>
+          <target state="new">Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel.</target>
+        </trans-unit>
+        <trans-unit id="b09743a9-9902-44a9-82eb-9c5b9092be6f" xml:space="preserve">
+          <source>Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Microsoft Azure service (“Global Service”) and Microsoft Azure Government services.</source>
+          <target state="new">Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Microsoft Azure service (“Global Service”) and Microsoft Azure Government services.</target>
+        </trans-unit>
+        <trans-unit id="4c77d114-7573-4153-b637-978b2fb25f61" xml:space="preserve">
+          <source>When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.</source>
+          <target state="new">When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.</target>
+        </trans-unit>
+        <trans-unit id="23010f97-7dd5-4f5e-8489-7c541901c57f" xml:space="preserve">
+          <source>Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.</source>
+          <target state="new">Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="95c67f8e-2b2d-4791-ac19-b250c7cd6dbb" xml:space="preserve">
+          <source>The information in this document summarizes those differences and supplements the information available on the <bpt id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;linkText&gt;</bpt>Azure Government<ept id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;/linkText&gt;</ept><bpt id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;title&gt;</bpt>Azure Government<ept id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;/title&gt;</ept> site and the <bpt id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;linkText&gt;</bpt>Microsoft Azure Technical Library<ept id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;/linkText&gt;</ept><bpt id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;title&gt;</bpt>MSDN<ept id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;/title&gt;</ept> on MSDN.</source>
+          <target state="new">The information in this document summarizes those differences and supplements the information available on the <bpt id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;linkText&gt;</bpt>Azure Government<ept id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;/linkText&gt;</ept><bpt id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;title&gt;</bpt>Azure Government<ept id="c0295ff0-87b8-4bbf-805c-8ecbcf33c5ea">&lt;/title&gt;</ept> site and the <bpt id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;linkText&gt;</bpt>Microsoft Azure Technical Library<ept id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;/linkText&gt;</ept><bpt id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;title&gt;</bpt>MSDN<ept id="581449e3-bf4b-450a-b04b-8f74f2cab7d4">&lt;/title&gt;</ept> on MSDN.</target>
+        </trans-unit>
+        <trans-unit id="058e855c-170f-46fa-8f74-10682c72718e" xml:space="preserve">
+          <source>Official information may also be available in many other locations such as the <bpt id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;/linkText&gt;</ept><bpt id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;title&gt;</bpt>Microsoft Azure Trust Center<ept id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;/title&gt;</ept>, <bpt id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;linkText&gt;</bpt>Azure Documentation Center<ept id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;/linkText&gt;</ept><bpt id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;title&gt;</bpt><ept id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;/title&gt;</ept> and in <bpt id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;linkText&gt;</bpt>Azure Blogs<ept id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;/linkText&gt;</ept><bpt id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;title&gt;</bpt>Azure Blogs<ept id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Official information may also be available in many other locations such as the <bpt id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;/linkText&gt;</ept><bpt id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;title&gt;</bpt>Microsoft Azure Trust Center<ept id="ee2e4937-a775-4500-9014-aafe2abf0dcf">&lt;/title&gt;</ept>, <bpt id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;linkText&gt;</bpt>Azure Documentation Center<ept id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;/linkText&gt;</ept><bpt id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;title&gt;</bpt><ept id="f1db2cd6-d776-4107-8d85-97fba19b40d3">&lt;/title&gt;</ept> and in <bpt id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;linkText&gt;</bpt>Azure Blogs<ept id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;/linkText&gt;</ept><bpt id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;title&gt;</bpt>Azure Blogs<ept id="a4a47cc2-e033-474a-8b50-bb26b3780a0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd74dbef-3203-4512-8486-01ae13430bc0" xml:space="preserve">
+          <source>This content is intended for partners and developers who are deploying to Microsoft Azure Government.</source>
+          <target state="new">This content is intended for partners and developers who are deploying to Microsoft Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="be62622d-d465-40ce-9310-fe83b2a54574" xml:space="preserve">
+          <source>Because most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.</source>
+          <target state="new">Because most of the technical content that is available currently assumes that applications are being developed for the Global Service rather than for Microsoft Azure Government, it’s important for you to ensure that developers are aware of key differences for applications developed to be hosted in Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="77256463-dded-4f6e-b812-44ce63eb4f9f" xml:space="preserve">
+          <source>First, there are services and feature differences, this means that certain features that are in specific regions of the Global Service may not be available in Azure Government.</source>
+          <target state="new">First, there are services and feature differences, this means that certain features that are in specific regions of the Global Service may not be available in Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="e8a06075-2ad5-4c88-a262-6d17446b5be2" xml:space="preserve">
+          <source>Second, for features that are offered in Azure Government, there are configuration differences from the Global Service.</source>
+          <target state="new">Second, for features that are offered in Azure Government, there are configuration differences from the Global Service.</target>
+        </trans-unit>
+        <trans-unit id="6aff255d-30b6-4054-9d36-90fc62008ee9" xml:space="preserve">
+          <source>Therefore, you should review your sample code, configurations and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.</source>
+          <target state="new">Therefore, you should review your sample code, configurations and steps to ensure that you are building and executing within the Azure Government Cloud Services environment.</target>
+        </trans-unit>
+        <trans-unit id="1117398c-7e01-4228-953c-2560d55c6184" xml:space="preserve">
+          <source>Azure Government currently has the following services available in both US GOV IOWA and US GOV VIRGINIA regions:</source>
+          <target state="new">Azure Government currently has the following services available in both US GOV IOWA and US GOV VIRGINIA regions:</target>
+        </trans-unit>
+        <trans-unit id="e5048d78-d84a-4a19-b612-153871823fb0" xml:space="preserve">
+          <source>Virtual Machines</source>
+          <target state="new">Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="bb00b086-a01a-41eb-97c4-c6d3e28e34c3" xml:space="preserve">
+          <source>Cloud Services</source>
+          <target state="new">Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="62bb4a1c-6977-4e8f-840e-f45d54993bd7" xml:space="preserve">
+          <source>Storage</source>
+          <target state="new">Storage</target>
+        </trans-unit>
+        <trans-unit id="e8ee4118-9864-423c-b822-346509edbe8f" xml:space="preserve">
+          <source>Active Directory</source>
+          <target state="new">Active Directory</target>
+        </trans-unit>
+        <trans-unit id="b63376b3-63f2-436e-8309-fb9951fe798d" xml:space="preserve">
+          <source>Scheduler</source>
+          <target state="new">Scheduler</target>
+        </trans-unit>
+        <trans-unit id="a03531df-899c-44a4-ad23-8482d1f0685e" xml:space="preserve">
+          <source>Virtual Networking</source>
+          <target state="new">Virtual Networking</target>
+        </trans-unit>
+        <trans-unit id="bf445cbd-dcd2-4337-b61b-dd176d7cf100" xml:space="preserve">
+          <source>SQL Database</source>
+          <target state="new">SQL Database</target>
+        </trans-unit>
+        <trans-unit id="e7643c5a-1883-419c-bb9b-db179bd18a94" xml:space="preserve">
+          <source>Other services are available, and more services will be added on a continuous basis.</source>
+          <target state="new">Other services are available, and more services will be added on a continuous basis.</target>
+        </trans-unit>
+        <trans-unit id="64b1a8e5-ed38-46a9-bf9a-753f7f95d662" xml:space="preserve">
+          <source>For the most current list of services, please see the <bpt id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;linkText&gt;</bpt>regions page<ept id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;/linkText&gt;</ept><bpt id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;title&gt;</bpt><ept id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;/title&gt;</ept> which will highlight each available region and their services.</source>
+          <target state="new">For the most current list of services, please see the <bpt id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;linkText&gt;</bpt>regions page<ept id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;/linkText&gt;</ept><bpt id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;title&gt;</bpt><ept id="7c4ab8f4-762d-401c-9e6d-9e7b1e45cc39">&lt;/title&gt;</ept> which will highlight each available region and their services.</target>
+        </trans-unit>
+        <trans-unit id="62f959f0-b5f6-4d32-962c-77aad34025dc" xml:space="preserve">
+          <source>Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.</source>
+          <target state="new">Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.</target>
+        </trans-unit>
+        <trans-unit id="065e5255-c1f6-422f-ac2c-fb4423dbe91e" xml:space="preserve">
+          <source>Please refer to the regions page above for current data centers and services available.</source>
+          <target state="new">Please refer to the regions page above for current data centers and services available.</target>
+        </trans-unit>
+        <trans-unit id="e7540e15-d197-4f84-a582-fd7f40cfc546" xml:space="preserve">
+          <source>Use the following table to guide you when mapping public Microsoft Azure and SQL Database endpoints to Azure Government specific endpoints.</source>
+          <target state="new">Use the following table to guide you when mapping public Microsoft Azure and SQL Database endpoints to Azure Government specific endpoints.</target>
+        </trans-unit>
+        <trans-unit id="349496fc-0f9a-4b56-9630-fee818f1379d" xml:space="preserve">
+          <source>Service Type</source>
+          <target state="new">Service Type</target>
+        </trans-unit>
+        <trans-unit id="94574ecd-52ef-4c30-9f6e-adfa0ff35106" xml:space="preserve">
+          <source>Azure Public</source>
+          <target state="new">Azure Public</target>
+        </trans-unit>
+        <trans-unit id="0fb25476-afcc-48a5-b6d7-83427c8053a9" xml:space="preserve">
+          <source>Azure Government</source>
+          <target state="new">Azure Government</target>
+        </trans-unit>
+        <trans-unit id="72ea1008-4e45-4a54-9f11-a100bf4fa82e" xml:space="preserve">
+          <source>Azure Government Home</source>
+          <target state="new">Azure Government Home</target>
+        </trans-unit>
+        <trans-unit id="30aaeab6-5a03-472c-95c6-bb15e5441342" xml:space="preserve">
+          <source>windowsazure.com</source>
+          <target state="new">windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="4bb6c178-9d0c-4190-ad25-1c68679240df" xml:space="preserve">
+          <source>microsoftazure.us</source>
+          <target state="new">microsoftazure.us</target>
+        </trans-unit>
+        <trans-unit id="16bcc3d2-c24a-4c28-9b3f-d579027afe25" xml:space="preserve">
+          <source>Management Portal</source>
+          <target state="new">Management Portal</target>
+        </trans-unit>
+        <trans-unit id="9e3c32fa-a810-469b-ab98-2cc65e1721ef" xml:space="preserve">
+          <source>manage.windowsazure.com</source>
+          <target state="new">manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="cb735214-5524-4d66-8df2-c5a672b8dc13" xml:space="preserve">
+          <source>manage.windowsazure.us</source>
+          <target state="new">manage.windowsazure.us</target>
+        </trans-unit>
+        <trans-unit id="dd942025-fa28-4980-8cda-0c7d828cf005" xml:space="preserve">
+          <source>General</source>
+          <target state="new">General</target>
+        </trans-unit>
+        <trans-unit id="b318f62b-a2d6-4a8e-9d2d-e657096f8d77" xml:space="preserve">
+          <source>*.windows.net</source>
+          <target state="new">*.windows.net</target>
+        </trans-unit>
+        <trans-unit id="ee3aefeb-2fdd-4953-8dfb-e296021c981d" xml:space="preserve">
+          <source>*.usgovcloudapi.net</source>
+          <target state="new">*.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="ba44b16b-28de-4e04-8778-682636278fc7" xml:space="preserve">
+          <source>Core</source>
+          <target state="new">Core</target>
+        </trans-unit>
+        <trans-unit id="8d92bc4f-3576-4b63-b89d-692d5d07ede7" xml:space="preserve">
+          <source>*.core.windows.net</source>
+          <target state="new">*.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="a2617356-797d-4df8-8ee6-97e1493e63bd" xml:space="preserve">
+          <source>*.core.usgovcloudapi.net</source>
+          <target state="new">*.core.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="faf07f85-43ff-4623-a596-fef186065648" xml:space="preserve">
+          <source>Compute</source>
+          <target state="new">Compute</target>
+        </trans-unit>
+        <trans-unit id="f4b7883d-955f-4394-adb3-42ba56b259c8" xml:space="preserve">
+          <source>*.cloudapp.net</source>
+          <target state="new">*.cloudapp.net</target>
+        </trans-unit>
+        <trans-unit id="7e0501b5-fb35-40fc-ba50-5881b85606d7" xml:space="preserve">
+          <source>*.usgovcloudapp.net</source>
+          <target state="new">*.usgovcloudapp.net</target>
+        </trans-unit>
+        <trans-unit id="fdf8db76-ff5d-43cc-8df8-635ba77da57c" xml:space="preserve">
+          <source>Blob Storage</source>
+          <target state="new">Blob Storage</target>
+        </trans-unit>
+        <trans-unit id="2dc96823-d7a7-46df-9881-51a02280a2b2" xml:space="preserve">
+          <source>*.blob.core.windows.net</source>
+          <target state="new">*.blob.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="dacc6b50-ef32-4dc6-8fb1-8dcc6451e4ad" xml:space="preserve">
+          <source>*.blob.core.usgovcloudapi.net</source>
+          <target state="new">*.blob.core.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="74fa6126-733a-4efa-892f-1e9701726be7" xml:space="preserve">
+          <source>Queue Storage</source>
+          <target state="new">Queue Storage</target>
+        </trans-unit>
+        <trans-unit id="5107f928-db72-4cb8-aa35-c2ef4ddf23e4" xml:space="preserve">
+          <source>*.queue.core.windows.net</source>
+          <target state="new">*.queue.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="6ecb767e-4836-443b-b7e5-9320413de88e" xml:space="preserve">
+          <source>*.queue.core.usgovcloudapi.net</source>
+          <target state="new">*.queue.core.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="50346a0f-9bed-49f5-b92e-2f335e4c4751" xml:space="preserve">
+          <source>Table Storage</source>
+          <target state="new">Table Storage</target>
+        </trans-unit>
+        <trans-unit id="3eca8920-16ad-4407-a608-3ef6db65006f" xml:space="preserve">
+          <source>*.table.core.windows.net</source>
+          <target state="new">*.table.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="a211976f-5587-4af4-8aad-f0c1e2d4daaf" xml:space="preserve">
+          <source>*.table.core.usgovcloudapi.net</source>
+          <target state="new">*.table.core.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="c73295c8-2b2f-465d-9db7-bf3be7f1abb4" xml:space="preserve">
+          <source>Service Management</source>
+          <target state="new">Service Management</target>
+        </trans-unit>
+        <trans-unit id="57d919e9-8cc4-415b-abea-3e4c1f40fc5e" xml:space="preserve">
+          <source>management.core.windows.net</source>
+          <target state="new">management.core.windows.net</target>
+        </trans-unit>
+        <trans-unit id="545726ea-02f7-4639-8bf6-2a18ebb6667c" xml:space="preserve">
+          <source>management.core.usgovcloudapi.net</source>
+          <target state="new">management.core.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="71909e98-223e-4b5b-9c61-15d65d371b73" xml:space="preserve">
+          <source>SQL Database</source>
+          <target state="new">SQL Database</target>
+        </trans-unit>
+        <trans-unit id="4a8a0de5-80bf-4333-bec7-1bf453038edb" xml:space="preserve">
+          <source>*.database.windows.net</source>
+          <target state="new">*.database.windows.net</target>
+        </trans-unit>
+        <trans-unit id="92b00fef-a9ad-438c-b46f-1314fde43964" xml:space="preserve">
+          <source>*.database.usgovcloudapi.net</source>
+          <target state="new">*.database.usgovcloudapi.net</target>
+        </trans-unit>
+        <trans-unit id="20d3b498-9b07-4d7e-b1f8-c48a6ea7c4f3" xml:space="preserve">
+          <source>If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to &lt;A href="http://azure.com/gov"&gt;http://www.azure.com/gov&lt;/a&gt;</source>
+          <target state="new">If you are interested in learning more and about Azure Government and how your organization can qualify to access, please go to &lt;A href="http://azure.com/gov"&gt;http://www.azure.com/gov&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="dbe699b6-ba40-4ed1-85bb-b3ecd687a2ae" xml:space="preserve">
+          <source>./media/azure-government-developer-guide/publisherguide.png</source>
+          <target state="new">./media/azure-government-developer-guide/publisherguide.png</target>
+        </trans-unit>
+        <trans-unit id="951d902a-fca8-4aab-945a-93229996988c" xml:space="preserve">
+          <source>virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="8fd43f2d-f60a-4000-9df6-febd8aaeb77c" xml:space="preserve">
+          <source>web-sites-custom-domain-name.md</source>
+          <target state="new">web-sites-custom-domain-name.md</target>
+        </trans-unit>
+        <trans-unit id="2b3bdea4-80d3-45f9-a057-7174dad59929" xml:space="preserve">
+          <source>storage-whatis-account.md</source>
+          <target state="new">storage-whatis-account.md</target>
+        </trans-unit>
+      </group>
+      <group id="b9e01691-7c66-4ef9-8c28-ea8646ba2286" />
+    </body>
+  </file>
+</xliff>

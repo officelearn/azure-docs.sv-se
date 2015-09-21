@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="000326b7-cec4-4218-9f46-421f73e03e35" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="000326b7-cec4-4218-9f46-421f73e03e35" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7cb7cee8-5931-4fbe-ae1b-815ab690f52c">
+        <trans-unit id="e2138181-c9c3-4d6d-aeed-83ef1fe64768" xml:space="preserve">
+          <source>Manage a SQL Database with SSMS | Microsoft Azure</source>
+          <target state="new">Manage a SQL Database with SSMS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b76db0dc-2874-4294-9ebb-74c6d15d315d" xml:space="preserve">
+          <source>Learn how to use SQL Server Management Studio to manage SQL Database servers and databases.</source>
+          <target state="new">Learn how to use SQL Server Management Studio to manage SQL Database servers and databases.</target>
+        </trans-unit>
+        <trans-unit id="27e2dfbc-858c-494c-aec1-083ced3e315a" xml:space="preserve">
+          <source>You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases.</source>
+          <target state="new">You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database logical servers and databases.</target>
+        </trans-unit>
+        <trans-unit id="aeadd36b-47ca-4af2-bf41-2508548a72b9" xml:space="preserve">
+          <source>This topic walks you through common tasks with SSMS.</source>
+          <target state="new">This topic walks you through common tasks with SSMS.</target>
+        </trans-unit>
+        <trans-unit id="dbd831b5-ac2b-4709-93db-a3dff7eb79fd" xml:space="preserve">
+          <source>You should already have a logical server and database created in Azure SQL Database before you begin.</source>
+          <target state="new">You should already have a logical server and database created in Azure SQL Database before you begin.</target>
+        </trans-unit>
+        <trans-unit id="9b0928ce-b202-40fc-a733-7a43385e401d" xml:space="preserve">
+          <source>To get started, read <bpt id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;/linkText&gt;</ept><bpt id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;title&gt;</bpt><ept id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;/title&gt;</ept> and then come back.</source>
+          <target state="new">To get started, read <bpt id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;/linkText&gt;</ept><bpt id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;title&gt;</bpt><ept id="de577467-7b42-4082-938d-e0d5f2c8271a">&lt;/title&gt;</ept> and then come back.</target>
+        </trans-unit>
+        <trans-unit id="6ae947d8-4056-4863-a579-ecfebb33838d" xml:space="preserve">
+          <source>It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database.</source>
+          <target state="new">It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="9a5334cf-06b2-48f4-8778-9a6f4bc864cf" xml:space="preserve">
+          <source>Visit <bpt id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;linkText&gt;</bpt>Download SQL Server Management Studio<ept id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;/linkText&gt;</ept><bpt id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;title&gt;</bpt><ept id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;/title&gt;</ept> to get it.</source>
+          <target state="new">Visit <bpt id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;linkText&gt;</bpt>Download SQL Server Management Studio<ept id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;/linkText&gt;</ept><bpt id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;title&gt;</bpt><ept id="1ba0b8da-5b2e-4b6e-b1af-f592279dc057">&lt;/title&gt;</ept> to get it.</target>
+        </trans-unit>
+        <trans-unit id="2483a658-04f9-477c-a598-eaf62219e66e" xml:space="preserve">
+          <source>Connecting to SQL Database requires that you know the server name on Azure.</source>
+          <target state="new">Connecting to SQL Database requires that you know the server name on Azure.</target>
+        </trans-unit>
+        <trans-unit id="54bcb079-d7d5-42a2-b33f-51a7083f8d20" xml:space="preserve">
+          <source>You might need to sign in to the portal to get this information.</source>
+          <target state="new">You might need to sign in to the portal to get this information.</target>
+        </trans-unit>
+        <trans-unit id="616ff9ba-3c4b-46d1-883c-6487e16f554a" xml:space="preserve">
+          <source>Sign in to the <bpt id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;/linkText&gt;</ept><bpt id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;title&gt;</bpt><ept id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;/linkText&gt;</ept><bpt id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;title&gt;</bpt><ept id="e161c3bb-ec46-4d97-ba16-1154632f71da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="512680de-e8f0-4eee-8b5f-d4119ebc535b" xml:space="preserve">
+          <source>In the left pane, click <bpt id="ac09319b-c79d-4556-96dd-2f4e7869cfc7">&lt;strong&gt;</bpt>SQL Databases<ept id="ac09319b-c79d-4556-96dd-2f4e7869cfc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, click <bpt id="ac09319b-c79d-4556-96dd-2f4e7869cfc7">&lt;strong&gt;</bpt>SQL Databases<ept id="ac09319b-c79d-4556-96dd-2f4e7869cfc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="608a09db-f895-4ce9-aeb2-e8f04440fc84" xml:space="preserve">
+          <source>On the SQL Databases home page, click <bpt id="bd61e5d0-4d47-45cb-8799-8937f4499910">&lt;strong&gt;</bpt>SERVERS<ept id="bd61e5d0-4d47-45cb-8799-8937f4499910">&lt;/strong&gt;</ept> at the top of the page to list all of the servers associated with your subscription.</source>
+          <target state="new">On the SQL Databases home page, click <bpt id="bd61e5d0-4d47-45cb-8799-8937f4499910">&lt;strong&gt;</bpt>SERVERS<ept id="bd61e5d0-4d47-45cb-8799-8937f4499910">&lt;/strong&gt;</ept> at the top of the page to list all of the servers associated with your subscription.</target>
+        </trans-unit>
+        <trans-unit id="18e74fbe-1f54-4160-9b12-2452c512cd81" xml:space="preserve">
+          <source>Find the name of the server to which you want to connect and copy it to the clipboard.</source>
+          <target state="new">Find the name of the server to which you want to connect and copy it to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="0d9512e7-3b9c-40b8-82ca-d5e8b1af3ef0" xml:space="preserve">
+          <source>Next, configure your SQL Database firewall to
+allow connections from your local machine.</source>
+          <target state="new">Next, configure your SQL Database firewall to
+allow connections from your local machine.</target>
+        </trans-unit>
+        <trans-unit id="6818c54f-21a7-4fd0-b952-b5cc2c7b649f" xml:space="preserve">
+          <source>You do this by adding your local machines IP address to the firewall exception list.</source>
+          <target state="new">You do this by adding your local machines IP address to the firewall exception list.</target>
+        </trans-unit>
+        <trans-unit id="8db61e0c-7a96-44fa-bbe5-38649edd7ca0" xml:space="preserve">
+          <source>On SQL Databases home page, click <bpt id="234ad0bf-e3db-475b-809f-d9841b874acc">&lt;strong&gt;</bpt>SERVERS<ept id="234ad0bf-e3db-475b-809f-d9841b874acc">&lt;/strong&gt;</ept> and then click the server to which you want to connect.</source>
+          <target state="new">On SQL Databases home page, click <bpt id="234ad0bf-e3db-475b-809f-d9841b874acc">&lt;strong&gt;</bpt>SERVERS<ept id="234ad0bf-e3db-475b-809f-d9841b874acc">&lt;/strong&gt;</ept> and then click the server to which you want to connect.</target>
+        </trans-unit>
+        <trans-unit id="ac3a0b78-23f3-4e45-bc5c-e3c6e66c3672" xml:space="preserve">
+          <source>Click <bpt id="6fe87114-b4f8-41b1-951e-81830202d1a8">&lt;strong&gt;</bpt>Configure<ept id="6fe87114-b4f8-41b1-951e-81830202d1a8">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="6fe87114-b4f8-41b1-951e-81830202d1a8">&lt;strong&gt;</bpt>Configure<ept id="6fe87114-b4f8-41b1-951e-81830202d1a8">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="5f7a7ba8-9fe7-48ae-95e4-def7ad3a684f" xml:space="preserve">
+          <source>Copy the IP address in CURRENT CLIENT IP ADDRESS.</source>
+          <target state="new">Copy the IP address in CURRENT CLIENT IP ADDRESS.</target>
+        </trans-unit>
+        <trans-unit id="286e45a9-e348-4466-ac96-51fc7e932f1d" xml:space="preserve">
+          <source>In the Configure page, <bpt id="173dbcbd-dbd4-4625-8fd0-fa5829830c1d">&lt;strong&gt;</bpt>Allowed IP Addresses<ept id="173dbcbd-dbd4-4625-8fd0-fa5829830c1d">&lt;/strong&gt;</ept> includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values.</source>
+          <target state="new">In the Configure page, <bpt id="173dbcbd-dbd4-4625-8fd0-fa5829830c1d">&lt;strong&gt;</bpt>Allowed IP Addresses<ept id="173dbcbd-dbd4-4625-8fd0-fa5829830c1d">&lt;/strong&gt;</ept> includes three boxes where you can specify a rule name and a range of IP addresses as starting and ending values.</target>
+        </trans-unit>
+        <trans-unit id="ab080650-cb4e-4371-875e-ac24e37b1e1e" xml:space="preserve">
+          <source>For a rule name, you might enter the name of your computer.</source>
+          <target state="new">For a rule name, you might enter the name of your computer.</target>
+        </trans-unit>
+        <trans-unit id="fabf62db-f6e4-48fb-9c35-dd8feacba399" xml:space="preserve">
+          <source>For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.</source>
+          <target state="new">For the start and end range, paste in the IP address of your computer into both boxes, and then click the checkbox that appears.</target>
+        </trans-unit>
+        <trans-unit id="ca7bb986-5094-49eb-b2f2-088de0fc4cf4" xml:space="preserve">
+          <source>The rule name must be unique.</source>
+          <target state="new">The rule name must be unique.</target>
+        </trans-unit>
+        <trans-unit id="0c3e06d7-d065-4aae-82d5-8e920effe98d" xml:space="preserve">
+          <source>If this is your development computer, you can enter the IP address in both the IP range start box and the IP range end box.</source>
+          <target state="new">If this is your development computer, you can enter the IP address in both the IP range start box and the IP range end box.</target>
+        </trans-unit>
+        <trans-unit id="7cea8f63-1b28-4e48-83fe-64c8c9c6892b" xml:space="preserve">
+          <source>Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.</source>
+          <target state="new">Otherwise, you might need to enter a broader range of IP addresses to accommodate connections from additional computers in your organization.</target>
+        </trans-unit>
+        <trans-unit id="58447ea1-ec6d-47bb-896f-4ef1c587444e" xml:space="preserve">
+          <source>Click <bpt id="491fec55-1865-46c3-b3d8-18cc8e66ccd4">&lt;strong&gt;</bpt>SAVE<ept id="491fec55-1865-46c3-b3d8-18cc8e66ccd4">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="491fec55-1865-46c3-b3d8-18cc8e66ccd4">&lt;strong&gt;</bpt>SAVE<ept id="491fec55-1865-46c3-b3d8-18cc8e66ccd4">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="1555b226-bd08-484c-8d59-27fd99672268" xml:space="preserve">
+          <source><bpt id="d5103be7-8a17-401c-a898-df166fc4dd3a">&lt;strong&gt;</bpt>Note:<ept id="d5103be7-8a17-401c-a898-df166fc4dd3a">&lt;/strong&gt;</ept> There can be up as much as a five-minute delay for changes
+to the firewall settings to take effect.</source>
+          <target state="new"><bpt id="d5103be7-8a17-401c-a898-df166fc4dd3a">&lt;strong&gt;</bpt>Note:<ept id="d5103be7-8a17-401c-a898-df166fc4dd3a">&lt;/strong&gt;</ept> There can be up as much as a five-minute delay for changes
+to the firewall settings to take effect.</target>
+        </trans-unit>
+        <trans-unit id="eb8a6f8e-bce9-4a58-bbeb-0d3e4c660071" xml:space="preserve">
+          <source>You are now ready to connect to SQL Database using Management Studio.</source>
+          <target state="new">You are now ready to connect to SQL Database using Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="223753ef-683a-4dce-a17b-d067d5a7f308" xml:space="preserve">
+          <source>On the taskbar, click <bpt id="222ab417-7d3a-4414-9f40-d5be1ea870eb">&lt;strong&gt;</bpt>Start<ept id="222ab417-7d3a-4414-9f40-d5be1ea870eb">&lt;/strong&gt;</ept>, point to <bpt id="7ad9a316-d949-4b3b-a98a-187e4cc8ea29">&lt;strong&gt;</bpt>All Programs<ept id="7ad9a316-d949-4b3b-a98a-187e4cc8ea29">&lt;/strong&gt;</ept>, point to
+<bpt id="11271d3d-e457-44c1-af45-6cda41de6dd3">&lt;strong&gt;</bpt>Microsoft SQL Server 2014<ept id="11271d3d-e457-44c1-af45-6cda41de6dd3">&lt;/strong&gt;</ept>, and then click <bpt id="a9d95585-eeed-4068-a8d9-261a104651d9">&lt;strong&gt;</bpt>SQL Server
+Management Studio<ept id="a9d95585-eeed-4068-a8d9-261a104651d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the taskbar, click <bpt id="222ab417-7d3a-4414-9f40-d5be1ea870eb">&lt;strong&gt;</bpt>Start<ept id="222ab417-7d3a-4414-9f40-d5be1ea870eb">&lt;/strong&gt;</ept>, point to <bpt id="7ad9a316-d949-4b3b-a98a-187e4cc8ea29">&lt;strong&gt;</bpt>All Programs<ept id="7ad9a316-d949-4b3b-a98a-187e4cc8ea29">&lt;/strong&gt;</ept>, point to
+<bpt id="11271d3d-e457-44c1-af45-6cda41de6dd3">&lt;strong&gt;</bpt>Microsoft SQL Server 2014<ept id="11271d3d-e457-44c1-af45-6cda41de6dd3">&lt;/strong&gt;</ept>, and then click <bpt id="a9d95585-eeed-4068-a8d9-261a104651d9">&lt;strong&gt;</bpt>SQL Server
+Management Studio<ept id="a9d95585-eeed-4068-a8d9-261a104651d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc81105a-b38a-4aaf-953b-f7e54bb00784" xml:space="preserve">
+          <source>In <bpt id="f1f9ef06-89f3-4a20-886e-3d35ee750041">&lt;strong&gt;</bpt>Connect to Server<ept id="f1f9ef06-89f3-4a20-886e-3d35ee750041">&lt;/strong&gt;</ept>, specify the fully-qualified
+server name  as <bpt id="f71621dd-9421-4974-81cf-8254dd234ed8">&lt;em&gt;</bpt>serverName<ept id="f71621dd-9421-4974-81cf-8254dd234ed8">&lt;/em&gt;</ept>.database.windows.net.</source>
+          <target state="new">In <bpt id="f1f9ef06-89f3-4a20-886e-3d35ee750041">&lt;strong&gt;</bpt>Connect to Server<ept id="f1f9ef06-89f3-4a20-886e-3d35ee750041">&lt;/strong&gt;</ept>, specify the fully-qualified
+server name  as <bpt id="f71621dd-9421-4974-81cf-8254dd234ed8">&lt;em&gt;</bpt>serverName<ept id="f71621dd-9421-4974-81cf-8254dd234ed8">&lt;/em&gt;</ept>.database.windows.net.</target>
+        </trans-unit>
+        <trans-unit id="17570bff-271c-46a7-82f7-80f4b88d8e14" xml:space="preserve">
+          <source>On Azure, the server name is an autogenerated string composed of alphanumeric characters.</source>
+          <target state="new">On Azure, the server name is an autogenerated string composed of alphanumeric characters.</target>
+        </trans-unit>
+        <trans-unit id="6129bab1-98ac-4102-8f6d-08475d47c7d6" xml:space="preserve">
+          <source>Select <bpt id="5196e47b-051d-447e-9186-64b60aad30aa">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="5196e47b-051d-447e-9186-64b60aad30aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="5196e47b-051d-447e-9186-64b60aad30aa">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="5196e47b-051d-447e-9186-64b60aad30aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec582195-7954-48d3-b839-4b420e643e3e" xml:space="preserve">
+          <source>In the <bpt id="bb7f9934-6f1b-450e-b392-2401a2b97cbb">&lt;strong&gt;</bpt>Login<ept id="bb7f9934-6f1b-450e-b392-2401a2b97cbb">&lt;/strong&gt;</ept> box, enter the SQL Server administrator login that you
+specified in the portal when you created  your server.</source>
+          <target state="new">In the <bpt id="bb7f9934-6f1b-450e-b392-2401a2b97cbb">&lt;strong&gt;</bpt>Login<ept id="bb7f9934-6f1b-450e-b392-2401a2b97cbb">&lt;/strong&gt;</ept> box, enter the SQL Server administrator login that you
+specified in the portal when you created  your server.</target>
+        </trans-unit>
+        <trans-unit id="d1e6b981-64ce-42f2-97e2-7c57de58b0d2" xml:space="preserve">
+          <source>In the <bpt id="b72003ca-ca8a-4a8d-aadb-74d076dbc16a">&lt;strong&gt;</bpt>Password<ept id="b72003ca-ca8a-4a8d-aadb-74d076dbc16a">&lt;/strong&gt;</ept> box, enter the password that you specified in
+the portal when you created  your server.</source>
+          <target state="new">In the <bpt id="b72003ca-ca8a-4a8d-aadb-74d076dbc16a">&lt;strong&gt;</bpt>Password<ept id="b72003ca-ca8a-4a8d-aadb-74d076dbc16a">&lt;/strong&gt;</ept> box, enter the password that you specified in
+the portal when you created  your server.</target>
+        </trans-unit>
+        <trans-unit id="ea907bfb-cae9-4fb9-8b14-7b1314e0fed8" xml:space="preserve">
+          <source>Click <bpt id="00e57d06-e085-43b4-87b7-48240faeb030">&lt;strong&gt;</bpt>Connect<ept id="00e57d06-e085-43b4-87b7-48240faeb030">&lt;/strong&gt;</ept> to establish the connection.</source>
+          <target state="new">Click <bpt id="00e57d06-e085-43b4-87b7-48240faeb030">&lt;strong&gt;</bpt>Connect<ept id="00e57d06-e085-43b4-87b7-48240faeb030">&lt;/strong&gt;</ept> to establish the connection.</target>
+        </trans-unit>
+        <trans-unit id="15d36ff0-7470-4b75-a009-96a4dd62fc6d" xml:space="preserve">
+          <source>SQL Server 2014 SSMS with the latest updates offers expanded support for tasks like
+creating and modifying Azure SQL databases.</source>
+          <target state="new">SQL Server 2014 SSMS with the latest updates offers expanded support for tasks like
+creating and modifying Azure SQL databases.</target>
+        </trans-unit>
+        <trans-unit id="c834f307-91c3-46e0-a4d0-c871e38e4153" xml:space="preserve">
+          <source>In addition, you can also use
+Transact-SQL statements to accomplish these tasks.</source>
+          <target state="new">In addition, you can also use
+Transact-SQL statements to accomplish these tasks.</target>
+        </trans-unit>
+        <trans-unit id="ad3c0637-20b5-49fc-87f4-9f8a1d9b579c" xml:space="preserve">
+          <source>The steps below
+provide examples of these statements.</source>
+          <target state="new">The steps below
+provide examples of these statements.</target>
+        </trans-unit>
+        <trans-unit id="3745141f-2d10-40d7-b9e2-7b3c920b1c6d" xml:space="preserve">
+          <source>For more information about using
+Transact-SQL with SQL Database, including details about which commands are
+supported, see <bpt id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;linkText&gt;</bpt>Transact-SQL Reference (SQL Database)<ept id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;/linkText&gt;</ept><bpt id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;title&gt;</bpt><ept id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using
+Transact-SQL with SQL Database, including details about which commands are
+supported, see <bpt id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;linkText&gt;</bpt>Transact-SQL Reference (SQL Database)<ept id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;/linkText&gt;</ept><bpt id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;title&gt;</bpt><ept id="099127a0-aacf-4354-ae6e-f3e6404a0951">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6b72839-29c9-4700-811a-01014107a199" xml:space="preserve">
+          <source>While connected to the <bpt id="e1817404-9665-42de-a472-74ba9a703e1f">&lt;strong&gt;</bpt>master<ept id="e1817404-9665-42de-a472-74ba9a703e1f">&lt;/strong&gt;</ept> database, you can create new
+databases on the server and modify or drop existing databases.</source>
+          <target state="new">While connected to the <bpt id="e1817404-9665-42de-a472-74ba9a703e1f">&lt;strong&gt;</bpt>master<ept id="e1817404-9665-42de-a472-74ba9a703e1f">&lt;/strong&gt;</ept> database, you can create new
+databases on the server and modify or drop existing databases.</target>
+        </trans-unit>
+        <trans-unit id="092b1a99-f0ad-48b6-989c-6451e5916ca3" xml:space="preserve">
+          <source>The steps
+below describe how to accomplish several common database management
+tasks through Management Studio.</source>
+          <target state="new">The steps
+below describe how to accomplish several common database management
+tasks through Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="a0a36b46-4a4a-439f-8d14-3c4dc6a720d4" xml:space="preserve">
+          <source>To perform these tasks, make sure you are connected to the
+<bpt id="e6f16564-685d-4ce8-8c97-043bf22ddfc5">&lt;strong&gt;</bpt>master<ept id="e6f16564-685d-4ce8-8c97-043bf22ddfc5">&lt;/strong&gt;</ept> database with the server-level principal login that you
+created when you set up your server.</source>
+          <target state="new">To perform these tasks, make sure you are connected to the
+<bpt id="e6f16564-685d-4ce8-8c97-043bf22ddfc5">&lt;strong&gt;</bpt>master<ept id="e6f16564-685d-4ce8-8c97-043bf22ddfc5">&lt;/strong&gt;</ept> database with the server-level principal login that you
+created when you set up your server.</target>
+        </trans-unit>
+        <trans-unit id="0f0adfc6-1583-4048-9f12-3330737b9fbc" xml:space="preserve">
+          <source>To open a query window in Management Studio, open the Databases folder, expand the <bpt id="75a2f4b4-4f70-43ef-81bb-d4fd86c2230c">&lt;strong&gt;</bpt>System Databases<ept id="75a2f4b4-4f70-43ef-81bb-d4fd86c2230c">&lt;/strong&gt;</ept> folder, right-click on <bpt id="609f4f3f-0751-4762-af35-95ef3db28e64">&lt;strong&gt;</bpt>master<ept id="609f4f3f-0751-4762-af35-95ef3db28e64">&lt;/strong&gt;</ept>, and then click <bpt id="0195bfed-e76a-4e32-bdd9-70eb9a908ced">&lt;strong&gt;</bpt>New Query<ept id="0195bfed-e76a-4e32-bdd9-70eb9a908ced">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open a query window in Management Studio, open the Databases folder, expand the <bpt id="75a2f4b4-4f70-43ef-81bb-d4fd86c2230c">&lt;strong&gt;</bpt>System Databases<ept id="75a2f4b4-4f70-43ef-81bb-d4fd86c2230c">&lt;/strong&gt;</ept> folder, right-click on <bpt id="609f4f3f-0751-4762-af35-95ef3db28e64">&lt;strong&gt;</bpt>master<ept id="609f4f3f-0751-4762-af35-95ef3db28e64">&lt;/strong&gt;</ept>, and then click <bpt id="0195bfed-e76a-4e32-bdd9-70eb9a908ced">&lt;strong&gt;</bpt>New Query<ept id="0195bfed-e76a-4e32-bdd9-70eb9a908ced">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5a8a307-f52e-4aa3-a448-e3d553209542" xml:space="preserve">
+          <source>Use the <bpt id="51688a88-6354-4956-b93d-361abc2907c4">&lt;strong&gt;</bpt>CREATE DATABASE<ept id="51688a88-6354-4956-b93d-361abc2907c4">&lt;/strong&gt;</ept> statement to create a new database.</source>
+          <target state="new">Use the <bpt id="51688a88-6354-4956-b93d-361abc2907c4">&lt;strong&gt;</bpt>CREATE DATABASE<ept id="51688a88-6354-4956-b93d-361abc2907c4">&lt;/strong&gt;</ept> statement to create a new database.</target>
+        </trans-unit>
+        <trans-unit id="a634aaab-3271-4c8d-9ba9-ddf9075abc38" xml:space="preserve">
+          <source>For
+more information, see <bpt id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Database)<ept id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;/linkText&gt;</ept><bpt id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;title&gt;</bpt><ept id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For
+more information, see <bpt id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;linkText&gt;</bpt>CREATE DATABASE (SQL Database)<ept id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;/linkText&gt;</ept><bpt id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;title&gt;</bpt><ept id="13ee7571-27d0-4fb7-b36f-3523ada633b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc3fb87a-332a-47df-8874-5c9fe0e4b6f0" xml:space="preserve">
+          <source>The statement below creates a new database named <bpt id="eaaa7e8e-4905-434e-ae90-c42a396ecf94">&lt;strong&gt;</bpt>myTestDB<ept id="eaaa7e8e-4905-434e-ae90-c42a396ecf94">&lt;/strong&gt;</ept> and specifies that it is a Standard S0 Edition database with a default maximum size of 250GB.</source>
+          <target state="new">The statement below creates a new database named <bpt id="eaaa7e8e-4905-434e-ae90-c42a396ecf94">&lt;strong&gt;</bpt>myTestDB<ept id="eaaa7e8e-4905-434e-ae90-c42a396ecf94">&lt;/strong&gt;</ept> and specifies that it is a Standard S0 Edition database with a default maximum size of 250GB.</target>
+        </trans-unit>
+        <trans-unit id="cb74b599-00b6-414c-ad6a-bfb3316735fb" xml:space="preserve">
+          <source>Click <bpt id="17e61709-ef72-4331-925d-377d03d509fd">&lt;strong&gt;</bpt>Execute<ept id="17e61709-ef72-4331-925d-377d03d509fd">&lt;/strong&gt;</ept> to run the query.</source>
+          <target state="new">Click <bpt id="17e61709-ef72-4331-925d-377d03d509fd">&lt;strong&gt;</bpt>Execute<ept id="17e61709-ef72-4331-925d-377d03d509fd">&lt;/strong&gt;</ept> to run the query.</target>
+        </trans-unit>
+        <trans-unit id="0eb6a80f-fad7-4ca0-8fba-c25060275a98" xml:space="preserve">
+          <source>Use the <bpt id="95bcd9c5-87be-47f4-9abd-17def5cd627a">&lt;strong&gt;</bpt>ALTER DATABASE<ept id="95bcd9c5-87be-47f4-9abd-17def5cd627a">&lt;/strong&gt;</ept> statement to modify an existing database,
+for example if you want to change the name and edition
+of the database.</source>
+          <target state="new">Use the <bpt id="95bcd9c5-87be-47f4-9abd-17def5cd627a">&lt;strong&gt;</bpt>ALTER DATABASE<ept id="95bcd9c5-87be-47f4-9abd-17def5cd627a">&lt;/strong&gt;</ept> statement to modify an existing database,
+for example if you want to change the name and edition
+of the database.</target>
+        </trans-unit>
+        <trans-unit id="9e2bc705-65a4-40ab-b2d0-b6c6264662ad" xml:space="preserve">
+          <source>For more information, see <bpt id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;linkText&gt;</bpt>ALTER DATABASE (SQL Database)<ept id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;/linkText&gt;</ept><bpt id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;title&gt;</bpt><ept id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;linkText&gt;</bpt>ALTER DATABASE (SQL Database)<ept id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;/linkText&gt;</ept><bpt id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;title&gt;</bpt><ept id="35cdde9b-ffa9-4ed0-a4ef-f528b75a6a41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e9f0884-9dce-498e-ad56-4dd852cc8108" xml:space="preserve">
+          <source>The
+statement below modifies the database you created in the previous
+step to change edition to Standard S1.</source>
+          <target state="new">The
+statement below modifies the database you created in the previous
+step to change edition to Standard S1.</target>
+        </trans-unit>
+        <trans-unit id="f08e701d-79ad-4da4-b8be-49c9538cc7f8" xml:space="preserve">
+          <source>Use <bpt id="b21d65ce-0406-4467-8ff3-f0a688263d4e">&lt;strong&gt;</bpt>the DROP DATABASE<ept id="b21d65ce-0406-4467-8ff3-f0a688263d4e">&lt;/strong&gt;</ept> Statement to delete an existing database.</source>
+          <target state="new">Use <bpt id="b21d65ce-0406-4467-8ff3-f0a688263d4e">&lt;strong&gt;</bpt>the DROP DATABASE<ept id="b21d65ce-0406-4467-8ff3-f0a688263d4e">&lt;/strong&gt;</ept> Statement to delete an existing database.</target>
+        </trans-unit>
+        <trans-unit id="449b8641-85ba-4b09-94ae-6e1b47b772cc" xml:space="preserve">
+          <source>For more information, see <bpt id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;linkText&gt;</bpt>DROP DATABASE (SQL Database)<ept id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;/linkText&gt;</ept><bpt id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;title&gt;</bpt><ept id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;linkText&gt;</bpt>DROP DATABASE (SQL Database)<ept id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;/linkText&gt;</ept><bpt id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;title&gt;</bpt><ept id="7345b4a8-cafa-41da-9318-0ec1f235c150">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c11a513-e842-46e0-913d-60058cb8d8d0" xml:space="preserve">
+          <source>The statement below deletes the <bpt id="7ea12831-b858-43a1-afc0-fbdd9d01e202">&lt;strong&gt;</bpt>myTestDB<ept id="7ea12831-b858-43a1-afc0-fbdd9d01e202">&lt;/strong&gt;</ept> database, but don't drop it now because you will use it create logins in the next step.</source>
+          <target state="new">The statement below deletes the <bpt id="7ea12831-b858-43a1-afc0-fbdd9d01e202">&lt;strong&gt;</bpt>myTestDB<ept id="7ea12831-b858-43a1-afc0-fbdd9d01e202">&lt;/strong&gt;</ept> database, but don't drop it now because you will use it create logins in the next step.</target>
+        </trans-unit>
+        <trans-unit id="5c6ac551-9326-4304-a080-1e981ad08e37" xml:space="preserve">
+          <source>The master database has the <bpt id="3da73d3f-7ad8-4fc9-822c-9ab304446961">&lt;strong&gt;</bpt>sys.databases<ept id="3da73d3f-7ad8-4fc9-822c-9ab304446961">&lt;/strong&gt;</ept> view that you can use
+to view details about all databases.</source>
+          <target state="new">The master database has the <bpt id="3da73d3f-7ad8-4fc9-822c-9ab304446961">&lt;strong&gt;</bpt>sys.databases<ept id="3da73d3f-7ad8-4fc9-822c-9ab304446961">&lt;/strong&gt;</ept> view that you can use
+to view details about all databases.</target>
+        </trans-unit>
+        <trans-unit id="9df1de85-790b-439b-bb0e-55f330ff7337" xml:space="preserve">
+          <source>To view all existing databases,
+execute the following statement:</source>
+          <target state="new">To view all existing databases,
+execute the following statement:</target>
+        </trans-unit>
+        <trans-unit id="cefac3b1-b536-4227-be4c-4ba2414c0e6d" xml:space="preserve">
+          <source>In SQL Database, the <bpt id="d302c8d7-9907-42eb-bdbb-44a06cfcc5b4">&lt;strong&gt;</bpt>USE<ept id="d302c8d7-9907-42eb-bdbb-44a06cfcc5b4">&lt;/strong&gt;</ept> statement is not supported for switching
+between databases.</source>
+          <target state="new">In SQL Database, the <bpt id="d302c8d7-9907-42eb-bdbb-44a06cfcc5b4">&lt;strong&gt;</bpt>USE<ept id="d302c8d7-9907-42eb-bdbb-44a06cfcc5b4">&lt;/strong&gt;</ept> statement is not supported for switching
+between databases.</target>
+        </trans-unit>
+        <trans-unit id="a33cc023-6e2c-4fb9-8f3d-1ca3482a1334" xml:space="preserve">
+          <source>Instead, you need to establish a connection
+directly to the target database.</source>
+          <target state="new">Instead, you need to establish a connection
+directly to the target database.</target>
+        </trans-unit>
+        <trans-unit id="2f15eb62-e685-4775-935b-b9aba14c911c" xml:space="preserve">
+          <source>Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements.</source>
+          <target state="new">Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements.</target>
+        </trans-unit>
+        <trans-unit id="ef76bbf6-8736-4c47-b220-8803f1c76b55" xml:space="preserve">
+          <source>For more information, see the statement-specific information available from the links listed above.</source>
+          <target state="new">For more information, see the statement-specific information available from the links listed above.</target>
+        </trans-unit>
+        <trans-unit id="96f5d26a-f36c-42ff-9875-6a5c3092223d" xml:space="preserve">
+          <source>The <bpt id="c36ac87a-88a8-4dad-ab99-908af1da7265">&lt;strong&gt;</bpt>master<ept id="c36ac87a-88a8-4dad-ab99-908af1da7265">&lt;/strong&gt;</ept> database keeps track of logins and which logins have
+permission to create databases or other logins.</source>
+          <target state="new">The <bpt id="c36ac87a-88a8-4dad-ab99-908af1da7265">&lt;strong&gt;</bpt>master<ept id="c36ac87a-88a8-4dad-ab99-908af1da7265">&lt;/strong&gt;</ept> database keeps track of logins and which logins have
+permission to create databases or other logins.</target>
+        </trans-unit>
+        <trans-unit id="3bc78343-e63e-4735-b810-18d2c4317a7f" xml:space="preserve">
+          <source>Manage logins by
+connecting to the <bpt id="486049be-2a72-4f60-b351-d7bed7bbc84d">&lt;strong&gt;</bpt>master<ept id="486049be-2a72-4f60-b351-d7bed7bbc84d">&lt;/strong&gt;</ept> database with the server-level principal
+login that you created when you set up your server.</source>
+          <target state="new">Manage logins by
+connecting to the <bpt id="486049be-2a72-4f60-b351-d7bed7bbc84d">&lt;strong&gt;</bpt>master<ept id="486049be-2a72-4f60-b351-d7bed7bbc84d">&lt;/strong&gt;</ept> database with the server-level principal
+login that you created when you set up your server.</target>
+        </trans-unit>
+        <trans-unit id="5b9b0cb1-563c-4e63-bee5-2a1cc7046f2c" xml:space="preserve">
+          <source>You can use the
+<bpt id="be19439b-90c6-4f4d-8768-bf0ea382160f">&lt;strong&gt;</bpt>CREATE LOGIN<ept id="be19439b-90c6-4f4d-8768-bf0ea382160f">&lt;/strong&gt;</ept>, <bpt id="4329824c-4dfc-474b-87d4-8690b78cfe9b">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="4329824c-4dfc-474b-87d4-8690b78cfe9b">&lt;/strong&gt;</ept>, or <bpt id="3a502a45-fd9d-4053-b0f4-d2bab17683c0">&lt;strong&gt;</bpt>DROP LOGIN<ept id="3a502a45-fd9d-4053-b0f4-d2bab17683c0">&lt;/strong&gt;</ept> statements to
+execute queries against the master database that will manage logins
+across the entire server.</source>
+          <target state="new">You can use the
+<bpt id="be19439b-90c6-4f4d-8768-bf0ea382160f">&lt;strong&gt;</bpt>CREATE LOGIN<ept id="be19439b-90c6-4f4d-8768-bf0ea382160f">&lt;/strong&gt;</ept>, <bpt id="4329824c-4dfc-474b-87d4-8690b78cfe9b">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="4329824c-4dfc-474b-87d4-8690b78cfe9b">&lt;/strong&gt;</ept>, or <bpt id="3a502a45-fd9d-4053-b0f4-d2bab17683c0">&lt;strong&gt;</bpt>DROP LOGIN<ept id="3a502a45-fd9d-4053-b0f4-d2bab17683c0">&lt;/strong&gt;</ept> statements to
+execute queries against the master database that will manage logins
+across the entire server.</target>
+        </trans-unit>
+        <trans-unit id="a9e1ff69-a434-49b8-afa2-411197043b32" xml:space="preserve">
+          <source>For more information, see <bpt id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;linkText&gt;</bpt>Managing Databases and Logins in SQL Database<ept id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;/linkText&gt;</ept><bpt id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;title&gt;</bpt><ept id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;linkText&gt;</bpt>Managing Databases and Logins in SQL Database<ept id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;/linkText&gt;</ept><bpt id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;title&gt;</bpt><ept id="25e79d02-026a-4bd2-9ab6-3615d1b3fe6b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4418fdf-e21d-45c0-a88e-1aa3a83837dc" xml:space="preserve">
+          <source>Use the <bpt id="a2e81f2e-0e10-41e4-8f42-7822eee13fa5">&lt;strong&gt;</bpt>CREATE LOGIN<ept id="a2e81f2e-0e10-41e4-8f42-7822eee13fa5">&lt;/strong&gt;</ept> statement to create a new server-level
+login.</source>
+          <target state="new">Use the <bpt id="a2e81f2e-0e10-41e4-8f42-7822eee13fa5">&lt;strong&gt;</bpt>CREATE LOGIN<ept id="a2e81f2e-0e10-41e4-8f42-7822eee13fa5">&lt;/strong&gt;</ept> statement to create a new server-level
+login.</target>
+        </trans-unit>
+        <trans-unit id="27153737-70a4-41e5-9e37-d2fbb41e066e" xml:space="preserve">
+          <source>For more information, see <bpt id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;linkText&gt;</bpt>CREATE LOGIN (SQL Database)<ept id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;/linkText&gt;</ept><bpt id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;title&gt;</bpt><ept id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;linkText&gt;</bpt>CREATE LOGIN (SQL Database)<ept id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;/linkText&gt;</ept><bpt id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;title&gt;</bpt><ept id="9632483c-ad6b-444a-a63b-b995c939f10c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81e5838e-82a8-4074-8406-95b5b5369a0c" xml:space="preserve">
+          <source>The statement below creates a new login
+called <bpt id="1c8c565a-2032-47d9-a1e4-3cfb561e2da0">&lt;strong&gt;</bpt>login1<ept id="1c8c565a-2032-47d9-a1e4-3cfb561e2da0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The statement below creates a new login
+called <bpt id="1c8c565a-2032-47d9-a1e4-3cfb561e2da0">&lt;strong&gt;</bpt>login1<ept id="1c8c565a-2032-47d9-a1e4-3cfb561e2da0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8876a9d9-63ce-4ac5-84a1-abba3294ff98" xml:space="preserve">
+          <source>Replace <bpt id="1e93ef7f-2895-40c5-932b-4930ccbcbe5f">&lt;strong&gt;</bpt>password1<ept id="1e93ef7f-2895-40c5-932b-4930ccbcbe5f">&lt;/strong&gt;</ept> with the password of your
+choice.</source>
+          <target state="new">Replace <bpt id="1e93ef7f-2895-40c5-932b-4930ccbcbe5f">&lt;strong&gt;</bpt>password1<ept id="1e93ef7f-2895-40c5-932b-4930ccbcbe5f">&lt;/strong&gt;</ept> with the password of your
+choice.</target>
+        </trans-unit>
+        <trans-unit id="58cb411c-70ac-4c9b-8837-7dd2475ec992" xml:space="preserve">
+          <source>Use the <bpt id="ec5940d3-ad94-40c8-a90b-2afa97f216c6">&lt;strong&gt;</bpt>CREATE USER<ept id="ec5940d3-ad94-40c8-a90b-2afa97f216c6">&lt;/strong&gt;</ept> statement to grant database-level
+permissions.</source>
+          <target state="new">Use the <bpt id="ec5940d3-ad94-40c8-a90b-2afa97f216c6">&lt;strong&gt;</bpt>CREATE USER<ept id="ec5940d3-ad94-40c8-a90b-2afa97f216c6">&lt;/strong&gt;</ept> statement to grant database-level
+permissions.</target>
+        </trans-unit>
+        <trans-unit id="1406e347-e4b2-4a1b-8468-5f61db9943aa" xml:space="preserve">
+          <source>All logins must be created in the <bpt id="35474ce4-47e3-4eaa-9905-e08cf14c0da1">&lt;strong&gt;</bpt>master<ept id="35474ce4-47e3-4eaa-9905-e08cf14c0da1">&lt;/strong&gt;</ept> database,
+but for a login to connect to a different database, you
+must grant it database-level permissions using the <bpt id="f71ef3dd-a457-4dad-ae77-a4c47dc9e0b3">&lt;strong&gt;</bpt>CREATE USER<ept id="f71ef3dd-a457-4dad-ae77-a4c47dc9e0b3">&lt;/strong&gt;</ept>
+statement on that database.</source>
+          <target state="new">All logins must be created in the <bpt id="35474ce4-47e3-4eaa-9905-e08cf14c0da1">&lt;strong&gt;</bpt>master<ept id="35474ce4-47e3-4eaa-9905-e08cf14c0da1">&lt;/strong&gt;</ept> database,
+but for a login to connect to a different database, you
+must grant it database-level permissions using the <bpt id="f71ef3dd-a457-4dad-ae77-a4c47dc9e0b3">&lt;strong&gt;</bpt>CREATE USER<ept id="f71ef3dd-a457-4dad-ae77-a4c47dc9e0b3">&lt;/strong&gt;</ept>
+statement on that database.</target>
+        </trans-unit>
+        <trans-unit id="de93c8f1-bdf6-4014-8edf-9ab5842cd8d3" xml:space="preserve">
+          <source>For more information, see <bpt id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;linkText&gt;</bpt>CREATE USER (SQL Database)<ept id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;/linkText&gt;</ept><bpt id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;title&gt;</bpt><ept id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;linkText&gt;</bpt>CREATE USER (SQL Database)<ept id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;/linkText&gt;</ept><bpt id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;title&gt;</bpt><ept id="84cad047-8853-45c8-a5bb-b4de68460f07">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0371cfa-6a3f-4c02-bc40-9e0406a7f5e5" xml:space="preserve">
+          <source>To give login1
+permissions to a database called <bpt id="1f4645be-2238-4a23-bc04-8b354887c159">&lt;strong&gt;</bpt>myTestDB<ept id="1f4645be-2238-4a23-bc04-8b354887c159">&lt;/strong&gt;</ept>, complete the following
+steps:</source>
+          <target state="new">To give login1
+permissions to a database called <bpt id="1f4645be-2238-4a23-bc04-8b354887c159">&lt;strong&gt;</bpt>myTestDB<ept id="1f4645be-2238-4a23-bc04-8b354887c159">&lt;/strong&gt;</ept>, complete the following
+steps:</target>
+        </trans-unit>
+        <trans-unit id="d52afa41-820f-42fe-a20e-a3d440157073" xml:space="preserve">
+          <source>To refresh Object Explorer to view the <bpt id="d5c9f50e-45b2-4a54-8b8f-d2c426113204">&lt;strong&gt;</bpt>myTestDB<ept id="d5c9f50e-45b2-4a54-8b8f-d2c426113204">&lt;/strong&gt;</ept> database that you just created, right-click the server name in Object Explorer and then click <bpt id="f4333ed0-b2a7-494f-a075-f07ce34483c5">&lt;strong&gt;</bpt>Refresh<ept id="f4333ed0-b2a7-494f-a075-f07ce34483c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To refresh Object Explorer to view the <bpt id="d5c9f50e-45b2-4a54-8b8f-d2c426113204">&lt;strong&gt;</bpt>myTestDB<ept id="d5c9f50e-45b2-4a54-8b8f-d2c426113204">&lt;/strong&gt;</ept> database that you just created, right-click the server name in Object Explorer and then click <bpt id="f4333ed0-b2a7-494f-a075-f07ce34483c5">&lt;strong&gt;</bpt>Refresh<ept id="f4333ed0-b2a7-494f-a075-f07ce34483c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba6e41f3-7e67-4ca5-81c8-81d00b34f873" xml:space="preserve">
+          <source>If you closed the connection, you can reconnect by selecting <bpt id="90621ad9-795e-4119-9e4f-8dbb686b8b9d">&lt;strong&gt;</bpt>Connect Object Explorer<ept id="90621ad9-795e-4119-9e4f-8dbb686b8b9d">&lt;/strong&gt;</ept> on the File menu.</source>
+          <target state="new">If you closed the connection, you can reconnect by selecting <bpt id="90621ad9-795e-4119-9e4f-8dbb686b8b9d">&lt;strong&gt;</bpt>Connect Object Explorer<ept id="90621ad9-795e-4119-9e4f-8dbb686b8b9d">&lt;/strong&gt;</ept> on the File menu.</target>
+        </trans-unit>
+        <trans-unit id="0856c37f-e0fe-4c2b-ac91-2655e5143117" xml:space="preserve">
+          <source>Right-click <bpt id="31e62ede-6bec-4db5-9772-dc6e2fedbe37">&lt;strong&gt;</bpt>myTestDB<ept id="31e62ede-6bec-4db5-9772-dc6e2fedbe37">&lt;/strong&gt;</ept> database and select <bpt id="07cc8355-246f-42bf-afbf-a7dd3a9eac86">&lt;strong&gt;</bpt>New Query<ept id="07cc8355-246f-42bf-afbf-a7dd3a9eac86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="31e62ede-6bec-4db5-9772-dc6e2fedbe37">&lt;strong&gt;</bpt>myTestDB<ept id="31e62ede-6bec-4db5-9772-dc6e2fedbe37">&lt;/strong&gt;</ept> database and select <bpt id="07cc8355-246f-42bf-afbf-a7dd3a9eac86">&lt;strong&gt;</bpt>New Query<ept id="07cc8355-246f-42bf-afbf-a7dd3a9eac86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3064b7d2-990f-460e-bb36-e63c2295b0df" xml:space="preserve">
+          <source>Execute the following statement against the myTestDB database to
+create a database user named <bpt id="2907dc64-cf4c-4490-8be1-2dd4bd67065d">&lt;strong&gt;</bpt>login1User<ept id="2907dc64-cf4c-4490-8be1-2dd4bd67065d">&lt;/strong&gt;</ept> that corresponds to
+the server-level login <bpt id="b3a499c4-6196-4eff-97f5-bc04c6f98df5">&lt;strong&gt;</bpt>login1<ept id="b3a499c4-6196-4eff-97f5-bc04c6f98df5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Execute the following statement against the myTestDB database to
+create a database user named <bpt id="2907dc64-cf4c-4490-8be1-2dd4bd67065d">&lt;strong&gt;</bpt>login1User<ept id="2907dc64-cf4c-4490-8be1-2dd4bd67065d">&lt;/strong&gt;</ept> that corresponds to
+the server-level login <bpt id="b3a499c4-6196-4eff-97f5-bc04c6f98df5">&lt;strong&gt;</bpt>login1<ept id="b3a499c4-6196-4eff-97f5-bc04c6f98df5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c51a3a0-bc5b-4e1d-a624-cba0999f4f40" xml:space="preserve">
+          <source>Use the <bpt id="8a8c2b0e-af68-4801-82a2-3cf9c4c21a62">&lt;strong&gt;</bpt>sp\_addrolemember<ept id="8a8c2b0e-af68-4801-82a2-3cf9c4c21a62">&lt;/strong&gt;</ept> stored procedure to give the user
+account the appropriate level of permissions on the database.</source>
+          <target state="new">Use the <bpt id="8a8c2b0e-af68-4801-82a2-3cf9c4c21a62">&lt;strong&gt;</bpt>sp\_addrolemember<ept id="8a8c2b0e-af68-4801-82a2-3cf9c4c21a62">&lt;/strong&gt;</ept> stored procedure to give the user
+account the appropriate level of permissions on the database.</target>
+        </trans-unit>
+        <trans-unit id="3944ec78-6ebd-4187-ac59-3cd1b141bce9" xml:space="preserve">
+          <source>For
+more information, see <bpt id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;linkText&gt;</bpt>sp_addrolemember (Transact-SQL)<ept id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;/linkText&gt;</ept><bpt id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;title&gt;</bpt><ept id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For
+more information, see <bpt id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;linkText&gt;</bpt>sp_addrolemember (Transact-SQL)<ept id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;/linkText&gt;</ept><bpt id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;title&gt;</bpt><ept id="af64f3f7-9f10-4d04-be51-34219f9bd01e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee3125fd-c725-4f6d-8bfc-a1b06bf66f8d" xml:space="preserve">
+          <source>The statement below gives <bpt id="19cc14a6-a24d-4fb9-ba53-b6a7cb803481">&lt;strong&gt;</bpt>login1User<ept id="19cc14a6-a24d-4fb9-ba53-b6a7cb803481">&lt;/strong&gt;</ept>
+read-only permissions to the database by adding <bpt id="80ac66fa-2ecb-4951-aaa2-1c6e75755ce6">&lt;strong&gt;</bpt>login1User<ept id="80ac66fa-2ecb-4951-aaa2-1c6e75755ce6">&lt;/strong&gt;</ept> to
+the <bpt id="0b4a297a-b4d9-4971-b6d2-354e7e716baa">&lt;strong&gt;</bpt>db\_datareader<ept id="0b4a297a-b4d9-4971-b6d2-354e7e716baa">&lt;/strong&gt;</ept> role.</source>
+          <target state="new">The statement below gives <bpt id="19cc14a6-a24d-4fb9-ba53-b6a7cb803481">&lt;strong&gt;</bpt>login1User<ept id="19cc14a6-a24d-4fb9-ba53-b6a7cb803481">&lt;/strong&gt;</ept>
+read-only permissions to the database by adding <bpt id="80ac66fa-2ecb-4951-aaa2-1c6e75755ce6">&lt;strong&gt;</bpt>login1User<ept id="80ac66fa-2ecb-4951-aaa2-1c6e75755ce6">&lt;/strong&gt;</ept> to
+the <bpt id="0b4a297a-b4d9-4971-b6d2-354e7e716baa">&lt;strong&gt;</bpt>db\_datareader<ept id="0b4a297a-b4d9-4971-b6d2-354e7e716baa">&lt;/strong&gt;</ept> role.</target>
+        </trans-unit>
+        <trans-unit id="5cb8fca9-16c9-4a61-8402-d61671c4a245" xml:space="preserve">
+          <source>Use the <bpt id="0a4900fc-2ef6-4158-8731-aed109708c24">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="0a4900fc-2ef6-4158-8731-aed109708c24">&lt;/strong&gt;</ept> statement to modify an existing login, for
+example if you want to change the password for the login.</source>
+          <target state="new">Use the <bpt id="0a4900fc-2ef6-4158-8731-aed109708c24">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="0a4900fc-2ef6-4158-8731-aed109708c24">&lt;/strong&gt;</ept> statement to modify an existing login, for
+example if you want to change the password for the login.</target>
+        </trans-unit>
+        <trans-unit id="3b7727f1-8f07-4f80-b167-80048026c5e0" xml:space="preserve">
+          <source>For
+more information, see <bpt id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;linkText&gt;</bpt>ALTER LOGIN (SQL Database)<ept id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;/linkText&gt;</ept><bpt id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;title&gt;</bpt><ept id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For
+more information, see <bpt id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;linkText&gt;</bpt>ALTER LOGIN (SQL Database)<ept id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;/linkText&gt;</ept><bpt id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;title&gt;</bpt><ept id="5ff0fcec-e09c-4eaf-ab4b-ecee0856417f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9fdf1560-20c2-4c47-86d2-db061b08c4e2" xml:space="preserve">
+          <source>The <bpt id="5ee9f5dd-3514-4090-9c4a-ea04b5361c47">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="5ee9f5dd-3514-4090-9c4a-ea04b5361c47">&lt;/strong&gt;</ept> statement should be run against the <bpt id="06169c5a-425f-4192-b522-0b248e9fe8a1">&lt;strong&gt;</bpt>master<ept id="06169c5a-425f-4192-b522-0b248e9fe8a1">&lt;/strong&gt;</ept> database.</source>
+          <target state="new">The <bpt id="5ee9f5dd-3514-4090-9c4a-ea04b5361c47">&lt;strong&gt;</bpt>ALTER LOGIN<ept id="5ee9f5dd-3514-4090-9c4a-ea04b5361c47">&lt;/strong&gt;</ept> statement should be run against the <bpt id="06169c5a-425f-4192-b522-0b248e9fe8a1">&lt;strong&gt;</bpt>master<ept id="06169c5a-425f-4192-b522-0b248e9fe8a1">&lt;/strong&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="539dd327-6aae-4bd7-97a4-ddda1a09e288" xml:space="preserve">
+          <source>Switch back to the query window that is connected to that database.</source>
+          <target state="new">Switch back to the query window that is connected to that database.</target>
+        </trans-unit>
+        <trans-unit id="db06d5ee-fa30-4c52-8ab9-39af321b0551" xml:space="preserve">
+          <source>The statement below modifies the <bpt id="3c798d57-7212-4aa2-8239-47a1886e8656">&lt;strong&gt;</bpt>login1<ept id="3c798d57-7212-4aa2-8239-47a1886e8656">&lt;/strong&gt;</ept> login to reset the password.</source>
+          <target state="new">The statement below modifies the <bpt id="3c798d57-7212-4aa2-8239-47a1886e8656">&lt;strong&gt;</bpt>login1<ept id="3c798d57-7212-4aa2-8239-47a1886e8656">&lt;/strong&gt;</ept> login to reset the password.</target>
+        </trans-unit>
+        <trans-unit id="5efe05b7-4489-4f71-b272-443a3559ddb8" xml:space="preserve">
+          <source>Replace <bpt id="f7cc958f-3bcf-43fd-a9d0-27e575ca4eb5">&lt;strong&gt;</bpt>newPassword<ept id="f7cc958f-3bcf-43fd-a9d0-27e575ca4eb5">&lt;/strong&gt;</ept> with the password of your choice, and
+<bpt id="4af4441a-831e-43c9-831c-3d341319313b">&lt;strong&gt;</bpt>oldPassword<ept id="4af4441a-831e-43c9-831c-3d341319313b">&lt;/strong&gt;</ept> with the current password for the login.</source>
+          <target state="new">Replace <bpt id="f7cc958f-3bcf-43fd-a9d0-27e575ca4eb5">&lt;strong&gt;</bpt>newPassword<ept id="f7cc958f-3bcf-43fd-a9d0-27e575ca4eb5">&lt;/strong&gt;</ept> with the password of your choice, and
+<bpt id="4af4441a-831e-43c9-831c-3d341319313b">&lt;strong&gt;</bpt>oldPassword<ept id="4af4441a-831e-43c9-831c-3d341319313b">&lt;/strong&gt;</ept> with the current password for the login.</target>
+        </trans-unit>
+        <trans-unit id="e0e43ee6-8dbd-4298-adf1-045eae6b5f1f" xml:space="preserve">
+          <source>Use <bpt id="7882274e-36cd-4c10-8e06-126344d75919">&lt;strong&gt;</bpt>the DROP LOGIN<ept id="7882274e-36cd-4c10-8e06-126344d75919">&lt;/strong&gt;</ept> statement to delete an existing login.</source>
+          <target state="new">Use <bpt id="7882274e-36cd-4c10-8e06-126344d75919">&lt;strong&gt;</bpt>the DROP LOGIN<ept id="7882274e-36cd-4c10-8e06-126344d75919">&lt;/strong&gt;</ept> statement to delete an existing login.</target>
+        </trans-unit>
+        <trans-unit id="966e0818-b829-4b18-b8d7-954bfa97c9b0" xml:space="preserve">
+          <source>Deleting a login at the server level also deletes any associated
+database user accounts.</source>
+          <target state="new">Deleting a login at the server level also deletes any associated
+database user accounts.</target>
+        </trans-unit>
+        <trans-unit id="2d9bcc09-1ee0-4012-851e-c200e2159a87" xml:space="preserve">
+          <source>For more information,
+see <bpt id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;linkText&gt;</bpt>DROP DATABASE (SQL Database)<ept id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;/linkText&gt;</ept><bpt id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;title&gt;</bpt><ept id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information,
+see <bpt id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;linkText&gt;</bpt>DROP DATABASE (SQL Database)<ept id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;/linkText&gt;</ept><bpt id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;title&gt;</bpt><ept id="38e1582a-1d6c-49a8-8524-6d13bc31f4ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3eed0a1c-0b0e-4422-b63e-61eed551b8d8" xml:space="preserve">
+          <source>The <bpt id="2e7613ca-2bbe-49b3-8052-a2c30a8d632c">&lt;strong&gt;</bpt>DROP LOGIN<ept id="2e7613ca-2bbe-49b3-8052-a2c30a8d632c">&lt;/strong&gt;</ept>
+statement should be run against the <bpt id="536ebb3d-e5d4-4ebc-863a-510b8cb71b16">&lt;strong&gt;</bpt>master<ept id="536ebb3d-e5d4-4ebc-863a-510b8cb71b16">&lt;/strong&gt;</ept> database.</source>
+          <target state="new">The <bpt id="2e7613ca-2bbe-49b3-8052-a2c30a8d632c">&lt;strong&gt;</bpt>DROP LOGIN<ept id="2e7613ca-2bbe-49b3-8052-a2c30a8d632c">&lt;/strong&gt;</ept>
+statement should be run against the <bpt id="536ebb3d-e5d4-4ebc-863a-510b8cb71b16">&lt;strong&gt;</bpt>master<ept id="536ebb3d-e5d4-4ebc-863a-510b8cb71b16">&lt;/strong&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="41b7f450-0183-4cf7-9959-92b9d0a227b5" xml:space="preserve">
+          <source>The
+statement below deletes the <bpt id="8b8b4c4d-92d5-4bfa-901b-97c1849de8a5">&lt;strong&gt;</bpt>login1<ept id="8b8b4c4d-92d5-4bfa-901b-97c1849de8a5">&lt;/strong&gt;</ept> login.</source>
+          <target state="new">The
+statement below deletes the <bpt id="8b8b4c4d-92d5-4bfa-901b-97c1849de8a5">&lt;strong&gt;</bpt>login1<ept id="8b8b4c4d-92d5-4bfa-901b-97c1849de8a5">&lt;/strong&gt;</ept> login.</target>
+        </trans-unit>
+        <trans-unit id="2e6868ba-a797-4e57-9438-caf4a85da271" xml:space="preserve">
+          <source>The master database has the <bpt id="a5bf348d-556d-4773-a3eb-da3aa6f6e140">&lt;strong&gt;</bpt>sys.sql\_logins<ept id="a5bf348d-556d-4773-a3eb-da3aa6f6e140">&lt;/strong&gt;</ept> view that you can
+use to view logins.</source>
+          <target state="new">The master database has the <bpt id="a5bf348d-556d-4773-a3eb-da3aa6f6e140">&lt;strong&gt;</bpt>sys.sql\_logins<ept id="a5bf348d-556d-4773-a3eb-da3aa6f6e140">&lt;/strong&gt;</ept> view that you can
+use to view logins.</target>
+        </trans-unit>
+        <trans-unit id="742f78ca-288e-462a-acbd-92c4a0249585" xml:space="preserve">
+          <source>To view all existing logins, execute the
+following statement:</source>
+          <target state="new">To view all existing logins, execute the
+following statement:</target>
+        </trans-unit>
+        <trans-unit id="78fe65bc-5e16-4748-9974-fcbc979a0aac" xml:space="preserve">
+          <source>SQL Database supports several dynamic management views that you
+can use to monitor an individual database.</source>
+          <target state="new">SQL Database supports several dynamic management views that you
+can use to monitor an individual database.</target>
+        </trans-unit>
+        <trans-unit id="8a613431-b40c-4c5c-903d-d8fdf003bfbb" xml:space="preserve">
+          <source>Below are a few examples of
+the type of monitor data you can retrieve through these views.</source>
+          <target state="new">Below are a few examples of
+the type of monitor data you can retrieve through these views.</target>
+        </trans-unit>
+        <trans-unit id="b05e9b02-2e25-4071-99b6-149c348ebd8f" xml:space="preserve">
+          <source>For
+complete details and more usage examples, see <bpt id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;linkText&gt;</bpt>Monitoring SQL Database using Dynamic Management Views<ept id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;/linkText&gt;</ept><bpt id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;title&gt;</bpt><ept id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For
+complete details and more usage examples, see <bpt id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;linkText&gt;</bpt>Monitoring SQL Database using Dynamic Management Views<ept id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;/linkText&gt;</ept><bpt id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;title&gt;</bpt><ept id="0cde1ca6-59d5-445e-88b2-d85e6daf9a6a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35d4a318-a007-4b99-a342-fe14f832166b" xml:space="preserve">
+          <source>Querying a dynamic management view requires <bpt id="a63c0ee4-9aa9-4528-b978-b6ac5f69e09f">&lt;strong&gt;</bpt>VIEW DATABASE STATE<ept id="a63c0ee4-9aa9-4528-b978-b6ac5f69e09f">&lt;/strong&gt;</ept>
+permissions.</source>
+          <target state="new">Querying a dynamic management view requires <bpt id="a63c0ee4-9aa9-4528-b978-b6ac5f69e09f">&lt;strong&gt;</bpt>VIEW DATABASE STATE<ept id="a63c0ee4-9aa9-4528-b978-b6ac5f69e09f">&lt;/strong&gt;</ept>
+permissions.</target>
+        </trans-unit>
+        <trans-unit id="a7728784-7cdc-406d-9baa-e73735c69037" xml:space="preserve">
+          <source>To grant the <bpt id="a14082c7-7388-4188-aea4-b64836dd0745">&lt;strong&gt;</bpt>VIEW DATABASE STATE<ept id="a14082c7-7388-4188-aea4-b64836dd0745">&lt;/strong&gt;</ept> permission to a
+specific database user, connect to the database you want to manage
+with your server-level principle login and execute the following
+statement against the database:</source>
+          <target state="new">To grant the <bpt id="a14082c7-7388-4188-aea4-b64836dd0745">&lt;strong&gt;</bpt>VIEW DATABASE STATE<ept id="a14082c7-7388-4188-aea4-b64836dd0745">&lt;/strong&gt;</ept> permission to a
+specific database user, connect to the database you want to manage
+with your server-level principle login and execute the following
+statement against the database:</target>
+        </trans-unit>
+        <trans-unit id="eaac7987-52b7-4fc2-ae44-698f660d91fe" xml:space="preserve">
+          <source>Calculate database size using the <bpt id="7c37e677-4fe0-4a95-9b03-b16c06489574">&lt;strong&gt;</bpt>sys.dm\_db\_partition\_stats<ept id="7c37e677-4fe0-4a95-9b03-b16c06489574">&lt;/strong&gt;</ept>
+view.</source>
+          <target state="new">Calculate database size using the <bpt id="7c37e677-4fe0-4a95-9b03-b16c06489574">&lt;strong&gt;</bpt>sys.dm\_db\_partition\_stats<ept id="7c37e677-4fe0-4a95-9b03-b16c06489574">&lt;/strong&gt;</ept>
+view.</target>
+        </trans-unit>
+        <trans-unit id="0aabd643-621c-4b07-be29-1ee5d6fd7a95" xml:space="preserve">
+          <source>The <bpt id="056c10c2-eeea-44f6-80b5-b95a0f2542dd">&lt;strong&gt;</bpt>sys.dm\_db\_partition\_stats<ept id="056c10c2-eeea-44f6-80b5-b95a0f2542dd">&lt;/strong&gt;</ept> view returns page and
+row-count information for every partition in the database, which you
+can use to calculate the database size.</source>
+          <target state="new">The <bpt id="056c10c2-eeea-44f6-80b5-b95a0f2542dd">&lt;strong&gt;</bpt>sys.dm\_db\_partition\_stats<ept id="056c10c2-eeea-44f6-80b5-b95a0f2542dd">&lt;/strong&gt;</ept> view returns page and
+row-count information for every partition in the database, which you
+can use to calculate the database size.</target>
+        </trans-unit>
+        <trans-unit id="39c450ab-3cb4-4e83-8be3-947b444a8990" xml:space="preserve">
+          <source>The following query returns
+the size of your database in megabytes:</source>
+          <target state="new">The following query returns
+the size of your database in megabytes:</target>
+        </trans-unit>
+        <trans-unit id="9ef209f9-b310-4156-a60d-ac5b000c218c" xml:space="preserve">
+          <source>Use the <bpt id="6052a2eb-9732-4df7-a435-3e2a4d4e4b04">&lt;strong&gt;</bpt>sys.dm\_exec\_connections<ept id="6052a2eb-9732-4df7-a435-3e2a4d4e4b04">&lt;/strong&gt;</ept> and <bpt id="b2cf2f4c-a2c4-4060-822f-ce230694180f">&lt;strong&gt;</bpt>sys.dm\_exec\_sessions<ept id="b2cf2f4c-a2c4-4060-822f-ce230694180f">&lt;/strong&gt;</ept>
+views to retrieve information about current user connections and
+internal tasks associated with the database.</source>
+          <target state="new">Use the <bpt id="6052a2eb-9732-4df7-a435-3e2a4d4e4b04">&lt;strong&gt;</bpt>sys.dm\_exec\_connections<ept id="6052a2eb-9732-4df7-a435-3e2a4d4e4b04">&lt;/strong&gt;</ept> and <bpt id="b2cf2f4c-a2c4-4060-822f-ce230694180f">&lt;strong&gt;</bpt>sys.dm\_exec\_sessions<ept id="b2cf2f4c-a2c4-4060-822f-ce230694180f">&lt;/strong&gt;</ept>
+views to retrieve information about current user connections and
+internal tasks associated with the database.</target>
+        </trans-unit>
+        <trans-unit id="1132b0b1-44d7-4f64-a65a-bfd563a050f5" xml:space="preserve">
+          <source>The following query
+returns information about the current connection:</source>
+          <target state="new">The following query
+returns information about the current connection:</target>
+        </trans-unit>
+        <trans-unit id="ce87ba41-e049-47c9-bdec-650c0a815def" xml:space="preserve">
+          <source>Use the <bpt id="8205a84f-150f-4a91-873c-b219513b49c5">&lt;strong&gt;</bpt>sys.dm\_exec\_query\_stats<ept id="8205a84f-150f-4a91-873c-b219513b49c5">&lt;/strong&gt;</ept> view to retrieve aggregate
+performance statistics for cached query plans.</source>
+          <target state="new">Use the <bpt id="8205a84f-150f-4a91-873c-b219513b49c5">&lt;strong&gt;</bpt>sys.dm\_exec\_query\_stats<ept id="8205a84f-150f-4a91-873c-b219513b49c5">&lt;/strong&gt;</ept> view to retrieve aggregate
+performance statistics for cached query plans.</target>
+        </trans-unit>
+        <trans-unit id="80220c14-14ea-4e41-821f-0c5877c7e70d" xml:space="preserve">
+          <source>The following query
+returns information about the top five queries ranked by average CPU
+time.</source>
+          <target state="new">The following query
+returns information about the top five queries ranked by average CPU
+time.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

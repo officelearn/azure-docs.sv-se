@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f5767a04-4830-45f2-80bf-0285a0b73d53" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f5767a04-4830-45f2-80bf-0285a0b73d53" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6474cf95-7446-4e5f-844e-481e28297548">
+        <trans-unit id="fa78f089-42b1-4c5b-a58c-317e6fe9a267" xml:space="preserve">
+          <source>Get started with the DocumentDB .NET SDK | Microsoft Azure</source>
+          <target state="new">Get started with the DocumentDB .NET SDK | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cd915884-a6d0-4db9-8260-c354a01a8847" xml:space="preserve">
+          <source>Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account.</source>
+          <target state="new">Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account.</target>
+        </trans-unit>
+        <trans-unit id="8d7a6163-a546-4b44-b9fb-2087845b2b8a" xml:space="preserve">
+          <source>This tutorial shows you how to get started using <bpt id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;/linkText&gt;</ept><bpt id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;title&gt;</bpt><ept id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;/title&gt;</ept> and the <bpt id="13c1528e-968f-4627-9908-441809aafa59">&lt;linkText&gt;</bpt>DocumentDB .NET SDK<ept id="13c1528e-968f-4627-9908-441809aafa59">&lt;/linkText&gt;</ept><bpt id="13c1528e-968f-4627-9908-441809aafa59">&lt;title&gt;</bpt><ept id="13c1528e-968f-4627-9908-441809aafa59">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial shows you how to get started using <bpt id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;linkText&gt;</bpt>Microsoft Azure DocumentDB<ept id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;/linkText&gt;</ept><bpt id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;title&gt;</bpt><ept id="f76b8ae3-72be-464f-87e7-56c2dc632856">&lt;/title&gt;</ept> and the <bpt id="13c1528e-968f-4627-9908-441809aafa59">&lt;linkText&gt;</bpt>DocumentDB .NET SDK<ept id="13c1528e-968f-4627-9908-441809aafa59">&lt;/linkText&gt;</ept><bpt id="13c1528e-968f-4627-9908-441809aafa59">&lt;title&gt;</bpt><ept id="13c1528e-968f-4627-9908-441809aafa59">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="091cc58c-257a-4c2f-9195-96a9d8a1288a" xml:space="preserve">
+          <source>You'll build a console application that creates and queries DocumentDB resources, and writes the output to the console window.</source>
+          <target state="new">You'll build a console application that creates and queries DocumentDB resources, and writes the output to the console window.</target>
+        </trans-unit>
+        <trans-unit id="59fa8eb2-df68-4e9d-a1ac-6feb03922c06" xml:space="preserve">
+          <source>DocumentDB is a NoSQL document database service, which has a <bpt id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;linkText&gt;</bpt>number of APIs and SDKs available<ept id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;/linkText&gt;</ept><bpt id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;title&gt;</bpt><ept id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;/title&gt;</ept>.</source>
+          <target state="new">DocumentDB is a NoSQL document database service, which has a <bpt id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;linkText&gt;</bpt>number of APIs and SDKs available<ept id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;/linkText&gt;</ept><bpt id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;title&gt;</bpt><ept id="4c3ad512-f1ca-4c74-8cfd-1119442b62fd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23d53ad4-a5e9-42ce-a6b9-7f4f1b03370f" xml:space="preserve">
+          <source>The code in this article is written in C# and uses the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package.</source>
+          <target state="new">The code in this article is written in C# and uses the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="86ed73ee-6676-4ee9-939d-07d6fca26504" xml:space="preserve">
+          <source>The following scenarios are covered in this article:</source>
+          <target state="new">The following scenarios are covered in this article:</target>
+        </trans-unit>
+        <trans-unit id="2bb5862b-add4-4be6-812b-8906950817db" xml:space="preserve">
+          <source>Creating and connecting to a DocumentDB account</source>
+          <target state="new">Creating and connecting to a DocumentDB account</target>
+        </trans-unit>
+        <trans-unit id="0fe8b118-3035-4c9c-9b80-96b8310ec231" xml:space="preserve">
+          <source>Adding DocumentDB to your Visual Studio solution</source>
+          <target state="new">Adding DocumentDB to your Visual Studio solution</target>
+        </trans-unit>
+        <trans-unit id="9b3a44d1-b9c6-4ec4-b7c2-9d3f7036ce1e" xml:space="preserve">
+          <source>Creating databases</source>
+          <target state="new">Creating databases</target>
+        </trans-unit>
+        <trans-unit id="45b4faf4-9990-4d4f-98be-de4084465b1d" xml:space="preserve">
+          <source>Creating collections</source>
+          <target state="new">Creating collections</target>
+        </trans-unit>
+        <trans-unit id="29bcb346-576c-4986-b6fe-c8e5fb081000" xml:space="preserve">
+          <source>Creating JSON documents</source>
+          <target state="new">Creating JSON documents</target>
+        </trans-unit>
+        <trans-unit id="7e1d6930-633d-4f9a-98b9-6314f7edcd33" xml:space="preserve">
+          <source>Querying resources</source>
+          <target state="new">Querying resources</target>
+        </trans-unit>
+        <trans-unit id="4b973954-c126-4dad-928b-27965873f096" xml:space="preserve">
+          <source>Deleting databases</source>
+          <target state="new">Deleting databases</target>
+        </trans-unit>
+        <trans-unit id="1688b2d2-edd5-41dd-b479-344bed03f41a" xml:space="preserve">
+          <source>Don't have time to complete the tutorial and just want to get the working solution?</source>
+          <target state="new">Don't have time to complete the tutorial and just want to get the working solution?</target>
+        </trans-unit>
+        <trans-unit id="0edea090-0022-4946-ae52-f202796130cf" xml:space="preserve">
+          <source>No worries.</source>
+          <target state="new">No worries.</target>
+        </trans-unit>
+        <trans-unit id="93d59909-6518-459d-bc23-30ccc3852e6c" xml:space="preserve">
+          <source>The complete solution is available on <bpt id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;linkText&gt;</bpt>GitHub<ept id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;/linkText&gt;</ept><bpt id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;title&gt;</bpt><ept id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;/title&gt;</ept>.</source>
+          <target state="new">The complete solution is available on <bpt id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;linkText&gt;</bpt>GitHub<ept id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;/linkText&gt;</ept><bpt id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;title&gt;</bpt><ept id="2d99b374-5cb1-4001-a38b-9011f8816500">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="503b934c-3da1-4ea9-adce-a82224368e45" xml:space="preserve">
+          <source>See <bpt id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;linkText&gt;</bpt>Get the complete solution<ept id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;/linkText&gt;</ept><bpt id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;title&gt;</bpt><ept id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;/title&gt;</ept> for quick instructions.</source>
+          <target state="new">See <bpt id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;linkText&gt;</bpt>Get the complete solution<ept id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;/linkText&gt;</ept><bpt id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;title&gt;</bpt><ept id="551ee90b-ad47-454e-806f-1d150a3633c0">&lt;/title&gt;</ept> for quick instructions.</target>
+        </trans-unit>
+        <trans-unit id="bc1a8487-3066-42af-9b0c-d99d2efd421e" xml:space="preserve">
+          <source>Once you've completed the tutorial, please using the voting buttons at the beginning or end of the topic to let us know how we did.</source>
+          <target state="new">Once you've completed the tutorial, please using the voting buttons at the beginning or end of the topic to let us know how we did.</target>
+        </trans-unit>
+        <trans-unit id="44dead95-b110-4628-8be9-a41a46d36fe6" xml:space="preserve">
+          <source>This topic is actively being updated, so we want your feedback on improving it.</source>
+          <target state="new">This topic is actively being updated, so we want your feedback on improving it.</target>
+        </trans-unit>
+        <trans-unit id="869726a7-c2aa-4ffb-80a2-1af799c8632f" xml:space="preserve">
+          <source>If you'd like us to contact you, feel free to include your email address in the comment for follow-up.</source>
+          <target state="new">If you'd like us to contact you, feel free to include your email address in the comment for follow-up.</target>
+        </trans-unit>
+        <trans-unit id="90b580b9-d323-4001-ba3c-19c039422aa2" xml:space="preserve">
+          <source>Before following the instructions in this article, you should ensure that you have the following:</source>
+          <target state="new">Before following the instructions in this article, you should ensure that you have the following:</target>
+        </trans-unit>
+        <trans-unit id="bc1a21c6-fdc0-48af-ba87-e3581eb70c4d" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="06aefb00-59e9-4755-aa51-ec2d8d39bf21" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="b3a7958e-26a8-4510-9530-2024ea09667e" xml:space="preserve">
+          <source>For details, see <bpt id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;/linkText&gt;</ept><bpt id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;title&gt;</bpt><ept id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;/linkText&gt;</ept><bpt id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;title&gt;</bpt><ept id="b9f9d711-0d4a-413d-b80a-d2507500c9b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da2af5b6-f9af-4626-b6b9-729c2863ec89" xml:space="preserve">
+          <source><bpt id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;linkText&gt;</bpt>Visual Studio 2013<ept id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;/linkText&gt;</ept><bpt id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;title&gt;</bpt><ept id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;/title&gt;</ept> Update 4 or higher.</source>
+          <target state="new"><bpt id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;linkText&gt;</bpt>Visual Studio 2013<ept id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;/linkText&gt;</ept><bpt id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;title&gt;</bpt><ept id="0827f887-ab78-4d9f-b3c0-51244a1879c0">&lt;/title&gt;</ept> Update 4 or higher.</target>
+        </trans-unit>
+        <trans-unit id="8c4212c0-e212-4014-a78f-5c241bae2bb2" xml:space="preserve">
+          <source>Lets get started by creating a DocumentDB account.</source>
+          <target state="new">Lets get started by creating a DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="b43fd988-c35f-470a-a18b-92ad23460d99" xml:space="preserve">
+          <source>If you already have an account, you can skip to <bpt id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;linkText&gt;</bpt>Setup your Visual Studio Solution<ept id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;/linkText&gt;</ept><bpt id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;title&gt;</bpt><ept id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have an account, you can skip to <bpt id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;linkText&gt;</bpt>Setup your Visual Studio Solution<ept id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;/linkText&gt;</ept><bpt id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;title&gt;</bpt><ept id="11e9016e-d900-4658-8ffe-c9f8d8325209">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eafb785d-2b27-4f54-b406-b8e4f988d92f" xml:space="preserve">
+          <source><bpt id="8bc78a5d-1cb6-444c-8399-f0e390986113">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="8bc78a5d-1cb6-444c-8399-f0e390986113">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8bc78a5d-1cb6-444c-8399-f0e390986113">&lt;token href="../../includes/documentdb-create-dbaccount.md"&gt;</bpt><ept id="8bc78a5d-1cb6-444c-8399-f0e390986113">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5384b4bf-5ee9-4a75-b5c3-b82c63bee1e6" xml:space="preserve">
+          <source>Open <bpt id="22b17f58-5511-43b0-a5d5-34b09b75d5d9">&lt;strong&gt;</bpt>Visual Studio<ept id="22b17f58-5511-43b0-a5d5-34b09b75d5d9">&lt;/strong&gt;</ept> on your computer.</source>
+          <target state="new">Open <bpt id="22b17f58-5511-43b0-a5d5-34b09b75d5d9">&lt;strong&gt;</bpt>Visual Studio<ept id="22b17f58-5511-43b0-a5d5-34b09b75d5d9">&lt;/strong&gt;</ept> on your computer.</target>
+        </trans-unit>
+        <trans-unit id="9080f9e2-5c19-40b9-af66-f920f2c45fd5" xml:space="preserve">
+          <source>Select <bpt id="8f53f01a-f31b-4c1a-afa5-428cffa35f3d">&lt;strong&gt;</bpt>New<ept id="8f53f01a-f31b-4c1a-afa5-428cffa35f3d">&lt;/strong&gt;</ept> from the <bpt id="4cddc011-cd9a-492a-ade8-0d99b2f94046">&lt;strong&gt;</bpt>File<ept id="4cddc011-cd9a-492a-ade8-0d99b2f94046">&lt;/strong&gt;</ept> menu, and choose <bpt id="711fd775-4cc4-46a3-8534-d9b0f23c704e">&lt;strong&gt;</bpt>Project<ept id="711fd775-4cc4-46a3-8534-d9b0f23c704e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="8f53f01a-f31b-4c1a-afa5-428cffa35f3d">&lt;strong&gt;</bpt>New<ept id="8f53f01a-f31b-4c1a-afa5-428cffa35f3d">&lt;/strong&gt;</ept> from the <bpt id="4cddc011-cd9a-492a-ade8-0d99b2f94046">&lt;strong&gt;</bpt>File<ept id="4cddc011-cd9a-492a-ade8-0d99b2f94046">&lt;/strong&gt;</ept> menu, and choose <bpt id="711fd775-4cc4-46a3-8534-d9b0f23c704e">&lt;strong&gt;</bpt>Project<ept id="711fd775-4cc4-46a3-8534-d9b0f23c704e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="708d45c2-f32e-4c32-9af0-e9403c202dd0" xml:space="preserve">
+          <source>In the <bpt id="d21e148d-801d-406b-bc9d-3b8eb1ed323d">&lt;strong&gt;</bpt>New Project Dialog<ept id="d21e148d-801d-406b-bc9d-3b8eb1ed323d">&lt;/strong&gt;</ept>, select <bpt id="a4d59d8a-3a58-4421-ae3d-df323b42be07">&lt;strong&gt;</bpt>Templates<ept id="a4d59d8a-3a58-4421-ae3d-df323b42be07">&lt;/strong&gt;</ept> / <bpt id="515274d5-6d1f-4feb-b09a-d72c8f550f7c">&lt;strong&gt;</bpt>Visual C#<ept id="515274d5-6d1f-4feb-b09a-d72c8f550f7c">&lt;/strong&gt;</ept> / <bpt id="7ac2fbb5-f3b2-42ad-b3b5-0e0ef4f49c9e">&lt;strong&gt;</bpt>Console Application<ept id="7ac2fbb5-f3b2-42ad-b3b5-0e0ef4f49c9e">&lt;/strong&gt;</ept>, name your project, and then click <bpt id="3836703f-b3b5-4e38-8c9f-bbf0d907d444">&lt;strong&gt;</bpt>Add<ept id="3836703f-b3b5-4e38-8c9f-bbf0d907d444">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d21e148d-801d-406b-bc9d-3b8eb1ed323d">&lt;strong&gt;</bpt>New Project Dialog<ept id="d21e148d-801d-406b-bc9d-3b8eb1ed323d">&lt;/strong&gt;</ept>, select <bpt id="a4d59d8a-3a58-4421-ae3d-df323b42be07">&lt;strong&gt;</bpt>Templates<ept id="a4d59d8a-3a58-4421-ae3d-df323b42be07">&lt;/strong&gt;</ept> / <bpt id="515274d5-6d1f-4feb-b09a-d72c8f550f7c">&lt;strong&gt;</bpt>Visual C#<ept id="515274d5-6d1f-4feb-b09a-d72c8f550f7c">&lt;/strong&gt;</ept> / <bpt id="7ac2fbb5-f3b2-42ad-b3b5-0e0ef4f49c9e">&lt;strong&gt;</bpt>Console Application<ept id="7ac2fbb5-f3b2-42ad-b3b5-0e0ef4f49c9e">&lt;/strong&gt;</ept>, name your project, and then click <bpt id="3836703f-b3b5-4e38-8c9f-bbf0d907d444">&lt;strong&gt;</bpt>Add<ept id="3836703f-b3b5-4e38-8c9f-bbf0d907d444">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47348678-a4ba-42ce-bae0-a0f3bbec8b0e" xml:space="preserve">
+          <source>In the <bpt id="0e5b022f-6708-4fc5-8799-3020207f4e06">&lt;strong&gt;</bpt>Solution Explorer<ept id="0e5b022f-6708-4fc5-8799-3020207f4e06">&lt;/strong&gt;</ept>, right click on your new console application, which is under your Visual Studio solution.</source>
+          <target state="new">In the <bpt id="0e5b022f-6708-4fc5-8799-3020207f4e06">&lt;strong&gt;</bpt>Solution Explorer<ept id="0e5b022f-6708-4fc5-8799-3020207f4e06">&lt;/strong&gt;</ept>, right click on your new console application, which is under your Visual Studio solution.</target>
+        </trans-unit>
+        <trans-unit id="00f093fe-c361-494d-b5f8-8f7c8c12d9bb" xml:space="preserve">
+          <source>Then without leaving the menu, click on <bpt id="c9ebd477-f3b3-4370-a014-ebb81c2af4b2">&lt;strong&gt;</bpt>Manage NuGet Packages...<ept id="c9ebd477-f3b3-4370-a014-ebb81c2af4b2">&lt;/strong&gt;</ept></source>
+          <target state="new">Then without leaving the menu, click on <bpt id="c9ebd477-f3b3-4370-a014-ebb81c2af4b2">&lt;strong&gt;</bpt>Manage NuGet Packages...<ept id="c9ebd477-f3b3-4370-a014-ebb81c2af4b2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15967887-ea27-4414-94a2-0514692e0021" xml:space="preserve">
+          <source>On the left most panel of the <bpt id="4eab8509-0484-44bb-8c15-8bb063b6acc4">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="4eab8509-0484-44bb-8c15-8bb063b6acc4">&lt;/strong&gt;</ept> window, click <bpt id="8d97ed03-860d-4a81-83ac-869c1c8c2ee5">&lt;strong&gt;</bpt>Online<ept id="8d97ed03-860d-4a81-83ac-869c1c8c2ee5">&lt;/strong&gt;</ept> / <bpt id="d4a53fb3-e31e-4acd-bc34-154bb3ea3e52">&lt;strong&gt;</bpt>nuget.org<ept id="d4a53fb3-e31e-4acd-bc34-154bb3ea3e52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left most panel of the <bpt id="4eab8509-0484-44bb-8c15-8bb063b6acc4">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="4eab8509-0484-44bb-8c15-8bb063b6acc4">&lt;/strong&gt;</ept> window, click <bpt id="8d97ed03-860d-4a81-83ac-869c1c8c2ee5">&lt;strong&gt;</bpt>Online<ept id="8d97ed03-860d-4a81-83ac-869c1c8c2ee5">&lt;/strong&gt;</ept> / <bpt id="d4a53fb3-e31e-4acd-bc34-154bb3ea3e52">&lt;strong&gt;</bpt>nuget.org<ept id="d4a53fb3-e31e-4acd-bc34-154bb3ea3e52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0146308a-4ab7-49c4-b0c1-d3024c2dda3e" xml:space="preserve">
+          <source>In the <bpt id="99c5caa9-3209-407d-8e55-4657fe8870ad">&lt;strong&gt;</bpt>Search Online<ept id="99c5caa9-3209-407d-8e55-4657fe8870ad">&lt;/strong&gt;</ept> input box, search for <bpt id="cd17c0a1-2903-4aef-b62c-b5ae7c66463a">&lt;strong&gt;</bpt>DocumentDB Client Library<ept id="cd17c0a1-2903-4aef-b62c-b5ae7c66463a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="99c5caa9-3209-407d-8e55-4657fe8870ad">&lt;strong&gt;</bpt>Search Online<ept id="99c5caa9-3209-407d-8e55-4657fe8870ad">&lt;/strong&gt;</ept> input box, search for <bpt id="cd17c0a1-2903-4aef-b62c-b5ae7c66463a">&lt;strong&gt;</bpt>DocumentDB Client Library<ept id="cd17c0a1-2903-4aef-b62c-b5ae7c66463a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6ee2972-f7dc-4072-ae0f-c6ef4ff879fd" xml:space="preserve">
+          <source>Within the results, find <bpt id="399ff9ba-8b79-488c-a198-030dac873f74">&lt;strong&gt;</bpt>Microsoft Azure DocumentDB Client Library<ept id="399ff9ba-8b79-488c-a198-030dac873f74">&lt;/strong&gt;</ept> and click <bpt id="b7bc7390-4090-4897-bc61-54e984a63faf">&lt;strong&gt;</bpt>Install<ept id="b7bc7390-4090-4897-bc61-54e984a63faf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the results, find <bpt id="399ff9ba-8b79-488c-a198-030dac873f74">&lt;strong&gt;</bpt>Microsoft Azure DocumentDB Client Library<ept id="399ff9ba-8b79-488c-a198-030dac873f74">&lt;/strong&gt;</ept> and click <bpt id="b7bc7390-4090-4897-bc61-54e984a63faf">&lt;strong&gt;</bpt>Install<ept id="b7bc7390-4090-4897-bc61-54e984a63faf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc5e2d13-d2c3-4bda-be75-bed054537868" xml:space="preserve">
+          <source>The package ID for the DocumentDB Client Library is <bpt id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;linkText&gt;</bpt>Microsoft.Azure.DocumentDB<ept id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;/linkText&gt;</ept><bpt id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;title&gt;</bpt><ept id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;/title&gt;</ept></source>
+          <target state="new">The package ID for the DocumentDB Client Library is <bpt id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;linkText&gt;</bpt>Microsoft.Azure.DocumentDB<ept id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;/linkText&gt;</ept><bpt id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;title&gt;</bpt><ept id="4afbc8dd-d06b-4089-a269-a80aeff6ebb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b5829fe-399f-4025-b975-b3e0a546e144" xml:space="preserve">
+          <source>Great!</source>
+          <target state="new">Great!</target>
+        </trans-unit>
+        <trans-unit id="f2ad1bda-8d12-401d-b6e0-9f34b2a3153c" xml:space="preserve">
+          <source>You are now ready to start working with DocumentDB.</source>
+          <target state="new">You are now ready to start working with DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="01f66d3f-c394-4c6b-bb75-7f313ebcb1a4" xml:space="preserve">
+          <source>We'll start by creating a new instance of the <bpt id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;linkText&gt;</bpt>DocumentClient<ept id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;/linkText&gt;</ept><bpt id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;title&gt;</bpt><ept id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;/title&gt;</ept> class in order to establish a connection to our DocumentDB account.</source>
+          <target state="new">We'll start by creating a new instance of the <bpt id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;linkText&gt;</bpt>DocumentClient<ept id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;/linkText&gt;</ept><bpt id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;title&gt;</bpt><ept id="5c0536da-bedd-4451-bfe8-ab5e1b2174f3">&lt;/title&gt;</ept> class in order to establish a connection to our DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="45c5c7e5-6168-4436-b231-dc267e06b185" xml:space="preserve">
+          <source>We'll need the following references at the beginning of our C# application:</source>
+          <target state="new">We'll need the following references at the beginning of our C# application:</target>
+        </trans-unit>
+        <trans-unit id="a1907567-d35e-487c-bc7d-108bc5f3fe24" xml:space="preserve">
+          <source>Next, a <bpt id="56c95d9b-81ba-440b-a2dd-bdd95573a00e">&lt;strong&gt;</bpt>DocumentClient<ept id="56c95d9b-81ba-440b-a2dd-bdd95573a00e">&lt;/strong&gt;</ept> can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account.</source>
+          <target state="new">Next, a <bpt id="56c95d9b-81ba-440b-a2dd-bdd95573a00e">&lt;strong&gt;</bpt>DocumentClient<ept id="56c95d9b-81ba-440b-a2dd-bdd95573a00e">&lt;/strong&gt;</ept> can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account.</target>
+        </trans-unit>
+        <trans-unit id="0a720da7-e9cd-4706-bb83-95ae69132608" xml:space="preserve">
+          <source>Add these properties to your class.</source>
+          <target state="new">Add these properties to your class.</target>
+        </trans-unit>
+        <trans-unit id="a157892d-2368-43e1-a2ff-9bbbd9de02c2" xml:space="preserve">
+          <source>Let's now create a new asynchronous task called <bpt id="a01578fd-1f6c-4b76-8f97-05d78401fcc0">&lt;strong&gt;</bpt>GetStartedDemo<ept id="a01578fd-1f6c-4b76-8f97-05d78401fcc0">&lt;/strong&gt;</ept> in your class.</source>
+          <target state="new">Let's now create a new asynchronous task called <bpt id="a01578fd-1f6c-4b76-8f97-05d78401fcc0">&lt;strong&gt;</bpt>GetStartedDemo<ept id="a01578fd-1f6c-4b76-8f97-05d78401fcc0">&lt;/strong&gt;</ept> in your class.</target>
+        </trans-unit>
+        <trans-unit id="e677a67b-4a4d-46f9-a118-aa05d642f901" xml:space="preserve">
+          <source>Within this new task, create and set up your <bpt id="d52cc542-37f0-406f-b214-8a5b6771c5a6">&lt;strong&gt;</bpt>DocumentClient<ept id="d52cc542-37f0-406f-b214-8a5b6771c5a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within this new task, create and set up your <bpt id="d52cc542-37f0-406f-b214-8a5b6771c5a6">&lt;strong&gt;</bpt>DocumentClient<ept id="d52cc542-37f0-406f-b214-8a5b6771c5a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f296b33-8e7f-4b42-8a99-c0878cf73b3c" xml:space="preserve">
+          <source>Call your asynchronous task from your Main method similar to the code below.</source>
+          <target state="new">Call your asynchronous task from your Main method similar to the code below.</target>
+        </trans-unit>
+        <trans-unit id="4a073433-e672-4d74-9573-a617b9722a1a" xml:space="preserve">
+          <source>Never store credentials in source code.</source>
+          <target state="new">Never store credentials in source code.</target>
+        </trans-unit>
+        <trans-unit id="7b7e2c24-5772-4cc3-83ce-f3901002e205" xml:space="preserve">
+          <source>To keep this sample simple, the credentials are shown in the source code.</source>
+          <target state="new">To keep this sample simple, the credentials are shown in the source code.</target>
+        </trans-unit>
+        <trans-unit id="920c1051-5f81-4e34-8f0a-99d14a8f6eb6" xml:space="preserve">
+          <source>See <bpt id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;linkText&gt;</bpt>Azure Web Sites: How Application Strings and Connection Strings Work<ept id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;/linkText&gt;</ept><bpt id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;title&gt;</bpt><ept id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;/title&gt;</ept> for information on how to store credentials in a production environment.</source>
+          <target state="new">See <bpt id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;linkText&gt;</bpt>Azure Web Sites: How Application Strings and Connection Strings Work<ept id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;/linkText&gt;</ept><bpt id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;title&gt;</bpt><ept id="51b1d9c3-f650-484a-a0d3-cab751a467f8">&lt;/title&gt;</ept> for information on how to store credentials in a production environment.</target>
+        </trans-unit>
+        <trans-unit id="f6ac9ca7-c741-44fe-9276-da1e057667f8" xml:space="preserve">
+          <source>Take a look at our sample application on <bpt id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;linkText&gt;</bpt>GitHub<ept id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;/linkText&gt;</ept><bpt id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;title&gt;</bpt><ept id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;/title&gt;</ept> for an example on storing credentials outside of the source code.</source>
+          <target state="new">Take a look at our sample application on <bpt id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;linkText&gt;</bpt>GitHub<ept id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;/linkText&gt;</ept><bpt id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;title&gt;</bpt><ept id="924b989b-b9db-41bf-9fbf-6d686cc4d6b3">&lt;/title&gt;</ept> for an example on storing credentials outside of the source code.</target>
+        </trans-unit>
+        <trans-unit id="f4aa8fe7-afa9-464b-9c21-de85d1f345ab" xml:space="preserve">
+          <source>The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the <bpt id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;linkText&gt;</bpt>Keys<ept id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;/linkText&gt;</ept><bpt id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;title&gt;</bpt><ept id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;/title&gt;</ept> blade for your DocumentDB account.</source>
+          <target state="new">The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the <bpt id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;linkText&gt;</bpt>Keys<ept id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;/linkText&gt;</ept><bpt id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;title&gt;</bpt><ept id="f80cd423-e481-41e3-90b2-9e528ccf3eda">&lt;/title&gt;</ept> blade for your DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="36ff486f-8d79-4c79-8e9d-a3e117755d9b" xml:space="preserve">
+          <source><bpt id="36fb2545-d251-4ab7-8a31-087cf86a96cf">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="36fb2545-d251-4ab7-8a31-087cf86a96cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36fb2545-d251-4ab7-8a31-087cf86a96cf">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="36fb2545-d251-4ab7-8a31-087cf86a96cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed3d2efd-ac9c-4b4d-8621-36646952d9a1" xml:space="preserve">
+          <source>These keys grant administrative access to your DocumentDB account and the resources in it.</source>
+          <target state="new">These keys grant administrative access to your DocumentDB account and the resources in it.</target>
+        </trans-unit>
+        <trans-unit id="3ed83982-a4a1-44b6-8612-0b9a34edaa1c" xml:space="preserve">
+          <source>DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key.</source>
+          <target state="new">DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key.</target>
+        </trans-unit>
+        <trans-unit id="fe8463bb-d169-4e82-b4d5-f535166ac914" xml:space="preserve">
+          <source>For more information about resource keys, see <bpt id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;linkText&gt;</bpt>Permissions<ept id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;/linkText&gt;</ept><bpt id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;title&gt;</bpt><ept id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;/title&gt;</ept> and <bpt id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;linkText&gt;</bpt>View, copy, and regenerate access keys<ept id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;/linkText&gt;</ept><bpt id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;title&gt;</bpt><ept id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about resource keys, see <bpt id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;linkText&gt;</bpt>Permissions<ept id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;/linkText&gt;</ept><bpt id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;title&gt;</bpt><ept id="0440fba3-7fda-4415-8c40-fb0bd6637c6f">&lt;/title&gt;</ept> and <bpt id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;linkText&gt;</bpt>View, copy, and regenerate access keys<ept id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;/linkText&gt;</ept><bpt id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;title&gt;</bpt><ept id="deb85d17-1874-476c-b242-0ec4e1c31e0f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6fc234a0-8168-40f3-97aa-3bcd83d485a1" xml:space="preserve">
+          <source>Now that you know how to connect to a DocumentDB account and create an instance of the <bpt id="a4ae14ec-10c2-476a-9d27-4f0cdfa090a3">&lt;strong&gt;</bpt>DocumentClient<ept id="a4ae14ec-10c2-476a-9d27-4f0cdfa090a3">&lt;/strong&gt;</ept> class, let's take a look at working with DocumentDB resources.</source>
+          <target state="new">Now that you know how to connect to a DocumentDB account and create an instance of the <bpt id="a4ae14ec-10c2-476a-9d27-4f0cdfa090a3">&lt;strong&gt;</bpt>DocumentClient<ept id="a4ae14ec-10c2-476a-9d27-4f0cdfa090a3">&lt;/strong&gt;</ept> class, let's take a look at working with DocumentDB resources.</target>
+        </trans-unit>
+        <trans-unit id="8c5f0830-38cb-49b0-b7df-f81e65fe3f96" xml:space="preserve">
+          <source>A <bpt id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;linkText&gt;</bpt>database<ept id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;/linkText&gt;</ept><bpt id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;title&gt;</bpt><ept id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;/title&gt;</ept> can be created by using the <bpt id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;linkText&gt;</bpt>CreateDatabaseAsync<ept id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;/linkText&gt;</ept><bpt id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;title&gt;</bpt><ept id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;/title&gt;</ept> method of the <bpt id="a9627b70-683e-49f6-8ac4-81fa4018bd25">&lt;strong&gt;</bpt>DocumentClient<ept id="a9627b70-683e-49f6-8ac4-81fa4018bd25">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">A <bpt id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;linkText&gt;</bpt>database<ept id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;/linkText&gt;</ept><bpt id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;title&gt;</bpt><ept id="e75c9734-c10b-4cba-a7f1-d6e968eb29c0">&lt;/title&gt;</ept> can be created by using the <bpt id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;linkText&gt;</bpt>CreateDatabaseAsync<ept id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;/linkText&gt;</ept><bpt id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;title&gt;</bpt><ept id="6faeaf2a-9caa-4841-96d8-a373491a22c1">&lt;/title&gt;</ept> method of the <bpt id="a9627b70-683e-49f6-8ac4-81fa4018bd25">&lt;strong&gt;</bpt>DocumentClient<ept id="a9627b70-683e-49f6-8ac4-81fa4018bd25">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="5cb9cdb9-f3d2-45ad-8c32-dd88ffa58d78" xml:space="preserve">
+          <source>A database is the logical container of document storage partitioned across collections.</source>
+          <target state="new">A database is the logical container of document storage partitioned across collections.</target>
+        </trans-unit>
+        <trans-unit id="c4b21fe2-c107-435a-bc67-e0fd2cbed4f3" xml:space="preserve">
+          <source>Create your new database in your <bpt id="f8c63df1-3e5e-4f4f-a423-3186e1f0c1c4">&lt;strong&gt;</bpt>GetStartedDemo<ept id="f8c63df1-3e5e-4f4f-a423-3186e1f0c1c4">&lt;/strong&gt;</ept> method after your <bpt id="c8b01156-74ae-4702-a30c-dd65e45ac2ae">&lt;strong&gt;</bpt>DocumentClient<ept id="c8b01156-74ae-4702-a30c-dd65e45ac2ae">&lt;/strong&gt;</ept> creation.</source>
+          <target state="new">Create your new database in your <bpt id="f8c63df1-3e5e-4f4f-a423-3186e1f0c1c4">&lt;strong&gt;</bpt>GetStartedDemo<ept id="f8c63df1-3e5e-4f4f-a423-3186e1f0c1c4">&lt;/strong&gt;</ept> method after your <bpt id="c8b01156-74ae-4702-a30c-dd65e45ac2ae">&lt;strong&gt;</bpt>DocumentClient<ept id="c8b01156-74ae-4702-a30c-dd65e45ac2ae">&lt;/strong&gt;</ept> creation.</target>
+        </trans-unit>
+        <trans-unit id="cbdb6986-6080-4c88-bddb-87b810ff005b" xml:space="preserve">
+          <source><bpt id="4002e793-07d5-4ecd-a9aa-f19b80d7e254">&lt;strong&gt;</bpt>CreateDocumentCollectionAsync<ept id="4002e793-07d5-4ecd-a9aa-f19b80d7e254">&lt;/strong&gt;</ept> will create a new S1 collection, which has pricing implications.</source>
+          <target state="new"><bpt id="4002e793-07d5-4ecd-a9aa-f19b80d7e254">&lt;strong&gt;</bpt>CreateDocumentCollectionAsync<ept id="4002e793-07d5-4ecd-a9aa-f19b80d7e254">&lt;/strong&gt;</ept> will create a new S1 collection, which has pricing implications.</target>
+        </trans-unit>
+        <trans-unit id="23a7893c-feff-4784-965e-c0ff2c56486d" xml:space="preserve">
+          <source>For more details, please visit our <bpt id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;linkText&gt;</bpt>pricing page<ept id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;/linkText&gt;</ept><bpt id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;title&gt;</bpt><ept id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, please visit our <bpt id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;linkText&gt;</bpt>pricing page<ept id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;/linkText&gt;</ept><bpt id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;title&gt;</bpt><ept id="0d734d38-f88c-4823-9b01-58a5d8340882">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d4b5e0b-9b6b-4987-bd0b-bfa61c16f8cd" xml:space="preserve">
+          <source>A <bpt id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;linkText&gt;</bpt>collection<ept id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;/linkText&gt;</ept><bpt id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;title&gt;</bpt><ept id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;/title&gt;</ept> can be created by using the <bpt id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;linkText&gt;</bpt>CreateDocumentCollectionAsync<ept id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;/linkText&gt;</ept><bpt id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;title&gt;</bpt><ept id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;/title&gt;</ept> method of the <bpt id="535ecaac-7db4-4767-8349-1fcb9ff3c449">&lt;strong&gt;</bpt>DocumentClient<ept id="535ecaac-7db4-4767-8349-1fcb9ff3c449">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">A <bpt id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;linkText&gt;</bpt>collection<ept id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;/linkText&gt;</ept><bpt id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;title&gt;</bpt><ept id="be68e6fe-2358-4fbd-ab83-160b22deafc4">&lt;/title&gt;</ept> can be created by using the <bpt id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;linkText&gt;</bpt>CreateDocumentCollectionAsync<ept id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;/linkText&gt;</ept><bpt id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;title&gt;</bpt><ept id="3ff8a2af-fe16-4feb-baf8-edb7f2159986">&lt;/title&gt;</ept> method of the <bpt id="535ecaac-7db4-4767-8349-1fcb9ff3c449">&lt;strong&gt;</bpt>DocumentClient<ept id="535ecaac-7db4-4767-8349-1fcb9ff3c449">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="fc82908b-3918-46c5-8737-d335c1f0bffe" xml:space="preserve">
+          <source>A collection is a container of JSON documents and associated JavaScript application logic.</source>
+          <target state="new">A collection is a container of JSON documents and associated JavaScript application logic.</target>
+        </trans-unit>
+        <trans-unit id="d8260140-7401-41fa-8ee5-f5fdfebff270" xml:space="preserve">
+          <source>The newly created collection will be mapped to a <bpt id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;linkText&gt;</bpt>S1 performance level<ept id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;/linkText&gt;</ept><bpt id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;title&gt;</bpt><ept id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The newly created collection will be mapped to a <bpt id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;linkText&gt;</bpt>S1 performance level<ept id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;/linkText&gt;</ept><bpt id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;title&gt;</bpt><ept id="31bd3f2b-6ee7-424a-881d-b7ae1595241e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab230d9c-94aa-4ec1-8881-ff592b8e4a8a" xml:space="preserve">
+          <source>The database created in the previous step has a number of properties, one of which is the <bpt id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;linkText&gt;</bpt>CollectionsLink<ept id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;/linkText&gt;</ept><bpt id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;title&gt;</bpt><ept id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;/title&gt;</ept> property.</source>
+          <target state="new">The database created in the previous step has a number of properties, one of which is the <bpt id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;linkText&gt;</bpt>CollectionsLink<ept id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;/linkText&gt;</ept><bpt id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;title&gt;</bpt><ept id="f6bd3602-1cf1-4ba3-bdb9-0142e2d6622a">&lt;/title&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="ad8ee30e-4014-4ed7-9da8-c340fedac59d" xml:space="preserve">
+          <source>With that information, we can now create a collection after our database creation.</source>
+          <target state="new">With that information, we can now create a collection after our database creation.</target>
+        </trans-unit>
+        <trans-unit id="d6f02582-cf6c-46af-a2c2-bf0537ccea12" xml:space="preserve">
+          <source>A <bpt id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;linkText&gt;</bpt>document<ept id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;/linkText&gt;</ept><bpt id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;title&gt;</bpt><ept id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;/title&gt;</ept> can be created by using the <bpt id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;linkText&gt;</bpt>CreateDocumentAsync<ept id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;/linkText&gt;</ept><bpt id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;title&gt;</bpt><ept id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;/title&gt;</ept> method of the <bpt id="1eeae0d3-82df-4e0d-b78f-3d49e5021e25">&lt;strong&gt;</bpt>DocumentClient<ept id="1eeae0d3-82df-4e0d-b78f-3d49e5021e25">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">A <bpt id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;linkText&gt;</bpt>document<ept id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;/linkText&gt;</ept><bpt id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;title&gt;</bpt><ept id="13dcb628-89a1-4e8a-8071-d3de02fc1b4f">&lt;/title&gt;</ept> can be created by using the <bpt id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;linkText&gt;</bpt>CreateDocumentAsync<ept id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;/linkText&gt;</ept><bpt id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;title&gt;</bpt><ept id="08fcdad1-4c63-41cd-99f8-1806994d39eb">&lt;/title&gt;</ept> method of the <bpt id="1eeae0d3-82df-4e0d-b78f-3d49e5021e25">&lt;strong&gt;</bpt>DocumentClient<ept id="1eeae0d3-82df-4e0d-b78f-3d49e5021e25">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="2644e1ac-76e3-4550-8955-49d2117a19fe" xml:space="preserve">
+          <source>Documents are user defined (arbitrary) JSON content.</source>
+          <target state="new">Documents are user defined (arbitrary) JSON content.</target>
+        </trans-unit>
+        <trans-unit id="ae9b5611-f05b-46ce-ac64-58572dfd6d46" xml:space="preserve">
+          <source>The collection created in the previous step has a number of properties, one of which is the <bpt id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;linkText&gt;</bpt>DocumentsLink<ept id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;/linkText&gt;</ept><bpt id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;title&gt;</bpt><ept id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;/title&gt;</ept> property.</source>
+          <target state="new">The collection created in the previous step has a number of properties, one of which is the <bpt id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;linkText&gt;</bpt>DocumentsLink<ept id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;/linkText&gt;</ept><bpt id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;title&gt;</bpt><ept id="d11f1e2d-9ef7-4d6a-aef9-05ab3621e554">&lt;/title&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="4526fdd0-4735-47d2-b31d-18f2aabbae22" xml:space="preserve">
+          <source>With that information, we can now insert one or more documents.</source>
+          <target state="new">With that information, we can now insert one or more documents.</target>
+        </trans-unit>
+        <trans-unit id="6818b021-2f85-45eb-946b-4d8ed2559208" xml:space="preserve">
+          <source>If you already have data you'd like to store in your database, you can use DocumentDB's <bpt id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;linkText&gt;</bpt>Data Migration tool<ept id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;/linkText&gt;</ept><bpt id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;title&gt;</bpt><ept id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you already have data you'd like to store in your database, you can use DocumentDB's <bpt id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;linkText&gt;</bpt>Data Migration tool<ept id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;/linkText&gt;</ept><bpt id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;title&gt;</bpt><ept id="601cfb4f-4c13-4a57-8f2a-03417c90fb18">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2912c71b-9d58-45ec-b0d7-2a1ec7833be3" xml:space="preserve">
+          <source>First, we need to create a <bpt id="0ff737fb-ef96-4e0c-bae3-0cac0fdebbbb">&lt;strong&gt;</bpt>Parent<ept id="0ff737fb-ef96-4e0c-bae3-0cac0fdebbbb">&lt;/strong&gt;</ept>, <bpt id="502b3271-82db-411a-a332-3932cb8efab4">&lt;strong&gt;</bpt>Child<ept id="502b3271-82db-411a-a332-3932cb8efab4">&lt;/strong&gt;</ept>, <bpt id="054b262f-dd5a-4365-ad15-bf58881112fd">&lt;strong&gt;</bpt>Pet<ept id="054b262f-dd5a-4365-ad15-bf58881112fd">&lt;/strong&gt;</ept>, <bpt id="d544e7e6-b66c-4c49-a92d-aead919da81e">&lt;strong&gt;</bpt>Address<ept id="d544e7e6-b66c-4c49-a92d-aead919da81e">&lt;/strong&gt;</ept> and <bpt id="51179b78-80ef-4f9a-8f5e-f03ea854055b">&lt;strong&gt;</bpt>Family<ept id="51179b78-80ef-4f9a-8f5e-f03ea854055b">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">First, we need to create a <bpt id="0ff737fb-ef96-4e0c-bae3-0cac0fdebbbb">&lt;strong&gt;</bpt>Parent<ept id="0ff737fb-ef96-4e0c-bae3-0cac0fdebbbb">&lt;/strong&gt;</ept>, <bpt id="502b3271-82db-411a-a332-3932cb8efab4">&lt;strong&gt;</bpt>Child<ept id="502b3271-82db-411a-a332-3932cb8efab4">&lt;/strong&gt;</ept>, <bpt id="054b262f-dd5a-4365-ad15-bf58881112fd">&lt;strong&gt;</bpt>Pet<ept id="054b262f-dd5a-4365-ad15-bf58881112fd">&lt;/strong&gt;</ept>, <bpt id="d544e7e6-b66c-4c49-a92d-aead919da81e">&lt;strong&gt;</bpt>Address<ept id="d544e7e6-b66c-4c49-a92d-aead919da81e">&lt;/strong&gt;</ept> and <bpt id="51179b78-80ef-4f9a-8f5e-f03ea854055b">&lt;strong&gt;</bpt>Family<ept id="51179b78-80ef-4f9a-8f5e-f03ea854055b">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="05dba4a3-7ee0-417c-b4dc-b6c70b60fe29" xml:space="preserve">
+          <source>Create these classes by adding the following internal sub-classes.</source>
+          <target state="new">Create these classes by adding the following internal sub-classes.</target>
+        </trans-unit>
+        <trans-unit id="62f6176e-8eea-4db0-9e58-aa51550f4588" xml:space="preserve">
+          <source>Next, create your documents within your <bpt id="db06518b-77e7-45dc-a50a-726f746d6273">&lt;strong&gt;</bpt>GetStartedDemo<ept id="db06518b-77e7-45dc-a50a-726f746d6273">&lt;/strong&gt;</ept> async method.</source>
+          <target state="new">Next, create your documents within your <bpt id="db06518b-77e7-45dc-a50a-726f746d6273">&lt;strong&gt;</bpt>GetStartedDemo<ept id="db06518b-77e7-45dc-a50a-726f746d6273">&lt;/strong&gt;</ept> async method.</target>
+        </trans-unit>
+        <trans-unit id="32149c04-a45d-4122-abda-42f4687185d5" xml:space="preserve">
+          <source>You have now created the following database, collection, and documents in your DocumentDB account.</source>
+          <target state="new">You have now created the following database, collection, and documents in your DocumentDB account.</target>
+        </trans-unit>
+        <trans-unit id="e0589ed0-76ef-469c-8e32-eaa79887570a" xml:space="preserve">
+          <source><bpt id="df19849d-3802-407e-aba7-4020f9df1309">&lt;linkText&gt;</bpt>Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents<ept id="df19849d-3802-407e-aba7-4020f9df1309">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df19849d-3802-407e-aba7-4020f9df1309">&lt;linkText&gt;</bpt>Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents<ept id="df19849d-3802-407e-aba7-4020f9df1309">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30890a88-89d9-4c97-a045-fcae90bfc93f" xml:space="preserve">
+          <source>DocumentDB supports rich <bpt id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;linkText&gt;</bpt>queries<ept id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;/linkText&gt;</ept><bpt id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;title&gt;</bpt><ept id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;/title&gt;</ept> against JSON documents stored in each collection.</source>
+          <target state="new">DocumentDB supports rich <bpt id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;linkText&gt;</bpt>queries<ept id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;/linkText&gt;</ept><bpt id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;title&gt;</bpt><ept id="db4e9277-5d16-48e9-9886-f7725399b7cb">&lt;/title&gt;</ept> against JSON documents stored in each collection.</target>
+        </trans-unit>
+        <trans-unit id="d794197c-cf6c-480e-bd23-67c00055a115" xml:space="preserve">
+          <source>The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.</source>
+          <target state="new">The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="3a44d679-2623-425e-ae87-9fd21dccd1aa" xml:space="preserve">
+          <source>Add these queries to your <bpt id="df21be50-4a86-4da9-a2a7-de517706fc9a">&lt;strong&gt;</bpt>GetStartedDemo<ept id="df21be50-4a86-4da9-a2a7-de517706fc9a">&lt;/strong&gt;</ept> async method.</source>
+          <target state="new">Add these queries to your <bpt id="df21be50-4a86-4da9-a2a7-de517706fc9a">&lt;strong&gt;</bpt>GetStartedDemo<ept id="df21be50-4a86-4da9-a2a7-de517706fc9a">&lt;/strong&gt;</ept> async method.</target>
+        </trans-unit>
+        <trans-unit id="ee22e355-ea3e-4599-86f6-94bbf6498a0a" xml:space="preserve">
+          <source>The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.</source>
+          <target state="new">The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.</target>
+        </trans-unit>
+        <trans-unit id="7d75af0e-b7a6-4cce-8373-051e7751e178" xml:space="preserve">
+          <source><bpt id="8394f894-9355-4031-b44e-6da2287d7fb7">&lt;linkText&gt;</bpt>Diagram illustrating the scope and meaning of the query<ept id="8394f894-9355-4031-b44e-6da2287d7fb7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8394f894-9355-4031-b44e-6da2287d7fb7">&lt;linkText&gt;</bpt>Diagram illustrating the scope and meaning of the query<ept id="8394f894-9355-4031-b44e-6da2287d7fb7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee8ff119-ba37-4824-ab24-008b660141e9" xml:space="preserve">
+          <source>The <bpt id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;linkText&gt;</bpt>FROM<ept id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;/linkText&gt;</ept><bpt id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;title&gt;</bpt><ept id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;/title&gt;</ept> keyword is optional in the query because DocumentDB queries are already scoped to a single collection.</source>
+          <target state="new">The <bpt id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;linkText&gt;</bpt>FROM<ept id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;/linkText&gt;</ept><bpt id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;title&gt;</bpt><ept id="653e4d14-4a44-42e3-ae3e-fa73d384e4b5">&lt;/title&gt;</ept> keyword is optional in the query because DocumentDB queries are already scoped to a single collection.</target>
+        </trans-unit>
+        <trans-unit id="e21b1d04-6de1-4962-8686-9b18c8824fbf" xml:space="preserve">
+          <source>Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose.</source>
+          <target state="new">Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose.</target>
+        </trans-unit>
+        <trans-unit id="961aa046-17e4-4076-8232-8a7d56eba588" xml:space="preserve">
+          <source>DocumentDB will infer that Families, root,or the variable name you chose, reference the current collection by default.</source>
+          <target state="new">DocumentDB will infer that Families, root,or the variable name you chose, reference the current collection by default.</target>
+        </trans-unit>
+        <trans-unit id="0a700e20-8c71-4157-8c39-f8f32562d19f" xml:space="preserve">
+          <source>Deleting the created database will remove the database and all children resources (collections, documents, etc.).</source>
+          <target state="new">Deleting the created database will remove the database and all children resources (collections, documents, etc.).</target>
+        </trans-unit>
+        <trans-unit id="592de697-81c8-45d8-82d9-c83ac7131d2f" xml:space="preserve">
+          <source>You can delete the database and the document client by adding the following code snippet to the end of your <bpt id="f59457f6-034a-4dad-a292-4e7e83601e97">&lt;strong&gt;</bpt>GetStartedDemo<ept id="f59457f6-034a-4dad-a292-4e7e83601e97">&lt;/strong&gt;</ept> async method.</source>
+          <target state="new">You can delete the database and the document client by adding the following code snippet to the end of your <bpt id="f59457f6-034a-4dad-a292-4e7e83601e97">&lt;strong&gt;</bpt>GetStartedDemo<ept id="f59457f6-034a-4dad-a292-4e7e83601e97">&lt;/strong&gt;</ept> async method.</target>
+        </trans-unit>
+        <trans-unit id="3b5c0212-5489-410b-aaa7-06a598b2a372" xml:space="preserve">
+          <source>You are now ready to run your application.</source>
+          <target state="new">You are now ready to run your application.</target>
+        </trans-unit>
+        <trans-unit id="79241ecd-19ef-4bcf-ba02-2c397d4eeaa7" xml:space="preserve">
+          <source>At the end of your <bpt id="2519b150-07d8-49e4-a096-151c1099c37c">&lt;strong&gt;</bpt>Main<ept id="2519b150-07d8-49e4-a096-151c1099c37c">&lt;/strong&gt;</ept> method, add the following line of code, which will let you read the console output before the application finishes running.</source>
+          <target state="new">At the end of your <bpt id="2519b150-07d8-49e4-a096-151c1099c37c">&lt;strong&gt;</bpt>Main<ept id="2519b150-07d8-49e4-a096-151c1099c37c">&lt;/strong&gt;</ept> method, add the following line of code, which will let you read the console output before the application finishes running.</target>
+        </trans-unit>
+        <trans-unit id="d5afef82-1594-4d73-a440-f68977a69832" xml:space="preserve">
+          <source>Now hit F5 in Visual Studio to build the application in debug mode.</source>
+          <target state="new">Now hit F5 in Visual Studio to build the application in debug mode.</target>
+        </trans-unit>
+        <trans-unit id="21c6a59b-3b3c-4f7f-9ae2-864fff120302" xml:space="preserve">
+          <source>You should now see the output of your get started app.</source>
+          <target state="new">You should now see the output of your get started app.</target>
+        </trans-unit>
+        <trans-unit id="2e22e8d1-1e3a-4f06-ab00-d11621acb8c2" xml:space="preserve">
+          <source>The output will show the results of the queries we added and should match the example text below.</source>
+          <target state="new">The output will show the results of the queries we added and should match the example text below.</target>
+        </trans-unit>
+        <trans-unit id="4d3f6c0b-f019-43f8-b6c9-665c4decce81" xml:space="preserve">
+          <source>If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use.</source>
+          <target state="new">If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use.</target>
+        </trans-unit>
+        <trans-unit id="74aa429b-ffc2-4214-a289-7d1045fa3f76" xml:space="preserve">
+          <source>To avoid this, you can check to see if a database, collection, or document with the same id already exists.</source>
+          <target state="new">To avoid this, you can check to see if a database, collection, or document with the same id already exists.</target>
+        </trans-unit>
+        <trans-unit id="4530f262-35cd-43a8-9cf9-d39f7597a359" xml:space="preserve">
+          <source>For a reference on how this can be achieved, visit our <bpt id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;linkText&gt;</bpt>GitHub page<ept id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;/linkText&gt;</ept><bpt id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;title&gt;</bpt><ept id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a reference on how this can be achieved, visit our <bpt id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;linkText&gt;</bpt>GitHub page<ept id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;/linkText&gt;</ept><bpt id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;title&gt;</bpt><ept id="f235b8d0-999b-408f-9f80-7606b65623ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbb6eb28-1efe-4bbd-8619-f200e0d15bb1" xml:space="preserve">
+          <source>Contratulations!</source>
+          <target state="new">Contratulations!</target>
+        </trans-unit>
+        <trans-unit id="26310e74-379a-4e38-9e97-2e14b7cba838" xml:space="preserve">
+          <source>You've created your first DocumentDB app!</source>
+          <target state="new">You've created your first DocumentDB app!</target>
+        </trans-unit>
+        <trans-unit id="7eea8a0a-de16-41e1-8cd3-0d6c6d8079b7" xml:space="preserve">
+          <source>To build the GetStarted solution that contains all the samples in this article, you will need the following:</source>
+          <target state="new">To build the GetStarted solution that contains all the samples in this article, you will need the following:</target>
+        </trans-unit>
+        <trans-unit id="b13198db-67bc-4873-85e8-70dca8853a88" xml:space="preserve">
+          <source><bpt id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;linkText&gt;</bpt>DocumentDB account[documentdb-create-account]<ept id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;/linkText&gt;</ept><bpt id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;title&gt;</bpt><ept id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;linkText&gt;</bpt>DocumentDB account[documentdb-create-account]<ept id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;/linkText&gt;</ept><bpt id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;title&gt;</bpt><ept id="125761f8-5d8e-45d2-83bc-5e13e387296a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="660b951a-dcab-4a7b-b113-b7b7c758d3dc" xml:space="preserve">
+          <source>The <bpt id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;linkText&gt;</bpt>GetStarted<ept id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;/linkText&gt;</ept><bpt id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;title&gt;</bpt><ept id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;/title&gt;</ept> solution available on GitHub.</source>
+          <target state="new">The <bpt id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;linkText&gt;</bpt>GetStarted<ept id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;/linkText&gt;</ept><bpt id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;title&gt;</bpt><ept id="eda09862-ce7d-4a12-9839-d11a3e32e495">&lt;/title&gt;</ept> solution available on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="c95d888b-32ef-49af-8c93-2e0975407606" xml:space="preserve">
+          <source>To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the <bpt id="6f060fa8-4b37-4b8e-bd97-54aa0b301644">&lt;strong&gt;</bpt>GetStarted<ept id="6f060fa8-4b37-4b8e-bd97-54aa0b301644">&lt;/strong&gt;</ept> solution in Solution Explorer, and then click <bpt id="bf16f979-c935-4041-8553-906d95b5ba1a">&lt;strong&gt;</bpt>Enable NuGet Package Restore<ept id="bf16f979-c935-4041-8553-906d95b5ba1a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the <bpt id="6f060fa8-4b37-4b8e-bd97-54aa0b301644">&lt;strong&gt;</bpt>GetStarted<ept id="6f060fa8-4b37-4b8e-bd97-54aa0b301644">&lt;/strong&gt;</ept> solution in Solution Explorer, and then click <bpt id="bf16f979-c935-4041-8553-906d95b5ba1a">&lt;strong&gt;</bpt>Enable NuGet Package Restore<ept id="bf16f979-c935-4041-8553-906d95b5ba1a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c937fb4-ce4a-4a8b-9363-3cdffe68b149" xml:space="preserve">
+          <source>Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in <bpt id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;linkText&gt;</bpt>Connect to a DocumentDB account<ept id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;/linkText&gt;</ept><bpt id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;title&gt;</bpt><ept id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;/title&gt;</ept>.</source>
+          <target state="new">Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in <bpt id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;linkText&gt;</bpt>Connect to a DocumentDB account<ept id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;/linkText&gt;</ept><bpt id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;title&gt;</bpt><ept id="8346775b-0fb9-40d9-8b00-870fa44b1b97">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef799e6c-23bd-4664-a7d3-4f0ed754ab42" xml:space="preserve">
+          <source>Want a more complex ASP.NET MVC sample?</source>
+          <target state="new">Want a more complex ASP.NET MVC sample?</target>
+        </trans-unit>
+        <trans-unit id="5eddd70b-ad8a-4846-a5f0-706a58fe5e7b" xml:space="preserve">
+          <source>See <bpt id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;linkText&gt;</bpt>Build a web application with ASP.NET MVC using DocumentDB<ept id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;/linkText&gt;</ept><bpt id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;title&gt;</bpt><ept id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;linkText&gt;</bpt>Build a web application with ASP.NET MVC using DocumentDB<ept id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;/linkText&gt;</ept><bpt id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;title&gt;</bpt><ept id="8e24741f-834a-41d1-8eb7-6df9d85b1425">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65eb4879-a165-4601-9c54-a44a9722df2f" xml:space="preserve">
+          <source>Learn how to <bpt id="74176437-4946-4736-a611-47321a4b449c">&lt;linkText&gt;</bpt>monitor a DocumentDB account<ept id="74176437-4946-4736-a611-47321a4b449c">&lt;/linkText&gt;</ept><bpt id="74176437-4946-4736-a611-47321a4b449c">&lt;title&gt;</bpt><ept id="74176437-4946-4736-a611-47321a4b449c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to <bpt id="74176437-4946-4736-a611-47321a4b449c">&lt;linkText&gt;</bpt>monitor a DocumentDB account<ept id="74176437-4946-4736-a611-47321a4b449c">&lt;/linkText&gt;</ept><bpt id="74176437-4946-4736-a611-47321a4b449c">&lt;title&gt;</bpt><ept id="74176437-4946-4736-a611-47321a4b449c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b1ce70d-b238-4442-81d5-d697fecd2b86" xml:space="preserve">
+          <source>Run queries against our sample dataset in the <bpt id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;linkText&gt;</bpt>Query Playground<ept id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;/linkText&gt;</ept><bpt id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;title&gt;</bpt><ept id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Run queries against our sample dataset in the <bpt id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;linkText&gt;</bpt>Query Playground<ept id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;/linkText&gt;</ept><bpt id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;title&gt;</bpt><ept id="76aa2eb3-0dcc-4444-9aff-d0bcfd0f4a3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8569107-1be5-4849-ae8f-75a2ca1598bc" xml:space="preserve">
+          <source>Learn more about the programming model in the Development section of the <bpt id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;linkText&gt;</bpt>DocumentDB documentation page<ept id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;/linkText&gt;</ept><bpt id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;title&gt;</bpt><ept id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn more about the programming model in the Development section of the <bpt id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;linkText&gt;</bpt>DocumentDB documentation page<ept id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;/linkText&gt;</ept><bpt id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;title&gt;</bpt><ept id="c9cab0e2-e667-47ba-a013-0cad02992de5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43ba61bb-d46c-433b-a5cb-c786e9375018" xml:space="preserve">
+          <source>../../services/documentdb/</source>
+          <target state="new">../../services/documentdb/</target>
+        </trans-unit>
+        <trans-unit id="31678e72-3d4f-41ef-a6f4-6e1f5a9b3d02" xml:space="preserve">
+          <source>documentdb-create-account.md</source>
+          <target state="new">documentdb-create-account.md</target>
+        </trans-unit>
+        <trans-unit id="f915b7f8-db7c-4570-a5fa-edb824440693" xml:space="preserve">
+          <source>documentdb-manage.md</source>
+          <target state="new">documentdb-manage.md</target>
+        </trans-unit>
+        <trans-unit id="0c4ce2c6-2372-455e-bcf5-9f68d7e27d84" xml:space="preserve">
+          <source>media/documentdb-get-started/keys.png</source>
+          <target state="new">media/documentdb-get-started/keys.png</target>
+        </trans-unit>
+      </group>
+      <group id="a865f4dd-3450-4763-a83c-65e69d2c69a6" />
+    </body>
+  </file>
+</xliff>

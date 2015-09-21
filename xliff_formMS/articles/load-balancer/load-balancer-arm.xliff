@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e56e75b0-3e56-4c24-9f4a-4cd5faf24fee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e56e75b0-3e56-4c24-9f4a-4cd5faf24fee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b6849e56-31ac-4ae1-8d01-5f17be4cdf38">
+        <trans-unit id="44ef980b-7f3e-4b0d-a1ee-fa975428f3de" xml:space="preserve">
+          <source>Azure Resource Manager support for Load Balancer Preview | Microsoft Azure </source>
+          <target state="new">Azure Resource Manager support for Load Balancer Preview | Microsoft Azure </target>
+        </trans-unit>
+        <trans-unit id="d51fe3c7-2e5c-474f-bbdd-95d2ef80c612" xml:space="preserve">
+          <source>Using powershell for Load Balancer with Azure Resource Manager (ARM) in preview. Using templates for load balancer</source>
+          <target state="new">Using powershell for Load Balancer with Azure Resource Manager (ARM) in preview. Using templates for load balancer</target>
+        </trans-unit>
+        <trans-unit id="2f5d4609-4627-491a-9bcb-cf9d007dd06f" xml:space="preserve">
+          <source>Azure Resource Manager (ARM) is the new management framework for services in Azure.</source>
+          <target state="new">Azure Resource Manager (ARM) is the new management framework for services in Azure.</target>
+        </trans-unit>
+        <trans-unit id="147fff1f-0ece-4d7a-9082-888f7c9c3e5b" xml:space="preserve">
+          <source>Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools.</source>
+          <target state="new">Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools.</target>
+        </trans-unit>
+        <trans-unit id="b43b898d-5a72-474b-bf54-45921f5de56d" xml:space="preserve">
+          <source>To learn more about Azure Resource Manager, see <bpt id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;/linkText&gt;</ept><bpt id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;title&gt;</bpt><ept id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure Resource Manager, see <bpt id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;/linkText&gt;</ept><bpt id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;title&gt;</bpt><ept id="5b299cd2-fb94-44d6-ba27-f6c09f4d32ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3a29784-93b0-44ef-b65d-2da9aa1f723f" xml:space="preserve">
+          <source>With ARM, Azure Load Balancer contains the following child resources:</source>
+          <target state="new">With ARM, Azure Load Balancer contains the following child resources:</target>
+        </trans-unit>
+        <trans-unit id="030e410d-6d1c-41b0-9ddd-03cf18c89312" xml:space="preserve">
+          <source>Front end IP configuration – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs).</source>
+          <target state="new">Front end IP configuration – a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs).</target>
+        </trans-unit>
+        <trans-unit id="579fb546-9209-4655-aa9c-96f201b54c0b" xml:space="preserve">
+          <source>These IP addresses serve as ingress for the traffic.</source>
+          <target state="new">These IP addresses serve as ingress for the traffic.</target>
+        </trans-unit>
+        <trans-unit id="4587328b-77da-4441-b1ec-7aaab1c91a85" xml:space="preserve">
+          <source>Backend address pool – these are IP addresses associated with the virtual machine Network Interface Card (NIC) to which load will be distributed.</source>
+          <target state="new">Backend address pool – these are IP addresses associated with the virtual machine Network Interface Card (NIC) to which load will be distributed.</target>
+        </trans-unit>
+        <trans-unit id="80b89232-921e-4def-9865-b6f9ae823930" xml:space="preserve">
+          <source>Load balancing rules – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination.</source>
+          <target state="new">Load balancing rules – a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination.</target>
+        </trans-unit>
+        <trans-unit id="97fbb417-fcee-4e68-acfc-1e1c4218bcf8" xml:space="preserve">
+          <source>With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs.</source>
+          <target state="new">With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with VMs.</target>
+        </trans-unit>
+        <trans-unit id="74959914-c7ed-48ce-9285-6f4d04b22cd4" xml:space="preserve">
+          <source>Probes – probes enable you to keep track of the health of VM instances.</source>
+          <target state="new">Probes – probes enable you to keep track of the health of VM instances.</target>
+        </trans-unit>
+        <trans-unit id="076b67c3-d324-4291-804c-f342b61fbad8" xml:space="preserve">
+          <source>If a health probe fails, the VM instance will be taken out of rotation automatically.</source>
+          <target state="new">If a health probe fails, the VM instance will be taken out of rotation automatically.</target>
+        </trans-unit>
+        <trans-unit id="e80baa05-7e9e-4483-b42d-879bb3bdfff7" xml:space="preserve">
+          <source>Inbound NAT rules – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.</source>
+          <target state="new">Inbound NAT rules – NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP.</target>
+        </trans-unit>
+        <trans-unit id="acbb7013-97a8-48bc-a83d-69e9498f18fe" xml:space="preserve">
+          <source><bpt id="3acfda23-5763-4665-90d8-8a17b3ea9ea3">&lt;linkText&gt;</bpt><ept id="3acfda23-5763-4665-90d8-8a17b3ea9ea3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3acfda23-5763-4665-90d8-8a17b3ea9ea3">&lt;linkText&gt;</bpt><ept id="3acfda23-5763-4665-90d8-8a17b3ea9ea3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f916c64-cc8d-40d2-87b0-723d41fd145c" xml:space="preserve">
+          <source>Azure Resource Manager allows you to provision your applications using a declarative template.</source>
+          <target state="new">Azure Resource Manager allows you to provision your applications using a declarative template.</target>
+        </trans-unit>
+        <trans-unit id="37af2eb4-54c3-4b2a-a657-80c2cbe58f00" xml:space="preserve">
+          <source>In a single template, you can deploy multiple services along with their dependencies.</source>
+          <target state="new">In a single template, you can deploy multiple services along with their dependencies.</target>
+        </trans-unit>
+        <trans-unit id="4bb45459-797d-40c4-a4a8-d354455a78f8" xml:space="preserve">
+          <source>You use the same template to repeatedly deploy your application during every stage of the application lifecycle</source>
+          <target state="new">You use the same template to repeatedly deploy your application during every stage of the application lifecycle</target>
+        </trans-unit>
+        <trans-unit id="ced7e309-2a00-4b4b-883b-03aad74d4f6e" xml:space="preserve">
+          <source>Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs.</source>
+          <target state="new">Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs.</target>
+        </trans-unit>
+        <trans-unit id="91667c4f-adf8-4600-be04-480f8c094d88" xml:space="preserve">
+          <source>With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.</source>
+          <target state="new">With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.</target>
+        </trans-unit>
+        <trans-unit id="f9c8d2f7-9415-4803-9850-a12260b344be" xml:space="preserve">
+          <source><bpt id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;linkText&gt;</bpt>Learn more about templates<ept id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;/linkText&gt;</ept><bpt id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;title&gt;</bpt><ept id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;linkText&gt;</bpt>Learn more about templates<ept id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;/linkText&gt;</ept><bpt id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;title&gt;</bpt><ept id="6d4f6278-c213-4a47-845d-3f14c12adbee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f689e359-0691-4743-8cbf-184cc5760507" xml:space="preserve">
+          <source><bpt id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;linkText&gt;</bpt>Learn more about Network Resources<ept id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;/linkText&gt;</ept><bpt id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;title&gt;</bpt><ept id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;linkText&gt;</bpt>Learn more about Network Resources<ept id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;/linkText&gt;</ept><bpt id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;title&gt;</bpt><ept id="a8054834-27b7-4f76-869e-bc7691a22e31">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d827f68a-a8b8-49d8-bc9e-cf73faf07357" xml:space="preserve">
+          <source>Templates using Azure Load Balancer can be found in a <bpt id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;linkText&gt;</bpt>GitHub repository<ept id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;/linkText&gt;</ept><bpt id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;title&gt;</bpt><ept id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;/title&gt;</ept> hosting a set of community generated templates</source>
+          <target state="new">Templates using Azure Load Balancer can be found in a <bpt id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;linkText&gt;</bpt>GitHub repository<ept id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;/linkText&gt;</ept><bpt id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;title&gt;</bpt><ept id="0083756f-9b3d-45cf-9dfa-0e843631d6ad">&lt;/title&gt;</ept> hosting a set of community generated templates</target>
+        </trans-unit>
+        <trans-unit id="29a0c53b-4269-4912-ae80-d912b76de2b4" xml:space="preserve">
+          <source>Examples of templates:</source>
+          <target state="new">Examples of templates:</target>
+        </trans-unit>
+        <trans-unit id="36b572c0-29c2-4067-beed-943a8d48a9de" xml:space="preserve">
+          <source><bpt id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;linkText&gt;</bpt>2 VMs in a Load Balancer and load balancing rules<ept id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;/linkText&gt;</ept><bpt id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;title&gt;</bpt><ept id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;linkText&gt;</bpt>2 VMs in a Load Balancer and load balancing rules<ept id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;/linkText&gt;</ept><bpt id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;title&gt;</bpt><ept id="b015c1a4-4ab5-4253-9a75-da97277dfdb9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa4bda5a-35fa-45c8-a688-e58aa26972f6" xml:space="preserve">
+          <source><bpt id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;linkText&gt;</bpt>2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules<ept id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;/linkText&gt;</ept><bpt id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;title&gt;</bpt><ept id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;linkText&gt;</bpt>2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules<ept id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;/linkText&gt;</ept><bpt id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;title&gt;</bpt><ept id="2ab03504-f58b-4082-b0e2-05ab64b7e25a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94bc8c02-2f77-477c-866a-edb5cd96b066" xml:space="preserve">
+          <source><bpt id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;linkText&gt;</bpt>2 VMs in a Load Balancer and configure NAT rules on the LB<ept id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;/linkText&gt;</ept><bpt id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;title&gt;</bpt><ept id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;linkText&gt;</bpt>2 VMs in a Load Balancer and configure NAT rules on the LB<ept id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;/linkText&gt;</ept><bpt id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;title&gt;</bpt><ept id="d8a30978-f897-488a-ab96-cfe4d255b074">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="514bab01-7551-4118-b9aa-22aa1a4e0db4" xml:space="preserve">
+          <source><bpt id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;linkText&gt;</bpt>Azure Networking Cmdlets<ept id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;/linkText&gt;</ept><bpt id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;title&gt;</bpt><ept id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;/title&gt;</ept> can be used to create a Load Balancer.</source>
+          <target state="new"><bpt id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;linkText&gt;</bpt>Azure Networking Cmdlets<ept id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;/linkText&gt;</ept><bpt id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;title&gt;</bpt><ept id="0ab863d9-d7a8-48f8-a448-1f6a77b9be53">&lt;/title&gt;</ept> can be used to create a Load Balancer.</target>
+        </trans-unit>
+        <trans-unit id="6eb2759a-6ac8-4861-884a-7930b5a00680" xml:space="preserve">
+          <source>Get started with ARM cmdlets and REST APIs</source>
+          <target state="new">Get started with ARM cmdlets and REST APIs</target>
+        </trans-unit>
+        <trans-unit id="ea440711-641f-4f1a-9438-bd92cafb8feb" xml:space="preserve">
+          <source><bpt id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;linkText&gt;</bpt>How to create a load balancer using Azure Resource Manager<ept id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;/linkText&gt;</ept><bpt id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;title&gt;</bpt><ept id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;linkText&gt;</bpt>How to create a load balancer using Azure Resource Manager<ept id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;/linkText&gt;</ept><bpt id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;title&gt;</bpt><ept id="148b355f-fcc3-4f70-a019-db9df20f2f58">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d8167e1-adaa-4d4a-ba75-3515e2210ed9" xml:space="preserve">
+          <source><bpt id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;linkText&gt;</bpt>Using the Azure CLI with Azure Resource Management<ept id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;/linkText&gt;</ept><bpt id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;title&gt;</bpt><ept id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;linkText&gt;</bpt>Using the Azure CLI with Azure Resource Management<ept id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;/linkText&gt;</ept><bpt id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;title&gt;</bpt><ept id="56facabf-e9c1-49a7-88bd-ac0a9f457db7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75d97bff-d76b-4f8f-b14d-257dfe87232b" xml:space="preserve">
+          <source><bpt id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;linkText&gt;</bpt>Load Balancer REST APIs<ept id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;/linkText&gt;</ept><bpt id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;title&gt;</bpt><ept id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;linkText&gt;</bpt>Load Balancer REST APIs<ept id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;/linkText&gt;</ept><bpt id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;title&gt;</bpt><ept id="28d3320d-6600-436a-ad8c-59bf379986aa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90761852-91fb-4e0e-8424-726f79f3e5d0" xml:space="preserve">
+          <source><bpt id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;/linkText&gt;</ept><bpt id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;title&gt;</bpt><ept id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;/linkText&gt;</ept><bpt id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;title&gt;</bpt><ept id="9acc0639-5d23-4b8b-ae43-f892a17df36a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c845b2a-3485-401d-b58c-26359993922c" xml:space="preserve">
+          <source><bpt id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;/linkText&gt;</ept><bpt id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;title&gt;</bpt><ept id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;/linkText&gt;</ept><bpt id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;title&gt;</bpt><ept id="6528cee7-2195-4ed6-8dbf-4d779b85656c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bb382488-7e9b-4c4c-b2b4-fa57ea4b7e9a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bb382488-7e9b-4c4c-b2b4-fa57ea4b7e9a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bdd546ad-b908-42b2-85d3-a3c3513740b7">
+        <trans-unit id="4dc7e357-b084-48b9-be2c-9ac9cb0f459c" xml:space="preserve">
+          <source>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure</source>
+          <target state="new">Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fef3d1f7-bf42-4721-9c8d-5bdf417483e1" xml:space="preserve">
+          <source>Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the Azure CLI arm mode.</source>
+          <target state="new">Learn about using the Azure CLI for Mac, Linux, and Windows to manage Azure resources using the Azure CLI arm mode.</target>
+        </trans-unit>
+        <trans-unit id="a1b1096a-7c3f-4c50-9963-b591b7b5e45c" xml:space="preserve">
+          <source>This topic describes how to use the Azure Command-Line Interface (Azure CLI) in the <bpt id="6a3f1a6a-448b-439f-9d2c-b684d1a9b9b2">&lt;strong&gt;</bpt>arm<ept id="6a3f1a6a-448b-439f-9d2c-b684d1a9b9b2">&lt;/strong&gt;</ept> mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers.</source>
+          <target state="new">This topic describes how to use the Azure Command-Line Interface (Azure CLI) in the <bpt id="6a3f1a6a-448b-439f-9d2c-b684d1a9b9b2">&lt;strong&gt;</bpt>arm<ept id="6a3f1a6a-448b-439f-9d2c-b684d1a9b9b2">&lt;/strong&gt;</ept> mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers.</target>
+        </trans-unit>
+        <trans-unit id="9bf5d0a0-0df3-4362-92c2-5aabbf154a32" xml:space="preserve">
+          <source>You can perform the same tasks using the various libraries of the Azure SDKs, with PowerShell, and using the Azure Portal.</source>
+          <target state="new">You can perform the same tasks using the various libraries of the Azure SDKs, with PowerShell, and using the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="83ec7047-45d2-4635-bb33-87d931b0080a" xml:space="preserve">
+          <source>Azure resource management enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit.</source>
+          <target state="new">Azure resource management enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit.</target>
+        </trans-unit>
+        <trans-unit id="9cd647a6-d83b-4e0a-9c02-bcab050a6452" xml:space="preserve">
+          <source>You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation.</source>
+          <target state="new">You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation.</target>
+        </trans-unit>
+        <trans-unit id="12fafbae-57c4-45b2-8a8c-a00bf27f55c3" xml:space="preserve">
+          <source>You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging and production.</source>
+          <target state="new">You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging and production.</target>
+        </trans-unit>
+        <trans-unit id="15094a0b-56fc-4293-ac15-b7a3e915e7ac" xml:space="preserve">
+          <source>As with the [service management mode (<bpt id="715d2ea8-57d4-4955-9f72-2b4befb10073">&lt;strong&gt;</bpt>asm<ept id="715d2ea8-57d4-4955-9f72-2b4befb10073">&lt;/strong&gt;</ept>)](../virtual-machines-command-line-tools.md), the <bpt id="4b3f94ac-9a95-408f-9513-763fdcdf2a81">&lt;strong&gt;</bpt>arm<ept id="4b3f94ac-9a95-408f-9513-763fdcdf2a81">&lt;/strong&gt;</ept> mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type <bpt id="8bd775c6-ff86-4028-bc10-dae3a5330ca9">&lt;code&gt;</bpt>azure group create &lt;groupname&gt; &lt;location&gt;<ept id="8bd775c6-ff86-4028-bc10-dae3a5330ca9">&lt;/code&gt;</ept> you are asking Azure to create a resource group, and with <bpt id="415f9baa-2a66-4386-a9ad-06de12f288d1">&lt;code&gt;</bpt>azure group deployment create &lt;resourcegroup&gt; &lt;deploymentname&gt;<ept id="415f9baa-2a66-4386-a9ad-06de12f288d1">&lt;/code&gt;</ept> you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.</source>
+          <target state="new">As with the [service management mode (<bpt id="715d2ea8-57d4-4955-9f72-2b4befb10073">&lt;strong&gt;</bpt>asm<ept id="715d2ea8-57d4-4955-9f72-2b4befb10073">&lt;/strong&gt;</ept>)](../virtual-machines-command-line-tools.md), the <bpt id="4b3f94ac-9a95-408f-9513-763fdcdf2a81">&lt;strong&gt;</bpt>arm<ept id="4b3f94ac-9a95-408f-9513-763fdcdf2a81">&lt;/strong&gt;</ept> mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type <bpt id="8bd775c6-ff86-4028-bc10-dae3a5330ca9">&lt;code&gt;</bpt>azure group create &lt;groupname&gt; &lt;location&gt;<ept id="8bd775c6-ff86-4028-bc10-dae3a5330ca9">&lt;/code&gt;</ept> you are asking Azure to create a resource group, and with <bpt id="415f9baa-2a66-4386-a9ad-06de12f288d1">&lt;code&gt;</bpt>azure group deployment create &lt;resourcegroup&gt; &lt;deploymentname&gt;<ept id="415f9baa-2a66-4386-a9ad-06de12f288d1">&lt;/code&gt;</ept> you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments.</target>
+        </trans-unit>
+        <trans-unit id="b0b6e6d8-3bf9-4d5d-a190-4c2b79e3ae81" xml:space="preserve">
+          <source>However, using resource group <bpt id="bfaf74c8-d570-4489-85c6-02dd42a8174b">&lt;em&gt;</bpt>templates<ept id="bfaf74c8-d570-4489-85c6-02dd42a8174b">&lt;/em&gt;</ept> that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose.</source>
+          <target state="new">However, using resource group <bpt id="bfaf74c8-d570-4489-85c6-02dd42a8174b">&lt;em&gt;</bpt>templates<ept id="bfaf74c8-d570-4489-85c6-02dd42a8174b">&lt;/em&gt;</ept> that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose.</target>
+        </trans-unit>
+        <trans-unit id="ba0a9d4e-060c-4744-87e7-2e6ce1b607da" xml:space="preserve">
+          <source>When using templates, the only imperative command is to deploy one.</source>
+          <target state="new">When using templates, the only imperative command is to deploy one.</target>
+        </trans-unit>
+        <trans-unit id="a9b6eaaa-bbfc-49a4-b28b-c5be1c3ac08c" xml:space="preserve">
+          <source>For a general overview of templates, resources, and resource groups, see <bpt id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;linkText&gt;</bpt>Azure Resource Group Overview<ept id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;/linkText&gt;</ept><bpt id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;title&gt;</bpt><ept id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a general overview of templates, resources, and resource groups, see <bpt id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;linkText&gt;</bpt>Azure Resource Group Overview<ept id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;/linkText&gt;</ept><bpt id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;title&gt;</bpt><ept id="b3392664-a2f9-43b0-97f3-18be2312b180">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffd5930d-a569-4cfd-8c3d-1c2e4eec006d" xml:space="preserve">
+          <source>In addition to command-specific options documented below and on the command line, there are three options that can be used to view detailed output such as request options and status codes.</source>
+          <target state="new">In addition to command-specific options documented below and on the command line, there are three options that can be used to view detailed output such as request options and status codes.</target>
+        </trans-unit>
+        <trans-unit id="e419937c-0f26-4082-9869-9dd7652618cc" xml:space="preserve">
+          <source>The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output.</source>
+          <target state="new">The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output.</target>
+        </trans-unit>
+        <trans-unit id="ac231c8b-1f7c-46a0-abb6-d3c32941b729" xml:space="preserve">
+          <source>The --json option will output the result in raw json format, and is very useful for scripting scenarios.</source>
+          <target state="new">The --json option will output the result in raw json format, and is very useful for scripting scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e92dbdb7-f6bf-44c7-81d2-dab245de6600" xml:space="preserve">
+          <source>Usage with the --json switch is very common, and is an important part of both obtaining and understanding results from Azure CLI operations that return resource information, status, and logs and also using templates.</source>
+          <target state="new">Usage with the --json switch is very common, and is an important part of both obtaining and understanding results from Azure CLI operations that return resource information, status, and logs and also using templates.</target>
+        </trans-unit>
+        <trans-unit id="12db1231-1c7e-4672-aa3f-b440d2c151d4" xml:space="preserve">
+          <source>You may want to install JSON parser tools such as <bpt id="c40ec613-1d44-49cb-91d3-01d382ed05ce">&lt;strong&gt;</bpt>jq<ept id="c40ec613-1d44-49cb-91d3-01d382ed05ce">&lt;/strong&gt;</ept> or <bpt id="c5770265-9f54-49fe-8245-20ab2b1ff202">&lt;strong&gt;</bpt>jsawk<ept id="c5770265-9f54-49fe-8245-20ab2b1ff202">&lt;/strong&gt;</ept> or use your favorite language library.</source>
+          <target state="new">You may want to install JSON parser tools such as <bpt id="c40ec613-1d44-49cb-91d3-01d382ed05ce">&lt;strong&gt;</bpt>jq<ept id="c40ec613-1d44-49cb-91d3-01d382ed05ce">&lt;/strong&gt;</ept> or <bpt id="c5770265-9f54-49fe-8245-20ab2b1ff202">&lt;strong&gt;</bpt>jsawk<ept id="c5770265-9f54-49fe-8245-20ab2b1ff202">&lt;/strong&gt;</ept> or use your favorite language library.</target>
+        </trans-unit>
+        <trans-unit id="ac39eb81-511b-40a2-9855-e769779d483e" xml:space="preserve">
+          <source>The set-up requirements to use the <bpt id="d3f73f5c-4114-4592-88e6-1cfcc59b889b">&lt;strong&gt;</bpt>arm<ept id="d3f73f5c-4114-4592-88e6-1cfcc59b889b">&lt;/strong&gt;</ept> mode with the Azure CLI are:</source>
+          <target state="new">The set-up requirements to use the <bpt id="d3f73f5c-4114-4592-88e6-1cfcc59b889b">&lt;strong&gt;</bpt>arm<ept id="d3f73f5c-4114-4592-88e6-1cfcc59b889b">&lt;/strong&gt;</ept> mode with the Azure CLI are:</target>
+        </trans-unit>
+        <trans-unit id="f66c130d-30e8-4297-9d97-420791c017c1" xml:space="preserve">
+          <source>an Azure account (<bpt id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;linkText&gt;</bpt>get a free trial here<ept id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;/linkText&gt;</ept><bpt id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;title&gt;</bpt><ept id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;/title&gt;</ept>)</source>
+          <target state="new">an Azure account (<bpt id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;linkText&gt;</bpt>get a free trial here<ept id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;/linkText&gt;</ept><bpt id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;title&gt;</bpt><ept id="8664d00c-b6e5-45e6-a888-b64975b9c69d">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="aadeb7d8-28b4-4004-a4a6-09e6c138301a" xml:space="preserve">
+          <source><bpt id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;linkText&gt;</bpt>installing the Azure CLI<ept id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;/linkText&gt;</ept><bpt id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;title&gt;</bpt><ept id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;linkText&gt;</bpt>installing the Azure CLI<ept id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;/linkText&gt;</ept><bpt id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;title&gt;</bpt><ept id="180a1da8-8d6a-4132-8ce3-b305e6e00687">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cf68298-ef4e-4bd6-b0ac-92b654b1dec3" xml:space="preserve">
+          <source><bpt id="d597f54e-6045-49f7-8889-707f298aa036">&lt;linkText&gt;</bpt>configuring the Azure CLI<ept id="d597f54e-6045-49f7-8889-707f298aa036">&lt;/linkText&gt;</ept><bpt id="d597f54e-6045-49f7-8889-707f298aa036">&lt;title&gt;</bpt><ept id="d597f54e-6045-49f7-8889-707f298aa036">&lt;/title&gt;</ept> to use an Azure Active Directory identity or a Service Principal</source>
+          <target state="new"><bpt id="d597f54e-6045-49f7-8889-707f298aa036">&lt;linkText&gt;</bpt>configuring the Azure CLI<ept id="d597f54e-6045-49f7-8889-707f298aa036">&lt;/linkText&gt;</ept><bpt id="d597f54e-6045-49f7-8889-707f298aa036">&lt;title&gt;</bpt><ept id="d597f54e-6045-49f7-8889-707f298aa036">&lt;/title&gt;</ept> to use an Azure Active Directory identity or a Service Principal</target>
+        </trans-unit>
+        <trans-unit id="ac2bb77c-9414-4950-8ec7-b10c957fa53c" xml:space="preserve">
+          <source>Once you have an account and have installed the Azure CLI, you must</source>
+          <target state="new">Once you have an account and have installed the Azure CLI, you must</target>
+        </trans-unit>
+        <trans-unit id="72b4a7f1-44bb-4d18-984b-1d8482eded80" xml:space="preserve">
+          <source>switch to the <bpt id="3b341524-0cbf-4be9-9c0e-b2c97b1e6040">&lt;strong&gt;</bpt>arm<ept id="3b341524-0cbf-4be9-9c0e-b2c97b1e6040">&lt;/strong&gt;</ept> mode by typing <bpt id="de355216-3dbd-4712-9f85-d79a30ab40d0">&lt;code&gt;</bpt>azure config mode arm<ept id="de355216-3dbd-4712-9f85-d79a30ab40d0">&lt;/code&gt;</ept>.</source>
+          <target state="new">switch to the <bpt id="3b341524-0cbf-4be9-9c0e-b2c97b1e6040">&lt;strong&gt;</bpt>arm<ept id="3b341524-0cbf-4be9-9c0e-b2c97b1e6040">&lt;/strong&gt;</ept> mode by typing <bpt id="de355216-3dbd-4712-9f85-d79a30ab40d0">&lt;code&gt;</bpt>azure config mode arm<ept id="de355216-3dbd-4712-9f85-d79a30ab40d0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c0e5db3-c1ac-4150-af99-7c572b9e250f" xml:space="preserve">
+          <source>Log in to your Azure account by typing <bpt id="659b6b4d-48cf-46d7-bf0e-522642cc8c66">&lt;code&gt;</bpt>azure login<ept id="659b6b4d-48cf-46d7-bf0e-522642cc8c66">&lt;/code&gt;</ept> and using your work or school identity at the prompts</source>
+          <target state="new">Log in to your Azure account by typing <bpt id="659b6b4d-48cf-46d7-bf0e-522642cc8c66">&lt;code&gt;</bpt>azure login<ept id="659b6b4d-48cf-46d7-bf0e-522642cc8c66">&lt;/code&gt;</ept> and using your work or school identity at the prompts</target>
+        </trans-unit>
+        <trans-unit id="7add431f-2e14-4aa1-a64e-3e309196f187" xml:space="preserve">
+          <source>Now type <bpt id="9d7ad4c7-3020-46ba-af8e-98d935a8231d">&lt;code&gt;</bpt>azure<ept id="9d7ad4c7-3020-46ba-af8e-98d935a8231d">&lt;/code&gt;</ept> to see a list of the top level commands described in the sections below.</source>
+          <target state="new">Now type <bpt id="9d7ad4c7-3020-46ba-af8e-98d935a8231d">&lt;code&gt;</bpt>azure<ept id="9d7ad4c7-3020-46ba-af8e-98d935a8231d">&lt;/code&gt;</ept> to see a list of the top level commands described in the sections below.</target>
+        </trans-unit>
+        <trans-unit id="af5142de-631d-4b8d-bed3-c0fd84fba54a" xml:space="preserve">
+          <source>Your Azure subscription information is used by the tool to connect to your account.</source>
+          <target state="new">Your Azure subscription information is used by the tool to connect to your account.</target>
+        </trans-unit>
+        <trans-unit id="916278f3-e4c9-4f26-94bd-6739ff5b1610" xml:space="preserve">
+          <source>This information can be obtained from the Azure portal in a publish settings file as described here.</source>
+          <target state="new">This information can be obtained from the Azure portal in a publish settings file as described here.</target>
+        </trans-unit>
+        <trans-unit id="2740d199-e1b2-44c5-a8d1-867cfe0c14c7" xml:space="preserve">
+          <source>You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations.</source>
+          <target state="new">You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations.</target>
+        </trans-unit>
+        <trans-unit id="50d4008b-0f2b-4f0e-bc97-ac777db830f6" xml:space="preserve">
+          <source>You only need to import your publish settings once.</source>
+          <target state="new">You only need to import your publish settings once.</target>
+        </trans-unit>
+        <trans-unit id="d0ea9fe7-3ea2-444c-a997-34eba3534f28" xml:space="preserve">
+          <source><bpt id="f0ad987d-ef77-43a2-971b-8d6bf5adee6a">&lt;strong&gt;</bpt>List the imported subscriptions<ept id="f0ad987d-ef77-43a2-971b-8d6bf5adee6a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f0ad987d-ef77-43a2-971b-8d6bf5adee6a">&lt;strong&gt;</bpt>List the imported subscriptions<ept id="f0ad987d-ef77-43a2-971b-8d6bf5adee6a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4ec1379-28b6-4e7c-adf7-6200803c4eba" xml:space="preserve">
+          <source><bpt id="3effcef1-6083-4218-b778-d1b296b40c7a">&lt;strong&gt;</bpt>Show details about a subscription<ept id="3effcef1-6083-4218-b778-d1b296b40c7a">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="3effcef1-6083-4218-b778-d1b296b40c7a">&lt;strong&gt;</bpt>Show details about a subscription<ept id="3effcef1-6083-4218-b778-d1b296b40c7a">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="0916aead-ef81-406a-a966-c79f089ed631" xml:space="preserve">
+          <source><bpt id="983dc487-e7a2-4e7e-a0f0-94461b12a46f">&lt;strong&gt;</bpt>Set the current subscription<ept id="983dc487-e7a2-4e7e-a0f0-94461b12a46f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="983dc487-e7a2-4e7e-a0f0-94461b12a46f">&lt;strong&gt;</bpt>Set the current subscription<ept id="983dc487-e7a2-4e7e-a0f0-94461b12a46f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98f1d45f-b9dc-47ac-aae2-42bff57b4309" xml:space="preserve">
+          <source><bpt id="f402f59c-6c94-48be-b5f4-bd1b50eb9962">&lt;strong&gt;</bpt>Remove a subscription or environment, or clear all of the stored account and environment info<ept id="f402f59c-6c94-48be-b5f4-bd1b50eb9962">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="f402f59c-6c94-48be-b5f4-bd1b50eb9962">&lt;strong&gt;</bpt>Remove a subscription or environment, or clear all of the stored account and environment info<ept id="f402f59c-6c94-48be-b5f4-bd1b50eb9962">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="36f3bb74-8dee-4cc6-85f0-8291860d5a9c" xml:space="preserve">
+          <source><bpt id="1f4838c5-28ef-4e0b-aebc-5acc706a3e9d">&lt;strong&gt;</bpt>Commands to manage your account environment<ept id="1f4838c5-28ef-4e0b-aebc-5acc706a3e9d">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="1f4838c5-28ef-4e0b-aebc-5acc706a3e9d">&lt;strong&gt;</bpt>Commands to manage your account environment<ept id="1f4838c5-28ef-4e0b-aebc-5acc706a3e9d">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="eabb88b8-21f8-4048-8dfc-9023d6bdb213" xml:space="preserve">
+          <source><bpt id="5f47cfe3-2e53-4d3e-9852-855bd89f8982">&lt;strong&gt;</bpt>Commands to display active directory applications<ept id="5f47cfe3-2e53-4d3e-9852-855bd89f8982">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5f47cfe3-2e53-4d3e-9852-855bd89f8982">&lt;strong&gt;</bpt>Commands to display active directory applications<ept id="5f47cfe3-2e53-4d3e-9852-855bd89f8982">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="add137a3-3688-4c98-9f58-f2a796ab55e1" xml:space="preserve">
+          <source><bpt id="e2b12a99-c9b5-4a46-8d27-de6741dc02bd">&lt;strong&gt;</bpt>Commands to display active directory groups<ept id="e2b12a99-c9b5-4a46-8d27-de6741dc02bd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2b12a99-c9b5-4a46-8d27-de6741dc02bd">&lt;strong&gt;</bpt>Commands to display active directory groups<ept id="e2b12a99-c9b5-4a46-8d27-de6741dc02bd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c47cae7c-f426-434a-8b47-5c8475463320" xml:space="preserve">
+          <source><bpt id="eb0a8dce-a67a-4182-96c8-c39abb8cf96e">&lt;strong&gt;</bpt>Commands to provide an active directory sub group or member info<ept id="eb0a8dce-a67a-4182-96c8-c39abb8cf96e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="eb0a8dce-a67a-4182-96c8-c39abb8cf96e">&lt;strong&gt;</bpt>Commands to provide an active directory sub group or member info<ept id="eb0a8dce-a67a-4182-96c8-c39abb8cf96e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94b1844d-1445-4588-8d6a-bfe3b7184ae9" xml:space="preserve">
+          <source><bpt id="6605c405-30d3-458f-92d8-b82c13f93a95">&lt;strong&gt;</bpt>Commands to display active directory service principals<ept id="6605c405-30d3-458f-92d8-b82c13f93a95">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6605c405-30d3-458f-92d8-b82c13f93a95">&lt;strong&gt;</bpt>Commands to display active directory service principals<ept id="6605c405-30d3-458f-92d8-b82c13f93a95">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11e4150b-3f2d-4ca2-9fb5-aa3603c01046" xml:space="preserve">
+          <source><bpt id="9434d516-acbc-4822-b908-4f26141b6e9a">&lt;strong&gt;</bpt>Commands to display active directory users<ept id="9434d516-acbc-4822-b908-4f26141b6e9a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9434d516-acbc-4822-b908-4f26141b6e9a">&lt;strong&gt;</bpt>Commands to display active directory users<ept id="9434d516-acbc-4822-b908-4f26141b6e9a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54d60d29-7d1f-4e71-9629-e2aaf2931262" xml:space="preserve">
+          <source><bpt id="8c543116-40ea-46a5-b688-3bc70a458d5b">&lt;strong&gt;</bpt>Creates an availability set within a resource group<ept id="8c543116-40ea-46a5-b688-3bc70a458d5b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8c543116-40ea-46a5-b688-3bc70a458d5b">&lt;strong&gt;</bpt>Creates an availability set within a resource group<ept id="8c543116-40ea-46a5-b688-3bc70a458d5b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83fccb77-7004-44fb-acfb-e8fdf1ee9b0e" xml:space="preserve">
+          <source><bpt id="c6c77efd-a030-47ad-97bf-d8b8101c3b6d">&lt;strong&gt;</bpt>Lists the availability sets within a resource group<ept id="c6c77efd-a030-47ad-97bf-d8b8101c3b6d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c6c77efd-a030-47ad-97bf-d8b8101c3b6d">&lt;strong&gt;</bpt>Lists the availability sets within a resource group<ept id="c6c77efd-a030-47ad-97bf-d8b8101c3b6d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1b9eb1a-3502-4cdc-9e6d-2370122ea3d7" xml:space="preserve">
+          <source><bpt id="cdc62973-9819-4d16-b2ef-6507356f0b6c">&lt;strong&gt;</bpt>Gets one availability set within a resource group<ept id="cdc62973-9819-4d16-b2ef-6507356f0b6c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cdc62973-9819-4d16-b2ef-6507356f0b6c">&lt;strong&gt;</bpt>Gets one availability set within a resource group<ept id="cdc62973-9819-4d16-b2ef-6507356f0b6c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b3dc37c-4bd0-44dc-8e53-8f838d7fee8f" xml:space="preserve">
+          <source><bpt id="91bf44e3-bedf-45f6-8e48-a0da8404423b">&lt;strong&gt;</bpt>Deletes one availability set within a resource group<ept id="91bf44e3-bedf-45f6-8e48-a0da8404423b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="91bf44e3-bedf-45f6-8e48-a0da8404423b">&lt;strong&gt;</bpt>Deletes one availability set within a resource group<ept id="91bf44e3-bedf-45f6-8e48-a0da8404423b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="135a40f1-b372-4fa0-9cd7-04966c077a38" xml:space="preserve">
+          <source><bpt id="93959507-c25d-4dea-9d03-018afd3a20cb">&lt;strong&gt;</bpt>List Azure CLI configuration settings<ept id="93959507-c25d-4dea-9d03-018afd3a20cb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="93959507-c25d-4dea-9d03-018afd3a20cb">&lt;strong&gt;</bpt>List Azure CLI configuration settings<ept id="93959507-c25d-4dea-9d03-018afd3a20cb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c90b045-8ec4-47af-8d7d-8e9d5953c9cb" xml:space="preserve">
+          <source><bpt id="c8626259-b0b9-45d4-88f5-3683595d27fb">&lt;strong&gt;</bpt>Delete a config setting<ept id="c8626259-b0b9-45d4-88f5-3683595d27fb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c8626259-b0b9-45d4-88f5-3683595d27fb">&lt;strong&gt;</bpt>Delete a config setting<ept id="c8626259-b0b9-45d4-88f5-3683595d27fb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="477436ab-9cc8-4733-a771-1b1c77ad0121" xml:space="preserve">
+          <source><bpt id="e46baa40-1b7c-48e5-863f-8efc5534a72c">&lt;strong&gt;</bpt>Update a config setting<ept id="e46baa40-1b7c-48e5-863f-8efc5534a72c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e46baa40-1b7c-48e5-863f-8efc5534a72c">&lt;strong&gt;</bpt>Update a config setting<ept id="e46baa40-1b7c-48e5-863f-8efc5534a72c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51deaaee-20d6-4f1c-a6ec-89b878de12fd" xml:space="preserve">
+          <source>**Sets the Azure CLI working mode to either <bpt id="f7bee365-148f-4fc5-b794-f2f934045bf8">&lt;code&gt;</bpt>arm<ept id="f7bee365-148f-4fc5-b794-f2f934045bf8">&lt;/code&gt;</ept> or <bpt id="15521677-a9cc-475a-aa97-99b97ff0f5e0">&lt;code&gt;</bpt>asm<ept id="15521677-a9cc-475a-aa97-99b97ff0f5e0">&lt;/code&gt;</ept>**</source>
+          <target state="new">**Sets the Azure CLI working mode to either <bpt id="f7bee365-148f-4fc5-b794-f2f934045bf8">&lt;code&gt;</bpt>arm<ept id="f7bee365-148f-4fc5-b794-f2f934045bf8">&lt;/code&gt;</ept> or <bpt id="15521677-a9cc-475a-aa97-99b97ff0f5e0">&lt;code&gt;</bpt>asm<ept id="15521677-a9cc-475a-aa97-99b97ff0f5e0">&lt;/code&gt;</ept>**</target>
+        </trans-unit>
+        <trans-unit id="24947f60-3240-4bdf-821d-0f1045ec3e6b" xml:space="preserve">
+          <source><bpt id="fd455787-7122-4b85-b4ff-71dd7fa39f8a">&lt;strong&gt;</bpt>List all features available for your subscription<ept id="fd455787-7122-4b85-b4ff-71dd7fa39f8a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fd455787-7122-4b85-b4ff-71dd7fa39f8a">&lt;strong&gt;</bpt>List all features available for your subscription<ept id="fd455787-7122-4b85-b4ff-71dd7fa39f8a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72b6d667-1207-4916-8612-cdd39e25d663" xml:space="preserve">
+          <source><bpt id="26b1efb4-0324-4283-8fd4-de3e068af5d5">&lt;strong&gt;</bpt>Shows a feature<ept id="26b1efb4-0324-4283-8fd4-de3e068af5d5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="26b1efb4-0324-4283-8fd4-de3e068af5d5">&lt;strong&gt;</bpt>Shows a feature<ept id="26b1efb4-0324-4283-8fd4-de3e068af5d5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38f06fc0-076c-42e5-b934-865f9e95ed68" xml:space="preserve">
+          <source><bpt id="ef86266e-7599-40ea-a9bb-21f64259bf8d">&lt;strong&gt;</bpt>Registers a previewed feature of a resource provider<ept id="ef86266e-7599-40ea-a9bb-21f64259bf8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ef86266e-7599-40ea-a9bb-21f64259bf8d">&lt;strong&gt;</bpt>Registers a previewed feature of a resource provider<ept id="ef86266e-7599-40ea-a9bb-21f64259bf8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dac941ec-a0a9-4325-8201-3889da738bc0" xml:space="preserve">
+          <source><bpt id="2d8f768c-9cf5-4619-858e-2dd5543c8344">&lt;strong&gt;</bpt>Creates a new resource group<ept id="2d8f768c-9cf5-4619-858e-2dd5543c8344">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2d8f768c-9cf5-4619-858e-2dd5543c8344">&lt;strong&gt;</bpt>Creates a new resource group<ept id="2d8f768c-9cf5-4619-858e-2dd5543c8344">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6a27d22-df83-4890-b518-2600b6ed3493" xml:space="preserve">
+          <source><bpt id="b4fda6f7-2194-40e5-b7b1-3ef4aa49ac4c">&lt;strong&gt;</bpt>Set tags to a resource group<ept id="b4fda6f7-2194-40e5-b7b1-3ef4aa49ac4c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b4fda6f7-2194-40e5-b7b1-3ef4aa49ac4c">&lt;strong&gt;</bpt>Set tags to a resource group<ept id="b4fda6f7-2194-40e5-b7b1-3ef4aa49ac4c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1ca012a-6961-458c-834d-38c97836b99c" xml:space="preserve">
+          <source><bpt id="1546b850-f7a8-4fcc-bef4-9a20d1d86ca7">&lt;strong&gt;</bpt>Deletes a resource group<ept id="1546b850-f7a8-4fcc-bef4-9a20d1d86ca7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1546b850-f7a8-4fcc-bef4-9a20d1d86ca7">&lt;strong&gt;</bpt>Deletes a resource group<ept id="1546b850-f7a8-4fcc-bef4-9a20d1d86ca7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dcc2aec-3274-4988-a55c-f969aaaca0c8" xml:space="preserve">
+          <source><bpt id="03a257c0-1626-4f56-8f33-5a56c87e92a3">&lt;strong&gt;</bpt>Lists the resource groups for your subscription<ept id="03a257c0-1626-4f56-8f33-5a56c87e92a3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="03a257c0-1626-4f56-8f33-5a56c87e92a3">&lt;strong&gt;</bpt>Lists the resource groups for your subscription<ept id="03a257c0-1626-4f56-8f33-5a56c87e92a3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8067480-ece6-424a-9826-6e1dc430db89" xml:space="preserve">
+          <source><bpt id="88acc647-5069-4bb6-9ffd-455254fac938">&lt;strong&gt;</bpt>Shows a resource group for your subscription<ept id="88acc647-5069-4bb6-9ffd-455254fac938">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="88acc647-5069-4bb6-9ffd-455254fac938">&lt;strong&gt;</bpt>Shows a resource group for your subscription<ept id="88acc647-5069-4bb6-9ffd-455254fac938">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc8e3d8b-6c9e-4f2a-a4bd-8508b43b70af" xml:space="preserve">
+          <source><bpt id="9afd6546-c82c-461a-a0ca-cb1d2a78a4f2">&lt;strong&gt;</bpt>Commands to manage resource group logs<ept id="9afd6546-c82c-461a-a0ca-cb1d2a78a4f2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9afd6546-c82c-461a-a0ca-cb1d2a78a4f2">&lt;strong&gt;</bpt>Commands to manage resource group logs<ept id="9afd6546-c82c-461a-a0ca-cb1d2a78a4f2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f586ee9c-f95c-4100-a073-d02469e2ca34" xml:space="preserve">
+          <source><bpt id="b762ef1a-d36a-4675-a13a-4e9fdeaa400f">&lt;strong&gt;</bpt>Commands to manage your deployment in a resource group<ept id="b762ef1a-d36a-4675-a13a-4e9fdeaa400f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b762ef1a-d36a-4675-a13a-4e9fdeaa400f">&lt;strong&gt;</bpt>Commands to manage your deployment in a resource group<ept id="b762ef1a-d36a-4675-a13a-4e9fdeaa400f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d748f05-adac-4876-91e5-d9928deac96e" xml:space="preserve">
+          <source><bpt id="80dc0662-ed64-4ff1-9dfd-8926a1d8d48b">&lt;strong&gt;</bpt>Commands to manage your local or gallery resource group template<ept id="80dc0662-ed64-4ff1-9dfd-8926a1d8d48b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="80dc0662-ed64-4ff1-9dfd-8926a1d8d48b">&lt;strong&gt;</bpt>Commands to manage your local or gallery resource group template<ept id="80dc0662-ed64-4ff1-9dfd-8926a1d8d48b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b28aaa6f-9f94-4ac9-87bb-da105e801ecc" xml:space="preserve">
+          <source><bpt id="acde810e-3dd7-4741-931d-266accbf4135">&lt;strong&gt;</bpt>Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider<ept id="acde810e-3dd7-4741-931d-266accbf4135">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="acde810e-3dd7-4741-931d-266accbf4135">&lt;strong&gt;</bpt>Retrieve operation logs for a subscription, a correlationId, a resource group, resource, or resource provider<ept id="acde810e-3dd7-4741-931d-266accbf4135">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ae9a0d9-9d1a-468c-b714-b713ef390809" xml:space="preserve">
+          <source><bpt id="21f99fe0-f946-4266-a31e-a4fe646a1e6b">&lt;strong&gt;</bpt>List the available locations<ept id="21f99fe0-f946-4266-a31e-a4fe646a1e6b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="21f99fe0-f946-4266-a31e-a4fe646a1e6b">&lt;strong&gt;</bpt>List the available locations<ept id="21f99fe0-f946-4266-a31e-a4fe646a1e6b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47019648-8395-408f-b397-2e91beed1b45" xml:space="preserve">
+          <source><bpt id="025fe995-8157-4d03-b612-04aa713a28b5">&lt;strong&gt;</bpt>Commands to manage virtual networks<ept id="025fe995-8157-4d03-b612-04aa713a28b5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="025fe995-8157-4d03-b612-04aa713a28b5">&lt;strong&gt;</bpt>Commands to manage virtual networks<ept id="025fe995-8157-4d03-b612-04aa713a28b5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94ce2ebf-4f67-4c3c-8ec8-8a51c6035e77" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="3861abaa-a656-48f3-8a9f-c50b9c746165" xml:space="preserve">
+          <source>Updates a virtual network configuration within a resource group.</source>
+          <target state="new">Updates a virtual network configuration within a resource group.</target>
+        </trans-unit>
+        <trans-unit id="c2d5cfe9-5bb8-43f1-89d6-ddd5677d8c79" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="9efc5b0e-9401-4c99-b5fa-b5120584039a" xml:space="preserve">
+          <source>The command allows to list all virtual networks in a resource group.</source>
+          <target state="new">The command allows to list all virtual networks in a resource group.</target>
+        </trans-unit>
+        <trans-unit id="4219dfba-0c6a-430b-9635-53bdb8bd2e7b" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="4bcc72f0-7c85-43e2-9db5-899323f90da1" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="62599f68-bdd7-4573-ae22-345a86f58b56" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="03eb16ea-378f-4dad-9949-23fb2064de8c" xml:space="preserve">
+          <source><bpt id="28b83ac8-b6e4-4f84-b2a5-da6818c65503">&lt;strong&gt;</bpt>Commands to manage virtual network subnets<ept id="28b83ac8-b6e4-4f84-b2a5-da6818c65503">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="28b83ac8-b6e4-4f84-b2a5-da6818c65503">&lt;strong&gt;</bpt>Commands to manage virtual network subnets<ept id="28b83ac8-b6e4-4f84-b2a5-da6818c65503">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae2856f9-826d-4c8c-9822-566becef79fc" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="bbf00f57-bf59-40a0-9ee0-de4f3c089f01" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="1a5a617c-cd98-4ad7-8249-349c24e7910c" xml:space="preserve">
+          <source>Sets a specific virtual network subnet within a resource group.</source>
+          <target state="new">Sets a specific virtual network subnet within a resource group.</target>
+        </trans-unit>
+        <trans-unit id="1b4a5f07-fed1-425f-b86c-cdda03da69a2" xml:space="preserve">
+          <source>Lists all the virtual network subnets for a specific virtual network within a resource group.</source>
+          <target state="new">Lists all the virtual network subnets for a specific virtual network within a resource group.</target>
+        </trans-unit>
+        <trans-unit id="20d1299f-ea29-4d3d-9de4-da615f1d357c" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="c145fb58-e40e-4ebe-81e7-2ebacd4f1f96" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="c0983be2-8377-4f9e-aa6d-6fc29fc5f834" xml:space="preserve">
+          <source><bpt id="874825aa-b86e-467c-89ad-e660c0fd337f">&lt;strong&gt;</bpt>Commands to manage load balancers<ept id="874825aa-b86e-467c-89ad-e660c0fd337f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="874825aa-b86e-467c-89ad-e660c0fd337f">&lt;strong&gt;</bpt>Commands to manage load balancers<ept id="874825aa-b86e-467c-89ad-e660c0fd337f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="260d4a83-c7aa-41a1-b9ce-9fd22e536c36" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="1acaba82-3c62-4e1e-96fe-fbda125b9e43" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="d035c260-4b95-4f63-8772-21f09cdff016" xml:space="preserve">
+          <source>Displays load balancer information of a specific load balancer within a resource group</source>
+          <target state="new">Displays load balancer information of a specific load balancer within a resource group</target>
+        </trans-unit>
+        <trans-unit id="5db4ac1c-4c49-4f88-adb7-ff6e12ad3e08" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="138edf36-98c1-4b78-b7a0-129079042fc7" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="6fa360f2-c966-47c1-99c2-fa47544b4b96" xml:space="preserve">
+          <source>Delete load balancer resources.</source>
+          <target state="new">Delete load balancer resources.</target>
+        </trans-unit>
+        <trans-unit id="cb162846-754a-4547-9687-ea53b0d2333f" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="b3f5cc3f-deab-41c4-be34-df76ea80bf02" xml:space="preserve">
+          <source><bpt id="ecc0ffcc-9945-40de-85ef-29e3ae546062">&lt;strong&gt;</bpt>Commands to manage probes of a load balancer<ept id="ecc0ffcc-9945-40de-85ef-29e3ae546062">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ecc0ffcc-9945-40de-85ef-29e3ae546062">&lt;strong&gt;</bpt>Commands to manage probes of a load balancer<ept id="ecc0ffcc-9945-40de-85ef-29e3ae546062">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96e0fd44-3e26-48e3-b4d1-534c137aa8b3" xml:space="preserve">
+          <source>Create the probe configuration for health status in the load balancer.</source>
+          <target state="new">Create the probe configuration for health status in the load balancer.</target>
+        </trans-unit>
+        <trans-unit id="50c4db42-b7f4-4d34-99a9-eccb3f77d7fb" xml:space="preserve">
+          <source>Keep in mind to run this command, your load balancer requires a frontend-ip resource (Check out command "azure network frontend-ip" to assign an ip address to load balancer).</source>
+          <target state="new">Keep in mind to run this command, your load balancer requires a frontend-ip resource (Check out command "azure network frontend-ip" to assign an ip address to load balancer).</target>
+        </trans-unit>
+        <trans-unit id="ff7f706e-3fd8-4374-86ba-c46d51599164" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="2de203f0-4e5b-42bb-ab4b-5c72fa88d51d" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="99ec9f7a-3d05-484b-87ab-a3a8be7a8d9f" xml:space="preserve">
+          <source>Updates the an existing load balancer probe with new values for it.</source>
+          <target state="new">Updates the an existing load balancer probe with new values for it.</target>
+        </trans-unit>
+        <trans-unit id="98a8febc-fcdf-4f9d-b592-858550dab9a1" xml:space="preserve">
+          <source>Parameter options</source>
+          <target state="new">Parameter options</target>
+        </trans-unit>
+        <trans-unit id="61cd670d-5ca0-42b4-80ac-4573036953a5" xml:space="preserve">
+          <source>List the probe properties for a load balancer set.</source>
+          <target state="new">List the probe properties for a load balancer set.</target>
+        </trans-unit>
+        <trans-unit id="d0e591e6-51db-408e-83f0-b3609d8edbf4" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="35e8c096-2590-4696-b46e-99baca7cd596" xml:space="preserve">
+          <source><bpt id="26e72d61-5fdf-485b-b9e7-a98229169d57">&lt;strong&gt;</bpt>Commands to manage frontend ip configurations of a load balancer<ept id="26e72d61-5fdf-485b-b9e7-a98229169d57">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="26e72d61-5fdf-485b-b9e7-a98229169d57">&lt;strong&gt;</bpt>Commands to manage frontend ip configurations of a load balancer<ept id="26e72d61-5fdf-485b-b9e7-a98229169d57">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="051a323c-f018-40a7-b843-c5d4b59b2a0e" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="984ba899-b850-4a47-bb17-e54d89f62ec7" xml:space="preserve">
+          <source>Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.</source>
+          <target state="new">Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.</target>
+        </trans-unit>
+        <trans-unit id="3db7b983-eb53-4c29-b3cb-36e5583c091e" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="84819b75-f2d7-4f73-9cb4-5e09cb772403" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="5573d049-6070-4b5c-b9e4-1fd16880e925" xml:space="preserve">
+          <source>Lists all the frontend IP resources configured for the load balancer.</source>
+          <target state="new">Lists all the frontend IP resources configured for the load balancer.</target>
+        </trans-unit>
+        <trans-unit id="5a1814d4-7a25-4c4c-b8fb-d3005196aa54" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="7aa7ea6f-69d6-4102-871e-e2ee0f10f015" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="5425639c-7ecb-407a-9f99-cb1d5f3ac093" xml:space="preserve">
+          <source><bpt id="60ca37dc-a62a-47f8-a649-59b0ad28e938">&lt;strong&gt;</bpt>Commands to manage backend address pools of a load balancer<ept id="60ca37dc-a62a-47f8-a649-59b0ad28e938">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="60ca37dc-a62a-47f8-a649-59b0ad28e938">&lt;strong&gt;</bpt>Commands to manage backend address pools of a load balancer<ept id="60ca37dc-a62a-47f8-a649-59b0ad28e938">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdd08d30-d628-470e-a6da-4571a009b964" xml:space="preserve">
+          <source>Create a backend address pool for a load balancer.</source>
+          <target state="new">Create a backend address pool for a load balancer.</target>
+        </trans-unit>
+        <trans-unit id="cefc1d73-c685-4ee1-8997-11c6b04e3fc0" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="2c412d58-407d-4892-a7d3-479cc9e6310a" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="f288c7f0-16e7-4d77-a250-176383fa36d8" xml:space="preserve">
+          <source>A backend address pool range is how a load balancer will know what resources to route incoming network traffic from its endpoint using Azure Resource Manager.</source>
+          <target state="new">A backend address pool range is how a load balancer will know what resources to route incoming network traffic from its endpoint using Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="e9089fc9-4507-492c-826d-e05b31300f81" xml:space="preserve">
+          <source>After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints which are now defined by a resource called "network interfaces".</source>
+          <target state="new">After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints which are now defined by a resource called "network interfaces".</target>
+        </trans-unit>
+        <trans-unit id="33b3ad02-08fd-4bc2-8c43-383dd3227830" xml:space="preserve">
+          <source>To configure the backend address range, you will need at least one "network interface"(See "azure network lb nic" command line for more details).</source>
+          <target state="new">To configure the backend address range, you will need at least one "network interface"(See "azure network lb nic" command line for more details).</target>
+        </trans-unit>
+        <trans-unit id="e0d8e488-c8ab-4891-9e84-811fd2eec3ec" xml:space="preserve">
+          <source>In the following example it was used a previously created "nic1" network interface to create the backend address pool range.</source>
+          <target state="new">In the following example it was used a previously created "nic1" network interface to create the backend address pool range.</target>
+        </trans-unit>
+        <trans-unit id="5c7e9708-bceb-45a6-8c26-d97e2a5a08c7" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="568457fb-b4e8-49df-b1ba-11928af0774d" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="e4aa0012-f9f0-4f17-bc30-e46ea04fe53d" xml:space="preserve">
+          <source>Removes a network interface from backend IP address pool range.</source>
+          <target state="new">Removes a network interface from backend IP address pool range.</target>
+        </trans-unit>
+        <trans-unit id="947cb2ea-b00c-4a6e-8e23-b7b21bc6c969" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="0a2d8840-d999-4329-a8b6-1156d52d06ca" xml:space="preserve">
+          <source>List backend IP address pool range for a specific resource group</source>
+          <target state="new">List backend IP address pool range for a specific resource group</target>
+        </trans-unit>
+        <trans-unit id="8b3a4c89-f8d1-447e-873e-c77efea01ad6" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="b7b7b85b-3849-4768-a474-c8e88faadb82" xml:space="preserve">
+          <source>&lt;BR&gt;
+    network lb address-pool delete [options] &lt;resource-group&gt; &lt;lb-name&gt; &lt;name&gt;</source>
+          <target state="new">&lt;BR&gt;
+    network lb address-pool delete [options] &lt;resource-group&gt; &lt;lb-name&gt; &lt;name&gt;</target>
+        </trans-unit>
+        <trans-unit id="42dd0106-c841-420b-b1d3-cddbf10c02ca" xml:space="preserve">
+          <source>Removes the backend IP pool range resource from load balancer.</source>
+          <target state="new">Removes the backend IP pool range resource from load balancer.</target>
+        </trans-unit>
+        <trans-unit id="d5d19167-c724-4c5e-8783-73d0c0f2086a" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="78decc1e-b312-4bf7-b2aa-d495808b4ff8" xml:space="preserve">
+          <source><bpt id="7c667ed7-62a3-45d7-bfb9-f1a61606bf64">&lt;strong&gt;</bpt>Commands to manage load balancer rules<ept id="7c667ed7-62a3-45d7-bfb9-f1a61606bf64">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7c667ed7-62a3-45d7-bfb9-f1a61606bf64">&lt;strong&gt;</bpt>Commands to manage load balancer rules<ept id="7c667ed7-62a3-45d7-bfb9-f1a61606bf64">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70114fd8-f53f-416c-a615-d038ea4d1112" xml:space="preserve">
+          <source>You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic.</source>
+          <target state="new">You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic.</target>
+        </trans-unit>
+        <trans-unit id="0bdeef38-271d-4212-bc80-e429f224e980" xml:space="preserve">
+          <source>Settings also include the ports for frontend IP endpoint and ports for the backend address pool range.</source>
+          <target state="new">Settings also include the ports for frontend IP endpoint and ports for the backend address pool range.</target>
+        </trans-unit>
+        <trans-unit id="2a57d35d-e378-44a7-ba1b-7a466a245b1f" xml:space="preserve">
+          <source>The following example shows how to create a load balancer rule,  the frontend endpoint listening to port 80 TCP and load balancing network traffic sending to port 8080 for the backend address pool range.</source>
+          <target state="new">The following example shows how to create a load balancer rule,  the frontend endpoint listening to port 80 TCP and load balancing network traffic sending to port 8080 for the backend address pool range.</target>
+        </trans-unit>
+        <trans-unit id="43981fab-6a92-4475-aeb7-68f2c08e593f" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="344c0e12-10a5-4a6c-b333-f534caf54b29" xml:space="preserve">
+          <source>Updates an existing load balancer rule set in a specific resource group.</source>
+          <target state="new">Updates an existing load balancer rule set in a specific resource group.</target>
+        </trans-unit>
+        <trans-unit id="0d10d74d-acf9-4086-bfa4-db8901ad23b8" xml:space="preserve">
+          <source>In the following example we changed the rule name from mylbrule to mynewlbrule.</source>
+          <target state="new">In the following example we changed the rule name from mylbrule to mynewlbrule.</target>
+        </trans-unit>
+        <trans-unit id="597cd09f-e812-4e20-a467-d89997216848" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="b6dfcd63-3599-4d67-bc1f-c05651038e2f" xml:space="preserve">
+          <source>Lists all load balancer rules configured for a load balancer in a specific resource group.</source>
+          <target state="new">Lists all load balancer rules configured for a load balancer in a specific resource group.</target>
+        </trans-unit>
+        <trans-unit id="f3fde320-ac5f-4499-ab58-e0edddfb69b4" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="ccb86400-937a-4e4e-8178-be8edc444eee" xml:space="preserve">
+          <source>Deletes a load balancer rule.</source>
+          <target state="new">Deletes a load balancer rule.</target>
+        </trans-unit>
+        <trans-unit id="91429f19-7641-4538-a76f-185bd4fe9437" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="779b702f-221c-4fbc-bc73-c74204130f12" xml:space="preserve">
+          <source><bpt id="3da5c70c-77d9-4843-a424-6f5d06689978">&lt;strong&gt;</bpt>Commands to manage load balancer inbound NAT rules<ept id="3da5c70c-77d9-4843-a424-6f5d06689978">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3da5c70c-77d9-4843-a424-6f5d06689978">&lt;strong&gt;</bpt>Commands to manage load balancer inbound NAT rules<ept id="3da5c70c-77d9-4843-a424-6f5d06689978">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4db033e-ef7f-4dcd-847f-3320811a3243" xml:space="preserve">
+          <source>In the example below we created a NAT rule from frontend IP (which was previously defined.</source>
+          <target state="new">In the example below we created a NAT rule from frontend IP (which was previously defined.</target>
+        </trans-unit>
+        <trans-unit id="3374143a-ea18-4472-bcde-2f6476ed29a6" xml:space="preserve">
+          <source>See "azure network frontend-ip" command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.</source>
+          <target state="new">See "azure network frontend-ip" command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.</target>
+        </trans-unit>
+        <trans-unit id="945bf81d-a167-460d-a45c-eef7638e02dc" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="c7e35850-c3e0-47cd-b352-89479fc4a29c" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="31925f5b-fb91-4a10-970c-be1b4707b4d8" xml:space="preserve">
+          <source>Lists all inbound nat rules for load balancer.</source>
+          <target state="new">Lists all inbound nat rules for load balancer.</target>
+        </trans-unit>
+        <trans-unit id="8bd511e7-b9f8-4ab3-a57d-a190ba0d89e3" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="71978ee1-cfc5-4338-a9dc-b08d1bf0f014" xml:space="preserve">
+          <source>Deletes NAT rule for the load balancer in a specific resource group.</source>
+          <target state="new">Deletes NAT rule for the load balancer in a specific resource group.</target>
+        </trans-unit>
+        <trans-unit id="0a20f4e9-8694-4585-9f22-4364ff48a2b7" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="e108d4c0-6ca2-41a3-9b80-b7c2acad78e8" xml:space="preserve">
+          <source><bpt id="7d2849f5-bf43-43b1-9c75-5af3eb493960">&lt;strong&gt;</bpt>Commands to manage public ip addresses<ept id="7d2849f5-bf43-43b1-9c75-5af3eb493960">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7d2849f5-bf43-43b1-9c75-5af3eb493960">&lt;strong&gt;</bpt>Commands to manage public ip addresses<ept id="7d2849f5-bf43-43b1-9c75-5af3eb493960">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="542b421b-23d7-47d5-b1a5-ea86792a540b" xml:space="preserve">
+          <source>Parameter options:
+    -h, --help                                   output usage information
+    -v, --verbose                                use verbose output
+    --json                                       use json output
+    -g, --resource-group &lt;resource-group&gt;        the name of the resource group
+    -n, --name &lt;name&gt;                            the name of the public ip
+    -l, --location &lt;location&gt;                    the location
+    -d, --domain-name-label &lt;domain-name-label&gt;  the domain name label.
+    This set DNS to &lt;domain-name-label&gt;.&lt;location&gt;.cloudapp.azure.com
+    -a, --allocation-method &lt;allocation-method&gt;  the allocation method <bpt id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;linkText&gt;</bpt>Static[dynamic]<ept id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;/linkText&gt;</ept><bpt id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;title&gt;</bpt><ept id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;/title&gt;</ept>
+    -i, --idletimeout &lt;idletimeout&gt;              the idle timeout in minutes
+    -f, --reverse-fqdn &lt;reverse-fqdn&gt;            the reverse fqdn
+    -t, --tags &lt;tags&gt;                            the list of tags.
+    Can be multiple. In the format of "name=value".
+    Name is required and value is optional.
+    For example, -t tag1=value1;tag2
+    -s, --subscription &lt;subscription&gt;            the subscription identifier
+&lt;br&gt;</source>
+          <target state="new">Parameter options:
+    -h, --help                                   output usage information
+    -v, --verbose                                use verbose output
+    --json                                       use json output
+    -g, --resource-group &lt;resource-group&gt;        the name of the resource group
+    -n, --name &lt;name&gt;                            the name of the public ip
+    -l, --location &lt;location&gt;                    the location
+    -d, --domain-name-label &lt;domain-name-label&gt;  the domain name label.
+    This set DNS to &lt;domain-name-label&gt;.&lt;location&gt;.cloudapp.azure.com
+    -a, --allocation-method &lt;allocation-method&gt;  the allocation method <bpt id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;linkText&gt;</bpt>Static[dynamic]<ept id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;/linkText&gt;</ept><bpt id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;title&gt;</bpt><ept id="54cb9343-7d33-46b4-8a94-3d125431cdc2">&lt;/title&gt;</ept>
+    -i, --idletimeout &lt;idletimeout&gt;              the idle timeout in minutes
+    -f, --reverse-fqdn &lt;reverse-fqdn&gt;            the reverse fqdn
+    -t, --tags &lt;tags&gt;                            the list of tags.
+    Can be multiple. In the format of "name=value".
+    Name is required and value is optional.
+    For example, -t tag1=value1;tag2
+    -s, --subscription &lt;subscription&gt;            the subscription identifier
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="ef019420-5512-4a07-8414-e2675a6c4252" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="2d870125-f768-4289-8a0a-df5f264b89dc" xml:space="preserve">
+          <source>&lt;br&gt;
+    network public-ip list [options] &lt;resource-group&gt;
+Lists all public IP resources within a resource group.</source>
+          <target state="new">&lt;br&gt;
+    network public-ip list [options] &lt;resource-group&gt;
+Lists all public IP resources within a resource group.</target>
+        </trans-unit>
+        <trans-unit id="a0b8ab45-5470-4a9f-9149-0d55d5f58123" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="e3c1cbc7-2682-4bea-8251-fc651f08c2b8" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="b3b3ce5a-858a-48be-8e6d-05077753d739" xml:space="preserve">
+          <source>Deletes public ip resource.</source>
+          <target state="new">Deletes public ip resource.</target>
+        </trans-unit>
+        <trans-unit id="61980898-8e12-4640-8eed-bac2b482d5da" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="f0927509-8eac-464a-8995-0f8a24fd66bf" xml:space="preserve">
+          <source><bpt id="37cf437e-0906-4a20-b751-ec32b525efe0">&lt;strong&gt;</bpt>Commands to manage network interfaces<ept id="37cf437e-0906-4a20-b751-ec32b525efe0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="37cf437e-0906-4a20-b751-ec32b525efe0">&lt;strong&gt;</bpt>Commands to manage network interfaces<ept id="37cf437e-0906-4a20-b751-ec32b525efe0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b13922a-fd8e-4bac-8fe0-d7c6c03e9627" xml:space="preserve">
+          <source>Parameter options:</source>
+          <target state="new">Parameter options:</target>
+        </trans-unit>
+        <trans-unit id="07b7e981-e73c-467d-8cc6-2e1c91fe3944" xml:space="preserve">
+          <source>&lt;BR&gt;</source>
+          <target state="new">&lt;BR&gt;</target>
+        </trans-unit>
+        <trans-unit id="d5d56ae6-c723-4067-b8ab-bab38509600e" xml:space="preserve">
+          <source><bpt id="252fe688-967f-4535-904a-7427d55f4264">&lt;strong&gt;</bpt>Commands to manage network security groups<ept id="252fe688-967f-4535-904a-7427d55f4264">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="252fe688-967f-4535-904a-7427d55f4264">&lt;strong&gt;</bpt>Commands to manage network security groups<ept id="252fe688-967f-4535-904a-7427d55f4264">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5af535d-4e07-4eae-b188-71b94d15f23b" xml:space="preserve">
+          <source><bpt id="85057667-d272-40b8-b07a-ed150defbe6a">&lt;strong&gt;</bpt>Commands to manage network security group rules<ept id="85057667-d272-40b8-b07a-ed150defbe6a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="85057667-d272-40b8-b07a-ed150defbe6a">&lt;strong&gt;</bpt>Commands to manage network security group rules<ept id="85057667-d272-40b8-b07a-ed150defbe6a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="112d012a-dcfd-41b2-a09f-887e72fae72d" xml:space="preserve">
+          <source><bpt id="621191a9-8adb-4055-85b7-ba7373100e39">&lt;strong&gt;</bpt>Commands to manage traffic manager profile<ept id="621191a9-8adb-4055-85b7-ba7373100e39">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="621191a9-8adb-4055-85b7-ba7373100e39">&lt;strong&gt;</bpt>Commands to manage traffic manager profile<ept id="621191a9-8adb-4055-85b7-ba7373100e39">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07f999a9-6e25-4e09-9a0e-525cd24a25a1" xml:space="preserve">
+          <source><bpt id="9c04ae80-4010-42c0-b7b6-5fa884c01896">&lt;strong&gt;</bpt>Commands to manage traffic manager endpoints<ept id="9c04ae80-4010-42c0-b7b6-5fa884c01896">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9c04ae80-4010-42c0-b7b6-5fa884c01896">&lt;strong&gt;</bpt>Commands to manage traffic manager endpoints<ept id="9c04ae80-4010-42c0-b7b6-5fa884c01896">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e583ee1c-caec-4b12-b00c-65e9b6910469" xml:space="preserve">
+          <source><bpt id="90e5156c-f748-45ac-b850-f81ce001d938">&lt;strong&gt;</bpt>Commands to manage virtual network gateways<ept id="90e5156c-f748-45ac-b850-f81ce001d938">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="90e5156c-f748-45ac-b850-f81ce001d938">&lt;strong&gt;</bpt>Commands to manage virtual network gateways<ept id="90e5156c-f748-45ac-b850-f81ce001d938">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4594b053-c5ab-42f0-8950-eafb64c2d9a9" xml:space="preserve">
+          <source><bpt id="d3ca8081-0547-485a-b3dc-cdaa53cee7ef">&lt;strong&gt;</bpt>List currently registered providers in ARM<ept id="d3ca8081-0547-485a-b3dc-cdaa53cee7ef">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d3ca8081-0547-485a-b3dc-cdaa53cee7ef">&lt;strong&gt;</bpt>List currently registered providers in ARM<ept id="d3ca8081-0547-485a-b3dc-cdaa53cee7ef">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="201a81c6-88f2-489b-af32-b2c5c9882285" xml:space="preserve">
+          <source><bpt id="1072557f-97f3-444b-a1db-94a1237e2162">&lt;strong&gt;</bpt>Show details about the requested provider namespace<ept id="1072557f-97f3-444b-a1db-94a1237e2162">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1072557f-97f3-444b-a1db-94a1237e2162">&lt;strong&gt;</bpt>Show details about the requested provider namespace<ept id="1072557f-97f3-444b-a1db-94a1237e2162">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="292b37bc-fda7-4f3a-875c-f8a70b69815b" xml:space="preserve">
+          <source><bpt id="9579f3cf-1872-4f8a-abe9-31c65ed3c22c">&lt;strong&gt;</bpt>Register provider with the subscription<ept id="9579f3cf-1872-4f8a-abe9-31c65ed3c22c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9579f3cf-1872-4f8a-abe9-31c65ed3c22c">&lt;strong&gt;</bpt>Register provider with the subscription<ept id="9579f3cf-1872-4f8a-abe9-31c65ed3c22c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e365c08-e4ae-4248-82f5-caddb5b97b1a" xml:space="preserve">
+          <source><bpt id="5d115237-4992-4c9f-9e3f-a6c857211ccf">&lt;strong&gt;</bpt>Unregister provider with the subscription<ept id="5d115237-4992-4c9f-9e3f-a6c857211ccf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5d115237-4992-4c9f-9e3f-a6c857211ccf">&lt;strong&gt;</bpt>Unregister provider with the subscription<ept id="5d115237-4992-4c9f-9e3f-a6c857211ccf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="118dce06-b6f1-404c-99a0-27368f69a2d8" xml:space="preserve">
+          <source><bpt id="6de44310-120c-4638-8908-a865e72e7f5f">&lt;strong&gt;</bpt>Creates a resource in a resource group<ept id="6de44310-120c-4638-8908-a865e72e7f5f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6de44310-120c-4638-8908-a865e72e7f5f">&lt;strong&gt;</bpt>Creates a resource in a resource group<ept id="6de44310-120c-4638-8908-a865e72e7f5f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d385ddcd-d847-4c3d-b30e-449a56a89909" xml:space="preserve">
+          <source><bpt id="03b62bae-80db-44d1-a718-e0d8c49ab9f0">&lt;strong&gt;</bpt>Updates a resource in a resource group without any templates or parameters<ept id="03b62bae-80db-44d1-a718-e0d8c49ab9f0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="03b62bae-80db-44d1-a718-e0d8c49ab9f0">&lt;strong&gt;</bpt>Updates a resource in a resource group without any templates or parameters<ept id="03b62bae-80db-44d1-a718-e0d8c49ab9f0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9753dc9c-470a-4081-89c2-affa79fc17af" xml:space="preserve">
+          <source><bpt id="a3bf3a14-1c6c-4f29-bae4-428914200f8b">&lt;strong&gt;</bpt>Lists the resources<ept id="a3bf3a14-1c6c-4f29-bae4-428914200f8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a3bf3a14-1c6c-4f29-bae4-428914200f8b">&lt;strong&gt;</bpt>Lists the resources<ept id="a3bf3a14-1c6c-4f29-bae4-428914200f8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="443c9fed-4dbf-414a-8ff1-9e2c2f9df13b" xml:space="preserve">
+          <source><bpt id="071896e3-3d36-48da-8863-af95d7e9af68">&lt;strong&gt;</bpt>Gets one resource within a resource group or subscription<ept id="071896e3-3d36-48da-8863-af95d7e9af68">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="071896e3-3d36-48da-8863-af95d7e9af68">&lt;strong&gt;</bpt>Gets one resource within a resource group or subscription<ept id="071896e3-3d36-48da-8863-af95d7e9af68">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6dc2283-2312-420a-ac0b-d7885a8a96c2" xml:space="preserve">
+          <source><bpt id="39331852-6a77-4d06-a3cb-fd0c863b5a9c">&lt;strong&gt;</bpt>Deletes a resource in a resource group<ept id="39331852-6a77-4d06-a3cb-fd0c863b5a9c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="39331852-6a77-4d06-a3cb-fd0c863b5a9c">&lt;strong&gt;</bpt>Deletes a resource in a resource group<ept id="39331852-6a77-4d06-a3cb-fd0c863b5a9c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ad64917-399a-401b-ab2b-95c7253de544" xml:space="preserve">
+          <source><bpt id="1c3e0cda-3379-4c8e-8727-744cdcec595f">&lt;strong&gt;</bpt>Get all available role definitions<ept id="1c3e0cda-3379-4c8e-8727-744cdcec595f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1c3e0cda-3379-4c8e-8727-744cdcec595f">&lt;strong&gt;</bpt>Get all available role definitions<ept id="1c3e0cda-3379-4c8e-8727-744cdcec595f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca7cc7d3-d039-45b0-9297-b22ff85943e4" xml:space="preserve">
+          <source><bpt id="c03fdd93-0bf4-4586-9e81-f5f42f5583a7">&lt;strong&gt;</bpt>Get an available role definition<ept id="c03fdd93-0bf4-4586-9e81-f5f42f5583a7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c03fdd93-0bf4-4586-9e81-f5f42f5583a7">&lt;strong&gt;</bpt>Get an available role definition<ept id="c03fdd93-0bf4-4586-9e81-f5f42f5583a7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f686d2f8-fd34-46f5-af1d-f8097b14218c" xml:space="preserve">
+          <source><bpt id="7ea0c87c-5828-4eca-9166-bd79b0ff7ebb">&lt;strong&gt;</bpt>Commands to manage your role assignment<ept id="7ea0c87c-5828-4eca-9166-bd79b0ff7ebb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7ea0c87c-5828-4eca-9166-bd79b0ff7ebb">&lt;strong&gt;</bpt>Commands to manage your role assignment<ept id="7ea0c87c-5828-4eca-9166-bd79b0ff7ebb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5edf99f4-795e-4478-993d-fea75d37226d" xml:space="preserve">
+          <source><bpt id="a5874b04-a5d9-4f73-88bd-522308bc9f6e">&lt;strong&gt;</bpt>Commands to manage your Storage accounts<ept id="a5874b04-a5d9-4f73-88bd-522308bc9f6e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a5874b04-a5d9-4f73-88bd-522308bc9f6e">&lt;strong&gt;</bpt>Commands to manage your Storage accounts<ept id="a5874b04-a5d9-4f73-88bd-522308bc9f6e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8f9b0c2-34c7-48b7-b630-7ac27a65aecb" xml:space="preserve">
+          <source><bpt id="a28b69be-2e1a-42fa-9a8b-76a51ee4f9b0">&lt;strong&gt;</bpt>Commands to manage your Storage account keys<ept id="a28b69be-2e1a-42fa-9a8b-76a51ee4f9b0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a28b69be-2e1a-42fa-9a8b-76a51ee4f9b0">&lt;strong&gt;</bpt>Commands to manage your Storage account keys<ept id="a28b69be-2e1a-42fa-9a8b-76a51ee4f9b0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c9dc335-cb4b-497c-91d2-20da274d8cd2" xml:space="preserve">
+          <source><bpt id="3e51a694-af40-46da-af86-83c983a465bd">&lt;strong&gt;</bpt>Commands to show your Storage connection string<ept id="3e51a694-af40-46da-af86-83c983a465bd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3e51a694-af40-46da-af86-83c983a465bd">&lt;strong&gt;</bpt>Commands to show your Storage connection string<ept id="3e51a694-af40-46da-af86-83c983a465bd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="928ad9ba-cb3b-4139-b72e-6c96d89fe381" xml:space="preserve">
+          <source><bpt id="2d1807d4-df7e-468c-81d3-75602a885ecb">&lt;strong&gt;</bpt>Commands to manage your Storage containers<ept id="2d1807d4-df7e-468c-81d3-75602a885ecb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2d1807d4-df7e-468c-81d3-75602a885ecb">&lt;strong&gt;</bpt>Commands to manage your Storage containers<ept id="2d1807d4-df7e-468c-81d3-75602a885ecb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c2c6057-4f25-46ca-a2c5-a00293342390" xml:space="preserve">
+          <source><bpt id="6557d2bb-58b5-4d79-9bfc-0db149e95121">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage container<ept id="6557d2bb-58b5-4d79-9bfc-0db149e95121">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6557d2bb-58b5-4d79-9bfc-0db149e95121">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage container<ept id="6557d2bb-58b5-4d79-9bfc-0db149e95121">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f23ee504-9bfb-480e-a7d8-d0fc1b3faf4c" xml:space="preserve">
+          <source><bpt id="146c766c-b12c-423e-ad10-1e55ce40f9f3">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage container<ept id="146c766c-b12c-423e-ad10-1e55ce40f9f3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="146c766c-b12c-423e-ad10-1e55ce40f9f3">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage container<ept id="146c766c-b12c-423e-ad10-1e55ce40f9f3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db20aa64-0072-4198-ba20-9f351c17e416" xml:space="preserve">
+          <source><bpt id="d0b17137-1284-4506-a1a3-dcef347964c2">&lt;strong&gt;</bpt>Commands to manage your Storage blobs<ept id="d0b17137-1284-4506-a1a3-dcef347964c2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d0b17137-1284-4506-a1a3-dcef347964c2">&lt;strong&gt;</bpt>Commands to manage your Storage blobs<ept id="d0b17137-1284-4506-a1a3-dcef347964c2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af2e0cfc-7e39-4924-8074-f8bdf913630a" xml:space="preserve">
+          <source><bpt id="fba49576-8e5c-4f04-844d-e53428805add">&lt;strong&gt;</bpt>Commands to manage your blob copy operations<ept id="fba49576-8e5c-4f04-844d-e53428805add">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fba49576-8e5c-4f04-844d-e53428805add">&lt;strong&gt;</bpt>Commands to manage your blob copy operations<ept id="fba49576-8e5c-4f04-844d-e53428805add">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4136bfcc-a804-463a-ba11-e7cf1206b1b5" xml:space="preserve">
+          <source><bpt id="7a6277f0-9391-4416-9427-45fa35c09dde">&lt;strong&gt;</bpt>Commands to manage shared access signature of your Storage blob<ept id="7a6277f0-9391-4416-9427-45fa35c09dde">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7a6277f0-9391-4416-9427-45fa35c09dde">&lt;strong&gt;</bpt>Commands to manage shared access signature of your Storage blob<ept id="7a6277f0-9391-4416-9427-45fa35c09dde">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f643a516-0165-4dd9-9dde-53877bdc17d9" xml:space="preserve">
+          <source><bpt id="0730b2da-7bad-4cb4-9494-1b351b2123d9">&lt;strong&gt;</bpt>Commands to manage your Storage file shares<ept id="0730b2da-7bad-4cb4-9494-1b351b2123d9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0730b2da-7bad-4cb4-9494-1b351b2123d9">&lt;strong&gt;</bpt>Commands to manage your Storage file shares<ept id="0730b2da-7bad-4cb4-9494-1b351b2123d9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f9f261f-7f95-4de2-9e41-7425f3ea58bb" xml:space="preserve">
+          <source><bpt id="a3f6b0e4-ca4e-4e52-809a-3eb89a7ccb30">&lt;strong&gt;</bpt>Commands to manage your Storage files<ept id="a3f6b0e4-ca4e-4e52-809a-3eb89a7ccb30">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a3f6b0e4-ca4e-4e52-809a-3eb89a7ccb30">&lt;strong&gt;</bpt>Commands to manage your Storage files<ept id="a3f6b0e4-ca4e-4e52-809a-3eb89a7ccb30">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82ca0456-00b4-46be-93ed-6680607e3598" xml:space="preserve">
+          <source><bpt id="bdac7c55-693a-4054-a443-fa4c9bb31bbc">&lt;strong&gt;</bpt>Commands to manage your Storage file directory<ept id="bdac7c55-693a-4054-a443-fa4c9bb31bbc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bdac7c55-693a-4054-a443-fa4c9bb31bbc">&lt;strong&gt;</bpt>Commands to manage your Storage file directory<ept id="bdac7c55-693a-4054-a443-fa4c9bb31bbc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0648aec-a12e-48f4-ab37-c009f447baf1" xml:space="preserve">
+          <source><bpt id="2df7ac6e-76d1-4e7e-bde6-3c09e436a595">&lt;strong&gt;</bpt>Commands to manage your Storage queues<ept id="2df7ac6e-76d1-4e7e-bde6-3c09e436a595">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2df7ac6e-76d1-4e7e-bde6-3c09e436a595">&lt;strong&gt;</bpt>Commands to manage your Storage queues<ept id="2df7ac6e-76d1-4e7e-bde6-3c09e436a595">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66ac95c6-5294-4256-ab0a-f323ff08f60e" xml:space="preserve">
+          <source><bpt id="3b514732-89cc-4cd1-9b5d-d0ac8c92bea0">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage queue<ept id="3b514732-89cc-4cd1-9b5d-d0ac8c92bea0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3b514732-89cc-4cd1-9b5d-d0ac8c92bea0">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage queue<ept id="3b514732-89cc-4cd1-9b5d-d0ac8c92bea0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d42fb74f-fd57-4787-8019-7783dba16020" xml:space="preserve">
+          <source><bpt id="22e9dd1a-a7cc-4403-95ca-cf62632a7f03">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage queue<ept id="22e9dd1a-a7cc-4403-95ca-cf62632a7f03">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="22e9dd1a-a7cc-4403-95ca-cf62632a7f03">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage queue<ept id="22e9dd1a-a7cc-4403-95ca-cf62632a7f03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="000c7eaf-424a-4f50-a6ed-082eb5727eee" xml:space="preserve">
+          <source><bpt id="16fac763-5c49-436f-a435-79acf30bdbc8">&lt;strong&gt;</bpt>Commands to manage your Storage logging properties<ept id="16fac763-5c49-436f-a435-79acf30bdbc8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="16fac763-5c49-436f-a435-79acf30bdbc8">&lt;strong&gt;</bpt>Commands to manage your Storage logging properties<ept id="16fac763-5c49-436f-a435-79acf30bdbc8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c496b071-6294-403a-870f-348a67e14e87" xml:space="preserve">
+          <source><bpt id="7c988c59-53d3-4ffa-a35f-fc5584223696">&lt;strong&gt;</bpt>Commands to manage your Storage metrics properties<ept id="7c988c59-53d3-4ffa-a35f-fc5584223696">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7c988c59-53d3-4ffa-a35f-fc5584223696">&lt;strong&gt;</bpt>Commands to manage your Storage metrics properties<ept id="7c988c59-53d3-4ffa-a35f-fc5584223696">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eaaf6461-d60a-4f00-9eb4-22d4438627cd" xml:space="preserve">
+          <source><bpt id="75b3afdd-6723-4af9-952f-e503c74d5b79">&lt;strong&gt;</bpt>Commands to manage your Storage tables<ept id="75b3afdd-6723-4af9-952f-e503c74d5b79">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="75b3afdd-6723-4af9-952f-e503c74d5b79">&lt;strong&gt;</bpt>Commands to manage your Storage tables<ept id="75b3afdd-6723-4af9-952f-e503c74d5b79">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8aec834f-4765-4b76-93f2-53a090b66a98" xml:space="preserve">
+          <source><bpt id="065aa5b0-c1f6-4cb6-b812-19b66c1c18a7">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage table<ept id="065aa5b0-c1f6-4cb6-b812-19b66c1c18a7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="065aa5b0-c1f6-4cb6-b812-19b66c1c18a7">&lt;strong&gt;</bpt>Commands to manage shared access signatures of your Storage table<ept id="065aa5b0-c1f6-4cb6-b812-19b66c1c18a7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c3fd210-cebe-4df1-ab71-632d59980015" xml:space="preserve">
+          <source><bpt id="46a4fcaa-f42f-4d7a-8222-55440d5f789d">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage table<ept id="46a4fcaa-f42f-4d7a-8222-55440d5f789d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="46a4fcaa-f42f-4d7a-8222-55440d5f789d">&lt;strong&gt;</bpt>Commands to manage stored access policies of your Storage table<ept id="46a4fcaa-f42f-4d7a-8222-55440d5f789d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c75a166-6d66-43a7-957b-82c1464f420f" xml:space="preserve">
+          <source><bpt id="fe7cebca-51f6-469e-a8bc-b26b4f00e3c7">&lt;strong&gt;</bpt>Add a tag<ept id="fe7cebca-51f6-469e-a8bc-b26b4f00e3c7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fe7cebca-51f6-469e-a8bc-b26b4f00e3c7">&lt;strong&gt;</bpt>Add a tag<ept id="fe7cebca-51f6-469e-a8bc-b26b4f00e3c7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e570c56-a7c4-42e1-a2fc-d9c76e81151c" xml:space="preserve">
+          <source><bpt id="4874272f-ed5a-4688-a59f-03cb7a5a0c89">&lt;strong&gt;</bpt>Remove an entire tag or a tag value<ept id="4874272f-ed5a-4688-a59f-03cb7a5a0c89">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4874272f-ed5a-4688-a59f-03cb7a5a0c89">&lt;strong&gt;</bpt>Remove an entire tag or a tag value<ept id="4874272f-ed5a-4688-a59f-03cb7a5a0c89">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ad3ed6c-a7dc-4225-b5d6-09fdacdcafe8" xml:space="preserve">
+          <source><bpt id="305c4ad9-528f-47c9-9fc7-6f8f35d36cb3">&lt;strong&gt;</bpt>Lists the tag information<ept id="305c4ad9-528f-47c9-9fc7-6f8f35d36cb3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="305c4ad9-528f-47c9-9fc7-6f8f35d36cb3">&lt;strong&gt;</bpt>Lists the tag information<ept id="305c4ad9-528f-47c9-9fc7-6f8f35d36cb3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f867aee-2818-4ed6-b02f-612554c9c12f" xml:space="preserve">
+          <source><bpt id="ac28ca03-6eab-4cb5-843b-4c316f3d9c8d">&lt;strong&gt;</bpt>Get a tag<ept id="ac28ca03-6eab-4cb5-843b-4c316f3d9c8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ac28ca03-6eab-4cb5-843b-4c316f3d9c8d">&lt;strong&gt;</bpt>Get a tag<ept id="ac28ca03-6eab-4cb5-843b-4c316f3d9c8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4757ae9-b7c4-4a86-a620-2c8335fa7448" xml:space="preserve">
+          <source><bpt id="3903bc22-d7db-4b9b-a7d1-00336855854f">&lt;strong&gt;</bpt>Create a VM<ept id="3903bc22-d7db-4b9b-a7d1-00336855854f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3903bc22-d7db-4b9b-a7d1-00336855854f">&lt;strong&gt;</bpt>Create a VM<ept id="3903bc22-d7db-4b9b-a7d1-00336855854f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df5c6bba-9a0a-431b-8e06-338ddaa008ab" xml:space="preserve">
+          <source><bpt id="4d1bc2d9-8ee6-4e11-bd6b-7776a3a53f0f">&lt;strong&gt;</bpt>Create a VM with default resources<ept id="4d1bc2d9-8ee6-4e11-bd6b-7776a3a53f0f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4d1bc2d9-8ee6-4e11-bd6b-7776a3a53f0f">&lt;strong&gt;</bpt>Create a VM with default resources<ept id="4d1bc2d9-8ee6-4e11-bd6b-7776a3a53f0f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c8b7138-dd75-40d1-a334-4d2ebfad20b3" xml:space="preserve">
+          <source><bpt id="55b0451c-ff90-40b6-b2c6-d7698ba2b426">&lt;strong&gt;</bpt>Lists the virtual machines within a resource group<ept id="55b0451c-ff90-40b6-b2c6-d7698ba2b426">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="55b0451c-ff90-40b6-b2c6-d7698ba2b426">&lt;strong&gt;</bpt>Lists the virtual machines within a resource group<ept id="55b0451c-ff90-40b6-b2c6-d7698ba2b426">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dc78427-f85b-4946-88e2-557bb1882519" xml:space="preserve">
+          <source><bpt id="beba1fb2-6f23-4717-90bd-21fcbd597795">&lt;strong&gt;</bpt>Gets one virtual machine within a resource group<ept id="beba1fb2-6f23-4717-90bd-21fcbd597795">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="beba1fb2-6f23-4717-90bd-21fcbd597795">&lt;strong&gt;</bpt>Gets one virtual machine within a resource group<ept id="beba1fb2-6f23-4717-90bd-21fcbd597795">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="999e414c-b86e-441e-8623-65ea842d8b72" xml:space="preserve">
+          <source><bpt id="c6e5ad4c-8209-49b7-974c-14eb61df247c">&lt;strong&gt;</bpt>Deletes one virtual machine within a resource group<ept id="c6e5ad4c-8209-49b7-974c-14eb61df247c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c6e5ad4c-8209-49b7-974c-14eb61df247c">&lt;strong&gt;</bpt>Deletes one virtual machine within a resource group<ept id="c6e5ad4c-8209-49b7-974c-14eb61df247c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0325caa-5399-4e3c-845c-623920066d2c" xml:space="preserve">
+          <source><bpt id="bce64378-0328-4c22-ba43-97ce3a6fae8d">&lt;strong&gt;</bpt>Shutdown one virtual machine within a resource group<ept id="bce64378-0328-4c22-ba43-97ce3a6fae8d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bce64378-0328-4c22-ba43-97ce3a6fae8d">&lt;strong&gt;</bpt>Shutdown one virtual machine within a resource group<ept id="bce64378-0328-4c22-ba43-97ce3a6fae8d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2118363-d9c8-47fc-ae45-07e21fd50bc4" xml:space="preserve">
+          <source><bpt id="9ab12544-6c3b-4bf3-b061-c3873a01ea2a">&lt;strong&gt;</bpt>Restarts one virtual machine within a resource group<ept id="9ab12544-6c3b-4bf3-b061-c3873a01ea2a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9ab12544-6c3b-4bf3-b061-c3873a01ea2a">&lt;strong&gt;</bpt>Restarts one virtual machine within a resource group<ept id="9ab12544-6c3b-4bf3-b061-c3873a01ea2a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb39975c-6375-4282-89e0-ef52fac88b7a" xml:space="preserve">
+          <source><bpt id="9b562590-9c30-4aed-9a35-fed2409690fb">&lt;strong&gt;</bpt>Starts one virtual machine within a resource group<ept id="9b562590-9c30-4aed-9a35-fed2409690fb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9b562590-9c30-4aed-9a35-fed2409690fb">&lt;strong&gt;</bpt>Starts one virtual machine within a resource group<ept id="9b562590-9c30-4aed-9a35-fed2409690fb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6902d6cf-2212-4cb5-8dd3-a61498ccb896" xml:space="preserve">
+          <source><bpt id="d833a0ab-d28b-472c-ace3-85612ad7829d">&lt;strong&gt;</bpt>Shutdown one virtual machine within a resource group and releases the compute resources<ept id="d833a0ab-d28b-472c-ace3-85612ad7829d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d833a0ab-d28b-472c-ace3-85612ad7829d">&lt;strong&gt;</bpt>Shutdown one virtual machine within a resource group and releases the compute resources<ept id="d833a0ab-d28b-472c-ace3-85612ad7829d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="520947bf-14fe-4fbb-9cad-260c78764484" xml:space="preserve">
+          <source><bpt id="19b18c27-f66b-4c90-998a-bb663e408164">&lt;strong&gt;</bpt>Lists available virtual machine sizes<ept id="19b18c27-f66b-4c90-998a-bb663e408164">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="19b18c27-f66b-4c90-998a-bb663e408164">&lt;strong&gt;</bpt>Lists available virtual machine sizes<ept id="19b18c27-f66b-4c90-998a-bb663e408164">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6fb7d65-04ee-4d23-8381-f8f2fd6ac762" xml:space="preserve">
+          <source><bpt id="cff034ca-739e-410c-a39d-5ef44e548272">&lt;strong&gt;</bpt>Capture the VM as OS Image or VM Image<ept id="cff034ca-739e-410c-a39d-5ef44e548272">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cff034ca-739e-410c-a39d-5ef44e548272">&lt;strong&gt;</bpt>Capture the VM as OS Image or VM Image<ept id="cff034ca-739e-410c-a39d-5ef44e548272">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5305da25-04ac-48bc-aae6-fa40dc3e4a35" xml:space="preserve">
+          <source><bpt id="a8c25721-4b10-470b-ae6a-0aebb1f27021">&lt;strong&gt;</bpt>Sets the state of the VM to Generalized<ept id="a8c25721-4b10-470b-ae6a-0aebb1f27021">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a8c25721-4b10-470b-ae6a-0aebb1f27021">&lt;strong&gt;</bpt>Sets the state of the VM to Generalized<ept id="a8c25721-4b10-470b-ae6a-0aebb1f27021">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be44158e-d178-4473-b935-4d3195b9bcf0" xml:space="preserve">
+          <source><bpt id="5df1bb39-9431-497f-a749-57207888105a">&lt;strong&gt;</bpt>Gets instance view of the VM<ept id="5df1bb39-9431-497f-a749-57207888105a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5df1bb39-9431-497f-a749-57207888105a">&lt;strong&gt;</bpt>Gets instance view of the VM<ept id="5df1bb39-9431-497f-a749-57207888105a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d13625f7-f2cf-40c4-8d94-5ad57b687bf6" xml:space="preserve">
+          <source><bpt id="6d1a35cc-a74e-43e3-b54c-ab9083afa932">&lt;strong&gt;</bpt>Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority<ept id="6d1a35cc-a74e-43e3-b54c-ab9083afa932">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6d1a35cc-a74e-43e3-b54c-ab9083afa932">&lt;strong&gt;</bpt>Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority<ept id="6d1a35cc-a74e-43e3-b54c-ab9083afa932">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d6c408b-5505-4aae-8e86-24eecab5f4be" xml:space="preserve">
+          <source><bpt id="d83fdcd4-9362-4804-8ac9-c9b3cfb1f06d">&lt;strong&gt;</bpt>Updates VM with new data<ept id="d83fdcd4-9362-4804-8ac9-c9b3cfb1f06d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d83fdcd4-9362-4804-8ac9-c9b3cfb1f06d">&lt;strong&gt;</bpt>Updates VM with new data<ept id="d83fdcd4-9362-4804-8ac9-c9b3cfb1f06d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a4f137c-e8f6-410e-825a-9733b3da5b7f" xml:space="preserve">
+          <source><bpt id="ed1a76a8-98dd-442c-b1b7-4f8183e28cb9">&lt;strong&gt;</bpt>Commands to manage your Virtual Machine data disks<ept id="ed1a76a8-98dd-442c-b1b7-4f8183e28cb9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ed1a76a8-98dd-442c-b1b7-4f8183e28cb9">&lt;strong&gt;</bpt>Commands to manage your Virtual Machine data disks<ept id="ed1a76a8-98dd-442c-b1b7-4f8183e28cb9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="342f43fa-1d0e-42f7-ba90-d0c346e497e4" xml:space="preserve">
+          <source><bpt id="efbfc8cf-5500-4ff5-ba1c-a5817d24f31b">&lt;strong&gt;</bpt>Commands to manage VM resource extensions<ept id="efbfc8cf-5500-4ff5-ba1c-a5817d24f31b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="efbfc8cf-5500-4ff5-ba1c-a5817d24f31b">&lt;strong&gt;</bpt>Commands to manage VM resource extensions<ept id="efbfc8cf-5500-4ff5-ba1c-a5817d24f31b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="828e8cf4-3350-4fc6-be56-10c8dc2ca77a" xml:space="preserve">
+          <source><bpt id="86ce416f-a7e5-4a71-96ea-663a5a932dc0">&lt;strong&gt;</bpt>Commands to manage your Docker Virtual Machine<ept id="86ce416f-a7e5-4a71-96ea-663a5a932dc0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="86ce416f-a7e5-4a71-96ea-663a5a932dc0">&lt;strong&gt;</bpt>Commands to manage your Docker Virtual Machine<ept id="86ce416f-a7e5-4a71-96ea-663a5a932dc0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0421c96e-dfc4-4297-942c-5253fda27ce4" xml:space="preserve">
+          <source><bpt id="cfe5b0fa-b307-4385-bdca-4e56b338c55e">&lt;strong&gt;</bpt>Commands to manage VM images<ept id="cfe5b0fa-b307-4385-bdca-4e56b338c55e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cfe5b0fa-b307-4385-bdca-4e56b338c55e">&lt;strong&gt;</bpt>Commands to manage VM images<ept id="cfe5b0fa-b307-4385-bdca-4e56b338c55e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="695ccca0-b9c3-4428-8587-a40f2ba40dc6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="695ccca0-b9c3-4428-8587-a40f2ba40dc6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8c74ab07-4cdd-4de2-a116-5fb4e026bb92">
+        <trans-unit id="5e1d3152-9077-494e-9d24-ca9a9932b83f" xml:space="preserve">
+          <source>Use the SQL Azure Migration Wizard | Microsoft Azure</source>
+          <target state="new">Use the SQL Azure Migration Wizard | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f20e4176-affc-4b30-a2a8-206bada27c2c" xml:space="preserve">
+          <source>Microsoft Azure SQL Database, database migration, import database, export database, migration wizard</source>
+          <target state="new">Microsoft Azure SQL Database, database migration, import database, export database, migration wizard</target>
+        </trans-unit>
+        <trans-unit id="b15e4ff6-5f99-4c38-9f00-270aa4d940ab" xml:space="preserve">
+          <source><bpt id="10e8c17a-b784-4ec2-b623-f5267a10a69f">&lt;linkText&gt;</bpt>alt text<ept id="10e8c17a-b784-4ec2-b623-f5267a10a69f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10e8c17a-b784-4ec2-b623-f5267a10a69f">&lt;linkText&gt;</bpt>alt text<ept id="10e8c17a-b784-4ec2-b623-f5267a10a69f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b163d092-71a7-47ca-9571-a5c9abad0d27" xml:space="preserve">
+          <source>This Option uses the SQL Azure Migration Wizard to generate a T-SQL script from a source database which is then transformed by the wizard to make it compatible with the SQL Database and then connect to Azure SQL Database to execute the script against an empty Azure SQL database.</source>
+          <target state="new">This Option uses the SQL Azure Migration Wizard to generate a T-SQL script from a source database which is then transformed by the wizard to make it compatible with the SQL Database and then connect to Azure SQL Database to execute the script against an empty Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="846253a7-db7f-4de7-8595-0dc7edf54a57" xml:space="preserve">
+          <source>The script can be generated with schema only or can include data in BCP format.</source>
+          <target state="new">The script can be generated with schema only or can include data in BCP format.</target>
+        </trans-unit>
+        <trans-unit id="ee02942d-a2f3-48ff-ba3a-401909bfed8c" xml:space="preserve">
+          <source>The wizard also allows you to include or exclude specific objects from the database in the script.</source>
+          <target state="new">The wizard also allows you to include or exclude specific objects from the database in the script.</target>
+        </trans-unit>
+        <trans-unit id="f6a6fe94-fadf-476e-bc40-f9cb0462aeb1" xml:space="preserve">
+          <source>Note that not all incompatible schema that can be detected by the wizard can be processed by its built-in transformations.</source>
+          <target state="new">Note that not all incompatible schema that can be detected by the wizard can be processed by its built-in transformations.</target>
+        </trans-unit>
+        <trans-unit id="0fbbca56-e15e-4c3a-b2de-a8bab8ac0663" xml:space="preserve">
+          <source>Incompatible script that cannot be addressed will be reported as errors, with comments injected into the generated script.</source>
+          <target state="new">Incompatible script that cannot be addressed will be reported as errors, with comments injected into the generated script.</target>
+        </trans-unit>
+        <trans-unit id="26169613-4fe0-403e-803e-ed4de2b01967" xml:space="preserve">
+          <source>If this occurs the script must be saved and edited manually before it can be submitted to Azure SQL Database.</source>
+          <target state="new">If this occurs the script must be saved and edited manually before it can be submitted to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="539958e9-3451-46a4-81aa-74bd07cd4826" xml:space="preserve">
+          <source>If changes are needed the script can be saved and then edited with SSMS or the SQL Server tooling in VS, and once compatible, executed out-of-band against Azure SQL Database.</source>
+          <target state="new">If changes are needed the script can be saved and then edited with SSMS or the SQL Server tooling in VS, and once compatible, executed out-of-band against Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="4a419297-8b91-4a11-b778-8b4a88419264" xml:space="preserve">
+          <source><bpt id="676d244d-e88c-4306-b120-90307971372f">&lt;strong&gt;</bpt>Note:<ept id="676d244d-e88c-4306-b120-90307971372f">&lt;/strong&gt;</ept> As an extension to this Option, if many errors are detected and correcting them is not straightforward you can import the generated script file into a database project in Visual Studio.</source>
+          <target state="new"><bpt id="676d244d-e88c-4306-b120-90307971372f">&lt;strong&gt;</bpt>Note:<ept id="676d244d-e88c-4306-b120-90307971372f">&lt;/strong&gt;</ept> As an extension to this Option, if many errors are detected and correcting them is not straightforward you can import the generated script file into a database project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="b090f760-c9c8-4fba-a231-68776443debf" xml:space="preserve">
+          <source>If you set the target of the project to the  SQL Database V12 you can then build the project and progressively correct the errors using the SQL Server tooling in VS.</source>
+          <target state="new">If you set the target of the project to the  SQL Database V12 you can then build the project and progressively correct the errors using the SQL Server tooling in VS.</target>
+        </trans-unit>
+        <trans-unit id="5f9f2c9e-d208-4bfb-b9f9-622162db29ae" xml:space="preserve">
+          <source>Once the schema has no errors you can publish the schema to a copy of the source database and then use SSMS to deploy or export/import the database to Azure SQL database as described in Option #1.</source>
+          <target state="new">Once the schema has no errors you can publish the schema to a copy of the source database and then use SSMS to deploy or export/import the database to Azure SQL database as described in Option #1.</target>
+        </trans-unit>
+        <trans-unit id="42065851-84d3-4ff4-9352-d9a9f79aabe9" xml:space="preserve">
+          <source>You can download the SQL Azure Migration Wizard from CodePlex:</source>
+          <target state="new">You can download the SQL Azure Migration Wizard from CodePlex:</target>
+        </trans-unit>
+        <trans-unit id="94f2262d-2811-4a81-8997-4e764829c073" xml:space="preserve">
+          <source><bpt id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;linkText&gt;</bpt>Download SQLAzureMW.exe<ept id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;/linkText&gt;</ept><bpt id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;title&gt;</bpt><ept id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;linkText&gt;</bpt>Download SQLAzureMW.exe<ept id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;/linkText&gt;</ept><bpt id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;title&gt;</bpt><ept id="4dc4a446-e3f5-4b3f-a072-7f2d0295fb46">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73fb8172-99a3-4a22-ba87-8fb7ea81924a" xml:space="preserve">
+          <source>&amp;nbsp;1.</source>
+          <target state="new">&amp;nbsp;1.</target>
+        </trans-unit>
+        <trans-unit id="c6078933-8e89-4668-8591-39bfc391bb25" xml:space="preserve">
+          <source>Provision a new database either on a new server in the SQL Database  or on an existing server upgraded as described earlier.</source>
+          <target state="new">Provision a new database either on a new server in the SQL Database  or on an existing server upgraded as described earlier.</target>
+        </trans-unit>
+        <trans-unit id="0f9b8cec-ada9-407e-b54e-e55eb385fd06" xml:space="preserve">
+          <source>You will execute the migration script created in this Option against this database as the final step.</source>
+          <target state="new">You will execute the migration script created in this Option against this database as the final step.</target>
+        </trans-unit>
+        <trans-unit id="8bfad029-6c0c-4a67-82d7-44d57baa3c3a" xml:space="preserve">
+          <source>&amp;nbsp;2.</source>
+          <target state="new">&amp;nbsp;2.</target>
+        </trans-unit>
+        <trans-unit id="343cfa1e-65d7-4f8d-9b6b-883d1551de83" xml:space="preserve">
+          <source>Open the migration wizard and select the option to <bpt id="2107c1c0-22ef-4f22-a9b9-1c4f4afdce5f">&lt;strong&gt;</bpt>Analyze/Migrate a Database<ept id="2107c1c0-22ef-4f22-a9b9-1c4f4afdce5f">&lt;/strong&gt;</ept> and set the <bpt id="6fe1ca97-bdab-4637-8b62-473aab7ccabe">&lt;strong&gt;</bpt>Target Server<ept id="6fe1ca97-bdab-4637-8b62-473aab7ccabe">&lt;/strong&gt;</ept> to Azure SQL Database V12 and then click <bpt id="50f6f728-91af-46e6-a7ff-bf98b6b0c96c">&lt;strong&gt;</bpt>Next<ept id="50f6f728-91af-46e6-a7ff-bf98b6b0c96c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the migration wizard and select the option to <bpt id="2107c1c0-22ef-4f22-a9b9-1c4f4afdce5f">&lt;strong&gt;</bpt>Analyze/Migrate a Database<ept id="2107c1c0-22ef-4f22-a9b9-1c4f4afdce5f">&lt;/strong&gt;</ept> and set the <bpt id="6fe1ca97-bdab-4637-8b62-473aab7ccabe">&lt;strong&gt;</bpt>Target Server<ept id="6fe1ca97-bdab-4637-8b62-473aab7ccabe">&lt;/strong&gt;</ept> to Azure SQL Database V12 and then click <bpt id="50f6f728-91af-46e6-a7ff-bf98b6b0c96c">&lt;strong&gt;</bpt>Next<ept id="50f6f728-91af-46e6-a7ff-bf98b6b0c96c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4bc29d5-9e16-4c16-976e-abb61f5d01ac" xml:space="preserve">
+          <source><bpt id="b0e5f39a-f7a3-4b7b-8fd2-c6879c1931ed">&lt;linkText&gt;</bpt>alt text<ept id="b0e5f39a-f7a3-4b7b-8fd2-c6879c1931ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0e5f39a-f7a3-4b7b-8fd2-c6879c1931ed">&lt;linkText&gt;</bpt>alt text<ept id="b0e5f39a-f7a3-4b7b-8fd2-c6879c1931ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb64f5ae-cf4e-4c2c-ab28-a298c98ec961" xml:space="preserve">
+          <source>&amp;nbsp;3.</source>
+          <target state="new">&amp;nbsp;3.</target>
+        </trans-unit>
+        <trans-unit id="79f0e362-2269-4fa6-aac4-65a057f1a913" xml:space="preserve">
+          <source>On the next page click <bpt id="7cd52b23-c722-4b27-be85-cd68361771d2">&lt;strong&gt;</bpt>Connect to Server<ept id="7cd52b23-c722-4b27-be85-cd68361771d2">&lt;/strong&gt;</ept> and provide the connection information for your source server.</source>
+          <target state="new">On the next page click <bpt id="7cd52b23-c722-4b27-be85-cd68361771d2">&lt;strong&gt;</bpt>Connect to Server<ept id="7cd52b23-c722-4b27-be85-cd68361771d2">&lt;/strong&gt;</ept> and provide the connection information for your source server.</target>
+        </trans-unit>
+        <trans-unit id="de4d9b1e-58d8-4c0c-8738-2e65d614abe4" xml:space="preserve">
+          <source>Either specify the source database in the connection dialog or connect to the server and then select the source database from the list of databases.</source>
+          <target state="new">Either specify the source database in the connection dialog or connect to the server and then select the source database from the list of databases.</target>
+        </trans-unit>
+        <trans-unit id="e1468f32-2c2b-439a-a691-9691e20dca20" xml:space="preserve">
+          <source><bpt id="db68551f-ae71-47a6-85d9-311fe8d81e6b">&lt;linkText&gt;</bpt>alt text<ept id="db68551f-ae71-47a6-85d9-311fe8d81e6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db68551f-ae71-47a6-85d9-311fe8d81e6b">&lt;linkText&gt;</bpt>alt text<ept id="db68551f-ae71-47a6-85d9-311fe8d81e6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cffbde86-ea04-4781-9db0-cda528675bf9" xml:space="preserve">
+          <source>&amp;nbsp;4.</source>
+          <target state="new">&amp;nbsp;4.</target>
+        </trans-unit>
+        <trans-unit id="e42da394-02f7-453b-be31-6003ba20f3ba" xml:space="preserve">
+          <source>On the next page, Choose Objects, you can select whether to Script all database objects (the default) or Select specific database objects to be scripted.</source>
+          <target state="new">On the next page, Choose Objects, you can select whether to Script all database objects (the default) or Select specific database objects to be scripted.</target>
+        </trans-unit>
+        <trans-unit id="51318879-cfa4-4e33-a38b-a74eb6f5fac5" xml:space="preserve">
+          <source>You may find it best to start by scripting all objects in a first pass and then potentially come back to this step and exclude objects if the wizard reports scripting or transformation errors.</source>
+          <target state="new">You may find it best to start by scripting all objects in a first pass and then potentially come back to this step and exclude objects if the wizard reports scripting or transformation errors.</target>
+        </trans-unit>
+        <trans-unit id="971c07bd-f077-44f5-b428-6a78894daf41" xml:space="preserve">
+          <source>The wizard works by first scripting the objects in the database (using SMO) and then post-processes the generated script to apply a series of regex-based validation and transformation rules.</source>
+          <target state="new">The wizard works by first scripting the objects in the database (using SMO) and then post-processes the generated script to apply a series of regex-based validation and transformation rules.</target>
+        </trans-unit>
+        <trans-unit id="edf9462f-0797-41f8-bd47-c3bcecf4c9ab" xml:space="preserve">
+          <source><bpt id="425377de-a7f1-4645-9490-df6d3c7dc052">&lt;linkText&gt;</bpt>alt text<ept id="425377de-a7f1-4645-9490-df6d3c7dc052">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="425377de-a7f1-4645-9490-df6d3c7dc052">&lt;linkText&gt;</bpt>alt text<ept id="425377de-a7f1-4645-9490-df6d3c7dc052">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="478296ca-5a9c-41de-8738-968c00ee892b" xml:space="preserve">
+          <source>&amp;nbsp;5.</source>
+          <target state="new">&amp;nbsp;5.</target>
+        </trans-unit>
+        <trans-unit id="b91134ab-88e5-47d9-b7bd-a72441414193" xml:space="preserve">
+          <source>Select Advanced and review the configuration options used by the wizard.</source>
+          <target state="new">Select Advanced and review the configuration options used by the wizard.</target>
+        </trans-unit>
+        <trans-unit id="0d6d45db-7bd0-4f87-a0ff-eeda7fb473c4" xml:space="preserve">
+          <source>For a first pass, particularly for a large database you should set <bpt id="cc37362c-bdbf-4fcf-8663-d5f12a076370">&lt;strong&gt;</bpt>Script Table/Data<ept id="cc37362c-bdbf-4fcf-8663-d5f12a076370">&lt;/strong&gt;</ept> to Table Schema Only, ensure <bpt id="5913e993-3a7f-421f-aa91-79a4d3022292">&lt;strong&gt;</bpt>Target Server<ept id="5913e993-3a7f-421f-aa91-79a4d3022292">&lt;/strong&gt;</ept> is set to Microsoft Azure SQL Database   V12, and <bpt id="6be61b95-de90-40b6-8aab-6d15faa21e15">&lt;strong&gt;</bpt>Compatibility Checks<ept id="6be61b95-de90-40b6-8aab-6d15faa21e15">&lt;/strong&gt;</ept> is set to Override: Perform All Compatibility Checks.</source>
+          <target state="new">For a first pass, particularly for a large database you should set <bpt id="cc37362c-bdbf-4fcf-8663-d5f12a076370">&lt;strong&gt;</bpt>Script Table/Data<ept id="cc37362c-bdbf-4fcf-8663-d5f12a076370">&lt;/strong&gt;</ept> to Table Schema Only, ensure <bpt id="5913e993-3a7f-421f-aa91-79a4d3022292">&lt;strong&gt;</bpt>Target Server<ept id="5913e993-3a7f-421f-aa91-79a4d3022292">&lt;/strong&gt;</ept> is set to Microsoft Azure SQL Database   V12, and <bpt id="6be61b95-de90-40b6-8aab-6d15faa21e15">&lt;strong&gt;</bpt>Compatibility Checks<ept id="6be61b95-de90-40b6-8aab-6d15faa21e15">&lt;/strong&gt;</ept> is set to Override: Perform All Compatibility Checks.</target>
+        </trans-unit>
+        <trans-unit id="3da8d272-df2f-4c92-a86e-7b8c80b70d55" xml:space="preserve">
+          <source><bpt id="998446ff-cf66-4f1e-bed1-fa84c317db64">&lt;linkText&gt;</bpt>alt text<ept id="998446ff-cf66-4f1e-bed1-fa84c317db64">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="998446ff-cf66-4f1e-bed1-fa84c317db64">&lt;linkText&gt;</bpt>alt text<ept id="998446ff-cf66-4f1e-bed1-fa84c317db64">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1fdf3b2-0166-4343-b716-bf7ad6af679b" xml:space="preserve">
+          <source>&amp;nbsp;6.</source>
+          <target state="new">&amp;nbsp;6.</target>
+        </trans-unit>
+        <trans-unit id="8b368843-7a27-45f6-b907-5ea52d233d0c" xml:space="preserve">
+          <source>Click <bpt id="599b7dfe-2971-4baf-a3f7-e8a98df328e2">&lt;strong&gt;</bpt>Next<ept id="599b7dfe-2971-4baf-a3f7-e8a98df328e2">&lt;/strong&gt;</ept> to review the options and then <bpt id="1853e334-8167-4a9f-9a84-b10dd8c67032">&lt;strong&gt;</bpt>Next<ept id="1853e334-8167-4a9f-9a84-b10dd8c67032">&lt;/strong&gt;</ept> again to generate and transform the script.</source>
+          <target state="new">Click <bpt id="599b7dfe-2971-4baf-a3f7-e8a98df328e2">&lt;strong&gt;</bpt>Next<ept id="599b7dfe-2971-4baf-a3f7-e8a98df328e2">&lt;/strong&gt;</ept> to review the options and then <bpt id="1853e334-8167-4a9f-9a84-b10dd8c67032">&lt;strong&gt;</bpt>Next<ept id="1853e334-8167-4a9f-9a84-b10dd8c67032">&lt;/strong&gt;</ept> again to generate and transform the script.</target>
+        </trans-unit>
+        <trans-unit id="ed1ba068-28ed-4f91-8239-0f075e8a136c" xml:space="preserve">
+          <source>You can review the script on the SQL Script tab.</source>
+          <target state="new">You can review the script on the SQL Script tab.</target>
+        </trans-unit>
+        <trans-unit id="30d63cd1-d990-46ff-9b63-9cec50fd08d2" xml:space="preserve">
+          <source>&amp;nbsp;7.</source>
+          <target state="new">&amp;nbsp;7.</target>
+        </trans-unit>
+        <trans-unit id="81a4c0ca-f25e-46e7-a346-9262bf8c6c98" xml:space="preserve">
+          <source>Script generation will report errors if the schema is incompatible with the SQL Database and cannot be transformed by the wizard.</source>
+          <target state="new">Script generation will report errors if the schema is incompatible with the SQL Database and cannot be transformed by the wizard.</target>
+        </trans-unit>
+        <trans-unit id="4c8069a4-9e73-40db-9a1b-d9ac744a50ca" xml:space="preserve">
+          <source>In the screen shot below the transformation process has found problems with one stored procedure.</source>
+          <target state="new">In the screen shot below the transformation process has found problems with one stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="dddde86b-b77f-4d5a-8e21-e341d7319022" xml:space="preserve">
+          <source>In this case, a procedure has been written to use full text search which is not yet supported in the V12 (but will be supported in a later release).</source>
+          <target state="new">In this case, a procedure has been written to use full text search which is not yet supported in the V12 (but will be supported in a later release).</target>
+        </trans-unit>
+        <trans-unit id="6dd38fd8-02c7-47d1-b776-e2c4bc8eac37" xml:space="preserve">
+          <source><bpt id="70d276ee-2225-449c-a9f7-9b1ee79a4708">&lt;linkText&gt;</bpt>alt text<ept id="70d276ee-2225-449c-a9f7-9b1ee79a4708">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70d276ee-2225-449c-a9f7-9b1ee79a4708">&lt;linkText&gt;</bpt>alt text<ept id="70d276ee-2225-449c-a9f7-9b1ee79a4708">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="694eac19-8cc1-4855-89ec-212f523019f6" xml:space="preserve">
+          <source>Depending on your assessment of the errors you may choose to go back in the wizard and exclude objects that are causing problems and regenerate the script.</source>
+          <target state="new">Depending on your assessment of the errors you may choose to go back in the wizard and exclude objects that are causing problems and regenerate the script.</target>
+        </trans-unit>
+        <trans-unit id="5f4c2ab7-c050-4690-b4af-66d34bae3193" xml:space="preserve">
+          <source>As you consider how you plan to address the errors consider the impact on other objects in the database as well as the applications that use the database.</source>
+          <target state="new">As you consider how you plan to address the errors consider the impact on other objects in the database as well as the applications that use the database.</target>
+        </trans-unit>
+        <trans-unit id="5bf69a85-03a5-4cca-902a-b5321ad01cdc" xml:space="preserve">
+          <source>If the script has errors that need to be corrected you can save a schema-only script file from the SQL Script tab and open and edit the script in your favorite editor to correct the errors before executing it outside of SAMW against the new database you created in step 1.</source>
+          <target state="new">If the script has errors that need to be corrected you can save a schema-only script file from the SQL Script tab and open and edit the script in your favorite editor to correct the errors before executing it outside of SAMW against the new database you created in step 1.</target>
+        </trans-unit>
+        <trans-unit id="68749216-9f51-4564-96a8-b49886cc4657" xml:space="preserve">
+          <source>If the script is large or there are a large number of errors you should use Option 3.</source>
+          <target state="new">If the script is large or there are a large number of errors you should use Option 3.</target>
+        </trans-unit>
+        <trans-unit id="de65a7bd-60b9-4229-9dee-7757b908e3b1" xml:space="preserve">
+          <source>Note that while you can import the generated script file into Visual Studio importing from a SQL file can take considerable longer than importing from a database as described in Option 3.</source>
+          <target state="new">Note that while you can import the generated script file into Visual Studio importing from a SQL file can take considerable longer than importing from a database as described in Option 3.</target>
+        </trans-unit>
+        <trans-unit id="d1335e24-6c52-4bc7-add9-1b0ca9c569ad" xml:space="preserve">
+          <source>&amp;nbsp;8.</source>
+          <target state="new">&amp;nbsp;8.</target>
+        </trans-unit>
+        <trans-unit id="e3c3942d-fe25-4cb1-9a29-4ac3cf5f4ac1" xml:space="preserve">
+          <source>If there are no errors or you have eliminated the source of errors resulting from the generation you can click <bpt id="1183640f-6683-4c6f-b667-5440aee58190">&lt;strong&gt;</bpt>Next<ept id="1183640f-6683-4c6f-b667-5440aee58190">&lt;/strong&gt;</ept> and then on the following page click <bpt id="e2938ee7-14b3-432b-a645-a64a1d7fb74f">&lt;strong&gt;</bpt>Connect to Server<ept id="e2938ee7-14b3-432b-a645-a64a1d7fb74f">&lt;/strong&gt;</ept> to connect to the Azure SQL Database server you created in step 1.</source>
+          <target state="new">If there are no errors or you have eliminated the source of errors resulting from the generation you can click <bpt id="1183640f-6683-4c6f-b667-5440aee58190">&lt;strong&gt;</bpt>Next<ept id="1183640f-6683-4c6f-b667-5440aee58190">&lt;/strong&gt;</ept> and then on the following page click <bpt id="e2938ee7-14b3-432b-a645-a64a1d7fb74f">&lt;strong&gt;</bpt>Connect to Server<ept id="e2938ee7-14b3-432b-a645-a64a1d7fb74f">&lt;/strong&gt;</ept> to connect to the Azure SQL Database server you created in step 1.</target>
+        </trans-unit>
+        <trans-unit id="734684dc-a51f-44f6-b9ee-a41370577544" xml:space="preserve">
+          <source><bpt id="60731e72-f783-4ff5-85c7-a21c70c312f6">&lt;linkText&gt;</bpt>alt text<ept id="60731e72-f783-4ff5-85c7-a21c70c312f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60731e72-f783-4ff5-85c7-a21c70c312f6">&lt;linkText&gt;</bpt>alt text<ept id="60731e72-f783-4ff5-85c7-a21c70c312f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="344b56c0-a8a3-4367-ba80-e9ddd830b86c" xml:space="preserve">
+          <source>&amp;nbsp;9.</source>
+          <target state="new">&amp;nbsp;9.</target>
+        </trans-unit>
+        <trans-unit id="d032bcbc-a497-4124-a644-acc73093bb74" xml:space="preserve">
+          <source>The next step is to select the database against which the script will be executed.</source>
+          <target state="new">The next step is to select the database against which the script will be executed.</target>
+        </trans-unit>
+        <trans-unit id="b63df58b-e241-4cc5-9079-0da8c486bb89" xml:space="preserve">
+          <source>All existing databases on the server will be listed.</source>
+          <target state="new">All existing databases on the server will be listed.</target>
+        </trans-unit>
+        <trans-unit id="4156b52a-bed8-44e1-acc7-c587d485b48b" xml:space="preserve">
+          <source>Select the database you created in step 1.</source>
+          <target state="new">Select the database you created in step 1.</target>
+        </trans-unit>
+        <trans-unit id="d415646c-4136-4216-985e-79cf1fd7d909" xml:space="preserve">
+          <source>The database should be empty and have an appropriate pricing tier for this operation.</source>
+          <target state="new">The database should be empty and have an appropriate pricing tier for this operation.</target>
+        </trans-unit>
+        <trans-unit id="bffb6cc2-9d5e-4e96-9160-7ca5ded6f4e4" xml:space="preserve">
+          <source>If you prefer, you can create a database at this point using the wizard.</source>
+          <target state="new">If you prefer, you can create a database at this point using the wizard.</target>
+        </trans-unit>
+        <trans-unit id="e2793198-b699-4045-84ed-63ed8dbbae29" xml:space="preserve">
+          <source>To do so click Create Database to configure and create it.</source>
+          <target state="new">To do so click Create Database to configure and create it.</target>
+        </trans-unit>
+        <trans-unit id="50281cb2-fc76-4c53-9129-17bfcd620728" xml:space="preserve">
+          <source>See the Getting Started section for guidance on choosing the performance level to use during the migration process.</source>
+          <target state="new">See the Getting Started section for guidance on choosing the performance level to use during the migration process.</target>
+        </trans-unit>
+        <trans-unit id="f35930c7-d6d9-4bf6-b5cc-74e60222ed94" xml:space="preserve">
+          <source>Once you have created the database select and continue.</source>
+          <target state="new">Once you have created the database select and continue.</target>
+        </trans-unit>
+        <trans-unit id="fee25fd3-9299-480c-b7a7-ed72b8c9ea0c" xml:space="preserve">
+          <source>&amp;nbsp;10.</source>
+          <target state="new">&amp;nbsp;10.</target>
+        </trans-unit>
+        <trans-unit id="a9527b53-1dbd-4a25-8f5a-da1e1bf065b1" xml:space="preserve">
+          <source>With an empty database selected click <bpt id="7a2a0c24-e82b-459f-8902-92d831bbb99d">&lt;strong&gt;</bpt>Next<ept id="7a2a0c24-e82b-459f-8902-92d831bbb99d">&lt;/strong&gt;</ept> and confirm that you want to execute the script to complete the migration.</source>
+          <target state="new">With an empty database selected click <bpt id="7a2a0c24-e82b-459f-8902-92d831bbb99d">&lt;strong&gt;</bpt>Next<ept id="7a2a0c24-e82b-459f-8902-92d831bbb99d">&lt;/strong&gt;</ept> and confirm that you want to execute the script to complete the migration.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

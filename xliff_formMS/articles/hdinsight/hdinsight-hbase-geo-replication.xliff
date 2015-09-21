@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ca79ec34-2ac3-45fb-8d2e-39df7c677649" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ca79ec34-2ac3-45fb-8d2e-39df7c677649" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="26791803-951e-4ae9-a320-e41863c8c778">
+        <trans-unit id="df5d87a6-4f7e-4d52-8cd5-7ea1ea7b33e9" xml:space="preserve">
+          <source>Configure HBase replication between two datacenters | Microsoft Azure</source>
+          <target state="new">Configure HBase replication between two datacenters | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="450753ba-e0e9-4362-8e0e-5a6a13e9ebfe" xml:space="preserve">
+          <source>Learn how to configure HBase replication across two data centers, and about the use cases for cluster replication.</source>
+          <target state="new">Learn how to configure HBase replication across two data centers, and about the use cases for cluster replication.</target>
+        </trans-unit>
+        <trans-unit id="08a7fe16-5704-4170-9487-ee3ba85c7b6e" xml:space="preserve">
+          <source>Learn how to configure HBase replication across two data centers.</source>
+          <target state="new">Learn how to configure HBase replication across two data centers.</target>
+        </trans-unit>
+        <trans-unit id="3c5a18a9-2eda-43fb-9577-835b74ba4a7e" xml:space="preserve">
+          <source>Some use cases for cluster replication include:</source>
+          <target state="new">Some use cases for cluster replication include:</target>
+        </trans-unit>
+        <trans-unit id="e4015c15-dfaf-425b-b80f-e133688a2fdd" xml:space="preserve">
+          <source>Backup and disaster recovery</source>
+          <target state="new">Backup and disaster recovery</target>
+        </trans-unit>
+        <trans-unit id="2f19e9aa-48ef-4038-aea6-66fe4653f573" xml:space="preserve">
+          <source>Data aggregation</source>
+          <target state="new">Data aggregation</target>
+        </trans-unit>
+        <trans-unit id="d60ddab5-06a4-4da4-ae68-96ee3ae3fe4a" xml:space="preserve">
+          <source>Geographic data distribution</source>
+          <target state="new">Geographic data distribution</target>
+        </trans-unit>
+        <trans-unit id="4af0b222-0259-48d0-93be-f07b2ac21d9a" xml:space="preserve">
+          <source>Online data ingestion combined with offline data analytics</source>
+          <target state="new">Online data ingestion combined with offline data analytics</target>
+        </trans-unit>
+        <trans-unit id="bfc01af2-f73f-4dfe-b0ff-38f131eda93d" xml:space="preserve">
+          <source>Cluster replication uses a source-push methodology.</source>
+          <target state="new">Cluster replication uses a source-push methodology.</target>
+        </trans-unit>
+        <trans-unit id="5bd6bdb0-35fc-4242-b37f-f09479b60c6d" xml:space="preserve">
+          <source>An HBase cluster can be a source, a destination, or can fulfill both roles at once.</source>
+          <target state="new">An HBase cluster can be a source, a destination, or can fulfill both roles at once.</target>
+        </trans-unit>
+        <trans-unit id="9443547c-2b02-4c4d-9683-d9e7072173aa" xml:space="preserve">
+          <source>Replication is asynchronous, and the goal of replication is eventual consistency.</source>
+          <target state="new">Replication is asynchronous, and the goal of replication is eventual consistency.</target>
+        </trans-unit>
+        <trans-unit id="04374b54-4be2-460f-bbf7-ad35f16d9ec7" xml:space="preserve">
+          <source>When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters.</source>
+          <target state="new">When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters.</target>
+        </trans-unit>
+        <trans-unit id="43547e51-8cfb-41cc-a746-9d22b346212c" xml:space="preserve">
+          <source>When data is replicated from one cluster to another, the source cluster and all clusters which have already consumed the data are tracked to prevent replication loops.</source>
+          <target state="new">When data is replicated from one cluster to another, the source cluster and all clusters which have already consumed the data are tracked to prevent replication loops.</target>
+        </trans-unit>
+        <trans-unit id="6a5015e5-d228-4d59-8ff2-f603d41e42b8" xml:space="preserve">
+          <source>For more information, 
+In this tutorial, you will configure a source-destination replication.</source>
+          <target state="new">For more information, 
+In this tutorial, you will configure a source-destination replication.</target>
+        </trans-unit>
+        <trans-unit id="85367b36-8446-4759-9c4b-b3d10e5cf970" xml:space="preserve">
+          <source>For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#<bpt id="23659ab1-b196-492e-8f50-74fbda12f788">&lt;em&gt;</bpt>cluster<ept id="23659ab1-b196-492e-8f50-74fbda12f788">&lt;/em&gt;</ept>replication).</source>
+          <target state="new">For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#<bpt id="23659ab1-b196-492e-8f50-74fbda12f788">&lt;em&gt;</bpt>cluster<ept id="23659ab1-b196-492e-8f50-74fbda12f788">&lt;/em&gt;</ept>replication).</target>
+        </trans-unit>
+        <trans-unit id="fe856922-0f84-4f33-ba4a-b4083bfee43b" xml:space="preserve">
+          <source>This is the third part of the series:</source>
+          <target state="new">This is the third part of the series:</target>
+        </trans-unit>
+        <trans-unit id="338fd121-907b-4c70-a71d-fa409f09ca6d" xml:space="preserve">
+          <source><bpt id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-replication-vnet]<ept id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;/linkText&gt;</ept><bpt id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;title&gt;</bpt><ept id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-replication-vnet]<ept id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;/linkText&gt;</ept><bpt id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;title&gt;</bpt><ept id="1b7e86c4-c61f-435c-a6aa-3327494916c2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad2df1df-3fbe-409f-840f-1d5d499a2111" xml:space="preserve">
+          <source><bpt id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;/linkText&gt;</ept><bpt id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;title&gt;</bpt><ept id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;/linkText&gt;</ept><bpt id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;title&gt;</bpt><ept id="6b418087-e852-4c0e-83cc-7a24871e6693">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="446e9d82-0769-44b3-9410-76a06cebb12c" xml:space="preserve">
+          <source>Configure HBase geo replication (this tutorial)</source>
+          <target state="new">Configure HBase geo replication (this tutorial)</target>
+        </trans-unit>
+        <trans-unit id="267c4995-c77b-4c75-838f-ca886b1577c6" xml:space="preserve">
+          <source>The following diagram illustrates the two virtual networks and the network connectivity you created in <bpt id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;/linkText&gt;</ept><bpt id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;title&gt;</bpt><ept id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;/title&gt;</ept> and <bpt id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;/linkText&gt;</ept><bpt id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;title&gt;</bpt><ept id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;/title&gt;</ept>: </source>
+          <target state="new">The following diagram illustrates the two virtual networks and the network connectivity you created in <bpt id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;linkText&gt;</bpt>Configure a VPN connectivity between two virtual networks[hdinsight-hbase-geo-replication-vnet]<ept id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;/linkText&gt;</ept><bpt id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;title&gt;</bpt><ept id="a16e788e-0a3e-4d45-b701-5ecb89dfa10a">&lt;/title&gt;</ept> and <bpt id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;/linkText&gt;</ept><bpt id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;title&gt;</bpt><ept id="05eb11ad-b7e7-4180-be30-dd6f2cad24fc">&lt;/title&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="cf7b23b3-48f7-4dfa-bfca-db96cc6a2305" xml:space="preserve">
+          <source><bpt id="f0264f6c-cda3-4697-a93a-ec54634c7edf">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="f0264f6c-cda3-4697-a93a-ec54634c7edf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0264f6c-cda3-4697-a93a-ec54634c7edf">&lt;linkText&gt;</bpt>HDInsight HBase replication virtual network diagram<ept id="f0264f6c-cda3-4697-a93a-ec54634c7edf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bc08272-4500-4087-803e-97ce640f9001" xml:space="preserve">
+          <source>Before you begin this tutorial, you must have the following:</source>
+          <target state="new">Before you begin this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="553b010c-778a-4c05-8f52-b5d1b07b4ab4" xml:space="preserve">
+          <source><bpt id="da531fa1-e770-4b61-b5bc-60c24860a038">&lt;strong&gt;</bpt>An Azure subscription<ept id="da531fa1-e770-4b61-b5bc-60c24860a038">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="da531fa1-e770-4b61-b5bc-60c24860a038">&lt;strong&gt;</bpt>An Azure subscription<ept id="da531fa1-e770-4b61-b5bc-60c24860a038">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f87cac92-7e5d-4606-823a-1efbfb3f655e" xml:space="preserve">
+          <source>See <bpt id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;/linkText&gt;</ept><bpt id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;title&gt;</bpt><ept id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;/linkText&gt;</ept><bpt id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;title&gt;</bpt><ept id="67eb573f-b575-4789-a3b3-d9d92cecd87c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d0538ab-c617-4dc5-b836-96f05c5cfedc" xml:space="preserve">
+          <source><bpt id="e505c129-09b8-4692-a657-cd5c80159e9a">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="e505c129-09b8-4692-a657-cd5c80159e9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e505c129-09b8-4692-a657-cd5c80159e9a">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="e505c129-09b8-4692-a657-cd5c80159e9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b873c356-3ed9-48ca-adc8-3366efcf6549" xml:space="preserve">
+          <source>See <bpt id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;/linkText&gt;</ept><bpt id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;title&gt;</bpt><ept id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;/linkText&gt;</ept><bpt id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;title&gt;</bpt><ept id="ea24df3e-ea99-4297-a686-3956dfbb314f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae16e067-6f3d-40bb-93f3-d096b7ef50c8" xml:space="preserve">
+          <source>To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="250b9b43-db19-4ebf-bf4a-10988b2dba88">&lt;em&gt;</bpt>RemoteSigned<ept id="250b9b43-db19-4ebf-bf4a-10988b2dba88">&lt;/em&gt;</ept>.</source>
+          <target state="new">To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to <bpt id="250b9b43-db19-4ebf-bf4a-10988b2dba88">&lt;em&gt;</bpt>RemoteSigned<ept id="250b9b43-db19-4ebf-bf4a-10988b2dba88">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b5fa3b1-8247-4bb1-a22e-7e448b06b1a9" xml:space="preserve">
+          <source>See Using the Set-ExecutionPolicy cmdlet.</source>
+          <target state="new">See Using the Set-ExecutionPolicy cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="f9d10a2f-ca77-4461-b1c0-8ae4a406e778" xml:space="preserve">
+          <source><bpt id="b90ae771-9da6-4bec-a458-bbe6935601c6">&lt;strong&gt;</bpt>Two Azure virtual network with VPN connectivity and with DNS configured<ept id="b90ae771-9da6-4bec-a458-bbe6935601c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b90ae771-9da6-4bec-a458-bbe6935601c6">&lt;strong&gt;</bpt>Two Azure virtual network with VPN connectivity and with DNS configured<ept id="b90ae771-9da6-4bec-a458-bbe6935601c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8bac167-940e-4f24-b15f-3fa5692ac6a4" xml:space="preserve">
+          <source>For instructions, see <bpt id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-replication-vnet]<ept id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;/linkText&gt;</ept><bpt id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;title&gt;</bpt><ept id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;/title&gt;</ept>, and <bpt id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-replication-dns]<ept id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;/linkText&gt;</ept><bpt id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;title&gt;</bpt><ept id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-replication-vnet]<ept id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;/linkText&gt;</ept><bpt id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;title&gt;</bpt><ept id="7451ff76-ddff-4f57-b2c2-8ba1286f3f7f">&lt;/title&gt;</ept>, and <bpt id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;linkText&gt;</bpt>Configure DNS between two Azure virtual networks[hdinsight-hbase-replication-dns]<ept id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;/linkText&gt;</ept><bpt id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;title&gt;</bpt><ept id="20ddd7f5-0159-48b9-b878-7b35d581e163">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="587716f5-5c7f-438e-a3db-397ab7413a34" xml:space="preserve">
+          <source>Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</source>
+          <target state="new">Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="eda874ee-e046-4f0e-aa39-42a0631b0333" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</source>
+          <target state="new">If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:</target>
+        </trans-unit>
+        <trans-unit id="270d6ef5-7972-4f05-aca8-d7be292c23cf" xml:space="preserve">
+          <source>In <bpt id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-replication-vnet]<ept id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;/linkText&gt;</ept><bpt id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;title&gt;</bpt><ept id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;/title&gt;</ept>, you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center.</source>
+          <target state="new">In <bpt id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;linkText&gt;</bpt>Configure a VPN connection between two Azure virtual networks[hdinsight-hbase-replication-vnet]<ept id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;/linkText&gt;</ept><bpt id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;title&gt;</bpt><ept id="cc69fc69-57f1-4b06-a8c1-494f01496601">&lt;/title&gt;</ept>, you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center.</target>
+        </trans-unit>
+        <trans-unit id="7c858534-ec6b-4d86-ae0d-a1fab08ba235" xml:space="preserve">
+          <source>The two virtual network are connected via VPN.</source>
+          <target state="new">The two virtual network are connected via VPN.</target>
+        </trans-unit>
+        <trans-unit id="1fe095cd-0af4-40f5-9971-847cd82f9de6" xml:space="preserve">
+          <source>In this session, you will provision an HBase cluster in each of the virtual networks.</source>
+          <target state="new">In this session, you will provision an HBase cluster in each of the virtual networks.</target>
+        </trans-unit>
+        <trans-unit id="b0ba6a18-3854-4498-85b7-a39e4361af3c" xml:space="preserve">
+          <source>Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.</source>
+          <target state="new">Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.</target>
+        </trans-unit>
+        <trans-unit id="f1d59bbb-88a0-4106-89fa-277c16d19833" xml:space="preserve">
+          <source>The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options.</source>
+          <target state="new">The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options.</target>
+        </trans-unit>
+        <trans-unit id="36fa4fc3-be85-4917-89ff-5fa382f78010" xml:space="preserve">
+          <source>For example, set <bpt id="0d579bfb-48d1-46a3-8415-0e1eddc0eb0f">&lt;em&gt;</bpt>hbase.replication<ept id="0d579bfb-48d1-46a3-8415-0e1eddc0eb0f">&lt;/em&gt;</ept> to <bpt id="16d562aa-b88a-4268-81d5-e6b9f13f6fb3">&lt;em&gt;</bpt>true<ept id="16d562aa-b88a-4268-81d5-e6b9f13f6fb3">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, set <bpt id="0d579bfb-48d1-46a3-8415-0e1eddc0eb0f">&lt;em&gt;</bpt>hbase.replication<ept id="0d579bfb-48d1-46a3-8415-0e1eddc0eb0f">&lt;/em&gt;</ept> to <bpt id="16d562aa-b88a-4268-81d5-e6b9f13f6fb3">&lt;em&gt;</bpt>true<ept id="16d562aa-b88a-4268-81d5-e6b9f13f6fb3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93f43344-f958-4e9f-9565-ddb5e4e5eeae" xml:space="preserve">
+          <source>If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged.</source>
+          <target state="new">If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged.</target>
+        </trans-unit>
+        <trans-unit id="015efb2d-ea8c-4cd8-afb8-fc4080fe3be4" xml:space="preserve">
+          <source>For more information see <bpt id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;/linkText&gt;</ept><bpt id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;title&gt;</bpt><ept id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;linkText&gt;</bpt>Provision Hadoop clusters in HDInsight[hdinsight-provision]<ept id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;/linkText&gt;</ept><bpt id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;title&gt;</bpt><ept id="2b48e0f6-a8fc-4f25-9c07-41aa39f5a59c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="774439a7-1e72-4baa-82f7-e6d1a6d0f4b0" xml:space="preserve">
+          <source>One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.</source>
+          <target state="new">One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a004aad3-3064-40b9-afed-a5634d1fc609" xml:space="preserve">
+          <source><bpt id="6bd724a4-731d-42f3-a540-61d6e8637dd2">&lt;strong&gt;</bpt>To provision an HBase Cluster in Contoso-VNet-EU<ept id="6bd724a4-731d-42f3-a540-61d6e8637dd2">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="6bd724a4-731d-42f3-a540-61d6e8637dd2">&lt;strong&gt;</bpt>To provision an HBase Cluster in Contoso-VNet-EU<ept id="6bd724a4-731d-42f3-a540-61d6e8637dd2">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="c5d03023-82a4-48fa-8ba8-6dfbd7407de7" xml:space="preserve">
+          <source>From your workstation, open Windows PowerShell ISE.</source>
+          <target state="new">From your workstation, open Windows PowerShell ISE.</target>
+        </trans-unit>
+        <trans-unit id="1f0e5c54-0a52-4177-ae21-d200d1659f90" xml:space="preserve">
+          <source>Set the variables at the beginning of the script, and then run the script.</source>
+          <target state="new">Set the variables at the beginning of the script, and then run the script.</target>
+        </trans-unit>
+        <trans-unit id="605bd760-bed4-42d3-ac5f-063233a0da9f" xml:space="preserve">
+          <source><bpt id="8ec46a99-dbd3-447d-bf35-c2f5716869e9">&lt;strong&gt;</bpt>To provision an HBase Cluster in Contoso-VNet-US<ept id="8ec46a99-dbd3-447d-bf35-c2f5716869e9">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="8ec46a99-dbd3-447d-bf35-c2f5716869e9">&lt;strong&gt;</bpt>To provision an HBase Cluster in Contoso-VNet-US<ept id="8ec46a99-dbd3-447d-bf35-c2f5716869e9">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="783386d4-095b-4719-8257-9aadaf1d7e56" xml:space="preserve">
+          <source>Use the same script with the following values:</source>
+          <target state="new">Use the same script with the following values:</target>
+        </trans-unit>
+        <trans-unit id="1d4b1bc2-f9a1-47d3-8807-8c1cd357b4e0" xml:space="preserve">
+          <source>Because you have already connected to your Azure account, you don't need to run the following comlets anymore:</source>
+          <target state="new">Because you have already connected to your Azure account, you don't need to run the following comlets anymore:</target>
+        </trans-unit>
+        <trans-unit id="fca8ac7a-8547-49fe-8377-342330e154f0" xml:space="preserve">
+          <source>In <bpt id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;/linkText&gt;</ept><bpt id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;title&gt;</bpt><ept id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;/title&gt;</ept>, you have configured DNS servers for the two networks.</source>
+          <target state="new">In <bpt id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;linkText&gt;</bpt>Configure DNS for the virtual networks[hdinsight-hbase-replication-dns]<ept id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;/linkText&gt;</ept><bpt id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;title&gt;</bpt><ept id="6b7c2409-e556-44fb-8516-4d8f5a259b42">&lt;/title&gt;</ept>, you have configured DNS servers for the two networks.</target>
+        </trans-unit>
+        <trans-unit id="c52094ca-28b9-4100-bf62-41dbc7c7047a" xml:space="preserve">
+          <source>The HBase clusters have different domain suffixes.</source>
+          <target state="new">The HBase clusters have different domain suffixes.</target>
+        </trans-unit>
+        <trans-unit id="38fe128c-ca68-4b14-8353-14831ed4122e" xml:space="preserve">
+          <source>So you need to configure additional DNS conditional forwarders.</source>
+          <target state="new">So you need to configure additional DNS conditional forwarders.</target>
+        </trans-unit>
+        <trans-unit id="5f04fa7f-60f5-4a7f-a62f-fd5d8ce39418" xml:space="preserve">
+          <source>To configure conditional forwarder, you need to know the domain suffixes of the two HBase clusters.</source>
+          <target state="new">To configure conditional forwarder, you need to know the domain suffixes of the two HBase clusters.</target>
+        </trans-unit>
+        <trans-unit id="9dd09d4b-3902-411c-badd-4c744529dce9" xml:space="preserve">
+          <source><bpt id="a2ca76a9-e118-485e-8303-a9c1cd20827b">&lt;strong&gt;</bpt>To find the domain suffixes of the two HBase clusters<ept id="a2ca76a9-e118-485e-8303-a9c1cd20827b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2ca76a9-e118-485e-8303-a9c1cd20827b">&lt;strong&gt;</bpt>To find the domain suffixes of the two HBase clusters<ept id="a2ca76a9-e118-485e-8303-a9c1cd20827b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36c2b9fa-399f-419f-a331-1db0fd915700" xml:space="preserve">
+          <source>RDP into <bpt id="679e2c72-e49f-4147-9603-3068fd9e8b6e">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="679e2c72-e49f-4147-9603-3068fd9e8b6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">RDP into <bpt id="679e2c72-e49f-4147-9603-3068fd9e8b6e">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="679e2c72-e49f-4147-9603-3068fd9e8b6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5339cb46-2bd2-47fc-ab17-6efca7f8b702" xml:space="preserve">
+          <source>For instructions, see <bpt id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure portal[hdinsight-manage-portal]<ept id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;/linkText&gt;</ept><bpt id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;title&gt;</bpt><ept id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight by using the Azure portal[hdinsight-manage-portal]<ept id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;/linkText&gt;</ept><bpt id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;title&gt;</bpt><ept id="b311478c-6219-4a3e-b559-9a181af7aaaf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e06f27b-e378-4a03-ab5a-ae8e535b7f9a" xml:space="preserve">
+          <source>It is actually headnode0 of the cluster.</source>
+          <target state="new">It is actually headnode0 of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="6d472f92-052f-451b-a635-bfa79f8d5a73" xml:space="preserve">
+          <source>Open a Windows PowerShell console, or a command prompt.</source>
+          <target state="new">Open a Windows PowerShell console, or a command prompt.</target>
+        </trans-unit>
+        <trans-unit id="e08dd4c3-6dd5-477c-8c90-5bca56ce6c65" xml:space="preserve">
+          <source>Run <bpt id="b75d13ec-d89d-4457-8148-fecad21566d9">&lt;strong&gt;</bpt>ipconfig<ept id="b75d13ec-d89d-4457-8148-fecad21566d9">&lt;/strong&gt;</ept>, and write down <bpt id="dc8de64a-ec03-4c45-aca5-bf0130c214d2">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="dc8de64a-ec03-4c45-aca5-bf0130c214d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run <bpt id="b75d13ec-d89d-4457-8148-fecad21566d9">&lt;strong&gt;</bpt>ipconfig<ept id="b75d13ec-d89d-4457-8148-fecad21566d9">&lt;/strong&gt;</ept>, and write down <bpt id="dc8de64a-ec03-4c45-aca5-bf0130c214d2">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="dc8de64a-ec03-4c45-aca5-bf0130c214d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4aa79df-4a22-4282-8bc2-d0ebea1983dc" xml:space="preserve">
+          <source>Please don't close the RDP session.</source>
+          <target state="new">Please don't close the RDP session.</target>
+        </trans-unit>
+        <trans-unit id="95c0a8c2-428e-4c8e-a9a9-4a13bc1b5716" xml:space="preserve">
+          <source>You will need it later to test domain name resolution.</source>
+          <target state="new">You will need it later to test domain name resolution.</target>
+        </trans-unit>
+        <trans-unit id="31bff327-fd59-4007-9ae2-44b561c4a930" xml:space="preserve">
+          <source>Repeat the same steps to find out the <bpt id="02b8708f-72e4-4639-a786-66d8ff720f1b">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="02b8708f-72e4-4639-a786-66d8ff720f1b">&lt;/strong&gt;</ept> of <bpt id="1eeecd4a-d6e5-42f5-981f-f24afb1137b5">&lt;strong&gt;</bpt>Contoso-HBase-US<ept id="1eeecd4a-d6e5-42f5-981f-f24afb1137b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Repeat the same steps to find out the <bpt id="02b8708f-72e4-4639-a786-66d8ff720f1b">&lt;strong&gt;</bpt>Connection-specific DNS suffix<ept id="02b8708f-72e4-4639-a786-66d8ff720f1b">&lt;/strong&gt;</ept> of <bpt id="1eeecd4a-d6e5-42f5-981f-f24afb1137b5">&lt;strong&gt;</bpt>Contoso-HBase-US<ept id="1eeecd4a-d6e5-42f5-981f-f24afb1137b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fd45f7a-918f-4c55-adbd-67d9f026730e" xml:space="preserve">
+          <source><bpt id="8c48ea02-3b45-4fad-bbe3-3464e4552792">&lt;strong&gt;</bpt>To configure DNS forwarders<ept id="8c48ea02-3b45-4fad-bbe3-3464e4552792">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8c48ea02-3b45-4fad-bbe3-3464e4552792">&lt;strong&gt;</bpt>To configure DNS forwarders<ept id="8c48ea02-3b45-4fad-bbe3-3464e4552792">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f2791f8-230a-489a-bf10-d11734cb1f02" xml:space="preserve">
+          <source>RDP into <bpt id="70bd11fd-753a-42a8-8cdc-f9620f94aa92">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="70bd11fd-753a-42a8-8cdc-f9620f94aa92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">RDP into <bpt id="70bd11fd-753a-42a8-8cdc-f9620f94aa92">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="70bd11fd-753a-42a8-8cdc-f9620f94aa92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2922b34c-1d5b-4027-9066-a87440bd35e4" xml:space="preserve">
+          <source>Click the Windows key on the lower left.</source>
+          <target state="new">Click the Windows key on the lower left.</target>
+        </trans-unit>
+        <trans-unit id="f0606d92-56d4-4caa-b9c4-db5b383a6d3c" xml:space="preserve">
+          <source>Click <bpt id="abcb1d2a-7b9c-4f75-92d7-175d3545a154">&lt;strong&gt;</bpt>Administrative Tools<ept id="abcb1d2a-7b9c-4f75-92d7-175d3545a154">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="abcb1d2a-7b9c-4f75-92d7-175d3545a154">&lt;strong&gt;</bpt>Administrative Tools<ept id="abcb1d2a-7b9c-4f75-92d7-175d3545a154">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f74eb82-29c3-439e-957c-f2e9a8986bec" xml:space="preserve">
+          <source>Click <bpt id="db00fc62-c1b7-4c3f-948f-4ee691699d14">&lt;strong&gt;</bpt>DNS<ept id="db00fc62-c1b7-4c3f-948f-4ee691699d14">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="db00fc62-c1b7-4c3f-948f-4ee691699d14">&lt;strong&gt;</bpt>DNS<ept id="db00fc62-c1b7-4c3f-948f-4ee691699d14">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3b793a8-8261-44d5-b14a-121d096d8079" xml:space="preserve">
+          <source>In the left pane, expand <bpt id="4bc1ea6e-e724-49da-af4f-cb79860786cd">&lt;strong&gt;</bpt>DSN<ept id="4bc1ea6e-e724-49da-af4f-cb79860786cd">&lt;/strong&gt;</ept>, <bpt id="1a1c66b2-72d9-44b2-bc7c-047de9bcb271">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="1a1c66b2-72d9-44b2-bc7c-047de9bcb271">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, expand <bpt id="4bc1ea6e-e724-49da-af4f-cb79860786cd">&lt;strong&gt;</bpt>DSN<ept id="4bc1ea6e-e724-49da-af4f-cb79860786cd">&lt;/strong&gt;</ept>, <bpt id="1a1c66b2-72d9-44b2-bc7c-047de9bcb271">&lt;strong&gt;</bpt>Contoso-DNS-EU<ept id="1a1c66b2-72d9-44b2-bc7c-047de9bcb271">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5802fe24-c233-4e93-ba7d-ef607e8bc08c" xml:space="preserve">
+          <source>Right-click <bpt id="58f858bc-8f9d-49bf-9108-064aaa591df7">&lt;strong&gt;</bpt>Conditional Forwarders<ept id="58f858bc-8f9d-49bf-9108-064aaa591df7">&lt;/strong&gt;</ept>, and then click <bpt id="5ffbc2e7-6fa7-4c3c-bcdb-5b9db91eaa32">&lt;strong&gt;</bpt>New Conditional Forwarder<ept id="5ffbc2e7-6fa7-4c3c-bcdb-5b9db91eaa32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="58f858bc-8f9d-49bf-9108-064aaa591df7">&lt;strong&gt;</bpt>Conditional Forwarders<ept id="58f858bc-8f9d-49bf-9108-064aaa591df7">&lt;/strong&gt;</ept>, and then click <bpt id="5ffbc2e7-6fa7-4c3c-bcdb-5b9db91eaa32">&lt;strong&gt;</bpt>New Conditional Forwarder<ept id="5ffbc2e7-6fa7-4c3c-bcdb-5b9db91eaa32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="649284bd-38b6-4b7e-9ad5-31e09ca3df3b" xml:space="preserve">
+          <source>Enter the following information:</source>
+          <target state="new">Enter the following information:</target>
+        </trans-unit>
+        <trans-unit id="83d7cc6f-b216-4aed-a2d5-027f74ead701" xml:space="preserve">
+          <source><bpt id="d887c6c7-ff67-474b-b536-e07950da2186">&lt;strong&gt;</bpt>DNS Domain<ept id="d887c6c7-ff67-474b-b536-e07950da2186">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-HBase-US.</source>
+          <target state="new"><bpt id="d887c6c7-ff67-474b-b536-e07950da2186">&lt;strong&gt;</bpt>DNS Domain<ept id="d887c6c7-ff67-474b-b536-e07950da2186">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-HBase-US.</target>
+        </trans-unit>
+        <trans-unit id="69485d0e-7238-466b-aae0-77b14551b604" xml:space="preserve">
+          <source>For example: Contoso-HBase-US.f5.internal.cloudapp.net.</source>
+          <target state="new">For example: Contoso-HBase-US.f5.internal.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="69670c9a-ae62-483f-96a1-f1318579f348" xml:space="preserve">
+          <source><bpt id="1d4c8b75-542c-4f8e-9882-d24be781de6e">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="1d4c8b75-542c-4f8e-9882-d24be781de6e">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.</source>
+          <target state="new"><bpt id="1d4c8b75-542c-4f8e-9882-d24be781de6e">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="1d4c8b75-542c-4f8e-9882-d24be781de6e">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address.</target>
+        </trans-unit>
+        <trans-unit id="b4c61f0f-1b73-4907-b9fe-58670df9a8f9" xml:space="preserve">
+          <source>Please verify the IP.</source>
+          <target state="new">Please verify the IP.</target>
+        </trans-unit>
+        <trans-unit id="17794d1c-daff-4f87-84ae-c0cc5acb3746" xml:space="preserve">
+          <source>Your DNS server can have a different IP address.</source>
+          <target state="new">Your DNS server can have a different IP address.</target>
+        </trans-unit>
+        <trans-unit id="bf25e04b-a849-4832-b0bb-80e961715486" xml:space="preserve">
+          <source>Press <bpt id="a0b2c999-b3fb-4c93-bbe3-9129495cd7fe">&lt;strong&gt;</bpt>ENTER<ept id="a0b2c999-b3fb-4c93-bbe3-9129495cd7fe">&lt;/strong&gt;</ept>, and then click <bpt id="ad5251ef-f929-4d22-a0b3-dab17fd336e2">&lt;strong&gt;</bpt>OK<ept id="ad5251ef-f929-4d22-a0b3-dab17fd336e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Press <bpt id="a0b2c999-b3fb-4c93-bbe3-9129495cd7fe">&lt;strong&gt;</bpt>ENTER<ept id="a0b2c999-b3fb-4c93-bbe3-9129495cd7fe">&lt;/strong&gt;</ept>, and then click <bpt id="ad5251ef-f929-4d22-a0b3-dab17fd336e2">&lt;strong&gt;</bpt>OK<ept id="ad5251ef-f929-4d22-a0b3-dab17fd336e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ee9a222-67b6-43ee-84e5-98bc4ecc1c29" xml:space="preserve">
+          <source>Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.</source>
+          <target state="new">Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.</target>
+        </trans-unit>
+        <trans-unit id="5641551a-a6a1-417e-b947-dcaf5ed4d6be" xml:space="preserve">
+          <source>Repeat the steps to add a DNS conditional forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:</source>
+          <target state="new">Repeat the steps to add a DNS conditional forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:</target>
+        </trans-unit>
+        <trans-unit id="87bed19a-9146-42a1-b3cb-9ba4865db782" xml:space="preserve">
+          <source><bpt id="cd3655cb-cdaf-40c8-a79d-8821a872bfab">&lt;strong&gt;</bpt>DNS Domain<ept id="cd3655cb-cdaf-40c8-a79d-8821a872bfab">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-HBase-EU.</source>
+          <target state="new"><bpt id="cd3655cb-cdaf-40c8-a79d-8821a872bfab">&lt;strong&gt;</bpt>DNS Domain<ept id="cd3655cb-cdaf-40c8-a79d-8821a872bfab">&lt;/strong&gt;</ept>: enter the DNS suffix of the Contoso-HBase-EU.</target>
+        </trans-unit>
+        <trans-unit id="57ef73e6-f0d5-497c-b7a7-4fd521e8a449" xml:space="preserve">
+          <source><bpt id="a84031ca-a209-48ff-8060-81da7d0d20ee">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="a84031ca-a209-48ff-8060-81da7d0d20ee">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.</source>
+          <target state="new"><bpt id="a84031ca-a209-48ff-8060-81da7d0d20ee">&lt;strong&gt;</bpt>IP addresses of the master servers<ept id="a84031ca-a209-48ff-8060-81da7d0d20ee">&lt;/strong&gt;</ept>: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.</target>
+        </trans-unit>
+        <trans-unit id="3a1d0d4e-9bdd-4972-8835-79c0434c28ab" xml:space="preserve">
+          <source><bpt id="1e94c0a4-5228-43a0-a3ce-712e230e0350">&lt;strong&gt;</bpt>To test domain name resolution<ept id="1e94c0a4-5228-43a0-a3ce-712e230e0350">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1e94c0a4-5228-43a0-a3ce-712e230e0350">&lt;strong&gt;</bpt>To test domain name resolution<ept id="1e94c0a4-5228-43a0-a3ce-712e230e0350">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c961332-8745-4ada-8207-11e4b3b69e55" xml:space="preserve">
+          <source>Switch to the Contoso-HBase-EU RDP window.</source>
+          <target state="new">Switch to the Contoso-HBase-EU RDP window.</target>
+        </trans-unit>
+        <trans-unit id="5a31e96a-15b3-4d0b-9942-81b2f619ea56" xml:space="preserve">
+          <source>Open a command prompt.</source>
+          <target state="new">Open a command prompt.</target>
+        </trans-unit>
+        <trans-unit id="62cdaa91-3d28-48e5-9682-b23d1c973e56" xml:space="preserve">
+          <source>Run the ping command:</source>
+          <target state="new">Run the ping command:</target>
+        </trans-unit>
+        <trans-unit id="d1e72820-7393-4116-bc61-643194d70d0e" xml:space="preserve">
+          <source>The ICM protocol is turned on the worker nodes of the HBase clusters</source>
+          <target state="new">The ICM protocol is turned on the worker nodes of the HBase clusters</target>
+        </trans-unit>
+        <trans-unit id="1f92a9f0-bbf9-4814-acc8-a6bc721d3042" xml:space="preserve">
+          <source>Don't close the RDP session.</source>
+          <target state="new">Don't close the RDP session.</target>
+        </trans-unit>
+        <trans-unit id="23aa3d3d-904d-416c-887f-f7ecda5e844f" xml:space="preserve">
+          <source>You will still need it later in the tutorial.</source>
+          <target state="new">You will still need it later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a1aaaaa4-1b37-49d9-84e2-7d29f7118892" xml:space="preserve">
+          <source>Repeat the same steps to ping the headnode0 of the Contoso-HBase-EU from the Contoso-HBase-US.</source>
+          <target state="new">Repeat the same steps to ping the headnode0 of the Contoso-HBase-EU from the Contoso-HBase-US.</target>
+        </trans-unit>
+        <trans-unit id="c44f90c4-2ce0-4552-8de8-858d3c555088" xml:space="preserve">
+          <source>DNS must work before you can proceed to the next steps.</source>
+          <target state="new">DNS must work before you can proceed to the next steps.</target>
+        </trans-unit>
+        <trans-unit id="4b5839a7-d301-41c5-a76b-3b7a3e60ade8" xml:space="preserve">
+          <source>Now, you can create a sample HBase table, enable replication, and then test it with some data.</source>
+          <target state="new">Now, you can create a sample HBase table, enable replication, and then test it with some data.</target>
+        </trans-unit>
+        <trans-unit id="e74ea011-776c-4354-9cab-0b30b8cf9842" xml:space="preserve">
+          <source>The sample table you will use has two column families: Personal and Office.</source>
+          <target state="new">The sample table you will use has two column families: Personal and Office.</target>
+        </trans-unit>
+        <trans-unit id="5a94bbcf-745c-428f-a643-39067caa8c6d" xml:space="preserve">
+          <source>In this tutorial, you will make the Europe HBase cluster as the source cluster, and the U.S. HBase cluster as the destination cluster.</source>
+          <target state="new">In this tutorial, you will make the Europe HBase cluster as the source cluster, and the U.S. HBase cluster as the destination cluster.</target>
+        </trans-unit>
+        <trans-unit id="ac13613b-1456-418e-a514-c9694789ee15" xml:space="preserve">
+          <source>Create HBase tables with the same names and column families on both the source and destination clusters, so that the destination cluster knows where to store data it will receive.</source>
+          <target state="new">Create HBase tables with the same names and column families on both the source and destination clusters, so that the destination cluster knows where to store data it will receive.</target>
+        </trans-unit>
+        <trans-unit id="3428321b-ad8d-4bbc-aecb-d24b4acb4273" xml:space="preserve">
+          <source>For more information on using the HBase shell, see <bpt id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;linkText&gt;</bpt>Get started with Apache HBase in HDInsight[hdinsight-hbase-get-started]<ept id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;/linkText&gt;</ept><bpt id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;title&gt;</bpt><ept id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using the HBase shell, see <bpt id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;linkText&gt;</bpt>Get started with Apache HBase in HDInsight[hdinsight-hbase-get-started]<ept id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;/linkText&gt;</ept><bpt id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;title&gt;</bpt><ept id="98403f88-bda2-4b2e-ba7d-0df757d1f7dd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="190d2780-b7b0-4d94-a88d-98187e54b20a" xml:space="preserve">
+          <source><bpt id="c49247d0-4629-41b5-9271-399e48e530a4">&lt;strong&gt;</bpt>To create an HBase table on Contoso-HBase-EU<ept id="c49247d0-4629-41b5-9271-399e48e530a4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c49247d0-4629-41b5-9271-399e48e530a4">&lt;strong&gt;</bpt>To create an HBase table on Contoso-HBase-EU<ept id="c49247d0-4629-41b5-9271-399e48e530a4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d51a663c-8213-4213-884f-5012d1f9c2fd" xml:space="preserve">
+          <source>Switch to the <bpt id="1c69f6db-c12d-48a3-b265-a05734d1a72d">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="1c69f6db-c12d-48a3-b265-a05734d1a72d">&lt;/strong&gt;</ept> RDP window.</source>
+          <target state="new">Switch to the <bpt id="1c69f6db-c12d-48a3-b265-a05734d1a72d">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="1c69f6db-c12d-48a3-b265-a05734d1a72d">&lt;/strong&gt;</ept> RDP window.</target>
+        </trans-unit>
+        <trans-unit id="07a3441c-1a0e-40ea-bbc3-953fe648cb73" xml:space="preserve">
+          <source>From the desktop, click <bpt id="303f16c0-07b1-45be-8aad-f9c3836b422e">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="303f16c0-07b1-45be-8aad-f9c3836b422e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the desktop, click <bpt id="303f16c0-07b1-45be-8aad-f9c3836b422e">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="303f16c0-07b1-45be-8aad-f9c3836b422e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa5f757f-f1aa-421f-b67c-98d0f111f21f" xml:space="preserve">
+          <source>Change the folder to the HBase home directory:</source>
+          <target state="new">Change the folder to the HBase home directory:</target>
+        </trans-unit>
+        <trans-unit id="b7ce7066-27cd-496d-9427-febee751b7c0" xml:space="preserve">
+          <source>Open the HBase shell:</source>
+          <target state="new">Open the HBase shell:</target>
+        </trans-unit>
+        <trans-unit id="da3d1dce-cc94-420c-996f-89d4d598eccd" xml:space="preserve">
+          <source>Create an HBase table:</source>
+          <target state="new">Create an HBase table:</target>
+        </trans-unit>
+        <trans-unit id="28a83fc9-2699-47c8-9337-e08a34329db4" xml:space="preserve">
+          <source>Don't close either the RDP session nor the Hadoop Command Line window.</source>
+          <target state="new">Don't close either the RDP session nor the Hadoop Command Line window.</target>
+        </trans-unit>
+        <trans-unit id="5278ee39-b94c-4d8c-9810-3ce791100e76" xml:space="preserve">
+          <source>You will still need them later in the tutorial.</source>
+          <target state="new">You will still need them later in the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="c562d628-879c-46f6-a9d8-a48e9cfcdf9c" xml:space="preserve">
+          <source><bpt id="29ca982a-a409-422a-a0bf-23020abadc63">&lt;strong&gt;</bpt>To create an HBase table on Contoso-HBase-US<ept id="29ca982a-a409-422a-a0bf-23020abadc63">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="29ca982a-a409-422a-a0bf-23020abadc63">&lt;strong&gt;</bpt>To create an HBase table on Contoso-HBase-US<ept id="29ca982a-a409-422a-a0bf-23020abadc63">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="019678dc-9209-4080-8b85-7f759b707eea" xml:space="preserve">
+          <source>Repeat the same steps to create the same table on Contoso-HBase-US.</source>
+          <target state="new">Repeat the same steps to create the same table on Contoso-HBase-US.</target>
+        </trans-unit>
+        <trans-unit id="c794a83d-5280-4774-89fc-1fb613c77606" xml:space="preserve">
+          <source><bpt id="a36b3155-fdf8-419c-a21a-3f10e970719d">&lt;strong&gt;</bpt>To add Contoso-HBase-US as a replication peer<ept id="a36b3155-fdf8-419c-a21a-3f10e970719d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a36b3155-fdf8-419c-a21a-3f10e970719d">&lt;strong&gt;</bpt>To add Contoso-HBase-US as a replication peer<ept id="a36b3155-fdf8-419c-a21a-3f10e970719d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7c94c9a-4bd9-4b14-9f11-0933a4d1cc18" xml:space="preserve">
+          <source>Switch to the <bpt id="c91ed811-00e2-418c-9329-39e8544a311f">&lt;strong&gt;</bpt>Contso-HBase_EU<ept id="c91ed811-00e2-418c-9329-39e8544a311f">&lt;/strong&gt;</ept> RDP window.</source>
+          <target state="new">Switch to the <bpt id="c91ed811-00e2-418c-9329-39e8544a311f">&lt;strong&gt;</bpt>Contso-HBase_EU<ept id="c91ed811-00e2-418c-9329-39e8544a311f">&lt;/strong&gt;</ept> RDP window.</target>
+        </trans-unit>
+        <trans-unit id="56d1dcc6-e4ac-474d-9cba-92893856c834" xml:space="preserve">
+          <source>From the HBase shell window, add the destination cluster (Contoso-HBase-US) as a peer, for example:</source>
+          <target state="new">From the HBase shell window, add the destination cluster (Contoso-HBase-US) as a peer, for example:</target>
+        </trans-unit>
+        <trans-unit id="759f74bc-55e6-4db3-8e9f-86571d205845" xml:space="preserve">
+          <source>In the sample, the domain suffix is <bpt id="abf6ec63-eeb6-44a3-86c2-ee6444ba6aa8">&lt;em&gt;</bpt>contoso-hbase-us.d4.internal.cloudapp.net<ept id="abf6ec63-eeb6-44a3-86c2-ee6444ba6aa8">&lt;/em&gt;</ept>.</source>
+          <target state="new">In the sample, the domain suffix is <bpt id="abf6ec63-eeb6-44a3-86c2-ee6444ba6aa8">&lt;em&gt;</bpt>contoso-hbase-us.d4.internal.cloudapp.net<ept id="abf6ec63-eeb6-44a3-86c2-ee6444ba6aa8">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b302e56f-85e8-4727-a9ce-c7d32f26a443" xml:space="preserve">
+          <source>You need to update it to match your domain suffix of the US HBase cluster.</source>
+          <target state="new">You need to update it to match your domain suffix of the US HBase cluster.</target>
+        </trans-unit>
+        <trans-unit id="f2b5806b-753b-4206-b9fa-618301615a8c" xml:space="preserve">
+          <source>Make sure there is no spaces between the hostnames.</source>
+          <target state="new">Make sure there is no spaces between the hostnames.</target>
+        </trans-unit>
+        <trans-unit id="96ea568b-b09c-4a5d-98fa-65c88b5e662a" xml:space="preserve">
+          <source><bpt id="f06652ea-40cf-4fa4-87d1-c666faef37e8">&lt;strong&gt;</bpt>To configure each column family to be replicated on the source cluster<ept id="f06652ea-40cf-4fa4-87d1-c666faef37e8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f06652ea-40cf-4fa4-87d1-c666faef37e8">&lt;strong&gt;</bpt>To configure each column family to be replicated on the source cluster<ept id="f06652ea-40cf-4fa4-87d1-c666faef37e8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed89a1ec-14b5-4f01-b9d9-51a7a2251c35" xml:space="preserve">
+          <source>From the HBase shell window of the <bpt id="5edf34b6-21bb-4c62-95a4-4031c18f3ec0">&lt;strong&gt;</bpt>Contso-HBase-EU<ept id="5edf34b6-21bb-4c62-95a4-4031c18f3ec0">&lt;/strong&gt;</ept> RDP session,  configure each column family to be replicated:</source>
+          <target state="new">From the HBase shell window of the <bpt id="5edf34b6-21bb-4c62-95a4-4031c18f3ec0">&lt;strong&gt;</bpt>Contso-HBase-EU<ept id="5edf34b6-21bb-4c62-95a4-4031c18f3ec0">&lt;/strong&gt;</ept> RDP session,  configure each column family to be replicated:</target>
+        </trans-unit>
+        <trans-unit id="87adb6f1-4454-4c5d-88d6-767334bd9578" xml:space="preserve">
+          <source><bpt id="843abb43-0909-4399-b9ab-ad281bf7a25a">&lt;strong&gt;</bpt>To bulk upload data to the HBase table<ept id="843abb43-0909-4399-b9ab-ad281bf7a25a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="843abb43-0909-4399-b9ab-ad281bf7a25a">&lt;strong&gt;</bpt>To bulk upload data to the HBase table<ept id="843abb43-0909-4399-b9ab-ad281bf7a25a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03bae939-21c5-4148-976f-0bafcc7fae54" xml:space="preserve">
+          <source>A sample data file has been uploaded to a public Azure Blob container with the following URL:</source>
+          <target state="new">A sample data file has been uploaded to a public Azure Blob container with the following URL:</target>
+        </trans-unit>
+        <trans-unit id="19775bb4-4dea-4461-84e8-262422a94b4a" xml:space="preserve">
+          <source>The content of the file:</source>
+          <target state="new">The content of the file:</target>
+        </trans-unit>
+        <trans-unit id="c9540c1a-f633-4faf-8550-e4cde7174437" xml:space="preserve">
+          <source>You can upload the same data file into your HBase cluster and import the data from there.</source>
+          <target state="new">You can upload the same data file into your HBase cluster and import the data from there.</target>
+        </trans-unit>
+        <trans-unit id="94ef55af-2b98-4850-b57e-ce203273e0f9" xml:space="preserve">
+          <source>Switch to the <bpt id="a8dcba7d-5aae-48bd-8c62-ab0acc131696">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="a8dcba7d-5aae-48bd-8c62-ab0acc131696">&lt;/strong&gt;</ept> RDP window.</source>
+          <target state="new">Switch to the <bpt id="a8dcba7d-5aae-48bd-8c62-ab0acc131696">&lt;strong&gt;</bpt>Contoso-HBase-EU<ept id="a8dcba7d-5aae-48bd-8c62-ab0acc131696">&lt;/strong&gt;</ept> RDP window.</target>
+        </trans-unit>
+        <trans-unit id="41d24ef1-eeaa-46cc-b9a8-929e2d6e2ef6" xml:space="preserve">
+          <source>From the desktop, click <bpt id="f00e3517-d092-4e30-82ce-c8874e5eb607">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="f00e3517-d092-4e30-82ce-c8874e5eb607">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the desktop, click <bpt id="f00e3517-d092-4e30-82ce-c8874e5eb607">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="f00e3517-d092-4e30-82ce-c8874e5eb607">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a964eed1-f940-42f2-b981-602e704fbef8" xml:space="preserve">
+          <source>Change the folder to the HBase home directory:</source>
+          <target state="new">Change the folder to the HBase home directory:</target>
+        </trans-unit>
+        <trans-unit id="9757c97e-56dc-438e-9a16-fac67aada508" xml:space="preserve">
+          <source>upload the data:</source>
+          <target state="new">upload the data:</target>
+        </trans-unit>
+        <trans-unit id="38cc3891-311e-437c-aaf0-aa7f9bff9159" xml:space="preserve">
+          <source>You can verify that replication is taking place by scanning the tables from both clusters with the following HBase shell commands:</source>
+          <target state="new">You can verify that replication is taking place by scanning the tables from both clusters with the following HBase shell commands:</target>
+        </trans-unit>
+        <trans-unit id="796adc6a-72e5-42f4-9ef2-1ea8d5757ce1" xml:space="preserve">
+          <source>In this tutorial, you have learned how to configure HBase replication across two datacenters.</source>
+          <target state="new">In this tutorial, you have learned how to configure HBase replication across two datacenters.</target>
+        </trans-unit>
+        <trans-unit id="5f027699-42ca-465b-968a-24dfd45ce025" xml:space="preserve">
+          <source>To learn more about HDInsight and HBase, see:</source>
+          <target state="new">To learn more about HDInsight and HBase, see:</target>
+        </trans-unit>
+        <trans-unit id="c2fec5eb-76f7-45cb-90af-1cc430850eb0" xml:space="preserve">
+          <source><bpt id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;linkText&gt;</bpt>HDInsight service page<ept id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;/linkText&gt;</ept><bpt id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;title&gt;</bpt><ept id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;linkText&gt;</bpt>HDInsight service page<ept id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;/linkText&gt;</ept><bpt id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;title&gt;</bpt><ept id="fc6f3a80-a749-476c-b11b-63cb319d63e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f36ce17-2682-4eb6-a54e-29661d2b0d3a" xml:space="preserve">
+          <source><bpt id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;linkText&gt;</bpt>HDInsight documentation<ept id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;/linkText&gt;</ept><bpt id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;title&gt;</bpt><ept id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;linkText&gt;</bpt>HDInsight documentation<ept id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;/linkText&gt;</ept><bpt id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;title&gt;</bpt><ept id="24110533-1cdb-4a5e-ba1d-f3d7d559aa50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e8ab999-d4be-4b5e-bfaa-ce16ded1f73d" xml:space="preserve">
+          <source><bpt id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;linkText&gt;</bpt>Get started with Apache HBase in HDInsight[hdinsight-hbase-get-started]<ept id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;/linkText&gt;</ept><bpt id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;title&gt;</bpt><ept id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;linkText&gt;</bpt>Get started with Apache HBase in HDInsight[hdinsight-hbase-get-started]<ept id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;/linkText&gt;</ept><bpt id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;title&gt;</bpt><ept id="a716ff81-c997-4a70-bd0d-0bdaab0aa6f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7a82ccc-9e36-4cbb-b91f-945b31855c98" xml:space="preserve">
+          <source><bpt id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;/linkText&gt;</ept><bpt id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;title&gt;</bpt><ept id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;/linkText&gt;</ept><bpt id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;title&gt;</bpt><ept id="d078d165-78d5-42ed-929d-c5a9d16a905b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b59580fe-3a07-4739-bbd5-c44d9024d2a6" xml:space="preserve">
+          <source><bpt id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network[hdinsight-hbase-provision-vnet]<ept id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;/linkText&gt;</ept><bpt id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;title&gt;</bpt><ept id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network[hdinsight-hbase-provision-vnet]<ept id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;/linkText&gt;</ept><bpt id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;title&gt;</bpt><ept id="9141aee7-4732-446c-bb4d-8c30063061eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e407a4ae-87aa-40fc-98e7-827450f4fde5" xml:space="preserve">
+          <source><bpt id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase[hdinsight-hbase-twitter-sentiment]<ept id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;/linkText&gt;</ept><bpt id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;title&gt;</bpt><ept id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;linkText&gt;</bpt>Analyze real-time Twitter sentiment with HBase[hdinsight-hbase-twitter-sentiment]<ept id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;/linkText&gt;</ept><bpt id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;title&gt;</bpt><ept id="729b45fd-d3a5-422f-ab9a-72caaa94c178">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3bbda54-cdc6-4d76-b42c-a72c4f7f0b4d" xml:space="preserve">
+          <source><bpt id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)[hdinsight-sensor-data]<ept id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;/linkText&gt;</ept><bpt id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;title&gt;</bpt><ept id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)[hdinsight-sensor-data]<ept id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;/linkText&gt;</ept><bpt id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;title&gt;</bpt><ept id="4e732e38-346d-40a9-aa2d-3dce1300ce69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a9674a4-3c34-4abb-8c3d-5c34d437ddc2" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-VNets.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-VNets.md</target>
+        </trans-unit>
+        <trans-unit id="f00c754d-5717-484f-9fe7-9dd7d390a2a4" xml:space="preserve">
+          <source>../hdinsight-hbase-geo-replication-configure-VNet.md</source>
+          <target state="new">../hdinsight-hbase-geo-replication-configure-VNet.md</target>
+        </trans-unit>
+        <trans-unit id="ac10c952-75f9-444e-a903-edda796ffa8e" xml:space="preserve">
+          <source>./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png</source>
+          <target state="new">./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png</target>
+        </trans-unit>
+        <trans-unit id="1a577b81-2ec1-47fe-854d-912feac4d2c2" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="45f8b6ee-54c4-4090-b8cc-5bf4c4f303ff" xml:space="preserve">
+          <source>../hdinsight-hbase-get-started.md</source>
+          <target state="new">../hdinsight-hbase-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="9feec9cf-de8d-4618-9cf9-0f116685babf" xml:space="preserve">
+          <source>hdinsight-administer-use-management-portal.md</source>
+          <target state="new">hdinsight-administer-use-management-portal.md</target>
+        </trans-unit>
+        <trans-unit id="c2ca7fb4-9dfb-410f-a9a0-40093ee0d462" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="f6873767-ea75-4a6a-80a4-99f8b95e137c" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-VNets.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-VNets.md</target>
+        </trans-unit>
+        <trans-unit id="290e7e78-aaf7-4967-ad2c-3cb983a8f5f1" xml:space="preserve">
+          <source>hdinsight-hbase-geo-replication-configure-DNS.md</source>
+          <target state="new">hdinsight-hbase-geo-replication-configure-DNS.md</target>
+        </trans-unit>
+        <trans-unit id="be384411-e11d-4e4f-af6f-67ba1df9b3c3" xml:space="preserve">
+          <source>hdinsight-hbase-analyze-twitter-sentiment.md</source>
+          <target state="new">hdinsight-hbase-analyze-twitter-sentiment.md</target>
+        </trans-unit>
+        <trans-unit id="612bff30-ca0f-45df-8bf7-1d5c81963bb6" xml:space="preserve">
+          <source>hdinsight-storm-sensor-data-analysis.md</source>
+          <target state="new">hdinsight-storm-sensor-data-analysis.md</target>
+        </trans-unit>
+        <trans-unit id="d2e5765d-cabb-459d-9a6d-5e4327226f8e" xml:space="preserve">
+          <source>hdinsight-hbase-overview.md</source>
+          <target state="new">hdinsight-hbase-overview.md</target>
+        </trans-unit>
+        <trans-unit id="824bc7c7-355e-448d-8d5e-3a72c5e64fe4" xml:space="preserve">
+          <source>hdinsight-hbase-provision-vnet.md</source>
+          <target state="new">hdinsight-hbase-provision-vnet.md</target>
+        </trans-unit>
+        <trans-unit id="c66e1f63-255b-4854-acdb-fc8630138937" xml:space="preserve">
+          <source>../hdinsight-hbase-get-started.md</source>
+          <target state="new">../hdinsight-hbase-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="73ad14fc-dae7-4db1-a732-28d06ea42319" />
+    </body>
+  </file>
+</xliff>

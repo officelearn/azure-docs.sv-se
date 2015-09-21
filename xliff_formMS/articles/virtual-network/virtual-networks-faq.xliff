@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bb96097d-5067-405a-8055-aa028c2f38dd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bb96097d-5067-405a-8055-aa028c2f38dd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="95239e06-dc47-40ce-a465-7c5a4cf6c6eb">
+        <trans-unit id="b8c5fc3f-acb5-4144-81fa-0d97f091e749" xml:space="preserve">
+          <source>Virtual Network FAQ</source>
+          <target state="new">Virtual Network FAQ</target>
+        </trans-unit>
+        <trans-unit id="bb2bc944-a0e1-4659-a924-55ba5cb8b487" xml:space="preserve">
+          <source>Azure virtual network (VNet) FAQ</source>
+          <target state="new">Azure virtual network (VNet) FAQ</target>
+        </trans-unit>
+        <trans-unit id="aba9f57d-d26b-4d9a-9360-1efa7881832c" xml:space="preserve">
+          <source><bpt id="b13383cf-93e5-4fb2-b56a-cfcc4befcc9d">&lt;token href="../../includes/virtual-networks-vnet-faq-include.md"&gt;</bpt><ept id="b13383cf-93e5-4fb2-b56a-cfcc4befcc9d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b13383cf-93e5-4fb2-b56a-cfcc4befcc9d">&lt;token href="../../includes/virtual-networks-vnet-faq-include.md"&gt;</bpt><ept id="b13383cf-93e5-4fb2-b56a-cfcc4befcc9d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1069354-2f81-464d-b5d3-482e2da7157f" xml:space="preserve">
+          <source>For the latest FAQ on virtual network VPNs, see the <bpt id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;linkText&gt;</bpt>VPN Gateway FAQ<ept id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;/linkText&gt;</ept><bpt id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;title&gt;</bpt><ept id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the latest FAQ on virtual network VPNs, see the <bpt id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;linkText&gt;</bpt>VPN Gateway FAQ<ept id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;/linkText&gt;</ept><bpt id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;title&gt;</bpt><ept id="1bffd80e-e9e2-4565-8618-798fc7b06d03">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

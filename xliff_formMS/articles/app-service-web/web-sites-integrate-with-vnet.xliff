@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2ac21121-ecb0-4305-a24e-94e015a5b2eb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2ac21121-ecb0-4305-a24e-94e015a5b2eb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="00939975-f0e5-41e6-855b-6592d82a7ebf">
+        <trans-unit id="2d6854d7-e1ff-47f7-b0d0-012311e69f2a" xml:space="preserve">
+          <source>Integrate a web app with an Azure Virtual Network</source>
+          <target state="new">Integrate a web app with an Azure Virtual Network</target>
+        </trans-unit>
+        <trans-unit id="80bc3099-8a6c-4730-bf44-655286004cec" xml:space="preserve">
+          <source>Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network</source>
+          <target state="new">Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network</target>
+        </trans-unit>
+        <trans-unit id="0ce0cd7a-430b-42a5-8cce-ccdb850f7bc0" xml:space="preserve">
+          <source>This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in <bpt id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;linkText&gt;</bpt>Azure App Service<ept id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;/linkText&gt;</ept><bpt id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;title&gt;</bpt><ept id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;/title&gt;</ept>.</source>
+          <target state="new">This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in <bpt id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;linkText&gt;</bpt>Azure App Service<ept id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;/linkText&gt;</ept><bpt id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;title&gt;</bpt><ept id="573a827e-8ac2-4914-af15-ef8fb6061b21">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51d6c00d-66b3-417b-857a-862510486d74" xml:space="preserve">
+          <source>If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.</source>
+          <target state="new">If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.</target>
+        </trans-unit>
+        <trans-unit id="53480ecf-04e4-40e5-8098-517053a06b77" xml:space="preserve">
+          <source>This integration gives your web app access to resources in your virtual network but does not grant access to your web app from the virtual network.</source>
+          <target state="new">This integration gives your web app access to resources in your virtual network but does not grant access to your web app from the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="8db1c3f6-91bb-4f65-bbb0-c6a623c6be1c" xml:space="preserve">
+          <source>Some standard scenarios are where your web app needs access to a database or web services that are running in virtual machines in your virtual network or even in your own data center.</source>
+          <target state="new">Some standard scenarios are where your web app needs access to a database or web services that are running in virtual machines in your virtual network or even in your own data center.</target>
+        </trans-unit>
+        <trans-unit id="fa9b19b9-a169-4a70-8dbc-c7ce4d82263a" xml:space="preserve">
+          <source>It does not allow you to mount a drive.</source>
+          <target state="new">It does not allow you to mount a drive.</target>
+        </trans-unit>
+        <trans-unit id="6e6b3e78-9756-4644-9fd0-8a6e6c3fca70" xml:space="preserve">
+          <source>It also currently does not support enabling integration with authentication systems in your virtual network.</source>
+          <target state="new">It also currently does not support enabling integration with authentication systems in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2be4bcde-7ea6-4008-863a-2433b807fb8d" xml:space="preserve">
+          <source>The feature is in Preview though and will continue to be improved before reaching GA.</source>
+          <target state="new">The feature is in Preview though and will continue to be improved before reaching GA.</target>
+        </trans-unit>
+        <trans-unit id="e45878a1-22fc-4668-a711-8126ab27a57e" xml:space="preserve">
+          <source>For more details on Azure Virtual Networks see Virtual Network Overview about the use cases and benefits of an Azure Virtual Network.</source>
+          <target state="new">For more details on Azure Virtual Networks see Virtual Network Overview about the use cases and benefits of an Azure Virtual Network.</target>
+        </trans-unit>
+        <trans-unit id="a5a263b8-4701-4415-aec8-dababbc8101d" xml:space="preserve">
+          <source>Here are some things to keep in mind before connecting your web app to a virtual network.</source>
+          <target state="new">Here are some things to keep in mind before connecting your web app to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="805cc566-e57b-4c65-8d40-ca9d170cc792" xml:space="preserve">
+          <source>Web Apps can only be connected to a virtual network if they are running on an App Service plan that’s in the <bpt id="ee9bf839-666e-4040-ac4c-20c072fb5367">&lt;strong&gt;</bpt>Standard<ept id="ee9bf839-666e-4040-ac4c-20c072fb5367">&lt;/strong&gt;</ept> tier.</source>
+          <target state="new">Web Apps can only be connected to a virtual network if they are running on an App Service plan that’s in the <bpt id="ee9bf839-666e-4040-ac4c-20c072fb5367">&lt;strong&gt;</bpt>Standard<ept id="ee9bf839-666e-4040-ac4c-20c072fb5367">&lt;/strong&gt;</ept> tier.</target>
+        </trans-unit>
+        <trans-unit id="333fa70d-ed29-4501-8e12-2beedec3dedf" xml:space="preserve">
+          <source>Web Apps in Free, Shared and Basic plans cannot connect to a virtual network.</source>
+          <target state="new">Web Apps in Free, Shared and Basic plans cannot connect to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d5c31d87-d499-45c9-88a8-cf822fcb7d36" xml:space="preserve">
+          <source>If your target virtual network already exists, it must have point-to-site enabled with a Dynamic routing gateway before it can be connected to a Web App.</source>
+          <target state="new">If your target virtual network already exists, it must have point-to-site enabled with a Dynamic routing gateway before it can be connected to a Web App.</target>
+        </trans-unit>
+        <trans-unit id="1dac801a-d674-4a34-8a7a-a259770c618f" xml:space="preserve">
+          <source>You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.</source>
+          <target state="new">You cannot enable point-to-site Virtual Private Network (VPN) if your gateway is configured with Static routing.</target>
+        </trans-unit>
+        <trans-unit id="83999c44-2e19-4efb-8c77-3777cc359951" xml:space="preserve">
+          <source>You can only have up to 5 networks configured in your App Service plan.</source>
+          <target state="new">You can only have up to 5 networks configured in your App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="a49d64b4-1ed3-4698-bb47-f1848308a35b" xml:space="preserve">
+          <source>A web app can only be connected to one network at a time.</source>
+          <target state="new">A web app can only be connected to one network at a time.</target>
+        </trans-unit>
+        <trans-unit id="1c09fba5-03e4-4a88-a7ea-c5e7bf9bb720" xml:space="preserve">
+          <source>Those 5 networks can be used by any number of web apps in the same App Service plan.</source>
+          <target state="new">Those 5 networks can be used by any number of web apps in the same App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="df766c9e-67d7-4a18-8cb0-4e241eca080a" xml:space="preserve">
+          <source>You have the option to connect to a new or existing virtual network.</source>
+          <target state="new">You have the option to connect to a new or existing virtual network.</target>
+        </trans-unit>
+        <trans-unit id="a34ae30a-5050-4e6d-89fd-11ff44c0f304" xml:space="preserve">
+          <source>If you create a new network then a gateway will be pre-configured for you.</source>
+          <target state="new">If you create a new network then a gateway will be pre-configured for you.</target>
+        </trans-unit>
+        <trans-unit id="fc7459c9-e8be-4563-8562-393d2007cf78" xml:space="preserve">
+          <source>Note that creating and configuring a new virtual network will take several minutes.</source>
+          <target state="new">Note that creating and configuring a new virtual network will take several minutes.</target>
+        </trans-unit>
+        <trans-unit id="fbae19b1-612c-4e67-bace-7281a38a962d" xml:space="preserve">
+          <source>If your Web App is not on a Standard-tier App Service plan, then the UI lets you know and gives you access to the pricing tiers should you want to upgrade.</source>
+          <target state="new">If your Web App is not on a Standard-tier App Service plan, then the UI lets you know and gives you access to the pricing tiers should you want to upgrade.</target>
+        </trans-unit>
+        <trans-unit id="fe47efd5-8086-431d-839b-54997c8efe24" xml:space="preserve">
+          <source><bpt id="717ae529-9b5d-4ff9-8c40-c69df6350fa0">&lt;linkText&gt;</bpt><ept id="717ae529-9b5d-4ff9-8c40-c69df6350fa0">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="717ae529-9b5d-4ff9-8c40-c69df6350fa0">&lt;linkText&gt;</bpt><ept id="717ae529-9b5d-4ff9-8c40-c69df6350fa0">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="cffcdda9-f95d-4743-863e-ecc72647668b" xml:space="preserve">
+          <source>Under the covers this feature uses Point-to-Site VPN technology to connect your Web App to your virtual network.</source>
+          <target state="new">Under the covers this feature uses Point-to-Site VPN technology to connect your Web App to your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="dc456897-96dc-405d-8422-9008b7523791" xml:space="preserve">
+          <source>Web Apps in Azure App Service has a multi-tenant system architecture which precludes provisioning a web app directly in a virtual network as is done with virtual machines.</source>
+          <target state="new">Web Apps in Azure App Service has a multi-tenant system architecture which precludes provisioning a web app directly in a virtual network as is done with virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="7542c9a3-2ef8-410c-a9f7-bc07f441d12a" xml:space="preserve">
+          <source>By building on point-to-site technology we limit network access to just the virtual machine hosting the web app.</source>
+          <target state="new">By building on point-to-site technology we limit network access to just the virtual machine hosting the web app.</target>
+        </trans-unit>
+        <trans-unit id="18b63d7e-0392-4e51-86f4-fe69c868911d" xml:space="preserve">
+          <source>Access to the network is further restricted on those web app hosts so that your web apps can only access the networks that you configure them to access.</source>
+          <target state="new">Access to the network is further restricted on those web app hosts so that your web apps can only access the networks that you configure them to access.</target>
+        </trans-unit>
+        <trans-unit id="8ea6c3af-3f67-46ed-b3d6-27b89718dbfc" xml:space="preserve">
+          <source>The work required to secure your networks to only the web apps that need access prevents being able to create SMB connections.</source>
+          <target state="new">The work required to secure your networks to only the web apps that need access prevents being able to create SMB connections.</target>
+        </trans-unit>
+        <trans-unit id="a8bc44b8-d407-43fd-9e31-e8e1be6480f5" xml:space="preserve">
+          <source>While you can access remote resources this does not include being able to mount a remote drive.</source>
+          <target state="new">While you can access remote resources this does not include being able to mount a remote drive.</target>
+        </trans-unit>
+        <trans-unit id="26657489-a42d-4252-8700-347f8b981e4f" xml:space="preserve">
+          <source><bpt id="c62b081c-7014-4797-b7c0-7f6a10489466">&lt;linkText&gt;</bpt><ept id="c62b081c-7014-4797-b7c0-7f6a10489466">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c62b081c-7014-4797-b7c0-7f6a10489466">&lt;linkText&gt;</bpt><ept id="c62b081c-7014-4797-b7c0-7f6a10489466">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7ea767c-e776-4bea-8d11-69b4807f477d" xml:space="preserve">
+          <source>If you haven’t configured a DNS server with your virtual network you will need to use IP addresses.</source>
+          <target state="new">If you haven’t configured a DNS server with your virtual network you will need to use IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="8991d713-26e4-4c50-b3d3-3cf159dfc70a" xml:space="preserve">
+          <source>Be sure expose the ports for your desired endpoints through your firewall.</source>
+          <target state="new">Be sure expose the ports for your desired endpoints through your firewall.</target>
+        </trans-unit>
+        <trans-unit id="223b38b7-16b0-4d74-9159-b74a75f093c2" xml:space="preserve">
+          <source>When it comes to testing your connection the only method currently available is to use a web app or web job that makes a call to your desired endpoint.</source>
+          <target state="new">When it comes to testing your connection the only method currently available is to use a web app or web job that makes a call to your desired endpoint.</target>
+        </trans-unit>
+        <trans-unit id="04164fa9-3c18-449b-a481-63c75e552131" xml:space="preserve">
+          <source>Tools such as ping or nslookup do not currently work through the Kudu console.</source>
+          <target state="new">Tools such as ping or nslookup do not currently work through the Kudu console.</target>
+        </trans-unit>
+        <trans-unit id="9ec4a14a-40a9-42cd-910a-a8bcd3ca6384" xml:space="preserve">
+          <source>This is an area that will be improved in the near future.</source>
+          <target state="new">This is an area that will be improved in the near future.</target>
+        </trans-unit>
+        <trans-unit id="69900d32-535c-48f1-ba8d-e50fb6dd9637" xml:space="preserve">
+          <source>To connect a web app to a virtual network go to your web app’s blade, click the Virtual network tile in the Networking section, and select one of your pre-existing networks.</source>
+          <target state="new">To connect a web app to a virtual network go to your web app’s blade, click the Virtual network tile in the Networking section, and select one of your pre-existing networks.</target>
+        </trans-unit>
+        <trans-unit id="5302d650-8de2-4e11-81d1-a7117a3fc01b" xml:space="preserve">
+          <source><bpt id="5431e66f-6c84-4542-897b-0f430c723e0b">&lt;linkText&gt;</bpt><ept id="5431e66f-6c84-4542-897b-0f430c723e0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5431e66f-6c84-4542-897b-0f430c723e0b">&lt;linkText&gt;</bpt><ept id="5431e66f-6c84-4542-897b-0f430c723e0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f730dd6-2278-412d-b54f-db8833229e4c" xml:space="preserve">
+          <source>The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.</source>
+          <target state="new">The system will then create a certificate to authenticate with your virtual network if it is the first web app in your subscription to establish a connection to that network.</target>
+        </trans-unit>
+        <trans-unit id="d149adc9-c75a-4def-95cb-f6fdf73b2af8" xml:space="preserve">
+          <source>To see the certificate go to the <bpt id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;linkText&gt;</bpt>Azure Portal<ept id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;/linkText&gt;</ept><bpt id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;title&gt;</bpt><ept id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;/title&gt;</ept>, navigate to Virtual Networks, select the network and sele   ct the Certificates tab.</source>
+          <target state="new">To see the certificate go to the <bpt id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;linkText&gt;</bpt>Azure Portal<ept id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;/linkText&gt;</ept><bpt id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;title&gt;</bpt><ept id="9814ef08-6edc-459b-802a-1b618cbb77f2">&lt;/title&gt;</ept>, navigate to Virtual Networks, select the network and sele   ct the Certificates tab.</target>
+        </trans-unit>
+        <trans-unit id="14962160-1787-4845-a79d-bfb41ab44d03" xml:space="preserve">
+          <source>In the above image you can see a network named cantConnectVnet that is greyed out and cannot be selected.</source>
+          <target state="new">In the above image you can see a network named cantConnectVnet that is greyed out and cannot be selected.</target>
+        </trans-unit>
+        <trans-unit id="47725eac-0a54-4aeb-b882-58624e8d916b" xml:space="preserve">
+          <source>There are only a two reasons that this should be the case.</source>
+          <target state="new">There are only a two reasons that this should be the case.</target>
+        </trans-unit>
+        <trans-unit id="5f80c9dc-aa8e-4980-acca-1f851414b0bb" xml:space="preserve">
+          <source>It means that either you do not have point-to-site VPN enabled on your network or you have not provisioned a dynamic routing gateway in your virtual network.</source>
+          <target state="new">It means that either you do not have point-to-site VPN enabled on your network or you have not provisioned a dynamic routing gateway in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="3c98c837-0403-4253-8dc1-26472b86bf40" xml:space="preserve">
+          <source>When both items are satisfied then you will be able to select the virtual network for integration with your web app.</source>
+          <target state="new">When both items are satisfied then you will be able to select the virtual network for integration with your web app.</target>
+        </trans-unit>
+        <trans-unit id="9f039438-5f86-4e8d-8c33-e90b2086211b" xml:space="preserve">
+          <source>In addition to connecting to a pre-existing virtual network, you can also create a new virtual network from the Azure Portal UI and automatically connect to it.</source>
+          <target state="new">In addition to connecting to a pre-existing virtual network, you can also create a new virtual network from the Azure Portal UI and automatically connect to it.</target>
+        </trans-unit>
+        <trans-unit id="bac5b078-efb6-4252-8541-cbdf28e6f834" xml:space="preserve">
+          <source>To do this follow the same path to reach the Virtual Network UI and select Create new virtual network.</source>
+          <target state="new">To do this follow the same path to reach the Virtual Network UI and select Create new virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9e982f72-bb16-438c-b027-46c1aae27294" xml:space="preserve">
+          <source>The UI that opens up allows you to name the network, specify the address space and set the addresses for the DNS servers to be used by the virtual network.</source>
+          <target state="new">The UI that opens up allows you to name the network, specify the address space and set the addresses for the DNS servers to be used by the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="2aa8c6f0-c7b5-428a-a09c-8c9bd13d79f3" xml:space="preserve">
+          <source><bpt id="7bfd9ffa-8f8f-4ee0-9877-57a35f2b534d">&lt;linkText&gt;</bpt><ept id="7bfd9ffa-8f8f-4ee0-9877-57a35f2b534d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7bfd9ffa-8f8f-4ee0-9877-57a35f2b534d">&lt;linkText&gt;</bpt><ept id="7bfd9ffa-8f8f-4ee0-9877-57a35f2b534d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fa8599a-fc60-4a1d-91ae-9f6bd9c1ea68" xml:space="preserve">
+          <source>The creation of a new virtual network with configured gateways can take up to 30 minutes to complete.</source>
+          <target state="new">The creation of a new virtual network with configured gateways can take up to 30 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="486b957b-f3e8-402d-b420-44cdc786a734" xml:space="preserve">
+          <source>During this time the UI will let you know that it is still working on it and will show the following message.</source>
+          <target state="new">During this time the UI will let you know that it is still working on it and will show the following message.</target>
+        </trans-unit>
+        <trans-unit id="55f03c25-1a0b-4260-b627-92c4075243ea" xml:space="preserve">
+          <source><bpt id="40f95550-d2c3-441b-b0f6-3e8d3fb199bd">&lt;linkText&gt;</bpt><ept id="40f95550-d2c3-441b-b0f6-3e8d3fb199bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40f95550-d2c3-441b-b0f6-3e8d3fb199bd">&lt;linkText&gt;</bpt><ept id="40f95550-d2c3-441b-b0f6-3e8d3fb199bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32ed22c2-9fc0-41cf-b1f8-685343379cae" xml:space="preserve">
+          <source>Once the network has been joined to the web app, the web app will have access to resources in that virtual network over TCP or UDP.</source>
+          <target state="new">Once the network has been joined to the web app, the web app will have access to resources in that virtual network over TCP or UDP.</target>
+        </trans-unit>
+        <trans-unit id="7855f926-e3f6-452c-a79c-9ef1cfa1f2f2" xml:space="preserve">
+          <source>If you wish to access resources in your on-premises system that are available through Site-to-site VPN to your virtual network then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.</source>
+          <target state="new">If you wish to access resources in your on-premises system that are available through Site-to-site VPN to your virtual network then you will need to add routes on your own corporate network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="026fb29e-cfcf-4db8-a81f-ff1a6a7c7dd0" xml:space="preserve">
+          <source>After successfully completing integration, the Azure Portal will display basic information about the connection, give a way to disconnect the web app from the network and also give you a way to synchronize the certificates used to authenticate the connection.</source>
+          <target state="new">After successfully completing integration, the Azure Portal will display basic information about the connection, give a way to disconnect the web app from the network and also give you a way to synchronize the certificates used to authenticate the connection.</target>
+        </trans-unit>
+        <trans-unit id="dff00972-c553-4dd5-ba35-23c2fa419290" xml:space="preserve">
+          <source>Synchronization may be required if a certificate has been expired or revoked.</source>
+          <target state="new">Synchronization may be required if a certificate has been expired or revoked.</target>
+        </trans-unit>
+        <trans-unit id="ebdd8f87-7b67-458e-9730-8d15bdb0fe69" xml:space="preserve">
+          <source><bpt id="e3691cde-ce0e-49d8-a049-7bde1e1c302b">&lt;linkText&gt;</bpt><ept id="e3691cde-ce0e-49d8-a049-7bde1e1c302b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3691cde-ce0e-49d8-a049-7bde1e1c302b">&lt;linkText&gt;</bpt><ept id="e3691cde-ce0e-49d8-a049-7bde1e1c302b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b9a3c24-cade-4989-97ab-aad9b2e33993" xml:space="preserve">
+          <source>You can see a list of all virtual networks currently associated with web apps in an App Service plan by visiting the App Service plan’s blade.</source>
+          <target state="new">You can see a list of all virtual networks currently associated with web apps in an App Service plan by visiting the App Service plan’s blade.</target>
+        </trans-unit>
+        <trans-unit id="a8798eb0-559e-4767-bf40-6bcb9307c36c" xml:space="preserve">
+          <source>You can have at most 5 networks associated with a Standard-tier App Service plan.</source>
+          <target state="new">You can have at most 5 networks associated with a Standard-tier App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="55836c8b-b94c-43b1-b7d1-86010d2213b8" xml:space="preserve">
+          <source>Should the App Service Plan be scaled into a lower plan such as Free, Shared or Basic then the virtual network connections that are used by the web apps in that plan will be disabled.</source>
+          <target state="new">Should the App Service Plan be scaled into a lower plan such as Free, Shared or Basic then the virtual network connections that are used by the web apps in that plan will be disabled.</target>
+        </trans-unit>
+        <trans-unit id="cdc58857-2228-4c40-83a0-f3e1b5ed2964" xml:space="preserve">
+          <source>Should the plan be scaled back up to a Standard plan then those network connections would be re-established.</source>
+          <target state="new">Should the plan be scaled back up to a Standard plan then those network connections would be re-established.</target>
+        </trans-unit>
+        <trans-unit id="a8bb83c5-eefb-4c0b-bdb5-6a4408f414f0" xml:space="preserve">
+          <source>At this time it is not possible in Azure to take an existing virtual machine and move it into a virtual network.</source>
+          <target state="new">At this time it is not possible in Azure to take an existing virtual machine and move it into a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="28c20358-1a2e-45ac-b409-e99d9df0fa39" xml:space="preserve">
+          <source>The virtual machine needs to be provisioned into that virtual network during creation.</source>
+          <target state="new">The virtual machine needs to be provisioned into that virtual network during creation.</target>
+        </trans-unit>
+        <trans-unit id="c34c6d08-e953-415c-b88b-45edaccbdd64" xml:space="preserve">
+          <source>When working with a virtual network that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on-premise resources from your  Web App.</source>
+          <target state="new">When working with a virtual network that has been configured with Site-to-Site VPN there is an additional step required in order to provide access to your on-premise resources from your  Web App.</target>
+        </trans-unit>
+        <trans-unit id="cad4d25b-3b05-4a31-b910-fe3da22f9424" xml:space="preserve">
+          <source>Routes need to be added to your on-premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.</source>
+          <target state="new">Routes need to be added to your on-premise network to allow traffic to go from your network to the Point-to-Site addresses configured in your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b9c2af10-9ec0-49c3-8609-f4bfd90e0a0d" xml:space="preserve">
+          <source>To see your IP range for your Point-to-Site connectivity go to the Network area in the Azure Portal as shown here.</source>
+          <target state="new">To see your IP range for your Point-to-Site connectivity go to the Network area in the Azure Portal as shown here.</target>
+        </trans-unit>
+        <trans-unit id="0f0022ed-07d7-45b1-b5d2-83b1a88b0c73" xml:space="preserve">
+          <source><bpt id="81163253-f0b1-4565-997e-83381287d839">&lt;linkText&gt;</bpt><ept id="81163253-f0b1-4565-997e-83381287d839">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="81163253-f0b1-4565-997e-83381287d839">&lt;linkText&gt;</bpt><ept id="81163253-f0b1-4565-997e-83381287d839">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="385047f4-1ef9-42f1-9bc5-4a4a16a4adc5" xml:space="preserve">
+          <source>In order to establish a secure connection with your virtual network, there is an exchange of certificates.</source>
+          <target state="new">In order to establish a secure connection with your virtual network, there is an exchange of certificates.</target>
+        </trans-unit>
+        <trans-unit id="50530225-1319-4c44-9660-812905c2479c" xml:space="preserve">
+          <source>You can see the thumbprint for the public certificate that Web Apps generates from the current Network portal as shown below.</source>
+          <target state="new">You can see the thumbprint for the public certificate that Web Apps generates from the current Network portal as shown below.</target>
+        </trans-unit>
+        <trans-unit id="0f231723-d98b-4d61-af93-187821c6edd1" xml:space="preserve">
+          <source><bpt id="0f6626cc-0db3-429a-84a5-7ddeaf2ac7ad">&lt;linkText&gt;</bpt><ept id="0f6626cc-0db3-429a-84a5-7ddeaf2ac7ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f6626cc-0db3-429a-84a5-7ddeaf2ac7ad">&lt;linkText&gt;</bpt><ept id="0f6626cc-0db3-429a-84a5-7ddeaf2ac7ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6aca557-6fe8-495f-ac15-3fdb83ba0695" xml:space="preserve">
+          <source>If the certificates go out of sync for whatever reason, such as accidentally deleting it from the Network portal, then connectivity will be broken.</source>
+          <target state="new">If the certificates go out of sync for whatever reason, such as accidentally deleting it from the Network portal, then connectivity will be broken.</target>
+        </trans-unit>
+        <trans-unit id="94767e7f-5243-4738-a69e-91e2cf9ba523" xml:space="preserve">
+          <source>To fix things there is a Sync Connection action in your Web App's virtual network UI that will re-establish connectivity.</source>
+          <target state="new">To fix things there is a Sync Connection action in your Web App's virtual network UI that will re-establish connectivity.</target>
+        </trans-unit>
+        <trans-unit id="9db09a11-900d-437c-8f6e-78e1a73dbddb" xml:space="preserve">
+          <source>This action must also be used if you add a DNS to your virtual network or if you add site-to-site VPN to your network.</source>
+          <target state="new">This action must also be used if you add a DNS to your virtual network or if you add site-to-site VPN to your network.</target>
+        </trans-unit>
+        <trans-unit id="cad31abe-41a6-486a-a7b9-e800379872b6" xml:space="preserve">
+          <source><bpt id="02936d52-dc3f-4270-845b-2ec458601103">&lt;linkText&gt;</bpt><ept id="02936d52-dc3f-4270-845b-2ec458601103">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="02936d52-dc3f-4270-845b-2ec458601103">&lt;linkText&gt;</bpt><ept id="02936d52-dc3f-4270-845b-2ec458601103">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7725e477-8ea5-454d-90e3-fe00674c73c1" xml:space="preserve">
+          <source>There is another feature offered by Web Apps called Hybrid Connections that is similar in some ways to Virtual Network integration.</source>
+          <target state="new">There is another feature offered by Web Apps called Hybrid Connections that is similar in some ways to Virtual Network integration.</target>
+        </trans-unit>
+        <trans-unit id="ced41f10-8214-41f5-8c94-1e45ea72f169" xml:space="preserve">
+          <source>While there is some use case overlap, neither feature can replace the other.</source>
+          <target state="new">While there is some use case overlap, neither feature can replace the other.</target>
+        </trans-unit>
+        <trans-unit id="ca12acab-7c7b-4016-9ae5-79c116b40d70" xml:space="preserve">
+          <source>With Hybrid Connections you can establish connections to multiple application endpoints in a mix of networks.</source>
+          <target state="new">With Hybrid Connections you can establish connections to multiple application endpoints in a mix of networks.</target>
+        </trans-unit>
+        <trans-unit id="b04de278-0164-4fe4-bce0-7fd04a800784" xml:space="preserve">
+          <source>The Virtual Networks feature connects your web app to a virtual network which can be connected to your on-premise network.</source>
+          <target state="new">The Virtual Networks feature connects your web app to a virtual network which can be connected to your on-premise network.</target>
+        </trans-unit>
+        <trans-unit id="db2b2814-47e1-4ac1-a49b-6b4116c33874" xml:space="preserve">
+          <source>That works great if your resources are all in the scope of that network.</source>
+          <target state="new">That works great if your resources are all in the scope of that network.</target>
+        </trans-unit>
+        <trans-unit id="d4274954-601f-4c80-8f28-f493433ed9c2" xml:space="preserve">
+          <source>Another difference is that you need to install a relay agent for Hybrid Connections to work.</source>
+          <target state="new">Another difference is that you need to install a relay agent for Hybrid Connections to work.</target>
+        </trans-unit>
+        <trans-unit id="6d616e25-7252-459f-9f4f-00e5e6c1be6d" xml:space="preserve">
+          <source>This agent needs to run on a Windows Server instance.</source>
+          <target state="new">This agent needs to run on a Windows Server instance.</target>
+        </trans-unit>
+        <trans-unit id="b4daded9-5c62-4cb0-be59-f5c0de94d3d3" xml:space="preserve">
+          <source>With the Virtual Network feature there is nothing to install and it enables access to remote resources regardless of hosting operating systems.</source>
+          <target state="new">With the Virtual Network feature there is nothing to install and it enables access to remote resources regardless of hosting operating systems.</target>
+        </trans-unit>
+        <trans-unit id="df610b6d-6fb2-47a0-89e8-bc2087c5cbc9" xml:space="preserve">
+          <source>There are also pricing tier differences at this time between the two features.</source>
+          <target state="new">There are also pricing tier differences at this time between the two features.</target>
+        </trans-unit>
+        <trans-unit id="761d1f26-8e01-4811-863c-aa6ed37da85f" xml:space="preserve">
+          <source>This is because at the least expensive levels the Hybrid Connections feature is extremely useful for dev/test scenarios and only gives access to a small number of endpoints.</source>
+          <target state="new">This is because at the least expensive levels the Hybrid Connections feature is extremely useful for dev/test scenarios and only gives access to a small number of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="dcf2deb1-2344-42b8-9b85-226cd155b25a" xml:space="preserve">
+          <source>The virtual network feature gives you access to everything in the VNET or connected to it.</source>
+          <target state="new">The virtual network feature gives you access to everything in the VNET or connected to it.</target>
+        </trans-unit>
+        <trans-unit id="906950f9-3716-4d75-a80e-9bba02126922" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;linkText&gt;</bpt>Try App Service<ept id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;/linkText&gt;</ept><bpt id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;title&gt;</bpt><ept id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;linkText&gt;</bpt>Try App Service<ept id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;/linkText&gt;</ept><bpt id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;title&gt;</bpt><ept id="5f99705e-4b86-4b20-b424-ff421747c532">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="ebb90e60-c118-413d-98ef-7ec8d20fd63c" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="456f05db-1935-495d-abdf-4ab115870d65" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;/linkText&gt;</ept><bpt id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;title&gt;</bpt><ept id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;/linkText&gt;</ept><bpt id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;title&gt;</bpt><ept id="2e81ebe6-bcab-4bd1-8023-fa3d711da9ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acbb3d28-79ba-4b85-9123-bbc23d75f099" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;/linkText&gt;</ept><bpt id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;title&gt;</bpt><ept id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;/linkText&gt;</ept><bpt id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;title&gt;</bpt><ept id="1fd9d8b0-43c5-4ae6-bfa1-cb4e6beeefaf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

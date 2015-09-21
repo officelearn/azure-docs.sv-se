@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="db890ffc-ddf2-4a51-982e-d614cdd6b8b9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="db890ffc-ddf2-4a51-982e-d614cdd6b8b9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53412bcf-6822-421a-983c-5cb7213560b5">
+        <trans-unit id="efc76c20-7da1-4447-80f9-c7a5001565f3" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Chromeriver | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Chromeriver | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f53f5c0d-bb9e-4a2c-ba4e-9a13823e1ca5" xml:space="preserve">
+          <source>Learn how to use Chromeriver with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Chromeriver with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="8205d0ae-df4c-4d44-8f59-99bc32830ed2" xml:space="preserve">
+          <source>For feedback, click <bpt id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;linkText&gt;</bpt>here<ept id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;/linkText&gt;</ept><bpt id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;title&gt;</bpt><ept id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;linkText&gt;</bpt>here<ept id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;/linkText&gt;</ept><bpt id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;title&gt;</bpt><ept id="4f46573f-0063-4126-b0eb-bef5e24eef88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58dc971b-b229-4ddb-88e7-f9dd8f1680aa" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Chromeriver.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Chromeriver.</target>
+        </trans-unit>
+        <trans-unit id="ad016938-0fd8-4469-b7b4-d1f59acb8fbd" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="ec69fc2f-6c4b-450a-9faf-09e15cb214ba" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="76d3b2a1-2bf4-40b2-a818-4087ce5af765" xml:space="preserve">
+          <source>A Chromeriver single sign-on enabled subscription</source>
+          <target state="new">A Chromeriver single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="c167e3c2-5345-4724-95e5-10167a1bcd53" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Chromeriver will be able to single sign into the application at your Chromeriver company site (service provider initiated sign on), or using the <bpt id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;/linkText&gt;</ept><bpt id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;title&gt;</bpt><ept id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Chromeriver will be able to single sign into the application at your Chromeriver company site (service provider initiated sign on), or using the <bpt id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;/linkText&gt;</ept><bpt id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;title&gt;</bpt><ept id="fa3c5fa3-82a8-49f1-89ad-0e937ea4a944">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa7515b0-a137-4270-8ecc-d1c0183e61d9" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="cd6e2d90-063f-4e07-b9b0-c28785caee2e" xml:space="preserve">
+          <source>Enabling the application integration for Chromeriver</source>
+          <target state="new">Enabling the application integration for Chromeriver</target>
+        </trans-unit>
+        <trans-unit id="291e8426-01c2-48ed-901a-50a5d682875d" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="021c898e-cf6c-4e8b-87d4-c262fc3cd783" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="eeb44729-8a18-4ab1-ab3e-13efcd49974e" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="2ca9f2a7-5628-45d1-88f2-97345099b9aa" xml:space="preserve">
+          <source><bpt id="2032f2ea-7fd8-44a3-beb4-a28db17ce740">&lt;linkText&gt;</bpt>Scenario<ept id="2032f2ea-7fd8-44a3-beb4-a28db17ce740">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2032f2ea-7fd8-44a3-beb4-a28db17ce740">&lt;linkText&gt;</bpt>Scenario<ept id="2032f2ea-7fd8-44a3-beb4-a28db17ce740">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bcb3d1c-3118-41a3-9a40-1ee8c1a89591" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Chromeriver.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Chromeriver.</target>
+        </trans-unit>
+        <trans-unit id="feb05ef3-453b-45f8-9d39-13a0588485dd" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="974403f2-6682-4620-9d73-413e403bd8fc">&lt;strong&gt;</bpt>Active Directory<ept id="974403f2-6682-4620-9d73-413e403bd8fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="974403f2-6682-4620-9d73-413e403bd8fc">&lt;strong&gt;</bpt>Active Directory<ept id="974403f2-6682-4620-9d73-413e403bd8fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9a14c28-b8f3-49b9-ae0e-83e1d8f8ad47" xml:space="preserve">
+          <source><bpt id="047ef5a5-792c-4a9b-8e92-0d3e19ffed4e">&lt;linkText&gt;</bpt>Active Directory<ept id="047ef5a5-792c-4a9b-8e92-0d3e19ffed4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="047ef5a5-792c-4a9b-8e92-0d3e19ffed4e">&lt;linkText&gt;</bpt>Active Directory<ept id="047ef5a5-792c-4a9b-8e92-0d3e19ffed4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1eccd464-3058-4241-ae94-602ac3345d10" xml:space="preserve">
+          <source>From the <bpt id="4f1f90fb-42c6-45d2-a231-8fdfb9258f16">&lt;strong&gt;</bpt>Directory<ept id="4f1f90fb-42c6-45d2-a231-8fdfb9258f16">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="4f1f90fb-42c6-45d2-a231-8fdfb9258f16">&lt;strong&gt;</bpt>Directory<ept id="4f1f90fb-42c6-45d2-a231-8fdfb9258f16">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="4f949362-97e6-4bd5-86b2-af8d94b92e15" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="50c63166-f43a-4df0-94e5-0d8837835d8e">&lt;strong&gt;</bpt>Applications<ept id="50c63166-f43a-4df0-94e5-0d8837835d8e">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="50c63166-f43a-4df0-94e5-0d8837835d8e">&lt;strong&gt;</bpt>Applications<ept id="50c63166-f43a-4df0-94e5-0d8837835d8e">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="3e180084-f518-4401-9c0b-98ab282214c9" xml:space="preserve">
+          <source><bpt id="b7a5dd58-50b9-413d-af07-b1c7e9aa200f">&lt;linkText&gt;</bpt>Applications<ept id="b7a5dd58-50b9-413d-af07-b1c7e9aa200f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7a5dd58-50b9-413d-af07-b1c7e9aa200f">&lt;linkText&gt;</bpt>Applications<ept id="b7a5dd58-50b9-413d-af07-b1c7e9aa200f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="980cc108-910c-4644-966f-88f061745998" xml:space="preserve">
+          <source>Click <bpt id="49027c00-b588-4ae6-8a90-1350abc37436">&lt;strong&gt;</bpt>Add<ept id="49027c00-b588-4ae6-8a90-1350abc37436">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="49027c00-b588-4ae6-8a90-1350abc37436">&lt;strong&gt;</bpt>Add<ept id="49027c00-b588-4ae6-8a90-1350abc37436">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="13679c83-3995-4bd8-9135-b93743e8f76b" xml:space="preserve">
+          <source><bpt id="284f9a1b-e699-4478-86eb-2df418d2cf04">&lt;linkText&gt;</bpt>Add application<ept id="284f9a1b-e699-4478-86eb-2df418d2cf04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="284f9a1b-e699-4478-86eb-2df418d2cf04">&lt;linkText&gt;</bpt>Add application<ept id="284f9a1b-e699-4478-86eb-2df418d2cf04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82187744-96a5-4a46-ba9e-1f54f736396e" xml:space="preserve">
+          <source>On the <bpt id="be79ce49-527e-4666-9dec-f14cd511522b">&lt;strong&gt;</bpt>What do you want to do<ept id="be79ce49-527e-4666-9dec-f14cd511522b">&lt;/strong&gt;</ept> dialog, click <bpt id="581ec715-0528-4ed1-9b46-8026d603c9e5">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="581ec715-0528-4ed1-9b46-8026d603c9e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="be79ce49-527e-4666-9dec-f14cd511522b">&lt;strong&gt;</bpt>What do you want to do<ept id="be79ce49-527e-4666-9dec-f14cd511522b">&lt;/strong&gt;</ept> dialog, click <bpt id="581ec715-0528-4ed1-9b46-8026d603c9e5">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="581ec715-0528-4ed1-9b46-8026d603c9e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5617871-c2db-4957-b688-d68be12179a9" xml:space="preserve">
+          <source><bpt id="257e6fa4-0dc9-4444-9b43-0732d96e87fd">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="257e6fa4-0dc9-4444-9b43-0732d96e87fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="257e6fa4-0dc9-4444-9b43-0732d96e87fd">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="257e6fa4-0dc9-4444-9b43-0732d96e87fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e29d6d1-d08e-4610-ba4b-e0ff824602a4" xml:space="preserve">
+          <source>In the <bpt id="37e066d1-21d5-423b-a1a8-a50e66f4ec03">&lt;strong&gt;</bpt>search box<ept id="37e066d1-21d5-423b-a1a8-a50e66f4ec03">&lt;/strong&gt;</ept>, type <bpt id="bd2aa2ba-3246-4c40-9d56-d7abf9def9f1">&lt;strong&gt;</bpt>Chromeriver<ept id="bd2aa2ba-3246-4c40-9d56-d7abf9def9f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="37e066d1-21d5-423b-a1a8-a50e66f4ec03">&lt;strong&gt;</bpt>search box<ept id="37e066d1-21d5-423b-a1a8-a50e66f4ec03">&lt;/strong&gt;</ept>, type <bpt id="bd2aa2ba-3246-4c40-9d56-d7abf9def9f1">&lt;strong&gt;</bpt>Chromeriver<ept id="bd2aa2ba-3246-4c40-9d56-d7abf9def9f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f9f01e1-61f7-4de8-879b-50b897d1b2a6" xml:space="preserve">
+          <source><bpt id="b969c3c0-53f9-4c03-8594-387e442c3bd7">&lt;linkText&gt;</bpt>Application Gallery<ept id="b969c3c0-53f9-4c03-8594-387e442c3bd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b969c3c0-53f9-4c03-8594-387e442c3bd7">&lt;linkText&gt;</bpt>Application Gallery<ept id="b969c3c0-53f9-4c03-8594-387e442c3bd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df347a20-832d-4836-af31-dc331a03625d" xml:space="preserve">
+          <source>In the results pane, select <bpt id="bdb13e30-c8dd-43b4-ba3a-c9c048b41a6e">&lt;strong&gt;</bpt>Chromeriver<ept id="bdb13e30-c8dd-43b4-ba3a-c9c048b41a6e">&lt;/strong&gt;</ept>, and then click <bpt id="88bf6b85-3045-4e03-a575-7934b4a9ee06">&lt;strong&gt;</bpt>Complete<ept id="88bf6b85-3045-4e03-a575-7934b4a9ee06">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="bdb13e30-c8dd-43b4-ba3a-c9c048b41a6e">&lt;strong&gt;</bpt>Chromeriver<ept id="bdb13e30-c8dd-43b4-ba3a-c9c048b41a6e">&lt;/strong&gt;</ept>, and then click <bpt id="88bf6b85-3045-4e03-a575-7934b4a9ee06">&lt;strong&gt;</bpt>Complete<ept id="88bf6b85-3045-4e03-a575-7934b4a9ee06">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="65dd831b-77d4-4fb6-bab5-d803739b45e7" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Chromeriver with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Chromeriver with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="e922522f-e5d9-4af6-afc4-e1536595d067" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="d8fd4ceb-9bbc-4288-be17-4ecc6e981491">&lt;strong&gt;</bpt>Chromeriver<ept id="d8fd4ceb-9bbc-4288-be17-4ecc6e981491">&lt;/strong&gt;</ept> application integration page, click <bpt id="cad293b7-fc80-4e77-9089-5c147627bd75">&lt;strong&gt;</bpt>Configure single sign-on<ept id="cad293b7-fc80-4e77-9089-5c147627bd75">&lt;/strong&gt;</ept> to open the <bpt id="781dcd9e-03c3-40a9-98a6-fdb7baa5eee0">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="781dcd9e-03c3-40a9-98a6-fdb7baa5eee0">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="d8fd4ceb-9bbc-4288-be17-4ecc6e981491">&lt;strong&gt;</bpt>Chromeriver<ept id="d8fd4ceb-9bbc-4288-be17-4ecc6e981491">&lt;/strong&gt;</ept> application integration page, click <bpt id="cad293b7-fc80-4e77-9089-5c147627bd75">&lt;strong&gt;</bpt>Configure single sign-on<ept id="cad293b7-fc80-4e77-9089-5c147627bd75">&lt;/strong&gt;</ept> to open the <bpt id="781dcd9e-03c3-40a9-98a6-fdb7baa5eee0">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="781dcd9e-03c3-40a9-98a6-fdb7baa5eee0">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="659f207c-8bfa-4bce-9005-85ba24ca93f7" xml:space="preserve">
+          <source><bpt id="868d826e-f82f-45cb-8ea6-dddf51f74c54">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="868d826e-f82f-45cb-8ea6-dddf51f74c54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="868d826e-f82f-45cb-8ea6-dddf51f74c54">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="868d826e-f82f-45cb-8ea6-dddf51f74c54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d987b47-753b-4c26-aaa7-2be5a25e2028" xml:space="preserve">
+          <source>On the <bpt id="780c9f24-74f8-465e-8a52-7f953072cb95">&lt;strong&gt;</bpt>How would you like users to sign on to Chromeriver<ept id="780c9f24-74f8-465e-8a52-7f953072cb95">&lt;/strong&gt;</ept> page, select <bpt id="a7d55735-ffa8-483c-88bd-4287b8e3e19d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="a7d55735-ffa8-483c-88bd-4287b8e3e19d">&lt;/strong&gt;</ept>, and then click <bpt id="521496f5-597b-4ce3-87cd-7d5fd35b8dd5">&lt;strong&gt;</bpt>Next<ept id="521496f5-597b-4ce3-87cd-7d5fd35b8dd5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="780c9f24-74f8-465e-8a52-7f953072cb95">&lt;strong&gt;</bpt>How would you like users to sign on to Chromeriver<ept id="780c9f24-74f8-465e-8a52-7f953072cb95">&lt;/strong&gt;</ept> page, select <bpt id="a7d55735-ffa8-483c-88bd-4287b8e3e19d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="a7d55735-ffa8-483c-88bd-4287b8e3e19d">&lt;/strong&gt;</ept>, and then click <bpt id="521496f5-597b-4ce3-87cd-7d5fd35b8dd5">&lt;strong&gt;</bpt>Next<ept id="521496f5-597b-4ce3-87cd-7d5fd35b8dd5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fb4aeae-ce7d-490b-b148-259c2e5040de" xml:space="preserve">
+          <source><bpt id="6f283d97-a6c7-4369-8823-43964580744c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6f283d97-a6c7-4369-8823-43964580744c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f283d97-a6c7-4369-8823-43964580744c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="6f283d97-a6c7-4369-8823-43964580744c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd9a9006-e45b-43c5-94a4-18e34d76ddbf" xml:space="preserve">
+          <source>On the <bpt id="74cf548c-b3c7-4d88-bd5c-2103ea0bac18">&lt;strong&gt;</bpt>Configure App Settings<ept id="74cf548c-b3c7-4d88-bd5c-2103ea0bac18">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="74cf548c-b3c7-4d88-bd5c-2103ea0bac18">&lt;strong&gt;</bpt>Configure App Settings<ept id="74cf548c-b3c7-4d88-bd5c-2103ea0bac18">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="abda6a24-bfee-468e-984d-e2fa5468c0fa" xml:space="preserve">
+          <source><bpt id="aa74cdca-a4c5-405b-9dd7-c2052b615153">&lt;linkText&gt;</bpt>Configure App Settings<ept id="aa74cdca-a4c5-405b-9dd7-c2052b615153">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa74cdca-a4c5-405b-9dd7-c2052b615153">&lt;linkText&gt;</bpt>Configure App Settings<ept id="aa74cdca-a4c5-405b-9dd7-c2052b615153">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7472a054-0f2a-4233-994a-26bee705b4a3" xml:space="preserve">
+          <source>In the <bpt id="5fe1a122-14b5-469c-84ce-52ae2e07c468">&lt;strong&gt;</bpt>Reply URL<ept id="5fe1a122-14b5-469c-84ce-52ae2e07c468">&lt;/strong&gt;</ept> textbox, type your Chromeriver <bpt id="45fa4eca-5dea-4780-9712-15e06e1132b8">&lt;strong&gt;</bpt>AssertionConsumerService URL<ept id="45fa4eca-5dea-4780-9712-15e06e1132b8">&lt;/strong&gt;</ept> (e.g.: <bpt id="0e5c901b-95bc-4a4c-95b6-8916749b31e2">&lt;em&gt;</bpt>https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911<ept id="0e5c901b-95bc-4a4c-95b6-8916749b31e2">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="5fe1a122-14b5-469c-84ce-52ae2e07c468">&lt;strong&gt;</bpt>Reply URL<ept id="5fe1a122-14b5-469c-84ce-52ae2e07c468">&lt;/strong&gt;</ept> textbox, type your Chromeriver <bpt id="45fa4eca-5dea-4780-9712-15e06e1132b8">&lt;strong&gt;</bpt>AssertionConsumerService URL<ept id="45fa4eca-5dea-4780-9712-15e06e1132b8">&lt;/strong&gt;</ept> (e.g.: <bpt id="0e5c901b-95bc-4a4c-95b6-8916749b31e2">&lt;em&gt;</bpt>https://qa-app.chromeriver.com/login/sso/saml/consume?customerId=911<ept id="0e5c901b-95bc-4a4c-95b6-8916749b31e2">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d7749d2b-0ff5-4672-b220-c2312ac7a5cd" xml:space="preserve">
+          <source>You can get this value from your Chromeriver support team.</source>
+          <target state="new">You can get this value from your Chromeriver support team.</target>
+        </trans-unit>
+        <trans-unit id="3eebfcc0-47c9-4053-aaaa-6a4124a8d9b5" xml:space="preserve">
+          <source>Click <bpt id="ac02ace7-ce6b-4d7e-9131-c99e54553830">&lt;strong&gt;</bpt>Next<ept id="ac02ace7-ce6b-4d7e-9131-c99e54553830">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="ac02ace7-ce6b-4d7e-9131-c99e54553830">&lt;strong&gt;</bpt>Next<ept id="ac02ace7-ce6b-4d7e-9131-c99e54553830">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42c34f80-c080-4e18-a5c0-904ee4060f0e" xml:space="preserve">
+          <source>On the <bpt id="21b9c6c9-7831-4b27-bdf6-cdcec6a7b3e9">&lt;strong&gt;</bpt>Configure single sign-on at Chromeriver<ept id="21b9c6c9-7831-4b27-bdf6-cdcec6a7b3e9">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="22c6d013-4743-443f-b8d8-951fce4c1458">&lt;strong&gt;</bpt>Download metadata<ept id="22c6d013-4743-443f-b8d8-951fce4c1458">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</source>
+          <target state="new">On the <bpt id="21b9c6c9-7831-4b27-bdf6-cdcec6a7b3e9">&lt;strong&gt;</bpt>Configure single sign-on at Chromeriver<ept id="21b9c6c9-7831-4b27-bdf6-cdcec6a7b3e9">&lt;/strong&gt;</ept> page, to download your metadata, click <bpt id="22c6d013-4743-443f-b8d8-951fce4c1458">&lt;strong&gt;</bpt>Download metadata<ept id="22c6d013-4743-443f-b8d8-951fce4c1458">&lt;/strong&gt;</ept>, and then save the metadata file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="2161a029-8c65-46b3-8e04-e46f05ab86ea" xml:space="preserve">
+          <source><bpt id="50fed6d3-9d30-4ad9-893a-cbbf282b68f6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="50fed6d3-9d30-4ad9-893a-cbbf282b68f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50fed6d3-9d30-4ad9-893a-cbbf282b68f6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="50fed6d3-9d30-4ad9-893a-cbbf282b68f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a2366fd-acca-4ed9-b79e-d06d755a292d" xml:space="preserve">
+          <source>Send the downloaded metadata file to your Chromeriver support team.</source>
+          <target state="new">Send the downloaded metadata file to your Chromeriver support team.</target>
+        </trans-unit>
+        <trans-unit id="e4f808a7-ad07-4de1-b32b-28c8e12456c1" xml:space="preserve">
+          <source>Your Chromeriver support team has to do the actual SSO configuration.</source>
+          <target state="new">Your Chromeriver support team has to do the actual SSO configuration.</target>
+        </trans-unit>
+        <trans-unit id="0e93ea43-2f04-44fd-a1d9-410ff8d105c0" xml:space="preserve">
+          <source>You will get a notification when SSO has been enabled for your subscription.</source>
+          <target state="new">You will get a notification when SSO has been enabled for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="b741f3eb-1cbb-439a-b9a7-797fedf45bd7" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="a34fb1d3-a394-495f-a42e-02030e4b34ac">&lt;strong&gt;</bpt>Complete<ept id="a34fb1d3-a394-495f-a42e-02030e4b34ac">&lt;/strong&gt;</ept> to close the <bpt id="787d56ec-b145-45a5-8ce0-91666f3757b9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="787d56ec-b145-45a5-8ce0-91666f3757b9">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="a34fb1d3-a394-495f-a42e-02030e4b34ac">&lt;strong&gt;</bpt>Complete<ept id="a34fb1d3-a394-495f-a42e-02030e4b34ac">&lt;/strong&gt;</ept> to close the <bpt id="787d56ec-b145-45a5-8ce0-91666f3757b9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="787d56ec-b145-45a5-8ce0-91666f3757b9">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="f6a7643e-506c-4871-a48d-cdbb5ae0991f" xml:space="preserve">
+          <source><bpt id="62f686a7-76cb-4ca8-83a8-29e8d3717baf">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="62f686a7-76cb-4ca8-83a8-29e8d3717baf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62f686a7-76cb-4ca8-83a8-29e8d3717baf">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="62f686a7-76cb-4ca8-83a8-29e8d3717baf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afe39894-ada7-4d20-8b10-9154b6416d18" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Chromeriver, they must be provisioned into Chromeriver.</source>
+          <target state="new">In order to enable Azure AD users to log into Chromeriver, they must be provisioned into Chromeriver.</target>
+        </trans-unit>
+        <trans-unit id="9310c608-0c7f-4c21-bdc6-5088bc97732c" xml:space="preserve">
+          <source>In the case of Chromeriver, the user accounts need to be created by your Chromeriver support team.</source>
+          <target state="new">In the case of Chromeriver, the user accounts need to be created by your Chromeriver support team.</target>
+        </trans-unit>
+        <trans-unit id="7770c745-6b0b-4ebe-8da9-255ccc2dc868" xml:space="preserve">
+          <source>You can use any other Chromeriver user account creation tools or APIs provided by Chromeriver to provision Azure Active Directory user accounts.</source>
+          <target state="new">You can use any other Chromeriver user account creation tools or APIs provided by Chromeriver to provision Azure Active Directory user accounts.</target>
+        </trans-unit>
+        <trans-unit id="0fcfdc1d-7404-4b8c-817a-107727c660bf" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="9a0e4890-43d7-4d5d-ae1e-dc582e17dd05" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="f93d8367-933c-4db3-bf3c-120c61d370de" xml:space="preserve">
+          <source>On the <bpt id="92885d72-8f24-4422-bc34-2d63c72bf2ce">&lt;strong&gt;</bpt>Chromeriver **application integration page, click **Assign users<ept id="92885d72-8f24-4422-bc34-2d63c72bf2ce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="92885d72-8f24-4422-bc34-2d63c72bf2ce">&lt;strong&gt;</bpt>Chromeriver **application integration page, click **Assign users<ept id="92885d72-8f24-4422-bc34-2d63c72bf2ce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a000d12-f37d-444f-a54a-8bd2068b8578" xml:space="preserve">
+          <source><bpt id="3db765fe-33cf-411a-82ec-27c22a844751">&lt;linkText&gt;</bpt>Assign Users<ept id="3db765fe-33cf-411a-82ec-27c22a844751">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3db765fe-33cf-411a-82ec-27c22a844751">&lt;linkText&gt;</bpt>Assign Users<ept id="3db765fe-33cf-411a-82ec-27c22a844751">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="264d3e66-2fc0-4ad8-98a9-7ad5fe3ef967" xml:space="preserve">
+          <source>Select your test user, click <bpt id="27b73149-2659-45f3-b055-0d6cebb76f32">&lt;strong&gt;</bpt>Assign<ept id="27b73149-2659-45f3-b055-0d6cebb76f32">&lt;/strong&gt;</ept>, and then click <bpt id="0f757fa7-41fd-47e9-a962-6afd73a64d78">&lt;strong&gt;</bpt>Yes<ept id="0f757fa7-41fd-47e9-a962-6afd73a64d78">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="27b73149-2659-45f3-b055-0d6cebb76f32">&lt;strong&gt;</bpt>Assign<ept id="27b73149-2659-45f3-b055-0d6cebb76f32">&lt;/strong&gt;</ept>, and then click <bpt id="0f757fa7-41fd-47e9-a962-6afd73a64d78">&lt;strong&gt;</bpt>Yes<ept id="0f757fa7-41fd-47e9-a962-6afd73a64d78">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="4924b62d-c8de-4994-b0ec-80d28556816f" xml:space="preserve">
+          <source><bpt id="39bda9d9-b669-4d3f-b99d-96c9dc911ba4">&lt;linkText&gt;</bpt>Yes<ept id="39bda9d9-b669-4d3f-b99d-96c9dc911ba4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="39bda9d9-b669-4d3f-b99d-96c9dc911ba4">&lt;linkText&gt;</bpt>Yes<ept id="39bda9d9-b669-4d3f-b99d-96c9dc911ba4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6da0beb8-92ba-419b-810b-0a300d0ccaed" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="5065dcba-e806-4f73-b4e4-83ef7a64de7a" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;/linkText&gt;</ept><bpt id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;title&gt;</bpt><ept id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;/linkText&gt;</ept><bpt id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;title&gt;</bpt><ept id="292a34c6-e21d-4951-b2ed-78e143251040">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

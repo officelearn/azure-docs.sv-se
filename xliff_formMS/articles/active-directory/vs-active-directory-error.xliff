@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c4874070-a1e2-42e5-a5be-37cecf124a87" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c4874070-a1e2-42e5-a5be-37cecf124a87" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e032e1a7-304d-4291-bf5b-83d9826bc155">
+        <trans-unit id="626a7a05-b048-4b9d-ad2e-fa72416428fe" xml:space="preserve">
+          <source>Error During Authentication Detection</source>
+          <target state="new">Error During Authentication Detection</target>
+        </trans-unit>
+        <trans-unit id="be9145e1-4070-4d47-824d-fd1d92dd1e64" xml:space="preserve">
+          <source>The active directory connection wizard detected an incompatible authentication type</source>
+          <target state="new">The active directory connection wizard detected an incompatible authentication type</target>
+        </trans-unit>
+        <trans-unit id="e524c1ec-5bdd-423a-a6c7-8729f5eec67e" xml:space="preserve">
+          <source>While detecting previous authentication code, the wizard detected an incompatible authentication type.</source>
+          <target state="new">While detecting previous authentication code, the wizard detected an incompatible authentication type.</target>
+        </trans-unit>
+        <trans-unit id="1ec39e3e-66d8-4685-870f-9bfa96298d86" xml:space="preserve">
+          <source><bpt id="491f8296-064f-4f7b-8c08-6aecd4676e8e">&lt;strong&gt;</bpt>Note:<ept id="491f8296-064f-4f7b-8c08-6aecd4676e8e">&lt;/strong&gt;</ept> In order to correctly detect previous authentication code in a project, the project must be built.</source>
+          <target state="new"><bpt id="491f8296-064f-4f7b-8c08-6aecd4676e8e">&lt;strong&gt;</bpt>Note:<ept id="491f8296-064f-4f7b-8c08-6aecd4676e8e">&lt;/strong&gt;</ept> In order to correctly detect previous authentication code in a project, the project must be built.</target>
+        </trans-unit>
+        <trans-unit id="678198e3-b6d8-4289-8f3b-bd5648b44986" xml:space="preserve">
+          <source>If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.</source>
+          <target state="new">If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.</target>
+        </trans-unit>
+        <trans-unit id="13df4539-c3fe-4090-98ed-0bc1b9197ebb" xml:space="preserve">
+          <source>The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.</source>
+          <target state="new">The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.</target>
+        </trans-unit>
+        <trans-unit id="50ff66e8-8210-406e-8f1d-49b83b6b2c50" xml:space="preserve">
+          <source>If there is any controller that derives from <bpt id="20104327-1453-4835-8c9d-370830860fe4">&lt;code&gt;</bpt>ApiController<ept id="20104327-1453-4835-8c9d-370830860fe4">&lt;/code&gt;</ept> in the project, it will be considered a WebAPI project.</source>
+          <target state="new">If there is any controller that derives from <bpt id="20104327-1453-4835-8c9d-370830860fe4">&lt;code&gt;</bpt>ApiController<ept id="20104327-1453-4835-8c9d-370830860fe4">&lt;/code&gt;</ept> in the project, it will be considered a WebAPI project.</target>
+        </trans-unit>
+        <trans-unit id="e52086c0-9065-4d52-aa85-b1685f37c3aa" xml:space="preserve">
+          <source>If there are only controllers that derive from <bpt id="15eb1f11-7706-46f5-ae21-dd690954e8e2">&lt;code&gt;</bpt>MVC.Controller<ept id="15eb1f11-7706-46f5-ae21-dd690954e8e2">&lt;/code&gt;</ept> in the project, it will be considered an MVC project.</source>
+          <target state="new">If there are only controllers that derive from <bpt id="15eb1f11-7706-46f5-ae21-dd690954e8e2">&lt;code&gt;</bpt>MVC.Controller<ept id="15eb1f11-7706-46f5-ae21-dd690954e8e2">&lt;/code&gt;</ept> in the project, it will be considered an MVC project.</target>
+        </trans-unit>
+        <trans-unit id="a7181c98-365e-43d8-bdb1-0d30b3ab650f" xml:space="preserve">
+          <source>Anything else is considered not supported by the wizard.</source>
+          <target state="new">Anything else is considered not supported by the wizard.</target>
+        </trans-unit>
+        <trans-unit id="de1d1c11-251e-46b1-8d2a-828fbdd849bd" xml:space="preserve">
+          <source>WebForms projects are not currently supported.</source>
+          <target state="new">WebForms projects are not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="b1424130-febc-4c7d-a4e4-0a90a1c71322" xml:space="preserve">
+          <source>The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.</source>
+          <target state="new">The wizard also checks for authentication settings that have been previously configured with the wizard or are compatible with the wizard.</target>
+        </trans-unit>
+        <trans-unit id="305de2e5-b0db-4888-8f7d-89ea39f633b5" xml:space="preserve">
+          <source>If all of the settings are present, it is considered a re-entrant case and the wizard will open and display the settings.</source>
+          <target state="new">If all of the settings are present, it is considered a re-entrant case and the wizard will open and display the settings.</target>
+        </trans-unit>
+        <trans-unit id="922ce2a1-ceda-4706-a8f4-709483800897" xml:space="preserve">
+          <source>If only some of the settings are present, it is considered an error case.</source>
+          <target state="new">If only some of the settings are present, it is considered an error case.</target>
+        </trans-unit>
+        <trans-unit id="dd8b459b-cd89-4c77-a69c-a8bd0152d41c" xml:space="preserve">
+          <source>In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:</source>
+          <target state="new">In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:</target>
+        </trans-unit>
+        <trans-unit id="bfe13997-1539-4c4d-9683-c6d6fcd04e05" xml:space="preserve">
+          <source>In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:</source>
+          <target state="new">In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:</target>
+        </trans-unit>
+        <trans-unit id="b5d4ec6c-6695-4551-9a0e-2bd33b3a2122" xml:space="preserve">
+          <source>Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio.</source>
+          <target state="new">Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="e32990ba-ba22-4e71-8ab8-15c9da128eda" xml:space="preserve">
+          <source>If you received this error, it means your project contains an incompatible authentication type.</source>
+          <target state="new">If you received this error, it means your project contains an incompatible authentication type.</target>
+        </trans-unit>
+        <trans-unit id="56d615d3-72a2-44fb-840a-cc26c66660c9" xml:space="preserve">
+          <source>The wizard detects the following types of authentication from previous versions of Visual Studio:</source>
+          <target state="new">The wizard detects the following types of authentication from previous versions of Visual Studio:</target>
+        </trans-unit>
+        <trans-unit id="da5af60d-a839-4e37-9389-aee562e2ac73" xml:space="preserve">
+          <source>Windows Authentication </source>
+          <target state="new">Windows Authentication </target>
+        </trans-unit>
+        <trans-unit id="92e3f933-3c87-4113-92d9-6818f7ba19db" xml:space="preserve">
+          <source>Individual User Accounts </source>
+          <target state="new">Individual User Accounts </target>
+        </trans-unit>
+        <trans-unit id="26b8be87-23f8-437d-bbfc-1f433db22b1c" xml:space="preserve">
+          <source>Organizational Accounts </source>
+          <target state="new">Organizational Accounts </target>
+        </trans-unit>
+        <trans-unit id="4fe5ff1f-0ef8-4d16-a14d-c37b6a103c15" xml:space="preserve">
+          <source>To detect Windows Authentication in an MVC project, the wizard looks for the <bpt id="06b410dd-2a8c-46d6-bc91-cedf0000b9f5">&lt;code&gt;</bpt>authentication<ept id="06b410dd-2a8c-46d6-bc91-cedf0000b9f5">&lt;/code&gt;</ept> element from your <bpt id="563c8f1e-9027-4180-9466-71697722eeee">&lt;strong&gt;</bpt>web.config<ept id="563c8f1e-9027-4180-9466-71697722eeee">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">To detect Windows Authentication in an MVC project, the wizard looks for the <bpt id="06b410dd-2a8c-46d6-bc91-cedf0000b9f5">&lt;code&gt;</bpt>authentication<ept id="06b410dd-2a8c-46d6-bc91-cedf0000b9f5">&lt;/code&gt;</ept> element from your <bpt id="563c8f1e-9027-4180-9466-71697722eeee">&lt;strong&gt;</bpt>web.config<ept id="563c8f1e-9027-4180-9466-71697722eeee">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="067de05d-df51-4dee-96ef-9609a1957de0" xml:space="preserve">
+          <source>
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;system.web&amp;gt;
+            </source>
+          <target state="new">
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;system.web&amp;gt;
+            </target>
+        </trans-unit>
+        <trans-unit id="41284db9-0abb-4a30-a671-b4bf364303cf" xml:space="preserve">
+          <source>&amp;lt;authentication mode="Windows" /&amp;gt;</source>
+          <target state="new">&amp;lt;authentication mode="Windows" /&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="78855c35-9d9e-4279-869e-185f0e879f4b" xml:space="preserve">
+          <source>
+        &amp;lt;/system.web&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+</source>
+          <target state="new">
+        &amp;lt;/system.web&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="3cfa7756-0fd6-4f47-9548-80df9ccbe535" xml:space="preserve">
+          <source>To detect Windows Authentication in a Web API project, the wizard looks for the <bpt id="ef6a99c5-7887-4de4-9b33-88f5a052fed3">&lt;code&gt;</bpt>IISExpressWindowsAuthentication<ept id="ef6a99c5-7887-4de4-9b33-88f5a052fed3">&lt;/code&gt;</ept> element from your project's <bpt id="8dacf05f-5d03-4cec-ac39-6889063a4978">&lt;strong&gt;</bpt>.csproj<ept id="8dacf05f-5d03-4cec-ac39-6889063a4978">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">To detect Windows Authentication in a Web API project, the wizard looks for the <bpt id="ef6a99c5-7887-4de4-9b33-88f5a052fed3">&lt;code&gt;</bpt>IISExpressWindowsAuthentication<ept id="ef6a99c5-7887-4de4-9b33-88f5a052fed3">&lt;/code&gt;</ept> element from your project's <bpt id="8dacf05f-5d03-4cec-ac39-6889063a4978">&lt;strong&gt;</bpt>.csproj<ept id="8dacf05f-5d03-4cec-ac39-6889063a4978">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="6321cd11-8567-421d-964e-f50ff0ea6c65" xml:space="preserve">
+          <source>
+    &amp;lt;Project&amp;gt;
+        &amp;lt;PropertyGroup&amp;gt;
+            </source>
+          <target state="new">
+    &amp;lt;Project&amp;gt;
+        &amp;lt;PropertyGroup&amp;gt;
+            </target>
+        </trans-unit>
+        <trans-unit id="5a4dffc7-bfe2-4101-8c96-e28787dd1cef" xml:space="preserve">
+          <source>&amp;lt;IISExpressWindowsAuthentication&amp;gt;enabled&amp;lt;/IISExpressWindowsAuthentication&amp;gt;</source>
+          <target state="new">&amp;lt;IISExpressWindowsAuthentication&amp;gt;enabled&amp;lt;/IISExpressWindowsAuthentication&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="d9d019f2-04dc-4688-a412-f8441f8c59ce" xml:space="preserve">
+          <source>
+        &amp;lt;/PropertyGroup&amp;gt;
+    &amp;lt;/Project&amp;gt;
+</source>
+          <target state="new">
+        &amp;lt;/PropertyGroup&amp;gt;
+    &amp;lt;/Project&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="38cc022a-f5a9-4e7e-b65c-ad7b66ef1637" xml:space="preserve">
+          <source>To detect Individual User Accounts authentication, the wizard looks for the package element from your <bpt id="04009abb-ccc1-413e-b92b-9b7e322e20d7">&lt;strong&gt;</bpt>Packages.config<ept id="04009abb-ccc1-413e-b92b-9b7e322e20d7">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">To detect Individual User Accounts authentication, the wizard looks for the package element from your <bpt id="04009abb-ccc1-413e-b92b-9b7e322e20d7">&lt;strong&gt;</bpt>Packages.config<ept id="04009abb-ccc1-413e-b92b-9b7e322e20d7">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="ca5b176e-5a85-4e11-8ff9-6ac0b4d7dd23" xml:space="preserve">
+          <source>
+    &amp;lt;packages&amp;gt;
+        </source>
+          <target state="new">
+    &amp;lt;packages&amp;gt;
+        </target>
+        </trans-unit>
+        <trans-unit id="ab5ed6c9-72f5-4857-8b12-6d4f1d4dd8df" xml:space="preserve">
+          <source>&amp;lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&amp;gt;</source>
+          <target state="new">&amp;lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="60e3c442-36c6-40b0-90bd-966875684ffc" xml:space="preserve">
+          <source>
+    &amp;lt;/packages&amp;gt;
+</source>
+          <target state="new">
+    &amp;lt;/packages&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="7c41d112-698d-47f5-aa6d-5c2498eb65f9" xml:space="preserve">
+          <source>To detect an old form of Organizational Account authentication, the wizard looks for the following element from <bpt id="db463529-2daa-4ff0-a616-7058faf915c3">&lt;strong&gt;</bpt>web.config<ept id="db463529-2daa-4ff0-a616-7058faf915c3">&lt;/strong&gt;</ept>:</source>
+          <target state="new">To detect an old form of Organizational Account authentication, the wizard looks for the following element from <bpt id="db463529-2daa-4ff0-a616-7058faf915c3">&lt;strong&gt;</bpt>web.config<ept id="db463529-2daa-4ff0-a616-7058faf915c3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4e89e76c-ce64-41c3-bfb7-355ca968d4b9" xml:space="preserve">
+          <source>
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;appSettings&amp;gt;
+            </source>
+          <target state="new">
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;appSettings&amp;gt;
+            </target>
+        </trans-unit>
+        <trans-unit id="e6cf8a0f-507f-4994-b3b9-6964590dee6f" xml:space="preserve">
+          <source>&amp;lt;add key="ida:Realm" value="***" /&amp;gt;</source>
+          <target state="new">&amp;lt;add key="ida:Realm" value="***" /&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="14fd846b-5397-49c5-bf53-558c66b447e7" xml:space="preserve">
+          <source>
+        &amp;lt;/appSettings&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+</source>
+          <target state="new">
+        &amp;lt;/appSettings&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+</target>
+        </trans-unit>
+        <trans-unit id="a5cb7fb3-cfa0-42b1-8e00-b3440fc2a211" xml:space="preserve">
+          <source>To change the authentication type, remove the incompatible authentication type and run the wizard again.</source>
+          <target state="new">To change the authentication type, remove the incompatible authentication type and run the wizard again.</target>
+        </trans-unit>
+        <trans-unit id="e882ef80-bc79-489b-8179-4a674a271350" xml:space="preserve">
+          <source>For more information, see <bpt id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;/linkText&gt;</ept><bpt id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;title&gt;</bpt><ept id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;/linkText&gt;</ept><bpt id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;title&gt;</bpt><ept id="ce948583-c120-4e54-84dd-2c9d635360db">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

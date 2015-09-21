@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cec74937-e583-4d91-8df9-70331669c8ea" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cec74937-e583-4d91-8df9-70331669c8ea" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9759300d-595c-4207-b656-639ab56cd0fa">
+        <trans-unit id="a3172d69-41e8-4642-bf89-3b072a9a286f" xml:space="preserve">
+          <source>The dataset contains additional information for each suspicious region of X-ray image.</source>
+          <target state="new">The dataset contains additional information for each suspicious region of X-ray image.</target>
+        </trans-unit>
+        <trans-unit id="1dfefb0a-8468-4e8e-b743-1d89721bf246" xml:space="preserve">
+          <source>Each example provides information (e.g., label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset.</source>
+          <target state="new">Each example provides information (e.g., label, patient ID, coordinates of patch relative to the whole image) about the corresponding row number in the Breast Cancer Features dataset.</target>
+        </trans-unit>
+        <trans-unit id="c66e666f-3afe-4eaf-8aff-c4a1bbdb2da0" xml:space="preserve">
+          <source>Each patient has a number of examples.</source>
+          <target state="new">Each patient has a number of examples.</target>
+        </trans-unit>
+        <trans-unit id="7f5fd6a4-056e-44cd-aa5a-6de7a4ac25c8" xml:space="preserve">
+          <source>For patients who have a cancer, some examples are positive and some are negative.</source>
+          <target state="new">For patients who have a cancer, some examples are positive and some are negative.</target>
+        </trans-unit>
+        <trans-unit id="85d1459b-48d4-4042-80b4-e1d7f8d3915a" xml:space="preserve">
+          <source>For patients who don't have a cancer, all examples are negative.</source>
+          <target state="new">For patients who don't have a cancer, all examples are negative.</target>
+        </trans-unit>
+        <trans-unit id="4b33dfa4-400c-4129-9596-1ed643e2325a" xml:space="preserve">
+          <source>The dataset has 102K examples.</source>
+          <target state="new">The dataset has 102K examples.</target>
+        </trans-unit>
+        <trans-unit id="e3ac065f-b4a0-4bd5-80ae-1c97b486ab6e" xml:space="preserve">
+          <source>The dataset is biased, 0.6% of the points are positive, the rest are negative.</source>
+          <target state="new">The dataset is biased, 0.6% of the points are positive, the rest are negative.</target>
+        </trans-unit>
+        <trans-unit id="4aa89be8-27e6-42a6-9a86-fa1d4c1c0733" xml:space="preserve">
+          <source>The dataset was made available by Siemens Healthcare.</source>
+          <target state="new">The dataset was made available by Siemens Healthcare.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

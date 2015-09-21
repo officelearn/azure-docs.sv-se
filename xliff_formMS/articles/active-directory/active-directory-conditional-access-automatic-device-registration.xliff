@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="030b8d53-aa19-4516-ba27-58a75629c692" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="030b8d53-aa19-4516-ba27-58a75629c692" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="407c356d-7152-405c-9ba7-d24dfdd47761">
+        <trans-unit id="5962f807-793f-42d4-8e97-559ef2f09f43" xml:space="preserve">
+          <source>Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices| Microsoft Azure</source>
+          <target state="new">Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="214b6dff-1395-4034-aa44-7124f8ee874c" xml:space="preserve">
+          <source>IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) .</source>
+          <target state="new">IT admins can choose to have their domain-joined Windows devices to register automatically and silently with Azure Active Directory (Azure AD) .</target>
+        </trans-unit>
+        <trans-unit id="fb3377ab-9a06-43e3-b091-bb3b1d03c397" xml:space="preserve">
+          <source>As an IT Administrator, you can choose to automatically and silently register your domain-joined Windows devices with Azure Active Directory (Azure AD).</source>
+          <target state="new">As an IT Administrator, you can choose to automatically and silently register your domain-joined Windows devices with Azure Active Directory (Azure AD).</target>
+        </trans-unit>
+        <trans-unit id="ea11c2de-4c2a-41c0-ae57-e1b0104b7a0d" xml:space="preserve">
+          <source>This can be useful if you have configured device based conditional access polices to Office365 applications or applications managed on-premises by AD FS.</source>
+          <target state="new">This can be useful if you have configured device based conditional access polices to Office365 applications or applications managed on-premises by AD FS.</target>
+        </trans-unit>
+        <trans-unit id="f147072e-77c9-4bf2-8332-1ec632a17f47" xml:space="preserve">
+          <source>You can learn more about the device registration scenarios by reading the <bpt id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;linkText&gt;</bpt>Azure Active Directory Device Registration Overview<ept id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;/linkText&gt;</ept><bpt id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;title&gt;</bpt><ept id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about the device registration scenarios by reading the <bpt id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;linkText&gt;</bpt>Azure Active Directory Device Registration Overview<ept id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;/linkText&gt;</ept><bpt id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;title&gt;</bpt><ept id="20ade2ee-03aa-47c3-bde4-94bc9438900c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69bea3a6-20b0-413f-85b3-1fa673930456" xml:space="preserve">
+          <source>Automatic Device Registration with Azure Active Directory is available for Windows 7 and Windows 8.1 machines that have been joined to an Active Directory domain.</source>
+          <target state="new">Automatic Device Registration with Azure Active Directory is available for Windows 7 and Windows 8.1 machines that have been joined to an Active Directory domain.</target>
+        </trans-unit>
+        <trans-unit id="d85cd5fd-3214-4213-b880-de58d64a6daa" xml:space="preserve">
+          <source>These are typically corporate owned machines that have been provided to information workers.</source>
+          <target state="new">These are typically corporate owned machines that have been provided to information workers.</target>
+        </trans-unit>
+        <trans-unit id="af821c1c-84f9-4f43-a2c9-3c4eacb32448" xml:space="preserve">
+          <source>To begin registering your domain joined Windows devices with Azure AD, follow the prerequisites below.</source>
+          <target state="new">To begin registering your domain joined Windows devices with Azure AD, follow the prerequisites below.</target>
+        </trans-unit>
+        <trans-unit id="d983030c-8a6f-4861-aeba-5a179147c416" xml:space="preserve">
+          <source>Once you complete the prerequisites, configure automatic device registration for your domain joined Windows devices.</source>
+          <target state="new">Once you complete the prerequisites, configure automatic device registration for your domain joined Windows devices.</target>
+        </trans-unit>
+        <trans-unit id="54d53595-3469-4922-ab78-f78e42b9d1ea" xml:space="preserve">
+          <source>Use Azure Active Directory Connect to deploy Active Directory Federation Services (AD FS) with Windows Server 2012 R2 and set up a federation relationship with Azure Active Directory.</source>
+          <target state="new">Use Azure Active Directory Connect to deploy Active Directory Federation Services (AD FS) with Windows Server 2012 R2 and set up a federation relationship with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="678fc384-3377-413a-a21c-f31fede4b645" xml:space="preserve">
+          <source>Configure an additional Azure Active Directory relying party trust claim rule.</source>
+          <target state="new">Configure an additional Azure Active Directory relying party trust claim rule.</target>
+        </trans-unit>
+        <trans-unit id="f8ae6070-4e4c-45d1-a8b0-502b1db0bbb8" xml:space="preserve">
+          <source>Open the AD FS management console and navigate to <bpt id="0ce4a11d-a4fd-402d-91ce-87e6f204f0ac">&lt;strong&gt;</bpt>AD FS<ept id="0ce4a11d-a4fd-402d-91ce-87e6f204f0ac">&lt;/strong&gt;</ept>&gt;<bpt id="ffeeafa5-a426-49f4-9d12-9af6177d9a2b">&lt;strong&gt;</bpt>Trust Relationships&gt;Relying Party Trusts<ept id="ffeeafa5-a426-49f4-9d12-9af6177d9a2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the AD FS management console and navigate to <bpt id="0ce4a11d-a4fd-402d-91ce-87e6f204f0ac">&lt;strong&gt;</bpt>AD FS<ept id="0ce4a11d-a4fd-402d-91ce-87e6f204f0ac">&lt;/strong&gt;</ept>&gt;<bpt id="ffeeafa5-a426-49f4-9d12-9af6177d9a2b">&lt;strong&gt;</bpt>Trust Relationships&gt;Relying Party Trusts<ept id="ffeeafa5-a426-49f4-9d12-9af6177d9a2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8d48cac-32fb-4ede-a2b4-ba8aecee3034" xml:space="preserve">
+          <source>Right-click on the Microsoft Office 365 Identity Platform relying party trust object and select <bpt id="e8b3fb93-6dd2-4346-adf4-cc8cda16b974">&lt;strong&gt;</bpt>Edit Claim Rules…<ept id="e8b3fb93-6dd2-4346-adf4-cc8cda16b974">&lt;/strong&gt;</ept></source>
+          <target state="new">Right-click on the Microsoft Office 365 Identity Platform relying party trust object and select <bpt id="e8b3fb93-6dd2-4346-adf4-cc8cda16b974">&lt;strong&gt;</bpt>Edit Claim Rules…<ept id="e8b3fb93-6dd2-4346-adf4-cc8cda16b974">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab03bb1a-6a40-4f15-afcb-8bb0d4efa47a" xml:space="preserve">
+          <source>On the <bpt id="12fe57cf-82ea-4d27-bbc7-c02d704b66a0">&lt;strong&gt;</bpt>Issuance Transform Rules<ept id="12fe57cf-82ea-4d27-bbc7-c02d704b66a0">&lt;/strong&gt;</ept> tab, select <bpt id="df8c521e-93ee-44c5-9ae8-e27a18d0782d">&lt;strong&gt;</bpt>Add Rule<ept id="df8c521e-93ee-44c5-9ae8-e27a18d0782d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="12fe57cf-82ea-4d27-bbc7-c02d704b66a0">&lt;strong&gt;</bpt>Issuance Transform Rules<ept id="12fe57cf-82ea-4d27-bbc7-c02d704b66a0">&lt;/strong&gt;</ept> tab, select <bpt id="df8c521e-93ee-44c5-9ae8-e27a18d0782d">&lt;strong&gt;</bpt>Add Rule<ept id="df8c521e-93ee-44c5-9ae8-e27a18d0782d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2535101b-2000-4e5d-9b6d-fc42511f1027" xml:space="preserve">
+          <source>Select <bpt id="52988d38-b595-4de1-a3da-f1cba7ef9f21">&lt;strong&gt;</bpt>Send Claims Using a Custom Rule<ept id="52988d38-b595-4de1-a3da-f1cba7ef9f21">&lt;/strong&gt;</ept> from the <bpt id="c6245e80-9733-40bc-9836-6fe8118adfce">&lt;strong&gt;</bpt>Claim rule<ept id="c6245e80-9733-40bc-9836-6fe8118adfce">&lt;/strong&gt;</ept> template drop down box.</source>
+          <target state="new">Select <bpt id="52988d38-b595-4de1-a3da-f1cba7ef9f21">&lt;strong&gt;</bpt>Send Claims Using a Custom Rule<ept id="52988d38-b595-4de1-a3da-f1cba7ef9f21">&lt;/strong&gt;</ept> from the <bpt id="c6245e80-9733-40bc-9836-6fe8118adfce">&lt;strong&gt;</bpt>Claim rule<ept id="c6245e80-9733-40bc-9836-6fe8118adfce">&lt;/strong&gt;</ept> template drop down box.</target>
+        </trans-unit>
+        <trans-unit id="cb65221e-4f48-44a8-8f04-deb58008fb14" xml:space="preserve">
+          <source>Select <bpt id="9b7fbe15-033a-44f5-aa65-e764ecc6f23f">&lt;strong&gt;</bpt>Next<ept id="9b7fbe15-033a-44f5-aa65-e764ecc6f23f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="9b7fbe15-033a-44f5-aa65-e764ecc6f23f">&lt;strong&gt;</bpt>Next<ept id="9b7fbe15-033a-44f5-aa65-e764ecc6f23f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a6ca457-0637-47e0-a108-bc1fedb538b4" xml:space="preserve">
+          <source>Type <bpt id="aaeb1202-84ce-40c2-bbcc-7f9908a546a8">&lt;em&gt;</bpt>Auth Method Claim Rule<ept id="aaeb1202-84ce-40c2-bbcc-7f9908a546a8">&lt;/em&gt;</ept> in the <bpt id="0f38c858-8588-49e2-859f-1c3dabc7d315">&lt;strong&gt;</bpt>Claim rule name:<ept id="0f38c858-8588-49e2-859f-1c3dabc7d315">&lt;/strong&gt;</ept> text box.</source>
+          <target state="new">Type <bpt id="aaeb1202-84ce-40c2-bbcc-7f9908a546a8">&lt;em&gt;</bpt>Auth Method Claim Rule<ept id="aaeb1202-84ce-40c2-bbcc-7f9908a546a8">&lt;/em&gt;</ept> in the <bpt id="0f38c858-8588-49e2-859f-1c3dabc7d315">&lt;strong&gt;</bpt>Claim rule name:<ept id="0f38c858-8588-49e2-859f-1c3dabc7d315">&lt;/strong&gt;</ept> text box.</target>
+        </trans-unit>
+        <trans-unit id="2759590f-72d5-4ebd-9eec-67c170ccba72" xml:space="preserve">
+          <source>Type the following claim rule in the <bpt id="fdaa2367-0785-4edb-96b8-777d589131d1">&lt;strong&gt;</bpt>Claim rule:<ept id="fdaa2367-0785-4edb-96b8-777d589131d1">&lt;/strong&gt;</ept> text box<bpt id="a80e584d-bc8e-4c3a-8ba6-f1efa53f325a">&lt;em&gt;</bpt>*<ept id="a80e584d-bc8e-4c3a-8ba6-f1efa53f325a">&lt;/em&gt;</ept>*</source>
+          <target state="new">Type the following claim rule in the <bpt id="fdaa2367-0785-4edb-96b8-777d589131d1">&lt;strong&gt;</bpt>Claim rule:<ept id="fdaa2367-0785-4edb-96b8-777d589131d1">&lt;/strong&gt;</ept> text box<bpt id="a80e584d-bc8e-4c3a-8ba6-f1efa53f325a">&lt;em&gt;</bpt>*<ept id="a80e584d-bc8e-4c3a-8ba6-f1efa53f325a">&lt;/em&gt;</ept>*</target>
+        </trans-unit>
+        <trans-unit id="810d0213-8d83-4db0-8330-062db688e3c6" xml:space="preserve">
+          <source>Click <bpt id="a68e70ef-ad12-4eff-aec7-d6e263860c4c">&lt;strong&gt;</bpt>OK<ept id="a68e70ef-ad12-4eff-aec7-d6e263860c4c">&lt;/strong&gt;</ept> twice to complete the dialog box.</source>
+          <target state="new">Click <bpt id="a68e70ef-ad12-4eff-aec7-d6e263860c4c">&lt;strong&gt;</bpt>OK<ept id="a68e70ef-ad12-4eff-aec7-d6e263860c4c">&lt;/strong&gt;</ept> twice to complete the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="c72667f9-46ac-4a56-b04f-c88b22ef5682" xml:space="preserve">
+          <source>On your federation server, open a Windows PowerShell command window and type:</source>
+          <target state="new">On your federation server, open a Windows PowerShell command window and type:</target>
+        </trans-unit>
+        <trans-unit id="4f8ef468-ec22-4101-8664-673494f639c4" xml:space="preserve">
+          <source><bpt id="6a0ad637-b4f2-485d-b05d-071013170fb8">&lt;code&gt;</bpt>Set-AdfsRelyingPartyTrust -TargetName &lt;RPObjectName&gt; -AllowedAuthenticationClassReferences wiaormultiauthn<ept id="6a0ad637-b4f2-485d-b05d-071013170fb8">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6a0ad637-b4f2-485d-b05d-071013170fb8">&lt;code&gt;</bpt>Set-AdfsRelyingPartyTrust -TargetName &lt;RPObjectName&gt; -AllowedAuthenticationClassReferences wiaormultiauthn<ept id="6a0ad637-b4f2-485d-b05d-071013170fb8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99c6309b-4766-4014-bc3b-13713f326414" xml:space="preserve">
+          <source>Where &lt;RPObjectName&gt; is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.</source>
+          <target state="new">Where &lt;RPObjectName&gt; is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.</target>
+        </trans-unit>
+        <trans-unit id="25195607-c3ef-484b-9fa6-d33a74b3c02d" xml:space="preserve">
+          <source>Configure the AD FS Global Primary Authentication Policy to allow Windows Integrated Authentication for the Intranet (this is the default).</source>
+          <target state="new">Configure the AD FS Global Primary Authentication Policy to allow Windows Integrated Authentication for the Intranet (this is the default).</target>
+        </trans-unit>
+        <trans-unit id="bdf60b3a-8dc9-4f8c-8a86-896b26fef013" xml:space="preserve">
+          <source>Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:</source>
+          <target state="new">Configure the following settings on Internet Explorer on your Windows devices for the Local intranet security zone:</target>
+        </trans-unit>
+        <trans-unit id="69d73574-0e48-497b-b416-bb6d90347c4d" xml:space="preserve">
+          <source>Don’t prompt for client certificate selection when only one certificate exists:  <bpt id="96393d78-9e12-453a-9758-2652afd39387">&lt;strong&gt;</bpt>Enable<ept id="96393d78-9e12-453a-9758-2652afd39387">&lt;/strong&gt;</ept></source>
+          <target state="new">Don’t prompt for client certificate selection when only one certificate exists:  <bpt id="96393d78-9e12-453a-9758-2652afd39387">&lt;strong&gt;</bpt>Enable<ept id="96393d78-9e12-453a-9758-2652afd39387">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e12c1dcf-6667-4275-b63c-839c46039e25" xml:space="preserve">
+          <source>Allow scripting:  <bpt id="d9174159-d9b4-4c7c-810c-e0f42942bc29">&lt;strong&gt;</bpt>Enable<ept id="d9174159-d9b4-4c7c-810c-e0f42942bc29">&lt;/strong&gt;</ept></source>
+          <target state="new">Allow scripting:  <bpt id="d9174159-d9b4-4c7c-810c-e0f42942bc29">&lt;strong&gt;</bpt>Enable<ept id="d9174159-d9b4-4c7c-810c-e0f42942bc29">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30385cb5-5ed1-4ed0-8167-90282ecbf540" xml:space="preserve">
+          <source>Automatic logon only in Intranet zone:  <bpt id="f6e13bfe-2ef7-4e4e-876c-5fd1483c2e55">&lt;strong&gt;</bpt>Checked<ept id="f6e13bfe-2ef7-4e4e-876c-5fd1483c2e55">&lt;/strong&gt;</ept></source>
+          <target state="new">Automatic logon only in Intranet zone:  <bpt id="f6e13bfe-2ef7-4e4e-876c-5fd1483c2e55">&lt;strong&gt;</bpt>Checked<ept id="f6e13bfe-2ef7-4e4e-876c-5fd1483c2e55">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9ec630d-aea7-4958-9257-32585192324e" xml:space="preserve">
+          <source>These are the default settings for the Internet Explorer Local intranet security zone.</source>
+          <target state="new">These are the default settings for the Internet Explorer Local intranet security zone.</target>
+        </trans-unit>
+        <trans-unit id="f51a681c-947e-40bb-afeb-16aea5cb82e4" xml:space="preserve">
+          <source>You can view or manage these settings in Internet Explorer by navigating to <bpt id="5966b5b5-a4ce-4dc1-a75b-5e9488bb402e">&lt;strong&gt;</bpt>Internet Options<ept id="5966b5b5-a4ce-4dc1-a75b-5e9488bb402e">&lt;/strong&gt;</ept> &gt; <bpt id="679146fb-cda9-4730-a8b6-e9d7d986b704">&lt;strong&gt;</bpt>Security<ept id="679146fb-cda9-4730-a8b6-e9d7d986b704">&lt;/strong&gt;</ept> &gt; Local intranet &gt; Custom level.</source>
+          <target state="new">You can view or manage these settings in Internet Explorer by navigating to <bpt id="5966b5b5-a4ce-4dc1-a75b-5e9488bb402e">&lt;strong&gt;</bpt>Internet Options<ept id="5966b5b5-a4ce-4dc1-a75b-5e9488bb402e">&lt;/strong&gt;</ept> &gt; <bpt id="679146fb-cda9-4730-a8b6-e9d7d986b704">&lt;strong&gt;</bpt>Security<ept id="679146fb-cda9-4730-a8b6-e9d7d986b704">&lt;/strong&gt;</ept> &gt; Local intranet &gt; Custom level.</target>
+        </trans-unit>
+        <trans-unit id="37524846-f265-4511-8492-e60fad840447" xml:space="preserve">
+          <source>You can also configure these settings using Active Directory Group Policy.</source>
+          <target state="new">You can also configure these settings using Active Directory Group Policy.</target>
+        </trans-unit>
+        <trans-unit id="1933388d-cc03-48cc-bb3e-fda43ed1c892" xml:space="preserve">
+          <source>Domain joined Windows devices must have connectivity to AD FS and an Active Directory Domain Controller to automatically register with Azure AD.</source>
+          <target state="new">Domain joined Windows devices must have connectivity to AD FS and an Active Directory Domain Controller to automatically register with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="fa083221-0890-4c02-8bdc-ad81f5fa059e" xml:space="preserve">
+          <source>This typically means the machine must be connected to the corporate network.</source>
+          <target state="new">This typically means the machine must be connected to the corporate network.</target>
+        </trans-unit>
+        <trans-unit id="9feed4be-8273-4df4-bdff-1fe2ff8ca4ca" xml:space="preserve">
+          <source>This can include a wired connection, a Wi-Fi connection, DirectAccess, or VPN.</source>
+          <target state="new">This can include a wired connection, a Wi-Fi connection, DirectAccess, or VPN.</target>
+        </trans-unit>
+        <trans-unit id="2a7c44f1-9652-4122-9381-6992715e6620" xml:space="preserve">
+          <source>Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domain joined devices using the links below.</source>
+          <target state="new">Configure Automatic Device Registration for your Windows 7 and Windows 8.1 domain joined devices using the links below.</target>
+        </trans-unit>
+        <trans-unit id="4e6fac12-046e-4c3b-b161-7aba3f1acf22" xml:space="preserve">
+          <source>Be sure that you have completed the prerequisites above before you continue.</source>
+          <target state="new">Be sure that you have completed the prerequisites above before you continue.</target>
+        </trans-unit>
+        <trans-unit id="5511ba81-ca33-49a3-ba1e-27ae94f1a7f1" xml:space="preserve">
+          <source><bpt id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;linkText&gt;</bpt>Configure Automatic Device Registration for Windows 8.1 domain joined devices<ept id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;/linkText&gt;</ept><bpt id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;title&gt;</bpt><ept id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;linkText&gt;</bpt>Configure Automatic Device Registration for Windows 8.1 domain joined devices<ept id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;/linkText&gt;</ept><bpt id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;title&gt;</bpt><ept id="547fc2e0-d562-4399-96de-980ddbb9891d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="041c7cff-fae3-4d80-ac56-808fca9b197d" xml:space="preserve">
+          <source><bpt id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;linkText&gt;</bpt>Configure Automatic Device Registration for Windows 7 domain joined devices<ept id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;/linkText&gt;</ept><bpt id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;title&gt;</bpt><ept id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;linkText&gt;</bpt>Configure Automatic Device Registration for Windows 7 domain joined devices<ept id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;/linkText&gt;</ept><bpt id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;title&gt;</bpt><ept id="a596c878-fa38-495f-b4e0-3fea5c8456cc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d37598bf-3fea-4ac9-ac50-e3b040a5b9ea" xml:space="preserve">
+          <source>Device registration with Azure AD provides the broadest set of device capabilities.</source>
+          <target state="new">Device registration with Azure AD provides the broadest set of device capabilities.</target>
+        </trans-unit>
+        <trans-unit id="daa34b0d-391b-40f0-9a5f-50268f40927c" xml:space="preserve">
+          <source>With Azure AD Device Registration, you can register both personal (BYOD) mobile devices and company owned, domain joined devices.</source>
+          <target state="new">With Azure AD Device Registration, you can register both personal (BYOD) mobile devices and company owned, domain joined devices.</target>
+        </trans-unit>
+        <trans-unit id="bb6e7f4a-75a2-4a35-aae2-9e8249e6642a" xml:space="preserve">
+          <source>The devices can be used with both hosted services such as Office365 and services managed on-premises with AD FS.</source>
+          <target state="new">The devices can be used with both hosted services such as Office365 and services managed on-premises with AD FS.</target>
+        </trans-unit>
+        <trans-unit id="bb3d9d4f-f3e7-4b13-b359-eb93a68b1756" xml:space="preserve">
+          <source>Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS.</source>
+          <target state="new">Companies that use both mobile and traditional devices or that use Office365, Azure AD, or other Microsoft services should register devices in Azure AD using the Azure AD Device Registration service.If your company does not use mobile devices and does not use any Microsoft services such as Office365, Azure AD, or Microsoft Intune and instead hosts only on-premises applications, you can choose to register devices in Active Directory using AD FS.</target>
+        </trans-unit>
+        <trans-unit id="3511d0e7-5950-4d42-a4a0-bed95278262f" xml:space="preserve">
+          <source>You can learn more about deploying device registration with AD FS <bpt id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;linkText&gt;</bpt>here<ept id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;/linkText&gt;</ept><bpt id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;title&gt;</bpt><ept id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about deploying device registration with AD FS <bpt id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;linkText&gt;</bpt>here<ept id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;/linkText&gt;</ept><bpt id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;title&gt;</bpt><ept id="361eb020-4e8b-454c-9de3-1eb9f4eda2f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

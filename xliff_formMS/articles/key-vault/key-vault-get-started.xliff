@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="50e295b0-37f7-4419-a4f2-df022e21ef66" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="50e295b0-37f7-4419-a4f2-df022e21ef66" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d39f8aeb-6a9a-4207-989b-2a154514d573">
+        <trans-unit id="d88f442d-1415-4dba-9b00-54c2c858f8b8" xml:space="preserve">
+          <source>Get started with Azure Key Vault | Microsoft Azure</source>
+          <target state="new">Get started with Azure Key Vault | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6c369969-a865-41fd-bca0-f478fab1ed3f" xml:space="preserve">
+          <source>Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.</source>
+          <target state="new">Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure.</target>
+        </trans-unit>
+        <trans-unit id="60879a50-6a47-4c0e-8720-867ec80f55c2" xml:space="preserve">
+          <source>Azure Key Vault is available in most regions.</source>
+          <target state="new">Azure Key Vault is available in most regions.</target>
+        </trans-unit>
+        <trans-unit id="e61135db-9ecf-4206-921f-d10f4919c370" xml:space="preserve">
+          <source>For more information, see the <bpt id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;linkText&gt;</bpt>Key Vault pricing page<ept id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;/linkText&gt;</ept><bpt id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;title&gt;</bpt><ept id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;linkText&gt;</bpt>Key Vault pricing page<ept id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;/linkText&gt;</ept><bpt id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;title&gt;</bpt><ept id="be22c48b-7169-4e13-8eda-61c089f8b35b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80e3e719-0960-4db1-beb9-03a4f17f4ebf" xml:space="preserve">
+          <source>Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure.</source>
+          <target state="new">Use this tutorial to help you get started with Azure Key Vault to create a hardened container (a vault) in Azure, to store and manage cryptographic keys and secrets in Azure.</target>
+        </trans-unit>
+        <trans-unit id="fb5ccb53-ad6f-4d3a-a0ef-432cd4b37e12" xml:space="preserve">
+          <source>It walks you through the process of using Windows PowerShell to create a vault that contains a key or password that you can then use with an Azure application.</source>
+          <target state="new">It walks you through the process of using Windows PowerShell to create a vault that contains a key or password that you can then use with an Azure application.</target>
+        </trans-unit>
+        <trans-unit id="245e6e89-bafb-4cbb-a390-fd1c3d4799ed" xml:space="preserve">
+          <source>It then shows you how an application can use that key or password.</source>
+          <target state="new">It then shows you how an application can use that key or password.</target>
+        </trans-unit>
+        <trans-unit id="b312024c-f6c6-40c0-95ed-f0812b9029b7" xml:space="preserve">
+          <source><bpt id="29e5206c-239f-4ce5-9cfb-efff5138d2b6">&lt;em&gt;</bpt>Estimated time to complete:<ept id="29e5206c-239f-4ce5-9cfb-efff5138d2b6">&lt;/em&gt;</ept>* 20 minutes</source>
+          <target state="new"><bpt id="29e5206c-239f-4ce5-9cfb-efff5138d2b6">&lt;em&gt;</bpt>Estimated time to complete:<ept id="29e5206c-239f-4ce5-9cfb-efff5138d2b6">&lt;/em&gt;</ept>* 20 minutes</target>
+        </trans-unit>
+        <trans-unit id="4a7f3ce1-7e56-4dcc-8403-906758e928ce" xml:space="preserve">
+          <source>This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.</source>
+          <target state="new">This tutorial does not include instructions for how to write the Azure application that one of the steps includes, namely how to authorize an application to use a key or secret in the key vault.</target>
+        </trans-unit>
+        <trans-unit id="5d896572-4890-45eb-baa3-a11f0a63039d" xml:space="preserve">
+          <source>Currently, you cannot configure Azure Key Vault in the Azure portal.</source>
+          <target state="new">Currently, you cannot configure Azure Key Vault in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="80d22d58-41d7-4863-b175-fd19ee650f09" xml:space="preserve">
+          <source>Instead, use these Azure PowerShell instructions.</source>
+          <target state="new">Instead, use these Azure PowerShell instructions.</target>
+        </trans-unit>
+        <trans-unit id="80657a0b-e422-4689-b5da-7288bf7b0968" xml:space="preserve">
+          <source>Or, for Cross-Platform Command-Line Interface instructions, see <bpt id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;linkText&gt;</bpt>this equivalent tutorial<ept id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;/linkText&gt;</ept><bpt id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;title&gt;</bpt><ept id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or, for Cross-Platform Command-Line Interface instructions, see <bpt id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;linkText&gt;</bpt>this equivalent tutorial<ept id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;/linkText&gt;</ept><bpt id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;title&gt;</bpt><ept id="a43de44c-e515-408d-aa87-ea078cea03ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43bd640d-273f-4aac-8597-0076d6e77a9d" xml:space="preserve">
+          <source>For overview information about Azure Key Vault, see <bpt id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;linkText&gt;</bpt>What is Azure Key Vault?<ept id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;/linkText&gt;</ept><bpt id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;title&gt;</bpt><ept id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;/title&gt;</ept></source>
+          <target state="new">For overview information about Azure Key Vault, see <bpt id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;linkText&gt;</bpt>What is Azure Key Vault?<ept id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;/linkText&gt;</ept><bpt id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;title&gt;</bpt><ept id="5b13b27d-6b60-48f4-ab27-f32c48993226">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e71b9642-86bb-4b5f-8a83-25c56bbe767a" xml:space="preserve">
+          <source>To complete this tutorial, you must have the following:</source>
+          <target state="new">To complete this tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="7fa09895-669e-4641-a570-6f564aebae5d" xml:space="preserve">
+          <source>A subscription to Microsoft Azure.</source>
+          <target state="new">A subscription to Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="daf3b532-23a1-408b-a4b9-f7513e002de7" xml:space="preserve">
+          <source>If you do not have one, you can sign up for a <bpt id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;linkText&gt;</bpt>free trial<ept id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;/linkText&gt;</ept><bpt id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;title&gt;</bpt><ept id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not have one, you can sign up for a <bpt id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;linkText&gt;</bpt>free trial<ept id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;/linkText&gt;</ept><bpt id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;title&gt;</bpt><ept id="06cbe1a4-9cd8-4018-abd1-5f9c2a5f7695">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b2dc96f-0915-44d3-8d23-d4be18c453a3" xml:space="preserve">
+          <source>Azure PowerShell version 0.9.1 or later.</source>
+          <target state="new">Azure PowerShell version 0.9.1 or later.</target>
+        </trans-unit>
+        <trans-unit id="01526dd4-4d1b-44c7-bf1d-e62b83f59686" xml:space="preserve">
+          <source>To install the latest version and associate it with your Azure subscription, see <bpt id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;/linkText&gt;</ept><bpt id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;title&gt;</bpt><ept id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">To install the latest version and associate it with your Azure subscription, see <bpt id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;/linkText&gt;</ept><bpt id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;title&gt;</bpt><ept id="2a682d57-680f-4889-92ed-c5e445da84bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48c69671-c6b8-447e-9948-13a39b9893b9" xml:space="preserve">
+          <source>An application that will be configured to use the key or password that you create in this tutorial.</source>
+          <target state="new">An application that will be configured to use the key or password that you create in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="cf4ec2f7-0e13-4b86-bf73-16fe18053b04" xml:space="preserve">
+          <source>A sample application is available from the <bpt id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;/linkText&gt;</ept><bpt id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;title&gt;</bpt><ept id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;/title&gt;</ept>.</source>
+          <target state="new">A sample application is available from the <bpt id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;/linkText&gt;</ept><bpt id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;title&gt;</bpt><ept id="39675f1b-a902-4b49-bb2c-ce51f50c8489">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3b6ee73-412a-4135-9390-df6f6e458e8a" xml:space="preserve">
+          <source>For instructions, see the accompanying Readme file.</source>
+          <target state="new">For instructions, see the accompanying Readme file.</target>
+        </trans-unit>
+        <trans-unit id="e1c04110-0b6f-4bda-8cbb-a3ee5cae0bc1" xml:space="preserve">
+          <source>This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions.</source>
+          <target state="new">This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions.</target>
+        </trans-unit>
+        <trans-unit id="34238d68-0d8b-477b-8825-da0bcc0f529e" xml:space="preserve">
+          <source>For more information about Windows PowerShell, see <bpt id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;linkText&gt;</bpt>Getting started with Windows PowerShell<ept id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;/linkText&gt;</ept><bpt id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;title&gt;</bpt><ept id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Windows PowerShell, see <bpt id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;linkText&gt;</bpt>Getting started with Windows PowerShell<ept id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;/linkText&gt;</ept><bpt id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;title&gt;</bpt><ept id="3c29238d-7d14-47b5-b81c-dd12b1902520">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ccd01c2-4e63-40da-adf1-5072a1a8c9f1" xml:space="preserve">
+          <source>To get detailed help for any cmdlet that you see in this tutorial, use the <bpt id="4721a81d-9d91-4d97-882c-a6398128445e">&lt;strong&gt;</bpt>Get-Help<ept id="4721a81d-9d91-4d97-882c-a6398128445e">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">To get detailed help for any cmdlet that you see in this tutorial, use the <bpt id="4721a81d-9d91-4d97-882c-a6398128445e">&lt;strong&gt;</bpt>Get-Help<ept id="4721a81d-9d91-4d97-882c-a6398128445e">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="1e1ddddb-0738-47ed-adb9-d26f0bf5e75f" xml:space="preserve">
+          <source>For example, to get help for the <bpt id="2370f235-a2d9-4891-a0c8-7f2605d80e7d">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="2370f235-a2d9-4891-a0c8-7f2605d80e7d">&lt;/strong&gt;</ept> cmdlet, type:</source>
+          <target state="new">For example, to get help for the <bpt id="2370f235-a2d9-4891-a0c8-7f2605d80e7d">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="2370f235-a2d9-4891-a0c8-7f2605d80e7d">&lt;/strong&gt;</ept> cmdlet, type:</target>
+        </trans-unit>
+        <trans-unit id="6ee3774a-376d-46d9-9319-f9301a34e341" xml:space="preserve">
+          <source>You can also read the following tutorials to get familiar with Azure Resource Manager in Windows PowerShell:</source>
+          <target state="new">You can also read the following tutorials to get familiar with Azure Resource Manager in Windows PowerShell:</target>
+        </trans-unit>
+        <trans-unit id="0584680b-6fba-4ff2-8cf7-8f4d7cbea73f" xml:space="preserve">
+          <source><bpt id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;/linkText&gt;</ept><bpt id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;title&gt;</bpt><ept id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;/linkText&gt;</ept><bpt id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;title&gt;</bpt><ept id="838e6d52-628e-4724-b665-7cb3d76e6f15">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce508aa0-e527-414d-8853-e1a409325068" xml:space="preserve">
+          <source><bpt id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;linkText&gt;</bpt>Using Windows PowerShell with Resource Manager<ept id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;/linkText&gt;</ept><bpt id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;title&gt;</bpt><ept id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;linkText&gt;</bpt>Using Windows PowerShell with Resource Manager<ept id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;/linkText&gt;</ept><bpt id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;title&gt;</bpt><ept id="a1adff23-d077-4a58-bbd2-5851af640fe8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21abd7ac-54cf-431a-927c-e1385dfd64a6" xml:space="preserve">
+          <source>Start an Azure PowerShell session and sign in to your Azure account with the following command:  </source>
+          <target state="new">Start an Azure PowerShell session and sign in to your Azure account with the following command:  </target>
+        </trans-unit>
+        <trans-unit id="f0688a8b-45b5-4149-a6e5-c862dfa38cd6" xml:space="preserve">
+          <source>In the pop-up browser window, enter your Azure account user name and password.</source>
+          <target state="new">In the pop-up browser window, enter your Azure account user name and password.</target>
+        </trans-unit>
+        <trans-unit id="e9910ca6-e7cc-40e3-8ee5-8d7ec10d8e5b" xml:space="preserve">
+          <source>Windows PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.</source>
+          <target state="new">Windows PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.</target>
+        </trans-unit>
+        <trans-unit id="f6055d51-96cb-4a82-b419-4cf29c78596e" xml:space="preserve">
+          <source>If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:</source>
+          <target state="new">If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:</target>
+        </trans-unit>
+        <trans-unit id="542120d0-0f4d-4847-ae8b-c334c6259f8a" xml:space="preserve">
+          <source>Then, to specify the subscription to use, type:</source>
+          <target state="new">Then, to specify the subscription to use, type:</target>
+        </trans-unit>
+        <trans-unit id="1d4df1c6-d47b-4cd9-b7f5-ae3c06e09bdf" xml:space="preserve">
+          <source>For more information about configuring Azure PowerShell, see  <bpt id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;/linkText&gt;</ept><bpt id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;title&gt;</bpt><ept id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuring Azure PowerShell, see  <bpt id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;/linkText&gt;</ept><bpt id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;title&gt;</bpt><ept id="f65114e9-ced0-4c7f-9f26-e746d755501b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a3ed68c-e209-4707-a52c-77f443abf273" xml:space="preserve">
+          <source>The Key Vault cmdlets require Azure Resource Manager, so type the following to switch to Azure Resource Manager mode:</source>
+          <target state="new">The Key Vault cmdlets require Azure Resource Manager, so type the following to switch to Azure Resource Manager mode:</target>
+        </trans-unit>
+        <trans-unit id="3e86787b-46ef-46be-baa5-b8c2bed6e542" xml:space="preserve">
+          <source>When you use Azure Resource Manager, all related resources are created inside a resource group.</source>
+          <target state="new">When you use Azure Resource Manager, all related resources are created inside a resource group.</target>
+        </trans-unit>
+        <trans-unit id="cffe48b8-103c-4ad3-8da8-57d6db18e9f4" xml:space="preserve">
+          <source>We will create a new resource group named <bpt id="d944f689-818b-45c1-8ee6-21e6a04b6fba">&lt;strong&gt;</bpt>ContosoResourceGroup<ept id="d944f689-818b-45c1-8ee6-21e6a04b6fba">&lt;/strong&gt;</ept> for this tutorial:</source>
+          <target state="new">We will create a new resource group named <bpt id="d944f689-818b-45c1-8ee6-21e6a04b6fba">&lt;strong&gt;</bpt>ContosoResourceGroup<ept id="d944f689-818b-45c1-8ee6-21e6a04b6fba">&lt;/strong&gt;</ept> for this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="71d0753a-6406-4fb6-b89f-dee13b5966a7" xml:space="preserve">
+          <source>For the <bpt id="b9f81d26-ccf0-42f2-ad6f-76461a07a908">&lt;strong&gt;</bpt>-Location<ept id="b9f81d26-ccf0-42f2-ad6f-76461a07a908">&lt;/strong&gt;</ept> parameter, use the command <bpt id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;linkText&gt;</bpt>Get-AzureLocation<ept id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;/linkText&gt;</ept><bpt id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;title&gt;</bpt><ept id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;/title&gt;</ept> to identify how to specify an alternative location to the one in this example.</source>
+          <target state="new">For the <bpt id="b9f81d26-ccf0-42f2-ad6f-76461a07a908">&lt;strong&gt;</bpt>-Location<ept id="b9f81d26-ccf0-42f2-ad6f-76461a07a908">&lt;/strong&gt;</ept> parameter, use the command <bpt id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;linkText&gt;</bpt>Get-AzureLocation<ept id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;/linkText&gt;</ept><bpt id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;title&gt;</bpt><ept id="fde01254-5eb2-4884-8840-0784b12c7cc6">&lt;/title&gt;</ept> to identify how to specify an alternative location to the one in this example.</target>
+        </trans-unit>
+        <trans-unit id="050a32dc-e884-47e1-9967-011ecebbb95d" xml:space="preserve">
+          <source>If you need more information, type: <bpt id="5f61bf02-fb20-45f9-86a5-c7ac7f63f61b">&lt;code&gt;</bpt>Get-Help Get-AzureLocation<ept id="5f61bf02-fb20-45f9-86a5-c7ac7f63f61b">&lt;/code&gt;</ept></source>
+          <target state="new">If you need more information, type: <bpt id="5f61bf02-fb20-45f9-86a5-c7ac7f63f61b">&lt;code&gt;</bpt>Get-Help Get-AzureLocation<ept id="5f61bf02-fb20-45f9-86a5-c7ac7f63f61b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cb4a6b0-48bd-4ed8-ac1b-58ef6e9101cd" xml:space="preserve">
+          <source>Use the <bpt id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;linkText&gt;</bpt>New-AzureKeyVault<ept id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;/linkText&gt;</ept><bpt id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;title&gt;</bpt><ept id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;/title&gt;</ept> cmdlet to create a key vault.</source>
+          <target state="new">Use the <bpt id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;linkText&gt;</bpt>New-AzureKeyVault<ept id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;/linkText&gt;</ept><bpt id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;title&gt;</bpt><ept id="d8afdd65-d1b4-41d8-8d55-5f831e327be5">&lt;/title&gt;</ept> cmdlet to create a key vault.</target>
+        </trans-unit>
+        <trans-unit id="22d0ec14-b6a9-42d2-ba78-054d10abb848" xml:space="preserve">
+          <source>This cmdlet has three mandatory parameters: a <bpt id="99915b86-b52c-469a-82ee-fb5209b576b1">&lt;strong&gt;</bpt>resource group name<ept id="99915b86-b52c-469a-82ee-fb5209b576b1">&lt;/strong&gt;</ept>, a <bpt id="f8c08770-8561-4e83-ae9a-b11ecfc9c6d0">&lt;strong&gt;</bpt>key vault name<ept id="f8c08770-8561-4e83-ae9a-b11ecfc9c6d0">&lt;/strong&gt;</ept>, and the <bpt id="239684e3-bff8-4c53-a40f-45733378483d">&lt;strong&gt;</bpt>geographic location<ept id="239684e3-bff8-4c53-a40f-45733378483d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This cmdlet has three mandatory parameters: a <bpt id="99915b86-b52c-469a-82ee-fb5209b576b1">&lt;strong&gt;</bpt>resource group name<ept id="99915b86-b52c-469a-82ee-fb5209b576b1">&lt;/strong&gt;</ept>, a <bpt id="f8c08770-8561-4e83-ae9a-b11ecfc9c6d0">&lt;strong&gt;</bpt>key vault name<ept id="f8c08770-8561-4e83-ae9a-b11ecfc9c6d0">&lt;/strong&gt;</ept>, and the <bpt id="239684e3-bff8-4c53-a40f-45733378483d">&lt;strong&gt;</bpt>geographic location<ept id="239684e3-bff8-4c53-a40f-45733378483d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c973d0ed-53a8-4864-992e-b891daf603f6" xml:space="preserve">
+          <source>For example, if you use the vault name of <bpt id="3ce73abe-6f15-4702-8bcc-7e12d4a0518d">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="3ce73abe-6f15-4702-8bcc-7e12d4a0518d">&lt;/strong&gt;</ept>, the resource group name of <bpt id="77b0f858-7d22-4078-8038-5d7fc5dc67bf">&lt;strong&gt;</bpt>ContosoResourceGroup<ept id="77b0f858-7d22-4078-8038-5d7fc5dc67bf">&lt;/strong&gt;</ept>, and the location of <bpt id="c5a72661-62c2-428d-9531-87eb5200f1ff">&lt;strong&gt;</bpt>East Asia<ept id="c5a72661-62c2-428d-9531-87eb5200f1ff">&lt;/strong&gt;</ept>, type:</source>
+          <target state="new">For example, if you use the vault name of <bpt id="3ce73abe-6f15-4702-8bcc-7e12d4a0518d">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="3ce73abe-6f15-4702-8bcc-7e12d4a0518d">&lt;/strong&gt;</ept>, the resource group name of <bpt id="77b0f858-7d22-4078-8038-5d7fc5dc67bf">&lt;strong&gt;</bpt>ContosoResourceGroup<ept id="77b0f858-7d22-4078-8038-5d7fc5dc67bf">&lt;/strong&gt;</ept>, and the location of <bpt id="c5a72661-62c2-428d-9531-87eb5200f1ff">&lt;strong&gt;</bpt>East Asia<ept id="c5a72661-62c2-428d-9531-87eb5200f1ff">&lt;/strong&gt;</ept>, type:</target>
+        </trans-unit>
+        <trans-unit id="fe48759d-8f38-4fb6-ac9b-f4b833f586a5" xml:space="preserve">
+          <source>The output of this cmdlet shows properties of the key vault that you’ve just created.</source>
+          <target state="new">The output of this cmdlet shows properties of the key vault that you’ve just created.</target>
+        </trans-unit>
+        <trans-unit id="6d97c123-6e72-4a7a-bd2b-f50a6d91807a" xml:space="preserve">
+          <source>The two most important properties are:</source>
+          <target state="new">The two most important properties are:</target>
+        </trans-unit>
+        <trans-unit id="182aeae6-a138-48e7-aaf9-18e36199754e" xml:space="preserve">
+          <source><bpt id="5d97748a-22f4-49a9-aeaf-89edfd9e43f6">&lt;strong&gt;</bpt>Name<ept id="5d97748a-22f4-49a9-aeaf-89edfd9e43f6">&lt;/strong&gt;</ept>: In the example, this is <bpt id="1934e6ca-28c9-44d0-8481-55a0e156b0fa">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="1934e6ca-28c9-44d0-8481-55a0e156b0fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5d97748a-22f4-49a9-aeaf-89edfd9e43f6">&lt;strong&gt;</bpt>Name<ept id="5d97748a-22f4-49a9-aeaf-89edfd9e43f6">&lt;/strong&gt;</ept>: In the example, this is <bpt id="1934e6ca-28c9-44d0-8481-55a0e156b0fa">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="1934e6ca-28c9-44d0-8481-55a0e156b0fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="967cf0d9-c90e-4d6a-bb24-e96ebe66e93e" xml:space="preserve">
+          <source>You will use this name for other Key Vault cmdlets.</source>
+          <target state="new">You will use this name for other Key Vault cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="74d2eb79-d43b-4371-b4f5-433e34fd84ee" xml:space="preserve">
+          <source><bpt id="6994497a-6c64-476f-aeac-73073331d23d">&lt;strong&gt;</bpt>vaultUri<ept id="6994497a-6c64-476f-aeac-73073331d23d">&lt;/strong&gt;</ept>: In the example, this is https://contosokeyvault.vault.azure.net/.</source>
+          <target state="new"><bpt id="6994497a-6c64-476f-aeac-73073331d23d">&lt;strong&gt;</bpt>vaultUri<ept id="6994497a-6c64-476f-aeac-73073331d23d">&lt;/strong&gt;</ept>: In the example, this is https://contosokeyvault.vault.azure.net/.</target>
+        </trans-unit>
+        <trans-unit id="658983e7-1cbf-4492-9ac0-4651ea5471d1" xml:space="preserve">
+          <source>Applications that use your vault through its REST API must use this URI.</source>
+          <target state="new">Applications that use your vault through its REST API must use this URI.</target>
+        </trans-unit>
+        <trans-unit id="ffd9d253-f868-47bc-b886-8b9bd16041b8" xml:space="preserve">
+          <source>Your Azure account is now authorized to perform any operations on this key vault.</source>
+          <target state="new">Your Azure account is now authorized to perform any operations on this key vault.</target>
+        </trans-unit>
+        <trans-unit id="5a47fdae-f129-4413-a707-13a4eab4f8ce" xml:space="preserve">
+          <source>As yet, nobody else is.</source>
+          <target state="new">As yet, nobody else is.</target>
+        </trans-unit>
+        <trans-unit id="d9d1d217-6e41-47fe-9684-8368ab1029a5" xml:space="preserve">
+          <source>If you want Azure Key Vault to create a software-protected key for you, use the <bpt id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;linkText&gt;</bpt>Add-AzureKeyVaultKey<ept id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;/linkText&gt;</ept><bpt id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;title&gt;</bpt><ept id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;/title&gt;</ept> cmdlet, and type the following:</source>
+          <target state="new">If you want Azure Key Vault to create a software-protected key for you, use the <bpt id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;linkText&gt;</bpt>Add-AzureKeyVaultKey<ept id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;/linkText&gt;</ept><bpt id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;title&gt;</bpt><ept id="177f87cd-7cb2-4cb5-bf59-483f9cb8751b">&lt;/title&gt;</ept> cmdlet, and type the following:</target>
+        </trans-unit>
+        <trans-unit id="dd75c151-8ff0-40ac-b39c-14950ee413fb" xml:space="preserve">
+          <source>However, if you have an existing software-protected key in a .PFX file saved to your C:\ drive in a file named softkey.pfx that you want to upload to Azure Key Vault, type the following to set the variable <bpt id="c4143351-7fac-43c1-a29c-2a4c4e34e36f">&lt;strong&gt;</bpt>securepfxpwd<ept id="c4143351-7fac-43c1-a29c-2a4c4e34e36f">&lt;/strong&gt;</ept> for a password of <bpt id="22538836-9e81-4116-bf1a-8bc9d7e2f855">&lt;strong&gt;</bpt>123<ept id="22538836-9e81-4116-bf1a-8bc9d7e2f855">&lt;/strong&gt;</ept> for the .PFX file:</source>
+          <target state="new">However, if you have an existing software-protected key in a .PFX file saved to your C:\ drive in a file named softkey.pfx that you want to upload to Azure Key Vault, type the following to set the variable <bpt id="c4143351-7fac-43c1-a29c-2a4c4e34e36f">&lt;strong&gt;</bpt>securepfxpwd<ept id="c4143351-7fac-43c1-a29c-2a4c4e34e36f">&lt;/strong&gt;</ept> for a password of <bpt id="22538836-9e81-4116-bf1a-8bc9d7e2f855">&lt;strong&gt;</bpt>123<ept id="22538836-9e81-4116-bf1a-8bc9d7e2f855">&lt;/strong&gt;</ept> for the .PFX file:</target>
+        </trans-unit>
+        <trans-unit id="fc02f84b-d093-4ecd-9717-9315bd2f5fd7" xml:space="preserve">
+          <source>Then type the following to import the key from the .PFX file, which protects the key by software in the Key Vault service:</source>
+          <target state="new">Then type the following to import the key from the .PFX file, which protects the key by software in the Key Vault service:</target>
+        </trans-unit>
+        <trans-unit id="5486e962-1b30-43e0-9a86-53e828b0dff2" xml:space="preserve">
+          <source>You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI.</source>
+          <target state="new">You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI.</target>
+        </trans-unit>
+        <trans-unit id="d22155a3-c45b-464f-abb9-12b5e9e39f85" xml:space="preserve">
+          <source>Use <bpt id="bb84c3ba-b183-481d-919c-c19c7a3d5890">&lt;strong&gt;</bpt>https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey<ept id="bb84c3ba-b183-481d-919c-c19c7a3d5890">&lt;/strong&gt;</ept> to always get the current version, and use <bpt id="f516b415-24dd-4f4a-b4c1-ad23e75149c6">&lt;strong&gt;</bpt>https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87<ept id="f516b415-24dd-4f4a-b4c1-ad23e75149c6">&lt;/strong&gt;</ept> to get this specific version.</source>
+          <target state="new">Use <bpt id="bb84c3ba-b183-481d-919c-c19c7a3d5890">&lt;strong&gt;</bpt>https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey<ept id="bb84c3ba-b183-481d-919c-c19c7a3d5890">&lt;/strong&gt;</ept> to always get the current version, and use <bpt id="f516b415-24dd-4f4a-b4c1-ad23e75149c6">&lt;strong&gt;</bpt>https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87<ept id="f516b415-24dd-4f4a-b4c1-ad23e75149c6">&lt;/strong&gt;</ept> to get this specific version.</target>
+        </trans-unit>
+        <trans-unit id="196c8f4b-a4c3-4f6c-be90-18306d7b94d3" xml:space="preserve">
+          <source>To display the URI for this key, type:</source>
+          <target state="new">To display the URI for this key, type:</target>
+        </trans-unit>
+        <trans-unit id="d457a86e-df5d-41fd-926f-8e6abbbce032" xml:space="preserve">
+          <source>To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing the following:</source>
+          <target state="new">To add a secret to the vault, which is a password named SQLPassword and has the value of Pa$$w0rd to Azure Key Vault, first convert the value of Pa$$w0rd to a secure string by typing the following:</target>
+        </trans-unit>
+        <trans-unit id="99abd4c0-0216-447a-ad58-446bd89f2fae" xml:space="preserve">
+          <source>Then, type the following:</source>
+          <target state="new">Then, type the following:</target>
+        </trans-unit>
+        <trans-unit id="cbd09ff1-abf2-443a-9777-7ebb9899f7d0" xml:space="preserve">
+          <source>You can now reference this password that you added to Azure Key Vault, by using its URI.</source>
+          <target state="new">You can now reference this password that you added to Azure Key Vault, by using its URI.</target>
+        </trans-unit>
+        <trans-unit id="9ac71a1c-11ac-4aef-b259-bec120b3ace3" xml:space="preserve">
+          <source>Use <bpt id="66e84b8a-4233-4164-b561-6bc1f75bc62b">&lt;strong&gt;</bpt>https://ContosoVault.vault.azure.net/secrets/SQLPassword<ept id="66e84b8a-4233-4164-b561-6bc1f75bc62b">&lt;/strong&gt;</ept> to always get the current version, and use <bpt id="a54a2b59-c9c4-4ad9-ae5a-6ef077964ab5">&lt;strong&gt;</bpt>https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d<ept id="a54a2b59-c9c4-4ad9-ae5a-6ef077964ab5">&lt;/strong&gt;</ept> to get this specific version.</source>
+          <target state="new">Use <bpt id="66e84b8a-4233-4164-b561-6bc1f75bc62b">&lt;strong&gt;</bpt>https://ContosoVault.vault.azure.net/secrets/SQLPassword<ept id="66e84b8a-4233-4164-b561-6bc1f75bc62b">&lt;/strong&gt;</ept> to always get the current version, and use <bpt id="a54a2b59-c9c4-4ad9-ae5a-6ef077964ab5">&lt;strong&gt;</bpt>https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d<ept id="a54a2b59-c9c4-4ad9-ae5a-6ef077964ab5">&lt;/strong&gt;</ept> to get this specific version.</target>
+        </trans-unit>
+        <trans-unit id="2f010311-cfd9-4d61-b25f-1107620ba4e1" xml:space="preserve">
+          <source>To display the URI for this secret, type:</source>
+          <target state="new">To display the URI for this secret, type:</target>
+        </trans-unit>
+        <trans-unit id="11f681dc-5bdc-492f-8867-9e7e21b2c4fb" xml:space="preserve">
+          <source>Let’s view the key or secret that you just created:</source>
+          <target state="new">Let’s view the key or secret that you just created:</target>
+        </trans-unit>
+        <trans-unit id="39af09d5-164b-4b33-8308-2382914e6fa9" xml:space="preserve">
+          <source>To view your key, type: <bpt id="88c90f34-ba37-4241-bb33-577d560851ed">&lt;code&gt;</bpt>Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'<ept id="88c90f34-ba37-4241-bb33-577d560851ed">&lt;/code&gt;</ept></source>
+          <target state="new">To view your key, type: <bpt id="88c90f34-ba37-4241-bb33-577d560851ed">&lt;code&gt;</bpt>Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'<ept id="88c90f34-ba37-4241-bb33-577d560851ed">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bd0505e-d9ed-4246-94a5-e8a46dcaf0cb" xml:space="preserve">
+          <source>To view your secret, type: <bpt id="73883d70-4071-4d1e-9bbc-79f550a6f366">&lt;code&gt;</bpt>Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'<ept id="73883d70-4071-4d1e-9bbc-79f550a6f366">&lt;/code&gt;</ept></source>
+          <target state="new">To view your secret, type: <bpt id="73883d70-4071-4d1e-9bbc-79f550a6f366">&lt;code&gt;</bpt>Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'<ept id="73883d70-4071-4d1e-9bbc-79f550a6f366">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae588d39-6e4e-4861-b338-043be5f597dd" xml:space="preserve">
+          <source>Now, your key vault and key or secret is ready for applications to use.</source>
+          <target state="new">Now, your key vault and key or secret is ready for applications to use.</target>
+        </trans-unit>
+        <trans-unit id="f6f85b82-e3d6-4198-92a5-f76d947bf13a" xml:space="preserve">
+          <source>You must authorize applications to use them.</source>
+          <target state="new">You must authorize applications to use them.</target>
+        </trans-unit>
+        <trans-unit id="c9c902ff-9a14-40e7-86c5-9efe8b958925" xml:space="preserve">
+          <source>This step would usually be done by a developer, on a separate computer.</source>
+          <target state="new">This step would usually be done by a developer, on a separate computer.</target>
+        </trans-unit>
+        <trans-unit id="83d6c1b9-e824-4571-b09c-a57f95088bc1" xml:space="preserve">
+          <source>It is not specific to Azure Key Vault, but is included here for completeness.</source>
+          <target state="new">It is not specific to Azure Key Vault, but is included here for completeness.</target>
+        </trans-unit>
+        <trans-unit id="f0691c08-a796-4347-865d-651c4950e66f" xml:space="preserve">
+          <source>To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.</source>
+          <target state="new">To complete the tutorial, your account, the vault, and the application that you will register in this step must all be in the same Azure directory.</target>
+        </trans-unit>
+        <trans-unit id="4e223cd6-854b-4678-a604-6f47b5d7060d" xml:space="preserve">
+          <source>Applications that use a key vault must authenticate by using a token from Azure Active Directory.</source>
+          <target state="new">Applications that use a key vault must authenticate by using a token from Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="bdcdb35d-330c-46f9-877d-48e9b1ff537f" xml:space="preserve">
+          <source>To do this, the owner of the application must first register the application in their Azure Active Directory.</source>
+          <target state="new">To do this, the owner of the application must first register the application in their Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="e9f2b9a0-32e6-438c-813a-6f3054a16a98" xml:space="preserve">
+          <source>At the end of registration, the application owner gets the following values:</source>
+          <target state="new">At the end of registration, the application owner gets the following values:</target>
+        </trans-unit>
+        <trans-unit id="44afa111-2335-4ab2-bfa5-f6d636dc994d" xml:space="preserve">
+          <source>An <bpt id="00e3ab62-5d2b-457f-be7e-8d0e3a75ad96">&lt;strong&gt;</bpt>Application ID<ept id="00e3ab62-5d2b-457f-be7e-8d0e3a75ad96">&lt;/strong&gt;</ept> (also known as a Client ID) and <bpt id="e76af839-ed16-42bf-8ab8-5001d846d64b">&lt;strong&gt;</bpt>authentication key<ept id="e76af839-ed16-42bf-8ab8-5001d846d64b">&lt;/strong&gt;</ept> (also known as the shared secret).</source>
+          <target state="new">An <bpt id="00e3ab62-5d2b-457f-be7e-8d0e3a75ad96">&lt;strong&gt;</bpt>Application ID<ept id="00e3ab62-5d2b-457f-be7e-8d0e3a75ad96">&lt;/strong&gt;</ept> (also known as a Client ID) and <bpt id="e76af839-ed16-42bf-8ab8-5001d846d64b">&lt;strong&gt;</bpt>authentication key<ept id="e76af839-ed16-42bf-8ab8-5001d846d64b">&lt;/strong&gt;</ept> (also known as the shared secret).</target>
+        </trans-unit>
+        <trans-unit id="c85a9037-20f7-4c5b-8c20-c670583a65bd" xml:space="preserve">
+          <source>The application must present both these values to Azure Active Directory, to get a token.</source>
+          <target state="new">The application must present both these values to Azure Active Directory, to get a token.</target>
+        </trans-unit>
+        <trans-unit id="31a999b4-0a6a-4db6-99e2-278ac8fcc16e" xml:space="preserve">
+          <source>How the application is configured to do this depends on the application.</source>
+          <target state="new">How the application is configured to do this depends on the application.</target>
+        </trans-unit>
+        <trans-unit id="fb1e3cfd-2548-4e74-91d8-9bf47b18aeec" xml:space="preserve">
+          <source>For the Key Vault sample application, the application owner sets these values in the app.config file.</source>
+          <target state="new">For the Key Vault sample application, the application owner sets these values in the app.config file.</target>
+        </trans-unit>
+        <trans-unit id="64fda07b-ee21-4883-b3b6-47e5955e72ff" xml:space="preserve">
+          <source>To register the application in Azure Active Directory:</source>
+          <target state="new">To register the application in Azure Active Directory:</target>
+        </trans-unit>
+        <trans-unit id="bbff7009-22f3-4405-8116-cf2b59693ebb" xml:space="preserve">
+          <source>Sign in to the Azure portal.</source>
+          <target state="new">Sign in to the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="0ff7dd04-9371-493a-922b-20431f1bcdc8" xml:space="preserve">
+          <source>On the left, click <bpt id="97369a9f-4105-44a8-9ab8-e0e7fbb21d0c">&lt;strong&gt;</bpt>Active Directory<ept id="97369a9f-4105-44a8-9ab8-e0e7fbb21d0c">&lt;/strong&gt;</ept>, and then select the directory in which you will register your application. &lt;br&gt; &lt;br&gt; <bpt id="d684e0e8-616e-40fc-8644-0b61c20ff219">&lt;strong&gt;</bpt>Note:<ept id="d684e0e8-616e-40fc-8644-0b61c20ff219">&lt;/strong&gt;</ept> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click <bpt id="eb80addd-5c9e-42da-ad2b-d2e81ca9c224">&lt;strong&gt;</bpt>Settings<ept id="eb80addd-5c9e-42da-ad2b-d2e81ca9c224">&lt;/strong&gt;</ept>, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.</source>
+          <target state="new">On the left, click <bpt id="97369a9f-4105-44a8-9ab8-e0e7fbb21d0c">&lt;strong&gt;</bpt>Active Directory<ept id="97369a9f-4105-44a8-9ab8-e0e7fbb21d0c">&lt;/strong&gt;</ept>, and then select the directory in which you will register your application. &lt;br&gt; &lt;br&gt; <bpt id="d684e0e8-616e-40fc-8644-0b61c20ff219">&lt;strong&gt;</bpt>Note:<ept id="d684e0e8-616e-40fc-8644-0b61c20ff219">&lt;/strong&gt;</ept> You must select the same directory that contains the Azure subscription with which you created your key vault. If you do not know which directory this is, click <bpt id="eb80addd-5c9e-42da-ad2b-d2e81ca9c224">&lt;strong&gt;</bpt>Settings<ept id="eb80addd-5c9e-42da-ad2b-d2e81ca9c224">&lt;/strong&gt;</ept>, identify the subscription with which you created your key vault, and note the name of the directory displayed in the last column.</target>
+        </trans-unit>
+        <trans-unit id="ab115326-c79f-442c-8d1b-984155c2cab0" xml:space="preserve">
+          <source>Click <bpt id="c51c0f60-ce88-43a8-9a91-e4262ce8084f">&lt;strong&gt;</bpt>APPLICATIONS<ept id="c51c0f60-ce88-43a8-9a91-e4262ce8084f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c51c0f60-ce88-43a8-9a91-e4262ce8084f">&lt;strong&gt;</bpt>APPLICATIONS<ept id="c51c0f60-ce88-43a8-9a91-e4262ce8084f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e11600e-a8a0-41f5-94dd-3abbb6def4c0" xml:space="preserve">
+          <source>If no apps have been added to your directory, this page shows only the <bpt id="5615476b-2391-45dd-80af-ef3e5b8341ec">&lt;strong&gt;</bpt>Add an App<ept id="5615476b-2391-45dd-80af-ef3e5b8341ec">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">If no apps have been added to your directory, this page shows only the <bpt id="5615476b-2391-45dd-80af-ef3e5b8341ec">&lt;strong&gt;</bpt>Add an App<ept id="5615476b-2391-45dd-80af-ef3e5b8341ec">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="4bbd0801-eeee-4aae-a9db-d1a96e0b0fd2" xml:space="preserve">
+          <source>Click the link, or alternatively, you can click <bpt id="b53ebefe-9498-4c64-af91-7c38f4219bb4">&lt;strong&gt;</bpt>ADD<ept id="b53ebefe-9498-4c64-af91-7c38f4219bb4">&lt;/strong&gt;</ept> on the command bar.</source>
+          <target state="new">Click the link, or alternatively, you can click <bpt id="b53ebefe-9498-4c64-af91-7c38f4219bb4">&lt;strong&gt;</bpt>ADD<ept id="b53ebefe-9498-4c64-af91-7c38f4219bb4">&lt;/strong&gt;</ept> on the command bar.</target>
+        </trans-unit>
+        <trans-unit id="5ce99d79-a42b-4e47-8b61-977e436e6d59" xml:space="preserve">
+          <source>In the <bpt id="7788a06e-9696-42d9-858a-e1ea753bf96c">&lt;strong&gt;</bpt>ADD APPLICATION<ept id="7788a06e-9696-42d9-858a-e1ea753bf96c">&lt;/strong&gt;</ept> wizard, on the <bpt id="cf12b8a3-4e9b-4f64-90c3-d0e769f0aa34">&lt;strong&gt;</bpt>What do you want to do?<ept id="cf12b8a3-4e9b-4f64-90c3-d0e769f0aa34">&lt;/strong&gt;</ept> page, click <bpt id="7c4e50a4-01b2-4e61-a329-6eca26475483">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="7c4e50a4-01b2-4e61-a329-6eca26475483">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7788a06e-9696-42d9-858a-e1ea753bf96c">&lt;strong&gt;</bpt>ADD APPLICATION<ept id="7788a06e-9696-42d9-858a-e1ea753bf96c">&lt;/strong&gt;</ept> wizard, on the <bpt id="cf12b8a3-4e9b-4f64-90c3-d0e769f0aa34">&lt;strong&gt;</bpt>What do you want to do?<ept id="cf12b8a3-4e9b-4f64-90c3-d0e769f0aa34">&lt;/strong&gt;</ept> page, click <bpt id="7c4e50a4-01b2-4e61-a329-6eca26475483">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="7c4e50a4-01b2-4e61-a329-6eca26475483">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63c13a06-3286-4eee-b5a5-f484ed35f226" xml:space="preserve">
+          <source>On the <bpt id="be8f9724-4d55-4d28-b8b9-537d66fdd5a9">&lt;strong&gt;</bpt>Tell us about your application<ept id="be8f9724-4d55-4d28-b8b9-537d66fdd5a9">&lt;/strong&gt;</ept> page, specify a name for your application, and then select <bpt id="dc0a92e3-6b0e-4a83-a8cc-7c354bb320da">&lt;strong&gt;</bpt>WEB APPLICATION AND/OR WEB API<ept id="dc0a92e3-6b0e-4a83-a8cc-7c354bb320da">&lt;/strong&gt;</ept> (the default).</source>
+          <target state="new">On the <bpt id="be8f9724-4d55-4d28-b8b9-537d66fdd5a9">&lt;strong&gt;</bpt>Tell us about your application<ept id="be8f9724-4d55-4d28-b8b9-537d66fdd5a9">&lt;/strong&gt;</ept> page, specify a name for your application, and then select <bpt id="dc0a92e3-6b0e-4a83-a8cc-7c354bb320da">&lt;strong&gt;</bpt>WEB APPLICATION AND/OR WEB API<ept id="dc0a92e3-6b0e-4a83-a8cc-7c354bb320da">&lt;/strong&gt;</ept> (the default).</target>
+        </trans-unit>
+        <trans-unit id="6b6491e3-d336-43fe-8f44-6095210b7159" xml:space="preserve">
+          <source>Click the <bpt id="48f47b8a-e626-40ce-ad98-a410695c9600">&lt;strong&gt;</bpt>Next<ept id="48f47b8a-e626-40ce-ad98-a410695c9600">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">Click the <bpt id="48f47b8a-e626-40ce-ad98-a410695c9600">&lt;strong&gt;</bpt>Next<ept id="48f47b8a-e626-40ce-ad98-a410695c9600">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="2ec1f87d-0da6-4cbd-8354-d0a86421b9fd" xml:space="preserve">
+          <source>On the <bpt id="aca5dbfa-ff1d-4400-8132-2a61ed66f568">&lt;strong&gt;</bpt>App properties<ept id="aca5dbfa-ff1d-4400-8132-2a61ed66f568">&lt;/strong&gt;</ept> page, specify the <bpt id="f110d15c-74e5-4895-bdc4-4ff2bd14bd57">&lt;strong&gt;</bpt>SIGN-ON URL<ept id="f110d15c-74e5-4895-bdc4-4ff2bd14bd57">&lt;/strong&gt;</ept> and <bpt id="db4cbd15-c5dc-4e21-a88b-33a5444f3469">&lt;strong&gt;</bpt>APP ID URI<ept id="db4cbd15-c5dc-4e21-a88b-33a5444f3469">&lt;/strong&gt;</ept> for your web application.</source>
+          <target state="new">On the <bpt id="aca5dbfa-ff1d-4400-8132-2a61ed66f568">&lt;strong&gt;</bpt>App properties<ept id="aca5dbfa-ff1d-4400-8132-2a61ed66f568">&lt;/strong&gt;</ept> page, specify the <bpt id="f110d15c-74e5-4895-bdc4-4ff2bd14bd57">&lt;strong&gt;</bpt>SIGN-ON URL<ept id="f110d15c-74e5-4895-bdc4-4ff2bd14bd57">&lt;/strong&gt;</ept> and <bpt id="db4cbd15-c5dc-4e21-a88b-33a5444f3469">&lt;strong&gt;</bpt>APP ID URI<ept id="db4cbd15-c5dc-4e21-a88b-33a5444f3469">&lt;/strong&gt;</ept> for your web application.</target>
+        </trans-unit>
+        <trans-unit id="0e3a17ff-ee24-45a2-b727-9607cc79d406" xml:space="preserve">
+          <source>If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes).</source>
+          <target state="new">If your application does not have these values, you can make them up for this step (for example, you could specify http://test1.contoso.com for both boxes).</target>
+        </trans-unit>
+        <trans-unit id="572111ec-bd28-4bfb-b2af-1386c87151ad" xml:space="preserve">
+          <source>It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory.</source>
+          <target state="new">It does not matter if these sites exist; what is important is that the app ID URI for each application is different for every application in your directory.</target>
+        </trans-unit>
+        <trans-unit id="c5b05723-9078-407f-99ab-45c087c3243b" xml:space="preserve">
+          <source>The directory uses this string to identify your app.</source>
+          <target state="new">The directory uses this string to identify your app.</target>
+        </trans-unit>
+        <trans-unit id="fd340531-1edc-44cd-8f8e-f303507d7498" xml:space="preserve">
+          <source>Click the <bpt id="011b6c86-0cbe-44ce-8071-6d6a29d36014">&lt;strong&gt;</bpt>Complete<ept id="011b6c86-0cbe-44ce-8071-6d6a29d36014">&lt;/strong&gt;</ept> icon to save your changes in the wizard.</source>
+          <target state="new">Click the <bpt id="011b6c86-0cbe-44ce-8071-6d6a29d36014">&lt;strong&gt;</bpt>Complete<ept id="011b6c86-0cbe-44ce-8071-6d6a29d36014">&lt;/strong&gt;</ept> icon to save your changes in the wizard.</target>
+        </trans-unit>
+        <trans-unit id="b5ac38b1-db33-4170-8441-6b83408c26a8" xml:space="preserve">
+          <source>On the <bpt id="85e20b35-f03d-412f-b564-3acc72d317f4">&lt;strong&gt;</bpt>Quick Start<ept id="85e20b35-f03d-412f-b564-3acc72d317f4">&lt;/strong&gt;</ept> page, click <bpt id="c842c0ee-c135-4e83-82e7-8eda4421b00d">&lt;strong&gt;</bpt>CONFIGURE<ept id="c842c0ee-c135-4e83-82e7-8eda4421b00d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="85e20b35-f03d-412f-b564-3acc72d317f4">&lt;strong&gt;</bpt>Quick Start<ept id="85e20b35-f03d-412f-b564-3acc72d317f4">&lt;/strong&gt;</ept> page, click <bpt id="c842c0ee-c135-4e83-82e7-8eda4421b00d">&lt;strong&gt;</bpt>CONFIGURE<ept id="c842c0ee-c135-4e83-82e7-8eda4421b00d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f19e240c-6c14-4110-b9f3-ab89b37d4681" xml:space="preserve">
+          <source>Scroll to the <bpt id="573d69a7-6446-4cd2-b631-2864dd2b4eb5">&lt;strong&gt;</bpt>keys<ept id="573d69a7-6446-4cd2-b631-2864dd2b4eb5">&lt;/strong&gt;</ept> section, select the duration, and then click <bpt id="e43171fc-7218-47c0-b17a-8233d9647ae5">&lt;strong&gt;</bpt>SAVE<ept id="e43171fc-7218-47c0-b17a-8233d9647ae5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the <bpt id="573d69a7-6446-4cd2-b631-2864dd2b4eb5">&lt;strong&gt;</bpt>keys<ept id="573d69a7-6446-4cd2-b631-2864dd2b4eb5">&lt;/strong&gt;</ept> section, select the duration, and then click <bpt id="e43171fc-7218-47c0-b17a-8233d9647ae5">&lt;strong&gt;</bpt>SAVE<ept id="e43171fc-7218-47c0-b17a-8233d9647ae5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99c59f89-5017-465c-b3ab-55dbab2acd9f" xml:space="preserve">
+          <source>The page refreshes and now shows a key value.</source>
+          <target state="new">The page refreshes and now shows a key value.</target>
+        </trans-unit>
+        <trans-unit id="a7345496-28e5-4ef2-adb9-18c380069d6f" xml:space="preserve">
+          <source>You must configure your application with this key value and the <bpt id="e5fc2417-abd5-4895-8247-22c33d5a12dc">&lt;strong&gt;</bpt>CLIENT ID<ept id="e5fc2417-abd5-4895-8247-22c33d5a12dc">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">You must configure your application with this key value and the <bpt id="e5fc2417-abd5-4895-8247-22c33d5a12dc">&lt;strong&gt;</bpt>CLIENT ID<ept id="e5fc2417-abd5-4895-8247-22c33d5a12dc">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="0e48b7a5-02fb-49b9-8daa-a955177feb48" xml:space="preserve">
+          <source>(Instructions for this configuration will be application-specific.)</source>
+          <target state="new">(Instructions for this configuration will be application-specific.)</target>
+        </trans-unit>
+        <trans-unit id="915f45a2-caa1-4f30-a01f-39e930f513ad" xml:space="preserve">
+          <source>Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.</source>
+          <target state="new">Copy the client ID value from this page, which you will use in the next step to set permissions on your vault.</target>
+        </trans-unit>
+        <trans-unit id="2892a18e-421a-425e-aad4-63008882c8ec" xml:space="preserve">
+          <source>To authorize the application to access the key or secret in the vault, use the
+ <bpt id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;linkText&gt;</bpt>Set-AzureKeyVaultAccessPolicy<ept id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;/linkText&gt;</ept><bpt id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;title&gt;</bpt><ept id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">To authorize the application to access the key or secret in the vault, use the
+ <bpt id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;linkText&gt;</bpt>Set-AzureKeyVaultAccessPolicy<ept id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;/linkText&gt;</ept><bpt id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;title&gt;</bpt><ept id="d0d14173-6aa7-4709-a8ba-e1c727370238">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="0dcfd981-c21a-4d0d-9279-8d3594d8207a" xml:space="preserve">
+          <source>For example, if your vault name is <bpt id="8d13488c-95dd-4d42-bb91-06ae361c5d6e">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="8d13488c-95dd-4d42-bb91-06ae361c5d6e">&lt;/strong&gt;</ept> and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:</source>
+          <target state="new">For example, if your vault name is <bpt id="8d13488c-95dd-4d42-bb91-06ae361c5d6e">&lt;strong&gt;</bpt>ContosoKeyVault<ept id="8d13488c-95dd-4d42-bb91-06ae361c5d6e">&lt;/strong&gt;</ept> and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following:</target>
+        </trans-unit>
+        <trans-unit id="fb3ce48f-3c16-48da-b81d-2ef4748c14af" xml:space="preserve">
+          <source>If you want to authorize that same application to read secrets in your vault, run the following:</source>
+          <target state="new">If you want to authorize that same application to read secrets in your vault, run the following:</target>
+        </trans-unit>
+        <trans-unit id="1a552da4-f462-49fb-bb8f-a3fa691e28b2" xml:space="preserve">
+          <source>For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary.</source>
+          <target state="new">For added assurance, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary.</target>
+        </trans-unit>
+        <trans-unit id="fc173d8c-0775-4a61-9907-00de95ccf85e" xml:space="preserve">
+          <source>The HSMs are FIPS 140-2 Level 2 validated.</source>
+          <target state="new">The HSMs are FIPS 140-2 Level 2 validated.</target>
+        </trans-unit>
+        <trans-unit id="a7e69a5a-efb6-46a7-b53f-7221f49ef00d" xml:space="preserve">
+          <source>If this requirement doesn't apply to you, skip this section and go to <bpt id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;linkText&gt;</bpt>Delete the key vault and associated keys and secrets<ept id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;/linkText&gt;</ept><bpt id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;title&gt;</bpt><ept id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;/title&gt;</ept>.</source>
+          <target state="new">If this requirement doesn't apply to you, skip this section and go to <bpt id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;linkText&gt;</bpt>Delete the key vault and associated keys and secrets<ept id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;/linkText&gt;</ept><bpt id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;title&gt;</bpt><ept id="83921fb6-c9ab-48d7-9b32-7ad84267fb15">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e5fd0c6-0283-46f9-8d89-589423a0f5df" xml:space="preserve">
+          <source>To create these HSM-protected keys, you must have a <bpt id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;linkText&gt;</bpt>vault subscription that supports HSM-protected keys<ept id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;/linkText&gt;</ept><bpt id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;title&gt;</bpt><ept id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create these HSM-protected keys, you must have a <bpt id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;linkText&gt;</bpt>vault subscription that supports HSM-protected keys<ept id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;/linkText&gt;</ept><bpt id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;title&gt;</bpt><ept id="4e55d23f-a574-4b51-a9a5-401d5ac5f517">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86b5b7be-825f-4c73-8e3f-555dd7a240c2" xml:space="preserve">
+          <source>When you create the vault, add the <bpt id="99cc223e-6cac-4a7f-b480-b0861bc9a45a">&lt;strong&gt;</bpt>-SKU<ept id="99cc223e-6cac-4a7f-b480-b0861bc9a45a">&lt;/strong&gt;</ept> parameter:</source>
+          <target state="new">When you create the vault, add the <bpt id="99cc223e-6cac-4a7f-b480-b0861bc9a45a">&lt;strong&gt;</bpt>-SKU<ept id="99cc223e-6cac-4a7f-b480-b0861bc9a45a">&lt;/strong&gt;</ept> parameter:</target>
+        </trans-unit>
+        <trans-unit id="fab06eb8-4cac-4556-9ea8-25b61551d6af" xml:space="preserve">
+          <source>You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault.</source>
+          <target state="new">You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault.</target>
+        </trans-unit>
+        <trans-unit id="87e7f4c6-233a-4b32-a9c0-24ac8291b1b9" xml:space="preserve">
+          <source>To create an HSM-protected key, set the <bpt id="f82946a9-d95d-4e46-94b5-e01b81d4dd04">&lt;strong&gt;</bpt>-Destination<ept id="f82946a9-d95d-4e46-94b5-e01b81d4dd04">&lt;/strong&gt;</ept> parameter to 'HSM':</source>
+          <target state="new">To create an HSM-protected key, set the <bpt id="f82946a9-d95d-4e46-94b5-e01b81d4dd04">&lt;strong&gt;</bpt>-Destination<ept id="f82946a9-d95d-4e46-94b5-e01b81d4dd04">&lt;/strong&gt;</ept> parameter to 'HSM':</target>
+        </trans-unit>
+        <trans-unit id="f57921ef-f1d9-4597-bb1c-bac1a797746b" xml:space="preserve">
+          <source>You can use the following command to import a key from a .PFX file on your computer.</source>
+          <target state="new">You can use the following command to import a key from a .PFX file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="78214de8-250a-40eb-bf1a-447b2188564e" xml:space="preserve">
+          <source>This command imports the key into HSMs in the Key Vault service:</source>
+          <target state="new">This command imports the key into HSMs in the Key Vault service:</target>
+        </trans-unit>
+        <trans-unit id="cb844703-b0c3-48c8-92cd-c2c6a22462f2" xml:space="preserve">
+          <source>The next command imports a “bring your own key" (BYOK) package.</source>
+          <target state="new">The next command imports a “bring your own key" (BYOK) package.</target>
+        </trans-unit>
+        <trans-unit id="45fab352-d2c5-454c-8584-e92df7e415dc" xml:space="preserve">
+          <source>This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:</source>
+          <target state="new">This lets you generate your key in your local HSM, and transfer it to HSMs in the Key Vault service, without the key leaving the HSM boundary:</target>
+        </trans-unit>
+        <trans-unit id="ba382020-7179-412b-a499-1aca1cbd411e" xml:space="preserve">
+          <source>For more detailed instructions about how to generate this BYOK package, see <bpt id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;linkText&gt;</bpt>How to generate and transfer HSM-protected keys for Azure Key Vault<ept id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;/linkText&gt;</ept><bpt id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;title&gt;</bpt><ept id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detailed instructions about how to generate this BYOK package, see <bpt id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;linkText&gt;</bpt>How to generate and transfer HSM-protected keys for Azure Key Vault<ept id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;/linkText&gt;</ept><bpt id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;title&gt;</bpt><ept id="482ff28a-4a18-4e46-ba63-749754508ab3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67cc66da-3249-48cc-b6d2-0898b6d576dc" xml:space="preserve">
+          <source>If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the <bpt id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;linkText&gt;</bpt>Remove-AzureKeyVault<ept id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;/linkText&gt;</ept><bpt id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;title&gt;</bpt><ept id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;/title&gt;</ept> cmdlet:</source>
+          <target state="new">If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the <bpt id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;linkText&gt;</bpt>Remove-AzureKeyVault<ept id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;/linkText&gt;</ept><bpt id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;title&gt;</bpt><ept id="e05cd8a7-4ed9-491b-bf8f-c3c995c83058">&lt;/title&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="ce37ff6c-b403-4769-a059-eab5b5ec3851" xml:space="preserve">
+          <source>Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:</source>
+          <target state="new">Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:</target>
+        </trans-unit>
+        <trans-unit id="3d9510ce-327b-491c-b729-28a53f0ba3c9" xml:space="preserve">
+          <source>Other commands that you might find useful for managing Azure Key Vault:</source>
+          <target state="new">Other commands that you might find useful for managing Azure Key Vault:</target>
+        </trans-unit>
+        <trans-unit id="91361c3c-c684-4440-b1b5-594ed809a04f" xml:space="preserve">
+          <source><bpt id="ee81d0ac-1905-4c17-b49c-a446fa12f4af">&lt;code&gt;</bpt>$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'<ept id="ee81d0ac-1905-4c17-b49c-a446fa12f4af">&lt;/code&gt;</ept>: This command gets a tabular display of all keys and selected properties.</source>
+          <target state="new"><bpt id="ee81d0ac-1905-4c17-b49c-a446fa12f4af">&lt;code&gt;</bpt>$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'<ept id="ee81d0ac-1905-4c17-b49c-a446fa12f4af">&lt;/code&gt;</ept>: This command gets a tabular display of all keys and selected properties.</target>
+        </trans-unit>
+        <trans-unit id="1974a3a4-c2d7-45f1-b942-9802f30eb591" xml:space="preserve">
+          <source><bpt id="59c399e0-78f0-469e-b058-2001f3a3fb47">&lt;code&gt;</bpt>$Keys[0]<ept id="59c399e0-78f0-469e-b058-2001f3a3fb47">&lt;/code&gt;</ept>: This command displays a full list of properties for the specified key</source>
+          <target state="new"><bpt id="59c399e0-78f0-469e-b058-2001f3a3fb47">&lt;code&gt;</bpt>$Keys[0]<ept id="59c399e0-78f0-469e-b058-2001f3a3fb47">&lt;/code&gt;</ept>: This command displays a full list of properties for the specified key</target>
+        </trans-unit>
+        <trans-unit id="3006d1a7-fae1-49c4-a7a4-4249f5c22360" xml:space="preserve">
+          <source><bpt id="8d771098-2823-4e3e-8a67-e08458b8d386">&lt;code&gt;</bpt>Get-AzureKeyVaultSecret<ept id="8d771098-2823-4e3e-8a67-e08458b8d386">&lt;/code&gt;</ept>: This command lists a tabular display of all secret names and selected properties.</source>
+          <target state="new"><bpt id="8d771098-2823-4e3e-8a67-e08458b8d386">&lt;code&gt;</bpt>Get-AzureKeyVaultSecret<ept id="8d771098-2823-4e3e-8a67-e08458b8d386">&lt;/code&gt;</ept>: This command lists a tabular display of all secret names and selected properties.</target>
+        </trans-unit>
+        <trans-unit id="33be194a-3376-4890-9874-a05342757783" xml:space="preserve">
+          <source><bpt id="9af569ed-becd-4c31-97c5-2b06ee05c8c5">&lt;code&gt;</bpt>Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'<ept id="9af569ed-becd-4c31-97c5-2b06ee05c8c5">&lt;/code&gt;</ept>: Example how to remove a specific key.</source>
+          <target state="new"><bpt id="9af569ed-becd-4c31-97c5-2b06ee05c8c5">&lt;code&gt;</bpt>Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'<ept id="9af569ed-becd-4c31-97c5-2b06ee05c8c5">&lt;/code&gt;</ept>: Example how to remove a specific key.</target>
+        </trans-unit>
+        <trans-unit id="b981366e-71a2-4170-a4dd-13e1f9adaa88" xml:space="preserve">
+          <source><bpt id="b3a231eb-6aec-4269-b5d0-7e23d65c40e2">&lt;code&gt;</bpt>Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'<ept id="b3a231eb-6aec-4269-b5d0-7e23d65c40e2">&lt;/code&gt;</ept>: Example how to remove a specific secret.</source>
+          <target state="new"><bpt id="b3a231eb-6aec-4269-b5d0-7e23d65c40e2">&lt;code&gt;</bpt>Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'<ept id="b3a231eb-6aec-4269-b5d0-7e23d65c40e2">&lt;/code&gt;</ept>: Example how to remove a specific secret.</target>
+        </trans-unit>
+        <trans-unit id="1dbeb631-5562-4be4-adda-cad1d539a620" xml:space="preserve">
+          <source>For a follow-up tutorial that uses Azure Key Vault in a web application, see <bpt id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;linkText&gt;</bpt>Use Azure Key Vault from a Web Application<ept id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;/linkText&gt;</ept><bpt id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;title&gt;</bpt><ept id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a follow-up tutorial that uses Azure Key Vault in a web application, see <bpt id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;linkText&gt;</bpt>Use Azure Key Vault from a Web Application<ept id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;/linkText&gt;</ept><bpt id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;title&gt;</bpt><ept id="e3493514-9c2a-4e92-8ae1-8180240e39cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05632a15-1e48-4e7b-a1dd-750622690625" xml:space="preserve">
+          <source>For a list of Windows PowerShell cmdlets for Azure Key Vault, see <bpt id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;linkText&gt;</bpt>Azure Key Vault Cmdlets<ept id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;/linkText&gt;</ept><bpt id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;title&gt;</bpt><ept id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of Windows PowerShell cmdlets for Azure Key Vault, see <bpt id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;linkText&gt;</bpt>Azure Key Vault Cmdlets<ept id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;/linkText&gt;</ept><bpt id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;title&gt;</bpt><ept id="70bb9dfa-6260-45e8-8e8a-ea0f7ffdf122">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c9942b1-222d-4a2b-9f50-b9323e868fdf" xml:space="preserve">
+          <source>For programming references, see <bpt id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;linkText&gt;</bpt>Key Vault<ept id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;/linkText&gt;</ept><bpt id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;title&gt;</bpt><ept id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;/title&gt;</ept> in the Microsoft Azure documentation library on MSDN.</source>
+          <target state="new">For programming references, see <bpt id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;linkText&gt;</bpt>Key Vault<ept id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;/linkText&gt;</ept><bpt id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;title&gt;</bpt><ept id="eb1e71af-e44b-451a-9eef-548539ad7f66">&lt;/title&gt;</ept> in the Microsoft Azure documentation library on MSDN.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1f865337-8490-4586-8f92-bfe5952eeaaa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1f865337-8490-4586-8f92-bfe5952eeaaa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="37c2c80a-5515-4e9a-8d22-8dd96bb62600">
+        <trans-unit id="00fb1a15-1659-4757-a942-e58b3831dfcb" xml:space="preserve">
+          <source>How to use Azure Service Bus with the WebJobs SDK</source>
+          <target state="new">How to use Azure Service Bus with the WebJobs SDK</target>
+        </trans-unit>
+        <trans-unit id="eceded75-ccc3-46b8-8503-2f807f539ebc" xml:space="preserve">
+          <source>Learn how to use Azure Service Bus queues and topics with the WebJobs SDK.</source>
+          <target state="new">Learn how to use Azure Service Bus queues and topics with the WebJobs SDK.</target>
+        </trans-unit>
+        <trans-unit id="1e8b46df-16f4-4181-a881-aa1ee596d86b" xml:space="preserve">
+          <source>This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated.</source>
+          <target state="new">This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated.</target>
+        </trans-unit>
+        <trans-unit id="bbe34887-9de5-4a7b-9c64-e9708a5022d6" xml:space="preserve">
+          <source>The code samples use <bpt id="957cffce-7b97-4f7f-9156-12517490900b">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="957cffce-7b97-4f7f-9156-12517490900b">&lt;/linkText&gt;</ept><bpt id="957cffce-7b97-4f7f-9156-12517490900b">&lt;title&gt;</bpt><ept id="957cffce-7b97-4f7f-9156-12517490900b">&lt;/title&gt;</ept> version 1.x.</source>
+          <target state="new">The code samples use <bpt id="957cffce-7b97-4f7f-9156-12517490900b">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="957cffce-7b97-4f7f-9156-12517490900b">&lt;/linkText&gt;</ept><bpt id="957cffce-7b97-4f7f-9156-12517490900b">&lt;title&gt;</bpt><ept id="957cffce-7b97-4f7f-9156-12517490900b">&lt;/title&gt;</ept> version 1.x.</target>
+        </trans-unit>
+        <trans-unit id="63610db6-434d-4424-ab2d-4cfb50852190" xml:space="preserve">
+          <source>The guide assumes you know <bpt id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;/linkText&gt;</ept><bpt id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;title&gt;</bpt><ept id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The guide assumes you know <bpt id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;/linkText&gt;</ept><bpt id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;title&gt;</bpt><ept id="df9bf726-764b-4e76-948a-60a3df1b1e1d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a67a5e8-a4a9-414a-aa11-c1b3ab62d652" xml:space="preserve">
+          <source>The code snippets only show functions, not the code that creates the <bpt id="2a3a580d-52bf-419e-a59c-80335a3c1a48">&lt;code&gt;</bpt>JobHost<ept id="2a3a580d-52bf-419e-a59c-80335a3c1a48">&lt;/code&gt;</ept> object as in this example:</source>
+          <target state="new">The code snippets only show functions, not the code that creates the <bpt id="2a3a580d-52bf-419e-a59c-80335a3c1a48">&lt;code&gt;</bpt>JobHost<ept id="2a3a580d-52bf-419e-a59c-80335a3c1a48">&lt;/code&gt;</ept> object as in this example:</target>
+        </trans-unit>
+        <trans-unit id="4c37175f-a2de-4cf8-b394-deb0991f9a20" xml:space="preserve">
+          <source>To work with Service Bus you have to install the <bpt id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;linkText&gt;</bpt>Microsoft.Azure.WebJobs.ServiceBus<ept id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;/linkText&gt;</ept><bpt id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;title&gt;</bpt><ept id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;/title&gt;</ept> NuGet package in addition to the other WebJobs SDK packages.</source>
+          <target state="new">To work with Service Bus you have to install the <bpt id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;linkText&gt;</bpt>Microsoft.Azure.WebJobs.ServiceBus<ept id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;/linkText&gt;</ept><bpt id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;title&gt;</bpt><ept id="29f5abee-8433-47dc-b07b-407a892ec8a3">&lt;/title&gt;</ept> NuGet package in addition to the other WebJobs SDK packages.</target>
+        </trans-unit>
+        <trans-unit id="671d4372-1dd8-4903-a134-12bb0e123d4f" xml:space="preserve">
+          <source>You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.</source>
+          <target state="new">You also have to set the AzureWebJobsServiceBus connection string in addition to the storage connection strings.</target>
+        </trans-unit>
+        <trans-unit id="84cf6ff9-6040-48a6-a552-da5238d2aa85" xml:space="preserve">
+          <source>You can do this in the <bpt id="dc5674b7-8e80-43ed-bda3-7c12bf3e51ad">&lt;code&gt;</bpt>connectionStrings<ept id="dc5674b7-8e80-43ed-bda3-7c12bf3e51ad">&lt;/code&gt;</ept> section of the App.config file, as shown in the following example:</source>
+          <target state="new">You can do this in the <bpt id="dc5674b7-8e80-43ed-bda3-7c12bf3e51ad">&lt;code&gt;</bpt>connectionStrings<ept id="dc5674b7-8e80-43ed-bda3-7c12bf3e51ad">&lt;/code&gt;</ept> section of the App.config file, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="0ad2ae35-ae9f-4554-92d3-14300fc36e70" xml:space="preserve">
+          <source>For a sample project that includes the Service Bus connection string setting in the App.config file, see <bpt id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;linkText&gt;</bpt>Service Bus example<ept id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;/linkText&gt;</ept><bpt id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;title&gt;</bpt><ept id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a sample project that includes the Service Bus connection string setting in the App.config file, see <bpt id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;linkText&gt;</bpt>Service Bus example<ept id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;/linkText&gt;</ept><bpt id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;title&gt;</bpt><ept id="7466be35-21ca-43a2-b7cf-73a22285024a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e047fa9-613c-433a-8977-ee5180f1755d" xml:space="preserve">
+          <source>The connection strings can also be set in the Azure runtime environment, which then overrides the App.config settings when the WebJob runs in Azure; for more information, see <bpt id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;linkText&gt;</bpt>Get Started with the WebJobs SDK<ept id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;/linkText&gt;</ept><bpt id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;title&gt;</bpt><ept id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;/title&gt;</ept>.</source>
+          <target state="new">The connection strings can also be set in the Azure runtime environment, which then overrides the App.config settings when the WebJob runs in Azure; for more information, see <bpt id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;linkText&gt;</bpt>Get Started with the WebJobs SDK<ept id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;/linkText&gt;</ept><bpt id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;title&gt;</bpt><ept id="4a0523c0-0742-42aa-a7eb-ffdaface4f7f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bf8c23d-0d9a-4ced-b87b-cf3371e4b640" xml:space="preserve">
+          <source>To write a function that the WebJobs SDK calls when a queue message is received, use the <bpt id="395a864b-a4d5-4dc6-bc58-796c93f70b67">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="395a864b-a4d5-4dc6-bc58-796c93f70b67">&lt;/code&gt;</ept> attribute.</source>
+          <target state="new">To write a function that the WebJobs SDK calls when a queue message is received, use the <bpt id="395a864b-a4d5-4dc6-bc58-796c93f70b67">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="395a864b-a4d5-4dc6-bc58-796c93f70b67">&lt;/code&gt;</ept> attribute.</target>
+        </trans-unit>
+        <trans-unit id="bea81963-33f4-4052-a93f-8ce66b894c3d" xml:space="preserve">
+          <source>The attribute constructor takes a parameter that specifies the name of the queue to poll.</source>
+          <target state="new">The attribute constructor takes a parameter that specifies the name of the queue to poll.</target>
+        </trans-unit>
+        <trans-unit id="d0621ce8-60bd-4337-9723-e613bff562c5" xml:space="preserve">
+          <source>The SDK receives a message in <bpt id="87b6d91b-a643-4a07-a820-917d92152258">&lt;code&gt;</bpt>PeekLock<ept id="87b6d91b-a643-4a07-a820-917d92152258">&lt;/code&gt;</ept> mode and calls <bpt id="17617c26-649d-464c-8e1b-f90c22a70597">&lt;code&gt;</bpt>Complete<ept id="17617c26-649d-464c-8e1b-f90c22a70597">&lt;/code&gt;</ept> on the message if the function finishes successfully, or calls <bpt id="3a4af73e-eb41-4c9f-9683-cc46429bd305">&lt;code&gt;</bpt>Abandon<ept id="3a4af73e-eb41-4c9f-9683-cc46429bd305">&lt;/code&gt;</ept> if the function fails.</source>
+          <target state="new">The SDK receives a message in <bpt id="87b6d91b-a643-4a07-a820-917d92152258">&lt;code&gt;</bpt>PeekLock<ept id="87b6d91b-a643-4a07-a820-917d92152258">&lt;/code&gt;</ept> mode and calls <bpt id="17617c26-649d-464c-8e1b-f90c22a70597">&lt;code&gt;</bpt>Complete<ept id="17617c26-649d-464c-8e1b-f90c22a70597">&lt;/code&gt;</ept> on the message if the function finishes successfully, or calls <bpt id="3a4af73e-eb41-4c9f-9683-cc46429bd305">&lt;code&gt;</bpt>Abandon<ept id="3a4af73e-eb41-4c9f-9683-cc46429bd305">&lt;/code&gt;</ept> if the function fails.</target>
+        </trans-unit>
+        <trans-unit id="e655fa7e-26f8-42d9-a80e-59ddb22e8a3c" xml:space="preserve">
+          <source>If the function runs longer than the <bpt id="3789f2d0-e3e9-44f9-b19b-eaf4434d5c84">&lt;code&gt;</bpt>PeekLock<ept id="3789f2d0-e3e9-44f9-b19b-eaf4434d5c84">&lt;/code&gt;</ept> timeout, the lock is automatically renewed.</source>
+          <target state="new">If the function runs longer than the <bpt id="3789f2d0-e3e9-44f9-b19b-eaf4434d5c84">&lt;code&gt;</bpt>PeekLock<ept id="3789f2d0-e3e9-44f9-b19b-eaf4434d5c84">&lt;/code&gt;</ept> timeout, the lock is automatically renewed.</target>
+        </trans-unit>
+        <trans-unit id="46de2674-175a-4ea7-8b6f-0d0017bef351" xml:space="preserve">
+          <source>Serice Bus does its own poison queue handling, so that is neither controlled by, nor configurable in, the WebJobs SDK.</source>
+          <target state="new">Serice Bus does its own poison queue handling, so that is neither controlled by, nor configurable in, the WebJobs SDK.</target>
+        </trans-unit>
+        <trans-unit id="dfec07e6-d63d-47b4-ad8f-833b788c7564" xml:space="preserve">
+          <source>The following code sample reads a queue message that contains a string and writes the string to the WebJobs SDK dashboard.</source>
+          <target state="new">The following code sample reads a queue message that contains a string and writes the string to the WebJobs SDK dashboard.</target>
+        </trans-unit>
+        <trans-unit id="e8e765f8-43e1-4189-8e94-4d9963ca0e07" xml:space="preserve">
+          <source><bpt id="86e6c0d1-48ca-4510-9e14-9117fe6f63c1">&lt;strong&gt;</bpt>Note:<ept id="86e6c0d1-48ca-4510-9e14-9117fe6f63c1">&lt;/strong&gt;</ept> If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set <bpt id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;linkText&gt;</bpt>BrokeredMessage.ContentType<ept id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;/linkText&gt;</ept><bpt id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;title&gt;</bpt><ept id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;/title&gt;</ept> to "text/plain".</source>
+          <target state="new"><bpt id="86e6c0d1-48ca-4510-9e14-9117fe6f63c1">&lt;strong&gt;</bpt>Note:<ept id="86e6c0d1-48ca-4510-9e14-9117fe6f63c1">&lt;/strong&gt;</ept> If you are creating the queue messages in an application that doesn't use the WebJobs SDK, make sure to set <bpt id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;linkText&gt;</bpt>BrokeredMessage.ContentType<ept id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;/linkText&gt;</ept><bpt id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;title&gt;</bpt><ept id="c1f7d656-1e3d-418b-90e4-60544b12b48f">&lt;/title&gt;</ept> to "text/plain".</target>
+        </trans-unit>
+        <trans-unit id="7baa3a02-fcbd-4370-ab31-dd8f4f7fd987" xml:space="preserve">
+          <source>The SDK will automatically deserialize a queue message that contains JSON for a POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain<bpt id="0b44ac9d-bc19-4aac-9e5b-51e20409a6d6">&lt;em&gt;</bpt>Old<ept id="0b44ac9d-bc19-4aac-9e5b-51e20409a6d6">&lt;/em&gt;</ept>CLR_Object)) type.</source>
+          <target state="new">The SDK will automatically deserialize a queue message that contains JSON for a POCO [(Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain<bpt id="0b44ac9d-bc19-4aac-9e5b-51e20409a6d6">&lt;em&gt;</bpt>Old<ept id="0b44ac9d-bc19-4aac-9e5b-51e20409a6d6">&lt;/em&gt;</ept>CLR_Object)) type.</target>
+        </trans-unit>
+        <trans-unit id="ba497f73-395d-49e9-81e8-7e5ebcf89f9e" xml:space="preserve">
+          <source>The following code sample reads a queue message that contains a <bpt id="855dbade-84ec-41b8-a35d-c06ad4a51086">&lt;code&gt;</bpt>BlobInformation<ept id="855dbade-84ec-41b8-a35d-c06ad4a51086">&lt;/code&gt;</ept> object which has a <bpt id="db8a1d58-55e5-4222-968f-1c0ec3e21b23">&lt;code&gt;</bpt>BlobName<ept id="db8a1d58-55e5-4222-968f-1c0ec3e21b23">&lt;/code&gt;</ept> property:</source>
+          <target state="new">The following code sample reads a queue message that contains a <bpt id="855dbade-84ec-41b8-a35d-c06ad4a51086">&lt;code&gt;</bpt>BlobInformation<ept id="855dbade-84ec-41b8-a35d-c06ad4a51086">&lt;/code&gt;</ept> object which has a <bpt id="db8a1d58-55e5-4222-968f-1c0ec3e21b23">&lt;code&gt;</bpt>BlobName<ept id="db8a1d58-55e5-4222-968f-1c0ec3e21b23">&lt;/code&gt;</ept> property:</target>
+        </trans-unit>
+        <trans-unit id="1b6b3bf9-8799-44ea-977b-4a2ef10d22dc" xml:space="preserve">
+          <source>For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the <bpt id="5f0e074a-8511-4197-b609-252e4578616e">&lt;linkText&gt;</bpt>storage queues version of this article<ept id="5f0e074a-8511-4197-b609-252e4578616e">&lt;/linkText&gt;</ept><bpt id="5f0e074a-8511-4197-b609-252e4578616e">&lt;title&gt;</bpt><ept id="5f0e074a-8511-4197-b609-252e4578616e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For code samples showing how to use properties of the POCO to work with blobs and tables in the same function, see the <bpt id="5f0e074a-8511-4197-b609-252e4578616e">&lt;linkText&gt;</bpt>storage queues version of this article<ept id="5f0e074a-8511-4197-b609-252e4578616e">&lt;/linkText&gt;</ept><bpt id="5f0e074a-8511-4197-b609-252e4578616e">&lt;title&gt;</bpt><ept id="5f0e074a-8511-4197-b609-252e4578616e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5613a90a-904e-42c8-adc3-14f7e2e99c0c" xml:space="preserve">
+          <source>If your code that creates the queue message doesn't use the WebJobs SDK, use code similar to the following example:</source>
+          <target state="new">If your code that creates the queue message doesn't use the WebJobs SDK, use code similar to the following example:</target>
+        </trans-unit>
+        <trans-unit id="a2d58092-5b0d-4f89-80f7-a23df92669e2" xml:space="preserve">
+          <source>Besides <bpt id="a1bee4b2-6d4e-4b99-b3ba-c8f21ab84b05">&lt;code&gt;</bpt>string<ept id="a1bee4b2-6d4e-4b99-b3ba-c8f21ab84b05">&lt;/code&gt;</ept> and POCO  types, you can use the <bpt id="bd1888ca-6795-4b99-bfe4-e0054dafded7">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="bd1888ca-6795-4b99-bfe4-e0054dafded7">&lt;/code&gt;</ept> attribute with a byte array or a <bpt id="86a5b812-b09b-4d9a-b8e8-626d2a4ad95e">&lt;code&gt;</bpt>BrokeredMessage<ept id="86a5b812-b09b-4d9a-b8e8-626d2a4ad95e">&lt;/code&gt;</ept> object.</source>
+          <target state="new">Besides <bpt id="a1bee4b2-6d4e-4b99-b3ba-c8f21ab84b05">&lt;code&gt;</bpt>string<ept id="a1bee4b2-6d4e-4b99-b3ba-c8f21ab84b05">&lt;/code&gt;</ept> and POCO  types, you can use the <bpt id="bd1888ca-6795-4b99-bfe4-e0054dafded7">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="bd1888ca-6795-4b99-bfe4-e0054dafded7">&lt;/code&gt;</ept> attribute with a byte array or a <bpt id="86a5b812-b09b-4d9a-b8e8-626d2a4ad95e">&lt;code&gt;</bpt>BrokeredMessage<ept id="86a5b812-b09b-4d9a-b8e8-626d2a4ad95e">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="c88a3454-805e-489a-a7bb-3fa0fc3c1930" xml:space="preserve">
+          <source>To write a function that creates a new queue message use the <bpt id="0be567d4-c4e7-45db-929f-0d2a6fb0fef8">&lt;code&gt;</bpt>ServiceBus<ept id="0be567d4-c4e7-45db-929f-0d2a6fb0fef8">&lt;/code&gt;</ept> attribute and pass in the queue name to the attribute constructor.</source>
+          <target state="new">To write a function that creates a new queue message use the <bpt id="0be567d4-c4e7-45db-929f-0d2a6fb0fef8">&lt;code&gt;</bpt>ServiceBus<ept id="0be567d4-c4e7-45db-929f-0d2a6fb0fef8">&lt;/code&gt;</ept> attribute and pass in the queue name to the attribute constructor.</target>
+        </trans-unit>
+        <trans-unit id="214d2568-af69-4079-a027-4b70c9eff0d4" xml:space="preserve">
+          <source>The following code sample uses an output parameter to create a new message in the queue named "outputqueue" with the same content as the message received in the queue named "inputqueue".</source>
+          <target state="new">The following code sample uses an output parameter to create a new message in the queue named "outputqueue" with the same content as the message received in the queue named "inputqueue".</target>
+        </trans-unit>
+        <trans-unit id="69a1f7ec-730d-4a5f-acd5-87903c3edb9f" xml:space="preserve">
+          <source>The output parameter for creating a single queue message can be any of the following types:</source>
+          <target state="new">The output parameter for creating a single queue message can be any of the following types:</target>
+        </trans-unit>
+        <trans-unit id="01bdb8b9-acf6-46c4-932d-d2b698e90457" xml:space="preserve">
+          <source><bpt id="1574d5a5-01b5-4c36-956d-cac3e2dff3b5">&lt;code&gt;</bpt>string<ept id="1574d5a5-01b5-4c36-956d-cac3e2dff3b5">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1574d5a5-01b5-4c36-956d-cac3e2dff3b5">&lt;code&gt;</bpt>string<ept id="1574d5a5-01b5-4c36-956d-cac3e2dff3b5">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e602ee44-e6be-49a9-81c1-6b21ccb565f8" xml:space="preserve">
+          <source><bpt id="d1a66e18-6efb-4ed4-b822-0bfe51d0840b">&lt;code&gt;</bpt>byte[]<ept id="d1a66e18-6efb-4ed4-b822-0bfe51d0840b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d1a66e18-6efb-4ed4-b822-0bfe51d0840b">&lt;code&gt;</bpt>byte[]<ept id="d1a66e18-6efb-4ed4-b822-0bfe51d0840b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f748e18d-3a39-4f00-babc-2a883bc2062d" xml:space="preserve">
+          <source><bpt id="303d43d8-1965-4cd3-97e4-c775c1cb83b6">&lt;code&gt;</bpt>BrokeredMessage<ept id="303d43d8-1965-4cd3-97e4-c775c1cb83b6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="303d43d8-1965-4cd3-97e4-c775c1cb83b6">&lt;code&gt;</bpt>BrokeredMessage<ept id="303d43d8-1965-4cd3-97e4-c775c1cb83b6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed4862d8-c312-4255-a9e7-e3aef4507d60" xml:space="preserve">
+          <source>A serializable POCO type that you define.</source>
+          <target state="new">A serializable POCO type that you define.</target>
+        </trans-unit>
+        <trans-unit id="4400ba2a-9dd5-48f9-8b74-bd8c49277800" xml:space="preserve">
+          <source>Automatically serialized as JSON.</source>
+          <target state="new">Automatically serialized as JSON.</target>
+        </trans-unit>
+        <trans-unit id="97b835b1-e79a-413b-a727-764be593211e" xml:space="preserve">
+          <source>For POCO type parameters, a queue message is always created when the function ends; if the parameter is null, the SDK creates a queue message that will return null when the message is received and deserialized.</source>
+          <target state="new">For POCO type parameters, a queue message is always created when the function ends; if the parameter is null, the SDK creates a queue message that will return null when the message is received and deserialized.</target>
+        </trans-unit>
+        <trans-unit id="0d08646c-73b6-4934-8e93-bf2243aa809e" xml:space="preserve">
+          <source>For the other types, if the parameter is null no queue message is created.</source>
+          <target state="new">For the other types, if the parameter is null no queue message is created.</target>
+        </trans-unit>
+        <trans-unit id="0bdaac52-6b0d-4a2c-b895-f6dd7462f159" xml:space="preserve">
+          <source>To create multiple messages, use  the <bpt id="95defd7d-262b-4379-9bbe-f183b1766ba3">&lt;code&gt;</bpt>ServiceBus<ept id="95defd7d-262b-4379-9bbe-f183b1766ba3">&lt;/code&gt;</ept> attribute with <bpt id="0c20427f-1ae3-45a0-ab44-004bd78dc1c2">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="0c20427f-1ae3-45a0-ab44-004bd78dc1c2">&lt;/code&gt;</ept> or <bpt id="f463e16a-163c-4172-89cc-05fb0a448726">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="f463e16a-163c-4172-89cc-05fb0a448726">&lt;/code&gt;</ept>, as shown in the following code sample:</source>
+          <target state="new">To create multiple messages, use  the <bpt id="95defd7d-262b-4379-9bbe-f183b1766ba3">&lt;code&gt;</bpt>ServiceBus<ept id="95defd7d-262b-4379-9bbe-f183b1766ba3">&lt;/code&gt;</ept> attribute with <bpt id="0c20427f-1ae3-45a0-ab44-004bd78dc1c2">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="0c20427f-1ae3-45a0-ab44-004bd78dc1c2">&lt;/code&gt;</ept> or <bpt id="f463e16a-163c-4172-89cc-05fb0a448726">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="f463e16a-163c-4172-89cc-05fb0a448726">&lt;/code&gt;</ept>, as shown in the following code sample:</target>
+        </trans-unit>
+        <trans-unit id="87bd5343-5dbb-4a06-a61d-03b8a54268b3" xml:space="preserve">
+          <source>Each queue message is created immediately when the <bpt id="d5e3937f-e084-458c-9e00-c7c0018908db">&lt;code&gt;</bpt>Add<ept id="d5e3937f-e084-458c-9e00-c7c0018908db">&lt;/code&gt;</ept> method is called.</source>
+          <target state="new">Each queue message is created immediately when the <bpt id="d5e3937f-e084-458c-9e00-c7c0018908db">&lt;code&gt;</bpt>Add<ept id="d5e3937f-e084-458c-9e00-c7c0018908db">&lt;/code&gt;</ept> method is called.</target>
+        </trans-unit>
+        <trans-unit id="65e4bb27-4dd8-4b1f-bb27-4a96cd172700" xml:space="preserve">
+          <source>To write a function that the SDK calls when a message is received on a Service Bus topic, use the <bpt id="2294bdd1-83d9-4e99-8816-5fb1a8b79161">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="2294bdd1-83d9-4e99-8816-5fb1a8b79161">&lt;/code&gt;</ept> attribute with the constructor that takes topic name and subscription name, as shown in the following code sample:</source>
+          <target state="new">To write a function that the SDK calls when a message is received on a Service Bus topic, use the <bpt id="2294bdd1-83d9-4e99-8816-5fb1a8b79161">&lt;code&gt;</bpt>ServiceBusTrigger<ept id="2294bdd1-83d9-4e99-8816-5fb1a8b79161">&lt;/code&gt;</ept> attribute with the constructor that takes topic name and subscription name, as shown in the following code sample:</target>
+        </trans-unit>
+        <trans-unit id="bcaf005d-91b0-4f64-a616-e2b41c38b0e2" xml:space="preserve">
+          <source>To create a message on a topic, use the <bpt id="b10d047f-93bf-42ee-89a9-c03ce0a51b79">&lt;code&gt;</bpt>ServiceBus<ept id="b10d047f-93bf-42ee-89a9-c03ce0a51b79">&lt;/code&gt;</ept> attribute with a topic name the same way you use it with a queue name.</source>
+          <target state="new">To create a message on a topic, use the <bpt id="b10d047f-93bf-42ee-89a9-c03ce0a51b79">&lt;code&gt;</bpt>ServiceBus<ept id="b10d047f-93bf-42ee-89a9-c03ce0a51b79">&lt;/code&gt;</ept> attribute with a topic name the same way you use it with a queue name.</target>
+        </trans-unit>
+        <trans-unit id="96316ecf-a0d9-4b29-8406-38a0b5e23eaa" xml:space="preserve">
+          <source>For information about WebJobs SDK scenarios not specific to Service Bus, see <bpt id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;/linkText&gt;</ept><bpt id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;title&gt;</bpt><ept id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about WebJobs SDK scenarios not specific to Service Bus, see <bpt id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;/linkText&gt;</ept><bpt id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;title&gt;</bpt><ept id="ab951aba-0fcf-4623-a75f-f8b8ee95eb13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ad2dd7a-63b4-449c-8d57-b7adc840511a" xml:space="preserve">
+          <source>Topics covered in that article include the following:</source>
+          <target state="new">Topics covered in that article include the following:</target>
+        </trans-unit>
+        <trans-unit id="fa72b92f-480f-41ac-8d5d-1e9895e2040e" xml:space="preserve">
+          <source>Async functions</source>
+          <target state="new">Async functions</target>
+        </trans-unit>
+        <trans-unit id="0029cfc9-e285-4888-88d7-7740b331a154" xml:space="preserve">
+          <source>Multiple instances</source>
+          <target state="new">Multiple instances</target>
+        </trans-unit>
+        <trans-unit id="41366efd-2f42-45e1-ac57-7201c800a4b5" xml:space="preserve">
+          <source>Graceful shutdown</source>
+          <target state="new">Graceful shutdown</target>
+        </trans-unit>
+        <trans-unit id="cd6ef01a-bb62-4274-9c09-fb964dd392ee" xml:space="preserve">
+          <source>Use WebJobs SDK attributes in the body of a function</source>
+          <target state="new">Use WebJobs SDK attributes in the body of a function</target>
+        </trans-unit>
+        <trans-unit id="3e2ac790-dd9b-4585-b6d1-61a7285015a3" xml:space="preserve">
+          <source>Set the SDK connection strings in code</source>
+          <target state="new">Set the SDK connection strings in code</target>
+        </trans-unit>
+        <trans-unit id="67244836-52a9-45a0-8ae1-b7111e3dded4" xml:space="preserve">
+          <source>Set values for WebJobs SDK constructor parameters in code</source>
+          <target state="new">Set values for WebJobs SDK constructor parameters in code</target>
+        </trans-unit>
+        <trans-unit id="bb8d3fae-9013-452b-bcd0-92e55571c2c3" xml:space="preserve">
+          <source>Trigger a function manually</source>
+          <target state="new">Trigger a function manually</target>
+        </trans-unit>
+        <trans-unit id="1049dca3-6c04-40c9-8f7d-851f97b46ef2" xml:space="preserve">
+          <source>Write logs</source>
+          <target state="new">Write logs</target>
+        </trans-unit>
+        <trans-unit id="40d12baf-c63c-4c71-a910-c505610e45a2" xml:space="preserve">
+          <source>This guide has provided code samples that show how to handle common scenarios for working with Azure Service Bus.</source>
+          <target state="new">This guide has provided code samples that show how to handle common scenarios for working with Azure Service Bus.</target>
+        </trans-unit>
+        <trans-unit id="0ccd810c-c615-42ab-98d7-84fef0f23199" xml:space="preserve">
+          <source>For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;/linkText&gt;</ept><bpt id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;title&gt;</bpt><ept id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;/linkText&gt;</ept><bpt id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;title&gt;</bpt><ept id="974a3ed3-aaab-42c7-bd8b-c5c32b276ed0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

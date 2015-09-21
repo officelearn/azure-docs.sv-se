@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a6c39fe9-f7cd-4d66-a932-543e01400a0b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a6c39fe9-f7cd-4d66-a932-543e01400a0b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="377eda31-479f-4d1e-9bc4-4b412ad4ded0">
+        <trans-unit id="1d605221-fbea-465d-b5f1-64a465ceae44" xml:space="preserve">
+          <source>Add or modify a StorSimple backup schedule</source>
+          <target state="new">Add or modify a StorSimple backup schedule</target>
+        </trans-unit>
+        <trans-unit id="263dfc38-1079-432e-bc9b-e3ab2fcc46aa" xml:space="preserve">
+          <source>Explains how you can use the StorSimple Manager service to create and edit backup schedules.</source>
+          <target state="new">Explains how you can use the StorSimple Manager service to create and edit backup schedules.</target>
+        </trans-unit>
+        <trans-unit id="ba962032-5925-41de-9b57-c9e0f6518663" xml:space="preserve">
+          <source>On the device <bpt id="f718ddb2-f616-45d5-920e-764dfab07013">&lt;strong&gt;</bpt>Quick Start<ept id="f718ddb2-f616-45d5-920e-764dfab07013">&lt;/strong&gt;</ept> page, click the <bpt id="82a6d8c5-6974-4fc9-a080-752c231170ed">&lt;strong&gt;</bpt>Backup Policies<ept id="82a6d8c5-6974-4fc9-a080-752c231170ed">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the device <bpt id="f718ddb2-f616-45d5-920e-764dfab07013">&lt;strong&gt;</bpt>Quick Start<ept id="f718ddb2-f616-45d5-920e-764dfab07013">&lt;/strong&gt;</ept> page, click the <bpt id="82a6d8c5-6974-4fc9-a080-752c231170ed">&lt;strong&gt;</bpt>Backup Policies<ept id="82a6d8c5-6974-4fc9-a080-752c231170ed">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a9999e43-f122-465e-9420-d6e99f6da175" xml:space="preserve">
+          <source>This will take you to the <bpt id="36be12cc-261d-437e-ad0d-9c7eb22e372c">&lt;strong&gt;</bpt>Backup Policies<ept id="36be12cc-261d-437e-ad0d-9c7eb22e372c">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This will take you to the <bpt id="36be12cc-261d-437e-ad0d-9c7eb22e372c">&lt;strong&gt;</bpt>Backup Policies<ept id="36be12cc-261d-437e-ad0d-9c7eb22e372c">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="117f7bcb-f9bc-44ba-b819-71afde141aea" xml:space="preserve">
+          <source>In the tabular listing of the policies, select and click the policy that you want to edit.</source>
+          <target state="new">In the tabular listing of the policies, select and click the policy that you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="99b119e0-46b5-4114-a68d-049edbf22102" xml:space="preserve">
+          <source>Under <bpt id="b652d380-0da8-45d5-95ea-df4e8fa04233">&lt;strong&gt;</bpt>general<ept id="b652d380-0da8-45d5-95ea-df4e8fa04233">&lt;/strong&gt;</ept>, you can modify the backup policy name.</source>
+          <target state="new">Under <bpt id="b652d380-0da8-45d5-95ea-df4e8fa04233">&lt;strong&gt;</bpt>general<ept id="b652d380-0da8-45d5-95ea-df4e8fa04233">&lt;/strong&gt;</ept>, you can modify the backup policy name.</target>
+        </trans-unit>
+        <trans-unit id="1f5c0071-23e0-4718-b616-fb4748684238" xml:space="preserve">
+          <source>Under <bpt id="253e3a8d-9eb9-4c89-ba68-34076475f505">&lt;strong&gt;</bpt>schedules<ept id="253e3a8d-9eb9-4c89-ba68-34076475f505">&lt;/strong&gt;</ept>, click <bpt id="7800aff1-2f48-43e3-9eb5-92ee3b472910">&lt;strong&gt;</bpt>manage schedules<ept id="7800aff1-2f48-43e3-9eb5-92ee3b472910">&lt;/strong&gt;</ept> to add or remove schedules.</source>
+          <target state="new">Under <bpt id="253e3a8d-9eb9-4c89-ba68-34076475f505">&lt;strong&gt;</bpt>schedules<ept id="253e3a8d-9eb9-4c89-ba68-34076475f505">&lt;/strong&gt;</ept>, click <bpt id="7800aff1-2f48-43e3-9eb5-92ee3b472910">&lt;strong&gt;</bpt>manage schedules<ept id="7800aff1-2f48-43e3-9eb5-92ee3b472910">&lt;/strong&gt;</ept> to add or remove schedules.</target>
+        </trans-unit>
+        <trans-unit id="dbb47ea6-9e6d-4498-8734-9ea809930acd" xml:space="preserve">
+          <source>In the <bpt id="5c9b709a-f583-4dd4-981e-3b1e49cac4e1">&lt;strong&gt;</bpt>Manage Schedule<ept id="5c9b709a-f583-4dd4-981e-3b1e49cac4e1">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="5c9b709a-f583-4dd4-981e-3b1e49cac4e1">&lt;strong&gt;</bpt>Manage Schedule<ept id="5c9b709a-f583-4dd4-981e-3b1e49cac4e1">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="c188357d-c311-4d00-a2c1-d55803c7743a" xml:space="preserve">
+          <source>Choose an existing schedule or create a new schedule.</source>
+          <target state="new">Choose an existing schedule or create a new schedule.</target>
+        </trans-unit>
+        <trans-unit id="3a30094b-13ef-4339-8ab6-31901e2271fc" xml:space="preserve">
+          <source>Select the type of backup as local or cloud snapshot.</source>
+          <target state="new">Select the type of backup as local or cloud snapshot.</target>
+        </trans-unit>
+        <trans-unit id="814ba2c1-149c-4bac-b96b-e538d83f4046" xml:space="preserve">
+          <source>Specify the backup frequency, retention, and starting time of the schedule.</source>
+          <target state="new">Specify the backup frequency, retention, and starting time of the schedule.</target>
+        </trans-unit>
+        <trans-unit id="dbafc7ad-bb13-4fb5-a68e-47553b84fa2d" xml:space="preserve">
+          <source>Enable or disable the schedule.</source>
+          <target state="new">Enable or disable the schedule.</target>
+        </trans-unit>
+        <trans-unit id="d7ea0a0f-f467-4846-8161-c97d9c094746" xml:space="preserve">
+          <source>Click the check icon <bpt id="3617650c-87e8-4981-92c5-d546a9c8125c">&lt;linkText&gt;</bpt>check icon<ept id="3617650c-87e8-4981-92c5-d546a9c8125c">&lt;/linkText&gt;</ept> to save the changes to the schedule.</source>
+          <target state="new">Click the check icon <bpt id="3617650c-87e8-4981-92c5-d546a9c8125c">&lt;linkText&gt;</bpt>check icon<ept id="3617650c-87e8-4981-92c5-d546a9c8125c">&lt;/linkText&gt;</ept> to save the changes to the schedule.</target>
+        </trans-unit>
+        <trans-unit id="03ceda25-0809-4bd1-8d38-423438fc7b91" xml:space="preserve">
+          <source>In the <bpt id="9f60d783-3416-4f29-9502-a757f9bed719">&lt;strong&gt;</bpt>Volumes<ept id="9f60d783-3416-4f29-9502-a757f9bed719">&lt;/strong&gt;</ept> section, add or remove the volumes to this policy.</source>
+          <target state="new">In the <bpt id="9f60d783-3416-4f29-9502-a757f9bed719">&lt;strong&gt;</bpt>Volumes<ept id="9f60d783-3416-4f29-9502-a757f9bed719">&lt;/strong&gt;</ept> section, add or remove the volumes to this policy.</target>
+        </trans-unit>
+        <trans-unit id="48dec3ff-1ced-4598-869a-ee0d65dc7a69" xml:space="preserve">
+          <source>Save the changes to this policy.</source>
+          <target state="new">Save the changes to this policy.</target>
+        </trans-unit>
+        <trans-unit id="a7cd8c28-a4ef-4bf7-87d5-5b43c325e790" xml:space="preserve">
+          <source>You will prompted for confirmation.</source>
+          <target state="new">You will prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="7fcca671-e891-4704-8e85-172ed8b2e9be" xml:space="preserve">
+          <source>Click <bpt id="172ed903-dac6-47c3-92a6-c077bfe0de8e">&lt;strong&gt;</bpt>OK<ept id="172ed903-dac6-47c3-92a6-c077bfe0de8e">&lt;/strong&gt;</ept> to save the policy.</source>
+          <target state="new">Click <bpt id="172ed903-dac6-47c3-92a6-c077bfe0de8e">&lt;strong&gt;</bpt>OK<ept id="172ed903-dac6-47c3-92a6-c077bfe0de8e">&lt;/strong&gt;</ept> to save the policy.</target>
+        </trans-unit>
+        <trans-unit id="9f60298c-6504-4a61-bf96-2d5fd7068aaf" xml:space="preserve">
+          <source>The <bpt id="0ac55756-a37d-4806-9719-e4298bddd93e">&lt;strong&gt;</bpt>Backup Policies<ept id="0ac55756-a37d-4806-9719-e4298bddd93e">&lt;/strong&gt;</ept> page will be updated to save the changes to the policy.</source>
+          <target state="new">The <bpt id="0ac55756-a37d-4806-9719-e4298bddd93e">&lt;strong&gt;</bpt>Backup Policies<ept id="0ac55756-a37d-4806-9719-e4298bddd93e">&lt;/strong&gt;</ept> page will be updated to save the changes to the policy.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

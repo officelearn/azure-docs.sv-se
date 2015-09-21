@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="09b53de3-9444-411d-8206-f9e21a5dfe9d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="09b53de3-9444-411d-8206-f9e21a5dfe9d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c6ba8c6f-9d14-4906-8e97-c8ed81b3daa9">
+        <trans-unit id="50502234-a10f-4658-80bb-eec72fbe7b13" xml:space="preserve">
+          <source>Web App with Express (Node.js) | Microsoft Azure</source>
+          <target state="new">Web App with Express (Node.js) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1ae866c9-3207-47fa-b823-1d7dda5c8aec" xml:space="preserve">
+          <source>A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module.</source>
+          <target state="new">A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module.</target>
+        </trans-unit>
+        <trans-unit id="381e3c10-de7c-407a-a888-4755ee98f3b8" xml:space="preserve">
+          <source>Node.js includes a minimal set of functionality in the core runtime.</source>
+          <target state="new">Node.js includes a minimal set of functionality in the core runtime.</target>
+        </trans-unit>
+        <trans-unit id="351089f2-227d-4524-bfc2-8106435e77b2" xml:space="preserve">
+          <source>Developers often use 3rd party modules to provide additional
+functionality when developing a Node.js application.</source>
+          <target state="new">Developers often use 3rd party modules to provide additional
+functionality when developing a Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="b8852c99-b5cb-4ca1-b0bf-032e63e80af9" xml:space="preserve">
+          <source>In this tutorial
+you will create a new application using the <bpt id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;linkText&gt;</bpt>Express<ept id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;/linkText&gt;</ept><bpt id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;title&gt;</bpt><ept id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;/title&gt;</ept> module, which provides an MVC framework for creating Node.js web applications.</source>
+          <target state="new">In this tutorial
+you will create a new application using the <bpt id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;linkText&gt;</bpt>Express<ept id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;/linkText&gt;</ept><bpt id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;title&gt;</bpt><ept id="b0484ddd-3db0-403f-9963-1649fcc9487a">&lt;/title&gt;</ept> module, which provides an MVC framework for creating Node.js web applications.</target>
+        </trans-unit>
+        <trans-unit id="79cf18e0-eae9-42bf-8ee9-0deb05d0a9e1" xml:space="preserve">
+          <source>A screenshot of the completed application is below:</source>
+          <target state="new">A screenshot of the completed application is below:</target>
+        </trans-unit>
+        <trans-unit id="dfb709a1-faa0-414f-a43d-a2c877f02200" xml:space="preserve">
+          <source><bpt id="d229d28c-a027-41d9-9733-0aaadc6a5001">&lt;linkText&gt;</bpt>A web browser displaying Welcome to Express in Azure<ept id="d229d28c-a027-41d9-9733-0aaadc6a5001">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d229d28c-a027-41d9-9733-0aaadc6a5001">&lt;linkText&gt;</bpt>A web browser displaying Welcome to Express in Azure<ept id="d229d28c-a027-41d9-9733-0aaadc6a5001">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ec87d41-5605-434a-8e2c-a22677d90179" xml:space="preserve">
+          <source>Perform the following steps to create a new cloud service project named 'expressapp':</source>
+          <target state="new">Perform the following steps to create a new cloud service project named 'expressapp':</target>
+        </trans-unit>
+        <trans-unit id="517bb1d6-8f35-4706-8e63-696e2f74b9d7" xml:space="preserve">
+          <source>From the <bpt id="33cfec95-306f-4eb8-bfe2-94e28b76bd9d">&lt;strong&gt;</bpt>Start Menu<ept id="33cfec95-306f-4eb8-bfe2-94e28b76bd9d">&lt;/strong&gt;</ept> or <bpt id="0af4d048-70cb-45de-ae09-e6a78a7a98c7">&lt;strong&gt;</bpt>Start Screen<ept id="0af4d048-70cb-45de-ae09-e6a78a7a98c7">&lt;/strong&gt;</ept>, search for <bpt id="a5908a10-11f9-4bf3-b390-a67a35b7dc32">&lt;strong&gt;</bpt>Azure PowerShell<ept id="a5908a10-11f9-4bf3-b390-a67a35b7dc32">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="33cfec95-306f-4eb8-bfe2-94e28b76bd9d">&lt;strong&gt;</bpt>Start Menu<ept id="33cfec95-306f-4eb8-bfe2-94e28b76bd9d">&lt;/strong&gt;</ept> or <bpt id="0af4d048-70cb-45de-ae09-e6a78a7a98c7">&lt;strong&gt;</bpt>Start Screen<ept id="0af4d048-70cb-45de-ae09-e6a78a7a98c7">&lt;/strong&gt;</ept>, search for <bpt id="a5908a10-11f9-4bf3-b390-a67a35b7dc32">&lt;strong&gt;</bpt>Azure PowerShell<ept id="a5908a10-11f9-4bf3-b390-a67a35b7dc32">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f387ca07-fc48-4f35-8476-e7f59869963a" xml:space="preserve">
+          <source>Finally, right-click <bpt id="01bc1432-58a5-4411-95f1-24f0bd26b764">&lt;strong&gt;</bpt>Azure PowerShell<ept id="01bc1432-58a5-4411-95f1-24f0bd26b764">&lt;/strong&gt;</ept> and select <bpt id="e375e20b-5eb9-43af-898f-142a8822ebd8">&lt;strong&gt;</bpt>Run As Administrator<ept id="e375e20b-5eb9-43af-898f-142a8822ebd8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, right-click <bpt id="01bc1432-58a5-4411-95f1-24f0bd26b764">&lt;strong&gt;</bpt>Azure PowerShell<ept id="01bc1432-58a5-4411-95f1-24f0bd26b764">&lt;/strong&gt;</ept> and select <bpt id="e375e20b-5eb9-43af-898f-142a8822ebd8">&lt;strong&gt;</bpt>Run As Administrator<ept id="e375e20b-5eb9-43af-898f-142a8822ebd8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad1ac1f5-ed4b-4438-a303-40c5ad2a8a9f" xml:space="preserve">
+          <source><bpt id="8a39bea5-fabf-49ae-9ac3-15d0dbf15207">&lt;linkText&gt;</bpt>Azure PowerShell icon<ept id="8a39bea5-fabf-49ae-9ac3-15d0dbf15207">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a39bea5-fabf-49ae-9ac3-15d0dbf15207">&lt;linkText&gt;</bpt>Azure PowerShell icon<ept id="8a39bea5-fabf-49ae-9ac3-15d0dbf15207">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92e5112d-a277-4af5-8320-3ff848470dad" xml:space="preserve">
+          <source><bpt id="75421bc1-fb93-4053-8bd8-ff850e019b96">&lt;token href="../../includes/install-dev-tools.md"&gt;</bpt><ept id="75421bc1-fb93-4053-8bd8-ff850e019b96">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="75421bc1-fb93-4053-8bd8-ff850e019b96">&lt;token href="../../includes/install-dev-tools.md"&gt;</bpt><ept id="75421bc1-fb93-4053-8bd8-ff850e019b96">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f5442ff-5cb8-479b-bd84-04640da2df4f" xml:space="preserve">
+          <source>Change directories to the <bpt id="1c336f64-3c92-4792-bcbd-ff04fb67ceaf">&lt;strong&gt;</bpt>c:\\node<ept id="1c336f64-3c92-4792-bcbd-ff04fb67ceaf">&lt;/strong&gt;</ept> directory and then enter the following commands to create a new solution named <bpt id="e00e8a0c-2ecd-4b09-9c24-99efb02ee872">&lt;strong&gt;</bpt>expressapp<ept id="e00e8a0c-2ecd-4b09-9c24-99efb02ee872">&lt;/strong&gt;</ept> and a web role named <bpt id="8b2ac3f9-b5e3-492a-9dd8-dc297a2d30c5">&lt;strong&gt;</bpt>WebRole1<ept id="8b2ac3f9-b5e3-492a-9dd8-dc297a2d30c5">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Change directories to the <bpt id="1c336f64-3c92-4792-bcbd-ff04fb67ceaf">&lt;strong&gt;</bpt>c:\\node<ept id="1c336f64-3c92-4792-bcbd-ff04fb67ceaf">&lt;/strong&gt;</ept> directory and then enter the following commands to create a new solution named <bpt id="e00e8a0c-2ecd-4b09-9c24-99efb02ee872">&lt;strong&gt;</bpt>expressapp<ept id="e00e8a0c-2ecd-4b09-9c24-99efb02ee872">&lt;/strong&gt;</ept> and a web role named <bpt id="8b2ac3f9-b5e3-492a-9dd8-dc297a2d30c5">&lt;strong&gt;</bpt>WebRole1<ept id="8b2ac3f9-b5e3-492a-9dd8-dc297a2d30c5">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="57d5ffdb-bf8d-4968-89be-0ad9ec2c92ee" xml:space="preserve">
+          <source>By default, <bpt id="4a2fba97-d625-44fd-b35e-b61451d94f71">&lt;strong&gt;</bpt>Add-AzureNodeWebRole<ept id="4a2fba97-d625-44fd-b35e-b61451d94f71">&lt;/strong&gt;</ept> uses an older version of Node.js.</source>
+          <target state="new">By default, <bpt id="4a2fba97-d625-44fd-b35e-b61451d94f71">&lt;strong&gt;</bpt>Add-AzureNodeWebRole<ept id="4a2fba97-d625-44fd-b35e-b61451d94f71">&lt;/strong&gt;</ept> uses an older version of Node.js.</target>
+        </trans-unit>
+        <trans-unit id="41cf4d3f-176c-4cb7-8e05-e0cfa9371ecc" xml:space="preserve">
+          <source>The <bpt id="7c3b4246-c37d-4d73-86c1-2e8a160129e4">&lt;strong&gt;</bpt>Set-AzureServiceProjectRole<ept id="7c3b4246-c37d-4d73-86c1-2e8a160129e4">&lt;/strong&gt;</ept> statement above instructs Azure to use v0.10.21 of Node.</source>
+          <target state="new">The <bpt id="7c3b4246-c37d-4d73-86c1-2e8a160129e4">&lt;strong&gt;</bpt>Set-AzureServiceProjectRole<ept id="7c3b4246-c37d-4d73-86c1-2e8a160129e4">&lt;/strong&gt;</ept> statement above instructs Azure to use v0.10.21 of Node.</target>
+        </trans-unit>
+        <trans-unit id="858984f9-47e9-4ff9-95e0-b68957077685" xml:space="preserve">
+          <source>Note the parameters are case-sensitive.</source>
+          <target state="new">Note the parameters are case-sensitive.</target>
+        </trans-unit>
+        <trans-unit id="9d5da016-b79b-47c4-b095-17782fed2416" xml:space="preserve">
+          <source>You can verify the correct version of Node.js has been selected by checking the <bpt id="ec085a44-5b22-4554-a5cc-ce5afb2984a7">&lt;strong&gt;</bpt>engines<ept id="ec085a44-5b22-4554-a5cc-ce5afb2984a7">&lt;/strong&gt;</ept> property in <bpt id="e90100e8-4596-4152-ae6e-93d2973b9d07">&lt;strong&gt;</bpt>WebRole1\package.json<ept id="e90100e8-4596-4152-ae6e-93d2973b9d07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can verify the correct version of Node.js has been selected by checking the <bpt id="ec085a44-5b22-4554-a5cc-ce5afb2984a7">&lt;strong&gt;</bpt>engines<ept id="ec085a44-5b22-4554-a5cc-ce5afb2984a7">&lt;/strong&gt;</ept> property in <bpt id="e90100e8-4596-4152-ae6e-93d2973b9d07">&lt;strong&gt;</bpt>WebRole1\package.json<ept id="e90100e8-4596-4152-ae6e-93d2973b9d07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cb42552-d1de-4f4e-93f4-92d41efd8b9d" xml:space="preserve">
+          <source>Install the Express generator by issuing the following command:</source>
+          <target state="new">Install the Express generator by issuing the following command:</target>
+        </trans-unit>
+        <trans-unit id="144459b8-6090-4022-abaf-8585b0a171be" xml:space="preserve">
+          <source>The output of the npm command should look similar to the result below.</source>
+          <target state="new">The output of the npm command should look similar to the result below.</target>
+        </trans-unit>
+        <trans-unit id="cd38cc54-54e6-4602-88a5-3542d0c9b29f" xml:space="preserve">
+          <source><bpt id="603148b1-f0bc-4915-af26-76d4f06c903f">&lt;linkText&gt;</bpt>Windows PowerShell displaying the output of the npm install express command.<ept id="603148b1-f0bc-4915-af26-76d4f06c903f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="603148b1-f0bc-4915-af26-76d4f06c903f">&lt;linkText&gt;</bpt>Windows PowerShell displaying the output of the npm install express command.<ept id="603148b1-f0bc-4915-af26-76d4f06c903f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e185943d-4651-4864-8c72-2c784af17fcd" xml:space="preserve">
+          <source>Change directories to the <bpt id="d431ffc0-aa4b-4950-93b2-6f5f11cb3ec1">&lt;strong&gt;</bpt>WebRole1<ept id="d431ffc0-aa4b-4950-93b2-6f5f11cb3ec1">&lt;/strong&gt;</ept> directory and use the express command to generate a new application:</source>
+          <target state="new">Change directories to the <bpt id="d431ffc0-aa4b-4950-93b2-6f5f11cb3ec1">&lt;strong&gt;</bpt>WebRole1<ept id="d431ffc0-aa4b-4950-93b2-6f5f11cb3ec1">&lt;/strong&gt;</ept> directory and use the express command to generate a new application:</target>
+        </trans-unit>
+        <trans-unit id="b4bbd84c-83f4-417c-ab08-06d5675aacaa" xml:space="preserve">
+          <source>You will be prompted to overwrite your earlier application.</source>
+          <target state="new">You will be prompted to overwrite your earlier application.</target>
+        </trans-unit>
+        <trans-unit id="ec258923-4a0d-464f-a57a-529c26110afd" xml:space="preserve">
+          <source>Enter <bpt id="537909e3-e4d6-4839-bbc1-5b5b67fdd032">&lt;strong&gt;</bpt>y<ept id="537909e3-e4d6-4839-bbc1-5b5b67fdd032">&lt;/strong&gt;</ept> or <bpt id="78026017-910b-4ae7-8fe6-fe4425e4074e">&lt;strong&gt;</bpt>yes<ept id="78026017-910b-4ae7-8fe6-fe4425e4074e">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Enter <bpt id="537909e3-e4d6-4839-bbc1-5b5b67fdd032">&lt;strong&gt;</bpt>y<ept id="537909e3-e4d6-4839-bbc1-5b5b67fdd032">&lt;/strong&gt;</ept> or <bpt id="78026017-910b-4ae7-8fe6-fe4425e4074e">&lt;strong&gt;</bpt>yes<ept id="78026017-910b-4ae7-8fe6-fe4425e4074e">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="dc3be8b1-9033-4aeb-988f-89995149ad91" xml:space="preserve">
+          <source>Express will generate the app.js file and a folder structure for building your application.</source>
+          <target state="new">Express will generate the app.js file and a folder structure for building your application.</target>
+        </trans-unit>
+        <trans-unit id="028e5b6e-6052-428e-b35e-d356dd766474" xml:space="preserve">
+          <source><bpt id="c4f358c1-9a60-4a04-9a95-8431a41d4c54">&lt;linkText&gt;</bpt>The output of the express command<ept id="c4f358c1-9a60-4a04-9a95-8431a41d4c54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4f358c1-9a60-4a04-9a95-8431a41d4c54">&lt;linkText&gt;</bpt>The output of the express command<ept id="c4f358c1-9a60-4a04-9a95-8431a41d4c54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c622c329-821c-4655-9502-f68f8cf604ee" xml:space="preserve">
+          <source>To install additional dependencies defined in the package.json file,
+enter the following command:</source>
+          <target state="new">To install additional dependencies defined in the package.json file,
+enter the following command:</target>
+        </trans-unit>
+        <trans-unit id="03bedb78-fa44-4b16-804b-eb3490e5590e" xml:space="preserve">
+          <source><bpt id="c15eb565-4e23-42f3-9a4d-3fcc25888e79">&lt;linkText&gt;</bpt>The output of the npm install command<ept id="c15eb565-4e23-42f3-9a4d-3fcc25888e79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c15eb565-4e23-42f3-9a4d-3fcc25888e79">&lt;linkText&gt;</bpt>The output of the npm install command<ept id="c15eb565-4e23-42f3-9a4d-3fcc25888e79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33dbc145-5673-46f3-90bc-b0c99dd5d6c5" xml:space="preserve">
+          <source>Use the following command to copy the <bpt id="887032dd-0c43-4ccb-b9d9-6b8008b83a21">&lt;strong&gt;</bpt>bin/www<ept id="887032dd-0c43-4ccb-b9d9-6b8008b83a21">&lt;/strong&gt;</ept> file to <bpt id="8df8629d-5ed5-4aa0-9534-e1629bac2e3e">&lt;strong&gt;</bpt>server.js<ept id="8df8629d-5ed5-4aa0-9534-e1629bac2e3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the following command to copy the <bpt id="887032dd-0c43-4ccb-b9d9-6b8008b83a21">&lt;strong&gt;</bpt>bin/www<ept id="887032dd-0c43-4ccb-b9d9-6b8008b83a21">&lt;/strong&gt;</ept> file to <bpt id="8df8629d-5ed5-4aa0-9534-e1629bac2e3e">&lt;strong&gt;</bpt>server.js<ept id="8df8629d-5ed5-4aa0-9534-e1629bac2e3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e9b94fc-a28e-4c40-ab62-5ae7694a6470" xml:space="preserve">
+          <source>This is so the cloud service can find the entry point for this application.</source>
+          <target state="new">This is so the cloud service can find the entry point for this application.</target>
+        </trans-unit>
+        <trans-unit id="f39f0b8c-0103-4a69-901d-2d380ca62d48" xml:space="preserve">
+          <source>After this command completes, you should have a <bpt id="38fe746a-15df-401c-ac52-9f04f031ef77">&lt;strong&gt;</bpt>server.js<ept id="38fe746a-15df-401c-ac52-9f04f031ef77">&lt;/strong&gt;</ept> file in the WebRole1 directory.</source>
+          <target state="new">After this command completes, you should have a <bpt id="38fe746a-15df-401c-ac52-9f04f031ef77">&lt;strong&gt;</bpt>server.js<ept id="38fe746a-15df-401c-ac52-9f04f031ef77">&lt;/strong&gt;</ept> file in the WebRole1 directory.</target>
+        </trans-unit>
+        <trans-unit id="c69f8f32-4cce-4bc7-a1b9-01152eb71898" xml:space="preserve">
+          <source>Modify the <bpt id="05d3673c-d329-4c9a-adb1-c721a3ae64db">&lt;strong&gt;</bpt>server.js<ept id="05d3673c-d329-4c9a-adb1-c721a3ae64db">&lt;/strong&gt;</ept> to remove one of the '.' characters from the following line.</source>
+          <target state="new">Modify the <bpt id="05d3673c-d329-4c9a-adb1-c721a3ae64db">&lt;strong&gt;</bpt>server.js<ept id="05d3673c-d329-4c9a-adb1-c721a3ae64db">&lt;/strong&gt;</ept> to remove one of the '.' characters from the following line.</target>
+        </trans-unit>
+        <trans-unit id="7d039979-7abc-419f-bcff-be6625872017" xml:space="preserve">
+          <source>After making this modification, the line should appear as follows.</source>
+          <target state="new">After making this modification, the line should appear as follows.</target>
+        </trans-unit>
+        <trans-unit id="69a890a3-ef7f-4588-a6d4-67a30a07adac" xml:space="preserve">
+          <source>This change is required since we moved the file (formerly <bpt id="ac907333-c14d-40ef-a2e6-71768302e042">&lt;strong&gt;</bpt>bin/www<ept id="ac907333-c14d-40ef-a2e6-71768302e042">&lt;/strong&gt;</ept>,) to the same directory as the app file being required.</source>
+          <target state="new">This change is required since we moved the file (formerly <bpt id="ac907333-c14d-40ef-a2e6-71768302e042">&lt;strong&gt;</bpt>bin/www<ept id="ac907333-c14d-40ef-a2e6-71768302e042">&lt;/strong&gt;</ept>,) to the same directory as the app file being required.</target>
+        </trans-unit>
+        <trans-unit id="2f2f52c1-dc62-45c9-8de4-0d33212db6f1" xml:space="preserve">
+          <source>After making this change, save the <bpt id="450a6d62-8c99-42a4-865e-54814f853e13">&lt;strong&gt;</bpt>server.js<ept id="450a6d62-8c99-42a4-865e-54814f853e13">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">After making this change, save the <bpt id="450a6d62-8c99-42a4-865e-54814f853e13">&lt;strong&gt;</bpt>server.js<ept id="450a6d62-8c99-42a4-865e-54814f853e13">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="93a6d54c-9eeb-42cd-b88b-54d072ae1d8b" xml:space="preserve">
+          <source>Use the following command to run the application in the Azure emulator:</source>
+          <target state="new">Use the following command to run the application in the Azure emulator:</target>
+        </trans-unit>
+        <trans-unit id="746ca66b-6806-4258-a270-de20015d3794" xml:space="preserve">
+          <source><bpt id="a9c3af17-7c4d-4375-99f8-3aacb7af9ed5">&lt;linkText&gt;</bpt>A web page containing welcome to express.<ept id="a9c3af17-7c4d-4375-99f8-3aacb7af9ed5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9c3af17-7c4d-4375-99f8-3aacb7af9ed5">&lt;linkText&gt;</bpt>A web page containing welcome to express.<ept id="a9c3af17-7c4d-4375-99f8-3aacb7af9ed5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca998ec4-ac33-4ee4-a335-0464aae01344" xml:space="preserve">
+          <source>Now modify the view to display the message "Welcome to Express in
+Azure".</source>
+          <target state="new">Now modify the view to display the message "Welcome to Express in
+Azure".</target>
+        </trans-unit>
+        <trans-unit id="d0d81552-a8ad-4422-ba95-de46df88eaf1" xml:space="preserve">
+          <source>Enter the following command to open the index.jade file:</source>
+          <target state="new">Enter the following command to open the index.jade file:</target>
+        </trans-unit>
+        <trans-unit id="8b525b1a-7455-4e87-8030-7baec075e830" xml:space="preserve">
+          <source><bpt id="fdfa6790-8566-4174-9755-5318553eb52c">&lt;linkText&gt;</bpt>The contents of the index.jade file.<ept id="fdfa6790-8566-4174-9755-5318553eb52c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fdfa6790-8566-4174-9755-5318553eb52c">&lt;linkText&gt;</bpt>The contents of the index.jade file.<ept id="fdfa6790-8566-4174-9755-5318553eb52c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4e78dc2-e269-40f0-816d-7a6c8fab490e" xml:space="preserve">
+          <source>Jade is the default view engine used by Express applications.</source>
+          <target state="new">Jade is the default view engine used by Express applications.</target>
+        </trans-unit>
+        <trans-unit id="5838b456-7744-49b7-83bd-dbe86691d4f1" xml:space="preserve">
+          <source>For more
+information on the Jade view engine, see <bpt id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;linkText&gt;</bpt>http://jade-lang.com<ept id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;/linkText&gt;</ept><bpt id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;title&gt;</bpt><ept id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more
+information on the Jade view engine, see <bpt id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;linkText&gt;</bpt>http://jade-lang.com<ept id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;/linkText&gt;</ept><bpt id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;title&gt;</bpt><ept id="a7ce127d-0d4f-4c02-bc5e-6a37c49a7eba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a133255-da29-4206-9550-88e4048e21cd" xml:space="preserve">
+          <source>Modify the last line of text by appending <bpt id="55698327-1097-4dfa-bc03-5ae9f4e1648f">&lt;strong&gt;</bpt>in Azure<ept id="55698327-1097-4dfa-bc03-5ae9f4e1648f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Modify the last line of text by appending <bpt id="55698327-1097-4dfa-bc03-5ae9f4e1648f">&lt;strong&gt;</bpt>in Azure<ept id="55698327-1097-4dfa-bc03-5ae9f4e1648f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb9d3f76-ff31-4dc7-97de-8fc21f4b4efd" xml:space="preserve">
+          <source><bpt id="40e73662-f8f6-48b4-9ff2-d79a62bc44fe">&lt;linkText&gt;</bpt>The index.jade file, the last line reads: p Welcome to \#{title} in Azure<ept id="40e73662-f8f6-48b4-9ff2-d79a62bc44fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="40e73662-f8f6-48b4-9ff2-d79a62bc44fe">&lt;linkText&gt;</bpt>The index.jade file, the last line reads: p Welcome to \#{title} in Azure<ept id="40e73662-f8f6-48b4-9ff2-d79a62bc44fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00c33401-e4e2-4837-852e-8e6593d4eec5" xml:space="preserve">
+          <source>Save the file and exit Notepad.</source>
+          <target state="new">Save the file and exit Notepad.</target>
+        </trans-unit>
+        <trans-unit id="dced2f89-b179-446e-9a01-3bfe9ddb88c2" xml:space="preserve">
+          <source>Refresh your browser and you will see your changes.</source>
+          <target state="new">Refresh your browser and you will see your changes.</target>
+        </trans-unit>
+        <trans-unit id="ca12292f-af46-45b9-b2c5-0a0d9f363be3" xml:space="preserve">
+          <source><bpt id="6d3d08a6-c475-4d51-b558-468d0253e718">&lt;linkText&gt;</bpt>A browser window, the page contains Welcome to Express in Azure<ept id="6d3d08a6-c475-4d51-b558-468d0253e718">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d3d08a6-c475-4d51-b558-468d0253e718">&lt;linkText&gt;</bpt>A browser window, the page contains Welcome to Express in Azure<ept id="6d3d08a6-c475-4d51-b558-468d0253e718">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af231565-ea93-457f-9220-038609512cac" xml:space="preserve">
+          <source>After testing the application, use the <bpt id="ba49014c-90f3-4c77-8fbe-b1752bd4c1a1">&lt;strong&gt;</bpt>Stop-AzureEmulator<ept id="ba49014c-90f3-4c77-8fbe-b1752bd4c1a1">&lt;/strong&gt;</ept> cmdlet to stop the emulator.</source>
+          <target state="new">After testing the application, use the <bpt id="ba49014c-90f3-4c77-8fbe-b1752bd4c1a1">&lt;strong&gt;</bpt>Stop-AzureEmulator<ept id="ba49014c-90f3-4c77-8fbe-b1752bd4c1a1">&lt;/strong&gt;</ept> cmdlet to stop the emulator.</target>
+        </trans-unit>
+        <trans-unit id="1dc3604c-51cc-4ad6-8370-efb74cfbc96f" xml:space="preserve">
+          <source>In the Azure PowerShell window, use the <bpt id="983d0be9-f81b-437e-b61f-a296509029cc">&lt;strong&gt;</bpt>Publish-AzureServiceProject<ept id="983d0be9-f81b-437e-b61f-a296509029cc">&lt;/strong&gt;</ept> cmdlet to deploy the application to a cloud service</source>
+          <target state="new">In the Azure PowerShell window, use the <bpt id="983d0be9-f81b-437e-b61f-a296509029cc">&lt;strong&gt;</bpt>Publish-AzureServiceProject<ept id="983d0be9-f81b-437e-b61f-a296509029cc">&lt;/strong&gt;</ept> cmdlet to deploy the application to a cloud service</target>
+        </trans-unit>
+        <trans-unit id="6c83bb0d-12f3-4621-ab84-3b9997d27e47" xml:space="preserve">
+          <source>Once the deployment operation completes, your browser will open and display the web page.</source>
+          <target state="new">Once the deployment operation completes, your browser will open and display the web page.</target>
+        </trans-unit>
+        <trans-unit id="4f5c61b6-00f2-4bf6-bc2e-ce9bf4e092da" xml:space="preserve">
+          <source>![A web browser displaying the Express page.</source>
+          <target state="new">![A web browser displaying the Express page.</target>
+        </trans-unit>
+        <trans-unit id="54353af2-b809-417a-aa65-2ebeb74acea6" xml:space="preserve">
+          <source>The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)</source>
+          <target state="new">The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)</target>
+        </trans-unit>
+        <trans-unit id="b859cc14-9434-456d-a0aa-ae780c1b84c1" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/</source>
+          <target state="new">http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/</target>
+        </trans-unit>
+        <trans-unit id="3e99a660-eab9-4d11-b38d-3658026bc1f4" xml:space="preserve">
+          <source>http://expressjs.com/</source>
+          <target state="new">http://expressjs.com/</target>
+        </trans-unit>
+        <trans-unit id="dcc6649f-e15d-4238-abca-83232a58959a" xml:space="preserve">
+          <source>http://jade-lang.com</source>
+          <target state="new">http://jade-lang.com</target>
+        </trans-unit>
+      </group>
+      <group id="0e97ac99-a2f2-43ec-9636-541c9348cb18" />
+    </body>
+  </file>
+</xliff>

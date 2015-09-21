@@ -1,0 +1,1203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a6632ada-aecd-4594-8fd5-e4f47f31f3a7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a6632ada-aecd-4594-8fd5-e4f47f31f3a7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e6883345-43e7-437f-a50e-624fcc0a2f80">
+        <trans-unit id="a84d33de-51b3-4bef-a7bc-4165c585d97c" xml:space="preserve">
+          <source>Get going faster--use the NEW Azure <bpt id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;linkText&gt;</bpt>guided walkthrough<ept id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;/linkText&gt;</ept><bpt id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;title&gt;</bpt><ept id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;/title&gt;</ept>!</source>
+          <target state="new">Get going faster--use the NEW Azure <bpt id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;linkText&gt;</bpt>guided walkthrough<ept id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;/linkText&gt;</ept><bpt id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;title&gt;</bpt><ept id="96634ba7-8eff-47ed-a20c-0d031c47adfc">&lt;/title&gt;</ept>!</target>
+        </trans-unit>
+        <trans-unit id="213bcfcd-31c4-44fd-9a17-03ed8234d8c6" xml:space="preserve">
+          <source>It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or <bpt id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;linkText&gt;</bpt>App Service<ept id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;/linkText&gt;</ept><bpt id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;title&gt;</bpt><ept id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;/title&gt;</ept> a snap.</source>
+          <target state="new">It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or <bpt id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;linkText&gt;</bpt>App Service<ept id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;/linkText&gt;</ept><bpt id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;title&gt;</bpt><ept id="770da26b-8a3a-44b8-b5d1-7705124ffd0f">&lt;/title&gt;</ept> a snap.</target>
+        </trans-unit>
+        <trans-unit id="cc9d9f19-957f-4882-98ce-2c7082c52f0a" xml:space="preserve">
+          <source>You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption.</source>
+          <target state="new">You can secure the communication between the web app and the browser with HTTPS, which uses Secure Socket Layer (SSL) encryption.</target>
+        </trans-unit>
+        <trans-unit id="2fcde741-f7c3-4323-8fbf-29324433568a" xml:space="preserve">
+          <source>This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure.</source>
+          <target state="new">This is the most commonly used method of securing data sent across the internet, and assures visitors that their transactions with your App are secure.</target>
+        </trans-unit>
+        <trans-unit id="700764ae-8404-4249-967d-bee41d678dec" xml:space="preserve">
+          <source>This article discusses how to configure HTTPS for a web app in Azure App Service.</source>
+          <target state="new">This article discusses how to configure HTTPS for a web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="f81e46fc-2dc3-46ab-806b-7a8870a0b34d" xml:space="preserve">
+          <source>This article does not cover client certificate authentication; for information about that, see <bpt id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;linkText&gt;</bpt>How To Configure TLS Mutual Authentication for Web Apps<ept id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;/linkText&gt;</ept><bpt id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;title&gt;</bpt><ept id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;/title&gt;</ept>.</source>
+          <target state="new">This article does not cover client certificate authentication; for information about that, see <bpt id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;linkText&gt;</bpt>How To Configure TLS Mutual Authentication for Web Apps<ept id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;/linkText&gt;</ept><bpt id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;title&gt;</bpt><ept id="8a30cbf5-2830-4d64-98ba-4896f526c85a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f20be888-72f7-46a2-aff8-f77650b68274" xml:space="preserve">
+          <source>If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web app by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft.</source>
+          <target state="new">If you are not planning on using a custom domain name, but are instead planning on using the \*.azurewebsites.net domain assigned to your web app by Azure (for example, contoso.azurewebsites.net) then HTTPS is already enabled on your site with a certificate from Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="697aea99-9294-4fa6-915c-ac9cec63ac96" xml:space="preserve">
+          <source>You can use <bpt id="99035936-d285-4c19-b53f-a0ee55fc71f0">&lt;strong&gt;</bpt>https://mywebsite.azurewebsites.net<ept id="99035936-d285-4c19-b53f-a0ee55fc71f0">&lt;/strong&gt;</ept> to access your App.</source>
+          <target state="new">You can use <bpt id="99035936-d285-4c19-b53f-a0ee55fc71f0">&lt;strong&gt;</bpt>https://mywebsite.azurewebsites.net<ept id="99035936-d285-4c19-b53f-a0ee55fc71f0">&lt;/strong&gt;</ept> to access your App.</target>
+        </trans-unit>
+        <trans-unit id="ebf89260-9b7d-4aef-886f-7180ae3159df" xml:space="preserve">
+          <source>However, \*.azurewebsites.net is a wildcard domain.</source>
+          <target state="new">However, \*.azurewebsites.net is a wildcard domain.</target>
+        </trans-unit>
+        <trans-unit id="147e8707-abf1-4bb1-b02c-dd3ed513ee8c" xml:space="preserve">
+          <source>Like <bpt id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;linkText&gt;</bpt>all wildcard domains<ept id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;/linkText&gt;</ept><bpt id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;title&gt;</bpt><ept id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;/title&gt;</ept>, it is not as secure as using a custom domain with your own certificate.</source>
+          <target state="new">Like <bpt id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;linkText&gt;</bpt>all wildcard domains<ept id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;/linkText&gt;</ept><bpt id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;title&gt;</bpt><ept id="2caa6786-1980-4aec-8a9e-7cf3cd4c78f9">&lt;/title&gt;</ept>, it is not as secure as using a custom domain with your own certificate.</target>
+        </trans-unit>
+        <trans-unit id="83d0b81c-c6ce-472e-838e-e2e4b1d6aeb5" xml:space="preserve">
+          <source>The rest of this document provides details on enabling HTTPS for custom domains, such as <bpt id="e7591e85-e8a7-45b1-9c0e-3ab0f75b18a8">&lt;strong&gt;</bpt>contoso.com<ept id="e7591e85-e8a7-45b1-9c0e-3ab0f75b18a8">&lt;/strong&gt;</ept>, <bpt id="1e6d2557-91e3-4938-9bb3-0ffb92a44852">&lt;strong&gt;</bpt>www.contoso.com<ept id="1e6d2557-91e3-4938-9bb3-0ffb92a44852">&lt;/strong&gt;</ept>, or <bpt id="8b5297dc-9d3b-480e-8c5c-cdeaaa9c03aa">&lt;strong&gt;</bpt>\*.contoso.com<ept id="8b5297dc-9d3b-480e-8c5c-cdeaaa9c03aa">&lt;/strong&gt;</ept></source>
+          <target state="new">The rest of this document provides details on enabling HTTPS for custom domains, such as <bpt id="e7591e85-e8a7-45b1-9c0e-3ab0f75b18a8">&lt;strong&gt;</bpt>contoso.com<ept id="e7591e85-e8a7-45b1-9c0e-3ab0f75b18a8">&lt;/strong&gt;</ept>, <bpt id="1e6d2557-91e3-4938-9bb3-0ffb92a44852">&lt;strong&gt;</bpt>www.contoso.com<ept id="1e6d2557-91e3-4938-9bb3-0ffb92a44852">&lt;/strong&gt;</ept>, or <bpt id="8b5297dc-9d3b-480e-8c5c-cdeaaa9c03aa">&lt;strong&gt;</bpt>\*.contoso.com<ept id="8b5297dc-9d3b-480e-8c5c-cdeaaa9c03aa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0c51e2b-5603-4776-9395-d3a2512ba070" xml:space="preserve">
+          <source>To enable HTTPS for a custom domain, such as <bpt id="1988f4d2-4891-4d9e-b9d0-1f1c6857298f">&lt;strong&gt;</bpt>contoso.com<ept id="1988f4d2-4891-4d9e-b9d0-1f1c6857298f">&lt;/strong&gt;</ept>, you must first register a custom domain name with a domain name registrar.</source>
+          <target state="new">To enable HTTPS for a custom domain, such as <bpt id="1988f4d2-4891-4d9e-b9d0-1f1c6857298f">&lt;strong&gt;</bpt>contoso.com<ept id="1988f4d2-4891-4d9e-b9d0-1f1c6857298f">&lt;/strong&gt;</ept>, you must first register a custom domain name with a domain name registrar.</target>
+        </trans-unit>
+        <trans-unit id="c82fc9b9-e638-4f4c-82ec-fe56c3df0763" xml:space="preserve">
+          <source>For more information on how to configure the domain name of a web app, see <bpt id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;linkText&gt;</bpt>Configuring a custom domain name for an Azure Web Site<ept id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;/linkText&gt;</ept><bpt id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;title&gt;</bpt><ept id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how to configure the domain name of a web app, see <bpt id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;linkText&gt;</bpt>Configuring a custom domain name for an Azure Web Site<ept id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;/linkText&gt;</ept><bpt id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;title&gt;</bpt><ept id="c93b2e7f-6043-4c21-b449-dfca01d9a0fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27c07bd3-ae6b-4de2-9a55-3d337ba7ee6c" xml:space="preserve">
+          <source>Once you have registered a custom domain name and configured your web app to respond to the custom name, you must request an SSL certificate for the domain.</source>
+          <target state="new">Once you have registered a custom domain name and configured your web app to respond to the custom name, you must request an SSL certificate for the domain.</target>
+        </trans-unit>
+        <trans-unit id="04de8864-c567-46af-86f7-00c6b21ea013" xml:space="preserve">
+          <source>In order to enable HTTPS for custom domain names, you must configure your web app for <bpt id="2975b9fc-d4ae-4223-940e-15ad1c934164">&lt;strong&gt;</bpt>Standard<ept id="2975b9fc-d4ae-4223-940e-15ad1c934164">&lt;/strong&gt;</ept> mode.</source>
+          <target state="new">In order to enable HTTPS for custom domain names, you must configure your web app for <bpt id="2975b9fc-d4ae-4223-940e-15ad1c934164">&lt;strong&gt;</bpt>Standard<ept id="2975b9fc-d4ae-4223-940e-15ad1c934164">&lt;/strong&gt;</ept> mode.</target>
+        </trans-unit>
+        <trans-unit id="e1597132-a61c-4c54-9b99-d655bdad020f" xml:space="preserve">
+          <source>This may incur additional costs if you are currently using free or shared mode.</source>
+          <target state="new">This may incur additional costs if you are currently using free or shared mode.</target>
+        </trans-unit>
+        <trans-unit id="064c9576-915e-4ade-89bc-aa5f34240d32" xml:space="preserve">
+          <source>For more information on shared and <bpt id="dd3c5a1e-b772-4e12-8747-e4a6f7a8cde9">&lt;strong&gt;</bpt>Standard<ept id="dd3c5a1e-b772-4e12-8747-e4a6f7a8cde9">&lt;/strong&gt;</ept> pricing, see <bpt id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;linkText&gt;</bpt>Pricing Details[pricing]<ept id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;/linkText&gt;</ept><bpt id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;title&gt;</bpt><ept id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on shared and <bpt id="dd3c5a1e-b772-4e12-8747-e4a6f7a8cde9">&lt;strong&gt;</bpt>Standard<ept id="dd3c5a1e-b772-4e12-8747-e4a6f7a8cde9">&lt;/strong&gt;</ept> pricing, see <bpt id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;linkText&gt;</bpt>Pricing Details[pricing]<ept id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;/linkText&gt;</ept><bpt id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;title&gt;</bpt><ept id="ee4b9573-760d-4cae-8a3a-ba1160a5ad57">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e08b2b56-1617-4732-928e-b980957a767a" xml:space="preserve">
+          <source>Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate.</source>
+          <target state="new">Before requesting an SSL certificate you must first determine which domain names will be secured by the certificate.</target>
+        </trans-unit>
+        <trans-unit id="ced8d09e-4ce6-414e-8d2f-5f2737b168cd" xml:space="preserve">
+          <source>This will determine what type of certificate you must obtain.</source>
+          <target state="new">This will determine what type of certificate you must obtain.</target>
+        </trans-unit>
+        <trans-unit id="f3ecc560-7826-4efa-b7b0-571f51754cf2" xml:space="preserve">
+          <source>If you just need to secure a single domain name such as <bpt id="3b2d2fef-8606-49c6-8799-1b4a5792b7da">&lt;strong&gt;</bpt>contoso.com<ept id="3b2d2fef-8606-49c6-8799-1b4a5792b7da">&lt;/strong&gt;</ept> or <bpt id="6d8fd49a-bb85-4258-8bff-0d26f43c2376">&lt;strong&gt;</bpt>www.contoso.com<ept id="6d8fd49a-bb85-4258-8bff-0d26f43c2376">&lt;/strong&gt;</ept> a basic certificate is sufficient.</source>
+          <target state="new">If you just need to secure a single domain name such as <bpt id="3b2d2fef-8606-49c6-8799-1b4a5792b7da">&lt;strong&gt;</bpt>contoso.com<ept id="3b2d2fef-8606-49c6-8799-1b4a5792b7da">&lt;/strong&gt;</ept> or <bpt id="6d8fd49a-bb85-4258-8bff-0d26f43c2376">&lt;strong&gt;</bpt>www.contoso.com<ept id="6d8fd49a-bb85-4258-8bff-0d26f43c2376">&lt;/strong&gt;</ept> a basic certificate is sufficient.</target>
+        </trans-unit>
+        <trans-unit id="a49050c4-d9d8-4cf4-8f47-f76c74c2db0b" xml:space="preserve">
+          <source>If you need to secure multiple domain names, such as <bpt id="02992a89-9ae9-425b-8ba4-341d4dafad05">&lt;strong&gt;</bpt>contoso.com<ept id="02992a89-9ae9-425b-8ba4-341d4dafad05">&lt;/strong&gt;</ept>, <bpt id="c8bc2adb-b734-4ac0-85c2-642708fcb5cb">&lt;strong&gt;</bpt>www.contoso.com<ept id="c8bc2adb-b734-4ac0-85c2-642708fcb5cb">&lt;/strong&gt;</ept>, and <bpt id="e54cddb1-085a-4875-ab1f-7e0a5ba22c99">&lt;strong&gt;</bpt>mail.contoso.com<ept id="e54cddb1-085a-4875-ab1f-7e0a5ba22c99">&lt;/strong&gt;</ept>, then you can get a <bpt id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;linkText&gt;</bpt>wildcard certificate<ept id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;/linkText&gt;</ept><bpt id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;title&gt;</bpt><ept id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;/title&gt;</ept>, or a certificate with <bpt id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;linkText&gt;</bpt>Subject Alternate Name<ept id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;/linkText&gt;</ept><bpt id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;title&gt;</bpt><ept id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;/title&gt;</ept> (subjectAltName).</source>
+          <target state="new">If you need to secure multiple domain names, such as <bpt id="02992a89-9ae9-425b-8ba4-341d4dafad05">&lt;strong&gt;</bpt>contoso.com<ept id="02992a89-9ae9-425b-8ba4-341d4dafad05">&lt;/strong&gt;</ept>, <bpt id="c8bc2adb-b734-4ac0-85c2-642708fcb5cb">&lt;strong&gt;</bpt>www.contoso.com<ept id="c8bc2adb-b734-4ac0-85c2-642708fcb5cb">&lt;/strong&gt;</ept>, and <bpt id="e54cddb1-085a-4875-ab1f-7e0a5ba22c99">&lt;strong&gt;</bpt>mail.contoso.com<ept id="e54cddb1-085a-4875-ab1f-7e0a5ba22c99">&lt;/strong&gt;</ept>, then you can get a <bpt id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;linkText&gt;</bpt>wildcard certificate<ept id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;/linkText&gt;</ept><bpt id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;title&gt;</bpt><ept id="fa20c82c-a78b-4317-8794-0cdceacc51b7">&lt;/title&gt;</ept>, or a certificate with <bpt id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;linkText&gt;</bpt>Subject Alternate Name<ept id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;/linkText&gt;</ept><bpt id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;title&gt;</bpt><ept id="f2e17f3d-bec7-494a-b42e-611343cf5c6f">&lt;/title&gt;</ept> (subjectAltName).</target>
+        </trans-unit>
+        <trans-unit id="c09fe70e-975c-4268-a676-6a1887da00b9" xml:space="preserve">
+          <source>SSL certificates used with Web Apps must be signed by a <bpt id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;linkText&gt;</bpt>Certificate Authority<ept id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;/linkText&gt;</ept><bpt id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;title&gt;</bpt><ept id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;/title&gt;</ept> (CA).</source>
+          <target state="new">SSL certificates used with Web Apps must be signed by a <bpt id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;linkText&gt;</bpt>Certificate Authority<ept id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;/linkText&gt;</ept><bpt id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;title&gt;</bpt><ept id="b3b62cb1-025e-42b0-b39d-3d70d5883d46">&lt;/title&gt;</ept> (CA).</target>
+        </trans-unit>
+        <trans-unit id="db0bc259-ca0d-448f-9140-d6354eeab204" xml:space="preserve">
+          <source>If you do not already have one, you will need to obtain one from a company that issues SSL certificates.</source>
+          <target state="new">If you do not already have one, you will need to obtain one from a company that issues SSL certificates.</target>
+        </trans-unit>
+        <trans-unit id="696a11bd-e68b-436c-9666-138a67a99fd8" xml:space="preserve">
+          <source>For a list of Certificate Authorities, see <bpt id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;/linkText&gt;</ept><bpt id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;title&gt;</bpt><ept id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</source>
+          <target state="new">For a list of Certificate Authorities, see <bpt id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;/linkText&gt;</ept><bpt id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;title&gt;</bpt><ept id="29d095a4-d202-4348-8a04-7915fe579e3d">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</target>
+        </trans-unit>
+        <trans-unit id="179f24c3-28a4-4474-a9c9-8388aaf01978" xml:space="preserve">
+          <source>The certificate must meet the following requirements for SSL certificates in Azure:</source>
+          <target state="new">The certificate must meet the following requirements for SSL certificates in Azure:</target>
+        </trans-unit>
+        <trans-unit id="1d620a0a-97e8-41b2-b176-8b8652862ac9" xml:space="preserve">
+          <source>The certificate must contain a private key.</source>
+          <target state="new">The certificate must contain a private key.</target>
+        </trans-unit>
+        <trans-unit id="682d4d20-e2a0-41f1-bfe6-397b78aefc52" xml:space="preserve">
+          <source>The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.</source>
+          <target state="new">The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.</target>
+        </trans-unit>
+        <trans-unit id="e0b215db-215b-4233-8fbd-fa37499e31a9" xml:space="preserve">
+          <source>The certificate's subject name must match the domain used to access the web app.</source>
+          <target state="new">The certificate's subject name must match the domain used to access the web app.</target>
+        </trans-unit>
+        <trans-unit id="0f53a136-9922-4473-abca-cb1cece7be7f" xml:space="preserve">
+          <source>If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.</source>
+          <target state="new">If you need to serve multiple domains with this certificate, you will need to use a wildcard value or specify subjectAltName values as discussed previously.</target>
+        </trans-unit>
+        <trans-unit id="8010b100-13b4-4f17-9784-4581b87380b0" xml:space="preserve">
+          <source>The certificate should use a minimum of 2048-bit encryption.</source>
+          <target state="new">The certificate should use a minimum of 2048-bit encryption.</target>
+        </trans-unit>
+        <trans-unit id="8da57506-f904-46a1-92f5-9636ee3fc134" xml:space="preserve">
+          <source>Certificates issued from private CA servers are not supported by Azure App Service.</source>
+          <target state="new">Certificates issued from private CA servers are not supported by Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="73890bdc-ffa3-42da-8847-81457692663b" xml:space="preserve">
+          <source>To get an SSL certificate for use with Azure App Service, you submit a Certificate Signing Request (CSR) to a Certificate Authority and then generate a .pfx file from the certificate you receive back.</source>
+          <target state="new">To get an SSL certificate for use with Azure App Service, you submit a Certificate Signing Request (CSR) to a Certificate Authority and then generate a .pfx file from the certificate you receive back.</target>
+        </trans-unit>
+        <trans-unit id="189f4f3c-f4ff-4656-b206-a4aa379ffa28" xml:space="preserve">
+          <source>You can do this using the tool of your choice.</source>
+          <target state="new">You can do this using the tool of your choice.</target>
+        </trans-unit>
+        <trans-unit id="f3004878-1986-404a-9dbc-499b5162c5f5" xml:space="preserve">
+          <source>Below are some of the common ways to get a certificate:</source>
+          <target state="new">Below are some of the common ways to get a certificate:</target>
+        </trans-unit>
+        <trans-unit id="c874e93b-94b0-412e-8498-1ea6235cf9ec" xml:space="preserve">
+          <source><bpt id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;linkText&gt;</bpt>Get a certificate using Certreq.exe<ept id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;/linkText&gt;</ept><bpt id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;title&gt;</bpt><ept id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;linkText&gt;</bpt>Get a certificate using Certreq.exe<ept id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;/linkText&gt;</ept><bpt id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;title&gt;</bpt><ept id="2330a3d7-1848-4ddb-a73f-3ad3c93a499c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="daafa611-6769-4acf-947e-b029fbc07c4a" xml:space="preserve">
+          <source><bpt id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;linkText&gt;</bpt>Get a certificate using IIS Manager<ept id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;/linkText&gt;</ept><bpt id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;title&gt;</bpt><ept id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;linkText&gt;</bpt>Get a certificate using IIS Manager<ept id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;/linkText&gt;</ept><bpt id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;title&gt;</bpt><ept id="6643138e-2862-468f-b7fb-efa5c3aea676">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97a4c606-6f20-4bd6-b5e8-176f09a1ac94" xml:space="preserve">
+          <source><bpt id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;linkText&gt;</bpt>Get a certificate using OpenSSL<ept id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;/linkText&gt;</ept><bpt id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;title&gt;</bpt><ept id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;linkText&gt;</bpt>Get a certificate using OpenSSL<ept id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;/linkText&gt;</ept><bpt id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;title&gt;</bpt><ept id="ebf3772c-a849-47c4-adf6-65ccfe784bd5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d35c654-8754-40e6-9f81-48ace2afa1ea" xml:space="preserve">
+          <source><bpt id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;linkText&gt;</bpt>Get a SubjectAltName certificate using OpenSSL<ept id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;/linkText&gt;</ept><bpt id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;title&gt;</bpt><ept id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;linkText&gt;</bpt>Get a SubjectAltName certificate using OpenSSL<ept id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;/linkText&gt;</ept><bpt id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;title&gt;</bpt><ept id="758356ab-8d16-4dd0-bc52-eab3472cd124">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b498074-ec6f-4240-87d8-525d6ef8fe01" xml:space="preserve">
+          <source><bpt id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;linkText&gt;</bpt>Generate self-signed certificates (for testing only)<ept id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;/linkText&gt;</ept><bpt id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;title&gt;</bpt><ept id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;linkText&gt;</bpt>Generate self-signed certificates (for testing only)<ept id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;/linkText&gt;</ept><bpt id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;title&gt;</bpt><ept id="40d4b44e-f7c8-49d3-91c2-defd7d3ea407">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d6b3ce37-b0bc-4c7a-99c8-e642a9b659b7" xml:space="preserve">
+          <source>When following the steps, you will be prompted to enter a <bpt id="4838a164-955f-49b9-bf92-003bae0e455b">&lt;strong&gt;</bpt>Common Name<ept id="4838a164-955f-49b9-bf92-003bae0e455b">&lt;/strong&gt;</ept>, such as <bpt id="c4fa4415-19b5-4632-8e16-e46a2947a67d">&lt;code&gt;</bpt>www.contoso.com<ept id="c4fa4415-19b5-4632-8e16-e46a2947a67d">&lt;/code&gt;</ept>.</source>
+          <target state="new">When following the steps, you will be prompted to enter a <bpt id="4838a164-955f-49b9-bf92-003bae0e455b">&lt;strong&gt;</bpt>Common Name<ept id="4838a164-955f-49b9-bf92-003bae0e455b">&lt;/strong&gt;</ept>, such as <bpt id="c4fa4415-19b5-4632-8e16-e46a2947a67d">&lt;code&gt;</bpt>www.contoso.com<ept id="c4fa4415-19b5-4632-8e16-e46a2947a67d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15d6f56c-c0e8-4468-8a4e-ab8b0afb766c" xml:space="preserve">
+          <source>For wildcard certificates, this value should be \<bpt id="f04fac99-2182-4aa9-a778-64a7872078e0">&lt;em&gt;</bpt>.domainname (for example, \<ept id="f04fac99-2182-4aa9-a778-64a7872078e0">&lt;/em&gt;</ept>.contoso.com).</source>
+          <target state="new">For wildcard certificates, this value should be \<bpt id="f04fac99-2182-4aa9-a778-64a7872078e0">&lt;em&gt;</bpt>.domainname (for example, \<ept id="f04fac99-2182-4aa9-a778-64a7872078e0">&lt;/em&gt;</ept>.contoso.com).</target>
+        </trans-unit>
+        <trans-unit id="79f5938e-b7b2-483a-be2b-fa62ddf9bb0b" xml:space="preserve">
+          <source>If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.</source>
+          <target state="new">If you need to support both a wildcard name like \*.contoso.com and a root domain name like contoso.com, you can use a wildcard subjectAltName certificate.</target>
+        </trans-unit>
+        <trans-unit id="6adc9dec-7ffa-44ac-8c2b-4d40e3bbf5a4" xml:space="preserve">
+          <source>Elliptic Curve Cryptography (ECC) certificates are supported with Azure App Service; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.</source>
+          <target state="new">Elliptic Curve Cryptography (ECC) certificates are supported with Azure App Service; however, they are relatively new and you should work with your CA on the exact steps to create the CSR.</target>
+        </trans-unit>
+        <trans-unit id="c6e549b9-75b7-4ed4-b926-94153dc715d8" xml:space="preserve">
+          <source>You may also need to obtain <bpt id="1db1fbdf-4bb2-485f-b8e4-6a7ed798a286">&lt;strong&gt;</bpt>[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)<ept id="1db1fbdf-4bb2-485f-b8e4-6a7ed798a286">&lt;/strong&gt;</ept> (also known as chain certificates), if these are used by your CA.</source>
+          <target state="new">You may also need to obtain <bpt id="1db1fbdf-4bb2-485f-b8e4-6a7ed798a286">&lt;strong&gt;</bpt>[intermediate certificates](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)<ept id="1db1fbdf-4bb2-485f-b8e4-6a7ed798a286">&lt;/strong&gt;</ept> (also known as chain certificates), if these are used by your CA.</target>
+        </trans-unit>
+        <trans-unit id="72b53ca3-4459-4a4f-9bdb-21dba825191b" xml:space="preserve">
+          <source>The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them.</source>
+          <target state="new">The use of intermediate certificates is considered more secure than 'unchained certificates', so it is common for a CA to use them.</target>
+        </trans-unit>
+        <trans-unit id="9c54b639-5c64-46d0-b1ca-1c1b436a7481" xml:space="preserve">
+          <source>Intermediate certificates are often provided as a separate download from the CAs website.</source>
+          <target state="new">Intermediate certificates are often provided as a separate download from the CAs website.</target>
+        </trans-unit>
+        <trans-unit id="752c5346-028a-4504-8ee5-200a59dc3147" xml:space="preserve">
+          <source>The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your web apps.</source>
+          <target state="new">The steps in this article provide steps to ensure that any intermediate certificates are merged with the certificate uploaded to your web apps.</target>
+        </trans-unit>
+        <trans-unit id="e2ac7ef1-6e35-4a46-a745-76d5a8d32ffe" xml:space="preserve">
+          <source><bpt id="d56d861b-00cb-4ef8-91bf-71e7423e1cd3">&lt;bookmark&gt;</bpt><ept id="d56d861b-00cb-4ef8-91bf-71e7423e1cd3">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="d56d861b-00cb-4ef8-91bf-71e7423e1cd3">&lt;bookmark&gt;</bpt><ept id="d56d861b-00cb-4ef8-91bf-71e7423e1cd3">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91796c89-035b-4f7d-a156-388822ef8ba2" xml:space="preserve">
+          <source>Certreq.exe is Windows utility for creating certificate requests.</source>
+          <target state="new">Certreq.exe is Windows utility for creating certificate requests.</target>
+        </trans-unit>
+        <trans-unit id="afaa43f2-ea2a-4253-a85f-6cea860f96a2" xml:space="preserve">
+          <source>It has been part of the base Windows installation since Windows XP/Windows Server 2000, so should be available on recent Windows systems.</source>
+          <target state="new">It has been part of the base Windows installation since Windows XP/Windows Server 2000, so should be available on recent Windows systems.</target>
+        </trans-unit>
+        <trans-unit id="2e8cffc2-f740-4ccb-b47f-3b89e18287ac" xml:space="preserve">
+          <source>Use the following steps to obtain an SSL certificate using certreq.exe.</source>
+          <target state="new">Use the following steps to obtain an SSL certificate using certreq.exe.</target>
+        </trans-unit>
+        <trans-unit id="79d64d34-c6ee-4756-ad58-eddfc9e35831" xml:space="preserve">
+          <source>Open <bpt id="e8bfa003-4293-4822-b3d1-667166c3e2fa">&lt;strong&gt;</bpt>Notepad<ept id="e8bfa003-4293-4822-b3d1-667166c3e2fa">&lt;/strong&gt;</ept> and create a new document that contains the following.</source>
+          <target state="new">Open <bpt id="e8bfa003-4293-4822-b3d1-667166c3e2fa">&lt;strong&gt;</bpt>Notepad<ept id="e8bfa003-4293-4822-b3d1-667166c3e2fa">&lt;/strong&gt;</ept> and create a new document that contains the following.</target>
+        </trans-unit>
+        <trans-unit id="3b822841-ebd0-494e-b9ab-33923b6a5397" xml:space="preserve">
+          <source>Replace <bpt id="9a32321f-7778-4505-b7aa-c8ef206cb28e">&lt;strong&gt;</bpt>mysite.com<ept id="9a32321f-7778-4505-b7aa-c8ef206cb28e">&lt;/strong&gt;</ept> on the Subject line with the custom domain name of your web app.</source>
+          <target state="new">Replace <bpt id="9a32321f-7778-4505-b7aa-c8ef206cb28e">&lt;strong&gt;</bpt>mysite.com<ept id="9a32321f-7778-4505-b7aa-c8ef206cb28e">&lt;/strong&gt;</ept> on the Subject line with the custom domain name of your web app.</target>
+        </trans-unit>
+        <trans-unit id="0e736cc8-26ba-4cac-906b-46ef7b1dcc5b" xml:space="preserve">
+          <source>For example, Subject = "CN=www.contoso.com".</source>
+          <target state="new">For example, Subject = "CN=www.contoso.com".</target>
+        </trans-unit>
+        <trans-unit id="c9d5dc18-261d-4fed-b2f2-26dc91df66bb" xml:space="preserve">
+          <source>For more information on the options specified above, as well as other available options, see the <bpt id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;linkText&gt;</bpt>Certreq reference documentationn<ept id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;/linkText&gt;</ept><bpt id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;title&gt;</bpt><ept id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the options specified above, as well as other available options, see the <bpt id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;linkText&gt;</bpt>Certreq reference documentationn<ept id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;/linkText&gt;</ept><bpt id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;title&gt;</bpt><ept id="b2764b86-e361-4f85-ae10-4bc95bd3ec62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="133002eb-d545-4dc7-b576-69281d826839" xml:space="preserve">
+          <source>Save the text file as <bpt id="6c0447ed-25d8-40e5-a5ba-da05439d415b">&lt;strong&gt;</bpt>myrequest.txt<ept id="6c0447ed-25d8-40e5-a5ba-da05439d415b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Save the text file as <bpt id="6c0447ed-25d8-40e5-a5ba-da05439d415b">&lt;strong&gt;</bpt>myrequest.txt<ept id="6c0447ed-25d8-40e5-a5ba-da05439d415b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8f707ad-0aee-4ab5-9b69-846761b88a04" xml:space="preserve">
+          <source>From the <bpt id="9178780d-ad89-45bc-8d70-9edee0078b39">&lt;strong&gt;</bpt>Start Screen<ept id="9178780d-ad89-45bc-8d70-9edee0078b39">&lt;/strong&gt;</ept> or <bpt id="46f634be-af91-46f5-a432-eb2d7a4760a6">&lt;strong&gt;</bpt>Start Menu<ept id="46f634be-af91-46f5-a432-eb2d7a4760a6">&lt;/strong&gt;</ept>, run <bpt id="88ceecda-ce77-4edf-900d-404a00827422">&lt;strong&gt;</bpt>cmd.exe<ept id="88ceecda-ce77-4edf-900d-404a00827422">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="9178780d-ad89-45bc-8d70-9edee0078b39">&lt;strong&gt;</bpt>Start Screen<ept id="9178780d-ad89-45bc-8d70-9edee0078b39">&lt;/strong&gt;</ept> or <bpt id="46f634be-af91-46f5-a432-eb2d7a4760a6">&lt;strong&gt;</bpt>Start Menu<ept id="46f634be-af91-46f5-a432-eb2d7a4760a6">&lt;/strong&gt;</ept>, run <bpt id="88ceecda-ce77-4edf-900d-404a00827422">&lt;strong&gt;</bpt>cmd.exe<ept id="88ceecda-ce77-4edf-900d-404a00827422">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf724265-6959-4dde-845c-10b073881521" xml:space="preserve">
+          <source>From the command prompt, use the following command to create the certificate request file:</source>
+          <target state="new">From the command prompt, use the following command to create the certificate request file:</target>
+        </trans-unit>
+        <trans-unit id="3af0c0e8-9d0e-4972-be13-ec6c2771588c" xml:space="preserve">
+          <source>Specify the path to the <bpt id="ea40898f-d875-457a-ad1e-68df1fdd1115">&lt;strong&gt;</bpt>myrequest.txt<ept id="ea40898f-d875-457a-ad1e-68df1fdd1115">&lt;/strong&gt;</ept> file created in step 1, and the path to use when creating the <bpt id="9b2605ac-f381-4af6-b114-fa330f65228f">&lt;strong&gt;</bpt>myrequest.csr<ept id="9b2605ac-f381-4af6-b114-fa330f65228f">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Specify the path to the <bpt id="ea40898f-d875-457a-ad1e-68df1fdd1115">&lt;strong&gt;</bpt>myrequest.txt<ept id="ea40898f-d875-457a-ad1e-68df1fdd1115">&lt;/strong&gt;</ept> file created in step 1, and the path to use when creating the <bpt id="9b2605ac-f381-4af6-b114-fa330f65228f">&lt;strong&gt;</bpt>myrequest.csr<ept id="9b2605ac-f381-4af6-b114-fa330f65228f">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="97d0a46d-7602-4a78-8009-c924ab5ddff0" xml:space="preserve">
+          <source>Submit the <bpt id="7467087d-d3ae-4b43-b24b-627063742eb5">&lt;strong&gt;</bpt>myrequest.csr<ept id="7467087d-d3ae-4b43-b24b-627063742eb5">&lt;/strong&gt;</ept> to a Certificate Authority to obtain an SSL certificate.</source>
+          <target state="new">Submit the <bpt id="7467087d-d3ae-4b43-b24b-627063742eb5">&lt;strong&gt;</bpt>myrequest.csr<ept id="7467087d-d3ae-4b43-b24b-627063742eb5">&lt;/strong&gt;</ept> to a Certificate Authority to obtain an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="d8e61909-ec2e-4a5d-9a7f-c4272f8a9bc2" xml:space="preserve">
+          <source>This may involve uploading the file, or opening the file in Notepad and pasting the contents directly into a web form.</source>
+          <target state="new">This may involve uploading the file, or opening the file in Notepad and pasting the contents directly into a web form.</target>
+        </trans-unit>
+        <trans-unit id="eb92a3fe-d776-4a73-ba8a-b93dd2915465" xml:space="preserve">
+          <source>For a list of Certificate Authorities, see <bpt id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;/linkText&gt;</ept><bpt id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;title&gt;</bpt><ept id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</source>
+          <target state="new">For a list of Certificate Authorities, see <bpt id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;/linkText&gt;</ept><bpt id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;title&gt;</bpt><ept id="b39132c5-325c-4666-abab-6edb3c0ad5ad">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</target>
+        </trans-unit>
+        <trans-unit id="b392177f-517f-4146-96f6-2b562650428f" xml:space="preserve">
+          <source>Once the Certificate Authority has provided you with a certificate (.CER) file, save this file to the computer used to generate the request, and then use the following command to accept the request and complete the certificate generation process.</source>
+          <target state="new">Once the Certificate Authority has provided you with a certificate (.CER) file, save this file to the computer used to generate the request, and then use the following command to accept the request and complete the certificate generation process.</target>
+        </trans-unit>
+        <trans-unit id="c3a5410b-4110-4cef-bfdc-e992ad4c6c28" xml:space="preserve">
+          <source>In this case, the <bpt id="aa7dfc33-cd6e-4ff4-8e4a-6f34a773d98f">&lt;strong&gt;</bpt>mycert.cer<ept id="aa7dfc33-cd6e-4ff4-8e4a-6f34a773d98f">&lt;/strong&gt;</ept> certificate received from the Certificate Authority will be used to complete the signature of the certificate.</source>
+          <target state="new">In this case, the <bpt id="aa7dfc33-cd6e-4ff4-8e4a-6f34a773d98f">&lt;strong&gt;</bpt>mycert.cer<ept id="aa7dfc33-cd6e-4ff4-8e4a-6f34a773d98f">&lt;/strong&gt;</ept> certificate received from the Certificate Authority will be used to complete the signature of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="db1b3fe3-d3cc-4946-808d-263c4623951e" xml:space="preserve">
+          <source>No file will be created; instead, the certificate will be stored in the Windows certificate store.</source>
+          <target state="new">No file will be created; instead, the certificate will be stored in the Windows certificate store.</target>
+        </trans-unit>
+        <trans-unit id="e9981535-ad76-45f7-9c66-7ecde966a027" xml:space="preserve">
+          <source>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next steps.</source>
+          <target state="new">If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next steps.</target>
+        </trans-unit>
+        <trans-unit id="0c595c00-2f34-4b27-b184-b9d872177ad3" xml:space="preserve">
+          <source>Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</source>
+          <target state="new">Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</target>
+        </trans-unit>
+        <trans-unit id="ea9ae853-3fc9-4da7-a330-63ca6a70c9b5" xml:space="preserve">
+          <source>Select the version that is provided for Microsoft IIS.</source>
+          <target state="new">Select the version that is provided for Microsoft IIS.</target>
+        </trans-unit>
+        <trans-unit id="9b1c3bff-e96c-48db-b8a8-08ef581e4a00" xml:space="preserve">
+          <source>Once you have downloaded the certificate, right click on it in explorer and select <bpt id="3aaa94a0-1145-4812-bfa9-8d21a9af0d8b">&lt;strong&gt;</bpt>Install certificate<ept id="3aaa94a0-1145-4812-bfa9-8d21a9af0d8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have downloaded the certificate, right click on it in explorer and select <bpt id="3aaa94a0-1145-4812-bfa9-8d21a9af0d8b">&lt;strong&gt;</bpt>Install certificate<ept id="3aaa94a0-1145-4812-bfa9-8d21a9af0d8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1165be9-294a-4ad3-b48e-b2e81bdb901e" xml:space="preserve">
+          <source>Use the default values in the <bpt id="9017b877-f04b-4265-961c-0e60f9154a03">&lt;strong&gt;</bpt>Certificate Import Wizard<ept id="9017b877-f04b-4265-961c-0e60f9154a03">&lt;/strong&gt;</ept>, and continue selecting <bpt id="101fd37b-8179-4863-9a51-e39bb7d08328">&lt;strong&gt;</bpt>Next<ept id="101fd37b-8179-4863-9a51-e39bb7d08328">&lt;/strong&gt;</ept> until the import has completed.</source>
+          <target state="new">Use the default values in the <bpt id="9017b877-f04b-4265-961c-0e60f9154a03">&lt;strong&gt;</bpt>Certificate Import Wizard<ept id="9017b877-f04b-4265-961c-0e60f9154a03">&lt;/strong&gt;</ept>, and continue selecting <bpt id="101fd37b-8179-4863-9a51-e39bb7d08328">&lt;strong&gt;</bpt>Next<ept id="101fd37b-8179-4863-9a51-e39bb7d08328">&lt;/strong&gt;</ept> until the import has completed.</target>
+        </trans-unit>
+        <trans-unit id="d1fa54d4-57ea-4b4c-a659-8b7139cb4e96" xml:space="preserve">
+          <source>To export the certificate from the certificate store, run <bpt id="2077baf4-32ed-4ce1-a655-bd71d92ff70a">&lt;strong&gt;</bpt>certmgr.msc<ept id="2077baf4-32ed-4ce1-a655-bd71d92ff70a">&lt;/strong&gt;</ept> from the <bpt id="dd7adb0c-8dab-44f9-a0cb-83ac9ee880e6">&lt;strong&gt;</bpt>Start Screen<ept id="dd7adb0c-8dab-44f9-a0cb-83ac9ee880e6">&lt;/strong&gt;</ept> or <bpt id="300ba26e-4f7a-4ecf-8a41-ce3a11da633b">&lt;strong&gt;</bpt>Start Menu<ept id="300ba26e-4f7a-4ecf-8a41-ce3a11da633b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To export the certificate from the certificate store, run <bpt id="2077baf4-32ed-4ce1-a655-bd71d92ff70a">&lt;strong&gt;</bpt>certmgr.msc<ept id="2077baf4-32ed-4ce1-a655-bd71d92ff70a">&lt;/strong&gt;</ept> from the <bpt id="dd7adb0c-8dab-44f9-a0cb-83ac9ee880e6">&lt;strong&gt;</bpt>Start Screen<ept id="dd7adb0c-8dab-44f9-a0cb-83ac9ee880e6">&lt;/strong&gt;</ept> or <bpt id="300ba26e-4f7a-4ecf-8a41-ce3a11da633b">&lt;strong&gt;</bpt>Start Menu<ept id="300ba26e-4f7a-4ecf-8a41-ce3a11da633b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18ea855a-4a81-4742-b21b-35db8d09b8f3" xml:space="preserve">
+          <source>When <bpt id="7521d6f2-21e0-496f-bff3-bc252c29b402">&lt;strong&gt;</bpt>Certificate Manager<ept id="7521d6f2-21e0-496f-bff3-bc252c29b402">&lt;/strong&gt;</ept> appears, expand the <bpt id="6dc2ce3c-2def-4a92-98b8-306540087b3c">&lt;strong&gt;</bpt>Personal<ept id="6dc2ce3c-2def-4a92-98b8-306540087b3c">&lt;/strong&gt;</ept> folder, and then select <bpt id="749f6bee-843b-4388-97c0-7c468ebadfec">&lt;strong&gt;</bpt>Certificates<ept id="749f6bee-843b-4388-97c0-7c468ebadfec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When <bpt id="7521d6f2-21e0-496f-bff3-bc252c29b402">&lt;strong&gt;</bpt>Certificate Manager<ept id="7521d6f2-21e0-496f-bff3-bc252c29b402">&lt;/strong&gt;</ept> appears, expand the <bpt id="6dc2ce3c-2def-4a92-98b8-306540087b3c">&lt;strong&gt;</bpt>Personal<ept id="6dc2ce3c-2def-4a92-98b8-306540087b3c">&lt;/strong&gt;</ept> folder, and then select <bpt id="749f6bee-843b-4388-97c0-7c468ebadfec">&lt;strong&gt;</bpt>Certificates<ept id="749f6bee-843b-4388-97c0-7c468ebadfec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c8ef0bc-ca3d-4c81-9362-87cec5bdf519" xml:space="preserve">
+          <source>In the <bpt id="2604864d-7eca-4f2f-8ff0-7cc29c45114d">&lt;strong&gt;</bpt>Issued To<ept id="2604864d-7eca-4f2f-8ff0-7cc29c45114d">&lt;/strong&gt;</ept> field, look for an entry with the custom domain name you requested a certificate for.</source>
+          <target state="new">In the <bpt id="2604864d-7eca-4f2f-8ff0-7cc29c45114d">&lt;strong&gt;</bpt>Issued To<ept id="2604864d-7eca-4f2f-8ff0-7cc29c45114d">&lt;/strong&gt;</ept> field, look for an entry with the custom domain name you requested a certificate for.</target>
+        </trans-unit>
+        <trans-unit id="78b46261-c4a5-401d-a3c1-1503795e7c7c" xml:space="preserve">
+          <source>In the <bpt id="eeede33c-c8a9-4cb6-8977-aeb728d5335a">&lt;strong&gt;</bpt>Issued By<ept id="eeede33c-c8a9-4cb6-8977-aeb728d5335a">&lt;/strong&gt;</ept> field, it should list the Certificate Authority you used for this certificate.</source>
+          <target state="new">In the <bpt id="eeede33c-c8a9-4cb6-8977-aeb728d5335a">&lt;strong&gt;</bpt>Issued By<ept id="eeede33c-c8a9-4cb6-8977-aeb728d5335a">&lt;/strong&gt;</ept> field, it should list the Certificate Authority you used for this certificate.</target>
+        </trans-unit>
+        <trans-unit id="aa386a48-7535-48bb-b8f5-fafec9189dcc" xml:space="preserve">
+          <source><bpt id="2f89c504-f399-493c-8739-36f5b9f59ddf">&lt;linkText&gt;</bpt>insert image of cert manager here<ept id="2f89c504-f399-493c-8739-36f5b9f59ddf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f89c504-f399-493c-8739-36f5b9f59ddf">&lt;linkText&gt;</bpt>insert image of cert manager here<ept id="2f89c504-f399-493c-8739-36f5b9f59ddf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0408b245-9bb6-4dee-8239-05341c8ed4ac" xml:space="preserve">
+          <source>Right click the certificate and select <bpt id="6f38627b-779f-47e3-a7c2-a43c61d97e18">&lt;strong&gt;</bpt>All Tasks<ept id="6f38627b-779f-47e3-a7c2-a43c61d97e18">&lt;/strong&gt;</ept>, and then select <bpt id="9babede2-6961-4602-bc6a-679cfc094b89">&lt;strong&gt;</bpt>Export<ept id="9babede2-6961-4602-bc6a-679cfc094b89">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click the certificate and select <bpt id="6f38627b-779f-47e3-a7c2-a43c61d97e18">&lt;strong&gt;</bpt>All Tasks<ept id="6f38627b-779f-47e3-a7c2-a43c61d97e18">&lt;/strong&gt;</ept>, and then select <bpt id="9babede2-6961-4602-bc6a-679cfc094b89">&lt;strong&gt;</bpt>Export<ept id="9babede2-6961-4602-bc6a-679cfc094b89">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69edcd0f-613f-4023-99e7-c3e965ef544e" xml:space="preserve">
+          <source>In the <bpt id="7fff7976-4c4c-4b0a-99ea-58a51207a0b5">&lt;strong&gt;</bpt>Certificate Export Wizard<ept id="7fff7976-4c4c-4b0a-99ea-58a51207a0b5">&lt;/strong&gt;</ept>, click <bpt id="3721abb5-8045-401a-b2cb-91a53334bf41">&lt;strong&gt;</bpt>Next<ept id="3721abb5-8045-401a-b2cb-91a53334bf41">&lt;/strong&gt;</ept> and then select <bpt id="e50f84d3-d00e-4f93-828d-7b8ec6b62a27">&lt;strong&gt;</bpt>Yes, export the private key<ept id="e50f84d3-d00e-4f93-828d-7b8ec6b62a27">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7fff7976-4c4c-4b0a-99ea-58a51207a0b5">&lt;strong&gt;</bpt>Certificate Export Wizard<ept id="7fff7976-4c4c-4b0a-99ea-58a51207a0b5">&lt;/strong&gt;</ept>, click <bpt id="3721abb5-8045-401a-b2cb-91a53334bf41">&lt;strong&gt;</bpt>Next<ept id="3721abb5-8045-401a-b2cb-91a53334bf41">&lt;/strong&gt;</ept> and then select <bpt id="e50f84d3-d00e-4f93-828d-7b8ec6b62a27">&lt;strong&gt;</bpt>Yes, export the private key<ept id="e50f84d3-d00e-4f93-828d-7b8ec6b62a27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a04b284e-4541-4948-b26a-d6fa33dc61b5" xml:space="preserve">
+          <source>Click <bpt id="e3e5e134-b8d7-4114-b685-45ba66610240">&lt;strong&gt;</bpt>Next<ept id="e3e5e134-b8d7-4114-b685-45ba66610240">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e3e5e134-b8d7-4114-b685-45ba66610240">&lt;strong&gt;</bpt>Next<ept id="e3e5e134-b8d7-4114-b685-45ba66610240">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="506c0212-5b17-47c8-9b0e-5dd8bdfdfaa3" xml:space="preserve">
+          <source><bpt id="c9c2451a-07c3-4d76-96e1-5a81e7f36219">&lt;linkText&gt;</bpt>Export the private key<ept id="c9c2451a-07c3-4d76-96e1-5a81e7f36219">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9c2451a-07c3-4d76-96e1-5a81e7f36219">&lt;linkText&gt;</bpt>Export the private key<ept id="c9c2451a-07c3-4d76-96e1-5a81e7f36219">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ead14907-b2b6-4563-aa86-d06445bf778f" xml:space="preserve">
+          <source>Select <bpt id="98fb06d7-6b5a-46da-ab84-e0e33b50f26a">&lt;strong&gt;</bpt>Personal Information Exchange - PKCS #12<ept id="98fb06d7-6b5a-46da-ab84-e0e33b50f26a">&lt;/strong&gt;</ept>, <bpt id="9a3f15e0-75f8-4056-8a7d-52a328d4d4a6">&lt;strong&gt;</bpt>Include all certificates in the certificate chain<ept id="9a3f15e0-75f8-4056-8a7d-52a328d4d4a6">&lt;/strong&gt;</ept>, and <bpt id="aa5a37a0-cb16-44b3-99f4-03f290040820">&lt;strong&gt;</bpt>Export all extended properties<ept id="aa5a37a0-cb16-44b3-99f4-03f290040820">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="98fb06d7-6b5a-46da-ab84-e0e33b50f26a">&lt;strong&gt;</bpt>Personal Information Exchange - PKCS #12<ept id="98fb06d7-6b5a-46da-ab84-e0e33b50f26a">&lt;/strong&gt;</ept>, <bpt id="9a3f15e0-75f8-4056-8a7d-52a328d4d4a6">&lt;strong&gt;</bpt>Include all certificates in the certificate chain<ept id="9a3f15e0-75f8-4056-8a7d-52a328d4d4a6">&lt;/strong&gt;</ept>, and <bpt id="aa5a37a0-cb16-44b3-99f4-03f290040820">&lt;strong&gt;</bpt>Export all extended properties<ept id="aa5a37a0-cb16-44b3-99f4-03f290040820">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cf0de01-b739-406c-82d9-c9dd94816093" xml:space="preserve">
+          <source>Click <bpt id="83dc9f12-31a7-4cc4-9a3d-4a626056ea69">&lt;strong&gt;</bpt>Next<ept id="83dc9f12-31a7-4cc4-9a3d-4a626056ea69">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="83dc9f12-31a7-4cc4-9a3d-4a626056ea69">&lt;strong&gt;</bpt>Next<ept id="83dc9f12-31a7-4cc4-9a3d-4a626056ea69">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5114ecb6-412f-491d-8d6f-0661713ae7df" xml:space="preserve">
+          <source><bpt id="c891f526-f2f6-4aa5-b54b-0139e53cf7ec">&lt;linkText&gt;</bpt>include all certs and extended properties<ept id="c891f526-f2f6-4aa5-b54b-0139e53cf7ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c891f526-f2f6-4aa5-b54b-0139e53cf7ec">&lt;linkText&gt;</bpt>include all certs and extended properties<ept id="c891f526-f2f6-4aa5-b54b-0139e53cf7ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46d74975-5b3e-4749-9998-d14c8e2367f7" xml:space="preserve">
+          <source>Select <bpt id="4f68fb92-03da-4cba-bac0-bc2917c472b5">&lt;strong&gt;</bpt>Password<ept id="4f68fb92-03da-4cba-bac0-bc2917c472b5">&lt;/strong&gt;</ept>, and then enter and confirm the password.</source>
+          <target state="new">Select <bpt id="4f68fb92-03da-4cba-bac0-bc2917c472b5">&lt;strong&gt;</bpt>Password<ept id="4f68fb92-03da-4cba-bac0-bc2917c472b5">&lt;/strong&gt;</ept>, and then enter and confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="786d3371-3156-4c10-9c93-3fde32fc4cb5" xml:space="preserve">
+          <source>Click <bpt id="33ca8fc7-0d41-4e44-9b48-9c2c0dd8ccf0">&lt;strong&gt;</bpt>Next<ept id="33ca8fc7-0d41-4e44-9b48-9c2c0dd8ccf0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="33ca8fc7-0d41-4e44-9b48-9c2c0dd8ccf0">&lt;strong&gt;</bpt>Next<ept id="33ca8fc7-0d41-4e44-9b48-9c2c0dd8ccf0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf637a7b-0c12-4516-8308-ab3bb8712408" xml:space="preserve">
+          <source><bpt id="83ab1ced-2ed9-4671-bd56-3f85c1aaafac">&lt;linkText&gt;</bpt>specify a password<ept id="83ab1ced-2ed9-4671-bd56-3f85c1aaafac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83ab1ced-2ed9-4671-bd56-3f85c1aaafac">&lt;linkText&gt;</bpt>specify a password<ept id="83ab1ced-2ed9-4671-bd56-3f85c1aaafac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31cdf4dd-9597-4d05-ada5-0ef38e8ad063" xml:space="preserve">
+          <source>Provide a path and filename that will contain the exported certificate.</source>
+          <target state="new">Provide a path and filename that will contain the exported certificate.</target>
+        </trans-unit>
+        <trans-unit id="29810ec3-2dc9-4bd4-b363-98dc8b7ab2f6" xml:space="preserve">
+          <source>The filename should have an extension of <bpt id="03fe6f04-052f-4abf-8bf3-fff306023d0f">&lt;strong&gt;</bpt>.pfx<ept id="03fe6f04-052f-4abf-8bf3-fff306023d0f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The filename should have an extension of <bpt id="03fe6f04-052f-4abf-8bf3-fff306023d0f">&lt;strong&gt;</bpt>.pfx<ept id="03fe6f04-052f-4abf-8bf3-fff306023d0f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7fcd4e3-3bd7-4323-a0d4-5a8e44d818a3" xml:space="preserve">
+          <source>Click <bpt id="690fc741-75b6-47f0-b19e-d28456fca580">&lt;strong&gt;</bpt>Next<ept id="690fc741-75b6-47f0-b19e-d28456fca580">&lt;/strong&gt;</ept> to complete the process.</source>
+          <target state="new">Click <bpt id="690fc741-75b6-47f0-b19e-d28456fca580">&lt;strong&gt;</bpt>Next<ept id="690fc741-75b6-47f0-b19e-d28456fca580">&lt;/strong&gt;</ept> to complete the process.</target>
+        </trans-unit>
+        <trans-unit id="b96880dc-77d6-4fe9-a5d5-00857ec37abf" xml:space="preserve">
+          <source><bpt id="4f0878b7-d45b-4a5c-af10-d0113031d652">&lt;linkText&gt;</bpt>provide a file path<ept id="4f0878b7-d45b-4a5c-af10-d0113031d652">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f0878b7-d45b-4a5c-af10-d0113031d652">&lt;linkText&gt;</bpt>provide a file path<ept id="4f0878b7-d45b-4a5c-af10-d0113031d652">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2fff236-2599-4a9e-98dc-9d2e082807c2" xml:space="preserve">
+          <source>You can now upload the exported PFX file to your Azure web app.</source>
+          <target state="new">You can now upload the exported PFX file to your Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="b4949e55-613f-4d6b-a377-60d00d5b292b" xml:space="preserve">
+          <source><bpt id="86e7e047-60ab-48ba-96b2-b2c69d9daf31">&lt;bookmark&gt;</bpt><ept id="86e7e047-60ab-48ba-96b2-b2c69d9daf31">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="86e7e047-60ab-48ba-96b2-b2c69d9daf31">&lt;bookmark&gt;</bpt><ept id="86e7e047-60ab-48ba-96b2-b2c69d9daf31">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14d597ba-8f7b-47f9-bf48-3641cf846761" xml:space="preserve">
+          <source>Generate a private key and Certificate Signing Request by using the following from a command-line, bash or terminal session:</source>
+          <target state="new">Generate a private key and Certificate Signing Request by using the following from a command-line, bash or terminal session:</target>
+        </trans-unit>
+        <trans-unit id="7c0c8e03-db96-4a96-a51a-a22d377038d3" xml:space="preserve">
+          <source>When prompted, enter the appropriate information.</source>
+          <target state="new">When prompted, enter the appropriate information.</target>
+        </trans-unit>
+        <trans-unit id="e0fab570-6665-42cf-82cf-689ab4d53022" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="a179af72-c25c-4d2f-a6d4-d271fa60c8ff" xml:space="preserve">
+          <source>Once this process completes, you should have two files; <bpt id="701b9a83-4f54-49da-b0da-00cdfbd1663f">&lt;strong&gt;</bpt>myserver.key<ept id="701b9a83-4f54-49da-b0da-00cdfbd1663f">&lt;/strong&gt;</ept> and <bpt id="cedb9bb3-ef50-43fa-a904-eea60cbace00">&lt;strong&gt;</bpt>server.csr<ept id="cedb9bb3-ef50-43fa-a904-eea60cbace00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once this process completes, you should have two files; <bpt id="701b9a83-4f54-49da-b0da-00cdfbd1663f">&lt;strong&gt;</bpt>myserver.key<ept id="701b9a83-4f54-49da-b0da-00cdfbd1663f">&lt;/strong&gt;</ept> and <bpt id="cedb9bb3-ef50-43fa-a904-eea60cbace00">&lt;strong&gt;</bpt>server.csr<ept id="cedb9bb3-ef50-43fa-a904-eea60cbace00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e604d3db-fe8c-4610-b2ad-200b4a1318b1" xml:space="preserve">
+          <source>The <bpt id="108524cf-f696-45c5-8b2e-d5facc9d88e1">&lt;strong&gt;</bpt>server.csr<ept id="108524cf-f696-45c5-8b2e-d5facc9d88e1">&lt;/strong&gt;</ept> contains the Certificate Signing Request.</source>
+          <target state="new">The <bpt id="108524cf-f696-45c5-8b2e-d5facc9d88e1">&lt;strong&gt;</bpt>server.csr<ept id="108524cf-f696-45c5-8b2e-d5facc9d88e1">&lt;/strong&gt;</ept> contains the Certificate Signing Request.</target>
+        </trans-unit>
+        <trans-unit id="74795e0a-24c0-476e-a314-82cad1860e67" xml:space="preserve">
+          <source>Submit your CSR to a Certificate Authority to obtain an SSL certificate.</source>
+          <target state="new">Submit your CSR to a Certificate Authority to obtain an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="772baa5c-e982-4808-bfee-70d9fec10a12" xml:space="preserve">
+          <source>For a list of Certificate Authorities, see <bpt id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;/linkText&gt;</ept><bpt id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;title&gt;</bpt><ept id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</source>
+          <target state="new">For a list of Certificate Authorities, see <bpt id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;/linkText&gt;</ept><bpt id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;title&gt;</bpt><ept id="f924c349-3670-4a82-aa3f-b37338d8b075">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</target>
+        </trans-unit>
+        <trans-unit id="6b35a188-fc7b-46e3-bcc4-1b462674ca1d" xml:space="preserve">
+          <source>Once you have obtained a certificate from a CA, save it to a file named <bpt id="a0d86558-4dbf-4d6d-9761-295dbe2ca4b0">&lt;strong&gt;</bpt>myserver.crt<ept id="a0d86558-4dbf-4d6d-9761-295dbe2ca4b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have obtained a certificate from a CA, save it to a file named <bpt id="a0d86558-4dbf-4d6d-9761-295dbe2ca4b0">&lt;strong&gt;</bpt>myserver.crt<ept id="a0d86558-4dbf-4d6d-9761-295dbe2ca4b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="982b6dd4-be17-46d4-9627-b85fa947f6e2" xml:space="preserve">
+          <source>If your CA provided the certificate in a text format, simply paste the certificate text into the <bpt id="e51b41a4-9b28-446a-adc9-fa38a018f460">&lt;strong&gt;</bpt>myserver.crt<ept id="e51b41a4-9b28-446a-adc9-fa38a018f460">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">If your CA provided the certificate in a text format, simply paste the certificate text into the <bpt id="e51b41a4-9b28-446a-adc9-fa38a018f460">&lt;strong&gt;</bpt>myserver.crt<ept id="e51b41a4-9b28-446a-adc9-fa38a018f460">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="b7fc69d5-568d-4cca-8cd2-b15a1b1d5332" xml:space="preserve">
+          <source>The file contents should be similar to the following when viewed in a text editor:</source>
+          <target state="new">The file contents should be similar to the following when viewed in a text editor:</target>
+        </trans-unit>
+        <trans-unit id="68985c8b-7dff-43ee-a4fe-5a7088a78061" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="e14ab830-ec26-4edb-87c1-4dbe2ebd4875" xml:space="preserve">
+          <source>From the command-line, Bash or terminal session, use the following command to convert the <bpt id="38356ff1-ce5d-4d89-986a-28eb145894b7">&lt;strong&gt;</bpt>myserver.key<ept id="38356ff1-ce5d-4d89-986a-28eb145894b7">&lt;/strong&gt;</ept> and <bpt id="b64d2103-3b4e-454f-9f32-e4b376177fec">&lt;strong&gt;</bpt>myserver.crt<ept id="b64d2103-3b4e-454f-9f32-e4b376177fec">&lt;/strong&gt;</ept> into <bpt id="4bba57e2-35c1-48a1-8d59-cd71325d8aed">&lt;strong&gt;</bpt>myserver.pfx<ept id="4bba57e2-35c1-48a1-8d59-cd71325d8aed">&lt;/strong&gt;</ept>, which is the format required by Azure App Service:</source>
+          <target state="new">From the command-line, Bash or terminal session, use the following command to convert the <bpt id="38356ff1-ce5d-4d89-986a-28eb145894b7">&lt;strong&gt;</bpt>myserver.key<ept id="38356ff1-ce5d-4d89-986a-28eb145894b7">&lt;/strong&gt;</ept> and <bpt id="b64d2103-3b4e-454f-9f32-e4b376177fec">&lt;strong&gt;</bpt>myserver.crt<ept id="b64d2103-3b4e-454f-9f32-e4b376177fec">&lt;/strong&gt;</ept> into <bpt id="4bba57e2-35c1-48a1-8d59-cd71325d8aed">&lt;strong&gt;</bpt>myserver.pfx<ept id="4bba57e2-35c1-48a1-8d59-cd71325d8aed">&lt;/strong&gt;</ept>, which is the format required by Azure App Service:</target>
+        </trans-unit>
+        <trans-unit id="9895c8ac-0e6b-4d57-b3de-58fd049fa92c" xml:space="preserve">
+          <source>When prompted, enter a password to secure the .pfx file.</source>
+          <target state="new">When prompted, enter a password to secure the .pfx file.</target>
+        </trans-unit>
+        <trans-unit id="d4405735-e705-49ca-8d63-30f845842cfa" xml:space="preserve">
+          <source>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</source>
+          <target state="new">If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</target>
+        </trans-unit>
+        <trans-unit id="9cac69a4-a57c-40da-b3cb-fb6140914189" xml:space="preserve">
+          <source>Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</source>
+          <target state="new">Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</target>
+        </trans-unit>
+        <trans-unit id="3ba9a8f9-91ae-4c2a-99ff-e8e92cc1377f" xml:space="preserve">
+          <source>Select the version that is provided as a PEM file (.pem file extension.)</source>
+          <target state="new">Select the version that is provided as a PEM file (.pem file extension.)</target>
+        </trans-unit>
+        <trans-unit id="1b824afa-c40f-4984-91f8-465bee9d624d" xml:space="preserve">
+          <source>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <bpt id="ca1ca450-cb67-47b4-a5cd-436a9f6fd9fb">&lt;strong&gt;</bpt>intermediate-cets.pem<ept id="ca1ca450-cb67-47b4-a5cd-436a9f6fd9fb">&lt;/strong&gt;</ept> file:  </source>
+          <target state="new">The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <bpt id="ca1ca450-cb67-47b4-a5cd-436a9f6fd9fb">&lt;strong&gt;</bpt>intermediate-cets.pem<ept id="ca1ca450-cb67-47b4-a5cd-436a9f6fd9fb">&lt;/strong&gt;</ept> file:  </target>
+        </trans-unit>
+        <trans-unit id="a5e59ad7-416c-4ccd-b7e0-61c5fb497183" xml:space="preserve">
+          <source>If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure App Service.</source>
+          <target state="new">If you are familiar with IIS Manager, you can use it to generate a certificate that can be used with Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="95c296b5-65d4-438a-a4a5-d9a8c45ca668" xml:space="preserve">
+          <source>Generate a CSR with IIS Manager to send to the Certificate Authority.</source>
+          <target state="new">Generate a CSR with IIS Manager to send to the Certificate Authority.</target>
+        </trans-unit>
+        <trans-unit id="02a27dc6-5df6-41e5-ab88-999e28a6fcbf" xml:space="preserve">
+          <source>For more information on generating a CSR, see <bpt id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;linkText&gt;</bpt>Request an Internet Server Certificate (IIS 7)[iiscsr]<ept id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;/linkText&gt;</ept><bpt id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;title&gt;</bpt><ept id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on generating a CSR, see <bpt id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;linkText&gt;</bpt>Request an Internet Server Certificate (IIS 7)[iiscsr]<ept id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;/linkText&gt;</ept><bpt id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;title&gt;</bpt><ept id="5df578da-e413-4885-9b22-107e9a7119e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a0e9a7a-4875-4ea6-8d64-8b7ddd8f8f58" xml:space="preserve">
+          <source>Submit your CSR to a Certificate Authority to obtain an SSL certificate.</source>
+          <target state="new">Submit your CSR to a Certificate Authority to obtain an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="5c69d8d9-0554-4dbc-9298-1b3ce21db386" xml:space="preserve">
+          <source>For a list of Certificate Authorities, see <bpt id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;/linkText&gt;</ept><bpt id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;title&gt;</bpt><ept id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</source>
+          <target state="new">For a list of Certificate Authorities, see <bpt id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;/linkText&gt;</ept><bpt id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;title&gt;</bpt><ept id="5027ce20-a9e7-4783-bccb-ecb3738c817a">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</target>
+        </trans-unit>
+        <trans-unit id="3d3934fc-e093-42d4-bcff-47cae87b484a" xml:space="preserve">
+          <source>Complete the CSR with the certificate provided by the Certificate Authority vendor.</source>
+          <target state="new">Complete the CSR with the certificate provided by the Certificate Authority vendor.</target>
+        </trans-unit>
+        <trans-unit id="b94dea63-71d4-4a12-b1f7-366870f147bf" xml:space="preserve">
+          <source>For more information on completing the CSR, see <bpt id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;linkText&gt;</bpt>Install an Internet Server Certificate (IIS 7)[installcertiis]<ept id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;/linkText&gt;</ept><bpt id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;title&gt;</bpt><ept id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on completing the CSR, see <bpt id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;linkText&gt;</bpt>Install an Internet Server Certificate (IIS 7)[installcertiis]<ept id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;/linkText&gt;</ept><bpt id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;title&gt;</bpt><ept id="e07154cb-e361-495e-b457-563ecd67fed4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ceeae215-ad03-4cfd-acca-d43298e108f7" xml:space="preserve">
+          <source>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</source>
+          <target state="new">If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</target>
+        </trans-unit>
+        <trans-unit id="28fdb864-ddd3-42e3-8d80-19c04225a61f" xml:space="preserve">
+          <source>Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</source>
+          <target state="new">Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</target>
+        </trans-unit>
+        <trans-unit id="2ac1e024-6e8e-4eb0-b794-8d2adeb2a4f8" xml:space="preserve">
+          <source>Select the version that is provided for Microsoft IIS.</source>
+          <target state="new">Select the version that is provided for Microsoft IIS.</target>
+        </trans-unit>
+        <trans-unit id="65eaa828-0839-4a1d-a73e-fc6eda532869" xml:space="preserve">
+          <source>Once you have downloaded the certificate, right click on it in explorer and select <bpt id="8912e3da-67bb-4c19-aab1-521966c05345">&lt;strong&gt;</bpt>Install certificate<ept id="8912e3da-67bb-4c19-aab1-521966c05345">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have downloaded the certificate, right click on it in explorer and select <bpt id="8912e3da-67bb-4c19-aab1-521966c05345">&lt;strong&gt;</bpt>Install certificate<ept id="8912e3da-67bb-4c19-aab1-521966c05345">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e74b350a-1617-4cda-8116-38a4e5da6c3e" xml:space="preserve">
+          <source>Use the default values in the <bpt id="31b6b526-9dec-4b42-a5c4-5ae5a064fdfb">&lt;strong&gt;</bpt>Certificate Import Wizard<ept id="31b6b526-9dec-4b42-a5c4-5ae5a064fdfb">&lt;/strong&gt;</ept>, and continue selecting <bpt id="b6e06adc-f697-46b5-8916-a23dec162492">&lt;strong&gt;</bpt>Next<ept id="b6e06adc-f697-46b5-8916-a23dec162492">&lt;/strong&gt;</ept> until the import has completed.</source>
+          <target state="new">Use the default values in the <bpt id="31b6b526-9dec-4b42-a5c4-5ae5a064fdfb">&lt;strong&gt;</bpt>Certificate Import Wizard<ept id="31b6b526-9dec-4b42-a5c4-5ae5a064fdfb">&lt;/strong&gt;</ept>, and continue selecting <bpt id="b6e06adc-f697-46b5-8916-a23dec162492">&lt;strong&gt;</bpt>Next<ept id="b6e06adc-f697-46b5-8916-a23dec162492">&lt;/strong&gt;</ept> until the import has completed.</target>
+        </trans-unit>
+        <trans-unit id="42429a61-f4d2-450a-a42e-0aba90d3efc6" xml:space="preserve">
+          <source>Export the certificate from IIS Manager For more information on exporting the certificate, see <bpt id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;linkText&gt;</bpt>Export a Server Certificate (IIS 7)[exportcertiis]<ept id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;/linkText&gt;</ept><bpt id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;title&gt;</bpt><ept id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Export the certificate from IIS Manager For more information on exporting the certificate, see <bpt id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;linkText&gt;</bpt>Export a Server Certificate (IIS 7)[exportcertiis]<ept id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;/linkText&gt;</ept><bpt id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;title&gt;</bpt><ept id="293beb5f-7fdf-455b-aaf4-370baaea7c9b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c31bc955-9cba-4d30-bffa-c25c7bf43e9c" xml:space="preserve">
+          <source>The exported file will be used in later steps to upload to Azure for use with your web app.</source>
+          <target state="new">The exported file will be used in later steps to upload to Azure for use with your web app.</target>
+        </trans-unit>
+        <trans-unit id="ad7a6674-a6d4-46f4-ab9d-5202cb815cf6" xml:space="preserve">
+          <source>During the export process, be sure to select the option &lt;strong&gt;Yes, export the private key&lt;/strong&gt;.</source>
+          <target state="new">During the export process, be sure to select the option &lt;strong&gt;Yes, export the private key&lt;/strong&gt;.</target>
+        </trans-unit>
+        <trans-unit id="242c06a9-c581-4ef7-8461-e0e8d7f9d584" xml:space="preserve">
+          <source>This will include the private key in the exported certificate.</source>
+          <target state="new">This will include the private key in the exported certificate.</target>
+        </trans-unit>
+        <trans-unit id="0f1b79a9-8deb-4517-a1b6-167dcbb25e0c" xml:space="preserve">
+          <source>During the export process, be sure to select the option <bpt id="7b6f860e-56d2-4e92-b4b2-6e2ec77cd857">&lt;strong&gt;</bpt>include all certs in the certification path<ept id="7b6f860e-56d2-4e92-b4b2-6e2ec77cd857">&lt;/strong&gt;</ept> and <bpt id="6a79c10f-fde6-4886-8260-2dd2816d2dda">&lt;strong&gt;</bpt>Export all extended properties<ept id="6a79c10f-fde6-4886-8260-2dd2816d2dda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">During the export process, be sure to select the option <bpt id="7b6f860e-56d2-4e92-b4b2-6e2ec77cd857">&lt;strong&gt;</bpt>include all certs in the certification path<ept id="7b6f860e-56d2-4e92-b4b2-6e2ec77cd857">&lt;/strong&gt;</ept> and <bpt id="6a79c10f-fde6-4886-8260-2dd2816d2dda">&lt;strong&gt;</bpt>Export all extended properties<ept id="6a79c10f-fde6-4886-8260-2dd2816d2dda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6edf3c97-d3df-40f4-98bb-a385a4c6785f" xml:space="preserve">
+          <source>This will include any intermediate certificates in the exported certificate.</source>
+          <target state="new">This will include any intermediate certificates in the exported certificate.</target>
+        </trans-unit>
+        <trans-unit id="a647549b-cc91-4a91-97a4-13cdfda7f795" xml:space="preserve">
+          <source>OpenSSL can be used to create a certificate request that uses the SubjectAltName extension to support multiple domain names with a single certificate, however it requires a configuration file.</source>
+          <target state="new">OpenSSL can be used to create a certificate request that uses the SubjectAltName extension to support multiple domain names with a single certificate, however it requires a configuration file.</target>
+        </trans-unit>
+        <trans-unit id="33551bab-02f2-4540-a1ea-b11b8d906ce3" xml:space="preserve">
+          <source>The following steps walk through creating a configuration file, and then using it to request a certificate.</source>
+          <target state="new">The following steps walk through creating a configuration file, and then using it to request a certificate.</target>
+        </trans-unit>
+        <trans-unit id="e95f4621-8972-440b-869f-5bd182b010ea" xml:space="preserve">
+          <source>Create a new file named <bpt id="96fc7ace-ddd6-4800-8065-8e16598db2fc">&lt;strong&gt;</bpt>sancert.cnf<ept id="96fc7ace-ddd6-4800-8065-8e16598db2fc">&lt;/strong&gt;</ept> and use the following as the contents of the file:</source>
+          <target state="new">Create a new file named <bpt id="96fc7ace-ddd6-4800-8065-8e16598db2fc">&lt;strong&gt;</bpt>sancert.cnf<ept id="96fc7ace-ddd6-4800-8065-8e16598db2fc">&lt;/strong&gt;</ept> and use the following as the contents of the file:</target>
+        </trans-unit>
+        <trans-unit id="3e558d5d-24b5-4c35-aa75-ad49b8a2be14" xml:space="preserve">
+          <source>Note the line that begins with 'subjectAltName'.</source>
+          <target state="new">Note the line that begins with 'subjectAltName'.</target>
+        </trans-unit>
+        <trans-unit id="e726bcac-2cf5-4b54-8a49-a76ede1cd868" xml:space="preserve">
+          <source>Replace the domain names currently listed with domain names you wish to support in addition to the common name.</source>
+          <target state="new">Replace the domain names currently listed with domain names you wish to support in addition to the common name.</target>
+        </trans-unit>
+        <trans-unit id="9d610545-c5a7-4b86-aaf3-665ce728be9d" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="c3720a65-92e8-4aaa-aa6a-4a4d1cc01b5a" xml:space="preserve">
+          <source>You do not need to change the commonName_default field, as you will be prompted to enter your common name in one of the following steps.</source>
+          <target state="new">You do not need to change the commonName_default field, as you will be prompted to enter your common name in one of the following steps.</target>
+        </trans-unit>
+        <trans-unit id="dbbf177d-4dee-4b22-bd80-a5bf190cdb16" xml:space="preserve">
+          <source>Save the <bpt id="2cba7919-ad8c-4b66-8883-80a49531d83f">&lt;strong&gt;</bpt>sancert.cnf<ept id="2cba7919-ad8c-4b66-8883-80a49531d83f">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="2cba7919-ad8c-4b66-8883-80a49531d83f">&lt;strong&gt;</bpt>sancert.cnf<ept id="2cba7919-ad8c-4b66-8883-80a49531d83f">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="612c86a1-cdc0-47ce-883b-91590a6999ea" xml:space="preserve">
+          <source>Generate a private key and Certificate Signing Request by using the sancert.cnf configuration file.</source>
+          <target state="new">Generate a private key and Certificate Signing Request by using the sancert.cnf configuration file.</target>
+        </trans-unit>
+        <trans-unit id="cdc892a2-8295-4fd6-9b20-c3412fed0977" xml:space="preserve">
+          <source>From a bash or terminal session, use the following command:</source>
+          <target state="new">From a bash or terminal session, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="900d6dee-5bb5-41b4-9f3a-70c6568e1480" xml:space="preserve">
+          <source>When prompted, enter the appropriate information.</source>
+          <target state="new">When prompted, enter the appropriate information.</target>
+        </trans-unit>
+        <trans-unit id="ed3df477-76d3-4ea3-81cb-097acc6c18cf" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="8be64f4d-21ae-4792-afce-91c1f3d512e7" xml:space="preserve">
+          <source>Once this process completes, you should have two files; <bpt id="2015822f-3470-4fb1-b1ba-19fd3dbd01c4">&lt;strong&gt;</bpt>myserver.key<ept id="2015822f-3470-4fb1-b1ba-19fd3dbd01c4">&lt;/strong&gt;</ept> and <bpt id="f30f788b-adab-413b-8427-ffeb7f9e0a0d">&lt;strong&gt;</bpt>server.csr<ept id="f30f788b-adab-413b-8427-ffeb7f9e0a0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once this process completes, you should have two files; <bpt id="2015822f-3470-4fb1-b1ba-19fd3dbd01c4">&lt;strong&gt;</bpt>myserver.key<ept id="2015822f-3470-4fb1-b1ba-19fd3dbd01c4">&lt;/strong&gt;</ept> and <bpt id="f30f788b-adab-413b-8427-ffeb7f9e0a0d">&lt;strong&gt;</bpt>server.csr<ept id="f30f788b-adab-413b-8427-ffeb7f9e0a0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82c69638-28cc-4a34-8578-4981bb34ac70" xml:space="preserve">
+          <source>The <bpt id="26d0e602-d0f9-4e41-bcae-5ed93e919928">&lt;strong&gt;</bpt>server.csr<ept id="26d0e602-d0f9-4e41-bcae-5ed93e919928">&lt;/strong&gt;</ept> contains the Certificate Signing Request.</source>
+          <target state="new">The <bpt id="26d0e602-d0f9-4e41-bcae-5ed93e919928">&lt;strong&gt;</bpt>server.csr<ept id="26d0e602-d0f9-4e41-bcae-5ed93e919928">&lt;/strong&gt;</ept> contains the Certificate Signing Request.</target>
+        </trans-unit>
+        <trans-unit id="e8dcf374-51c5-4552-9913-eed46c694049" xml:space="preserve">
+          <source>Submit your CSR to a Certificate Authority to obtain an SSL certificate.</source>
+          <target state="new">Submit your CSR to a Certificate Authority to obtain an SSL certificate.</target>
+        </trans-unit>
+        <trans-unit id="a5540b3c-90fd-4b50-9dde-cb95d8e67135" xml:space="preserve">
+          <source>For a list of Certificate Authorities, see <bpt id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;/linkText&gt;</ept><bpt id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;title&gt;</bpt><ept id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</source>
+          <target state="new">For a list of Certificate Authorities, see <bpt id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;linkText&gt;</bpt>Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)[cas]<ept id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;/linkText&gt;</ept><bpt id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;title&gt;</bpt><ept id="845e64fe-837d-4f96-908d-2e2e03892b5d">&lt;/title&gt;</ept> on the Microsoft TechNet Wiki.</target>
+        </trans-unit>
+        <trans-unit id="7d024639-f9de-4e6e-b493-6f9bd9d8aa9f" xml:space="preserve">
+          <source>Once you have obtained a certificate from a CA, save it to a file named <bpt id="7bbee274-98f8-42b7-8706-69ec08353612">&lt;strong&gt;</bpt>myserver.crt<ept id="7bbee274-98f8-42b7-8706-69ec08353612">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have obtained a certificate from a CA, save it to a file named <bpt id="7bbee274-98f8-42b7-8706-69ec08353612">&lt;strong&gt;</bpt>myserver.crt<ept id="7bbee274-98f8-42b7-8706-69ec08353612">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67e5546c-f217-4f95-9b71-a99425da2c90" xml:space="preserve">
+          <source>If your CA provided the certificate in a text format, simply paste the certificate text into the <bpt id="7cc52d0e-80a5-4b44-b88f-3fd7e86ade0e">&lt;strong&gt;</bpt>myserver.crt<ept id="7cc52d0e-80a5-4b44-b88f-3fd7e86ade0e">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">If your CA provided the certificate in a text format, simply paste the certificate text into the <bpt id="7cc52d0e-80a5-4b44-b88f-3fd7e86ade0e">&lt;strong&gt;</bpt>myserver.crt<ept id="7cc52d0e-80a5-4b44-b88f-3fd7e86ade0e">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="e822d7ab-32af-463e-9d5c-1f932b39054d" xml:space="preserve">
+          <source>The file contents should be similar to the following when viewed in a text editor:</source>
+          <target state="new">The file contents should be similar to the following when viewed in a text editor:</target>
+        </trans-unit>
+        <trans-unit id="1ef98095-383d-4209-93bb-f174a5ae49d8" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="2341f821-e591-4358-a02d-4a757935da1a" xml:space="preserve">
+          <source>From the command-line, Bash or terminal session, use the following command to convert the <bpt id="e0f6cd22-7fe9-4846-a6f1-073ba96aee91">&lt;strong&gt;</bpt>myserver.key<ept id="e0f6cd22-7fe9-4846-a6f1-073ba96aee91">&lt;/strong&gt;</ept> and <bpt id="483823f5-6929-4bf7-818a-e47a5fd75ae4">&lt;strong&gt;</bpt>myserver.crt<ept id="483823f5-6929-4bf7-818a-e47a5fd75ae4">&lt;/strong&gt;</ept> into <bpt id="32afea1e-745b-4ff9-8bbf-c8195086926f">&lt;strong&gt;</bpt>myserver.pfx<ept id="32afea1e-745b-4ff9-8bbf-c8195086926f">&lt;/strong&gt;</ept>, which is the format required by Azure App Service:</source>
+          <target state="new">From the command-line, Bash or terminal session, use the following command to convert the <bpt id="e0f6cd22-7fe9-4846-a6f1-073ba96aee91">&lt;strong&gt;</bpt>myserver.key<ept id="e0f6cd22-7fe9-4846-a6f1-073ba96aee91">&lt;/strong&gt;</ept> and <bpt id="483823f5-6929-4bf7-818a-e47a5fd75ae4">&lt;strong&gt;</bpt>myserver.crt<ept id="483823f5-6929-4bf7-818a-e47a5fd75ae4">&lt;/strong&gt;</ept> into <bpt id="32afea1e-745b-4ff9-8bbf-c8195086926f">&lt;strong&gt;</bpt>myserver.pfx<ept id="32afea1e-745b-4ff9-8bbf-c8195086926f">&lt;/strong&gt;</ept>, which is the format required by Azure App Service:</target>
+        </trans-unit>
+        <trans-unit id="2b191231-14a1-4628-bacf-8929deca580a" xml:space="preserve">
+          <source>When prompted, enter a password to secure the .pfx file.</source>
+          <target state="new">When prompted, enter a password to secure the .pfx file.</target>
+        </trans-unit>
+        <trans-unit id="63db0444-0d16-404d-b7a7-90c17cb09931" xml:space="preserve">
+          <source>If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</source>
+          <target state="new">If your CA uses intermediate certificates, you must install these certificates before exporting the certificate in the next step.</target>
+        </trans-unit>
+        <trans-unit id="4529312f-6deb-44a0-958a-d3bf42a44c2c" xml:space="preserve">
+          <source>Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</source>
+          <target state="new">Usually these certificates are provided as a separate download from your CA, and are provided in several formats for different web server types.</target>
+        </trans-unit>
+        <trans-unit id="d8e9e3d2-28a9-4c7b-b6f8-e666e603e053" xml:space="preserve">
+          <source>Select the version that is provided as a PEM file (.pem file extension.)</source>
+          <target state="new">Select the version that is provided as a PEM file (.pem file extension.)</target>
+        </trans-unit>
+        <trans-unit id="6f501355-8e1b-4cd3-a0f6-10da90780891" xml:space="preserve">
+          <source>The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <bpt id="7a29bd5b-0b63-43fa-80e7-8c63e2f9787a">&lt;strong&gt;</bpt>intermediate-cets.pem<ept id="7a29bd5b-0b63-43fa-80e7-8c63e2f9787a">&lt;/strong&gt;</ept> file:  </source>
+          <target state="new">The follow command demonstrates how to create a .pfx file that includes intermediate certificates, which are contained in the <bpt id="7a29bd5b-0b63-43fa-80e7-8c63e2f9787a">&lt;strong&gt;</bpt>intermediate-cets.pem<ept id="7a29bd5b-0b63-43fa-80e7-8c63e2f9787a">&lt;/strong&gt;</ept> file:  </target>
+        </trans-unit>
+        <trans-unit id="9b0a2535-9e60-477f-8231-7a04f82f8efb" xml:space="preserve">
+          <source>In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production.</source>
+          <target state="new">In some cases you may wish to obtain a certificate for testing, and delay purchasing one from a trusted CA until you go into production.</target>
+        </trans-unit>
+        <trans-unit id="9aac17f9-2156-4a57-94c8-6d35c0895ade" xml:space="preserve">
+          <source>Self-signed certificates can fill this gap.</source>
+          <target state="new">Self-signed certificates can fill this gap.</target>
+        </trans-unit>
+        <trans-unit id="ac9abdfb-c31b-4596-be48-f3618955965f" xml:space="preserve">
+          <source>A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority.</source>
+          <target state="new">A self-signed certificate is a certificate you create and sign as if you were a Certificate Authority.</target>
+        </trans-unit>
+        <trans-unit id="835767b3-b537-4d6b-9f1b-0c2f8174a8b3" xml:space="preserve">
+          <source>While this certificate can be used to secure a web app, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA.</source>
+          <target state="new">While this certificate can be used to secure a web app, most browsers will return errors when visiting the site as the certificate was not signed by a trusted CA.</target>
+        </trans-unit>
+        <trans-unit id="7489fb68-67e7-4834-ab84-bd2b4459c178" xml:space="preserve">
+          <source>Some browsers may even refuse to allow you to view the site.</source>
+          <target state="new">Some browsers may even refuse to allow you to view the site.</target>
+        </trans-unit>
+        <trans-unit id="528780ac-d994-4838-a1c2-ac185b53887f" xml:space="preserve">
+          <source><bpt id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;linkText&gt;</bpt>Generate a self-signed certificate using makecert<ept id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;/linkText&gt;</ept><bpt id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;title&gt;</bpt><ept id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;linkText&gt;</bpt>Generate a self-signed certificate using makecert<ept id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;/linkText&gt;</ept><bpt id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;title&gt;</bpt><ept id="2c101c86-35b9-4725-9859-0ce17ee816b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc706ef0-0b2d-41ff-8967-a78eb5d1fac1" xml:space="preserve">
+          <source><bpt id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;linkText&gt;</bpt>Generate a self-signed certificate using OpenSSL<ept id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;/linkText&gt;</ept><bpt id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;title&gt;</bpt><ept id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;linkText&gt;</bpt>Generate a self-signed certificate using OpenSSL<ept id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;/linkText&gt;</ept><bpt id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;title&gt;</bpt><ept id="62a19195-72ff-4aa3-b916-55573b8a7502">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e7918fb-c75d-462c-ae19-8140148faec9" xml:space="preserve">
+          <source><bpt id="4b7038ce-67a7-4999-aa19-52e81c0096d5">&lt;bookmark&gt;</bpt><ept id="4b7038ce-67a7-4999-aa19-52e81c0096d5">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="4b7038ce-67a7-4999-aa19-52e81c0096d5">&lt;bookmark&gt;</bpt><ept id="4b7038ce-67a7-4999-aa19-52e81c0096d5">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ab839f8-4ac7-49d8-ab37-6d6d05c9f042" xml:space="preserve">
+          <source>You can create a test certificate from a Windows system that has Visual Studio installed by performing the following steps:</source>
+          <target state="new">You can create a test certificate from a Windows system that has Visual Studio installed by performing the following steps:</target>
+        </trans-unit>
+        <trans-unit id="55dbf18e-e940-41f2-87ca-912dd2ec9622" xml:space="preserve">
+          <source>From the <bpt id="e8345c6e-9387-47af-a660-438316295e58">&lt;strong&gt;</bpt>Start Menu<ept id="e8345c6e-9387-47af-a660-438316295e58">&lt;/strong&gt;</ept> or <bpt id="94beaf6c-cad3-40d6-9e2f-ed1ace0e080e">&lt;strong&gt;</bpt>Start Screen<ept id="94beaf6c-cad3-40d6-9e2f-ed1ace0e080e">&lt;/strong&gt;</ept>, search for <bpt id="5146e3bb-5727-4d6d-ac62-21017cfb80e6">&lt;strong&gt;</bpt>Developer Command Prompt<ept id="5146e3bb-5727-4d6d-ac62-21017cfb80e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="e8345c6e-9387-47af-a660-438316295e58">&lt;strong&gt;</bpt>Start Menu<ept id="e8345c6e-9387-47af-a660-438316295e58">&lt;/strong&gt;</ept> or <bpt id="94beaf6c-cad3-40d6-9e2f-ed1ace0e080e">&lt;strong&gt;</bpt>Start Screen<ept id="94beaf6c-cad3-40d6-9e2f-ed1ace0e080e">&lt;/strong&gt;</ept>, search for <bpt id="5146e3bb-5727-4d6d-ac62-21017cfb80e6">&lt;strong&gt;</bpt>Developer Command Prompt<ept id="5146e3bb-5727-4d6d-ac62-21017cfb80e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbd4ae73-606a-493c-88ba-53618500f724" xml:space="preserve">
+          <source>Finally, right-click <bpt id="6d763e5f-6a3d-468a-965c-6c18c87d6f7b">&lt;strong&gt;</bpt>Developer Command Prompt<ept id="6d763e5f-6a3d-468a-965c-6c18c87d6f7b">&lt;/strong&gt;</ept> and select <bpt id="0f149e0a-95d6-4857-b450-4b822144053d">&lt;strong&gt;</bpt>Run As Administrator<ept id="0f149e0a-95d6-4857-b450-4b822144053d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, right-click <bpt id="6d763e5f-6a3d-468a-965c-6c18c87d6f7b">&lt;strong&gt;</bpt>Developer Command Prompt<ept id="6d763e5f-6a3d-468a-965c-6c18c87d6f7b">&lt;/strong&gt;</ept> and select <bpt id="0f149e0a-95d6-4857-b450-4b822144053d">&lt;strong&gt;</bpt>Run As Administrator<ept id="0f149e0a-95d6-4857-b450-4b822144053d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8916984a-84fc-490b-808c-69a078d26c29" xml:space="preserve">
+          <source>If you receive a User Account Control dialog, select <bpt id="4ce2d4be-251c-423c-a0c7-4ce9d7fcc34e">&lt;strong&gt;</bpt>Yes<ept id="4ce2d4be-251c-423c-a0c7-4ce9d7fcc34e">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">If you receive a User Account Control dialog, select <bpt id="4ce2d4be-251c-423c-a0c7-4ce9d7fcc34e">&lt;strong&gt;</bpt>Yes<ept id="4ce2d4be-251c-423c-a0c7-4ce9d7fcc34e">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="712f3d9b-db29-4a3b-8b09-6c84ee35a596" xml:space="preserve">
+          <source>From the Developer Command Prompt, use the following command to create a new self-signed certificate.</source>
+          <target state="new">From the Developer Command Prompt, use the following command to create a new self-signed certificate.</target>
+        </trans-unit>
+        <trans-unit id="2f09e8e9-4caf-4c34-a47e-880820c527fe" xml:space="preserve">
+          <source>You must substitute <bpt id="a89c958f-139f-42a5-981b-a79ed6186b27">&lt;strong&gt;</bpt>serverdnsname<ept id="a89c958f-139f-42a5-981b-a79ed6186b27">&lt;/strong&gt;</ept> with the DNS of your web app.</source>
+          <target state="new">You must substitute <bpt id="a89c958f-139f-42a5-981b-a79ed6186b27">&lt;strong&gt;</bpt>serverdnsname<ept id="a89c958f-139f-42a5-981b-a79ed6186b27">&lt;/strong&gt;</ept> with the DNS of your web app.</target>
+        </trans-unit>
+        <trans-unit id="329b63d3-6b41-45d5-9ae3-60227fbc8ab7" xml:space="preserve">
+          <source>This command will create a certificate that is good between the dates of 01/01/2013 and 01/01/2014, and will store the location in the CurrentUser certificate store.</source>
+          <target state="new">This command will create a certificate that is good between the dates of 01/01/2013 and 01/01/2014, and will store the location in the CurrentUser certificate store.</target>
+        </trans-unit>
+        <trans-unit id="d7b9d6ba-cc0a-4612-9c1c-369bf97f64c5" xml:space="preserve">
+          <source>From the <bpt id="50cbf9f4-3ae6-4363-a58a-17f296a916af">&lt;strong&gt;</bpt>Start Menu<ept id="50cbf9f4-3ae6-4363-a58a-17f296a916af">&lt;/strong&gt;</ept> or <bpt id="f845adc8-dec9-4d8c-8cbf-f4e5b2abffde">&lt;strong&gt;</bpt>Start Screen<ept id="f845adc8-dec9-4d8c-8cbf-f4e5b2abffde">&lt;/strong&gt;</ept>, search for <bpt id="da1a893b-e8fc-42a2-bc98-ad57fb1f036a">&lt;strong&gt;</bpt>Windows PowerShell<ept id="da1a893b-e8fc-42a2-bc98-ad57fb1f036a">&lt;/strong&gt;</ept> and start this application.</source>
+          <target state="new">From the <bpt id="50cbf9f4-3ae6-4363-a58a-17f296a916af">&lt;strong&gt;</bpt>Start Menu<ept id="50cbf9f4-3ae6-4363-a58a-17f296a916af">&lt;/strong&gt;</ept> or <bpt id="f845adc8-dec9-4d8c-8cbf-f4e5b2abffde">&lt;strong&gt;</bpt>Start Screen<ept id="f845adc8-dec9-4d8c-8cbf-f4e5b2abffde">&lt;/strong&gt;</ept>, search for <bpt id="da1a893b-e8fc-42a2-bc98-ad57fb1f036a">&lt;strong&gt;</bpt>Windows PowerShell<ept id="da1a893b-e8fc-42a2-bc98-ad57fb1f036a">&lt;/strong&gt;</ept> and start this application.</target>
+        </trans-unit>
+        <trans-unit id="bb3f6d26-608a-48ce-bc62-7ad6be806b6c" xml:space="preserve">
+          <source>From the Windows PowerShell prompt, use the following commands to export the certificate created previously:</source>
+          <target state="new">From the Windows PowerShell prompt, use the following commands to export the certificate created previously:</target>
+        </trans-unit>
+        <trans-unit id="5b488b2f-ef61-4e74-bd59-9a0a68806eae" xml:space="preserve">
+          <source>This stores the specified password as a secure string in $mypwd, then finds the certificate by using the DNS name specified by the <bpt id="87da2e35-ede3-4fe3-83cd-de41ef77f4ce">&lt;strong&gt;</bpt>dnsname<ept id="87da2e35-ede3-4fe3-83cd-de41ef77f4ce">&lt;/strong&gt;</ept> parameter, and exports to the file specified by the <bpt id="2a34d8b2-2036-4d4b-b93e-ecba706a9485">&lt;strong&gt;</bpt>filepath<ept id="2a34d8b2-2036-4d4b-b93e-ecba706a9485">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">This stores the specified password as a secure string in $mypwd, then finds the certificate by using the DNS name specified by the <bpt id="87da2e35-ede3-4fe3-83cd-de41ef77f4ce">&lt;strong&gt;</bpt>dnsname<ept id="87da2e35-ede3-4fe3-83cd-de41ef77f4ce">&lt;/strong&gt;</ept> parameter, and exports to the file specified by the <bpt id="2a34d8b2-2036-4d4b-b93e-ecba706a9485">&lt;strong&gt;</bpt>filepath<ept id="2a34d8b2-2036-4d4b-b93e-ecba706a9485">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="98eb4edd-29ed-4fe8-9704-dce2834e1414" xml:space="preserve">
+          <source>The secure string containing the password is used to secure the exported file.</source>
+          <target state="new">The secure string containing the password is used to secure the exported file.</target>
+        </trans-unit>
+        <trans-unit id="250e135d-0474-47f1-bdc0-02cce38fe640" xml:space="preserve">
+          <source><bpt id="0b7f1cf1-61ec-4bbe-b101-b6cdabfc7968">&lt;bookmark&gt;</bpt><ept id="0b7f1cf1-61ec-4bbe-b101-b6cdabfc7968">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="0b7f1cf1-61ec-4bbe-b101-b6cdabfc7968">&lt;bookmark&gt;</bpt><ept id="0b7f1cf1-61ec-4bbe-b101-b6cdabfc7968">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2666b403-c935-47b3-81c0-6845a21d5dc0" xml:space="preserve">
+          <source>Create a new document named <bpt id="d6c961dd-a643-4abe-ade9-7a9c385c983f">&lt;strong&gt;</bpt>serverauth.cnf<ept id="d6c961dd-a643-4abe-ade9-7a9c385c983f">&lt;/strong&gt;</ept>, using the following as the contents of this file:</source>
+          <target state="new">Create a new document named <bpt id="d6c961dd-a643-4abe-ade9-7a9c385c983f">&lt;strong&gt;</bpt>serverauth.cnf<ept id="d6c961dd-a643-4abe-ade9-7a9c385c983f">&lt;/strong&gt;</ept>, using the following as the contents of this file:</target>
+        </trans-unit>
+        <trans-unit id="0e6068b8-6b4e-42d5-8324-934168c7bd60" xml:space="preserve">
+          <source>This specifies the configuration settings required to produce an SSL certificate that can be used by Azure App Service.</source>
+          <target state="new">This specifies the configuration settings required to produce an SSL certificate that can be used by Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="5f561ff6-9c2f-4fb8-8740-09ddf2f4f6db" xml:space="preserve">
+          <source>Generate a new self-signed certificate by using the following from a command-line, bash or terminal session:</source>
+          <target state="new">Generate a new self-signed certificate by using the following from a command-line, bash or terminal session:</target>
+        </trans-unit>
+        <trans-unit id="43e23477-0691-4156-af1c-053a622cd3b4" xml:space="preserve">
+          <source>This creates a new certificate using the configuration settings specified in the <bpt id="00d039a5-a008-48a7-a283-9eb3d76d2747">&lt;strong&gt;</bpt>serverauth.cnf<ept id="00d039a5-a008-48a7-a283-9eb3d76d2747">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">This creates a new certificate using the configuration settings specified in the <bpt id="00d039a5-a008-48a7-a283-9eb3d76d2747">&lt;strong&gt;</bpt>serverauth.cnf<ept id="00d039a5-a008-48a7-a283-9eb3d76d2747">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="33caf7ca-3a41-47b0-9201-172eea662607" xml:space="preserve">
+          <source>To export the certificate to a .PFX file that can be uploaded to a web app, use the following command:</source>
+          <target state="new">To export the certificate to a .PFX file that can be uploaded to a web app, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="22f876a3-0111-4356-b275-e65db6c51059" xml:space="preserve">
+          <source>When prompted, enter a password to secure the .pfx file.</source>
+          <target state="new">When prompted, enter a password to secure the .pfx file.</target>
+        </trans-unit>
+        <trans-unit id="10788e26-4fff-4e60-a293-cc1cd47bc28a" xml:space="preserve">
+          <source>The <bpt id="e0daa19f-b811-4306-9c4e-ea5951420e19">&lt;strong&gt;</bpt>myserver.pfx<ept id="e0daa19f-b811-4306-9c4e-ea5951420e19">&lt;/strong&gt;</ept> produced by this command can be used to secure your web app for testing purposes.</source>
+          <target state="new">The <bpt id="e0daa19f-b811-4306-9c4e-ea5951420e19">&lt;strong&gt;</bpt>myserver.pfx<ept id="e0daa19f-b811-4306-9c4e-ea5951420e19">&lt;/strong&gt;</ept> produced by this command can be used to secure your web app for testing purposes.</target>
+        </trans-unit>
+        <trans-unit id="dd77a9bc-edcd-4d93-b1cf-ea49f3104ac4" xml:space="preserve">
+          <source><bpt id="ee2e0326-55c7-40a1-aba5-41a4fe10580e">&lt;bookmark&gt;</bpt><ept id="ee2e0326-55c7-40a1-aba5-41a4fe10580e">&lt;/bookmark&gt;</ept>&lt;h2&gt;Configure Standard mode&lt;/h2&gt;</source>
+          <target state="new"><bpt id="ee2e0326-55c7-40a1-aba5-41a4fe10580e">&lt;bookmark&gt;</bpt><ept id="ee2e0326-55c7-40a1-aba5-41a4fe10580e">&lt;/bookmark&gt;</ept>&lt;h2&gt;Configure Standard mode&lt;/h2&gt;</target>
+        </trans-unit>
+        <trans-unit id="6252642a-0299-4481-8ebd-90d8f3156b32" xml:space="preserve">
+          <source>Enabling HTTPS for a custom domain is only available for the <bpt id="33208269-4bf3-472c-af20-d96f7e8d165b">&lt;strong&gt;</bpt>Standard<ept id="33208269-4bf3-472c-af20-d96f7e8d165b">&lt;/strong&gt;</ept> mode of web app.</source>
+          <target state="new">Enabling HTTPS for a custom domain is only available for the <bpt id="33208269-4bf3-472c-af20-d96f7e8d165b">&lt;strong&gt;</bpt>Standard<ept id="33208269-4bf3-472c-af20-d96f7e8d165b">&lt;/strong&gt;</ept> mode of web app.</target>
+        </trans-unit>
+        <trans-unit id="ef441901-4cd9-47ab-85ef-39f73413d23e" xml:space="preserve">
+          <source>Use the following steps to switch to <bpt id="cfa6f143-483a-4fbc-afb9-a50a8065755b">&lt;strong&gt;</bpt>Standard<ept id="cfa6f143-483a-4fbc-afb9-a50a8065755b">&lt;/strong&gt;</ept> mode.</source>
+          <target state="new">Use the following steps to switch to <bpt id="cfa6f143-483a-4fbc-afb9-a50a8065755b">&lt;strong&gt;</bpt>Standard<ept id="cfa6f143-483a-4fbc-afb9-a50a8065755b">&lt;/strong&gt;</ept> mode.</target>
+        </trans-unit>
+        <trans-unit id="1c98aa5b-5af8-4f5d-bc81-adc3a0be1aea" xml:space="preserve">
+          <source>Before switching a web app from the <bpt id="a39910f6-3caa-488e-9484-8c3020cdc70b">&lt;strong&gt;</bpt>Free<ept id="a39910f6-3caa-488e-9484-8c3020cdc70b">&lt;/strong&gt;</ept> mode to <bpt id="1a769bf8-866a-4538-a502-2a1330606dd3">&lt;strong&gt;</bpt>Standard<ept id="1a769bf8-866a-4538-a502-2a1330606dd3">&lt;/strong&gt;</ept> mode, you should remove spending caps in place for your web app subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends.</source>
+          <target state="new">Before switching a web app from the <bpt id="a39910f6-3caa-488e-9484-8c3020cdc70b">&lt;strong&gt;</bpt>Free<ept id="a39910f6-3caa-488e-9484-8c3020cdc70b">&lt;/strong&gt;</ept> mode to <bpt id="1a769bf8-866a-4538-a502-2a1330606dd3">&lt;strong&gt;</bpt>Standard<ept id="1a769bf8-866a-4538-a502-2a1330606dd3">&lt;/strong&gt;</ept> mode, you should remove spending caps in place for your web app subscription, otherwise you risk your site becoming unavailable if you reach your caps before the billing period ends.</target>
+        </trans-unit>
+        <trans-unit id="f08c62f7-b863-4e1e-a178-b966bb994263" xml:space="preserve">
+          <source>For more information on shared and <bpt id="a81ce635-77c8-44a1-88fe-99b78cfe99eb">&lt;strong&gt;</bpt>Standard<ept id="a81ce635-77c8-44a1-88fe-99b78cfe99eb">&lt;/strong&gt;</ept> mode pricing, see <bpt id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;linkText&gt;</bpt>Pricing Details[pricing]<ept id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;/linkText&gt;</ept><bpt id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;title&gt;</bpt><ept id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on shared and <bpt id="a81ce635-77c8-44a1-88fe-99b78cfe99eb">&lt;strong&gt;</bpt>Standard<ept id="a81ce635-77c8-44a1-88fe-99b78cfe99eb">&lt;/strong&gt;</ept> mode pricing, see <bpt id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;linkText&gt;</bpt>Pricing Details[pricing]<ept id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;/linkText&gt;</ept><bpt id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;title&gt;</bpt><ept id="153aff12-1dbb-40f1-b5e3-553bb1d99b61">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c750ac3-a71d-4fef-aa61-a303ddb69d6b" xml:space="preserve">
+          <source>In your browser, open the <bpt id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;linkText&gt;</bpt>Azure Portal<ept id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;/linkText&gt;</ept><bpt id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;title&gt;</bpt><ept id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;linkText&gt;</bpt>Azure Portal<ept id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;/linkText&gt;</ept><bpt id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;title&gt;</bpt><ept id="2e1e5bf7-02fe-4c76-b97d-992f2ae53386">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87648d6b-dfe7-410f-8188-78a694ff507b" xml:space="preserve">
+          <source>Click the <bpt id="f9e9b160-3eaf-49a9-90be-edd2b8d45b5f">&lt;strong&gt;</bpt>Browse<ept id="f9e9b160-3eaf-49a9-90be-edd2b8d45b5f">&lt;/strong&gt;</ept> option on the left side of the page.</source>
+          <target state="new">Click the <bpt id="f9e9b160-3eaf-49a9-90be-edd2b8d45b5f">&lt;strong&gt;</bpt>Browse<ept id="f9e9b160-3eaf-49a9-90be-edd2b8d45b5f">&lt;/strong&gt;</ept> option on the left side of the page.</target>
+        </trans-unit>
+        <trans-unit id="4762c6d3-6d94-45da-a697-f798cb0ca7d6" xml:space="preserve">
+          <source>Click the <bpt id="778304ed-6d4c-4379-896a-57b7d2add108">&lt;strong&gt;</bpt>Web Apps<ept id="778304ed-6d4c-4379-896a-57b7d2add108">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="778304ed-6d4c-4379-896a-57b7d2add108">&lt;strong&gt;</bpt>Web Apps<ept id="778304ed-6d4c-4379-896a-57b7d2add108">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="10245d54-5b62-4e64-a479-6d5f22bc6b5f" xml:space="preserve">
+          <source>Click the name of your web app.</source>
+          <target state="new">Click the name of your web app.</target>
+        </trans-unit>
+        <trans-unit id="bed8c189-5a01-400f-a310-7fae21967ec1" xml:space="preserve">
+          <source>In the <bpt id="963e0121-c04a-4267-be7c-2b497cb701c4">&lt;strong&gt;</bpt>Essentials<ept id="963e0121-c04a-4267-be7c-2b497cb701c4">&lt;/strong&gt;</ept> page, click <bpt id="c8c81065-eaa4-40f1-b473-a41685012d4e">&lt;strong&gt;</bpt>Settings<ept id="c8c81065-eaa4-40f1-b473-a41685012d4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="963e0121-c04a-4267-be7c-2b497cb701c4">&lt;strong&gt;</bpt>Essentials<ept id="963e0121-c04a-4267-be7c-2b497cb701c4">&lt;/strong&gt;</ept> page, click <bpt id="c8c81065-eaa4-40f1-b473-a41685012d4e">&lt;strong&gt;</bpt>Settings<ept id="c8c81065-eaa4-40f1-b473-a41685012d4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a85dc0d2-b38c-46d2-b4cd-c554b5b7b645" xml:space="preserve">
+          <source>Click <bpt id="d577d260-7fde-45ae-a6da-26bc220d0076">&lt;strong&gt;</bpt>Scale<ept id="d577d260-7fde-45ae-a6da-26bc220d0076">&lt;/strong&gt;</ept>
+<bpt id="a6d80600-a632-4ba5-8277-730214119b51">&lt;linkText&gt;</bpt>The scale tab<ept id="a6d80600-a632-4ba5-8277-730214119b51">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="d577d260-7fde-45ae-a6da-26bc220d0076">&lt;strong&gt;</bpt>Scale<ept id="d577d260-7fde-45ae-a6da-26bc220d0076">&lt;/strong&gt;</ept>
+<bpt id="a6d80600-a632-4ba5-8277-730214119b51">&lt;linkText&gt;</bpt>The scale tab<ept id="a6d80600-a632-4ba5-8277-730214119b51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11fba60f-bde1-4609-ad56-341af0db63a4" xml:space="preserve">
+          <source>In the <bpt id="9e12dd2e-efb9-46b7-9960-aab6818a706b">&lt;strong&gt;</bpt>Scale<ept id="9e12dd2e-efb9-46b7-9960-aab6818a706b">&lt;/strong&gt;</ept> section, set the App Service plan mode by clicking <bpt id="13b725f8-4846-454e-a73c-329ce709a818">&lt;strong&gt;</bpt>Select<ept id="13b725f8-4846-454e-a73c-329ce709a818">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9e12dd2e-efb9-46b7-9960-aab6818a706b">&lt;strong&gt;</bpt>Scale<ept id="9e12dd2e-efb9-46b7-9960-aab6818a706b">&lt;/strong&gt;</ept> section, set the App Service plan mode by clicking <bpt id="13b725f8-4846-454e-a73c-329ce709a818">&lt;strong&gt;</bpt>Select<ept id="13b725f8-4846-454e-a73c-329ce709a818">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65fefabb-57f1-4b1e-a508-9b31f5af7b43" xml:space="preserve">
+          <source><bpt id="8af35405-3665-4ef0-92a4-7be62d05fcf9">&lt;linkText&gt;</bpt>The Pricing tier<ept id="8af35405-3665-4ef0-92a4-7be62d05fcf9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8af35405-3665-4ef0-92a4-7be62d05fcf9">&lt;linkText&gt;</bpt>The Pricing tier<ept id="8af35405-3665-4ef0-92a4-7be62d05fcf9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4a36a6c-05dd-4416-a01d-4bdb94a34306" xml:space="preserve">
+          <source>If you receive a "Configuring scale for web app '&amp;lt;app name&amp;gt;' failed" error you can use the details button to get more information.</source>
+          <target state="new">If you receive a "Configuring scale for web app '&amp;lt;app name&amp;gt;' failed" error you can use the details button to get more information.</target>
+        </trans-unit>
+        <trans-unit id="96c41619-36c4-4f38-9237-ee1584ad3f69" xml:space="preserve">
+          <source>You may receive a "Not enough available standard instance servers to satisfy this request."</source>
+          <target state="new">You may receive a "Not enough available standard instance servers to satisfy this request."</target>
+        </trans-unit>
+        <trans-unit id="468a0d2d-f913-4ec4-963d-6f9e9c519255" xml:space="preserve">
+          <source>error.</source>
+          <target state="new">error.</target>
+        </trans-unit>
+        <trans-unit id="3fa92116-44b7-48c3-a430-8062c90cc519" xml:space="preserve">
+          <source>If you receive this error, please contact <bpt id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;linkText&gt;</bpt>Azure support<ept id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;/linkText&gt;</ept><bpt id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;title&gt;</bpt><ept id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you receive this error, please contact <bpt id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;linkText&gt;</bpt>Azure support<ept id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;/linkText&gt;</ept><bpt id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;title&gt;</bpt><ept id="859969de-75af-47e4-a73a-9a0295cf6441">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82e7af15-ecbb-462a-bbe2-05bd5e053587" xml:space="preserve">
+          <source>Before performing the steps in this section, you must have associated a custom domain name with your web app.</source>
+          <target state="new">Before performing the steps in this section, you must have associated a custom domain name with your web app.</target>
+        </trans-unit>
+        <trans-unit id="6a6e9ce7-8928-41e8-9eb6-4214b929e40a" xml:space="preserve">
+          <source>For more information, see <bpt id="2628822c-a71d-473f-8d72-339191699882">&lt;linkText&gt;</bpt>Configuring a custom domain name for a web app[customdomain]<ept id="2628822c-a71d-473f-8d72-339191699882">&lt;/linkText&gt;</ept><bpt id="2628822c-a71d-473f-8d72-339191699882">&lt;title&gt;</bpt><ept id="2628822c-a71d-473f-8d72-339191699882">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2628822c-a71d-473f-8d72-339191699882">&lt;linkText&gt;</bpt>Configuring a custom domain name for a web app[customdomain]<ept id="2628822c-a71d-473f-8d72-339191699882">&lt;/linkText&gt;</ept><bpt id="2628822c-a71d-473f-8d72-339191699882">&lt;title&gt;</bpt><ept id="2628822c-a71d-473f-8d72-339191699882">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ebbfd2f-ec39-4ee6-87e0-75c58d41fad7" xml:space="preserve">
+          <source>In your browser, open the <bpt id="d313757f-88eb-4c49-890d-83cb25430139">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d313757f-88eb-4c49-890d-83cb25430139">&lt;/linkText&gt;</ept><bpt id="d313757f-88eb-4c49-890d-83cb25430139">&lt;title&gt;</bpt><ept id="d313757f-88eb-4c49-890d-83cb25430139">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="d313757f-88eb-4c49-890d-83cb25430139">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="d313757f-88eb-4c49-890d-83cb25430139">&lt;/linkText&gt;</ept><bpt id="d313757f-88eb-4c49-890d-83cb25430139">&lt;title&gt;</bpt><ept id="d313757f-88eb-4c49-890d-83cb25430139">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1248e72-4bfa-4b9a-a143-9f02e6c8c5ad" xml:space="preserve">
+          <source>Click the <bpt id="5935124e-dc6c-409e-a292-20dd86243d2c">&lt;strong&gt;</bpt>Browse<ept id="5935124e-dc6c-409e-a292-20dd86243d2c">&lt;/strong&gt;</ept> option on the left side of the page.</source>
+          <target state="new">Click the <bpt id="5935124e-dc6c-409e-a292-20dd86243d2c">&lt;strong&gt;</bpt>Browse<ept id="5935124e-dc6c-409e-a292-20dd86243d2c">&lt;/strong&gt;</ept> option on the left side of the page.</target>
+        </trans-unit>
+        <trans-unit id="23479daf-516d-4e63-a841-a1e76ac6d0af" xml:space="preserve">
+          <source>Click the <bpt id="b373fed0-4c6d-4e5c-8722-5483d23ce566">&lt;strong&gt;</bpt>Web Apps<ept id="b373fed0-4c6d-4e5c-8722-5483d23ce566">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="b373fed0-4c6d-4e5c-8722-5483d23ce566">&lt;strong&gt;</bpt>Web Apps<ept id="b373fed0-4c6d-4e5c-8722-5483d23ce566">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="5c0db42d-591e-46c1-9695-9b2165d5b973" xml:space="preserve">
+          <source>Click the name of your web app.</source>
+          <target state="new">Click the name of your web app.</target>
+        </trans-unit>
+        <trans-unit id="e947c7ee-2b41-4f8b-a6dc-0c4f32841245" xml:space="preserve">
+          <source>In the <bpt id="2f60519e-bc9f-4a47-a08c-7899b1b46827">&lt;strong&gt;</bpt>Essentials<ept id="2f60519e-bc9f-4a47-a08c-7899b1b46827">&lt;/strong&gt;</ept> page, click <bpt id="d6013b2e-fd63-46b3-95c9-1121ab63ba31">&lt;strong&gt;</bpt>Settings<ept id="d6013b2e-fd63-46b3-95c9-1121ab63ba31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2f60519e-bc9f-4a47-a08c-7899b1b46827">&lt;strong&gt;</bpt>Essentials<ept id="2f60519e-bc9f-4a47-a08c-7899b1b46827">&lt;/strong&gt;</ept> page, click <bpt id="d6013b2e-fd63-46b3-95c9-1121ab63ba31">&lt;strong&gt;</bpt>Settings<ept id="d6013b2e-fd63-46b3-95c9-1121ab63ba31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="110727d7-b4ca-40b8-b96e-3e929974365f" xml:space="preserve">
+          <source>Click <bpt id="794ea6c9-8fc1-421f-bfe3-4a6d5d74f9cf">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="794ea6c9-8fc1-421f-bfe3-4a6d5d74f9cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="794ea6c9-8fc1-421f-bfe3-4a6d5d74f9cf">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="794ea6c9-8fc1-421f-bfe3-4a6d5d74f9cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee1125bf-3ad8-41f8-b7bc-1af8aee9eb6d" xml:space="preserve">
+          <source><bpt id="476d3629-2d67-4a7b-8ad1-6ad43d66d6c5">&lt;linkText&gt;</bpt>The config tab<ept id="476d3629-2d67-4a7b-8ad1-6ad43d66d6c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="476d3629-2d67-4a7b-8ad1-6ad43d66d6c5">&lt;linkText&gt;</bpt>The config tab<ept id="476d3629-2d67-4a7b-8ad1-6ad43d66d6c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0192ea2b-d119-4afb-8a43-c32624b249e0" xml:space="preserve">
+          <source>In the <bpt id="d8a98738-3084-4ca0-bbdf-32bafc8a2d78">&lt;strong&gt;</bpt>certificates<ept id="d8a98738-3084-4ca0-bbdf-32bafc8a2d78">&lt;/strong&gt;</ept> section, click <bpt id="f5887f4d-fde5-4eb4-b2a1-d4c52a6164e5">&lt;strong&gt;</bpt>Upload<ept id="f5887f4d-fde5-4eb4-b2a1-d4c52a6164e5">&lt;/strong&gt;</ept></source>
+          <target state="new">In the <bpt id="d8a98738-3084-4ca0-bbdf-32bafc8a2d78">&lt;strong&gt;</bpt>certificates<ept id="d8a98738-3084-4ca0-bbdf-32bafc8a2d78">&lt;/strong&gt;</ept> section, click <bpt id="f5887f4d-fde5-4eb4-b2a1-d4c52a6164e5">&lt;strong&gt;</bpt>Upload<ept id="f5887f4d-fde5-4eb4-b2a1-d4c52a6164e5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65516574-aca6-4e35-8223-3690b4e6a82f" xml:space="preserve">
+          <source>Using the <bpt id="666b34fc-4d12-4148-8225-39c9099f5d33">&lt;strong&gt;</bpt>Upload a certificate<ept id="666b34fc-4d12-4148-8225-39c9099f5d33">&lt;/strong&gt;</ept> dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL.</source>
+          <target state="new">Using the <bpt id="666b34fc-4d12-4148-8225-39c9099f5d33">&lt;strong&gt;</bpt>Upload a certificate<ept id="666b34fc-4d12-4148-8225-39c9099f5d33">&lt;/strong&gt;</ept> dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL.</target>
+        </trans-unit>
+        <trans-unit id="4e025d4c-4cd9-4928-b1a4-8e1eca058892" xml:space="preserve">
+          <source>Specify the password, if any, that was used to secure the .pfx file.</source>
+          <target state="new">Specify the password, if any, that was used to secure the .pfx file.</target>
+        </trans-unit>
+        <trans-unit id="d8b657a9-2eb7-4b30-a165-9035402da0a5" xml:space="preserve">
+          <source>Finally, click the <bpt id="6f8fc5b6-29cd-4430-a408-0c5ca8b17c19">&lt;strong&gt;</bpt>Save<ept id="6f8fc5b6-29cd-4430-a408-0c5ca8b17c19">&lt;/strong&gt;</ept> to upload the certificate.</source>
+          <target state="new">Finally, click the <bpt id="6f8fc5b6-29cd-4430-a408-0c5ca8b17c19">&lt;strong&gt;</bpt>Save<ept id="6f8fc5b6-29cd-4430-a408-0c5ca8b17c19">&lt;/strong&gt;</ept> to upload the certificate.</target>
+        </trans-unit>
+        <trans-unit id="29917f65-7fc9-4815-8927-71933e77fc56" xml:space="preserve">
+          <source><bpt id="69eb398b-43bc-4c86-9a16-63c97ba31450">&lt;linkText&gt;</bpt>ssl upload<ept id="69eb398b-43bc-4c86-9a16-63c97ba31450">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="69eb398b-43bc-4c86-9a16-63c97ba31450">&lt;linkText&gt;</bpt>ssl upload<ept id="69eb398b-43bc-4c86-9a16-63c97ba31450">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc7ce515-5359-481c-9692-07648fd59517" xml:space="preserve">
+          <source>In the <bpt id="d489a0d4-0e2f-4a5b-8523-e5bb78f26706">&lt;strong&gt;</bpt>ssl bindings<ept id="d489a0d4-0e2f-4a5b-8523-e5bb78f26706">&lt;/strong&gt;</ept> section of the <bpt id="7d4e6ed8-ceb6-4c5f-8291-3696ccfcdddc">&lt;strong&gt;</bpt>SSL Settings<ept id="7d4e6ed8-ceb6-4c5f-8291-3696ccfcdddc">&lt;/strong&gt;</ept> tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use.</source>
+          <target state="new">In the <bpt id="d489a0d4-0e2f-4a5b-8523-e5bb78f26706">&lt;strong&gt;</bpt>ssl bindings<ept id="d489a0d4-0e2f-4a5b-8523-e5bb78f26706">&lt;/strong&gt;</ept> section of the <bpt id="7d4e6ed8-ceb6-4c5f-8291-3696ccfcdddc">&lt;strong&gt;</bpt>SSL Settings<ept id="7d4e6ed8-ceb6-4c5f-8291-3696ccfcdddc">&lt;/strong&gt;</ept> tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use.</target>
+        </trans-unit>
+        <trans-unit id="3a02beaa-020c-4e08-b381-33fcfc5339fc" xml:space="preserve">
+          <source>You may also select whether to use <bpt id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;linkText&gt;</bpt>Server Name Indication[sni]<ept id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;/linkText&gt;</ept><bpt id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;title&gt;</bpt><ept id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;/title&gt;</ept> (SNI) or IP based SSL.</source>
+          <target state="new">You may also select whether to use <bpt id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;linkText&gt;</bpt>Server Name Indication[sni]<ept id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;/linkText&gt;</ept><bpt id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;title&gt;</bpt><ept id="3061670f-c1ee-4b67-8ca7-8ad02323d890">&lt;/title&gt;</ept> (SNI) or IP based SSL.</target>
+        </trans-unit>
+        <trans-unit id="0683f8b0-a91c-464a-8f78-e07a77bdfd69" xml:space="preserve">
+          <source><bpt id="1af6fb61-c178-4acd-8f9d-5b030144bd11">&lt;linkText&gt;</bpt>ssl bindings<ept id="1af6fb61-c178-4acd-8f9d-5b030144bd11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1af6fb61-c178-4acd-8f9d-5b030144bd11">&lt;linkText&gt;</bpt>ssl bindings<ept id="1af6fb61-c178-4acd-8f9d-5b030144bd11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d15ab430-2186-45c3-ba1a-00d3f74b4f89" xml:space="preserve">
+          <source>IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name.</source>
+          <target state="new">IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name.</target>
+        </trans-unit>
+        <trans-unit id="0ce3a06b-347b-47f0-b5c0-35309b4d6d5b" xml:space="preserve">
+          <source>This requires each domain name (contoso.com, fabricam.com, etc.)</source>
+          <target state="new">This requires each domain name (contoso.com, fabricam.com, etc.)</target>
+        </trans-unit>
+        <trans-unit id="72795d02-a779-495b-a222-9e82d8452515" xml:space="preserve">
+          <source>associated with your service to have a dedicated IP address.</source>
+          <target state="new">associated with your service to have a dedicated IP address.</target>
+        </trans-unit>
+        <trans-unit id="25795ff1-22ec-44d7-ab55-c6be35a982d8" xml:space="preserve">
+          <source>This is the traditional method of associating SSL certificates with a web server.</source>
+          <target state="new">This is the traditional method of associating SSL certificates with a web server.</target>
+        </trans-unit>
+        <trans-unit id="e4c99493-5513-49f8-863e-91e03767cfdf" xml:space="preserve">
+          <source>SNI based SSL is an extension to SSL and <bpt id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;linkText&gt;</bpt>Transport Layer Security[tls]<ept id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;/linkText&gt;</ept><bpt id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;title&gt;</bpt><ept id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;/title&gt;</ept> (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain.</source>
+          <target state="new">SNI based SSL is an extension to SSL and <bpt id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;linkText&gt;</bpt>Transport Layer Security[tls]<ept id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;/linkText&gt;</ept><bpt id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;title&gt;</bpt><ept id="cfbba369-1fe2-431f-bb52-3d6a60d2034e">&lt;/title&gt;</ept> (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain.</target>
+        </trans-unit>
+        <trans-unit id="9949ecaf-2b10-4317-ad0b-02287bbc5524" xml:space="preserve">
+          <source>Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI.</source>
+          <target state="new">Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI.</target>
+        </trans-unit>
+        <trans-unit id="4bba6690-374f-4601-9abd-c635a7c3d5e9" xml:space="preserve">
+          <source>For more information on SNI, see the <bpt id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;linkText&gt;</bpt>Server Name Indication[sni]<ept id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;/linkText&gt;</ept><bpt id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;title&gt;</bpt><ept id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;/title&gt;</ept> article on Wikipedia.</source>
+          <target state="new">For more information on SNI, see the <bpt id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;linkText&gt;</bpt>Server Name Indication[sni]<ept id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;/linkText&gt;</ept><bpt id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;title&gt;</bpt><ept id="d669b80d-3ffd-4974-b782-df5917c7a61d">&lt;/title&gt;</ept> article on Wikipedia.</target>
+        </trans-unit>
+        <trans-unit id="0428625c-1981-4044-b8eb-e22b1bbc75b5" xml:space="preserve">
+          <source>Click <bpt id="a79ce801-27a7-4010-8780-abafaca7c5ce">&lt;strong&gt;</bpt>Save<ept id="a79ce801-27a7-4010-8780-abafaca7c5ce">&lt;/strong&gt;</ept> to save the changes and enable SSL.</source>
+          <target state="new">Click <bpt id="a79ce801-27a7-4010-8780-abafaca7c5ce">&lt;strong&gt;</bpt>Save<ept id="a79ce801-27a7-4010-8780-abafaca7c5ce">&lt;/strong&gt;</ept> to save the changes and enable SSL.</target>
+        </trans-unit>
+        <trans-unit id="8c3f3562-75a1-40dc-9d91-0e94fb63a68e" xml:space="preserve">
+          <source>If you selected <bpt id="8ae2e302-26f8-40e2-9993-0ca5fa733644">&lt;strong&gt;</bpt>IP based SSL<ept id="8ae2e302-26f8-40e2-9993-0ca5fa733644">&lt;/strong&gt;</ept> and your custom domain is configured using an A record, you must perform the following additional steps:</source>
+          <target state="new">If you selected <bpt id="8ae2e302-26f8-40e2-9993-0ca5fa733644">&lt;strong&gt;</bpt>IP based SSL<ept id="8ae2e302-26f8-40e2-9993-0ca5fa733644">&lt;/strong&gt;</ept> and your custom domain is configured using an A record, you must perform the following additional steps:</target>
+        </trans-unit>
+        <trans-unit id="d8ecdb4f-cb20-4fa3-9e86-2897211baf88" xml:space="preserve">
+          <source>After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web app.</source>
+          <target state="new">After you have configured an IP based SSL binding, a dedicated IP address is assigned to your web app.</target>
+        </trans-unit>
+        <trans-unit id="87fa6b5e-3f32-496e-a5e4-0e2788cbd1b7" xml:space="preserve">
+          <source>You can find this IP address on the <bpt id="4b5f8f09-40f5-4e06-ae25-f891b0aef9ec">&lt;strong&gt;</bpt>Dashboard<ept id="4b5f8f09-40f5-4e06-ae25-f891b0aef9ec">&lt;/strong&gt;</ept> page of your web app, in the <bpt id="799a69ec-59b5-4362-9dad-f9f349cb9bf1">&lt;strong&gt;</bpt>quick glance<ept id="799a69ec-59b5-4362-9dad-f9f349cb9bf1">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">You can find this IP address on the <bpt id="4b5f8f09-40f5-4e06-ae25-f891b0aef9ec">&lt;strong&gt;</bpt>Dashboard<ept id="4b5f8f09-40f5-4e06-ae25-f891b0aef9ec">&lt;/strong&gt;</ept> page of your web app, in the <bpt id="799a69ec-59b5-4362-9dad-f9f349cb9bf1">&lt;strong&gt;</bpt>quick glance<ept id="799a69ec-59b5-4362-9dad-f9f349cb9bf1">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="4b485f9c-a629-4fe0-98d2-a06e14507da9" xml:space="preserve">
+          <source>It will be listed as <bpt id="5cdac831-c299-47fd-8b19-0af471ebe078">&lt;strong&gt;</bpt>Virtual IP Address<ept id="5cdac831-c299-47fd-8b19-0af471ebe078">&lt;/strong&gt;</ept>:</source>
+          <target state="new">It will be listed as <bpt id="5cdac831-c299-47fd-8b19-0af471ebe078">&lt;strong&gt;</bpt>Virtual IP Address<ept id="5cdac831-c299-47fd-8b19-0af471ebe078">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="eb64fa83-3644-420c-8579-f3183a6900b3" xml:space="preserve">
+          <source><bpt id="a1217815-ae86-46fe-a8d6-0a6580e2a34f">&lt;linkText&gt;</bpt>Virtual IP address<ept id="a1217815-ae86-46fe-a8d6-0a6580e2a34f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1217815-ae86-46fe-a8d6-0a6580e2a34f">&lt;linkText&gt;</bpt>Virtual IP address<ept id="a1217815-ae86-46fe-a8d6-0a6580e2a34f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecad5db7-d681-42f4-9059-0fc5cea75afb" xml:space="preserve">
+          <source>Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</source>
+          <target state="new">Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain.</target>
+        </trans-unit>
+        <trans-unit id="c909824d-f553-49ce-aa3f-4bd0aa8567aa" xml:space="preserve">
+          <source>If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</source>
+          <target state="new">If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.</target>
+        </trans-unit>
+        <trans-unit id="42c5b582-2d9f-45a4-a1d7-619d70902675" xml:space="preserve">
+          <source>Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.</source>
+          <target state="new">Using the tools provided by your domain name registrar, modify the A record for your custom domain name to point to the IP address from the previous step.</target>
+        </trans-unit>
+        <trans-unit id="bef9b8c1-d685-4eea-848d-ea33c4407d0a" xml:space="preserve">
+          <source>At this point, you should be able to visit your web app using <bpt id="038e7e4b-9ba2-4898-8cfc-190f29902590">&lt;code&gt;</bpt>HTTPS://<ept id="038e7e4b-9ba2-4898-8cfc-190f29902590">&lt;/code&gt;</ept> instead of <bpt id="cb7a4346-ebe4-4769-a64a-aff389067c1f">&lt;code&gt;</bpt>HTTP://<ept id="cb7a4346-ebe4-4769-a64a-aff389067c1f">&lt;/code&gt;</ept> to verify that the certificate has been configured correctly.</source>
+          <target state="new">At this point, you should be able to visit your web app using <bpt id="038e7e4b-9ba2-4898-8cfc-190f29902590">&lt;code&gt;</bpt>HTTPS://<ept id="038e7e4b-9ba2-4898-8cfc-190f29902590">&lt;/code&gt;</ept> instead of <bpt id="cb7a4346-ebe4-4769-a64a-aff389067c1f">&lt;code&gt;</bpt>HTTP://<ept id="cb7a4346-ebe4-4769-a64a-aff389067c1f">&lt;/code&gt;</ept> to verify that the certificate has been configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="ee4b1f21-cd3b-4a8b-94b9-d2098f68fa2e" xml:space="preserve">
+          <source>Azure App Service do <bpt id="1e0243e3-db64-4be6-be88-050094cb0fe6">&lt;em&gt;</bpt>not<ept id="1e0243e3-db64-4be6-be88-050094cb0fe6">&lt;/em&gt;</ept> enforce HTTPS.</source>
+          <target state="new">Azure App Service do <bpt id="1e0243e3-db64-4be6-be88-050094cb0fe6">&lt;em&gt;</bpt>not<ept id="1e0243e3-db64-4be6-be88-050094cb0fe6">&lt;/em&gt;</ept> enforce HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="9a1bcc33-ad07-4421-865f-2f08e4b17d8a" xml:space="preserve">
+          <source>Visitors may still access your web app using HTTP, which may compromise your web app's security.</source>
+          <target state="new">Visitors may still access your web app using HTTP, which may compromise your web app's security.</target>
+        </trans-unit>
+        <trans-unit id="48d0f210-4eff-4089-915d-1f94906e8d31" xml:space="preserve">
+          <source>If you want to enforce HTTPS for your web app, you can use the <bpt id="ea60630b-175b-41c8-a01e-895ede142e8c">&lt;strong&gt;</bpt>URL Rewrite<ept id="ea60630b-175b-41c8-a01e-895ede142e8c">&lt;/strong&gt;</ept> module.</source>
+          <target state="new">If you want to enforce HTTPS for your web app, you can use the <bpt id="ea60630b-175b-41c8-a01e-895ede142e8c">&lt;strong&gt;</bpt>URL Rewrite<ept id="ea60630b-175b-41c8-a01e-895ede142e8c">&lt;/strong&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="8b2a4c02-4e22-46da-85d2-5b6489f056ff" xml:space="preserve">
+          <source>The URL Rewrite module is included with Azure App Service, and enables you to define rules that are applied to incoming requests before the requests are handed to your application.</source>
+          <target state="new">The URL Rewrite module is included with Azure App Service, and enables you to define rules that are applied to incoming requests before the requests are handed to your application.</target>
+        </trans-unit>
+        <trans-unit id="ef573b55-1bc6-453a-8324-a61742029dd8" xml:space="preserve">
+          <source><bpt id="c3ab560f-5bfd-4df2-94ff-5dc57a3a663d">&lt;strong&gt;</bpt>It can be used for applications written in any programming language supported by Azure .<ept id="c3ab560f-5bfd-4df2-94ff-5dc57a3a663d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c3ab560f-5bfd-4df2-94ff-5dc57a3a663d">&lt;strong&gt;</bpt>It can be used for applications written in any programming language supported by Azure .<ept id="c3ab560f-5bfd-4df2-94ff-5dc57a3a663d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd2edc72-a691-4958-80ef-cd2c0916f4c3" xml:space="preserve">
+          <source>.NET MVC applications should use the <bpt id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;linkText&gt;</bpt>RequireHttps<ept id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;/linkText&gt;</ept><bpt id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;title&gt;</bpt><ept id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;/title&gt;</ept> filter instead of URL Rewrite.</source>
+          <target state="new">.NET MVC applications should use the <bpt id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;linkText&gt;</bpt>RequireHttps<ept id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;/linkText&gt;</ept><bpt id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;title&gt;</bpt><ept id="7e4629e0-424e-4159-ac63-4fbb89d67de8">&lt;/title&gt;</ept> filter instead of URL Rewrite.</target>
+        </trans-unit>
+        <trans-unit id="616931dd-d16c-4fd8-be10-685b678976c9" xml:space="preserve">
+          <source>For more information on using RequireHttps, see <bpt id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;linkText&gt;</bpt>Deploy a secure ASP.NET MVC 5 app to a web app<ept id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;/linkText&gt;</ept><bpt id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;title&gt;</bpt><ept id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using RequireHttps, see <bpt id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;linkText&gt;</bpt>Deploy a secure ASP.NET MVC 5 app to a web app<ept id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;/linkText&gt;</ept><bpt id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;title&gt;</bpt><ept id="d7475b3a-2e07-4d53-ae23-fc08eeab8c75">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f07c3e2d-223d-4860-9db2-b4f217b67d66" xml:space="preserve">
+          <source>For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.</source>
+          <target state="new">For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.</target>
+        </trans-unit>
+        <trans-unit id="7db7cf16-6157-4e38-b279-f6d538c2a25f" xml:space="preserve">
+          <source>URL Rewrite rules are defined in a <bpt id="c36a3fbf-7954-4ae2-90ac-55316cf2e9a2">&lt;strong&gt;</bpt>web.config<ept id="c36a3fbf-7954-4ae2-90ac-55316cf2e9a2">&lt;/strong&gt;</ept> file stored in the root of your application.</source>
+          <target state="new">URL Rewrite rules are defined in a <bpt id="c36a3fbf-7954-4ae2-90ac-55316cf2e9a2">&lt;strong&gt;</bpt>web.config<ept id="c36a3fbf-7954-4ae2-90ac-55316cf2e9a2">&lt;/strong&gt;</ept> file stored in the root of your application.</target>
+        </trans-unit>
+        <trans-unit id="815c8b10-0dba-4fc6-9d82-0c51af37e8ec" xml:space="preserve">
+          <source>The following example contains a basic URL Rewrite rule that forces all incoming traffic to use HTTPS.</source>
+          <target state="new">The following example contains a basic URL Rewrite rule that forces all incoming traffic to use HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="e4dcf956-5540-4dd3-9ccb-9ae4fe4cbff2" xml:space="preserve">
+          <source><bpt id="958e08da-f968-4d55-9691-1591e6f7c827">&lt;bookmark&gt;</bpt><ept id="958e08da-f968-4d55-9691-1591e6f7c827">&lt;/bookmark&gt;</ept><bpt id="ac33d0e8-5f98-45b3-b1a1-aa1fc1c5d00e">&lt;strong&gt;</bpt>URL Rewrite Example Web.Config<ept id="ac33d0e8-5f98-45b3-b1a1-aa1fc1c5d00e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="958e08da-f968-4d55-9691-1591e6f7c827">&lt;bookmark&gt;</bpt><ept id="958e08da-f968-4d55-9691-1591e6f7c827">&lt;/bookmark&gt;</ept><bpt id="ac33d0e8-5f98-45b3-b1a1-aa1fc1c5d00e">&lt;strong&gt;</bpt>URL Rewrite Example Web.Config<ept id="ac33d0e8-5f98-45b3-b1a1-aa1fc1c5d00e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9bb4dc2-bb8a-4906-8436-5a24ff08946b" xml:space="preserve">
+          <source>This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP.</source>
+          <target state="new">This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP.</target>
+        </trans-unit>
+        <trans-unit id="31c27258-3035-42bf-8ba9-8ba4a8322b83" xml:space="preserve">
+          <source>The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS.</source>
+          <target state="new">The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="57d01a46-dd8d-4bd3-98ab-bb27e65a8215" xml:space="preserve">
+          <source>For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com.</source>
+          <target state="new">For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="5706e0d1-1af4-43b0-a8a7-36ba44d1bb92" xml:space="preserve">
+          <source>If your application is written in  <bpt id="a9109334-3ef5-4bcd-b8e8-9a0b1eb2bc43">&lt;strong&gt;</bpt>Node.js<ept id="a9109334-3ef5-4bcd-b8e8-9a0b1eb2bc43">&lt;/strong&gt;</ept>, <bpt id="d97e70e4-82cf-4dad-9289-2546f8e5d476">&lt;strong&gt;</bpt>PHP<ept id="d97e70e4-82cf-4dad-9289-2546f8e5d476">&lt;/strong&gt;</ept>, <bpt id="c8d9aa0a-56ae-4c89-bec3-585d09d77de6">&lt;strong&gt;</bpt>Python Django<ept id="c8d9aa0a-56ae-4c89-bec3-585d09d77de6">&lt;/strong&gt;</ept>, or <bpt id="efaf2c42-ff09-483b-9d9b-37f5e6c9f75a">&lt;strong&gt;</bpt>Java<ept id="efaf2c42-ff09-483b-9d9b-37f5e6c9f75a">&lt;/strong&gt;</ept>, it probably doesn't include a web.config file.</source>
+          <target state="new">If your application is written in  <bpt id="a9109334-3ef5-4bcd-b8e8-9a0b1eb2bc43">&lt;strong&gt;</bpt>Node.js<ept id="a9109334-3ef5-4bcd-b8e8-9a0b1eb2bc43">&lt;/strong&gt;</ept>, <bpt id="d97e70e4-82cf-4dad-9289-2546f8e5d476">&lt;strong&gt;</bpt>PHP<ept id="d97e70e4-82cf-4dad-9289-2546f8e5d476">&lt;/strong&gt;</ept>, <bpt id="c8d9aa0a-56ae-4c89-bec3-585d09d77de6">&lt;strong&gt;</bpt>Python Django<ept id="c8d9aa0a-56ae-4c89-bec3-585d09d77de6">&lt;/strong&gt;</ept>, or <bpt id="efaf2c42-ff09-483b-9d9b-37f5e6c9f75a">&lt;strong&gt;</bpt>Java<ept id="efaf2c42-ff09-483b-9d9b-37f5e6c9f75a">&lt;/strong&gt;</ept>, it probably doesn't include a web.config file.</target>
+        </trans-unit>
+        <trans-unit id="df0d94fb-a95e-4f8c-b01d-aaa6db9bec3e" xml:space="preserve">
+          <source>However <bpt id="0c390605-b16d-4da8-a16e-fb31960496ad">&lt;strong&gt;</bpt>Node.js<ept id="0c390605-b16d-4da8-a16e-fb31960496ad">&lt;/strong&gt;</ept>, <bpt id="4a572489-546b-4b7e-afe0-0bc7ba91e5e3">&lt;strong&gt;</bpt>Python Django<ept id="4a572489-546b-4b7e-afe0-0bc7ba91e5e3">&lt;/strong&gt;</ept>, and <bpt id="036b0235-4fe0-4331-8853-e57e2c440cb1">&lt;strong&gt;</bpt>Java<ept id="036b0235-4fe0-4331-8853-e57e2c440cb1">&lt;/strong&gt;</ept> all actually do use a web.config when hosted on Azure App Service- Azure creates the file automatically during deployment, so you never see it.</source>
+          <target state="new">However <bpt id="0c390605-b16d-4da8-a16e-fb31960496ad">&lt;strong&gt;</bpt>Node.js<ept id="0c390605-b16d-4da8-a16e-fb31960496ad">&lt;/strong&gt;</ept>, <bpt id="4a572489-546b-4b7e-afe0-0bc7ba91e5e3">&lt;strong&gt;</bpt>Python Django<ept id="4a572489-546b-4b7e-afe0-0bc7ba91e5e3">&lt;/strong&gt;</ept>, and <bpt id="036b0235-4fe0-4331-8853-e57e2c440cb1">&lt;strong&gt;</bpt>Java<ept id="036b0235-4fe0-4331-8853-e57e2c440cb1">&lt;/strong&gt;</ept> all actually do use a web.config when hosted on Azure App Service- Azure creates the file automatically during deployment, so you never see it.</target>
+        </trans-unit>
+        <trans-unit id="ea6c673f-5ab6-4922-b4dc-16c5fa08e01b" xml:space="preserve">
+          <source>If you include one as part of your application, it will override the one that Azure automatically generates.</source>
+          <target state="new">If you include one as part of your application, it will override the one that Azure automatically generates.</target>
+        </trans-unit>
+        <trans-unit id="1e2f0c45-a235-40a3-9e8b-d5e4d6811da2" xml:space="preserve">
+          <source>For .NET applications, modify the web.config file for your application and add the <bpt id="efe18997-1672-4655-9c27-d84644bbead2">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="efe18997-1672-4655-9c27-d84644bbead2">&lt;/strong&gt;</ept> section from the <bpt id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;linkText&gt;</bpt>example<ept id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;/linkText&gt;</ept><bpt id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;title&gt;</bpt><ept id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;/title&gt;</ept> to the <bpt id="a8df6173-1618-46ba-9f3b-1134f7dba7bb">&lt;strong&gt;</bpt>&amp;lt;system.WebServer&gt;<ept id="a8df6173-1618-46ba-9f3b-1134f7dba7bb">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">For .NET applications, modify the web.config file for your application and add the <bpt id="efe18997-1672-4655-9c27-d84644bbead2">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="efe18997-1672-4655-9c27-d84644bbead2">&lt;/strong&gt;</ept> section from the <bpt id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;linkText&gt;</bpt>example<ept id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;/linkText&gt;</ept><bpt id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;title&gt;</bpt><ept id="0cc5f277-2bf1-4e1a-9c04-354a71c1a1a5">&lt;/title&gt;</ept> to the <bpt id="a8df6173-1618-46ba-9f3b-1134f7dba7bb">&lt;strong&gt;</bpt>&amp;lt;system.WebServer&gt;<ept id="a8df6173-1618-46ba-9f3b-1134f7dba7bb">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="df838d02-9296-4679-a9de-dcaacc3739af" xml:space="preserve">
+          <source>If your web.config file already includes a <bpt id="1d28b535-c645-403e-9962-f58ad1bd3154">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="1d28b535-c645-403e-9962-f58ad1bd3154">&lt;/strong&gt;</ept> section, add the <bpt id="aa891758-88dd-4f73-813f-a74478de5055">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="aa891758-88dd-4f73-813f-a74478de5055">&lt;/strong&gt;</ept> from the <bpt id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;linkText&gt;</bpt>example<ept id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;/linkText&gt;</ept><bpt id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;title&gt;</bpt><ept id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;/title&gt;</ept> as the first entry in the <bpt id="b5099091-e2ac-4b5a-8a15-346f85bea7b0">&lt;strong&gt;</bpt>&amp;lt;rules&gt;<ept id="b5099091-e2ac-4b5a-8a15-346f85bea7b0">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">If your web.config file already includes a <bpt id="1d28b535-c645-403e-9962-f58ad1bd3154">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="1d28b535-c645-403e-9962-f58ad1bd3154">&lt;/strong&gt;</ept> section, add the <bpt id="aa891758-88dd-4f73-813f-a74478de5055">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="aa891758-88dd-4f73-813f-a74478de5055">&lt;/strong&gt;</ept> from the <bpt id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;linkText&gt;</bpt>example<ept id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;/linkText&gt;</ept><bpt id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;title&gt;</bpt><ept id="80dc4319-e3ca-4784-b0ee-73886ff03e66">&lt;/title&gt;</ept> as the first entry in the <bpt id="b5099091-e2ac-4b5a-8a15-346f85bea7b0">&lt;strong&gt;</bpt>&amp;lt;rules&gt;<ept id="b5099091-e2ac-4b5a-8a15-346f85bea7b0">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="3a7cb15d-66b6-451d-9c77-55082840b971" xml:space="preserve">
+          <source>For PHP applications, simply save the <bpt id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;linkText&gt;</bpt>example<ept id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;/linkText&gt;</ept><bpt id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;title&gt;</bpt><ept id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;/title&gt;</ept> as a web.config file in the root of your application, then re-deploy the application to your web app.</source>
+          <target state="new">For PHP applications, simply save the <bpt id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;linkText&gt;</bpt>example<ept id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;/linkText&gt;</ept><bpt id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;title&gt;</bpt><ept id="6a3e83e4-2aaa-4604-a968-5183ed3caab8">&lt;/title&gt;</ept> as a web.config file in the root of your application, then re-deploy the application to your web app.</target>
+        </trans-unit>
+        <trans-unit id="568d559e-957b-4ab5-a6f9-da3ccc3af648" xml:space="preserve">
+          <source>A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment.</source>
+          <target state="new">A web.config file is automatically created for Node.js, Python Django, and Java apps if they don't already provide one, but it only exists on the server since it is created during deployment.</target>
+        </trans-unit>
+        <trans-unit id="bd298894-c0d3-4178-8fd5-64ec7438147e" xml:space="preserve">
+          <source>The automatically generated file contains settings that tell Azure how to host your application.</source>
+          <target state="new">The automatically generated file contains settings that tell Azure how to host your application.</target>
+        </trans-unit>
+        <trans-unit id="5b911517-8403-4025-9bf9-98de5b7c7241" xml:space="preserve">
+          <source>To retrieve and modify the auto-generated file from the web app, use the following steps.</source>
+          <target state="new">To retrieve and modify the auto-generated file from the web app, use the following steps.</target>
+        </trans-unit>
+        <trans-unit id="4e44d77d-b023-4b7d-8636-d43e35b3b1f0" xml:space="preserve">
+          <source>Download the file using FTP (see <bpt id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;linkText&gt;</bpt>Uploading/downloading files over FTP and collecting diagnostics logs<ept id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;/linkText&gt;</ept><bpt id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;title&gt;</bpt><ept id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;/title&gt;</ept>).</source>
+          <target state="new">Download the file using FTP (see <bpt id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;linkText&gt;</bpt>Uploading/downloading files over FTP and collecting diagnostics logs<ept id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;/linkText&gt;</ept><bpt id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;title&gt;</bpt><ept id="17fed647-ccd6-4070-b979-d0cee2f03714">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="be80f0a1-016c-450b-8ece-c14aba808e7e" xml:space="preserve">
+          <source>Add it to the root of your application.</source>
+          <target state="new">Add it to the root of your application.</target>
+        </trans-unit>
+        <trans-unit id="713174a5-8b5d-4e71-853d-aff07bbcae67" xml:space="preserve">
+          <source>Add the rewrite rules using the following information.</source>
+          <target state="new">Add the rewrite rules using the following information.</target>
+        </trans-unit>
+        <trans-unit id="ef512d3c-517f-4d19-8a4d-8ee55c98d1ea" xml:space="preserve">
+          <source><bpt id="676e3a1a-e055-4b1b-9c97-6ac24b86e132">&lt;strong&gt;</bpt>Node.js and Python Django<ept id="676e3a1a-e055-4b1b-9c97-6ac24b86e132">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="676e3a1a-e055-4b1b-9c97-6ac24b86e132">&lt;strong&gt;</bpt>Node.js and Python Django<ept id="676e3a1a-e055-4b1b-9c97-6ac24b86e132">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="751faec5-3455-4f93-9fb3-916a38922d2f" xml:space="preserve">
+          <source>The web.config file generated for Node.js and Python Django applications will already have a <bpt id="f954800d-6736-4519-9dac-f71ffef3d7b9">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="f954800d-6736-4519-9dac-f71ffef3d7b9">&lt;/strong&gt;</ept> section, containing <bpt id="e5e7e592-d361-4ec1-b12b-fe1fa35bf772">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="e5e7e592-d361-4ec1-b12b-fe1fa35bf772">&lt;/strong&gt;</ept> entries that are required for the proper functioning of the site.</source>
+          <target state="new">The web.config file generated for Node.js and Python Django applications will already have a <bpt id="f954800d-6736-4519-9dac-f71ffef3d7b9">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="f954800d-6736-4519-9dac-f71ffef3d7b9">&lt;/strong&gt;</ept> section, containing <bpt id="e5e7e592-d361-4ec1-b12b-fe1fa35bf772">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="e5e7e592-d361-4ec1-b12b-fe1fa35bf772">&lt;/strong&gt;</ept> entries that are required for the proper functioning of the site.</target>
+        </trans-unit>
+        <trans-unit id="3e14999e-98fe-47c1-8b82-384a5c089c3b" xml:space="preserve">
+          <source>To force the site to use HTTPS, add the <bpt id="a94378d5-6c48-43d3-b0f0-d4f8f755116f">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="a94378d5-6c48-43d3-b0f0-d4f8f755116f">&lt;/strong&gt;</ept> from the example as the first entry in the <bpt id="85439ccd-5634-42b2-9d4a-d7f589fead9f">&lt;strong&gt;</bpt>&amp;lt;rules&gt;<ept id="85439ccd-5634-42b2-9d4a-d7f589fead9f">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">To force the site to use HTTPS, add the <bpt id="a94378d5-6c48-43d3-b0f0-d4f8f755116f">&lt;strong&gt;</bpt>&amp;lt;rule&gt;<ept id="a94378d5-6c48-43d3-b0f0-d4f8f755116f">&lt;/strong&gt;</ept> from the example as the first entry in the <bpt id="85439ccd-5634-42b2-9d4a-d7f589fead9f">&lt;strong&gt;</bpt>&amp;lt;rules&gt;<ept id="85439ccd-5634-42b2-9d4a-d7f589fead9f">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="9deb6d8e-4df9-4039-bc1b-6febf1f819c2" xml:space="preserve">
+          <source>This will force HTTPS, while leaving the rest of the rules intact.</source>
+          <target state="new">This will force HTTPS, while leaving the rest of the rules intact.</target>
+        </trans-unit>
+        <trans-unit id="1bf6977d-d371-40f4-9aa2-8adc5d88199e" xml:space="preserve">
+          <source><bpt id="ce18df09-aeda-4f33-9a24-9b2013f0705a">&lt;strong&gt;</bpt>Java<ept id="ce18df09-aeda-4f33-9a24-9b2013f0705a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce18df09-aeda-4f33-9a24-9b2013f0705a">&lt;strong&gt;</bpt>Java<ept id="ce18df09-aeda-4f33-9a24-9b2013f0705a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d437c49-384a-4338-bdaf-65c589a12ca0" xml:space="preserve">
+          <source>The web.config file for Java applications using Apache Tomcat do not contain a <bpt id="7988fde4-8003-4f97-9849-2f46cb491285">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="7988fde4-8003-4f97-9849-2f46cb491285">&lt;/strong&gt;</ept> section, so you must add the <bpt id="a7d5c57e-a5a1-4db0-a52c-c31facc5c85b">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="a7d5c57e-a5a1-4db0-a52c-c31facc5c85b">&lt;/strong&gt;</ept> section from the example into the <bpt id="465db8f6-9794-4b91-bad2-62a33e1c2853">&lt;strong&gt;</bpt>&amp;lt;system.webServer&gt;<ept id="465db8f6-9794-4b91-bad2-62a33e1c2853">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">The web.config file for Java applications using Apache Tomcat do not contain a <bpt id="7988fde4-8003-4f97-9849-2f46cb491285">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="7988fde4-8003-4f97-9849-2f46cb491285">&lt;/strong&gt;</ept> section, so you must add the <bpt id="a7d5c57e-a5a1-4db0-a52c-c31facc5c85b">&lt;strong&gt;</bpt>&amp;lt;rewrite&gt;<ept id="a7d5c57e-a5a1-4db0-a52c-c31facc5c85b">&lt;/strong&gt;</ept> section from the example into the <bpt id="465db8f6-9794-4b91-bad2-62a33e1c2853">&lt;strong&gt;</bpt>&amp;lt;system.webServer&gt;<ept id="465db8f6-9794-4b91-bad2-62a33e1c2853">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="59e53c30-7e7f-4944-8c6b-fb3a556a6091" xml:space="preserve">
+          <source>Redeploy the project (including the updated web.config,) to Azure</source>
+          <target state="new">Redeploy the project (including the updated web.config,) to Azure</target>
+        </trans-unit>
+        <trans-unit id="8792609c-c654-4577-86aa-8cba44b6840d" xml:space="preserve">
+          <source>Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.</source>
+          <target state="new">Once you deploy a web.config with a rewrite rule to force HTTPS, it should take effect immediately and redirect all requests to HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="65ba5a1d-80d8-48a5-bfd0-0e6cfaac3635" xml:space="preserve">
+          <source>For more information on the IIS URL Rewrite module, see the <bpt id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;linkText&gt;</bpt>URL Rewrite<ept id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;/linkText&gt;</ept><bpt id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;title&gt;</bpt><ept id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;/title&gt;</ept> documentation.</source>
+          <target state="new">For more information on the IIS URL Rewrite module, see the <bpt id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;linkText&gt;</bpt>URL Rewrite<ept id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;/linkText&gt;</ept><bpt id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;title&gt;</bpt><ept id="10956aac-0e2c-4840-bd84-ae295dcae728">&lt;/title&gt;</ept> documentation.</target>
+        </trans-unit>
+        <trans-unit id="c7f14e15-47ce-47ef-9e04-b0012ba7ae7e" xml:space="preserve">
+          <source><bpt id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;/linkText&gt;</ept><bpt id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;title&gt;</bpt><ept id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;/linkText&gt;</ept><bpt id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;title&gt;</bpt><ept id="b1a33a94-0ade-4b2f-9bbb-16f92d3ef062">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="763b7779-59ff-4beb-b40f-c46222698cc4" xml:space="preserve">
+          <source><bpt id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;linkText&gt;</bpt>Configuration options unlocked in Azure Web Sites<ept id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;/linkText&gt;</ept><bpt id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;title&gt;</bpt><ept id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;linkText&gt;</bpt>Configuration options unlocked in Azure Web Sites<ept id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;/linkText&gt;</ept><bpt id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;title&gt;</bpt><ept id="0701d0cf-f272-4506-bb0a-1921a54a3144">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dc16dbe-2f8e-4b8f-8955-c2813c8a033b" xml:space="preserve">
+          <source><bpt id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;linkText&gt;</bpt>Enable diagnostic logging<ept id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;/linkText&gt;</ept><bpt id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;title&gt;</bpt><ept id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;linkText&gt;</bpt>Enable diagnostic logging<ept id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;/linkText&gt;</ept><bpt id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;title&gt;</bpt><ept id="d4741a84-d6c8-45dc-97bd-f128694c0977">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="216567ed-3fbd-4347-b52c-873f61398234" xml:space="preserve">
+          <source><bpt id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;linkText&gt;</bpt>Configuring Web Sites<ept id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;/linkText&gt;</ept><bpt id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;title&gt;</bpt><ept id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;linkText&gt;</bpt>Configuring Web Sites<ept id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;/linkText&gt;</ept><bpt id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;title&gt;</bpt><ept id="f57b5aba-2966-470e-a664-45e3194e7cbe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f130937a-52da-4ab5-b257-92342f14f15a" xml:space="preserve">
+          <source><bpt id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;/linkText&gt;</ept><bpt id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;title&gt;</bpt><ept id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;/linkText&gt;</ept><bpt id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;title&gt;</bpt><ept id="e167c12c-3ba0-4a21-9391-d61e1272a25f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d995aaf-9a53-4af9-8465-23e6bcf44bed" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;linkText&gt;</bpt>Try App Service<ept id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;/linkText&gt;</ept><bpt id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;title&gt;</bpt><ept id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;linkText&gt;</bpt>Try App Service<ept id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;/linkText&gt;</ept><bpt id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;title&gt;</bpt><ept id="2c3a050b-e282-4406-a1b0-cb6cdaa146cb">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="0be97387-029a-457d-a443-518aaa719f0c" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="6ad07d28-cdfe-408f-a7c1-b95b41fea870" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;/linkText&gt;</ept><bpt id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;title&gt;</bpt><ept id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;/linkText&gt;</ept><bpt id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;title&gt;</bpt><ept id="7094e779-e5d9-4a37-a282-479d5fa308c4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbde079d-0915-45df-9c30-952ed660b5a1" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;/linkText&gt;</ept><bpt id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;title&gt;</bpt><ept id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;/linkText&gt;</ept><bpt id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;title&gt;</bpt><ept id="57effd60-87bc-4fb6-bd8e-43c92e65141f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a296bf98-9292-4da2-a784-ae1bd2e63f23" xml:space="preserve">
+          <source>../articles/app-service-web/web-sites-custom-domain-name.md</source>
+          <target state="new">../articles/app-service-web/web-sites-custom-domain-name.md</target>
+        </trans-unit>
+        <trans-unit id="e11d193b-13f7-483b-9914-5bb6361b3f19" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/cc732906(WS.10).aspx</source>
+          <target state="new">http://technet.microsoft.com/library/cc732906(WS.10).aspx</target>
+        </trans-unit>
+        <trans-unit id="790fa5a4-a5a0-4e9d-9d15-ac9722b299e3" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=269988</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=269988</target>
+        </trans-unit>
+        <trans-unit id="3ce3a33a-6795-4a87-90bb-d5bd7d130e85" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/cc771816(WS.10).aspx</source>
+          <target state="new">http://technet.microsoft.com/library/cc771816(WS.10).aspx</target>
+        </trans-unit>
+        <trans-unit id="c5c0159e-bd73-4c76-b109-cb631a1af3d3" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/cc731386(WS.10).aspx</source>
+          <target state="new">http://technet.microsoft.com/library/cc731386(WS.10).aspx</target>
+        </trans-unit>
+        <trans-unit id="18a32a2c-2e8a-48ae-9aed-d9fae4a264be" xml:space="preserve">
+          <source>http://www.openssl.org/</source>
+          <target state="new">http://www.openssl.org/</target>
+        </trans-unit>
+        <trans-unit id="f66d644a-51cc-42bf-8b8a-7dcfbc31e528" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f090aedc-f7b7-4ddd-bfa0-edbaf847d5d7" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Transport_Layer_Security</source>
+          <target state="new">http://en.wikipedia.org/wiki/Transport_Layer_Security</target>
+        </trans-unit>
+        <trans-unit id="b38c43eb-6e60-4ae8-bef0-67be3f4ed3ea" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/staticip.png</source>
+          <target state="new">./media/configure-ssl-web-site/staticip.png</target>
+        </trans-unit>
+        <trans-unit id="4684856b-4928-402c-9eaa-8be902987fb8" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/sslwebsite.png</source>
+          <target state="new">./media/configure-ssl-web-site/sslwebsite.png</target>
+        </trans-unit>
+        <trans-unit id="d8594b8b-99f6-436f-9a49-b1ad97adf094" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/sslscale.png</source>
+          <target state="new">./media/configure-ssl-web-site/sslscale.png</target>
+        </trans-unit>
+        <trans-unit id="f9411a9a-6f76-41d5-ba1d-c725430618d6" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/sslreserved.png</source>
+          <target state="new">./media/configure-ssl-web-site/sslreserved.png</target>
+        </trans-unit>
+        <trans-unit id="c9f80bef-67d1-43d2-b29e-f9697b5d32d1" xml:space="preserve">
+          <source>/pricing/details/</source>
+          <target state="new">/pricing/details/</target>
+        </trans-unit>
+        <trans-unit id="ac739477-2da6-4ad1-9e7c-9f14e835cdf1" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/sslconfig.png</source>
+          <target state="new">./media/configure-ssl-web-site/sslconfig.png</target>
+        </trans-unit>
+        <trans-unit id="58b65eb0-8807-4b89-9ddd-94aab1d01b7d" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/ssluploadcert.png</source>
+          <target state="new">./media/configure-ssl-web-site/ssluploadcert.png</target>
+        </trans-unit>
+        <trans-unit id="97e623d8-539a-435f-87f7-aea558d49ee6" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/ssluploaddlg.png</source>
+          <target state="new">./media/configure-ssl-web-site/ssluploaddlg.png</target>
+        </trans-unit>
+        <trans-unit id="a8e13327-f50a-44ab-b8e7-5b7b6b7d7a0a" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/sslbindings.png</source>
+          <target state="new">./media/configure-ssl-web-site/sslbindings.png</target>
+        </trans-unit>
+        <trans-unit id="26d788d1-d112-4f2f-81fe-d44dd7961d05" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Server_Name_Indication</source>
+          <target state="new">http://en.wikipedia.org/wiki/Server_Name_Indication</target>
+        </trans-unit>
+        <trans-unit id="b380d987-b0d5-4602-9709-3bc0f09fe1cb" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/waws-certmgr.png</source>
+          <target state="new">./media/configure-ssl-web-site/waws-certmgr.png</target>
+        </trans-unit>
+        <trans-unit id="1791189d-efa5-41eb-b9ce-b29374fb8d7d" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/waws-certwiz1.png</source>
+          <target state="new">./media/configure-ssl-web-site/waws-certwiz1.png</target>
+        </trans-unit>
+        <trans-unit id="d0fc80f1-3fea-4ba6-9032-772fe06cb0e7" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/waws-certwiz2.png</source>
+          <target state="new">./media/configure-ssl-web-site/waws-certwiz2.png</target>
+        </trans-unit>
+        <trans-unit id="2ac22064-c94a-4e19-b2ec-8b67442c36c7" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/waws-certwiz3.png</source>
+          <target state="new">./media/configure-ssl-web-site/waws-certwiz3.png</target>
+        </trans-unit>
+        <trans-unit id="eea86bf2-57f7-446f-b4b0-2a12ff7f0bd3" xml:space="preserve">
+          <source>./media/configure-ssl-web-site/waws-certwiz4.png</source>
+          <target state="new">./media/configure-ssl-web-site/waws-certwiz4.png</target>
+        </trans-unit>
+      </group>
+      <group id="8ae16444-5248-492c-bc35-e97f44ff6a06" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="efe69062-5673-49da-800e-32a9f1b28793" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="efe69062-5673-49da-800e-32a9f1b28793" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c4b1588f-9268-46ed-8fa7-be92cbdf99db">
+        <trans-unit id="7519762f-5ede-43a2-bebf-b9975a75787c" xml:space="preserve">
+          <source>&lt;properties title="Create a Virtual Machine Running Windows Server" pageTitle="How to create a Virtual Machine Running Windows Server" description="Describes how to create a Windows virtual machine, add a data disk, and log on remotely" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" /&gt;</source>
+          <target state="new">&lt;properties title="Create a Virtual Machine Running Windows Server" pageTitle="How to create a Virtual Machine Running Windows Server" description="Describes how to create a Windows virtual machine, add a data disk, and log on remotely" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="90af0bab-04d7-4c2a-9397-b0e2b9190fb6" xml:space="preserve">
+          <source>This tutorial shows you how easy it is to create an Azure virtual machine running Windows Server, using the Image Gallery in the Windows Azure Management Portal.</source>
+          <target state="new">This tutorial shows you how easy it is to create an Azure virtual machine running Windows Server, using the Image Gallery in the Windows Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="4e5c97b2-985d-469f-9962-665baa3add83" xml:space="preserve">
+          <source>The Image Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images.</source>
+          <target state="new">The Image Gallery offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images.</target>
+        </trans-unit>
+        <trans-unit id="53a3f46f-0f3f-4b51-9d8e-4eae6e375cda" xml:space="preserve">
+          <source>You don't need any experience with Azure VMs to finish this tutorial.</source>
+          <target state="new">You don't need any experience with Azure VMs to finish this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="51bfaaf4-87a9-4616-a394-368846bec887" xml:space="preserve">
+          <source>However, you do need an Azure account.</source>
+          <target state="new">However, you do need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="17090eae-d125-4c7f-8397-57fa25e2cdbb" xml:space="preserve">
+          <source>You can create a free trial account in just a couple of minutes.</source>
+          <target state="new">You can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="483a205b-35b4-4072-98d2-01d63698f3e9" xml:space="preserve">
+          <source>For details, see <bpt id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;linkText&gt;</bpt>Create an Azure account<ept id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;/linkText&gt;</ept><bpt id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;title&gt;</bpt><ept id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;linkText&gt;</bpt>Create an Azure account<ept id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;/linkText&gt;</ept><bpt id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;title&gt;</bpt><ept id="5e2e66f3-9783-44a2-b8da-0bdabd26eff1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="204c2a86-4d8c-488a-af1d-20c6f0339bb7" xml:space="preserve">
+          <source>This tutorial shows you:</source>
+          <target state="new">This tutorial shows you:</target>
+        </trans-unit>
+        <trans-unit id="6ebf700d-2315-41d9-971a-f54f6a1388da" xml:space="preserve">
+          <source><bpt id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;linkText&gt;</bpt>How to create the virtual machine<ept id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;/linkText&gt;</ept><bpt id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;title&gt;</bpt><ept id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;linkText&gt;</bpt>How to create the virtual machine<ept id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;/linkText&gt;</ept><bpt id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;title&gt;</bpt><ept id="f2bcf2da-51c3-42a0-a88c-7706a47e6811">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f1e8ada-74e1-4d47-bac7-05350adbbb10" xml:space="preserve">
+          <source><bpt id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;linkText&gt;</bpt>How to log on to the virtual machine after you create it<ept id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;/linkText&gt;</ept><bpt id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;title&gt;</bpt><ept id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;linkText&gt;</bpt>How to log on to the virtual machine after you create it<ept id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;/linkText&gt;</ept><bpt id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;title&gt;</bpt><ept id="66003057-d2a4-4e9e-80ea-f1cdf17eaaa0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89be97c6-6785-4fff-8a35-1d7116b18d40" xml:space="preserve">
+          <source><bpt id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;linkText&gt;</bpt>How to attach a data disk to the new virtual machine<ept id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;/linkText&gt;</ept><bpt id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;title&gt;</bpt><ept id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;linkText&gt;</bpt>How to attach a data disk to the new virtual machine<ept id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;/linkText&gt;</ept><bpt id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;title&gt;</bpt><ept id="69fd4bf7-d42e-4172-a975-b52ff22fea7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6e36bd0-c2cc-4f45-8cbb-2a9179138ff3" xml:space="preserve">
+          <source>If you'd like to know more, see <bpt id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;linkText&gt;</bpt>Virtual Machines<ept id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;/linkText&gt;</ept><bpt id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;title&gt;</bpt><ept id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to know more, see <bpt id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;linkText&gt;</bpt>Virtual Machines<ept id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;/linkText&gt;</ept><bpt id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;title&gt;</bpt><ept id="330af617-7a5e-4d19-9a39-ba347367f037">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9dbe8908-7ec4-45fd-a560-3f2abdf904c3" xml:space="preserve">
+          <source>This section shows you how to use the <bpt id="f24b2cc6-2a0d-4bbb-8c04-f951df3818fd">&lt;strong&gt;</bpt>From Gallery<ept id="f24b2cc6-2a0d-4bbb-8c04-f951df3818fd">&lt;/strong&gt;</ept> option in the Management Portal to create the virtual machine.</source>
+          <target state="new">This section shows you how to use the <bpt id="f24b2cc6-2a0d-4bbb-8c04-f951df3818fd">&lt;strong&gt;</bpt>From Gallery<ept id="f24b2cc6-2a0d-4bbb-8c04-f951df3818fd">&lt;/strong&gt;</ept> option in the Management Portal to create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="78786178-fc45-482b-a3b1-819b53f68ea4" xml:space="preserve">
+          <source>This option provides more configuration choices than the <bpt id="8f57b991-35c2-4483-932d-c9685809cef8">&lt;strong&gt;</bpt>Quick Create<ept id="8f57b991-35c2-4483-932d-c9685809cef8">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">This option provides more configuration choices than the <bpt id="8f57b991-35c2-4483-932d-c9685809cef8">&lt;strong&gt;</bpt>Quick Create<ept id="8f57b991-35c2-4483-932d-c9685809cef8">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="9d5b59ed-4896-4cae-93e4-e64c4376c561" xml:space="preserve">
+          <source>For example, if you want to join a virtual machine to a virtual network, you'll need to use the <bpt id="810f85c0-9a0d-4b0a-a3b1-5d1334fa7ed0">&lt;strong&gt;</bpt>From Gallery<ept id="810f85c0-9a0d-4b0a-a3b1-5d1334fa7ed0">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">For example, if you want to join a virtual machine to a virtual network, you'll need to use the <bpt id="810f85c0-9a0d-4b0a-a3b1-5d1334fa7ed0">&lt;strong&gt;</bpt>From Gallery<ept id="810f85c0-9a0d-4b0a-a3b1-5d1334fa7ed0">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="820cb472-daf4-4489-bf16-0491cfbcadc4" xml:space="preserve">
+          <source><bpt id="0ca9b66c-b53e-4f7d-8f46-7803523131a1">&lt;token href="../includes/virtual-machines-create-WindowsVM.md"&gt;</bpt><ept id="0ca9b66c-b53e-4f7d-8f46-7803523131a1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0ca9b66c-b53e-4f7d-8f46-7803523131a1">&lt;token href="../includes/virtual-machines-create-WindowsVM.md"&gt;</bpt><ept id="0ca9b66c-b53e-4f7d-8f46-7803523131a1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92eb8c5d-0504-425f-b6d3-bc2229127c3c" xml:space="preserve">
+          <source>This section shows you how to log on to the virtual machine so you can manage its settings and the applications that you'll run on it.</source>
+          <target state="new">This section shows you how to log on to the virtual machine so you can manage its settings and the applications that you'll run on it.</target>
+        </trans-unit>
+        <trans-unit id="d465fcb2-0a3a-47fd-bc01-232001ecff0a" xml:space="preserve">
+          <source>Sign in to the Azure <bpt id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;linkText&gt;</bpt>Management Portal<ept id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;/linkText&gt;</ept><bpt id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;title&gt;</bpt><ept id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the Azure <bpt id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;linkText&gt;</bpt>Management Portal<ept id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;/linkText&gt;</ept><bpt id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;title&gt;</bpt><ept id="861865fc-5d8c-4be8-b797-e10497eb10aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ca5eb08-d151-47be-b0ea-4a847f161659" xml:space="preserve">
+          <source>Click <bpt id="fc330c8e-8d45-4325-9562-b55ee51fa65c">&lt;strong&gt;</bpt>Virtual Machines<ept id="fc330c8e-8d45-4325-9562-b55ee51fa65c">&lt;/strong&gt;</ept>, and then select the <bpt id="c8c6c9e3-364f-4d18-9d13-1704d52321f3">&lt;strong&gt;</bpt>MyTestVM<ept id="c8c6c9e3-364f-4d18-9d13-1704d52321f3">&lt;/strong&gt;</ept> virtual machine.</source>
+          <target state="new">Click <bpt id="fc330c8e-8d45-4325-9562-b55ee51fa65c">&lt;strong&gt;</bpt>Virtual Machines<ept id="fc330c8e-8d45-4325-9562-b55ee51fa65c">&lt;/strong&gt;</ept>, and then select the <bpt id="c8c6c9e3-364f-4d18-9d13-1704d52321f3">&lt;strong&gt;</bpt>MyTestVM<ept id="c8c6c9e3-364f-4d18-9d13-1704d52321f3">&lt;/strong&gt;</ept> virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="18effb3a-10ee-405e-bc57-4a0c7a6eed98" xml:space="preserve">
+          <source><bpt id="614c135f-97c2-404b-992d-ecfa300a2285">&lt;linkText&gt;</bpt>Select MyTestVM<ept id="614c135f-97c2-404b-992d-ecfa300a2285">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="614c135f-97c2-404b-992d-ecfa300a2285">&lt;linkText&gt;</bpt>Select MyTestVM<ept id="614c135f-97c2-404b-992d-ecfa300a2285">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90b52bd0-605f-4f8f-9485-23488239756a" xml:space="preserve">
+          <source>On the command bar, click <bpt id="5120eb30-e8f2-4356-b36c-8813b6b57522">&lt;strong&gt;</bpt>Connect<ept id="5120eb30-e8f2-4356-b36c-8813b6b57522">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="5120eb30-e8f2-4356-b36c-8813b6b57522">&lt;strong&gt;</bpt>Connect<ept id="5120eb30-e8f2-4356-b36c-8813b6b57522">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bff7e9a-4069-4160-8230-bbb23187fa99" xml:space="preserve">
+          <source><bpt id="6de4d2e0-1d7e-4f22-8bc9-9c3b37ff45c4">&lt;linkText&gt;</bpt>Connect to MyTestVM<ept id="6de4d2e0-1d7e-4f22-8bc9-9c3b37ff45c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6de4d2e0-1d7e-4f22-8bc9-9c3b37ff45c4">&lt;linkText&gt;</bpt>Connect to MyTestVM<ept id="6de4d2e0-1d7e-4f22-8bc9-9c3b37ff45c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09bbbac1-70b7-4650-8e10-afa02a16a80c" xml:space="preserve">
+          <source>Click <bpt id="a71f5823-9fcd-4f85-87ee-d5ab730a88d4">&lt;strong&gt;</bpt>Open<ept id="a71f5823-9fcd-4f85-87ee-d5ab730a88d4">&lt;/strong&gt;</ept> to use the remote desktop protocol file that was automatically created for the virtual machine.</source>
+          <target state="new">Click <bpt id="a71f5823-9fcd-4f85-87ee-d5ab730a88d4">&lt;strong&gt;</bpt>Open<ept id="a71f5823-9fcd-4f85-87ee-d5ab730a88d4">&lt;/strong&gt;</ept> to use the remote desktop protocol file that was automatically created for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3c5ad838-d4ee-4eae-8109-30d2ac6020b6" xml:space="preserve">
+          <source><bpt id="ecbb56cc-9f18-4d3a-9ba7-daa633e0d4ed">&lt;linkText&gt;</bpt>Open the rdp file<ept id="ecbb56cc-9f18-4d3a-9ba7-daa633e0d4ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ecbb56cc-9f18-4d3a-9ba7-daa633e0d4ed">&lt;linkText&gt;</bpt>Open the rdp file<ept id="ecbb56cc-9f18-4d3a-9ba7-daa633e0d4ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c7eb6f7-c1c3-406d-8a77-b0b42d062a21" xml:space="preserve">
+          <source>Click <bpt id="d53c01b1-aaea-4a94-8138-1630683c4365">&lt;strong&gt;</bpt>Connect<ept id="d53c01b1-aaea-4a94-8138-1630683c4365">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d53c01b1-aaea-4a94-8138-1630683c4365">&lt;strong&gt;</bpt>Connect<ept id="d53c01b1-aaea-4a94-8138-1630683c4365">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ccaa01e-ca06-43ef-8c9e-28431dbc19ba" xml:space="preserve">
+          <source><bpt id="e515a1d5-5b4b-43c7-a4a9-a6b8d720851d">&lt;linkText&gt;</bpt>Continue with connecting<ept id="e515a1d5-5b4b-43c7-a4a9-a6b8d720851d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e515a1d5-5b4b-43c7-a4a9-a6b8d720851d">&lt;linkText&gt;</bpt>Continue with connecting<ept id="e515a1d5-5b4b-43c7-a4a9-a6b8d720851d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cc9e023-1153-4d63-aa07-5bdb26dd457a" xml:space="preserve">
+          <source>In the password box, type the user name and password that you specified when you created the virtual machine, and then click <bpt id="8c2b7c7c-d8a5-489c-bd66-12c3c9927c37">&lt;strong&gt;</bpt>OK<ept id="8c2b7c7c-d8a5-489c-bd66-12c3c9927c37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the password box, type the user name and password that you specified when you created the virtual machine, and then click <bpt id="8c2b7c7c-d8a5-489c-bd66-12c3c9927c37">&lt;strong&gt;</bpt>OK<ept id="8c2b7c7c-d8a5-489c-bd66-12c3c9927c37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b99d7365-4a15-47b1-8fd4-af97c336d6bc" xml:space="preserve">
+          <source>Click <bpt id="f9572dec-9aac-466b-a5ee-ede9717638e4">&lt;strong&gt;</bpt>Yes<ept id="f9572dec-9aac-466b-a5ee-ede9717638e4">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</source>
+          <target state="new">Click <bpt id="f9572dec-9aac-466b-a5ee-ede9717638e4">&lt;strong&gt;</bpt>Yes<ept id="f9572dec-9aac-466b-a5ee-ede9717638e4">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="06181ac0-77c2-42c9-9638-ccbd773ed576" xml:space="preserve">
+          <source><bpt id="20cd39a8-0158-45e4-8cf7-02abc90f5982">&lt;linkText&gt;</bpt>Verify the identity of the machine<ept id="20cd39a8-0158-45e4-8cf7-02abc90f5982">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20cd39a8-0158-45e4-8cf7-02abc90f5982">&lt;linkText&gt;</bpt>Verify the identity of the machine<ept id="20cd39a8-0158-45e4-8cf7-02abc90f5982">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cd7d88c-8394-4e4a-bb87-621c3418e726" xml:space="preserve">
+          <source>You can now work with the virtual machine just like you would a server in your office.</source>
+          <target state="new">You can now work with the virtual machine just like you would a server in your office.</target>
+        </trans-unit>
+        <trans-unit id="ba2bce0b-9d96-4944-91f7-a56215a2fc0d" xml:space="preserve">
+          <source>This section shows you how to attach an empty data disk to the virtual machine.</source>
+          <target state="new">This section shows you how to attach an empty data disk to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c79184bb-67de-48c1-a605-f14ee3c651d3" xml:space="preserve">
+          <source>See the [Attach a Data Disk Tutorial] (../articles/virtual-machines/storage-windows-attach-disk.md) for more information on attaching empty disks as well as how to attach existing disks.</source>
+          <target state="new">See the [Attach a Data Disk Tutorial] (../articles/virtual-machines/storage-windows-attach-disk.md) for more information on attaching empty disks as well as how to attach existing disks.</target>
+        </trans-unit>
+        <trans-unit id="c2782d64-7653-403e-ae50-eb9b1a83a3ea" xml:space="preserve">
+          <source>Sign in to the Azure <bpt id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;linkText&gt;</bpt>Management Portal<ept id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;/linkText&gt;</ept><bpt id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;title&gt;</bpt><ept id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the Azure <bpt id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;linkText&gt;</bpt>Management Portal<ept id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;/linkText&gt;</ept><bpt id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;title&gt;</bpt><ept id="0866dddd-05ad-49da-be00-9df4b8ff2ac0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e244f069-7b6b-4bf2-ac7c-1229c6f889cf" xml:space="preserve">
+          <source>Click <bpt id="46913710-8b6d-4e66-818d-c89503fb921b">&lt;strong&gt;</bpt>Virtual Machines<ept id="46913710-8b6d-4e66-818d-c89503fb921b">&lt;/strong&gt;</ept>, and then select the <bpt id="f091ef99-47a8-44c2-aa11-9bde0f88e7c6">&lt;strong&gt;</bpt>MyTestVM<ept id="f091ef99-47a8-44c2-aa11-9bde0f88e7c6">&lt;/strong&gt;</ept> virtual machine.</source>
+          <target state="new">Click <bpt id="46913710-8b6d-4e66-818d-c89503fb921b">&lt;strong&gt;</bpt>Virtual Machines<ept id="46913710-8b6d-4e66-818d-c89503fb921b">&lt;/strong&gt;</ept>, and then select the <bpt id="f091ef99-47a8-44c2-aa11-9bde0f88e7c6">&lt;strong&gt;</bpt>MyTestVM<ept id="f091ef99-47a8-44c2-aa11-9bde0f88e7c6">&lt;/strong&gt;</ept> virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="78f62707-d4dd-4930-93ad-b812eff9187d" xml:space="preserve">
+          <source><bpt id="59fe58f9-33ce-4df7-bb83-37e347005b66">&lt;linkText&gt;</bpt>Select MyTestVM<ept id="59fe58f9-33ce-4df7-bb83-37e347005b66">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59fe58f9-33ce-4df7-bb83-37e347005b66">&lt;linkText&gt;</bpt>Select MyTestVM<ept id="59fe58f9-33ce-4df7-bb83-37e347005b66">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f366514b-ab3e-46da-b821-9e1216bdbb67" xml:space="preserve">
+          <source>You may be taken to the Quick Start page first.</source>
+          <target state="new">You may be taken to the Quick Start page first.</target>
+        </trans-unit>
+        <trans-unit id="3df5acca-9685-4fec-a146-dd6daa5a72f2" xml:space="preserve">
+          <source>If so, select <bpt id="e78673a7-0c00-46a2-97e6-2abdddda233a">&lt;strong&gt;</bpt>Dashboard<ept id="e78673a7-0c00-46a2-97e6-2abdddda233a">&lt;/strong&gt;</ept> from the top.</source>
+          <target state="new">If so, select <bpt id="e78673a7-0c00-46a2-97e6-2abdddda233a">&lt;strong&gt;</bpt>Dashboard<ept id="e78673a7-0c00-46a2-97e6-2abdddda233a">&lt;/strong&gt;</ept> from the top.</target>
+        </trans-unit>
+        <trans-unit id="c0d12662-084c-40ca-8275-9e227492d63e" xml:space="preserve">
+          <source><bpt id="5f4ee36a-0cc7-40e6-9e25-8f9decdb014a">&lt;linkText&gt;</bpt>Select Dashboard<ept id="5f4ee36a-0cc7-40e6-9e25-8f9decdb014a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f4ee36a-0cc7-40e6-9e25-8f9decdb014a">&lt;linkText&gt;</bpt>Select Dashboard<ept id="5f4ee36a-0cc7-40e6-9e25-8f9decdb014a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac675db1-0432-4c76-b11b-95000b016dd5" xml:space="preserve">
+          <source>On the command bar, click <bpt id="82b1526f-6ebd-4cbe-8348-90072cb829d0">&lt;strong&gt;</bpt>Attach<ept id="82b1526f-6ebd-4cbe-8348-90072cb829d0">&lt;/strong&gt;</ept>, and then click <bpt id="110fac4c-9aa3-4b4c-9c45-3dfa6a44d218">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="110fac4c-9aa3-4b4c-9c45-3dfa6a44d218">&lt;/strong&gt;</ept> when it pops up.</source>
+          <target state="new">On the command bar, click <bpt id="82b1526f-6ebd-4cbe-8348-90072cb829d0">&lt;strong&gt;</bpt>Attach<ept id="82b1526f-6ebd-4cbe-8348-90072cb829d0">&lt;/strong&gt;</ept>, and then click <bpt id="110fac4c-9aa3-4b4c-9c45-3dfa6a44d218">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="110fac4c-9aa3-4b4c-9c45-3dfa6a44d218">&lt;/strong&gt;</ept> when it pops up.</target>
+        </trans-unit>
+        <trans-unit id="6f5e7bc3-ddc1-4c1a-9dc3-42e29bfb5bdc" xml:space="preserve">
+          <source><bpt id="4d3f743e-c344-4c60-9c85-d81a0f406872">&lt;linkText&gt;</bpt>Select Attach from the command bar<ept id="4d3f743e-c344-4c60-9c85-d81a0f406872">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="4d3f743e-c344-4c60-9c85-d81a0f406872">&lt;linkText&gt;</bpt>Select Attach from the command bar<ept id="4d3f743e-c344-4c60-9c85-d81a0f406872">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="34335e54-4d24-4bf7-8eab-999f94924f62" xml:space="preserve">
+          <source>The <bpt id="33a76d11-0a98-4274-9678-0898e67db32f">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="33a76d11-0a98-4274-9678-0898e67db32f">&lt;/strong&gt;</ept>, <bpt id="7efbce30-a545-4d77-a7b8-e5f69545d054">&lt;strong&gt;</bpt>Storage Location<ept id="7efbce30-a545-4d77-a7b8-e5f69545d054">&lt;/strong&gt;</ept>, <bpt id="ab296ecf-f429-477a-a3a0-781c0968f8cd">&lt;strong&gt;</bpt>File Name<ept id="ab296ecf-f429-477a-a3a0-781c0968f8cd">&lt;/strong&gt;</ept>, and <bpt id="c06fb956-bfef-4d99-9f46-4946ea43324d">&lt;strong&gt;</bpt>Host Cache Preference<ept id="c06fb956-bfef-4d99-9f46-4946ea43324d">&lt;/strong&gt;</ept> are already defined for you.</source>
+          <target state="new">The <bpt id="33a76d11-0a98-4274-9678-0898e67db32f">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="33a76d11-0a98-4274-9678-0898e67db32f">&lt;/strong&gt;</ept>, <bpt id="7efbce30-a545-4d77-a7b8-e5f69545d054">&lt;strong&gt;</bpt>Storage Location<ept id="7efbce30-a545-4d77-a7b8-e5f69545d054">&lt;/strong&gt;</ept>, <bpt id="ab296ecf-f429-477a-a3a0-781c0968f8cd">&lt;strong&gt;</bpt>File Name<ept id="ab296ecf-f429-477a-a3a0-781c0968f8cd">&lt;/strong&gt;</ept>, and <bpt id="c06fb956-bfef-4d99-9f46-4946ea43324d">&lt;strong&gt;</bpt>Host Cache Preference<ept id="c06fb956-bfef-4d99-9f46-4946ea43324d">&lt;/strong&gt;</ept> are already defined for you.</target>
+        </trans-unit>
+        <trans-unit id="5397a448-e2de-45d3-96ea-0e9bc1965317" xml:space="preserve">
+          <source>All you have to do is enter the size that you want for the disk.</source>
+          <target state="new">All you have to do is enter the size that you want for the disk.</target>
+        </trans-unit>
+        <trans-unit id="98ae230b-6e75-496b-aa21-d39cfd90b099" xml:space="preserve">
+          <source>Type <bpt id="fc291194-d5bd-4c55-aa8e-95be0d530fd2">&lt;strong&gt;</bpt>5<ept id="fc291194-d5bd-4c55-aa8e-95be0d530fd2">&lt;/strong&gt;</ept> in the <bpt id="401cd9da-f00a-4950-9dab-693742c87403">&lt;strong&gt;</bpt>Size<ept id="401cd9da-f00a-4950-9dab-693742c87403">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Type <bpt id="fc291194-d5bd-4c55-aa8e-95be0d530fd2">&lt;strong&gt;</bpt>5<ept id="fc291194-d5bd-4c55-aa8e-95be0d530fd2">&lt;/strong&gt;</ept> in the <bpt id="401cd9da-f00a-4950-9dab-693742c87403">&lt;strong&gt;</bpt>Size<ept id="401cd9da-f00a-4950-9dab-693742c87403">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="c6d8a513-8a94-43b4-b364-69bee8308413" xml:space="preserve">
+          <source>Then click the check mark to attach the empty disk to the virtual machine.</source>
+          <target state="new">Then click the check mark to attach the empty disk to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4d8cc46e-4293-48d5-b090-eee297e15a5e" xml:space="preserve">
+          <source><bpt id="4e63ac12-27b3-410f-8545-73c32b202951">&lt;linkText&gt;</bpt>Specify the size of the empty disk<ept id="4e63ac12-27b3-410f-8545-73c32b202951">&lt;/linkText&gt;</ept>    </source>
+          <target state="new"><bpt id="4e63ac12-27b3-410f-8545-73c32b202951">&lt;linkText&gt;</bpt>Specify the size of the empty disk<ept id="4e63ac12-27b3-410f-8545-73c32b202951">&lt;/linkText&gt;</ept>    </target>
+        </trans-unit>
+        <trans-unit id="58776e52-5da3-4bad-bb0b-be79cc65bc82" xml:space="preserve">
+          <source>All disks are created from a VHD file in Windows Azure storage.</source>
+          <target state="new">All disks are created from a VHD file in Windows Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="04b2fedb-6649-4f8f-9790-a166851a12f3" xml:space="preserve">
+          <source>Under <bpt id="e4890f62-50cb-4aff-80ce-215ae567a4ba">&lt;strong&gt;</bpt>File Name<ept id="e4890f62-50cb-4aff-80ce-215ae567a4ba">&lt;/strong&gt;</ept>, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.</source>
+          <target state="new">Under <bpt id="e4890f62-50cb-4aff-80ce-215ae567a4ba">&lt;strong&gt;</bpt>File Name<ept id="e4890f62-50cb-4aff-80ce-215ae567a4ba">&lt;/strong&gt;</ept>, you can provide the name for the VHD file that is added to storage, but Azure generates the name of the disk automatically.</target>
+        </trans-unit>
+        <trans-unit id="35d494e9-f7eb-41e9-aea2-cb70eb9a3826" xml:space="preserve">
+          <source>Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine.</source>
+          <target state="new">Return to the dashboard to verify that the empty data disk was successfully attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="46c5e448-bfe3-4a8a-bde1-c05fa5236a6c" xml:space="preserve">
+          <source>It will be listed as a second disk in the <bpt id="6347b848-897d-463d-b4bd-218c78953a67">&lt;strong&gt;</bpt>Disks<ept id="6347b848-897d-463d-b4bd-218c78953a67">&lt;/strong&gt;</ept> list along with the OS Disk.</source>
+          <target state="new">It will be listed as a second disk in the <bpt id="6347b848-897d-463d-b4bd-218c78953a67">&lt;strong&gt;</bpt>Disks<ept id="6347b848-897d-463d-b4bd-218c78953a67">&lt;/strong&gt;</ept> list along with the OS Disk.</target>
+        </trans-unit>
+        <trans-unit id="593a13ae-1c88-4373-94da-6fd84653982c" xml:space="preserve">
+          <source><bpt id="8243878e-8129-449a-98b6-d9bc223ebad2">&lt;linkText&gt;</bpt>Attach empty disk<ept id="8243878e-8129-449a-98b6-d9bc223ebad2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8243878e-8129-449a-98b6-d9bc223ebad2">&lt;linkText&gt;</bpt>Attach empty disk<ept id="8243878e-8129-449a-98b6-d9bc223ebad2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9592386e-9bd3-489b-9873-fe572edaffd0" xml:space="preserve">
+          <source>After you attach the data disk to the virtual machine, the disk is offline and not initialized.</source>
+          <target state="new">After you attach the data disk to the virtual machine, the disk is offline and not initialized.</target>
+        </trans-unit>
+        <trans-unit id="c0a44365-d806-4771-b871-aa75c88371cd" xml:space="preserve">
+          <source>Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.</source>
+          <target state="new">Before you can use it to store data, you'll need to log on to the virtual machine and initialize the disk.</target>
+        </trans-unit>
+        <trans-unit id="bccea649-bb2b-4b3a-9c25-0c71c5235e72" xml:space="preserve">
+          <source>Connect to the virtual machine by using the steps in the previous section, [How to log on to the virtual machine after you create it] (#logon).</source>
+          <target state="new">Connect to the virtual machine by using the steps in the previous section, [How to log on to the virtual machine after you create it] (#logon).</target>
+        </trans-unit>
+        <trans-unit id="ba028041-ed69-4d87-8fca-9d071676bf58" xml:space="preserve">
+          <source>After you log on to the virtual machine, open <bpt id="b09aacb5-33e2-4ab2-88a4-4854639fb558">&lt;strong&gt;</bpt>Server Manager<ept id="b09aacb5-33e2-4ab2-88a4-4854639fb558">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you log on to the virtual machine, open <bpt id="b09aacb5-33e2-4ab2-88a4-4854639fb558">&lt;strong&gt;</bpt>Server Manager<ept id="b09aacb5-33e2-4ab2-88a4-4854639fb558">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a334d02-4a13-483c-ab20-eabac11d8d26" xml:space="preserve">
+          <source>In the left pane, select <bpt id="0d7a24ba-9f16-48a1-bf8e-88e45a5975a0">&lt;strong&gt;</bpt>File and Storage Services<ept id="0d7a24ba-9f16-48a1-bf8e-88e45a5975a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, select <bpt id="0d7a24ba-9f16-48a1-bf8e-88e45a5975a0">&lt;strong&gt;</bpt>File and Storage Services<ept id="0d7a24ba-9f16-48a1-bf8e-88e45a5975a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cc0aa69-236c-4c9c-82f8-ef824a6d339c" xml:space="preserve">
+          <source><bpt id="b9829ebf-8b7a-4fe5-b8e7-673eff285573">&lt;linkText&gt;</bpt>Expand File and Storage Services in Server Manager<ept id="b9829ebf-8b7a-4fe5-b8e7-673eff285573">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9829ebf-8b7a-4fe5-b8e7-673eff285573">&lt;linkText&gt;</bpt>Expand File and Storage Services in Server Manager<ept id="b9829ebf-8b7a-4fe5-b8e7-673eff285573">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="112c7ecd-43c6-416a-aaec-c434dbd5b9c6" xml:space="preserve">
+          <source>Select <bpt id="06f54ddd-4b64-478f-b166-6ba6a0373012">&lt;strong&gt;</bpt>Disks<ept id="06f54ddd-4b64-478f-b166-6ba6a0373012">&lt;/strong&gt;</ept> from the expanded menu.</source>
+          <target state="new">Select <bpt id="06f54ddd-4b64-478f-b166-6ba6a0373012">&lt;strong&gt;</bpt>Disks<ept id="06f54ddd-4b64-478f-b166-6ba6a0373012">&lt;/strong&gt;</ept> from the expanded menu.</target>
+        </trans-unit>
+        <trans-unit id="0ddfc043-5d93-4fc3-bc46-271be3f106ce" xml:space="preserve">
+          <source><bpt id="1f0090f2-f90f-424d-bad6-d811e6cf0055">&lt;linkText&gt;</bpt>Expand File and Storage Services in Server Manager<ept id="1f0090f2-f90f-424d-bad6-d811e6cf0055">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="1f0090f2-f90f-424d-bad6-d811e6cf0055">&lt;linkText&gt;</bpt>Expand File and Storage Services in Server Manager<ept id="1f0090f2-f90f-424d-bad6-d811e6cf0055">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c23f96ab-8d24-43b6-b91b-ea1b995d2ce9" xml:space="preserve">
+          <source>In the <bpt id="8cb94cc4-1ec3-4e13-8499-5faa7e4c1543">&lt;strong&gt;</bpt>Disks<ept id="8cb94cc4-1ec3-4e13-8499-5faa7e4c1543">&lt;/strong&gt;</ept> section, there are three disks in the list: disk 0, disk 1, and disk 2.</source>
+          <target state="new">In the <bpt id="8cb94cc4-1ec3-4e13-8499-5faa7e4c1543">&lt;strong&gt;</bpt>Disks<ept id="8cb94cc4-1ec3-4e13-8499-5faa7e4c1543">&lt;/strong&gt;</ept> section, there are three disks in the list: disk 0, disk 1, and disk 2.</target>
+        </trans-unit>
+        <trans-unit id="be3e00cc-6307-493c-9443-dba8fff5a09c" xml:space="preserve">
+          <source>Disk 0 is the OS disk, disk 1 is a temporary resource disk (which should not be used for data storage), and disk 2 is the data disk you have attached to the virtual machine.</source>
+          <target state="new">Disk 0 is the OS disk, disk 1 is a temporary resource disk (which should not be used for data storage), and disk 2 is the data disk you have attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="81a23fb2-962f-40b5-9589-17adf7e39bb8" xml:space="preserve">
+          <source>Note that the data disk has a capacity of 5 GB as specified earlier.</source>
+          <target state="new">Note that the data disk has a capacity of 5 GB as specified earlier.</target>
+        </trans-unit>
+        <trans-unit id="a4f1f868-7e7e-483e-bfbd-ace851e8ee2d" xml:space="preserve">
+          <source>Right-click disk 2 and then select <bpt id="e31defed-3dc5-45b9-bf88-5957f77e4d9c">&lt;strong&gt;</bpt>Initialize<ept id="e31defed-3dc5-45b9-bf88-5957f77e4d9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click disk 2 and then select <bpt id="e31defed-3dc5-45b9-bf88-5957f77e4d9c">&lt;strong&gt;</bpt>Initialize<ept id="e31defed-3dc5-45b9-bf88-5957f77e4d9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="013f4d98-0bc8-4f4b-899e-bd2941262e60" xml:space="preserve">
+          <source><bpt id="7a1fa414-19a4-482d-bf82-a39aa7702cb6">&lt;linkText&gt;</bpt>Start initialization<ept id="7a1fa414-19a4-482d-bf82-a39aa7702cb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a1fa414-19a4-482d-bf82-a39aa7702cb6">&lt;linkText&gt;</bpt>Start initialization<ept id="7a1fa414-19a4-482d-bf82-a39aa7702cb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e4641b3-d005-4ec5-a11c-e20e0392aa7f" xml:space="preserve">
+          <source>Click <bpt id="c2e16f29-40e2-4c37-b5ff-74265b395ca9">&lt;strong&gt;</bpt>Yes<ept id="c2e16f29-40e2-4c37-b5ff-74265b395ca9">&lt;/strong&gt;</ept> to start the initialization process.</source>
+          <target state="new">Click <bpt id="c2e16f29-40e2-4c37-b5ff-74265b395ca9">&lt;strong&gt;</bpt>Yes<ept id="c2e16f29-40e2-4c37-b5ff-74265b395ca9">&lt;/strong&gt;</ept> to start the initialization process.</target>
+        </trans-unit>
+        <trans-unit id="07810f8b-8ed4-4743-b632-b2be174f5489" xml:space="preserve">
+          <source><bpt id="4b101419-ee76-4396-98e0-a584cd04c3fc">&lt;linkText&gt;</bpt>Continue initialization<ept id="4b101419-ee76-4396-98e0-a584cd04c3fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b101419-ee76-4396-98e0-a584cd04c3fc">&lt;linkText&gt;</bpt>Continue initialization<ept id="4b101419-ee76-4396-98e0-a584cd04c3fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8926579d-dbc1-4fec-9d54-87db9f8ae98e" xml:space="preserve">
+          <source>Right-click disk 2 again and select <bpt id="1105f68b-9905-4d63-9b10-c2cadbaefbbf">&lt;strong&gt;</bpt>New Volume<ept id="1105f68b-9905-4d63-9b10-c2cadbaefbbf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click disk 2 again and select <bpt id="1105f68b-9905-4d63-9b10-c2cadbaefbbf">&lt;strong&gt;</bpt>New Volume<ept id="1105f68b-9905-4d63-9b10-c2cadbaefbbf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="277f3075-165f-4f10-9b00-f30214329343" xml:space="preserve">
+          <source><bpt id="d5355589-0779-4b5c-971c-fc57cd8c9884">&lt;linkText&gt;</bpt>Create the volume<ept id="d5355589-0779-4b5c-971c-fc57cd8c9884">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d5355589-0779-4b5c-971c-fc57cd8c9884">&lt;linkText&gt;</bpt>Create the volume<ept id="d5355589-0779-4b5c-971c-fc57cd8c9884">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0eb5e73b-3ca5-4fe5-ba90-c394a6bcf21d" xml:space="preserve">
+          <source>Complete the wizard using the default values provided.</source>
+          <target state="new">Complete the wizard using the default values provided.</target>
+        </trans-unit>
+        <trans-unit id="2966b3d3-68d9-4b33-8ed2-c52e95d01fc1" xml:space="preserve">
+          <source>Once the wizard is finished, a new volume will be listed in the <bpt id="d0d1ebac-8526-459a-a10f-efa973705b9e">&lt;strong&gt;</bpt>Volumes<ept id="d0d1ebac-8526-459a-a10f-efa973705b9e">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Once the wizard is finished, a new volume will be listed in the <bpt id="d0d1ebac-8526-459a-a10f-efa973705b9e">&lt;strong&gt;</bpt>Volumes<ept id="d0d1ebac-8526-459a-a10f-efa973705b9e">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="c07cb7f0-73f0-4105-aff6-d674ced6e095" xml:space="preserve">
+          <source><bpt id="e32c6264-f0a3-4af8-bcc4-70bf76241d1d">&lt;linkText&gt;</bpt>Create the volume<ept id="e32c6264-f0a3-4af8-bcc4-70bf76241d1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e32c6264-f0a3-4af8-bcc4-70bf76241d1d">&lt;linkText&gt;</bpt>Create the volume<ept id="e32c6264-f0a3-4af8-bcc4-70bf76241d1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0673dfaa-10f0-4d37-b154-43cc57b607fe" xml:space="preserve">
+          <source>The disk is now online and ready to use with a new drive letter.</source>
+          <target state="new">The disk is now online and ready to use with a new drive letter.</target>
+        </trans-unit>
+        <trans-unit id="ed5c7ce6-5aff-43d9-9e3b-decd2b303bd6" xml:space="preserve">
+          <source>To learn more about configuring Windows virtual machines on Azure, see the following articles:</source>
+          <target state="new">To learn more about configuring Windows virtual machines on Azure, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="541c129d-f347-4858-816a-70e07eebd065" xml:space="preserve">
+          <source><bpt id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;linkText&gt;</bpt>How to Connect Virtual Machines in a Cloud Service<ept id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;/linkText&gt;</ept><bpt id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;title&gt;</bpt><ept id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;linkText&gt;</bpt>How to Connect Virtual Machines in a Cloud Service<ept id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;/linkText&gt;</ept><bpt id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;title&gt;</bpt><ept id="7e3f9961-e552-4fbf-9dae-be2a39e906d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="731d2dd4-0694-426c-942e-0960805c223b" xml:space="preserve">
+          <source><bpt id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;linkText&gt;</bpt>How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System<ept id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;/linkText&gt;</ept><bpt id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;title&gt;</bpt><ept id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;linkText&gt;</bpt>How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System<ept id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;/linkText&gt;</ept><bpt id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;title&gt;</bpt><ept id="6b645e89-0f31-4d77-8202-d7ab7ef9cf09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd50966d-c663-4e9b-8220-328d742eb777" xml:space="preserve">
+          <source><bpt id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;linkText&gt;</bpt>Attach Data Disks to a Virtual Machine<ept id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;/linkText&gt;</ept><bpt id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;title&gt;</bpt><ept id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;linkText&gt;</bpt>Attach Data Disks to a Virtual Machine<ept id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;/linkText&gt;</ept><bpt id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;title&gt;</bpt><ept id="319a8709-fcee-4e38-b482-b3925991b0d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23a17927-6385-4a77-ae9b-abc9c7ee47ce" xml:space="preserve">
+          <source><bpt id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;/linkText&gt;</ept><bpt id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;title&gt;</bpt><ept id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;/linkText&gt;</ept><bpt id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;title&gt;</bpt><ept id="089db67f-82aa-4d60-b4ad-e80da17902e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76ab4c79-e4b6-47b6-94cf-2efe246f0ea7" xml:space="preserve">
+          <source>#virtualmachine</source>
+          <target state="new">#virtualmachine</target>
+        </trans-unit>
+        <trans-unit id="1a5e10ff-4e95-4e53-8a3e-b33a8e61209e" xml:space="preserve">
+          <source>#custommachine</source>
+          <target state="new">#custommachine</target>
+        </trans-unit>
+        <trans-unit id="dcff7a45-50f2-4278-9eac-a0cceb1052a9" xml:space="preserve">
+          <source>#logon</source>
+          <target state="new">#logon</target>
+        </trans-unit>
+        <trans-unit id="b2ba50f3-284d-4da6-b2e7-c32f334bc124" xml:space="preserve">
+          <source>#attachdisk</source>
+          <target state="new">#attachdisk</target>
+        </trans-unit>
+        <trans-unit id="2a555588-4231-4e09-a0b2-7499f1f69db3" xml:space="preserve">
+          <source>#endpoints</source>
+          <target state="new">#endpoints</target>
+        </trans-unit>
+      </group>
+      <group id="b4d1dd2e-bb5f-487c-a89e-57bf2c7a83db" />
+    </body>
+  </file>
+</xliff>

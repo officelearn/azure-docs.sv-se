@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="790d0cc0-832a-4491-8cfa-5ed460966007" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="790d0cc0-832a-4491-8cfa-5ed460966007" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b83b66c5-8b06-4e29-a0e6-5e8bf987665d">
+        <trans-unit id="253ec3d2-6acd-47f3-ab39-0efc6e94580f" xml:space="preserve">
+          <source>You can optionally test push notifications with your mobile service running on the local computer or VM before you publish to Azure.</source>
+          <target state="new">You can optionally test push notifications with your mobile service running on the local computer or VM before you publish to Azure.</target>
+        </trans-unit>
+        <trans-unit id="2e54c773-0132-43a1-a9a2-0c52551824de" xml:space="preserve">
+          <source>To do this, you must set information about the notification hub used by your app in the web.config file.</source>
+          <target state="new">To do this, you must set information about the notification hub used by your app in the web.config file.</target>
+        </trans-unit>
+        <trans-unit id="840aa7f5-3207-4db6-b451-6c6085cadece" xml:space="preserve">
+          <source>This information is only used when running locally to connect to the notification hub; it is ignored when published to Azure.</source>
+          <target state="new">This information is only used when running locally to connect to the notification hub; it is ignored when published to Azure.</target>
+        </trans-unit>
+        <trans-unit id="36e4b28c-0d1e-416e-a7b3-bf4839d84b42" xml:space="preserve">
+          <source>Open the readme.html file in either the Windows or WindowsPhone app project folder.</source>
+          <target state="new">Open the readme.html file in either the Windows or WindowsPhone app project folder.</target>
+        </trans-unit>
+        <trans-unit id="161e4e67-631a-403e-b390-a0a199ca154e" xml:space="preserve">
+          <source>This displays the <bpt id="1f0f300c-93ed-40c5-acf3-1d79b8c7661e">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="1f0f300c-93ed-40c5-acf3-1d79b8c7661e">&lt;/strong&gt;</ept> page, if you don't still have it open.</source>
+          <target state="new">This displays the <bpt id="1f0f300c-93ed-40c5-acf3-1d79b8c7661e">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="1f0f300c-93ed-40c5-acf3-1d79b8c7661e">&lt;/strong&gt;</ept> page, if you don't still have it open.</target>
+        </trans-unit>
+        <trans-unit id="52a83d0d-d365-4d8f-8ddf-3dc746a966f1" xml:space="preserve">
+          <source>The section <bpt id="db035e95-774e-433b-bd9e-c01452a3dee7">&lt;strong&gt;</bpt>Step 3: Modify Web Config<ept id="db035e95-774e-433b-bd9e-c01452a3dee7">&lt;/strong&gt;</ept> contains the notification hub connection information.</source>
+          <target state="new">The section <bpt id="db035e95-774e-433b-bd9e-c01452a3dee7">&lt;strong&gt;</bpt>Step 3: Modify Web Config<ept id="db035e95-774e-433b-bd9e-c01452a3dee7">&lt;/strong&gt;</ept> contains the notification hub connection information.</target>
+        </trans-unit>
+        <trans-unit id="b5d80a2f-1e2c-40df-97ae-e56cd649da34" xml:space="preserve">
+          <source>In your mobile service project in Visual Studio, open the Web.config file for the service, then in <bpt id="475fac42-b256-4a73-afe1-a376e979ad65">&lt;strong&gt;</bpt>connectionStrings<ept id="475fac42-b256-4a73-afe1-a376e979ad65">&lt;/strong&gt;</ept>, add the <bpt id="448124f6-14b9-4731-8fd0-bcfc106f71d2">&lt;strong&gt;</bpt>MS_NotificationHubConnectionString<ept id="448124f6-14b9-4731-8fd0-bcfc106f71d2">&lt;/strong&gt;</ept> connection string from the <bpt id="a3c37375-0102-4b32-9c64-7742f0814d8e">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="a3c37375-0102-4b32-9c64-7742f0814d8e">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">In your mobile service project in Visual Studio, open the Web.config file for the service, then in <bpt id="475fac42-b256-4a73-afe1-a376e979ad65">&lt;strong&gt;</bpt>connectionStrings<ept id="475fac42-b256-4a73-afe1-a376e979ad65">&lt;/strong&gt;</ept>, add the <bpt id="448124f6-14b9-4731-8fd0-bcfc106f71d2">&lt;strong&gt;</bpt>MS_NotificationHubConnectionString<ept id="448124f6-14b9-4731-8fd0-bcfc106f71d2">&lt;/strong&gt;</ept> connection string from the <bpt id="a3c37375-0102-4b32-9c64-7742f0814d8e">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="a3c37375-0102-4b32-9c64-7742f0814d8e">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="dc53e940-39fc-4ab3-8c5b-90f44aa76133" xml:space="preserve">
+          <source>In <bpt id="25c7e4e5-dcfb-4184-9d14-e204048311e9">&lt;strong&gt;</bpt>appSettings<ept id="25c7e4e5-dcfb-4184-9d14-e204048311e9">&lt;/strong&gt;</ept>, replace the value of the <bpt id="60146b58-f713-4441-98dd-577ae38475b7">&lt;strong&gt;</bpt>MS_NotificationHubName<ept id="60146b58-f713-4441-98dd-577ae38475b7">&lt;/strong&gt;</ept> app setting with the name of the notification hub found in the <bpt id="5919befb-41ae-45e1-b84b-3d526092edc4">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="5919befb-41ae-45e1-b84b-3d526092edc4">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">In <bpt id="25c7e4e5-dcfb-4184-9d14-e204048311e9">&lt;strong&gt;</bpt>appSettings<ept id="25c7e4e5-dcfb-4184-9d14-e204048311e9">&lt;/strong&gt;</ept>, replace the value of the <bpt id="60146b58-f713-4441-98dd-577ae38475b7">&lt;strong&gt;</bpt>MS_NotificationHubName<ept id="60146b58-f713-4441-98dd-577ae38475b7">&lt;/strong&gt;</ept> app setting with the name of the notification hub found in the <bpt id="5919befb-41ae-45e1-b84b-3d526092edc4">&lt;strong&gt;</bpt>Push setup is almost complete<ept id="5919befb-41ae-45e1-b84b-3d526092edc4">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="dfad6dbd-fa6d-4494-abb2-59472c5fa3bf" xml:space="preserve">
+          <source>Right-click the mobile service project and click <bpt id="cdc7c84b-a96e-4325-8314-05e7cbeb181a">&lt;strong&gt;</bpt>Debug<ept id="cdc7c84b-a96e-4325-8314-05e7cbeb181a">&lt;/strong&gt;</ept> then <bpt id="27a38f69-d426-4f7e-9847-f0068d48c95f">&lt;strong&gt;</bpt>Start new instance<ept id="27a38f69-d426-4f7e-9847-f0068d48c95f">&lt;/strong&gt;</ept> and make a note of the service root URL of the start up page displayed in the browser.</source>
+          <target state="new">Right-click the mobile service project and click <bpt id="cdc7c84b-a96e-4325-8314-05e7cbeb181a">&lt;strong&gt;</bpt>Debug<ept id="cdc7c84b-a96e-4325-8314-05e7cbeb181a">&lt;/strong&gt;</ept> then <bpt id="27a38f69-d426-4f7e-9847-f0068d48c95f">&lt;strong&gt;</bpt>Start new instance<ept id="27a38f69-d426-4f7e-9847-f0068d48c95f">&lt;/strong&gt;</ept> and make a note of the service root URL of the start up page displayed in the browser.</target>
+        </trans-unit>
+        <trans-unit id="0365d62f-b9c8-40d0-8416-c15e788767c3" xml:space="preserve">
+          <source>This is the URL of the local host for the .NET backend project.</source>
+          <target state="new">This is the URL of the local host for the .NET backend project.</target>
+        </trans-unit>
+        <trans-unit id="558608b6-7101-4422-838c-cbc7ca1ead7b" xml:space="preserve">
+          <source>You will use this URL to test the app against the mobile service running on the local computer.</source>
+          <target state="new">You will use this URL to test the app against the mobile service running on the local computer.</target>
+        </trans-unit>
+        <trans-unit id="367c96bb-71e5-497c-8ac1-4c0fb46ee7ad" xml:space="preserve">
+          <source>Now, the mobile service project is configured to connect to the notification hub in Azure when running locally.</source>
+          <target state="new">Now, the mobile service project is configured to connect to the notification hub in Azure when running locally.</target>
+        </trans-unit>
+        <trans-unit id="61fb4be5-3d11-4727-9079-aa0cdb128799" xml:space="preserve">
+          <source>Note that it is important to use the same notification hub name and connection string as the portal because these project settings in the Web.config file are overridden by the portal settings when running in Azure.</source>
+          <target state="new">Note that it is important to use the same notification hub name and connection string as the portal because these project settings in the Web.config file are overridden by the portal settings when running in Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a116f1e4-6659-4a70-b381-d8d4152af271" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a116f1e4-6659-4a70-b381-d8d4152af271" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9977c2a7-5fb2-45d0-93ed-8e78b3dca39c">
+        <trans-unit id="cec31d97-97da-45d6-a63f-fa9dd2c45948" xml:space="preserve">
+          <source>Script Action Development with HDInsight | Microsoft Azure</source>
+          <target state="new">Script Action Development with HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b0a8a24a-3c03-46e8-9de4-b7a08b94485c" xml:space="preserve">
+          <source>Learn how to customize Hadoop clusters with Script Action.</source>
+          <target state="new">Learn how to customize Hadoop clusters with Script Action.</target>
+        </trans-unit>
+        <trans-unit id="5abfbbfa-3d49-4c02-95ae-55aa1b4e72db" xml:space="preserve">
+          <source>Script Actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings during installation, or installing additional services, tools, or other software on the cluster.</source>
+          <target state="new">Script Actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings during installation, or installing additional services, tools, or other software on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="06451557-6fea-4514-9b54-29357b7b34d6" xml:space="preserve">
+          <source>The information in this document is specific to Linux-based HDInsight clusters.</source>
+          <target state="new">The information in this document is specific to Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="22c9b44d-466d-4b7e-8935-1ccffefe9882" xml:space="preserve">
+          <source>For information on using Script Actions with Windows-based clusters, see <bpt id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;linkText&gt;</bpt>Script action development with HDInsight (Windows)<ept id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;/linkText&gt;</ept><bpt id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;title&gt;</bpt><ept id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on using Script Actions with Windows-based clusters, see <bpt id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;linkText&gt;</bpt>Script action development with HDInsight (Windows)<ept id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;/linkText&gt;</ept><bpt id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;title&gt;</bpt><ept id="65150c95-9494-4c04-a15d-d1e894bc8883">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="360e2540-0296-4ef4-894a-037ac6898778" xml:space="preserve">
+          <source>Script actions are Bash scripts that run on the cluster nodes during provisioning.</source>
+          <target state="new">Script actions are Bash scripts that run on the cluster nodes during provisioning.</target>
+        </trans-unit>
+        <trans-unit id="a0a29877-6d25-4d57-8d2a-d05c82db06b7" xml:space="preserve">
+          <source>A script action is executed as root, and provides full access rights to the cluster nodes.</source>
+          <target state="new">A script action is executed as root, and provides full access rights to the cluster nodes.</target>
+        </trans-unit>
+        <trans-unit id="11138750-ecde-478b-98d0-1ffa301ca59e" xml:space="preserve">
+          <source>Script Action can be used when provisioning a cluster using the <bpt id="12f404e0-dad7-4aa1-b9ae-337d25fb9515">&lt;strong&gt;</bpt>Azure preview portal<ept id="12f404e0-dad7-4aa1-b9ae-337d25fb9515">&lt;/strong&gt;</ept>, <bpt id="be89f8e3-598c-4163-9b60-323e08796fa5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="be89f8e3-598c-4163-9b60-323e08796fa5">&lt;/strong&gt;</ept>, or the <bpt id="e6839937-a465-499d-a521-6aeb36d7fca2">&lt;strong&gt;</bpt>HDInsight .NET SDK<ept id="e6839937-a465-499d-a521-6aeb36d7fca2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Script Action can be used when provisioning a cluster using the <bpt id="12f404e0-dad7-4aa1-b9ae-337d25fb9515">&lt;strong&gt;</bpt>Azure preview portal<ept id="12f404e0-dad7-4aa1-b9ae-337d25fb9515">&lt;/strong&gt;</ept>, <bpt id="be89f8e3-598c-4163-9b60-323e08796fa5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="be89f8e3-598c-4163-9b60-323e08796fa5">&lt;/strong&gt;</ept>, or the <bpt id="e6839937-a465-499d-a521-6aeb36d7fca2">&lt;strong&gt;</bpt>HDInsight .NET SDK<ept id="e6839937-a465-499d-a521-6aeb36d7fca2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="687b1da3-2bdf-48a8-97cf-251380fdb254" xml:space="preserve">
+          <source>For an walkthrough of customizing a cluster using Script Actions, see <bpt id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;linkText&gt;</bpt>Customize HDInsight clusters using script actions<ept id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;/linkText&gt;</ept><bpt id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;title&gt;</bpt><ept id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an walkthrough of customizing a cluster using Script Actions, see <bpt id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;linkText&gt;</bpt>Customize HDInsight clusters using script actions<ept id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;/linkText&gt;</ept><bpt id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;title&gt;</bpt><ept id="2e420342-fc2b-4ad0-b78c-4c8a03224dbf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de7332d5-f338-4485-996f-c7e76f875d01" xml:space="preserve">
+          <source>When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:</source>
+          <target state="new">When you develop a custom script for an HDInsight cluster, there are several best practices to keep in mind:</target>
+        </trans-unit>
+        <trans-unit id="6c486fbb-643f-46fc-8370-00d5dd62e217" xml:space="preserve">
+          <source><bpt id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;linkText&gt;</bpt>Target the Hadoop version<ept id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;/linkText&gt;</ept><bpt id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;title&gt;</bpt><ept id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;linkText&gt;</bpt>Target the Hadoop version<ept id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;/linkText&gt;</ept><bpt id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;title&gt;</bpt><ept id="ad0c06c1-cd43-4200-95b4-05c3a2be444d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80591940-d30d-4073-a581-d50d702545b5" xml:space="preserve">
+          <source><bpt id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;linkText&gt;</bpt>Provide stable links to script resources<ept id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;/linkText&gt;</ept><bpt id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;title&gt;</bpt><ept id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;linkText&gt;</bpt>Provide stable links to script resources<ept id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;/linkText&gt;</ept><bpt id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;title&gt;</bpt><ept id="966c5493-802f-41b5-af6b-cfb0d27150d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fe2fab1-f141-4517-8a76-bd7991af1c3a" xml:space="preserve">
+          <source><bpt id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;linkText&gt;</bpt>Ensure that the cluster customization script is idempotent<ept id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;/linkText&gt;</ept><bpt id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;title&gt;</bpt><ept id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;linkText&gt;</bpt>Ensure that the cluster customization script is idempotent<ept id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;/linkText&gt;</ept><bpt id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;title&gt;</bpt><ept id="5cc385c0-b8d5-4468-ad9e-982125172b84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1439c4cb-350d-4889-b5cd-1baccfc31e0f" xml:space="preserve">
+          <source><bpt id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;linkText&gt;</bpt>Ensure high availability of the cluster architecture<ept id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;/linkText&gt;</ept><bpt id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;title&gt;</bpt><ept id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;linkText&gt;</bpt>Ensure high availability of the cluster architecture<ept id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;/linkText&gt;</ept><bpt id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;title&gt;</bpt><ept id="742f0e88-a29d-49cd-a9c4-c3218bc80879">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98c98b34-32e5-4e2a-ad2e-d32dff100211" xml:space="preserve">
+          <source><bpt id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;linkText&gt;</bpt>Configure the custom components to use Azure Blob storage<ept id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;/linkText&gt;</ept><bpt id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;title&gt;</bpt><ept id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;linkText&gt;</bpt>Configure the custom components to use Azure Blob storage<ept id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;/linkText&gt;</ept><bpt id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;title&gt;</bpt><ept id="fbe65a05-8104-49f4-8812-ffa931179d71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c63bb016-633c-4878-a06a-07b13490f358" xml:space="preserve">
+          <source><bpt id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;linkText&gt;</bpt>Write information to STDOUT and STDERR<ept id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;/linkText&gt;</ept><bpt id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;title&gt;</bpt><ept id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;linkText&gt;</bpt>Write information to STDOUT and STDERR<ept id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;/linkText&gt;</ept><bpt id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;title&gt;</bpt><ept id="c797f97e-e350-40a5-a4c5-58494a067f79">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1c58444-0cd0-49e0-8a82-15cf86215a7e" xml:space="preserve">
+          <source><bpt id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;linkText&gt;</bpt>Save files as ASCII with LF line endings<ept id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;/linkText&gt;</ept><bpt id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;title&gt;</bpt><ept id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;linkText&gt;</bpt>Save files as ASCII with LF line endings<ept id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;/linkText&gt;</ept><bpt id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;title&gt;</bpt><ept id="db95d172-cd1d-4b77-82ab-55e81c5303c0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f93b189-5f08-490a-8704-3b4fdc94192c" xml:space="preserve">
+          <source>Different versions of HDInsight have different versions of Hadoop services and components installed.</source>
+          <target state="new">Different versions of HDInsight have different versions of Hadoop services and components installed.</target>
+        </trans-unit>
+        <trans-unit id="c4a2b00a-d678-4266-be87-e59fbacb0cae" xml:space="preserve">
+          <source>If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components.</source>
+          <target state="new">If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components.</target>
+        </trans-unit>
+        <trans-unit id="6d1c0e85-c910-4dd9-af13-cb38e5c7b8dc" xml:space="preserve">
+          <source>You can find information on component versions included with HDInsight using the <bpt id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;linkText&gt;</bpt>HDInsight component versioning<ept id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;/linkText&gt;</ept><bpt id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;title&gt;</bpt><ept id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;/title&gt;</ept> document.</source>
+          <target state="new">You can find information on component versions included with HDInsight using the <bpt id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;linkText&gt;</bpt>HDInsight component versioning<ept id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;/linkText&gt;</ept><bpt id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;title&gt;</bpt><ept id="1b09c616-fb43-495d-8f99-be484926eb7c">&lt;/title&gt;</ept> document.</target>
+        </trans-unit>
+        <trans-unit id="5fe29f0c-008b-4d5b-b41e-8f44997b9539" xml:space="preserve">
+          <source>Users should make sure that all of the scripts and resources used by the script remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration.</source>
+          <target state="new">Users should make sure that all of the scripts and resources used by the script remain available throughout the lifetime of the cluster and that the versions of these files do not change for the duration.</target>
+        </trans-unit>
+        <trans-unit id="2e688f27-4fc8-409c-8569-debdc659c7b0" xml:space="preserve">
+          <source>These resources are required if the nodes in the cluster are re-imaged.</source>
+          <target state="new">These resources are required if the nodes in the cluster are re-imaged.</target>
+        </trans-unit>
+        <trans-unit id="cb1988fd-e45d-404e-a4de-11760e49e93d" xml:space="preserve">
+          <source>The best practice is to download and archive everything in an Azure Storage account on your subscription.</source>
+          <target state="new">The best practice is to download and archive everything in an Azure Storage account on your subscription.</target>
+        </trans-unit>
+        <trans-unit id="884e7958-3c1e-478d-888d-929fee5d7637" xml:space="preserve">
+          <source>The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.</source>
+          <target state="new">The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.</target>
+        </trans-unit>
+        <trans-unit id="b37be9d1-0b96-48c8-b253-fc2593c69d8b" xml:space="preserve">
+          <source>For example, the samples provided by Microsoft are stored in the <bpt id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/<ept id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;/linkText&gt;</ept><bpt id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;title&gt;</bpt><ept id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;/title&gt;</ept> storage account, which is a public, read-only container maintained by the HDInsight team.</source>
+          <target state="new">For example, the samples provided by Microsoft are stored in the <bpt id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/<ept id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;/linkText&gt;</ept><bpt id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;title&gt;</bpt><ept id="0c0e15f0-96a8-4456-bae4-d2452cbdde7d">&lt;/title&gt;</ept> storage account, which is a public, read-only container maintained by the HDInsight team.</target>
+        </trans-unit>
+        <trans-unit id="bb5aedb2-916d-47c5-95a6-2ebf9a5b515c" xml:space="preserve">
+          <source>You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime, and that the cluster customization script will be used when this happens.</source>
+          <target state="new">You must expect that the nodes of an HDInsight cluster will be re-imaged during the cluster lifetime, and that the cluster customization script will be used when this happens.</target>
+        </trans-unit>
+        <trans-unit id="1d918052-0d99-4d39-a25b-628d2803ee63" xml:space="preserve">
+          <source>The script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same state every time it is ran.</source>
+          <target state="new">The script must be designed to be idempotent in the sense that upon re-imaging, the script should ensure that the cluster is returned to the same state every time it is ran.</target>
+        </trans-unit>
+        <trans-unit id="40b54bf1-19e8-4c64-91f1-bc6eb5eef9d6" xml:space="preserve">
+          <source>For example, if a custom script installs an application at /usr/local/bin on its first run, then on each subsequent run the script should check whether the application already exists at the /usr/local/bin location before proceeding with other steps in the script.</source>
+          <target state="new">For example, if a custom script installs an application at /usr/local/bin on its first run, then on each subsequent run the script should check whether the application already exists at the /usr/local/bin location before proceeding with other steps in the script.</target>
+        </trans-unit>
+        <trans-unit id="318d07e6-dc9e-4966-9038-c5e8326e1d44" xml:space="preserve">
+          <source>Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and Script Actions are ran for both nodes.</source>
+          <target state="new">Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and Script Actions are ran for both nodes.</target>
+        </trans-unit>
+        <trans-unit id="2189c844-9830-49b7-bfc9-e52811c5f158" xml:space="preserve">
+          <source>If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.</source>
+          <target state="new">If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="62dd59be-f84b-4a2c-9147-857a7af26e7b" xml:space="preserve">
+          <source>The head nodes are named <bpt id="b15b030b-fcc5-4870-b784-4888cef173f3">&lt;strong&gt;</bpt>headnode0<ept id="b15b030b-fcc5-4870-b784-4888cef173f3">&lt;/strong&gt;</ept> and <bpt id="2da31f7c-3349-499e-8b8e-fad5b659c715">&lt;strong&gt;</bpt>headnode1<ept id="2da31f7c-3349-499e-8b8e-fad5b659c715">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The head nodes are named <bpt id="b15b030b-fcc5-4870-b784-4888cef173f3">&lt;strong&gt;</bpt>headnode0<ept id="b15b030b-fcc5-4870-b784-4888cef173f3">&lt;/strong&gt;</ept> and <bpt id="2da31f7c-3349-499e-8b8e-fad5b659c715">&lt;strong&gt;</bpt>headnode1<ept id="2da31f7c-3349-499e-8b8e-fad5b659c715">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d04b48d6-3bee-46d1-8144-3ed806b4663a" xml:space="preserve">
+          <source>Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through Script Actions.</source>
+          <target state="new">Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through Script Actions.</target>
+        </trans-unit>
+        <trans-unit id="e67ffab4-e23c-4cea-846d-a573b20c4954" xml:space="preserve">
+          <source>If you need the components installed through a Script Action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.</source>
+          <target state="new">If you need the components installed through a Script Action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.</target>
+        </trans-unit>
+        <trans-unit id="06698fc0-6d6f-472a-b64f-5f7484487d90" xml:space="preserve">
+          <source>Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage.</source>
+          <target state="new">Components that you install on the cluster might have a default configuration that uses Hadoop Distributed File System (HDFS) storage.</target>
+        </trans-unit>
+        <trans-unit id="3dea3159-5435-40e5-8156-8bd183df0d03" xml:space="preserve">
+          <source>On a cluster re-image, the HDFS file system gets formatted and you will lose any data that is stored there.</source>
+          <target state="new">On a cluster re-image, the HDFS file system gets formatted and you will lose any data that is stored there.</target>
+        </trans-unit>
+        <trans-unit id="e5c38ada-7f7c-42d6-b5b4-1c75eee424c7" xml:space="preserve">
+          <source>You should change the configuration to use Azure Blob storage (WASB) instead, as this is the default storage for the cluster, and is kept even when the cluster is deleted.</source>
+          <target state="new">You should change the configuration to use Azure Blob storage (WASB) instead, as this is the default storage for the cluster, and is kept even when the cluster is deleted.</target>
+        </trans-unit>
+        <trans-unit id="3deb4543-e554-4291-8586-4e49bb00fc4e" xml:space="preserve">
+          <source>For example, the following copies the giraph-examples.jar file from the local file system to WASB:</source>
+          <target state="new">For example, the following copies the giraph-examples.jar file from the local file system to WASB:</target>
+        </trans-unit>
+        <trans-unit id="d7f6e4f8-b669-4e68-8594-38057f5a1be0" xml:space="preserve">
+          <source>Information written to STDOUT and STDERR is logged, and can be viewed after the cluster has been provisioned by using the Ambari web UI.</source>
+          <target state="new">Information written to STDOUT and STDERR is logged, and can be viewed after the cluster has been provisioned by using the Ambari web UI.</target>
+        </trans-unit>
+        <trans-unit id="364f41f7-6507-4b49-969c-7fc3640f115b" xml:space="preserve">
+          <source>Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging.</source>
+          <target state="new">Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging.</target>
+        </trans-unit>
+        <trans-unit id="77709dda-0289-4ae0-858f-c9112d8978e5" xml:space="preserve">
+          <source>To send text to STDOUT use <bpt id="fb066346-c991-4050-8c4f-8f7ec5099580">&lt;code&gt;</bpt>echo<ept id="fb066346-c991-4050-8c4f-8f7ec5099580">&lt;/code&gt;</ept>.</source>
+          <target state="new">To send text to STDOUT use <bpt id="fb066346-c991-4050-8c4f-8f7ec5099580">&lt;code&gt;</bpt>echo<ept id="fb066346-c991-4050-8c4f-8f7ec5099580">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d7bcfc6-f870-436c-9727-ebe5bd3db0fb" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="4e912668-26e1-4e87-ba89-410cf3d9976a" xml:space="preserve">
+          <source>By default, <bpt id="309b2a1d-60f0-4aae-a14c-2aaa961a7767">&lt;code&gt;</bpt>echo<ept id="309b2a1d-60f0-4aae-a14c-2aaa961a7767">&lt;/code&gt;</ept> will send the string to STDOUT. To direct it to STDERR, add <bpt id="9cb256ea-1bf5-4feb-96a6-9e6136dba99b">&lt;code&gt;</bpt>&gt;&amp;2<ept id="9cb256ea-1bf5-4feb-96a6-9e6136dba99b">&lt;/code&gt;</ept> before <bpt id="2b05638f-1d6e-4efa-a0b8-629ce2de898d">&lt;code&gt;</bpt>echo<ept id="2b05638f-1d6e-4efa-a0b8-629ce2de898d">&lt;/code&gt;</ept>. For example:</source>
+          <target state="new">By default, <bpt id="309b2a1d-60f0-4aae-a14c-2aaa961a7767">&lt;code&gt;</bpt>echo<ept id="309b2a1d-60f0-4aae-a14c-2aaa961a7767">&lt;/code&gt;</ept> will send the string to STDOUT. To direct it to STDERR, add <bpt id="9cb256ea-1bf5-4feb-96a6-9e6136dba99b">&lt;code&gt;</bpt>&gt;&amp;2<ept id="9cb256ea-1bf5-4feb-96a6-9e6136dba99b">&lt;/code&gt;</ept> before <bpt id="2b05638f-1d6e-4efa-a0b8-629ce2de898d">&lt;code&gt;</bpt>echo<ept id="2b05638f-1d6e-4efa-a0b8-629ce2de898d">&lt;/code&gt;</ept>. For example:</target>
+        </trans-unit>
+        <trans-unit id="ec4468a3-449f-4900-acf2-179fc8ad8c56" xml:space="preserve">
+          <source>&amp;2 echo "An error occured installing Foo"</source>
+          <target state="new">&amp;2 echo "An error occured installing Foo"</target>
+        </trans-unit>
+        <trans-unit id="460e7acc-a81b-4f3e-9517-59a4961f1225" xml:space="preserve">
+          <source>This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2).</source>
+          <target state="new">This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2).</target>
+        </trans-unit>
+        <trans-unit id="3d49022c-4ff6-4730-af70-e7d187de2631" xml:space="preserve">
+          <source>For more information on IO redirection, see <bpt id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;linkText&gt;</bpt>http://www.tldp.org/LDP/abs/html/io-redirection.html<ept id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;/linkText&gt;</ept><bpt id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;title&gt;</bpt><ept id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on IO redirection, see <bpt id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;linkText&gt;</bpt>http://www.tldp.org/LDP/abs/html/io-redirection.html<ept id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;/linkText&gt;</ept><bpt id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;title&gt;</bpt><ept id="622b6eab-85e5-48b3-aa8f-545bce93cfa5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5f66b0c-5527-4652-8903-c3e9c925a138" xml:space="preserve">
+          <source>For more information on viewing information logged by Script Actions, see <bpt id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;/linkText&gt;</ept><bpt id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;title&gt;</bpt><ept id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on viewing information logged by Script Actions, see <bpt id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;/linkText&gt;</ept><bpt id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;title&gt;</bpt><ept id="793ba628-def1-47ac-b937-9e878e09b4e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64a12221-735d-4dec-814a-56df24415f13" xml:space="preserve">
+          <source>Bash scripts should be stored as ASCII format, with lines terminated by LF.</source>
+          <target state="new">Bash scripts should be stored as ASCII format, with lines terminated by LF.</target>
+        </trans-unit>
+        <trans-unit id="d6b63490-ad39-4580-8cb6-664485e6192e" xml:space="preserve">
+          <source>If files are stored as UTF-8, which may include a Byte Order Mark at the beginning of the file, or with line endings of CRLF, which is common for Windows editors, then the script will fail with errors similar to the following:</source>
+          <target state="new">If files are stored as UTF-8, which may include a Byte Order Mark at the beginning of the file, or with line endings of CRLF, which is common for Windows editors, then the script will fail with errors similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="d03b1efa-a7ab-4d5a-b47c-6e7bae453d0a" xml:space="preserve">
+          <source>Script Action helper methods are utilities that you can use while writing custom scripts.</source>
+          <target state="new">Script Action helper methods are utilities that you can use while writing custom scripts.</target>
+        </trans-unit>
+        <trans-unit id="37ca99c3-1b74-4e93-a334-a62bbc1e1931" xml:space="preserve">
+          <source>These are defined in <bpt id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh<ept id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;/linkText&gt;</ept><bpt id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;title&gt;</bpt><ept id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;/title&gt;</ept>, and can be included in your scripts using the following:</source>
+          <target state="new">These are defined in <bpt id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;linkText&gt;</bpt>https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh<ept id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;/linkText&gt;</ept><bpt id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;title&gt;</bpt><ept id="0198375b-3521-49a9-9965-c90ca69c943f">&lt;/title&gt;</ept>, and can be included in your scripts using the following:</target>
+        </trans-unit>
+        <trans-unit id="76cb1cfd-fbe5-4230-9a12-e0a6aa9661e5" xml:space="preserve">
+          <source>This makes the following helpers available for use in your script:</source>
+          <target state="new">This makes the following helpers available for use in your script:</target>
+        </trans-unit>
+        <trans-unit id="bcaafdd0-ff18-4890-8222-4aabb34c15b0" xml:space="preserve">
+          <source>Helper usage</source>
+          <target state="new">Helper usage</target>
+        </trans-unit>
+        <trans-unit id="4f9441d0-8760-4b1b-b6f3-19df0d5de9b7" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="075f7051-1647-4f2c-a42f-c7132ba285c5" xml:space="preserve">
+          <source><bpt id="822b1520-f173-444f-ad1b-21c5d3911c4e">&lt;code&gt;</bpt>download_file SOURCEURL DESTFILEPATH [OVERWRITE]<ept id="822b1520-f173-444f-ad1b-21c5d3911c4e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="822b1520-f173-444f-ad1b-21c5d3911c4e">&lt;code&gt;</bpt>download_file SOURCEURL DESTFILEPATH [OVERWRITE]<ept id="822b1520-f173-444f-ad1b-21c5d3911c4e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a4b5159-bf33-4492-8537-28b56c2d6fb3" xml:space="preserve">
+          <source>Downloads a file from the source URL to the specified file path.</source>
+          <target state="new">Downloads a file from the source URL to the specified file path.</target>
+        </trans-unit>
+        <trans-unit id="4c431cae-606d-4f8f-907f-2f75a5897295" xml:space="preserve">
+          <source>By default, it will not overwrite an existing file.</source>
+          <target state="new">By default, it will not overwrite an existing file.</target>
+        </trans-unit>
+        <trans-unit id="daa00a96-9c49-462f-af3e-79d8a814f7e7" xml:space="preserve">
+          <source><bpt id="29b62de1-dfbd-4b8c-96b8-5f640a9e68b0">&lt;code&gt;</bpt>untar_file TARFILE DESTDIR<ept id="29b62de1-dfbd-4b8c-96b8-5f640a9e68b0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="29b62de1-dfbd-4b8c-96b8-5f640a9e68b0">&lt;code&gt;</bpt>untar_file TARFILE DESTDIR<ept id="29b62de1-dfbd-4b8c-96b8-5f640a9e68b0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f63d298-7739-4ae6-bbe3-2ba1a6e09c20" xml:space="preserve">
+          <source>Extracts a tar file (using <bpt id="b98238af-3000-4c2b-b2d7-b4f6a492d78a">&lt;code&gt;</bpt>-xf<ept id="b98238af-3000-4c2b-b2d7-b4f6a492d78a">&lt;/code&gt;</ept>,) to the destination directory.</source>
+          <target state="new">Extracts a tar file (using <bpt id="b98238af-3000-4c2b-b2d7-b4f6a492d78a">&lt;code&gt;</bpt>-xf<ept id="b98238af-3000-4c2b-b2d7-b4f6a492d78a">&lt;/code&gt;</ept>,) to the destination directory.</target>
+        </trans-unit>
+        <trans-unit id="2dea6834-88b8-4176-8abc-46ab70f2f272" xml:space="preserve">
+          <source><bpt id="775624a2-b35f-4df1-a83f-907c833be841">&lt;code&gt;</bpt>test_is_headnode<ept id="775624a2-b35f-4df1-a83f-907c833be841">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="775624a2-b35f-4df1-a83f-907c833be841">&lt;code&gt;</bpt>test_is_headnode<ept id="775624a2-b35f-4df1-a83f-907c833be841">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b33c4a58-1c33-483c-a911-410da8c1159c" xml:space="preserve">
+          <source>If ran on a cluster head node, returns 1; otherwise, 0.</source>
+          <target state="new">If ran on a cluster head node, returns 1; otherwise, 0.</target>
+        </trans-unit>
+        <trans-unit id="2f8703eb-7dfc-46f9-9dfe-e80de691d9fb" xml:space="preserve">
+          <source><bpt id="baec1080-4f28-4991-b1ff-519e183fe3e1">&lt;code&gt;</bpt>test_is_datanode<ept id="baec1080-4f28-4991-b1ff-519e183fe3e1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="baec1080-4f28-4991-b1ff-519e183fe3e1">&lt;code&gt;</bpt>test_is_datanode<ept id="baec1080-4f28-4991-b1ff-519e183fe3e1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8f49c4a-5c01-4a7c-9c61-7b311b287c1b" xml:space="preserve">
+          <source>If the current node is a data (worker) node, returns a 1; otherwise, 0.</source>
+          <target state="new">If the current node is a data (worker) node, returns a 1; otherwise, 0.</target>
+        </trans-unit>
+        <trans-unit id="91546816-fe79-4ad3-bc06-84eb6508ae5d" xml:space="preserve">
+          <source><bpt id="149eb17b-3ddc-4df7-bc1d-aba5279a4c4e">&lt;code&gt;</bpt>test_is_first_datanode<ept id="149eb17b-3ddc-4df7-bc1d-aba5279a4c4e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="149eb17b-3ddc-4df7-bc1d-aba5279a4c4e">&lt;code&gt;</bpt>test_is_first_datanode<ept id="149eb17b-3ddc-4df7-bc1d-aba5279a4c4e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="491dcc31-e4b8-4949-944f-0a5e673409bf" xml:space="preserve">
+          <source>If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0.</source>
+          <target state="new">If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0.</target>
+        </trans-unit>
+        <trans-unit id="3bfe2ac5-691d-4d5a-9b29-d37bd2cfea89" xml:space="preserve">
+          <source>This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.</source>
+          <target state="new">This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.</target>
+        </trans-unit>
+        <trans-unit id="28abd5d8-2b7a-4633-ad5a-6a1970006fce" xml:space="preserve">
+          <source>In some cases, your script may require parameters.</source>
+          <target state="new">In some cases, your script may require parameters.</target>
+        </trans-unit>
+        <trans-unit id="6bd37e84-cbf9-4e61-91f5-5542fe6c4211" xml:space="preserve">
+          <source>For example, you may need the admin password for the cluster in order to retrieve information from the Ambari REST API.</source>
+          <target state="new">For example, you may need the admin password for the cluster in order to retrieve information from the Ambari REST API.</target>
+        </trans-unit>
+        <trans-unit id="337974a4-cc77-4608-b8f7-2e4cd1779b2a" xml:space="preserve">
+          <source>Parameters passed to the script are known as <bpt id="4f638fb0-684e-4496-956d-42b2151004be">&lt;em&gt;</bpt>positional parameters<ept id="4f638fb0-684e-4496-956d-42b2151004be">&lt;/em&gt;</ept>, and are assigned to <bpt id="ae626d20-2d55-425d-b97e-a2c69acdd98b">&lt;code&gt;</bpt>$1<ept id="ae626d20-2d55-425d-b97e-a2c69acdd98b">&lt;/code&gt;</ept> for the first parameter, <bpt id="e13e345c-0300-46ec-9262-f714ae5a08a4">&lt;code&gt;</bpt>$2<ept id="e13e345c-0300-46ec-9262-f714ae5a08a4">&lt;/code&gt;</ept> for the second, and so-on.</source>
+          <target state="new">Parameters passed to the script are known as <bpt id="4f638fb0-684e-4496-956d-42b2151004be">&lt;em&gt;</bpt>positional parameters<ept id="4f638fb0-684e-4496-956d-42b2151004be">&lt;/em&gt;</ept>, and are assigned to <bpt id="ae626d20-2d55-425d-b97e-a2c69acdd98b">&lt;code&gt;</bpt>$1<ept id="ae626d20-2d55-425d-b97e-a2c69acdd98b">&lt;/code&gt;</ept> for the first parameter, <bpt id="e13e345c-0300-46ec-9262-f714ae5a08a4">&lt;code&gt;</bpt>$2<ept id="e13e345c-0300-46ec-9262-f714ae5a08a4">&lt;/code&gt;</ept> for the second, and so-on.</target>
+        </trans-unit>
+        <trans-unit id="4e1e591f-6a51-47e5-88b0-cf95ff371d0e" xml:space="preserve">
+          <source><bpt id="0730b39e-a6b6-4cc0-9b30-2fcf553ba023">&lt;code&gt;</bpt>$0<ept id="0730b39e-a6b6-4cc0-9b30-2fcf553ba023">&lt;/code&gt;</ept> contains the name of the script itself.</source>
+          <target state="new"><bpt id="0730b39e-a6b6-4cc0-9b30-2fcf553ba023">&lt;code&gt;</bpt>$0<ept id="0730b39e-a6b6-4cc0-9b30-2fcf553ba023">&lt;/code&gt;</ept> contains the name of the script itself.</target>
+        </trans-unit>
+        <trans-unit id="8b982e97-05eb-4df4-8ea3-ef229f56c6f0" xml:space="preserve">
+          <source>Values passed to the script as parameters should be enclosed by single quotes (') so that the passed value is treated as a literal, and special treatment isn't given to included characters such as '!'.</source>
+          <target state="new">Values passed to the script as parameters should be enclosed by single quotes (') so that the passed value is treated as a literal, and special treatment isn't given to included characters such as '!'.</target>
+        </trans-unit>
+        <trans-unit id="4b65a1ad-793a-49fa-a4f1-1be5da1075fa" xml:space="preserve">
+          <source>Setting an environment variable is performed by the following:</source>
+          <target state="new">Setting an environment variable is performed by the following:</target>
+        </trans-unit>
+        <trans-unit id="301f7200-5b88-47de-9200-f5bc2a2baac2" xml:space="preserve">
+          <source>Where VARIABLENAME is the name of the variable.</source>
+          <target state="new">Where VARIABLENAME is the name of the variable.</target>
+        </trans-unit>
+        <trans-unit id="556cb2d6-80f9-4dfd-9d4e-6700edcfdfe3" xml:space="preserve">
+          <source>To access the variable after this, use <bpt id="4b62dc37-9d9e-4f88-bf47-e472f03fcbef">&lt;code&gt;</bpt>$VARIABLENAME<ept id="4b62dc37-9d9e-4f88-bf47-e472f03fcbef">&lt;/code&gt;</ept>.</source>
+          <target state="new">To access the variable after this, use <bpt id="4b62dc37-9d9e-4f88-bf47-e472f03fcbef">&lt;code&gt;</bpt>$VARIABLENAME<ept id="4b62dc37-9d9e-4f88-bf47-e472f03fcbef">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac7ceaf0-0373-49ad-9545-e32e6ab035c5" xml:space="preserve">
+          <source>For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following:</source>
+          <target state="new">For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following:</target>
+        </trans-unit>
+        <trans-unit id="4ee14832-ac1e-4a57-a7ff-d20097aabe2d" xml:space="preserve">
+          <source>Subsequent access to the information could then use <bpt id="6bda8baa-ac7e-4a34-9f48-4d6b89d5ee42">&lt;code&gt;</bpt>$PASSWORD<ept id="6bda8baa-ac7e-4a34-9f48-4d6b89d5ee42">&lt;/code&gt;</ept>.</source>
+          <target state="new">Subsequent access to the information could then use <bpt id="6bda8baa-ac7e-4a34-9f48-4d6b89d5ee42">&lt;code&gt;</bpt>$PASSWORD<ept id="6bda8baa-ac7e-4a34-9f48-4d6b89d5ee42">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9878b050-2f85-4851-9ba5-de2eed76e8bb" xml:space="preserve">
+          <source>Environment variables set within the script only exist within the scope of the script.</source>
+          <target state="new">Environment variables set within the script only exist within the scope of the script.</target>
+        </trans-unit>
+        <trans-unit id="f5b44e20-a21d-4e6b-9627-624d721c8727" xml:space="preserve">
+          <source>In some cases, you may need to add system wide environment variables that will persist after the script has finished.</source>
+          <target state="new">In some cases, you may need to add system wide environment variables that will persist after the script has finished.</target>
+        </trans-unit>
+        <trans-unit id="bb8adcad-00ae-4cce-b195-0f8eeb59fba5" xml:space="preserve">
+          <source>Usually this is so that users connecting to the cluster via SSH can use the components installed by your script.</source>
+          <target state="new">Usually this is so that users connecting to the cluster via SSH can use the components installed by your script.</target>
+        </trans-unit>
+        <trans-unit id="3d984d69-be75-4b23-a3ba-8d8fef29c743" xml:space="preserve">
+          <source>You can accomplish this by adding the environment variable to <bpt id="b77f2363-ba45-4533-8d01-f63caa97196f">&lt;code&gt;</bpt>/etc/environment<ept id="b77f2363-ba45-4533-8d01-f63caa97196f">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can accomplish this by adding the environment variable to <bpt id="b77f2363-ba45-4533-8d01-f63caa97196f">&lt;code&gt;</bpt>/etc/environment<ept id="b77f2363-ba45-4533-8d01-f63caa97196f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d191714-541b-4e86-ac79-c21e874f0fac" xml:space="preserve">
+          <source>For example, the following adds <bpt id="9502ea6f-df9a-4495-bae0-4590914c7282">&lt;strong&gt;</bpt>HADOOP\_CONF\_DIR<ept id="9502ea6f-df9a-4495-bae0-4590914c7282">&lt;/strong&gt;</ept>:</source>
+          <target state="new">For example, the following adds <bpt id="9502ea6f-df9a-4495-bae0-4590914c7282">&lt;strong&gt;</bpt>HADOOP\_CONF\_DIR<ept id="9502ea6f-df9a-4495-bae0-4590914c7282">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="93c220bb-acd9-42e7-ab9a-64c0f38044ae" xml:space="preserve">
+          <source>Scripts used to customize a cluster needs to either be in the default storage account for the cluster or, if on another storage account, in a public read-only container.</source>
+          <target state="new">Scripts used to customize a cluster needs to either be in the default storage account for the cluster or, if on another storage account, in a public read-only container.</target>
+        </trans-unit>
+        <trans-unit id="35c15123-eab1-4c1c-bad0-99fb444a3d4c" xml:space="preserve">
+          <source>If your script accesses resources located elsewhere these also need to be in a publicly accessible (at least public read-only).</source>
+          <target state="new">If your script accesses resources located elsewhere these also need to be in a publicly accessible (at least public read-only).</target>
+        </trans-unit>
+        <trans-unit id="3d381f5b-06d8-42d2-8490-2b959dddfa1d" xml:space="preserve">
+          <source>For instance you might want to download a file to the cluster using <bpt id="2e03fc76-93ce-471f-be63-3e576cb3391b">&lt;code&gt;</bpt>download_file<ept id="2e03fc76-93ce-471f-be63-3e576cb3391b">&lt;/code&gt;</ept>.</source>
+          <target state="new">For instance you might want to download a file to the cluster using <bpt id="2e03fc76-93ce-471f-be63-3e576cb3391b">&lt;code&gt;</bpt>download_file<ept id="2e03fc76-93ce-471f-be63-3e576cb3391b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cee255a9-bb85-4ae5-b360-718bac6f2afc" xml:space="preserve">
+          <source>Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.</source>
+          <target state="new">Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.</target>
+        </trans-unit>
+        <trans-unit id="a63559a8-e9b7-43a8-82a3-318d692d0700" xml:space="preserve">
+          <source>Here are the steps we took when preparing to deploy these scripts:</source>
+          <target state="new">Here are the steps we took when preparing to deploy these scripts:</target>
+        </trans-unit>
+        <trans-unit id="50dd2d0d-9451-46f1-9693-e64f9aa92f9e" xml:space="preserve">
+          <source>Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.</source>
+          <target state="new">Put the files that contain the custom scripts in a place that is accessible by the cluster nodes during deployment.</target>
+        </trans-unit>
+        <trans-unit id="bbf4cc7f-820f-40e5-b0e5-c538d8a257ee" xml:space="preserve">
+          <source>This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.</source>
+          <target state="new">This can be any of the default or additional Storage accounts specified at the time of cluster deployment, or any other publicly accessible storage container.</target>
+        </trans-unit>
+        <trans-unit id="65d5a437-7a17-4796-b3d2-b7c2fbcb120f" xml:space="preserve">
+          <source>Add checks into scripts to make sure that they execute impotently, so that the script can be executed multiple times on the same node.</source>
+          <target state="new">Add checks into scripts to make sure that they execute impotently, so that the script can be executed multiple times on the same node.</target>
+        </trans-unit>
+        <trans-unit id="08bd1fcd-1252-4373-aa67-2d2f92b9f212" xml:space="preserve">
+          <source>Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.</source>
+          <target state="new">Use a temporary file directory /tmp to keep the downloaded files used by the scripts and then clean them up after scripts have executed.</target>
+        </trans-unit>
+        <trans-unit id="482f79d2-c3bb-4fda-a2bc-7d48fb2d0420" xml:space="preserve">
+          <source>In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.</source>
+          <target state="new">In the event that OS-level settings or Hadoop service configuration files were changed, you may want to restart HDInsight services so that they can pick up any OS-level settings, such as the environment variables set in the scripts.</target>
+        </trans-unit>
+        <trans-unit id="3cf9f61a-89c5-42d8-8101-8de84b9088e0" xml:space="preserve">
+          <source>You can use Script Actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, or the HDInsight .NET SDK.</source>
+          <target state="new">You can use Script Actions to customize HDInsight clusters by using the Azure portal, Azure PowerShell, or the HDInsight .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="eb3ac3ac-e722-4942-84c5-3914914f9549" xml:space="preserve">
+          <source>For instructions, see <bpt id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;linkText&gt;</bpt>How to use Script Action<ept id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;/linkText&gt;</ept><bpt id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;title&gt;</bpt><ept id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;linkText&gt;</bpt>How to use Script Action<ept id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;/linkText&gt;</ept><bpt id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;title&gt;</bpt><ept id="af6e4c26-34c8-4fae-ae24-cdde23c60b39">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe2db941-9f22-4e45-8839-f81179e9a3e5" xml:space="preserve">
+          <source>Microsoft provides sample scripts to install components on an HDInsight cluster.</source>
+          <target state="new">Microsoft provides sample scripts to install components on an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="f94d35c6-9564-4b96-b76f-8362843f2238" xml:space="preserve">
+          <source>The sample scripts and instructions on how to use them are available at the links below:</source>
+          <target state="new">The sample scripts and instructions on how to use them are available at the links below:</target>
+        </trans-unit>
+        <trans-unit id="7f5939fb-981e-41b0-ba79-93c874457850" xml:space="preserve">
+          <source><bpt id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;linkText&gt;</bpt>Install and use Hue on HDInsight clusters<ept id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;/linkText&gt;</ept><bpt id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;title&gt;</bpt><ept id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;linkText&gt;</bpt>Install and use Hue on HDInsight clusters<ept id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;/linkText&gt;</ept><bpt id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;title&gt;</bpt><ept id="ae9ec99d-4c03-4ae3-b62e-e22e1f9474e2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3683818-31a3-42d8-86f7-4df9adcb5922" xml:space="preserve">
+          <source><bpt id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;/linkText&gt;</ept><bpt id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;title&gt;</bpt><ept id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;linkText&gt;</bpt>Install and use Spark on HDInsight clusters<ept id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;/linkText&gt;</ept><bpt id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;title&gt;</bpt><ept id="5a7172fd-e3bb-430e-b7ec-aaa66de0b9e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d39e16fd-a16b-4d06-9155-53c1343bb66f" xml:space="preserve">
+          <source><bpt id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;linkText&gt;</bpt>Install and use R on HDInsight Hadoop clusters<ept id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;/linkText&gt;</ept><bpt id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;title&gt;</bpt><ept id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;linkText&gt;</bpt>Install and use R on HDInsight Hadoop clusters<ept id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;/linkText&gt;</ept><bpt id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;title&gt;</bpt><ept id="4539afd5-a214-4701-97ce-36a8f91268e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cdd108cf-fe4e-46cf-bbef-8efb046edcec" xml:space="preserve">
+          <source><bpt id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;/linkText&gt;</ept><bpt id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;title&gt;</bpt><ept id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;linkText&gt;</bpt>Install and use Solr on HDInsight clusters<ept id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;/linkText&gt;</ept><bpt id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;title&gt;</bpt><ept id="9ef9c4d3-1602-410c-9bf8-d0535b69ddfc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="356f0579-b8c9-4cb9-bd02-acfb78ed2f2b" xml:space="preserve">
+          <source><bpt id="deea527a-2a18-491c-ad7f-991c26810541">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="deea527a-2a18-491c-ad7f-991c26810541">&lt;/linkText&gt;</ept><bpt id="deea527a-2a18-491c-ad7f-991c26810541">&lt;title&gt;</bpt><ept id="deea527a-2a18-491c-ad7f-991c26810541">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="deea527a-2a18-491c-ad7f-991c26810541">&lt;linkText&gt;</bpt>Install and use Giraph on HDInsight clusters<ept id="deea527a-2a18-491c-ad7f-991c26810541">&lt;/linkText&gt;</ept><bpt id="deea527a-2a18-491c-ad7f-991c26810541">&lt;title&gt;</bpt><ept id="deea527a-2a18-491c-ad7f-991c26810541">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="d588babe-cd8a-4b7f-99b2-5d258c1df0f9" xml:space="preserve">
+          <source>The documents linked above are specific to Linux-based HDInsight clusters.</source>
+          <target state="new">The documents linked above are specific to Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="e3b7110f-71eb-4602-9941-6e9ace91e7ac" xml:space="preserve">
+          <source>For a scripts that work with Windows-based HDInsight, see <bpt id="498216ad-79de-4580-9875-c51c49c79c10">&lt;linkText&gt;</bpt>Script action development with HDInsight (Windows)<ept id="498216ad-79de-4580-9875-c51c49c79c10">&lt;/linkText&gt;</ept><bpt id="498216ad-79de-4580-9875-c51c49c79c10">&lt;title&gt;</bpt><ept id="498216ad-79de-4580-9875-c51c49c79c10">&lt;/title&gt;</ept> or use the links available at the top of each article.</source>
+          <target state="new">For a scripts that work with Windows-based HDInsight, see <bpt id="498216ad-79de-4580-9875-c51c49c79c10">&lt;linkText&gt;</bpt>Script action development with HDInsight (Windows)<ept id="498216ad-79de-4580-9875-c51c49c79c10">&lt;/linkText&gt;</ept><bpt id="498216ad-79de-4580-9875-c51c49c79c10">&lt;title&gt;</bpt><ept id="498216ad-79de-4580-9875-c51c49c79c10">&lt;/title&gt;</ept> or use the links available at the top of each article.</target>
+        </trans-unit>
+        <trans-unit id="1cc88da9-cadd-43c4-833b-88fcee8e9abc" xml:space="preserve">
+          <source>The following are errors you may encounter when using scripts you have developed:</source>
+          <target state="new">The following are errors you may encounter when using scripts you have developed:</target>
+        </trans-unit>
+        <trans-unit id="638f68f7-b26e-4ec3-bac7-1333f5cfba28" xml:space="preserve">
+          <source><bpt id="6315b8c8-ec62-443f-a22b-10135cf26f3f">&lt;strong&gt;</bpt>Error<ept id="6315b8c8-ec62-443f-a22b-10135cf26f3f">&lt;/strong&gt;</ept>: <bpt id="b470bef4-76d7-404e-a0f3-94612e5cfafa">&lt;code&gt;</bpt>$'\r': command not found<ept id="b470bef4-76d7-404e-a0f3-94612e5cfafa">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="6315b8c8-ec62-443f-a22b-10135cf26f3f">&lt;strong&gt;</bpt>Error<ept id="6315b8c8-ec62-443f-a22b-10135cf26f3f">&lt;/strong&gt;</ept>: <bpt id="b470bef4-76d7-404e-a0f3-94612e5cfafa">&lt;code&gt;</bpt>$'\r': command not found<ept id="b470bef4-76d7-404e-a0f3-94612e5cfafa">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5e93821-0fd8-4aa4-bbec-023e4e4b6d12" xml:space="preserve">
+          <source>Sometimes followed by <bpt id="ff0a46c6-0f6a-41e0-9ed2-5c3d9b19d6fd">&lt;code&gt;</bpt>syntax error: unexpected end of file<ept id="ff0a46c6-0f6a-41e0-9ed2-5c3d9b19d6fd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Sometimes followed by <bpt id="ff0a46c6-0f6a-41e0-9ed2-5c3d9b19d6fd">&lt;code&gt;</bpt>syntax error: unexpected end of file<ept id="ff0a46c6-0f6a-41e0-9ed2-5c3d9b19d6fd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cb08908-4ed8-42a2-ac8b-91ffb4788741" xml:space="preserve">
+          <source><bpt id="b838fbf1-708f-42f2-9d8b-9a3dec2c1c79">&lt;em&gt;</bpt>Cause<ept id="b838fbf1-708f-42f2-9d8b-9a3dec2c1c79">&lt;/em&gt;</ept>: This error is caused when the lines in a script end with CRLF.</source>
+          <target state="new"><bpt id="b838fbf1-708f-42f2-9d8b-9a3dec2c1c79">&lt;em&gt;</bpt>Cause<ept id="b838fbf1-708f-42f2-9d8b-9a3dec2c1c79">&lt;/em&gt;</ept>: This error is caused when the lines in a script end with CRLF.</target>
+        </trans-unit>
+        <trans-unit id="69ba877c-3ee1-474e-ba2e-52c560413b37" xml:space="preserve">
+          <source>Unix systems expect only LF as the line ending.</source>
+          <target state="new">Unix systems expect only LF as the line ending.</target>
+        </trans-unit>
+        <trans-unit id="8cc3cc63-c9ab-4a74-a168-6d0146257f72" xml:space="preserve">
+          <source>This problem most often occurs when the script is authored on a Windows environment, as CRLF is a common line ending for many text editors on Windows.</source>
+          <target state="new">This problem most often occurs when the script is authored on a Windows environment, as CRLF is a common line ending for many text editors on Windows.</target>
+        </trans-unit>
+        <trans-unit id="822eb4d1-1670-42ca-b621-a4dd59213fa9" xml:space="preserve">
+          <source><bpt id="d3a869e3-e332-4412-8d25-ef415c978b98">&lt;em&gt;</bpt>Resolution<ept id="d3a869e3-e332-4412-8d25-ef415c978b98">&lt;/em&gt;</ept>: If it is an option in your text editor, select Unix format or LF for the line ending.</source>
+          <target state="new"><bpt id="d3a869e3-e332-4412-8d25-ef415c978b98">&lt;em&gt;</bpt>Resolution<ept id="d3a869e3-e332-4412-8d25-ef415c978b98">&lt;/em&gt;</ept>: If it is an option in your text editor, select Unix format or LF for the line ending.</target>
+        </trans-unit>
+        <trans-unit id="ab6a1011-81ee-47eb-8e03-86a0a51a75b0" xml:space="preserve">
+          <source>You may also use the following commands on a Unix system to change the CRLF to an LF:</source>
+          <target state="new">You may also use the following commands on a Unix system to change the CRLF to an LF:</target>
+        </trans-unit>
+        <trans-unit id="9fd25247-6782-4c32-8b2d-40c0edd08c65" xml:space="preserve">
+          <source>The following commands are roughly equivalent in that they should change the CRLF line endings to LF.</source>
+          <target state="new">The following commands are roughly equivalent in that they should change the CRLF line endings to LF.</target>
+        </trans-unit>
+        <trans-unit id="c052eb43-e786-46fb-ba8a-3f8f0b25e4f1" xml:space="preserve">
+          <source>Select one based on the utilities available on your system.</source>
+          <target state="new">Select one based on the utilities available on your system.</target>
+        </trans-unit>
+        <trans-unit id="228a9543-78c9-435d-a111-15abb3f77adf" xml:space="preserve">
+          <source>Command</source>
+          <target state="new">Command</target>
+        </trans-unit>
+        <trans-unit id="5994c37e-0507-4715-8119-10028ae9fffc" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="556acb87-d306-43d3-9d22-c3cfc6bd60b0" xml:space="preserve">
+          <source><bpt id="3c9247f4-da40-4b0a-9fbe-189917029e28">&lt;code&gt;</bpt>unix2dos -b INFILE<ept id="3c9247f4-da40-4b0a-9fbe-189917029e28">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3c9247f4-da40-4b0a-9fbe-189917029e28">&lt;code&gt;</bpt>unix2dos -b INFILE<ept id="3c9247f4-da40-4b0a-9fbe-189917029e28">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d46a3363-b627-4416-aaf2-e6f350e644f7" xml:space="preserve">
+          <source>The original file will be backed up with a .BAK extension</source>
+          <target state="new">The original file will be backed up with a .BAK extension</target>
+        </trans-unit>
+        <trans-unit id="0517cd6e-94e8-49d9-aa6d-fe393a1df271" xml:space="preserve">
+          <source><bpt id="ff48e4db-de32-4128-9fae-c25ee50aaf0e">&lt;code&gt;</bpt>tr -d '\r' &lt; INFILE &gt; OUTFILE<ept id="ff48e4db-de32-4128-9fae-c25ee50aaf0e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ff48e4db-de32-4128-9fae-c25ee50aaf0e">&lt;code&gt;</bpt>tr -d '\r' &lt; INFILE &gt; OUTFILE<ept id="ff48e4db-de32-4128-9fae-c25ee50aaf0e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e776f15-c6af-4a91-996f-9d74ff732c02" xml:space="preserve">
+          <source>OUTFILE will contain a version with only LF endings</source>
+          <target state="new">OUTFILE will contain a version with only LF endings</target>
+        </trans-unit>
+        <trans-unit id="d3135819-55c6-4c26-b4fb-074de7b18e39" xml:space="preserve">
+          <source><bpt id="094a6d1c-22b9-40bd-9819-aff9b866eb3e">&lt;code&gt;</bpt>perl -pi -e 's/\r\n/\n/g' INFILE<ept id="094a6d1c-22b9-40bd-9819-aff9b866eb3e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="094a6d1c-22b9-40bd-9819-aff9b866eb3e">&lt;code&gt;</bpt>perl -pi -e 's/\r\n/\n/g' INFILE<ept id="094a6d1c-22b9-40bd-9819-aff9b866eb3e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="690d4da4-1675-41d1-9150-f791a9492537" xml:space="preserve">
+          <source>This will modify the file directly without creating a new file</source>
+          <target state="new">This will modify the file directly without creating a new file</target>
+        </trans-unit>
+        <trans-unit id="d0392a33-6ec3-4d6b-99a8-c8034d1a97e4" xml:space="preserve">
+          <source><bpt id="3b752821-56d4-4db8-9188-65f4e68ae076">&lt;code&gt;</bpt>sed 's/$'"/`echo \\\r`/" INFILE &gt; OUTFILE<ept id="3b752821-56d4-4db8-9188-65f4e68ae076">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="3b752821-56d4-4db8-9188-65f4e68ae076">&lt;code&gt;</bpt>sed 's/$'"/`echo \\\r`/" INFILE &gt; OUTFILE<ept id="3b752821-56d4-4db8-9188-65f4e68ae076">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dbec5e1-263d-4c07-ace2-6a5ed46b4be7" xml:space="preserve">
+          <source>OUTFILE will contain a version with only LF endings.</source>
+          <target state="new">OUTFILE will contain a version with only LF endings.</target>
+        </trans-unit>
+        <trans-unit id="25bd4f3b-80b5-4039-83d5-74c88dd45eab" xml:space="preserve">
+          <source><bpt id="575d26cc-33b5-4e86-9d2e-4ddcc78c89f1">&lt;strong&gt;</bpt>Error<ept id="575d26cc-33b5-4e86-9d2e-4ddcc78c89f1">&lt;/strong&gt;</ept>: <bpt id="9635e76d-3588-4492-9acf-8ba8b2f5522d">&lt;code&gt;</bpt>line 1: #!/usr/bin/env: No such file or directory<ept id="9635e76d-3588-4492-9acf-8ba8b2f5522d">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="575d26cc-33b5-4e86-9d2e-4ddcc78c89f1">&lt;strong&gt;</bpt>Error<ept id="575d26cc-33b5-4e86-9d2e-4ddcc78c89f1">&lt;/strong&gt;</ept>: <bpt id="9635e76d-3588-4492-9acf-8ba8b2f5522d">&lt;code&gt;</bpt>line 1: #!/usr/bin/env: No such file or directory<ept id="9635e76d-3588-4492-9acf-8ba8b2f5522d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e671288f-992c-456d-8189-aaf24a73088e" xml:space="preserve">
+          <source><bpt id="5ae76aa0-677b-4543-87ce-c78551637e71">&lt;em&gt;</bpt>Cause<ept id="5ae76aa0-677b-4543-87ce-c78551637e71">&lt;/em&gt;</ept>: This error occurs when the script was saved as UTF-8 with a Byte Order Mark (BOM).</source>
+          <target state="new"><bpt id="5ae76aa0-677b-4543-87ce-c78551637e71">&lt;em&gt;</bpt>Cause<ept id="5ae76aa0-677b-4543-87ce-c78551637e71">&lt;/em&gt;</ept>: This error occurs when the script was saved as UTF-8 with a Byte Order Mark (BOM).</target>
+        </trans-unit>
+        <trans-unit id="3fb0abbc-4d4d-4e1f-9eea-83e46d8015c6" xml:space="preserve">
+          <source><bpt id="5d66617b-fe4a-490c-8d0a-b256f9b25796">&lt;em&gt;</bpt>Resolution<ept id="5d66617b-fe4a-490c-8d0a-b256f9b25796">&lt;/em&gt;</ept>: Save the file either as ASCII, or as UTF-8 without a BOM.</source>
+          <target state="new"><bpt id="5d66617b-fe4a-490c-8d0a-b256f9b25796">&lt;em&gt;</bpt>Resolution<ept id="5d66617b-fe4a-490c-8d0a-b256f9b25796">&lt;/em&gt;</ept>: Save the file either as ASCII, or as UTF-8 without a BOM.</target>
+        </trans-unit>
+        <trans-unit id="cba70af7-5122-47ce-bc44-000163f76f84" xml:space="preserve">
+          <source>You may also use the following command on a Linux or Unix system to create a new file without the BOM:</source>
+          <target state="new">You may also use the following command on a Linux or Unix system to create a new file without the BOM:</target>
+        </trans-unit>
+        <trans-unit id="60a2f1c6-6053-4116-a6f8-362d76d398ef" xml:space="preserve">
+          <source>For the above command, replace <bpt id="9899b8dd-e4c9-43a8-a00c-2ff55a9bebd4">&lt;strong&gt;</bpt>INFILE<ept id="9899b8dd-e4c9-43a8-a00c-2ff55a9bebd4">&lt;/strong&gt;</ept> with the file containing the BOM.</source>
+          <target state="new">For the above command, replace <bpt id="9899b8dd-e4c9-43a8-a00c-2ff55a9bebd4">&lt;strong&gt;</bpt>INFILE<ept id="9899b8dd-e4c9-43a8-a00c-2ff55a9bebd4">&lt;/strong&gt;</ept> with the file containing the BOM.</target>
+        </trans-unit>
+        <trans-unit id="46a2fbfc-1db6-4581-b74e-8ab5ebd77243" xml:space="preserve">
+          <source><bpt id="515c1209-0f5e-4751-97b7-b9e4250cc281">&lt;strong&gt;</bpt>OUTFILE<ept id="515c1209-0f5e-4751-97b7-b9e4250cc281">&lt;/strong&gt;</ept> should be a new file name, which will contain the script without the BOM.</source>
+          <target state="new"><bpt id="515c1209-0f5e-4751-97b7-b9e4250cc281">&lt;strong&gt;</bpt>OUTFILE<ept id="515c1209-0f5e-4751-97b7-b9e4250cc281">&lt;/strong&gt;</ept> should be a new file name, which will contain the script without the BOM.</target>
+        </trans-unit>
+        <trans-unit id="b326ae75-10c1-4937-b3c3-2ef3a94bf7d2" xml:space="preserve">
+          <source><bpt id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;/linkText&gt;</ept><bpt id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;title&gt;</bpt><ept id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;linkText&gt;</bpt>Customize HDInsight clusters using Script Action<ept id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;/linkText&gt;</ept><bpt id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;title&gt;</bpt><ept id="e296bfeb-39b6-40ff-8d60-ff89d978963c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

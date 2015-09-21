@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ee2eeef5-5835-47f7-bc59-47b943239ab7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ee2eeef5-5835-47f7-bc59-47b943239ab7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c3f7376c-9808-44fa-a0fa-3c57f081bcb6">
+        <trans-unit id="627b6709-74e7-4fe8-a8a0-e757de7471b5" xml:space="preserve">
+          <source>Manage StorSimple device controllers | Microsoft Azure</source>
+          <target state="new">Manage StorSimple device controllers | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="75370d55-dc0f-4f83-a8bc-3b66655ddd08" xml:space="preserve">
+          <source>Learn how to stop, restart, shut down, or reset your StorSimple device controllers.</source>
+          <target state="new">Learn how to stop, restart, shut down, or reset your StorSimple device controllers.</target>
+        </trans-unit>
+        <trans-unit id="0d27752f-faab-447e-9a95-256941ae4b0c" xml:space="preserve">
+          <source>This tutorial describes the different operations that can be performed on your StorSimple device controllers.</source>
+          <target state="new">This tutorial describes the different operations that can be performed on your StorSimple device controllers.</target>
+        </trans-unit>
+        <trans-unit id="9176413d-d1f4-4d7f-b058-88a95b4a943d" xml:space="preserve">
+          <source>The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration.</source>
+          <target state="new">The controllers in your StorSimple device are redundant (peer) controllers in an active-passive configuration.</target>
+        </trans-unit>
+        <trans-unit id="2a97cee0-1f1b-4480-991e-ec8c9dbc7722" xml:space="preserve">
+          <source>At a given time, only one controller is active, and is processing all the disk and network operations.</source>
+          <target state="new">At a given time, only one controller is active, and is processing all the disk and network operations.</target>
+        </trans-unit>
+        <trans-unit id="281e4049-3317-4c25-b553-09c7616371ba" xml:space="preserve">
+          <source>The other controller is in a passive mode.</source>
+          <target state="new">The other controller is in a passive mode.</target>
+        </trans-unit>
+        <trans-unit id="a0470606-f459-43b3-80e0-14ac6c4d32ee" xml:space="preserve">
+          <source>If the active controller fails, the passive controller becomes active automatically.</source>
+          <target state="new">If the active controller fails, the passive controller becomes active automatically.</target>
+        </trans-unit>
+        <trans-unit id="0998c405-343a-49d1-9121-05ae6e400d7c" xml:space="preserve">
+          <source>This tutorial includes step-by-step instructions to manage the device controllers by using the:</source>
+          <target state="new">This tutorial includes step-by-step instructions to manage the device controllers by using the:</target>
+        </trans-unit>
+        <trans-unit id="bed3daae-5601-447d-83a6-557e54cc700b" xml:space="preserve">
+          <source><bpt id="d336d3ca-4351-4150-802f-7bf548784141">&lt;strong&gt;</bpt>Controllers<ept id="d336d3ca-4351-4150-802f-7bf548784141">&lt;/strong&gt;</ept> section of the <bpt id="6245228c-eaff-4960-9c7d-717ccf9d49ed">&lt;strong&gt;</bpt>Maintenance<ept id="6245228c-eaff-4960-9c7d-717ccf9d49ed">&lt;/strong&gt;</ept> page in the StorSimple Manager service</source>
+          <target state="new"><bpt id="d336d3ca-4351-4150-802f-7bf548784141">&lt;strong&gt;</bpt>Controllers<ept id="d336d3ca-4351-4150-802f-7bf548784141">&lt;/strong&gt;</ept> section of the <bpt id="6245228c-eaff-4960-9c7d-717ccf9d49ed">&lt;strong&gt;</bpt>Maintenance<ept id="6245228c-eaff-4960-9c7d-717ccf9d49ed">&lt;/strong&gt;</ept> page in the StorSimple Manager service</target>
+        </trans-unit>
+        <trans-unit id="2065a324-f92b-45e2-ae32-dc4531e5601e" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple.</source>
+          <target state="new">Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="da76dac2-2689-4809-8c80-c23ce35310a8" xml:space="preserve">
+          <source>We recommend that you manage the device controllers via the StorSimple Manager service.</source>
+          <target state="new">We recommend that you manage the device controllers via the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="ada0120d-0253-4e36-8dd0-2dda61ddd693" xml:space="preserve">
+          <source>If an action can only be performed by using Windows PowerShell for StorSimple, the tutorial makes a note of it.</source>
+          <target state="new">If an action can only be performed by using Windows PowerShell for StorSimple, the tutorial makes a note of it.</target>
+        </trans-unit>
+        <trans-unit id="200e3fb9-9fd7-4d46-b2aa-559b391b84b4" xml:space="preserve">
+          <source>After reading this tutorial, you will be able to:</source>
+          <target state="new">After reading this tutorial, you will be able to:</target>
+        </trans-unit>
+        <trans-unit id="f4c8bbb1-e3ae-49f2-a69f-447ce5250629" xml:space="preserve">
+          <source>Restart or shut down a StorSimple device controller</source>
+          <target state="new">Restart or shut down a StorSimple device controller</target>
+        </trans-unit>
+        <trans-unit id="fed731b2-8482-4b7a-beeb-ee21b07fd74e" xml:space="preserve">
+          <source>Shut down a StorSimple device</source>
+          <target state="new">Shut down a StorSimple device</target>
+        </trans-unit>
+        <trans-unit id="91d64e75-ed6a-4f81-81c6-6d30389cbd97" xml:space="preserve">
+          <source>Reset your StorSimple device to factory defaults</source>
+          <target state="new">Reset your StorSimple device to factory defaults</target>
+        </trans-unit>
+        <trans-unit id="6edd5cac-121a-4f6a-887e-1fd084a099c1" xml:space="preserve">
+          <source>A controller restart or shut down is not required as a part of normal system operation.</source>
+          <target state="new">A controller restart or shut down is not required as a part of normal system operation.</target>
+        </trans-unit>
+        <trans-unit id="b72badef-9a10-4e74-8aa5-14c744f8865c" xml:space="preserve">
+          <source>Shutdown operations for a single device controller are common only in cases in which a failed device hardware component requires replacement.</source>
+          <target state="new">Shutdown operations for a single device controller are common only in cases in which a failed device hardware component requires replacement.</target>
+        </trans-unit>
+        <trans-unit id="a270fd57-625e-4d21-a87b-df26f0aeb74a" xml:space="preserve">
+          <source>A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller.</source>
+          <target state="new">A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller.</target>
+        </trans-unit>
+        <trans-unit id="fbf271a8-33bf-4d3a-bc0f-94527d3593e6" xml:space="preserve">
+          <source>You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.</source>
+          <target state="new">You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.</target>
+        </trans-unit>
+        <trans-unit id="069a9a92-ce64-4e34-a685-2db587b14fd8" xml:space="preserve">
+          <source>Restarting a device is not disruptive to connected initiators, assuming the passive controller is available.</source>
+          <target state="new">Restarting a device is not disruptive to connected initiators, assuming the passive controller is available.</target>
+        </trans-unit>
+        <trans-unit id="394da3aa-78e6-45e2-a14d-006cc7a11b74" xml:space="preserve">
+          <source>If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.</source>
+          <target state="new">If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.</target>
+        </trans-unit>
+        <trans-unit id="32ddd3b1-2c76-4219-90a6-8ebd53eb3d83" xml:space="preserve">
+          <source><bpt id="3f156439-2c7d-43e4-9668-f46886547d18">&lt;strong&gt;</bpt>A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.<ept id="3f156439-2c7d-43e4-9668-f46886547d18">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3f156439-2c7d-43e4-9668-f46886547d18">&lt;strong&gt;</bpt>A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.<ept id="3f156439-2c7d-43e4-9668-f46886547d18">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="980f3b26-b472-4144-b990-113ebaf3f51a" xml:space="preserve">
+          <source>The following procedure applies only to the StorSimple physical device.</source>
+          <target state="new">The following procedure applies only to the StorSimple physical device.</target>
+        </trans-unit>
+        <trans-unit id="ed1fe885-a94a-4303-8f3c-4ab8321c8ab6" xml:space="preserve">
+          <source>For information about how to start, stop, and restart the virtual device, see <bpt id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;linkText&gt;</bpt>Work with the virtual device<ept id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;/linkText&gt;</ept><bpt id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;title&gt;</bpt><ept id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to start, stop, and restart the virtual device, see <bpt id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;linkText&gt;</bpt>Work with the virtual device<ept id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;/linkText&gt;</ept><bpt id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;title&gt;</bpt><ept id="07ab4ce8-ef97-4b86-9a9f-165ad46792d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40048afa-717c-4351-a884-e7d57470dc0b" xml:space="preserve">
+          <source>You can restart or shut down a single device controller by using the:</source>
+          <target state="new">You can restart or shut down a single device controller by using the:</target>
+        </trans-unit>
+        <trans-unit id="2679d780-4ea8-4769-b2f4-86a73a80e132" xml:space="preserve">
+          <source>Management Portal of StorSimple Manager service</source>
+          <target state="new">Management Portal of StorSimple Manager service</target>
+        </trans-unit>
+        <trans-unit id="915b7c36-ee63-4086-80b8-9d3d02acac6b" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple.</source>
+          <target state="new">Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="bc88f9f5-2cc1-492c-8851-61cd89689d37" xml:space="preserve">
+          <source>To manage your device controllers from the Management Portal, perform the following steps.</source>
+          <target state="new">To manage your device controllers from the Management Portal, perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="1eb76834-a259-4a24-aef5-19c5a23405fa" xml:space="preserve">
+          <source>Navigate to <bpt id="c173bf1c-4f3c-45a8-ad1f-66915840caf7">&lt;strong&gt;</bpt>Devices &gt; Maintenance<ept id="c173bf1c-4f3c-45a8-ad1f-66915840caf7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="c173bf1c-4f3c-45a8-ad1f-66915840caf7">&lt;strong&gt;</bpt>Devices &gt; Maintenance<ept id="c173bf1c-4f3c-45a8-ad1f-66915840caf7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2d7f594-429c-4ed5-8d80-4ad44a36f43c" xml:space="preserve">
+          <source>Go to <bpt id="23574a52-9d62-4876-bf1b-e3e793ac3a4a">&lt;strong&gt;</bpt>Hardware Status<ept id="23574a52-9d62-4876-bf1b-e3e793ac3a4a">&lt;/strong&gt;</ept> and verify that the status of both the controllers on your device is <bpt id="b19ea27c-d03d-4cc1-97ab-d638c91c123d">&lt;strong&gt;</bpt>Healthy<ept id="b19ea27c-d03d-4cc1-97ab-d638c91c123d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="23574a52-9d62-4876-bf1b-e3e793ac3a4a">&lt;strong&gt;</bpt>Hardware Status<ept id="23574a52-9d62-4876-bf1b-e3e793ac3a4a">&lt;/strong&gt;</ept> and verify that the status of both the controllers on your device is <bpt id="b19ea27c-d03d-4cc1-97ab-d638c91c123d">&lt;strong&gt;</bpt>Healthy<ept id="b19ea27c-d03d-4cc1-97ab-d638c91c123d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0df1be2e-a9d4-4a22-b7d2-aa5943c15135" xml:space="preserve">
+          <source><bpt id="9d9a3687-c1c9-448d-ae7b-f8a2e909d6ed">&lt;linkText&gt;</bpt>Verify StorSimple device controllers are healthy<ept id="9d9a3687-c1c9-448d-ae7b-f8a2e909d6ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d9a3687-c1c9-448d-ae7b-f8a2e909d6ed">&lt;linkText&gt;</bpt>Verify StorSimple device controllers are healthy<ept id="9d9a3687-c1c9-448d-ae7b-f8a2e909d6ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44a11868-ccde-43fc-a3aa-cf40b5df10ee" xml:space="preserve">
+          <source>From the bottom of the <bpt id="ce2559f7-9a1c-4bf9-914a-869536db1528">&lt;strong&gt;</bpt>Maintenance<ept id="ce2559f7-9a1c-4bf9-914a-869536db1528">&lt;/strong&gt;</ept> page, click <bpt id="004425e6-ef6e-49a1-9394-9b689600f9f2">&lt;strong&gt;</bpt>Manage Controllers<ept id="004425e6-ef6e-49a1-9394-9b689600f9f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the bottom of the <bpt id="ce2559f7-9a1c-4bf9-914a-869536db1528">&lt;strong&gt;</bpt>Maintenance<ept id="ce2559f7-9a1c-4bf9-914a-869536db1528">&lt;/strong&gt;</ept> page, click <bpt id="004425e6-ef6e-49a1-9394-9b689600f9f2">&lt;strong&gt;</bpt>Manage Controllers<ept id="004425e6-ef6e-49a1-9394-9b689600f9f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e3970b3-12bf-4dc8-91d8-f05f7cbd9118" xml:space="preserve">
+          <source><bpt id="68e7a414-9472-430f-b685-37d791d3f211">&lt;linkText&gt;</bpt>Manage StorSimple device controllers<ept id="68e7a414-9472-430f-b685-37d791d3f211">&lt;/linkText&gt;</ept>&lt;/br&gt;</source>
+          <target state="new"><bpt id="68e7a414-9472-430f-b685-37d791d3f211">&lt;linkText&gt;</bpt>Manage StorSimple device controllers<ept id="68e7a414-9472-430f-b685-37d791d3f211">&lt;/linkText&gt;</ept>&lt;/br&gt;</target>
+        </trans-unit>
+        <trans-unit id="59f95b31-b02a-4c4f-9d45-13ff22c04d96" xml:space="preserve">
+          <source>If you cannot see <bpt id="1724e1b8-f9c0-4368-8277-4a2ac23ab7e7">&lt;strong&gt;</bpt>Manage Controllers<ept id="1724e1b8-f9c0-4368-8277-4a2ac23ab7e7">&lt;/strong&gt;</ept>, then you need to install updates.</source>
+          <target state="new">If you cannot see <bpt id="1724e1b8-f9c0-4368-8277-4a2ac23ab7e7">&lt;strong&gt;</bpt>Manage Controllers<ept id="1724e1b8-f9c0-4368-8277-4a2ac23ab7e7">&lt;/strong&gt;</ept>, then you need to install updates.</target>
+        </trans-unit>
+        <trans-unit id="4cf71f5f-f8e4-4001-b4dd-854bc0b59c08" xml:space="preserve">
+          <source>For more information, see <bpt id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;linkText&gt;</bpt>Update your StorSimple device<ept id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;/linkText&gt;</ept><bpt id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;title&gt;</bpt><ept id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;linkText&gt;</bpt>Update your StorSimple device<ept id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;/linkText&gt;</ept><bpt id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;title&gt;</bpt><ept id="c11b60ae-0107-4b78-ae7f-d71e5889cd58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1b5a5ce-c58b-4cbe-a0c2-8258870f1cb2" xml:space="preserve">
+          <source>In the <bpt id="6e8a8444-7b03-481e-ae24-517272e96f2e">&lt;strong&gt;</bpt>Change Controller Settings<ept id="6e8a8444-7b03-481e-ae24-517272e96f2e">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="6e8a8444-7b03-481e-ae24-517272e96f2e">&lt;strong&gt;</bpt>Change Controller Settings<ept id="6e8a8444-7b03-481e-ae24-517272e96f2e">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="30cc8f89-33e4-4831-bc7b-103a1a03da0e" xml:space="preserve">
+          <source>From the <bpt id="580b70cc-9667-49cd-9f8f-161c65a8d4b8">&lt;strong&gt;</bpt>Select Controller<ept id="580b70cc-9667-49cd-9f8f-161c65a8d4b8">&lt;/strong&gt;</ept> drop-down list, select the controller that you want to manage.</source>
+          <target state="new">From the <bpt id="580b70cc-9667-49cd-9f8f-161c65a8d4b8">&lt;strong&gt;</bpt>Select Controller<ept id="580b70cc-9667-49cd-9f8f-161c65a8d4b8">&lt;/strong&gt;</ept> drop-down list, select the controller that you want to manage.</target>
+        </trans-unit>
+        <trans-unit id="4f944892-785c-49ea-8530-af6f8206f35d" xml:space="preserve">
+          <source>The options are Controller 0 and Controller 1.</source>
+          <target state="new">The options are Controller 0 and Controller 1.</target>
+        </trans-unit>
+        <trans-unit id="b90d12d1-087a-45b0-bbbb-38d58778ade2" xml:space="preserve">
+          <source>These controllers are also identified as active or passive.</source>
+          <target state="new">These controllers are also identified as active or passive.</target>
+        </trans-unit>
+        <trans-unit id="4337c638-a1c3-4978-ad95-7778f5ac1fd4" xml:space="preserve">
+          <source>A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.</source>
+          <target state="new">A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="78a2502e-d629-49c9-bb92-fa5247f318c4" xml:space="preserve">
+          <source>From the <bpt id="d63ed0bb-dad1-44ff-b34e-42d0b8bc6d50">&lt;strong&gt;</bpt>Select Action<ept id="d63ed0bb-dad1-44ff-b34e-42d0b8bc6d50">&lt;/strong&gt;</ept> drop-down list, choose <bpt id="b6de757a-2819-46b8-9a3f-a9c920df9c94">&lt;strong&gt;</bpt>Restart controller<ept id="b6de757a-2819-46b8-9a3f-a9c920df9c94">&lt;/strong&gt;</ept> or <bpt id="d7772965-0df5-4678-be36-b764787f9c9a">&lt;strong&gt;</bpt>Shut down controller<ept id="d7772965-0df5-4678-be36-b764787f9c9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="d63ed0bb-dad1-44ff-b34e-42d0b8bc6d50">&lt;strong&gt;</bpt>Select Action<ept id="d63ed0bb-dad1-44ff-b34e-42d0b8bc6d50">&lt;/strong&gt;</ept> drop-down list, choose <bpt id="b6de757a-2819-46b8-9a3f-a9c920df9c94">&lt;strong&gt;</bpt>Restart controller<ept id="b6de757a-2819-46b8-9a3f-a9c920df9c94">&lt;/strong&gt;</ept> or <bpt id="d7772965-0df5-4678-be36-b764787f9c9a">&lt;strong&gt;</bpt>Shut down controller<ept id="d7772965-0df5-4678-be36-b764787f9c9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5dbf9f1b-0ae4-4c2b-aa05-799709dc65ae" xml:space="preserve">
+          <source><bpt id="f9b958cb-7a71-4c0e-9e06-85bdc1bdfc53">&lt;linkText&gt;</bpt>Restart StorSimple device passive controller<ept id="f9b958cb-7a71-4c0e-9e06-85bdc1bdfc53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f9b958cb-7a71-4c0e-9e06-85bdc1bdfc53">&lt;linkText&gt;</bpt>Restart StorSimple device passive controller<ept id="f9b958cb-7a71-4c0e-9e06-85bdc1bdfc53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dad2195a-dbb9-4ed6-be65-770d1c3c2592" xml:space="preserve">
+          <source>Click the check icon <bpt id="b751c5cf-eb87-4aa0-b577-5f075fb6025e">&lt;linkText&gt;</bpt>Check Icon<ept id="b751c5cf-eb87-4aa0-b577-5f075fb6025e">&lt;/linkText&gt;</ept>.</source>
+          <target state="new">Click the check icon <bpt id="b751c5cf-eb87-4aa0-b577-5f075fb6025e">&lt;linkText&gt;</bpt>Check Icon<ept id="b751c5cf-eb87-4aa0-b577-5f075fb6025e">&lt;/linkText&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c02aac55-b835-4f00-bfce-2bea2be1245c" xml:space="preserve">
+          <source>This will restart or shut down the controller.</source>
+          <target state="new">This will restart or shut down the controller.</target>
+        </trans-unit>
+        <trans-unit id="177bb2e4-0c97-464f-b2df-d50c4ab64fa9" xml:space="preserve">
+          <source>The table below summarizes the details of what happens depending on the selections you have made in the <bpt id="7dddab00-9e80-4655-88cb-ba818ea567df">&lt;strong&gt;</bpt>Change Controller Settings<ept id="7dddab00-9e80-4655-88cb-ba818ea567df">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">The table below summarizes the details of what happens depending on the selections you have made in the <bpt id="7dddab00-9e80-4655-88cb-ba818ea567df">&lt;strong&gt;</bpt>Change Controller Settings<ept id="7dddab00-9e80-4655-88cb-ba818ea567df">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="4e8b1cfe-9ff2-4cbc-9144-8b6b069d039d" xml:space="preserve">
+          <source>Selection #</source>
+          <target state="new">Selection #</target>
+        </trans-unit>
+        <trans-unit id="3922f7da-5c5a-4ff6-ba58-1b1edb011ca3" xml:space="preserve">
+          <source>If you choose to...</source>
+          <target state="new">If you choose to...</target>
+        </trans-unit>
+        <trans-unit id="7de480ac-7514-4858-aea7-333227c6cbe3" xml:space="preserve">
+          <source>This will happen.</source>
+          <target state="new">This will happen.</target>
+        </trans-unit>
+        <trans-unit id="c27353c5-f7ac-41c8-b0b3-02a4b3506017" xml:space="preserve">
+          <source>1.</source>
+          <target state="new">1.</target>
+        </trans-unit>
+        <trans-unit id="78e577c8-3963-44a5-9776-76597cf14bfb" xml:space="preserve">
+          <source>Restart the passive controller.</source>
+          <target state="new">Restart the passive controller.</target>
+        </trans-unit>
+        <trans-unit id="15546960-e3e2-4a21-9a5b-f919e3a887ab" xml:space="preserve">
+          <source>A job will be created to restart the controller, and you will be notified after the job is successfully created.</source>
+          <target state="new">A job will be created to restart the controller, and you will be notified after the job is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="8d8e6f86-bf43-4677-83d0-52738faf08ee" xml:space="preserve">
+          <source>This will initiate the controller restart.</source>
+          <target state="new">This will initiate the controller restart.</target>
+        </trans-unit>
+        <trans-unit id="03814d42-c128-4f25-80e7-55331f4d4a65" xml:space="preserve">
+          <source>You can monitor the restart process by accessing <bpt id="34656699-b2e4-4b71-950e-21276abaf4d0">&lt;strong&gt;</bpt>Service &gt; Dashboard &gt; View operation logs<ept id="34656699-b2e4-4b71-950e-21276abaf4d0">&lt;/strong&gt;</ept> and then filtering by parameters specific to your service.</source>
+          <target state="new">You can monitor the restart process by accessing <bpt id="34656699-b2e4-4b71-950e-21276abaf4d0">&lt;strong&gt;</bpt>Service &gt; Dashboard &gt; View operation logs<ept id="34656699-b2e4-4b71-950e-21276abaf4d0">&lt;/strong&gt;</ept> and then filtering by parameters specific to your service.</target>
+        </trans-unit>
+        <trans-unit id="7116a47e-a79b-4db1-933d-08a597d9e3db" xml:space="preserve">
+          <source>2.</source>
+          <target state="new">2.</target>
+        </trans-unit>
+        <trans-unit id="317c2366-6b8a-4887-b234-0449c1409315" xml:space="preserve">
+          <source>Restart the active controller.</source>
+          <target state="new">Restart the active controller.</target>
+        </trans-unit>
+        <trans-unit id="b5a9eb4f-35c7-4428-9aab-951cdbc98663" xml:space="preserve">
+          <source>You will see the following warning: "If you restart the active controller, the device will fail over to the passive controller. Do you want to continue?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</source>
+          <target state="new">You will see the following warning: "If you restart the active controller, the device will fail over to the passive controller. Do you want to continue?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</target>
+        </trans-unit>
+        <trans-unit id="412ec079-c8f9-4272-90db-e9887e4399e8" xml:space="preserve">
+          <source>3.</source>
+          <target state="new">3.</target>
+        </trans-unit>
+        <trans-unit id="cf512254-93c9-41f3-9a62-d657c87955e2" xml:space="preserve">
+          <source>Shut down the passive controller.</source>
+          <target state="new">Shut down the passive controller.</target>
+        </trans-unit>
+        <trans-unit id="aa82ce37-e1b1-4193-8776-6ba66f6c1b48" xml:space="preserve">
+          <source>You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</source>
+          <target state="new">You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</target>
+        </trans-unit>
+        <trans-unit id="2b44473e-b0e1-4076-879c-a9dc1361ab1c" xml:space="preserve">
+          <source>4.</source>
+          <target state="new">4.</target>
+        </trans-unit>
+        <trans-unit id="79ebd79b-4dc2-49c6-8e62-bf2252a8b1b3" xml:space="preserve">
+          <source>Shut down the active controller.</source>
+          <target state="new">Shut down the active controller.</target>
+        </trans-unit>
+        <trans-unit id="e65216ef-c146-45c9-9580-b7cf5937500b" xml:space="preserve">
+          <source>You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</source>
+          <target state="new">You will see the following message: "After shutdown is complete, you will need to push the power button on your controller to turn it on. Are you sure you want to shut down this controller?" &lt;/br&gt;If you choose to proceed with this operation, the next steps will be identical to those used to restart the passive controller (see selection 1).</target>
+        </trans-unit>
+        <trans-unit id="c7e9a88d-febf-4569-a657-f25802fe69d9" xml:space="preserve">
+          <source>Perform the following steps to shut down or restart a single controller on your StorSimple device from the Management Portal.</source>
+          <target state="new">Perform the following steps to shut down or restart a single controller on your StorSimple device from the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8023237e-cc70-4dcd-8e09-aceec677ff49" xml:space="preserve">
+          <source>Access the device by using the serial console or a telnet session from a remote computer.</source>
+          <target state="new">Access the device by using the serial console or a telnet session from a remote computer.</target>
+        </trans-unit>
+        <trans-unit id="347b46d6-a7be-4db7-bbad-2c54003cbd6d" xml:space="preserve">
+          <source>Connect to Controller 0 or Controller 1 by following the steps in <bpt id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;/linkText&gt;</ept><bpt id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;title&gt;</bpt><ept id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;/title&gt;</ept>.</source>
+          <target state="new">Connect to Controller 0 or Controller 1 by following the steps in <bpt id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;/linkText&gt;</ept><bpt id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;title&gt;</bpt><ept id="3748b9fa-a5fc-4ac7-80f2-6f1e2b2e3179">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a6bd609-9684-4743-be83-ecb15532a6d5" xml:space="preserve">
+          <source>In the serial console menu, choose option 1, <bpt id="bd5bcb51-a7ef-4e06-8400-b93e8480de52">&lt;strong&gt;</bpt>Log in with full access<ept id="bd5bcb51-a7ef-4e06-8400-b93e8480de52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the serial console menu, choose option 1, <bpt id="bd5bcb51-a7ef-4e06-8400-b93e8480de52">&lt;strong&gt;</bpt>Log in with full access<ept id="bd5bcb51-a7ef-4e06-8400-b93e8480de52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e2c2ac6-0a82-4717-9077-fc26fa341d05" xml:space="preserve">
+          <source>In the banner message, make a note of the controller you are connected to (Controller 0 or Controller 1) and whether it is the active or the passive (standby) controller.</source>
+          <target state="new">In the banner message, make a note of the controller you are connected to (Controller 0 or Controller 1) and whether it is the active or the passive (standby) controller.</target>
+        </trans-unit>
+        <trans-unit id="0282b0b6-281f-4833-8bd5-5c3d20f45b8f" xml:space="preserve">
+          <source>To shut down a single controller, at the prompt, type:</source>
+          <target state="new">To shut down a single controller, at the prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="f5eacbf4-b76d-4963-accb-f33231b62665" xml:space="preserve">
+          <source><bpt id="2e17a927-b01a-4240-ad3b-636ad449f290">&lt;code&gt;</bpt>Stop-HcsController<ept id="2e17a927-b01a-4240-ad3b-636ad449f290">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2e17a927-b01a-4240-ad3b-636ad449f290">&lt;code&gt;</bpt>Stop-HcsController<ept id="2e17a927-b01a-4240-ad3b-636ad449f290">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52e09a3e-7972-4ead-92b1-e357f9ab5838" xml:space="preserve">
+          <source>This will shut down the controller that you are connected to.</source>
+          <target state="new">This will shut down the controller that you are connected to.</target>
+        </trans-unit>
+        <trans-unit id="ed697b44-fc1f-416d-996b-9cf52318811c" xml:space="preserve">
+          <source>If you stop the active controller, then it will fail over to the passive controller before it shuts down.</source>
+          <target state="new">If you stop the active controller, then it will fail over to the passive controller before it shuts down.</target>
+        </trans-unit>
+        <trans-unit id="b5b33016-b362-4169-a8cd-fd8625f3cc9c" xml:space="preserve">
+          <source>To restart a controller, at the prompt, type:</source>
+          <target state="new">To restart a controller, at the prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="f6bd2b70-0cb9-4081-afb5-16bfe3a00584" xml:space="preserve">
+          <source><bpt id="5cab5f96-3688-430e-8104-45908943a73b">&lt;code&gt;</bpt>Restart-HcsController<ept id="5cab5f96-3688-430e-8104-45908943a73b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5cab5f96-3688-430e-8104-45908943a73b">&lt;code&gt;</bpt>Restart-HcsController<ept id="5cab5f96-3688-430e-8104-45908943a73b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a91e2761-c67f-47d9-b27a-665b64cb6050" xml:space="preserve">
+          <source>This will restart the controller that you are connected to.</source>
+          <target state="new">This will restart the controller that you are connected to.</target>
+        </trans-unit>
+        <trans-unit id="0d5f6f30-141c-4c10-9432-58781adb5f79" xml:space="preserve">
+          <source>If you restart the active controller, it will fail over to the passive controller before the restart.</source>
+          <target state="new">If you restart the active controller, it will fail over to the passive controller before the restart.</target>
+        </trans-unit>
+        <trans-unit id="64d2968c-99e1-4278-9edc-3490c84b5a77" xml:space="preserve">
+          <source>This section explains how to shut down a running or a failed StorSimple device from a remote computer.</source>
+          <target state="new">This section explains how to shut down a running or a failed StorSimple device from a remote computer.</target>
+        </trans-unit>
+        <trans-unit id="6a68db05-d2ec-4085-9769-41c59935b435" xml:space="preserve">
+          <source>A device is turned off after shutting down both the device controllers.</source>
+          <target state="new">A device is turned off after shutting down both the device controllers.</target>
+        </trans-unit>
+        <trans-unit id="4fe8638d-158b-4f20-af46-b7861da73dbc" xml:space="preserve">
+          <source>A device shut down is done when the device is being physically moved, or is taken out of service.</source>
+          <target state="new">A device shut down is done when the device is being physically moved, or is taken out of service.</target>
+        </trans-unit>
+        <trans-unit id="d5f896f0-3b28-4c55-9d7e-67c2abaa7bfe" xml:space="preserve">
+          <source>Before you shut down the device, check the health of the device components.</source>
+          <target state="new">Before you shut down the device, check the health of the device components.</target>
+        </trans-unit>
+        <trans-unit id="794922c8-4ecf-4e8a-8548-ed0591a6c6e3" xml:space="preserve">
+          <source>Navigate to <bpt id="02985be5-1f1b-4bb3-b23e-fb2218ea78ae">&lt;strong&gt;</bpt>Devices &gt; Maintenance &gt; Hardware Status<ept id="02985be5-1f1b-4bb3-b23e-fb2218ea78ae">&lt;/strong&gt;</ept> and verify that the LED status of all the components is green.</source>
+          <target state="new">Navigate to <bpt id="02985be5-1f1b-4bb3-b23e-fb2218ea78ae">&lt;strong&gt;</bpt>Devices &gt; Maintenance &gt; Hardware Status<ept id="02985be5-1f1b-4bb3-b23e-fb2218ea78ae">&lt;/strong&gt;</ept> and verify that the LED status of all the components is green.</target>
+        </trans-unit>
+        <trans-unit id="41882460-a989-4238-8246-bb4e86867fa9" xml:space="preserve">
+          <source>Only a healthy device will have a green status.</source>
+          <target state="new">Only a healthy device will have a green status.</target>
+        </trans-unit>
+        <trans-unit id="6393cb80-d508-4112-8349-a34edd6cb2cd" xml:space="preserve">
+          <source>If your device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).</source>
+          <target state="new">If your device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).</target>
+        </trans-unit>
+        <trans-unit id="51e5c15c-e6d1-494e-a752-64ffe286698f" xml:space="preserve">
+          <source>Use the <bpt id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;linkText&gt;</bpt>restart or shut down a controller<ept id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;/linkText&gt;</ept><bpt id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;title&gt;</bpt><ept id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;/title&gt;</ept> procedure to identify and shut down the passive controller on your device.</source>
+          <target state="new">Use the <bpt id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;linkText&gt;</bpt>restart or shut down a controller<ept id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;/linkText&gt;</ept><bpt id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;title&gt;</bpt><ept id="1d701bc5-7896-4107-9f41-d231d2453f73">&lt;/title&gt;</ept> procedure to identify and shut down the passive controller on your device.</target>
+        </trans-unit>
+        <trans-unit id="a5cbda0e-ba4f-457c-965b-74c556c6f586" xml:space="preserve">
+          <source>You can perform this operation in the Management Portal or in the the Windows PowerShell for StorSimple.</source>
+          <target state="new">You can perform this operation in the Management Portal or in the the Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="ff1df3f8-971b-4ed4-a8f4-0414c44b8285" xml:space="preserve">
+          <source>Repeat the above step to shut down the active controller.</source>
+          <target state="new">Repeat the above step to shut down the active controller.</target>
+        </trans-unit>
+        <trans-unit id="c18af91e-c8f1-4152-8d86-32a5863e4293" xml:space="preserve">
+          <source>You will now need to look at the back plane of the device.</source>
+          <target state="new">You will now need to look at the back plane of the device.</target>
+        </trans-unit>
+        <trans-unit id="66cd6b52-95b3-4c6b-8898-982f831e8dea" xml:space="preserve">
+          <source>After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red.</source>
+          <target state="new">After the two controllers are completely shut down, the status LEDs on both the controllers should be blinking red.</target>
+        </trans-unit>
+        <trans-unit id="f5a5422b-de9a-4f1d-a741-6b8fb57b6a52" xml:space="preserve">
+          <source>If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.</source>
+          <target state="new">If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.</target>
+        </trans-unit>
+        <trans-unit id="db970fdd-8ad5-45b9-bdc5-d52ca609cad3" xml:space="preserve">
+          <source>This should turn off the device.</source>
+          <target state="new">This should turn off the device.</target>
+        </trans-unit>
+        <trans-unit id="4c984326-c013-4899-bff6-4ee6afc7426d" xml:space="preserve">
+          <source>This procedure contains the detailed steps required to reset your Microsoft Azure StorSimple device to factory default settings using the Windows PowerShell for StorSimple.</source>
+          <target state="new">This procedure contains the detailed steps required to reset your Microsoft Azure StorSimple device to factory default settings using the Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="4bbaae1a-c04b-4625-848e-fbe3fc9ed2f0" xml:space="preserve">
+          <source>Perform the following steps to reset your Microsoft Azure StorSimple device to factory default settings:</source>
+          <target state="new">Perform the following steps to reset your Microsoft Azure StorSimple device to factory default settings:</target>
+        </trans-unit>
+        <trans-unit id="00e9e4ff-2c7b-48ed-85bb-e640a92e9863" xml:space="preserve">
+          <source>Access the device through its serial console.</source>
+          <target state="new">Access the device through its serial console.</target>
+        </trans-unit>
+        <trans-unit id="65600fa6-aa4e-45eb-878d-a3e85d68d306" xml:space="preserve">
+          <source>Check the banner message to ensure that you are connected to the Active controller.</source>
+          <target state="new">Check the banner message to ensure that you are connected to the Active controller.</target>
+        </trans-unit>
+        <trans-unit id="c31541c3-4298-4c2c-afc1-d315ee89b380" xml:space="preserve">
+          <source>In the serial console menu, choose option 1, <bpt id="af3e2391-6a45-4ae0-adf3-b913ff8ab394">&lt;strong&gt;</bpt>Log in with full access<ept id="af3e2391-6a45-4ae0-adf3-b913ff8ab394">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the serial console menu, choose option 1, <bpt id="af3e2391-6a45-4ae0-adf3-b913ff8ab394">&lt;strong&gt;</bpt>Log in with full access<ept id="af3e2391-6a45-4ae0-adf3-b913ff8ab394">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5a33b66-9b7e-4908-9826-054d35d81114" xml:space="preserve">
+          <source>At the prompt, type the following command:</source>
+          <target state="new">At the prompt, type the following command:</target>
+        </trans-unit>
+        <trans-unit id="4a377a7e-7df7-4379-98a5-6785bfd0f568" xml:space="preserve">
+          <source><bpt id="d1e14718-90ca-4525-ba3a-f9a4fcd4f263">&lt;code&gt;</bpt>Reset-HcsFactoryDefault<ept id="d1e14718-90ca-4525-ba3a-f9a4fcd4f263">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d1e14718-90ca-4525-ba3a-f9a4fcd4f263">&lt;code&gt;</bpt>Reset-HcsFactoryDefault<ept id="d1e14718-90ca-4525-ba3a-f9a4fcd4f263">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2182e600-d657-47de-9b55-251a736ec66c" xml:space="preserve">
+          <source>The system will reboot multiple times.</source>
+          <target state="new">The system will reboot multiple times.</target>
+        </trans-unit>
+        <trans-unit id="425fb3ae-1e6a-4667-a575-4d5f5bf144a5" xml:space="preserve">
+          <source>You will be notified when the reset has successfully completed.</source>
+          <target state="new">You will be notified when the reset has successfully completed.</target>
+        </trans-unit>
+        <trans-unit id="23d164d3-0fa6-49d7-94e2-f88d79ce4711" xml:space="preserve">
+          <source>Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.</source>
+          <target state="new">Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.</target>
+        </trans-unit>
+        <trans-unit id="a5674ca8-17a6-475d-b014-63a7c2234ca4" xml:space="preserve">
+          <source>Use the <bpt id="a0659fdc-bc63-4bf5-82a4-7f3c0b485010">&lt;code&gt;</bpt>Reset-HcsFactoryDefault –SkipFirmwareVersionCheck<ept id="a0659fdc-bc63-4bf5-82a4-7f3c0b485010">&lt;/code&gt;</ept> command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions.</source>
+          <target state="new">Use the <bpt id="a0659fdc-bc63-4bf5-82a4-7f3c0b485010">&lt;code&gt;</bpt>Reset-HcsFactoryDefault –SkipFirmwareVersionCheck<ept id="a0659fdc-bc63-4bf5-82a4-7f3c0b485010">&lt;/code&gt;</ept> command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions.</target>
+        </trans-unit>
+        <trans-unit id="33ffa19f-17c6-43a8-b1c2-7f3d5374a839" xml:space="preserve">
+          <source>You must skip the firmware check (by using the <bpt id="a17cfe7a-a230-4ca6-84f5-b8160d3ea79f">&lt;code&gt;</bpt>–SkipFirmwareCheck<ept id="a17cfe7a-a230-4ca6-84f5-b8160d3ea79f">&lt;/code&gt;</ept> option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.</source>
+          <target state="new">You must skip the firmware check (by using the <bpt id="a17cfe7a-a230-4ca6-84f5-b8160d3ea79f">&lt;code&gt;</bpt>–SkipFirmwareCheck<ept id="a17cfe7a-a230-4ca6-84f5-b8160d3ea79f">&lt;/code&gt;</ept> option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.</target>
+        </trans-unit>
+        <trans-unit id="345c6079-03e3-431c-b685-152b271543ae" xml:space="preserve">
+          <source>For more information on how to use this cmdlet, go to the <bpt id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;linkText&gt;</bpt>cmdlet reference for Windows PowerShell for StorSimple<ept id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;/linkText&gt;</ept><bpt id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;title&gt;</bpt><ept id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how to use this cmdlet, go to the <bpt id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;linkText&gt;</bpt>cmdlet reference for Windows PowerShell for StorSimple<ept id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;/linkText&gt;</ept><bpt id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;title&gt;</bpt><ept id="2eaac12f-5d49-4c4b-ae78-373e780c3b4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aafbef85-a150-4e30-8e24-cfd40fdf7404" xml:space="preserve">
+          <source>In this section, we have summarized some of the frequently asked questions regarding managing StorSimple device controllers.</source>
+          <target state="new">In this section, we have summarized some of the frequently asked questions regarding managing StorSimple device controllers.</target>
+        </trans-unit>
+        <trans-unit id="a0906a57-3911-4106-9824-58c09841ed2e" xml:space="preserve">
+          <source><bpt id="cf0f8ba2-5d41-4549-bba4-0fc956abe8de">&lt;strong&gt;</bpt>Q.<ept id="cf0f8ba2-5d41-4549-bba4-0fc956abe8de">&lt;/strong&gt;</ept> What happens if both the controllers on my device are healthy and turned on and I restart or shut down the active controller?</source>
+          <target state="new"><bpt id="cf0f8ba2-5d41-4549-bba4-0fc956abe8de">&lt;strong&gt;</bpt>Q.<ept id="cf0f8ba2-5d41-4549-bba4-0fc956abe8de">&lt;/strong&gt;</ept> What happens if both the controllers on my device are healthy and turned on and I restart or shut down the active controller?</target>
+        </trans-unit>
+        <trans-unit id="6dffa2a0-dfa8-4589-85fc-ad5ad6bed2f3" xml:space="preserve">
+          <source><bpt id="12f37a03-29cf-4dc7-8998-d1569ca4ccad">&lt;strong&gt;</bpt>A.<ept id="12f37a03-29cf-4dc7-8998-d1569ca4ccad">&lt;/strong&gt;</ept> If both the controllers on your device are healthy and turned on, you will be prompted for confirmation.</source>
+          <target state="new"><bpt id="12f37a03-29cf-4dc7-8998-d1569ca4ccad">&lt;strong&gt;</bpt>A.<ept id="12f37a03-29cf-4dc7-8998-d1569ca4ccad">&lt;/strong&gt;</ept> If both the controllers on your device are healthy and turned on, you will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="e15b6492-d54c-4568-9772-a3a908066907" xml:space="preserve">
+          <source>You may choose to:</source>
+          <target state="new">You may choose to:</target>
+        </trans-unit>
+        <trans-unit id="5463054e-676e-4c14-9618-cab18fa2e5b2" xml:space="preserve">
+          <source><bpt id="a4aaf3cb-344d-47ff-b0c0-5fc99023f62c">&lt;strong&gt;</bpt>Restart the active controller<ept id="a4aaf3cb-344d-47ff-b0c0-5fc99023f62c">&lt;/strong&gt;</ept> – You will be notified that restarting an active controller will cause the device to failover to the passive controller.</source>
+          <target state="new"><bpt id="a4aaf3cb-344d-47ff-b0c0-5fc99023f62c">&lt;strong&gt;</bpt>Restart the active controller<ept id="a4aaf3cb-344d-47ff-b0c0-5fc99023f62c">&lt;/strong&gt;</ept> – You will be notified that restarting an active controller will cause the device to failover to the passive controller.</target>
+        </trans-unit>
+        <trans-unit id="3b02f8c9-8f47-4549-b3d5-568ad3909df6" xml:space="preserve">
+          <source>The controller will restart.</source>
+          <target state="new">The controller will restart.</target>
+        </trans-unit>
+        <trans-unit id="7bc882a4-f877-43d7-a349-629f218f1f65" xml:space="preserve">
+          <source><bpt id="d583b723-128e-4e77-b397-b75003e948b2">&lt;strong&gt;</bpt>Shut down an active controller<ept id="d583b723-128e-4e77-b397-b75003e948b2">&lt;/strong&gt;</ept> – You will be notified that shutting down an active controller will result in downtime.</source>
+          <target state="new"><bpt id="d583b723-128e-4e77-b397-b75003e948b2">&lt;strong&gt;</bpt>Shut down an active controller<ept id="d583b723-128e-4e77-b397-b75003e948b2">&lt;/strong&gt;</ept> – You will be notified that shutting down an active controller will result in downtime.</target>
+        </trans-unit>
+        <trans-unit id="117d8c94-1c31-4fdf-958f-dfbe240e7ac3" xml:space="preserve">
+          <source>You will also need to push the power button on the device to turn on the controller.</source>
+          <target state="new">You will also need to push the power button on the device to turn on the controller.</target>
+        </trans-unit>
+        <trans-unit id="3bdc0b9f-43be-4b80-975b-678fe54f5005" xml:space="preserve">
+          <source><bpt id="2e733f6a-37c0-40d6-be7c-e1c60a798518">&lt;strong&gt;</bpt>Q.<ept id="2e733f6a-37c0-40d6-be7c-e1c60a798518">&lt;/strong&gt;</ept> What happens if the passive controller on my device is unavailable or turned off and I restart or shut down the active controller?</source>
+          <target state="new"><bpt id="2e733f6a-37c0-40d6-be7c-e1c60a798518">&lt;strong&gt;</bpt>Q.<ept id="2e733f6a-37c0-40d6-be7c-e1c60a798518">&lt;/strong&gt;</ept> What happens if the passive controller on my device is unavailable or turned off and I restart or shut down the active controller?</target>
+        </trans-unit>
+        <trans-unit id="1dcc8d40-e685-444e-a384-676827dc4aee" xml:space="preserve">
+          <source><bpt id="74b326e7-93fb-4f7f-9c29-51a852836e83">&lt;strong&gt;</bpt>A.<ept id="74b326e7-93fb-4f7f-9c29-51a852836e83">&lt;/strong&gt;</ept> If the passive controller on your device is unavailable or turned off, and you choose to:</source>
+          <target state="new"><bpt id="74b326e7-93fb-4f7f-9c29-51a852836e83">&lt;strong&gt;</bpt>A.<ept id="74b326e7-93fb-4f7f-9c29-51a852836e83">&lt;/strong&gt;</ept> If the passive controller on your device is unavailable or turned off, and you choose to:</target>
+        </trans-unit>
+        <trans-unit id="2adfff97-98f5-4a4a-93af-62bee8bfd1b2" xml:space="preserve">
+          <source><bpt id="a3401797-97a6-42f4-a73d-3be9aecdbc1b">&lt;strong&gt;</bpt>Restart the active controller<ept id="a3401797-97a6-42f4-a73d-3be9aecdbc1b">&lt;/strong&gt;</ept> – You will be notified that continuing the operation will result in a temporary disruption of the service, and you will be prompted for confirmation.</source>
+          <target state="new"><bpt id="a3401797-97a6-42f4-a73d-3be9aecdbc1b">&lt;strong&gt;</bpt>Restart the active controller<ept id="a3401797-97a6-42f4-a73d-3be9aecdbc1b">&lt;/strong&gt;</ept> – You will be notified that continuing the operation will result in a temporary disruption of the service, and you will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="174fdac0-014d-46d5-8095-3ceed014b5bb" xml:space="preserve">
+          <source><bpt id="74536c31-a848-4270-84d1-e180721c016f">&lt;strong&gt;</bpt>Shut down an active controller<ept id="74536c31-a848-4270-84d1-e180721c016f">&lt;/strong&gt;</ept> – You will be notified that continuing the operation will result in downtime, and that you will need to push the power button on one or both controllers to turn on the device.</source>
+          <target state="new"><bpt id="74536c31-a848-4270-84d1-e180721c016f">&lt;strong&gt;</bpt>Shut down an active controller<ept id="74536c31-a848-4270-84d1-e180721c016f">&lt;/strong&gt;</ept> – You will be notified that continuing the operation will result in downtime, and that you will need to push the power button on one or both controllers to turn on the device.</target>
+        </trans-unit>
+        <trans-unit id="88d066fd-5e44-4fbc-8ef1-8a40ec27135d" xml:space="preserve">
+          <source>You will be prompted for confirmation.</source>
+          <target state="new">You will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="f1966711-6810-45c2-913f-41237851874d" xml:space="preserve">
+          <source><bpt id="08ea4d4c-8d35-42c4-a6d7-e37a1a873ba6">&lt;strong&gt;</bpt>Q.<ept id="08ea4d4c-8d35-42c4-a6d7-e37a1a873ba6">&lt;/strong&gt;</ept> When would the controller restart or shutdown fail to progress?</source>
+          <target state="new"><bpt id="08ea4d4c-8d35-42c4-a6d7-e37a1a873ba6">&lt;strong&gt;</bpt>Q.<ept id="08ea4d4c-8d35-42c4-a6d7-e37a1a873ba6">&lt;/strong&gt;</ept> When would the controller restart or shutdown fail to progress?</target>
+        </trans-unit>
+        <trans-unit id="1746816a-1cc8-45cc-86a2-ff9fcb18d152" xml:space="preserve">
+          <source><bpt id="8f20f618-46ff-4422-b094-b758fa32aba2">&lt;strong&gt;</bpt>A.<ept id="8f20f618-46ff-4422-b094-b758fa32aba2">&lt;/strong&gt;</ept> Restarting or shutting down a controller may fail if:</source>
+          <target state="new"><bpt id="8f20f618-46ff-4422-b094-b758fa32aba2">&lt;strong&gt;</bpt>A.<ept id="8f20f618-46ff-4422-b094-b758fa32aba2">&lt;/strong&gt;</ept> Restarting or shutting down a controller may fail if:</target>
+        </trans-unit>
+        <trans-unit id="86124a64-c4b4-4d8a-a168-b65d34f3b10b" xml:space="preserve">
+          <source>A device update is in progress.</source>
+          <target state="new">A device update is in progress.</target>
+        </trans-unit>
+        <trans-unit id="1521ed9e-44f9-4553-9570-c8a056f41f0b" xml:space="preserve">
+          <source>A controller restart is already in progress.</source>
+          <target state="new">A controller restart is already in progress.</target>
+        </trans-unit>
+        <trans-unit id="1d23c9ec-6e5f-4955-abde-ddd0a97925e4" xml:space="preserve">
+          <source>A controller shutdown is already in progress.</source>
+          <target state="new">A controller shutdown is already in progress.</target>
+        </trans-unit>
+        <trans-unit id="1c1e8eac-0740-4771-a661-5ce8be7b323a" xml:space="preserve">
+          <source><bpt id="ec09afc4-323f-46e4-ba59-a74011305f8c">&lt;strong&gt;</bpt>Q.<ept id="ec09afc4-323f-46e4-ba59-a74011305f8c">&lt;/strong&gt;</ept> How can you figure out if a controller was restarted or shut down?</source>
+          <target state="new"><bpt id="ec09afc4-323f-46e4-ba59-a74011305f8c">&lt;strong&gt;</bpt>Q.<ept id="ec09afc4-323f-46e4-ba59-a74011305f8c">&lt;/strong&gt;</ept> How can you figure out if a controller was restarted or shut down?</target>
+        </trans-unit>
+        <trans-unit id="1947e2cd-086c-460b-a3dc-9b02360cb3d1" xml:space="preserve">
+          <source><bpt id="83b64624-a808-4615-b717-556132ae0f4b">&lt;strong&gt;</bpt>A.<ept id="83b64624-a808-4615-b717-556132ae0f4b">&lt;/strong&gt;</ept> You can check the controller status on the Maintenance page.</source>
+          <target state="new"><bpt id="83b64624-a808-4615-b717-556132ae0f4b">&lt;strong&gt;</bpt>A.<ept id="83b64624-a808-4615-b717-556132ae0f4b">&lt;/strong&gt;</ept> You can check the controller status on the Maintenance page.</target>
+        </trans-unit>
+        <trans-unit id="9eb47364-0c1b-4950-b309-9a6ace9dcb29" xml:space="preserve">
+          <source>The controller status will indicate whether a controller has been restarted or shut down.</source>
+          <target state="new">The controller status will indicate whether a controller has been restarted or shut down.</target>
+        </trans-unit>
+        <trans-unit id="10dae15a-471c-4b7e-b79f-d61395ef0a66" xml:space="preserve">
+          <source>Additionally, the Alerts page will contain an informational alert if the controller was restarted or shut down.</source>
+          <target state="new">Additionally, the Alerts page will contain an informational alert if the controller was restarted or shut down.</target>
+        </trans-unit>
+        <trans-unit id="6edfac8f-8415-4b99-9948-5f37d388d0cd" xml:space="preserve">
+          <source>The controller restart and shutdown operations are also recorded in the operation logs.</source>
+          <target state="new">The controller restart and shutdown operations are also recorded in the operation logs.</target>
+        </trans-unit>
+        <trans-unit id="20511dc1-0d85-4e74-8710-b40d3f4499bc" xml:space="preserve">
+          <source>For more information about operation logs, go to <bpt id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;linkText&gt;</bpt>View the operation logs<ept id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;/linkText&gt;</ept><bpt id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;title&gt;</bpt><ept id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about operation logs, go to <bpt id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;linkText&gt;</bpt>View the operation logs<ept id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;/linkText&gt;</ept><bpt id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;title&gt;</bpt><ept id="a5b9d9b5-06ae-4e18-9246-4d74bc1eb179">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="239a53a0-9c8c-444d-838f-ee042924af3f" xml:space="preserve">
+          <source><bpt id="7c31f6ae-ee9c-45d2-b6a3-a169260fbc60">&lt;strong&gt;</bpt>Q.<ept id="7c31f6ae-ee9c-45d2-b6a3-a169260fbc60">&lt;/strong&gt;</ept> Is there any impact to the I/Os as a result of controller failover?</source>
+          <target state="new"><bpt id="7c31f6ae-ee9c-45d2-b6a3-a169260fbc60">&lt;strong&gt;</bpt>Q.<ept id="7c31f6ae-ee9c-45d2-b6a3-a169260fbc60">&lt;/strong&gt;</ept> Is there any impact to the I/Os as a result of controller failover?</target>
+        </trans-unit>
+        <trans-unit id="290f9dcb-f580-4a7a-a672-133d574221db" xml:space="preserve">
+          <source><bpt id="588e315b-9b3c-403d-b251-9e3657c38620">&lt;strong&gt;</bpt>A.<ept id="588e315b-9b3c-403d-b251-9e3657c38620">&lt;/strong&gt;</ept> The TCP connections between initiators and active controller will be reset as a result of controller failover, but will be reestablished when the passive controller assumes operation.</source>
+          <target state="new"><bpt id="588e315b-9b3c-403d-b251-9e3657c38620">&lt;strong&gt;</bpt>A.<ept id="588e315b-9b3c-403d-b251-9e3657c38620">&lt;/strong&gt;</ept> The TCP connections between initiators and active controller will be reset as a result of controller failover, but will be reestablished when the passive controller assumes operation.</target>
+        </trans-unit>
+        <trans-unit id="c7b58145-a689-4ba0-bba0-107f38f74a00" xml:space="preserve">
+          <source>There may be a temporary (less than 30 second) pause in I/O activity between initiators and the device during the course of this operation.</source>
+          <target state="new">There may be a temporary (less than 30 second) pause in I/O activity between initiators and the device during the course of this operation.</target>
+        </trans-unit>
+        <trans-unit id="2f5e516b-3e67-44b7-86a6-d2cf0f10e83a" xml:space="preserve">
+          <source><bpt id="39687a41-e54e-4bcf-9433-6f7e4136fd81">&lt;strong&gt;</bpt>Q.<ept id="39687a41-e54e-4bcf-9433-6f7e4136fd81">&lt;/strong&gt;</ept> How do I return my controller to service after it has been shut down and removed?</source>
+          <target state="new"><bpt id="39687a41-e54e-4bcf-9433-6f7e4136fd81">&lt;strong&gt;</bpt>Q.<ept id="39687a41-e54e-4bcf-9433-6f7e4136fd81">&lt;/strong&gt;</ept> How do I return my controller to service after it has been shut down and removed?</target>
+        </trans-unit>
+        <trans-unit id="b559c9dc-65f6-4371-ab13-9ac18f2194da" xml:space="preserve">
+          <source><bpt id="c934504b-c5ee-4fb6-91be-994ea32d13c6">&lt;strong&gt;</bpt>A.<ept id="c934504b-c5ee-4fb6-91be-994ea32d13c6">&lt;/strong&gt;</ept> To return a controller to service, you must insert it into the chassis as described in <bpt id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;linkText&gt;</bpt>Replace a controller module on your StorSimple device<ept id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;/linkText&gt;</ept><bpt id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;title&gt;</bpt><ept id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c934504b-c5ee-4fb6-91be-994ea32d13c6">&lt;strong&gt;</bpt>A.<ept id="c934504b-c5ee-4fb6-91be-994ea32d13c6">&lt;/strong&gt;</ept> To return a controller to service, you must insert it into the chassis as described in <bpt id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;linkText&gt;</bpt>Replace a controller module on your StorSimple device<ept id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;/linkText&gt;</ept><bpt id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;title&gt;</bpt><ept id="f9b31aed-286d-4a28-9fb8-2ee6956276b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="469b4586-f5b5-4497-a27f-69b23906f006" xml:space="preserve">
+          <source>If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, <bpt id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;/linkText&gt;</ept><bpt id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;title&gt;</bpt><ept id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you encounter any issues with your StorSimple device controllers that you cannot resolve by using the procedures listed in this tutorial, <bpt id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;/linkText&gt;</ept><bpt id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;title&gt;</bpt><ept id="564ccab7-705e-49f8-a702-049c08e526d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d433833-d465-422f-9f87-af429a302582" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d433833-d465-422f-9f87-af429a302582" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8b1b036a-1305-45db-a931-fa3b79f4dd8f">
+        <trans-unit id="4609c04a-44ce-441f-83a1-e99a1e2e7a3b" xml:space="preserve">
+          <source>Get started with Application Insights</source>
+          <target state="new">Get started with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="a29cec3e-ccaa-4678-9e9b-314705cce18d" xml:space="preserve">
+          <source>Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.</source>
+          <target state="new">Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="04a5686f-84c9-4c35-a13d-9001cda339e0" xml:space="preserve">
+          <source><bpt id="1166a255-0541-47c5-88b2-1f4f9291171f">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="1166a255-0541-47c5-88b2-1f4f9291171f">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="1166a255-0541-47c5-88b2-1f4f9291171f">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="1166a255-0541-47c5-88b2-1f4f9291171f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="013f1f9e-3827-445e-a0b1-fcba27a24ead" xml:space="preserve">
+          <source>Detect issues, solve problems and continuously improve your applications.</source>
+          <target state="new">Detect issues, solve problems and continuously improve your applications.</target>
+        </trans-unit>
+        <trans-unit id="398c9810-8718-45f2-bdb7-f3ade989aaac" xml:space="preserve">
+          <source>Quickly diagnose any problems in your live application.</source>
+          <target state="new">Quickly diagnose any problems in your live application.</target>
+        </trans-unit>
+        <trans-unit id="c6acd7f8-d255-438c-bdd5-c7c2ef09758c" xml:space="preserve">
+          <source>Understand what your users do with it.</source>
+          <target state="new">Understand what your users do with it.</target>
+        </trans-unit>
+        <trans-unit id="190284b2-217c-4043-9f00-785b307ebc62" xml:space="preserve">
+          <source>Configuration is very easy, and you'll see results within minutes.</source>
+          <target state="new">Configuration is very easy, and you'll see results within minutes.</target>
+        </trans-unit>
+        <trans-unit id="6a31e366-eb78-43b1-b37f-6741dee3c0fd" xml:space="preserve">
+          <source>We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services.</source>
+          <target state="new">We currently support iOS, Android, and Windows apps; J2EE and ASP.NET web applications, WCF services.</target>
+        </trans-unit>
+        <trans-unit id="eae6543c-03ef-4ec8-988c-75f4d2b576d7" xml:space="preserve">
+          <source>Web apps can run on  Azure or your own on-premises servers.</source>
+          <target state="new">Web apps can run on  Azure or your own on-premises servers.</target>
+        </trans-unit>
+        <trans-unit id="6fded0da-8fd3-454f-b613-5ca651201eb2" xml:space="preserve">
+          <source>Our JavaScript SDK runs in any web pages.</source>
+          <target state="new">Our JavaScript SDK runs in any web pages.</target>
+        </trans-unit>
+        <trans-unit id="6731f1a2-7586-4b91-9fde-ee8fe588364f" xml:space="preserve">
+          <source>Start with any combination, in any order, of the entry points on the left of this map.</source>
+          <target state="new">Start with any combination, in any order, of the entry points on the left of this map.</target>
+        </trans-unit>
+        <trans-unit id="66d7136f-3c78-4755-bc31-52d284d81474" xml:space="preserve">
+          <source>Follow the path that works for you.</source>
+          <target state="new">Follow the path that works for you.</target>
+        </trans-unit>
+        <trans-unit id="9005df27-4fc1-43ac-aa91-dfadb1f945ee" xml:space="preserve">
+          <source>Application Insights works by adding an SDK into your app, which sends telemetry to the <bpt id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;linkText&gt;</bpt>Azure portal<ept id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;/linkText&gt;</ept><bpt id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;title&gt;</bpt><ept id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Application Insights works by adding an SDK into your app, which sends telemetry to the <bpt id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;linkText&gt;</bpt>Azure portal<ept id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;/linkText&gt;</ept><bpt id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;title&gt;</bpt><ept id="0e22764e-86d1-44d4-9d2c-950cddd7b1a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2998767b-0c1d-4e2a-97db-f4a1a9fd68f8" xml:space="preserve">
+          <source>There are different SDKs for the many combinations of platforms, languages and IDEs that are supported.</source>
+          <target state="new">There are different SDKs for the many combinations of platforms, languages and IDEs that are supported.</target>
+        </trans-unit>
+        <trans-unit id="ddd392ff-6eca-4094-85d9-e36056c33028" xml:space="preserve">
+          <source>You'll need an account in <bpt id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;/linkText&gt;</ept><bpt id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;title&gt;</bpt><ept id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">You'll need an account in <bpt id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;/linkText&gt;</ept><bpt id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;title&gt;</bpt><ept id="81d5eb62-a5b9-444d-b67a-2423481733dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c22c898-8634-4a45-b517-d111e475531d" xml:space="preserve">
+          <source>You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account.</source>
+          <target state="new">You might already have access to a group account through your organization, or you might want to get a Pay-as-you-go account.</target>
+        </trans-unit>
+        <trans-unit id="8789b010-a839-4868-8d2a-5455da282a37" xml:space="preserve">
+          <source>Application Insights has a free tier, so you won't need to pay until your app is popular.</source>
+          <target state="new">Application Insights has a free tier, so you won't need to pay until your app is popular.</target>
+        </trans-unit>
+        <trans-unit id="1b05799b-89be-48cb-863d-c32ffb1a569b" xml:space="preserve">
+          <source>Review the <bpt id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;linkText&gt;</bpt>pricing page<ept id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;/linkText&gt;</ept><bpt id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;title&gt;</bpt><ept id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review the <bpt id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;linkText&gt;</bpt>pricing page<ept id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;/linkText&gt;</ept><bpt id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;title&gt;</bpt><ept id="9e9add01-ae2d-4e41-a84e-8f347124b70b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e746a332-1651-4864-b78a-7e29fabd1fc0" xml:space="preserve">
+          <source>What you want</source>
+          <target state="new">What you want</target>
+        </trans-unit>
+        <trans-unit id="7d355818-4b5f-466d-80c9-925accbc3b16" xml:space="preserve">
+          <source>What to do</source>
+          <target state="new">What to do</target>
+        </trans-unit>
+        <trans-unit id="ab61e4c5-175a-4ba7-9871-d865be23be23" xml:space="preserve">
+          <source>What you get</source>
+          <target state="new">What you get</target>
+        </trans-unit>
+        <trans-unit id="e9acbaec-a8a7-45ef-9fb3-34a24f5e9a54" xml:space="preserve">
+          <source>&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;<bpt id="dc7b130d-79b1-4d7d-b0f9-05a90905b6a9">&lt;linkText&gt;</bpt>ASP.NET<ept id="dc7b130d-79b1-4d7d-b0f9-05a90905b6a9">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;<bpt id="dc7b130d-79b1-4d7d-b0f9-05a90905b6a9">&lt;linkText&gt;</bpt>ASP.NET<ept id="dc7b130d-79b1-4d7d-b0f9-05a90905b6a9">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="fa0d4600-365a-40f9-b838-2db731c1ece3" xml:space="preserve">
+          <source>&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;Add Application Insights SDK to your web project&lt;/a&gt; &lt;br/&gt; <bpt id="afd5d892-6bda-428b-a5de-f2064b97fc16">&lt;linkText&gt;</bpt>gets<ept id="afd5d892-6bda-428b-a5de-f2064b97fc16">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;Add Application Insights SDK to your web project&lt;/a&gt; &lt;br/&gt; <bpt id="afd5d892-6bda-428b-a5de-f2064b97fc16">&lt;linkText&gt;</bpt>gets<ept id="afd5d892-6bda-428b-a5de-f2064b97fc16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="806109b8-1a9b-46ed-8724-6633ceb9be0c" xml:space="preserve">
+          <source>&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;<bpt id="11239fab-78cf-4151-b6c9-9a7ca9ac3a39">&lt;linkText&gt;</bpt>Performance and usage monitoring<ept id="11239fab-78cf-4151-b6c9-9a7ca9ac3a39">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-start-monitoring-app-health-usage.md"&gt;<bpt id="11239fab-78cf-4151-b6c9-9a7ca9ac3a39">&lt;linkText&gt;</bpt>Performance and usage monitoring<ept id="11239fab-78cf-4151-b6c9-9a7ca9ac3a39">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="1dfa469c-ed79-4074-af6e-7b292ba9266e" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="acab2170-c149-47dd-bddd-447ad32c338e">&lt;linkText&gt;</bpt>ASP.NET site already live<ept id="acab2170-c149-47dd-bddd-447ad32c338e">&lt;/linkText&gt;</ept>&lt;/a&gt;&lt;br/&gt;&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="f56da734-4fc3-4297-96d7-fa37b9b01b09">&lt;linkText&gt;</bpt>Dependency and performance monitoring<ept id="f56da734-4fc3-4297-96d7-fa37b9b01b09">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="acab2170-c149-47dd-bddd-447ad32c338e">&lt;linkText&gt;</bpt>ASP.NET site already live<ept id="acab2170-c149-47dd-bddd-447ad32c338e">&lt;/linkText&gt;</ept>&lt;/a&gt;&lt;br/&gt;&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="f56da734-4fc3-4297-96d7-fa37b9b01b09">&lt;linkText&gt;</bpt>Dependency and performance monitoring<ept id="f56da734-4fc3-4297-96d7-fa37b9b01b09">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="187b965c-b0e0-4504-9219-34bdc873efd1" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;Install Status Monitor on your IIS server&lt;/a&gt; &lt;br/&gt; <bpt id="8a746d1e-cc5c-4db7-9e05-c386bd7f8793">&lt;linkText&gt;</bpt>gets<ept id="8a746d1e-cc5c-4db7-9e05-c386bd7f8793">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;Install Status Monitor on your IIS server&lt;/a&gt; &lt;br/&gt; <bpt id="8a746d1e-cc5c-4db7-9e05-c386bd7f8793">&lt;linkText&gt;</bpt>gets<ept id="8a746d1e-cc5c-4db7-9e05-c386bd7f8793">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fbe17fe-6c3a-4fb3-ade1-3be778b25fb5" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="8f7e8dca-598c-44a1-b344-c189bc0f7747">&lt;linkText&gt;</bpt>ASP.NET dependency monitoring<ept id="8f7e8dca-598c-44a1-b344-c189bc0f7747">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-monitor-performance-live-website-now.md"&gt;<bpt id="8f7e8dca-598c-44a1-b344-c189bc0f7747">&lt;linkText&gt;</bpt>ASP.NET dependency monitoring<ept id="8f7e8dca-598c-44a1-b344-c189bc0f7747">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="c01dca50-9342-4825-8f73-287322e579a6" xml:space="preserve">
+          <source>&lt;a href="insights-perf-analytics.md"&gt;<bpt id="53488d4e-a4ad-4439-8d50-e8997de42ed5">&lt;linkText&gt;</bpt>Azure web app or VM<ept id="53488d4e-a4ad-4439-8d50-e8997de42ed5">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="insights-perf-analytics.md"&gt;<bpt id="53488d4e-a4ad-4439-8d50-e8997de42ed5">&lt;linkText&gt;</bpt>Azure web app or VM<ept id="53488d4e-a4ad-4439-8d50-e8997de42ed5">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="a659de27-8052-461f-9c8c-d03461f6e7ba" xml:space="preserve">
+          <source>&lt;a href="insights-perf-analytics.md"&gt;Enable Insights in your Azure web app or VM&lt;/a&gt; &lt;br/&gt; <bpt id="3622414f-0674-4bba-ae55-da91d84b3265">&lt;linkText&gt;</bpt>gets<ept id="3622414f-0674-4bba-ae55-da91d84b3265">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="insights-perf-analytics.md"&gt;Enable Insights in your Azure web app or VM&lt;/a&gt; &lt;br/&gt; <bpt id="3622414f-0674-4bba-ae55-da91d84b3265">&lt;linkText&gt;</bpt>gets<ept id="3622414f-0674-4bba-ae55-da91d84b3265">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98777167-8f17-452b-b4fd-efcc5d202a01" xml:space="preserve">
+          <source>&lt;a href="insights-perf-analytics.md"&gt;<bpt id="6fbd5ae1-5e94-4274-83b9-2a377e477c8a">&lt;linkText&gt;</bpt>Dependency and performance monitoring<ept id="6fbd5ae1-5e94-4274-83b9-2a377e477c8a">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="insights-perf-analytics.md"&gt;<bpt id="6fbd5ae1-5e94-4274-83b9-2a377e477c8a">&lt;linkText&gt;</bpt>Dependency and performance monitoring<ept id="6fbd5ae1-5e94-4274-83b9-2a377e477c8a">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="4d6dbaa2-066e-481e-a38c-8735b5362ef8" xml:space="preserve">
+          <source>&lt;a href="app-insights-java-get-started.md"&gt;<bpt id="17b8fb07-1821-4627-8947-10163533b0f8">&lt;linkText&gt;</bpt>Java<ept id="17b8fb07-1821-4627-8947-10163533b0f8">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-java-get-started.md"&gt;<bpt id="17b8fb07-1821-4627-8947-10163533b0f8">&lt;linkText&gt;</bpt>Java<ept id="17b8fb07-1821-4627-8947-10163533b0f8">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="2f7cf88a-4626-4860-a902-96a25152ef32" xml:space="preserve">
+          <source>&lt;a href="app-insights-java-get-started.md"&gt;Add the SDK to your Java project&lt;/a&gt;&lt;br/&gt;<bpt id="e5dce925-04ef-4003-91c6-53e9549653fe">&lt;linkText&gt;</bpt>gets<ept id="e5dce925-04ef-4003-91c6-53e9549653fe">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-java-get-started.md"&gt;Add the SDK to your Java project&lt;/a&gt;&lt;br/&gt;<bpt id="e5dce925-04ef-4003-91c6-53e9549653fe">&lt;linkText&gt;</bpt>gets<ept id="e5dce925-04ef-4003-91c6-53e9549653fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2be4cfa8-e635-49d5-8f97-d57c75eb1171" xml:space="preserve">
+          <source>&lt;a href="app-insights-java-get-started.md"&gt;<bpt id="e05f4045-d705-4d5e-b24d-84a1850dbde1">&lt;linkText&gt;</bpt>Performance and usage monitoring<ept id="e05f4045-d705-4d5e-b24d-84a1850dbde1">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-java-get-started.md"&gt;<bpt id="e05f4045-d705-4d5e-b24d-84a1850dbde1">&lt;linkText&gt;</bpt>Performance and usage monitoring<ept id="e05f4045-d705-4d5e-b24d-84a1850dbde1">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="831b2b18-c02f-40a5-bf85-801904490b25" xml:space="preserve">
+          <source>&lt;a href="app-insights-web-track-usage.md"&gt;<bpt id="cd2436d8-686d-4978-a59c-e2b3aeb854c9">&lt;linkText&gt;</bpt>JavaScript<ept id="cd2436d8-686d-4978-a59c-e2b3aeb854c9">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-web-track-usage.md"&gt;<bpt id="cd2436d8-686d-4978-a59c-e2b3aeb854c9">&lt;linkText&gt;</bpt>JavaScript<ept id="cd2436d8-686d-4978-a59c-e2b3aeb854c9">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="590f8eb7-a0cf-415d-9af1-0fef49e247ef" xml:space="preserve">
+          <source>&lt;a href="app-insights-web-track-usage.md"&gt;Insert the Application Insights script into your web pages&lt;/a&gt;&lt;br/&gt;<bpt id="f819c373-6c06-4407-b390-d8df21364004">&lt;linkText&gt;</bpt>gets<ept id="f819c373-6c06-4407-b390-d8df21364004">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-web-track-usage.md"&gt;Insert the Application Insights script into your web pages&lt;/a&gt;&lt;br/&gt;<bpt id="f819c373-6c06-4407-b390-d8df21364004">&lt;linkText&gt;</bpt>gets<ept id="f819c373-6c06-4407-b390-d8df21364004">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1df1b076-f157-4539-a35e-85a370192c2d" xml:space="preserve">
+          <source>&lt;a href="app-insights-web-track-usage.md"&gt;<bpt id="bd8c1d9d-7799-450b-ba80-d05335bae955">&lt;linkText&gt;</bpt>page views and browser performance<ept id="bd8c1d9d-7799-450b-ba80-d05335bae955">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-web-track-usage.md"&gt;<bpt id="bd8c1d9d-7799-450b-ba80-d05335bae955">&lt;linkText&gt;</bpt>page views and browser performance<ept id="bd8c1d9d-7799-450b-ba80-d05335bae955">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="d48c078c-0459-4175-9477-21dd84524603" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-web-app-availability.md"&gt;<bpt id="f505b2eb-d99a-4ce0-ad38-70ea4d5c55e2">&lt;linkText&gt;</bpt>Availability<ept id="f505b2eb-d99a-4ce0-ad38-70ea4d5c55e2">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-monitor-web-app-availability.md"&gt;<bpt id="f505b2eb-d99a-4ce0-ad38-70ea4d5c55e2">&lt;linkText&gt;</bpt>Availability<ept id="f505b2eb-d99a-4ce0-ad38-70ea4d5c55e2">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="49b5341c-cfe0-424b-91c1-38debf54e2c7" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-web-app-availability.md"&gt;Create web tests&lt;/a&gt;&lt;br/&gt;<bpt id="1dcc6ca9-ff99-4812-aadd-81a0aee66c05">&lt;linkText&gt;</bpt>gets<ept id="1dcc6ca9-ff99-4812-aadd-81a0aee66c05">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-monitor-web-app-availability.md"&gt;Create web tests&lt;/a&gt;&lt;br/&gt;<bpt id="1dcc6ca9-ff99-4812-aadd-81a0aee66c05">&lt;linkText&gt;</bpt>gets<ept id="1dcc6ca9-ff99-4812-aadd-81a0aee66c05">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c00ccebe-2042-4bd0-8da9-cb5a943e795c" xml:space="preserve">
+          <source>&lt;a href="app-insights-monitor-web-app-availability.md"&gt;<bpt id="d187dbb0-ff0a-4bee-b681-ba86b65b031b">&lt;linkText&gt;</bpt>Availability<ept id="d187dbb0-ff0a-4bee-b681-ba86b65b031b">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-monitor-web-app-availability.md"&gt;<bpt id="d187dbb0-ff0a-4bee-b681-ba86b65b031b">&lt;linkText&gt;</bpt>Availability<ept id="d187dbb0-ff0a-4bee-b681-ba86b65b031b">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="b0ec325f-5526-4ef0-9337-9a62c69a7cf9" xml:space="preserve">
+          <source>&lt;a href="app-insights-windows-get-started.md"&gt;<bpt id="89b2ce55-c149-419a-9f4f-c1418f940947">&lt;linkText&gt;</bpt>Windows and Windows Phone<ept id="89b2ce55-c149-419a-9f4f-c1418f940947">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-windows-get-started.md"&gt;<bpt id="89b2ce55-c149-419a-9f4f-c1418f940947">&lt;linkText&gt;</bpt>Windows and Windows Phone<ept id="89b2ce55-c149-419a-9f4f-c1418f940947">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="2c6bd50f-f0c6-4fef-a5f7-6efd94294b18" xml:space="preserve">
+          <source>&lt;a href="app-insights-windows-get-started.md"&gt;Add Application Insights to your Windows app project&lt;/a&gt;&lt;br/&gt;<bpt id="3cee0861-07da-4d9d-9593-93f96d0416cf">&lt;linkText&gt;</bpt>gets<ept id="3cee0861-07da-4d9d-9593-93f96d0416cf">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-windows-get-started.md"&gt;Add Application Insights to your Windows app project&lt;/a&gt;&lt;br/&gt;<bpt id="3cee0861-07da-4d9d-9593-93f96d0416cf">&lt;linkText&gt;</bpt>gets<ept id="3cee0861-07da-4d9d-9593-93f96d0416cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43f5bf19-525f-441c-a3d9-9cb67add1790" xml:space="preserve">
+          <source>&lt;a href="app-insights-windows-get-started.md"&gt;<bpt id="6784c648-f50b-46e8-9acb-21b049be33eb">&lt;linkText&gt;</bpt>Crash and usage data<ept id="6784c648-f50b-46e8-9acb-21b049be33eb">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-windows-get-started.md"&gt;<bpt id="6784c648-f50b-46e8-9acb-21b049be33eb">&lt;linkText&gt;</bpt>Crash and usage data<ept id="6784c648-f50b-46e8-9acb-21b049be33eb">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="eb975f97-9094-4978-aa3e-3cf844abbb90" xml:space="preserve">
+          <source>&lt;a href="app-insights-platforms.md"&gt;<bpt id="830f1572-4280-459d-a90d-d7f43f85f59d">&lt;linkText&gt;</bpt>iOS, Android and more<ept id="830f1572-4280-459d-a90d-d7f43f85f59d">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-platforms.md"&gt;<bpt id="830f1572-4280-459d-a90d-d7f43f85f59d">&lt;linkText&gt;</bpt>iOS, Android and more<ept id="830f1572-4280-459d-a90d-d7f43f85f59d">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="51dcaa39-523b-419b-a50c-f4869b55fcd6" xml:space="preserve">
+          <source>&lt;a href="app-insights-platforms.md"&gt;Add Application Insights to your iOS or Android app&lt;/a&gt;&lt;br/&gt;<bpt id="d4e4d897-6c7e-4aed-8137-26459baa25c1">&lt;linkText&gt;</bpt>gets<ept id="d4e4d897-6c7e-4aed-8137-26459baa25c1">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;a href="app-insights-platforms.md"&gt;Add Application Insights to your iOS or Android app&lt;/a&gt;&lt;br/&gt;<bpt id="d4e4d897-6c7e-4aed-8137-26459baa25c1">&lt;linkText&gt;</bpt>gets<ept id="d4e4d897-6c7e-4aed-8137-26459baa25c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="208c0408-ca0f-4a2b-a919-88240ef04b2c" xml:space="preserve">
+          <source>&lt;a href="app-insights-platforms.md"&gt;<bpt id="3209a9ec-ff49-44d7-8434-79d65cc09024">&lt;linkText&gt;</bpt>Crash and usage data<ept id="3209a9ec-ff49-44d7-8434-79d65cc09024">&lt;/linkText&gt;</ept>&lt;/a&gt;</source>
+          <target state="new">&lt;a href="app-insights-platforms.md"&gt;<bpt id="3209a9ec-ff49-44d7-8434-79d65cc09024">&lt;linkText&gt;</bpt>Crash and usage data<ept id="3209a9ec-ff49-44d7-8434-79d65cc09024">&lt;/linkText&gt;</ept>&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="3621d3f9-d112-43e1-80bb-a3a755143360" xml:space="preserve">
+          <source>Questions and Issues:</source>
+          <target state="new">Questions and Issues:</target>
+        </trans-unit>
+        <trans-unit id="d4189813-ce54-4e4b-a16a-8dfdb91a53b4" xml:space="preserve">
+          <source><bpt id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;/linkText&gt;</ept><bpt id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;title&gt;</bpt><ept id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;/linkText&gt;</ept><bpt id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;title&gt;</bpt><ept id="b009f416-4edc-455d-bf01-a0e33fa2fd40">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5520d92-7809-4d00-a3f1-fbdb64ccb29b" xml:space="preserve">
+          <source><bpt id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;linkText&gt;</bpt>MSDN Forum<ept id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;/linkText&gt;</ept><bpt id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;title&gt;</bpt><ept id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;linkText&gt;</bpt>MSDN Forum<ept id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;/linkText&gt;</ept><bpt id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;title&gt;</bpt><ept id="70798a1f-040f-4c61-8474-cda32e6f9c87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e453b1c-9d02-4fdf-8c22-e780347a81f8" xml:space="preserve">
+          <source><bpt id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;linkText&gt;</bpt>StackOverflow<ept id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;/linkText&gt;</ept><bpt id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;title&gt;</bpt><ept id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;linkText&gt;</bpt>StackOverflow<ept id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;/linkText&gt;</ept><bpt id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;title&gt;</bpt><ept id="92a30f14-dee7-4921-ad27-8d2b7718bbf4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc99bc55-8b7d-4e91-a459-eded653902de" xml:space="preserve">
+          <source>Bugs:</source>
+          <target state="new">Bugs:</target>
+        </trans-unit>
+        <trans-unit id="81d22b7b-4304-4dff-a0e5-e0c5253020cb" xml:space="preserve">
+          <source><bpt id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;linkText&gt;</bpt>Connect<ept id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;/linkText&gt;</ept><bpt id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;title&gt;</bpt><ept id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;linkText&gt;</bpt>Connect<ept id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;/linkText&gt;</ept><bpt id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;title&gt;</bpt><ept id="5eac193f-8c76-43b3-ad11-d0d33d5bc6df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfe6e721-f1dc-4901-bc75-2e60a974722f" xml:space="preserve">
+          <source>Suggestions:</source>
+          <target state="new">Suggestions:</target>
+        </trans-unit>
+        <trans-unit id="994c6ea7-cea2-4819-b976-7032b5475ace" xml:space="preserve">
+          <source><bpt id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;linkText&gt;</bpt>User Voice<ept id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;/linkText&gt;</ept><bpt id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;title&gt;</bpt><ept id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;linkText&gt;</bpt>User Voice<ept id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;/linkText&gt;</ept><bpt id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;title&gt;</bpt><ept id="086a12dd-2182-4b5f-8508-77600b3f341b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e924700-c9ca-4cc1-914a-1036348b64fe" xml:space="preserve">
+          <source>[AZURE.VIDEO usage-monitoring-application-insights]</source>
+          <target state="new">[AZURE.VIDEO usage-monitoring-application-insights]</target>
+        </trans-unit>
+        <trans-unit id="11aad7eb-d3eb-4364-bed9-6c41d0091b50" xml:space="preserve">
+          <source>[AZURE.VIDEO performance-monitoring-application-insights]</source>
+          <target state="new">[AZURE.VIDEO performance-monitoring-application-insights]</target>
+        </trans-unit>
+        <trans-unit id="7484a11c-bb93-4256-94c0-74d9cc81de89" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+      </group>
+      <group id="bf5d64e4-57e1-4eaf-869b-1d86c0b13f11" />
+    </body>
+  </file>
+</xliff>

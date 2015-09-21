@@ -1,0 +1,1522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c7cb99a1-9646-4002-97c4-f254622c7078" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c7cb99a1-9646-4002-97c4-f254622c7078" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8514a570-20bc-4144-a9aa-a4308cc1b062">
+        <trans-unit id="ab72ccde-e667-4f87-b9f7-02064efc2474" xml:space="preserve">
+          <source>StorSimple hardware components and status | Microsoft Azure</source>
+          <target state="new">StorSimple hardware components and status | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b399d6f2-b471-4d7d-a77d-ac51c3e31d83" xml:space="preserve">
+          <source>Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service.</source>
+          <target state="new">Learn how to monitor the hardware components of your StorSimple device through the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="0a783289-89cc-43bb-a687-e64091e0aef6" xml:space="preserve">
+          <source>This article describes the various physical and logical components in your on-premises StorSimple device.</source>
+          <target state="new">This article describes the various physical and logical components in your on-premises StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="9eb2fc88-1a18-4734-a533-e18c619bdc77" xml:space="preserve">
+          <source>It also explains how to monitor the device component status by using the <bpt id="9d674fad-b333-4f6e-9c52-61bc29e9a9cd">&lt;strong&gt;</bpt>Maintenance<ept id="9d674fad-b333-4f6e-9c52-61bc29e9a9cd">&lt;/strong&gt;</ept> page in the StorSimple Manager service.</source>
+          <target state="new">It also explains how to monitor the device component status by using the <bpt id="9d674fad-b333-4f6e-9c52-61bc29e9a9cd">&lt;strong&gt;</bpt>Maintenance<ept id="9d674fad-b333-4f6e-9c52-61bc29e9a9cd">&lt;/strong&gt;</ept> page in the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="179231b2-6677-40ce-bad3-4ddcea017e87" xml:space="preserve">
+          <source>The <bpt id="bddd46d8-1b7e-4879-a995-08ebefa694ee">&lt;strong&gt;</bpt>Maintenance<ept id="bddd46d8-1b7e-4879-a995-08ebefa694ee">&lt;/strong&gt;</ept> page shows the hardware status of all the StorSimple device components.</source>
+          <target state="new">The <bpt id="bddd46d8-1b7e-4879-a995-08ebefa694ee">&lt;strong&gt;</bpt>Maintenance<ept id="bddd46d8-1b7e-4879-a995-08ebefa694ee">&lt;/strong&gt;</ept> page shows the hardware status of all the StorSimple device components.</target>
+        </trans-unit>
+        <trans-unit id="33da4669-7950-45a6-8636-d4ee20a0db48" xml:space="preserve">
+          <source>Under the list of components for 8100, there are three sections that describe:</source>
+          <target state="new">Under the list of components for 8100, there are three sections that describe:</target>
+        </trans-unit>
+        <trans-unit id="34a61b24-3cac-4af7-bc61-446f727ff125" xml:space="preserve">
+          <source><bpt id="dba8b55b-778c-41c6-8efc-300c36b31163">&lt;strong&gt;</bpt>Shared Components<ept id="dba8b55b-778c-41c6-8efc-300c36b31163">&lt;/strong&gt;</ept> – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.</source>
+          <target state="new"><bpt id="dba8b55b-778c-41c6-8efc-300c36b31163">&lt;strong&gt;</bpt>Shared Components<ept id="dba8b55b-778c-41c6-8efc-300c36b31163">&lt;/strong&gt;</ept> – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.</target>
+        </trans-unit>
+        <trans-unit id="f2f9320d-1492-4068-a1c3-ac708da7d9c0" xml:space="preserve">
+          <source><bpt id="a4411ccb-2b2f-4511-98dc-96bb8568c6da">&lt;strong&gt;</bpt>Controller 0 Components<ept id="a4411ccb-2b2f-4511-98dc-96bb8568c6da">&lt;/strong&gt;</ept> – The components that reside on Controller 0, such as controller, SAS expander and connector, controller temperature sensors, and the various network interfaces.</source>
+          <target state="new"><bpt id="a4411ccb-2b2f-4511-98dc-96bb8568c6da">&lt;strong&gt;</bpt>Controller 0 Components<ept id="a4411ccb-2b2f-4511-98dc-96bb8568c6da">&lt;/strong&gt;</ept> – The components that reside on Controller 0, such as controller, SAS expander and connector, controller temperature sensors, and the various network interfaces.</target>
+        </trans-unit>
+        <trans-unit id="8b580690-a111-441e-80ea-b6a6c582aad1" xml:space="preserve">
+          <source><bpt id="dc5e2f83-042b-466d-973b-ac29fb93c1a1">&lt;strong&gt;</bpt>Controller 1 Components<ept id="dc5e2f83-042b-466d-973b-ac29fb93c1a1">&lt;/strong&gt;</ept> – The components that constitute Controller 1, similar to those detailed for Controller 0.</source>
+          <target state="new"><bpt id="dc5e2f83-042b-466d-973b-ac29fb93c1a1">&lt;strong&gt;</bpt>Controller 1 Components<ept id="dc5e2f83-042b-466d-973b-ac29fb93c1a1">&lt;/strong&gt;</ept> – The components that constitute Controller 1, similar to those detailed for Controller 0.</target>
+        </trans-unit>
+        <trans-unit id="2c200fa8-be8d-4614-b946-4f93d75fb970" xml:space="preserve">
+          <source>An 8600 device has additional components that correspond to the Extended Bunch of Disks (EBOD) enclosure.</source>
+          <target state="new">An 8600 device has additional components that correspond to the Extended Bunch of Disks (EBOD) enclosure.</target>
+        </trans-unit>
+        <trans-unit id="45a008a2-5e76-436a-b680-23165106aa79" xml:space="preserve">
+          <source>Under the list of components, there are five sections.</source>
+          <target state="new">Under the list of components, there are five sections.</target>
+        </trans-unit>
+        <trans-unit id="e21a16f4-8be6-4afe-b577-9cff6d5db73a" xml:space="preserve">
+          <source>Of these, there are three sections that contain the components in the primary enclosure and are identical to the ones described for 8100.</source>
+          <target state="new">Of these, there are three sections that contain the components in the primary enclosure and are identical to the ones described for 8100.</target>
+        </trans-unit>
+        <trans-unit id="723dff1a-65bd-4f73-82bb-43bf6044eac4" xml:space="preserve">
+          <source>There are two additional sections for the EBOD enclosure that describe:</source>
+          <target state="new">There are two additional sections for the EBOD enclosure that describe:</target>
+        </trans-unit>
+        <trans-unit id="b62170d3-85b4-4cf8-97de-27aad10839e9" xml:space="preserve">
+          <source><bpt id="bbb25943-63b8-4ae1-be45-2bb76b88284b">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="bbb25943-63b8-4ae1-be45-2bb76b88284b">&lt;/strong&gt;</ept> – The components present in the EBOD enclosure and PCM that are not part of the EBOD controller.</source>
+          <target state="new"><bpt id="bbb25943-63b8-4ae1-be45-2bb76b88284b">&lt;strong&gt;</bpt>EBOD enclosure Shared Components<ept id="bbb25943-63b8-4ae1-be45-2bb76b88284b">&lt;/strong&gt;</ept> – The components present in the EBOD enclosure and PCM that are not part of the EBOD controller.</target>
+        </trans-unit>
+        <trans-unit id="8a7103fd-fbbc-47e8-bc89-0d2bcb5018af" xml:space="preserve">
+          <source><bpt id="664a3f1b-5ffc-4083-b538-25f99e636f09">&lt;strong&gt;</bpt>EBOD Controller 0 Components<ept id="664a3f1b-5ffc-4083-b538-25f99e636f09">&lt;/strong&gt;</ept> – The components that reside on EBOD enclosure 0, such as the EBOD controller, SAS expander and connector, and controller temperature sensors.</source>
+          <target state="new"><bpt id="664a3f1b-5ffc-4083-b538-25f99e636f09">&lt;strong&gt;</bpt>EBOD Controller 0 Components<ept id="664a3f1b-5ffc-4083-b538-25f99e636f09">&lt;/strong&gt;</ept> – The components that reside on EBOD enclosure 0, such as the EBOD controller, SAS expander and connector, and controller temperature sensors.</target>
+        </trans-unit>
+        <trans-unit id="03bfe6b5-14e0-4e7d-90d6-f334c3fff9b6" xml:space="preserve">
+          <source><bpt id="aafde648-7e8f-4c1e-8978-93ffde102954">&lt;strong&gt;</bpt>EBOD Controller 1 Components<ept id="aafde648-7e8f-4c1e-8978-93ffde102954">&lt;/strong&gt;</ept> – The components that constitute EBOD enclosure 1, similar to those detailed for EBOD enclosure 0.</source>
+          <target state="new"><bpt id="aafde648-7e8f-4c1e-8978-93ffde102954">&lt;strong&gt;</bpt>EBOD Controller 1 Components<ept id="aafde648-7e8f-4c1e-8978-93ffde102954">&lt;/strong&gt;</ept> – The components that constitute EBOD enclosure 1, similar to those detailed for EBOD enclosure 0.</target>
+        </trans-unit>
+        <trans-unit id="596ff62f-a10f-4166-9ea8-e9a319734bfe" xml:space="preserve">
+          <source><bpt id="c8114c05-fa10-4064-be72-751f4b761284">&lt;strong&gt;</bpt>The hardware status section is not present in the Maintenance page for a StorSimple virtual device (1100).<ept id="c8114c05-fa10-4064-be72-751f4b761284">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c8114c05-fa10-4064-be72-751f4b761284">&lt;strong&gt;</bpt>The hardware status section is not present in the Maintenance page for a StorSimple virtual device (1100).<ept id="c8114c05-fa10-4064-be72-751f4b761284">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d4c8b83-2eaa-484d-bfe4-6d74f9caf7f7" xml:space="preserve">
+          <source>Perform the following steps to view the hardware status of a device component:</source>
+          <target state="new">Perform the following steps to view the hardware status of a device component:</target>
+        </trans-unit>
+        <trans-unit id="68a29772-f65b-4044-b0b6-354c7594c6ac" xml:space="preserve">
+          <source>Navigate to <bpt id="81ecde2d-cd8d-432f-8237-3b9baa269d0a">&lt;strong&gt;</bpt>Devices<ept id="81ecde2d-cd8d-432f-8237-3b9baa269d0a">&lt;/strong&gt;</ept>, select a specific StorSimple device.</source>
+          <target state="new">Navigate to <bpt id="81ecde2d-cd8d-432f-8237-3b9baa269d0a">&lt;strong&gt;</bpt>Devices<ept id="81ecde2d-cd8d-432f-8237-3b9baa269d0a">&lt;/strong&gt;</ept>, select a specific StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="158e1891-fb18-43d9-a044-097278278376" xml:space="preserve">
+          <source>Click to go into the device-level menu and then click the <bpt id="d3e9fa50-9c31-4ea6-9ef6-d9acade3e8e8">&lt;strong&gt;</bpt>Maintenance<ept id="d3e9fa50-9c31-4ea6-9ef6-d9acade3e8e8">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click to go into the device-level menu and then click the <bpt id="d3e9fa50-9c31-4ea6-9ef6-d9acade3e8e8">&lt;strong&gt;</bpt>Maintenance<ept id="d3e9fa50-9c31-4ea6-9ef6-d9acade3e8e8">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="3e3d30f7-3576-4a7a-9099-827927cfeec5" xml:space="preserve">
+          <source>Locate the <bpt id="5393809c-25f7-47ac-8244-a35a0f1d6918">&lt;strong&gt;</bpt>Hardware Status<ept id="5393809c-25f7-47ac-8244-a35a0f1d6918">&lt;/strong&gt;</ept> section and choose from the available components (as described above).</source>
+          <target state="new">Locate the <bpt id="5393809c-25f7-47ac-8244-a35a0f1d6918">&lt;strong&gt;</bpt>Hardware Status<ept id="5393809c-25f7-47ac-8244-a35a0f1d6918">&lt;/strong&gt;</ept> section and choose from the available components (as described above).</target>
+        </trans-unit>
+        <trans-unit id="fda2e9ea-4ab5-4c2a-bce4-a0a9fcd6428a" xml:space="preserve">
+          <source>Simply click an arrow preceding the component label to expand the list and view the status of the various device components.</source>
+          <target state="new">Simply click an arrow preceding the component label to expand the list and view the status of the various device components.</target>
+        </trans-unit>
+        <trans-unit id="3e172661-8656-4ed1-a939-8ba606183687" xml:space="preserve">
+          <source>See the <bpt id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;linkText&gt;</bpt>detailed component list for the primary enclosure<ept id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;/linkText&gt;</ept><bpt id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;title&gt;</bpt><ept id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;/title&gt;</ept> and the <bpt id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;linkText&gt;</bpt>detailed component list for the EBOD enclosure<ept id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;/linkText&gt;</ept><bpt id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;title&gt;</bpt><ept id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the <bpt id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;linkText&gt;</bpt>detailed component list for the primary enclosure<ept id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;/linkText&gt;</ept><bpt id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;title&gt;</bpt><ept id="209ad10a-7ea8-4b54-a6a7-34bb0942d89e">&lt;/title&gt;</ept> and the <bpt id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;linkText&gt;</bpt>detailed component list for the EBOD enclosure<ept id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;/linkText&gt;</ept><bpt id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;title&gt;</bpt><ept id="4d28073d-a05c-4320-b660-39252bb513a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa6ff337-8252-4009-a958-eb5a97dbacf9" xml:space="preserve">
+          <source>Use the following color coding scheme to interpret the  component status:</source>
+          <target state="new">Use the following color coding scheme to interpret the  component status:</target>
+        </trans-unit>
+        <trans-unit id="213d33eb-acea-450d-b31c-8d8dad41aa90" xml:space="preserve">
+          <source><bpt id="2a9856b2-ad5f-4d71-b472-ac09dd697887">&lt;strong&gt;</bpt>Green check<ept id="2a9856b2-ad5f-4d71-b472-ac09dd697887">&lt;/strong&gt;</ept> – Denotes a <bpt id="76635b62-0009-4b9b-93b5-bb799edbb152">&lt;strong&gt;</bpt>Healthy<ept id="76635b62-0009-4b9b-93b5-bb799edbb152">&lt;/strong&gt;</ept> or <bpt id="be6e643b-7cb9-4562-863f-4fe08fddf810">&lt;strong&gt;</bpt>OK<ept id="be6e643b-7cb9-4562-863f-4fe08fddf810">&lt;/strong&gt;</ept> component.</source>
+          <target state="new"><bpt id="2a9856b2-ad5f-4d71-b472-ac09dd697887">&lt;strong&gt;</bpt>Green check<ept id="2a9856b2-ad5f-4d71-b472-ac09dd697887">&lt;/strong&gt;</ept> – Denotes a <bpt id="76635b62-0009-4b9b-93b5-bb799edbb152">&lt;strong&gt;</bpt>Healthy<ept id="76635b62-0009-4b9b-93b5-bb799edbb152">&lt;/strong&gt;</ept> or <bpt id="be6e643b-7cb9-4562-863f-4fe08fddf810">&lt;strong&gt;</bpt>OK<ept id="be6e643b-7cb9-4562-863f-4fe08fddf810">&lt;/strong&gt;</ept> component.</target>
+        </trans-unit>
+        <trans-unit id="1c21b982-3630-40be-bbd0-d975301bc04d" xml:space="preserve">
+          <source><bpt id="604d31d7-3cee-4fb4-afe7-be661894eb9b">&lt;strong&gt;</bpt>Yellow<ept id="604d31d7-3cee-4fb4-afe7-be661894eb9b">&lt;/strong&gt;</ept> – Denotes a component in <bpt id="cc6dcde4-4e33-457b-8d4b-28501e2a07bd">&lt;strong&gt;</bpt>Warning<ept id="cc6dcde4-4e33-457b-8d4b-28501e2a07bd">&lt;/strong&gt;</ept> state.</source>
+          <target state="new"><bpt id="604d31d7-3cee-4fb4-afe7-be661894eb9b">&lt;strong&gt;</bpt>Yellow<ept id="604d31d7-3cee-4fb4-afe7-be661894eb9b">&lt;/strong&gt;</ept> – Denotes a component in <bpt id="cc6dcde4-4e33-457b-8d4b-28501e2a07bd">&lt;strong&gt;</bpt>Warning<ept id="cc6dcde4-4e33-457b-8d4b-28501e2a07bd">&lt;/strong&gt;</ept> state.</target>
+        </trans-unit>
+        <trans-unit id="403d84dc-72e4-4d7b-8735-43a3991b1f3d" xml:space="preserve">
+          <source><bpt id="585d4ec4-c861-45cf-a0e8-f347b7dc0850">&lt;strong&gt;</bpt>Red exclamation<ept id="585d4ec4-c861-45cf-a0e8-f347b7dc0850">&lt;/strong&gt;</ept> – Denotes a component that has a <bpt id="56092dfb-29b6-4330-8aad-08da1e31515a">&lt;strong&gt;</bpt>Failure<ept id="56092dfb-29b6-4330-8aad-08da1e31515a">&lt;/strong&gt;</ept> or <bpt id="4d5cffe5-1d4e-4503-8d0c-4607b11ce066">&lt;strong&gt;</bpt>Needs Attention<ept id="4d5cffe5-1d4e-4503-8d0c-4607b11ce066">&lt;/strong&gt;</ept> status.</source>
+          <target state="new"><bpt id="585d4ec4-c861-45cf-a0e8-f347b7dc0850">&lt;strong&gt;</bpt>Red exclamation<ept id="585d4ec4-c861-45cf-a0e8-f347b7dc0850">&lt;/strong&gt;</ept> – Denotes a component that has a <bpt id="56092dfb-29b6-4330-8aad-08da1e31515a">&lt;strong&gt;</bpt>Failure<ept id="56092dfb-29b6-4330-8aad-08da1e31515a">&lt;/strong&gt;</ept> or <bpt id="4d5cffe5-1d4e-4503-8d0c-4607b11ce066">&lt;strong&gt;</bpt>Needs Attention<ept id="4d5cffe5-1d4e-4503-8d0c-4607b11ce066">&lt;/strong&gt;</ept> status.</target>
+        </trans-unit>
+        <trans-unit id="1f04d2d5-b98d-402e-a4a2-8c3b18025c1d" xml:space="preserve">
+          <source><bpt id="01eba298-c0cf-4620-8f78-23fcdd28dfc0">&lt;strong&gt;</bpt>White with black text<ept id="01eba298-c0cf-4620-8f78-23fcdd28dfc0">&lt;/strong&gt;</ept> – Denotes a component that is not present.</source>
+          <target state="new"><bpt id="01eba298-c0cf-4620-8f78-23fcdd28dfc0">&lt;strong&gt;</bpt>White with black text<ept id="01eba298-c0cf-4620-8f78-23fcdd28dfc0">&lt;/strong&gt;</ept> – Denotes a component that is not present.</target>
+        </trans-unit>
+        <trans-unit id="45affdbb-c44e-4852-b518-4fc6688ae8f4" xml:space="preserve">
+          <source>If you encounter a component that is not in a <bpt id="4aedc16e-c3f6-4007-b892-0fd854bdf893">&lt;strong&gt;</bpt>Healthy<ept id="4aedc16e-c3f6-4007-b892-0fd854bdf893">&lt;/strong&gt;</ept> state, please contact Microsoft Support.</source>
+          <target state="new">If you encounter a component that is not in a <bpt id="4aedc16e-c3f6-4007-b892-0fd854bdf893">&lt;strong&gt;</bpt>Healthy<ept id="4aedc16e-c3f6-4007-b892-0fd854bdf893">&lt;/strong&gt;</ept> state, please contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="d5a7d8be-30f8-4802-a40a-09d70d606c8a" xml:space="preserve">
+          <source>If alerts are enabled on your device, you will receive an email alert.</source>
+          <target state="new">If alerts are enabled on your device, you will receive an email alert.</target>
+        </trans-unit>
+        <trans-unit id="8b3664dd-3af4-492c-9524-1c7104e4f851" xml:space="preserve">
+          <source>If you need to replace a failed hardware component, see <bpt id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;/linkText&gt;</ept><bpt id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;title&gt;</bpt><ept id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to replace a failed hardware component, see <bpt id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;/linkText&gt;</ept><bpt id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;title&gt;</bpt><ept id="0759522f-2b5a-49c2-a53f-22cd059472aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="961c6c79-a9d7-4bc8-9c9b-f6b2d9ca0a9e" xml:space="preserve">
+          <source>The following table outlines the physical and logical components contained in the primary enclosure of your on-premises StorSimple device.</source>
+          <target state="new">The following table outlines the physical and logical components contained in the primary enclosure of your on-premises StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="846f177c-edaa-4589-b190-610041d2c957" xml:space="preserve">
+          <source>Component</source>
+          <target state="new">Component</target>
+        </trans-unit>
+        <trans-unit id="e4c9426a-f0db-40f0-93b5-4217db490002" xml:space="preserve">
+          <source>Module</source>
+          <target state="new">Module</target>
+        </trans-unit>
+        <trans-unit id="15ca442a-2d15-4b7d-9add-ea6d3a31b533" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="a0a845c0-5a34-4b4d-8e92-bdcae323e539" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="4a83c456-c9a4-4546-99a2-f2873b9a9151" xml:space="preserve">
+          <source>Field replaceable unit (FRU)?</source>
+          <target state="new">Field replaceable unit (FRU)?</target>
+        </trans-unit>
+        <trans-unit id="0cd09fd8-d8f8-4d22-8756-37c6275a3131" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c26efee5-9eb7-4a81-95e9-964fe8fd8207" xml:space="preserve">
+          <source>Drive in slot [0-11]</source>
+          <target state="new">Drive in slot [0-11]</target>
+        </trans-unit>
+        <trans-unit id="939ad2a6-8aea-4924-8dab-b5b52ea8be4d" xml:space="preserve">
+          <source>Disk Drives</source>
+          <target state="new">Disk Drives</target>
+        </trans-unit>
+        <trans-unit id="b743ff41-ff46-4c17-a172-df2ffa1856ec" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="d59617e5-7465-45f2-8bd0-ba7d9b74b5b1" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="568d3039-1229-4b93-a590-dd2031f0f3f4" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d3080030-9d23-4811-be9b-637beccae7e4" xml:space="preserve">
+          <source>One line is presented for each of the SSD or the HDD drives in the primary enclosure.</source>
+          <target state="new">One line is presented for each of the SSD or the HDD drives in the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="32f2e14f-668c-44c2-bcd6-447130139f39" xml:space="preserve">
+          <source>Ambient temperature sensor</source>
+          <target state="new">Ambient temperature sensor</target>
+        </trans-unit>
+        <trans-unit id="1dcaca07-f252-442e-aeb8-df32fee6f024" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="f42a40f5-fa2e-4ef0-8748-0c4f7db4c11b" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="5fac1ef1-cd08-4e81-97b6-e2a132791e4e" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="5d050633-fee1-46b8-bef6-b3117ceaa23e" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="3e400ce6-ae94-4c26-b9f7-3da4159510f8" xml:space="preserve">
+          <source>Measures the temperature within the chassis.</source>
+          <target state="new">Measures the temperature within the chassis.</target>
+        </trans-unit>
+        <trans-unit id="9e7b300d-aebe-4dcf-ad48-1dd0d4a1bf81" xml:space="preserve">
+          <source>Mid-plane temperature sensor</source>
+          <target state="new">Mid-plane temperature sensor</target>
+        </trans-unit>
+        <trans-unit id="d13a18cf-b3d2-4a03-8571-cadefa778262" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="5563c995-2a2c-40f8-b759-a78f89c8f3c1" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="5aa5f22d-5e5d-4c61-b921-9fcd9664151d" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="0e93a42c-8016-4461-9c58-e8c8e10dbc5a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="57c14d63-c42d-4848-b6c5-821321bc007c" xml:space="preserve">
+          <source>Measures the temperature of the mid-plane.</source>
+          <target state="new">Measures the temperature of the mid-plane.</target>
+        </trans-unit>
+        <trans-unit id="971fad53-9ae6-4752-8451-b420cfc472a8" xml:space="preserve">
+          <source>Audible alarm</source>
+          <target state="new">Audible alarm</target>
+        </trans-unit>
+        <trans-unit id="863709a0-c0f0-4007-80a6-b044f01e82b7" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="926b0c38-795b-4740-91cd-a019a5b63437" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="399fa354-7a59-49d7-813c-ffa7881822f0" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="f691a848-ba5b-40dd-88dd-6cbb93b9a5e7" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="760e9dc4-044f-4858-b5b4-9855d5ce8e33" xml:space="preserve">
+          <source>Indicates whether the audible alarm subsystem within the chassis is functional.</source>
+          <target state="new">Indicates whether the audible alarm subsystem within the chassis is functional.</target>
+        </trans-unit>
+        <trans-unit id="65ab24ae-b5c3-4fb4-8335-d70e0375c554" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="5ed3757d-4b25-4821-8a99-c787a3773d2e" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="9a262ead-8148-49db-8be2-6d00e61d79a0" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="0add52d9-656a-456a-a172-8b90153820b8" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="68e7d792-2427-4521-88ce-9d46bfeb0fa6" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="54c5ba24-3ae1-4b3c-b7fa-4f7001a74c7e" xml:space="preserve">
+          <source>Indicates the presence of a chassis.</source>
+          <target state="new">Indicates the presence of a chassis.</target>
+        </trans-unit>
+        <trans-unit id="9226b975-dbf5-4d3d-95ed-d54d544f7f23" xml:space="preserve">
+          <source>Enclosure settings</source>
+          <target state="new">Enclosure settings</target>
+        </trans-unit>
+        <trans-unit id="d41737a5-df34-4df0-a965-e7227d36d393" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="f1f62f8c-7b65-46fe-a983-5389b9fd7792" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="47efb398-9c76-45e0-9759-9ba87d11517c" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="8c76e98f-bdf2-4ce8-bb58-593007efa31b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="7c36ab16-7eea-42b2-bcb0-c03420b7ff60" xml:space="preserve">
+          <source>Refers to the front panel of the chassis.</source>
+          <target state="new">Refers to the front panel of the chassis.</target>
+        </trans-unit>
+        <trans-unit id="85fec662-2fac-4913-9a1e-29ca02b7586e" xml:space="preserve">
+          <source>Line voltage sensors</source>
+          <target state="new">Line voltage sensors</target>
+        </trans-unit>
+        <trans-unit id="e89e7a09-3e48-41b5-b415-daae46bfaf6c" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="5b1be5cc-42b7-4c74-8386-5b7283b5c420" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="b81e4d0e-9899-4b2f-bf8e-58354df2f474" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="7ea054f2-e2e7-4027-82f7-b5012204a2df" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="793759fc-d22d-4d33-8cf6-7a4b1a639cb6" xml:space="preserve">
+          <source>Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.</source>
+          <target state="new">Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="9211ac61-b516-4df1-8e3a-2c1c0cc14003" xml:space="preserve">
+          <source>Line current sensors</source>
+          <target state="new">Line current sensors</target>
+        </trans-unit>
+        <trans-unit id="af4f54db-2ab0-4d73-8c8d-1afd85fb8c60" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="aa65fcc4-0c51-4418-8530-11c0406d73e2" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="563f58eb-a335-4933-b0a3-188e82861526" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="24fc4e83-76e0-4019-ad6c-4bdbd3e4c934" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="2e7953c2-d201-46a5-a7f3-9139990651ff" xml:space="preserve">
+          <source>Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.</source>
+          <target state="new">Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="0f57d7c4-e8c1-4ab8-a6ca-c676654729f9" xml:space="preserve">
+          <source>Temperature sensors in PCM</source>
+          <target state="new">Temperature sensors in PCM</target>
+        </trans-unit>
+        <trans-unit id="138cddb4-6932-4b62-8489-8ebd6d261c45" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="e610a9ed-70cf-4310-a982-4d8814376c72" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="27ccc5e5-51be-4cff-8231-65e96a30fed8" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="43c29a0d-1fc3-4a9b-b874-5584892c0c0d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4e8981ce-a638-4af2-abcd-b35c0f1c78a4" xml:space="preserve">
+          <source>Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, indicating whether the measured temperature is within tolerance.</source>
+          <target state="new">Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, indicating whether the measured temperature is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="7c71cf44-00f8-4413-b506-8e2b886bb377" xml:space="preserve">
+          <source>Power supply [0-1]</source>
+          <target state="new">Power supply [0-1]</target>
+        </trans-unit>
+        <trans-unit id="b40e1821-7834-4d8c-86d9-86ef69ddb16b" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="8af16d72-7dfd-4013-af70-027b25c3df02" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="5648b709-c102-4c1b-95d2-8a9d1d29f6ce" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="07466659-5eec-4ad8-96f7-56097704dd82" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="db8fc5c1-e4cc-4c34-975c-f29cd9497972" xml:space="preserve">
+          <source>One line is presented for each of the power supplies in the two PCMs located in the back of the device.</source>
+          <target state="new">One line is presented for each of the power supplies in the two PCMs located in the back of the device.</target>
+        </trans-unit>
+        <trans-unit id="72c0b056-a6ee-4d8f-98a1-33ca6a736df3" xml:space="preserve">
+          <source>Cooling [0-1]</source>
+          <target state="new">Cooling [0-1]</target>
+        </trans-unit>
+        <trans-unit id="a4a97072-2426-4631-9aa0-52cec7e924e8" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="33dbd916-d36f-4442-aee2-abc8e62ab88a" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="2b5d33ef-e7a7-4d1f-9b9b-a2075b35ee02" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="05f5fbf7-0f1d-4dad-b8b8-dc696e69ae62" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bca2e8fe-7212-4d4a-916a-9a06ba528c3c" xml:space="preserve">
+          <source>One line is presented for each of the four cooling fans residing in the two PCMs.</source>
+          <target state="new">One line is presented for each of the four cooling fans residing in the two PCMs.</target>
+        </trans-unit>
+        <trans-unit id="8e0d8759-024a-44b2-bfa4-5b10cc63444a" xml:space="preserve">
+          <source>Battery [0-1]</source>
+          <target state="new">Battery [0-1]</target>
+        </trans-unit>
+        <trans-unit id="7d2e94cd-4424-4236-b8cc-3815e85a8972" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="61bfd59c-6176-4d06-8715-7c59e8dafdfc" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="980672d3-ef47-45f4-9804-86d038216191" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="c96b1987-5ddd-4a51-9c6c-e884f5c86ef2" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="198c0bf4-6fee-48f0-a5dd-1c515340d96a" xml:space="preserve">
+          <source>One line is presented for each of the backup battery modules that are seated in the PCM.</source>
+          <target state="new">One line is presented for each of the backup battery modules that are seated in the PCM.</target>
+        </trans-unit>
+        <trans-unit id="0141dac0-fbec-45bf-86d3-2fc38cdf6f84" xml:space="preserve">
+          <source>Metis</source>
+          <target state="new">Metis</target>
+        </trans-unit>
+        <trans-unit id="60697801-8725-4bb5-9620-9a027691facd" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="2e66c3f0-72d2-4eac-8ffd-c1148e0f584f" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="641da5d8-d8f4-4910-b4da-7b6b1f1e779d" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="3c72d30e-f534-4d3a-a3b8-84508540c31a" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="ed0b53f1-4565-4360-88eb-37c2062b25ab" xml:space="preserve">
+          <source>Displays the state of the batteries: whether they need charging and are approaching end-of-life.</source>
+          <target state="new">Displays the state of the batteries: whether they need charging and are approaching end-of-life.</target>
+        </trans-unit>
+        <trans-unit id="035b68eb-ebad-4450-b17a-741eea7605c2" xml:space="preserve">
+          <source>Cluster</source>
+          <target state="new">Cluster</target>
+        </trans-unit>
+        <trans-unit id="9f8aacc7-e3fe-45b8-bbce-2e87c13a7114" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="07d80798-0fad-4801-8613-e08fb55a7212" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="413b9cf1-d478-4793-9457-d413fd26c84c" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="83e1cf16-0585-4327-9cdf-b22a1198b12e" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="b434d934-bdd4-4e5c-a57b-1357991553f5" xml:space="preserve">
+          <source>Displays the state of the cluster that is created between the two integrated controller modules.</source>
+          <target state="new">Displays the state of the cluster that is created between the two integrated controller modules.</target>
+        </trans-unit>
+        <trans-unit id="b52593d0-2b42-4a81-ad1c-4ee4de706d4d" xml:space="preserve">
+          <source>Cluster node</source>
+          <target state="new">Cluster node</target>
+        </trans-unit>
+        <trans-unit id="335cc22f-63f7-44d2-a616-ecb92e029995" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="3bc84d00-a5fb-4557-bc50-e1b1b848652c" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="9195dfa3-2a56-4fe8-b21b-c357578755a5" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="9b58be0d-2c3b-4aad-a5b2-c37482c227c0" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="c826d7bc-e459-46b7-8e5b-8781f695ed4f" xml:space="preserve">
+          <source>Indicates the state of the controller as part of the cluster.</source>
+          <target state="new">Indicates the state of the controller as part of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="f02245fd-9f0d-451e-a752-251fdfc68c9c" xml:space="preserve">
+          <source>Cluster quorum</source>
+          <target state="new">Cluster quorum</target>
+        </trans-unit>
+        <trans-unit id="f0366c67-c94f-402c-9671-730b2cfdcd59" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="a9c840ad-96ba-4f84-b60c-492cc8c3585f" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="6f28388f-c618-412c-9d8f-57c15a25bd45" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="1d704619-5795-495b-af31-f633807c90e8" xml:space="preserve">
+          <source>Indicates the presence of the majority disk membership in the HDD storage pool.</source>
+          <target state="new">Indicates the presence of the majority disk membership in the HDD storage pool.</target>
+        </trans-unit>
+        <trans-unit id="2ce9f278-4ea1-4828-b275-d2c0385410b3" xml:space="preserve">
+          <source>HDD data space</source>
+          <target state="new">HDD data space</target>
+        </trans-unit>
+        <trans-unit id="f1aca68f-8a23-424e-a9f5-f586e68c6120" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="d4bf21db-c77b-43f8-8c42-f47521f10354" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="50b84bbe-a381-4e6d-be5b-2b80257af17a" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="d1d03e4b-89de-4a02-8dfc-c697a4563318" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="9eda9ef7-3dd6-4840-b8e1-69559fdd8710" xml:space="preserve">
+          <source>The storage space that is used for data in the hard disk drive (HDD) storage pool.</source>
+          <target state="new">The storage space that is used for data in the hard disk drive (HDD) storage pool.</target>
+        </trans-unit>
+        <trans-unit id="f6c6c7aa-113d-4f9c-b139-d77b49f3bfa6" xml:space="preserve">
+          <source>HDD management space</source>
+          <target state="new">HDD management space</target>
+        </trans-unit>
+        <trans-unit id="f61cd5f8-2e2c-4704-aa51-0bda1177064b" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="617bd25c-358b-40f9-9762-6af1c4699a8f" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="057a2864-65f6-4d42-8dce-55b09f793a66" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="e981164d-f78c-4f34-81fb-758974ec4d6b" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="bc2ce0f3-1996-4934-b815-9052ffc993d1" xml:space="preserve">
+          <source>The space reserved in the HDD storage pool for management tasks.</source>
+          <target state="new">The space reserved in the HDD storage pool for management tasks.</target>
+        </trans-unit>
+        <trans-unit id="c9e95600-a534-4f6b-83a1-eb6005783a20" xml:space="preserve">
+          <source>HDD quorum space</source>
+          <target state="new">HDD quorum space</target>
+        </trans-unit>
+        <trans-unit id="47c3c4e2-13c3-4058-9c78-ae004eb10ffc" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="188b2c85-b76c-44db-b736-c9bd8d4b87b5" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="675ca60d-16ae-4274-86b8-b3be9ea08689" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="9544376f-aee4-463e-ac2c-e45d536d9619" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="bc6b84cb-a89e-443b-84c7-ac287ad0a6af" xml:space="preserve">
+          <source>The space reserved in the HDD storage pool for cluster quorum.</source>
+          <target state="new">The space reserved in the HDD storage pool for cluster quorum.</target>
+        </trans-unit>
+        <trans-unit id="318ca395-cbad-4e0e-aa43-976ea4a1ed93" xml:space="preserve">
+          <source>HDD replacement space</source>
+          <target state="new">HDD replacement space</target>
+        </trans-unit>
+        <trans-unit id="8854066f-fa25-4d21-9557-adeb6a8cbefe" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="702695c7-927e-46af-88ef-183a3ac46312" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="26390938-a008-4e25-acf5-91674edd66ab" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="380509f9-3131-4782-a2b3-2a2c108b6efb" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="c1f7d46b-48ca-4a52-8add-c1ddbf77c2d4" xml:space="preserve">
+          <source>The space reserved in the HDD storage pool for controller replacement.</source>
+          <target state="new">The space reserved in the HDD storage pool for controller replacement.</target>
+        </trans-unit>
+        <trans-unit id="2da3b9c4-5cfc-4ef4-8b1c-771c36038140" xml:space="preserve">
+          <source>SSD data space</source>
+          <target state="new">SSD data space</target>
+        </trans-unit>
+        <trans-unit id="469688de-3b79-4cc3-baea-31a277fcf299" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="2c447457-2082-4557-95ec-21efe99b5831" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="365814ed-a0f4-457f-a0ec-3434a6ea66fd" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="d5b11964-8dc2-4881-9d76-00402ade02af" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="febc3ebb-7c10-40a7-a23d-99da4f098f91" xml:space="preserve">
+          <source>The storage space used for data in the solid state drive (SSD) storage pool.</source>
+          <target state="new">The storage space used for data in the solid state drive (SSD) storage pool.</target>
+        </trans-unit>
+        <trans-unit id="371c82fa-46bb-48dc-bfc4-5c97ed82b846" xml:space="preserve">
+          <source>SSD NVRAM space</source>
+          <target state="new">SSD NVRAM space</target>
+        </trans-unit>
+        <trans-unit id="97e75e03-807f-498b-9129-489406b38e92" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="4a94f8ec-f409-4b17-a53f-a41860343c99" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="a11251ba-178f-41f6-a681-07e43c9a97b6" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="3d776dd2-c62e-4ed4-b606-0bc16187f17c" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="5565d632-bca9-4308-85a0-ad44e40a5053" xml:space="preserve">
+          <source>The storage space in the SSD storage pool that is dedicated for NVRAM logic.</source>
+          <target state="new">The storage space in the SSD storage pool that is dedicated for NVRAM logic.</target>
+        </trans-unit>
+        <trans-unit id="d6db1d1e-22ed-4029-b806-0f3d1c10e6e8" xml:space="preserve">
+          <source>HDD storage pool</source>
+          <target state="new">HDD storage pool</target>
+        </trans-unit>
+        <trans-unit id="dd02ee80-4b11-4aa6-955a-713999a7b35b" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="0f8a6275-7bae-470a-935b-99125127d5fa" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="10fac68b-ae68-411d-95f0-e8b2336fb7fd" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="1c2c71b7-d519-438c-8161-29d51722a683" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="848ee9c0-e4e7-4c84-b496-1241d63e79de" xml:space="preserve">
+          <source>Displays the state of the logical storage pool that is created from device HDDs.</source>
+          <target state="new">Displays the state of the logical storage pool that is created from device HDDs.</target>
+        </trans-unit>
+        <trans-unit id="439bd288-8c1f-48bc-9daf-46f0e36fc9bb" xml:space="preserve">
+          <source>SSD storage pool</source>
+          <target state="new">SSD storage pool</target>
+        </trans-unit>
+        <trans-unit id="611b804e-082c-4be0-bbcf-750e281c6668" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="f9732b0f-31ba-4cd4-820c-ed748531aa18" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="af727a7e-25c4-4b96-89b0-ab343aa64a18" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="3d504e9e-1ff2-4891-aae5-8503994e8be0" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="d711a2f7-a8ca-4229-8b5b-f93cdddb00bb" xml:space="preserve">
+          <source>Displays the state of the logical storage pool that is created from device SSDs.</source>
+          <target state="new">Displays the state of the logical storage pool that is created from device SSDs.</target>
+        </trans-unit>
+        <trans-unit id="a6f4f63e-7d4d-4abb-8a64-cecf8820274c" xml:space="preserve">
+          <source>Controller <bpt id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;linkText&gt;</bpt>0-1[state]<ept id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;/linkText&gt;</ept><bpt id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;title&gt;</bpt><ept id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;/title&gt;</ept></source>
+          <target state="new">Controller <bpt id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;linkText&gt;</bpt>0-1[state]<ept id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;/linkText&gt;</ept><bpt id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;title&gt;</bpt><ept id="78e11877-4907-4ea7-be6b-1afc9e923b2f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4683b3e3-50bb-46c3-b053-c3d3ae59a58a" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="457c4a64-d0f9-41e5-9b69-92d2757b3c6c" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="d051378f-3915-4480-8805-535795810ffd" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="56b55daa-ed86-4f29-89e7-c6c9b0ed6513" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="306d9ba5-8a6a-472b-807d-61f2ce74292a" xml:space="preserve">
+          <source>Displays the state of the controller, and whether it is in active or standby mode within the chassis.</source>
+          <target state="new">Displays the state of the controller, and whether it is in active or standby mode within the chassis.</target>
+        </trans-unit>
+        <trans-unit id="3f99dfbe-d944-484a-8b3f-e03ccd74a5d2" xml:space="preserve">
+          <source>Temperature sensors in controller</source>
+          <target state="new">Temperature sensors in controller</target>
+        </trans-unit>
+        <trans-unit id="46bd844f-a1a6-4376-b46f-7908576fa3d7" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="d5a207a4-3072-41c4-a5cb-cc51accc509c" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="b1e15d4a-03b8-40cd-a12e-796ba109d95a" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="907e2114-2a1e-4ee2-bf1b-e214670734f9" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1ea37d40-4e6f-4568-b019-9d1b4a3a692a" xml:space="preserve">
+          <source>Numerous temperature sensors such as I/O module, CPU temperature, DIMM and PCIe sensors have their state displayed, which indicates whether or not the temperature encountered is within tolerance.</source>
+          <target state="new">Numerous temperature sensors such as I/O module, CPU temperature, DIMM and PCIe sensors have their state displayed, which indicates whether or not the temperature encountered is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="948a4a72-af46-4f08-ba25-fd80203d4d2c" xml:space="preserve">
+          <source>﻿SAS expander</source>
+          <target state="new">﻿SAS expander</target>
+        </trans-unit>
+        <trans-unit id="5b3536c0-f806-41f5-80a0-6b192dc5f4e1" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="da20fd4f-cd27-45d9-b19a-d0eb7476c186" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="2db44008-d4e4-4367-a2b1-2a3a5749e8c9" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="732163b4-b8b4-4db7-8bc4-a61337622c6a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="162643a6-a1c4-4178-b909-36608671227c" xml:space="preserve">
+          <source>Indicates the state of the serial attached SCSI (SAS) expander, which is used to connect the integrated storage to the controller.</source>
+          <target state="new">Indicates the state of the serial attached SCSI (SAS) expander, which is used to connect the integrated storage to the controller.</target>
+        </trans-unit>
+        <trans-unit id="b70a6357-da8c-479d-ade1-f53188e426c3" xml:space="preserve">
+          <source>SAS connector [0-1]</source>
+          <target state="new">SAS connector [0-1]</target>
+        </trans-unit>
+        <trans-unit id="8f02215f-ae9f-4d8d-9048-97e652f49ac0" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="4f1b52e3-78ad-4d73-9846-881b3f050587" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="14cd9162-9764-4546-b2fe-6d62460af467" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="142b6184-2f00-4d94-9350-8947bb5b1cef" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="7eb76131-fd9c-4c3c-ae3f-1b79862e39d2" xml:space="preserve">
+          <source>Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.</source>
+          <target state="new">Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.</target>
+        </trans-unit>
+        <trans-unit id="b2a2973b-c92a-47b7-ab00-f8b991c73275" xml:space="preserve">
+          <source>SBB mid-plane interconnect</source>
+          <target state="new">SBB mid-plane interconnect</target>
+        </trans-unit>
+        <trans-unit id="5733d62f-badb-4461-9c62-2b95d60d3c75" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="5ba026d8-3445-4e98-b2db-33826f819488" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="11287001-337b-465c-8ffe-26a76e6fe5d6" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="eb8f935a-d3ba-4502-9101-c819f56e7210" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9b069b19-67ca-4eef-9ba2-133e68c48bfc" xml:space="preserve">
+          <source>Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.</source>
+          <target state="new">Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.</target>
+        </trans-unit>
+        <trans-unit id="cf48ae7a-b8e6-4ee5-ae30-6592e2f1b409" xml:space="preserve">
+          <source>Processor core</source>
+          <target state="new">Processor core</target>
+        </trans-unit>
+        <trans-unit id="46568acf-42bd-407e-8e19-7d3f66950ef1" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="53d4bce7-3a85-4cb4-87e2-d30a301380ff" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="2ec9ab31-fd38-449b-b592-7deeb286e45b" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="82524fd3-4e33-4a9f-bb95-c94d41dba85e" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="bd56143f-da2e-485f-ad06-d632415f635d" xml:space="preserve">
+          <source>Indicates the state of the processor cores within each controller.</source>
+          <target state="new">Indicates the state of the processor cores within each controller.</target>
+        </trans-unit>
+        <trans-unit id="2b442665-3565-4851-ab56-04295d02438d" xml:space="preserve">
+          <source>Enclosure electronics power</source>
+          <target state="new">Enclosure electronics power</target>
+        </trans-unit>
+        <trans-unit id="daab8971-66ab-48ac-9fab-8ec037c6724b" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="c02c317b-a475-42de-b6d0-2198c3caeb18" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="3a65565c-14b6-4abf-8483-b3d7501e5691" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="a18c2072-3b17-432a-8095-fd209b177cda" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="106198ac-a76a-4e77-bc73-7c4d9311775f" xml:space="preserve">
+          <source>Indicates the state of the power system used by the enclosure.</source>
+          <target state="new">Indicates the state of the power system used by the enclosure.</target>
+        </trans-unit>
+        <trans-unit id="429a7d8d-aefb-41f8-85b9-e6e696628f2a" xml:space="preserve">
+          <source>Enclosure electronics diagnostics</source>
+          <target state="new">Enclosure electronics diagnostics</target>
+        </trans-unit>
+        <trans-unit id="81b44de0-f36e-4399-a177-0d5192569f90" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="30aa4401-1015-478d-8fa2-9f026a8feef5" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="588a6bfd-5a88-4200-9796-090e49ae4c1a" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="a81d5bb7-df35-439a-911b-99afce59314a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d36954ec-4a36-4dc0-aff1-1048f3c3a23b" xml:space="preserve">
+          <source>Indicates the state of the diagnostics subsystems provided by the controller.</source>
+          <target state="new">Indicates the state of the diagnostics subsystems provided by the controller.</target>
+        </trans-unit>
+        <trans-unit id="c9d788c3-c364-43ec-adef-3466d608197f" xml:space="preserve">
+          <source>Baseboard Management Controller (BMC)</source>
+          <target state="new">Baseboard Management Controller (BMC)</target>
+        </trans-unit>
+        <trans-unit id="8e4c69bc-578e-4cac-af15-f46d73746121" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="73c0494d-61b7-4b41-9d14-329776c3bc15" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="5065ef91-33ea-4959-b348-d0b3e2656483" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="7d9f2226-2cde-4c19-8d20-fd93542fe0a9" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1890b80b-d21b-4dae-94b1-43a1181f1b9b" xml:space="preserve">
+          <source>Indicates the state of the baseboard management controller (BMC), which is a specialized service processor that monitors the hardware device through sensors and communicates with the system administrator via an independent connection.</source>
+          <target state="new">Indicates the state of the baseboard management controller (BMC), which is a specialized service processor that monitors the hardware device through sensors and communicates with the system administrator via an independent connection.</target>
+        </trans-unit>
+        <trans-unit id="4b5f9469-dde3-4328-ab4f-58543bcf4fe1" xml:space="preserve">
+          <source>Ethernet</source>
+          <target state="new">Ethernet</target>
+        </trans-unit>
+        <trans-unit id="7980902a-f9fd-43ce-a097-ab657a3a9dd4" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="d9237432-3ca6-45d4-b74a-0cefcf48afb5" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="f249ffce-0d85-4832-8609-3e7ccb0919d0" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="f485b478-54d7-4a4f-81eb-229012c015f5" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="666eaffd-b568-4f72-bc89-556920516838" xml:space="preserve">
+          <source>Indicates the state of each of the network interfaces, that is, the management and data ports provided on the controller.</source>
+          <target state="new">Indicates the state of each of the network interfaces, that is, the management and data ports provided on the controller.</target>
+        </trans-unit>
+        <trans-unit id="473dfd55-07ae-4494-8429-6ab7e17ebe28" xml:space="preserve">
+          <source>NVRAM</source>
+          <target state="new">NVRAM</target>
+        </trans-unit>
+        <trans-unit id="cc83db97-0a98-4329-b9cb-cfee4c6af271" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="184022ff-a28e-4f06-8bdd-24f93bcbee88" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="4fc449b7-c48f-4fb8-a30d-04edfefd4f15" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="8f537255-0955-4420-9136-018db51b4c5c" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d3ad786e-ab62-4c8e-ac31-e4210f2667fe" xml:space="preserve">
+          <source>Indicates the state of NVRAM, a non-volatile random access memory backed up by the battery that serves to retain application-critical information in the event of power failure.</source>
+          <target state="new">Indicates the state of NVRAM, a non-volatile random access memory backed up by the battery that serves to retain application-critical information in the event of power failure.</target>
+        </trans-unit>
+        <trans-unit id="f3c6c8f6-c3b1-4180-bd59-6fd22298bded" xml:space="preserve">
+          <source>The following table outlines the physical and logical components contained in the EBOD enclosure of your on-premises StorSimple device.</source>
+          <target state="new">The following table outlines the physical and logical components contained in the EBOD enclosure of your on-premises StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="2d31fcd0-b0f7-4b83-b8b6-c48466536109" xml:space="preserve">
+          <source>Component</source>
+          <target state="new">Component</target>
+        </trans-unit>
+        <trans-unit id="a0c37ec8-d03b-4442-b53e-3abf44bb7fbe" xml:space="preserve">
+          <source>Module</source>
+          <target state="new">Module</target>
+        </trans-unit>
+        <trans-unit id="feb5ecb7-7203-4a2a-81d6-c7abc47acf04" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="0c21a041-1a51-4705-918e-de50ffbc286f" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="eaa4f477-e391-4a84-8e76-dad81c415e94" xml:space="preserve">
+          <source>FRU?</source>
+          <target state="new">FRU?</target>
+        </trans-unit>
+        <trans-unit id="2c372356-ea9b-4f4e-9407-c9f8340f3680" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="a1c97557-3695-47f2-b7e7-f5f3fd35ee02" xml:space="preserve">
+          <source>Drive in slot [0-11]</source>
+          <target state="new">Drive in slot [0-11]</target>
+        </trans-unit>
+        <trans-unit id="91c34eb0-93ee-4fd3-b8b5-26b5e8d47bb6" xml:space="preserve">
+          <source>Disk Drives</source>
+          <target state="new">Disk Drives</target>
+        </trans-unit>
+        <trans-unit id="03cf7fcb-832a-4119-9a57-248d627619f8" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="f6b5699f-cdeb-48b9-bb11-76c3935a8585" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="abb48d9a-8477-44e3-9594-31c55960f3e5" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="97cdcf42-0c9e-4bfb-a172-859ec494ba2f" xml:space="preserve">
+          <source>One line is presented for each of the HDD drives in the front of the EBOD enclosure.</source>
+          <target state="new">One line is presented for each of the HDD drives in the front of the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="a6e653ff-1a1e-43f5-9ae8-950a56dc46c0" xml:space="preserve">
+          <source>Ambient temperature sensor</source>
+          <target state="new">Ambient temperature sensor</target>
+        </trans-unit>
+        <trans-unit id="913aca9a-19db-4f65-b4c7-80bea8ca9bcf" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="1f45cd70-629a-49e0-b763-ec1fa83aff39" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="91767649-0a3f-49af-962d-2005493f5e77" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="d38eb13c-826a-4324-99e1-0d4393309795" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="96e0fe65-7b3f-47d8-91be-999362543c84" xml:space="preserve">
+          <source>Measures the temperature within the chassis.</source>
+          <target state="new">Measures the temperature within the chassis.</target>
+        </trans-unit>
+        <trans-unit id="bd42e7c4-e7ea-4f3e-9115-14b450c069ad" xml:space="preserve">
+          <source>Mid-plane temperature sensor</source>
+          <target state="new">Mid-plane temperature sensor</target>
+        </trans-unit>
+        <trans-unit id="2ea33af3-bc56-42d7-8d20-188e2c6a71d1" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="9800c678-5234-4e74-abdf-56713b1ab61a" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="142ac3e7-5c22-48ec-b4a8-b6ad9af5280e" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="a5ba1aa5-66ca-479e-9d7f-817d47a65904" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="efee42fb-dec0-466f-b373-a56ec32f13ba" xml:space="preserve">
+          <source>Measures the temperature of the mid-plane.</source>
+          <target state="new">Measures the temperature of the mid-plane.</target>
+        </trans-unit>
+        <trans-unit id="b7653322-a8d7-4a71-8cdd-5a0c7df2a026" xml:space="preserve">
+          <source>Audible alarm</source>
+          <target state="new">Audible alarm</target>
+        </trans-unit>
+        <trans-unit id="2ea4581c-7883-4673-a454-2c60654fc476" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="f85e0545-e7c0-4e2a-b2ac-17993741af49" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="3847b660-fdbb-4d3b-95da-227055504254" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="20a1f2ba-fbbc-438b-90d5-35fecb26016a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="330e9fba-a54a-48d8-8d30-71d6f0942282" xml:space="preserve">
+          <source>Indicates whether the audible alarm subsystem within the chassis is functional.</source>
+          <target state="new">Indicates whether the audible alarm subsystem within the chassis is functional.</target>
+        </trans-unit>
+        <trans-unit id="2a47fee5-12a7-4975-ae45-a5011362fe4b" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="ab8a057d-7c56-4103-a334-66437b2d313c" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="f74a19c2-223f-4341-bac5-67a8adc81228" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="334e573b-7677-4d06-9777-303414488b5d" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="92365454-2d98-4d2a-94d2-4cae3673667d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3d2f886d-1a82-4371-8e61-080f20c84576" xml:space="preserve">
+          <source>Indicates the presence of a chassis.</source>
+          <target state="new">Indicates the presence of a chassis.</target>
+        </trans-unit>
+        <trans-unit id="04e60811-b64d-44b5-bff4-d3f1cb3cd437" xml:space="preserve">
+          <source>Enclosure settings</source>
+          <target state="new">Enclosure settings</target>
+        </trans-unit>
+        <trans-unit id="7a1d30aa-553f-44a9-b356-39edfe6b427c" xml:space="preserve">
+          <source>Enclosure</source>
+          <target state="new">Enclosure</target>
+        </trans-unit>
+        <trans-unit id="6040a56a-8a9a-4750-97ae-751865142146" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="06c2003f-c457-4092-ae44-a95d4ea975e6" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="f0924536-8a84-4105-ac77-9d58a2bb017d" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="8a159a23-6e09-47e5-90e3-49f6c8fdc96a" xml:space="preserve">
+          <source>Refers to the OPS or the front panel of the chassis.</source>
+          <target state="new">Refers to the OPS or the front panel of the chassis.</target>
+        </trans-unit>
+        <trans-unit id="c2189d92-e8fb-45a3-a411-965114784df4" xml:space="preserve">
+          <source>Line voltage sensors</source>
+          <target state="new">Line voltage sensors</target>
+        </trans-unit>
+        <trans-unit id="57b88817-dcd2-4fa2-9988-44a06127a787" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="e5b2bdac-ad73-4748-9284-d72c47c08ace" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="549122c0-1043-40bd-92c3-1ec8cad1c393" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="4ed8b2c5-43c4-477f-8ecc-228d7f631e11" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="226b5fce-4033-48fb-affd-d8afcf23b185" xml:space="preserve">
+          <source>Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.</source>
+          <target state="new">Numerous line voltage sensors have their state displayed, which indicates whether the measured voltage is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="37f5fb33-2d05-4e68-82cc-02e2e962982f" xml:space="preserve">
+          <source>Line current sensors</source>
+          <target state="new">Line current sensors</target>
+        </trans-unit>
+        <trans-unit id="bd42fc7a-8309-402d-b3a3-9b473e4b8883" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="5f116ac1-afb1-46d8-b664-44eb2b556c4c" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="59ae629b-a6a7-4acd-aec1-d49eaf7abbd4" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="b3cc3688-8bcc-433f-9a52-70cd2856a9d1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="33994d2d-4ac3-402b-a83e-17c33ccf1976" xml:space="preserve">
+          <source>Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.</source>
+          <target state="new">Numerous line current sensors have their state displayed, which indicates whether the measured current is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="5eb41a22-ce8b-4299-922e-1a8a8730afef" xml:space="preserve">
+          <source>Temperature sensors in PCM</source>
+          <target state="new">Temperature sensors in PCM</target>
+        </trans-unit>
+        <trans-unit id="4fd8908e-43d8-4cf3-81c1-4c7a3140a1fc" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="198aff02-c68f-42e1-b50c-4aaa0d4c7faa" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="59912563-5932-4f01-8e1e-fc4d2441d885" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="7658a6e3-664a-4e11-af8c-51b7642e02c6" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="8fb18787-448c-405f-bb03-fde1b554fcba" xml:space="preserve">
+          <source>Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, which indicates whether the measured temperature is within tolerance.</source>
+          <target state="new">Numerous temperature sensors such as Inlet and Hotspot sensors have their state displayed, which indicates whether the measured temperature is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="ab05ff88-1169-459d-8517-75653c543ebc" xml:space="preserve">
+          <source>Power supply [0-1]</source>
+          <target state="new">Power supply [0-1]</target>
+        </trans-unit>
+        <trans-unit id="47800218-79e5-49a3-95b4-71ec4542e687" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="b84603e5-b69c-46a7-ac8f-6c0e55ef6b15" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="39f33516-4352-4100-84f5-b1511338d5db" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="05c9e87f-308a-4715-9d7d-128c688ffbd5" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="55f39321-83c0-427b-b379-9c2c87eb3e44" xml:space="preserve">
+          <source>One line is presented for each of the power supplies in the two PCMs located in the back of the device.</source>
+          <target state="new">One line is presented for each of the power supplies in the two PCMs located in the back of the device.</target>
+        </trans-unit>
+        <trans-unit id="b5298dbf-26ef-40e1-a0b9-f802d1b868ae" xml:space="preserve">
+          <source>Cooling [0-1]</source>
+          <target state="new">Cooling [0-1]</target>
+        </trans-unit>
+        <trans-unit id="c18dd78c-f011-444e-bc53-57bfa656519b" xml:space="preserve">
+          <source>PCM</source>
+          <target state="new">PCM</target>
+        </trans-unit>
+        <trans-unit id="14683890-0330-471f-b442-ef671f45aa00" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="7f6335a0-8565-49a2-9e3f-7065c8f07d21" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="afa31841-aaa7-43a1-9661-33a90bf8819d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="cea6538e-ed46-41b6-a0ef-4a7d6c2f21bc" xml:space="preserve">
+          <source>One line is presented for each of the four cooling fans residing in the two PCMs.</source>
+          <target state="new">One line is presented for each of the four cooling fans residing in the two PCMs.</target>
+        </trans-unit>
+        <trans-unit id="642a8317-da0d-4a01-9830-c461cc142ac8" xml:space="preserve">
+          <source>Local storage [HDD]</source>
+          <target state="new">Local storage [HDD]</target>
+        </trans-unit>
+        <trans-unit id="614d11ad-2314-4a6e-a448-7b77245f2a9d" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="609e24de-b8d6-4699-82dd-7066ba990128" xml:space="preserve">
+          <source>Logical</source>
+          <target state="new">Logical</target>
+        </trans-unit>
+        <trans-unit id="b33b724f-8ab9-42a9-8b9b-2d99582ccd8c" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="88944578-0361-48d6-9ba5-d1fd3617e177" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="61fa28c6-6583-4d8c-9622-358d64d630a8" xml:space="preserve">
+          <source>Displays the state of the logical storage pool that is created from device HDDs.</source>
+          <target state="new">Displays the state of the logical storage pool that is created from device HDDs.</target>
+        </trans-unit>
+        <trans-unit id="2a4fefbf-7bcf-4b02-a6f5-21ced787c314" xml:space="preserve">
+          <source>Controller <bpt id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;linkText&gt;</bpt>0-1[state]<ept id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;/linkText&gt;</ept><bpt id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;title&gt;</bpt><ept id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;/title&gt;</ept></source>
+          <target state="new">Controller <bpt id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;linkText&gt;</bpt>0-1[state]<ept id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;/linkText&gt;</ept><bpt id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;title&gt;</bpt><ept id="f550eb80-6198-434f-b14d-8b444d913f66">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c427959-be2a-47c8-9525-ad93ee422fe2" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="80121634-03d3-43c4-becd-f98baca00c86" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="162f2bf9-5079-475f-8695-685975127b5d" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="294b660c-63d0-4031-a06b-47c7197df61a" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="00d2402f-9bf8-48fb-b8ad-48aea1e2da70" xml:space="preserve">
+          <source>Displays the state of the controllers in the EBOD module.</source>
+          <target state="new">Displays the state of the controllers in the EBOD module.</target>
+        </trans-unit>
+        <trans-unit id="b4213a8b-0513-4673-9d5c-998b8b5da645" xml:space="preserve">
+          <source>Temperature sensors in EBOD</source>
+          <target state="new">Temperature sensors in EBOD</target>
+        </trans-unit>
+        <trans-unit id="e29dbd64-0c0f-48bb-92a3-c95ad8efe921" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="84b0402b-1e62-4a01-ae3e-4cf916793bd6" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="748e7746-51fc-498b-ae6e-481ed9c4e6d5" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="f33cf9fb-e627-4e83-b9cd-9512545c1db4" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9cc2aa2c-7bad-4276-872a-033cf7c76d1d" xml:space="preserve">
+          <source>Numerous temperature sensors from each controller have their state displayed, which indicates whether the temperature encountered is within tolerance.</source>
+          <target state="new">Numerous temperature sensors from each controller have their state displayed, which indicates whether the temperature encountered is within tolerance.</target>
+        </trans-unit>
+        <trans-unit id="a7481506-b675-4ddd-9931-a25e31ea3299" xml:space="preserve">
+          <source>﻿SAS expander</source>
+          <target state="new">﻿SAS expander</target>
+        </trans-unit>
+        <trans-unit id="ed047155-e693-49b1-b7da-95f58ee11f0a" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="a6a6c24d-d946-4055-83cd-443fbccc243c" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="c9ed620e-9e98-4dfd-8f17-c52f291e794e" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="87fe17f1-09e4-4ba5-b5ca-d9e51a4a60e2" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="fef5c9da-40cc-4628-a43c-56ed5fb8c6be" xml:space="preserve">
+          <source>Indicates the state of the SAS expander, which is used to connect the integrated storage to the controller.</source>
+          <target state="new">Indicates the state of the SAS expander, which is used to connect the integrated storage to the controller.</target>
+        </trans-unit>
+        <trans-unit id="ba21ec3a-942a-41ef-95ea-3347219135a5" xml:space="preserve">
+          <source>SAS connector [0-2]</source>
+          <target state="new">SAS connector [0-2]</target>
+        </trans-unit>
+        <trans-unit id="a203ffef-d22b-4f3c-9b84-f9b02b4e8627" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="97071a64-8b67-475d-b324-4ff2953c05d8" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="3d044493-1d66-4428-aae4-0316affe85d2" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="79c6c716-5022-4397-834b-e165e6133950" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d8a2ea76-6dd5-4f5d-90a4-bbcf5ab28684" xml:space="preserve">
+          <source>Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.</source>
+          <target state="new">Indicates the state of each SAS connector, which is used to connect integrated storage to the SAS expander.</target>
+        </trans-unit>
+        <trans-unit id="992b5c72-4fe5-432b-a3d0-b9de2b2cc910" xml:space="preserve">
+          <source>SBB mid-plane interconnect</source>
+          <target state="new">SBB mid-plane interconnect</target>
+        </trans-unit>
+        <trans-unit id="d7151588-e7de-4c07-96fe-d94962ca15b0" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="46e4ea32-d70e-4656-be8b-2e26b0062021" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="6efbf77b-36cc-460a-b606-dc2a29c9c913" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="0decad25-e8b2-4ec0-b169-a8242a3115c2" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="abdee8d6-7b59-44f3-a11b-785f68012dea" xml:space="preserve">
+          <source>Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.</source>
+          <target state="new">Indicates the state of the mid-plane connector, which is used to connect each controller to the mid-plane.</target>
+        </trans-unit>
+        <trans-unit id="48a12990-9941-4296-9f71-01c271f5dbcd" xml:space="preserve">
+          <source>Enclosure electronics power</source>
+          <target state="new">Enclosure electronics power</target>
+        </trans-unit>
+        <trans-unit id="01cad30a-ca18-4515-a1cd-c6147acbaaaa" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="e957a881-2a2a-4a06-817b-81e5b195604c" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="2604716c-23be-477a-917b-acec50c42c83" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="95164eef-6d6d-4f1c-a49e-88cda508c470" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="705391ee-7151-4a23-b29a-9ceedbbf7f98" xml:space="preserve">
+          <source>Indicates the state of the power system used by the enclosure.</source>
+          <target state="new">Indicates the state of the power system used by the enclosure.</target>
+        </trans-unit>
+        <trans-unit id="32dc216c-4930-428b-8c3e-24be8e4c1689" xml:space="preserve">
+          <source>Enclosure electronics diagnostics</source>
+          <target state="new">Enclosure electronics diagnostics</target>
+        </trans-unit>
+        <trans-unit id="4f93b153-f1a5-47c2-9944-b494b445f370" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="d1a7c826-1d5f-4dec-b796-c8fcc3cfa910" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="5bf91cee-c4be-4504-83d2-8a964531cdac" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="8a53ebde-12ae-4baf-88b3-d73fb1256462" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5b36007d-e759-4b4d-a0e2-338ae83d9e8c" xml:space="preserve">
+          <source>Indicates the state of the diagnostics subsystems provided by the controller.</source>
+          <target state="new">Indicates the state of the diagnostics subsystems provided by the controller.</target>
+        </trans-unit>
+        <trans-unit id="6317ae62-29e3-403a-97a8-795223364038" xml:space="preserve">
+          <source>Connection to device controller</source>
+          <target state="new">Connection to device controller</target>
+        </trans-unit>
+        <trans-unit id="a5bb9f7e-117f-4bb0-95bc-ace09d5d8f99" xml:space="preserve">
+          <source>I/O</source>
+          <target state="new">I/O</target>
+        </trans-unit>
+        <trans-unit id="c1356c45-3b10-4cf7-b484-c961724f0094" xml:space="preserve">
+          <source>Physical</source>
+          <target state="new">Physical</target>
+        </trans-unit>
+        <trans-unit id="09635e77-941c-4076-bcde-7d87ae921b4b" xml:space="preserve">
+          <source>Controller</source>
+          <target state="new">Controller</target>
+        </trans-unit>
+        <trans-unit id="ad4ce082-a5a0-4e7c-9de6-5c3e15b46a3a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="23d9a9d3-ce02-4edc-bac9-ea09c8c7558e" xml:space="preserve">
+          <source>Indicates the state of the connection between the EBOD I/O module and the device controller.</source>
+          <target state="new">Indicates the state of the connection between the EBOD I/O module and the device controller.</target>
+        </trans-unit>
+        <trans-unit id="02ae1ae5-4624-4fe7-8aae-bf68c20aee04" xml:space="preserve">
+          <source>If you need to troubleshoot a device component that has a degraded or failed status, refer to 
+<bpt id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;linkText&gt;</bpt>StorSimple monitoring indicators<ept id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;/linkText&gt;</ept><bpt id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;title&gt;</bpt><ept id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need to troubleshoot a device component that has a degraded or failed status, refer to 
+<bpt id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;linkText&gt;</bpt>StorSimple monitoring indicators<ept id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;/linkText&gt;</ept><bpt id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;title&gt;</bpt><ept id="ffa0a491-388d-4f33-9c42-324236c9efd4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f471d60d-da21-4d15-9ba3-544a24dc233a" xml:space="preserve">
+          <source>To replace a failed hardware component, see <bpt id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;/linkText&gt;</ept><bpt id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;title&gt;</bpt><ept id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;/title&gt;</ept>.</source>
+          <target state="new">To replace a failed hardware component, see <bpt id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;linkText&gt;</bpt>StorSimple hardware component replacement<ept id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;/linkText&gt;</ept><bpt id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;title&gt;</bpt><ept id="d49f7d55-d8e4-4b69-aa72-a9647ec7d796">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cdfd854-766a-4149-b3e6-5880086c0316" xml:space="preserve">
+          <source>If you continue to experience device issues, <bpt id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;/linkText&gt;</ept><bpt id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;title&gt;</bpt><ept id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you continue to experience device issues, <bpt id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;/linkText&gt;</ept><bpt id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;title&gt;</bpt><ept id="d267104f-dee8-4ecd-82b0-503a05fbd4d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

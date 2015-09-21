@@ -1,0 +1,1009 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6efbf22-64b6-4939-a969-0e3d4eda1bbd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6efbf22-64b6-4939-a969-0e3d4eda1bbd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="04355fc0-bf28-4857-83ee-b07b85c15f44">
+        <trans-unit id="cc6cdc1e-1423-4f77-b3d2-66af98ee7828" xml:space="preserve">
+          <source>Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure</source>
+          <target state="new">Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="de05a939-a73d-4a3d-8b6e-2f8abadeecbc" xml:space="preserve">
+          <source>Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS</source>
+          <target state="new">Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS</target>
+        </trans-unit>
+        <trans-unit id="1a4a57ab-82ba-4dbe-b70d-5a0ed60d5ef4" xml:space="preserve">
+          <source>After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance.</source>
+          <target state="new">After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance.</target>
+        </trans-unit>
+        <trans-unit id="06996a42-35d7-4b9e-9590-64565d2b3b2a" xml:space="preserve">
+          <source>When you open the Azure Management Portal, you are automatically placed at the <bpt id="1aaa6874-810f-4b86-9f52-1a6fee4dc971">&lt;strong&gt;</bpt>ALL ITEMS<ept id="1aaa6874-810f-4b86-9f52-1a6fee4dc971">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">When you open the Azure Management Portal, you are automatically placed at the <bpt id="1aaa6874-810f-4b86-9f52-1a6fee4dc971">&lt;strong&gt;</bpt>ALL ITEMS<ept id="1aaa6874-810f-4b86-9f52-1a6fee4dc971">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5e7ab35a-185f-4bdb-ba3d-ad0e1321367a" xml:space="preserve">
+          <source>To view your BizTalk Service, select your BizTalk Service in the <bpt id="4358ef4c-89d4-4f49-9745-91c6f6f1bef9">&lt;strong&gt;</bpt>ALL ITEMS<ept id="4358ef4c-89d4-4f49-9745-91c6f6f1bef9">&lt;/strong&gt;</ept> tab or select the <bpt id="0c1f243f-035a-4af9-8645-2a9de8e4bacd">&lt;strong&gt;</bpt>BIZTALK SERVICES<ept id="0c1f243f-035a-4af9-8645-2a9de8e4bacd">&lt;/strong&gt;</ept> tab; and then select your BizTalk Service name.</source>
+          <target state="new">To view your BizTalk Service, select your BizTalk Service in the <bpt id="4358ef4c-89d4-4f49-9745-91c6f6f1bef9">&lt;strong&gt;</bpt>ALL ITEMS<ept id="4358ef4c-89d4-4f49-9745-91c6f6f1bef9">&lt;/strong&gt;</ept> tab or select the <bpt id="0c1f243f-035a-4af9-8645-2a9de8e4bacd">&lt;strong&gt;</bpt>BIZTALK SERVICES<ept id="0c1f243f-035a-4af9-8645-2a9de8e4bacd">&lt;/strong&gt;</ept> tab; and then select your BizTalk Service name.</target>
+        </trans-unit>
+        <trans-unit id="70e1766a-c903-43bf-a072-e4bb1e85ea74" xml:space="preserve">
+          <source>This opens a new window with the following tabs.</source>
+          <target state="new">This opens a new window with the following tabs.</target>
+        </trans-unit>
+        <trans-unit id="36054c94-0bfa-43b3-95a1-2153ac8524b5" xml:space="preserve">
+          <source>This topic describes these tabs.</source>
+          <target state="new">This topic describes these tabs.</target>
+        </trans-unit>
+        <trans-unit id="c578bc41-61a6-412e-b8b2-2675195b48e1" xml:space="preserve">
+          <source>Depending on the BizTalk Services Edition, all options listed may not be available.</source>
+          <target state="new">Depending on the BizTalk Services Edition, all options listed may not be available.</target>
+        </trans-unit>
+        <trans-unit id="7e5908a0-6c44-49cd-b671-9b4a2160f70c" xml:space="preserve">
+          <source>Get the tools</source>
+          <target state="new">Get the tools</target>
+        </trans-unit>
+        <trans-unit id="67fc8ddd-ef5e-4afe-b9d1-1b99aa57829c" xml:space="preserve">
+          <source>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the </source>
+          <target state="new">Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the </target>
+        </trans-unit>
+        <trans-unit id="352018e2-d711-4929-a5c7-36d99f79b70a" xml:space="preserve">
+          <source>BizTalk Services</source>
+          <target state="new">BizTalk Services</target>
+        </trans-unit>
+        <trans-unit id="b91c1b1d-b1d4-46cf-b85d-a2bb481069d7" xml:space="preserve">
+          <source> (bridge) and the </source>
+          <target state="new"> (bridge) and the </target>
+        </trans-unit>
+        <trans-unit id="2b5bd7c5-0a78-4cde-a8e1-8f6c45e9db06" xml:space="preserve">
+          <source>BizTalk Service Artifacts</source>
+          <target state="new">BizTalk Service Artifacts</target>
+        </trans-unit>
+        <trans-unit id="f11aaa2a-1454-4e24-800f-d1ad2fd8ccc5" xml:space="preserve">
+          <source> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        </source>
+          <target state="new"> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        </target>
+        </trans-unit>
+        <trans-unit id="7f0015e6-55a3-4050-8af2-cf060c1089ac" xml:space="preserve">
+          <source> How do I Start Using the Azure BizTalk Services SDK </source>
+          <target state="new"> How do I Start Using the Azure BizTalk Services SDK </target>
+        </trans-unit>
+        <trans-unit id="0480ae4d-fc80-48ea-89d5-1b130dd30a8f" xml:space="preserve">
+          <source> and </source>
+          <target state="new"> and </target>
+        </trans-unit>
+        <trans-unit id="2915aebd-228d-4bb5-9540-fd120e5b4734" xml:space="preserve">
+          <source>Installing the Azure BizTalk Services SDK</source>
+          <target state="new">Installing the Azure BizTalk Services SDK</target>
+        </trans-unit>
+        <trans-unit id="baec56c1-a2cd-41e6-9b19-4b6ff138b763" xml:space="preserve">
+          <source> lists the steps to get started.
+        </source>
+          <target state="new"> lists the steps to get started.
+        </target>
+        </trans-unit>
+        <trans-unit id="4eab71de-e315-46e5-8cf2-94eb2812c07b" xml:space="preserve">
+          <source>Create partner agreements</source>
+          <target state="new">Create partner agreements</target>
+        </trans-unit>
+        <trans-unit id="c2e09a5f-67c0-4a6d-aa8e-0501ae4375b5" xml:space="preserve">
+          <source>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        </source>
+          <target state="new">Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        </target>
+        </trans-unit>
+        <trans-unit id="587a518e-5bfc-4689-b7a7-c7906b64522b" xml:space="preserve">
+          <source>Configuring Components for EDI Messaging on BizTalk Services Portal</source>
+          <target state="new">Configuring Components for EDI Messaging on BizTalk Services Portal</target>
+        </trans-unit>
+        <trans-unit id="e97d258f-d57f-48b3-8bac-d1c99543453d" xml:space="preserve">
+          <source> lists the steps to get started.
+        </source>
+          <target state="new"> lists the steps to get started.
+        </target>
+        </trans-unit>
+        <trans-unit id="faf417fe-84ef-4f63-8fed-8d21db0367eb" xml:space="preserve">
+          <source>Learn more about BizTalk Services</source>
+          <target state="new">Learn more about BizTalk Services</target>
+        </trans-unit>
+        <trans-unit id="8aab08f3-0bb6-4fd5-bd2d-e2bd97be2f92" xml:space="preserve">
+          <source>Go to the </source>
+          <target state="new">Go to the </target>
+        </trans-unit>
+        <trans-unit id="0b734fe4-0249-4dd9-89a8-2fd76d0382a0" xml:space="preserve">
+          <source>learning center</source>
+          <target state="new">learning center</target>
+        </trans-unit>
+        <trans-unit id="a6743ae8-37e5-4ed3-9005-4bf405544e6e" xml:space="preserve">
+          <source> to learn more about Azure BizTalk Services.</source>
+          <target state="new"> to learn more about Azure BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="d17c65d9-7a06-42f8-9820-d14c68ec0fda" xml:space="preserve">
+          <source>In the task bar at the bottom, you can:</source>
+          <target state="new">In the task bar at the bottom, you can:</target>
+        </trans-unit>
+        <trans-unit id="ac2800e2-7cb4-44c5-b859-c9a29a233bed" xml:space="preserve">
+          <source>Manage</source>
+          <target state="new">Manage</target>
+        </trans-unit>
+        <trans-unit id="5d296e42-16bb-418a-84e6-4f6b1757715d" xml:space="preserve">
+          <source> your application deployment</source>
+          <target state="new"> your application deployment</target>
+        </trans-unit>
+        <trans-unit id="985a4259-cb76-4c7f-a15c-cb97de96dd43" xml:space="preserve">
+          <source>Opens the Azure BizTalk Services portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
+</source>
+          <target state="new">Opens the Azure BizTalk Services portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
+</target>
+        </trans-unit>
+        <trans-unit id="1a2d9a95-0c21-4b2f-b365-fadc99dce519" xml:space="preserve">
+          <source>
+This is the same as </source>
+          <target state="new">
+This is the same as </target>
+        </trans-unit>
+        <trans-unit id="0887e9f1-2537-4cd4-b6b8-8620c9f958eb" xml:space="preserve">
+          <source>Create partner agreements</source>
+          <target state="new">Create partner agreements</target>
+        </trans-unit>
+        <trans-unit id="03f9b4d3-5a90-44d7-82d7-2c3567c1c86e" xml:space="preserve">
+          <source> on the </source>
+          <target state="new"> on the </target>
+        </trans-unit>
+        <trans-unit id="4e7463c7-b812-4193-a127-2929d357698e" xml:space="preserve">
+          <source>Quick Start</source>
+          <target state="new">Quick Start</target>
+        </trans-unit>
+        <trans-unit id="36ca3466-e86a-4592-8a08-459a6c4a1e8d" xml:space="preserve">
+          <source> tab.
+</source>
+          <target state="new"> tab.
+</target>
+        </trans-unit>
+        <trans-unit id="bdab944b-9e76-41df-a2b7-518097b3c7dd" xml:space="preserve">
+          <source>Configuring Components for EDI Messaging on BizTalk Services Portal</source>
+          <target state="new">Configuring Components for EDI Messaging on BizTalk Services Portal</target>
+        </trans-unit>
+        <trans-unit id="dbfae78f-f68e-4cbc-9615-1dbdae6d8f2e" xml:space="preserve">
+          <source> provides more information on the BizTalk Services Portal.</source>
+          <target state="new"> provides more information on the BizTalk Services Portal.</target>
+        </trans-unit>
+        <trans-unit id="d5b62af6-be29-4077-9a6c-0019222338b8" xml:space="preserve">
+          <source>Connection Information</source>
+          <target state="new">Connection Information</target>
+        </trans-unit>
+        <trans-unit id="00cbc05e-3b27-49a2-ad85-d7e078cd1ec8" xml:space="preserve">
+          <source> of the Access Control Namespace</source>
+          <target state="new"> of the Access Control Namespace</target>
+        </trans-unit>
+        <trans-unit id="139882c9-6cfb-48bc-aac6-872e4d6737b9" xml:space="preserve">
+          <source>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+</source>
+          <target state="new">When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
+</target>
+        </trans-unit>
+        <trans-unit id="788a6b44-4324-4be1-9144-2d73a46d6652" xml:space="preserve">
+          <source>
+You can also open the Access Control Management Portal. </source>
+          <target state="new">
+You can also open the Access Control Management Portal. </target>
+        </trans-unit>
+        <trans-unit id="8dbb7313-11fb-4a4c-b000-02d8d3abaf36" xml:space="preserve">
+          <source>Create an Access control Namespace</source>
+          <target state="new">Create an Access control Namespace</target>
+        </trans-unit>
+        <trans-unit id="f354509c-c3b9-4548-8d5f-a3fa2e1238c5" xml:space="preserve">
+          <source> provides more information on the Access Control Management Portal.</source>
+          <target state="new"> provides more information on the Access Control Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="4cfa8fe2-a46b-468c-a2c1-2f8745931e01" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="9790dc13-5097-44f3-a177-69bc33d22cdd" xml:space="preserve">
+          <source> in the Storage Account</source>
+          <target state="new"> in the Storage Account</target>
+        </trans-unit>
+        <trans-unit id="22781a80-7866-40fd-8f7e-c2ab44670fb7" xml:space="preserve">
+          <source>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. </source>
+          <target state="new">When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. </target>
+        </trans-unit>
+        <trans-unit id="370586ec-03df-48b6-af15-cf464e769f76" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="61978bef-1e0b-4bb4-843e-923a0d24fa74" xml:space="preserve">
+          <source> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+</source>
+          <target state="new"> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+</target>
+        </trans-unit>
+        <trans-unit id="d894d37c-f41c-478e-9ffa-c1ac283aee78" xml:space="preserve">
+          <source>
+For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
+</source>
+          <target state="new">
+For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
+</target>
+        </trans-unit>
+        <trans-unit id="58d43188-6fc8-4395-ac88-7a3d7d10adf9" xml:space="preserve">
+          <source>Select your BizTalk Service and select </source>
+          <target state="new">Select your BizTalk Service and select </target>
+        </trans-unit>
+        <trans-unit id="b4a33444-668b-4a9c-9a1d-3f0ffdc240df" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="57a7ea01-dff7-4d63-8a52-758ce022210a" xml:space="preserve">
+          <source>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</source>
+          <target state="new">. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="75bb44f5-5086-4633-98a3-fc8bad4f620f" xml:space="preserve">
+          <source>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</source>
+          <target state="new">In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="adbdcd5a-053e-4f8f-ac71-8fe3e0e795e1" xml:space="preserve">
+          <source>Select your BizTalk Service and select </source>
+          <target state="new">Select your BizTalk Service and select </target>
+        </trans-unit>
+        <trans-unit id="0e63514d-c031-49ec-a9fd-26797d7ea3cf" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="4e620c3f-426e-407b-8ba4-aed5ad89c25c" xml:space="preserve">
+          <source>. Now, select the Primary Key. This is the new Primary Key you regenerated.</source>
+          <target state="new">. Now, select the Primary Key. This is the new Primary Key you regenerated.</target>
+        </trans-unit>
+        <trans-unit id="ac6371f3-c60a-4df6-9303-e63c9d593098" xml:space="preserve">
+          <source>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</source>
+          <target state="new">In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="45c9b121-b725-43b4-b838-c897bd5ec424" xml:space="preserve">
+          <source>
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</source>
+          <target state="new">
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="46eb12c8-0449-4064-9038-0f873c7ef240" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="6ded73cb-a0fa-4ade-871f-9ece33f995b8" xml:space="preserve">
+          <source> your application</source>
+          <target state="new"> your application</target>
+        </trans-unit>
+        <trans-unit id="f5cdae6a-4688-44c4-a47c-bcf61612b28d" xml:space="preserve">
+          <source>When you select Delete, your BizTalk Service and all items deployed to it are removed.</source>
+          <target state="new">When you select Delete, your BizTalk Service and all items deployed to it are removed.</target>
+        </trans-unit>
+        <trans-unit id="c5dbe069-bc04-43f6-a60d-a1f9d0deb21a" xml:space="preserve">
+          <source>Depending on the BizTalk Services Edition, all options listed may not be available.</source>
+          <target state="new">Depending on the BizTalk Services Edition, all options listed may not be available.</target>
+        </trans-unit>
+        <trans-unit id="5e61f160-5bdf-4d51-a6cd-e48dafc6ab4c" xml:space="preserve">
+          <source>When you select your BizTalk Service name, the Dashboard tab is displayed.</source>
+          <target state="new">When you select your BizTalk Service name, the Dashboard tab is displayed.</target>
+        </trans-unit>
+        <trans-unit id="c2559548-cc0c-4f8e-8fad-c8c420b36e7a" xml:space="preserve">
+          <source>In Dashboard, you can:</source>
+          <target state="new">In Dashboard, you can:</target>
+        </trans-unit>
+        <trans-unit id="759831fc-fa84-4f1c-8db5-ea6622514dec" xml:space="preserve">
+          <source>Also displays the data usage in GB.</source>
+          <target state="new">Also displays the data usage in GB.</target>
+        </trans-unit>
+        <trans-unit id="02d2a6da-dd18-402f-999a-019ab62821c6" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the health of the BizTalk Service.</source>
+          <target state="new">These metrics provide real-time values regarding the health of the BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="3f7d020b-46ff-447c-b456-4c53b02b9ef6" xml:space="preserve">
+          <source>You can also choose the <bpt id="a82d5940-0dff-4124-a76c-89471a650d78">&lt;strong&gt;</bpt>Relative<ept id="a82d5940-0dff-4124-a76c-89471a650d78">&lt;/strong&gt;</ept> or <bpt id="1fb993d9-d23c-479c-9b86-b26437c90fb6">&lt;strong&gt;</bpt>Absolute<ept id="1fb993d9-d23c-479c-9b86-b26437c90fb6">&lt;/strong&gt;</ept> values and the time range <bpt id="f8e1bebb-8d73-46f4-b98b-a03659617fb0">&lt;strong&gt;</bpt>Interval<ept id="f8e1bebb-8d73-46f4-b98b-a03659617fb0">&lt;/strong&gt;</ept> of the metrics that are displayed in the graph.</source>
+          <target state="new">You can also choose the <bpt id="a82d5940-0dff-4124-a76c-89471a650d78">&lt;strong&gt;</bpt>Relative<ept id="a82d5940-0dff-4124-a76c-89471a650d78">&lt;/strong&gt;</ept> or <bpt id="1fb993d9-d23c-479c-9b86-b26437c90fb6">&lt;strong&gt;</bpt>Absolute<ept id="1fb993d9-d23c-479c-9b86-b26437c90fb6">&lt;/strong&gt;</ept> values and the time range <bpt id="f8e1bebb-8d73-46f4-b98b-a03659617fb0">&lt;strong&gt;</bpt>Interval<ept id="f8e1bebb-8d73-46f4-b98b-a03659617fb0">&lt;/strong&gt;</ept> of the metrics that are displayed in the graph.</target>
+        </trans-unit>
+        <trans-unit id="6216627e-684f-4987-8be8-c51130928209" xml:space="preserve">
+          <source>For a description of these performance metrics, go to <bpt id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;linkText&gt;</bpt>Available Metrics<ept id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;/linkText&gt;</ept><bpt id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;title&gt;</bpt><ept id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;/title&gt;</ept> in this topic.</source>
+          <target state="new">For a description of these performance metrics, go to <bpt id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;linkText&gt;</bpt>Available Metrics<ept id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;/linkText&gt;</ept><bpt id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;title&gt;</bpt><ept id="25e9ba2d-b051-4aa9-8961-589d746854db">&lt;/title&gt;</ept> in this topic.</target>
+        </trans-unit>
+        <trans-unit id="e5456343-8cce-485e-8ca9-7c8410db414c" xml:space="preserve">
+          <source>Update Tracking Database credentials</source>
+          <target state="new">Update Tracking Database credentials</target>
+        </trans-unit>
+        <trans-unit id="91d63b5b-e197-4a1a-9804-1caf18784a24" xml:space="preserve">
+          <source>Changes the user name and password used to log into the Tracking Database.</source>
+          <target state="new">Changes the user name and password used to log into the Tracking Database.</target>
+        </trans-unit>
+        <trans-unit id="049cb39e-2b55-4743-8f5e-30c90c0b509e" xml:space="preserve">
+          <source>Update SSL Certificate</source>
+          <target state="new">Update SSL Certificate</target>
+        </trans-unit>
+        <trans-unit id="f530502d-893b-4bd9-ab8f-de6cd1a7b966" xml:space="preserve">
+          <source>Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you </source>
+          <target state="new">Can update the BizTalk Service to use a different SSL certificate. A self-signed SSL certificate is automatically created when you </target>
+        </trans-unit>
+        <trans-unit id="aa28676a-da22-471f-b4d3-607416dc9a88" xml:space="preserve">
+          <source>create the BizTalk Service</source>
+          <target state="new">create the BizTalk Service</target>
+        </trans-unit>
+        <trans-unit id="20c806c3-332d-4232-9dd6-537f87f81196" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="3084f906-6ca7-47aa-9c28-c562e1943910" xml:space="preserve">
+          <source>Download Certificate</source>
+          <target state="new">Download Certificate</target>
+        </trans-unit>
+        <trans-unit id="0e04718b-539f-460c-95a0-a81784847b18" xml:space="preserve">
+          <source>You can download the SSL certificate used by your BizTalk Service to a local machine.</source>
+          <target state="new">You can download the SSL certificate used by your BizTalk Service to a local machine.</target>
+        </trans-unit>
+        <trans-unit id="bc85dabc-147b-4122-9f8d-cb49345e6606" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="28dab392-7600-44d5-b435-3c28ec5d5561" xml:space="preserve">
+          <source>Displays the current status of your BizTalk Service. See </source>
+          <target state="new">Displays the current status of your BizTalk Service. See </target>
+        </trans-unit>
+        <trans-unit id="b691f2aa-23ee-4028-a101-e3aa9e7f1aef" xml:space="preserve">
+          <source>BizTalk Services: Service state chart</source>
+          <target state="new">BizTalk Services: Service state chart</target>
+        </trans-unit>
+        <trans-unit id="18064358-fe5b-4328-8c42-efb59ecb56ff" xml:space="preserve">
+          <source>. </source>
+          <target state="new">. </target>
+        </trans-unit>
+        <trans-unit id="973cfbac-f683-431b-bdc7-325405d6b129" xml:space="preserve">
+          <source>Service URL</source>
+          <target state="new">Service URL</target>
+        </trans-unit>
+        <trans-unit id="1afa9327-6bde-4bac-8367-9b6b6cd9e44e" xml:space="preserve">
+          <source>The URL for your BizTalk Service. This is the same as the </source>
+          <target state="new">The URL for your BizTalk Service. This is the same as the </target>
+        </trans-unit>
+        <trans-unit id="f44537bc-2569-4127-adcf-a6b1f1ad85f7" xml:space="preserve">
+          <source>Domain URL</source>
+          <target state="new">Domain URL</target>
+        </trans-unit>
+        <trans-unit id="7d123a77-bf87-48c0-8f9a-0c0e1e16ded0" xml:space="preserve">
+          <source> entered when your BizTalk Service is created.</source>
+          <target state="new"> entered when your BizTalk Service is created.</target>
+        </trans-unit>
+        <trans-unit id="b7005220-fbca-4aa7-bcb5-170ccebb550f" xml:space="preserve">
+          <source>Public Virtual IP (VIP) Address</source>
+          <target state="new">Public Virtual IP (VIP) Address</target>
+        </trans-unit>
+        <trans-unit id="45351e05-413d-4f84-ada6-e5d23ddea36c" xml:space="preserve">
+          <source>The IP address assigned to your BizTalk Service. It is used for all input endpoints and is the source address for outbound traffic. This IP address belongs to your BizTalk Service as long as it is created. If you delete the BizTalk Service, the IP address is assigned to another BizTalk Service.</source>
+          <target state="new">The IP address assigned to your BizTalk Service. It is used for all input endpoints and is the source address for outbound traffic. This IP address belongs to your BizTalk Service as long as it is created. If you delete the BizTalk Service, the IP address is assigned to another BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="e36f50f2-911f-48c3-93f0-ed2f12e343e3" xml:space="preserve">
+          <source>ACS Namespace</source>
+          <target state="new">ACS Namespace</target>
+        </trans-unit>
+        <trans-unit id="185ce44a-90df-4f43-99c5-39a0f0cb4bea" xml:space="preserve">
+          <source>Authenticates with the BizTalk Service.</source>
+          <target state="new">Authenticates with the BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="24f062e6-9c55-46f9-ac15-65da8aece733" xml:space="preserve">
+          <source>Edition</source>
+          <target state="new">Edition</target>
+        </trans-unit>
+        <trans-unit id="39115bc2-388f-42ee-9263-9190223f725d" xml:space="preserve">
+          <source>Lists the Edition entered when the BizTalk Service is created.</source>
+          <target state="new">Lists the Edition entered when the BizTalk Service is created.</target>
+        </trans-unit>
+        <trans-unit id="e64e9753-6062-4ea6-8626-adde279baf8e" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="96474eab-eed3-476e-9273-cee4a6d8be8d" xml:space="preserve">
+          <source>Displays the geographic region that hosts your BizTalk Service.</source>
+          <target state="new">Displays the geographic region that hosts your BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="2ec2963e-9aed-4f10-863b-d3c72c366108" xml:space="preserve">
+          <source>Created</source>
+          <target state="new">Created</target>
+        </trans-unit>
+        <trans-unit id="0da7bf93-1620-4be3-a2f2-25d51b7ee3b3" xml:space="preserve">
+          <source>Displays the date and time the BizTalk Service was created.</source>
+          <target state="new">Displays the date and time the BizTalk Service was created.</target>
+        </trans-unit>
+        <trans-unit id="a80e9095-6030-4370-ae0f-d9acc29d3160" xml:space="preserve">
+          <source>Tracking Database</source>
+          <target state="new">Tracking Database</target>
+        </trans-unit>
+        <trans-unit id="ed67811c-cb58-419a-a46c-5ca1b087fbd1" xml:space="preserve">
+          <source>The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. 
+</source>
+          <target state="new">The Azure SQL Database name that stores the tracking tables used by your BizTalk Service. 
+</target>
+        </trans-unit>
+        <trans-unit id="97d29fc7-cf54-484a-bce6-6c68ca40cfa7" xml:space="preserve">
+          <source>Requirements Explained</source>
+          <target state="new">Requirements Explained</target>
+        </trans-unit>
+        <trans-unit id="b225d0f2-3574-4690-be89-7d18d2a494e6" xml:space="preserve">
+          <source>  provides details on the Tracking Database.</source>
+          <target state="new">  provides details on the Tracking Database.</target>
+        </trans-unit>
+        <trans-unit id="f1e3dd26-6bfc-449b-8543-60465b95dc7c" xml:space="preserve">
+          <source>Monitoring/Archiving Storage</source>
+          <target state="new">Monitoring/Archiving Storage</target>
+        </trans-unit>
+        <trans-unit id="43ad61ae-f3b3-4153-aaeb-52cb0d6bcdf6" xml:space="preserve">
+          <source>The Azure Storage account name that stores the monitoring output of your BizTalk Service.
+</source>
+          <target state="new">The Azure Storage account name that stores the monitoring output of your BizTalk Service.
+</target>
+        </trans-unit>
+        <trans-unit id="0dfbe817-c52a-4052-8a4f-cc6a0e592789" xml:space="preserve">
+          <source>Requirements Explained</source>
+          <target state="new">Requirements Explained</target>
+        </trans-unit>
+        <trans-unit id="2ccad0b1-c7d8-40f3-8253-d18e3403c145" xml:space="preserve">
+          <source>  provides details on the Storage account.</source>
+          <target state="new">  provides details on the Storage account.</target>
+        </trans-unit>
+        <trans-unit id="6cf99f64-fe72-4368-af15-1903b574e441" xml:space="preserve">
+          <source>Subscription Name</source>
+          <target state="new">Subscription Name</target>
+        </trans-unit>
+        <trans-unit id="952d97cc-d883-456e-988a-9b28d20c1782" xml:space="preserve">
+          <source>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure Management Portal.</source>
+          <target state="new">Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1fffce8a-dfb3-4e6a-b4c3-a8790c56bade" xml:space="preserve">
+          <source>Subscription ID</source>
+          <target state="new">Subscription ID</target>
+        </trans-unit>
+        <trans-unit id="0701b230-79a8-4c43-907b-5ea465184c9a" xml:space="preserve">
+          <source>When a subscription is created, a subscription ID is automatically generated. When using REST APIs, you may need to enter the Subscription ID.</source>
+          <target state="new">When a subscription is created, a subscription ID is automatically generated. When using REST APIs, you may need to enter the Subscription ID.</target>
+        </trans-unit>
+        <trans-unit id="8c92f0bc-f63e-4f60-9b6f-e1fb363b9414" xml:space="preserve">
+          <source><bpt id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;/linkText&gt;</ept><bpt id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;title&gt;</bpt><ept id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;/title&gt;</ept> lists the steps to create a BizTalk Service.</source>
+          <target state="new"><bpt id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;/linkText&gt;</ept><bpt id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;title&gt;</bpt><ept id="50d1b889-52ec-4de3-a5a4-317c7634b64f">&lt;/title&gt;</ept> lists the steps to create a BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="1356f7b6-6f31-495a-afe1-65c2f4905d23" xml:space="preserve">
+          <source>Manage</source>
+          <target state="new">Manage</target>
+        </trans-unit>
+        <trans-unit id="78b4ec13-a8c9-40ee-98df-3db56f743431" xml:space="preserve">
+          <source> your application deployment</source>
+          <target state="new"> your application deployment</target>
+        </trans-unit>
+        <trans-unit id="57918fe0-000d-4df5-8293-a7d6b440ac3c" xml:space="preserve">
+          <source>Opens the Azure BizTalk Services Portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
+</source>
+          <target state="new">Opens the Azure BizTalk Services Portal. The BizTalk Services Portal is the entrance to EDI configuration, including adding partners and creating X12, AS2, and EDIFACT agreements.
+</target>
+        </trans-unit>
+        <trans-unit id="f551fc66-1f7e-409e-a444-9a2cfcc456cf" xml:space="preserve">
+          <source>
+This is the same as </source>
+          <target state="new">
+This is the same as </target>
+        </trans-unit>
+        <trans-unit id="635edd22-6e2a-452c-8c00-b935b745d29e" xml:space="preserve">
+          <source>Create partner agreements</source>
+          <target state="new">Create partner agreements</target>
+        </trans-unit>
+        <trans-unit id="f84a43d9-da29-421b-80f4-70577bfa7557" xml:space="preserve">
+          <source> on the </source>
+          <target state="new"> on the </target>
+        </trans-unit>
+        <trans-unit id="5599f738-eb99-4d20-bc5e-f363ed46dca1" xml:space="preserve">
+          <source>Quick Start</source>
+          <target state="new">Quick Start</target>
+        </trans-unit>
+        <trans-unit id="1503b4a8-f65e-4418-9cb1-48b1203808d1" xml:space="preserve">
+          <source> tab.
+</source>
+          <target state="new"> tab.
+</target>
+        </trans-unit>
+        <trans-unit id="6f48536b-a2bb-4b14-96b8-a2eb9a1ee37f" xml:space="preserve">
+          <source>Configuring Components for EDI Messaging on BizTalk Services Portal</source>
+          <target state="new">Configuring Components for EDI Messaging on BizTalk Services Portal</target>
+        </trans-unit>
+        <trans-unit id="b5a1b425-d8e8-4bf8-9ad9-b3be532f7cb9" xml:space="preserve">
+          <source> provides more information on the BizTalk Services Portal.</source>
+          <target state="new"> provides more information on the BizTalk Services Portal.</target>
+        </trans-unit>
+        <trans-unit id="ebbf8dfb-8fa6-49dd-8835-38b9816b86f3" xml:space="preserve">
+          <source>Connection Information</source>
+          <target state="new">Connection Information</target>
+        </trans-unit>
+        <trans-unit id="5e1b6754-55a6-406a-97cb-735a9b227b98" xml:space="preserve">
+          <source> of the Access Control Namespace</source>
+          <target state="new"> of the Access Control Namespace</target>
+        </trans-unit>
+        <trans-unit id="387e0a07-3d5a-4d5d-8048-11635e296edf" xml:space="preserve">
+          <source>Displays the Access Control Namespace, Default Issuer, and Default Key values; which can be copied.
+</source>
+          <target state="new">Displays the Access Control Namespace, Default Issuer, and Default Key values; which can be copied.
+</target>
+        </trans-unit>
+        <trans-unit id="a3a3f09a-a1e6-4320-9c61-08793a6d7654" xml:space="preserve">
+          <source>
+You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the Active Directory option in the left navigation pane.
+</source>
+          <target state="new">
+You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the Active Directory option in the left navigation pane.
+</target>
+        </trans-unit>
+        <trans-unit id="2f9201f9-e918-4ca6-b48e-7497707af14e" xml:space="preserve">
+          <source>Managing Your ACS Namespace</source>
+          <target state="new">Managing Your ACS Namespace</target>
+        </trans-unit>
+        <trans-unit id="14ad246a-63e0-4421-b80a-aa36034f77fc" xml:space="preserve">
+          <source> provides more information on the Access Control Management Portal.</source>
+          <target state="new"> provides more information on the Access Control Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5f43a6fd-25ca-455b-abff-7902538f1ef8" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="5bfced0a-0b89-415a-8395-be15bfbb29fc" xml:space="preserve">
+          <source> in the Storage Account</source>
+          <target state="new"> in the Storage Account</target>
+        </trans-unit>
+        <trans-unit id="b18f4ce2-f55b-44e6-8111-ca129f598158" xml:space="preserve">
+          <source>When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. </source>
+          <target state="new">When you create a Storage account, a Primary Key and Secondary Key are automatically created. These encryption Keys control access to your Storage Account. Your BizTalk Service automatically uses the Primary Key. </target>
+        </trans-unit>
+        <trans-unit id="f7b722e9-b783-4287-a4bc-3e88b48cf73d" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="83cc0767-2146-40d8-b636-278de6534fa4" xml:space="preserve">
+          <source> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+</source>
+          <target state="new"> enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.
+</target>
+        </trans-unit>
+        <trans-unit id="e9a996d4-2207-4bfe-8a11-35d72c6bd63d" xml:space="preserve">
+          <source>
+For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
+</source>
+          <target state="new">
+For example, you want the BizTalk Service to use a new Primary Key for the Storage Account. To do this:
+</target>
+        </trans-unit>
+        <trans-unit id="50576cc8-6e44-4a5b-a31c-42322ac80dc6" xml:space="preserve">
+          <source>Select your BizTalk Service and select </source>
+          <target state="new">Select your BizTalk Service and select </target>
+        </trans-unit>
+        <trans-unit id="e9c14f80-d822-4901-bc39-bdc459029b1b" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="dba0992a-54e4-4818-b469-028e478383d1" xml:space="preserve">
+          <source>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</source>
+          <target state="new">. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="3e509769-1e45-435e-967f-976d9bf573ee" xml:space="preserve">
+          <source>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</source>
+          <target state="new">In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="de2a0511-b528-4ab9-a080-8e5a59903df9" xml:space="preserve">
+          <source>Select your BizTalk Service and select </source>
+          <target state="new">Select your BizTalk Service and select </target>
+        </trans-unit>
+        <trans-unit id="65188c35-5a24-4727-9305-d58358c271dc" xml:space="preserve">
+          <source>Sync Keys</source>
+          <target state="new">Sync Keys</target>
+        </trans-unit>
+        <trans-unit id="3f50335e-e376-44f9-9df7-3e08af2e8184" xml:space="preserve">
+          <source>. Now, select the Primary Key. This is the new Primary Key you regenerated.</source>
+          <target state="new">. Now, select the Primary Key. This is the new Primary Key you regenerated.</target>
+        </trans-unit>
+        <trans-unit id="b40d2a8c-efca-4772-8d13-5f88cb5087ef" xml:space="preserve">
+          <source>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</source>
+          <target state="new">In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</target>
+        </trans-unit>
+        <trans-unit id="10900893-5f12-4041-994f-cd39044b12d1" xml:space="preserve">
+          <source>
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</source>
+          <target state="new">
+This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="d03b2097-d959-4021-8cf7-6201189dedc9" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="df6b9e0f-945f-4f2d-983c-cbabe8493ead" xml:space="preserve">
+          <source> your application</source>
+          <target state="new"> your application</target>
+        </trans-unit>
+        <trans-unit id="035f2b14-067d-494c-97e5-d7ed86898a92" xml:space="preserve">
+          <source>Your BizTalk Service and all items deployed to it are removed.</source>
+          <target state="new">Your BizTalk Service and all items deployed to it are removed.</target>
+        </trans-unit>
+        <trans-unit id="232fdf2f-c73b-4053-a39d-2b9a1dabaf7f" xml:space="preserve">
+          <source>Does not apply to the Free Edition.</source>
+          <target state="new">Does not apply to the Free Edition.</target>
+        </trans-unit>
+        <trans-unit id="9937f7db-1e54-44a2-a4cd-818e43693b79" xml:space="preserve">
+          <source>When you select your BizTalk Service name, the Monitor tab is available and displays the following:</source>
+          <target state="new">When you select your BizTalk Service name, the Monitor tab is available and displays the following:</target>
+        </trans-unit>
+        <trans-unit id="10d97b4a-91a0-485a-a108-9bc7037d8858" xml:space="preserve">
+          <source>These metrics provide real-time values regarding the health of the BizTalk Service.</source>
+          <target state="new">These metrics provide real-time values regarding the health of the BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="e86379f6-6277-4282-8a46-3421e63a64aa" xml:space="preserve">
+          <source>You choose which performance metrics are displayed.</source>
+          <target state="new">You choose which performance metrics are displayed.</target>
+        </trans-unit>
+        <trans-unit id="5f1ac92f-1200-4ad1-a653-2699f32d38d0" xml:space="preserve">
+          <source>A maximum of six performance metrics can be displayed simultaneously.</source>
+          <target state="new">A maximum of six performance metrics can be displayed simultaneously.</target>
+        </trans-unit>
+        <trans-unit id="ec73edf2-ca4e-4cda-bdea-9e69154f2cc4" xml:space="preserve">
+          <source>You can also choose the <bpt id="c09bd3ed-600e-41ea-8a1d-b76e3538f513">&lt;strong&gt;</bpt>Relative<ept id="c09bd3ed-600e-41ea-8a1d-b76e3538f513">&lt;/strong&gt;</ept> or <bpt id="844d70e1-72e6-476d-8f0d-c87d4171d8ab">&lt;strong&gt;</bpt>Absolute<ept id="844d70e1-72e6-476d-8f0d-c87d4171d8ab">&lt;/strong&gt;</ept> values and the time range <bpt id="4f516a74-d12a-488d-9366-0a12617a3f7f">&lt;strong&gt;</bpt>Interval<ept id="4f516a74-d12a-488d-9366-0a12617a3f7f">&lt;/strong&gt;</ept> of the metrics that are displayed.</source>
+          <target state="new">You can also choose the <bpt id="c09bd3ed-600e-41ea-8a1d-b76e3538f513">&lt;strong&gt;</bpt>Relative<ept id="c09bd3ed-600e-41ea-8a1d-b76e3538f513">&lt;/strong&gt;</ept> or <bpt id="844d70e1-72e6-476d-8f0d-c87d4171d8ab">&lt;strong&gt;</bpt>Absolute<ept id="844d70e1-72e6-476d-8f0d-c87d4171d8ab">&lt;/strong&gt;</ept> values and the time range <bpt id="4f516a74-d12a-488d-9366-0a12617a3f7f">&lt;strong&gt;</bpt>Interval<ept id="4f516a74-d12a-488d-9366-0a12617a3f7f">&lt;/strong&gt;</ept> of the metrics that are displayed.</target>
+        </trans-unit>
+        <trans-unit id="4badf216-0e93-4bc2-9b26-70dc132721f9" xml:space="preserve">
+          <source>Select the <bpt id="154e1b53-5602-4a95-a768-ec8a8594572b">&lt;strong&gt;</bpt>Monitor<ept id="154e1b53-5602-4a95-a768-ec8a8594572b">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="154e1b53-5602-4a95-a768-ec8a8594572b">&lt;strong&gt;</bpt>Monitor<ept id="154e1b53-5602-4a95-a768-ec8a8594572b">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="4d00bb87-6086-4f2c-8ce6-60eb44380585" xml:space="preserve">
+          <source>Select <bpt id="388b0f0a-a188-448e-9393-0ed284273f24">&lt;strong&gt;</bpt>Add Metrics<ept id="388b0f0a-a188-448e-9393-0ed284273f24">&lt;/strong&gt;</ept> in the task bar:  
+<bpt id="382a207f-d786-4e8e-9797-ab5b9170574f">&lt;linkText&gt;</bpt>Select Add Metrics<ept id="382a207f-d786-4e8e-9797-ab5b9170574f">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select <bpt id="388b0f0a-a188-448e-9393-0ed284273f24">&lt;strong&gt;</bpt>Add Metrics<ept id="388b0f0a-a188-448e-9393-0ed284273f24">&lt;/strong&gt;</ept> in the task bar:  
+<bpt id="382a207f-d786-4e8e-9797-ab5b9170574f">&lt;linkText&gt;</bpt>Select Add Metrics<ept id="382a207f-d786-4e8e-9797-ab5b9170574f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8a16ca8-c1cd-43d3-bf32-ba70288d153c" xml:space="preserve">
+          <source>Check the performance metrics you want to display.</source>
+          <target state="new">Check the performance metrics you want to display.</target>
+        </trans-unit>
+        <trans-unit id="99814642-1844-42d9-b67d-8f8bb978b2bb" xml:space="preserve">
+          <source>Select the checkmark to return to the <bpt id="8bb46788-d21a-405d-990a-105b3c6491e0">&lt;strong&gt;</bpt>Monitor<ept id="8bb46788-d21a-405d-990a-105b3c6491e0">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the checkmark to return to the <bpt id="8bb46788-d21a-405d-990a-105b3c6491e0">&lt;strong&gt;</bpt>Monitor<ept id="8bb46788-d21a-405d-990a-105b3c6491e0">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="ebd9965f-3e81-4a6a-b13d-a571917560af" xml:space="preserve">
+          <source>Select the circle next to the metric to display that metric's value in the graph.</source>
+          <target state="new">Select the circle next to the metric to display that metric's value in the graph.</target>
+        </trans-unit>
+        <trans-unit id="b13b8cad-9d72-4c5a-89a2-a547de393b81" xml:space="preserve">
+          <source>For example, the <bpt id="b4d5959a-1318-41c1-917d-fa517cce160e">&lt;strong&gt;</bpt>CPU Usage<ept id="b4d5959a-1318-41c1-917d-fa517cce160e">&lt;/strong&gt;</ept> metric is grayed out; its output is not displayed in the graph:  
+<bpt id="86571012-5508-42bd-b29a-1ee8408546f5">&lt;linkText&gt;</bpt>CPU Usage metric is grayed out<ept id="86571012-5508-42bd-b29a-1ee8408546f5">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">For example, the <bpt id="b4d5959a-1318-41c1-917d-fa517cce160e">&lt;strong&gt;</bpt>CPU Usage<ept id="b4d5959a-1318-41c1-917d-fa517cce160e">&lt;/strong&gt;</ept> metric is grayed out; its output is not displayed in the graph:  
+<bpt id="86571012-5508-42bd-b29a-1ee8408546f5">&lt;linkText&gt;</bpt>CPU Usage metric is grayed out<ept id="86571012-5508-42bd-b29a-1ee8408546f5">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ae1d41bf-b471-48bd-91dc-3ece4569fa9f" xml:space="preserve">
+          <source>Select the grayed out circle to enable the <bpt id="0970e544-abe2-4fb1-9d97-436675ee8814">&lt;strong&gt;</bpt>CPU Usage<ept id="0970e544-abe2-4fb1-9d97-436675ee8814">&lt;/strong&gt;</ept> metric to display its output in the graph:  
+<bpt id="893696e0-f978-412f-8f5e-75230cc797cd">&lt;linkText&gt;</bpt>CPU Usage metric is enabled<ept id="893696e0-f978-412f-8f5e-75230cc797cd">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select the grayed out circle to enable the <bpt id="0970e544-abe2-4fb1-9d97-436675ee8814">&lt;strong&gt;</bpt>CPU Usage<ept id="0970e544-abe2-4fb1-9d97-436675ee8814">&lt;/strong&gt;</ept> metric to display its output in the graph:  
+<bpt id="893696e0-f978-412f-8f5e-75230cc797cd">&lt;linkText&gt;</bpt>CPU Usage metric is enabled<ept id="893696e0-f978-412f-8f5e-75230cc797cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df7de9b9-e905-4c97-927e-2f8bd16016b0" xml:space="preserve">
+          <source>To remove a metric from the display graph and the list, select <bpt id="46aafd07-2d70-4ac1-b616-b9ee97d7dc45">&lt;strong&gt;</bpt>Delete Metric<ept id="46aafd07-2d70-4ac1-b616-b9ee97d7dc45">&lt;/strong&gt;</ept> in the task bar.</source>
+          <target state="new">To remove a metric from the display graph and the list, select <bpt id="46aafd07-2d70-4ac1-b616-b9ee97d7dc45">&lt;strong&gt;</bpt>Delete Metric<ept id="46aafd07-2d70-4ac1-b616-b9ee97d7dc45">&lt;/strong&gt;</ept> in the task bar.</target>
+        </trans-unit>
+        <trans-unit id="4d2b79a7-4931-457d-9e57-01d65cfdbcdd" xml:space="preserve">
+          <source>To add the metric back to the list, select <bpt id="82512bd7-afdb-4dd9-95bf-54b0dd6ff1c8">&lt;strong&gt;</bpt>Add Metrics<ept id="82512bd7-afdb-4dd9-95bf-54b0dd6ff1c8">&lt;/strong&gt;</ept> in the task bar, check the metric, and select the checkmark to return to the <bpt id="130ed26d-6cb8-48be-a05d-3da260b705a6">&lt;strong&gt;</bpt>Monitor<ept id="130ed26d-6cb8-48be-a05d-3da260b705a6">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To add the metric back to the list, select <bpt id="82512bd7-afdb-4dd9-95bf-54b0dd6ff1c8">&lt;strong&gt;</bpt>Add Metrics<ept id="82512bd7-afdb-4dd9-95bf-54b0dd6ff1c8">&lt;/strong&gt;</ept> in the task bar, check the metric, and select the checkmark to return to the <bpt id="130ed26d-6cb8-48be-a05d-3da260b705a6">&lt;strong&gt;</bpt>Monitor<ept id="130ed26d-6cb8-48be-a05d-3da260b705a6">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5426b6ca-0515-4fe1-b614-04240573f801" xml:space="preserve">
+          <source>Select the grayed out circle to enable the metric.</source>
+          <target state="new">Select the grayed out circle to enable the metric.</target>
+        </trans-unit>
+        <trans-unit id="8add4a7e-3820-43bb-aec9-a0d095882542" xml:space="preserve">
+          <source>The following performance counters/metrics are available:</source>
+          <target state="new">The following performance counters/metrics are available:</target>
+        </trans-unit>
+        <trans-unit id="27670617-1bf9-49c5-af69-1cd387ab759c" xml:space="preserve">
+          <source>RountdTrip Latency</source>
+          <target state="new">RountdTrip Latency</target>
+        </trans-unit>
+        <trans-unit id="14410561-aa92-4b71-a0e9-d2521adbd995" xml:space="preserve">
+          <source>Displays the average time taken in milliseconds (ms) to process a message from the time the message is received until the message is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.</source>
+          <target state="new">Displays the average time taken in milliseconds (ms) to process a message from the time the message is received until the message is fully processed by the BizTalk Service across all bridges. Only messages successfully processed are counted.</target>
+        </trans-unit>
+        <trans-unit id="50205ccf-db75-4d2e-8636-fb541e2a51d9" xml:space="preserve">
+          <source>
+When the following events occur, a timestamp is created:
+</source>
+          <target state="new">
+When the following events occur, a timestamp is created:
+</target>
+        </trans-unit>
+        <trans-unit id="43338552-1d46-485e-997e-fb4189ab3f93" xml:space="preserve">
+          <source>Message enters the gateway</source>
+          <target state="new">Message enters the gateway</target>
+        </trans-unit>
+        <trans-unit id="b84386a4-ca09-41b2-82f3-2ee54a078bf6" xml:space="preserve">
+          <source>Message is routed to the destination</source>
+          <target state="new">Message is routed to the destination</target>
+        </trans-unit>
+        <trans-unit id="c1845917-5ef9-472b-8a1d-280e0eda56f2" xml:space="preserve">
+          <source>Destination response is received</source>
+          <target state="new">Destination response is received</target>
+        </trans-unit>
+        <trans-unit id="9bfda441-549c-4c1a-8828-2eb4c9169937" xml:space="preserve">
+          <source>Destination acknowledgement response sent to the gateway</source>
+          <target state="new">Destination acknowledgement response sent to the gateway</target>
+        </trans-unit>
+        <trans-unit id="cb4c0d9b-bb89-4785-9c6e-85548e04d2fc" xml:space="preserve">
+          <source>
+This metric shows the result of the following calculation:
+</source>
+          <target state="new">
+This metric shows the result of the following calculation:
+</target>
+        </trans-unit>
+        <trans-unit id="8d070f29-e02f-4626-9109-a9b6eb9d46ea" xml:space="preserve">
+          <source>
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway]</source>
+          <target state="new">
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway]</target>
+        </trans-unit>
+        <trans-unit id="51afad13-6587-470b-8547-8433e28b9360" xml:space="preserve">
+          <source>Failures At Source</source>
+          <target state="new">Failures At Source</target>
+        </trans-unit>
+        <trans-unit id="019f2475-0561-49a1-b530-6ae1a26a54f6" xml:space="preserve">
+          <source>Displays the total number of messages that failed by the BizTalk Service when pulling messages from the source endpoints.</source>
+          <target state="new">Displays the total number of messages that failed by the BizTalk Service when pulling messages from the source endpoints.</target>
+        </trans-unit>
+        <trans-unit id="60fbf8b5-4e67-49a1-83a1-32fb0ecb7854" xml:space="preserve">
+          <source>CPU Usage</source>
+          <target state="new">CPU Usage</target>
+        </trans-unit>
+        <trans-unit id="93fad765-4407-4256-8ac2-3c3ecbfeed81" xml:space="preserve">
+          <source>Lists the average %Processor Time of all role instances.</source>
+          <target state="new">Lists the average %Processor Time of all role instances.</target>
+        </trans-unit>
+        <trans-unit id="2e45ddb7-8c98-456c-8a01-59182ec8d185" xml:space="preserve">
+          <source>Processing Latency</source>
+          <target state="new">Processing Latency</target>
+        </trans-unit>
+        <trans-unit id="8e48642f-85f3-468e-8b89-daae0ce41ee8" xml:space="preserve">
+          <source>Displays the average time taken In milliseconds (ms) to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.</source>
+          <target state="new">Displays the average time taken In milliseconds (ms) to process a message by the BizTalk Service across all bridges, excluding the time spent in destinations. Only messages successfully processed are counted.</target>
+        </trans-unit>
+        <trans-unit id="43f38d41-2f22-49d1-a6c6-eb0e02421116" xml:space="preserve">
+          <source>
+When each of the following events occur, a timestamp is created:
+
+</source>
+          <target state="new">
+When each of the following events occur, a timestamp is created:
+
+</target>
+        </trans-unit>
+        <trans-unit id="38485489-dbd7-4a3b-b7b3-ef4acd03bdde" xml:space="preserve">
+          <source>Message enters the gateway</source>
+          <target state="new">Message enters the gateway</target>
+        </trans-unit>
+        <trans-unit id="d6d8dc51-827e-4c23-a94c-e34ee6d3c57d" xml:space="preserve">
+          <source>Message is routed to the destination</source>
+          <target state="new">Message is routed to the destination</target>
+        </trans-unit>
+        <trans-unit id="9d23220f-bbe9-4bac-8d18-413eaa2ad6b3" xml:space="preserve">
+          <source>Destination response is received</source>
+          <target state="new">Destination response is received</target>
+        </trans-unit>
+        <trans-unit id="2536178a-9819-4d34-be4c-776a7742682b" xml:space="preserve">
+          <source>Destination acknowledgement response sent to the gateway</source>
+          <target state="new">Destination acknowledgement response sent to the gateway</target>
+        </trans-unit>
+        <trans-unit id="7184ae7a-14a1-4632-ad40-213fbe2dfcdc" xml:space="preserve">
+          <source>This metric shows the result of the following calculation:</source>
+          <target state="new">This metric shows the result of the following calculation:</target>
+        </trans-unit>
+        <trans-unit id="d51fdc8e-61e1-40a2-aa61-cc78e0188347" xml:space="preserve">
+          <source>
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway] - [Destination response is received] + [Message is routed to the destination]</source>
+          <target state="new">
+[Destination acknowledgement response sent to the gateway] - [Message enters the gateway] - [Destination response is received] + [Message is routed to the destination]</target>
+        </trans-unit>
+        <trans-unit id="92ae824d-9844-4151-a41d-8224bc1f4fe5" xml:space="preserve">
+          <source>Failures In Process</source>
+          <target state="new">Failures In Process</target>
+        </trans-unit>
+        <trans-unit id="f06c28b2-e92b-47d4-9779-8bc99cfb0e12" xml:space="preserve">
+          <source>Displays the total number of messages that failed during processing by the BizTalk Service across all the bridges within a time interval.</source>
+          <target state="new">Displays the total number of messages that failed during processing by the BizTalk Service across all the bridges within a time interval.</target>
+        </trans-unit>
+        <trans-unit id="10031fc4-eff3-42a9-8bcc-a50aa8154ce8" xml:space="preserve">
+          <source>Messages Sent</source>
+          <target state="new">Messages Sent</target>
+        </trans-unit>
+        <trans-unit id="8aeae2ba-2e53-46df-baaf-53005bd941cd" xml:space="preserve">
+          <source>Displays the total number of messages sent by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message sent from a pipeline reaches the route destination. This metric does not indicate that a message is successfully processed.</source>
+          <target state="new">Displays the total number of messages sent by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message sent from a pipeline reaches the route destination. This metric does not indicate that a message is successfully processed.</target>
+        </trans-unit>
+        <trans-unit id="e76853f4-2607-4f57-9454-4f3ae2fad680" xml:space="preserve">
+          <source>
+In a Request-Reply scenario, the metric is incremented when the route destination sends a receipt acknowledgement back to the pipeline.</source>
+          <target state="new">
+In a Request-Reply scenario, the metric is incremented when the route destination sends a receipt acknowledgement back to the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="fe74eb0b-46a1-4db7-9edb-4bf1a7b3061a" xml:space="preserve">
+          <source>Messages Received</source>
+          <target state="new">Messages Received</target>
+        </trans-unit>
+        <trans-unit id="646d70ad-85d6-4a89-82b3-02db8a871be2" xml:space="preserve">
+          <source>Displays the total number of messages received by the BizTalk Service across all bridges within a time interval. This metric is incremented when a new message is received by the pipeline.</source>
+          <target state="new">Displays the total number of messages received by the BizTalk Service across all bridges within a time interval. This metric is incremented when a new message is received by the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="5660ebe9-d617-4c84-84be-434f41ac0afb" xml:space="preserve">
+          <source>Messages In Process</source>
+          <target state="new">Messages In Process</target>
+        </trans-unit>
+        <trans-unit id="4288486e-276c-4bb4-ac33-d79f62f3c263" xml:space="preserve">
+          <source>Displays the total number of messages currently being processed by the BizTalk Service within a time interval.</source>
+          <target state="new">Displays the total number of messages currently being processed by the BizTalk Service within a time interval.</target>
+        </trans-unit>
+        <trans-unit id="f2b82c70-1a6d-4c47-859b-7a1c386a357a" xml:space="preserve">
+          <source>Messages Processed</source>
+          <target state="new">Messages Processed</target>
+        </trans-unit>
+        <trans-unit id="b91d851b-3bb1-4324-9d22-57bd3b8b61ab" xml:space="preserve">
+          <source>Displays the total number of messages successfully processed by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message is successfully received by the pipeline and successfully routed to the destination.</source>
+          <target state="new">Displays the total number of messages successfully processed by the BizTalk Service across all bridges within a time interval. This metric is incremented when a message is successfully received by the pipeline and successfully routed to the destination.</target>
+        </trans-unit>
+        <trans-unit id="31f0fd55-aeea-4692-820b-2f2bf167de12" xml:space="preserve">
+          <source>In the Scale tab, you can add or subtract the number of units used by your BizTalk Service.</source>
+          <target state="new">In the Scale tab, you can add or subtract the number of units used by your BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="064f5da6-dbbf-4b59-92f6-0e2b4d0657b8" xml:space="preserve">
+          <source>By default, there is one Unit configured.</source>
+          <target state="new">By default, there is one Unit configured.</target>
+        </trans-unit>
+        <trans-unit id="dac5a456-5220-4d0c-bb9b-5b1b5d28b1da" xml:space="preserve">
+          <source>Additional Units can be added to scale your BizTalk Service.</source>
+          <target state="new">Additional Units can be added to scale your BizTalk Service.</target>
+        </trans-unit>
+        <trans-unit id="65bde7b2-0f81-4819-8f44-d10d841c458d" xml:space="preserve">
+          <source>When you increase the scale, you are increasing throughput.</source>
+          <target state="new">When you increase the scale, you are increasing throughput.</target>
+        </trans-unit>
+        <trans-unit id="f21b014d-f319-4891-94e3-cad0669fc58a" xml:space="preserve">
+          <source>The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power.</source>
+          <target state="new">The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power.</target>
+        </trans-unit>
+        <trans-unit id="07bf73f8-d079-4cfc-ad2c-dd3280afb6ac" xml:space="preserve">
+          <source>For example, you increase the scale from 1 Unit to 2 Units.</source>
+          <target state="new">For example, you increase the scale from 1 Unit to 2 Units.</target>
+        </trans-unit>
+        <trans-unit id="fc962a62-44b2-4e55-9b43-0b4c9ea1878d" xml:space="preserve">
+          <source>In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.</source>
+          <target state="new">In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.</target>
+        </trans-unit>
+        <trans-unit id="75189559-f3b9-4e83-bd13-a6a97410be52" xml:space="preserve">
+          <source>Some BizTalk editions do not offer a scale option.</source>
+          <target state="new">Some BizTalk editions do not offer a scale option.</target>
+        </trans-unit>
+        <trans-unit id="2d6eb1ec-3563-45a2-9f4e-db741b534141" xml:space="preserve">
+          <source>In this situation, one Unit is permitted.</source>
+          <target state="new">In this situation, one Unit is permitted.</target>
+        </trans-unit>
+        <trans-unit id="bdfe8e8f-5059-4357-8f98-542844c27d29" xml:space="preserve">
+          <source>To determine how many units your edition can be scaled, refer to <bpt id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;linkText&gt;</bpt>BizTalk Services: Editions Chart<ept id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;/linkText&gt;</ept><bpt id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;title&gt;</bpt><ept id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;/title&gt;</ept>.</source>
+          <target state="new">To determine how many units your edition can be scaled, refer to <bpt id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;linkText&gt;</bpt>BizTalk Services: Editions Chart<ept id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;/linkText&gt;</ept><bpt id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;title&gt;</bpt><ept id="221c587c-e42c-4f7e-96e7-f63219a27fc3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c3aa08f-dff4-47e3-b5b5-b0290dbb9bf9" xml:space="preserve">
+          <source>Increasing the number of units may impact pricing.</source>
+          <target state="new">Increasing the number of units may impact pricing.</target>
+        </trans-unit>
+        <trans-unit id="fe122dda-b85f-4ba1-ae47-5441cfc23d46" xml:space="preserve">
+          <source>If you increase the Units, selecting <bpt id="70a8720e-6273-4f9c-bf83-3e32dad4a463">&lt;strong&gt;</bpt>Save<ept id="70a8720e-6273-4f9c-bf83-3e32dad4a463">&lt;/strong&gt;</ept> displays a message that tells you if billing is impacted.</source>
+          <target state="new">If you increase the Units, selecting <bpt id="70a8720e-6273-4f9c-bf83-3e32dad4a463">&lt;strong&gt;</bpt>Save<ept id="70a8720e-6273-4f9c-bf83-3e32dad4a463">&lt;/strong&gt;</ept> displays a message that tells you if billing is impacted.</target>
+        </trans-unit>
+        <trans-unit id="f2b8a2d7-88c3-4e2f-9322-987bb1fd4dcd" xml:space="preserve">
+          <source>You then choose to continue.</source>
+          <target state="new">You then choose to continue.</target>
+        </trans-unit>
+        <trans-unit id="6a646ef3-bfd6-4819-ac1a-a8836f3ac09d" xml:space="preserve">
+          <source>When you increase the number of Units, the BizTalk Service status changes from Active to Updating.</source>
+          <target state="new">When you increase the number of Units, the BizTalk Service status changes from Active to Updating.</target>
+        </trans-unit>
+        <trans-unit id="5027ea0d-cbba-4286-84db-77688506d377" xml:space="preserve">
+          <source>In the Updating state, your BizTalk Service continues to run.</source>
+          <target state="new">In the Updating state, your BizTalk Service continues to run.</target>
+        </trans-unit>
+        <trans-unit id="da1ddace-3dc7-4a35-b141-a4d54b14c1bb" xml:space="preserve">
+          <source><bpt id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;linkText&gt;</bpt>BizTalk Services: Editions Chart<ept id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;/linkText&gt;</ept><bpt id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;title&gt;</bpt><ept id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;/title&gt;</ept> defines a "Unit".</source>
+          <target state="new"><bpt id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;linkText&gt;</bpt>BizTalk Services: Editions Chart<ept id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;/linkText&gt;</ept><bpt id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;title&gt;</bpt><ept id="0ca9514b-2b91-4539-872f-6ff923cc7be7">&lt;/title&gt;</ept> defines a "Unit".</target>
+        </trans-unit>
+        <trans-unit id="b8e6d018-8b14-47b4-a186-9e0e42c11ec5" xml:space="preserve">
+          <source>Does not apply to Hybrid Connections.</source>
+          <target state="new">Does not apply to Hybrid Connections.</target>
+        </trans-unit>
+        <trans-unit id="11c2a951-01cf-401b-b891-c8ea27cdcc13" xml:space="preserve">
+          <source>Sets the Backup Status to None or Automatic.</source>
+          <target state="new">Sets the Backup Status to None or Automatic.</target>
+        </trans-unit>
+        <trans-unit id="cb8bfc9d-dd1e-486d-9117-d3739c72ff4b" xml:space="preserve">
+          <source>When set to None, no backups are automatically created.</source>
+          <target state="new">When set to None, no backups are automatically created.</target>
+        </trans-unit>
+        <trans-unit id="a1a61c37-884e-4f5e-a7c9-e4bcd3bf653f" xml:space="preserve">
+          <source>When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files.</source>
+          <target state="new">When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files.</target>
+        </trans-unit>
+        <trans-unit id="508e8cf2-c956-46a1-b915-c049c63e1e45" xml:space="preserve">
+          <source><bpt id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;/linkText&gt;</ept><bpt id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;title&gt;</bpt><ept id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;/title&gt;</ept> provides the details.</source>
+          <target state="new"><bpt id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;/linkText&gt;</ept><bpt id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;title&gt;</bpt><ept id="5407ef08-cf21-44a1-8a6f-3feaf7a8257b">&lt;/title&gt;</ept> provides the details.</target>
+        </trans-unit>
+        <trans-unit id="caf20e70-fcff-4887-8cd0-3093f8f6b8bb" xml:space="preserve">
+          <source>Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.</source>
+          <target state="new">Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services.</target>
+        </trans-unit>
+        <trans-unit id="81f88b96-13e7-4b24-8463-ea3210599a2a" xml:space="preserve">
+          <source>Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.</source>
+          <target state="new">Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="24211993-e43d-44af-a15a-2c2cf29bb060" xml:space="preserve">
+          <source>To create Hybrid Connections in Azure Websites, see <bpt id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;linkText&gt;</bpt>Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource<ept id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;/linkText&gt;</ept><bpt id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;title&gt;</bpt><ept id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create Hybrid Connections in Azure Websites, see <bpt id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;linkText&gt;</bpt>Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource<ept id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;/linkText&gt;</ept><bpt id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;title&gt;</bpt><ept id="e96127bc-4977-43e5-9dc8-1057b2f2abc3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca9be20c-1ceb-48a5-9af0-9f4a596ef2c6" xml:space="preserve">
+          <source>To use Hybrid Connections in Azure Mobile Services, see <bpt id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;linkText&gt;</bpt>Azure Mobile Services and Hybrid Connections<ept id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;/linkText&gt;</ept><bpt id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;title&gt;</bpt><ept id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use Hybrid Connections in Azure Mobile Services, see <bpt id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;linkText&gt;</bpt>Azure Mobile Services and Hybrid Connections<ept id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;/linkText&gt;</ept><bpt id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;title&gt;</bpt><ept id="19276d3b-36f9-408b-b0b7-7a4a5b478436">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5dac983-78d0-430b-ac47-8bb9d76192fa" xml:space="preserve">
+          <source>To create or manage Hybrid Connections in Azure BizTalk Services, see <bpt id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;/linkText&gt;</ept><bpt id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;title&gt;</bpt><ept id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create or manage Hybrid Connections in Azure BizTalk Services, see <bpt id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;/linkText&gt;</ept><bpt id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;title&gt;</bpt><ept id="50741b89-a8fa-4a30-b1af-97b5149042f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1a2ff2e-9d00-4502-9180-e5d59f33b81a" xml:space="preserve">
+          <source>Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:</source>
+          <target state="new">Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:</target>
+        </trans-unit>
+        <trans-unit id="32c8e96a-d62b-42cd-a61b-1574572b0a23" xml:space="preserve">
+          <source><bpt id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;/linkText&gt;</ept><bpt id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;title&gt;</bpt><ept id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;linkText&gt;</bpt>BizTalk Services: Throttling<ept id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;/linkText&gt;</ept><bpt id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;title&gt;</bpt><ept id="9638ffff-8af2-434d-ab20-22403d520ec8">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="46942eb8-9fb8-403b-a8a7-735a1de7fc49" xml:space="preserve">
+          <source><bpt id="c8878e08-f05d-448d-a402-405e1623de65">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="c8878e08-f05d-448d-a402-405e1623de65">&lt;/linkText&gt;</ept><bpt id="c8878e08-f05d-448d-a402-405e1623de65">&lt;title&gt;</bpt><ept id="c8878e08-f05d-448d-a402-405e1623de65">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="c8878e08-f05d-448d-a402-405e1623de65">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="c8878e08-f05d-448d-a402-405e1623de65">&lt;/linkText&gt;</ept><bpt id="c8878e08-f05d-448d-a402-405e1623de65">&lt;title&gt;</bpt><ept id="c8878e08-f05d-448d-a402-405e1623de65">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a1d5c526-46f0-413c-95d0-15d59695fdda" xml:space="preserve">
+          <source><bpt id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;/linkText&gt;</ept><bpt id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;title&gt;</bpt><ept id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;/linkText&gt;</ept><bpt id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;title&gt;</bpt><ept id="00cbf829-ebdf-4605-a2c8-6d03b5f92600">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ced77ff1-5250-47aa-8c03-51c3ce01e50d" xml:space="preserve">
+          <source><bpt id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;/linkText&gt;</ept><bpt id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;title&gt;</bpt><ept id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;linkText&gt;</bpt>Hybrid Connections<ept id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;/linkText&gt;</ept><bpt id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;title&gt;</bpt><ept id="b6fb07f6-a061-4f81-9ef2-59633835b7d2">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="7dbf29be-2b6d-4446-8978-e196e68012b2" xml:space="preserve">
+          <source><bpt id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;/linkText&gt;</ept><bpt id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;title&gt;</bpt><ept id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;/linkText&gt;</ept><bpt id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;title&gt;</bpt><ept id="dcaaf198-98da-4604-8ede-4bba0d74fb25">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="1e3b9586-2451-4030-9d62-096f78b85d50" xml:space="preserve">
+          <source><bpt id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;/linkText&gt;</ept><bpt id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;title&gt;</bpt><ept id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;/linkText&gt;</ept><bpt id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;title&gt;</bpt><ept id="ebeae784-94be-4096-8cf4-796c5587df54">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="3fd24011-c069-4b1e-af6e-9d98328898cc" xml:space="preserve">
+          <source><bpt id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;linkText&gt;</bpt>BizTalk Services: BizTalk Service State Chart<ept id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;/linkText&gt;</ept><bpt id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;title&gt;</bpt><ept id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;linkText&gt;</bpt>BizTalk Services: BizTalk Service State Chart<ept id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;/linkText&gt;</ept><bpt id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;title&gt;</bpt><ept id="5593be3d-1701-43bb-aced-4c725f117c81">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="7fbf9b85-079d-428a-9cff-34f579dba33a" xml:space="preserve">
+          <source><bpt id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;/linkText&gt;</ept><bpt id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;title&gt;</bpt><ept id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;/linkText&gt;</ept><bpt id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;title&gt;</bpt><ept id="83c0f8af-1496-4c73-adc3-17ad29a8e30a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d65a9b60-a887-4819-9d95-0605be146a80" xml:space="preserve">
+          <source>./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png</source>
+          <target state="new">./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png</target>
+        </trans-unit>
+        <trans-unit id="7fae97b1-3aff-4745-a498-07fc8b17399c" xml:space="preserve">
+          <source>./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png</source>
+          <target state="new">./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png</target>
+        </trans-unit>
+        <trans-unit id="267385c8-1bb0-4fd1-a08d-57001cb246a3" xml:space="preserve">
+          <source>./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png</source>
+          <target state="new">./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png</target>
+        </trans-unit>
+        <trans-unit id="cdb5ec77-70ef-43d0-b070-b60621afe862" xml:space="preserve">
+          <source>./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png</source>
+          <target state="new">./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png</target>
+        </trans-unit>
+      </group>
+      <group id="be348000-e497-4940-8acd-2001f0e9fe2d" />
+    </body>
+  </file>
+</xliff>

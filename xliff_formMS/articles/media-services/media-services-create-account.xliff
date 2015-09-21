@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="da3d34eb-c167-4961-8204-8bb214159213" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="da3d34eb-c167-4961-8204-8bb214159213" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0ce5229f-9b4d-41c6-bd61-f5c609f25555">
+        <trans-unit id="9f175407-a833-4277-bf7b-21239a898d86" xml:space="preserve">
+          <source>Create a Media Services account | Microsoft Azure</source>
+          <target state="new">Create a Media Services account | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ab63c3c8-32cb-446e-9878-121869545b7c" xml:space="preserve">
+          <source>Describes how to create a new Azure Media Services account in Azure.</source>
+          <target state="new">Describes how to create a new Azure Media Services account in Azure.</target>
+        </trans-unit>
+        <trans-unit id="82ba6c25-9825-4599-a854-41d326c372c7" xml:space="preserve">
+          <source>The Azure portal provides a way to quickly create an Azure Media Services account.</source>
+          <target state="new">The Azure portal provides a way to quickly create an Azure Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="5a00574c-69fc-4fd9-bbb3-97a69082f5d4" xml:space="preserve">
+          <source>You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.</source>
+          <target state="new">You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure.</target>
+        </trans-unit>
+        <trans-unit id="1db38067-fb1a-48d6-87e8-e4062844a4b1" xml:space="preserve">
+          <source>At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.</source>
+          <target state="new">At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="cb84c660-95a8-4590-8cb1-5f8b69132e23" xml:space="preserve">
+          <source>This article explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account.</source>
+          <target state="new">This article explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account.</target>
+        </trans-unit>
+        <trans-unit id="59242eef-049e-4617-9479-e4706eee777a" xml:space="preserve">
+          <source><bpt id="da69e88e-c7b6-4d44-ab67-f4fa8271edce">&lt;bookmark&gt;</bpt><ept id="da69e88e-c7b6-4d44-ab67-f4fa8271edce">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="da69e88e-c7b6-4d44-ab67-f4fa8271edce">&lt;bookmark&gt;</bpt><ept id="da69e88e-c7b6-4d44-ab67-f4fa8271edce">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04ce8f51-d05d-4503-96dc-d4ae1200608e" xml:space="preserve">
+          <source>Accessing Media Services requires two associated accounts:</source>
+          <target state="new">Accessing Media Services requires two associated accounts:</target>
+        </trans-unit>
+        <trans-unit id="0adab539-56bc-4639-9014-8ccef0f3efd2" xml:space="preserve">
+          <source><bpt id="03838d96-670b-4dab-a044-81fdbb3393c8">&lt;strong&gt;</bpt>A Media Services account<ept id="03838d96-670b-4dab-a044-81fdbb3393c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="03838d96-670b-4dab-a044-81fdbb3393c8">&lt;strong&gt;</bpt>A Media Services account<ept id="03838d96-670b-4dab-a044-81fdbb3393c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="278d7093-b04a-4016-aeb3-2c5f0eb6f2b0" xml:space="preserve">
+          <source>Your account gives you access to a set of cloud-based Media Services that are available in Azure.</source>
+          <target state="new">Your account gives you access to a set of cloud-based Media Services that are available in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8a7b1551-6a15-490a-8eef-22d7321235fb" xml:space="preserve">
+          <source>A Media Services account does not store actual media content.</source>
+          <target state="new">A Media Services account does not store actual media content.</target>
+        </trans-unit>
+        <trans-unit id="65156c5c-cf6e-40cf-9c67-84dd84c03045" xml:space="preserve">
+          <source>Instead it stores metadata about the media content and media processing jobs in your account.</source>
+          <target state="new">Instead it stores metadata about the media content and media processing jobs in your account.</target>
+        </trans-unit>
+        <trans-unit id="813b1945-c89b-44ee-9467-fa7ec2783ea5" xml:space="preserve">
+          <source>At the time you create the account, you select an available Media Services region.</source>
+          <target state="new">At the time you create the account, you select an available Media Services region.</target>
+        </trans-unit>
+        <trans-unit id="3436dcaf-096a-4516-afe1-be63598e19c5" xml:space="preserve">
+          <source>The region you select is a data center that stores the metadata records for your account.</source>
+          <target state="new">The region you select is a data center that stores the metadata records for your account.</target>
+        </trans-unit>
+        <trans-unit id="4221f580-7b81-4771-9c7f-412257f5ec8d" xml:space="preserve">
+          <source>Available Media Services regions include the following: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East.</source>
+          <target state="new">Available Media Services regions include the following: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East.</target>
+        </trans-unit>
+        <trans-unit id="eefbc1e7-b18e-491d-be5d-18ad1730fd05" xml:space="preserve">
+          <source>Media Services does not use affinity groups.</source>
+          <target state="new">Media Services does not use affinity groups.</target>
+        </trans-unit>
+        <trans-unit id="7e09a5b2-3567-4585-b52f-2a9b91673f1a" xml:space="preserve">
+          <source><bpt id="39011668-5214-4cda-8d28-c4aca4a3dbc7">&lt;strong&gt;</bpt>An associated storage account<ept id="39011668-5214-4cda-8d28-c4aca4a3dbc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="39011668-5214-4cda-8d28-c4aca4a3dbc7">&lt;strong&gt;</bpt>An associated storage account<ept id="39011668-5214-4cda-8d28-c4aca4a3dbc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a57331f1-a153-4cb8-846b-9653f88a1a48" xml:space="preserve">
+          <source>Your storage account is an Azure storage account that is associated with your Media Services account.</source>
+          <target state="new">Your storage account is an Azure storage account that is associated with your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="f61d8ed5-d684-4913-b674-a115df1a8dbb" xml:space="preserve">
+          <source>The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account.</source>
+          <target state="new">The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="b4b8190e-9896-4208-a294-d93367818105" xml:space="preserve">
+          <source>When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region.</source>
+          <target state="new">When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region.</target>
+        </trans-unit>
+        <trans-unit id="ad9fef3f-3877-4841-87b4-e401d4187306" xml:space="preserve">
+          <source>If you delete a Media Services account, the blobs in your related storage account are not deleted.</source>
+          <target state="new">If you delete a Media Services account, the blobs in your related storage account are not deleted.</target>
+        </trans-unit>
+        <trans-unit id="a721b3c6-70e8-4a11-b6af-6a8ed6a2f53f" xml:space="preserve">
+          <source><bpt id="b1a040e1-9674-4916-a925-e64e924d5170">&lt;bookmark&gt;</bpt><ept id="b1a040e1-9674-4916-a925-e64e924d5170">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b1a040e1-9674-4916-a925-e64e924d5170">&lt;bookmark&gt;</bpt><ept id="b1a040e1-9674-4916-a925-e64e924d5170">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3830d157-0d74-4030-ada8-56f78dd0cfdd" xml:space="preserve">
+          <source>In the <bpt id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;linkText&gt;</bpt>Azure portal<ept id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;/linkText&gt;</ept><bpt id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;title&gt;</bpt><ept id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;/title&gt;</ept>, click <bpt id="5dc150c6-2a9e-4ec6-87f0-1e558cf9226d">&lt;strong&gt;</bpt>New<ept id="5dc150c6-2a9e-4ec6-87f0-1e558cf9226d">&lt;/strong&gt;</ept>, click <bpt id="ef72f4c0-0cac-48c1-ac54-ac3684771e90">&lt;strong&gt;</bpt>Media Service<ept id="ef72f4c0-0cac-48c1-ac54-ac3684771e90">&lt;/strong&gt;</ept>, and then click <bpt id="5f9ac3aa-f093-4315-9c9e-e780a092554a">&lt;strong&gt;</bpt>Quick Create<ept id="5f9ac3aa-f093-4315-9c9e-e780a092554a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;linkText&gt;</bpt>Azure portal<ept id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;/linkText&gt;</ept><bpt id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;title&gt;</bpt><ept id="c5f3f99e-fc6e-40fa-8044-5451e01f37e8">&lt;/title&gt;</ept>, click <bpt id="5dc150c6-2a9e-4ec6-87f0-1e558cf9226d">&lt;strong&gt;</bpt>New<ept id="5dc150c6-2a9e-4ec6-87f0-1e558cf9226d">&lt;/strong&gt;</ept>, click <bpt id="ef72f4c0-0cac-48c1-ac54-ac3684771e90">&lt;strong&gt;</bpt>Media Service<ept id="ef72f4c0-0cac-48c1-ac54-ac3684771e90">&lt;/strong&gt;</ept>, and then click <bpt id="5f9ac3aa-f093-4315-9c9e-e780a092554a">&lt;strong&gt;</bpt>Quick Create<ept id="5f9ac3aa-f093-4315-9c9e-e780a092554a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="540d060f-e59b-4045-af0e-f0123d50963f" xml:space="preserve">
+          <source><bpt id="c03f64bc-615b-4fe1-b18a-9449681a69bd">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="c03f64bc-615b-4fe1-b18a-9449681a69bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c03f64bc-615b-4fe1-b18a-9449681a69bd">&lt;linkText&gt;</bpt>Media Services Quick Create<ept id="c03f64bc-615b-4fe1-b18a-9449681a69bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c31e9663-0d43-4366-b60d-22050f460a3b" xml:space="preserve">
+          <source>In <bpt id="1f4216d0-e4c0-4d41-85f0-bc28562db9ee">&lt;strong&gt;</bpt>NAME<ept id="1f4216d0-e4c0-4d41-85f0-bc28562db9ee">&lt;/strong&gt;</ept>, enter the name of the new account.</source>
+          <target state="new">In <bpt id="1f4216d0-e4c0-4d41-85f0-bc28562db9ee">&lt;strong&gt;</bpt>NAME<ept id="1f4216d0-e4c0-4d41-85f0-bc28562db9ee">&lt;/strong&gt;</ept>, enter the name of the new account.</target>
+        </trans-unit>
+        <trans-unit id="c24b7268-2413-4b6e-8efd-f4bba8e48dff" xml:space="preserve">
+          <source>A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.</source>
+          <target state="new">A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.</target>
+        </trans-unit>
+        <trans-unit id="85d5cf8a-168c-4c02-8eb9-f95e3e0beafd" xml:space="preserve">
+          <source>In <bpt id="72549ac9-edca-403a-b9b2-62f87930bb8a">&lt;strong&gt;</bpt>REGION<ept id="72549ac9-edca-403a-b9b2-62f87930bb8a">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</source>
+          <target state="new">In <bpt id="72549ac9-edca-403a-b9b2-62f87930bb8a">&lt;strong&gt;</bpt>REGION<ept id="72549ac9-edca-403a-b9b2-62f87930bb8a">&lt;/strong&gt;</ept>, select the geographic region that will be used to store the metadata records for your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="98f1fe28-b5cc-4d00-aefc-ca8fb1e26706" xml:space="preserve">
+          <source>Only the available Media Services regions appear in the drop-down list.</source>
+          <target state="new">Only the available Media Services regions appear in the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="27a931ba-a50b-41f5-9f24-dd4f26be852f" xml:space="preserve">
+          <source>In <bpt id="494267c6-ed5a-4f5e-8b7f-e08e7ee45372">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="494267c6-ed5a-4f5e-8b7f-e08e7ee45372">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</source>
+          <target state="new">In <bpt id="494267c6-ed5a-4f5e-8b7f-e08e7ee45372">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="494267c6-ed5a-4f5e-8b7f-e08e7ee45372">&lt;/strong&gt;</ept>, select a storage account to provide blob storage of the media content from your Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="cd2771e6-831f-4ed0-b635-090f51b214c1" xml:space="preserve">
+          <source>You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</source>
+          <target state="new">You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account.</target>
+        </trans-unit>
+        <trans-unit id="d0613261-8d69-4348-aadb-979b485cf1fe" xml:space="preserve">
+          <source>A new storage account is created in the same region.</source>
+          <target state="new">A new storage account is created in the same region.</target>
+        </trans-unit>
+        <trans-unit id="3c893cba-7b8a-4bb7-ad46-4f49fdaf64ae" xml:space="preserve">
+          <source>If you created a new storage account, in <bpt id="df156e0e-4a02-4a7f-ba42-fedffb3d0936">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="df156e0e-4a02-4a7f-ba42-fedffb3d0936">&lt;/strong&gt;</ept>, enter a name for the storage account.</source>
+          <target state="new">If you created a new storage account, in <bpt id="df156e0e-4a02-4a7f-ba42-fedffb3d0936">&lt;strong&gt;</bpt>NEW STORAGE ACCOUNT NAME<ept id="df156e0e-4a02-4a7f-ba42-fedffb3d0936">&lt;/strong&gt;</ept>, enter a name for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="15561dc6-b994-4c4f-9ece-937c7b243e78" xml:space="preserve">
+          <source>The rules for storage account names are the same as for Media Services accounts.</source>
+          <target state="new">The rules for storage account names are the same as for Media Services accounts.</target>
+        </trans-unit>
+        <trans-unit id="8d1f4a9d-c7ee-4c95-9d45-9a1e8cd8807a" xml:space="preserve">
+          <source>Click <bpt id="d2f42f60-1255-4b18-87f0-f4ae7aa7c168">&lt;strong&gt;</bpt>Quick Create<ept id="d2f42f60-1255-4b18-87f0-f4ae7aa7c168">&lt;/strong&gt;</ept> at the bottom of the form.</source>
+          <target state="new">Click <bpt id="d2f42f60-1255-4b18-87f0-f4ae7aa7c168">&lt;strong&gt;</bpt>Quick Create<ept id="d2f42f60-1255-4b18-87f0-f4ae7aa7c168">&lt;/strong&gt;</ept> at the bottom of the form.</target>
+        </trans-unit>
+        <trans-unit id="f4e0c24c-40c9-41f5-8efc-4a4da00428c1" xml:space="preserve">
+          <source>You can monitor the status of the process in the message area at the bottom of the window.</source>
+          <target state="new">You can monitor the status of the process in the message area at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="b1d62f1e-b2d8-4baf-a891-621c811a765e" xml:space="preserve">
+          <source>The status changes to Active when the account is successfully created.</source>
+          <target state="new">The status changes to Active when the account is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="56ae73e1-2ce8-4b4a-a9d4-bcdf9737fa83" xml:space="preserve">
+          <source>The <bpt id="98497349-75bb-4d7b-bcc3-4d4ac5160630">&lt;strong&gt;</bpt>media services<ept id="98497349-75bb-4d7b-bcc3-4d4ac5160630">&lt;/strong&gt;</ept> page opens with the new account displayed.</source>
+          <target state="new">The <bpt id="98497349-75bb-4d7b-bcc3-4d4ac5160630">&lt;strong&gt;</bpt>media services<ept id="98497349-75bb-4d7b-bcc3-4d4ac5160630">&lt;/strong&gt;</ept> page opens with the new account displayed.</target>
+        </trans-unit>
+        <trans-unit id="4f5f493a-f59c-4133-9865-aca432257573" xml:space="preserve">
+          <source>At the bottom of the page, the <bpt id="f66b21ff-96ef-4028-8ad0-ef67be0016e7">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="f66b21ff-96ef-4028-8ad0-ef67be0016e7">&lt;/strong&gt;</ept> button appears.</source>
+          <target state="new">At the bottom of the page, the <bpt id="f66b21ff-96ef-4028-8ad0-ef67be0016e7">&lt;strong&gt;</bpt>MANAGE KEYS<ept id="f66b21ff-96ef-4028-8ad0-ef67be0016e7">&lt;/strong&gt;</ept> button appears.</target>
+        </trans-unit>
+        <trans-unit id="46ce16f6-510c-4272-8bc2-b4c8fba46ce5" xml:space="preserve">
+          <source>When you click this button, a page with the Media Services account name and the primary and secondary keys is displayed.</source>
+          <target state="new">When you click this button, a page with the Media Services account name and the primary and secondary keys is displayed.</target>
+        </trans-unit>
+        <trans-unit id="1d301d13-aba6-43ad-988c-09af0c719720" xml:space="preserve">
+          <source>You will need the account name and the primary key information to programmatically access the Media Services account.</source>
+          <target state="new">You will need the account name and the primary key information to programmatically access the Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="c7115d84-76e4-49fd-9b88-696c36ef42ad" xml:space="preserve">
+          <source><bpt id="27da7578-088e-47a2-adbe-04115baaba37">&lt;linkText&gt;</bpt>Media Services Page<ept id="27da7578-088e-47a2-adbe-04115baaba37">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27da7578-088e-47a2-adbe-04115baaba37">&lt;linkText&gt;</bpt>Media Services Page<ept id="27da7578-088e-47a2-adbe-04115baaba37">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0214a96-4467-4a8c-84b7-b66c93ce8478" xml:space="preserve">
+          <source>When you double-click the account name, the <bpt id="d37f9eaf-2686-4f5b-8462-8b5360947afc">&lt;strong&gt;</bpt>Quick Start<ept id="d37f9eaf-2686-4f5b-8462-8b5360947afc">&lt;/strong&gt;</ept> page is displayed by default.</source>
+          <target state="new">When you double-click the account name, the <bpt id="d37f9eaf-2686-4f5b-8462-8b5360947afc">&lt;strong&gt;</bpt>Quick Start<ept id="d37f9eaf-2686-4f5b-8462-8b5360947afc">&lt;/strong&gt;</ept> page is displayed by default.</target>
+        </trans-unit>
+        <trans-unit id="611c37a7-fcb0-480a-bf57-4829e7934ebe" xml:space="preserve">
+          <source>This page enables you to do some management tasks that are also available on other pages of the portal.</source>
+          <target state="new">This page enables you to do some management tasks that are also available on other pages of the portal.</target>
+        </trans-unit>
+        <trans-unit id="79011148-4679-431d-af62-d97f4b93e30a" xml:space="preserve">
+          <source>For example, you can upload a video file from this page, or do it from the <bpt id="86ca7826-eae1-4543-bf97-f24ffe955226">&lt;strong&gt;</bpt>CONTENT<ept id="86ca7826-eae1-4543-bf97-f24ffe955226">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">For example, you can upload a video file from this page, or do it from the <bpt id="86ca7826-eae1-4543-bf97-f24ffe955226">&lt;strong&gt;</bpt>CONTENT<ept id="86ca7826-eae1-4543-bf97-f24ffe955226">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="b6b22691-0cc1-45ec-934b-d6b3ff0d6056" xml:space="preserve">
+          <source>In addition, you can view code that uses the Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos.</source>
+          <target state="new">In addition, you can view code that uses the Azure Media Services SDK to accomplish the following tasks: upload, encode, and publish videos.</target>
+        </trans-unit>
+        <trans-unit id="7b81d8b6-ae17-4b63-ba88-0c3ee3507de2" xml:space="preserve">
+          <source>You can click one of the links under the <bpt id="508498a0-7080-4805-afc7-d176e963e705">&lt;strong&gt;</bpt>WRITE SOME CODE<ept id="508498a0-7080-4805-afc7-d176e963e705">&lt;/strong&gt;</ept> section, copy the code  and use it in your application.</source>
+          <target state="new">You can click one of the links under the <bpt id="508498a0-7080-4805-afc7-d176e963e705">&lt;strong&gt;</bpt>WRITE SOME CODE<ept id="508498a0-7080-4805-afc7-d176e963e705">&lt;/strong&gt;</ept> section, copy the code  and use it in your application.</target>
+        </trans-unit>
+        <trans-unit id="521d9e4b-4139-4259-89a1-9ae23333482b" xml:space="preserve">
+          <source><bpt id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;linkText&gt;</bpt>Get started with delivering Video-on-Demand (VoD) content using .NET SDK<ept id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;/linkText&gt;</ept><bpt id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;title&gt;</bpt><ept id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;linkText&gt;</bpt>Get started with delivering Video-on-Demand (VoD) content using .NET SDK<ept id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;/linkText&gt;</ept><bpt id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;title&gt;</bpt><ept id="ce88ca98-d281-428c-8ad0-064d794e8bae">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85abfe63-8779-4917-b6f5-6e143ed39e4a" xml:space="preserve">
+          <source><bpt id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;linkText&gt;</bpt>Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)<ept id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;/linkText&gt;</ept><bpt id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;title&gt;</bpt><ept id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;linkText&gt;</bpt>Use .NET SDK to create channels that perform live encoding from a single-bitrate to multi-bitrate stream (Preview)<ept id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;/linkText&gt;</ept><bpt id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;title&gt;</bpt><ept id="5255af13-2257-4673-ace8-fb45c6fe9bf4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5348bae2-4088-4370-8b0e-3ddcb83645fe" xml:space="preserve">
+          <source>#concepts</source>
+          <target state="new">#concepts</target>
+        </trans-unit>
+        <trans-unit id="44ef06f5-9068-4d19-b513-13b963915e63" xml:space="preserve">
+          <source>#begin</source>
+          <target state="new">#begin</target>
+        </trans-unit>
+        <trans-unit id="bd6f311e-eaeb-4fb8-840d-ece18c742b5f" xml:space="preserve">
+          <source>#quick</source>
+          <target state="new">#quick</target>
+        </trans-unit>
+        <trans-unit id="9fae94a5-2e32-4777-928a-7fa375abbb9a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?linkid=255386</source>
+          <target state="new">http://go.microsoft.com/fwlink/?linkid=255386</target>
+        </trans-unit>
+        <trans-unit id="2dd8fb10-cb2b-4dd8-95ab-ff8d2060ce62" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="0cf0f340-389b-4dc3-ba8b-35087d983ac5" />
+    </body>
+  </file>
+</xliff>

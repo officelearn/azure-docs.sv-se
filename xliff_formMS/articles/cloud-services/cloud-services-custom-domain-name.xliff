@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="914fcb87-0f9c-4d6b-9096-97dfea2248d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="914fcb87-0f9c-4d6b-9096-97dfea2248d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="64104ebb-1655-4759-8e04-5dc5dbdea7ff">
+        <trans-unit id="684b62c7-e7e4-4abe-880e-f5e3ae5cf959" xml:space="preserve">
+          <source>Configure a custom domain name in Cloud Services</source>
+          <target state="new">Configure a custom domain name in Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="ba4811e9-e1d4-4238-a52b-044430ddd8c4" xml:space="preserve">
+          <source>Learn how to expose your Azure application or data on a custom domain by configuring DNS settings.</source>
+          <target state="new">Learn how to expose your Azure application or data on a custom domain by configuring DNS settings.</target>
+        </trans-unit>
+        <trans-unit id="3b080b4c-2b63-4dbd-ba05-20493a4a0b9e" xml:space="preserve">
+          <source>When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net.</source>
+          <target state="new">When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="41ea2a17-d9ec-4e89-9323-2405a9a62d01" xml:space="preserve">
+          <source>For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://&amp;lt;<bpt id="89708996-2322-42f9-b90f-13eef044e7aa">&lt;em&gt;</bpt>contoso<ept id="89708996-2322-42f9-b90f-13eef044e7aa">&lt;/em&gt;</ept>&gt;.cloudapp.net.</source>
+          <target state="new">For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://&amp;lt;<bpt id="89708996-2322-42f9-b90f-13eef044e7aa">&lt;em&gt;</bpt>contoso<ept id="89708996-2322-42f9-b90f-13eef044e7aa">&lt;/em&gt;</ept>&gt;.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="58bff3f0-71ee-4a29-b02a-d83f02079477" xml:space="preserve">
+          <source>Azure also assigns a virtual IP address.</source>
+          <target state="new">Azure also assigns a virtual IP address.</target>
+        </trans-unit>
+        <trans-unit id="85920198-fd57-457b-90dd-5ce738887712" xml:space="preserve">
+          <source>However, you can also expose your application on your own domain name, such as contoso.com.</source>
+          <target state="new">However, you can also expose your application on your own domain name, such as contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="4d15934b-e5e0-4099-a305-0538cdbfa870" xml:space="preserve">
+          <source>This article explains how to reserve or configure a custom domain name for Cloud Service web roles.</source>
+          <target state="new">This article explains how to reserve or configure a custom domain name for Cloud Service web roles.</target>
+        </trans-unit>
+        <trans-unit id="eab98119-94bc-4985-9a1c-04e7fad5ed2a" xml:space="preserve">
+          <source>Do you already undestand what CNAME and A records are?</source>
+          <target state="new">Do you already undestand what CNAME and A records are?</target>
+        </trans-unit>
+        <trans-unit id="dd8d71e8-89cb-452c-beed-98815392b321" xml:space="preserve">
+          <source><bpt id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;linkText&gt;</bpt>Jump past the explaination<ept id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;/linkText&gt;</ept><bpt id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;title&gt;</bpt><ept id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;linkText&gt;</bpt>Jump past the explaination<ept id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;/linkText&gt;</ept><bpt id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;title&gt;</bpt><ept id="85652b6e-cbd0-4481-95a2-ca715e04f03d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93206b8e-f4d5-4f34-a67b-a20cd6a57542" xml:space="preserve">
+          <source>Get going faster--use the NEW Azure <bpt id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;linkText&gt;</bpt>guided walkthrough<ept id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;/linkText&gt;</ept><bpt id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;title&gt;</bpt><ept id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;/title&gt;</ept>!</source>
+          <target state="new">Get going faster--use the NEW Azure <bpt id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;linkText&gt;</bpt>guided walkthrough<ept id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;/linkText&gt;</ept><bpt id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;title&gt;</bpt><ept id="8588d456-9bb2-4298-acc8-ff4b4b1d95ec">&lt;/title&gt;</ept>!</target>
+        </trans-unit>
+        <trans-unit id="ffaddc5a-ffe1-40cd-9cc0-410cc52ec551" xml:space="preserve">
+          <source>It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.</source>
+          <target state="new">It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.</target>
+        </trans-unit>
+        <trans-unit id="705df421-d1c0-43e7-8831-d3a03edd4783" xml:space="preserve">
+          <source>&lt;p/&gt;</source>
+          <target state="new">&lt;p/&gt;</target>
+        </trans-unit>
+        <trans-unit id="a8f1ee1b-98ec-4983-80bc-c3cb2269c7f0" xml:space="preserve">
+          <source>The procedures in this task apply to Azure Cloud Services.</source>
+          <target state="new">The procedures in this task apply to Azure Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="f7a7159a-d49c-4a91-a192-208db4800de5" xml:space="preserve">
+          <source>For Websites, see <bpt id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;linkText&gt;</bpt>Configuring a Custom Domain Name for an Azure App Service Web App<ept id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;/linkText&gt;</ept><bpt id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;title&gt;</bpt><ept id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Websites, see <bpt id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;linkText&gt;</bpt>Configuring a Custom Domain Name for an Azure App Service Web App<ept id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;/linkText&gt;</ept><bpt id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;title&gt;</bpt><ept id="978153ed-77c2-4af3-8717-e40f49e3efd4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c24bbbce-10f5-4bf3-9cb3-095ac4af6196" xml:space="preserve">
+          <source>For storage accounts, see <bpt id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;linkText&gt;</bpt>Configuring a Custom Domain Name for an Azure Storage Account<ept id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;/linkText&gt;</ept><bpt id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;title&gt;</bpt><ept id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;/title&gt;</ept>.</source>
+          <target state="new">For storage accounts, see <bpt id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;linkText&gt;</bpt>Configuring a Custom Domain Name for an Azure Storage Account<ept id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;/linkText&gt;</ept><bpt id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;title&gt;</bpt><ept id="5ccceeb1-9312-4b65-9528-685b5f13c6be">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14a3bbc9-4e70-4f65-9bc3-152810963757" xml:space="preserve">
+          <source>CNAME (or alias records) and A records both allow you to associate a domain name with a specific server (or service in this case,) however they work differently.</source>
+          <target state="new">CNAME (or alias records) and A records both allow you to associate a domain name with a specific server (or service in this case,) however they work differently.</target>
+        </trans-unit>
+        <trans-unit id="3c4353ff-6b3d-45b6-8dc8-85e55863f436" xml:space="preserve">
+          <source>There are also some specific considerations when using A records with Azure Cloud services that you should consider before deciding which to use.</source>
+          <target state="new">There are also some specific considerations when using A records with Azure Cloud services that you should consider before deciding which to use.</target>
+        </trans-unit>
+        <trans-unit id="10d89e6b-e99a-4456-8a7b-444d31376ad4" xml:space="preserve">
+          <source>A CNAME record maps a <bpt id="74b2da66-7f46-4a7b-8892-ae9ec4e04b77">&lt;em&gt;</bpt>specific<ept id="74b2da66-7f46-4a7b-8892-ae9ec4e04b77">&lt;/em&gt;</ept> domain, such as <bpt id="360b76ab-8e06-45e6-a9e6-bf6467f2bb51">&lt;strong&gt;</bpt>contoso.com<ept id="360b76ab-8e06-45e6-a9e6-bf6467f2bb51">&lt;/strong&gt;</ept> or <bpt id="652f299f-f6a9-47dc-be39-2fca54218e9e">&lt;strong&gt;</bpt>www.contoso.com<ept id="652f299f-f6a9-47dc-be39-2fca54218e9e">&lt;/strong&gt;</ept>, to a canonical domain name.</source>
+          <target state="new">A CNAME record maps a <bpt id="74b2da66-7f46-4a7b-8892-ae9ec4e04b77">&lt;em&gt;</bpt>specific<ept id="74b2da66-7f46-4a7b-8892-ae9ec4e04b77">&lt;/em&gt;</ept> domain, such as <bpt id="360b76ab-8e06-45e6-a9e6-bf6467f2bb51">&lt;strong&gt;</bpt>contoso.com<ept id="360b76ab-8e06-45e6-a9e6-bf6467f2bb51">&lt;/strong&gt;</ept> or <bpt id="652f299f-f6a9-47dc-be39-2fca54218e9e">&lt;strong&gt;</bpt>www.contoso.com<ept id="652f299f-f6a9-47dc-be39-2fca54218e9e">&lt;/strong&gt;</ept>, to a canonical domain name.</target>
+        </trans-unit>
+        <trans-unit id="f6be259f-2065-4ba2-8e9c-8ecb2ee73c6f" xml:space="preserve">
+          <source>In this case, the canonical domain name is the <bpt id="0128288a-e09e-4e23-940a-e6574f26f833">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="0128288a-e09e-4e23-940a-e6574f26f833">&lt;/strong&gt;</ept> domain name of your Azure hosted application.</source>
+          <target state="new">In this case, the canonical domain name is the <bpt id="0128288a-e09e-4e23-940a-e6574f26f833">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="0128288a-e09e-4e23-940a-e6574f26f833">&lt;/strong&gt;</ept> domain name of your Azure hosted application.</target>
+        </trans-unit>
+        <trans-unit id="55574910-70cc-4f58-926b-2da95b45c718" xml:space="preserve">
+          <source>Once created, the CNAME creates an alias for the <bpt id="bbca0582-36da-48fe-bd75-3a1c9a46eb00">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="bbca0582-36da-48fe-bd75-3a1c9a46eb00">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once created, the CNAME creates an alias for the <bpt id="bbca0582-36da-48fe-bd75-3a1c9a46eb00">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="bbca0582-36da-48fe-bd75-3a1c9a46eb00">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76680aa4-1d66-4d83-94ac-673ee03f129c" xml:space="preserve">
+          <source>The CNAME entry will resolve to the IP address of your <bpt id="417bc0c8-ed87-40f6-b052-4ea7f6203dc8">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="417bc0c8-ed87-40f6-b052-4ea7f6203dc8">&lt;/strong&gt;</ept> service automatically, so if the IP address of the cloud service changes, you do not have to take any action.</source>
+          <target state="new">The CNAME entry will resolve to the IP address of your <bpt id="417bc0c8-ed87-40f6-b052-4ea7f6203dc8">&lt;strong&gt;</bpt>[myapp].cloudapp.net<ept id="417bc0c8-ed87-40f6-b052-4ea7f6203dc8">&lt;/strong&gt;</ept> service automatically, so if the IP address of the cloud service changes, you do not have to take any action.</target>
+        </trans-unit>
+        <trans-unit id="d8f7149b-2583-40bd-8632-1bce64ce5dc3" xml:space="preserve">
+          <source>Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com.</source>
+          <target state="new">Some domain registrars only allow you to map subdomains when using a CNAME record, such as www.contoso.com, and not root names, such as contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="67c3d5ca-9efd-4552-879a-4b45a63f914b" xml:space="preserve">
+          <source>For more information on CNAME records, see the documentation provided by your registrar, <bpt id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;linkText&gt;</bpt>the Wikipedia entry on CNAME record<ept id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;/linkText&gt;</ept><bpt id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;title&gt;</bpt><ept id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;/title&gt;</ept>, or the <bpt id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;linkText&gt;</bpt>IETF Domain Names - Implementation and Specification<ept id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;/linkText&gt;</ept><bpt id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;title&gt;</bpt><ept id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;/title&gt;</ept> document.</source>
+          <target state="new">For more information on CNAME records, see the documentation provided by your registrar, <bpt id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;linkText&gt;</bpt>the Wikipedia entry on CNAME record<ept id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;/linkText&gt;</ept><bpt id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;title&gt;</bpt><ept id="ddb51407-2c55-4967-8c79-6b620b227479">&lt;/title&gt;</ept>, or the <bpt id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;linkText&gt;</bpt>IETF Domain Names - Implementation and Specification<ept id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;/linkText&gt;</ept><bpt id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;title&gt;</bpt><ept id="20ee926e-1188-4585-8197-501e5a36b5e9">&lt;/title&gt;</ept> document.</target>
+        </trans-unit>
+        <trans-unit id="628cd2da-ff7b-482a-9a4d-5b057a47b92e" xml:space="preserve">
+          <source>An A record maps a domain, such as <bpt id="c2220a27-e36a-4a10-8fe3-bf23623ed030">&lt;strong&gt;</bpt>contoso.com<ept id="c2220a27-e36a-4a10-8fe3-bf23623ed030">&lt;/strong&gt;</ept> or <bpt id="e8a89abb-0b8f-4ca3-a969-8273b892ac9d">&lt;strong&gt;</bpt>www.contoso.com<ept id="e8a89abb-0b8f-4ca3-a969-8273b892ac9d">&lt;/strong&gt;</ept>, <bpt id="7005a8bb-affe-4d39-a787-c973a75322cf">&lt;em&gt;</bpt>or a wildcard domain<ept id="7005a8bb-affe-4d39-a787-c973a75322cf">&lt;/em&gt;</ept> such as <bpt id="32ffc9a2-7c29-4c82-a3a7-f5e82415f60e">&lt;strong&gt;</bpt>\*.contoso.com<ept id="32ffc9a2-7c29-4c82-a3a7-f5e82415f60e">&lt;/strong&gt;</ept>, to an IP address.</source>
+          <target state="new">An A record maps a domain, such as <bpt id="c2220a27-e36a-4a10-8fe3-bf23623ed030">&lt;strong&gt;</bpt>contoso.com<ept id="c2220a27-e36a-4a10-8fe3-bf23623ed030">&lt;/strong&gt;</ept> or <bpt id="e8a89abb-0b8f-4ca3-a969-8273b892ac9d">&lt;strong&gt;</bpt>www.contoso.com<ept id="e8a89abb-0b8f-4ca3-a969-8273b892ac9d">&lt;/strong&gt;</ept>, <bpt id="7005a8bb-affe-4d39-a787-c973a75322cf">&lt;em&gt;</bpt>or a wildcard domain<ept id="7005a8bb-affe-4d39-a787-c973a75322cf">&lt;/em&gt;</ept> such as <bpt id="32ffc9a2-7c29-4c82-a3a7-f5e82415f60e">&lt;strong&gt;</bpt>\*.contoso.com<ept id="32ffc9a2-7c29-4c82-a3a7-f5e82415f60e">&lt;/strong&gt;</ept>, to an IP address.</target>
+        </trans-unit>
+        <trans-unit id="7ef39357-36de-41cd-ade9-095d55a41a9f" xml:space="preserve">
+          <source>In the case of an Azure Cloud Service, the virtual IP of the service.</source>
+          <target state="new">In the case of an Azure Cloud Service, the virtual IP of the service.</target>
+        </trans-unit>
+        <trans-unit id="9909f704-fc2d-41d2-814f-9d1dd6095ea3" xml:space="preserve">
+          <source>So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as \<bpt id="93abbb73-2f59-4dc1-b237-77d1e0ce68f1">&lt;strong&gt;</bpt>*.contoso.com<ept id="93abbb73-2f59-4dc1-b237-77d1e0ce68f1">&lt;/strong&gt;</ept>, which would handle requests for multiple sub-domains such as <bpt id="02f892d5-df9d-40ff-bba8-9402fd4b0624">&lt;strong&gt;</bpt>mail.contoso.com<ept id="02f892d5-df9d-40ff-bba8-9402fd4b0624">&lt;/strong&gt;</ept>, <bpt id="0ab87cd0-9a47-4045-8f9d-4c8eddd5edaa">&lt;strong&gt;</bpt>login.contoso.com<ept id="0ab87cd0-9a47-4045-8f9d-4c8eddd5edaa">&lt;/strong&gt;</ept>, or <bpt id="2d2bd65a-91c0-48ef-a548-a91aad2c5e07">&lt;strong&gt;</bpt>www.contso.com<ept id="2d2bd65a-91c0-48ef-a548-a91aad2c5e07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">So the main benefit of an A record over a CNAME record is that you can have one entry that uses a wildcard, such as \<bpt id="93abbb73-2f59-4dc1-b237-77d1e0ce68f1">&lt;strong&gt;</bpt>*.contoso.com<ept id="93abbb73-2f59-4dc1-b237-77d1e0ce68f1">&lt;/strong&gt;</ept>, which would handle requests for multiple sub-domains such as <bpt id="02f892d5-df9d-40ff-bba8-9402fd4b0624">&lt;strong&gt;</bpt>mail.contoso.com<ept id="02f892d5-df9d-40ff-bba8-9402fd4b0624">&lt;/strong&gt;</ept>, <bpt id="0ab87cd0-9a47-4045-8f9d-4c8eddd5edaa">&lt;strong&gt;</bpt>login.contoso.com<ept id="0ab87cd0-9a47-4045-8f9d-4c8eddd5edaa">&lt;/strong&gt;</ept>, or <bpt id="2d2bd65a-91c0-48ef-a548-a91aad2c5e07">&lt;strong&gt;</bpt>www.contso.com<ept id="2d2bd65a-91c0-48ef-a548-a91aad2c5e07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8a7eedb-d444-4c78-842b-47ba654818fa" xml:space="preserve">
+          <source>Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service.</source>
+          <target state="new">Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="41ffb271-b834-4785-9f8f-39e4c2dd33ad" xml:space="preserve">
+          <source>The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.)</source>
+          <target state="new">The IP address used by your Cloud Service is allocated the first time you deploy to an empty slot (either production or staging.)</target>
+        </trans-unit>
+        <trans-unit id="0bad1e26-8b5a-4e5c-8d60-37298b792cae" xml:space="preserve">
+          <source>If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.</source>
+          <target state="new">If you delete the deployment for the slot, the IP address is released by Azure and any future deployments to the slot may be given a new IP address.</target>
+        </trans-unit>
+        <trans-unit id="ccb3814a-b2cb-4c50-bd1a-c8bb3730b606" xml:space="preserve">
+          <source>Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment.</source>
+          <target state="new">Conveniently, the IP address of a given deployment slot (production or staging) is persisted when swapping between staging and production deployments or performing an in-place upgrade of an existing deployment.</target>
+        </trans-unit>
+        <trans-unit id="5404e2d7-64b3-467e-867c-5c612fd082fc" xml:space="preserve">
+          <source>For more information on performing these actions, see <bpt id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;linkText&gt;</bpt>How to manage cloud services<ept id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;/linkText&gt;</ept><bpt id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;title&gt;</bpt><ept id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on performing these actions, see <bpt id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;linkText&gt;</bpt>How to manage cloud services<ept id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;/linkText&gt;</ept><bpt id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;title&gt;</bpt><ept id="12053e60-0da9-4be4-aba8-eac5eb737910">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e3a22d6-d0bd-43c9-9742-ee72bff08c42" xml:space="preserve">
+          <source>To create a CNAME record, you must add a new entry in the DNS table for your custom domain by using the tools provided by your registrar.</source>
+          <target state="new">To create a CNAME record, you must add a new entry in the DNS table for your custom domain by using the tools provided by your registrar.</target>
+        </trans-unit>
+        <trans-unit id="ecf32ea3-5ff5-4085-9d03-dbbfa6e9dd56" xml:space="preserve">
+          <source>Each registrar has a similar but slightly different method of specifying a CNAME record, but the concepts are the same.</source>
+          <target state="new">Each registrar has a similar but slightly different method of specifying a CNAME record, but the concepts are the same.</target>
+        </trans-unit>
+        <trans-unit id="c3d8b22b-20b9-428c-a0d6-94e62afda1de" xml:space="preserve">
+          <source>Use one of these methods to find the <bpt id="53c44d0b-2695-457d-abe7-2f71656df9d2">&lt;strong&gt;</bpt>.cloudapp.net<ept id="53c44d0b-2695-457d-abe7-2f71656df9d2">&lt;/strong&gt;</ept> domain name assigned to your cloud service.</source>
+          <target state="new">Use one of these methods to find the <bpt id="53c44d0b-2695-457d-abe7-2f71656df9d2">&lt;strong&gt;</bpt>.cloudapp.net<ept id="53c44d0b-2695-457d-abe7-2f71656df9d2">&lt;/strong&gt;</ept> domain name assigned to your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="d61e2358-8932-41ce-a332-10425b1dca70" xml:space="preserve">
+          <source>Login to the [Azure Management Portal], select your cloud service, select <bpt id="5daee6d0-4126-4685-9291-d25ca2eb8730">&lt;strong&gt;</bpt>Dashboard<ept id="5daee6d0-4126-4685-9291-d25ca2eb8730">&lt;/strong&gt;</ept>, and then find the <bpt id="89ba51a4-3459-4ae3-9bb2-7a1d7f616bd7">&lt;strong&gt;</bpt>Site URL<ept id="89ba51a4-3459-4ae3-9bb2-7a1d7f616bd7">&lt;/strong&gt;</ept> entry in the <bpt id="b1f63919-b478-4c06-9449-9a6247484632">&lt;strong&gt;</bpt>quick glance<ept id="b1f63919-b478-4c06-9449-9a6247484632">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Login to the [Azure Management Portal], select your cloud service, select <bpt id="5daee6d0-4126-4685-9291-d25ca2eb8730">&lt;strong&gt;</bpt>Dashboard<ept id="5daee6d0-4126-4685-9291-d25ca2eb8730">&lt;/strong&gt;</ept>, and then find the <bpt id="89ba51a4-3459-4ae3-9bb2-7a1d7f616bd7">&lt;strong&gt;</bpt>Site URL<ept id="89ba51a4-3459-4ae3-9bb2-7a1d7f616bd7">&lt;/strong&gt;</ept> entry in the <bpt id="b1f63919-b478-4c06-9449-9a6247484632">&lt;strong&gt;</bpt>quick glance<ept id="b1f63919-b478-4c06-9449-9a6247484632">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="b45cf90d-ab89-4333-bf6d-79c4bde00a6e" xml:space="preserve">
+          <source><bpt id="3ff907f6-19d2-406f-be16-5fe3ee0d83a6">&lt;linkText&gt;</bpt>quick glance section showing the site URL<ept id="3ff907f6-19d2-406f-be16-5fe3ee0d83a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ff907f6-19d2-406f-be16-5fe3ee0d83a6">&lt;linkText&gt;</bpt>quick glance section showing the site URL<ept id="3ff907f6-19d2-406f-be16-5fe3ee0d83a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87c8e79a-e825-4040-bdd8-c5af5a322b66" xml:space="preserve">
+          <source><bpt id="c8c34f03-a297-45af-a363-2d8c0353dc8c">&lt;strong&gt;</bpt>OR<ept id="c8c34f03-a297-45af-a363-2d8c0353dc8c">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="c8c34f03-a297-45af-a363-2d8c0353dc8c">&lt;strong&gt;</bpt>OR<ept id="c8c34f03-a297-45af-a363-2d8c0353dc8c">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="ae15d478-8f2a-407c-9937-f95816fa78b0" xml:space="preserve">
+          <source>Install and configure <bpt id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;linkText&gt;</bpt>Azure Powershell<ept id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;/linkText&gt;</ept><bpt id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;title&gt;</bpt><ept id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure <bpt id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;linkText&gt;</bpt>Azure Powershell<ept id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;/linkText&gt;</ept><bpt id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;title&gt;</bpt><ept id="db27d246-4df8-4b5d-a0ef-22eafad1f3ae">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="0361ec21-f99c-4036-9f5f-6f3a0c0a0c98" xml:space="preserve">
+          <source>Log on to your DNS registrar's website and go to the page for managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website and go to the page for managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="67b1f310-d70c-47c3-bf3a-5392b7beec90" xml:space="preserve">
+          <source>Look for links or areas of the site labeled as <bpt id="9eb0cfa6-1518-4f95-b1ef-29a27a1643b9">&lt;strong&gt;</bpt>Domain Name<ept id="9eb0cfa6-1518-4f95-b1ef-29a27a1643b9">&lt;/strong&gt;</ept>, <bpt id="c48c0a19-efde-407c-b78c-3247cb3c7cb6">&lt;strong&gt;</bpt>DNS<ept id="c48c0a19-efde-407c-b78c-3247cb3c7cb6">&lt;/strong&gt;</ept>, or <bpt id="2444034a-7efe-4557-a3ed-0f24ceb9b95b">&lt;strong&gt;</bpt>Name Server Management<ept id="2444034a-7efe-4557-a3ed-0f24ceb9b95b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Look for links or areas of the site labeled as <bpt id="9eb0cfa6-1518-4f95-b1ef-29a27a1643b9">&lt;strong&gt;</bpt>Domain Name<ept id="9eb0cfa6-1518-4f95-b1ef-29a27a1643b9">&lt;/strong&gt;</ept>, <bpt id="c48c0a19-efde-407c-b78c-3247cb3c7cb6">&lt;strong&gt;</bpt>DNS<ept id="c48c0a19-efde-407c-b78c-3247cb3c7cb6">&lt;/strong&gt;</ept>, or <bpt id="2444034a-7efe-4557-a3ed-0f24ceb9b95b">&lt;strong&gt;</bpt>Name Server Management<ept id="2444034a-7efe-4557-a3ed-0f24ceb9b95b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd6f5c2a-2020-4fa7-b384-9217ea5ca065" xml:space="preserve">
+          <source>Now find where you can select or enter CNAME's.</source>
+          <target state="new">Now find where you can select or enter CNAME's.</target>
+        </trans-unit>
+        <trans-unit id="08ce539e-ea5a-4c62-a8dd-701b789cacfa" xml:space="preserve">
+          <source>You may have to select the record type from a drop down, or go to an advanced settings page.</source>
+          <target state="new">You may have to select the record type from a drop down, or go to an advanced settings page.</target>
+        </trans-unit>
+        <trans-unit id="d0611d5d-b1f3-40af-90ee-b9fb79310e1c" xml:space="preserve">
+          <source>You should look for the words <bpt id="5234fb87-1aa7-448c-97ef-a133bb55f5a2">&lt;strong&gt;</bpt>CNAME<ept id="5234fb87-1aa7-448c-97ef-a133bb55f5a2">&lt;/strong&gt;</ept>, <bpt id="c827b948-f8ec-4483-bfd0-f1bb8219a5f8">&lt;strong&gt;</bpt>Alias<ept id="c827b948-f8ec-4483-bfd0-f1bb8219a5f8">&lt;/strong&gt;</ept>, or <bpt id="3d7029ca-ab45-45dd-985e-16afd4c2f1a7">&lt;strong&gt;</bpt>Subdomains<ept id="3d7029ca-ab45-45dd-985e-16afd4c2f1a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You should look for the words <bpt id="5234fb87-1aa7-448c-97ef-a133bb55f5a2">&lt;strong&gt;</bpt>CNAME<ept id="5234fb87-1aa7-448c-97ef-a133bb55f5a2">&lt;/strong&gt;</ept>, <bpt id="c827b948-f8ec-4483-bfd0-f1bb8219a5f8">&lt;strong&gt;</bpt>Alias<ept id="c827b948-f8ec-4483-bfd0-f1bb8219a5f8">&lt;/strong&gt;</ept>, or <bpt id="3d7029ca-ab45-45dd-985e-16afd4c2f1a7">&lt;strong&gt;</bpt>Subdomains<ept id="3d7029ca-ab45-45dd-985e-16afd4c2f1a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb1e2094-d022-49d3-8e09-6335376a61aa" xml:space="preserve">
+          <source>You must also provide the domain or subdomain alias for the CNAME, such as <bpt id="5d962727-dd28-4a3b-84e0-247ec4f43d2d">&lt;strong&gt;</bpt>www<ept id="5d962727-dd28-4a3b-84e0-247ec4f43d2d">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="cee834ad-20a7-4240-a1d2-3384bdbc77d9">&lt;strong&gt;</bpt>www.customdomain.com<ept id="cee834ad-20a7-4240-a1d2-3384bdbc77d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You must also provide the domain or subdomain alias for the CNAME, such as <bpt id="5d962727-dd28-4a3b-84e0-247ec4f43d2d">&lt;strong&gt;</bpt>www<ept id="5d962727-dd28-4a3b-84e0-247ec4f43d2d">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="cee834ad-20a7-4240-a1d2-3384bdbc77d9">&lt;strong&gt;</bpt>www.customdomain.com<ept id="cee834ad-20a7-4240-a1d2-3384bdbc77d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a329bd8-74d8-490b-b4c4-871e178d26ee" xml:space="preserve">
+          <source>If you want to create an alias for the root domain, it may be listed as the '<bpt id="361df98a-569d-47f7-ae22-3a424ed39fe1">&lt;strong&gt;</bpt>@<ept id="361df98a-569d-47f7-ae22-3a424ed39fe1">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</source>
+          <target state="new">If you want to create an alias for the root domain, it may be listed as the '<bpt id="361df98a-569d-47f7-ae22-3a424ed39fe1">&lt;strong&gt;</bpt>@<ept id="361df98a-569d-47f7-ae22-3a424ed39fe1">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</target>
+        </trans-unit>
+        <trans-unit id="7ea1c156-44b2-4723-901d-f9743acb4faf" xml:space="preserve">
+          <source>Then, you must provide a canonical host name, which is your application's <bpt id="fd0162af-6210-4405-a5a2-b64ac4c97e07">&lt;strong&gt;</bpt>cloudapp.net<ept id="fd0162af-6210-4405-a5a2-b64ac4c97e07">&lt;/strong&gt;</ept> domain in this case.</source>
+          <target state="new">Then, you must provide a canonical host name, which is your application's <bpt id="fd0162af-6210-4405-a5a2-b64ac4c97e07">&lt;strong&gt;</bpt>cloudapp.net<ept id="fd0162af-6210-4405-a5a2-b64ac4c97e07">&lt;/strong&gt;</ept> domain in this case.</target>
+        </trans-unit>
+        <trans-unit id="6d58a1dd-2f64-47e1-8f39-33d966be6bcc" xml:space="preserve">
+          <source>For example, the following CNAME record forwards all traffic from <bpt id="581b4e6a-1f7f-4050-8b48-6197a6af3114">&lt;strong&gt;</bpt>www.contoso.com<ept id="581b4e6a-1f7f-4050-8b48-6197a6af3114">&lt;/strong&gt;</ept> to <bpt id="c707e961-1c36-48e1-ab7e-125b14b4584e">&lt;strong&gt;</bpt>contoso.cloudapp.net<ept id="c707e961-1c36-48e1-ab7e-125b14b4584e">&lt;/strong&gt;</ept>, the custom domain name of your deployed application:</source>
+          <target state="new">For example, the following CNAME record forwards all traffic from <bpt id="581b4e6a-1f7f-4050-8b48-6197a6af3114">&lt;strong&gt;</bpt>www.contoso.com<ept id="581b4e6a-1f7f-4050-8b48-6197a6af3114">&lt;/strong&gt;</ept> to <bpt id="c707e961-1c36-48e1-ab7e-125b14b4584e">&lt;strong&gt;</bpt>contoso.cloudapp.net<ept id="c707e961-1c36-48e1-ab7e-125b14b4584e">&lt;/strong&gt;</ept>, the custom domain name of your deployed application:</target>
+        </trans-unit>
+        <trans-unit id="412134f2-14f5-41a8-bec4-debf05be783d" xml:space="preserve">
+          <source>Alias/Host name/Subdomain</source>
+          <target state="new">Alias/Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="355bb389-401d-473b-999d-cf1bdf85d32f" xml:space="preserve">
+          <source>Canonical domain</source>
+          <target state="new">Canonical domain</target>
+        </trans-unit>
+        <trans-unit id="470f3e2d-d971-4740-b22b-12b8b079f396" xml:space="preserve">
+          <source>www</source>
+          <target state="new">www</target>
+        </trans-unit>
+        <trans-unit id="539ef8bb-7898-43f4-b01e-5476b7d0eaa2" xml:space="preserve">
+          <source>contoso.cloudapp.net</source>
+          <target state="new">contoso.cloudapp.net</target>
+        </trans-unit>
+        <trans-unit id="88695613-1f1a-4fea-8d81-00685cf4fffd" xml:space="preserve">
+          <source>A visitor of <bpt id="054dcd22-5102-4199-9f8f-d3ee63d87224">&lt;strong&gt;</bpt>www.contoso.com<ept id="054dcd22-5102-4199-9f8f-d3ee63d87224">&lt;/strong&gt;</ept> will never see the true host
+(contoso.cloudapp.net), so the forwarding process is invisible to the
+end user.</source>
+          <target state="new">A visitor of <bpt id="054dcd22-5102-4199-9f8f-d3ee63d87224">&lt;strong&gt;</bpt>www.contoso.com<ept id="054dcd22-5102-4199-9f8f-d3ee63d87224">&lt;/strong&gt;</ept> will never see the true host
+(contoso.cloudapp.net), so the forwarding process is invisible to the
+end user.</target>
+        </trans-unit>
+        <trans-unit id="1e57d37b-8bb4-48f7-bc6d-49b01a9687c2" xml:space="preserve">
+          <source>The example above only applies to traffic at the <bpt id="6851c233-3890-4f5e-9bd2-eb923eba4664">&lt;strong&gt;</bpt>www<ept id="6851c233-3890-4f5e-9bd2-eb923eba4664">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">The example above only applies to traffic at the <bpt id="6851c233-3890-4f5e-9bd2-eb923eba4664">&lt;strong&gt;</bpt>www<ept id="6851c233-3890-4f5e-9bd2-eb923eba4664">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="505b7422-8c97-49c8-b838-0fa1a33c637c" xml:space="preserve">
+          <source>Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain.</source>
+          <target state="new">Since you cannot use wildcards with CNAME records, you must create one CNAME for each domain/subdomain.</target>
+        </trans-unit>
+        <trans-unit id="7db927d4-73ca-4751-b64b-3aecc7eb05c0" xml:space="preserve">
+          <source>If you want to direct  traffic from subdomains, such as \*.contoso.com, to your cloudapp.net address, you can configure a <bpt id="ea5c49cc-0537-4cf0-9768-14bdfe16b2ed">&lt;strong&gt;</bpt>URL Redirect<ept id="ea5c49cc-0537-4cf0-9768-14bdfe16b2ed">&lt;/strong&gt;</ept> or <bpt id="e8ad3c31-9140-4e39-9928-5aaddb7e816b">&lt;strong&gt;</bpt>URL Forward<ept id="e8ad3c31-9140-4e39-9928-5aaddb7e816b">&lt;/strong&gt;</ept> entry in your DNS settings, or create an A record.</source>
+          <target state="new">If you want to direct  traffic from subdomains, such as \*.contoso.com, to your cloudapp.net address, you can configure a <bpt id="ea5c49cc-0537-4cf0-9768-14bdfe16b2ed">&lt;strong&gt;</bpt>URL Redirect<ept id="ea5c49cc-0537-4cf0-9768-14bdfe16b2ed">&lt;/strong&gt;</ept> or <bpt id="e8ad3c31-9140-4e39-9928-5aaddb7e816b">&lt;strong&gt;</bpt>URL Forward<ept id="e8ad3c31-9140-4e39-9928-5aaddb7e816b">&lt;/strong&gt;</ept> entry in your DNS settings, or create an A record.</target>
+        </trans-unit>
+        <trans-unit id="adb44464-bf5c-47ad-b17d-e27c90006763" xml:space="preserve">
+          <source>To create an A record, you must first find the virtual IP address of your cloud service.</source>
+          <target state="new">To create an A record, you must first find the virtual IP address of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="5a680dbe-4588-413a-9cc0-90d8ad523185" xml:space="preserve">
+          <source>Then add a new entry in the DNS table for your custom domain by using the tools provided by your registrar.</source>
+          <target state="new">Then add a new entry in the DNS table for your custom domain by using the tools provided by your registrar.</target>
+        </trans-unit>
+        <trans-unit id="aa928da1-65b2-4bd9-8561-03b330311de1" xml:space="preserve">
+          <source>Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same.</source>
+          <target state="new">Each registrar has a similar but slightly different method of specifying an A record, but the concepts are the same.</target>
+        </trans-unit>
+        <trans-unit id="4864f83f-fe49-463a-95e0-781708fd2810" xml:space="preserve">
+          <source>Use one of the following methods to get the IP address of your cloud service.</source>
+          <target state="new">Use one of the following methods to get the IP address of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="21e5ceec-32e4-4d3e-9c48-592b97f57f6b" xml:space="preserve">
+          <source>login to the [Azure Management Portal], select your cloud service, select <bpt id="446c551a-fdcf-4ccf-8e6f-f754aab94f73">&lt;strong&gt;</bpt>Dashboard<ept id="446c551a-fdcf-4ccf-8e6f-f754aab94f73">&lt;/strong&gt;</ept>, and then find the <bpt id="c5236427-4f47-4327-beef-f091282e33e1">&lt;strong&gt;</bpt>Public Virtual IP (VIP) address<ept id="c5236427-4f47-4327-beef-f091282e33e1">&lt;/strong&gt;</ept> entry in the <bpt id="712865a1-079c-42c5-ba4c-cd8733ef37c9">&lt;strong&gt;</bpt>quick glance<ept id="712865a1-079c-42c5-ba4c-cd8733ef37c9">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">login to the [Azure Management Portal], select your cloud service, select <bpt id="446c551a-fdcf-4ccf-8e6f-f754aab94f73">&lt;strong&gt;</bpt>Dashboard<ept id="446c551a-fdcf-4ccf-8e6f-f754aab94f73">&lt;/strong&gt;</ept>, and then find the <bpt id="c5236427-4f47-4327-beef-f091282e33e1">&lt;strong&gt;</bpt>Public Virtual IP (VIP) address<ept id="c5236427-4f47-4327-beef-f091282e33e1">&lt;/strong&gt;</ept> entry in the <bpt id="712865a1-079c-42c5-ba4c-cd8733ef37c9">&lt;strong&gt;</bpt>quick glance<ept id="712865a1-079c-42c5-ba4c-cd8733ef37c9">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="062ab7d4-43f7-4094-b604-19113eb73bdd" xml:space="preserve">
+          <source><bpt id="f89c473f-653d-4b35-92e2-57bc97fc5188">&lt;linkText&gt;</bpt>quick glance section showing the VIP<ept id="f89c473f-653d-4b35-92e2-57bc97fc5188">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f89c473f-653d-4b35-92e2-57bc97fc5188">&lt;linkText&gt;</bpt>quick glance section showing the VIP<ept id="f89c473f-653d-4b35-92e2-57bc97fc5188">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54bbe8a7-af7a-4829-b053-21eb62cf8cca" xml:space="preserve">
+          <source><bpt id="c2c7511d-1f22-432d-a9f8-ad9b748739a9">&lt;strong&gt;</bpt>OR<ept id="c2c7511d-1f22-432d-a9f8-ad9b748739a9">&lt;/strong&gt;</ept>  </source>
+          <target state="new"><bpt id="c2c7511d-1f22-432d-a9f8-ad9b748739a9">&lt;strong&gt;</bpt>OR<ept id="c2c7511d-1f22-432d-a9f8-ad9b748739a9">&lt;/strong&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="e7b69e4e-55c5-4ec9-9916-75b1893da103" xml:space="preserve">
+          <source>Install and configure <bpt id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;linkText&gt;</bpt>Azure Powershell<ept id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;/linkText&gt;</ept><bpt id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;title&gt;</bpt><ept id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;/title&gt;</ept>, and then use the following command:</source>
+          <target state="new">Install and configure <bpt id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;linkText&gt;</bpt>Azure Powershell<ept id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;/linkText&gt;</ept><bpt id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;title&gt;</bpt><ept id="afda74eb-1ea3-4e6d-aaf4-b0a538843b6d">&lt;/title&gt;</ept>, and then use the following command:</target>
+        </trans-unit>
+        <trans-unit id="ad6b0017-65ad-4ef0-9826-dc21a5babe00" xml:space="preserve">
+          <source>Log on to your DNS registrar's website and go to the page for managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website and go to the page for managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="cba68f01-aec7-47d5-ad83-c455e86efd48" xml:space="preserve">
+          <source>Look for links or areas of the site labeled as <bpt id="cc4d38f5-c79e-4c5b-b9ad-5704716b8e2f">&lt;strong&gt;</bpt>Domain Name<ept id="cc4d38f5-c79e-4c5b-b9ad-5704716b8e2f">&lt;/strong&gt;</ept>, <bpt id="7776280b-ade3-4551-b04f-ad8211339e41">&lt;strong&gt;</bpt>DNS<ept id="7776280b-ade3-4551-b04f-ad8211339e41">&lt;/strong&gt;</ept>, or <bpt id="5b8a7235-357c-4e68-8ce1-8eb9c93f48ea">&lt;strong&gt;</bpt>Name Server Management<ept id="5b8a7235-357c-4e68-8ce1-8eb9c93f48ea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Look for links or areas of the site labeled as <bpt id="cc4d38f5-c79e-4c5b-b9ad-5704716b8e2f">&lt;strong&gt;</bpt>Domain Name<ept id="cc4d38f5-c79e-4c5b-b9ad-5704716b8e2f">&lt;/strong&gt;</ept>, <bpt id="7776280b-ade3-4551-b04f-ad8211339e41">&lt;strong&gt;</bpt>DNS<ept id="7776280b-ade3-4551-b04f-ad8211339e41">&lt;/strong&gt;</ept>, or <bpt id="5b8a7235-357c-4e68-8ce1-8eb9c93f48ea">&lt;strong&gt;</bpt>Name Server Management<ept id="5b8a7235-357c-4e68-8ce1-8eb9c93f48ea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f49746d0-a11f-4fe1-8a65-2719e189d913" xml:space="preserve">
+          <source>Now find where you can select or enter A record's.</source>
+          <target state="new">Now find where you can select or enter A record's.</target>
+        </trans-unit>
+        <trans-unit id="2245e5dc-2dd9-4998-841e-88d3e7f8dfcf" xml:space="preserve">
+          <source>You may have to select the record type from a drop down, or go to an advanced settings page.</source>
+          <target state="new">You may have to select the record type from a drop down, or go to an advanced settings page.</target>
+        </trans-unit>
+        <trans-unit id="2f75fbea-fc4b-48be-9f9a-81b7b72cbc5e" xml:space="preserve">
+          <source>Select or enter the domain or subdomain that will use this A record.</source>
+          <target state="new">Select or enter the domain or subdomain that will use this A record.</target>
+        </trans-unit>
+        <trans-unit id="5ba472cc-e383-4570-af95-487abcc5eeef" xml:space="preserve">
+          <source>For example, select <bpt id="e027d6d4-c499-4323-bc78-c2f74211e94b">&lt;strong&gt;</bpt>www<ept id="e027d6d4-c499-4323-bc78-c2f74211e94b">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="60721006-97a9-4219-a328-8f5bcd6f1c7a">&lt;strong&gt;</bpt>www.customdomain.com<ept id="60721006-97a9-4219-a328-8f5bcd6f1c7a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, select <bpt id="e027d6d4-c499-4323-bc78-c2f74211e94b">&lt;strong&gt;</bpt>www<ept id="e027d6d4-c499-4323-bc78-c2f74211e94b">&lt;/strong&gt;</ept> if you want to create an alias for <bpt id="60721006-97a9-4219-a328-8f5bcd6f1c7a">&lt;strong&gt;</bpt>www.customdomain.com<ept id="60721006-97a9-4219-a328-8f5bcd6f1c7a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64d5e9a4-7f6f-440e-a781-4b52cdd88569" xml:space="preserve">
+          <source>If you want to create a wildcard entry for all subdomains, enter '<bpt id="39def811-9aaa-4da9-997a-6cbc87248f5c">&lt;strong&gt;</bpt>*<ept id="39def811-9aaa-4da9-997a-6cbc87248f5c">&lt;/strong&gt;</ept>'.</source>
+          <target state="new">If you want to create a wildcard entry for all subdomains, enter '<bpt id="39def811-9aaa-4da9-997a-6cbc87248f5c">&lt;strong&gt;</bpt>*<ept id="39def811-9aaa-4da9-997a-6cbc87248f5c">&lt;/strong&gt;</ept>'.</target>
+        </trans-unit>
+        <trans-unit id="3deb6c2e-6688-4e86-9f19-b1b763f57461" xml:space="preserve">
+          <source>This will cover all sub-domains such as <bpt id="aa9f1f2a-2d8d-4988-84a9-b1581a0d6695">&lt;strong&gt;</bpt>mail.customdomain.com<ept id="aa9f1f2a-2d8d-4988-84a9-b1581a0d6695">&lt;/strong&gt;</ept>, <bpt id="8cd8bf2b-becd-4761-ab3a-234bb6b2240a">&lt;strong&gt;</bpt>login.customdomain.com<ept id="8cd8bf2b-becd-4761-ab3a-234bb6b2240a">&lt;/strong&gt;</ept>, and <bpt id="72b26701-5db2-405c-a8d3-23a9b1eaff43">&lt;strong&gt;</bpt>www.customdomain.com<ept id="72b26701-5db2-405c-a8d3-23a9b1eaff43">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This will cover all sub-domains such as <bpt id="aa9f1f2a-2d8d-4988-84a9-b1581a0d6695">&lt;strong&gt;</bpt>mail.customdomain.com<ept id="aa9f1f2a-2d8d-4988-84a9-b1581a0d6695">&lt;/strong&gt;</ept>, <bpt id="8cd8bf2b-becd-4761-ab3a-234bb6b2240a">&lt;strong&gt;</bpt>login.customdomain.com<ept id="8cd8bf2b-becd-4761-ab3a-234bb6b2240a">&lt;/strong&gt;</ept>, and <bpt id="72b26701-5db2-405c-a8d3-23a9b1eaff43">&lt;strong&gt;</bpt>www.customdomain.com<ept id="72b26701-5db2-405c-a8d3-23a9b1eaff43">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a03d7ad8-843b-4305-8edc-35b525557bf2" xml:space="preserve">
+          <source>If you want to create an A record for the root domain, it may be listed as the '<bpt id="98ef89d3-57c4-4d66-9a65-7ee0bb891605">&lt;strong&gt;</bpt>@<ept id="98ef89d3-57c4-4d66-9a65-7ee0bb891605">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</source>
+          <target state="new">If you want to create an A record for the root domain, it may be listed as the '<bpt id="98ef89d3-57c4-4d66-9a65-7ee0bb891605">&lt;strong&gt;</bpt>@<ept id="98ef89d3-57c4-4d66-9a65-7ee0bb891605">&lt;/strong&gt;</ept>' symbol in your registrar's DNS tools.</target>
+        </trans-unit>
+        <trans-unit id="f5a10e18-2792-4a0d-b44b-63d200503213" xml:space="preserve">
+          <source>Enter the IP address of your cloud service in the provided field.</source>
+          <target state="new">Enter the IP address of your cloud service in the provided field.</target>
+        </trans-unit>
+        <trans-unit id="c3aa6348-0995-4d25-9281-3e1966a3d397" xml:space="preserve">
+          <source>This associates the domain entry used in the A record with the IP address of your cloud service deployment.</source>
+          <target state="new">This associates the domain entry used in the A record with the IP address of your cloud service deployment.</target>
+        </trans-unit>
+        <trans-unit id="175c936a-713f-4c6c-aa39-30c0f98a26bb" xml:space="preserve">
+          <source>For example, the following A record forwards all traffic from <bpt id="c7af2490-5cf7-4138-bd15-cac9c4cda663">&lt;strong&gt;</bpt>contoso.com<ept id="c7af2490-5cf7-4138-bd15-cac9c4cda663">&lt;/strong&gt;</ept> to <bpt id="092ae6e3-d7e3-43c5-9224-04e76925d5bb">&lt;strong&gt;</bpt>137.135.70.239<ept id="092ae6e3-d7e3-43c5-9224-04e76925d5bb">&lt;/strong&gt;</ept>, the IP address of your deployed application:</source>
+          <target state="new">For example, the following A record forwards all traffic from <bpt id="c7af2490-5cf7-4138-bd15-cac9c4cda663">&lt;strong&gt;</bpt>contoso.com<ept id="c7af2490-5cf7-4138-bd15-cac9c4cda663">&lt;/strong&gt;</ept> to <bpt id="092ae6e3-d7e3-43c5-9224-04e76925d5bb">&lt;strong&gt;</bpt>137.135.70.239<ept id="092ae6e3-d7e3-43c5-9224-04e76925d5bb">&lt;/strong&gt;</ept>, the IP address of your deployed application:</target>
+        </trans-unit>
+        <trans-unit id="bf60bf85-e86d-489b-990f-17d396b78647" xml:space="preserve">
+          <source>Host name/Subdomain</source>
+          <target state="new">Host name/Subdomain</target>
+        </trans-unit>
+        <trans-unit id="c3d0c5d8-3cfc-4fd5-afbb-a6c4da794443" xml:space="preserve">
+          <source>IP address</source>
+          <target state="new">IP address</target>
+        </trans-unit>
+        <trans-unit id="d5b20492-ae73-4b4b-884d-7b6a468570ee" xml:space="preserve">
+          <source>@</source>
+          <target state="new">@</target>
+        </trans-unit>
+        <trans-unit id="6cf238d8-2901-41be-a604-774e100f05f0" xml:space="preserve">
+          <source>137.135.70.239</source>
+          <target state="new">137.135.70.239</target>
+        </trans-unit>
+        <trans-unit id="50e94092-28fd-4418-9c39-761079a6a099" xml:space="preserve">
+          <source>This example demonstrates creating an A record for the root domain.</source>
+          <target state="new">This example demonstrates creating an A record for the root domain.</target>
+        </trans-unit>
+        <trans-unit id="b1be2457-ddff-4bd2-8d52-b58765267ad9" xml:space="preserve">
+          <source>If you wish to create a wildcard entry to cover all subdomains, you would enter '<bpt id="52ffe163-0fba-4df2-8bd2-2c45c0bed046">&lt;strong&gt;</bpt>*<ept id="52ffe163-0fba-4df2-8bd2-2c45c0bed046">&lt;/strong&gt;</ept>' as the subdomain.</source>
+          <target state="new">If you wish to create a wildcard entry to cover all subdomains, you would enter '<bpt id="52ffe163-0fba-4df2-8bd2-2c45c0bed046">&lt;strong&gt;</bpt>*<ept id="52ffe163-0fba-4df2-8bd2-2c45c0bed046">&lt;/strong&gt;</ept>' as the subdomain.</target>
+        </trans-unit>
+        <trans-unit id="a42f86b8-4fdf-4e72-b5a3-b7522d120e54" xml:space="preserve">
+          <source>IP addresses in Azure are dynamic by default.</source>
+          <target state="new">IP addresses in Azure are dynamic by default.</target>
+        </trans-unit>
+        <trans-unit id="ff98cc36-4a6d-4ebb-874f-d843e2a7f94d" xml:space="preserve">
+          <source>You will probably want to use a <bpt id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;linkText&gt;</bpt>reserved IP address<ept id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;/linkText&gt;</ept><bpt id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;title&gt;</bpt><ept id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;/title&gt;</ept> to ensure that your IP address does not change.</source>
+          <target state="new">You will probably want to use a <bpt id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;linkText&gt;</bpt>reserved IP address<ept id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;/linkText&gt;</ept><bpt id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;title&gt;</bpt><ept id="fca3d88b-e855-450d-8b7c-a348adc267d6">&lt;/title&gt;</ept> to ensure that your IP address does not change.</target>
+        </trans-unit>
+        <trans-unit id="c0d3e942-0f36-4a2a-ad5c-7b3362849598" xml:space="preserve">
+          <source><bpt id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;linkText&gt;</bpt>How to Manage Cloud Services<ept id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;/linkText&gt;</ept><bpt id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;title&gt;</bpt><ept id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;linkText&gt;</bpt>How to Manage Cloud Services<ept id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;/linkText&gt;</ept><bpt id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;title&gt;</bpt><ept id="6166d843-7178-4192-bcce-20ea8da4183f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05196d0b-7dd3-4ff7-b3c5-bbd2287ceb11" xml:space="preserve">
+          <source><bpt id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;linkText&gt;</bpt>How to Map CDN Content to a Custom Domain<ept id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;/linkText&gt;</ept><bpt id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;title&gt;</bpt><ept id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;linkText&gt;</bpt>How to Map CDN Content to a Custom Domain<ept id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;/linkText&gt;</ept><bpt id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;title&gt;</bpt><ept id="c9c13ba5-46da-4323-8022-94d674e5f65d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0e27a1f-ca64-4cfb-a6b3-f4f81ad3ddaf" xml:space="preserve">
+          <source>#access-app</source>
+          <target state="new">#access-app</target>
+        </trans-unit>
+        <trans-unit id="abb38866-6ab7-4e72-8595-6fc209b8d576" xml:space="preserve">
+          <source>#add-cname</source>
+          <target state="new">#add-cname</target>
+        </trans-unit>
+        <trans-unit id="4f820da3-3be5-42ff-b76c-73bccad1f9cc" xml:space="preserve">
+          <source>#access-data</source>
+          <target state="new">#access-data</target>
+        </trans-unit>
+        <trans-unit id="03627710-a789-43f4-873a-a36a25aac855" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/ee517253.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/ee517253.aspx</target>
+        </trans-unit>
+        <trans-unit id="bd07e266-7f3c-4510-b8ab-e440c3571cc1" xml:space="preserve">
+          <source>#create-cname</source>
+          <target state="new">#create-cname</target>
+        </trans-unit>
+        <trans-unit id="67d721b8-38d6-402e-b780-94f9bd8aa03d" xml:space="preserve">
+          <source>https://manage.windowsazure.com</source>
+          <target state="new">https://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="f7ef16df-239f-48f1-bab9-6ab711a3f0b8" xml:space="preserve">
+          <source>http://i.msdn.microsoft.com/dynimg/IC544437.jpg</source>
+          <target state="new">http://i.msdn.microsoft.com/dynimg/IC544437.jpg</target>
+        </trans-unit>
+        <trans-unit id="b8e867c1-15f4-458a-a4e3-abd43aa4abf7" xml:space="preserve">
+          <source>./media/cloud-services-custom-domain-name/csvip.png</source>
+          <target state="new">./media/cloud-services-custom-domain-name/csvip.png</target>
+        </trans-unit>
+        <trans-unit id="4f1ecf8e-e127-4380-9d55-810b51f4354f" xml:space="preserve">
+          <source>./media/cloud-services-custom-domain-name/csurl.png</source>
+          <target state="new">./media/cloud-services-custom-domain-name/csurl.png</target>
+        </trans-unit>
+      </group>
+      <group id="6bdc68fa-ecfc-4aa2-9983-62b0cac546a6" />
+    </body>
+  </file>
+</xliff>

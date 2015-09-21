@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ba92a4c8-a21d-43e7-bc22-b6b59c170a53" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ba92a4c8-a21d-43e7-bc22-b6b59c170a53" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cc8035bd-3d65-42ca-b083-5ccc75183d12">
+        <trans-unit id="2f809c03-49fe-4348-9f1c-265c960012a8" xml:space="preserve">
+          <source>Create an Umbraco web app from the Marketplace in Microsoft Azure</source>
+          <target state="new">Create an Umbraco web app from the Marketplace in Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="60f419c3-1c54-4d4e-b2b5-eb18ff922510" xml:space="preserve">
+          <source>Create an Umbraco content management system and deploy to Azure App Service Web Apps.</source>
+          <target state="new">Create an Umbraco content management system and deploy to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="03930f64-f426-4588-a134-226c09ea51ca" xml:space="preserve">
+          <source>Umbraco CMS is a fully-featured open source content management system that can be used to create a variety of applications from small to complex.</source>
+          <target state="new">Umbraco CMS is a fully-featured open source content management system that can be used to create a variety of applications from small to complex.</target>
+        </trans-unit>
+        <trans-unit id="e82f3cc9-4c07-4b07-a626-76de2fed1fc0" xml:space="preserve">
+          <source>The Azure Marketplace provides a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives.</source>
+          <target state="new">The Azure Marketplace provides a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives.</target>
+        </trans-unit>
+        <trans-unit id="b5e1e481-741b-4eb2-bfac-2d5c84e8642a" xml:space="preserve">
+          <source>The gallery allows you to create an Umbraco CMS app in just a few minutes by either applying the starter kits or by integrating your own design.</source>
+          <target state="new">The gallery allows you to create an Umbraco CMS app in just a few minutes by either applying the starter kits or by integrating your own design.</target>
+        </trans-unit>
+        <trans-unit id="03daf971-eba6-4d86-b75d-3413c3a250a4" xml:space="preserve">
+          <source>This article showcases the Azure preview portal, which greatly simplifies resource management.</source>
+          <target state="new">This article showcases the Azure preview portal, which greatly simplifies resource management.</target>
+        </trans-unit>
+        <trans-unit id="bda9652d-5568-41b5-9196-4ef780c28c7d" xml:space="preserve">
+          <source>The Azure preview portal is designed to speed your software delivery process by placing cross-platform tools, technologies, and services from Microsoft and its partners in a single workspace.</source>
+          <target state="new">The Azure preview portal is designed to speed your software delivery process by placing cross-platform tools, technologies, and services from Microsoft and its partners in a single workspace.</target>
+        </trans-unit>
+        <trans-unit id="b9ff4d9f-8973-4d5f-a03a-71d18ee656fb" xml:space="preserve">
+          <source>Instead of using standalone resources like <bpt id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;linkText&gt;</bpt>Azure App Service<ept id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;/linkText&gt;</ept><bpt id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;title&gt;</bpt><ept id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;/title&gt;</ept> Web Apps, Visual Studio Projects, or databases, you can create, manage, and analyze your entire application as a single resource group.</source>
+          <target state="new">Instead of using standalone resources like <bpt id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;linkText&gt;</bpt>Azure App Service<ept id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;/linkText&gt;</ept><bpt id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;title&gt;</bpt><ept id="b1f4abfb-0fb8-406f-ab71-5eebd3431b40">&lt;/title&gt;</ept> Web Apps, Visual Studio Projects, or databases, you can create, manage, and analyze your entire application as a single resource group.</target>
+        </trans-unit>
+        <trans-unit id="45cd8396-19c1-4a43-bf30-ee63ea7d3eef" xml:space="preserve">
+          <source>In this tutorial, you'll learn:</source>
+          <target state="new">In this tutorial, you'll learn:</target>
+        </trans-unit>
+        <trans-unit id="5238d5a5-27c3-435f-960f-dc803542ce70" xml:space="preserve">
+          <source>How to create a new web app through the Markeplace using the Azure preview portal</source>
+          <target state="new">How to create a new web app through the Markeplace using the Azure preview portal</target>
+        </trans-unit>
+        <trans-unit id="1660dc9f-ddd0-43a7-adb2-fef45a62080c" xml:space="preserve">
+          <source>How to build a blog website by using Umbraco CMS </source>
+          <target state="new">How to build a blog website by using Umbraco CMS </target>
+        </trans-unit>
+        <trans-unit id="5b0e7e53-5d91-43ae-ba4f-ddfe96de5a6a" xml:space="preserve">
+          <source>Login to the <bpt id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;linkText&gt;</bpt>Azure preview portal<ept id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;/linkText&gt;</ept><bpt id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;title&gt;</bpt><ept id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;linkText&gt;</bpt>Azure preview portal<ept id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;/linkText&gt;</ept><bpt id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;title&gt;</bpt><ept id="a4654229-4331-431d-bd7c-5021847a8fca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5626c338-c537-440b-8f67-63de9b98d804" xml:space="preserve">
+          <source>Choose the <bpt id="cc4b6c90-5ecc-44fb-8206-d0e26eff82d3">&lt;strong&gt;</bpt>Marketplace<ept id="cc4b6c90-5ecc-44fb-8206-d0e26eff82d3">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">Choose the <bpt id="cc4b6c90-5ecc-44fb-8206-d0e26eff82d3">&lt;strong&gt;</bpt>Marketplace<ept id="cc4b6c90-5ecc-44fb-8206-d0e26eff82d3">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="1b16ed2f-7505-44ad-a54b-5a86ab80ce9a" xml:space="preserve">
+          <source>In the <bpt id="b7c1bc1f-1bb1-4183-a771-ef44a0aa49b8">&lt;strong&gt;</bpt>Marketplace<ept id="b7c1bc1f-1bb1-4183-a771-ef44a0aa49b8">&lt;/strong&gt;</ept> , select the <bpt id="15401a35-1a2d-4bce-b1d1-0901f76389b6">&lt;strong&gt;</bpt>Web + Mobile<ept id="15401a35-1a2d-4bce-b1d1-0901f76389b6">&lt;/strong&gt;</ept> tab, and then select <bpt id="6383bdea-2dad-4b07-a932-b7b877ca1f47">&lt;strong&gt;</bpt>Umbraco CMS<ept id="6383bdea-2dad-4b07-a932-b7b877ca1f47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b7c1bc1f-1bb1-4183-a771-ef44a0aa49b8">&lt;strong&gt;</bpt>Marketplace<ept id="b7c1bc1f-1bb1-4183-a771-ef44a0aa49b8">&lt;/strong&gt;</ept> , select the <bpt id="15401a35-1a2d-4bce-b1d1-0901f76389b6">&lt;strong&gt;</bpt>Web + Mobile<ept id="15401a35-1a2d-4bce-b1d1-0901f76389b6">&lt;/strong&gt;</ept> tab, and then select <bpt id="6383bdea-2dad-4b07-a932-b7b877ca1f47">&lt;strong&gt;</bpt>Umbraco CMS<ept id="6383bdea-2dad-4b07-a932-b7b877ca1f47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c894d7e-d896-4b05-b4ae-bdfb991a69ef" xml:space="preserve">
+          <source>To create a new Umbraco CMS web app, click <bpt id="6a902da8-7e21-4b7d-955f-513f6f6737cc">&lt;strong&gt;</bpt>Create<ept id="6a902da8-7e21-4b7d-955f-513f6f6737cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a new Umbraco CMS web app, click <bpt id="6a902da8-7e21-4b7d-955f-513f6f6737cc">&lt;strong&gt;</bpt>Create<ept id="6a902da8-7e21-4b7d-955f-513f6f6737cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e3dacfe-bc2a-40d0-9bf1-b85c69911981" xml:space="preserve">
+          <source>The next step is to configure all the resources associated with Umbraco CMS.</source>
+          <target state="new">The next step is to configure all the resources associated with Umbraco CMS.</target>
+        </trans-unit>
+        <trans-unit id="68f484c7-dec9-48e9-9eef-dbdba84b79ac" xml:space="preserve">
+          <source>In this case, the resources are a web app and a SQL Server database.</source>
+          <target state="new">In this case, the resources are a web app and a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="af8157b9-6c27-4be8-b8de-85898d64985d" xml:space="preserve">
+          <source>First, select <bpt id="78dd54eb-8db2-47c6-b879-bb7c42626baa">&lt;strong&gt;</bpt>Web app<ept id="78dd54eb-8db2-47c6-b879-bb7c42626baa">&lt;/strong&gt;</ept> to configure the web app settings such as the <bpt id="abea94ee-8ddb-4b79-8877-11f02520f13f">&lt;strong&gt;</bpt>URL<ept id="abea94ee-8ddb-4b79-8877-11f02520f13f">&lt;/strong&gt;</ept>, <bpt id="e77264d0-7228-45c3-bdb0-59877d0ff4fb">&lt;strong&gt;</bpt>App Service Plan<ept id="e77264d0-7228-45c3-bdb0-59877d0ff4fb">&lt;/strong&gt;</ept>, <bpt id="389a8666-fee2-43ef-b088-49c9035c4349">&lt;strong&gt;</bpt>Web App Settings<ept id="389a8666-fee2-43ef-b088-49c9035c4349">&lt;/strong&gt;</ept>, and <bpt id="11ac1112-55c0-47be-ac3c-9fdf192fc5fb">&lt;strong&gt;</bpt>Location<ept id="11ac1112-55c0-47be-ac3c-9fdf192fc5fb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">First, select <bpt id="78dd54eb-8db2-47c6-b879-bb7c42626baa">&lt;strong&gt;</bpt>Web app<ept id="78dd54eb-8db2-47c6-b879-bb7c42626baa">&lt;/strong&gt;</ept> to configure the web app settings such as the <bpt id="abea94ee-8ddb-4b79-8877-11f02520f13f">&lt;strong&gt;</bpt>URL<ept id="abea94ee-8ddb-4b79-8877-11f02520f13f">&lt;/strong&gt;</ept>, <bpt id="e77264d0-7228-45c3-bdb0-59877d0ff4fb">&lt;strong&gt;</bpt>App Service Plan<ept id="e77264d0-7228-45c3-bdb0-59877d0ff4fb">&lt;/strong&gt;</ept>, <bpt id="389a8666-fee2-43ef-b088-49c9035c4349">&lt;strong&gt;</bpt>Web App Settings<ept id="389a8666-fee2-43ef-b088-49c9035c4349">&lt;/strong&gt;</ept>, and <bpt id="11ac1112-55c0-47be-ac3c-9fdf192fc5fb">&lt;strong&gt;</bpt>Location<ept id="11ac1112-55c0-47be-ac3c-9fdf192fc5fb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da30c3b8-6d32-49c4-83bd-4cb63f5d4fe8" xml:space="preserve">
+          <source><bpt id="76697a7e-9e22-4b78-ba0a-cbb9fa4136b9">&lt;linkText&gt;</bpt>Configure resources<ept id="76697a7e-9e22-4b78-ba0a-cbb9fa4136b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="76697a7e-9e22-4b78-ba0a-cbb9fa4136b9">&lt;linkText&gt;</bpt>Configure resources<ept id="76697a7e-9e22-4b78-ba0a-cbb9fa4136b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d6f0148-323a-4eed-87e7-d7dc3f004c9d" xml:space="preserve">
+          <source>Now configure the database.</source>
+          <target state="new">Now configure the database.</target>
+        </trans-unit>
+        <trans-unit id="df4e4215-cca9-4d3c-80fe-30a683b45de2" xml:space="preserve">
+          <source>Select <bpt id="8ff5a9ae-bc5c-405c-b703-eff41c0e36f0">&lt;strong&gt;</bpt>Database<ept id="8ff5a9ae-bc5c-405c-b703-eff41c0e36f0">&lt;/strong&gt;</ept>, and then choose <bpt id="791d7c0c-a51e-4294-9cc7-3cf2c440e0a3">&lt;strong&gt;</bpt>Server<ept id="791d7c0c-a51e-4294-9cc7-3cf2c440e0a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="8ff5a9ae-bc5c-405c-b703-eff41c0e36f0">&lt;strong&gt;</bpt>Database<ept id="8ff5a9ae-bc5c-405c-b703-eff41c0e36f0">&lt;/strong&gt;</ept>, and then choose <bpt id="791d7c0c-a51e-4294-9cc7-3cf2c440e0a3">&lt;strong&gt;</bpt>Server<ept id="791d7c0c-a51e-4294-9cc7-3cf2c440e0a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34acaf7e-4b7c-4134-b331-fed5ca15d10e" xml:space="preserve">
+          <source>This example creates a SQL Server for the database on Azure.</source>
+          <target state="new">This example creates a SQL Server for the database on Azure.</target>
+        </trans-unit>
+        <trans-unit id="7a9b84b8-4539-4591-8e19-d4cada473a9d" xml:space="preserve">
+          <source><bpt id="0a1c91cb-dfc2-4786-a492-816b729e0bd1">&lt;linkText&gt;</bpt>Create a SQL Server on Azure<ept id="0a1c91cb-dfc2-4786-a492-816b729e0bd1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a1c91cb-dfc2-4786-a492-816b729e0bd1">&lt;linkText&gt;</bpt>Create a SQL Server on Azure<ept id="0a1c91cb-dfc2-4786-a492-816b729e0bd1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cf9ff4d-997a-4f25-8ccb-f711dac8bc45" xml:space="preserve">
+          <source>Now that the web app and the database are configured, you can start deploying the application by clicking <bpt id="b70120a2-d263-464c-a925-85baea69d7a3">&lt;strong&gt;</bpt>Create<ept id="b70120a2-d263-464c-a925-85baea69d7a3">&lt;/strong&gt;</ept> on the bottom of the first <bpt id="aaa7190f-9013-441a-b3c6-98538ae2c2ff">&lt;strong&gt;</bpt>Umbraco CMS<ept id="aaa7190f-9013-441a-b3c6-98538ae2c2ff">&lt;/strong&gt;</ept> blade seen in the previous image.</source>
+          <target state="new">Now that the web app and the database are configured, you can start deploying the application by clicking <bpt id="b70120a2-d263-464c-a925-85baea69d7a3">&lt;strong&gt;</bpt>Create<ept id="b70120a2-d263-464c-a925-85baea69d7a3">&lt;/strong&gt;</ept> on the bottom of the first <bpt id="aaa7190f-9013-441a-b3c6-98538ae2c2ff">&lt;strong&gt;</bpt>Umbraco CMS<ept id="aaa7190f-9013-441a-b3c6-98538ae2c2ff">&lt;/strong&gt;</ept> blade seen in the previous image.</target>
+        </trans-unit>
+        <trans-unit id="7bacfcaa-edae-471c-92d2-05e6f3af5b98" xml:space="preserve">
+          <source><bpt id="53d41ea3-61d6-4438-b9ec-9a4fe324eb01">&lt;linkText&gt;</bpt>Click Create<ept id="53d41ea3-61d6-4438-b9ec-9a4fe324eb01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53d41ea3-61d6-4438-b9ec-9a4fe324eb01">&lt;linkText&gt;</bpt>Click Create<ept id="53d41ea3-61d6-4438-b9ec-9a4fe324eb01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cbc87a0-7cc2-407f-8689-0a2397a3d55c" xml:space="preserve">
+          <source>After the deployment is completed, the portal will display the blade for your Umbraco CMS web app's resource group.</source>
+          <target state="new">After the deployment is completed, the portal will display the blade for your Umbraco CMS web app's resource group.</target>
+        </trans-unit>
+        <trans-unit id="e4a0188b-4ca6-474b-ac66-c81a05b916e8" xml:space="preserve">
+          <source>In the <bpt id="66d43dbf-ef37-4fbd-9e5e-28783ac41735">&lt;strong&gt;</bpt>Summary<ept id="66d43dbf-ef37-4fbd-9e5e-28783ac41735">&lt;/strong&gt;</ept> section, click the web app name to see the properties of your web app.</source>
+          <target state="new">In the <bpt id="66d43dbf-ef37-4fbd-9e5e-28783ac41735">&lt;strong&gt;</bpt>Summary<ept id="66d43dbf-ef37-4fbd-9e5e-28783ac41735">&lt;/strong&gt;</ept> section, click the web app name to see the properties of your web app.</target>
+        </trans-unit>
+        <trans-unit id="a6e8ee0c-a9bf-4841-9f6c-efc48b82f682" xml:space="preserve">
+          <source>Also in the <bpt id="23267152-2e89-4da1-a38b-ee231ac2367c">&lt;strong&gt;</bpt>Summary<ept id="23267152-2e89-4da1-a38b-ee231ac2367c">&lt;/strong&gt;</ept> section, you can select the database resource to see the properties of the associated database.</source>
+          <target state="new">Also in the <bpt id="23267152-2e89-4da1-a38b-ee231ac2367c">&lt;strong&gt;</bpt>Summary<ept id="23267152-2e89-4da1-a38b-ee231ac2367c">&lt;/strong&gt;</ept> section, you can select the database resource to see the properties of the associated database.</target>
+        </trans-unit>
+        <trans-unit id="e8cae9e2-5158-40a2-aaf0-7c7d1c7b1a87" xml:space="preserve">
+          <source>On the details blade for your web app, click <bpt id="2fd3a0e0-b81d-4db6-b6a6-60c9e1e2faf1">&lt;strong&gt;</bpt>Browse<ept id="2fd3a0e0-b81d-4db6-b6a6-60c9e1e2faf1">&lt;/strong&gt;</ept> to browse your web app.</source>
+          <target state="new">On the details blade for your web app, click <bpt id="2fd3a0e0-b81d-4db6-b6a6-60c9e1e2faf1">&lt;strong&gt;</bpt>Browse<ept id="2fd3a0e0-b81d-4db6-b6a6-60c9e1e2faf1">&lt;/strong&gt;</ept> to browse your web app.</target>
+        </trans-unit>
+        <trans-unit id="0908e39e-f848-4a99-a510-a2943916dc29" xml:space="preserve">
+          <source><bpt id="b2e31c2b-4520-4bdb-ab47-069929de4af1">&lt;linkText&gt;</bpt>Browse to your site<ept id="b2e31c2b-4520-4bdb-ab47-069929de4af1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2e31c2b-4520-4bdb-ab47-069929de4af1">&lt;linkText&gt;</bpt>Browse to your site<ept id="b2e31c2b-4520-4bdb-ab47-069929de4af1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8650de8b-8da4-410d-b820-ad8c640293dc" xml:space="preserve">
+          <source>When you browse the web app, Umbraco CMS initiates its installer wizard.</source>
+          <target state="new">When you browse the web app, Umbraco CMS initiates its installer wizard.</target>
+        </trans-unit>
+        <trans-unit id="cc78ac4d-6e03-43ed-bc22-bf6d6940e9f8" xml:space="preserve">
+          <source>Enter the information requested, and then click <bpt id="918fcdd0-5717-42f5-a999-545851b7c3b7">&lt;strong&gt;</bpt>Customize<ept id="918fcdd0-5717-42f5-a999-545851b7c3b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the information requested, and then click <bpt id="918fcdd0-5717-42f5-a999-545851b7c3b7">&lt;strong&gt;</bpt>Customize<ept id="918fcdd0-5717-42f5-a999-545851b7c3b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e1ffbf3-8436-4fba-8df0-3207321eceeb" xml:space="preserve">
+          <source><bpt id="4ff7f4b0-ee3c-4c1a-a8e3-b77105b29657">&lt;linkText&gt;</bpt>Install Umbraco wizard<ept id="4ff7f4b0-ee3c-4c1a-a8e3-b77105b29657">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ff7f4b0-ee3c-4c1a-a8e3-b77105b29657">&lt;linkText&gt;</bpt>Install Umbraco wizard<ept id="4ff7f4b0-ee3c-4c1a-a8e3-b77105b29657">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79de24e1-4bec-4a3d-968f-ceda9ae0e6f7" xml:space="preserve">
+          <source>Enter your connection and authentication details for the database that Umbraco will use.</source>
+          <target state="new">Enter your connection and authentication details for the database that Umbraco will use.</target>
+        </trans-unit>
+        <trans-unit id="de559a8c-1cb4-41f3-89f4-67ac377f0f10" xml:space="preserve">
+          <source>Select <bpt id="c2c64e1b-d5e6-4e86-a4b9-52e14ca05797">&lt;strong&gt;</bpt>Microsoft SQL Azure<ept id="c2c64e1b-d5e6-4e86-a4b9-52e14ca05797">&lt;/strong&gt;</ept> for the database type.</source>
+          <target state="new">Select <bpt id="c2c64e1b-d5e6-4e86-a4b9-52e14ca05797">&lt;strong&gt;</bpt>Microsoft SQL Azure<ept id="c2c64e1b-d5e6-4e86-a4b9-52e14ca05797">&lt;/strong&gt;</ept> for the database type.</target>
+        </trans-unit>
+        <trans-unit id="cd81ecfb-5274-45dd-9219-7a38464956ab" xml:space="preserve">
+          <source>You can obtain the connection string for your database from the <bpt id="83dcb5b7-32f3-4ddc-afab-4f39cd648cc2">&lt;strong&gt;</bpt>Site Settings<ept id="83dcb5b7-32f3-4ddc-afab-4f39cd648cc2">&lt;/strong&gt;</ept> section of your web app.</source>
+          <target state="new">You can obtain the connection string for your database from the <bpt id="83dcb5b7-32f3-4ddc-afab-4f39cd648cc2">&lt;strong&gt;</bpt>Site Settings<ept id="83dcb5b7-32f3-4ddc-afab-4f39cd648cc2">&lt;/strong&gt;</ept> section of your web app.</target>
+        </trans-unit>
+        <trans-unit id="71a2fa47-1e89-46f1-90d1-287b6f962efd" xml:space="preserve">
+          <source><bpt id="ad48c92b-7380-4676-a245-c34de296b385">&lt;linkText&gt;</bpt>Configure your database<ept id="ad48c92b-7380-4676-a245-c34de296b385">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="ad48c92b-7380-4676-a245-c34de296b385">&lt;linkText&gt;</bpt>Configure your database<ept id="ad48c92b-7380-4676-a245-c34de296b385">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="de66622b-1534-483b-85ad-62397aaaf53c" xml:space="preserve">
+          <source>If you are new to Umbraco CMS, you can select a starter website kit.</source>
+          <target state="new">If you are new to Umbraco CMS, you can select a starter website kit.</target>
+        </trans-unit>
+        <trans-unit id="4a3e4ee5-7ede-41e4-ae85-6f8ceec76955" xml:space="preserve">
+          <source>Otherwise, click <bpt id="dfa663a2-7208-4b8c-8952-444f1c77d41b">&lt;strong&gt;</bpt>No thanks, I do not want to install a starter website<ept id="dfa663a2-7208-4b8c-8952-444f1c77d41b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Otherwise, click <bpt id="dfa663a2-7208-4b8c-8952-444f1c77d41b">&lt;strong&gt;</bpt>No thanks, I do not want to install a starter website<ept id="dfa663a2-7208-4b8c-8952-444f1c77d41b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a025d22-bc88-44e7-a154-ee5e5e03ae09" xml:space="preserve">
+          <source><bpt id="43d8bbe1-c6e8-4c58-aff1-6f6a30ac35d0">&lt;linkText&gt;</bpt>Install a starter website<ept id="43d8bbe1-c6e8-4c58-aff1-6f6a30ac35d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43d8bbe1-c6e8-4c58-aff1-6f6a30ac35d0">&lt;linkText&gt;</bpt>Install a starter website<ept id="43d8bbe1-c6e8-4c58-aff1-6f6a30ac35d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f4e8d37-2052-462d-8e69-95b29efd1be6" xml:space="preserve">
+          <source>The Umbraco installer will complete the setup for your application.</source>
+          <target state="new">The Umbraco installer will complete the setup for your application.</target>
+        </trans-unit>
+        <trans-unit id="471587a5-833d-4823-937e-893614b94841" xml:space="preserve">
+          <source>After your application has been configured, you will be redirected to the Umbraco CMS administrative dashboard.</source>
+          <target state="new">After your application has been configured, you will be redirected to the Umbraco CMS administrative dashboard.</target>
+        </trans-unit>
+        <trans-unit id="4b8b1a0b-f77f-4c0c-a44f-f9530d74bca8" xml:space="preserve">
+          <source><bpt id="2759901c-2c8b-47c6-a01e-6e5b4bf12e81">&lt;linkText&gt;</bpt>Umbraco CMS dashboard<ept id="2759901c-2c8b-47c6-a01e-6e5b4bf12e81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2759901c-2c8b-47c6-a01e-6e5b4bf12e81">&lt;linkText&gt;</bpt>Umbraco CMS dashboard<ept id="2759901c-2c8b-47c6-a01e-6e5b4bf12e81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba5bc81f-5d42-4d45-b19b-53a234d4c096" xml:space="preserve">
+          <source>You will now create a sample text page that you will publish.</source>
+          <target state="new">You will now create a sample text page that you will publish.</target>
+        </trans-unit>
+        <trans-unit id="ba941eb4-06ad-4128-af66-9616223a8565" xml:space="preserve">
+          <source>Select <bpt id="f5239f73-5ced-4f54-a650-998fc7fdf303">&lt;strong&gt;</bpt>Content<ept id="f5239f73-5ced-4f54-a650-998fc7fdf303">&lt;/strong&gt;</ept>, select <bpt id="23b843a5-8045-4dad-964e-7630b2a87f91">&lt;strong&gt;</bpt>Overflow<ept id="23b843a5-8045-4dad-964e-7630b2a87f91">&lt;/strong&gt;</ept>, and then select <bpt id="dcb2beae-3e3b-472d-997e-0357187a3a8e">&lt;strong&gt;</bpt>TextPage<ept id="dcb2beae-3e3b-472d-997e-0357187a3a8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="f5239f73-5ced-4f54-a650-998fc7fdf303">&lt;strong&gt;</bpt>Content<ept id="f5239f73-5ced-4f54-a650-998fc7fdf303">&lt;/strong&gt;</ept>, select <bpt id="23b843a5-8045-4dad-964e-7630b2a87f91">&lt;strong&gt;</bpt>Overflow<ept id="23b843a5-8045-4dad-964e-7630b2a87f91">&lt;/strong&gt;</ept>, and then select <bpt id="dcb2beae-3e3b-472d-997e-0357187a3a8e">&lt;strong&gt;</bpt>TextPage<ept id="dcb2beae-3e3b-472d-997e-0357187a3a8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cf89c9b-0004-4024-a0f5-d4834a9f36f6" xml:space="preserve">
+          <source><bpt id="606dab1f-ca50-4ff9-993d-1c296e723288">&lt;linkText&gt;</bpt>Create a text page<ept id="606dab1f-ca50-4ff9-993d-1c296e723288">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="606dab1f-ca50-4ff9-993d-1c296e723288">&lt;linkText&gt;</bpt>Create a text page<ept id="606dab1f-ca50-4ff9-993d-1c296e723288">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52cd332d-8f96-47ec-8bd1-802d05bea751" xml:space="preserve">
+          <source>Enter a title and some content for your text page, as shown below.</source>
+          <target state="new">Enter a title and some content for your text page, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="efc4738b-2256-4a05-9999-3c0bd5a73fa1" xml:space="preserve">
+          <source>When you finish, click <bpt id="5190a3f1-f2d6-47ef-a767-9d8986b228fd">&lt;strong&gt;</bpt>Save and publish<ept id="5190a3f1-f2d6-47ef-a767-9d8986b228fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you finish, click <bpt id="5190a3f1-f2d6-47ef-a767-9d8986b228fd">&lt;strong&gt;</bpt>Save and publish<ept id="5190a3f1-f2d6-47ef-a767-9d8986b228fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2c7a582-8192-4f33-9d11-a399cfedcc68" xml:space="preserve">
+          <source><bpt id="aba176ba-8443-4c36-bc1a-2a216d596dd9">&lt;linkText&gt;</bpt>Enter a title and some content<ept id="aba176ba-8443-4c36-bc1a-2a216d596dd9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aba176ba-8443-4c36-bc1a-2a216d596dd9">&lt;linkText&gt;</bpt>Enter a title and some content<ept id="aba176ba-8443-4c36-bc1a-2a216d596dd9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92404ab1-a3f1-4cdc-98ee-e26a090fd15b" xml:space="preserve">
+          <source>Wait while your page is published.</source>
+          <target state="new">Wait while your page is published.</target>
+        </trans-unit>
+        <trans-unit id="ddf6668f-f1ca-4df0-8052-7b30f87cf39f" xml:space="preserve">
+          <source>When publishing completes, you will receive a small alert on the bottom right of your screen.</source>
+          <target state="new">When publishing completes, you will receive a small alert on the bottom right of your screen.</target>
+        </trans-unit>
+        <trans-unit id="075a7e3e-a8e5-414e-811d-e74086043cc5" xml:space="preserve">
+          <source>You can now browse the new content on your web app.</source>
+          <target state="new">You can now browse the new content on your web app.</target>
+        </trans-unit>
+        <trans-unit id="8c521b8f-4018-46ef-a1c4-a1cf507f4811" xml:space="preserve">
+          <source><bpt id="a36a2522-d1c6-4cd3-8db7-0d616d1f378e">&lt;linkText&gt;</bpt>Published web site page<ept id="a36a2522-d1c6-4cd3-8db7-0d616d1f378e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a36a2522-d1c6-4cd3-8db7-0d616d1f378e">&lt;linkText&gt;</bpt>Published web site page<ept id="a36a2522-d1c6-4cd3-8db7-0d616d1f378e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d36c7fa-c59b-4a84-af45-e0037d27bf74" xml:space="preserve">
+          <source>That’s it!</source>
+          <target state="new">That’s it!</target>
+        </trans-unit>
+        <trans-unit id="5cdc6096-da6c-4cfa-999e-938299f1611b" xml:space="preserve">
+          <source>You've successfully created a blog web app using Umbraco CMS, in just a few minutes.</source>
+          <target state="new">You've successfully created a blog web app using Umbraco CMS, in just a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="a8b3313f-f722-4fb4-bdfc-909732ba51d4" xml:space="preserve">
+          <source><bpt id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;linkText&gt;</bpt>Umbraco Documentation<ept id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;/linkText&gt;</ept><bpt id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;title&gt;</bpt><ept id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;linkText&gt;</bpt>Umbraco Documentation<ept id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;/linkText&gt;</ept><bpt id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;title&gt;</bpt><ept id="2dd8af3d-2e9c-4ac8-a199-1671ed186194">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce30d42b-072b-401f-9716-616ef78d568c" xml:space="preserve">
+          <source><bpt id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;linkText&gt;</bpt>Umbraco Video Tutorials<ept id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;/linkText&gt;</ept><bpt id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;title&gt;</bpt><ept id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;linkText&gt;</bpt>Umbraco Video Tutorials<ept id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;/linkText&gt;</ept><bpt id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;title&gt;</bpt><ept id="a9bbe9db-0c61-4d87-8dcf-6ae63958f143">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62956050-8753-443a-bea7-0f2018f0b133" xml:space="preserve">
+          <source><bpt id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;linkText&gt;</bpt>Azure Portal Documentation<ept id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;/linkText&gt;</ept><bpt id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;title&gt;</bpt><ept id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;linkText&gt;</bpt>Azure Portal Documentation<ept id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;/linkText&gt;</ept><bpt id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;title&gt;</bpt><ept id="e441e81f-c4d1-4c8b-bb63-236bdc835670">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1070932d-3508-45a3-b9a9-ba426b1cd4f2" xml:space="preserve">
+          <source><bpt id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;linkText&gt;</bpt>Azure Portal (Channel 9)<ept id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;/linkText&gt;</ept><bpt id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;title&gt;</bpt><ept id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;linkText&gt;</bpt>Azure Portal (Channel 9)<ept id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;/linkText&gt;</ept><bpt id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;title&gt;</bpt><ept id="bf44dd23-df4b-4494-a6fe-3b8f4a4968ee">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="170a417b-9bba-490e-b5cc-02f7b09ae414" xml:space="preserve">
+          <source><bpt id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;linkText&gt;</bpt>Azure App Service Web Apps documentation<ept id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;/linkText&gt;</ept><bpt id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;title&gt;</bpt><ept id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;linkText&gt;</bpt>Azure App Service Web Apps documentation<ept id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;/linkText&gt;</ept><bpt id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;title&gt;</bpt><ept id="f98ae80f-9758-40a9-9a2d-221e6b417019">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ccee626-5564-4bcb-b2da-cbc775caae12" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;/linkText&gt;</ept><bpt id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;title&gt;</bpt><ept id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;/linkText&gt;</ept><bpt id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;title&gt;</bpt><ept id="2ca7e30d-9303-4c19-9d1f-eb5180850774">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21528681-25df-4d0c-a8b4-258a8cbcfa02" xml:space="preserve">
+          <source>For a guide to the change of the portal to the preview portal see: <bpt id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;/linkText&gt;</ept><bpt id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;title&gt;</bpt><ept id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the portal to the preview portal see: <bpt id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;/linkText&gt;</ept><bpt id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;title&gt;</bpt><ept id="a6069b6a-6757-4e51-b938-65dfdf68419c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d47ae2d-5bda-433f-93c6-ec05dd5a0e0e" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;linkText&gt;</bpt>Try App Service<ept id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;/linkText&gt;</ept><bpt id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;title&gt;</bpt><ept id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;linkText&gt;</bpt>Try App Service<ept id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;/linkText&gt;</ept><bpt id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;title&gt;</bpt><ept id="f0a3466e-2f66-40f4-a5b6-8890e329d925">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="48a36a6c-e93c-4da9-8a8c-56c64bfc6b43" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="b0295397-54f3-4d86-8db5-08a30759495d" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/01Startboard.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/01Startboard.PNG</target>
+        </trans-unit>
+        <trans-unit id="4526e3bb-2ffb-4f73-89c9-89cab761aff2" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/02WebGallery.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/02WebGallery.PNG</target>
+        </trans-unit>
+        <trans-unit id="dda701a8-ca9a-4ce8-a7e1-7367ab9bfd26" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/03UmbracoCMS.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/03UmbracoCMS.PNG</target>
+        </trans-unit>
+        <trans-unit id="11c76e42-ba23-48ad-aa7a-1a3d9299c265" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/04AppSettings.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/04AppSettings.PNG</target>
+        </trans-unit>
+        <trans-unit id="3e83fd6d-55ca-4606-895f-57203e192dd5" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/05NewServer.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/05NewServer.PNG</target>
+        </trans-unit>
+        <trans-unit id="5540e1c1-bf7e-4b26-89b8-b12d88ad5269" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG</target>
+        </trans-unit>
+        <trans-unit id="bb2d9724-0bf1-449f-93ca-6fbef2a8e10e" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG</target>
+        </trans-unit>
+        <trans-unit id="e45b308e-2d58-4bab-922b-e37d70839386" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG</target>
+        </trans-unit>
+        <trans-unit id="9a0806c4-070a-4c01-8dd2-3174d7f9faac" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/09InstallUmbraco7.png</source>
+          <target state="new">./media/web-sites-gallery-umbraco/09InstallUmbraco7.png</target>
+        </trans-unit>
+        <trans-unit id="b6fcd0e5-2f61-460c-993a-b19ec8ab7fb5" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png</source>
+          <target state="new">./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png</target>
+        </trans-unit>
+        <trans-unit id="bc3c5f65-1eeb-4d35-9184-3c0bfee7592f" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/11InstallAStarterWebsite.png</source>
+          <target state="new">./media/web-sites-gallery-umbraco/11InstallAStarterWebsite.png</target>
+        </trans-unit>
+        <trans-unit id="783a48d5-1bef-48ed-a848-3e4c08fcdf62" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/12ConfigureYourDatabase.png</source>
+          <target state="new">./media/web-sites-gallery-umbraco/12ConfigureYourDatabase.png</target>
+        </trans-unit>
+        <trans-unit id="45fe657c-e60e-4456-94dd-de0ef71b683a" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/14FriendlyCMS.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/14FriendlyCMS.PNG</target>
+        </trans-unit>
+        <trans-unit id="9979de8f-6d1c-4257-9020-ff7489b7b7fa" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG</target>
+        </trans-unit>
+        <trans-unit id="c8266ebb-b99e-4075-b29b-8dd1ba53c191" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/16EnterAName.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/16EnterAName.PNG</target>
+        </trans-unit>
+        <trans-unit id="d97130c6-b727-4c43-b435-63f4f9b5d916" xml:space="preserve">
+          <source>./media/web-sites-gallery-umbraco/17MyPage.PNG</source>
+          <target state="new">./media/web-sites-gallery-umbraco/17MyPage.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="a3d6e21e-adb9-4468-a72a-f20ab3127316" />
+    </body>
+  </file>
+</xliff>

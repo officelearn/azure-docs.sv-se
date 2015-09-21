@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2903d5ef-d87d-4f66-a9df-076133d69a96" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2903d5ef-d87d-4f66-a9df-076133d69a96" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a3adfa3f-c586-4de1-b4f7-ef4503ef02f4">
+        <trans-unit id="aea84426-a6d5-4490-8937-af97a0567d99" xml:space="preserve">
+          <source>Monitor availability and responsiveness of any web site | Microsoft Azure</source>
+          <target state="new">Monitor availability and responsiveness of any web site | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c2a4ad37-69ec-4213-83cd-22dbac9c0ade" xml:space="preserve">
+          <source>Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.</source>
+          <target state="new">Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.</target>
+        </trans-unit>
+        <trans-unit id="e8602dd9-f043-48a3-b943-863525746e00" xml:space="preserve">
+          <source><bpt id="f51de9a0-d779-444d-a5b6-d59ef536f36f">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="f51de9a0-d779-444d-a5b6-d59ef536f36f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f51de9a0-d779-444d-a5b6-d59ef536f36f">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="f51de9a0-d779-444d-a5b6-d59ef536f36f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2474f7b3-4f25-41be-ad11-25d1c8b962bd" xml:space="preserve">
+          <source>After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness.</source>
+          <target state="new">After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness.</target>
+        </trans-unit>
+        <trans-unit id="76f82584-4a47-45c6-8b81-1bb9a2a0ce85" xml:space="preserve">
+          <source>Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.</source>
+          <target state="new">Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.</target>
+        </trans-unit>
+        <trans-unit id="b1284578-4936-4dd0-9490-05faf1796a26" xml:space="preserve">
+          <source><bpt id="d4f27dae-2248-441f-b51f-4c85e14cb10a">&lt;linkText&gt;</bpt>Web test example<ept id="d4f27dae-2248-441f-b51f-4c85e14cb10a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d4f27dae-2248-441f-b51f-4c85e14cb10a">&lt;linkText&gt;</bpt>Web test example<ept id="d4f27dae-2248-441f-b51f-4c85e14cb10a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="130d08ef-31d1-4f6c-8f42-315bf99e02d2" xml:space="preserve">
+          <source>You can set up web tests for any HTTP endpoint that is accessible from the public internet.</source>
+          <target state="new">You can set up web tests for any HTTP endpoint that is accessible from the public internet.</target>
+        </trans-unit>
+        <trans-unit id="3864fdb6-1786-47d5-a419-0dd9ac459974" xml:space="preserve">
+          <source>There are two types of web test:</source>
+          <target state="new">There are two types of web test:</target>
+        </trans-unit>
+        <trans-unit id="65cec8e6-01db-4c05-b611-35365b9d6ee4" xml:space="preserve">
+          <source><bpt id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;linkText&gt;</bpt>URL ping test<ept id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;/linkText&gt;</ept><bpt id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;title&gt;</bpt><ept id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;/title&gt;</ept>: a simple test that you can create in the Azure portal.</source>
+          <target state="new"><bpt id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;linkText&gt;</bpt>URL ping test<ept id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;/linkText&gt;</ept><bpt id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;title&gt;</bpt><ept id="cd448076-e484-483d-82fb-9c9b28d5037d">&lt;/title&gt;</ept>: a simple test that you can create in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="891f2955-86f5-4243-8154-453117dc23b9" xml:space="preserve">
+          <source><bpt id="bdaba220-bace-438a-9dde-8722256b7760">&lt;linkText&gt;</bpt>Multi-step web test<ept id="bdaba220-bace-438a-9dde-8722256b7760">&lt;/linkText&gt;</ept><bpt id="bdaba220-bace-438a-9dde-8722256b7760">&lt;title&gt;</bpt><ept id="bdaba220-bace-438a-9dde-8722256b7760">&lt;/title&gt;</ept>: which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.</source>
+          <target state="new"><bpt id="bdaba220-bace-438a-9dde-8722256b7760">&lt;linkText&gt;</bpt>Multi-step web test<ept id="bdaba220-bace-438a-9dde-8722256b7760">&lt;/linkText&gt;</ept><bpt id="bdaba220-bace-438a-9dde-8722256b7760">&lt;title&gt;</bpt><ept id="bdaba220-bace-438a-9dde-8722256b7760">&lt;/title&gt;</ept>: which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.</target>
+        </trans-unit>
+        <trans-unit id="fdc6c94c-c0aa-4243-b936-3888013f33a3" xml:space="preserve">
+          <source>Skip this step if you've already <bpt id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;linkText&gt;</bpt>set up an Application Insights resource[start]<ept id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;/linkText&gt;</ept><bpt id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;title&gt;</bpt><ept id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;/title&gt;</ept> for this application, and you want to see the availability data in the same place.</source>
+          <target state="new">Skip this step if you've already <bpt id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;linkText&gt;</bpt>set up an Application Insights resource[start]<ept id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;/linkText&gt;</ept><bpt id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;title&gt;</bpt><ept id="07820acf-7f39-4510-96ed-70e4b0a03bbb">&lt;/title&gt;</ept> for this application, and you want to see the availability data in the same place.</target>
+        </trans-unit>
+        <trans-unit id="f983555f-2254-4bf6-9e59-e8f5b6b5e0f2" xml:space="preserve">
+          <source>Sign up to <bpt id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;/linkText&gt;</ept><bpt id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;title&gt;</bpt><ept id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;/title&gt;</ept>, go to the <bpt id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;linkText&gt;</bpt>Azure portal<ept id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;/linkText&gt;</ept><bpt id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;title&gt;</bpt><ept id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;/title&gt;</ept>, and create a new Application Insights resource.</source>
+          <target state="new">Sign up to <bpt id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;/linkText&gt;</ept><bpt id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;title&gt;</bpt><ept id="b074a4e1-cb55-4c45-a055-5ee1f793ff7a">&lt;/title&gt;</ept>, go to the <bpt id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;linkText&gt;</bpt>Azure portal<ept id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;/linkText&gt;</ept><bpt id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;title&gt;</bpt><ept id="8ed7b896-f7a0-4452-aa12-40b20d9fecf5">&lt;/title&gt;</ept>, and create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="399e8764-2f77-4da3-99df-adfbb82e967e" xml:space="preserve">
+          <source><bpt id="19ba2649-f125-4d53-a47e-085d7a03e62f">&lt;linkText&gt;</bpt>New &gt; Application Insights<ept id="19ba2649-f125-4d53-a47e-085d7a03e62f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19ba2649-f125-4d53-a47e-085d7a03e62f">&lt;linkText&gt;</bpt>New &gt; Application Insights<ept id="19ba2649-f125-4d53-a47e-085d7a03e62f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b17b25c6-916b-4770-8bbb-c9afcb6376e1" xml:space="preserve">
+          <source>The Overview blade for the new resource will open.</source>
+          <target state="new">The Overview blade for the new resource will open.</target>
+        </trans-unit>
+        <trans-unit id="5cf2965d-4871-4569-84ad-f8082ca72d55" xml:space="preserve">
+          <source>To find this at any time in the <bpt id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;linkText&gt;</bpt>Azure portal<ept id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;/linkText&gt;</ept><bpt id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;title&gt;</bpt><ept id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;/title&gt;</ept>, click <bpt id="e95f4df4-375d-418c-a09b-0a86bf919635">&lt;strong&gt;</bpt>Browse<ept id="e95f4df4-375d-418c-a09b-0a86bf919635">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To find this at any time in the <bpt id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;linkText&gt;</bpt>Azure portal<ept id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;/linkText&gt;</ept><bpt id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;title&gt;</bpt><ept id="d543c4e0-b98e-47fd-88b8-bdeafc279314">&lt;/title&gt;</ept>, click <bpt id="e95f4df4-375d-418c-a09b-0a86bf919635">&lt;strong&gt;</bpt>Browse<ept id="e95f4df4-375d-418c-a09b-0a86bf919635">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f912db0-0de0-4bb6-9e7f-73323c366d66" xml:space="preserve">
+          <source>In your Application Insights resource, look for the Availability tile.</source>
+          <target state="new">In your Application Insights resource, look for the Availability tile.</target>
+        </trans-unit>
+        <trans-unit id="9f2e6f96-e764-4d24-91c3-60a3e6494b4b" xml:space="preserve">
+          <source>Click it to open the Web tests blade for your application, and add a web test.</source>
+          <target state="new">Click it to open the Web tests blade for your application, and add a web test.</target>
+        </trans-unit>
+        <trans-unit id="f236465c-5586-4be4-a32d-eb63a2f3a452" xml:space="preserve">
+          <source><bpt id="ccc6cfa4-af95-4464-ae7f-184e370aad0c">&lt;linkText&gt;</bpt>Fill at least the URL of your website<ept id="ccc6cfa4-af95-4464-ae7f-184e370aad0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccc6cfa4-af95-4464-ae7f-184e370aad0c">&lt;linkText&gt;</bpt>Fill at least the URL of your website<ept id="ccc6cfa4-af95-4464-ae7f-184e370aad0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fd52e87-2b24-4a49-8ecb-c9959f7119ca" xml:space="preserve">
+          <source><bpt id="af444902-65d9-40f3-9821-0e531e558c9b">&lt;strong&gt;</bpt>The URL<ept id="af444902-65d9-40f3-9821-0e531e558c9b">&lt;/strong&gt;</ept> must be visible from the public internet.</source>
+          <target state="new"><bpt id="af444902-65d9-40f3-9821-0e531e558c9b">&lt;strong&gt;</bpt>The URL<ept id="af444902-65d9-40f3-9821-0e531e558c9b">&lt;/strong&gt;</ept> must be visible from the public internet.</target>
+        </trans-unit>
+        <trans-unit id="66cd098a-dfde-490e-8a04-734f3de48ba0" xml:space="preserve">
+          <source>It can include a query string&amp;#151;so, for example, you can exercise your database a little.</source>
+          <target state="new">It can include a query string&amp;#151;so, for example, you can exercise your database a little.</target>
+        </trans-unit>
+        <trans-unit id="a0462060-2ece-4200-bf5f-5c9808b6f080" xml:space="preserve">
+          <source>If the URL resolves to a redirect, we will follow it up to 10 redirects.</source>
+          <target state="new">If the URL resolves to a redirect, we will follow it up to 10 redirects.</target>
+        </trans-unit>
+        <trans-unit id="997df9a0-d417-43a0-becd-a28565a00c94" xml:space="preserve">
+          <source>If <bpt id="f0403d8f-81f4-4469-be4a-b5edadfbd5d2">&lt;strong&gt;</bpt>Enable retries<ept id="f0403d8f-81f4-4469-be4a-b5edadfbd5d2">&lt;/strong&gt;</ept> is selected, then when the test fails, it is retried after a short interval.</source>
+          <target state="new">If <bpt id="f0403d8f-81f4-4469-be4a-b5edadfbd5d2">&lt;strong&gt;</bpt>Enable retries<ept id="f0403d8f-81f4-4469-be4a-b5edadfbd5d2">&lt;/strong&gt;</ept> is selected, then when the test fails, it is retried after a short interval.</target>
+        </trans-unit>
+        <trans-unit id="0eac231c-0198-4aab-9166-f88e0bdf0ee2" xml:space="preserve">
+          <source>A failure is reported only if three successive attempts fail.</source>
+          <target state="new">A failure is reported only if three successive attempts fail.</target>
+        </trans-unit>
+        <trans-unit id="09eb5c84-177c-4868-b8df-c917cbc27bed" xml:space="preserve">
+          <source>Subsequent tests are then performed at the usual interval.</source>
+          <target state="new">Subsequent tests are then performed at the usual interval.</target>
+        </trans-unit>
+        <trans-unit id="d81aeae7-3dea-41ba-b57d-76c2002e9f0b" xml:space="preserve">
+          <source>Retry is temporarily suspended until the next success.</source>
+          <target state="new">Retry is temporarily suspended until the next success.</target>
+        </trans-unit>
+        <trans-unit id="c7628276-4a03-457c-b7f7-cb761e4599af" xml:space="preserve">
+          <source>This rule is applied independently at each test location.</source>
+          <target state="new">This rule is applied independently at each test location.</target>
+        </trans-unit>
+        <trans-unit id="91cfb34a-18f4-4ab4-8e9c-72b9c925e5c2" xml:space="preserve">
+          <source><bpt id="03cefeae-a3ea-44de-8ddd-a757b682e475">&lt;strong&gt;</bpt>Test locations<ept id="03cefeae-a3ea-44de-8ddd-a757b682e475">&lt;/strong&gt;</ept> are the places from where our servers send web requests to your URL.</source>
+          <target state="new"><bpt id="03cefeae-a3ea-44de-8ddd-a757b682e475">&lt;strong&gt;</bpt>Test locations<ept id="03cefeae-a3ea-44de-8ddd-a757b682e475">&lt;/strong&gt;</ept> are the places from where our servers send web requests to your URL.</target>
+        </trans-unit>
+        <trans-unit id="83c4153a-93c1-42be-a99e-54472b3c1f5a" xml:space="preserve">
+          <source>Choose more than one so that you can distinguish problems in your website from network issues.</source>
+          <target state="new">Choose more than one so that you can distinguish problems in your website from network issues.</target>
+        </trans-unit>
+        <trans-unit id="bfd1dc34-f275-4b1a-8934-80cf33063fb9" xml:space="preserve">
+          <source>You can select up to 16 locations.</source>
+          <target state="new">You can select up to 16 locations.</target>
+        </trans-unit>
+        <trans-unit id="ed786f36-91d6-4c20-92a8-69c34541c1da" xml:space="preserve">
+          <source><bpt id="67df65a8-16bc-4ab9-b552-c3dca6576f04">&lt;strong&gt;</bpt>Success criteria<ept id="67df65a8-16bc-4ab9-b552-c3dca6576f04">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="67df65a8-16bc-4ab9-b552-c3dca6576f04">&lt;strong&gt;</bpt>Success criteria<ept id="67df65a8-16bc-4ab9-b552-c3dca6576f04">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4fb2a9c3-4d17-428b-948a-46bea4f78647" xml:space="preserve">
+          <source><bpt id="c588a254-ef11-45e9-8789-f889b781e9de">&lt;strong&gt;</bpt>HTTP status code<ept id="c588a254-ef11-45e9-8789-f889b781e9de">&lt;/strong&gt;</ept>: 200 is usual.</source>
+          <target state="new"><bpt id="c588a254-ef11-45e9-8789-f889b781e9de">&lt;strong&gt;</bpt>HTTP status code<ept id="c588a254-ef11-45e9-8789-f889b781e9de">&lt;/strong&gt;</ept>: 200 is usual.</target>
+        </trans-unit>
+        <trans-unit id="f467e4ea-678e-4d57-9739-54cc0cecf55a" xml:space="preserve">
+          <source><bpt id="a5c2a7b8-9566-4421-aa9e-86d0395c76ce">&lt;strong&gt;</bpt>Content match<ept id="a5c2a7b8-9566-4421-aa9e-86d0395c76ce">&lt;/strong&gt;</ept>: a string, like "Welcome!"</source>
+          <target state="new"><bpt id="a5c2a7b8-9566-4421-aa9e-86d0395c76ce">&lt;strong&gt;</bpt>Content match<ept id="a5c2a7b8-9566-4421-aa9e-86d0395c76ce">&lt;/strong&gt;</ept>: a string, like "Welcome!"</target>
+        </trans-unit>
+        <trans-unit id="c41fd97e-95c0-46fc-9498-a3365e294806" xml:space="preserve">
+          <source>We'll test that it occurs in every response.</source>
+          <target state="new">We'll test that it occurs in every response.</target>
+        </trans-unit>
+        <trans-unit id="ca584f76-0fb2-4f9f-b883-c2bc1dae80dc" xml:space="preserve">
+          <source>It must be a plain string, without wildcards.</source>
+          <target state="new">It must be a plain string, without wildcards.</target>
+        </trans-unit>
+        <trans-unit id="eede2a3e-bf30-4d0f-be68-36ff2f61410f" xml:space="preserve">
+          <source>Don't forget that if your page content changes you might have to update it.</source>
+          <target state="new">Don't forget that if your page content changes you might have to update it.</target>
+        </trans-unit>
+        <trans-unit id="ab2fc02c-e052-45a1-9613-695bcf23308f" xml:space="preserve">
+          <source><bpt id="a6b75853-8d22-4c72-9ef7-ecfc33aad25d">&lt;strong&gt;</bpt>Alerts<ept id="a6b75853-8d22-4c72-9ef7-ecfc33aad25d">&lt;/strong&gt;</ept> are, by default, sent to you if there are repeated failures over 15 minutes.</source>
+          <target state="new"><bpt id="a6b75853-8d22-4c72-9ef7-ecfc33aad25d">&lt;strong&gt;</bpt>Alerts<ept id="a6b75853-8d22-4c72-9ef7-ecfc33aad25d">&lt;/strong&gt;</ept> are, by default, sent to you if there are repeated failures over 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="f8fe6e97-bb49-49e6-ba74-96d67e86c755" xml:space="preserve">
+          <source>But you can change it to be more or less sensitive, and you can also change the notified email addresses.</source>
+          <target state="new">But you can change it to be more or less sensitive, and you can also change the notified email addresses.</target>
+        </trans-unit>
+        <trans-unit id="7ec81014-8c6f-4b2e-bc81-c75883eb7d52" xml:space="preserve">
+          <source>Add more tests.</source>
+          <target state="new">Add more tests.</target>
+        </trans-unit>
+        <trans-unit id="7be466f9-4d0d-4fb8-bbea-56730e52be1a" xml:space="preserve">
+          <source>For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.</source>
+          <target state="new">For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.</target>
+        </trans-unit>
+        <trans-unit id="60d5fffd-3a50-4d7c-9be7-ec43d218e1f3" xml:space="preserve">
+          <source>After 1-2 minutes, click <bpt id="3479a146-2c99-45fd-a8d2-5db1a227bd05">&lt;strong&gt;</bpt>Refresh<ept id="3479a146-2c99-45fd-a8d2-5db1a227bd05">&lt;/strong&gt;</ept> on the availability/web tests blade.</source>
+          <target state="new">After 1-2 minutes, click <bpt id="3479a146-2c99-45fd-a8d2-5db1a227bd05">&lt;strong&gt;</bpt>Refresh<ept id="3479a146-2c99-45fd-a8d2-5db1a227bd05">&lt;/strong&gt;</ept> on the availability/web tests blade.</target>
+        </trans-unit>
+        <trans-unit id="7ad8c0f8-a47a-4d94-b666-7b60eb602c1c" xml:space="preserve">
+          <source>(It doesn't refresh automatically.)</source>
+          <target state="new">(It doesn't refresh automatically.)</target>
+        </trans-unit>
+        <trans-unit id="996ada1b-0833-4efb-91e4-f6cbe2452da1" xml:space="preserve">
+          <source><bpt id="6d38b9a2-209c-4de7-9b6f-8198f0e92804">&lt;linkText&gt;</bpt>Summary results on the home blade<ept id="6d38b9a2-209c-4de7-9b6f-8198f0e92804">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d38b9a2-209c-4de7-9b6f-8198f0e92804">&lt;linkText&gt;</bpt>Summary results on the home blade<ept id="6d38b9a2-209c-4de7-9b6f-8198f0e92804">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0241fdc-5d3c-4b25-975f-b209691a11c2" xml:space="preserve">
+          <source>Click any bar on the summary chart at the top for a more detailed view of that time period.</source>
+          <target state="new">Click any bar on the summary chart at the top for a more detailed view of that time period.</target>
+        </trans-unit>
+        <trans-unit id="4089956d-5a10-49f5-9a5b-085f775a21de" xml:space="preserve">
+          <source>These charts combine results for all the web tests of this application.</source>
+          <target state="new">These charts combine results for all the web tests of this application.</target>
+        </trans-unit>
+        <trans-unit id="5da13fd2-1700-4eed-b899-f2deec935ade" xml:space="preserve">
+          <source>Images, style sheets and scripts and other static components of the web page you're testing are requested as part of the test.</source>
+          <target state="new">Images, style sheets and scripts and other static components of the web page you're testing are requested as part of the test.</target>
+        </trans-unit>
+        <trans-unit id="a9036845-51ff-4433-befc-5dcb9cbea301" xml:space="preserve">
+          <source>The recorded response time is the time taken for all the components to complete loading.</source>
+          <target state="new">The recorded response time is the time taken for all the components to complete loading.</target>
+        </trans-unit>
+        <trans-unit id="010bbd68-7507-409b-b4b6-ce49df30c4e1" xml:space="preserve">
+          <source>If any component fails to load, the test is marked failed.</source>
+          <target state="new">If any component fails to load, the test is marked failed.</target>
+        </trans-unit>
+        <trans-unit id="42a9a4d9-b035-46aa-9d10-7b43a393ec58" xml:space="preserve">
+          <source>Click a red dot.</source>
+          <target state="new">Click a red dot.</target>
+        </trans-unit>
+        <trans-unit id="43dd4137-a29b-4103-8e23-a7a5891075c2" xml:space="preserve">
+          <source><bpt id="adc6506f-fc4f-4875-9fef-ca75f3cc461d">&lt;linkText&gt;</bpt>Click a red dot<ept id="adc6506f-fc4f-4875-9fef-ca75f3cc461d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="adc6506f-fc4f-4875-9fef-ca75f3cc461d">&lt;linkText&gt;</bpt>Click a red dot<ept id="adc6506f-fc4f-4875-9fef-ca75f3cc461d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33cd8ea2-c321-4054-aa03-8e9efc0a99c9" xml:space="preserve">
+          <source>Or, scroll down and click a test where you see less than 100% success.</source>
+          <target state="new">Or, scroll down and click a test where you see less than 100% success.</target>
+        </trans-unit>
+        <trans-unit id="0c867cad-826b-4dd3-809b-b161a552f04c" xml:space="preserve">
+          <source><bpt id="0514c50a-6b4a-44a9-a126-306285bbb93d">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="0514c50a-6b4a-44a9-a126-306285bbb93d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0514c50a-6b4a-44a9-a126-306285bbb93d">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="0514c50a-6b4a-44a9-a126-306285bbb93d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9a9c96b-f284-4f04-8b12-86ff7c7fec2a" xml:space="preserve">
+          <source>This shows you the results for that test.</source>
+          <target state="new">This shows you the results for that test.</target>
+        </trans-unit>
+        <trans-unit id="0232fdfd-7d52-403e-a316-4e4bb067bd5a" xml:space="preserve">
+          <source><bpt id="b9632e41-b170-4e10-ac04-f40915107e48">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="b9632e41-b170-4e10-ac04-f40915107e48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9632e41-b170-4e10-ac04-f40915107e48">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="b9632e41-b170-4e10-ac04-f40915107e48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8d28507-29f5-4ccd-9a52-55893df9b985" xml:space="preserve">
+          <source>The test is run from several locations&amp;#151;pick one where the results are less than 100%.</source>
+          <target state="new">The test is run from several locations&amp;#151;pick one where the results are less than 100%.</target>
+        </trans-unit>
+        <trans-unit id="3f7f6910-f10a-4810-835a-12bfa72f5909" xml:space="preserve">
+          <source><bpt id="c106ac19-d767-4922-80cc-6e5652e33311">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="c106ac19-d767-4922-80cc-6e5652e33311">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c106ac19-d767-4922-80cc-6e5652e33311">&lt;linkText&gt;</bpt>Click a specific webtest<ept id="c106ac19-d767-4922-80cc-6e5652e33311">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b956ae3-0fd1-4789-b5aa-2ebb7c4ed13c" xml:space="preserve">
+          <source>Scroll down to <bpt id="4ad71db2-0370-4ed4-a7ce-fca1badb5a3e">&lt;strong&gt;</bpt>Failed tests<ept id="4ad71db2-0370-4ed4-a7ce-fca1badb5a3e">&lt;/strong&gt;</ept> and pick a result.</source>
+          <target state="new">Scroll down to <bpt id="4ad71db2-0370-4ed4-a7ce-fca1badb5a3e">&lt;strong&gt;</bpt>Failed tests<ept id="4ad71db2-0370-4ed4-a7ce-fca1badb5a3e">&lt;/strong&gt;</ept> and pick a result.</target>
+        </trans-unit>
+        <trans-unit id="2a49f9bd-d075-4fea-aff5-ba1b7987c502" xml:space="preserve">
+          <source>Click the result to evaluate it in the portal and see why it failed.</source>
+          <target state="new">Click the result to evaluate it in the portal and see why it failed.</target>
+        </trans-unit>
+        <trans-unit id="f8216e0d-7f3c-4953-8035-97ff95f5f4c5" xml:space="preserve">
+          <source><bpt id="abc81156-a0b7-4820-9c01-c64a534338e6">&lt;linkText&gt;</bpt>Webtest run result<ept id="abc81156-a0b7-4820-9c01-c64a534338e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="abc81156-a0b7-4820-9c01-c64a534338e6">&lt;linkText&gt;</bpt>Webtest run result<ept id="abc81156-a0b7-4820-9c01-c64a534338e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fe3c966-5025-47bf-8e3f-26d1b726233d" xml:space="preserve">
+          <source>Alternatively, you can download the result file and inspect it in Visual Studio.</source>
+          <target state="new">Alternatively, you can download the result file and inspect it in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="863ac885-db3f-4207-8c5b-a25e5f19a4aa" xml:space="preserve">
+          <source><bpt id="6c45ebbe-f2b8-4bc5-8a2a-81d8739bfea1">&lt;em&gt;</bpt>Looks OK but reported as a failure?<ept id="6c45ebbe-f2b8-4bc5-8a2a-81d8739bfea1">&lt;/em&gt;</ept> Check all the images, scripts, style sheets and any other files loaded by the page.</source>
+          <target state="new"><bpt id="6c45ebbe-f2b8-4bc5-8a2a-81d8739bfea1">&lt;em&gt;</bpt>Looks OK but reported as a failure?<ept id="6c45ebbe-f2b8-4bc5-8a2a-81d8739bfea1">&lt;/em&gt;</ept> Check all the images, scripts, style sheets and any other files loaded by the page.</target>
+        </trans-unit>
+        <trans-unit id="6ea7eb03-b907-45cd-b979-593b16c172ea" xml:space="preserve">
+          <source>If any of them fails, the test will be reported as failed, even if the main html page loads OK.</source>
+          <target state="new">If any of them fails, the test will be reported as failed, even if the main html page loads OK.</target>
+        </trans-unit>
+        <trans-unit id="9dbcfdfc-f4e1-4b67-94e8-8603c547a6f0" xml:space="preserve">
+          <source>You can monitor a scenario that involves a sequence of URLs.</source>
+          <target state="new">You can monitor a scenario that involves a sequence of URLs.</target>
+        </trans-unit>
+        <trans-unit id="9d3f9a7b-86a3-4c73-bfd6-bb0d0bd0ea56" xml:space="preserve">
+          <source>For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.</source>
+          <target state="new">For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.</target>
+        </trans-unit>
+        <trans-unit id="515983ca-b84a-4da5-a753-e619d595e0f0" xml:space="preserve">
+          <source>To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights.</source>
+          <target state="new">To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="fc6b6ca3-5006-43b3-8f58-bebb5e46a5cc" xml:space="preserve">
+          <source>Application Insights will replay the scenario at intervals and verify the responses.</source>
+          <target state="new">Application Insights will replay the scenario at intervals and verify the responses.</target>
+        </trans-unit>
+        <trans-unit id="45f25f0f-91d9-4b92-9834-75eb389eda22" xml:space="preserve">
+          <source>Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.</source>
+          <target state="new">Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.</target>
+        </trans-unit>
+        <trans-unit id="d9b48f32-c6fe-4a7a-8e68-f96849d5f897" xml:space="preserve">
+          <source>Use Visual Studio Ultimate to record a web session.</source>
+          <target state="new">Use Visual Studio Ultimate to record a web session.</target>
+        </trans-unit>
+        <trans-unit id="70d086c4-b25e-4fb1-8363-76b13d765b4d" xml:space="preserve">
+          <source>Create a web performance test project.</source>
+          <target state="new">Create a web performance test project.</target>
+        </trans-unit>
+        <trans-unit id="fb3f279b-7aba-4ce8-9b2d-cc6222fb955b" xml:space="preserve">
+          <source><bpt id="4f143da7-971a-4d65-8768-897d79e4f13e">&lt;linkText&gt;</bpt>In Visual Studio, create a new project from the Web Performance and Load Test template.<ept id="4f143da7-971a-4d65-8768-897d79e4f13e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f143da7-971a-4d65-8768-897d79e4f13e">&lt;linkText&gt;</bpt>In Visual Studio, create a new project from the Web Performance and Load Test template.<ept id="4f143da7-971a-4d65-8768-897d79e4f13e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd3df905-bdec-4f38-b3c7-9a71c73efe3d" xml:space="preserve">
+          <source>Open the .webtest file and start recording.</source>
+          <target state="new">Open the .webtest file and start recording.</target>
+        </trans-unit>
+        <trans-unit id="fea59bae-8405-4f0c-b12e-ce96c52d8e5e" xml:space="preserve">
+          <source><bpt id="0d683260-bf3b-469f-9e0d-19483ca68199">&lt;linkText&gt;</bpt>Open the .webtest file and click Record.<ept id="0d683260-bf3b-469f-9e0d-19483ca68199">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d683260-bf3b-469f-9e0d-19483ca68199">&lt;linkText&gt;</bpt>Open the .webtest file and click Record.<ept id="0d683260-bf3b-469f-9e0d-19483ca68199">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61dd6131-360f-4c9a-84fd-78081bd8ff95" xml:space="preserve">
+          <source>Do the user actions you want to simulate in your test: open your website, add a product to the cart, and so on.</source>
+          <target state="new">Do the user actions you want to simulate in your test: open your website, add a product to the cart, and so on.</target>
+        </trans-unit>
+        <trans-unit id="ef11766c-33aa-44c7-b31d-6eda7f51d23d" xml:space="preserve">
+          <source>Then stop your test.</source>
+          <target state="new">Then stop your test.</target>
+        </trans-unit>
+        <trans-unit id="c34c563e-7f44-4727-9c80-a2a9ed9bd6fb" xml:space="preserve">
+          <source><bpt id="7792ce62-a1e4-4c98-a0d5-8ef2c36f44f4">&lt;linkText&gt;</bpt>The web test recorder runs in Internet Explorer.<ept id="7792ce62-a1e4-4c98-a0d5-8ef2c36f44f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7792ce62-a1e4-4c98-a0d5-8ef2c36f44f4">&lt;linkText&gt;</bpt>The web test recorder runs in Internet Explorer.<ept id="7792ce62-a1e4-4c98-a0d5-8ef2c36f44f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d35935da-666e-431e-8ff7-f99e79635e0b" xml:space="preserve">
+          <source>Don't make a long scenario.</source>
+          <target state="new">Don't make a long scenario.</target>
+        </trans-unit>
+        <trans-unit id="0815e785-8400-42ba-9256-1bd168217300" xml:space="preserve">
+          <source>There's a limit of 100 steps and 2 minutes.</source>
+          <target state="new">There's a limit of 100 steps and 2 minutes.</target>
+        </trans-unit>
+        <trans-unit id="d3a99f08-6a5d-41c1-a499-eb33d011393a" xml:space="preserve">
+          <source>Run the test in Visual Studio to make sure it works.</source>
+          <target state="new">Run the test in Visual Studio to make sure it works.</target>
+        </trans-unit>
+        <trans-unit id="dfefffbe-7346-4339-b06c-544342fcc05e" xml:space="preserve">
+          <source>The web test runner opens a web browser and repeats the actions you recorded.</source>
+          <target state="new">The web test runner opens a web browser and repeats the actions you recorded.</target>
+        </trans-unit>
+        <trans-unit id="13ec5e9b-ba8d-4dba-92c9-af3a73f6fa00" xml:space="preserve">
+          <source>Make sure it works as you expect.</source>
+          <target state="new">Make sure it works as you expect.</target>
+        </trans-unit>
+        <trans-unit id="426abcde-748d-46f8-90ed-e7f2e27d96d1" xml:space="preserve">
+          <source><bpt id="6d990ff0-9f0a-45c2-ba16-c646bd3c446f">&lt;linkText&gt;</bpt>In Visual Studio, open the .webtest file and click Run.<ept id="6d990ff0-9f0a-45c2-ba16-c646bd3c446f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d990ff0-9f0a-45c2-ba16-c646bd3c446f">&lt;linkText&gt;</bpt>In Visual Studio, open the .webtest file and click Run.<ept id="6d990ff0-9f0a-45c2-ba16-c646bd3c446f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07d4a40a-c3fb-4db0-828e-b1fc734e2fc5" xml:space="preserve">
+          <source>(Don't insert loops in your web test.)</source>
+          <target state="new">(Don't insert loops in your web test.)</target>
+        </trans-unit>
+        <trans-unit id="55bc78ce-4f24-49b7-9144-3412b45fb6e7" xml:space="preserve">
+          <source>In the Application Insights portal, create a new web test.</source>
+          <target state="new">In the Application Insights portal, create a new web test.</target>
+        </trans-unit>
+        <trans-unit id="0781e212-2c21-4d56-9fd7-7e3dd79bc47c" xml:space="preserve">
+          <source><bpt id="ad3169ca-971a-4429-9597-a190f8fb195a">&lt;linkText&gt;</bpt>On the web tests blade, choose Add.<ept id="ad3169ca-971a-4429-9597-a190f8fb195a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad3169ca-971a-4429-9597-a190f8fb195a">&lt;linkText&gt;</bpt>On the web tests blade, choose Add.<ept id="ad3169ca-971a-4429-9597-a190f8fb195a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f231df7e-1ebf-4434-a996-351b948b1aa8" xml:space="preserve">
+          <source>Select multi-step test, and upload the .webtest file.</source>
+          <target state="new">Select multi-step test, and upload the .webtest file.</target>
+        </trans-unit>
+        <trans-unit id="f4de3039-ce04-4561-b95f-1c3376a18b60" xml:space="preserve">
+          <source><bpt id="7f1b7ac9-47d7-45ca-9522-a78d77921a47">&lt;linkText&gt;</bpt>Select multi-step webtest.<ept id="7f1b7ac9-47d7-45ca-9522-a78d77921a47">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f1b7ac9-47d7-45ca-9522-a78d77921a47">&lt;linkText&gt;</bpt>Select multi-step webtest.<ept id="7f1b7ac9-47d7-45ca-9522-a78d77921a47">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c9a6b64-ea80-4da3-842f-f2de1cdcea67" xml:space="preserve">
+          <source>View your test results and any failures in the same way as for single-url tests.</source>
+          <target state="new">View your test results and any failures in the same way as for single-url tests.</target>
+        </trans-unit>
+        <trans-unit id="759aa85f-2dd6-4843-aad5-da4aa940c42e" xml:space="preserve">
+          <source>A common reason for failure is that the test runs too long.</source>
+          <target state="new">A common reason for failure is that the test runs too long.</target>
+        </trans-unit>
+        <trans-unit id="85ba2359-68f3-489c-9f03-6c3eef1b635a" xml:space="preserve">
+          <source>It mustn't run longer than two minutes.</source>
+          <target state="new">It mustn't run longer than two minutes.</target>
+        </trans-unit>
+        <trans-unit id="c40dd820-741e-400a-968c-85b969bccc66" xml:space="preserve">
+          <source>Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images and so forth.</source>
+          <target state="new">Don't forget that all the resources of a page must load correctly for the test to succeed, including scripts, style sheets, images and so forth.</target>
+        </trans-unit>
+        <trans-unit id="f299dd0a-3a55-438b-a788-0b7a18bcafd9" xml:space="preserve">
+          <source>Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.</source>
+          <target state="new">Note that the web test must be entirely contained in the .webtest file: you can't use coded functions in the test.</target>
+        </trans-unit>
+        <trans-unit id="eabcc981-407c-489b-a97b-c9d81fc331da" xml:space="preserve">
+          <source>Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed.</source>
+          <target state="new">Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed.</target>
+        </trans-unit>
+        <trans-unit id="525b3f4f-95c6-40e7-af2e-466d1c71d224" xml:space="preserve">
+          <source>When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.</source>
+          <target state="new">When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.</target>
+        </trans-unit>
+        <trans-unit id="c27dd44b-70c4-43ac-980e-7039048b99ca" xml:space="preserve">
+          <source><bpt id="7294d5f3-6392-4d45-b5ca-1a4721ecd24c">&lt;linkText&gt;</bpt>A web test with parameters.<ept id="7294d5f3-6392-4d45-b5ca-1a4721ecd24c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7294d5f3-6392-4d45-b5ca-1a4721ecd24c">&lt;linkText&gt;</bpt>A web test with parameters.<ept id="7294d5f3-6392-4d45-b5ca-1a4721ecd24c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a00290bc-9f64-40cb-bfe6-784b8da6e23b" xml:space="preserve">
+          <source>When you run the test, you'd like EndTime always to be the present time, and StartTime should be 15 minutes ago.</source>
+          <target state="new">When you run the test, you'd like EndTime always to be the present time, and StartTime should be 15 minutes ago.</target>
+        </trans-unit>
+        <trans-unit id="2752f8b8-9935-4781-9c08-586f136dd117" xml:space="preserve">
+          <source>Web Test Plug-ins provide the way to do this.</source>
+          <target state="new">Web Test Plug-ins provide the way to do this.</target>
+        </trans-unit>
+        <trans-unit id="20258996-b43d-4d7c-815c-911a4714b660" xml:space="preserve">
+          <source>Add a web test plug-in for each variable parameter value you want.</source>
+          <target state="new">Add a web test plug-in for each variable parameter value you want.</target>
+        </trans-unit>
+        <trans-unit id="14323f87-b45b-4a12-bc8f-c68d3fe5e4d2" xml:space="preserve">
+          <source>In the web test toolbar, choose <bpt id="efbf31de-d3a6-4022-a7ba-f5e12e00c2f3">&lt;strong&gt;</bpt>Add Web Test Plugin<ept id="efbf31de-d3a6-4022-a7ba-f5e12e00c2f3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the web test toolbar, choose <bpt id="efbf31de-d3a6-4022-a7ba-f5e12e00c2f3">&lt;strong&gt;</bpt>Add Web Test Plugin<ept id="efbf31de-d3a6-4022-a7ba-f5e12e00c2f3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb0119f7-f647-4243-9b6d-a0e625da381a" xml:space="preserve">
+          <source><bpt id="f11efbc5-6e32-4355-a386-51ac31d0ac3e">&lt;linkText&gt;</bpt>Choose Add Web Test Plugin and select a type.<ept id="f11efbc5-6e32-4355-a386-51ac31d0ac3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f11efbc5-6e32-4355-a386-51ac31d0ac3e">&lt;linkText&gt;</bpt>Choose Add Web Test Plugin and select a type.<ept id="f11efbc5-6e32-4355-a386-51ac31d0ac3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b325096f-eb04-476a-879f-1bda87c3a562" xml:space="preserve">
+          <source>In this example, we'll use two instances of the Date Time Plug-in.</source>
+          <target state="new">In this example, we'll use two instances of the Date Time Plug-in.</target>
+        </trans-unit>
+        <trans-unit id="00d13eea-7359-4859-8f61-0757c750fd68" xml:space="preserve">
+          <source>One instance is for "15 minutes ago" and another for "now".</source>
+          <target state="new">One instance is for "15 minutes ago" and another for "now".</target>
+        </trans-unit>
+        <trans-unit id="57f622a1-1fa3-4443-a808-9bb2eff1ea99" xml:space="preserve">
+          <source>Open the properties of each plug-in.</source>
+          <target state="new">Open the properties of each plug-in.</target>
+        </trans-unit>
+        <trans-unit id="2c54562d-58eb-4b87-aa53-1577a361fac7" xml:space="preserve">
+          <source>Give it a name and set it to use the current time.</source>
+          <target state="new">Give it a name and set it to use the current time.</target>
+        </trans-unit>
+        <trans-unit id="77b2c076-65a3-4de7-9981-b92ee038d1f0" xml:space="preserve">
+          <source>For one of them, set Add Minutes = -15.</source>
+          <target state="new">For one of them, set Add Minutes = -15.</target>
+        </trans-unit>
+        <trans-unit id="bb70091e-3fbb-45a2-80d4-be8734ea96fa" xml:space="preserve">
+          <source><bpt id="7bd89816-d936-41ef-bc5a-182c79115780">&lt;linkText&gt;</bpt>Set name, Use Current Time, and Add Minutes.<ept id="7bd89816-d936-41ef-bc5a-182c79115780">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7bd89816-d936-41ef-bc5a-182c79115780">&lt;linkText&gt;</bpt>Set name, Use Current Time, and Add Minutes.<ept id="7bd89816-d936-41ef-bc5a-182c79115780">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="126f41eb-1b19-4803-8b40-57e3fba143c1" xml:space="preserve">
+          <source>In the web test parameters, use {{plug-in name}} to reference a plug-in name.</source>
+          <target state="new">In the web test parameters, use {{plug-in name}} to reference a plug-in name.</target>
+        </trans-unit>
+        <trans-unit id="8fa737c9-bd9d-484b-add7-0b22ef2f8773" xml:space="preserve">
+          <source><bpt id="f014dfb6-a316-48b4-800b-7219783b0b1f">&lt;linkText&gt;</bpt>In the test parameter, use {{plug-in name}}.<ept id="f014dfb6-a316-48b4-800b-7219783b0b1f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f014dfb6-a316-48b4-800b-7219783b0b1f">&lt;linkText&gt;</bpt>In the test parameter, use {{plug-in name}}.<ept id="f014dfb6-a316-48b4-800b-7219783b0b1f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ceacbf2a-a94c-4cef-b500-045f6d8e775a" xml:space="preserve">
+          <source>Now, upload your test to the portal.</source>
+          <target state="new">Now, upload your test to the portal.</target>
+        </trans-unit>
+        <trans-unit id="80735835-1f67-47d8-a789-356a30a7f763" xml:space="preserve">
+          <source>It will use the dynamic values on every run of the test.</source>
+          <target state="new">It will use the dynamic values on every run of the test.</target>
+        </trans-unit>
+        <trans-unit id="a0b2bfbe-e14a-4d46-a4af-6fd4e4166f6c" xml:space="preserve">
+          <source>Open an individual test to edit or disable it.</source>
+          <target state="new">Open an individual test to edit or disable it.</target>
+        </trans-unit>
+        <trans-unit id="1e2bf45c-92ea-429f-960f-6c0f1ed9d9f4" xml:space="preserve">
+          <source><bpt id="37c0debd-029f-4970-bc4e-c305dd35fbe5">&lt;linkText&gt;</bpt>Edit or disable a web test<ept id="37c0debd-029f-4970-bc4e-c305dd35fbe5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="37c0debd-029f-4970-bc4e-c305dd35fbe5">&lt;linkText&gt;</bpt>Edit or disable a web test<ept id="37c0debd-029f-4970-bc4e-c305dd35fbe5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fe544e0-ce26-4a21-9fbe-73bb58946a33" xml:space="preserve">
+          <source>You might want to disable web tests while you are performing maintenance on your service.</source>
+          <target state="new">You might want to disable web tests while you are performing maintenance on your service.</target>
+        </trans-unit>
+        <trans-unit id="5e29dffa-808d-4155-8271-8bef77d7ea7e" xml:space="preserve">
+          <source><bpt id="355a206c-80f3-4119-92c3-45d841640d6f">&lt;em&gt;</bpt>Is there a difference between "web tests" and "availability"?<ept id="355a206c-80f3-4119-92c3-45d841640d6f">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="355a206c-80f3-4119-92c3-45d841640d6f">&lt;em&gt;</bpt>Is there a difference between "web tests" and "availability"?<ept id="355a206c-80f3-4119-92c3-45d841640d6f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12c1c361-1886-4ad6-9989-0752bc9ac309" xml:space="preserve">
+          <source>We use the two terms interchangeably.</source>
+          <target state="new">We use the two terms interchangeably.</target>
+        </trans-unit>
+        <trans-unit id="96817ad7-5711-4b1d-b749-e8235d6b8240" xml:space="preserve">
+          <source><bpt id="1f3495d1-b246-493a-8162-0ea760156b1a">&lt;em&gt;</bpt>Can I call code from my web test?<ept id="1f3495d1-b246-493a-8162-0ea760156b1a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="1f3495d1-b246-493a-8162-0ea760156b1a">&lt;em&gt;</bpt>Can I call code from my web test?<ept id="1f3495d1-b246-493a-8162-0ea760156b1a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eec93a1-1915-473c-b318-5bb9da21ca3a" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="1b38e90d-3051-4602-ad66-255b342df50f" xml:space="preserve">
+          <source>The steps of the test must be in the .webtest file.</source>
+          <target state="new">The steps of the test must be in the .webtest file.</target>
+        </trans-unit>
+        <trans-unit id="7dffec83-f735-4bc5-a224-8d27a15cd0a9" xml:space="preserve">
+          <source><bpt id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;linkText&gt;</bpt>Search diagnostic logs[diagnostic]<ept id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;/linkText&gt;</ept><bpt id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;title&gt;</bpt><ept id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;linkText&gt;</bpt>Search diagnostic logs[diagnostic]<ept id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;/linkText&gt;</ept><bpt id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;title&gt;</bpt><ept id="16024d98-a37b-4d8a-a220-8df1553df7fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="646ba844-3860-4f47-86f2-4ef04fea35cb" xml:space="preserve">
+          <source><bpt id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;/linkText&gt;</ept><bpt id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;title&gt;</bpt><ept id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;/linkText&gt;</ept><bpt id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;title&gt;</bpt><ept id="50ccf3ca-602d-4ce8-8adf-660802fafab7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9c25e41-75c4-48d4-9cb3-468c8d1c9b7f" xml:space="preserve">
+          <source>../insights-create-web-tests.md</source>
+          <target state="new">../insights-create-web-tests.md</target>
+        </trans-unit>
+        <trans-unit id="4080eb3b-42fe-4fa9-b17d-87bfa6ee61e1" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="ecc16d6c-4da8-417f-9b9f-a19b7c4115a9" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="2e756d3f-c444-4c21-82e7-ed6c33383042" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="d7bb045d-e23b-45e4-a93f-fabb79f6f9d2" />
+    </body>
+  </file>
+</xliff>

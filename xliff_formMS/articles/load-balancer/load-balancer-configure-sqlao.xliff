@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0f23bd21-d2fb-45d0-aa99-07d967e7cbdf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0f23bd21-d2fb-45d0-aa99-07d967e7cbdf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4158472f-9185-493c-a0b3-a434000554c7">
+        <trans-unit id="870c76d6-f1af-47df-bc8e-2c59469bf370" xml:space="preserve">
+          <source>Configure Load balancer for SQL always on | Microsoft Azure</source>
+          <target state="new">Configure Load balancer for SQL always on | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="218b96fa-5fd8-457f-8f21-d2848147168d" xml:space="preserve">
+          <source>Configure Load balancer to work with SQL always on and how to leverage powershell to create load balancer for the SQL implementation</source>
+          <target state="new">Configure Load balancer to work with SQL always on and how to leverage powershell to create load balancer for the SQL implementation</target>
+        </trans-unit>
+        <trans-unit id="a3b9aede-8026-4bd5-b7a3-fe6b7851e7c9" xml:space="preserve">
+          <source>SQL Server AlwaysOn Availability Groups can now be run with ILB.</source>
+          <target state="new">SQL Server AlwaysOn Availability Groups can now be run with ILB.</target>
+        </trans-unit>
+        <trans-unit id="6696a3c0-7b4b-4ab0-a610-9f550d69f89a" xml:space="preserve">
+          <source>Availability Group is SQL Server’s flagship solution for high availability and disaster recovery.</source>
+          <target state="new">Availability Group is SQL Server’s flagship solution for high availability and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="cc2e93c5-75ff-491d-aeeb-a1e881fef8db" xml:space="preserve">
+          <source>The Availability Group Listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of the replicas in the configuration.</source>
+          <target state="new">The Availability Group Listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of the replicas in the configuration.</target>
+        </trans-unit>
+        <trans-unit id="b568db08-3db1-4446-bba4-21252b014c5e" xml:space="preserve">
+          <source>The listener (DNS) name is mapped to a load-balanced IP address and Azure’s load balancer directs the incoming traffic to only the primary server in the replica set.</source>
+          <target state="new">The listener (DNS) name is mapped to a load-balanced IP address and Azure’s load balancer directs the incoming traffic to only the primary server in the replica set.</target>
+        </trans-unit>
+        <trans-unit id="a4ea7938-f806-4864-924a-9ba5b1bbf061" xml:space="preserve">
+          <source>You can use ILB support for SQL Server AlwaysOn (listener) endpoints.</source>
+          <target state="new">You can use ILB support for SQL Server AlwaysOn (listener) endpoints.</target>
+        </trans-unit>
+        <trans-unit id="eeaf0f6b-30d4-4e61-a063-241176fd4288" xml:space="preserve">
+          <source>You now have control over the accessibility of the listener and can choose the load-balanced IP address from a specific subnet in your Virtual Network (VNet).</source>
+          <target state="new">You now have control over the accessibility of the listener and can choose the load-balanced IP address from a specific subnet in your Virtual Network (VNet).</target>
+        </trans-unit>
+        <trans-unit id="61668b31-506a-4a55-9feb-08144836ec56" xml:space="preserve">
+          <source>By using ILB on the listener, the SQL server endpoint (e.g. Server=tcp:ListenerName,1433;Database=DatabaseName) is accessible only by:</source>
+          <target state="new">By using ILB on the listener, the SQL server endpoint (e.g. Server=tcp:ListenerName,1433;Database=DatabaseName) is accessible only by:</target>
+        </trans-unit>
+        <trans-unit id="40e1e0bc-f75b-4cc7-9a01-d1284366fb37" xml:space="preserve">
+          <source>Services and VMs in the same Virtual network
+Services and VMs from connected on-premises network
+Services and VMs from inter connected VNets</source>
+          <target state="new">Services and VMs in the same Virtual network
+Services and VMs from connected on-premises network
+Services and VMs from inter connected VNets</target>
+        </trans-unit>
+        <trans-unit id="e33bef81-2490-47c0-93fd-287f9e3e5a25" xml:space="preserve">
+          <source><bpt id="63a32591-ad19-4355-a08c-4dceb9584727">&lt;linkText&gt;</bpt>ILB_SQLAO_NewPic<ept id="63a32591-ad19-4355-a08c-4dceb9584727">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="63a32591-ad19-4355-a08c-4dceb9584727">&lt;linkText&gt;</bpt>ILB_SQLAO_NewPic<ept id="63a32591-ad19-4355-a08c-4dceb9584727">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9df8c644-b2b5-41a3-91b9-7fce5a57f271" xml:space="preserve">
+          <source>Internal Load balancer can only be configured through PowerShell.</source>
+          <target state="new">Internal Load balancer can only be configured through PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a7002e11-df57-43bc-bf2e-3ef047c736d8" xml:space="preserve">
+          <source>In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:</source>
+          <target state="new">In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:</target>
+        </trans-unit>
+        <trans-unit id="fc723ace-f9eb-4307-b72f-0e9f9e1f55b8" xml:space="preserve">
+          <source>Step 2.</source>
+          <target state="new">Step 2.</target>
+        </trans-unit>
+        <trans-unit id="667f6d83-0394-4f4a-86bc-aa63c8550fe0" xml:space="preserve">
+          <source>In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc".</source>
+          <target state="new">In the example above, you have 2 VM's called "sqlsvc1" and "sqlsvc2" running in the cloud service "Sqlsvc".</target>
+        </trans-unit>
+        <trans-unit id="06709848-46ef-4625-a93f-31db224922c3" xml:space="preserve">
+          <source>After creating the ILB with "DirectServerReturn" switch, you will add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.</source>
+          <target state="new">After creating the ILB with "DirectServerReturn" switch, you will add load balanced endpoints to the ILB to allow SQL to configure the listeners for the availability groups.</target>
+        </trans-unit>
+        <trans-unit id="be8487a8-8bf2-484f-b62c-ffe3b2bcc089" xml:space="preserve">
+          <source>You can find more details creating a SQL Alwayson in <bpt id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;linkText&gt;</bpt>Tutorial: AlwaysOn Availability Groups in Azure<ept id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;/linkText&gt;</ept><bpt id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;title&gt;</bpt><ept id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;/title&gt;</ept> or <bpt id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;linkText&gt;</bpt>Using the Portal Gallery<ept id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;/linkText&gt;</ept><bpt id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;title&gt;</bpt><ept id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more details creating a SQL Alwayson in <bpt id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;linkText&gt;</bpt>Tutorial: AlwaysOn Availability Groups in Azure<ept id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;/linkText&gt;</ept><bpt id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;title&gt;</bpt><ept id="f0adf182-f513-4a8b-8818-4ce673c46261">&lt;/title&gt;</ept> or <bpt id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;linkText&gt;</bpt>Using the Portal Gallery<ept id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;/linkText&gt;</ept><bpt id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;title&gt;</bpt><ept id="6ac86754-1bb2-40d4-97b7-36765356b279">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88a54ada-f53d-4a6b-a60c-5ce297360091" xml:space="preserve">
+          <source><bpt id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;linkText&gt;</bpt>Get started configuring an Internet facing load balancer<ept id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;/linkText&gt;</ept><bpt id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;title&gt;</bpt><ept id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;linkText&gt;</bpt>Get started configuring an Internet facing load balancer<ept id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;/linkText&gt;</ept><bpt id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;title&gt;</bpt><ept id="d6024769-8514-4cd9-8a1c-3cf3ce39eb50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b4e3da4-1167-4d6b-b0ab-9d4bd6be176f" xml:space="preserve">
+          <source><bpt id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;linkText&gt;</bpt>Get started configuring an Internal load balancer<ept id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;/linkText&gt;</ept><bpt id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;title&gt;</bpt><ept id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;linkText&gt;</bpt>Get started configuring an Internal load balancer<ept id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;/linkText&gt;</ept><bpt id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;title&gt;</bpt><ept id="574fd3c9-ca94-4a4d-9ff9-299a98f95e98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c31b9ff-0896-472a-ad5d-0bf4a2ab0f52" xml:space="preserve">
+          <source><bpt id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;/linkText&gt;</ept><bpt id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;title&gt;</bpt><ept id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;/linkText&gt;</ept><bpt id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;title&gt;</bpt><ept id="a469e6d6-d2c6-46cf-a0fc-e152b0f7c3e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5f89b55-a225-4a1f-bb2d-12de716c343a" xml:space="preserve">
+          <source><bpt id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;/linkText&gt;</ept><bpt id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;title&gt;</bpt><ept id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;/linkText&gt;</ept><bpt id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;title&gt;</bpt><ept id="64c22908-98e1-4888-8ae1-d51e03a13abc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

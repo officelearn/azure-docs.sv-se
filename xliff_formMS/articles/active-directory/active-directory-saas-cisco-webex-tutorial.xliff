@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f5a111e9-d10f-44bf-924b-162b82e6e409" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f5a111e9-d10f-44bf-924b-162b82e6e409" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a8f02d33-f66c-4439-b44d-2b232940ccb7">
+        <trans-unit id="cbd4f213-51a9-41b3-9056-31b10d22fb0d" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Cisco Webex | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Cisco Webex | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="60da25be-b27f-4880-9bcc-4038a1d3f9b0" xml:space="preserve">
+          <source>Learn how to use Cisco Webex with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Cisco Webex with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="53218b83-5cbc-43a0-b392-4109244b7087" xml:space="preserve">
+          <source>For feedback, click <bpt id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;linkText&gt;</bpt>here<ept id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;/linkText&gt;</ept><bpt id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;title&gt;</bpt><ept id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;linkText&gt;</bpt>here<ept id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;/linkText&gt;</ept><bpt id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;title&gt;</bpt><ept id="05158256-865e-4d41-9f4d-0cd30412f01c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e70b4756-b0dc-4260-9594-099274732033" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Cisco Webex.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Cisco Webex.</target>
+        </trans-unit>
+        <trans-unit id="40db97b2-2ebc-4f84-8422-217581fa6858" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="dcb4fae6-1037-472b-ae52-24b197bd0577" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="02eb27fa-e2ca-4fa3-97d8-e0f71d7dc8be" xml:space="preserve">
+          <source>A Cisco Webex tenant</source>
+          <target state="new">A Cisco Webex tenant</target>
+        </trans-unit>
+        <trans-unit id="9715b31e-ac01-4305-ba5b-4d476ec2c774" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Cisco Webex will be able to single sign into the application at your Cisco Webex company site (service provider initiated sign on), or using the <bpt id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;/linkText&gt;</ept><bpt id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;title&gt;</bpt><ept id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Cisco Webex will be able to single sign into the application at your Cisco Webex company site (service provider initiated sign on), or using the <bpt id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;/linkText&gt;</ept><bpt id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;title&gt;</bpt><ept id="478dee6b-065e-4509-9e9f-c6712d114f19">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="826b382e-3d1c-492e-b1ca-ce67cd5b4ddf" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="8de6f1a3-eaf8-4892-bf4a-f1c0e2adb12e" xml:space="preserve">
+          <source>Enabling the application integration for Cisco Webex</source>
+          <target state="new">Enabling the application integration for Cisco Webex</target>
+        </trans-unit>
+        <trans-unit id="f64b6655-b4a2-47b0-ad0d-85bad13f95d3" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="4334bb4d-4a11-499f-b588-67be56153750" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="988f32b5-46f0-443b-8aa8-2ca9727e486d" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="90d0ce78-d76e-4808-9f8b-5079f01b6913" xml:space="preserve">
+          <source><bpt id="6e49b786-1782-42d2-8898-2e31a86109ba">&lt;linkText&gt;</bpt>Scenario<ept id="6e49b786-1782-42d2-8898-2e31a86109ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e49b786-1782-42d2-8898-2e31a86109ba">&lt;linkText&gt;</bpt>Scenario<ept id="6e49b786-1782-42d2-8898-2e31a86109ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1420f509-8368-4496-a9e5-d4b9099348b9" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Cisco Webex.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Cisco Webex.</target>
+        </trans-unit>
+        <trans-unit id="5656378b-4ecb-461a-b6f3-5e0bd752fc68" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="0c42137c-9222-45a3-a595-1e6af2369788">&lt;strong&gt;</bpt>Active Directory<ept id="0c42137c-9222-45a3-a595-1e6af2369788">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="0c42137c-9222-45a3-a595-1e6af2369788">&lt;strong&gt;</bpt>Active Directory<ept id="0c42137c-9222-45a3-a595-1e6af2369788">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6b71e91-a77c-42d6-ad89-c5343dbb4898" xml:space="preserve">
+          <source><bpt id="bb73b9f8-66f0-4597-b37a-811daf336da7">&lt;linkText&gt;</bpt>Active Directory<ept id="bb73b9f8-66f0-4597-b37a-811daf336da7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb73b9f8-66f0-4597-b37a-811daf336da7">&lt;linkText&gt;</bpt>Active Directory<ept id="bb73b9f8-66f0-4597-b37a-811daf336da7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f780e91-5049-4eff-ac1d-d0e7af34e80c" xml:space="preserve">
+          <source>From the <bpt id="52fae18b-35aa-4aa7-9fc8-fbd939d0feee">&lt;strong&gt;</bpt>Directory<ept id="52fae18b-35aa-4aa7-9fc8-fbd939d0feee">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="52fae18b-35aa-4aa7-9fc8-fbd939d0feee">&lt;strong&gt;</bpt>Directory<ept id="52fae18b-35aa-4aa7-9fc8-fbd939d0feee">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="c9cf4a82-c54b-4e4c-9020-8e5593b67182" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="e8fadfc9-9179-43f3-a4ff-4d53042a5fbc">&lt;strong&gt;</bpt>Applications<ept id="e8fadfc9-9179-43f3-a4ff-4d53042a5fbc">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="e8fadfc9-9179-43f3-a4ff-4d53042a5fbc">&lt;strong&gt;</bpt>Applications<ept id="e8fadfc9-9179-43f3-a4ff-4d53042a5fbc">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="abf7216e-fcd3-412b-aa90-ac18aacf29bc" xml:space="preserve">
+          <source><bpt id="6c486606-28fd-475b-b9dc-a0978b9dfe28">&lt;linkText&gt;</bpt>Applications<ept id="6c486606-28fd-475b-b9dc-a0978b9dfe28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c486606-28fd-475b-b9dc-a0978b9dfe28">&lt;linkText&gt;</bpt>Applications<ept id="6c486606-28fd-475b-b9dc-a0978b9dfe28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57ddc622-ca30-4078-a6be-4078d7e22d83" xml:space="preserve">
+          <source>Click <bpt id="51e1346f-8921-4fb8-8386-b51f553296c7">&lt;strong&gt;</bpt>Add<ept id="51e1346f-8921-4fb8-8386-b51f553296c7">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="51e1346f-8921-4fb8-8386-b51f553296c7">&lt;strong&gt;</bpt>Add<ept id="51e1346f-8921-4fb8-8386-b51f553296c7">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d2ab5e09-801a-46f7-9c5c-f4872f494a07" xml:space="preserve">
+          <source><bpt id="ca1a7cca-dd8f-405d-89a1-ed493484d120">&lt;linkText&gt;</bpt>Add application<ept id="ca1a7cca-dd8f-405d-89a1-ed493484d120">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca1a7cca-dd8f-405d-89a1-ed493484d120">&lt;linkText&gt;</bpt>Add application<ept id="ca1a7cca-dd8f-405d-89a1-ed493484d120">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a93c5392-9f91-482a-98e3-4a665cf0b00a" xml:space="preserve">
+          <source>On the <bpt id="bbca5f25-c0b3-4484-8eea-04b5f19ba728">&lt;strong&gt;</bpt>What do you want to do<ept id="bbca5f25-c0b3-4484-8eea-04b5f19ba728">&lt;/strong&gt;</ept> dialog, click <bpt id="27fdc312-07da-450b-923a-0cdf8db4d98d">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="27fdc312-07da-450b-923a-0cdf8db4d98d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="bbca5f25-c0b3-4484-8eea-04b5f19ba728">&lt;strong&gt;</bpt>What do you want to do<ept id="bbca5f25-c0b3-4484-8eea-04b5f19ba728">&lt;/strong&gt;</ept> dialog, click <bpt id="27fdc312-07da-450b-923a-0cdf8db4d98d">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="27fdc312-07da-450b-923a-0cdf8db4d98d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58a6aa1d-e610-4d15-bf1c-1e1008451e97" xml:space="preserve">
+          <source><bpt id="b0fd9d50-a3fc-432c-a6c6-ce5bb0ef79e8">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b0fd9d50-a3fc-432c-a6c6-ce5bb0ef79e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0fd9d50-a3fc-432c-a6c6-ce5bb0ef79e8">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="b0fd9d50-a3fc-432c-a6c6-ce5bb0ef79e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71e2fcd9-97ff-418b-bbd0-a0bf6fea4c09" xml:space="preserve">
+          <source>In the <bpt id="50dfb7c9-faa9-471f-bf9a-3322cac0b2f5">&lt;strong&gt;</bpt>search box<ept id="50dfb7c9-faa9-471f-bf9a-3322cac0b2f5">&lt;/strong&gt;</ept>, type <bpt id="ca23824c-c8ea-4bb4-bfac-352ed1cecbec">&lt;strong&gt;</bpt>Cisco Webex<ept id="ca23824c-c8ea-4bb4-bfac-352ed1cecbec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="50dfb7c9-faa9-471f-bf9a-3322cac0b2f5">&lt;strong&gt;</bpt>search box<ept id="50dfb7c9-faa9-471f-bf9a-3322cac0b2f5">&lt;/strong&gt;</ept>, type <bpt id="ca23824c-c8ea-4bb4-bfac-352ed1cecbec">&lt;strong&gt;</bpt>Cisco Webex<ept id="ca23824c-c8ea-4bb4-bfac-352ed1cecbec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6a2df09-6920-4b04-a670-b8fbad4540d7" xml:space="preserve">
+          <source><bpt id="1b94232c-893b-4881-a2b7-4d4626e4b1f6">&lt;linkText&gt;</bpt>Application Gallery<ept id="1b94232c-893b-4881-a2b7-4d4626e4b1f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1b94232c-893b-4881-a2b7-4d4626e4b1f6">&lt;linkText&gt;</bpt>Application Gallery<ept id="1b94232c-893b-4881-a2b7-4d4626e4b1f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fd3786d-fadb-47a0-9648-68ba37a3f234" xml:space="preserve">
+          <source>In the results pane, select <bpt id="ab7c996a-c877-4bec-9751-58a6b15c5184">&lt;strong&gt;</bpt>Cisco Webex<ept id="ab7c996a-c877-4bec-9751-58a6b15c5184">&lt;/strong&gt;</ept>, and then click <bpt id="fffdcfea-7872-4ef8-9bd7-5140848d0cc5">&lt;strong&gt;</bpt>Complete<ept id="fffdcfea-7872-4ef8-9bd7-5140848d0cc5">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="ab7c996a-c877-4bec-9751-58a6b15c5184">&lt;strong&gt;</bpt>Cisco Webex<ept id="ab7c996a-c877-4bec-9751-58a6b15c5184">&lt;/strong&gt;</ept>, and then click <bpt id="fffdcfea-7872-4ef8-9bd7-5140848d0cc5">&lt;strong&gt;</bpt>Complete<ept id="fffdcfea-7872-4ef8-9bd7-5140848d0cc5">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="02497346-707a-4a7d-b58f-5056cb4c7b01" xml:space="preserve">
+          <source><bpt id="b47157b1-0547-415c-8b45-96630eb4c6b5">&lt;linkText&gt;</bpt>Cisco Webex<ept id="b47157b1-0547-415c-8b45-96630eb4c6b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b47157b1-0547-415c-8b45-96630eb4c6b5">&lt;linkText&gt;</bpt>Cisco Webex<ept id="b47157b1-0547-415c-8b45-96630eb4c6b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b164a6b-f202-4a5f-b726-7e957e8ef946" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Cisco Webex with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Cisco Webex with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="c0fb2fdf-f84d-43d6-a28f-20e4618facb4" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate.</target>
+        </trans-unit>
+        <trans-unit id="60680190-b7b2-455a-93e9-fd6a285a2dbc" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;/linkText&gt;</ept><bpt id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;title&gt;</bpt><ept id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;/linkText&gt;</ept><bpt id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;title&gt;</bpt><ept id="31cd8731-21c9-405a-ac54-5ebe724669ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5783729-01ca-4ed8-b4e6-856c0dc5497b" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="8fbaf183-ed53-44fb-a0cc-29263c46fd49">&lt;strong&gt;</bpt>Cisco Webex<ept id="8fbaf183-ed53-44fb-a0cc-29263c46fd49">&lt;/strong&gt;</ept> application integration page, click <bpt id="71e4b12c-3b9e-41e4-9cb4-c8614b55dd01">&lt;strong&gt;</bpt>Configure single sign-on<ept id="71e4b12c-3b9e-41e4-9cb4-c8614b55dd01">&lt;/strong&gt;</ept> to open the <bpt id="363240fd-9317-4a34-bf57-b570383f96a7">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="363240fd-9317-4a34-bf57-b570383f96a7">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="8fbaf183-ed53-44fb-a0cc-29263c46fd49">&lt;strong&gt;</bpt>Cisco Webex<ept id="8fbaf183-ed53-44fb-a0cc-29263c46fd49">&lt;/strong&gt;</ept> application integration page, click <bpt id="71e4b12c-3b9e-41e4-9cb4-c8614b55dd01">&lt;strong&gt;</bpt>Configure single sign-on<ept id="71e4b12c-3b9e-41e4-9cb4-c8614b55dd01">&lt;/strong&gt;</ept> to open the <bpt id="363240fd-9317-4a34-bf57-b570383f96a7">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="363240fd-9317-4a34-bf57-b570383f96a7">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="4d12a072-e0a8-4664-8498-cb4f7f70ad6b" xml:space="preserve">
+          <source><bpt id="0e22ea6a-b149-444c-bb53-de571295dcc6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="0e22ea6a-b149-444c-bb53-de571295dcc6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e22ea6a-b149-444c-bb53-de571295dcc6">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="0e22ea6a-b149-444c-bb53-de571295dcc6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05734717-afc4-43f3-967e-437fea216394" xml:space="preserve">
+          <source>On the <bpt id="9223fa5c-81af-4ccd-8441-29efe6969cfd">&lt;strong&gt;</bpt>How would you like users to sign on to Cisco Webex<ept id="9223fa5c-81af-4ccd-8441-29efe6969cfd">&lt;/strong&gt;</ept> page, select <bpt id="7065afbd-1945-4044-9a29-a971c4f1d079">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="7065afbd-1945-4044-9a29-a971c4f1d079">&lt;/strong&gt;</ept>, and then click <bpt id="dfc0dd77-bc98-4240-93f7-006bef76db5e">&lt;strong&gt;</bpt>Next<ept id="dfc0dd77-bc98-4240-93f7-006bef76db5e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9223fa5c-81af-4ccd-8441-29efe6969cfd">&lt;strong&gt;</bpt>How would you like users to sign on to Cisco Webex<ept id="9223fa5c-81af-4ccd-8441-29efe6969cfd">&lt;/strong&gt;</ept> page, select <bpt id="7065afbd-1945-4044-9a29-a971c4f1d079">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="7065afbd-1945-4044-9a29-a971c4f1d079">&lt;/strong&gt;</ept>, and then click <bpt id="dfc0dd77-bc98-4240-93f7-006bef76db5e">&lt;strong&gt;</bpt>Next<ept id="dfc0dd77-bc98-4240-93f7-006bef76db5e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a150fea-47d4-4bd6-bdb7-957220d1d8ca" xml:space="preserve">
+          <source><bpt id="1f978c3f-db7a-4216-b71a-c7dd1e72bf61">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1f978c3f-db7a-4216-b71a-c7dd1e72bf61">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f978c3f-db7a-4216-b71a-c7dd1e72bf61">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="1f978c3f-db7a-4216-b71a-c7dd1e72bf61">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3eda89b4-5d89-4d75-835e-1e50ac2ee083" xml:space="preserve">
+          <source>On the <bpt id="c703b65c-7c37-4230-95a9-c18836ec8e9b">&lt;strong&gt;</bpt>Configure App URL<ept id="c703b65c-7c37-4230-95a9-c18836ec8e9b">&lt;/strong&gt;</ept> page, perform the following steps, and then click <bpt id="0e3d8cc9-1d11-42f2-8fe6-9581430bd144">&lt;strong&gt;</bpt>Next<ept id="0e3d8cc9-1d11-42f2-8fe6-9581430bd144">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c703b65c-7c37-4230-95a9-c18836ec8e9b">&lt;strong&gt;</bpt>Configure App URL<ept id="c703b65c-7c37-4230-95a9-c18836ec8e9b">&lt;/strong&gt;</ept> page, perform the following steps, and then click <bpt id="0e3d8cc9-1d11-42f2-8fe6-9581430bd144">&lt;strong&gt;</bpt>Next<ept id="0e3d8cc9-1d11-42f2-8fe6-9581430bd144">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31dca0f1-3dfa-4b36-b73f-bf7b01d7dd21" xml:space="preserve">
+          <source><bpt id="1c98738a-887b-45b3-a9c5-d8fc1c61a51e">&lt;linkText&gt;</bpt>Configure app URL<ept id="1c98738a-887b-45b3-a9c5-d8fc1c61a51e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c98738a-887b-45b3-a9c5-d8fc1c61a51e">&lt;linkText&gt;</bpt>Configure app URL<ept id="1c98738a-887b-45b3-a9c5-d8fc1c61a51e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abfed7ee-c615-409c-9120-d2c6b2824ef0" xml:space="preserve">
+          <source>In the <bpt id="5eee591b-fc19-4052-8be4-08d5b6a510a4">&lt;strong&gt;</bpt>Sing On URL<ept id="5eee591b-fc19-4052-8be4-08d5b6a510a4">&lt;/strong&gt;</ept> textbox, type your Cisco Webex tenant URL (e.g.: <bpt id="6b70c89a-6a92-4ae1-958d-fde09e3869aa">&lt;em&gt;</bpt>http://contoso.webex.com<ept id="6b70c89a-6a92-4ae1-958d-fde09e3869aa">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="5eee591b-fc19-4052-8be4-08d5b6a510a4">&lt;strong&gt;</bpt>Sing On URL<ept id="5eee591b-fc19-4052-8be4-08d5b6a510a4">&lt;/strong&gt;</ept> textbox, type your Cisco Webex tenant URL (e.g.: <bpt id="6b70c89a-6a92-4ae1-958d-fde09e3869aa">&lt;em&gt;</bpt>http://contoso.webex.com<ept id="6b70c89a-6a92-4ae1-958d-fde09e3869aa">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="dc7807d0-5a89-4260-a134-dfb4e885b8c9" xml:space="preserve">
+          <source>In the <bpt id="b73c3647-fcb4-48b1-8cb6-a7e5ef906a96">&lt;strong&gt;</bpt>Cisco Webex Reply URL<ept id="b73c3647-fcb4-48b1-8cb6-a7e5ef906a96">&lt;/strong&gt;</ept> textbox, type your <bpt id="684ea0c9-3b0a-4e01-95e5-186e0c2aa60f">&lt;strong&gt;</bpt>Cisco Webex AssertionConsumerService URL<ept id="684ea0c9-3b0a-4e01-95e5-186e0c2aa60f">&lt;/strong&gt;</ept> (e.g.: <bpt id="a2fedb4d-2727-4d1b-ab2f-c17331be9672">&lt;em&gt;</bpt>https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company<ept id="a2fedb4d-2727-4d1b-ab2f-c17331be9672">&lt;/em&gt;</ept>).</source>
+          <target state="new">In the <bpt id="b73c3647-fcb4-48b1-8cb6-a7e5ef906a96">&lt;strong&gt;</bpt>Cisco Webex Reply URL<ept id="b73c3647-fcb4-48b1-8cb6-a7e5ef906a96">&lt;/strong&gt;</ept> textbox, type your <bpt id="684ea0c9-3b0a-4e01-95e5-186e0c2aa60f">&lt;strong&gt;</bpt>Cisco Webex AssertionConsumerService URL<ept id="684ea0c9-3b0a-4e01-95e5-186e0c2aa60f">&lt;/strong&gt;</ept> (e.g.: <bpt id="a2fedb4d-2727-4d1b-ab2f-c17331be9672">&lt;em&gt;</bpt>https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company<ept id="a2fedb4d-2727-4d1b-ab2f-c17331be9672">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="c640affc-3601-4679-964c-36af35c902af" xml:space="preserve">
+          <source>On the <bpt id="f60c058c-8520-4409-8c5c-37fe042d2949">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="f60c058c-8520-4409-8c5c-37fe042d2949">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="f7a8eccf-c04c-462b-ab94-63f37363240a">&lt;strong&gt;</bpt>Download certificate<ept id="f7a8eccf-c04c-462b-ab94-63f37363240a">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="f60c058c-8520-4409-8c5c-37fe042d2949">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="f60c058c-8520-4409-8c5c-37fe042d2949">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="f7a8eccf-c04c-462b-ab94-63f37363240a">&lt;strong&gt;</bpt>Download certificate<ept id="f7a8eccf-c04c-462b-ab94-63f37363240a">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="9d2d4fe8-2894-45a6-aa87-fcde14781dac" xml:space="preserve">
+          <source><bpt id="a7011344-0793-49d7-8b1f-9f92a94c40cd">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a7011344-0793-49d7-8b1f-9f92a94c40cd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7011344-0793-49d7-8b1f-9f92a94c40cd">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a7011344-0793-49d7-8b1f-9f92a94c40cd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="effd588b-793a-4afd-920d-ef081b7b92f3" xml:space="preserve">
+          <source>In a different web browser window, log into your Cisco Webex company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Cisco Webex company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="ad74a097-a968-44f9-9a0b-d534543885f3" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="da6316f4-9a36-470c-b58a-3015f520ec55">&lt;strong&gt;</bpt>Site Administration<ept id="da6316f4-9a36-470c-b58a-3015f520ec55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="da6316f4-9a36-470c-b58a-3015f520ec55">&lt;strong&gt;</bpt>Site Administration<ept id="da6316f4-9a36-470c-b58a-3015f520ec55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc26ddcd-3a85-41d2-a8ef-7330500f8995" xml:space="preserve">
+          <source><bpt id="aa0813c3-759e-4844-ac82-445f5ee5b32f">&lt;linkText&gt;</bpt>Site Administration<ept id="aa0813c3-759e-4844-ac82-445f5ee5b32f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa0813c3-759e-4844-ac82-445f5ee5b32f">&lt;linkText&gt;</bpt>Site Administration<ept id="aa0813c3-759e-4844-ac82-445f5ee5b32f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9eaa2f3c-53c4-4e22-b8bf-5e3d2ea25637" xml:space="preserve">
+          <source>In the <bpt id="db78f783-2303-4258-a7f1-eb9f29372083">&lt;strong&gt;</bpt>Manage Site<ept id="db78f783-2303-4258-a7f1-eb9f29372083">&lt;/strong&gt;</ept> section, click <bpt id="f658c53d-4759-4d4c-914c-6a2b2f6ddbad">&lt;strong&gt;</bpt>SSO Configuration<ept id="f658c53d-4759-4d4c-914c-6a2b2f6ddbad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="db78f783-2303-4258-a7f1-eb9f29372083">&lt;strong&gt;</bpt>Manage Site<ept id="db78f783-2303-4258-a7f1-eb9f29372083">&lt;/strong&gt;</ept> section, click <bpt id="f658c53d-4759-4d4c-914c-6a2b2f6ddbad">&lt;strong&gt;</bpt>SSO Configuration<ept id="f658c53d-4759-4d4c-914c-6a2b2f6ddbad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33ef71d1-0d2b-455c-aac9-ea6729a44fc4" xml:space="preserve">
+          <source><bpt id="1023d009-5929-4edc-b550-d55317aacbc1">&lt;linkText&gt;</bpt>SSO Configuration<ept id="1023d009-5929-4edc-b550-d55317aacbc1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1023d009-5929-4edc-b550-d55317aacbc1">&lt;linkText&gt;</bpt>SSO Configuration<ept id="1023d009-5929-4edc-b550-d55317aacbc1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dd9e42f-b578-409e-add0-d5e0eac22635" xml:space="preserve">
+          <source>In the Federated Web SSO Configuration section, perform the following steps:</source>
+          <target state="new">In the Federated Web SSO Configuration section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="eb9aa33c-ccca-46e7-99a2-340a77a9c529" xml:space="preserve">
+          <source><bpt id="586505ef-86a6-49a5-bd65-d97406d7a009">&lt;linkText&gt;</bpt>Federated SSO Configuration<ept id="586505ef-86a6-49a5-bd65-d97406d7a009">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="586505ef-86a6-49a5-bd65-d97406d7a009">&lt;linkText&gt;</bpt>Federated SSO Configuration<ept id="586505ef-86a6-49a5-bd65-d97406d7a009">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b83b8c2-5ac8-432c-95e5-c1e7fda3c799" xml:space="preserve">
+          <source>From the <bpt id="99139ffe-143f-464a-8cc0-e5eab908184c">&lt;strong&gt;</bpt>Federation Protocol<ept id="99139ffe-143f-464a-8cc0-e5eab908184c">&lt;/strong&gt;</ept> list, select <bpt id="8fc48acb-5875-4e83-9303-f111c164c240">&lt;strong&gt;</bpt>SAML 2.0<ept id="8fc48acb-5875-4e83-9303-f111c164c240">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="99139ffe-143f-464a-8cc0-e5eab908184c">&lt;strong&gt;</bpt>Federation Protocol<ept id="99139ffe-143f-464a-8cc0-e5eab908184c">&lt;/strong&gt;</ept> list, select <bpt id="8fc48acb-5875-4e83-9303-f111c164c240">&lt;strong&gt;</bpt>SAML 2.0<ept id="8fc48acb-5875-4e83-9303-f111c164c240">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="deb7aeb3-0d49-4f36-a15b-548db3b8ac6b" xml:space="preserve">
+          <source>Create a <bpt id="d2b83546-019c-411a-9332-86f0f7027f1b">&lt;strong&gt;</bpt>Base-64 encoded<ept id="d2b83546-019c-411a-9332-86f0f7027f1b">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="d2b83546-019c-411a-9332-86f0f7027f1b">&lt;strong&gt;</bpt>Base-64 encoded<ept id="d2b83546-019c-411a-9332-86f0f7027f1b">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="b60e7b00-3bdd-4b65-a886-f8b43ebf461c" xml:space="preserve">
+          <source>For more details, see <bpt id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;/linkText&gt;</ept><bpt id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;title&gt;</bpt><ept id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;/linkText&gt;</ept><bpt id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;title&gt;</bpt><ept id="352dc0c5-aeb5-40f1-b9e4-5b18ef678656">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e53484f-a374-47e2-b90b-c0a32245f1aa" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, and then copy the content of it.</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, and then copy the content of it.</target>
+        </trans-unit>
+        <trans-unit id="1df08171-f071-49d1-a007-f4c3f62dad8b" xml:space="preserve">
+          <source>Click <bpt id="5c0eb0a2-0143-4274-9da9-612bff760e25">&lt;strong&gt;</bpt>Import SAML Metadata<ept id="5c0eb0a2-0143-4274-9da9-612bff760e25">&lt;/strong&gt;</ept>, and then paste your base-64 encoded certificate.</source>
+          <target state="new">Click <bpt id="5c0eb0a2-0143-4274-9da9-612bff760e25">&lt;strong&gt;</bpt>Import SAML Metadata<ept id="5c0eb0a2-0143-4274-9da9-612bff760e25">&lt;/strong&gt;</ept>, and then paste your base-64 encoded certificate.</target>
+        </trans-unit>
+        <trans-unit id="5c9fc779-a167-42aa-a965-fa9c26828121" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="2da4034c-f11e-4108-a3e0-84ef4ef35291">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="2da4034c-f11e-4108-a3e0-84ef4ef35291">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="c582e59b-a707-48af-84e8-1ee210e73d35">&lt;strong&gt;</bpt>Issuer URL<ept id="c582e59b-a707-48af-84e8-1ee210e73d35">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2ed13a6f-7a1a-495c-8e7a-0bcdb3e3880b">&lt;strong&gt;</bpt>Issuer for SAML (IdP ID)<ept id="2ed13a6f-7a1a-495c-8e7a-0bcdb3e3880b">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="2da4034c-f11e-4108-a3e0-84ef4ef35291">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="2da4034c-f11e-4108-a3e0-84ef4ef35291">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="c582e59b-a707-48af-84e8-1ee210e73d35">&lt;strong&gt;</bpt>Issuer URL<ept id="c582e59b-a707-48af-84e8-1ee210e73d35">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="2ed13a6f-7a1a-495c-8e7a-0bcdb3e3880b">&lt;strong&gt;</bpt>Issuer for SAML (IdP ID)<ept id="2ed13a6f-7a1a-495c-8e7a-0bcdb3e3880b">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="aee51c63-0b1b-4958-94b0-9451aaf038ca" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="4e972a00-85f6-414a-a694-6ba99c76f426">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="4e972a00-85f6-414a-a694-6ba99c76f426">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b0e0bb2d-66f8-4bae-9c98-33739b94b8eb">&lt;strong&gt;</bpt>Remote Login URL<ept id="b0e0bb2d-66f8-4bae-9c98-33739b94b8eb">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="9f8bff69-1626-4fef-a93d-5f177c2b14b4">&lt;strong&gt;</bpt>Customer SSO Service Login URL<ept id="9f8bff69-1626-4fef-a93d-5f177c2b14b4">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="4e972a00-85f6-414a-a694-6ba99c76f426">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="4e972a00-85f6-414a-a694-6ba99c76f426">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b0e0bb2d-66f8-4bae-9c98-33739b94b8eb">&lt;strong&gt;</bpt>Remote Login URL<ept id="b0e0bb2d-66f8-4bae-9c98-33739b94b8eb">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="9f8bff69-1626-4fef-a93d-5f177c2b14b4">&lt;strong&gt;</bpt>Customer SSO Service Login URL<ept id="9f8bff69-1626-4fef-a93d-5f177c2b14b4">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="e95e7bc2-1652-4ec6-91a3-ca58adbeee1d" xml:space="preserve">
+          <source>From the <bpt id="aef61871-a13b-470c-aaa7-d4c1f7f1f85a">&lt;strong&gt;</bpt>NameID Format<ept id="aef61871-a13b-470c-aaa7-d4c1f7f1f85a">&lt;/strong&gt;</ept> list, select <bpt id="6c010b1d-0bc4-4d68-ae7a-8bf19196923d">&lt;strong&gt;</bpt>Email address<ept id="6c010b1d-0bc4-4d68-ae7a-8bf19196923d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="aef61871-a13b-470c-aaa7-d4c1f7f1f85a">&lt;strong&gt;</bpt>NameID Format<ept id="aef61871-a13b-470c-aaa7-d4c1f7f1f85a">&lt;/strong&gt;</ept> list, select <bpt id="6c010b1d-0bc4-4d68-ae7a-8bf19196923d">&lt;strong&gt;</bpt>Email address<ept id="6c010b1d-0bc4-4d68-ae7a-8bf19196923d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80acdbe1-db09-4746-bd23-6614dc3d0db7" xml:space="preserve">
+          <source>In the <bpt id="2733bb23-b24e-4822-8b81-5e80ef55d7a8">&lt;strong&gt;</bpt>AuthnContextClassRef<ept id="2733bb23-b24e-4822-8b81-5e80ef55d7a8">&lt;/strong&gt;</ept> textbox, type <bpt id="18334c9a-0c71-4ea1-9e31-d8ff1a4d7559">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:2.0:ac:classes:Password<ept id="18334c9a-0c71-4ea1-9e31-d8ff1a4d7559">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2733bb23-b24e-4822-8b81-5e80ef55d7a8">&lt;strong&gt;</bpt>AuthnContextClassRef<ept id="2733bb23-b24e-4822-8b81-5e80ef55d7a8">&lt;/strong&gt;</ept> textbox, type <bpt id="18334c9a-0c71-4ea1-9e31-d8ff1a4d7559">&lt;strong&gt;</bpt>urn:oasis:names:tc:SAML:2.0:ac:classes:Password<ept id="18334c9a-0c71-4ea1-9e31-d8ff1a4d7559">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6eecc74a-c271-41b9-95fd-9cfc4cbfcfef" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="0bebb7f7-c676-44ad-979d-353f87b79025">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="0bebb7f7-c676-44ad-979d-353f87b79025">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="55ec234b-bbf7-4f2b-8745-8883ab027828">&lt;strong&gt;</bpt>Remote Logout URL<ept id="55ec234b-bbf7-4f2b-8745-8883ab027828">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3b0f37ba-dc08-4e99-8edf-ce475c18a269">&lt;strong&gt;</bpt>Customer SSO Service Logout URL<ept id="3b0f37ba-dc08-4e99-8edf-ce475c18a269">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="0bebb7f7-c676-44ad-979d-353f87b79025">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="0bebb7f7-c676-44ad-979d-353f87b79025">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="55ec234b-bbf7-4f2b-8745-8883ab027828">&lt;strong&gt;</bpt>Remote Logout URL<ept id="55ec234b-bbf7-4f2b-8745-8883ab027828">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="3b0f37ba-dc08-4e99-8edf-ce475c18a269">&lt;strong&gt;</bpt>Customer SSO Service Logout URL<ept id="3b0f37ba-dc08-4e99-8edf-ce475c18a269">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="4bc8afde-fa8d-4a0d-9e98-b91427932f5f" xml:space="preserve">
+          <source>Click <bpt id="e13ea30b-22d2-4535-b32d-5a5f5c870320">&lt;strong&gt;</bpt>Update<ept id="e13ea30b-22d2-4535-b32d-5a5f5c870320">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e13ea30b-22d2-4535-b32d-5a5f5c870320">&lt;strong&gt;</bpt>Update<ept id="e13ea30b-22d2-4535-b32d-5a5f5c870320">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18154c93-dcb2-4627-94be-c6ccb071e4a6" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="18269d3c-4b6e-41cc-bbcd-a85ccc8d29a4">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="18269d3c-4b6e-41cc-bbcd-a85ccc8d29a4">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="9f7a5b03-e2d2-42cc-93c1-ef4609ed3bb8">&lt;strong&gt;</bpt>Complete<ept id="9f7a5b03-e2d2-42cc-93c1-ef4609ed3bb8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure portal, on the <bpt id="18269d3c-4b6e-41cc-bbcd-a85ccc8d29a4">&lt;strong&gt;</bpt>Configure single sign-on at Cisco Webex<ept id="18269d3c-4b6e-41cc-bbcd-a85ccc8d29a4">&lt;/strong&gt;</ept> dialog page, select the single sign-on configuration confirmation, and then click <bpt id="9f7a5b03-e2d2-42cc-93c1-ef4609ed3bb8">&lt;strong&gt;</bpt>Complete<ept id="9f7a5b03-e2d2-42cc-93c1-ef4609ed3bb8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7508db87-1052-4398-abc5-1c42dadb877e" xml:space="preserve">
+          <source><bpt id="8aebd1b1-bd76-4b8e-ae21-3dc72c40f39f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="8aebd1b1-bd76-4b8e-ae21-3dc72c40f39f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8aebd1b1-bd76-4b8e-ae21-3dc72c40f39f">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="8aebd1b1-bd76-4b8e-ae21-3dc72c40f39f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bb32623-7c7d-457f-9399-0ba59fbdfc3c" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Cisco Webex, they must be provisioned into Cisco Webex.</source>
+          <target state="new">In order to enable Azure AD users to log into Cisco Webex, they must be provisioned into Cisco Webex.</target>
+        </trans-unit>
+        <trans-unit id="5e19239a-3ab2-4d24-b1bb-120ff67fd134" xml:space="preserve">
+          <source>In the case of Cisco Webex, provisioning is a manual task.</source>
+          <target state="new">In the case of Cisco Webex, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="6252f14f-6742-40a0-b154-d50b0094d7ce" xml:space="preserve">
+          <source>Log in to your <bpt id="a43a4a19-11cd-4bc1-930d-4ee9c57409be">&lt;strong&gt;</bpt>Cisco Webex<ept id="a43a4a19-11cd-4bc1-930d-4ee9c57409be">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="a43a4a19-11cd-4bc1-930d-4ee9c57409be">&lt;strong&gt;</bpt>Cisco Webex<ept id="a43a4a19-11cd-4bc1-930d-4ee9c57409be">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="be931f00-2481-4bcc-8fb7-4b15e492d40f" xml:space="preserve">
+          <source>Go to <bpt id="1a56f449-1c24-4244-858a-16f8e48bb1a2">&lt;strong&gt;</bpt>Manage Users \&gt; Add User<ept id="1a56f449-1c24-4244-858a-16f8e48bb1a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to <bpt id="1a56f449-1c24-4244-858a-16f8e48bb1a2">&lt;strong&gt;</bpt>Manage Users \&gt; Add User<ept id="1a56f449-1c24-4244-858a-16f8e48bb1a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98be863e-7f10-47c3-a700-4541ff13af08" xml:space="preserve">
+          <source><bpt id="3bb2a67b-473b-4b8e-9dea-aabdaea4a152">&lt;linkText&gt;</bpt>Add users<ept id="3bb2a67b-473b-4b8e-9dea-aabdaea4a152">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3bb2a67b-473b-4b8e-9dea-aabdaea4a152">&lt;linkText&gt;</bpt>Add users<ept id="3bb2a67b-473b-4b8e-9dea-aabdaea4a152">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ba1a515-3276-4551-b60b-8e96ee42ebc2" xml:space="preserve">
+          <source>On the Add User section, perform the following steps:</source>
+          <target state="new">On the Add User section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="bbac6656-2042-4ca9-b502-cd9a9ebd5756" xml:space="preserve">
+          <source><bpt id="ae9b0b3a-efe5-4e75-aa3f-c0fb48402567">&lt;linkText&gt;</bpt>Add user<ept id="ae9b0b3a-efe5-4e75-aa3f-c0fb48402567">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae9b0b3a-efe5-4e75-aa3f-c0fb48402567">&lt;linkText&gt;</bpt>Add user<ept id="ae9b0b3a-efe5-4e75-aa3f-c0fb48402567">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="415b84b8-6213-405b-89a4-b5da1bc3aec0" xml:space="preserve">
+          <source>As <bpt id="837c1e46-ff62-4846-8778-79124086f290">&lt;strong&gt;</bpt>Account Type<ept id="837c1e46-ff62-4846-8778-79124086f290">&lt;/strong&gt;</ept>, select <bpt id="b20c8208-d57c-42a1-ab11-4b7ba12b8c7d">&lt;strong&gt;</bpt>Host<ept id="b20c8208-d57c-42a1-ab11-4b7ba12b8c7d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="837c1e46-ff62-4846-8778-79124086f290">&lt;strong&gt;</bpt>Account Type<ept id="837c1e46-ff62-4846-8778-79124086f290">&lt;/strong&gt;</ept>, select <bpt id="b20c8208-d57c-42a1-ab11-4b7ba12b8c7d">&lt;strong&gt;</bpt>Host<ept id="b20c8208-d57c-42a1-ab11-4b7ba12b8c7d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cff1dd62-aa0f-44a7-847a-99ef97f2944f" xml:space="preserve">
+          <source>Type the information of an existing Azure AD user into the following textboxes: <bpt id="3ff1cefb-5926-473e-97df-089c996b71cc">&lt;strong&gt;</bpt>First name, Last name<ept id="3ff1cefb-5926-473e-97df-089c996b71cc">&lt;/strong&gt;</ept>, <bpt id="c6bbf44c-a913-43bf-ae41-e1a21cffc932">&lt;strong&gt;</bpt>User name<ept id="c6bbf44c-a913-43bf-ae41-e1a21cffc932">&lt;/strong&gt;</ept>, <bpt id="abc476a8-2bf6-4621-a3e9-b60e2326ef35">&lt;strong&gt;</bpt>Email<ept id="abc476a8-2bf6-4621-a3e9-b60e2326ef35">&lt;/strong&gt;</ept>, <bpt id="ca6a4a6a-edec-4211-b34d-c8b3a763d7be">&lt;strong&gt;</bpt>Password<ept id="ca6a4a6a-edec-4211-b34d-c8b3a763d7be">&lt;/strong&gt;</ept>, <bpt id="b0617a29-c6fc-4b4d-b9a4-5cbcd17957b4">&lt;strong&gt;</bpt>Confirm Password<ept id="b0617a29-c6fc-4b4d-b9a4-5cbcd17957b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the information of an existing Azure AD user into the following textboxes: <bpt id="3ff1cefb-5926-473e-97df-089c996b71cc">&lt;strong&gt;</bpt>First name, Last name<ept id="3ff1cefb-5926-473e-97df-089c996b71cc">&lt;/strong&gt;</ept>, <bpt id="c6bbf44c-a913-43bf-ae41-e1a21cffc932">&lt;strong&gt;</bpt>User name<ept id="c6bbf44c-a913-43bf-ae41-e1a21cffc932">&lt;/strong&gt;</ept>, <bpt id="abc476a8-2bf6-4621-a3e9-b60e2326ef35">&lt;strong&gt;</bpt>Email<ept id="abc476a8-2bf6-4621-a3e9-b60e2326ef35">&lt;/strong&gt;</ept>, <bpt id="ca6a4a6a-edec-4211-b34d-c8b3a763d7be">&lt;strong&gt;</bpt>Password<ept id="ca6a4a6a-edec-4211-b34d-c8b3a763d7be">&lt;/strong&gt;</ept>, <bpt id="b0617a29-c6fc-4b4d-b9a4-5cbcd17957b4">&lt;strong&gt;</bpt>Confirm Password<ept id="b0617a29-c6fc-4b4d-b9a4-5cbcd17957b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98d7a1d1-abe5-46f8-82d2-1e78c9786280" xml:space="preserve">
+          <source>Click <bpt id="ec57eecf-bd82-478f-a4e9-60ef04883b2e">&lt;strong&gt;</bpt>Add<ept id="ec57eecf-bd82-478f-a4e9-60ef04883b2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ec57eecf-bd82-478f-a4e9-60ef04883b2e">&lt;strong&gt;</bpt>Add<ept id="ec57eecf-bd82-478f-a4e9-60ef04883b2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54982566-c5d2-4b87-a732-35407014bb1b" xml:space="preserve">
+          <source>You can use any other Cisco Webex user account creation tools or APIs provided by Cisco Webex to provision AAD user accounts.</source>
+          <target state="new">You can use any other Cisco Webex user account creation tools or APIs provided by Cisco Webex to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="f24881b2-9750-4eec-a3af-849cf199c6aa" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="4724db98-2cf9-4deb-bfb5-6583f2fa61ac" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="b648090b-d154-416d-9e29-7443b572ac53" xml:space="preserve">
+          <source>On the <bpt id="b663bd30-4d83-4020-bd99-c0e0e8ee02a7">&lt;strong&gt;</bpt>Cisco Webex **application integration page, click **Assign users<ept id="b663bd30-4d83-4020-bd99-c0e0e8ee02a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b663bd30-4d83-4020-bd99-c0e0e8ee02a7">&lt;strong&gt;</bpt>Cisco Webex **application integration page, click **Assign users<ept id="b663bd30-4d83-4020-bd99-c0e0e8ee02a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="555a8323-d226-49cc-b7f8-97c82a7d2ece" xml:space="preserve">
+          <source><bpt id="2c8f14af-b3af-4f9d-a713-cb8fca4f49ba">&lt;linkText&gt;</bpt>Assign users<ept id="2c8f14af-b3af-4f9d-a713-cb8fca4f49ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c8f14af-b3af-4f9d-a713-cb8fca4f49ba">&lt;linkText&gt;</bpt>Assign users<ept id="2c8f14af-b3af-4f9d-a713-cb8fca4f49ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1277eaac-98bf-4739-bb28-557307fc8d35" xml:space="preserve">
+          <source>Select your test user, click <bpt id="91cd248c-ddc4-46ce-bce7-f76c7e472f88">&lt;strong&gt;</bpt>Assign<ept id="91cd248c-ddc4-46ce-bce7-f76c7e472f88">&lt;/strong&gt;</ept>, and then click <bpt id="971be41d-fac9-4ffc-9027-f35abfc8ba0d">&lt;strong&gt;</bpt>Yes<ept id="971be41d-fac9-4ffc-9027-f35abfc8ba0d">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="91cd248c-ddc4-46ce-bce7-f76c7e472f88">&lt;strong&gt;</bpt>Assign<ept id="91cd248c-ddc4-46ce-bce7-f76c7e472f88">&lt;/strong&gt;</ept>, and then click <bpt id="971be41d-fac9-4ffc-9027-f35abfc8ba0d">&lt;strong&gt;</bpt>Yes<ept id="971be41d-fac9-4ffc-9027-f35abfc8ba0d">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="7ecc312e-1a47-4cc9-9db3-226791750067" xml:space="preserve">
+          <source><bpt id="0383ebd1-2288-4674-a311-cb0b27123ab4">&lt;linkText&gt;</bpt>Yes<ept id="0383ebd1-2288-4674-a311-cb0b27123ab4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0383ebd1-2288-4674-a311-cb0b27123ab4">&lt;linkText&gt;</bpt>Yes<ept id="0383ebd1-2288-4674-a311-cb0b27123ab4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c97d1a2-2d60-47e5-94bc-431bbd289431" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="3a14c2e9-2975-447a-bf13-0d51bf8079c3" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;/linkText&gt;</ept><bpt id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;title&gt;</bpt><ept id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;/linkText&gt;</ept><bpt id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;title&gt;</bpt><ept id="c5a542b2-8048-4b18-a885-d0aafa4ebbf7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b9ec352e-d883-441b-985a-251a44d04cd6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b9ec352e-d883-441b-985a-251a44d04cd6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0bc89c3a-092c-4a00-b75e-eff684919d43">
+        <trans-unit id="4b52ceb1-729a-4368-96cd-4857a838c109" xml:space="preserve">
+          <source>Create a virtual network using the Azure preview portal | Microsoft Azure</source>
+          <target state="new">Create a virtual network using the Azure preview portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9087d43b-eed0-4e2f-9646-af7629cd337e" xml:space="preserve">
+          <source>Learn how to create a virtual network using the Azure preview portal in ARM | Resource Manager.</source>
+          <target state="new">Learn how to create a virtual network using the Azure preview portal in ARM | Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="58f6270f-ac4a-4fe4-be1f-0f346db935b0" xml:space="preserve">
+          <source><bpt id="f3b523de-abc3-4d65-86e3-b0406990e66d">&lt;token href="../../includes/virtual-networks-create-vnet-selectors-arm-include.md"&gt;</bpt><ept id="f3b523de-abc3-4d65-86e3-b0406990e66d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f3b523de-abc3-4d65-86e3-b0406990e66d">&lt;token href="../../includes/virtual-networks-create-vnet-selectors-arm-include.md"&gt;</bpt><ept id="f3b523de-abc3-4d65-86e3-b0406990e66d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfe22803-7267-4444-87d3-c881f0fb7668" xml:space="preserve">
+          <source><bpt id="f052c2f4-d187-49c2-964e-59073826237d">&lt;token href="../../includes/virtual-networks-create-vnet-intro-include.md"&gt;</bpt><ept id="f052c2f4-d187-49c2-964e-59073826237d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f052c2f4-d187-49c2-964e-59073826237d">&lt;token href="../../includes/virtual-networks-create-vnet-intro-include.md"&gt;</bpt><ept id="f052c2f4-d187-49c2-964e-59073826237d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86497aa5-cc9b-4ce3-8fc8-5b83f5c1138a" xml:space="preserve">
+          <source>This document covers creating a VNet by using the Resource Manager deployment model.</source>
+          <target state="new">This document covers creating a VNet by using the Resource Manager deployment model.</target>
+        </trans-unit>
+        <trans-unit id="cea43639-848f-4d20-977b-b42969a5ae06" xml:space="preserve">
+          <source>You can also <bpt id="df471959-e12b-4613-bc19-c819b7943c98">&lt;linkText&gt;</bpt>create a virtual network in the classic deployment model by using the Azure preview portal<ept id="df471959-e12b-4613-bc19-c819b7943c98">&lt;/linkText&gt;</ept><bpt id="df471959-e12b-4613-bc19-c819b7943c98">&lt;title&gt;</bpt><ept id="df471959-e12b-4613-bc19-c819b7943c98">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also <bpt id="df471959-e12b-4613-bc19-c819b7943c98">&lt;linkText&gt;</bpt>create a virtual network in the classic deployment model by using the Azure preview portal<ept id="df471959-e12b-4613-bc19-c819b7943c98">&lt;/linkText&gt;</ept><bpt id="df471959-e12b-4613-bc19-c819b7943c98">&lt;title&gt;</bpt><ept id="df471959-e12b-4613-bc19-c819b7943c98">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8900a9ea-0232-4efa-bcda-001d51b9d8d5" xml:space="preserve">
+          <source><bpt id="2f0f4555-a939-4e2d-98b2-29ff6ef318d7">&lt;token href="../../includes/virtual-networks-create-vnet-scenario-include.md"&gt;</bpt><ept id="2f0f4555-a939-4e2d-98b2-29ff6ef318d7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="2f0f4555-a939-4e2d-98b2-29ff6ef318d7">&lt;token href="../../includes/virtual-networks-create-vnet-scenario-include.md"&gt;</bpt><ept id="2f0f4555-a939-4e2d-98b2-29ff6ef318d7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81997980-e143-4ee0-befe-6729d8bb90c1" xml:space="preserve">
+          <source><bpt id="ff982d86-5c97-4c00-a244-91737dd306ef">&lt;token href="../../includes/virtual-networks-create-vnet-arm-pportal-include.md"&gt;</bpt><ept id="ff982d86-5c97-4c00-a244-91737dd306ef">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ff982d86-5c97-4c00-a244-91737dd306ef">&lt;token href="../../includes/virtual-networks-create-vnet-arm-pportal-include.md"&gt;</bpt><ept id="ff982d86-5c97-4c00-a244-91737dd306ef">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

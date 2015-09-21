@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9e7b8c5b-a216-40fe-b5f0-e3b2cd80db6f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9e7b8c5b-a216-40fe-b5f0-e3b2cd80db6f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6a2e3a3c-9b82-448c-ab71-56e4814fbf05">
+        <trans-unit id="293d5c28-288a-47f2-8acd-3da91592d923" xml:space="preserve">
+          <source>Add authentication to your Windows Phone Silverlight app | Microsoft Azure</source>
+          <target state="new">Add authentication to your Windows Phone Silverlight app | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5ac0d684-b28f-4e53-b7c0-af5443b5f2a0" xml:space="preserve">
+          <source>Learn how to use Mobile Services to authenticate users of your Windows Phone Silverlight app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account.</source>
+          <target state="new">Learn how to use Mobile Services to authenticate users of your Windows Phone Silverlight app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="a3a3b8f0-7e6e-4c3e-bec7-88d8a17ad848" xml:space="preserve">
+          <source><bpt id="e80cfd16-df32-49ce-a740-f7af3851e626">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="e80cfd16-df32-49ce-a740-f7af3851e626">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e80cfd16-df32-49ce-a740-f7af3851e626">&lt;token href="../../includes/mobile-services-selector-get-started-users.md"&gt;</bpt><ept id="e80cfd16-df32-49ce-a740-f7af3851e626">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5be62a7b-97ab-49c2-a772-347e27cee89d" xml:space="preserve">
+          <source>This topic shows you how to authenticate users in Azure Mobile Services from your Windows Phone app.</source>
+          <target state="new">This topic shows you how to authenticate users in Azure Mobile Services from your Windows Phone app.</target>
+        </trans-unit>
+        <trans-unit id="4c63863d-d4ce-4698-8f11-5b60437ef1da" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="12ffdcc8-75f0-48f3-9923-4711d0ec961f" xml:space="preserve">
+          <source>After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</source>
+          <target state="new">After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.</target>
+        </trans-unit>
+        <trans-unit id="54752b47-3f51-46f2-aa42-661e2933dd51" xml:space="preserve">
+          <source>This topic supports only Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps.</source>
+          <target state="new">This topic supports only Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps.</target>
+        </trans-unit>
+        <trans-unit id="8c324ef1-800f-4071-92b3-5cd561594cb8" xml:space="preserve">
+          <source>If you have a Windows Phone Store 8.1 or universal Windows app, please instead follow the <bpt id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;linkText&gt;</bpt>universal Windows app version of this topic<ept id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;/linkText&gt;</ept><bpt id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;title&gt;</bpt><ept id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have a Windows Phone Store 8.1 or universal Windows app, please instead follow the <bpt id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;linkText&gt;</bpt>universal Windows app version of this topic<ept id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;/linkText&gt;</ept><bpt id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;title&gt;</bpt><ept id="42b37e9f-31dd-48ee-a433-958a8191cfb3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd454962-dea6-4242-b4b4-79e1a8d57d1f" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="68a1a03c-bccd-4ac7-befe-8bf09b9acacb" xml:space="preserve">
+          <source>You must also first complete the tutorial [Get started with Mobile Services].</source>
+          <target state="new">You must also first complete the tutorial [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="2eab8760-0846-4bda-bb30-0c5469d84fe0" xml:space="preserve">
+          <source><bpt id="b80de2f5-a05f-46fa-bbcd-cd4496a3b0e5">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="b80de2f5-a05f-46fa-bbcd-cd4496a3b0e5">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="b80de2f5-a05f-46fa-bbcd-cd4496a3b0e5">&lt;token href="../../includes/mobile-services-register-authentication.md"&gt;</bpt><ept id="b80de2f5-a05f-46fa-bbcd-cd4496a3b0e5">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="83065153-3a65-43fd-a8a7-384e32025092" xml:space="preserve">
+          <source><bpt id="7c4a6a03-5c64-44ae-a92b-4a2234789add">&lt;token href="../../includes/mobile-services-dotnet-backend-aad-server-extension.md"&gt;</bpt><ept id="7c4a6a03-5c64-44ae-a92b-4a2234789add">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="7c4a6a03-5c64-44ae-a92b-4a2234789add">&lt;token href="../../includes/mobile-services-dotnet-backend-aad-server-extension.md"&gt;</bpt><ept id="7c4a6a03-5c64-44ae-a92b-4a2234789add">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0717e51a-e458-4cb6-9fb7-6d21ed638891" xml:space="preserve">
+          <source><bpt id="7b11d140-5d55-436f-9e6c-a8fb85cf5eb7">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="7b11d140-5d55-436f-9e6c-a8fb85cf5eb7">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="7b11d140-5d55-436f-9e6c-a8fb85cf5eb7">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="7b11d140-5d55-436f-9e6c-a8fb85cf5eb7">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="0ae76586-abab-4f33-a9d9-27c5975717dc" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;6.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;6.</target>
+        </trans-unit>
+        <trans-unit id="2b87d7f0-a68b-4a4d-b5f3-f863b7f011fe" xml:space="preserve">
+          <source>In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <bpt id="a0084f4f-19d8-4020-998a-529a9e330745">&lt;strong&gt;</bpt>MobileServiceClient<ept id="a0084f4f-19d8-4020-998a-529a9e330745">&lt;/strong&gt;</ept> is configured to use the cloud URL to the mobile service.</source>
+          <target state="new">In Visual Studio, open your client app project and ensure that in App.xaml.cs, the instance of <bpt id="a0084f4f-19d8-4020-998a-529a9e330745">&lt;strong&gt;</bpt>MobileServiceClient<ept id="a0084f4f-19d8-4020-998a-529a9e330745">&lt;/strong&gt;</ept> is configured to use the cloud URL to the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="88c9168a-8701-45f0-a967-cfc6070e1272" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;7.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;7.</target>
+        </trans-unit>
+        <trans-unit id="a53ecbbb-fe29-426c-959c-c566db278e8e" xml:space="preserve">
+          <source>Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</source>
+          <target state="new">Press the F5 key to run this quickstart-based app; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</target>
+        </trans-unit>
+        <trans-unit id="86c059bb-959a-44f3-8ac2-e99c607ce0c0" xml:space="preserve">
+          <source>This happens when the app attempts to access Mobile Services as an unauthenticated user, but the <bpt id="469d02d8-7b59-48f5-b75b-18d3e4190900">&lt;em&gt;</bpt>TodoItem<ept id="469d02d8-7b59-48f5-b75b-18d3e4190900">&lt;/em&gt;</ept> table now requires authentication.</source>
+          <target state="new">This happens when the app attempts to access Mobile Services as an unauthenticated user, but the <bpt id="469d02d8-7b59-48f5-b75b-18d3e4190900">&lt;em&gt;</bpt>TodoItem<ept id="469d02d8-7b59-48f5-b75b-18d3e4190900">&lt;/em&gt;</ept> table now requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="a7593fb0-d7ff-4f06-98ed-3ada38d3347a" xml:space="preserve">
+          <source>Next, you will update the app to authenticate users before requesting resources from the mobile service.</source>
+          <target state="new">Next, you will update the app to authenticate users before requesting resources from the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="3842c21b-6687-4406-a081-747263c74fba" xml:space="preserve">
+          <source><bpt id="d68fada7-7762-4d3f-af42-d8dece2cdfd3">&lt;token href="../../includes/mobile-services-windows-phone-authenticate-app.md"&gt;</bpt><ept id="d68fada7-7762-4d3f-af42-d8dece2cdfd3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d68fada7-7762-4d3f-af42-d8dece2cdfd3">&lt;token href="../../includes/mobile-services-windows-phone-authenticate-app.md"&gt;</bpt><ept id="d68fada7-7762-4d3f-af42-d8dece2cdfd3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42c5403c-9f42-47b2-b07c-c8cc989ddd05" xml:space="preserve">
+          <source><bpt id="75ab91da-500b-40a3-88ab-56b161e7370f">&lt;token href="../../includes/mobile-services-windows-phone-authenticate-app-with-token.md"&gt;</bpt><ept id="75ab91da-500b-40a3-88ab-56b161e7370f">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="75ab91da-500b-40a3-88ab-56b161e7370f">&lt;token href="../../includes/mobile-services-windows-phone-authenticate-app-with-token.md"&gt;</bpt><ept id="75ab91da-500b-40a3-88ab-56b161e7370f">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b433af3f-9249-4442-acf1-9945eeeb5561" xml:space="preserve">
+          <source>In the next tutorial, <bpt id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;linkText&gt;</bpt>Service-side authorization of Mobile Services users[authorize users with scripts]<ept id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;/linkText&gt;</ept><bpt id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;title&gt;</bpt><ept id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;/title&gt;</ept>, you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</source>
+          <target state="new">In the next tutorial, <bpt id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;linkText&gt;</bpt>Service-side authorization of Mobile Services users[authorize users with scripts]<ept id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;/linkText&gt;</ept><bpt id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;title&gt;</bpt><ept id="6338dbbc-35bd-40af-bd20-491a9470c429">&lt;/title&gt;</ept>, you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="3f7ad942-59e0-4098-95e8-57eacdfca82e" xml:space="preserve">
+          <source>Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]</source>
+          <target state="new">Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]</target>
+        </trans-unit>
+        <trans-unit id="c6007d3c-5ffb-4384-ad8b-fa40bc74fbba" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="8e6d731d-669d-42ad-9bd6-983cf6b4975e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="6ff13b4f-bad6-4b9b-9b83-2fd28f2c6fb9" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="3a09b608-a2aa-487f-a60f-49ba8fc346a4" xml:space="preserve">
+          <source>mobile-services-windows-phone-single-sign-on.md</source>
+          <target state="new">mobile-services-windows-phone-single-sign-on.md</target>
+        </trans-unit>
+        <trans-unit id="b6f6dcd1-6042-44b0-9424-63cce0a41ef4" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-phone-get-started.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-phone-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="77343764-25f4-4092-8251-049f116c2fbc" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-get-started-data.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="490104f6-fb98-451d-ae5f-03d4ddeec6df" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="169a9782-00b0-4914-aa4d-c763aad7edc4" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-phone-get-started-push.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-phone-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="5035c63c-5475-42b3-a265-4ee4736855a1" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md</target>
+        </trans-unit>
+        <trans-unit id="8a563791-88a1-4dff-98c9-4c76a959b06a" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="fe9deb61-68ee-4912-8f87-19bcabc63e43" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="8398caf9-059b-4d36-8af3-4f54566fb359" xml:space="preserve">
+          <source>mobile-services-windows-dotnet-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-windows-dotnet-how-to-use-client-library.md</target>
+        </trans-unit>
+        <trans-unit id="6e9bc2df-e00d-46b4-b9de-de33772aa8a5" xml:space="preserve">
+          <source>../mobile-services-how-to-register-store-app-package-microsoft-authentication.md</source>
+          <target state="new">../mobile-services-how-to-register-store-app-package-microsoft-authentication.md</target>
+        </trans-unit>
+      </group>
+      <group id="1d411fdb-416c-4c5d-a635-2c3961c2c6c5" />
+    </body>
+  </file>
+</xliff>

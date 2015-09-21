@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e5cda074-065f-444b-8b99-f0643f072549" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e5cda074-065f-444b-8b99-f0643f072549" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3c4795ba-50bf-48b9-9de4-f19918979b8c">
+        <trans-unit id="1e3f1a31-9e17-44ac-8e33-d9e65b4b8ed4" xml:space="preserve">
+          <source>Move data from Sybase | Azure Data Factory</source>
+          <target state="new">Move data from Sybase | Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="b3abd17f-5104-4942-8697-78f1a396fe6a" xml:space="preserve">
+          <source>Learn about how to move data from Sybase Database using Azure Data Factory.</source>
+          <target state="new">Learn about how to move data from Sybase Database using Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="d177c730-a271-456d-b482-e058be46c327" xml:space="preserve">
+          <source>This article outlines how you can use the Copy Activity in an Azure data factory to move data from Sybase to another data store.</source>
+          <target state="new">This article outlines how you can use the Copy Activity in an Azure data factory to move data from Sybase to another data store.</target>
+        </trans-unit>
+        <trans-unit id="6711572c-5681-437a-a5be-31727cb5f24d" xml:space="preserve">
+          <source>This article builds on the <bpt id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;linkText&gt;</bpt>data movement activities<ept id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;/linkText&gt;</ept><bpt id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;title&gt;</bpt><ept id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</source>
+          <target state="new">This article builds on the <bpt id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;linkText&gt;</bpt>data movement activities<ept id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;/linkText&gt;</ept><bpt id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;title&gt;</bpt><ept id="b8016d31-2ec7-48b8-8a72-7a7f2d7bffdc">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</target>
+        </trans-unit>
+        <trans-unit id="9978f1a5-ba09-49c0-9a62-59e3363ef33f" xml:space="preserve">
+          <source>Data Factory service supports connecting to on-premises Sybase sources using the Data Management Gateway.</source>
+          <target state="new">Data Factory service supports connecting to on-premises Sybase sources using the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="9940e759-e086-4814-bc7c-8dce33f86084" xml:space="preserve">
+          <source>See <bpt id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;/linkText&gt;</ept><bpt id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;title&gt;</bpt><ept id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</source>
+          <target state="new">See <bpt id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;/linkText&gt;</ept><bpt id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;title&gt;</bpt><ept id="2c0df850-4850-4a88-b15a-ab92c5794fdb">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</target>
+        </trans-unit>
+        <trans-unit id="3738105e-36aa-4845-820b-fdbbd0955b81" xml:space="preserve">
+          <source><bpt id="bb4829f0-b4cb-4abc-91eb-241a84f71c71">&lt;strong&gt;</bpt>Note:<ept id="bb4829f0-b4cb-4abc-91eb-241a84f71c71">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to Sybase even if it is hosted in Azure IaaS VMs.</source>
+          <target state="new"><bpt id="bb4829f0-b4cb-4abc-91eb-241a84f71c71">&lt;strong&gt;</bpt>Note:<ept id="bb4829f0-b4cb-4abc-91eb-241a84f71c71">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to Sybase even if it is hosted in Azure IaaS VMs.</target>
+        </trans-unit>
+        <trans-unit id="1204bfb4-9fa8-46dd-a144-904f26f8b409" xml:space="preserve">
+          <source>If you are trying to connect to an instance of Sybase hosted in cloud, you can also install the gateway instance in the IaaS VM.</source>
+          <target state="new">If you are trying to connect to an instance of Sybase hosted in cloud, you can also install the gateway instance in the IaaS VM.</target>
+        </trans-unit>
+        <trans-unit id="4e978098-b3f0-4452-a791-90ebed1c8601" xml:space="preserve">
+          <source>Data factory currently supports only moving data from Sybase to other data stores, not from other data stores to Sybase.</source>
+          <target state="new">Data factory currently supports only moving data from Sybase to other data stores, not from other data stores to Sybase.</target>
+        </trans-unit>
+        <trans-unit id="94a6000d-7cbe-461c-a4a1-b97b5cc1c15b" xml:space="preserve">
+          <source>For Data Management Gateway to connect to the Sybase Database, you need to install the <bpt id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;linkText&gt;</bpt>data provider for Sybase<ept id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;/linkText&gt;</ept><bpt id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;title&gt;</bpt><ept id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</source>
+          <target state="new">For Data Management Gateway to connect to the Sybase Database, you need to install the <bpt id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;linkText&gt;</bpt>data provider for Sybase<ept id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;/linkText&gt;</ept><bpt id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;title&gt;</bpt><ept id="97cf9a2b-3f0a-4199-ae41-e7d4efe7bf81">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="fc53c53d-39f1-45a6-a47d-b6bafb40b889" xml:space="preserve">
+          <source>The sample below shows:</source>
+          <target state="new">The sample below shows:</target>
+        </trans-unit>
+        <trans-unit id="dad3c920-02ef-4c34-8273-0797b8ca9feb" xml:space="preserve">
+          <source>A linked service of type <bpt id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;linkText&gt;</bpt>OnPremisesSybase<ept id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;/linkText&gt;</ept><bpt id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;title&gt;</bpt><ept id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;/title&gt;</ept>.</source>
+          <target state="new">A linked service of type <bpt id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;linkText&gt;</bpt>OnPremisesSybase<ept id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;/linkText&gt;</ept><bpt id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;title&gt;</bpt><ept id="a5112571-8bbd-45b3-aec4-cd3335b4fc76">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7bcd663-5340-4a9b-811f-fcbccc65157d" xml:space="preserve">
+          <source>A liked service of type <bpt id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;linkText&gt;</bpt>AzureStorage<ept id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;/linkText&gt;</ept><bpt id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;title&gt;</bpt><ept id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;/title&gt;</ept>.</source>
+          <target state="new">A liked service of type <bpt id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;linkText&gt;</bpt>AzureStorage<ept id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;/linkText&gt;</ept><bpt id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;title&gt;</bpt><ept id="dbc67e73-44e1-44be-8daa-8b137db2375e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea58de8d-2f05-4c64-aa6e-bfa9f90e0aee" xml:space="preserve">
+          <source>An input <bpt id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;linkText&gt;</bpt>dataset<ept id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;/linkText&gt;</ept><bpt id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;title&gt;</bpt><ept id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;/title&gt;</ept> of type <bpt id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;linkText&gt;</bpt>RelationalTable<ept id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;/linkText&gt;</ept><bpt id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;title&gt;</bpt><ept id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;/title&gt;</ept>.</source>
+          <target state="new">An input <bpt id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;linkText&gt;</bpt>dataset<ept id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;/linkText&gt;</ept><bpt id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;title&gt;</bpt><ept id="f8462ca2-a2b4-4a14-8f4e-27417f7e9cc3">&lt;/title&gt;</ept> of type <bpt id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;linkText&gt;</bpt>RelationalTable<ept id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;/linkText&gt;</ept><bpt id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;title&gt;</bpt><ept id="05f76b7a-5ed8-4367-ac47-3e7c9fd1bff0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff56969f-ae13-413d-9ba2-643649a32da2" xml:space="preserve">
+          <source>An output <bpt id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;linkText&gt;</bpt>dataset<ept id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;/linkText&gt;</ept><bpt id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;title&gt;</bpt><ept id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;/title&gt;</ept> of type <bpt id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;linkText&gt;</bpt>AzureBlob<ept id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;/linkText&gt;</ept><bpt id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;title&gt;</bpt><ept id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">An output <bpt id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;linkText&gt;</bpt>dataset<ept id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;/linkText&gt;</ept><bpt id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;title&gt;</bpt><ept id="01251408-0c5e-4c41-9c08-3863d132ed4c">&lt;/title&gt;</ept> of type <bpt id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;linkText&gt;</bpt>AzureBlob<ept id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;/linkText&gt;</ept><bpt id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;title&gt;</bpt><ept id="49e23a9a-cf99-4540-b7ba-42c3d28296f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69b42ef0-a51a-4e37-b25b-d1ac5f0b3918" xml:space="preserve">
+          <source>The <bpt id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;linkText&gt;</bpt>pipeline<ept id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;/linkText&gt;</ept><bpt id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;title&gt;</bpt><ept id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="d91eabec-c23c-4edf-bea3-683065921271">&lt;linkText&gt;</bpt>RelationalSource<ept id="d91eabec-c23c-4edf-bea3-683065921271">&lt;/linkText&gt;</ept><bpt id="d91eabec-c23c-4edf-bea3-683065921271">&lt;title&gt;</bpt><ept id="d91eabec-c23c-4edf-bea3-683065921271">&lt;/title&gt;</ept> and <bpt id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;linkText&gt;</bpt>BlobSink<ept id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;/linkText&gt;</ept><bpt id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;title&gt;</bpt><ept id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;linkText&gt;</bpt>pipeline<ept id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;/linkText&gt;</ept><bpt id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;title&gt;</bpt><ept id="7ae96be0-1617-4bbe-95a7-ed05bcf8c070">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="d91eabec-c23c-4edf-bea3-683065921271">&lt;linkText&gt;</bpt>RelationalSource<ept id="d91eabec-c23c-4edf-bea3-683065921271">&lt;/linkText&gt;</ept><bpt id="d91eabec-c23c-4edf-bea3-683065921271">&lt;title&gt;</bpt><ept id="d91eabec-c23c-4edf-bea3-683065921271">&lt;/title&gt;</ept> and <bpt id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;linkText&gt;</bpt>BlobSink<ept id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;/linkText&gt;</ept><bpt id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;title&gt;</bpt><ept id="86113403-177c-4a6c-93b0-507e0de6acb8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25aea8cc-2ec2-441e-bd47-7780ae1d16a9" xml:space="preserve">
+          <source>The sample copies data from a query result in Sybase database to a blob every hour.</source>
+          <target state="new">The sample copies data from a query result in Sybase database to a blob every hour.</target>
+        </trans-unit>
+        <trans-unit id="1f1b17df-d0f8-4e5f-bb7f-6a3f70c8b749" xml:space="preserve">
+          <source>The JSON properties used in these samples are described in sections following the samples.</source>
+          <target state="new">The JSON properties used in these samples are described in sections following the samples.</target>
+        </trans-unit>
+        <trans-unit id="c2c829fb-c3cf-4caa-a17e-bd8263e5adbd" xml:space="preserve">
+          <source>As a first step, please setup the data management gateway as per the instructions in the <bpt id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;/linkText&gt;</ept><bpt id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;title&gt;</bpt><ept id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;/title&gt;</ept> article.</source>
+          <target state="new">As a first step, please setup the data management gateway as per the instructions in the <bpt id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;/linkText&gt;</ept><bpt id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;title&gt;</bpt><ept id="e5074a3d-b88f-414b-b278-41e62607fd86">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="383b71ad-7aa0-4bf7-ab91-3821d276925f" xml:space="preserve">
+          <source><bpt id="f9319d95-5e84-4f58-8c6a-471c1843c843">&lt;strong&gt;</bpt>Sybase linked service:<ept id="f9319d95-5e84-4f58-8c6a-471c1843c843">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f9319d95-5e84-4f58-8c6a-471c1843c843">&lt;strong&gt;</bpt>Sybase linked service:<ept id="f9319d95-5e84-4f58-8c6a-471c1843c843">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0342c6e8-265c-4150-82ec-a9eb686404f1" xml:space="preserve">
+          <source><bpt id="8b3a5cd4-31bf-43e2-ab69-1c8fdb375849">&lt;strong&gt;</bpt>Azure Blob storage linked service:<ept id="8b3a5cd4-31bf-43e2-ab69-1c8fdb375849">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8b3a5cd4-31bf-43e2-ab69-1c8fdb375849">&lt;strong&gt;</bpt>Azure Blob storage linked service:<ept id="8b3a5cd4-31bf-43e2-ab69-1c8fdb375849">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05c1d465-46cf-4db5-b0a1-fb239cb444c5" xml:space="preserve">
+          <source><bpt id="5a9beb96-a3f2-4ebd-9049-a1e9b8b84bdf">&lt;strong&gt;</bpt>Sybase input dataset:<ept id="5a9beb96-a3f2-4ebd-9049-a1e9b8b84bdf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5a9beb96-a3f2-4ebd-9049-a1e9b8b84bdf">&lt;strong&gt;</bpt>Sybase input dataset:<ept id="5a9beb96-a3f2-4ebd-9049-a1e9b8b84bdf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f95ce5e9-ed79-469c-bee9-a3b9f4c37d41" xml:space="preserve">
+          <source>The sample assumes you have created a table “MyTable” in Sybase and it contains a column called “timestamp” for time series data.</source>
+          <target state="new">The sample assumes you have created a table “MyTable” in Sybase and it contains a column called “timestamp” for time series data.</target>
+        </trans-unit>
+        <trans-unit id="43450489-0c76-473b-b20a-35e32e6737d4" xml:space="preserve">
+          <source>Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</source>
+          <target state="new">Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="5b8276a2-5a51-4b42-a449-136a1678fb58" xml:space="preserve">
+          <source>Note that the <bpt id="5f5fdb8a-4179-4f9d-af43-f6ef54b8edad">&lt;strong&gt;</bpt>type<ept id="5f5fdb8a-4179-4f9d-af43-f6ef54b8edad">&lt;/strong&gt;</ept> of the linked service is set to: <bpt id="14ec7a36-c14f-4985-8209-f5aedd24588b">&lt;strong&gt;</bpt>RelationalTable<ept id="14ec7a36-c14f-4985-8209-f5aedd24588b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Note that the <bpt id="5f5fdb8a-4179-4f9d-af43-f6ef54b8edad">&lt;strong&gt;</bpt>type<ept id="5f5fdb8a-4179-4f9d-af43-f6ef54b8edad">&lt;/strong&gt;</ept> of the linked service is set to: <bpt id="14ec7a36-c14f-4985-8209-f5aedd24588b">&lt;strong&gt;</bpt>RelationalTable<ept id="14ec7a36-c14f-4985-8209-f5aedd24588b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5e1bedb-b1fa-4661-bc85-182796fc121a" xml:space="preserve">
+          <source><bpt id="2735e64d-c83b-49c1-9c20-444c4740ed00">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="2735e64d-c83b-49c1-9c20-444c4740ed00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2735e64d-c83b-49c1-9c20-444c4740ed00">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="2735e64d-c83b-49c1-9c20-444c4740ed00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdcc7bca-35f1-4b0d-8665-dbc7b41b754a" xml:space="preserve">
+          <source>Data is written to a new blob every hour (frequency: hour, interval: 1).</source>
+          <target state="new">Data is written to a new blob every hour (frequency: hour, interval: 1).</target>
+        </trans-unit>
+        <trans-unit id="6bf35163-bc10-42fa-b99f-da3f36943b01" xml:space="preserve">
+          <source>The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</source>
+          <target state="new">The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed.</target>
+        </trans-unit>
+        <trans-unit id="bc86f5fe-3225-4469-a8da-55c443853520" xml:space="preserve">
+          <source>The folder path uses year, month, day, and hours parts of the start time.</source>
+          <target state="new">The folder path uses year, month, day, and hours parts of the start time.</target>
+        </trans-unit>
+        <trans-unit id="8c43b93a-8650-494e-a31a-2181381a4025" xml:space="preserve">
+          <source><bpt id="725bd471-f756-4f61-a36c-00abb0fcc56c">&lt;strong&gt;</bpt>Pipeline with Copy activity:<ept id="725bd471-f756-4f61-a36c-00abb0fcc56c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="725bd471-f756-4f61-a36c-00abb0fcc56c">&lt;strong&gt;</bpt>Pipeline with Copy activity:<ept id="725bd471-f756-4f61-a36c-00abb0fcc56c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0af2e3d-0588-4b66-8c39-ad25a9182f99" xml:space="preserve">
+          <source>The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</source>
+          <target state="new">The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</target>
+        </trans-unit>
+        <trans-unit id="5cadd958-7334-40df-ba5c-d0d1c951e9e0" xml:space="preserve">
+          <source>In the pipeline JSON definition, the <bpt id="4896756d-453a-493c-aebf-26510f0bcd08">&lt;strong&gt;</bpt>source<ept id="4896756d-453a-493c-aebf-26510f0bcd08">&lt;/strong&gt;</ept> type is set to <bpt id="fa982409-d593-46fe-a3b0-27b84385bdde">&lt;strong&gt;</bpt>RelationalSource<ept id="fa982409-d593-46fe-a3b0-27b84385bdde">&lt;/strong&gt;</ept> and <bpt id="a63c68d8-fd8f-4990-8c97-04b6356076fe">&lt;strong&gt;</bpt>sink<ept id="a63c68d8-fd8f-4990-8c97-04b6356076fe">&lt;/strong&gt;</ept> type is set to <bpt id="303eda9d-51d4-4099-9035-d6407555b84a">&lt;strong&gt;</bpt>BlobSink<ept id="303eda9d-51d4-4099-9035-d6407555b84a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pipeline JSON definition, the <bpt id="4896756d-453a-493c-aebf-26510f0bcd08">&lt;strong&gt;</bpt>source<ept id="4896756d-453a-493c-aebf-26510f0bcd08">&lt;/strong&gt;</ept> type is set to <bpt id="fa982409-d593-46fe-a3b0-27b84385bdde">&lt;strong&gt;</bpt>RelationalSource<ept id="fa982409-d593-46fe-a3b0-27b84385bdde">&lt;/strong&gt;</ept> and <bpt id="a63c68d8-fd8f-4990-8c97-04b6356076fe">&lt;strong&gt;</bpt>sink<ept id="a63c68d8-fd8f-4990-8c97-04b6356076fe">&lt;/strong&gt;</ept> type is set to <bpt id="303eda9d-51d4-4099-9035-d6407555b84a">&lt;strong&gt;</bpt>BlobSink<ept id="303eda9d-51d4-4099-9035-d6407555b84a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4128055f-d40e-4d87-8d5e-26d9b00adea8" xml:space="preserve">
+          <source>The SQL query specified for the <bpt id="e79970b9-d8bd-4c9f-98c1-ba494e906599">&lt;strong&gt;</bpt>query<ept id="e79970b9-d8bd-4c9f-98c1-ba494e906599">&lt;/strong&gt;</ept> property selects the data from the DBA.Orders table in the database.</source>
+          <target state="new">The SQL query specified for the <bpt id="e79970b9-d8bd-4c9f-98c1-ba494e906599">&lt;strong&gt;</bpt>query<ept id="e79970b9-d8bd-4c9f-98c1-ba494e906599">&lt;/strong&gt;</ept> property selects the data from the DBA.Orders table in the database.</target>
+        </trans-unit>
+        <trans-unit id="e6911373-fbdd-4a57-847d-b9db877cebb5" xml:space="preserve">
+          <source>The following table provides description for JSON elements specific to Sybase linked service.</source>
+          <target state="new">The following table provides description for JSON elements specific to Sybase linked service.</target>
+        </trans-unit>
+        <trans-unit id="c0818e3d-d703-4ca1-b00c-5cd648928615" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="c5383576-ecb6-4785-9213-576b8ce6a3ef" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="42c9799b-1844-4286-b125-16fbf8a56247" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="667622e5-bc9a-4241-8a9b-08212a4764a9" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="40fb4be2-e2c7-4c3c-be07-fcf0a4dc8eee" xml:space="preserve">
+          <source>The type property must be set to: <bpt id="96b2fde8-41ff-42ed-a2ba-3b59aab21edc">&lt;strong&gt;</bpt>OnPremisesSybase<ept id="96b2fde8-41ff-42ed-a2ba-3b59aab21edc">&lt;/strong&gt;</ept></source>
+          <target state="new">The type property must be set to: <bpt id="96b2fde8-41ff-42ed-a2ba-3b59aab21edc">&lt;strong&gt;</bpt>OnPremisesSybase<ept id="96b2fde8-41ff-42ed-a2ba-3b59aab21edc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f071d54f-5ea2-4794-ac89-3212764b870a" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="0955997b-8e85-4bd2-bb6d-260c31c9e467" xml:space="preserve">
+          <source>server</source>
+          <target state="new">server</target>
+        </trans-unit>
+        <trans-unit id="24686895-774c-4c22-8bca-230a16094fad" xml:space="preserve">
+          <source>Name of the Sybase server.</source>
+          <target state="new">Name of the Sybase server.</target>
+        </trans-unit>
+        <trans-unit id="3db91f52-4131-40c1-8e88-1b6882763400" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="64ccb2eb-77dc-49c9-8823-608af6f90078" xml:space="preserve">
+          <source>database</source>
+          <target state="new">database</target>
+        </trans-unit>
+        <trans-unit id="b9a79260-5a9d-4c7c-87e2-b88f1b27138f" xml:space="preserve">
+          <source>Name of the Sybase database.</source>
+          <target state="new">Name of the Sybase database.</target>
+        </trans-unit>
+        <trans-unit id="81ba2264-07f6-426e-9773-ab4d26f540a8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="732d3c76-b8da-4ae4-b2a2-bf1ae66aaf75" xml:space="preserve">
+          <source>schema</source>
+          <target state="new">schema</target>
+        </trans-unit>
+        <trans-unit id="4dd9a9b6-40d1-481b-9edf-ffc62775ba7f" xml:space="preserve">
+          <source>Name of the schema in the database.</source>
+          <target state="new">Name of the schema in the database.</target>
+        </trans-unit>
+        <trans-unit id="96ac888b-8710-4bee-9536-cc26309fe6a7" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="359a54a5-2b0e-4b77-a047-b7bed027bdd8" xml:space="preserve">
+          <source>authenticationType</source>
+          <target state="new">authenticationType</target>
+        </trans-unit>
+        <trans-unit id="c4a9ad23-cdaf-48fa-a661-62744ef2570d" xml:space="preserve">
+          <source>Type of authentication used to connect to the Sybase database.</source>
+          <target state="new">Type of authentication used to connect to the Sybase database.</target>
+        </trans-unit>
+        <trans-unit id="ba3776fb-31ef-473b-a2b1-c64303b1d95d" xml:space="preserve">
+          <source>Possible values are: Anonymous, Basic, and Windows.</source>
+          <target state="new">Possible values are: Anonymous, Basic, and Windows.</target>
+        </trans-unit>
+        <trans-unit id="b80e1dfe-0371-4c8e-b2fc-d30d0c802157" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3876ba29-9002-43a7-8793-1f49e86e5b9f" xml:space="preserve">
+          <source>username</source>
+          <target state="new">username</target>
+        </trans-unit>
+        <trans-unit id="c07ba54a-0d32-4b79-ae43-8db04e977212" xml:space="preserve">
+          <source>Specify user name if you are using Basic or Windows authentication.</source>
+          <target state="new">Specify user name if you are using Basic or Windows authentication.</target>
+        </trans-unit>
+        <trans-unit id="93010a50-c2b3-47e4-b6d8-ad83aecee394" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c3706fdd-1f1c-42b0-8566-8ef8d9801e96" xml:space="preserve">
+          <source>password</source>
+          <target state="new">password</target>
+        </trans-unit>
+        <trans-unit id="8ddd3d89-c252-4cb3-8fc5-f542d712d201" xml:space="preserve">
+          <source>Specify password for the user account you specified for the username.</source>
+          <target state="new">Specify password for the user account you specified for the username.</target>
+        </trans-unit>
+        <trans-unit id="84464cd2-2a37-4636-b448-d1acab5548e8" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="309f6af2-50ab-4c04-b6f5-7458d416cef1" xml:space="preserve">
+          <source>gatewayName</source>
+          <target state="new">gatewayName</target>
+        </trans-unit>
+        <trans-unit id="f779bde5-f270-40ef-864b-ae864897612e" xml:space="preserve">
+          <source>Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database.</source>
+          <target state="new">Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database.</target>
+        </trans-unit>
+        <trans-unit id="0bba8a35-1a90-43f3-af3d-cf6bbde8d365" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="599a8b67-5e21-4ef2-ade4-b14df2904aa5" xml:space="preserve">
+          <source>See <bpt id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;/linkText&gt;</ept><bpt id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;title&gt;</bpt><ept id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;/title&gt;</ept> for details about setting credentials for an on-premises Sybase data source.</source>
+          <target state="new">See <bpt id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;/linkText&gt;</ept><bpt id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;title&gt;</bpt><ept id="5e5ffa88-24f9-4421-936b-72b8476d8ca0">&lt;/title&gt;</ept> for details about setting credentials for an on-premises Sybase data source.</target>
+        </trans-unit>
+        <trans-unit id="7b6a20f9-189b-40d6-b4e5-933aa23f2afd" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining datasets, see the <bpt id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;linkText&gt;</bpt>Creating datasets<ept id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;/linkText&gt;</ept><bpt id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;title&gt;</bpt><ept id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</source>
+          <target state="new">For a full list of sections &amp; properties available for defining datasets, see the <bpt id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;linkText&gt;</bpt>Creating datasets<ept id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;/linkText&gt;</ept><bpt id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;title&gt;</bpt><ept id="2e3c47bd-bcbf-40cf-aa8b-715e76f0c3d9">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</target>
+        </trans-unit>
+        <trans-unit id="f0b640aa-69ed-41f1-bfba-b38648171fab" xml:space="preserve">
+          <source>The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</source>
+          <target state="new">The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</target>
+        </trans-unit>
+        <trans-unit id="7af0efac-1855-481e-be36-1f5a4901cbf7" xml:space="preserve">
+          <source>The <bpt id="26eabca2-930f-4d15-8736-2d5b1214e963">&lt;strong&gt;</bpt>typeProperties<ept id="26eabca2-930f-4d15-8736-2d5b1214e963">&lt;/strong&gt;</ept> section for dataset of type <bpt id="9069db8c-76d5-4e62-b400-0264346b97b6">&lt;strong&gt;</bpt>RelationalTable<ept id="9069db8c-76d5-4e62-b400-0264346b97b6">&lt;/strong&gt;</ept> (which includes Sybase dataset) has the following properties.</source>
+          <target state="new">The <bpt id="26eabca2-930f-4d15-8736-2d5b1214e963">&lt;strong&gt;</bpt>typeProperties<ept id="26eabca2-930f-4d15-8736-2d5b1214e963">&lt;/strong&gt;</ept> section for dataset of type <bpt id="9069db8c-76d5-4e62-b400-0264346b97b6">&lt;strong&gt;</bpt>RelationalTable<ept id="9069db8c-76d5-4e62-b400-0264346b97b6">&lt;/strong&gt;</ept> (which includes Sybase dataset) has the following properties.</target>
+        </trans-unit>
+        <trans-unit id="89557d3e-61a5-46fa-b02f-eea6f51df45b" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="39841d95-44e0-4976-9498-987ef5eeec92" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f8936aad-2906-4e23-ac59-cb7ae73f658d" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="54840183-4288-4500-a0a8-4620205d543a" xml:space="preserve">
+          <source>tableName</source>
+          <target state="new">tableName</target>
+        </trans-unit>
+        <trans-unit id="3b6960e8-712a-48e5-81ee-7db0dfa6eac1" xml:space="preserve">
+          <source>Name of the table in the Sybase Database instance that linked service refers to.</source>
+          <target state="new">Name of the table in the Sybase Database instance that linked service refers to.</target>
+        </trans-unit>
+        <trans-unit id="6136b644-d95e-43ab-bd09-3e8d7c58afd8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="12a2a346-4f9a-4b73-824c-29d4a7a43e13" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining activities, please see  <bpt id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;/linkText&gt;</ept><bpt id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;title&gt;</bpt><ept id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </source>
+          <target state="new">For a full list of sections &amp; properties available for defining activities, please see  <bpt id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;/linkText&gt;</ept><bpt id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;title&gt;</bpt><ept id="0ca4b915-77fd-4147-bdd4-6dc3c6dd07cf">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </target>
+        </trans-unit>
+        <trans-unit id="4221705e-01ac-4eec-92d2-f85e7295178b" xml:space="preserve">
+          <source>Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</source>
+          <target state="new">Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</target>
+        </trans-unit>
+        <trans-unit id="9caa3cd1-323a-4211-b35c-ead4dcd4c855" xml:space="preserve">
+          <source>In case of Copy Activity when source is of type <bpt id="1754ddfd-0c8d-41de-a148-a89d87b3b7c7">&lt;strong&gt;</bpt>RelationalSource<ept id="1754ddfd-0c8d-41de-a148-a89d87b3b7c7">&lt;/strong&gt;</ept> (which includes Sybase) the following properties are available in <bpt id="3c9d3f76-4e4a-4502-9fea-54f89883dff7">&lt;strong&gt;</bpt>typeProperties<ept id="3c9d3f76-4e4a-4502-9fea-54f89883dff7">&lt;/strong&gt;</ept> section:</source>
+          <target state="new">In case of Copy Activity when source is of type <bpt id="1754ddfd-0c8d-41de-a148-a89d87b3b7c7">&lt;strong&gt;</bpt>RelationalSource<ept id="1754ddfd-0c8d-41de-a148-a89d87b3b7c7">&lt;/strong&gt;</ept> (which includes Sybase) the following properties are available in <bpt id="3c9d3f76-4e4a-4502-9fea-54f89883dff7">&lt;strong&gt;</bpt>typeProperties<ept id="3c9d3f76-4e4a-4502-9fea-54f89883dff7">&lt;/strong&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="024a9229-fca5-4e77-93e6-f127bb0434fd" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="39b03517-1a98-472a-b1e6-a616f641db5f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="589b800f-715d-47cc-8371-f6b7e4610ff5" xml:space="preserve">
+          <source>Allowed values</source>
+          <target state="new">Allowed values</target>
+        </trans-unit>
+        <trans-unit id="fd2bae3d-8e11-47e5-ab56-fd4508501539" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="345a34a3-7321-4243-aafc-a0678b06e006" xml:space="preserve">
+          <source>query</source>
+          <target state="new">query</target>
+        </trans-unit>
+        <trans-unit id="dd9da209-acb8-46ff-978b-aed8f57949e9" xml:space="preserve">
+          <source>Use the custom query to read data.</source>
+          <target state="new">Use the custom query to read data.</target>
+        </trans-unit>
+        <trans-unit id="ce500345-5420-4c1f-91aa-a789abed80bc" xml:space="preserve">
+          <source>SQL query string.</source>
+          <target state="new">SQL query string.</target>
+        </trans-unit>
+        <trans-unit id="6e0d7b45-d55c-4684-b52b-3f4c07a6a480" xml:space="preserve">
+          <source>For example: select * from MyTable.</source>
+          <target state="new">For example: select * from MyTable.</target>
+        </trans-unit>
+        <trans-unit id="3dc59327-ab87-4150-bbf1-02c8adaa1c3b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a6c3df70-6060-4cfb-8589-3c47dd1bb3f9" xml:space="preserve">
+          <source><bpt id="4574cdae-8f58-47bf-9699-e18e65f53167">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="4574cdae-8f58-47bf-9699-e18e65f53167">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4574cdae-8f58-47bf-9699-e18e65f53167">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="4574cdae-8f58-47bf-9699-e18e65f53167">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2caee2c1-3a88-4058-806d-6933b04b37e1" xml:space="preserve">
+          <source>As mentioned in the data movement activities article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:</source>
+          <target state="new">As mentioned in the data movement activities article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:</target>
+        </trans-unit>
+        <trans-unit id="40191789-4bdf-45db-a8a3-2857ccde228f" xml:space="preserve">
+          <source>Convert from native source types to .NET type</source>
+          <target state="new">Convert from native source types to .NET type</target>
+        </trans-unit>
+        <trans-unit id="67d842c0-b806-43df-9e48-04cda17e5978" xml:space="preserve">
+          <source>Convert from .NET type to native sink type</source>
+          <target state="new">Convert from .NET type to native sink type</target>
+        </trans-unit>
+        <trans-unit id="cc0d4fbd-04d3-4939-950c-93e50809a3c7" xml:space="preserve">
+          <source>Sybase supports T-SQL and T-SQL types.</source>
+          <target state="new">Sybase supports T-SQL and T-SQL types.</target>
+        </trans-unit>
+        <trans-unit id="c5ee3705-e27b-4542-983c-5f187c462081" xml:space="preserve">
+          <source>For a mapping table from sql types to .NET type, see  <bpt id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;linkText&gt;</bpt>Azure SQL Connector<ept id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;/linkText&gt;</ept><bpt id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;title&gt;</bpt><ept id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;/title&gt;</ept> article.</source>
+          <target state="new">For a mapping table from sql types to .NET type, see  <bpt id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;linkText&gt;</bpt>Azure SQL Connector<ept id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;/linkText&gt;</ept><bpt id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;title&gt;</bpt><ept id="dbef72be-253a-4988-8c6a-97bc2737f791">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="0b3b9569-a19b-4260-a647-d36c304d9e97" xml:space="preserve">
+          <source><bpt id="15f46a56-5224-49fd-ae3c-f5ef23a2d778">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="15f46a56-5224-49fd-ae3c-f5ef23a2d778">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="15f46a56-5224-49fd-ae3c-f5ef23a2d778">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="15f46a56-5224-49fd-ae3c-f5ef23a2d778">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c892c3a3-5027-49bc-892e-61171d0c3eea" xml:space="preserve">
+          <source><bpt id="9aa653d7-ab66-4771-bb47-9ffac140530e">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="9aa653d7-ab66-4771-bb47-9ffac140530e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9aa653d7-ab66-4771-bb47-9ffac140530e">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="9aa653d7-ab66-4771-bb47-9ffac140530e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

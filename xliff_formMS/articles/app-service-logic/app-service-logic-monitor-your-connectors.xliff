@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f8dd3b21-930f-498e-9bd0-9ee1bc147f3d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f8dd3b21-930f-498e-9bd0-9ee1bc147f3d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9f9c15b3-549f-4256-b39f-9695287aa96f">
+        <trans-unit id="42888760-05ba-4d78-9392-6922d833d517" xml:space="preserve">
+          <source>Manage and Monitor your Connectors and API Apps in Azure App Service</source>
+          <target state="new">Manage and Monitor your Connectors and API Apps in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="61eeff0c-bc24-4d21-b465-083ff1c2a57c" xml:space="preserve">
+          <source>View performance of your Connectors and API Apps in Azure App Service; microservices architecture</source>
+          <target state="new">View performance of your Connectors and API Apps in Azure App Service; microservices architecture</target>
+        </trans-unit>
+        <trans-unit id="85077b97-0d09-43a3-a9f4-5b49c78fd5f8" xml:space="preserve">
+          <source>You created a built-in API App.</source>
+          <target state="new">You created a built-in API App.</target>
+        </trans-unit>
+        <trans-unit id="94af94d9-84a7-4aad-b91d-b7d7abb3479e" xml:space="preserve">
+          <source>Now what?</source>
+          <target state="new">Now what?</target>
+        </trans-unit>
+        <trans-unit id="73d298cc-1f6a-4d7a-afbc-e0c1db25c679" xml:space="preserve">
+          <source>In Azure, every API App is a separate web site hosted on Azure.</source>
+          <target state="new">In Azure, every API App is a separate web site hosted on Azure.</target>
+        </trans-unit>
+        <trans-unit id="b91c4f40-711b-42b5-9652-51d58beff684" xml:space="preserve">
+          <source>As a result, you can easily see how many requests are made, and see how much data is being used by the connector.</source>
+          <target state="new">As a result, you can easily see how many requests are made, and see how much data is being used by the connector.</target>
+        </trans-unit>
+        <trans-unit id="c545df60-1384-47e6-b900-fd3c84593b23" xml:space="preserve">
+          <source>You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.</source>
+          <target state="new">You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.</target>
+        </trans-unit>
+        <trans-unit id="bed3174c-851d-4e1f-ab7a-feb289457fa3" xml:space="preserve">
+          <source>This topic describes some of the different options to manage your API App.</source>
+          <target state="new">This topic describes some of the different options to manage your API App.</target>
+        </trans-unit>
+        <trans-unit id="0fe2e480-bc54-422a-b55b-8d2d8e048190" xml:space="preserve">
+          <source>To see these built-in features, open your API App in the preview <bpt id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;linkText&gt;</bpt>Azure portal<ept id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;/linkText&gt;</ept><bpt id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;title&gt;</bpt><ept id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see these built-in features, open your API App in the preview <bpt id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;linkText&gt;</bpt>Azure portal<ept id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;/linkText&gt;</ept><bpt id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;title&gt;</bpt><ept id="cf36cff1-b9ee-420d-9b69-a08463fad33d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4e092c79-cb08-4c40-ae6a-28918641cd85" xml:space="preserve">
+          <source>If the API App is on your startboard, select it to open the properties.</source>
+          <target state="new">If the API App is on your startboard, select it to open the properties.</target>
+        </trans-unit>
+        <trans-unit id="913c5d0d-8799-4399-b85a-53aca9d589ed" xml:space="preserve">
+          <source>You can also select <bpt id="16ed0fe0-e287-45dd-abe8-545e06347240">&lt;strong&gt;</bpt>Browse<ept id="16ed0fe0-e287-45dd-abe8-545e06347240">&lt;/strong&gt;</ept>, select <bpt id="a0eda3b8-1577-4cde-aa39-90216374f5ab">&lt;strong&gt;</bpt>API Apps<ept id="a0eda3b8-1577-4cde-aa39-90216374f5ab">&lt;/strong&gt;</ept>, and then select your API App:</source>
+          <target state="new">You can also select <bpt id="16ed0fe0-e287-45dd-abe8-545e06347240">&lt;strong&gt;</bpt>Browse<ept id="16ed0fe0-e287-45dd-abe8-545e06347240">&lt;/strong&gt;</ept>, select <bpt id="a0eda3b8-1577-4cde-aa39-90216374f5ab">&lt;strong&gt;</bpt>API Apps<ept id="a0eda3b8-1577-4cde-aa39-90216374f5ab">&lt;/strong&gt;</ept>, and then select your API App:</target>
+        </trans-unit>
+        <trans-unit id="0c424a59-2c6f-4628-909b-0ff8834b995f" xml:space="preserve">
+          <source><bpt id="c596b675-ffb0-4288-96c0-dd86c490be42">&lt;linkText&gt;</bpt><ept id="c596b675-ffb0-4288-96c0-dd86c490be42">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c596b675-ffb0-4288-96c0-dd86c490be42">&lt;linkText&gt;</bpt><ept id="c596b675-ffb0-4288-96c0-dd86c490be42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b296bf44-6329-4caa-abc6-19e05402c544" xml:space="preserve">
+          <source>When you open the API App, there are several features and tasks available:</source>
+          <target state="new">When you open the API App, there are several features and tasks available:</target>
+        </trans-unit>
+        <trans-unit id="8399893f-d6f7-46f8-bd0e-6b455ac7e479" xml:space="preserve">
+          <source><bpt id="2bb929f3-9d91-424c-8366-fde6c7c67dd3">&lt;linkText&gt;</bpt><ept id="2bb929f3-9d91-424c-8366-fde6c7c67dd3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bb929f3-9d91-424c-8366-fde6c7c67dd3">&lt;linkText&gt;</bpt><ept id="2bb929f3-9d91-424c-8366-fde6c7c67dd3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1fbd207-2a17-4364-9466-1432e75d08cd" xml:space="preserve">
+          <source>You can: </source>
+          <target state="new">You can: </target>
+        </trans-unit>
+        <trans-unit id="a65522aa-2346-4eef-988d-2b9b77077363" xml:space="preserve">
+          <source><bpt id="9724e41b-139f-422a-83a7-a82f5b56157d">&lt;strong&gt;</bpt>Settings<ept id="9724e41b-139f-422a-83a7-a82f5b56157d">&lt;/strong&gt;</ept> shows specific information on the API App, including your subscription details, and lists the users who have access to your API app.</source>
+          <target state="new"><bpt id="9724e41b-139f-422a-83a7-a82f5b56157d">&lt;strong&gt;</bpt>Settings<ept id="9724e41b-139f-422a-83a7-a82f5b56157d">&lt;/strong&gt;</ept> shows specific information on the API App, including your subscription details, and lists the users who have access to your API app.</target>
+        </trans-unit>
+        <trans-unit id="17de1c07-f827-47b3-9f55-e8c317a3a7f1" xml:space="preserve">
+          <source>You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.</source>
+          <target state="new">You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.</target>
+        </trans-unit>
+        <trans-unit id="a9540d90-c038-404d-938c-cc8653eedd98" xml:space="preserve">
+          <source>Use the <bpt id="c47b7c87-2151-4790-a3eb-c35274bf46f4">&lt;strong&gt;</bpt>Start<ept id="c47b7c87-2151-4790-a3eb-c35274bf46f4">&lt;/strong&gt;</ept> and <bpt id="99dd53b9-09a8-4604-9345-17f4624cf365">&lt;strong&gt;</bpt>Stop<ept id="99dd53b9-09a8-4604-9345-17f4624cf365">&lt;/strong&gt;</ept> buttons to control the API App.</source>
+          <target state="new">Use the <bpt id="c47b7c87-2151-4790-a3eb-c35274bf46f4">&lt;strong&gt;</bpt>Start<ept id="c47b7c87-2151-4790-a3eb-c35274bf46f4">&lt;/strong&gt;</ept> and <bpt id="99dd53b9-09a8-4604-9345-17f4624cf365">&lt;strong&gt;</bpt>Stop<ept id="99dd53b9-09a8-4604-9345-17f4624cf365">&lt;/strong&gt;</ept> buttons to control the API App.</target>
+        </trans-unit>
+        <trans-unit id="29025542-b6e7-4f18-b021-4afd878bda78" xml:space="preserve">
+          <source>When product updates are made to the underlying files used by your API App, you can click <bpt id="91c7c03e-0f68-43aa-ad3f-b59bbf64f95c">&lt;strong&gt;</bpt>Update<ept id="91c7c03e-0f68-43aa-ad3f-b59bbf64f95c">&lt;/strong&gt;</ept> to get the latest versions.</source>
+          <target state="new">When product updates are made to the underlying files used by your API App, you can click <bpt id="91c7c03e-0f68-43aa-ad3f-b59bbf64f95c">&lt;strong&gt;</bpt>Update<ept id="91c7c03e-0f68-43aa-ad3f-b59bbf64f95c">&lt;/strong&gt;</ept> to get the latest versions.</target>
+        </trans-unit>
+        <trans-unit id="34f8622d-9e8b-4f18-b697-6513233881d2" xml:space="preserve">
+          <source>For example, if there is a fix or a security update released by Microsoft, clicking <bpt id="e553a454-3df4-47c9-9ab2-cb493b1c2b1d">&lt;strong&gt;</bpt>Update<ept id="e553a454-3df4-47c9-9ab2-cb493b1c2b1d">&lt;/strong&gt;</ept> automatically updates your API App to include this fix.</source>
+          <target state="new">For example, if there is a fix or a security update released by Microsoft, clicking <bpt id="e553a454-3df4-47c9-9ab2-cb493b1c2b1d">&lt;strong&gt;</bpt>Update<ept id="e553a454-3df4-47c9-9ab2-cb493b1c2b1d">&lt;/strong&gt;</ept> automatically updates your API App to include this fix.</target>
+        </trans-unit>
+        <trans-unit id="0d5c6352-ead0-4139-8ccb-2517bc955e9e" xml:space="preserve">
+          <source>Select <bpt id="b7b9ad1e-caa0-4aaa-a69b-2b5049174f3d">&lt;strong&gt;</bpt>Change Plan<ept id="b7b9ad1e-caa0-4aaa-a69b-2b5049174f3d">&lt;/strong&gt;</ept> to upgrade or downgrade based on the data usage of the API App.</source>
+          <target state="new">Select <bpt id="b7b9ad1e-caa0-4aaa-a69b-2b5049174f3d">&lt;strong&gt;</bpt>Change Plan<ept id="b7b9ad1e-caa0-4aaa-a69b-2b5049174f3d">&lt;/strong&gt;</ept> to upgrade or downgrade based on the data usage of the API App.</target>
+        </trans-unit>
+        <trans-unit id="a7a98ece-b939-45ac-bca9-0eb9f17849e0" xml:space="preserve">
+          <source>You can also use this feature to see your data usage.</source>
+          <target state="new">You can also use this feature to see your data usage.</target>
+        </trans-unit>
+        <trans-unit id="ef7b67f4-6677-4c6a-b428-ed3a8bbceb28" xml:space="preserve">
+          <source>When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to.</source>
+          <target state="new">When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to.</target>
+        </trans-unit>
+        <trans-unit id="4c805dd8-5e99-4a3c-b756-a55be107889f" xml:space="preserve">
+          <source>A schema based on the table is automatically created and available when you click <bpt id="d5493b55-ddd2-4221-bb7a-ddbdc5606077">&lt;strong&gt;</bpt>Download Schemas<ept id="d5493b55-ddd2-4221-bb7a-ddbdc5606077">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A schema based on the table is automatically created and available when you click <bpt id="d5493b55-ddd2-4221-bb7a-ddbdc5606077">&lt;strong&gt;</bpt>Download Schemas<ept id="d5493b55-ddd2-4221-bb7a-ddbdc5606077">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="756a4dd7-c42e-4a29-9e54-9397a06eb59e" xml:space="preserve">
+          <source>You can then use this downloaded schema to create a transform or a map.</source>
+          <target state="new">You can then use this downloaded schema to create a transform or a map.</target>
+        </trans-unit>
+        <trans-unit id="9dad86dd-37f3-464b-a384-3f046055c472" xml:space="preserve">
+          <source>After you configured or created your built-connector, you can change the values you entered.</source>
+          <target state="new">After you configured or created your built-connector, you can change the values you entered.</target>
+        </trans-unit>
+        <trans-unit id="baff7da5-75ca-486b-9663-7542d53bc0f9" xml:space="preserve">
+          <source>For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.</source>
+          <target state="new">For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.</target>
+        </trans-unit>
+        <trans-unit id="1d7551f6-1f5d-4d92-8c09-a3baed37c177" xml:space="preserve">
+          <source>Steps include:</source>
+          <target state="new">Steps include:</target>
+        </trans-unit>
+        <trans-unit id="7f298d25-7738-4ea5-afe8-cef7c8540be7" xml:space="preserve">
+          <source>Open your connector or API App.</source>
+          <target state="new">Open your connector or API App.</target>
+        </trans-unit>
+        <trans-unit id="3f64025a-b43c-4d44-8107-9fc332594d1f" xml:space="preserve">
+          <source>When you do, the API App blade opens.</source>
+          <target state="new">When you do, the API App blade opens.</target>
+        </trans-unit>
+        <trans-unit id="5cff3cdd-4161-4524-a1c2-d78db76ffaa4" xml:space="preserve">
+          <source>In Essentials, click the hyperlink under the Host property.</source>
+          <target state="new">In Essentials, click the hyperlink under the Host property.</target>
+        </trans-unit>
+        <trans-unit id="4782afec-44bf-4a7f-b135-0aea765cb77a" xml:space="preserve">
+          <source>The hyperlink is named something like <bpt id="eee8afde-2ebb-4993-b84e-846d05b109f0">&lt;em&gt;</bpt>slackconnector<ept id="eee8afde-2ebb-4993-b84e-846d05b109f0">&lt;/em&gt;</ept> or <bpt id="9d046f3e-8cd4-42ea-a290-eacbfbc56ca4">&lt;em&gt;</bpt>microsoftsqlconnector123<ept id="9d046f3e-8cd4-42ea-a290-eacbfbc56ca4">&lt;/em&gt;</ept>:</source>
+          <target state="new">The hyperlink is named something like <bpt id="eee8afde-2ebb-4993-b84e-846d05b109f0">&lt;em&gt;</bpt>slackconnector<ept id="eee8afde-2ebb-4993-b84e-846d05b109f0">&lt;/em&gt;</ept> or <bpt id="9d046f3e-8cd4-42ea-a290-eacbfbc56ca4">&lt;em&gt;</bpt>microsoftsqlconnector123<ept id="9d046f3e-8cd4-42ea-a290-eacbfbc56ca4">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c8d644b5-0d2c-4746-9452-cc93430efe40" xml:space="preserve">
+          <source><bpt id="47a77435-7e55-4b43-9042-f054c8050a0b">&lt;linkText&gt;</bpt><ept id="47a77435-7e55-4b43-9042-f054c8050a0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47a77435-7e55-4b43-9042-f054c8050a0b">&lt;linkText&gt;</bpt><ept id="47a77435-7e55-4b43-9042-f054c8050a0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d77a4cdf-ab1a-4923-a0e4-ed5b80c7f6e1" xml:space="preserve">
+          <source>In the API App Host blade, select <bpt id="bbac7a09-ee57-4a4f-a09d-29ad27e6c680">&lt;strong&gt;</bpt>Settings<ept id="bbac7a09-ee57-4a4f-a09d-29ad27e6c680">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the API App Host blade, select <bpt id="bbac7a09-ee57-4a4f-a09d-29ad27e6c680">&lt;strong&gt;</bpt>Settings<ept id="bbac7a09-ee57-4a4f-a09d-29ad27e6c680">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf05ae31-7b43-45b1-802d-026826bf9e11" xml:space="preserve">
+          <source>In the Settings blade, select <bpt id="51768ea5-ef03-4422-89a9-3d57d1596674">&lt;strong&gt;</bpt>Application Settings<ept id="51768ea5-ef03-4422-89a9-3d57d1596674">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Settings blade, select <bpt id="51768ea5-ef03-4422-89a9-3d57d1596674">&lt;strong&gt;</bpt>Application Settings<ept id="51768ea5-ef03-4422-89a9-3d57d1596674">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="81a07e85-f973-4284-bebd-47a0b52915f5" xml:space="preserve">
+          <source>Your configuration values are listed under <bpt id="066004b2-57f0-4d4c-930f-ddcb71f47400">&lt;strong&gt;</bpt>App Settings<ept id="066004b2-57f0-4d4c-930f-ddcb71f47400">&lt;/strong&gt;</ept>: </source>
+          <target state="new">Your configuration values are listed under <bpt id="066004b2-57f0-4d4c-930f-ddcb71f47400">&lt;strong&gt;</bpt>App Settings<ept id="066004b2-57f0-4d4c-930f-ddcb71f47400">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="34e37976-0ff0-41a5-9eb6-9f82283a23e0" xml:space="preserve">
+          <source><bpt id="dde07a8b-12a2-4504-80fc-4fa9c3c98be7">&lt;linkText&gt;</bpt><ept id="dde07a8b-12a2-4504-80fc-4fa9c3c98be7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dde07a8b-12a2-4504-80fc-4fa9c3c98be7">&lt;linkText&gt;</bpt><ept id="dde07a8b-12a2-4504-80fc-4fa9c3c98be7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4688ddd7-7750-4e2f-a151-d776271dfc17" xml:space="preserve">
+          <source>Click the setting you want to change, enter the new value, and <bpt id="2b87606e-39fb-4b6e-b31b-b311fbcafd12">&lt;strong&gt;</bpt>Save<ept id="2b87606e-39fb-4b6e-b31b-b311fbcafd12">&lt;/strong&gt;</ept> your changes.</source>
+          <target state="new">Click the setting you want to change, enter the new value, and <bpt id="2b87606e-39fb-4b6e-b31b-b311fbcafd12">&lt;strong&gt;</bpt>Save<ept id="2b87606e-39fb-4b6e-b31b-b311fbcafd12">&lt;/strong&gt;</ept> your changes.</target>
+        </trans-unit>
+        <trans-unit id="cd364a9e-ca60-4cda-9ab7-ba02ddc9aa6b" xml:space="preserve">
+          <source><bpt id="a06c5d9d-f188-4840-b206-f50f0db0eb86">&lt;linkText&gt;</bpt><ept id="a06c5d9d-f188-4840-b206-f50f0db0eb86">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a06c5d9d-f188-4840-b206-f50f0db0eb86">&lt;linkText&gt;</bpt><ept id="a06c5d9d-f188-4840-b206-f50f0db0eb86">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a623c501-604d-4165-8d4f-e4de420989b0" xml:space="preserve">
+          <source>The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP.</source>
+          <target state="new">The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP.</target>
+        </trans-unit>
+        <trans-unit id="d3418f2c-26b5-4844-8a3a-17a842d8a6f6" xml:space="preserve">
+          <source>This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.</source>
+          <target state="new">This hybrid connectivity uses Azure Service Bus to connect and control the security between your Azure resources and your on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="e1f4271d-c9ee-4c70-8be2-1b4f5f27ae89" xml:space="preserve">
+          <source>See <bpt id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager in Azure App Service<ept id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;/linkText&gt;</ept><bpt id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;title&gt;</bpt><ept id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager in Azure App Service<ept id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;/linkText&gt;</ept><bpt id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;title&gt;</bpt><ept id="a7d0d1a4-dd19-4cbc-9a64-b8038aeb8017">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4cf1acd-f801-46b6-9f69-a21e2accd4f8" xml:space="preserve">
+          <source>Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall.</source>
+          <target state="new">Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall.</target>
+        </trans-unit>
+        <trans-unit id="08ff9f87-0be6-46b5-93e2-66fa9d4ffeba" xml:space="preserve">
+          <source>If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.</source>
+          <target state="new">If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.</target>
+        </trans-unit>
+        <trans-unit id="fc7560a6-c6ab-4771-842c-c8f8d4fd671b" xml:space="preserve">
+          <source>Performance metrics are built-in features and included with every API App you create.</source>
+          <target state="new">Performance metrics are built-in features and included with every API App you create.</target>
+        </trans-unit>
+        <trans-unit id="a1f3ce66-0eee-4869-b886-306a7d42a0c3" xml:space="preserve">
+          <source>These metrics are specific to your API App hosted in Azure:</source>
+          <target state="new">These metrics are specific to your API App hosted in Azure:</target>
+        </trans-unit>
+        <trans-unit id="d18296cf-70cc-4683-bc77-0afcc6f5be9d" xml:space="preserve">
+          <source><bpt id="420e954e-7138-4d78-b765-e17b33f18f6d">&lt;linkText&gt;</bpt><ept id="420e954e-7138-4d78-b765-e17b33f18f6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="420e954e-7138-4d78-b765-e17b33f18f6d">&lt;linkText&gt;</bpt><ept id="420e954e-7138-4d78-b765-e17b33f18f6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa602f84-57f6-4a66-ba74-18a8dc89ce1e" xml:space="preserve">
+          <source>You can: </source>
+          <target state="new">You can: </target>
+        </trans-unit>
+        <trans-unit id="06a4ae2a-6a56-4dbd-8681-37be31543618" xml:space="preserve">
+          <source>Select <bpt id="84813a54-75a5-41fa-a904-3b2a55b8517e">&lt;strong&gt;</bpt>Requests and errors<ept id="84813a54-75a5-41fa-a904-3b2a55b8517e">&lt;/strong&gt;</ept> to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes.</source>
+          <target state="new">Select <bpt id="84813a54-75a5-41fa-a904-3b2a55b8517e">&lt;strong&gt;</bpt>Requests and errors<ept id="84813a54-75a5-41fa-a904-3b2a55b8517e">&lt;/strong&gt;</ept> to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes.</target>
+        </trans-unit>
+        <trans-unit id="f737e5b8-9ab3-4800-b5f1-4d7fd3f14f00" xml:space="preserve">
+          <source>You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out.</source>
+          <target state="new">You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out.</target>
+        </trans-unit>
+        <trans-unit id="84bf975b-ecef-4f86-8d49-eddbec1b09c8" xml:space="preserve">
+          <source>Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.</source>
+          <target state="new">Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="d1a88f7e-9f42-4b78-84cd-addf7b6cc278" xml:space="preserve">
+          <source>In <bpt id="94296103-f383-4af9-917c-3f82378b96f8">&lt;strong&gt;</bpt>Usage<ept id="94296103-f383-4af9-917c-3f82378b96f8">&lt;/strong&gt;</ept>, you can see how much <bpt id="a28aff58-65ee-478f-a759-9dec7d0fbbad">&lt;strong&gt;</bpt>CPU<ept id="a28aff58-65ee-478f-a759-9dec7d0fbbad">&lt;/strong&gt;</ept> is used by the API App, review the current <bpt id="1a1b6805-b460-47fd-84d7-50c87389adbb">&lt;strong&gt;</bpt>Usage Quota<ept id="1a1b6805-b460-47fd-84d7-50c87389adbb">&lt;/strong&gt;</ept> in MB, and see your maximum data usage based on your cost tier.</source>
+          <target state="new">In <bpt id="94296103-f383-4af9-917c-3f82378b96f8">&lt;strong&gt;</bpt>Usage<ept id="94296103-f383-4af9-917c-3f82378b96f8">&lt;/strong&gt;</ept>, you can see how much <bpt id="a28aff58-65ee-478f-a759-9dec7d0fbbad">&lt;strong&gt;</bpt>CPU<ept id="a28aff58-65ee-478f-a759-9dec7d0fbbad">&lt;/strong&gt;</ept> is used by the API App, review the current <bpt id="1a1b6805-b460-47fd-84d7-50c87389adbb">&lt;strong&gt;</bpt>Usage Quota<ept id="1a1b6805-b460-47fd-84d7-50c87389adbb">&lt;/strong&gt;</ept> in MB, and see your maximum data usage based on your cost tier.</target>
+        </trans-unit>
+        <trans-unit id="06e18089-07fe-42e9-9139-202bfad9af2b" xml:space="preserve">
+          <source><bpt id="bb3b42cb-98ae-4300-91c1-784c17a5b606">&lt;strong&gt;</bpt>Estimated spend<ept id="bb3b42cb-98ae-4300-91c1-784c17a5b606">&lt;/strong&gt;</ept>  can help you determine the potential costs of running your API App.</source>
+          <target state="new"><bpt id="bb3b42cb-98ae-4300-91c1-784c17a5b606">&lt;strong&gt;</bpt>Estimated spend<ept id="bb3b42cb-98ae-4300-91c1-784c17a5b606">&lt;/strong&gt;</ept>  can help you determine the potential costs of running your API App.</target>
+        </trans-unit>
+        <trans-unit id="bb2467d5-5a16-43db-9357-f0c1e576ab43" xml:space="preserve">
+          <source>Select <bpt id="339b5c24-1520-46eb-920e-9bb915f8ce31">&lt;strong&gt;</bpt>Processes<ept id="339b5c24-1520-46eb-920e-9bb915f8ce31">&lt;/strong&gt;</ept> to open Process Explorer.</source>
+          <target state="new">Select <bpt id="339b5c24-1520-46eb-920e-9bb915f8ce31">&lt;strong&gt;</bpt>Processes<ept id="339b5c24-1520-46eb-920e-9bb915f8ce31">&lt;/strong&gt;</ept> to open Process Explorer.</target>
+        </trans-unit>
+        <trans-unit id="c7f92e50-a456-467a-9e42-1bd47877b503" xml:space="preserve">
+          <source>This shows your web instances and their properties, including thread count and memory usage.</source>
+          <target state="new">This shows your web instances and their properties, including thread count and memory usage.</target>
+        </trans-unit>
+        <trans-unit id="5ebcabe7-4f19-40f3-9c8c-cf5e49da62a2" xml:space="preserve">
+          <source>Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs.</source>
+          <target state="new">Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs.</target>
+        </trans-unit>
+        <trans-unit id="46c0b100-9b3c-4d42-af33-836d17e73d23" xml:space="preserve">
+          <source>These features are built-in to the portal with no additional tools required.</source>
+          <target state="new">These features are built-in to the portal with no additional tools required.</target>
+        </trans-unit>
+        <trans-unit id="62f020e7-acf1-4616-b46f-22c556695a06" xml:space="preserve">
+          <source>API Apps use role-based security.</source>
+          <target state="new">API Apps use role-based security.</target>
+        </trans-unit>
+        <trans-unit id="d6dd4fd1-5e72-41ff-8180-d5e8f5a2f30c" xml:space="preserve">
+          <source>These roles apply to the entire Azure experience, including API Apps and other Azure resources.</source>
+          <target state="new">These roles apply to the entire Azure experience, including API Apps and other Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="2987d8cd-a536-47be-9dbd-4aeb389cf8d8" xml:space="preserve">
+          <source>The roles include:</source>
+          <target state="new">The roles include:</target>
+        </trans-unit>
+        <trans-unit id="0c46afdf-474b-4439-ae80-e8c20f76e3e1" xml:space="preserve">
+          <source>Role</source>
+          <target state="new">Role</target>
+        </trans-unit>
+        <trans-unit id="78ecec82-022a-4121-abc7-025f6e1f7e8e" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="7eb108f2-a19a-4ac6-b8f4-b97eeebf914f" xml:space="preserve">
+          <source>Owner</source>
+          <target state="new">Owner</target>
+        </trans-unit>
+        <trans-unit id="61075670-170d-4ab4-8cc1-3cfc5361bf3a" xml:space="preserve">
+          <source>Have full access to the management experience and can give access to other users or groups.</source>
+          <target state="new">Have full access to the management experience and can give access to other users or groups.</target>
+        </trans-unit>
+        <trans-unit id="3154df8b-1f2f-4d70-b382-e8ce948e405f" xml:space="preserve">
+          <source>Contributor</source>
+          <target state="new">Contributor</target>
+        </trans-unit>
+        <trans-unit id="51841fc9-94a0-4b80-8894-ccadd17491e3" xml:space="preserve">
+          <source>Have full access to the management experience.</source>
+          <target state="new">Have full access to the management experience.</target>
+        </trans-unit>
+        <trans-unit id="716bc286-6a77-444d-a755-77b2f6bc3298" xml:space="preserve">
+          <source>Cannot give access to other users or groups.</source>
+          <target state="new">Cannot give access to other users or groups.</target>
+        </trans-unit>
+        <trans-unit id="9dce824b-d034-43bd-b923-2336bf6532d7" xml:space="preserve">
+          <source>Reader</source>
+          <target state="new">Reader</target>
+        </trans-unit>
+        <trans-unit id="06767024-ea2d-4710-ae80-ac13815946da" xml:space="preserve">
+          <source>Can view all resources except secrets.</source>
+          <target state="new">Can view all resources except secrets.</target>
+        </trans-unit>
+        <trans-unit id="3a983460-4418-4248-ab46-c03bc6bee118" xml:space="preserve">
+          <source>User Access Administrator</source>
+          <target state="new">User Access Administrator</target>
+        </trans-unit>
+        <trans-unit id="50a2dc82-0cac-42e0-bf14-4958f312f404" xml:space="preserve">
+          <source>Can view all resources, create/manage roles, and create/manage support tickets.</source>
+          <target state="new">Can view all resources, create/manage roles, and create/manage support tickets.</target>
+        </trans-unit>
+        <trans-unit id="e45238ee-209d-46ef-9ef4-5e6fd79e2271" xml:space="preserve">
+          <source>See <bpt id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;/linkText&gt;</ept><bpt id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;title&gt;</bpt><ept id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;/linkText&gt;</ept><bpt id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;title&gt;</bpt><ept id="847fd114-563a-47e9-a668-5e287ab7ecde">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d672c7c-081e-4d42-aa22-664bc74c3eef" xml:space="preserve">
+          <source>You can easily add users and assign them specific roles to your API App.</source>
+          <target state="new">You can easily add users and assign them specific roles to your API App.</target>
+        </trans-unit>
+        <trans-unit id="56c83719-7b98-4425-85cf-708b87710139" xml:space="preserve">
+          <source>The portal shows you the users that have access and their assigned role:</source>
+          <target state="new">The portal shows you the users that have access and their assigned role:</target>
+        </trans-unit>
+        <trans-unit id="e42fe381-a6cd-4081-b6a2-301a99d00e9d" xml:space="preserve">
+          <source><bpt id="8093222d-394f-46ec-bc43-25099ba12407">&lt;linkText&gt;</bpt><ept id="8093222d-394f-46ec-bc43-25099ba12407">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="8093222d-394f-46ec-bc43-25099ba12407">&lt;linkText&gt;</bpt><ept id="8093222d-394f-46ec-bc43-25099ba12407">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c6e35f1d-f939-49a3-8918-34cb134c9177" xml:space="preserve">
+          <source>Select <bpt id="5fbcbea0-f434-4941-b639-4358cfa97a81">&lt;strong&gt;</bpt>Users<ept id="5fbcbea0-f434-4941-b639-4358cfa97a81">&lt;/strong&gt;</ept> to add a user, assign a role, and remove a user.</source>
+          <target state="new">Select <bpt id="5fbcbea0-f434-4941-b639-4358cfa97a81">&lt;strong&gt;</bpt>Users<ept id="5fbcbea0-f434-4941-b639-4358cfa97a81">&lt;/strong&gt;</ept> to add a user, assign a role, and remove a user.</target>
+        </trans-unit>
+        <trans-unit id="401d5095-5577-430e-9c69-5a422894f32f" xml:space="preserve">
+          <source>Select <bpt id="fccc114c-819d-402b-bb4e-614b1dc9dff4">&lt;strong&gt;</bpt>Roles<ept id="fccc114c-819d-402b-bb4e-614b1dc9dff4">&lt;/strong&gt;</ept> to see all the users in a specific role, add a user to a role, and remove a user from a role.</source>
+          <target state="new">Select <bpt id="fccc114c-819d-402b-bb4e-614b1dc9dff4">&lt;strong&gt;</bpt>Roles<ept id="fccc114c-819d-402b-bb4e-614b1dc9dff4">&lt;/strong&gt;</ept> to see all the users in a specific role, add a user to a role, and remove a user from a role.</target>
+        </trans-unit>
+        <trans-unit id="344af77c-e13b-466e-a054-59f8265907f8" xml:space="preserve">
+          <source>Select <bpt id="125c0dc7-009c-49b3-b5a5-6c6067d617fe">&lt;strong&gt;</bpt>API definition<ept id="125c0dc7-009c-49b3-b5a5-6c6067d617fe">&lt;/strong&gt;</ept> to open the automatically-created Swagger file for your specific API app.</source>
+          <target state="new">Select <bpt id="125c0dc7-009c-49b3-b5a5-6c6067d617fe">&lt;strong&gt;</bpt>API definition<ept id="125c0dc7-009c-49b3-b5a5-6c6067d617fe">&lt;/strong&gt;</ept> to open the automatically-created Swagger file for your specific API app.</target>
+        </trans-unit>
+        <trans-unit id="6e605c9e-ec38-439b-a67f-6da4cee01bf8" xml:space="preserve">
+          <source>Select <bpt id="008e0d82-5e6e-48c5-bee9-7e032cd4194d">&lt;strong&gt;</bpt>Dependencies<ept id="008e0d82-5e6e-48c5-bee9-7e032cd4194d">&lt;/strong&gt;</ept> to view the files required by your API App.</source>
+          <target state="new">Select <bpt id="008e0d82-5e6e-48c5-bee9-7e032cd4194d">&lt;strong&gt;</bpt>Dependencies<ept id="008e0d82-5e6e-48c5-bee9-7e032cd4194d">&lt;/strong&gt;</ept> to view the files required by your API App.</target>
+        </trans-unit>
+        <trans-unit id="7a800a88-7af4-419a-9539-f5b7e7f33042" xml:space="preserve">
+          <source>For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager.</source>
+          <target state="new">For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager.</target>
+        </trans-unit>
+        <trans-unit id="e4495752-ee98-4c44-b3e6-c65f0a2e08ac" xml:space="preserve">
+          <source>These dependencies are shows in your API app blade.</source>
+          <target state="new">These dependencies are shows in your API app blade.</target>
+        </trans-unit>
+        <trans-unit id="36b02682-60f7-450f-bd78-1651968a6a77" xml:space="preserve">
+          <source>When you open your API app properties and look under <bpt id="fd8f923d-ab02-4140-a070-150f00d034b9">&lt;strong&gt;</bpt>Essentials<ept id="fd8f923d-ab02-4140-a070-150f00d034b9">&lt;/strong&gt;</ept>, there are <bpt id="e3f11934-ded9-411a-9e7f-f458fc1cca91">&lt;strong&gt;</bpt>Host<ept id="e3f11934-ded9-411a-9e7f-f458fc1cca91">&lt;/strong&gt;</ept> and <bpt id="7a82d2d6-1cee-4efe-bfd4-bd57d0ccbc92">&lt;strong&gt;</bpt>Gateway<ept id="7a82d2d6-1cee-4efe-bfd4-bd57d0ccbc92">&lt;/strong&gt;</ept> links that open new blades:</source>
+          <target state="new">When you open your API app properties and look under <bpt id="fd8f923d-ab02-4140-a070-150f00d034b9">&lt;strong&gt;</bpt>Essentials<ept id="fd8f923d-ab02-4140-a070-150f00d034b9">&lt;/strong&gt;</ept>, there are <bpt id="e3f11934-ded9-411a-9e7f-f458fc1cca91">&lt;strong&gt;</bpt>Host<ept id="e3f11934-ded9-411a-9e7f-f458fc1cca91">&lt;/strong&gt;</ept> and <bpt id="7a82d2d6-1cee-4efe-bfd4-bd57d0ccbc92">&lt;strong&gt;</bpt>Gateway<ept id="7a82d2d6-1cee-4efe-bfd4-bd57d0ccbc92">&lt;/strong&gt;</ept> links that open new blades:</target>
+        </trans-unit>
+        <trans-unit id="6415a615-f38e-4fae-8edb-f27e2645382c" xml:space="preserve">
+          <source><bpt id="1be63d65-bc82-4dbe-bd7f-cedd541b740c">&lt;linkText&gt;</bpt><ept id="1be63d65-bc82-4dbe-bd7f-cedd541b740c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1be63d65-bc82-4dbe-bd7f-cedd541b740c">&lt;linkText&gt;</bpt><ept id="1be63d65-bc82-4dbe-bd7f-cedd541b740c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdc1c8b7-a6cc-4d56-9b11-6815dd574b1c" xml:space="preserve">
+          <source>These properties are specific to the website that hosts your API App.</source>
+          <target state="new">These properties are specific to the website that hosts your API App.</target>
+        </trans-unit>
+        <trans-unit id="1e81a9c5-b222-4605-a24f-57a3692353b8" xml:space="preserve">
+          <source>When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties.</source>
+          <target state="new">When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties.</target>
+        </trans-unit>
+        <trans-unit id="377e46e4-d8bd-472a-8ee0-480969bcc576" xml:space="preserve">
+          <source>If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades.</source>
+          <target state="new">If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades.</target>
+        </trans-unit>
+        <trans-unit id="c530f283-cd06-4c06-9223-1bcae7b97542" xml:space="preserve">
+          <source><bpt id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;linkText&gt;</bpt>Manage API apps<ept id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;/linkText&gt;</ept><bpt id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;title&gt;</bpt><ept id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;/title&gt;</ept> provides more information on what you can do in these blades with your custom-created API app.</source>
+          <target state="new"><bpt id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;linkText&gt;</bpt>Manage API apps<ept id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;/linkText&gt;</ept><bpt id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;title&gt;</bpt><ept id="5687eb3f-2cf9-4808-bcfa-60acac241a48">&lt;/title&gt;</ept> provides more information on what you can do in these blades with your custom-created API app.</target>
+        </trans-unit>
+        <trans-unit id="7de81cff-e47f-4582-82d6-2d472c4cf311" xml:space="preserve">
+          <source><bpt id="e85bea64-5367-42c7-a082-741150acd44b">&lt;linkText&gt;</bpt>Monitor your Logic Apps<ept id="e85bea64-5367-42c7-a082-741150acd44b">&lt;/linkText&gt;</ept><bpt id="e85bea64-5367-42c7-a082-741150acd44b">&lt;title&gt;</bpt><ept id="e85bea64-5367-42c7-a082-741150acd44b">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;linkText&gt;</bpt>Connectors and API Apps List in App Service<ept id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;/linkText&gt;</ept><bpt id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;title&gt;</bpt><ept id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;/linkText&gt;</ept><bpt id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;title&gt;</bpt><ept id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager in Azure App Service<ept id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;/linkText&gt;</ept><bpt id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;title&gt;</bpt><ept id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e85bea64-5367-42c7-a082-741150acd44b">&lt;linkText&gt;</bpt>Monitor your Logic Apps<ept id="e85bea64-5367-42c7-a082-741150acd44b">&lt;/linkText&gt;</ept><bpt id="e85bea64-5367-42c7-a082-741150acd44b">&lt;title&gt;</bpt><ept id="e85bea64-5367-42c7-a082-741150acd44b">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;linkText&gt;</bpt>Connectors and API Apps List in App Service<ept id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;/linkText&gt;</ept><bpt id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;title&gt;</bpt><ept id="665a0c6b-fb6b-4e69-aa38-d094668eb942">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;/linkText&gt;</ept><bpt id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;title&gt;</bpt><ept id="3716925f-d86f-4ee3-91a7-f3298785313e">&lt;/title&gt;</ept>&lt;br/&gt;
+<bpt id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager in Azure App Service<ept id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;/linkText&gt;</ept><bpt id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;title&gt;</bpt><ept id="c1d921ab-c2fd-4bd6-8aeb-20c3329a933e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc075664-93ec-4c06-b5c9-e4474521aa1f" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/browse.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/browse.png</target>
+        </trans-unit>
+        <trans-unit id="0e7c4808-b915-4f32-8eed-697d90c7a0c8" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/settings.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/settings.png</target>
+        </trans-unit>
+        <trans-unit id="ff8064a3-45e8-4ca0-8cc2-4dfdaa120a43" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/hcsetup.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/hcsetup.png</target>
+        </trans-unit>
+        <trans-unit id="c5aef5dc-1b5c-4443-ae03-f4b811a8a4be" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/monitoring.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/monitoring.png</target>
+        </trans-unit>
+        <trans-unit id="2962f134-2064-4c79-a759-8f8857e151ed" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/access.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/access.png</target>
+        </trans-unit>
+        <trans-unit id="5cf84d9a-e02a-4380-a05b-2869330071e1" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/host.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/host.png</target>
+        </trans-unit>
+        <trans-unit id="aea525c6-36cd-4aa6-a806-65cf8aebdba4" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/hostsettings.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/hostsettings.png</target>
+        </trans-unit>
+        <trans-unit id="95842eab-7d74-44b5-9c63-c023bf57176e" xml:space="preserve">
+          <source>./media/app-service-logic-monitor-your-connectors/apiapphost.png</source>
+          <target state="new">./media/app-service-logic-monitor-your-connectors/apiapphost.png</target>
+        </trans-unit>
+      </group>
+      <group id="186a11ea-463c-4bd9-b61b-2152bf92e5d4" />
+    </body>
+  </file>
+</xliff>

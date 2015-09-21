@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2290fafc-72c5-414a-b865-c250497667b6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2290fafc-72c5-414a-b865-c250497667b6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="31888e52-dc8b-4f51-b2f0-3f37bd0e2f92">
+        <trans-unit id="b40242b9-9b05-4223-856f-1210403422f6" xml:space="preserve">
+          <source>Capture an image of a virtual machine running Windows Server</source>
+          <target state="new">Capture an image of a virtual machine running Windows Server</target>
+        </trans-unit>
+        <trans-unit id="8b887e15-3951-4819-90f0-be3298730cd8" xml:space="preserve">
+          <source>Learn how to capture an image of an Azure virtual machine (VM) running Windows Server.</source>
+          <target state="new">Learn how to capture an image of an Azure virtual machine (VM) running Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="bba48174-b3a3-46c0-bb65-1e426dee62d9" xml:space="preserve">
+          <source>This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines.</source>
+          <target state="new">This article shows you how to capture an Azure virtual machine running Windows so you can use it as an image to create other virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="e0c18c72-2568-48de-9ca3-c76f5667517f" xml:space="preserve">
+          <source>This image includes the operating system disk and any data disks that are attached to the virtual machine.</source>
+          <target state="new">This image includes the operating system disk and any data disks that are attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="becc9926-426a-423e-92c8-7d45922527e0" xml:space="preserve">
+          <source>It doesn't include networking configurations, so you'll need to configure those when you create the other virtual machines that use the template.</source>
+          <target state="new">It doesn't include networking configurations, so you'll need to configure those when you create the other virtual machines that use the template.</target>
+        </trans-unit>
+        <trans-unit id="4b03719a-2d17-4fe0-aaca-30d83d2e7fbd" xml:space="preserve">
+          <source>Azure stores the image under <bpt id="52c26a4f-9c22-4bb6-a96b-5f113405486d">&lt;strong&gt;</bpt>My Images<ept id="52c26a4f-9c22-4bb6-a96b-5f113405486d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure stores the image under <bpt id="52c26a4f-9c22-4bb6-a96b-5f113405486d">&lt;strong&gt;</bpt>My Images<ept id="52c26a4f-9c22-4bb6-a96b-5f113405486d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a7eea5e9-15c9-4dc9-8fa6-2be977e9af6b" xml:space="preserve">
+          <source>This is the same place where any images you've uploaded are stored.</source>
+          <target state="new">This is the same place where any images you've uploaded are stored.</target>
+        </trans-unit>
+        <trans-unit id="f07e399f-c9bc-45c5-80cd-ffdffc077439" xml:space="preserve">
+          <source>For details about images, see <bpt id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;linkText&gt;</bpt>About virtual machine images in Azure<ept id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;/linkText&gt;</ept><bpt id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;title&gt;</bpt><ept id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about images, see <bpt id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;linkText&gt;</bpt>About virtual machine images in Azure<ept id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;/linkText&gt;</ept><bpt id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;title&gt;</bpt><ept id="84862a63-3be5-4d32-b59f-db611137ee8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dde49a6-a7e2-45cf-8217-14508340f9ba" xml:space="preserve">
+          <source>These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks.</source>
+          <target state="new">These steps assume that you've already created an Azure virtual machine and configured the operating system, including attaching any data disks.</target>
+        </trans-unit>
+        <trans-unit id="6f58476e-3c79-40e1-a06f-668b89e622da" xml:space="preserve">
+          <source>If you haven't done this yet, see these instructions:</source>
+          <target state="new">If you haven't done this yet, see these instructions:</target>
+        </trans-unit>
+        <trans-unit id="35964a31-2819-422a-a0dd-b98cfd88153f" xml:space="preserve">
+          <source><bpt id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;linkText&gt;</bpt>Create a custom virtual machine running Windows<ept id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;/linkText&gt;</ept><bpt id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;title&gt;</bpt><ept id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;linkText&gt;</bpt>Create a custom virtual machine running Windows<ept id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;/linkText&gt;</ept><bpt id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;title&gt;</bpt><ept id="b011f92c-35a2-4c4b-8cff-ced6fe2779b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f75e41ce-04f8-434e-8a07-1d46e1b04dc3" xml:space="preserve">
+          <source><bpt id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;linkText&gt;</bpt>How to attach a data disk to a virtual machine<ept id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;/linkText&gt;</ept><bpt id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;title&gt;</bpt><ept id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;linkText&gt;</bpt>How to attach a data disk to a virtual machine<ept id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;/linkText&gt;</ept><bpt id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;title&gt;</bpt><ept id="e2a4015f-1b83-4d98-a458-5a48982be0e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32872b89-f720-4766-bc14-0aa600910e43" xml:space="preserve">
+          <source>This process deletes the original virtual machine after it's captured, and is not intended as a way to back up a virtual machine.</source>
+          <target state="new">This process deletes the original virtual machine after it's captured, and is not intended as a way to back up a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3d8be43f-24ca-487f-b790-4d5a6fdfa7ca" xml:space="preserve">
+          <source>One possible way to do that is Azure Backup, which is available as a preview in certain regions.</source>
+          <target state="new">One possible way to do that is Azure Backup, which is available as a preview in certain regions.</target>
+        </trans-unit>
+        <trans-unit id="9b7e5e2b-ee43-4774-9c69-d790293b90d1" xml:space="preserve">
+          <source>For details, see <bpt id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;linkText&gt;</bpt>Back up Azure virtual machines<ept id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;/linkText&gt;</ept><bpt id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;title&gt;</bpt><ept id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;linkText&gt;</bpt>Back up Azure virtual machines<ept id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;/linkText&gt;</ept><bpt id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;title&gt;</bpt><ept id="b2b283f3-27ec-4b22-8179-10ee626b11f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="975b7f71-a457-4a32-a9d6-4a2eec876205" xml:space="preserve">
+          <source>Other solutions are available from certified partners.</source>
+          <target state="new">Other solutions are available from certified partners.</target>
+        </trans-unit>
+        <trans-unit id="6b77edc3-ce22-4393-b9f8-b81a701d7b9f" xml:space="preserve">
+          <source>To find out what’s currently available, search the Azure Marketplace.</source>
+          <target state="new">To find out what’s currently available, search the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="d946e7cb-ee60-4b59-b18c-8ff3f51ad841" xml:space="preserve">
+          <source>In the <bpt id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;linkText&gt;</bpt>Azure portal<ept id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;/linkText&gt;</ept><bpt id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;title&gt;</bpt><ept id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;/title&gt;</ept>, <bpt id="8234ad3c-8776-4565-ab3a-cf1a2e10270e">&lt;strong&gt;</bpt>Connect<ept id="8234ad3c-8776-4565-ab3a-cf1a2e10270e">&lt;/strong&gt;</ept> to the virtual machine.</source>
+          <target state="new">In the <bpt id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;linkText&gt;</bpt>Azure portal<ept id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;/linkText&gt;</ept><bpt id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;title&gt;</bpt><ept id="96814882-bdd3-4c82-acfb-0bb43462789d">&lt;/title&gt;</ept>, <bpt id="8234ad3c-8776-4565-ab3a-cf1a2e10270e">&lt;strong&gt;</bpt>Connect<ept id="8234ad3c-8776-4565-ab3a-cf1a2e10270e">&lt;/strong&gt;</ept> to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="cff16607-ac7a-45c9-9af8-e210b058318a" xml:space="preserve">
+          <source>For instructions, see <bpt id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;linkText&gt;</bpt>How to sign in to a virtual machine running Windows Server<ept id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;/linkText&gt;</ept><bpt id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;title&gt;</bpt><ept id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;linkText&gt;</bpt>How to sign in to a virtual machine running Windows Server<ept id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;/linkText&gt;</ept><bpt id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;title&gt;</bpt><ept id="60396fe4-7942-48d2-aafa-cead57c42894">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7afb2986-ba3a-4356-8405-5f6d200e87eb" xml:space="preserve">
+          <source>Open a Command Prompt window as an administrator.</source>
+          <target state="new">Open a Command Prompt window as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="799e69e1-901f-4e4d-bf82-3fd18b942b00" xml:space="preserve">
+          <source>Change the directory to <bpt id="43476e3a-3366-4d68-ac59-bcb8011d5797">&lt;code&gt;</bpt>%windir%\system32\sysprep<ept id="43476e3a-3366-4d68-ac59-bcb8011d5797">&lt;/code&gt;</ept>, and then run sysprep.exe.</source>
+          <target state="new">Change the directory to <bpt id="43476e3a-3366-4d68-ac59-bcb8011d5797">&lt;code&gt;</bpt>%windir%\system32\sysprep<ept id="43476e3a-3366-4d68-ac59-bcb8011d5797">&lt;/code&gt;</ept>, and then run sysprep.exe.</target>
+        </trans-unit>
+        <trans-unit id="3caeeadd-bf58-4db0-a760-7b52eb3a3e5b" xml:space="preserve">
+          <source>The <bpt id="215ca159-6f35-4243-957e-cd0f718ae93a">&lt;strong&gt;</bpt>System Preparation Tool<ept id="215ca159-6f35-4243-957e-cd0f718ae93a">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="215ca159-6f35-4243-957e-cd0f718ae93a">&lt;strong&gt;</bpt>System Preparation Tool<ept id="215ca159-6f35-4243-957e-cd0f718ae93a">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="0c50ccb5-3261-49f9-aed9-52ef4c49c692" xml:space="preserve">
+          <source>Do the following:</source>
+          <target state="new">Do the following:</target>
+        </trans-unit>
+        <trans-unit id="3f195f10-b713-46db-b2ec-4b2f658fc2d7" xml:space="preserve">
+          <source>In <bpt id="0001193f-7e77-4b21-bb75-66e6e56572fc">&lt;strong&gt;</bpt>System Cleanup Action<ept id="0001193f-7e77-4b21-bb75-66e6e56572fc">&lt;/strong&gt;</ept>, select <bpt id="4f3a3867-8f4d-48f8-9e95-96d823153204">&lt;strong&gt;</bpt>Enter System Out-of-Box Experience (OOBE)<ept id="4f3a3867-8f4d-48f8-9e95-96d823153204">&lt;/strong&gt;</ept> and make sure that <bpt id="623b1b18-4e8f-4c8a-928e-e76c92a0844f">&lt;strong&gt;</bpt>Generalize<ept id="623b1b18-4e8f-4c8a-928e-e76c92a0844f">&lt;/strong&gt;</ept> is checked.</source>
+          <target state="new">In <bpt id="0001193f-7e77-4b21-bb75-66e6e56572fc">&lt;strong&gt;</bpt>System Cleanup Action<ept id="0001193f-7e77-4b21-bb75-66e6e56572fc">&lt;/strong&gt;</ept>, select <bpt id="4f3a3867-8f4d-48f8-9e95-96d823153204">&lt;strong&gt;</bpt>Enter System Out-of-Box Experience (OOBE)<ept id="4f3a3867-8f4d-48f8-9e95-96d823153204">&lt;/strong&gt;</ept> and make sure that <bpt id="623b1b18-4e8f-4c8a-928e-e76c92a0844f">&lt;strong&gt;</bpt>Generalize<ept id="623b1b18-4e8f-4c8a-928e-e76c92a0844f">&lt;/strong&gt;</ept> is checked.</target>
+        </trans-unit>
+        <trans-unit id="13b00dd9-18dc-4d53-8e4a-9829c8f593bb" xml:space="preserve">
+          <source>For more information about using Sysprep, see <bpt id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;linkText&gt;</bpt>How to Use Sysprep: An Introduction<ept id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;/linkText&gt;</ept><bpt id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;title&gt;</bpt><ept id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using Sysprep, see <bpt id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;linkText&gt;</bpt>How to Use Sysprep: An Introduction<ept id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;/linkText&gt;</ept><bpt id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;title&gt;</bpt><ept id="859fc0e4-7581-4164-9a4c-5ea221fa0ae2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e3f0a06-9a3c-4560-92f3-d6d66832a591" xml:space="preserve">
+          <source>In <bpt id="cec0a417-8e20-45c4-a326-43ad75eba8dd">&lt;strong&gt;</bpt>Shutdown Options<ept id="cec0a417-8e20-45c4-a326-43ad75eba8dd">&lt;/strong&gt;</ept>, select <bpt id="6df118ff-4202-4641-80db-a293b6d800b5">&lt;strong&gt;</bpt>Shutdown<ept id="6df118ff-4202-4641-80db-a293b6d800b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="cec0a417-8e20-45c4-a326-43ad75eba8dd">&lt;strong&gt;</bpt>Shutdown Options<ept id="cec0a417-8e20-45c4-a326-43ad75eba8dd">&lt;/strong&gt;</ept>, select <bpt id="6df118ff-4202-4641-80db-a293b6d800b5">&lt;strong&gt;</bpt>Shutdown<ept id="6df118ff-4202-4641-80db-a293b6d800b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a2a01a4-4c52-43cf-8811-f762f3964bea" xml:space="preserve">
+          <source>Click <bpt id="b02920d5-5243-4775-a931-10d37f7a1ba7">&lt;strong&gt;</bpt>OK<ept id="b02920d5-5243-4775-a931-10d37f7a1ba7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b02920d5-5243-4775-a931-10d37f7a1ba7">&lt;strong&gt;</bpt>OK<ept id="b02920d5-5243-4775-a931-10d37f7a1ba7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="105d3602-64c3-40b9-afc2-ecb0d0e110d4" xml:space="preserve">
+          <source><bpt id="95197aa4-a89e-4301-8488-949eca59c619">&lt;linkText&gt;</bpt>Run Sysprep<ept id="95197aa4-a89e-4301-8488-949eca59c619">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95197aa4-a89e-4301-8488-949eca59c619">&lt;linkText&gt;</bpt>Run Sysprep<ept id="95197aa4-a89e-4301-8488-949eca59c619">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac545a0b-db21-4fb2-89e8-7d63a755a81e" xml:space="preserve">
+          <source>Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure portal to <bpt id="fc4cc3f8-46ee-4e9f-b1ec-ffc20ad66117">&lt;strong&gt;</bpt>Stopped<ept id="fc4cc3f8-46ee-4e9f-b1ec-ffc20ad66117">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure portal to <bpt id="fc4cc3f8-46ee-4e9f-b1ec-ffc20ad66117">&lt;strong&gt;</bpt>Stopped<ept id="fc4cc3f8-46ee-4e9f-b1ec-ffc20ad66117">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b0acea2-4e0f-4ec5-8905-84f2b4d9f494" xml:space="preserve">
+          <source>In the Azure portal, click <bpt id="197d6afc-7695-4564-92e7-1d11205552ea">&lt;strong&gt;</bpt>Virtual Machines<ept id="197d6afc-7695-4564-92e7-1d11205552ea">&lt;/strong&gt;</ept> and select the virtual machine you want to capture.</source>
+          <target state="new">In the Azure portal, click <bpt id="197d6afc-7695-4564-92e7-1d11205552ea">&lt;strong&gt;</bpt>Virtual Machines<ept id="197d6afc-7695-4564-92e7-1d11205552ea">&lt;/strong&gt;</ept> and select the virtual machine you want to capture.</target>
+        </trans-unit>
+        <trans-unit id="46a00639-d7f7-4103-b3a0-86d79e482ebf" xml:space="preserve">
+          <source>On the command bar, click <bpt id="9e1a21df-9e55-40e9-8675-57927bbcf1aa">&lt;strong&gt;</bpt>Capture<ept id="9e1a21df-9e55-40e9-8675-57927bbcf1aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="9e1a21df-9e55-40e9-8675-57927bbcf1aa">&lt;strong&gt;</bpt>Capture<ept id="9e1a21df-9e55-40e9-8675-57927bbcf1aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e374464-bb39-41b3-b9f1-8165902e3095" xml:space="preserve">
+          <source><bpt id="2e7358a7-d24e-40d7-8b81-96b42eb5bdd4">&lt;linkText&gt;</bpt>Capture virtual machine<ept id="2e7358a7-d24e-40d7-8b81-96b42eb5bdd4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e7358a7-d24e-40d7-8b81-96b42eb5bdd4">&lt;linkText&gt;</bpt>Capture virtual machine<ept id="2e7358a7-d24e-40d7-8b81-96b42eb5bdd4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="715c4a8f-3cf5-47c6-9d1d-44645f3e4802" xml:space="preserve">
+          <source>The <bpt id="4f5234b0-3915-47ee-8b5c-253a57862a29">&lt;strong&gt;</bpt>Capture the Virtual Machine<ept id="4f5234b0-3915-47ee-8b5c-253a57862a29">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="4f5234b0-3915-47ee-8b5c-253a57862a29">&lt;strong&gt;</bpt>Capture the Virtual Machine<ept id="4f5234b0-3915-47ee-8b5c-253a57862a29">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="611c519b-8326-4e4c-9024-7f8e814da0f7" xml:space="preserve">
+          <source>In <bpt id="08dcb673-8d94-4de9-b8bb-0114e146a1ad">&lt;strong&gt;</bpt>Image Name<ept id="08dcb673-8d94-4de9-b8bb-0114e146a1ad">&lt;/strong&gt;</ept>, type a name for the new image.</source>
+          <target state="new">In <bpt id="08dcb673-8d94-4de9-b8bb-0114e146a1ad">&lt;strong&gt;</bpt>Image Name<ept id="08dcb673-8d94-4de9-b8bb-0114e146a1ad">&lt;/strong&gt;</ept>, type a name for the new image.</target>
+        </trans-unit>
+        <trans-unit id="e690d6e3-f458-4e42-9b9b-ed69f62e59c1" xml:space="preserve">
+          <source>Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps.</source>
+          <target state="new">Before you add a Windows Server image to your set of custom images, it must be generalized by running Sysprep as instructed in the previous steps.</target>
+        </trans-unit>
+        <trans-unit id="de7177f8-fc0c-451f-b415-304dc83786b0" xml:space="preserve">
+          <source>Click <bpt id="abea6333-63cc-4a4f-89f4-de9706136685">&lt;strong&gt;</bpt>I have run Sysprep on the virtual machine<ept id="abea6333-63cc-4a4f-89f4-de9706136685">&lt;/strong&gt;</ept> to indicate you did that.</source>
+          <target state="new">Click <bpt id="abea6333-63cc-4a4f-89f4-de9706136685">&lt;strong&gt;</bpt>I have run Sysprep on the virtual machine<ept id="abea6333-63cc-4a4f-89f4-de9706136685">&lt;/strong&gt;</ept> to indicate you did that.</target>
+        </trans-unit>
+        <trans-unit id="60819784-80de-43c3-92d4-8b12a5ea48cc" xml:space="preserve">
+          <source>Click the check mark to capture the image.</source>
+          <target state="new">Click the check mark to capture the image.</target>
+        </trans-unit>
+        <trans-unit id="45dc089b-eccd-4aba-bb05-cae66478cc84" xml:space="preserve">
+          <source>The new image is now available under <bpt id="1ecb342a-b392-4f06-9e92-d4d9c3da5d4d">&lt;strong&gt;</bpt>Images<ept id="1ecb342a-b392-4f06-9e92-d4d9c3da5d4d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The new image is now available under <bpt id="1ecb342a-b392-4f06-9e92-d4d9c3da5d4d">&lt;strong&gt;</bpt>Images<ept id="1ecb342a-b392-4f06-9e92-d4d9c3da5d4d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07252d67-d345-4595-9a5b-a4a67e908566" xml:space="preserve">
+          <source><bpt id="af00f2bd-3022-42ef-9a5b-0dc3fda07ecd">&lt;linkText&gt;</bpt>Image capture successful<ept id="af00f2bd-3022-42ef-9a5b-0dc3fda07ecd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af00f2bd-3022-42ef-9a5b-0dc3fda07ecd">&lt;linkText&gt;</bpt>Image capture successful<ept id="af00f2bd-3022-42ef-9a5b-0dc3fda07ecd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1e8d298-a3c1-4b8b-b3ea-a967c86fe1ae" xml:space="preserve">
+          <source>The image is ready to be used to create virtual machines.</source>
+          <target state="new">The image is ready to be used to create virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0521a14a-15c6-47f7-ba08-042805bfbce6" xml:space="preserve">
+          <source>To do this, you'll create a virtual machine by using the <bpt id="2035868f-c08e-47fd-a741-40304fdc5677">&lt;strong&gt;</bpt>From Gallery<ept id="2035868f-c08e-47fd-a741-40304fdc5677">&lt;/strong&gt;</ept> menu item and selecting the image you just created.</source>
+          <target state="new">To do this, you'll create a virtual machine by using the <bpt id="2035868f-c08e-47fd-a741-40304fdc5677">&lt;strong&gt;</bpt>From Gallery<ept id="2035868f-c08e-47fd-a741-40304fdc5677">&lt;/strong&gt;</ept> menu item and selecting the image you just created.</target>
+        </trans-unit>
+        <trans-unit id="8cc50571-bcbd-413d-ad56-89e128f6a884" xml:space="preserve">
+          <source>For instructions, see <bpt id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;linkText&gt;</bpt>Create a custom virtual machine running Windows<ept id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;/linkText&gt;</ept><bpt id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;title&gt;</bpt><ept id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;linkText&gt;</bpt>Create a custom virtual machine running Windows<ept id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;/linkText&gt;</ept><bpt id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;title&gt;</bpt><ept id="761b978b-52ea-42d3-96f4-10799fe19f24">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce3d5305-bebe-476b-afbf-6e4a778708dc" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn790290.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn790290.aspx</target>
+        </trans-unit>
+        <trans-unit id="588db46d-bb28-499c-91ef-c8e0da83174e" xml:space="preserve">
+          <source>virtual-machines-windows-create-custom.md</source>
+          <target state="new">virtual-machines-windows-create-custom.md</target>
+        </trans-unit>
+        <trans-unit id="78842afc-9fa8-4b96-9b31-93f77db4d9a0" xml:space="preserve">
+          <source>storage-windows-attach-disk.md</source>
+          <target state="new">storage-windows-attach-disk.md</target>
+        </trans-unit>
+        <trans-unit id="d0be2af5-2499-4c84-b34a-d1e13e0fedd6" xml:space="preserve">
+          <source>virtual-machines-log-on-windows-server.md</source>
+          <target state="new">virtual-machines-log-on-windows-server.md</target>
+        </trans-unit>
+        <trans-unit id="97d29379-ff0e-4a96-9366-4e69c0bbf965" xml:space="preserve">
+          <source>http://technet.microsoft.com/library/bb457073.aspx</source>
+          <target state="new">http://technet.microsoft.com/library/bb457073.aspx</target>
+        </trans-unit>
+        <trans-unit id="4a9e23fb-c92b-4f9f-82d1-8666c3a95cf1" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/SysprepCommand.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/SysprepCommand.png</target>
+        </trans-unit>
+        <trans-unit id="81c67c38-925a-4854-a81d-3665aa6839ff" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png</target>
+        </trans-unit>
+        <trans-unit id="b10064ca-428f-4b5d-9241-8cfb1886d9cb" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/SysprepStopped.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/SysprepStopped.png</target>
+        </trans-unit>
+        <trans-unit id="91bda5cc-d4d6-4519-aa7b-78941bfc35c8" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/CaptureVM.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/CaptureVM.png</target>
+        </trans-unit>
+        <trans-unit id="5f3aeb4a-dcc0-40b5-890f-dfec9171a9ef" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/Capture.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/Capture.png</target>
+        </trans-unit>
+        <trans-unit id="55649a43-e009-4d77-9769-d33f3e396e93" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png</target>
+        </trans-unit>
+        <trans-unit id="9d73bb05-a6fa-4de8-b8d0-4948789d9d3f" xml:space="preserve">
+          <source>./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png</source>
+          <target state="new">./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png</target>
+        </trans-unit>
+      </group>
+      <group id="dccd8155-9872-47ee-9394-d03c1eb8738e" />
+    </body>
+  </file>
+</xliff>

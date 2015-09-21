@@ -1,0 +1,916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="89586f79-021f-4515-8e13-a5062e09bcd1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="89586f79-021f-4515-8e13-a5062e09bcd1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4e9b9be0-1449-4ad7-b7c1-3fbbe0d04659">
+        <trans-unit id="c9315642-d927-46b2-ba3c-93f7969b539b" xml:space="preserve">
+          <source>View your access and usage reports</source>
+          <target state="new">View your access and usage reports</target>
+        </trans-unit>
+        <trans-unit id="a82fe807-75f4-42dc-9d50-f4da849ec423" xml:space="preserve">
+          <source>A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory.</source>
+          <target state="new">A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="f0b82b84-150f-49cf-ac88-66a12d6dd265" xml:space="preserve">
+          <source>You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory.</source>
+          <target state="new">You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="68034dd5-f4b9-4238-b87c-e1f5523756a5" xml:space="preserve">
+          <source>With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.</source>
+          <target state="new">With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.</target>
+        </trans-unit>
+        <trans-unit id="9878dbd0-1f13-4a14-b50e-392167bd8c71" xml:space="preserve">
+          <source>In the Azure Management Portal, reports are categorized in the following ways:</source>
+          <target state="new">In the Azure Management Portal, reports are categorized in the following ways:</target>
+        </trans-unit>
+        <trans-unit id="4911091f-c0d6-4a15-9640-84822eef87e8" xml:space="preserve">
+          <source>Anomaly reports – Contain sign in events that we found to be anomalous.</source>
+          <target state="new">Anomaly reports – Contain sign in events that we found to be anomalous.</target>
+        </trans-unit>
+        <trans-unit id="7e31c394-3e34-4d8e-9878-0f6cfd6fee2c" xml:space="preserve">
+          <source>Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious.</source>
+          <target state="new">Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious.</target>
+        </trans-unit>
+        <trans-unit id="8dbe8db2-eeab-4bbf-a1bf-186055b1e50d" xml:space="preserve">
+          <source>Integrated Application reports – Provides insights into how cloud applications are being used in your organization.</source>
+          <target state="new">Integrated Application reports – Provides insights into how cloud applications are being used in your organization.</target>
+        </trans-unit>
+        <trans-unit id="d98c3ee9-030a-419b-b40c-ce89da09d62f" xml:space="preserve">
+          <source>Azure Active Directory offers integration with thousands of cloud applications.</source>
+          <target state="new">Azure Active Directory offers integration with thousands of cloud applications.</target>
+        </trans-unit>
+        <trans-unit id="a72f3ee3-7327-4086-a0f9-fccd3e33930f" xml:space="preserve">
+          <source>Error reports – Indicate errors that may occur when provisioning accounts to external applications.</source>
+          <target state="new">Error reports – Indicate errors that may occur when provisioning accounts to external applications.</target>
+        </trans-unit>
+        <trans-unit id="facb7a61-5e7a-4e2c-9546-309c758706f1" xml:space="preserve">
+          <source>User-specific reports – Display device/sign in activity data for a specific user.</source>
+          <target state="new">User-specific reports – Display device/sign in activity data for a specific user.</target>
+        </trans-unit>
+        <trans-unit id="09d40d51-a638-4295-988d-99f7e9793f33" xml:space="preserve">
+          <source>Activity logs – Contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, as well as group activity changes, and password reset and registration activity.</source>
+          <target state="new">Activity logs – Contain a record of all audited events within the last 24 hours, last 7 days, or last 30 days, as well as group activity changes, and password reset and registration activity.</target>
+        </trans-unit>
+        <trans-unit id="d869f401-99bd-444b-ab82-22dfe39af715" xml:space="preserve">
+          <source>Some advanced anomaly and resource usage reports are only available when you enable <bpt id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;linkText&gt;</bpt>Azure Active Directory Premium<ept id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;/linkText&gt;</ept><bpt id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;title&gt;</bpt><ept id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Some advanced anomaly and resource usage reports are only available when you enable <bpt id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;linkText&gt;</bpt>Azure Active Directory Premium<ept id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;/linkText&gt;</ept><bpt id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;title&gt;</bpt><ept id="97ac5929-7000-4792-bdf5-8d496b9d490a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f66d7ac0-c4eb-4f10-a72a-53635efa94d3" xml:space="preserve">
+          <source>Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.</source>
+          <target state="new">Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.</target>
+        </trans-unit>
+        <trans-unit id="1ae85529-c62f-4a91-99a0-9ac062b428fd" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="f8a9ad1a-fde6-4cb8-9251-c461c5d86cbe" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</target>
+        </trans-unit>
+        <trans-unit id="bf0b1288-2c8b-4c35-8d10-a711d943b5b3" xml:space="preserve">
+          <source>For more information, contact us at the <bpt id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;/linkText&gt;</ept><bpt id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;title&gt;</bpt><ept id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, contact us at the <bpt id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;/linkText&gt;</ept><bpt id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;title&gt;</bpt><ept id="04668871-27ab-4adf-9c90-8956a695e75f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a63c51b-e809-4268-b24f-ca568efb91fd" xml:space="preserve">
+          <source>Report</source>
+          <target state="new">Report</target>
+        </trans-unit>
+        <trans-unit id="53f66a1c-9b41-41bd-85f6-e93708429f61" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="65c0e82b-30a7-497e-bb56-b54866f920e3" xml:space="preserve">
+          <source><bpt id="d31586b6-d06b-4b64-b92a-628204864b9f">&lt;strong&gt;</bpt>Anomalous activity reports<ept id="d31586b6-d06b-4b64-b92a-628204864b9f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d31586b6-d06b-4b64-b92a-628204864b9f">&lt;strong&gt;</bpt>Anomalous activity reports<ept id="d31586b6-d06b-4b64-b92a-628204864b9f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed82e075-5cbd-44d1-ac53-f49aac573b97" xml:space="preserve">
+          <source><bpt id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;linkText&gt;</bpt>Sign ins from unknown sources<ept id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;/linkText&gt;</ept><bpt id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;title&gt;</bpt><ept id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;linkText&gt;</bpt>Sign ins from unknown sources<ept id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;/linkText&gt;</ept><bpt id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;title&gt;</bpt><ept id="f616f920-b0e4-473f-80d7-5a0cdcd3af6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="deb0d00c-5fb0-431f-af0e-6f8d256cf6f5" xml:space="preserve">
+          <source>May indicate an attempt to sign in without being traced.</source>
+          <target state="new">May indicate an attempt to sign in without being traced.</target>
+        </trans-unit>
+        <trans-unit id="cbf3b007-31d3-418a-9c90-01e4b6f6ac05" xml:space="preserve">
+          <source><bpt id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;linkText&gt;</bpt>Sign ins after multiple failures<ept id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;/linkText&gt;</ept><bpt id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;title&gt;</bpt><ept id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;linkText&gt;</bpt>Sign ins after multiple failures<ept id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;/linkText&gt;</ept><bpt id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;title&gt;</bpt><ept id="accbf05f-2326-4c0d-9ab3-e7aa8b14ac50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fadf07e-12ec-47c0-9899-ccac33528bf5" xml:space="preserve">
+          <source>May indicate a successful brute force attack.</source>
+          <target state="new">May indicate a successful brute force attack.</target>
+        </trans-unit>
+        <trans-unit id="ff29f86b-8512-443c-a641-678cf5f91977" xml:space="preserve">
+          <source><bpt id="9b347452-5cee-4352-a888-7616c521fa65">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="9b347452-5cee-4352-a888-7616c521fa65">&lt;/linkText&gt;</ept><bpt id="9b347452-5cee-4352-a888-7616c521fa65">&lt;title&gt;</bpt><ept id="9b347452-5cee-4352-a888-7616c521fa65">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b347452-5cee-4352-a888-7616c521fa65">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="9b347452-5cee-4352-a888-7616c521fa65">&lt;/linkText&gt;</ept><bpt id="9b347452-5cee-4352-a888-7616c521fa65">&lt;title&gt;</bpt><ept id="9b347452-5cee-4352-a888-7616c521fa65">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="559f5390-df8b-4333-b2f8-7b4295db4d74" xml:space="preserve">
+          <source>May indicate that multiple users are signing in with the same account.</source>
+          <target state="new">May indicate that multiple users are signing in with the same account.</target>
+        </trans-unit>
+        <trans-unit id="88f4c464-fbb4-4def-8dd9-eaab1152f68b" xml:space="preserve">
+          <source><bpt id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;/linkText&gt;</ept><bpt id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;title&gt;</bpt><ept id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;/linkText&gt;</ept><bpt id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;title&gt;</bpt><ept id="f46a4507-0adc-4ff5-b514-47bd50d72a72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b06c501-8fcb-4b42-a3b4-f0e2b1a89850" xml:space="preserve">
+          <source>May indicate a successful sign in after a sustained intrusion attempt.</source>
+          <target state="new">May indicate a successful sign in after a sustained intrusion attempt.</target>
+        </trans-unit>
+        <trans-unit id="923e0a17-99d3-4cc7-937f-9fb5a2af5c29" xml:space="preserve">
+          <source><bpt id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;linkText&gt;</bpt>Sign ins from possibly infected devices<ept id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;/linkText&gt;</ept><bpt id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;title&gt;</bpt><ept id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;linkText&gt;</bpt>Sign ins from possibly infected devices<ept id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;/linkText&gt;</ept><bpt id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;title&gt;</bpt><ept id="d0aa487f-c372-4aa0-8f93-639822c90273">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6479f311-5f6e-4bc6-8c12-57c1949d9ac1" xml:space="preserve">
+          <source>May indicate an attempt to sign in from possibly infected devices.</source>
+          <target state="new">May indicate an attempt to sign in from possibly infected devices.</target>
+        </trans-unit>
+        <trans-unit id="d72caec3-fad2-44a8-9835-02262700b00e" xml:space="preserve">
+          <source><bpt id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;linkText&gt;</bpt>Irregular sign in activity<ept id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;/linkText&gt;</ept><bpt id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;title&gt;</bpt><ept id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;linkText&gt;</bpt>Irregular sign in activity<ept id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;/linkText&gt;</ept><bpt id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;title&gt;</bpt><ept id="029a488f-4a6a-4885-b547-b93b2dc661e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86dccec3-e7b9-48bb-8e6d-3de5de183df7" xml:space="preserve">
+          <source>May indicate events anomalous to users’ sign in patterns.</source>
+          <target state="new">May indicate events anomalous to users’ sign in patterns.</target>
+        </trans-unit>
+        <trans-unit id="d5805389-6fbd-47ba-a274-5bc00ee3d4e8" xml:space="preserve">
+          <source><bpt id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;linkText&gt;</bpt>Users with anomalous sign in activity<ept id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;/linkText&gt;</ept><bpt id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;title&gt;</bpt><ept id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;linkText&gt;</bpt>Users with anomalous sign in activity<ept id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;/linkText&gt;</ept><bpt id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;title&gt;</bpt><ept id="6a1c03b3-26b2-43b3-9f0b-218bc356bca1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60aa049d-9495-4823-aac3-ba4918da3152" xml:space="preserve">
+          <source>Indicates users whose accounts may have been compromised.</source>
+          <target state="new">Indicates users whose accounts may have been compromised.</target>
+        </trans-unit>
+        <trans-unit id="be53577c-01ef-4e3c-abba-3d2eb3c9735c" xml:space="preserve">
+          <source>Users with leaked credentials</source>
+          <target state="new">Users with leaked credentials</target>
+        </trans-unit>
+        <trans-unit id="b9d0f2b3-85e0-441c-a4f6-0302de888ca2" xml:space="preserve">
+          <source>Users with leaked credentials</source>
+          <target state="new">Users with leaked credentials</target>
+        </trans-unit>
+        <trans-unit id="f0376f8e-347f-4034-8f6e-c02059922866" xml:space="preserve">
+          <source><bpt id="f6584eb6-f756-4c0a-96ad-4bd6f843d3a3">&lt;strong&gt;</bpt>Activity logs<ept id="f6584eb6-f756-4c0a-96ad-4bd6f843d3a3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f6584eb6-f756-4c0a-96ad-4bd6f843d3a3">&lt;strong&gt;</bpt>Activity logs<ept id="f6584eb6-f756-4c0a-96ad-4bd6f843d3a3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61beb42b-8dd2-4215-9e8d-d49055b0f724" xml:space="preserve">
+          <source>Audit report</source>
+          <target state="new">Audit report</target>
+        </trans-unit>
+        <trans-unit id="82305b2d-c9a6-4479-a586-d01b75928c07" xml:space="preserve">
+          <source>Audited events in your directory</source>
+          <target state="new">Audited events in your directory</target>
+        </trans-unit>
+        <trans-unit id="9e86a58e-97a8-4968-add1-392105d1ba40" xml:space="preserve">
+          <source>Password reset activity</source>
+          <target state="new">Password reset activity</target>
+        </trans-unit>
+        <trans-unit id="bd56deb1-90e7-4dd5-ae07-c9eb6eb11f5b" xml:space="preserve">
+          <source>Provides a detailed view of password resets that occur in your organization.</source>
+          <target state="new">Provides a detailed view of password resets that occur in your organization.</target>
+        </trans-unit>
+        <trans-unit id="5a3c582d-6695-4c44-b346-be520f9659e8" xml:space="preserve">
+          <source>Password reset registration activity</source>
+          <target state="new">Password reset registration activity</target>
+        </trans-unit>
+        <trans-unit id="f8b26658-5cb4-4c0b-b438-c38f771076b8" xml:space="preserve">
+          <source>Provides a detailed view of password reset registrations that occur in your organization.</source>
+          <target state="new">Provides a detailed view of password reset registrations that occur in your organization.</target>
+        </trans-unit>
+        <trans-unit id="f07914c9-8e02-444b-89db-ed174e9e0cbd" xml:space="preserve">
+          <source>Self service groups activity</source>
+          <target state="new">Self service groups activity</target>
+        </trans-unit>
+        <trans-unit id="dbbbdb20-262d-41b7-bd58-7dd8d12c3740" xml:space="preserve">
+          <source>Provides an activity log to all group self service activity in your directory</source>
+          <target state="new">Provides an activity log to all group self service activity in your directory</target>
+        </trans-unit>
+        <trans-unit id="f9a0b264-264e-4df8-b36e-af642aaf9af1" xml:space="preserve">
+          <source><bpt id="b42b1180-04f2-4612-bc12-1501ab8cbc29">&lt;strong&gt;</bpt>Integrated applications<ept id="b42b1180-04f2-4612-bc12-1501ab8cbc29">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b42b1180-04f2-4612-bc12-1501ab8cbc29">&lt;strong&gt;</bpt>Integrated applications<ept id="b42b1180-04f2-4612-bc12-1501ab8cbc29">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ff23ec8-cffc-40fd-9e6c-364437ab05fa" xml:space="preserve">
+          <source>Application usage</source>
+          <target state="new">Application usage</target>
+        </trans-unit>
+        <trans-unit id="c9558f73-04d3-4365-86af-f29f1780b700" xml:space="preserve">
+          <source>Provides a usage summary for all SaaS applications integrated with your directory.</source>
+          <target state="new">Provides a usage summary for all SaaS applications integrated with your directory.</target>
+        </trans-unit>
+        <trans-unit id="8c12cf2a-60fc-4bd6-a952-181661969567" xml:space="preserve">
+          <source>Account provisioning activity</source>
+          <target state="new">Account provisioning activity</target>
+        </trans-unit>
+        <trans-unit id="3f82a59e-df6c-4c80-95c6-62c3d7a7de90" xml:space="preserve">
+          <source>Provides a history of attempts to provision accounts to external applications.</source>
+          <target state="new">Provides a history of attempts to provision accounts to external applications.</target>
+        </trans-unit>
+        <trans-unit id="93b08b30-2951-4deb-ae12-bf6ee1ca19ac" xml:space="preserve">
+          <source>Password rollover status</source>
+          <target state="new">Password rollover status</target>
+        </trans-unit>
+        <trans-unit id="f4aa1568-dbd9-47db-b576-7428567e9766" xml:space="preserve">
+          <source>Provides a detailed overview of automatic password rollover status of SaaS applications.</source>
+          <target state="new">Provides a detailed overview of automatic password rollover status of SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="7886f548-aae2-4008-a7c6-c88d10dcfb7e" xml:space="preserve">
+          <source>Account provisioning errors</source>
+          <target state="new">Account provisioning errors</target>
+        </trans-unit>
+        <trans-unit id="b5637b86-c51f-449b-b21a-84e42f008a7e" xml:space="preserve">
+          <source>Indicates an impact to users’ access to external applications.</source>
+          <target state="new">Indicates an impact to users’ access to external applications.</target>
+        </trans-unit>
+        <trans-unit id="353326f2-c3e8-48a3-8f3d-e23be0687d5d" xml:space="preserve">
+          <source><bpt id="0e41a0ee-924f-407f-a440-da04d79395e2">&lt;strong&gt;</bpt>Rights managment<ept id="0e41a0ee-924f-407f-a440-da04d79395e2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0e41a0ee-924f-407f-a440-da04d79395e2">&lt;strong&gt;</bpt>Rights managment<ept id="0e41a0ee-924f-407f-a440-da04d79395e2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33f58a62-39ec-408b-96ba-887eeb20c3c3" xml:space="preserve">
+          <source>RMS usage</source>
+          <target state="new">RMS usage</target>
+        </trans-unit>
+        <trans-unit id="167385ee-c704-46b2-bf9d-90d7627efd6b" xml:space="preserve">
+          <source>Provides a summary for Rights Management usage</source>
+          <target state="new">Provides a summary for Rights Management usage</target>
+        </trans-unit>
+        <trans-unit id="831eb4cc-a57e-441b-80a4-f1d73b2fa48d" xml:space="preserve">
+          <source>Most active RMS users</source>
+          <target state="new">Most active RMS users</target>
+        </trans-unit>
+        <trans-unit id="bf4edd6c-5c3a-4531-ba57-c2c996c680fa" xml:space="preserve">
+          <source>Lists top 1000 active users who accessed RMS-protected files</source>
+          <target state="new">Lists top 1000 active users who accessed RMS-protected files</target>
+        </trans-unit>
+        <trans-unit id="6442ade9-f30f-4304-9207-48bde44a2275" xml:space="preserve">
+          <source>RMS device usage</source>
+          <target state="new">RMS device usage</target>
+        </trans-unit>
+        <trans-unit id="0f26b919-3789-4d58-99ca-4f86e3a88860" xml:space="preserve">
+          <source>Lists devices used for accessing RMS-protected files</source>
+          <target state="new">Lists devices used for accessing RMS-protected files</target>
+        </trans-unit>
+        <trans-unit id="b5c7dcaf-a405-4d47-b6d8-949e2c1b4070" xml:space="preserve">
+          <source>RMS enabled application usage</source>
+          <target state="new">RMS enabled application usage</target>
+        </trans-unit>
+        <trans-unit id="a0903f37-e5be-4258-84fe-80d84fea0c7a" xml:space="preserve">
+          <source>Provides usage of RMS enabled applications</source>
+          <target state="new">Provides usage of RMS enabled applications</target>
+        </trans-unit>
+        <trans-unit id="a6386b42-9323-49a8-9af2-4c1e1625e38a" xml:space="preserve">
+          <source>Report</source>
+          <target state="new">Report</target>
+        </trans-unit>
+        <trans-unit id="90c9f647-2eea-4eda-8e69-6cc5992001e7" xml:space="preserve">
+          <source>Free</source>
+          <target state="new">Free</target>
+        </trans-unit>
+        <trans-unit id="ae6fee44-3a58-425b-8a44-fdcf27d31a8c" xml:space="preserve">
+          <source>Basic</source>
+          <target state="new">Basic</target>
+        </trans-unit>
+        <trans-unit id="398292be-9a20-4eb4-84d3-7598b5e23c90" xml:space="preserve">
+          <source>Premium</source>
+          <target state="new">Premium</target>
+        </trans-unit>
+        <trans-unit id="de4f416e-e95f-4c24-9b1e-09b2cf0fda70" xml:space="preserve">
+          <source><bpt id="939bbb8c-4c36-49ba-aeac-57d08b9b82ad">&lt;strong&gt;</bpt>Anomalous activity reports<ept id="939bbb8c-4c36-49ba-aeac-57d08b9b82ad">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="939bbb8c-4c36-49ba-aeac-57d08b9b82ad">&lt;strong&gt;</bpt>Anomalous activity reports<ept id="939bbb8c-4c36-49ba-aeac-57d08b9b82ad">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76fa0712-f496-447f-9970-7c88ea020cdd" xml:space="preserve">
+          <source>Sign ins from unknown sources</source>
+          <target state="new">Sign ins from unknown sources</target>
+        </trans-unit>
+        <trans-unit id="a3e7ae76-f9bd-4caa-9984-3695398a9602" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="574561e2-b4cc-4176-8731-ac2d3f8b3839" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="3958b8b3-8a6e-456b-b5ca-b459efd0334c" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="21bbc4b8-7729-41f4-9e8a-6073f2344e44" xml:space="preserve">
+          <source>Sign ins after multiple failures</source>
+          <target state="new">Sign ins after multiple failures</target>
+        </trans-unit>
+        <trans-unit id="a2eec681-2b8f-46cb-b7c9-4b060e275a77" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="dc4d8353-3d12-441a-9542-3291e1256984" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="0710a247-7962-40fc-a051-a24cabc30dc2" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="efa8498a-7487-49bd-99e3-17fc6209ca92" xml:space="preserve">
+          <source>Sign ins from multiple geographies</source>
+          <target state="new">Sign ins from multiple geographies</target>
+        </trans-unit>
+        <trans-unit id="78332810-e61a-4840-bdfb-cc011220a6a8" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="88da3337-0a0d-4d5e-bd72-128b9e8bc51d" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="ee2be223-6b87-4da5-9f5d-5df9d83f6b15" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="90fbd30f-65ef-4b2a-8e03-22b92c3d46d2" xml:space="preserve">
+          <source>Sign ins from IP addresses with suspicious activity</source>
+          <target state="new">Sign ins from IP addresses with suspicious activity</target>
+        </trans-unit>
+        <trans-unit id="0c6ca8c6-f2d8-44c7-baf6-ff70aae784a0" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="51103ff3-1142-44a4-85d7-9284baa22833" xml:space="preserve">
+          <source>Sign ins from possibly infected devices</source>
+          <target state="new">Sign ins from possibly infected devices</target>
+        </trans-unit>
+        <trans-unit id="66ced26c-f347-4a14-b694-64ecf2049a62" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="e6597a93-cfe3-468c-a8a2-913a1b6beeff" xml:space="preserve">
+          <source>Irregular sign in activity</source>
+          <target state="new">Irregular sign in activity</target>
+        </trans-unit>
+        <trans-unit id="937dbe2a-7f33-4ed3-bb9e-8281b2528e85" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="1836348e-9803-457e-9fe7-397c85e80885" xml:space="preserve">
+          <source>Users with anomalous sign in activity</source>
+          <target state="new">Users with anomalous sign in activity</target>
+        </trans-unit>
+        <trans-unit id="ae9222dc-052d-4ba3-bffd-cf2410ac4385" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="91aed9ba-57bb-450f-8804-5f9001cefa8e" xml:space="preserve">
+          <source>Users with leaked credentials</source>
+          <target state="new">Users with leaked credentials</target>
+        </trans-unit>
+        <trans-unit id="ab883600-b1e6-4168-a78a-21290b1abdfd" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="f0bae0d3-4b2d-45a1-943e-bf7e133ad287" xml:space="preserve">
+          <source><bpt id="7dbc2128-4881-43f2-a448-5f3516ad3368">&lt;strong&gt;</bpt>Activity logs<ept id="7dbc2128-4881-43f2-a448-5f3516ad3368">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7dbc2128-4881-43f2-a448-5f3516ad3368">&lt;strong&gt;</bpt>Activity logs<ept id="7dbc2128-4881-43f2-a448-5f3516ad3368">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fff8ef2-82ae-454f-9854-8e690a98cbd9" xml:space="preserve">
+          <source>Audit report</source>
+          <target state="new">Audit report</target>
+        </trans-unit>
+        <trans-unit id="b2df09c7-fa4d-4786-9172-1f1236a6427c" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="4d17213b-0e46-4e77-a8e8-77b35760fd8b" xml:space="preserve">
+          <source>Password reset activity</source>
+          <target state="new">Password reset activity</target>
+        </trans-unit>
+        <trans-unit id="bd9d65a0-f9b0-43a9-961e-ad54bf0bc239" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="dbed1b86-653b-493e-83d1-01f849f458bc" xml:space="preserve">
+          <source>Password reset registration activity</source>
+          <target state="new">Password reset registration activity</target>
+        </trans-unit>
+        <trans-unit id="96d2cac1-e827-48b7-966c-9972e46f7873" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="2825e4e4-d26b-43c8-ba1d-681de4a66f0b" xml:space="preserve">
+          <source>Self service groups activity</source>
+          <target state="new">Self service groups activity</target>
+        </trans-unit>
+        <trans-unit id="796f7fdf-4080-4eb8-a934-5959c01f0ad0" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="3f975f40-c73e-467b-aed2-fd1d1d630556" xml:space="preserve">
+          <source><bpt id="f11e6918-ed74-41db-9db5-bc7482bfafda">&lt;strong&gt;</bpt>Integrated applications<ept id="f11e6918-ed74-41db-9db5-bc7482bfafda">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f11e6918-ed74-41db-9db5-bc7482bfafda">&lt;strong&gt;</bpt>Integrated applications<ept id="f11e6918-ed74-41db-9db5-bc7482bfafda">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbdb5d5b-4be7-432d-8390-2a25d8e2d59e" xml:space="preserve">
+          <source>Application usage</source>
+          <target state="new">Application usage</target>
+        </trans-unit>
+        <trans-unit id="0193e718-a978-48bb-90d0-67178e71dbae" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="429c2aca-39ec-4dc3-9c2d-fa29780686cb" xml:space="preserve">
+          <source>Account provisioning activity</source>
+          <target state="new">Account provisioning activity</target>
+        </trans-unit>
+        <trans-unit id="d9417b48-6f5c-4bab-bccc-b08a996e2d75" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="6bbd95fd-2f60-4bfd-96c7-342b8aeafe3a" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="1a68fb1a-9d99-4971-92c9-5c2dfd23052d" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="702aedc7-72a5-4c29-a859-c6b028d746bc" xml:space="preserve">
+          <source>Password rollover status</source>
+          <target state="new">Password rollover status</target>
+        </trans-unit>
+        <trans-unit id="30ac5d68-0e97-423e-a0a2-45405b7fa480" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="9fdc1524-f77f-414a-b334-8a788febfb05" xml:space="preserve">
+          <source>Account provisioning errors</source>
+          <target state="new">Account provisioning errors</target>
+        </trans-unit>
+        <trans-unit id="d45328f8-561f-4e95-92a9-7f0144f2cdab" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="b02c82de-7035-4480-8b2b-09a814dde599" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="07be96b4-d240-4815-b2d6-387f35bc8c98" xml:space="preserve">
+          <source>✓</source>
+          <target state="new">✓</target>
+        </trans-unit>
+        <trans-unit id="3783eab7-1bd0-4686-ab99-ebc01ee03edd" xml:space="preserve">
+          <source><bpt id="ce2fcc56-1de1-47b3-9dd0-ba476cb43483">&lt;strong&gt;</bpt>Rights managment<ept id="ce2fcc56-1de1-47b3-9dd0-ba476cb43483">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce2fcc56-1de1-47b3-9dd0-ba476cb43483">&lt;strong&gt;</bpt>Rights managment<ept id="ce2fcc56-1de1-47b3-9dd0-ba476cb43483">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="138ef9a3-7a9a-45d3-b843-5777e3590021" xml:space="preserve">
+          <source>RMS usage</source>
+          <target state="new">RMS usage</target>
+        </trans-unit>
+        <trans-unit id="168a973d-25d7-4fa4-a40a-a0aed52139c8" xml:space="preserve">
+          <source>RMS Only</source>
+          <target state="new">RMS Only</target>
+        </trans-unit>
+        <trans-unit id="b2e4a941-b3b1-4636-9d50-96cfa4c6353b" xml:space="preserve">
+          <source>Most active RMS users</source>
+          <target state="new">Most active RMS users</target>
+        </trans-unit>
+        <trans-unit id="f558ba74-86e6-42d2-80a5-197b81e2e2b8" xml:space="preserve">
+          <source>RMS Only</source>
+          <target state="new">RMS Only</target>
+        </trans-unit>
+        <trans-unit id="0303f7b2-b2ef-4f1d-be43-c217a7675f8b" xml:space="preserve">
+          <source>RMS device usage</source>
+          <target state="new">RMS device usage</target>
+        </trans-unit>
+        <trans-unit id="32d903ba-25d2-4816-addb-bfa11b6f153e" xml:space="preserve">
+          <source>RMS Only</source>
+          <target state="new">RMS Only</target>
+        </trans-unit>
+        <trans-unit id="1b10830c-7df6-4bb1-a13a-e6252b18ee2c" xml:space="preserve">
+          <source>RMS enabled application usage</source>
+          <target state="new">RMS enabled application usage</target>
+        </trans-unit>
+        <trans-unit id="42fccf8a-e725-4b58-ad9d-ad41f8d2f2f5" xml:space="preserve">
+          <source>RMS Only</source>
+          <target state="new">RMS Only</target>
+        </trans-unit>
+        <trans-unit id="a3fd62de-3852-468d-85ce-e60d659ed8d5" xml:space="preserve">
+          <source>The anomalous sign in activity reports flag suspicious sign in activity to Office365, Azure Management Portal, Azure AD Access Panel, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services.</source>
+          <target state="new">The anomalous sign in activity reports flag suspicious sign in activity to Office365, Azure Management Portal, Azure AD Access Panel, Sharepoint Online, Dynamics CRM Online, and other Microsoft online services.</target>
+        </trans-unit>
+        <trans-unit id="261535f6-ec62-425d-b232-ed77ba58c7d4" xml:space="preserve">
+          <source>All of these reports, except the "Sign ins after multiple failures" report, also flag suspicious </source>
+          <target state="new">All of these reports, except the "Sign ins after multiple failures" report, also flag suspicious </target>
+        </trans-unit>
+        <trans-unit id="e29ad2ae-bb3b-4295-888a-a24a547fd51a" xml:space="preserve">
+          <source>federated</source>
+          <target state="new">federated</target>
+        </trans-unit>
+        <trans-unit id="7e5b0a1d-ea70-48c3-b172-4e48aca9b2f0" xml:space="preserve">
+          <source> sign ins to the aforementioned services, regardless of the federation provider. </source>
+          <target state="new"> sign ins to the aforementioned services, regardless of the federation provider. </target>
+        </trans-unit>
+        <trans-unit id="25835180-663b-4712-b0af-47f6aaa1343e" xml:space="preserve">
+          <source>&lt;p&gt;The following reports are available: &lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;<bpt id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;linkText&gt;</bpt>Sign ins from unknown sources<ept id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;/linkText&gt;</ept><bpt id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;title&gt;</bpt><ept id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;linkText&gt;</bpt>Sign ins after multiple failures<ept id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;/linkText&gt;</ept><bpt id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;title&gt;</bpt><ept id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;/linkText&gt;</ept><bpt id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;title&gt;</bpt><ept id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;/linkText&gt;</ept><bpt id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;title&gt;</bpt><ept id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;linkText&gt;</bpt>Irregular sign in activity<ept id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;/linkText&gt;</ept><bpt id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;title&gt;</bpt><ept id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;linkText&gt;</bpt>Sign ins from possibly infected devices<ept id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;/linkText&gt;</ept><bpt id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;title&gt;</bpt><ept id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;linkText&gt;</bpt>Users with anomalous sign in activity<ept id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;/linkText&gt;</ept><bpt id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;title&gt;</bpt><ept id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;Users with leaked credentials&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;p&gt;The following reports are available: &lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;<bpt id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;linkText&gt;</bpt>Sign ins from unknown sources<ept id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;/linkText&gt;</ept><bpt id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;title&gt;</bpt><ept id="e8bae184-5bc2-4510-b6fa-e40f30c64189">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;linkText&gt;</bpt>Sign ins after multiple failures<ept id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;/linkText&gt;</ept><bpt id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;title&gt;</bpt><ept id="ae80a4ca-bf49-49eb-83b1-8b2a87b5f4ff">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;linkText&gt;</bpt>Sign ins from multiple geographies<ept id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;/linkText&gt;</ept><bpt id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;title&gt;</bpt><ept id="72021d11-bc57-48e6-98a6-26a4e6a26dfc">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;/linkText&gt;</ept><bpt id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;title&gt;</bpt><ept id="52fdcc24-9569-4f98-aa4d-a1d59184844c">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;linkText&gt;</bpt>Irregular sign in activity<ept id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;/linkText&gt;</ept><bpt id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;title&gt;</bpt><ept id="5adedfc1-5d4a-4b6d-a4a4-c8629745074e">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;linkText&gt;</bpt>Sign ins from possibly infected devices<ept id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;/linkText&gt;</ept><bpt id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;title&gt;</bpt><ept id="8b6b3916-4045-4dcf-9f5c-7e3c58811309">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;<bpt id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;linkText&gt;</bpt>Users with anomalous sign in activity<ept id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;/linkText&gt;</ept><bpt id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;title&gt;</bpt><ept id="b57331bb-5589-4ebe-b150-9960314a752b">&lt;/title&gt;</ept>.&lt;/li&gt;
+&lt;li&gt;Users with leaked credentials&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="c4770851-4c2b-4f73-ac8f-7c87d8528948" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="6ea3ee53-fc92-475c-8e3b-980426ebf404" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="5b9b22b8-163c-449f-bd74-b8601d1240e7" xml:space="preserve">
+          <source>Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days.</source>
+          <target state="new">Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days.</target>
+        </trans-unit>
+        <trans-unit id="aa4875ad-83dc-4822-880c-ecc35395a23a" xml:space="preserve">
+          <source>&lt;br /&gt; For more information, see <bpt id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;linkText&gt;</bpt>Azure Active Directory Audit Report Events<ept id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;/linkText&gt;</ept><bpt id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;title&gt;</bpt><ept id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;/title&gt;</ept></source>
+          <target state="new">&lt;br /&gt; For more information, see <bpt id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;linkText&gt;</bpt>Azure Active Directory Audit Report Events<ept id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;/linkText&gt;</ept><bpt id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;title&gt;</bpt><ept id="a14d68e7-cd99-401a-9a93-111c9b77412e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcbade46-4136-495e-9c74-704fa80a13f5" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="24ef4f38-b24d-4450-a064-8afe2c7013b6" xml:space="preserve">
+          <source><bpt id="2a487065-2b5c-4d89-a3b4-06891657619f">&lt;linkText&gt;</bpt>Audit report<ept id="2a487065-2b5c-4d89-a3b4-06891657619f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a487065-2b5c-4d89-a3b4-06891657619f">&lt;linkText&gt;</bpt>Audit report<ept id="2a487065-2b5c-4d89-a3b4-06891657619f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3950de57-755c-461c-add3-ab84b3fd609e" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c813193d-eb5d-4c4a-97b7-b75ff173595e" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="c008678f-b678-4556-b4bf-7f0e75cc3395" xml:space="preserve">
+          <source>Shows all password reset attempts that have occurred in your organization.</source>
+          <target state="new">Shows all password reset attempts that have occurred in your organization.</target>
+        </trans-unit>
+        <trans-unit id="bf3c1675-685d-4140-8b20-8475715952c8" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="c5f3f574-1ea6-4536-8f1b-67e0702f83bc" xml:space="preserve">
+          <source><bpt id="82a402e3-b69e-428e-bae4-6925df822841">&lt;linkText&gt;</bpt>Password reset activity<ept id="82a402e3-b69e-428e-bae4-6925df822841">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82a402e3-b69e-428e-bae4-6925df822841">&lt;linkText&gt;</bpt>Password reset activity<ept id="82a402e3-b69e-428e-bae4-6925df822841">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e3ed971-24dc-4840-943d-b61ab1483b91" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="e48129a3-cedb-43c7-abc0-c86eea3606b0" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="69787d1f-ea84-46d7-a6d0-8274bf5f7dcd" xml:space="preserve">
+          <source>Shows all password reset registrations that have occurred in your organization</source>
+          <target state="new">Shows all password reset registrations that have occurred in your organization</target>
+        </trans-unit>
+        <trans-unit id="3b4181f9-36be-48d6-a305-421946b5fff2" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="bd8adc56-3afa-4396-b999-8075a4f91733" xml:space="preserve">
+          <source><bpt id="1f63d961-c718-4f85-b70f-75a064f74e3d">&lt;linkText&gt;</bpt>Password reset registration activity<ept id="1f63d961-c718-4f85-b70f-75a064f74e3d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f63d961-c718-4f85-b70f-75a064f74e3d">&lt;linkText&gt;</bpt>Password reset registration activity<ept id="1f63d961-c718-4f85-b70f-75a064f74e3d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7088f3ee-edea-4709-840f-23f676a6fd2d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="23ffda1e-de1f-4425-b454-800986757d06" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="5e2175be-a21c-4277-9de4-2591460dc750" xml:space="preserve">
+          <source>Shows all activity for the self-service managed groups in your directory.</source>
+          <target state="new">Shows all activity for the self-service managed groups in your directory.</target>
+        </trans-unit>
+        <trans-unit id="2ee89175-d6d6-4242-9dca-00e2c635a514" xml:space="preserve">
+          <source>Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Devices tab</source>
+          <target state="new">Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Devices tab</target>
+        </trans-unit>
+        <trans-unit id="b5e9096d-6244-4d09-a195-899aa963ec75" xml:space="preserve">
+          <source><bpt id="28fd5f49-2593-4876-acc5-7695563761d7">&lt;linkText&gt;</bpt>Self service groups activity<ept id="28fd5f49-2593-4876-acc5-7695563761d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28fd5f49-2593-4876-acc5-7695563761d7">&lt;linkText&gt;</bpt>Self service groups activity<ept id="28fd5f49-2593-4876-acc5-7695563761d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0698d625-4703-40f9-87fc-58dc22130169" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="96ba06d0-0491-4963-80c8-2aaa9550f7d1" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="55f39e38-a55b-408b-8bb4-183c6f6933c0" xml:space="preserve">
+          <source>Use this report when you want to see usage for all the SaaS applications in your directory.</source>
+          <target state="new">Use this report when you want to see usage for all the SaaS applications in your directory.</target>
+        </trans-unit>
+        <trans-unit id="0688db4c-784f-4c0e-a825-4e7ddb446565" xml:space="preserve">
+          <source>This report is based on the number of times users have clicked on the application in the Access Panel.</source>
+          <target state="new">This report is based on the number of times users have clicked on the application in the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="474458f2-85aa-493f-88b1-851ff182b752" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="a1981630-950c-40d7-91b8-82aa15685100" xml:space="preserve">
+          <source><bpt id="7fdf7c23-ef04-4f87-a85e-133eb7ee65f9">&lt;linkText&gt;</bpt>Application usage summary<ept id="7fdf7c23-ef04-4f87-a85e-133eb7ee65f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fdf7c23-ef04-4f87-a85e-133eb7ee65f9">&lt;linkText&gt;</bpt>Application usage summary<ept id="7fdf7c23-ef04-4f87-a85e-133eb7ee65f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc15055a-cf37-4279-b341-b6e67c606afa" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="e7a8b1d5-04d2-4a7f-96e3-28ce96c236e3" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="bb135478-63fc-420f-9e3a-6693f73d8962" xml:space="preserve">
+          <source>Use this report when you want to see how much a specific SaaS application is being used.</source>
+          <target state="new">Use this report when you want to see how much a specific SaaS application is being used.</target>
+        </trans-unit>
+        <trans-unit id="37c1e230-6edb-4fb9-a65a-f437c9aa885f" xml:space="preserve">
+          <source>This report is based on the number of times users have clicked on the application in the Access Panel.</source>
+          <target state="new">This report is based on the number of times users have clicked on the application in the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="e57c8f36-1744-4997-99bf-a4da7124ec5b" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="2b06640a-4270-492f-853e-ffd48f38825f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="fe96dd0b-76df-4832-aa36-e8d94529b0bb" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="45f3caf3-1dc6-4880-a211-8165db82779a" xml:space="preserve">
+          <source>This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval.</source>
+          <target state="new">This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval.</target>
+        </trans-unit>
+        <trans-unit id="7cfedd13-116a-4e77-b6bf-be9d0880b829" xml:space="preserve">
+          <source>The chart on the dashboard page will help you identify trends for all usage of that application.</source>
+          <target state="new">The chart on the dashboard page will help you identify trends for all usage of that application.</target>
+        </trans-unit>
+        <trans-unit id="bd8b688a-9528-4f84-9f11-7468ed988555" xml:space="preserve">
+          <source>Directory &gt; Application &gt; Dashboard tab</source>
+          <target state="new">Directory &gt; Application &gt; Dashboard tab</target>
+        </trans-unit>
+        <trans-unit id="71813b9d-475f-43a0-9a76-feee08bb46db" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="05446906-2f96-4a26-9722-2dec667b7764" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="f07e08b1-ca8c-401f-a77b-1ec9d0e62419" xml:space="preserve">
+          <source>Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory.</source>
+          <target state="new">Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="209e406b-5ed0-4cd8-b8e1-be6e2cee1ecf" xml:space="preserve">
+          <source>Directory &gt; Reports tab</source>
+          <target state="new">Directory &gt; Reports tab</target>
+        </trans-unit>
+        <trans-unit id="a51229b7-cdb8-4ae3-878f-f424ca0f9277" xml:space="preserve">
+          <source><bpt id="0c2a8fec-3cb3-4ac1-a699-ca673b80e7b0">&lt;linkText&gt;</bpt>Account provisioning errors<ept id="0c2a8fec-3cb3-4ac1-a699-ca673b80e7b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c2a8fec-3cb3-4ac1-a699-ca673b80e7b0">&lt;linkText&gt;</bpt>Account provisioning errors<ept id="0c2a8fec-3cb3-4ac1-a699-ca673b80e7b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="265d9be9-f945-48c2-9e61-b11700a58506" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0a1866e2-ab62-4a91-92b0-79315ce8d9ee" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="2f91476d-00ad-49d2-9bb7-450b27b2cb00" xml:space="preserve">
+          <source>Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory.</source>
+          <target state="new">Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="3f1767ef-7eec-4f4e-ab69-3705649e3151" xml:space="preserve">
+          <source>Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Devices tab</source>
+          <target state="new">Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Devices tab</target>
+        </trans-unit>
+        <trans-unit id="6e48e119-79f4-4336-9ee4-c1658b665d0e" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="9a0e381d-52b8-4f73-8b0d-51590b3f74f2" xml:space="preserve">
+          <source>Report location</source>
+          <target state="new">Report location</target>
+        </trans-unit>
+        <trans-unit id="889a264c-5684-438c-b0af-c0f4eaa800a7" xml:space="preserve">
+          <source>Shows the sign in activity for a user.</source>
+          <target state="new">Shows the sign in activity for a user.</target>
+        </trans-unit>
+        <trans-unit id="9436adcb-d80b-4c2f-b3e5-08f53d595148" xml:space="preserve">
+          <source>The report includes information like the application signed into, device used, IP address, and location.</source>
+          <target state="new">The report includes information like the application signed into, device used, IP address, and location.</target>
+        </trans-unit>
+        <trans-unit id="b6e1d421-b020-45c9-9a2f-263e70ed88bd" xml:space="preserve">
+          <source>We do not collect the history for users that sign in with a Microsoft account.</source>
+          <target state="new">We do not collect the history for users that sign in with a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="99865a2d-10e0-49a8-aa6d-a1db9be7f217" xml:space="preserve">
+          <source>Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Activity tab</source>
+          <target state="new">Directory &gt; Users &gt; &lt;i&gt;User&lt;/i&gt; &gt; Activity tab</target>
+        </trans-unit>
+        <trans-unit id="c9016f64-7310-47f4-beb5-4d7754253d56" xml:space="preserve">
+          <source>Only certain types of sign in events will appear in the User Activity report.</source>
+          <target state="new">Only certain types of sign in events will appear in the User Activity report.</target>
+        </trans-unit>
+        <trans-unit id="bce10656-717b-4286-a8bb-a26d21e599b7" xml:space="preserve">
+          <source>Event type</source>
+          <target state="new">Event type</target>
+        </trans-unit>
+        <trans-unit id="66ddb684-71f6-42f9-b7c1-d57b6f65b39a" xml:space="preserve">
+          <source>Included?</source>
+          <target state="new">Included?</target>
+        </trans-unit>
+        <trans-unit id="2e85340b-985f-402d-a3b4-340216e4ead9" xml:space="preserve">
+          <source>Sign ins to the <bpt id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;linkText&gt;</bpt>Access Panel<ept id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;/linkText&gt;</ept><bpt id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;title&gt;</bpt><ept id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;/title&gt;</ept></source>
+          <target state="new">Sign ins to the <bpt id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;linkText&gt;</bpt>Access Panel<ept id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;/linkText&gt;</ept><bpt id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;title&gt;</bpt><ept id="7bb03c62-dbd9-4ce1-a497-a54b656c76c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecd33aca-3138-4be5-b049-a53a4e079923" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e298dffd-b009-4c27-85ab-329261c04766" xml:space="preserve">
+          <source>Sign ins to the <bpt id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;/linkText&gt;</ept><bpt id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;title&gt;</bpt><ept id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;/title&gt;</ept></source>
+          <target state="new">Sign ins to the <bpt id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;/linkText&gt;</ept><bpt id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;title&gt;</bpt><ept id="99440216-bd8c-45a4-bcb8-0244300d8972">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec2ecc91-21af-4567-9e08-e1976bd7ee2f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a2e46f46-85a6-4edc-a2fb-ee99b1ac9767" xml:space="preserve">
+          <source>Sign ins to the <bpt id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;linkText&gt;</bpt>Microsoft Azure Portal<ept id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;/linkText&gt;</ept><bpt id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;title&gt;</bpt><ept id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;/title&gt;</ept></source>
+          <target state="new">Sign ins to the <bpt id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;linkText&gt;</bpt>Microsoft Azure Portal<ept id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;/linkText&gt;</ept><bpt id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;title&gt;</bpt><ept id="213812a8-8821-4e03-bc69-5778b0db8bb9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b31bae2-6d01-4ac3-b893-e55cc78dda55" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="064197a6-0bbf-4257-8864-dc3d57e51cd8" xml:space="preserve">
+          <source>Sign ins to the <bpt id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;linkText&gt;</bpt>Office 365 portal<ept id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;/linkText&gt;</ept><bpt id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;title&gt;</bpt><ept id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;/title&gt;</ept></source>
+          <target state="new">Sign ins to the <bpt id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;linkText&gt;</bpt>Office 365 portal<ept id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;/linkText&gt;</ept><bpt id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;title&gt;</bpt><ept id="a942b604-2e2e-47bf-b961-c5842437137e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04b0d3ff-9c0f-4744-ac55-9f02ec76b14e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="0b5d32a4-5d53-4ab6-9821-65a9da8f5e57" xml:space="preserve">
+          <source>Sign ins to a native application, like Outlook (see exception below)</source>
+          <target state="new">Sign ins to a native application, like Outlook (see exception below)</target>
+        </trans-unit>
+        <trans-unit id="b0553a5b-1665-4447-9db0-7a5632e0e66e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7b94743a-c182-4158-884a-d592975a8d6e" xml:space="preserve">
+          <source>Sign ins to a federated/provisioned app through the Access Panel, like Salesforce</source>
+          <target state="new">Sign ins to a federated/provisioned app through the Access Panel, like Salesforce</target>
+        </trans-unit>
+        <trans-unit id="9d1e478a-fffe-45e0-966b-78efc302f242" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="25e86133-e9f0-4463-80ec-0260b9f7bdb0" xml:space="preserve">
+          <source>Sign ins to a password-based app through the Access Panel, like Twitter</source>
+          <target state="new">Sign ins to a password-based app through the Access Panel, like Twitter</target>
+        </trans-unit>
+        <trans-unit id="cfa0729c-c23a-4483-9f3e-d1f60b0b0ef0" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="43aa599b-d1d1-4863-a73f-ea213e46d88d" xml:space="preserve">
+          <source>Sign ins to a custom business app that has been added to the directory</source>
+          <target state="new">Sign ins to a custom business app that has been added to the directory</target>
+        </trans-unit>
+        <trans-unit id="d627bae6-b032-4e4e-ad9c-ff63885a589f" xml:space="preserve">
+          <source>No (Coming soon)</source>
+          <target state="new">No (Coming soon)</target>
+        </trans-unit>
+        <trans-unit id="30aa247a-90e4-4855-b649-4a366b7f5976" xml:space="preserve">
+          <source>Sign ins to an Azure AD Application Proxy app that has been added to the directory</source>
+          <target state="new">Sign ins to an Azure AD Application Proxy app that has been added to the directory</target>
+        </trans-unit>
+        <trans-unit id="55eb134a-85d7-41dc-ba77-4fc276f3c5e1" xml:space="preserve">
+          <source>No (Coming soon)</source>
+          <target state="new">No (Coming soon)</target>
+        </trans-unit>
+        <trans-unit id="7138e270-3ac6-4ce3-ab98-83e3eb256b5c" xml:space="preserve">
+          <source>Note: To reduce the amount of noise in this report, sign ins to the <bpt id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;linkText&gt;</bpt>Lync/Skype for Business<ept id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;/linkText&gt;</ept><bpt id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;title&gt;</bpt><ept id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;/title&gt;</ept> native app and by the <bpt id="d2324749-e81b-4472-a821-e09de558f894">&lt;linkText&gt;</bpt>Microsoft Online Services Sign-In Assistant<ept id="d2324749-e81b-4472-a821-e09de558f894">&lt;/linkText&gt;</ept><bpt id="d2324749-e81b-4472-a821-e09de558f894">&lt;title&gt;</bpt><ept id="d2324749-e81b-4472-a821-e09de558f894">&lt;/title&gt;</ept> are not shown.</source>
+          <target state="new">Note: To reduce the amount of noise in this report, sign ins to the <bpt id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;linkText&gt;</bpt>Lync/Skype for Business<ept id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;/linkText&gt;</ept><bpt id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;title&gt;</bpt><ept id="ee8864ce-e37f-418d-8d8a-cda4211af9a7">&lt;/title&gt;</ept> native app and by the <bpt id="d2324749-e81b-4472-a821-e09de558f894">&lt;linkText&gt;</bpt>Microsoft Online Services Sign-In Assistant<ept id="d2324749-e81b-4472-a821-e09de558f894">&lt;/linkText&gt;</ept><bpt id="d2324749-e81b-4472-a821-e09de558f894">&lt;title&gt;</bpt><ept id="d2324749-e81b-4472-a821-e09de558f894">&lt;/title&gt;</ept> are not shown.</target>
+        </trans-unit>
+        <trans-unit id="a75d286c-4852-4cd8-9749-dbb372dfaa72" xml:space="preserve">
+          <source>If you suspect that a user account may be compromised or any kind of suspicious user activity that may lead to a security breach of your directory data in the cloud, you may want to consider one or more of the following actions:</source>
+          <target state="new">If you suspect that a user account may be compromised or any kind of suspicious user activity that may lead to a security breach of your directory data in the cloud, you may want to consider one or more of the following actions:</target>
+        </trans-unit>
+        <trans-unit id="5263bde4-7fe3-454b-afd5-9945bdfd4b79" xml:space="preserve">
+          <source>Contact the user to verify the activity</source>
+          <target state="new">Contact the user to verify the activity</target>
+        </trans-unit>
+        <trans-unit id="bfd3922a-ca06-4326-85d2-56f5bb7f2f71" xml:space="preserve">
+          <source>Reset the user's password</source>
+          <target state="new">Reset the user's password</target>
+        </trans-unit>
+        <trans-unit id="b3ebdb15-264c-496b-ac3a-f4b9a5207bb2" xml:space="preserve">
+          <source><bpt id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;linkText&gt;</bpt>Enable multi-factor authentication<ept id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;/linkText&gt;</ept><bpt id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;title&gt;</bpt><ept id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;/title&gt;</ept> for additional security</source>
+          <target state="new"><bpt id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;linkText&gt;</bpt>Enable multi-factor authentication<ept id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;/linkText&gt;</ept><bpt id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;title&gt;</bpt><ept id="40725a5a-5524-4037-83e7-67e9221d1c6e">&lt;/title&gt;</ept> for additional security</target>
+        </trans-unit>
+        <trans-unit id="a28970d8-8905-413c-97f9-9f5f29f265ff" xml:space="preserve">
+          <source>In the Azure Management Portal, click <bpt id="dad46c20-00e5-481f-81b0-aacaee054ba7">&lt;strong&gt;</bpt>Active Directory<ept id="dad46c20-00e5-481f-81b0-aacaee054ba7">&lt;/strong&gt;</ept>, click the name of your organization’s directory, and then click <bpt id="cb790ec4-4c44-4713-9027-6a763fa9ebfc">&lt;strong&gt;</bpt>Reports<ept id="cb790ec4-4c44-4713-9027-6a763fa9ebfc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click <bpt id="dad46c20-00e5-481f-81b0-aacaee054ba7">&lt;strong&gt;</bpt>Active Directory<ept id="dad46c20-00e5-481f-81b0-aacaee054ba7">&lt;/strong&gt;</ept>, click the name of your organization’s directory, and then click <bpt id="cb790ec4-4c44-4713-9027-6a763fa9ebfc">&lt;strong&gt;</bpt>Reports<ept id="cb790ec4-4c44-4713-9027-6a763fa9ebfc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b148fca-9127-45dd-9b48-8cd0cd91d939" xml:space="preserve">
+          <source>On the Reports page, click the report you want to view and/or download.</source>
+          <target state="new">On the Reports page, click the report you want to view and/or download.</target>
+        </trans-unit>
+        <trans-unit id="8d72ef19-afbe-4c86-addd-e6242253c5a9" xml:space="preserve">
+          <source>If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In.</source>
+          <target state="new">If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In.</target>
+        </trans-unit>
+        <trans-unit id="c2d722ab-082e-4f5d-a5e9-3d8be6dde0da" xml:space="preserve">
+          <source>If you agree, click the check mark icon to continue.</source>
+          <target state="new">If you agree, click the check mark icon to continue.</target>
+        </trans-unit>
+        <trans-unit id="a32f23d0-2570-4189-ae62-2e9576f401d8" xml:space="preserve">
+          <source>Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:</source>
+          <target state="new">Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:</target>
+        </trans-unit>
+        <trans-unit id="9d466037-8ff3-4304-b6f4-e776a97c6af0" xml:space="preserve">
+          <source>Last 24 hours</source>
+          <target state="new">Last 24 hours</target>
+        </trans-unit>
+        <trans-unit id="ad17439d-c74e-4925-adfb-71c466af43d1" xml:space="preserve">
+          <source>Last 7 days</source>
+          <target state="new">Last 7 days</target>
+        </trans-unit>
+        <trans-unit id="4d015363-51e4-4052-a05b-6ad288593cdb" xml:space="preserve">
+          <source>Last 30 days</source>
+          <target state="new">Last 30 days</target>
+        </trans-unit>
+        <trans-unit id="3d4e58e0-c617-4c39-b617-3dacfc82cd0e" xml:space="preserve">
+          <source>Click the check mark icon to run the report.</source>
+          <target state="new">Click the check mark icon to run the report.</target>
+        </trans-unit>
+        <trans-unit id="9322c588-f291-4daf-aa4a-df482ec3c79e" xml:space="preserve">
+          <source>Up to 1000 events will be shown in the Azure Management Portal.</source>
+          <target state="new">Up to 1000 events will be shown in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="74e647ba-2383-4343-a705-b648b53a3b76" xml:space="preserve">
+          <source>If applicable, click <bpt id="7437c7d1-ef33-4586-aca6-91e2a093ab94">&lt;strong&gt;</bpt>Download<ept id="7437c7d1-ef33-4586-aca6-91e2a093ab94">&lt;/strong&gt;</ept> to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.</source>
+          <target state="new">If applicable, click <bpt id="7437c7d1-ef33-4586-aca6-91e2a093ab94">&lt;strong&gt;</bpt>Download<ept id="7437c7d1-ef33-4586-aca6-91e2a093ab94">&lt;/strong&gt;</ept> to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.</target>
+        </trans-unit>
+        <trans-unit id="69158ab1-5928-48e8-a829-27d3f0a72c3d" xml:space="preserve">
+          <source>Up to 75,000 events will be included in the downloaded file.</source>
+          <target state="new">Up to 75,000 events will be included in the downloaded file.</target>
+        </trans-unit>
+        <trans-unit id="b3011125-1da0-4c31-9e1c-25cfdfe367e6" xml:space="preserve">
+          <source>If you are viewing any anomaly reports, you may notice that you can ignore various events that show up in related reports.</source>
+          <target state="new">If you are viewing any anomaly reports, you may notice that you can ignore various events that show up in related reports.</target>
+        </trans-unit>
+        <trans-unit id="bf8f0415-e839-4220-bc02-6899161b95a6" xml:space="preserve">
+          <source>To ignore an event, simply highlight the event in the report and then click <bpt id="90744f6a-81e5-4418-852e-f21f4b107a58">&lt;strong&gt;</bpt>Ignore<ept id="90744f6a-81e5-4418-852e-f21f4b107a58">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To ignore an event, simply highlight the event in the report and then click <bpt id="90744f6a-81e5-4418-852e-f21f4b107a58">&lt;strong&gt;</bpt>Ignore<ept id="90744f6a-81e5-4418-852e-f21f4b107a58">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c32a9f11-1087-4b3e-b506-1f677f5e562b" xml:space="preserve">
+          <source>The <bpt id="133e0fe9-d197-4a0a-a804-d4576c34835d">&lt;strong&gt;</bpt>Ignore<ept id="133e0fe9-d197-4a0a-a804-d4576c34835d">&lt;/strong&gt;</ept> button will permanently remove the highlighted event from the report and can only be used by licensed global admins.</source>
+          <target state="new">The <bpt id="133e0fe9-d197-4a0a-a804-d4576c34835d">&lt;strong&gt;</bpt>Ignore<ept id="133e0fe9-d197-4a0a-a804-d4576c34835d">&lt;/strong&gt;</ept> button will permanently remove the highlighted event from the report and can only be used by licensed global admins.</target>
+        </trans-unit>
+        <trans-unit id="0c1a148f-4598-4bf6-bf97-d3555a294d11" xml:space="preserve">
+          <source>For more information about Azure AD's reporting notifications, check out <bpt id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;linkText&gt;</bpt>Azure Active Directory Reporting Notifications<ept id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;/linkText&gt;</ept><bpt id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;title&gt;</bpt><ept id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure AD's reporting notifications, check out <bpt id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;linkText&gt;</bpt>Azure Active Directory Reporting Notifications<ept id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;/linkText&gt;</ept><bpt id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;title&gt;</bpt><ept id="ee854937-40ec-4ae0-b565-7ca157a6e1a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bb48dae-4c29-4b7e-9d32-3ea2279d070f" xml:space="preserve">
+          <source><bpt id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;/linkText&gt;</ept><bpt id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;title&gt;</bpt><ept id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;/linkText&gt;</ept><bpt id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;title&gt;</bpt><ept id="2a899c0e-e200-417f-80cc-d085722cc261">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77f63024-d5fe-435f-9905-f9b50003cd30" xml:space="preserve">
+          <source><bpt id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;/linkText&gt;</ept><bpt id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;title&gt;</bpt><ept id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;/linkText&gt;</ept><bpt id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;title&gt;</bpt><ept id="a5648319-886f-417a-990b-1208d9ccf60c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

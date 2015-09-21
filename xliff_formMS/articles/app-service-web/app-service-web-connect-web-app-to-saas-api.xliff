@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fb542408-92d5-4ee9-ac49-e22abf7ccd35" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fb542408-92d5-4ee9-ac49-e22abf7ccd35" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1dbed20c-2662-4b9d-b9f9-dee42aea4a2e">
+        <trans-unit id="ff80ab61-feb6-404f-bd21-ac3146329206" xml:space="preserve">
+          <source>Connect a web app to an API app in Azure App Service</source>
+          <target state="new">Connect a web app to an API app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="2832756f-b476-4142-9655-eda5f7aa2fdc" xml:space="preserve">
+          <source>This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service.</source>
+          <target state="new">This tutorial shows you how to consume an API app from an ASP.NET web app hosted in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="a30eddfb-d5ad-4117-866f-940a59b078ef" xml:space="preserve">
+          <source>This tutorial shows how to consume an API app from an ASP.NET web app hosted in <bpt id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;linkText&gt;</bpt>App Service<ept id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;/linkText&gt;</ept><bpt id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;title&gt;</bpt><ept id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial shows how to consume an API app from an ASP.NET web app hosted in <bpt id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;linkText&gt;</bpt>App Service<ept id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;/linkText&gt;</ept><bpt id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;title&gt;</bpt><ept id="c7631720-540b-42e3-8f71-5e36802ff58c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8aa20c6f-37d1-40b3-ba00-6a114771ace9" xml:space="preserve">
+          <source>This tutorial builds upon the series from the API App tutorials:</source>
+          <target state="new">This tutorial builds upon the series from the API App tutorials:</target>
+        </trans-unit>
+        <trans-unit id="d6f1fd8a-a279-4580-841f-15d1d06c8b70" xml:space="preserve">
+          <source><bpt id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;linkText&gt;</bpt>Create an Azure API App<ept id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;/linkText&gt;</ept><bpt id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;title&gt;</bpt><ept id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;linkText&gt;</bpt>Create an Azure API App<ept id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;/linkText&gt;</ept><bpt id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;title&gt;</bpt><ept id="6f21c2b4-bc3d-427d-8a1b-97058afcf8d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3e104b7-3c18-4ad6-91e7-dd2a47e461b4" xml:space="preserve">
+          <source><bpt id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;linkText&gt;</bpt>Deploy an Azure API App<ept id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;/linkText&gt;</ept><bpt id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;title&gt;</bpt><ept id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;linkText&gt;</bpt>Deploy an Azure API App<ept id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;/linkText&gt;</ept><bpt id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;title&gt;</bpt><ept id="e6cabcc0-7556-4644-9716-31e4ca294687">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7b30a20-c14f-4b8c-993b-8ba3d1320658" xml:space="preserve">
+          <source><bpt id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;linkText&gt;</bpt>Debug an Azure API App<ept id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;/linkText&gt;</ept><bpt id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;title&gt;</bpt><ept id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;linkText&gt;</bpt>Debug an Azure API App<ept id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;/linkText&gt;</ept><bpt id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;title&gt;</bpt><ept id="8df18081-29bf-4f41-9a3c-efdb54ad276a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bb80280-f54a-43b0-8190-f34af33262b3" xml:space="preserve">
+          <source>In the <bpt id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;linkText&gt;</bpt>Azure preview portal<ept id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;/linkText&gt;</ept><bpt id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;title&gt;</bpt><ept id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;/title&gt;</ept>, select the API app.</source>
+          <target state="new">In the <bpt id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;linkText&gt;</bpt>Azure preview portal<ept id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;/linkText&gt;</ept><bpt id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;title&gt;</bpt><ept id="abd88b00-5032-4b0d-a543-e92708af83a0">&lt;/title&gt;</ept>, select the API app.</target>
+        </trans-unit>
+        <trans-unit id="c22f8cdd-cc67-48a1-b6da-0b6c75b10a04" xml:space="preserve">
+          <source>Click on the <bpt id="9f4b7bf3-8248-41ec-8b7b-25880671a947">&lt;strong&gt;</bpt>Settings<ept id="9f4b7bf3-8248-41ec-8b7b-25880671a947">&lt;/strong&gt;</ept> button in the command bar.</source>
+          <target state="new">Click on the <bpt id="9f4b7bf3-8248-41ec-8b7b-25880671a947">&lt;strong&gt;</bpt>Settings<ept id="9f4b7bf3-8248-41ec-8b7b-25880671a947">&lt;/strong&gt;</ept> button in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="9fbf70ae-5458-4980-a550-48d396da8572" xml:space="preserve">
+          <source>In the <bpt id="a26ea244-7621-460d-8de2-404b91c4c6bc">&lt;strong&gt;</bpt>Application Settings<ept id="a26ea244-7621-460d-8de2-404b91c4c6bc">&lt;/strong&gt;</ept> blade, change the <bpt id="66e1caba-218f-42c1-aa30-61c978e3b1ee">&lt;strong&gt;</bpt>Access Level<ept id="66e1caba-218f-42c1-aa30-61c978e3b1ee">&lt;/strong&gt;</ept> to <bpt id="e8358691-e030-4cde-9d1e-575a0d86a0c1">&lt;strong&gt;</bpt>Public (anonymous)<ept id="e8358691-e030-4cde-9d1e-575a0d86a0c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a26ea244-7621-460d-8de2-404b91c4c6bc">&lt;strong&gt;</bpt>Application Settings<ept id="a26ea244-7621-460d-8de2-404b91c4c6bc">&lt;/strong&gt;</ept> blade, change the <bpt id="66e1caba-218f-42c1-aa30-61c978e3b1ee">&lt;strong&gt;</bpt>Access Level<ept id="66e1caba-218f-42c1-aa30-61c978e3b1ee">&lt;/strong&gt;</ept> to <bpt id="e8358691-e030-4cde-9d1e-575a0d86a0c1">&lt;strong&gt;</bpt>Public (anonymous)<ept id="e8358691-e030-4cde-9d1e-575a0d86a0c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3264f49-d5a5-474d-a693-84dde892ae22" xml:space="preserve">
+          <source><bpt id="9ce64f35-4c1b-43e5-8414-682c93afb097">&lt;linkText&gt;</bpt><ept id="9ce64f35-4c1b-43e5-8414-682c93afb097">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ce64f35-4c1b-43e5-8414-682c93afb097">&lt;linkText&gt;</bpt><ept id="9ce64f35-4c1b-43e5-8414-682c93afb097">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63e0dd82-69dd-4cc8-bb10-72c51408fe7d" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="95b79917-af88-4b34-82d9-52871bae2d6c" xml:space="preserve">
+          <source>Use the <bpt id="37ee4810-03ee-4b52-a68e-5c5d44240cf8">&lt;strong&gt;</bpt>New Project<ept id="37ee4810-03ee-4b52-a68e-5c5d44240cf8">&lt;/strong&gt;</ept> dialogue to add a new <bpt id="861c5df7-a5d8-4364-a8b9-a6e2e0dfd5cd">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="861c5df7-a5d8-4364-a8b9-a6e2e0dfd5cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the <bpt id="37ee4810-03ee-4b52-a68e-5c5d44240cf8">&lt;strong&gt;</bpt>New Project<ept id="37ee4810-03ee-4b52-a68e-5c5d44240cf8">&lt;/strong&gt;</ept> dialogue to add a new <bpt id="861c5df7-a5d8-4364-a8b9-a6e2e0dfd5cd">&lt;strong&gt;</bpt>ASP.NET Web Application<ept id="861c5df7-a5d8-4364-a8b9-a6e2e0dfd5cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1eb434e4-7918-4d86-9cff-6bcbbb905edd" xml:space="preserve">
+          <source>Click <bpt id="d2ea5773-f7d2-40c7-a897-dbea0acbab53">&lt;strong&gt;</bpt>OK<ept id="d2ea5773-f7d2-40c7-a897-dbea0acbab53">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d2ea5773-f7d2-40c7-a897-dbea0acbab53">&lt;strong&gt;</bpt>OK<ept id="d2ea5773-f7d2-40c7-a897-dbea0acbab53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a5fdff0-f068-47d7-b524-ebdb8d76bff5" xml:space="preserve">
+          <source><bpt id="5f849121-e4d8-455b-a952-73158696d993">&lt;linkText&gt;</bpt>File &gt; New &gt; Web &gt; ASP.NET Web Application<ept id="5f849121-e4d8-455b-a952-73158696d993">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f849121-e4d8-455b-a952-73158696d993">&lt;linkText&gt;</bpt>File &gt; New &gt; Web &gt; ASP.NET Web Application<ept id="5f849121-e4d8-455b-a952-73158696d993">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="244b8408-17db-4580-a7a3-67fb2ca15d11" xml:space="preserve">
+          <source>Select the <bpt id="43d3624d-d254-4981-87c3-db72fdbd93c9">&lt;strong&gt;</bpt>MVC<ept id="43d3624d-d254-4981-87c3-db72fdbd93c9">&lt;/strong&gt;</ept> template.</source>
+          <target state="new">Select the <bpt id="43d3624d-d254-4981-87c3-db72fdbd93c9">&lt;strong&gt;</bpt>MVC<ept id="43d3624d-d254-4981-87c3-db72fdbd93c9">&lt;/strong&gt;</ept> template.</target>
+        </trans-unit>
+        <trans-unit id="cf4afa40-815e-4479-a170-37e8a0e40953" xml:space="preserve">
+          <source>Click <bpt id="8ac05946-aa64-49a7-881d-78502099e6d8">&lt;strong&gt;</bpt>Change Authentication<ept id="8ac05946-aa64-49a7-881d-78502099e6d8">&lt;/strong&gt;</ept>, then select <bpt id="2f48d7ad-08c1-4d7b-b0ac-b799ddb591f6">&lt;strong&gt;</bpt>No Authentication<ept id="2f48d7ad-08c1-4d7b-b0ac-b799ddb591f6">&lt;/strong&gt;</ept>, and then click <bpt id="2984a5e0-d6d6-4573-b76a-22e0939587d1">&lt;strong&gt;</bpt>OK<ept id="2984a5e0-d6d6-4573-b76a-22e0939587d1">&lt;/strong&gt;</ept> twice.</source>
+          <target state="new">Click <bpt id="8ac05946-aa64-49a7-881d-78502099e6d8">&lt;strong&gt;</bpt>Change Authentication<ept id="8ac05946-aa64-49a7-881d-78502099e6d8">&lt;/strong&gt;</ept>, then select <bpt id="2f48d7ad-08c1-4d7b-b0ac-b799ddb591f6">&lt;strong&gt;</bpt>No Authentication<ept id="2f48d7ad-08c1-4d7b-b0ac-b799ddb591f6">&lt;/strong&gt;</ept>, and then click <bpt id="2984a5e0-d6d6-4573-b76a-22e0939587d1">&lt;strong&gt;</bpt>OK<ept id="2984a5e0-d6d6-4573-b76a-22e0939587d1">&lt;/strong&gt;</ept> twice.</target>
+        </trans-unit>
+        <trans-unit id="02f41e17-e254-4e64-b20d-7cf904f80756" xml:space="preserve">
+          <source><bpt id="ef7d0f18-7be9-412d-b045-67a7720228dd">&lt;linkText&gt;</bpt>New ASP.NET Application<ept id="ef7d0f18-7be9-412d-b045-67a7720228dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef7d0f18-7be9-412d-b045-67a7720228dd">&lt;linkText&gt;</bpt>New ASP.NET Application<ept id="ef7d0f18-7be9-412d-b045-67a7720228dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a79db7f0-8996-47d1-a4b5-3e88d3ab7d28" xml:space="preserve">
+          <source>In Solution Explorer, right-click the newly created Web Application project and select <bpt id="1da4060f-3bc7-4456-ba0c-8fe96de148da">&lt;strong&gt;</bpt>Add Azure App Reference<ept id="1da4060f-3bc7-4456-ba0c-8fe96de148da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click the newly created Web Application project and select <bpt id="1da4060f-3bc7-4456-ba0c-8fe96de148da">&lt;strong&gt;</bpt>Add Azure App Reference<ept id="1da4060f-3bc7-4456-ba0c-8fe96de148da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6aaf5d19-55c0-4b17-aa04-299f7bcd319b" xml:space="preserve">
+          <source><bpt id="79684260-4e5b-4be6-8cb5-d302b12dc82f">&lt;linkText&gt;</bpt>Add Azure API App Reference...<ept id="79684260-4e5b-4be6-8cb5-d302b12dc82f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79684260-4e5b-4be6-8cb5-d302b12dc82f">&lt;linkText&gt;</bpt>Add Azure API App Reference...<ept id="79684260-4e5b-4be6-8cb5-d302b12dc82f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10576766-df10-4be9-a5b2-8b4dc73055a2" xml:space="preserve">
+          <source>In the <bpt id="73b4dfd2-ecad-4db9-a65e-196e20b715e9">&lt;strong&gt;</bpt>Existing API Apps<ept id="73b4dfd2-ecad-4db9-a65e-196e20b715e9">&lt;/strong&gt;</ept> dropdown list, select the API App you would like to connect to.</source>
+          <target state="new">In the <bpt id="73b4dfd2-ecad-4db9-a65e-196e20b715e9">&lt;strong&gt;</bpt>Existing API Apps<ept id="73b4dfd2-ecad-4db9-a65e-196e20b715e9">&lt;/strong&gt;</ept> dropdown list, select the API App you would like to connect to.</target>
+        </trans-unit>
+        <trans-unit id="e31a83f0-117d-445d-9286-cce8450c92df" xml:space="preserve">
+          <source><bpt id="f134c2cc-1e7e-40dc-a149-9599900144b1">&lt;linkText&gt;</bpt>Select Existing API App<ept id="f134c2cc-1e7e-40dc-a149-9599900144b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f134c2cc-1e7e-40dc-a149-9599900144b1">&lt;linkText&gt;</bpt>Select Existing API App<ept id="f134c2cc-1e7e-40dc-a149-9599900144b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c490108f-2bd3-497e-941a-7788454232fb" xml:space="preserve">
+          <source>The client code for connecting to the API app will be automatically generated from a Swagger API endpoint.</source>
+          <target state="new">The client code for connecting to the API app will be automatically generated from a Swagger API endpoint.</target>
+        </trans-unit>
+        <trans-unit id="409070c7-2131-47b1-a714-4fcad9b9a4cb" xml:space="preserve">
+          <source>To leverage the generated API code, open the HomeController.cs file and replace the <bpt id="3cc24f3b-c397-4a3e-8a42-753e8a46bf64">&lt;code&gt;</bpt>Contact<ept id="3cc24f3b-c397-4a3e-8a42-753e8a46bf64">&lt;/code&gt;</ept> action with the following:</source>
+          <target state="new">To leverage the generated API code, open the HomeController.cs file and replace the <bpt id="3cc24f3b-c397-4a3e-8a42-753e8a46bf64">&lt;code&gt;</bpt>Contact<ept id="3cc24f3b-c397-4a3e-8a42-753e8a46bf64">&lt;/code&gt;</ept> action with the following:</target>
+        </trans-unit>
+        <trans-unit id="391993a4-8f9a-4cc7-96bc-aa1bf7573dbf" xml:space="preserve">
+          <source><bpt id="4d1e547f-541a-4be1-9eda-bc961ec4db00">&lt;linkText&gt;</bpt>HomeController.cs Code Updates<ept id="4d1e547f-541a-4be1-9eda-bc961ec4db00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d1e547f-541a-4be1-9eda-bc961ec4db00">&lt;linkText&gt;</bpt>HomeController.cs Code Updates<ept id="4d1e547f-541a-4be1-9eda-bc961ec4db00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b868f72a-f113-4682-906e-e25abe28b9cb" xml:space="preserve">
+          <source>Update the <bpt id="4e5284de-6f39-42f6-8de0-d447b9626aae">&lt;code&gt;</bpt>Contact<ept id="4e5284de-6f39-42f6-8de0-d447b9626aae">&lt;/code&gt;</ept> view to reflect the dynamic list of contacts with the code below:  </source>
+          <target state="new">Update the <bpt id="4e5284de-6f39-42f6-8de0-d447b9626aae">&lt;code&gt;</bpt>Contact<ept id="4e5284de-6f39-42f6-8de0-d447b9626aae">&lt;/code&gt;</ept> view to reflect the dynamic list of contacts with the code below:  </target>
+        </trans-unit>
+        <trans-unit id="2d8e8927-71f9-4bb8-b627-ced38256e9d3" xml:space="preserve">
+          <source>// Add to the very top of the view file
+@model IList&amp;lt;MyContactsList.Web.Models.Contact&amp;gt;
+
+// Replace the default email addresses with the following
+&amp;lt;h3&amp;gt;Public Contacts&amp;lt;/h3&amp;gt;
+&amp;lt;ul&amp;gt;
+    @foreach (var contact in Model)
+    {
+        &amp;lt;li&amp;gt;&amp;lt;a href="mailto:@contact.EmailAddress"&amp;gt;@contact.Name &amp;amp;lt;@contact.EmailAddress&amp;amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    }
+&amp;lt;/ul&amp;gt; 
+</source>
+          <target state="new">// Add to the very top of the view file
+@model IList&amp;lt;MyContactsList.Web.Models.Contact&amp;gt;
+
+// Replace the default email addresses with the following
+&amp;lt;h3&amp;gt;Public Contacts&amp;lt;/h3&amp;gt;
+&amp;lt;ul&amp;gt;
+    @foreach (var contact in Model)
+    {
+        &amp;lt;li&amp;gt;&amp;lt;a href="mailto:@contact.EmailAddress"&amp;gt;@contact.Name &amp;amp;lt;@contact.EmailAddress&amp;amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    }
+&amp;lt;/ul&amp;gt; 
+</target>
+        </trans-unit>
+        <trans-unit id="e0fe20d1-663f-4940-a4a6-91b6ffdaa8d7" xml:space="preserve">
+          <source><bpt id="5f081589-4dea-4286-a16e-5ccfe6b207e8">&lt;linkText&gt;</bpt>Contact.cshtml Code Updates<ept id="5f081589-4dea-4286-a16e-5ccfe6b207e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f081589-4dea-4286-a16e-5ccfe6b207e8">&lt;linkText&gt;</bpt>Contact.cshtml Code Updates<ept id="5f081589-4dea-4286-a16e-5ccfe6b207e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fcd1f1c-f9b1-41af-a1f3-4f47f3f0cd5e" xml:space="preserve">
+          <source>Follow the instructions available at <bpt id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;linkText&gt;</bpt>How to Deploy an Azure web app<ept id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;/linkText&gt;</ept><bpt id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;title&gt;</bpt><ept id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow the instructions available at <bpt id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;linkText&gt;</bpt>How to Deploy an Azure web app<ept id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;/linkText&gt;</ept><bpt id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;title&gt;</bpt><ept id="acbe8d6c-ec9f-45cd-b447-6091e30dc47c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c4335c1-cfe8-4579-b733-1a11938428b6" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;linkText&gt;</bpt>Try App Service<ept id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;/linkText&gt;</ept><bpt id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;title&gt;</bpt><ept id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;linkText&gt;</bpt>Try App Service<ept id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;/linkText&gt;</ept><bpt id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;title&gt;</bpt><ept id="b4886f39-d5f9-4f15-82b1-23fc0b53bead">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="0d022e26-1068-4289-8169-2cb137fc859e" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="e4a18409-1795-4fd3-8a18-8744d7eb5add" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;/linkText&gt;</ept><bpt id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;title&gt;</bpt><ept id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;/linkText&gt;</ept><bpt id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;title&gt;</bpt><ept id="6296bcdb-fd1a-4575-94f7-327ab46238ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48007155-6194-4f47-9357-b943a20c4a7f" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;/linkText&gt;</ept><bpt id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;title&gt;</bpt><ept id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;/linkText&gt;</ept><bpt id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;title&gt;</bpt><ept id="3375b990-027e-4ff3-8c15-b9db9afbd492">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

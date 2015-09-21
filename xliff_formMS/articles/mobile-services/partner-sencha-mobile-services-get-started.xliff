@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="16f75ec1-861c-422b-b98b-084cf172f2f6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="16f75ec1-861c-422b-b98b-084cf172f2f6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a9c784cb-441b-41cc-95de-fbd52154976f">
+        <trans-unit id="3c642969-3195-404c-b5ea-3486e5a05984" xml:space="preserve">
+          <source>Get Started with Azure Mobile Services and Sencha</source>
+          <target state="new">Get Started with Azure Mobile Services and Sencha</target>
+        </trans-unit>
+        <trans-unit id="a45fc8df-561b-402b-ba67-46b5dd1439a9" xml:space="preserve">
+          <source>Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework.</source>
+          <target state="new">Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework.</target>
+        </trans-unit>
+        <trans-unit id="f106cd16-57ff-4f1a-827d-b2e908a73c3a" xml:space="preserve">
+          <source><bpt id="1f0cfd09-c89b-4586-990c-1a4ae9585460">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="1f0cfd09-c89b-4586-990c-1a4ae9585460">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1f0cfd09-c89b-4586-990c-1a4ae9585460">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="1f0cfd09-c89b-4586-990c-1a4ae9585460">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7c14b6f-6441-424c-bf9b-d96c5fac6257" xml:space="preserve">
+          <source>This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application.</source>
+          <target state="new">This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application.</target>
+        </trans-unit>
+        <trans-unit id="32459626-9f58-462c-9115-731afb728b14" xml:space="preserve">
+          <source>You will create a simple To Do List app using Sencha Touch that utilizes a mobile service you define through the Management Portal.</source>
+          <target state="new">You will create a simple To Do List app using Sencha Touch that utilizes a mobile service you define through the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5dbd66db-8bbf-42e2-b23a-43ae62111e5a" xml:space="preserve">
+          <source>This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.</source>
+          <target state="new">This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.</target>
+        </trans-unit>
+        <trans-unit id="b5a6865c-9e59-461b-a0d0-4b72c4106763" xml:space="preserve">
+          <source>If you prefer to watch a video, this clip follows the same steps as this tutorial.</source>
+          <target state="new">If you prefer to watch a video, this clip follows the same steps as this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="b123fd11-fa15-457f-a3af-0aba99341166" xml:space="preserve">
+          <source>In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.</source>
+          <target state="new">In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.</target>
+        </trans-unit>
+        <trans-unit id="e996b704-d33f-4d57-954b-e9210dbeef60" xml:space="preserve">
+          <source>A screenshot from the completed app is shown below:</source>
+          <target state="new">A screenshot from the completed app is shown below:</target>
+        </trans-unit>
+        <trans-unit id="be48b843-ddfd-4494-82d3-7b5985226561" xml:space="preserve">
+          <source><bpt id="bfc5f376-bd40-44fa-9df3-4a0ae50ad9ba">&lt;linkText&gt;</bpt><ept id="bfc5f376-bd40-44fa-9df3-4a0ae50ad9ba">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bfc5f376-bd40-44fa-9df3-4a0ae50ad9ba">&lt;linkText&gt;</bpt><ept id="bfc5f376-bd40-44fa-9df3-4a0ae50ad9ba">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eecf2cad-80a5-467d-a4fb-c3f41a54597a" xml:space="preserve">
+          <source>Download and install [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").</source>
+          <target state="new">Download and install [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").</target>
+        </trans-unit>
+        <trans-unit id="cbb1d9f0-e453-442d-ba34-e6f60ec60412" xml:space="preserve">
+          <source>Download and install [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").</source>
+          <target state="new">Download and install [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").</target>
+        </trans-unit>
+        <trans-unit id="8f5d7419-af73-4ac4-b6b0-f0ede6746002" xml:space="preserve">
+          <source>Java Runtime Environment (JRE), or Java Development Kit (if you are creating Android apps)</source>
+          <target state="new">Java Runtime Environment (JRE), or Java Development Kit (if you are creating Android apps)</target>
+        </trans-unit>
+        <trans-unit id="28194482-6b93-4e66-9a54-2175a852d0a7" xml:space="preserve">
+          <source><bpt id="241a8b78-d129-4ad2-bb85-04eebff86930">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="241a8b78-d129-4ad2-bb85-04eebff86930">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="241a8b78-d129-4ad2-bb85-04eebff86930">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="241a8b78-d129-4ad2-bb85-04eebff86930">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db020440-997a-424d-8dd6-e92e52b17cde" xml:space="preserve">
+          <source>Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create
+a new database table for use in your mobile service.</source>
+          <target state="new">Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create
+a new database table for use in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="b81414f6-72d0-43c5-aa54-44337c0fde5b" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="863f9dfc-2121-4116-aaa0-9c30c129e34e">&lt;strong&gt;</bpt>Mobile Services<ept id="863f9dfc-2121-4116-aaa0-9c30c129e34e">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="863f9dfc-2121-4116-aaa0-9c30c129e34e">&lt;strong&gt;</bpt>Mobile Services<ept id="863f9dfc-2121-4116-aaa0-9c30c129e34e">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</target>
+        </trans-unit>
+        <trans-unit id="1099ca10-3b50-4f4d-b20e-df0d3404d1fb" xml:space="preserve">
+          <source>In the quickstart tab, click <bpt id="1183365c-a4ed-4c20-b223-70a495140c3c">&lt;strong&gt;</bpt>HTML<ept id="1183365c-a4ed-4c20-b223-70a495140c3c">&lt;/strong&gt;</ept> under <bpt id="91371e51-c70f-47a1-a9ad-eea2d9d843b3">&lt;strong&gt;</bpt>Choose platform<ept id="91371e51-c70f-47a1-a9ad-eea2d9d843b3">&lt;/strong&gt;</ept> and expand <bpt id="511f5491-69e3-4936-857a-cc4bbf9586f8">&lt;strong&gt;</bpt>Create a new HTML app<ept id="511f5491-69e3-4936-857a-cc4bbf9586f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the quickstart tab, click <bpt id="1183365c-a4ed-4c20-b223-70a495140c3c">&lt;strong&gt;</bpt>HTML<ept id="1183365c-a4ed-4c20-b223-70a495140c3c">&lt;/strong&gt;</ept> under <bpt id="91371e51-c70f-47a1-a9ad-eea2d9d843b3">&lt;strong&gt;</bpt>Choose platform<ept id="91371e51-c70f-47a1-a9ad-eea2d9d843b3">&lt;/strong&gt;</ept> and expand <bpt id="511f5491-69e3-4936-857a-cc4bbf9586f8">&lt;strong&gt;</bpt>Create a new HTML app<ept id="511f5491-69e3-4936-857a-cc4bbf9586f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b98e833-9838-4c4d-8bea-4717ecca1210" xml:space="preserve">
+          <source><bpt id="d30cd1a7-2bd4-4f5e-8033-9d4419efcad3">&lt;linkText&gt;</bpt>Mobile quickstart html<ept id="d30cd1a7-2bd4-4f5e-8033-9d4419efcad3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d30cd1a7-2bd4-4f5e-8033-9d4419efcad3">&lt;linkText&gt;</bpt>Mobile quickstart html<ept id="d30cd1a7-2bd4-4f5e-8033-9d4419efcad3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18e29a4d-0664-43d2-9449-dd1f959027f4" xml:space="preserve">
+          <source>This displays the three easy steps to create and host an HTML app connected to your mobile service.</source>
+          <target state="new">This displays the three easy steps to create and host an HTML app connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="0bffd8e3-74ac-4fad-9e6e-dc31ef3603e1" xml:space="preserve">
+          <source><bpt id="4f3d9dc2-5d1c-478d-a866-04633f02ec65">&lt;linkText&gt;</bpt>Mobile quickstart html<ept id="4f3d9dc2-5d1c-478d-a866-04633f02ec65">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f3d9dc2-5d1c-478d-a866-04633f02ec65">&lt;linkText&gt;</bpt>Mobile quickstart html<ept id="4f3d9dc2-5d1c-478d-a866-04633f02ec65">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9be4ff6-f755-40f5-a8a8-f90f214a3337" xml:space="preserve">
+          <source>Click <bpt id="a02ca205-44c2-4afc-8926-07621ac9f66c">&lt;strong&gt;</bpt>Create TodoItems table<ept id="a02ca205-44c2-4afc-8926-07621ac9f66c">&lt;/strong&gt;</ept> to create a table to store app data.</source>
+          <target state="new">Click <bpt id="a02ca205-44c2-4afc-8926-07621ac9f66c">&lt;strong&gt;</bpt>Create TodoItems table<ept id="a02ca205-44c2-4afc-8926-07621ac9f66c">&lt;/strong&gt;</ept> to create a table to store app data.</target>
+        </trans-unit>
+        <trans-unit id="aff202fd-c4c1-48d9-981a-2749a530ff98" xml:space="preserve">
+          <source>Do NOT download the HTML app from the management portal.</source>
+          <target state="new">Do NOT download the HTML app from the management portal.</target>
+        </trans-unit>
+        <trans-unit id="8166b119-237f-4739-89b9-27eee0a578c7" xml:space="preserve">
+          <source>Instead, we will manually create a Sencha Touch application in the section below.</source>
+          <target state="new">Instead, we will manually create a Sencha Touch application in the section below.</target>
+        </trans-unit>
+        <trans-unit id="3a97f1c2-9dbf-463c-826f-7d310ed1d572" xml:space="preserve">
+          <source>Take note of the <bpt id="698c273d-8a7d-453a-804b-86fadcf30b7d">&lt;strong&gt;</bpt>appKey<ept id="698c273d-8a7d-453a-804b-86fadcf30b7d">&lt;/strong&gt;</ept> and <bpt id="c933baa6-e3d1-47a7-9a8a-c8d880ed50de">&lt;strong&gt;</bpt>appUrl<ept id="c933baa6-e3d1-47a7-9a8a-c8d880ed50de">&lt;/strong&gt;</ept> in the Management Portal.</source>
+          <target state="new">Take note of the <bpt id="698c273d-8a7d-453a-804b-86fadcf30b7d">&lt;strong&gt;</bpt>appKey<ept id="698c273d-8a7d-453a-804b-86fadcf30b7d">&lt;/strong&gt;</ept> and <bpt id="c933baa6-e3d1-47a7-9a8a-c8d880ed50de">&lt;strong&gt;</bpt>appUrl<ept id="c933baa6-e3d1-47a7-9a8a-c8d880ed50de">&lt;/strong&gt;</ept> in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d74cc887-68d1-42b0-87aa-765ce14d0b7a" xml:space="preserve">
+          <source>You will use them in other sections of this tutorial.</source>
+          <target state="new">You will use them in other sections of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3883dbac-e9a2-4106-a34b-0e9cb999072a" xml:space="preserve">
+          <source><bpt id="53943703-f89d-46cd-8d74-e6a8277bf7b6">&lt;linkText&gt;</bpt>app key<ept id="53943703-f89d-46cd-8d74-e6a8277bf7b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53943703-f89d-46cd-8d74-e6a8277bf7b6">&lt;linkText&gt;</bpt>app key<ept id="53943703-f89d-46cd-8d74-e6a8277bf7b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19a94fbd-2634-4ac5-bfc2-26d29d8a311f" xml:space="preserve">
+          <source>In the <bpt id="ac1fd9cb-38bb-4927-8534-7b3f87b81204">&lt;strong&gt;</bpt>Configure<ept id="ac1fd9cb-38bb-4927-8534-7b3f87b81204">&lt;/strong&gt;</ept> tab, verify that <bpt id="1e33b5b3-4aa4-40d7-97c4-e817bda98c0a">&lt;code&gt;</bpt>localhost<ept id="1e33b5b3-4aa4-40d7-97c4-e817bda98c0a">&lt;/code&gt;</ept> is already listed in the <bpt id="1810aa75-16b5-462b-aaab-c176f05a41fe">&lt;strong&gt;</bpt>Allow requests from host names<ept id="1810aa75-16b5-462b-aaab-c176f05a41fe">&lt;/strong&gt;</ept> list under <bpt id="e6786b66-9918-4338-8423-39320163cacf">&lt;strong&gt;</bpt>Cross-Origin Resource Sharing (CORS)<ept id="e6786b66-9918-4338-8423-39320163cacf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ac1fd9cb-38bb-4927-8534-7b3f87b81204">&lt;strong&gt;</bpt>Configure<ept id="ac1fd9cb-38bb-4927-8534-7b3f87b81204">&lt;/strong&gt;</ept> tab, verify that <bpt id="1e33b5b3-4aa4-40d7-97c4-e817bda98c0a">&lt;code&gt;</bpt>localhost<ept id="1e33b5b3-4aa4-40d7-97c4-e817bda98c0a">&lt;/code&gt;</ept> is already listed in the <bpt id="1810aa75-16b5-462b-aaab-c176f05a41fe">&lt;strong&gt;</bpt>Allow requests from host names<ept id="1810aa75-16b5-462b-aaab-c176f05a41fe">&lt;/strong&gt;</ept> list under <bpt id="e6786b66-9918-4338-8423-39320163cacf">&lt;strong&gt;</bpt>Cross-Origin Resource Sharing (CORS)<ept id="e6786b66-9918-4338-8423-39320163cacf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="182ea0e9-6483-448c-9b45-2ba7c4662a22" xml:space="preserve">
+          <source>If it's not, type <bpt id="56626d99-2689-41c4-802b-bf617c6a0ad7">&lt;code&gt;</bpt>localhost<ept id="56626d99-2689-41c4-802b-bf617c6a0ad7">&lt;/code&gt;</ept> in the <bpt id="e395ecaa-f137-46c3-9301-570b1220391f">&lt;strong&gt;</bpt>Host name<ept id="e395ecaa-f137-46c3-9301-570b1220391f">&lt;/strong&gt;</ept> field and then click <bpt id="2c60c453-4369-4cd9-9377-feef522087f1">&lt;strong&gt;</bpt>Save<ept id="2c60c453-4369-4cd9-9377-feef522087f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If it's not, type <bpt id="56626d99-2689-41c4-802b-bf617c6a0ad7">&lt;code&gt;</bpt>localhost<ept id="56626d99-2689-41c4-802b-bf617c6a0ad7">&lt;/code&gt;</ept> in the <bpt id="e395ecaa-f137-46c3-9301-570b1220391f">&lt;strong&gt;</bpt>Host name<ept id="e395ecaa-f137-46c3-9301-570b1220391f">&lt;/strong&gt;</ept> field and then click <bpt id="2c60c453-4369-4cd9-9377-feef522087f1">&lt;strong&gt;</bpt>Save<ept id="2c60c453-4369-4cd9-9377-feef522087f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88606e7a-d76f-449a-8595-223886ac1cd4" xml:space="preserve">
+          <source><bpt id="60048c50-3002-4cfa-973f-9579dd0bcf75">&lt;linkText&gt;</bpt>Setup CORS for localhost<ept id="60048c50-3002-4cfa-973f-9579dd0bcf75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60048c50-3002-4cfa-973f-9579dd0bcf75">&lt;linkText&gt;</bpt>Setup CORS for localhost<ept id="60048c50-3002-4cfa-973f-9579dd0bcf75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1754627c-dbdf-4670-ae88-e6e7b5bd472d" xml:space="preserve">
+          <source>Generating a Sencha Touch template application is a simple task using Sencha Cmd and is a great way to get an application up and running very quickly.</source>
+          <target state="new">Generating a Sencha Touch template application is a simple task using Sencha Cmd and is a great way to get an application up and running very quickly.</target>
+        </trans-unit>
+        <trans-unit id="12ef7bd6-3a7c-4c39-a99f-4c4a9d3f1216" xml:space="preserve">
+          <source>From the directory where you installed the Touch framework, issue the following command:</source>
+          <target state="new">From the directory where you installed the Touch framework, issue the following command:</target>
+        </trans-unit>
+        <trans-unit id="2ee29b65-609d-48e1-918a-a43e8590433e" xml:space="preserve">
+          <source>This generates a template Touch application with an application name of 'Basic'.</source>
+          <target state="new">This generates a template Touch application with an application name of 'Basic'.</target>
+        </trans-unit>
+        <trans-unit id="6e9d1b0a-0971-4de3-863a-abc234be27a1" xml:space="preserve">
+          <source>To launch your application, simply point your browser to the directory /path/to/application and you should be presented with the standard Touch sample application.</source>
+          <target state="new">To launch your application, simply point your browser to the directory /path/to/application and you should be presented with the standard Touch sample application.</target>
+        </trans-unit>
+        <trans-unit id="bac4601c-f9d1-4f91-85e5-097a29a4252f" xml:space="preserve">
+          <source>The extension for Azure is installed either manually or as a Sencha Package.</source>
+          <target state="new">The extension for Azure is installed either manually or as a Sencha Package.</target>
+        </trans-unit>
+        <trans-unit id="4689cffe-a5ad-4522-9670-fdfcbc8c7203" xml:space="preserve">
+          <source>The method you use is totally up to you.</source>
+          <target state="new">The method you use is totally up to you.</target>
+        </trans-unit>
+        <trans-unit id="b0f95324-3335-4803-8fb7-3cf4bd1fc0c9" xml:space="preserve">
+          <source>In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library.</source>
+          <target state="new">In most Touch applications, if you wish to add an external library of classes, you simply download the package, unpack it in your application directory and configure the Touch loader with the location of the library.</target>
+        </trans-unit>
+        <trans-unit id="164d94f5-9f97-4829-a320-9a2749b960cc" xml:space="preserve">
+          <source>You can manually add the Azure extensions to your application using the following steps:</source>
+          <target state="new">You can manually add the Azure extensions to your application using the following steps:</target>
+        </trans-unit>
+        <trans-unit id="a3ecdc3c-363d-422f-a433-dfda572b3a32" xml:space="preserve">
+          <source>Download the Azure extensions package from <bpt id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;linkText&gt;</bpt>here<ept id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;/linkText&gt;</ept><bpt id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;title&gt;</bpt><ept id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download the Azure extensions package from <bpt id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;linkText&gt;</bpt>here<ept id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;/linkText&gt;</ept><bpt id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;title&gt;</bpt><ept id="671ce1be-ffd9-4d9b-8906-25db7f566212">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cec2796a-11fb-4fdb-b495-1c2fa92e918d" xml:space="preserve">
+          <source>(You may use your Sencha Forums ID to access this area.)</source>
+          <target state="new">(You may use your Sencha Forums ID to access this area.)</target>
+        </trans-unit>
+        <trans-unit id="bd6fae83-9133-482d-8b46-b80978ab2894" xml:space="preserve">
+          <source>Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it :</source>
+          <target state="new">Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it :</target>
+        </trans-unit>
+        <trans-unit id="34f5db2e-3f7b-4215-90b7-eb0698e63413" xml:space="preserve">
+          <source>This creates an <bpt id="6cad34e1-bfd9-4ebe-992d-0ae0178683ab">&lt;strong&gt;</bpt>azure<ept id="6cad34e1-bfd9-4ebe-992d-0ae0178683ab">&lt;/strong&gt;</ept> directory containing the entire package source, examples and documentation.</source>
+          <target state="new">This creates an <bpt id="6cad34e1-bfd9-4ebe-992d-0ae0178683ab">&lt;strong&gt;</bpt>azure<ept id="6cad34e1-bfd9-4ebe-992d-0ae0178683ab">&lt;/strong&gt;</ept> directory containing the entire package source, examples and documentation.</target>
+        </trans-unit>
+        <trans-unit id="a0164a4c-316d-4a6f-a5cb-9811615f0ea5" xml:space="preserve">
+          <source>The source will reside in the <bpt id="e9791a92-5b50-48da-8684-c7f70754410f">&lt;strong&gt;</bpt>azure/src<ept id="e9791a92-5b50-48da-8684-c7f70754410f">&lt;/strong&gt;</ept> directory.</source>
+          <target state="new">The source will reside in the <bpt id="e9791a92-5b50-48da-8684-c7f70754410f">&lt;strong&gt;</bpt>azure/src<ept id="e9791a92-5b50-48da-8684-c7f70754410f">&lt;/strong&gt;</ept> directory.</target>
+        </trans-unit>
+        <trans-unit id="2d7890e1-2fbc-4543-a53c-730d4916455e" xml:space="preserve">
+          <source>You can only use this method when you have generated your application using the &lt;code&gt;sencha generate app&lt;/code&gt; command.</source>
+          <target state="new">You can only use this method when you have generated your application using the &lt;code&gt;sencha generate app&lt;/code&gt; command.</target>
+        </trans-unit>
+        <trans-unit id="fcc2b182-5210-4ed5-b64a-f3a2dbe89750" xml:space="preserve">
+          <source>All applications generated by Sencha Cmd have a "packages" folder at the root.</source>
+          <target state="new">All applications generated by Sencha Cmd have a "packages" folder at the root.</target>
+        </trans-unit>
+        <trans-unit id="81982c9b-f4d5-4a6c-b418-c4a29c23eaf2" xml:space="preserve">
+          <source>The location of this folder can be configured, but regardless of its location, the role of the "packages" folder is to serve as the storage of all packages used by your application (or applications if you have created a Sencha Workspace).</source>
+          <target state="new">The location of this folder can be configured, but regardless of its location, the role of the "packages" folder is to serve as the storage of all packages used by your application (or applications if you have created a Sencha Workspace).</target>
+        </trans-unit>
+        <trans-unit id="dad6c844-48d4-4362-997b-f602ef8994dc" xml:space="preserve">
+          <source>As Ext.Azure is a Sencha Cmd "package", the source code can be easily installed and included in your application using Sencha Cmd.</source>
+          <target state="new">As Ext.Azure is a Sencha Cmd "package", the source code can be easily installed and included in your application using Sencha Cmd.</target>
+        </trans-unit>
+        <trans-unit id="369eebd4-29b5-4bfd-b474-a381e48efd84" xml:space="preserve">
+          <source>(See <bpt id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;linkText&gt;</bpt>Sencha Cmd Packages<ept id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;/linkText&gt;</ept><bpt id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;title&gt;</bpt><ept id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;/title&gt;</ept> for more information).</source>
+          <target state="new">(See <bpt id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;linkText&gt;</bpt>Sencha Cmd Packages<ept id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;/linkText&gt;</ept><bpt id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;title&gt;</bpt><ept id="3b8b81ae-662d-4344-9ba7-dbccbd28f847">&lt;/title&gt;</ept> for more information).</target>
+        </trans-unit>
+        <trans-unit id="f65ebdfc-a39f-4798-a3c9-4a7014a35f9b" xml:space="preserve">
+          <source>To download and install the Azure extensions package from the Sencha Packages repository, you will need to add the package name to your <bpt id="3a417bb8-5f2b-4de7-bd66-07a0d577dca9">&lt;strong&gt;</bpt>app.json<ept id="3a417bb8-5f2b-4de7-bd66-07a0d577dca9">&lt;/strong&gt;</ept> file and build your application:</source>
+          <target state="new">To download and install the Azure extensions package from the Sencha Packages repository, you will need to add the package name to your <bpt id="3a417bb8-5f2b-4de7-bd66-07a0d577dca9">&lt;strong&gt;</bpt>app.json<ept id="3a417bb8-5f2b-4de7-bd66-07a0d577dca9">&lt;/strong&gt;</ept> file and build your application:</target>
+        </trans-unit>
+        <trans-unit id="8963a6db-b4f2-4f51-8ec4-f9077236c33a" xml:space="preserve">
+          <source>Add the Azure package to the requires section of your app.json file:</source>
+          <target state="new">Add the Azure package to the requires section of your app.json file:</target>
+        </trans-unit>
+        <trans-unit id="986ecc5e-5d79-4a75-a44b-fee4b456d3ed" xml:space="preserve">
+          <source>Rebuild your application using <bpt id="78cbab72-abe4-4a54-a921-f012ea4181a2">&lt;strong&gt;</bpt>sencha cmd<ept id="78cbab72-abe4-4a54-a921-f012ea4181a2">&lt;/strong&gt;</ept> to fetch and install the package:</source>
+          <target state="new">Rebuild your application using <bpt id="78cbab72-abe4-4a54-a921-f012ea4181a2">&lt;strong&gt;</bpt>sencha cmd<ept id="78cbab72-abe4-4a54-a921-f012ea4181a2">&lt;/strong&gt;</ept> to fetch and install the package:</target>
+        </trans-unit>
+        <trans-unit id="229bd1e3-958a-4bd3-b41f-183b8eed74ec" xml:space="preserve">
+          <source>Both <bpt id="48f8751a-27f8-41a8-94d3-1036d9d55108">&lt;strong&gt;</bpt>sencha app build<ept id="48f8751a-27f8-41a8-94d3-1036d9d55108">&lt;/strong&gt;</ept> and <bpt id="d3613752-e597-461e-853c-09500ed331dd">&lt;strong&gt;</bpt>sencha app refresh<ept id="d3613752-e597-461e-853c-09500ed331dd">&lt;/strong&gt;</ept> will both now perform the steps needed to integrate the package in to your application.</source>
+          <target state="new">Both <bpt id="48f8751a-27f8-41a8-94d3-1036d9d55108">&lt;strong&gt;</bpt>sencha app build<ept id="48f8751a-27f8-41a8-94d3-1036d9d55108">&lt;/strong&gt;</ept> and <bpt id="d3613752-e597-461e-853c-09500ed331dd">&lt;strong&gt;</bpt>sencha app refresh<ept id="d3613752-e597-461e-853c-09500ed331dd">&lt;/strong&gt;</ept> will both now perform the steps needed to integrate the package in to your application.</target>
+        </trans-unit>
+        <trans-unit id="78faa5e9-f4fb-485b-803b-961089b18bb6" xml:space="preserve">
+          <source>Typically, after changing package requirements, you will need to run <bpt id="c7880518-40c7-469a-bbba-1085d7f5aa99">&lt;strong&gt;</bpt>sencha app refresh<ept id="c7880518-40c7-469a-bbba-1085d7f5aa99">&lt;/strong&gt;</ept> so that the metadata required to support "dev mode" is up to date.</source>
+          <target state="new">Typically, after changing package requirements, you will need to run <bpt id="c7880518-40c7-469a-bbba-1085d7f5aa99">&lt;strong&gt;</bpt>sencha app refresh<ept id="c7880518-40c7-469a-bbba-1085d7f5aa99">&lt;/strong&gt;</ept> so that the metadata required to support "dev mode" is up to date.</target>
+        </trans-unit>
+        <trans-unit id="697058d7-ae69-4ad2-86bb-4580bb9b4d2f" xml:space="preserve">
+          <source>Whichever command you run, Sencha Cmd will download and expand the package to your "packages" folder.</source>
+          <target state="new">Whichever command you run, Sencha Cmd will download and expand the package to your "packages" folder.</target>
+        </trans-unit>
+        <trans-unit id="fb666572-0026-490a-8020-0ac1f43d41cc" xml:space="preserve">
+          <source>After this you will find a "packages/touch-azure" folder in your workspace.</source>
+          <target state="new">After this you will find a "packages/touch-azure" folder in your workspace.</target>
+        </trans-unit>
+        <trans-unit id="c624069e-0968-435a-9f7b-ed88b840eaf0" xml:space="preserve">
+          <source><bpt id="0d1cbc4d-2318-4886-9457-cf78b726f115">&lt;strong&gt;</bpt>Filename<ept id="0d1cbc4d-2318-4886-9457-cf78b726f115">&lt;/strong&gt;</ept>: app.js</source>
+          <target state="new"><bpt id="0d1cbc4d-2318-4886-9457-cf78b726f115">&lt;strong&gt;</bpt>Filename<ept id="0d1cbc4d-2318-4886-9457-cf78b726f115">&lt;/strong&gt;</ept>: app.js</target>
+        </trans-unit>
+        <trans-unit id="d252ae61-2d23-4302-9123-623c4de2cffd" xml:space="preserve">
+          <source>Now that the Azure extension has been downloaded and installed in your application directory, the next step is to tell your application where to find the source files, and to require those files:</source>
+          <target state="new">Now that the Azure extension has been downloaded and installed in your application directory, the next step is to tell your application where to find the source files, and to require those files:</target>
+        </trans-unit>
+        <trans-unit id="f93ce148-b9a0-4617-84ec-5547960067d1" xml:space="preserve">
+          <source>Configure the Sencha Loader with the location of the source code:</source>
+          <target state="new">Configure the Sencha Loader with the location of the source code:</target>
+        </trans-unit>
+        <trans-unit id="66f4116e-54f0-48d7-9c22-df8828d5ce26" xml:space="preserve">
+          <source>Require the Azure class files:</source>
+          <target state="new">Require the Azure class files:</target>
+        </trans-unit>
+        <trans-unit id="027aabc2-02bc-4956-a208-d35725ce0339" xml:space="preserve">
+          <source>Configuring Azure</source>
+          <target state="new">Configuring Azure</target>
+        </trans-unit>
+        <trans-unit id="5f390e21-8823-4225-a275-fcb63f2f379c" xml:space="preserve">
+          <source>The Azure package is initialized by calling the <bpt id="61a5755f-2459-4d8a-bf3f-7e9efcabe689">&lt;strong&gt;</bpt>Ext.Azure.init<ept id="61a5755f-2459-4d8a-bf3f-7e9efcabe689">&lt;/strong&gt;</ept> method in the launch section of your application.</source>
+          <target state="new">The Azure package is initialized by calling the <bpt id="61a5755f-2459-4d8a-bf3f-7e9efcabe689">&lt;strong&gt;</bpt>Ext.Azure.init<ept id="61a5755f-2459-4d8a-bf3f-7e9efcabe689">&lt;/strong&gt;</ept> method in the launch section of your application.</target>
+        </trans-unit>
+        <trans-unit id="8019eb83-3312-4ff9-b9ef-04057a9df773" xml:space="preserve">
+          <source>This method is passed a configuration object containing mobile service credentials as well as other credentials and features you wish to utilize.</source>
+          <target state="new">This method is passed a configuration object containing mobile service credentials as well as other credentials and features you wish to utilize.</target>
+        </trans-unit>
+        <trans-unit id="bfb83a63-6a95-4b10-8052-5a212e02c471" xml:space="preserve">
+          <source>While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called <bpt id="1a2145d0-36ed-4784-8ce6-324bb6e49107">&lt;strong&gt;</bpt>azure<ept id="1a2145d0-36ed-4784-8ce6-324bb6e49107">&lt;/strong&gt;</ept> and placing all the appropriate information there.</source>
+          <target state="new">While you can pass the configuration object directly to the init method, we suggest creating a Sencha application configuration property called <bpt id="1a2145d0-36ed-4784-8ce6-324bb6e49107">&lt;strong&gt;</bpt>azure<ept id="1a2145d0-36ed-4784-8ce6-324bb6e49107">&lt;/strong&gt;</ept> and placing all the appropriate information there.</target>
+        </trans-unit>
+        <trans-unit id="84edc925-e039-46de-a3ff-fd2570637c42" xml:space="preserve">
+          <source>You can then pass this property value to the Ext.Azure.init method.</source>
+          <target state="new">You can then pass this property value to the Ext.Azure.init method.</target>
+        </trans-unit>
+        <trans-unit id="e4d2a3ab-2153-4951-b62a-3ea2d20d187e" xml:space="preserve">
+          <source>When you create a mobile service in Azure (see <bpt id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;linkText&gt;</bpt>Getting Started with Azure<ept id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;/linkText&gt;</ept><bpt id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;title&gt;</bpt><ept id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;/title&gt;</ept>), an application key and URL are assigned to that service.</source>
+          <target state="new">When you create a mobile service in Azure (see <bpt id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;linkText&gt;</bpt>Getting Started with Azure<ept id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;/linkText&gt;</ept><bpt id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;title&gt;</bpt><ept id="5bfbd79b-1247-41cb-9be3-02e8f3286486">&lt;/title&gt;</ept>), an application key and URL are assigned to that service.</target>
+        </trans-unit>
+        <trans-unit id="45cf9a3a-1322-4793-ad36-b2bd2b4b58cd" xml:space="preserve">
+          <source>This information must be provided to your Azure package so it can connect to your service.</source>
+          <target state="new">This information must be provided to your Azure package so it can connect to your service.</target>
+        </trans-unit>
+        <trans-unit id="9d6a871a-428e-4a48-a0b2-6614d3e2867b" xml:space="preserve">
+          <source>This example shows a very simple Azure configuration and initialization supplying only the application key and URL:</source>
+          <target state="new">This example shows a very simple Azure configuration and initialization supplying only the application key and URL:</target>
+        </trans-unit>
+        <trans-unit id="5f6cba3b-0ec9-41ab-bc91-624eefd782d4" xml:space="preserve">
+          <source>For more information on the Azure configuration options, please consult the Ext.Azure API documentation.</source>
+          <target state="new">For more information on the Azure configuration options, please consult the Ext.Azure API documentation.</target>
+        </trans-unit>
+        <trans-unit id="6ab04e85-6087-4790-b957-77bf5da461c9" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="0dadb6dd-2505-4dc4-b004-c1e08fa360e1" xml:space="preserve">
+          <source>Your application should now have access to your mobile service.</source>
+          <target state="new">Your application should now have access to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="efa0e71b-269b-4344-93a6-cc334c578087" xml:space="preserve">
+          <source>Now that we have configured your application to include the Azure extension, and provided it with your mobile service credentials, we can move on to creating a Touch application which utilizes your mobile service for viewing and editing your ToDo list data stored in the service.</source>
+          <target state="new">Now that we have configured your application to include the Azure extension, and provided it with your mobile service credentials, we can move on to creating a Touch application which utilizes your mobile service for viewing and editing your ToDo list data stored in the service.</target>
+        </trans-unit>
+        <trans-unit id="63a2f320-bf1c-4989-93a1-0a9d9e1bde93" xml:space="preserve">
+          <source><bpt id="be07f6ed-9734-4314-a6b1-b7a963865957">&lt;strong&gt;</bpt>Filename:<ept id="be07f6ed-9734-4314-a6b1-b7a963865957">&lt;/strong&gt;</ept> app/model/TodoItem.js</source>
+          <target state="new"><bpt id="be07f6ed-9734-4314-a6b1-b7a963865957">&lt;strong&gt;</bpt>Filename:<ept id="be07f6ed-9734-4314-a6b1-b7a963865957">&lt;/strong&gt;</ept> app/model/TodoItem.js</target>
+        </trans-unit>
+        <trans-unit id="b6734eb4-ec57-4a48-bd57-8d5f1724469c" xml:space="preserve">
+          <source>Your Touch application will be communicating with your mobile service via a data proxy.</source>
+          <target state="new">Your Touch application will be communicating with your mobile service via a data proxy.</target>
+        </trans-unit>
+        <trans-unit id="540daa4a-efe9-4ea2-a03f-86aa05a6676d" xml:space="preserve">
+          <source>The proxy does all the work of both sending requests to, and receiving data from, the mobile service.</source>
+          <target state="new">The proxy does all the work of both sending requests to, and receiving data from, the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="74581865-9e2f-4667-8042-fb565a827111" xml:space="preserve">
+          <source>Used in combination with a Touch data model and store, all the hard work of processing remote data and getting it into your application is removed and handled by Touch itself.</source>
+          <target state="new">Used in combination with a Touch data model and store, all the hard work of processing remote data and getting it into your application is removed and handled by Touch itself.</target>
+        </trans-unit>
+        <trans-unit id="4498e089-e790-4ec7-9de3-b5c9923e0d44" xml:space="preserve">
+          <source>Sencha Touch models provide the definition of the data records you will be using in your application.</source>
+          <target state="new">Sencha Touch models provide the definition of the data records you will be using in your application.</target>
+        </trans-unit>
+        <trans-unit id="371796a5-0970-421f-9da1-b2a29c4d2f46" xml:space="preserve">
+          <source>They allow you to not only define the data fields but also provide configuration about the proxy that will be handling the communication between the application and the Azure mobile service.</source>
+          <target state="new">They allow you to not only define the data fields but also provide configuration about the proxy that will be handling the communication between the application and the Azure mobile service.</target>
+        </trans-unit>
+        <trans-unit id="4d61c8a8-021a-484c-bc16-f77b3892f251" xml:space="preserve">
+          <source>In the code below you can see that we define the fields (and their types) for the model, and also provide a proxy configuration.</source>
+          <target state="new">In the code below you can see that we define the fields (and their types) for the model, and also provide a proxy configuration.</target>
+        </trans-unit>
+        <trans-unit id="5c728420-ea07-4ec2-876a-e0b73c9cd360" xml:space="preserve">
+          <source>When configuring your proxy, you need to give it a type (in this case 'azure'), the mobile service tablename (ToDoItem) and other optional parameters.</source>
+          <target state="new">When configuring your proxy, you need to give it a type (in this case 'azure'), the mobile service tablename (ToDoItem) and other optional parameters.</target>
+        </trans-unit>
+        <trans-unit id="477aca1d-ad14-4bd8-8a06-1be11dec792d" xml:space="preserve">
+          <source>In this example, we will be turning on proxy paging so that we can seamlessly page forward and backward through list items.</source>
+          <target state="new">In this example, we will be turning on proxy paging so that we can seamlessly page forward and backward through list items.</target>
+        </trans-unit>
+        <trans-unit id="e738679a-c166-4857-bf68-aef40da9257b" xml:space="preserve">
+          <source>The Azure proxy will automatically set all HTTP headers with the appropriate CRUD operations expected by the Azure API (including authentication credentials, if they exist).</source>
+          <target state="new">The Azure proxy will automatically set all HTTP headers with the appropriate CRUD operations expected by the Azure API (including authentication credentials, if they exist).</target>
+        </trans-unit>
+        <trans-unit id="369f6a9a-d057-4278-8f56-e4137e845e0f" xml:space="preserve">
+          <source><bpt id="5bc552c4-fdfc-4169-a6b0-2a309d67d25e">&lt;strong&gt;</bpt>Filename<ept id="5bc552c4-fdfc-4169-a6b0-2a309d67d25e">&lt;/strong&gt;</ept>: app/store/TodoItems.js</source>
+          <target state="new"><bpt id="5bc552c4-fdfc-4169-a6b0-2a309d67d25e">&lt;strong&gt;</bpt>Filename<ept id="5bc552c4-fdfc-4169-a6b0-2a309d67d25e">&lt;/strong&gt;</ept>: app/store/TodoItems.js</target>
+        </trans-unit>
+        <trans-unit id="47e3e0e1-a067-4278-afc7-fa019addfd65" xml:space="preserve">
+          <source>Sencha Touch stores are used to store collections of data records (models) which can be used as sources for Touch components for displaying the records in a variety of different ways.</source>
+          <target state="new">Sencha Touch stores are used to store collections of data records (models) which can be used as sources for Touch components for displaying the records in a variety of different ways.</target>
+        </trans-unit>
+        <trans-unit id="517949a7-4b98-44b7-bbf3-8e73d770f355" xml:space="preserve">
+          <source>This can include Grids, Charts, Lists and more.</source>
+          <target state="new">This can include Grids, Charts, Lists and more.</target>
+        </trans-unit>
+        <trans-unit id="abe11b06-4062-4125-89e0-a3945260be8f" xml:space="preserve">
+          <source>Here we define a store which will be used to hold all your store ToDo list items which are retrieved from your Azure mobile service.</source>
+          <target state="new">Here we define a store which will be used to hold all your store ToDo list items which are retrieved from your Azure mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2b5acf7f-eb6b-4345-b2c4-d3ad48bafc11" xml:space="preserve">
+          <source>Notice that the store configuration contains the name of the model type (Basic.model.TodoItem - defined above).</source>
+          <target state="new">Notice that the store configuration contains the name of the model type (Basic.model.TodoItem - defined above).</target>
+        </trans-unit>
+        <trans-unit id="de2ebc55-323c-4399-85d0-739d73624483" xml:space="preserve">
+          <source>This defines the structure of the records which will be contained in the store.</source>
+          <target state="new">This defines the structure of the records which will be contained in the store.</target>
+        </trans-unit>
+        <trans-unit id="bb055391-caf9-425d-aa00-e3d79162c2fe" xml:space="preserve">
+          <source>We also have some additional configuration options for the store such as specifying the page size (8 records), and that the sorting of records for this store is done remotely by the Azure mobile service (no sorting is done locally within the store itself).</source>
+          <target state="new">We also have some additional configuration options for the store such as specifying the page size (8 records), and that the sorting of records for this store is done remotely by the Azure mobile service (no sorting is done locally within the store itself).</target>
+        </trans-unit>
+        <trans-unit id="a609ec2d-a37c-4cc4-83ae-cd24663bbf2b" xml:space="preserve">
+          <source><bpt id="572a8c0b-3438-4393-95a5-c50319a36374">&lt;strong&gt;</bpt>Filename<ept id="572a8c0b-3438-4393-95a5-c50319a36374">&lt;/strong&gt;</ept>: app/view/DataItem.js</source>
+          <target state="new"><bpt id="572a8c0b-3438-4393-95a5-c50319a36374">&lt;strong&gt;</bpt>Filename<ept id="572a8c0b-3438-4393-95a5-c50319a36374">&lt;/strong&gt;</ept>: app/view/DataItem.js</target>
+        </trans-unit>
+        <trans-unit id="16bdeb2c-d390-4503-8cdd-2bc350521a08" xml:space="preserve">
+          <source>Now that we have defined the structure of each ToDo item, and created a store to place all the records in, we should think about how we wish to display this information to the user of the app.</source>
+          <target state="new">Now that we have defined the structure of each ToDo item, and created a store to place all the records in, we should think about how we wish to display this information to the user of the app.</target>
+        </trans-unit>
+        <trans-unit id="dde970da-3237-45e0-8c6a-a23058615b46" xml:space="preserve">
+          <source>We normally display information to the user through the use of <bpt id="bd9d9293-baa6-4efa-b30e-97dc533eac8e">&lt;strong&gt;</bpt>Views<ept id="bd9d9293-baa6-4efa-b30e-97dc533eac8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">We normally display information to the user through the use of <bpt id="bd9d9293-baa6-4efa-b30e-97dc533eac8e">&lt;strong&gt;</bpt>Views<ept id="bd9d9293-baa6-4efa-b30e-97dc533eac8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbb73626-451c-4b37-a96c-612d8294aec8" xml:space="preserve">
+          <source>A view can be one of any number of Touch components, individually or combined with others.</source>
+          <target state="new">A view can be one of any number of Touch components, individually or combined with others.</target>
+        </trans-unit>
+        <trans-unit id="c6252212-9606-407c-97a7-dad14b6fe7c9" xml:space="preserve">
+          <source>The view below is comprised of a ListItem which defines how each record will be displayed along with some buttons which will accommodate actions to delete each item.</source>
+          <target state="new">The view below is comprised of a ListItem which defines how each record will be displayed along with some buttons which will accommodate actions to delete each item.</target>
+        </trans-unit>
+        <trans-unit id="58c182e0-937e-4f30-b4a1-bc75e7252b83" xml:space="preserve">
+          <source><bpt id="ec280e3b-cb5c-4bc3-87bc-4caed92abe49">&lt;strong&gt;</bpt>Filename<ept id="ec280e3b-cb5c-4bc3-87bc-4caed92abe49">&lt;/strong&gt;</ept>: app/view/Main.js</source>
+          <target state="new"><bpt id="ec280e3b-cb5c-4bc3-87bc-4caed92abe49">&lt;strong&gt;</bpt>Filename<ept id="ec280e3b-cb5c-4bc3-87bc-4caed92abe49">&lt;/strong&gt;</ept>: app/view/Main.js</target>
+        </trans-unit>
+        <trans-unit id="c6dfd9aa-d728-401a-9347-faa77a317171" xml:space="preserve">
+          <source>Now that we have defined the layout of an individual ToDo list item (above) we want to wrap a full user interface around that list which defines the actual list of items, an application title, and a button to add a new task.</source>
+          <target state="new">Now that we have defined the layout of an individual ToDo list item (above) we want to wrap a full user interface around that list which defines the actual list of items, an application title, and a button to add a new task.</target>
+        </trans-unit>
+        <trans-unit id="a2a3aade-969f-49f5-988d-15176dc7845f" xml:space="preserve">
+          <source><bpt id="42b4af4a-e3c9-4f9a-8200-df0b43b69722">&lt;strong&gt;</bpt>Filename<ept id="42b4af4a-e3c9-4f9a-8200-df0b43b69722">&lt;/strong&gt;</ept>: app/controller/Main.js</source>
+          <target state="new"><bpt id="42b4af4a-e3c9-4f9a-8200-df0b43b69722">&lt;strong&gt;</bpt>Filename<ept id="42b4af4a-e3c9-4f9a-8200-df0b43b69722">&lt;/strong&gt;</ept>: app/controller/Main.js</target>
+        </trans-unit>
+        <trans-unit id="b0793fae-6065-4faf-8886-4a0cb7b67fca" xml:space="preserve">
+          <source>The final step in our application is to respond to button presses (delete, save, etc) and provide the logic behind all these requests.</source>
+          <target state="new">The final step in our application is to respond to button presses (delete, save, etc) and provide the logic behind all these requests.</target>
+        </trans-unit>
+        <trans-unit id="ec3b495b-17c8-41cc-8002-fd3aff288aca" xml:space="preserve">
+          <source>Sencha Touch utilizes controllers which listen for these events and responds accordingly.</source>
+          <target state="new">Sencha Touch utilizes controllers which listen for these events and responds accordingly.</target>
+        </trans-unit>
+        <trans-unit id="f044a84d-71f7-45d9-bb29-8bf763d26a35" xml:space="preserve">
+          <source><bpt id="22b0b4ed-63e0-45d1-9185-15b8bafec75a">&lt;strong&gt;</bpt>Filename<ept id="22b0b4ed-63e0-45d1-9185-15b8bafec75a">&lt;/strong&gt;</ept>: app.js</source>
+          <target state="new"><bpt id="22b0b4ed-63e0-45d1-9185-15b8bafec75a">&lt;strong&gt;</bpt>Filename<ept id="22b0b4ed-63e0-45d1-9185-15b8bafec75a">&lt;/strong&gt;</ept>: app.js</target>
+        </trans-unit>
+        <trans-unit id="41b3fa9c-bdb7-4401-b805-2407a1641e4a" xml:space="preserve">
+          <source>Our final step is to finish editing the main application file, and provide information about the models, stores, views and controllers that have defined.</source>
+          <target state="new">Our final step is to finish editing the main application file, and provide information about the models, stores, views and controllers that have defined.</target>
+        </trans-unit>
+        <trans-unit id="874657b7-b0b1-4b73-aa74-2585504bd462" xml:space="preserve">
+          <source>The source files for these resources are automatically loaded into the application.</source>
+          <target state="new">The source files for these resources are automatically loaded into the application.</target>
+        </trans-unit>
+        <trans-unit id="9e084a3f-40d8-439a-a509-c8be4577f408" xml:space="preserve">
+          <source>Finally, the launch method is called which creates and displays the primary application view 'Basic.main.View'.</source>
+          <target state="new">Finally, the launch method is called which creates and displays the primary application view 'Basic.main.View'.</target>
+        </trans-unit>
+        <trans-unit id="fb771b9d-6193-4830-83e1-1a084c37044a" xml:space="preserve">
+          <source>The final stage of this tutorial is to host and run your new app on your local computer.</source>
+          <target state="new">The final stage of this tutorial is to host and run your new app on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="91f50486-0653-4e83-955b-4a88335ae70b" xml:space="preserve">
+          <source>In your terminal, browse to the location of your unzipped application.</source>
+          <target state="new">In your terminal, browse to the location of your unzipped application.</target>
+        </trans-unit>
+        <trans-unit id="c3d731c5-3145-4ee1-8f41-730132ce8d52" xml:space="preserve">
+          <source>Using Sencha Cmd, run the following commands:</source>
+          <target state="new">Using Sencha Cmd, run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="41032996-5c65-4230-98c5-678f8d9b52ac" xml:space="preserve">
+          <source><bpt id="f14cb8da-7a11-4b83-81e1-c74236f5ed76">&lt;em&gt;</bpt>sencha app refresh<ept id="f14cb8da-7a11-4b83-81e1-c74236f5ed76">&lt;/em&gt;</ept> : This will instruct Sencha Cmd to locate all app dependencies,
+and download any needed packages (for example, <bpt id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;linkText&gt;</bpt>Sencha Touch Extensions for Azure<ept id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;/linkText&gt;</ept><bpt id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;title&gt;</bpt><ept id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;/title&gt;</ept>).</source>
+          <target state="new"><bpt id="f14cb8da-7a11-4b83-81e1-c74236f5ed76">&lt;em&gt;</bpt>sencha app refresh<ept id="f14cb8da-7a11-4b83-81e1-c74236f5ed76">&lt;/em&gt;</ept> : This will instruct Sencha Cmd to locate all app dependencies,
+and download any needed packages (for example, <bpt id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;linkText&gt;</bpt>Sencha Touch Extensions for Azure<ept id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;/linkText&gt;</ept><bpt id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;title&gt;</bpt><ept id="18731c56-cc7b-467e-bd90-cf70b579eb3c">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="5145cd5e-bad4-45b4-8f30-2d4bca865597" xml:space="preserve">
+          <source><bpt id="a3937767-2bdd-4f61-b2fe-12a7588deb67">&lt;em&gt;</bpt>sencha web start<ept id="a3937767-2bdd-4f61-b2fe-12a7588deb67">&lt;/em&gt;</ept> : This will start a local web server to test our application.</source>
+          <target state="new"><bpt id="a3937767-2bdd-4f61-b2fe-12a7588deb67">&lt;em&gt;</bpt>sencha web start<ept id="a3937767-2bdd-4f61-b2fe-12a7588deb67">&lt;/em&gt;</ept> : This will start a local web server to test our application.</target>
+        </trans-unit>
+        <trans-unit id="a04ce303-6da7-4ffe-a362-bffec4eca0ca" xml:space="preserve">
+          <source><bpt id="84765f51-3e8c-4646-b508-c92e3914774f">&lt;linkText&gt;</bpt>sencha web start<ept id="84765f51-3e8c-4646-b508-c92e3914774f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84765f51-3e8c-4646-b508-c92e3914774f">&lt;linkText&gt;</bpt>sencha web start<ept id="84765f51-3e8c-4646-b508-c92e3914774f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d77bdfe-a74b-4e6d-a751-a55256c88c16" xml:space="preserve">
+          <source>Open the URL listed in your terminal in a web browser to start the app (e.g. http://localhost:1841).</source>
+          <target state="new">Open the URL listed in your terminal in a web browser to start the app (e.g. http://localhost:1841).</target>
+        </trans-unit>
+        <trans-unit id="c1fb37b0-f8db-485d-9bde-110aca6c9ab4" xml:space="preserve">
+          <source>In the app, type meaningful text, such as "Complete the tutorial", and then click <bpt id="ddc45b40-3c3e-4587-ad21-10bd8e417614">&lt;strong&gt;</bpt>Add<ept id="ddc45b40-3c3e-4587-ad21-10bd8e417614">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as "Complete the tutorial", and then click <bpt id="ddc45b40-3c3e-4587-ad21-10bd8e417614">&lt;strong&gt;</bpt>Add<ept id="ddc45b40-3c3e-4587-ad21-10bd8e417614">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50463774-cd2d-4e85-ab82-cf8345e259fb" xml:space="preserve">
+          <source><bpt id="d90e754a-0743-4d26-a993-6c4b161a68a1">&lt;linkText&gt;</bpt>new todo item<ept id="d90e754a-0743-4d26-a993-6c4b161a68a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d90e754a-0743-4d26-a993-6c4b161a68a1">&lt;linkText&gt;</bpt>new todo item<ept id="d90e754a-0743-4d26-a993-6c4b161a68a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93be6caf-a756-4cf7-9db5-f34d2bd86fbb" xml:space="preserve">
+          <source>This sends a POST request to the new mobile service hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new mobile service hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c5a3999b-0d42-4ee1-a3c6-d3d150160d7a" xml:space="preserve">
+          <source>Data from the request is inserted into the TodoItem table.</source>
+          <target state="new">Data from the request is inserted into the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="794d2fa7-0ee4-4bc3-a72a-d45e8d3ae458" xml:space="preserve">
+          <source>Back in the Management Portal, click the <bpt id="e8b87f22-1a09-4775-aa08-4067a0191c93">&lt;strong&gt;</bpt>Data<ept id="e8b87f22-1a09-4775-aa08-4067a0191c93">&lt;/strong&gt;</ept> tab and then click the TodoItems table.</source>
+          <target state="new">Back in the Management Portal, click the <bpt id="e8b87f22-1a09-4775-aa08-4067a0191c93">&lt;strong&gt;</bpt>Data<ept id="e8b87f22-1a09-4775-aa08-4067a0191c93">&lt;/strong&gt;</ept> tab and then click the TodoItems table.</target>
+        </trans-unit>
+        <trans-unit id="c859d63e-2f68-4bc2-8962-6961413677d2" xml:space="preserve">
+          <source><bpt id="b8e55db3-595d-4146-a447-46749309598c">&lt;linkText&gt;</bpt>Todo Items table<ept id="b8e55db3-595d-4146-a447-46749309598c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8e55db3-595d-4146-a447-46749309598c">&lt;linkText&gt;</bpt>Todo Items table<ept id="b8e55db3-595d-4146-a447-46749309598c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a7be0be-1762-4bfe-8973-25b464533f63" xml:space="preserve">
+          <source>This lets you browse the data inserted by the app into the table.</source>
+          <target state="new">This lets you browse the data inserted by the app into the table.</target>
+        </trans-unit>
+        <trans-unit id="4afc3acf-7c8c-4e73-a5a9-6e3417af7317" xml:space="preserve">
+          <source><bpt id="bc3992e1-ac53-46c2-adbd-d32da9f59a04">&lt;linkText&gt;</bpt>browse todo table<ept id="bc3992e1-ac53-46c2-adbd-d32da9f59a04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc3992e1-ac53-46c2-adbd-d32da9f59a04">&lt;linkText&gt;</bpt>browse todo table<ept id="bc3992e1-ac53-46c2-adbd-d32da9f59a04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b88e7e3f-ea3e-4701-983b-6539a49c11ca" xml:space="preserve">
+          <source>Now that you have completed the Getting Started Guide, learn how to perform additional important tasks in Mobile Services with Sencha.</source>
+          <target state="new">Now that you have completed the Getting Started Guide, learn how to perform additional important tasks in Mobile Services with Sencha.</target>
+        </trans-unit>
+        <trans-unit id="28978fef-3f3a-4e50-8668-77d579b12439" xml:space="preserve">
+          <source><bpt id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;linkText&gt;</bpt>Download<ept id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;/linkText&gt;</ept><bpt id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;title&gt;</bpt><ept id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;/title&gt;</ept> a completed sample app with additional styling and features to see what else Sencha Touch can do!</source>
+          <target state="new"><bpt id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;linkText&gt;</bpt>Download<ept id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;/linkText&gt;</ept><bpt id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;title&gt;</bpt><ept id="0e1dbc4f-5fff-4924-a02c-999528def13a">&lt;/title&gt;</ept> a completed sample app with additional styling and features to see what else Sencha Touch can do!</target>
+        </trans-unit>
+        <trans-unit id="73480b4a-2c64-4a8e-9215-90270902af6d" xml:space="preserve">
+          <source>Then, dive into more information about the Sencha Touch Extensions for Azure:</source>
+          <target state="new">Then, dive into more information about the Sencha Touch Extensions for Azure:</target>
+        </trans-unit>
+        <trans-unit id="b1b773e8-5dce-4109-b8ec-45483136bac2" xml:space="preserve">
+          <source>Sample app <bpt id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;linkText&gt;</bpt>walkthrough<ept id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;/linkText&gt;</ept><bpt id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;title&gt;</bpt><ept id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;/title&gt;</ept></source>
+          <target state="new">Sample app <bpt id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;linkText&gt;</bpt>walkthrough<ept id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;/linkText&gt;</ept><bpt id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;title&gt;</bpt><ept id="e387af3c-071e-47e5-b44b-1084f071b55c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="507c0fc1-4717-4481-8f3d-dbf4ccc509e3" xml:space="preserve">
+          <source>Get help in the <bpt id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;linkText&gt;</bpt>Sencha Forums<ept id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;/linkText&gt;</ept><bpt id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;title&gt;</bpt><ept id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;/title&gt;</ept></source>
+          <target state="new">Get help in the <bpt id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;linkText&gt;</bpt>Sencha Forums<ept id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;/linkText&gt;</ept><bpt id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;title&gt;</bpt><ept id="2da1d672-c5e6-4426-baa4-9ddcb77c4642">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad2926d6-cbfd-4858-95a3-8f50bf21a58a" xml:space="preserve">
+          <source>Browse the <bpt id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;linkText&gt;</bpt>Sencha Documentation<ept id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;/linkText&gt;</ept><bpt id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;title&gt;</bpt><ept id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;/title&gt;</ept></source>
+          <target state="new">Browse the <bpt id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;linkText&gt;</bpt>Sencha Documentation<ept id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;/linkText&gt;</ept><bpt id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;title&gt;</bpt><ept id="f041160c-8f90-4b0e-be2a-f3c3fd53bb34">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8a8c207-fd8a-4b49-a565-a9334d99c2aa" xml:space="preserve">
+          <source>Using Sencha With Azure Mobile Services: <bpt id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;linkText&gt;</bpt>(Video)<ept id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;/linkText&gt;</ept><bpt id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;title&gt;</bpt><ept id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;/title&gt;</ept></source>
+          <target state="new">Using Sencha With Azure Mobile Services: <bpt id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;linkText&gt;</bpt>(Video)<ept id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;/linkText&gt;</ept><bpt id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;title&gt;</bpt><ept id="16e6dcc4-cb00-4539-9052-8e922c7290ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="230de1ca-35a3-457a-83cf-c5efc79b8c24" xml:space="preserve">
+          <source><bpt id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;linkText&gt;</bpt>Download Sencha Touch<ept id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;/linkText&gt;</ept><bpt id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;title&gt;</bpt><ept id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;linkText&gt;</bpt>Download Sencha Touch<ept id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;/linkText&gt;</ept><bpt id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;title&gt;</bpt><ept id="a48ef4d4-9965-4bc0-b139-6a1e75acd698">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4aeb9b8c-296e-4ac7-b5f5-7d1ef5edd6ee" xml:space="preserve">
+          <source><bpt id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;linkText&gt;</bpt>Sencha Touch Extensions for Azure<ept id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;/linkText&gt;</ept><bpt id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;title&gt;</bpt><ept id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;linkText&gt;</bpt>Sencha Touch Extensions for Azure<ept id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;/linkText&gt;</ept><bpt id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;title&gt;</bpt><ept id="899f16d8-63d2-4c0e-8543-d8bc4b6a0345">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08eb509f-7d09-4d64-a164-a427c32bbe22" xml:space="preserve">
+          <source>The example outlined here is provided in the Sencha Touch Extension for Azure package and is located in the examples directory as the Basic Data example.</source>
+          <target state="new">The example outlined here is provided in the Sencha Touch Extension for Azure package and is located in the examples directory as the Basic Data example.</target>
+        </trans-unit>
+        <trans-unit id="6b729f16-0664-4486-999f-0b78b4004125" xml:space="preserve">
+          <source>There are a few more examples which are provided which demonstrated other functionality of this extension along with detailed comments and explanations.</source>
+          <target state="new">There are a few more examples which are provided which demonstrated other functionality of this extension along with detailed comments and explanations.</target>
+        </trans-unit>
+        <trans-unit id="d79486e1-ccb1-49a2-8015-8f0ba29cd86a" xml:space="preserve">
+          <source>For more information about getting started with Sencha Touch please visit the full set of <bpt id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;linkText&gt;</bpt>guides<ept id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;/linkText&gt;</ept><bpt id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;title&gt;</bpt><ept id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about getting started with Sencha Touch please visit the full set of <bpt id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;linkText&gt;</bpt>guides<ept id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;/linkText&gt;</ept><bpt id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;title&gt;</bpt><ept id="3db329c3-f1d5-4ea7-b76d-bd832db2cb65">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a7b61df-f386-401f-9f55-96f8a868317b" xml:space="preserve">
+          <source>./media/partner-sencha-mobile-services-get-started/finished-app.png</source>
+          <target state="new">./media/partner-sencha-mobile-services-get-started/finished-app.png</target>
+        </trans-unit>
+      </group>
+      <group id="a46e32be-899b-4a1d-9d21-ddbf4695e465" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fcf08931-66ce-491e-a3d8-93c1b04e74f1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fcf08931-66ce-491e-a3d8-93c1b04e74f1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="988dd050-0489-4493-8583-e3120d529fab">
+        <trans-unit id="d7a4fb50-a9fe-4359-8714-5b352a9b1802" xml:space="preserve">
+          <source>How to connect to an Azure SQL database using SSMS | Microsoft Azure</source>
+          <target state="new">How to connect to an Azure SQL database using SSMS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a40438bf-9254-4ba0-8e34-8cdf0a287ae3" xml:space="preserve">
+          <source>Learn how to connect to an Azure SQL database using SSMS.</source>
+          <target state="new">Learn how to connect to an Azure SQL database using SSMS.</target>
+        </trans-unit>
+        <trans-unit id="7336c64b-72f5-4848-9171-59fdc233d03c" xml:space="preserve">
+          <source>Use the following steps to install SQL Server Management Studio (SSMS) and then use SSMS to connect and query your SQL Database.</source>
+          <target state="new">Use the following steps to install SQL Server Management Studio (SSMS) and then use SSMS to connect and query your SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="9fb77cf2-d2cb-4c27-be9f-ae91b1254b0f" xml:space="preserve">
+          <source>An SQL Database AdventureWorks sample database as described in <bpt id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;/linkText&gt;</ept><bpt id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;title&gt;</bpt><ept id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;/title&gt;</ept>.</source>
+          <target state="new">An SQL Database AdventureWorks sample database as described in <bpt id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;linkText&gt;</bpt>Getting Started with Microsoft Azure SQL Database<ept id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;/linkText&gt;</ept><bpt id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;title&gt;</bpt><ept id="7e23dd8f-1479-43ae-a82e-c4cbeeaf122a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb24aeba-e299-4af9-bfea-910888a4f285" xml:space="preserve">
+          <source>Go to the download page for <bpt id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;linkText&gt;</bpt>SQL Server 2014 Express<ept id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;/linkText&gt;</ept><bpt id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;title&gt;</bpt><ept id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;/title&gt;</ept>, click <bpt id="e12843ed-bf15-4c53-970c-1a4f0820111f">&lt;strong&gt;</bpt>Download<ept id="e12843ed-bf15-4c53-970c-1a4f0820111f">&lt;/strong&gt;</ept>, and choose either the 32-bit version (x86) or the 64-bit version (x64) of the MgmtStudio download.</source>
+          <target state="new">Go to the download page for <bpt id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;linkText&gt;</bpt>SQL Server 2014 Express<ept id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;/linkText&gt;</ept><bpt id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;title&gt;</bpt><ept id="0b78dc98-7cf6-410d-a3d9-c3cfbb4f79f8">&lt;/title&gt;</ept>, click <bpt id="e12843ed-bf15-4c53-970c-1a4f0820111f">&lt;strong&gt;</bpt>Download<ept id="e12843ed-bf15-4c53-970c-1a4f0820111f">&lt;/strong&gt;</ept>, and choose either the 32-bit version (x86) or the 64-bit version (x64) of the MgmtStudio download.</target>
+        </trans-unit>
+        <trans-unit id="50f6c873-af23-4042-bee8-729c5ae64c90" xml:space="preserve">
+          <source><bpt id="f8865343-c3f2-4a21-838e-db0fd6da00e1">&lt;linkText&gt;</bpt>MgtmtStudio32BIT or MgmtStudio64BIT<ept id="f8865343-c3f2-4a21-838e-db0fd6da00e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8865343-c3f2-4a21-838e-db0fd6da00e1">&lt;linkText&gt;</bpt>MgtmtStudio32BIT or MgmtStudio64BIT<ept id="f8865343-c3f2-4a21-838e-db0fd6da00e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="042efa03-77e1-4447-bdec-856885cfb572" xml:space="preserve">
+          <source>Follow the prompts as you install SSMS using the default settings.</source>
+          <target state="new">Follow the prompts as you install SSMS using the default settings.</target>
+        </trans-unit>
+        <trans-unit id="e6e2bb81-29f1-4935-8e2a-21e0418e8e7f" xml:space="preserve">
+          <source>Once downloaded, search for SQL Server 2014 Management Studio on your PC and then start SSMS.</source>
+          <target state="new">Once downloaded, search for SQL Server 2014 Management Studio on your PC and then start SSMS.</target>
+        </trans-unit>
+        <trans-unit id="3c08a1f9-f9b2-49f1-9f6e-662846a22357" xml:space="preserve">
+          <source>Open SSMS.</source>
+          <target state="new">Open SSMS.</target>
+        </trans-unit>
+        <trans-unit id="b0a4e6ec-af40-4891-afd9-13b178cc6dba" xml:space="preserve">
+          <source>In the <bpt id="1ad82976-4c53-44cd-8a1f-7769c616f392">&lt;strong&gt;</bpt>Connect to Server<ept id="1ad82976-4c53-44cd-8a1f-7769c616f392">&lt;/strong&gt;</ept> dialog box, in the <bpt id="f6d1be56-0e8b-4650-9481-6206b21e1d15">&lt;strong&gt;</bpt>Server name<ept id="f6d1be56-0e8b-4650-9481-6206b21e1d15">&lt;/strong&gt;</ept> box, type the server name in the format <bpt id="9e45b24d-8e10-4cbd-a48e-883a7ccd7d96">&lt;em&gt;</bpt>&amp;lt;servername&gt;<ept id="9e45b24d-8e10-4cbd-a48e-883a7ccd7d96">&lt;/em&gt;</ept>.<bpt id="3830f808-b26e-463a-9aee-3b58c0977bef">&lt;strong&gt;</bpt>database.windows.net<ept id="3830f808-b26e-463a-9aee-3b58c0977bef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1ad82976-4c53-44cd-8a1f-7769c616f392">&lt;strong&gt;</bpt>Connect to Server<ept id="1ad82976-4c53-44cd-8a1f-7769c616f392">&lt;/strong&gt;</ept> dialog box, in the <bpt id="f6d1be56-0e8b-4650-9481-6206b21e1d15">&lt;strong&gt;</bpt>Server name<ept id="f6d1be56-0e8b-4650-9481-6206b21e1d15">&lt;/strong&gt;</ept> box, type the server name in the format <bpt id="9e45b24d-8e10-4cbd-a48e-883a7ccd7d96">&lt;em&gt;</bpt>&amp;lt;servername&gt;<ept id="9e45b24d-8e10-4cbd-a48e-883a7ccd7d96">&lt;/em&gt;</ept>.<bpt id="3830f808-b26e-463a-9aee-3b58c0977bef">&lt;strong&gt;</bpt>database.windows.net<ept id="3830f808-b26e-463a-9aee-3b58c0977bef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9756d546-8825-4921-ab7c-e505244627df" xml:space="preserve">
+          <source>In the <bpt id="4407c79c-0145-4f53-9713-25194d04dba8">&lt;strong&gt;</bpt>Authentication<ept id="4407c79c-0145-4f53-9713-25194d04dba8">&lt;/strong&gt;</ept> list, select <bpt id="ab2efd3c-f6a6-4ee1-a8d3-a112809bd5c8">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="ab2efd3c-f6a6-4ee1-a8d3-a112809bd5c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4407c79c-0145-4f53-9713-25194d04dba8">&lt;strong&gt;</bpt>Authentication<ept id="4407c79c-0145-4f53-9713-25194d04dba8">&lt;/strong&gt;</ept> list, select <bpt id="ab2efd3c-f6a6-4ee1-a8d3-a112809bd5c8">&lt;strong&gt;</bpt>SQL Server Authentication<ept id="ab2efd3c-f6a6-4ee1-a8d3-a112809bd5c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a972ea34-a1f4-4cec-a6e7-5b9105b6d5b4" xml:space="preserve">
+          <source>Enter the <bpt id="60756852-faa8-4218-8018-8ae15ef7cbfd">&lt;strong&gt;</bpt>Login<ept id="60756852-faa8-4218-8018-8ae15ef7cbfd">&lt;/strong&gt;</ept> and <bpt id="00cc74d1-20c4-4b93-9cca-f140cc77eea4">&lt;strong&gt;</bpt>Password<ept id="00cc74d1-20c4-4b93-9cca-f140cc77eea4">&lt;/strong&gt;</ept> you specified when you created your SQL Database server.</source>
+          <target state="new">Enter the <bpt id="60756852-faa8-4218-8018-8ae15ef7cbfd">&lt;strong&gt;</bpt>Login<ept id="60756852-faa8-4218-8018-8ae15ef7cbfd">&lt;/strong&gt;</ept> and <bpt id="00cc74d1-20c4-4b93-9cca-f140cc77eea4">&lt;strong&gt;</bpt>Password<ept id="00cc74d1-20c4-4b93-9cca-f140cc77eea4">&lt;/strong&gt;</ept> you specified when you created your SQL Database server.</target>
+        </trans-unit>
+        <trans-unit id="5e5ae9e3-5ac2-4f40-a7ec-6a3b1b22f4e6" xml:space="preserve">
+          <source><bpt id="051ef164-9c73-423d-bf6c-003bf7cc0a76">&lt;linkText&gt;</bpt>Connect to server dialog<ept id="051ef164-9c73-423d-bf6c-003bf7cc0a76">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="051ef164-9c73-423d-bf6c-003bf7cc0a76">&lt;linkText&gt;</bpt>Connect to server dialog<ept id="051ef164-9c73-423d-bf6c-003bf7cc0a76">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0910462b-e04c-4a64-ac6b-b45944fb0df2" xml:space="preserve">
+          <source>Click the <bpt id="5a7e8765-c8fa-4f63-8e4e-348ab55d8e9d">&lt;strong&gt;</bpt>Options<ept id="5a7e8765-c8fa-4f63-8e4e-348ab55d8e9d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="5a7e8765-c8fa-4f63-8e4e-348ab55d8e9d">&lt;strong&gt;</bpt>Options<ept id="5a7e8765-c8fa-4f63-8e4e-348ab55d8e9d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="7f3d830a-3991-4022-89d2-3fa53dbdede0" xml:space="preserve">
+          <source>In the <bpt id="9fc79976-0b83-43d8-b80b-13602f25b809">&lt;strong&gt;</bpt>Connect to database<ept id="9fc79976-0b83-43d8-b80b-13602f25b809">&lt;/strong&gt;</ept> box, enter <bpt id="4770d6e2-ff16-49dd-9914-ff2addeb92ff">&lt;strong&gt;</bpt>AdventureWorks<ept id="4770d6e2-ff16-49dd-9914-ff2addeb92ff">&lt;/strong&gt;</ept> and then click <bpt id="fe46be48-0a4b-4e70-ae50-ef6b47829cc1">&lt;strong&gt;</bpt>Connect<ept id="fe46be48-0a4b-4e70-ae50-ef6b47829cc1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9fc79976-0b83-43d8-b80b-13602f25b809">&lt;strong&gt;</bpt>Connect to database<ept id="9fc79976-0b83-43d8-b80b-13602f25b809">&lt;/strong&gt;</ept> box, enter <bpt id="4770d6e2-ff16-49dd-9914-ff2addeb92ff">&lt;strong&gt;</bpt>AdventureWorks<ept id="4770d6e2-ff16-49dd-9914-ff2addeb92ff">&lt;/strong&gt;</ept> and then click <bpt id="fe46be48-0a4b-4e70-ae50-ef6b47829cc1">&lt;strong&gt;</bpt>Connect<ept id="fe46be48-0a4b-4e70-ae50-ef6b47829cc1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60c2b348-5ef1-4788-9313-cb212c1bac6e" xml:space="preserve">
+          <source><bpt id="0c04aafc-e106-46bf-88c5-00d91939d0b7">&lt;linkText&gt;</bpt>Connect to database<ept id="0c04aafc-e106-46bf-88c5-00d91939d0b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c04aafc-e106-46bf-88c5-00d91939d0b7">&lt;linkText&gt;</bpt>Connect to database<ept id="0c04aafc-e106-46bf-88c5-00d91939d0b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14eea6cb-6c74-47c7-be6e-3fc006537008" xml:space="preserve">
+          <source>Make sure that the firewall of the logical server you have created allows connections from your local computer.</source>
+          <target state="new">Make sure that the firewall of the logical server you have created allows connections from your local computer.</target>
+        </trans-unit>
+        <trans-unit id="3e58218b-7538-4ffd-a2f3-1d88690fad94" xml:space="preserve">
+          <source>For more information, see <bpt id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;linkText&gt;</bpt>How to: Configure Firewall Settings (Azure SQL Database)<ept id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;/linkText&gt;</ept><bpt id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;title&gt;</bpt><ept id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;linkText&gt;</bpt>How to: Configure Firewall Settings (Azure SQL Database)<ept id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;/linkText&gt;</ept><bpt id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;title&gt;</bpt><ept id="6db6c8dd-fd4e-4989-83c4-b1a1588dcbd6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3790219-89e8-4db2-9403-1bd55943a393" xml:space="preserve">
+          <source>In <bpt id="32f7a62b-b03f-47aa-8396-cd91af7b4699">&lt;strong&gt;</bpt>Object Explorer<ept id="32f7a62b-b03f-47aa-8396-cd91af7b4699">&lt;/strong&gt;</ept>, navigate to the <bpt id="54f13e82-9bf4-41a7-940f-c33a04880657">&lt;strong&gt;</bpt>AdventureWorks<ept id="54f13e82-9bf4-41a7-940f-c33a04880657">&lt;/strong&gt;</ept> database.</source>
+          <target state="new">In <bpt id="32f7a62b-b03f-47aa-8396-cd91af7b4699">&lt;strong&gt;</bpt>Object Explorer<ept id="32f7a62b-b03f-47aa-8396-cd91af7b4699">&lt;/strong&gt;</ept>, navigate to the <bpt id="54f13e82-9bf4-41a7-940f-c33a04880657">&lt;strong&gt;</bpt>AdventureWorks<ept id="54f13e82-9bf4-41a7-940f-c33a04880657">&lt;/strong&gt;</ept> database.</target>
+        </trans-unit>
+        <trans-unit id="5794878c-9802-4a79-a839-5df13069a72e" xml:space="preserve">
+          <source>Right-click the database and then select <bpt id="a31a0f05-9e2f-4fd1-bfc7-630fb35e14d4">&lt;strong&gt;</bpt>New Query<ept id="a31a0f05-9e2f-4fd1-bfc7-630fb35e14d4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the database and then select <bpt id="a31a0f05-9e2f-4fd1-bfc7-630fb35e14d4">&lt;strong&gt;</bpt>New Query<ept id="a31a0f05-9e2f-4fd1-bfc7-630fb35e14d4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1ba38c6-43b2-4dd4-bb8a-709f4e24e44b" xml:space="preserve">
+          <source><bpt id="7ba90456-2ea5-4b04-8a62-d5cee01a6229">&lt;linkText&gt;</bpt>New query<ept id="7ba90456-2ea5-4b04-8a62-d5cee01a6229">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ba90456-2ea5-4b04-8a62-d5cee01a6229">&lt;linkText&gt;</bpt>New query<ept id="7ba90456-2ea5-4b04-8a62-d5cee01a6229">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7ec82bb-8088-4899-a71d-dfc823af9fa3" xml:space="preserve">
+          <source>In the query window, copy and paste the following code.</source>
+          <target state="new">In the query window, copy and paste the following code.</target>
+        </trans-unit>
+        <trans-unit id="4c988dc6-f423-4e8f-9b7c-e1f35bc43655" xml:space="preserve">
+          <source>Click the <bpt id="5e8cfef2-217e-4b6d-a379-f4550f3095a1">&lt;strong&gt;</bpt>Execute<ept id="5e8cfef2-217e-4b6d-a379-f4550f3095a1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="5e8cfef2-217e-4b6d-a379-f4550f3095a1">&lt;strong&gt;</bpt>Execute<ept id="5e8cfef2-217e-4b6d-a379-f4550f3095a1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="12948555-f210-4532-979b-48bc95d0cfd0" xml:space="preserve">
+          <source>The following screen shot shows a successful query.</source>
+          <target state="new">The following screen shot shows a successful query.</target>
+        </trans-unit>
+        <trans-unit id="1c73fdd5-94ad-4960-92b8-494c270245c8" xml:space="preserve">
+          <source><bpt id="6f987c10-07d6-41ea-9dca-579bcf9a3a21">&lt;linkText&gt;</bpt>Sucess<ept id="6f987c10-07d6-41ea-9dca-579bcf9a3a21">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f987c10-07d6-41ea-9dca-579bcf9a3a21">&lt;linkText&gt;</bpt>Sucess<ept id="6f987c10-07d6-41ea-9dca-579bcf9a3a21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c509423b-6325-4fbc-a256-d3994f03b03c" xml:space="preserve">
+          <source>You can use Transact-SQL statements to create or manage databases.</source>
+          <target state="new">You can use Transact-SQL statements to create or manage databases.</target>
+        </trans-unit>
+        <trans-unit id="fd654559-80d6-4bd5-a685-c79e961dbbc4" xml:space="preserve">
+          <source>For more information see <bpt id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;linkText&gt;</bpt>CREATE DATABASE (Azure SQL Database)<ept id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;/linkText&gt;</ept><bpt id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;title&gt;</bpt><ept id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;/title&gt;</ept> and <bpt id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;linkText&gt;</bpt>Managing Azure SQL Database using SQL Server Management Studio<ept id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;/linkText&gt;</ept><bpt id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;title&gt;</bpt><ept id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;linkText&gt;</bpt>CREATE DATABASE (Azure SQL Database)<ept id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;/linkText&gt;</ept><bpt id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;title&gt;</bpt><ept id="ce3656b7-e626-4af4-bd82-210ef43445c1">&lt;/title&gt;</ept> and <bpt id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;linkText&gt;</bpt>Managing Azure SQL Database using SQL Server Management Studio<ept id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;/linkText&gt;</ept><bpt id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;title&gt;</bpt><ept id="02b257df-674b-475b-9927-f072ed91ea9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="726cf0a7-8f35-45a5-a672-92b3b3f6a6ab" xml:space="preserve">
+          <source>You can also log events to Azure storage.</source>
+          <target state="new">You can also log events to Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="b8fd7ef2-b9dc-4d82-9c98-6cda90c276b8" xml:space="preserve">
+          <source>See <bpt id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;linkText&gt;</bpt>Get started with SQL database auditing<ept id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;/linkText&gt;</ept><bpt id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;title&gt;</bpt><ept id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;linkText&gt;</bpt>Get started with SQL database auditing<ept id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;/linkText&gt;</ept><bpt id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;title&gt;</bpt><ept id="b1eb8893-911f-4403-a8fb-fe73799601e4">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="f18aebcc-bbda-4ec4-abfb-2b70cce2b3a1" xml:space="preserve">
+          <source>./media/sql-database-connect-to-database/1-download.png</source>
+          <target state="new">./media/sql-database-connect-to-database/1-download.png</target>
+        </trans-unit>
+        <trans-unit id="4307d052-9541-49a3-a18c-81b0add19415" xml:space="preserve">
+          <source>./media/sql-database-connect-to-database/2-connect.png</source>
+          <target state="new">./media/sql-database-connect-to-database/2-connect.png</target>
+        </trans-unit>
+        <trans-unit id="0805e533-3900-4cf7-a3b6-ea7f1072e962" xml:space="preserve">
+          <source>./media/sql-database-connect-to-database/3-connect-to-database.png</source>
+          <target state="new">./media/sql-database-connect-to-database/3-connect-to-database.png</target>
+        </trans-unit>
+        <trans-unit id="ece47e84-09e2-4507-9cc2-7897f0c2d004" xml:space="preserve">
+          <source>./media/sql-database-connect-to-database/4-run-query.png</source>
+          <target state="new">./media/sql-database-connect-to-database/4-run-query.png</target>
+        </trans-unit>
+        <trans-unit id="e1a096bc-e910-4c5c-8db1-b5b58e1cdf1f" xml:space="preserve">
+          <source>./media/sql-database-connect-to-database/5-success.png</source>
+          <target state="new">./media/sql-database-connect-to-database/5-success.png</target>
+        </trans-unit>
+      </group>
+      <group id="5b143437-5fc1-4c27-a5ef-4e83971f32cc" />
+    </body>
+  </file>
+</xliff>

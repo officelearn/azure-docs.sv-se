@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42b5fd43-7d29-4d68-8029-1e9fe81b4ca8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42b5fd43-7d29-4d68-8029-1e9fe81b4ca8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3b6de6b0-786c-4b37-b154-4ff8a7f1bf5d">
+        <trans-unit id="afd3a435-8526-4206-99eb-6b3e416783cd" xml:space="preserve">
+          <source>Elastic database tools glossary</source>
+          <target state="new">Elastic database tools glossary</target>
+        </trans-unit>
+        <trans-unit id="021089da-b35e-4c45-a0a4-0cfef60fc2b0" xml:space="preserve">
+          <source>Explanation of terms used for elastic database tools</source>
+          <target state="new">Explanation of terms used for elastic database tools</target>
+        </trans-unit>
+        <trans-unit id="54afc1e2-ec28-4615-b22b-ce4f382f9bb5" xml:space="preserve">
+          <source>The following terms are defined for the Elastic Database tools, a feature of Azure SQL Database.</source>
+          <target state="new">The following terms are defined for the Elastic Database tools, a feature of Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="fe7eb244-fedc-4fce-8bc3-223c2437351a" xml:space="preserve">
+          <source>The tools include the client library, the split-merge tool, elastic pools, and queries.</source>
+          <target state="new">The tools include the client library, the split-merge tool, elastic pools, and queries.</target>
+        </trans-unit>
+        <trans-unit id="63b39748-3a6e-4606-9ba2-eb459d08ebc0" xml:space="preserve">
+          <source><bpt id="907457c2-c6a0-40c1-80e1-8e56c0df7a52">&lt;linkText&gt;</bpt>Elastic Scale terms<ept id="907457c2-c6a0-40c1-80e1-8e56c0df7a52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="907457c2-c6a0-40c1-80e1-8e56c0df7a52">&lt;linkText&gt;</bpt>Elastic Scale terms<ept id="907457c2-c6a0-40c1-80e1-8e56c0df7a52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9da9cdae-868a-4831-a037-950a4aa1fa69" xml:space="preserve">
+          <source><bpt id="e26a197e-8fe4-4c8d-a5d3-4a60527cb1e8">&lt;strong&gt;</bpt>Database<ept id="e26a197e-8fe4-4c8d-a5d3-4a60527cb1e8">&lt;/strong&gt;</ept>: An Azure SQL database.</source>
+          <target state="new"><bpt id="e26a197e-8fe4-4c8d-a5d3-4a60527cb1e8">&lt;strong&gt;</bpt>Database<ept id="e26a197e-8fe4-4c8d-a5d3-4a60527cb1e8">&lt;/strong&gt;</ept>: An Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="8afb444e-7cf2-4392-9152-f51297b42728" xml:space="preserve">
+          <source><bpt id="8a3d37c8-ec5f-4fe8-b82e-3d0c8bdb61cd">&lt;strong&gt;</bpt>Data dependent routing<ept id="8a3d37c8-ec5f-4fe8-b82e-3d0c8bdb61cd">&lt;/strong&gt;</ept>: The functionality that enables an application to connect to a shard given a specific sharding key.</source>
+          <target state="new"><bpt id="8a3d37c8-ec5f-4fe8-b82e-3d0c8bdb61cd">&lt;strong&gt;</bpt>Data dependent routing<ept id="8a3d37c8-ec5f-4fe8-b82e-3d0c8bdb61cd">&lt;/strong&gt;</ept>: The functionality that enables an application to connect to a shard given a specific sharding key.</target>
+        </trans-unit>
+        <trans-unit id="6cad1833-8d49-4431-859c-1ea4c62ee1f6" xml:space="preserve">
+          <source>Compare to <bpt id="5ffbfe2f-0cd8-4e5f-9e56-4a3b11141c66">&lt;strong&gt;</bpt>Multi-Shard Query<ept id="5ffbfe2f-0cd8-4e5f-9e56-4a3b11141c66">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Compare to <bpt id="5ffbfe2f-0cd8-4e5f-9e56-4a3b11141c66">&lt;strong&gt;</bpt>Multi-Shard Query<ept id="5ffbfe2f-0cd8-4e5f-9e56-4a3b11141c66">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85a6779f-8d01-4b0f-9373-c60670746a05" xml:space="preserve">
+          <source><bpt id="41c58467-f64e-4059-8303-da3d82dd50ce">&lt;strong&gt;</bpt>Global shard map<ept id="41c58467-f64e-4059-8303-da3d82dd50ce">&lt;/strong&gt;</ept>: The map between sharding keys and their respective shards within a <bpt id="8467029e-18ca-4f6d-bfeb-965395f3c98f">&lt;strong&gt;</bpt>shard set<ept id="8467029e-18ca-4f6d-bfeb-965395f3c98f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="41c58467-f64e-4059-8303-da3d82dd50ce">&lt;strong&gt;</bpt>Global shard map<ept id="41c58467-f64e-4059-8303-da3d82dd50ce">&lt;/strong&gt;</ept>: The map between sharding keys and their respective shards within a <bpt id="8467029e-18ca-4f6d-bfeb-965395f3c98f">&lt;strong&gt;</bpt>shard set<ept id="8467029e-18ca-4f6d-bfeb-965395f3c98f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="839c861f-addb-4563-8a1e-873cd52e84f2" xml:space="preserve">
+          <source>The global shard map is stored in the <bpt id="2a3822aa-55f5-4da9-a74d-e5d75de51afb">&lt;strong&gt;</bpt>shard map manager<ept id="2a3822aa-55f5-4da9-a74d-e5d75de51afb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The global shard map is stored in the <bpt id="2a3822aa-55f5-4da9-a74d-e5d75de51afb">&lt;strong&gt;</bpt>shard map manager<ept id="2a3822aa-55f5-4da9-a74d-e5d75de51afb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="786910fe-b9da-4200-8818-f3db89fd8d5d" xml:space="preserve">
+          <source>Compare to <bpt id="5062dd1c-0da8-41f3-b9ab-fe6103b6a6b5">&lt;strong&gt;</bpt>local shard map<ept id="5062dd1c-0da8-41f3-b9ab-fe6103b6a6b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Compare to <bpt id="5062dd1c-0da8-41f3-b9ab-fe6103b6a6b5">&lt;strong&gt;</bpt>local shard map<ept id="5062dd1c-0da8-41f3-b9ab-fe6103b6a6b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="381637ab-e862-4f7b-baf4-f93f13a037c6" xml:space="preserve">
+          <source><bpt id="dcdc7f03-d628-470d-ad60-936eada3a021">&lt;strong&gt;</bpt>List shard map<ept id="dcdc7f03-d628-470d-ad60-936eada3a021">&lt;/strong&gt;</ept>: A shard map in which sharding keys are mapped individually.</source>
+          <target state="new"><bpt id="dcdc7f03-d628-470d-ad60-936eada3a021">&lt;strong&gt;</bpt>List shard map<ept id="dcdc7f03-d628-470d-ad60-936eada3a021">&lt;/strong&gt;</ept>: A shard map in which sharding keys are mapped individually.</target>
+        </trans-unit>
+        <trans-unit id="dfc6e366-71c7-4680-be02-929add3503a4" xml:space="preserve">
+          <source>Compare to <bpt id="ddd7d63e-5260-433b-8043-5a37ef2b1ad4">&lt;strong&gt;</bpt>Range Shard Map<ept id="ddd7d63e-5260-433b-8043-5a37ef2b1ad4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Compare to <bpt id="ddd7d63e-5260-433b-8043-5a37ef2b1ad4">&lt;strong&gt;</bpt>Range Shard Map<ept id="ddd7d63e-5260-433b-8043-5a37ef2b1ad4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b8cb914-663a-4dbd-a1d7-72f2a164902f" xml:space="preserve">
+          <source><bpt id="b596cf6b-ea5d-40ca-80e7-373e7b8873c6">&lt;strong&gt;</bpt>Local shard map<ept id="b596cf6b-ea5d-40ca-80e7-373e7b8873c6">&lt;/strong&gt;</ept>: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.</source>
+          <target state="new"><bpt id="b596cf6b-ea5d-40ca-80e7-373e7b8873c6">&lt;strong&gt;</bpt>Local shard map<ept id="b596cf6b-ea5d-40ca-80e7-373e7b8873c6">&lt;/strong&gt;</ept>: Stored on a shard, the local shard map contains mappings for the shardlets that reside on the shard.</target>
+        </trans-unit>
+        <trans-unit id="2291a88a-8f54-4dae-84cc-10efb19848fa" xml:space="preserve">
+          <source><bpt id="3b43a962-7e13-4e6b-9ffc-f24e55a01fb1">&lt;strong&gt;</bpt>Multi-shard query<ept id="3b43a962-7e13-4e6b-9ffc-f24e55a01fb1">&lt;/strong&gt;</ept>: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”).</source>
+          <target state="new"><bpt id="3b43a962-7e13-4e6b-9ffc-f24e55a01fb1">&lt;strong&gt;</bpt>Multi-shard query<ept id="3b43a962-7e13-4e6b-9ffc-f24e55a01fb1">&lt;/strong&gt;</ept>: The ability to issue a query against multiple shards; results sets are returned using UNION ALL semantics (also known as “fan-out query”).</target>
+        </trans-unit>
+        <trans-unit id="9ba25358-4df5-422d-8e9b-633f7231b758" xml:space="preserve">
+          <source>Compare to <bpt id="9cfe94c3-9d8b-4086-a904-3c9a41656074">&lt;strong&gt;</bpt>data dependent routing<ept id="9cfe94c3-9d8b-4086-a904-3c9a41656074">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Compare to <bpt id="9cfe94c3-9d8b-4086-a904-3c9a41656074">&lt;strong&gt;</bpt>data dependent routing<ept id="9cfe94c3-9d8b-4086-a904-3c9a41656074">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3283b09-c5e8-4c4a-a2f1-c547f03e142c" xml:space="preserve">
+          <source><bpt id="50d112c4-792e-4a68-ac71-e049eb2f9c02">&lt;strong&gt;</bpt>Range shard map<ept id="50d112c4-792e-4a68-ac71-e049eb2f9c02">&lt;/strong&gt;</ept>: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values.</source>
+          <target state="new"><bpt id="50d112c4-792e-4a68-ac71-e049eb2f9c02">&lt;strong&gt;</bpt>Range shard map<ept id="50d112c4-792e-4a68-ac71-e049eb2f9c02">&lt;/strong&gt;</ept>: A shard map in which the shard distribution strategy is based on multiple ranges of contiguous values.</target>
+        </trans-unit>
+        <trans-unit id="0d261497-7a15-448c-b8fc-5df6287b8aa0" xml:space="preserve">
+          <source><bpt id="1d3367f9-1763-49cf-859c-cf3b8c93d899">&lt;strong&gt;</bpt>Reference tables<ept id="1d3367f9-1763-49cf-859c-cf3b8c93d899">&lt;/strong&gt;</ept>: Tables that are not sharded but are replicated across shards.</source>
+          <target state="new"><bpt id="1d3367f9-1763-49cf-859c-cf3b8c93d899">&lt;strong&gt;</bpt>Reference tables<ept id="1d3367f9-1763-49cf-859c-cf3b8c93d899">&lt;/strong&gt;</ept>: Tables that are not sharded but are replicated across shards.</target>
+        </trans-unit>
+        <trans-unit id="6a9d214e-1b63-47ad-85c0-badded7e7717" xml:space="preserve">
+          <source>For example, zip codes can be stored in a reference table.</source>
+          <target state="new">For example, zip codes can be stored in a reference table.</target>
+        </trans-unit>
+        <trans-unit id="26aa71c6-b4bc-4f61-b209-97b956546d76" xml:space="preserve">
+          <source><bpt id="95ff285c-b72b-4c11-a6b7-58d3982c45e8">&lt;strong&gt;</bpt>Shard<ept id="95ff285c-b72b-4c11-a6b7-58d3982c45e8">&lt;/strong&gt;</ept>: An Azure SQL database that stores data from a sharded data set.</source>
+          <target state="new"><bpt id="95ff285c-b72b-4c11-a6b7-58d3982c45e8">&lt;strong&gt;</bpt>Shard<ept id="95ff285c-b72b-4c11-a6b7-58d3982c45e8">&lt;/strong&gt;</ept>: An Azure SQL database that stores data from a sharded data set.</target>
+        </trans-unit>
+        <trans-unit id="1e33115f-c738-4e53-96b9-a33de4d28c59" xml:space="preserve">
+          <source><bpt id="3950c040-6290-49db-83d1-d557e31869b2">&lt;strong&gt;</bpt>Shard elasticity<ept id="3950c040-6290-49db-83d1-d557e31869b2">&lt;/strong&gt;</ept>: The ability to perform both <bpt id="d62694b4-c9d9-42b3-8046-df28af0e4489">&lt;strong&gt;</bpt>horizontal scaling<ept id="d62694b4-c9d9-42b3-8046-df28af0e4489">&lt;/strong&gt;</ept> and <bpt id="2d991939-534f-49ee-941a-f1769c0a85d1">&lt;strong&gt;</bpt>vertical scaling<ept id="2d991939-534f-49ee-941a-f1769c0a85d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3950c040-6290-49db-83d1-d557e31869b2">&lt;strong&gt;</bpt>Shard elasticity<ept id="3950c040-6290-49db-83d1-d557e31869b2">&lt;/strong&gt;</ept>: The ability to perform both <bpt id="d62694b4-c9d9-42b3-8046-df28af0e4489">&lt;strong&gt;</bpt>horizontal scaling<ept id="d62694b4-c9d9-42b3-8046-df28af0e4489">&lt;/strong&gt;</ept> and <bpt id="2d991939-534f-49ee-941a-f1769c0a85d1">&lt;strong&gt;</bpt>vertical scaling<ept id="2d991939-534f-49ee-941a-f1769c0a85d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aea6ffc8-1d3a-460f-9f4d-b68277c8e362" xml:space="preserve">
+          <source><bpt id="942e9867-768d-4fb4-8c20-5e18d6e82c42">&lt;strong&gt;</bpt>Sharded tables<ept id="942e9867-768d-4fb4-8c20-5e18d6e82c42">&lt;/strong&gt;</ept>: Tables that are sharded, i.e., whose data is distributed across shards based on their sharding key values.</source>
+          <target state="new"><bpt id="942e9867-768d-4fb4-8c20-5e18d6e82c42">&lt;strong&gt;</bpt>Sharded tables<ept id="942e9867-768d-4fb4-8c20-5e18d6e82c42">&lt;/strong&gt;</ept>: Tables that are sharded, i.e., whose data is distributed across shards based on their sharding key values.</target>
+        </trans-unit>
+        <trans-unit id="04adeec9-e6b7-4a3f-860f-26df1db22398" xml:space="preserve">
+          <source><bpt id="51557530-9e2f-4c47-8585-856f32981e91">&lt;strong&gt;</bpt>Sharding key<ept id="51557530-9e2f-4c47-8585-856f32981e91">&lt;/strong&gt;</ept>: A column value that determines how data is distributed across shards.</source>
+          <target state="new"><bpt id="51557530-9e2f-4c47-8585-856f32981e91">&lt;strong&gt;</bpt>Sharding key<ept id="51557530-9e2f-4c47-8585-856f32981e91">&lt;/strong&gt;</ept>: A column value that determines how data is distributed across shards.</target>
+        </trans-unit>
+        <trans-unit id="a3947dbb-c56e-4fc2-8479-86346c7fcd33" xml:space="preserve">
+          <source>The value type can be one of the following: <bpt id="01d814d9-6597-43eb-bf96-1e714f510088">&lt;strong&gt;</bpt>int<ept id="01d814d9-6597-43eb-bf96-1e714f510088">&lt;/strong&gt;</ept>, <bpt id="f9f111b9-c4bb-4144-8334-2cf44a0afb65">&lt;strong&gt;</bpt>bigint<ept id="f9f111b9-c4bb-4144-8334-2cf44a0afb65">&lt;/strong&gt;</ept>, <bpt id="02e64801-07ad-44e4-bf84-782454f9541e">&lt;strong&gt;</bpt>varbinary<ept id="02e64801-07ad-44e4-bf84-782454f9541e">&lt;/strong&gt;</ept>, or <bpt id="b638f34e-ba54-4a68-9d69-26e5e90f5f67">&lt;strong&gt;</bpt>uniqueidentifier<ept id="b638f34e-ba54-4a68-9d69-26e5e90f5f67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The value type can be one of the following: <bpt id="01d814d9-6597-43eb-bf96-1e714f510088">&lt;strong&gt;</bpt>int<ept id="01d814d9-6597-43eb-bf96-1e714f510088">&lt;/strong&gt;</ept>, <bpt id="f9f111b9-c4bb-4144-8334-2cf44a0afb65">&lt;strong&gt;</bpt>bigint<ept id="f9f111b9-c4bb-4144-8334-2cf44a0afb65">&lt;/strong&gt;</ept>, <bpt id="02e64801-07ad-44e4-bf84-782454f9541e">&lt;strong&gt;</bpt>varbinary<ept id="02e64801-07ad-44e4-bf84-782454f9541e">&lt;/strong&gt;</ept>, or <bpt id="b638f34e-ba54-4a68-9d69-26e5e90f5f67">&lt;strong&gt;</bpt>uniqueidentifier<ept id="b638f34e-ba54-4a68-9d69-26e5e90f5f67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8795e87-4c53-453a-bc2c-ec80e01688fb" xml:space="preserve">
+          <source><bpt id="03ffeae0-5a26-4c26-9ada-e23045a16d49">&lt;strong&gt;</bpt>Shard set<ept id="03ffeae0-5a26-4c26-9ada-e23045a16d49">&lt;/strong&gt;</ept>: The collection of shards that are attributed to the same shard map in the shard map manager.</source>
+          <target state="new"><bpt id="03ffeae0-5a26-4c26-9ada-e23045a16d49">&lt;strong&gt;</bpt>Shard set<ept id="03ffeae0-5a26-4c26-9ada-e23045a16d49">&lt;/strong&gt;</ept>: The collection of shards that are attributed to the same shard map in the shard map manager.</target>
+        </trans-unit>
+        <trans-unit id="cc605aa7-0d88-48f4-a2b8-6f757842586a" xml:space="preserve">
+          <source><bpt id="77a6c312-5fb5-4a46-b7f4-9e296118fe61">&lt;strong&gt;</bpt>Shardlet<ept id="77a6c312-5fb5-4a46-b7f4-9e296118fe61">&lt;/strong&gt;</ept>: All of the data associated with a single value of a sharding key on a shard.</source>
+          <target state="new"><bpt id="77a6c312-5fb5-4a46-b7f4-9e296118fe61">&lt;strong&gt;</bpt>Shardlet<ept id="77a6c312-5fb5-4a46-b7f4-9e296118fe61">&lt;/strong&gt;</ept>: All of the data associated with a single value of a sharding key on a shard.</target>
+        </trans-unit>
+        <trans-unit id="f58096bb-1228-4d44-8f12-b51a010232d5" xml:space="preserve">
+          <source>A shardlet is the smallest unit of data movement possible when redistributing sharded tables.</source>
+          <target state="new">A shardlet is the smallest unit of data movement possible when redistributing sharded tables.</target>
+        </trans-unit>
+        <trans-unit id="f8b3fb6f-e8fd-459f-8255-daf33a2e7b9c" xml:space="preserve">
+          <source><bpt id="3563d237-6d4f-4bd0-a60f-9e90bede9103">&lt;strong&gt;</bpt>Shard map<ept id="3563d237-6d4f-4bd0-a60f-9e90bede9103">&lt;/strong&gt;</ept>: The set of mappings between sharding keys and their respective shards.</source>
+          <target state="new"><bpt id="3563d237-6d4f-4bd0-a60f-9e90bede9103">&lt;strong&gt;</bpt>Shard map<ept id="3563d237-6d4f-4bd0-a60f-9e90bede9103">&lt;/strong&gt;</ept>: The set of mappings between sharding keys and their respective shards.</target>
+        </trans-unit>
+        <trans-unit id="1e179e60-e4a0-4527-a5c8-1a95b687dfdb" xml:space="preserve">
+          <source><bpt id="ce9ae348-d0ee-466d-b5ad-d30fbcca8cbd">&lt;strong&gt;</bpt>Shard map manager<ept id="ce9ae348-d0ee-466d-b5ad-d30fbcca8cbd">&lt;/strong&gt;</ept>: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.</source>
+          <target state="new"><bpt id="ce9ae348-d0ee-466d-b5ad-d30fbcca8cbd">&lt;strong&gt;</bpt>Shard map manager<ept id="ce9ae348-d0ee-466d-b5ad-d30fbcca8cbd">&lt;/strong&gt;</ept>: A management object and data store that contains the shard map(s), shard locations, and mappings for one or more shard sets.</target>
+        </trans-unit>
+        <trans-unit id="d766873c-a491-4e5d-8dd3-7eaef6c7d0e3" xml:space="preserve">
+          <source><bpt id="06cce5a3-402d-446e-b611-e305ce882644">&lt;linkText&gt;</bpt>Mappings<ept id="06cce5a3-402d-446e-b611-e305ce882644">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06cce5a3-402d-446e-b611-e305ce882644">&lt;linkText&gt;</bpt>Mappings<ept id="06cce5a3-402d-446e-b611-e305ce882644">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa276f0b-a1a7-486a-ba2e-e3579638b3c9" xml:space="preserve">
+          <source><bpt id="195e8657-dbe4-4950-af07-6560e7149509">&lt;strong&gt;</bpt>Horizontal scaling<ept id="195e8657-dbe4-4950-af07-6560e7149509">&lt;/strong&gt;</ept>: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map, as shown below.</source>
+          <target state="new"><bpt id="195e8657-dbe4-4950-af07-6560e7149509">&lt;strong&gt;</bpt>Horizontal scaling<ept id="195e8657-dbe4-4950-af07-6560e7149509">&lt;/strong&gt;</ept>: The act of scaling out (or in) a collection of shards by adding or removing shards to a shard map, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="87939390-99cd-4e98-9603-ccc03b0ab6b7" xml:space="preserve">
+          <source><bpt id="757b26fd-8d05-494f-9ebd-2215044d14f2">&lt;linkText&gt;</bpt>Horizontal and vertical scaling<ept id="757b26fd-8d05-494f-9ebd-2215044d14f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="757b26fd-8d05-494f-9ebd-2215044d14f2">&lt;linkText&gt;</bpt>Horizontal and vertical scaling<ept id="757b26fd-8d05-494f-9ebd-2215044d14f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cad0308-8f55-4327-bc25-2a1a8716ccf3" xml:space="preserve">
+          <source><bpt id="2937d16b-151f-4021-8ade-0a999f9c0f53">&lt;strong&gt;</bpt>Merge<ept id="2937d16b-151f-4021-8ade-0a999f9c0f53">&lt;/strong&gt;</ept>: The act of moving shardlets from two shards to one shard and updating the shard map accordingly.</source>
+          <target state="new"><bpt id="2937d16b-151f-4021-8ade-0a999f9c0f53">&lt;strong&gt;</bpt>Merge<ept id="2937d16b-151f-4021-8ade-0a999f9c0f53">&lt;/strong&gt;</ept>: The act of moving shardlets from two shards to one shard and updating the shard map accordingly.</target>
+        </trans-unit>
+        <trans-unit id="6783197e-99bd-4bbb-9b98-fdd6625dd3f7" xml:space="preserve">
+          <source><bpt id="533fddff-4e12-4575-af23-a253d56468c1">&lt;strong&gt;</bpt>Shardlet move<ept id="533fddff-4e12-4575-af23-a253d56468c1">&lt;/strong&gt;</ept>: The act of moving a single shardlet to a different shard.</source>
+          <target state="new"><bpt id="533fddff-4e12-4575-af23-a253d56468c1">&lt;strong&gt;</bpt>Shardlet move<ept id="533fddff-4e12-4575-af23-a253d56468c1">&lt;/strong&gt;</ept>: The act of moving a single shardlet to a different shard.</target>
+        </trans-unit>
+        <trans-unit id="619dcfa2-7770-4a99-96b9-bbcf3ad37402" xml:space="preserve">
+          <source><bpt id="96a29ec3-273e-415d-954a-1ff9d5f28d68">&lt;strong&gt;</bpt>Shard<ept id="96a29ec3-273e-415d-954a-1ff9d5f28d68">&lt;/strong&gt;</ept>: The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.</source>
+          <target state="new"><bpt id="96a29ec3-273e-415d-954a-1ff9d5f28d68">&lt;strong&gt;</bpt>Shard<ept id="96a29ec3-273e-415d-954a-1ff9d5f28d68">&lt;/strong&gt;</ept>: The act of horizontally partitioning identically structured data across multiple databases based on a sharding key.</target>
+        </trans-unit>
+        <trans-unit id="0e71dff9-3b59-4f59-a864-4f36fec28c02" xml:space="preserve">
+          <source><bpt id="b1885d7d-eedf-418a-a2dd-9269a07ed279">&lt;strong&gt;</bpt>Split<ept id="b1885d7d-eedf-418a-a2dd-9269a07ed279">&lt;/strong&gt;</ept>: The act of moving several shardlets from one shard to another (typically new) shard.</source>
+          <target state="new"><bpt id="b1885d7d-eedf-418a-a2dd-9269a07ed279">&lt;strong&gt;</bpt>Split<ept id="b1885d7d-eedf-418a-a2dd-9269a07ed279">&lt;/strong&gt;</ept>: The act of moving several shardlets from one shard to another (typically new) shard.</target>
+        </trans-unit>
+        <trans-unit id="929217b0-ea41-4c9d-8b4d-8e4d3b45a3e5" xml:space="preserve">
+          <source>A sharding key is provided by the user as the split point.</source>
+          <target state="new">A sharding key is provided by the user as the split point.</target>
+        </trans-unit>
+        <trans-unit id="441a59b0-1f86-4490-82ee-6c22efbdd70e" xml:space="preserve">
+          <source><bpt id="dd5633f3-c8b1-401b-bce6-bf63660dc06d">&lt;strong&gt;</bpt>Vertical Scaling<ept id="dd5633f3-c8b1-401b-bce6-bf63660dc06d">&lt;/strong&gt;</ept>: The act of scaling up (or down) the performance level of an individual shard.</source>
+          <target state="new"><bpt id="dd5633f3-c8b1-401b-bce6-bf63660dc06d">&lt;strong&gt;</bpt>Vertical Scaling<ept id="dd5633f3-c8b1-401b-bce6-bf63660dc06d">&lt;/strong&gt;</ept>: The act of scaling up (or down) the performance level of an individual shard.</target>
+        </trans-unit>
+        <trans-unit id="4aea0cd7-695b-45b7-b2d6-3747c933667c" xml:space="preserve">
+          <source>For example, changing a shard from Standard to Premium (which results in more computing resources).</source>
+          <target state="new">For example, changing a shard from Standard to Premium (which results in more computing resources).</target>
+        </trans-unit>
+        <trans-unit id="7d5d4324-8b04-42f1-ae68-243d18a43bef" xml:space="preserve">
+          <source><bpt id="78de24f8-5235-4592-b035-5b004c3c4de3">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="78de24f8-5235-4592-b035-5b004c3c4de3">&lt;/token&gt;</ept>  </source>
+          <target state="new"><bpt id="78de24f8-5235-4592-b035-5b004c3c4de3">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="78de24f8-5235-4592-b035-5b004c3c4de3">&lt;/token&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="f430e581-c752-4a02-9575-e0e05c48b861" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-glossary/glossary.png</source>
+          <target state="new">./media/sql-database-elastic-scale-glossary/glossary.png</target>
+        </trans-unit>
+        <trans-unit id="677c36ee-2ae4-4df4-87c7-1eedad6332bb" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-glossary/mappings.png</source>
+          <target state="new">./media/sql-database-elastic-scale-glossary/mappings.png</target>
+        </trans-unit>
+        <trans-unit id="a4031a73-bc88-4c5e-a60a-1bbd3d26f5b1" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-glossary/h_versus_vert.png</source>
+          <target state="new">./media/sql-database-elastic-scale-glossary/h_versus_vert.png</target>
+        </trans-unit>
+      </group>
+      <group id="9781f87d-a790-4b60-a641-52c82eec2252" />
+    </body>
+  </file>
+</xliff>

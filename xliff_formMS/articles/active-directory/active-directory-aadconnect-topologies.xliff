@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20f62a39-0293-4b47-8ca3-b7b62206b958" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20f62a39-0293-4b47-8ca3-b7b62206b958" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2e80c6d5-980b-42c0-8fdd-03d2e2941c85">
+        <trans-unit id="978d8056-341b-476a-9a57-8dcd826d901a" xml:space="preserve">
+          <source>Topologies for Azure AD Connect | Microsoft Azure</source>
+          <target state="new">Topologies for Azure AD Connect | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5466bd29-69dd-481b-ace3-e7474f4c28ec" xml:space="preserve">
+          <source>This topic details supported and unsupported topologies for Azure AD Connect</source>
+          <target state="new">This topic details supported and unsupported topologies for Azure AD Connect</target>
+        </trans-unit>
+        <trans-unit id="13aa1ca1-d923-46c2-b195-caf6a3dc4c23" xml:space="preserve">
+          <source>The objective of this topic is to describe different on-premises and Azure AD topologies with Azure AD Connect sync as the key integration solution.</source>
+          <target state="new">The objective of this topic is to describe different on-premises and Azure AD topologies with Azure AD Connect sync as the key integration solution.</target>
+        </trans-unit>
+        <trans-unit id="c441c8dc-10a3-43af-861f-32c49670f5e7" xml:space="preserve">
+          <source>It describes both supported and unsupported configurations.</source>
+          <target state="new">It describes both supported and unsupported configurations.</target>
+        </trans-unit>
+        <trans-unit id="9868fd67-85d1-400d-889c-f259b672757e" xml:space="preserve">
+          <source>Legend for pictures in the document:</source>
+          <target state="new">Legend for pictures in the document:</target>
+        </trans-unit>
+        <trans-unit id="d247961f-2cda-4fa7-a4d2-18e6a44e7569" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3ca12972-3224-40c9-9a8d-05a9930aba6e" xml:space="preserve">
+          <source>Icon</source>
+          <target state="new">Icon</target>
+        </trans-unit>
+        <trans-unit id="4ef021cb-580a-40dd-ab8a-6cae8bd897c9" xml:space="preserve">
+          <source>On-premises Active Directory forest</source>
+          <target state="new">On-premises Active Directory forest</target>
+        </trans-unit>
+        <trans-unit id="d2196c93-6763-4930-8856-5d05ef9070a8" xml:space="preserve">
+          <source><bpt id="94c8ca46-01b9-4b88-8684-676fe00402d1">&lt;linkText&gt;</bpt>AD<ept id="94c8ca46-01b9-4b88-8684-676fe00402d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94c8ca46-01b9-4b88-8684-676fe00402d1">&lt;linkText&gt;</bpt>AD<ept id="94c8ca46-01b9-4b88-8684-676fe00402d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26769561-9108-4f57-9cd9-1816052610b4" xml:space="preserve">
+          <source>Active Directory with filtered import</source>
+          <target state="new">Active Directory with filtered import</target>
+        </trans-unit>
+        <trans-unit id="a208dc03-3c55-4731-8a3c-88c41f832c61" xml:space="preserve">
+          <source><bpt id="4ce641f0-e028-4d3b-840d-1a72bcb6be8b">&lt;linkText&gt;</bpt>AD<ept id="4ce641f0-e028-4d3b-840d-1a72bcb6be8b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ce641f0-e028-4d3b-840d-1a72bcb6be8b">&lt;linkText&gt;</bpt>AD<ept id="4ce641f0-e028-4d3b-840d-1a72bcb6be8b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7df3df5-c6a3-4b4c-8f61-41ba08486556" xml:space="preserve">
+          <source>Azure AD Connect sync server</source>
+          <target state="new">Azure AD Connect sync server</target>
+        </trans-unit>
+        <trans-unit id="db1f8373-0761-459f-952c-d1b6db66b8c8" xml:space="preserve">
+          <source><bpt id="3e256067-28ff-4f0f-97d2-238fbe111888">&lt;linkText&gt;</bpt>Sync<ept id="3e256067-28ff-4f0f-97d2-238fbe111888">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e256067-28ff-4f0f-97d2-238fbe111888">&lt;linkText&gt;</bpt>Sync<ept id="3e256067-28ff-4f0f-97d2-238fbe111888">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1d845ff-64e6-4a1d-8e57-1030f7588c52" xml:space="preserve">
+          <source>Azure AD Connect sync server “Staging mode”</source>
+          <target state="new">Azure AD Connect sync server “Staging mode”</target>
+        </trans-unit>
+        <trans-unit id="2985d6a4-ab61-4477-b69d-f6daef4eb511" xml:space="preserve">
+          <source><bpt id="42978769-252c-4b8d-a1a9-125448d5f611">&lt;linkText&gt;</bpt>Sync<ept id="42978769-252c-4b8d-a1a9-125448d5f611">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42978769-252c-4b8d-a1a9-125448d5f611">&lt;linkText&gt;</bpt>Sync<ept id="42978769-252c-4b8d-a1a9-125448d5f611">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cc280cb-1e6b-4000-ace3-ff1ea212a250" xml:space="preserve">
+          <source>GALSync with FIM2010 or MIM2016</source>
+          <target state="new">GALSync with FIM2010 or MIM2016</target>
+        </trans-unit>
+        <trans-unit id="4e198fcd-6a62-4735-b194-57c6644ad0e9" xml:space="preserve">
+          <source><bpt id="cdf0921c-3cad-42e6-86ba-132ffaae3df8">&lt;linkText&gt;</bpt>Sync<ept id="cdf0921c-3cad-42e6-86ba-132ffaae3df8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdf0921c-3cad-42e6-86ba-132ffaae3df8">&lt;linkText&gt;</bpt>Sync<ept id="cdf0921c-3cad-42e6-86ba-132ffaae3df8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a1f4344-d1ec-47a1-970c-5e6180ff2c81" xml:space="preserve">
+          <source>Azure AD Connect sync server, detailed</source>
+          <target state="new">Azure AD Connect sync server, detailed</target>
+        </trans-unit>
+        <trans-unit id="04152ea7-69c6-44fb-a897-02e9e3a2206a" xml:space="preserve">
+          <source><bpt id="3ab1f850-5c5a-45fd-89ac-3ad6f5326f84">&lt;linkText&gt;</bpt>Sync<ept id="3ab1f850-5c5a-45fd-89ac-3ad6f5326f84">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ab1f850-5c5a-45fd-89ac-3ad6f5326f84">&lt;linkText&gt;</bpt>Sync<ept id="3ab1f850-5c5a-45fd-89ac-3ad6f5326f84">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="452e5b5b-ef64-43c8-aeef-18a370423409" xml:space="preserve">
+          <source>Azure AD directory</source>
+          <target state="new">Azure AD directory</target>
+        </trans-unit>
+        <trans-unit id="fa9637ea-a9f6-4805-920d-ccb2af5d49f0" xml:space="preserve">
+          <source><bpt id="6b152da6-c83b-41d5-a29c-005dd57c46d1">&lt;linkText&gt;</bpt>AAD<ept id="6b152da6-c83b-41d5-a29c-005dd57c46d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b152da6-c83b-41d5-a29c-005dd57c46d1">&lt;linkText&gt;</bpt>AAD<ept id="6b152da6-c83b-41d5-a29c-005dd57c46d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef7165b1-698a-4f9f-b5b4-3868c09e798d" xml:space="preserve">
+          <source>Unsupported scenario</source>
+          <target state="new">Unsupported scenario</target>
+        </trans-unit>
+        <trans-unit id="c4a65e4a-37aa-4226-96b4-84709fd64499" xml:space="preserve">
+          <source><bpt id="e5e0737c-c942-4a0d-a869-c72ec11a4053">&lt;linkText&gt;</bpt>Unsupported<ept id="e5e0737c-c942-4a0d-a869-c72ec11a4053">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5e0737c-c942-4a0d-a869-c72ec11a4053">&lt;linkText&gt;</bpt>Unsupported<ept id="e5e0737c-c942-4a0d-a869-c72ec11a4053">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="310cdc87-6cf5-48f6-99c7-9f7713384a74" xml:space="preserve">
+          <source><bpt id="42d2cd43-22eb-4ef2-97aa-34c7856fe98c">&lt;linkText&gt;</bpt>SingleForestSingleDirectory<ept id="42d2cd43-22eb-4ef2-97aa-34c7856fe98c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42d2cd43-22eb-4ef2-97aa-34c7856fe98c">&lt;linkText&gt;</bpt>SingleForestSingleDirectory<ept id="42d2cd43-22eb-4ef2-97aa-34c7856fe98c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c6cd55b-dcaf-4333-b073-345cbd85aedb" xml:space="preserve">
+          <source>The most common topology is a single forest on-premises, with one or multiple domains, and a single Azure AD directory (a.k.a.</source>
+          <target state="new">The most common topology is a single forest on-premises, with one or multiple domains, and a single Azure AD directory (a.k.a.</target>
+        </trans-unit>
+        <trans-unit id="f37a28e1-f588-447b-951a-fccccd6bd6dd" xml:space="preserve">
+          <source>tenant).</source>
+          <target state="new">tenant).</target>
+        </trans-unit>
+        <trans-unit id="0c7957fc-4aa1-45cc-97d0-a7507641c7be" xml:space="preserve">
+          <source>Azure AD authentication is done with password synchronization.</source>
+          <target state="new">Azure AD authentication is done with password synchronization.</target>
+        </trans-unit>
+        <trans-unit id="68ee42b9-5680-43d0-841e-f42517a25bac" xml:space="preserve">
+          <source>This is the topology supported by the express installation of Azure AD Connect.</source>
+          <target state="new">This is the topology supported by the express installation of Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="030c2e4f-69d6-40f1-b687-b2e673bffb7f" xml:space="preserve">
+          <source><bpt id="08b46f38-515a-492a-8116-51fa8a9baf83">&lt;linkText&gt;</bpt>SingleForestFilteredUnsupported<ept id="08b46f38-515a-492a-8116-51fa8a9baf83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08b46f38-515a-492a-8116-51fa8a9baf83">&lt;linkText&gt;</bpt>SingleForestFilteredUnsupported<ept id="08b46f38-515a-492a-8116-51fa8a9baf83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e6521f0-2b63-4bbf-91ad-b7e122bf0442" xml:space="preserve">
+          <source>It is not supported to have multiple Azure AD Connect sync servers connecting to the same Azure AD directory even if they are configured to synchronize mutually exclusive set of objects (with the exception of a <bpt id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;linkText&gt;</bpt>staging server<ept id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;/linkText&gt;</ept><bpt id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;title&gt;</bpt><ept id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;/title&gt;</ept>).</source>
+          <target state="new">It is not supported to have multiple Azure AD Connect sync servers connecting to the same Azure AD directory even if they are configured to synchronize mutually exclusive set of objects (with the exception of a <bpt id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;linkText&gt;</bpt>staging server<ept id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;/linkText&gt;</ept><bpt id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;title&gt;</bpt><ept id="a6d9b9fe-20bf-4d9a-af7a-007aad5bc4f6">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="ea4ae08d-443a-4cfc-89a6-4fe2b7f009f4" xml:space="preserve">
+          <source>This could be attempted because one domain in a forest is not reachable from a common network location or in an attempt to distribute the sync load across several servers.</source>
+          <target state="new">This could be attempted because one domain in a forest is not reachable from a common network location or in an attempt to distribute the sync load across several servers.</target>
+        </trans-unit>
+        <trans-unit id="e85447e1-0bd9-4a6e-99b3-e85956c5fd36" xml:space="preserve">
+          <source><bpt id="6ea73436-a7cc-49df-abb8-3c0b08f50da6">&lt;linkText&gt;</bpt>MultiForestSingleDirectory<ept id="6ea73436-a7cc-49df-abb8-3c0b08f50da6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ea73436-a7cc-49df-abb8-3c0b08f50da6">&lt;linkText&gt;</bpt>MultiForestSingleDirectory<ept id="6ea73436-a7cc-49df-abb8-3c0b08f50da6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec539326-87b0-4bc7-bbe2-ce2ea5b0c2eb" xml:space="preserve">
+          <source>Many organizations have environments that include multiple on-premises Active Directory forests.</source>
+          <target state="new">Many organizations have environments that include multiple on-premises Active Directory forests.</target>
+        </trans-unit>
+        <trans-unit id="36266160-6b68-4331-ba18-97cf57a6ff67" xml:space="preserve">
+          <source>There are various reasons for having more than one on-premises Active Directory forest deployed.</source>
+          <target state="new">There are various reasons for having more than one on-premises Active Directory forest deployed.</target>
+        </trans-unit>
+        <trans-unit id="17a8730f-1623-4a62-972a-552d48159ec3" xml:space="preserve">
+          <source>Typical examples are designs with account-resource forests, merger and acquisitions related forests or forests used to outsource data.</source>
+          <target state="new">Typical examples are designs with account-resource forests, merger and acquisitions related forests or forests used to outsource data.</target>
+        </trans-unit>
+        <trans-unit id="a3255798-6206-4273-bf10-1ea9dae5bf9c" xml:space="preserve">
+          <source>When you have multiple forests all forests must be reachable by single Azure AD Connect sync server.</source>
+          <target state="new">When you have multiple forests all forests must be reachable by single Azure AD Connect sync server.</target>
+        </trans-unit>
+        <trans-unit id="3eec6f2c-d728-438a-bc78-3b475f917bf9" xml:space="preserve">
+          <source>The server does not have to be joined to a domain and can be placed in a network DMZ if required to be able to reach all forests.</source>
+          <target state="new">The server does not have to be joined to a domain and can be placed in a network DMZ if required to be able to reach all forests.</target>
+        </trans-unit>
+        <trans-unit id="d14bcee0-59f8-4477-a602-19add4ff16cd" xml:space="preserve">
+          <source>The Azure AD Connect wizard will offer several options for how to consolidate users so even if the same user is represented multiple times in different forests, the user will be represented only once in Azure AD.</source>
+          <target state="new">The Azure AD Connect wizard will offer several options for how to consolidate users so even if the same user is represented multiple times in different forests, the user will be represented only once in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="7f33649a-0d30-45db-ac19-d66ff7d11a63" xml:space="preserve">
+          <source>There are some common topologies described below.</source>
+          <target state="new">There are some common topologies described below.</target>
+        </trans-unit>
+        <trans-unit id="96de42e8-ca5c-427a-b4a2-e83877ca4e36" xml:space="preserve">
+          <source>You configure which topology you have by using the custom installation path in the installation wizard and select the corresponding option on the page “Uniquely identifying your users”.</source>
+          <target state="new">You configure which topology you have by using the custom installation path in the installation wizard and select the corresponding option on the page “Uniquely identifying your users”.</target>
+        </trans-unit>
+        <trans-unit id="4c894dbb-dd68-437c-83f6-46c6c904eae4" xml:space="preserve">
+          <source>The consolidation is only happening for users.</source>
+          <target state="new">The consolidation is only happening for users.</target>
+        </trans-unit>
+        <trans-unit id="5f9e1934-471d-44eb-b083-515fa422943d" xml:space="preserve">
+          <source>If groups are duplicated, these are not consolidated with the default configuration.</source>
+          <target state="new">If groups are duplicated, these are not consolidated with the default configuration.</target>
+        </trans-unit>
+        <trans-unit id="4d2efccb-4391-42c4-9c01-b635dc365a67" xml:space="preserve">
+          <source>Common topologies are discussed in the next section: <bpt id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;linkText&gt;</bpt>Separate topologies<ept id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;/linkText&gt;</ept><bpt id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;title&gt;</bpt><ept id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;/title&gt;</ept>, <bpt id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;linkText&gt;</bpt>Full mesh<ept id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;/linkText&gt;</ept><bpt id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;title&gt;</bpt><ept id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;/title&gt;</ept>, and <bpt id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;linkText&gt;</bpt>Account-Resource<ept id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;/linkText&gt;</ept><bpt id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;title&gt;</bpt><ept id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Common topologies are discussed in the next section: <bpt id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;linkText&gt;</bpt>Separate topologies<ept id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;/linkText&gt;</ept><bpt id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;title&gt;</bpt><ept id="1e7b73fe-47b8-4a94-8f8c-17849382a5ad">&lt;/title&gt;</ept>, <bpt id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;linkText&gt;</bpt>Full mesh<ept id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;/linkText&gt;</ept><bpt id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;title&gt;</bpt><ept id="1e424ae2-da0e-4530-9344-4f752deebb41">&lt;/title&gt;</ept>, and <bpt id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;linkText&gt;</bpt>Account-Resource<ept id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;/linkText&gt;</ept><bpt id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;title&gt;</bpt><ept id="f26ec1fe-bfde-4a31-9f45-03bc0168eea6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ea7d59f-ba57-4a46-a1ca-7e5263081d04" xml:space="preserve">
+          <source>In the default configuration delivered by Azure AD Connect sync, the following assumptions are made:</source>
+          <target state="new">In the default configuration delivered by Azure AD Connect sync, the following assumptions are made:</target>
+        </trans-unit>
+        <trans-unit id="5283b0f8-3648-4d18-aa9a-8d73b52456fe" xml:space="preserve">
+          <source>Users have only one enabled account and the forest where this account is located is used to authenticate the user.</source>
+          <target state="new">Users have only one enabled account and the forest where this account is located is used to authenticate the user.</target>
+        </trans-unit>
+        <trans-unit id="78085e4e-88c9-49ae-985c-87a4c577da81" xml:space="preserve">
+          <source>This is for both password sync and for federation; userPrincipalName and sourceAnchor/immutableID will come from this forest.</source>
+          <target state="new">This is for both password sync and for federation; userPrincipalName and sourceAnchor/immutableID will come from this forest.</target>
+        </trans-unit>
+        <trans-unit id="9664c387-a660-4477-8a65-9296ccfdcca0" xml:space="preserve">
+          <source>Users have only one mailbox.</source>
+          <target state="new">Users have only one mailbox.</target>
+        </trans-unit>
+        <trans-unit id="2bdc0cc3-f005-4717-bc67-2222794d9de1" xml:space="preserve">
+          <source>The forest that hosts a user’s mailbox has the best data quality for attributes visible in the Exchange Global Address List (GAL).</source>
+          <target state="new">The forest that hosts a user’s mailbox has the best data quality for attributes visible in the Exchange Global Address List (GAL).</target>
+        </trans-unit>
+        <trans-unit id="8bb61d27-7906-4b52-9c3a-8d7cfb153e70" xml:space="preserve">
+          <source>If there is no mailbox on the user, then any forest can be used to contribute these attribute values.</source>
+          <target state="new">If there is no mailbox on the user, then any forest can be used to contribute these attribute values.</target>
+        </trans-unit>
+        <trans-unit id="e01a8d3f-f300-43d9-ae15-f7e9072b4869" xml:space="preserve">
+          <source>If you have a linked mailbox, then there is also another account in different forest used for login.</source>
+          <target state="new">If you have a linked mailbox, then there is also another account in different forest used for login.</target>
+        </trans-unit>
+        <trans-unit id="a3edce51-8ca1-42e4-95d6-46bf4f5f997e" xml:space="preserve">
+          <source>If your environment does not match these assumptions, the following will happen:</source>
+          <target state="new">If your environment does not match these assumptions, the following will happen:</target>
+        </trans-unit>
+        <trans-unit id="7d635ce2-9047-4486-80e3-0b4a8f659d34" xml:space="preserve">
+          <source>If you have more than one active account or more than one mailbox, the sync engine will pick one and ignore the other.</source>
+          <target state="new">If you have more than one active account or more than one mailbox, the sync engine will pick one and ignore the other.</target>
+        </trans-unit>
+        <trans-unit id="4e994426-a1e1-4607-b6e7-39318832c73d" xml:space="preserve">
+          <source>If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and the user will not be a member of any groups.</source>
+          <target state="new">If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and the user will not be a member of any groups.</target>
+        </trans-unit>
+        <trans-unit id="bd339051-070f-4280-a37f-30a09b34e3b8" xml:space="preserve">
+          <source>In DirSync a linked mailbox would be represented as a normal mailbox so this is intentionally a different behavior to better support multi forest scenarios.</source>
+          <target state="new">In DirSync a linked mailbox would be represented as a normal mailbox so this is intentionally a different behavior to better support multi forest scenarios.</target>
+        </trans-unit>
+        <trans-unit id="2a37dd46-4ee7-4727-917c-b6cbc463df78" xml:space="preserve">
+          <source><bpt id="7b2f0425-632e-4163-9443-2bc438337ffc">&lt;linkText&gt;</bpt>MultiForestMultiSyncUnsupported<ept id="7b2f0425-632e-4163-9443-2bc438337ffc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7b2f0425-632e-4163-9443-2bc438337ffc">&lt;linkText&gt;</bpt>MultiForestMultiSyncUnsupported<ept id="7b2f0425-632e-4163-9443-2bc438337ffc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e08fcf2-f9de-4439-885d-b1d6b266f83e" xml:space="preserve">
+          <source>It is not supported to have more than one Azure AD Connect Sync server connected to a single Azure AD directory (with the exception of a <bpt id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;linkText&gt;</bpt>staging server<ept id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;/linkText&gt;</ept><bpt id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;title&gt;</bpt><ept id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;/title&gt;</ept>).</source>
+          <target state="new">It is not supported to have more than one Azure AD Connect Sync server connected to a single Azure AD directory (with the exception of a <bpt id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;linkText&gt;</bpt>staging server<ept id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;/linkText&gt;</ept><bpt id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;title&gt;</bpt><ept id="7444ec3b-29be-450d-a9f1-16c9ac7f7cd2">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="5da667ef-469d-49ef-9bd6-de4453ab8dc4" xml:space="preserve">
+          <source>“Users are represented only once across all directories”</source>
+          <target state="new">“Users are represented only once across all directories”</target>
+        </trans-unit>
+        <trans-unit id="50d3b82b-54db-4466-9900-c7ffe6c58940" xml:space="preserve">
+          <source><bpt id="2671a240-c5a1-4943-bd61-b3395dd754e5">&lt;linkText&gt;</bpt>MultiForestUsersOnce<ept id="2671a240-c5a1-4943-bd61-b3395dd754e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2671a240-c5a1-4943-bd61-b3395dd754e5">&lt;linkText&gt;</bpt>MultiForestUsersOnce<ept id="2671a240-c5a1-4943-bd61-b3395dd754e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64c0da4b-6dbe-451d-a8ab-946485b11ac7" xml:space="preserve">
+          <source><bpt id="536aee33-7c34-4569-8185-035cb4ae1f90">&lt;linkText&gt;</bpt>MultiForestSeperateTopologies<ept id="536aee33-7c34-4569-8185-035cb4ae1f90">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="536aee33-7c34-4569-8185-035cb4ae1f90">&lt;linkText&gt;</bpt>MultiForestSeperateTopologies<ept id="536aee33-7c34-4569-8185-035cb4ae1f90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e4a6236-baad-43ef-83c7-6485e8d3e805" xml:space="preserve">
+          <source>In this environment, all forests on-premises are treated as separate entities and no user would be present in any other forest.</source>
+          <target state="new">In this environment, all forests on-premises are treated as separate entities and no user would be present in any other forest.</target>
+        </trans-unit>
+        <trans-unit id="b45edacd-02fd-4a21-8d6e-2b444d2e4b7d" xml:space="preserve">
+          <source>Each forest has its own Exchange organization and there is no GALSync between the forests.</source>
+          <target state="new">Each forest has its own Exchange organization and there is no GALSync between the forests.</target>
+        </trans-unit>
+        <trans-unit id="93bd0b5d-d2e6-4477-89de-e98d562a2bd3" xml:space="preserve">
+          <source>This could be the situation after a merger/acquisition or in an organization where each business unit is operating isolated from each other.</source>
+          <target state="new">This could be the situation after a merger/acquisition or in an organization where each business unit is operating isolated from each other.</target>
+        </trans-unit>
+        <trans-unit id="38f63593-c627-4fa1-bde3-7350929ff0e3" xml:space="preserve">
+          <source>In Azure AD these forests will be in the same organization and appear with a unified GAL.</source>
+          <target state="new">In Azure AD these forests will be in the same organization and appear with a unified GAL.</target>
+        </trans-unit>
+        <trans-unit id="863dbeeb-e0c9-427e-b530-9fe9138de569" xml:space="preserve">
+          <source>In this picture, each object in every forest will be represented once in the metaverse and aggregated in the target Azure AD directory.</source>
+          <target state="new">In this picture, each object in every forest will be represented once in the metaverse and aggregated in the target Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="14b6c141-b031-4f35-9461-68d20344b4dc" xml:space="preserve">
+          <source>Common for all multi-forest scenarios where you select one of the options under “User identities exist across multiple directories” is that distribution and security groups can be found in every forest and can contain a mix of users, contacts, and FSPs (Foreign Security Principals).</source>
+          <target state="new">Common for all multi-forest scenarios where you select one of the options under “User identities exist across multiple directories” is that distribution and security groups can be found in every forest and can contain a mix of users, contacts, and FSPs (Foreign Security Principals).</target>
+        </trans-unit>
+        <trans-unit id="ef5e17dc-da9f-475b-95fb-9e9980b2a5cf" xml:space="preserve">
+          <source>FSPs are used in ADDS to represent members from other forests in a security group.</source>
+          <target state="new">FSPs are used in ADDS to represent members from other forests in a security group.</target>
+        </trans-unit>
+        <trans-unit id="9e6c6d59-5d74-4289-9f5a-76e88a31fd2a" xml:space="preserve">
+          <source>The sync engine will resolve the FSP to the real user and represent the security group in Azure AD with all FSPs resolved to the real object.</source>
+          <target state="new">The sync engine will resolve the FSP to the real user and represent the security group in Azure AD with all FSPs resolved to the real object.</target>
+        </trans-unit>
+        <trans-unit id="675ef8ec-8d26-4204-b1d9-9712fce1a75c" xml:space="preserve">
+          <source>“User identities exist across multiple directories.</source>
+          <target state="new">“User identities exist across multiple directories.</target>
+        </trans-unit>
+        <trans-unit id="c569c654-60d1-4c4c-9a70-37560cc97a86" xml:space="preserve">
+          <source>Match using: Mail attribute”</source>
+          <target state="new">Match using: Mail attribute”</target>
+        </trans-unit>
+        <trans-unit id="dae65e71-d0fe-4441-aa40-b7383982a331" xml:space="preserve">
+          <source><bpt id="23edc269-328a-4969-9b2f-f77a29a64023">&lt;linkText&gt;</bpt>MultiForestUsersMail<ept id="23edc269-328a-4969-9b2f-f77a29a64023">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23edc269-328a-4969-9b2f-f77a29a64023">&lt;linkText&gt;</bpt>MultiForestUsersMail<ept id="23edc269-328a-4969-9b2f-f77a29a64023">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c8b6226-2e58-446b-b814-b713f0913678" xml:space="preserve">
+          <source><bpt id="5bf6e211-4fdd-4e33-83d5-c9edccc76614">&lt;linkText&gt;</bpt>MultiForestFullMesh<ept id="5bf6e211-4fdd-4e33-83d5-c9edccc76614">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bf6e211-4fdd-4e33-83d5-c9edccc76614">&lt;linkText&gt;</bpt>MultiForestFullMesh<ept id="5bf6e211-4fdd-4e33-83d5-c9edccc76614">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ac7ada9-914a-4f87-ba6f-fd941da8b0a2" xml:space="preserve">
+          <source>A full mesh topology allows users and resources to be located in any forest and commonly there would be two-way trusts between the forests.</source>
+          <target state="new">A full mesh topology allows users and resources to be located in any forest and commonly there would be two-way trusts between the forests.</target>
+        </trans-unit>
+        <trans-unit id="6e69e2bb-2469-4536-9208-07477f9dd98c" xml:space="preserve">
+          <source>If Exchange is present in more than one forest, there could optionally be an on-premises GALSync solution representing a user in one forest as a contact in every other forest.</source>
+          <target state="new">If Exchange is present in more than one forest, there could optionally be an on-premises GALSync solution representing a user in one forest as a contact in every other forest.</target>
+        </trans-unit>
+        <trans-unit id="79eddd91-7718-4763-a7f2-36f7d9a456f8" xml:space="preserve">
+          <source>GALSync is commonly implemented using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016.</source>
+          <target state="new">GALSync is commonly implemented using Forefront Identity Manager 2010 or Microsoft Identity Manager 2016.</target>
+        </trans-unit>
+        <trans-unit id="d1c40adc-9310-40eb-8f04-770a8a3d72e1" xml:space="preserve">
+          <source>Azure AD Connect cannot be used for on-premises GALSync.</source>
+          <target state="new">Azure AD Connect cannot be used for on-premises GALSync.</target>
+        </trans-unit>
+        <trans-unit id="ff77708b-d3af-40f0-bab1-b21e0d5b61fa" xml:space="preserve">
+          <source>In this scenario, identity objects are joined using the mail attribute.</source>
+          <target state="new">In this scenario, identity objects are joined using the mail attribute.</target>
+        </trans-unit>
+        <trans-unit id="e7a2c234-e861-4dd9-b6d1-fb2971175b08" xml:space="preserve">
+          <source>As a consequence of this, a user with a mailbox in one forest is joined with the contacts in the other forests.</source>
+          <target state="new">As a consequence of this, a user with a mailbox in one forest is joined with the contacts in the other forests.</target>
+        </trans-unit>
+        <trans-unit id="561f2a09-53ff-4276-9505-468e0359cf63" xml:space="preserve">
+          <source>“User identities exist across multiple directories.</source>
+          <target state="new">“User identities exist across multiple directories.</target>
+        </trans-unit>
+        <trans-unit id="a7a4aa98-80e2-41a5-83cd-6ba255fee4d4" xml:space="preserve">
+          <source>Match using: ObjectSID and msExchMasterAccountSID attributes”</source>
+          <target state="new">Match using: ObjectSID and msExchMasterAccountSID attributes”</target>
+        </trans-unit>
+        <trans-unit id="fe936059-4f1a-4d7c-83b9-117f84f89447" xml:space="preserve">
+          <source><bpt id="c2f0630d-4c8d-431c-ae27-cdd7833e787f">&lt;linkText&gt;</bpt>MultiForestUsersObjectSID<ept id="c2f0630d-4c8d-431c-ae27-cdd7833e787f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2f0630d-4c8d-431c-ae27-cdd7833e787f">&lt;linkText&gt;</bpt>MultiForestUsersObjectSID<ept id="c2f0630d-4c8d-431c-ae27-cdd7833e787f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4068fdb0-16a7-455b-bc0b-fbc3d55d6e99" xml:space="preserve">
+          <source><bpt id="286cc695-3b89-416b-9bef-81947259e7cc">&lt;linkText&gt;</bpt>MultiForestAccountResource<ept id="286cc695-3b89-416b-9bef-81947259e7cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="286cc695-3b89-416b-9bef-81947259e7cc">&lt;linkText&gt;</bpt>MultiForestAccountResource<ept id="286cc695-3b89-416b-9bef-81947259e7cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61395ac7-3d98-4bf6-a127-07fa5c40d45f" xml:space="preserve">
+          <source>In an account-resource forest topology, you have one or more account forests with active user accounts.</source>
+          <target state="new">In an account-resource forest topology, you have one or more account forests with active user accounts.</target>
+        </trans-unit>
+        <trans-unit id="869bb976-f5cd-49fe-bc98-7b8ec1255bf7" xml:space="preserve">
+          <source>This scenario includes one forest that trusts all account forests.</source>
+          <target state="new">This scenario includes one forest that trusts all account forests.</target>
+        </trans-unit>
+        <trans-unit id="5b573387-c89c-4255-a821-73979f812a1d" xml:space="preserve">
+          <source>This forest has typically an extended AD schema with Exchange and Lync.</source>
+          <target state="new">This forest has typically an extended AD schema with Exchange and Lync.</target>
+        </trans-unit>
+        <trans-unit id="6794a5f2-f538-4999-b350-80f2ece8d02c" xml:space="preserve">
+          <source>All Exchange and Lync services as well as other shared services are located in this forest.</source>
+          <target state="new">All Exchange and Lync services as well as other shared services are located in this forest.</target>
+        </trans-unit>
+        <trans-unit id="728fafbe-6b41-4256-bba6-fedc01d44d4f" xml:space="preserve">
+          <source>Users have a disabled user account in this forest and the mailbox is linked to the account forest.</source>
+          <target state="new">Users have a disabled user account in this forest and the mailbox is linked to the account forest.</target>
+        </trans-unit>
+        <trans-unit id="ab71c035-12c1-40a8-a87d-07d53535f484" xml:space="preserve">
+          <source>Some Office 365 workloads have certain restrictions to supported topologies.</source>
+          <target state="new">Some Office 365 workloads have certain restrictions to supported topologies.</target>
+        </trans-unit>
+        <trans-unit id="4fa59847-fd19-4100-b31e-d9b6fdf99b19" xml:space="preserve">
+          <source>If you plan to use any of these, please refer to each workload’s supported topologies pages.</source>
+          <target state="new">If you plan to use any of these, please refer to each workload’s supported topologies pages.</target>
+        </trans-unit>
+        <trans-unit id="015b9300-20ce-4e83-8b5b-d8cd037bd3a2" xml:space="preserve">
+          <source>Workload</source>
+          <target state="new">Workload</target>
+        </trans-unit>
+        <trans-unit id="a7048795-d199-4de7-a2f1-d5c1fc9bc273" xml:space="preserve">
+          <source>Exchange Online</source>
+          <target state="new">Exchange Online</target>
+        </trans-unit>
+        <trans-unit id="9f3336ba-c9c2-4b8a-b586-74e50bd6b57f" xml:space="preserve">
+          <source>If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later.</source>
+          <target state="new">If there is more than one Exchange organization on-premises (i.e. Exchange has been deployed to more than one forest) then you must use Exchange 2013 SP1 or later.</target>
+        </trans-unit>
+        <trans-unit id="30357c76-ed1d-478b-aead-df251ca1fdb3" xml:space="preserve">
+          <source>Details can be found here: <bpt id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;linkText&gt;</bpt>Hybrid deployments with multiple Active Directory forests<ept id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;/linkText&gt;</ept><bpt id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;title&gt;</bpt><ept id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;/title&gt;</ept></source>
+          <target state="new">Details can be found here: <bpt id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;linkText&gt;</bpt>Hybrid deployments with multiple Active Directory forests<ept id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;/linkText&gt;</ept><bpt id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;title&gt;</bpt><ept id="af898b6c-5428-465a-8a50-e25cb8c1f278">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b8a3ef7-8f5a-4811-aa6f-0d4cb28eefed" xml:space="preserve">
+          <source>Skype for Business</source>
+          <target state="new">Skype for Business</target>
+        </trans-unit>
+        <trans-unit id="b56c0524-6da9-4c05-b885-7244e201f675" xml:space="preserve">
+          <source>When using multiple forests on-premises then only the account-resource forest topology is supported.</source>
+          <target state="new">When using multiple forests on-premises then only the account-resource forest topology is supported.</target>
+        </trans-unit>
+        <trans-unit id="16b1a379-7771-4e64-9685-4bc1a1394958" xml:space="preserve">
+          <source>Details for supported topologies can be found here: <bpt id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;linkText&gt;</bpt>Environmental requirements for Skype for Business Server 2015<ept id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;/linkText&gt;</ept><bpt id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;title&gt;</bpt><ept id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;/title&gt;</ept></source>
+          <target state="new">Details for supported topologies can be found here: <bpt id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;linkText&gt;</bpt>Environmental requirements for Skype for Business Server 2015<ept id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;/linkText&gt;</ept><bpt id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;title&gt;</bpt><ept id="aeb95b7a-53f4-4f46-8e76-fba7647b1cc1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57208411-aba9-43d8-bad0-e89e8c70f56e" xml:space="preserve">
+          <source><bpt id="03882183-99bc-434e-bd27-e5914d24affa">&lt;linkText&gt;</bpt>StagingServer<ept id="03882183-99bc-434e-bd27-e5914d24affa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03882183-99bc-434e-bd27-e5914d24affa">&lt;linkText&gt;</bpt>StagingServer<ept id="03882183-99bc-434e-bd27-e5914d24affa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed5752c8-a084-4e0a-9949-5773cc757be5" xml:space="preserve">
+          <source>Azure AD Connect supports installing a second server in “Staging mode”.</source>
+          <target state="new">Azure AD Connect supports installing a second server in “Staging mode”.</target>
+        </trans-unit>
+        <trans-unit id="0c90cd45-83b9-48b5-a2db-bfb001d7f513" xml:space="preserve">
+          <source>A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data.</source>
+          <target state="new">A server in this mode will only read data from all connected directories and will therefore have an updated copy of the identity data.</target>
+        </trans-unit>
+        <trans-unit id="45bdd5b3-97d1-42d4-93e1-cd8172e05c8e" xml:space="preserve">
+          <source>In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard.</source>
+          <target state="new">In case of a disaster where the primary server fails, it is easy to manually fail over to the second server using the Azure AD Connect wizard.</target>
+        </trans-unit>
+        <trans-unit id="021456a2-2b59-4371-957e-7a7face2b3c8" xml:space="preserve">
+          <source>This second server can preferable be located in a different datacenter since no infrastructure is shared with the primary server.</source>
+          <target state="new">This second server can preferable be located in a different datacenter since no infrastructure is shared with the primary server.</target>
+        </trans-unit>
+        <trans-unit id="415d6b3d-fc7d-470f-a691-80e1854b6a6b" xml:space="preserve">
+          <source>Any configuration change made on the primary server must be copied to the second server by you.</source>
+          <target state="new">Any configuration change made on the primary server must be copied to the second server by you.</target>
+        </trans-unit>
+        <trans-unit id="3aa3b168-2391-43f8-8e8b-23819e496c41" xml:space="preserve">
+          <source>A staging server can also be used if you want to test a new custom configuration and the effect it will have on your data.</source>
+          <target state="new">A staging server can also be used if you want to test a new custom configuration and the effect it will have on your data.</target>
+        </trans-unit>
+        <trans-unit id="bbd8de54-20ad-49a5-aab5-78800259284c" xml:space="preserve">
+          <source>You can preview the changes and adjust the configuration.</source>
+          <target state="new">You can preview the changes and adjust the configuration.</target>
+        </trans-unit>
+        <trans-unit id="0758d2b5-1e99-4fc7-b733-ec28f677112e" xml:space="preserve">
+          <source>When you are happy with the new configuration you can make the staging server the active server and set the old active server in staging mode.</source>
+          <target state="new">When you are happy with the new configuration you can make the staging server the active server and set the old active server in staging mode.</target>
+        </trans-unit>
+        <trans-unit id="d91c8931-cd62-436d-b400-e8009565c437" xml:space="preserve">
+          <source>This method can also be used if you want to replace the sync server and want to prepare the new one before you shut down the currently active server.</source>
+          <target state="new">This method can also be used if you want to replace the sync server and want to prepare the new one before you shut down the currently active server.</target>
+        </trans-unit>
+        <trans-unit id="f5565fef-4eb2-404b-b3c1-b8ff62e2354c" xml:space="preserve">
+          <source>It is possible to have more than one staging server if you want to have multiple backups in different data centers.</source>
+          <target state="new">It is possible to have more than one staging server if you want to have multiple backups in different data centers.</target>
+        </trans-unit>
+        <trans-unit id="0c60fba8-8478-4eee-a806-036296be4429" xml:space="preserve">
+          <source>Microsoft recommends to have a single directory in Azure AD for an organization.</source>
+          <target state="new">Microsoft recommends to have a single directory in Azure AD for an organization.</target>
+        </trans-unit>
+        <trans-unit id="b68edf10-87c5-49ad-bad0-cd59cab8a493" xml:space="preserve">
+          <source>Before you plan to use multiple Azure AD directories these topics cover common scenarios which will allow you to use a single directory.</source>
+          <target state="new">Before you plan to use multiple Azure AD directories these topics cover common scenarios which will allow you to use a single directory.</target>
+        </trans-unit>
+        <trans-unit id="a4ad03a5-e5c8-4171-bfdc-634a6efd0733" xml:space="preserve">
+          <source>Topic</source>
+          <target state="new">Topic</target>
+        </trans-unit>
+        <trans-unit id="553a3d14-dd49-4dc9-967e-5fbb92000939" xml:space="preserve">
+          <source>Delegation using administrative units</source>
+          <target state="new">Delegation using administrative units</target>
+        </trans-unit>
+        <trans-unit id="106d433c-9cef-4c56-a042-71622bace170" xml:space="preserve">
+          <source><bpt id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;linkText&gt;</bpt>Administrative units management in Azure AD <ept id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;/linkText&gt;</ept><bpt id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;title&gt;</bpt><ept id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;linkText&gt;</bpt>Administrative units management in Azure AD <ept id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;/linkText&gt;</ept><bpt id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;title&gt;</bpt><ept id="6d998759-198f-41f0-ac36-198bbef4c74e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66aef700-09eb-4a3a-b2fb-52ed7853a369" xml:space="preserve">
+          <source><bpt id="9db38028-b504-4883-801f-7e850c71ecb0">&lt;linkText&gt;</bpt>MultiForestMultiDirectory<ept id="9db38028-b504-4883-801f-7e850c71ecb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9db38028-b504-4883-801f-7e850c71ecb0">&lt;linkText&gt;</bpt>MultiForestMultiDirectory<ept id="9db38028-b504-4883-801f-7e850c71ecb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c6f7a9a-d60c-4f7b-8e7e-be99b0bbfbf0" xml:space="preserve">
+          <source>There is a 1:1 relationship between an Azure AD Connect sync server and an Azure AD directory.</source>
+          <target state="new">There is a 1:1 relationship between an Azure AD Connect sync server and an Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="1cb3c666-f349-4665-8f53-324c7c4b17e7" xml:space="preserve">
+          <source>For each Azure AD directory, you will need one Azure AD Connect sync server installation.</source>
+          <target state="new">For each Azure AD directory, you will need one Azure AD Connect sync server installation.</target>
+        </trans-unit>
+        <trans-unit id="00cf6043-860c-4134-a9c2-525ad5a5bdb9" xml:space="preserve">
+          <source>The Azure AD directory instances are by design isolated and users in one will not be able to see users in the other directory.</source>
+          <target state="new">The Azure AD directory instances are by design isolated and users in one will not be able to see users in the other directory.</target>
+        </trans-unit>
+        <trans-unit id="35b25c8d-9c9d-4d69-9800-6cfd5e1e9975" xml:space="preserve">
+          <source>If this is intended, this is a supported configuration but otherwise you should use the Single Azure AD directory models described above.</source>
+          <target state="new">If this is intended, this is a supported configuration but otherwise you should use the Single Azure AD directory models described above.</target>
+        </trans-unit>
+        <trans-unit id="bd9a7482-3499-4599-b364-ea3505736edd" xml:space="preserve">
+          <source><bpt id="2f967d33-2c20-4642-9444-b294fd080a6e">&lt;linkText&gt;</bpt>SingleForestFiltered<ept id="2f967d33-2c20-4642-9444-b294fd080a6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f967d33-2c20-4642-9444-b294fd080a6e">&lt;linkText&gt;</bpt>SingleForestFiltered<ept id="2f967d33-2c20-4642-9444-b294fd080a6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84cf62ce-7387-40ee-946f-77c829d44b6c" xml:space="preserve">
+          <source>In this topology one AAD Connect Sync server is connected to each Azure AD Directory.</source>
+          <target state="new">In this topology one AAD Connect Sync server is connected to each Azure AD Directory.</target>
+        </trans-unit>
+        <trans-unit id="ea3b0f74-36c1-48f9-8981-b78b4d718a2d" xml:space="preserve">
+          <source>The Azure AD Connect sync servers must be configured for filtering so they each have a mutually exclusive set of objects to operate on, for example by scoping each server to a particular domain.</source>
+          <target state="new">The Azure AD Connect sync servers must be configured for filtering so they each have a mutually exclusive set of objects to operate on, for example by scoping each server to a particular domain.</target>
+        </trans-unit>
+        <trans-unit id="92eee43b-bd86-45eb-9440-f0ba28358a00" xml:space="preserve">
+          <source>A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-premises AD must use separate namespaces as well.</source>
+          <target state="new">A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-premises AD must use separate namespaces as well.</target>
+        </trans-unit>
+        <trans-unit id="c78f77dc-c7ec-4ad1-a848-8d28b6a5aa3f" xml:space="preserve">
+          <source>For example, in the picture above three separate UPN suffixes are registered in the on-premises AD: contoso.com, fabrikam.com, and wingtiptoys.com.</source>
+          <target state="new">For example, in the picture above three separate UPN suffixes are registered in the on-premises AD: contoso.com, fabrikam.com, and wingtiptoys.com.</target>
+        </trans-unit>
+        <trans-unit id="f83543c6-7aa0-423a-bc35-15096d18656b" xml:space="preserve">
+          <source>The users in each on-premises AD domain use a different namespace.</source>
+          <target state="new">The users in each on-premises AD domain use a different namespace.</target>
+        </trans-unit>
+        <trans-unit id="f532265d-6ffa-400d-abb6-e3e1a731fbb4" xml:space="preserve">
+          <source>In this topology there is no “GALsync” between the Azure AD directory instances so the address book in Exchange Online and Skype for Business will only show users in the same directory.</source>
+          <target state="new">In this topology there is no “GALsync” between the Azure AD directory instances so the address book in Exchange Online and Skype for Business will only show users in the same directory.</target>
+        </trans-unit>
+        <trans-unit id="82de24ad-658a-448c-be82-00efffc287e9" xml:space="preserve">
+          <source>With this topology only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.</source>
+          <target state="new">With this topology only one of the Azure AD directories can enable Exchange hybrid with the on-premises Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="ecd92c12-3e75-4b9c-84e2-2cb82aba3421" xml:space="preserve">
+          <source>The requirement for mutually exclusive set of objects also applies to write-back.</source>
+          <target state="new">The requirement for mutually exclusive set of objects also applies to write-back.</target>
+        </trans-unit>
+        <trans-unit id="0a53e01e-57bd-449d-a699-fefdc7dcfec9" xml:space="preserve">
+          <source>This makes some writeback features not supported with this topology since these assume a single configuration on-premises.</source>
+          <target state="new">This makes some writeback features not supported with this topology since these assume a single configuration on-premises.</target>
+        </trans-unit>
+        <trans-unit id="3465b360-5929-4279-93e3-57776d21bf11" xml:space="preserve">
+          <source>This includes:</source>
+          <target state="new">This includes:</target>
+        </trans-unit>
+        <trans-unit id="9879d4fb-e135-4044-9c81-392204906d0b" xml:space="preserve">
+          <source>Group writeback with default configuration</source>
+          <target state="new">Group writeback with default configuration</target>
+        </trans-unit>
+        <trans-unit id="568d9a52-60d6-40de-8a69-1c5f640cd3b1" xml:space="preserve">
+          <source>Device writeback</source>
+          <target state="new">Device writeback</target>
+        </trans-unit>
+        <trans-unit id="676099e8-db0d-40a0-994a-cac77a23796c" xml:space="preserve">
+          <source><bpt id="817ab047-0fb8-4c6b-98b8-11120698cae2">&lt;linkText&gt;</bpt>SingleForestMultiDirectoryUnsupported<ept id="817ab047-0fb8-4c6b-98b8-11120698cae2">&lt;/linkText&gt;</ept> <bpt id="28d431dc-554a-460f-83ff-e89e2d4f1521">&lt;linkText&gt;</bpt>SingleForestMultiConnectorsUnsupported<ept id="28d431dc-554a-460f-83ff-e89e2d4f1521">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="817ab047-0fb8-4c6b-98b8-11120698cae2">&lt;linkText&gt;</bpt>SingleForestMultiDirectoryUnsupported<ept id="817ab047-0fb8-4c6b-98b8-11120698cae2">&lt;/linkText&gt;</ept> <bpt id="28d431dc-554a-460f-83ff-e89e2d4f1521">&lt;linkText&gt;</bpt>SingleForestMultiConnectorsUnsupported<ept id="28d431dc-554a-460f-83ff-e89e2d4f1521">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5f4e7d4-1f5d-40a8-99a7-c45fa1386b6d" xml:space="preserve">
+          <source>It is unsupported to sync the same user to multiple Azure AD directories.</source>
+          <target state="new">It is unsupported to sync the same user to multiple Azure AD directories.</target>
+        </trans-unit>
+        <trans-unit id="89f1d300-fb70-410b-9b0e-ce29dc96e287" xml:space="preserve">
+          <source>It is also unsupported to make a configuration change to make users in one Azure AD to appear as contacts in another Azure AD directory.</source>
+          <target state="new">It is also unsupported to make a configuration change to make users in one Azure AD to appear as contacts in another Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="1a5eece0-a24e-4780-9e02-66fad26258d8" xml:space="preserve">
+          <source>It is also unsupported to modify Azure AD Connect sync to connect to multiple Azure AD directories.</source>
+          <target state="new">It is also unsupported to modify Azure AD Connect sync to connect to multiple Azure AD directories.</target>
+        </trans-unit>
+        <trans-unit id="22ddaac2-35da-4677-b515-89960e2cb519" xml:space="preserve">
+          <source><bpt id="b16988a1-a394-4a13-85f2-d10b01e10094">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync1Unsupported<ept id="b16988a1-a394-4a13-85f2-d10b01e10094">&lt;/linkText&gt;</ept> <bpt id="d21b4db2-3bbe-426c-8aae-14b109a3871d">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync2Unsupported<ept id="d21b4db2-3bbe-426c-8aae-14b109a3871d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b16988a1-a394-4a13-85f2-d10b01e10094">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync1Unsupported<ept id="b16988a1-a394-4a13-85f2-d10b01e10094">&lt;/linkText&gt;</ept> <bpt id="d21b4db2-3bbe-426c-8aae-14b109a3871d">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync2Unsupported<ept id="d21b4db2-3bbe-426c-8aae-14b109a3871d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb1d0119-f2f1-47cf-b880-afdd930e4105" xml:space="preserve">
+          <source>Azure AD directories are by design isolated.</source>
+          <target state="new">Azure AD directories are by design isolated.</target>
+        </trans-unit>
+        <trans-unit id="1dedef56-003c-473e-bab6-7b5ecd6217a1" xml:space="preserve">
+          <source>It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD directory in an attempt to build a common and unified GAL between the directories.</source>
+          <target state="new">It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD directory in an attempt to build a common and unified GAL between the directories.</target>
+        </trans-unit>
+        <trans-unit id="736c11a5-89fa-41a7-b78c-8a829b4c716e" xml:space="preserve">
+          <source>It is also unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.</source>
+          <target state="new">It is also unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.</target>
+        </trans-unit>
+        <trans-unit id="398341d2-07f0-4d52-85ed-86ea12d0f215" xml:space="preserve">
+          <source><bpt id="c7124986-62f4-497a-a35c-4fada6ba1f56">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync<ept id="c7124986-62f4-497a-a35c-4fada6ba1f56">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c7124986-62f4-497a-a35c-4fada6ba1f56">&lt;linkText&gt;</bpt>MultiForestMultiDirectoryGALSync<ept id="c7124986-62f4-497a-a35c-4fada6ba1f56">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35def72b-ae8e-4848-8695-71722d8d896f" xml:space="preserve">
+          <source>It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange orgs.</source>
+          <target state="new">It is supported to use FIM2010/MIM2016 on-premises to GALsync users between two Exchange orgs.</target>
+        </trans-unit>
+        <trans-unit id="cbd5a52e-3df8-44a7-89c2-6887e3752ba6" xml:space="preserve">
+          <source>The users in one org will show up as foreign users/contacts in the other org.</source>
+          <target state="new">The users in one org will show up as foreign users/contacts in the other org.</target>
+        </trans-unit>
+        <trans-unit id="265dd6be-b051-4272-8a35-2bd785ff3c8f" xml:space="preserve">
+          <source>These different on-premises ADs can then be synchronized to their own Azure AD directories.</source>
+          <target state="new">These different on-premises ADs can then be synchronized to their own Azure AD directories.</target>
+        </trans-unit>
+        <trans-unit id="bb782049-c9e2-47da-9e45-c3e08f1f1aad" xml:space="preserve">
+          <source>To learn how to install Azure AD Connect for these scenarios, see <bpt id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;linkText&gt;</bpt>Custom installation of Azure AD Connect<ept id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;/linkText&gt;</ept><bpt id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;title&gt;</bpt><ept id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to install Azure AD Connect for these scenarios, see <bpt id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;linkText&gt;</bpt>Custom installation of Azure AD Connect<ept id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;/linkText&gt;</ept><bpt id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;title&gt;</bpt><ept id="9c827a1f-b436-4e27-86c7-835f2aefec2a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b12e952-bfdd-40c9-86bc-577252d2ed14" xml:space="preserve">
+          <source>To learn more on the configuration for Azure AD Connect sync, see <bpt id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;linkText&gt;</bpt>Azure AD Connect sync<ept id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;/linkText&gt;</ept><bpt id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;title&gt;</bpt><ept id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more on the configuration for Azure AD Connect sync, see <bpt id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;linkText&gt;</bpt>Azure AD Connect sync<ept id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;/linkText&gt;</ept><bpt id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;title&gt;</bpt><ept id="17f9ccbb-91fa-452d-beaf-8ce1a2b02322">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6bb6c96e-f90f-4da6-bdda-2cc7c4adc83f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6bb6c96e-f90f-4da6-bdda-2cc7c4adc83f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7bdfc585-497a-4c99-80bd-7d8d52d54f9d">
+        <trans-unit id="b04ce12b-9a74-40d9-a6fc-65f8f1c9758d" xml:space="preserve">
+          <source>Enable Hybrid Applications Spanning Cloud and Premises</source>
+          <target state="new">Enable Hybrid Applications Spanning Cloud and Premises</target>
+        </trans-unit>
+        <trans-unit id="46ae14bf-c16d-4d0f-bb50-7af6862cba37" xml:space="preserve">
+          <source>Learn how to build hybrid applications that span across the cloud and on premises.</source>
+          <target state="new">Learn how to build hybrid applications that span across the cloud and on premises.</target>
+        </trans-unit>
+        <trans-unit id="010d5a53-236b-40db-aa10-f439766c340e" xml:space="preserve">
+          <source>Hybrid cloud/on-premises applications are a reality of modern IT environments.</source>
+          <target state="new">Hybrid cloud/on-premises applications are a reality of modern IT environments.</target>
+        </trans-unit>
+        <trans-unit id="08971511-d160-4193-bbda-8adb5f4145a7" xml:space="preserve">
+          <source>Microsoft Azure Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.</source>
+          <target state="new">Microsoft Azure Service Bus helps you leverage existing on-premises assets and create reliable and secure solutions to augment and expand your current infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="9da19b1c-0dd7-4dcf-9062-6e7af4affb81" xml:space="preserve">
+          <source><bpt id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;linkText&gt;</bpt>Service Bus Relay<ept id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;/linkText&gt;</ept><bpt id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;title&gt;</bpt><ept id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;linkText&gt;</bpt>Service Bus Relay<ept id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;/linkText&gt;</ept><bpt id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;title&gt;</bpt><ept id="5a7ed0c6-ddf9-42e6-a6c6-250e4737641e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49bbb4c9-d882-40b5-b8f5-6a97d375d940" xml:space="preserve">
+          <source><bpt id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;linkText&gt;</bpt>Relayed and Brokered Messaging<ept id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;/linkText&gt;</ept><bpt id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;title&gt;</bpt><ept id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;linkText&gt;</bpt>Relayed and Brokered Messaging<ept id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;/linkText&gt;</ept><bpt id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;title&gt;</bpt><ept id="dad762ad-bc1a-48ec-a3fc-ab38a13451f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d8106fd2-fab9-4691-81e1-de561366ba6b" xml:space="preserve">
+          <source><bpt id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;linkText&gt;</bpt>Build a .NET on-premises/cloud hybrid application using Service Bus Relay<ept id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;/linkText&gt;</ept><bpt id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;title&gt;</bpt><ept id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;linkText&gt;</bpt>Build a .NET on-premises/cloud hybrid application using Service Bus Relay<ept id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;/linkText&gt;</ept><bpt id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;title&gt;</bpt><ept id="9192f4ac-441b-4553-be8d-03d38715ce1b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04729eb7-727e-411f-bb49-d0df7dcda019" xml:space="preserve">
+          <source><bpt id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;linkText&gt;</bpt>How to use Service Bus Relay (video and code sample)<ept id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;/linkText&gt;</ept><bpt id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;title&gt;</bpt><ept id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;linkText&gt;</bpt>How to use Service Bus Relay (video and code sample)<ept id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;/linkText&gt;</ept><bpt id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;title&gt;</bpt><ept id="eff5a31a-2459-4a12-abce-07ec7982c7de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50a59701-cbfd-4bf2-8de7-6d8a4bbf2626" xml:space="preserve">
+          <source><bpt id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;linkText&gt;</bpt>How to integrate an Azure Web Site with a LOB app via Service Bus Relay<ept id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;/linkText&gt;</ept><bpt id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;title&gt;</bpt><ept id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;linkText&gt;</bpt>How to integrate an Azure Web Site with a LOB app via Service Bus Relay<ept id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;/linkText&gt;</ept><bpt id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;title&gt;</bpt><ept id="aff6d39e-77c3-47da-b3ee-ffe560e8021a">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="bb7b8dd4-2729-4faa-9c0a-7c46ad4df904" xml:space="preserve">
+          <source><bpt id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;linkText&gt;</bpt>Geo-replication with Service Bus Relayed Messages<ept id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;/linkText&gt;</ept><bpt id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;title&gt;</bpt><ept id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;linkText&gt;</bpt>Geo-replication with Service Bus Relayed Messages<ept id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;/linkText&gt;</ept><bpt id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;title&gt;</bpt><ept id="dd2a2a6e-4f0a-443f-8c40-c9dc8fff86ca">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b26d645e-e2c6-4560-b813-4f6aef659325" xml:space="preserve">
+          <source><bpt id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;linkText&gt;</bpt>How to integrate a Mobile Service with a REST Service Bus Relay Service<ept id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;/linkText&gt;</ept><bpt id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;title&gt;</bpt><ept id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;linkText&gt;</bpt>How to integrate a Mobile Service with a REST Service Bus Relay Service<ept id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;/linkText&gt;</ept><bpt id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;title&gt;</bpt><ept id="90aae0ea-b84e-4947-ba20-adfb2c2a1e5a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ec0b350-7659-46b5-bf75-fb5604c13da1" xml:space="preserve">
+          <source><bpt id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;linkText&gt;</bpt>Service Bus Pricing Info<ept id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;/linkText&gt;</ept><bpt id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;title&gt;</bpt><ept id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;linkText&gt;</bpt>Service Bus Pricing Info<ept id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;/linkText&gt;</ept><bpt id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;title&gt;</bpt><ept id="37118acf-f1ec-4aa4-959d-075f72fe9852">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec8815e4-c889-449d-87c2-1ac54b054ab8" xml:space="preserve">
+          <source><bpt id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;linkText&gt;</bpt>Service Bus Pricing FAQ<ept id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;/linkText&gt;</ept><bpt id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;title&gt;</bpt><ept id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;linkText&gt;</bpt>Service Bus Pricing FAQ<ept id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;/linkText&gt;</ept><bpt id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;title&gt;</bpt><ept id="9f0e7046-d814-4be0-ae46-b479665da6d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5eb9d2d0-fcca-4a4a-97af-913077680589" xml:space="preserve">
+          <source><bpt id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;linkText&gt;</bpt>Service Bus REST API Reference<ept id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;/linkText&gt;</ept><bpt id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;title&gt;</bpt><ept id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;linkText&gt;</bpt>Service Bus REST API Reference<ept id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;/linkText&gt;</ept><bpt id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;title&gt;</bpt><ept id="dd1c0cd3-2e87-40ba-886b-9a9db69d864f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c71e506a-dc3f-442b-83fa-444970f091fa" xml:space="preserve">
+          <source><bpt id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;linkText&gt;</bpt>Sign up for a free Azure trial<ept id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;/linkText&gt;</ept><bpt id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;title&gt;</bpt><ept id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;linkText&gt;</bpt>Sign up for a free Azure trial<ept id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;/linkText&gt;</ept><bpt id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;title&gt;</bpt><ept id="a2b2d949-5e8b-4e82-b77c-d34e7c3099e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed1c82da-4e50-4768-9d83-636c2fcef73e" xml:space="preserve">
+          <source><bpt id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;linkText&gt;</bpt>BizTalk Services<ept id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;/linkText&gt;</ept><bpt id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;title&gt;</bpt><ept id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;linkText&gt;</bpt>BizTalk Services<ept id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;/linkText&gt;</ept><bpt id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;title&gt;</bpt><ept id="dc0746fc-8913-480b-a48f-4e0ecc7d6fc9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aa3df12-1eff-4dbf-aab2-f6b9a5c3c1da" xml:space="preserve">
+          <source><bpt id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;linkText&gt;</bpt>Mobile Services<ept id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;/linkText&gt;</ept><bpt id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;title&gt;</bpt><ept id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;linkText&gt;</bpt>Mobile Services<ept id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;/linkText&gt;</ept><bpt id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;title&gt;</bpt><ept id="3b4a67bf-a6f0-4333-af05-90932f32f788">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecc041cf-c5fb-42df-a024-bf0be1cfcb66" xml:space="preserve">
+          <source><bpt id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;linkText&gt;</bpt>Cloud Services<ept id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;/linkText&gt;</ept><bpt id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;title&gt;</bpt><ept id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;linkText&gt;</bpt>Cloud Services<ept id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;/linkText&gt;</ept><bpt id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;title&gt;</bpt><ept id="3a01fefc-153d-460a-8054-b3c43c50b9eb">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

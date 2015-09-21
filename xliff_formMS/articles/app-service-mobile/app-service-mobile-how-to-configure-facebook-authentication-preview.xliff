@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a4fca623-ff0c-4355-9eb5-1d8f7e988238" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a4fca623-ff0c-4355-9eb5-1d8f7e988238" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="68cd4fe6-b3fb-4ae5-9609-a90d0094702b">
+        <trans-unit id="7639e53b-1c9a-4366-9512-24ad33851457" xml:space="preserve">
+          <source>How to configure Facebook authentication for your App Services application</source>
+          <target state="new">How to configure Facebook authentication for your App Services application</target>
+        </trans-unit>
+        <trans-unit id="00b8c2a2-d66f-4a6f-85b5-769f6eab376a" xml:space="preserve">
+          <source>Learn how to configure Facebook authentication for your App Services application.</source>
+          <target state="new">Learn how to configure Facebook authentication for your App Services application.</target>
+        </trans-unit>
+        <trans-unit id="fef31593-b03e-4f07-8ea7-8a001c359267" xml:space="preserve">
+          <source><bpt id="e4ef8306-d931-4751-8843-d32a120d0b86">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="e4ef8306-d931-4751-8843-d32a120d0b86">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e4ef8306-d931-4751-8843-d32a120d0b86">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="e4ef8306-d931-4751-8843-d32a120d0b86">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4248518-e3b5-471e-af9a-2d46c801838b" xml:space="preserve">
+          <source>This topic shows you how to configure Azure Mobile Apps to use Facebook as an authentication provider.</source>
+          <target state="new">This topic shows you how to configure Azure Mobile Apps to use Facebook as an authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="f0596096-ae40-4b5a-b365-f4b84c2da288" xml:space="preserve">
+          <source>To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number.</source>
+          <target state="new">To complete the procedure in this topic, you must have a Facebook account that has a verified email address and a mobile phone number.</target>
+        </trans-unit>
+        <trans-unit id="6085ab06-cdb9-4c3c-9ef3-333aa9243bcb" xml:space="preserve">
+          <source>To create a new Facebook account, go to [facebook.com].</source>
+          <target state="new">To create a new Facebook account, go to [facebook.com].</target>
+        </trans-unit>
+        <trans-unit id="b8b47f96-cd2d-41d0-825b-86c1d00e363c" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], and navigate to your Mobile App.</source>
+          <target state="new">Log on to the [Azure Management Portal], and navigate to your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="be85ca9e-eff5-4175-8421-0b8a71b837fa" xml:space="preserve">
+          <source>Copy your <bpt id="96481e23-4a25-453f-80db-e9df3100c531">&lt;strong&gt;</bpt>URL<ept id="96481e23-4a25-453f-80db-e9df3100c531">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Copy your <bpt id="96481e23-4a25-453f-80db-e9df3100c531">&lt;strong&gt;</bpt>URL<ept id="96481e23-4a25-453f-80db-e9df3100c531">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="954b61e2-da1c-4f5f-9d41-58b47062b8ba" xml:space="preserve">
+          <source>You will use this to configure your Facebook app.</source>
+          <target state="new">You will use this to configure your Facebook app.</target>
+        </trans-unit>
+        <trans-unit id="9b47f7e1-81e0-4192-9d19-1e1d21989944" xml:space="preserve">
+          <source>Click <bpt id="d0c55e63-5b22-4eba-8901-c5a254d10a1e">&lt;strong&gt;</bpt>Settings<ept id="d0c55e63-5b22-4eba-8901-c5a254d10a1e">&lt;/strong&gt;</ept>, <bpt id="2d70eecf-caaf-40f4-90e6-465f336588ad">&lt;strong&gt;</bpt>User authentication<ept id="2d70eecf-caaf-40f4-90e6-465f336588ad">&lt;/strong&gt;</ept>, and then <bpt id="d427566b-4e90-4162-8a4d-d5d56789c20f">&lt;strong&gt;</bpt>Facebook<ept id="d427566b-4e90-4162-8a4d-d5d56789c20f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d0c55e63-5b22-4eba-8901-c5a254d10a1e">&lt;strong&gt;</bpt>Settings<ept id="d0c55e63-5b22-4eba-8901-c5a254d10a1e">&lt;/strong&gt;</ept>, <bpt id="2d70eecf-caaf-40f4-90e6-465f336588ad">&lt;strong&gt;</bpt>User authentication<ept id="2d70eecf-caaf-40f4-90e6-465f336588ad">&lt;/strong&gt;</ept>, and then <bpt id="d427566b-4e90-4162-8a4d-d5d56789c20f">&lt;strong&gt;</bpt>Facebook<ept id="d427566b-4e90-4162-8a4d-d5d56789c20f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2e5411f-ab06-422d-8800-56a45ab06c35" xml:space="preserve">
+          <source>Then copy the <bpt id="efc87736-17d2-4fb7-8eb9-9347d7d6cf40">&lt;strong&gt;</bpt>Redirect URI<ept id="efc87736-17d2-4fb7-8eb9-9347d7d6cf40">&lt;/strong&gt;</ept> from the Facebook blade.</source>
+          <target state="new">Then copy the <bpt id="efc87736-17d2-4fb7-8eb9-9347d7d6cf40">&lt;strong&gt;</bpt>Redirect URI<ept id="efc87736-17d2-4fb7-8eb9-9347d7d6cf40">&lt;/strong&gt;</ept> from the Facebook blade.</target>
+        </trans-unit>
+        <trans-unit id="bf84f75a-75d9-45fc-bfd9-5082b8bb7b44" xml:space="preserve">
+          <source>You will use this with your Facebook app.</source>
+          <target state="new">You will use this with your Facebook app.</target>
+        </trans-unit>
+        <trans-unit id="5d0fc131-6c5a-4f59-8364-66e5eadef52f" xml:space="preserve">
+          <source>In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.</source>
+          <target state="new">In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.</target>
+        </trans-unit>
+        <trans-unit id="a9e5dd29-4356-42b2-b263-10502472ab39" xml:space="preserve">
+          <source>(Optional) If you have not already registered, click <bpt id="9d9ebb06-c893-4ca3-81d5-36059027f535">&lt;strong&gt;</bpt>Apps<ept id="9d9ebb06-c893-4ca3-81d5-36059027f535">&lt;/strong&gt;</ept> then click <bpt id="bdc74926-f9ea-423f-a019-fce957d8f48d">&lt;strong&gt;</bpt>Register as a Developer<ept id="bdc74926-f9ea-423f-a019-fce957d8f48d">&lt;/strong&gt;</ept>, accept the policy and follow the registration steps.</source>
+          <target state="new">(Optional) If you have not already registered, click <bpt id="9d9ebb06-c893-4ca3-81d5-36059027f535">&lt;strong&gt;</bpt>Apps<ept id="9d9ebb06-c893-4ca3-81d5-36059027f535">&lt;/strong&gt;</ept> then click <bpt id="bdc74926-f9ea-423f-a019-fce957d8f48d">&lt;strong&gt;</bpt>Register as a Developer<ept id="bdc74926-f9ea-423f-a019-fce957d8f48d">&lt;/strong&gt;</ept>, accept the policy and follow the registration steps.</target>
+        </trans-unit>
+        <trans-unit id="6d957a41-622e-4def-ab1d-7e9415bd4089" xml:space="preserve">
+          <source>Click <bpt id="90d92592-9dc1-4feb-9bbb-5d11358d767e">&lt;strong&gt;</bpt>My Apps<ept id="90d92592-9dc1-4feb-9bbb-5d11358d767e">&lt;/strong&gt;</ept>, then click <bpt id="fe46c5d2-9f72-4ffe-9812-e7c608113ef1">&lt;strong&gt;</bpt>Add a New App<ept id="fe46c5d2-9f72-4ffe-9812-e7c608113ef1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="90d92592-9dc1-4feb-9bbb-5d11358d767e">&lt;strong&gt;</bpt>My Apps<ept id="90d92592-9dc1-4feb-9bbb-5d11358d767e">&lt;/strong&gt;</ept>, then click <bpt id="fe46c5d2-9f72-4ffe-9812-e7c608113ef1">&lt;strong&gt;</bpt>Add a New App<ept id="fe46c5d2-9f72-4ffe-9812-e7c608113ef1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="491c94e7-b54c-4f22-a442-39b0375a7977" xml:space="preserve">
+          <source>Select <bpt id="2b93cbce-b46a-4987-80ab-cd642411de5f">&lt;strong&gt;</bpt>Website<ept id="2b93cbce-b46a-4987-80ab-cd642411de5f">&lt;/strong&gt;</ept> as your platform.</source>
+          <target state="new">Select <bpt id="2b93cbce-b46a-4987-80ab-cd642411de5f">&lt;strong&gt;</bpt>Website<ept id="2b93cbce-b46a-4987-80ab-cd642411de5f">&lt;/strong&gt;</ept> as your platform.</target>
+        </trans-unit>
+        <trans-unit id="f9c6ca25-e5c7-4b7c-ba8b-cd82d2e9d090" xml:space="preserve">
+          <source>Choose a unique name for your app, and then click <bpt id="a90f6b06-529c-46ba-8b6e-d0428ea3e13a">&lt;strong&gt;</bpt>Create New Facebook App ID<ept id="a90f6b06-529c-46ba-8b6e-d0428ea3e13a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose a unique name for your app, and then click <bpt id="a90f6b06-529c-46ba-8b6e-d0428ea3e13a">&lt;strong&gt;</bpt>Create New Facebook App ID<ept id="a90f6b06-529c-46ba-8b6e-d0428ea3e13a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0b40721-30d2-49b1-ab5a-4509fd854e08" xml:space="preserve">
+          <source>Pick a category for your application from the dropdown.</source>
+          <target state="new">Pick a category for your application from the dropdown.</target>
+        </trans-unit>
+        <trans-unit id="874ef9d9-c598-481c-aeda-8b4e8a488b49" xml:space="preserve">
+          <source>Then click <bpt id="ba7dde03-9e02-467d-8a12-be67cd03f256">&lt;strong&gt;</bpt>Create App ID<ept id="ba7dde03-9e02-467d-8a12-be67cd03f256">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="ba7dde03-9e02-467d-8a12-be67cd03f256">&lt;strong&gt;</bpt>Create App ID<ept id="ba7dde03-9e02-467d-8a12-be67cd03f256">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6fb3f98-a89c-4052-96a3-f2e61bef23cd" xml:space="preserve">
+          <source>On the next page, select <bpt id="42b0aca5-acfe-4c56-9158-8db5185064c1">&lt;strong&gt;</bpt>Skip Quick Start<ept id="42b0aca5-acfe-4c56-9158-8db5185064c1">&lt;/strong&gt;</ept> in the top right.</source>
+          <target state="new">On the next page, select <bpt id="42b0aca5-acfe-4c56-9158-8db5185064c1">&lt;strong&gt;</bpt>Skip Quick Start<ept id="42b0aca5-acfe-4c56-9158-8db5185064c1">&lt;/strong&gt;</ept> in the top right.</target>
+        </trans-unit>
+        <trans-unit id="ca2d6472-b121-4c80-ab9d-191eb1753278" xml:space="preserve">
+          <source>This will take you to the developer dashboard for your application.</source>
+          <target state="new">This will take you to the developer dashboard for your application.</target>
+        </trans-unit>
+        <trans-unit id="499ce9af-02ba-45de-83bc-0a4163b0ee13" xml:space="preserve">
+          <source>On the <bpt id="464128a3-fd31-4f85-b6ba-275cb4287586">&lt;strong&gt;</bpt>App Secret<ept id="464128a3-fd31-4f85-b6ba-275cb4287586">&lt;/strong&gt;</ept> field, click <bpt id="6c1e6814-05d7-4e6a-92d6-1049659dc77e">&lt;strong&gt;</bpt>Show<ept id="6c1e6814-05d7-4e6a-92d6-1049659dc77e">&lt;/strong&gt;</ept>, provide your password if requested, then make a note of the values of <bpt id="9dfdae2e-5332-4d52-8e90-1b6c61e3601b">&lt;strong&gt;</bpt>App ID<ept id="9dfdae2e-5332-4d52-8e90-1b6c61e3601b">&lt;/strong&gt;</ept> and <bpt id="83acdd37-6e9b-47a9-ba05-90fd56e28ebe">&lt;strong&gt;</bpt>App Secret<ept id="83acdd37-6e9b-47a9-ba05-90fd56e28ebe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="464128a3-fd31-4f85-b6ba-275cb4287586">&lt;strong&gt;</bpt>App Secret<ept id="464128a3-fd31-4f85-b6ba-275cb4287586">&lt;/strong&gt;</ept> field, click <bpt id="6c1e6814-05d7-4e6a-92d6-1049659dc77e">&lt;strong&gt;</bpt>Show<ept id="6c1e6814-05d7-4e6a-92d6-1049659dc77e">&lt;/strong&gt;</ept>, provide your password if requested, then make a note of the values of <bpt id="9dfdae2e-5332-4d52-8e90-1b6c61e3601b">&lt;strong&gt;</bpt>App ID<ept id="9dfdae2e-5332-4d52-8e90-1b6c61e3601b">&lt;/strong&gt;</ept> and <bpt id="83acdd37-6e9b-47a9-ba05-90fd56e28ebe">&lt;strong&gt;</bpt>App Secret<ept id="83acdd37-6e9b-47a9-ba05-90fd56e28ebe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3cf779f-8247-44e0-93c9-2f4ec04e6241" xml:space="preserve">
+          <source>You will set these on your Mobile App's Facebook authentication settings blade.</source>
+          <target state="new">You will set these on your Mobile App's Facebook authentication settings blade.</target>
+        </trans-unit>
+        <trans-unit id="0265906d-b1e3-4762-9991-45561feb89ba" xml:space="preserve">
+          <source><bpt id="6375be95-b45c-484d-aaf7-98f3065ff732">&lt;strong&gt;</bpt>Security Note<ept id="6375be95-b45c-484d-aaf7-98f3065ff732">&lt;/strong&gt;</ept>
+The app secret is an important security credential.</source>
+          <target state="new"><bpt id="6375be95-b45c-484d-aaf7-98f3065ff732">&lt;strong&gt;</bpt>Security Note<ept id="6375be95-b45c-484d-aaf7-98f3065ff732">&lt;/strong&gt;</ept>
+The app secret is an important security credential.</target>
+        </trans-unit>
+        <trans-unit id="06e2871b-5014-470f-8091-222096bdba92" xml:space="preserve">
+          <source>Do not share this secret with anyone or distribute it within a client application.</source>
+          <target state="new">Do not share this secret with anyone or distribute it within a client application.</target>
+        </trans-unit>
+        <trans-unit id="ed8c0df4-5cf1-4386-9328-e5754f4b814f" xml:space="preserve">
+          <source>On the left navigation bar, click <bpt id="cb29b32f-ab77-4259-ab1a-86eeb19b20b4">&lt;strong&gt;</bpt>Settings<ept id="cb29b32f-ab77-4259-ab1a-86eeb19b20b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left navigation bar, click <bpt id="cb29b32f-ab77-4259-ab1a-86eeb19b20b4">&lt;strong&gt;</bpt>Settings<ept id="cb29b32f-ab77-4259-ab1a-86eeb19b20b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d16d2ae1-8c77-4a13-93bf-d14de9c63b95" xml:space="preserve">
+          <source>Type the <bpt id="18ca8f74-515f-4bca-8e08-4e129c10dce8">&lt;strong&gt;</bpt>URL<ept id="18ca8f74-515f-4bca-8e08-4e129c10dce8">&lt;/strong&gt;</ept> of your Mobile App in <bpt id="b1dc9ed6-83aa-405c-9b87-274cd90893f8">&lt;strong&gt;</bpt>App Domains<ept id="b1dc9ed6-83aa-405c-9b87-274cd90893f8">&lt;/strong&gt;</ept>, and enter a <bpt id="5094de35-8a97-41f5-ab87-1f5b9f776326">&lt;strong&gt;</bpt>Contact Email<ept id="5094de35-8a97-41f5-ab87-1f5b9f776326">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the <bpt id="18ca8f74-515f-4bca-8e08-4e129c10dce8">&lt;strong&gt;</bpt>URL<ept id="18ca8f74-515f-4bca-8e08-4e129c10dce8">&lt;/strong&gt;</ept> of your Mobile App in <bpt id="b1dc9ed6-83aa-405c-9b87-274cd90893f8">&lt;strong&gt;</bpt>App Domains<ept id="b1dc9ed6-83aa-405c-9b87-274cd90893f8">&lt;/strong&gt;</ept>, and enter a <bpt id="5094de35-8a97-41f5-ab87-1f5b9f776326">&lt;strong&gt;</bpt>Contact Email<ept id="5094de35-8a97-41f5-ab87-1f5b9f776326">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1409c81b-7109-43c4-a976-61d228845b27" xml:space="preserve">
+          <source><bpt id="d69b8b6a-3cb3-4707-80be-ff508f488406">&lt;linkText&gt;</bpt><ept id="d69b8b6a-3cb3-4707-80be-ff508f488406">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d69b8b6a-3cb3-4707-80be-ff508f488406">&lt;linkText&gt;</bpt><ept id="d69b8b6a-3cb3-4707-80be-ff508f488406">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0afad5d2-2b88-4780-b318-008ac5ceff79" xml:space="preserve">
+          <source>If you don't see a website section below, click <bpt id="5d91dcc1-747e-4a6a-a88b-16c2b0305326">&lt;strong&gt;</bpt>Add Platform<ept id="5d91dcc1-747e-4a6a-a88b-16c2b0305326">&lt;/strong&gt;</ept> and select <bpt id="7150ec0a-b0f0-4097-b95a-733249158696">&lt;strong&gt;</bpt>Website<ept id="7150ec0a-b0f0-4097-b95a-733249158696">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don't see a website section below, click <bpt id="5d91dcc1-747e-4a6a-a88b-16c2b0305326">&lt;strong&gt;</bpt>Add Platform<ept id="5d91dcc1-747e-4a6a-a88b-16c2b0305326">&lt;/strong&gt;</ept> and select <bpt id="7150ec0a-b0f0-4097-b95a-733249158696">&lt;strong&gt;</bpt>Website<ept id="7150ec0a-b0f0-4097-b95a-733249158696">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50d843d5-8800-41d0-a9eb-13dadfd999c9" xml:space="preserve">
+          <source>Enter the <bpt id="56cea711-9cda-4356-94f6-7245aac372ad">&lt;strong&gt;</bpt>URL<ept id="56cea711-9cda-4356-94f6-7245aac372ad">&lt;/strong&gt;</ept> of your Mobile App in the <bpt id="9eca7658-5ee6-4d38-91dc-fe575642f1fb">&lt;strong&gt;</bpt>Site URL<ept id="9eca7658-5ee6-4d38-91dc-fe575642f1fb">&lt;/strong&gt;</ept> field, then click <bpt id="8db4a3d6-9121-4060-87a8-7d0ad721383b">&lt;strong&gt;</bpt>Save Changes<ept id="8db4a3d6-9121-4060-87a8-7d0ad721383b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="56cea711-9cda-4356-94f6-7245aac372ad">&lt;strong&gt;</bpt>URL<ept id="56cea711-9cda-4356-94f6-7245aac372ad">&lt;/strong&gt;</ept> of your Mobile App in the <bpt id="9eca7658-5ee6-4d38-91dc-fe575642f1fb">&lt;strong&gt;</bpt>Site URL<ept id="9eca7658-5ee6-4d38-91dc-fe575642f1fb">&lt;/strong&gt;</ept> field, then click <bpt id="8db4a3d6-9121-4060-87a8-7d0ad721383b">&lt;strong&gt;</bpt>Save Changes<ept id="8db4a3d6-9121-4060-87a8-7d0ad721383b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e29ca68a-5e37-4a8d-89ba-de1734dd6fe3" xml:space="preserve">
+          <source>Click the <bpt id="d89b39ec-30a2-47b0-b26d-9b1494a80019">&lt;strong&gt;</bpt>Advanced<ept id="d89b39ec-30a2-47b0-b26d-9b1494a80019">&lt;/strong&gt;</ept> tab and add your Mobile App <bpt id="53a750c2-1108-473b-aaec-d8bded600bb7">&lt;strong&gt;</bpt>Redirect URI<ept id="53a750c2-1108-473b-aaec-d8bded600bb7">&lt;/strong&gt;</ept> that you copied earlier to <bpt id="ed8b13a9-c01b-457c-b9ad-3199a212de7f">&lt;strong&gt;</bpt>Valid OAuth redirect URIs<ept id="ed8b13a9-c01b-457c-b9ad-3199a212de7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="d89b39ec-30a2-47b0-b26d-9b1494a80019">&lt;strong&gt;</bpt>Advanced<ept id="d89b39ec-30a2-47b0-b26d-9b1494a80019">&lt;/strong&gt;</ept> tab and add your Mobile App <bpt id="53a750c2-1108-473b-aaec-d8bded600bb7">&lt;strong&gt;</bpt>Redirect URI<ept id="53a750c2-1108-473b-aaec-d8bded600bb7">&lt;/strong&gt;</ept> that you copied earlier to <bpt id="ed8b13a9-c01b-457c-b9ad-3199a212de7f">&lt;strong&gt;</bpt>Valid OAuth redirect URIs<ept id="ed8b13a9-c01b-457c-b9ad-3199a212de7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aaeb80ca-9202-4d1d-b19e-775284e4872b" xml:space="preserve">
+          <source>Then click <bpt id="e60613e6-48c2-4508-b023-4aed04f9080c">&lt;strong&gt;</bpt>Save Changes<ept id="e60613e6-48c2-4508-b023-4aed04f9080c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="e60613e6-48c2-4508-b023-4aed04f9080c">&lt;strong&gt;</bpt>Save Changes<ept id="e60613e6-48c2-4508-b023-4aed04f9080c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17d7bf52-0c0c-484d-99c8-d060ba9fd5af" xml:space="preserve">
+          <source>Your redirect URI is the URL of your Mobile App gateway appended with the path, <bpt id="25cdc44b-ccb9-4cec-b1a0-ea7003011c21">&lt;em&gt;</bpt>/signin-facebook<ept id="25cdc44b-ccb9-4cec-b1a0-ea7003011c21">&lt;/em&gt;</ept>.</source>
+          <target state="new">Your redirect URI is the URL of your Mobile App gateway appended with the path, <bpt id="25cdc44b-ccb9-4cec-b1a0-ea7003011c21">&lt;em&gt;</bpt>/signin-facebook<ept id="25cdc44b-ccb9-4cec-b1a0-ea7003011c21">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d16f69a-a8bd-44d3-8f8b-79fbf3dd8e7a" xml:space="preserve">
+          <source>For example, <bpt id="28442995-b1f0-4f64-81c8-cc1b04c1e45b">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-facebook<ept id="28442995-b1f0-4f64-81c8-cc1b04c1e45b">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="28442995-b1f0-4f64-81c8-cc1b04c1e45b">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-facebook<ept id="28442995-b1f0-4f64-81c8-cc1b04c1e45b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f9af73b-4d50-4c7d-b097-d6f67982a5a8" xml:space="preserve">
+          <source>Make sure that you are using the HTTPS scheme.</source>
+          <target state="new">Make sure that you are using the HTTPS scheme.</target>
+        </trans-unit>
+        <trans-unit id="86eb1a09-9692-469e-86b4-a519a97c3a5a" xml:space="preserve">
+          <source>The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click <bpt id="d5dee297-dcf4-4f0b-914d-7dc1fd90330e">&lt;strong&gt;</bpt>Status &amp; Review<ept id="d5dee297-dcf4-4f0b-914d-7dc1fd90330e">&lt;/strong&gt;</ept> in the left navigation bard. Then click <bpt id="d0473bfa-2954-41e5-8164-a2d93f24a4f1">&lt;strong&gt;</bpt>Yes<ept id="d0473bfa-2954-41e5-8164-a2d93f24a4f1">&lt;/strong&gt;</ept> to enable general public access.</source>
+          <target state="new">The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click <bpt id="d5dee297-dcf4-4f0b-914d-7dc1fd90330e">&lt;strong&gt;</bpt>Status &amp; Review<ept id="d5dee297-dcf4-4f0b-914d-7dc1fd90330e">&lt;/strong&gt;</ept> in the left navigation bard. Then click <bpt id="d0473bfa-2954-41e5-8164-a2d93f24a4f1">&lt;strong&gt;</bpt>Yes<ept id="d0473bfa-2954-41e5-8164-a2d93f24a4f1">&lt;/strong&gt;</ept> to enable general public access.</target>
+        </trans-unit>
+        <trans-unit id="e8f92a5f-b393-48fa-871a-59232cd34c0f" xml:space="preserve">
+          <source>Back in the [Azure Management Portal], and navigate to the Facebook setting blade for your Mobile App again.</source>
+          <target state="new">Back in the [Azure Management Portal], and navigate to the Facebook setting blade for your Mobile App again.</target>
+        </trans-unit>
+        <trans-unit id="b993e4e5-5ed2-4be3-af7f-499fc73ba010" xml:space="preserve">
+          <source>Paste in the App ID and App Secret values which you obtained previously.</source>
+          <target state="new">Paste in the App ID and App Secret values which you obtained previously.</target>
+        </trans-unit>
+        <trans-unit id="1a529745-0d3f-4f2d-84f9-b376576c8bca" xml:space="preserve">
+          <source>Then click <bpt id="8bb83c01-bd97-4962-8ac8-db5b18cf68e1">&lt;strong&gt;</bpt>Save<ept id="8bb83c01-bd97-4962-8ac8-db5b18cf68e1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="8bb83c01-bd97-4962-8ac8-db5b18cf68e1">&lt;strong&gt;</bpt>Save<ept id="8bb83c01-bd97-4962-8ac8-db5b18cf68e1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17198457-6099-4d6d-9495-dc74cc20499f" xml:space="preserve">
+          <source><bpt id="8999a9eb-c426-46d9-bfec-6614affe6268">&lt;linkText&gt;</bpt><ept id="8999a9eb-c426-46d9-bfec-6614affe6268">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8999a9eb-c426-46d9-bfec-6614affe6268">&lt;linkText&gt;</bpt><ept id="8999a9eb-c426-46d9-bfec-6614affe6268">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bff6ecef-bd5c-4d17-ab5d-dfd65998f8fb" xml:space="preserve">
+          <source>You are now ready to use Facebook for authentication in your app.</source>
+          <target state="new">You are now ready to use Facebook for authentication in your app.</target>
+        </trans-unit>
+        <trans-unit id="b64284b9-583e-4cfd-9bb0-fe453a597dee" xml:space="preserve">
+          <source><bpt id="5ef99351-769b-46d1-a7df-7a505fd6428e">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="5ef99351-769b-46d1-a7df-7a505fd6428e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5ef99351-769b-46d1-a7df-7a505fd6428e">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="5ef99351-769b-46d1-a7df-7a505fd6428e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6adfa5e-f080-48b9-a27b-87ef6123c4d5" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-facebook-authentication-preview/app-service-facebook-dashboard.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-facebook-authentication-preview/app-service-facebook-dashboard.png</target>
+        </trans-unit>
+        <trans-unit id="d6e18ec8-8e3e-45c1-bc2b-edef9d841c9c" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-facebook-authentication-preview/mobile-app-facebook-settings.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-facebook-authentication-preview/mobile-app-facebook-settings.png</target>
+        </trans-unit>
+        <trans-unit id="cb5f7de1-887c-40ad-aad6-40ddb802ae42" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268286</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268286</target>
+        </trans-unit>
+        <trans-unit id="c6857698-f72c-47ca-a7d8-9d462124c3c9" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268285</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268285</target>
+        </trans-unit>
+        <trans-unit id="0439f90b-7a3b-4e7d-9796-d32837c02cda" xml:space="preserve">
+          <source>/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/</source>
+          <target state="new">/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/</target>
+        </trans-unit>
+        <trans-unit id="5982fa01-58fb-4c6b-b326-1162ce8cbc41" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="30035ab3-815c-4cea-a288-4e2862425bd4" />
+    </body>
+  </file>
+</xliff>

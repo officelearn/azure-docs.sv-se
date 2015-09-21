@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dee12cb4-f6e3-479b-91ce-3420aa62872f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dee12cb4-f6e3-479b-91ce-3420aa62872f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8eb27421-1f3c-433f-bb54-dae08ea0258d">
+        <trans-unit id="3adae0e3-ac6d-487e-90f0-1b1143bf36c3" xml:space="preserve">
+          <source>Azure App Service API app triggers</source>
+          <target state="new">Azure App Service API app triggers</target>
+        </trans-unit>
+        <trans-unit id="5fca71c5-1b3c-4857-a286-445587aa9099" xml:space="preserve">
+          <source>This article demonstrates how to implement triggers in an API App</source>
+          <target state="new">This article demonstrates how to implement triggers in an API App</target>
+        </trans-unit>
+        <trans-unit id="22f0c5bd-d4a5-49fe-929e-5d86a7ff1ade" xml:space="preserve">
+          <source>This article explains how to implement API app triggers and consume them from a Logic app.</source>
+          <target state="new">This article explains how to implement API app triggers and consume them from a Logic app.</target>
+        </trans-unit>
+        <trans-unit id="c94ade9d-93c5-4a36-940f-a7d6cd615166" xml:space="preserve">
+          <source>If you are new to <bpt id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;linkText&gt;</bpt>API apps<ept id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;/linkText&gt;</ept><bpt id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;title&gt;</bpt><ept id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;/title&gt;</ept> in <bpt id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;linkText&gt;</bpt>Azure App Service<ept id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;/linkText&gt;</ept><bpt id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;title&gt;</bpt><ept id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;/title&gt;</ept>, we recommend reading the multi-part series on <bpt id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;linkText&gt;</bpt>creating API apps<ept id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;/linkText&gt;</ept><bpt id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;title&gt;</bpt><ept id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;/title&gt;</ept></source>
+          <target state="new">If you are new to <bpt id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;linkText&gt;</bpt>API apps<ept id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;/linkText&gt;</ept><bpt id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;title&gt;</bpt><ept id="80c75e9b-0262-419a-810a-798a9eabb622">&lt;/title&gt;</ept> in <bpt id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;linkText&gt;</bpt>Azure App Service<ept id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;/linkText&gt;</ept><bpt id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;title&gt;</bpt><ept id="2d43986f-809f-4e29-bc78-178d6e3835db">&lt;/title&gt;</ept>, we recommend reading the multi-part series on <bpt id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;linkText&gt;</bpt>creating API apps<ept id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;/linkText&gt;</ept><bpt id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;title&gt;</bpt><ept id="dbc22581-4d56-46c2-b84e-ad981da4c09b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ba64cc7-592d-43b9-9712-fedad13f3825" xml:space="preserve">
+          <source>In addition, all of the code snippets in this topic are copied from the <bpt id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;linkText&gt;</bpt>FileWatcher API App code sample<ept id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;/linkText&gt;</ept><bpt id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;title&gt;</bpt><ept id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition, all of the code snippets in this topic are copied from the <bpt id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;linkText&gt;</bpt>FileWatcher API App code sample<ept id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;/linkText&gt;</ept><bpt id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;title&gt;</bpt><ept id="8dd14465-6fb6-4b07-bb78-9633e0c3c12e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1799545-c8ee-458b-86b1-ec4a3e8257ec" xml:space="preserve">
+          <source>Note that you'll need to download the following nuget package for the code in this article to build and run: <bpt id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;linkText&gt;</bpt>http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/<ept id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;/linkText&gt;</ept><bpt id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;title&gt;</bpt><ept id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;/title&gt;</ept>.</source>
+          <target state="new">Note that you'll need to download the following nuget package for the code in this article to build and run: <bpt id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;linkText&gt;</bpt>http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/<ept id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;/linkText&gt;</ept><bpt id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;title&gt;</bpt><ept id="11469730-6d0a-4678-aa7a-5c434bc78031">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab054683-5dfe-4fac-b58f-4e3194bb0feb" xml:space="preserve">
+          <source>It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event.</source>
+          <target state="new">It's a common scenario for an API app to fire an event so that clients of the API app can take the appropriate action in response to the event.</target>
+        </trans-unit>
+        <trans-unit id="1def4808-c3cd-490b-b8ae-6857ba943e03" xml:space="preserve">
+          <source>The REST API based mechanism that supports this scenario is called an API app trigger.</source>
+          <target state="new">The REST API based mechanism that supports this scenario is called an API app trigger.</target>
+        </trans-unit>
+        <trans-unit id="3d65699d-f9c2-4aff-8a87-ec52818d9c79" xml:space="preserve">
+          <source>For example, let's say your client code is using the <bpt id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;linkText&gt;</bpt>Twitter Connector API app<ept id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;/linkText&gt;</ept><bpt id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;title&gt;</bpt><ept id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;/title&gt;</ept> and your code needs to perform an action based on new tweets that contain specific words.</source>
+          <target state="new">For example, let's say your client code is using the <bpt id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;linkText&gt;</bpt>Twitter Connector API app<ept id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;/linkText&gt;</ept><bpt id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;title&gt;</bpt><ept id="ec9e04a4-0e68-44ed-9c46-7617cc4ca3eb">&lt;/title&gt;</ept> and your code needs to perform an action based on new tweets that contain specific words.</target>
+        </trans-unit>
+        <trans-unit id="ce7a7119-82a5-4b99-a9fb-926f4326eef0" xml:space="preserve">
+          <source>In this case, you might set up a poll or push trigger to facilitate this need.</source>
+          <target state="new">In this case, you might set up a poll or push trigger to facilitate this need.</target>
+        </trans-unit>
+        <trans-unit id="57644218-2c8f-403d-a356-c5a22c35fcee" xml:space="preserve">
+          <source>Currently, two types of triggers are supported:</source>
+          <target state="new">Currently, two types of triggers are supported:</target>
+        </trans-unit>
+        <trans-unit id="d4133aa2-0d45-4574-a83a-b8abb0bb0bd3" xml:space="preserve">
+          <source>Poll trigger - Client polls the API app for notification of an event having been fired </source>
+          <target state="new">Poll trigger - Client polls the API app for notification of an event having been fired </target>
+        </trans-unit>
+        <trans-unit id="d9a2c771-b6c0-40e3-b94b-a5f62be6c2a0" xml:space="preserve">
+          <source>Push trigger - Client is notified by the API app when an event fires </source>
+          <target state="new">Push trigger - Client is notified by the API app when an event fires </target>
+        </trans-unit>
+        <trans-unit id="f9830edc-1727-4c45-8a5e-ae1b38f6bbe4" xml:space="preserve">
+          <source>A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification.</source>
+          <target state="new">A poll trigger is implemented as a regular REST API and expects its clients (such as a Logic app) to poll it in order to get notification.</target>
+        </trans-unit>
+        <trans-unit id="ca267503-542b-4a8a-be57-dc05e205a267" xml:space="preserve">
+          <source>While the client may maintain state, the poll trigger itself is stateless.</source>
+          <target state="new">While the client may maintain state, the poll trigger itself is stateless.</target>
+        </trans-unit>
+        <trans-unit id="f74954d4-7110-40c0-a000-5ef5ff0b3dae" xml:space="preserve">
+          <source>The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:</source>
+          <target state="new">The following information regarding the request and response packets illustrate some key aspects of the poll trigger contract:</target>
+        </trans-unit>
+        <trans-unit id="e99f9046-01e2-483a-b690-ea5544e62230" xml:space="preserve">
+          <source>Request</source>
+          <target state="new">Request</target>
+        </trans-unit>
+        <trans-unit id="0a9bf904-dfca-448c-b349-7fed3f1451df" xml:space="preserve">
+          <source>HTTP method: GET</source>
+          <target state="new">HTTP method: GET</target>
+        </trans-unit>
+        <trans-unit id="ee4d54c7-84d8-49b1-bfd1-ddad11c12078" xml:space="preserve">
+          <source>Parameters</source>
+          <target state="new">Parameters</target>
+        </trans-unit>
+        <trans-unit id="602404b1-8a60-4566-934e-e40c5d87289a" xml:space="preserve">
+          <source>triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.</source>
+          <target state="new">triggerState - This optional parameter allows clients to specify their state so that the poll trigger can properly decide whether to return notification or not based on the specified state.</target>
+        </trans-unit>
+        <trans-unit id="988faaf0-db1d-4df3-865a-49759d6ddc79" xml:space="preserve">
+          <source>API-specific parameters</source>
+          <target state="new">API-specific parameters</target>
+        </trans-unit>
+        <trans-unit id="7139b111-7d39-4e42-a1cb-35b9d4ed3466" xml:space="preserve">
+          <source>Response</source>
+          <target state="new">Response</target>
+        </trans-unit>
+        <trans-unit id="27190c16-a3b4-4859-b699-87c0afcd66f3" xml:space="preserve">
+          <source>Status code <bpt id="d3d1f299-5293-4276-a6fc-1c821d1a3335">&lt;strong&gt;</bpt>200<ept id="d3d1f299-5293-4276-a6fc-1c821d1a3335">&lt;/strong&gt;</ept> - Request is valid and there is a notification from the trigger.</source>
+          <target state="new">Status code <bpt id="d3d1f299-5293-4276-a6fc-1c821d1a3335">&lt;strong&gt;</bpt>200<ept id="d3d1f299-5293-4276-a6fc-1c821d1a3335">&lt;/strong&gt;</ept> - Request is valid and there is a notification from the trigger.</target>
+        </trans-unit>
+        <trans-unit id="ac796e3d-293b-4930-8c39-1e2a22b9ef2a" xml:space="preserve">
+          <source>The content of the notification will be the response body.</source>
+          <target state="new">The content of the notification will be the response body.</target>
+        </trans-unit>
+        <trans-unit id="77ba0a88-84b6-4f4b-870f-e1beff63ce29" xml:space="preserve">
+          <source>A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.</source>
+          <target state="new">A "Retry-After" header in the response indicates that additional notification data must be retrieved with a subsequent request call.</target>
+        </trans-unit>
+        <trans-unit id="aaba5ebb-b233-4ecc-b6d4-7effa8bf0134" xml:space="preserve">
+          <source>Status code <bpt id="7b871f14-b627-4f65-bb25-9110cf123afb">&lt;strong&gt;</bpt>202<ept id="7b871f14-b627-4f65-bb25-9110cf123afb">&lt;/strong&gt;</ept> - Request is valid, but there is no new notification from the trigger.</source>
+          <target state="new">Status code <bpt id="7b871f14-b627-4f65-bb25-9110cf123afb">&lt;strong&gt;</bpt>202<ept id="7b871f14-b627-4f65-bb25-9110cf123afb">&lt;/strong&gt;</ept> - Request is valid, but there is no new notification from the trigger.</target>
+        </trans-unit>
+        <trans-unit id="a0216e80-8e2b-4553-b9fb-b4bb94aa9c27" xml:space="preserve">
+          <source>Status code <bpt id="4e6a97ba-a12d-498e-9610-cb596d2d1a7c">&lt;strong&gt;</bpt>4xx<ept id="4e6a97ba-a12d-498e-9610-cb596d2d1a7c">&lt;/strong&gt;</ept> - Request is not valid.</source>
+          <target state="new">Status code <bpt id="4e6a97ba-a12d-498e-9610-cb596d2d1a7c">&lt;strong&gt;</bpt>4xx<ept id="4e6a97ba-a12d-498e-9610-cb596d2d1a7c">&lt;/strong&gt;</ept> - Request is not valid.</target>
+        </trans-unit>
+        <trans-unit id="24f02324-d683-44e7-8bc3-42adfd206ab2" xml:space="preserve">
+          <source>The client should not retry the request.</source>
+          <target state="new">The client should not retry the request.</target>
+        </trans-unit>
+        <trans-unit id="a698f29f-9781-4a74-b4ac-bc5c05e1283b" xml:space="preserve">
+          <source>Status code <bpt id="0805d351-da8a-45cd-9de9-888abd3afc05">&lt;strong&gt;</bpt>5xx<ept id="0805d351-da8a-45cd-9de9-888abd3afc05">&lt;/strong&gt;</ept> - Request has resulted in an internal server error and/or temporary issue.</source>
+          <target state="new">Status code <bpt id="0805d351-da8a-45cd-9de9-888abd3afc05">&lt;strong&gt;</bpt>5xx<ept id="0805d351-da8a-45cd-9de9-888abd3afc05">&lt;/strong&gt;</ept> - Request has resulted in an internal server error and/or temporary issue.</target>
+        </trans-unit>
+        <trans-unit id="0cf428dc-5c07-4d32-b854-6db0c6e300a8" xml:space="preserve">
+          <source>The client should retry the request.</source>
+          <target state="new">The client should retry the request.</target>
+        </trans-unit>
+        <trans-unit id="f85ba9ad-6f01-4888-b6f9-0b5c2ceed752" xml:space="preserve">
+          <source>The following code snippet is an example of how to implement a poll trigger.</source>
+          <target state="new">The following code snippet is an example of how to implement a poll trigger.</target>
+        </trans-unit>
+        <trans-unit id="b2ff820e-ced2-4fcf-aa49-c8bf3c10b12d" xml:space="preserve">
+          <source>To test this poll trigger, follow these steps:</source>
+          <target state="new">To test this poll trigger, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="ebbe620d-06fb-4e7c-8edb-a1fb627eb1fa" xml:space="preserve">
+          <source>Deploy the API App with an authentication setting of <bpt id="3839f9f4-ee45-40c2-ad15-7d25a3f352ac">&lt;strong&gt;</bpt>public anonymous<ept id="3839f9f4-ee45-40c2-ad15-7d25a3f352ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Deploy the API App with an authentication setting of <bpt id="3839f9f4-ee45-40c2-ad15-7d25a3f352ac">&lt;strong&gt;</bpt>public anonymous<ept id="3839f9f4-ee45-40c2-ad15-7d25a3f352ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28b09814-f438-470b-9c82-c8c1e0d8318c" xml:space="preserve">
+          <source>Call the <bpt id="b7b96a6f-4549-4f86-9a28-338e62ef309f">&lt;strong&gt;</bpt>touch<ept id="b7b96a6f-4549-4f86-9a28-338e62ef309f">&lt;/strong&gt;</ept> operation to touch a file.</source>
+          <target state="new">Call the <bpt id="b7b96a6f-4549-4f86-9a28-338e62ef309f">&lt;strong&gt;</bpt>touch<ept id="b7b96a6f-4549-4f86-9a28-338e62ef309f">&lt;/strong&gt;</ept> operation to touch a file.</target>
+        </trans-unit>
+        <trans-unit id="6711d2d3-4180-4c65-bcbc-96f8fcfe5703" xml:space="preserve">
+          <source>The following image shows a sample request via Postman.</source>
+          <target state="new">The following image shows a sample request via Postman.</target>
+        </trans-unit>
+        <trans-unit id="f86d14ff-6061-4de3-aff9-5b2acdf38e56" xml:space="preserve">
+          <source><bpt id="ff765ead-fe4e-4012-bb18-bef4bce2e683">&lt;linkText&gt;</bpt>Call Touch Operation via Postman<ept id="ff765ead-fe4e-4012-bb18-bef4bce2e683">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff765ead-fe4e-4012-bb18-bef4bce2e683">&lt;linkText&gt;</bpt>Call Touch Operation via Postman<ept id="ff765ead-fe4e-4012-bb18-bef4bce2e683">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e68170e5-25cf-4682-9088-fefada96514b" xml:space="preserve">
+          <source>Call the poll trigger with the <bpt id="35419289-8f6f-476b-96a1-6fef5ed1007c">&lt;strong&gt;</bpt>triggerState<ept id="35419289-8f6f-476b-96a1-6fef5ed1007c">&lt;/strong&gt;</ept> parameter set to a time stamp prior to Step #2.</source>
+          <target state="new">Call the poll trigger with the <bpt id="35419289-8f6f-476b-96a1-6fef5ed1007c">&lt;strong&gt;</bpt>triggerState<ept id="35419289-8f6f-476b-96a1-6fef5ed1007c">&lt;/strong&gt;</ept> parameter set to a time stamp prior to Step #2.</target>
+        </trans-unit>
+        <trans-unit id="475629ea-b660-4da1-9821-77d9ef80765f" xml:space="preserve">
+          <source>The following image shows the sample request via Postman.</source>
+          <target state="new">The following image shows the sample request via Postman.</target>
+        </trans-unit>
+        <trans-unit id="e7ea833a-6080-4bd0-8398-093bfbacf1c2" xml:space="preserve">
+          <source><bpt id="4de199d4-2a2d-4120-a1ed-ec9528ffd07e">&lt;linkText&gt;</bpt>Call Poll Trigger via Postman<ept id="4de199d4-2a2d-4120-a1ed-ec9528ffd07e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4de199d4-2a2d-4120-a1ed-ec9528ffd07e">&lt;linkText&gt;</bpt>Call Poll Trigger via Postman<ept id="4de199d4-2a2d-4120-a1ed-ec9528ffd07e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd84e9d7-b6a9-48d2-abad-a59e509df53d" xml:space="preserve">
+          <source>A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.</source>
+          <target state="new">A push trigger is implemented as a regular REST API that pushes notifications to clients who have registered to be notified when specific events fire.</target>
+        </trans-unit>
+        <trans-unit id="9998c8cd-e0a9-45d9-912d-1dd69a62a438" xml:space="preserve">
+          <source>The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.</source>
+          <target state="new">The following information regarding the request and response packets illustrate some key aspects of the push trigger contract.</target>
+        </trans-unit>
+        <trans-unit id="df86960e-c406-411c-bea0-3c94ba42e111" xml:space="preserve">
+          <source>Request</source>
+          <target state="new">Request</target>
+        </trans-unit>
+        <trans-unit id="ae5c823e-1cd5-4518-b2c1-588400fd743b" xml:space="preserve">
+          <source>HTTP method: PUT</source>
+          <target state="new">HTTP method: PUT</target>
+        </trans-unit>
+        <trans-unit id="2a9221ba-3e4e-4969-a29f-6d5cd5871c81" xml:space="preserve">
+          <source>Parameters</source>
+          <target state="new">Parameters</target>
+        </trans-unit>
+        <trans-unit id="713a2ffe-b143-47c4-bc72-872e36305329" xml:space="preserve">
+          <source>triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.</source>
+          <target state="new">triggerId: required - Opaque string (such as a GUID) that represents the registration of a push trigger.</target>
+        </trans-unit>
+        <trans-unit id="8a07ee4c-7e0d-47b4-b995-cb0412c0b726" xml:space="preserve">
+          <source>callbackUrl: required - URL of the callback to invoke when the event fires.</source>
+          <target state="new">callbackUrl: required - URL of the callback to invoke when the event fires.</target>
+        </trans-unit>
+        <trans-unit id="4a61e14f-a86b-43d2-8f60-5026c1855d10" xml:space="preserve">
+          <source>The invocation is a simple POST HTTP call.</source>
+          <target state="new">The invocation is a simple POST HTTP call.</target>
+        </trans-unit>
+        <trans-unit id="26613d71-6d0a-4ca5-9b1c-cc3b560af086" xml:space="preserve">
+          <source>API-specific parameters</source>
+          <target state="new">API-specific parameters</target>
+        </trans-unit>
+        <trans-unit id="6dced9b4-43a4-4238-b759-71ff7c75e7ab" xml:space="preserve">
+          <source>Response</source>
+          <target state="new">Response</target>
+        </trans-unit>
+        <trans-unit id="3cdbdbee-e8b1-4b6a-96b7-616bbf3b84e6" xml:space="preserve">
+          <source>Status code <bpt id="76f4f214-ce6f-47cc-8fd9-9600f4568cb1">&lt;strong&gt;</bpt>200<ept id="76f4f214-ce6f-47cc-8fd9-9600f4568cb1">&lt;/strong&gt;</ept> - Request to register client successful.</source>
+          <target state="new">Status code <bpt id="76f4f214-ce6f-47cc-8fd9-9600f4568cb1">&lt;strong&gt;</bpt>200<ept id="76f4f214-ce6f-47cc-8fd9-9600f4568cb1">&lt;/strong&gt;</ept> - Request to register client successful.</target>
+        </trans-unit>
+        <trans-unit id="3fbc5862-eace-4dcd-9a74-3fc01fb2d8e1" xml:space="preserve">
+          <source>Status code <bpt id="85357c56-4ae1-4b72-aac1-8a9e9ca1ba4a">&lt;strong&gt;</bpt>4xx<ept id="85357c56-4ae1-4b72-aac1-8a9e9ca1ba4a">&lt;/strong&gt;</ept> - Request is not valid.</source>
+          <target state="new">Status code <bpt id="85357c56-4ae1-4b72-aac1-8a9e9ca1ba4a">&lt;strong&gt;</bpt>4xx<ept id="85357c56-4ae1-4b72-aac1-8a9e9ca1ba4a">&lt;/strong&gt;</ept> - Request is not valid.</target>
+        </trans-unit>
+        <trans-unit id="eb01e739-4f3d-40c6-920e-d7b7bd7e9928" xml:space="preserve">
+          <source>The client should not retry the request.</source>
+          <target state="new">The client should not retry the request.</target>
+        </trans-unit>
+        <trans-unit id="f8d23d1f-6837-4ecf-bc7a-09f2b6705625" xml:space="preserve">
+          <source>Status code <bpt id="fcd8eb0b-8aec-4a39-b884-b7fa3d281be7">&lt;strong&gt;</bpt>5xx<ept id="fcd8eb0b-8aec-4a39-b884-b7fa3d281be7">&lt;/strong&gt;</ept> - Request has resulted in an internal server error and/or temporary issue.</source>
+          <target state="new">Status code <bpt id="fcd8eb0b-8aec-4a39-b884-b7fa3d281be7">&lt;strong&gt;</bpt>5xx<ept id="fcd8eb0b-8aec-4a39-b884-b7fa3d281be7">&lt;/strong&gt;</ept> - Request has resulted in an internal server error and/or temporary issue.</target>
+        </trans-unit>
+        <trans-unit id="7fbae4c5-6da2-4842-97d6-2ae48f163638" xml:space="preserve">
+          <source>The client should retry the request.</source>
+          <target state="new">The client should retry the request.</target>
+        </trans-unit>
+        <trans-unit id="deb3734f-9536-492c-9d1b-115efa83bfef" xml:space="preserve">
+          <source>Callback</source>
+          <target state="new">Callback</target>
+        </trans-unit>
+        <trans-unit id="e8e57a65-2967-49bd-a40e-8ada55bba02d" xml:space="preserve">
+          <source>HTTP method: POST</source>
+          <target state="new">HTTP method: POST</target>
+        </trans-unit>
+        <trans-unit id="2f37bd05-51ac-43c9-9a45-ffd18710f48d" xml:space="preserve">
+          <source>Request body: Notification content.</source>
+          <target state="new">Request body: Notification content.</target>
+        </trans-unit>
+        <trans-unit id="57b3c97c-c72b-464b-b65c-c5b2c87a5be6" xml:space="preserve">
+          <source>The following code snippet is an example of how to implement a push trigger:</source>
+          <target state="new">The following code snippet is an example of how to implement a push trigger:</target>
+        </trans-unit>
+        <trans-unit id="ce33a760-d631-4a6a-9dee-f2c0b4cd4e1a" xml:space="preserve">
+          <source>To test this poll trigger, follow these steps:</source>
+          <target state="new">To test this poll trigger, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="d25e9cbc-eb68-482c-bae8-8ab3173bbcb7" xml:space="preserve">
+          <source>Deploy the API App with an authentication setting of <bpt id="31dc6f16-ae6d-4668-961d-11a2ea662c18">&lt;strong&gt;</bpt>public anonymous<ept id="31dc6f16-ae6d-4668-961d-11a2ea662c18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Deploy the API App with an authentication setting of <bpt id="31dc6f16-ae6d-4668-961d-11a2ea662c18">&lt;strong&gt;</bpt>public anonymous<ept id="31dc6f16-ae6d-4668-961d-11a2ea662c18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26e0cfe2-367e-40bd-8888-208315d88303" xml:space="preserve">
+          <source>Browse to <bpt id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;linkText&gt;</bpt>http://requestb.in/<ept id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;/linkText&gt;</ept><bpt id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;title&gt;</bpt><ept id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;/title&gt;</ept> to create a RequestBin which will serve as your callback URL.</source>
+          <target state="new">Browse to <bpt id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;linkText&gt;</bpt>http://requestb.in/<ept id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;/linkText&gt;</ept><bpt id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;title&gt;</bpt><ept id="60b7f292-b5f6-4eab-919b-853c4529a2fb">&lt;/title&gt;</ept> to create a RequestBin which will serve as your callback URL.</target>
+        </trans-unit>
+        <trans-unit id="0ee86d02-260f-479a-86e2-fe5ff8c1eb64" xml:space="preserve">
+          <source>Call the push trigger with a GUID as <bpt id="fc6ec30e-dc97-4035-891f-20a1c211ba07">&lt;strong&gt;</bpt>triggerId<ept id="fc6ec30e-dc97-4035-891f-20a1c211ba07">&lt;/strong&gt;</ept> and the RequestBin URL as <bpt id="dc8967e6-781f-4421-924a-b4dd790e60d4">&lt;strong&gt;</bpt>callbackUrl<ept id="dc8967e6-781f-4421-924a-b4dd790e60d4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Call the push trigger with a GUID as <bpt id="fc6ec30e-dc97-4035-891f-20a1c211ba07">&lt;strong&gt;</bpt>triggerId<ept id="fc6ec30e-dc97-4035-891f-20a1c211ba07">&lt;/strong&gt;</ept> and the RequestBin URL as <bpt id="dc8967e6-781f-4421-924a-b4dd790e60d4">&lt;strong&gt;</bpt>callbackUrl<ept id="dc8967e6-781f-4421-924a-b4dd790e60d4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1fa2026-7c8e-4add-8aa7-6ad75c2830c8" xml:space="preserve">
+          <source><bpt id="c30edc70-7929-40d6-b574-f8fe7a18cdf4">&lt;linkText&gt;</bpt>Call Push Trigger via Postman<ept id="c30edc70-7929-40d6-b574-f8fe7a18cdf4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c30edc70-7929-40d6-b574-f8fe7a18cdf4">&lt;linkText&gt;</bpt>Call Push Trigger via Postman<ept id="c30edc70-7929-40d6-b574-f8fe7a18cdf4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3c1005e-192a-4e9b-85b7-0f77d7731795" xml:space="preserve">
+          <source>Call the <bpt id="976fe4b9-9746-428d-ab78-df02f3204c9b">&lt;strong&gt;</bpt>touch<ept id="976fe4b9-9746-428d-ab78-df02f3204c9b">&lt;/strong&gt;</ept> operation to touch a file.</source>
+          <target state="new">Call the <bpt id="976fe4b9-9746-428d-ab78-df02f3204c9b">&lt;strong&gt;</bpt>touch<ept id="976fe4b9-9746-428d-ab78-df02f3204c9b">&lt;/strong&gt;</ept> operation to touch a file.</target>
+        </trans-unit>
+        <trans-unit id="38e57fd6-1550-41a4-b126-95b8db3502ab" xml:space="preserve">
+          <source>The following image shows a sample request via Postman.</source>
+          <target state="new">The following image shows a sample request via Postman.</target>
+        </trans-unit>
+        <trans-unit id="61445059-f9df-4ce6-aeca-858e2978610e" xml:space="preserve">
+          <source><bpt id="8e2f95bf-0773-478a-bffb-876a5a84d03a">&lt;linkText&gt;</bpt>Call Touch Operation via Postman<ept id="8e2f95bf-0773-478a-bffb-876a5a84d03a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8e2f95bf-0773-478a-bffb-876a5a84d03a">&lt;linkText&gt;</bpt>Call Touch Operation via Postman<ept id="8e2f95bf-0773-478a-bffb-876a5a84d03a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51c452ea-cdc3-4023-bcdc-b1cf5bc68e86" xml:space="preserve">
+          <source>Check the RequestBin to confirm that the push trigger callback is invoked with property output.</source>
+          <target state="new">Check the RequestBin to confirm that the push trigger callback is invoked with property output.</target>
+        </trans-unit>
+        <trans-unit id="956dea92-aefe-473e-9b9f-794e5fa94d9c" xml:space="preserve">
+          <source><bpt id="fe3991b3-5509-4a91-9995-ab6515c8b4f8">&lt;linkText&gt;</bpt>Call Poll Trigger via Postman<ept id="fe3991b3-5509-4a91-9995-ab6515c8b4f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe3991b3-5509-4a91-9995-ab6515c8b4f8">&lt;linkText&gt;</bpt>Call Poll Trigger via Postman<ept id="fe3991b3-5509-4a91-9995-ab6515c8b4f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21a09533-1742-4eac-a5ee-c6eb8dbae9d3" xml:space="preserve">
+          <source>After implementing the triggers and deploying your API app to Azure, navigate to the <bpt id="41bc946d-e5ec-440b-805b-6c0c722905f6">&lt;strong&gt;</bpt>API Definition<ept id="41bc946d-e5ec-440b-805b-6c0c722905f6">&lt;/strong&gt;</ept> blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.</source>
+          <target state="new">After implementing the triggers and deploying your API app to Azure, navigate to the <bpt id="41bc946d-e5ec-440b-805b-6c0c722905f6">&lt;strong&gt;</bpt>API Definition<ept id="41bc946d-e5ec-440b-805b-6c0c722905f6">&lt;/strong&gt;</ept> blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.</target>
+        </trans-unit>
+        <trans-unit id="312042a3-4ffd-4390-a9be-503b2b42d4ac" xml:space="preserve">
+          <source><bpt id="df18a295-0825-451b-b632-9a67ab87409d">&lt;linkText&gt;</bpt>API Definition Blade<ept id="df18a295-0825-451b-b632-9a67ab87409d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df18a295-0825-451b-b632-9a67ab87409d">&lt;linkText&gt;</bpt>API Definition Blade<ept id="df18a295-0825-451b-b632-9a67ab87409d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afe4addb-d8bb-4c94-8849-13c9a9729e15" xml:space="preserve">
+          <source>If you click the <bpt id="cc2a8411-a4bd-4948-8feb-724e1b1d3805">&lt;strong&gt;</bpt>Download Swagger<ept id="cc2a8411-a4bd-4948-8feb-724e1b1d3805">&lt;/strong&gt;</ept> button and open the JSON file, you'll see results similar to the following:</source>
+          <target state="new">If you click the <bpt id="cc2a8411-a4bd-4948-8feb-724e1b1d3805">&lt;strong&gt;</bpt>Download Swagger<ept id="cc2a8411-a4bd-4948-8feb-724e1b1d3805">&lt;/strong&gt;</ept> button and open the JSON file, you'll see results similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="46bfb858-368d-4072-bc92-3ac71905d2f2" xml:space="preserve">
+          <source>The extension property <bpt id="97da0d54-8c50-4121-a91d-4a99f1f04867">&lt;strong&gt;</bpt>x-ms-schedular-trigger<ept id="97da0d54-8c50-4121-a91d-4a99f1f04867">&lt;/strong&gt;</ept> is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria.</source>
+          <target state="new">The extension property <bpt id="97da0d54-8c50-4121-a91d-4a99f1f04867">&lt;strong&gt;</bpt>x-ms-schedular-trigger<ept id="97da0d54-8c50-4121-a91d-4a99f1f04867">&lt;/strong&gt;</ept> is how triggers are described in API definition, and is automatically added by the API app gateway when you request the API definition via the gateway if the request to one of the following criteria.</target>
+        </trans-unit>
+        <trans-unit id="1adc371a-320e-42fd-ab46-418525dda0e7" xml:space="preserve">
+          <source>(You can also add this property manually.)</source>
+          <target state="new">(You can also add this property manually.)</target>
+        </trans-unit>
+        <trans-unit id="351be531-29d7-4a43-858d-d3c66cd997e6" xml:space="preserve">
+          <source>Poll trigger</source>
+          <target state="new">Poll trigger</target>
+        </trans-unit>
+        <trans-unit id="129f4a87-363b-473b-9aef-f9f954442523" xml:space="preserve">
+          <source>If the HTTP method is <bpt id="181c2c32-a930-4ed5-b35e-ac7c447c09c0">&lt;strong&gt;</bpt>GET<ept id="181c2c32-a930-4ed5-b35e-ac7c447c09c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the HTTP method is <bpt id="181c2c32-a930-4ed5-b35e-ac7c447c09c0">&lt;strong&gt;</bpt>GET<ept id="181c2c32-a930-4ed5-b35e-ac7c447c09c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3840c8e3-349d-47d1-9e00-aab0ad9916f8" xml:space="preserve">
+          <source>If the <bpt id="77679003-d656-46a8-8bd9-5ac2c4dabe1d">&lt;strong&gt;</bpt>operationId<ept id="77679003-d656-46a8-8bd9-5ac2c4dabe1d">&lt;/strong&gt;</ept> property contains the string <bpt id="98cf0e14-d557-44ba-86ea-13833accd331">&lt;strong&gt;</bpt>trigger<ept id="98cf0e14-d557-44ba-86ea-13833accd331">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="77679003-d656-46a8-8bd9-5ac2c4dabe1d">&lt;strong&gt;</bpt>operationId<ept id="77679003-d656-46a8-8bd9-5ac2c4dabe1d">&lt;/strong&gt;</ept> property contains the string <bpt id="98cf0e14-d557-44ba-86ea-13833accd331">&lt;strong&gt;</bpt>trigger<ept id="98cf0e14-d557-44ba-86ea-13833accd331">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02b13a2c-deda-4681-941e-4d7c3e82d924" xml:space="preserve">
+          <source>If the <bpt id="bf0dd729-9017-4fe4-be44-cbc57671a796">&lt;strong&gt;</bpt>parameters<ept id="bf0dd729-9017-4fe4-be44-cbc57671a796">&lt;/strong&gt;</ept> property includes a parameter with a <bpt id="9c0fe0d2-f949-4d99-b284-ddcf0baba9f5">&lt;strong&gt;</bpt>name<ept id="9c0fe0d2-f949-4d99-b284-ddcf0baba9f5">&lt;/strong&gt;</ept> property set to <bpt id="08ef8390-eb59-4f80-9e54-30ea11e75249">&lt;strong&gt;</bpt>triggerState<ept id="08ef8390-eb59-4f80-9e54-30ea11e75249">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="bf0dd729-9017-4fe4-be44-cbc57671a796">&lt;strong&gt;</bpt>parameters<ept id="bf0dd729-9017-4fe4-be44-cbc57671a796">&lt;/strong&gt;</ept> property includes a parameter with a <bpt id="9c0fe0d2-f949-4d99-b284-ddcf0baba9f5">&lt;strong&gt;</bpt>name<ept id="9c0fe0d2-f949-4d99-b284-ddcf0baba9f5">&lt;/strong&gt;</ept> property set to <bpt id="08ef8390-eb59-4f80-9e54-30ea11e75249">&lt;strong&gt;</bpt>triggerState<ept id="08ef8390-eb59-4f80-9e54-30ea11e75249">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="134aa5e5-f57b-44b4-a981-710c59a33194" xml:space="preserve">
+          <source>Push trigger</source>
+          <target state="new">Push trigger</target>
+        </trans-unit>
+        <trans-unit id="74185d15-49e5-486e-bd58-5206fffed6a1" xml:space="preserve">
+          <source>If the HTTP method is <bpt id="962cae81-9f6e-4cfa-a632-2f41d769160c">&lt;strong&gt;</bpt>PUT<ept id="962cae81-9f6e-4cfa-a632-2f41d769160c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the HTTP method is <bpt id="962cae81-9f6e-4cfa-a632-2f41d769160c">&lt;strong&gt;</bpt>PUT<ept id="962cae81-9f6e-4cfa-a632-2f41d769160c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72b8b3df-b1e0-40a5-a168-05f9215ae49b" xml:space="preserve">
+          <source>If the <bpt id="079ea830-600f-4504-91fb-6d4df90052e1">&lt;strong&gt;</bpt>operationId<ept id="079ea830-600f-4504-91fb-6d4df90052e1">&lt;/strong&gt;</ept> property contains the string <bpt id="2b1f86a6-e3b4-4b83-9b62-b6c80dce02f2">&lt;strong&gt;</bpt>trigger<ept id="2b1f86a6-e3b4-4b83-9b62-b6c80dce02f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="079ea830-600f-4504-91fb-6d4df90052e1">&lt;strong&gt;</bpt>operationId<ept id="079ea830-600f-4504-91fb-6d4df90052e1">&lt;/strong&gt;</ept> property contains the string <bpt id="2b1f86a6-e3b4-4b83-9b62-b6c80dce02f2">&lt;strong&gt;</bpt>trigger<ept id="2b1f86a6-e3b4-4b83-9b62-b6c80dce02f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c2870ac-aff4-4001-85c6-dfe5f09e1b3c" xml:space="preserve">
+          <source>If the <bpt id="589b844c-d051-47d4-894c-6acffe545bab">&lt;strong&gt;</bpt>parameters<ept id="589b844c-d051-47d4-894c-6acffe545bab">&lt;/strong&gt;</ept> property includes a parameter with a <bpt id="620c06de-e743-460c-b32f-0ac2c4ecd1da">&lt;strong&gt;</bpt>name<ept id="620c06de-e743-460c-b32f-0ac2c4ecd1da">&lt;/strong&gt;</ept> property set to <bpt id="e7781d4d-ccf2-4f2f-afe1-93f169b7adcd">&lt;strong&gt;</bpt>triggerId<ept id="e7781d4d-ccf2-4f2f-afe1-93f169b7adcd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the <bpt id="589b844c-d051-47d4-894c-6acffe545bab">&lt;strong&gt;</bpt>parameters<ept id="589b844c-d051-47d4-894c-6acffe545bab">&lt;/strong&gt;</ept> property includes a parameter with a <bpt id="620c06de-e743-460c-b32f-0ac2c4ecd1da">&lt;strong&gt;</bpt>name<ept id="620c06de-e743-460c-b32f-0ac2c4ecd1da">&lt;/strong&gt;</ept> property set to <bpt id="e7781d4d-ccf2-4f2f-afe1-93f169b7adcd">&lt;strong&gt;</bpt>triggerId<ept id="e7781d4d-ccf2-4f2f-afe1-93f169b7adcd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d7da221-4bb5-45ae-8652-d2b2bfa3f2aa" xml:space="preserve">
+          <source>If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it.</source>
+          <target state="new">If you create a Logic app in the same resource group as the API app, you will be able to add it to the designer canvas simply by clicking it.</target>
+        </trans-unit>
+        <trans-unit id="844cf0f0-c047-46b7-900e-82513d835e6a" xml:space="preserve">
+          <source>The following images illustrate this:</source>
+          <target state="new">The following images illustrate this:</target>
+        </trans-unit>
+        <trans-unit id="6892db44-872b-4c92-ab89-02f1d180216c" xml:space="preserve">
+          <source><bpt id="0e4b2853-d21a-4565-954e-4347631447ef">&lt;linkText&gt;</bpt>Triggers in Logic App Designer<ept id="0e4b2853-d21a-4565-954e-4347631447ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e4b2853-d21a-4565-954e-4347631447ef">&lt;linkText&gt;</bpt>Triggers in Logic App Designer<ept id="0e4b2853-d21a-4565-954e-4347631447ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5af42a55-c747-4a36-80e3-e9362ecc79b9" xml:space="preserve">
+          <source><bpt id="606faab2-4cea-4bcd-b9c8-b1a58b16012f">&lt;linkText&gt;</bpt>Configure Poll Trigger in Logic App Designer<ept id="606faab2-4cea-4bcd-b9c8-b1a58b16012f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="606faab2-4cea-4bcd-b9c8-b1a58b16012f">&lt;linkText&gt;</bpt>Configure Poll Trigger in Logic App Designer<ept id="606faab2-4cea-4bcd-b9c8-b1a58b16012f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8a3c20f-7848-4337-977a-2634abaf1020" xml:space="preserve">
+          <source><bpt id="ca6d423d-cf1e-4766-87b1-682cc65d2b9c">&lt;linkText&gt;</bpt>Configure Push Trigger in Logic App Designer<ept id="ca6d423d-cf1e-4766-87b1-682cc65d2b9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ca6d423d-cf1e-4766-87b1-682cc65d2b9c">&lt;linkText&gt;</bpt>Configure Push Trigger in Logic App Designer<ept id="ca6d423d-cf1e-4766-87b1-682cc65d2b9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8dda05cf-d191-48f4-beeb-d802254cc408" xml:space="preserve">
+          <source>After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.</source>
+          <target state="new">After you add triggers to an API app, there are a few things you can do to improve the experience when using the API app in a Logic app.</target>
+        </trans-unit>
+        <trans-unit id="0cf6cef9-f65f-475d-996d-e2567c5b80d9" xml:space="preserve">
+          <source>For instance, the <bpt id="f1bb2531-a513-4ffc-8fba-d5ea81fb81de">&lt;strong&gt;</bpt>triggerState<ept id="f1bb2531-a513-4ffc-8fba-d5ea81fb81de">&lt;/strong&gt;</ept> parameter for poll triggers should be set to the following expression in the Logic app.</source>
+          <target state="new">For instance, the <bpt id="f1bb2531-a513-4ffc-8fba-d5ea81fb81de">&lt;strong&gt;</bpt>triggerState<ept id="f1bb2531-a513-4ffc-8fba-d5ea81fb81de">&lt;/strong&gt;</ept> parameter for poll triggers should be set to the following expression in the Logic app.</target>
+        </trans-unit>
+        <trans-unit id="0cfe6a78-607b-4b4f-b557-cba45fb4854a" xml:space="preserve">
+          <source>This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.</source>
+          <target state="new">This expression should evaluate the last invocation of the trigger from the Logic app, and return that value.</target>
+        </trans-unit>
+        <trans-unit id="9be92b0d-7908-4db9-9a28-92be9f385bf5" xml:space="preserve">
+          <source>NOTE: For an explanation of the functions used in the expression above, refer to the documentation on <bpt id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;linkText&gt;</bpt>Logic App Workflow Definition Language<ept id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;/linkText&gt;</ept><bpt id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;title&gt;</bpt><ept id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">NOTE: For an explanation of the functions used in the expression above, refer to the documentation on <bpt id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;linkText&gt;</bpt>Logic App Workflow Definition Language<ept id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;/linkText&gt;</ept><bpt id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;title&gt;</bpt><ept id="9c50d652-9872-43d3-9fae-60b286f817ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d29cf71-8d39-4b11-8059-9a7b62b7bab3" xml:space="preserve">
+          <source>Logic app users would need to provide the expression above for the <bpt id="86d9741d-1100-4812-855d-4e8922f65d05">&lt;strong&gt;</bpt>triggerState<ept id="86d9741d-1100-4812-855d-4e8922f65d05">&lt;/strong&gt;</ept> parameter while using the trigger.</source>
+          <target state="new">Logic app users would need to provide the expression above for the <bpt id="86d9741d-1100-4812-855d-4e8922f65d05">&lt;strong&gt;</bpt>triggerState<ept id="86d9741d-1100-4812-855d-4e8922f65d05">&lt;/strong&gt;</ept> parameter while using the trigger.</target>
+        </trans-unit>
+        <trans-unit id="1feb8878-c824-490b-ba02-50c1b7542b2f" xml:space="preserve">
+          <source>It is possible to have this value preset by the Logic app designer through the extension property <bpt id="9012ca11-9e3f-4029-8274-72b2ddfc23e0">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="9012ca11-9e3f-4029-8274-72b2ddfc23e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">It is possible to have this value preset by the Logic app designer through the extension property <bpt id="9012ca11-9e3f-4029-8274-72b2ddfc23e0">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="9012ca11-9e3f-4029-8274-72b2ddfc23e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffba47fa-5d96-4cf4-a4ae-042fdfc25637" xml:space="preserve">
+          <source>The <bpt id="a54ff7e6-d1f1-453d-9fea-41e0a251acb7">&lt;strong&gt;</bpt>x-ms-visibility<ept id="a54ff7e6-d1f1-453d-9fea-41e0a251acb7">&lt;/strong&gt;</ept> extension property can be set to a value of <bpt id="d0b6e55b-036e-44d7-b91e-aaf02d7b1048">&lt;em&gt;</bpt>internal<ept id="d0b6e55b-036e-44d7-b91e-aaf02d7b1048">&lt;/em&gt;</ept> so that the parameter itself is not shown on the designer.</source>
+          <target state="new">The <bpt id="a54ff7e6-d1f1-453d-9fea-41e0a251acb7">&lt;strong&gt;</bpt>x-ms-visibility<ept id="a54ff7e6-d1f1-453d-9fea-41e0a251acb7">&lt;/strong&gt;</ept> extension property can be set to a value of <bpt id="d0b6e55b-036e-44d7-b91e-aaf02d7b1048">&lt;em&gt;</bpt>internal<ept id="d0b6e55b-036e-44d7-b91e-aaf02d7b1048">&lt;/em&gt;</ept> so that the parameter itself is not shown on the designer.</target>
+        </trans-unit>
+        <trans-unit id="033e4830-fa7b-4977-b340-0a5e33924acc" xml:space="preserve">
+          <source>The following snippet illustrates that.</source>
+          <target state="new">The following snippet illustrates that.</target>
+        </trans-unit>
+        <trans-unit id="37f2b287-74f4-4c7e-b894-8ad5e0105413" xml:space="preserve">
+          <source>For push triggers, the <bpt id="78a43317-4f4e-4483-a359-88446a2c6f41">&lt;strong&gt;</bpt>triggerId<ept id="78a43317-4f4e-4483-a359-88446a2c6f41">&lt;/strong&gt;</ept> parameter must uniquely identify the Logic app.</source>
+          <target state="new">For push triggers, the <bpt id="78a43317-4f4e-4483-a359-88446a2c6f41">&lt;strong&gt;</bpt>triggerId<ept id="78a43317-4f4e-4483-a359-88446a2c6f41">&lt;/strong&gt;</ept> parameter must uniquely identify the Logic app.</target>
+        </trans-unit>
+        <trans-unit id="f5f62849-62d2-4abe-889a-bc9b7ee3baa4" xml:space="preserve">
+          <source>A recommended best practice is to set this property to the name of the workflow by using the following expression:</source>
+          <target state="new">A recommended best practice is to set this property to the name of the workflow by using the following expression:</target>
+        </trans-unit>
+        <trans-unit id="0c1f8849-6601-48e1-9f35-291882d7ee01" xml:space="preserve">
+          <source>Using the <bpt id="9de639b9-8b9a-4f21-b136-84a28627128a">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="9de639b9-8b9a-4f21-b136-84a28627128a">&lt;/strong&gt;</ept> and <bpt id="0fc38745-7f1c-4641-aa81-389fe4f3387f">&lt;strong&gt;</bpt>x-ms-visibility<ept id="0fc38745-7f1c-4641-aa81-389fe4f3387f">&lt;/strong&gt;</ept> extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.</source>
+          <target state="new">Using the <bpt id="9de639b9-8b9a-4f21-b136-84a28627128a">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="9de639b9-8b9a-4f21-b136-84a28627128a">&lt;/strong&gt;</ept> and <bpt id="0fc38745-7f1c-4641-aa81-389fe4f3387f">&lt;strong&gt;</bpt>x-ms-visibility<ept id="0fc38745-7f1c-4641-aa81-389fe4f3387f">&lt;/strong&gt;</ept> extension properties in its API definiton, the API app can convey to the Logic app designer to automatically set this expression for the user.</target>
+        </trans-unit>
+        <trans-unit id="fcc23252-cc2d-4053-a9f8-706360f5a621" xml:space="preserve">
+          <source>Additional metadata information - such as the extension properties <bpt id="33ff5251-5d74-4608-88c4-67a138b2884c">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="33ff5251-5d74-4608-88c4-67a138b2884c">&lt;/strong&gt;</ept> and <bpt id="ab747103-e7be-438c-839e-b2cd88d7cda3">&lt;strong&gt;</bpt>x-ms-visibility<ept id="ab747103-e7be-438c-839e-b2cd88d7cda3">&lt;/strong&gt;</ept> - can be added in the API defintion in one of two ways: static or dynamic.</source>
+          <target state="new">Additional metadata information - such as the extension properties <bpt id="33ff5251-5d74-4608-88c4-67a138b2884c">&lt;strong&gt;</bpt>x-ms-scheduler-recommendation<ept id="33ff5251-5d74-4608-88c4-67a138b2884c">&lt;/strong&gt;</ept> and <bpt id="ab747103-e7be-438c-839e-b2cd88d7cda3">&lt;strong&gt;</bpt>x-ms-visibility<ept id="ab747103-e7be-438c-839e-b2cd88d7cda3">&lt;/strong&gt;</ept> - can be added in the API defintion in one of two ways: static or dynamic.</target>
+        </trans-unit>
+        <trans-unit id="abb132b1-a9dc-45b1-b9b7-37bd2b37d964" xml:space="preserve">
+          <source>For static metadata, you can directly edit the <bpt id="ad2f5316-a507-4c75-815f-9f3294a2b2aa">&lt;em&gt;</bpt>/metadata/apiDefinition.swagger.json<ept id="ad2f5316-a507-4c75-815f-9f3294a2b2aa">&lt;/em&gt;</ept> file in your project and add the properties manually.</source>
+          <target state="new">For static metadata, you can directly edit the <bpt id="ad2f5316-a507-4c75-815f-9f3294a2b2aa">&lt;em&gt;</bpt>/metadata/apiDefinition.swagger.json<ept id="ad2f5316-a507-4c75-815f-9f3294a2b2aa">&lt;/em&gt;</ept> file in your project and add the properties manually.</target>
+        </trans-unit>
+        <trans-unit id="ce3f4b99-bccc-4238-8ee4-2e734944a032" xml:space="preserve">
+          <source>For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.</source>
+          <target state="new">For API apps using dynamic metadata, you can edit the SwaggerConfig.cs file to add an operation filter which can add these extensions.</target>
+        </trans-unit>
+        <trans-unit id="34a550ed-1b1e-449b-a5ec-0992059b536c" xml:space="preserve">
+          <source>The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.</source>
+          <target state="new">The following is an example of how this class can be implemented to facilitate the dynamic metadata scenario.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

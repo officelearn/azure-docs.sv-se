@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f925a1bf-445c-4f3b-8ca8-7767c91411dd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f925a1bf-445c-4f3b-8ca8-7767c91411dd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="60853ac3-8843-4ff1-b8db-48d19e98233c">
+        <trans-unit id="d6085879-8f8f-4b2c-b31c-80eb96fa83c9" xml:space="preserve">
+          <source>Connection assets in Azure Automation | Microsoft Azure</source>
+          <target state="new">Connection assets in Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="efb026d4-0f24-4b61-8638-91cb2849249a" xml:space="preserve">
+          <source>Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the details of connections and how to work with them in both textual and graphical authoring.</source>
+          <target state="new">Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook.  This article explains the details of connections and how to work with them in both textual and graphical authoring.</target>
+        </trans-unit>
+        <trans-unit id="39049928-2528-4c8c-9aec-15da16cc326a" xml:space="preserve">
+          <source>An Automation connection asset contains the information required to connect to an external service or application from a runbook.</source>
+          <target state="new">An Automation connection asset contains the information required to connect to an external service or application from a runbook.</target>
+        </trans-unit>
+        <trans-unit id="b87a97dc-9aa9-4582-8c5d-ff671dbda4bf" xml:space="preserve">
+          <source>This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port.</source>
+          <target state="new">This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port.</target>
+        </trans-unit>
+        <trans-unit id="149c752b-d29e-4a0a-8967-e7adfb2d004c" xml:space="preserve">
+          <source>The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables.</source>
+          <target state="new">The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables.</target>
+        </trans-unit>
+        <trans-unit id="979001a6-90df-4471-882e-dc4a6b606d32" xml:space="preserve">
+          <source>The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook in a single parameter.</source>
+          <target state="new">The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook in a single parameter.</target>
+        </trans-unit>
+        <trans-unit id="ef56a9a8-5376-4326-93dd-fea2ee0ddaea" xml:space="preserve">
+          <source>The properties for a connection can be accessed in the runbook with the <bpt id="d29790c0-9154-44a7-936e-8cd07f41d9ff">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="d29790c0-9154-44a7-936e-8cd07f41d9ff">&lt;/strong&gt;</ept> activity.</source>
+          <target state="new">The properties for a connection can be accessed in the runbook with the <bpt id="d29790c0-9154-44a7-936e-8cd07f41d9ff">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="d29790c0-9154-44a7-936e-8cd07f41d9ff">&lt;/strong&gt;</ept> activity.</target>
+        </trans-unit>
+        <trans-unit id="3712a7f5-3443-473e-9965-e7a97b739508" xml:space="preserve">
+          <source>When you create a connection, you must specify a <bpt id="bd847bde-0037-4515-b3c4-80564b432cfb">&lt;em&gt;</bpt>connection type<ept id="bd847bde-0037-4515-b3c4-80564b432cfb">&lt;/em&gt;</ept>.</source>
+          <target state="new">When you create a connection, you must specify a <bpt id="bd847bde-0037-4515-b3c4-80564b432cfb">&lt;em&gt;</bpt>connection type<ept id="bd847bde-0037-4515-b3c4-80564b432cfb">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="328bb0d0-0664-4c50-ae5e-88eb145066f4" xml:space="preserve">
+          <source>The connection type is a template that defines a set of properties.</source>
+          <target state="new">The connection type is a template that defines a set of properties.</target>
+        </trans-unit>
+        <trans-unit id="cdee0a39-f2a7-46fa-88d6-6e21d6b05581" xml:space="preserve">
+          <source>The connection defines values for each property defined in its connection type.</source>
+          <target state="new">The connection defines values for each property defined in its connection type.</target>
+        </trans-unit>
+        <trans-unit id="89f3b27b-191a-438e-a1f8-19ee4bf30b7e" xml:space="preserve">
+          <source>Connection types are added to Azure Automation in integration modules or created with the <bpt id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;linkText&gt;</bpt>Azure Automation API<ept id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;/linkText&gt;</ept><bpt id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;title&gt;</bpt><ept id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Connection types are added to Azure Automation in integration modules or created with the <bpt id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;linkText&gt;</bpt>Azure Automation API<ept id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;/linkText&gt;</ept><bpt id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;title&gt;</bpt><ept id="2677dc67-0ebe-4b01-98ed-d25cb158225b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="802d32e5-8881-4fe9-84fa-edbe9e52217c" xml:space="preserve">
+          <source>The only connection types that are available when you create a connection are those installed in your automation account.</source>
+          <target state="new">The only connection types that are available when you create a connection are those installed in your automation account.</target>
+        </trans-unit>
+        <trans-unit id="e35e51ee-80aa-4bc1-8388-4cf91666b321" xml:space="preserve">
+          <source>Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables.</source>
+          <target state="new">Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables.</target>
+        </trans-unit>
+        <trans-unit id="7bece219-de3d-40d2-845c-b837bd308919" xml:space="preserve">
+          <source>These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account.</source>
+          <target state="new">These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account.</target>
+        </trans-unit>
+        <trans-unit id="76cffe86-a71c-4c43-b404-4a7a64938be6" xml:space="preserve">
+          <source>This key is encrypted by a master certificate and stored in Azure Automation.</source>
+          <target state="new">This key is encrypted by a master certificate and stored in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="18b04549-2994-4654-a602-01e6874cac5b" xml:space="preserve">
+          <source>Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.</source>
+          <target state="new">Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.</target>
+        </trans-unit>
+        <trans-unit id="1045bfbd-e389-44c4-a11c-45065228e21f" xml:space="preserve">
+          <source>The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the <bpt id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;/linkText&gt;</ept><bpt id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;title&gt;</bpt><ept id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;/title&gt;</ept> which is available for use in Automation runbooks.</source>
+          <target state="new">The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell They ship as part of the <bpt id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;/linkText&gt;</ept><bpt id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;title&gt;</bpt><ept id="98141a14-aeb1-4643-b95f-575d1f7e6838">&lt;/title&gt;</ept> which is available for use in Automation runbooks.</target>
+        </trans-unit>
+        <trans-unit id="0fff95e9-744a-4361-9e36-90ec6a73761f" xml:space="preserve">
+          <source>Cmdlet</source>
+          <target state="new">Cmdlet</target>
+        </trans-unit>
+        <trans-unit id="bc5b03d9-cab0-4273-9fb5-b9c451b72349" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="88fdb914-376f-4e19-8128-d4484598138e" xml:space="preserve">
+          <source><bpt id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;linkText&gt;</bpt>Get-AzureAutomationConnection<ept id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;/linkText&gt;</ept><bpt id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;title&gt;</bpt><ept id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;linkText&gt;</bpt>Get-AzureAutomationConnection<ept id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;/linkText&gt;</ept><bpt id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;title&gt;</bpt><ept id="5e2c427b-1735-4c1b-a1d6-0562641da853">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3df0af25-c521-4a55-93da-d4111b8ee1f6" xml:space="preserve">
+          <source>Retrieves a connection.</source>
+          <target state="new">Retrieves a connection.</target>
+        </trans-unit>
+        <trans-unit id="3a72da40-7074-4e7d-8dc3-b4587d46b514" xml:space="preserve">
+          <source>Includes a hashtable with the values of the connection’s fields.</source>
+          <target state="new">Includes a hashtable with the values of the connection’s fields.</target>
+        </trans-unit>
+        <trans-unit id="e3e98ad6-7b71-41a6-ad50-bb6c70b1fbde" xml:space="preserve">
+          <source><bpt id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;linkText&gt;</bpt>New-AzureAutomationConnection<ept id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;/linkText&gt;</ept><bpt id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;title&gt;</bpt><ept id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;linkText&gt;</bpt>New-AzureAutomationConnection<ept id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;/linkText&gt;</ept><bpt id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;title&gt;</bpt><ept id="348ff658-7d39-4137-8067-01ff78e3b3d8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d232b28-6e9e-4610-b17f-e084ec00922f" xml:space="preserve">
+          <source>Creates a new connection.</source>
+          <target state="new">Creates a new connection.</target>
+        </trans-unit>
+        <trans-unit id="72a32194-47d9-460d-afc2-a09a195c75c8" xml:space="preserve">
+          <source><bpt id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;linkText&gt;</bpt>Remove-AzureAutomationConnection<ept id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;/linkText&gt;</ept><bpt id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;title&gt;</bpt><ept id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;linkText&gt;</bpt>Remove-AzureAutomationConnection<ept id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;/linkText&gt;</ept><bpt id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;title&gt;</bpt><ept id="ebced8ad-6e41-4ab6-b724-d1025b1478d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a388a658-5b14-4563-ab65-5a4b7f254655" xml:space="preserve">
+          <source>Remove an existing connection.</source>
+          <target state="new">Remove an existing connection.</target>
+        </trans-unit>
+        <trans-unit id="d05dde70-b07b-4421-a291-b55152fa7f73" xml:space="preserve">
+          <source><bpt id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;linkText&gt;</bpt>Set-AzureAutomationConnectionFieldValue<ept id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;/linkText&gt;</ept><bpt id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;title&gt;</bpt><ept id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;linkText&gt;</bpt>Set-AzureAutomationConnectionFieldValue<ept id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;/linkText&gt;</ept><bpt id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;title&gt;</bpt><ept id="e757e518-d585-43f8-8539-ebe96e48048a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4fa98be-90a5-4bce-865c-24e5bfd9665e" xml:space="preserve">
+          <source>Sets the value of a particular field for an existing connection.</source>
+          <target state="new">Sets the value of a particular field for an existing connection.</target>
+        </trans-unit>
+        <trans-unit id="761a3db2-a5a1-4654-ba53-6f26b7a2cd46" xml:space="preserve">
+          <source>The activities in the following table are used to access connections in a runbook.</source>
+          <target state="new">The activities in the following table are used to access connections in a runbook.</target>
+        </trans-unit>
+        <trans-unit id="39808100-096b-40cf-a347-386d2e4e4d99" xml:space="preserve">
+          <source>Activities</source>
+          <target state="new">Activities</target>
+        </trans-unit>
+        <trans-unit id="6283cd84-cc6c-44e8-9a49-7a7f0445b75b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="b169ada8-5c26-4ced-aa15-5fc45b811428" xml:space="preserve">
+          <source>Get-AutomationConnection</source>
+          <target state="new">Get-AutomationConnection</target>
+        </trans-unit>
+        <trans-unit id="07444b64-ca7a-4d10-903a-2515bb22b0df" xml:space="preserve">
+          <source>Gets a connection to use in a runbook.</source>
+          <target state="new">Gets a connection to use in a runbook.</target>
+        </trans-unit>
+        <trans-unit id="13d072bb-025a-4942-98a6-eb2c5db4e184" xml:space="preserve">
+          <source>Returns a hashtable with the properties of the connection.</source>
+          <target state="new">Returns a hashtable with the properties of the connection.</target>
+        </trans-unit>
+        <trans-unit id="bd43d8d8-3bbf-4395-bc3c-91b06319a934" xml:space="preserve">
+          <source>You should avoid using variables in the –Name parameter of <bpt id="a6592ecf-9b35-4cfa-83a7-71993c2b55ad">&lt;strong&gt;</bpt>Get- AutomationConnection<ept id="a6592ecf-9b35-4cfa-83a7-71993c2b55ad">&lt;/strong&gt;</ept> since this can complicate discovering dependencies between runbooks and connection assets at design time.</source>
+          <target state="new">You should avoid using variables in the –Name parameter of <bpt id="a6592ecf-9b35-4cfa-83a7-71993c2b55ad">&lt;strong&gt;</bpt>Get- AutomationConnection<ept id="a6592ecf-9b35-4cfa-83a7-71993c2b55ad">&lt;/strong&gt;</ept> since this can complicate discovering dependencies between runbooks and connection assets at design time.</target>
+        </trans-unit>
+        <trans-unit id="106cb8ac-21d7-45a7-9d39-d65ce8201040" xml:space="preserve">
+          <source>From your automation account, click <bpt id="1cdf08fb-4b8f-4a78-a043-8a5cc29a8826">&lt;strong&gt;</bpt>Assets<ept id="1cdf08fb-4b8f-4a78-a043-8a5cc29a8826">&lt;/strong&gt;</ept> at the top of the window.</source>
+          <target state="new">From your automation account, click <bpt id="1cdf08fb-4b8f-4a78-a043-8a5cc29a8826">&lt;strong&gt;</bpt>Assets<ept id="1cdf08fb-4b8f-4a78-a043-8a5cc29a8826">&lt;/strong&gt;</ept> at the top of the window.</target>
+        </trans-unit>
+        <trans-unit id="50026e6b-3f6d-4de8-ae40-99a6c25c6464" xml:space="preserve">
+          <source>At the bottom of the window, click <bpt id="3a4b0c73-4f85-49b0-b391-334622e91c23">&lt;strong&gt;</bpt>Add Setting<ept id="3a4b0c73-4f85-49b0-b391-334622e91c23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the window, click <bpt id="3a4b0c73-4f85-49b0-b391-334622e91c23">&lt;strong&gt;</bpt>Add Setting<ept id="3a4b0c73-4f85-49b0-b391-334622e91c23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11dfb3b5-8200-44c6-a374-2f6b801528fb" xml:space="preserve">
+          <source>Click <bpt id="5e6e55e8-190b-4f6a-9353-1bcf5eb61fd0">&lt;strong&gt;</bpt>Add Connection<ept id="5e6e55e8-190b-4f6a-9353-1bcf5eb61fd0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5e6e55e8-190b-4f6a-9353-1bcf5eb61fd0">&lt;strong&gt;</bpt>Add Connection<ept id="5e6e55e8-190b-4f6a-9353-1bcf5eb61fd0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3de9679b-d4bd-4864-bc7d-338aa3b825a9" xml:space="preserve">
+          <source>In the <bpt id="b5dd5b6c-3b0b-40db-bc85-98098701213c">&lt;strong&gt;</bpt>Connection Type<ept id="b5dd5b6c-3b0b-40db-bc85-98098701213c">&lt;/strong&gt;</ept> dropdown, select the type of connection you want to create.</source>
+          <target state="new">In the <bpt id="b5dd5b6c-3b0b-40db-bc85-98098701213c">&lt;strong&gt;</bpt>Connection Type<ept id="b5dd5b6c-3b0b-40db-bc85-98098701213c">&lt;/strong&gt;</ept> dropdown, select the type of connection you want to create.</target>
+        </trans-unit>
+        <trans-unit id="fff36de5-2087-4b84-bcb2-77a1bcba7879" xml:space="preserve">
+          <source>The wizard will present the properties for that particular type.</source>
+          <target state="new">The wizard will present the properties for that particular type.</target>
+        </trans-unit>
+        <trans-unit id="ba792a86-081d-47ac-b493-b6870ba5edea" xml:space="preserve">
+          <source>Complete the wizard and click the checkbox to save the new connection.</source>
+          <target state="new">Complete the wizard and click the checkbox to save the new connection.</target>
+        </trans-unit>
+        <trans-unit id="5b5fe0f4-09bb-4582-a43b-5379e373678b" xml:space="preserve">
+          <source>From your automation account, click the <bpt id="889362bf-9f5d-4db7-aba8-7e88770dbb6c">&lt;strong&gt;</bpt>Assets<ept id="889362bf-9f5d-4db7-aba8-7e88770dbb6c">&lt;/strong&gt;</ept> part to open the <bpt id="66be9212-b8ea-44d4-ad1b-a1c68d2d1e71">&lt;strong&gt;</bpt>Assets<ept id="66be9212-b8ea-44d4-ad1b-a1c68d2d1e71">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">From your automation account, click the <bpt id="889362bf-9f5d-4db7-aba8-7e88770dbb6c">&lt;strong&gt;</bpt>Assets<ept id="889362bf-9f5d-4db7-aba8-7e88770dbb6c">&lt;/strong&gt;</ept> part to open the <bpt id="66be9212-b8ea-44d4-ad1b-a1c68d2d1e71">&lt;strong&gt;</bpt>Assets<ept id="66be9212-b8ea-44d4-ad1b-a1c68d2d1e71">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="770a4803-ba11-4639-8626-50db1862f22a" xml:space="preserve">
+          <source>Click the <bpt id="b1a6ac64-de4c-4e0f-ae89-090867c54e2f">&lt;strong&gt;</bpt>Connections<ept id="b1a6ac64-de4c-4e0f-ae89-090867c54e2f">&lt;/strong&gt;</ept> part to open the <bpt id="ba9b523c-acba-4270-9762-a6ebdb7841d2">&lt;strong&gt;</bpt>Connections<ept id="ba9b523c-acba-4270-9762-a6ebdb7841d2">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="b1a6ac64-de4c-4e0f-ae89-090867c54e2f">&lt;strong&gt;</bpt>Connections<ept id="b1a6ac64-de4c-4e0f-ae89-090867c54e2f">&lt;/strong&gt;</ept> part to open the <bpt id="ba9b523c-acba-4270-9762-a6ebdb7841d2">&lt;strong&gt;</bpt>Connections<ept id="ba9b523c-acba-4270-9762-a6ebdb7841d2">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="479aaa79-e2df-4a2d-b05d-501e8cb94aae" xml:space="preserve">
+          <source>Click <bpt id="894f6ddc-b4bf-4437-8e4b-2f8c28dd254e">&lt;strong&gt;</bpt>Add a connection<ept id="894f6ddc-b4bf-4437-8e4b-2f8c28dd254e">&lt;/strong&gt;</ept> at the top of the blade.</source>
+          <target state="new">Click <bpt id="894f6ddc-b4bf-4437-8e4b-2f8c28dd254e">&lt;strong&gt;</bpt>Add a connection<ept id="894f6ddc-b4bf-4437-8e4b-2f8c28dd254e">&lt;/strong&gt;</ept> at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="88fa2ae4-e393-45cf-b6ef-cc62b7f14a54" xml:space="preserve">
+          <source>In the <bpt id="237f0787-e644-4e58-90b7-93b05af3ce4b">&lt;strong&gt;</bpt>Type<ept id="237f0787-e644-4e58-90b7-93b05af3ce4b">&lt;/strong&gt;</ept> dropdown, select the type of connection you want to create.</source>
+          <target state="new">In the <bpt id="237f0787-e644-4e58-90b7-93b05af3ce4b">&lt;strong&gt;</bpt>Type<ept id="237f0787-e644-4e58-90b7-93b05af3ce4b">&lt;/strong&gt;</ept> dropdown, select the type of connection you want to create.</target>
+        </trans-unit>
+        <trans-unit id="db7a5045-eaf5-4232-b3a6-b012244b2824" xml:space="preserve">
+          <source>The form will present the properties for that particular type.</source>
+          <target state="new">The form will present the properties for that particular type.</target>
+        </trans-unit>
+        <trans-unit id="f7d36551-1c56-4ae6-a5cb-dd0d9cbb63f6" xml:space="preserve">
+          <source>Complete the form and click <bpt id="143d1f15-4f1c-4b89-8d92-b1271f767136">&lt;strong&gt;</bpt>Create<ept id="143d1f15-4f1c-4b89-8d92-b1271f767136">&lt;/strong&gt;</ept> to save the new connection.</source>
+          <target state="new">Complete the form and click <bpt id="143d1f15-4f1c-4b89-8d92-b1271f767136">&lt;strong&gt;</bpt>Create<ept id="143d1f15-4f1c-4b89-8d92-b1271f767136">&lt;/strong&gt;</ept> to save the new connection.</target>
+        </trans-unit>
+        <trans-unit id="47c9bb2f-4f40-424d-a78c-426fee98d292" xml:space="preserve">
+          <source>Create a new connection with Windows PowerShell using the <bpt id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;linkText&gt;</bpt>New-AzureAutomationConnection<ept id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;/linkText&gt;</ept><bpt id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;title&gt;</bpt><ept id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;/title&gt;</ept> cmdlet.</source>
+          <target state="new">Create a new connection with Windows PowerShell using the <bpt id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;linkText&gt;</bpt>New-AzureAutomationConnection<ept id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;/linkText&gt;</ept><bpt id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;title&gt;</bpt><ept id="258ec915-e7c9-4165-bd4f-f9ea3c16a172">&lt;/title&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="ca2276b2-6555-48b6-a3a4-b1f70bc343ea" xml:space="preserve">
+          <source>This cmdlet has a parameter named <bpt id="ed4340cf-d549-4e4c-acbb-ea481165f880">&lt;strong&gt;</bpt>ConnectionFieldValues<ept id="ed4340cf-d549-4e4c-acbb-ea481165f880">&lt;/strong&gt;</ept> that expects a <bpt id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;linkText&gt;</bpt>hash table<ept id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;/linkText&gt;</ept><bpt id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;title&gt;</bpt><ept id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;/title&gt;</ept> defining values for each of the properties defined by the connection type.</source>
+          <target state="new">This cmdlet has a parameter named <bpt id="ed4340cf-d549-4e4c-acbb-ea481165f880">&lt;strong&gt;</bpt>ConnectionFieldValues<ept id="ed4340cf-d549-4e4c-acbb-ea481165f880">&lt;/strong&gt;</ept> that expects a <bpt id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;linkText&gt;</bpt>hash table<ept id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;/linkText&gt;</ept><bpt id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;title&gt;</bpt><ept id="3d688436-c8b9-4dd5-a2ef-dd69ab109708">&lt;/title&gt;</ept> defining values for each of the properties defined by the connection type.</target>
+        </trans-unit>
+        <trans-unit id="e10087a4-9558-47b6-9800-b30e56f6c23c" xml:space="preserve">
+          <source>The following sample commands create a new connection for <bpt id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;linkText&gt;</bpt>Twilio<ept id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;/linkText&gt;</ept><bpt id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;title&gt;</bpt><ept id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;/title&gt;</ept> which is a telephony service that allows you to send and receive text messages.</source>
+          <target state="new">The following sample commands create a new connection for <bpt id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;linkText&gt;</bpt>Twilio<ept id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;/linkText&gt;</ept><bpt id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;title&gt;</bpt><ept id="f0233883-2483-474a-bddb-3d4d3842635d">&lt;/title&gt;</ept> which is a telephony service that allows you to send and receive text messages.</target>
+        </trans-unit>
+        <trans-unit id="e3eecb2e-9263-41da-836b-b0e82f25435f" xml:space="preserve">
+          <source>A sample integration module that includes a Twilio connection type is available in <bpt id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;linkText&gt;</bpt>Script Center<ept id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;/linkText&gt;</ept><bpt id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;title&gt;</bpt><ept id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;/title&gt;</ept>.</source>
+          <target state="new">A sample integration module that includes a Twilio connection type is available in <bpt id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;linkText&gt;</bpt>Script Center<ept id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;/linkText&gt;</ept><bpt id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;title&gt;</bpt><ept id="43eb92d6-a96b-4829-80f8-21cc13e84502">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a02ea54-53f0-4e09-ae47-d9c29a340388" xml:space="preserve">
+          <source>This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.</source>
+          <target state="new">This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.</target>
+        </trans-unit>
+        <trans-unit id="7769b589-3b55-4186-a9d8-eac154939b80" xml:space="preserve">
+          <source>You must <bpt id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;linkText&gt;</bpt>download this module<ept id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;/linkText&gt;</ept><bpt id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;title&gt;</bpt><ept id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;/title&gt;</ept> and install it in your automation account for this sample code to work.</source>
+          <target state="new">You must <bpt id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;linkText&gt;</bpt>download this module<ept id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;/linkText&gt;</ept><bpt id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;title&gt;</bpt><ept id="4e8bd3a1-57e7-42d3-9550-e7354ec0b07f">&lt;/title&gt;</ept> and install it in your automation account for this sample code to work.</target>
+        </trans-unit>
+        <trans-unit id="997fd386-440d-41bc-94cb-b6c1948073f5" xml:space="preserve">
+          <source>You retrieve a connection in a runbook with the <bpt id="a81599ba-5adf-4079-9b09-8cabfd71b209">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="a81599ba-5adf-4079-9b09-8cabfd71b209">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">You retrieve a connection in a runbook with the <bpt id="a81599ba-5adf-4079-9b09-8cabfd71b209">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="a81599ba-5adf-4079-9b09-8cabfd71b209">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="325e23f3-fd92-41f0-9b39-24c56dfcafee" xml:space="preserve">
+          <source>This activity retrieves the values of the different fields in the connection and returns them as a <bpt id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;linkText&gt;</bpt>hash table<ept id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;/linkText&gt;</ept><bpt id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;title&gt;</bpt><ept id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;/title&gt;</ept> which can then be used with the appropriate commands in the runbook.</source>
+          <target state="new">This activity retrieves the values of the different fields in the connection and returns them as a <bpt id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;linkText&gt;</bpt>hash table<ept id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;/linkText&gt;</ept><bpt id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;title&gt;</bpt><ept id="7632d4df-9e82-4e23-a50d-dd3389aa8dd1">&lt;/title&gt;</ept> which can then be used with the appropriate commands in the runbook.</target>
+        </trans-unit>
+        <trans-unit id="6842bb34-71f8-4385-8037-1051ce656bd0" xml:space="preserve">
+          <source>The following sample commands show how to use the Twilio connection in the previous example to send a text message from a runbook.</source>
+          <target state="new">The following sample commands show how to use the Twilio connection in the previous example to send a text message from a runbook.</target>
+        </trans-unit>
+        <trans-unit id="8b5f5ced-58b6-4923-8cbf-e9e0ae2cb354" xml:space="preserve">
+          <source>The Send-TwilioSMS activity used here has two parameter sets that each use a different method for authenticating to the Twilio service.</source>
+          <target state="new">The Send-TwilioSMS activity used here has two parameter sets that each use a different method for authenticating to the Twilio service.</target>
+        </trans-unit>
+        <trans-unit id="bbb215a3-7117-4490-81b1-74414f8c971c" xml:space="preserve">
+          <source>One uses a connection object and another uses individual parameters for the Account SID and Authorization Token.</source>
+          <target state="new">One uses a connection object and another uses individual parameters for the Account SID and Authorization Token.</target>
+        </trans-unit>
+        <trans-unit id="03702267-4111-4d6e-8003-6b55bb11cca4" xml:space="preserve">
+          <source>Both methods are shown in this sample.</source>
+          <target state="new">Both methods are shown in this sample.</target>
+        </trans-unit>
+        <trans-unit id="2cb54f81-4c08-4a32-8594-b931ec22d983" xml:space="preserve">
+          <source>You add a <bpt id="89445c0b-f98e-4b35-82b7-1a2810a68182">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="89445c0b-f98e-4b35-82b7-1a2810a68182">&lt;/strong&gt;</ept> activity to a graphical runbook by right-clicking on the connection in the Library pane of the graphical editor and selecting <bpt id="af735bd1-835c-4709-866d-015f62d12cc8">&lt;strong&gt;</bpt>Add to canvas<ept id="af735bd1-835c-4709-866d-015f62d12cc8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You add a <bpt id="89445c0b-f98e-4b35-82b7-1a2810a68182">&lt;strong&gt;</bpt>Get-AutomationConnection<ept id="89445c0b-f98e-4b35-82b7-1a2810a68182">&lt;/strong&gt;</ept> activity to a graphical runbook by right-clicking on the connection in the Library pane of the graphical editor and selecting <bpt id="af735bd1-835c-4709-866d-015f62d12cc8">&lt;strong&gt;</bpt>Add to canvas<ept id="af735bd1-835c-4709-866d-015f62d12cc8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67eb53a5-fab3-45ce-a193-3353269c0eff" xml:space="preserve">
+          <source><bpt id="324ac900-680c-4ba5-bb70-c82c56276d49">&lt;linkText&gt;</bpt><ept id="324ac900-680c-4ba5-bb70-c82c56276d49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="324ac900-680c-4ba5-bb70-c82c56276d49">&lt;linkText&gt;</bpt><ept id="324ac900-680c-4ba5-bb70-c82c56276d49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41c2bb5f-d1b6-4a0e-9c4f-881b4f0ee9a5" xml:space="preserve">
+          <source>The following image shows an example of using a connection in a graphical runbook.</source>
+          <target state="new">The following image shows an example of using a connection in a graphical runbook.</target>
+        </trans-unit>
+        <trans-unit id="85306777-01ee-4caf-a97f-1da0df675f8b" xml:space="preserve">
+          <source>This is the same example shown above for sending a text message using Twilio from a textual runbook.</source>
+          <target state="new">This is the same example shown above for sending a text message using Twilio from a textual runbook.</target>
+        </trans-unit>
+        <trans-unit id="75b776ac-4ed7-423b-b375-39a1dc8cd693" xml:space="preserve">
+          <source>This example uses the <bpt id="1dae36d1-f26f-4123-aa12-6191badadd68">&lt;strong&gt;</bpt>UseConnectionObject<ept id="1dae36d1-f26f-4123-aa12-6191badadd68">&lt;/strong&gt;</ept> parameter set for the <bpt id="e0400379-1be8-4180-b10b-d57a4ad532e2">&lt;strong&gt;</bpt>Send-TwilioSMS<ept id="e0400379-1be8-4180-b10b-d57a4ad532e2">&lt;/strong&gt;</ept> activity that uses a connection object for authentication to the service.</source>
+          <target state="new">This example uses the <bpt id="1dae36d1-f26f-4123-aa12-6191badadd68">&lt;strong&gt;</bpt>UseConnectionObject<ept id="1dae36d1-f26f-4123-aa12-6191badadd68">&lt;/strong&gt;</ept> parameter set for the <bpt id="e0400379-1be8-4180-b10b-d57a4ad532e2">&lt;strong&gt;</bpt>Send-TwilioSMS<ept id="e0400379-1be8-4180-b10b-d57a4ad532e2">&lt;/strong&gt;</ept> activity that uses a connection object for authentication to the service.</target>
+        </trans-unit>
+        <trans-unit id="9a6b3f6f-ebd8-4c70-a015-47b6484fe9f4" xml:space="preserve">
+          <source>A <bpt id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;linkText&gt;</bpt>pipeline link<ept id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;/linkText&gt;</ept><bpt id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;title&gt;</bpt><ept id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;/title&gt;</ept> is used here since the Connection parameter is expecting a single object.</source>
+          <target state="new">A <bpt id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;linkText&gt;</bpt>pipeline link<ept id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;/linkText&gt;</ept><bpt id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;title&gt;</bpt><ept id="a76a0054-c4b4-4f02-8c2b-2d782f2c98f5">&lt;/title&gt;</ept> is used here since the Connection parameter is expecting a single object.</target>
+        </trans-unit>
+        <trans-unit id="269b254f-cedf-4de9-925e-767ae6bb8034" xml:space="preserve">
+          <source>The reason that a PowerShell expression is used for the value in the <bpt id="228a2842-148d-4314-81ae-a706cf2869ef">&lt;strong&gt;</bpt>To<ept id="228a2842-148d-4314-81ae-a706cf2869ef">&lt;/strong&gt;</ept> parameter instead of a Constant value is that this parameter expects a string array value type so that you can send to multiple numbers.</source>
+          <target state="new">The reason that a PowerShell expression is used for the value in the <bpt id="228a2842-148d-4314-81ae-a706cf2869ef">&lt;strong&gt;</bpt>To<ept id="228a2842-148d-4314-81ae-a706cf2869ef">&lt;/strong&gt;</ept> parameter instead of a Constant value is that this parameter expects a string array value type so that you can send to multiple numbers.</target>
+        </trans-unit>
+        <trans-unit id="f4b13c43-8d88-464e-8ad6-757878b14a2b" xml:space="preserve">
+          <source>A PowerShell expression allows you to provide a single value or an array.</source>
+          <target state="new">A PowerShell expression allows you to provide a single value or an array.</target>
+        </trans-unit>
+        <trans-unit id="7640d5cd-50a0-423c-a5c0-6faebb73da2c" xml:space="preserve">
+          <source><bpt id="9b03aef7-33da-4cd7-ae3f-1f7e7f5ed4b1">&lt;linkText&gt;</bpt><ept id="9b03aef7-33da-4cd7-ae3f-1f7e7f5ed4b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b03aef7-33da-4cd7-ae3f-1f7e7f5ed4b1">&lt;linkText&gt;</bpt><ept id="9b03aef7-33da-4cd7-ae3f-1f7e7f5ed4b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="229e4af7-c78e-428f-8880-875b4c70d372" xml:space="preserve">
+          <source>The image below shows the same example as above but uses the <bpt id="4f7ac33e-6414-48a9-af65-98400ac0bb44">&lt;strong&gt;</bpt>SpecifyConnectionFields<ept id="4f7ac33e-6414-48a9-af65-98400ac0bb44">&lt;/strong&gt;</ept> parameter set that expects the AccountSid and AuthToken parameters to be specified individually as opposed to using a connection object for authentication.</source>
+          <target state="new">The image below shows the same example as above but uses the <bpt id="4f7ac33e-6414-48a9-af65-98400ac0bb44">&lt;strong&gt;</bpt>SpecifyConnectionFields<ept id="4f7ac33e-6414-48a9-af65-98400ac0bb44">&lt;/strong&gt;</ept> parameter set that expects the AccountSid and AuthToken parameters to be specified individually as opposed to using a connection object for authentication.</target>
+        </trans-unit>
+        <trans-unit id="ec897118-12c5-4ad1-81cb-cb704f61d1c5" xml:space="preserve">
+          <source>In this case, fields of the connection are specified instead of the object itself.</source>
+          <target state="new">In this case, fields of the connection are specified instead of the object itself.</target>
+        </trans-unit>
+        <trans-unit id="9eaa338e-ff60-4475-802f-0a7bc0966f35" xml:space="preserve">
+          <source><bpt id="be742da3-daea-4214-a91a-2f3554fb8fd7">&lt;linkText&gt;</bpt><ept id="be742da3-daea-4214-a91a-2f3554fb8fd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be742da3-daea-4214-a91a-2f3554fb8fd7">&lt;linkText&gt;</bpt><ept id="be742da3-daea-4214-a91a-2f3554fb8fd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0153f334-e812-472c-919e-1a2b19858778" xml:space="preserve">
+          <source><bpt id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;linkText&gt;</bpt>Links in graphical authoring<ept id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;/linkText&gt;</ept><bpt id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;title&gt;</bpt><ept id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;linkText&gt;</bpt>Links in graphical authoring<ept id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;/linkText&gt;</ept><bpt id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;title&gt;</bpt><ept id="7b773352-b559-4569-b0cf-0e53509766e4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

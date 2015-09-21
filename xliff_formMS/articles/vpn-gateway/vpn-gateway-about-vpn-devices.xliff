@@ -1,0 +1,1136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d0ef5feb-5c77-45c1-abab-140efb75507b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d0ef5feb-5c77-45c1-abab-140efb75507b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3671e1fa-152e-4d41-a265-1b26569ce928">
+        <trans-unit id="de76b779-b519-470d-b71e-e040c8bfc463" xml:space="preserve">
+          <source>About VPN Devices for site-to-site Azure Virtual Network connections | Microsoft Azure</source>
+          <target state="new">About VPN Devices for site-to-site Azure Virtual Network connections | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d643b44e-5dba-47aa-9482-c4f48ff2a7e4" xml:space="preserve">
+          <source>Learn about VPN devices and IPsec parameters for Azure Virtual Network site-to-site VPN Gateway connections.</source>
+          <target state="new">Learn about VPN devices and IPsec parameters for Azure Virtual Network site-to-site VPN Gateway connections.</target>
+        </trans-unit>
+        <trans-unit id="de11c608-7d88-4010-9290-c1872218333c" xml:space="preserve">
+          <source>A VPN device is required in order to configure a site-to-site VPN connection.</source>
+          <target state="new">A VPN device is required in order to configure a site-to-site VPN connection.</target>
+        </trans-unit>
+        <trans-unit id="e50a1c67-c046-4180-a7e4-3fa5ebe81232" xml:space="preserve">
+          <source>Site-to-site connections can be used to create a hybrid cloud solution, or whenever you want a secure connection between your on-premises network and your virtual network.</source>
+          <target state="new">Site-to-site connections can be used to create a hybrid cloud solution, or whenever you want a secure connection between your on-premises network and your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="8cc5a1e7-0216-446e-b1ae-2552caf1a6c6" xml:space="preserve">
+          <source>This article discusses compatible VPN devices and configuration parameters.</source>
+          <target state="new">This article discusses compatible VPN devices and configuration parameters.</target>
+        </trans-unit>
+        <trans-unit id="92e7f1f2-dda0-4283-aeae-82bf6ee3bcae" xml:space="preserve">
+          <source>It's important to know that, in addition to a compatible VPN device, site-to-site connections also require a public-facing IPv4 IP address.</source>
+          <target state="new">It's important to know that, in addition to a compatible VPN device, site-to-site connections also require a public-facing IPv4 IP address.</target>
+        </trans-unit>
+        <trans-unit id="46f89b8e-2aa6-4e71-b0f9-f2e9fee312b9" xml:space="preserve">
+          <source>Additionally, you'll want to select the gateway type that will support your solution.</source>
+          <target state="new">Additionally, you'll want to select the gateway type that will support your solution.</target>
+        </trans-unit>
+        <trans-unit id="ae7bf3c0-1ea7-4301-87ba-ace8a9fcdbc2" xml:space="preserve">
+          <source>Not all VPN devices support all gateway types.</source>
+          <target state="new">Not all VPN devices support all gateway types.</target>
+        </trans-unit>
+        <trans-unit id="f1800e3e-1976-408c-a889-fa36e27a13cb" xml:space="preserve">
+          <source>See <bpt id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;linkText&gt;</bpt>VPN gateways<ept id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;/linkText&gt;</ept><bpt id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;title&gt;</bpt><ept id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;/title&gt;</ept> to verify the type of gateway that you need to create your solution.</source>
+          <target state="new">See <bpt id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;linkText&gt;</bpt>VPN gateways<ept id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;/linkText&gt;</ept><bpt id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;title&gt;</bpt><ept id="c0d1a61f-111d-40a7-8144-896d5b6602e8">&lt;/title&gt;</ept> to verify the type of gateway that you need to create your solution.</target>
+        </trans-unit>
+        <trans-unit id="b0000468-e8cc-49b1-882d-5f36a11e03e6" xml:space="preserve">
+          <source>We have validated a set of standard site-to-site (S2S) VPN devices in partnership with device vendors.</source>
+          <target state="new">We have validated a set of standard site-to-site (S2S) VPN devices in partnership with device vendors.</target>
+        </trans-unit>
+        <trans-unit id="889d18c4-1ad9-47cc-9309-f6755cb0c4e4" xml:space="preserve">
+          <source>For a list of the VPN devices that are known to be compatible with Virtual Network, see the <bpt id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;linkText&gt;</bpt>Compatible VPN devices<ept id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;/linkText&gt;</ept><bpt id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;title&gt;</bpt><ept id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;/title&gt;</ept> section, below.</source>
+          <target state="new">For a list of the VPN devices that are known to be compatible with Virtual Network, see the <bpt id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;linkText&gt;</bpt>Compatible VPN devices<ept id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;/linkText&gt;</ept><bpt id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;title&gt;</bpt><ept id="73b8faa6-4717-4f24-b7b6-4032eb5bbeeb">&lt;/title&gt;</ept> section, below.</target>
+        </trans-unit>
+        <trans-unit id="a14f494f-b9ed-45b4-809a-3c73306771f6" xml:space="preserve">
+          <source>All devices in the device families contained in this list should work with Azure VPN gateways.</source>
+          <target state="new">All devices in the device families contained in this list should work with Azure VPN gateways.</target>
+        </trans-unit>
+        <trans-unit id="d589d54f-fce7-48f8-b7a8-6b97220f1296" xml:space="preserve">
+          <source>To help configure your VPN device, refer to the device configuration sample that corresponds to appropriate device family.</source>
+          <target state="new">To help configure your VPN device, refer to the device configuration sample that corresponds to appropriate device family.</target>
+        </trans-unit>
+        <trans-unit id="f998b5e7-a529-4e9f-9f42-7e49da3abff0" xml:space="preserve">
+          <source>The specifications for High Performance VPN gateway and Dynamic Routing VPN gateway are the same unless otherwise noted.</source>
+          <target state="new">The specifications for High Performance VPN gateway and Dynamic Routing VPN gateway are the same unless otherwise noted.</target>
+        </trans-unit>
+        <trans-unit id="b83d6382-7c76-43d1-b142-130b5fb3180d" xml:space="preserve">
+          <source>For example, the validated VPN devices that are compatible with Azure Dynamic Routing VPN gateways will also be compatible with the new Azure High Performance VPN gateway.</source>
+          <target state="new">For example, the validated VPN devices that are compatible with Azure Dynamic Routing VPN gateways will also be compatible with the new Azure High Performance VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="9a5d9626-71f8-4634-98c0-6e6f000c290c" xml:space="preserve">
+          <source>We have worked with VPN device vendors to jointly qualify specific VPN device families.</source>
+          <target state="new">We have worked with VPN device vendors to jointly qualify specific VPN device families.</target>
+        </trans-unit>
+        <trans-unit id="6ec2def5-6e1b-4cee-8369-a56b0f118aa0" xml:space="preserve">
+          <source>The section below provides a list of all device families known to work with our VPN gateway.</source>
+          <target state="new">The section below provides a list of all device families known to work with our VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="85de324f-0614-4313-acd9-6c65df1afec2" xml:space="preserve">
+          <source>All devices that are members of the listed device families are known to work unless exceptions are mentioned.</source>
+          <target state="new">All devices that are members of the listed device families are known to work unless exceptions are mentioned.</target>
+        </trans-unit>
+        <trans-unit id="d6a58d48-acfe-4b1e-9816-79608b9897c0" xml:space="preserve">
+          <source>If your device does not appear on the list, see <bpt id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;linkText&gt;</bpt>Devices not on the compatible list<ept id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;/linkText&gt;</ept><bpt id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;title&gt;</bpt><ept id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;/title&gt;</ept>.</source>
+          <target state="new">If your device does not appear on the list, see <bpt id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;linkText&gt;</bpt>Devices not on the compatible list<ept id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;/linkText&gt;</ept><bpt id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;title&gt;</bpt><ept id="e159af92-268b-4970-9fb4-80c5b733cfb3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75913497-3816-4179-a663-d3afb3871b8d" xml:space="preserve">
+          <source>For VPN device support, please contact your device manufacturer.</source>
+          <target state="new">For VPN device support, please contact your device manufacturer.</target>
+        </trans-unit>
+        <trans-unit id="1e3060fb-38f7-4fda-b860-a9766b4463c6" xml:space="preserve">
+          <source><bpt id="66675f96-6f09-4cfd-9739-6cba4b4492c4">&lt;strong&gt;</bpt>Vendor<ept id="66675f96-6f09-4cfd-9739-6cba4b4492c4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="66675f96-6f09-4cfd-9739-6cba4b4492c4">&lt;strong&gt;</bpt>Vendor<ept id="66675f96-6f09-4cfd-9739-6cba4b4492c4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f0c7ae5-248f-433f-a5dd-efd6b6fd9949" xml:space="preserve">
+          <source><bpt id="0e5e67d4-1b93-41e4-8c04-3c9b6cbe73c1">&lt;strong&gt;</bpt>Device family<ept id="0e5e67d4-1b93-41e4-8c04-3c9b6cbe73c1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0e5e67d4-1b93-41e4-8c04-3c9b6cbe73c1">&lt;strong&gt;</bpt>Device family<ept id="0e5e67d4-1b93-41e4-8c04-3c9b6cbe73c1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a922bd3-ccc5-4863-897a-53dc599799fd" xml:space="preserve">
+          <source><bpt id="744305c4-d83e-48bf-afab-a72811ce989b">&lt;strong&gt;</bpt>Minimum OS version<ept id="744305c4-d83e-48bf-afab-a72811ce989b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="744305c4-d83e-48bf-afab-a72811ce989b">&lt;strong&gt;</bpt>Minimum OS version<ept id="744305c4-d83e-48bf-afab-a72811ce989b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3513ef79-c48a-4ce5-ac1c-775f8cc9ffdc" xml:space="preserve">
+          <source><bpt id="9b88e385-e3e7-410d-8f46-944225feb7b3">&lt;strong&gt;</bpt>Static Routing<ept id="9b88e385-e3e7-410d-8f46-944225feb7b3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9b88e385-e3e7-410d-8f46-944225feb7b3">&lt;strong&gt;</bpt>Static Routing<ept id="9b88e385-e3e7-410d-8f46-944225feb7b3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3a2d554-6a0d-4d45-bd5b-d8faaa13427e" xml:space="preserve">
+          <source><bpt id="e86f8399-1434-44db-95c7-5f6433f8f460">&lt;strong&gt;</bpt>Dynamic Routing<ept id="e86f8399-1434-44db-95c7-5f6433f8f460">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e86f8399-1434-44db-95c7-5f6433f8f460">&lt;strong&gt;</bpt>Dynamic Routing<ept id="e86f8399-1434-44db-95c7-5f6433f8f460">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="668abe6f-809d-41c3-a866-641b6294ebaa" xml:space="preserve">
+          <source>Allied Telesis</source>
+          <target state="new">Allied Telesis</target>
+        </trans-unit>
+        <trans-unit id="cfe5fc64-ad55-4bd9-9958-2fcbce12d85a" xml:space="preserve">
+          <source>AR Series VPN Routers</source>
+          <target state="new">AR Series VPN Routers</target>
+        </trans-unit>
+        <trans-unit id="8d157040-fa68-4e6a-bdad-4d83a5dec92b" xml:space="preserve">
+          <source>2.9.2</source>
+          <target state="new">2.9.2</target>
+        </trans-unit>
+        <trans-unit id="be227e81-6637-4bf1-b294-b1b8fbbe4e61" xml:space="preserve">
+          <source>Coming soon</source>
+          <target state="new">Coming soon</target>
+        </trans-unit>
+        <trans-unit id="587a2157-031a-40c4-882a-e2a86810b81b" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="b46080df-c8b9-48a9-8db0-ace3ed895e43" xml:space="preserve">
+          <source>Barracuda Networks, Inc.</source>
+          <target state="new">Barracuda Networks, Inc.</target>
+        </trans-unit>
+        <trans-unit id="17c3280e-3fdb-4616-abb0-05f2faa21339" xml:space="preserve">
+          <source>Barracuda NG Firewall</source>
+          <target state="new">Barracuda NG Firewall</target>
+        </trans-unit>
+        <trans-unit id="ce08ca2a-0460-4dee-aaa3-f3a70bcac5f1" xml:space="preserve">
+          <source>Barracuda NG Firewall 5.4.3</source>
+          <target state="new">Barracuda NG Firewall 5.4.3</target>
+        </trans-unit>
+        <trans-unit id="03d717a2-3ab2-4470-9a9b-e141fd583b11" xml:space="preserve">
+          <source><bpt id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;linkText&gt;</bpt>Barracuda NG Firewall<ept id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;/linkText&gt;</ept><bpt id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;title&gt;</bpt><ept id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;linkText&gt;</bpt>Barracuda NG Firewall<ept id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;/linkText&gt;</ept><bpt id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;title&gt;</bpt><ept id="bcd75e28-3fad-42da-9b20-f12106a3b1b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd358480-e5b1-49bf-90a1-6c161ae835f2" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="8d9b3483-5262-40ae-aece-bdfa8e047512" xml:space="preserve">
+          <source>Barracuda Networks, Inc.</source>
+          <target state="new">Barracuda Networks, Inc.</target>
+        </trans-unit>
+        <trans-unit id="1f785e0e-5e18-437c-b154-9c0fdc32083c" xml:space="preserve">
+          <source>Barracuda Firewall</source>
+          <target state="new">Barracuda Firewall</target>
+        </trans-unit>
+        <trans-unit id="fa2fb8de-2782-4c0c-942a-1edcf24d1306" xml:space="preserve">
+          <source>Barracuda Firewall 6.5</source>
+          <target state="new">Barracuda Firewall 6.5</target>
+        </trans-unit>
+        <trans-unit id="5e8363cd-9bb3-406a-989b-49b955c7f6d3" xml:space="preserve">
+          <source><bpt id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;linkText&gt;</bpt>Barracuda Firewall<ept id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;/linkText&gt;</ept><bpt id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;title&gt;</bpt><ept id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;linkText&gt;</bpt>Barracuda Firewall<ept id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;/linkText&gt;</ept><bpt id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;title&gt;</bpt><ept id="7b3659e3-4399-43cb-9060-c32498bd9612">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7013cd7d-9741-4007-b97c-d447e8ee4c90" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="96d349d6-0068-4f57-beb1-8bb347ca63a5" xml:space="preserve">
+          <source>Brocade</source>
+          <target state="new">Brocade</target>
+        </trans-unit>
+        <trans-unit id="eb82e97e-0503-4ec1-b9ca-611df7f18e8f" xml:space="preserve">
+          <source>Vyatta 5400 vRouter</source>
+          <target state="new">Vyatta 5400 vRouter</target>
+        </trans-unit>
+        <trans-unit id="642d2b88-b4aa-4a40-8341-518e1a124f88" xml:space="preserve">
+          <source>Virtual Router 6.6R3 GA</source>
+          <target state="new">Virtual Router 6.6R3 GA</target>
+        </trans-unit>
+        <trans-unit id="5ac92e2f-6ae9-4ef7-a79f-1addba7c021b" xml:space="preserve">
+          <source>[Configuration instructions](http://www1.brocade.com/downloads/documents/html<bpt id="31fed31a-7a37-4498-92ab-b48cad2334e0">&lt;em&gt;</bpt>product<ept id="31fed31a-7a37-4498-92ab-b48cad2334e0">&lt;/em&gt;</ept>manuals/vyatta/vyatta<bpt id="f9f5e04d-a8fb-4be6-93fc-4f83f43242c4">&lt;em&gt;</bpt>5400<ept id="f9f5e04d-a8fb-4be6-93fc-4f83f43242c4">&lt;/em&gt;</ept>manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html)</source>
+          <target state="new">[Configuration instructions](http://www1.brocade.com/downloads/documents/html<bpt id="31fed31a-7a37-4498-92ab-b48cad2334e0">&lt;em&gt;</bpt>product<ept id="31fed31a-7a37-4498-92ab-b48cad2334e0">&lt;/em&gt;</ept>manuals/vyatta/vyatta<bpt id="f9f5e04d-a8fb-4be6-93fc-4f83f43242c4">&lt;em&gt;</bpt>5400<ept id="f9f5e04d-a8fb-4be6-93fc-4f83f43242c4">&lt;/em&gt;</ept>manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html)</target>
+        </trans-unit>
+        <trans-unit id="3c166e22-9740-44d1-8755-1e1e0fd41d56" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="d3ed5932-b294-4ca3-bd46-7fb7bf3e18fd" xml:space="preserve">
+          <source>Check Point</source>
+          <target state="new">Check Point</target>
+        </trans-unit>
+        <trans-unit id="ea7d8b33-bc3b-4950-a785-d47eb90509ce" xml:space="preserve">
+          <source>Security Gateway</source>
+          <target state="new">Security Gateway</target>
+        </trans-unit>
+        <trans-unit id="58c6420f-4d9e-479e-bda0-43aeb8371390" xml:space="preserve">
+          <source>R75.40, R75.40VS</source>
+          <target state="new">R75.40, R75.40VS</target>
+        </trans-unit>
+        <trans-unit id="0e670024-013a-4877-9ee6-bb22125f5a79" xml:space="preserve">
+          <source><bpt id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;linkText&gt;</bpt>Configuration instructions<ept id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;/linkText&gt;</ept><bpt id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;title&gt;</bpt><ept id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;linkText&gt;</bpt>Configuration instructions<ept id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;/linkText&gt;</ept><bpt id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;title&gt;</bpt><ept id="9ad900d0-1853-4dc6-a7d0-c71edbcf73f7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e420b6d-9840-41b3-84f7-27c451a6854e" xml:space="preserve">
+          <source><bpt id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;linkText&gt;</bpt>Configuration instructions<ept id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;/linkText&gt;</ept><bpt id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;title&gt;</bpt><ept id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;linkText&gt;</bpt>Configuration instructions<ept id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;/linkText&gt;</ept><bpt id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;title&gt;</bpt><ept id="adbbd85e-f660-41bd-8ab3-b228fb11a636">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a151a95b-0d50-4010-bd1c-22d01ce9504b" xml:space="preserve">
+          <source>Cisco</source>
+          <target state="new">Cisco</target>
+        </trans-unit>
+        <trans-unit id="08fa0a2c-376c-43e3-927c-adbb3360fd0d" xml:space="preserve">
+          <source>ASA</source>
+          <target state="new">ASA</target>
+        </trans-unit>
+        <trans-unit id="b0ca994e-3a98-4508-a180-082d0e837136" xml:space="preserve">
+          <source>8.3</source>
+          <target state="new">8.3</target>
+        </trans-unit>
+        <trans-unit id="d93b8429-7326-4185-95b1-6fe460ccc864" xml:space="preserve">
+          <source><bpt id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;linkText&gt;</bpt>Cisco ASA samples<ept id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;/linkText&gt;</ept><bpt id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;title&gt;</bpt><ept id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;linkText&gt;</bpt>Cisco ASA samples<ept id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;/linkText&gt;</ept><bpt id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;title&gt;</bpt><ept id="1c4ceff4-f83f-4237-8b7a-ee7b65741bb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34b8a1fe-abcd-4c3b-bcae-875e42975e45" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="a3adad11-4e84-41f1-a41d-500b287d7cc7" xml:space="preserve">
+          <source>Cisco</source>
+          <target state="new">Cisco</target>
+        </trans-unit>
+        <trans-unit id="3196966b-0509-4e65-a544-16a06ba0895c" xml:space="preserve">
+          <source>ASR</source>
+          <target state="new">ASR</target>
+        </trans-unit>
+        <trans-unit id="0c9196a8-7b72-41f8-a88f-7160d264cf01" xml:space="preserve">
+          <source>IOS 15.1 (static),  IOS 15.2 (dynamic)</source>
+          <target state="new">IOS 15.1 (static),  IOS 15.2 (dynamic)</target>
+        </trans-unit>
+        <trans-unit id="5de4dcd7-7dd8-4839-9466-ea5f2faa582f" xml:space="preserve">
+          <source><bpt id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;linkText&gt;</bpt>Cisco ASR samples<ept id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;/linkText&gt;</ept><bpt id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;title&gt;</bpt><ept id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;linkText&gt;</bpt>Cisco ASR samples<ept id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;/linkText&gt;</ept><bpt id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;title&gt;</bpt><ept id="92d5d0dc-23a1-45ac-9978-9fb4781e5dd6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fd1d96e-7920-4d34-bbba-1e3e7790da53" xml:space="preserve">
+          <source><bpt id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;linkText&gt;</bpt>Cisco ASR samples<ept id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;/linkText&gt;</ept><bpt id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;title&gt;</bpt><ept id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;linkText&gt;</bpt>Cisco ASR samples<ept id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;/linkText&gt;</ept><bpt id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;title&gt;</bpt><ept id="aa717f3b-3f70-4ca6-936b-d0908b818930">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="818468e5-3e66-4448-8a05-e783ed0f510d" xml:space="preserve">
+          <source>Cisco</source>
+          <target state="new">Cisco</target>
+        </trans-unit>
+        <trans-unit id="0540c029-0e89-4147-82f0-859f1faabecc" xml:space="preserve">
+          <source>ISR</source>
+          <target state="new">ISR</target>
+        </trans-unit>
+        <trans-unit id="098346a0-f1c0-4d9d-a462-41d0a398ad02" xml:space="preserve">
+          <source>IOS 15.0 (static),  IOS 15.1 (dynamic)</source>
+          <target state="new">IOS 15.0 (static),  IOS 15.1 (dynamic)</target>
+        </trans-unit>
+        <trans-unit id="edf0cb4c-ffd8-4f0b-9f14-df3ac2821b60" xml:space="preserve">
+          <source><bpt id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;linkText&gt;</bpt>Cisco ISR samples<ept id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;/linkText&gt;</ept><bpt id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;title&gt;</bpt><ept id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;linkText&gt;</bpt>Cisco ISR samples<ept id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;/linkText&gt;</ept><bpt id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;title&gt;</bpt><ept id="c5be4661-501c-4eb0-85bf-98145ea9f964">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6308b82d-7248-494e-9682-5167e1e588ff" xml:space="preserve">
+          <source><bpt id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;linkText&gt;</bpt>Cisco ISR samples<ept id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;/linkText&gt;</ept><bpt id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;title&gt;</bpt><ept id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;linkText&gt;</bpt>Cisco ISR samples<ept id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;/linkText&gt;</ept><bpt id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;title&gt;</bpt><ept id="8ea57ae3-ef5b-48c5-ba38-382d31b6e191">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42eff62a-0393-4011-8048-2e45f55df6e9" xml:space="preserve">
+          <source>Citrix</source>
+          <target state="new">Citrix</target>
+        </trans-unit>
+        <trans-unit id="a48dc470-a1a5-4692-a777-2a7b611c6597" xml:space="preserve">
+          <source>CloudBridge MPX appliance, or VPX virtual appliance</source>
+          <target state="new">CloudBridge MPX appliance, or VPX virtual appliance</target>
+        </trans-unit>
+        <trans-unit id="33a31170-6b43-47ed-809a-707f802f9b48" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="e3d71941-96a2-4f84-b309-bfa1bc99ea32" xml:space="preserve">
+          <source><bpt id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;linkText&gt;</bpt>Integration instructions<ept id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;/linkText&gt;</ept><bpt id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;title&gt;</bpt><ept id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;linkText&gt;</bpt>Integration instructions<ept id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;/linkText&gt;</ept><bpt id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;title&gt;</bpt><ept id="f0e33804-5170-4718-a0d0-646661d2eb77">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fd5fb1f-8482-4fed-8784-861cd682de6b" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="03ab6466-4ee2-4f67-9316-ada7b985e1cc" xml:space="preserve">
+          <source>Dell SonicWALL</source>
+          <target state="new">Dell SonicWALL</target>
+        </trans-unit>
+        <trans-unit id="0001c53e-9774-4552-ae67-da7eb948a5ec" xml:space="preserve">
+          <source>TZ Series,  NSA Series,  SuperMassive Series,  E-Class NSA Series</source>
+          <target state="new">TZ Series,  NSA Series,  SuperMassive Series,  E-Class NSA Series</target>
+        </trans-unit>
+        <trans-unit id="0a0a91df-63d0-455c-87cf-131966bccac3" xml:space="preserve">
+          <source>SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x</source>
+          <target state="new">SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x</target>
+        </trans-unit>
+        <trans-unit id="a08d8398-5339-4057-92e7-650ffd8a3f33" xml:space="preserve">
+          <source>[Configuration instructions](https://www.sonicwall.com/app/projects/file<bpt id="ef9b959b-9648-4915-8e3e-c7f432adf905">&lt;em&gt;</bpt>downloader/document<ept id="ef9b959b-9648-4915-8e3e-c7f432adf905">&lt;/em&gt;</ept>lib.php?t=TN&amp;id=348)</source>
+          <target state="new">[Configuration instructions](https://www.sonicwall.com/app/projects/file<bpt id="ef9b959b-9648-4915-8e3e-c7f432adf905">&lt;em&gt;</bpt>downloader/document<ept id="ef9b959b-9648-4915-8e3e-c7f432adf905">&lt;/em&gt;</ept>lib.php?t=TN&amp;id=348)</target>
+        </trans-unit>
+        <trans-unit id="a1cbc882-2887-420e-95fb-c85464e6ad75" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="2d431f63-f7b4-4a48-9c06-395e5db5eed2" xml:space="preserve">
+          <source>F5</source>
+          <target state="new">F5</target>
+        </trans-unit>
+        <trans-unit id="8327bb80-7aec-419e-b2a4-7c3eeded9c8f" xml:space="preserve">
+          <source>BIG-IP series</source>
+          <target state="new">BIG-IP series</target>
+        </trans-unit>
+        <trans-unit id="78e26868-0a0f-44b6-bfde-215d804699ff" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="016c9ca7-38ff-4a42-a150-df4afbdf1527" xml:space="preserve">
+          <source><bpt id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;linkText&gt;</bpt>Configuration instructions<ept id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;/linkText&gt;</ept><bpt id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;title&gt;</bpt><ept id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;linkText&gt;</bpt>Configuration instructions<ept id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;/linkText&gt;</ept><bpt id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;title&gt;</bpt><ept id="05cc34c1-9752-4174-b141-8c8f5d2f0fe8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d0d5669-9509-46d5-9868-66d9542bbf4c" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="3a64db8f-87de-4a8d-864a-9427e874b704" xml:space="preserve">
+          <source>Fortinet</source>
+          <target state="new">Fortinet</target>
+        </trans-unit>
+        <trans-unit id="74973d89-32c9-4f33-9835-1e6175da69e7" xml:space="preserve">
+          <source>FortiGate</source>
+          <target state="new">FortiGate</target>
+        </trans-unit>
+        <trans-unit id="ef3ce790-55c5-4b11-9b0a-d3602c0f6c23" xml:space="preserve">
+          <source>FortiOS 5.0.7</source>
+          <target state="new">FortiOS 5.0.7</target>
+        </trans-unit>
+        <trans-unit id="0c31d928-095f-4c0a-bd94-c92ea76d0b14" xml:space="preserve">
+          <source><bpt id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;linkText&gt;</bpt>Configuration instructions<ept id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;/linkText&gt;</ept><bpt id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;title&gt;</bpt><ept id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;linkText&gt;</bpt>Configuration instructions<ept id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;/linkText&gt;</ept><bpt id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;title&gt;</bpt><ept id="40942f3c-de14-441e-9f6d-a910944a37bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a850dfc7-3c16-477b-aae4-14775ccee6be" xml:space="preserve">
+          <source><bpt id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;linkText&gt;</bpt>Configuration instructions<ept id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;/linkText&gt;</ept><bpt id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;title&gt;</bpt><ept id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;linkText&gt;</bpt>Configuration instructions<ept id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;/linkText&gt;</ept><bpt id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;title&gt;</bpt><ept id="3b11836d-c61f-4fa4-8f66-3ecdb25c0a99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e812efcd-e7a6-494d-87e4-4aca896a8271" xml:space="preserve">
+          <source>Internet Initiative Japan (IIJ)</source>
+          <target state="new">Internet Initiative Japan (IIJ)</target>
+        </trans-unit>
+        <trans-unit id="dcd9b30c-58f5-4828-a415-0fd14cd4a995" xml:space="preserve">
+          <source>SEIL Series</source>
+          <target state="new">SEIL Series</target>
+        </trans-unit>
+        <trans-unit id="248eac9f-fbc2-477f-8057-78b3049ff598" xml:space="preserve">
+          <source>SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20</source>
+          <target state="new">SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20</target>
+        </trans-unit>
+        <trans-unit id="55f24a21-1ff2-4b41-9c08-6fb44c6b55f3" xml:space="preserve">
+          <source><bpt id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;linkText&gt;</bpt>Configuration instructions<ept id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;/linkText&gt;</ept><bpt id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;title&gt;</bpt><ept id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;linkText&gt;</bpt>Configuration instructions<ept id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;/linkText&gt;</ept><bpt id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;title&gt;</bpt><ept id="c76bfa7e-af37-40ba-8598-8db0a81be09f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f1ec2f1-2183-40f3-a935-a6686b8b8501" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="b7c7dd0f-0d91-4446-b691-89c7b0e08931" xml:space="preserve">
+          <source>Juniper</source>
+          <target state="new">Juniper</target>
+        </trans-unit>
+        <trans-unit id="88742156-b119-4472-b40a-a3e5e0507930" xml:space="preserve">
+          <source>SRX</source>
+          <target state="new">SRX</target>
+        </trans-unit>
+        <trans-unit id="2819ac0a-bf43-44d7-a017-837522ea62e2" xml:space="preserve">
+          <source>JunOS 10.2 (static),  JunOS 11.4 (dynamic)</source>
+          <target state="new">JunOS 10.2 (static),  JunOS 11.4 (dynamic)</target>
+        </trans-unit>
+        <trans-unit id="df7851dc-a41a-44e3-acc7-dc9bb754d735" xml:space="preserve">
+          <source><bpt id="c55bd6b7-c434-4201-8341-58389d900714">&lt;linkText&gt;</bpt>Juniper SRX samples<ept id="c55bd6b7-c434-4201-8341-58389d900714">&lt;/linkText&gt;</ept><bpt id="c55bd6b7-c434-4201-8341-58389d900714">&lt;title&gt;</bpt><ept id="c55bd6b7-c434-4201-8341-58389d900714">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c55bd6b7-c434-4201-8341-58389d900714">&lt;linkText&gt;</bpt>Juniper SRX samples<ept id="c55bd6b7-c434-4201-8341-58389d900714">&lt;/linkText&gt;</ept><bpt id="c55bd6b7-c434-4201-8341-58389d900714">&lt;title&gt;</bpt><ept id="c55bd6b7-c434-4201-8341-58389d900714">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73d59349-44d4-47fa-a9ff-492743e70a49" xml:space="preserve">
+          <source><bpt id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;linkText&gt;</bpt>Juniper SRX samples<ept id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;/linkText&gt;</ept><bpt id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;title&gt;</bpt><ept id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;linkText&gt;</bpt>Juniper SRX samples<ept id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;/linkText&gt;</ept><bpt id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;title&gt;</bpt><ept id="ea7c96e0-8ce2-43fc-9dea-a3961a8511fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4f8d775-9476-42cd-9e38-49259fcd3dee" xml:space="preserve">
+          <source>Juniper</source>
+          <target state="new">Juniper</target>
+        </trans-unit>
+        <trans-unit id="f51c4b65-8a5a-4368-b7c4-a7414a8a5ee6" xml:space="preserve">
+          <source>J-Series</source>
+          <target state="new">J-Series</target>
+        </trans-unit>
+        <trans-unit id="d7e4c514-6d09-4a7e-b789-0a9642826a30" xml:space="preserve">
+          <source>JunOS 10.4r9 (static),  JunOS 11.4 (dynamic)</source>
+          <target state="new">JunOS 10.4r9 (static),  JunOS 11.4 (dynamic)</target>
+        </trans-unit>
+        <trans-unit id="21753fd6-50e0-4995-8e14-b9e483459915" xml:space="preserve">
+          <source><bpt id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;linkText&gt;</bpt>Juniper J-series samples<ept id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;/linkText&gt;</ept><bpt id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;title&gt;</bpt><ept id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;linkText&gt;</bpt>Juniper J-series samples<ept id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;/linkText&gt;</ept><bpt id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;title&gt;</bpt><ept id="a4e48fc5-71ac-4921-ae26-0a25d3ed8a3e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0ade473-a218-408a-955d-8a5a15bbf454" xml:space="preserve">
+          <source><bpt id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;linkText&gt;</bpt>Juniper J-series samples<ept id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;/linkText&gt;</ept><bpt id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;title&gt;</bpt><ept id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;linkText&gt;</bpt>Juniper J-series samples<ept id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;/linkText&gt;</ept><bpt id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;title&gt;</bpt><ept id="ca639d21-3e8a-4edc-a644-2df62b712c52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="819a9f2e-6965-46ed-b48e-2737871f86da" xml:space="preserve">
+          <source>Juniper</source>
+          <target state="new">Juniper</target>
+        </trans-unit>
+        <trans-unit id="5b4a081f-611a-4e6d-b803-89f0a761d0cd" xml:space="preserve">
+          <source>ISG</source>
+          <target state="new">ISG</target>
+        </trans-unit>
+        <trans-unit id="1e41b7d1-811d-4cd4-bd1e-a62bbcd00e09" xml:space="preserve">
+          <source>ScreenOS 6.3 (static and dynamic)</source>
+          <target state="new">ScreenOS 6.3 (static and dynamic)</target>
+        </trans-unit>
+        <trans-unit id="136bd153-d771-42a0-b7d2-7c2bd1d90561" xml:space="preserve">
+          <source><bpt id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;linkText&gt;</bpt>Juniper ISG samples<ept id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;/linkText&gt;</ept><bpt id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;title&gt;</bpt><ept id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;linkText&gt;</bpt>Juniper ISG samples<ept id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;/linkText&gt;</ept><bpt id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;title&gt;</bpt><ept id="83193e8e-098e-4cf6-85d9-05e6ae303448">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f97039d-4115-4451-80f9-1f77bff457e4" xml:space="preserve">
+          <source><bpt id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;linkText&gt;</bpt>Juniper ISG samples<ept id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;/linkText&gt;</ept><bpt id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;title&gt;</bpt><ept id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;linkText&gt;</bpt>Juniper ISG samples<ept id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;/linkText&gt;</ept><bpt id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;title&gt;</bpt><ept id="708b7edd-94eb-4f81-893e-bd0fac267b7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6800a9b1-4772-4ecb-a272-df6b781817df" xml:space="preserve">
+          <source>Juniper</source>
+          <target state="new">Juniper</target>
+        </trans-unit>
+        <trans-unit id="b0aba176-00ff-495e-a7fc-192388cc4e3d" xml:space="preserve">
+          <source>SSG</source>
+          <target state="new">SSG</target>
+        </trans-unit>
+        <trans-unit id="e9342fa0-65f7-4850-9d83-90108686db27" xml:space="preserve">
+          <source>ScreenOS 6.2 (static and dynamic)</source>
+          <target state="new">ScreenOS 6.2 (static and dynamic)</target>
+        </trans-unit>
+        <trans-unit id="7c415577-9e8b-4da8-b404-28ecd9bcb6a0" xml:space="preserve">
+          <source><bpt id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;linkText&gt;</bpt>Juniper SSG samples<ept id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;/linkText&gt;</ept><bpt id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;title&gt;</bpt><ept id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;linkText&gt;</bpt>Juniper SSG samples<ept id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;/linkText&gt;</ept><bpt id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;title&gt;</bpt><ept id="f439e47c-3fee-4814-b995-2cb80ff1dcbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c28797a7-5221-4a99-8b29-8a9ccee1aaf9" xml:space="preserve">
+          <source><bpt id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;linkText&gt;</bpt>Juniper SSG samples<ept id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;/linkText&gt;</ept><bpt id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;title&gt;</bpt><ept id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;linkText&gt;</bpt>Juniper SSG samples<ept id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;/linkText&gt;</ept><bpt id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;title&gt;</bpt><ept id="2deb49d9-fcf1-4c15-9b9a-fd0d7a49f917">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc310fe9-1ffa-4e9a-9548-559351d43b91" xml:space="preserve">
+          <source>Microsoft</source>
+          <target state="new">Microsoft</target>
+        </trans-unit>
+        <trans-unit id="52d5ba84-f0a1-4a91-a5be-0b8724f25209" xml:space="preserve">
+          <source>Routing and Remote Access Service</source>
+          <target state="new">Routing and Remote Access Service</target>
+        </trans-unit>
+        <trans-unit id="40cadf90-fad3-4c08-825c-6dfea873fd2f" xml:space="preserve">
+          <source>Windows Server 2012</source>
+          <target state="new">Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="07a84f9f-3ebd-4e6a-8fa9-f19c3b0d7cf2" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="c47c2ec7-0f86-4e15-91a8-f34a29fb43ea" xml:space="preserve">
+          <source><bpt id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;linkText&gt;</bpt>Routing and Remote Access Service (RRAS) samples<ept id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;/linkText&gt;</ept><bpt id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;title&gt;</bpt><ept id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;linkText&gt;</bpt>Routing and Remote Access Service (RRAS) samples<ept id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;/linkText&gt;</ept><bpt id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;title&gt;</bpt><ept id="c35f4402-115b-4920-98de-c3e2a973c048">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04015b1b-d31c-4b76-b0ea-69c7b7b0782d" xml:space="preserve">
+          <source>Openswan</source>
+          <target state="new">Openswan</target>
+        </trans-unit>
+        <trans-unit id="d45d8820-923b-42cb-9515-07fef6086326" xml:space="preserve">
+          <source>Openswan</source>
+          <target state="new">Openswan</target>
+        </trans-unit>
+        <trans-unit id="a21fd99d-f4b2-4954-965b-3167d4b9aebe" xml:space="preserve">
+          <source>2.6.32</source>
+          <target state="new">2.6.32</target>
+        </trans-unit>
+        <trans-unit id="f1e15c07-ed2d-49fc-8975-e791dbed2492" xml:space="preserve">
+          <source>(Coming soon)</source>
+          <target state="new">(Coming soon)</target>
+        </trans-unit>
+        <trans-unit id="b86856a5-010d-44d0-a7ff-92cc68eade64" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="151619d6-2b7f-46a0-94b1-af19535af4f5" xml:space="preserve">
+          <source>Palo Alto Networks</source>
+          <target state="new">Palo Alto Networks</target>
+        </trans-unit>
+        <trans-unit id="86704315-fafd-488c-9de1-78286ab8ade1" xml:space="preserve">
+          <source>All devices running PAN-OS 5.0 or greater</source>
+          <target state="new">All devices running PAN-OS 5.0 or greater</target>
+        </trans-unit>
+        <trans-unit id="07461b5c-eaa3-43e6-a0a8-8dd29240ed6c" xml:space="preserve">
+          <source>PAN-OS 5x or greater</source>
+          <target state="new">PAN-OS 5x or greater</target>
+        </trans-unit>
+        <trans-unit id="f2df264d-fcf3-4c65-96cb-46e20596f44d" xml:space="preserve">
+          <source><bpt id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;linkText&gt;</bpt>Palo Alto Networks<ept id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;/linkText&gt;</ept><bpt id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;title&gt;</bpt><ept id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;linkText&gt;</bpt>Palo Alto Networks<ept id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;/linkText&gt;</ept><bpt id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;title&gt;</bpt><ept id="bc151b9f-20d0-4a56-971b-507e93f56d28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cadc116-b2df-4b4d-b5c3-b02a0fe9888f" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="e2c0a4a3-e554-4b68-b1bc-86bdf13d54af" xml:space="preserve">
+          <source>Watchguard</source>
+          <target state="new">Watchguard</target>
+        </trans-unit>
+        <trans-unit id="abe87e9f-5627-408f-928e-981629895222" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="023ec680-8ad7-4dd5-9542-904b1b7e8c52" xml:space="preserve">
+          <source>Fireware XTM v11.x</source>
+          <target state="new">Fireware XTM v11.x</target>
+        </trans-unit>
+        <trans-unit id="dffda069-3f1b-4683-b122-650025572faa" xml:space="preserve">
+          <source><bpt id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;linkText&gt;</bpt>Configuration instructions<ept id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;/linkText&gt;</ept><bpt id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;title&gt;</bpt><ept id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;linkText&gt;</bpt>Configuration instructions<ept id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;/linkText&gt;</ept><bpt id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;title&gt;</bpt><ept id="dd762d5a-e377-4b9e-baf4-84286f342246">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56c5986c-bc82-4131-a537-41c004f60437" xml:space="preserve">
+          <source>Not compatible</source>
+          <target state="new">Not compatible</target>
+        </trans-unit>
+        <trans-unit id="2a44df44-6b2a-43b7-ba9b-c3630b9b01bf" xml:space="preserve">
+          <source>If you don’t see your device in the known compatible VPN device list and want to use the device for your VPN connection, you’ll need to verify that it meets the minimum requirements outlined in the <bpt id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;linkText&gt;</bpt>Gateway requirements<ept id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;/linkText&gt;</ept><bpt id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;title&gt;</bpt><ept id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;/title&gt;</ept> table.</source>
+          <target state="new">If you don’t see your device in the known compatible VPN device list and want to use the device for your VPN connection, you’ll need to verify that it meets the minimum requirements outlined in the <bpt id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;linkText&gt;</bpt>Gateway requirements<ept id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;/linkText&gt;</ept><bpt id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;title&gt;</bpt><ept id="9b2faf1c-45f1-413f-a325-36e9809a734c">&lt;/title&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="50ca667c-00e4-47ea-abda-c767567a0621" xml:space="preserve">
+          <source>Devices meeting the minimum requirements should also work well with Virtual Network.</source>
+          <target state="new">Devices meeting the minimum requirements should also work well with Virtual Network.</target>
+        </trans-unit>
+        <trans-unit id="879ed487-a76b-4c08-8e45-4485bb91ba6c" xml:space="preserve">
+          <source>Please contact your device manufacturer for additional support and configuration instructions.</source>
+          <target state="new">Please contact your device manufacturer for additional support and configuration instructions.</target>
+        </trans-unit>
+        <trans-unit id="a4446791-3742-4d81-9bd2-3d8a0560381d" xml:space="preserve">
+          <source>After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment.</source>
+          <target state="new">After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment.</target>
+        </trans-unit>
+        <trans-unit id="a8aa687b-22cf-4fd0-b61c-13df8d217260" xml:space="preserve">
+          <source><bpt id="c6d94d55-6406-40ff-bdfb-ea959f16fab9">&lt;strong&gt;</bpt>To edit the sample:<ept id="c6d94d55-6406-40ff-bdfb-ea959f16fab9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c6d94d55-6406-40ff-bdfb-ea959f16fab9">&lt;strong&gt;</bpt>To edit the sample:<ept id="c6d94d55-6406-40ff-bdfb-ea959f16fab9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5daca0c-b04d-4ce0-980f-8adfb0f14938" xml:space="preserve">
+          <source>Open the sample using Notepad.</source>
+          <target state="new">Open the sample using Notepad.</target>
+        </trans-unit>
+        <trans-unit id="3e37e54d-4851-4c8d-ba12-9653adab2bb5" xml:space="preserve">
+          <source>Search and replace all &lt;<bpt id="bd957413-963f-4cea-ae26-389547385400">&lt;em&gt;</bpt>text<ept id="bd957413-963f-4cea-ae26-389547385400">&lt;/em&gt;</ept>&gt; strings with the values that pertain to your environment. Be sure to include &lt; and &gt;. When a name is specified, the name you select should be unique. If a command does not work, please consult your device manufacturer documentation.</source>
+          <target state="new">Search and replace all &lt;<bpt id="bd957413-963f-4cea-ae26-389547385400">&lt;em&gt;</bpt>text<ept id="bd957413-963f-4cea-ae26-389547385400">&lt;/em&gt;</ept>&gt; strings with the values that pertain to your environment. Be sure to include &lt; and &gt;. When a name is specified, the name you select should be unique. If a command does not work, please consult your device manufacturer documentation.</target>
+        </trans-unit>
+        <trans-unit id="0d2994cc-3d4e-4094-9b5a-2aa68af9a86d" xml:space="preserve">
+          <source><bpt id="d61a9ea9-3690-4db5-807b-10753c565860">&lt;strong&gt;</bpt>Sample text<ept id="d61a9ea9-3690-4db5-807b-10753c565860">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d61a9ea9-3690-4db5-807b-10753c565860">&lt;strong&gt;</bpt>Sample text<ept id="d61a9ea9-3690-4db5-807b-10753c565860">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04ceae87-0c2d-43bc-911a-144e987d4eaa" xml:space="preserve">
+          <source><bpt id="afa9da55-859b-4c44-bcb7-2e34db6b0c84">&lt;strong&gt;</bpt>Change to<ept id="afa9da55-859b-4c44-bcb7-2e34db6b0c84">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="afa9da55-859b-4c44-bcb7-2e34db6b0c84">&lt;strong&gt;</bpt>Change to<ept id="afa9da55-859b-4c44-bcb7-2e34db6b0c84">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7904e15-3548-45e5-bcc3-0268b549e896" xml:space="preserve">
+          <source>&amp;lt;RP_OnPremisesNetwork&amp;gt;</source>
+          <target state="new">&amp;lt;RP_OnPremisesNetwork&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="a7794ee5-3cd2-4a6a-95c3-50efb5b8e5de" xml:space="preserve">
+          <source>Your chosen name for this object.</source>
+          <target state="new">Your chosen name for this object.</target>
+        </trans-unit>
+        <trans-unit id="280ee07a-3e17-4677-bb82-02657a8e92ec" xml:space="preserve">
+          <source>Example: myOnPremisesNetwork</source>
+          <target state="new">Example: myOnPremisesNetwork</target>
+        </trans-unit>
+        <trans-unit id="32e78dda-393f-46c0-aa0d-b73f1f62386c" xml:space="preserve">
+          <source>&amp;lt;RP_AzureNetwork&amp;gt;</source>
+          <target state="new">&amp;lt;RP_AzureNetwork&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="51f416cc-849f-4496-870d-7c643ee83cce" xml:space="preserve">
+          <source>Your chosen name for this object.</source>
+          <target state="new">Your chosen name for this object.</target>
+        </trans-unit>
+        <trans-unit id="53b6d58c-7c30-4b83-ac84-a263b6ff628c" xml:space="preserve">
+          <source>Example: myAzureNetwork</source>
+          <target state="new">Example: myAzureNetwork</target>
+        </trans-unit>
+        <trans-unit id="d4674104-671e-4bc1-9870-85f6b1423a99" xml:space="preserve">
+          <source>&amp;lt;RP_AccessList&amp;gt;</source>
+          <target state="new">&amp;lt;RP_AccessList&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="877400da-6053-4db0-8aca-5a0bfb462a02" xml:space="preserve">
+          <source>Your chosen name for this object.</source>
+          <target state="new">Your chosen name for this object.</target>
+        </trans-unit>
+        <trans-unit id="77e9da61-8eb2-44e7-a082-20f5e1b38372" xml:space="preserve">
+          <source>Example: myAzureAccessList</source>
+          <target state="new">Example: myAzureAccessList</target>
+        </trans-unit>
+        <trans-unit id="799d6c4d-31b5-4005-9928-aa61724b4f1d" xml:space="preserve">
+          <source>&amp;lt;RP_IPSecTransformSet&amp;gt;</source>
+          <target state="new">&amp;lt;RP_IPSecTransformSet&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="442d6634-7406-415e-9b2d-58af37a5bf36" xml:space="preserve">
+          <source>Your chosen name for this object.</source>
+          <target state="new">Your chosen name for this object.</target>
+        </trans-unit>
+        <trans-unit id="6b464067-9078-4209-95aa-936451eae358" xml:space="preserve">
+          <source>Example: myIPSecTransformSet</source>
+          <target state="new">Example: myIPSecTransformSet</target>
+        </trans-unit>
+        <trans-unit id="a2ee3579-d88f-4b11-87d3-451dfd7a0517" xml:space="preserve">
+          <source>&amp;lt;RP_IPSecCryptoMap&amp;gt;</source>
+          <target state="new">&amp;lt;RP_IPSecCryptoMap&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="3b45e54d-eb4e-4aa8-b979-558d160eb274" xml:space="preserve">
+          <source>Your chosen name for this object.</source>
+          <target state="new">Your chosen name for this object.</target>
+        </trans-unit>
+        <trans-unit id="c535b3f8-fef8-40be-9682-49c3c28db3a2" xml:space="preserve">
+          <source>Example: myIPSecCryptoMap</source>
+          <target state="new">Example: myIPSecCryptoMap</target>
+        </trans-unit>
+        <trans-unit id="820e72cb-8d41-4621-b80d-429e93cb2332" xml:space="preserve">
+          <source>&amp;lt;SP_AzureNetworkIpRange&amp;gt;</source>
+          <target state="new">&amp;lt;SP_AzureNetworkIpRange&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="04af0b40-c24a-4036-8f03-01b0e82a22bf" xml:space="preserve">
+          <source>Specify range.</source>
+          <target state="new">Specify range.</target>
+        </trans-unit>
+        <trans-unit id="1ac8c29b-7693-4929-b492-2f54a53d99e7" xml:space="preserve">
+          <source>Example: 192.168.0.0</source>
+          <target state="new">Example: 192.168.0.0</target>
+        </trans-unit>
+        <trans-unit id="7c3dfe91-c5b3-4284-a047-186dd9de57dc" xml:space="preserve">
+          <source>&amp;lt;SP_AzureNetworkSubnetMask&amp;gt;</source>
+          <target state="new">&amp;lt;SP_AzureNetworkSubnetMask&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="b260ea2a-9b2e-4602-a897-532bdbc26532" xml:space="preserve">
+          <source>Specify subnet mask.</source>
+          <target state="new">Specify subnet mask.</target>
+        </trans-unit>
+        <trans-unit id="1e6050c8-98cf-4a3f-b32a-d807f23645e7" xml:space="preserve">
+          <source>Example: 255.255.0.0</source>
+          <target state="new">Example: 255.255.0.0</target>
+        </trans-unit>
+        <trans-unit id="d54b8e4b-9c65-41c5-83af-df7c4744ca64" xml:space="preserve">
+          <source>&amp;lt;SP_OnPremisesNetworkIpRange&amp;gt;</source>
+          <target state="new">&amp;lt;SP_OnPremisesNetworkIpRange&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="ca59294d-c025-4e7f-b3f5-87fc38aa0eef" xml:space="preserve">
+          <source>Specify on-premises range.</source>
+          <target state="new">Specify on-premises range.</target>
+        </trans-unit>
+        <trans-unit id="13214137-4fd0-4c38-8efc-80f7b2a5c776" xml:space="preserve">
+          <source>Example: 10.2.1.0</source>
+          <target state="new">Example: 10.2.1.0</target>
+        </trans-unit>
+        <trans-unit id="aeabefe3-f6aa-4042-80ac-04e53304a2a3" xml:space="preserve">
+          <source>&amp;lt;SP_OnPremisesNetworkSubnetMask&amp;gt;</source>
+          <target state="new">&amp;lt;SP_OnPremisesNetworkSubnetMask&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="1989c58f-3e3e-415e-a523-df3ae0b526f6" xml:space="preserve">
+          <source>Specify on-premises subnet mask.</source>
+          <target state="new">Specify on-premises subnet mask.</target>
+        </trans-unit>
+        <trans-unit id="64d2b603-7791-4654-89ce-38b789657e6e" xml:space="preserve">
+          <source>Example: 255.255.255.0</source>
+          <target state="new">Example: 255.255.255.0</target>
+        </trans-unit>
+        <trans-unit id="73940495-fe5b-442a-97db-c248b3cda9fa" xml:space="preserve">
+          <source>&amp;lt;SP_AzureGatewayIpAddress&amp;gt;</source>
+          <target state="new">&amp;lt;SP_AzureGatewayIpAddress&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="c22e8716-f792-45cc-9193-e59705e5898d" xml:space="preserve">
+          <source>This information specific to your virtual network and is located in the Management Portal as <bpt id="30a6a456-ddc7-4296-8ece-e9b06f859c13">&lt;strong&gt;</bpt>Gateway IP address<ept id="30a6a456-ddc7-4296-8ece-e9b06f859c13">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This information specific to your virtual network and is located in the Management Portal as <bpt id="30a6a456-ddc7-4296-8ece-e9b06f859c13">&lt;strong&gt;</bpt>Gateway IP address<ept id="30a6a456-ddc7-4296-8ece-e9b06f859c13">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3797f75c-05c6-4e8e-9be6-7968f4f83149" xml:space="preserve">
+          <source>&amp;lt;SP_PresharedKey&amp;gt;</source>
+          <target state="new">&amp;lt;SP_PresharedKey&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="fba57162-eb53-45ee-8d2d-d749829adc8f" xml:space="preserve">
+          <source>This information is specific to your virtual network and is located in the Management Portal as Manage Key.</source>
+          <target state="new">This information is specific to your virtual network and is located in the Management Portal as Manage Key.</target>
+        </trans-unit>
+        <trans-unit id="90dd0847-3e8b-4985-9b6c-df0e215b7843" xml:space="preserve">
+          <source><bpt id="84bd4a68-8dc2-42a5-8271-3f1e83d8bef1">&lt;strong&gt;</bpt>Property<ept id="84bd4a68-8dc2-42a5-8271-3f1e83d8bef1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="84bd4a68-8dc2-42a5-8271-3f1e83d8bef1">&lt;strong&gt;</bpt>Property<ept id="84bd4a68-8dc2-42a5-8271-3f1e83d8bef1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a611b4e-132a-42b6-9803-3e0519fb5002" xml:space="preserve">
+          <source><bpt id="dc8236e7-4236-4ffb-b9b7-8f405367f3d5">&lt;strong&gt;</bpt>Static Routing VPN gateway<ept id="dc8236e7-4236-4ffb-b9b7-8f405367f3d5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dc8236e7-4236-4ffb-b9b7-8f405367f3d5">&lt;strong&gt;</bpt>Static Routing VPN gateway<ept id="dc8236e7-4236-4ffb-b9b7-8f405367f3d5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28b4c05b-e5e8-49ea-8882-82617d6de0d3" xml:space="preserve">
+          <source><bpt id="14829518-0d09-4c8a-9140-c4c8c176a8f1">&lt;strong&gt;</bpt>Dynamic Routing VPN gateway and Standard or HighPerformance VPN gateway<ept id="14829518-0d09-4c8a-9140-c4c8c176a8f1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="14829518-0d09-4c8a-9140-c4c8c176a8f1">&lt;strong&gt;</bpt>Dynamic Routing VPN gateway and Standard or HighPerformance VPN gateway<ept id="14829518-0d09-4c8a-9140-c4c8c176a8f1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e2cf70d-9d2a-4802-b794-cb56cfa710a8" xml:space="preserve">
+          <source>IKE Version</source>
+          <target state="new">IKE Version</target>
+        </trans-unit>
+        <trans-unit id="1f62f181-e028-47c3-9a94-6c1b6dc57825" xml:space="preserve">
+          <source>IKEv1</source>
+          <target state="new">IKEv1</target>
+        </trans-unit>
+        <trans-unit id="4c8581e5-b9ed-40c2-acca-1f25b2318d49" xml:space="preserve">
+          <source>IKEv2</source>
+          <target state="new">IKEv2</target>
+        </trans-unit>
+        <trans-unit id="040e2e46-c5bb-4b1a-8cbe-a737ada4eb5d" xml:space="preserve">
+          <source>Diffie-Hellman Group</source>
+          <target state="new">Diffie-Hellman Group</target>
+        </trans-unit>
+        <trans-unit id="1e781e71-9713-43fe-81a4-b4d8f22e7898" xml:space="preserve">
+          <source>Group 2 (1024 bit)</source>
+          <target state="new">Group 2 (1024 bit)</target>
+        </trans-unit>
+        <trans-unit id="6bc5cf39-dcdb-4de8-a5b1-23c94997d322" xml:space="preserve">
+          <source>Group 2 (1024 bit)</source>
+          <target state="new">Group 2 (1024 bit)</target>
+        </trans-unit>
+        <trans-unit id="a8ab5a0c-a4db-4d47-8ceb-2c346934e822" xml:space="preserve">
+          <source>Authentication Method</source>
+          <target state="new">Authentication Method</target>
+        </trans-unit>
+        <trans-unit id="d0b377b5-80c6-45dc-aecd-8be9d093de6e" xml:space="preserve">
+          <source>Pre-Shared Key</source>
+          <target state="new">Pre-Shared Key</target>
+        </trans-unit>
+        <trans-unit id="8c9ec747-5814-46ef-8cd8-b04284c26ca6" xml:space="preserve">
+          <source>Pre-Shared Key</source>
+          <target state="new">Pre-Shared Key</target>
+        </trans-unit>
+        <trans-unit id="cb3afe86-48f5-46bf-97db-039d0f378885" xml:space="preserve">
+          <source>Encryption Algorithms</source>
+          <target state="new">Encryption Algorithms</target>
+        </trans-unit>
+        <trans-unit id="07627311-5426-46dd-ace7-bf25b6177897" xml:space="preserve">
+          <source>AES256 AES128 3DES</source>
+          <target state="new">AES256 AES128 3DES</target>
+        </trans-unit>
+        <trans-unit id="4ee65498-d1f5-4197-a149-e4229c800492" xml:space="preserve">
+          <source>AES256 3DES</source>
+          <target state="new">AES256 3DES</target>
+        </trans-unit>
+        <trans-unit id="722fb233-1b09-4377-b00b-9d926af3f012" xml:space="preserve">
+          <source>Hashing Algorithm</source>
+          <target state="new">Hashing Algorithm</target>
+        </trans-unit>
+        <trans-unit id="7e189b13-fb7d-41ff-acef-2a151a262b4f" xml:space="preserve">
+          <source>SHA1(SHA128)</source>
+          <target state="new">SHA1(SHA128)</target>
+        </trans-unit>
+        <trans-unit id="a4872fc8-a37a-4d67-8f40-3f25336e7b82" xml:space="preserve">
+          <source>SHA1(SHA128)</source>
+          <target state="new">SHA1(SHA128)</target>
+        </trans-unit>
+        <trans-unit id="659c5def-8954-411c-ba11-e72122e993ef" xml:space="preserve">
+          <source>Phase 1 Security Association (SA)  Lifetime (Time)</source>
+          <target state="new">Phase 1 Security Association (SA)  Lifetime (Time)</target>
+        </trans-unit>
+        <trans-unit id="9fc74771-b084-455c-8fc7-b01cca44480a" xml:space="preserve">
+          <source>28,800 seconds</source>
+          <target state="new">28,800 seconds</target>
+        </trans-unit>
+        <trans-unit id="2b12ada8-60ea-48f4-b497-435ade8d688b" xml:space="preserve">
+          <source>28,800 seconds</source>
+          <target state="new">28,800 seconds</target>
+        </trans-unit>
+        <trans-unit id="32b2cfff-fdc1-416b-9422-b80d6efbd26a" xml:space="preserve">
+          <source><bpt id="1b41bc56-24e5-4f94-a574-3b7b8e733114">&lt;strong&gt;</bpt>Property<ept id="1b41bc56-24e5-4f94-a574-3b7b8e733114">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1b41bc56-24e5-4f94-a574-3b7b8e733114">&lt;strong&gt;</bpt>Property<ept id="1b41bc56-24e5-4f94-a574-3b7b8e733114">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef86c0a1-d6ab-4b87-ac62-39f03482a7d9" xml:space="preserve">
+          <source><bpt id="e2c443b3-05a3-4606-b148-38dcc172017e">&lt;strong&gt;</bpt>Static Routing VPN gateway<ept id="e2c443b3-05a3-4606-b148-38dcc172017e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2c443b3-05a3-4606-b148-38dcc172017e">&lt;strong&gt;</bpt>Static Routing VPN gateway<ept id="e2c443b3-05a3-4606-b148-38dcc172017e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b5b344a-cb09-4843-b71d-4d6362fd5595" xml:space="preserve">
+          <source><bpt id="6e03838a-4df4-46c6-b463-26aef9b49932">&lt;strong&gt;</bpt>Dynamic Routing VPN gateway and Standard or HighPerformance VPN gateway<ept id="6e03838a-4df4-46c6-b463-26aef9b49932">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6e03838a-4df4-46c6-b463-26aef9b49932">&lt;strong&gt;</bpt>Dynamic Routing VPN gateway and Standard or HighPerformance VPN gateway<ept id="6e03838a-4df4-46c6-b463-26aef9b49932">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4306aa91-7407-41e5-a6d5-50e96e854de4" xml:space="preserve">
+          <source>IKE Version</source>
+          <target state="new">IKE Version</target>
+        </trans-unit>
+        <trans-unit id="32389249-ae79-4284-a2a6-55af421146ff" xml:space="preserve">
+          <source>IKEv1</source>
+          <target state="new">IKEv1</target>
+        </trans-unit>
+        <trans-unit id="81dfaca4-210f-4dad-bc9d-7be283114125" xml:space="preserve">
+          <source>IKEv2</source>
+          <target state="new">IKEv2</target>
+        </trans-unit>
+        <trans-unit id="5fba4282-7910-434c-9d3e-ba1834410ecc" xml:space="preserve">
+          <source>Hashing Algorithm</source>
+          <target state="new">Hashing Algorithm</target>
+        </trans-unit>
+        <trans-unit id="96680e7a-df1b-4562-aadb-97e1ade0a05b" xml:space="preserve">
+          <source>SHA1(SHA128)</source>
+          <target state="new">SHA1(SHA128)</target>
+        </trans-unit>
+        <trans-unit id="2a353933-9fca-4e70-9056-da2a64f4125b" xml:space="preserve">
+          <source>SHA1(SHA128)</source>
+          <target state="new">SHA1(SHA128)</target>
+        </trans-unit>
+        <trans-unit id="eb52a4de-eeeb-436b-932b-b7bb37e10101" xml:space="preserve">
+          <source>Phase 2 Security Association (SA) Lifetime (Time)</source>
+          <target state="new">Phase 2 Security Association (SA) Lifetime (Time)</target>
+        </trans-unit>
+        <trans-unit id="2a177b8d-fe33-493f-8d59-172076a729e0" xml:space="preserve">
+          <source>3,600 seconds</source>
+          <target state="new">3,600 seconds</target>
+        </trans-unit>
+        <trans-unit id="a33a4aa0-1ed3-4836-8561-cfc5f9180c63" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="d3eda1e2-7e41-40fa-a52c-d4a9d861c71d" xml:space="preserve">
+          <source>Phase 2 Security Association (SA) Lifetime (Throughput)</source>
+          <target state="new">Phase 2 Security Association (SA) Lifetime (Throughput)</target>
+        </trans-unit>
+        <trans-unit id="5d1e2cac-9a61-4da5-a826-e59b44db1a42" xml:space="preserve">
+          <source>102,400,000 KB</source>
+          <target state="new">102,400,000 KB</target>
+        </trans-unit>
+        <trans-unit id="e51a1c89-5289-4bb0-a284-8708339c4840" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="bac3a056-301e-464c-b80a-1c7ba3c32c2a" xml:space="preserve">
+          <source>IPsec SA Encryption &amp; Authentication Offers (in the order of preference)</source>
+          <target state="new">IPsec SA Encryption &amp; Authentication Offers (in the order of preference)</target>
+        </trans-unit>
+        <trans-unit id="8f31c789-a646-4559-99af-b69749a3f16e" xml:space="preserve">
+          <source>1. ESP-AES256 2.</source>
+          <target state="new">1. ESP-AES256 2.</target>
+        </trans-unit>
+        <trans-unit id="18dce0ac-502b-4975-a9ec-31993ee32079" xml:space="preserve">
+          <source>ESP-AES128 3.</source>
+          <target state="new">ESP-AES128 3.</target>
+        </trans-unit>
+        <trans-unit id="d7d4b46e-41e1-4823-b912-a6362f156252" xml:space="preserve">
+          <source>ESP-3DES 4.</source>
+          <target state="new">ESP-3DES 4.</target>
+        </trans-unit>
+        <trans-unit id="f10104bd-161f-4bc8-b2c2-02e8962e6187" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="6f99595d-9a22-464a-9e06-8d0532d7afeb" xml:space="preserve">
+          <source>See Dynamic Routing Gateway IPsec Security Association (SA) Offers</source>
+          <target state="new">See Dynamic Routing Gateway IPsec Security Association (SA) Offers</target>
+        </trans-unit>
+        <trans-unit id="7221fd8e-04c4-4afd-8392-30cd4a7b701c" xml:space="preserve">
+          <source>Perfect Forward Secrecy (PFS)</source>
+          <target state="new">Perfect Forward Secrecy (PFS)</target>
+        </trans-unit>
+        <trans-unit id="e9f95d4e-e919-4507-a67e-b3726cfb742b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c8c74be8-d517-4151-9b65-08e46f3ff7fd" xml:space="preserve">
+          <source>Yes (DH Group1)</source>
+          <target state="new">Yes (DH Group1)</target>
+        </trans-unit>
+        <trans-unit id="cf6c642e-0607-4f93-96b1-7b2faeacc9e5" xml:space="preserve">
+          <source>Dead Peer Detection</source>
+          <target state="new">Dead Peer Detection</target>
+        </trans-unit>
+        <trans-unit id="9300dc8c-ea93-47d3-b572-4ba15370a3c3" xml:space="preserve">
+          <source>Not supported</source>
+          <target state="new">Not supported</target>
+        </trans-unit>
+        <trans-unit id="aaa64889-91e4-44e0-97f8-dfb281520b8b" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="90ff3452-42bc-47a7-af4c-700a8e419204" xml:space="preserve">
+          <source>The table below lists IPsec SA Encryption and Authentication Offers.</source>
+          <target state="new">The table below lists IPsec SA Encryption and Authentication Offers.</target>
+        </trans-unit>
+        <trans-unit id="7fa17cc6-c4e5-4146-81f8-1179f7d376ed" xml:space="preserve">
+          <source>Offers are listed the order of preference that the offer is presented or accepted.</source>
+          <target state="new">Offers are listed the order of preference that the offer is presented or accepted.</target>
+        </trans-unit>
+        <trans-unit id="44b204ac-9a00-4fdf-8c97-1c55b4cfe527" xml:space="preserve">
+          <source><bpt id="7cca3097-a985-4f3a-8a8f-2d4d469b50cc">&lt;strong&gt;</bpt>IPsec SA Encryption and Authentication Offers<ept id="7cca3097-a985-4f3a-8a8f-2d4d469b50cc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7cca3097-a985-4f3a-8a8f-2d4d469b50cc">&lt;strong&gt;</bpt>IPsec SA Encryption and Authentication Offers<ept id="7cca3097-a985-4f3a-8a8f-2d4d469b50cc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76634b64-0555-44bd-890c-682fc3024cdb" xml:space="preserve">
+          <source><bpt id="a1e14941-c77b-45ef-8d33-c40762ae6b4c">&lt;strong&gt;</bpt>Azure Gateway as initiator<ept id="a1e14941-c77b-45ef-8d33-c40762ae6b4c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a1e14941-c77b-45ef-8d33-c40762ae6b4c">&lt;strong&gt;</bpt>Azure Gateway as initiator<ept id="a1e14941-c77b-45ef-8d33-c40762ae6b4c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38ad9f7c-55c8-4c4f-a391-4d673f59a228" xml:space="preserve">
+          <source>Azure Gateway as responder</source>
+          <target state="new">Azure Gateway as responder</target>
+        </trans-unit>
+        <trans-unit id="6c7a0134-3c2b-4d1e-9173-c57e31dc0287" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="4a312e3a-4e06-43e9-ae8f-537734ac8033" xml:space="preserve">
+          <source>ESP AES_256 SHA</source>
+          <target state="new">ESP AES_256 SHA</target>
+        </trans-unit>
+        <trans-unit id="1cf578e7-6751-46d1-9318-2aace07ce60d" xml:space="preserve">
+          <source>ESP AES_128 SHA</source>
+          <target state="new">ESP AES_128 SHA</target>
+        </trans-unit>
+        <trans-unit id="08949554-45b0-4e72-963f-15b5a7f36ed0" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="50319e6c-c62a-45b9-be5f-bf1db782dec6" xml:space="preserve">
+          <source>ESP AES_128 SHA</source>
+          <target state="new">ESP AES_128 SHA</target>
+        </trans-unit>
+        <trans-unit id="7685310e-d059-4fb8-a75c-7432db660170" xml:space="preserve">
+          <source>ESP 3_DES MD5</source>
+          <target state="new">ESP 3_DES MD5</target>
+        </trans-unit>
+        <trans-unit id="5e5e4b44-529d-45a0-887f-65bb11551957" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="bf855250-946f-4770-b761-87b2833a9aba" xml:space="preserve">
+          <source>ESP 3_DES MD5</source>
+          <target state="new">ESP 3_DES MD5</target>
+        </trans-unit>
+        <trans-unit id="8670b32c-5830-4454-9453-bb6f7a873261" xml:space="preserve">
+          <source>ESP 3_DES SHA</source>
+          <target state="new">ESP 3_DES SHA</target>
+        </trans-unit>
+        <trans-unit id="525aadac-0c05-492c-ace6-4e6c6330196e" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="32f01c5c-6b71-40c7-8d03-1bffd7bc079e" xml:space="preserve">
+          <source>ESP 3_DES SHA</source>
+          <target state="new">ESP 3_DES SHA</target>
+        </trans-unit>
+        <trans-unit id="3c8b7f06-00c3-4987-b225-e476cb63f8cc" xml:space="preserve">
+          <source>AH SHA1 with ESP AES_128 with null HMAC</source>
+          <target state="new">AH SHA1 with ESP AES_128 with null HMAC</target>
+        </trans-unit>
+        <trans-unit id="73ce367d-83e0-4d90-92d1-a3a59edbcc8b" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="2b1c9fdd-ee6e-4545-963b-a2c977aa4b8d" xml:space="preserve">
+          <source>AH SHA1 with ESP AES_256 with null HMAC</source>
+          <target state="new">AH SHA1 with ESP AES_256 with null HMAC</target>
+        </trans-unit>
+        <trans-unit id="9050e619-24b3-4b68-9aa8-f3ce609c6a80" xml:space="preserve">
+          <source>AH SHA1 with ESP 3_DES with null HMAC</source>
+          <target state="new">AH SHA1 with ESP 3_DES with null HMAC</target>
+        </trans-unit>
+        <trans-unit id="1b537e23-af00-4032-9eed-2271eba997e1" xml:space="preserve">
+          <source>6</source>
+          <target state="new">6</target>
+        </trans-unit>
+        <trans-unit id="05c4e215-4f8c-4ef8-b25f-4c9adf2faa73" xml:space="preserve">
+          <source>AH SHA1 with ESP AES_128 with null HMAC</source>
+          <target state="new">AH SHA1 with ESP AES_128 with null HMAC</target>
+        </trans-unit>
+        <trans-unit id="bd74209c-53e8-4704-9081-eecff99966c2" xml:space="preserve">
+          <source>AH MD5  with ESP 3_DES with null HMAC, no lifetimes proposed</source>
+          <target state="new">AH MD5  with ESP 3_DES with null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="c7e402ea-75d0-4a16-b4fa-03d12d35eec2" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="46960bac-562b-4284-993a-46015759ca5c" xml:space="preserve">
+          <source>AH SHA1 with ESP 3_DES with null HMAC</source>
+          <target state="new">AH SHA1 with ESP 3_DES with null HMAC</target>
+        </trans-unit>
+        <trans-unit id="cf18da88-4988-48a0-99e4-582ea76b3d5b" xml:space="preserve">
+          <source>AH SHA1 with ESP 3_DES SHA1, no lifetimes</source>
+          <target state="new">AH SHA1 with ESP 3_DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="77311b3e-df2c-4114-96a0-f914855969fc" xml:space="preserve">
+          <source>8</source>
+          <target state="new">8</target>
+        </trans-unit>
+        <trans-unit id="a38330c9-8272-4c08-9466-178711b7c7b1" xml:space="preserve">
+          <source>AH MD5  with ESP 3_DES with null HMAC, no lifetimes proposed</source>
+          <target state="new">AH MD5  with ESP 3_DES with null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="4407a2f0-a1e1-4fb5-a936-e9942fe8ebc6" xml:space="preserve">
+          <source>AH MD5  with ESP 3_DES MD5, no lifetimes</source>
+          <target state="new">AH MD5  with ESP 3_DES MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="8a939375-d034-46f8-9188-16b9209efb08" xml:space="preserve">
+          <source>9</source>
+          <target state="new">9</target>
+        </trans-unit>
+        <trans-unit id="20d476c3-abf6-469e-b148-3721488625e4" xml:space="preserve">
+          <source>AH SHA1 with ESP 3_DES SHA1, no lifetimes</source>
+          <target state="new">AH SHA1 with ESP 3_DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="136dc94e-e659-46c0-8b12-8d7bcf6ae7db" xml:space="preserve">
+          <source>ESP DES MD5</source>
+          <target state="new">ESP DES MD5</target>
+        </trans-unit>
+        <trans-unit id="3937f15b-fcdc-48d5-a364-40e3bf54c453" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="614687c2-f67e-4851-a5f6-4cb24f52b7cd" xml:space="preserve">
+          <source>AH MD5  with ESP 3_DES MD5, no lifetimes</source>
+          <target state="new">AH MD5  with ESP 3_DES MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="77ef5d39-8aff-49d9-bd0f-1fc41dcc963e" xml:space="preserve">
+          <source>ESP DES SHA1, no lifetimes</source>
+          <target state="new">ESP DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="b42fcda4-1d44-4bff-819a-c878f5de56db" xml:space="preserve">
+          <source>11</source>
+          <target state="new">11</target>
+        </trans-unit>
+        <trans-unit id="3d6ea87f-0137-4bb2-a85e-96818732b3a0" xml:space="preserve">
+          <source>ESP DES MD5</source>
+          <target state="new">ESP DES MD5</target>
+        </trans-unit>
+        <trans-unit id="364b8a60-02e2-4059-930b-57687389e19a" xml:space="preserve">
+          <source>AH SHA1 with ESP DES null HMAC, no lifetimes proposed</source>
+          <target state="new">AH SHA1 with ESP DES null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="f7839628-9ac8-46dd-800c-0b00d2d4f7a0" xml:space="preserve">
+          <source>12</source>
+          <target state="new">12</target>
+        </trans-unit>
+        <trans-unit id="506e97ca-b3a8-4571-bd21-8275e02b387d" xml:space="preserve">
+          <source>ESP DES SHA1, no lifetimes</source>
+          <target state="new">ESP DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="5a491f85-153b-422c-a03f-4df442354f94" xml:space="preserve">
+          <source>AH MD5  with ESP DES null HMAC, no lifetimes proposed</source>
+          <target state="new">AH MD5  with ESP DES null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="7c348044-770b-44b2-ae5e-46d036b592f7" xml:space="preserve">
+          <source>13</source>
+          <target state="new">13</target>
+        </trans-unit>
+        <trans-unit id="7d4adc5b-2863-4bb6-9663-d3eec20b2d21" xml:space="preserve">
+          <source>AH SHA1 with ESP DES null HMAC, no lifetimes proposed</source>
+          <target state="new">AH SHA1 with ESP DES null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="0bb4b530-5a41-491b-87fe-9b7dc900a959" xml:space="preserve">
+          <source>AH SHA1 with ESP DES SHA1, no lifetimes</source>
+          <target state="new">AH SHA1 with ESP DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="13f077b9-e102-4c01-ac4e-21ebe815f747" xml:space="preserve">
+          <source>14</source>
+          <target state="new">14</target>
+        </trans-unit>
+        <trans-unit id="9d807c34-1732-44d9-89c8-25bf5c2e0e94" xml:space="preserve">
+          <source>AH MD5  with ESP DES null HMAC, no lifetimes proposed</source>
+          <target state="new">AH MD5  with ESP DES null HMAC, no lifetimes proposed</target>
+        </trans-unit>
+        <trans-unit id="98de34ad-ae7c-4597-a3c1-fb9cbb41c211" xml:space="preserve">
+          <source>AH MD5  with ESP DES MD5, no lifetimes</source>
+          <target state="new">AH MD5  with ESP DES MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="853d6d26-aeed-4e97-a59e-2967d6f8847b" xml:space="preserve">
+          <source>15</source>
+          <target state="new">15</target>
+        </trans-unit>
+        <trans-unit id="251039b4-0302-4998-b5ee-69c0c6a63118" xml:space="preserve">
+          <source>AH SHA1 with ESP DES SHA1, no lifetimes</source>
+          <target state="new">AH SHA1 with ESP DES SHA1, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="8cd209a4-228a-423e-aae1-59da37069267" xml:space="preserve">
+          <source>ESP SHA, no lifetimes</source>
+          <target state="new">ESP SHA, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="6316de65-79f4-41c4-ba2d-56dbdcaa3ec8" xml:space="preserve">
+          <source>16</source>
+          <target state="new">16</target>
+        </trans-unit>
+        <trans-unit id="f34d9401-aed5-4e29-a2f6-5f70c6290a8b" xml:space="preserve">
+          <source>AH MD5  with ESP DES MD5, no lifetimes</source>
+          <target state="new">AH MD5  with ESP DES MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="6067ef05-f4d6-4a17-b37a-0420cd0bf6de" xml:space="preserve">
+          <source>ESP MD5, no lifetimes</source>
+          <target state="new">ESP MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="dbf36edd-8d9f-423e-9715-f0ea99e1cad6" xml:space="preserve">
+          <source>17</source>
+          <target state="new">17</target>
+        </trans-unit>
+        <trans-unit id="008016f8-8116-4254-8297-874529632d80" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="6f493ef6-6b87-4c3e-983b-dbe6463d0f73" xml:space="preserve">
+          <source>AH SHA, no lifetimes</source>
+          <target state="new">AH SHA, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="f6c802c4-8d7c-4afb-a70e-e36c2ad27ea4" xml:space="preserve">
+          <source>18</source>
+          <target state="new">18</target>
+        </trans-unit>
+        <trans-unit id="d57398e8-a352-4e7b-b483-8004ba17440e" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="a56bf343-a340-43af-b4d8-6ff37181a0b5" xml:space="preserve">
+          <source>AH MD5, no lifetimes</source>
+          <target state="new">AH MD5, no lifetimes</target>
+        </trans-unit>
+        <trans-unit id="138c8050-6095-4bc0-9a17-ab0bfd894549" xml:space="preserve">
+          <source>You can specify IPsec ESP NULL encryption with Dynamic Routing and High Performance VPN gateway, intended for VNet-to-VNet connections within Azure networks.</source>
+          <target state="new">You can specify IPsec ESP NULL encryption with Dynamic Routing and High Performance VPN gateway, intended for VNet-to-VNet connections within Azure networks.</target>
+        </trans-unit>
+        <trans-unit id="e816df40-8cc0-4ffa-a12c-9066b87c27fd" xml:space="preserve">
+          <source>For cross-premises connectivity through the Internet, please use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.</source>
+          <target state="new">For cross-premises connectivity through the Internet, please use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.</target>
+        </trans-unit>
+        <trans-unit id="2a70df6a-e6e9-4a1f-bed2-9bdcb414d0be" xml:space="preserve">
+          <source>To learn more about VPN gateways, see <bpt id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;linkText&gt;</bpt>About VPN gateways<ept id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;/linkText&gt;</ept><bpt id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;title&gt;</bpt><ept id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about VPN gateways, see <bpt id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;linkText&gt;</bpt>About VPN gateways<ept id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;/linkText&gt;</ept><bpt id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;title&gt;</bpt><ept id="9b7579ce-ea4c-48d8-8285-8b9d178d22e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e13baf3f-6bb1-4ea2-bbd3-99c05f8262d7" xml:space="preserve">
+          <source>To configure a site-to-site VPN, see <bpt id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;linkText&gt;</bpt>Create a virtual network with a site-to-site VPN connection<ept id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;/linkText&gt;</ept><bpt id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;title&gt;</bpt><ept id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To configure a site-to-site VPN, see <bpt id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;linkText&gt;</bpt>Create a virtual network with a site-to-site VPN connection<ept id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;/linkText&gt;</ept><bpt id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;title&gt;</bpt><ept id="06820857-a94b-4da0-a263-75f4cd6e60c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

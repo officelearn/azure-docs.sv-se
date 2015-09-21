@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="644816bb-db75-476c-a54e-ff193289ae10" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="644816bb-db75-476c-a54e-ff193289ae10" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5c01e5ec-8b3e-4c11-9bbd-0aa6799c2a2b">
+        <trans-unit id="de8e2614-5fc5-4f9b-9be1-66f47de1a44d" xml:space="preserve">
+          <source>How to Create an App Service Environment</source>
+          <target state="new">How to Create an App Service Environment</target>
+        </trans-unit>
+        <trans-unit id="be90a752-c3c5-4f6a-86f7-34f3bf56d3a7" xml:space="preserve">
+          <source>Creation flow description for app service environments</source>
+          <target state="new">Creation flow description for app service environments</target>
+        </trans-unit>
+        <trans-unit id="cd2babef-1b8d-4e76-abb9-d5f312960318" xml:space="preserve">
+          <source>App Service Environments (ASE) are a Premium service option of Azure App Service that is currently in Preview.</source>
+          <target state="new">App Service Environments (ASE) are a Premium service option of Azure App Service that is currently in Preview.</target>
+        </trans-unit>
+        <trans-unit id="3e91e5f4-698e-4d1f-bcd7-b683a813afc0" xml:space="preserve">
+          <source>It delivers an enhanced configuration capability that is not available in the multi-tenant stamps.</source>
+          <target state="new">It delivers an enhanced configuration capability that is not available in the multi-tenant stamps.</target>
+        </trans-unit>
+        <trans-unit id="619e6a51-a703-4642-affe-e298e2556830" xml:space="preserve">
+          <source>To gain a greater understanding of the capabilities offered by App Service Environments read the <bpt id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;linkText&gt;</bpt>What is an App Service Environment[whatisase]<ept id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;/linkText&gt;</ept><bpt id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;title&gt;</bpt><ept id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;/title&gt;</ept> documentation.</source>
+          <target state="new">To gain a greater understanding of the capabilities offered by App Service Environments read the <bpt id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;linkText&gt;</bpt>What is an App Service Environment[whatisase]<ept id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;/linkText&gt;</ept><bpt id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;title&gt;</bpt><ept id="0f21b177-99cd-4012-86d2-28bbbad03913">&lt;/title&gt;</ept> documentation.</target>
+        </trans-unit>
+        <trans-unit id="1b9adcbe-d9f9-4466-b500-72d589c1c708" xml:space="preserve">
+          <source>The ASE feature essentially deploys the Azure App Service into a customer’s VNET.</source>
+          <target state="new">The ASE feature essentially deploys the Azure App Service into a customer’s VNET.</target>
+        </trans-unit>
+        <trans-unit id="877ae32b-e2e6-45e5-92c9-0b200d1fad6c" xml:space="preserve">
+          <source>To do this the customer needs:</source>
+          <target state="new">To do this the customer needs:</target>
+        </trans-unit>
+        <trans-unit id="8d9a9428-67fb-424c-998e-ec04175226b6" xml:space="preserve">
+          <source>A Regional VNET is required with more than 512 (/23) or more addresses</source>
+          <target state="new">A Regional VNET is required with more than 512 (/23) or more addresses</target>
+        </trans-unit>
+        <trans-unit id="f1cfd70e-a1a2-420f-bed0-2012e323707f" xml:space="preserve">
+          <source>A Subnet in this VNET is required with 256 (/24) or more addresses</source>
+          <target state="new">A Subnet in this VNET is required with 256 (/24) or more addresses</target>
+        </trans-unit>
+        <trans-unit id="cdfafe6a-0834-49a9-a94d-466ec6a027d1" xml:space="preserve">
+          <source>The subnet <bpt id="2d8f70a0-532c-41e9-94c6-50ae1f65cf50">&lt;strong&gt;</bpt>must not contain any other compute resources<ept id="2d8f70a0-532c-41e9-94c6-50ae1f65cf50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The subnet <bpt id="2d8f70a0-532c-41e9-94c6-50ae1f65cf50">&lt;strong&gt;</bpt>must not contain any other compute resources<ept id="2d8f70a0-532c-41e9-94c6-50ae1f65cf50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd6f6d46-afe3-4b4e-8372-4723c4920fe5" xml:space="preserve">
+          <source>Only one App Service Environment can be deployed into a subnet.</source>
+          <target state="new">Only one App Service Environment can be deployed into a subnet.</target>
+        </trans-unit>
+        <trans-unit id="dcd9c4cd-3d09-4731-970c-56d369e32bb2" xml:space="preserve">
+          <source>The creation attempt will fail if there are any other compute resources already residing in the subnet.</source>
+          <target state="new">The creation attempt will fail if there are any other compute resources already residing in the subnet.</target>
+        </trans-unit>
+        <trans-unit id="9c0423e1-be80-4069-9e1a-fc40885e4c2b" xml:space="preserve">
+          <source>If you do not already have a VNET you wish to use to host your App Service Environment you can create one during App Service Environment creation.</source>
+          <target state="new">If you do not already have a VNET you wish to use to host your App Service Environment you can create one during App Service Environment creation.</target>
+        </trans-unit>
+        <trans-unit id="a78a5d6a-7571-4324-9114-d2e6a9088489" xml:space="preserve">
+          <source>Each ASE deployment is a Hosted Service that Azure manages and maintains.</source>
+          <target state="new">Each ASE deployment is a Hosted Service that Azure manages and maintains.</target>
+        </trans-unit>
+        <trans-unit id="f97dd8bc-68c2-4fcb-90ce-ccb5892d0f6b" xml:space="preserve">
+          <source>The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes.</source>
+          <target state="new">The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes.</target>
+        </trans-unit>
+        <trans-unit id="5042cd76-9402-4b5c-a0f1-6072b9a2ab98" xml:space="preserve">
+          <source>There are two ways to access the ASE creation UI.</source>
+          <target state="new">There are two ways to access the ASE creation UI.</target>
+        </trans-unit>
+        <trans-unit id="eab50031-4b96-4d47-ba74-e9ec25c6d1e4" xml:space="preserve">
+          <source>It can be found by searching in the Azure Marketplace for <bpt id="bbe9a022-0d09-47a2-8043-bf6d2c5491a8">&lt;strong&gt;</bpt>*App Service Environment*<ept id="bbe9a022-0d09-47a2-8043-bf6d2c5491a8">&lt;/strong&gt;</ept> or by going through New -&gt; Web + Mobile.</source>
+          <target state="new">It can be found by searching in the Azure Marketplace for <bpt id="bbe9a022-0d09-47a2-8043-bf6d2c5491a8">&lt;strong&gt;</bpt>*App Service Environment*<ept id="bbe9a022-0d09-47a2-8043-bf6d2c5491a8">&lt;/strong&gt;</ept> or by going through New -&gt; Web + Mobile.</target>
+        </trans-unit>
+        <trans-unit id="16a80c23-2985-4755-9ee5-a352554cff70" xml:space="preserve">
+          <source>After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.</source>
+          <target state="new">After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.</target>
+        </trans-unit>
+        <trans-unit id="263d108c-07bc-4415-a60d-c1c1c23566ca" xml:space="preserve">
+          <source>This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.</source>
+          <target state="new">This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.</target>
+        </trans-unit>
+        <trans-unit id="e2f15d8d-96a1-4dfb-8acd-8519f8512f39" xml:space="preserve">
+          <source>Be sure to select the location where you want the system to be located and the subscription that you want it to be in.</source>
+          <target state="new">Be sure to select the location where you want the system to be located and the subscription that you want it to be in.</target>
+        </trans-unit>
+        <trans-unit id="f5dbee37-45f7-4547-b96a-b734ad0380b1" xml:space="preserve">
+          <source>The only accounts that can use the ASE to host content must be in the subscription used to create it.</source>
+          <target state="new">The only accounts that can use the ASE to host content must be in the subscription used to create it.</target>
+        </trans-unit>
+        <trans-unit id="dd60f35c-9afa-4f05-b4db-ce4a96f575ce" xml:space="preserve">
+          <source>The name that is specified for the ASE will be used for the web apps created in the ASE.</source>
+          <target state="new">The name that is specified for the ASE will be used for the web apps created in the ASE.</target>
+        </trans-unit>
+        <trans-unit id="206c837d-12a4-4f78-9cd4-02264b0a4c4c" xml:space="preserve">
+          <source>If name of the ASE is appsvcenvdemo then the domain name would be .<bpt id="eef94024-f2f5-4f56-a1ad-0555fddd0930">&lt;em&gt;</bpt>appsvcenvdemo.p.azurewebsites.net<ept id="eef94024-f2f5-4f56-a1ad-0555fddd0930">&lt;/em&gt;</ept>.</source>
+          <target state="new">If name of the ASE is appsvcenvdemo then the domain name would be .<bpt id="eef94024-f2f5-4f56-a1ad-0555fddd0930">&lt;em&gt;</bpt>appsvcenvdemo.p.azurewebsites.net<ept id="eef94024-f2f5-4f56-a1ad-0555fddd0930">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d35a36e8-0443-43a5-8d24-39d6c866bff7" xml:space="preserve">
+          <source>If you thus created a web app named mytestapp then it would be addressable at <bpt id="23bf1d48-41fd-4a03-9034-582d3e3d19a3">&lt;em&gt;</bpt>mytestapp.appsvcenvdemo.p.azurewebsites.net<ept id="23bf1d48-41fd-4a03-9034-582d3e3d19a3">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you thus created a web app named mytestapp then it would be addressable at <bpt id="23bf1d48-41fd-4a03-9034-582d3e3d19a3">&lt;em&gt;</bpt>mytestapp.appsvcenvdemo.p.azurewebsites.net<ept id="23bf1d48-41fd-4a03-9034-582d3e3d19a3">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e95558b-bb1e-4aac-9a81-017d80b343a6" xml:space="preserve">
+          <source>You cannot use white space in the name.</source>
+          <target state="new">You cannot use white space in the name.</target>
+        </trans-unit>
+        <trans-unit id="f25c002d-a2a7-4f94-b94d-c70ff2ae6b9e" xml:space="preserve">
+          <source>If you use upper case characters in the name, the domain name will be the total lowercase version of that name.</source>
+          <target state="new">If you use upper case characters in the name, the domain name will be the total lowercase version of that name.</target>
+        </trans-unit>
+        <trans-unit id="64155dfb-6ba8-47cb-81ba-941cfa43ced8" xml:space="preserve">
+          <source><bpt id="1ccb0c26-57fa-4b1b-9a1c-99d178f10d6b">&lt;linkText&gt;</bpt><ept id="1ccb0c26-57fa-4b1b-9a1c-99d178f10d6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ccb0c26-57fa-4b1b-9a1c-99d178f10d6b">&lt;linkText&gt;</bpt><ept id="1ccb0c26-57fa-4b1b-9a1c-99d178f10d6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a396c35-c3f3-4d51-a5ce-dd3f050293fb" xml:space="preserve">
+          <source>The compute resources that are used for App Service Environment are managed in compute resource pools which allows configuration of how compute resource instances you have in the pool in addition to their size.</source>
+          <target state="new">The compute resources that are used for App Service Environment are managed in compute resource pools which allows configuration of how compute resource instances you have in the pool in addition to their size.</target>
+        </trans-unit>
+        <trans-unit id="3cac017d-99e7-4306-8618-5eb72c244302" xml:space="preserve">
+          <source>An App Service Environment consists of Front End servers and Workers.</source>
+          <target state="new">An App Service Environment consists of Front End servers and Workers.</target>
+        </trans-unit>
+        <trans-unit id="21da018c-7078-4f3c-83d7-d26b6953109b" xml:space="preserve">
+          <source>The Front End servers handle the app connection load and Workers run the app code.</source>
+          <target state="new">The Front End servers handle the app connection load and Workers run the app code.</target>
+        </trans-unit>
+        <trans-unit id="269fda9f-6da5-42b8-847b-3c30dc1edad4" xml:space="preserve">
+          <source>The Front End servers are managed in a dedicated compute resource pool.</source>
+          <target state="new">The Front End servers are managed in a dedicated compute resource pool.</target>
+        </trans-unit>
+        <trans-unit id="4b24e385-1293-425c-a708-16608d9102d7" xml:space="preserve">
+          <source>The Workers in turn are managed in 3 separate compute resource pools named</source>
+          <target state="new">The Workers in turn are managed in 3 separate compute resource pools named</target>
+        </trans-unit>
+        <trans-unit id="60c2691a-ef43-4de3-bcb5-34c6b50404e4" xml:space="preserve">
+          <source>Worker Pool 1</source>
+          <target state="new">Worker Pool 1</target>
+        </trans-unit>
+        <trans-unit id="9270bb38-bb2f-4121-8b62-e4e8ea2ecb0b" xml:space="preserve">
+          <source>Worker Pool 2</source>
+          <target state="new">Worker Pool 2</target>
+        </trans-unit>
+        <trans-unit id="2635e5ba-c3bb-4407-a518-727b717ea15c" xml:space="preserve">
+          <source>Worker Pool 3</source>
+          <target state="new">Worker Pool 3</target>
+        </trans-unit>
+        <trans-unit id="7c9614ec-9b85-4dae-babe-734a151422ff" xml:space="preserve">
+          <source>If you have a large number of requests for simple web apps you would likely scale up your Front Ends and have fewer workers.</source>
+          <target state="new">If you have a large number of requests for simple web apps you would likely scale up your Front Ends and have fewer workers.</target>
+        </trans-unit>
+        <trans-unit id="3d0e7266-a2a0-4013-b262-4e9731ec88e7" xml:space="preserve">
+          <source>If you have CPU or memory intensive web apps with light traffic then you wouldn't need many Front Ends but likely need more or bigger workers.</source>
+          <target state="new">If you have CPU or memory intensive web apps with light traffic then you wouldn't need many Front Ends but likely need more or bigger workers.</target>
+        </trans-unit>
+        <trans-unit id="ece0d3a9-7384-4268-932e-ad8f70be6feb" xml:space="preserve">
+          <source>Regardless of the size of the compute resources, the minimum footprint has 2 Front End servers and 2 Workers.</source>
+          <target state="new">Regardless of the size of the compute resources, the minimum footprint has 2 Front End servers and 2 Workers.</target>
+        </trans-unit>
+        <trans-unit id="17788ff5-2a83-442a-88cd-7a80bd338147" xml:space="preserve">
+          <source>An App Service Environment can be configured to use up to 55 total compute resources.</source>
+          <target state="new">An App Service Environment can be configured to use up to 55 total compute resources.</target>
+        </trans-unit>
+        <trans-unit id="7f6e01f2-7cf0-4f05-9c23-cb64ccff986a" xml:space="preserve">
+          <source>Of those 55 compute resources, only 50 can be used to host workloads.</source>
+          <target state="new">Of those 55 compute resources, only 50 can be used to host workloads.</target>
+        </trans-unit>
+        <trans-unit id="f8013aec-4e70-4376-9c28-fff85260b95d" xml:space="preserve">
+          <source>The reason for that is two fold.</source>
+          <target state="new">The reason for that is two fold.</target>
+        </trans-unit>
+        <trans-unit id="886dfcfb-611b-4096-b203-5614e836889e" xml:space="preserve">
+          <source>There are a minimum of 2 Front End compute resources.</source>
+          <target state="new">There are a minimum of 2 Front End compute resources.</target>
+        </trans-unit>
+        <trans-unit id="5aeffa26-af52-46d3-b09d-4538eb4d656c" xml:space="preserve">
+          <source>That leaves up to 53 to support worker pool allocation.</source>
+          <target state="new">That leaves up to 53 to support worker pool allocation.</target>
+        </trans-unit>
+        <trans-unit id="77e21d39-fe1e-4e1c-a23a-e585cc5f1b3b" xml:space="preserve">
+          <source>In order to provide fault tolerance though, you need to have an additional compute resource allocated according to the following rules:</source>
+          <target state="new">In order to provide fault tolerance though, you need to have an additional compute resource allocated according to the following rules:</target>
+        </trans-unit>
+        <trans-unit id="4991d6f8-ba9a-42ae-97f9-99eca3d9d28c" xml:space="preserve">
+          <source>each worker pool needs at least one additional compute resource which cannot be assigned workload</source>
+          <target state="new">each worker pool needs at least one additional compute resource which cannot be assigned workload</target>
+        </trans-unit>
+        <trans-unit id="bbad6644-9c13-4c7d-a8a7-f9728093f888" xml:space="preserve">
+          <source>when the quantity of compute resources in a pool goes above a certain value then another compute resource is required</source>
+          <target state="new">when the quantity of compute resources in a pool goes above a certain value then another compute resource is required</target>
+        </trans-unit>
+        <trans-unit id="d18c0fe4-b960-4c8a-bfc6-480415611502" xml:space="preserve">
+          <source>Within any single worker pool the fault tolerance requirements are that for a given value of X resources assigned to a worker pool:</source>
+          <target state="new">Within any single worker pool the fault tolerance requirements are that for a given value of X resources assigned to a worker pool:</target>
+        </trans-unit>
+        <trans-unit id="71dd1ac4-df0e-4e4a-a211-213dbc2beab0" xml:space="preserve">
+          <source>if X is between 2 to 20, the amount of usable compute resources you can use for workloads is X-1</source>
+          <target state="new">if X is between 2 to 20, the amount of usable compute resources you can use for workloads is X-1</target>
+        </trans-unit>
+        <trans-unit id="bba884c6-bb64-4525-841f-1e602c4e31a5" xml:space="preserve">
+          <source>if X is between 21 to 40, the amount of usable compute resources you can use for workloads is X-2</source>
+          <target state="new">if X is between 21 to 40, the amount of usable compute resources you can use for workloads is X-2</target>
+        </trans-unit>
+        <trans-unit id="a5ccd00c-fefb-4b83-a2cb-bd4dfa31fae5" xml:space="preserve">
+          <source>if X is between 41 to 53, the amount of usable compute resources you can use for workloads is X-3</source>
+          <target state="new">if X is between 41 to 53, the amount of usable compute resources you can use for workloads is X-3</target>
+        </trans-unit>
+        <trans-unit id="d5ae6cea-1998-4cd1-bcef-d89d77525cbd" xml:space="preserve">
+          <source>In addition to being able to manage the quantity of compute resources that you can assign to a given pool you also have control over the size.</source>
+          <target state="new">In addition to being able to manage the quantity of compute resources that you can assign to a given pool you also have control over the size.</target>
+        </trans-unit>
+        <trans-unit id="d7f34b23-d396-451f-8f1e-7c47e793c666" xml:space="preserve">
+          <source>With App Service Environments you can choose from 4 different sizes labeled P1 through P4.</source>
+          <target state="new">With App Service Environments you can choose from 4 different sizes labeled P1 through P4.</target>
+        </trans-unit>
+        <trans-unit id="f8851678-4343-43ed-a13a-d3929884104f" xml:space="preserve">
+          <source>For details around those sizes and their pricing please see here <bpt id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;linkText&gt;</bpt>App Service Pricing[appservicepricing]<ept id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;/linkText&gt;</ept><bpt id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;title&gt;</bpt><ept id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details around those sizes and their pricing please see here <bpt id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;linkText&gt;</bpt>App Service Pricing[appservicepricing]<ept id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;/linkText&gt;</ept><bpt id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;title&gt;</bpt><ept id="04ce3200-e2a8-4577-aacf-857f9dae5883">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="755ca12b-d87c-4e29-9397-1e47caeead43" xml:space="preserve">
+          <source>The P1 to P3 compute resource sizes are the same as what is available in the multi-tenant environments.</source>
+          <target state="new">The P1 to P3 compute resource sizes are the same as what is available in the multi-tenant environments.</target>
+        </trans-unit>
+        <trans-unit id="10d04db1-6a0e-4df2-9cfd-1bd67de3afea" xml:space="preserve">
+          <source>The P4 compute resource gives 8 cores with 14 GB of RAM and is only available in an App Service Environment.</source>
+          <target state="new">The P4 compute resource gives 8 cores with 14 GB of RAM and is only available in an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="6a2f14f1-66d0-4ab7-ae93-d1f39474570b" xml:space="preserve">
+          <source>Pricing for App Service Environments is against the compute resources assigned.</source>
+          <target state="new">Pricing for App Service Environments is against the compute resources assigned.</target>
+        </trans-unit>
+        <trans-unit id="41ceb42b-0645-4efd-b262-f93eca51fa9f" xml:space="preserve">
+          <source>You pay for the compute resources allocated to your App Service Environment regardless if they are hosting workloads or not.</source>
+          <target state="new">You pay for the compute resources allocated to your App Service Environment regardless if they are hosting workloads or not.</target>
+        </trans-unit>
+        <trans-unit id="d754b309-f957-411e-a135-2247a75b746e" xml:space="preserve">
+          <source>While there is a quick create capability that will automatically create a new VNET, the feature also supports  selection of an existing VNET and manual creation of a VNET.</source>
+          <target state="new">While there is a quick create capability that will automatically create a new VNET, the feature also supports  selection of an existing VNET and manual creation of a VNET.</target>
+        </trans-unit>
+        <trans-unit id="02eedd2e-16df-4c30-975e-fed09921cd7d" xml:space="preserve">
+          <source>You can select an existing VNET if it is large enough to support an App Service Environment deployment.</source>
+          <target state="new">You can select an existing VNET if it is large enough to support an App Service Environment deployment.</target>
+        </trans-unit>
+        <trans-unit id="b62f8e2c-376e-48be-9909-862d0cfbd1ff" xml:space="preserve">
+          <source>The VNET must have 512 addresses or more.</source>
+          <target state="new">The VNET must have 512 addresses or more.</target>
+        </trans-unit>
+        <trans-unit id="f0fbdabf-340c-4643-aff8-b49659afa99b" xml:space="preserve">
+          <source>If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.</source>
+          <target state="new">If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="c67aa633-87e9-4bd3-923a-ceb863ef3804" xml:space="preserve">
+          <source>The subnet needs to have 256 addresses or more.</source>
+          <target state="new">The subnet needs to have 256 addresses or more.</target>
+        </trans-unit>
+        <trans-unit id="7fc83017-7d1b-4077-b791-51a6bff9b8bb" xml:space="preserve">
+          <source>If going through the VNET creation UI you are required to provide:</source>
+          <target state="new">If going through the VNET creation UI you are required to provide:</target>
+        </trans-unit>
+        <trans-unit id="8b646b47-3211-481f-9612-37ad470a270c" xml:space="preserve">
+          <source>VNET Name</source>
+          <target state="new">VNET Name</target>
+        </trans-unit>
+        <trans-unit id="5ad9bdb5-4526-4790-bdf1-7d75ac8369af" xml:space="preserve">
+          <source>VNET address range in CIDR notation</source>
+          <target state="new">VNET address range in CIDR notation</target>
+        </trans-unit>
+        <trans-unit id="cb2385bd-12c5-4abc-88a2-c3109281845f" xml:space="preserve">
+          <source>Subnet Name</source>
+          <target state="new">Subnet Name</target>
+        </trans-unit>
+        <trans-unit id="23a0f61b-2fc1-4450-83e7-e9d969715890" xml:space="preserve">
+          <source>Subnet range in CIDR notation</source>
+          <target state="new">Subnet range in CIDR notation</target>
+        </trans-unit>
+        <trans-unit id="ad2409ab-a361-4425-a952-3a248411577c" xml:space="preserve">
+          <source>If you are unfamiliar with CIDR notation it takes the form of 10.0.0.0/22 where the /22 specifies the range.</source>
+          <target state="new">If you are unfamiliar with CIDR notation it takes the form of 10.0.0.0/22 where the /22 specifies the range.</target>
+        </trans-unit>
+        <trans-unit id="32d455ae-ef0c-4b33-b84f-351bec99c97f" xml:space="preserve">
+          <source>In this example a /22 means a range of 1024 addresses or from 10.0.0.0 -10.0.3.255.</source>
+          <target state="new">In this example a /22 means a range of 1024 addresses or from 10.0.0.0 -10.0.3.255.</target>
+        </trans-unit>
+        <trans-unit id="a80831bb-21b1-4ecb-9406-7ade882f2ceb" xml:space="preserve">
+          <source>A /23 means 512 addresses and so on.</source>
+          <target state="new">A /23 means 512 addresses and so on.</target>
+        </trans-unit>
+        <trans-unit id="2de972e4-c340-49d1-aca0-8f1927059a48" xml:space="preserve">
+          <source><bpt id="16c30131-2e96-4479-be54-4462c0c28ce5">&lt;linkText&gt;</bpt><ept id="16c30131-2e96-4479-be54-4462c0c28ce5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16c30131-2e96-4479-be54-4462c0c28ce5">&lt;linkText&gt;</bpt><ept id="16c30131-2e96-4479-be54-4462c0c28ce5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0340579c-4f9f-48da-a89a-ee3b237fce3d" xml:space="preserve">
+          <source>The next item to configure is the scale of the system.</source>
+          <target state="new">The next item to configure is the scale of the system.</target>
+        </trans-unit>
+        <trans-unit id="61caa545-0bff-439a-9743-4f36c9083163" xml:space="preserve">
+          <source>By default there are 2 Front End P2 compute resources, 2 P1 workers and 1 IP address.</source>
+          <target state="new">By default there are 2 Front End P2 compute resources, 2 P1 workers and 1 IP address.</target>
+        </trans-unit>
+        <trans-unit id="2da68caf-d788-4938-8103-310b167238d3" xml:space="preserve">
+          <source>There are 2 Front Ends so as to provide high availability and distribute the load.</source>
+          <target state="new">There are 2 Front Ends so as to provide high availability and distribute the load.</target>
+        </trans-unit>
+        <trans-unit id="9e131bfb-40dc-4fc7-a674-421b1580337c" xml:space="preserve">
+          <source>The minimum size for the Front Ends is P2 to ensure they have enough capacity to support a modest system.</source>
+          <target state="new">The minimum size for the Front Ends is P2 to ensure they have enough capacity to support a modest system.</target>
+        </trans-unit>
+        <trans-unit id="efea59ea-04fe-435f-be5a-f9ab6cff34f9" xml:space="preserve">
+          <source>If you know that the system needs to support a high number of requests then you can adjust the quantity of Front Ends and the server size used.</source>
+          <target state="new">If you know that the system needs to support a high number of requests then you can adjust the quantity of Front Ends and the server size used.</target>
+        </trans-unit>
+        <trans-unit id="b3e0f78d-851c-41a3-a450-9083c5109150" xml:space="preserve">
+          <source>As noted earlier, within an ASE there are 3 worker pools which a customer can define.</source>
+          <target state="new">As noted earlier, within an ASE there are 3 worker pools which a customer can define.</target>
+        </trans-unit>
+        <trans-unit id="03d75a49-616d-4588-b2ec-99f3ffb72034" xml:space="preserve">
+          <source>The compute resource size can be from P1 to P4.</source>
+          <target state="new">The compute resource size can be from P1 to P4.</target>
+        </trans-unit>
+        <trans-unit id="49b9014d-bab3-4271-b5f8-85a1a52e4258" xml:space="preserve">
+          <source>By default there are only 2 P1 workers configured in Worker Pool 1.</source>
+          <target state="new">By default there are only 2 P1 workers configured in Worker Pool 1.</target>
+        </trans-unit>
+        <trans-unit id="3237d574-cf91-4255-9c16-8ad2c063b7b7" xml:space="preserve">
+          <source>That is enough to support a single App Service Plan with 1 instance.</source>
+          <target state="new">That is enough to support a single App Service Plan with 1 instance.</target>
+        </trans-unit>
+        <trans-unit id="10be2b22-5710-496c-bbb0-82701e0bb21d" xml:space="preserve">
+          <source>The sliders automatically adjust to reflect the total compute capacity available in the App Service Environment.</source>
+          <target state="new">The sliders automatically adjust to reflect the total compute capacity available in the App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="37771257-8fa3-418d-88be-3bb61cc86645" xml:space="preserve">
+          <source>As the sliders are adjusted within any one pool the other sliders change to reflect the available quantity of compute resources left before reaching 55.</source>
+          <target state="new">As the sliders are adjusted within any one pool the other sliders change to reflect the available quantity of compute resources left before reaching 55.</target>
+        </trans-unit>
+        <trans-unit id="6d4b2169-3b00-46e5-9e83-d64c9a872f79" xml:space="preserve">
+          <source><bpt id="88a76390-7203-4ee4-a6eb-6f0760cc3098">&lt;linkText&gt;</bpt><ept id="88a76390-7203-4ee4-a6eb-6f0760cc3098">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88a76390-7203-4ee4-a6eb-6f0760cc3098">&lt;linkText&gt;</bpt><ept id="88a76390-7203-4ee4-a6eb-6f0760cc3098">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2be344d-7ace-4730-9f9c-553c170055d3" xml:space="preserve">
+          <source>Adding new instances to be available does not happen quickly.</source>
+          <target state="new">Adding new instances to be available does not happen quickly.</target>
+        </trans-unit>
+        <trans-unit id="9bc3b2bb-909e-453e-a0e7-ec1b453245da" xml:space="preserve">
+          <source>If you know you are going to need additional compute resources then you should provision them well in advance.</source>
+          <target state="new">If you know you are going to need additional compute resources then you should provision them well in advance.</target>
+        </trans-unit>
+        <trans-unit id="c52c454c-03af-432a-99b7-e2c3b0965b13" xml:space="preserve">
+          <source>Provisioning time can take multiple hours depending on how many are being added to the system.</source>
+          <target state="new">Provisioning time can take multiple hours depending on how many are being added to the system.</target>
+        </trans-unit>
+        <trans-unit id="e66ea70d-fd0c-4576-8b3f-feb9d5cf1dda" xml:space="preserve">
+          <source>Remember that to ensure that your system has can meet fault tolerance requirements, every ASE needs to have a reserve instance available in each worker pool.</source>
+          <target state="new">Remember that to ensure that your system has can meet fault tolerance requirements, every ASE needs to have a reserve instance available in each worker pool.</target>
+        </trans-unit>
+        <trans-unit id="9fa126f7-07fe-4d67-ad75-abd9dd3d9476" xml:space="preserve">
+          <source>By default an ASE comes with 1 IP address that is available for IP SSL.</source>
+          <target state="new">By default an ASE comes with 1 IP address that is available for IP SSL.</target>
+        </trans-unit>
+        <trans-unit id="98ac442d-58ae-49f0-b1b9-9c564e27120f" xml:space="preserve">
+          <source>If you know that you will need more you can specify that here or manage it after creation.</source>
+          <target state="new">If you know that you will need more you can specify that here or manage it after creation.</target>
+        </trans-unit>
+        <trans-unit id="5afa0db5-b908-45e5-8f29-e63d46394d51" xml:space="preserve">
+          <source>After ASE creation you can adjust:</source>
+          <target state="new">After ASE creation you can adjust:</target>
+        </trans-unit>
+        <trans-unit id="13154590-051f-4da3-b816-17b59b375530" xml:space="preserve">
+          <source>Quantity of Front Ends (minimum: 2)</source>
+          <target state="new">Quantity of Front Ends (minimum: 2)</target>
+        </trans-unit>
+        <trans-unit id="dae109ad-3c80-4e3a-9f8d-fd32f1e3fc5e" xml:space="preserve">
+          <source>Quantity of  Workers (minimum: 2)</source>
+          <target state="new">Quantity of  Workers (minimum: 2)</target>
+        </trans-unit>
+        <trans-unit id="07e9312b-9155-443c-bb63-57d3b05d97d5" xml:space="preserve">
+          <source>Quantity of IP addresses</source>
+          <target state="new">Quantity of IP addresses</target>
+        </trans-unit>
+        <trans-unit id="bc2cc0d2-f4da-4014-a60d-b190dfedf13b" xml:space="preserve">
+          <source>Compute resource sizes used by the Front Ends or Workers (Front End minimum size is P2)</source>
+          <target state="new">Compute resource sizes used by the Front Ends or Workers (Front End minimum size is P2)</target>
+        </trans-unit>
+        <trans-unit id="11dd8daa-58f5-4871-9dd9-ccb4644d8642" xml:space="preserve">
+          <source>You cannot change:</source>
+          <target state="new">You cannot change:</target>
+        </trans-unit>
+        <trans-unit id="3acc6e2f-33d7-4063-a754-90fb85c89615" xml:space="preserve">
+          <source>Location</source>
+          <target state="new">Location</target>
+        </trans-unit>
+        <trans-unit id="f89c545c-cdc0-4808-8ad6-bfdc3d030747" xml:space="preserve">
+          <source>Subscription</source>
+          <target state="new">Subscription</target>
+        </trans-unit>
+        <trans-unit id="736efada-35f8-463a-911c-c6e67beb9a52" xml:space="preserve">
+          <source>Resource Group</source>
+          <target state="new">Resource Group</target>
+        </trans-unit>
+        <trans-unit id="03db9331-c446-4f2e-bde6-c42006ab8748" xml:space="preserve">
+          <source>VNET used</source>
+          <target state="new">VNET used</target>
+        </trans-unit>
+        <trans-unit id="0b1d0ac4-5daf-4d5b-8df6-79f57f1fdfde" xml:space="preserve">
+          <source>Subnet used</source>
+          <target state="new">Subnet used</target>
+        </trans-unit>
+        <trans-unit id="1aefd67d-a293-4c22-99b1-ffbe509acab4" xml:space="preserve">
+          <source>There are more details around management and monitoring of App Service Environments here: <bpt id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;linkText&gt;</bpt>How to configure an App Service Environment[aseconfig]<ept id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;/linkText&gt;</ept><bpt id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;title&gt;</bpt><ept id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;/title&gt;</ept> </source>
+          <target state="new">There are more details around management and monitoring of App Service Environments here: <bpt id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;linkText&gt;</bpt>How to configure an App Service Environment[aseconfig]<ept id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;/linkText&gt;</ept><bpt id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;title&gt;</bpt><ept id="c99abc03-aa32-40d9-a873-cce7108c4f72">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="3101bd60-6d8c-4c91-8fdc-e7592a046a40" xml:space="preserve">
+          <source>There are additional dependencies that are not available for customization such as the database and storage.</source>
+          <target state="new">There are additional dependencies that are not available for customization such as the database and storage.</target>
+        </trans-unit>
+        <trans-unit id="25709121-dd28-4cff-ac18-b3bd3bfd0bb6" xml:space="preserve">
+          <source>These are handled by Azure and come with the system.</source>
+          <target state="new">These are handled by Azure and come with the system.</target>
+        </trans-unit>
+        <trans-unit id="2d26b6d4-b145-4177-b2de-f366a81db673" xml:space="preserve">
+          <source>The system storage supports up to 500 GB for the entire App Service Environment.</source>
+          <target state="new">The system storage supports up to 500 GB for the entire App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="570443d9-1b8d-4c2f-973e-7ea358fb8c70" xml:space="preserve">
+          <source>To get started with App Service Environments, see <bpt id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;linkText&gt;</bpt>Introduction to App Service Environments[whatisase]<ept id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;/linkText&gt;</ept><bpt id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;title&gt;</bpt><ept id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;/title&gt;</ept></source>
+          <target state="new">To get started with App Service Environments, see <bpt id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;linkText&gt;</bpt>Introduction to App Service Environments[whatisase]<ept id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;/linkText&gt;</ept><bpt id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;title&gt;</bpt><ept id="122a6bc6-e03b-44f9-82da-5030de868a63">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55281f99-0bb3-48ef-b3e9-e4b60ba33eb0" xml:space="preserve">
+          <source>For more information about the Azure App Service platform, see <bpt id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;/linkText&gt;</ept><bpt id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;title&gt;</bpt><ept id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Azure App Service platform, see <bpt id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;/linkText&gt;</ept><bpt id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;title&gt;</bpt><ept id="89d71b6e-bd3a-4821-896f-9714b7fdc4bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03e23c29-5b57-45a6-a8a2-49990bb0d2b1" xml:space="preserve">
+          <source><bpt id="12f9a4ec-fdee-43e7-a51d-22851ee934a9">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="12f9a4ec-fdee-43e7-a51d-22851ee934a9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="12f9a4ec-fdee-43e7-a51d-22851ee934a9">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="12f9a4ec-fdee-43e7-a51d-22851ee934a9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d508ae9c-1380-4c45-8224-f266f3473c4a" xml:space="preserve">
+          <source><bpt id="1d0b1583-ebdb-4afa-a34e-971c18aa2d23">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="1d0b1583-ebdb-4afa-a34e-971c18aa2d23">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1d0b1583-ebdb-4afa-a34e-971c18aa2d23">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="1d0b1583-ebdb-4afa-a34e-971c18aa2d23">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dbb4adf-edbd-4fb8-87bf-c3b716010639" xml:space="preserve">
+          <source>./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png</source>
+          <target state="new">./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png</target>
+        </trans-unit>
+        <trans-unit id="0afa4c6d-1ecb-4704-a885-b7a5b9ea65ad" xml:space="preserve">
+          <source>./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png</source>
+          <target state="new">./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png</target>
+        </trans-unit>
+        <trans-unit id="2e07616b-ffa5-4634-a47d-1d81be84041a" xml:space="preserve">
+          <source>./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png</source>
+          <target state="new">./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png</target>
+        </trans-unit>
+        <trans-unit id="ca0ccc53-0c10-47d6-b05d-c21fcd7a9044" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</target>
+        </trans-unit>
+        <trans-unit id="7d24f9c8-2800-40e5-8ca1-054775c5cd3e" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/</target>
+        </trans-unit>
+        <trans-unit id="01be86f8-cd56-4132-934e-07d0e734f8ad" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/app-service/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/app-service/</target>
+        </trans-unit>
+        <trans-unit id="61339a3b-20ab-456b-aa9b-bd65a9f5544d" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</target>
+        </trans-unit>
+      </group>
+      <group id="b4f0b543-53d8-48b4-9dcf-280710459ea7" />
+    </body>
+  </file>
+</xliff>

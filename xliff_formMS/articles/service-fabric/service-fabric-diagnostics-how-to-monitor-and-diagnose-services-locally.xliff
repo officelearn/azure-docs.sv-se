@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="64aa929b-ec60-4386-96fc-383424ede132" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="64aa929b-ec60-4386-96fc-383424ede132" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4fc78a53-fbc5-4583-9b07-94b6fdae66e4">
+        <trans-unit id="7c5987b3-04c1-448a-b76e-a6daf4b72381" xml:space="preserve">
+          <source>Microsoft Azure Service Fabric How to monitor and diagnose services locally</source>
+          <target state="new">Microsoft Azure Service Fabric How to monitor and diagnose services locally</target>
+        </trans-unit>
+        <trans-unit id="81016fa7-7033-4d1a-ab32-da94f1c6a41a" xml:space="preserve">
+          <source>This article describes how you can monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.</source>
+          <target state="new">This article describes how you can monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.</target>
+        </trans-unit>
+        <trans-unit id="65ed64c3-e0d6-48e5-8bb1-74d507f3bdf4" xml:space="preserve">
+          <source>Monitoring, detecting, diagnosing and troubleshooting allows for services to continue with minimal disruption to user experience.</source>
+          <target state="new">Monitoring, detecting, diagnosing and troubleshooting allows for services to continue with minimal disruption to user experience.</target>
+        </trans-unit>
+        <trans-unit id="dc2ac9f5-fc8a-4db5-bf7e-026285dbaba0" xml:space="preserve">
+          <source>While it is critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure that it works when you move to a real world setup.</source>
+          <target state="new">While it is critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure that it works when you move to a real world setup.</target>
+        </trans-unit>
+        <trans-unit id="c224af9c-4f06-44bc-b97c-233f628021f1" xml:space="preserve">
+          <source>Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across single machine local development and real world production cluster setups.</source>
+          <target state="new">Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across single machine local development and real world production cluster setups.</target>
+        </trans-unit>
+        <trans-unit id="ff0b2c44-8779-4497-9322-4e25f18c1584" xml:space="preserve">
+          <source><bpt id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;linkText&gt;</bpt>Event Tracing for Windows<ept id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;/linkText&gt;</ept><bpt id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;title&gt;</bpt><ept id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;/title&gt;</ept> (ETW) is the recommended technology for tracing messages in Service Fabric.</source>
+          <target state="new"><bpt id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;linkText&gt;</bpt>Event Tracing for Windows<ept id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;/linkText&gt;</ept><bpt id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;title&gt;</bpt><ept id="9630a0a5-bd6f-4ca7-b3e8-ea1add5809cd">&lt;/title&gt;</ept> (ETW) is the recommended technology for tracing messages in Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="2546a1c4-05cd-468f-8bc0-3dcc0e33a9d6" xml:space="preserve">
+          <source>Reasons for this are:</source>
+          <target state="new">Reasons for this are:</target>
+        </trans-unit>
+        <trans-unit id="6f6e9b8e-7eb9-4951-a984-5eaa5d7948da" xml:space="preserve">
+          <source>ETW is fast.</source>
+          <target state="new">ETW is fast.</target>
+        </trans-unit>
+        <trans-unit id="bf2c8a0a-365c-44a1-9f5f-261c61d86275" xml:space="preserve">
+          <source>It was built as a tracing technology that has a minimal impact on your code execution times.</source>
+          <target state="new">It was built as a tracing technology that has a minimal impact on your code execution times.</target>
+        </trans-unit>
+        <trans-unit id="dc18536b-1212-4360-a395-3998fb3599f5" xml:space="preserve">
+          <source>ETW tracing works seamlessly across local development environments and also real world cluster setups.</source>
+          <target state="new">ETW tracing works seamlessly across local development environments and also real world cluster setups.</target>
+        </trans-unit>
+        <trans-unit id="eae6ec7a-60ae-4739-8f4f-29a12f74b20c" xml:space="preserve">
+          <source>This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.</source>
+          <target state="new">This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.</target>
+        </trans-unit>
+        <trans-unit id="d0ba7e56-61bd-4ab2-b2a9-5265877439ce" xml:space="preserve">
+          <source>Service Fabric system code also uses ETW for internal tracing.</source>
+          <target state="new">Service Fabric system code also uses ETW for internal tracing.</target>
+        </trans-unit>
+        <trans-unit id="d9e081f7-c22e-4040-97b6-8dc01dbc3ae7" xml:space="preserve">
+          <source>This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.</source>
+          <target state="new">This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.</target>
+        </trans-unit>
+        <trans-unit id="1f5d70b3-e45e-4bb9-ab2f-c96aeb5b3b2d" xml:space="preserve">
+          <source>There is built-in support in Service Fabric Visual Studio tools to view ETW events.</source>
+          <target state="new">There is built-in support in Service Fabric Visual Studio tools to view ETW events.</target>
+        </trans-unit>
+        <trans-unit id="54628b7e-1283-4972-b6d5-b53f45688747" xml:space="preserve">
+          <source>Service Fabric emits ETW events to help application developers understand what is happening in the platform.</source>
+          <target state="new">Service Fabric emits ETW events to help application developers understand what is happening in the platform.</target>
+        </trans-unit>
+        <trans-unit id="0d3e63d4-1731-4cfa-88a3-35e600bf6885" xml:space="preserve">
+          <source>To view these events follow these steps:</source>
+          <target state="new">To view these events follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="03db77ec-ea1b-4dbd-8bdd-017b9c9dbf93" xml:space="preserve">
+          <source>You must have the following pre-requisties installed.</source>
+          <target state="new">You must have the following pre-requisties installed.</target>
+        </trans-unit>
+        <trans-unit id="494eecb1-1b93-48db-8877-3416092ff25c" xml:space="preserve">
+          <source>Visual Studio 2015</source>
+          <target state="new">Visual Studio 2015</target>
+        </trans-unit>
+        <trans-unit id="6aa12236-30d0-40db-b963-73925ce46e6f" xml:space="preserve">
+          <source>Service Fabric SDK</source>
+          <target state="new">Service Fabric SDK</target>
+        </trans-unit>
+        <trans-unit id="cd78802c-1f85-4092-8803-7aa01719cb8d" xml:space="preserve">
+          <source>Launch Visual Studio as an administrator.</source>
+          <target state="new">Launch Visual Studio as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="8ae9d99c-fa43-495b-a4f7-cfc3788c1560" xml:space="preserve">
+          <source>Create (or open an existing) project for a stateful or stateless Actor or Service.</source>
+          <target state="new">Create (or open an existing) project for a stateful or stateless Actor or Service.</target>
+        </trans-unit>
+        <trans-unit id="0df851a6-7080-4a77-88c7-f1cd5049f8bd" xml:space="preserve">
+          <source><bpt id="727ac761-145e-4fc0-82fd-d6020a87e9a8">&lt;linkText&gt;</bpt>Create a Service Fabric Application<ept id="727ac761-145e-4fc0-82fd-d6020a87e9a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="727ac761-145e-4fc0-82fd-d6020a87e9a8">&lt;linkText&gt;</bpt>Create a Service Fabric Application<ept id="727ac761-145e-4fc0-82fd-d6020a87e9a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d96b2f01-403b-438b-aa46-f0c453ba84e7" xml:space="preserve">
+          <source><bpt id="6a098b5e-9a99-4723-8aea-a11a1ce8cf92">&lt;linkText&gt;</bpt>Create a Service Fabric Service<ept id="6a098b5e-9a99-4723-8aea-a11a1ce8cf92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a098b5e-9a99-4723-8aea-a11a1ce8cf92">&lt;linkText&gt;</bpt>Create a Service Fabric Service<ept id="6a098b5e-9a99-4723-8aea-a11a1ce8cf92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a71118f1-396d-4f24-9e61-d30a8ea4ff48" xml:space="preserve">
+          <source>Press F5 to debug the application.</source>
+          <target state="new">Press F5 to debug the application.</target>
+        </trans-unit>
+        <trans-unit id="9d53d0f1-7477-4e19-afe8-4be2938d73c9" xml:space="preserve">
+          <source>The Service Fabric events should show up in the Diagnostics Events window.</source>
+          <target state="new">The Service Fabric events should show up in the Diagnostics Events window.</target>
+        </trans-unit>
+        <trans-unit id="fff5d215-ba42-4df7-9852-b7a167361677" xml:space="preserve">
+          <source>Each event has standard metadata information which tells you the node, application and service the event is coming from.</source>
+          <target state="new">Each event has standard metadata information which tells you the node, application and service the event is coming from.</target>
+        </trans-unit>
+        <trans-unit id="5dfaa0d8-b586-4b6d-aa85-a5a0b125b60a" xml:space="preserve">
+          <source>You can also filter the list of events using the "Filter events" box at the top of the windows, for example you can filter on Node Name or Service Name.</source>
+          <target state="new">You can also filter the list of events using the "Filter events" box at the top of the windows, for example you can filter on Node Name or Service Name.</target>
+        </trans-unit>
+        <trans-unit id="2e49d56f-bfcd-40e5-997c-2dfb90a3ce3d" xml:space="preserve">
+          <source><bpt id="fcf51ec4-e467-4ad3-b5a1-1fc6db19a971">&lt;linkText&gt;</bpt>Visual Studio Diagnostics Events Viewer<ept id="fcf51ec4-e467-4ad3-b5a1-1fc6db19a971">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fcf51ec4-e467-4ad3-b5a1-1fc6db19a971">&lt;linkText&gt;</bpt>Visual Studio Diagnostics Events Viewer<ept id="fcf51ec4-e467-4ad3-b5a1-1fc6db19a971">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1fe97ee-2165-4872-8c89-0617140928cd" xml:space="preserve">
+          <source>If the Diagnostics Events window does not automatically show, Go to Server Explorer tab in Visual Studio, right-click the Service Fabric cluster and choose "View Diagnostic Events" in the context menu.</source>
+          <target state="new">If the Diagnostics Events window does not automatically show, Go to Server Explorer tab in Visual Studio, right-click the Service Fabric cluster and choose "View Diagnostic Events" in the context menu.</target>
+        </trans-unit>
+        <trans-unit id="d6dbc579-b35b-41ae-81b2-5ed6026b1c34" xml:space="preserve">
+          <source><bpt id="b9e7d16d-e960-4a3a-8734-f51b79ccb3bf">&lt;linkText&gt;</bpt>Open the Visual Studio Diagnostics Events Viewer<ept id="b9e7d16d-e960-4a3a-8734-f51b79ccb3bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9e7d16d-e960-4a3a-8734-f51b79ccb3bf">&lt;linkText&gt;</bpt>Open the Visual Studio Diagnostics Events Viewer<ept id="b9e7d16d-e960-4a3a-8734-f51b79ccb3bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a0810e2-6245-4573-a445-2623aa64bc7f" xml:space="preserve">
+          <source>The Service Fabric Visual Studio project templates contain sample code.</source>
+          <target state="new">The Service Fabric Visual Studio project templates contain sample code.</target>
+        </trans-unit>
+        <trans-unit id="a55618b6-0eb8-4a95-9de2-c5c1ab7f4420" xml:space="preserve">
+          <source>The code shows how to add custom application code ETW traces which show up in the Visual Studio ETW viewer alongside system traces from Service Fabric.</source>
+          <target state="new">The code shows how to add custom application code ETW traces which show up in the Visual Studio ETW viewer alongside system traces from Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="4eb90a6c-3584-48b9-b78d-f5e1b17b8b6e" xml:space="preserve">
+          <source>The advantage of this method is that metadata is automatically added to traces, and the Visual Studio Diagnostic Viewer is already configured to display them.</source>
+          <target state="new">The advantage of this method is that metadata is automatically added to traces, and the Visual Studio Diagnostic Viewer is already configured to display them.</target>
+        </trans-unit>
+        <trans-unit id="acd20b90-926f-4a86-9a7c-0189676040d4" xml:space="preserve">
+          <source>For projects created from the <bpt id="36b6d172-8509-4d8e-8c14-82a070c31e9b">&lt;strong&gt;</bpt>service templates<ept id="36b6d172-8509-4d8e-8c14-82a070c31e9b">&lt;/strong&gt;</ept> (stateless or stateful):</source>
+          <target state="new">For projects created from the <bpt id="36b6d172-8509-4d8e-8c14-82a070c31e9b">&lt;strong&gt;</bpt>service templates<ept id="36b6d172-8509-4d8e-8c14-82a070c31e9b">&lt;/strong&gt;</ept> (stateless or stateful):</target>
+        </trans-unit>
+        <trans-unit id="6585f746-f33a-463a-950a-1e72cccc5968" xml:space="preserve">
+          <source>Open the <bpt id="0b06ebe0-147b-4478-9815-25d547a2172d">&lt;strong&gt;</bpt>Service.cs<ept id="0b06ebe0-147b-4478-9815-25d547a2172d">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Open the <bpt id="0b06ebe0-147b-4478-9815-25d547a2172d">&lt;strong&gt;</bpt>Service.cs<ept id="0b06ebe0-147b-4478-9815-25d547a2172d">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="cd1be83c-45e7-4c03-947e-c06e4e605a74" xml:space="preserve">
+          <source>The call to <bpt id="788e30b6-0ad0-4399-ab63-089c070d3886">&lt;code&gt;</bpt>ServiceEventSource.Current.Message<ept id="788e30b6-0ad0-4399-ab63-089c070d3886">&lt;/code&gt;</ept> in the <bpt id="3a4b4b29-1e06-4846-ac9e-697e746324c6">&lt;em&gt;</bpt>RunAsync<ept id="3a4b4b29-1e06-4846-ac9e-697e746324c6">&lt;/em&gt;</ept> method shows an example of a custom ETW trace from the application code.</source>
+          <target state="new">The call to <bpt id="788e30b6-0ad0-4399-ab63-089c070d3886">&lt;code&gt;</bpt>ServiceEventSource.Current.Message<ept id="788e30b6-0ad0-4399-ab63-089c070d3886">&lt;/code&gt;</ept> in the <bpt id="3a4b4b29-1e06-4846-ac9e-697e746324c6">&lt;em&gt;</bpt>RunAsync<ept id="3a4b4b29-1e06-4846-ac9e-697e746324c6">&lt;/em&gt;</ept> method shows an example of a custom ETW trace from the application code.</target>
+        </trans-unit>
+        <trans-unit id="096686bd-43aa-4aab-838c-2d4f2420c5bb" xml:space="preserve">
+          <source>In the <bpt id="85b9ee45-3f01-4475-8b7e-d487af11ed9c">&lt;strong&gt;</bpt>ServiceEventSource.cs<ept id="85b9ee45-3f01-4475-8b7e-d487af11ed9c">&lt;/strong&gt;</ept> file, the overloads of the <bpt id="f8180b23-dd43-4d91-ac3b-28eb3ab0cbd0">&lt;code&gt;</bpt>ServiceEventSource.Message<ept id="f8180b23-dd43-4d91-ac3b-28eb3ab0cbd0">&lt;/code&gt;</ept> method show an option of how to write custom ETW traces.</source>
+          <target state="new">In the <bpt id="85b9ee45-3f01-4475-8b7e-d487af11ed9c">&lt;strong&gt;</bpt>ServiceEventSource.cs<ept id="85b9ee45-3f01-4475-8b7e-d487af11ed9c">&lt;/strong&gt;</ept> file, the overloads of the <bpt id="f8180b23-dd43-4d91-ac3b-28eb3ab0cbd0">&lt;code&gt;</bpt>ServiceEventSource.Message<ept id="f8180b23-dd43-4d91-ac3b-28eb3ab0cbd0">&lt;/code&gt;</ept> method show an option of how to write custom ETW traces.</target>
+        </trans-unit>
+        <trans-unit id="00bb277a-6258-44ea-b5dd-15125b472c1a" xml:space="preserve">
+          <source>For projects created from the <bpt id="722fcf1a-6a77-4ca0-89e5-c00c296fe7cb">&lt;strong&gt;</bpt>actor templates<ept id="722fcf1a-6a77-4ca0-89e5-c00c296fe7cb">&lt;/strong&gt;</ept> (stateless or stateful):</source>
+          <target state="new">For projects created from the <bpt id="722fcf1a-6a77-4ca0-89e5-c00c296fe7cb">&lt;strong&gt;</bpt>actor templates<ept id="722fcf1a-6a77-4ca0-89e5-c00c296fe7cb">&lt;/strong&gt;</ept> (stateless or stateful):</target>
+        </trans-unit>
+        <trans-unit id="a5957d28-b9b1-4984-8458-ab2f964fb749" xml:space="preserve">
+          <source>Open the <bpt id="6be2e8ae-5b2d-4f67-a284-4a5e6918bb94">&lt;strong&gt;</bpt>"ProjectName".cs<ept id="6be2e8ae-5b2d-4f67-a284-4a5e6918bb94">&lt;/strong&gt;</ept> file where <bpt id="6c56976a-a439-4c67-b970-86c993de59ce">&lt;em&gt;</bpt>ProjectName<ept id="6c56976a-a439-4c67-b970-86c993de59ce">&lt;/em&gt;</ept> is the name you chose for your Visual Studio project.</source>
+          <target state="new">Open the <bpt id="6be2e8ae-5b2d-4f67-a284-4a5e6918bb94">&lt;strong&gt;</bpt>"ProjectName".cs<ept id="6be2e8ae-5b2d-4f67-a284-4a5e6918bb94">&lt;/strong&gt;</ept> file where <bpt id="6c56976a-a439-4c67-b970-86c993de59ce">&lt;em&gt;</bpt>ProjectName<ept id="6c56976a-a439-4c67-b970-86c993de59ce">&lt;/em&gt;</ept> is the name you chose for your Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="3bcc30a7-cb6e-48f3-bf0d-e6d4c6359924" xml:space="preserve">
+          <source>Find the code <bpt id="d779edac-e2ab-48db-af84-8eb89fb80445">&lt;code&gt;</bpt>ActorEventSource.Current.ActorMessage(this, "Doing Work");<ept id="d779edac-e2ab-48db-af84-8eb89fb80445">&lt;/code&gt;</ept> in the <bpt id="91bb4f67-b914-408b-8a51-3133e55b5662">&lt;em&gt;</bpt>DoWorkAsync<ept id="91bb4f67-b914-408b-8a51-3133e55b5662">&lt;/em&gt;</ept> method.</source>
+          <target state="new">Find the code <bpt id="d779edac-e2ab-48db-af84-8eb89fb80445">&lt;code&gt;</bpt>ActorEventSource.Current.ActorMessage(this, "Doing Work");<ept id="d779edac-e2ab-48db-af84-8eb89fb80445">&lt;/code&gt;</ept> in the <bpt id="91bb4f67-b914-408b-8a51-3133e55b5662">&lt;em&gt;</bpt>DoWorkAsync<ept id="91bb4f67-b914-408b-8a51-3133e55b5662">&lt;/em&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="639d1694-7281-4d18-bd7a-4619d889f032" xml:space="preserve">
+          <source>This is an example of a custom ETW trace from application code.</source>
+          <target state="new">This is an example of a custom ETW trace from application code.</target>
+        </trans-unit>
+        <trans-unit id="33794954-4f08-4ead-9a32-ce121165a9d2" xml:space="preserve">
+          <source>In file <bpt id="c475df9f-0e4d-439f-b40f-bc2b8b1f36dd">&lt;strong&gt;</bpt>ActorEventSource.cs<ept id="c475df9f-0e4d-439f-b40f-bc2b8b1f36dd">&lt;/strong&gt;</ept>, the overloads for the <bpt id="04752780-6e10-48b5-ab93-cd1d2048b759">&lt;code&gt;</bpt>ActorEventSource.ActorMessage<ept id="04752780-6e10-48b5-ab93-cd1d2048b759">&lt;/code&gt;</ept> method show an option of how to write custom ETW traces.</source>
+          <target state="new">In file <bpt id="c475df9f-0e4d-439f-b40f-bc2b8b1f36dd">&lt;strong&gt;</bpt>ActorEventSource.cs<ept id="c475df9f-0e4d-439f-b40f-bc2b8b1f36dd">&lt;/strong&gt;</ept>, the overloads for the <bpt id="04752780-6e10-48b5-ab93-cd1d2048b759">&lt;code&gt;</bpt>ActorEventSource.ActorMessage<ept id="04752780-6e10-48b5-ab93-cd1d2048b759">&lt;/code&gt;</ept> method show an option of how to write custom ETW traces.</target>
+        </trans-unit>
+        <trans-unit id="a2cb0bed-f09c-4e06-9f84-f494ed3e3615" xml:space="preserve">
+          <source>After adding custom ETW tracing to your service code, you can build, deploy, and run the application again to see your event(s) in the Diagnostic Viewer.</source>
+          <target state="new">After adding custom ETW tracing to your service code, you can build, deploy, and run the application again to see your event(s) in the Diagnostic Viewer.</target>
+        </trans-unit>
+        <trans-unit id="b31761db-c793-41a6-983d-aaa0cd7d3533" xml:space="preserve">
+          <source>If you debug the application with F5, the Diagnostic Viewer will  open automatically.</source>
+          <target state="new">If you debug the application with F5, the Diagnostic Viewer will  open automatically.</target>
+        </trans-unit>
+        <trans-unit id="a17a9ee7-962a-42d7-a850-c8f5ee204876" xml:space="preserve">
+          <source>The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running the same code on an Azure cluster.</source>
+          <target state="new">The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running the same code on an Azure cluster.</target>
+        </trans-unit>
+        <trans-unit id="e799d1b6-b54e-4ea5-9e06-b7bbe72854b5" xml:space="preserve">
+          <source>Details for this are coming soon.</source>
+          <target state="new">Details for this are coming soon.</target>
+        </trans-unit>
+        <trans-unit id="03d4ffbb-f35f-477e-b1cf-279e074cbdf6" xml:space="preserve">
+          <source><bpt id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;linkText&gt;</bpt>Service Fabric Health Introduction<ept id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;/linkText&gt;</ept><bpt id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;title&gt;</bpt><ept id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;linkText&gt;</bpt>Service Fabric Health Introduction<ept id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;/linkText&gt;</ept><bpt id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;title&gt;</bpt><ept id="3673fea9-1f08-4318-aa4c-8197692acf55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="304cda3b-d4e0-4078-9541-3160dd62567b" xml:space="preserve">
+          <source><bpt id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;linkText&gt;</bpt>Application Insights setup<ept id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;/linkText&gt;</ept><bpt id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;title&gt;</bpt><ept id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;linkText&gt;</bpt>Application Insights setup<ept id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;/linkText&gt;</ept><bpt id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;title&gt;</bpt><ept id="e167884b-18e5-4dfc-abe8-b133e8071ee5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edddaf2a-240b-4b05-b00b-4feaa4a375b8" xml:space="preserve">
+          <source><bpt id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;linkText&gt;</bpt>Azure Service Fabric Actors Diagnostics and Performance Monitoring<ept id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;/linkText&gt;</ept><bpt id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;title&gt;</bpt><ept id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;linkText&gt;</bpt>Azure Service Fabric Actors Diagnostics and Performance Monitoring<ept id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;/linkText&gt;</ept><bpt id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;title&gt;</bpt><ept id="3de76c51-d406-4e6f-82a9-b11501676e4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3982db42-b524-4723-b0ed-fb3a2ce3b8fc" xml:space="preserve">
+          <source><bpt id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;linkText&gt;</bpt>Stateful Reliable Service Diagnostics<ept id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;/linkText&gt;</ept><bpt id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;title&gt;</bpt><ept id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;linkText&gt;</bpt>Stateful Reliable Service Diagnostics<ept id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;/linkText&gt;</ept><bpt id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;title&gt;</bpt><ept id="e048f27b-ab21-432f-b0f7-8b5c433b3249">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

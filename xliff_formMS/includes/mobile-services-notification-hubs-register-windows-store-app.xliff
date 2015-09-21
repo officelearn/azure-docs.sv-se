@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3ad89355-eb7a-4815-8931-b52b54f225bd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3ad89355-eb7a-4815-8931-b52b54f225bd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f9550ce7-9b58-4e95-80e7-88e8df9b5d77">
+        <trans-unit id="718ed78e-09c7-49f9-809a-1001552199da" xml:space="preserve">
+          <source>If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click <bpt id="50e767ed-9a09-43d3-9295-7439b683fb7f">&lt;strong&gt;</bpt>App name<ept id="50e767ed-9a09-43d3-9295-7439b683fb7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have not already registered your app, navigate to the [Submit an app page] at the Dev Center for Windows Store apps, log on with your Microsoft account, and then click <bpt id="50e767ed-9a09-43d3-9295-7439b683fb7f">&lt;strong&gt;</bpt>App name<ept id="50e767ed-9a09-43d3-9295-7439b683fb7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="206e6a5f-f78f-4f28-8a72-3ac42bb112b8" xml:space="preserve">
+          <source><bpt id="6801ec95-d46c-4d11-a92d-d832cf6a1f55">&lt;linkText&gt;</bpt><ept id="6801ec95-d46c-4d11-a92d-d832cf6a1f55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6801ec95-d46c-4d11-a92d-d832cf6a1f55">&lt;linkText&gt;</bpt><ept id="6801ec95-d46c-4d11-a92d-d832cf6a1f55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f73bcd0-bee8-41e1-a29d-fb981783ec94" xml:space="preserve">
+          <source>Type a name for your app in <bpt id="ad31df21-7a25-46bc-8d79-43b151f9f9f8">&lt;strong&gt;</bpt>App name<ept id="ad31df21-7a25-46bc-8d79-43b151f9f9f8">&lt;/strong&gt;</ept>, click <bpt id="a26af757-ae39-4ef7-9a9e-5cbeee08cb0e">&lt;strong&gt;</bpt>Reserve app name<ept id="a26af757-ae39-4ef7-9a9e-5cbeee08cb0e">&lt;/strong&gt;</ept>, and then click <bpt id="fc6830a7-f159-4737-b61e-bf6f39f4814e">&lt;strong&gt;</bpt>Save<ept id="fc6830a7-f159-4737-b61e-bf6f39f4814e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for your app in <bpt id="ad31df21-7a25-46bc-8d79-43b151f9f9f8">&lt;strong&gt;</bpt>App name<ept id="ad31df21-7a25-46bc-8d79-43b151f9f9f8">&lt;/strong&gt;</ept>, click <bpt id="a26af757-ae39-4ef7-9a9e-5cbeee08cb0e">&lt;strong&gt;</bpt>Reserve app name<ept id="a26af757-ae39-4ef7-9a9e-5cbeee08cb0e">&lt;/strong&gt;</ept>, and then click <bpt id="fc6830a7-f159-4737-b61e-bf6f39f4814e">&lt;strong&gt;</bpt>Save<ept id="fc6830a7-f159-4737-b61e-bf6f39f4814e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16c7ab5f-6eda-419d-9916-f4b90d278796" xml:space="preserve">
+          <source><bpt id="7504a948-0030-49ca-b3b8-a2c43fc04469">&lt;linkText&gt;</bpt><ept id="7504a948-0030-49ca-b3b8-a2c43fc04469">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7504a948-0030-49ca-b3b8-a2c43fc04469">&lt;linkText&gt;</bpt><ept id="7504a948-0030-49ca-b3b8-a2c43fc04469">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9480d7d-1588-4534-b038-9fc96a430563" xml:space="preserve">
+          <source>This creates a new Windows Store registration for your app.</source>
+          <target state="new">This creates a new Windows Store registration for your app.</target>
+        </trans-unit>
+        <trans-unit id="beded936-e1c9-4b58-a164-9ca3561f4c5c" xml:space="preserve">
+          <source>In Visual Studio, open the project that you created when you completed the tutorial <bpt id="ff8a966c-9697-4f56-b314-f0f64eda8f21">&lt;strong&gt;</bpt>Get started with Mobile Services<ept id="ff8a966c-9697-4f56-b314-f0f64eda8f21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open the project that you created when you completed the tutorial <bpt id="ff8a966c-9697-4f56-b314-f0f64eda8f21">&lt;strong&gt;</bpt>Get started with Mobile Services<ept id="ff8a966c-9697-4f56-b314-f0f64eda8f21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddeaab54-7a3d-4491-8053-e531824d1bb6" xml:space="preserve">
+          <source>In solution explorer, right-click the project, click <bpt id="4a0a42fe-1217-4e60-8578-2601e7e51da0">&lt;strong&gt;</bpt>Store<ept id="4a0a42fe-1217-4e60-8578-2601e7e51da0">&lt;/strong&gt;</ept>, and then click <bpt id="cb5e387d-2333-4fe5-a439-0bc350b76718">&lt;strong&gt;</bpt>Associate App with the Store...<ept id="cb5e387d-2333-4fe5-a439-0bc350b76718">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In solution explorer, right-click the project, click <bpt id="4a0a42fe-1217-4e60-8578-2601e7e51da0">&lt;strong&gt;</bpt>Store<ept id="4a0a42fe-1217-4e60-8578-2601e7e51da0">&lt;/strong&gt;</ept>, and then click <bpt id="cb5e387d-2333-4fe5-a439-0bc350b76718">&lt;strong&gt;</bpt>Associate App with the Store...<ept id="cb5e387d-2333-4fe5-a439-0bc350b76718">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="186dab4f-aa56-48b8-845e-a390fc159595" xml:space="preserve">
+          <source><bpt id="476a4836-b2ac-4206-bfc9-d7da2151be48">&lt;linkText&gt;</bpt><ept id="476a4836-b2ac-4206-bfc9-d7da2151be48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="476a4836-b2ac-4206-bfc9-d7da2151be48">&lt;linkText&gt;</bpt><ept id="476a4836-b2ac-4206-bfc9-d7da2151be48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a85d0c7c-b5ef-4c3c-88ad-1f1966837cdf" xml:space="preserve">
+          <source>This displays the <bpt id="63f795de-e408-41f1-b7c1-a87a7999a73a">&lt;strong&gt;</bpt>Associate Your App with the Windows Store<ept id="63f795de-e408-41f1-b7c1-a87a7999a73a">&lt;/strong&gt;</ept> Wizard.</source>
+          <target state="new">This displays the <bpt id="63f795de-e408-41f1-b7c1-a87a7999a73a">&lt;strong&gt;</bpt>Associate Your App with the Windows Store<ept id="63f795de-e408-41f1-b7c1-a87a7999a73a">&lt;/strong&gt;</ept> Wizard.</target>
+        </trans-unit>
+        <trans-unit id="e1efcea9-f427-46e5-b414-a4a50203aa13" xml:space="preserve">
+          <source>In the wizard, click <bpt id="8b2a3db7-e299-43d2-90e0-1b08d9d1c41d">&lt;strong&gt;</bpt>Sign in<ept id="8b2a3db7-e299-43d2-90e0-1b08d9d1c41d">&lt;/strong&gt;</ept> and then login with your Microsoft account.</source>
+          <target state="new">In the wizard, click <bpt id="8b2a3db7-e299-43d2-90e0-1b08d9d1c41d">&lt;strong&gt;</bpt>Sign in<ept id="8b2a3db7-e299-43d2-90e0-1b08d9d1c41d">&lt;/strong&gt;</ept> and then login with your Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="5496b992-a0ad-4616-85de-bf496697389f" xml:space="preserve">
+          <source>Select the app that you registered in step 2, click <bpt id="e24069db-342d-44de-9b13-9ab91b1ac1cb">&lt;strong&gt;</bpt>Next<ept id="e24069db-342d-44de-9b13-9ab91b1ac1cb">&lt;/strong&gt;</ept>, and then click <bpt id="0df53faf-dbf5-472a-a497-4ef0526a4c10">&lt;strong&gt;</bpt>Associate<ept id="0df53faf-dbf5-472a-a497-4ef0526a4c10">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the app that you registered in step 2, click <bpt id="e24069db-342d-44de-9b13-9ab91b1ac1cb">&lt;strong&gt;</bpt>Next<ept id="e24069db-342d-44de-9b13-9ab91b1ac1cb">&lt;/strong&gt;</ept>, and then click <bpt id="0df53faf-dbf5-472a-a497-4ef0526a4c10">&lt;strong&gt;</bpt>Associate<ept id="0df53faf-dbf5-472a-a497-4ef0526a4c10">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9eb723c5-050c-4b31-811d-b4f48ecfb112" xml:space="preserve">
+          <source><bpt id="7115440b-1bee-43de-bcef-4fa4b8b12ee5">&lt;linkText&gt;</bpt><ept id="7115440b-1bee-43de-bcef-4fa4b8b12ee5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7115440b-1bee-43de-bcef-4fa4b8b12ee5">&lt;linkText&gt;</bpt><ept id="7115440b-1bee-43de-bcef-4fa4b8b12ee5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4f62a0a-806b-43d0-b45b-448f6e0f3e65" xml:space="preserve">
+          <source>This adds the required Windows Store registration information to the application manifest.</source>
+          <target state="new">This adds the required Windows Store registration information to the application manifest.</target>
+        </trans-unit>
+        <trans-unit id="6c44cc7d-cb12-4c04-a359-5e8c0074fd5a" xml:space="preserve">
+          <source>(Optional) Repeat steps 4-6 to also register the Windows Phone Store project of a universal Windows app.</source>
+          <target state="new">(Optional) Repeat steps 4-6 to also register the Windows Phone Store project of a universal Windows app.</target>
+        </trans-unit>
+        <trans-unit id="5fd52734-4a95-409c-8372-9d6ab8c1ba0f" xml:space="preserve">
+          <source>Back in the Windows Dev Center page for your new app, click <bpt id="9d3693d2-b827-426c-8296-bfcbfca32f35">&lt;strong&gt;</bpt>Services<ept id="9d3693d2-b827-426c-8296-bfcbfca32f35">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Back in the Windows Dev Center page for your new app, click <bpt id="9d3693d2-b827-426c-8296-bfcbfca32f35">&lt;strong&gt;</bpt>Services<ept id="9d3693d2-b827-426c-8296-bfcbfca32f35">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdc2b42d-f0c1-46cf-b1c1-36f5e4326f3e" xml:space="preserve">
+          <source><bpt id="762521c8-c474-49df-92b9-b7f78a88c1aa">&lt;linkText&gt;</bpt><ept id="762521c8-c474-49df-92b9-b7f78a88c1aa">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="762521c8-c474-49df-92b9-b7f78a88c1aa">&lt;linkText&gt;</bpt><ept id="762521c8-c474-49df-92b9-b7f78a88c1aa">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8cd6374e-d9ab-486f-a4a4-29041c0504e2" xml:space="preserve">
+          <source>In the Services page, click <bpt id="7c3edd30-85de-4ec7-baf7-855be863b14b">&lt;strong&gt;</bpt>Live Services site<ept id="7c3edd30-85de-4ec7-baf7-855be863b14b">&lt;/strong&gt;</ept> under <bpt id="6e464af3-922d-4d2f-b9b8-6c2a75e4cb63">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="6e464af3-922d-4d2f-b9b8-6c2a75e4cb63">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Services page, click <bpt id="7c3edd30-85de-4ec7-baf7-855be863b14b">&lt;strong&gt;</bpt>Live Services site<ept id="7c3edd30-85de-4ec7-baf7-855be863b14b">&lt;/strong&gt;</ept> under <bpt id="6e464af3-922d-4d2f-b9b8-6c2a75e4cb63">&lt;strong&gt;</bpt>Azure Mobile Services<ept id="6e464af3-922d-4d2f-b9b8-6c2a75e4cb63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0a70da5-f4d8-4b62-a4bd-c8a509d3b45d" xml:space="preserve">
+          <source><bpt id="eab7a15a-2a06-4165-aa3d-42a380fce6c3">&lt;linkText&gt;</bpt><ept id="eab7a15a-2a06-4165-aa3d-42a380fce6c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eab7a15a-2a06-4165-aa3d-42a380fce6c3">&lt;linkText&gt;</bpt><ept id="eab7a15a-2a06-4165-aa3d-42a380fce6c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9e2b977-7243-4d21-a58b-82802b2491bf" xml:space="preserve">
+          <source>Click <bpt id="447fc363-7202-476b-9120-1ee9b813ee99">&lt;strong&gt;</bpt>Authenticating your service<ept id="447fc363-7202-476b-9120-1ee9b813ee99">&lt;/strong&gt;</ept> and make a note of the values of <bpt id="e4454483-dc9e-4fd1-8087-f7dde2f68c8a">&lt;strong&gt;</bpt>Client secret<ept id="e4454483-dc9e-4fd1-8087-f7dde2f68c8a">&lt;/strong&gt;</ept> and <bpt id="d39b29b2-0d26-4684-a1c8-24a78c395f8d">&lt;strong&gt;</bpt>Package security identifier (SID)<ept id="d39b29b2-0d26-4684-a1c8-24a78c395f8d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="447fc363-7202-476b-9120-1ee9b813ee99">&lt;strong&gt;</bpt>Authenticating your service<ept id="447fc363-7202-476b-9120-1ee9b813ee99">&lt;/strong&gt;</ept> and make a note of the values of <bpt id="e4454483-dc9e-4fd1-8087-f7dde2f68c8a">&lt;strong&gt;</bpt>Client secret<ept id="e4454483-dc9e-4fd1-8087-f7dde2f68c8a">&lt;/strong&gt;</ept> and <bpt id="d39b29b2-0d26-4684-a1c8-24a78c395f8d">&lt;strong&gt;</bpt>Package security identifier (SID)<ept id="d39b29b2-0d26-4684-a1c8-24a78c395f8d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75a5761b-0889-40f9-8566-908b26a52de7" xml:space="preserve">
+          <source><bpt id="c0b7b2ae-117f-45f2-8a1b-880664df0756">&lt;linkText&gt;</bpt><ept id="c0b7b2ae-117f-45f2-8a1b-880664df0756">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c0b7b2ae-117f-45f2-8a1b-880664df0756">&lt;linkText&gt;</bpt><ept id="c0b7b2ae-117f-45f2-8a1b-880664df0756">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b0bb4bd-3a53-4242-b524-6270d0e48445" xml:space="preserve">
+          <source>The client secret and package SID are important security credentials.</source>
+          <target state="new">The client secret and package SID are important security credentials.</target>
+        </trans-unit>
+        <trans-unit id="5b333bf0-6b23-4924-9183-f3f368b587ce" xml:space="preserve">
+          <source>Do not share these secrets with anyone or distribute them with your app.</source>
+          <target state="new">Do not share these secrets with anyone or distribute them with your app.</target>
+        </trans-unit>
+        <trans-unit id="0532b512-486a-48be-8849-56b98682baf7" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], click <bpt id="46c36954-e170-474e-8b80-d839cb1e9d91">&lt;strong&gt;</bpt>Mobile Services<ept id="46c36954-e170-474e-8b80-d839cb1e9d91">&lt;/strong&gt;</ept>, and then click your app.</source>
+          <target state="new">Log on to the [Azure Management Portal], click <bpt id="46c36954-e170-474e-8b80-d839cb1e9d91">&lt;strong&gt;</bpt>Mobile Services<ept id="46c36954-e170-474e-8b80-d839cb1e9d91">&lt;/strong&gt;</ept>, and then click your app.</target>
+        </trans-unit>
+        <trans-unit id="6d73c3a6-c57e-4d33-a786-22bfc1aef462" xml:space="preserve">
+          <source><bpt id="49bc9ea4-4e75-4948-927d-513384e1e619">&lt;linkText&gt;</bpt><ept id="49bc9ea4-4e75-4948-927d-513384e1e619">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49bc9ea4-4e75-4948-927d-513384e1e619">&lt;linkText&gt;</bpt><ept id="49bc9ea4-4e75-4948-927d-513384e1e619">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f2ebedf-2d9a-45f1-b74f-67f846202a71" xml:space="preserve">
+          <source>Click the <bpt id="65272239-c5a1-473c-ae4a-502b708a0319">&lt;strong&gt;</bpt>Push<ept id="65272239-c5a1-473c-ae4a-502b708a0319">&lt;/strong&gt;</ept> tab and enter the <bpt id="bd7603b9-faff-4118-be8b-3ec7b4f766aa">&lt;strong&gt;</bpt>Client secret<ept id="bd7603b9-faff-4118-be8b-3ec7b4f766aa">&lt;/strong&gt;</ept> and <bpt id="50c09beb-588c-40b7-aa0d-71712e6a52de">&lt;strong&gt;</bpt>Package SID<ept id="50c09beb-588c-40b7-aa0d-71712e6a52de">&lt;/strong&gt;</ept> values obtained from WNS, then click <bpt id="a3af3563-e29a-42e4-bfac-eb4436fda7b8">&lt;strong&gt;</bpt>Save<ept id="a3af3563-e29a-42e4-bfac-eb4436fda7b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="65272239-c5a1-473c-ae4a-502b708a0319">&lt;strong&gt;</bpt>Push<ept id="65272239-c5a1-473c-ae4a-502b708a0319">&lt;/strong&gt;</ept> tab and enter the <bpt id="bd7603b9-faff-4118-be8b-3ec7b4f766aa">&lt;strong&gt;</bpt>Client secret<ept id="bd7603b9-faff-4118-be8b-3ec7b4f766aa">&lt;/strong&gt;</ept> and <bpt id="50c09beb-588c-40b7-aa0d-71712e6a52de">&lt;strong&gt;</bpt>Package SID<ept id="50c09beb-588c-40b7-aa0d-71712e6a52de">&lt;/strong&gt;</ept> values obtained from WNS, then click <bpt id="a3af3563-e29a-42e4-bfac-eb4436fda7b8">&lt;strong&gt;</bpt>Save<ept id="a3af3563-e29a-42e4-bfac-eb4436fda7b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="459d4989-cadb-41bf-908e-3c9f8942011d" xml:space="preserve">
+          <source>When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the <bpt id="36ded93b-7862-47e6-a8e4-62abf5c84e53">&lt;strong&gt;</bpt>Push<ept id="36ded93b-7862-47e6-a8e4-62abf5c84e53">&lt;/strong&gt;</ept> tab that says <bpt id="300cfd6f-7729-4406-bca9-0d7a01d235ae">&lt;strong&gt;</bpt>Enable Enhanced Push<ept id="300cfd6f-7729-4406-bca9-0d7a01d235ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are completing this tutorial using an older mobile service, you might see a link at the bottom of the <bpt id="36ded93b-7862-47e6-a8e4-62abf5c84e53">&lt;strong&gt;</bpt>Push<ept id="36ded93b-7862-47e6-a8e4-62abf5c84e53">&lt;/strong&gt;</ept> tab that says <bpt id="300cfd6f-7729-4406-bca9-0d7a01d235ae">&lt;strong&gt;</bpt>Enable Enhanced Push<ept id="300cfd6f-7729-4406-bca9-0d7a01d235ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="157fca42-e0e6-403c-8af8-3f1494ddf6a9" xml:space="preserve">
+          <source>Click this now to upgrade your mobile service to integrate with Notification Hubs.</source>
+          <target state="new">Click this now to upgrade your mobile service to integrate with Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="9f89ba97-9ac8-4a21-b149-09da66b85523" xml:space="preserve">
+          <source>This change cannot be reverted.</source>
+          <target state="new">This change cannot be reverted.</target>
+        </trans-unit>
+        <trans-unit id="bf44f35b-2fc6-40e1-9168-f51ff858fb1f" xml:space="preserve">
+          <source>For details on how to enable enhanced push notifications in a production mobile service, see &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=391951"&gt;this guidance&lt;/a&gt;.</source>
+          <target state="new">For details on how to enable enhanced push notifications in a production mobile service, see &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=391951"&gt;this guidance&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="e8d97ca4-70ee-4ca9-b396-dc79300c0914" xml:space="preserve">
+          <source><bpt id="b9eb44d7-bc8b-4e3d-bf17-a58ab33dc06c">&lt;linkText&gt;</bpt><ept id="b9eb44d7-bc8b-4e3d-bf17-a58ab33dc06c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b9eb44d7-bc8b-4e3d-bf17-a58ab33dc06c">&lt;linkText&gt;</bpt><ept id="b9eb44d7-bc8b-4e3d-bf17-a58ab33dc06c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52d1d0f4-8669-4e11-b94e-8d1fd2a8b5d6" xml:space="preserve">
+          <source>When you set your WNS credentials for enhanced push notifications in the <bpt id="0640888d-d692-45aa-82a6-d23e8c2a8f46">&lt;strong&gt;</bpt>Push<ept id="0640888d-d692-45aa-82a6-d23e8c2a8f46">&lt;/strong&gt;</ept> tab in the portal, they are shared with Notification Hubs to configure the notification hub for your app.</source>
+          <target state="new">When you set your WNS credentials for enhanced push notifications in the <bpt id="0640888d-d692-45aa-82a6-d23e8c2a8f46">&lt;strong&gt;</bpt>Push<ept id="0640888d-d692-45aa-82a6-d23e8c2a8f46">&lt;/strong&gt;</ept> tab in the portal, they are shared with Notification Hubs to configure the notification hub for your app.</target>
+        </trans-unit>
+        <trans-unit id="40479b7d-9e82-4221-be71-13e72cbf2324" xml:space="preserve">
+          <source>../articles/mobile-services-windows-store-get-started.md</source>
+          <target state="new">../articles/mobile-services-windows-store-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="4955e504-d02e-4433-bb0c-28a065affadb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="59e6214f-9413-4b97-8e51-ce34a63780d7" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="f16d34c2-df5d-4d4c-b88e-3dea7393a074" />
+    </body>
+  </file>
+</xliff>

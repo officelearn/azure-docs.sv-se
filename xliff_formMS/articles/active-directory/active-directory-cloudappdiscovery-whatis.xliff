@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ba847b5c-879b-42be-a7b5-2b16ee20847b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ba847b5c-879b-42be-a7b5-2b16ee20847b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e02ca93-b36f-4b63-b7dc-333a82f11966">
+        <trans-unit id="332b5c29-c1a0-4f8d-afc2-1360d9cfd515" xml:space="preserve">
+          <source>How can I discover unsanctioned cloud apps that are used within my organization</source>
+          <target state="new">How can I discover unsanctioned cloud apps that are used within my organization</target>
+        </trans-unit>
+        <trans-unit id="d088c5dd-0d9c-4f31-979a-6c168b1d4f82" xml:space="preserve">
+          <source>This topic describes what is the Cloud App Discvery is and why you would use it.</source>
+          <target state="new">This topic describes what is the Cloud App Discvery is and why you would use it.</target>
+        </trans-unit>
+        <trans-unit id="92f980fc-18e5-43ab-9080-dd9c44815bf7" xml:space="preserve">
+          <source>In modern enterprises, IT departments are often not aware of all the cloud applications that are used by the users to do their work.</source>
+          <target state="new">In modern enterprises, IT departments are often not aware of all the cloud applications that are used by the users to do their work.</target>
+        </trans-unit>
+        <trans-unit id="a1bad3b4-3af3-43ae-b1b0-c8c5c5fe9a19" xml:space="preserve">
+          <source>As a consequence of this, administrators often have concerns in conjunction with unauthorized access to corporate data, possible data leakage and other security risks inherent in the applications.</source>
+          <target state="new">As a consequence of this, administrators often have concerns in conjunction with unauthorized access to corporate data, possible data leakage and other security risks inherent in the applications.</target>
+        </trans-unit>
+        <trans-unit id="717ced59-50a5-4b10-9843-d213d16c582f" xml:space="preserve">
+          <source>Because they don’t know how many or which apps are used, even getting started building a plan to deal with these risks seems to be daunting.</source>
+          <target state="new">Because they don’t know how many or which apps are used, even getting started building a plan to deal with these risks seems to be daunting.</target>
+        </trans-unit>
+        <trans-unit id="4f484270-c9e3-4d0f-9877-26a6ffec5724" xml:space="preserve">
+          <source>You can address these concerns by using Cloud App Discovery.</source>
+          <target state="new">You can address these concerns by using Cloud App Discovery.</target>
+        </trans-unit>
+        <trans-unit id="c068d1b2-ccee-4ac8-9f26-1d337f994c23" xml:space="preserve">
+          <source>Cloud App Discovery is a Premium feature of Azure Active Directory that enables you to discover cloud applications that are uses by the employees in your organization.</source>
+          <target state="new">Cloud App Discovery is a Premium feature of Azure Active Directory that enables you to discover cloud applications that are uses by the employees in your organization.</target>
+        </trans-unit>
+        <trans-unit id="26fd6c47-2146-4cbf-96be-8be4dc5172a5" xml:space="preserve">
+          <source><bpt id="9c973f19-3ad4-4cde-b8c0-5f5042b869f5">&lt;strong&gt;</bpt>With Cloud App Discovery, you can:<ept id="9c973f19-3ad4-4cde-b8c0-5f5042b869f5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9c973f19-3ad4-4cde-b8c0-5f5042b869f5">&lt;strong&gt;</bpt>With Cloud App Discovery, you can:<ept id="9c973f19-3ad4-4cde-b8c0-5f5042b869f5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7da03ff-8d6a-417e-ae33-28fe9f29cc7d" xml:space="preserve">
+          <source>Discover applications in use and measure usage by number of users, volume of traffic or number of web requests to the application.</source>
+          <target state="new">Discover applications in use and measure usage by number of users, volume of traffic or number of web requests to the application.</target>
+        </trans-unit>
+        <trans-unit id="76d58618-4797-45b8-9cff-d02a1ae84a17" xml:space="preserve">
+          <source>Identify the users that are using an application.</source>
+          <target state="new">Identify the users that are using an application.</target>
+        </trans-unit>
+        <trans-unit id="4401c693-6514-481e-8275-88187515f3dd" xml:space="preserve">
+          <source>Export data for addition offline analysis.</source>
+          <target state="new">Export data for addition offline analysis.</target>
+        </trans-unit>
+        <trans-unit id="c6a0faa2-ca49-45e4-82bd-0322f46b778f" xml:space="preserve">
+          <source>Prioritize applications to bring under IT control and integrate applications easily to enable Single Sign-on and user management.</source>
+          <target state="new">Prioritize applications to bring under IT control and integrate applications easily to enable Single Sign-on and user management.</target>
+        </trans-unit>
+        <trans-unit id="a55b62d2-81ac-4ba2-88b7-8c54ca3b767b" xml:space="preserve">
+          <source>With cloud app discovery, the data retrieval part is accomplished by agents that run on computers in your environments.</source>
+          <target state="new">With cloud app discovery, the data retrieval part is accomplished by agents that run on computers in your environments.</target>
+        </trans-unit>
+        <trans-unit id="4b6cd44a-1b54-4af9-b1fe-24254bd8fc63" xml:space="preserve">
+          <source>The app usage information that is captured by the agents is send over a secure, encrypted channel to the cloud app discovery service.</source>
+          <target state="new">The app usage information that is captured by the agents is send over a secure, encrypted channel to the cloud app discovery service.</target>
+        </trans-unit>
+        <trans-unit id="fe224fde-c84e-4318-b033-6ce735858aaa" xml:space="preserve">
+          <source>The cloud app discovery service evaluates the data and generates reports you can use to analyze your environment.</source>
+          <target state="new">The cloud app discovery service evaluates the data and generates reports you can use to analyze your environment.</target>
+        </trans-unit>
+        <trans-unit id="1e448394-268c-436b-9493-f3a6f6c28ca8" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="f108d484-cc47-4769-b8b0-21322865f1d7">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="f108d484-cc47-4769-b8b0-21322865f1d7">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="f108d484-cc47-4769-b8b0-21322865f1d7">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="f108d484-cc47-4769-b8b0-21322865f1d7">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="89bff9b2-33fa-4119-83f8-63c44604867a" xml:space="preserve">
+          <source>To learn more about How Cloud app discovery works, see <bpt id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;/linkText&gt;</ept><bpt id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;title&gt;</bpt><ept id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;/title&gt;</ept> </source>
+          <target state="new">To learn more about How Cloud app discovery works, see <bpt id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;/linkText&gt;</ept><bpt id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;title&gt;</bpt><ept id="6115cb93-f08e-47b7-9e18-a0a3fa764638">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b7bd9090-e21c-4048-befb-5b9aedd3529e" xml:space="preserve">
+          <source>For security and privacy considerations, see <bpt id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;linkText&gt;</bpt>Cloud App Discovery Security and Privacy Considerations<ept id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;/linkText&gt;</ept><bpt id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;title&gt;</bpt><ept id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;/title&gt;</ept> </source>
+          <target state="new">For security and privacy considerations, see <bpt id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;linkText&gt;</bpt>Cloud App Discovery Security and Privacy Considerations<ept id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;/linkText&gt;</ept><bpt id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;title&gt;</bpt><ept id="34e82b37-cdc6-4753-8ff8-632f554055a3">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="26ec2aac-d0ff-43f0-8b35-f0b1373669bf" xml:space="preserve">
+          <source>For information about deploying the Cloud App Discovery agent in an enterprise environment with: </source>
+          <target state="new">For information about deploying the Cloud App Discovery agent in an enterprise environment with: </target>
+        </trans-unit>
+        <trans-unit id="0e0d51ec-26c5-44ca-a627-94408730e6af" xml:space="preserve">
+          <source>Active Directory Group Policy Management, see  <bpt id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;linkText&gt;</bpt>Cloud App Discovery Group Policy Deployment Guide<ept id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;/linkText&gt;</ept><bpt id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;title&gt;</bpt><ept id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;/title&gt;</ept> </source>
+          <target state="new">Active Directory Group Policy Management, see  <bpt id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;linkText&gt;</bpt>Cloud App Discovery Group Policy Deployment Guide<ept id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;/linkText&gt;</ept><bpt id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;title&gt;</bpt><ept id="9be70794-09ac-4f8e-9adf-53f184ac3f19">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="eb7302d9-ed7c-46d8-8119-3b84bd5b5376" xml:space="preserve">
+          <source>Microsoft System Center Configuration Manager, see <bpt id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;linkText&gt;</bpt>Cloud App Discovery System Center Deployment Guide<ept id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;/linkText&gt;</ept><bpt id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;title&gt;</bpt><ept id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;/title&gt;</ept> </source>
+          <target state="new">Microsoft System Center Configuration Manager, see <bpt id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;linkText&gt;</bpt>Cloud App Discovery System Center Deployment Guide<ept id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;/linkText&gt;</ept><bpt id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;title&gt;</bpt><ept id="174218a5-d53f-4874-b700-69bbf76a5ada">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e8395c4e-f50f-4fe6-aeb8-5c23cd6c19f9" xml:space="preserve">
+          <source>Proxy servers with custom ports, see <bpt id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;linkText&gt;</bpt>Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports<ept id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;/linkText&gt;</ept><bpt id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;title&gt;</bpt><ept id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;/title&gt;</ept> </source>
+          <target state="new">Proxy servers with custom ports, see <bpt id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;linkText&gt;</bpt>Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports<ept id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;/linkText&gt;</ept><bpt id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;title&gt;</bpt><ept id="f56e1156-61b8-4b20-8c61-4c82678d8dd6">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4cf3eae7-c382-411f-bdea-e709aa97b7f8" xml:space="preserve">
+          <source><bpt id="91bdb2b7-a687-47ba-a780-65d7ee98b295">&lt;strong&gt;</bpt>Additional Resources<ept id="91bdb2b7-a687-47ba-a780-65d7ee98b295">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="91bdb2b7-a687-47ba-a780-65d7ee98b295">&lt;strong&gt;</bpt>Additional Resources<ept id="91bdb2b7-a687-47ba-a780-65d7ee98b295">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7680f94d-ec20-417b-abea-7b7286fa2df4" xml:space="preserve">
+          <source><bpt id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;linkText&gt;</bpt>Cloud App Discovery - Agent Changelog <ept id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;/linkText&gt;</ept><bpt id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;title&gt;</bpt><ept id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;linkText&gt;</bpt>Cloud App Discovery - Agent Changelog <ept id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;/linkText&gt;</ept><bpt id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;title&gt;</bpt><ept id="3f8284ec-e064-424c-8e3d-1c325dae28ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d9bcd07-0dbd-4d32-bcb3-40698cc9b4b4" xml:space="preserve">
+          <source><bpt id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;linkText&gt;</bpt>Cloud App Discovery - Frequently Asked Questions<ept id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;/linkText&gt;</ept><bpt id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;title&gt;</bpt><ept id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;linkText&gt;</bpt>Cloud App Discovery - Frequently Asked Questions<ept id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;/linkText&gt;</ept><bpt id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;title&gt;</bpt><ept id="626c8ed5-25c2-4611-bfd5-d936797039cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

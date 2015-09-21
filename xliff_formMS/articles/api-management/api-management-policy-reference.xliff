@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="30d3419a-5a63-4e00-8721-f3c0c24645d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="30d3419a-5a63-4e00-8721-f3c0c24645d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3171d488-e74b-463e-82e4-1a11424df9dd">
+        <trans-unit id="82813181-b8d2-477d-bde4-a748d623e68e" xml:space="preserve">
+          <source>Azure API Management Policy Reference</source>
+          <target state="new">Azure API Management Policy Reference</target>
+        </trans-unit>
+        <trans-unit id="77766e18-11e1-4783-8ed8-405c9c6f759a" xml:space="preserve">
+          <source>Learn about the policies available to configure API Management.</source>
+          <target state="new">Learn about the policies available to configure API Management.</target>
+        </trans-unit>
+        <trans-unit id="b52e80e9-ac1b-417f-b673-2e2285b08227" xml:space="preserve">
+          <source>This section provides an index for the policies in the <bpt id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;linkText&gt;</bpt>API Management policy reference<ept id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;/linkText&gt;</ept><bpt id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;title&gt;</bpt><ept id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;/title&gt;</ept>.</source>
+          <target state="new">This section provides an index for the policies in the <bpt id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;linkText&gt;</bpt>API Management policy reference<ept id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;/linkText&gt;</ept><bpt id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;title&gt;</bpt><ept id="2ce00b13-9232-4714-bbd6-622beac15e27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8657240f-f8db-4b64-a70b-0e616429ea71" xml:space="preserve">
+          <source>For information on adding and configuring policies, see <bpt id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;linkText&gt;</bpt>Policies in API Management<ept id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;/linkText&gt;</ept><bpt id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;title&gt;</bpt><ept id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on adding and configuring policies, see <bpt id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;linkText&gt;</bpt>Policies in API Management<ept id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;/linkText&gt;</ept><bpt id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;title&gt;</bpt><ept id="b0a15753-bf5e-469c-a129-02d0d32fde4b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13fd267d-0df8-4518-aca0-7f3f3b5cc60b" xml:space="preserve">
+          <source>Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise.</source>
+          <target state="new">Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise.</target>
+        </trans-unit>
+        <trans-unit id="1c36a28d-5b48-4454-9d4f-f36fe1ece01f" xml:space="preserve">
+          <source>Some policies such as the <bpt id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;linkText&gt;</bpt>Control flow<ept id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;/linkText&gt;</ept><bpt id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;title&gt;</bpt><ept id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;/title&gt;</ept> and <bpt id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;linkText&gt;</bpt>Set variable<ept id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;/linkText&gt;</ept><bpt id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;title&gt;</bpt><ept id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;/title&gt;</ept> policies are based on policy expressions.</source>
+          <target state="new">Some policies such as the <bpt id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;linkText&gt;</bpt>Control flow<ept id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;/linkText&gt;</ept><bpt id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;title&gt;</bpt><ept id="9e187154-070a-4806-a2b3-8dfe69c83707">&lt;/title&gt;</ept> and <bpt id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;linkText&gt;</bpt>Set variable<ept id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;/linkText&gt;</ept><bpt id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;title&gt;</bpt><ept id="f1388f98-8faa-423c-bd79-d6a1b8d20658">&lt;/title&gt;</ept> policies are based on policy expressions.</target>
+        </trans-unit>
+        <trans-unit id="521daa6b-9ead-448e-8433-1cd44802cdbe" xml:space="preserve">
+          <source>For more information, see <bpt id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;linkText&gt;</bpt>Advanced policies<ept id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;/linkText&gt;</ept><bpt id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;title&gt;</bpt><ept id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;/title&gt;</ept> and <bpt id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;linkText&gt;</bpt>Policy expressions<ept id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;/linkText&gt;</ept><bpt id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;title&gt;</bpt><ept id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;linkText&gt;</bpt>Advanced policies<ept id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;/linkText&gt;</ept><bpt id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;title&gt;</bpt><ept id="3e3f2f19-023b-4d3f-8514-f931402cee6b">&lt;/title&gt;</ept> and <bpt id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;linkText&gt;</bpt>Policy expressions<ept id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;/linkText&gt;</ept><bpt id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;title&gt;</bpt><ept id="376255ee-2cd0-4021-a88e-3d11f490266e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc682583-6467-456a-901c-cdd0ba5b1af2" xml:space="preserve">
+          <source><bpt id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;linkText&gt;</bpt>Access restriction policies<ept id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;/linkText&gt;</ept><bpt id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;title&gt;</bpt><ept id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;linkText&gt;</bpt>Access restriction policies<ept id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;/linkText&gt;</ept><bpt id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;title&gt;</bpt><ept id="d2783d6b-8c17-4edf-af61-0d023febbf98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd6bbfdf-88af-41c2-a640-dbd05b2eb7ab" xml:space="preserve">
+          <source><bpt id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;linkText&gt;</bpt>Check HTTP header<ept id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;/linkText&gt;</ept><bpt id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;title&gt;</bpt><ept id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;/title&gt;</ept> - Enforces existence and/or value of a HTTP Header.</source>
+          <target state="new"><bpt id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;linkText&gt;</bpt>Check HTTP header<ept id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;/linkText&gt;</ept><bpt id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;title&gt;</bpt><ept id="44aacb62-8649-4e8e-a1cd-ee388442c1f3">&lt;/title&gt;</ept> - Enforces existence and/or value of a HTTP Header.</target>
+        </trans-unit>
+        <trans-unit id="c141009b-4d33-4977-b4a9-34ea01496918" xml:space="preserve">
+          <source><bpt id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;linkText&gt;</bpt>Limit call rate<ept id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;/linkText&gt;</ept><bpt id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;title&gt;</bpt><ept id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;/title&gt;</ept> - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.</source>
+          <target state="new"><bpt id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;linkText&gt;</bpt>Limit call rate<ept id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;/linkText&gt;</ept><bpt id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;title&gt;</bpt><ept id="b924e50e-ddba-4c2a-af86-fa9c708a44bf">&lt;/title&gt;</ept> - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.</target>
+        </trans-unit>
+        <trans-unit id="5a014523-d9ba-498b-bfd4-54d074ea688b" xml:space="preserve">
+          <source><bpt id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;linkText&gt;</bpt>Restrict caller IPs<ept id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;/linkText&gt;</ept><bpt id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;title&gt;</bpt><ept id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;/title&gt;</ept> - Filters (allows/denies) calls from specific IP addresses and/or address ranges.</source>
+          <target state="new"><bpt id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;linkText&gt;</bpt>Restrict caller IPs<ept id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;/linkText&gt;</ept><bpt id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;title&gt;</bpt><ept id="9ecae398-2687-40a4-a27a-6da0f995c792">&lt;/title&gt;</ept> - Filters (allows/denies) calls from specific IP addresses and/or address ranges.</target>
+        </trans-unit>
+        <trans-unit id="5bdb6190-9b51-48b5-8348-ac72239d0fd6" xml:space="preserve">
+          <source><bpt id="903afefb-7788-4c63-9b36-25cba019a548">&lt;linkText&gt;</bpt>Set usage quota<ept id="903afefb-7788-4c63-9b36-25cba019a548">&lt;/linkText&gt;</ept><bpt id="903afefb-7788-4c63-9b36-25cba019a548">&lt;title&gt;</bpt><ept id="903afefb-7788-4c63-9b36-25cba019a548">&lt;/title&gt;</ept> - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota.</source>
+          <target state="new"><bpt id="903afefb-7788-4c63-9b36-25cba019a548">&lt;linkText&gt;</bpt>Set usage quota<ept id="903afefb-7788-4c63-9b36-25cba019a548">&lt;/linkText&gt;</ept><bpt id="903afefb-7788-4c63-9b36-25cba019a548">&lt;title&gt;</bpt><ept id="903afefb-7788-4c63-9b36-25cba019a548">&lt;/title&gt;</ept> - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota.</target>
+        </trans-unit>
+        <trans-unit id="17c5ce3f-f5ce-4929-aa00-88970c068498" xml:space="preserve">
+          <source><bpt id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;linkText&gt;</bpt>Validate JWT<ept id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;/linkText&gt;</ept><bpt id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;title&gt;</bpt><ept id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;/title&gt;</ept> - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.</source>
+          <target state="new"><bpt id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;linkText&gt;</bpt>Validate JWT<ept id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;/linkText&gt;</ept><bpt id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;title&gt;</bpt><ept id="749c37cd-1e6e-493b-a71a-9d25374b1c6a">&lt;/title&gt;</ept> - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.</target>
+        </trans-unit>
+        <trans-unit id="72c3171d-b4dd-41c9-a354-349dc7bc44e5" xml:space="preserve">
+          <source><bpt id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;linkText&gt;</bpt>Advanced policies<ept id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;/linkText&gt;</ept><bpt id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;title&gt;</bpt><ept id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;linkText&gt;</bpt>Advanced policies<ept id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;/linkText&gt;</ept><bpt id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;title&gt;</bpt><ept id="dd8f45b7-03ba-437d-a18f-368b04e6ed30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89eab07a-c724-4a91-b435-7757a8a01e29" xml:space="preserve">
+          <source><bpt id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;linkText&gt;</bpt>Control flow<ept id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;/linkText&gt;</ept><bpt id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;title&gt;</bpt><ept id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;/title&gt;</ept> - Conditionally applies policy statements based on the results of the evaluation of Boolean <bpt id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;linkText&gt;</bpt>expressions<ept id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;/linkText&gt;</ept><bpt id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;title&gt;</bpt><ept id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;linkText&gt;</bpt>Control flow<ept id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;/linkText&gt;</ept><bpt id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;title&gt;</bpt><ept id="baea8f40-96d4-4756-b6ec-caba57adf709">&lt;/title&gt;</ept> - Conditionally applies policy statements based on the results of the evaluation of Boolean <bpt id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;linkText&gt;</bpt>expressions<ept id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;/linkText&gt;</ept><bpt id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;title&gt;</bpt><ept id="ab6d725e-618a-4a21-80f1-5a650ce56923">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="279134f3-306e-4eb0-b1e7-8bd500e12bb9" xml:space="preserve">
+          <source><bpt id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;linkText&gt;</bpt>Set variable<ept id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;/linkText&gt;</ept><bpt id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;title&gt;</bpt><ept id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;/title&gt;</ept> - Persist a value in a named <bpt id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;linkText&gt;</bpt>context<ept id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;/linkText&gt;</ept><bpt id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;title&gt;</bpt><ept id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;/title&gt;</ept> variable for later access.</source>
+          <target state="new"><bpt id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;linkText&gt;</bpt>Set variable<ept id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;/linkText&gt;</ept><bpt id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;title&gt;</bpt><ept id="78adf69a-0669-4fac-b463-c07b95a86376">&lt;/title&gt;</ept> - Persist a value in a named <bpt id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;linkText&gt;</bpt>context<ept id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;/linkText&gt;</ept><bpt id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;title&gt;</bpt><ept id="3d6efca9-b2c8-4606-9160-69531581b300">&lt;/title&gt;</ept> variable for later access.</target>
+        </trans-unit>
+        <trans-unit id="863c0f8d-a790-4eb1-b429-659a52be765f" xml:space="preserve">
+          <source><bpt id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;linkText&gt;</bpt>Authentication policies<ept id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;/linkText&gt;</ept><bpt id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;title&gt;</bpt><ept id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;linkText&gt;</bpt>Authentication policies<ept id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;/linkText&gt;</ept><bpt id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;title&gt;</bpt><ept id="f615bb36-feb7-48b1-88dd-8f8987f959bf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c792865-a0b3-4c96-b154-9f2f037c257f" xml:space="preserve">
+          <source><bpt id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;linkText&gt;</bpt>Authenticate with Basic<ept id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;/linkText&gt;</ept><bpt id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;title&gt;</bpt><ept id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;/title&gt;</ept> - Authenticate with a backend service using Basic authentication.</source>
+          <target state="new"><bpt id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;linkText&gt;</bpt>Authenticate with Basic<ept id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;/linkText&gt;</ept><bpt id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;title&gt;</bpt><ept id="98782259-3a2e-4877-8346-b2738c1d6642">&lt;/title&gt;</ept> - Authenticate with a backend service using Basic authentication.</target>
+        </trans-unit>
+        <trans-unit id="5c886106-a9af-428a-a359-d3c39d7c2bc9" xml:space="preserve">
+          <source><bpt id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;linkText&gt;</bpt>Authenticate with client certificate<ept id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;/linkText&gt;</ept><bpt id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;title&gt;</bpt><ept id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;/title&gt;</ept> - Authenticate with a backend service using client certificates.</source>
+          <target state="new"><bpt id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;linkText&gt;</bpt>Authenticate with client certificate<ept id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;/linkText&gt;</ept><bpt id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;title&gt;</bpt><ept id="d7a0e7d1-bf24-4686-b317-1168990e8ec0">&lt;/title&gt;</ept> - Authenticate with a backend service using client certificates.</target>
+        </trans-unit>
+        <trans-unit id="93c62783-3c34-485a-8b22-289a8f1f7840" xml:space="preserve">
+          <source><bpt id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;linkText&gt;</bpt>Caching policies<ept id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;/linkText&gt;</ept><bpt id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;title&gt;</bpt><ept id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;linkText&gt;</bpt>Caching policies<ept id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;/linkText&gt;</ept><bpt id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;title&gt;</bpt><ept id="f70c54f9-241a-467f-b28e-cd7418ccadaf">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="2f13f25d-9afa-4b92-ade9-616bbdbb4e3f" xml:space="preserve">
+          <source><bpt id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;linkText&gt;</bpt>Get from cache<ept id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;/linkText&gt;</ept><bpt id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;title&gt;</bpt><ept id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;/title&gt;</ept> - Perform cache look up and return a valid cached response when available.</source>
+          <target state="new"><bpt id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;linkText&gt;</bpt>Get from cache<ept id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;/linkText&gt;</ept><bpt id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;title&gt;</bpt><ept id="44345255-da6f-4b79-997f-141d8b510ae8">&lt;/title&gt;</ept> - Perform cache look up and return a valid cached response when available.</target>
+        </trans-unit>
+        <trans-unit id="a571188b-0f67-4226-a63e-08b4f1ba1ec9" xml:space="preserve">
+          <source><bpt id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;linkText&gt;</bpt>Store to cache<ept id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;/linkText&gt;</ept><bpt id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;title&gt;</bpt><ept id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;/title&gt;</ept> - Caches response according to the specified cache control configuration.</source>
+          <target state="new"><bpt id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;linkText&gt;</bpt>Store to cache<ept id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;/linkText&gt;</ept><bpt id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;title&gt;</bpt><ept id="8436d668-3416-4f2e-94f3-1a9492a4d84a">&lt;/title&gt;</ept> - Caches response according to the specified cache control configuration.</target>
+        </trans-unit>
+        <trans-unit id="c5485537-8aa3-4405-844a-9de4b784045c" xml:space="preserve">
+          <source><bpt id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;linkText&gt;</bpt>Cross domain policies<ept id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;/linkText&gt;</ept><bpt id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;title&gt;</bpt><ept id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;linkText&gt;</bpt>Cross domain policies<ept id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;/linkText&gt;</ept><bpt id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;title&gt;</bpt><ept id="9b9e51dd-f37b-4a4f-ab18-f4817374050f">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f633a747-e19b-48d8-8e29-2cb5f38fb2e5" xml:space="preserve">
+          <source><bpt id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;linkText&gt;</bpt>Allow cross-domain calls<ept id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;/linkText&gt;</ept><bpt id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;title&gt;</bpt><ept id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;/title&gt;</ept> - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.</source>
+          <target state="new"><bpt id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;linkText&gt;</bpt>Allow cross-domain calls<ept id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;/linkText&gt;</ept><bpt id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;title&gt;</bpt><ept id="08bb8227-f92f-473b-93e0-4fdbfc1e88d8">&lt;/title&gt;</ept> - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.</target>
+        </trans-unit>
+        <trans-unit id="dd41e4e4-7ffe-4037-986f-f2219e8ce61a" xml:space="preserve">
+          <source><bpt id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;linkText&gt;</bpt>CORS<ept id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;/linkText&gt;</ept><bpt id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;title&gt;</bpt><ept id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;/title&gt;</ept> - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.</source>
+          <target state="new"><bpt id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;linkText&gt;</bpt>CORS<ept id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;/linkText&gt;</ept><bpt id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;title&gt;</bpt><ept id="1173e025-7cbd-4fc2-9b7e-c52e3504bbaa">&lt;/title&gt;</ept> - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.</target>
+        </trans-unit>
+        <trans-unit id="883b4fe3-18b9-4d4b-b957-df69a653a333" xml:space="preserve">
+          <source><bpt id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;linkText&gt;</bpt>JSONP<ept id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;/linkText&gt;</ept><bpt id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;title&gt;</bpt><ept id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;/title&gt;</ept> - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.</source>
+          <target state="new"><bpt id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;linkText&gt;</bpt>JSONP<ept id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;/linkText&gt;</ept><bpt id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;title&gt;</bpt><ept id="819af8ea-4cab-4647-8112-e8c74930b010">&lt;/title&gt;</ept> - Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients.</target>
+        </trans-unit>
+        <trans-unit id="bb6a7ac2-9256-4abb-b8b0-5dfae8c86955" xml:space="preserve">
+          <source><bpt id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;linkText&gt;</bpt>Transformation policies<ept id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;/linkText&gt;</ept><bpt id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;title&gt;</bpt><ept id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;linkText&gt;</bpt>Transformation policies<ept id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;/linkText&gt;</ept><bpt id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;title&gt;</bpt><ept id="36067b78-2b45-42b1-8860-3f94c2b21dfd">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="011d5d33-b36a-4cc9-9b1a-1ab0db324a62" xml:space="preserve">
+          <source><bpt id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;linkText&gt;</bpt>Convert JSON to XML<ept id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;/linkText&gt;</ept><bpt id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;title&gt;</bpt><ept id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;/title&gt;</ept> - Converts request or response body from JSON to XML.</source>
+          <target state="new"><bpt id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;linkText&gt;</bpt>Convert JSON to XML<ept id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;/linkText&gt;</ept><bpt id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;title&gt;</bpt><ept id="5b0827ae-2039-43c8-affa-1e865e249b63">&lt;/title&gt;</ept> - Converts request or response body from JSON to XML.</target>
+        </trans-unit>
+        <trans-unit id="f6888d58-456a-4b3b-ac7b-1920daf7dae0" xml:space="preserve">
+          <source><bpt id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;linkText&gt;</bpt>Convert XML to JSON<ept id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;/linkText&gt;</ept><bpt id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;title&gt;</bpt><ept id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;/title&gt;</ept> - Converts request or response body from XML to JSON.</source>
+          <target state="new"><bpt id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;linkText&gt;</bpt>Convert XML to JSON<ept id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;/linkText&gt;</ept><bpt id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;title&gt;</bpt><ept id="e797ccb0-7ff9-4658-9e73-ee5423bc3697">&lt;/title&gt;</ept> - Converts request or response body from XML to JSON.</target>
+        </trans-unit>
+        <trans-unit id="021bb057-762c-4512-b3d1-c8f6197b5e48" xml:space="preserve">
+          <source><bpt id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;linkText&gt;</bpt>Find and replace string in body<ept id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;/linkText&gt;</ept><bpt id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;title&gt;</bpt><ept id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;/title&gt;</ept> - Finds a request or response substring and replaces it with a different substring.</source>
+          <target state="new"><bpt id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;linkText&gt;</bpt>Find and replace string in body<ept id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;/linkText&gt;</ept><bpt id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;title&gt;</bpt><ept id="2bd7c517-916c-4d77-9606-9bfea859dc9e">&lt;/title&gt;</ept> - Finds a request or response substring and replaces it with a different substring.</target>
+        </trans-unit>
+        <trans-unit id="e593085d-e656-4910-b6a6-2195b07793fb" xml:space="preserve">
+          <source><bpt id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;linkText&gt;</bpt>Mask URLs in content<ept id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;/linkText&gt;</ept><bpt id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;title&gt;</bpt><ept id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;/title&gt;</ept> - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the proxy.</source>
+          <target state="new"><bpt id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;linkText&gt;</bpt>Mask URLs in content<ept id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;/linkText&gt;</ept><bpt id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;title&gt;</bpt><ept id="bdce85c6-fc5d-4a11-b580-acfb1c83ac52">&lt;/title&gt;</ept> - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the proxy.</target>
+        </trans-unit>
+        <trans-unit id="bfce2618-08a5-47cf-aa41-ab98fbb1cc98" xml:space="preserve">
+          <source><bpt id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;linkText&gt;</bpt>Set backend service<ept id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;/linkText&gt;</ept><bpt id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;title&gt;</bpt><ept id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;/title&gt;</ept> - Changes the backend service for an incoming request.</source>
+          <target state="new"><bpt id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;linkText&gt;</bpt>Set backend service<ept id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;/linkText&gt;</ept><bpt id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;title&gt;</bpt><ept id="183c9bd1-7bd9-43d8-876d-4f8b2e8e0913">&lt;/title&gt;</ept> - Changes the backend service for an incoming request.</target>
+        </trans-unit>
+        <trans-unit id="aa155709-4fc6-40b3-abdc-35182d04604d" xml:space="preserve">
+          <source><bpt id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;linkText&gt;</bpt>Set body<ept id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;/linkText&gt;</ept><bpt id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;title&gt;</bpt><ept id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;/title&gt;</ept> - Sets the message body for incoming and outgoing requests.</source>
+          <target state="new"><bpt id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;linkText&gt;</bpt>Set body<ept id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;/linkText&gt;</ept><bpt id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;title&gt;</bpt><ept id="b87a9779-9df0-4272-930a-99bd0a1c71a5">&lt;/title&gt;</ept> - Sets the message body for incoming and outgoing requests.</target>
+        </trans-unit>
+        <trans-unit id="de592c88-00ec-48ee-bdcc-b503bef20e16" xml:space="preserve">
+          <source><bpt id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;linkText&gt;</bpt>Set HTTP header<ept id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;/linkText&gt;</ept><bpt id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;title&gt;</bpt><ept id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;/title&gt;</ept> - Assigns a value to an existing response and/or request header or adds a new response and/or request header.</source>
+          <target state="new"><bpt id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;linkText&gt;</bpt>Set HTTP header<ept id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;/linkText&gt;</ept><bpt id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;title&gt;</bpt><ept id="8a693ddf-fa4a-42ef-b280-6b03f3f83a2b">&lt;/title&gt;</ept> - Assigns a value to an existing response and/or request header or adds a new response and/or request header.</target>
+        </trans-unit>
+        <trans-unit id="d3462ee5-962c-4c55-a8ae-0ec81b1ef5ca" xml:space="preserve">
+          <source><bpt id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;linkText&gt;</bpt>Set query string parameter<ept id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;/linkText&gt;</ept><bpt id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;title&gt;</bpt><ept id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;/title&gt;</ept> - Adds, replaces value of, or deletes request query string parameter.</source>
+          <target state="new"><bpt id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;linkText&gt;</bpt>Set query string parameter<ept id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;/linkText&gt;</ept><bpt id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;title&gt;</bpt><ept id="bf8370ca-1357-4adc-be17-79b843f1aff5">&lt;/title&gt;</ept> - Adds, replaces value of, or deletes request query string parameter.</target>
+        </trans-unit>
+        <trans-unit id="ad7180ec-3dd9-4b39-ab1a-69bbeeb1fb75" xml:space="preserve">
+          <source><bpt id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;linkText&gt;</bpt>Rewrite URL<ept id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;/linkText&gt;</ept><bpt id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;title&gt;</bpt><ept id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;/title&gt;</ept> - Converts a request URL from its public form to the form expected by the web service.</source>
+          <target state="new"><bpt id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;linkText&gt;</bpt>Rewrite URL<ept id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;/linkText&gt;</ept><bpt id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;title&gt;</bpt><ept id="48d8ce33-750a-4cd8-b2ad-8029802d8bb0">&lt;/title&gt;</ept> - Converts a request URL from its public form to the form expected by the web service.</target>
+        </trans-unit>
+        <trans-unit id="7e60c3ee-c212-4b0c-a043-73709a06710b" xml:space="preserve">
+          <source>For more information on policy expressions, see the following video.</source>
+          <target state="new">For more information on policy expressions, see the following video.</target>
+        </trans-unit>
+        <trans-unit id="f7b63d60-fe4a-4689-a9fb-9373042c42c6" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894078.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894078.aspx</target>
+        </trans-unit>
+        <trans-unit id="569761cf-4cb2-4429-a08c-e2dbacf745fc" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader</target>
+        </trans-unit>
+        <trans-unit id="ca795a9c-6fe6-4f95-af95-20a098302f68" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate</target>
+        </trans-unit>
+        <trans-unit id="28f4f9ba-dd7a-438b-a19d-7c47f9548ff2" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs</target>
+        </trans-unit>
+        <trans-unit id="797e7627-a6c3-488a-bdc3-2a4e621d633c" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota</target>
+        </trans-unit>
+        <trans-unit id="88829eb3-e1c0-45b7-8e52-c98c20a75a6a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT</target>
+        </trans-unit>
+        <trans-unit id="e2dd8fff-8f21-40a0-99de-57f4ee0cc621" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894085.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894085.aspx</target>
+        </trans-unit>
+        <trans-unit id="7dd8a5af-9180-410a-8917-0a682103223a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894085.aspx#choose</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894085.aspx#choose</target>
+        </trans-unit>
+        <trans-unit id="dd0e0594-73e4-490b-bdeb-dcbb70989a43" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable</target>
+        </trans-unit>
+        <trans-unit id="e76ce02a-a159-427e-a30d-b232a5411160" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn910913.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn910913.aspx</target>
+        </trans-unit>
+        <trans-unit id="ffe4bf12-571b-4ee1-b7d0-fdadb5bb8777" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables</target>
+        </trans-unit>
+        <trans-unit id="a1cba4dd-d99c-4675-aa09-f79d72e9c21a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894079.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894079.aspx</target>
+        </trans-unit>
+        <trans-unit id="f79ad332-be42-4324-9808-0629e91f072f" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic</target>
+        </trans-unit>
+        <trans-unit id="7be86a20-d5d8-47ee-9039-c154b5a68dc3" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#ClientCertificate</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#ClientCertificate</target>
+        </trans-unit>
+        <trans-unit id="b63e9ad2-cfeb-4bb4-bb5f-742418ed73bb" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894086.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894086.aspx</target>
+        </trans-unit>
+        <trans-unit id="47e2154d-043b-4a36-aebb-1998a584b95b" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#GetFromCache</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#GetFromCache</target>
+        </trans-unit>
+        <trans-unit id="a3321f60-a786-4018-ba5e-1be124e5531f" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#StoreToCache</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/8147199c-24d8-439f-b2a9-da28a70a890c#StoreToCache</target>
+        </trans-unit>
+        <trans-unit id="ba63f842-7476-48b4-8e1d-74c4060fb3a4" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894084.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894084.aspx</target>
+        </trans-unit>
+        <trans-unit id="f775162c-630b-4bed-a9ba-ad46261ae71a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#AllowCrossDomainCalls</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#AllowCrossDomainCalls</target>
+        </trans-unit>
+        <trans-unit id="86a977a1-1aba-4fc7-b18e-9c77075a35bf" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#CORS</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#CORS</target>
+        </trans-unit>
+        <trans-unit id="b087f6e7-ff99-4f52-958f-4bcf9c5480a1" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#JSONP</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7689d277-8abe-472a-a78c-e6d4bd43455d#JSONP</target>
+        </trans-unit>
+        <trans-unit id="b025208d-b312-4d99-9d4a-9c805d9916c3" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894083.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894083.aspx</target>
+        </trans-unit>
+        <trans-unit id="d1504f82-6570-4b7e-88f3-a9dc9624f1cb" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertJSONtoXML</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertJSONtoXML</target>
+        </trans-unit>
+        <trans-unit id="3793479e-19b9-46ab-8fe8-50068425e2b3" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertXMLtoJSON</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#ConvertXMLtoJSON</target>
+        </trans-unit>
+        <trans-unit id="0ebf7aac-fd34-44f0-9bd8-0d8776720d0c" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody</target>
+        </trans-unit>
+        <trans-unit id="24c7d6aa-99e9-48ce-96ed-507f0dcfebee" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent</target>
+        </trans-unit>
+        <trans-unit id="a28e96a0-90fc-4257-9e2d-6fed0c6de2af" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService</target>
+        </trans-unit>
+        <trans-unit id="cb6e07cf-63fd-413a-aa0d-2ef6ab687b90" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody</target>
+        </trans-unit>
+        <trans-unit id="244e35ef-6eaf-42f9-a74d-29f06998bdf6" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader</target>
+        </trans-unit>
+        <trans-unit id="0c6f2dd0-2a6a-41d1-bbdf-d6468d3fb504" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter</target>
+        </trans-unit>
+        <trans-unit id="bdfb017c-7f25-4711-88b5-bfd603c46289" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL</target>
+        </trans-unit>
+        <trans-unit id="024a3f4a-008b-46c1-a4cd-c745fcb960de" xml:space="preserve">
+          <source>api-management-howto-policies.md</source>
+          <target state="new">api-management-howto-policies.md</target>
+        </trans-unit>
+        <trans-unit id="f49b6f23-73bd-4baf-92bc-33b91d109ddf" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn894081.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn894081.aspx</target>
+        </trans-unit>
+        <trans-unit id="ea85e8ac-1700-403d-a2ed-774abedd25d5" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn910913.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn910913.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="1d040273-cbab-4be5-930c-881ec93b5719" />
+    </body>
+  </file>
+</xliff>

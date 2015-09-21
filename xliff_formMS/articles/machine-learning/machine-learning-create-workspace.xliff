@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5a0f933e-59ef-4ed4-bc72-a2359c44b2c8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5a0f933e-59ef-4ed4-bc72-a2359c44b2c8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6551a093-a323-46b2-9967-ee6395af0d86">
+        <trans-unit id="a938f91b-5dd4-4da9-a850-977582db2ee3" xml:space="preserve">
+          <source>Create a Machine Learning workspace | Microsoft Azure</source>
+          <target state="new">Create a Machine Learning workspace | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6c69e37a-1b7b-403a-b54c-fb8039f2bb90" xml:space="preserve">
+          <source>How to create a workspace for Azure Machine Learning Studio</source>
+          <target state="new">How to create a workspace for Azure Machine Learning Studio</target>
+        </trans-unit>
+        <trans-unit id="86d3e0c4-e2c2-49af-9ca7-2bed25e82376" xml:space="preserve">
+          <source>To use Azure Machine Learning Studio, you need to have a Machine Learning workspace.</source>
+          <target state="new">To use Azure Machine Learning Studio, you need to have a Machine Learning workspace.</target>
+        </trans-unit>
+        <trans-unit id="f831004a-931a-4348-b863-7cd021e0bce2" xml:space="preserve">
+          <source>This workspace contains the tools you need to create, manage, and publish experiments.</source>
+          <target state="new">This workspace contains the tools you need to create, manage, and publish experiments.</target>
+        </trans-unit>
+        <trans-unit id="fc8737cc-82a1-4653-b6ca-cf8d8c87ee93" xml:space="preserve">
+          <source><bpt id="9daba1c0-2b9f-4991-95c8-d87da00dd2a7">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="9daba1c0-2b9f-4991-95c8-d87da00dd2a7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9daba1c0-2b9f-4991-95c8-d87da00dd2a7">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="9daba1c0-2b9f-4991-95c8-d87da00dd2a7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="833cdfaf-d01f-4de9-ad55-f40618b74970" xml:space="preserve">
+          <source>Sign-in to your Microsoft Azure account.</source>
+          <target state="new">Sign-in to your Microsoft Azure account.</target>
+        </trans-unit>
+        <trans-unit id="d15ccc03-34cf-4209-bade-ea5d0ba7f4ca" xml:space="preserve">
+          <source>In the Microsoft Azure services panel, click <bpt id="88609e1a-631e-496e-891a-a46798e1ba52">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="88609e1a-631e-496e-891a-a46798e1ba52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Microsoft Azure services panel, click <bpt id="88609e1a-631e-496e-891a-a46798e1ba52">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="88609e1a-631e-496e-891a-a46798e1ba52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e30cc9c-c261-4652-894a-23d7e7826366" xml:space="preserve">
+          <source><bpt id="961f68c2-2275-45b7-9d8b-b1fa4f387e7a">&lt;linkText&gt;</bpt>Machine Learning service<ept id="961f68c2-2275-45b7-9d8b-b1fa4f387e7a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="961f68c2-2275-45b7-9d8b-b1fa4f387e7a">&lt;linkText&gt;</bpt>Machine Learning service<ept id="961f68c2-2275-45b7-9d8b-b1fa4f387e7a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc98a10b-8a8c-409a-b81e-d3689710afcf" xml:space="preserve">
+          <source>Click <bpt id="dbacc8fa-ac15-41a8-914e-cb7c263d2fb1">&lt;strong&gt;</bpt>+NEW<ept id="dbacc8fa-ac15-41a8-914e-cb7c263d2fb1">&lt;/strong&gt;</ept> at the bottom of the window.</source>
+          <target state="new">Click <bpt id="dbacc8fa-ac15-41a8-914e-cb7c263d2fb1">&lt;strong&gt;</bpt>+NEW<ept id="dbacc8fa-ac15-41a8-914e-cb7c263d2fb1">&lt;/strong&gt;</ept> at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="ed1d7004-c747-4496-bc2a-e5d419f8d96b" xml:space="preserve">
+          <source>Click <bpt id="34bcf76d-9961-4ead-bbf2-5cce49bcebc2">&lt;strong&gt;</bpt>DATA SERVICES<ept id="34bcf76d-9961-4ead-bbf2-5cce49bcebc2">&lt;/strong&gt;</ept>, then <bpt id="a7a091ef-4a1e-43a6-82c1-f021b0ce3a58">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="a7a091ef-4a1e-43a6-82c1-f021b0ce3a58">&lt;/strong&gt;</ept>, then <bpt id="1fd5cec7-a4a7-4b49-89ea-67400104241a">&lt;strong&gt;</bpt>QUICK CREATE<ept id="1fd5cec7-a4a7-4b49-89ea-67400104241a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="34bcf76d-9961-4ead-bbf2-5cce49bcebc2">&lt;strong&gt;</bpt>DATA SERVICES<ept id="34bcf76d-9961-4ead-bbf2-5cce49bcebc2">&lt;/strong&gt;</ept>, then <bpt id="a7a091ef-4a1e-43a6-82c1-f021b0ce3a58">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="a7a091ef-4a1e-43a6-82c1-f021b0ce3a58">&lt;/strong&gt;</ept>, then <bpt id="1fd5cec7-a4a7-4b49-89ea-67400104241a">&lt;strong&gt;</bpt>QUICK CREATE<ept id="1fd5cec7-a4a7-4b49-89ea-67400104241a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c626a28-66af-495c-ace5-0ebc2f6c06f4" xml:space="preserve">
+          <source><bpt id="4b065ac7-4c90-408c-8d2e-2d2c1782babe">&lt;linkText&gt;</bpt>Quick Create of new workspace<ept id="4b065ac7-4c90-408c-8d2e-2d2c1782babe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b065ac7-4c90-408c-8d2e-2d2c1782babe">&lt;linkText&gt;</bpt>Quick Create of new workspace<ept id="4b065ac7-4c90-408c-8d2e-2d2c1782babe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fd14f92-cde0-4161-9831-59f0a80e3ee9" xml:space="preserve">
+          <source>Enter a <bpt id="62163564-49a9-431b-bc45-8731836be953">&lt;strong&gt;</bpt>WORKSPACE NAME<ept id="62163564-49a9-431b-bc45-8731836be953">&lt;/strong&gt;</ept> for your workspace and specify the <bpt id="87bbd9bd-7815-47a0-8b81-c57db969f317">&lt;strong&gt;</bpt>WORKSPACE OWNER<ept id="87bbd9bd-7815-47a0-8b81-c57db969f317">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a <bpt id="62163564-49a9-431b-bc45-8731836be953">&lt;strong&gt;</bpt>WORKSPACE NAME<ept id="62163564-49a9-431b-bc45-8731836be953">&lt;/strong&gt;</ept> for your workspace and specify the <bpt id="87bbd9bd-7815-47a0-8b81-c57db969f317">&lt;strong&gt;</bpt>WORKSPACE OWNER<ept id="87bbd9bd-7815-47a0-8b81-c57db969f317">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adc45245-f55e-421e-8fc6-77b3c93b8598" xml:space="preserve">
+          <source>The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).</source>
+          <target state="new">The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).</target>
+        </trans-unit>
+        <trans-unit id="324664a1-add7-4d2f-8470-8e0fec70b510" xml:space="preserve">
+          <source>Later, you can share the experiments you're working on by inviting others to your workspace.</source>
+          <target state="new">Later, you can share the experiments you're working on by inviting others to your workspace.</target>
+        </trans-unit>
+        <trans-unit id="51be76a7-2c37-40bd-b453-05f2322b4dfd" xml:space="preserve">
+          <source>You can do this in Machine Learning Studio on the <bpt id="4005382f-9cdf-4323-aa91-4e8394a3e3b1">&lt;strong&gt;</bpt>SETTINGS<ept id="4005382f-9cdf-4323-aa91-4e8394a3e3b1">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can do this in Machine Learning Studio on the <bpt id="4005382f-9cdf-4323-aa91-4e8394a3e3b1">&lt;strong&gt;</bpt>SETTINGS<ept id="4005382f-9cdf-4323-aa91-4e8394a3e3b1">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="54abba99-4c60-4f12-be55-7efac19a2a50" xml:space="preserve">
+          <source>You just need the Microsoft account or organizational account for each user.</source>
+          <target state="new">You just need the Microsoft account or organizational account for each user.</target>
+        </trans-unit>
+        <trans-unit id="553a6e84-e015-48a0-8030-1bb1c9e7e05c" xml:space="preserve">
+          <source>Specify the Azure <bpt id="a024587f-a229-446f-be31-90a1bec9a41e">&lt;strong&gt;</bpt>LOCATION<ept id="a024587f-a229-446f-be31-90a1bec9a41e">&lt;/strong&gt;</ept>, then enter an existing Azure <bpt id="cfa970b8-3c32-4c03-94d8-d219f05bf6f3">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="cfa970b8-3c32-4c03-94d8-d219f05bf6f3">&lt;/strong&gt;</ept> or select <bpt id="f973c701-dea8-4bc6-ab4c-cf658c8a6a71">&lt;strong&gt;</bpt>Create a new storage account<ept id="f973c701-dea8-4bc6-ab4c-cf658c8a6a71">&lt;/strong&gt;</ept> to create a new one.</source>
+          <target state="new">Specify the Azure <bpt id="a024587f-a229-446f-be31-90a1bec9a41e">&lt;strong&gt;</bpt>LOCATION<ept id="a024587f-a229-446f-be31-90a1bec9a41e">&lt;/strong&gt;</ept>, then enter an existing Azure <bpt id="cfa970b8-3c32-4c03-94d8-d219f05bf6f3">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="cfa970b8-3c32-4c03-94d8-d219f05bf6f3">&lt;/strong&gt;</ept> or select <bpt id="f973c701-dea8-4bc6-ab4c-cf658c8a6a71">&lt;strong&gt;</bpt>Create a new storage account<ept id="f973c701-dea8-4bc6-ab4c-cf658c8a6a71">&lt;/strong&gt;</ept> to create a new one.</target>
+        </trans-unit>
+        <trans-unit id="6af8cecf-733b-4a67-aae6-bc92e33e3881" xml:space="preserve">
+          <source>Click <bpt id="8e54d0fc-e06b-4a3d-8f8c-f4fc217abd46">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="8e54d0fc-e06b-4a3d-8f8c-f4fc217abd46">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8e54d0fc-e06b-4a3d-8f8c-f4fc217abd46">&lt;strong&gt;</bpt>CREATE AN ML WORKSPACE<ept id="8e54d0fc-e06b-4a3d-8f8c-f4fc217abd46">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d87b34f-d00f-49e6-b29e-0b9a4a921f08" xml:space="preserve">
+          <source>After your Machine Learning workspace is created, you will see it listed on the <bpt id="ae8945b6-b36c-435c-ab82-6a1ee2130719">&lt;strong&gt;</bpt>machine learning<ept id="ae8945b6-b36c-435c-ab82-6a1ee2130719">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">After your Machine Learning workspace is created, you will see it listed on the <bpt id="ae8945b6-b36c-435c-ab82-6a1ee2130719">&lt;strong&gt;</bpt>machine learning<ept id="ae8945b6-b36c-435c-ab82-6a1ee2130719">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="a428ceed-eedc-4d5c-b638-ee2dcff58981" xml:space="preserve">
+          <source>For information about managing your workspace, see [Manage an Azure Machine Learning workspace].</source>
+          <target state="new">For information about managing your workspace, see [Manage an Azure Machine Learning workspace].</target>
+        </trans-unit>
+        <trans-unit id="8eab3173-7fe9-4467-9c35-f749efb77ebc" xml:space="preserve">
+          <source>If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].</source>
+          <target state="new">If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].</target>
+        </trans-unit>
+        <trans-unit id="246d2c54-3203-4c30-8323-c730d311a6e7" xml:space="preserve">
+          <source>machine-learning-manage-workspace.md</source>
+          <target state="new">machine-learning-manage-workspace.md</target>
+        </trans-unit>
+        <trans-unit id="c696d62a-7b96-4259-b388-1191936b0eeb" xml:space="preserve">
+          <source>machine-learning-troubleshooting-creating-ml-workspace.md</source>
+          <target state="new">machine-learning-troubleshooting-creating-ml-workspace.md</target>
+        </trans-unit>
+        <trans-unit id="3809e2ef-09d9-4c99-8f97-aed1aa94500d" xml:space="preserve">
+          <source>#createworkspace</source>
+          <target state="new">#createworkspace</target>
+        </trans-unit>
+        <trans-unit id="26741649-1725-43a0-931b-1cdf062db128" xml:space="preserve">
+          <source>media/machine-learning-create-workspace/cw1.png</source>
+          <target state="new">media/machine-learning-create-workspace/cw1.png</target>
+        </trans-unit>
+        <trans-unit id="ad3c0201-c096-4dcf-a34a-69f22bdc4b15" xml:space="preserve">
+          <source>media/machine-learning-create-workspace/cw2.png</source>
+          <target state="new">media/machine-learning-create-workspace/cw2.png</target>
+        </trans-unit>
+        <trans-unit id="cdcc9bba-8a7d-428f-85a4-0d78c00c108d" xml:space="preserve">
+          <source>media/machine-learning-create-workspace/cw3.png</source>
+          <target state="new">media/machine-learning-create-workspace/cw3.png</target>
+        </trans-unit>
+      </group>
+      <group id="1381ff16-614b-4d69-8767-1b31581ecca8" />
+    </body>
+  </file>
+</xliff>

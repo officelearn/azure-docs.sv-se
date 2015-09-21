@@ -1,0 +1,1410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7c80cff5-86dd-484f-af22-9817d0f6184f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7c80cff5-86dd-484f-af22-9817d0f6184f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5d167375-7cea-4a8e-ba1e-5623ed80f515">
+        <trans-unit id="0e7e3c91-c2a6-4c80-870c-bc717d1513fe" xml:space="preserve">
+          <source>Azure Stream Analytics Query Patterns | Microsoft Azure</source>
+          <target state="new">Azure Stream Analytics Query Patterns | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="30b6a74f-d44b-4f6c-a3aa-75915cce23a2" xml:space="preserve">
+          <source>Common Azure Stream Analytics Query Patterns </source>
+          <target state="new">Common Azure Stream Analytics Query Patterns </target>
+        </trans-unit>
+        <trans-unit id="f9373e5d-aebb-4913-bcbb-5a0c5aee3958" xml:space="preserve">
+          <source>Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented <bpt id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;linkText&gt;</bpt>here<ept id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;/linkText&gt;</ept><bpt id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;title&gt;</bpt><ept id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Queries in Azure Stream Analytics are expressed in a SQL-like query language, which is documented <bpt id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;linkText&gt;</bpt>here<ept id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;/linkText&gt;</ept><bpt id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;title&gt;</bpt><ept id="b957edf4-d9d0-456c-909a-64daf1405c8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9cbe8f2-90a0-4726-b2a5-b013dd7dfd2e" xml:space="preserve">
+          <source>This document outlines solutions to several common query patterns based on real world scenarios.</source>
+          <target state="new">This document outlines solutions to several common query patterns based on real world scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e84c737e-6a86-4ab1-9821-33d23212e9c6" xml:space="preserve">
+          <source>It is a work in progress and will continue to be updated with new patterns on an ongoing basis.</source>
+          <target state="new">It is a work in progress and will continue to be updated with new patterns on an ongoing basis.</target>
+        </trans-unit>
+        <trans-unit id="d4b74e8f-82c4-4ddc-a090-da33d095a7f6" xml:space="preserve">
+          <source><bpt id="a7c738e6-f4bd-4b34-a05c-760c8121757c">&lt;strong&gt;</bpt>Description<ept id="a7c738e6-f4bd-4b34-a05c-760c8121757c">&lt;/strong&gt;</ept>: Define the types of the properties on the input stream.</source>
+          <target state="new"><bpt id="a7c738e6-f4bd-4b34-a05c-760c8121757c">&lt;strong&gt;</bpt>Description<ept id="a7c738e6-f4bd-4b34-a05c-760c8121757c">&lt;/strong&gt;</ept>: Define the types of the properties on the input stream.</target>
+        </trans-unit>
+        <trans-unit id="b090750e-925d-4080-9088-e118967e85b9" xml:space="preserve">
+          <source>e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.</source>
+          <target state="new">e.g. Car weight is coming on the input stream as strings and needs to be converted to INT to perform SUM it up.</target>
+        </trans-unit>
+        <trans-unit id="22107e5b-b362-4ddf-9b24-1ac8b0b8f696" xml:space="preserve">
+          <source><bpt id="c60dd070-e838-45ac-a18c-abf10383ac6b">&lt;strong&gt;</bpt>Input<ept id="c60dd070-e838-45ac-a18c-abf10383ac6b">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="c60dd070-e838-45ac-a18c-abf10383ac6b">&lt;strong&gt;</bpt>Input<ept id="c60dd070-e838-45ac-a18c-abf10383ac6b">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="bad6a075-bb9a-4bbd-bad4-d56a74d3f572" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="5457b972-a4de-4b6f-9096-bb732378d434" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="05d5aaeb-f07c-4f33-9dac-0a37d5b38d77" xml:space="preserve">
+          <source>Weight</source>
+          <target state="new">Weight</target>
+        </trans-unit>
+        <trans-unit id="a5517b08-2c28-4ff7-8894-530d1047ddba" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="92a708be-68a5-44b0-956c-6ff7f7e1bda0" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="c5174d0e-d3f7-4fad-8fc5-f1346b9dc3ce" xml:space="preserve">
+          <source>"1000"</source>
+          <target state="new">"1000"</target>
+        </trans-unit>
+        <trans-unit id="adb541bc-b1f0-4ad1-be30-a5d5a24567a4" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="5e3253d2-8c0c-495f-85c3-02e02e01dd7c" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="258edb17-a20c-4e6a-ab64-3b34de4e1d14" xml:space="preserve">
+          <source>"2000"</source>
+          <target state="new">"2000"</target>
+        </trans-unit>
+        <trans-unit id="053ec443-a311-44c6-8ad8-db170f7faf7e" xml:space="preserve">
+          <source><bpt id="5bbaeb2e-4340-4c5d-b0d0-4d1cbc6e9e97">&lt;strong&gt;</bpt>Output<ept id="5bbaeb2e-4340-4c5d-b0d0-4d1cbc6e9e97">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="5bbaeb2e-4340-4c5d-b0d0-4d1cbc6e9e97">&lt;strong&gt;</bpt>Output<ept id="5bbaeb2e-4340-4c5d-b0d0-4d1cbc6e9e97">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6f68aec9-d7a6-4d55-ba85-6c71020250c3" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="b6eda51a-5432-4860-a93d-5f506139dd3f" xml:space="preserve">
+          <source>Weight</source>
+          <target state="new">Weight</target>
+        </trans-unit>
+        <trans-unit id="b4cd2b09-1fb4-4cf3-9440-73cdbb079804" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="caf8beaa-8a62-4081-af5a-0c4c165cece3" xml:space="preserve">
+          <source>3000</source>
+          <target state="new">3000</target>
+        </trans-unit>
+        <trans-unit id="3b6081e0-8dd7-44dc-bae1-2f40ae6528ef" xml:space="preserve">
+          <source><bpt id="8b14d587-f6c6-4602-bcef-4362af2ba541">&lt;strong&gt;</bpt>Solution<ept id="8b14d587-f6c6-4602-bcef-4362af2ba541">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="8b14d587-f6c6-4602-bcef-4362af2ba541">&lt;strong&gt;</bpt>Solution<ept id="8b14d587-f6c6-4602-bcef-4362af2ba541">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="31ecda3b-b2ff-4c33-9ae7-2e39774e23c5" xml:space="preserve">
+          <source><bpt id="b800f958-466c-46ea-9762-1f0b3d02cb2d">&lt;strong&gt;</bpt>Explanation<ept id="b800f958-466c-46ea-9762-1f0b3d02cb2d">&lt;/strong&gt;</ept>:
+Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types <bpt id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;linkText&gt;</bpt>here<ept id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;/linkText&gt;</ept><bpt id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;title&gt;</bpt><ept id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;/title&gt;</ept>).</source>
+          <target state="new"><bpt id="b800f958-466c-46ea-9762-1f0b3d02cb2d">&lt;strong&gt;</bpt>Explanation<ept id="b800f958-466c-46ea-9762-1f0b3d02cb2d">&lt;/strong&gt;</ept>:
+Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types <bpt id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;linkText&gt;</bpt>here<ept id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;/linkText&gt;</ept><bpt id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;title&gt;</bpt><ept id="67cf9137-e57f-496c-820e-7cf487ad5d31">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="04978efb-2fcf-460d-aa6a-c8c03a80eb68" xml:space="preserve">
+          <source><bpt id="3d0c62bb-4905-48fa-94dd-46e62bdf029c">&lt;strong&gt;</bpt>Description<ept id="3d0c62bb-4905-48fa-94dd-46e62bdf029c">&lt;/strong&gt;</ept>: Check that a field value on the event matches a certain pattern
+e.g. Return license plates that start with A and end with 9</source>
+          <target state="new"><bpt id="3d0c62bb-4905-48fa-94dd-46e62bdf029c">&lt;strong&gt;</bpt>Description<ept id="3d0c62bb-4905-48fa-94dd-46e62bdf029c">&lt;/strong&gt;</ept>: Check that a field value on the event matches a certain pattern
+e.g. Return license plates that start with A and end with 9</target>
+        </trans-unit>
+        <trans-unit id="aef93d19-3f2e-43d7-a305-08af724fab93" xml:space="preserve">
+          <source><bpt id="86d51449-0b6a-4263-84ec-2545f2132621">&lt;strong&gt;</bpt>Input<ept id="86d51449-0b6a-4263-84ec-2545f2132621">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="86d51449-0b6a-4263-84ec-2545f2132621">&lt;strong&gt;</bpt>Input<ept id="86d51449-0b6a-4263-84ec-2545f2132621">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="9d391829-2aad-47b3-ab42-2910b64e7d64" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="39f09630-aac9-479d-bef9-620130cd239c" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="14ad3d45-8dcb-4197-acb6-429fac1aeebe" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="efd09c1a-76c3-453a-9fb0-fa4197fbcbff" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="472e94a6-a796-4455-857d-5485dcfe02ad" xml:space="preserve">
+          <source>ABC-123</source>
+          <target state="new">ABC-123</target>
+        </trans-unit>
+        <trans-unit id="d31a7bc5-61c9-4c06-b072-e89c450b7ab6" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="0aeb63e0-356c-411d-953d-97a3bcb1b3ac" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="c5173023-bbe7-46f0-8f1d-2ca8ad1c6b35" xml:space="preserve">
+          <source>AAA-999</source>
+          <target state="new">AAA-999</target>
+        </trans-unit>
+        <trans-unit id="2351ade5-b38d-4b5c-81dd-a55e0be66344" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="77438966-a911-4589-adda-1e75a0d1a321" xml:space="preserve">
+          <source>Nissan</source>
+          <target state="new">Nissan</target>
+        </trans-unit>
+        <trans-unit id="17427d84-3e77-4927-85f4-0b1126834815" xml:space="preserve">
+          <source>ABC-369</source>
+          <target state="new">ABC-369</target>
+        </trans-unit>
+        <trans-unit id="fc8f08b3-63d6-4dfe-8bef-fca055f397f6" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="bcbb08f9-c227-4158-8a07-c38b0e1a07c0" xml:space="preserve">
+          <source><bpt id="38227406-1f00-4009-8085-1f9d7c152439">&lt;strong&gt;</bpt>Output<ept id="38227406-1f00-4009-8085-1f9d7c152439">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="38227406-1f00-4009-8085-1f9d7c152439">&lt;strong&gt;</bpt>Output<ept id="38227406-1f00-4009-8085-1f9d7c152439">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2b6187a3-6e30-4215-9307-2b7e3a8f18d5" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="de993e69-760e-4aa5-8ae3-15caa16e460d" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="24e2f3dc-afa3-4a9c-9677-c2b7cb943729" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="50f9ddca-33ec-4895-8e9c-6157f75bba42" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="54aefafa-f0d4-40e2-8ce4-04ce972afd6e" xml:space="preserve">
+          <source>AAA-999</source>
+          <target state="new">AAA-999</target>
+        </trans-unit>
+        <trans-unit id="2ce3b6c6-fb0e-445d-a369-d8ba70aba242" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="ea4b32d4-e651-4838-a200-bf0e46dbb9b9" xml:space="preserve">
+          <source>Nissan</source>
+          <target state="new">Nissan</target>
+        </trans-unit>
+        <trans-unit id="639059b2-6aa5-47ae-a894-1e941e4a4cd0" xml:space="preserve">
+          <source>ABC-369</source>
+          <target state="new">ABC-369</target>
+        </trans-unit>
+        <trans-unit id="357383c3-f837-4b7f-b58d-55d7c202ca07" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="a941bc83-6264-4e72-85a1-2b100757caee" xml:space="preserve">
+          <source><bpt id="86e7ff39-5af7-4f5d-b292-2bb159150e1d">&lt;strong&gt;</bpt>Solution<ept id="86e7ff39-5af7-4f5d-b292-2bb159150e1d">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="86e7ff39-5af7-4f5d-b292-2bb159150e1d">&lt;strong&gt;</bpt>Solution<ept id="86e7ff39-5af7-4f5d-b292-2bb159150e1d">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="49220d42-9db3-4e79-aef1-1b465830990e" xml:space="preserve">
+          <source><bpt id="6262da30-4ca9-4dc8-a2a9-f0e6fd1029e4">&lt;strong&gt;</bpt>Explanation<ept id="6262da30-4ca9-4dc8-a2a9-f0e6fd1029e4">&lt;/strong&gt;</ept>:
+Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9.</source>
+          <target state="new"><bpt id="6262da30-4ca9-4dc8-a2a9-f0e6fd1029e4">&lt;strong&gt;</bpt>Explanation<ept id="6262da30-4ca9-4dc8-a2a9-f0e6fd1029e4">&lt;/strong&gt;</ept>:
+Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9.</target>
+        </trans-unit>
+        <trans-unit id="36099423-d211-453a-8b6c-c62777558ee2" xml:space="preserve">
+          <source><bpt id="a666c766-33db-43ce-b8ca-1ec8862f59f5">&lt;strong&gt;</bpt>Description<ept id="a666c766-33db-43ce-b8ca-1ec8862f59f5">&lt;/strong&gt;</ept>: Provide different computation for a field based on some criteria.</source>
+          <target state="new"><bpt id="a666c766-33db-43ce-b8ca-1ec8862f59f5">&lt;strong&gt;</bpt>Description<ept id="a666c766-33db-43ce-b8ca-1ec8862f59f5">&lt;/strong&gt;</ept>: Provide different computation for a field based on some criteria.</target>
+        </trans-unit>
+        <trans-unit id="e018ef69-3967-4f97-8993-264a61e8dae5" xml:space="preserve">
+          <source>e.g. Provide a string description for how many cars passed of the same make with a special case for 1.</source>
+          <target state="new">e.g. Provide a string description for how many cars passed of the same make with a special case for 1.</target>
+        </trans-unit>
+        <trans-unit id="cd82988c-5732-444c-bc48-2d9ffc871555" xml:space="preserve">
+          <source><bpt id="d3742a29-eb18-42b4-a758-ffdf4e933e8a">&lt;strong&gt;</bpt>Input<ept id="d3742a29-eb18-42b4-a758-ffdf4e933e8a">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="d3742a29-eb18-42b4-a758-ffdf4e933e8a">&lt;strong&gt;</bpt>Input<ept id="d3742a29-eb18-42b4-a758-ffdf4e933e8a">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="73c01214-79c6-43a0-9cad-d6712d3c5c6f" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="654dbe05-2d02-4ce4-8af4-7c5a1ad518ea" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="50c8ea02-8138-4253-9e6a-1a47cb767ba4" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="eb6f4d7e-1c2f-4ddf-b856-72689a1f0ac3" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="a923e3f9-ae93-4571-b0f0-4fa703d4635b" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="bc851f02-1ccd-4867-9392-3c267f096dc6" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="2a717615-76b5-4da5-9a80-634551e4b1d7" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="e0eb8330-b8d4-41f8-93ef-edca2d8dd2a3" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="b20ce2be-552c-49ab-be1f-031f21d4286b" xml:space="preserve">
+          <source><bpt id="815babb3-6b31-4c6f-a205-2802bc336295">&lt;strong&gt;</bpt>Output<ept id="815babb3-6b31-4c6f-a205-2802bc336295">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="815babb3-6b31-4c6f-a205-2802bc336295">&lt;strong&gt;</bpt>Output<ept id="815babb3-6b31-4c6f-a205-2802bc336295">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="68fc2dfd-efea-4904-a3fb-c74beb715fb6" xml:space="preserve">
+          <source>CarsPassed</source>
+          <target state="new">CarsPassed</target>
+        </trans-unit>
+        <trans-unit id="5d698646-2845-4d1c-a0f8-2f6bcf85cc8f" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="9155b50e-9f3b-4153-8f74-e457c378da38" xml:space="preserve">
+          <source>1 Honda</source>
+          <target state="new">1 Honda</target>
+        </trans-unit>
+        <trans-unit id="3d1a75c2-556a-458f-b2bc-e01fc7d8c5be" xml:space="preserve">
+          <source>2015-01-01T00:00:10.0000000Z</source>
+          <target state="new">2015-01-01T00:00:10.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="d5d5b932-afd6-4858-9c88-456ab5807773" xml:space="preserve">
+          <source>2 Toyotas</source>
+          <target state="new">2 Toyotas</target>
+        </trans-unit>
+        <trans-unit id="8dfdefad-bcd0-4961-8fa9-248931568570" xml:space="preserve">
+          <source>2015-01-01T00:00:10.0000000Z</source>
+          <target state="new">2015-01-01T00:00:10.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="47ff91f6-e618-4e95-a7f0-4f89fd838083" xml:space="preserve">
+          <source><bpt id="edc4757e-0cf2-4077-96e9-282adcdcc3a8">&lt;strong&gt;</bpt>Solution<ept id="edc4757e-0cf2-4077-96e9-282adcdcc3a8">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="edc4757e-0cf2-4077-96e9-282adcdcc3a8">&lt;strong&gt;</bpt>Solution<ept id="edc4757e-0cf2-4077-96e9-282adcdcc3a8">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="b33f7e49-ddba-41d3-a9cb-a9213448988d" xml:space="preserve">
+          <source><bpt id="64267ac5-f65a-4970-bb1f-59fa37506adc">&lt;strong&gt;</bpt>Explanation<ept id="64267ac5-f65a-4970-bb1f-59fa37506adc">&lt;/strong&gt;</ept>:
+The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).</source>
+          <target state="new"><bpt id="64267ac5-f65a-4970-bb1f-59fa37506adc">&lt;strong&gt;</bpt>Explanation<ept id="64267ac5-f65a-4970-bb1f-59fa37506adc">&lt;/strong&gt;</ept>:
+The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).</target>
+        </trans-unit>
+        <trans-unit id="0cd8740f-6782-464d-bf22-a39ba7a27b14" xml:space="preserve">
+          <source><bpt id="ea001e67-602d-481b-bfa6-de5d7fcc3b2b">&lt;strong&gt;</bpt>Description<ept id="ea001e67-602d-481b-bfa6-de5d7fcc3b2b">&lt;/strong&gt;</ept>: Send data to multiple output targets from a single job.</source>
+          <target state="new"><bpt id="ea001e67-602d-481b-bfa6-de5d7fcc3b2b">&lt;strong&gt;</bpt>Description<ept id="ea001e67-602d-481b-bfa6-de5d7fcc3b2b">&lt;/strong&gt;</ept>: Send data to multiple output targets from a single job.</target>
+        </trans-unit>
+        <trans-unit id="2aa984a9-371c-48dc-a472-032104e099f1" xml:space="preserve">
+          <source>e.g. Analyze data for a threshold-based alert and archive all events to blob storage</source>
+          <target state="new">e.g. Analyze data for a threshold-based alert and archive all events to blob storage</target>
+        </trans-unit>
+        <trans-unit id="7c68ce09-1072-4710-8f3a-d031859fe4d3" xml:space="preserve">
+          <source><bpt id="0ff089f9-8dcb-4318-a38b-04a9b9a290f9">&lt;strong&gt;</bpt>Input<ept id="0ff089f9-8dcb-4318-a38b-04a9b9a290f9">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="0ff089f9-8dcb-4318-a38b-04a9b9a290f9">&lt;strong&gt;</bpt>Input<ept id="0ff089f9-8dcb-4318-a38b-04a9b9a290f9">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f8565806-f1ed-4e35-a859-ae44079027ea" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="03da1961-376a-453b-94d6-c2426be0ce94" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="cf3e4246-4f91-4862-b9f4-aebec874c12c" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="cdd3431d-4e44-4141-8aa7-b2e3a5680012" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="ecf75266-5916-497d-9bdc-96847fe0accc" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="92f049ac-d749-46de-8692-bf3a0ef4d589" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="f11cb3ac-031b-4516-a2b1-92a033e6ac82" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="24fad690-9ec9-4780-a6fd-ae49d3985366" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="7ecb3f9d-b985-45e9-a1b5-a0300ed42154" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="5f5e7348-09de-4a75-b231-99195ba942d6" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="d5de2f13-4a1f-4d1c-b64e-89a5b45e9796" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="750a884a-9a8e-4133-a858-5b9348396df2" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e9f1113e-0497-4f28-886b-0dcc0d71e520" xml:space="preserve">
+          <source><bpt id="1ed523d6-5a88-4dd7-b9a9-48c9b3b477a2">&lt;strong&gt;</bpt>Output1<ept id="1ed523d6-5a88-4dd7-b9a9-48c9b3b477a2">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="1ed523d6-5a88-4dd7-b9a9-48c9b3b477a2">&lt;strong&gt;</bpt>Output1<ept id="1ed523d6-5a88-4dd7-b9a9-48c9b3b477a2">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a86bc86c-275d-4c21-bca8-8b43942d73a2" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="3440c91d-ecbf-491e-a42b-a652b4b0f31d" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="3d0d3489-0fb3-467d-b43e-a8cf434d8536" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="f454a19f-45bd-4b97-a57a-264090d3b67e" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="1e597330-c376-4009-a79a-709a4580bd1c" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="44f688af-5d5a-4d72-8271-6f89fb402ebd" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="a63e3ae3-c489-4602-84f7-ae3500e67332" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="75ced120-ae43-4818-bb20-2608366ceb17" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="7e3a85e0-92ff-4a57-a41f-78a69c6381c4" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="583df983-aa15-46f6-be13-e3ddcb43c80c" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="f20c186e-7d36-4ac2-a6b3-5fb8b8cba4a9" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="f6b33752-c26a-44f9-bc9a-518c2031abc1" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="72bd94f9-01b9-4696-be65-42bc9cb86830" xml:space="preserve">
+          <source><bpt id="872dc959-6629-43bb-8ab2-93b19c75a4fe">&lt;strong&gt;</bpt>Output2<ept id="872dc959-6629-43bb-8ab2-93b19c75a4fe">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="872dc959-6629-43bb-8ab2-93b19c75a4fe">&lt;strong&gt;</bpt>Output2<ept id="872dc959-6629-43bb-8ab2-93b19c75a4fe">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="4440238a-c7d7-40e2-a0ef-e1463a231f93" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="50cb931c-5192-4208-baa5-7a141b755bd2" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="420ff5ac-53ab-4059-b8d2-5977aa29e243" xml:space="preserve">
+          <source>Count</source>
+          <target state="new">Count</target>
+        </trans-unit>
+        <trans-unit id="2631b8ee-7600-4e45-8fb0-baa4e8a9f924" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="964279b2-02a9-45e1-b3f7-ab4cab8231ac" xml:space="preserve">
+          <source>2015-01-01T00:00:10.0000000Z</source>
+          <target state="new">2015-01-01T00:00:10.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="f7e91ba7-5675-4c95-a297-5598c79de022" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="c4c8e6cf-d85a-4903-9b24-f97fe909ac60" xml:space="preserve">
+          <source><bpt id="bc470831-5bcb-4e69-97ce-bbdab4dbad07">&lt;strong&gt;</bpt>Solution<ept id="bc470831-5bcb-4e69-97ce-bbdab4dbad07">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="bc470831-5bcb-4e69-97ce-bbdab4dbad07">&lt;strong&gt;</bpt>Solution<ept id="bc470831-5bcb-4e69-97ce-bbdab4dbad07">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="136c36b9-18ed-4c5f-9c45-48ae97560b77" xml:space="preserve">
+          <source><bpt id="c36e0d72-c29b-449f-9a22-9a4625bd95b7">&lt;strong&gt;</bpt>Explanation<ept id="c36e0d72-c29b-449f-9a22-9a4625bd95b7">&lt;/strong&gt;</ept>:
+The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.</source>
+          <target state="new"><bpt id="c36e0d72-c29b-449f-9a22-9a4625bd95b7">&lt;strong&gt;</bpt>Explanation<ept id="c36e0d72-c29b-449f-9a22-9a4625bd95b7">&lt;/strong&gt;</ept>:
+The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.</target>
+        </trans-unit>
+        <trans-unit id="612e3094-a714-4e00-b083-769e67d35cb0" xml:space="preserve">
+          <source>The first query is a pass-through of the data we received to an output that we named ArchiveOutput.</source>
+          <target state="new">The first query is a pass-through of the data we received to an output that we named ArchiveOutput.</target>
+        </trans-unit>
+        <trans-unit id="5b47d51b-8811-43f0-9683-0877abc7229a" xml:space="preserve">
+          <source>The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.</source>
+          <target state="new">The second query does some simple aggregation and filtering and sends the results to a downstream alerting system.</target>
+        </trans-unit>
+        <trans-unit id="6d1f17c9-e581-4e6d-9f4c-85ab3b86a5af" xml:space="preserve">
+          <source><bpt id="2dd25db7-4e48-4ad3-992b-fb8d985358f3">&lt;em&gt;</bpt>Note<ept id="2dd25db7-4e48-4ad3-992b-fb8d985358f3">&lt;/em&gt;</ept>: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening less readers to the input source.</source>
+          <target state="new"><bpt id="2dd25db7-4e48-4ad3-992b-fb8d985358f3">&lt;em&gt;</bpt>Note<ept id="2dd25db7-4e48-4ad3-992b-fb8d985358f3">&lt;/em&gt;</ept>: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements – this has the added benefit of opening less readers to the input source.</target>
+        </trans-unit>
+        <trans-unit id="3e8940b2-45e0-44a4-9d2d-b610f4050e7c" xml:space="preserve">
+          <source>e.g. </source>
+          <target state="new">e.g. </target>
+        </trans-unit>
+        <trans-unit id="a2a2f297-157e-4208-8ea0-d0cda9ed550d" xml:space="preserve">
+          <source><bpt id="9b40d42e-9949-418d-8256-b97d9e7add8a">&lt;strong&gt;</bpt>Description<ept id="9b40d42e-9949-418d-8256-b97d9e7add8a">&lt;/strong&gt;</ept>: count the number of unique field values that appear in the stream within a time window.</source>
+          <target state="new"><bpt id="9b40d42e-9949-418d-8256-b97d9e7add8a">&lt;strong&gt;</bpt>Description<ept id="9b40d42e-9949-418d-8256-b97d9e7add8a">&lt;/strong&gt;</ept>: count the number of unique field values that appear in the stream within a time window.</target>
+        </trans-unit>
+        <trans-unit id="701d2b68-f215-4734-9b93-b26ce6a42f6d" xml:space="preserve">
+          <source>e.g. How many unique make of cars passed through the toll booth in a 2 second window?</source>
+          <target state="new">e.g. How many unique make of cars passed through the toll booth in a 2 second window?</target>
+        </trans-unit>
+        <trans-unit id="c81d65af-bef3-4702-ae8b-a45bb4177c6b" xml:space="preserve">
+          <source><bpt id="905792ff-62b1-4649-a650-6ad20b917e99">&lt;strong&gt;</bpt>Input<ept id="905792ff-62b1-4649-a650-6ad20b917e99">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="905792ff-62b1-4649-a650-6ad20b917e99">&lt;strong&gt;</bpt>Input<ept id="905792ff-62b1-4649-a650-6ad20b917e99">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="fc53af50-e40f-47ed-8d97-fb8080757d47" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="2808a34a-4ef2-4696-b5f5-4a49d7c3a8da" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="37918517-6b00-4539-b88d-4521b5a98fd7" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="e40e0783-a3b5-4c44-a216-78b6e3cd58ea" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="6d03c780-6604-4800-8bd6-c19444988a0a" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="569e74bd-27b2-4a22-b2be-4b9c48ba76d7" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="eed54b15-1b9c-4269-a21b-5c0523e9a5a4" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="cd429840-a860-4522-8717-9c406a1fe551" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="ebcc6f61-0816-417f-89f7-5a74b2213c38" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="a925e9cb-99af-4de5-a552-2ba8aacee1c6" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="7cefa5ce-649e-47d8-a596-bbd8170fa461" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="ff3b79f0-16ac-428b-810b-d616eca51b9a" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="02ab5580-63ad-4517-a0e3-a31049194fcd" xml:space="preserve">
+          <source><bpt id="ede05bf1-091c-400b-84f0-e76bea2c09ae">&lt;strong&gt;</bpt>Output:<ept id="ede05bf1-091c-400b-84f0-e76bea2c09ae">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ede05bf1-091c-400b-84f0-e76bea2c09ae">&lt;strong&gt;</bpt>Output:<ept id="ede05bf1-091c-400b-84f0-e76bea2c09ae">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45704a5a-7c56-4b8e-ba11-81b4378c357d" xml:space="preserve">
+          <source>Count</source>
+          <target state="new">Count</target>
+        </trans-unit>
+        <trans-unit id="527ce2f7-67bd-49c5-8c1f-430aa87518d2" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="98f03441-ee18-4232-a094-af86e3b5d8d7" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="ba2da50b-8eda-4346-8486-da6b7d55dbf9" xml:space="preserve">
+          <source>2015-01-01T00:00:02.000Z</source>
+          <target state="new">2015-01-01T00:00:02.000Z</target>
+        </trans-unit>
+        <trans-unit id="3917b9e9-5565-48f8-8b78-dcaf3925a7ed" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="5331d12c-111b-4d3b-9de7-3928dac20887" xml:space="preserve">
+          <source>2015-01-01T00:00:04.000Z</source>
+          <target state="new">2015-01-01T00:00:04.000Z</target>
+        </trans-unit>
+        <trans-unit id="47857bff-b677-4bf9-a77f-881e2b878a1a" xml:space="preserve">
+          <source><bpt id="bb455d61-6475-4573-a9ec-6a9f5fa94cfa">&lt;strong&gt;</bpt>Solution:<ept id="bb455d61-6475-4573-a9ec-6a9f5fa94cfa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bb455d61-6475-4573-a9ec-6a9f5fa94cfa">&lt;strong&gt;</bpt>Solution:<ept id="bb455d61-6475-4573-a9ec-6a9f5fa94cfa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56c98d39-6bfa-4925-8207-3f97d8705d98" xml:space="preserve">
+          <source><bpt id="8de7f239-33c6-4bbe-9009-d4bac845d42d">&lt;strong&gt;</bpt>Explanation:<ept id="8de7f239-33c6-4bbe-9009-d4bac845d42d">&lt;/strong&gt;</ept>
+We do an initial aggregation to get unique makes with their count over the window.</source>
+          <target state="new"><bpt id="8de7f239-33c6-4bbe-9009-d4bac845d42d">&lt;strong&gt;</bpt>Explanation:<ept id="8de7f239-33c6-4bbe-9009-d4bac845d42d">&lt;/strong&gt;</ept>
+We do an initial aggregation to get unique makes with their count over the window.</target>
+        </trans-unit>
+        <trans-unit id="bf723591-f953-45d3-af76-e55494463b81" xml:space="preserve">
+          <source>We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.</source>
+          <target state="new">We then do an aggregation of how many makes we got – given all unique values in a window get the same timestamp then the second aggregation window needs to be minimal to not aggregate 2 windows from the first step.</target>
+        </trans-unit>
+        <trans-unit id="4dcd70b0-1550-4817-aaa2-844d38a39a2b" xml:space="preserve">
+          <source><bpt id="498a5ad8-f9d0-4f3e-ae92-520a5a2940d4">&lt;strong&gt;</bpt>Description<ept id="498a5ad8-f9d0-4f3e-ae92-520a5a2940d4">&lt;/strong&gt;</ept>: Look at a previous value to determine if it is different than the current value
+e.g. Is the previous car on the Toll Road the same make as the current car?</source>
+          <target state="new"><bpt id="498a5ad8-f9d0-4f3e-ae92-520a5a2940d4">&lt;strong&gt;</bpt>Description<ept id="498a5ad8-f9d0-4f3e-ae92-520a5a2940d4">&lt;/strong&gt;</ept>: Look at a previous value to determine if it is different than the current value
+e.g. Is the previous car on the Toll Road the same make as the current car?</target>
+        </trans-unit>
+        <trans-unit id="7403dceb-4de9-47b0-8d10-ea70293989e3" xml:space="preserve">
+          <source><bpt id="2aa5359c-f9de-4e02-bc59-a63d7f8dab11">&lt;strong&gt;</bpt>Input<ept id="2aa5359c-f9de-4e02-bc59-a63d7f8dab11">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="2aa5359c-f9de-4e02-bc59-a63d7f8dab11">&lt;strong&gt;</bpt>Input<ept id="2aa5359c-f9de-4e02-bc59-a63d7f8dab11">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="cd0b44ad-4266-476a-a141-f25877b6ed25" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="c4c63f12-572c-40a4-baf8-2f0379192040" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="03b417ad-ab8c-47a4-be98-752b65faf6d4" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="89b0956d-ee3a-4f24-a937-0824fce2fda6" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="59c5ffbf-dcc4-431f-9fa0-d8c8e8e45416" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="3e87a8e1-ffb3-4d63-884a-b2499a4128a9" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="38ecc4ec-3700-4bfc-a298-65842e05924e" xml:space="preserve">
+          <source><bpt id="673506a5-8b74-4362-8291-d774e72f399e">&lt;strong&gt;</bpt>Output<ept id="673506a5-8b74-4362-8291-d774e72f399e">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="673506a5-8b74-4362-8291-d774e72f399e">&lt;strong&gt;</bpt>Output<ept id="673506a5-8b74-4362-8291-d774e72f399e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6a8d129a-63ef-416c-bcc6-4955685fe062" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="81e1ddcb-766d-4895-95d3-9f71529966d5" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="7e629b31-9a4a-41e9-80b9-be19c3c66f2e" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="235f5be6-46a1-48e7-ba44-d7dd962994d5" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="1a90d209-a622-4b5c-9838-793c9849bc4c" xml:space="preserve">
+          <source><bpt id="1a521119-dbb3-48a1-a5c7-d948acaa9b2d">&lt;strong&gt;</bpt>Solution<ept id="1a521119-dbb3-48a1-a5c7-d948acaa9b2d">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="1a521119-dbb3-48a1-a5c7-d948acaa9b2d">&lt;strong&gt;</bpt>Solution<ept id="1a521119-dbb3-48a1-a5c7-d948acaa9b2d">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="646cfee8-6e6f-458c-bcf4-946bb791efdb" xml:space="preserve">
+          <source><bpt id="9a40d0cc-da68-4cdf-8aec-3cacc1e7233c">&lt;strong&gt;</bpt>Explanation<ept id="9a40d0cc-da68-4cdf-8aec-3cacc1e7233c">&lt;/strong&gt;</ept>:
+Use LAG to peek into the input stream one event back and get the Make value.</source>
+          <target state="new"><bpt id="9a40d0cc-da68-4cdf-8aec-3cacc1e7233c">&lt;strong&gt;</bpt>Explanation<ept id="9a40d0cc-da68-4cdf-8aec-3cacc1e7233c">&lt;/strong&gt;</ept>:
+Use LAG to peek into the input stream one event back and get the Make value.</target>
+        </trans-unit>
+        <trans-unit id="30bf4844-dc70-4a97-9016-f7542f08ba07" xml:space="preserve">
+          <source>Then compare it to the Make on the current event and output the event if they are different.</source>
+          <target state="new">Then compare it to the Make on the current event and output the event if they are different.</target>
+        </trans-unit>
+        <trans-unit id="447d3a31-499a-4212-9116-45dc8360a564" xml:space="preserve">
+          <source><bpt id="086e73da-b219-413a-a1ae-8db0699beaa7">&lt;strong&gt;</bpt>Description<ept id="086e73da-b219-413a-a1ae-8db0699beaa7">&lt;/strong&gt;</ept>: Find first car in every 10 minute interval?</source>
+          <target state="new"><bpt id="086e73da-b219-413a-a1ae-8db0699beaa7">&lt;strong&gt;</bpt>Description<ept id="086e73da-b219-413a-a1ae-8db0699beaa7">&lt;/strong&gt;</ept>: Find first car in every 10 minute interval?</target>
+        </trans-unit>
+        <trans-unit id="3773744e-4df9-4154-8559-d97eb8becd28" xml:space="preserve">
+          <source><bpt id="2a19e1b6-1fa5-4ff3-bdfa-00fea43eb4aa">&lt;strong&gt;</bpt>Input<ept id="2a19e1b6-1fa5-4ff3-bdfa-00fea43eb4aa">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="2a19e1b6-1fa5-4ff3-bdfa-00fea43eb4aa">&lt;strong&gt;</bpt>Input<ept id="2a19e1b6-1fa5-4ff3-bdfa-00fea43eb4aa">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="332769be-0da9-4333-95c1-3691e0888921" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="dfd2b1b7-29c7-4926-b1a0-4bc81ad6f009" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="bacbed80-92b3-4159-a9f6-ba303f85a17a" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="c6bb64d9-7b95-4ac1-ae5e-d1c29a15132a" xml:space="preserve">
+          <source>DXE 5291</source>
+          <target state="new">DXE 5291</target>
+        </trans-unit>
+        <trans-unit id="c02e811e-9720-42c1-9eb8-ea435d8e2274" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="b9d2f725-8142-40b1-aaf3-b7863de5f4da" xml:space="preserve">
+          <source>2015-07-27T00:00:05.0000000Z</source>
+          <target state="new">2015-07-27T00:00:05.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="61ca2093-c98d-4eae-8bd3-bab30efac0f4" xml:space="preserve">
+          <source>YZK 5704</source>
+          <target state="new">YZK 5704</target>
+        </trans-unit>
+        <trans-unit id="84e423fe-1d4f-49ec-9113-555f40719114" xml:space="preserve">
+          <source>Ford</source>
+          <target state="new">Ford</target>
+        </trans-unit>
+        <trans-unit id="0f72fee2-e3d4-4e8a-9e0a-53cd5bf78fa0" xml:space="preserve">
+          <source>2015-07-27T00:02:17.0000000Z</source>
+          <target state="new">2015-07-27T00:02:17.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="7f761aeb-2b04-42ef-b23d-d789b0a79f27" xml:space="preserve">
+          <source>RMV 8282</source>
+          <target state="new">RMV 8282</target>
+        </trans-unit>
+        <trans-unit id="bb9bb0d5-fcef-4915-a34f-12d2d759e751" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="e074be12-d1ce-4c3d-be57-cebb4c236f7f" xml:space="preserve">
+          <source>2015-07-27T00:05:01.0000000Z</source>
+          <target state="new">2015-07-27T00:05:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="f72c1d9b-c4bf-4808-8c13-6a5d763a7cde" xml:space="preserve">
+          <source>YHN 6970</source>
+          <target state="new">YHN 6970</target>
+        </trans-unit>
+        <trans-unit id="8a568ada-a415-4471-bba1-a1ad9efd9122" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="12850ad4-3bd8-413d-93cd-a4901f5982da" xml:space="preserve">
+          <source>2015-07-27T00:06:00.0000000Z</source>
+          <target state="new">2015-07-27T00:06:00.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="40be53fb-debd-4207-a0e0-5e9dcd347b0b" xml:space="preserve">
+          <source>VFE 1616</source>
+          <target state="new">VFE 1616</target>
+        </trans-unit>
+        <trans-unit id="7216da5b-1bfc-4d63-83e6-d603e61a5765" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="f5b19593-59f8-44bf-aae6-428cc7421ef1" xml:space="preserve">
+          <source>2015-07-27T00:09:31.0000000Z</source>
+          <target state="new">2015-07-27T00:09:31.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="7fffa29a-46a8-45b9-8098-14e1fbcf6c86" xml:space="preserve">
+          <source>QYF 9358</source>
+          <target state="new">QYF 9358</target>
+        </trans-unit>
+        <trans-unit id="830dc37c-d836-4465-902e-c481a55edb1c" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="0658986c-6276-491b-bc12-c12d36787d14" xml:space="preserve">
+          <source>2015-07-27T00:12:02.0000000Z</source>
+          <target state="new">2015-07-27T00:12:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="4b2553a9-806b-4058-8124-328a70dd6181" xml:space="preserve">
+          <source>MDR 6128</source>
+          <target state="new">MDR 6128</target>
+        </trans-unit>
+        <trans-unit id="fa6a3d6e-1ed9-498f-92f3-79e5f8186e18" xml:space="preserve">
+          <source>BMW</source>
+          <target state="new">BMW</target>
+        </trans-unit>
+        <trans-unit id="3c132cd0-dd7e-490b-9bef-0a100f542bdb" xml:space="preserve">
+          <source>2015-07-27T00:13:45.0000000Z</source>
+          <target state="new">2015-07-27T00:13:45.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="5260617b-e7d0-40cc-a6a8-426dbca453d3" xml:space="preserve">
+          <source><bpt id="d7e70fc3-38a4-4ecb-aea3-054d03b4e157">&lt;strong&gt;</bpt>Output<ept id="d7e70fc3-38a4-4ecb-aea3-054d03b4e157">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="d7e70fc3-38a4-4ecb-aea3-054d03b4e157">&lt;strong&gt;</bpt>Output<ept id="d7e70fc3-38a4-4ecb-aea3-054d03b4e157">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="c3b3007e-3cc7-4b3d-b3c2-c33ac066bc31" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="698611eb-211e-4554-97fe-daebab1cf0d4" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="369131e5-503e-4a4c-a2cd-63ac0119d942" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="bf8bceb9-ffdf-4a65-b4a7-fdaf31009a0d" xml:space="preserve">
+          <source>DXE 5291</source>
+          <target state="new">DXE 5291</target>
+        </trans-unit>
+        <trans-unit id="7c4e38aa-4cef-478c-8bbb-b2095ebf49ae" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="273893c2-7b3f-4f43-963f-3b077c6b3a6b" xml:space="preserve">
+          <source>2015-07-27T00:00:05.0000000Z</source>
+          <target state="new">2015-07-27T00:00:05.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="9d784395-0ce7-4a22-9f7f-cbfeeebe4914" xml:space="preserve">
+          <source>QYF 9358</source>
+          <target state="new">QYF 9358</target>
+        </trans-unit>
+        <trans-unit id="23cbad5b-2f27-43db-8a69-2c77c9d2393e" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="bfe7bc51-bc4e-48e4-85de-3729f806c018" xml:space="preserve">
+          <source>2015-07-27T00:12:02.0000000Z</source>
+          <target state="new">2015-07-27T00:12:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="68063afb-89c6-4f97-8c63-f694df4ce802" xml:space="preserve">
+          <source><bpt id="8b7e82ed-7f95-40fc-9d1b-f88633f0f4ed">&lt;strong&gt;</bpt>Solution<ept id="8b7e82ed-7f95-40fc-9d1b-f88633f0f4ed">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="8b7e82ed-7f95-40fc-9d1b-f88633f0f4ed">&lt;strong&gt;</bpt>Solution<ept id="8b7e82ed-7f95-40fc-9d1b-f88633f0f4ed">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d53fdce3-9c35-40bf-979b-e31bd855ea97" xml:space="preserve">
+          <source>Now let’s change the problem and find first car of particular Make in every 10 minute interval.</source>
+          <target state="new">Now let’s change the problem and find first car of particular Make in every 10 minute interval.</target>
+        </trans-unit>
+        <trans-unit id="2d281408-3c0a-4a65-9f4e-752ca20c3255" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="b616f0e9-ae87-42dc-aa52-ac19a07f3924" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="3778dfd4-29bd-4680-8aeb-21ce6b94b308" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="28b4634d-7402-42de-9761-cc99ff266636" xml:space="preserve">
+          <source>DXE 5291</source>
+          <target state="new">DXE 5291</target>
+        </trans-unit>
+        <trans-unit id="f5d46b23-5af6-4e8a-a268-ceea83254013" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="51e3b940-ba43-4f5b-811f-06184b51c864" xml:space="preserve">
+          <source>2015-07-27T00:00:05.0000000Z</source>
+          <target state="new">2015-07-27T00:00:05.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="977c0560-a33f-4c53-9d8b-47f35bc9fa48" xml:space="preserve">
+          <source>YZK 5704</source>
+          <target state="new">YZK 5704</target>
+        </trans-unit>
+        <trans-unit id="d0f2b27f-c05c-41a9-ab4c-63636cc19c2d" xml:space="preserve">
+          <source>Ford</source>
+          <target state="new">Ford</target>
+        </trans-unit>
+        <trans-unit id="0e6bf3c8-3ded-4037-866b-a77adb184c00" xml:space="preserve">
+          <source>2015-07-27T00:02:17.0000000Z</source>
+          <target state="new">2015-07-27T00:02:17.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="3eaba79d-5d93-4a21-ba1f-adb1614f818f" xml:space="preserve">
+          <source>YHN 6970</source>
+          <target state="new">YHN 6970</target>
+        </trans-unit>
+        <trans-unit id="60555b14-0bd3-4d56-b579-1eedda66b198" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="df4ccf14-347a-488d-a3c9-820a01ffb252" xml:space="preserve">
+          <source>2015-07-27T00:06:00.0000000Z</source>
+          <target state="new">2015-07-27T00:06:00.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="baf5eba5-23cc-4eae-84ec-a012dcc77bc4" xml:space="preserve">
+          <source>QYF 9358</source>
+          <target state="new">QYF 9358</target>
+        </trans-unit>
+        <trans-unit id="f11dc46b-a5e4-4679-8076-73f7d5e09dc2" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="e7714e57-a41a-4ba6-9e5c-2138bfa548c3" xml:space="preserve">
+          <source>2015-07-27T00:12:02.0000000Z</source>
+          <target state="new">2015-07-27T00:12:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="2709b388-59df-43e9-90f7-8fd7a4a3ca3d" xml:space="preserve">
+          <source>MDR 6128</source>
+          <target state="new">MDR 6128</target>
+        </trans-unit>
+        <trans-unit id="36ea5d3d-db5e-41c6-a32b-4e0f860179c5" xml:space="preserve">
+          <source>BMW</source>
+          <target state="new">BMW</target>
+        </trans-unit>
+        <trans-unit id="0c7db8d8-309e-418c-b034-3a77238384d8" xml:space="preserve">
+          <source>2015-07-27T00:13:45.0000000Z</source>
+          <target state="new">2015-07-27T00:13:45.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="b6787587-6ee5-4866-a282-9ee4347c17b5" xml:space="preserve">
+          <source><bpt id="de4b8c4c-0e5a-4ba2-bf97-973fce7041bc">&lt;strong&gt;</bpt>Solution<ept id="de4b8c4c-0e5a-4ba2-bf97-973fce7041bc">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="de4b8c4c-0e5a-4ba2-bf97-973fce7041bc">&lt;strong&gt;</bpt>Solution<ept id="de4b8c4c-0e5a-4ba2-bf97-973fce7041bc">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5479b78d-b775-41a6-83ac-d0473b35821f" xml:space="preserve">
+          <source><bpt id="58b0d5a5-be37-40f6-83e6-8a0a4af32602">&lt;strong&gt;</bpt>Description<ept id="58b0d5a5-be37-40f6-83e6-8a0a4af32602">&lt;/strong&gt;</ept>: Find last car in every 10 minute interval.</source>
+          <target state="new"><bpt id="58b0d5a5-be37-40f6-83e6-8a0a4af32602">&lt;strong&gt;</bpt>Description<ept id="58b0d5a5-be37-40f6-83e6-8a0a4af32602">&lt;/strong&gt;</ept>: Find last car in every 10 minute interval.</target>
+        </trans-unit>
+        <trans-unit id="c84c3f97-0122-47c0-b2fd-7e58724e27e5" xml:space="preserve">
+          <source><bpt id="95a2722e-f604-4453-9288-72b5c012ddce">&lt;strong&gt;</bpt>Input<ept id="95a2722e-f604-4453-9288-72b5c012ddce">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="95a2722e-f604-4453-9288-72b5c012ddce">&lt;strong&gt;</bpt>Input<ept id="95a2722e-f604-4453-9288-72b5c012ddce">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a14b1aae-23b5-4a6f-9754-e48b484b4509" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="c3dbf8d6-5559-4300-ba9c-3d58b6a540f5" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="51f8f81a-8b31-4a4a-b64a-7b3bb41ce3c4" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="d3f59dae-9802-4088-9321-36dabe425846" xml:space="preserve">
+          <source>DXE 5291</source>
+          <target state="new">DXE 5291</target>
+        </trans-unit>
+        <trans-unit id="0a6cc0e3-24cd-4e30-8d32-8678b743fda9" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="1154593f-2690-4699-8447-8818b7c2d6a6" xml:space="preserve">
+          <source>2015-07-27T00:00:05.0000000Z</source>
+          <target state="new">2015-07-27T00:00:05.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="ee6011b8-4696-4bab-985c-30101300ddbc" xml:space="preserve">
+          <source>YZK 5704</source>
+          <target state="new">YZK 5704</target>
+        </trans-unit>
+        <trans-unit id="8ce40a59-c097-4a06-99e9-28d80eb80f0e" xml:space="preserve">
+          <source>Ford</source>
+          <target state="new">Ford</target>
+        </trans-unit>
+        <trans-unit id="e248b884-3f40-47cd-b7bf-b04d484a671e" xml:space="preserve">
+          <source>2015-07-27T00:02:17.0000000Z</source>
+          <target state="new">2015-07-27T00:02:17.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="0fd64050-30f0-4907-8f6e-d752437a7ec8" xml:space="preserve">
+          <source>RMV 8282</source>
+          <target state="new">RMV 8282</target>
+        </trans-unit>
+        <trans-unit id="ac8b4136-5203-432a-ac9f-5419acf91ec8" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="02231d0f-1953-4cc6-ab55-6f813e00582c" xml:space="preserve">
+          <source>2015-07-27T00:05:01.0000000Z</source>
+          <target state="new">2015-07-27T00:05:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e45e0d26-6b95-47bc-81a8-3a5b30a2a3c3" xml:space="preserve">
+          <source>YHN 6970</source>
+          <target state="new">YHN 6970</target>
+        </trans-unit>
+        <trans-unit id="33589516-fadc-47c0-8f44-cb8cfedbfddc" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="44c0c838-8b69-41b3-adb3-4eecb288d2f7" xml:space="preserve">
+          <source>2015-07-27T00:06:00.0000000Z</source>
+          <target state="new">2015-07-27T00:06:00.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="505e17eb-5244-46b9-bbeb-5f4cdd1ec74f" xml:space="preserve">
+          <source>VFE 1616</source>
+          <target state="new">VFE 1616</target>
+        </trans-unit>
+        <trans-unit id="2bac0fd3-cd81-4ddb-99b1-7cf20ce413a1" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="80581a8b-a39b-44d0-a68a-0d6608ffde60" xml:space="preserve">
+          <source>2015-07-27T00:09:31.0000000Z</source>
+          <target state="new">2015-07-27T00:09:31.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="5a51156e-68ee-47ff-832e-836535408f69" xml:space="preserve">
+          <source>QYF 9358</source>
+          <target state="new">QYF 9358</target>
+        </trans-unit>
+        <trans-unit id="d167855c-dc14-43f2-92b6-e6ea0d83baa8" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="7649c2ae-1385-42ee-8762-81e229572b01" xml:space="preserve">
+          <source>2015-07-27T00:12:02.0000000Z</source>
+          <target state="new">2015-07-27T00:12:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="402fa677-0a03-4b07-bfca-96e2bb92f42a" xml:space="preserve">
+          <source>MDR 6128</source>
+          <target state="new">MDR 6128</target>
+        </trans-unit>
+        <trans-unit id="4402c227-4923-449c-8367-6d0472db425d" xml:space="preserve">
+          <source>BMW</source>
+          <target state="new">BMW</target>
+        </trans-unit>
+        <trans-unit id="115ef24b-3d2f-4361-ab10-f9cafe8ff390" xml:space="preserve">
+          <source>2015-07-27T00:13:45.0000000Z</source>
+          <target state="new">2015-07-27T00:13:45.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="2dc266db-1fda-4324-b6df-73851607f8bb" xml:space="preserve">
+          <source><bpt id="4ea73dc2-2693-4dd7-97c2-9094bdb7f0b3">&lt;strong&gt;</bpt>Output<ept id="4ea73dc2-2693-4dd7-97c2-9094bdb7f0b3">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="4ea73dc2-2693-4dd7-97c2-9094bdb7f0b3">&lt;strong&gt;</bpt>Output<ept id="4ea73dc2-2693-4dd7-97c2-9094bdb7f0b3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="07e66805-f6bd-490d-a0e5-9f674a1af90e" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="60e90733-299a-4df5-b74c-b38bf95f36e5" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="411e09f4-e4b9-45bf-b3c5-38222324f35d" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="63ecf94e-c428-4c47-8f7b-e775ba35399d" xml:space="preserve">
+          <source>VFE 1616</source>
+          <target state="new">VFE 1616</target>
+        </trans-unit>
+        <trans-unit id="29ebeb24-1d75-4096-a205-c90200c15982" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="b29e0c00-45cc-42a4-9de8-359006208c19" xml:space="preserve">
+          <source>2015-07-27T00:09:31.0000000Z</source>
+          <target state="new">2015-07-27T00:09:31.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e38836a0-cf49-4426-ae96-aae479acb3ce" xml:space="preserve">
+          <source>MDR 6128</source>
+          <target state="new">MDR 6128</target>
+        </trans-unit>
+        <trans-unit id="0a0657d2-f353-4f7e-be12-f65feceef895" xml:space="preserve">
+          <source>BMW</source>
+          <target state="new">BMW</target>
+        </trans-unit>
+        <trans-unit id="eb81ff82-8a24-4ce9-a903-c32db281058d" xml:space="preserve">
+          <source>2015-07-27T00:13:45.0000000Z</source>
+          <target state="new">2015-07-27T00:13:45.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="1c2ccf0a-6858-4211-b854-6b589bf769d8" xml:space="preserve">
+          <source><bpt id="53e933f7-dd2d-4402-a0a3-1b996dd59b0e">&lt;strong&gt;</bpt>Solution<ept id="53e933f7-dd2d-4402-a0a3-1b996dd59b0e">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="53e933f7-dd2d-4402-a0a3-1b996dd59b0e">&lt;strong&gt;</bpt>Solution<ept id="53e933f7-dd2d-4402-a0a3-1b996dd59b0e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1267688e-98fc-425c-ac14-c7d9efbc4c44" xml:space="preserve">
+          <source><bpt id="cb175d5b-4658-471c-9fef-3b408abf169d">&lt;strong&gt;</bpt>Explanation<ept id="cb175d5b-4658-471c-9fef-3b408abf169d">&lt;/strong&gt;</ept>:
+There are two steps in the query – the first one finds latest timestamp in 10 minute windows.</source>
+          <target state="new"><bpt id="cb175d5b-4658-471c-9fef-3b408abf169d">&lt;strong&gt;</bpt>Explanation<ept id="cb175d5b-4658-471c-9fef-3b408abf169d">&lt;/strong&gt;</ept>:
+There are two steps in the query – the first one finds latest timestamp in 10 minute windows.</target>
+        </trans-unit>
+        <trans-unit id="67524782-c949-4bb0-8e8c-923a4009a63e" xml:space="preserve">
+          <source>The second step joins results of the first query with original stream to find events matching last timestamps in each window.</source>
+          <target state="new">The second step joins results of the first query with original stream to find events matching last timestamps in each window.</target>
+        </trans-unit>
+        <trans-unit id="a16111cf-3a9c-4137-b777-6500e352424e" xml:space="preserve">
+          <source><bpt id="59bd2501-cc9e-4f60-838b-19838c0d5264">&lt;strong&gt;</bpt>Description<ept id="59bd2501-cc9e-4f60-838b-19838c0d5264">&lt;/strong&gt;</ept>: Check that a stream has no value that matches a certain criteria.</source>
+          <target state="new"><bpt id="59bd2501-cc9e-4f60-838b-19838c0d5264">&lt;strong&gt;</bpt>Description<ept id="59bd2501-cc9e-4f60-838b-19838c0d5264">&lt;/strong&gt;</ept>: Check that a stream has no value that matches a certain criteria.</target>
+        </trans-unit>
+        <trans-unit id="00b7184c-ac57-4802-8240-8119ae1224b6" xml:space="preserve">
+          <source>e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?</source>
+          <target state="new">e.g. Have 2 consecutive cars from the same make entered the toll road within 90 seconds?</target>
+        </trans-unit>
+        <trans-unit id="379ce8f0-08b4-49a8-8a65-9ffce0360696" xml:space="preserve">
+          <source><bpt id="1da075a7-93b5-4d17-980c-e7f7e3e2305c">&lt;strong&gt;</bpt>Input<ept id="1da075a7-93b5-4d17-980c-e7f7e3e2305c">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="1da075a7-93b5-4d17-980c-e7f7e3e2305c">&lt;strong&gt;</bpt>Input<ept id="1da075a7-93b5-4d17-980c-e7f7e3e2305c">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="144a1494-d7ef-45b2-a71b-894f0bf0c978" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="ed25bb66-83a5-468f-8d0c-6886742f96f5" xml:space="preserve">
+          <source>LicensePlate</source>
+          <target state="new">LicensePlate</target>
+        </trans-unit>
+        <trans-unit id="8eaccd16-fb4d-44c2-891d-1e46f3707d4f" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="0ba36867-f8e5-4e73-9673-9ce73ac19f96" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="968c543d-6365-45d6-89d4-2eded65471e7" xml:space="preserve">
+          <source>ABC-123</source>
+          <target state="new">ABC-123</target>
+        </trans-unit>
+        <trans-unit id="782f8fe6-1655-4398-8382-9247abb0912a" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e4b64ef2-4157-487a-b03b-c1cfe8ec7458" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="230b8744-5617-4e29-a67d-b245453ce522" xml:space="preserve">
+          <source>AAA-999</source>
+          <target state="new">AAA-999</target>
+        </trans-unit>
+        <trans-unit id="f07cc7a1-1e04-4c07-b281-c628f7d4cde4" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="b4045421-985a-46e7-9068-a85f79367237" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="adb2fac4-4b89-433a-9145-85b026e5052a" xml:space="preserve">
+          <source>DEF-987</source>
+          <target state="new">DEF-987</target>
+        </trans-unit>
+        <trans-unit id="81a458de-8a43-4ffe-b411-6cf7a297fb30" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e74982a0-1d84-4d9c-94e9-c54ff1de00f6" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="55cf82ab-39da-4a13-97b2-e13dbeb8c2a2" xml:space="preserve">
+          <source>GHI-345</source>
+          <target state="new">GHI-345</target>
+        </trans-unit>
+        <trans-unit id="92fbff00-dacd-4312-96ac-8c3ec1769fb0" xml:space="preserve">
+          <source>2015-01-01T00:00:04.0000000Z</source>
+          <target state="new">2015-01-01T00:00:04.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="cdcfef3b-d003-47c3-ba88-193166a00126" xml:space="preserve">
+          <source><bpt id="d0d358e6-9702-4e7e-9248-6c4e41688de4">&lt;strong&gt;</bpt>Output<ept id="d0d358e6-9702-4e7e-9248-6c4e41688de4">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="d0d358e6-9702-4e7e-9248-6c4e41688de4">&lt;strong&gt;</bpt>Output<ept id="d0d358e6-9702-4e7e-9248-6c4e41688de4">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d07c7a9d-b303-42fe-ab7b-e6287c6514be" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="2a19d0e3-cd29-4521-a5f9-6278c765f8b2" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="8799f242-7958-4fb5-91fc-1ff6bc64df45" xml:space="preserve">
+          <source>CurrentCarLicensePlate</source>
+          <target state="new">CurrentCarLicensePlate</target>
+        </trans-unit>
+        <trans-unit id="dc8711c7-11aa-4400-bb0b-55cd3eb071d8" xml:space="preserve">
+          <source>FirstCarLicensePlate</source>
+          <target state="new">FirstCarLicensePlate</target>
+        </trans-unit>
+        <trans-unit id="9e9c2001-c64f-4101-96f0-e88ccca496aa" xml:space="preserve">
+          <source>FirstCarTime</source>
+          <target state="new">FirstCarTime</target>
+        </trans-unit>
+        <trans-unit id="d9aea500-6f55-4ff4-84cc-d0b1a1d47ee9" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="77d386ac-f8ee-4baa-9365-e3452a56f08b" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e07b0bd9-76a2-431f-abb7-32e57003dbde" xml:space="preserve">
+          <source>AAA-999</source>
+          <target state="new">AAA-999</target>
+        </trans-unit>
+        <trans-unit id="ba85e643-9453-4ed2-8494-25230fc89ce8" xml:space="preserve">
+          <source>ABC-123</source>
+          <target state="new">ABC-123</target>
+        </trans-unit>
+        <trans-unit id="0f809765-f160-499d-95fc-bf3502d06793" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="9137ebd4-28e7-41d1-ad81-1525f3c07866" xml:space="preserve">
+          <source><bpt id="377e4dcd-f42c-4f5b-8a2c-e90eddfc4f5b">&lt;strong&gt;</bpt>Solution<ept id="377e4dcd-f42c-4f5b-8a2c-e90eddfc4f5b">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="377e4dcd-f42c-4f5b-8a2c-e90eddfc4f5b">&lt;strong&gt;</bpt>Solution<ept id="377e4dcd-f42c-4f5b-8a2c-e90eddfc4f5b">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="89b2cc63-efad-4ebd-b720-825241f69eac" xml:space="preserve">
+          <source><bpt id="036266d5-80f3-4393-b9b4-c59b714ff586">&lt;strong&gt;</bpt>Explanation<ept id="036266d5-80f3-4393-b9b4-c59b714ff586">&lt;/strong&gt;</ept>:
+Use LAG to peek into the input stream one event back and get the Make value.</source>
+          <target state="new"><bpt id="036266d5-80f3-4393-b9b4-c59b714ff586">&lt;strong&gt;</bpt>Explanation<ept id="036266d5-80f3-4393-b9b4-c59b714ff586">&lt;/strong&gt;</ept>:
+Use LAG to peek into the input stream one event back and get the Make value.</target>
+        </trans-unit>
+        <trans-unit id="1b572074-44a2-4f1c-84c3-56abd9127a9c" xml:space="preserve">
+          <source>Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.</source>
+          <target state="new">Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.</target>
+        </trans-unit>
+        <trans-unit id="2c15d3f8-400d-4987-a553-618c41895df5" xml:space="preserve">
+          <source><bpt id="5692afb6-ac20-4f2c-93ae-1475c84e03bf">&lt;strong&gt;</bpt>Description<ept id="5692afb6-ac20-4f2c-93ae-1475c84e03bf">&lt;/strong&gt;</ept>: Find out how long a condition occurred for.</source>
+          <target state="new"><bpt id="5692afb6-ac20-4f2c-93ae-1475c84e03bf">&lt;strong&gt;</bpt>Description<ept id="5692afb6-ac20-4f2c-93ae-1475c84e03bf">&lt;/strong&gt;</ept>: Find out how long a condition occurred for.</target>
+        </trans-unit>
+        <trans-unit id="9b4b2517-cf47-41f2-9298-a204ffb7106f" xml:space="preserve">
+          <source>e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.</source>
+          <target state="new">e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,000 pounds) – we want to compute the duration of the bug.</target>
+        </trans-unit>
+        <trans-unit id="9b480989-71f5-4813-a8af-69c0b628f54d" xml:space="preserve">
+          <source><bpt id="5f56703a-bbfd-4ce5-a1fd-f016124c5058">&lt;strong&gt;</bpt>Input<ept id="5f56703a-bbfd-4ce5-a1fd-f016124c5058">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="5f56703a-bbfd-4ce5-a1fd-f016124c5058">&lt;strong&gt;</bpt>Input<ept id="5f56703a-bbfd-4ce5-a1fd-f016124c5058">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="d44b9ef4-0ee2-4e41-85a9-f0a0b4df86b6" xml:space="preserve">
+          <source>Make</source>
+          <target state="new">Make</target>
+        </trans-unit>
+        <trans-unit id="47acc5ce-1f4d-4e81-9f0c-ff71360013e4" xml:space="preserve">
+          <source>Time</source>
+          <target state="new">Time</target>
+        </trans-unit>
+        <trans-unit id="1f3536b5-70c2-46c8-a251-c62d5ca8c87b" xml:space="preserve">
+          <source>Weight</source>
+          <target state="new">Weight</target>
+        </trans-unit>
+        <trans-unit id="841f77d0-4010-4214-ae40-507701b7e6df" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="7ff52585-e2e0-4c68-9f46-b9353da58c22" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="c7be6add-10cc-499d-817d-d9dc6195fdfd" xml:space="preserve">
+          <source>2000</source>
+          <target state="new">2000</target>
+        </trans-unit>
+        <trans-unit id="4bd50851-1098-4a7a-88ca-cb84585df923" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="9db3c567-b25c-4582-b132-26cdbffaa378" xml:space="preserve">
+          <source>2015-01-01T00:00:02.0000000Z</source>
+          <target state="new">2015-01-01T00:00:02.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="351749ca-dea5-45f3-b3f8-bd67e308bfb2" xml:space="preserve">
+          <source>25000</source>
+          <target state="new">25000</target>
+        </trans-unit>
+        <trans-unit id="22626534-70fc-4152-b85e-82fe6cbb9da8" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="566358ac-05ae-4c75-b282-2456ef007135" xml:space="preserve">
+          <source>2015-01-01T00:00:03.0000000Z</source>
+          <target state="new">2015-01-01T00:00:03.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="1fa6cde1-1e09-4dcd-a81e-e02ebf97a2ff" xml:space="preserve">
+          <source>26000</source>
+          <target state="new">26000</target>
+        </trans-unit>
+        <trans-unit id="bcfd2dd4-12a7-4d12-91d5-526aad1c29fd" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="14df4b85-b319-489f-92d5-0df777061865" xml:space="preserve">
+          <source>2015-01-01T00:00:04.0000000Z</source>
+          <target state="new">2015-01-01T00:00:04.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="f6d1269f-003f-4455-9bed-5b87281817e3" xml:space="preserve">
+          <source>25000</source>
+          <target state="new">25000</target>
+        </trans-unit>
+        <trans-unit id="10e7332a-b3e4-40b1-9c24-259a5ca519ef" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="9e1efec9-d884-4997-ab85-7af5fca9e7ce" xml:space="preserve">
+          <source>2015-01-01T00:00:05.0000000Z</source>
+          <target state="new">2015-01-01T00:00:05.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="58fffcc4-9e37-486a-8456-870d67d67f3c" xml:space="preserve">
+          <source>26000</source>
+          <target state="new">26000</target>
+        </trans-unit>
+        <trans-unit id="138abe4d-d523-4c9b-8cea-03b82b6430b6" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="68a2635e-598a-4f5d-aa9d-1efc54ecc583" xml:space="preserve">
+          <source>2015-01-01T00:00:06.0000000Z</source>
+          <target state="new">2015-01-01T00:00:06.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="4b6f1763-4978-42a2-8012-79b875b4bc23" xml:space="preserve">
+          <source>25000</source>
+          <target state="new">25000</target>
+        </trans-unit>
+        <trans-unit id="2f489dc9-c3ea-457a-b9d4-15ce29ec3ae3" xml:space="preserve">
+          <source>Honda</source>
+          <target state="new">Honda</target>
+        </trans-unit>
+        <trans-unit id="7a017236-c01f-45e1-8e75-01c05b312458" xml:space="preserve">
+          <source>2015-01-01T00:00:07.0000000Z</source>
+          <target state="new">2015-01-01T00:00:07.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="c69416ba-c1e7-433f-90a4-026d5093317b" xml:space="preserve">
+          <source>26000</source>
+          <target state="new">26000</target>
+        </trans-unit>
+        <trans-unit id="9b800924-7a4e-463e-8248-405cdf27ccc7" xml:space="preserve">
+          <source>Toyota</source>
+          <target state="new">Toyota</target>
+        </trans-unit>
+        <trans-unit id="2a9d136c-5b88-40ff-bbcc-d133bcd1d3a5" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="94218f9a-56c8-40c3-95fa-edbc8b9e3b10" xml:space="preserve">
+          <source>2000</source>
+          <target state="new">2000</target>
+        </trans-unit>
+        <trans-unit id="69921570-6a49-4be3-8812-867308731814" xml:space="preserve">
+          <source><bpt id="53b2c3cc-19b2-4712-bf34-4b974d5fcee0">&lt;strong&gt;</bpt>Output<ept id="53b2c3cc-19b2-4712-bf34-4b974d5fcee0">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="53b2c3cc-19b2-4712-bf34-4b974d5fcee0">&lt;strong&gt;</bpt>Output<ept id="53b2c3cc-19b2-4712-bf34-4b974d5fcee0">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="106397dd-013b-44c9-8d47-5d7654d09b5d" xml:space="preserve">
+          <source>StartFault</source>
+          <target state="new">StartFault</target>
+        </trans-unit>
+        <trans-unit id="bb9d89f4-8a60-4541-8f1c-c44eb5a7374a" xml:space="preserve">
+          <source>EndFault</source>
+          <target state="new">EndFault</target>
+        </trans-unit>
+        <trans-unit id="ef6e1bcd-f787-488a-86e9-84b106d5c8cc" xml:space="preserve">
+          <source>FaultDurationSeconds</source>
+          <target state="new">FaultDurationSeconds</target>
+        </trans-unit>
+        <trans-unit id="fdb896ae-a958-4f87-902d-a6a35aea8f36" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="2be93519-c4fa-4d56-981b-d3a55d1a83a8" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="ba63e806-0f65-42d0-946e-58f2810bc85b" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="3a9afd01-c592-4d13-b2ad-7d96fe781a6f" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="e60a96a5-c777-4eac-8223-68c952a591cf" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="c8058e39-6f26-42f2-ba65-631dca1686d4" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="475536f6-c46d-4d8e-ac95-e525f956f96a" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="246d37b9-ccce-46b8-9b85-84861e216fae" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="fe2e8ed0-ac19-47f4-babe-f4ef94eec019" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="ac4e84a6-d7df-472e-82fa-6c5a5cd045dd" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="228a7a16-73bf-41ab-987a-9448abb67912" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="8c828c10-9d76-4c72-8f53-315d53d4ebe3" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="2b8c467e-db2a-4506-9090-ea46f0fc86e4" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="52a4d1e5-504d-4ae5-8872-489cad88393e" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="b0492989-6f2b-4c3f-82af-a2d1611d50de" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="f4ed37eb-c5c1-4743-bdaa-c87f287857ba" xml:space="preserve">
+          <source>2015-01-01T00:00:01.0000000Z</source>
+          <target state="new">2015-01-01T00:00:01.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="0ac45f12-068c-44c6-ae25-3a8f864ea929" xml:space="preserve">
+          <source>2015-01-01T00:00:08.0000000Z</source>
+          <target state="new">2015-01-01T00:00:08.0000000Z</target>
+        </trans-unit>
+        <trans-unit id="74419783-55d5-48b1-b841-f7c77481c7b1" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="e0b9db67-f678-4dc7-9bc9-198c3f7d3a6c" xml:space="preserve">
+          <source><bpt id="99e4c09a-9149-42d3-9c5a-9645a23501f7">&lt;strong&gt;</bpt>Solution<ept id="99e4c09a-9149-42d3-9c5a-9645a23501f7">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="99e4c09a-9149-42d3-9c5a-9645a23501f7">&lt;strong&gt;</bpt>Solution<ept id="99e4c09a-9149-42d3-9c5a-9645a23501f7">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="66e7a1dd-a0fa-4a54-844a-dc63f91998b2" xml:space="preserve">
+          <source><bpt id="411e6a06-b000-42c2-b847-b799ccb5fd9e">&lt;strong&gt;</bpt>Explanation<ept id="411e6a06-b000-42c2-b847-b799ccb5fd9e">&lt;/strong&gt;</ept>:
+We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event.</source>
+          <target state="new"><bpt id="411e6a06-b000-42c2-b847-b799ccb5fd9e">&lt;strong&gt;</bpt>Explanation<ept id="411e6a06-b000-42c2-b847-b799ccb5fd9e">&lt;/strong&gt;</ept>:
+We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event.</target>
+        </trans-unit>
+        <trans-unit id="6a0cfc3e-8637-4b9f-b757-6919a46bc74f" xml:space="preserve">
+          <source>Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -&gt; bad -&gt; good by checking the weight and comparing the time stamps.</source>
+          <target state="new">Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -&gt; bad -&gt; good by checking the weight and comparing the time stamps.</target>
+        </trans-unit>
+        <trans-unit id="57fa6a4b-acd3-487a-8fbc-b67210ceb57d" xml:space="preserve">
+          <source>Using what we learned on “LEFT Outer Join to include NULLs or to do absence of events” we know how to check that no good event has occurred between the 2 good events we picked up.</source>
+          <target state="new">Using what we learned on “LEFT Outer Join to include NULLs or to do absence of events” we know how to check that no good event has occurred between the 2 good events we picked up.</target>
+        </trans-unit>
+        <trans-unit id="dbe9d647-6bbd-4c7d-b77b-5dec1d702745" xml:space="preserve">
+          <source>Composing those together and we get good -&gt; bad -&gt; good with no other good event in between.</source>
+          <target state="new">Composing those together and we get good -&gt; bad -&gt; good with no other good event in between.</target>
+        </trans-unit>
+        <trans-unit id="2a920181-1de7-4887-8f3c-488f67eecd41" xml:space="preserve">
+          <source>We can now compute the duration between the beginning and end good events which gives us the duration of the bug.</source>
+          <target state="new">We can now compute the duration between the beginning and end good events which gives us the duration of the bug.</target>
+        </trans-unit>
+        <trans-unit id="4e3f0d3c-7828-4e15-9dd7-d962f7ab5916" xml:space="preserve">
+          <source>For further assistance, try our <bpt id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;/linkText&gt;</ept><bpt id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;title&gt;</bpt><ept id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;/title&gt;</ept></source>
+          <target state="new">For further assistance, try our <bpt id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;/linkText&gt;</ept><bpt id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;title&gt;</bpt><ept id="5801a45f-11ed-4a37-b12c-0645c7a77435">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3affd375-fa3b-4049-b407-e1d664952099" xml:space="preserve">
+          <source><bpt id="2184c300-037a-4976-871c-602ae7425649">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="2184c300-037a-4976-871c-602ae7425649">&lt;/linkText&gt;</ept><bpt id="2184c300-037a-4976-871c-602ae7425649">&lt;title&gt;</bpt><ept id="2184c300-037a-4976-871c-602ae7425649">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2184c300-037a-4976-871c-602ae7425649">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="2184c300-037a-4976-871c-602ae7425649">&lt;/linkText&gt;</ept><bpt id="2184c300-037a-4976-871c-602ae7425649">&lt;title&gt;</bpt><ept id="2184c300-037a-4976-871c-602ae7425649">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4185d0c4-abe4-4326-9e7b-b544bc633562" xml:space="preserve">
+          <source><bpt id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;/linkText&gt;</ept><bpt id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;title&gt;</bpt><ept id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;/linkText&gt;</ept><bpt id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;title&gt;</bpt><ept id="efa8a160-8cd5-457d-a455-17f7c5096dd9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a7b6746-94ef-4823-8480-6656939be098" xml:space="preserve">
+          <source><bpt id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;/linkText&gt;</ept><bpt id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;title&gt;</bpt><ept id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;/linkText&gt;</ept><bpt id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;title&gt;</bpt><ept id="b2de54a0-b5e7-4cac-a0eb-5360ba2ad168">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f569e296-2237-4fe0-bb18-57135ded3e79" xml:space="preserve">
+          <source><bpt id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;/linkText&gt;</ept><bpt id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;title&gt;</bpt><ept id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;/linkText&gt;</ept><bpt id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;title&gt;</bpt><ept id="fe114f01-a3bc-49c8-94a4-ab6a7e2faf6f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="646b2673-1172-46e8-a7f1-1d021ebec42a" xml:space="preserve">
+          <source><bpt id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;/linkText&gt;</ept><bpt id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;title&gt;</bpt><ept id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;/linkText&gt;</ept><bpt id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;title&gt;</bpt><ept id="eb1c3647-60bf-4139-840a-1fea118e7a7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

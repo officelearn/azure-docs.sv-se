@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="63acf3f8-6d5a-4d3d-8789-6fe2b1dbf5ac" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="63acf3f8-6d5a-4d3d-8789-6fe2b1dbf5ac" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a6d090d9-6bf2-4784-987d-e3645c385357">
+        <trans-unit id="ad289863-3a69-4218-a405-dd09d9c894ed" xml:space="preserve">
+          <source>You can use the <bpt id="400cd5de-1b14-45b5-87cd-15125677a931">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="400cd5de-1b14-45b5-87cd-15125677a931">&lt;/strong&gt;</ept> type to represent 
+your Storage Account information.</source>
+          <target state="new">You can use the <bpt id="400cd5de-1b14-45b5-87cd-15125677a931">&lt;strong&gt;</bpt>CloudStorageAccount<ept id="400cd5de-1b14-45b5-87cd-15125677a931">&lt;/strong&gt;</ept> type to represent 
+your Storage Account information.</target>
+        </trans-unit>
+        <trans-unit id="7703f25a-7aba-46eb-8e1a-dabee93714d2" xml:space="preserve">
+          <source>If you are using an 
+Azure project template and/or have a reference to the
+Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
+can use the <bpt id="51521798-964e-4376-ae9f-648e348ea0a7">&lt;strong&gt;</bpt>CloudConfigurationManager<ept id="51521798-964e-4376-ae9f-648e348ea0a7">&lt;/strong&gt;</ept> type
+to retrieve your storage connection string and storage account
+information from the Azure service configuration:</source>
+          <target state="new">If you are using an 
+Azure project template and/or have a reference to the
+Microsoft.WindowsAzure.CloudConfigurationManager namespace, you 
+can use the <bpt id="51521798-964e-4376-ae9f-648e348ea0a7">&lt;strong&gt;</bpt>CloudConfigurationManager<ept id="51521798-964e-4376-ae9f-648e348ea0a7">&lt;/strong&gt;</ept> type
+to retrieve your storage connection string and storage account
+information from the Azure service configuration:</target>
+        </trans-unit>
+        <trans-unit id="62e06e7f-dee9-43d9-aead-a1335d147098" xml:space="preserve">
+          <source>If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the <bpt id="9dcee41b-47b6-4ea8-90fa-78102b8ece46">&lt;code&gt;</bpt>web.config<ept id="9dcee41b-47b6-4ea8-90fa-78102b8ece46">&lt;/code&gt;</ept> or <bpt id="ad0b4dfc-895d-4591-a7f3-be12bc3634ea">&lt;code&gt;</bpt>app.config<ept id="ad0b4dfc-895d-4591-a7f3-be12bc3634ea">&lt;/code&gt;</ept> as show above, then you can use <bpt id="1bf846e9-576b-419d-89b4-15717ba93b78">&lt;strong&gt;</bpt>ConfigurationManager<ept id="1bf846e9-576b-419d-89b4-15717ba93b78">&lt;/strong&gt;</ept> to retrieve the connection string.</source>
+          <target state="new">If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the <bpt id="9dcee41b-47b6-4ea8-90fa-78102b8ece46">&lt;code&gt;</bpt>web.config<ept id="9dcee41b-47b6-4ea8-90fa-78102b8ece46">&lt;/code&gt;</ept> or <bpt id="ad0b4dfc-895d-4591-a7f3-be12bc3634ea">&lt;code&gt;</bpt>app.config<ept id="ad0b4dfc-895d-4591-a7f3-be12bc3634ea">&lt;/code&gt;</ept> as show above, then you can use <bpt id="1bf846e9-576b-419d-89b4-15717ba93b78">&lt;strong&gt;</bpt>ConfigurationManager<ept id="1bf846e9-576b-419d-89b4-15717ba93b78">&lt;/strong&gt;</ept> to retrieve the connection string.</target>
+        </trans-unit>
+        <trans-unit id="6a8fdced-0a42-4073-aef8-a75d9a080494" xml:space="preserve">
+          <source>You will need to add a reference to System.Configuration.dll to your project and add another namespace declaration for it:</source>
+          <target state="new">You will need to add a reference to System.Configuration.dll to your project and add another namespace declaration for it:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

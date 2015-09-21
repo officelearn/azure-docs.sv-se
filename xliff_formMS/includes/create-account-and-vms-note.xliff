@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c4488b9e-6440-4a60-97fc-be16f0724231" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c4488b9e-6440-4a60-97fc-be16f0724231" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="21b50735-45fe-4369-90ce-a70a951566a4">
+        <trans-unit id="6a2b8d92-eb98-4673-99d2-9ba1506a2981" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="6c210b56-b1d8-4714-9550-d35127c20e7d" xml:space="preserve">
+          <source>You can &lt;a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="<bpt id="7aafccc4-6ef6-43f9-af04-3ad7e8ebd4ab">&lt;em&gt;</bpt>blank"&gt;activate your MSDN subscriber benefits&lt;/a&gt; or &lt;a href="http://www.windowsazure.com/pricing/free-trial/" target="<ept id="7aafccc4-6ef6-43f9-af04-3ad7e8ebd4ab">&lt;/em&gt;</ept>blank"&gt;sign up for a free trial&lt;/a&gt;.</source>
+          <target state="new">You can &lt;a href="http://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/" target="<bpt id="7aafccc4-6ef6-43f9-af04-3ad7e8ebd4ab">&lt;em&gt;</bpt>blank"&gt;activate your MSDN subscriber benefits&lt;/a&gt; or &lt;a href="http://www.windowsazure.com/pricing/free-trial/" target="<ept id="7aafccc4-6ef6-43f9-af04-3ad7e8ebd4ab">&lt;/em&gt;</ept>blank"&gt;sign up for a free trial&lt;/a&gt;.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

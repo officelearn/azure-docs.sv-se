@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="22d44a19-9389-42c0-ab1d-111e84c0af33" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="22d44a19-9389-42c0-ab1d-111e84c0af33" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5ac40f1c-42ed-424a-ba2f-f737fea86ade">
+        <trans-unit id="fd1b4c7b-87b2-4f24-9c6f-826b03384312" xml:space="preserve">
+          <source>Event Hubs Availability and Support FAQ</source>
+          <target state="new">Event Hubs Availability and Support FAQ</target>
+        </trans-unit>
+        <trans-unit id="d4da1492-92b5-411f-b41c-a855ae12a861" xml:space="preserve">
+          <source>Event Hubs pricing and FAQ.</source>
+          <target state="new">Event Hubs pricing and FAQ.</target>
+        </trans-unit>
+        <trans-unit id="162c6f14-9b6c-48bb-835e-2b99afa4b446" xml:space="preserve">
+          <source>Event Hubs provides large-scale intake, persistence and processing of data events from high-throughput data sources and/or millions of devices.</source>
+          <target state="new">Event Hubs provides large-scale intake, persistence and processing of data events from high-throughput data sources and/or millions of devices.</target>
+        </trans-unit>
+        <trans-unit id="df595289-f523-4c90-95b2-dbda4ee49ac7" xml:space="preserve">
+          <source>When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for Internet of Things scenarios.</source>
+          <target state="new">When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for Internet of Things scenarios.</target>
+        </trans-unit>
+        <trans-unit id="8eb5f210-ed21-43ab-913e-b6aa513817ac" xml:space="preserve">
+          <source>This section covers availability information and answers some frequently-asked questions.</source>
+          <target state="new">This section covers availability information and answers some frequently-asked questions.</target>
+        </trans-unit>
+        <trans-unit id="a8cd8083-0cae-4976-ab05-87c14ee20291" xml:space="preserve">
+          <source>For information about Event Hubs pricing, see the <bpt id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;linkText&gt;</bpt>Event Hubs pricing details<ept id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;/linkText&gt;</ept><bpt id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;title&gt;</bpt><ept id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about Event Hubs pricing, see the <bpt id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;linkText&gt;</bpt>Event Hubs pricing details<ept id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;/linkText&gt;</ept><bpt id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;title&gt;</bpt><ept id="ca0bb8cc-cab0-4f20-ac1a-2d2c36546e36">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55dc3a22-354f-4f51-a51e-ec79e8ea7d0a" xml:space="preserve">
+          <source>Each event sent to an Event Hub counts as a billable message.</source>
+          <target state="new">Each event sent to an Event Hub counts as a billable message.</target>
+        </trans-unit>
+        <trans-unit id="e25c48b2-b07f-4111-bf8b-2c95501389f0" xml:space="preserve">
+          <source>An <bpt id="cb426cce-88ea-47f6-ae63-ada02b571452">&lt;em&gt;</bpt>ingress event<ept id="cb426cce-88ea-47f6-ae63-ada02b571452">&lt;/em&gt;</ept> is defined as a unit of data that is less than or equal to 64KB.</source>
+          <target state="new">An <bpt id="cb426cce-88ea-47f6-ae63-ada02b571452">&lt;em&gt;</bpt>ingress event<ept id="cb426cce-88ea-47f6-ae63-ada02b571452">&lt;/em&gt;</ept> is defined as a unit of data that is less than or equal to 64KB.</target>
+        </trans-unit>
+        <trans-unit id="8d407ce2-75f1-4029-889b-03ff5d2cbe1a" xml:space="preserve">
+          <source>Any event that is less than or equal to 64KB in size is considered to be one billable event.</source>
+          <target state="new">Any event that is less than or equal to 64KB in size is considered to be one billable event.</target>
+        </trans-unit>
+        <trans-unit id="971aafa5-e839-4ba0-9d95-27de0a1823d7" xml:space="preserve">
+          <source>If the event is greater than 64KB, the number of billable events is calculated according to the event size, in multiples of 64KB.</source>
+          <target state="new">If the event is greater than 64KB, the number of billable events is calculated according to the event size, in multiples of 64KB.</target>
+        </trans-unit>
+        <trans-unit id="a9b6928b-4d31-47ac-9211-7567a77d922a" xml:space="preserve">
+          <source>For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.</source>
+          <target state="new">For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.</target>
+        </trans-unit>
+        <trans-unit id="31928ff4-f147-430f-94e9-ceb3ab82aec9" xml:space="preserve">
+          <source>Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.</source>
+          <target state="new">Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.</target>
+        </trans-unit>
+        <trans-unit id="5d955554-0440-45d5-90e4-498c6cdd727d" xml:space="preserve">
+          <source>Event Hubs throughput units are explicitly selected by the user, either through the Azure portal or Event Hubs management APIs.</source>
+          <target state="new">Event Hubs throughput units are explicitly selected by the user, either through the Azure portal or Event Hubs management APIs.</target>
+        </trans-unit>
+        <trans-unit id="86cbd2f5-7613-4c83-92f3-8f06725c8e30" xml:space="preserve">
+          <source>Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:</source>
+          <target state="new">Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:</target>
+        </trans-unit>
+        <trans-unit id="1a3c9fcb-8856-46af-8964-2762de21b2db" xml:space="preserve">
+          <source>Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.</source>
+          <target state="new">Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.</target>
+        </trans-unit>
+        <trans-unit id="2814395f-2941-4740-8756-0a78fb5bdf2b" xml:space="preserve">
+          <source>Up to 2 MB per second of egress events (events consumed from an Event Hub).</source>
+          <target state="new">Up to 2 MB per second of egress events (events consumed from an Event Hub).</target>
+        </trans-unit>
+        <trans-unit id="f473f14f-5cdc-4b99-852c-5a5bbf053c5c" xml:space="preserve">
+          <source>Up to 84 GB of event storage (sufficient for the default 24-hour retention period).</source>
+          <target state="new">Up to 84 GB of event storage (sufficient for the default 24-hour retention period).</target>
+        </trans-unit>
+        <trans-unit id="cb68777b-815e-41ee-9ed5-f4990005200e" xml:space="preserve">
+          <source>Event Hubs throughput units are billed hourly, based on the maximum number of units selected during the given hour.</source>
+          <target state="new">Event Hubs throughput units are billed hourly, based on the maximum number of units selected during the given hour.</target>
+        </trans-unit>
+        <trans-unit id="e8a6ee9d-9905-47ad-a16d-d06327a0de84" xml:space="preserve">
+          <source>If the total ingress throughput or the total ingress event rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, senders will be throttled and receive errors indicating that the ingress quota has been exceeded.</source>
+          <target state="new">If the total ingress throughput or the total ingress event rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, senders will be throttled and receive errors indicating that the ingress quota has been exceeded.</target>
+        </trans-unit>
+        <trans-unit id="f00482d8-ecae-44c5-9067-dd17d76fb2b7" xml:space="preserve">
+          <source>If the total egress throughput or the total event egress rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded.</source>
+          <target state="new">If the total egress throughput or the total event egress rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded.</target>
+        </trans-unit>
+        <trans-unit id="959b989e-d400-4f2d-a4e0-a5ec8399b6a1" xml:space="preserve">
+          <source>Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event Hub.</source>
+          <target state="new">Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="16db7002-4660-4a6b-8b9d-6348023f8eb5" xml:space="preserve">
+          <source>Note that the throughput unit selection is independent of the number of Event Hubs partitions.</source>
+          <target state="new">Note that the throughput unit selection is independent of the number of Event Hubs partitions.</target>
+        </trans-unit>
+        <trans-unit id="f63c6722-0889-4cbd-acd4-b6602017b9fc" xml:space="preserve">
+          <source>While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves.</source>
+          <target state="new">While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves.</target>
+        </trans-unit>
+        <trans-unit id="3b5ee365-32d8-44d1-9237-10bd82c11915" xml:space="preserve">
+          <source>The charge is for the aggregated throughput units on all Event Hubs in a Service Bus namespace.</source>
+          <target state="new">The charge is for the aggregated throughput units on all Event Hubs in a Service Bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="44fd21e8-89d7-4e0f-8db5-8c53b649c4a0" xml:space="preserve">
+          <source>With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.</source>
+          <target state="new">With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.</target>
+        </trans-unit>
+        <trans-unit id="3344f1c9-4d3c-493e-b0ce-44165f8eb67a" xml:space="preserve">
+          <source>There is a default quota of 20 throughput units per namespace.</source>
+          <target state="new">There is a default quota of 20 throughput units per namespace.</target>
+        </trans-unit>
+        <trans-unit id="1485fc39-12f1-4104-999d-256b82933b6e" xml:space="preserve">
+          <source>You can request a larger quota of throughput units by filing a support ticket.</source>
+          <target state="new">You can request a larger quota of throughput units by filing a support ticket.</target>
+        </trans-unit>
+        <trans-unit id="63f53644-1a4f-4b18-a6c7-61ef49383e7f" xml:space="preserve">
+          <source>Beyond the 20 throughput unit limit, bundles are available in 20 and 100 throughput units.</source>
+          <target state="new">Beyond the 20 throughput unit limit, bundles are available in 20 and 100 throughput units.</target>
+        </trans-unit>
+        <trans-unit id="1f00ccd8-b4cf-45ce-b3c7-ee959478cb85" xml:space="preserve">
+          <source>Note that using more than 20 throughput units removes the ability to change the number of throughput units without filing a support ticket.</source>
+          <target state="new">Note that using more than 20 throughput units removes the ability to change the number of throughput units without filing a support ticket.</target>
+        </trans-unit>
+        <trans-unit id="365f380f-e723-4875-9425-07063c9fcafb" xml:space="preserve">
+          <source>The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of 30 days.</source>
+          <target state="new">The Event Hubs Standard tier does allow message retention periods longer than 24 hours, for a maximum of 30 days.</target>
+        </trans-unit>
+        <trans-unit id="dbb9de85-f96b-43be-aa82-acf7d0814a63" xml:space="preserve">
+          <source>If the size of the total amount of stored events exceeds the storage allowance for the number of selected throughput units (84GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate.</source>
+          <target state="new">If the size of the total amount of stored events exceeds the storage allowance for the number of selected throughput units (84GB per throughput unit), the size that exceeds the allowance is charged at the published Azure Blob storage rate.</target>
+        </trans-unit>
+        <trans-unit id="6d560185-1dfc-44f7-8968-daf8c677ed87" xml:space="preserve">
+          <source>The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.</source>
+          <target state="new">The storage allowance in each throughput unit covers all storage costs for retention periods of 24 hours (the default) even if the throughput unit is used up to the maximum ingress allowance.</target>
+        </trans-unit>
+        <trans-unit id="98d9c321-0f20-499b-a83d-d995f1716744" xml:space="preserve">
+          <source>Event Hubs Standard tier currently supports a maximum retention period of 7 days.</source>
+          <target state="new">Event Hubs Standard tier currently supports a maximum retention period of 7 days.</target>
+        </trans-unit>
+        <trans-unit id="150cffe2-eb6b-4473-99bb-5adb588e8ee9" xml:space="preserve">
+          <source>Note that Event Hubs are not intended as a permanent data store.</source>
+          <target state="new">Note that Event Hubs are not intended as a permanent data store.</target>
+        </trans-unit>
+        <trans-unit id="fb869d6b-69c7-4dca-b6c6-4e3ecc8600ab" xml:space="preserve">
+          <source>Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data.</source>
+          <target state="new">Retention periods greater than 24 hours are intended for scenarios in which it is convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data.</target>
+        </trans-unit>
+        <trans-unit id="0886600b-2de8-44bb-9e81-42863dff458c" xml:space="preserve">
+          <source>The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all Event Hubs, is measured throughout the day.</source>
+          <target state="new">The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all Event Hubs, is measured throughout the day.</target>
+        </trans-unit>
+        <trans-unit id="d702d447-bfc2-4093-98a7-f8f0dec777d5" xml:space="preserve">
+          <source>At the end of the day, the peak storage size is calculated.</source>
+          <target state="new">At the end of the day, the peak storage size is calculated.</target>
+        </trans-unit>
+        <trans-unit id="e4ac25c1-6c5a-46c9-bc14-35a267155889" xml:space="preserve">
+          <source>The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB).</source>
+          <target state="new">The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB).</target>
+        </trans-unit>
+        <trans-unit id="27a19c64-05e8-4be0-8464-f940a655453d" xml:space="preserve">
+          <source>If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the <bpt id="78f3c01e-34c5-4dc5-938e-37ed69737dd5">&lt;strong&gt;</bpt>Locally Redundant Storage<ept id="78f3c01e-34c5-4dc5-938e-37ed69737dd5">&lt;/strong&gt;</ept> rate).</source>
+          <target state="new">If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the <bpt id="78f3c01e-34c5-4dc5-938e-37ed69737dd5">&lt;strong&gt;</bpt>Locally Redundant Storage<ept id="78f3c01e-34c5-4dc5-938e-37ed69737dd5">&lt;/strong&gt;</ept> rate).</target>
+        </trans-unit>
+        <trans-unit id="8bf230fa-44cf-4154-8081-6d4604cdacc2" xml:space="preserve">
+          <source>Yes, as long as all the Event Hubs, queues, and topics are in the same Service Bus namespace.</source>
+          <target state="new">Yes, as long as all the Event Hubs, queues, and topics are in the same Service Bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="446d4746-c12d-460d-a196-a81da97f11e7" xml:space="preserve">
+          <source>As such, you can implement bi-directional, brokered connectivity to many devices, with sub-second latencies, in a cost-effective and highly scalable way.</source>
+          <target state="new">As such, you can implement bi-directional, brokered connectivity to many devices, with sub-second latencies, in a cost-effective and highly scalable way.</target>
+        </trans-unit>
+        <trans-unit id="528d87fa-4140-4550-9a3c-3c7f8a78744c" xml:space="preserve">
+          <source>For senders, connection charges apply only when the AMQP protocol is used.</source>
+          <target state="new">For senders, connection charges apply only when the AMQP protocol is used.</target>
+        </trans-unit>
+        <trans-unit id="88945dc1-aa68-478d-a447-2782c46bdc2a" xml:space="preserve">
+          <source>There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices.</source>
+          <target state="new">There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices.</target>
+        </trans-unit>
+        <trans-unit id="7f1c7afe-8f64-468d-ba6d-0b32bd47e327" xml:space="preserve">
+          <source>If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication on Internet of Things command and control scenarios), please refer to the <bpt id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;linkText&gt;</bpt>Service Bus pricing information<ept id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;/linkText&gt;</ept><bpt id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;title&gt;</bpt><ept id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;/title&gt;</ept> page for information about what constitutes a brokered connection, and how they are metered.</source>
+          <target state="new">If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication on Internet of Things command and control scenarios), please refer to the <bpt id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;linkText&gt;</bpt>Service Bus pricing information<ept id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;/linkText&gt;</ept><bpt id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;title&gt;</bpt><ept id="ef7aa2c1-8788-4847-bc54-42e6b1f8798f">&lt;/title&gt;</ept> page for information about what constitutes a brokered connection, and how they are metered.</target>
+        </trans-unit>
+        <trans-unit id="b9be4ba6-3db6-42cc-8883-6dc03964b149" xml:space="preserve">
+          <source>Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems.</source>
+          <target state="new">Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems.</target>
+        </trans-unit>
+        <trans-unit id="7a37aa3d-8527-4997-b68a-05c51068c49f" xml:space="preserve">
+          <source>These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs.</source>
+          <target state="new">These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="2202e3c7-f028-4169-bc40-721cf46ac8f3" xml:space="preserve">
+          <source>Refer to the [pricing details](<bpt id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;linkText&gt;</bpt>Event Hubs Pricing Details<ept id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;/linkText&gt;</ept><bpt id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;title&gt;</bpt><ept id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;/title&gt;</ept>) for the list of features.</source>
+          <target state="new">Refer to the [pricing details](<bpt id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;linkText&gt;</bpt>Event Hubs Pricing Details<ept id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;/linkText&gt;</ept><bpt id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;title&gt;</bpt><ept id="f32a4b36-08ed-472a-bb53-98d5d0e151dc">&lt;/title&gt;</ept>) for the list of features.</target>
+        </trans-unit>
+        <trans-unit id="1b3cba47-8411-43b2-9bc1-69732354a300" xml:space="preserve">
+          <source>Event Hubs is available in the following regions:</source>
+          <target state="new">Event Hubs is available in the following regions:</target>
+        </trans-unit>
+        <trans-unit id="97572773-6b66-4956-b9eb-38e2283e0b20" xml:space="preserve">
+          <source>Geo</source>
+          <target state="new">Geo</target>
+        </trans-unit>
+        <trans-unit id="ae592923-d7b6-411e-af7a-714f8237cdab" xml:space="preserve">
+          <source>Regions</source>
+          <target state="new">Regions</target>
+        </trans-unit>
+        <trans-unit id="f3bf7392-0946-4836-aede-da445282b4cd" xml:space="preserve">
+          <source>United States</source>
+          <target state="new">United States</target>
+        </trans-unit>
+        <trans-unit id="64785a24-c478-48dd-b6fb-72a481f939e8" xml:space="preserve">
+          <source>Central US, East US, East US 2, South Central US, West US</source>
+          <target state="new">Central US, East US, East US 2, South Central US, West US</target>
+        </trans-unit>
+        <trans-unit id="f4094a9b-dcb5-44c6-8cbb-7cbece0c7a9a" xml:space="preserve">
+          <source>Europe</source>
+          <target state="new">Europe</target>
+        </trans-unit>
+        <trans-unit id="07084805-095a-4499-945d-5585b6ef9432" xml:space="preserve">
+          <source>North Europe, West Europe</source>
+          <target state="new">North Europe, West Europe</target>
+        </trans-unit>
+        <trans-unit id="9f2045c2-98f5-46aa-a201-f817af9845a7" xml:space="preserve">
+          <source>Asia Pacific</source>
+          <target state="new">Asia Pacific</target>
+        </trans-unit>
+        <trans-unit id="93470a76-0770-4caa-b9c6-b09ba1808f59" xml:space="preserve">
+          <source>East Asia, Southeast Asia</source>
+          <target state="new">East Asia, Southeast Asia</target>
+        </trans-unit>
+        <trans-unit id="99490408-cb89-4578-8453-6d86420fc102" xml:space="preserve">
+          <source>Japan</source>
+          <target state="new">Japan</target>
+        </trans-unit>
+        <trans-unit id="edfc0b5d-3ac3-4e13-b84c-f52c9a664042" xml:space="preserve">
+          <source>Japan East, Japan West</source>
+          <target state="new">Japan East, Japan West</target>
+        </trans-unit>
+        <trans-unit id="d91ee85a-04d1-4aba-b57a-9f40f167aca8" xml:space="preserve">
+          <source>Brazil</source>
+          <target state="new">Brazil</target>
+        </trans-unit>
+        <trans-unit id="0b4a918c-e497-48bb-bf25-495bcc4ff620" xml:space="preserve">
+          <source>Brazil South</source>
+          <target state="new">Brazil South</target>
+        </trans-unit>
+        <trans-unit id="6d8f5f26-2a40-4380-a0b0-148ad8e9d1f1" xml:space="preserve">
+          <source>Australia</source>
+          <target state="new">Australia</target>
+        </trans-unit>
+        <trans-unit id="235d6699-9bab-4896-9acf-42f5c56d478c" xml:space="preserve">
+          <source>Australia East, Australia Southeast</source>
+          <target state="new">Australia East, Australia Southeast</target>
+        </trans-unit>
+        <trans-unit id="41150078-06e3-45ba-84f6-cff53a012bbb" xml:space="preserve">
+          <source>Technical support for Event Hubs is available through the <bpt id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;linkText&gt;</bpt>community forums<ept id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;/linkText&gt;</ept><bpt id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;title&gt;</bpt><ept id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Technical support for Event Hubs is available through the <bpt id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;linkText&gt;</bpt>community forums<ept id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;/linkText&gt;</ept><bpt id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;title&gt;</bpt><ept id="f69cce79-0423-4015-8a8e-7c539b293c3d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cbba0bb8-5627-41a9-a85a-e19df7031ecb" xml:space="preserve">
+          <source>Billing and subscription management support is provided at no cost.</source>
+          <target state="new">Billing and subscription management support is provided at no cost.</target>
+        </trans-unit>
+        <trans-unit id="ae71895e-d611-419a-ba24-3e390d220b72" xml:space="preserve">
+          <source>To learn more about our SLA, please visit the <bpt id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;/linkText&gt;</ept><bpt id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;title&gt;</bpt><ept id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;/title&gt;</ept> page.</source>
+          <target state="new">To learn more about our SLA, please visit the <bpt id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;/linkText&gt;</ept><bpt id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;title&gt;</bpt><ept id="3c8274c0-a250-4904-8ce2-18cf7df8dc3c">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="9983c748-3032-4aad-bc2a-a2d8ae5db420" xml:space="preserve">
+          <source>To learn more about Event Hubs, visit the following topics:</source>
+          <target state="new">To learn more about Event Hubs, visit the following topics:</target>
+        </trans-unit>
+        <trans-unit id="f7f28edd-00a8-4621-a04e-f01a3bcdd702" xml:space="preserve">
+          <source>[Event Hubs Overview]</source>
+          <target state="new">[Event Hubs Overview]</target>
+        </trans-unit>
+        <trans-unit id="133202c0-13fc-4f09-93f6-968d4a81be22" xml:space="preserve">
+          <source>A complete [sample application that uses Event Hubs].</source>
+          <target state="new">A complete [sample application that uses Event Hubs].</target>
+        </trans-unit>
+        <trans-unit id="14eceb94-c8ca-4040-9cba-176a461f9650" xml:space="preserve">
+          <source>A [queued messaging solution] using Service Bus queues.</source>
+          <target state="new">A [queued messaging solution] using Service Bus queues.</target>
+        </trans-unit>
+        <trans-unit id="a72a71a3-84b3-4165-ab65-3b43e97590af" xml:space="preserve">
+          <source>event-hubs-overview.md</source>
+          <target state="new">event-hubs-overview.md</target>
+        </trans-unit>
+        <trans-unit id="78a525c8-8823-4ddd-8d7b-d2f9aa66361c" xml:space="preserve">
+          <source>https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</source>
+          <target state="new">https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097</target>
+        </trans-unit>
+        <trans-unit id="b110665e-e7b8-44ea-8e80-26345b15476e" xml:space="preserve">
+          <source>../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md</source>
+          <target state="new">../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md</target>
+        </trans-unit>
+      </group>
+      <group id="8e9db145-5d20-4f12-b362-da5efafce36e" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dd7b0369-127f-4ca3-b70a-8d5185c59653" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dd7b0369-127f-4ca3-b70a-8d5185c59653" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b2312847-b18b-4eba-b14e-011fb1d31299">
+        <trans-unit id="f73f38d8-6974-43a9-b107-4f1bc5032de4" xml:space="preserve">
+          <source>Create an Azure RemoteApp image based on an Azure VM</source>
+          <target state="new">Create an Azure RemoteApp image based on an Azure VM</target>
+        </trans-unit>
+        <trans-unit id="5f7976c7-7f4d-47cf-b0b8-477849799ed4" xml:space="preserve">
+          <source>Learn how to create an image for Azure RemoteApp by starting with an Azure virtual machine.</source>
+          <target state="new">Learn how to create an image for Azure RemoteApp by starting with an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b3791bb6-04df-4481-8260-596ce3983f4e" xml:space="preserve">
+          <source>You can create Azure RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine.</source>
+          <target state="new">You can create Azure RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="16542477-ae46-434e-acb7-98da1116756c" xml:space="preserve">
+          <source>You could also choose to use a virtual machine image we added to the Azure VM image gallery that meets all the Azure RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want.</source>
+          <target state="new">You could also choose to use a virtual machine image we added to the Azure VM image gallery that meets all the Azure RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want.</target>
+        </trans-unit>
+        <trans-unit id="f5468bd6-9e40-4e73-a38c-0ecfee3149c6" xml:space="preserve">
+          <source>Just look for the "Windows Server Remote Desktop Session Host" image in the library.</source>
+          <target state="new">Just look for the "Windows Server Remote Desktop Session Host" image in the library.</target>
+        </trans-unit>
+        <trans-unit id="89165ae8-44d6-4526-a947-22df0c245050" xml:space="preserve">
+          <source>There are two steps to create your own image based on an Azure VM - create the image and then upload it from the Azure VM library to Azure RemoteApp.</source>
+          <target state="new">There are two steps to create your own image based on an Azure VM - create the image and then upload it from the Azure VM library to Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="ce36c122-0e6b-4e1b-8d25-762f84c6fdfb" xml:space="preserve">
+          <source>Use these steps to create an image based on an Azure VM.</source>
+          <target state="new">Use these steps to create an image based on an Azure VM.</target>
+        </trans-unit>
+        <trans-unit id="79f3ab43-203f-4f7a-a5c3-4b9c8c2a9203" xml:space="preserve">
+          <source>Create an Azure virtual machine.</source>
+          <target state="new">Create an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="0861e9cf-4349-41ca-baf6-5c436623b601" xml:space="preserve">
+          <source>You can use the “Windows Server Remote Desktop Session Host” image from the Azure virtual machine image gallery.</source>
+          <target state="new">You can use the “Windows Server Remote Desktop Session Host” image from the Azure virtual machine image gallery.</target>
+        </trans-unit>
+        <trans-unit id="016055e9-1dcd-480f-b4b7-41c487fed86d" xml:space="preserve">
+          <source>This image meets all the Azure RemoteApp template image requirements.</source>
+          <target state="new">This image meets all the Azure RemoteApp template image requirements.</target>
+        </trans-unit>
+        <trans-unit id="2d2e6115-583d-4291-be64-d3ce414d0375" xml:space="preserve">
+          <source>For details, see <bpt id="96247880-357a-4244-ab65-92a63ab469b2">&lt;linkText&gt;</bpt>Create a VM running Windows<ept id="96247880-357a-4244-ab65-92a63ab469b2">&lt;/linkText&gt;</ept><bpt id="96247880-357a-4244-ab65-92a63ab469b2">&lt;title&gt;</bpt><ept id="96247880-357a-4244-ab65-92a63ab469b2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="96247880-357a-4244-ab65-92a63ab469b2">&lt;linkText&gt;</bpt>Create a VM running Windows<ept id="96247880-357a-4244-ab65-92a63ab469b2">&lt;/linkText&gt;</ept><bpt id="96247880-357a-4244-ab65-92a63ab469b2">&lt;title&gt;</bpt><ept id="96247880-357a-4244-ab65-92a63ab469b2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2c1d06c-d70b-4f2f-a503-accc79ac72f1" xml:space="preserve">
+          <source>Connect to the VM and install and configure the apps that you want to share through RemoteApp.</source>
+          <target state="new">Connect to the VM and install and configure the apps that you want to share through RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="fb61e6f6-2f3b-4c4e-aa78-f3ef8c15a857" xml:space="preserve">
+          <source>Make sure to perform any additional Windows configurations required by your apps.</source>
+          <target state="new">Make sure to perform any additional Windows configurations required by your apps.</target>
+        </trans-unit>
+        <trans-unit id="e7051230-7feb-47cd-b2f0-54bfd67ba839" xml:space="preserve">
+          <source>For details, see <bpt id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;/linkText&gt;</ept><bpt id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;title&gt;</bpt><ept id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Windows Server<ept id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;/linkText&gt;</ept><bpt id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;title&gt;</bpt><ept id="bf090bc4-6039-4d6a-8d35-daf182c874a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6947ec6e-021d-43b1-803d-ed0f797a829b" xml:space="preserve">
+          <source>If you are using the Windows Server Remote Desktop Session Host image, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs.</source>
+          <target state="new">If you are using the Windows Server Remote Desktop Session Host image, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs.</target>
+        </trans-unit>
+        <trans-unit id="07916ec9-ba94-45fa-a57c-5a56c9d74267" xml:space="preserve">
+          <source>To run script, double-click <bpt id="e0bf2c61-a603-49f7-8dad-fe6faa39ce5d">&lt;strong&gt;</bpt>ValidateRemoteAppImage<ept id="e0bf2c61-a603-49f7-8dad-fe6faa39ce5d">&lt;/strong&gt;</ept> on the desktop.</source>
+          <target state="new">To run script, double-click <bpt id="e0bf2c61-a603-49f7-8dad-fe6faa39ce5d">&lt;strong&gt;</bpt>ValidateRemoteAppImage<ept id="e0bf2c61-a603-49f7-8dad-fe6faa39ce5d">&lt;/strong&gt;</ept> on the desktop.</target>
+        </trans-unit>
+        <trans-unit id="a3e18772-65db-4ff8-8b5a-ae580f175d03" xml:space="preserve">
+          <source>Ensure that all errors reported by the script are fixed before proceeding to the next step.</source>
+          <target state="new">Ensure that all errors reported by the script are fixed before proceeding to the next step.</target>
+        </trans-unit>
+        <trans-unit id="2f035985-f704-4cf5-aea2-cabd2b9d27ba" xml:space="preserve">
+          <source>SYSPREP generalize and capture the image.</source>
+          <target state="new">SYSPREP generalize and capture the image.</target>
+        </trans-unit>
+        <trans-unit id="b4e450e5-b6e9-4055-868d-1fff75c390b4" xml:space="preserve">
+          <source>See <bpt id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;linkText&gt;</bpt>How to Capture a Windows Virtual Machine to Use as a Template<ept id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;/linkText&gt;</ept><bpt id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;title&gt;</bpt><ept id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;linkText&gt;</bpt>How to Capture a Windows Virtual Machine to Use as a Template<ept id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;/linkText&gt;</ept><bpt id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;title&gt;</bpt><ept id="22e3adef-ef56-40d7-b437-5a499251c247">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="6e761c45-1e26-4f95-941a-33abb3eb94bd" xml:space="preserve">
+          <source>Use these steps to import the new image into Azure RemoteApp:</source>
+          <target state="new">Use these steps to import the new image into Azure RemoteApp:</target>
+        </trans-unit>
+        <trans-unit id="02667feb-925d-45cc-a30b-40682723093e" xml:space="preserve">
+          <source>In the <bpt id="fe9f267a-fe70-4b27-9f10-e1fbfda95d47">&lt;strong&gt;</bpt>Template Images<ept id="fe9f267a-fe70-4b27-9f10-e1fbfda95d47">&lt;/strong&gt;</ept> tab:</source>
+          <target state="new">In the <bpt id="fe9f267a-fe70-4b27-9f10-e1fbfda95d47">&lt;strong&gt;</bpt>Template Images<ept id="fe9f267a-fe70-4b27-9f10-e1fbfda95d47">&lt;/strong&gt;</ept> tab:</target>
+        </trans-unit>
+        <trans-unit id="89ee7150-ad65-4259-a328-4aad3d703ef5" xml:space="preserve">
+          <source>If you have no existing images, click <bpt id="125e3a37-a8d6-4d2d-9841-39b018069410">&lt;strong&gt;</bpt>Upload or Import a Template Image<ept id="125e3a37-a8d6-4d2d-9841-39b018069410">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have no existing images, click <bpt id="125e3a37-a8d6-4d2d-9841-39b018069410">&lt;strong&gt;</bpt>Upload or Import a Template Image<ept id="125e3a37-a8d6-4d2d-9841-39b018069410">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab66b826-0d42-4b26-b621-89ffcaaf526e" xml:space="preserve">
+          <source>If you have at least one image already, click <bpt id="751c727e-a037-4ca6-ac1e-4635b7fba038">&lt;strong&gt;</bpt>+<ept id="751c727e-a037-4ca6-ac1e-4635b7fba038">&lt;/strong&gt;</ept> to add a new image.</source>
+          <target state="new">If you have at least one image already, click <bpt id="751c727e-a037-4ca6-ac1e-4635b7fba038">&lt;strong&gt;</bpt>+<ept id="751c727e-a037-4ca6-ac1e-4635b7fba038">&lt;/strong&gt;</ept> to add a new image.</target>
+        </trans-unit>
+        <trans-unit id="cfdad189-266d-4a35-b632-65e9fb2497ea" xml:space="preserve">
+          <source>Select <bpt id="068edb23-1189-49a3-8e2c-f7cf616d2e8a">&lt;strong&gt;</bpt>Import an image from your Virtual Machines<ept id="068edb23-1189-49a3-8e2c-f7cf616d2e8a">&lt;/strong&gt;</ept> library, and then click <bpt id="4452af2a-8701-43e4-94e4-2490de63165a">&lt;strong&gt;</bpt>Next<ept id="4452af2a-8701-43e4-94e4-2490de63165a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="068edb23-1189-49a3-8e2c-f7cf616d2e8a">&lt;strong&gt;</bpt>Import an image from your Virtual Machines<ept id="068edb23-1189-49a3-8e2c-f7cf616d2e8a">&lt;/strong&gt;</ept> library, and then click <bpt id="4452af2a-8701-43e4-94e4-2490de63165a">&lt;strong&gt;</bpt>Next<ept id="4452af2a-8701-43e4-94e4-2490de63165a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e412a4b8-7d24-48ae-a807-e961f77948c8" xml:space="preserve">
+          <source>On the next page, select your custom image from the list and confirm that you followed the steps listed when you created your image.</source>
+          <target state="new">On the next page, select your custom image from the list and confirm that you followed the steps listed when you created your image.</target>
+        </trans-unit>
+        <trans-unit id="1c49be73-90b8-456a-a090-f8f943bb1718" xml:space="preserve">
+          <source>Click <bpt id="34a5711f-b9cd-4c94-b273-551e509b13f2">&lt;strong&gt;</bpt>Next<ept id="34a5711f-b9cd-4c94-b273-551e509b13f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="34a5711f-b9cd-4c94-b273-551e509b13f2">&lt;strong&gt;</bpt>Next<ept id="34a5711f-b9cd-4c94-b273-551e509b13f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a981d659-8c2f-4029-9ec1-b17dabdda970" xml:space="preserve">
+          <source>Enter a name for the new RemoteApp image and pick the location, then click the checkmark to start the import process.</source>
+          <target state="new">Enter a name for the new RemoteApp image and pick the location, then click the checkmark to start the import process.</target>
+        </trans-unit>
+        <trans-unit id="8c3bef8d-a5ec-433c-b0f5-16be9bbb90c1" xml:space="preserve">
+          <source>You can import images from any Azure location supported by Azure Virtual Machines to any Azure location supported by Azure RemoteApp.</source>
+          <target state="new">You can import images from any Azure location supported by Azure Virtual Machines to any Azure location supported by Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="35aa13d3-abdb-40b6-81f2-e9d201753c47" xml:space="preserve">
+          <source>Depending on the locations the import can take up to 25 minutes.</source>
+          <target state="new">Depending on the locations the import can take up to 25 minutes.</target>
+        </trans-unit>
+        <trans-unit id="859a1a89-e732-40c3-ae9b-c287af5cc614" xml:space="preserve">
+          <source>Now you are ready to create your new collection, either a <bpt id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;linkText&gt;</bpt>cloud<ept id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;/linkText&gt;</ept><bpt id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;title&gt;</bpt><ept id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;/title&gt;</ept> collection or <bpt id="8485b302-e523-49cc-904c-cd663d088d69">&lt;linkText&gt;</bpt>hybrid<ept id="8485b302-e523-49cc-904c-cd663d088d69">&lt;/linkText&gt;</ept><bpt id="8485b302-e523-49cc-904c-cd663d088d69">&lt;title&gt;</bpt><ept id="8485b302-e523-49cc-904c-cd663d088d69">&lt;/title&gt;</ept>, depending on your needs.</source>
+          <target state="new">Now you are ready to create your new collection, either a <bpt id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;linkText&gt;</bpt>cloud<ept id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;/linkText&gt;</ept><bpt id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;title&gt;</bpt><ept id="1ff113a6-0c2f-4b50-bc72-cd7561642119">&lt;/title&gt;</ept> collection or <bpt id="8485b302-e523-49cc-904c-cd663d088d69">&lt;linkText&gt;</bpt>hybrid<ept id="8485b302-e523-49cc-904c-cd663d088d69">&lt;/linkText&gt;</ept><bpt id="8485b302-e523-49cc-904c-cd663d088d69">&lt;title&gt;</bpt><ept id="8485b302-e523-49cc-904c-cd663d088d69">&lt;/title&gt;</ept>, depending on your needs.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3c9fa660-062e-49f6-b827-08d2cfaf48b7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3c9fa660-062e-49f6-b827-08d2cfaf48b7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="19c1acec-af6f-4748-a943-fd167e3ae1b9">
+        <trans-unit id="1746d258-5957-44a8-82a6-299815c95352" xml:space="preserve">
+          <source>Deploy a WordPress server on Ubuntu with an Azure Resource Manager template</source>
+          <target state="new">Deploy a WordPress server on Ubuntu with an Azure Resource Manager template</target>
+        </trans-unit>
+        <trans-unit id="9ca8c636-1d83-4aa3-ac50-2fc079170762" xml:space="preserve">
+          <source>Easily deploy a single WordPress server running Ubuntu using a Resource Manager Template and the Azure Preview Portal, Azure PowerShell, or the Azure CLI.</source>
+          <target state="new">Easily deploy a single WordPress server running Ubuntu using a Resource Manager Template and the Azure Preview Portal, Azure PowerShell, or the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="ab12892c-4216-4b72-8d03-d1d3ef75fcbf" xml:space="preserve">
+          <source>Use the instructions in this article to deploy a WordPress server running on Ubuntu using a Resource Manager template.</source>
+          <target state="new">Use the instructions in this article to deploy a WordPress server running on Ubuntu using a Resource Manager template.</target>
+        </trans-unit>
+        <trans-unit id="54e567f0-1fe5-4120-a538-144bb99606b2" xml:space="preserve">
+          <source>This template creates a single virtual machine in a new virtual network.</source>
+          <target state="new">This template creates a single virtual machine in a new virtual network.</target>
+        </trans-unit>
+        <trans-unit id="cba9aa67-1d02-4453-9d68-ff9dc86ca6fe" xml:space="preserve">
+          <source><bpt id="7bd722ac-4358-437a-bd5f-a6fbac0062b2">&lt;linkText&gt;</bpt><ept id="7bd722ac-4358-437a-bd5f-a6fbac0062b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7bd722ac-4358-437a-bd5f-a6fbac0062b2">&lt;linkText&gt;</bpt><ept id="7bd722ac-4358-437a-bd5f-a6fbac0062b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c3efee0-7f36-4cb1-9ae7-a8c82a3ccdaa" xml:space="preserve">
+          <source>You can run the template with the Azure Preview portal, Azure PowerShell, or the Azure CLI.</source>
+          <target state="new">You can run the template with the Azure Preview portal, Azure PowerShell, or the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="894c364c-8b40-4754-b927-80645cf1fe5d" xml:space="preserve">
+          <source>To deploy this workload using a Resource Manager template and the Azure Preview portal, click <bpt id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;linkText&gt;</bpt>here<ept id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;/linkText&gt;</ept><bpt id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;title&gt;</bpt><ept id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To deploy this workload using a Resource Manager template and the Azure Preview portal, click <bpt id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;linkText&gt;</bpt>here<ept id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;/linkText&gt;</ept><bpt id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;title&gt;</bpt><ept id="89bbad36-0e7e-4420-89b2-61496a7217f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58e8a00d-65b2-4897-9b1d-22a21742ad41" xml:space="preserve">
+          <source><bpt id="a963a35b-559e-4f64-a7c8-2d3586cd13eb">&lt;linkText&gt;</bpt><ept id="a963a35b-559e-4f64-a7c8-2d3586cd13eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a963a35b-559e-4f64-a7c8-2d3586cd13eb">&lt;linkText&gt;</bpt><ept id="a963a35b-559e-4f64-a7c8-2d3586cd13eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44adbf74-184c-4581-9d5d-74f4bb797e10" xml:space="preserve">
+          <source>For the <bpt id="9bb61cec-0c34-4a03-9202-cf99dc50ae87">&lt;strong&gt;</bpt>Template<ept id="9bb61cec-0c34-4a03-9202-cf99dc50ae87">&lt;/strong&gt;</ept> pane, click <bpt id="f25843b3-d641-4bb0-8f1c-fa40aebd0e43">&lt;strong&gt;</bpt>Save<ept id="f25843b3-d641-4bb0-8f1c-fa40aebd0e43">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="9bb61cec-0c34-4a03-9202-cf99dc50ae87">&lt;strong&gt;</bpt>Template<ept id="9bb61cec-0c34-4a03-9202-cf99dc50ae87">&lt;/strong&gt;</ept> pane, click <bpt id="f25843b3-d641-4bb0-8f1c-fa40aebd0e43">&lt;strong&gt;</bpt>Save<ept id="f25843b3-d641-4bb0-8f1c-fa40aebd0e43">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c5c3250-6e5e-4cdf-bba7-756d7affc720" xml:space="preserve">
+          <source>Click <bpt id="e6557ba9-ef0b-4d1d-b8ee-477e8713eb34">&lt;strong&gt;</bpt>Parameters<ept id="e6557ba9-ef0b-4d1d-b8ee-477e8713eb34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e6557ba9-ef0b-4d1d-b8ee-477e8713eb34">&lt;strong&gt;</bpt>Parameters<ept id="e6557ba9-ef0b-4d1d-b8ee-477e8713eb34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3178891-891b-43dd-8bc5-af2872116770" xml:space="preserve">
+          <source>On the <bpt id="88a198df-82b3-4b03-941a-af2aac4968c1">&lt;strong&gt;</bpt>Parameters<ept id="88a198df-82b3-4b03-941a-af2aac4968c1">&lt;/strong&gt;</ept> pane, enter new values, select from allowed values, or accept default values, and then click <bpt id="1c0b0d48-9b64-4d04-9225-22a372608352">&lt;strong&gt;</bpt>OK<ept id="1c0b0d48-9b64-4d04-9225-22a372608352">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="88a198df-82b3-4b03-941a-af2aac4968c1">&lt;strong&gt;</bpt>Parameters<ept id="88a198df-82b3-4b03-941a-af2aac4968c1">&lt;/strong&gt;</ept> pane, enter new values, select from allowed values, or accept default values, and then click <bpt id="1c0b0d48-9b64-4d04-9225-22a372608352">&lt;strong&gt;</bpt>OK<ept id="1c0b0d48-9b64-4d04-9225-22a372608352">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a63d0fd-feda-49ce-839e-90205cfbb84a" xml:space="preserve">
+          <source>If needed, click <bpt id="4f2f1b90-38c5-4c6f-be1e-e9641814beee">&lt;strong&gt;</bpt>Subscription<ept id="4f2f1b90-38c5-4c6f-be1e-e9641814beee">&lt;/strong&gt;</ept> and select the correct Azure subscription.</source>
+          <target state="new">If needed, click <bpt id="4f2f1b90-38c5-4c6f-be1e-e9641814beee">&lt;strong&gt;</bpt>Subscription<ept id="4f2f1b90-38c5-4c6f-be1e-e9641814beee">&lt;/strong&gt;</ept> and select the correct Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="e4e92381-2382-4f94-8d82-234ca5389900" xml:space="preserve">
+          <source>Click <bpt id="ad5f3008-2f5a-4d3d-a9bb-4bed4990f119">&lt;strong&gt;</bpt>Resource group<ept id="ad5f3008-2f5a-4d3d-a9bb-4bed4990f119">&lt;/strong&gt;</ept> and select an existing resource group.</source>
+          <target state="new">Click <bpt id="ad5f3008-2f5a-4d3d-a9bb-4bed4990f119">&lt;strong&gt;</bpt>Resource group<ept id="ad5f3008-2f5a-4d3d-a9bb-4bed4990f119">&lt;/strong&gt;</ept> and select an existing resource group.</target>
+        </trans-unit>
+        <trans-unit id="f57c7fe0-aeb5-42b1-a540-c22c7836e6e6" xml:space="preserve">
+          <source>Alternately, click <bpt id="b08eb58e-bb46-41a5-9c18-9f9953548b29">&lt;strong&gt;</bpt>Or create new<ept id="b08eb58e-bb46-41a5-9c18-9f9953548b29">&lt;/strong&gt;</ept> to create a new one for this workload.</source>
+          <target state="new">Alternately, click <bpt id="b08eb58e-bb46-41a5-9c18-9f9953548b29">&lt;strong&gt;</bpt>Or create new<ept id="b08eb58e-bb46-41a5-9c18-9f9953548b29">&lt;/strong&gt;</ept> to create a new one for this workload.</target>
+        </trans-unit>
+        <trans-unit id="cc66b887-3c52-4aa7-bc29-129a2df347e9" xml:space="preserve">
+          <source>If needed, click <bpt id="108345a6-61c0-4517-bb77-5c65e198ea41">&lt;strong&gt;</bpt>Resource group location<ept id="108345a6-61c0-4517-bb77-5c65e198ea41">&lt;/strong&gt;</ept> and select the correct Azure location.</source>
+          <target state="new">If needed, click <bpt id="108345a6-61c0-4517-bb77-5c65e198ea41">&lt;strong&gt;</bpt>Resource group location<ept id="108345a6-61c0-4517-bb77-5c65e198ea41">&lt;/strong&gt;</ept> and select the correct Azure location.</target>
+        </trans-unit>
+        <trans-unit id="ec094aa0-fb3a-4739-b189-08b769fe255d" xml:space="preserve">
+          <source>If needed, click <bpt id="eb0c2fdb-691a-4424-b887-463dc7d9dff1">&lt;strong&gt;</bpt>Legal terms<ept id="eb0c2fdb-691a-4424-b887-463dc7d9dff1">&lt;/strong&gt;</ept> to review the terms and agreement for using the template.</source>
+          <target state="new">If needed, click <bpt id="eb0c2fdb-691a-4424-b887-463dc7d9dff1">&lt;strong&gt;</bpt>Legal terms<ept id="eb0c2fdb-691a-4424-b887-463dc7d9dff1">&lt;/strong&gt;</ept> to review the terms and agreement for using the template.</target>
+        </trans-unit>
+        <trans-unit id="9b67020e-0ae9-475b-b35f-5eb54c5018a0" xml:space="preserve">
+          <source>Click <bpt id="a024ee4b-32ab-4e71-95ac-56e55d76aa42">&lt;strong&gt;</bpt>Create<ept id="a024ee4b-32ab-4e71-95ac-56e55d76aa42">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a024ee4b-32ab-4e71-95ac-56e55d76aa42">&lt;strong&gt;</bpt>Create<ept id="a024ee4b-32ab-4e71-95ac-56e55d76aa42">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70305ba5-72aa-4e7d-b3aa-357b8403a4de" xml:space="preserve">
+          <source>Depending on the template, it can take some time for Azure to build the workload.</source>
+          <target state="new">Depending on the template, it can take some time for Azure to build the workload.</target>
+        </trans-unit>
+        <trans-unit id="f6b5e574-5c7b-4fa4-b963-08e894772feb" xml:space="preserve">
+          <source>When complete, you have a new WordPress server running on Ubuntu in your existing or new resource group.</source>
+          <target state="new">When complete, you have a new WordPress server running on Ubuntu in your existing or new resource group.</target>
+        </trans-unit>
+        <trans-unit id="fce481c6-36c6-4fbf-bf60-91ebf7ef6a34" xml:space="preserve">
+          <source>Before you begin, make sure you have the right version of Azure PowerShell installed, you have logged in, and you have switched to the new Resource Manager mode.</source>
+          <target state="new">Before you begin, make sure you have the right version of Azure PowerShell installed, you have logged in, and you have switched to the new Resource Manager mode.</target>
+        </trans-unit>
+        <trans-unit id="68f3a79c-4019-41a2-b1eb-917013e4119f" xml:space="preserve">
+          <source>For the details, click <bpt id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;linkText&gt;</bpt>here<ept id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;/linkText&gt;</ept><bpt id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;title&gt;</bpt><ept id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the details, click <bpt id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;linkText&gt;</bpt>here<ept id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;/linkText&gt;</ept><bpt id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;title&gt;</bpt><ept id="6e8afa7b-5db6-407a-8180-aa9358220369">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ab52bcb-df86-477d-84c5-97be96e22f12" xml:space="preserve">
+          <source>Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the &lt; and &gt; characters.</source>
+          <target state="new">Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the &lt; and &gt; characters.</target>
+        </trans-unit>
+        <trans-unit id="2390dfe3-0e4a-4908-957a-1c1092e78396" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="1d61729f-60e0-456c-8bdf-c35243cab823" xml:space="preserve">
+          <source>Next, run your command block in the Azure PowerShell prompt.</source>
+          <target state="new">Next, run your command block in the Azure PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="e1dedb0a-a86d-4fdd-84f1-aa5ce84ee839" xml:space="preserve">
+          <source>When you run the <bpt id="89a7e029-ade7-444f-8fc3-bbe1f3d403c2">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="89a7e029-ade7-444f-8fc3-bbe1f3d403c2">&lt;/strong&gt;</ept> command, you will be prompted to supply the values for a series of parameters.</source>
+          <target state="new">When you run the <bpt id="89a7e029-ade7-444f-8fc3-bbe1f3d403c2">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="89a7e029-ade7-444f-8fc3-bbe1f3d403c2">&lt;/strong&gt;</ept> command, you will be prompted to supply the values for a series of parameters.</target>
+        </trans-unit>
+        <trans-unit id="f157492f-fe3e-4b4a-9e33-fe510775d70d" xml:space="preserve">
+          <source>When you have specified all the parameter values, <bpt id="f5de9931-d778-41ef-9397-c4e9a4da0878">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="f5de9931-d778-41ef-9397-c4e9a4da0878">&lt;/strong&gt;</ept> creates and configures the virtual machines.</source>
+          <target state="new">When you have specified all the parameter values, <bpt id="f5de9931-d778-41ef-9397-c4e9a4da0878">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="f5de9931-d778-41ef-9397-c4e9a4da0878">&lt;/strong&gt;</ept> creates and configures the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="9d33072d-2050-4d7a-94cd-caf80c031705" xml:space="preserve">
+          <source>When the template execution is complete, you now have WordPress server running on Ubuntu in your new resource group.</source>
+          <target state="new">When the template execution is complete, you now have WordPress server running on Ubuntu in your new resource group.</target>
+        </trans-unit>
+        <trans-unit id="9b0236ce-59c4-4846-9242-fca234054fdf" xml:space="preserve">
+          <source>Before you begin, make sure you have the right version of Azure CLI installed, you have logged in, and you have switched to the new Resource Manager mode.</source>
+          <target state="new">Before you begin, make sure you have the right version of Azure CLI installed, you have logged in, and you have switched to the new Resource Manager mode.</target>
+        </trans-unit>
+        <trans-unit id="e1ccf7d7-0ff0-470f-8bff-789b69d1efea" xml:space="preserve">
+          <source>For the details, click <bpt id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;linkText&gt;</bpt>here<ept id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;/linkText&gt;</ept><bpt id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;title&gt;</bpt><ept id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the details, click <bpt id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;linkText&gt;</bpt>here<ept id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;/linkText&gt;</ept><bpt id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;title&gt;</bpt><ept id="5533f260-ff56-4e6c-80f2-ad0820ddde12">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cce42d1-c165-4f47-8589-908e6b206d33" xml:space="preserve">
+          <source>First, you create a new resource group.</source>
+          <target state="new">First, you create a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="7170f3b7-87b8-4ba8-9266-d575bd7acbad" xml:space="preserve">
+          <source>Use the following command and specify the name of the group and the Azure data center location into which you want to deploy.</source>
+          <target state="new">Use the following command and specify the name of the group and the Azure data center location into which you want to deploy.</target>
+        </trans-unit>
+        <trans-unit id="6c7cf2a3-d82a-43ee-be51-fb634e14de32" xml:space="preserve">
+          <source>Next, use the following command and specify the name of your new resource group and the name of an Azure deployment.</source>
+          <target state="new">Next, use the following command and specify the name of your new resource group and the name of an Azure deployment.</target>
+        </trans-unit>
+        <trans-unit id="8f942170-c4c1-4431-b752-699f70d59646" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="60227503-df40-4868-a120-82fa680947fc" xml:space="preserve">
+          <source>When you run the <bpt id="6dee3682-97a2-412d-b9ea-e857d9925f0f">&lt;strong&gt;</bpt>azure group deployment create<ept id="6dee3682-97a2-412d-b9ea-e857d9925f0f">&lt;/strong&gt;</ept> command, you will be prompted to supply the values for a series of parameters.</source>
+          <target state="new">When you run the <bpt id="6dee3682-97a2-412d-b9ea-e857d9925f0f">&lt;strong&gt;</bpt>azure group deployment create<ept id="6dee3682-97a2-412d-b9ea-e857d9925f0f">&lt;/strong&gt;</ept> command, you will be prompted to supply the values for a series of parameters.</target>
+        </trans-unit>
+        <trans-unit id="6f652aa0-0ef1-40ff-85fd-a79c29b6e6ad" xml:space="preserve">
+          <source>When you have specified all the parameter values, Azure creates and configures the virtual machines.</source>
+          <target state="new">When you have specified all the parameter values, Azure creates and configures the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="4d581981-25bb-4ca8-aa87-afc9c6458712" xml:space="preserve">
+          <source>When the template execution is complete, you now have WordPress server running on Ubuntu in your new resource group.</source>
+          <target state="new">When the template execution is complete, you now have WordPress server running on Ubuntu in your new resource group.</target>
+        </trans-unit>
+        <trans-unit id="8138635f-7b02-4ccd-a4ba-a16648af1206" xml:space="preserve">
+          <source><bpt id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;linkText&gt;</bpt>Deploy and manage Virtual Machines using Azure Resource Manager templates and Azure PowerShell<ept id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;/linkText&gt;</ept><bpt id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;title&gt;</bpt><ept id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;linkText&gt;</bpt>Deploy and manage Virtual Machines using Azure Resource Manager templates and Azure PowerShell<ept id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;/linkText&gt;</ept><bpt id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;title&gt;</bpt><ept id="bfa55a60-2175-4095-944a-2b83259b1623">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a5f9f3a-d611-4284-afbb-127cf7dd8e46" xml:space="preserve">
+          <source><bpt id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;linkText&gt;</bpt>Azure Compute, Network and Storage Providers under Azure Resource Manager<ept id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;/linkText&gt;</ept><bpt id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;title&gt;</bpt><ept id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;linkText&gt;</bpt>Azure Compute, Network and Storage Providers under Azure Resource Manager<ept id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;/linkText&gt;</ept><bpt id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;title&gt;</bpt><ept id="752089bc-3966-477a-aa42-38516f7dc0b5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57a78325-e42e-4f77-850b-48f02a5158ff" xml:space="preserve">
+          <source><bpt id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;/linkText&gt;</ept><bpt id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;title&gt;</bpt><ept id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;/linkText&gt;</ept><bpt id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;title&gt;</bpt><ept id="6b871235-7fff-4f3f-88af-0a39a004a416">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1fca9cd-ec05-44c5-b652-bc35b6a24571" xml:space="preserve">
+          <source><bpt id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;/linkText&gt;</ept><bpt id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;title&gt;</bpt><ept id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;/linkText&gt;</ept><bpt id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;title&gt;</bpt><ept id="e0769838-79fb-49c2-bc12-df762df45ea7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="421cc203-38db-44e0-b9c8-11df465cdd82" xml:space="preserve">
+          <source><bpt id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;/linkText&gt;</ept><bpt id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;title&gt;</bpt><ept id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;linkText&gt;</bpt>Virtual machines documentation<ept id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;/linkText&gt;</ept><bpt id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;title&gt;</bpt><ept id="931ba7e7-e09a-4bb7-8780-348c115fe867">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3be979c-38cb-4035-988f-18ed36073618" xml:space="preserve">
+          <source><bpt id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;/linkText&gt;</ept><bpt id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;title&gt;</bpt><ept id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;/linkText&gt;</ept><bpt id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;title&gt;</bpt><ept id="e7640a08-4c45-4a73-b23e-c1e96dad9e2b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

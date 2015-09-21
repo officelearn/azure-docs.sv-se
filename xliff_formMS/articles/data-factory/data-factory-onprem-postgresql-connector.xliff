@@ -1,0 +1,756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cb72cf4f-955d-4c00-8fbe-17061cd2da75" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cb72cf4f-955d-4c00-8fbe-17061cd2da75" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c52eb905-a83a-41c6-a167-0ff287a1130a">
+        <trans-unit id="79ca7307-6389-4a9d-9bbb-1a20442b09ae" xml:space="preserve">
+          <source>Move data From PostgreSQL | Azure Data Factory</source>
+          <target state="new">Move data From PostgreSQL | Azure Data Factory</target>
+        </trans-unit>
+        <trans-unit id="042b49d1-484f-4bb9-ab5f-962ec02ea78c" xml:space="preserve">
+          <source>Learn about how to move data from PostgreSQL Database using Azure Data Factory.</source>
+          <target state="new">Learn about how to move data from PostgreSQL Database using Azure Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="a4c5ba13-a7e0-4cf6-9480-78cb3a5c7068" xml:space="preserve">
+          <source>This article outlines how you can use the Copy Activity in an Azure data factory to move data from PostgreSQL to another data store.</source>
+          <target state="new">This article outlines how you can use the Copy Activity in an Azure data factory to move data from PostgreSQL to another data store.</target>
+        </trans-unit>
+        <trans-unit id="8b4d1353-5b7d-46c9-a041-940cef35e940" xml:space="preserve">
+          <source>This article builds on the <bpt id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;linkText&gt;</bpt>data movement activities<ept id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;/linkText&gt;</ept><bpt id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;title&gt;</bpt><ept id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</source>
+          <target state="new">This article builds on the <bpt id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;linkText&gt;</bpt>data movement activities<ept id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;/linkText&gt;</ept><bpt id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;title&gt;</bpt><ept id="e40b2165-a68c-4023-a5be-a7a1f625f4a5">&lt;/title&gt;</ept> article which presents a general overview of data movement with copy activity and supported data store combinations.</target>
+        </trans-unit>
+        <trans-unit id="241a2636-41b3-4d5a-beaa-703715dedca7" xml:space="preserve">
+          <source>Data Factory service supports connecting to on-premises PostgreSQL sources using the Data Management Gateway.</source>
+          <target state="new">Data Factory service supports connecting to on-premises PostgreSQL sources using the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="81d3d602-30d4-4a2c-a09b-65dd58fb2134" xml:space="preserve">
+          <source>See <bpt id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;/linkText&gt;</ept><bpt id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;title&gt;</bpt><ept id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</source>
+          <target state="new">See <bpt id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;/linkText&gt;</ept><bpt id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;title&gt;</bpt><ept id="30cd404a-137c-445a-94a7-757ab072fa49">&lt;/title&gt;</ept> article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.</target>
+        </trans-unit>
+        <trans-unit id="b87cda0b-4001-4bb0-a554-da1e00d2a3b4" xml:space="preserve">
+          <source><bpt id="ec43a242-34a3-4ab2-bee0-e7c1401e1e05">&lt;strong&gt;</bpt>Note:<ept id="ec43a242-34a3-4ab2-bee0-e7c1401e1e05">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to PostgreSQL even if it is hosted in Azure IaaS VMs.</source>
+          <target state="new"><bpt id="ec43a242-34a3-4ab2-bee0-e7c1401e1e05">&lt;strong&gt;</bpt>Note:<ept id="ec43a242-34a3-4ab2-bee0-e7c1401e1e05">&lt;/strong&gt;</ept> You need to leverage the gateway to connect to PostgreSQL even if it is hosted in Azure IaaS VMs.</target>
+        </trans-unit>
+        <trans-unit id="d5601400-ad3c-48e2-9b9b-967f16dfe974" xml:space="preserve">
+          <source>If you are trying to connect to an instance of PostgreSQL hosted in cloud, you can also install the gateway instance in the IaaS VM.</source>
+          <target state="new">If you are trying to connect to an instance of PostgreSQL hosted in cloud, you can also install the gateway instance in the IaaS VM.</target>
+        </trans-unit>
+        <trans-unit id="2acec8b0-e897-4bab-b806-36424773122d" xml:space="preserve">
+          <source>Data factory only supports moving data from PostgreSQL to other data stores, not from other data stores to PostgreSQL.</source>
+          <target state="new">Data factory only supports moving data from PostgreSQL to other data stores, not from other data stores to PostgreSQL.</target>
+        </trans-unit>
+        <trans-unit id="f43cdba4-e160-4064-822f-7a66fa681514" xml:space="preserve">
+          <source>For Data Management Gateway to connect to the PostgreSQL Database, you need to install the <bpt id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;linkText&gt;</bpt>Ngpsql data provider for PostgreSQL<ept id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;/linkText&gt;</ept><bpt id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;title&gt;</bpt><ept id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</source>
+          <target state="new">For Data Management Gateway to connect to the PostgreSQL Database, you need to install the <bpt id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;linkText&gt;</bpt>Ngpsql data provider for PostgreSQL<ept id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;/linkText&gt;</ept><bpt id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;title&gt;</bpt><ept id="52dc4829-d725-43df-bd92-a3ebfcfea301">&lt;/title&gt;</ept> on the same system as the Data Management Gateway.</target>
+        </trans-unit>
+        <trans-unit id="bef2742a-857a-4780-bd75-b81115da169c" xml:space="preserve">
+          <source>The sample below shows:</source>
+          <target state="new">The sample below shows:</target>
+        </trans-unit>
+        <trans-unit id="ae1401a9-ed87-403b-9319-ca7a5a532982" xml:space="preserve">
+          <source>A linked service of type <bpt id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;linkText&gt;</bpt>OnPremisesPostgreSql<ept id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;/linkText&gt;</ept><bpt id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;title&gt;</bpt><ept id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;/title&gt;</ept>.</source>
+          <target state="new">A linked service of type <bpt id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;linkText&gt;</bpt>OnPremisesPostgreSql<ept id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;/linkText&gt;</ept><bpt id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;title&gt;</bpt><ept id="332bf57b-38c6-4b18-bb7e-de95d2435cbc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b81366d8-69f6-478c-99ed-5c13dfea43e9" xml:space="preserve">
+          <source>A linked service of type <bpt id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;linkText&gt;</bpt>AzureStorage<ept id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;/linkText&gt;</ept><bpt id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;title&gt;</bpt><ept id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;/title&gt;</ept>.</source>
+          <target state="new">A linked service of type <bpt id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;linkText&gt;</bpt>AzureStorage<ept id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;/linkText&gt;</ept><bpt id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;title&gt;</bpt><ept id="a62be599-d164-461c-b4b0-20ffb1cae4db">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bd40c41-77dd-413c-ad54-20d8dc6d35fc" xml:space="preserve">
+          <source>An input <bpt id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;linkText&gt;</bpt>dataset<ept id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;/linkText&gt;</ept><bpt id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;title&gt;</bpt><ept id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;/title&gt;</ept> of type <bpt id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;linkText&gt;</bpt>RelationalTable<ept id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;/linkText&gt;</ept><bpt id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;title&gt;</bpt><ept id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">An input <bpt id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;linkText&gt;</bpt>dataset<ept id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;/linkText&gt;</ept><bpt id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;title&gt;</bpt><ept id="6ae3a540-2837-4bf8-9749-36fe58ccb350">&lt;/title&gt;</ept> of type <bpt id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;linkText&gt;</bpt>RelationalTable<ept id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;/linkText&gt;</ept><bpt id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;title&gt;</bpt><ept id="ea0afc6b-ae06-4a21-9014-3ac485c400e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="920f5dac-fefd-4f88-b76b-eefeaf8e5521" xml:space="preserve">
+          <source>An output <bpt id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;linkText&gt;</bpt>dataset<ept id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;/linkText&gt;</ept><bpt id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;title&gt;</bpt><ept id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;/title&gt;</ept> of type <bpt id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;linkText&gt;</bpt>AzureBlob<ept id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;/linkText&gt;</ept><bpt id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;title&gt;</bpt><ept id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">An output <bpt id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;linkText&gt;</bpt>dataset<ept id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;/linkText&gt;</ept><bpt id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;title&gt;</bpt><ept id="a53d31cd-d214-4c47-9d8c-614ba51dd63a">&lt;/title&gt;</ept> of type <bpt id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;linkText&gt;</bpt>AzureBlob<ept id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;/linkText&gt;</ept><bpt id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;title&gt;</bpt><ept id="190d6503-421b-48cc-b3a0-57f3a08c39e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdfdfff3-f60f-4525-a6c1-7f3e51e6a9b7" xml:space="preserve">
+          <source>The <bpt id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;linkText&gt;</bpt>pipeline<ept id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;/linkText&gt;</ept><bpt id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;title&gt;</bpt><ept id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;linkText&gt;</bpt>RelationalSource<ept id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;/linkText&gt;</ept><bpt id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;title&gt;</bpt><ept id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;/title&gt;</ept> and <bpt id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;linkText&gt;</bpt>BlobSink<ept id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;/linkText&gt;</ept><bpt id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;title&gt;</bpt><ept id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;linkText&gt;</bpt>pipeline<ept id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;/linkText&gt;</ept><bpt id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;title&gt;</bpt><ept id="db83bd25-362f-4505-ab56-ce1e3305956f">&lt;/title&gt;</ept> with Copy Activity that uses <bpt id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;linkText&gt;</bpt>RelationalSource<ept id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;/linkText&gt;</ept><bpt id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;title&gt;</bpt><ept id="6eeb6d8f-793e-4514-8838-5241b6c62359">&lt;/title&gt;</ept> and <bpt id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;linkText&gt;</bpt>BlobSink<ept id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;/linkText&gt;</ept><bpt id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;title&gt;</bpt><ept id="d30e252e-daac-4faf-9722-3986a829da2b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aece3627-05ff-4011-8068-f55a669fa7f1" xml:space="preserve">
+          <source>The sample copies data from a query result in PostgreSQL database to a blob every hour.</source>
+          <target state="new">The sample copies data from a query result in PostgreSQL database to a blob every hour.</target>
+        </trans-unit>
+        <trans-unit id="2a8d7eca-4880-40f7-a4d4-bc2d67b5a295" xml:space="preserve">
+          <source>The JSON properties used in these samples are described in sections following the samples.</source>
+          <target state="new">The JSON properties used in these samples are described in sections following the samples.</target>
+        </trans-unit>
+        <trans-unit id="70477703-903a-4ffb-8b26-6cbd88870017" xml:space="preserve">
+          <source>As a first step, setup the data management gateway as per the instructions in the <bpt id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;/linkText&gt;</ept><bpt id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;title&gt;</bpt><ept id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;/title&gt;</ept> article.</source>
+          <target state="new">As a first step, setup the data management gateway as per the instructions in the <bpt id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;linkText&gt;</bpt>moving data between on-premises locations and cloud<ept id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;/linkText&gt;</ept><bpt id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;title&gt;</bpt><ept id="89b4784f-7f92-4275-9b8f-58e836211b1b">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="269096fc-ecfe-41a0-8e2f-2c4cb7ef290f" xml:space="preserve">
+          <source><bpt id="0a1a8e1f-0f73-4848-8fe3-8afd76ed473d">&lt;strong&gt;</bpt>PostgreSQL linked service:<ept id="0a1a8e1f-0f73-4848-8fe3-8afd76ed473d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0a1a8e1f-0f73-4848-8fe3-8afd76ed473d">&lt;strong&gt;</bpt>PostgreSQL linked service:<ept id="0a1a8e1f-0f73-4848-8fe3-8afd76ed473d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13f3d7ef-f07a-43a3-84ca-40c771d4a002" xml:space="preserve">
+          <source><bpt id="defcf22b-b073-4c7f-ab25-6b9df725d42a">&lt;strong&gt;</bpt>Azure Blob storage linked service:<ept id="defcf22b-b073-4c7f-ab25-6b9df725d42a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="defcf22b-b073-4c7f-ab25-6b9df725d42a">&lt;strong&gt;</bpt>Azure Blob storage linked service:<ept id="defcf22b-b073-4c7f-ab25-6b9df725d42a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6d4de29-4f5b-48d1-96a0-e3825c36bfbc" xml:space="preserve">
+          <source><bpt id="b87bca84-d3a6-4e21-a808-a3df68adfe47">&lt;strong&gt;</bpt>PostgreSQL input dataset:<ept id="b87bca84-d3a6-4e21-a808-a3df68adfe47">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b87bca84-d3a6-4e21-a808-a3df68adfe47">&lt;strong&gt;</bpt>PostgreSQL input dataset:<ept id="b87bca84-d3a6-4e21-a808-a3df68adfe47">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="070e7141-7ecb-4afa-931a-1577410ff59e" xml:space="preserve">
+          <source>The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.</source>
+          <target state="new">The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.</target>
+        </trans-unit>
+        <trans-unit id="afd1126a-bbb5-45b6-8280-5cb47658a050" xml:space="preserve">
+          <source>Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</source>
+          <target state="new">Setting “external”: true and specifying externalData policy tells data factory that this is a table that is external to the data factory and not produced by an activity in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="5174e5e0-8308-4f4c-a206-79de57adf3af" xml:space="preserve">
+          <source><bpt id="ee27d3ce-5add-4142-a25f-5cd2fe908fd2">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="ee27d3ce-5add-4142-a25f-5cd2fe908fd2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ee27d3ce-5add-4142-a25f-5cd2fe908fd2">&lt;strong&gt;</bpt>Azure Blob output dataset:<ept id="ee27d3ce-5add-4142-a25f-5cd2fe908fd2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab9c8733-89c0-40f9-a290-f7325232459e" xml:space="preserve">
+          <source>Data is written to a new blob every hour (frequency: hour, interval: 1).</source>
+          <target state="new">Data is written to a new blob every hour (frequency: hour, interval: 1).</target>
+        </trans-unit>
+        <trans-unit id="8d6e8032-6830-422e-9f7f-6b998d5d00cd" xml:space="preserve">
+          <source>The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed.</source>
+          <target state="new">The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed.</target>
+        </trans-unit>
+        <trans-unit id="7c3b88d5-eed4-4a4b-b485-38af44d9f51a" xml:space="preserve">
+          <source>The folder path uses year, month, day, and hours parts of the start time.</source>
+          <target state="new">The folder path uses year, month, day, and hours parts of the start time.</target>
+        </trans-unit>
+        <trans-unit id="74aa7e32-3bfb-45d9-941c-bdc84ea3f89c" xml:space="preserve">
+          <source><bpt id="b3744922-bb6e-403a-98e5-33340d640b59">&lt;strong&gt;</bpt>Copy activity:<ept id="b3744922-bb6e-403a-98e5-33340d640b59">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b3744922-bb6e-403a-98e5-33340d640b59">&lt;strong&gt;</bpt>Copy activity:<ept id="b3744922-bb6e-403a-98e5-33340d640b59">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9081902-7a01-4688-bd46-110820c6a776" xml:space="preserve">
+          <source>The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</source>
+          <target state="new">The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour.</target>
+        </trans-unit>
+        <trans-unit id="206fe73f-6da0-448f-be7b-cd4cd0496ba6" xml:space="preserve">
+          <source>In the pipeline JSON definition, the <bpt id="f24e1523-ae40-4728-acdd-cb552a908664">&lt;strong&gt;</bpt>source<ept id="f24e1523-ae40-4728-acdd-cb552a908664">&lt;/strong&gt;</ept> type is set to <bpt id="a765fe95-a3da-44f0-b3b5-92dcc5f8ecf4">&lt;strong&gt;</bpt>RelationalSource<ept id="a765fe95-a3da-44f0-b3b5-92dcc5f8ecf4">&lt;/strong&gt;</ept> and <bpt id="68fb5467-da25-4de0-881c-4ac219bbb8e6">&lt;strong&gt;</bpt>sink<ept id="68fb5467-da25-4de0-881c-4ac219bbb8e6">&lt;/strong&gt;</ept> type is set to <bpt id="dd05ea8a-61c5-48d9-8e40-e2e316059b8e">&lt;strong&gt;</bpt>BlobSink<ept id="dd05ea8a-61c5-48d9-8e40-e2e316059b8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the pipeline JSON definition, the <bpt id="f24e1523-ae40-4728-acdd-cb552a908664">&lt;strong&gt;</bpt>source<ept id="f24e1523-ae40-4728-acdd-cb552a908664">&lt;/strong&gt;</ept> type is set to <bpt id="a765fe95-a3da-44f0-b3b5-92dcc5f8ecf4">&lt;strong&gt;</bpt>RelationalSource<ept id="a765fe95-a3da-44f0-b3b5-92dcc5f8ecf4">&lt;/strong&gt;</ept> and <bpt id="68fb5467-da25-4de0-881c-4ac219bbb8e6">&lt;strong&gt;</bpt>sink<ept id="68fb5467-da25-4de0-881c-4ac219bbb8e6">&lt;/strong&gt;</ept> type is set to <bpt id="dd05ea8a-61c5-48d9-8e40-e2e316059b8e">&lt;strong&gt;</bpt>BlobSink<ept id="dd05ea8a-61c5-48d9-8e40-e2e316059b8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2daea9e4-0fb1-4889-9d30-67f5854b0fe4" xml:space="preserve">
+          <source>The SQL query specified for the <bpt id="bd6559e9-3383-4eaa-b4c5-52fd31b3413b">&lt;strong&gt;</bpt>query<ept id="bd6559e9-3383-4eaa-b4c5-52fd31b3413b">&lt;/strong&gt;</ept> property selects the data from the public.usstates table in the PostgreSQL database.</source>
+          <target state="new">The SQL query specified for the <bpt id="bd6559e9-3383-4eaa-b4c5-52fd31b3413b">&lt;strong&gt;</bpt>query<ept id="bd6559e9-3383-4eaa-b4c5-52fd31b3413b">&lt;/strong&gt;</ept> property selects the data from the public.usstates table in the PostgreSQL database.</target>
+        </trans-unit>
+        <trans-unit id="d74a40c5-653b-4bb8-8886-6d57c4ba9785" xml:space="preserve">
+          <source>The following table provides description for JSON elements specific to PostgreSQL linked service.</source>
+          <target state="new">The following table provides description for JSON elements specific to PostgreSQL linked service.</target>
+        </trans-unit>
+        <trans-unit id="7f9d26ec-91e8-476c-b42a-f45dff2fb3e0" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="f37000c6-649e-45a0-9a9d-5500c3d500c8" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c6c1e604-fbac-4ea0-b320-5e717bf38b0c" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="1885793f-e2eb-49ec-8d72-5b6f429a7726" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="1f650864-ec17-4716-a714-ecc4819fe18c" xml:space="preserve">
+          <source>The type property must be set to: <bpt id="02aea384-cc8a-4802-89a5-a344e2133b3f">&lt;strong&gt;</bpt>OnPremisesPostgreSql<ept id="02aea384-cc8a-4802-89a5-a344e2133b3f">&lt;/strong&gt;</ept></source>
+          <target state="new">The type property must be set to: <bpt id="02aea384-cc8a-4802-89a5-a344e2133b3f">&lt;strong&gt;</bpt>OnPremisesPostgreSql<ept id="02aea384-cc8a-4802-89a5-a344e2133b3f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4d4bb96-eb6b-4946-9415-d4534946a590" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="fe5ed1da-496d-4699-864c-7d118216314f" xml:space="preserve">
+          <source>server</source>
+          <target state="new">server</target>
+        </trans-unit>
+        <trans-unit id="9f41b869-de48-4db4-be87-56ead0d5bed1" xml:space="preserve">
+          <source>Name of the PostgreSQL server.</source>
+          <target state="new">Name of the PostgreSQL server.</target>
+        </trans-unit>
+        <trans-unit id="f4a4b646-190c-45dd-a329-8329b7793dc4" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2eddf109-5cbd-4adb-8f1d-63dab481f2fb" xml:space="preserve">
+          <source>database</source>
+          <target state="new">database</target>
+        </trans-unit>
+        <trans-unit id="bd2f193f-54a3-46f5-959b-3fdea32666cd" xml:space="preserve">
+          <source>Name of the PostgreSQL database.</source>
+          <target state="new">Name of the PostgreSQL database.</target>
+        </trans-unit>
+        <trans-unit id="5715b37b-a0e3-4eaf-b2dc-dfe3cdbada20" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a5e93dc8-8fdf-49e4-ae95-dda25bc9acad" xml:space="preserve">
+          <source>schema</source>
+          <target state="new">schema</target>
+        </trans-unit>
+        <trans-unit id="6366251d-08c2-4029-a1a3-1a8a8b0b1109" xml:space="preserve">
+          <source>Name of the schema in the database.</source>
+          <target state="new">Name of the schema in the database.</target>
+        </trans-unit>
+        <trans-unit id="7c7b33fa-afd0-4602-8b05-9a2ad13dc610" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1cd4e926-6acf-435a-ab02-69187ce2259c" xml:space="preserve">
+          <source>authenticationType</source>
+          <target state="new">authenticationType</target>
+        </trans-unit>
+        <trans-unit id="44f833a4-3247-4ca3-b5a4-e2783ad82ac3" xml:space="preserve">
+          <source>Type of authentication used to connect to the PostgreSQL database.</source>
+          <target state="new">Type of authentication used to connect to the PostgreSQL database.</target>
+        </trans-unit>
+        <trans-unit id="0d25c25a-5318-4a76-9cad-f79196e6f771" xml:space="preserve">
+          <source>Possible values are: Anonymous, Basic, and Windows.</source>
+          <target state="new">Possible values are: Anonymous, Basic, and Windows.</target>
+        </trans-unit>
+        <trans-unit id="7c7546bd-87a9-4b44-8615-9918851b37ef" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="26dfafd8-69c5-48a8-a61b-c1bb07020993" xml:space="preserve">
+          <source>username</source>
+          <target state="new">username</target>
+        </trans-unit>
+        <trans-unit id="8b021199-a2c8-40ca-b13a-dbf06b0ac4ac" xml:space="preserve">
+          <source>Specify user name if you are using Basic or Windows authentication.</source>
+          <target state="new">Specify user name if you are using Basic or Windows authentication.</target>
+        </trans-unit>
+        <trans-unit id="e6ac42d1-93e2-43c2-a379-b2f8b3173d66" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="afe2569f-e190-48be-9402-fb83c1d0eb64" xml:space="preserve">
+          <source>password</source>
+          <target state="new">password</target>
+        </trans-unit>
+        <trans-unit id="3c588c19-4bd9-4281-8255-d04eb861ca57" xml:space="preserve">
+          <source>Specify password for the user account you specified for the username.</source>
+          <target state="new">Specify password for the user account you specified for the username.</target>
+        </trans-unit>
+        <trans-unit id="fb59f3dc-4b3f-44d4-9700-7fd335f86320" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5fff0c8b-1f90-4e04-9977-b9cc2a36c081" xml:space="preserve">
+          <source>gatewayName</source>
+          <target state="new">gatewayName</target>
+        </trans-unit>
+        <trans-unit id="05f29b4e-13ef-4935-888d-d09314668d3c" xml:space="preserve">
+          <source>Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database.</source>
+          <target state="new">Name of the gateway that the Data Factory service should use to connect to the on-premises PostgreSQL database.</target>
+        </trans-unit>
+        <trans-unit id="aa60f612-31b5-4fdc-b11f-b84cc10e6d49" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bf79ab85-6f9f-4972-9c94-08bef8788322" xml:space="preserve">
+          <source>See <bpt id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;/linkText&gt;</ept><bpt id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;title&gt;</bpt><ept id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;/title&gt;</ept> for details about setting credentials for an on-premises PostgreSQL data source.</source>
+          <target state="new">See <bpt id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;linkText&gt;</bpt>Setting Credentials and Security<ept id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;/linkText&gt;</ept><bpt id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;title&gt;</bpt><ept id="cbd7463b-6874-448c-9b3e-24b3aef4664a">&lt;/title&gt;</ept> for details about setting credentials for an on-premises PostgreSQL data source.</target>
+        </trans-unit>
+        <trans-unit id="07d99c63-3c26-4e9b-981b-7d81c2552037" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining datasets, see the <bpt id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;linkText&gt;</bpt>Creating datasets<ept id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;/linkText&gt;</ept><bpt id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;title&gt;</bpt><ept id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</source>
+          <target state="new">For a full list of sections &amp; properties available for defining datasets, see the <bpt id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;linkText&gt;</bpt>Creating datasets<ept id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;/linkText&gt;</ept><bpt id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;title&gt;</bpt><ept id="884c73f6-e45f-439c-b664-4fff782d79bd">&lt;/title&gt;</ept> article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).</target>
+        </trans-unit>
+        <trans-unit id="57c9709d-7ce6-4b0c-b9ce-9aa316794f10" xml:space="preserve">
+          <source>The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</source>
+          <target state="new">The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store.</target>
+        </trans-unit>
+        <trans-unit id="affa460b-77ef-4b66-859e-da717288eb80" xml:space="preserve">
+          <source>The typeProperties section for dataset of type <bpt id="13244715-552b-417d-b803-1588db16aa67">&lt;strong&gt;</bpt>RelationalTable<ept id="13244715-552b-417d-b803-1588db16aa67">&lt;/strong&gt;</ept> (which includes PostgreSQL dataset) has the following properties.</source>
+          <target state="new">The typeProperties section for dataset of type <bpt id="13244715-552b-417d-b803-1588db16aa67">&lt;strong&gt;</bpt>RelationalTable<ept id="13244715-552b-417d-b803-1588db16aa67">&lt;/strong&gt;</ept> (which includes PostgreSQL dataset) has the following properties.</target>
+        </trans-unit>
+        <trans-unit id="81f5fca7-85b4-425c-bc80-1aaa35d03a8a" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="07ec46c0-4419-4e76-950e-d7fb01a412fe" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="20d1e1ec-59ae-46a0-a52f-0e29fd354565" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="1c2f4dc2-dc74-41e3-8b6f-9282d6bc64df" xml:space="preserve">
+          <source>tableName</source>
+          <target state="new">tableName</target>
+        </trans-unit>
+        <trans-unit id="dbb74d53-88f0-4181-b82b-ab44c392da8b" xml:space="preserve">
+          <source>Name of the table in the PostgreSQL Database instance that linked service refers to.</source>
+          <target state="new">Name of the table in the PostgreSQL Database instance that linked service refers to.</target>
+        </trans-unit>
+        <trans-unit id="a4819cd6-5c07-4ab6-8fb6-3a4d2b1fd788" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="02c99c9f-6350-46aa-83d9-81b63acecaf3" xml:space="preserve">
+          <source>For a full list of sections &amp; properties available for defining activities, see the <bpt id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;/linkText&gt;</ept><bpt id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;title&gt;</bpt><ept id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </source>
+          <target state="new">For a full list of sections &amp; properties available for defining activities, see the <bpt id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;linkText&gt;</bpt>Creating Pipelines<ept id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;/linkText&gt;</ept><bpt id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;title&gt;</bpt><ept id="1480e729-80a4-42eb-98fa-0466f9d7e8dd">&lt;/title&gt;</ept> article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. </target>
+        </trans-unit>
+        <trans-unit id="e80f509e-afcd-4bb1-a133-349a6a1428ae" xml:space="preserve">
+          <source>Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</source>
+          <target state="new">Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.</target>
+        </trans-unit>
+        <trans-unit id="804885b8-daa8-4b1b-9738-06e281a3a15d" xml:space="preserve">
+          <source>In case of Copy Activity when source is of type <bpt id="a1d64fb1-6777-4011-a4d5-a4f172e2604e">&lt;strong&gt;</bpt>RelationalSource<ept id="a1d64fb1-6777-4011-a4d5-a4f172e2604e">&lt;/strong&gt;</ept> (which includes PostgreSQL) the following properties are available in typeProperties section:</source>
+          <target state="new">In case of Copy Activity when source is of type <bpt id="a1d64fb1-6777-4011-a4d5-a4f172e2604e">&lt;strong&gt;</bpt>RelationalSource<ept id="a1d64fb1-6777-4011-a4d5-a4f172e2604e">&lt;/strong&gt;</ept> (which includes PostgreSQL) the following properties are available in typeProperties section:</target>
+        </trans-unit>
+        <trans-unit id="9cc1c89f-63a6-4f9b-b167-4ad5275e4a0e" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="cab0ca77-73d6-4ae1-972b-1583fac8e88b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="373d71b5-25b7-4fab-b9f7-58f3b9d9dd2a" xml:space="preserve">
+          <source>Allowed values</source>
+          <target state="new">Allowed values</target>
+        </trans-unit>
+        <trans-unit id="d3125e64-6ca8-4b1f-8ae1-c9fa4573c6d3" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="2c98a9df-32fc-4cac-bcd8-c1e362028219" xml:space="preserve">
+          <source>query</source>
+          <target state="new">query</target>
+        </trans-unit>
+        <trans-unit id="b7d49f97-ed63-4844-8b3f-9b9290e8af48" xml:space="preserve">
+          <source>Use the custom query to read data.</source>
+          <target state="new">Use the custom query to read data.</target>
+        </trans-unit>
+        <trans-unit id="a5c636c8-b745-4b11-9395-2d6ce6522dec" xml:space="preserve">
+          <source>SQL query string.</source>
+          <target state="new">SQL query string.</target>
+        </trans-unit>
+        <trans-unit id="23fedd6a-7601-4982-b30a-b57d03af544c" xml:space="preserve">
+          <source>For example: select * from MyTable.</source>
+          <target state="new">For example: select * from MyTable.</target>
+        </trans-unit>
+        <trans-unit id="f39cc50c-4374-4636-afce-8bd3f9857293" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b3e1b775-dbaa-4374-9f15-90aeda1f53cf" xml:space="preserve">
+          <source><bpt id="11000bdd-d77a-466e-af70-b189dcd13fb9">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="11000bdd-d77a-466e-af70-b189dcd13fb9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="11000bdd-d77a-466e-af70-b189dcd13fb9">&lt;token href="../../includes/data-factory-structure-for-rectangualr-datasets.md"&gt;</bpt><ept id="11000bdd-d77a-466e-af70-b189dcd13fb9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66094ac8-8eff-454b-8cca-817dfc5a8742" xml:space="preserve">
+          <source>As mentioned in the <bpt id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;linkText&gt;</bpt>data movement activities<ept id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;/linkText&gt;</ept><bpt id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;title&gt;</bpt><ept id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;/title&gt;</ept> article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:</source>
+          <target state="new">As mentioned in the <bpt id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;linkText&gt;</bpt>data movement activities<ept id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;/linkText&gt;</ept><bpt id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;title&gt;</bpt><ept id="6486afcc-6f75-4ee0-8bf7-f46e1ede024b">&lt;/title&gt;</ept> article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:</target>
+        </trans-unit>
+        <trans-unit id="b057857b-f218-4106-bd67-6c4af192ca48" xml:space="preserve">
+          <source>Convert from native source types to .NET type</source>
+          <target state="new">Convert from native source types to .NET type</target>
+        </trans-unit>
+        <trans-unit id="5d9b8ec7-8952-4ba6-9c87-89847d888cf1" xml:space="preserve">
+          <source>Convert from .NET type to native sink type</source>
+          <target state="new">Convert from .NET type to native sink type</target>
+        </trans-unit>
+        <trans-unit id="fafd2aa2-c2ed-4e49-a113-d81864528ca3" xml:space="preserve">
+          <source>When moving data to PostgreSQL the following mappings will be used from PostgreSQL type to .NET type.</source>
+          <target state="new">When moving data to PostgreSQL the following mappings will be used from PostgreSQL type to .NET type.</target>
+        </trans-unit>
+        <trans-unit id="c7660323-05bd-41ea-a18f-d01e0afb0c01" xml:space="preserve">
+          <source>PostgreSQL Database type</source>
+          <target state="new">PostgreSQL Database type</target>
+        </trans-unit>
+        <trans-unit id="8ef0ff46-eab3-47da-a2bd-5216e9db79da" xml:space="preserve">
+          <source>PostgresSQL aliases</source>
+          <target state="new">PostgresSQL aliases</target>
+        </trans-unit>
+        <trans-unit id="79f983e9-c144-40ae-9ca1-cf3420922f59" xml:space="preserve">
+          <source>.NET Framework type</source>
+          <target state="new">.NET Framework type</target>
+        </trans-unit>
+        <trans-unit id="a7f78a19-ce79-4e6a-b10c-b59452072e20" xml:space="preserve">
+          <source>abstime</source>
+          <target state="new">abstime</target>
+        </trans-unit>
+        <trans-unit id="e4416f1f-a62b-46dc-9647-82db496699cc" xml:space="preserve">
+          <source>Datetime</source>
+          <target state="new">Datetime</target>
+        </trans-unit>
+        <trans-unit id="62724221-c4c4-46f3-bd2d-2b4ae3fa9603" xml:space="preserve">
+          <source>bigint</source>
+          <target state="new">bigint</target>
+        </trans-unit>
+        <trans-unit id="5a620838-730b-4eff-803b-d30f9b738a95" xml:space="preserve">
+          <source>int8</source>
+          <target state="new">int8</target>
+        </trans-unit>
+        <trans-unit id="067c1220-5065-4432-8780-97feac83dda2" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="eb804193-1252-4c09-99c5-24f2c357699c" xml:space="preserve">
+          <source>bigserial</source>
+          <target state="new">bigserial</target>
+        </trans-unit>
+        <trans-unit id="1cd87909-eb6a-4418-a65c-6d35e74edc58" xml:space="preserve">
+          <source>serial8</source>
+          <target state="new">serial8</target>
+        </trans-unit>
+        <trans-unit id="4813c267-a13f-4366-b376-f3bab11ce063" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="5c214f03-caf3-454e-b03c-9cbdfa4bd154" xml:space="preserve">
+          <source>bit [ (n) ]</source>
+          <target state="new">bit [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="61185679-5d38-48d2-b4ab-0d1a71031456" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="5ceb6fcf-4b78-4433-bec3-ebc8a3fdcf22" xml:space="preserve">
+          <source>bit varying [ (n) ]</source>
+          <target state="new">bit varying [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="04f5de48-2c89-4819-87c8-977c5b5cb903" xml:space="preserve">
+          <source>varbit</source>
+          <target state="new">varbit</target>
+        </trans-unit>
+        <trans-unit id="a4faf25e-0844-4d2a-8195-ec84ec9225e2" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="9c003d3a-2280-4362-9665-d54d2e634dae" xml:space="preserve">
+          <source>boolean</source>
+          <target state="new">boolean</target>
+        </trans-unit>
+        <trans-unit id="60e6c58e-b521-4854-9f2c-5db436527422" xml:space="preserve">
+          <source>bool</source>
+          <target state="new">bool</target>
+        </trans-unit>
+        <trans-unit id="6f8dd997-a0ca-4862-80db-c30f1b6c3a62" xml:space="preserve">
+          <source>Boolean</source>
+          <target state="new">Boolean</target>
+        </trans-unit>
+        <trans-unit id="0578501e-951a-4956-87d6-29853b153f0c" xml:space="preserve">
+          <source>box</source>
+          <target state="new">box</target>
+        </trans-unit>
+        <trans-unit id="b50d49b6-05ce-4e5e-8f27-a6ca1bdd8a5e" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="1bff7345-2647-45f0-b6b8-876e21a72cfe" xml:space="preserve">
+          <source>bytea</source>
+          <target state="new">bytea</target>
+        </trans-unit>
+        <trans-unit id="4fc2a77b-8582-42e1-a999-e731ea484900" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="7d64db59-5dbf-4e57-88b2-9e8dbece0497" xml:space="preserve">
+          <source>character [ (n) ]</source>
+          <target state="new">character [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="ed94a6d3-f5f6-4445-aeb3-333ea704db53" xml:space="preserve">
+          <source>char [ (n) ]</source>
+          <target state="new">char [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="3979502a-ccc9-4e6d-b4a5-aaa6842a03df" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="8eae977d-40e1-4e9a-9a06-69947af901b7" xml:space="preserve">
+          <source>character varying [ (n) ]</source>
+          <target state="new">character varying [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="aa46b023-d84b-4b83-951b-27399aa5e8c7" xml:space="preserve">
+          <source>varchar [ (n) ]</source>
+          <target state="new">varchar [ (n) ]</target>
+        </trans-unit>
+        <trans-unit id="6cd38a84-0dce-41c1-951c-3a28f09e357f" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="36bdf73b-b94b-4def-ab55-23c0d2eaeb23" xml:space="preserve">
+          <source>cid</source>
+          <target state="new">cid</target>
+        </trans-unit>
+        <trans-unit id="01577e89-0543-41e9-b26b-b2415ba7140d" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="bc636afc-e004-4f16-8cc0-5037102e1173" xml:space="preserve">
+          <source>cidr</source>
+          <target state="new">cidr</target>
+        </trans-unit>
+        <trans-unit id="8b09facf-a344-4d03-a97e-7dbb1d24e2f5" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="e82c216c-d995-4428-9c2f-75032030e85d" xml:space="preserve">
+          <source>circle</source>
+          <target state="new">circle</target>
+        </trans-unit>
+        <trans-unit id="f6fac222-9c15-4f8a-a6f4-b91436ce2a43" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="7f652c4b-961e-4492-ad60-0649b8001a53" xml:space="preserve">
+          <source>date</source>
+          <target state="new">date</target>
+        </trans-unit>
+        <trans-unit id="aee3d469-e06f-4776-9af2-f037d9815109" xml:space="preserve">
+          <source>Datetime</source>
+          <target state="new">Datetime</target>
+        </trans-unit>
+        <trans-unit id="730aa12a-cade-4acd-8ea4-d12e9af35813" xml:space="preserve">
+          <source>daterange</source>
+          <target state="new">daterange</target>
+        </trans-unit>
+        <trans-unit id="f457634e-403a-4e1a-bd6a-45cf0b5d9911" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="d8f58a03-ccd5-4456-aa03-09831949d42c" xml:space="preserve">
+          <source>double precision</source>
+          <target state="new">double precision</target>
+        </trans-unit>
+        <trans-unit id="5921ecae-31f0-43d4-bbb0-3122827790eb" xml:space="preserve">
+          <source>float8</source>
+          <target state="new">float8</target>
+        </trans-unit>
+        <trans-unit id="5076a042-b0aa-42ba-a494-d3aac85da1b7" xml:space="preserve">
+          <source>Double</source>
+          <target state="new">Double</target>
+        </trans-unit>
+        <trans-unit id="37d0728f-3046-439c-ba6e-d3056508b272" xml:space="preserve">
+          <source>inet</source>
+          <target state="new">inet</target>
+        </trans-unit>
+        <trans-unit id="763d80de-a26f-4302-885f-f5645df4c24a" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="845ff48e-929b-425e-9fbd-23d17d339d7b" xml:space="preserve">
+          <source>intarry</source>
+          <target state="new">intarry</target>
+        </trans-unit>
+        <trans-unit id="e80f7093-4046-463a-9417-67969f17e12e" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="fbe61421-5225-422f-b97f-ea1f6d872673" xml:space="preserve">
+          <source>int4range</source>
+          <target state="new">int4range</target>
+        </trans-unit>
+        <trans-unit id="edae1359-75a8-4e38-8986-a1a38497d47d" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="595e870c-1870-478c-bb76-fd756d13174a" xml:space="preserve">
+          <source>int8range</source>
+          <target state="new">int8range</target>
+        </trans-unit>
+        <trans-unit id="2873b73c-b7aa-48a3-b153-a14e71c014b8" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="f467afaa-332f-4e33-8c9d-be41c76b40a4" xml:space="preserve">
+          <source>integer</source>
+          <target state="new">integer</target>
+        </trans-unit>
+        <trans-unit id="f7fc64de-46c5-49a3-8fc9-de732745984a" xml:space="preserve">
+          <source>int, int4</source>
+          <target state="new">int, int4</target>
+        </trans-unit>
+        <trans-unit id="29509332-1fc3-474f-84ae-4195d34757c3" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="4f4a4f13-b82e-4b0f-8406-7e301f7b9c70" xml:space="preserve">
+          <source>interval <bpt id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;linkText&gt;</bpt> fields [ (p) ]<ept id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;/linkText&gt;</ept><bpt id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;title&gt;</bpt><ept id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;/title&gt;</ept></source>
+          <target state="new">interval <bpt id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;linkText&gt;</bpt> fields [ (p) ]<ept id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;/linkText&gt;</ept><bpt id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;title&gt;</bpt><ept id="1613a4a9-db72-467b-b361-c30e149d05e2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54cf0b10-f1f0-4c8e-87e2-68d0639db06b" xml:space="preserve">
+          <source>Timespan</source>
+          <target state="new">Timespan</target>
+        </trans-unit>
+        <trans-unit id="17dbdd2f-aedb-4c69-8e11-d95504c3ac6d" xml:space="preserve">
+          <source>json</source>
+          <target state="new">json</target>
+        </trans-unit>
+        <trans-unit id="0ab350ab-96c7-47fa-aa88-c6f364236082" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="f45fc97b-b21f-402b-b322-5e20338a30ed" xml:space="preserve">
+          <source>jsonb</source>
+          <target state="new">jsonb</target>
+        </trans-unit>
+        <trans-unit id="8d768733-2b70-4aaa-885a-2908fe1e92a7" xml:space="preserve">
+          <source>Byte[]</source>
+          <target state="new">Byte[]</target>
+        </trans-unit>
+        <trans-unit id="3ad7a2a7-806f-4d63-a11b-c214fd3e409f" xml:space="preserve">
+          <source>line</source>
+          <target state="new">line</target>
+        </trans-unit>
+        <trans-unit id="7047e129-e39a-49a1-b76d-af9426994260" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="dfd6c297-90d6-4abf-ab6a-a66ebea8d999" xml:space="preserve">
+          <source>lseg</source>
+          <target state="new">lseg</target>
+        </trans-unit>
+        <trans-unit id="7dfe96dc-e5d5-48d7-b2f4-55985c1fbcd0" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="7c12d863-e566-4312-86df-95d3f99af2e8" xml:space="preserve">
+          <source>macaddr</source>
+          <target state="new">macaddr</target>
+        </trans-unit>
+        <trans-unit id="0d9e1da1-dba8-4538-a0e9-08afc1658cad" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="2ce9637c-dd2a-4b5e-9471-9f9112a48545" xml:space="preserve">
+          <source>money</source>
+          <target state="new">money</target>
+        </trans-unit>
+        <trans-unit id="24aa9e71-6270-4a0d-b592-2d7b80f0e2c0" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="6274cdc6-46c6-48a3-ac59-a796ba4d1361" xml:space="preserve">
+          <source>numeric [ (p, s) ]</source>
+          <target state="new">numeric [ (p, s) ]</target>
+        </trans-unit>
+        <trans-unit id="a555bfda-bdea-479b-96f2-9b45296c17d5" xml:space="preserve">
+          <source>decimal [ (p, s) ]</source>
+          <target state="new">decimal [ (p, s) ]</target>
+        </trans-unit>
+        <trans-unit id="b4d4b5d3-3a09-47ad-b1da-0e79b87a0aba" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="0d3221b7-931a-43a8-892f-ef8575a708c6" xml:space="preserve">
+          <source>numrange</source>
+          <target state="new">numrange</target>
+        </trans-unit>
+        <trans-unit id="b2fea266-56d3-4e01-ba2d-ef1e0f149a82" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="133ca8fd-c57e-4ff9-a49b-282b86e02a36" xml:space="preserve">
+          <source>oid</source>
+          <target state="new">oid</target>
+        </trans-unit>
+        <trans-unit id="5339fa21-fe2a-4713-ab67-220db9bc784a" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="5e7c6066-7994-4f1a-bdb9-aa3753785fc8" xml:space="preserve">
+          <source>path</source>
+          <target state="new">path</target>
+        </trans-unit>
+        <trans-unit id="406d3a2f-f00d-4194-b9bb-b71e821b0a8c" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="7ab170e7-dbbe-43b8-b3a7-45ac8ea1d9da" xml:space="preserve">
+          <source>pg_lsn</source>
+          <target state="new">pg_lsn</target>
+        </trans-unit>
+        <trans-unit id="c13f736e-587f-42f6-9c59-3464e5a05e31" xml:space="preserve">
+          <source>Int64</source>
+          <target state="new">Int64</target>
+        </trans-unit>
+        <trans-unit id="82abd961-61cb-4ed6-af29-1bbf10853414" xml:space="preserve">
+          <source>point</source>
+          <target state="new">point</target>
+        </trans-unit>
+        <trans-unit id="0d722058-59ad-4592-8fbb-e2ed6143549c" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="2cafb2fb-87e1-42b2-ac3a-a9f680eaf658" xml:space="preserve">
+          <source>polygon</source>
+          <target state="new">polygon</target>
+        </trans-unit>
+        <trans-unit id="d5a51858-567e-4d6e-86d6-d7d2fdad0a0e" xml:space="preserve">
+          <source>Byte[], String</source>
+          <target state="new">Byte[], String</target>
+        </trans-unit>
+        <trans-unit id="90e27b56-2c50-40fa-bb2f-d3fd729df771" xml:space="preserve">
+          <source>real</source>
+          <target state="new">real</target>
+        </trans-unit>
+        <trans-unit id="69b847a7-9577-433c-ae92-c3ef261fb7d5" xml:space="preserve">
+          <source>float4</source>
+          <target state="new">float4</target>
+        </trans-unit>
+        <trans-unit id="18cb8ec9-b26f-4a69-9cbb-8a18d8adc38e" xml:space="preserve">
+          <source>Single</source>
+          <target state="new">Single</target>
+        </trans-unit>
+        <trans-unit id="ac56951f-c2dc-4aab-b092-64c06b82aa95" xml:space="preserve">
+          <source>smallint</source>
+          <target state="new">smallint</target>
+        </trans-unit>
+        <trans-unit id="fc9f8052-21a4-4e8f-aa1a-38d04a93664d" xml:space="preserve">
+          <source>int2</source>
+          <target state="new">int2</target>
+        </trans-unit>
+        <trans-unit id="6eb007a6-0a88-4aec-9392-1cdb13c457c4" xml:space="preserve">
+          <source>Int16</source>
+          <target state="new">Int16</target>
+        </trans-unit>
+        <trans-unit id="4d990897-9079-4896-95e4-d7449e84f388" xml:space="preserve">
+          <source>smallserial</source>
+          <target state="new">smallserial</target>
+        </trans-unit>
+        <trans-unit id="28f05013-a9cc-41e4-989d-a9956a44d993" xml:space="preserve">
+          <source>serial2</source>
+          <target state="new">serial2</target>
+        </trans-unit>
+        <trans-unit id="627a4a30-bacd-48fb-8687-819cda2c9b6f" xml:space="preserve">
+          <source>Int16</source>
+          <target state="new">Int16</target>
+        </trans-unit>
+        <trans-unit id="f8ab24f9-752f-45b2-88de-54f57c14b2fd" xml:space="preserve">
+          <source>serial</source>
+          <target state="new">serial</target>
+        </trans-unit>
+        <trans-unit id="72311162-d191-4de5-b1b4-bb51bf4ce5bf" xml:space="preserve">
+          <source>serial4</source>
+          <target state="new">serial4</target>
+        </trans-unit>
+        <trans-unit id="c6f0d58c-c067-42a5-a6f9-72c5b814e8c0" xml:space="preserve">
+          <source>Int32</source>
+          <target state="new">Int32</target>
+        </trans-unit>
+        <trans-unit id="8af14ac2-fcb5-49c8-a0cf-de856f4abc18" xml:space="preserve">
+          <source>text</source>
+          <target state="new">text</target>
+        </trans-unit>
+        <trans-unit id="89cfab2f-bdf1-4b5e-938e-dd6c37824dce" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="46da5ce9-334e-40bb-9072-f1771c02fe88" xml:space="preserve">
+          <source><bpt id="11b8fed2-eed7-4b42-af65-95e5413b81a4">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="11b8fed2-eed7-4b42-af65-95e5413b81a4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="11b8fed2-eed7-4b42-af65-95e5413b81a4">&lt;token href="../../includes/data-factory-column-mapping.md"&gt;</bpt><ept id="11b8fed2-eed7-4b42-af65-95e5413b81a4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1457cbf-37fe-4932-aaf7-7bd8b4fc92bc" xml:space="preserve">
+          <source><bpt id="c81642f3-5351-4a24-9baf-0509a3d6ed30">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="c81642f3-5351-4a24-9baf-0509a3d6ed30">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c81642f3-5351-4a24-9baf-0509a3d6ed30">&lt;token href="../../includes/data-factory-type-repeatability-for-relational-sources.md"&gt;</bpt><ept id="c81642f3-5351-4a24-9baf-0509a3d6ed30">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

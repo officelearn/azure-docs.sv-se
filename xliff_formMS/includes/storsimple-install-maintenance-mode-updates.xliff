@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d72d939a-d920-413a-9ea9-7e782bc24728" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d72d939a-d920-413a-9ea9-7e782bc24728" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1be415c9-ee31-49c3-bcf1-53f3638b95bf">
+        <trans-unit id="4af38d85-c791-4930-9beb-fa971bad91d3" xml:space="preserve">
+          <source>Install Maintenance mode updates</source>
+          <target state="new">Install Maintenance mode updates</target>
+        </trans-unit>
+        <trans-unit id="9e2fbdfb-b01a-4f54-be31-18a1799e6d49" xml:space="preserve">
+          <source>Explains how to use Windows PowerShell for StorSimple to install maintenance mode updates.</source>
+          <target state="new">Explains how to use Windows PowerShell for StorSimple to install maintenance mode updates.</target>
+        </trans-unit>
+        <trans-unit id="273a2fcc-f8c5-482c-9e3e-0411d080bcef" xml:space="preserve">
+          <source>If you haven't done so already, access the device serial console and select option 1, <bpt id="809b0288-f3f2-446b-8f87-26dd5679b7a4">&lt;strong&gt;</bpt>Log in with full access<ept id="809b0288-f3f2-446b-8f87-26dd5679b7a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you haven't done so already, access the device serial console and select option 1, <bpt id="809b0288-f3f2-446b-8f87-26dd5679b7a4">&lt;strong&gt;</bpt>Log in with full access<ept id="809b0288-f3f2-446b-8f87-26dd5679b7a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27bf63ab-6753-4504-bdf7-df14fffedded" xml:space="preserve">
+          <source>Type the password.</source>
+          <target state="new">Type the password.</target>
+        </trans-unit>
+        <trans-unit id="00e427ee-81c6-446d-ab5e-546ee80678a9" xml:space="preserve">
+          <source>The default password is <bpt id="38f70898-7fdd-4fa6-bd04-2a28491a5beb">&lt;strong&gt;</bpt>Password1<ept id="38f70898-7fdd-4fa6-bd04-2a28491a5beb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default password is <bpt id="38f70898-7fdd-4fa6-bd04-2a28491a5beb">&lt;strong&gt;</bpt>Password1<ept id="38f70898-7fdd-4fa6-bd04-2a28491a5beb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25bc284d-62ad-45f1-8203-e7332c202aa2" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="e91f4384-69c2-426c-8c0c-b3d480950ef9" xml:space="preserve">
+          <source> <bpt id="4d343c31-d71c-4cc9-b248-848e41c8dd3d">&lt;code&gt;</bpt>Get-HcsUpdateAvailability<ept id="4d343c31-d71c-4cc9-b248-848e41c8dd3d">&lt;/code&gt;</ept> </source>
+          <target state="new"> <bpt id="4d343c31-d71c-4cc9-b248-848e41c8dd3d">&lt;code&gt;</bpt>Get-HcsUpdateAvailability<ept id="4d343c31-d71c-4cc9-b248-848e41c8dd3d">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="6edae739-659e-449b-b9ac-14b6bfcda1cb" xml:space="preserve">
+          <source>You will be notified if updates are available and whether the updates are disruptive or non-disruptive.</source>
+          <target state="new">You will be notified if updates are available and whether the updates are disruptive or non-disruptive.</target>
+        </trans-unit>
+        <trans-unit id="3c475527-446d-40a0-bcab-7f0ab13870e6" xml:space="preserve">
+          <source>To apply disruptive updates, you need to put the device into Maintenance mode.</source>
+          <target state="new">To apply disruptive updates, you need to put the device into Maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="fe42386a-9440-4b42-8767-ac946b57695e" xml:space="preserve">
+          <source>See <bpt id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;linkText&gt;</bpt>Step 2: Enter Maintenance mode<ept id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;/linkText&gt;</ept><bpt id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;title&gt;</bpt><ept id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;linkText&gt;</bpt>Step 2: Enter Maintenance mode<ept id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;/linkText&gt;</ept><bpt id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;title&gt;</bpt><ept id="f09ad440-5607-459c-8970-19902cebb8c4">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="b503ad10-d56c-4789-9cd7-6bf115803c82" xml:space="preserve">
+          <source>When your device is in Maintenance mode, at the command prompt, type: <bpt id="c1d94e66-93f1-4042-b5e2-52d1b587abd9">&lt;code&gt;</bpt>Start-HcsUpdate<ept id="c1d94e66-93f1-4042-b5e2-52d1b587abd9">&lt;/code&gt;</ept></source>
+          <target state="new">When your device is in Maintenance mode, at the command prompt, type: <bpt id="c1d94e66-93f1-4042-b5e2-52d1b587abd9">&lt;code&gt;</bpt>Start-HcsUpdate<ept id="c1d94e66-93f1-4042-b5e2-52d1b587abd9">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30560504-7370-484c-8ee5-ba5f7902a2e1" xml:space="preserve">
+          <source>You will be prompted for confirmation.</source>
+          <target state="new">You will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="9290ab42-d6d7-49c7-b7b5-7e31e52cca12" xml:space="preserve">
+          <source>After you confirm the updates, they will be installed on the controller that you are currently accessing.</source>
+          <target state="new">After you confirm the updates, they will be installed on the controller that you are currently accessing.</target>
+        </trans-unit>
+        <trans-unit id="3d39e24c-6f42-4276-9be0-b333d8416cd2" xml:space="preserve">
+          <source>After the updates are installed, the controller will restart.</source>
+          <target state="new">After the updates are installed, the controller will restart.</target>
+        </trans-unit>
+        <trans-unit id="e70c4dbe-8016-4a4b-96f1-7a56400d3af1" xml:space="preserve">
+          <source>Monitor the status of updates.</source>
+          <target state="new">Monitor the status of updates.</target>
+        </trans-unit>
+        <trans-unit id="ec234d0b-c7ca-4f9b-a0b2-12905ffa4a39" xml:space="preserve">
+          <source>Type:</source>
+          <target state="new">Type:</target>
+        </trans-unit>
+        <trans-unit id="03dedad2-214d-48b3-bca2-3ada209fe8f4" xml:space="preserve">
+          <source><bpt id="4aae9d7c-43f1-40ef-8975-b966b02cd469">&lt;code&gt;</bpt>Get-HcsUpdateStatus<ept id="4aae9d7c-43f1-40ef-8975-b966b02cd469">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4aae9d7c-43f1-40ef-8975-b966b02cd469">&lt;code&gt;</bpt>Get-HcsUpdateStatus<ept id="4aae9d7c-43f1-40ef-8975-b966b02cd469">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c633da41-1e93-4b65-82bf-b3e95962f1b8" xml:space="preserve">
+          <source>If the <bpt id="c3a1fae3-ea98-499b-af05-3c1d39bc72ca">&lt;code&gt;</bpt>RunInProgress<ept id="c3a1fae3-ea98-499b-af05-3c1d39bc72ca">&lt;/code&gt;</ept> is <bpt id="f0d81dab-53b7-4752-ad77-00f8f71e71d7">&lt;code&gt;</bpt>True<ept id="f0d81dab-53b7-4752-ad77-00f8f71e71d7">&lt;/code&gt;</ept>, the update is still in progress.</source>
+          <target state="new">If the <bpt id="c3a1fae3-ea98-499b-af05-3c1d39bc72ca">&lt;code&gt;</bpt>RunInProgress<ept id="c3a1fae3-ea98-499b-af05-3c1d39bc72ca">&lt;/code&gt;</ept> is <bpt id="f0d81dab-53b7-4752-ad77-00f8f71e71d7">&lt;code&gt;</bpt>True<ept id="f0d81dab-53b7-4752-ad77-00f8f71e71d7">&lt;/code&gt;</ept>, the update is still in progress.</target>
+        </trans-unit>
+        <trans-unit id="05ccb241-bf2d-489b-b867-d10920411d03" xml:space="preserve">
+          <source>If <bpt id="40d4654a-d4a9-4088-a7d9-0bc0aacb4a3f">&lt;code&gt;</bpt>RunInProgress<ept id="40d4654a-d4a9-4088-a7d9-0bc0aacb4a3f">&lt;/code&gt;</ept> is <bpt id="9ad960b5-e050-4b29-894e-aa994009fb01">&lt;code&gt;</bpt>False<ept id="9ad960b5-e050-4b29-894e-aa994009fb01">&lt;/code&gt;</ept>, it indicates that the update has completed.</source>
+          <target state="new">If <bpt id="40d4654a-d4a9-4088-a7d9-0bc0aacb4a3f">&lt;code&gt;</bpt>RunInProgress<ept id="40d4654a-d4a9-4088-a7d9-0bc0aacb4a3f">&lt;/code&gt;</ept> is <bpt id="9ad960b5-e050-4b29-894e-aa994009fb01">&lt;code&gt;</bpt>False<ept id="9ad960b5-e050-4b29-894e-aa994009fb01">&lt;/code&gt;</ept>, it indicates that the update has completed.</target>
+        </trans-unit>
+        <trans-unit id="f38c16ec-5319-4267-8b2f-21bf9d0ecbbb" xml:space="preserve">
+          <source>When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.</source>
+          <target state="new">When the update is installed on the current controller and it has restarted, connect to the other controller and perform steps 1 through 6.</target>
+        </trans-unit>
+        <trans-unit id="18e81e85-74c2-4ac7-855f-d6e203bfc95e" xml:space="preserve">
+          <source>After both controllers are updated, exit Maintenance mode.</source>
+          <target state="new">After both controllers are updated, exit Maintenance mode.</target>
+        </trans-unit>
+        <trans-unit id="1246ed39-4b53-4070-8464-48adfa549e19" xml:space="preserve">
+          <source>See <bpt id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;linkText&gt;</bpt>Step 4: Exit Maintenance mode<ept id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;/linkText&gt;</ept><bpt id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;title&gt;</bpt><ept id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;linkText&gt;</bpt>Step 4: Exit Maintenance mode<ept id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;/linkText&gt;</ept><bpt id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;title&gt;</bpt><ept id="e5dd87f3-1638-4469-a87e-3f4cc8db9208">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

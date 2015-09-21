@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8b14f76d-cef6-4795-89d7-f2cabda69061" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8b14f76d-cef6-4795-89d7-f2cabda69061" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8c825f03-bba8-401a-b6c1-99bbbcbbe632">
+        <trans-unit id="44a65c2b-09fe-4dff-9218-a64f0de6698e" xml:space="preserve">
+          <source>The Azure Libraries for Java are distributed under the <bpt id="708975cb-bd11-4560-9d45-759816730b28">&lt;linkText&gt;</bpt>Apache License, Version 2.0[license]<ept id="708975cb-bd11-4560-9d45-759816730b28">&lt;/linkText&gt;</ept><bpt id="708975cb-bd11-4560-9d45-759816730b28">&lt;title&gt;</bpt><ept id="708975cb-bd11-4560-9d45-759816730b28">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure Libraries for Java are distributed under the <bpt id="708975cb-bd11-4560-9d45-759816730b28">&lt;linkText&gt;</bpt>Apache License, Version 2.0[license]<ept id="708975cb-bd11-4560-9d45-759816730b28">&lt;/linkText&gt;</ept><bpt id="708975cb-bd11-4560-9d45-759816730b28">&lt;title&gt;</bpt><ept id="708975cb-bd11-4560-9d45-759816730b28">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b58b9ac-b690-4873-84af-7208646ebff3" xml:space="preserve">
+          <source>Click <bpt id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;linkText&gt;</bpt>here[zip-download]<ept id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;/linkText&gt;</ept><bpt id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;title&gt;</bpt><ept id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;/title&gt;</ept> for a ZIP file of the libraries and all dependencies.</source>
+          <target state="new">Click <bpt id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;linkText&gt;</bpt>here[zip-download]<ept id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;/linkText&gt;</ept><bpt id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;title&gt;</bpt><ept id="59599f51-1203-4a03-9c89-7d64fff9ac97">&lt;/title&gt;</ept> for a ZIP file of the libraries and all dependencies.</target>
+        </trans-unit>
+        <trans-unit id="df672914-aad4-4fbd-a23b-65e368845348" xml:space="preserve">
+          <source>This is made available by Microsoft Open Technologies, Inc.  See the license.txt and ThirdPartyNotices.txt file file inside the ZIP for license and other information.</source>
+          <target state="new">This is made available by Microsoft Open Technologies, Inc.  See the license.txt and ThirdPartyNotices.txt file file inside the ZIP for license and other information.</target>
+        </trans-unit>
+        <trans-unit id="026f5d2d-ee49-493e-a159-d6a441f6bd18" xml:space="preserve">
+          <source>If your project is already set up to use Maven for build, add the following dependency to your pom.xml file.</source>
+          <target state="new">If your project is already set up to use Maven for build, add the following dependency to your pom.xml file.</target>
+        </trans-unit>
+        <trans-unit id="703cb410-3df0-4e9f-90c6-612444f6bc11" xml:space="preserve">
+          <source>Note: For information about creating Maven projects in Eclipse which use the Azure libraries for Java, see <bpt id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;linkText&gt;</bpt>http://go.microsoft.com/fwlink/?LinkId=622998<ept id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;/linkText&gt;</ept><bpt id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;title&gt;</bpt><ept id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;/title&gt;</ept>.</source>
+          <target state="new">Note: For information about creating Maven projects in Eclipse which use the Azure libraries for Java, see <bpt id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;linkText&gt;</bpt>http://go.microsoft.com/fwlink/?LinkId=622998<ept id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;/linkText&gt;</ept><bpt id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;title&gt;</bpt><ept id="6178a714-93a1-4c24-a305-8268e305dfeb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dcc1313-ba4c-4e43-ae02-ad6520dcb979" xml:space="preserve">
+          <source>Within the <bpt id="3d10d61a-83e7-4f39-abc7-a35fade95bf1">&lt;code&gt;</bpt>&lt;version&gt;<ept id="3d10d61a-83e7-4f39-abc7-a35fade95bf1">&lt;/code&gt;</ept> element, replace the version numbers in this example with valid version numbers, which can be obtained from the <bpt id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;linkText&gt;</bpt>Azure Libraries Repository on Maven<ept id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;/linkText&gt;</ept><bpt id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;title&gt;</bpt><ept id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;/title&gt;</ept>.</source>
+          <target state="new">Within the <bpt id="3d10d61a-83e7-4f39-abc7-a35fade95bf1">&lt;code&gt;</bpt>&lt;version&gt;<ept id="3d10d61a-83e7-4f39-abc7-a35fade95bf1">&lt;/code&gt;</ept> element, replace the version numbers in this example with valid version numbers, which can be obtained from the <bpt id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;linkText&gt;</bpt>Azure Libraries Repository on Maven<ept id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;/linkText&gt;</ept><bpt id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;title&gt;</bpt><ept id="4872bf63-527f-4c0e-a876-6c2b56306504">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="190528fe-4bd3-4ebc-b87c-356eb257c1eb" xml:space="preserve">
+          <source>http://www.apache.org/licenses/LICENSE-2.0.html</source>
+          <target state="new">http://www.apache.org/licenses/LICENSE-2.0.html</target>
+        </trans-unit>
+        <trans-unit id="74a52377-e9d4-4392-8ed8-11fdc4bbb5d4" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=253887</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=253887</target>
+        </trans-unit>
+      </group>
+      <group id="1ae86e99-accc-41ae-9663-76c5c4f80320" />
+    </body>
+  </file>
+</xliff>

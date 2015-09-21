@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fdbb4a1b-da81-4167-8e90-1ec8f27f0540" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fdbb4a1b-da81-4167-8e90-1ec8f27f0540" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ea6d3e35-6395-4df5-9ef6-362e30ffd862">
+        <trans-unit id="644f658e-3b94-4f28-b553-67bbfc50c3b5" xml:space="preserve">
+          <source>Sign ins from IP addresses with suspicious activity</source>
+          <target state="new">Sign ins from IP addresses with suspicious activity</target>
+        </trans-unit>
+        <trans-unit id="a565df15-e0d4-4d89-962f-feb055b96009" xml:space="preserve">
+          <source>A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted.</source>
+          <target state="new">A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted.</target>
+        </trans-unit>
+        <trans-unit id="c1c0a437-7c22-4d41-acc5-898bafd066fc" xml:space="preserve">
+          <source>This report shows sign ins from IP addresses where suspicious activity has been detected. Suspicious activity in this case is defined to be an unsually high failed sign ins to successful sign ins ratio, which may indicate that an IP is being used for malicious purposes.</source>
+          <target state="new">This report shows sign ins from IP addresses where suspicious activity has been detected. Suspicious activity in this case is defined to be an unsually high failed sign ins to successful sign ins ratio, which may indicate that an IP is being used for malicious purposes.</target>
+        </trans-unit>
+        <trans-unit id="53e9d791-a9b0-4446-9f75-cd19e3293b48" xml:space="preserve">
+          <source><bpt id="0c10be06-c615-4fa2-8b21-56698f10db69">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="0c10be06-c615-4fa2-8b21-56698f10db69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c10be06-c615-4fa2-8b21-56698f10db69">&lt;linkText&gt;</bpt>Sign ins from IP addresses with suspicious activity<ept id="0c10be06-c615-4fa2-8b21-56698f10db69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

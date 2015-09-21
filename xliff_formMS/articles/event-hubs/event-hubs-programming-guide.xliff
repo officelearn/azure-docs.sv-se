@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fd498089-35e2-4c17-9b97-f48a437b009f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fd498089-35e2-4c17-9b97-f48a437b009f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8478e615-3a7c-4083-aa2b-345c295a82aa">
+        <trans-unit id="f79362e3-b275-4512-a2df-16e77e8510ba" xml:space="preserve">
+          <source>Event Hubs Programming Guide</source>
+          <target state="new">Event Hubs Programming Guide</target>
+        </trans-unit>
+        <trans-unit id="0daf62d6-eb86-4ecb-911d-83d975106514" xml:space="preserve">
+          <source>Describes programming with Azure Event Hubs using the Azure .NET SDK.</source>
+          <target state="new">Describes programming with Azure Event Hubs using the Azure .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="2cc53ec9-2ba4-4e22-afbb-d85c322ccdc0" xml:space="preserve">
+          <source>This topic describes programming with Azure Event Hubs using the Azure .NET SDK.</source>
+          <target state="new">This topic describes programming with Azure Event Hubs using the Azure .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="c57e3b61-6cfa-46b9-b15e-94b915874c1c" xml:space="preserve">
+          <source>It assumes a preliminary understanding of Event Hubs.</source>
+          <target state="new">It assumes a preliminary understanding of Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="662ea9e0-2b72-4eb1-af4c-1f2c6281c944" xml:space="preserve">
+          <source>For conceptual an overview of Event Hubs, see the <bpt id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;linkText&gt;</bpt>Event Hubs overview<ept id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;/linkText&gt;</ept><bpt id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;title&gt;</bpt><ept id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For conceptual an overview of Event Hubs, see the <bpt id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;linkText&gt;</bpt>Event Hubs overview<ept id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;/linkText&gt;</ept><bpt id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;title&gt;</bpt><ept id="2f987a0f-0f55-4e81-8e7f-99e8ff2d33a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e34fa824-432a-4ce5-ac43-2cda663fa749" xml:space="preserve">
+          <source>Sending events to an Event Hub is accomplished either using HTTP POST or via an AMQP 1.0 connection.</source>
+          <target state="new">Sending events to an Event Hub is accomplished either using HTTP POST or via an AMQP 1.0 connection.</target>
+        </trans-unit>
+        <trans-unit id="56e26c3d-735e-4135-b262-2481acfd9ba0" xml:space="preserve">
+          <source>The choice of which to use when depends on the specific scenario being addressed.</source>
+          <target state="new">The choice of which to use when depends on the specific scenario being addressed.</target>
+        </trans-unit>
+        <trans-unit id="bbd062ab-23c2-4279-9d6b-29a25c93d0e4" xml:space="preserve">
+          <source>AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements as they provide a persistent messaging channel.</source>
+          <target state="new">AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements as they provide a persistent messaging channel.</target>
+        </trans-unit>
+        <trans-unit id="1ad16ac0-2d00-4eaf-b62b-043e98a866b1" xml:space="preserve">
+          <source>Event Hubs are created and managed using the <bpt id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;linkText&gt;</bpt>NamespaceManager<ept id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;/linkText&gt;</ept><bpt id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;title&gt;</bpt><ept id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;/title&gt;</ept> class.</source>
+          <target state="new">Event Hubs are created and managed using the <bpt id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;linkText&gt;</bpt>NamespaceManager<ept id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;/linkText&gt;</ept><bpt id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;title&gt;</bpt><ept id="e776f78f-1e47-4646-915e-aeb0362b7f9a">&lt;/title&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="9c458c89-799c-48a1-bde4-b933b4175fcc" xml:space="preserve">
+          <source>When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the <bpt id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;linkText&gt;</bpt>EventHubClient<ept id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;/linkText&gt;</ept><bpt id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;title&gt;</bpt><ept id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;/title&gt;</ept> and <bpt id="65808310-5d89-4025-a903-ca7183b3d360">&lt;linkText&gt;</bpt>EventData<ept id="65808310-5d89-4025-a903-ca7183b3d360">&lt;/linkText&gt;</ept><bpt id="65808310-5d89-4025-a903-ca7183b3d360">&lt;title&gt;</bpt><ept id="65808310-5d89-4025-a903-ca7183b3d360">&lt;/title&gt;</ept> classes.</source>
+          <target state="new">When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the <bpt id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;linkText&gt;</bpt>EventHubClient<ept id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;/linkText&gt;</ept><bpt id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;title&gt;</bpt><ept id="758593a0-844f-488b-9d4c-62d800d40b0d">&lt;/title&gt;</ept> and <bpt id="65808310-5d89-4025-a903-ca7183b3d360">&lt;linkText&gt;</bpt>EventData<ept id="65808310-5d89-4025-a903-ca7183b3d360">&lt;/linkText&gt;</ept><bpt id="65808310-5d89-4025-a903-ca7183b3d360">&lt;title&gt;</bpt><ept id="65808310-5d89-4025-a903-ca7183b3d360">&lt;/title&gt;</ept> classes.</target>
+        </trans-unit>
+        <trans-unit id="7655aa37-14f5-460e-a006-b7b1783f416f" xml:space="preserve">
+          <source>The <bpt id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;linkText&gt;</bpt>EventHubClient<ept id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;/linkText&gt;</ept><bpt id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;title&gt;</bpt><ept id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;/title&gt;</ept> class provides the AMQP communication channel over which events are sent to the Event Hub.</source>
+          <target state="new">The <bpt id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;linkText&gt;</bpt>EventHubClient<ept id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;/linkText&gt;</ept><bpt id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;title&gt;</bpt><ept id="f3efe824-4fc5-42b8-8aea-f465710f3506">&lt;/title&gt;</ept> class provides the AMQP communication channel over which events are sent to the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="98196c4a-7e2b-451d-8a42-8811e0d0ff62" xml:space="preserve">
+          <source>The <bpt id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;linkText&gt;</bpt>EventData<ept id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;/linkText&gt;</ept><bpt id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;title&gt;</bpt><ept id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;/title&gt;</ept> class represents an event and is used to publish messages to an Event Hub.</source>
+          <target state="new">The <bpt id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;linkText&gt;</bpt>EventData<ept id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;/linkText&gt;</ept><bpt id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;title&gt;</bpt><ept id="aeb4d84a-5f6d-45d4-a7fd-fe85abed70b3">&lt;/title&gt;</ept> class represents an event and is used to publish messages to an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="d65a1074-1171-4212-955e-86f3ffdbc551" xml:space="preserve">
+          <source>This class includes the body, some metadata, and header information about the event.</source>
+          <target state="new">This class includes the body, some metadata, and header information about the event.</target>
+        </trans-unit>
+        <trans-unit id="e52ed72f-8e7b-4085-a42c-0d0a21934d2f" xml:space="preserve">
+          <source>Other properties are added to the <bpt id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;linkText&gt;</bpt>EventData<ept id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;/linkText&gt;</ept><bpt id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;title&gt;</bpt><ept id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;/title&gt;</ept>object as it passes through an Event Hub.</source>
+          <target state="new">Other properties are added to the <bpt id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;linkText&gt;</bpt>EventData<ept id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;/linkText&gt;</ept><bpt id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;title&gt;</bpt><ept id="1fc50b4e-f175-4fee-ae55-6cd685ed2eb1">&lt;/title&gt;</ept>object as it passes through an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="d8b5351c-58a0-4004-8acf-09f8ba505737" xml:space="preserve">
+          <source>The .NET  classes that support Event Hubs are part of the Microsoft.ServiceBus.dll assembly.</source>
+          <target state="new">The .NET  classes that support Event Hubs are part of the Microsoft.ServiceBus.dll assembly.</target>
+        </trans-unit>
+        <trans-unit id="f947c264-4338-48be-a30e-6328bb4344fc" xml:space="preserve">
+          <source>The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the Service Bus NuGet package.</source>
+          <target state="new">The easiest way to reference the Service Bus API and to configure your application with all of the Service Bus dependencies is to download the Service Bus NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="590f50b2-a322-4256-9b33-28a39d89b15a" xml:space="preserve">
+          <source>For more information, see <bpt id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;linkText&gt;</bpt>Using the NuGet Service Bus Package<ept id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;/linkText&gt;</ept><bpt id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;title&gt;</bpt><ept id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;linkText&gt;</bpt>Using the NuGet Service Bus Package<ept id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;/linkText&gt;</ept><bpt id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;title&gt;</bpt><ept id="ec4f60b5-ec94-4520-8082-4e1a267de6ab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8370c2c6-7576-4c5e-a7b1-09af0c31e717" xml:space="preserve">
+          <source>Alternatively, you can use the <bpt id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;linkText&gt;</bpt>Package Manager Console<ept id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;/linkText&gt;</ept><bpt id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;title&gt;</bpt><ept id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;/title&gt;</ept> in Visual Studio.</source>
+          <target state="new">Alternatively, you can use the <bpt id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;linkText&gt;</bpt>Package Manager Console<ept id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;/linkText&gt;</ept><bpt id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;title&gt;</bpt><ept id="9f94b03c-cb61-476e-9679-dc638d4c3089">&lt;/title&gt;</ept> in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="dcbdcc34-2569-443d-92ed-62cad4fe7bf3" xml:space="preserve">
+          <source>To do so, issue the following command in the <bpt id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;linkText&gt;</bpt>Package Manager Console<ept id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;/linkText&gt;</ept><bpt id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;title&gt;</bpt><ept id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;/title&gt;</ept> window:</source>
+          <target state="new">To do so, issue the following command in the <bpt id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;linkText&gt;</bpt>Package Manager Console<ept id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;/linkText&gt;</ept><bpt id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;title&gt;</bpt><ept id="bbf92157-1256-45a0-9c51-a23add8e6117">&lt;/title&gt;</ept> window:</target>
+        </trans-unit>
+        <trans-unit id="322ea35f-6e2f-4ed8-9677-29e8505162f5" xml:space="preserve">
+          <source>You can use the <bpt id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;linkText&gt;</bpt>NamespaceManager<ept id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;/linkText&gt;</ept><bpt id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;title&gt;</bpt><ept id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;/title&gt;</ept> class to create Event Hubs.</source>
+          <target state="new">You can use the <bpt id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;linkText&gt;</bpt>NamespaceManager<ept id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;/linkText&gt;</ept><bpt id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;title&gt;</bpt><ept id="2ea23797-7c63-4def-a497-d54682febbc8">&lt;/title&gt;</ept> class to create Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="4efd4339-1ef6-47a7-8ae3-a0e5be597562" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="2704f5b8-c5f5-43e0-b357-be792a396f66" xml:space="preserve">
+          <source>In most cases, it is recommended that you use the <bpt id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;linkText&gt;</bpt>CreateEventHubIfNotExists<ept id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;/linkText&gt;</ept><bpt id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;title&gt;</bpt><ept id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;/title&gt;</ept> methods to avoid generating exceptions if the service restarts.</source>
+          <target state="new">In most cases, it is recommended that you use the <bpt id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;linkText&gt;</bpt>CreateEventHubIfNotExists<ept id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;/linkText&gt;</ept><bpt id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;title&gt;</bpt><ept id="4baf607e-7e73-4899-9a22-29ffaccabb4f">&lt;/title&gt;</ept> methods to avoid generating exceptions if the service restarts.</target>
+        </trans-unit>
+        <trans-unit id="31bf6771-ec16-429a-874e-643615385feb" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="4d692ac2-5904-4f07-9479-8c3dec7765d9" xml:space="preserve">
+          <source>All Event Hub creation operations, including <bpt id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;linkText&gt;</bpt>CreateEventHubIfNotExists<ept id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;/linkText&gt;</ept><bpt id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;title&gt;</bpt><ept id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;/title&gt;</ept>, require <bpt id="5fffb07a-0c7f-4fe0-9a26-c8ae9acef0a2">&lt;strong&gt;</bpt>Manage<ept id="5fffb07a-0c7f-4fe0-9a26-c8ae9acef0a2">&lt;/strong&gt;</ept> permissions on the namespace in question.</source>
+          <target state="new">All Event Hub creation operations, including <bpt id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;linkText&gt;</bpt>CreateEventHubIfNotExists<ept id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;/linkText&gt;</ept><bpt id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;title&gt;</bpt><ept id="1b949cdf-c019-4c71-946c-8ef32eaf8500">&lt;/title&gt;</ept>, require <bpt id="5fffb07a-0c7f-4fe0-9a26-c8ae9acef0a2">&lt;strong&gt;</bpt>Manage<ept id="5fffb07a-0c7f-4fe0-9a26-c8ae9acef0a2">&lt;/strong&gt;</ept> permissions on the namespace in question.</target>
+        </trans-unit>
+        <trans-unit id="2bbea989-6bcb-4cf3-8b64-127c2f27bba9" xml:space="preserve">
+          <source>If you want to limit the permissions of your publisher or consumer applications, you can avoid these create operation calls in production code when you use credentials with limited permissions.</source>
+          <target state="new">If you want to limit the permissions of your publisher or consumer applications, you can avoid these create operation calls in production code when you use credentials with limited permissions.</target>
+        </trans-unit>
+        <trans-unit id="afe85b47-0c72-4630-bfaa-92cb2e0f5529" xml:space="preserve">
+          <source>The <bpt id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;linkText&gt;</bpt>EventHubDescription<ept id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;/linkText&gt;</ept><bpt id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;title&gt;</bpt><ept id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;/title&gt;</ept> class contains details about an Event Hub, including the authorization rules, the message retention interval, partition IDs, status, and path.</source>
+          <target state="new">The <bpt id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;linkText&gt;</bpt>EventHubDescription<ept id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;/linkText&gt;</ept><bpt id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;title&gt;</bpt><ept id="b59775ee-ad0b-4e31-9767-3a69cfa68cc7">&lt;/title&gt;</ept> class contains details about an Event Hub, including the authorization rules, the message retention interval, partition IDs, status, and path.</target>
+        </trans-unit>
+        <trans-unit id="e6e43540-54da-412e-aa76-cd7e7593987d" xml:space="preserve">
+          <source>You can use this class to update the metadata on an Event Hub.</source>
+          <target state="new">You can use this class to update the metadata on an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="8c120be6-6bab-4a76-b674-e38e5c484fab" xml:space="preserve">
+          <source>The primary class for interacting with Event Hubs is <bpt id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient<ept id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;/linkText&gt;</ept><bpt id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;title&gt;</bpt><ept id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;/title&gt;</ept>.</source>
+          <target state="new">The primary class for interacting with Event Hubs is <bpt id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient<ept id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;/linkText&gt;</ept><bpt id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;title&gt;</bpt><ept id="9016b934-904d-4466-8b0c-19151be24bf5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dff7011-6e50-4608-9434-189a515f61c9" xml:space="preserve">
+          <source>This class provides both sender and receiver capabilities.</source>
+          <target state="new">This class provides both sender and receiver capabilities.</target>
+        </trans-unit>
+        <trans-unit id="baaae8c9-4ebc-4331-98e0-a629d8849290" xml:space="preserve">
+          <source>You can instantiate this class using the <bpt id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;linkText&gt;</bpt>Create<ept id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;/linkText&gt;</ept><bpt id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;title&gt;</bpt><ept id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;/title&gt;</ept> method, as shown in the following example.</source>
+          <target state="new">You can instantiate this class using the <bpt id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;linkText&gt;</bpt>Create<ept id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;/linkText&gt;</ept><bpt id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;title&gt;</bpt><ept id="7a6ec402-4022-4469-9ba9-e3b2841c2d75">&lt;/title&gt;</ept> method, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="cd052bb0-b4fa-4381-b1b7-65e9534a8226" xml:space="preserve">
+          <source>This method uses the Service Bus connection information in the App.config file, in the <bpt id="12b6d00f-a718-483e-9e01-c6905901513c">&lt;code&gt;</bpt>appSettings<ept id="12b6d00f-a718-483e-9e01-c6905901513c">&lt;/code&gt;</ept> section.</source>
+          <target state="new">This method uses the Service Bus connection information in the App.config file, in the <bpt id="12b6d00f-a718-483e-9e01-c6905901513c">&lt;code&gt;</bpt>appSettings<ept id="12b6d00f-a718-483e-9e01-c6905901513c">&lt;/code&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="5cc6944d-d897-4fea-85d5-5d9cb272b6f1" xml:space="preserve">
+          <source>For an example of the <bpt id="f72854c1-68b3-42c5-ac5f-bb6031541544">&lt;code&gt;</bpt>appSettings<ept id="f72854c1-68b3-42c5-ac5f-bb6031541544">&lt;/code&gt;</ept> XML used to store the Service Bus connection information, see the documentation for the <bpt id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)<ept id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;/linkText&gt;</ept><bpt id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;title&gt;</bpt><ept id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;/title&gt;</ept> method.</source>
+          <target state="new">For an example of the <bpt id="f72854c1-68b3-42c5-ac5f-bb6031541544">&lt;code&gt;</bpt>appSettings<ept id="f72854c1-68b3-42c5-ac5f-bb6031541544">&lt;/code&gt;</ept> XML used to store the Service Bus connection information, see the documentation for the <bpt id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.Create(System.String)<ept id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;/linkText&gt;</ept><bpt id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;title&gt;</bpt><ept id="162619cd-d3d9-493d-9392-b06e132e9422">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="0b5d39b8-17b4-4d3b-ad97-e555840893c7" xml:space="preserve">
+          <source>Another option is to create the client from a connection string.</source>
+          <target state="new">Another option is to create the client from a connection string.</target>
+        </trans-unit>
+        <trans-unit id="037bb4e2-aa1b-4e40-8c7b-e5f308e02184" xml:space="preserve">
+          <source>This option works well when using Azure worker roles, because you can store the string in the configuration properties for the worker.</source>
+          <target state="new">This option works well when using Azure worker roles, because you can store the string in the configuration properties for the worker.</target>
+        </trans-unit>
+        <trans-unit id="19446bac-04ec-476a-84f2-671d3bcb7592" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="8bd5352c-a5a3-47d1-97b6-e0d044465ac1" xml:space="preserve">
+          <source>The connection string will be in the same format as it appears in the App.config file for the previous methods:</source>
+          <target state="new">The connection string will be in the same format as it appears in the App.config file for the previous methods:</target>
+        </trans-unit>
+        <trans-unit id="14b96d84-ed09-4772-ae5c-982801f332d8" xml:space="preserve">
+          <source>Finally, it is also possible to create an <bpt id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;linkText&gt;</bpt>EventHubClient<ept id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;/linkText&gt;</ept><bpt id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;title&gt;</bpt><ept id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;/title&gt;</ept> object from a <bpt id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;linkText&gt;</bpt>MessagingFactory<ept id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;/linkText&gt;</ept><bpt id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;title&gt;</bpt><ept id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;/title&gt;</ept> instance, as shown in the following example.</source>
+          <target state="new">Finally, it is also possible to create an <bpt id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;linkText&gt;</bpt>EventHubClient<ept id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;/linkText&gt;</ept><bpt id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;title&gt;</bpt><ept id="2d1c389f-26a1-4de8-b8df-dc244b435c87">&lt;/title&gt;</ept> object from a <bpt id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;linkText&gt;</bpt>MessagingFactory<ept id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;/linkText&gt;</ept><bpt id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;title&gt;</bpt><ept id="abd8b0f8-c18b-41db-90d7-6b526d6bc464">&lt;/title&gt;</ept> instance, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="eedc786c-d55f-4532-9c3b-823be29a6b34" xml:space="preserve">
+          <source>It is important to note that additional <bpt id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;linkText&gt;</bpt>EventHubClient<ept id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;/linkText&gt;</ept><bpt id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;title&gt;</bpt><ept id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;/title&gt;</ept> objects created from a messaging factory instance will reuse the same underlying TCP connection.</source>
+          <target state="new">It is important to note that additional <bpt id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;linkText&gt;</bpt>EventHubClient<ept id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;/linkText&gt;</ept><bpt id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;title&gt;</bpt><ept id="57ec84c9-16cb-4188-bcb4-1274d4546be6">&lt;/title&gt;</ept> objects created from a messaging factory instance will reuse the same underlying TCP connection.</target>
+        </trans-unit>
+        <trans-unit id="8fc6d448-eab2-4316-bfa6-a5180bf37604" xml:space="preserve">
+          <source>Therefore, these objects have a client-side limit on throughput.</source>
+          <target state="new">Therefore, these objects have a client-side limit on throughput.</target>
+        </trans-unit>
+        <trans-unit id="a962f580-1036-49f9-9327-3b7b52d22250" xml:space="preserve">
+          <source>The <bpt id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;linkText&gt;</bpt>Create<ept id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;/linkText&gt;</ept><bpt id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;title&gt;</bpt><ept id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;/title&gt;</ept> method reuses a single messaging factory.</source>
+          <target state="new">The <bpt id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;linkText&gt;</bpt>Create<ept id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;/linkText&gt;</ept><bpt id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;title&gt;</bpt><ept id="1aa3c824-7ddb-4cfc-8d45-b8a9e88fd042">&lt;/title&gt;</ept> method reuses a single messaging factory.</target>
+        </trans-unit>
+        <trans-unit id="83e27d4c-203b-4f14-ab09-2e1ffa269778" xml:space="preserve">
+          <source>If you need very high throughput from a single sender, then you can create multiple message factories and one <bpt id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;linkText&gt;</bpt>EventHubClient<ept id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;/linkText&gt;</ept><bpt id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;title&gt;</bpt><ept id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;/title&gt;</ept> object from each messaging factory.</source>
+          <target state="new">If you need very high throughput from a single sender, then you can create multiple message factories and one <bpt id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;linkText&gt;</bpt>EventHubClient<ept id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;/linkText&gt;</ept><bpt id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;title&gt;</bpt><ept id="82172d04-2c3a-4939-bcd6-f29d197fba0e">&lt;/title&gt;</ept> object from each messaging factory.</target>
+        </trans-unit>
+        <trans-unit id="86bfde05-6c70-4dbe-ad40-5dc8208867ef" xml:space="preserve">
+          <source>You send events to an Event Hub by creating an <bpt id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;linkText&gt;</bpt>EventData<ept id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;/linkText&gt;</ept><bpt id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;title&gt;</bpt><ept id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;/title&gt;</ept> instance and sending it via the <bpt id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;linkText&gt;</bpt>Send<ept id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;/linkText&gt;</ept><bpt id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;title&gt;</bpt><ept id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;/title&gt;</ept> method.</source>
+          <target state="new">You send events to an Event Hub by creating an <bpt id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;linkText&gt;</bpt>EventData<ept id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;/linkText&gt;</ept><bpt id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;title&gt;</bpt><ept id="9cc40ebe-9615-4f6f-9d07-f8efa441c0a2">&lt;/title&gt;</ept> instance and sending it via the <bpt id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;linkText&gt;</bpt>Send<ept id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;/linkText&gt;</ept><bpt id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;title&gt;</bpt><ept id="3f68b8a1-77e8-48df-a853-ccef7af87bdf">&lt;/title&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="ecd4dbc7-2918-4bb4-a0d0-57f83f0692d2" xml:space="preserve">
+          <source>This method takes a single <bpt id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;linkText&gt;</bpt>EventData<ept id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;/linkText&gt;</ept><bpt id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;title&gt;</bpt><ept id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;/title&gt;</ept> instance parameter and synchronously sends it to an Event Hub.</source>
+          <target state="new">This method takes a single <bpt id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;linkText&gt;</bpt>EventData<ept id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;/linkText&gt;</ept><bpt id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;title&gt;</bpt><ept id="81f6d0a5-2da4-43e4-ad28-682065a41e13">&lt;/title&gt;</ept> instance parameter and synchronously sends it to an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="946ba8ec-30aa-4098-b80f-ad264318440f" xml:space="preserve">
+          <source>The <bpt id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;linkText&gt;</bpt>EventData<ept id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;/linkText&gt;</ept><bpt id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;title&gt;</bpt><ept id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;/title&gt;</ept> class has <bpt id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;linkText&gt;</bpt>four overloaded constructors<ept id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;/linkText&gt;</ept><bpt id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;title&gt;</bpt><ept id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;/title&gt;</ept> that take a variety of parameters, such as an object and serializer, a byte array, or a stream.</source>
+          <target state="new">The <bpt id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;linkText&gt;</bpt>EventData<ept id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;/linkText&gt;</ept><bpt id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;title&gt;</bpt><ept id="de11d744-673e-4cf1-9998-41d4c42f4455">&lt;/title&gt;</ept> class has <bpt id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;linkText&gt;</bpt>four overloaded constructors<ept id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;/linkText&gt;</ept><bpt id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;title&gt;</bpt><ept id="69577918-e624-4ebb-88ca-ffa9ea61d5dc">&lt;/title&gt;</ept> that take a variety of parameters, such as an object and serializer, a byte array, or a stream.</target>
+        </trans-unit>
+        <trans-unit id="97db531c-2413-4c2e-afa0-abbf3811ca07" xml:space="preserve">
+          <source>It is also possible to instantiate the <bpt id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;linkText&gt;</bpt>EventData<ept id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;/linkText&gt;</ept><bpt id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;title&gt;</bpt><ept id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;/title&gt;</ept> class and set the body stream afterwards.</source>
+          <target state="new">It is also possible to instantiate the <bpt id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;linkText&gt;</bpt>EventData<ept id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;/linkText&gt;</ept><bpt id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;title&gt;</bpt><ept id="321cd079-cc33-4e9d-979a-c1b3f7873596">&lt;/title&gt;</ept> class and set the body stream afterwards.</target>
+        </trans-unit>
+        <trans-unit id="94657f79-5e09-4dd0-a7d6-ca06fb45fcc3" xml:space="preserve">
+          <source>When using JSON with <bpt id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;linkText&gt;</bpt>EventData<ept id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;/linkText&gt;</ept><bpt id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;title&gt;</bpt><ept id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;/title&gt;</ept>, you can use <bpt id="9d95f05f-cb04-4af2-b8d8-10d28b9d73f7">&lt;strong&gt;</bpt>Encoding.UTF8.GetBytes()<ept id="9d95f05f-cb04-4af2-b8d8-10d28b9d73f7">&lt;/strong&gt;</ept> to retrieve the byte array for a JSON-encoded string.</source>
+          <target state="new">When using JSON with <bpt id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;linkText&gt;</bpt>EventData<ept id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;/linkText&gt;</ept><bpt id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;title&gt;</bpt><ept id="26683dc5-ab14-4d5a-9bb7-e962d4bebb06">&lt;/title&gt;</ept>, you can use <bpt id="9d95f05f-cb04-4af2-b8d8-10d28b9d73f7">&lt;strong&gt;</bpt>Encoding.UTF8.GetBytes()<ept id="9d95f05f-cb04-4af2-b8d8-10d28b9d73f7">&lt;/strong&gt;</ept> to retrieve the byte array for a JSON-encoded string.</target>
+        </trans-unit>
+        <trans-unit id="fc5ecf3a-c88a-47d9-9903-720fe1c41efb" xml:space="preserve">
+          <source>The <bpt id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;linkText&gt;</bpt>EventData<ept id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;/linkText&gt;</ept><bpt id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;title&gt;</bpt><ept id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;/title&gt;</ept> class has a <bpt id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;linkText&gt;</bpt>PartitionKey<ept id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;/linkText&gt;</ept><bpt id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;title&gt;</bpt><ept id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;/title&gt;</ept> property that enables the sender to specify a value that is hashed to produce a partition assignment.</source>
+          <target state="new">The <bpt id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;linkText&gt;</bpt>EventData<ept id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;/linkText&gt;</ept><bpt id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;title&gt;</bpt><ept id="32d6692f-98a0-4fa0-a34e-489fb27a353a">&lt;/title&gt;</ept> class has a <bpt id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;linkText&gt;</bpt>PartitionKey<ept id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;/linkText&gt;</ept><bpt id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;title&gt;</bpt><ept id="be6c76d9-f7f0-48b1-a8f9-ae49fb0c4221">&lt;/title&gt;</ept> property that enables the sender to specify a value that is hashed to produce a partition assignment.</target>
+        </trans-unit>
+        <trans-unit id="385f60e1-e693-419b-9feb-c30bcfdb2eca" xml:space="preserve">
+          <source>Using a partition key ensures that all the events with the same key are sent to the same partition in the Event Hub.</source>
+          <target state="new">Using a partition key ensures that all the events with the same key are sent to the same partition in the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="c20d3f49-567b-4d9c-bbc2-a84be3185300" xml:space="preserve">
+          <source>Common partition keys include user session IDs and unique sender IDs.</source>
+          <target state="new">Common partition keys include user session IDs and unique sender IDs.</target>
+        </trans-unit>
+        <trans-unit id="9dc3c31d-00f0-4205-84b8-90c532c2df30" xml:space="preserve">
+          <source>The <bpt id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;linkText&gt;</bpt>PartitionKey<ept id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;/linkText&gt;</ept><bpt id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;title&gt;</bpt><ept id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;/title&gt;</ept> property is optional and can be provided when using the <bpt id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)<ept id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;/linkText&gt;</ept><bpt id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;title&gt;</bpt><ept id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;/title&gt;</ept> or <bpt id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)<ept id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;/linkText&gt;</ept><bpt id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;title&gt;</bpt><ept id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;/title&gt;</ept> methods.</source>
+          <target state="new">The <bpt id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;linkText&gt;</bpt>PartitionKey<ept id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;/linkText&gt;</ept><bpt id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;title&gt;</bpt><ept id="623b32bf-e7b1-4d85-ae3f-7f16d60d9c3c">&lt;/title&gt;</ept> property is optional and can be provided when using the <bpt id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.Send(Microsoft.ServiceBus.Messaging.EventData)<ept id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;/linkText&gt;</ept><bpt id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;title&gt;</bpt><ept id="42686c53-6a34-4cee-8aee-f9ade36e0a2a">&lt;/title&gt;</ept> or <bpt id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.EventHubClient.SendAsync(Microsoft.ServiceBus.Messaging.EventData)<ept id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;/linkText&gt;</ept><bpt id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;title&gt;</bpt><ept id="0ea2a4cf-88a4-4e48-a45c-7021a4afd2f0">&lt;/title&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="c88d4fac-2f29-4183-9021-04ce10661ac6" xml:space="preserve">
+          <source>If you do not provide a value for <bpt id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;linkText&gt;</bpt>PartitionKey<ept id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;/linkText&gt;</ept><bpt id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;title&gt;</bpt><ept id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;/title&gt;</ept>, sent events are distributed to partitions using a round-robin model.</source>
+          <target state="new">If you do not provide a value for <bpt id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;linkText&gt;</bpt>PartitionKey<ept id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;/linkText&gt;</ept><bpt id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;title&gt;</bpt><ept id="a1b8d445-7719-4ba1-9275-1952b3b63ef5">&lt;/title&gt;</ept>, sent events are distributed to partitions using a round-robin model.</target>
+        </trans-unit>
+        <trans-unit id="2322e1f2-079b-4f2d-b962-b6c80d39d4d2" xml:space="preserve">
+          <source>Sending events in batches can dramatically increase throughput.</source>
+          <target state="new">Sending events in batches can dramatically increase throughput.</target>
+        </trans-unit>
+        <trans-unit id="f3d006a3-784a-4917-a852-d4d355fc224b" xml:space="preserve">
+          <source>The <bpt id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;linkText&gt;</bpt>SendBatch<ept id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;/linkText&gt;</ept><bpt id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;title&gt;</bpt><ept id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;/title&gt;</ept> method takes an <bpt id="22711ffe-6148-4ac5-a501-8d226ef7003b">&lt;strong&gt;</bpt>IEnumerable<ept id="22711ffe-6148-4ac5-a501-8d226ef7003b">&lt;/strong&gt;</ept> parameter of type <bpt id="da7191ea-9e64-451a-905c-c33996706260">&lt;linkText&gt;</bpt>EventData<ept id="da7191ea-9e64-451a-905c-c33996706260">&lt;/linkText&gt;</ept><bpt id="da7191ea-9e64-451a-905c-c33996706260">&lt;title&gt;</bpt><ept id="da7191ea-9e64-451a-905c-c33996706260">&lt;/title&gt;</ept> and sends the entire batch as an atomic operation to the Event Hub.</source>
+          <target state="new">The <bpt id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;linkText&gt;</bpt>SendBatch<ept id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;/linkText&gt;</ept><bpt id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;title&gt;</bpt><ept id="854c9627-9245-48e6-bf32-d3df0704d6bb">&lt;/title&gt;</ept> method takes an <bpt id="22711ffe-6148-4ac5-a501-8d226ef7003b">&lt;strong&gt;</bpt>IEnumerable<ept id="22711ffe-6148-4ac5-a501-8d226ef7003b">&lt;/strong&gt;</ept> parameter of type <bpt id="da7191ea-9e64-451a-905c-c33996706260">&lt;linkText&gt;</bpt>EventData<ept id="da7191ea-9e64-451a-905c-c33996706260">&lt;/linkText&gt;</ept><bpt id="da7191ea-9e64-451a-905c-c33996706260">&lt;title&gt;</bpt><ept id="da7191ea-9e64-451a-905c-c33996706260">&lt;/title&gt;</ept> and sends the entire batch as an atomic operation to the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="0fbd720d-d6d9-421b-887f-b30cc2180f34" xml:space="preserve">
+          <source>It is important to note that a single batch must not exceed the 256 KB limit of an event.</source>
+          <target state="new">It is important to note that a single batch must not exceed the 256 KB limit of an event.</target>
+        </trans-unit>
+        <trans-unit id="b3704d87-7d2f-42b6-8853-35b96e15e56e" xml:space="preserve">
+          <source>Additionally, each message in the batch uses the same publisher identity.</source>
+          <target state="new">Additionally, each message in the batch uses the same publisher identity.</target>
+        </trans-unit>
+        <trans-unit id="62c9e092-029c-4658-894e-b79656aaa0cc" xml:space="preserve">
+          <source>It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size.</source>
+          <target state="new">It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size.</target>
+        </trans-unit>
+        <trans-unit id="ee16d90d-ae44-4488-b0f9-b9cc0cd02d3d" xml:space="preserve">
+          <source>If it does, a client <bpt id="da98a8ad-e809-4183-9c3e-c20092fe546e">&lt;strong&gt;</bpt>Send<ept id="da98a8ad-e809-4183-9c3e-c20092fe546e">&lt;/strong&gt;</ept> error is generated.</source>
+          <target state="new">If it does, a client <bpt id="da98a8ad-e809-4183-9c3e-c20092fe546e">&lt;strong&gt;</bpt>Send<ept id="da98a8ad-e809-4183-9c3e-c20092fe546e">&lt;/strong&gt;</ept> error is generated.</target>
+        </trans-unit>
+        <trans-unit id="54e188c0-7e6e-420f-9e88-a2eaaf620536" xml:space="preserve">
+          <source>You can also send events to an Event Hub asynchronously.</source>
+          <target state="new">You can also send events to an Event Hub asynchronously.</target>
+        </trans-unit>
+        <trans-unit id="3ceaa522-4a2e-4348-a9f8-33d12b876ff3" xml:space="preserve">
+          <source>Sending asynchronously can increase the rate at which a client is able to send events.</source>
+          <target state="new">Sending asynchronously can increase the rate at which a client is able to send events.</target>
+        </trans-unit>
+        <trans-unit id="2e214ddd-c322-40db-b32d-04ac4224311e" xml:space="preserve">
+          <source>Both the <bpt id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;linkText&gt;</bpt>Send<ept id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;/linkText&gt;</ept><bpt id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;title&gt;</bpt><ept id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;/title&gt;</ept> and <bpt id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;linkText&gt;</bpt>SendBatch<ept id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;/linkText&gt;</ept><bpt id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;title&gt;</bpt><ept id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;/title&gt;</ept> methods are available in asynchronous versions that return a <bpt id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;linkText&gt;</bpt>Task<ept id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;/linkText&gt;</ept><bpt id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;title&gt;</bpt><ept id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;/title&gt;</ept> object.</source>
+          <target state="new">Both the <bpt id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;linkText&gt;</bpt>Send<ept id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;/linkText&gt;</ept><bpt id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;title&gt;</bpt><ept id="3be57ee3-e874-4e23-8432-aa14fc35f098">&lt;/title&gt;</ept> and <bpt id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;linkText&gt;</bpt>SendBatch<ept id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;/linkText&gt;</ept><bpt id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;title&gt;</bpt><ept id="848e8f07-4173-4d22-aadc-59c9973aad12">&lt;/title&gt;</ept> methods are available in asynchronous versions that return a <bpt id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;linkText&gt;</bpt>Task<ept id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;/linkText&gt;</ept><bpt id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;title&gt;</bpt><ept id="9b36ea80-e8f1-464d-9ad0-579e5ef0d605">&lt;/title&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="3de8c933-f600-446a-9d7d-9b855ec1cf28" xml:space="preserve">
+          <source>While this technique can increase throughput, it can also cause the client to continue to send events even while it is being throttled by the Event Hubs service and can result in the client experiencing failures or lost messages if not properly implemented.</source>
+          <target state="new">While this technique can increase throughput, it can also cause the client to continue to send events even while it is being throttled by the Event Hubs service and can result in the client experiencing failures or lost messages if not properly implemented.</target>
+        </trans-unit>
+        <trans-unit id="7bdfd107-b485-413c-b2e3-943b86614e8f" xml:space="preserve">
+          <source>In addition, you can use the <bpt id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;linkText&gt;</bpt>RetryPolicy<ept id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;/linkText&gt;</ept><bpt id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;title&gt;</bpt><ept id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;/title&gt;</ept> property on the client to control client retry options.</source>
+          <target state="new">In addition, you can use the <bpt id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;linkText&gt;</bpt>RetryPolicy<ept id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;/linkText&gt;</ept><bpt id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;title&gt;</bpt><ept id="3a05ce0a-e270-4f94-ba35-83b17b80807a">&lt;/title&gt;</ept> property on the client to control client retry options.</target>
+        </trans-unit>
+        <trans-unit id="2d74c2ac-e6ad-4328-b60b-b376828ed80c" xml:space="preserve">
+          <source>Although it is most common to send events to an Event Hub with a partition key, in some cases you might want to send events directly to a given partition.</source>
+          <target state="new">Although it is most common to send events to an Event Hub with a partition key, in some cases you might want to send events directly to a given partition.</target>
+        </trans-unit>
+        <trans-unit id="65fa4fb4-3947-4eb9-9c23-f37f6233273b" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="5310d250-9834-4944-ba9a-732e15775981" xml:space="preserve">
+          <source><bpt id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;linkText&gt;</bpt>CreatePartitionedSender<ept id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;/linkText&gt;</ept><bpt id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;title&gt;</bpt><ept id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;/title&gt;</ept> returns an <bpt id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;linkText&gt;</bpt>EventHubSender<ept id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;/linkText&gt;</ept><bpt id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;title&gt;</bpt><ept id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;/title&gt;</ept> object that you can use to publish events to a specific Event Hub partition.</source>
+          <target state="new"><bpt id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;linkText&gt;</bpt>CreatePartitionedSender<ept id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;/linkText&gt;</ept><bpt id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;title&gt;</bpt><ept id="9f2d7bb2-088d-4b61-aa63-5c18c1113fe6">&lt;/title&gt;</ept> returns an <bpt id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;linkText&gt;</bpt>EventHubSender<ept id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;/linkText&gt;</ept><bpt id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;title&gt;</bpt><ept id="bfa9872d-1b2e-497f-bcbb-c5c6060e1a2a">&lt;/title&gt;</ept> object that you can use to publish events to a specific Event Hub partition.</target>
+        </trans-unit>
+        <trans-unit id="dfeddc6d-04fa-4ae8-84c0-99c68e64fadd" xml:space="preserve">
+          <source>Event Hubs has two primary models for event consumption: direct receivers and higher-level abstractions, such as <bpt id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;/linkText&gt;</ept><bpt id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;title&gt;</bpt><ept id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;/title&gt;</ept>.</source>
+          <target state="new">Event Hubs has two primary models for event consumption: direct receivers and higher-level abstractions, such as <bpt id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;/linkText&gt;</ept><bpt id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;title&gt;</bpt><ept id="97562241-8214-4dc4-aee5-5896f5ba6e11">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07ef511f-eaa2-45df-8e40-7ef472f8a6d2" xml:space="preserve">
+          <source>Direct receivers are responsible for their own coordination of access to partitions within a consumer group.</source>
+          <target state="new">Direct receivers are responsible for their own coordination of access to partitions within a consumer group.</target>
+        </trans-unit>
+        <trans-unit id="8a8fbc8c-eb8d-4347-9e5d-5930bc52133b" xml:space="preserve">
+          <source>The most direct way to read from a partition within a consumer group is to use the <bpt id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;linkText&gt;</bpt>EventHubReceiver<ept id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;/linkText&gt;</ept><bpt id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;title&gt;</bpt><ept id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;/title&gt;</ept> class.</source>
+          <target state="new">The most direct way to read from a partition within a consumer group is to use the <bpt id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;linkText&gt;</bpt>EventHubReceiver<ept id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;/linkText&gt;</ept><bpt id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;title&gt;</bpt><ept id="78619619-a390-40c6-bfb1-d196083b0fca">&lt;/title&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="a51474e8-2b6d-49e8-bf93-d62dd721fa31" xml:space="preserve">
+          <source>To create an instance of this class, you must use an instance of the <bpt id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;linkText&gt;</bpt>EventHubConsumerGroup<ept id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;/linkText&gt;</ept><bpt id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;title&gt;</bpt><ept id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;/title&gt;</ept> class.</source>
+          <target state="new">To create an instance of this class, you must use an instance of the <bpt id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;linkText&gt;</bpt>EventHubConsumerGroup<ept id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;/linkText&gt;</ept><bpt id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;title&gt;</bpt><ept id="ddaa8b9b-1691-4b5c-bce4-3d0ec1920761">&lt;/title&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="88c14f05-13b3-42d2-a95e-890222e52b54" xml:space="preserve">
+          <source>In the following code example, the partition ID must be specified when creating the receiver for the consumer group.</source>
+          <target state="new">In the following code example, the partition ID must be specified when creating the receiver for the consumer group.</target>
+        </trans-unit>
+        <trans-unit id="4189cd6d-6f0f-424d-8c20-8108c54e33fc" xml:space="preserve">
+          <source>The <bpt id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;linkText&gt;</bpt>CreateReceiver<ept id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;/linkText&gt;</ept><bpt id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;title&gt;</bpt><ept id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;/title&gt;</ept> method has several overloads that facilitate control over the reader being created.</source>
+          <target state="new">The <bpt id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;linkText&gt;</bpt>CreateReceiver<ept id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;/linkText&gt;</ept><bpt id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;title&gt;</bpt><ept id="e03b9228-51fd-4bf8-8c1c-3d03877e169f">&lt;/title&gt;</ept> method has several overloads that facilitate control over the reader being created.</target>
+        </trans-unit>
+        <trans-unit id="d475db66-30a0-4420-b99e-997a5e61b3cd" xml:space="preserve">
+          <source>These methods include specifying an offset as either a string or timestamp, and the ability to specify whether to include this specified offset in the returned stream, or start after it.</source>
+          <target state="new">These methods include specifying an offset as either a string or timestamp, and the ability to specify whether to include this specified offset in the returned stream, or start after it.</target>
+        </trans-unit>
+        <trans-unit id="26954e97-9f0f-4a2c-9d5e-d4a404e154cd" xml:space="preserve">
+          <source>After you create the receiver, you can start receiving events on the returned object.</source>
+          <target state="new">After you create the receiver, you can start receiving events on the returned object.</target>
+        </trans-unit>
+        <trans-unit id="2194cc26-ca90-48fb-96f0-ff86fa281012" xml:space="preserve">
+          <source>The <bpt id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;linkText&gt;</bpt>Receive<ept id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;/linkText&gt;</ept><bpt id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;title&gt;</bpt><ept id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;/title&gt;</ept> method has four overloads that control the receive operation parameters, such as batch size and wait time.</source>
+          <target state="new">The <bpt id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;linkText&gt;</bpt>Receive<ept id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;/linkText&gt;</ept><bpt id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;title&gt;</bpt><ept id="06a403e5-aa65-43ed-8466-aa1a3afbe620">&lt;/title&gt;</ept> method has four overloads that control the receive operation parameters, such as batch size and wait time.</target>
+        </trans-unit>
+        <trans-unit id="cbe8d826-af6a-40ef-ae2f-0b7d6db22257" xml:space="preserve">
+          <source>You can use the asynchronous versions of these methods to increase the throughput of a consumer.</source>
+          <target state="new">You can use the asynchronous versions of these methods to increase the throughput of a consumer.</target>
+        </trans-unit>
+        <trans-unit id="9be0ef97-db4c-4bcd-82f0-c4c26548b221" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="c5ae46d9-0801-4db1-87e2-12d2b0de9dfe" xml:space="preserve">
+          <source>With respect to a specific partition, the messages are received in the order in which they were sent to the Event Hub.</source>
+          <target state="new">With respect to a specific partition, the messages are received in the order in which they were sent to the Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="d5612d96-feb1-4cda-8526-77a296649758" xml:space="preserve">
+          <source>The offset is a string token used to identify a message in a partition.</source>
+          <target state="new">The offset is a string token used to identify a message in a partition.</target>
+        </trans-unit>
+        <trans-unit id="48240e38-4ed3-4c23-a860-2cdfdc0e3891" xml:space="preserve">
+          <source>It is important to note that a single partition within a consumer group cannot have more than 5 concurrent readers connected at any time.</source>
+          <target state="new">It is important to note that a single partition within a consumer group cannot have more than 5 concurrent readers connected at any time.</target>
+        </trans-unit>
+        <trans-unit id="7f9e6626-56ea-441c-82bb-b13e38a231e8" xml:space="preserve">
+          <source>As readers connect or become disconnected, their sessions might stay active for several minutes before the service recognizes that they have disconnected.</source>
+          <target state="new">As readers connect or become disconnected, their sessions might stay active for several minutes before the service recognizes that they have disconnected.</target>
+        </trans-unit>
+        <trans-unit id="b9b5973e-e6a3-4619-ae35-7a01fe2ec748" xml:space="preserve">
+          <source>During this time, reconnecting to a partition may fail.</source>
+          <target state="new">During this time, reconnecting to a partition may fail.</target>
+        </trans-unit>
+        <trans-unit id="6eb34ce5-1bb7-47f8-b47c-71c218009eb6" xml:space="preserve">
+          <source>For a complete example of writing a direct receiver for Event Hubs, see the <bpt id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;linkText&gt;</bpt>Service Bus Event Hubs Direct Receivers<ept id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;/linkText&gt;</ept><bpt id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;title&gt;</bpt><ept id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;/title&gt;</ept> sample.</source>
+          <target state="new">For a complete example of writing a direct receiver for Event Hubs, see the <bpt id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;linkText&gt;</bpt>Service Bus Event Hubs Direct Receivers<ept id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;/linkText&gt;</ept><bpt id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;title&gt;</bpt><ept id="104091a5-6a67-42a5-a239-fe4751ca8b15">&lt;/title&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="147d16d1-34bb-4a10-849f-b74ec270ef68" xml:space="preserve">
+          <source>The <bpt id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;/linkText&gt;</ept><bpt id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;title&gt;</bpt><ept id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;/title&gt;</ept> class processes data from Event Hubs.</source>
+          <target state="new">The <bpt id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;/linkText&gt;</ept><bpt id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;title&gt;</bpt><ept id="2a33b02d-1e8c-420c-bb8e-bdddd419bf91">&lt;/title&gt;</ept> class processes data from Event Hubs.</target>
+        </trans-unit>
+        <trans-unit id="7dddb0f4-ce2f-42de-911d-44ef128ce611" xml:space="preserve">
+          <source>You should use this implementation when building event readers on the .NET platform.</source>
+          <target state="new">You should use this implementation when building event readers on the .NET platform.</target>
+        </trans-unit>
+        <trans-unit id="2b1d05e4-539d-4c54-824e-ab6584c0f30d" xml:space="preserve">
+          <source><bpt id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;/linkText&gt;</ept><bpt id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;title&gt;</bpt><ept id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;/title&gt;</ept> provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.</source>
+          <target state="new"><bpt id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;/linkText&gt;</ept><bpt id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;title&gt;</bpt><ept id="21c6ca01-6726-40c1-a0db-a98ba7bace5e">&lt;/title&gt;</ept> provides a thread-safe, multi-process, safe runtime environment for event processor implementations that also provides checkpointing and partition lease management.</target>
+        </trans-unit>
+        <trans-unit id="0341f50a-0eaf-42cc-a2c8-085a1c8b7594" xml:space="preserve">
+          <source>To use the <bpt id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;/linkText&gt;</ept><bpt id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;title&gt;</bpt><ept id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;/title&gt;</ept> class, you can implement <bpt id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;linkText&gt;</bpt>IEventProcessor<ept id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;/linkText&gt;</ept><bpt id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;title&gt;</bpt><ept id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use the <bpt id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;/linkText&gt;</ept><bpt id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;title&gt;</bpt><ept id="3d8eba26-6c00-46cb-9aa7-a45a693f4044">&lt;/title&gt;</ept> class, you can implement <bpt id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;linkText&gt;</bpt>IEventProcessor<ept id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;/linkText&gt;</ept><bpt id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;title&gt;</bpt><ept id="ec842581-e949-4fdf-8098-26d37ea39d6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92d76640-b258-4c66-b6ba-315837daf539" xml:space="preserve">
+          <source>This interface contains three methods:</source>
+          <target state="new">This interface contains three methods:</target>
+        </trans-unit>
+        <trans-unit id="1fb61128-b01e-419a-bcde-945d206e6399" xml:space="preserve">
+          <source><bpt id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;linkText&gt;</bpt>OpenAsync<ept id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;/linkText&gt;</ept><bpt id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;title&gt;</bpt><ept id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;linkText&gt;</bpt>OpenAsync<ept id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;/linkText&gt;</ept><bpt id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;title&gt;</bpt><ept id="9353405f-78e0-44eb-a160-f59258aa7d69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb7033db-9897-46be-baf1-dc8ef0645ef9" xml:space="preserve">
+          <source><bpt id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;linkText&gt;</bpt>CloseAsync<ept id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;/linkText&gt;</ept><bpt id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;title&gt;</bpt><ept id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;linkText&gt;</bpt>CloseAsync<ept id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;/linkText&gt;</ept><bpt id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;title&gt;</bpt><ept id="d1c1c04c-8642-4ef5-8471-47e1fd13d6df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5abd251c-e083-4ffe-b0ec-e28a6194d126" xml:space="preserve">
+          <source><bpt id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;linkText&gt;</bpt>ProcessEventsAsync<ept id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;/linkText&gt;</ept><bpt id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;title&gt;</bpt><ept id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;linkText&gt;</bpt>ProcessEventsAsync<ept id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;/linkText&gt;</ept><bpt id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;title&gt;</bpt><ept id="5842bd3c-ecc8-4c38-b98b-eef15ed4df4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="814c4518-2449-44d9-9dc7-0faea4960e99" xml:space="preserve">
+          <source>To start event processing, instantiate <bpt id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;/linkText&gt;</ept><bpt id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;title&gt;</bpt><ept id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;/title&gt;</ept>, providing the appropriate parameters for your Event Hub.</source>
+          <target state="new">To start event processing, instantiate <bpt id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;/linkText&gt;</ept><bpt id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;title&gt;</bpt><ept id="b4798e7b-44f4-40b1-826a-e773fd057564">&lt;/title&gt;</ept>, providing the appropriate parameters for your Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="9dce1623-0b3b-4c3c-b2b9-86e6a59675dc" xml:space="preserve">
+          <source>Then call <bpt id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;linkText&gt;</bpt>RegisterEventProcessorAsync<ept id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;/linkText&gt;</ept><bpt id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;title&gt;</bpt><ept id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;/title&gt;</ept> to register your <bpt id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;linkText&gt;</bpt>IEventProcessor<ept id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;/linkText&gt;</ept><bpt id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;title&gt;</bpt><ept id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;/title&gt;</ept> implementation with the runtime.</source>
+          <target state="new">Then call <bpt id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;linkText&gt;</bpt>RegisterEventProcessorAsync<ept id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;/linkText&gt;</ept><bpt id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;title&gt;</bpt><ept id="48ee4b27-7658-4b0f-9ae5-eff29bf744c6">&lt;/title&gt;</ept> to register your <bpt id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;linkText&gt;</bpt>IEventProcessor<ept id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;/linkText&gt;</ept><bpt id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;title&gt;</bpt><ept id="fa442b4b-3c67-416c-ad25-2396be1788f7">&lt;/title&gt;</ept> implementation with the runtime.</target>
+        </trans-unit>
+        <trans-unit id="c6c52373-584a-4cf8-a18d-b48568f0dbb1" xml:space="preserve">
+          <source>At this point, the host will attempt to acquire a lease on every partition in the Event Hub using a "greedy" algorithm.</source>
+          <target state="new">At this point, the host will attempt to acquire a lease on every partition in the Event Hub using a "greedy" algorithm.</target>
+        </trans-unit>
+        <trans-unit id="55eca86f-7b44-4244-93e8-c55d79f76682" xml:space="preserve">
+          <source>These leases will last for a given timeframe and must then be renewed.</source>
+          <target state="new">These leases will last for a given timeframe and must then be renewed.</target>
+        </trans-unit>
+        <trans-unit id="81a16466-ab6b-4c0a-bdab-d94a1fb95280" xml:space="preserve">
+          <source>As new nodes, worker instances in this case, come online, they place lease reservations and over time the load shifts between nodes as each attempts to acquire more leases.</source>
+          <target state="new">As new nodes, worker instances in this case, come online, they place lease reservations and over time the load shifts between nodes as each attempts to acquire more leases.</target>
+        </trans-unit>
+        <trans-unit id="b12ae5dd-d6ff-4c18-b2d3-438eb8b89042" xml:space="preserve">
+          <source><bpt id="c476abb5-e3c1-41b1-9704-5549a84d6d0f">&lt;linkText&gt;</bpt>Event Processor Host<ept id="c476abb5-e3c1-41b1-9704-5549a84d6d0f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c476abb5-e3c1-41b1-9704-5549a84d6d0f">&lt;linkText&gt;</bpt>Event Processor Host<ept id="c476abb5-e3c1-41b1-9704-5549a84d6d0f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf48a4af-1e25-4dc9-aaa7-8e164ef9960d" xml:space="preserve">
+          <source>Over time, an equilibrium is established.</source>
+          <target state="new">Over time, an equilibrium is established.</target>
+        </trans-unit>
+        <trans-unit id="77264f21-f105-4d51-8653-de8cc33cbafe" xml:space="preserve">
+          <source>This dynamic capability enables CPU-based autoscaling to be applied to consumers for both scale-up and scale-down.</source>
+          <target state="new">This dynamic capability enables CPU-based autoscaling to be applied to consumers for both scale-up and scale-down.</target>
+        </trans-unit>
+        <trans-unit id="147b752d-c13c-4333-a271-eac7912aee87" xml:space="preserve">
+          <source>Because Event Hubs do not have a direct concept of message counts, average CPU utilization is often the best mechanism to measure back end or consumer scale.</source>
+          <target state="new">Because Event Hubs do not have a direct concept of message counts, average CPU utilization is often the best mechanism to measure back end or consumer scale.</target>
+        </trans-unit>
+        <trans-unit id="62fb118e-f6d6-4ef4-be58-511a6dcbea8f" xml:space="preserve">
+          <source>If publishers begin to publish more events than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.</source>
+          <target state="new">If publishers begin to publish more events than consumers can process, the CPU increase on consumers can be used to cause an auto-scale on worker instance count.</target>
+        </trans-unit>
+        <trans-unit id="b1342680-7201-45f7-ac90-a1d7fc67e84a" xml:space="preserve">
+          <source>The <bpt id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;/linkText&gt;</ept><bpt id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;title&gt;</bpt><ept id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;/title&gt;</ept> class also implements an Azure storage-based checkpointing mechanism.</source>
+          <target state="new">The <bpt id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;/linkText&gt;</ept><bpt id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;title&gt;</bpt><ept id="36fe4ec8-2598-454e-9499-d2ce2e9381a6">&lt;/title&gt;</ept> class also implements an Azure storage-based checkpointing mechanism.</target>
+        </trans-unit>
+        <trans-unit id="38331349-c0db-461c-aa9a-fbe17cd7da85" xml:space="preserve">
+          <source>This mechanism stores the offset on a per partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was.</source>
+          <target state="new">This mechanism stores the offset on a per partition basis, so that each consumer can determine what the last checkpoint from the previous consumer was.</target>
+        </trans-unit>
+        <trans-unit id="6911a228-3820-446f-98a4-ea3decaa2695" xml:space="preserve">
+          <source>As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.</source>
+          <target state="new">As partitions transition between nodes via leases, this is the synchronization mechanism that facilitates load shifting.</target>
+        </trans-unit>
+        <trans-unit id="e7d2d893-a9a2-4f43-8df5-fcfea794f17b" xml:space="preserve">
+          <source>In addition to the advanced runtime features of <bpt id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;/linkText&gt;</ept><bpt id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;title&gt;</bpt><ept id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;/title&gt;</ept>, Event Hubs enables publisher revocation in order to block specific publishers from sending event to an Event Hub.</source>
+          <target state="new">In addition to the advanced runtime features of <bpt id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;linkText&gt;</bpt>EventProcessorHost<ept id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;/linkText&gt;</ept><bpt id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;title&gt;</bpt><ept id="6883d60a-456a-4687-b620-84f503b84a2d">&lt;/title&gt;</ept>, Event Hubs enables publisher revocation in order to block specific publishers from sending event to an Event Hub.</target>
+        </trans-unit>
+        <trans-unit id="840e60b9-b121-42b7-9243-e718465038b7" xml:space="preserve">
+          <source>These features are particularly useful if a publisher’s token has been compromised, or a software update is causing them to behave inappropriately.</source>
+          <target state="new">These features are particularly useful if a publisher’s token has been compromised, or a software update is causing them to behave inappropriately.</target>
+        </trans-unit>
+        <trans-unit id="a96ca00f-7ec9-47ea-9169-e45f99f01b01" xml:space="preserve">
+          <source>In these situations, the publisher’s identity, which is part of their SAS token, can be blocked from publishing events.</source>
+          <target state="new">In these situations, the publisher’s identity, which is part of their SAS token, can be blocked from publishing events.</target>
+        </trans-unit>
+        <trans-unit id="9baa4b4d-a48e-4991-86ab-7e21176508e7" xml:space="preserve">
+          <source>For more information about publisher revocation and how to send to Event Hubs as a publisher, see the <bpt id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;linkText&gt;</bpt>Service Bus Event Hubs Large Scale Secure Publishing<ept id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;/linkText&gt;</ept><bpt id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;title&gt;</bpt><ept id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;/title&gt;</ept> sample.</source>
+          <target state="new">For more information about publisher revocation and how to send to Event Hubs as a publisher, see the <bpt id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;linkText&gt;</bpt>Service Bus Event Hubs Large Scale Secure Publishing<ept id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;/linkText&gt;</ept><bpt id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;title&gt;</bpt><ept id="6ff2c5f7-0cac-4464-acf8-6365df30006c">&lt;/title&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="c9096549-8252-4a90-bd4d-e46e6ef8977a" xml:space="preserve">
+          <source>To learn more about Event Hubs scenarios, visit these links:</source>
+          <target state="new">To learn more about Event Hubs scenarios, visit these links:</target>
+        </trans-unit>
+        <trans-unit id="0c6009d7-fbea-46a0-978a-514203be16a1" xml:space="preserve">
+          <source><bpt id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;linkText&gt;</bpt>Event Hubs API overview<ept id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;/linkText&gt;</ept><bpt id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;title&gt;</bpt><ept id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;linkText&gt;</bpt>Event Hubs API overview<ept id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;/linkText&gt;</ept><bpt id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;title&gt;</bpt><ept id="b238e9bf-db7d-427a-9676-7b8d8b6aeeb8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a5c2a33-f455-4ca8-b294-37a22eaa1319" xml:space="preserve">
+          <source><bpt id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;linkText&gt;</bpt>Event Hubs overview<ept id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;/linkText&gt;</ept><bpt id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;title&gt;</bpt><ept id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;linkText&gt;</bpt>Event Hubs overview<ept id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;/linkText&gt;</ept><bpt id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;title&gt;</bpt><ept id="669c56d1-5549-4d6d-9ddc-a75f764d1c8b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78cff289-3e7a-43b9-9e3a-e5c66b0dd413" xml:space="preserve">
+          <source>[Event Hubs Code Samples](http://code.msdn.microsoft.com/site/search?query=event hub&amp;f[0].Value=event hub&amp;f[0].Type=SearchText&amp;ac=5)</source>
+          <target state="new">[Event Hubs Code Samples](http://code.msdn.microsoft.com/site/search?query=event hub&amp;f[0].Value=event hub&amp;f[0].Type=SearchText&amp;ac=5)</target>
+        </trans-unit>
+        <trans-unit id="f2c1fe36-d052-4b41-b32e-8a4366456470" xml:space="preserve">
+          <source><bpt id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;linkText&gt;</bpt>Event processor host API reference<ept id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;/linkText&gt;</ept><bpt id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;title&gt;</bpt><ept id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;linkText&gt;</bpt>Event processor host API reference<ept id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;/linkText&gt;</ept><bpt id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;title&gt;</bpt><ept id="d527dcfe-eea6-49c6-a268-0d1a92b007e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3c081057-4bf0-496e-8665-06583b667546" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3c081057-4bf0-496e-8665-06583b667546" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f108628f-7673-4955-b717-5b37f469d021">
+        <trans-unit id="39077047-bda8-47ab-a2e7-3bba8106887e" xml:space="preserve">
+          <source>Get Started with Docker and Compose on an Azure virtual machine</source>
+          <target state="new">Get Started with Docker and Compose on an Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="ae825416-6124-44b2-8492-34cb62c03040" xml:space="preserve">
+          <source>Quick introduction to working with Compose and Docker on Azure</source>
+          <target state="new">Quick introduction to working with Compose and Docker on Azure</target>
+        </trans-unit>
+        <trans-unit id="327b058f-16c8-4633-bbde-d2ebd1435492" xml:space="preserve">
+          <source>This article shows you how to get started using Docker and <bpt id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;linkText&gt;</bpt>Compose<ept id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;/linkText&gt;</ept><bpt id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;title&gt;</bpt><ept id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;/title&gt;</ept> to define and run a complex application on a Linux virtual machine in Azure.</source>
+          <target state="new">This article shows you how to get started using Docker and <bpt id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;linkText&gt;</bpt>Compose<ept id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;/linkText&gt;</ept><bpt id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;title&gt;</bpt><ept id="936e14c8-6fd9-4eb6-aa9b-8245ece48def">&lt;/title&gt;</ept> to define and run a complex application on a Linux virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="335dec6f-f01f-4362-8dd0-fb4f6ddcd6b3" xml:space="preserve">
+          <source>With Compose (the successor to <bpt id="c951cad5-5761-45af-a693-9b8a9e8ff273">&lt;em&gt;</bpt>Fig<ept id="c951cad5-5761-45af-a693-9b8a9e8ff273">&lt;/em&gt;</ept>), you use a simple text file to define an application consisting of multiple Docker containers.</source>
+          <target state="new">With Compose (the successor to <bpt id="c951cad5-5761-45af-a693-9b8a9e8ff273">&lt;em&gt;</bpt>Fig<ept id="c951cad5-5761-45af-a693-9b8a9e8ff273">&lt;/em&gt;</ept>), you use a simple text file to define an application consisting of multiple Docker containers.</target>
+        </trans-unit>
+        <trans-unit id="ffa0aa90-4034-4d01-acf6-d184b2514ed9" xml:space="preserve">
+          <source>Then you spin up your application in a single command which does everything to get it running on the VM.</source>
+          <target state="new">Then you spin up your application in a single command which does everything to get it running on the VM.</target>
+        </trans-unit>
+        <trans-unit id="56fc732c-68bc-4106-9817-f98c463a9ac7" xml:space="preserve">
+          <source>As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database, but you can also use Compose to set up more complex applications.</source>
+          <target state="new">As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database, but you can also use Compose to set up more complex applications.</target>
+        </trans-unit>
+        <trans-unit id="67a3dd38-f463-4c7a-9484-1c9a3efa7950" xml:space="preserve">
+          <source>If you're new to Docker and containers, see the <bpt id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;linkText&gt;</bpt>Docker high level whiteboard<ept id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;/linkText&gt;</ept><bpt id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;title&gt;</bpt><ept id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you're new to Docker and containers, see the <bpt id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;linkText&gt;</bpt>Docker high level whiteboard<ept id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;/linkText&gt;</ept><bpt id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;title&gt;</bpt><ept id="9ccda353-990d-4103-87cc-fb8f5bfa2170">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9719e3dc-6796-43f0-a601-83468ae3791a" xml:space="preserve">
+          <source>You can use a variety of Azure procedures and available images in the Azure Markeplace to create a Linux VM and set it up as a Docker host.</source>
+          <target state="new">You can use a variety of Azure procedures and available images in the Azure Markeplace to create a Linux VM and set it up as a Docker host.</target>
+        </trans-unit>
+        <trans-unit id="c22cb98c-e7f5-45ab-8e2b-72b8807f80ca" xml:space="preserve">
+          <source>For example, see <bpt id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;linkText&gt;</bpt>Using the Docker VM Extension from the Azure Command-Line Interface<ept id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;/linkText&gt;</ept><bpt id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;title&gt;</bpt><ept id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;/title&gt;</ept> for a quick procedure to create an Ubuntu VM with the Docker VM extension.</source>
+          <target state="new">For example, see <bpt id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;linkText&gt;</bpt>Using the Docker VM Extension from the Azure Command-Line Interface<ept id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;/linkText&gt;</ept><bpt id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;title&gt;</bpt><ept id="be992459-9c3c-490c-b6a8-54ab993fb467">&lt;/title&gt;</ept> for a quick procedure to create an Ubuntu VM with the Docker VM extension.</target>
+        </trans-unit>
+        <trans-unit id="943d08d8-c51b-442d-bdfd-ee0479bf83ed" xml:space="preserve">
+          <source>When you use the Docker VM extension, your VM is automatically set up as a Docker host.</source>
+          <target state="new">When you use the Docker VM extension, your VM is automatically set up as a Docker host.</target>
+        </trans-unit>
+        <trans-unit id="9be7a411-59f9-417d-9fe4-4733e172ba01" xml:space="preserve">
+          <source>The example in that article shows you how to use the the <bpt id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;linkText&gt;</bpt>Azure command-line interface for Mac, Linux, and Windows<ept id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;/linkText&gt;</ept><bpt id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;title&gt;</bpt><ept id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;/title&gt;</ept> (the Azure CLI) in Service Management mode to create the VM.</source>
+          <target state="new">The example in that article shows you how to use the the <bpt id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;linkText&gt;</bpt>Azure command-line interface for Mac, Linux, and Windows<ept id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;/linkText&gt;</ept><bpt id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;title&gt;</bpt><ept id="0628b058-1bf4-4982-a809-49af99b21a39">&lt;/title&gt;</ept> (the Azure CLI) in Service Management mode to create the VM.</target>
+        </trans-unit>
+        <trans-unit id="44e7b57d-a6e8-48be-9365-40b172c44657" xml:space="preserve">
+          <source>After the Linux VM is running with Docker, connect to it from your client computer using SSH.</source>
+          <target state="new">After the Linux VM is running with Docker, connect to it from your client computer using SSH.</target>
+        </trans-unit>
+        <trans-unit id="f599a05d-be19-4905-8f1b-1f2912e636a6" xml:space="preserve">
+          <source>If you need to, install <bpt id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;linkText&gt;</bpt>Compose<ept id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;/linkText&gt;</ept><bpt id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;title&gt;</bpt><ept id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;/title&gt;</ept> by running the following two commands.</source>
+          <target state="new">If you need to, install <bpt id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;linkText&gt;</bpt>Compose<ept id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;/linkText&gt;</ept><bpt id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;title&gt;</bpt><ept id="01c83d09-a7fb-4087-8da7-6f2fe1dd991c">&lt;/title&gt;</ept> by running the following two commands.</target>
+        </trans-unit>
+        <trans-unit id="111202fc-f619-49dc-94da-967614d965cf" xml:space="preserve">
+          <source>If you used the Docker VM extension to create your VM, Compose is already installed for you.</source>
+          <target state="new">If you used the Docker VM extension to create your VM, Compose is already installed for you.</target>
+        </trans-unit>
+        <trans-unit id="1160427b-60db-42fd-8ab1-45ba3d685eb9" xml:space="preserve">
+          <source>Skip these commands and go to Step 3.</source>
+          <target state="new">Skip these commands and go to Step 3.</target>
+        </trans-unit>
+        <trans-unit id="57ba8af8-6759-4d17-8ff8-ee1ba9464e2a" xml:space="preserve">
+          <source>You only need to install Compose if you installed Docker on the VM yourself.</source>
+          <target state="new">You only need to install Compose if you installed Docker on the VM yourself.</target>
+        </trans-unit>
+        <trans-unit id="b020a281-d792-448d-8aa8-902f0620b34c" xml:space="preserve">
+          <source>If you get a "Permission denied" error, your /usr/local/bin directory on the VM probably isn't writable and you'll need to install Compose as the superuser.</source>
+          <target state="new">If you get a "Permission denied" error, your /usr/local/bin directory on the VM probably isn't writable and you'll need to install Compose as the superuser.</target>
+        </trans-unit>
+        <trans-unit id="4d770f3b-a1b7-4a12-b727-ae327eb4310e" xml:space="preserve">
+          <source>Run <bpt id="f8f58ef6-43cb-4e2f-b52a-f65a48547790">&lt;code&gt;</bpt>sudo -i<ept id="f8f58ef6-43cb-4e2f-b52a-f65a48547790">&lt;/code&gt;</ept>, then the two commands above, then <bpt id="6bc71587-73ab-401c-8e42-bdcb223b89c2">&lt;code&gt;</bpt>exit<ept id="6bc71587-73ab-401c-8e42-bdcb223b89c2">&lt;/code&gt;</ept>.</source>
+          <target state="new">Run <bpt id="f8f58ef6-43cb-4e2f-b52a-f65a48547790">&lt;code&gt;</bpt>sudo -i<ept id="f8f58ef6-43cb-4e2f-b52a-f65a48547790">&lt;/code&gt;</ept>, then the two commands above, then <bpt id="6bc71587-73ab-401c-8e42-bdcb223b89c2">&lt;code&gt;</bpt>exit<ept id="6bc71587-73ab-401c-8e42-bdcb223b89c2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e0ba046-e08b-426e-81aa-ab47ee634f26" xml:space="preserve">
+          <source>To test your installation of Compose, run the following command.</source>
+          <target state="new">To test your installation of Compose, run the following command.</target>
+        </trans-unit>
+        <trans-unit id="0bb57f4c-f466-4dc9-9ba5-b603be95c023" xml:space="preserve">
+          <source>You will see output similar to</source>
+          <target state="new">You will see output similar to</target>
+        </trans-unit>
+        <trans-unit id="4cbe13aa-97ca-4c4d-bd02-efc75d03cbe4" xml:space="preserve">
+          <source>Next you'll create a <bpt id="2308bc5f-f5dc-4074-8646-17fa159e0458">&lt;code&gt;</bpt>docker-compose.yml<ept id="2308bc5f-f5dc-4074-8646-17fa159e0458">&lt;/code&gt;</ept> file, which is just a text configuration file, to define the Docker containers to run on the VM.</source>
+          <target state="new">Next you'll create a <bpt id="2308bc5f-f5dc-4074-8646-17fa159e0458">&lt;code&gt;</bpt>docker-compose.yml<ept id="2308bc5f-f5dc-4074-8646-17fa159e0458">&lt;/code&gt;</ept> file, which is just a text configuration file, to define the Docker containers to run on the VM.</target>
+        </trans-unit>
+        <trans-unit id="941b264c-f4c4-4506-acb4-a703553706ad" xml:space="preserve">
+          <source>The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, links between containers, and so on.</source>
+          <target state="new">The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, links between containers, and so on.</target>
+        </trans-unit>
+        <trans-unit id="d90384be-2a1e-4a36-8b34-7498b052cb17" xml:space="preserve">
+          <source>For details on yml file syntax, see <bpt id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;linkText&gt;</bpt>docker-compose.yml reference<ept id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;/linkText&gt;</ept><bpt id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;title&gt;</bpt><ept id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on yml file syntax, see <bpt id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;linkText&gt;</bpt>docker-compose.yml reference<ept id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;/linkText&gt;</ept><bpt id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;title&gt;</bpt><ept id="24a94ea1-9934-428e-bb37-3e313b2ce29e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5464d648-b3bf-4bfd-8443-f3bcc5b59748" xml:space="preserve">
+          <source>Create a working directory on your VM, and use your favorite text editor to create <bpt id="adb60776-f22b-45d9-ab0f-9535925296fd">&lt;code&gt;</bpt>docker-compose.yml<ept id="adb60776-f22b-45d9-ab0f-9535925296fd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Create a working directory on your VM, and use your favorite text editor to create <bpt id="adb60776-f22b-45d9-ab0f-9535925296fd">&lt;code&gt;</bpt>docker-compose.yml<ept id="adb60776-f22b-45d9-ab0f-9535925296fd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="967f3595-e598-46cc-83af-a98a28b8d84b" xml:space="preserve">
+          <source>To try a simple example, copy the following text to the file.</source>
+          <target state="new">To try a simple example, copy the following text to the file.</target>
+        </trans-unit>
+        <trans-unit id="2ed09e0f-a4cb-40bd-9eb6-cd134c4097bc" xml:space="preserve">
+          <source>This configuration uses images from the <bpt id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;linkText&gt;</bpt>DockerHub Registry<ept id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;/linkText&gt;</ept><bpt id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;title&gt;</bpt><ept id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;/title&gt;</ept> to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database.</source>
+          <target state="new">This configuration uses images from the <bpt id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;linkText&gt;</bpt>DockerHub Registry<ept id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;/linkText&gt;</ept><bpt id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;title&gt;</bpt><ept id="e0d0c015-d8d2-4cd5-be87-c2c54eab497d">&lt;/title&gt;</ept> to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database.</target>
+        </trans-unit>
+        <trans-unit id="d13b1615-adc5-46be-ba7d-35044d39bb59" xml:space="preserve">
+          <source> ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80</source>
+          <target state="new"> ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80</target>
+        </trans-unit>
+        <trans-unit id="50166478-512f-47ff-b076-39aa6bd46065" xml:space="preserve">
+          <source>db:
+  image: mariadb
+  environment:
+    MYSQL<bpt id="2dbc0413-df23-4066-afe2-2c793ff2f7ae">&lt;em&gt;</bpt>ROOT<ept id="2dbc0413-df23-4066-afe2-2c793ff2f7ae">&lt;/em&gt;</ept>PASSWORD: &lt;your password&gt;</source>
+          <target state="new">db:
+  image: mariadb
+  environment:
+    MYSQL<bpt id="2dbc0413-df23-4066-afe2-2c793ff2f7ae">&lt;em&gt;</bpt>ROOT<ept id="2dbc0413-df23-4066-afe2-2c793ff2f7ae">&lt;/em&gt;</ept>PASSWORD: &lt;your password&gt;</target>
+        </trans-unit>
+        <trans-unit id="64eed4df-4b7c-424a-8420-c541042e0b63" xml:space="preserve">
+          <source>$ docker-compose up -d</source>
+          <target state="new">$ docker-compose up -d</target>
+        </trans-unit>
+        <trans-unit id="795184c9-c271-471e-8095-9018cedf768b" xml:space="preserve">
+          <source>Creating wordpress<bpt id="b7ba9f13-94e6-4290-b133-55be97e3c291">&lt;em&gt;</bpt>db<ept id="b7ba9f13-94e6-4290-b133-55be97e3c291">&lt;/em&gt;</ept>1...
+Creating wordpress<bpt id="a0a20768-00da-46d3-a5c9-68af12116758">&lt;em&gt;</bpt>wordpress<ept id="a0a20768-00da-46d3-a5c9-68af12116758">&lt;/em&gt;</ept>1...</source>
+          <target state="new">Creating wordpress<bpt id="b7ba9f13-94e6-4290-b133-55be97e3c291">&lt;em&gt;</bpt>db<ept id="b7ba9f13-94e6-4290-b133-55be97e3c291">&lt;/em&gt;</ept>1...
+Creating wordpress<bpt id="a0a20768-00da-46d3-a5c9-68af12116758">&lt;em&gt;</bpt>wordpress<ept id="a0a20768-00da-46d3-a5c9-68af12116758">&lt;/em&gt;</ept>1...</target>
+        </trans-unit>
+        <trans-unit id="ad0ef8ad-cd2e-490e-b2bb-069c573abf85" xml:space="preserve">
+          <source>wordpress<bpt id="10754dbb-1059-4494-ba9f-61a986194fc1">&lt;em&gt;</bpt>db<ept id="10754dbb-1059-4494-ba9f-61a986194fc1">&lt;/em&gt;</ept>1     /docker-           Up                 3306/tcp
+             entrypoint.sh
+             mysqld
+wordpress<bpt id="3291cc17-b07a-4dcd-b5b1-869b949b16bf">&lt;em&gt;</bpt>wordpr   /entrypoint.sh     Up                 0.0.0.0:8080-&gt;80
+ess<ept id="3291cc17-b07a-4dcd-b5b1-869b949b16bf">&lt;/em&gt;</ept>1              apache2-for ...                       /tcp</source>
+          <target state="new">wordpress<bpt id="10754dbb-1059-4494-ba9f-61a986194fc1">&lt;em&gt;</bpt>db<ept id="10754dbb-1059-4494-ba9f-61a986194fc1">&lt;/em&gt;</ept>1     /docker-           Up                 3306/tcp
+             entrypoint.sh
+             mysqld
+wordpress<bpt id="3291cc17-b07a-4dcd-b5b1-869b949b16bf">&lt;em&gt;</bpt>wordpr   /entrypoint.sh     Up                 0.0.0.0:8080-&gt;80
+ess<ept id="3291cc17-b07a-4dcd-b5b1-869b949b16bf">&lt;/em&gt;</ept>1              apache2-for ...                       /tcp</target>
+        </trans-unit>
+        <trans-unit id="3f66db92-42ec-43ac-9a47-0426a86c6c07" xml:space="preserve">
+          <source>$ azure vm endpoint create &lt;machine-name&gt; 80 8080</source>
+          <target state="new">$ azure vm endpoint create &lt;machine-name&gt; 80 8080</target>
+        </trans-unit>
+        <trans-unit id="d6334e41-33d4-4680-af4c-b501a649afce" xml:space="preserve">
+          <source>```</source>
+          <target state="new">```</target>
+        </trans-unit>
+        <trans-unit id="a133e4ac-7d7b-4ec9-a519-0fb8efba2a92" xml:space="preserve">
+          <source>You should now see the WordPress start screen, where you can complete the installation and get started with the application.</source>
+          <target state="new">You should now see the WordPress start screen, where you can complete the installation and get started with the application.</target>
+        </trans-unit>
+        <trans-unit id="23564820-595e-4d40-84f9-d13190ea3233" xml:space="preserve">
+          <source><bpt id="3f7afbe4-f119-4430-8942-d10a556fbbcb">&lt;linkText&gt;</bpt>WordPress start screen<ept id="3f7afbe4-f119-4430-8942-d10a556fbbcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f7afbe4-f119-4430-8942-d10a556fbbcb">&lt;linkText&gt;</bpt>WordPress start screen<ept id="3f7afbe4-f119-4430-8942-d10a556fbbcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76eb5fe6-fcca-43d0-91b8-dab9cc6fed0f" xml:space="preserve">
+          <source>Check out the <bpt id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;linkText&gt;</bpt>Compose CLI reference<ept id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;/linkText&gt;</ept><bpt id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;title&gt;</bpt><ept id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;/title&gt;</ept> and <bpt id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;linkText&gt;</bpt>user guide<ept id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;/linkText&gt;</ept><bpt id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;title&gt;</bpt><ept id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;/title&gt;</ept> for more examples of building and deploying multi-container apps.</source>
+          <target state="new">Check out the <bpt id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;linkText&gt;</bpt>Compose CLI reference<ept id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;/linkText&gt;</ept><bpt id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;title&gt;</bpt><ept id="4db57da5-dec7-4480-9f00-64304bf9b89e">&lt;/title&gt;</ept> and <bpt id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;linkText&gt;</bpt>user guide<ept id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;/linkText&gt;</ept><bpt id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;title&gt;</bpt><ept id="6249cf9c-6cd8-45a2-bd8f-29c54d966694">&lt;/title&gt;</ept> for more examples of building and deploying multi-container apps.</target>
+        </trans-unit>
+        <trans-unit id="f9210bc6-645b-4951-a1da-1c72091fd5cf" xml:space="preserve">
+          <source>Use an Azure Resource Manager template, either your own or one contributed from the <bpt id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;linkText&gt;</bpt>community<ept id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;/linkText&gt;</ept><bpt id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;title&gt;</bpt><ept id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;/title&gt;</ept>, to deploy an Azure VM with Docker and an application set up with Compose.</source>
+          <target state="new">Use an Azure Resource Manager template, either your own or one contributed from the <bpt id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;linkText&gt;</bpt>community<ept id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;/linkText&gt;</ept><bpt id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;title&gt;</bpt><ept id="ab53405b-4284-4935-90c0-4f7aaae24e78">&lt;/title&gt;</ept>, to deploy an Azure VM with Docker and an application set up with Compose.</target>
+        </trans-unit>
+        <trans-unit id="18aa9ed6-4447-4c9d-9b12-e1accaf2dd11" xml:space="preserve">
+          <source>For example, the <bpt id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;linkText&gt;</bpt>Deploy a WordPress blog with Docker<ept id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;/linkText&gt;</ept><bpt id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;title&gt;</bpt><ept id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;/title&gt;</ept> template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.</source>
+          <target state="new">For example, the <bpt id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;linkText&gt;</bpt>Deploy a WordPress blog with Docker<ept id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;/linkText&gt;</ept><bpt id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;title&gt;</bpt><ept id="000be260-af5d-4c73-90da-c91d5cec3121">&lt;/title&gt;</ept> template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.</target>
+        </trans-unit>
+        <trans-unit id="0b932e49-50bc-4a7e-98e0-359b9f84afaa" xml:space="preserve">
+          <source>Try integrating Docker Compose with a <bpt id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;linkText&gt;</bpt>Docker Swarm<ept id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;/linkText&gt;</ept><bpt id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;title&gt;</bpt><ept id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;/title&gt;</ept> cluster.</source>
+          <target state="new">Try integrating Docker Compose with a <bpt id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;linkText&gt;</bpt>Docker Swarm<ept id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;/linkText&gt;</ept><bpt id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;title&gt;</bpt><ept id="48fc6ead-4932-4baa-8161-0dd419cf7cc6">&lt;/title&gt;</ept> cluster.</target>
+        </trans-unit>
+        <trans-unit id="b12aba8a-0ed1-4e5d-8598-f4f326157e10" xml:space="preserve">
+          <source>See
+<bpt id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;linkText&gt;</bpt>Docker Compose/Swarm integration<ept id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;/linkText&gt;</ept><bpt id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;title&gt;</bpt><ept id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;/title&gt;</ept> for scenarios.</source>
+          <target state="new">See
+<bpt id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;linkText&gt;</bpt>Docker Compose/Swarm integration<ept id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;/linkText&gt;</ept><bpt id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;title&gt;</bpt><ept id="ac7e43c1-b55a-4e40-a0b1-9d120db1d4cc">&lt;/title&gt;</ept> for scenarios.</target>
+        </trans-unit>
+        <trans-unit id="ffead9bb-2490-49a1-a6be-5767cd99cdd9" xml:space="preserve">
+          <source>./media/virtual-machines-docker-compose-quickstart/WordPress.png</source>
+          <target state="new">./media/virtual-machines-docker-compose-quickstart/WordPress.png</target>
+        </trans-unit>
+      </group>
+      <group id="3872e5b4-f250-4c42-848f-83b29565a382" />
+    </body>
+  </file>
+</xliff>

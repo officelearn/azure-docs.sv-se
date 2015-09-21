@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4ef82f4-ba68-4a89-b8a8-5053108b914b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4ef82f4-ba68-4a89-b8a8-5053108b914b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b409814b-5dbf-4b5e-845a-1914acf3490b">
+        <trans-unit id="db124f89-2edb-4212-a299-7aa6485416ec" xml:space="preserve">
+          <source>Open the project file default.js and in the <bpt id="811fd5f6-f0ed-40f5-a6c7-8fbd14fd7ab6">&lt;strong&gt;</bpt>app.OnActivated<ept id="811fd5f6-f0ed-40f5-a6c7-8fbd14fd7ab6">&lt;/strong&gt;</ept> method overload, replace the last call to the <bpt id="70acdcea-b05c-40bd-8eb4-68499ef5997c">&lt;strong&gt;</bpt>refreshTodoItems<ept id="70acdcea-b05c-40bd-8eb4-68499ef5997c">&lt;/strong&gt;</ept> method with the following code: </source>
+          <target state="new">Open the project file default.js and in the <bpt id="811fd5f6-f0ed-40f5-a6c7-8fbd14fd7ab6">&lt;strong&gt;</bpt>app.OnActivated<ept id="811fd5f6-f0ed-40f5-a6c7-8fbd14fd7ab6">&lt;/strong&gt;</ept> method overload, replace the last call to the <bpt id="70acdcea-b05c-40bd-8eb4-68499ef5997c">&lt;strong&gt;</bpt>refreshTodoItems<ept id="70acdcea-b05c-40bd-8eb4-68499ef5997c">&lt;/strong&gt;</ept> method with the following code: </target>
+        </trans-unit>
+        <trans-unit id="e92f3dcd-5601-4b5f-8ab1-da17f5468e6a" xml:space="preserve">
+          <source>If you are using an identity provider other than Facebook, change the value passed to the &lt;strong&gt;login&lt;/strong&gt; method above to one of the following: <bpt id="9ad142b7-cf17-4478-97eb-2ffc372fb085">&lt;em&gt;</bpt>microsoftaccount<ept id="9ad142b7-cf17-4478-97eb-2ffc372fb085">&lt;/em&gt;</ept>, <bpt id="f8cc5618-d698-4bcb-8fd6-23b2727a1c27">&lt;em&gt;</bpt>twitter<ept id="f8cc5618-d698-4bcb-8fd6-23b2727a1c27">&lt;/em&gt;</ept>, <bpt id="61c62a2d-ee8f-4fe0-ade3-ea0119378b60">&lt;em&gt;</bpt>google<ept id="61c62a2d-ee8f-4fe0-ade3-ea0119378b60">&lt;/em&gt;</ept>, or <bpt id="c7a7152c-815f-44a2-8810-b6bd550a2744">&lt;em&gt;</bpt>windowsazureactivedirectory<ept id="c7a7152c-815f-44a2-8810-b6bd550a2744">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you are using an identity provider other than Facebook, change the value passed to the &lt;strong&gt;login&lt;/strong&gt; method above to one of the following: <bpt id="9ad142b7-cf17-4478-97eb-2ffc372fb085">&lt;em&gt;</bpt>microsoftaccount<ept id="9ad142b7-cf17-4478-97eb-2ffc372fb085">&lt;/em&gt;</ept>, <bpt id="f8cc5618-d698-4bcb-8fd6-23b2727a1c27">&lt;em&gt;</bpt>twitter<ept id="f8cc5618-d698-4bcb-8fd6-23b2727a1c27">&lt;/em&gt;</ept>, <bpt id="61c62a2d-ee8f-4fe0-ade3-ea0119378b60">&lt;em&gt;</bpt>google<ept id="61c62a2d-ee8f-4fe0-ade3-ea0119378b60">&lt;/em&gt;</ept>, or <bpt id="c7a7152c-815f-44a2-8810-b6bd550a2744">&lt;em&gt;</bpt>windowsazureactivedirectory<ept id="c7a7152c-815f-44a2-8810-b6bd550a2744">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62815fee-8fa2-47b8-9bd1-2d7b4d1a76f3" xml:space="preserve">
+          <source>If you registered your Windows Store app package information with Mobile Services, you should call the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank"&gt;login&lt;/a&gt; method by supplying a value of &lt;strong&gt;true&lt;/strong&gt; for the &lt;em&gt;useSingleSignOn&lt;/em&gt; parameter.</source>
+          <target state="new">If you registered your Windows Store app package information with Mobile Services, you should call the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank"&gt;login&lt;/a&gt; method by supplying a value of &lt;strong&gt;true&lt;/strong&gt; for the &lt;em&gt;useSingleSignOn&lt;/em&gt; parameter.</target>
+        </trans-unit>
+        <trans-unit id="988fa5cf-d8df-4a25-bcbc-8bc44472a84e" xml:space="preserve">
+          <source>If you do not do this, your users will still be presented with a login prompt every time that the login method is called.</source>
+          <target state="new">If you do not do this, your users will still be presented with a login prompt every time that the login method is called.</target>
+        </trans-unit>
+        <trans-unit id="ab6fef07-ee20-4dc7-8108-a25e37ee2fd3" xml:space="preserve">
+          <source>In the Windows Store app project, open the default.html project file and add the following <bpt id="96491aba-7034-4869-89b2-d0c628cf14d2">&lt;strong&gt;</bpt>button<ept id="96491aba-7034-4869-89b2-d0c628cf14d2">&lt;/strong&gt;</ept> element just before the element that defines the <bpt id="770d300e-df67-47e0-a240-d25c1f1b7ead">&lt;strong&gt;</bpt>save<ept id="770d300e-df67-47e0-a240-d25c1f1b7ead">&lt;/strong&gt;</ept> button:</source>
+          <target state="new">In the Windows Store app project, open the default.html project file and add the following <bpt id="96491aba-7034-4869-89b2-d0c628cf14d2">&lt;strong&gt;</bpt>button<ept id="96491aba-7034-4869-89b2-d0c628cf14d2">&lt;/strong&gt;</ept> element just before the element that defines the <bpt id="770d300e-df67-47e0-a240-d25c1f1b7ead">&lt;strong&gt;</bpt>save<ept id="770d300e-df67-47e0-a240-d25c1f1b7ead">&lt;/strong&gt;</ept> button:</target>
+        </trans-unit>
+        <trans-unit id="2539971b-92df-4612-be50-c48ff2c6e6c2" xml:space="preserve">
+          <source>Press the F5 key to run the app and sign into the app with your chosen identity provider.</source>
+          <target state="new">Press the F5 key to run the app and sign into the app with your chosen identity provider.</target>
+        </trans-unit>
+        <trans-unit id="cbc599a4-619c-41b1-9861-b5b3dd1e8b6d" xml:space="preserve">
+          <source>When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</source>
+          <target state="new">When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

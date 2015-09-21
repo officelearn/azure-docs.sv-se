@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cf4c8735-4c13-4f25-acfa-08f68f57f8cc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cf4c8735-4c13-4f25-acfa-08f68f57f8cc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cc274369-3936-4d6c-86d8-462dd78165fc">
+        <trans-unit id="a4f5b950-d47f-4c8f-b3c4-4096d7027302" xml:space="preserve">
+          <source>Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure</source>
+          <target state="new">Usage scenarios and deployment considerations for Azure AD Join| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="12a25aa2-fb09-418b-9612-7cd0232a50b6" xml:space="preserve">
+          <source>A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users).</source>
+          <target state="new">A topic that explains how administrators can set up Azure AD Join for their end users (employees, students, other users).</target>
+        </trans-unit>
+        <trans-unit id="527e5a68-c26c-4f6f-bd19-ea9f02f52de7" xml:space="preserve">
+          <source>Azure AD join can benefit you if you currently operate and manage identities for your business in the cloud or moving to the cloud soon.</source>
+          <target state="new">Azure AD join can benefit you if you currently operate and manage identities for your business in the cloud or moving to the cloud soon.</target>
+        </trans-unit>
+        <trans-unit id="e92b29af-bb9d-46bd-8d74-63d590a265e2" xml:space="preserve">
+          <source>You can use an account that you have created in Azure AD to sign in to Windows 10.</source>
+          <target state="new">You can use an account that you have created in Azure AD to sign in to Windows 10.</target>
+        </trans-unit>
+        <trans-unit id="7ca581f2-2122-4ebf-a124-a96822f0e278" xml:space="preserve">
+          <source>Through either [the first run experience (FRX) process]((active-directory-azureadjoin-user-frx.md)) or joining Azure AD through <bpt id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;linkText&gt;</bpt>the Settings experience<ept id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;/linkText&gt;</ept><bpt id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;title&gt;</bpt><ept id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;/title&gt;</ept>, your users can join their machines to Azure AD.</source>
+          <target state="new">Through either [the first run experience (FRX) process]((active-directory-azureadjoin-user-frx.md)) or joining Azure AD through <bpt id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;linkText&gt;</bpt>the Settings experience<ept id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;/linkText&gt;</ept><bpt id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;title&gt;</bpt><ept id="36ee033d-9630-4df3-a4b9-b16df8bd1c3b">&lt;/title&gt;</ept>, your users can join their machines to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="996e397d-d89d-422f-997a-793fcca5c840" xml:space="preserve">
+          <source>Your users now enjoy SSO access to their cloud resources like Office 365 either in the browser or in the Office applications.</source>
+          <target state="new">Your users now enjoy SSO access to their cloud resources like Office 365 either in the browser or in the Office applications.</target>
+        </trans-unit>
+        <trans-unit id="1e82005a-c3a6-4aaa-b7a7-5545caa211ac" xml:space="preserve">
+          <source>Education institutions usually have two user types: faculty and students.</source>
+          <target state="new">Education institutions usually have two user types: faculty and students.</target>
+        </trans-unit>
+        <trans-unit id="425c9d7d-c338-4ed1-a388-954b696e0912" xml:space="preserve">
+          <source>Faculty members are considered longer term members of the organization and creating on-premises accounts for them is desired.</source>
+          <target state="new">Faculty members are considered longer term members of the organization and creating on-premises accounts for them is desired.</target>
+        </trans-unit>
+        <trans-unit id="4bd6d1ca-9508-4f3e-be09-ecc2033dafa4" xml:space="preserve">
+          <source>But students are shorter term members of the organization and thus can be managed in Azure AD so directory scale can be pushed to the cloud instead of on-premises.</source>
+          <target state="new">But students are shorter term members of the organization and thus can be managed in Azure AD so directory scale can be pushed to the cloud instead of on-premises.</target>
+        </trans-unit>
+        <trans-unit id="df73153c-39e3-43ae-b611-e46ee098a031" xml:space="preserve">
+          <source>These students can now sign in to Windows with their Azure AD account and get access to the Office 365 resources in the Office applications.</source>
+          <target state="new">These students can now sign in to Windows with their Azure AD account and get access to the Office 365 resources in the Office applications.</target>
+        </trans-unit>
+        <trans-unit id="b438c2c3-7f32-42fa-a088-b8654578186d" xml:space="preserve">
+          <source>Retail business have seasonal workers and long-term employees.</source>
+          <target state="new">Retail business have seasonal workers and long-term employees.</target>
+        </trans-unit>
+        <trans-unit id="77e2c5f1-1a3c-46d2-afee-93a65f0dc4bd" xml:space="preserve">
+          <source>Longer term full time employees can be created as on-premises accounts and would typically use domain joined machines.</source>
+          <target state="new">Longer term full time employees can be created as on-premises accounts and would typically use domain joined machines.</target>
+        </trans-unit>
+        <trans-unit id="e9ff9fb6-dcb8-465e-ad28-aa05b5c34d94" xml:space="preserve">
+          <source>But seasonal workers are shorter term members of the organization and thus are desired to managed where user licenses can be more easily moved around.</source>
+          <target state="new">But seasonal workers are shorter term members of the organization and thus are desired to managed where user licenses can be more easily moved around.</target>
+        </trans-unit>
+        <trans-unit id="d5251513-fc63-4808-bc78-709747a71e07" xml:space="preserve">
+          <source>Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave.</source>
+          <target state="new">Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave.</target>
+        </trans-unit>
+        <trans-unit id="8e8ba3ed-d1a9-49b5-9ecb-f62ed3d7ca11" xml:space="preserve">
+          <source>Other than the scenarios discussed above, you can benefit with having your users  join their devices joined to Azure AD because of a simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.</source>
+          <target state="new">Other than the scenarios discussed above, you can benefit with having your users  join their devices joined to Azure AD because of a simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="cd626d13-1522-44a2-9832-a82bd3a7e687" xml:space="preserve">
+          <source>Enterprises can provide cloud-only accounts to partner companies and organizations.</source>
+          <target state="new">Enterprises can provide cloud-only accounts to partner companies and organizations.</target>
+        </trans-unit>
+        <trans-unit id="38e7ca9e-1be0-4865-8dc8-02243fb8aa18" xml:space="preserve">
+          <source>These partners are then provided easy access and single-sign on to their company apps and resources.</source>
+          <target state="new">These partners are then provided easy access and single-sign on to their company apps and resources.</target>
+        </trans-unit>
+        <trans-unit id="46c9a850-0926-4b5f-b436-8c072b7cf96f" xml:space="preserve">
+          <source>This scenario is applicable to users who use their devices to primarily access resources in the cloud such as Office 365 or SaaS apps that rely on Azure AD for authentication.</source>
+          <target state="new">This scenario is applicable to users who use their devices to primarily access resources in the cloud such as Office 365 or SaaS apps that rely on Azure AD for authentication.</target>
+        </trans-unit>
+        <trans-unit id="a1221d92-e0ca-4632-bca3-919ca388318c" xml:space="preserve">
+          <source><bpt id="53d48828-e6b8-4577-9b9e-eda2e16fedd9">&lt;strong&gt;</bpt>At the enterprise level (administrator)<ept id="53d48828-e6b8-4577-9b9e-eda2e16fedd9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="53d48828-e6b8-4577-9b9e-eda2e16fedd9">&lt;strong&gt;</bpt>At the enterprise level (administrator)<ept id="53d48828-e6b8-4577-9b9e-eda2e16fedd9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9aa38d93-a8de-4727-9750-6a7110742e76" xml:space="preserve">
+          <source>Azure subscription with Azure Active Directory  </source>
+          <target state="new">Azure subscription with Azure Active Directory  </target>
+        </trans-unit>
+        <trans-unit id="4bfc270c-b861-4108-b062-5b95923bb652" xml:space="preserve">
+          <source><bpt id="6b41a222-18d0-422f-b4f5-1255f06b089b">&lt;strong&gt;</bpt>At the user level<ept id="6b41a222-18d0-422f-b4f5-1255f06b089b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6b41a222-18d0-422f-b4f5-1255f06b089b">&lt;strong&gt;</bpt>At the user level<ept id="6b41a222-18d0-422f-b4f5-1255f06b089b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49facbfe-da3a-4860-b95e-08d479bdcab0" xml:space="preserve">
+          <source>Windows 10 (Professional and Enterprise SKUs)</source>
+          <target state="new">Windows 10 (Professional and Enterprise SKUs)</target>
+        </trans-unit>
+        <trans-unit id="4f52d265-4f21-4edb-8904-a6297976cdc5" xml:space="preserve">
+          <source><bpt id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;linkText&gt;</bpt>Set up device registration and MFA<ept id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;/linkText&gt;</ept><bpt id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;title&gt;</bpt><ept id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;linkText&gt;</bpt>Set up device registration and MFA<ept id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;/linkText&gt;</ept><bpt id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;title&gt;</bpt><ept id="9a989ce1-aec7-4208-b02c-cfd5a4eeba72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92c26d59-967d-4ede-ac61-d49f114dca25" xml:space="preserve">
+          <source><bpt id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;linkText&gt;</bpt>Setting up a new Windows 10 device with Azure AD during Setup<ept id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;/linkText&gt;</ept><bpt id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;title&gt;</bpt><ept id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;linkText&gt;</bpt>Setting up a new Windows 10 device with Azure AD during Setup<ept id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;/linkText&gt;</ept><bpt id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;title&gt;</bpt><ept id="68b117db-347e-4775-b59c-9d5e4d78d91e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2cbcca0-faff-4dc7-b9c2-c9715f4e2450" xml:space="preserve">
+          <source><bpt id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;linkText&gt;</bpt>Set up a Windows 10 device with Azure AD from Settings<ept id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;/linkText&gt;</ept><bpt id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;title&gt;</bpt><ept id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;linkText&gt;</bpt>Set up a Windows 10 device with Azure AD from Settings<ept id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;/linkText&gt;</ept><bpt id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;title&gt;</bpt><ept id="dae0be4a-ddab-49c9-85b3-8169d90f670e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91a4be5f-f59d-4236-ad8e-f932419895ea" xml:space="preserve">
+          <source><bpt id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;linkText&gt;</bpt>Join a personal Windows 10 device to your organization<ept id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;/linkText&gt;</ept><bpt id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;title&gt;</bpt><ept id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;linkText&gt;</bpt>Join a personal Windows 10 device to your organization<ept id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;/linkText&gt;</ept><bpt id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;title&gt;</bpt><ept id="d06d2767-7045-4181-86c9-d6d4d65baa06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9db6035-984b-4c69-967e-5890d948fb0d" xml:space="preserve">
+          <source>You can set up your users and employees to user their personal Windows devices to access company apps and resources.</source>
+          <target state="new">You can set up your users and employees to user their personal Windows devices to access company apps and resources.</target>
+        </trans-unit>
+        <trans-unit id="34eed5b0-4cac-47b1-839b-6aa1b55dbef5" xml:space="preserve">
+          <source>Your users can add their Azure AD accounts (work accounts) to a personal Windows device through to access work resources in a secure and compliant fashion.</source>
+          <target state="new">Your users can add their Azure AD accounts (work accounts) to a personal Windows device through to access work resources in a secure and compliant fashion.</target>
+        </trans-unit>
+        <trans-unit id="51232c08-2929-438d-9d77-62b79c2ec95d" xml:space="preserve">
+          <source><bpt id="16e871f1-a283-4250-b4dd-addbadc5f284">&lt;strong&gt;</bpt>At the enterprise level (administrator)<ept id="16e871f1-a283-4250-b4dd-addbadc5f284">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="16e871f1-a283-4250-b4dd-addbadc5f284">&lt;strong&gt;</bpt>At the enterprise level (administrator)<ept id="16e871f1-a283-4250-b4dd-addbadc5f284">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4c36607-902c-4d34-ae96-8b3f828256be" xml:space="preserve">
+          <source>Azure AD Subscription</source>
+          <target state="new">Azure AD Subscription</target>
+        </trans-unit>
+        <trans-unit id="7af6e28e-8737-4fac-9d98-c1a44229f440" xml:space="preserve">
+          <source><bpt id="ddd3d3ab-a3c5-4de4-8f97-e0b89af27e03">&lt;strong&gt;</bpt>At the user level<ept id="ddd3d3ab-a3c5-4de4-8f97-e0b89af27e03">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ddd3d3ab-a3c5-4de4-8f97-e0b89af27e03">&lt;strong&gt;</bpt>At the user level<ept id="ddd3d3ab-a3c5-4de4-8f97-e0b89af27e03">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9ab4e43-516e-4e6e-99ad-555baebcb891" xml:space="preserve">
+          <source>Windows 10 (Professional and Enterprise SKUs)</source>
+          <target state="new">Windows 10 (Professional and Enterprise SKUs)</target>
+        </trans-unit>
+        <trans-unit id="71b9ae66-f75c-4dea-bda0-c99f62b09651" xml:space="preserve">
+          <source><bpt id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;linkText&gt;</bpt>Set up device registration and MFA<ept id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;/linkText&gt;</ept><bpt id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;title&gt;</bpt><ept id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;linkText&gt;</bpt>Set up device registration and MFA<ept id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;/linkText&gt;</ept><bpt id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;title&gt;</bpt><ept id="3624b0f2-4574-4bba-8eaf-5379f7208211">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6ec3de5-f970-4289-a988-580ef8516524" xml:space="preserve">
+          <source><bpt id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;linkText&gt;</bpt>Join a personal Windows 10 device to your organization<ept id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;/linkText&gt;</ept><bpt id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;title&gt;</bpt><ept id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;linkText&gt;</bpt>Join a personal Windows 10 device to your organization<ept id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;/linkText&gt;</ept><bpt id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;title&gt;</bpt><ept id="9f64363b-ac50-4e19-bd4b-33c406ca1609">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83ef8b57-7b70-426a-99d0-24ddc938e385" xml:space="preserve">
+          <source><bpt id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;/linkText&gt;</ept><bpt id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;title&gt;</bpt><ept id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;/linkText&gt;</ept><bpt id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;title&gt;</bpt><ept id="61653a45-29f9-4d48-94d8-78756977b6a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afb0a0df-945d-446f-a65a-2517d328d658" xml:space="preserve">
+          <source><bpt id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;/linkText&gt;</ept><bpt id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;title&gt;</bpt><ept id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;/linkText&gt;</ept><bpt id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;title&gt;</bpt><ept id="80045f5d-16d2-4b52-957a-e6dcf20d6338">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

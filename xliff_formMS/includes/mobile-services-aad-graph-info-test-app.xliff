@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71e3cf92-0775-4a84-9cf9-bad973be5092" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71e3cf92-0775-4a84-9cf9-bad973be5092" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d88decc2-0743-4466-a1aa-79300889bc09">
+        <trans-unit id="1c84ce05-8c08-4450-b40c-567870806049" xml:space="preserve">
+          <source>The instructions and screenshots below apply to testing a Windows Store client but, you can test this on any of the other platforms supported by Azure Mobile Services.</source>
+          <target state="new">The instructions and screenshots below apply to testing a Windows Store client but, you can test this on any of the other platforms supported by Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="974e26ca-3a98-42b2-8e36-1ea861680b89" xml:space="preserve">
+          <source>Launch the app and authenticate with a user account that has the detailed information in the directory.</source>
+          <target state="new">Launch the app and authenticate with a user account that has the detailed information in the directory.</target>
+        </trans-unit>
+        <trans-unit id="ef3d3e55-8f84-4400-8a01-960119efacfa" xml:space="preserve">
+          <source><bpt id="a21bc630-6607-4450-b3b5-84df3616fd0b">&lt;linkText&gt;</bpt><ept id="a21bc630-6607-4450-b3b5-84df3616fd0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a21bc630-6607-4450-b3b5-84df3616fd0b">&lt;linkText&gt;</bpt><ept id="a21bc630-6607-4450-b3b5-84df3616fd0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7745dd6a-ebc6-4b24-b2c5-6ad4024a6a0f" xml:space="preserve">
+          <source>The custom API executes returning the user's directory information for a custom greeting.</source>
+          <target state="new">The custom API executes returning the user's directory information for a custom greeting.</target>
+        </trans-unit>
+        <trans-unit id="4d7f44d7-04b8-40d7-ad8a-1c3b2fcc679c" xml:space="preserve">
+          <source><bpt id="2a49195f-41b3-45b6-80eb-34435fd7e61f">&lt;linkText&gt;</bpt><ept id="2a49195f-41b3-45b6-80eb-34435fd7e61f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a49195f-41b3-45b6-80eb-34435fd7e61f">&lt;linkText&gt;</bpt><ept id="2a49195f-41b3-45b6-80eb-34435fd7e61f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

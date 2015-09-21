@@ -1,0 +1,792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b3c01c4f-e150-44c7-a0f1-b5f722522cb7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b3c01c4f-e150-44c7-a0f1-b5f722522cb7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e9ca1ea0-b164-45f1-b4a2-890b2c8f2974">
+        <trans-unit id="b5fe2cd3-8d09-421d-a693-c09b3b4c0f56" xml:space="preserve">
+          <source>Linux Agent User Guide for Azure</source>
+          <target state="new">Linux Agent User Guide for Azure</target>
+        </trans-unit>
+        <trans-unit id="dd6268c8-f261-4087-a09b-4888c6c62db0" xml:space="preserve">
+          <source>Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.</source>
+          <target state="new">Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.</target>
+        </trans-unit>
+        <trans-unit id="3dbafb85-d77d-4309-afae-8ded91354103" xml:space="preserve">
+          <source>The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller.</source>
+          <target state="new">The Azure Linux Agent (/usr/sbin/waagent) manages interaction between a virtual machine and the Azure Fabric Controller.</target>
+        </trans-unit>
+        <trans-unit id="035bd6c9-72ed-4fc5-bc31-48e194c7d1d2" xml:space="preserve">
+          <source>It does the following:</source>
+          <target state="new">It does the following:</target>
+        </trans-unit>
+        <trans-unit id="70375fbc-554f-49f2-8bcf-d8fbce46f4a8" xml:space="preserve">
+          <source><bpt id="45e388fc-d3e4-41f1-9e0a-342016cd47d5">&lt;strong&gt;</bpt>Image Provisioning<ept id="45e388fc-d3e4-41f1-9e0a-342016cd47d5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="45e388fc-d3e4-41f1-9e0a-342016cd47d5">&lt;strong&gt;</bpt>Image Provisioning<ept id="45e388fc-d3e4-41f1-9e0a-342016cd47d5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f119c1d-cd64-49fb-8309-c90ec1e8d41e" xml:space="preserve">
+          <source>Create a user account</source>
+          <target state="new">Create a user account</target>
+        </trans-unit>
+        <trans-unit id="681239c3-0bab-48be-975f-ead05f0086c0" xml:space="preserve">
+          <source>Configure SSH authentication types</source>
+          <target state="new">Configure SSH authentication types</target>
+        </trans-unit>
+        <trans-unit id="5d9dfa0b-86ab-46e4-9e97-51e48c341423" xml:space="preserve">
+          <source>Deploy SSH public keys and key pairs</source>
+          <target state="new">Deploy SSH public keys and key pairs</target>
+        </trans-unit>
+        <trans-unit id="b5c092f2-e15e-4bcc-b7c2-8f6766b41dbc" xml:space="preserve">
+          <source>Sets the host name</source>
+          <target state="new">Sets the host name</target>
+        </trans-unit>
+        <trans-unit id="4718dce6-e16c-4087-9f38-0cb77f3f5d06" xml:space="preserve">
+          <source>Publishes the host name to the platform DNS</source>
+          <target state="new">Publishes the host name to the platform DNS</target>
+        </trans-unit>
+        <trans-unit id="d166c643-4ee9-4f5c-b5ce-458e53363379" xml:space="preserve">
+          <source>Reports SSH host key fingerprint to the platform</source>
+          <target state="new">Reports SSH host key fingerprint to the platform</target>
+        </trans-unit>
+        <trans-unit id="1823d0cb-5c57-41c4-85f1-7586fba000d2" xml:space="preserve">
+          <source>Manages the resource disk</source>
+          <target state="new">Manages the resource disk</target>
+        </trans-unit>
+        <trans-unit id="50a1915d-b176-4e08-9ffe-7f8c1f665add" xml:space="preserve">
+          <source>Formats and mounts the resource disk</source>
+          <target state="new">Formats and mounts the resource disk</target>
+        </trans-unit>
+        <trans-unit id="ba2f2285-eae0-4367-88ba-c6a9db672880" xml:space="preserve">
+          <source>Configures swap space</source>
+          <target state="new">Configures swap space</target>
+        </trans-unit>
+        <trans-unit id="f2b9a433-e5cb-4f25-9f3c-9283250f2f03" xml:space="preserve">
+          <source><bpt id="b268de27-c6dc-4347-9ec9-79b19446e5b1">&lt;strong&gt;</bpt>Networking<ept id="b268de27-c6dc-4347-9ec9-79b19446e5b1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b268de27-c6dc-4347-9ec9-79b19446e5b1">&lt;strong&gt;</bpt>Networking<ept id="b268de27-c6dc-4347-9ec9-79b19446e5b1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2390445-30af-460b-b030-624ba359f239" xml:space="preserve">
+          <source>Manages routes to improve compatibility with platform DHCP servers</source>
+          <target state="new">Manages routes to improve compatibility with platform DHCP servers</target>
+        </trans-unit>
+        <trans-unit id="bf0bbec5-e98c-4a3b-9dc3-f46573bc02b3" xml:space="preserve">
+          <source>Ensures the stability of the network interface name</source>
+          <target state="new">Ensures the stability of the network interface name</target>
+        </trans-unit>
+        <trans-unit id="de67220f-73ba-4213-ac61-86a120522f24" xml:space="preserve">
+          <source><bpt id="e2539708-793d-4347-bfb9-a00fdf6b6f0a">&lt;strong&gt;</bpt>Kernel<ept id="e2539708-793d-4347-bfb9-a00fdf6b6f0a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e2539708-793d-4347-bfb9-a00fdf6b6f0a">&lt;strong&gt;</bpt>Kernel<ept id="e2539708-793d-4347-bfb9-a00fdf6b6f0a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc855407-ee35-4da0-abc8-fd5febbb83b9" xml:space="preserve">
+          <source>Configures virtual NUMA</source>
+          <target state="new">Configures virtual NUMA</target>
+        </trans-unit>
+        <trans-unit id="fa08b10f-0191-4f9a-a646-469fdda517c7" xml:space="preserve">
+          <source>Consumes Hyper-V entropy for /dev/random</source>
+          <target state="new">Consumes Hyper-V entropy for /dev/random</target>
+        </trans-unit>
+        <trans-unit id="84439eab-fe8f-45d0-8aca-53851ac1a7fb" xml:space="preserve">
+          <source>Configures SCSI timeouts for the root device (which could be remote)</source>
+          <target state="new">Configures SCSI timeouts for the root device (which could be remote)</target>
+        </trans-unit>
+        <trans-unit id="d5588094-0a44-4d04-8ebd-b6fe8011ab0d" xml:space="preserve">
+          <source><bpt id="fe561b04-7a32-4e4f-8fa9-f706870686ac">&lt;strong&gt;</bpt>Diagnostics<ept id="fe561b04-7a32-4e4f-8fa9-f706870686ac">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fe561b04-7a32-4e4f-8fa9-f706870686ac">&lt;strong&gt;</bpt>Diagnostics<ept id="fe561b04-7a32-4e4f-8fa9-f706870686ac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f430c75b-b3d3-4e0c-be80-5980aaddfea4" xml:space="preserve">
+          <source>Redirects the console to the serial port</source>
+          <target state="new">Redirects the console to the serial port</target>
+        </trans-unit>
+        <trans-unit id="edaf3963-c271-4db6-aca6-3476cef9b2a7" xml:space="preserve">
+          <source><bpt id="853fbe4b-7913-4cab-83b7-7b8e896fabe1">&lt;strong&gt;</bpt>SCVMM Deployments<ept id="853fbe4b-7913-4cab-83b7-7b8e896fabe1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="853fbe4b-7913-4cab-83b7-7b8e896fabe1">&lt;strong&gt;</bpt>SCVMM Deployments<ept id="853fbe4b-7913-4cab-83b7-7b8e896fabe1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73910868-7932-4b90-82ec-101947d0d9c0" xml:space="preserve">
+          <source>Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment</source>
+          <target state="new">Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment</target>
+        </trans-unit>
+        <trans-unit id="3bf49fdc-29a3-4a4a-9edb-2297dff3bc2d" xml:space="preserve">
+          <source><bpt id="4645ddbf-eeb6-4549-84df-4849188e3295">&lt;strong&gt;</bpt>VM Extension<ept id="4645ddbf-eeb6-4549-84df-4849188e3295">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4645ddbf-eeb6-4549-84df-4849188e3295">&lt;strong&gt;</bpt>VM Extension<ept id="4645ddbf-eeb6-4549-84df-4849188e3295">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1b8b03d-21a0-4695-a257-67b067530e2a" xml:space="preserve">
+          <source>Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation</source>
+          <target state="new">Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation</target>
+        </trans-unit>
+        <trans-unit id="70fa6289-6b8d-47b8-afcd-a02aa7369b65" xml:space="preserve">
+          <source>VM Extension reference implementation on <bpt id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;linkText&gt;</bpt>https://github.com/Azure/azure-linux-extensions<ept id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;/linkText&gt;</ept><bpt id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;title&gt;</bpt><ept id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;/title&gt;</ept></source>
+          <target state="new">VM Extension reference implementation on <bpt id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;linkText&gt;</bpt>https://github.com/Azure/azure-linux-extensions<ept id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;/linkText&gt;</ept><bpt id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;title&gt;</bpt><ept id="25db5ac7-381a-401f-b491-40ee7ecae353">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2f1c867-b08e-403f-ad1a-20607aab662c" xml:space="preserve">
+          <source>The information flow from the platform to the agent occurs via two channels:</source>
+          <target state="new">The information flow from the platform to the agent occurs via two channels:</target>
+        </trans-unit>
+        <trans-unit id="25e921af-eb1a-4280-b0d1-dc49e843ae74" xml:space="preserve">
+          <source>A boot-time attached DVD for IaaS deployments.</source>
+          <target state="new">A boot-time attached DVD for IaaS deployments.</target>
+        </trans-unit>
+        <trans-unit id="97a610ba-e26d-4ce5-890a-f464b85cdd7b" xml:space="preserve">
+          <source>This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.</source>
+          <target state="new">This DVD includes an OVF-compliant configuration file that includes all provisioning information other than the actual SSH keypairs.</target>
+        </trans-unit>
+        <trans-unit id="d5a4157b-f56c-4c6a-8493-6f90af909af2" xml:space="preserve">
+          <source>A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.</source>
+          <target state="new">A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.</target>
+        </trans-unit>
+        <trans-unit id="7f55301a-e335-4e11-aed7-e744efe6cee9" xml:space="preserve">
+          <source>You can get the Latest Linux Agent directly from:</source>
+          <target state="new">You can get the Latest Linux Agent directly from:</target>
+        </trans-unit>
+        <trans-unit id="c89f3aff-9df7-4d29-a02f-32c6288c93ab" xml:space="preserve">
+          <source><bpt id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;linkText&gt;</bpt>The different Distribution providers endorsing Linux on Azure<ept id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;/linkText&gt;</ept><bpt id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;title&gt;</bpt><ept id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;linkText&gt;</bpt>The different Distribution providers endorsing Linux on Azure<ept id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;/linkText&gt;</ept><bpt id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;title&gt;</bpt><ept id="e10bc26e-388b-4bae-a1ef-d2799348ef6d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c502299-1339-49e1-9c06-5f3314a61973" xml:space="preserve">
+          <source>or from the <bpt id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;linkText&gt;</bpt>GitHub Open Source Repository for the Azure Linux Agent<ept id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;/linkText&gt;</ept><bpt id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;title&gt;</bpt><ept id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;/title&gt;</ept></source>
+          <target state="new">or from the <bpt id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;linkText&gt;</bpt>GitHub Open Source Repository for the Azure Linux Agent<ept id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;/linkText&gt;</ept><bpt id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;title&gt;</bpt><ept id="55b8d20f-10eb-433a-8bbd-9a8ccf7d61b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="361c2cbe-7cba-4aa4-9124-f6b071662e12" xml:space="preserve">
+          <source>The following systems have been tested and are known to work with the Azure Linux Agent.</source>
+          <target state="new">The following systems have been tested and are known to work with the Azure Linux Agent.</target>
+        </trans-unit>
+        <trans-unit id="52459f89-8cb6-4004-b640-00516fffaf85" xml:space="preserve">
+          <source><bpt id="74836d45-09e3-4d38-9f34-ba1ea804b729">&lt;strong&gt;</bpt>Please note that this list may differ from the official list of supported systems on the Microsoft Azure Platform<ept id="74836d45-09e3-4d38-9f34-ba1ea804b729">&lt;/strong&gt;</ept>, as described here:
+<bpt id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;linkText&gt;</bpt>http://support.microsoft.com/kb/2805216<ept id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;/linkText&gt;</ept><bpt id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;title&gt;</bpt><ept id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="74836d45-09e3-4d38-9f34-ba1ea804b729">&lt;strong&gt;</bpt>Please note that this list may differ from the official list of supported systems on the Microsoft Azure Platform<ept id="74836d45-09e3-4d38-9f34-ba1ea804b729">&lt;/strong&gt;</ept>, as described here:
+<bpt id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;linkText&gt;</bpt>http://support.microsoft.com/kb/2805216<ept id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;/linkText&gt;</ept><bpt id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;title&gt;</bpt><ept id="c37502c0-9503-4c0d-a652-d6865270338c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01c02bd7-36dc-48f3-9aab-2e91c890da87" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="5035ece0-4605-467a-a094-1e5008d70c2d" xml:space="preserve">
+          <source>CentOS 6.2+</source>
+          <target state="new">CentOS 6.2+</target>
+        </trans-unit>
+        <trans-unit id="5db3d3a6-3720-4ee6-bc65-068b7b1bd2cd" xml:space="preserve">
+          <source>Debian 7.0+</source>
+          <target state="new">Debian 7.0+</target>
+        </trans-unit>
+        <trans-unit id="38719f82-f89d-4e45-a431-293405d96f66" xml:space="preserve">
+          <source>Ubuntu 12.04+</source>
+          <target state="new">Ubuntu 12.04+</target>
+        </trans-unit>
+        <trans-unit id="68353d91-3f50-447c-b78d-1e63a045d4a4" xml:space="preserve">
+          <source>openSUSE 12.3+</source>
+          <target state="new">openSUSE 12.3+</target>
+        </trans-unit>
+        <trans-unit id="d7b64b77-b58c-44ae-ba06-71ee18bd8163" xml:space="preserve">
+          <source>SLES 11 SP2+</source>
+          <target state="new">SLES 11 SP2+</target>
+        </trans-unit>
+        <trans-unit id="a7470a64-63c1-4106-a310-dc4218c3e27f" xml:space="preserve">
+          <source>Oracle Linux 6.4+</source>
+          <target state="new">Oracle Linux 6.4+</target>
+        </trans-unit>
+        <trans-unit id="3be6985f-8f73-4014-979c-61e8fcc805e1" xml:space="preserve">
+          <source>Other Supported Systems:</source>
+          <target state="new">Other Supported Systems:</target>
+        </trans-unit>
+        <trans-unit id="1917e701-e9b3-4ca1-8bfd-1349a046a66c" xml:space="preserve">
+          <source>FreeBSD 9+ (Azure Linux Agent v2.0.10+)</source>
+          <target state="new">FreeBSD 9+ (Azure Linux Agent v2.0.10+)</target>
+        </trans-unit>
+        <trans-unit id="8354fe7b-bd51-4faf-b9ca-965954942de7" xml:space="preserve">
+          <source>The Linux agent depends on some system packages in order to function properly:</source>
+          <target state="new">The Linux agent depends on some system packages in order to function properly:</target>
+        </trans-unit>
+        <trans-unit id="f928ef72-d378-443e-8663-bd52e67a15cc" xml:space="preserve">
+          <source>Python 2.6+</source>
+          <target state="new">Python 2.6+</target>
+        </trans-unit>
+        <trans-unit id="48ee5a72-6995-45a8-9160-d5435325240d" xml:space="preserve">
+          <source>Openssl 1.0+</source>
+          <target state="new">Openssl 1.0+</target>
+        </trans-unit>
+        <trans-unit id="51c47dfc-c2b5-4b95-b47a-fd97e47935cb" xml:space="preserve">
+          <source>Openssh 5.3+</source>
+          <target state="new">Openssh 5.3+</target>
+        </trans-unit>
+        <trans-unit id="51caea2a-cbc1-4b01-99d1-502d7a632a16" xml:space="preserve">
+          <source>Filesystem utilities: sfdisk, fdisk, mkfs, parted</source>
+          <target state="new">Filesystem utilities: sfdisk, fdisk, mkfs, parted</target>
+        </trans-unit>
+        <trans-unit id="483c4988-a0c3-45ba-99db-4c56575c3a2c" xml:space="preserve">
+          <source>Password tools: chpasswd, sudo</source>
+          <target state="new">Password tools: chpasswd, sudo</target>
+        </trans-unit>
+        <trans-unit id="5acdf353-05e5-417b-88de-f94de75963cb" xml:space="preserve">
+          <source>Text processing tools: sed, grep</source>
+          <target state="new">Text processing tools: sed, grep</target>
+        </trans-unit>
+        <trans-unit id="0362d4bf-dd33-4bd1-9e0a-6d11d31ae2db" xml:space="preserve">
+          <source>Network tools: ip-route</source>
+          <target state="new">Network tools: ip-route</target>
+        </trans-unit>
+        <trans-unit id="89f1aeb8-e2c1-4233-96db-b433e1ca8e23" xml:space="preserve">
+          <source>Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent.</source>
+          <target state="new">Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent.</target>
+        </trans-unit>
+        <trans-unit id="fe76da5f-6573-400a-8597-fbb11b7f81aa" xml:space="preserve">
+          <source>If installing manually, the 'waagent' script should be copied to /usr/sbin/waagent and installed by running: </source>
+          <target state="new">If installing manually, the 'waagent' script should be copied to /usr/sbin/waagent and installed by running: </target>
+        </trans-unit>
+        <trans-unit id="a9401d9a-8a25-4796-ae55-444dcb22c4ef" xml:space="preserve">
+          <source>The agent's log file is kept at /var/log/waagent.log.</source>
+          <target state="new">The agent's log file is kept at /var/log/waagent.log.</target>
+        </trans-unit>
+        <trans-unit id="402bcb13-1ece-4b1c-998b-fc1cef3fe131" xml:space="preserve">
+          <source>verbose: Increase verbosity of specified command</source>
+          <target state="new">verbose: Increase verbosity of specified command</target>
+        </trans-unit>
+        <trans-unit id="8eb23568-99cc-477d-82b7-4dc1fe0c5c11" xml:space="preserve">
+          <source>force: Skip interactive confirmation for some commands</source>
+          <target state="new">force: Skip interactive confirmation for some commands</target>
+        </trans-unit>
+        <trans-unit id="9da34a63-3329-4f16-8868-3e6d08936069" xml:space="preserve">
+          <source>help: Lists the supported commands and flags.</source>
+          <target state="new">help: Lists the supported commands and flags.</target>
+        </trans-unit>
+        <trans-unit id="d3c7fabf-d61a-4dae-9b9b-3b4cfc358eff" xml:space="preserve">
+          <source>install: Manual installation of the agent</source>
+          <target state="new">install: Manual installation of the agent</target>
+        </trans-unit>
+        <trans-unit id="3132ab14-44b6-4a31-b8f5-228b4cce0967" xml:space="preserve">
+          <source>Checks the system for required dependencies</source>
+          <target state="new">Checks the system for required dependencies</target>
+        </trans-unit>
+        <trans-unit id="79241163-6174-4ae6-8d77-49ef8aaa1add" xml:space="preserve">
+          <source>Creates the SysV init script (/etc/init.d/waagent), the logrotate configuration file (/etc/logrotate.d/waagent and configures the image to run the init script on boot</source>
+          <target state="new">Creates the SysV init script (/etc/init.d/waagent), the logrotate configuration file (/etc/logrotate.d/waagent and configures the image to run the init script on boot</target>
+        </trans-unit>
+        <trans-unit id="ff5c5d68-5eb3-40b9-bfad-f8f271a58e8d" xml:space="preserve">
+          <source>Writes sample configuration file to /etc/waagent.conf</source>
+          <target state="new">Writes sample configuration file to /etc/waagent.conf</target>
+        </trans-unit>
+        <trans-unit id="7a7bdd96-a982-4a90-b02c-b0ab9d969536" xml:space="preserve">
+          <source>Any existing configuration file is moved to /etc/waagent.conf.old</source>
+          <target state="new">Any existing configuration file is moved to /etc/waagent.conf.old</target>
+        </trans-unit>
+        <trans-unit id="72733dba-4950-4dc0-97eb-31541d2fe26e" xml:space="preserve">
+          <source>Detects kernel version and applies the VNUMA workaround if necessary</source>
+          <target state="new">Detects kernel version and applies the VNUMA workaround if necessary</target>
+        </trans-unit>
+        <trans-unit id="e6a7d7df-6210-4050-9a12-5642c51acd88" xml:space="preserve">
+          <source>Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/  </source>
+          <target state="new">Moves udev rules that may interfere with networking (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) to /var/lib/waagent/  </target>
+        </trans-unit>
+        <trans-unit id="e9259c63-7440-4ead-995b-13d7fd56b899" xml:space="preserve">
+          <source>uninstall: Remove waagent and associated files</source>
+          <target state="new">uninstall: Remove waagent and associated files</target>
+        </trans-unit>
+        <trans-unit id="a9b3bce7-6e4a-4e40-9b4a-6fe938fe3282" xml:space="preserve">
+          <source>Unregisters the init script from the system and deletes it</source>
+          <target state="new">Unregisters the init script from the system and deletes it</target>
+        </trans-unit>
+        <trans-unit id="7af750d6-1c28-4aa6-afa6-d97c382a76b7" xml:space="preserve">
+          <source>Deletes the logrotate configuration and the waagent config file in /etc/waagent.conf</source>
+          <target state="new">Deletes the logrotate configuration and the waagent config file in /etc/waagent.conf</target>
+        </trans-unit>
+        <trans-unit id="4636db45-e454-4a8c-9d7b-985337156fc2" xml:space="preserve">
+          <source>Restores any moved udev rules that were moved during installation</source>
+          <target state="new">Restores any moved udev rules that were moved during installation</target>
+        </trans-unit>
+        <trans-unit id="64b9b14f-9f52-4fb3-9b32-263a566d18f5" xml:space="preserve">
+          <source>Automatic reverting of the VNUMA workaround is not supported, please edit the GRUB configuration files by hand to re-enable NUMA if required.</source>
+          <target state="new">Automatic reverting of the VNUMA workaround is not supported, please edit the GRUB configuration files by hand to re-enable NUMA if required.</target>
+        </trans-unit>
+        <trans-unit id="cab095ea-e163-4c65-89a7-505e34e65604" xml:space="preserve">
+          <source>deprovision: Attempt to clean the system and make it suitable for re-provisioning.</source>
+          <target state="new">deprovision: Attempt to clean the system and make it suitable for re-provisioning.</target>
+        </trans-unit>
+        <trans-unit id="5b7e5dc8-87e1-4121-94e3-39880a3f3b29" xml:space="preserve">
+          <source>This operation deleted the following:</source>
+          <target state="new">This operation deleted the following:</target>
+        </trans-unit>
+        <trans-unit id="5cefae66-eec8-46fa-a112-92e06ebd911b" xml:space="preserve">
+          <source>All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)</source>
+          <target state="new">All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)</target>
+        </trans-unit>
+        <trans-unit id="9c733a1b-fac3-4fa2-bf30-b45faad8c4bf" xml:space="preserve">
+          <source>Nameserver configuration in /etc/resolv.conf</source>
+          <target state="new">Nameserver configuration in /etc/resolv.conf</target>
+        </trans-unit>
+        <trans-unit id="42f190bb-4365-4dec-88a9-fffc187b306a" xml:space="preserve">
+          <source>Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)</source>
+          <target state="new">Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)</target>
+        </trans-unit>
+        <trans-unit id="d28301d2-1b8b-4565-b3a6-422266cf8332" xml:space="preserve">
+          <source>Cached DHCP client leases</source>
+          <target state="new">Cached DHCP client leases</target>
+        </trans-unit>
+        <trans-unit id="554ba4ef-18c5-4791-94c1-b1121df8d14b" xml:space="preserve">
+          <source>Resets host name to localhost.localdomain</source>
+          <target state="new">Resets host name to localhost.localdomain</target>
+        </trans-unit>
+        <trans-unit id="f9f99f6c-4038-46e5-9e9d-87cb3264e72c" xml:space="preserve">
+          <source><bpt id="a6350774-f7e3-40d0-ace8-a05245c0b775">&lt;strong&gt;</bpt>Warning:<ept id="a6350774-f7e3-40d0-ace8-a05245c0b775">&lt;/strong&gt;</ept> Deprovision does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.</source>
+          <target state="new"><bpt id="a6350774-f7e3-40d0-ace8-a05245c0b775">&lt;strong&gt;</bpt>Warning:<ept id="a6350774-f7e3-40d0-ace8-a05245c0b775">&lt;/strong&gt;</ept> Deprovision does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.</target>
+        </trans-unit>
+        <trans-unit id="25b529ab-edc6-433f-9ccb-40a51a4f37b9" xml:space="preserve">
+          <source>deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data.</source>
+          <target state="new">deprovision+user: Performs everything under -deprovision (above) and also deletes the last provisioned user account (obtained from /var/lib/waagent) and associated data.</target>
+        </trans-unit>
+        <trans-unit id="3375fba0-52fb-4703-bc2b-de3228dbd06f" xml:space="preserve">
+          <source>This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and re-used.</source>
+          <target state="new">This parameter is when de-provisioning an image that was previously provisioning on Azure so it may be captured and re-used.</target>
+        </trans-unit>
+        <trans-unit id="4b74cf83-0125-4772-ba56-73b9481a046e" xml:space="preserve">
+          <source>version: Displays the version of waagent</source>
+          <target state="new">version: Displays the version of waagent</target>
+        </trans-unit>
+        <trans-unit id="5b65f6e7-086c-41f0-873e-2e83f5615919" xml:space="preserve">
+          <source>serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
+the boot console.</source>
+          <target state="new">serialconsole: Configures GRUB to mark ttyS0 (the first serial port) as
+the boot console.</target>
+        </trans-unit>
+        <trans-unit id="e91615b1-7c0d-4752-b924-6e86e483febb" xml:space="preserve">
+          <source>This ensures that kernel bootup logs are sent to the
+serial port and made available for debugging.</source>
+          <target state="new">This ensures that kernel bootup logs are sent to the
+serial port and made available for debugging.</target>
+        </trans-unit>
+        <trans-unit id="c704371b-671f-4e10-bc39-985a75c36e35" xml:space="preserve">
+          <source>daemon: Run waagent as a daemon to manage interaction with the platform.</source>
+          <target state="new">daemon: Run waagent as a daemon to manage interaction with the platform.</target>
+        </trans-unit>
+        <trans-unit id="d29d956d-11c5-4695-9f76-8cc7a7f9a56c" xml:space="preserve">
+          <source>This argument is specified to waagent in the waagent init script.</source>
+          <target state="new">This argument is specified to waagent in the waagent init script.</target>
+        </trans-unit>
+        <trans-unit id="dc20d752-04ff-42d8-ab41-e830ce79d25f" xml:space="preserve">
+          <source>A configuration file (/etc/waagent.conf) controls the actions of waagent.</source>
+          <target state="new">A configuration file (/etc/waagent.conf) controls the actions of waagent.</target>
+        </trans-unit>
+        <trans-unit id="4ac467cd-5d8d-4ed2-9abb-f9df51a55737" xml:space="preserve">
+          <source>A sample configuration file is shown below:</source>
+          <target state="new">A sample configuration file is shown below:</target>
+        </trans-unit>
+        <trans-unit id="caecad7e-c713-4c1f-bb4f-8ad668d9bb7f" xml:space="preserve">
+          <source>The various configuration options are described in detail below.</source>
+          <target state="new">The various configuration options are described in detail below.</target>
+        </trans-unit>
+        <trans-unit id="d20bca6e-019f-4600-8f57-225bdf34a942" xml:space="preserve">
+          <source>Configuration options are of three types; Boolean, String or Integer.</source>
+          <target state="new">Configuration options are of three types; Boolean, String or Integer.</target>
+        </trans-unit>
+        <trans-unit id="4af6bf37-155c-4f7c-96b0-2d5c540396a0" xml:space="preserve">
+          <source>The Boolean configuration options can be specified as "y" or "n".</source>
+          <target state="new">The Boolean configuration options can be specified as "y" or "n".</target>
+        </trans-unit>
+        <trans-unit id="14167bcf-5aac-4f53-bf64-c695388338a9" xml:space="preserve">
+          <source>The special keyword "None" may be used for some string type configuration entries as detailed below.</source>
+          <target state="new">The special keyword "None" may be used for some string type configuration entries as detailed below.</target>
+        </trans-unit>
+        <trans-unit id="11a83201-49f0-4596-8bee-b7e3b0551048" xml:space="preserve">
+          <source><bpt id="e7742382-300c-410a-989d-2a72287cbe9e">&lt;strong&gt;</bpt>Role.StateConsumer:<ept id="e7742382-300c-410a-989d-2a72287cbe9e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e7742382-300c-410a-989d-2a72287cbe9e">&lt;strong&gt;</bpt>Role.StateConsumer:<ept id="e7742382-300c-410a-989d-2a72287cbe9e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c583b25-a23a-4cbf-8444-11ae498b05a8" xml:space="preserve">
+          <source>Type: String  
+Default: None</source>
+          <target state="new">Type: String  
+Default: None</target>
+        </trans-unit>
+        <trans-unit id="fa2d79c4-aeac-4914-a57c-9cd23750c1fb" xml:space="preserve">
+          <source>If a path to an executable program is specified, it is invoked when waagent has provisioned the image and the "Ready" state is about to be reported to the Fabric.</source>
+          <target state="new">If a path to an executable program is specified, it is invoked when waagent has provisioned the image and the "Ready" state is about to be reported to the Fabric.</target>
+        </trans-unit>
+        <trans-unit id="a6506985-edaa-4a16-ae31-dbd5adef4365" xml:space="preserve">
+          <source>The argument specified to the program will be "Ready".</source>
+          <target state="new">The argument specified to the program will be "Ready".</target>
+        </trans-unit>
+        <trans-unit id="aaad7003-c8ee-4c16-88cb-e104fbbe2700" xml:space="preserve">
+          <source>The agent will not wait for the program to return before continuing.</source>
+          <target state="new">The agent will not wait for the program to return before continuing.</target>
+        </trans-unit>
+        <trans-unit id="f7b511a0-e6db-408e-a4aa-1c3f9574dc63" xml:space="preserve">
+          <source><bpt id="26e3ae04-0ff8-4608-8051-6679728c2fc5">&lt;strong&gt;</bpt>Role.ConfigurationConsumer:<ept id="26e3ae04-0ff8-4608-8051-6679728c2fc5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="26e3ae04-0ff8-4608-8051-6679728c2fc5">&lt;strong&gt;</bpt>Role.ConfigurationConsumer:<ept id="26e3ae04-0ff8-4608-8051-6679728c2fc5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8783cf7f-5809-413e-a520-bccc210bd609" xml:space="preserve">
+          <source>Type: String  
+Default: None</source>
+          <target state="new">Type: String  
+Default: None</target>
+        </trans-unit>
+        <trans-unit id="154f7ffc-61c0-48aa-9308-c8898e035f95" xml:space="preserve">
+          <source>If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine.</source>
+          <target state="new">If a path to an executable program is specified, the program is invoked when the Fabric indicates that a configuration file is available for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a87b6bef-59bd-4132-8a2c-9e590fc1b714" xml:space="preserve">
+          <source>The path to the XML configuration file is provided as an argument to the executable.</source>
+          <target state="new">The path to the XML configuration file is provided as an argument to the executable.</target>
+        </trans-unit>
+        <trans-unit id="42b0dfe7-38cd-45df-98e2-edf57d850ca2" xml:space="preserve">
+          <source>This may be invoked multiple times whenever the configuration file changes.</source>
+          <target state="new">This may be invoked multiple times whenever the configuration file changes.</target>
+        </trans-unit>
+        <trans-unit id="e95c5065-b38a-4621-9e24-7ff520a942e7" xml:space="preserve">
+          <source>A sample file is provided in the Appendix.</source>
+          <target state="new">A sample file is provided in the Appendix.</target>
+        </trans-unit>
+        <trans-unit id="4e66a11e-760b-47e8-aefe-56cdd6c135b1" xml:space="preserve">
+          <source>The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.</source>
+          <target state="new">The current path of this file is /var/lib/waagent/HostingEnvironmentConfig.xml.</target>
+        </trans-unit>
+        <trans-unit id="dfcf9e3b-6482-4731-ab10-dfcc443062b6" xml:space="preserve">
+          <source><bpt id="b2c3e6c9-77a0-4323-8e43-eebfbfe9187d">&lt;strong&gt;</bpt>Role.TopologyConsumer:<ept id="b2c3e6c9-77a0-4323-8e43-eebfbfe9187d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b2c3e6c9-77a0-4323-8e43-eebfbfe9187d">&lt;strong&gt;</bpt>Role.TopologyConsumer:<ept id="b2c3e6c9-77a0-4323-8e43-eebfbfe9187d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c632030-4d05-4a84-b90d-875ffe8a2c16" xml:space="preserve">
+          <source>Type: String  
+Default: None</source>
+          <target state="new">Type: String  
+Default: None</target>
+        </trans-unit>
+        <trans-unit id="9250ac37-eaac-4fea-961c-6fbfc036169c" xml:space="preserve">
+          <source>If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable.</source>
+          <target state="new">If a path to an executable program is specified, the program is invoked when the Fabric indicates that a new network topology layout is available for the virtual machine.The path to the XML configuration file is provided as an argument to the executable.</target>
+        </trans-unit>
+        <trans-unit id="2388af5f-78a7-4566-9c85-045cc7009302" xml:space="preserve">
+          <source>This may be invoked multiple times whenever the network topology changes (due to service healing for example).</source>
+          <target state="new">This may be invoked multiple times whenever the network topology changes (due to service healing for example).</target>
+        </trans-unit>
+        <trans-unit id="446c3d75-ffc3-4b70-af3c-776965f5cf45" xml:space="preserve">
+          <source>A sample file is provided in the Appendix.</source>
+          <target state="new">A sample file is provided in the Appendix.</target>
+        </trans-unit>
+        <trans-unit id="edb6fa17-931b-4853-9e5a-092b40ca7107" xml:space="preserve">
+          <source>The current location of this file is /var/lib/waagent/SharedConfig.xml.</source>
+          <target state="new">The current location of this file is /var/lib/waagent/SharedConfig.xml.</target>
+        </trans-unit>
+        <trans-unit id="859a266d-8d6b-4cf6-8555-b67272c57c79" xml:space="preserve">
+          <source><bpt id="94398d7d-ebfd-4544-80eb-c22d4f3d5ea2">&lt;strong&gt;</bpt>Provisioning.Enabled:<ept id="94398d7d-ebfd-4544-80eb-c22d4f3d5ea2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="94398d7d-ebfd-4544-80eb-c22d4f3d5ea2">&lt;strong&gt;</bpt>Provisioning.Enabled:<ept id="94398d7d-ebfd-4544-80eb-c22d4f3d5ea2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43df608c-732e-4ef6-8abf-3e37a32aa0fc" xml:space="preserve">
+          <source>Type: Boolean  
+Default: y</source>
+          <target state="new">Type: Boolean  
+Default: y</target>
+        </trans-unit>
+        <trans-unit id="a30fb8a8-3b89-4559-addd-189b29a70b25" xml:space="preserve">
+          <source>This allows the user to enable or disable the provisioning functionality in the agent.</source>
+          <target state="new">This allows the user to enable or disable the provisioning functionality in the agent.</target>
+        </trans-unit>
+        <trans-unit id="e4523b11-6191-4bd4-877a-807257da1929" xml:space="preserve">
+          <source>Valid values are "y" or "n".</source>
+          <target state="new">Valid values are "y" or "n".</target>
+        </trans-unit>
+        <trans-unit id="e71e6a3c-1704-466a-a4af-812ac0ca294c" xml:space="preserve">
+          <source>If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.</source>
+          <target state="new">If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.</target>
+        </trans-unit>
+        <trans-unit id="db4102e4-664c-4219-9027-236e96d6b5a3" xml:space="preserve">
+          <source><bpt id="146fb991-76d4-4f3b-ade3-c8bd95e8a3f6">&lt;strong&gt;</bpt>Note:<ept id="146fb991-76d4-4f3b-ade3-c8bd95e8a3f6">&lt;/strong&gt;</ept> this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.</source>
+          <target state="new"><bpt id="146fb991-76d4-4f3b-ade3-c8bd95e8a3f6">&lt;strong&gt;</bpt>Note:<ept id="146fb991-76d4-4f3b-ade3-c8bd95e8a3f6">&lt;/strong&gt;</ept> this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.</target>
+        </trans-unit>
+        <trans-unit id="04eb8fad-11c9-44f9-834f-d5f33422bf13" xml:space="preserve">
+          <source><bpt id="cc257bb4-4dde-4f49-bcdd-99d7a86304d3">&lt;strong&gt;</bpt>Provisioning.DeleteRootPassword:<ept id="cc257bb4-4dde-4f49-bcdd-99d7a86304d3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cc257bb4-4dde-4f49-bcdd-99d7a86304d3">&lt;strong&gt;</bpt>Provisioning.DeleteRootPassword:<ept id="cc257bb4-4dde-4f49-bcdd-99d7a86304d3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="282ea1e3-76c1-4257-ae1e-72ba25c66b2a" xml:space="preserve">
+          <source>Type: Boolean  
+Default: n</source>
+          <target state="new">Type: Boolean  
+Default: n</target>
+        </trans-unit>
+        <trans-unit id="e2de8d77-2f46-47fd-ab1f-f6dca6a472ea" xml:space="preserve">
+          <source>If set, the root password in the /etc/shadow file is erased during the provisioning process.</source>
+          <target state="new">If set, the root password in the /etc/shadow file is erased during the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="d2a330eb-740f-4e06-afc6-abb07909c22e" xml:space="preserve">
+          <source><bpt id="a33f3ad8-c8db-43b4-92c7-29c08c1f4c6c">&lt;strong&gt;</bpt>Provisioning.RegenerateSshHostKeyPair:<ept id="a33f3ad8-c8db-43b4-92c7-29c08c1f4c6c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a33f3ad8-c8db-43b4-92c7-29c08c1f4c6c">&lt;strong&gt;</bpt>Provisioning.RegenerateSshHostKeyPair:<ept id="a33f3ad8-c8db-43b4-92c7-29c08c1f4c6c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a6aa870-f385-41ba-bfde-e229d4710d5c" xml:space="preserve">
+          <source>Type: Boolean  
+Default: y</source>
+          <target state="new">Type: Boolean  
+Default: y</target>
+        </trans-unit>
+        <trans-unit id="742c0909-32f7-4853-8e68-feb53390ba23" xml:space="preserve">
+          <source>If set, all SSH host key pairs (ecdsa, dsa and rsa) are deleted during the provisioning process from /etc/ssh/.</source>
+          <target state="new">If set, all SSH host key pairs (ecdsa, dsa and rsa) are deleted during the provisioning process from /etc/ssh/.</target>
+        </trans-unit>
+        <trans-unit id="72134097-dad2-40e8-bfe4-f773daad6545" xml:space="preserve">
+          <source>And a single fresh key pair is generated.</source>
+          <target state="new">And a single fresh key pair is generated.</target>
+        </trans-unit>
+        <trans-unit id="9a54a812-657e-4adf-9ede-5f75d08fcd41" xml:space="preserve">
+          <source>The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry.</source>
+          <target state="new">The encryption type for the fresh key pair is configurable by the Provisioning.SshHostKeyPairType entry.</target>
+        </trans-unit>
+        <trans-unit id="c14d0f7f-37cd-4e03-9192-112984f47edb" xml:space="preserve">
+          <source>Please note that some distributions will re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).</source>
+          <target state="new">Please note that some distributions will re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted (for example, upon a reboot).</target>
+        </trans-unit>
+        <trans-unit id="3cf540e8-881b-46c3-824f-6ce4e28cd01a" xml:space="preserve">
+          <source><bpt id="b04a9b16-e446-4f42-b610-9897182276af">&lt;strong&gt;</bpt>Provisioning.SshHostKeyPairType:<ept id="b04a9b16-e446-4f42-b610-9897182276af">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b04a9b16-e446-4f42-b610-9897182276af">&lt;strong&gt;</bpt>Provisioning.SshHostKeyPairType:<ept id="b04a9b16-e446-4f42-b610-9897182276af">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5bd5b71-9d6c-4b42-92b5-49dd7745d795" xml:space="preserve">
+          <source>Type: String  
+Default: rsa</source>
+          <target state="new">Type: String  
+Default: rsa</target>
+        </trans-unit>
+        <trans-unit id="df32dc92-0ee9-469d-8a22-59395545352b" xml:space="preserve">
+          <source>This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine.</source>
+          <target state="new">This can be set to an encryption algorithm type that is supported by the SSH daemon on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f1a18865-1760-4101-babd-6c0862d8a3cf" xml:space="preserve">
+          <source>The typically supported values are "rsa", "dsa" and "ecdsa".</source>
+          <target state="new">The typically supported values are "rsa", "dsa" and "ecdsa".</target>
+        </trans-unit>
+        <trans-unit id="ee8b4812-ea34-4503-85d5-232d9e3530fe" xml:space="preserve">
+          <source>Note that "putty.exe" on Windows does not support "ecdsa".</source>
+          <target state="new">Note that "putty.exe" on Windows does not support "ecdsa".</target>
+        </trans-unit>
+        <trans-unit id="3c8a0a6a-7be5-4f71-8fb9-0e5fbdb37af7" xml:space="preserve">
+          <source>So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".</source>
+          <target state="new">So, if you intend to use putty.exe on Windows to connect to a Linux deployment, please use "rsa" or "dsa".</target>
+        </trans-unit>
+        <trans-unit id="8d51b48b-5874-479c-a832-105a3f63cf1e" xml:space="preserve">
+          <source><bpt id="469683a7-70e3-41c3-8a09-c5a6d85bcb24">&lt;strong&gt;</bpt>Provisioning.MonitorHostName:<ept id="469683a7-70e3-41c3-8a09-c5a6d85bcb24">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="469683a7-70e3-41c3-8a09-c5a6d85bcb24">&lt;strong&gt;</bpt>Provisioning.MonitorHostName:<ept id="469683a7-70e3-41c3-8a09-c5a6d85bcb24">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16aa24db-dd39-47b9-9120-cfd6cd9e295c" xml:space="preserve">
+          <source>Type: Boolean  
+Default: y</source>
+          <target state="new">Type: Boolean  
+Default: y</target>
+        </trans-unit>
+        <trans-unit id="e6f7f8c9-d616-468e-9fdb-67ff212f6452" xml:space="preserve">
+          <source>If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change.</source>
+          <target state="new">If set, waagent will monitor the Linux virtual machine for hostname changes (as returned by the "hostname" command) and automatically update the networking configuration in the image to reflect the change.</target>
+        </trans-unit>
+        <trans-unit id="4ce547c3-8aff-4b0d-afe7-53cd3efea106" xml:space="preserve">
+          <source>In order to push the name change to the DNS servers, networking will be restarted in the virtual machine.</source>
+          <target state="new">In order to push the name change to the DNS servers, networking will be restarted in the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b48811f9-cc46-4981-ae14-fe46bb65df03" xml:space="preserve">
+          <source>This will result in brief loss of Internet connectivity.</source>
+          <target state="new">This will result in brief loss of Internet connectivity.</target>
+        </trans-unit>
+        <trans-unit id="413023ef-6fd3-4069-afbf-f174b95682de" xml:space="preserve">
+          <source><bpt id="1a903edc-c271-42e0-b6b5-b13e023113a1">&lt;strong&gt;</bpt>ResourceDisk.Format:<ept id="1a903edc-c271-42e0-b6b5-b13e023113a1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1a903edc-c271-42e0-b6b5-b13e023113a1">&lt;strong&gt;</bpt>ResourceDisk.Format:<ept id="1a903edc-c271-42e0-b6b5-b13e023113a1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b21716e-9dfc-456e-bd39-2c069c1c7f7a" xml:space="preserve">
+          <source>Type: Boolean  
+Default: y</source>
+          <target state="new">Type: Boolean  
+Default: y</target>
+        </trans-unit>
+        <trans-unit id="e8a66449-df02-4a9e-a6cf-ba007c6c1322" xml:space="preserve">
+          <source>If set, the resource disk provided by the platform will be formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs".</source>
+          <target state="new">If set, the resource disk provided by the platform will be formatted and mounted by waagent if the filesystem type requested by the user in "ResourceDisk.Filesystem" is anything other than "ntfs".</target>
+        </trans-unit>
+        <trans-unit id="5da64589-3318-422e-9ca3-ead4f37cea14" xml:space="preserve">
+          <source>A single partition of type Linux (83) will be made available on the disk.</source>
+          <target state="new">A single partition of type Linux (83) will be made available on the disk.</target>
+        </trans-unit>
+        <trans-unit id="a0e40af8-7cd7-4674-8c91-1324b125ef9b" xml:space="preserve">
+          <source>Note that this partition will not be formatted if it can be successfully mounted.</source>
+          <target state="new">Note that this partition will not be formatted if it can be successfully mounted.</target>
+        </trans-unit>
+        <trans-unit id="67f8b825-6cfa-4238-8b17-d85550ebab63" xml:space="preserve">
+          <source><bpt id="edabdcc2-c57e-4888-9e81-905ef9bd3468">&lt;strong&gt;</bpt>ResourceDisk.Filesystem:<ept id="edabdcc2-c57e-4888-9e81-905ef9bd3468">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="edabdcc2-c57e-4888-9e81-905ef9bd3468">&lt;strong&gt;</bpt>ResourceDisk.Filesystem:<ept id="edabdcc2-c57e-4888-9e81-905ef9bd3468">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af91661f-94e2-4ef8-a7ee-881127d58be4" xml:space="preserve">
+          <source>Type: String  
+Default: ext4</source>
+          <target state="new">Type: String  
+Default: ext4</target>
+        </trans-unit>
+        <trans-unit id="b0d460e8-e7d6-463f-9dd8-9a3b09309b2e" xml:space="preserve">
+          <source>This specifies the filesystem type for the resource disk.</source>
+          <target state="new">This specifies the filesystem type for the resource disk.</target>
+        </trans-unit>
+        <trans-unit id="721a0b21-5f0f-4e56-b90e-b7b501118470" xml:space="preserve">
+          <source>Supported values vary by Linux distribution.</source>
+          <target state="new">Supported values vary by Linux distribution.</target>
+        </trans-unit>
+        <trans-unit id="5162686f-d71f-4412-a5eb-fb6575b6a46d" xml:space="preserve">
+          <source>If the string is X, then mkfs.X should be present on the Linux image.</source>
+          <target state="new">If the string is X, then mkfs.X should be present on the Linux image.</target>
+        </trans-unit>
+        <trans-unit id="22982ad0-dba5-4f4f-a916-df8b054d2129" xml:space="preserve">
+          <source>SLES 11 images should typically use 'ext3'.</source>
+          <target state="new">SLES 11 images should typically use 'ext3'.</target>
+        </trans-unit>
+        <trans-unit id="ac6fcbd2-513e-4222-a1d4-94de909e027a" xml:space="preserve">
+          <source>FreeBSD images should use 'ufs2' here.</source>
+          <target state="new">FreeBSD images should use 'ufs2' here.</target>
+        </trans-unit>
+        <trans-unit id="7a2b6955-f8e3-4853-a261-812cc2e9bf35" xml:space="preserve">
+          <source><bpt id="a21ad64e-6ece-4bfb-935d-951e87fda692">&lt;strong&gt;</bpt>ResourceDisk.MountPoint:<ept id="a21ad64e-6ece-4bfb-935d-951e87fda692">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a21ad64e-6ece-4bfb-935d-951e87fda692">&lt;strong&gt;</bpt>ResourceDisk.MountPoint:<ept id="a21ad64e-6ece-4bfb-935d-951e87fda692">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="527f1a28-1cea-4d2a-b04d-25deb91c1e5a" xml:space="preserve">
+          <source>Type: String  
+Default: /mnt/resource </source>
+          <target state="new">Type: String  
+Default: /mnt/resource </target>
+        </trans-unit>
+        <trans-unit id="c6deb46d-c445-4529-9499-15d40d140a3d" xml:space="preserve">
+          <source>This specifies the path at which the resource disk is mounted.</source>
+          <target state="new">This specifies the path at which the resource disk is mounted.</target>
+        </trans-unit>
+        <trans-unit id="5902739c-a2f0-4ace-ba60-daf78a10878a" xml:space="preserve">
+          <source>Note that the resource disk is a <bpt id="92241516-5500-4116-af14-24233f07e2d5">&lt;em&gt;</bpt>temporary<ept id="92241516-5500-4116-af14-24233f07e2d5">&lt;/em&gt;</ept> disk, and might be emptied when the VM is deprovisioned.</source>
+          <target state="new">Note that the resource disk is a <bpt id="92241516-5500-4116-af14-24233f07e2d5">&lt;em&gt;</bpt>temporary<ept id="92241516-5500-4116-af14-24233f07e2d5">&lt;/em&gt;</ept> disk, and might be emptied when the VM is deprovisioned.</target>
+        </trans-unit>
+        <trans-unit id="08abd105-538e-4ed1-8d45-88d2bbbbbb47" xml:space="preserve">
+          <source><bpt id="1083049a-a681-4385-96c5-23d1ad87f4d5">&lt;strong&gt;</bpt>ResourceDisk.EnableSwap:<ept id="1083049a-a681-4385-96c5-23d1ad87f4d5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1083049a-a681-4385-96c5-23d1ad87f4d5">&lt;strong&gt;</bpt>ResourceDisk.EnableSwap:<ept id="1083049a-a681-4385-96c5-23d1ad87f4d5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1f1fc0c-800d-4b32-b511-56ed32248a8b" xml:space="preserve">
+          <source>Type: Boolean  
+Default: n </source>
+          <target state="new">Type: Boolean  
+Default: n </target>
+        </trans-unit>
+        <trans-unit id="9e85929c-f3d9-43b6-a2e4-8e8ed010e73b" xml:space="preserve">
+          <source>If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.</source>
+          <target state="new">If set, a swap file (/swapfile) is created on the resource disk and added to the system swap space.</target>
+        </trans-unit>
+        <trans-unit id="9197a887-dbe4-42a0-9e70-eb2a73c28d58" xml:space="preserve">
+          <source><bpt id="e86ba8c6-6559-41c3-8f79-66a266c8e3f3">&lt;strong&gt;</bpt>ResourceDisk.SwapSizeMB:<ept id="e86ba8c6-6559-41c3-8f79-66a266c8e3f3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e86ba8c6-6559-41c3-8f79-66a266c8e3f3">&lt;strong&gt;</bpt>ResourceDisk.SwapSizeMB:<ept id="e86ba8c6-6559-41c3-8f79-66a266c8e3f3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11ec98ce-fa64-454f-bee8-c196e421e6c5" xml:space="preserve">
+          <source>Type: Integer  
+Default: 0</source>
+          <target state="new">Type: Integer  
+Default: 0</target>
+        </trans-unit>
+        <trans-unit id="be772c3b-9f45-4404-972d-ce80800725a8" xml:space="preserve">
+          <source>The size of the swap file in megabytes.</source>
+          <target state="new">The size of the swap file in megabytes.</target>
+        </trans-unit>
+        <trans-unit id="19033e7b-bde2-4c45-b178-46f71e4334d7" xml:space="preserve">
+          <source><bpt id="1f6d60e0-aa98-4321-9204-00bd31928c1e">&lt;strong&gt;</bpt>LBProbeResponder:<ept id="1f6d60e0-aa98-4321-9204-00bd31928c1e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1f6d60e0-aa98-4321-9204-00bd31928c1e">&lt;strong&gt;</bpt>LBProbeResponder:<ept id="1f6d60e0-aa98-4321-9204-00bd31928c1e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3aa824df-52e3-4738-ae94-57d26ec1ff02" xml:space="preserve">
+          <source>Type: Boolean  
+Default: y</source>
+          <target state="new">Type: Boolean  
+Default: y</target>
+        </trans-unit>
+        <trans-unit id="25ebc020-cc0e-405f-91f5-f1fcd331fdc5" xml:space="preserve">
+          <source>If set, waagent will respond to load balancer probes from the platform (if present).</source>
+          <target state="new">If set, waagent will respond to load balancer probes from the platform (if present).</target>
+        </trans-unit>
+        <trans-unit id="38f7872d-8fd0-43d2-894e-2b943253ba42" xml:space="preserve">
+          <source><bpt id="db0806a7-db42-4eed-a971-21dc0bbf9776">&lt;strong&gt;</bpt>Logs.Verbose:<ept id="db0806a7-db42-4eed-a971-21dc0bbf9776">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="db0806a7-db42-4eed-a971-21dc0bbf9776">&lt;strong&gt;</bpt>Logs.Verbose:<ept id="db0806a7-db42-4eed-a971-21dc0bbf9776">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5763ae42-7688-4a15-a1f5-c21caf8c91a8" xml:space="preserve">
+          <source>Type: Boolean  
+Default: n</source>
+          <target state="new">Type: Boolean  
+Default: n</target>
+        </trans-unit>
+        <trans-unit id="f3c12370-5960-4160-b521-82768dd7cf7e" xml:space="preserve">
+          <source>If set, log verbosity is boosted.</source>
+          <target state="new">If set, log verbosity is boosted.</target>
+        </trans-unit>
+        <trans-unit id="50434275-3491-46b6-ac92-5647c882266a" xml:space="preserve">
+          <source>Waagent logs to /var/log/waagent.log and leverages the system logrotate functionality to rotate logs.</source>
+          <target state="new">Waagent logs to /var/log/waagent.log and leverages the system logrotate functionality to rotate logs.</target>
+        </trans-unit>
+        <trans-unit id="771ce5b3-5af8-48a4-9f7a-bf25eabd86f7" xml:space="preserve">
+          <source><bpt id="7bd7a9f2-7b6a-415a-9216-912c0a4a0e44">&lt;strong&gt;</bpt>OS.RootDeviceScsiTimeout:<ept id="7bd7a9f2-7b6a-415a-9216-912c0a4a0e44">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7bd7a9f2-7b6a-415a-9216-912c0a4a0e44">&lt;strong&gt;</bpt>OS.RootDeviceScsiTimeout:<ept id="7bd7a9f2-7b6a-415a-9216-912c0a4a0e44">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dbcc378f-b1a9-4d25-a015-5521fae319b1" xml:space="preserve">
+          <source>Type: Integer  
+Default: 300</source>
+          <target state="new">Type: Integer  
+Default: 300</target>
+        </trans-unit>
+        <trans-unit id="7105bbd3-4596-494a-bc04-9c9224e99b8c" xml:space="preserve">
+          <source>This configures the SCSI timeout in seconds on the OS disk and data drives.</source>
+          <target state="new">This configures the SCSI timeout in seconds on the OS disk and data drives.</target>
+        </trans-unit>
+        <trans-unit id="fe3e6cc8-5e9c-4f53-8613-e81b7fc41631" xml:space="preserve">
+          <source>If not set, the system defaults are used.</source>
+          <target state="new">If not set, the system defaults are used.</target>
+        </trans-unit>
+        <trans-unit id="b635d63e-22ca-4af9-836f-262c78a1172d" xml:space="preserve">
+          <source><bpt id="535d633b-8e01-4903-afd2-b539fe89c1da">&lt;strong&gt;</bpt>OS.OpensslPath:<ept id="535d633b-8e01-4903-afd2-b539fe89c1da">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="535d633b-8e01-4903-afd2-b539fe89c1da">&lt;strong&gt;</bpt>OS.OpensslPath:<ept id="535d633b-8e01-4903-afd2-b539fe89c1da">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1478d534-e66e-4de2-9154-9a92b3e00bd7" xml:space="preserve">
+          <source>Type: String  
+Default: None</source>
+          <target state="new">Type: String  
+Default: None</target>
+        </trans-unit>
+        <trans-unit id="8a22d4b1-8fa9-4d46-853c-7e8a9340c71b" xml:space="preserve">
+          <source>This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.</source>
+          <target state="new">This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.</target>
+        </trans-unit>
+        <trans-unit id="57f21b03-7c65-4d47-9b4d-616bf3875021" xml:space="preserve">
+          <source>Note that Ubuntu Cloud Images utilize <bpt id="040e956d-bda1-4e63-9523-916481a01e61">&lt;linkText&gt;</bpt>cloud-init<ept id="040e956d-bda1-4e63-9523-916481a01e61">&lt;/linkText&gt;</ept><bpt id="040e956d-bda1-4e63-9523-916481a01e61">&lt;title&gt;</bpt><ept id="040e956d-bda1-4e63-9523-916481a01e61">&lt;/title&gt;</ept> to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.</source>
+          <target state="new">Note that Ubuntu Cloud Images utilize <bpt id="040e956d-bda1-4e63-9523-916481a01e61">&lt;linkText&gt;</bpt>cloud-init<ept id="040e956d-bda1-4e63-9523-916481a01e61">&lt;/linkText&gt;</ept><bpt id="040e956d-bda1-4e63-9523-916481a01e61">&lt;title&gt;</bpt><ept id="040e956d-bda1-4e63-9523-916481a01e61">&lt;/title&gt;</ept> to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.</target>
+        </trans-unit>
+        <trans-unit id="3c056817-426e-4364-ad8a-8424ea495b70" xml:space="preserve">
+          <source>Please note the following differences:</source>
+          <target state="new">Please note the following differences:</target>
+        </trans-unit>
+        <trans-unit id="86532347-6895-4119-8bdc-4dbb0489b9ef" xml:space="preserve">
+          <source><bpt id="b77bfd3a-b9f0-4de3-9ef1-e20090288373">&lt;strong&gt;</bpt>Provisioning.Enabled<ept id="b77bfd3a-b9f0-4de3-9ef1-e20090288373">&lt;/strong&gt;</ept> defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.</source>
+          <target state="new"><bpt id="b77bfd3a-b9f0-4de3-9ef1-e20090288373">&lt;strong&gt;</bpt>Provisioning.Enabled<ept id="b77bfd3a-b9f0-4de3-9ef1-e20090288373">&lt;/strong&gt;</ept> defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.</target>
+        </trans-unit>
+        <trans-unit id="25e8dbbc-1f1b-4360-97b8-b29fcbc350f0" xml:space="preserve">
+          <source>The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:</source>
+          <target state="new">The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:</target>
+        </trans-unit>
+        <trans-unit id="71f6e12b-66fb-498f-a1f9-d172eb37a1a9" xml:space="preserve">
+          <source><bpt id="1ef2f025-bd83-4f93-85a6-90d047b7ebda">&lt;strong&gt;</bpt>ResourceDisk.Format<ept id="1ef2f025-bd83-4f93-85a6-90d047b7ebda">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ef2f025-bd83-4f93-85a6-90d047b7ebda">&lt;strong&gt;</bpt>ResourceDisk.Format<ept id="1ef2f025-bd83-4f93-85a6-90d047b7ebda">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71596ee6-d098-4038-a4df-76e038b6e0c1" xml:space="preserve">
+          <source><bpt id="e8f1290d-b7e1-4d4c-af39-46b71899c0cb">&lt;strong&gt;</bpt>ResourceDisk.Filesystem<ept id="e8f1290d-b7e1-4d4c-af39-46b71899c0cb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e8f1290d-b7e1-4d4c-af39-46b71899c0cb">&lt;strong&gt;</bpt>ResourceDisk.Filesystem<ept id="e8f1290d-b7e1-4d4c-af39-46b71899c0cb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f89d6f9-63dc-477a-a47f-be70cf8b18ff" xml:space="preserve">
+          <source><bpt id="cfd5d689-788a-4152-a5b6-1d8c419ce6df">&lt;strong&gt;</bpt>ResourceDisk.MountPoint<ept id="cfd5d689-788a-4152-a5b6-1d8c419ce6df">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cfd5d689-788a-4152-a5b6-1d8c419ce6df">&lt;strong&gt;</bpt>ResourceDisk.MountPoint<ept id="cfd5d689-788a-4152-a5b6-1d8c419ce6df">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f53f2b52-1a0c-4a78-8232-1c8efa64fbc3" xml:space="preserve">
+          <source><bpt id="5777da27-64cd-412e-8503-2d00b9abc729">&lt;strong&gt;</bpt>ResourceDisk.EnableSwap<ept id="5777da27-64cd-412e-8503-2d00b9abc729">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5777da27-64cd-412e-8503-2d00b9abc729">&lt;strong&gt;</bpt>ResourceDisk.EnableSwap<ept id="5777da27-64cd-412e-8503-2d00b9abc729">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21f7ce6a-4b92-4d6f-9cbd-cbef345ba26a" xml:space="preserve">
+          <source><bpt id="13a37d4e-248f-489d-ba01-cf24c42b23c2">&lt;strong&gt;</bpt>ResourceDisk.SwapSizeMB<ept id="13a37d4e-248f-489d-ba01-cf24c42b23c2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="13a37d4e-248f-489d-ba01-cf24c42b23c2">&lt;strong&gt;</bpt>ResourceDisk.SwapSizeMB<ept id="13a37d4e-248f-489d-ba01-cf24c42b23c2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51fc91bc-312d-4d15-bb45-370f1769a443" xml:space="preserve">
+          <source>Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:</source>
+          <target state="new">Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:</target>
+        </trans-unit>
+        <trans-unit id="13e15b20-7f89-481c-a7aa-0de38dd17bdf" xml:space="preserve">
+          <source><bpt id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;linkText&gt;</bpt>Ubuntu Wiki: Configure Swap Partitions<ept id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;/linkText&gt;</ept><bpt id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;title&gt;</bpt><ept id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;linkText&gt;</bpt>Ubuntu Wiki: Configure Swap Partitions<ept id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;/linkText&gt;</ept><bpt id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;title&gt;</bpt><ept id="c6a0dbeb-9e9a-409b-ba06-edd6f00f2de1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7469269-3d25-4cb4-90e7-47012e04aa6e" xml:space="preserve">
+          <source><bpt id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;linkText&gt;</bpt>Injecting Custom Data into an Azure Virtual Machine<ept id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;/linkText&gt;</ept><bpt id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;title&gt;</bpt><ept id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;linkText&gt;</bpt>Injecting Custom Data into an Azure Virtual Machine<ept id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;/linkText&gt;</ept><bpt id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;title&gt;</bpt><ept id="1c89f32b-e9e3-4c3d-a4cb-25e954e7020a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6131f1f4-0755-45ec-9eac-420c8df9907f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6131f1f4-0755-45ec-9eac-420c8df9907f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="46c737e2-465b-4adb-83ff-f94273565018">
+        <trans-unit id="64f536aa-e523-4461-8b42-4c3bf0f65d9a" xml:space="preserve">
+          <source>Continous export of telemetry from Application Insights</source>
+          <target state="new">Continous export of telemetry from Application Insights</target>
+        </trans-unit>
+        <trans-unit id="22dcd4dc-a8cc-48b3-be43-5dd01b894dfa" xml:space="preserve">
+          <source>Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.</source>
+          <target state="new">Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.</target>
+        </trans-unit>
+        <trans-unit id="2c3ad733-5fe7-4481-9d87-f2908bd88746" xml:space="preserve">
+          <source>Want to do some customised analysis on your telemetry?</source>
+          <target state="new">Want to do some customised analysis on your telemetry?</target>
+        </trans-unit>
+        <trans-unit id="0ad15f52-6457-4072-b1fe-1baf3410049c" xml:space="preserve">
+          <source>Or maybe you'd like an email alert on events with specific properties?</source>
+          <target state="new">Or maybe you'd like an email alert on events with specific properties?</target>
+        </trans-unit>
+        <trans-unit id="bba981fd-13ac-4ef4-a213-48e57f869743" xml:space="preserve">
+          <source>Continuous Export is ideal for this.</source>
+          <target state="new">Continuous Export is ideal for this.</target>
+        </trans-unit>
+        <trans-unit id="e60513de-b3e1-4586-b5d1-8725fd35bcee" xml:space="preserve">
+          <source>The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format.</source>
+          <target state="new">The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="c83a8ff3-c645-415d-a8e0-9123a56a7b04" xml:space="preserve">
+          <source>From there you can download your data and write whatever code you need to process it.</source>
+          <target state="new">From there you can download your data and write whatever code you need to process it.</target>
+        </trans-unit>
+        <trans-unit id="6d32ef43-b7a6-4358-b422-a23d687d871c" xml:space="preserve">
+          <source>Continuous Export is available in the free trial period and on the <bpt id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;linkText&gt;</bpt>Standard and Premium pricing plans<ept id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;/linkText&gt;</ept><bpt id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;title&gt;</bpt><ept id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;/title&gt;</ept>.</source>
+          <target state="new">Continuous Export is available in the free trial period and on the <bpt id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;linkText&gt;</bpt>Standard and Premium pricing plans<ept id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;/linkText&gt;</ept><bpt id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;title&gt;</bpt><ept id="7603d17e-65a6-41d7-ad15-b039e3d40361">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="130c3242-0ec5-443f-b515-aa97d4ed8fe8" xml:space="preserve">
+          <source>(If you just want to do a <bpt id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;linkText&gt;</bpt>one-off export<ept id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;/linkText&gt;</ept><bpt id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;title&gt;</bpt><ept id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;/title&gt;</ept> of what you see on a metrics or search blade, click Export at the top of the blade.)</source>
+          <target state="new">(If you just want to do a <bpt id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;linkText&gt;</bpt>one-off export<ept id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;/linkText&gt;</ept><bpt id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;title&gt;</bpt><ept id="24e26b38-9564-4515-9611-f58eac0adf50">&lt;/title&gt;</ept> of what you see on a metrics or search blade, click Export at the top of the blade.)</target>
+        </trans-unit>
+        <trans-unit id="f7740067-5684-46f8-8587-1df4c2b0787c" xml:space="preserve">
+          <source>On your application's Overview blade in the Application Insights portal, open Continuous Export: </source>
+          <target state="new">On your application's Overview blade in the Application Insights portal, open Continuous Export: </target>
+        </trans-unit>
+        <trans-unit id="02a81214-95b9-4935-9069-b02f5961ab59" xml:space="preserve">
+          <source><bpt id="8fe99407-075f-41b6-b864-880b5e221891">&lt;linkText&gt;</bpt>Scroll down and click Continuous Export<ept id="8fe99407-075f-41b6-b864-880b5e221891">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8fe99407-075f-41b6-b864-880b5e221891">&lt;linkText&gt;</bpt>Scroll down and click Continuous Export<ept id="8fe99407-075f-41b6-b864-880b5e221891">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8221da9-b4ae-4479-aea4-255ddc5ae282" xml:space="preserve">
+          <source>Add an export, and choose an <bpt id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;linkText&gt;</bpt>Azure storage account<ept id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;/linkText&gt;</ept><bpt id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;title&gt;</bpt><ept id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;/title&gt;</ept> where you want to put the data:</source>
+          <target state="new">Add an export, and choose an <bpt id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;linkText&gt;</bpt>Azure storage account<ept id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;/linkText&gt;</ept><bpt id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;title&gt;</bpt><ept id="cb997f72-7963-4a31-ac9d-85ee9352b304">&lt;/title&gt;</ept> where you want to put the data:</target>
+        </trans-unit>
+        <trans-unit id="5bee96ca-c42d-4e9b-91b8-b149600b034d" xml:space="preserve">
+          <source><bpt id="083c40d9-0ca6-4765-8677-5c3a36b150a9">&lt;linkText&gt;</bpt>Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store<ept id="083c40d9-0ca6-4765-8677-5c3a36b150a9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="083c40d9-0ca6-4765-8677-5c3a36b150a9">&lt;linkText&gt;</bpt>Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store<ept id="083c40d9-0ca6-4765-8677-5c3a36b150a9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c67a6fb-0be7-4e5a-9b5f-cfe57c5746eb" xml:space="preserve">
+          <source>Choose the event types you'd like to export:</source>
+          <target state="new">Choose the event types you'd like to export:</target>
+        </trans-unit>
+        <trans-unit id="d545cb90-0490-4c94-9be8-cae5a2c21aca" xml:space="preserve">
+          <source><bpt id="67404f77-0a92-4e92-90c4-0a8473f71de3">&lt;linkText&gt;</bpt>Click Choose event types<ept id="67404f77-0a92-4e92-90c4-0a8473f71de3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67404f77-0a92-4e92-90c4-0a8473f71de3">&lt;linkText&gt;</bpt>Click Choose event types<ept id="67404f77-0a92-4e92-90c4-0a8473f71de3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f415fa7-279f-4bf5-a59a-7ae2a0d6b0bf" xml:space="preserve">
+          <source>Once you've created your export, it starts going.</source>
+          <target state="new">Once you've created your export, it starts going.</target>
+        </trans-unit>
+        <trans-unit id="2718b2bb-95fe-43de-b2ce-b7e11777a1c2" xml:space="preserve">
+          <source>(You only get data that arrives after you create the export.)</source>
+          <target state="new">(You only get data that arrives after you create the export.)</target>
+        </trans-unit>
+        <trans-unit id="3f208644-c61c-4e3c-a406-14d924345710" xml:space="preserve">
+          <source>There can be a delay of about an hour before data appears in the blob.</source>
+          <target state="new">There can be a delay of about an hour before data appears in the blob.</target>
+        </trans-unit>
+        <trans-unit id="11b270c3-a1e5-4da1-b24f-5429b2807548" xml:space="preserve">
+          <source>If you want to change the event types later, just edit the export:</source>
+          <target state="new">If you want to change the event types later, just edit the export:</target>
+        </trans-unit>
+        <trans-unit id="fb25081b-90b1-4056-bf72-7c8778fec0a8" xml:space="preserve">
+          <source><bpt id="334e67a1-8e31-47c6-9421-72a171769ea3">&lt;linkText&gt;</bpt>Click Choose event types<ept id="334e67a1-8e31-47c6-9421-72a171769ea3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="334e67a1-8e31-47c6-9421-72a171769ea3">&lt;linkText&gt;</bpt>Click Choose event types<ept id="334e67a1-8e31-47c6-9421-72a171769ea3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d2a48d7-f2c0-4a0b-84ac-5abf29a07aab" xml:space="preserve">
+          <source>To stop the stream, click Disable.</source>
+          <target state="new">To stop the stream, click Disable.</target>
+        </trans-unit>
+        <trans-unit id="11b1e1fd-7027-4ead-bf0a-2a89c217610e" xml:space="preserve">
+          <source>When you click Enable again, the stream will restart with new data.</source>
+          <target state="new">When you click Enable again, the stream will restart with new data.</target>
+        </trans-unit>
+        <trans-unit id="09467318-526a-4c27-9667-688acf9250d2" xml:space="preserve">
+          <source>You won't get the data that arrived in the portal while export was disabled.</source>
+          <target state="new">You won't get the data that arrived in the portal while export was disabled.</target>
+        </trans-unit>
+        <trans-unit id="f7de785f-7664-4f1e-9968-21e776009aef" xml:space="preserve">
+          <source>To stop the stream permanently, delete the export.</source>
+          <target state="new">To stop the stream permanently, delete the export.</target>
+        </trans-unit>
+        <trans-unit id="694a7126-3c46-4cf7-8b97-4a09181e3df9" xml:space="preserve">
+          <source>Doing so doesn't delete your data from storage.</source>
+          <target state="new">Doing so doesn't delete your data from storage.</target>
+        </trans-unit>
+        <trans-unit id="0373297e-e065-4490-acb3-ba3544db7315" xml:space="preserve">
+          <source>To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights.</source>
+          <target state="new">To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights.</target>
+        </trans-unit>
+        <trans-unit id="ff6f286d-3717-41a1-9705-a2dad084f96d" xml:space="preserve">
+          <source><bpt id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;linkText&gt;</bpt>Learn about roles[roles]<ept id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;/linkText&gt;</ept><bpt id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;title&gt;</bpt><ept id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;linkText&gt;</bpt>Learn about roles[roles]<ept id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;/linkText&gt;</ept><bpt id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;title&gt;</bpt><ept id="b5c38ac7-2a86-4e5e-a175-3440fc7c47f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c15d3295-cd8c-499e-bd61-6bfe5bc3cdb6" xml:space="preserve">
+          <source>The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.</source>
+          <target state="new">The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.</target>
+        </trans-unit>
+        <trans-unit id="017c7f6e-4a63-4515-978b-0ccb362b1f76" xml:space="preserve">
+          <source>Other calculated metrics are not included.</source>
+          <target state="new">Other calculated metrics are not included.</target>
+        </trans-unit>
+        <trans-unit id="f266e9c4-6a9c-4549-a880-7f592e2702c6" xml:space="preserve">
+          <source>For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.</source>
+          <target state="new">For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.</target>
+        </trans-unit>
+        <trans-unit id="46959638-4407-4d66-8ed6-d26f4c6c8f95" xml:space="preserve">
+          <source>The data also includes the results of any <bpt id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;linkText&gt;</bpt>availability web tests<ept id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;/linkText&gt;</ept><bpt id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;title&gt;</bpt><ept id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;/title&gt;</ept> you have set up.</source>
+          <target state="new">The data also includes the results of any <bpt id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;linkText&gt;</bpt>availability web tests<ept id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;/linkText&gt;</ept><bpt id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;title&gt;</bpt><ept id="1ca3aee9-8a49-4251-983b-3254b82e364c">&lt;/title&gt;</ept> you have set up.</target>
+        </trans-unit>
+        <trans-unit id="64f66438-23a6-4c1f-8da9-e057651bcc65" xml:space="preserve">
+          <source>To inspect Azure storage in Visual Studio, open <bpt id="e1b7e224-5a73-4ed9-b70e-c42f84baaa36">&lt;strong&gt;</bpt>View<ept id="e1b7e224-5a73-4ed9-b70e-c42f84baaa36">&lt;/strong&gt;</ept>, <bpt id="721d45a1-f6cf-44e6-bfe5-a95d0d9a111d">&lt;strong&gt;</bpt>Cloud Explorer<ept id="721d45a1-f6cf-44e6-bfe5-a95d0d9a111d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To inspect Azure storage in Visual Studio, open <bpt id="e1b7e224-5a73-4ed9-b70e-c42f84baaa36">&lt;strong&gt;</bpt>View<ept id="e1b7e224-5a73-4ed9-b70e-c42f84baaa36">&lt;/strong&gt;</ept>, <bpt id="721d45a1-f6cf-44e6-bfe5-a95d0d9a111d">&lt;strong&gt;</bpt>Cloud Explorer<ept id="721d45a1-f6cf-44e6-bfe5-a95d0d9a111d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18888faf-11cf-43f2-a5ec-1819b3e0082b" xml:space="preserve">
+          <source>(If you don't have that menu command, you need to install the Azure SDK: Open the <bpt id="691ffe38-f2d1-40ef-af9b-fb1444baa11a">&lt;strong&gt;</bpt>New Project<ept id="691ffe38-f2d1-40ef-af9b-fb1444baa11a">&lt;/strong&gt;</ept> dialog, expand Visual C#/Cloud and choose <bpt id="2df4a869-5eb6-4923-801c-0d69f8ef8af4">&lt;strong&gt;</bpt>Get Microsoft Azure SDK for .NET<ept id="2df4a869-5eb6-4923-801c-0d69f8ef8af4">&lt;/strong&gt;</ept>.)</source>
+          <target state="new">(If you don't have that menu command, you need to install the Azure SDK: Open the <bpt id="691ffe38-f2d1-40ef-af9b-fb1444baa11a">&lt;strong&gt;</bpt>New Project<ept id="691ffe38-f2d1-40ef-af9b-fb1444baa11a">&lt;/strong&gt;</ept> dialog, expand Visual C#/Cloud and choose <bpt id="2df4a869-5eb6-4923-801c-0d69f8ef8af4">&lt;strong&gt;</bpt>Get Microsoft Azure SDK for .NET<ept id="2df4a869-5eb6-4923-801c-0d69f8ef8af4">&lt;/strong&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="b17371b1-d85c-40b4-b0ae-4d2891db7072" xml:space="preserve">
+          <source>When you open your blob store, you'll see a container with a set of blob files.</source>
+          <target state="new">When you open your blob store, you'll see a container with a set of blob files.</target>
+        </trans-unit>
+        <trans-unit id="67b3e86a-5292-44ef-a5c3-66ec316111d1" xml:space="preserve">
+          <source>The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time.</source>
+          <target state="new">The URI of each file derived from your Application Insights resource name, its instrumentation key, telemetry-type/date/time.</target>
+        </trans-unit>
+        <trans-unit id="a8069e2a-c021-4beb-91ab-bb45152c8a89" xml:space="preserve">
+          <source>(The resource name is all lowercase, and the instrumentation key omits dashes.)</source>
+          <target state="new">(The resource name is all lowercase, and the instrumentation key omits dashes.)</target>
+        </trans-unit>
+        <trans-unit id="5a37e7bb-2507-459b-a3d3-a6ff661f0d90" xml:space="preserve">
+          <source><bpt id="5fa242e4-a3b7-4bd5-9ba4-ed750940e964">&lt;linkText&gt;</bpt>Inspect the blob store with a suitable tool<ept id="5fa242e4-a3b7-4bd5-9ba4-ed750940e964">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fa242e4-a3b7-4bd5-9ba4-ed750940e964">&lt;linkText&gt;</bpt>Inspect the blob store with a suitable tool<ept id="5fa242e4-a3b7-4bd5-9ba4-ed750940e964">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35ca609d-dddc-4c1b-b541-49fe604ffb79" xml:space="preserve">
+          <source>The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated.</source>
+          <target state="new">The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated.</target>
+        </trans-unit>
+        <trans-unit id="b5a8f4a2-b524-45b9-a7f4-9ebf48593e48" xml:space="preserve">
+          <source>So if you write code to download the data, it can move linearly through the data.</source>
+          <target state="new">So if you write code to download the data, it can move linearly through the data.</target>
+        </trans-unit>
+        <trans-unit id="e1e4a605-aa5d-414f-bdbb-5bfa66a5c23c" xml:space="preserve">
+          <source>Each blob is a text file that contains multiple '\n'-separated rows.</source>
+          <target state="new">Each blob is a text file that contains multiple '\n'-separated rows.</target>
+        </trans-unit>
+        <trans-unit id="2f331ccf-a11e-4929-a26b-f431c6ae8a1b" xml:space="preserve">
+          <source>Each row is an unformatted JSON document.</source>
+          <target state="new">Each row is an unformatted JSON document.</target>
+        </trans-unit>
+        <trans-unit id="a2311a52-d2a4-4507-b7b4-b94048bdf690" xml:space="preserve">
+          <source>If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:</source>
+          <target state="new">If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:</target>
+        </trans-unit>
+        <trans-unit id="572cdcd3-8f00-4a79-bed3-ef92027201ed" xml:space="preserve">
+          <source><bpt id="4d3680f3-e567-4dd8-a5d2-7409ef22da63">&lt;linkText&gt;</bpt>View the telemetry with a suitable tool<ept id="4d3680f3-e567-4dd8-a5d2-7409ef22da63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d3680f3-e567-4dd8-a5d2-7409ef22da63">&lt;linkText&gt;</bpt>View the telemetry with a suitable tool<ept id="4d3680f3-e567-4dd8-a5d2-7409ef22da63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17953b5f-2c84-46a1-aa70-99082a60591b" xml:space="preserve">
+          <source>Time durations are in ticks, where 10 000 ticks = 1ms.</source>
+          <target state="new">Time durations are in ticks, where 10 000 ticks = 1ms.</target>
+        </trans-unit>
+        <trans-unit id="19353dc9-ccfa-4819-9562-5a0b99a2291e" xml:space="preserve">
+          <source>For example, these values show a time of 10ms to send a request from the browser, 30ms to receive it, and 1.8s to process the page in the browser:</source>
+          <target state="new">For example, these values show a time of 10ms to send a request from the browser, 30ms to receive it, and 1.8s to process the page in the browser:</target>
+        </trans-unit>
+        <trans-unit id="d0d50941-73c3-4588-84c0-d5490df62cab" xml:space="preserve">
+          <source><bpt id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;linkText&gt;</bpt>Detailed data model reference for the property types and values.<ept id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;/linkText&gt;</ept><bpt id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;title&gt;</bpt><ept id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;linkText&gt;</bpt>Detailed data model reference for the property types and values.<ept id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;/linkText&gt;</ept><bpt id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;title&gt;</bpt><ept id="4b54ff66-d532-4690-87cd-9899cae38415">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66ef5642-77b7-4a3d-b2ff-a647390cad25" xml:space="preserve">
+          <source>On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on.</source>
+          <target state="new">On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on.</target>
+        </trans-unit>
+        <trans-unit id="23475772-3e1c-4cee-93ee-a143aed5dc3f" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="c08d3b06-b990-42a2-8675-4f1d59789617" xml:space="preserve">
+          <source>For a larger code sample, see <bpt id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;linkText&gt;</bpt>using a worker role[exportasa]<ept id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;/linkText&gt;</ept><bpt id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;title&gt;</bpt><ept id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a larger code sample, see <bpt id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;linkText&gt;</bpt>using a worker role[exportasa]<ept id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;/linkText&gt;</ept><bpt id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;title&gt;</bpt><ept id="4c1eb515-51dc-4076-b01f-771fc3de42e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7ba48f8-cbd5-4285-8271-7888e59d156e" xml:space="preserve">
+          <source>Please note that you are responsible for managing your storage capacity and deleting the old data if necessary.</source>
+          <target state="new">Please note that you are responsible for managing your storage capacity and deleting the old data if necessary.</target>
+        </trans-unit>
+        <trans-unit id="8128c471-2321-46f5-a9fa-dc8cf84dad61" xml:space="preserve">
+          <source>If you change the key to your storage, continuous export will stop working.</source>
+          <target state="new">If you change the key to your storage, continuous export will stop working.</target>
+        </trans-unit>
+        <trans-unit id="c7f0b68f-76f0-467d-99c5-bf061c6457cb" xml:space="preserve">
+          <source>You'll see a notification in your Azure account.</source>
+          <target state="new">You'll see a notification in your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="6570ce83-9d8d-4add-af4d-e54afef9ab73" xml:space="preserve">
+          <source>Open the Continuous Export blade and edit your export.</source>
+          <target state="new">Open the Continuous Export blade and edit your export.</target>
+        </trans-unit>
+        <trans-unit id="322cf092-c4f2-41f1-9b91-493f3757ad9f" xml:space="preserve">
+          <source>Edit the Export Destination, but just leave the same storage selected.</source>
+          <target state="new">Edit the Export Destination, but just leave the same storage selected.</target>
+        </trans-unit>
+        <trans-unit id="385d57ef-b98e-46a8-8076-05d3d889eacb" xml:space="preserve">
+          <source>Click OK to confirm.</source>
+          <target state="new">Click OK to confirm.</target>
+        </trans-unit>
+        <trans-unit id="7b72c675-a212-4a47-8fa5-3ef054cadc32" xml:space="preserve">
+          <source><bpt id="d2760034-0e7b-4ae5-9426-6d6a8431abf5">&lt;linkText&gt;</bpt>Edit the continuous export, open and close thee export destination.<ept id="d2760034-0e7b-4ae5-9426-6d6a8431abf5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2760034-0e7b-4ae5-9426-6d6a8431abf5">&lt;linkText&gt;</bpt>Edit the continuous export, open and close thee export destination.<ept id="d2760034-0e7b-4ae5-9426-6d6a8431abf5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4daba57d-bc65-4f40-aa2b-4ce147db5808" xml:space="preserve">
+          <source>The continuous export will restart.</source>
+          <target state="new">The continuous export will restart.</target>
+        </trans-unit>
+        <trans-unit id="a3d4497f-53e7-4971-ae8b-30d35a25bb59" xml:space="preserve">
+          <source><bpt id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;linkText&gt;</bpt>Microsoft Power BI<ept id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;/linkText&gt;</ept><bpt id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;title&gt;</bpt><ept id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;/title&gt;</ept> presents your data in rich and varied visuals, with the ability to bring together information from multiple sources.</source>
+          <target state="new"><bpt id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;linkText&gt;</bpt>Microsoft Power BI<ept id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;/linkText&gt;</ept><bpt id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;title&gt;</bpt><ept id="82c21f43-68c2-4fce-8e24-9048f1e0e235">&lt;/title&gt;</ept> presents your data in rich and varied visuals, with the ability to bring together information from multiple sources.</target>
+        </trans-unit>
+        <trans-unit id="8522b4ff-dee9-423d-badb-8a60586f352e" xml:space="preserve">
+          <source>You can stream telemetry data about the performance and usage of your apps from Application Insights to Power BI.</source>
+          <target state="new">You can stream telemetry data about the performance and usage of your apps from Application Insights to Power BI.</target>
+        </trans-unit>
+        <trans-unit id="a297955c-36d5-441b-8fe5-398aee4e25bc" xml:space="preserve">
+          <source><bpt id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;linkText&gt;</bpt>Stream Application Insights to Power BI<ept id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;/linkText&gt;</ept><bpt id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;title&gt;</bpt><ept id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;linkText&gt;</bpt>Stream Application Insights to Power BI<ept id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;/linkText&gt;</ept><bpt id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;title&gt;</bpt><ept id="a2bddee8-f0e0-46ea-a5f3-6b4b1cdd74d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa83277b-2fc0-4b81-af59-d1591b3fed32" xml:space="preserve">
+          <source><bpt id="67276e7e-840d-4aa9-8478-a8bc7b6a4824">&lt;linkText&gt;</bpt>Sample of Power BI view of Application Insights usage data<ept id="67276e7e-840d-4aa9-8478-a8bc7b6a4824">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67276e7e-840d-4aa9-8478-a8bc7b6a4824">&lt;linkText&gt;</bpt>Sample of Power BI view of Application Insights usage data<ept id="67276e7e-840d-4aa9-8478-a8bc7b6a4824">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9e1f1d7-685e-46b5-bb84-b115b20083bc" xml:space="preserve">
+          <source>Another option is to move the data to a SQL database, where you can perform more powerful analytics.</source>
+          <target state="new">Another option is to move the data to a SQL database, where you can perform more powerful analytics.</target>
+        </trans-unit>
+        <trans-unit id="04252797-3272-4130-b1f8-0f5ccd3c2e16" xml:space="preserve">
+          <source>We have samples showing two alternative methods of moving the data from the blob storage to a database:</source>
+          <target state="new">We have samples showing two alternative methods of moving the data from the blob storage to a database:</target>
+        </trans-unit>
+        <trans-unit id="86a89bfd-7a7b-409d-9baf-8c9b881285cc" xml:space="preserve">
+          <source><bpt id="c56b4714-0097-470a-8945-2bac76b72225">&lt;linkText&gt;</bpt>Export to SQL using a worker role[exportcode]<ept id="c56b4714-0097-470a-8945-2bac76b72225">&lt;/linkText&gt;</ept><bpt id="c56b4714-0097-470a-8945-2bac76b72225">&lt;title&gt;</bpt><ept id="c56b4714-0097-470a-8945-2bac76b72225">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c56b4714-0097-470a-8945-2bac76b72225">&lt;linkText&gt;</bpt>Export to SQL using a worker role[exportcode]<ept id="c56b4714-0097-470a-8945-2bac76b72225">&lt;/linkText&gt;</ept><bpt id="c56b4714-0097-470a-8945-2bac76b72225">&lt;title&gt;</bpt><ept id="c56b4714-0097-470a-8945-2bac76b72225">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce8a358f-e7ce-4e51-98ee-a96464d7635f" xml:space="preserve">
+          <source><bpt id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;linkText&gt;</bpt>Export to SQL using Stream Analytics[exportasa]<ept id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;/linkText&gt;</ept><bpt id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;title&gt;</bpt><ept id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;linkText&gt;</bpt>Export to SQL using Stream Analytics[exportasa]<ept id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;/linkText&gt;</ept><bpt id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;title&gt;</bpt><ept id="2e8ce37d-f96b-49ad-bc36-94d7a7fdb953">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ff64298-91b2-4caa-8982-0e97eeeeb1ed" xml:space="preserve">
+          <source>On larger scales, consider <bpt id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;linkText&gt;</bpt>HDInsight<ept id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;/linkText&gt;</ept><bpt id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;title&gt;</bpt><ept id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;/title&gt;</ept> - Hadoop clusters in the cloud.</source>
+          <target state="new">On larger scales, consider <bpt id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;linkText&gt;</bpt>HDInsight<ept id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;/linkText&gt;</ept><bpt id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;title&gt;</bpt><ept id="6add1eb1-45ed-4745-9548-337ba056db32">&lt;/title&gt;</ept> - Hadoop clusters in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="f5115eb6-85f8-4634-9d94-d8256362ef7a" xml:space="preserve">
+          <source>HDInsight provides a variety of technologies for managing and analyzing big data.</source>
+          <target state="new">HDInsight provides a variety of technologies for managing and analyzing big data.</target>
+        </trans-unit>
+        <trans-unit id="a3dc57ef-9e1f-4a9f-a7c1-8f4461b2d398" xml:space="preserve">
+          <source><bpt id="2edfc45d-fab6-4246-90db-29565d4a81e7">&lt;em&gt;</bpt>But all I want is a one-time download of a chart.<ept id="2edfc45d-fab6-4246-90db-29565d4a81e7">&lt;/em&gt;</ept>  </source>
+          <target state="new"><bpt id="2edfc45d-fab6-4246-90db-29565d4a81e7">&lt;em&gt;</bpt>But all I want is a one-time download of a chart.<ept id="2edfc45d-fab6-4246-90db-29565d4a81e7">&lt;/em&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="cd73c6a3-b32e-4aac-bd3e-87f03b745aa6" xml:space="preserve">
+          <source>Yes, you can do that.</source>
+          <target state="new">Yes, you can do that.</target>
+        </trans-unit>
+        <trans-unit id="85fcd134-2635-48ed-9905-bd4a696401d4" xml:space="preserve">
+          <source>At the top of the blade, click <bpt id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;linkText&gt;</bpt>Export Data<ept id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;/linkText&gt;</ept><bpt id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;title&gt;</bpt><ept id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;/title&gt;</ept>.</source>
+          <target state="new">At the top of the blade, click <bpt id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;linkText&gt;</bpt>Export Data<ept id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;/linkText&gt;</ept><bpt id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;title&gt;</bpt><ept id="166a64ea-1e21-476f-84a3-bebe2f189c00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15e12476-2811-4449-b6de-e8e0925332fb" xml:space="preserve">
+          <source><bpt id="60ba5c03-2bfe-4ab7-95ff-247f0aee9b39">&lt;em&gt;</bpt>I set up an export, but there's no data in my store.<ept id="60ba5c03-2bfe-4ab7-95ff-247f0aee9b39">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="60ba5c03-2bfe-4ab7-95ff-247f0aee9b39">&lt;em&gt;</bpt>I set up an export, but there's no data in my store.<ept id="60ba5c03-2bfe-4ab7-95ff-247f0aee9b39">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36c5f97b-c450-49a0-978b-1d9fb997c9f4" xml:space="preserve">
+          <source>Did Application Insights receive any telemetry from your app since you set up the export?</source>
+          <target state="new">Did Application Insights receive any telemetry from your app since you set up the export?</target>
+        </trans-unit>
+        <trans-unit id="27c987bf-89dc-4f14-adad-8f18a7cc56ea" xml:space="preserve">
+          <source>You'll only receive new data.</source>
+          <target state="new">You'll only receive new data.</target>
+        </trans-unit>
+        <trans-unit id="8349b6f2-f2bf-4653-850d-7724036e0541" xml:space="preserve">
+          <source><bpt id="38e287d7-95d4-426d-bc95-51b75fba8070">&lt;em&gt;</bpt>I tried to set up an export, but was denied access<ept id="38e287d7-95d4-426d-bc95-51b75fba8070">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="38e287d7-95d4-426d-bc95-51b75fba8070">&lt;em&gt;</bpt>I tried to set up an export, but was denied access<ept id="38e287d7-95d4-426d-bc95-51b75fba8070">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e6f502e-3b25-4ea3-b930-c09b11d80ddd" xml:space="preserve">
+          <source>If the account is owned by your organization, you have to be a member of the owners or contributors groups.</source>
+          <target state="new">If the account is owned by your organization, you have to be a member of the owners or contributors groups.</target>
+        </trans-unit>
+        <trans-unit id="d24690f8-38d8-49e7-ae97-806432ef0aab" xml:space="preserve">
+          <source><bpt id="9ece1e4e-2016-4dce-82fd-c43ed84b12de">&lt;em&gt;</bpt>Can I export straight to my own on-premises store?<ept id="9ece1e4e-2016-4dce-82fd-c43ed84b12de">&lt;/em&gt;</ept> </source>
+          <target state="new"><bpt id="9ece1e4e-2016-4dce-82fd-c43ed84b12de">&lt;em&gt;</bpt>Can I export straight to my own on-premises store?<ept id="9ece1e4e-2016-4dce-82fd-c43ed84b12de">&lt;/em&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="db3888f7-d17c-493a-b363-014489d194c8" xml:space="preserve">
+          <source>No, sorry.</source>
+          <target state="new">No, sorry.</target>
+        </trans-unit>
+        <trans-unit id="5d3bbd86-d2ba-4e7f-8c10-59769e059c00" xml:space="preserve">
+          <source>Our export engine currently only works with Azure storage at this time.</source>
+          <target state="new">Our export engine currently only works with Azure storage at this time.</target>
+        </trans-unit>
+        <trans-unit id="ff2cf3c8-5546-46a1-8005-42f7b83e3d73" xml:space="preserve">
+          <source><bpt id="019cb161-1aa3-46a8-96c5-37f7d7a2b0a5">&lt;em&gt;</bpt>Is there any limit to the amount of data you put in my store?<ept id="019cb161-1aa3-46a8-96c5-37f7d7a2b0a5">&lt;/em&gt;</ept> </source>
+          <target state="new"><bpt id="019cb161-1aa3-46a8-96c5-37f7d7a2b0a5">&lt;em&gt;</bpt>Is there any limit to the amount of data you put in my store?<ept id="019cb161-1aa3-46a8-96c5-37f7d7a2b0a5">&lt;/em&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a2a3d234-5268-44e6-a5a0-cc32a3b3261f" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="c1cf03a7-416b-494c-b2cd-3e11f35264df" xml:space="preserve">
+          <source>We'll keep pushing data in until you delete the export.</source>
+          <target state="new">We'll keep pushing data in until you delete the export.</target>
+        </trans-unit>
+        <trans-unit id="a3e5f7df-4360-463d-b69f-f514b0c2d368" xml:space="preserve">
+          <source>We'll stop if we hit the outer limits for blob storage, but that's pretty huge.</source>
+          <target state="new">We'll stop if we hit the outer limits for blob storage, but that's pretty huge.</target>
+        </trans-unit>
+        <trans-unit id="eb8cf044-bd69-4271-87c3-d5b264360500" xml:space="preserve">
+          <source>It's up to you to control how much storage you use.</source>
+          <target state="new">It's up to you to control how much storage you use.</target>
+        </trans-unit>
+        <trans-unit id="e4b6032b-4767-4241-9342-0a429cf89c72" xml:space="preserve">
+          <source><bpt id="cbec4b84-b222-43de-a9ae-c8df146a6859">&lt;em&gt;</bpt>How many blobs should I see in the storage?<ept id="cbec4b84-b222-43de-a9ae-c8df146a6859">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="cbec4b84-b222-43de-a9ae-c8df146a6859">&lt;em&gt;</bpt>How many blobs should I see in the storage?<ept id="cbec4b84-b222-43de-a9ae-c8df146a6859">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4994f78-eede-49ec-a2ea-3622c3c906c2" xml:space="preserve">
+          <source>For every data type you selected to export, a new blob is created every minute (if data is available).</source>
+          <target state="new">For every data type you selected to export, a new blob is created every minute (if data is available).</target>
+        </trans-unit>
+        <trans-unit id="1e0f0572-3e6e-4f29-8591-f9ab5a778281" xml:space="preserve">
+          <source>In addition, for applications with high traffic, additional partition units are allocated.</source>
+          <target state="new">In addition, for applications with high traffic, additional partition units are allocated.</target>
+        </trans-unit>
+        <trans-unit id="cd7b8af9-f5f8-4f07-8537-c8f31977227f" xml:space="preserve">
+          <source>In this case each unit creates a blob every minute.</source>
+          <target state="new">In this case each unit creates a blob every minute.</target>
+        </trans-unit>
+        <trans-unit id="56a53c09-d2d7-4c31-a532-64bb971c045d" xml:space="preserve">
+          <source><bpt id="a7b4b950-47d5-4168-a983-be30ae6d9e10">&lt;em&gt;</bpt>I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.<ept id="a7b4b950-47d5-4168-a983-be30ae6d9e10">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a7b4b950-47d5-4168-a983-be30ae6d9e10">&lt;em&gt;</bpt>I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.<ept id="a7b4b950-47d5-4168-a983-be30ae6d9e10">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1cc77aa-e2bb-499c-b985-48cef01c2b58" xml:space="preserve">
+          <source>Edit the export and open the export destination blade.</source>
+          <target state="new">Edit the export and open the export destination blade.</target>
+        </trans-unit>
+        <trans-unit id="fb78f3de-4bd1-4010-ab0f-fbffb9c09200" xml:space="preserve">
+          <source>Leave the same storage selected as before, and click OK to confirm.</source>
+          <target state="new">Leave the same storage selected as before, and click OK to confirm.</target>
+        </trans-unit>
+        <trans-unit id="1ad3f6f2-4d09-4f4e-8812-5382040911ed" xml:space="preserve">
+          <source>Export will restart.</source>
+          <target state="new">Export will restart.</target>
+        </trans-unit>
+        <trans-unit id="5570a72f-3b3b-4d3b-921d-41d5b8340dce" xml:space="preserve">
+          <source>If the change was within the past few days, you won't lose data.</source>
+          <target state="new">If the change was within the past few days, you won't lose data.</target>
+        </trans-unit>
+        <trans-unit id="f63b383a-ef1c-4fd1-a71f-cee38c1e20f2" xml:space="preserve">
+          <source><bpt id="e6f1b9dc-f7ac-464d-a7f2-eb95b40004f8">&lt;em&gt;</bpt>Can I pause the export?<ept id="e6f1b9dc-f7ac-464d-a7f2-eb95b40004f8">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="e6f1b9dc-f7ac-464d-a7f2-eb95b40004f8">&lt;em&gt;</bpt>Can I pause the export?<ept id="e6f1b9dc-f7ac-464d-a7f2-eb95b40004f8">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="961ab578-bbbc-490e-a5e1-44e0eba6b293" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="76c154b1-5abd-4f22-b0e6-315ebbfce5cc" xml:space="preserve">
+          <source>Click Disable.</source>
+          <target state="new">Click Disable.</target>
+        </trans-unit>
+        <trans-unit id="383bdcf3-65d5-4fb3-8c6e-4b14e9d21304" xml:space="preserve">
+          <source><bpt id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;linkText&gt;</bpt>Stream Application Insights to Power BI<ept id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;/linkText&gt;</ept><bpt id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;title&gt;</bpt><ept id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;linkText&gt;</bpt>Stream Application Insights to Power BI<ept id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;/linkText&gt;</ept><bpt id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;title&gt;</bpt><ept id="1f07b3c3-b699-43c5-855b-1a5cf2bf0089">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e10833aa-50d2-4633-b48f-0fcf90a7ae14" xml:space="preserve">
+          <source><bpt id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;linkText&gt;</bpt>Parse exported JSON using a worker role[exportcode]<ept id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;/linkText&gt;</ept><bpt id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;title&gt;</bpt><ept id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;linkText&gt;</bpt>Parse exported JSON using a worker role[exportcode]<ept id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;/linkText&gt;</ept><bpt id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;title&gt;</bpt><ept id="6ae27500-a2d4-433f-9d9e-ac5667a4260e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b73708b-5de8-48b9-9d50-77cbd0a53c11" xml:space="preserve">
+          <source><bpt id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;linkText&gt;</bpt>Export to SQL using Stream Analytics[exportasa]<ept id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;/linkText&gt;</ept><bpt id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;title&gt;</bpt><ept id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;linkText&gt;</bpt>Export to SQL using Stream Analytics[exportasa]<ept id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;/linkText&gt;</ept><bpt id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;title&gt;</bpt><ept id="01626a63-6f84-4022-aea4-2cc86c708422">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e0fc59c6-6b43-4cef-ae2b-2c603f6e1b07" xml:space="preserve">
+          <source><bpt id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;linkText&gt;</bpt>Detailed data model reference for the property types and values.<ept id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;/linkText&gt;</ept><bpt id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;title&gt;</bpt><ept id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;linkText&gt;</bpt>Detailed data model reference for the property types and values.<ept id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;/linkText&gt;</ept><bpt id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;title&gt;</bpt><ept id="bc0526cc-913b-4705-8031-10fa1b8b6599">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7bf2371-317d-48ab-814b-407f72e7623b" xml:space="preserve">
+          <source>app-insights-code-sample-export-telemetry-sql-database.md</source>
+          <target state="new">app-insights-code-sample-export-telemetry-sql-database.md</target>
+        </trans-unit>
+        <trans-unit id="e28813f9-d3c2-4ca7-8ff4-8d75550f1dcf" xml:space="preserve">
+          <source>app-insights-code-sample-export-sql-stream-analytics.md</source>
+          <target state="new">app-insights-code-sample-export-sql-stream-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="5d7a8ed3-21f9-4fe0-ad73-1a257305bda6" xml:space="preserve">
+          <source>app-insights-resources-roles-access-control.md</source>
+          <target state="new">app-insights-resources-roles-access-control.md</target>
+        </trans-unit>
+      </group>
+      <group id="65dac051-0594-4b8a-ac2b-2e1037abf928" />
+    </body>
+  </file>
+</xliff>

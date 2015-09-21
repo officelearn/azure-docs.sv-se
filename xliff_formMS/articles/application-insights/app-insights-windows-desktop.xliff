@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8b431280-3461-4b31-a849-9415632de646" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8b431280-3461-4b31-a849-9415632de646" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6978661c-e347-4883-8b2f-891023cd602a">
+        <trans-unit id="d63fc2fd-c95b-4415-85dd-773d9d7a00cc" xml:space="preserve">
+          <source>Application Insights for Windows desktop apps and services</source>
+          <target state="new">Application Insights for Windows desktop apps and services</target>
+        </trans-unit>
+        <trans-unit id="855ec75c-3cf6-4f5f-8c72-6b6e57a2e783" xml:space="preserve">
+          <source>Analyze usage and performance of your Windows desktop app with Application Insights.</source>
+          <target state="new">Analyze usage and performance of your Windows desktop app with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="e6554a15-e639-4d99-84ae-013336719172" xml:space="preserve">
+          <source><bpt id="3894c174-910c-4086-957b-ba253f9aa9dd">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="3894c174-910c-4086-957b-ba253f9aa9dd">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="3894c174-910c-4086-957b-ba253f9aa9dd">&lt;em&gt;</bpt>Application Insights is in preview.<ept id="3894c174-910c-4086-957b-ba253f9aa9dd">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34eacd1c-d8c0-4505-a898-bc63104851f5" xml:space="preserve">
+          <source><bpt id="d6a387dd-273d-4335-9687-ea6f60d71541">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="d6a387dd-273d-4335-9687-ea6f60d71541">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d6a387dd-273d-4335-9687-ea6f60d71541">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="d6a387dd-273d-4335-9687-ea6f60d71541">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52d3b0b9-c4af-4c3a-aedb-61cdca52bf90" xml:space="preserve">
+          <source>Application Insights lets you monitor your deployed application for usage and performance.</source>
+          <target state="new">Application Insights lets you monitor your deployed application for usage and performance.</target>
+        </trans-unit>
+        <trans-unit id="08784c1b-97af-4ca0-ad40-9f1f4b46493b" xml:space="preserve">
+          <source>All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights.</source>
+          <target state="new">All Windows applications - including desktop apps, background services, and worker roles - can use the Application Insights core SDK to send telemetry to Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="2967ce09-7dfe-4249-8edc-8e3e0c6e25fb" xml:space="preserve">
+          <source>The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry.</source>
+          <target state="new">The core SDK just provides an API: unlike the Web or device SDKs, it doesn't include any modules that collect data automatically, so you have to write code to send your own telemetry.</target>
+        </trans-unit>
+        <trans-unit id="6bdd00fc-a0be-44c3-8350-1e6457b7f910" xml:space="preserve">
+          <source>In the <bpt id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;/linkText&gt;</ept><bpt id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;title&gt;</bpt><ept id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;/title&gt;</ept>, create a new Application Insights resource.</source>
+          <target state="new">In the <bpt id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;/linkText&gt;</ept><bpt id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;title&gt;</bpt><ept id="98832b13-5d3f-42e1-992f-839dadc55713">&lt;/title&gt;</ept>, create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="02433635-143b-461e-aa6e-7a6bc921deb7" xml:space="preserve">
+          <source>For application type, choose Windows Store app.</source>
+          <target state="new">For application type, choose Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="e856aac0-109f-4e4a-a5de-76e878b712fd" xml:space="preserve">
+          <source><bpt id="1d5a7e7f-559d-46b7-8470-ae94e9bcead8">&lt;linkText&gt;</bpt>Click New, Application Insights<ept id="1d5a7e7f-559d-46b7-8470-ae94e9bcead8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d5a7e7f-559d-46b7-8470-ae94e9bcead8">&lt;linkText&gt;</bpt>Click New, Application Insights<ept id="1d5a7e7f-559d-46b7-8470-ae94e9bcead8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8afd085-58d2-462a-b41b-e3e292fb4b7e" xml:space="preserve">
+          <source>(Your choice of application type sets the content of the Overview blade and the properties available in <bpt id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;linkText&gt;</bpt>metric explorer[metrics]<ept id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;/linkText&gt;</ept><bpt id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;title&gt;</bpt><ept id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(Your choice of application type sets the content of the Overview blade and the properties available in <bpt id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;linkText&gt;</bpt>metric explorer[metrics]<ept id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;/linkText&gt;</ept><bpt id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;title&gt;</bpt><ept id="875e0f2f-5831-41b0-a784-15923baaf64a">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="32a28fba-b436-4a2b-8a83-19044f5f4c14" xml:space="preserve">
+          <source>Take a copy of the Instrumentation Key.</source>
+          <target state="new">Take a copy of the Instrumentation Key.</target>
+        </trans-unit>
+        <trans-unit id="52520a89-f24e-434f-916e-f7302417a547" xml:space="preserve">
+          <source><bpt id="aca176c7-7d6b-4207-bd4d-664f4fd72b1f">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="aca176c7-7d6b-4207-bd4d-664f4fd72b1f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aca176c7-7d6b-4207-bd4d-664f4fd72b1f">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="aca176c7-7d6b-4207-bd4d-664f4fd72b1f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d3371d4-8890-4fe2-a317-4a3331e3af6f" xml:space="preserve">
+          <source>In Visual Studio, edit the NuGet packages of your desktop app project.</source>
+          <target state="new">In Visual Studio, edit the NuGet packages of your desktop app project.</target>
+        </trans-unit>
+        <trans-unit id="d6b46925-363d-49d5-ae16-f5df39e081f4" xml:space="preserve">
+          <source><bpt id="bb55d04c-f082-40cf-9a54-e27d2b8a7a55">&lt;linkText&gt;</bpt>Right-click the project and select Manage Nuget Packages<ept id="bb55d04c-f082-40cf-9a54-e27d2b8a7a55">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb55d04c-f082-40cf-9a54-e27d2b8a7a55">&lt;linkText&gt;</bpt>Right-click the project and select Manage Nuget Packages<ept id="bb55d04c-f082-40cf-9a54-e27d2b8a7a55">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77c3ad17-8608-4e3b-a4ab-9cc2fe501f49" xml:space="preserve">
+          <source>Install the Application Insights Core API package.</source>
+          <target state="new">Install the Application Insights Core API package.</target>
+        </trans-unit>
+        <trans-unit id="8054863c-4efe-43ed-9c27-d282c3128914" xml:space="preserve">
+          <source><bpt id="55838bde-ad3f-4e52-96d3-e9e384b38d82">&lt;linkText&gt;</bpt>Search for "Application Insights"<ept id="55838bde-ad3f-4e52-96d3-e9e384b38d82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55838bde-ad3f-4e52-96d3-e9e384b38d82">&lt;linkText&gt;</bpt>Search for "Application Insights"<ept id="55838bde-ad3f-4e52-96d3-e9e384b38d82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="868f389d-fa30-4843-bd86-5230d8e019ee" xml:space="preserve">
+          <source>You can install other packages such as the Performance Counter or log capture packages if you want to use their facilities.</source>
+          <target state="new">You can install other packages such as the Performance Counter or log capture packages if you want to use their facilities.</target>
+        </trans-unit>
+        <trans-unit id="f91391ca-4391-4c75-80f8-04f1c3c16d1a" xml:space="preserve">
+          <source>Set your InstrumentationKey in code, for example in main().</source>
+          <target state="new">Set your InstrumentationKey in code, for example in main().</target>
+        </trans-unit>
+        <trans-unit id="bb4e1af8-dd8c-4a5a-9de4-10d7adb94880" xml:space="preserve">
+          <source><bpt id="19a5b829-b819-46ac-83a2-4897e51f3ada">&lt;code&gt;</bpt>TelemetryConfiguration.Active.InstrumentationKey = "your key";<ept id="19a5b829-b819-46ac-83a2-4897e51f3ada">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="19a5b829-b819-46ac-83a2-4897e51f3ada">&lt;code&gt;</bpt>TelemetryConfiguration.Active.InstrumentationKey = "your key";<ept id="19a5b829-b819-46ac-83a2-4897e51f3ada">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b46c7e1-789b-461c-8856-0daabc46c383" xml:space="preserve">
+          <source><bpt id="a43532a1-f3ce-416a-b3f7-85aa94071d69">&lt;em&gt;</bpt>Why isn't there an ApplicationInsights.config?<ept id="a43532a1-f3ce-416a-b3f7-85aa94071d69">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a43532a1-f3ce-416a-b3f7-85aa94071d69">&lt;em&gt;</bpt>Why isn't there an ApplicationInsights.config?<ept id="a43532a1-f3ce-416a-b3f7-85aa94071d69">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dac8effb-c042-481e-a630-9c39c1eccc7f" xml:space="preserve">
+          <source>The .config file isn't installed by the Core API package, which is only used to configure telemetry collectors.</source>
+          <target state="new">The .config file isn't installed by the Core API package, which is only used to configure telemetry collectors.</target>
+        </trans-unit>
+        <trans-unit id="da402ce4-978c-425b-a3e0-42f0f84f9768" xml:space="preserve">
+          <source>So you write your own code to set the instrumentation key and send telemetry.</source>
+          <target state="new">So you write your own code to set the instrumentation key and send telemetry.</target>
+        </trans-unit>
+        <trans-unit id="ce947c8d-5373-4535-8682-183cf429d3dd" xml:space="preserve">
+          <source>If you installed one of the other packages, you will have a .config file.</source>
+          <target state="new">If you installed one of the other packages, you will have a .config file.</target>
+        </trans-unit>
+        <trans-unit id="5a841f9b-4a67-4512-87c9-a3b56b33f610" xml:space="preserve">
+          <source>You can insert the instrumentation key there instead of setting it in code.</source>
+          <target state="new">You can insert the instrumentation key there instead of setting it in code.</target>
+        </trans-unit>
+        <trans-unit id="13f9c297-31cf-432d-9b86-f0b23560341f" xml:space="preserve">
+          <source><bpt id="19cadafe-1a5f-4964-99e6-2bbf10e90423">&lt;em&gt;</bpt>Could I use a different NuGet package?<ept id="19cadafe-1a5f-4964-99e6-2bbf10e90423">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="19cadafe-1a5f-4964-99e6-2bbf10e90423">&lt;em&gt;</bpt>Could I use a different NuGet package?<ept id="19cadafe-1a5f-4964-99e6-2bbf10e90423">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b9f2d4f-dad9-4300-b088-a348cf743c63" xml:space="preserve">
+          <source>Yes, you could use the web server package (Microsoft.ApplicationInsights.Web), which would install collectors for a variety of collection modules such as performance counters.</source>
+          <target state="new">Yes, you could use the web server package (Microsoft.ApplicationInsights.Web), which would install collectors for a variety of collection modules such as performance counters.</target>
+        </trans-unit>
+        <trans-unit id="ae04e670-83a8-4367-811d-00a1f7b5d772" xml:space="preserve">
+          <source>It would install a .config file, where you would put your instrumentation key.</source>
+          <target state="new">It would install a .config file, where you would put your instrumentation key.</target>
+        </trans-unit>
+        <trans-unit id="377f0138-6d2b-42ab-8a17-5206399a142f" xml:space="preserve">
+          <source>Use  <bpt id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;linkText&gt;</bpt>ApplicationInsights.config to disable modules you don't want<ept id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;/linkText&gt;</ept><bpt id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;title&gt;</bpt><ept id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;/title&gt;</ept>, such as the HTTP Request collector.</source>
+          <target state="new">Use  <bpt id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;linkText&gt;</bpt>ApplicationInsights.config to disable modules you don't want<ept id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;/linkText&gt;</ept><bpt id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;title&gt;</bpt><ept id="ea9f43d4-0b92-4ece-8d90-bee281fb9c80">&lt;/title&gt;</ept>, such as the HTTP Request collector.</target>
+        </trans-unit>
+        <trans-unit id="0d626a9b-6c4f-4066-8a91-ffa52d726a1b" xml:space="preserve">
+          <source>If you want to use the <bpt id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;linkText&gt;</bpt>log or trace collector packages<ept id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;/linkText&gt;</ept><bpt id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;title&gt;</bpt><ept id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;/title&gt;</ept>, start with the web server package.</source>
+          <target state="new">If you want to use the <bpt id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;linkText&gt;</bpt>log or trace collector packages<ept id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;/linkText&gt;</ept><bpt id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;title&gt;</bpt><ept id="7520935b-d9e7-4822-b26d-dbffe15f4053">&lt;/title&gt;</ept>, start with the web server package.</target>
+        </trans-unit>
+        <trans-unit id="748f34ff-da6d-4dfe-9410-535fc247c76e" xml:space="preserve">
+          <source>Create a <bpt id="294a219b-5cfe-48f7-b75d-063d8c38b59d">&lt;code&gt;</bpt>TelemetryClient<ept id="294a219b-5cfe-48f7-b75d-063d8c38b59d">&lt;/code&gt;</ept> instance and then <bpt id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;linkText&gt;</bpt>use it to send telemetry[api]<ept id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;/linkText&gt;</ept><bpt id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;title&gt;</bpt><ept id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create a <bpt id="294a219b-5cfe-48f7-b75d-063d8c38b59d">&lt;code&gt;</bpt>TelemetryClient<ept id="294a219b-5cfe-48f7-b75d-063d8c38b59d">&lt;/code&gt;</ept> instance and then <bpt id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;linkText&gt;</bpt>use it to send telemetry[api]<ept id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;/linkText&gt;</ept><bpt id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;title&gt;</bpt><ept id="f749ac35-5385-4521-a5f6-1b9f28e2ac0f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02356801-aa42-48d9-bddc-7da7d59d5dfb" xml:space="preserve">
+          <source>For example, in a Windows Forms application, you could write:</source>
+          <target state="new">For example, in a Windows Forms application, you could write:</target>
+        </trans-unit>
+        <trans-unit id="94c55887-cb8f-4ecd-b20d-33b66224b5b6" xml:space="preserve">
+          <source>Use any of the <bpt id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;linkText&gt;</bpt>Application Insights API[api]<ept id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;/linkText&gt;</ept><bpt id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;title&gt;</bpt><ept id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;/title&gt;</ept> to send telemetry.</source>
+          <target state="new">Use any of the <bpt id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;linkText&gt;</bpt>Application Insights API[api]<ept id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;/linkText&gt;</ept><bpt id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;title&gt;</bpt><ept id="5311aee9-a841-46fe-a11c-554072d89af1">&lt;/title&gt;</ept> to send telemetry.</target>
+        </trans-unit>
+        <trans-unit id="f90f3c55-8ed4-4a64-bbdc-7a1d26237c6b" xml:space="preserve">
+          <source>In Windows Desktop applications, no telemetry is sent automatically.</source>
+          <target state="new">In Windows Desktop applications, no telemetry is sent automatically.</target>
+        </trans-unit>
+        <trans-unit id="a8609552-42f9-481a-8c40-2627953ead13" xml:space="preserve">
+          <source>Typically you'd use:</source>
+          <target state="new">Typically you'd use:</target>
+        </trans-unit>
+        <trans-unit id="e7f89f0c-1128-4185-af6b-b1243d33b080" xml:space="preserve">
+          <source>TrackPageView(pageName) on switching forms, pages, or tabs</source>
+          <target state="new">TrackPageView(pageName) on switching forms, pages, or tabs</target>
+        </trans-unit>
+        <trans-unit id="336ba6e1-1d7d-4bc5-8c69-644963ae24e8" xml:space="preserve">
+          <source>TrackEvent(eventName) for other user actions</source>
+          <target state="new">TrackEvent(eventName) for other user actions</target>
+        </trans-unit>
+        <trans-unit id="efa58b52-4a30-4d2e-bd26-b1767daf3b02" xml:space="preserve">
+          <source>TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.</source>
+          <target state="new">TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events.</target>
+        </trans-unit>
+        <trans-unit id="b9f159f9-131a-4881-a04f-987c774f064f" xml:space="preserve">
+          <source>TrackTrace(logEvent) for <bpt id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;linkText&gt;</bpt>diagnostic logging[diagnostic]<ept id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;/linkText&gt;</ept><bpt id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;title&gt;</bpt><ept id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;/title&gt;</ept></source>
+          <target state="new">TrackTrace(logEvent) for <bpt id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;linkText&gt;</bpt>diagnostic logging[diagnostic]<ept id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;/linkText&gt;</ept><bpt id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;title&gt;</bpt><ept id="7ebb480e-015a-475c-b405-a8e002b5c6a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae265562-80bf-451f-b8c1-3b3de171b9d7" xml:space="preserve">
+          <source>TrackException(exception) in catch clauses</source>
+          <target state="new">TrackException(exception) in catch clauses</target>
+        </trans-unit>
+        <trans-unit id="bcd631b3-3b18-4d00-b999-8f46a087e481" xml:space="preserve">
+          <source>To make sure all telemetry is sent before closing the app, use <bpt id="17bc7d36-1eb0-46b9-bba0-6ab86a669350">&lt;code&gt;</bpt>TelemetryClient.Flush()<ept id="17bc7d36-1eb0-46b9-bba0-6ab86a669350">&lt;/code&gt;</ept>.</source>
+          <target state="new">To make sure all telemetry is sent before closing the app, use <bpt id="17bc7d36-1eb0-46b9-bba0-6ab86a669350">&lt;code&gt;</bpt>TelemetryClient.Flush()<ept id="17bc7d36-1eb0-46b9-bba0-6ab86a669350">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2bdbc63-2643-491f-9163-4cb6c7d2e108" xml:space="preserve">
+          <source>Normally, telemetry is batched and sent at regular intervals.</source>
+          <target state="new">Normally, telemetry is batched and sent at regular intervals.</target>
+        </trans-unit>
+        <trans-unit id="ef9405d3-bb93-42e8-8fef-dbd78c690981" xml:space="preserve">
+          <source>(Flush is recommended only if you are using just the core API.</source>
+          <target state="new">(Flush is recommended only if you are using just the core API.</target>
+        </trans-unit>
+        <trans-unit id="48ce3295-0b4c-436d-b1f9-57f2c3e25e32" xml:space="preserve">
+          <source>The web and device SDKs implement this behavior automatically.)</source>
+          <target state="new">The web and device SDKs implement this behavior automatically.)</target>
+        </trans-unit>
+        <trans-unit id="f9fd14ed-865b-4a2d-b9e0-d3b00c41952a" xml:space="preserve">
+          <source>To see counts of users and sessions you can set the values on each <bpt id="2d1b97c1-30d9-494d-9d67-60cf301404f6">&lt;code&gt;</bpt>TelemetryClient<ept id="2d1b97c1-30d9-494d-9d67-60cf301404f6">&lt;/code&gt;</ept> instance.</source>
+          <target state="new">To see counts of users and sessions you can set the values on each <bpt id="2d1b97c1-30d9-494d-9d67-60cf301404f6">&lt;code&gt;</bpt>TelemetryClient<ept id="2d1b97c1-30d9-494d-9d67-60cf301404f6">&lt;/code&gt;</ept> instance.</target>
+        </trans-unit>
+        <trans-unit id="3e888f2c-209f-4e6b-98b4-8ba17d12f4e1" xml:space="preserve">
+          <source>Alternatively, you can use a context initializer to perform this addition for all clients:</source>
+          <target state="new">Alternatively, you can use a context initializer to perform this addition for all clients:</target>
+        </trans-unit>
+        <trans-unit id="7d1f5345-c8c4-4ba2-b03e-4250ee0087e7" xml:space="preserve">
+          <source><bpt id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;linkText&gt;</bpt>Run your application with F5<ept id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;/linkText&gt;</ept><bpt id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;title&gt;</bpt><ept id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;/title&gt;</ept> and use it, so as to generate some telemetry.</source>
+          <target state="new"><bpt id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;linkText&gt;</bpt>Run your application with F5<ept id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;/linkText&gt;</ept><bpt id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;title&gt;</bpt><ept id="33f04db3-83e2-455d-bf76-51d31416a03b">&lt;/title&gt;</ept> and use it, so as to generate some telemetry.</target>
+        </trans-unit>
+        <trans-unit id="ab4e0c64-9a80-471c-8b24-b0d3c4b3fac9" xml:space="preserve">
+          <source>In Visual Studio, you'll see a count of the events that have been sent.</source>
+          <target state="new">In Visual Studio, you'll see a count of the events that have been sent.</target>
+        </trans-unit>
+        <trans-unit id="3e2cd429-ed82-4b50-8424-430f098deb5c" xml:space="preserve">
+          <source><bpt id="cb13e158-d6be-4792-aed6-0683416db6d4">&lt;linkText&gt;</bpt><ept id="cb13e158-d6be-4792-aed6-0683416db6d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb13e158-d6be-4792-aed6-0683416db6d4">&lt;linkText&gt;</bpt><ept id="cb13e158-d6be-4792-aed6-0683416db6d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a145dd97-9cbf-4682-8dc5-e5411726665f" xml:space="preserve">
+          <source>Return to your application blade in the Azure portal.</source>
+          <target state="new">Return to your application blade in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="6cf66011-8c85-485f-bb16-82979df058dd" xml:space="preserve">
+          <source>The first events will appear in Diagnostic Search.</source>
+          <target state="new">The first events will appear in Diagnostic Search.</target>
+        </trans-unit>
+        <trans-unit id="f2a87efd-dcc3-4c31-9e0e-ee2aa1d27fe4" xml:space="preserve">
+          <source>Click Refresh after a few seconds if you're expecting more data.</source>
+          <target state="new">Click Refresh after a few seconds if you're expecting more data.</target>
+        </trans-unit>
+        <trans-unit id="fa1b898b-c25e-472a-ad73-724ee46cf786" xml:space="preserve">
+          <source>If you used TrackMetric or the measurements parameter of TrackEvent, open <bpt id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;/linkText&gt;</ept><bpt id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;title&gt;</bpt><ept id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;/title&gt;</ept> and open the Filters blade, where you'll see your metrics.</source>
+          <target state="new">If you used TrackMetric or the measurements parameter of TrackEvent, open <bpt id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;/linkText&gt;</ept><bpt id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;title&gt;</bpt><ept id="e36011c7-a2e0-4f87-bd3f-d6825eb48e79">&lt;/title&gt;</ept> and open the Filters blade, where you'll see your metrics.</target>
+        </trans-unit>
+        <trans-unit id="367106eb-b7eb-46a0-aefa-0509549419a5" xml:space="preserve">
+          <source><bpt id="ad293b98-2888-4443-926d-2a019222a939">&lt;linkText&gt;</bpt>Track usage of your app[knowusers]<ept id="ad293b98-2888-4443-926d-2a019222a939">&lt;/linkText&gt;</ept><bpt id="ad293b98-2888-4443-926d-2a019222a939">&lt;title&gt;</bpt><ept id="ad293b98-2888-4443-926d-2a019222a939">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad293b98-2888-4443-926d-2a019222a939">&lt;linkText&gt;</bpt>Track usage of your app[knowusers]<ept id="ad293b98-2888-4443-926d-2a019222a939">&lt;/linkText&gt;</ept><bpt id="ad293b98-2888-4443-926d-2a019222a939">&lt;title&gt;</bpt><ept id="ad293b98-2888-4443-926d-2a019222a939">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="264b3b26-2f55-4057-98b8-4cadbf1a35d9" xml:space="preserve">
+          <source><bpt id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;linkText&gt;</bpt>Capture and search diagnostic logs[diagnostic]<ept id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;/linkText&gt;</ept><bpt id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;title&gt;</bpt><ept id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;linkText&gt;</bpt>Capture and search diagnostic logs[diagnostic]<ept id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;/linkText&gt;</ept><bpt id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;title&gt;</bpt><ept id="ce61aa26-1dc5-47b1-b28f-8bb8b29f340b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73a171c6-8f66-4cb4-a30e-f4ea463a5a74" xml:space="preserve">
+          <source><bpt id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;/linkText&gt;</ept><bpt id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;title&gt;</bpt><ept id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;/linkText&gt;</ept><bpt id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;title&gt;</bpt><ept id="3f0a6845-c7b6-41e4-8fe6-972f293f0e0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff8024c9-08ae-45b7-8233-bc85f4a4c61f" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="f23b3a88-0708-49e6-a218-8d60fbe98ed5" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="0a2cd4d7-f8fb-4703-bb1d-3203667fc8dc" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="e7292b9c-9988-4ef9-a658-31f477fde6ed" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="132f0d04-1180-449d-bfa3-fd1561094eae" xml:space="preserve">
+          <source>app-insights-overview-usage.md</source>
+          <target state="new">app-insights-overview-usage.md</target>
+        </trans-unit>
+        <trans-unit id="05f28134-140d-4964-af6b-c15db1812905" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="20ab2874-5f45-4484-acae-565f8fc858fc" xml:space="preserve">
+          <source>https://www.nuget.org/packages/Microsoft.ApplicationInsights</source>
+          <target state="new">https://www.nuget.org/packages/Microsoft.ApplicationInsights</target>
+        </trans-unit>
+      </group>
+      <group id="6c72059f-1eb5-4df2-a7c3-85887cc8cb13" />
+    </body>
+  </file>
+</xliff>

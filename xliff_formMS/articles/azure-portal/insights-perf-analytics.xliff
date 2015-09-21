@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9881678d-e63e-4b57-9b1e-c0eb0cbee06c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9881678d-e63e-4b57-9b1e-c0eb0cbee06c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2eb303b0-9b1c-4232-a085-1296c8dcaf50">
+        <trans-unit id="dacc0cbb-c564-428d-abe6-129e18144576" xml:space="preserve">
+          <source>Monitor Azure web app performance</source>
+          <target state="new">Monitor Azure web app performance</target>
+        </trans-unit>
+        <trans-unit id="e8f1caef-9eb8-472e-8705-80f2c239831b" xml:space="preserve">
+          <source>Chart load and response time, dependency information and set alerts on performance.</source>
+          <target state="new">Chart load and response time, dependency information and set alerts on performance.</target>
+        </trans-unit>
+        <trans-unit id="87dc0a5f-8b29-4d9c-8ca2-72c73e4d681d" xml:space="preserve">
+          <source>In the <bpt id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;linkText&gt;</bpt>Azure Portal<ept id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;/linkText&gt;</ept><bpt id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;title&gt;</bpt><ept id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;/title&gt;</ept> you can set up monitoring to collect the  statistics and details on the application dependencies in your <bpt id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;linkText&gt;</bpt>Azure web apps<ept id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;/linkText&gt;</ept><bpt id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;title&gt;</bpt><ept id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;/title&gt;</ept> or <bpt id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;linkText&gt;</bpt>virtual machines<ept id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;/linkText&gt;</ept><bpt id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;title&gt;</bpt><ept id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;linkText&gt;</bpt>Azure Portal<ept id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;/linkText&gt;</ept><bpt id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;title&gt;</bpt><ept id="7faf6fde-d646-4264-9b69-3fc5f75283d1">&lt;/title&gt;</ept> you can set up monitoring to collect the  statistics and details on the application dependencies in your <bpt id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;linkText&gt;</bpt>Azure web apps<ept id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;/linkText&gt;</ept><bpt id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;title&gt;</bpt><ept id="ac329f27-a9c0-4dae-a232-da3a3304a747">&lt;/title&gt;</ept> or <bpt id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;linkText&gt;</bpt>virtual machines<ept id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;/linkText&gt;</ept><bpt id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;title&gt;</bpt><ept id="bb4fc7a5-d133-4b29-b22e-a8d41c052542">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e098fd2a-d44b-40c7-ac8c-c0e2411bba1e" xml:space="preserve">
+          <source>Azure supports Application performance monitoring (or, <bpt id="0f05910c-9ae7-47c9-b686-56ea187c3dcb">&lt;em&gt;</bpt>APM<ept id="0f05910c-9ae7-47c9-b686-56ea187c3dcb">&lt;/em&gt;</ept>) by leveraging <bpt id="94625173-0c91-4126-860a-9f658432ba79">&lt;em&gt;</bpt>extensions<ept id="94625173-0c91-4126-860a-9f658432ba79">&lt;/em&gt;</ept>.</source>
+          <target state="new">Azure supports Application performance monitoring (or, <bpt id="0f05910c-9ae7-47c9-b686-56ea187c3dcb">&lt;em&gt;</bpt>APM<ept id="0f05910c-9ae7-47c9-b686-56ea187c3dcb">&lt;/em&gt;</ept>) by leveraging <bpt id="94625173-0c91-4126-860a-9f658432ba79">&lt;em&gt;</bpt>extensions<ept id="94625173-0c91-4126-860a-9f658432ba79">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa30971c-8189-4ff1-ae75-9d4a321d2fb5" xml:space="preserve">
+          <source>These extensions are installed into your application and collect the data and report back to the monitoring services.</source>
+          <target state="new">These extensions are installed into your application and collect the data and report back to the monitoring services.</target>
+        </trans-unit>
+        <trans-unit id="3b56d1bb-ba41-4c0e-8a51-d70a45dc29df" xml:space="preserve">
+          <source>Application Insights and New Relic are two of the performance monitoring extensions that are available.</source>
+          <target state="new">Application Insights and New Relic are two of the performance monitoring extensions that are available.</target>
+        </trans-unit>
+        <trans-unit id="8af776a5-d01c-4e55-be9c-1122e7135c26" xml:space="preserve">
+          <source>To use New Relic, you install an agent at runtime.</source>
+          <target state="new">To use New Relic, you install an agent at runtime.</target>
+        </trans-unit>
+        <trans-unit id="4484699b-0713-44c6-bfcd-4bc7d03b8b4d" xml:space="preserve">
+          <source>To use Application Insights, you rebuild your code with an SDK; and you can also install an extension that provides access to additional data.</source>
+          <target state="new">To use Application Insights, you rebuild your code with an SDK; and you can also install an extension that provides access to additional data.</target>
+        </trans-unit>
+        <trans-unit id="ac9587e5-ce2e-4f15-811a-c3cd7d153e7f" xml:space="preserve">
+          <source>The SDK lets you write code to monitor the usage and performance of your app in more detail.</source>
+          <target state="new">The SDK lets you write code to monitor the usage and performance of your app in more detail.</target>
+        </trans-unit>
+        <trans-unit id="2b3d4f97-4263-4c53-8d0b-2b2c005c264b" xml:space="preserve">
+          <source>Click <bpt id="fcd3896e-3848-41eb-b889-6167a21915bb">&lt;strong&gt;</bpt>Browse<ept id="fcd3896e-3848-41eb-b889-6167a21915bb">&lt;/strong&gt;</ept> and select the web app or virtual machine you would like to instrument.</source>
+          <target state="new">Click <bpt id="fcd3896e-3848-41eb-b889-6167a21915bb">&lt;strong&gt;</bpt>Browse<ept id="fcd3896e-3848-41eb-b889-6167a21915bb">&lt;/strong&gt;</ept> and select the web app or virtual machine you would like to instrument.</target>
+        </trans-unit>
+        <trans-unit id="9ec84808-16c2-4529-abb0-090d70944b00" xml:space="preserve">
+          <source>Add the Application Insights or the New Relic extension.</source>
+          <target state="new">Add the Application Insights or the New Relic extension.</target>
+        </trans-unit>
+        <trans-unit id="120d62a4-1e57-4d76-af60-8e426d9f92e8" xml:space="preserve">
+          <source>If you're instrumenting a web app:</source>
+          <target state="new">If you're instrumenting a web app:</target>
+        </trans-unit>
+        <trans-unit id="01ad1bd0-48ce-4586-b3ce-41ac99dff42d" xml:space="preserve">
+          <source><bpt id="0f4efd7c-c92c-4dec-959c-0f71db480b71">&lt;linkText&gt;</bpt>Settings, Extensions, Add, Application Insights<ept id="0f4efd7c-c92c-4dec-959c-0f71db480b71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f4efd7c-c92c-4dec-959c-0f71db480b71">&lt;linkText&gt;</bpt>Settings, Extensions, Add, Application Insights<ept id="0f4efd7c-c92c-4dec-959c-0f71db480b71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f28e6bbe-23ee-4942-baf8-c20b92573177" xml:space="preserve">
+          <source>Or if you're using a virtual machine:</source>
+          <target state="new">Or if you're using a virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="9f3524c6-5c2b-4149-8413-e95fe6984fbf" xml:space="preserve">
+          <source><bpt id="634d3289-5de3-41b6-b905-2eb76ccaccd8">&lt;linkText&gt;</bpt>Click the Analytics tile<ept id="634d3289-5de3-41b6-b905-2eb76ccaccd8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="634d3289-5de3-41b6-b905-2eb76ccaccd8">&lt;linkText&gt;</bpt>Click the Analytics tile<ept id="634d3289-5de3-41b6-b905-2eb76ccaccd8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94aa7b9c-0e0f-4daa-9c8c-c4720bed1cb2" xml:space="preserve">
+          <source>Application Insights works by installing an SDK into your app.</source>
+          <target state="new">Application Insights works by installing an SDK into your app.</target>
+        </trans-unit>
+        <trans-unit id="19960a24-a738-4003-92cb-5ad43a70e568" xml:space="preserve">
+          <source>In Visual Studio, add the Application Insights SDK to your project.</source>
+          <target state="new">In Visual Studio, add the Application Insights SDK to your project.</target>
+        </trans-unit>
+        <trans-unit id="ffc338b0-606f-4d9e-9dcf-2c6d06eba8bb" xml:space="preserve">
+          <source><bpt id="7527910d-2627-4ba4-8dd9-feaf020e8e8a">&lt;linkText&gt;</bpt>Right-click the web project and choose Add Application Insights<ept id="7527910d-2627-4ba4-8dd9-feaf020e8e8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7527910d-2627-4ba4-8dd9-feaf020e8e8a">&lt;linkText&gt;</bpt>Right-click the web project and choose Add Application Insights<ept id="7527910d-2627-4ba4-8dd9-feaf020e8e8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c512519d-b38c-406c-bb38-cb114170884b" xml:space="preserve">
+          <source>When you're asked to login, use the credentials for your Azure account.</source>
+          <target state="new">When you're asked to login, use the credentials for your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="0766dc47-fcc7-446d-8a67-3087271ce68c" xml:space="preserve">
+          <source>You can test the telemetry by running the app in your development machine, or you can just go ahead and republish it.</source>
+          <target state="new">You can test the telemetry by running the app in your development machine, or you can just go ahead and republish it.</target>
+        </trans-unit>
+        <trans-unit id="bae93c49-8cd5-40a5-af3d-d3253d4b7558" xml:space="preserve">
+          <source>The SDK provides an API so that you can <bpt id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;linkText&gt;</bpt>write custom telemetry<ept id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;/linkText&gt;</ept><bpt id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;title&gt;</bpt><ept id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;/title&gt;</ept> to track usage.</source>
+          <target state="new">The SDK provides an API so that you can <bpt id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;linkText&gt;</bpt>write custom telemetry<ept id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;/linkText&gt;</ept><bpt id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;title&gt;</bpt><ept id="5cf45f03-e3d7-4680-b1db-e58307b240c1">&lt;/title&gt;</ept> to track usage.</target>
+        </trans-unit>
+        <trans-unit id="a7aa602b-705f-47a9-805f-a3481e1c7574" xml:space="preserve">
+          <source>Use your application for a while to generate some telemetry.</source>
+          <target state="new">Use your application for a while to generate some telemetry.</target>
+        </trans-unit>
+        <trans-unit id="dc7f81c1-85cc-4c39-b477-c8dbf1e40060" xml:space="preserve">
+          <source>Then, from your web app or virtual machine blade, you'll see the extension installed.</source>
+          <target state="new">Then, from your web app or virtual machine blade, you'll see the extension installed.</target>
+        </trans-unit>
+        <trans-unit id="ca17db32-95ea-4523-84a7-e35b1095d208" xml:space="preserve">
+          <source>Click on the row that represents your application to navigate to that provider:
+<bpt id="5bcd25d9-a0e5-4743-a389-a7a58c3c27b6">&lt;linkText&gt;</bpt>Click Refresh<ept id="5bcd25d9-a0e5-4743-a389-a7a58c3c27b6">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on the row that represents your application to navigate to that provider:
+<bpt id="5bcd25d9-a0e5-4743-a389-a7a58c3c27b6">&lt;linkText&gt;</bpt>Click Refresh<ept id="5bcd25d9-a0e5-4743-a389-a7a58c3c27b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1381281-0110-491c-a282-95599cf62e6f" xml:space="preserve">
+          <source>You can also use <bpt id="dc2cad98-87e3-4656-9ad4-f772529a4c3b">&lt;strong&gt;</bpt>Browse<ept id="dc2cad98-87e3-4656-9ad4-f772529a4c3b">&lt;/strong&gt;</ept> to go directly to the Application Insights component or New Relic account that you used.</source>
+          <target state="new">You can also use <bpt id="dc2cad98-87e3-4656-9ad4-f772529a4c3b">&lt;strong&gt;</bpt>Browse<ept id="dc2cad98-87e3-4656-9ad4-f772529a4c3b">&lt;/strong&gt;</ept> to go directly to the Application Insights component or New Relic account that you used.</target>
+        </trans-unit>
+        <trans-unit id="99120a5e-11c9-4a57-9c83-0808920a936d" xml:space="preserve">
+          <source>Once you get to the blade, for Application Insights, for example, you can:</source>
+          <target state="new">Once you get to the blade, for Application Insights, for example, you can:</target>
+        </trans-unit>
+        <trans-unit id="ca5f34ca-25c8-4a8c-9da9-bebfae10b650" xml:space="preserve">
+          <source>Open Performance:</source>
+          <target state="new">Open Performance:</target>
+        </trans-unit>
+        <trans-unit id="e59b967d-c256-462d-9d8c-befa4d59519e" xml:space="preserve">
+          <source><bpt id="f38588bb-2d0e-45ad-a0af-1b4680cb0bf9">&lt;linkText&gt;</bpt>On the Application Insights overview blade, click the Performance tile<ept id="f38588bb-2d0e-45ad-a0af-1b4680cb0bf9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f38588bb-2d0e-45ad-a0af-1b4680cb0bf9">&lt;linkText&gt;</bpt>On the Application Insights overview blade, click the Performance tile<ept id="f38588bb-2d0e-45ad-a0af-1b4680cb0bf9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="981fdcbd-ece6-498b-b0c7-570406cc5787" xml:space="preserve">
+          <source>Drill through to see individual requests:</source>
+          <target state="new">Drill through to see individual requests:</target>
+        </trans-unit>
+        <trans-unit id="4da8b2c9-3ff0-418e-a801-c192e92d58a9" xml:space="preserve">
+          <source><bpt id="010acbad-cfff-49ed-aae2-6d07d72b6be7">&lt;linkText&gt;</bpt>In the grid, click a dependency to see related requests.<ept id="010acbad-cfff-49ed-aae2-6d07d72b6be7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="010acbad-cfff-49ed-aae2-6d07d72b6be7">&lt;linkText&gt;</bpt>In the grid, click a dependency to see related requests.<ept id="010acbad-cfff-49ed-aae2-6d07d72b6be7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf8d766c-7039-46e0-b337-8365ba44a42d" xml:space="preserve">
+          <source>Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation.</source>
+          <target state="new">Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation.</target>
+        </trans-unit>
+        <trans-unit id="7df3e067-066c-469e-b26c-c098ed5de8c9" xml:space="preserve">
+          <source><bpt id="32871595-1c0d-43ff-8681-9e0de3b67fdd">&lt;linkText&gt;</bpt><ept id="32871595-1c0d-43ff-8681-9e0de3b67fdd">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="32871595-1c0d-43ff-8681-9e0de3b67fdd">&lt;linkText&gt;</bpt><ept id="32871595-1c0d-43ff-8681-9e0de3b67fdd">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d83dff06-7be0-431f-b196-eafd18bd3af4" xml:space="preserve">
+          <source><bpt id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;linkText&gt;</bpt>Monitor service health metrics<ept id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;/linkText&gt;</ept><bpt id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;title&gt;</bpt><ept id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;/title&gt;</ept> to make sure your service is available and responsive.</source>
+          <target state="new"><bpt id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;linkText&gt;</bpt>Monitor service health metrics<ept id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;/linkText&gt;</ept><bpt id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;title&gt;</bpt><ept id="6f6778e6-7337-4c4e-ae7a-94bafcae2260">&lt;/title&gt;</ept> to make sure your service is available and responsive.</target>
+        </trans-unit>
+        <trans-unit id="a3d71f68-a1b4-46a4-ae41-e057e5ba8bdb" xml:space="preserve">
+          <source><bpt id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;/linkText&gt;</ept><bpt id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;title&gt;</bpt><ept id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</source>
+          <target state="new"><bpt id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;linkText&gt;</bpt>Enable monitoring and diagnostics<ept id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;/linkText&gt;</ept><bpt id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;title&gt;</bpt><ept id="ec1ba301-865c-4a87-95d4-91136de92085">&lt;/title&gt;</ept> to collect detailed high-frequency metrics on your service.</target>
+        </trans-unit>
+        <trans-unit id="c99a56ce-5b0d-439d-8c66-099c8d23fb7d" xml:space="preserve">
+          <source><bpt id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;/linkText&gt;</ept><bpt id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;title&gt;</bpt><ept id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</source>
+          <target state="new"><bpt id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;/linkText&gt;</ept><bpt id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;title&gt;</bpt><ept id="f57129f5-5856-483f-901f-aa76b70083e8">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</target>
+        </trans-unit>
+        <trans-unit id="5ddf7146-1f8e-42d6-aee3-e5a08db660c2" xml:space="preserve">
+          <source>Use <bpt id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;linkText&gt;</bpt>Application Insights for JavaScript apps and web pages<ept id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;/linkText&gt;</ept><bpt id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;title&gt;</bpt><ept id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;/title&gt;</ept> to get client analytics about the browsers that visit a web page.</source>
+          <target state="new">Use <bpt id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;linkText&gt;</bpt>Application Insights for JavaScript apps and web pages<ept id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;/linkText&gt;</ept><bpt id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;title&gt;</bpt><ept id="cb0ae1cb-8fea-43da-aa55-c763f5e0097a">&lt;/title&gt;</ept> to get client analytics about the browsers that visit a web page.</target>
+        </trans-unit>
+        <trans-unit id="868e7e69-612a-49ac-a45a-d8b1e1d31615" xml:space="preserve">
+          <source><bpt id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;/linkText&gt;</ept><bpt id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;title&gt;</bpt><ept id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</source>
+          <target state="new"><bpt id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;linkText&gt;</bpt>Monitor availability and responsiveness of any web page<ept id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;/linkText&gt;</ept><bpt id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;title&gt;</bpt><ept id="221e78f3-a7b6-439f-81e5-008faf4600a3">&lt;/title&gt;</ept> with Application Insights so you can find out if your page is down.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

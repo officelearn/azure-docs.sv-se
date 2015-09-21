@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7208aa39-8dbd-4436-a7ed-438839cb72d2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7208aa39-8dbd-4436-a7ed-438839cb72d2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="714e9f21-f629-4da5-8fd5-59a9b1dca821">
+        <trans-unit id="1bb36843-8f66-43ee-9f20-88700e197f63" xml:space="preserve">
+          <source>Introduction to Apache Storm on HDInsight | Microsoft Azure</source>
+          <target state="new">Introduction to Apache Storm on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9cf9839d-6cec-43c3-99c8-8e52aae3b855" xml:space="preserve">
+          <source>Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud.</source>
+          <target state="new">Get an introduction to Apache Storm, and learn how you can use Storm on HDInsight to build real-time data analytics solutions in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="cafe534c-f60f-4f37-a9b5-958d8c00c952" xml:space="preserve">
+          <source>Apache Storm on HDInsight allows you to create distributed, real-time analytics solutions in the Azure environment by using <bpt id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;linkText&gt;</bpt>Apache Hadoop<ept id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;/linkText&gt;</ept><bpt id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;title&gt;</bpt><ept id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">Apache Storm on HDInsight allows you to create distributed, real-time analytics solutions in the Azure environment by using <bpt id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;linkText&gt;</bpt>Apache Hadoop<ept id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;/linkText&gt;</ept><bpt id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;title&gt;</bpt><ept id="681eb39b-5a24-4be4-8264-31e5f1af60ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22d83e9b-6af9-46ac-90b9-0aad582ba8e5" xml:space="preserve">
+          <source>Apache Storm is a distributed, fault-tolerant, open-source computation system that allows you to process data in real-time with Hadoop.</source>
+          <target state="new">Apache Storm is a distributed, fault-tolerant, open-source computation system that allows you to process data in real-time with Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="f96d1dfc-c175-4c78-8dea-370b2d67caff" xml:space="preserve">
+          <source>Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.</source>
+          <target state="new">Storm solutions can also provide guaranteed processing of data, with the ability to replay data that was not successfully processed the first time.</target>
+        </trans-unit>
+        <trans-unit id="6e1b657c-6f7c-421f-86f4-c2e7ac21de03" xml:space="preserve">
+          <source>Apache Storm on HDInsight is a managed cluster integrated into the Azure environment.</source>
+          <target state="new">Apache Storm on HDInsight is a managed cluster integrated into the Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="515d2734-5148-4571-aedb-f4b2595fde3f" xml:space="preserve">
+          <source>It provides the following key benefits:</source>
+          <target state="new">It provides the following key benefits:</target>
+        </trans-unit>
+        <trans-unit id="3c81301f-2238-4a1e-b43a-370953e513dc" xml:space="preserve">
+          <source>Performs as a managed service with an SLA of 99.9% up time</source>
+          <target state="new">Performs as a managed service with an SLA of 99.9% up time</target>
+        </trans-unit>
+        <trans-unit id="8996cb59-38f9-42ab-a2d1-1a2ee71c100a" xml:space="preserve">
+          <source>Use the language of your choice: Provides support for Storm components written in <bpt id="39e10a5c-50ef-42db-a506-1530617e9c71">&lt;strong&gt;</bpt>Java<ept id="39e10a5c-50ef-42db-a506-1530617e9c71">&lt;/strong&gt;</ept>, <bpt id="9c3b5c2d-ffc5-4526-aedc-03a92a517319">&lt;strong&gt;</bpt>C#<ept id="9c3b5c2d-ffc5-4526-aedc-03a92a517319">&lt;/strong&gt;</ept>, and <bpt id="8833839b-cf98-48e2-a8e0-ca7b77bccebd">&lt;strong&gt;</bpt>Python<ept id="8833839b-cf98-48e2-a8e0-ca7b77bccebd">&lt;/strong&gt;</ept></source>
+          <target state="new">Use the language of your choice: Provides support for Storm components written in <bpt id="39e10a5c-50ef-42db-a506-1530617e9c71">&lt;strong&gt;</bpt>Java<ept id="39e10a5c-50ef-42db-a506-1530617e9c71">&lt;/strong&gt;</ept>, <bpt id="9c3b5c2d-ffc5-4526-aedc-03a92a517319">&lt;strong&gt;</bpt>C#<ept id="9c3b5c2d-ffc5-4526-aedc-03a92a517319">&lt;/strong&gt;</ept>, and <bpt id="8833839b-cf98-48e2-a8e0-ca7b77bccebd">&lt;strong&gt;</bpt>Python<ept id="8833839b-cf98-48e2-a8e0-ca7b77bccebd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3788914-f350-486b-bd3f-c2a65717e01b" xml:space="preserve">
+          <source>Supports a mix of programming languages: Read data using Java, then process it using C#</source>
+          <target state="new">Supports a mix of programming languages: Read data using Java, then process it using C#</target>
+        </trans-unit>
+        <trans-unit id="064df285-26e7-4bbf-9f86-4709dc903853" xml:space="preserve">
+          <source>Use the <bpt id="2e911752-9d9f-4a7f-9c07-a6a475420759">&lt;strong&gt;</bpt>Trident<ept id="2e911752-9d9f-4a7f-9c07-a6a475420759">&lt;/strong&gt;</ept> Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations</source>
+          <target state="new">Use the <bpt id="2e911752-9d9f-4a7f-9c07-a6a475420759">&lt;strong&gt;</bpt>Trident<ept id="2e911752-9d9f-4a7f-9c07-a6a475420759">&lt;/strong&gt;</ept> Java interface to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations</target>
+        </trans-unit>
+        <trans-unit id="2a472469-88ab-4546-879b-51a1ab7aec15" xml:space="preserve">
+          <source>Includes built-in scale-up and scale-down features: Scale an HDInsight cluster with no impact to running Storm topologies</source>
+          <target state="new">Includes built-in scale-up and scale-down features: Scale an HDInsight cluster with no impact to running Storm topologies</target>
+        </trans-unit>
+        <trans-unit id="6bcfb884-8ccc-4df9-bc72-a4cde7c02d6d" xml:space="preserve">
+          <source>Integrate with other Azure services, including Event Hub, Azure Virtual Network, SQL Database, Blob storage, and DocumentDB</source>
+          <target state="new">Integrate with other Azure services, including Event Hub, Azure Virtual Network, SQL Database, Blob storage, and DocumentDB</target>
+        </trans-unit>
+        <trans-unit id="adc68956-aeee-42d4-948d-4500a47934a4" xml:space="preserve">
+          <source>Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters</source>
+          <target state="new">Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters</target>
+        </trans-unit>
+        <trans-unit id="28ffb096-5447-43af-b50e-6d4f5c91a9cb" xml:space="preserve">
+          <source>For a list of companies that are using Apache Storm for their real-time analytics solutions, see <bpt id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;linkText&gt;</bpt>Companies Using Apache Storm<ept id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;/linkText&gt;</ept><bpt id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;title&gt;</bpt><ept id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of companies that are using Apache Storm for their real-time analytics solutions, see <bpt id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;linkText&gt;</bpt>Companies Using Apache Storm<ept id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;/linkText&gt;</ept><bpt id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;title&gt;</bpt><ept id="84b6ad6e-44f6-496a-9fa0-89366b474001">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6965a7bf-cddb-42ee-a94a-8443d8b61ed3" xml:space="preserve">
+          <source>To get started using Storm, see <bpt id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;linkText&gt;</bpt>Get started with Storm on HDInsight[gettingstarted]<ept id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;/linkText&gt;</ept><bpt id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;title&gt;</bpt><ept id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started using Storm, see <bpt id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;linkText&gt;</bpt>Get started with Storm on HDInsight[gettingstarted]<ept id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;/linkText&gt;</ept><bpt id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;title&gt;</bpt><ept id="26a66d2e-c2ce-49c6-98e7-dedfd10cb956">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37cfb5b6-e66a-4de9-85fe-553d7717c74b" xml:space="preserve">
+          <source>You can provision a new Storm on HDInsight cluster in minutes.</source>
+          <target state="new">You can provision a new Storm on HDInsight cluster in minutes.</target>
+        </trans-unit>
+        <trans-unit id="20e789b0-110b-4ff2-8ddf-2787e0a2eabc" xml:space="preserve">
+          <source>Specify the cluster name, size, administrator account, and the storage account.</source>
+          <target state="new">Specify the cluster name, size, administrator account, and the storage account.</target>
+        </trans-unit>
+        <trans-unit id="4936de44-c00d-4f31-8be0-e96239277745" xml:space="preserve">
+          <source>Azure will create the cluster, including sample topologies and a web-management dashboard.</source>
+          <target state="new">Azure will create the cluster, including sample topologies and a web-management dashboard.</target>
+        </trans-unit>
+        <trans-unit id="50b554fd-8fdf-4033-8cd3-03615325f438" xml:space="preserve">
+          <source>You can also provision Storm clusters by using the <bpt id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;linkText&gt;</bpt>Azure CLI<ept id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;/linkText&gt;</ept><bpt id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;title&gt;</bpt><ept id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;/title&gt;</ept> or <bpt id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;/linkText&gt;</ept><bpt id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;title&gt;</bpt><ept id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also provision Storm clusters by using the <bpt id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;linkText&gt;</bpt>Azure CLI<ept id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;/linkText&gt;</ept><bpt id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;title&gt;</bpt><ept id="4bf8d8e3-0529-421b-8ba0-f45b5d1b037a">&lt;/title&gt;</ept> or <bpt id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;/linkText&gt;</ept><bpt id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;title&gt;</bpt><ept id="57e74299-5f9d-4822-8f4a-a06f17e89517">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd2bd377-8d4c-48c6-8fb6-96f84da16467" xml:space="preserve">
+          <source>Within 15 minutes of submitting the request, you will have a new Storm cluster running and ready for your first real-time analytics pipeline.</source>
+          <target state="new">Within 15 minutes of submitting the request, you will have a new Storm cluster running and ready for your first real-time analytics pipeline.</target>
+        </trans-unit>
+        <trans-unit id="26acf2f8-94d9-47b9-94c2-e3e7af953bec" xml:space="preserve">
+          <source>If you use Visual Studio, the HDInsight Tools for Visual Studio allow you to create C# and hybrid C#/Java topologies, and then submit them to your Storm on HDInsight cluster.</source>
+          <target state="new">If you use Visual Studio, the HDInsight Tools for Visual Studio allow you to create C# and hybrid C#/Java topologies, and then submit them to your Storm on HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="24b8db3c-6106-4b75-9727-8bb788791d23" xml:space="preserve">
+          <source><bpt id="a8394c0d-4e0f-4243-a44f-4b88953cd2a7">&lt;linkText&gt;</bpt>Storm Project creation<ept id="a8394c0d-4e0f-4243-a44f-4b88953cd2a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a8394c0d-4e0f-4243-a44f-4b88953cd2a7">&lt;linkText&gt;</bpt>Storm Project creation<ept id="a8394c0d-4e0f-4243-a44f-4b88953cd2a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8937eb9e-6840-422c-92eb-04c66dd48efb" xml:space="preserve">
+          <source>HDInsight Tools for Visual Studio also provides an interface that allows you to monitor and manage Storm topologies on a cluster.</source>
+          <target state="new">HDInsight Tools for Visual Studio also provides an interface that allows you to monitor and manage Storm topologies on a cluster.</target>
+        </trans-unit>
+        <trans-unit id="6542ca11-4479-4d5a-b660-a300b683e51e" xml:space="preserve">
+          <source><bpt id="b24b3d03-2606-4bc0-92f9-a7b0c1a2aa77">&lt;linkText&gt;</bpt>Storm management<ept id="b24b3d03-2606-4bc0-92f9-a7b0c1a2aa77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b24b3d03-2606-4bc0-92f9-a7b0c1a2aa77">&lt;linkText&gt;</bpt>Storm management<ept id="b24b3d03-2606-4bc0-92f9-a7b0c1a2aa77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9234a716-2c5c-4d94-9a72-2d3fe6f78f2f" xml:space="preserve">
+          <source>For an example of using the HDInsight Tools to create a Storm application, see <bpt id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;linkText&gt;</bpt>Develop C# Storm topologies with the HDInsight Tools for Visual Studio<ept id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;/linkText&gt;</ept><bpt id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;title&gt;</bpt><ept id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of using the HDInsight Tools to create a Storm application, see <bpt id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;linkText&gt;</bpt>Develop C# Storm topologies with the HDInsight Tools for Visual Studio<ept id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;/linkText&gt;</ept><bpt id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;title&gt;</bpt><ept id="3d62e9d0-100d-42c7-a2b9-9067f86cf845">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ef28f7a-408c-4f8f-97e4-a411bbca032a" xml:space="preserve">
+          <source>For more information about the HDInsight Tools for Visual Studio, see <bpt id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;linkText&gt;</bpt>Get started using the HDInsight Tools for Visual Studio<ept id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;/linkText&gt;</ept><bpt id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;title&gt;</bpt><ept id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the HDInsight Tools for Visual Studio, see <bpt id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;linkText&gt;</bpt>Get started using the HDInsight Tools for Visual Studio<ept id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;/linkText&gt;</ept><bpt id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;title&gt;</bpt><ept id="28554d8b-a0ce-4ce1-91e5-8b41d2e22ea5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8f1476e-e540-481c-82d1-f225cedad600" xml:space="preserve">
+          <source>Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that allows you to submit, monitor, and manage Storm topologies running on the cluster.</source>
+          <target state="new">Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that allows you to submit, monitor, and manage Storm topologies running on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="dd3495a9-2bfd-49fc-9e52-16a998f4def5" xml:space="preserve">
+          <source><bpt id="90d8ee67-7028-49f1-a978-cce64600c1d2">&lt;linkText&gt;</bpt>Storm dashboard<ept id="90d8ee67-7028-49f1-a978-cce64600c1d2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="90d8ee67-7028-49f1-a978-cce64600c1d2">&lt;linkText&gt;</bpt>Storm dashboard<ept id="90d8ee67-7028-49f1-a978-cce64600c1d2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ab3fc1e-2f53-4b7c-8c03-3ac1c5943941" xml:space="preserve">
+          <source>For more information about using the Storm Dashboard, see <bpt id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies on HDInsight<ept id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;/linkText&gt;</ept><bpt id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;title&gt;</bpt><ept id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using the Storm Dashboard, see <bpt id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies on HDInsight<ept id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;/linkText&gt;</ept><bpt id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;title&gt;</bpt><ept id="0218beb0-3a0d-4738-bb38-9d406808dfd3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7479b79-68da-45e3-9402-a94887d12a9a" xml:space="preserve">
+          <source>Storm on HDInsight also provides easy integration with Azure Event Hubs through the <bpt id="5611da5a-cffe-4ccd-99aa-e7e7714c9260">&lt;strong&gt;</bpt>Event Hub Spout<ept id="5611da5a-cffe-4ccd-99aa-e7e7714c9260">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Storm on HDInsight also provides easy integration with Azure Event Hubs through the <bpt id="5611da5a-cffe-4ccd-99aa-e7e7714c9260">&lt;strong&gt;</bpt>Event Hub Spout<ept id="5611da5a-cffe-4ccd-99aa-e7e7714c9260">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e12d05c-09c2-4823-9944-0205ab4242b6" xml:space="preserve">
+          <source>This is available on each storm cluster at <bpt id="a42611ab-d271-423f-b39b-844b9fe8efa3">&lt;strong&gt;</bpt>%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar<ept id="a42611ab-d271-423f-b39b-844b9fe8efa3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This is available on each storm cluster at <bpt id="a42611ab-d271-423f-b39b-844b9fe8efa3">&lt;strong&gt;</bpt>%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar<ept id="a42611ab-d271-423f-b39b-844b9fe8efa3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="600a997c-6925-43ce-90ea-720d4df19a46" xml:space="preserve">
+          <source>For examples of using this spout in a Storm topology, see <bpt id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;linkText&gt;</bpt>Getting started with Event Hubs<ept id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;/linkText&gt;</ept><bpt id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;title&gt;</bpt><ept id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;/title&gt;</ept> and <bpt id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase<ept id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;/linkText&gt;</ept><bpt id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;title&gt;</bpt><ept id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;/title&gt;</ept>.</source>
+          <target state="new">For examples of using this spout in a Storm topology, see <bpt id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;linkText&gt;</bpt>Getting started with Event Hubs<ept id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;/linkText&gt;</ept><bpt id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;title&gt;</bpt><ept id="d12abcd5-b7f2-4bb5-8b34-2624f305cac5">&lt;/title&gt;</ept> and <bpt id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase<ept id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;/linkText&gt;</ept><bpt id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;title&gt;</bpt><ept id="f6b1a150-9911-4510-a00e-6befda31d762">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c730ab80-3ee9-42c6-81e7-3aa33f46c91e" xml:space="preserve">
+          <source>Apache Storm always guarantees that each incoming message will be fully processed, even when the data analysis is spread over hundreds of nodes.</source>
+          <target state="new">Apache Storm always guarantees that each incoming message will be fully processed, even when the data analysis is spread over hundreds of nodes.</target>
+        </trans-unit>
+        <trans-unit id="4a2efa97-c31c-4c6a-b4ca-a809c2d2ca81" xml:space="preserve">
+          <source>The <bpt id="0ba047d2-d2ba-4167-abbc-ed06b23a6f75">&lt;strong&gt;</bpt>Nimbus node<ept id="0ba047d2-d2ba-4167-abbc-ed06b23a6f75">&lt;/strong&gt;</ept> provides similar functionality to the Hadoop JobTracker, and it assigns tasks to other nodes in the cluster through <bpt id="d1ae7914-f9ad-4501-98a8-e03805b7b6b2">&lt;strong&gt;</bpt>Zookeeper<ept id="d1ae7914-f9ad-4501-98a8-e03805b7b6b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="0ba047d2-d2ba-4167-abbc-ed06b23a6f75">&lt;strong&gt;</bpt>Nimbus node<ept id="0ba047d2-d2ba-4167-abbc-ed06b23a6f75">&lt;/strong&gt;</ept> provides similar functionality to the Hadoop JobTracker, and it assigns tasks to other nodes in the cluster through <bpt id="d1ae7914-f9ad-4501-98a8-e03805b7b6b2">&lt;strong&gt;</bpt>Zookeeper<ept id="d1ae7914-f9ad-4501-98a8-e03805b7b6b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67afb465-25aa-4bb5-84e2-4ea981afa9c0" xml:space="preserve">
+          <source>Zookeeper nodes provide coordination for the cluster and facilitate communication between Nimbus and the <bpt id="546537f4-63f7-4a31-bdb0-2fc14ac4d29c">&lt;strong&gt;</bpt>Supervisor<ept id="546537f4-63f7-4a31-bdb0-2fc14ac4d29c">&lt;/strong&gt;</ept> process on the worker nodes.</source>
+          <target state="new">Zookeeper nodes provide coordination for the cluster and facilitate communication between Nimbus and the <bpt id="546537f4-63f7-4a31-bdb0-2fc14ac4d29c">&lt;strong&gt;</bpt>Supervisor<ept id="546537f4-63f7-4a31-bdb0-2fc14ac4d29c">&lt;/strong&gt;</ept> process on the worker nodes.</target>
+        </trans-unit>
+        <trans-unit id="23fc559e-7fff-4a22-a3ef-fb799f3fb18e" xml:space="preserve">
+          <source>If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.</source>
+          <target state="new">If one processing node goes down, the Nimbus node is informed, and it assigns the task and associated data to another node.</target>
+        </trans-unit>
+        <trans-unit id="a4a99519-de32-44e9-874b-3d1dc40132ba" xml:space="preserve">
+          <source>The default configuration for Apache Storm is to have only one Nimbus node.</source>
+          <target state="new">The default configuration for Apache Storm is to have only one Nimbus node.</target>
+        </trans-unit>
+        <trans-unit id="70da8e95-1203-4be2-9022-ee06bafb6b5c" xml:space="preserve">
+          <source>Storm on HDInsight runs two Nimbus nodes.</source>
+          <target state="new">Storm on HDInsight runs two Nimbus nodes.</target>
+        </trans-unit>
+        <trans-unit id="788298a7-debb-4e8f-a7ee-50f14660396f" xml:space="preserve">
+          <source>If the primary node fails, the HDInsight cluster will switch to the secondary node while the primary node is recovered.</source>
+          <target state="new">If the primary node fails, the HDInsight cluster will switch to the secondary node while the primary node is recovered.</target>
+        </trans-unit>
+        <trans-unit id="6a27ae9a-8843-432a-bbe4-a666dcdcb053" xml:space="preserve">
+          <source><bpt id="9aefdb33-faea-4a2c-a71a-97466d32a703">&lt;linkText&gt;</bpt>Diagram of nimbus, zookeeper, and supervisor<ept id="9aefdb33-faea-4a2c-a71a-97466d32a703">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9aefdb33-faea-4a2c-a71a-97466d32a703">&lt;linkText&gt;</bpt>Diagram of nimbus, zookeeper, and supervisor<ept id="9aefdb33-faea-4a2c-a71a-97466d32a703">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf6a4318-6e53-4cf1-9ba9-c63eb89b696b" xml:space="preserve">
+          <source>Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload.</source>
+          <target state="new">Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match workload.</target>
+        </trans-unit>
+        <trans-unit id="337469ac-eb7f-4a89-b549-15ca49202cb9" xml:space="preserve">
+          <source>All HDInsight clusters allow you to change the number of nodes in the cluster, even while processing data.</source>
+          <target state="new">All HDInsight clusters allow you to change the number of nodes in the cluster, even while processing data.</target>
+        </trans-unit>
+        <trans-unit id="2823c90d-7587-4da8-897b-572fe3ed0457" xml:space="preserve">
+          <source>To take advantage of new nodes added through scaling, you will need to rebalance topologies started before the cluster size was increased.</source>
+          <target state="new">To take advantage of new nodes added through scaling, you will need to rebalance topologies started before the cluster size was increased.</target>
+        </trans-unit>
+        <trans-unit id="69c3fadc-90d0-4eb3-81ec-5422e09efee9" xml:space="preserve">
+          <source>Storm on HDInsight comes with full enterprise-level 24/7 support.</source>
+          <target state="new">Storm on HDInsight comes with full enterprise-level 24/7 support.</target>
+        </trans-unit>
+        <trans-unit id="84f9feab-63df-448c-85a2-67c138695a4f" xml:space="preserve">
+          <source>Storm on HDInsight also has an SLA of 99.9%.</source>
+          <target state="new">Storm on HDInsight also has an SLA of 99.9%.</target>
+        </trans-unit>
+        <trans-unit id="5948751c-6308-4c25-918f-79a5db8050b3" xml:space="preserve">
+          <source>That means we guarantee that the cluster will have external connectivity at least 99.9% of the time.</source>
+          <target state="new">That means we guarantee that the cluster will have external connectivity at least 99.9% of the time.</target>
+        </trans-unit>
+        <trans-unit id="eeec245d-f778-47ee-9734-ecf74453a8ed" xml:space="preserve">
+          <source>The following are some common scenarios for which you might use Apache storm on HDInsight.</source>
+          <target state="new">The following are some common scenarios for which you might use Apache storm on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="0fa937cb-fa6a-46d5-a3a2-9827632dc8a4" xml:space="preserve">
+          <source>For information about real-world scenarios, read <bpt id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;linkText&gt;</bpt>How companies are using Storm<ept id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;/linkText&gt;</ept><bpt id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;title&gt;</bpt><ept id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about real-world scenarios, read <bpt id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;linkText&gt;</bpt>How companies are using Storm<ept id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;/linkText&gt;</ept><bpt id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;title&gt;</bpt><ept id="a1638708-922a-4d9d-851f-6ba4cc330849">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f0e10de-b3ca-4716-a7d9-d23c640166aa" xml:space="preserve">
+          <source>Internet of Things (IoT)</source>
+          <target state="new">Internet of Things (IoT)</target>
+        </trans-unit>
+        <trans-unit id="3d0833f8-823d-4cb3-8ca3-53b4ac78cc8a" xml:space="preserve">
+          <source>Fraud detection</source>
+          <target state="new">Fraud detection</target>
+        </trans-unit>
+        <trans-unit id="23707c8c-e560-4fd9-9323-54d8b6b0404c" xml:space="preserve">
+          <source>Social analytics</source>
+          <target state="new">Social analytics</target>
+        </trans-unit>
+        <trans-unit id="07d9b790-2d3b-4ac2-b148-6e57c1799567" xml:space="preserve">
+          <source>Extract, Transform, Load (ETL)</source>
+          <target state="new">Extract, Transform, Load (ETL)</target>
+        </trans-unit>
+        <trans-unit id="42e42170-a5ca-4cce-af06-3e345ac2a931" xml:space="preserve">
+          <source>Network monitoring</source>
+          <target state="new">Network monitoring</target>
+        </trans-unit>
+        <trans-unit id="4dcec44a-0157-41c3-b442-deddf27ff037" xml:space="preserve">
+          <source>Search</source>
+          <target state="new">Search</target>
+        </trans-unit>
+        <trans-unit id="6983868e-041d-42f4-9651-9a11f6ba24b1" xml:space="preserve">
+          <source>Mobile engagement</source>
+          <target state="new">Mobile engagement</target>
+        </trans-unit>
+        <trans-unit id="77ceda20-a061-4b3e-9346-71f2a1de227c" xml:space="preserve">
+          <source>Apache Storm runs <bpt id="98d67dce-e014-4a7a-8358-b8eaeff7f6ac">&lt;strong&gt;</bpt>topologies<ept id="98d67dce-e014-4a7a-8358-b8eaeff7f6ac">&lt;/strong&gt;</ept> instead of the MapReduce jobs that you may be familiar with in HDInsight or Hadoop.</source>
+          <target state="new">Apache Storm runs <bpt id="98d67dce-e014-4a7a-8358-b8eaeff7f6ac">&lt;strong&gt;</bpt>topologies<ept id="98d67dce-e014-4a7a-8358-b8eaeff7f6ac">&lt;/strong&gt;</ept> instead of the MapReduce jobs that you may be familiar with in HDInsight or Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="a05a33ab-1ce4-4722-a402-0dd98fa3bff7" xml:space="preserve">
+          <source>A Storm on HDInsight cluster contains two types of nodes: head nodes that run <bpt id="10b57acf-4063-49fb-916c-13192f4ae06b">&lt;strong&gt;</bpt>Nimbus<ept id="10b57acf-4063-49fb-916c-13192f4ae06b">&lt;/strong&gt;</ept> and worker nodes that run <bpt id="0e705c39-9975-4450-bdbf-c47ce5c00568">&lt;strong&gt;</bpt>Supervisor<ept id="0e705c39-9975-4450-bdbf-c47ce5c00568">&lt;/strong&gt;</ept>.</source>
+          <target state="new">A Storm on HDInsight cluster contains two types of nodes: head nodes that run <bpt id="10b57acf-4063-49fb-916c-13192f4ae06b">&lt;strong&gt;</bpt>Nimbus<ept id="10b57acf-4063-49fb-916c-13192f4ae06b">&lt;/strong&gt;</ept> and worker nodes that run <bpt id="0e705c39-9975-4450-bdbf-c47ce5c00568">&lt;strong&gt;</bpt>Supervisor<ept id="0e705c39-9975-4450-bdbf-c47ce5c00568">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dda053e5-c254-4aa7-9f92-19a85c6613d4" xml:space="preserve">
+          <source><bpt id="219e5641-e1fb-486a-a78e-6eeaaefbe3f4">&lt;strong&gt;</bpt>Nimbus<ept id="219e5641-e1fb-486a-a78e-6eeaaefbe3f4">&lt;/strong&gt;</ept>: Similar to the JobTracker in Hadoop, it is responsible for distributing code throughout the cluster, assigning tasks to virtual machines, and monitoring for failure.</source>
+          <target state="new"><bpt id="219e5641-e1fb-486a-a78e-6eeaaefbe3f4">&lt;strong&gt;</bpt>Nimbus<ept id="219e5641-e1fb-486a-a78e-6eeaaefbe3f4">&lt;/strong&gt;</ept>: Similar to the JobTracker in Hadoop, it is responsible for distributing code throughout the cluster, assigning tasks to virtual machines, and monitoring for failure.</target>
+        </trans-unit>
+        <trans-unit id="0cd20363-7d86-4cb0-8a3d-93c3cc93f709" xml:space="preserve">
+          <source>HDInsight provides two Nimbus nodes, so there is no single point of failure for Storm on HDInsight</source>
+          <target state="new">HDInsight provides two Nimbus nodes, so there is no single point of failure for Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="38e0bfd4-6305-4117-8e71-5d3d4c68e452" xml:space="preserve">
+          <source><bpt id="dd9a3f6d-9d42-404b-85be-98977c3619b1">&lt;strong&gt;</bpt>Supervisor<ept id="dd9a3f6d-9d42-404b-85be-98977c3619b1">&lt;/strong&gt;</ept>: The supervisor for each worker node is responsible for starting and stopping <bpt id="0cc1b2b4-bc5a-4c36-ac5b-96d8c36df25a">&lt;strong&gt;</bpt>worker processes<ept id="0cc1b2b4-bc5a-4c36-ac5b-96d8c36df25a">&lt;/strong&gt;</ept> on the node.</source>
+          <target state="new"><bpt id="dd9a3f6d-9d42-404b-85be-98977c3619b1">&lt;strong&gt;</bpt>Supervisor<ept id="dd9a3f6d-9d42-404b-85be-98977c3619b1">&lt;/strong&gt;</ept>: The supervisor for each worker node is responsible for starting and stopping <bpt id="0cc1b2b4-bc5a-4c36-ac5b-96d8c36df25a">&lt;strong&gt;</bpt>worker processes<ept id="0cc1b2b4-bc5a-4c36-ac5b-96d8c36df25a">&lt;/strong&gt;</ept> on the node.</target>
+        </trans-unit>
+        <trans-unit id="be3b3848-9d19-47d0-b2b5-4d8553c91a4b" xml:space="preserve">
+          <source><bpt id="8287b37a-dde9-4a5f-86cd-128bc17ce13f">&lt;strong&gt;</bpt>Worker process<ept id="8287b37a-dde9-4a5f-86cd-128bc17ce13f">&lt;/strong&gt;</ept>: Runs a subset of a <bpt id="1f46cc46-c847-4ecb-a083-7d8a7f7275ae">&lt;strong&gt;</bpt>topology<ept id="1f46cc46-c847-4ecb-a083-7d8a7f7275ae">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8287b37a-dde9-4a5f-86cd-128bc17ce13f">&lt;strong&gt;</bpt>Worker process<ept id="8287b37a-dde9-4a5f-86cd-128bc17ce13f">&lt;/strong&gt;</ept>: Runs a subset of a <bpt id="1f46cc46-c847-4ecb-a083-7d8a7f7275ae">&lt;strong&gt;</bpt>topology<ept id="1f46cc46-c847-4ecb-a083-7d8a7f7275ae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6eaa4e2e-4808-4d82-b4a7-0b806ab035f8" xml:space="preserve">
+          <source>A running topology is distributed across many worker processes throughout the cluster.</source>
+          <target state="new">A running topology is distributed across many worker processes throughout the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d5e3b981-e239-4e99-88d0-b80eedfe12f2" xml:space="preserve">
+          <source><bpt id="edbc71f2-fdb4-4282-ac51-117e943ba608">&lt;strong&gt;</bpt>Topology<ept id="edbc71f2-fdb4-4282-ac51-117e943ba608">&lt;/strong&gt;</ept>: Defines a graph of computation that processes <bpt id="63a09dd7-54ad-4f72-9622-689c46387e77">&lt;strong&gt;</bpt>streams<ept id="63a09dd7-54ad-4f72-9622-689c46387e77">&lt;/strong&gt;</ept> of data.</source>
+          <target state="new"><bpt id="edbc71f2-fdb4-4282-ac51-117e943ba608">&lt;strong&gt;</bpt>Topology<ept id="edbc71f2-fdb4-4282-ac51-117e943ba608">&lt;/strong&gt;</ept>: Defines a graph of computation that processes <bpt id="63a09dd7-54ad-4f72-9622-689c46387e77">&lt;strong&gt;</bpt>streams<ept id="63a09dd7-54ad-4f72-9622-689c46387e77">&lt;/strong&gt;</ept> of data.</target>
+        </trans-unit>
+        <trans-unit id="ee6232d3-67b1-4cee-9c3b-82a9909bc66a" xml:space="preserve">
+          <source>Unlike MapReduce jobs, topologies run until you stop them.</source>
+          <target state="new">Unlike MapReduce jobs, topologies run until you stop them.</target>
+        </trans-unit>
+        <trans-unit id="0d2e2406-96b4-429e-9e58-160c2e59459b" xml:space="preserve">
+          <source><bpt id="ccabe39d-5f2a-4b64-bcb7-511b039c7a3b">&lt;strong&gt;</bpt>Stream<ept id="ccabe39d-5f2a-4b64-bcb7-511b039c7a3b">&lt;/strong&gt;</ept>: An unbound collection of <bpt id="e5f175f1-c25d-49de-b799-4681810f9306">&lt;strong&gt;</bpt>tuples<ept id="e5f175f1-c25d-49de-b799-4681810f9306">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ccabe39d-5f2a-4b64-bcb7-511b039c7a3b">&lt;strong&gt;</bpt>Stream<ept id="ccabe39d-5f2a-4b64-bcb7-511b039c7a3b">&lt;/strong&gt;</ept>: An unbound collection of <bpt id="e5f175f1-c25d-49de-b799-4681810f9306">&lt;strong&gt;</bpt>tuples<ept id="e5f175f1-c25d-49de-b799-4681810f9306">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c7eb40f-4e57-4335-ba2c-563836027113" xml:space="preserve">
+          <source>Streams are produced by <bpt id="2d9dcf14-456f-4e52-87b8-f86552ff428c">&lt;strong&gt;</bpt>spouts<ept id="2d9dcf14-456f-4e52-87b8-f86552ff428c">&lt;/strong&gt;</ept> and <bpt id="db71f659-3595-4f10-8517-3030281f5109">&lt;strong&gt;</bpt>bolts<ept id="db71f659-3595-4f10-8517-3030281f5109">&lt;/strong&gt;</ept>, and they are consumed by <bpt id="1008e2a6-e32a-44e4-962c-241687a646d0">&lt;strong&gt;</bpt>bolts<ept id="1008e2a6-e32a-44e4-962c-241687a646d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Streams are produced by <bpt id="2d9dcf14-456f-4e52-87b8-f86552ff428c">&lt;strong&gt;</bpt>spouts<ept id="2d9dcf14-456f-4e52-87b8-f86552ff428c">&lt;/strong&gt;</ept> and <bpt id="db71f659-3595-4f10-8517-3030281f5109">&lt;strong&gt;</bpt>bolts<ept id="db71f659-3595-4f10-8517-3030281f5109">&lt;/strong&gt;</ept>, and they are consumed by <bpt id="1008e2a6-e32a-44e4-962c-241687a646d0">&lt;strong&gt;</bpt>bolts<ept id="1008e2a6-e32a-44e4-962c-241687a646d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c3521ea-6e90-40b1-9da7-472a25d65290" xml:space="preserve">
+          <source><bpt id="fe4e3c8d-f0ab-45c0-b7b6-4e21c4371c84">&lt;strong&gt;</bpt>Tuple<ept id="fe4e3c8d-f0ab-45c0-b7b6-4e21c4371c84">&lt;/strong&gt;</ept>: A named list of dynamically typed values.</source>
+          <target state="new"><bpt id="fe4e3c8d-f0ab-45c0-b7b6-4e21c4371c84">&lt;strong&gt;</bpt>Tuple<ept id="fe4e3c8d-f0ab-45c0-b7b6-4e21c4371c84">&lt;/strong&gt;</ept>: A named list of dynamically typed values.</target>
+        </trans-unit>
+        <trans-unit id="b21baeb0-e47a-4d7b-9f97-f2e9492f5819" xml:space="preserve">
+          <source><bpt id="3141abdc-cbd8-40b1-9d87-09e87bb392b1">&lt;strong&gt;</bpt>Spout<ept id="3141abdc-cbd8-40b1-9d87-09e87bb392b1">&lt;/strong&gt;</ept>: Consumes data from a data source and emits one or more <bpt id="912b708a-7af5-4d21-8d16-e5904a71f616">&lt;strong&gt;</bpt>streams<ept id="912b708a-7af5-4d21-8d16-e5904a71f616">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3141abdc-cbd8-40b1-9d87-09e87bb392b1">&lt;strong&gt;</bpt>Spout<ept id="3141abdc-cbd8-40b1-9d87-09e87bb392b1">&lt;/strong&gt;</ept>: Consumes data from a data source and emits one or more <bpt id="912b708a-7af5-4d21-8d16-e5904a71f616">&lt;strong&gt;</bpt>streams<ept id="912b708a-7af5-4d21-8d16-e5904a71f616">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f62ac80d-5eae-40d2-b89d-1c5c7c893713" xml:space="preserve">
+          <source>In many cases, data is read from a queue, such as Kafka, Azure Service Bus queues, or Event hubs.</source>
+          <target state="new">In many cases, data is read from a queue, such as Kafka, Azure Service Bus queues, or Event hubs.</target>
+        </trans-unit>
+        <trans-unit id="0ecef887-71aa-4118-8d58-2ecd7c8ab589" xml:space="preserve">
+          <source>The queue ensures that data is persisted if there is an outage.</source>
+          <target state="new">The queue ensures that data is persisted if there is an outage.</target>
+        </trans-unit>
+        <trans-unit id="06ca61bd-5541-457a-89b5-4dcf961e33da" xml:space="preserve">
+          <source><bpt id="2d014f42-2f87-4123-b1c6-154c70e5b2b1">&lt;strong&gt;</bpt>Bolt<ept id="2d014f42-2f87-4123-b1c6-154c70e5b2b1">&lt;/strong&gt;</ept>: Consumes <bpt id="579eb456-127c-4d8c-bf70-f34e4908abcd">&lt;strong&gt;</bpt>streams<ept id="579eb456-127c-4d8c-bf70-f34e4908abcd">&lt;/strong&gt;</ept>, performs processing on <bpt id="95496aac-4fc7-417f-9ea6-f1bc49276b57">&lt;strong&gt;</bpt>tuples<ept id="95496aac-4fc7-417f-9ea6-f1bc49276b57">&lt;/strong&gt;</ept>, and may emit <bpt id="86943e36-7e3e-43c0-9b1f-e4f05b92505a">&lt;strong&gt;</bpt>streams<ept id="86943e36-7e3e-43c0-9b1f-e4f05b92505a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="2d014f42-2f87-4123-b1c6-154c70e5b2b1">&lt;strong&gt;</bpt>Bolt<ept id="2d014f42-2f87-4123-b1c6-154c70e5b2b1">&lt;/strong&gt;</ept>: Consumes <bpt id="579eb456-127c-4d8c-bf70-f34e4908abcd">&lt;strong&gt;</bpt>streams<ept id="579eb456-127c-4d8c-bf70-f34e4908abcd">&lt;/strong&gt;</ept>, performs processing on <bpt id="95496aac-4fc7-417f-9ea6-f1bc49276b57">&lt;strong&gt;</bpt>tuples<ept id="95496aac-4fc7-417f-9ea6-f1bc49276b57">&lt;/strong&gt;</ept>, and may emit <bpt id="86943e36-7e3e-43c0-9b1f-e4f05b92505a">&lt;strong&gt;</bpt>streams<ept id="86943e36-7e3e-43c0-9b1f-e4f05b92505a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d682004f-84e3-44a2-865b-bf908947b8bf" xml:space="preserve">
+          <source>Bolts are also responsible for writing data to external storage, such as a queue, HDInsight, HBase, a blob, or other data store.</source>
+          <target state="new">Bolts are also responsible for writing data to external storage, such as a queue, HDInsight, HBase, a blob, or other data store.</target>
+        </trans-unit>
+        <trans-unit id="43894c7c-2fb5-4ed7-b78d-befae7cf4eac" xml:space="preserve">
+          <source><bpt id="2301ecd8-d2b0-49ca-b68c-b3d3473c4114">&lt;strong&gt;</bpt>Apache Thrift<ept id="2301ecd8-d2b0-49ca-b68c-b3d3473c4114">&lt;/strong&gt;</ept>: A software framework for scalable cross-language service development.</source>
+          <target state="new"><bpt id="2301ecd8-d2b0-49ca-b68c-b3d3473c4114">&lt;strong&gt;</bpt>Apache Thrift<ept id="2301ecd8-d2b0-49ca-b68c-b3d3473c4114">&lt;/strong&gt;</ept>: A software framework for scalable cross-language service development.</target>
+        </trans-unit>
+        <trans-unit id="d90082d2-fd84-4eea-9d8f-79006bfd0f4b" xml:space="preserve">
+          <source>It allows you to build services that work between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and other languages.</source>
+          <target state="new">It allows you to build services that work between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and other languages.</target>
+        </trans-unit>
+        <trans-unit id="99db8368-2a4c-425c-81b1-87d3a4091958" xml:space="preserve">
+          <source><bpt id="cc673ed5-6185-4265-ab3f-e8f336d0a584">&lt;strong&gt;</bpt>Nimbus<ept id="cc673ed5-6185-4265-ab3f-e8f336d0a584">&lt;/strong&gt;</ept> is a Thrift service, and a <bpt id="6320c761-0c45-4f8b-afbc-dcff4545470a">&lt;strong&gt;</bpt>topology<ept id="6320c761-0c45-4f8b-afbc-dcff4545470a">&lt;/strong&gt;</ept> is a Thrift definition, so it is possible to develop topologies using a variety of programming languages.</source>
+          <target state="new"><bpt id="cc673ed5-6185-4265-ab3f-e8f336d0a584">&lt;strong&gt;</bpt>Nimbus<ept id="cc673ed5-6185-4265-ab3f-e8f336d0a584">&lt;/strong&gt;</ept> is a Thrift service, and a <bpt id="6320c761-0c45-4f8b-afbc-dcff4545470a">&lt;strong&gt;</bpt>topology<ept id="6320c761-0c45-4f8b-afbc-dcff4545470a">&lt;/strong&gt;</ept> is a Thrift definition, so it is possible to develop topologies using a variety of programming languages.</target>
+        </trans-unit>
+        <trans-unit id="e7060807-523f-431c-bce9-461bb2fffa93" xml:space="preserve">
+          <source>For more information about Storm components, see the <bpt id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;linkText&gt;</bpt>Storm tutorial[apachetutorial]<ept id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;/linkText&gt;</ept><bpt id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;title&gt;</bpt><ept id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;/title&gt;</ept> at apache.org.</source>
+          <target state="new">For more information about Storm components, see the <bpt id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;linkText&gt;</bpt>Storm tutorial[apachetutorial]<ept id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;/linkText&gt;</ept><bpt id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;title&gt;</bpt><ept id="80c6bd8a-d1a0-4b2c-aacc-70987199fca7">&lt;/title&gt;</ept> at apache.org.</target>
+        </trans-unit>
+        <trans-unit id="abaa2b37-5ae1-4815-a2d8-2c234dfefb7f" xml:space="preserve">
+          <source>The Storm on HDInsight cluster provides support for C#, Java, and Python.</source>
+          <target state="new">The Storm on HDInsight cluster provides support for C#, Java, and Python.</target>
+        </trans-unit>
+        <trans-unit id="fac6c63c-8184-4450-acb0-5065255c0e5f" xml:space="preserve">
+          <source>The HDInsight Tools for Visual Studio allow .NET developers to design and implement a topology in C#.</source>
+          <target state="new">The HDInsight Tools for Visual Studio allow .NET developers to design and implement a topology in C#.</target>
+        </trans-unit>
+        <trans-unit id="71d2e76f-80eb-41c2-a20e-8d51a4ab5ff1" xml:space="preserve">
+          <source>You can also create hybrid topologies that use Java and C# components.</source>
+          <target state="new">You can also create hybrid topologies that use Java and C# components.</target>
+        </trans-unit>
+        <trans-unit id="0f5e8fb6-e68d-42a9-9f15-898049645a73" xml:space="preserve">
+          <source>For more information, see <bpt id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm on HDInsight using Visual Studio<ept id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;/linkText&gt;</ept><bpt id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;title&gt;</bpt><ept id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;linkText&gt;</bpt>Develop C# topologies for Apache Storm on HDInsight using Visual Studio<ept id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;/linkText&gt;</ept><bpt id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;title&gt;</bpt><ept id="1dd962f2-7b5c-4b50-b0e1-6eef7fce4920">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4034a4c2-ae1e-4176-8ff0-66f81c34a84d" xml:space="preserve">
+          <source>Most Java examples you encounter will be plain Java or Trident.</source>
+          <target state="new">Most Java examples you encounter will be plain Java or Trident.</target>
+        </trans-unit>
+        <trans-unit id="cf7a06ea-abd3-4ab4-9042-b25be8bc3aa2" xml:space="preserve">
+          <source>Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering.</source>
+          <target state="new">Trident is a high-level abstraction that makes it easier to do things such as joins, aggregations, grouping, and filtering.</target>
+        </trans-unit>
+        <trans-unit id="5785a002-3ba1-4813-b76f-396973e56937" xml:space="preserve">
+          <source>However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.</source>
+          <target state="new">However, Trident acts on batches of tuples, whereas a raw Java solution processes a stream one tuple at a time.</target>
+        </trans-unit>
+        <trans-unit id="fca3c354-bb05-44bd-8c38-612518abbcdf" xml:space="preserve">
+          <source>For more information about Trident, see the <bpt id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;linkText&gt;</bpt>Trident tutorial<ept id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;/linkText&gt;</ept><bpt id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;title&gt;</bpt><ept id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;/title&gt;</ept> at apache.org.</source>
+          <target state="new">For more information about Trident, see the <bpt id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;linkText&gt;</bpt>Trident tutorial<ept id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;/linkText&gt;</ept><bpt id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;title&gt;</bpt><ept id="7d2223ed-52ac-4db5-854f-5e96b12d08a5">&lt;/title&gt;</ept> at apache.org.</target>
+        </trans-unit>
+        <trans-unit id="7aed8c10-79cd-4cf8-9062-0c922514fc8c" xml:space="preserve">
+          <source>For examples of raw Java and Trident topologies, see the <bpt id="96348513-3797-4b44-b01e-3c738e91c4a7">&lt;strong&gt;</bpt>%storm_home%\contrib\storm-starter<ept id="96348513-3797-4b44-b01e-3c738e91c4a7">&lt;/strong&gt;</ept> directory on your HDInsight Storm cluster.</source>
+          <target state="new">For examples of raw Java and Trident topologies, see the <bpt id="96348513-3797-4b44-b01e-3c738e91c4a7">&lt;strong&gt;</bpt>%storm_home%\contrib\storm-starter<ept id="96348513-3797-4b44-b01e-3c738e91c4a7">&lt;/strong&gt;</ept> directory on your HDInsight Storm cluster.</target>
+        </trans-unit>
+        <trans-unit id="f4f4c513-4ca8-44c7-9ade-f72266179bc8" xml:space="preserve">
+          <source>Storm can provide different levels of guaranteed message processing.</source>
+          <target state="new">Storm can provide different levels of guaranteed message processing.</target>
+        </trans-unit>
+        <trans-unit id="07f235f4-ea5d-466e-9860-88abf556d699" xml:space="preserve">
+          <source>For example, a basic Storm application can guarantee at-least-once processing, and Trident can guarantee exactly-once processing.</source>
+          <target state="new">For example, a basic Storm application can guarantee at-least-once processing, and Trident can guarantee exactly-once processing.</target>
+        </trans-unit>
+        <trans-unit id="bf45b0a9-2a89-4298-bb42-bee9707bdc14" xml:space="preserve">
+          <source>For more information, see <bpt id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;linkText&gt;</bpt>Guarantees on data processing<ept id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;/linkText&gt;</ept><bpt id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;title&gt;</bpt><ept id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;/title&gt;</ept> at apache.org.</source>
+          <target state="new">For more information, see <bpt id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;linkText&gt;</bpt>Guarantees on data processing<ept id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;/linkText&gt;</ept><bpt id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;title&gt;</bpt><ept id="d5fb2464-1381-42e6-88d6-65b1da0718f7">&lt;/title&gt;</ept> at apache.org.</target>
+        </trans-unit>
+        <trans-unit id="e661b894-5a67-4f97-8cf3-311059e32bcf" xml:space="preserve">
+          <source>The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is very common, and Storm provides the <bpt id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;linkText&gt;</bpt>IBasicBolt<ept id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;/linkText&gt;</ept><bpt id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;title&gt;</bpt><ept id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;/title&gt;</ept> interface to automate this pattern.</source>
+          <target state="new">The pattern of reading an input tuple, emitting zero or more tuples, and then acking the input tuple immediately at the end of the execute method is very common, and Storm provides the <bpt id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;linkText&gt;</bpt>IBasicBolt<ept id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;/linkText&gt;</ept><bpt id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;title&gt;</bpt><ept id="1c5926b2-2392-4b0f-a896-5df01887d8ed">&lt;/title&gt;</ept> interface to automate this pattern.</target>
+        </trans-unit>
+        <trans-unit id="c4f448c2-b88d-4f73-b8c5-1102abef0595" xml:space="preserve">
+          <source>Joining two streams of data will vary between applications.</source>
+          <target state="new">Joining two streams of data will vary between applications.</target>
+        </trans-unit>
+        <trans-unit id="f778640e-4c9e-4850-8dda-854320856ff4" xml:space="preserve">
+          <source>For example, you could join each tuple from multiple streams into one new stream, or you could join only batches of tuples for a specific window.</source>
+          <target state="new">For example, you could join each tuple from multiple streams into one new stream, or you could join only batches of tuples for a specific window.</target>
+        </trans-unit>
+        <trans-unit id="64d5276c-cc2f-4bbc-8ca8-27f126c8201d" xml:space="preserve">
+          <source>Either way, joining can be accomplished by using <bpt id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;/linkText&gt;</ept><bpt id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;title&gt;</bpt><ept id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;/title&gt;</ept>, which is a way of defining how tuples are routed to bolts.</source>
+          <target state="new">Either way, joining can be accomplished by using <bpt id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;/linkText&gt;</ept><bpt id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;title&gt;</bpt><ept id="8ac8a80a-6099-425f-90e4-8eb9553f7693">&lt;/title&gt;</ept>, which is a way of defining how tuples are routed to bolts.</target>
+        </trans-unit>
+        <trans-unit id="4343f956-7fa2-4cd6-93e2-e495f6e6ace3" xml:space="preserve">
+          <source>In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the <bpt id="b97cf0dc-103f-4bf3-b46a-6241ca18d864">&lt;strong&gt;</bpt>MyJoiner<ept id="b97cf0dc-103f-4bf3-b46a-6241ca18d864">&lt;/strong&gt;</ept> bolt.</source>
+          <target state="new">In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the <bpt id="b97cf0dc-103f-4bf3-b46a-6241ca18d864">&lt;strong&gt;</bpt>MyJoiner<ept id="b97cf0dc-103f-4bf3-b46a-6241ca18d864">&lt;/strong&gt;</ept> bolt.</target>
+        </trans-unit>
+        <trans-unit id="f35fb3d4-f7ff-4936-8d69-7f7e9fc84c61" xml:space="preserve">
+          <source>Batching can be accomplished several ways.</source>
+          <target state="new">Batching can be accomplished several ways.</target>
+        </trans-unit>
+        <trans-unit id="36b61ada-4122-49e3-ba7d-3dcd614fd239" xml:space="preserve">
+          <source>With a basic Storm Java topology, you might use simple counter to batch X number of tuples before emitting them, or use an internal timing mechanism known as a "tick tuple" to emit a batch every X seconds.</source>
+          <target state="new">With a basic Storm Java topology, you might use simple counter to batch X number of tuples before emitting them, or use an internal timing mechanism known as a "tick tuple" to emit a batch every X seconds.</target>
+        </trans-unit>
+        <trans-unit id="32f930b4-1eac-4c58-af59-593a5dd2b68d" xml:space="preserve">
+          <source>For an example of using tick tuples, see <bpt id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase on HDInsight<ept id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;/linkText&gt;</ept><bpt id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;title&gt;</bpt><ept id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of using tick tuples, see <bpt id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;linkText&gt;</bpt>Analyzing sensor data with Storm and HBase on HDInsight<ept id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;/linkText&gt;</ept><bpt id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;title&gt;</bpt><ept id="9cb168b9-de17-4d5a-835c-bf8d90dd67a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1e00b86-f858-4e04-96cd-c1d42b6ffa8f" xml:space="preserve">
+          <source>If you are using Trident, it is based on processing batches of tuples.</source>
+          <target state="new">If you are using Trident, it is based on processing batches of tuples.</target>
+        </trans-unit>
+        <trans-unit id="8cae1477-cc64-45ae-ab3b-38717eb8dfc8" xml:space="preserve">
+          <source>In-memory caching is often used as a mechanism for speeding up processing because it keeps frequently used assets in memory.</source>
+          <target state="new">In-memory caching is often used as a mechanism for speeding up processing because it keeps frequently used assets in memory.</target>
+        </trans-unit>
+        <trans-unit id="7197c4e5-fe83-4f0c-ab73-92ef577fbad6" xml:space="preserve">
+          <source>Because a topology is distributed across multiple nodes, and multiple processes within each node, you should consider using <bpt id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;/linkText&gt;</ept><bpt id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;title&gt;</bpt><ept id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;/title&gt;</ept> to ensure that tuples containing the fields that are used for cache lookup are always routed to the same process.</source>
+          <target state="new">Because a topology is distributed across multiple nodes, and multiple processes within each node, you should consider using <bpt id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;/linkText&gt;</ept><bpt id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;title&gt;</bpt><ept id="34d28c91-3cb4-4a2e-b6b9-e5cd6c657b5d">&lt;/title&gt;</ept> to ensure that tuples containing the fields that are used for cache lookup are always routed to the same process.</target>
+        </trans-unit>
+        <trans-unit id="e6bb93c0-d332-4ccf-af7b-352a4bbe4ecf" xml:space="preserve">
+          <source>This avoids duplication of cache entries across processes.</source>
+          <target state="new">This avoids duplication of cache entries across processes.</target>
+        </trans-unit>
+        <trans-unit id="4d93fdea-8e4d-406e-afc2-e03f12776b2b" xml:space="preserve">
+          <source>When your topology depends on calculating a "top N" value, such as the top 5 trends on Twitter, you should calculate the top N value in parallel and then merge the output from those calculations into a global value.</source>
+          <target state="new">When your topology depends on calculating a "top N" value, such as the top 5 trends on Twitter, you should calculate the top N value in parallel and then merge the output from those calculations into a global value.</target>
+        </trans-unit>
+        <trans-unit id="060d3f3a-7412-468b-8354-54ddcd7fd004" xml:space="preserve">
+          <source>This can be done by using <bpt id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;/linkText&gt;</ept><bpt id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;title&gt;</bpt><ept id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;/title&gt;</ept> to route by field to the parallel bolts (which partitions the data by field value), and then route to a bolt that globally determines the top N value.</source>
+          <target state="new">This can be done by using <bpt id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;linkText&gt;</bpt>fieldsGrouping<ept id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;/linkText&gt;</ept><bpt id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;title&gt;</bpt><ept id="3d9d4001-7cd4-445b-8ab6-46d277528ad0">&lt;/title&gt;</ept> to route by field to the parallel bolts (which partitions the data by field value), and then route to a bolt that globally determines the top N value.</target>
+        </trans-unit>
+        <trans-unit id="edfa2620-e50b-4fa1-ba1b-cb31cad34697" xml:space="preserve">
+          <source>For an example of this, see the <bpt id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;linkText&gt;</bpt>RollingTopWords<ept id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;/linkText&gt;</ept><bpt id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;title&gt;</bpt><ept id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;/title&gt;</ept> example.</source>
+          <target state="new">For an example of this, see the <bpt id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;linkText&gt;</bpt>RollingTopWords<ept id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;/linkText&gt;</ept><bpt id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;title&gt;</bpt><ept id="0e8a2243-6dc6-4d4b-95e8-7e5097f5fa2e">&lt;/title&gt;</ept> example.</target>
+        </trans-unit>
+        <trans-unit id="2eb38826-5cdf-42c9-8b28-7c885e4bd623" xml:space="preserve">
+          <source>Learn more about real-time analytics solutions with Apache Storm in HDInsight:</source>
+          <target state="new">Learn more about real-time analytics solutions with Apache Storm in HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="78219373-ff40-4a9d-bf12-880122243256" xml:space="preserve">
+          <source><bpt id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;linkText&gt;</bpt>Getting Started with Storm on HDInsight[gettingstarted]<ept id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;/linkText&gt;</ept><bpt id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;title&gt;</bpt><ept id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;linkText&gt;</bpt>Getting Started with Storm on HDInsight[gettingstarted]<ept id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;/linkText&gt;</ept><bpt id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;title&gt;</bpt><ept id="2dcb782a-7924-4d56-96f3-1fd89d9aefb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96e37a09-37ef-48b1-93f0-0d65ea3b85bf" xml:space="preserve">
+          <source><bpt id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;/linkText&gt;</ept><bpt id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;title&gt;</bpt><ept id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;/linkText&gt;</ept><bpt id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;title&gt;</bpt><ept id="a6d84ce9-15a9-4d8b-8943-a30545e3b8ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="facd9335-6775-441d-9502-abee50188116" xml:space="preserve">
+          <source>https://storm.incubator.apache.org/documentation/Trident-API-Overview.html</source>
+          <target state="new">https://storm.incubator.apache.org/documentation/Trident-API-Overview.html</target>
+        </trans-unit>
+        <trans-unit id="81bc788e-1823-4075-8128-2bca011e85be" xml:space="preserve">
+          <source>http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining</source>
+          <target state="new">http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining</target>
+        </trans-unit>
+        <trans-unit id="b32565cd-1eef-43df-b7e9-03397e6efe5c" xml:space="preserve">
+          <source>https://storm.incubator.apache.org/documentation/Tutorial.html</source>
+          <target state="new">https://storm.incubator.apache.org/documentation/Tutorial.html</target>
+        </trans-unit>
+        <trans-unit id="af656b75-b4a3-4e10-bfa6-efd34130ee2e" xml:space="preserve">
+          <source>../hdinsight-storm-getting-started.md</source>
+          <target state="new">../hdinsight-storm-getting-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="22ab1c0a-11fb-4d33-845c-7ab113d6d579" />
+    </body>
+  </file>
+</xliff>

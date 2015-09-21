@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dc699727-1bb6-42bd-8582-5ef6709a6d39" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dc699727-1bb6-42bd-8582-5ef6709a6d39" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="34853629-d91a-4c9c-abd0-25a2a35ea824">
+        <trans-unit id="5fcdb354-42df-4dc3-948e-9bb8454bee40" xml:space="preserve">
+          <source>Azure AD Connect FAQ</source>
+          <target state="new">Azure AD Connect FAQ</target>
+        </trans-unit>
+        <trans-unit id="e86f0cc3-beac-4f8f-8894-c434615b99c7" xml:space="preserve">
+          <source>This page has frequently asked questions about Azure AD Connect.</source>
+          <target state="new">This page has frequently asked questions about Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="67cd5d99-8af7-4ab7-a008-d3d69fea1ca5" xml:space="preserve">
+          <source><bpt id="c52adb7a-1058-42f1-be3d-9210cf3928eb">&lt;strong&gt;</bpt>Q:How can I get help with Azure AD Connect?<ept id="c52adb7a-1058-42f1-be3d-9210cf3928eb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c52adb7a-1058-42f1-be3d-9210cf3928eb">&lt;strong&gt;</bpt>Q:How can I get help with Azure AD Connect?<ept id="c52adb7a-1058-42f1-be3d-9210cf3928eb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7517a94c-f405-480f-a23f-2e9ae4945f33" xml:space="preserve">
+          <source><bpt id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;linkText&gt;</bpt>Search the Microsoft Knowledge Base (KB)<ept id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;/linkText&gt;</ept><bpt id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;title&gt;</bpt><ept id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;linkText&gt;</bpt>Search the Microsoft Knowledge Base (KB)<ept id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;/linkText&gt;</ept><bpt id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;title&gt;</bpt><ept id="6948ebc4-dc64-4a78-a800-8bfb1d15f8ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16429579-4e8e-4902-b4ee-35633d28b16a" xml:space="preserve">
+          <source>Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Azure AD Connect.</source>
+          <target state="new">Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Azure AD Connect.</target>
+        </trans-unit>
+        <trans-unit id="d657482e-d7d6-4fa7-9b9c-bc091202103e" xml:space="preserve">
+          <source><bpt id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Forums<ept id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;/linkText&gt;</ept><bpt id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;title&gt;</bpt><ept id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Forums<ept id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;/linkText&gt;</ept><bpt id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;title&gt;</bpt><ept id="51a23e9f-2a93-4d70-9497-4afad5ff5f17">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17bd29d8-1277-4b51-8e7d-f6e58df68a7e" xml:space="preserve">
+          <source>You can search and browse for technical questions and answers from the community or ask your own question by clicking <bpt id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;linkText&gt;</bpt>here<ept id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;/linkText&gt;</ept><bpt id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;title&gt;</bpt><ept id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can search and browse for technical questions and answers from the community or ask your own question by clicking <bpt id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;linkText&gt;</bpt>here<ept id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;/linkText&gt;</ept><bpt id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;title&gt;</bpt><ept id="dac3202d-2e30-4e56-a174-8bf7e41c579e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4470fc98-c60e-4898-8d7c-c4aa04b805e3" xml:space="preserve">
+          <source><bpt id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;linkText&gt;</bpt>Azure AD Connect customer support<ept id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;/linkText&gt;</ept><bpt id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;title&gt;</bpt><ept id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;linkText&gt;</bpt>Azure AD Connect customer support<ept id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;/linkText&gt;</ept><bpt id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;title&gt;</bpt><ept id="d8e1758b-d67a-44d4-9be1-3c8f80e93854">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db937eb8-30b7-487b-a349-f96af30dc6ff" xml:space="preserve">
+          <source>Use this link to get support through the Azure portal.</source>
+          <target state="new">Use this link to get support through the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="eab6e87b-4285-4dd8-9d50-20e58691dd08" xml:space="preserve">
+          <source><bpt id="ccea91f7-ea4a-44f5-966a-18d9b6aa3a87">&lt;strong&gt;</bpt>Q:What do I do if I receive an email that asking me to renew my Office 365 certificate<ept id="ccea91f7-ea4a-44f5-966a-18d9b6aa3a87">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ccea91f7-ea4a-44f5-966a-18d9b6aa3a87">&lt;strong&gt;</bpt>Q:What do I do if I receive an email that asking me to renew my Office 365 certificate<ept id="ccea91f7-ea4a-44f5-966a-18d9b6aa3a87">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="494b5cf8-282a-472d-b2c0-be95c780f157" xml:space="preserve">
+          <source>Use the guidance that is outlined in the article here to resolve to <bpt id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;linkText&gt;</bpt>here<ept id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;/linkText&gt;</ept><bpt id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;title&gt;</bpt><ept id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;/title&gt;</ept> renew the certificate.</source>
+          <target state="new">Use the guidance that is outlined in the article here to resolve to <bpt id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;linkText&gt;</bpt>here<ept id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;/linkText&gt;</ept><bpt id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;title&gt;</bpt><ept id="028cf14b-5fb1-4d3c-a797-96fc2ac655b5">&lt;/title&gt;</ept> renew the certificate.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

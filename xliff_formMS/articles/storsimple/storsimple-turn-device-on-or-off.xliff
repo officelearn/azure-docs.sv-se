@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f09a8d4c-253f-46f0-812c-8cf004bbc47b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f09a8d4c-253f-46f0-812c-8cf004bbc47b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="446e9243-444e-423e-84f7-9d238908cdb6">
+        <trans-unit id="fd2074c7-0142-4839-932b-fe3087484dcc" xml:space="preserve">
+          <source>Turn your StorSimple device on or off | Microsoft Azure</source>
+          <target state="new">Turn your StorSimple device on or off | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="578b9ce5-f93b-4a07-8a9e-031ae0b1388a" xml:space="preserve">
+          <source>Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device.</source>
+          <target state="new">Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device.</target>
+        </trans-unit>
+        <trans-unit id="011b4e63-0667-4b19-b4cb-ff435a3d6337" xml:space="preserve">
+          <source>Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation.</source>
+          <target state="new">Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation.</target>
+        </trans-unit>
+        <trans-unit id="42fd4641-5a44-44c0-ab10-e6a497b22471" xml:space="preserve">
+          <source>However, you may need to turn on a new device or a  device that had to be shut down.</source>
+          <target state="new">However, you may need to turn on a new device or a  device that had to be shut down.</target>
+        </trans-unit>
+        <trans-unit id="ba98fad1-618b-4892-bb89-c97dddd088fc" xml:space="preserve">
+          <source>Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service.</source>
+          <target state="new">Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service.</target>
+        </trans-unit>
+        <trans-unit id="cd60928d-d393-49b5-83f2-6ea8fb927477" xml:space="preserve">
+          <source>This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.</source>
+          <target state="new">This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.</target>
+        </trans-unit>
+        <trans-unit id="55ac0ff1-1428-4c71-a46a-04f7c9cf9962" xml:space="preserve">
+          <source>The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.</source>
+          <target state="new">The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.</target>
+        </trans-unit>
+        <trans-unit id="88dbb9a8-5940-4033-bf68-bfd31f5b096e" xml:space="preserve">
+          <source>Scenario</source>
+          <target state="new">Scenario</target>
+        </trans-unit>
+        <trans-unit id="bf9c25f5-3109-4cac-8165-1c9ba0c79d29" xml:space="preserve">
+          <source>Reference topics</source>
+          <target state="new">Reference topics</target>
+        </trans-unit>
+        <trans-unit id="a47d33b1-e016-4086-9a3a-f04036eeb2c8" xml:space="preserve">
+          <source>Turn on a new device</source>
+          <target state="new">Turn on a new device</target>
+        </trans-unit>
+        <trans-unit id="622650c7-71f0-4f74-b154-d140756eae2e" xml:space="preserve">
+          <source><bpt id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;linkText&gt;</bpt>Turn on a new device<ept id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;/linkText&gt;</ept><bpt id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;title&gt;</bpt><ept id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;linkText&gt;</bpt>New device with primary enclosure only<ept id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;/linkText&gt;</ept><bpt id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;title&gt;</bpt><ept id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;linkText&gt;</bpt>New device with EBOD enclosure<ept id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;/linkText&gt;</ept><bpt id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;title&gt;</bpt><ept id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new"><bpt id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;linkText&gt;</bpt>Turn on a new device<ept id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;/linkText&gt;</ept><bpt id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;title&gt;</bpt><ept id="5ccdb64d-d451-4fb8-a97a-eecab190c29e">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;linkText&gt;</bpt>New device with primary enclosure only<ept id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;/linkText&gt;</ept><bpt id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;title&gt;</bpt><ept id="7dbe6c61-9535-44a0-be81-743c41fbb3b6">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;linkText&gt;</bpt>New device with EBOD enclosure<ept id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;/linkText&gt;</ept><bpt id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;title&gt;</bpt><ept id="150cbbc0-e2c3-44dc-8a7b-fef61dce65bb">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="e9367ae2-8fe8-4c8a-b0c8-62c3422624f4" xml:space="preserve">
+          <source>Turn on a device after shutdown</source>
+          <target state="new">Turn on a device after shutdown</target>
+        </trans-unit>
+        <trans-unit id="51418c59-9242-4848-9f4e-059b5088f775" xml:space="preserve">
+          <source><bpt id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;linkText&gt;</bpt>Turn on a device after shutdown<ept id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;/linkText&gt;</ept><bpt id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;title&gt;</bpt><ept id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="18832805-0abf-4622-8b89-83725ae21194">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="18832805-0abf-4622-8b89-83725ae21194">&lt;/linkText&gt;</ept><bpt id="18832805-0abf-4622-8b89-83725ae21194">&lt;title&gt;</bpt><ept id="18832805-0abf-4622-8b89-83725ae21194">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;/linkText&gt;</ept><bpt id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;title&gt;</bpt><ept id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new"><bpt id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;linkText&gt;</bpt>Turn on a device after shutdown<ept id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;/linkText&gt;</ept><bpt id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;title&gt;</bpt><ept id="13fd17c2-4095-4af1-935e-e618fca84d1b">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="18832805-0abf-4622-8b89-83725ae21194">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="18832805-0abf-4622-8b89-83725ae21194">&lt;/linkText&gt;</ept><bpt id="18832805-0abf-4622-8b89-83725ae21194">&lt;title&gt;</bpt><ept id="18832805-0abf-4622-8b89-83725ae21194">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;/linkText&gt;</ept><bpt id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;title&gt;</bpt><ept id="41d95496-1877-4f4d-8f7d-d99ea62c66b9">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="1533b23e-a5f5-4b0d-875c-e3b5c22de139" xml:space="preserve">
+          <source>Turn on a device after a power loss</source>
+          <target state="new">Turn on a device after a power loss</target>
+        </trans-unit>
+        <trans-unit id="8847284a-a5f4-4d16-8931-d1d9eff8d346" xml:space="preserve">
+          <source><bpt id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;linkText&gt;</bpt>Turn on a device after a power loss<ept id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;/linkText&gt;</ept><bpt id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;title&gt;</bpt><ept id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;/linkText&gt;</ept><bpt id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;title&gt;</bpt><ept id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;/linkText&gt;</ept><bpt id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;title&gt;</bpt><ept id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new"><bpt id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;linkText&gt;</bpt>Turn on a device after a power loss<ept id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;/linkText&gt;</ept><bpt id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;title&gt;</bpt><ept id="99b32bc8-fd83-4027-8f9d-90c18c5ee3dd">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;/linkText&gt;</ept><bpt id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;title&gt;</bpt><ept id="2fc14d4f-c8b4-491b-a63a-6f2aab45d719">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;/linkText&gt;</ept><bpt id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;title&gt;</bpt><ept id="0e7f00fa-de73-4016-bf54-b44712958d81">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="8e2ee28c-811f-48e9-bce4-49894db5f4c9" xml:space="preserve">
+          <source>Turn on a device after the primary enclosure and EBOD connection is lost</source>
+          <target state="new">Turn on a device after the primary enclosure and EBOD connection is lost</target>
+        </trans-unit>
+        <trans-unit id="3a88880f-655d-4bb0-aee0-1fd2ba0abf6e" xml:space="preserve">
+          <source><bpt id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;linkText&gt;</bpt>Turn on a device after the primary and EBOD enclosure connection is lost<ept id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;/linkText&gt;</ept><bpt id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;title&gt;</bpt><ept id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;linkText&gt;</bpt>Turn on a device after the primary and EBOD enclosure connection is lost<ept id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;/linkText&gt;</ept><bpt id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;title&gt;</bpt><ept id="52bada9e-46f7-40b9-bf55-97589fa24b17">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b65b4eb4-50e3-49e9-835a-7d66c53fc65c" xml:space="preserve">
+          <source>Shut down a running device</source>
+          <target state="new">Shut down a running device</target>
+        </trans-unit>
+        <trans-unit id="47a4d4f7-3981-46e4-a102-75300735aa1f" xml:space="preserve">
+          <source><bpt id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;linkText&gt;</bpt>Turn off a running device<ept id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;/linkText&gt;</ept><bpt id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;title&gt;</bpt><ept id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;/linkText&gt;</ept><bpt id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;title&gt;</bpt><ept id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;/linkText&gt;</ept><bpt id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;title&gt;</bpt><ept id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new"><bpt id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;linkText&gt;</bpt>Turn off a running device<ept id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;/linkText&gt;</ept><bpt id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;title&gt;</bpt><ept id="5c3d65ce-7905-425e-9a31-c569f2291f38">&lt;/title&gt;</ept>&lt;ul&gt;&lt;li&gt;<bpt id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;/linkText&gt;</ept><bpt id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;title&gt;</bpt><ept id="27d68891-db09-44d0-b355-d4d6e1c3a005">&lt;/title&gt;</ept>&lt;/li&gt;&lt;li&gt;<bpt id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;/linkText&gt;</ept><bpt id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;title&gt;</bpt><ept id="4634bad9-c20c-4a8a-9933-a2a4e9ae8445">&lt;/title&gt;</ept>&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="460b14c5-14c9-492a-b14a-160a52f57fdf" xml:space="preserve">
+          <source>The steps for turning on a Microsoft Azure StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model.</source>
+          <target state="new">The steps for turning on a Microsoft Azure StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model.</target>
+        </trans-unit>
+        <trans-unit id="e9e6aaba-ecdd-4b72-8872-7b0e2a1aac91" xml:space="preserve">
+          <source>The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="93cdc708-0af4-4444-9cdc-6608102b7f01" xml:space="preserve">
+          <source>The detailed steps for both models are covered in the following sections.</source>
+          <target state="new">The detailed steps for both models are covered in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="a6692337-0621-44e4-af8c-6c8c7db3b6aa" xml:space="preserve">
+          <source><bpt id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;linkText&gt;</bpt>New device with primary enclosure only<ept id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;/linkText&gt;</ept><bpt id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;title&gt;</bpt><ept id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;linkText&gt;</bpt>New device with primary enclosure only<ept id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;/linkText&gt;</ept><bpt id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;title&gt;</bpt><ept id="4a3c16e4-c848-4e18-81b1-efd31c23220f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="306e0d30-13e1-43ab-ae62-7c646b2e5652" xml:space="preserve">
+          <source><bpt id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;linkText&gt;</bpt>New device with EBOD enclosure<ept id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;/linkText&gt;</ept><bpt id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;title&gt;</bpt><ept id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;linkText&gt;</bpt>New device with EBOD enclosure<ept id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;/linkText&gt;</ept><bpt id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;title&gt;</bpt><ept id="1ed97ad7-5a74-4f79-a99d-7924f95890c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0a2e022-b3ec-44e9-8992-011f716ce0e5" xml:space="preserve">
+          <source>The StorSimple 8100 model is a single enclosure device.</source>
+          <target state="new">The StorSimple 8100 model is a single enclosure device.</target>
+        </trans-unit>
+        <trans-unit id="45df4308-2907-4fec-b532-c944695b5a4d" xml:space="preserve">
+          <source>Your device includes redundant Power and Cooling Modules (PCMs).</source>
+          <target state="new">Your device includes redundant Power and Cooling Modules (PCMs).</target>
+        </trans-unit>
+        <trans-unit id="529d40da-3095-4140-ae11-611daa06fcfb" xml:space="preserve">
+          <source>Both PCMs must be installed and connected to different power sources to ensure high availability.</source>
+          <target state="new">Both PCMs must be installed and connected to different power sources to ensure high availability.</target>
+        </trans-unit>
+        <trans-unit id="c6b37386-8aa6-4008-97d6-0bc50988ab6f" xml:space="preserve">
+          <source>Perform the following steps to cable your device for power.</source>
+          <target state="new">Perform the following steps to cable your device for power.</target>
+        </trans-unit>
+        <trans-unit id="0333d658-1694-4270-92f1-265a29471b4c" xml:space="preserve">
+          <source><bpt id="a97cc4bb-cb3c-4540-92bc-b8eb0b4c8903">&lt;token href="../../includes/storsimple-cable-8100-for-power.md"&gt;</bpt><ept id="a97cc4bb-cb3c-4540-92bc-b8eb0b4c8903">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a97cc4bb-cb3c-4540-92bc-b8eb0b4c8903">&lt;token href="../../includes/storsimple-cable-8100-for-power.md"&gt;</bpt><ept id="a97cc4bb-cb3c-4540-92bc-b8eb0b4c8903">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe180da5-2d28-4dc9-ac4b-549cda80bb5b" xml:space="preserve">
+          <source>For complete device setup and cabling instructions, go to <bpt id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;/linkText&gt;</ept><bpt id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;title&gt;</bpt><ept id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete device setup and cabling instructions, go to <bpt id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;linkText&gt;</bpt>Install your StorSimple 8100 device<ept id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;/linkText&gt;</ept><bpt id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;title&gt;</bpt><ept id="ce8f9321-5669-4053-90af-1176b7050df6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c37aba5f-ae3e-4d91-af37-7c454c5d54e2" xml:space="preserve">
+          <source>Make sure that you follow the instructions exactly.</source>
+          <target state="new">Make sure that you follow the instructions exactly.</target>
+        </trans-unit>
+        <trans-unit id="9e87d4e0-2979-46a9-8d04-9544c60fdc30" xml:space="preserve">
+          <source>The StorSimple 8600 model has both a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The StorSimple 8600 model has both a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="4af55cbb-6a91-46b1-9727-a988984efbc0" xml:space="preserve">
+          <source>This requires the units to be cabled together for Serial Attached SCSI (SAS) connectivity and power.</source>
+          <target state="new">This requires the units to be cabled together for Serial Attached SCSI (SAS) connectivity and power.</target>
+        </trans-unit>
+        <trans-unit id="fa20983d-34b3-44a2-8f1e-971c9e4b42c5" xml:space="preserve">
+          <source>When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.</source>
+          <target state="new">When setting up this device for the first time, perform the steps for SAS cabling first and then complete the steps for power cabling.</target>
+        </trans-unit>
+        <trans-unit id="24a36442-2eed-4336-8eb3-c8d44ccffd3d" xml:space="preserve">
+          <source><bpt id="88bc5a2e-6155-4c5c-a143-51d213da9947">&lt;token href="../../includes/storsimple-sas-cable-8600.md"&gt;</bpt><ept id="88bc5a2e-6155-4c5c-a143-51d213da9947">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="88bc5a2e-6155-4c5c-a143-51d213da9947">&lt;token href="../../includes/storsimple-sas-cable-8600.md"&gt;</bpt><ept id="88bc5a2e-6155-4c5c-a143-51d213da9947">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0342e2bc-112b-4f14-ade8-3bedd9107591" xml:space="preserve">
+          <source><bpt id="27516312-6a8a-40b4-9d81-24db4be8a61f">&lt;token href="../../includes/storsimple-cable-8600-for-power.md"&gt;</bpt><ept id="27516312-6a8a-40b4-9d81-24db4be8a61f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="27516312-6a8a-40b4-9d81-24db4be8a61f">&lt;token href="../../includes/storsimple-cable-8600-for-power.md"&gt;</bpt><ept id="27516312-6a8a-40b4-9d81-24db4be8a61f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b74737f-ad2a-4eed-a62c-cb0fd6378e70" xml:space="preserve">
+          <source>For complete device setup and cabling instructions, go to <bpt id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;/linkText&gt;</ept><bpt id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;title&gt;</bpt><ept id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For complete device setup and cabling instructions, go to <bpt id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;/linkText&gt;</ept><bpt id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;title&gt;</bpt><ept id="944b66a6-4f8d-4ee3-821b-49f00ba08ba0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e6cae65-9794-4e41-ab1a-8d1da22bbc97" xml:space="preserve">
+          <source>Make sure that you follow the instructions exactly.</source>
+          <target state="new">Make sure that you follow the instructions exactly.</target>
+        </trans-unit>
+        <trans-unit id="f625c2ea-4427-469d-834c-2427271520e4" xml:space="preserve">
+          <source>The steps for turning on a Microsoft Azure StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model.</source>
+          <target state="new">The steps for turning on a Microsoft Azure StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model.</target>
+        </trans-unit>
+        <trans-unit id="d2f2d436-35c3-4898-a5f9-3a3468b03fe6" xml:space="preserve">
+          <source>The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="07ad11a9-630b-410e-a5c1-ff4db7e4435b" xml:space="preserve">
+          <source><bpt id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;/linkText&gt;</ept><bpt id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;title&gt;</bpt><ept id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;/linkText&gt;</ept><bpt id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;title&gt;</bpt><ept id="75319237-5779-45e9-8380-134fde1cc0e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa62de9c-bc29-4bb7-aa13-4ee8b58f4cc5" xml:space="preserve">
+          <source><bpt id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;/linkText&gt;</ept><bpt id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;title&gt;</bpt><ept id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;/linkText&gt;</ept><bpt id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;title&gt;</bpt><ept id="32133841-8cd3-4b33-8bb6-13b45b6f7f30">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41c27adb-8d16-4775-a1f7-ed13c0ed177b" xml:space="preserve">
+          <source>After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and no EBOD enclosure.</source>
+          <target state="new">After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and no EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="561bea07-c6a5-4fe4-a5c9-b55677c26414" xml:space="preserve">
+          <source>Make sure that the power switches on both Power and Cooling Modules (PCMs) are in the OFF position.</source>
+          <target state="new">Make sure that the power switches on both Power and Cooling Modules (PCMs) are in the OFF position.</target>
+        </trans-unit>
+        <trans-unit id="8efc26c8-abdd-4e5a-80e1-4a6d7858251c" xml:space="preserve">
+          <source>If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.</source>
+          <target state="new">If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.</target>
+        </trans-unit>
+        <trans-unit id="673bbf01-1dd6-46c3-8c92-6fcefcd18dee" xml:space="preserve">
+          <source>Turn on the device by flipping the power switches on both PCMs to the ON position.</source>
+          <target state="new">Turn on the device by flipping the power switches on both PCMs to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="225cc224-bdf6-426a-87b0-1dc0ddb5ef6c" xml:space="preserve">
+          <source>The device should turn on.</source>
+          <target state="new">The device should turn on.</target>
+        </trans-unit>
+        <trans-unit id="009308b5-6e2e-4564-9f76-a4bad0dfa4ce" xml:space="preserve">
+          <source>Check the following to verify that the device is fully on:</source>
+          <target state="new">Check the following to verify that the device is fully on:</target>
+        </trans-unit>
+        <trans-unit id="d8377a02-fbb6-466e-a5a1-227451555612" xml:space="preserve">
+          <source>The OK LEDs on both PCM modules are green.</source>
+          <target state="new">The OK LEDs on both PCM modules are green.</target>
+        </trans-unit>
+        <trans-unit id="dd11678c-99bc-46ea-ae1d-a104f5f2f5b0" xml:space="preserve">
+          <source>The status LEDs on both controllers are solid green.</source>
+          <target state="new">The status LEDs on both controllers are solid green.</target>
+        </trans-unit>
+        <trans-unit id="dbeb34eb-5021-4657-8df5-4e82fc0a9d41" xml:space="preserve">
+          <source>The blue LED on one of the controllers is blinking, which indicates that the controller is active.</source>
+          <target state="new">The blue LED on one of the controllers is blinking, which indicates that the controller is active.</target>
+        </trans-unit>
+        <trans-unit id="6af69e15-d252-4a31-a840-e9336311ec84" xml:space="preserve">
+          <source>If any of these conditions are not met, then your device is not healthy.</source>
+          <target state="new">If any of these conditions are not met, then your device is not healthy.</target>
+        </trans-unit>
+        <trans-unit id="365ab9cf-9a25-4324-8ce0-46969194102d" xml:space="preserve">
+          <source>Please <bpt id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;/linkText&gt;</ept><bpt id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;title&gt;</bpt><ept id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please <bpt id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;/linkText&gt;</ept><bpt id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;title&gt;</bpt><ept id="237893a1-0ce1-49ff-a89f-564c46d1f4b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f359c8fe-3d6c-4558-9729-06225b26aad8" xml:space="preserve">
+          <source>After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">After a shutdown, use the following procedure to turn on a StorSimple device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="ef02fb21-b3d5-43bb-b4f9-957e078e2a8e" xml:space="preserve">
+          <source>Perform each step in sequence exactly as described.</source>
+          <target state="new">Perform each step in sequence exactly as described.</target>
+        </trans-unit>
+        <trans-unit id="c936c47b-2088-493c-b709-43cb058886aa" xml:space="preserve">
+          <source>Failure to do so could result in data loss.</source>
+          <target state="new">Failure to do so could result in data loss.</target>
+        </trans-unit>
+        <trans-unit id="81905bb9-589b-433c-ba7b-798a9e679e41" xml:space="preserve">
+          <source>Make sure that the EBOD enclosure is connected to the primary enclosure.</source>
+          <target state="new">Make sure that the EBOD enclosure is connected to the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="d992f896-4cbd-4c0a-95f9-b9b9b515781a" xml:space="preserve">
+          <source>For more information, see <bpt id="45674ca2-8921-4c92-ad89-9860990264df">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="45674ca2-8921-4c92-ad89-9860990264df">&lt;/linkText&gt;</ept><bpt id="45674ca2-8921-4c92-ad89-9860990264df">&lt;title&gt;</bpt><ept id="45674ca2-8921-4c92-ad89-9860990264df">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="45674ca2-8921-4c92-ad89-9860990264df">&lt;linkText&gt;</bpt>Install your StorSimple 8600 device<ept id="45674ca2-8921-4c92-ad89-9860990264df">&lt;/linkText&gt;</ept><bpt id="45674ca2-8921-4c92-ad89-9860990264df">&lt;title&gt;</bpt><ept id="45674ca2-8921-4c92-ad89-9860990264df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="701c4386-1bc8-4adf-aebe-2dee54f10f9c" xml:space="preserve">
+          <source>Make sure that the Power and Cooling Modules (PCMs) on both the EBOD and primary enclosures are in the OFF position.</source>
+          <target state="new">Make sure that the Power and Cooling Modules (PCMs) on both the EBOD and primary enclosures are in the OFF position.</target>
+        </trans-unit>
+        <trans-unit id="54d06a17-2646-4c9a-9109-5b1b89d28eb6" xml:space="preserve">
+          <source>If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.</source>
+          <target state="new">If the switches are not in the OFF position, then flip them to the OFF position and wait for the lights to go off.</target>
+        </trans-unit>
+        <trans-unit id="1eb54e42-7e9e-4d3c-b48b-0f124357a5a7" xml:space="preserve">
+          <source>Turn on the EBOD enclosure first by flipping the power switches on both PCMs to the ON position.</source>
+          <target state="new">Turn on the EBOD enclosure first by flipping the power switches on both PCMs to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="2489a205-b583-4ced-84f5-4ecbed6225e2" xml:space="preserve">
+          <source>The PCM LEDs should be green.</source>
+          <target state="new">The PCM LEDs should be green.</target>
+        </trans-unit>
+        <trans-unit id="78c61a1e-a1b5-4651-a13e-7b24d35fe2a2" xml:space="preserve">
+          <source>A green EBOD controller LED on this unit indicates that the EBOD enclosure is on.</source>
+          <target state="new">A green EBOD controller LED on this unit indicates that the EBOD enclosure is on.</target>
+        </trans-unit>
+        <trans-unit id="926bfe92-b4c5-43bb-9443-4bae1fdb7ce2" xml:space="preserve">
+          <source>Turn on the primary enclosure by flipping the power switches on both PCMs to the ON position.</source>
+          <target state="new">Turn on the primary enclosure by flipping the power switches on both PCMs to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="b62f6f52-6d9a-4d1e-904a-9bd2655b5fc3" xml:space="preserve">
+          <source>The entire system should now be on.</source>
+          <target state="new">The entire system should now be on.</target>
+        </trans-unit>
+        <trans-unit id="00609d34-e414-4dac-a429-3eb7e364da1f" xml:space="preserve">
+          <source>Verify that the SAS LEDs are green, which ensures that the connection between the EBOD enclosure and the primary enclosure is good.</source>
+          <target state="new">Verify that the SAS LEDs are green, which ensures that the connection between the EBOD enclosure and the primary enclosure is good.</target>
+        </trans-unit>
+        <trans-unit id="5cc046d4-e9f2-45f8-a976-502b5957e382" xml:space="preserve">
+          <source>A power outage or interruption can shut down a Microsoft Azure StorSimple device.</source>
+          <target state="new">A power outage or interruption can shut down a Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="ce2969a9-9379-474e-a068-9c60f6f730d9" xml:space="preserve">
+          <source>The power outage can happen on one of the power supplies or both power supplies.</source>
+          <target state="new">The power outage can happen on one of the power supplies or both power supplies.</target>
+        </trans-unit>
+        <trans-unit id="af03b7ca-b2e5-461f-9610-880143786378" xml:space="preserve">
+          <source>The recovery steps are different depending on whether the device is an 8100 or an 8600 model.</source>
+          <target state="new">The recovery steps are different depending on whether the device is an 8100 or an 8600 model.</target>
+        </trans-unit>
+        <trans-unit id="ddb4788c-d73a-4efb-8bad-04495d238cbd" xml:space="preserve">
+          <source>The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="280c6160-0d0e-45f7-b083-ed45f472cf13" xml:space="preserve">
+          <source>This section describes the recovery procedure for each scenario.</source>
+          <target state="new">This section describes the recovery procedure for each scenario.</target>
+        </trans-unit>
+        <trans-unit id="6daa10a2-a6db-4829-9695-9eb5011b3b50" xml:space="preserve">
+          <source><bpt id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;/linkText&gt;</ept><bpt id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;title&gt;</bpt><ept id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;/linkText&gt;</ept><bpt id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;title&gt;</bpt><ept id="408eb9a1-07eb-45e8-985d-48fb78281874">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5814925-0fe7-4e28-a083-293a39dce2fd" xml:space="preserve">
+          <source><bpt id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;/linkText&gt;</ept><bpt id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;title&gt;</bpt><ept id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;/linkText&gt;</ept><bpt id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;title&gt;</bpt><ept id="9b1c3c00-ac69-475f-b135-44d07959a9f1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d8d7eb0-2172-4956-be28-23f277e0a014" xml:space="preserve">
+          <source>The system can continue its normal operation if there is power loss to one of its power supplies.</source>
+          <target state="new">The system can continue its normal operation if there is power loss to one of its power supplies.</target>
+        </trans-unit>
+        <trans-unit id="c2fa559b-6d33-4a78-b228-0243b743a9d9" xml:space="preserve">
+          <source>However, to ensure high availability of the device, restore power to the power supply as soon as possible.</source>
+          <target state="new">However, to ensure high availability of the device, restore power to the power supply as soon as possible.</target>
+        </trans-unit>
+        <trans-unit id="e803fa62-1f33-4dc1-b0b0-ba260c5ab013" xml:space="preserve">
+          <source>If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner.</source>
+          <target state="new">If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner.</target>
+        </trans-unit>
+        <trans-unit id="c9006043-a6fd-4534-8c4f-774e94e984f4" xml:space="preserve">
+          <source>When the power is restored, the system will automatically turn on.</source>
+          <target state="new">When the power is restored, the system will automatically turn on.</target>
+        </trans-unit>
+        <trans-unit id="884a187d-acf2-4578-b6e4-eeaa96588751" xml:space="preserve">
+          <source>The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure.</source>
+          <target state="new">The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="f313dd48-b611-41c0-823e-9a00580d92e6" xml:space="preserve">
+          <source>However, to ensure high availability of the device, please restore power to the power supply as soon as possible.</source>
+          <target state="new">However, to ensure high availability of the device, please restore power to the power supply as soon as possible.</target>
+        </trans-unit>
+        <trans-unit id="f58e05a3-b789-468c-8c82-841973801ddb" xml:space="preserve">
+          <source>If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner.</source>
+          <target state="new">If there is a power outage or power interruption on both power supplies, the EBOD enclosure will shut down immediately and the primary enclosure will shut down in an orderly and controlled manner.</target>
+        </trans-unit>
+        <trans-unit id="b27c59ef-093f-4d91-9dbd-cfe1e2b01427" xml:space="preserve">
+          <source>When power is restored, the appliance will start automatically.</source>
+          <target state="new">When power is restored, the appliance will start automatically.</target>
+        </trans-unit>
+        <trans-unit id="8b19a740-8bbf-499b-bb05-d37890830f56" xml:space="preserve">
+          <source>If the power is switched off manually, then take the following steps to restore power to the system.</source>
+          <target state="new">If the power is switched off manually, then take the following steps to restore power to the system.</target>
+        </trans-unit>
+        <trans-unit id="16ca259a-75bc-4e4e-926d-2d16b0c5691a" xml:space="preserve">
+          <source>Turn on the EBOD enclosure.</source>
+          <target state="new">Turn on the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="c6c90ff8-09dc-46c8-9709-6113d20a1730" xml:space="preserve">
+          <source>After the EBOD enclosure is on, turn on the primary enclosure.</source>
+          <target state="new">After the EBOD enclosure is on, turn on the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="ade1b867-d267-423d-9c4b-e12ebf56e6fd" xml:space="preserve">
+          <source>When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU.</source>
+          <target state="new">When you set up your cables, you must ensure that the EBOD is never connected alone to a separate PDU.</target>
+        </trans-unit>
+        <trans-unit id="0c645472-f5db-42c8-a8dc-4401bb95554d" xml:space="preserve">
+          <source>If the EBOD and primary enclosure fail at the same time, the system will recover.</source>
+          <target state="new">If the EBOD and primary enclosure fail at the same time, the system will recover.</target>
+        </trans-unit>
+        <trans-unit id="f3ed8b9f-968d-47dd-af13-4e05a3d3b1de" xml:space="preserve">
+          <source>If only the EBOD enclosure fails on both power supplies, the system will not automatically recover.</source>
+          <target state="new">If only the EBOD enclosure fails on both power supplies, the system will not automatically recover.</target>
+        </trans-unit>
+        <trans-unit id="42cff593-db9c-4c79-9b8e-2046df9480d0" xml:space="preserve">
+          <source>Take the following steps to turn on the system and restore it to a healthy state:</source>
+          <target state="new">Take the following steps to turn on the system and restore it to a healthy state:</target>
+        </trans-unit>
+        <trans-unit id="1ca8cf9f-4e2a-445e-8acd-559f74d2a485" xml:space="preserve">
+          <source>If the primary enclosure is turned on, switch off both Power and Cooling Modules (PCMs).</source>
+          <target state="new">If the primary enclosure is turned on, switch off both Power and Cooling Modules (PCMs).</target>
+        </trans-unit>
+        <trans-unit id="ba192b81-9c8b-4e6e-96ca-e5d8e457c84b" xml:space="preserve">
+          <source>Wait for a few minutes for the system to shut down.</source>
+          <target state="new">Wait for a few minutes for the system to shut down.</target>
+        </trans-unit>
+        <trans-unit id="3f25dc6d-04cf-4225-81fc-84e67dc706ab" xml:space="preserve">
+          <source>Turn on the EBOD enclosure.</source>
+          <target state="new">Turn on the EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="d1a1329e-0447-42ff-9954-288c107de7fe" xml:space="preserve">
+          <source>After the EBOD enclosure is on, turn on the primary enclosure.</source>
+          <target state="new">After the EBOD enclosure is on, turn on the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="3107627c-1bd1-4827-b464-64bb867d81e5" xml:space="preserve">
+          <source>If the connection is lost between the standby controller and the corresponding EBOD controller, the device continues to work.</source>
+          <target state="new">If the connection is lost between the standby controller and the corresponding EBOD controller, the device continues to work.</target>
+        </trans-unit>
+        <trans-unit id="888a34fa-843c-49ea-b72f-251acd91de30" xml:space="preserve">
+          <source>If the connection between the system active controller and the corresponding EBOD controller is lost, failover should occur and the device should continue to work as normal.</source>
+          <target state="new">If the connection between the system active controller and the corresponding EBOD controller is lost, failover should occur and the device should continue to work as normal.</target>
+        </trans-unit>
+        <trans-unit id="f6ae4166-b0cd-4229-825f-a1dc8dbf5811" xml:space="preserve">
+          <source>When both Serial Attached SCSI (SAS) cables are removed or the connection between the EBOD enclosure and the primary enclosure is severed, the device will stop working.</source>
+          <target state="new">When both Serial Attached SCSI (SAS) cables are removed or the connection between the EBOD enclosure and the primary enclosure is severed, the device will stop working.</target>
+        </trans-unit>
+        <trans-unit id="637acf88-29b5-426a-a7b2-fb9386304f69" xml:space="preserve">
+          <source>At this point, perform the following steps.</source>
+          <target state="new">At this point, perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="e138f8f9-097f-4b0c-946d-bad00bc0417f" xml:space="preserve">
+          <source>Access the back of the device.</source>
+          <target state="new">Access the back of the device.</target>
+        </trans-unit>
+        <trans-unit id="09818b63-00bb-414b-b5bb-2c40c97a1b49" xml:space="preserve">
+          <source>If the SAS cable connection between the EBOD enclosure and the primary enclosure is broken, all SAS lane LEDs on the EBOD enclosure will be off.</source>
+          <target state="new">If the SAS cable connection between the EBOD enclosure and the primary enclosure is broken, all SAS lane LEDs on the EBOD enclosure will be off.</target>
+        </trans-unit>
+        <trans-unit id="64eda5f8-440e-41a0-a41c-d1c2d3808b82" xml:space="preserve">
+          <source>Shut down both Power and Cooling Modules (PCMs) on the EBOD enclosure and the primary enclosure.</source>
+          <target state="new">Shut down both Power and Cooling Modules (PCMs) on the EBOD enclosure and the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="9db9088d-44b4-4bfe-86ca-a6d9130338ed" xml:space="preserve">
+          <source>Wait until all the lights on the back of both the enclosures turn off.</source>
+          <target state="new">Wait until all the lights on the back of both the enclosures turn off.</target>
+        </trans-unit>
+        <trans-unit id="afbf8429-fecb-447a-9bc3-b342def20681" xml:space="preserve">
+          <source>Reinsert the SAS cables, and ensure that there is a good connection between the EBOD enclosure and the primary enclosure.</source>
+          <target state="new">Reinsert the SAS cables, and ensure that there is a good connection between the EBOD enclosure and the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="f72868a3-9534-4874-8b53-a25638069be7" xml:space="preserve">
+          <source>Turn on the EBOD enclosure first by flipping both PCM switches to the ON position.</source>
+          <target state="new">Turn on the EBOD enclosure first by flipping both PCM switches to the ON position.</target>
+        </trans-unit>
+        <trans-unit id="3b2102c7-8416-4f9a-b6a9-597ff516ea89" xml:space="preserve">
+          <source>Ensure that the EBOD enclosure is on by checking that the green LED is ON.</source>
+          <target state="new">Ensure that the EBOD enclosure is on by checking that the green LED is ON.</target>
+        </trans-unit>
+        <trans-unit id="ebf4b49d-d2d5-4fee-a591-f5dac61877f8" xml:space="preserve">
+          <source>Turn on the primary enclosure.</source>
+          <target state="new">Turn on the primary enclosure.</target>
+        </trans-unit>
+        <trans-unit id="61ee9b88-cd9d-4e8b-a601-5a864f93bace" xml:space="preserve">
+          <source>Ensure that the primary enclosure is on by checking that the controller green LED is ON.</source>
+          <target state="new">Ensure that the primary enclosure is on by checking that the controller green LED is ON.</target>
+        </trans-unit>
+        <trans-unit id="e137dffe-06b9-48b9-9a9d-45adc2c248fb" xml:space="preserve">
+          <source>Verify that the EBOD enclosure connection with the primary enclosure is good by checking that the SAS lane LEDs (four per EBOD controller) are all ON.</source>
+          <target state="new">Verify that the EBOD enclosure connection with the primary enclosure is good by checking that the SAS lane LEDs (four per EBOD controller) are all ON.</target>
+        </trans-unit>
+        <trans-unit id="55338e83-8b12-48e7-9d67-7584bbec8973" xml:space="preserve">
+          <source>If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode.</source>
+          <target state="new">If the SAS cables are defective or the connection between the EBOD enclosure and the primary enclosure is not good, when you turn on the system, it will go into recovery mode.</target>
+        </trans-unit>
+        <trans-unit id="d01b921d-d6a3-4917-9200-b9ec29dec40a" xml:space="preserve">
+          <source>Please <bpt id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;/linkText&gt;</ept><bpt id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;title&gt;</bpt><ept id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;/title&gt;</ept> if this happens.</source>
+          <target state="new">Please <bpt id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;/linkText&gt;</ept><bpt id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;title&gt;</bpt><ept id="a4b69c63-8b69-459f-a547-db67cbe5e843">&lt;/title&gt;</ept> if this happens.</target>
+        </trans-unit>
+        <trans-unit id="e4f92b2d-db46-4ea6-81a7-c4b2e1335d15" xml:space="preserve">
+          <source>A running Microsoft Azure StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced.</source>
+          <target state="new">A running Microsoft Azure StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced.</target>
+        </trans-unit>
+        <trans-unit id="ae9a4aa0-5c0d-4f1d-b2cc-b7e3ee6c5d89" xml:space="preserve">
+          <source>The steps are different depending on whether the Microsoft Azure StorSimple device is an 8100 or an 8600 model.</source>
+          <target state="new">The steps are different depending on whether the Microsoft Azure StorSimple device is an 8100 or an 8600 model.</target>
+        </trans-unit>
+        <trans-unit id="77885e5a-ab08-49f1-930e-99dcb01c0963" xml:space="preserve">
+          <source>The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="9b8b4cf3-8db3-439f-8e2a-8f1ceff4512d" xml:space="preserve">
+          <source>This section details the steps to shut down a running device.</source>
+          <target state="new">This section details the steps to shut down a running device.</target>
+        </trans-unit>
+        <trans-unit id="aa21c97b-6d12-4ebb-8e4b-de4270ca28a4" xml:space="preserve">
+          <source><bpt id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;linkText&gt;</bpt>Device with primary enclosure<ept id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;/linkText&gt;</ept><bpt id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;title&gt;</bpt><ept id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;linkText&gt;</bpt>Device with primary enclosure<ept id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;/linkText&gt;</ept><bpt id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;title&gt;</bpt><ept id="c1c96fdc-be34-4b3a-876e-8aa55048134a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4089e0ba-191e-4b19-9d82-f786dce137db" xml:space="preserve">
+          <source><bpt id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;/linkText&gt;</ept><bpt id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;title&gt;</bpt><ept id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;linkText&gt;</bpt>Device with EBOD enclosure<ept id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;/linkText&gt;</ept><bpt id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;title&gt;</bpt><ept id="c05cfd22-c9f6-4941-8dd8-69f9b906fca4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abc46c6d-b72f-4d2c-b6d8-7e3cd2e2205c" xml:space="preserve">
+          <source>Currently there is no way to shut down a running StorSimple device from the Management Portal.</source>
+          <target state="new">Currently there is no way to shut down a running StorSimple device from the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="e83563ff-d477-4dd0-8491-c27efe08bce1" xml:space="preserve">
+          <source>The only way to shut it down is by using Windows PowerShell for StorSimple.</source>
+          <target state="new">The only way to shut it down is by using Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="2fa21bfc-c0ba-47e2-8f32-1099a7e2ad6e" xml:space="preserve">
+          <source>To shut down the device in an orderly and controlled manner, access Windows PowerShell for StorSimple and follow the steps below.</source>
+          <target state="new">To shut down the device in an orderly and controlled manner, access Windows PowerShell for StorSimple and follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="3c120701-e79e-4d7b-9b4e-dda66c213f8f" xml:space="preserve">
+          <source>Do not shut down a running device by using the power button on the back of the device.</source>
+          <target state="new">Do not shut down a running device by using the power button on the back of the device.</target>
+        </trans-unit>
+        <trans-unit id="025152b3-527f-4493-98ff-183e72bd0725" xml:space="preserve">
+          <source>Before shutting down the device, make sure that all the device components are healthy.</source>
+          <target state="new">Before shutting down the device, make sure that all the device components are healthy.</target>
+        </trans-unit>
+        <trans-unit id="002d92e4-024b-48fe-8440-5c2e17b59cee" xml:space="preserve">
+          <source>In the Management Portal, navigate to <bpt id="7fce3bbf-2f82-4e1d-9cf9-a98e855cc48d">&lt;strong&gt;</bpt>Devices<ept id="7fce3bbf-2f82-4e1d-9cf9-a98e855cc48d">&lt;/strong&gt;</ept> &gt; <bpt id="76b1405d-c5aa-44d4-af59-38c8183ab8d2">&lt;strong&gt;</bpt>Maintenance<ept id="76b1405d-c5aa-44d4-af59-38c8183ab8d2">&lt;/strong&gt;</ept> &gt; <bpt id="8384a84b-d9df-4703-a6a1-d4e9759db845">&lt;strong&gt;</bpt>Hardware Status<ept id="8384a84b-d9df-4703-a6a1-d4e9759db845">&lt;/strong&gt;</ept>, and verify that status of all the components is green.</source>
+          <target state="new">In the Management Portal, navigate to <bpt id="7fce3bbf-2f82-4e1d-9cf9-a98e855cc48d">&lt;strong&gt;</bpt>Devices<ept id="7fce3bbf-2f82-4e1d-9cf9-a98e855cc48d">&lt;/strong&gt;</ept> &gt; <bpt id="76b1405d-c5aa-44d4-af59-38c8183ab8d2">&lt;strong&gt;</bpt>Maintenance<ept id="76b1405d-c5aa-44d4-af59-38c8183ab8d2">&lt;/strong&gt;</ept> &gt; <bpt id="8384a84b-d9df-4703-a6a1-d4e9759db845">&lt;strong&gt;</bpt>Hardware Status<ept id="8384a84b-d9df-4703-a6a1-d4e9759db845">&lt;/strong&gt;</ept>, and verify that status of all the components is green.</target>
+        </trans-unit>
+        <trans-unit id="ac83fbc6-ef8e-4e06-aa92-b73f8a899d39" xml:space="preserve">
+          <source>This is true only for a healthy system.</source>
+          <target state="new">This is true only for a healthy system.</target>
+        </trans-unit>
+        <trans-unit id="1a0b4d7b-9304-4bfb-9f94-fe2619ecf82d" xml:space="preserve">
+          <source>If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the <bpt id="eadbb81f-99b4-4604-8b65-dc5371b2b3a9">&lt;strong&gt;</bpt>Hardware Status<ept id="eadbb81f-99b4-4604-8b65-dc5371b2b3a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the <bpt id="eadbb81f-99b4-4604-8b65-dc5371b2b3a9">&lt;strong&gt;</bpt>Hardware Status<ept id="eadbb81f-99b4-4604-8b65-dc5371b2b3a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fddbd19-1c56-4469-bb3f-59434057a4d0" xml:space="preserve">
+          <source>You can connect to the Windows PowerShell for StorSimple through the device serial console or through Windows PowerShell remoting.</source>
+          <target state="new">You can connect to the Windows PowerShell for StorSimple through the device serial console or through Windows PowerShell remoting.</target>
+        </trans-unit>
+        <trans-unit id="a2c96ced-3a44-4d5a-ae3a-5e32cc4d8a09" xml:space="preserve">
+          <source>After you access Windows PowerShell for StorSimple, perform the following steps to shut down a running device.</source>
+          <target state="new">After you access Windows PowerShell for StorSimple, perform the following steps to shut down a running device.</target>
+        </trans-unit>
+        <trans-unit id="5a303f62-e366-4f2e-af4c-a07bf9b85984" xml:space="preserve">
+          <source>Connect to the serial console of the device.</source>
+          <target state="new">Connect to the serial console of the device.</target>
+        </trans-unit>
+        <trans-unit id="555b6fb0-6c09-4fc9-ac46-0c2a0f42c872" xml:space="preserve">
+          <source>In the menu that appears, verify that the controller you are connected to is the <bpt id="cdffb79e-9132-4d7e-b557-0e04c76fc785">&lt;strong&gt;</bpt>Standby<ept id="cdffb79e-9132-4d7e-b557-0e04c76fc785">&lt;/strong&gt;</ept> controller.</source>
+          <target state="new">In the menu that appears, verify that the controller you are connected to is the <bpt id="cdffb79e-9132-4d7e-b557-0e04c76fc785">&lt;strong&gt;</bpt>Standby<ept id="cdffb79e-9132-4d7e-b557-0e04c76fc785">&lt;/strong&gt;</ept> controller.</target>
+        </trans-unit>
+        <trans-unit id="81e2781e-6949-4c4a-aec6-3f0551df1ab4" xml:space="preserve">
+          <source>If it is not the standby controller, disconnect from the controller, and connect to the other controller.</source>
+          <target state="new">If it is not the standby controller, disconnect from the controller, and connect to the other controller.</target>
+        </trans-unit>
+        <trans-unit id="95144e8c-11c2-4137-b69a-5b6a1a729e96" xml:space="preserve">
+          <source>In the serial console menu, choose <bpt id="e86a2002-837b-4754-b580-405628b7203e">&lt;strong&gt;</bpt>Option 1<ept id="e86a2002-837b-4754-b580-405628b7203e">&lt;/strong&gt;</ept> to log on to the standby controller with full access.</source>
+          <target state="new">In the serial console menu, choose <bpt id="e86a2002-837b-4754-b580-405628b7203e">&lt;strong&gt;</bpt>Option 1<ept id="e86a2002-837b-4754-b580-405628b7203e">&lt;/strong&gt;</ept> to log on to the standby controller with full access.</target>
+        </trans-unit>
+        <trans-unit id="f13c68f8-884b-4ffd-b9d5-8439015ac13b" xml:space="preserve">
+          <source>At the prompt, type: </source>
+          <target state="new">At the prompt, type: </target>
+        </trans-unit>
+        <trans-unit id="d7167f37-e56c-431d-94fe-e6beec44d437" xml:space="preserve">
+          <source><bpt id="a65175a4-8d6f-4575-9d3a-daaa635f8f78">&lt;code&gt;</bpt>Stop-HCSController<ept id="a65175a4-8d6f-4575-9d3a-daaa635f8f78">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a65175a4-8d6f-4575-9d3a-daaa635f8f78">&lt;code&gt;</bpt>Stop-HCSController<ept id="a65175a4-8d6f-4575-9d3a-daaa635f8f78">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71ff8e4e-9658-41ec-b7e2-fb3f372ae504" xml:space="preserve">
+          <source>This should shut down the current standby controller.</source>
+          <target state="new">This should shut down the current standby controller.</target>
+        </trans-unit>
+        <trans-unit id="ebe69041-806d-4585-be61-a8fe134595c9" xml:space="preserve">
+          <source>Wait for the controller to shut down completely before you proceed to the next step.</source>
+          <target state="new">Wait for the controller to shut down completely before you proceed to the next step.</target>
+        </trans-unit>
+        <trans-unit id="7f65cd66-234e-441e-91d5-7a160e6ac459" xml:space="preserve">
+          <source>To verify that the shutdown has finished, check the back of the device.</source>
+          <target state="new">To verify that the shutdown has finished, check the back of the device.</target>
+        </trans-unit>
+        <trans-unit id="6d8e90ba-5704-443c-a270-0207316be1c7" xml:space="preserve">
+          <source>The controller fault LED should be solid red.</source>
+          <target state="new">The controller fault LED should be solid red.</target>
+        </trans-unit>
+        <trans-unit id="736ced36-5c22-4425-903f-86f057862321" xml:space="preserve">
+          <source>Connect to the active controller through the serial console and follow the same steps to shut it down.</source>
+          <target state="new">Connect to the active controller through the serial console and follow the same steps to shut it down.</target>
+        </trans-unit>
+        <trans-unit id="44d5d856-0ff8-4423-8b46-acc96d2b6404" xml:space="preserve">
+          <source>After both the controllers have shut down completely, the status LEDs on both controllers should be blinking red.</source>
+          <target state="new">After both the controllers have shut down completely, the status LEDs on both controllers should be blinking red.</target>
+        </trans-unit>
+        <trans-unit id="5054b1dd-d69e-472d-9f47-3e65261126d3" xml:space="preserve">
+          <source>If you need to shut down the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.</source>
+          <target state="new">If you need to shut down the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.</target>
+        </trans-unit>
+        <trans-unit id="f56c1643-538a-430e-9f5b-e30782a72dbd" xml:space="preserve">
+          <source>To verify that the device has completely shut down, check that all the lights at the back of the device are off.</source>
+          <target state="new">To verify that the device has completely shut down, check that all the lights at the back of the device are off.</target>
+        </trans-unit>
+        <trans-unit id="d1d92cac-0f3a-4af2-82eb-2122e3080786" xml:space="preserve">
+          <source>Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy.</source>
+          <target state="new">Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy.</target>
+        </trans-unit>
+        <trans-unit id="9a213aeb-f057-4299-8d42-0358c88af3dd" xml:space="preserve">
+          <source>In the Management Portal, navigate to <bpt id="2550ff04-045b-4974-811b-459464c4484b">&lt;strong&gt;</bpt>Devices<ept id="2550ff04-045b-4974-811b-459464c4484b">&lt;/strong&gt;</ept> &gt; <bpt id="77e0651d-6eed-4852-9abc-02ae4743cbf2">&lt;strong&gt;</bpt>Maintenance<ept id="77e0651d-6eed-4852-9abc-02ae4743cbf2">&lt;/strong&gt;</ept> &gt; <bpt id="556ee09f-045f-4c93-8681-8201429ea1fc">&lt;strong&gt;</bpt>Hardware Status<ept id="556ee09f-045f-4c93-8681-8201429ea1fc">&lt;/strong&gt;</ept>, and verify that all the components are healthy.</source>
+          <target state="new">In the Management Portal, navigate to <bpt id="2550ff04-045b-4974-811b-459464c4484b">&lt;strong&gt;</bpt>Devices<ept id="2550ff04-045b-4974-811b-459464c4484b">&lt;/strong&gt;</ept> &gt; <bpt id="77e0651d-6eed-4852-9abc-02ae4743cbf2">&lt;strong&gt;</bpt>Maintenance<ept id="77e0651d-6eed-4852-9abc-02ae4743cbf2">&lt;/strong&gt;</ept> &gt; <bpt id="556ee09f-045f-4c93-8681-8201429ea1fc">&lt;strong&gt;</bpt>Hardware Status<ept id="556ee09f-045f-4c93-8681-8201429ea1fc">&lt;/strong&gt;</ept>, and verify that all the components are healthy.</target>
+        </trans-unit>
+        <trans-unit id="1430ffcf-298d-4a25-b575-cf0e0f75332a" xml:space="preserve">
+          <source>Follow all the steps listed in <bpt id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;/linkText&gt;</ept><bpt id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;title&gt;</bpt><ept id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow all the steps listed in <bpt id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;linkText&gt;</bpt>Device with primary enclosure only<ept id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;/linkText&gt;</ept><bpt id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;title&gt;</bpt><ept id="337745d3-6625-47bd-ae5f-3e3b495116ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a063a728-b46a-444f-beb1-7a409fddef01" xml:space="preserve">
+          <source>After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.</source>
+          <target state="new">After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.</target>
+        </trans-unit>
+        <trans-unit id="52367355-38de-44f1-b619-7478de32d422" xml:space="preserve">
+          <source>To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.</source>
+          <target state="new">To verify that the EBOD has shut down, check that all lights on the back of the EBOD enclosure are off.</target>
+        </trans-unit>
+        <trans-unit id="13ac1c7d-4bb6-4af6-b479-92bb0395ff4a" xml:space="preserve">
+          <source>The SAS cables that are used to connect the EBOD enclosure to the primary enclosure should not be removed until after the system is shut down.</source>
+          <target state="new">The SAS cables that are used to connect the EBOD enclosure to the primary enclosure should not be removed until after the system is shut down.</target>
+        </trans-unit>
+        <trans-unit id="bb178982-1195-461f-b269-044657b42741" xml:space="preserve">
+          <source><bpt id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;/linkText&gt;</ept><bpt id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;title&gt;</bpt><ept id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;/title&gt;</ept> if you encounter problems when turning on or shutting down a StorSimple device.</source>
+          <target state="new"><bpt id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;linkText&gt;</bpt>Contact Microsoft Support<ept id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;/linkText&gt;</ept><bpt id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;title&gt;</bpt><ept id="fca9b0c2-ddb6-40cd-8444-73541f0ea819">&lt;/title&gt;</ept> if you encounter problems when turning on or shutting down a StorSimple device.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="22cf1795-1d3e-4a95-841e-98bea24cf247" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="22cf1795-1d3e-4a95-841e-98bea24cf247" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a606a9c5-a42d-4bdd-8442-9abb69e4e02d">
+        <trans-unit id="72db595a-1164-4398-9652-170bd657306d" xml:space="preserve">
+          <source>We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line.</source>
+          <target state="new">We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line.</target>
+        </trans-unit>
+        <trans-unit id="4264bf27-8a62-4d91-8835-e4151722cee4" xml:space="preserve">
+          <source>In Eclipse, open the <bpt id="12194caa-d09d-4c61-bd7d-b090fc017d6c">&lt;em&gt;</bpt>res\layout\activity_to_do.xml<ept id="12194caa-d09d-4c61-bd7d-b090fc017d6c">&lt;/em&gt;</ept> file in your quickstart project, locate the <bpt id="3249235e-1ddb-490f-b220-acbbb79b174e">&lt;strong&gt;</bpt>LinearLayout<ept id="3249235e-1ddb-490f-b220-acbbb79b174e">&lt;/strong&gt;</ept> element that contains the <bpt id="44a6f4b5-a69d-4dfa-a138-61aef01b133a">&lt;strong&gt;</bpt>Button<ept id="44a6f4b5-a69d-4dfa-a138-61aef01b133a">&lt;/strong&gt;</ept> element named <bpt id="44fc107d-f6e3-493e-ac40-1ff2dfa1209c">&lt;code&gt;</bpt>buttonAddToDo<ept id="44fc107d-f6e3-493e-ac40-1ff2dfa1209c">&lt;/code&gt;</ept>.</source>
+          <target state="new">In Eclipse, open the <bpt id="12194caa-d09d-4c61-bd7d-b090fc017d6c">&lt;em&gt;</bpt>res\layout\activity_to_do.xml<ept id="12194caa-d09d-4c61-bd7d-b090fc017d6c">&lt;/em&gt;</ept> file in your quickstart project, locate the <bpt id="3249235e-1ddb-490f-b220-acbbb79b174e">&lt;strong&gt;</bpt>LinearLayout<ept id="3249235e-1ddb-490f-b220-acbbb79b174e">&lt;/strong&gt;</ept> element that contains the <bpt id="44a6f4b5-a69d-4dfa-a138-61aef01b133a">&lt;strong&gt;</bpt>Button<ept id="44a6f4b5-a69d-4dfa-a138-61aef01b133a">&lt;/strong&gt;</ept> element named <bpt id="44fc107d-f6e3-493e-ac40-1ff2dfa1209c">&lt;code&gt;</bpt>buttonAddToDo<ept id="44fc107d-f6e3-493e-ac40-1ff2dfa1209c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b618bd7-3b1c-4685-866f-9499a8de9ead" xml:space="preserve">
+          <source>Copy the <bpt id="14532cba-057c-44a2-a41b-fa934329332b">&lt;strong&gt;</bpt>LinearLayout<ept id="14532cba-057c-44a2-a41b-fa934329332b">&lt;/strong&gt;</ept> and paste it immediately following the original one.</source>
+          <target state="new">Copy the <bpt id="14532cba-057c-44a2-a41b-fa934329332b">&lt;strong&gt;</bpt>LinearLayout<ept id="14532cba-057c-44a2-a41b-fa934329332b">&lt;/strong&gt;</ept> and paste it immediately following the original one.</target>
+        </trans-unit>
+        <trans-unit id="352cf261-08a1-4eac-b90d-1152810c8e81" xml:space="preserve">
+          <source>Delete the <bpt id="17e94a05-1577-45ad-bb75-4a35432ad476">&lt;strong&gt;</bpt>Button<ept id="17e94a05-1577-45ad-bb75-4a35432ad476">&lt;/strong&gt;</ept> element from the first <bpt id="295c5f32-e5aa-43ae-8d2a-04eac5c8709c">&lt;strong&gt;</bpt>LinearLayout<ept id="295c5f32-e5aa-43ae-8d2a-04eac5c8709c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Delete the <bpt id="17e94a05-1577-45ad-bb75-4a35432ad476">&lt;strong&gt;</bpt>Button<ept id="17e94a05-1577-45ad-bb75-4a35432ad476">&lt;/strong&gt;</ept> element from the first <bpt id="295c5f32-e5aa-43ae-8d2a-04eac5c8709c">&lt;strong&gt;</bpt>LinearLayout<ept id="295c5f32-e5aa-43ae-8d2a-04eac5c8709c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3144b72e-89be-4548-8a5c-f24353ad0ecf" xml:space="preserve">
+          <source>In the second <bpt id="4bf0299c-8258-462b-ab51-4dab8b292b0f">&lt;strong&gt;</bpt>LinearLayout<ept id="4bf0299c-8258-462b-ab51-4dab8b292b0f">&lt;/strong&gt;</ept>, delete the <bpt id="f8e47df1-d8f9-4dfc-8360-025cc8ab876a">&lt;strong&gt;</bpt>EditText<ept id="f8e47df1-d8f9-4dfc-8360-025cc8ab876a">&lt;/strong&gt;</ept> element, and add the following  code immediately following the existing <bpt id="75d38e0a-93e7-4802-8b21-f75653730abd">&lt;strong&gt;</bpt>Button<ept id="75d38e0a-93e7-4802-8b21-f75653730abd">&lt;/strong&gt;</ept> element: </source>
+          <target state="new">In the second <bpt id="4bf0299c-8258-462b-ab51-4dab8b292b0f">&lt;strong&gt;</bpt>LinearLayout<ept id="4bf0299c-8258-462b-ab51-4dab8b292b0f">&lt;/strong&gt;</ept>, delete the <bpt id="f8e47df1-d8f9-4dfc-8360-025cc8ab876a">&lt;strong&gt;</bpt>EditText<ept id="f8e47df1-d8f9-4dfc-8360-025cc8ab876a">&lt;/strong&gt;</ept> element, and add the following  code immediately following the existing <bpt id="75d38e0a-93e7-4802-8b21-f75653730abd">&lt;strong&gt;</bpt>Button<ept id="75d38e0a-93e7-4802-8b21-f75653730abd">&lt;/strong&gt;</ept> element: </target>
+        </trans-unit>
+        <trans-unit id="b9dbeae0-218c-41a3-8cbc-e6769e2273d8" xml:space="preserve">
+          <source>This adds a new button to the page, on a separate line, next to the existing button.</source>
+          <target state="new">This adds a new button to the page, on a separate line, next to the existing button.</target>
+        </trans-unit>
+        <trans-unit id="5e0c2754-ac3e-4086-acc5-a3f51146710e" xml:space="preserve">
+          <source>The second <bpt id="1826b686-0ae7-4e08-bfe1-7f85fcb14c77">&lt;strong&gt;</bpt>LinearLayout<ept id="1826b686-0ae7-4e08-bfe1-7f85fcb14c77">&lt;/strong&gt;</ept> now looks like this:</source>
+          <target state="new">The second <bpt id="1826b686-0ae7-4e08-bfe1-7f85fcb14c77">&lt;strong&gt;</bpt>LinearLayout<ept id="1826b686-0ae7-4e08-bfe1-7f85fcb14c77">&lt;/strong&gt;</ept> now looks like this:</target>
+        </trans-unit>
+        <trans-unit id="949b022e-d500-4a1d-8bf1-bb940892a7ec" xml:space="preserve">
+          <source>Open the res\values\string.xml file and add the following line of code:</source>
+          <target state="new">Open the res\values\string.xml file and add the following line of code:</target>
+        </trans-unit>
+        <trans-unit id="32b2beb7-f824-4199-85e1-4b9043ba81b4" xml:space="preserve">
+          <source>In Package Explorer, right click the project name in the <bpt id="78b48ba6-fd60-4e10-9a66-4ee6698d1174">&lt;em&gt;</bpt>src<ept id="78b48ba6-fd60-4e10-9a66-4ee6698d1174">&lt;/em&gt;</ept> folder (<bpt id="394d9dd9-911b-4b52-a261-67921614c7e0">&lt;code&gt;</bpt>com.example.{your projects name}<ept id="394d9dd9-911b-4b52-a261-67921614c7e0">&lt;/code&gt;</ept>), choose <bpt id="8d72bd74-d34e-47b9-899b-e5b1f44ed1d6">&lt;strong&gt;</bpt>New<ept id="8d72bd74-d34e-47b9-899b-e5b1f44ed1d6">&lt;/strong&gt;</ept> then <bpt id="3fdc2609-1648-4beb-a6e3-339f6cb10ab6">&lt;strong&gt;</bpt>Class<ept id="3fdc2609-1648-4beb-a6e3-339f6cb10ab6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Package Explorer, right click the project name in the <bpt id="78b48ba6-fd60-4e10-9a66-4ee6698d1174">&lt;em&gt;</bpt>src<ept id="78b48ba6-fd60-4e10-9a66-4ee6698d1174">&lt;/em&gt;</ept> folder (<bpt id="394d9dd9-911b-4b52-a261-67921614c7e0">&lt;code&gt;</bpt>com.example.{your projects name}<ept id="394d9dd9-911b-4b52-a261-67921614c7e0">&lt;/code&gt;</ept>), choose <bpt id="8d72bd74-d34e-47b9-899b-e5b1f44ed1d6">&lt;strong&gt;</bpt>New<ept id="8d72bd74-d34e-47b9-899b-e5b1f44ed1d6">&lt;/strong&gt;</ept> then <bpt id="3fdc2609-1648-4beb-a6e3-339f6cb10ab6">&lt;strong&gt;</bpt>Class<ept id="3fdc2609-1648-4beb-a6e3-339f6cb10ab6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46493179-f839-4371-9ebe-5b1e9dcec670" xml:space="preserve">
+          <source>In the dialog, enter <bpt id="2a8ecbe6-a0cc-400e-9baa-a8aaa5936df6">&lt;strong&gt;</bpt>MarkAllResult<ept id="2a8ecbe6-a0cc-400e-9baa-a8aaa5936df6">&lt;/strong&gt;</ept> in the class name field, choose OK, and replace the resulting class definition with the following code:</source>
+          <target state="new">In the dialog, enter <bpt id="2a8ecbe6-a0cc-400e-9baa-a8aaa5936df6">&lt;strong&gt;</bpt>MarkAllResult<ept id="2a8ecbe6-a0cc-400e-9baa-a8aaa5936df6">&lt;/strong&gt;</ept> in the class name field, choose OK, and replace the resulting class definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="377cc5b8-141c-4f5c-8a68-23ca51fac64f" xml:space="preserve">
+          <source>This class is used to hold the row count value returned by the custom API.</source>
+          <target state="new">This class is used to hold the row count value returned by the custom API.</target>
+        </trans-unit>
+        <trans-unit id="7516be77-2742-4671-85d5-1b3385786dd9" xml:space="preserve">
+          <source>Locate the <bpt id="76bfe10c-5335-4c12-92db-e80e676f8d69">&lt;strong&gt;</bpt>refreshItemsFromTable<ept id="76bfe10c-5335-4c12-92db-e80e676f8d69">&lt;/strong&gt;</ept> method in the <bpt id="a93ee565-2c43-418d-8cce-3f5848e876c8">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="a93ee565-2c43-418d-8cce-3f5848e876c8">&lt;/strong&gt;</ept> file, and make sure that the first line of code in the <bpt id="e550311d-df03-4f49-b0ba-27f36b2c6648">&lt;code&gt;</bpt>try<ept id="e550311d-df03-4f49-b0ba-27f36b2c6648">&lt;/code&gt;</ept> block looks like this:</source>
+          <target state="new">Locate the <bpt id="76bfe10c-5335-4c12-92db-e80e676f8d69">&lt;strong&gt;</bpt>refreshItemsFromTable<ept id="76bfe10c-5335-4c12-92db-e80e676f8d69">&lt;/strong&gt;</ept> method in the <bpt id="a93ee565-2c43-418d-8cce-3f5848e876c8">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="a93ee565-2c43-418d-8cce-3f5848e876c8">&lt;/strong&gt;</ept> file, and make sure that the first line of code in the <bpt id="e550311d-df03-4f49-b0ba-27f36b2c6648">&lt;code&gt;</bpt>try<ept id="e550311d-df03-4f49-b0ba-27f36b2c6648">&lt;/code&gt;</ept> block looks like this:</target>
+        </trans-unit>
+        <trans-unit id="ea6bd38a-fe5b-4abc-9918-fd3c45503bf0" xml:space="preserve">
+          <source>This filters the items so that completed items are not returned by the query.</source>
+          <target state="new">This filters the items so that completed items are not returned by the query.</target>
+        </trans-unit>
+        <trans-unit id="fa16d194-520f-4000-9cce-ac274fecbf3d" xml:space="preserve">
+          <source>Make sure that <bpt id="df76b523-5851-4216-91f4-c3b230f0a580">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="df76b523-5851-4216-91f4-c3b230f0a580">&lt;/strong&gt;</ept> contains the following imports at the beginning of the file:</source>
+          <target state="new">Make sure that <bpt id="df76b523-5851-4216-91f4-c3b230f0a580">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="df76b523-5851-4216-91f4-c3b230f0a580">&lt;/strong&gt;</ept> contains the following imports at the beginning of the file:</target>
+        </trans-unit>
+        <trans-unit id="0958411b-b748-4851-9656-a5fb9ff08e84" xml:space="preserve">
+          <source>In the <bpt id="bf4bdc0c-2e7d-4c1a-99e1-2859910468c9">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="bf4bdc0c-2e7d-4c1a-99e1-2859910468c9">&lt;/strong&gt;</ept> file, add the following method:</source>
+          <target state="new">In the <bpt id="bf4bdc0c-2e7d-4c1a-99e1-2859910468c9">&lt;strong&gt;</bpt>ToDoActivity.java<ept id="bf4bdc0c-2e7d-4c1a-99e1-2859910468c9">&lt;/strong&gt;</ept> file, add the following method:</target>
+        </trans-unit>
+        <trans-unit id="a3add1b1-3c77-4876-aa08-3b69ebedb69f" xml:space="preserve">
+          <source>public void completeItem(View view) {</source>
+          <target state="new">public void completeItem(View view) {</target>
+        </trans-unit>
+        <trans-unit id="205f0086-7ede-4e27-8ffd-3c244bf13d5a" xml:space="preserve">
+          <source>This method handles the <bpt id="b93285b6-49b8-4049-bd0b-d9b590968dd8">&lt;strong&gt;</bpt>Click<ept id="b93285b6-49b8-4049-bd0b-d9b590968dd8">&lt;/strong&gt;</ept> event for the new button.</source>
+          <target state="new">This method handles the <bpt id="b93285b6-49b8-4049-bd0b-d9b590968dd8">&lt;strong&gt;</bpt>Click<ept id="b93285b6-49b8-4049-bd0b-d9b590968dd8">&lt;/strong&gt;</ept> event for the new button.</target>
+        </trans-unit>
+        <trans-unit id="a6be2bfa-5657-4641-b8d4-129ad4684bc8" xml:space="preserve">
+          <source>The <bpt id="e140e222-f826-4514-adb0-2c8eff5bd25c">&lt;strong&gt;</bpt>invokeApi<ept id="e140e222-f826-4514-adb0-2c8eff5bd25c">&lt;/strong&gt;</ept> method is called on the client, which sends a POST request to the new custom API.</source>
+          <target state="new">The <bpt id="e140e222-f826-4514-adb0-2c8eff5bd25c">&lt;strong&gt;</bpt>invokeApi<ept id="e140e222-f826-4514-adb0-2c8eff5bd25c">&lt;/strong&gt;</ept> method is called on the client, which sends a POST request to the new custom API.</target>
+        </trans-unit>
+        <trans-unit id="56d54028-6ef7-40e4-98bf-d69f88436728" xml:space="preserve">
+          <source>The result returned by the custom API is displayed in a message dialog, as are any errors.</source>
+          <target state="new">The result returned by the custom API is displayed in a message dialog, as are any errors.</target>
+        </trans-unit>
+        <trans-unit id="9d377f3a-a322-42fe-b599-e9ec56e99044" xml:space="preserve">
+          <source>From the <bpt id="07135d32-85d4-4f8f-b747-411c0a4915cb">&lt;strong&gt;</bpt>Run<ept id="07135d32-85d4-4f8f-b747-411c0a4915cb">&lt;/strong&gt;</ept> menu, click <bpt id="5eb82f32-ef94-4f68-bc67-b3379ee645c1">&lt;strong&gt;</bpt>Run<ept id="5eb82f32-ef94-4f68-bc67-b3379ee645c1">&lt;/strong&gt;</ept> to start the project in the Android emulator.</source>
+          <target state="new">From the <bpt id="07135d32-85d4-4f8f-b747-411c0a4915cb">&lt;strong&gt;</bpt>Run<ept id="07135d32-85d4-4f8f-b747-411c0a4915cb">&lt;/strong&gt;</ept> menu, click <bpt id="5eb82f32-ef94-4f68-bc67-b3379ee645c1">&lt;strong&gt;</bpt>Run<ept id="5eb82f32-ef94-4f68-bc67-b3379ee645c1">&lt;/strong&gt;</ept> to start the project in the Android emulator.</target>
+        </trans-unit>
+        <trans-unit id="0ba235bc-d91a-474d-b75f-b1f69f941dbe" xml:space="preserve">
+          <source>This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.</source>
+          <target state="new">This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="cda11b48-be93-43cd-b7b1-a2dabb5d3d7e" xml:space="preserve">
+          <source>In the app, type some text in <bpt id="5bc6e6ac-3f72-419f-b3eb-df88e77f69a9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="5bc6e6ac-3f72-419f-b3eb-df88e77f69a9">&lt;/strong&gt;</ept>, then click <bpt id="98c4fe5e-2a11-4fae-822b-2ce6c954e763">&lt;strong&gt;</bpt>Add<ept id="98c4fe5e-2a11-4fae-822b-2ce6c954e763">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type some text in <bpt id="5bc6e6ac-3f72-419f-b3eb-df88e77f69a9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="5bc6e6ac-3f72-419f-b3eb-df88e77f69a9">&lt;/strong&gt;</ept>, then click <bpt id="98c4fe5e-2a11-4fae-822b-2ce6c954e763">&lt;strong&gt;</bpt>Add<ept id="98c4fe5e-2a11-4fae-822b-2ce6c954e763">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58e8abc4-2fe9-4261-a8fe-5764226cda13" xml:space="preserve">
+          <source>Repeat the previous step until you have added several todo items to the list.</source>
+          <target state="new">Repeat the previous step until you have added several todo items to the list.</target>
+        </trans-unit>
+        <trans-unit id="a10bb6f0-4edd-43c8-9263-00b01c304e64" xml:space="preserve">
+          <source>Click the <bpt id="3ee342a0-58ed-446b-b94f-2281ce1494a5">&lt;strong&gt;</bpt>Complete All<ept id="3ee342a0-58ed-446b-b94f-2281ce1494a5">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="3ee342a0-58ed-446b-b94f-2281ce1494a5">&lt;strong&gt;</bpt>Complete All<ept id="3ee342a0-58ed-446b-b94f-2281ce1494a5">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="10e9cbdf-10c6-47b5-94d0-ae46a31b5acb" xml:space="preserve">
+          <source><bpt id="9d53fe89-a018-491c-b848-50ae76f530fc">&lt;linkText&gt;</bpt><ept id="9d53fe89-a018-491c-b848-50ae76f530fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d53fe89-a018-491c-b848-50ae76f530fc">&lt;linkText&gt;</bpt><ept id="9d53fe89-a018-491c-b848-50ae76f530fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b8de87a-b56b-4a48-a6cd-7d3891f24ec7" xml:space="preserve">
+          <source>A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.</source>
+          <target state="new">A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

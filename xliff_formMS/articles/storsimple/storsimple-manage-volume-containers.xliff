@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a163a34d-928f-4e05-abb3-b1d3598affde" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a163a34d-928f-4e05-abb3-b1d3598affde" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8c75eb4d-cad8-4cbd-ba82-db790290ab19">
+        <trans-unit id="07ffb750-c21d-4a27-ad12-89bd6d6d6d04" xml:space="preserve">
+          <source>Manage your StorSimple volume containers | Microsoft Azure</source>
+          <target state="new">Manage your StorSimple volume containers | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fa5cd359-eabb-44fb-8a65-19d880a1b107" xml:space="preserve">
+          <source>Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container.</source>
+          <target state="new">Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container.</target>
+        </trans-unit>
+        <trans-unit id="b2461281-d1e2-4592-9f5b-a5a915f8ce40" xml:space="preserve">
+          <source>This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.</source>
+          <target state="new">This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.</target>
+        </trans-unit>
+        <trans-unit id="e2f761b4-e976-4987-8d67-5b9f7d3677aa" xml:space="preserve">
+          <source>A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings.</source>
+          <target state="new">A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings.</target>
+        </trans-unit>
+        <trans-unit id="f9eb6cee-4f22-409e-a685-a58f585af148" xml:space="preserve">
+          <source>A device can have multiple volume containers for all its volumes.</source>
+          <target state="new">A device can have multiple volume containers for all its volumes.</target>
+        </trans-unit>
+        <trans-unit id="cca1c509-fa63-4e14-ac98-b9059da61eb9" xml:space="preserve">
+          <source>A volume container has the following attributes:</source>
+          <target state="new">A volume container has the following attributes:</target>
+        </trans-unit>
+        <trans-unit id="01bd92ca-e6ae-4217-8c4f-5312244b9dd5" xml:space="preserve">
+          <source><bpt id="40c6a370-7fca-4b56-941b-20c3dcb97625">&lt;strong&gt;</bpt>Volumes<ept id="40c6a370-7fca-4b56-941b-20c3dcb97625">&lt;/strong&gt;</ept> – The thinly provisioned StorSimple volumes that are contained within the volume container.</source>
+          <target state="new"><bpt id="40c6a370-7fca-4b56-941b-20c3dcb97625">&lt;strong&gt;</bpt>Volumes<ept id="40c6a370-7fca-4b56-941b-20c3dcb97625">&lt;/strong&gt;</ept> – The thinly provisioned StorSimple volumes that are contained within the volume container.</target>
+        </trans-unit>
+        <trans-unit id="f00e8433-074d-4a78-96b8-81119c76079e" xml:space="preserve">
+          <source>A volume container may contain up to 256 thinly provisioned StorSimple volumes.</source>
+          <target state="new">A volume container may contain up to 256 thinly provisioned StorSimple volumes.</target>
+        </trans-unit>
+        <trans-unit id="2c0e08a5-ba91-4075-b069-cd2beeb8dbec" xml:space="preserve">
+          <source><bpt id="6b0db27a-37b9-4013-a15b-773563594771">&lt;strong&gt;</bpt>Encryption<ept id="6b0db27a-37b9-4013-a15b-773563594771">&lt;/strong&gt;</ept> – An encryption key that can be defined for each volume container.</source>
+          <target state="new"><bpt id="6b0db27a-37b9-4013-a15b-773563594771">&lt;strong&gt;</bpt>Encryption<ept id="6b0db27a-37b9-4013-a15b-773563594771">&lt;/strong&gt;</ept> – An encryption key that can be defined for each volume container.</target>
+        </trans-unit>
+        <trans-unit id="5e3a27a2-8f44-461c-96d8-e10fda208ae7" xml:space="preserve">
+          <source>This key is used for encrypting the data that is sent from your StorSimple device to the cloud.</source>
+          <target state="new">This key is used for encrypting the data that is sent from your StorSimple device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="42a62171-7d3e-4cf7-a4ec-e6862bb7e3e7" xml:space="preserve">
+          <source>A military-grade AES-256 bit key is used with the user-entered key.</source>
+          <target state="new">A military-grade AES-256 bit key is used with the user-entered key.</target>
+        </trans-unit>
+        <trans-unit id="4d6946ab-9964-4aca-9aa6-3c0e376a5647" xml:space="preserve">
+          <source>To secure your data, we recommend that you always enable cloud storage encryption.</source>
+          <target state="new">To secure your data, we recommend that you always enable cloud storage encryption.</target>
+        </trans-unit>
+        <trans-unit id="b184e7d7-3793-41fc-a167-f7c588a2aca5" xml:space="preserve">
+          <source><bpt id="56a43fde-ae38-4bb5-ac1d-ce2cb71a3d8e">&lt;strong&gt;</bpt>Storage account<ept id="56a43fde-ae38-4bb5-ac1d-ce2cb71a3d8e">&lt;/strong&gt;</ept> – The storage account that is linked to your cloud storage service provider.</source>
+          <target state="new"><bpt id="56a43fde-ae38-4bb5-ac1d-ce2cb71a3d8e">&lt;strong&gt;</bpt>Storage account<ept id="56a43fde-ae38-4bb5-ac1d-ce2cb71a3d8e">&lt;/strong&gt;</ept> – The storage account that is linked to your cloud storage service provider.</target>
+        </trans-unit>
+        <trans-unit id="9383e826-0c4d-46ae-b2ce-4d3b922b0805" xml:space="preserve">
+          <source>All the volumes residing in a volume container share this storage account.</source>
+          <target state="new">All the volumes residing in a volume container share this storage account.</target>
+        </trans-unit>
+        <trans-unit id="3e0fdc1c-9e8e-4e20-88d6-3ab1a8f99c46" xml:space="preserve">
+          <source>You can choose a storage account from an existing list, or create a new account when you create the volume container and then specify the access credentials for that account.</source>
+          <target state="new">You can choose a storage account from an existing list, or create a new account when you create the volume container and then specify the access credentials for that account.</target>
+        </trans-unit>
+        <trans-unit id="111a965e-a764-490d-8026-62aa14fbaa76" xml:space="preserve">
+          <source><bpt id="78cfce3e-cd9b-4bd3-abfe-00e86f04113a">&lt;strong&gt;</bpt>Cloud bandwidth<ept id="78cfce3e-cd9b-4bd3-abfe-00e86f04113a">&lt;/strong&gt;</ept> – The bandwidth consumed by the device when the data from the device is being sent to the cloud.</source>
+          <target state="new"><bpt id="78cfce3e-cd9b-4bd3-abfe-00e86f04113a">&lt;strong&gt;</bpt>Cloud bandwidth<ept id="78cfce3e-cd9b-4bd3-abfe-00e86f04113a">&lt;/strong&gt;</ept> – The bandwidth consumed by the device when the data from the device is being sent to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="0603839a-40ed-4ade-aa5a-1687eea27dc7" xml:space="preserve">
+          <source>You can enforce a bandwidth control by specifying a value between 1 and 1000 Mbps when you define this container.</source>
+          <target state="new">You can enforce a bandwidth control by specifying a value between 1 and 1000 Mbps when you define this container.</target>
+        </trans-unit>
+        <trans-unit id="76798fc7-c036-42b9-8c90-86e529f92d1e" xml:space="preserve">
+          <source>If you want the device to consume all available bandwidth, set this field to Unlimited.</source>
+          <target state="new">If you want the device to consume all available bandwidth, set this field to Unlimited.</target>
+        </trans-unit>
+        <trans-unit id="08a0fd3a-5bb9-4a89-a349-e6d0068aab5b" xml:space="preserve">
+          <source>You can also create and apply a bandwidth template to allocate bandwidth based on schedule.</source>
+          <target state="new">You can also create and apply a bandwidth template to allocate bandwidth based on schedule.</target>
+        </trans-unit>
+        <trans-unit id="683d2ebc-6aa5-4a75-af66-9be90ff107fb" xml:space="preserve">
+          <source><bpt id="d58a50fc-4954-427f-a9ae-e33c48bf6147">&lt;linkText&gt;</bpt>Volume containers page<ept id="d58a50fc-4954-427f-a9ae-e33c48bf6147">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d58a50fc-4954-427f-a9ae-e33c48bf6147">&lt;linkText&gt;</bpt>Volume containers page<ept id="d58a50fc-4954-427f-a9ae-e33c48bf6147">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="216d8f9c-cecb-4419-afea-71960ae9d3d3" xml:space="preserve">
+          <source>This following procedures explain how to use the StorSimple <bpt id="c4a77a8e-75f5-42c1-beba-9fb761f06e1d">&lt;strong&gt;</bpt>Volume containers<ept id="c4a77a8e-75f5-42c1-beba-9fb761f06e1d">&lt;/strong&gt;</ept> page to complete the following common operations:</source>
+          <target state="new">This following procedures explain how to use the StorSimple <bpt id="c4a77a8e-75f5-42c1-beba-9fb761f06e1d">&lt;strong&gt;</bpt>Volume containers<ept id="c4a77a8e-75f5-42c1-beba-9fb761f06e1d">&lt;/strong&gt;</ept> page to complete the following common operations:</target>
+        </trans-unit>
+        <trans-unit id="520a30eb-6583-4d36-8fa9-ee9ce80a816e" xml:space="preserve">
+          <source>Add a volume container </source>
+          <target state="new">Add a volume container </target>
+        </trans-unit>
+        <trans-unit id="8f4559dc-d2a4-43e4-bfc2-098cb5ab199d" xml:space="preserve">
+          <source>Modify a volume container </source>
+          <target state="new">Modify a volume container </target>
+        </trans-unit>
+        <trans-unit id="08784a6a-5975-4471-9d3e-b43b6e27b31f" xml:space="preserve">
+          <source>Delete a volume container </source>
+          <target state="new">Delete a volume container </target>
+        </trans-unit>
+        <trans-unit id="d889ab66-bd98-4d5a-8174-c10359450529" xml:space="preserve">
+          <source>Perform the following steps to create a volume container.</source>
+          <target state="new">Perform the following steps to create a volume container.</target>
+        </trans-unit>
+        <trans-unit id="4b1fa5ac-f10e-480c-8e56-341e60185d3f" xml:space="preserve">
+          <source><bpt id="47fb8fe0-51bd-4025-a2d5-1b5e60bd4846">&lt;token href="../../includes/storsimple-add-volume-container.md"&gt;</bpt><ept id="47fb8fe0-51bd-4025-a2d5-1b5e60bd4846">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="47fb8fe0-51bd-4025-a2d5-1b5e60bd4846">&lt;token href="../../includes/storsimple-add-volume-container.md"&gt;</bpt><ept id="47fb8fe0-51bd-4025-a2d5-1b5e60bd4846">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd70f05e-4eb2-4947-b8c0-13eae17a9def" xml:space="preserve">
+          <source>Perform the following steps to modify a volume container.</source>
+          <target state="new">Perform the following steps to modify a volume container.</target>
+        </trans-unit>
+        <trans-unit id="3cf6934b-9425-4b60-a921-722c9d0ae8ea" xml:space="preserve">
+          <source><bpt id="a51458fb-3128-4328-92d1-c05d49253037">&lt;token href="../../includes/storsimple-modify-volume-container.md"&gt;</bpt><ept id="a51458fb-3128-4328-92d1-c05d49253037">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a51458fb-3128-4328-92d1-c05d49253037">&lt;token href="../../includes/storsimple-modify-volume-container.md"&gt;</bpt><ept id="a51458fb-3128-4328-92d1-c05d49253037">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80eb873a-9ab6-4407-b402-ac7d175d06bd" xml:space="preserve">
+          <source>A volume container has volumes within it.</source>
+          <target state="new">A volume container has volumes within it.</target>
+        </trans-unit>
+        <trans-unit id="45e0cdbe-9e63-4f23-b97f-a49eb1158daf" xml:space="preserve">
+          <source>It can be deleted only if all the volumes contained in it are first deleted.</source>
+          <target state="new">It can be deleted only if all the volumes contained in it are first deleted.</target>
+        </trans-unit>
+        <trans-unit id="5b7a32f4-3f91-4d6d-a18c-600a8cd72d91" xml:space="preserve">
+          <source>Perform the following steps to delete a volume container.</source>
+          <target state="new">Perform the following steps to delete a volume container.</target>
+        </trans-unit>
+        <trans-unit id="0f95b541-28c9-41e4-b68c-77e59776d896" xml:space="preserve">
+          <source><bpt id="8d1461e7-a64a-4cbe-bbab-268f6eb6b830">&lt;token href="../../includes/storsimple-delete-volume-container.md"&gt;</bpt><ept id="8d1461e7-a64a-4cbe-bbab-268f6eb6b830">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8d1461e7-a64a-4cbe-bbab-268f6eb6b830">&lt;token href="../../includes/storsimple-delete-volume-container.md"&gt;</bpt><ept id="8d1461e7-a64a-4cbe-bbab-268f6eb6b830">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e92f275-ee90-4573-b61f-a3d2e6c9583b" xml:space="preserve">
+          <source>Read more about <bpt id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;linkText&gt;</bpt>managing StorSimple volumes<ept id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;/linkText&gt;</ept><bpt id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;title&gt;</bpt><ept id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;linkText&gt;</bpt>managing StorSimple volumes<ept id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;/linkText&gt;</ept><bpt id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;title&gt;</bpt><ept id="a72a1d05-3ccc-4554-b942-45fdb3183445">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

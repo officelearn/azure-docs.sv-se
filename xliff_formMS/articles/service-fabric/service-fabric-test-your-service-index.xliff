@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="19194474-80a3-4178-8918-7a8d7670273d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="19194474-80a3-4178-8918-7a8d7670273d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="79213542-31f4-452c-b29e-a53f13bd22f5">
+        <trans-unit id="d3ad02df-9c87-4e9a-9997-cae3c6684db5" xml:space="preserve">
+          <source>Test a Service Fabric service | Microsoft Azure</source>
+          <target state="new">Test a Service Fabric service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="54636438-340c-47ad-ab66-ba7cf9571fa1" xml:space="preserve">
+          <source>Conceptual information and tutorials that help you understand how to test a Service Fabric service by running Testability actions and scenarios.</source>
+          <target state="new">Conceptual information and tutorials that help you understand how to test a Service Fabric service by running Testability actions and scenarios.</target>
+        </trans-unit>
+        <trans-unit id="f91a56c1-d735-42b6-a2ed-d7a095677ad1" xml:space="preserve">
+          <source>Testability is a suite of tools specifically designed for testing your services built on Microsoft Azure Service Fabric.</source>
+          <target state="new">Testability is a suite of tools specifically designed for testing your services built on Microsoft Azure Service Fabric.</target>
+        </trans-unit>
+        <trans-unit id="5f71ee5b-def3-47ff-b169-b41ef6bdbfb5" xml:space="preserve">
+          <source>The tools allow you to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions your services will experience throughout their lifetimes, all in a controlled and safe manner.</source>
+          <target state="new">The tools allow you to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions your services will experience throughout their lifetimes, all in a controlled and safe manner.</target>
+        </trans-unit>
+        <trans-unit id="ce75ecc0-2263-4ae5-8593-fbdd91f565d8" xml:space="preserve">
+          <source>To learn more, read:</source>
+          <target state="new">To learn more, read:</target>
+        </trans-unit>
+        <trans-unit id="e92df125-5d2b-48ce-87a2-96b8a2758648" xml:space="preserve">
+          <source><bpt id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;linkText&gt;</bpt>Testability Overview<ept id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;/linkText&gt;</ept><bpt id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;title&gt;</bpt><ept id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;linkText&gt;</bpt>Testability Overview<ept id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;/linkText&gt;</ept><bpt id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;title&gt;</bpt><ept id="3bd5751a-bf40-4412-b421-f4856ae7492d">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="7cbc19bc-a3dc-441c-926a-210ac6b60e58" xml:space="preserve">
+          <source><bpt id="e801d443-0901-427d-8f67-4391959dd535">&lt;linkText&gt;</bpt>Run an action<ept id="e801d443-0901-427d-8f67-4391959dd535">&lt;/linkText&gt;</ept><bpt id="e801d443-0901-427d-8f67-4391959dd535">&lt;title&gt;</bpt><ept id="e801d443-0901-427d-8f67-4391959dd535">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="e801d443-0901-427d-8f67-4391959dd535">&lt;linkText&gt;</bpt>Run an action<ept id="e801d443-0901-427d-8f67-4391959dd535">&lt;/linkText&gt;</ept><bpt id="e801d443-0901-427d-8f67-4391959dd535">&lt;title&gt;</bpt><ept id="e801d443-0901-427d-8f67-4391959dd535">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="9b99da17-905d-40e1-a66c-fce4ed851140" xml:space="preserve">
+          <source><bpt id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;linkText&gt;</bpt>Run a scenario<ept id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;/linkText&gt;</ept><bpt id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;title&gt;</bpt><ept id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;linkText&gt;</bpt>Run a scenario<ept id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;/linkText&gt;</ept><bpt id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;title&gt;</bpt><ept id="23a33d66-9ea5-4236-8398-7b0c7f3a88a1">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="282d639c-0ccf-467e-92b7-ef0f4e2cc926" xml:space="preserve">
+          <source>How to write tests for your service</source>
+          <target state="new">How to write tests for your service</target>
+        </trans-unit>
+        <trans-unit id="476c5f5d-635f-4973-99ff-fec1a386c72d" xml:space="preserve">
+          <source><bpt id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;linkText&gt;</bpt>Simulate failures during service workloads<ept id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;/linkText&gt;</ept><bpt id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;title&gt;</bpt><ept id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;linkText&gt;</bpt>Simulate failures during service workloads<ept id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;/linkText&gt;</ept><bpt id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;title&gt;</bpt><ept id="c8903e7d-c3ef-42d0-9c62-a1ec782815f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ef98f0b-09a0-40f7-bfb5-30f7521901e0" xml:space="preserve">
+          <source><bpt id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;linkText&gt;</bpt>Service to service communication failures<ept id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;/linkText&gt;</ept><bpt id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;title&gt;</bpt><ept id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;linkText&gt;</bpt>Service to service communication failures<ept id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;/linkText&gt;</ept><bpt id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;title&gt;</bpt><ept id="d957455a-5bec-4349-b76c-859d726efe9f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

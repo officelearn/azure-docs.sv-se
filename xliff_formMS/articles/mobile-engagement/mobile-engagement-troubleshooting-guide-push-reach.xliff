@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="37bf2ed0-be86-4c94-a747-4a0498dfbb88" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="37bf2ed0-be86-4c94-a747-4a0498dfbb88" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8d521a40-ac06-47ac-bbc7-34551803ff9f">
+        <trans-unit id="092453a6-6f7a-4693-a82a-9f6afcea4360" xml:space="preserve">
+          <source>Azure Mobile Engagement Troubleshooting Guide - Push/Reach</source>
+          <target state="new">Azure Mobile Engagement Troubleshooting Guide - Push/Reach</target>
+        </trans-unit>
+        <trans-unit id="e29a86d6-3670-4042-9e93-0c889cc49ed5" xml:space="preserve">
+          <source>Troubleshooting user interaction and notification issues in Azure Mobile Engagement</source>
+          <target state="new">Troubleshooting user interaction and notification issues in Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="179280e1-bb6b-4f80-b58b-d77f1cc7eb5e" xml:space="preserve">
+          <source>The following are possible issues you may encounter with how Azure Mobile Engagement sends information to your users.</source>
+          <target state="new">The following are possible issues you may encounter with how Azure Mobile Engagement sends information to your users.</target>
+        </trans-unit>
+        <trans-unit id="3759d7c2-a0f1-4a47-9542-76237c9b8e68" xml:space="preserve">
+          <source>Pushes don't work (in app, out of app, or both).</source>
+          <target state="new">Pushes don't work (in app, out of app, or both).</target>
+        </trans-unit>
+        <trans-unit id="195085d8-c621-475b-93dc-686dc4eb494a" xml:space="preserve">
+          <source>Many times a push failure is an indication that Azure Mobile Engagement, Reach, or another advanced feature of Azure Mobile Engagement is not correctly integrated or that an upgrade is required in the SDK to fix a known issue with a new OS or Device platform.</source>
+          <target state="new">Many times a push failure is an indication that Azure Mobile Engagement, Reach, or another advanced feature of Azure Mobile Engagement is not correctly integrated or that an upgrade is required in the SDK to fix a known issue with a new OS or Device platform.</target>
+        </trans-unit>
+        <trans-unit id="1e2c31e7-ff23-4355-94d2-2a9202aba6ce" xml:space="preserve">
+          <source>Test just an In App push and just an Out of App push to determine if something is an In App or Out of App issue.</source>
+          <target state="new">Test just an In App push and just an Out of App push to determine if something is an In App or Out of App issue.</target>
+        </trans-unit>
+        <trans-unit id="d99f3715-8d99-44d6-b262-db3933924fe5" xml:space="preserve">
+          <source>Test from both the UI and the API as a troubleshooting step to see what additional error information is available both places.</source>
+          <target state="new">Test from both the UI and the API as a troubleshooting step to see what additional error information is available both places.</target>
+        </trans-unit>
+        <trans-unit id="630b2c20-6259-4105-b6d8-0cb4dea96eaf" xml:space="preserve">
+          <source>Out of App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.</source>
+          <target state="new">Out of App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.</target>
+        </trans-unit>
+        <trans-unit id="b8f9fc40-39f9-4a33-850f-f30537ae3861" xml:space="preserve">
+          <source>Pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only).</source>
+          <target state="new">Pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="a0f716d4-2a5f-4083-a421-b968f04a789e" xml:space="preserve">
+          <source>(<bpt id="626fee3f-f52e-4a7d-9bdb-41e935f04729">&lt;strong&gt;</bpt>Note:<ept id="626fee3f-f52e-4a7d-9bdb-41e935f04729">&lt;/strong&gt;</ept> "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple.</source>
+          <target state="new">(<bpt id="626fee3f-f52e-4a7d-9bdb-41e935f04729">&lt;strong&gt;</bpt>Note:<ept id="626fee3f-f52e-4a7d-9bdb-41e935f04729">&lt;/strong&gt;</ept> "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple.</target>
+        </trans-unit>
+        <trans-unit id="c60aac71-d04a-40fb-8e5c-ff362edb82a6" xml:space="preserve">
+          <source>To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)</source>
+          <target state="new">To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)</target>
+        </trans-unit>
+        <trans-unit id="31ff7b19-7fda-4fb2-9bf3-837e2a172700" xml:space="preserve">
+          <source>Out of App push counts are handled differently in different platforms (iOS shows less information than Android if native pushes are disabled on a device, the API can provide more information than the UI on push stats).</source>
+          <target state="new">Out of App push counts are handled differently in different platforms (iOS shows less information than Android if native pushes are disabled on a device, the API can provide more information than the UI on push stats).</target>
+        </trans-unit>
+        <trans-unit id="53e06755-f7bd-4cb2-9258-1b7ed57cb607" xml:space="preserve">
+          <source>Out of App pushes can be blocked by customers at OS level (iOS and Android).</source>
+          <target state="new">Out of App pushes can be blocked by customers at OS level (iOS and Android).</target>
+        </trans-unit>
+        <trans-unit id="d468c58f-91e5-4016-ae8e-1bd56a9e3df9" xml:space="preserve">
+          <source>Out of App pushes will be shown as disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but may fail silently from the API.</source>
+          <target state="new">Out of App pushes will be shown as disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but may fail silently from the API.</target>
+        </trans-unit>
+        <trans-unit id="4cc3ce6d-fbfb-4592-810d-d7196437f4f3" xml:space="preserve">
+          <source>In App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.</source>
+          <target state="new">In App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.</target>
+        </trans-unit>
+        <trans-unit id="d9278697-39a5-490e-9412-4d9fa597b42f" xml:space="preserve">
+          <source>GCM and ADM pushes won't work unless Azure Mobile Engagement and the specific server are integrated in the SDK (Android only).</source>
+          <target state="new">GCM and ADM pushes won't work unless Azure Mobile Engagement and the specific server are integrated in the SDK (Android only).</target>
+        </trans-unit>
+        <trans-unit id="49733391-fda3-42e3-9ff5-9bdedc2fab2a" xml:space="preserve">
+          <source>In App and Out of App pushes should be tested separately to determine if it is a Push or Reach issue.</source>
+          <target state="new">In App and Out of App pushes should be tested separately to determine if it is a Push or Reach issue.</target>
+        </trans-unit>
+        <trans-unit id="eec3fbef-1264-4f6e-9759-36dd239ac013" xml:space="preserve">
+          <source>In App pushes require that the app be open to be received.</source>
+          <target state="new">In App pushes require that the app be open to be received.</target>
+        </trans-unit>
+        <trans-unit id="431e5e63-a375-42d3-a7eb-181b20b5a7d3" xml:space="preserve">
+          <source>In App pushes are often setup to be filtered by an opt-in or opt-out app info tag.</source>
+          <target state="new">In App pushes are often setup to be filtered by an opt-in or opt-out app info tag.</target>
+        </trans-unit>
+        <trans-unit id="a1047315-1faf-4d39-abac-a0bea5932128" xml:space="preserve">
+          <source>If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of the notification, or else the notification may not be cleared when the user dismiss it.</source>
+          <target state="new">If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of the notification, or else the notification may not be cleared when the user dismiss it.</target>
+        </trans-unit>
+        <trans-unit id="bead6d1a-da9e-4d83-b196-55585a323871" xml:space="preserve">
+          <source>If you start a campaign with no end date and a device receives the in app notification but does not display it yet, the user will still receive the notification the next time they log into the app, even if you manually end the campaign.</source>
+          <target state="new">If you start a campaign with no end date and a device receives the in app notification but does not display it yet, the user will still receive the notification the next time they log into the app, even if you manually end the campaign.</target>
+        </trans-unit>
+        <trans-unit id="601ada37-6356-47af-80bb-57fd9b6b6928" xml:space="preserve">
+          <source>For issues with the Push API, confirm that you really do want to use the Push API instead of the Reach API (since the Reach API is used more often) and that you are not confusing the "payload" and "notifier" parameters.</source>
+          <target state="new">For issues with the Push API, confirm that you really do want to use the Push API instead of the Reach API (since the Reach API is used more often) and that you are not confusing the "payload" and "notifier" parameters.</target>
+        </trans-unit>
+        <trans-unit id="3010e32e-ff94-417e-ae13-8c423202a7eb" xml:space="preserve">
+          <source>Test your push campaign with both a device connected via WIFI and 3G to eliminate the network connection as a possible source of problems.</source>
+          <target state="new">Test your push campaign with both a device connected via WIFI and 3G to eliminate the network connection as a possible source of problems.</target>
+        </trans-unit>
+        <trans-unit id="7e715d06-cc87-4314-9768-326aa962d030" xml:space="preserve">
+          <source>Pushes can be sent to a specific device based on a Device ID.</source>
+          <target state="new">Pushes can be sent to a specific device based on a Device ID.</target>
+        </trans-unit>
+        <trans-unit id="78b0597f-89da-4fd9-90a1-b502275a3d74" xml:space="preserve">
+          <source>Test devices are setup differently for each platform, but causing an event in your app on a test device and looking for your Device ID in the portal should work to find your device ID for all platforms.</source>
+          <target state="new">Test devices are setup differently for each platform, but causing an event in your app on a test device and looking for your Device ID in the portal should work to find your device ID for all platforms.</target>
+        </trans-unit>
+        <trans-unit id="c68f4d30-9f3b-4c80-916e-9f85a604487c" xml:space="preserve">
+          <source>Test devices work differently with IDFA vs. IDFV (iOS only).</source>
+          <target state="new">Test devices work differently with IDFA vs. IDFV (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="dd2110ae-4df4-4bd8-b31a-3ae9da119ea6" xml:space="preserve">
+          <source>Advanced push content item won't work (badge, ring, vibrate, picture, etc.).</source>
+          <target state="new">Advanced push content item won't work (badge, ring, vibrate, picture, etc.).</target>
+        </trans-unit>
+        <trans-unit id="c7af70b1-d1a4-4c8f-958f-c1924241e229" xml:space="preserve">
+          <source>Links from pushes don't work (out of app, in app, to a website, to a location in app).</source>
+          <target state="new">Links from pushes don't work (out of app, in app, to a website, to a location in app).</target>
+        </trans-unit>
+        <trans-unit id="8a356db3-c52e-4d6b-b028-85af629e52f3" xml:space="preserve">
+          <source>Push statistics show that a push was not sent to as many people as expected (too many or not enough).</source>
+          <target state="new">Push statistics show that a push was not sent to as many people as expected (too many or not enough).</target>
+        </trans-unit>
+        <trans-unit id="a5a75e1a-9e86-4e09-be7e-1fbf82ffae3a" xml:space="preserve">
+          <source>Push duplicated and received twice.</source>
+          <target state="new">Push duplicated and received twice.</target>
+        </trans-unit>
+        <trans-unit id="4a24bac3-97cb-44a9-a2e7-0c23f36bdafd" xml:space="preserve">
+          <source>Can't register test device for Azure Mobile Engagement Pushes (with your own Prod or DEV app).</source>
+          <target state="new">Can't register test device for Azure Mobile Engagement Pushes (with your own Prod or DEV app).</target>
+        </trans-unit>
+        <trans-unit id="501bb2e7-7adc-49a5-9440-908e0ca18206" xml:space="preserve">
+          <source>To link to a specific location in app requires “categories” (Android only).</source>
+          <target state="new">To link to a specific location in app requires “categories” (Android only).</target>
+        </trans-unit>
+        <trans-unit id="f1197be1-1b2e-4a85-b74c-8d94a23d58c0" xml:space="preserve">
+          <source>Deep linking schemes to redirect users to an alternate location after clicking a push notification need to be created in and managed by your application and the device OS not by Mobile Engagement directly.</source>
+          <target state="new">Deep linking schemes to redirect users to an alternate location after clicking a push notification need to be created in and managed by your application and the device OS not by Mobile Engagement directly.</target>
+        </trans-unit>
+        <trans-unit id="5d99d95a-eb0b-4e1f-8cae-08df85bcc392" xml:space="preserve">
+          <source>(<bpt id="d0c5765a-3b54-4e64-a3aa-02364a0d4a41">&lt;strong&gt;</bpt>Note:<ept id="d0c5765a-3b54-4e64-a3aa-02364a0d4a41">&lt;/strong&gt;</ept> Out of app notifications can't link directly to in app locations with iOS as they can with Android.)</source>
+          <target state="new">(<bpt id="d0c5765a-3b54-4e64-a3aa-02364a0d4a41">&lt;strong&gt;</bpt>Note:<ept id="d0c5765a-3b54-4e64-a3aa-02364a0d4a41">&lt;/strong&gt;</ept> Out of app notifications can't link directly to in app locations with iOS as they can with Android.)</target>
+        </trans-unit>
+        <trans-unit id="a0e40047-b3fb-4a28-916e-b5fc7feff107" xml:space="preserve">
+          <source>External image servers need to be able to use HTTP "GET" and "HEAD" for big picture pushes to work (Android only).</source>
+          <target state="new">External image servers need to be able to use HTTP "GET" and "HEAD" for big picture pushes to work (Android only).</target>
+        </trans-unit>
+        <trans-unit id="ec7357b0-c25d-422e-9f2a-f03756fa7cee" xml:space="preserve">
+          <source>In your code, you can disable the Azure Mobile Engagement agent when the keyboard is opened, and have your code re-activate the Azure Mobile Engagement agent once the keyboard is closed so that the keyboard won't affect the appearance of your notification (iOS only).</source>
+          <target state="new">In your code, you can disable the Azure Mobile Engagement agent when the keyboard is opened, and have your code re-activate the Azure Mobile Engagement agent once the keyboard is closed so that the keyboard won't affect the appearance of your notification (iOS only).</target>
+        </trans-unit>
+        <trans-unit id="5c9f6ba0-717d-48f6-ac91-292d2d60feba" xml:space="preserve">
+          <source>Some items don't work in test simulations, but only real campaigns (badge, ring, vibrate, picture, etc.).</source>
+          <target state="new">Some items don't work in test simulations, but only real campaigns (badge, ring, vibrate, picture, etc.).</target>
+        </trans-unit>
+        <trans-unit id="2bf34c96-7e50-46a1-9f9f-fdd4cf0cb9a1" xml:space="preserve">
+          <source>No server side data is logged when you use the button to "test" pushes.</source>
+          <target state="new">No server side data is logged when you use the button to "test" pushes.</target>
+        </trans-unit>
+        <trans-unit id="c337b94b-02af-4757-b3ac-1f5f93782374" xml:space="preserve">
+          <source>Data is only logged for real push campaigns.</source>
+          <target state="new">Data is only logged for real push campaigns.</target>
+        </trans-unit>
+        <trans-unit id="bbdecfbe-088c-4455-b680-f769881157c1" xml:space="preserve">
+          <source>To help isolate your issue, troubleshoot with: test, simulate, and a real campaign since they each work slightly differently.</source>
+          <target state="new">To help isolate your issue, troubleshoot with: test, simulate, and a real campaign since they each work slightly differently.</target>
+        </trans-unit>
+        <trans-unit id="1af5a49a-917c-4fc7-95df-ea93db073791" xml:space="preserve">
+          <source>The length of time your "in app" and "any time" campaigns are scheduled to run can effect delivery numbers since a campaign will only be delivered to users who are "in app" while the campaign runs (and users who have their device settings set to receive notifications "out of app").</source>
+          <target state="new">The length of time your "in app" and "any time" campaigns are scheduled to run can effect delivery numbers since a campaign will only be delivered to users who are "in app" while the campaign runs (and users who have their device settings set to receive notifications "out of app").</target>
+        </trans-unit>
+        <trans-unit id="4b96f03a-0bb2-4a14-917f-c2f58def461e" xml:space="preserve">
+          <source>The differences between how Android and iOS handle out of app notifications makes it difficult to directly compare push statistics between the Android and iOS version of your application.</source>
+          <target state="new">The differences between how Android and iOS handle out of app notifications makes it difficult to directly compare push statistics between the Android and iOS version of your application.</target>
+        </trans-unit>
+        <trans-unit id="b6ca82fd-e17c-4dc8-85ce-4bd2057f0b9c" xml:space="preserve">
+          <source>Android provides more OS level notification information than iOS does.</source>
+          <target state="new">Android provides more OS level notification information than iOS does.</target>
+        </trans-unit>
+        <trans-unit id="ad71c5b2-8502-4ee5-b518-2a8e28700fb8" xml:space="preserve">
+          <source>Android reports when a native notification is received, clicked, or deleted in the notification center, but iOS does not report this information unless 
+the notification is clicked.</source>
+          <target state="new">Android reports when a native notification is received, clicked, or deleted in the notification center, but iOS does not report this information unless 
+the notification is clicked.</target>
+        </trans-unit>
+        <trans-unit id="54a78cd4-10ab-44b1-b46b-779694add348" xml:space="preserve">
+          <source>The main reason that "pushed" numbers are different than different than "delivered" numbers for reach campaigns is that "in app" and "out of app" notifications are counted differently.</source>
+          <target state="new">The main reason that "pushed" numbers are different than different than "delivered" numbers for reach campaigns is that "in app" and "out of app" notifications are counted differently.</target>
+        </trans-unit>
+        <trans-unit id="1e271527-8fe2-455f-aba2-d20b32fde4c9" xml:space="preserve">
+          <source>"In app" notifications are handled by Mobile Engagement, but "Out of app" notifications are handled by the notification center in the OS of your device.</source>
+          <target state="new">"In app" notifications are handled by Mobile Engagement, but "Out of app" notifications are handled by the notification center in the OS of your device.</target>
+        </trans-unit>
+        <trans-unit id="690baf03-5134-4fba-889a-249ab4616e4e" xml:space="preserve">
+          <source>Built in targeting doesn't work as expected.</source>
+          <target state="new">Built in targeting doesn't work as expected.</target>
+        </trans-unit>
+        <trans-unit id="7d3f0b80-9184-48fb-9299-8bc5a93a79e6" xml:space="preserve">
+          <source>App Info Tag targeting doesn't work as expected.</source>
+          <target state="new">App Info Tag targeting doesn't work as expected.</target>
+        </trans-unit>
+        <trans-unit id="aeb4fa91-61ed-4df7-a53c-8a77c2484bc9" xml:space="preserve">
+          <source>Geo-Location targeting doesn't work as expected.</source>
+          <target state="new">Geo-Location targeting doesn't work as expected.</target>
+        </trans-unit>
+        <trans-unit id="2fbda2df-cd34-4ff5-9fca-a5098c38b84d" xml:space="preserve">
+          <source>Language options don't work as expected.</source>
+          <target state="new">Language options don't work as expected.</target>
+        </trans-unit>
+        <trans-unit id="5a74b98c-baa9-45fd-a772-dfad1db7a3cd" xml:space="preserve">
+          <source>Make sure that you have uploaded app info tags via the Azure Mobile Engagement UI or API.</source>
+          <target state="new">Make sure that you have uploaded app info tags via the Azure Mobile Engagement UI or API.</target>
+        </trans-unit>
+        <trans-unit id="035f6c61-0a41-4bbd-9b00-5308b732078b" xml:space="preserve">
+          <source>Throttling the push speed or push quota at the application level, or limiting the audience at the campaign level can prevent a person from receiving a specific push even if they meet your other targeting criteria.</source>
+          <target state="new">Throttling the push speed or push quota at the application level, or limiting the audience at the campaign level can prevent a person from receiving a specific push even if they meet your other targeting criteria.</target>
+        </trans-unit>
+        <trans-unit id="9be9ef66-88ae-49a7-a8af-cbc78417761e" xml:space="preserve">
+          <source>Setting a “Language” is different than targeting based on country or locale, which is also different than targeting based on Geo-location based on a phone location or GPS location.</source>
+          <target state="new">Setting a “Language” is different than targeting based on country or locale, which is also different than targeting based on Geo-location based on a phone location or GPS location.</target>
+        </trans-unit>
+        <trans-unit id="86e45d0a-ddc3-4312-83ce-5b72fdb3ccb7" xml:space="preserve">
+          <source>The message in the “default language” is sent to any customer who doesn't have their device set to one of the alternate languages you specify.</source>
+          <target state="new">The message in the “default language” is sent to any customer who doesn't have their device set to one of the alternate languages you specify.</target>
+        </trans-unit>
+        <trans-unit id="8e8591ff-8a8d-4e2d-98eb-a98554ba25c0" xml:space="preserve">
+          <source>Push scheduling doesn't work as expected (sent too early or delayed).</source>
+          <target state="new">Push scheduling doesn't work as expected (sent too early or delayed).</target>
+        </trans-unit>
+        <trans-unit id="00680e95-5a39-44a8-9ab1-1bc405b03de1" xml:space="preserve">
+          <source>Time zones can issues with scheduling, especially when using the end users' time zone.</source>
+          <target state="new">Time zones can issues with scheduling, especially when using the end users' time zone.</target>
+        </trans-unit>
+        <trans-unit id="5bf646f3-5fa2-447e-9f76-5f9dda01a91c" xml:space="preserve">
+          <source>Advanced push features can delay pushes.</source>
+          <target state="new">Advanced push features can delay pushes.</target>
+        </trans-unit>
+        <trans-unit id="577f2381-7cdf-42e2-a71f-2bbc2dcf0517" xml:space="preserve">
+          <source>Targeting based on phone settings (instead of App Info Tags) can delay pushes since Azure Mobile Engagement may have to request data from the phone real time before sending a push.</source>
+          <target state="new">Targeting based on phone settings (instead of App Info Tags) can delay pushes since Azure Mobile Engagement may have to request data from the phone real time before sending a push.</target>
+        </trans-unit>
+        <trans-unit id="8719b76b-c12d-48ee-b062-6eb0fb6c11b4" xml:space="preserve">
+          <source>Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.</source>
+          <target state="new">Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.</target>
+        </trans-unit>
+        <trans-unit id="25417e1e-839e-48af-9ce8-c58533266ebc" xml:space="preserve">
+          <source>Starting more than one campaign at the same time can take a longer time to scan your user base (try to only start one campaign at a time with a maximum of four, also target only to your active users so that old users don't have to be scanned).</source>
+          <target state="new">Starting more than one campaign at the same time can take a longer time to scan your user base (try to only start one campaign at a time with a maximum of four, also target only to your active users so that old users don't have to be scanned).</target>
+        </trans-unit>
+        <trans-unit id="00a8511d-1bd8-41da-8afb-298a2de6230d" xml:space="preserve">
+          <source>If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.</source>
+          <target state="new">If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.</target>
+        </trans-unit>
+        <trans-unit id="2fe17096-b509-4b1a-9263-5aa97aaabbb9" xml:space="preserve">
+          <source>If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of a notification, or else the notification may not be cleared when the user dismiss it.</source>
+          <target state="new">If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of a notification, or else the notification may not be cleared when the user dismiss it.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

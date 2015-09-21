@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9a65ea7d-e194-482e-932b-c1652da402fc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9a65ea7d-e194-482e-932b-c1652da402fc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fb1a4869-bdde-4b76-bce4-cfe3b35e019f">
+        <trans-unit id="a374171e-de89-40a9-a6ad-91088fe9577f" xml:space="preserve">
+          <source>CDN Caching Policy in Media Services Extension</source>
+          <target state="new">CDN Caching Policy in Media Services Extension</target>
+        </trans-unit>
+        <trans-unit id="df9cc2b9-f7cf-49b2-b906-51e72a606766" xml:space="preserve">
+          <source>This topic gives an overview of a CDM caching policy in Media Services Extension.</source>
+          <target state="new">This topic gives an overview of a CDM caching policy in Media Services Extension.</target>
+        </trans-unit>
+        <trans-unit id="3794e677-3183-46cd-bc24-69c4bff8cc8d" xml:space="preserve">
+          <source>Azure Media Services provides HTTP based Adaptive Streaming and progressive download.</source>
+          <target state="new">Azure Media Services provides HTTP based Adaptive Streaming and progressive download.</target>
+        </trans-unit>
+        <trans-unit id="42a13efe-19bc-41c4-b521-2f838f7b993c" xml:space="preserve">
+          <source>HTTP based streaming is highly scalable with benefits of caching in proxy and CDN layers as well as client side caching.</source>
+          <target state="new">HTTP based streaming is highly scalable with benefits of caching in proxy and CDN layers as well as client side caching.</target>
+        </trans-unit>
+        <trans-unit id="0352bd9b-d6fd-4b0d-b012-4719cf5380dd" xml:space="preserve">
+          <source>Streaming endpoints provides general streaming capabilities and also configuration for HTTP cache headers.</source>
+          <target state="new">Streaming endpoints provides general streaming capabilities and also configuration for HTTP cache headers.</target>
+        </trans-unit>
+        <trans-unit id="d30e5186-406e-4fd9-8512-ae19632564b8" xml:space="preserve">
+          <source>Streaming endpoints sets HTTP Cache-Control: max-age and Expires headers.</source>
+          <target state="new">Streaming endpoints sets HTTP Cache-Control: max-age and Expires headers.</target>
+        </trans-unit>
+        <trans-unit id="f2e38014-b6cd-4851-a29a-8c507a526ee2" xml:space="preserve">
+          <source>You can get more information for HTTP cache headers from <bpt id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;linkText&gt;</bpt>W3.org<ept id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;/linkText&gt;</ept><bpt id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;title&gt;</bpt><ept id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get more information for HTTP cache headers from <bpt id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;linkText&gt;</bpt>W3.org<ept id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;/linkText&gt;</ept><bpt id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;title&gt;</bpt><ept id="953200ba-40c5-4f30-8032-cbe9049806f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3982d977-fbf6-4a97-a9cc-d4a4fb85b4fe" xml:space="preserve">
+          <source>By default streaming-endpoints apply 3 day cache headers for on-demand streaming data (actual media fragments/chunks) and manifest(playlist).</source>
+          <target state="new">By default streaming-endpoints apply 3 day cache headers for on-demand streaming data (actual media fragments/chunks) and manifest(playlist).</target>
+        </trans-unit>
+        <trans-unit id="9646bca7-b687-49f1-a364-b9c3ca740204" xml:space="preserve">
+          <source>For live streaming, streaming endpoints apply 3 day cache headers for data (actual media fragments/chunks) and 2 seconds cache header for manifest(playlist) requests.</source>
+          <target state="new">For live streaming, streaming endpoints apply 3 day cache headers for data (actual media fragments/chunks) and 2 seconds cache header for manifest(playlist) requests.</target>
+        </trans-unit>
+        <trans-unit id="880b192d-6bf8-4e47-a4eb-726c6933142f" xml:space="preserve">
+          <source>When live program turns to on-demand (live archive) then on-demand streaming cache headers apply.</source>
+          <target state="new">When live program turns to on-demand (live archive) then on-demand streaming cache headers apply.</target>
+        </trans-unit>
+        <trans-unit id="2b7173ef-2c58-45ac-b486-b419e0eedc9a" xml:space="preserve">
+          <source>Azure Media services provides <bpt id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;linkText&gt;</bpt>integrated CDN<ept id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;/linkText&gt;</ept><bpt id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;title&gt;</bpt><ept id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;/title&gt;</ept> for streaming-endpoints.</source>
+          <target state="new">Azure Media services provides <bpt id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;linkText&gt;</bpt>integrated CDN<ept id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;/linkText&gt;</ept><bpt id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;title&gt;</bpt><ept id="a5813a0f-070f-4a2a-8e78-4b7ddcb5b799">&lt;/title&gt;</ept> for streaming-endpoints.</target>
+        </trans-unit>
+        <trans-unit id="2f54b702-6668-4ff3-97d1-e051955614e2" xml:space="preserve">
+          <source>Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints.</source>
+          <target state="new">Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints.</target>
+        </trans-unit>
+        <trans-unit id="32feaea7-c59a-4912-97e1-e8594f4bc6f3" xml:space="preserve">
+          <source>Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers.</source>
+          <target state="new">Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers.</target>
+        </trans-unit>
+        <trans-unit id="d221acf7-2b3a-4c96-aaf7-ff419d7e731f" xml:space="preserve">
+          <source>When using CDN enabled streaming endpoints it is not recommended to set small cache values.</source>
+          <target state="new">When using CDN enabled streaming endpoints it is not recommended to set small cache values.</target>
+        </trans-unit>
+        <trans-unit id="649220c6-5fc2-4366-bf37-972692003281" xml:space="preserve">
+          <source>Setting small values will decrease the performance and reduce the benefit of CDN.</source>
+          <target state="new">Setting small values will decrease the performance and reduce the benefit of CDN.</target>
+        </trans-unit>
+        <trans-unit id="34adb086-5625-448c-9836-50be4902733f" xml:space="preserve">
+          <source>It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.</source>
+          <target state="new">It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.</target>
+        </trans-unit>
+        <trans-unit id="51544f99-a368-487a-ab94-99fc752766ab" xml:space="preserve">
+          <source>You can use Azure Management portal or Azure Media Services APIs to configure cache header values.</source>
+          <target state="new">You can use Azure Management portal or Azure Media Services APIs to configure cache header values.</target>
+        </trans-unit>
+        <trans-unit id="88d3c2a9-f8ca-4e28-add7-59455121f6fa" xml:space="preserve">
+          <source>To configure cache headers using management portal please refer to <bpt id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;linkText&gt;</bpt>How to Manage Streaming Endpoints<ept id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;/linkText&gt;</ept><bpt id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;title&gt;</bpt><ept id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;/title&gt;</ept> section Configuring the Streaming Endpoint.</source>
+          <target state="new">To configure cache headers using management portal please refer to <bpt id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;linkText&gt;</bpt>How to Manage Streaming Endpoints<ept id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;/linkText&gt;</ept><bpt id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;title&gt;</bpt><ept id="022ba5a1-0f73-4bc0-97cb-dba04e8565b0">&lt;/title&gt;</ept> section Configuring the Streaming Endpoint.</target>
+        </trans-unit>
+        <trans-unit id="f9dca3c5-f807-49ec-b203-a9dc91d6dccb" xml:space="preserve">
+          <source>Azure Media Services REST API, <bpt id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;linkText&gt;</bpt>StreamingEndpoint<ept id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;/linkText&gt;</ept><bpt id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;title&gt;</bpt><ept id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Media Services REST API, <bpt id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;linkText&gt;</bpt>StreamingEndpoint<ept id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;/linkText&gt;</ept><bpt id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;title&gt;</bpt><ept id="e4cce826-eba0-4745-a18e-5a229bb9f06c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13c60ac4-d5fb-4fa2-9adb-576cf1f72fec" xml:space="preserve">
+          <source>Azure Media Services .NET SDK, <bpt id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;linkText&gt;</bpt>StreamingEndpointCacheControl Properties<ept id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;/linkText&gt;</ept><bpt id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;title&gt;</bpt><ept id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Media Services .NET SDK, <bpt id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;linkText&gt;</bpt>StreamingEndpointCacheControl Properties<ept id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;/linkText&gt;</ept><bpt id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;title&gt;</bpt><ept id="d025edff-56a7-4896-a366-8a800e1f7a72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f023b68b-9393-489e-a75b-618408e1e00e" xml:space="preserve">
+          <source>Azure Media Services configured cache value overrides default value.</source>
+          <target state="new">Azure Media Services configured cache value overrides default value.</target>
+        </trans-unit>
+        <trans-unit id="10adb322-5df4-4fd3-8ef1-3cff77b55f7c" xml:space="preserve">
+          <source>If there is no manual configuration, default values applies.</source>
+          <target state="new">If there is no manual configuration, default values applies.</target>
+        </trans-unit>
+        <trans-unit id="2a2732c8-0eff-4dc3-b95e-ec34932e3796" xml:space="preserve">
+          <source>By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.</source>
+          <target state="new">By default 2 seconds cache headers applies to live streaming manifest(playlist) regardless of Azure Media or Azure Storage configuration and overriding of this value is not available.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

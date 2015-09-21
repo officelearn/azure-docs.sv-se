@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d22d52e7-3a12-423b-ad65-de1dd5c09cd6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d22d52e7-3a12-423b-ad65-de1dd5c09cd6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6edac3d9-0ea7-43b9-90b2-5f893c9ffb76">
+        <trans-unit id="e59304d0-f8df-4840-a864-d37c2bd0fd2c" xml:space="preserve">
+          <source>How to use Visual Studio to create a Cloud Serivce container</source>
+          <target state="new">How to use Visual Studio to create a Cloud Serivce container</target>
+        </trans-unit>
+        <trans-unit id="72ea78be-56eb-438a-8e01-b04f265789b2" xml:space="preserve">
+          <source>This article explains how to create Cloud Service in Visual Studio Server Explorer</source>
+          <target state="new">This article explains how to create Cloud Service in Visual Studio Server Explorer</target>
+        </trans-unit>
+        <trans-unit id="c6ac8de3-809b-4dea-bdf8-82cae131dc01" xml:space="preserve">
+          <source>To view <bpt id="90a0c2aa-fc65-4ee6-8e93-ee63cc419d30">&lt;strong&gt;</bpt>Server Explorer<ept id="90a0c2aa-fc65-4ee6-8e93-ee63cc419d30">&lt;/strong&gt;</ept> in Visual Studio, on the menu bar, choose <bpt id="4f5be2ef-a1bf-4eb0-8fd9-b75f0085d919">&lt;strong&gt;</bpt>View<ept id="4f5be2ef-a1bf-4eb0-8fd9-b75f0085d919">&lt;/strong&gt;</ept>, <bpt id="95a9cb12-1fb2-41f1-9de5-d904f53b4875">&lt;strong&gt;</bpt>Server Explorer<ept id="95a9cb12-1fb2-41f1-9de5-d904f53b4875">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To view <bpt id="90a0c2aa-fc65-4ee6-8e93-ee63cc419d30">&lt;strong&gt;</bpt>Server Explorer<ept id="90a0c2aa-fc65-4ee6-8e93-ee63cc419d30">&lt;/strong&gt;</ept> in Visual Studio, on the menu bar, choose <bpt id="4f5be2ef-a1bf-4eb0-8fd9-b75f0085d919">&lt;strong&gt;</bpt>View<ept id="4f5be2ef-a1bf-4eb0-8fd9-b75f0085d919">&lt;/strong&gt;</ept>, <bpt id="95a9cb12-1fb2-41f1-9de5-d904f53b4875">&lt;strong&gt;</bpt>Server Explorer<ept id="95a9cb12-1fb2-41f1-9de5-d904f53b4875">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96f84ec7-4640-4cb1-9137-76681801062b" xml:space="preserve">
+          <source>Expand the <bpt id="31ca8d14-7bd9-46a4-9f5a-12ed1d15eda5">&lt;strong&gt;</bpt>Azure<ept id="31ca8d14-7bd9-46a4-9f5a-12ed1d15eda5">&lt;/strong&gt;</ept> node</source>
+          <target state="new">Expand the <bpt id="31ca8d14-7bd9-46a4-9f5a-12ed1d15eda5">&lt;strong&gt;</bpt>Azure<ept id="31ca8d14-7bd9-46a4-9f5a-12ed1d15eda5">&lt;/strong&gt;</ept> node</target>
+        </trans-unit>
+        <trans-unit id="b53640a7-fa5d-4280-b087-396c119df9ff" xml:space="preserve">
+          <source>If the user is not logged in, a sign-in dialog would automatically be prompted.</source>
+          <target state="new">If the user is not logged in, a sign-in dialog would automatically be prompted.</target>
+        </trans-unit>
+        <trans-unit id="244d04e4-3897-439c-a01f-838c59e90b85" xml:space="preserve">
+          <source>Follow the instructions to login to Azure subscription</source>
+          <target state="new">Follow the instructions to login to Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="6ee45c36-69c7-469b-86c2-f263de443b58" xml:space="preserve">
+          <source>Right-click on <bpt id="cab975cb-4740-4d08-9ad6-3a9dfe37a000">&lt;strong&gt;</bpt>Cloud Service<ept id="cab975cb-4740-4d08-9ad6-3a9dfe37a000">&lt;/strong&gt;</ept> node, choose <bpt id="5e6ef168-6ec7-4914-84b4-1391fc9dba06">&lt;strong&gt;</bpt>Create Cloud Service…<ept id="5e6ef168-6ec7-4914-84b4-1391fc9dba06">&lt;/strong&gt;</ept></source>
+          <target state="new">Right-click on <bpt id="cab975cb-4740-4d08-9ad6-3a9dfe37a000">&lt;strong&gt;</bpt>Cloud Service<ept id="cab975cb-4740-4d08-9ad6-3a9dfe37a000">&lt;/strong&gt;</ept> node, choose <bpt id="5e6ef168-6ec7-4914-84b4-1391fc9dba06">&lt;strong&gt;</bpt>Create Cloud Service…<ept id="5e6ef168-6ec7-4914-84b4-1391fc9dba06">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8578088a-f020-4e91-81eb-e883214ba478" xml:space="preserve">
+          <source>A <bpt id="283b8f4d-cf93-4c25-9b7c-2550a205dac1">&lt;strong&gt;</bpt>Create Cloud Service<ept id="283b8f4d-cf93-4c25-9b7c-2550a205dac1">&lt;/strong&gt;</ept> dialog would appear.</source>
+          <target state="new">A <bpt id="283b8f4d-cf93-4c25-9b7c-2550a205dac1">&lt;strong&gt;</bpt>Create Cloud Service<ept id="283b8f4d-cf93-4c25-9b7c-2550a205dac1">&lt;/strong&gt;</ept> dialog would appear.</target>
+        </trans-unit>
+        <trans-unit id="fa11359d-fdb6-465f-a3d0-e4eefb55929e" xml:space="preserve">
+          <source>Fill out <bpt id="11309055-6b09-4ad0-b180-f3425314ab83">&lt;strong&gt;</bpt>Subscription<ept id="11309055-6b09-4ad0-b180-f3425314ab83">&lt;/strong&gt;</ept>, <bpt id="0c7177c5-bfc2-4d7a-8f60-81a07fea5415">&lt;strong&gt;</bpt>Name<ept id="0c7177c5-bfc2-4d7a-8f60-81a07fea5415">&lt;/strong&gt;</ept>, <bpt id="d221fa30-6889-4342-93bf-7cc6cd1173cf">&lt;strong&gt;</bpt>Region or Affinity Group<ept id="d221fa30-6889-4342-93bf-7cc6cd1173cf">&lt;/strong&gt;</ept> fields and click <bpt id="31c547f8-f9ff-4745-b9bc-a055bbcd5602">&lt;strong&gt;</bpt>Create<ept id="31c547f8-f9ff-4745-b9bc-a055bbcd5602">&lt;/strong&gt;</ept> button to create an empty Cloud Service container</source>
+          <target state="new">Fill out <bpt id="11309055-6b09-4ad0-b180-f3425314ab83">&lt;strong&gt;</bpt>Subscription<ept id="11309055-6b09-4ad0-b180-f3425314ab83">&lt;/strong&gt;</ept>, <bpt id="0c7177c5-bfc2-4d7a-8f60-81a07fea5415">&lt;strong&gt;</bpt>Name<ept id="0c7177c5-bfc2-4d7a-8f60-81a07fea5415">&lt;/strong&gt;</ept>, <bpt id="d221fa30-6889-4342-93bf-7cc6cd1173cf">&lt;strong&gt;</bpt>Region or Affinity Group<ept id="d221fa30-6889-4342-93bf-7cc6cd1173cf">&lt;/strong&gt;</ept> fields and click <bpt id="31c547f8-f9ff-4745-b9bc-a055bbcd5602">&lt;strong&gt;</bpt>Create<ept id="31c547f8-f9ff-4745-b9bc-a055bbcd5602">&lt;/strong&gt;</ept> button to create an empty Cloud Service container</target>
+        </trans-unit>
+        <trans-unit id="f81fc5bc-a46b-4e1e-9c3a-ccf0c308a3f5" xml:space="preserve">
+          <source>Now that you have a cloud service container, you can <bpt id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;linkText&gt;</bpt>create and deploy<ept id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;/linkText&gt;</ept><bpt id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;title&gt;</bpt><ept id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;/title&gt;</ept> a cloud service.</source>
+          <target state="new">Now that you have a cloud service container, you can <bpt id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;linkText&gt;</bpt>create and deploy<ept id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;/linkText&gt;</ept><bpt id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;title&gt;</bpt><ept id="7d196b6b-6c9c-4d2b-876f-8d1591c0457a">&lt;/title&gt;</ept> a cloud service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

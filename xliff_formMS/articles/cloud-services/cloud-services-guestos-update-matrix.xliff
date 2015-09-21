@@ -1,0 +1,2393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9ce366da-62c6-4e18-9cae-e59a5596c457" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9ce366da-62c6-4e18-9cae-e59a5596c457" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fee71150-4c0a-4933-b217-6118be4d72e2">
+        <trans-unit id="7071a897-6ead-49ca-8e5a-c91070849a48" xml:space="preserve">
+          <source>Learn about the latest Azure Guest OS Releases | Microsoft Azure</source>
+          <target state="new">Learn about the latest Azure Guest OS Releases | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="67657f7b-ecd9-4572-89bc-0c6f4d339313" xml:space="preserve">
+          <source>The latest release news and SDK compatibility for Azure Cloud Services Guest OS.</source>
+          <target state="new">The latest release news and SDK compatibility for Azure Cloud Services Guest OS.</target>
+        </trans-unit>
+        <trans-unit id="59652aee-aac5-47f8-9bc7-626889832234" xml:space="preserve">
+          <source>Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services.</source>
+          <target state="new">Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="5c52b3da-7232-4457-b7a0-3323cd16d014" xml:space="preserve">
+          <source>This information will help you plan your upgrade path before a a Guest OS is disabled.</source>
+          <target state="new">This information will help you plan your upgrade path before a a Guest OS is disabled.</target>
+        </trans-unit>
+        <trans-unit id="fa7f5b65-5c7d-4eac-a455-9abe1982baa2" xml:space="preserve">
+          <source>This page applies to Cloud Services web and worker roles, which run on top of a Guest OS.</source>
+          <target state="new">This page applies to Cloud Services web and worker roles, which run on top of a Guest OS.</target>
+        </trans-unit>
+        <trans-unit id="48e83501-744e-4087-ab2a-ab36be1fe902" xml:space="preserve">
+          <source>It does not apply to IaaS Virtual Machines.</source>
+          <target state="new">It does not apply to IaaS Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="ba3279c9-7425-4c2b-8cac-ad09e6a8743a" xml:space="preserve">
+          <source>If you configure your roles to use automatic Guest OS updates as described in <bpt id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;linkText&gt;</bpt>Azure Guest OS Update Settings<ept id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;/linkText&gt;</ept><bpt id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;title&gt;</bpt><ept id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;/title&gt;</ept>, it is not vital that you read this page.</source>
+          <target state="new">If you configure your roles to use automatic Guest OS updates as described in <bpt id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;linkText&gt;</bpt>Azure Guest OS Update Settings<ept id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;/linkText&gt;</ept><bpt id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;title&gt;</bpt><ept id="c8852f11-9a4d-4859-816d-de50359f0336">&lt;/title&gt;</ept>, it is not vital that you read this page.</target>
+        </trans-unit>
+        <trans-unit id="439bb404-f3c0-42d6-9226-1334472631a0" xml:space="preserve">
+          <source>&lt;br /&gt;</source>
+          <target state="new">&lt;br /&gt;</target>
+        </trans-unit>
+        <trans-unit id="ad426a0e-b6b9-4269-9dae-c9c2c0e9149c" xml:space="preserve">
+          <source>Subscribe to the <bpt id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;linkText&gt;</bpt>Guest OS Update RSS Feed[rss]<ept id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;/linkText&gt;</ept><bpt id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;title&gt;</bpt><ept id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;/title&gt;</ept> to receive the most timely notification on all Guest OS changes.</source>
+          <target state="new">Subscribe to the <bpt id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;linkText&gt;</bpt>Guest OS Update RSS Feed[rss]<ept id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;/linkText&gt;</ept><bpt id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;title&gt;</bpt><ept id="2cc57f4a-a129-4c96-ad59-c5d6a18a4571">&lt;/title&gt;</ept> to receive the most timely notification on all Guest OS changes.</target>
+        </trans-unit>
+        <trans-unit id="c5cd532d-1168-4977-b95a-9c78f93bf2fe" xml:space="preserve">
+          <source>Changes mentioned on that feed will be integrated into this page approximately every week.</source>
+          <target state="new">Changes mentioned on that feed will be integrated into this page approximately every week.</target>
+        </trans-unit>
+        <trans-unit id="943c8c4f-f54d-4dab-a45b-becbe9b25055" xml:space="preserve">
+          <source>August Guest OS rollout is starting today Aug 14 2015, and projected to be released on Sep 11 2015.</source>
+          <target state="new">August Guest OS rollout is starting today Aug 14 2015, and projected to be released on Sep 11 2015.</target>
+        </trans-unit>
+        <trans-unit id="3dc361e5-5b4d-48a9-b744-d01c04d713b7" xml:space="preserve">
+          <source>Guest OS versions 4.22, 3.29, 2.41 were released on August 7 2015.</source>
+          <target state="new">Guest OS versions 4.22, 3.29, 2.41 were released on August 7 2015.</target>
+        </trans-unit>
+        <trans-unit id="22c1f0ef-578e-450b-bb46-171b482301ce" xml:space="preserve">
+          <source>July Guest OS rollout is starting today July 14 2015, and projected to be released on August 14 2015.</source>
+          <target state="new">July Guest OS rollout is starting today July 14 2015, and projected to be released on August 14 2015.</target>
+        </trans-unit>
+        <trans-unit id="c7f3d0cf-eae4-4cda-a54f-8d0fe6daed47" xml:space="preserve">
+          <source>Guest OS versions 4.21, 3.28, 2.40 were released on July 9 2015.</source>
+          <target state="new">Guest OS versions 4.21, 3.28, 2.40 were released on July 9 2015.</target>
+        </trans-unit>
+        <trans-unit id="9af292e3-48a3-40ef-b3c7-3b652d5a8fcd" xml:space="preserve">
+          <source>June Guest OS rollout is starting today June 15 2015, and projected to be released on July 9 2015.</source>
+          <target state="new">June Guest OS rollout is starting today June 15 2015, and projected to be released on July 9 2015.</target>
+        </trans-unit>
+        <trans-unit id="f25b7a5f-debf-4330-81b7-f220dc47b7ce" xml:space="preserve">
+          <source>Guest OS versions 4.20, 3.27, 2.39 were released on June 12 2015.</source>
+          <target state="new">Guest OS versions 4.20, 3.27, 2.39 were released on June 12 2015.</target>
+        </trans-unit>
+        <trans-unit id="5dc254da-5f8e-4186-a8f2-820d52bd63be" xml:space="preserve">
+          <source>May Guest OS rollout is starting today May 20 2015, and projected to be released on June 12 2015.</source>
+          <target state="new">May Guest OS rollout is starting today May 20 2015, and projected to be released on June 12 2015.</target>
+        </trans-unit>
+        <trans-unit id="c9816745-d467-4120-bcbf-cd5b16fa6165" xml:space="preserve">
+          <source>Guest OS versions 4.19, 3.26, 2.38 were released today.</source>
+          <target state="new">Guest OS versions 4.19, 3.26, 2.38 were released today.</target>
+        </trans-unit>
+        <trans-unit id="c7f87ae4-c598-4429-9a9f-a864027a6478" xml:space="preserve">
+          <source>This release contains <bpt id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;linkText&gt;</bpt>MS15-034<ept id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;/linkText&gt;</ept><bpt id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;title&gt;</bpt><ept id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;/title&gt;</ept>, a <bpt id="7cd12483-6f99-425c-82ca-99b935a489fd">&lt;strong&gt;</bpt>critical<ept id="7cd12483-6f99-425c-82ca-99b935a489fd">&lt;/strong&gt;</ept> patch for Windows HTTP Servers.</source>
+          <target state="new">This release contains <bpt id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;linkText&gt;</bpt>MS15-034<ept id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;/linkText&gt;</ept><bpt id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;title&gt;</bpt><ept id="8b5bf1b2-fde9-45db-b894-a686ff18c82f">&lt;/title&gt;</ept>, a <bpt id="7cd12483-6f99-425c-82ca-99b935a489fd">&lt;strong&gt;</bpt>critical<ept id="7cd12483-6f99-425c-82ca-99b935a489fd">&lt;/strong&gt;</ept> patch for Windows HTTP Servers.</target>
+        </trans-unit>
+        <trans-unit id="5dfe13bc-1fe3-49d9-bf72-bb7ed6ca4c28" xml:space="preserve">
+          <source>Guest OS versions 4.17, 3.24, 2.36 will be disabled on May 17 2015.</source>
+          <target state="new">Guest OS versions 4.17, 3.24, 2.36 will be disabled on May 17 2015.</target>
+        </trans-unit>
+        <trans-unit id="bf2215af-b606-4de7-a6c0-303126e16ec8" xml:space="preserve">
+          <source>Guest OS versions 4.18, 3.25, 2.37 were released on April 2 2015.</source>
+          <target state="new">Guest OS versions 4.18, 3.25, 2.37 were released on April 2 2015.</target>
+        </trans-unit>
+        <trans-unit id="24af0a46-9d77-4efe-84d9-67f26b2beac3" xml:space="preserve">
+          <source>Guest OS versions 4.16, 3.23, 2.35 will be disabled on May 2 2015.</source>
+          <target state="new">Guest OS versions 4.16, 3.23, 2.35 will be disabled on May 2 2015.</target>
+        </trans-unit>
+        <trans-unit id="ea39bd21-8d56-4c4d-a3dc-6dbf207657c3" xml:space="preserve">
+          <source>Guest OS versions 4.17, 3.24, and 2.36 were released on March 9 2015.</source>
+          <target state="new">Guest OS versions 4.17, 3.24, and 2.36 were released on March 9 2015.</target>
+        </trans-unit>
+        <trans-unit id="55ec3dd8-5367-4ee7-9940-1398fdb195f5" xml:space="preserve">
+          <source>Guest OS versions 4.15, 3.22, and 2.34 have had their disable date set to April 9 2015.</source>
+          <target state="new">Guest OS versions 4.15, 3.22, and 2.34 have had their disable date set to April 9 2015.</target>
+        </trans-unit>
+        <trans-unit id="032c4763-6fd8-4ec7-a3f9-14004f2ba060" xml:space="preserve">
+          <source>Guest OS versions 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 (released in November) have had their Disable Date pushed back.</source>
+          <target state="new">Guest OS versions 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 (released in November) have had their Disable Date pushed back.</target>
+        </trans-unit>
+        <trans-unit id="f33d78a0-b74d-4b2f-b3b0-92e47602fe27" xml:space="preserve">
+          <source>The Guest OS release matrix below has been updated.</source>
+          <target state="new">The Guest OS release matrix below has been updated.</target>
+        </trans-unit>
+        <trans-unit id="ea8381c0-b703-482f-8c9d-f09348bede7a" xml:space="preserve">
+          <source>The December Guest OS was released on Jan 14 2015.</source>
+          <target state="new">The December Guest OS was released on Jan 14 2015.</target>
+        </trans-unit>
+        <trans-unit id="902738a1-9b95-4697-b215-432346fc7e6d" xml:space="preserve">
+          <source>The January Guest OS deployment is projected to start on or after Jan 19 2015 updating cloud services running on automatic update.</source>
+          <target state="new">The January Guest OS deployment is projected to start on or after Jan 19 2015 updating cloud services running on automatic update.</target>
+        </trans-unit>
+        <trans-unit id="64da8916-7cf4-41b9-9f2b-d232069b1c63" xml:space="preserve">
+          <source>The January Guest OS will be released for deployment sometime in February.</source>
+          <target state="new">The January Guest OS will be released for deployment sometime in February.</target>
+        </trans-unit>
+        <trans-unit id="1b0b7934-299a-4b2d-be88-6b5484bb0586" xml:space="preserve">
+          <source>It will disable SSL v3.0 by default as suggested in the January security update.</source>
+          <target state="new">It will disable SSL v3.0 by default as suggested in the January security update.</target>
+        </trans-unit>
+        <trans-unit id="cca14e89-3dcf-4476-83e9-fd08d57530c7" xml:space="preserve">
+          <source>This article will be updated when more information is available.</source>
+          <target state="new">This article will be updated when more information is available.</target>
+        </trans-unit>
+        <trans-unit id="252640cb-a566-4ce3-9369-3b7439cb8b42" xml:space="preserve">
+          <source>As <bpt id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;linkText&gt;</bpt>previously announced[ssl3 announcement]<ept id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;/linkText&gt;</ept><bpt id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;title&gt;</bpt><ept id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;/title&gt;</ept>, the January Security update to the PaaS Guest OS will disable SSL v3.0 support by default as recommended by <bpt id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;linkText&gt;</bpt>Microsoft Security Advisory 3009008<ept id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;/linkText&gt;</ept><bpt id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;title&gt;</bpt><ept id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;/title&gt;</ept>.</source>
+          <target state="new">As <bpt id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;linkText&gt;</bpt>previously announced[ssl3 announcement]<ept id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;/linkText&gt;</ept><bpt id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;title&gt;</bpt><ept id="191d20b3-242e-42d9-8f8e-a7465604a6f6">&lt;/title&gt;</ept>, the January Security update to the PaaS Guest OS will disable SSL v3.0 support by default as recommended by <bpt id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;linkText&gt;</bpt>Microsoft Security Advisory 3009008<ept id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;/linkText&gt;</ept><bpt id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;title&gt;</bpt><ept id="99fc4d7f-3d2d-4307-9500-51801ae30d05">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44d6a9b2-9d65-447f-80b4-a16a7b6f03a5" xml:space="preserve">
+          <source>This change will come in addition to all other monthly security updates.</source>
+          <target state="new">This change will come in addition to all other monthly security updates.</target>
+        </trans-unit>
+        <trans-unit id="3fc8b5c9-0861-4cb7-bfbc-b08f7332e653" xml:space="preserve">
+          <source>PaaS customers with automatic Updates enabled can validate whether there is an application compatibility impact when SSL v3.0 is disabled by running this <bpt id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;linkText&gt;</bpt>Fix it script[ssl3-fixit]<ept id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;/linkText&gt;</ept><bpt id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;title&gt;</bpt><ept id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;/title&gt;</ept> which will proactively disable SSL v3.0 support.</source>
+          <target state="new">PaaS customers with automatic Updates enabled can validate whether there is an application compatibility impact when SSL v3.0 is disabled by running this <bpt id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;linkText&gt;</bpt>Fix it script[ssl3-fixit]<ept id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;/linkText&gt;</ept><bpt id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;title&gt;</bpt><ept id="857042c6-ff41-47ca-b792-c7fb8ab6f884">&lt;/title&gt;</ept> which will proactively disable SSL v3.0 support.</target>
+        </trans-unit>
+        <trans-unit id="3339cfb0-c091-461d-8fa4-3f3f033c2e95" xml:space="preserve">
+          <source>The December Guest OS release is projected to start on or after Jan 9 2015.</source>
+          <target state="new">The December Guest OS release is projected to start on or after Jan 9 2015.</target>
+        </trans-unit>
+        <trans-unit id="dee352d8-40e6-4f0b-b5bc-9b7cd09d15f0" xml:space="preserve">
+          <source>This section lists the currently supported Guest OS versions.</source>
+          <target state="new">This section lists the currently supported Guest OS versions.</target>
+        </trans-unit>
+        <trans-unit id="959963b4-1151-436c-becf-24761260e604" xml:space="preserve">
+          <source>Guest OS families and versions have a release date, a disabled date, and an expiration date.</source>
+          <target state="new">Guest OS families and versions have a release date, a disabled date, and an expiration date.</target>
+        </trans-unit>
+        <trans-unit id="49a0badb-f8dd-45f1-872e-31b22b07b9f2" xml:space="preserve">
+          <source>As of the release date, a Guest OS version can be manually selected in the management portal.</source>
+          <target state="new">As of the release date, a Guest OS version can be manually selected in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="9fc2ade9-acc8-4d3d-a97f-8b2e149a3b9d" xml:space="preserve">
+          <source>A Guest OS is removed from the management portal on or after its "disabled" date.</source>
+          <target state="new">A Guest OS is removed from the management portal on or after its "disabled" date.</target>
+        </trans-unit>
+        <trans-unit id="2e525cb2-05d3-46ca-a978-6e2ec4db63d8" xml:space="preserve">
+          <source>It is then "in transition" but is supported with limited ability to update a deployment.</source>
+          <target state="new">It is then "in transition" but is supported with limited ability to update a deployment.</target>
+        </trans-unit>
+        <trans-unit id="cb146069-b9a1-4c75-a1f4-bfd757da68a4" xml:space="preserve">
+          <source>The expiration date is when a version or family is scheduled to be removed from the Azure system completely.</source>
+          <target state="new">The expiration date is when a version or family is scheduled to be removed from the Azure system completely.</target>
+        </trans-unit>
+        <trans-unit id="6ff36c55-4cfd-4f50-bfa5-0a918782f57f" xml:space="preserve">
+          <source>Cloud services still running on a version when it expires will be stopped, deleted, or force upgraded to a newer version, as detailed in the <bpt id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;linkText&gt;</bpt>Azure Guest OS Supportability and Retirement Policy[retirepolicy]<ept id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;/linkText&gt;</ept><bpt id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;title&gt;</bpt><ept id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">Cloud services still running on a version when it expires will be stopped, deleted, or force upgraded to a newer version, as detailed in the <bpt id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;linkText&gt;</bpt>Azure Guest OS Supportability and Retirement Policy[retirepolicy]<ept id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;/linkText&gt;</ept><bpt id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;title&gt;</bpt><ept id="a2aa59da-1b44-4829-a20a-58638d85a5ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c910e83-9de6-4729-8514-0fe0ea74067c" xml:space="preserve">
+          <source>Microsoft supports at least two recent versions of each supported Guest OS family.</source>
+          <target state="new">Microsoft supports at least two recent versions of each supported Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="8805758a-54b2-4f4f-b970-e06e1be47ecd" xml:space="preserve">
+          <source>The disable date of an existing Guest OS version could move to a later date to ensure at least two released versions remain enabled for deployment.</source>
+          <target state="new">The disable date of an existing Guest OS version could move to a later date to ensure at least two released versions remain enabled for deployment.</target>
+        </trans-unit>
+        <trans-unit id="df866797-1065-4965-a616-823c4a7c382a" xml:space="preserve">
+          <source>The retirement of Guest OS family 1 began June 1, 2013 and is scheduled to complete soon.</source>
+          <target state="new">The retirement of Guest OS family 1 began June 1, 2013 and is scheduled to complete soon.</target>
+        </trans-unit>
+        <trans-unit id="5c19e713-1ca9-493f-bc49-363d4a68ed7e" xml:space="preserve">
+          <source>Do not create new installations and upgrade older ones using this Guest OS family.</source>
+          <target state="new">Do not create new installations and upgrade older ones using this Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="b63bef0f-7e4d-4f75-966c-8c27f7905f9f" xml:space="preserve">
+          <source>For more information see <bpt id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;linkText&gt;</bpt>Azure Guest OS Family 1 Retirement Information[fam1retire]<ept id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;/linkText&gt;</ept><bpt id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;title&gt;</bpt><ept id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;/title&gt;</ept></source>
+          <target state="new">For more information see <bpt id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;linkText&gt;</bpt>Azure Guest OS Family 1 Retirement Information[fam1retire]<ept id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;/linkText&gt;</ept><bpt id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;title&gt;</bpt><ept id="5c8bc4d9-92bd-45ab-866d-b9de9db75161">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ec94f31-cfc8-478e-889d-79c6a22efa62" xml:space="preserve">
+          <source>The Guest OS includes configuration different from the defaults of Windows Server.</source>
+          <target state="new">The Guest OS includes configuration different from the defaults of Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="28a09b3b-caea-45c7-a222-800a0b958731" xml:space="preserve">
+          <source>For more information see <bpt id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;linkText&gt;</bpt>Differences between Azure Guest OS and Default Windows Server[server and gos]<ept id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;/linkText&gt;</ept><bpt id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;title&gt;</bpt><ept id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;linkText&gt;</bpt>Differences between Azure Guest OS and Default Windows Server[server and gos]<ept id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;/linkText&gt;</ept><bpt id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;title&gt;</bpt><ept id="d8a9b7e2-539b-454a-b46c-801a8fc950a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bc960fc-5fd5-4dac-ba77-bd95968479bb" xml:space="preserve">
+          <source>The Guest OS families are based on released versions of Microsoft Windows Server.</source>
+          <target state="new">The Guest OS families are based on released versions of Microsoft Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="2c914bba-8a8d-4102-abee-550fb48dc455" xml:space="preserve">
+          <source>The Guest OS is the underlying operating system that Azure Cloud Services run on.</source>
+          <target state="new">The Guest OS is the underlying operating system that Azure Cloud Services run on.</target>
+        </trans-unit>
+        <trans-unit id="450037d0-3215-4576-ab6b-e564fab1334e" xml:space="preserve">
+          <source>Each Guest OS has a family, version and release number.</source>
+          <target state="new">Each Guest OS has a family, version and release number.</target>
+        </trans-unit>
+        <trans-unit id="fcc6fdf9-4adb-4661-a778-939df478909e" xml:space="preserve">
+          <source>The <bpt id="06064449-c32e-46d4-bdf7-4f00a0f43ff8">&lt;strong&gt;</bpt>Guest OS family<ept id="06064449-c32e-46d4-bdf7-4f00a0f43ff8">&lt;/strong&gt;</ept> corresponds to a Windows Server operating system release that a Guest OS is based on.</source>
+          <target state="new">The <bpt id="06064449-c32e-46d4-bdf7-4f00a0f43ff8">&lt;strong&gt;</bpt>Guest OS family<ept id="06064449-c32e-46d4-bdf7-4f00a0f43ff8">&lt;/strong&gt;</ept> corresponds to a Windows Server operating system release that a Guest OS is based on.</target>
+        </trans-unit>
+        <trans-unit id="b900a137-08d1-447b-acf2-20b25933e68f" xml:space="preserve">
+          <source>For example, family 3 is based on Windows Server 2012.</source>
+          <target state="new">For example, family 3 is based on Windows Server 2012.</target>
+        </trans-unit>
+        <trans-unit id="1f39cb60-5030-40a9-a8f1-c006dbe455bd" xml:space="preserve">
+          <source>A <bpt id="fa2d997d-d70f-4e57-80a0-da9c94720dbb">&lt;strong&gt;</bpt>"Guest OS version"<ept id="fa2d997d-d70f-4e57-80a0-da9c94720dbb">&lt;/strong&gt;</ept> is the family OS image plus relevant <bpt id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;linkText&gt;</bpt>Microsoft Security Response Center (MSRC)[msrc]<ept id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;/linkText&gt;</ept><bpt id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;title&gt;</bpt><ept id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;/title&gt;</ept> patches available at the date the new Guest OS version is produced.</source>
+          <target state="new">A <bpt id="fa2d997d-d70f-4e57-80a0-da9c94720dbb">&lt;strong&gt;</bpt>"Guest OS version"<ept id="fa2d997d-d70f-4e57-80a0-da9c94720dbb">&lt;/strong&gt;</ept> is the family OS image plus relevant <bpt id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;linkText&gt;</bpt>Microsoft Security Response Center (MSRC)[msrc]<ept id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;/linkText&gt;</ept><bpt id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;title&gt;</bpt><ept id="4ebaab19-839f-428a-97b6-7b56c13adfb3">&lt;/title&gt;</ept> patches available at the date the new Guest OS version is produced.</target>
+        </trans-unit>
+        <trans-unit id="ec8a3529-05b8-4557-8754-9dc8ee049720" xml:space="preserve">
+          <source>Not all patches may be included.</source>
+          <target state="new">Not all patches may be included.</target>
+        </trans-unit>
+        <trans-unit id="4def31d2-085a-4a12-b45e-801e828bd485" xml:space="preserve">
+          <source>Numbers start at 0 and increment by 1 each time a new set of updates is added.</source>
+          <target state="new">Numbers start at 0 and increment by 1 each time a new set of updates is added.</target>
+        </trans-unit>
+        <trans-unit id="6e05f0e1-7e1b-4a8b-98ba-05249dfc687a" xml:space="preserve">
+          <source>Trailing zeros are only shown if important.</source>
+          <target state="new">Trailing zeros are only shown if important.</target>
+        </trans-unit>
+        <trans-unit id="384aa95c-d241-4d53-9915-30a877b11145" xml:space="preserve">
+          <source>That is, version 2.10 is a different, much later version than version 2.1.</source>
+          <target state="new">That is, version 2.10 is a different, much later version than version 2.1.</target>
+        </trans-unit>
+        <trans-unit id="633c666a-bf94-4191-a92a-4ce9b81e0875" xml:space="preserve">
+          <source>A <bpt id="4959bf59-eff8-4665-ae03-95b2994278c6">&lt;strong&gt;</bpt>"Guest OS release"<ept id="4959bf59-eff8-4665-ae03-95b2994278c6">&lt;/strong&gt;</ept> refers to a rerelease of a Guest OS version.</source>
+          <target state="new">A <bpt id="4959bf59-eff8-4665-ae03-95b2994278c6">&lt;strong&gt;</bpt>"Guest OS release"<ept id="4959bf59-eff8-4665-ae03-95b2994278c6">&lt;/strong&gt;</ept> refers to a rerelease of a Guest OS version.</target>
+        </trans-unit>
+        <trans-unit id="d6d2b254-d7de-4a54-bd5e-7848a440e0f8" xml:space="preserve">
+          <source>A rerelease occurs if Microsoft finds issues during testing requiring changes.</source>
+          <target state="new">A rerelease occurs if Microsoft finds issues during testing requiring changes.</target>
+        </trans-unit>
+        <trans-unit id="bdc774b1-671a-4ee3-b435-cf37736e4447" xml:space="preserve">
+          <source>The latest release always supersedes any previous releases, public or not.</source>
+          <target state="new">The latest release always supersedes any previous releases, public or not.</target>
+        </trans-unit>
+        <trans-unit id="cecda5b2-0740-44e9-98e7-a51dcabc1f65" xml:space="preserve">
+          <source>The management portal will only allow users to pick the latest release for a given version.</source>
+          <target state="new">The management portal will only allow users to pick the latest release for a given version.</target>
+        </trans-unit>
+        <trans-unit id="5ea50ed9-96fd-4e3f-88b0-c173352da106" xml:space="preserve">
+          <source>Deployments running on a previous release are usually not force upgraded depending on the severity of the bug.</source>
+          <target state="new">Deployments running on a previous release are usually not force upgraded depending on the severity of the bug.</target>
+        </trans-unit>
+        <trans-unit id="d4aaee88-01e2-46f0-aa89-29df251e3627" xml:space="preserve">
+          <source>In the example below, 2 is the family, 12 is the version and "rel2" is the release.</source>
+          <target state="new">In the example below, 2 is the family, 12 is the version and "rel2" is the release.</target>
+        </trans-unit>
+        <trans-unit id="b2a44026-83ed-4f57-9f04-bfa5b66d36a1" xml:space="preserve">
+          <source><bpt id="fb3db86c-c17b-4a00-b711-ea9d0ce5e8f4">&lt;strong&gt;</bpt>Guest OS release<ept id="fb3db86c-c17b-4a00-b711-ea9d0ce5e8f4">&lt;/strong&gt;</ept> - 2.12 rel2</source>
+          <target state="new"><bpt id="fb3db86c-c17b-4a00-b711-ea9d0ce5e8f4">&lt;strong&gt;</bpt>Guest OS release<ept id="fb3db86c-c17b-4a00-b711-ea9d0ce5e8f4">&lt;/strong&gt;</ept> - 2.12 rel2</target>
+        </trans-unit>
+        <trans-unit id="e75bf7ee-83ab-4976-9089-00f942cc1cfe" xml:space="preserve">
+          <source><bpt id="11173b13-df20-49f0-b364-0565671e76c5">&lt;strong&gt;</bpt>Configuration string for this release<ept id="11173b13-df20-49f0-b364-0565671e76c5">&lt;/strong&gt;</ept> - WA-GUEST-OS-2.12_201208-02</source>
+          <target state="new"><bpt id="11173b13-df20-49f0-b364-0565671e76c5">&lt;strong&gt;</bpt>Configuration string for this release<ept id="11173b13-df20-49f0-b364-0565671e76c5">&lt;/strong&gt;</ept> - WA-GUEST-OS-2.12_201208-02</target>
+        </trans-unit>
+        <trans-unit id="d6c70611-3957-43aa-a957-8b703b36f089" xml:space="preserve">
+          <source>The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release.</source>
+          <target state="new">The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release.</target>
+        </trans-unit>
+        <trans-unit id="866a6bb5-6caf-433f-99ef-75f014dad54a" xml:space="preserve">
+          <source>In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion.</source>
+          <target state="new">In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion.</target>
+        </trans-unit>
+        <trans-unit id="8527675e-5324-4b42-acec-0538b7d29b9b" xml:space="preserve">
+          <source>Only patches specifically applying to that version of Windows Server are included.</source>
+          <target state="new">Only patches specifically applying to that version of Windows Server are included.</target>
+        </trans-unit>
+        <trans-unit id="5db7fc11-dd89-4795-9c10-e72a44f77839" xml:space="preserve">
+          <source>For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.</source>
+          <target state="new">For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.</target>
+        </trans-unit>
+        <trans-unit id="127472f3-a6e9-40e7-a977-dc10a728965c" xml:space="preserve">
+          <source><bpt id="748aa20c-c444-4bb2-8aad-fd113d8ea945">&lt;strong&gt;</bpt>Windows Server 2012 R2<ept id="748aa20c-c444-4bb2-8aad-fd113d8ea945">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="748aa20c-c444-4bb2-8aad-fd113d8ea945">&lt;strong&gt;</bpt>Windows Server 2012 R2<ept id="748aa20c-c444-4bb2-8aad-fd113d8ea945">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f3091428-afab-460d-8c98-b9f48c1ee7a2" xml:space="preserve">
+          <source>Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)</source>
+          <target state="new">Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)</target>
+        </trans-unit>
+        <trans-unit id="c27184b6-d3da-4246-9d07-c4c3016ff054" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="8892b6e5-f081-4125-b98e-e7cef25be2b3" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="f8224aca-8c08-4f98-bb5f-99465223facd" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="298b6748-4010-47ee-bc5c-8c7a0924c914" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="915247eb-447c-4883-b20b-ac1994a1cf01" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="725187a8-50c9-49ea-8b3b-a2b4fe8c3204" xml:space="preserve">
+          <source>4.23</source>
+          <target state="new">4.23</target>
+        </trans-unit>
+        <trans-unit id="b901131e-ee15-4093-a851-0d6b97e7a95c" xml:space="preserve">
+          <source>WA-GUEST-OS-4.23_201508-01</source>
+          <target state="new">WA-GUEST-OS-4.23_201508-01</target>
+        </trans-unit>
+        <trans-unit id="fdd2d56b-7692-422f-a22b-45b348aff66e" xml:space="preserve">
+          <source>Projected Sep 11 2015</source>
+          <target state="new">Projected Sep 11 2015</target>
+        </trans-unit>
+        <trans-unit id="736d0301-e062-4e1e-8c5f-99940e0f0ad8" xml:space="preserve">
+          <source>Will be updated when 4.25 is released</source>
+          <target state="new">Will be updated when 4.25 is released</target>
+        </trans-unit>
+        <trans-unit id="eb2a06e7-f95d-4e43-880c-e64bea5124ba" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="aafe951c-619b-4df5-867b-96233144a712" xml:space="preserve">
+          <source>4.22</source>
+          <target state="new">4.22</target>
+        </trans-unit>
+        <trans-unit id="b3180035-e957-40c5-80ad-e49df32edbab" xml:space="preserve">
+          <source>WA-GUEST-OS-4.22_201507-02</source>
+          <target state="new">WA-GUEST-OS-4.22_201507-02</target>
+        </trans-unit>
+        <trans-unit id="d566b2fd-bc0c-47e6-8e7a-e00ddc02fc99" xml:space="preserve">
+          <source>Aug 7 2015</source>
+          <target state="new">Aug 7 2015</target>
+        </trans-unit>
+        <trans-unit id="4f6881f2-8f06-4c32-b279-19270e9c0b64" xml:space="preserve">
+          <source>Will be updated when 4.24 is released</source>
+          <target state="new">Will be updated when 4.24 is released</target>
+        </trans-unit>
+        <trans-unit id="810f332b-68d1-44ea-96b6-2d216afdb165" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="d2b493a4-b01e-446e-aca3-783b4358996c" xml:space="preserve">
+          <source>4.21</source>
+          <target state="new">4.21</target>
+        </trans-unit>
+        <trans-unit id="a355b62d-18bb-457e-84cb-5ad6ad1dc3ec" xml:space="preserve">
+          <source>WA-GUEST-OS-4.21_201506-01</source>
+          <target state="new">WA-GUEST-OS-4.21_201506-01</target>
+        </trans-unit>
+        <trans-unit id="0715fa1e-d2ea-4c39-b52f-3ffe4331e3f7" xml:space="preserve">
+          <source>July 9 2015</source>
+          <target state="new">July 9 2015</target>
+        </trans-unit>
+        <trans-unit id="923dca41-9329-4f3d-9253-a08ec7ead90b" xml:space="preserve">
+          <source>Will be updated when 4.23 is released</source>
+          <target state="new">Will be updated when 4.23 is released</target>
+        </trans-unit>
+        <trans-unit id="4dfef429-7105-4971-a0f8-a2c5d2db1548" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="c81ef1e1-4425-47a9-9a9d-69a5b3c17ac2" xml:space="preserve">
+          <source>4.20</source>
+          <target state="new">4.20</target>
+        </trans-unit>
+        <trans-unit id="edbd0ee6-f915-4263-9d2f-0684e2922b2b" xml:space="preserve">
+          <source>WA-GUEST-OS-4.20_201505-02</source>
+          <target state="new">WA-GUEST-OS-4.20_201505-02</target>
+        </trans-unit>
+        <trans-unit id="cfbf5a6e-0f01-4d2a-909c-cc12bc18d054" xml:space="preserve">
+          <source>June 12 2015</source>
+          <target state="new">June 12 2015</target>
+        </trans-unit>
+        <trans-unit id="14276339-c319-4fc1-ad37-1ba319bcd036" xml:space="preserve">
+          <source>Sep 7 2015</source>
+          <target state="new">Sep 7 2015</target>
+        </trans-unit>
+        <trans-unit id="b57192ae-406e-4395-9ae1-6c57264e7187" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="b42a1c3a-b256-4acf-a78a-39aa6eac717d" xml:space="preserve">
+          <source>4.19</source>
+          <target state="new">4.19</target>
+        </trans-unit>
+        <trans-unit id="5795ce11-477a-439e-b8d0-dfc41a054053" xml:space="preserve">
+          <source>WA-GUEST-OS-4.19_201504-01</source>
+          <target state="new">WA-GUEST-OS-4.19_201504-01</target>
+        </trans-unit>
+        <trans-unit id="2e518ed7-1344-4d92-ac9f-0480c79a354d" xml:space="preserve">
+          <source>April 17 2015</source>
+          <target state="new">April 17 2015</target>
+        </trans-unit>
+        <trans-unit id="4bc227bb-8767-4d19-be2e-3da72ce7dcb5" xml:space="preserve">
+          <source>Aug 9 2015</source>
+          <target state="new">Aug 9 2015</target>
+        </trans-unit>
+        <trans-unit id="e3eae00e-5319-46a7-a8ed-50b3224ee1eb" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="8f188564-d87b-49e0-a044-411903a4f288" xml:space="preserve">
+          <source>4.18</source>
+          <target state="new">4.18</target>
+        </trans-unit>
+        <trans-unit id="45ff6a05-b7ef-45d5-9fb8-87d8c02b7d96" xml:space="preserve">
+          <source>WA-GUEST-OS-4.18_201503-01</source>
+          <target state="new">WA-GUEST-OS-4.18_201503-01</target>
+        </trans-unit>
+        <trans-unit id="29cddd75-21f9-4a61-8e0e-0f1c3a9518f8" xml:space="preserve">
+          <source>April 2 2015</source>
+          <target state="new">April 2 2015</target>
+        </trans-unit>
+        <trans-unit id="61186d3f-9c07-4bcd-87f6-2e28cd3bb01c" xml:space="preserve">
+          <source>July 12 2015</source>
+          <target state="new">July 12 2015</target>
+        </trans-unit>
+        <trans-unit id="b3f5f38f-9497-40ca-aaea-4aae5e2266a7" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="45173578-ab07-4c27-ab94-726a4ed99aaa" xml:space="preserve">
+          <source>4.17</source>
+          <target state="new">4.17</target>
+        </trans-unit>
+        <trans-unit id="c913f14f-2270-43be-8fb0-f0f5e35418f2" xml:space="preserve">
+          <source>WA-GUEST-OS-4.17_201502-01</source>
+          <target state="new">WA-GUEST-OS-4.17_201502-01</target>
+        </trans-unit>
+        <trans-unit id="b778f017-a285-4d32-b4f6-1a67f097e531" xml:space="preserve">
+          <source>Mar 9 2015</source>
+          <target state="new">Mar 9 2015</target>
+        </trans-unit>
+        <trans-unit id="1dccf052-9906-4770-833c-4671e863bf98" xml:space="preserve">
+          <source>May 17 2015</source>
+          <target state="new">May 17 2015</target>
+        </trans-unit>
+        <trans-unit id="e2f589b5-3054-4ae5-8c08-7a77d836fd0c" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="4adf20d5-c294-43f2-8a93-48cfcb4e46fe" xml:space="preserve">
+          <source>4.16</source>
+          <target state="new">4.16</target>
+        </trans-unit>
+        <trans-unit id="44062f94-80f7-429a-a06a-6affe6b49061" xml:space="preserve">
+          <source>WA-GUEST-OS-4.16_201501-01</source>
+          <target state="new">WA-GUEST-OS-4.16_201501-01</target>
+        </trans-unit>
+        <trans-unit id="cc66969a-8078-46d2-8d39-26201e2bb640" xml:space="preserve">
+          <source>Jan 29 2015</source>
+          <target state="new">Jan 29 2015</target>
+        </trans-unit>
+        <trans-unit id="8c2e579d-38b5-4b5a-9786-f987e2469eb7" xml:space="preserve">
+          <source>May 2 2015</source>
+          <target state="new">May 2 2015</target>
+        </trans-unit>
+        <trans-unit id="2050a745-706b-4ad6-9c56-73261cb16f6f" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="21c9cc43-8858-4b5b-becf-73ca2e74a5e2" xml:space="preserve">
+          <source>4.15</source>
+          <target state="new">4.15</target>
+        </trans-unit>
+        <trans-unit id="a8eff969-885d-4564-bb74-bb8b1728e1f3" xml:space="preserve">
+          <source>WA-GUEST-OS-4.15_201412-01</source>
+          <target state="new">WA-GUEST-OS-4.15_201412-01</target>
+        </trans-unit>
+        <trans-unit id="4aee9b57-2d99-4b3e-8b8c-3f09f62adaaa" xml:space="preserve">
+          <source>Jan 14 2015</source>
+          <target state="new">Jan 14 2015</target>
+        </trans-unit>
+        <trans-unit id="e71c6c85-521d-40e7-befa-21b81d9e4411" xml:space="preserve">
+          <source>Apr 9 2015</source>
+          <target state="new">Apr 9 2015</target>
+        </trans-unit>
+        <trans-unit id="c5773653-6818-4d61-a988-0e99ddbeb231" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="0e9d4c9f-95f7-4d3a-8ef5-e9bf813e1399" xml:space="preserve">
+          <source>4.14</source>
+          <target state="new">4.14</target>
+        </trans-unit>
+        <trans-unit id="939636cb-1b29-4352-8c98-b4e5eeeb281a" xml:space="preserve">
+          <source>WA-GUEST-OS-4.14_201411-01</source>
+          <target state="new">WA-GUEST-OS-4.14_201411-01</target>
+        </trans-unit>
+        <trans-unit id="7b4e06f8-6a81-4000-b3c0-43054fac4e97" xml:space="preserve">
+          <source>Nov 11 2014</source>
+          <target state="new">Nov 11 2014</target>
+        </trans-unit>
+        <trans-unit id="6789dcc9-e92a-4061-87d2-822a023b1810" xml:space="preserve">
+          <source>Feb 28 2015</source>
+          <target state="new">Feb 28 2015</target>
+        </trans-unit>
+        <trans-unit id="084b4661-da04-492b-80f1-11b6f30cd47f" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="15f40d31-682e-41a6-a562-f25332c76431" xml:space="preserve">
+          <source>4.13</source>
+          <target state="new">4.13</target>
+        </trans-unit>
+        <trans-unit id="90c89cdc-9733-4b0a-939b-6f67ee442a05" xml:space="preserve">
+          <source>WA-GUEST-OS-4.13_201410-01</source>
+          <target state="new">WA-GUEST-OS-4.13_201410-01</target>
+        </trans-unit>
+        <trans-unit id="a3a25664-3c0f-4525-8aa6-bf00561612f3" xml:space="preserve">
+          <source>Nov 3 2014</source>
+          <target state="new">Nov 3 2014</target>
+        </trans-unit>
+        <trans-unit id="d7591dca-fb24-461e-9170-9511fa6c0d68" xml:space="preserve">
+          <source>Feb 14 2015</source>
+          <target state="new">Feb 14 2015</target>
+        </trans-unit>
+        <trans-unit id="ddc9c0e9-2f81-4a5d-86dd-8268dbae65b2" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="0c8751e0-6910-408e-8e64-185255687d08" xml:space="preserve">
+          <source>4.12 (Note 1)</source>
+          <target state="new">4.12 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="854d07a6-1266-43d8-af9a-d41ba5093b59" xml:space="preserve">
+          <source>WA-GUEST-OS-4.12_201409-02</source>
+          <target state="new">WA-GUEST-OS-4.12_201409-02</target>
+        </trans-unit>
+        <trans-unit id="b6593093-e971-4c69-a752-372ed410dfb7" xml:space="preserve">
+          <source>Oct 6 2014</source>
+          <target state="new">Oct 6 2014</target>
+        </trans-unit>
+        <trans-unit id="568d21b2-dd3f-4f4f-a663-05a2c22e02f1" xml:space="preserve">
+          <source>Oct 12 2014</source>
+          <target state="new">Oct 12 2014</target>
+        </trans-unit>
+        <trans-unit id="43b8e246-faca-486d-b3a7-5a0377626695" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="4302e91e-1ed7-48ae-8c85-ea9024f6f2fe" xml:space="preserve">
+          <source>4.11 (Note 1)</source>
+          <target state="new">4.11 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="4a0db842-ecc9-4116-8e90-38a9731df44d" xml:space="preserve">
+          <source>WA-GUEST-OS-4.11_201408-02</source>
+          <target state="new">WA-GUEST-OS-4.11_201408-02</target>
+        </trans-unit>
+        <trans-unit id="67e7dd7a-221f-4f90-8a5c-75929c704e3b" xml:space="preserve">
+          <source>Aug 25 2014</source>
+          <target state="new">Aug 25 2014</target>
+        </trans-unit>
+        <trans-unit id="3ca672e5-6e7a-4c9a-8b9a-008285a05da4" xml:space="preserve">
+          <source>Sept 11 2014</source>
+          <target state="new">Sept 11 2014</target>
+        </trans-unit>
+        <trans-unit id="ab367e34-d91e-414e-b03f-9654824fdf1f" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="d9acc866-6636-4a21-8df4-a3ee17340846" xml:space="preserve">
+          <source>4.10</source>
+          <target state="new">4.10</target>
+        </trans-unit>
+        <trans-unit id="efa765b7-75f1-47cb-be75-60b0a16990ef" xml:space="preserve">
+          <source>WA-GUEST-OS-4.10_201407-01</source>
+          <target state="new">WA-GUEST-OS-4.10_201407-01</target>
+        </trans-unit>
+        <trans-unit id="08f0d002-ded6-422d-bb10-82d3f6c0aa58" xml:space="preserve">
+          <source>July 18 2014</source>
+          <target state="new">July 18 2014</target>
+        </trans-unit>
+        <trans-unit id="f12a7e8f-0bbc-4b9c-91a8-b25a35d8f2a3" xml:space="preserve">
+          <source>Dec 1 2014</source>
+          <target state="new">Dec 1 2014</target>
+        </trans-unit>
+        <trans-unit id="3630cecc-8316-4f67-8885-f6b2818fcd8a" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="bcc5b80a-a417-45df-9e50-56c7cb7db792" xml:space="preserve">
+          <source>4.9</source>
+          <target state="new">4.9</target>
+        </trans-unit>
+        <trans-unit id="503e3f95-597c-4656-b27c-817bd5e7cbb7" xml:space="preserve">
+          <source>WA-GUEST-OS-4.9_201406-01</source>
+          <target state="new">WA-GUEST-OS-4.9_201406-01</target>
+        </trans-unit>
+        <trans-unit id="f4467573-acd6-4490-9c88-ea1f39a0a87d" xml:space="preserve">
+          <source>June 16 2014</source>
+          <target state="new">June 16 2014</target>
+        </trans-unit>
+        <trans-unit id="f6194de6-c0cf-4399-b788-46f15ec45541" xml:space="preserve">
+          <source>Nov 10 2014</source>
+          <target state="new">Nov 10 2014</target>
+        </trans-unit>
+        <trans-unit id="f77ee7df-d8d0-4eb6-ba99-0db98a60df67" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="3fe4d2c3-9e07-4e0c-b244-0d9892d6bb50" xml:space="preserve">
+          <source>4.8</source>
+          <target state="new">4.8</target>
+        </trans-unit>
+        <trans-unit id="695378d4-c31c-4518-be8e-dcab999493b7" xml:space="preserve">
+          <source>WA-GUEST-OS-4.8_201405-01</source>
+          <target state="new">WA-GUEST-OS-4.8_201405-01</target>
+        </trans-unit>
+        <trans-unit id="876e0f86-1a9b-4757-9a1b-428ec8f6670f" xml:space="preserve">
+          <source>June 1 2014</source>
+          <target state="new">June 1 2014</target>
+        </trans-unit>
+        <trans-unit id="92a095ba-9435-41e6-a7cb-f302b7c982a9" xml:space="preserve">
+          <source>Aug 1 2014</source>
+          <target state="new">Aug 1 2014</target>
+        </trans-unit>
+        <trans-unit id="e6c3d7ab-d7d9-4e2d-90a2-8084d134ed14" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="fea7cc97-5b0d-4cc2-9a40-19487b9e93c9" xml:space="preserve">
+          <source><bpt id="36ba9643-d8d4-4f68-9c5d-f5b71cdad1e7">&lt;strong&gt;</bpt>Windows Server 2012<ept id="36ba9643-d8d4-4f68-9c5d-f5b71cdad1e7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="36ba9643-d8d4-4f68-9c5d-f5b71cdad1e7">&lt;strong&gt;</bpt>Windows Server 2012<ept id="36ba9643-d8d4-4f68-9c5d-f5b71cdad1e7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d1bcf41-8f56-452f-9c42-9c5159dff643" xml:space="preserve">
+          <source>Supports .NET 4.0, 4.5</source>
+          <target state="new">Supports .NET 4.0, 4.5</target>
+        </trans-unit>
+        <trans-unit id="c69345e0-1a6b-468a-8bae-93818c946842" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="5461feeb-de2c-4a8e-9f88-ab6e54959e55" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="3010bbe5-3b09-433c-891c-92106eeb2edc" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="b6942bf5-cd62-48a0-95df-f9e26b3bfc9b" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="849ba125-980d-445b-8f16-3b8aa15818fd" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="9c55136f-9b45-4c04-813c-0da9a0e413f8" xml:space="preserve">
+          <source>3.30</source>
+          <target state="new">3.30</target>
+        </trans-unit>
+        <trans-unit id="c4ceb9a1-0884-4862-bcac-2117ed003672" xml:space="preserve">
+          <source>WA-GUEST-OS-3.30_201508-01</source>
+          <target state="new">WA-GUEST-OS-3.30_201508-01</target>
+        </trans-unit>
+        <trans-unit id="347551f9-a01f-4f92-8ed7-630338ac5c73" xml:space="preserve">
+          <source>Projected Sep 11 2015</source>
+          <target state="new">Projected Sep 11 2015</target>
+        </trans-unit>
+        <trans-unit id="fdf5d45e-ea11-4756-a947-6fe5ee1b7ae6" xml:space="preserve">
+          <source>Will be updated when 3.32 is released</source>
+          <target state="new">Will be updated when 3.32 is released</target>
+        </trans-unit>
+        <trans-unit id="46719bb8-306c-4bee-8cfd-6a5cacecef39" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="81ab862d-dc6b-4d35-aec0-ab828c63abdc" xml:space="preserve">
+          <source>3.29</source>
+          <target state="new">3.29</target>
+        </trans-unit>
+        <trans-unit id="4cf07d9f-6964-4b1c-83f6-c8e1135da761" xml:space="preserve">
+          <source>WA-GUEST-OS-3.29_201507-02</source>
+          <target state="new">WA-GUEST-OS-3.29_201507-02</target>
+        </trans-unit>
+        <trans-unit id="0dc94554-6143-4432-859c-5b8f86932765" xml:space="preserve">
+          <source>Aug 7 2015</source>
+          <target state="new">Aug 7 2015</target>
+        </trans-unit>
+        <trans-unit id="65912466-e129-4e4e-ad86-b4f696c6478e" xml:space="preserve">
+          <source>Will be updated when 3.31 is released</source>
+          <target state="new">Will be updated when 3.31 is released</target>
+        </trans-unit>
+        <trans-unit id="fb5c3b6a-f8b4-44ab-91f8-fb5cd344dd43" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="24bbde52-3197-40cf-8317-ddf636259b3c" xml:space="preserve">
+          <source>3.28</source>
+          <target state="new">3.28</target>
+        </trans-unit>
+        <trans-unit id="d4198c46-3e33-4751-ac89-dfa86ea24d49" xml:space="preserve">
+          <source>WA-GUEST-OS-3.28_201506-01</source>
+          <target state="new">WA-GUEST-OS-3.28_201506-01</target>
+        </trans-unit>
+        <trans-unit id="7c2e537f-e6dd-4c67-8902-c0c39ffd6d26" xml:space="preserve">
+          <source>July 9 2015</source>
+          <target state="new">July 9 2015</target>
+        </trans-unit>
+        <trans-unit id="3d3385ca-7704-4153-bb00-72de18d7e4a5" xml:space="preserve">
+          <source>Will be updated when 3.30 is released</source>
+          <target state="new">Will be updated when 3.30 is released</target>
+        </trans-unit>
+        <trans-unit id="3a86f142-7c77-4547-8d09-01f6636e1b32" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="37a36d8a-a643-4700-bb56-49cad2a0cc2b" xml:space="preserve">
+          <source>3.27</source>
+          <target state="new">3.27</target>
+        </trans-unit>
+        <trans-unit id="0aa40bab-0749-4e98-b14a-b80e9f85f001" xml:space="preserve">
+          <source>WA-GUEST-OS-3.27_201505-02</source>
+          <target state="new">WA-GUEST-OS-3.27_201505-02</target>
+        </trans-unit>
+        <trans-unit id="ee0fc773-0de7-4d6b-a9bf-14fc0d4cd189" xml:space="preserve">
+          <source>June 12 2015</source>
+          <target state="new">June 12 2015</target>
+        </trans-unit>
+        <trans-unit id="224ff5d2-7eae-440d-93d6-2566060edd38" xml:space="preserve">
+          <source>Sep 7 2015</source>
+          <target state="new">Sep 7 2015</target>
+        </trans-unit>
+        <trans-unit id="353596c6-506d-4a9d-99a7-8d887e932c22" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="7ae50dfc-8f68-47f1-9fe2-1d6a2c8c2277" xml:space="preserve">
+          <source>3.26</source>
+          <target state="new">3.26</target>
+        </trans-unit>
+        <trans-unit id="dbf214d4-96e4-4212-b093-f0494b996248" xml:space="preserve">
+          <source>WA-GUEST-OS-3.26_201504-01</source>
+          <target state="new">WA-GUEST-OS-3.26_201504-01</target>
+        </trans-unit>
+        <trans-unit id="77f594da-bc17-424f-b595-b1f95f0bc377" xml:space="preserve">
+          <source>April 17 2015</source>
+          <target state="new">April 17 2015</target>
+        </trans-unit>
+        <trans-unit id="04f512ad-886b-4117-a9cb-47f21f984af3" xml:space="preserve">
+          <source>Aug 9 2015</source>
+          <target state="new">Aug 9 2015</target>
+        </trans-unit>
+        <trans-unit id="0b9441ef-fbbb-4e6d-82f4-fe6675cfa4ef" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="569d4bc2-4879-4061-bef1-91bb11a460e8" xml:space="preserve">
+          <source>3.25</source>
+          <target state="new">3.25</target>
+        </trans-unit>
+        <trans-unit id="47e4a9d0-51da-435e-a63d-965235e64ce9" xml:space="preserve">
+          <source>WA-GUEST-OS-3.25_201503-01</source>
+          <target state="new">WA-GUEST-OS-3.25_201503-01</target>
+        </trans-unit>
+        <trans-unit id="bfbe5337-9358-4603-bf06-e7bd58797fde" xml:space="preserve">
+          <source>April 2 2015</source>
+          <target state="new">April 2 2015</target>
+        </trans-unit>
+        <trans-unit id="1ba0b479-f1f2-4195-b279-a592d34fcbfa" xml:space="preserve">
+          <source>July 12 2015</source>
+          <target state="new">July 12 2015</target>
+        </trans-unit>
+        <trans-unit id="a73a2d5d-23f4-4006-a11e-eb464a772eec" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="efc84665-fba6-42df-9ba5-29e23e09d581" xml:space="preserve">
+          <source>3.24</source>
+          <target state="new">3.24</target>
+        </trans-unit>
+        <trans-unit id="1c60677b-3586-4231-8eb4-2c84157bc96d" xml:space="preserve">
+          <source>WA-GUEST-OS-3.24_201502-01</source>
+          <target state="new">WA-GUEST-OS-3.24_201502-01</target>
+        </trans-unit>
+        <trans-unit id="5bc5e4c7-8a02-429c-8383-56aa45806188" xml:space="preserve">
+          <source>Mar 9 2015</source>
+          <target state="new">Mar 9 2015</target>
+        </trans-unit>
+        <trans-unit id="5de17020-4aa7-48b7-b45a-cf7a29b5912a" xml:space="preserve">
+          <source>May 17 2015</source>
+          <target state="new">May 17 2015</target>
+        </trans-unit>
+        <trans-unit id="a850400b-9a2c-45ed-9129-e4c66a425f86" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="45fc60e9-38cc-4016-ab38-5d77bf51e54c" xml:space="preserve">
+          <source>3.23</source>
+          <target state="new">3.23</target>
+        </trans-unit>
+        <trans-unit id="d60d4add-163b-42b8-b8ca-750c1bd7813d" xml:space="preserve">
+          <source>WA-GUEST-OS-3.23_201501-01</source>
+          <target state="new">WA-GUEST-OS-3.23_201501-01</target>
+        </trans-unit>
+        <trans-unit id="0428861a-f042-4df0-a825-c336cb7d9f5a" xml:space="preserve">
+          <source>Jan 29 2015</source>
+          <target state="new">Jan 29 2015</target>
+        </trans-unit>
+        <trans-unit id="ca4f7de9-523d-487c-824c-faea1297b91e" xml:space="preserve">
+          <source>May 2 2015</source>
+          <target state="new">May 2 2015</target>
+        </trans-unit>
+        <trans-unit id="dde946ec-e1bc-4efc-96d6-494f0d0e4369" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="08ac90ac-b475-4ab2-8992-379d25eee033" xml:space="preserve">
+          <source>3.22</source>
+          <target state="new">3.22</target>
+        </trans-unit>
+        <trans-unit id="4fe0a0c2-e99f-4a78-89b4-6ec6e65228ef" xml:space="preserve">
+          <source>WA-GUEST-OS-3.22_201412-01</source>
+          <target state="new">WA-GUEST-OS-3.22_201412-01</target>
+        </trans-unit>
+        <trans-unit id="5bfd337d-9cf0-4068-bc4e-b912d0f58a5d" xml:space="preserve">
+          <source>Jan 14 2015</source>
+          <target state="new">Jan 14 2015</target>
+        </trans-unit>
+        <trans-unit id="ca62cff3-c2d8-4b9c-bebb-63d42582e3cb" xml:space="preserve">
+          <source>Apr 9 2015</source>
+          <target state="new">Apr 9 2015</target>
+        </trans-unit>
+        <trans-unit id="a3bf5e33-8870-4b9a-b579-e2e72183db79" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="f122ef9d-4833-435a-8fb8-b4c3ee34bfbf" xml:space="preserve">
+          <source>3.21</source>
+          <target state="new">3.21</target>
+        </trans-unit>
+        <trans-unit id="f372199e-a4b1-4379-9fa7-3e86b20c520c" xml:space="preserve">
+          <source>WA-GUEST-OS-3.21_201411-01</source>
+          <target state="new">WA-GUEST-OS-3.21_201411-01</target>
+        </trans-unit>
+        <trans-unit id="43e728cb-7914-4a29-afa4-90e36d6f6966" xml:space="preserve">
+          <source>Nov 11 2014</source>
+          <target state="new">Nov 11 2014</target>
+        </trans-unit>
+        <trans-unit id="c3195d92-bbed-4983-a697-e1d2995cd473" xml:space="preserve">
+          <source>Feb 28 2015</source>
+          <target state="new">Feb 28 2015</target>
+        </trans-unit>
+        <trans-unit id="74ab8964-d1eb-4e53-8fb9-f4361aec7e03" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="f4974415-c3f8-462f-82f9-c6223330c5bc" xml:space="preserve">
+          <source>3.20</source>
+          <target state="new">3.20</target>
+        </trans-unit>
+        <trans-unit id="24749ba9-5ff5-4848-8265-3617de666936" xml:space="preserve">
+          <source>WA-GUEST-OS-3.20_201410-01</source>
+          <target state="new">WA-GUEST-OS-3.20_201410-01</target>
+        </trans-unit>
+        <trans-unit id="13de4dab-27e0-42a5-82aa-e27a6cae6b62" xml:space="preserve">
+          <source>Nov 3 2014</source>
+          <target state="new">Nov 3 2014</target>
+        </trans-unit>
+        <trans-unit id="86596c5c-e8a5-4b26-879b-40d9551b433e" xml:space="preserve">
+          <source>Feb 14 2015</source>
+          <target state="new">Feb 14 2015</target>
+        </trans-unit>
+        <trans-unit id="6865860c-9bde-4398-a4d8-f78187af753e" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="e73bc504-e547-4cce-bff7-0620e3b9b531" xml:space="preserve">
+          <source>3.19 (Note 1)</source>
+          <target state="new">3.19 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="f7bdb2a9-305c-4c2a-8d0a-286cde0de8d7" xml:space="preserve">
+          <source>WA-GUEST-OS-3.19_201409-02</source>
+          <target state="new">WA-GUEST-OS-3.19_201409-02</target>
+        </trans-unit>
+        <trans-unit id="63648a83-defd-4977-9f2b-f38cee990dca" xml:space="preserve">
+          <source>Oct 6 2014</source>
+          <target state="new">Oct 6 2014</target>
+        </trans-unit>
+        <trans-unit id="e9dc210c-94d4-44b4-bf1b-975c79ff35b3" xml:space="preserve">
+          <source>Oct 12 2014</source>
+          <target state="new">Oct 12 2014</target>
+        </trans-unit>
+        <trans-unit id="31b0d76e-96fc-4004-9f20-31ddd9a83639" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="76dc6525-3b21-4744-8c3c-b39b4293c772" xml:space="preserve">
+          <source>3.18 (Note 1)</source>
+          <target state="new">3.18 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="cc76efe6-9eb4-40d6-970c-b5c338c7a25b" xml:space="preserve">
+          <source>WA-GUEST-OS-3.18_201408-02</source>
+          <target state="new">WA-GUEST-OS-3.18_201408-02</target>
+        </trans-unit>
+        <trans-unit id="8d9fcd6f-c0ff-4d04-952d-d8df0e155989" xml:space="preserve">
+          <source>Aug 25 2014</source>
+          <target state="new">Aug 25 2014</target>
+        </trans-unit>
+        <trans-unit id="a213ca7a-5d52-4555-b2af-cd4fba7f935f" xml:space="preserve">
+          <source>Sept 11 2014</source>
+          <target state="new">Sept 11 2014</target>
+        </trans-unit>
+        <trans-unit id="98294283-2894-4477-a215-44642d823c23" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="51dba12f-6273-4a91-8fe1-b0c4f84f550a" xml:space="preserve">
+          <source>3.17</source>
+          <target state="new">3.17</target>
+        </trans-unit>
+        <trans-unit id="90bd0a4f-b77f-412e-bd77-abe6e6248da3" xml:space="preserve">
+          <source>WA-GUEST-OS-3.17_201407-01</source>
+          <target state="new">WA-GUEST-OS-3.17_201407-01</target>
+        </trans-unit>
+        <trans-unit id="ce4c5e45-4c12-4bd2-96db-e09d53509437" xml:space="preserve">
+          <source>July 18 2014</source>
+          <target state="new">July 18 2014</target>
+        </trans-unit>
+        <trans-unit id="2c9ccb19-0c02-49b4-ac7f-cf4679f72358" xml:space="preserve">
+          <source>Dec 1 2014</source>
+          <target state="new">Dec 1 2014</target>
+        </trans-unit>
+        <trans-unit id="a2c1a503-faf3-44e6-8b46-9efcf0e5eb6f" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="226b2752-6140-4491-b010-e88a330fc863" xml:space="preserve">
+          <source>3.16</source>
+          <target state="new">3.16</target>
+        </trans-unit>
+        <trans-unit id="ff38dd7a-5973-4138-a51b-1fa11e38cb6e" xml:space="preserve">
+          <source>WA-GUEST-OS-3.16_201406-01</source>
+          <target state="new">WA-GUEST-OS-3.16_201406-01</target>
+        </trans-unit>
+        <trans-unit id="cc8a5d72-ba79-4086-b466-6edb85f918d0" xml:space="preserve">
+          <source>June 16 2014</source>
+          <target state="new">June 16 2014</target>
+        </trans-unit>
+        <trans-unit id="b6199157-3374-4d53-8906-3eb4e1fec167" xml:space="preserve">
+          <source>Nov 10 2014</source>
+          <target state="new">Nov 10 2014</target>
+        </trans-unit>
+        <trans-unit id="d262428f-009d-4913-b76d-1c5c49408bcf" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="04325428-2848-4396-b010-07ca5246938b" xml:space="preserve">
+          <source>3.15</source>
+          <target state="new">3.15</target>
+        </trans-unit>
+        <trans-unit id="f55e182f-2985-4d13-916b-fcb4771febf8" xml:space="preserve">
+          <source>WA-GUEST-OS-3.15_201405-01</source>
+          <target state="new">WA-GUEST-OS-3.15_201405-01</target>
+        </trans-unit>
+        <trans-unit id="f53e7df6-02a1-4ada-9512-57fadc13961f" xml:space="preserve">
+          <source>June 1 2014</source>
+          <target state="new">June 1 2014</target>
+        </trans-unit>
+        <trans-unit id="5b9c6497-d6dd-4173-beb2-3bcdcd22c2e8" xml:space="preserve">
+          <source>Aug 1 2014</source>
+          <target state="new">Aug 1 2014</target>
+        </trans-unit>
+        <trans-unit id="fe7f9b9f-a8dc-4baf-a0f8-44d50047e812" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="189c3709-2451-4741-abc6-b3e50969381b" xml:space="preserve">
+          <source><bpt id="2bc985f5-e4d3-4167-9531-51afc174b3c7">&lt;strong&gt;</bpt>Windows Server 2008 R2 SP1<ept id="2bc985f5-e4d3-4167-9531-51afc174b3c7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2bc985f5-e4d3-4167-9531-51afc174b3c7">&lt;strong&gt;</bpt>Windows Server 2008 R2 SP1<ept id="2bc985f5-e4d3-4167-9531-51afc174b3c7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57c6f1c8-a0d8-4efd-a012-82db9e923624" xml:space="preserve">
+          <source>Supports .NET 3.5, 4.0</source>
+          <target state="new">Supports .NET 3.5, 4.0</target>
+        </trans-unit>
+        <trans-unit id="e96a9875-2062-4800-b869-62b623391924" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="0287951b-5d58-4924-9f62-73d58ac43ecb" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="064a00e5-2ce2-4388-854c-0daceb94f653" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="387fffb4-817a-40fd-bd57-e152b0a32040" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="2fd7144e-3456-4bbb-bfc1-acf8df960bbe" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="ecc7c3c1-2fa1-4fd5-a27d-62fcad5dea4d" xml:space="preserve">
+          <source>2.42</source>
+          <target state="new">2.42</target>
+        </trans-unit>
+        <trans-unit id="02c00497-8b0b-4e32-83b7-edf2bef6ba6d" xml:space="preserve">
+          <source>WA-GUEST-OS-2.42_201508-01</source>
+          <target state="new">WA-GUEST-OS-2.42_201508-01</target>
+        </trans-unit>
+        <trans-unit id="549188f4-6053-4c72-aebf-7fa94434d201" xml:space="preserve">
+          <source>Projected Sep 11 2015</source>
+          <target state="new">Projected Sep 11 2015</target>
+        </trans-unit>
+        <trans-unit id="6086ef64-4cb2-4067-bf79-e2e390ab3329" xml:space="preserve">
+          <source>Will be updated when 2.44 is released</source>
+          <target state="new">Will be updated when 2.44 is released</target>
+        </trans-unit>
+        <trans-unit id="0800d869-78e1-4409-b7da-5aeee1e87493" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="9637bb66-5cf5-415a-9afa-008490450bbc" xml:space="preserve">
+          <source>2.41</source>
+          <target state="new">2.41</target>
+        </trans-unit>
+        <trans-unit id="4f9c7efa-fa9b-4c5a-a900-77d69b51016b" xml:space="preserve">
+          <source>WA-GUEST-OS-2.41_201507-02</source>
+          <target state="new">WA-GUEST-OS-2.41_201507-02</target>
+        </trans-unit>
+        <trans-unit id="dc299a3f-5726-4d90-9ca4-64b90e554662" xml:space="preserve">
+          <source>Aug 7 2015</source>
+          <target state="new">Aug 7 2015</target>
+        </trans-unit>
+        <trans-unit id="bfa4c2a4-2693-4b1a-8a4d-a5816459a3bf" xml:space="preserve">
+          <source>Will be updated when 2.43 is released</source>
+          <target state="new">Will be updated when 2.43 is released</target>
+        </trans-unit>
+        <trans-unit id="ab43be20-bff2-4fc9-ba11-5ac65a8d33e1" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="fc1cac21-f0bf-4e8c-97d3-ca867c4c0205" xml:space="preserve">
+          <source>2.40</source>
+          <target state="new">2.40</target>
+        </trans-unit>
+        <trans-unit id="ffb13020-5744-4c49-b977-f8375254522c" xml:space="preserve">
+          <source>WA-GUEST-OS-2.40_201506-01</source>
+          <target state="new">WA-GUEST-OS-2.40_201506-01</target>
+        </trans-unit>
+        <trans-unit id="82a21bfd-837f-43d6-927a-ea8ce7d020fb" xml:space="preserve">
+          <source>July 9 2015</source>
+          <target state="new">July 9 2015</target>
+        </trans-unit>
+        <trans-unit id="2e2faa5b-6dea-4700-877c-5f7eb1d46fd9" xml:space="preserve">
+          <source>Will be updated when 2.42 is released</source>
+          <target state="new">Will be updated when 2.42 is released</target>
+        </trans-unit>
+        <trans-unit id="e87f9d93-61a3-4433-aa47-61099d54a2af" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="7b99d9e3-c9e8-4d77-a14c-57c9f92742e5" xml:space="preserve">
+          <source>2.39</source>
+          <target state="new">2.39</target>
+        </trans-unit>
+        <trans-unit id="840e1927-9379-4c32-8a80-83868f122fdf" xml:space="preserve">
+          <source>WA-GUEST-OS-2.39_201505-02</source>
+          <target state="new">WA-GUEST-OS-2.39_201505-02</target>
+        </trans-unit>
+        <trans-unit id="57c1fdd2-aabf-49c9-81da-f7ac127114a9" xml:space="preserve">
+          <source>June 12 2015</source>
+          <target state="new">June 12 2015</target>
+        </trans-unit>
+        <trans-unit id="5b1ae23f-e824-4da6-86e5-02c50e16213b" xml:space="preserve">
+          <source>Sep 7 2015</source>
+          <target state="new">Sep 7 2015</target>
+        </trans-unit>
+        <trans-unit id="bbf034ee-9446-4c2c-9cd0-1e8776ec76c3" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="7d366636-9bec-489b-b0fa-9c412826e216" xml:space="preserve">
+          <source>2.38</source>
+          <target state="new">2.38</target>
+        </trans-unit>
+        <trans-unit id="d9bdfcf1-1673-4fee-bf2d-934674fa309c" xml:space="preserve">
+          <source>WA-GUEST-OS-2.38_201504-01</source>
+          <target state="new">WA-GUEST-OS-2.38_201504-01</target>
+        </trans-unit>
+        <trans-unit id="84fd45b3-8a80-4261-97c4-0984db917b34" xml:space="preserve">
+          <source>April 17 2015</source>
+          <target state="new">April 17 2015</target>
+        </trans-unit>
+        <trans-unit id="f709ec87-5790-4d6c-a29a-82c6412cc2be" xml:space="preserve">
+          <source>Aug 9 2015</source>
+          <target state="new">Aug 9 2015</target>
+        </trans-unit>
+        <trans-unit id="eecf9c42-562e-4200-9b6a-261529c65641" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="e1fc7d74-9ffe-418e-937d-655a7ad2e155" xml:space="preserve">
+          <source>2.37</source>
+          <target state="new">2.37</target>
+        </trans-unit>
+        <trans-unit id="17da446e-67ce-403e-a080-c3ef767cd270" xml:space="preserve">
+          <source>WA-GUEST-OS-2.37_201503-01</source>
+          <target state="new">WA-GUEST-OS-2.37_201503-01</target>
+        </trans-unit>
+        <trans-unit id="4795b33f-8ca4-4b44-a25d-eb3459407e47" xml:space="preserve">
+          <source>April 2 2015</source>
+          <target state="new">April 2 2015</target>
+        </trans-unit>
+        <trans-unit id="def3f950-b1c2-4025-b4d5-aca422e207c8" xml:space="preserve">
+          <source>July 12 2015</source>
+          <target state="new">July 12 2015</target>
+        </trans-unit>
+        <trans-unit id="3f3412ac-8693-4384-ac0d-9a8a09c1f871" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="d0d0efcc-e765-4a0f-b958-d613511f21f0" xml:space="preserve">
+          <source>2.36</source>
+          <target state="new">2.36</target>
+        </trans-unit>
+        <trans-unit id="f5866c8a-e9a4-42eb-b94d-d0870ead87dd" xml:space="preserve">
+          <source>WA-GUEST-OS-2.36_201502-01</source>
+          <target state="new">WA-GUEST-OS-2.36_201502-01</target>
+        </trans-unit>
+        <trans-unit id="7dabd9e5-748f-46ae-97dd-263c038f3045" xml:space="preserve">
+          <source>Mar 9 2015</source>
+          <target state="new">Mar 9 2015</target>
+        </trans-unit>
+        <trans-unit id="fbcfa3f8-9322-474e-914b-837b08c32ede" xml:space="preserve">
+          <source>May 17 2015</source>
+          <target state="new">May 17 2015</target>
+        </trans-unit>
+        <trans-unit id="51640f73-af97-42a3-8dd5-8e34b5c8b117" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="c8587ae5-14fe-46f6-8962-193878dd3534" xml:space="preserve">
+          <source>2.35</source>
+          <target state="new">2.35</target>
+        </trans-unit>
+        <trans-unit id="4d22f346-7afd-41fc-9889-c66005318218" xml:space="preserve">
+          <source>WA-GUEST-OS-2.35_201501-01</source>
+          <target state="new">WA-GUEST-OS-2.35_201501-01</target>
+        </trans-unit>
+        <trans-unit id="db527379-f343-4f53-96c9-cd256f1583f8" xml:space="preserve">
+          <source>Jan 29 2015</source>
+          <target state="new">Jan 29 2015</target>
+        </trans-unit>
+        <trans-unit id="43c67f83-108e-4951-9827-2ae712e21b00" xml:space="preserve">
+          <source>May 2 2015</source>
+          <target state="new">May 2 2015</target>
+        </trans-unit>
+        <trans-unit id="6d6acac7-3656-404e-8ef7-cc7a24f5d12b" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="9f45fab0-ec25-4ddc-af58-d7b10a7f85bd" xml:space="preserve">
+          <source>2.34</source>
+          <target state="new">2.34</target>
+        </trans-unit>
+        <trans-unit id="bfbd74b7-58ec-41f3-a461-50c49b615ec8" xml:space="preserve">
+          <source>WA-GUEST-OS-2.34_201412-01</source>
+          <target state="new">WA-GUEST-OS-2.34_201412-01</target>
+        </trans-unit>
+        <trans-unit id="cb72178e-e9c3-4ab8-8d51-c23c3373efb2" xml:space="preserve">
+          <source>Jan 14 2015</source>
+          <target state="new">Jan 14 2015</target>
+        </trans-unit>
+        <trans-unit id="802f9f9a-4501-4f04-a868-2a302fed9c2f" xml:space="preserve">
+          <source>Apr 9 2015</source>
+          <target state="new">Apr 9 2015</target>
+        </trans-unit>
+        <trans-unit id="266a6ff0-7af3-4d11-9ea5-9e5cb574b0e8" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="485111e6-a4c5-4e85-a4e1-8930253bdfef" xml:space="preserve">
+          <source>2.33</source>
+          <target state="new">2.33</target>
+        </trans-unit>
+        <trans-unit id="c4742a11-aeaf-4c51-a2b6-4baea6522ef6" xml:space="preserve">
+          <source>WA-GUEST-OS-2.33_201411-01</source>
+          <target state="new">WA-GUEST-OS-2.33_201411-01</target>
+        </trans-unit>
+        <trans-unit id="926fa2a5-66ef-46a8-aaad-f3d468c501df" xml:space="preserve">
+          <source>Nov 11 2014</source>
+          <target state="new">Nov 11 2014</target>
+        </trans-unit>
+        <trans-unit id="228be131-7ce0-464c-bd73-a20970525fe9" xml:space="preserve">
+          <source>Feb 28 2015</source>
+          <target state="new">Feb 28 2015</target>
+        </trans-unit>
+        <trans-unit id="86364f8f-0515-4846-b028-d71e79c36b02" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="c5468d5a-78dd-4476-a9cc-3ae8c71829c8" xml:space="preserve">
+          <source>2.32</source>
+          <target state="new">2.32</target>
+        </trans-unit>
+        <trans-unit id="23688273-29d2-433e-b8d9-756d330de684" xml:space="preserve">
+          <source>WA-GUEST-OS-2.32_201410-01</source>
+          <target state="new">WA-GUEST-OS-2.32_201410-01</target>
+        </trans-unit>
+        <trans-unit id="08231bb9-4d5c-4ecb-921a-de2386c68b24" xml:space="preserve">
+          <source>Nov 3 2014</source>
+          <target state="new">Nov 3 2014</target>
+        </trans-unit>
+        <trans-unit id="c1c17a21-57f6-4259-b70a-572a2a8fe869" xml:space="preserve">
+          <source>Feb 14 2015</source>
+          <target state="new">Feb 14 2015</target>
+        </trans-unit>
+        <trans-unit id="71c4400f-270e-46da-94dc-c59a2e4ed023" xml:space="preserve">
+          <source>TBD</source>
+          <target state="new">TBD</target>
+        </trans-unit>
+        <trans-unit id="9c0aae50-c01f-44a5-ab69-78538a82f854" xml:space="preserve">
+          <source>2.31 (Note 1)</source>
+          <target state="new">2.31 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="b9e29a37-e724-4db4-974e-bd6bcccd5643" xml:space="preserve">
+          <source>WA-GUEST-OS-2.31_201409-02</source>
+          <target state="new">WA-GUEST-OS-2.31_201409-02</target>
+        </trans-unit>
+        <trans-unit id="0534de51-3e1a-4b50-a713-c402fb889902" xml:space="preserve">
+          <source>Oct 6 2014</source>
+          <target state="new">Oct 6 2014</target>
+        </trans-unit>
+        <trans-unit id="a2269f8f-874f-430f-a23c-3eb771f8893f" xml:space="preserve">
+          <source>Oct 12 2014</source>
+          <target state="new">Oct 12 2014</target>
+        </trans-unit>
+        <trans-unit id="11ddfd7e-03b9-4e81-831f-68b691872151" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="778f1241-3d01-4bc6-9226-a96109057b9a" xml:space="preserve">
+          <source>2.30 (Note 1)</source>
+          <target state="new">2.30 (Note 1)</target>
+        </trans-unit>
+        <trans-unit id="502be1f1-0127-477a-ad73-58a04a7ab19e" xml:space="preserve">
+          <source>WA-GUEST-OS-2.30_201408-02</source>
+          <target state="new">WA-GUEST-OS-2.30_201408-02</target>
+        </trans-unit>
+        <trans-unit id="9781f45d-6f50-40d5-bba3-3c1d8f30a0fc" xml:space="preserve">
+          <source>Aug 25 2014</source>
+          <target state="new">Aug 25 2014</target>
+        </trans-unit>
+        <trans-unit id="d4ecf09a-f93b-41f7-8f2c-3c73abf381b2" xml:space="preserve">
+          <source>Sept 11 2014</source>
+          <target state="new">Sept 11 2014</target>
+        </trans-unit>
+        <trans-unit id="45d8b985-51a4-4ef0-b5c8-fe9836275934" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="032c0314-d8de-409b-bc80-2b4671241f88" xml:space="preserve">
+          <source>2.29</source>
+          <target state="new">2.29</target>
+        </trans-unit>
+        <trans-unit id="ff8d909d-7675-41b1-abd3-42a235144823" xml:space="preserve">
+          <source>WA-GUEST-OS-2.29_201407-01</source>
+          <target state="new">WA-GUEST-OS-2.29_201407-01</target>
+        </trans-unit>
+        <trans-unit id="b7222f1c-abd7-4115-99eb-7f8cafb8e831" xml:space="preserve">
+          <source>July 18 2014</source>
+          <target state="new">July 18 2014</target>
+        </trans-unit>
+        <trans-unit id="d27c4565-78b5-42ee-afaa-974cbb06b900" xml:space="preserve">
+          <source>Dec 1 2014</source>
+          <target state="new">Dec 1 2014</target>
+        </trans-unit>
+        <trans-unit id="8372b033-ff2b-4999-9c77-2a46203fd27e" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="dab1e4d0-fc86-4a89-b2fe-f5a9a3d5726c" xml:space="preserve">
+          <source>2.28</source>
+          <target state="new">2.28</target>
+        </trans-unit>
+        <trans-unit id="562a35af-5315-4dcd-b6ac-e1f23960d2f0" xml:space="preserve">
+          <source>WA-GUEST-OS-2.28_201406-01</source>
+          <target state="new">WA-GUEST-OS-2.28_201406-01</target>
+        </trans-unit>
+        <trans-unit id="97be002a-d880-4705-8025-5deb80caac31" xml:space="preserve">
+          <source>June 16 2014</source>
+          <target state="new">June 16 2014</target>
+        </trans-unit>
+        <trans-unit id="732528fa-7c9d-451a-87c4-779d0c17a14d" xml:space="preserve">
+          <source>Nov 10 2014</source>
+          <target state="new">Nov 10 2014</target>
+        </trans-unit>
+        <trans-unit id="c0057625-40d3-4ebe-9c87-77f690127f9e" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="0752c5c5-8fee-4782-b272-98930fa1fcee" xml:space="preserve">
+          <source>2.27</source>
+          <target state="new">2.27</target>
+        </trans-unit>
+        <trans-unit id="e459ecc9-f7df-4563-a5cd-099bc24f4dd6" xml:space="preserve">
+          <source>WA-GUEST-OS-2.27_201405-01</source>
+          <target state="new">WA-GUEST-OS-2.27_201405-01</target>
+        </trans-unit>
+        <trans-unit id="08fbff4e-fd0b-4a1e-a0b7-d4962cc9afcd" xml:space="preserve">
+          <source>June 1 2014</source>
+          <target state="new">June 1 2014</target>
+        </trans-unit>
+        <trans-unit id="2a360dbe-acbc-48fa-927d-623ffd17a353" xml:space="preserve">
+          <source>Aug 1 2014</source>
+          <target state="new">Aug 1 2014</target>
+        </trans-unit>
+        <trans-unit id="b6d57787-30ce-4bc1-b803-ce21d1070945" xml:space="preserve">
+          <source>March 23 2015</source>
+          <target state="new">March 23 2015</target>
+        </trans-unit>
+        <trans-unit id="b3863947-3f39-48c9-b8ef-07300b003000" xml:space="preserve">
+          <source><bpt id="a95cb837-ee6e-4ed7-8c84-090f28374a98">&lt;strong&gt;</bpt>FAMILY 1<ept id="a95cb837-ee6e-4ed7-8c84-090f28374a98">&lt;/strong&gt;</ept> has been <bpt id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;linkText&gt;</bpt>retired[fam1retire]<ept id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;/linkText&gt;</ept><bpt id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;title&gt;</bpt><ept id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="a95cb837-ee6e-4ed7-8c84-090f28374a98">&lt;strong&gt;</bpt>FAMILY 1<ept id="a95cb837-ee6e-4ed7-8c84-090f28374a98">&lt;/strong&gt;</ept> has been <bpt id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;linkText&gt;</bpt>retired[fam1retire]<ept id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;/linkText&gt;</ept><bpt id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;title&gt;</bpt><ept id="4d38e954-8a7b-442d-a949-402c4d235a6a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c78092a-28ec-4cd2-bc0c-9588da0a2e58" xml:space="preserve">
+          <source>The August and September 2014 releases were partially rolled out due to issues found with an <bpt id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;linkText&gt;</bpt>MSRC patch[ms14-046]<ept id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;/linkText&gt;</ept><bpt id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;title&gt;</bpt><ept id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;/title&gt;</ept> partway through release.</source>
+          <target state="new">The August and September 2014 releases were partially rolled out due to issues found with an <bpt id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;linkText&gt;</bpt>MSRC patch[ms14-046]<ept id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;/linkText&gt;</ept><bpt id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;title&gt;</bpt><ept id="5f34d1d0-0c26-4a97-a619-d71b44e97e6d">&lt;/title&gt;</ept> partway through release.</target>
+        </trans-unit>
+        <trans-unit id="70297fa5-544a-4bfc-85ef-4f9ecad969c8" xml:space="preserve">
+          <source>The problem does not allow the manual install of .NET 3.5.1 on family 3 and 4.</source>
+          <target state="new">The problem does not allow the manual install of .NET 3.5.1 on family 3 and 4.</target>
+        </trans-unit>
+        <trans-unit id="15475510-d029-40dc-bdf2-1eba07397c61" xml:space="preserve">
+          <source>The release was disabled as a precaution so customers could not manually select it.</source>
+          <target state="new">The release was disabled as a precaution so customers could not manually select it.</target>
+        </trans-unit>
+        <trans-unit id="d0baf93e-90a7-4d1a-a9fe-f786d7c52f2e" xml:space="preserve">
+          <source>As of Sept 19, 2014, .NET 4.5.2 has not been specifically tested on the Azure Guest OS.</source>
+          <target state="new">As of Sept 19, 2014, .NET 4.5.2 has not been specifically tested on the Azure Guest OS.</target>
+        </trans-unit>
+        <trans-unit id="faf13b11-171d-4418-a665-a21ba4fa62ba" xml:space="preserve">
+          <source>But the Guest OS is essentially equivalent to Windows Server.</source>
+          <target state="new">But the Guest OS is essentially equivalent to Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="1e926e3c-cda6-434b-aff5-a570e353bf12" xml:space="preserve">
+          <source>The same compatibility rules that apply to the Windows Server product therefore apply to the equivalent Guest OS Families.</source>
+          <target state="new">The same compatibility rules that apply to the Windows Server product therefore apply to the equivalent Guest OS Families.</target>
+        </trans-unit>
+        <trans-unit id="47301934-1c3b-4bfc-9992-f33b1de023e7" xml:space="preserve">
+          <source>If you encounter an exception to this policy, please contact <bpt id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;linkText&gt;</bpt>Azure support[azuresupport]<ept id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;/linkText&gt;</ept><bpt id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;title&gt;</bpt><ept id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you encounter an exception to this policy, please contact <bpt id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;linkText&gt;</bpt>Azure support[azuresupport]<ept id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;/linkText&gt;</ept><bpt id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;title&gt;</bpt><ept id="c2051c20-8078-4fbe-9819-7b816e7b25e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="132e373c-7013-4ed6-b675-478b3a8b8f52" xml:space="preserve">
+          <source>Microsoft will give a commercially reasonable effort to resolve your issue.</source>
+          <target state="new">Microsoft will give a commercially reasonable effort to resolve your issue.</target>
+        </trans-unit>
+        <trans-unit id="24138e28-a050-4a3e-9dfc-c24afb12d5e6" xml:space="preserve">
+          <source><bpt id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;linkText&gt;</bpt>Manual install package for .NET 4.5.2[net install pkg]<ept id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;/linkText&gt;</ept><bpt id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;title&gt;</bpt><ept id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;linkText&gt;</bpt>Manual install package for .NET 4.5.2[net install pkg]<ept id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;/linkText&gt;</ept><bpt id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;title&gt;</bpt><ept id="ae39f3b0-e782-4ceb-9b6e-c120e79defb5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a53cb48-aa97-4160-8e28-00a2484beeb5" xml:space="preserve">
+          <source>The list of patches that are included with each monthly Guest OS release is available <bpt id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;linkText&gt;</bpt>here[patches]<ept id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;/linkText&gt;</ept><bpt id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;title&gt;</bpt><ept id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;/title&gt;</ept>.</source>
+          <target state="new">The list of patches that are included with each monthly Guest OS release is available <bpt id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;linkText&gt;</bpt>here[patches]<ept id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;/linkText&gt;</ept><bpt id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;title&gt;</bpt><ept id="68b41dca-f256-4409-8b6d-ac8ac04e527a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53a613f3-87b0-4a36-b7fd-3ca7bbcaf176" xml:space="preserve">
+          <source>This table shows which Guest OS family is compatible with which Azure SDK versions.</source>
+          <target state="new">This table shows which Guest OS family is compatible with which Azure SDK versions.</target>
+        </trans-unit>
+        <trans-unit id="b848e985-02ad-42f8-be83-6a90a8597eba" xml:space="preserve">
+          <source>For more information beyond this table, see <bpt id="e3b53713-2035-434e-9510-61e959c259b9">&lt;linkText&gt;</bpt>Support and Retirement Information for the Azure SDK for .NET and APIs[retire policy sdk]<ept id="e3b53713-2035-434e-9510-61e959c259b9">&lt;/linkText&gt;</ept><bpt id="e3b53713-2035-434e-9510-61e959c259b9">&lt;title&gt;</bpt><ept id="e3b53713-2035-434e-9510-61e959c259b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information beyond this table, see <bpt id="e3b53713-2035-434e-9510-61e959c259b9">&lt;linkText&gt;</bpt>Support and Retirement Information for the Azure SDK for .NET and APIs[retire policy sdk]<ept id="e3b53713-2035-434e-9510-61e959c259b9">&lt;/linkText&gt;</ept><bpt id="e3b53713-2035-434e-9510-61e959c259b9">&lt;title&gt;</bpt><ept id="e3b53713-2035-434e-9510-61e959c259b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca19a03e-e436-4f08-90ae-2df06cb2d223" xml:space="preserve">
+          <source>Any information at this list supersedes the information below.</source>
+          <target state="new">Any information at this list supersedes the information below.</target>
+        </trans-unit>
+        <trans-unit id="0f7ed34b-e55e-4904-84f8-bb8161330c34" xml:space="preserve">
+          <source>To ensure that your service works as expected, you must deploy it to Guest OS release that is compatible with the version of the Azure SDK used to develop your service.</source>
+          <target state="new">To ensure that your service works as expected, you must deploy it to Guest OS release that is compatible with the version of the Azure SDK used to develop your service.</target>
+        </trans-unit>
+        <trans-unit id="fcf57b5d-090e-4ff9-bab1-e46bb15a3cf4" xml:space="preserve">
+          <source>If you do not, the deployed service may exhibit errors in the cloud that were not apparent in the development environment.</source>
+          <target state="new">If you do not, the deployed service may exhibit errors in the cloud that were not apparent in the development environment.</target>
+        </trans-unit>
+        <trans-unit id="b5bc4e6d-fd37-4808-98d1-cfd3c592cd62" xml:space="preserve">
+          <source>Guest OS Family</source>
+          <target state="new">Guest OS Family</target>
+        </trans-unit>
+        <trans-unit id="f717abbc-8756-47a9-9e55-be3f13974163" xml:space="preserve">
+          <source>SDK Versions Supported</source>
+          <target state="new">SDK Versions Supported</target>
+        </trans-unit>
+        <trans-unit id="5fce5246-9c9b-4841-b501-e43b9ca8afbd" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="5cabfda1-2f05-418d-aa2e-3be1298318a2" xml:space="preserve">
+          <source>Version 2.1 and later</source>
+          <target state="new">Version 2.1 and later</target>
+        </trans-unit>
+        <trans-unit id="36daff8f-62a1-4346-92e6-87108fccd403" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="18e81739-10c4-43bc-b10b-d68c9669dbbe" xml:space="preserve">
+          <source>Version 1.8 and later</source>
+          <target state="new">Version 1.8 and later</target>
+        </trans-unit>
+        <trans-unit id="594747ce-1b9d-4b07-9a7e-13820436df01" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="f0c20bf0-98cf-4705-a41d-6997a61cb092" xml:space="preserve">
+          <source>Version 1.3 and later</source>
+          <target state="new">Version 1.3 and later</target>
+        </trans-unit>
+        <trans-unit id="58e43ad1-bb5a-4b86-a3d4-29670bb97c47" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="1b12069d-fdf5-465e-9645-f76e1c1b6b29" xml:space="preserve">
+          <source>Version 1.0 and later</source>
+          <target state="new">Version 1.0 and later</target>
+        </trans-unit>
+        <trans-unit id="05d9faf8-2622-46e7-a260-3320958da02c" xml:space="preserve">
+          <source>This page includes information on upcoming Guest OS Releases.</source>
+          <target state="new">This page includes information on upcoming Guest OS Releases.</target>
+        </trans-unit>
+        <trans-unit id="ca41b94d-3f58-4bf0-bab8-54f3f5cdbd5a" xml:space="preserve">
+          <source>Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update.</source>
+          <target state="new">Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update.</target>
+        </trans-unit>
+        <trans-unit id="486a10d3-640f-4b4b-8cb5-0ddacbde9640" xml:space="preserve">
+          <source>Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month.</source>
+          <target state="new">Guest OS releases typically occur at least 5 days after the MSRC update release that occurs on the second Tuesday of every month.</target>
+        </trans-unit>
+        <trans-unit id="f318d428-f83f-46da-b48a-a1a67515b1b6" xml:space="preserve">
+          <source>New releases include all the relevant MSRC patches for each Guest OS family.</source>
+          <target state="new">New releases include all the relevant MSRC patches for each Guest OS family.</target>
+        </trans-unit>
+        <trans-unit id="9ed93e8f-547d-4821-aa7f-9145721f1def" xml:space="preserve">
+          <source>Microsoft Azure is constantly releasing updates.</source>
+          <target state="new">Microsoft Azure is constantly releasing updates.</target>
+        </trans-unit>
+        <trans-unit id="921e6080-6c91-49a1-a62f-3acb31165014" xml:space="preserve">
+          <source>The Guest OS is only one such update in the pipeline.</source>
+          <target state="new">The Guest OS is only one such update in the pipeline.</target>
+        </trans-unit>
+        <trans-unit id="ec817e45-0e0a-477b-a7f7-426584056f3e" xml:space="preserve">
+          <source>A release can be affected by a number of factors too numerous to list here.</source>
+          <target state="new">A release can be affected by a number of factors too numerous to list here.</target>
+        </trans-unit>
+        <trans-unit id="b52ac2f3-a16c-4814-867f-35f4ef3cead3" xml:space="preserve">
+          <source>In addition, Azure runs on literally hundreds of thousands of machines.</source>
+          <target state="new">In addition, Azure runs on literally hundreds of thousands of machines.</target>
+        </trans-unit>
+        <trans-unit id="48acda93-009b-4eea-8bd3-f85c3f78b882" xml:space="preserve">
+          <source>This means that it's impossible to give an exact date and time when your role(s) will reboot.</source>
+          <target state="new">This means that it's impossible to give an exact date and time when your role(s) will reboot.</target>
+        </trans-unit>
+        <trans-unit id="c2b59532-f3a3-4d53-af10-d2a73c6b54c1" xml:space="preserve">
+          <source>We will update the <bpt id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;linkText&gt;</bpt>Guest OS Update RSS Feed[rss]<ept id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;/linkText&gt;</ept><bpt id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;title&gt;</bpt><ept id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;/title&gt;</ept> with the latest information we have, but consider that time an approximate window.</source>
+          <target state="new">We will update the <bpt id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;linkText&gt;</bpt>Guest OS Update RSS Feed[rss]<ept id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;/linkText&gt;</ept><bpt id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;title&gt;</bpt><ept id="13d71688-0fc6-4625-8aaf-411ea909f39a">&lt;/title&gt;</ept> with the latest information we have, but consider that time an approximate window.</target>
+        </trans-unit>
+        <trans-unit id="5c58fe1d-7881-4d24-8ac6-44b469430de8" xml:space="preserve">
+          <source>We are aware that this is problematic for customers and working on a plan to limit or time reboots.</source>
+          <target state="new">We are aware that this is problematic for customers and working on a plan to limit or time reboots.</target>
+        </trans-unit>
+        <trans-unit id="3c3cda7b-2468-47e7-9e1e-88ad5f953347" xml:space="preserve">
+          <source>When a new release of the Guest OS is published, it can take time to fully propagate across Azure.</source>
+          <target state="new">When a new release of the Guest OS is published, it can take time to fully propagate across Azure.</target>
+        </trans-unit>
+        <trans-unit id="68d4c61c-a173-4eb7-9d6f-142bd4640239" xml:space="preserve">
+          <source>As services are updated to the new Guest OS, they are rebooted honoring update domains.</source>
+          <target state="new">As services are updated to the new Guest OS, they are rebooted honoring update domains.</target>
+        </trans-unit>
+        <trans-unit id="63bec4fe-249d-4cd7-b8bd-ac5ae5c2750d" xml:space="preserve">
+          <source>Services set to use "Automatic" updates will get a release first.</source>
+          <target state="new">Services set to use "Automatic" updates will get a release first.</target>
+        </trans-unit>
+        <trans-unit id="227b92c0-1959-4c0e-b191-e8a4a326c740" xml:space="preserve">
+          <source>After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal.</source>
+          <target state="new">After the update, you’ll see the new Guest OS version listed for your service in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1cb07d17-658c-401f-8058-21e8765eacdb" xml:space="preserve">
+          <source>Rereleases may occur during this period.</source>
+          <target state="new">Rereleases may occur during this period.</target>
+        </trans-unit>
+        <trans-unit id="adb5011e-aee9-4d0e-8b9e-b870ae94ae24" xml:space="preserve">
+          <source>Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date.</source>
+          <target state="new">Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date.</target>
+        </trans-unit>
+        <trans-unit id="682e6218-9cfe-4639-b591-d9b1b158fbff" xml:space="preserve">
+          <source>Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file.</source>
+          <target state="new">Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file.</target>
+        </trans-unit>
+        <trans-unit id="910bd66f-2c9f-41b7-85fb-6290abfb0a9f" xml:space="preserve">
+          <source>For more information, see <bpt id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;linkText&gt;</bpt>Update the Azure Guest OS from the Management Portal[update guest os portal]<ept id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;/linkText&gt;</ept><bpt id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;title&gt;</bpt><ept id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;/title&gt;</ept> and <bpt id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;linkText&gt;</bpt>Update the Azure Guest OS by Modifying the Service Configuration File[update guest os svc]<ept id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;/linkText&gt;</ept><bpt id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;title&gt;</bpt><ept id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;linkText&gt;</bpt>Update the Azure Guest OS from the Management Portal[update guest os portal]<ept id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;/linkText&gt;</ept><bpt id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;title&gt;</bpt><ept id="05152824-51ef-4000-b2cd-25beefd703ee">&lt;/title&gt;</ept> and <bpt id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;linkText&gt;</bpt>Update the Azure Guest OS by Modifying the Service Configuration File[update guest os svc]<ept id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;/linkText&gt;</ept><bpt id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;title&gt;</bpt><ept id="c9111c72-ff48-4ab0-a02f-818868c036b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a2908b2-3d8d-4894-859a-143f226ee149" xml:space="preserve">
+          <source>For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled <bpt id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;linkText&gt;</bpt>Role Instance Restarts Due to OS Upgrades[restarts]<ept id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;/linkText&gt;</ept><bpt id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;title&gt;</bpt><ept id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled <bpt id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;linkText&gt;</bpt>Role Instance Restarts Due to OS Upgrades[restarts]<ept id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;/linkText&gt;</ept><bpt id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;title&gt;</bpt><ept id="52587749-287e-4e4f-98d4-a74dee1e9ef1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e93a77e1-8116-4e19-afb6-f44a7ec1d956" xml:space="preserve">
+          <source>If you manually update your Guest OS, please read the <bpt id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;linkText&gt;</bpt>Guest OS retirement policy[retirepolicy]<ept id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;/linkText&gt;</ept><bpt id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;title&gt;</bpt><ept id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you manually update your Guest OS, please read the <bpt id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;linkText&gt;</bpt>Guest OS retirement policy[retirepolicy]<ept id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;/linkText&gt;</ept><bpt id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;title&gt;</bpt><ept id="0dbccc36-e4a0-4c5c-8dd9-425fbf8c6723">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe9ec511-ac12-494f-ae98-d1f50c5ccde7" xml:space="preserve">
+          <source>The Guest OS supportability and retirement policy is explained <bpt id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;linkText&gt;</bpt>here[retirepolicy]<ept id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;/linkText&gt;</ept><bpt id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;title&gt;</bpt><ept id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Guest OS supportability and retirement policy is explained <bpt id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;linkText&gt;</bpt>here[retirepolicy]<ept id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;/linkText&gt;</ept><bpt id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;title&gt;</bpt><ept id="462a0130-7f9b-4d58-9a86-6c3c4fd82c5e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfb07e5a-2bc7-494b-b596-81e7494a8427" xml:space="preserve">
+          <source>The November release (4.14, 3.21, and 2.33) was rolled out November 11th.</source>
+          <target state="new">The November release (4.14, 3.21, and 2.33) was rolled out November 11th.</target>
+        </trans-unit>
+        <trans-unit id="35953bc0-24cc-4422-9c55-93854c80b5ad" xml:space="preserve">
+          <source>This update was pushed earlier because it includes the MSRC update <bpt id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;linkText&gt;</bpt>Microsoft Security Bulletin MS14-066 - Critical[ms14-066]<ept id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;/linkText&gt;</ept><bpt id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;title&gt;</bpt><ept id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;/title&gt;</ept>.</source>
+          <target state="new">This update was pushed earlier because it includes the MSRC update <bpt id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;linkText&gt;</bpt>Microsoft Security Bulletin MS14-066 - Critical[ms14-066]<ept id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;/linkText&gt;</ept><bpt id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;title&gt;</bpt><ept id="f82f8a56-03d7-4fbc-bd22-3155061d0679">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d86b029e-7a83-4ef6-bb9e-85603ece1a0d" xml:space="preserve">
+          <source>Your web and worker roles on automatic update should reboot once over the next few days and receive this fix.</source>
+          <target state="new">Your web and worker roles on automatic update should reboot once over the next few days and receive this fix.</target>
+        </trans-unit>
+        <trans-unit id="2c408ce4-878e-4d01-9857-7e4b6f97fc88" xml:space="preserve">
+          <source>The October release (4.13, 3.20, and 2.32) disable date has been updated based on customer feedback.</source>
+          <target state="new">The October release (4.13, 3.20, and 2.32) disable date has been updated based on customer feedback.</target>
+        </trans-unit>
+        <trans-unit id="c5223e46-5a4b-478b-b57c-c6deec94a4d2" xml:space="preserve">
+          <source>The disable date will always be at least two months from the release date.</source>
+          <target state="new">The disable date will always be at least two months from the release date.</target>
+        </trans-unit>
+        <trans-unit id="701d8849-df37-4dd6-9152-c3c80c876f70" xml:space="preserve">
+          <source>The October release (4.13, 3.20, and 2.32) was rolled out Nov 4, 2014.</source>
+          <target state="new">The October release (4.13, 3.20, and 2.32) was rolled out Nov 4, 2014.</target>
+        </trans-unit>
+        <trans-unit id="8ff7e839-eecf-490b-b17f-34f51d8e0605" xml:space="preserve">
+          <source>It includes the MSRC patch which caused problems with the August and September releases.</source>
+          <target state="new">It includes the MSRC patch which caused problems with the August and September releases.</target>
+        </trans-unit>
+        <trans-unit id="15741b82-bf87-4384-ad5e-8f487067cae5" xml:space="preserve">
+          <source>To get around this problem, the October release includes .NET 3.5 and 3.5.1 preinstalled, but disabled.</source>
+          <target state="new">To get around this problem, the October release includes .NET 3.5 and 3.5.1 preinstalled, but disabled.</target>
+        </trans-unit>
+        <trans-unit id="3cc75458-ab8f-4953-8b00-ac10fcafeef6" xml:space="preserve">
+          <source>Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the full install problem created by the MSRC patch.</source>
+          <target state="new">Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the full install problem created by the MSRC patch.</target>
+        </trans-unit>
+        <trans-unit id="2874ec80-70e9-4b24-b4d3-90bd7af8a0db" xml:space="preserve">
+          <source>**Oct 20, 2014.</source>
+          <target state="new">**Oct 20, 2014.</target>
+        </trans-unit>
+        <trans-unit id="e136c05a-20d0-4953-949e-8e2d8eb7c21a" xml:space="preserve">
+          <source>Updated Nov 4, 2014** - The September release (4.12, 3.19, 2.31, and 1.39) partially rolled out due to the same <bpt id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;linkText&gt;</bpt>MSRC patch MS14-046[ms14-046]<ept id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;/linkText&gt;</ept><bpt id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;title&gt;</bpt><ept id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;/title&gt;</ept> causing failures for those attempting to install .NET 3.5 or 3.5.1 on family 3 or 4.</source>
+          <target state="new">Updated Nov 4, 2014** - The September release (4.12, 3.19, 2.31, and 1.39) partially rolled out due to the same <bpt id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;linkText&gt;</bpt>MSRC patch MS14-046[ms14-046]<ept id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;/linkText&gt;</ept><bpt id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;title&gt;</bpt><ept id="b7435386-d7c4-4133-a611-55f4da1e94a4">&lt;/title&gt;</ept> causing failures for those attempting to install .NET 3.5 or 3.5.1 on family 3 or 4.</target>
+        </trans-unit>
+        <trans-unit id="b2fc2f78-cadb-4068-af3b-6725d0d542bd" xml:space="preserve">
+          <source>.NET 3.5.x is NOT officially supported on either family, but Microsoft is responding to the change in behavior because some customer's installations do rely on it and the change was unannounced.</source>
+          <target state="new">.NET 3.5.x is NOT officially supported on either family, but Microsoft is responding to the change in behavior because some customer's installations do rely on it and the change was unannounced.</target>
+        </trans-unit>
+        <trans-unit id="be0d2cf3-9029-41c3-9ded-53b688d2d464" xml:space="preserve">
+          <source>The disable dates of previous Guest OSes (June and July) will be delayed accordingly so that at least two fully released Guest OSes are supported and available.</source>
+          <target state="new">The disable dates of previous Guest OSes (June and July) will be delayed accordingly so that at least two fully released Guest OSes are supported and available.</target>
+        </trans-unit>
+        <trans-unit id="aeceb804-c68c-4f8d-bbee-2a5300f97acc" xml:space="preserve">
+          <source>A solution for the .NET install problem appeared in the October 2014 release.</source>
+          <target state="new">A solution for the .NET install problem appeared in the October 2014 release.</target>
+        </trans-unit>
+        <trans-unit id="13ac050e-4ff8-4921-a220-58e1d6a8f78a" xml:space="preserve">
+          <source>The October release includes .NET 3.5 and 3.5.1 preinstalled (but disabled), and also include the MSRC patch listed previously.</source>
+          <target state="new">The October release includes .NET 3.5 and 3.5.1 preinstalled (but disabled), and also include the MSRC patch listed previously.</target>
+        </trans-unit>
+        <trans-unit id="0151eedd-3ad8-461d-9b83-c670333e7f53" xml:space="preserve">
+          <source>Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the install problem created by the MSRC patch.</source>
+          <target state="new">Scripts attempting to install .NET 3.5 or 3.5.1 will effectively re-enable it and return a "success" for the .NET installation, but also avoid the install problem created by the MSRC patch.</target>
+        </trans-unit>
+        <trans-unit id="08a456d2-33b3-40b7-8104-ab909e2be828" xml:space="preserve">
+          <source>Because of the partial rollout of the last two releases, people on auto update or who have rolled out new installations may be on any of these Guest OS releases.</source>
+          <target state="new">Because of the partial rollout of the last two releases, people on auto update or who have rolled out new installations may be on any of these Guest OS releases.</target>
+        </trans-unit>
+        <trans-unit id="9313e03d-39fc-4adc-85cc-07efef4705d4" xml:space="preserve">
+          <source>The following table lists which Guest OS releases allow the installation of .NET 3.5 or 3.5.1 on family 3 and 4.</source>
+          <target state="new">The following table lists which Guest OS releases allow the installation of .NET 3.5 or 3.5.1 on family 3 and 4.</target>
+        </trans-unit>
+        <trans-unit id="e89d202a-1aad-4d90-a37a-e6479fe8993a" xml:space="preserve">
+          <source>Currently, if a release allows installation, that means it does NOT have MSRC patch MS14-046 installed.</source>
+          <target state="new">Currently, if a release allows installation, that means it does NOT have MSRC patch MS14-046 installed.</target>
+        </trans-unit>
+        <trans-unit id="ee0b3a5c-c9fe-4c0a-b1c2-68a4fb49afdb" xml:space="preserve">
+          <source>OS Version</source>
+          <target state="new">OS Version</target>
+        </trans-unit>
+        <trans-unit id="26685cd6-24c2-4444-bb30-16f5ade9970a" xml:space="preserve">
+          <source>Can install .NET 3.5</source>
+          <target state="new">Can install .NET 3.5</target>
+        </trans-unit>
+        <trans-unit id="0f68fd84-608b-40d0-a6bf-6eba3591c9ae" xml:space="preserve">
+          <source>Includes MSRC patch <bpt id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;linkText&gt;</bpt>MS14-046<ept id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;/linkText&gt;</ept><bpt id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;title&gt;</bpt><ept id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;/title&gt;</ept></source>
+          <target state="new">Includes MSRC patch <bpt id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;linkText&gt;</bpt>MS14-046<ept id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;/linkText&gt;</ept><bpt id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;title&gt;</bpt><ept id="563b9a43-2d95-4989-9dd1-5cf0f6432d03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d560b21d-b658-4e7b-a08a-d21069e498bf" xml:space="preserve">
+          <source>All later Guest OS versions</source>
+          <target state="new">All later Guest OS versions</target>
+        </trans-unit>
+        <trans-unit id="41f75cd0-db88-4a33-9391-ebd3a9078c95" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ff648e69-31bb-4982-aef6-c0267e59cb4e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6fe729ca-6cf2-45d6-81a0-efb5068593aa" xml:space="preserve">
+          <source>WA-GUEST-OS-4.13_201410-01</source>
+          <target state="new">WA-GUEST-OS-4.13_201410-01</target>
+        </trans-unit>
+        <trans-unit id="8625c354-e629-4bd7-9b02-b0fee3e7c359" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ac65a75f-5e65-413c-bbc4-956bf05b6616" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="1f865b39-fe84-4da7-9f31-04c54ee506f2" xml:space="preserve">
+          <source>WA-GUEST-OS-4.12_201409-02</source>
+          <target state="new">WA-GUEST-OS-4.12_201409-02</target>
+        </trans-unit>
+        <trans-unit id="d937babe-d47d-42c4-b0cd-07fbc6a8cabd" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="885fa547-3de6-4eb1-a00d-9569bd6b056d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e0642f2c-71bd-4f2c-b70b-541f63b6bdc4" xml:space="preserve">
+          <source>WA-GUEST-OS-4.12_201409-01</source>
+          <target state="new">WA-GUEST-OS-4.12_201409-01</target>
+        </trans-unit>
+        <trans-unit id="fff2e5c6-1139-4ca9-a118-84ca332cf125" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="79e8a146-43da-4773-8cc7-cf5de44cdf30" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ded41619-af36-4bff-af01-5986b1b6e9c6" xml:space="preserve">
+          <source>WA-GUEST-OS-4.11_201408-02</source>
+          <target state="new">WA-GUEST-OS-4.11_201408-02</target>
+        </trans-unit>
+        <trans-unit id="37fa434c-157b-48f3-9a0e-3f85c2aadc7e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="42a7f280-ac8e-4cff-9245-076eade5a734" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="ffb05db9-84cf-4dd5-8a7d-a298a4046e02" xml:space="preserve">
+          <source>WA-GUEST-OS-4.11_201408-01</source>
+          <target state="new">WA-GUEST-OS-4.11_201408-01</target>
+        </trans-unit>
+        <trans-unit id="be554387-9b7e-4a23-9229-822a4447c438" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="01070233-1792-4239-9840-758e7a24f1ee" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ee3b2d1e-7da7-4d25-9186-79e72739d426" xml:space="preserve">
+          <source>WA-GUEST-OS-4.10_201407-01</source>
+          <target state="new">WA-GUEST-OS-4.10_201407-01</target>
+        </trans-unit>
+        <trans-unit id="1dca6527-003d-4700-b9d6-4b282c2e7a19" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="342a3f9b-8a90-496a-8a8c-3fbf78e1ed1c" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9c51166a-19be-424a-8a90-2543ef8573f1" xml:space="preserve">
+          <source><bpt id="b752b51c-0f49-48c4-b49c-d5ef4cf0ca80">&lt;strong&gt;</bpt>Oct 20, 2014<ept id="b752b51c-0f49-48c4-b49c-d5ef4cf0ca80">&lt;/strong&gt;</ept> - Because August and September release were only partially rolled out, you should note the following: </source>
+          <target state="new"><bpt id="b752b51c-0f49-48c4-b49c-d5ef4cf0ca80">&lt;strong&gt;</bpt>Oct 20, 2014<ept id="b752b51c-0f49-48c4-b49c-d5ef4cf0ca80">&lt;/strong&gt;</ept> - Because August and September release were only partially rolled out, you should note the following: </target>
+        </trans-unit>
+        <trans-unit id="e7b0ff14-6b14-470e-b580-7402024aa1e8" xml:space="preserve">
+          <source>The cipher changes outlined in Differences between Azure Guest OS and Default Windows Server have not been rolled out across the entirety of Azure.</source>
+          <target state="new">The cipher changes outlined in Differences between Azure Guest OS and Default Windows Server have not been rolled out across the entirety of Azure.</target>
+        </trans-unit>
+        <trans-unit id="3a296b87-3937-43cb-9214-cd2fc079903c" xml:space="preserve">
+          <source>Customers not on the August or September releases will receive these changes in the October release.</source>
+          <target state="new">Customers not on the August or September releases will receive these changes in the October release.</target>
+        </trans-unit>
+        <trans-unit id="748c351f-ca0f-41eb-9d57-1096f1fcc744" xml:space="preserve">
+          <source>The August and September Guest OSes have been disabled in the Management Portal.</source>
+          <target state="new">The August and September Guest OSes have been disabled in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="7e61a79d-67e5-4ac6-a790-c49dc83d04e0" xml:space="preserve">
+          <source>You cannot manually choose them.</source>
+          <target state="new">You cannot manually choose them.</target>
+        </trans-unit>
+        <trans-unit id="d4a1f5a3-b930-4eb3-888f-be9f7a4c2c61" xml:space="preserve">
+          <source>This is to protect against issues that could arise if you select this Guest OS version.</source>
+          <target state="new">This is to protect against issues that could arise if you select this Guest OS version.</target>
+        </trans-unit>
+        <trans-unit id="898ebc54-cd20-42e9-b894-a227edfd860c" xml:space="preserve">
+          <source>The disabled dates of some earlier releases have been adjusted forward.</source>
+          <target state="new">The disabled dates of some earlier releases have been adjusted forward.</target>
+        </trans-unit>
+        <trans-unit id="62a1ec75-d11d-4da1-b969-85c2a0820331" xml:space="preserve">
+          <source>This is to ensure continued availability in the portal and support for at least two released Guest OS versions in each family.</source>
+          <target state="new">This is to ensure continued availability in the portal and support for at least two released Guest OS versions in each family.</target>
+        </trans-unit>
+        <trans-unit id="9454ca7f-14d1-495b-a15d-0d17c804439a" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="1e821265-064b-4695-a389-4b471fad07c0" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="6b028775-7929-408e-be8c-3f22b132fdbe" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="bdb9f141-b5e4-4fa7-bd76-016b5b50d080" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="8e963a8d-37a8-448d-9c61-215ca99397e3" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="e956eba1-6d05-460e-bce6-9d26e120ca48" xml:space="preserve">
+          <source>4.7</source>
+          <target state="new">4.7</target>
+        </trans-unit>
+        <trans-unit id="93326105-06c6-4783-b294-39fb698f4776" xml:space="preserve">
+          <source>WA-GUEST-OS-4.7_201404-01</source>
+          <target state="new">WA-GUEST-OS-4.7_201404-01</target>
+        </trans-unit>
+        <trans-unit id="43aa8ab1-99d8-440c-be52-14ab0062e516" xml:space="preserve">
+          <source>May 2 2014</source>
+          <target state="new">May 2 2014</target>
+        </trans-unit>
+        <trans-unit id="deebae79-bade-486b-a7cc-c6f3b039906b" xml:space="preserve">
+          <source>July 2 2014</source>
+          <target state="new">July 2 2014</target>
+        </trans-unit>
+        <trans-unit id="cf786688-e9ba-469d-8d85-68bd45ac4ba2" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="8a0bf5f2-99fe-4101-b1b0-00cc0df99772" xml:space="preserve">
+          <source>4.6</source>
+          <target state="new">4.6</target>
+        </trans-unit>
+        <trans-unit id="4e4f83cf-b983-4646-bf27-9b18ff871e4a" xml:space="preserve">
+          <source>WA-GUEST-OS-4.6_201403-01</source>
+          <target state="new">WA-GUEST-OS-4.6_201403-01</target>
+        </trans-unit>
+        <trans-unit id="faf32d74-022a-4b0c-9ca4-9b81c91484b3" xml:space="preserve">
+          <source>Mar 28 2014</source>
+          <target state="new">Mar 28 2014</target>
+        </trans-unit>
+        <trans-unit id="530bd513-3931-40fb-9422-8363ed1765e3" xml:space="preserve">
+          <source>June 9 2014</source>
+          <target state="new">June 9 2014</target>
+        </trans-unit>
+        <trans-unit id="ff0c1905-58d4-4d5d-89ee-f092804b25c3" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="cfb01aaf-bb14-4d46-ab26-3f2d2cdcac36" xml:space="preserve">
+          <source>4.5</source>
+          <target state="new">4.5</target>
+        </trans-unit>
+        <trans-unit id="b2160e3a-2dac-4b8b-b13e-05265b2921f6" xml:space="preserve">
+          <source>WA-GUEST-OS-4.5_201402-01</source>
+          <target state="new">WA-GUEST-OS-4.5_201402-01</target>
+        </trans-unit>
+        <trans-unit id="267f2a2e-256c-47e5-9de2-34cbb0f15727" xml:space="preserve">
+          <source>Mar 21 2014</source>
+          <target state="new">Mar 21 2014</target>
+        </trans-unit>
+        <trans-unit id="15f2ec41-708f-43f6-8e8a-3332f189c94c" xml:space="preserve">
+          <source>May 21 2014</source>
+          <target state="new">May 21 2014</target>
+        </trans-unit>
+        <trans-unit id="6a866d22-2ec4-4fad-9c10-4273214e278a" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="768976db-7ad3-4a2d-a7bb-5d76647e35d7" xml:space="preserve">
+          <source>4.4</source>
+          <target state="new">4.4</target>
+        </trans-unit>
+        <trans-unit id="40c28bc9-a0b5-4fd5-a328-39f31e814b0b" xml:space="preserve">
+          <source>WA-GUEST-OS-4.4_201401-01</source>
+          <target state="new">WA-GUEST-OS-4.4_201401-01</target>
+        </trans-unit>
+        <trans-unit id="7c50657c-1deb-4fb4-bf9e-06e982eb2f2d" xml:space="preserve">
+          <source>Feb 8 2014</source>
+          <target state="new">Feb 8 2014</target>
+        </trans-unit>
+        <trans-unit id="f7178775-e6f5-450d-88f3-8ba5d0ea30b0" xml:space="preserve">
+          <source>April 8, 2014</source>
+          <target state="new">April 8, 2014</target>
+        </trans-unit>
+        <trans-unit id="d1fd0419-0b54-42cc-9d2d-bcef6ba5d1f3" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="1f64ca91-9908-483e-bc35-4d94bc57907c" xml:space="preserve">
+          <source>4.3</source>
+          <target state="new">4.3</target>
+        </trans-unit>
+        <trans-unit id="d4700760-bb76-47ce-8cbe-00c70ae2fdd3" xml:space="preserve">
+          <source>WA-GUEST-OS-4.3_201312-01</source>
+          <target state="new">WA-GUEST-OS-4.3_201312-01</target>
+        </trans-unit>
+        <trans-unit id="68a5028d-447c-4778-80f4-25e3289396ad" xml:space="preserve">
+          <source>Jan 6 2014</source>
+          <target state="new">Jan 6 2014</target>
+        </trans-unit>
+        <trans-unit id="85346113-d225-4fea-8b5c-a566f3ad07b5" xml:space="preserve">
+          <source>March 6, 2014</source>
+          <target state="new">March 6, 2014</target>
+        </trans-unit>
+        <trans-unit id="2bafc367-5dab-4cbe-a56f-1a1e66e8026d" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="95e40e54-0638-46bd-860b-090656902d68" xml:space="preserve">
+          <source>4.2</source>
+          <target state="new">4.2</target>
+        </trans-unit>
+        <trans-unit id="e0342e23-0fce-4e83-8962-8ae2356732a5" xml:space="preserve">
+          <source>WA-GUEST-OS-4.2_201311-01</source>
+          <target state="new">WA-GUEST-OS-4.2_201311-01</target>
+        </trans-unit>
+        <trans-unit id="a42a54dd-4718-4f71-b74b-de956bd9e97d" xml:space="preserve">
+          <source>Dec 12 2013</source>
+          <target state="new">Dec 12 2013</target>
+        </trans-unit>
+        <trans-unit id="d712bb77-f3b8-41fd-a6e7-03b83778fa99" xml:space="preserve">
+          <source>Feb 12 2014</source>
+          <target state="new">Feb 12 2014</target>
+        </trans-unit>
+        <trans-unit id="c8e559b1-fa1f-4c54-a438-2026d227c658" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="fb4800b5-fe56-4496-823e-be2a4c5674d8" xml:space="preserve">
+          <source>4.1</source>
+          <target state="new">4.1</target>
+        </trans-unit>
+        <trans-unit id="31406f67-15fd-4163-9e12-37c5c3b1c2b1" xml:space="preserve">
+          <source>WA-GUEST-OS-4.1_201310-01</source>
+          <target state="new">WA-GUEST-OS-4.1_201310-01</target>
+        </trans-unit>
+        <trans-unit id="cc558d2f-0b60-48af-9533-b19cbdaa36b5" xml:space="preserve">
+          <source>Oct 29 2013</source>
+          <target state="new">Oct 29 2013</target>
+        </trans-unit>
+        <trans-unit id="8642eafc-50d0-4f3b-ad5d-b062dc1af2a6" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="9e0158e3-4a1c-4e6e-aba5-04dbd03a04a3" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="77ee3363-84d0-4bd3-ae79-8b664e034c53" xml:space="preserve">
+          <source>4.0 rel3</source>
+          <target state="new">4.0 rel3</target>
+        </trans-unit>
+        <trans-unit id="61c0c76f-6a57-4f70-8baf-2de58adeeb7d" xml:space="preserve">
+          <source>WA-GUEST-OS-4.0_201309-03</source>
+          <target state="new">WA-GUEST-OS-4.0_201309-03</target>
+        </trans-unit>
+        <trans-unit id="cd222bb9-22ce-4ca6-8161-93c0b6d5728b" xml:space="preserve">
+          <source>Oct 9 2013.</source>
+          <target state="new">Oct 9 2013.</target>
+        </trans-unit>
+        <trans-unit id="c77b064c-d3b6-4555-8fb7-07eb27b57ce5" xml:space="preserve">
+          <source>Made public Oct 18.</source>
+          <target state="new">Made public Oct 18.</target>
+        </trans-unit>
+        <trans-unit id="f5d8cca3-a0a7-429e-a040-628ae27330ff" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="310d5639-4f8d-40d0-be9b-d48b54dc9bae" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="29f3d55d-5c87-46f6-b4fd-b437256c970d" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="b607ddf2-fd1e-4eb0-9c98-30e93070613f" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="4ce62b8e-d5b0-47f3-af6a-2cea4dbde812" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="f4e8f46f-6f33-430a-a472-93b9b5992b4d" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="ef615966-cea9-4249-8f34-24418b78bef9" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="ea696bd7-97f5-4513-85ba-e00179863e76" xml:space="preserve">
+          <source>3.14</source>
+          <target state="new">3.14</target>
+        </trans-unit>
+        <trans-unit id="e6bb5e25-ce5f-4ad2-b6a1-76758b2be200" xml:space="preserve">
+          <source>WA-GUEST-OS-3.14_201404-01</source>
+          <target state="new">WA-GUEST-OS-3.14_201404-01</target>
+        </trans-unit>
+        <trans-unit id="34107679-8010-484b-b17b-6aef1ea7ba68" xml:space="preserve">
+          <source>May 2 2014</source>
+          <target state="new">May 2 2014</target>
+        </trans-unit>
+        <trans-unit id="58cd6ec8-7872-4550-a15b-2cb9e722f651" xml:space="preserve">
+          <source>July 2 2014</source>
+          <target state="new">July 2 2014</target>
+        </trans-unit>
+        <trans-unit id="c51ba9b5-6e1d-44fa-bca6-ac307c8afce8" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="0efc2474-53a5-4108-97b2-c9ce43ce18fc" xml:space="preserve">
+          <source>3.13</source>
+          <target state="new">3.13</target>
+        </trans-unit>
+        <trans-unit id="db325efc-8dc7-4af2-ae83-4b237b1cbe8d" xml:space="preserve">
+          <source>WA-GUEST-OS-3.13_201403-01</source>
+          <target state="new">WA-GUEST-OS-3.13_201403-01</target>
+        </trans-unit>
+        <trans-unit id="aa5c4497-ef32-47fc-8374-bb7db855dfec" xml:space="preserve">
+          <source>Mar 28 2014</source>
+          <target state="new">Mar 28 2014</target>
+        </trans-unit>
+        <trans-unit id="4e2e76fd-b52a-4491-b43c-2d825ab0d4c7" xml:space="preserve">
+          <source>June 9 2014</source>
+          <target state="new">June 9 2014</target>
+        </trans-unit>
+        <trans-unit id="565653fe-acf5-42f8-badb-fa98219d6362" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="cf138f78-aa6a-4303-92f9-ee647f8b2ed2" xml:space="preserve">
+          <source>3.12</source>
+          <target state="new">3.12</target>
+        </trans-unit>
+        <trans-unit id="5db53aa7-e942-4511-add5-b0446a5e9e3c" xml:space="preserve">
+          <source>WA-GUEST-OS-3.12_201402-01</source>
+          <target state="new">WA-GUEST-OS-3.12_201402-01</target>
+        </trans-unit>
+        <trans-unit id="4b47a471-6b25-4ec2-bdc9-d911cad9e925" xml:space="preserve">
+          <source>Mar 21 2014</source>
+          <target state="new">Mar 21 2014</target>
+        </trans-unit>
+        <trans-unit id="e8294f74-3a20-4a6c-9955-a89eb22a9d65" xml:space="preserve">
+          <source>May 21 2014</source>
+          <target state="new">May 21 2014</target>
+        </trans-unit>
+        <trans-unit id="1c42922c-91c2-4350-8083-ae438cebbead" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="edad4c79-a02d-4468-8a38-3700c37a6c81" xml:space="preserve">
+          <source>3.11</source>
+          <target state="new">3.11</target>
+        </trans-unit>
+        <trans-unit id="e9679af6-21b0-4cf1-b2d7-83c35aa62dfc" xml:space="preserve">
+          <source>WA-GUEST-OS-3.11_201401-01</source>
+          <target state="new">WA-GUEST-OS-3.11_201401-01</target>
+        </trans-unit>
+        <trans-unit id="5d7b442f-7bb3-46e2-adb8-64cd9433b022" xml:space="preserve">
+          <source>Feb 8 2014</source>
+          <target state="new">Feb 8 2014</target>
+        </trans-unit>
+        <trans-unit id="589b9fca-f961-41ef-a7c0-0e0e74c3a7fd" xml:space="preserve">
+          <source>April 8, 2014</source>
+          <target state="new">April 8, 2014</target>
+        </trans-unit>
+        <trans-unit id="f4255972-7eb7-4a16-adc1-f505122ee0e4" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="e56361b5-6989-4440-80f9-265cf5ff7879" xml:space="preserve">
+          <source>3.10</source>
+          <target state="new">3.10</target>
+        </trans-unit>
+        <trans-unit id="abf4c324-48ab-4a40-9271-4c8028219489" xml:space="preserve">
+          <source>WA-GUEST-OS-3.10_201312-01</source>
+          <target state="new">WA-GUEST-OS-3.10_201312-01</target>
+        </trans-unit>
+        <trans-unit id="211c584c-fc9d-4de8-8784-06c4dd0c360a" xml:space="preserve">
+          <source>Jan 6 2014</source>
+          <target state="new">Jan 6 2014</target>
+        </trans-unit>
+        <trans-unit id="be10d246-9076-41bb-8e95-53bad5969203" xml:space="preserve">
+          <source>March 6, 2014</source>
+          <target state="new">March 6, 2014</target>
+        </trans-unit>
+        <trans-unit id="fc1de3cd-ceeb-449b-9c34-3a027cf990b6" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="3b9b7d1e-994d-4fe0-9d70-784930dbb587" xml:space="preserve">
+          <source>3.9</source>
+          <target state="new">3.9</target>
+        </trans-unit>
+        <trans-unit id="79804123-f2fa-44de-a721-65b53aa08ce9" xml:space="preserve">
+          <source>WA-GUEST-OS-3.9_201311-01</source>
+          <target state="new">WA-GUEST-OS-3.9_201311-01</target>
+        </trans-unit>
+        <trans-unit id="6c1d4e69-96a1-4f81-bbe5-d08b4ec13484" xml:space="preserve">
+          <source>Dec 12 2013</source>
+          <target state="new">Dec 12 2013</target>
+        </trans-unit>
+        <trans-unit id="b1656c1c-1645-4326-b3e0-d30210cc683f" xml:space="preserve">
+          <source>Feb 12 2014</source>
+          <target state="new">Feb 12 2014</target>
+        </trans-unit>
+        <trans-unit id="d7db7375-a3df-43d7-a3f6-e9f5eda327a3" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="56fd31e1-110d-43b4-a8c0-fda16fd10968" xml:space="preserve">
+          <source>3.8</source>
+          <target state="new">3.8</target>
+        </trans-unit>
+        <trans-unit id="d7befea1-51dc-46c9-bc11-f567e7fd7861" xml:space="preserve">
+          <source>WA-GUEST-OS-3.8_201310-01</source>
+          <target state="new">WA-GUEST-OS-3.8_201310-01</target>
+        </trans-unit>
+        <trans-unit id="1ea12d42-922a-4f12-aa56-c814f8ec360c" xml:space="preserve">
+          <source>Oct 29 2013</source>
+          <target state="new">Oct 29 2013</target>
+        </trans-unit>
+        <trans-unit id="ca4075a6-b20c-45c7-90e9-38c9018c64a4" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="0338b0eb-0e79-4922-91da-e0f9eb1e1ed9" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="8deba255-8cfa-491c-904c-b38a0ceb73ad" xml:space="preserve">
+          <source>3.7 rel3</source>
+          <target state="new">3.7 rel3</target>
+        </trans-unit>
+        <trans-unit id="57664b4b-bdf3-48ff-96a9-6824c5c61de0" xml:space="preserve">
+          <source>WA-GUEST-OS-3.7_201309-03</source>
+          <target state="new">WA-GUEST-OS-3.7_201309-03</target>
+        </trans-unit>
+        <trans-unit id="5b9f3e4d-916a-4d48-baa3-037021770975" xml:space="preserve">
+          <source>Oct 9 2013</source>
+          <target state="new">Oct 9 2013</target>
+        </trans-unit>
+        <trans-unit id="11f656e6-ef14-42f5-8376-9c1f4dd7d5cb" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="81cb7c24-82db-4375-a4b7-b7ba42a7b9e4" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="9bcdd0a1-b6a0-44ca-a739-79c20d0ec20f" xml:space="preserve">
+          <source>3.7 rel1</source>
+          <target state="new">3.7 rel1</target>
+        </trans-unit>
+        <trans-unit id="0430bad7-781e-4cc4-b607-cf5e41b25592" xml:space="preserve">
+          <source>WA-GUEST-OS-3.7_201309-01</source>
+          <target state="new">WA-GUEST-OS-3.7_201309-01</target>
+        </trans-unit>
+        <trans-unit id="66e198cb-e158-4b42-b7c1-d5856e81b65e" xml:space="preserve">
+          <source>Sept 23 2013</source>
+          <target state="new">Sept 23 2013</target>
+        </trans-unit>
+        <trans-unit id="6cb630d6-dc4f-4dc9-9758-b45865b756b4" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="02dc0ff0-298d-4125-9c76-0355a7664d47" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="ca545e69-d314-4610-81fe-6fb12309d1a1" xml:space="preserve">
+          <source>Guest OS Version</source>
+          <target state="new">Guest OS Version</target>
+        </trans-unit>
+        <trans-unit id="8e855e86-d962-4d01-8812-7c4edcc1f7e9" xml:space="preserve">
+          <source>Configuration String</source>
+          <target state="new">Configuration String</target>
+        </trans-unit>
+        <trans-unit id="7b186bb9-2a24-4d85-9123-2e4021a6ed6c" xml:space="preserve">
+          <source>Release Date</source>
+          <target state="new">Release Date</target>
+        </trans-unit>
+        <trans-unit id="fc39eeec-2db2-46a1-8f9a-3eed52508a2a" xml:space="preserve">
+          <source>Disable Date</source>
+          <target state="new">Disable Date</target>
+        </trans-unit>
+        <trans-unit id="49df7ec5-f3e6-4808-96d3-8d8b67c7bf54" xml:space="preserve">
+          <source>Expiration Date</source>
+          <target state="new">Expiration Date</target>
+        </trans-unit>
+        <trans-unit id="7cebaa41-c7ac-40a5-a468-c18eae4e05c0" xml:space="preserve">
+          <source>2.26</source>
+          <target state="new">2.26</target>
+        </trans-unit>
+        <trans-unit id="d19460cd-b5b5-4fd0-af95-21e4264b27b4" xml:space="preserve">
+          <source>WA-GUEST-OS-2.26_201404-01</source>
+          <target state="new">WA-GUEST-OS-2.26_201404-01</target>
+        </trans-unit>
+        <trans-unit id="1748fec8-0b20-4114-bc00-1a9425221f26" xml:space="preserve">
+          <source>May 2 2014</source>
+          <target state="new">May 2 2014</target>
+        </trans-unit>
+        <trans-unit id="36c62e18-0c22-4f0d-bcfd-88c10128834f" xml:space="preserve">
+          <source>July 2 2014</source>
+          <target state="new">July 2 2014</target>
+        </trans-unit>
+        <trans-unit id="21973def-6791-4f9e-a4d4-0a6bad3b12e3" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="33c9c3dc-ac26-4484-85f9-909a0b86c83b" xml:space="preserve">
+          <source>2.25</source>
+          <target state="new">2.25</target>
+        </trans-unit>
+        <trans-unit id="8f6c262a-db30-4aee-b787-cd1426aa3cdc" xml:space="preserve">
+          <source>WA-GUEST-OS-2.25_201403-01</source>
+          <target state="new">WA-GUEST-OS-2.25_201403-01</target>
+        </trans-unit>
+        <trans-unit id="8aedd852-2687-45e9-8314-cd9c9a3bbcac" xml:space="preserve">
+          <source>Mar 28 2014</source>
+          <target state="new">Mar 28 2014</target>
+        </trans-unit>
+        <trans-unit id="74fa2a48-a797-4124-8763-3dedc3ad7a1b" xml:space="preserve">
+          <source>June 9 2014</source>
+          <target state="new">June 9 2014</target>
+        </trans-unit>
+        <trans-unit id="18b77ddf-367e-4fad-bba2-cd770fe54d34" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="e0f66817-978e-4aea-a9a0-19e5a4284217" xml:space="preserve">
+          <source>2.24</source>
+          <target state="new">2.24</target>
+        </trans-unit>
+        <trans-unit id="720f515c-bf49-4da2-bf75-9be5b76d2088" xml:space="preserve">
+          <source>WA-GUEST-OS-2.24_201402-01</source>
+          <target state="new">WA-GUEST-OS-2.24_201402-01</target>
+        </trans-unit>
+        <trans-unit id="5ae4c59f-94c0-4268-a403-bf8563fc4bbb" xml:space="preserve">
+          <source>Mar 21 2014</source>
+          <target state="new">Mar 21 2014</target>
+        </trans-unit>
+        <trans-unit id="1a94375f-b84d-4ced-8a93-5bf8661471b9" xml:space="preserve">
+          <source>May 21 2014</source>
+          <target state="new">May 21 2014</target>
+        </trans-unit>
+        <trans-unit id="7f3e0cbf-4e2a-4508-93c0-467ded8546ae" xml:space="preserve">
+          <source>Aug 18 2014</source>
+          <target state="new">Aug 18 2014</target>
+        </trans-unit>
+        <trans-unit id="d516630b-d48f-472e-a4e2-0d3ca0b12b17" xml:space="preserve">
+          <source>2.23</source>
+          <target state="new">2.23</target>
+        </trans-unit>
+        <trans-unit id="04ab1f3d-16d5-4a92-b7cd-194175183cde" xml:space="preserve">
+          <source>WA-GUEST-OS-2.23_201401-01</source>
+          <target state="new">WA-GUEST-OS-2.23_201401-01</target>
+        </trans-unit>
+        <trans-unit id="47c6334e-fa9f-4975-bc21-86fa88af0de1" xml:space="preserve">
+          <source>Feb 8 2014</source>
+          <target state="new">Feb 8 2014</target>
+        </trans-unit>
+        <trans-unit id="96d265c1-9852-4a96-a85f-2180d7c386dd" xml:space="preserve">
+          <source>April 8, 2014</source>
+          <target state="new">April 8, 2014</target>
+        </trans-unit>
+        <trans-unit id="0a2604fb-be2a-4883-9b34-e392d02ef3be" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="e565e91b-99f0-4eb7-aa98-93f0f577e254" xml:space="preserve">
+          <source>2.22</source>
+          <target state="new">2.22</target>
+        </trans-unit>
+        <trans-unit id="42e4b1d3-d5c0-428c-99f7-d988f7776f3e" xml:space="preserve">
+          <source>WA-GUEST-OS-2.22_201312-01</source>
+          <target state="new">WA-GUEST-OS-2.22_201312-01</target>
+        </trans-unit>
+        <trans-unit id="2468a4cd-4e4e-42fe-8696-a98b8a36e82a" xml:space="preserve">
+          <source>Jan 6 2014</source>
+          <target state="new">Jan 6 2014</target>
+        </trans-unit>
+        <trans-unit id="303abc57-bdf7-4808-a300-e656e8167d16" xml:space="preserve">
+          <source>March 6, 2014</source>
+          <target state="new">March 6, 2014</target>
+        </trans-unit>
+        <trans-unit id="94b550a7-907b-4dfe-afa5-f921c21cbfb4" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="ccdf57f8-9a13-43fa-84d0-b8c1b5e624b0" xml:space="preserve">
+          <source>2.21</source>
+          <target state="new">2.21</target>
+        </trans-unit>
+        <trans-unit id="f77b0c4f-504a-4af1-89e9-5dda2f6eb68b" xml:space="preserve">
+          <source>WA-GUEST-OS-2.21_201311-01</source>
+          <target state="new">WA-GUEST-OS-2.21_201311-01</target>
+        </trans-unit>
+        <trans-unit id="654f35f8-5f03-4d4a-aec6-fa1e412fea4a" xml:space="preserve">
+          <source>Dec 12, 2013</source>
+          <target state="new">Dec 12, 2013</target>
+        </trans-unit>
+        <trans-unit id="fe02437e-c994-413c-9329-51a67a89bf05" xml:space="preserve">
+          <source>Feb 12 2014</source>
+          <target state="new">Feb 12 2014</target>
+        </trans-unit>
+        <trans-unit id="ccac2990-3499-46e4-8167-072c597545ef" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="b7256d02-b5dc-4e2c-8409-843ccb670404" xml:space="preserve">
+          <source>2.20</source>
+          <target state="new">2.20</target>
+        </trans-unit>
+        <trans-unit id="31756344-95ba-4ce3-ad7d-20f69485814f" xml:space="preserve">
+          <source>WA-GUEST-OS-2.20_201310-01</source>
+          <target state="new">WA-GUEST-OS-2.20_201310-01</target>
+        </trans-unit>
+        <trans-unit id="8f4fa42d-a49c-4ff1-af77-92c0ddb50cf2" xml:space="preserve">
+          <source>Oct 29 2013</source>
+          <target state="new">Oct 29 2013</target>
+        </trans-unit>
+        <trans-unit id="42f2b0ae-1410-4865-8979-11589c152c70" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="86485c03-bb6d-4cf1-af3b-1b3423ec5c47" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="7672aebd-bb8c-4292-a316-b86f5f48f0ef" xml:space="preserve">
+          <source>2.19 rel3</source>
+          <target state="new">2.19 rel3</target>
+        </trans-unit>
+        <trans-unit id="2937ae0f-a2b2-443a-a12c-9953324ea6fc" xml:space="preserve">
+          <source>WA-GUEST-OS-2.19_201309-03</source>
+          <target state="new">WA-GUEST-OS-2.19_201309-03</target>
+        </trans-unit>
+        <trans-unit id="adc1b67e-3fc9-4da6-aadd-c827de5e2706" xml:space="preserve">
+          <source>Oct 9 2013</source>
+          <target state="new">Oct 9 2013</target>
+        </trans-unit>
+        <trans-unit id="adfb8a49-15da-4538-a52e-8f99ff519cec" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="663c50b5-e533-42b9-85c3-707800d5abed" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="70c4f294-cf9a-40d7-b74c-d2478715a718" xml:space="preserve">
+          <source>2.19 rel1</source>
+          <target state="new">2.19 rel1</target>
+        </trans-unit>
+        <trans-unit id="db06f668-a530-461b-94d2-48382429e0be" xml:space="preserve">
+          <source>WA-GUEST-OS-2.19_201309-01</source>
+          <target state="new">WA-GUEST-OS-2.19_201309-01</target>
+        </trans-unit>
+        <trans-unit id="6da69a12-8af9-44ef-a5df-db49745a8a91" xml:space="preserve">
+          <source>Sept 23 2013</source>
+          <target state="new">Sept 23 2013</target>
+        </trans-unit>
+        <trans-unit id="73b70fc3-95b4-4379-b8f9-0a7cd067524c" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="0d80c2d8-a7f4-4739-8c99-ebed48a6dadd" xml:space="preserve">
+          <source>May 14 2014</source>
+          <target state="new">May 14 2014</target>
+        </trans-unit>
+        <trans-unit id="577c883e-f62a-4990-9082-df8aed0974a8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/ff729420.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/ff729420.aspx</target>
+        </trans-unit>
+        <trans-unit id="0d590e50-3a66-4d21-9987-ec32ab4660e5" xml:space="preserve">
+          <source>http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates</source>
+          <target state="new">http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates</target>
+        </trans-unit>
+        <trans-unit id="84d50129-dee8-4082-a180-7b113c2e36f8" xml:space="preserve">
+          <source>http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/</source>
+          <target state="new">http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/</target>
+        </trans-unit>
+        <trans-unit id="c435c856-ef82-44e5-8824-7bc27abe0bc2" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/security/3009008.aspx</source>
+          <target state="new">https://technet.microsoft.com/library/security/3009008.aspx</target>
+        </trans-unit>
+        <trans-unit id="77e20b52-b581-4572-b29f-53fb23006596" xml:space="preserve">
+          <source>http://go.microsoft.com/?linkid=9863266</source>
+          <target state="new">http://go.microsoft.com/?linkid=9863266</target>
+        </trans-unit>
+        <trans-unit id="77b8599c-2fe2-44cc-9a78-1f6de67fc499" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/security/ms14-066.aspx</source>
+          <target state="new">https://technet.microsoft.com/library/security/ms14-066.aspx</target>
+        </trans-unit>
+        <trans-unit id="913c38b2-f8a5-4593-bb4a-5b3ef864ace3" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/security/ms14-046.aspx</source>
+          <target state="new">https://technet.microsoft.com/library/security/ms14-046.aspx</target>
+        </trans-unit>
+        <trans-unit id="a4e94db0-7e72-44a5-818f-107aff1ec611" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn479282.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn479282.aspx</target>
+        </trans-unit>
+        <trans-unit id="de188020-f4c5-4b7c-9e86-c750afcf9f12" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn775043.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn775043.aspx</target>
+        </trans-unit>
+        <trans-unit id="2cea4d80-fe80-4140-b1ee-64ff8cb5a645" xml:space="preserve">
+          <source>http://azure.microsoft.com/support/options/</source>
+          <target state="new">http://azure.microsoft.com/support/options/</target>
+        </trans-unit>
+        <trans-unit id="9960bc0e-b4dc-4606-845a-1b56b31bda85" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=42643</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=42643</target>
+        </trans-unit>
+        <trans-unit id="a6fd08b1-451f-4702-8e94-4c4202ee9049" xml:space="preserve">
+          <source>http://www.microsoft.com/security/msrc/default.aspx</source>
+          <target state="new">http://www.microsoft.com/security/msrc/default.aspx</target>
+        </trans-unit>
+        <trans-unit id="cb9a1cc3-4702-4d4b-bcc5-36dabda2f40b" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/gg433101.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/gg433101.aspx</target>
+        </trans-unit>
+        <trans-unit id="6917197a-9492-4c87-b080-683d4c3058c0" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/gg456324.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/gg456324.aspx</target>
+        </trans-unit>
+        <trans-unit id="ef398d81-5189-4e96-b20d-c084409cd874" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx</target>
+        </trans-unit>
+        <trans-unit id="889a2993-f3d5-4de2-9b11-b900dd8b8973" xml:space="preserve">
+          <source>cloud-services-guestos-msrc-releases.md</source>
+          <target state="new">cloud-services-guestos-msrc-releases.md</target>
+        </trans-unit>
+        <trans-unit id="6177bed3-2edf-4c94-80d8-fa1d15a3b116" xml:space="preserve">
+          <source>cloud-services-guestos-retirement-policy.md</source>
+          <target state="new">cloud-services-guestos-retirement-policy.md</target>
+        </trans-unit>
+        <trans-unit id="321abd02-cf61-49fd-bcb3-9dd17a17a0d3" xml:space="preserve">
+          <source>cloud-services-guestos-family1-retirement.md</source>
+          <target state="new">cloud-services-guestos-family1-retirement.md</target>
+        </trans-unit>
+      </group>
+      <group id="400e2195-37be-4a9a-bbda-dbfa75158b6e" />
+    </body>
+  </file>
+</xliff>

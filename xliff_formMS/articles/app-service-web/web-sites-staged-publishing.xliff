@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d28227cd-ce66-4ac7-9581-665c6f16a464" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d28227cd-ce66-4ac7-9581-665c6f16a464" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5aefae03-e754-4ce8-9879-15f5f9d9c6ac">
+        <trans-unit id="aa88f07c-fab0-4984-9fb6-4b8182ded3ae" xml:space="preserve">
+          <source>Set up staging environments for web apps in Azure App Service</source>
+          <target state="new">Set up staging environments for web apps in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="c4e03f30-9ca0-4946-855e-b5fe383b6261" xml:space="preserve">
+          <source>Learn how to use staged publishing for web apps in Azure App Service.</source>
+          <target state="new">Learn how to use staged publishing for web apps in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="a958d1dd-ce73-433a-ad74-5e4c82ef8e4f" xml:space="preserve">
+          <source><bpt id="2da63b1a-de3f-48da-8cbf-70ad4c156f2d">&lt;bookmark&gt;</bpt><ept id="2da63b1a-de3f-48da-8cbf-70ad4c156f2d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="2da63b1a-de3f-48da-8cbf-70ad4c156f2d">&lt;bookmark&gt;</bpt><ept id="2da63b1a-de3f-48da-8cbf-70ad4c156f2d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c2ef26d-5977-4940-9679-e62cc4aacce1" xml:space="preserve">
+          <source>When you deploy your web app to <bpt id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;linkText&gt;</bpt>App Service<ept id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;/linkText&gt;</ept><bpt id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;title&gt;</bpt><ept id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;/title&gt;</ept>, you can deploy to a separate deployment slot instead of the default production slot when running in the <bpt id="ece112b2-ead8-4ba9-8ed2-9b594b832a01">&lt;strong&gt;</bpt>Standard<ept id="ece112b2-ead8-4ba9-8ed2-9b594b832a01">&lt;/strong&gt;</ept> or <bpt id="3649ee29-b2c2-4181-8923-a43577bd3410">&lt;strong&gt;</bpt>Premium<ept id="3649ee29-b2c2-4181-8923-a43577bd3410">&lt;/strong&gt;</ept> App Service plan mode.</source>
+          <target state="new">When you deploy your web app to <bpt id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;linkText&gt;</bpt>App Service<ept id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;/linkText&gt;</ept><bpt id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;title&gt;</bpt><ept id="f09ccf38-4b73-4f7a-83ee-4a7d82039f62">&lt;/title&gt;</ept>, you can deploy to a separate deployment slot instead of the default production slot when running in the <bpt id="ece112b2-ead8-4ba9-8ed2-9b594b832a01">&lt;strong&gt;</bpt>Standard<ept id="ece112b2-ead8-4ba9-8ed2-9b594b832a01">&lt;/strong&gt;</ept> or <bpt id="3649ee29-b2c2-4181-8923-a43577bd3410">&lt;strong&gt;</bpt>Premium<ept id="3649ee29-b2c2-4181-8923-a43577bd3410">&lt;/strong&gt;</ept> App Service plan mode.</target>
+        </trans-unit>
+        <trans-unit id="82cd63c9-7d6f-4718-95c9-d176a7943016" xml:space="preserve">
+          <source>Deployment slots are actually live web apps with their own hostnames.</source>
+          <target state="new">Deployment slots are actually live web apps with their own hostnames.</target>
+        </trans-unit>
+        <trans-unit id="ad05ae8f-9198-435c-89ba-285b78eaa70c" xml:space="preserve">
+          <source>Web app content and configurations elements can be swapped between two deployment slots, including the production slot.</source>
+          <target state="new">Web app content and configurations elements can be swapped between two deployment slots, including the production slot.</target>
+        </trans-unit>
+        <trans-unit id="45070a1b-11a9-43ea-8d05-930d7d5f0566" xml:space="preserve">
+          <source>Deploying your application to a deployment slot has the following benefits:</source>
+          <target state="new">Deploying your application to a deployment slot has the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="1a2681ab-1599-4b5a-9761-866089c766e3" xml:space="preserve">
+          <source>You can validate web app changes in a staging deployment slot before swapping it with the production slot.</source>
+          <target state="new">You can validate web app changes in a staging deployment slot before swapping it with the production slot.</target>
+        </trans-unit>
+        <trans-unit id="5a259336-ebf7-46cc-87a9-01a2fae2e14b" xml:space="preserve">
+          <source>Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production.</source>
+          <target state="new">Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production.</target>
+        </trans-unit>
+        <trans-unit id="f09545c2-1ee0-42b6-80e2-d3513cd7df1e" xml:space="preserve">
+          <source>This eliminates downtime when you deploy your web app.</source>
+          <target state="new">This eliminates downtime when you deploy your web app.</target>
+        </trans-unit>
+        <trans-unit id="e98dc79d-4938-40c0-a811-d724cb01020b" xml:space="preserve">
+          <source>The traffic redirection is seamless, and no requests are dropped as a result of swap operations.</source>
+          <target state="new">The traffic redirection is seamless, and no requests are dropped as a result of swap operations.</target>
+        </trans-unit>
+        <trans-unit id="e7302fed-45d4-4af6-b125-e1c67292f62c" xml:space="preserve">
+          <source>This entire workflow can be automated by configuring <bpt id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;linkText&gt;</bpt>Auto Swap<ept id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;/linkText&gt;</ept><bpt id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;title&gt;</bpt><ept id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;/title&gt;</ept> when pre-swap validation is not needed.</source>
+          <target state="new">This entire workflow can be automated by configuring <bpt id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;linkText&gt;</bpt>Auto Swap<ept id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;/linkText&gt;</ept><bpt id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;title&gt;</bpt><ept id="f1edd883-c6d9-45df-b51a-049acf5f7ba4">&lt;/title&gt;</ept> when pre-swap validation is not needed.</target>
+        </trans-unit>
+        <trans-unit id="8b888767-eacb-40b7-8df8-b9695a90434e" xml:space="preserve">
+          <source>After a swap, the slot with previously staged web app now has the previous production web app.</source>
+          <target state="new">After a swap, the slot with previously staged web app now has the previous production web app.</target>
+        </trans-unit>
+        <trans-unit id="af992173-1541-472f-9702-a5fad0bedf7b" xml:space="preserve">
+          <source>If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.</source>
+          <target state="new">If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.</target>
+        </trans-unit>
+        <trans-unit id="c762f20b-358f-4eed-9fee-a247587dabf6" xml:space="preserve">
+          <source>Each App Service plan mode supports a different number of deployment slots.</source>
+          <target state="new">Each App Service plan mode supports a different number of deployment slots.</target>
+        </trans-unit>
+        <trans-unit id="27b8408a-42c2-4b91-955a-f46829673f06" xml:space="preserve">
+          <source>To find out the number of slots your web app's mode supports, see <bpt id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;linkText&gt;</bpt>App Service Pricing<ept id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;/linkText&gt;</ept><bpt id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;title&gt;</bpt><ept id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find out the number of slots your web app's mode supports, see <bpt id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;linkText&gt;</bpt>App Service Pricing<ept id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;/linkText&gt;</ept><bpt id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;title&gt;</bpt><ept id="5ec25532-66cc-4ac5-aec7-f0f9d9ae4fb2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fd6adfc-f6b4-4834-be19-8c817718f2e1" xml:space="preserve">
+          <source>When your web app has multiple slots, you cannot change the mode.</source>
+          <target state="new">When your web app has multiple slots, you cannot change the mode.</target>
+        </trans-unit>
+        <trans-unit id="1e0db345-a298-4a8d-880f-d82b40357ea7" xml:space="preserve">
+          <source>Scaling is not available for non-production slots.</source>
+          <target state="new">Scaling is not available for non-production slots.</target>
+        </trans-unit>
+        <trans-unit id="6c194b86-8c21-4145-8ad9-b45d5e2dc6f6" xml:space="preserve">
+          <source>Linked resource management is not supported for non-production slots.</source>
+          <target state="new">Linked resource management is not supported for non-production slots.</target>
+        </trans-unit>
+        <trans-unit id="abad7ba6-463e-464c-adec-bcbc549346ca" xml:space="preserve">
+          <source>In the <bpt id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;linkText&gt;</bpt>Azure preview portal<ept id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;/linkText&gt;</ept><bpt id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;title&gt;</bpt><ept id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;/title&gt;</ept> only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode.</source>
+          <target state="new">In the <bpt id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;linkText&gt;</bpt>Azure preview portal<ept id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;/linkText&gt;</ept><bpt id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;title&gt;</bpt><ept id="177f4dfc-0e0d-40e7-ad2d-3a2a427c1153">&lt;/title&gt;</ept> only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode.</target>
+        </trans-unit>
+        <trans-unit id="968bf156-1d3a-43e8-9e28-10b26aa29317" xml:space="preserve">
+          <source>Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.</source>
+          <target state="new">Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.</target>
+        </trans-unit>
+        <trans-unit id="f0bcfef4-212d-4e22-af5d-354c274fcf43" xml:space="preserve">
+          <source><bpt id="6c9ef920-0e24-4166-8e26-b867ba420e14">&lt;bookmark&gt;</bpt><ept id="6c9ef920-0e24-4166-8e26-b867ba420e14">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="6c9ef920-0e24-4166-8e26-b867ba420e14">&lt;bookmark&gt;</bpt><ept id="6c9ef920-0e24-4166-8e26-b867ba420e14">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb6dc297-b204-4b50-bbc8-5075f8e4f7bc" xml:space="preserve">
+          <source>The web app must be running in the <bpt id="543bcc3e-f56e-4fd8-9699-d5447d94dbd5">&lt;strong&gt;</bpt>Standard<ept id="543bcc3e-f56e-4fd8-9699-d5447d94dbd5">&lt;/strong&gt;</ept> or <bpt id="324cc2ea-5b9b-4076-b603-107ed56d295c">&lt;strong&gt;</bpt>Premium<ept id="324cc2ea-5b9b-4076-b603-107ed56d295c">&lt;/strong&gt;</ept> mode in order for you to enable multiple deployment slots.</source>
+          <target state="new">The web app must be running in the <bpt id="543bcc3e-f56e-4fd8-9699-d5447d94dbd5">&lt;strong&gt;</bpt>Standard<ept id="543bcc3e-f56e-4fd8-9699-d5447d94dbd5">&lt;/strong&gt;</ept> or <bpt id="324cc2ea-5b9b-4076-b603-107ed56d295c">&lt;strong&gt;</bpt>Premium<ept id="324cc2ea-5b9b-4076-b603-107ed56d295c">&lt;/strong&gt;</ept> mode in order for you to enable multiple deployment slots.</target>
+        </trans-unit>
+        <trans-unit id="6900983f-48e5-4ce4-acb7-6845240efc05" xml:space="preserve">
+          <source>In the <bpt id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;/linkText&gt;</ept><bpt id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;title&gt;</bpt><ept id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;/title&gt;</ept>, open your web app's blade.</source>
+          <target state="new">In the <bpt id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;/linkText&gt;</ept><bpt id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;title&gt;</bpt><ept id="998d7447-0d5f-4d8f-88ae-2bd6add41012">&lt;/title&gt;</ept>, open your web app's blade.</target>
+        </trans-unit>
+        <trans-unit id="f8504d86-5a7f-4757-a612-ec79c7c76bcf" xml:space="preserve">
+          <source>Click <bpt id="7b476785-29cb-447e-a13c-c364f1bca0be">&lt;strong&gt;</bpt>Deployment slots<ept id="7b476785-29cb-447e-a13c-c364f1bca0be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7b476785-29cb-447e-a13c-c364f1bca0be">&lt;strong&gt;</bpt>Deployment slots<ept id="7b476785-29cb-447e-a13c-c364f1bca0be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02e66799-a3cd-4e50-ac3b-6acd65780628" xml:space="preserve">
+          <source>Then, in the <bpt id="5ec671e8-aa96-4ebb-9d24-8d43468b52a9">&lt;strong&gt;</bpt>Deployment slots<ept id="5ec671e8-aa96-4ebb-9d24-8d43468b52a9">&lt;/strong&gt;</ept> blade, click <bpt id="e46f114f-6e9a-410d-80bf-b7d1f693a3d3">&lt;strong&gt;</bpt>Add Slot<ept id="e46f114f-6e9a-410d-80bf-b7d1f693a3d3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then, in the <bpt id="5ec671e8-aa96-4ebb-9d24-8d43468b52a9">&lt;strong&gt;</bpt>Deployment slots<ept id="5ec671e8-aa96-4ebb-9d24-8d43468b52a9">&lt;/strong&gt;</ept> blade, click <bpt id="e46f114f-6e9a-410d-80bf-b7d1f693a3d3">&lt;strong&gt;</bpt>Add Slot<ept id="e46f114f-6e9a-410d-80bf-b7d1f693a3d3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cd1a0f0-0ec4-4fd9-ba85-0a00d57b6de2" xml:space="preserve">
+          <source><bpt id="9c89fc4c-de55-40a1-81e3-a722a70d18d6">&lt;linkText&gt;</bpt>Add a new deployment slot<ept id="9c89fc4c-de55-40a1-81e3-a722a70d18d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c89fc4c-de55-40a1-81e3-a722a70d18d6">&lt;linkText&gt;</bpt>Add a new deployment slot<ept id="9c89fc4c-de55-40a1-81e3-a722a70d18d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70cf36a3-64c8-48c1-9514-7d4c6626c0a9" xml:space="preserve">
+          <source>If the web app is not already in the <bpt id="6e1f114f-2e04-496e-8074-30856aa39c54">&lt;strong&gt;</bpt>Standard<ept id="6e1f114f-2e04-496e-8074-30856aa39c54">&lt;/strong&gt;</ept> or <bpt id="35e22088-25d8-47f5-8ad7-3b99a1f844fc">&lt;strong&gt;</bpt>Premium<ept id="35e22088-25d8-47f5-8ad7-3b99a1f844fc">&lt;/strong&gt;</ept> mode, you will receive a message indicating the supported modes for enabling staged publishing.</source>
+          <target state="new">If the web app is not already in the <bpt id="6e1f114f-2e04-496e-8074-30856aa39c54">&lt;strong&gt;</bpt>Standard<ept id="6e1f114f-2e04-496e-8074-30856aa39c54">&lt;/strong&gt;</ept> or <bpt id="35e22088-25d8-47f5-8ad7-3b99a1f844fc">&lt;strong&gt;</bpt>Premium<ept id="35e22088-25d8-47f5-8ad7-3b99a1f844fc">&lt;/strong&gt;</ept> mode, you will receive a message indicating the supported modes for enabling staged publishing.</target>
+        </trans-unit>
+        <trans-unit id="a51558e0-14bd-4dae-bda7-0d222edbd3d0" xml:space="preserve">
+          <source>At this point, you have the option to select <bpt id="4634ad37-2531-4ca1-a78c-8c3a3f7b36a4">&lt;strong&gt;</bpt>Upgrade<ept id="4634ad37-2531-4ca1-a78c-8c3a3f7b36a4">&lt;/strong&gt;</ept> and navigate to the <bpt id="bfe4959b-d2b4-4c0e-9e13-8e6a20d3e49f">&lt;strong&gt;</bpt>Scale<ept id="bfe4959b-d2b4-4c0e-9e13-8e6a20d3e49f">&lt;/strong&gt;</ept> tab of your web app before continuing.</source>
+          <target state="new">At this point, you have the option to select <bpt id="4634ad37-2531-4ca1-a78c-8c3a3f7b36a4">&lt;strong&gt;</bpt>Upgrade<ept id="4634ad37-2531-4ca1-a78c-8c3a3f7b36a4">&lt;/strong&gt;</ept> and navigate to the <bpt id="bfe4959b-d2b4-4c0e-9e13-8e6a20d3e49f">&lt;strong&gt;</bpt>Scale<ept id="bfe4959b-d2b4-4c0e-9e13-8e6a20d3e49f">&lt;/strong&gt;</ept> tab of your web app before continuing.</target>
+        </trans-unit>
+        <trans-unit id="53c6ce1e-b842-4df2-9491-b2e7b8ca7858" xml:space="preserve">
+          <source>In the <bpt id="e720855e-b680-4b6e-864d-85ae6b72a693">&lt;strong&gt;</bpt>Add a slot<ept id="e720855e-b680-4b6e-864d-85ae6b72a693">&lt;/strong&gt;</ept> blade, give the slot a name, and select whether to clone web app configuration from another existing deployment slot.</source>
+          <target state="new">In the <bpt id="e720855e-b680-4b6e-864d-85ae6b72a693">&lt;strong&gt;</bpt>Add a slot<ept id="e720855e-b680-4b6e-864d-85ae6b72a693">&lt;/strong&gt;</ept> blade, give the slot a name, and select whether to clone web app configuration from another existing deployment slot.</target>
+        </trans-unit>
+        <trans-unit id="2e34fafd-34cb-4e6d-804b-267e4bb86159" xml:space="preserve">
+          <source>Click the check mark to continue.</source>
+          <target state="new">Click the check mark to continue.</target>
+        </trans-unit>
+        <trans-unit id="eb01c8ce-1e26-4455-ba1e-da9f57f47a4a" xml:space="preserve">
+          <source><bpt id="62feb661-e77a-4451-8368-29a319e2d6af">&lt;linkText&gt;</bpt>Configuration Source<ept id="62feb661-e77a-4451-8368-29a319e2d6af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62feb661-e77a-4451-8368-29a319e2d6af">&lt;linkText&gt;</bpt>Configuration Source<ept id="62feb661-e77a-4451-8368-29a319e2d6af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55db0d28-75b1-470a-92a8-d50bb6b0b57b" xml:space="preserve">
+          <source>The first time you add a slot, you will only have two choices: clone configuration from the default slot in production or not at all.</source>
+          <target state="new">The first time you add a slot, you will only have two choices: clone configuration from the default slot in production or not at all.</target>
+        </trans-unit>
+        <trans-unit id="c1a1294c-03b9-46e8-9aad-02ef6384bdf6" xml:space="preserve">
+          <source>After you have created several slots, you will be able to clone configuration from a slot other than the one in production:</source>
+          <target state="new">After you have created several slots, you will be able to clone configuration from a slot other than the one in production:</target>
+        </trans-unit>
+        <trans-unit id="0d8cb0f1-3d9f-41e4-8d01-cb87ed2c431d" xml:space="preserve">
+          <source><bpt id="7f4e6bb0-6486-4b67-8601-5cb1dbc2da29">&lt;linkText&gt;</bpt>Configuration sources<ept id="7f4e6bb0-6486-4b67-8601-5cb1dbc2da29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f4e6bb0-6486-4b67-8601-5cb1dbc2da29">&lt;linkText&gt;</bpt>Configuration sources<ept id="7f4e6bb0-6486-4b67-8601-5cb1dbc2da29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="710ee88e-abf4-45de-a1e2-325396c4f245" xml:space="preserve">
+          <source>In the <bpt id="e102c498-1157-4d21-803f-1970e442ffe1">&lt;strong&gt;</bpt>Deployment slots<ept id="e102c498-1157-4d21-803f-1970e442ffe1">&lt;/strong&gt;</ept> blade, click the deployment slot to open a blade for the slot, with a set of metrics and configuration just like any other web app.</source>
+          <target state="new">In the <bpt id="e102c498-1157-4d21-803f-1970e442ffe1">&lt;strong&gt;</bpt>Deployment slots<ept id="e102c498-1157-4d21-803f-1970e442ffe1">&lt;/strong&gt;</ept> blade, click the deployment slot to open a blade for the slot, with a set of metrics and configuration just like any other web app.</target>
+        </trans-unit>
+        <trans-unit id="84b0f541-b8de-4f23-a35a-9eb2ac6cc234" xml:space="preserve">
+          <source><bpt id="55711edf-d348-46df-910d-c443e5397c04">&lt;strong&gt;</bpt>your-web-app-name-deployment-slot-name<ept id="55711edf-d348-46df-910d-c443e5397c04">&lt;/strong&gt;</ept> will appear at the top of blade to remind you that you are viewing the deployment slot.</source>
+          <target state="new"><bpt id="55711edf-d348-46df-910d-c443e5397c04">&lt;strong&gt;</bpt>your-web-app-name-deployment-slot-name<ept id="55711edf-d348-46df-910d-c443e5397c04">&lt;/strong&gt;</ept> will appear at the top of blade to remind you that you are viewing the deployment slot.</target>
+        </trans-unit>
+        <trans-unit id="7bd6da15-d1f7-413b-a3c7-b58e03451e70" xml:space="preserve">
+          <source><bpt id="ce506efc-c50f-4b6f-a114-7ce5b6e69417">&lt;linkText&gt;</bpt>Deployment Slot Title<ept id="ce506efc-c50f-4b6f-a114-7ce5b6e69417">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce506efc-c50f-4b6f-a114-7ce5b6e69417">&lt;linkText&gt;</bpt>Deployment Slot Title<ept id="ce506efc-c50f-4b6f-a114-7ce5b6e69417">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6475d82-5105-4540-b8bf-8efbbdd88b61" xml:space="preserve">
+          <source>Click the app URL in the slot's blade.</source>
+          <target state="new">Click the app URL in the slot's blade.</target>
+        </trans-unit>
+        <trans-unit id="579ec79f-c249-4f71-b864-98f07746e106" xml:space="preserve">
+          <source>Notice the the deployment slot has its own hostname and is also a live app.</source>
+          <target state="new">Notice the the deployment slot has its own hostname and is also a live app.</target>
+        </trans-unit>
+        <trans-unit id="e8814c5d-ce49-49a0-bd64-4d3e4ff90b55" xml:space="preserve">
+          <source>To limit public access to the deployment slot, see <bpt id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;linkText&gt;</bpt>App Service Web App – block web access to non-production deployment slots<ept id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;/linkText&gt;</ept><bpt id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;title&gt;</bpt><ept id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">To limit public access to the deployment slot, see <bpt id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;linkText&gt;</bpt>App Service Web App – block web access to non-production deployment slots<ept id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;/linkText&gt;</ept><bpt id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;title&gt;</bpt><ept id="d1db4ced-351d-4cca-b71b-315dd0da44cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6952951-0aa2-4539-aa31-94c02a67a536" xml:space="preserve">
+          <source>There is no content after deployment slot creation.</source>
+          <target state="new">There is no content after deployment slot creation.</target>
+        </trans-unit>
+        <trans-unit id="753cc7a0-5d13-42ec-a7ff-6c16438750f5" xml:space="preserve">
+          <source>You can deploy to the slot from a different repository branch, or an altogether different repository.</source>
+          <target state="new">You can deploy to the slot from a different repository branch, or an altogether different repository.</target>
+        </trans-unit>
+        <trans-unit id="865c65fe-2e55-4cd0-b61d-af48bc1f959a" xml:space="preserve">
+          <source>You can also change the slot's configuration.</source>
+          <target state="new">You can also change the slot's configuration.</target>
+        </trans-unit>
+        <trans-unit id="d4dc9334-2468-45f5-bf0e-f19a919b978f" xml:space="preserve">
+          <source>Use the publish profile or deployment credentials associated with the deployment slot for content updates.</source>
+          <target state="new">Use the publish profile or deployment credentials associated with the deployment slot for content updates.</target>
+        </trans-unit>
+        <trans-unit id="f8638c5a-2b13-44ee-b708-333a4ce72bc4" xml:space="preserve">
+          <source>For example, you can <bpt id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;linkText&gt;</bpt>publish to this slot with git<ept id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;/linkText&gt;</ept><bpt id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;title&gt;</bpt><ept id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;/title&gt;</ept>.</source>
+          <target state="new">For example, you can <bpt id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;linkText&gt;</bpt>publish to this slot with git<ept id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;/linkText&gt;</ept><bpt id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;title&gt;</bpt><ept id="18bf4de6-eebe-46ac-b17b-dd9314ca9289">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6e9f72c-2a0d-4457-98d1-1698869b62de" xml:space="preserve">
+          <source><bpt id="8527d5af-e028-451a-a880-418727ecc9dc">&lt;bookmark&gt;</bpt><ept id="8527d5af-e028-451a-a880-418727ecc9dc">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="8527d5af-e028-451a-a880-418727ecc9dc">&lt;bookmark&gt;</bpt><ept id="8527d5af-e028-451a-a880-418727ecc9dc">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d938805-9ea5-4eef-888c-1c71096b21e5" xml:space="preserve">
+          <source>When you clone configuration from another deployment slot, the cloned configuration is editable.</source>
+          <target state="new">When you clone configuration from another deployment slot, the cloned configuration is editable.</target>
+        </trans-unit>
+        <trans-unit id="fedbc479-45db-46b7-abd6-667ed15fc429" xml:space="preserve">
+          <source>Furthermore, some configuration elements will follow the content across a swap (not slot specific) while other configuration elements will stay in the same slot after a swap (slot specific).</source>
+          <target state="new">Furthermore, some configuration elements will follow the content across a swap (not slot specific) while other configuration elements will stay in the same slot after a swap (slot specific).</target>
+        </trans-unit>
+        <trans-unit id="f87f83bd-3427-4bb1-94a2-f80d9c67e6de" xml:space="preserve">
+          <source>The following lists show the configuration that will change when you swap slots.</source>
+          <target state="new">The following lists show the configuration that will change when you swap slots.</target>
+        </trans-unit>
+        <trans-unit id="701eda00-03e6-4f14-9347-de67d22c6b63" xml:space="preserve">
+          <source><bpt id="4828f14b-9210-4ce7-9c80-3854be255e7a">&lt;strong&gt;</bpt>Settings that are swapped<ept id="4828f14b-9210-4ce7-9c80-3854be255e7a">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="4828f14b-9210-4ce7-9c80-3854be255e7a">&lt;strong&gt;</bpt>Settings that are swapped<ept id="4828f14b-9210-4ce7-9c80-3854be255e7a">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="997a1eae-ae2f-4788-bab0-5ec6bbb26f14" xml:space="preserve">
+          <source>General settings - such as framework version, 32/64-bit, Web sockets</source>
+          <target state="new">General settings - such as framework version, 32/64-bit, Web sockets</target>
+        </trans-unit>
+        <trans-unit id="9f33d009-bd61-4fe2-8a3a-3e011e3e94ea" xml:space="preserve">
+          <source>App settings (can be configured to stick to a slot)</source>
+          <target state="new">App settings (can be configured to stick to a slot)</target>
+        </trans-unit>
+        <trans-unit id="8f783288-d775-464c-a71e-c6fa2238fff9" xml:space="preserve">
+          <source>Connection strings (can be configured to stick to a slot)</source>
+          <target state="new">Connection strings (can be configured to stick to a slot)</target>
+        </trans-unit>
+        <trans-unit id="5abdaa45-9c9f-4aa0-a834-5b2ec3a47f44" xml:space="preserve">
+          <source>Handler mappings</source>
+          <target state="new">Handler mappings</target>
+        </trans-unit>
+        <trans-unit id="1eca73d0-1f00-4e05-8738-8c95f0599ae9" xml:space="preserve">
+          <source>Monitoring and diagnostic settings</source>
+          <target state="new">Monitoring and diagnostic settings</target>
+        </trans-unit>
+        <trans-unit id="74067e91-47b2-4a53-9dab-e05ec8523963" xml:space="preserve">
+          <source>WebJobs content</source>
+          <target state="new">WebJobs content</target>
+        </trans-unit>
+        <trans-unit id="71e7a5be-2ff6-437a-9118-28b9032bbf13" xml:space="preserve">
+          <source><bpt id="1ccd240b-82c3-4005-943e-dd126c3bb862">&lt;strong&gt;</bpt>Settings that are not swapped<ept id="1ccd240b-82c3-4005-943e-dd126c3bb862">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="1ccd240b-82c3-4005-943e-dd126c3bb862">&lt;strong&gt;</bpt>Settings that are not swapped<ept id="1ccd240b-82c3-4005-943e-dd126c3bb862">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="b4cc1cd8-8862-4ff9-936c-60e737cc50ee" xml:space="preserve">
+          <source>Publishing endpoints</source>
+          <target state="new">Publishing endpoints</target>
+        </trans-unit>
+        <trans-unit id="4e7f67c1-03c7-486b-a046-3bfec9e08c22" xml:space="preserve">
+          <source>Custom Domain Names</source>
+          <target state="new">Custom Domain Names</target>
+        </trans-unit>
+        <trans-unit id="36b82cb3-a336-4a14-b28a-b00b68ab2021" xml:space="preserve">
+          <source>SSL certificates and bindings</source>
+          <target state="new">SSL certificates and bindings</target>
+        </trans-unit>
+        <trans-unit id="a5b0fce3-22ca-479b-9a46-a56a01280506" xml:space="preserve">
+          <source>Scale settings</source>
+          <target state="new">Scale settings</target>
+        </trans-unit>
+        <trans-unit id="4c5be090-d8e2-4a53-8d9c-81cf52557e1d" xml:space="preserve">
+          <source>WebJobs schedulers</source>
+          <target state="new">WebJobs schedulers</target>
+        </trans-unit>
+        <trans-unit id="b81048d4-4eab-49eb-ad78-1b39b9a0a5b6" xml:space="preserve">
+          <source>To configure an app setting or connection string to stick to a slot (not swapped), access the <bpt id="c5b684db-ae18-4139-b907-9c7023b5cc37">&lt;strong&gt;</bpt>Application Settings<ept id="c5b684db-ae18-4139-b907-9c7023b5cc37">&lt;/strong&gt;</ept> blade for a specific slot, then select the <bpt id="73896bc4-d68c-44e3-abb2-719ddbb0c3b9">&lt;strong&gt;</bpt>Slot Setting<ept id="73896bc4-d68c-44e3-abb2-719ddbb0c3b9">&lt;/strong&gt;</ept> box for the configuration elements that should stick the slot.</source>
+          <target state="new">To configure an app setting or connection string to stick to a slot (not swapped), access the <bpt id="c5b684db-ae18-4139-b907-9c7023b5cc37">&lt;strong&gt;</bpt>Application Settings<ept id="c5b684db-ae18-4139-b907-9c7023b5cc37">&lt;/strong&gt;</ept> blade for a specific slot, then select the <bpt id="73896bc4-d68c-44e3-abb2-719ddbb0c3b9">&lt;strong&gt;</bpt>Slot Setting<ept id="73896bc4-d68c-44e3-abb2-719ddbb0c3b9">&lt;/strong&gt;</ept> box for the configuration elements that should stick the slot.</target>
+        </trans-unit>
+        <trans-unit id="16d6e256-5bdf-4eb2-a4c7-ff1e9c320565" xml:space="preserve">
+          <source>Note that marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the web app.</source>
+          <target state="new">Note that marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the web app.</target>
+        </trans-unit>
+        <trans-unit id="4885a23e-654f-48f5-843c-df0f9e8514ea" xml:space="preserve">
+          <source><bpt id="51cf9a5b-9091-4cb2-b4c6-0b478a438d4f">&lt;linkText&gt;</bpt>Slot settings<ept id="51cf9a5b-9091-4cb2-b4c6-0b478a438d4f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51cf9a5b-9091-4cb2-b4c6-0b478a438d4f">&lt;linkText&gt;</bpt>Slot settings<ept id="51cf9a5b-9091-4cb2-b4c6-0b478a438d4f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43a88aeb-8b85-4f78-aad4-ac54f7a29a55" xml:space="preserve">
+          <source><bpt id="cf35cbc0-4c79-4e11-bec3-4631ca7d2363">&lt;bookmark&gt;</bpt><ept id="cf35cbc0-4c79-4e11-bec3-4631ca7d2363">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="cf35cbc0-4c79-4e11-bec3-4631ca7d2363">&lt;bookmark&gt;</bpt><ept id="cf35cbc0-4c79-4e11-bec3-4631ca7d2363">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7018a370-df0b-448c-919a-817e6dfbfbab" xml:space="preserve">
+          <source>Before you swap a web app from a deployment slot into production, make sure that all non-slot specific settings are configured exactly as you want to have it in the swap target.</source>
+          <target state="new">Before you swap a web app from a deployment slot into production, make sure that all non-slot specific settings are configured exactly as you want to have it in the swap target.</target>
+        </trans-unit>
+        <trans-unit id="d72edb99-cc50-4ea8-b136-01154998d26e" xml:space="preserve">
+          <source>To swap deployment slots, click the <bpt id="04bf1d5c-3cee-4b50-b613-12fca86b2bb6">&lt;strong&gt;</bpt>Swap<ept id="04bf1d5c-3cee-4b50-b613-12fca86b2bb6">&lt;/strong&gt;</ept> button in the command bar of the web app or in the command bar of a deployment slot.</source>
+          <target state="new">To swap deployment slots, click the <bpt id="04bf1d5c-3cee-4b50-b613-12fca86b2bb6">&lt;strong&gt;</bpt>Swap<ept id="04bf1d5c-3cee-4b50-b613-12fca86b2bb6">&lt;/strong&gt;</ept> button in the command bar of the web app or in the command bar of a deployment slot.</target>
+        </trans-unit>
+        <trans-unit id="b4e0f520-bee0-463c-bc33-4eca200d794e" xml:space="preserve">
+          <source>Make sure that the swap source and swap target are set properly.</source>
+          <target state="new">Make sure that the swap source and swap target are set properly.</target>
+        </trans-unit>
+        <trans-unit id="d16aae99-efa3-4609-aa92-cb6e2dd75934" xml:space="preserve">
+          <source>Usually, the swap target would be the production slot.</source>
+          <target state="new">Usually, the swap target would be the production slot.</target>
+        </trans-unit>
+        <trans-unit id="04fff39f-ded3-4ce6-ad3d-c699091352fe" xml:space="preserve">
+          <source><bpt id="3217d941-8fd9-49a5-b11a-0cc2183b72f5">&lt;linkText&gt;</bpt>Swap Button<ept id="3217d941-8fd9-49a5-b11a-0cc2183b72f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3217d941-8fd9-49a5-b11a-0cc2183b72f5">&lt;linkText&gt;</bpt>Swap Button<ept id="3217d941-8fd9-49a5-b11a-0cc2183b72f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="392d0cdd-a7a7-40cf-a96f-5dd44922c725" xml:space="preserve">
+          <source>Click <bpt id="15bb4e96-7a49-468b-a5f1-e340651061a8">&lt;strong&gt;</bpt>OK<ept id="15bb4e96-7a49-468b-a5f1-e340651061a8">&lt;/strong&gt;</ept> to complete the operation.</source>
+          <target state="new">Click <bpt id="15bb4e96-7a49-468b-a5f1-e340651061a8">&lt;strong&gt;</bpt>OK<ept id="15bb4e96-7a49-468b-a5f1-e340651061a8">&lt;/strong&gt;</ept> to complete the operation.</target>
+        </trans-unit>
+        <trans-unit id="5e28bce5-011d-482b-8c9c-4c76e6b37f37" xml:space="preserve">
+          <source>When the operation finishes, the deployment slots have been swapped.</source>
+          <target state="new">When the operation finishes, the deployment slots have been swapped.</target>
+        </trans-unit>
+        <trans-unit id="8212366b-0716-45b5-9bfa-1d00fa98c649" xml:space="preserve">
+          <source>Auto Swap streamlines DevOps scenarios where you want to continuously deploy your web app with zero cold start and zero downtime for end customers of the web app.</source>
+          <target state="new">Auto Swap streamlines DevOps scenarios where you want to continuously deploy your web app with zero cold start and zero downtime for end customers of the web app.</target>
+        </trans-unit>
+        <trans-unit id="11947760-617f-4434-999d-48c30f5a9b3e" xml:space="preserve">
+          <source>When a deployment slot is configured for Auto Swap into production, every time you push your code update to that slot, App Service will automatically swap the web app into production after it has already warmed up in the slot.</source>
+          <target state="new">When a deployment slot is configured for Auto Swap into production, every time you push your code update to that slot, App Service will automatically swap the web app into production after it has already warmed up in the slot.</target>
+        </trans-unit>
+        <trans-unit id="528500c1-e65f-4776-9169-3df506901694" xml:space="preserve">
+          <source>When you enable Auto Swap for a slot, make sure the slot configuration is exactly the configuration intended for the target slot (usually the production slot).</source>
+          <target state="new">When you enable Auto Swap for a slot, make sure the slot configuration is exactly the configuration intended for the target slot (usually the production slot).</target>
+        </trans-unit>
+        <trans-unit id="de5a3a03-a07a-4644-97be-3749a497f26c" xml:space="preserve">
+          <source>Configuring Auto Swap for a slot is easy.</source>
+          <target state="new">Configuring Auto Swap for a slot is easy.</target>
+        </trans-unit>
+        <trans-unit id="11add11e-41bc-4a8c-9e4e-839f67766031" xml:space="preserve">
+          <source>Follow the steps below:</source>
+          <target state="new">Follow the steps below:</target>
+        </trans-unit>
+        <trans-unit id="f681b035-49e3-4a30-bf5b-ce27400e3867" xml:space="preserve">
+          <source>In the <bpt id="4a174ca9-c413-4cb0-bbd7-5d590e7e88b3">&lt;strong&gt;</bpt>Deployment Slots<ept id="4a174ca9-c413-4cb0-bbd7-5d590e7e88b3">&lt;/strong&gt;</ept> blade, select a non-production slot, click <bpt id="52a13a1b-a3ad-4eff-beb4-292f6c583a1a">&lt;strong&gt;</bpt>All Settings<ept id="52a13a1b-a3ad-4eff-beb4-292f6c583a1a">&lt;/strong&gt;</ept> for that slot's blade.</source>
+          <target state="new">In the <bpt id="4a174ca9-c413-4cb0-bbd7-5d590e7e88b3">&lt;strong&gt;</bpt>Deployment Slots<ept id="4a174ca9-c413-4cb0-bbd7-5d590e7e88b3">&lt;/strong&gt;</ept> blade, select a non-production slot, click <bpt id="52a13a1b-a3ad-4eff-beb4-292f6c583a1a">&lt;strong&gt;</bpt>All Settings<ept id="52a13a1b-a3ad-4eff-beb4-292f6c583a1a">&lt;/strong&gt;</ept> for that slot's blade.</target>
+        </trans-unit>
+        <trans-unit id="118a9323-5adf-4d74-ba64-f7f2d8e9157b" xml:space="preserve">
+          <source><bpt id="ae4c9f64-bafb-49ed-9cc6-8b5d65c7770a">&lt;linkText&gt;</bpt><ept id="ae4c9f64-bafb-49ed-9cc6-8b5d65c7770a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae4c9f64-bafb-49ed-9cc6-8b5d65c7770a">&lt;linkText&gt;</bpt><ept id="ae4c9f64-bafb-49ed-9cc6-8b5d65c7770a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b63be00b-e49e-43ca-806f-cc406e35031e" xml:space="preserve">
+          <source>Click <bpt id="3bfc89b0-0bd5-46b3-b76d-310a8cdb4311">&lt;strong&gt;</bpt>Application Settings<ept id="3bfc89b0-0bd5-46b3-b76d-310a8cdb4311">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3bfc89b0-0bd5-46b3-b76d-310a8cdb4311">&lt;strong&gt;</bpt>Application Settings<ept id="3bfc89b0-0bd5-46b3-b76d-310a8cdb4311">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb68ab9e-13f2-4034-a8f8-4bd69f9d4bed" xml:space="preserve">
+          <source>Select <bpt id="44d50242-2a72-4d96-800a-5da694e4a3e2">&lt;strong&gt;</bpt>On<ept id="44d50242-2a72-4d96-800a-5da694e4a3e2">&lt;/strong&gt;</ept> for <bpt id="264c0e04-6294-42fb-9e18-c8ce30d09c7b">&lt;strong&gt;</bpt>Auto Swap<ept id="264c0e04-6294-42fb-9e18-c8ce30d09c7b">&lt;/strong&gt;</ept>, select the desired target slot in <bpt id="6c2ee932-5a87-4128-ab79-5e03f42c647f">&lt;strong&gt;</bpt>Auto Swap Slot<ept id="6c2ee932-5a87-4128-ab79-5e03f42c647f">&lt;/strong&gt;</ept>, and click <bpt id="baf11103-39bc-4ad3-b4ac-c8557050c4ca">&lt;strong&gt;</bpt>Save<ept id="baf11103-39bc-4ad3-b4ac-c8557050c4ca">&lt;/strong&gt;</ept> in the command bar.</source>
+          <target state="new">Select <bpt id="44d50242-2a72-4d96-800a-5da694e4a3e2">&lt;strong&gt;</bpt>On<ept id="44d50242-2a72-4d96-800a-5da694e4a3e2">&lt;/strong&gt;</ept> for <bpt id="264c0e04-6294-42fb-9e18-c8ce30d09c7b">&lt;strong&gt;</bpt>Auto Swap<ept id="264c0e04-6294-42fb-9e18-c8ce30d09c7b">&lt;/strong&gt;</ept>, select the desired target slot in <bpt id="6c2ee932-5a87-4128-ab79-5e03f42c647f">&lt;strong&gt;</bpt>Auto Swap Slot<ept id="6c2ee932-5a87-4128-ab79-5e03f42c647f">&lt;/strong&gt;</ept>, and click <bpt id="baf11103-39bc-4ad3-b4ac-c8557050c4ca">&lt;strong&gt;</bpt>Save<ept id="baf11103-39bc-4ad3-b4ac-c8557050c4ca">&lt;/strong&gt;</ept> in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="93a8b337-107a-4ebe-b9bf-46fec5390eb7" xml:space="preserve">
+          <source>Make sure configuration for the slot is exactly the configuration intended for the target slot.</source>
+          <target state="new">Make sure configuration for the slot is exactly the configuration intended for the target slot.</target>
+        </trans-unit>
+        <trans-unit id="c3c14eac-8bec-4cac-b1ac-a5a0538208c3" xml:space="preserve">
+          <source>The <bpt id="1285b7bc-906b-49ac-b207-bde0fe1fb7a2">&lt;strong&gt;</bpt>Notifications<ept id="1285b7bc-906b-49ac-b207-bde0fe1fb7a2">&lt;/strong&gt;</ept> tab will flash a green <bpt id="91f93e32-f324-4add-a2c1-8c263ba2234d">&lt;strong&gt;</bpt>SUCCESS<ept id="91f93e32-f324-4add-a2c1-8c263ba2234d">&lt;/strong&gt;</ept> once the operation is complete.</source>
+          <target state="new">The <bpt id="1285b7bc-906b-49ac-b207-bde0fe1fb7a2">&lt;strong&gt;</bpt>Notifications<ept id="1285b7bc-906b-49ac-b207-bde0fe1fb7a2">&lt;/strong&gt;</ept> tab will flash a green <bpt id="91f93e32-f324-4add-a2c1-8c263ba2234d">&lt;strong&gt;</bpt>SUCCESS<ept id="91f93e32-f324-4add-a2c1-8c263ba2234d">&lt;/strong&gt;</ept> once the operation is complete.</target>
+        </trans-unit>
+        <trans-unit id="d97c1577-abca-43b3-955b-9a0da7435ca3" xml:space="preserve">
+          <source><bpt id="46c4865d-7d02-4e36-a31f-0e69b4601d71">&lt;linkText&gt;</bpt><ept id="46c4865d-7d02-4e36-a31f-0e69b4601d71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46c4865d-7d02-4e36-a31f-0e69b4601d71">&lt;linkText&gt;</bpt><ept id="46c4865d-7d02-4e36-a31f-0e69b4601d71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8b3ebbd-51ca-4db2-9fa4-3cf33f107382" xml:space="preserve">
+          <source>To test Auto Swap for your web app, you can first select a non-production target slot in <bpt id="8f92141c-49bf-437e-b9ad-24f951b5719d">&lt;strong&gt;</bpt>Auto Swap Slot<ept id="8f92141c-49bf-437e-b9ad-24f951b5719d">&lt;/strong&gt;</ept> to become familiar with the feature.</source>
+          <target state="new">To test Auto Swap for your web app, you can first select a non-production target slot in <bpt id="8f92141c-49bf-437e-b9ad-24f951b5719d">&lt;strong&gt;</bpt>Auto Swap Slot<ept id="8f92141c-49bf-437e-b9ad-24f951b5719d">&lt;/strong&gt;</ept> to become familiar with the feature.</target>
+        </trans-unit>
+        <trans-unit id="3fe894c3-96c0-4fe6-84ee-87ba77021e3b" xml:space="preserve">
+          <source>Execute a code push to that deployment slot.</source>
+          <target state="new">Execute a code push to that deployment slot.</target>
+        </trans-unit>
+        <trans-unit id="ad05da7b-5542-40a9-a1d6-a6751cb6a157" xml:space="preserve">
+          <source>Auto Swap will happen after a short time and the update will be reflected at your target slot's URL.</source>
+          <target state="new">Auto Swap will happen after a short time and the update will be reflected at your target slot's URL.</target>
+        </trans-unit>
+        <trans-unit id="23f128f7-e930-45a6-b1d1-07e360466ca0" xml:space="preserve">
+          <source><bpt id="e953b830-ab72-46bc-b32d-67fe049d278c">&lt;bookmark&gt;</bpt><ept id="e953b830-ab72-46bc-b32d-67fe049d278c">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e953b830-ab72-46bc-b32d-67fe049d278c">&lt;bookmark&gt;</bpt><ept id="e953b830-ab72-46bc-b32d-67fe049d278c">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9a38eea-06bc-4c59-9386-84fbdeeabf09" xml:space="preserve">
+          <source>If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately.</source>
+          <target state="new">If any errors are identified in production after a slot swap, roll the slots back to their pre-swap states by swapping the same two slots immediately.</target>
+        </trans-unit>
+        <trans-unit id="dfa96769-c29f-44e4-b375-6549b6035f26" xml:space="preserve">
+          <source><bpt id="4e1f29d4-daeb-45d5-a514-a401dbc9f65d">&lt;bookmark&gt;</bpt><ept id="4e1f29d4-daeb-45d5-a514-a401dbc9f65d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="4e1f29d4-daeb-45d5-a514-a401dbc9f65d">&lt;bookmark&gt;</bpt><ept id="4e1f29d4-daeb-45d5-a514-a401dbc9f65d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00939b0f-967b-4a17-a567-b151fc2f64b8" xml:space="preserve">
+          <source>In the blade for a deployment slot, click <bpt id="7ba950a4-fdd8-4d74-b574-a908770ac5dd">&lt;strong&gt;</bpt>Delete<ept id="7ba950a4-fdd8-4d74-b574-a908770ac5dd">&lt;/strong&gt;</ept> in the command bar.</source>
+          <target state="new">In the blade for a deployment slot, click <bpt id="7ba950a4-fdd8-4d74-b574-a908770ac5dd">&lt;strong&gt;</bpt>Delete<ept id="7ba950a4-fdd8-4d74-b574-a908770ac5dd">&lt;/strong&gt;</ept> in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="64e7dd68-2ced-4d7c-990f-32f5e112ba9a" xml:space="preserve">
+          <source><bpt id="440e1f12-c6b6-4a02-8571-cb6297cd509e">&lt;linkText&gt;</bpt>Delete a Deployment Slot<ept id="440e1f12-c6b6-4a02-8571-cb6297cd509e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="440e1f12-c6b6-4a02-8571-cb6297cd509e">&lt;linkText&gt;</bpt>Delete a Deployment Slot<ept id="440e1f12-c6b6-4a02-8571-cb6297cd509e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="792f0825-ddd6-40ce-98e5-94427442afe4" xml:space="preserve">
+          <source><bpt id="d3d8b9fd-1c39-4149-aee3-46f003aca289">&lt;bookmark&gt;</bpt><ept id="d3d8b9fd-1c39-4149-aee3-46f003aca289">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="d3d8b9fd-1c39-4149-aee3-46f003aca289">&lt;bookmark&gt;</bpt><ept id="d3d8b9fd-1c39-4149-aee3-46f003aca289">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c595498-5f82-4875-8f67-c1ceab3c1871" xml:space="preserve">
+          <source>Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service.</source>
+          <target state="new">Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="f243d127-1203-4b40-afd9-7a2125e6daf5" xml:space="preserve">
+          <source>For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see <bpt id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;linkText&gt;</bpt>How to install and configure Microsoft Azure PowerShell<ept id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;/linkText&gt;</ept><bpt id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;title&gt;</bpt><ept id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see <bpt id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;linkText&gt;</bpt>How to install and configure Microsoft Azure PowerShell<ept id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;/linkText&gt;</ept><bpt id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;title&gt;</bpt><ept id="7ed39a46-447d-4ddc-bfff-eb00269fd83c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1babaf3e-ba79-49a7-b4ea-8dde135ca2ae" xml:space="preserve">
+          <source>To list the cmdlets available for Azure App Service in PowerShell, call <bpt id="b959db18-d8f5-433f-847b-2fc4b5308f77">&lt;code&gt;</bpt>help AzureWebsite<ept id="b959db18-d8f5-433f-847b-2fc4b5308f77">&lt;/code&gt;</ept>.</source>
+          <target state="new">To list the cmdlets available for Azure App Service in PowerShell, call <bpt id="b959db18-d8f5-433f-847b-2fc4b5308f77">&lt;code&gt;</bpt>help AzureWebsite<ept id="b959db18-d8f5-433f-847b-2fc4b5308f77">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08edb6b4-6e69-44a4-be05-3b7ebf7428ae" xml:space="preserve">
+          <source>The <bpt id="75b787b9-3f59-4588-8349-29dfaefc25f8">&lt;strong&gt;</bpt>Get-AzureWebsite<ept id="75b787b9-3f59-4588-8349-29dfaefc25f8">&lt;/strong&gt;</ept> cmdlet presents information about Azure web apps for the current subscription, as in the following example.</source>
+          <target state="new">The <bpt id="75b787b9-3f59-4588-8349-29dfaefc25f8">&lt;strong&gt;</bpt>Get-AzureWebsite<ept id="75b787b9-3f59-4588-8349-29dfaefc25f8">&lt;/strong&gt;</ept> cmdlet presents information about Azure web apps for the current subscription, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="f1cef434-fbba-484d-a212-fe0346688e06" xml:space="preserve">
+          <source><bpt id="30c6d02b-4347-43b1-a2de-977d38ca9b2e">&lt;code&gt;</bpt>Get-AzureWebsite webappslotstest<ept id="30c6d02b-4347-43b1-a2de-977d38ca9b2e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="30c6d02b-4347-43b1-a2de-977d38ca9b2e">&lt;code&gt;</bpt>Get-AzureWebsite webappslotstest<ept id="30c6d02b-4347-43b1-a2de-977d38ca9b2e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b970fc8-eeb9-415a-96ae-722ea413a87e" xml:space="preserve">
+          <source>You can create a deployment slot by using the <bpt id="af1dc74b-5bff-402a-b8d8-6a5ef0501f42">&lt;strong&gt;</bpt>New-AzureWebsite<ept id="af1dc74b-5bff-402a-b8d8-6a5ef0501f42">&lt;/strong&gt;</ept> cmdlet and specifying the names of both the web app and slot.</source>
+          <target state="new">You can create a deployment slot by using the <bpt id="af1dc74b-5bff-402a-b8d8-6a5ef0501f42">&lt;strong&gt;</bpt>New-AzureWebsite<ept id="af1dc74b-5bff-402a-b8d8-6a5ef0501f42">&lt;/strong&gt;</ept> cmdlet and specifying the names of both the web app and slot.</target>
+        </trans-unit>
+        <trans-unit id="6e3b4227-e8d2-4626-af04-a2237bb067ea" xml:space="preserve">
+          <source>Also indicate the same region as the web app for deployment slot creation, as in the following example.</source>
+          <target state="new">Also indicate the same region as the web app for deployment slot creation, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="1ef16fa5-9b4a-4b51-a983-bc7d33f3c974" xml:space="preserve">
+          <source><bpt id="43e5796c-273c-40fb-8bbf-4ae38b8b0d00">&lt;code&gt;</bpt>New-AzureWebsite webappslotstest -Slot staging -Location "West US"<ept id="43e5796c-273c-40fb-8bbf-4ae38b8b0d00">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="43e5796c-273c-40fb-8bbf-4ae38b8b0d00">&lt;code&gt;</bpt>New-AzureWebsite webappslotstest -Slot staging -Location "West US"<ept id="43e5796c-273c-40fb-8bbf-4ae38b8b0d00">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd11b7b4-f50e-4bd7-91b2-6b7a21798ce9" xml:space="preserve">
+          <source>You can use the <bpt id="5d400159-63e4-45b9-b194-5843aa06b842">&lt;strong&gt;</bpt>Publish-AzureWebsiteProject<ept id="5d400159-63e4-45b9-b194-5843aa06b842">&lt;/strong&gt;</ept> cmdlet for content deployment, as in the following example.</source>
+          <target state="new">You can use the <bpt id="5d400159-63e4-45b9-b194-5843aa06b842">&lt;strong&gt;</bpt>Publish-AzureWebsiteProject<ept id="5d400159-63e4-45b9-b194-5843aa06b842">&lt;/strong&gt;</ept> cmdlet for content deployment, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="e9f12c81-9693-4e68-8c01-d18f84d3a7ee" xml:space="preserve">
+          <source><bpt id="1bee163f-fff5-4726-b93f-023462cfffff">&lt;code&gt;</bpt>Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip<ept id="1bee163f-fff5-4726-b93f-023462cfffff">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1bee163f-fff5-4726-b93f-023462cfffff">&lt;code&gt;</bpt>Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip<ept id="1bee163f-fff5-4726-b93f-023462cfffff">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53b273c5-4a90-42bd-ae2c-5df8f3d86785" xml:space="preserve">
+          <source>After content and configuration updates have been applied to the new slot, you can validate the updates by browsing to the slot using the <bpt id="e820fe29-1228-457a-831c-cd57e3f3e80b">&lt;strong&gt;</bpt>Show-AzureWebsite<ept id="e820fe29-1228-457a-831c-cd57e3f3e80b">&lt;/strong&gt;</ept> cmdlet, as in the following example.</source>
+          <target state="new">After content and configuration updates have been applied to the new slot, you can validate the updates by browsing to the slot using the <bpt id="e820fe29-1228-457a-831c-cd57e3f3e80b">&lt;strong&gt;</bpt>Show-AzureWebsite<ept id="e820fe29-1228-457a-831c-cd57e3f3e80b">&lt;/strong&gt;</ept> cmdlet, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="ccd10a9c-5104-4418-ba18-020ea164fed8" xml:space="preserve">
+          <source><bpt id="150be267-375c-467e-b668-ee2b50cfd59b">&lt;code&gt;</bpt>Show-AzureWebsite -Name webappslotstest -Slot staging<ept id="150be267-375c-467e-b668-ee2b50cfd59b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="150be267-375c-467e-b668-ee2b50cfd59b">&lt;code&gt;</bpt>Show-AzureWebsite -Name webappslotstest -Slot staging<ept id="150be267-375c-467e-b668-ee2b50cfd59b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fbce029-6c56-4760-a042-7b7502ab0ceb" xml:space="preserve">
+          <source>The <bpt id="3e7115da-831f-475a-bb45-6070c7c205eb">&lt;strong&gt;</bpt>Switch-AzureWebsiteSlot<ept id="3e7115da-831f-475a-bb45-6070c7c205eb">&lt;/strong&gt;</ept> cmdlet can perform a swap operation to make the updated deployment slot the production site, as in the following example.</source>
+          <target state="new">The <bpt id="3e7115da-831f-475a-bb45-6070c7c205eb">&lt;strong&gt;</bpt>Switch-AzureWebsiteSlot<ept id="3e7115da-831f-475a-bb45-6070c7c205eb">&lt;/strong&gt;</ept> cmdlet can perform a swap operation to make the updated deployment slot the production site, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="b2b6933e-80e3-48a5-8d55-09c52637aff0" xml:space="preserve">
+          <source>The production app will not experience any down time, nor will it undergo a cold start.</source>
+          <target state="new">The production app will not experience any down time, nor will it undergo a cold start.</target>
+        </trans-unit>
+        <trans-unit id="afee0595-5c35-455a-92d9-3b280ee87eea" xml:space="preserve">
+          <source><bpt id="59c5d433-1d8b-4818-ad06-dd8a03af81e1">&lt;code&gt;</bpt>Switch-AzureWebsiteSlot -Name webappslotstest<ept id="59c5d433-1d8b-4818-ad06-dd8a03af81e1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="59c5d433-1d8b-4818-ad06-dd8a03af81e1">&lt;code&gt;</bpt>Switch-AzureWebsiteSlot -Name webappslotstest<ept id="59c5d433-1d8b-4818-ad06-dd8a03af81e1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8f3369f-d2ab-4b14-b01f-71fae4e7668c" xml:space="preserve">
+          <source>If a deployment slot is no longer needed, it can be deleted by using the <bpt id="82abb557-3cc3-4b38-8645-da6f454dd0e1">&lt;strong&gt;</bpt>Remove-AzureWebsite<ept id="82abb557-3cc3-4b38-8645-da6f454dd0e1">&lt;/strong&gt;</ept> cmdlet, as in the following example.</source>
+          <target state="new">If a deployment slot is no longer needed, it can be deleted by using the <bpt id="82abb557-3cc3-4b38-8645-da6f454dd0e1">&lt;strong&gt;</bpt>Remove-AzureWebsite<ept id="82abb557-3cc3-4b38-8645-da6f454dd0e1">&lt;/strong&gt;</ept> cmdlet, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="c86362a5-e259-4de7-9383-a6529142822f" xml:space="preserve">
+          <source><bpt id="839c413b-6ac7-4abd-8350-0480a361ab66">&lt;code&gt;</bpt>Remove-AzureWebsite -Name webappslotstest -Slot staging<ept id="839c413b-6ac7-4abd-8350-0480a361ab66">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="839c413b-6ac7-4abd-8350-0480a361ab66">&lt;code&gt;</bpt>Remove-AzureWebsite -Name webappslotstest -Slot staging<ept id="839c413b-6ac7-4abd-8350-0480a361ab66">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0664c09e-b2d3-4f28-82df-9e0d6ef2d2c6" xml:space="preserve">
+          <source><bpt id="e08d1503-0703-44e0-affb-9587b1d3dcc7">&lt;bookmark&gt;</bpt><ept id="e08d1503-0703-44e0-affb-9587b1d3dcc7">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e08d1503-0703-44e0-affb-9587b1d3dcc7">&lt;bookmark&gt;</bpt><ept id="e08d1503-0703-44e0-affb-9587b1d3dcc7">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e921e88b-7239-4be8-a0d4-c7a572db263d" xml:space="preserve">
+          <source>The Azure CLI provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.</source>
+          <target state="new">The Azure CLI provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.</target>
+        </trans-unit>
+        <trans-unit id="932124ee-6735-47f3-967e-52afc1695231" xml:space="preserve">
+          <source>For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see <bpt id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;/linkText&gt;</ept><bpt id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;title&gt;</bpt><ept id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see <bpt id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;linkText&gt;</bpt>Install and Configure the Azure CLI<ept id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;/linkText&gt;</ept><bpt id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;title&gt;</bpt><ept id="08bfaefb-08ee-4a3f-8ef2-2b8e59448525">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9884360f-ff21-4b3a-ad12-b3b8790b21ff" xml:space="preserve">
+          <source>To list the commands available for Azure App Service in the Azure CLI, call <bpt id="5779c805-51d9-4268-b689-6b37460dacb2">&lt;code&gt;</bpt>azure site -h<ept id="5779c805-51d9-4268-b689-6b37460dacb2">&lt;/code&gt;</ept>.</source>
+          <target state="new">To list the commands available for Azure App Service in the Azure CLI, call <bpt id="5779c805-51d9-4268-b689-6b37460dacb2">&lt;code&gt;</bpt>azure site -h<ept id="5779c805-51d9-4268-b689-6b37460dacb2">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="898106b2-5a51-429d-8d81-a9b7e3a938d7" xml:space="preserve">
+          <source>For information about the web apps in the current subscription, call <bpt id="dc035537-99e0-43d4-9f8a-71fb8c1df45a">&lt;strong&gt;</bpt>azure site list<ept id="dc035537-99e0-43d4-9f8a-71fb8c1df45a">&lt;/strong&gt;</ept>, as in the following example.</source>
+          <target state="new">For information about the web apps in the current subscription, call <bpt id="dc035537-99e0-43d4-9f8a-71fb8c1df45a">&lt;strong&gt;</bpt>azure site list<ept id="dc035537-99e0-43d4-9f8a-71fb8c1df45a">&lt;/strong&gt;</ept>, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="201010a3-3ad7-40ec-9657-ea3f2f3d39fa" xml:space="preserve">
+          <source><bpt id="197e51aa-2255-4962-9e80-ec76c0c5ec14">&lt;code&gt;</bpt>azure site list webappslotstest<ept id="197e51aa-2255-4962-9e80-ec76c0c5ec14">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="197e51aa-2255-4962-9e80-ec76c0c5ec14">&lt;code&gt;</bpt>azure site list webappslotstest<ept id="197e51aa-2255-4962-9e80-ec76c0c5ec14">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5426a86f-1102-4516-960f-b705f4e36039" xml:space="preserve">
+          <source>To create a deployment slot, call <bpt id="8b444336-2bea-4a04-a378-e54c8a90023f">&lt;strong&gt;</bpt>azure site create<ept id="8b444336-2bea-4a04-a378-e54c8a90023f">&lt;/strong&gt;</ept> and specify the name of an existing web app and the name of the slot to create, as in the following example.</source>
+          <target state="new">To create a deployment slot, call <bpt id="8b444336-2bea-4a04-a378-e54c8a90023f">&lt;strong&gt;</bpt>azure site create<ept id="8b444336-2bea-4a04-a378-e54c8a90023f">&lt;/strong&gt;</ept> and specify the name of an existing web app and the name of the slot to create, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="344ef1bd-598e-454e-8ae0-6c19b278e4d0" xml:space="preserve">
+          <source><bpt id="f456bd48-d2f2-4d3d-a479-a30ff137e68f">&lt;code&gt;</bpt>azure site create webappslotstest --slot staging<ept id="f456bd48-d2f2-4d3d-a479-a30ff137e68f">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="f456bd48-d2f2-4d3d-a479-a30ff137e68f">&lt;code&gt;</bpt>azure site create webappslotstest --slot staging<ept id="f456bd48-d2f2-4d3d-a479-a30ff137e68f">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7adc1a78-afd1-4e2e-a36a-a7e2c22da934" xml:space="preserve">
+          <source>To enable source control for the new slot, use the <bpt id="5544e27b-0cbe-4d2d-a961-b1a5c65a0d2d">&lt;strong&gt;</bpt>--git<ept id="5544e27b-0cbe-4d2d-a961-b1a5c65a0d2d">&lt;/strong&gt;</ept> option, as in the following example.</source>
+          <target state="new">To enable source control for the new slot, use the <bpt id="5544e27b-0cbe-4d2d-a961-b1a5c65a0d2d">&lt;strong&gt;</bpt>--git<ept id="5544e27b-0cbe-4d2d-a961-b1a5c65a0d2d">&lt;/strong&gt;</ept> option, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="c55875a9-a1c5-414a-bbe0-7e0ca55213b2" xml:space="preserve">
+          <source><bpt id="dd1dc115-9c88-473f-beab-7f086fe6850d">&lt;code&gt;</bpt>azure site create --git webappslotstest --slot staging<ept id="dd1dc115-9c88-473f-beab-7f086fe6850d">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="dd1dc115-9c88-473f-beab-7f086fe6850d">&lt;code&gt;</bpt>azure site create --git webappslotstest --slot staging<ept id="dd1dc115-9c88-473f-beab-7f086fe6850d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47634066-04b0-44bd-9582-94b1f01f4786" xml:space="preserve">
+          <source>To make the updated deployment slot the production app, use the <bpt id="064eee6d-5271-41db-bd00-3f8bbd343c33">&lt;strong&gt;</bpt>azure site swap<ept id="064eee6d-5271-41db-bd00-3f8bbd343c33">&lt;/strong&gt;</ept> command to perform a swap operation, as in the following example.</source>
+          <target state="new">To make the updated deployment slot the production app, use the <bpt id="064eee6d-5271-41db-bd00-3f8bbd343c33">&lt;strong&gt;</bpt>azure site swap<ept id="064eee6d-5271-41db-bd00-3f8bbd343c33">&lt;/strong&gt;</ept> command to perform a swap operation, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="add31b7d-7afe-46d5-844f-821976f67c6c" xml:space="preserve">
+          <source>The production app will not experience any down time, nor will it undergo a cold start.</source>
+          <target state="new">The production app will not experience any down time, nor will it undergo a cold start.</target>
+        </trans-unit>
+        <trans-unit id="93c848c3-fef5-4c26-80a4-2f1d49077dd7" xml:space="preserve">
+          <source><bpt id="878b81c6-457f-4f25-a91a-4a4074f87f65">&lt;code&gt;</bpt>azure site swap webappslotstest<ept id="878b81c6-457f-4f25-a91a-4a4074f87f65">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="878b81c6-457f-4f25-a91a-4a4074f87f65">&lt;code&gt;</bpt>azure site swap webappslotstest<ept id="878b81c6-457f-4f25-a91a-4a4074f87f65">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93796fb8-69a4-426e-8716-0906bee31dfe" xml:space="preserve">
+          <source>To delete a deployment slot that is no longer needed, use the <bpt id="359b7dfe-db16-4be8-8068-53ffe45af87b">&lt;strong&gt;</bpt>azure site delete<ept id="359b7dfe-db16-4be8-8068-53ffe45af87b">&lt;/strong&gt;</ept> command, as in the following example.</source>
+          <target state="new">To delete a deployment slot that is no longer needed, use the <bpt id="359b7dfe-db16-4be8-8068-53ffe45af87b">&lt;strong&gt;</bpt>azure site delete<ept id="359b7dfe-db16-4be8-8068-53ffe45af87b">&lt;/strong&gt;</ept> command, as in the following example.</target>
+        </trans-unit>
+        <trans-unit id="87905957-84aa-4b71-8da6-a651a214059b" xml:space="preserve">
+          <source><bpt id="d5d98a82-753b-4082-9fc1-5135dca2b0d6">&lt;code&gt;</bpt>azure site delete webappslotstest --slot staging<ept id="d5d98a82-753b-4082-9fc1-5135dca2b0d6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="d5d98a82-753b-4082-9fc1-5135dca2b0d6">&lt;code&gt;</bpt>azure site delete webappslotstest --slot staging<ept id="d5d98a82-753b-4082-9fc1-5135dca2b0d6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17930325-1840-4512-a096-24860c40d1cb" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;linkText&gt;</bpt>Try App Service<ept id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;/linkText&gt;</ept><bpt id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;title&gt;</bpt><ept id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;linkText&gt;</bpt>Try App Service<ept id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;/linkText&gt;</ept><bpt id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;title&gt;</bpt><ept id="bfd3aefb-e8de-474e-bc5c-50e9bdc31f89">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="925b64a2-4006-498e-8237-c5e940515cb4" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="8ec765cb-4812-40db-bf80-e34aa9a2c047" xml:space="preserve">
+          <source><bpt id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;linkText&gt;</bpt>Azure App Service Web App – block web access to non-production deployment slots<ept id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;/linkText&gt;</ept><bpt id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;title&gt;</bpt><ept id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;linkText&gt;</bpt>Azure App Service Web App – block web access to non-production deployment slots<ept id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;/linkText&gt;</ept><bpt id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;title&gt;</bpt><ept id="deaa0da0-c129-40fc-9fe6-81559a4ff838">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edf4ad33-5e0e-4928-bad0-70ed93e40d07" xml:space="preserve">
+          <source><bpt id="3206911c-b52f-4645-afd6-00996b35d221">&lt;linkText&gt;</bpt>Microsoft Azure Free Trial<ept id="3206911c-b52f-4645-afd6-00996b35d221">&lt;/linkText&gt;</ept><bpt id="3206911c-b52f-4645-afd6-00996b35d221">&lt;title&gt;</bpt><ept id="3206911c-b52f-4645-afd6-00996b35d221">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3206911c-b52f-4645-afd6-00996b35d221">&lt;linkText&gt;</bpt>Microsoft Azure Free Trial<ept id="3206911c-b52f-4645-afd6-00996b35d221">&lt;/linkText&gt;</ept><bpt id="3206911c-b52f-4645-afd6-00996b35d221">&lt;title&gt;</bpt><ept id="3206911c-b52f-4645-afd6-00996b35d221">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="89717c17-9e8c-4bd6-b688-db16dfee2f0b" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;/linkText&gt;</ept><bpt id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;title&gt;</bpt><ept id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;/linkText&gt;</ept><bpt id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;title&gt;</bpt><ept id="85ab782f-66a6-40d2-b6ec-dfe45f133973">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c2700d8-189f-44c6-b866-410f185db551" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;/linkText&gt;</ept><bpt id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;title&gt;</bpt><ept id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;/linkText&gt;</ept><bpt id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;title&gt;</bpt><ept id="0e2cd49d-3c91-4132-9fe0-e1d55f3f9c00">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a80cabd-82bd-45cb-910d-92896a685b6c" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png</source>
+          <target state="new">./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png</target>
+        </trans-unit>
+        <trans-unit id="2ed21458-31e7-4b64-8c75-f963e2a3cf19" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png</source>
+          <target state="new">./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png</target>
+        </trans-unit>
+        <trans-unit id="46e042e2-d0b9-4c52-80b2-2ec3706ab939" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/ConfigurationSource1.png</source>
+          <target state="new">./media/web-sites-staged-publishing/ConfigurationSource1.png</target>
+        </trans-unit>
+        <trans-unit id="60ea0c9b-b2a6-4131-98aa-f9fb6271f981" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/MultipleConfigurationSources.png</source>
+          <target state="new">./media/web-sites-staged-publishing/MultipleConfigurationSources.png</target>
+        </trans-unit>
+        <trans-unit id="ff13b9de-2e0d-46b1-add4-363b83a5793b" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/SiteListWithStagedSite.png</source>
+          <target state="new">./media/web-sites-staged-publishing/SiteListWithStagedSite.png</target>
+        </trans-unit>
+        <trans-unit id="0e3e0393-121c-43a4-a7de-4d5914807cd6" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/StagingTitle.png</source>
+          <target state="new">./media/web-sites-staged-publishing/StagingTitle.png</target>
+        </trans-unit>
+        <trans-unit id="5b573049-2c8c-419d-ba48-dccad9d29a27" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/SwapButtonBar.png</source>
+          <target state="new">./media/web-sites-staged-publishing/SwapButtonBar.png</target>
+        </trans-unit>
+        <trans-unit id="b395b6b4-40ba-4a4a-b197-8936669be4b9" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/SwapConfirmationDialog.png</source>
+          <target state="new">./media/web-sites-staged-publishing/SwapConfirmationDialog.png</target>
+        </trans-unit>
+        <trans-unit id="927c9f5b-ba85-42e9-b83a-43c1d7c9f744" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/DeleteStagingSiteButton.png</source>
+          <target state="new">./media/web-sites-staged-publishing/DeleteStagingSiteButton.png</target>
+        </trans-unit>
+        <trans-unit id="f503dfa9-6850-4803-b668-105a7c318264" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/SwapDeploymentsDialog.png</source>
+          <target state="new">./media/web-sites-staged-publishing/SwapDeploymentsDialog.png</target>
+        </trans-unit>
+        <trans-unit id="0c407199-a63d-445f-a0bf-aec7fe6abf96" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/AutoSwap01.png</source>
+          <target state="new">./media/web-sites-staged-publishing/AutoSwap01.png</target>
+        </trans-unit>
+        <trans-unit id="59720e9b-1d96-4651-a9d4-6b0649f4e4b7" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/AutoSwap02.png</source>
+          <target state="new">./media/web-sites-staged-publishing/AutoSwap02.png</target>
+        </trans-unit>
+        <trans-unit id="4f741256-2226-4b3e-ae91-4a2f88b6a05c" xml:space="preserve">
+          <source>./media/web-sites-staged-publishing/SlotSetting.png</source>
+          <target state="new">./media/web-sites-staged-publishing/SlotSetting.png</target>
+        </trans-unit>
+      </group>
+      <group id="5d24c5ae-90d4-45fa-a717-2cc3c4c6444a" />
+    </body>
+  </file>
+</xliff>

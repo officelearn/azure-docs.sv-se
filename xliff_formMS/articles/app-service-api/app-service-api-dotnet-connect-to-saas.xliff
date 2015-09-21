@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3ac2e2a5-0dc4-41ae-9222-bd4ee937068e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3ac2e2a5-0dc4-41ae-9222-bd4ee937068e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a761439b-1f07-4af8-94b6-44072f6e478e">
+        <trans-unit id="42832a8f-90e0-4e8b-8d0c-5707edd1345f" xml:space="preserve">
+          <source>Custom SaaS connector ASP.NET API app in Azure App Service</source>
+          <target state="new">Custom SaaS connector ASP.NET API app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="affc7a80-3edd-449e-8695-1fcf1f88de3d" xml:space="preserve">
+          <source>Learn how to write code that connects to a SaaS platform from an API app and how to call the API app from a .NET client.</source>
+          <target state="new">Learn how to write code that connects to a SaaS platform from an API app and how to call the API app from a .NET client.</target>
+        </trans-unit>
+        <trans-unit id="efa0c256-b847-4380-abf0-ef78c2aa454e" xml:space="preserve">
+          <source>This tutorial shows how to code and configure an <bpt id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;linkText&gt;</bpt>API app<ept id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;/linkText&gt;</ept><bpt id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;title&gt;</bpt><ept id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;/title&gt;</ept> that connects to a <bpt id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;linkText&gt;</bpt>Software-as-a-Service (SaaS) platform<ept id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;/linkText&gt;</ept><bpt id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;title&gt;</bpt><ept id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;/title&gt;</ept> using the <bpt id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;linkText&gt;</bpt>App Service API app SDK for .NET<ept id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;/linkText&gt;</ept><bpt id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;title&gt;</bpt><ept id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial shows how to code and configure an <bpt id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;linkText&gt;</bpt>API app<ept id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;/linkText&gt;</ept><bpt id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;title&gt;</bpt><ept id="a16fc4e8-474d-4a01-9fd8-5e300a5e0c36">&lt;/title&gt;</ept> that connects to a <bpt id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;linkText&gt;</bpt>Software-as-a-Service (SaaS) platform<ept id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;/linkText&gt;</ept><bpt id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;title&gt;</bpt><ept id="d250a7b7-9de1-440a-ab3c-dfec84da69b1">&lt;/title&gt;</ept> using the <bpt id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;linkText&gt;</bpt>App Service API app SDK for .NET<ept id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;/linkText&gt;</ept><bpt id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;title&gt;</bpt><ept id="bf0c4b3b-28fb-4134-bc72-ba2d5799ea9d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67328a55-daa0-4730-a887-2a5d6304225e" xml:space="preserve">
+          <source>The tutorial also shows how to call the API app from a .NET client by using the <bpt id="f363b207-21a1-479e-b046-30af82a8095d">&lt;linkText&gt;</bpt>App Service SDK for .NET<ept id="f363b207-21a1-479e-b046-30af82a8095d">&lt;/linkText&gt;</ept><bpt id="f363b207-21a1-479e-b046-30af82a8095d">&lt;title&gt;</bpt><ept id="f363b207-21a1-479e-b046-30af82a8095d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The tutorial also shows how to call the API app from a .NET client by using the <bpt id="f363b207-21a1-479e-b046-30af82a8095d">&lt;linkText&gt;</bpt>App Service SDK for .NET<ept id="f363b207-21a1-479e-b046-30af82a8095d">&lt;/linkText&gt;</ept><bpt id="f363b207-21a1-479e-b046-30af82a8095d">&lt;title&gt;</bpt><ept id="f363b207-21a1-479e-b046-30af82a8095d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1839a7c-a4d7-4937-8d48-be73b8b95635" xml:space="preserve">
+          <source>At the end of the tutorial you'll have a .NET console app client that calls a .NET API app running in Azure App Service.</source>
+          <target state="new">At the end of the tutorial you'll have a .NET console app client that calls a .NET API app running in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="6b2926f8-d04d-4e35-a49a-b1e2396c7975" xml:space="preserve">
+          <source>The API app calls the Dropbox API and returns a list of files and folders in the user's Dropbox account.</source>
+          <target state="new">The API app calls the Dropbox API and returns a list of files and folders in the user's Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="d2229787-07cf-4b39-a3c1-d6ee10164f9d" xml:space="preserve">
+          <source>As an alternative to writing code that calls a SaaS API directly from a custom API app, you can call a prepackaged <bpt id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;linkText&gt;</bpt>connector API app<ept id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;/linkText&gt;</ept><bpt id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;title&gt;</bpt><ept id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;/title&gt;</ept>.</source>
+          <target state="new">As an alternative to writing code that calls a SaaS API directly from a custom API app, you can call a prepackaged <bpt id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;linkText&gt;</bpt>connector API app<ept id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;/linkText&gt;</ept><bpt id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;title&gt;</bpt><ept id="0ef8cec7-8580-4ea2-b336-e09479e11636">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c10375a1-7d49-42bb-b6b2-7c3f80b9a4ef" xml:space="preserve">
+          <source>For information about how to do that, see <bpt id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;linkText&gt;</bpt>Deploy and configure a SaaS connector API app<ept id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;/linkText&gt;</ept><bpt id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;title&gt;</bpt><ept id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to do that, see <bpt id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;linkText&gt;</bpt>Deploy and configure a SaaS connector API app<ept id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;/linkText&gt;</ept><bpt id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;title&gt;</bpt><ept id="fcf8406e-8297-49cb-9d02-6384ee705c3c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3c263cc-ba10-4146-91fb-28b4e1277a2f" xml:space="preserve">
+          <source>The tutorial walks you through the following steps:</source>
+          <target state="new">The tutorial walks you through the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1c65eec3-d1d7-4dfb-8dd6-eeca77d06d6c" xml:space="preserve">
+          <source>Create an API app project in Visual Studio.</source>
+          <target state="new">Create an API app project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="cf3974c2-8d74-4b6c-8c62-d0a4e89021e8" xml:space="preserve">
+          <source>Configure the <bpt id="789d7b2e-4b0d-45c7-9711-baed11a488f5">&lt;em&gt;</bpt>apiapp.json<ept id="789d7b2e-4b0d-45c7-9711-baed11a488f5">&lt;/em&gt;</ept> file to enable the API app to connect to the Dropbox service.</source>
+          <target state="new">Configure the <bpt id="789d7b2e-4b0d-45c7-9711-baed11a488f5">&lt;em&gt;</bpt>apiapp.json<ept id="789d7b2e-4b0d-45c7-9711-baed11a488f5">&lt;/em&gt;</ept> file to enable the API app to connect to the Dropbox service.</target>
+        </trans-unit>
+        <trans-unit id="32a2d9b1-de71-4bef-8927-996246099446" xml:space="preserve">
+          <source>Add code that calls Dropbox and returns the results.</source>
+          <target state="new">Add code that calls Dropbox and returns the results.</target>
+        </trans-unit>
+        <trans-unit id="605daa42-aca4-4c25-8224-fe5e8bc1f136" xml:space="preserve">
+          <source>Create a new API app in Azure.</source>
+          <target state="new">Create a new API app in Azure.</target>
+        </trans-unit>
+        <trans-unit id="4f453746-2c21-4402-9f17-322271be86dc" xml:space="preserve">
+          <source>Deploy the project to the API app.</source>
+          <target state="new">Deploy the project to the API app.</target>
+        </trans-unit>
+        <trans-unit id="13e3733a-2c90-497f-8b81-5aa393e16a10" xml:space="preserve">
+          <source>Configure the API app.</source>
+          <target state="new">Configure the API app.</target>
+        </trans-unit>
+        <trans-unit id="c0936149-28d0-4f52-90fe-793b9734762c" xml:space="preserve">
+          <source>Configure the gateway.</source>
+          <target state="new">Configure the gateway.</target>
+        </trans-unit>
+        <trans-unit id="dce9be3f-b997-444f-96c9-2c282bf3ed22" xml:space="preserve">
+          <source>Create a test client.</source>
+          <target state="new">Create a test client.</target>
+        </trans-unit>
+        <trans-unit id="242240c1-1988-4332-9104-ac2647573c8d" xml:space="preserve">
+          <source>Run the test client.</source>
+          <target state="new">Run the test client.</target>
+        </trans-unit>
+        <trans-unit id="c7f3b3ef-72ba-46c8-ac1c-0721ffed9370" xml:space="preserve">
+          <source>The tutorial makes these assumptions:</source>
+          <target state="new">The tutorial makes these assumptions:</target>
+        </trans-unit>
+        <trans-unit id="cc0de60c-092d-4747-8c10-0c2eb2b43225" xml:space="preserve">
+          <source>You have completed the <bpt id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;linkText&gt;</bpt>Create an API app<ept id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;/linkText&gt;</ept><bpt id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;title&gt;</bpt><ept id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;/title&gt;</ept> and <bpt id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;linkText&gt;</bpt>Deploy an API app<ept id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;/linkText&gt;</ept><bpt id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;title&gt;</bpt><ept id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;/title&gt;</ept> tutorials.</source>
+          <target state="new">You have completed the <bpt id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;linkText&gt;</bpt>Create an API app<ept id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;/linkText&gt;</ept><bpt id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;title&gt;</bpt><ept id="a047a642-e2b1-43e8-b477-1d384f87141e">&lt;/title&gt;</ept> and <bpt id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;linkText&gt;</bpt>Deploy an API app<ept id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;/linkText&gt;</ept><bpt id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;title&gt;</bpt><ept id="c35c220b-18a4-4358-8d89-7922f5ab6947">&lt;/title&gt;</ept> tutorials.</target>
+        </trans-unit>
+        <trans-unit id="538e49b4-4b5c-4a30-965d-76daaa88ffe8" xml:space="preserve">
+          <source>You have a basic understanding of the Azure App Service gateway architecture for authentication, as presented in <bpt id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;/linkText&gt;</ept><bpt id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;title&gt;</bpt><ept id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;/title&gt;</ept>.</source>
+          <target state="new">You have a basic understanding of the Azure App Service gateway architecture for authentication, as presented in <bpt id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps<ept id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;/linkText&gt;</ept><bpt id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;title&gt;</bpt><ept id="73bd1232-bea3-47ca-b6ce-647d64e1626d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27b56cf9-8109-4c8f-8ba1-d635df9544de" xml:space="preserve">
+          <source>You know how to work with API apps in the Azure preview portal, as explained in <bpt id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;linkText&gt;</bpt>How to navigate to API app and gateway blades<ept id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;/linkText&gt;</ept><bpt id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;title&gt;</bpt><ept id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;/title&gt;</ept>.</source>
+          <target state="new">You know how to work with API apps in the Azure preview portal, as explained in <bpt id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;linkText&gt;</bpt>How to navigate to API app and gateway blades<ept id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;/linkText&gt;</ept><bpt id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;title&gt;</bpt><ept id="b73afc37-17d0-4941-9afb-71b95a598975">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5d9def9-e201-45e7-9821-6e084fc31498" xml:space="preserve">
+          <source>When the instructions direct you to enter a name for the project, enter <bpt id="773e47ea-1dd7-4ae9-95d5-9a9b5a96bde0">&lt;em&gt;</bpt>SimpleDropbox<ept id="773e47ea-1dd7-4ae9-95d5-9a9b5a96bde0">&lt;/em&gt;</ept>.</source>
+          <target state="new">When the instructions direct you to enter a name for the project, enter <bpt id="773e47ea-1dd7-4ae9-95d5-9a9b5a96bde0">&lt;em&gt;</bpt>SimpleDropbox<ept id="773e47ea-1dd7-4ae9-95d5-9a9b5a96bde0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6d71e5d-93a9-4341-8c6e-06b161b796ee" xml:space="preserve">
+          <source><bpt id="5f6cbb4b-f967-4b1f-b62e-341679332557">&lt;token href="../../includes/app-service-api-create.md"&gt;</bpt><ept id="5f6cbb4b-f967-4b1f-b62e-341679332557">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5f6cbb4b-f967-4b1f-b62e-341679332557">&lt;token href="../../includes/app-service-api-create.md"&gt;</bpt><ept id="5f6cbb4b-f967-4b1f-b62e-341679332557">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8922b71-8dcf-4218-b9c9-340e7c95c041" xml:space="preserve">
+          <source>For an API app to make outgoing calls to a SaaS platform, the SaaS platform has to be specified in the <bpt id="dfe0d117-4699-47e4-9911-cd6ad4b5893b">&lt;em&gt;</bpt>apiapp.json<ept id="dfe0d117-4699-47e4-9911-cd6ad4b5893b">&lt;/em&gt;</ept> file.</source>
+          <target state="new">For an API app to make outgoing calls to a SaaS platform, the SaaS platform has to be specified in the <bpt id="dfe0d117-4699-47e4-9911-cd6ad4b5893b">&lt;em&gt;</bpt>apiapp.json<ept id="dfe0d117-4699-47e4-9911-cd6ad4b5893b">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="634e8583-a21a-4db9-b1da-ceaab19a36a3" xml:space="preserve">
+          <source>Open the <bpt id="310146d7-89c1-4dc2-b966-93f385742035">&lt;em&gt;</bpt>apiapp.json<ept id="310146d7-89c1-4dc2-b966-93f385742035">&lt;/em&gt;</ept> file and add an <bpt id="acfc7a7d-4c14-4414-99c3-221465856f31">&lt;code&gt;</bpt>authentication<ept id="acfc7a7d-4c14-4414-99c3-221465856f31">&lt;/code&gt;</ept> property as shown here (you'll also have to add a comma after the preceding property):</source>
+          <target state="new">Open the <bpt id="310146d7-89c1-4dc2-b966-93f385742035">&lt;em&gt;</bpt>apiapp.json<ept id="310146d7-89c1-4dc2-b966-93f385742035">&lt;/em&gt;</ept> file and add an <bpt id="acfc7a7d-4c14-4414-99c3-221465856f31">&lt;code&gt;</bpt>authentication<ept id="acfc7a7d-4c14-4414-99c3-221465856f31">&lt;/code&gt;</ept> property as shown here (you'll also have to add a comma after the preceding property):</target>
+        </trans-unit>
+        <trans-unit id="8d498024-fcde-4127-911f-3b18adb11b66" xml:space="preserve">
+          <source>The complete apiapp.json file will resemble this example: </source>
+          <target state="new">The complete apiapp.json file will resemble this example: </target>
+        </trans-unit>
+        <trans-unit id="0f3545a8-a924-4c05-8d9d-4566666af9a6" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="3a6c626d-b42c-4ff8-b0e2-d59052bff651" xml:space="preserve">
+          <source>Setting the <bpt id="a3595e39-3905-4494-9e80-52b03b8161cd">&lt;code&gt;</bpt>authentication<ept id="a3595e39-3905-4494-9e80-52b03b8161cd">&lt;/code&gt;</ept> property has a couple effects:</source>
+          <target state="new">Setting the <bpt id="a3595e39-3905-4494-9e80-52b03b8161cd">&lt;code&gt;</bpt>authentication<ept id="a3595e39-3905-4494-9e80-52b03b8161cd">&lt;/code&gt;</ept> property has a couple effects:</target>
+        </trans-unit>
+        <trans-unit id="bde92236-adb6-407c-8e75-cc6dd88d395a" xml:space="preserve">
+          <source>It causes the portal to display UI in the API app blade that enables you to enter the SaaS platform's client ID and client secret values.</source>
+          <target state="new">It causes the portal to display UI in the API app blade that enables you to enter the SaaS platform's client ID and client secret values.</target>
+        </trans-unit>
+        <trans-unit id="453a9cdf-7e6c-43af-902b-11d028a8f370" xml:space="preserve">
+          <source><bpt id="adf4cb41-f44a-4736-ae6f-507a8e649e73">&lt;linkText&gt;</bpt><ept id="adf4cb41-f44a-4736-ae6f-507a8e649e73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="adf4cb41-f44a-4736-ae6f-507a8e649e73">&lt;linkText&gt;</bpt><ept id="adf4cb41-f44a-4736-ae6f-507a8e649e73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c262f18d-c571-4666-b43d-9b2a77c01221" xml:space="preserve">
+          <source>It enables the API app to retrieve the SaaS provider's access token from the gateway for use when calling the SaaS provider's API.</source>
+          <target state="new">It enables the API app to retrieve the SaaS provider's access token from the gateway for use when calling the SaaS provider's API.</target>
+        </trans-unit>
+        <trans-unit id="e49a5a35-9281-4546-a2b6-4938b0c27b4f" xml:space="preserve">
+          <source>The <bpt id="d93d4ced-ab70-493c-a54f-4caf3c0d02a0">&lt;code&gt;</bpt>authentication<ept id="d93d4ced-ab70-493c-a54f-4caf3c0d02a0">&lt;/code&gt;</ept> property is an array, but this preview release doesn't support specifying multiple providers.</source>
+          <target state="new">The <bpt id="d93d4ced-ab70-493c-a54f-4caf3c0d02a0">&lt;code&gt;</bpt>authentication<ept id="d93d4ced-ab70-493c-a54f-4caf3c0d02a0">&lt;/code&gt;</ept> property is an array, but this preview release doesn't support specifying multiple providers.</target>
+        </trans-unit>
+        <trans-unit id="f26c1c88-7953-420e-bd16-704ca6ff913f" xml:space="preserve">
+          <source>For a list of the supported platforms, see <bpt id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;linkText&gt;</bpt>Getting user consent to access other SaaS platforms<ept id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;/linkText&gt;</ept><bpt id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;title&gt;</bpt><ept id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of the supported platforms, see <bpt id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;linkText&gt;</bpt>Getting user consent to access other SaaS platforms<ept id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;/linkText&gt;</ept><bpt id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;title&gt;</bpt><ept id="5d7699ff-ccf1-47e2-87e6-aee2953a3301">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5eeccceb-a95d-44b5-aab6-0b1796da978e" xml:space="preserve">
+          <source>You can also specify scopes, as in this example:</source>
+          <target state="new">You can also specify scopes, as in this example:</target>
+        </trans-unit>
+        <trans-unit id="096b7c96-b00a-4c6e-a4d6-56aa40ad93d8" xml:space="preserve">
+          <source>Available scopes are defined by each SaaS provider and can be found in the provider's developer portal.</source>
+          <target state="new">Available scopes are defined by each SaaS provider and can be found in the provider's developer portal.</target>
+        </trans-unit>
+        <trans-unit id="b8316095-81e6-4e1a-b380-792f647c1103" xml:space="preserve">
+          <source>Install the <bpt id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;linkText&gt;</bpt>DropboxRestAPI<ept id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;/linkText&gt;</ept><bpt id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;title&gt;</bpt><ept id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;/title&gt;</ept> NuGet package in the SimpleDropbox project.</source>
+          <target state="new">Install the <bpt id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;linkText&gt;</bpt>DropboxRestAPI<ept id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;/linkText&gt;</ept><bpt id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;title&gt;</bpt><ept id="8650ba54-2c4a-4583-967f-fea38cb1b10c">&lt;/title&gt;</ept> NuGet package in the SimpleDropbox project.</target>
+        </trans-unit>
+        <trans-unit id="df090733-10c9-419a-a1e1-ddcbfa75fcc4" xml:space="preserve">
+          <source>From the <bpt id="2a8d2bad-b24a-407b-9438-28bb51b3e631">&lt;strong&gt;</bpt>Tools<ept id="2a8d2bad-b24a-407b-9438-28bb51b3e631">&lt;/strong&gt;</ept> menu, click <bpt id="50c610ae-b897-4923-9b49-455b9eeb61ca">&lt;strong&gt;</bpt>NuGet Package Manager &gt; Package Manager Console<ept id="50c610ae-b897-4923-9b49-455b9eeb61ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="2a8d2bad-b24a-407b-9438-28bb51b3e631">&lt;strong&gt;</bpt>Tools<ept id="2a8d2bad-b24a-407b-9438-28bb51b3e631">&lt;/strong&gt;</ept> menu, click <bpt id="50c610ae-b897-4923-9b49-455b9eeb61ca">&lt;strong&gt;</bpt>NuGet Package Manager &gt; Package Manager Console<ept id="50c610ae-b897-4923-9b49-455b9eeb61ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6daa6909-2730-47b3-b754-83cc5d994028" xml:space="preserve">
+          <source>In the <bpt id="de6f071a-89c4-49cc-af7e-32b0926f5eac">&lt;strong&gt;</bpt>Package Manager Console<ept id="de6f071a-89c4-49cc-af7e-32b0926f5eac">&lt;/strong&gt;</ept> window, enter this command:</source>
+          <target state="new">In the <bpt id="de6f071a-89c4-49cc-af7e-32b0926f5eac">&lt;strong&gt;</bpt>Package Manager Console<ept id="de6f071a-89c4-49cc-af7e-32b0926f5eac">&lt;/strong&gt;</ept> window, enter this command:</target>
+        </trans-unit>
+        <trans-unit id="f499673a-63e1-42d0-bb74-ef4f54bc226e" xml:space="preserve">
+          <source>Open <bpt id="6d40c6bb-0c10-453d-8782-3f9815f7a7c7">&lt;em&gt;</bpt>Controllers\ValuesController.cs<ept id="6d40c6bb-0c10-453d-8782-3f9815f7a7c7">&lt;/em&gt;</ept> and replace all of the code in the file with the following code.</source>
+          <target state="new">Open <bpt id="6d40c6bb-0c10-453d-8782-3f9815f7a7c7">&lt;em&gt;</bpt>Controllers\ValuesController.cs<ept id="6d40c6bb-0c10-453d-8782-3f9815f7a7c7">&lt;/em&gt;</ept> and replace all of the code in the file with the following code.</target>
+        </trans-unit>
+        <trans-unit id="1c4c2a4f-179e-4adc-ba24-494370815976" xml:space="preserve">
+          <source>Before the client calls this method, the user has logged in to Dropbox and granted consent for the API app to access the user's Dropbox account.</source>
+          <target state="new">Before the client calls this method, the user has logged in to Dropbox and granted consent for the API app to access the user's Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="4ba9b76d-cc43-4909-a124-13e60227f178" xml:space="preserve">
+          <source>Dropbox acknowledges that consent by providing an access token to the App Service gateway.</source>
+          <target state="new">Dropbox acknowledges that consent by providing an access token to the App Service gateway.</target>
+        </trans-unit>
+        <trans-unit id="89ce5e05-2e20-4b5b-806c-5a6e115347d7" xml:space="preserve">
+          <source>This code retrieves the token from the gateway and includes it in a call to the Dropbox API, as shown in steps 6 and 7 in the diagram below.</source>
+          <target state="new">This code retrieves the token from the gateway and includes it in a call to the Dropbox API, as shown in steps 6 and 7 in the diagram below.</target>
+        </trans-unit>
+        <trans-unit id="7d3f3480-ba24-45a9-bdb5-c49f802fda9e" xml:space="preserve">
+          <source><bpt id="5b7ef267-481c-482e-a952-d093456011ed">&lt;linkText&gt;</bpt><ept id="5b7ef267-481c-482e-a952-d093456011ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b7ef267-481c-482e-a952-d093456011ed">&lt;linkText&gt;</bpt><ept id="5b7ef267-481c-482e-a952-d093456011ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d98e212-650e-4e4a-bf2c-4f1b32b9d52d" xml:space="preserve">
+          <source>Build the project.</source>
+          <target state="new">Build the project.</target>
+        </trans-unit>
+        <trans-unit id="e2b6d0d3-c2e3-4301-8660-e993ca749a5c" xml:space="preserve">
+          <source>In this section you use the Visual Studio <bpt id="5102c5c9-e96d-4016-97e5-e61bed2d0789">&lt;strong&gt;</bpt>Publish Web<ept id="5102c5c9-e96d-4016-97e5-e61bed2d0789">&lt;/strong&gt;</ept> wizard to create an API app in Azure.</source>
+          <target state="new">In this section you use the Visual Studio <bpt id="5102c5c9-e96d-4016-97e5-e61bed2d0789">&lt;strong&gt;</bpt>Publish Web<ept id="5102c5c9-e96d-4016-97e5-e61bed2d0789">&lt;/strong&gt;</ept> wizard to create an API app in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8d1237a4-01b5-4f0c-a737-f21f9d5566a0" xml:space="preserve">
+          <source>Where the instructions direct you to enter a name for the API app, enter <bpt id="2a3e435c-df71-44b2-85b9-3c881332ac69">&lt;em&gt;</bpt>SimpleDropbox<ept id="2a3e435c-df71-44b2-85b9-3c881332ac69">&lt;/em&gt;</ept>.</source>
+          <target state="new">Where the instructions direct you to enter a name for the API app, enter <bpt id="2a3e435c-df71-44b2-85b9-3c881332ac69">&lt;em&gt;</bpt>SimpleDropbox<ept id="2a3e435c-df71-44b2-85b9-3c881332ac69">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc0c49ee-6845-478c-93cc-68a129e0720c" xml:space="preserve">
+          <source><bpt id="34009edd-ef06-41cf-847d-388097b0a553">&lt;token href="../../includes/app-service-api-pub-web-create.md"&gt;</bpt><ept id="34009edd-ef06-41cf-847d-388097b0a553">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="34009edd-ef06-41cf-847d-388097b0a553">&lt;token href="../../includes/app-service-api-pub-web-create.md"&gt;</bpt><ept id="34009edd-ef06-41cf-847d-388097b0a553">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2baf45d6-9d4c-440a-b584-dbc1a15bc6be" xml:space="preserve">
+          <source>You use the same <bpt id="8052b840-2537-4c6a-b000-437d11eaf4b7">&lt;strong&gt;</bpt>Publish Web<ept id="8052b840-2537-4c6a-b000-437d11eaf4b7">&lt;/strong&gt;</ept> wizard to deploy your code to the new API app.</source>
+          <target state="new">You use the same <bpt id="8052b840-2537-4c6a-b000-437d11eaf4b7">&lt;strong&gt;</bpt>Publish Web<ept id="8052b840-2537-4c6a-b000-437d11eaf4b7">&lt;/strong&gt;</ept> wizard to deploy your code to the new API app.</target>
+        </trans-unit>
+        <trans-unit id="e597339e-1a23-4ac8-a7ea-ff07cc1d1199" xml:space="preserve">
+          <source><bpt id="e1b4ebfb-6cc4-4fa7-b90f-e8dcf31c4c35">&lt;token href="../../includes/app-service-api-pub-web-deploy.md"&gt;</bpt><ept id="e1b4ebfb-6cc4-4fa7-b90f-e8dcf31c4c35">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e1b4ebfb-6cc4-4fa7-b90f-e8dcf31c4c35">&lt;token href="../../includes/app-service-api-pub-web-deploy.md"&gt;</bpt><ept id="e1b4ebfb-6cc4-4fa7-b90f-e8dcf31c4c35">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b67d211-f8f5-4769-a61e-ecd20bbc2e1d" xml:space="preserve">
+          <source>For Azure App Service to allow authenticated outgoing calls from the API app, the API app must also require that incoming calls come from authenticated users.</source>
+          <target state="new">For Azure App Service to allow authenticated outgoing calls from the API app, the API app must also require that incoming calls come from authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="15b4449e-7eb0-4b0c-8cd7-b338538fb23f" xml:space="preserve">
+          <source>This is not a general OAuth 2.0 requirement but is a requirement of the App Service gateway architecture as it is currently implemented.</source>
+          <target state="new">This is not a general OAuth 2.0 requirement but is a requirement of the App Service gateway architecture as it is currently implemented.</target>
+        </trans-unit>
+        <trans-unit id="cbb73cf5-eb20-4e97-950b-fd95676995c0" xml:space="preserve">
+          <source>The screenshots in this section show a ContactsList API app, but the process is the same for the SimpleDropbox API app that you're creating in this tutorial.</source>
+          <target state="new">The screenshots in this section show a ContactsList API app, but the process is the same for the SimpleDropbox API app that you're creating in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="7dbe5aba-9002-4e17-bc9d-4478e1c3bbff" xml:space="preserve">
+          <source><bpt id="c34390ac-b314-4948-81d9-e84bed860650">&lt;token href="../../includes/app-service-api-config-auth.md"&gt;</bpt><ept id="c34390ac-b314-4948-81d9-e84bed860650">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c34390ac-b314-4948-81d9-e84bed860650">&lt;token href="../../includes/app-service-api-config-auth.md"&gt;</bpt><ept id="c34390ac-b314-4948-81d9-e84bed860650">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8b23780-e44b-46fa-8902-82651789c9e9" xml:space="preserve">
+          <source><bpt id="276defa2-7842-4a7a-b8af-76d5888c9601">&lt;token href="../../includes/app-service-api-gateway-config-auth.md"&gt;</bpt><ept id="276defa2-7842-4a7a-b8af-76d5888c9601">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="276defa2-7842-4a7a-b8af-76d5888c9601">&lt;token href="../../includes/app-service-api-gateway-config-auth.md"&gt;</bpt><ept id="276defa2-7842-4a7a-b8af-76d5888c9601">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c91bf43-60b1-406b-ac35-cdccfbf81a28" xml:space="preserve">
+          <source>To enable your API app to call the Dropbox API, you have to exchange settings between your API app and a Dropbox app that you create on the Dropbox developer site.</source>
+          <target state="new">To enable your API app to call the Dropbox API, you have to exchange settings between your API app and a Dropbox app that you create on the Dropbox developer site.</target>
+        </trans-unit>
+        <trans-unit id="5058e2fc-8128-474b-a6b4-d704a78e2190" xml:space="preserve">
+          <source><bpt id="f03c7877-be5b-400e-aa53-6c002b376074">&lt;token href="../../includes/app-service-api-create-dropbox-app.md"&gt;</bpt><ept id="f03c7877-be5b-400e-aa53-6c002b376074">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f03c7877-be5b-400e-aa53-6c002b376074">&lt;token href="../../includes/app-service-api-create-dropbox-app.md"&gt;</bpt><ept id="f03c7877-be5b-400e-aa53-6c002b376074">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="489e28ca-5bf2-49d9-9ff4-b87b35716a0f" xml:space="preserve">
+          <source>The following steps refer to a Dropbox connector API app, but the procedures and UI are the same for the SimpleDropbox API app that you're creating in this tutorial.</source>
+          <target state="new">The following steps refer to a Dropbox connector API app, but the procedures and UI are the same for the SimpleDropbox API app that you're creating in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="3ad7337b-9967-43da-ae48-94af553e4c3f" xml:space="preserve">
+          <source><bpt id="13202ad4-2c69-4f59-ad4c-04183a323381">&lt;strong&gt;</bpt>Note:<ept id="13202ad4-2c69-4f59-ad4c-04183a323381">&lt;/strong&gt;</ept> If you don't see fields for the Dropbox client ID and client secret on the SimpleDropbox API app's <bpt id="c216a584-2709-410e-880f-a5183f5b6fbb">&lt;strong&gt;</bpt>Authentication<ept id="c216a584-2709-410e-880f-a5183f5b6fbb">&lt;/strong&gt;</ept> blade as shown in the screenshot, make sure that you restarted the gateway as directed after deploying the API app project to the API app.</source>
+          <target state="new"><bpt id="13202ad4-2c69-4f59-ad4c-04183a323381">&lt;strong&gt;</bpt>Note:<ept id="13202ad4-2c69-4f59-ad4c-04183a323381">&lt;/strong&gt;</ept> If you don't see fields for the Dropbox client ID and client secret on the SimpleDropbox API app's <bpt id="c216a584-2709-410e-880f-a5183f5b6fbb">&lt;strong&gt;</bpt>Authentication<ept id="c216a584-2709-410e-880f-a5183f5b6fbb">&lt;/strong&gt;</ept> blade as shown in the screenshot, make sure that you restarted the gateway as directed after deploying the API app project to the API app.</target>
+        </trans-unit>
+        <trans-unit id="a5e7e4d6-2d66-41d3-b14a-d642e180be91" xml:space="preserve">
+          <source>The "dropbox" value in the <bpt id="502d15c7-b069-4823-b018-ea37a6bbb3ac">&lt;code&gt;</bpt>authentication<ept id="502d15c7-b069-4823-b018-ea37a6bbb3ac">&lt;/code&gt;</ept> property of the <bpt id="03a989bb-fb18-4aba-83c0-47bf9ccc3ce6">&lt;em&gt;</bpt>apiapp.json<ept id="03a989bb-fb18-4aba-83c0-47bf9ccc3ce6">&lt;/em&gt;</ept> file that you deployed earlier is what triggers the portal to display these fields.</source>
+          <target state="new">The "dropbox" value in the <bpt id="502d15c7-b069-4823-b018-ea37a6bbb3ac">&lt;code&gt;</bpt>authentication<ept id="502d15c7-b069-4823-b018-ea37a6bbb3ac">&lt;/code&gt;</ept> property of the <bpt id="03a989bb-fb18-4aba-83c0-47bf9ccc3ce6">&lt;em&gt;</bpt>apiapp.json<ept id="03a989bb-fb18-4aba-83c0-47bf9ccc3ce6">&lt;/em&gt;</ept> file that you deployed earlier is what triggers the portal to display these fields.</target>
+        </trans-unit>
+        <trans-unit id="12af73bf-dd07-418a-ab27-bb8800156838" xml:space="preserve">
+          <source><bpt id="53cf0574-44a1-44cc-89ff-dc9aa51401fd">&lt;token href="../../includes/app-service-api-exchange-dropbox-settings.md"&gt;</bpt><ept id="53cf0574-44a1-44cc-89ff-dc9aa51401fd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="53cf0574-44a1-44cc-89ff-dc9aa51401fd">&lt;token href="../../includes/app-service-api-exchange-dropbox-settings.md"&gt;</bpt><ept id="53cf0574-44a1-44cc-89ff-dc9aa51401fd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a27e46eb-5057-4227-8eb6-3a1bfc1176a0" xml:space="preserve">
+          <source>In this section you create a console app project that uses client code generated by Visual Studio to call the SimpleDropbox API app.</source>
+          <target state="new">In this section you create a console app project that uses client code generated by Visual Studio to call the SimpleDropbox API app.</target>
+        </trans-unit>
+        <trans-unit id="6e31bd97-4e2c-451a-bf26-c56f20bf02b3" xml:space="preserve">
+          <source>The console app instantiates a Windows Forms browser control to handle user interaction with the gateway and Dropbox login web pages.</source>
+          <target state="new">The console app instantiates a Windows Forms browser control to handle user interaction with the gateway and Dropbox login web pages.</target>
+        </trans-unit>
+        <trans-unit id="e870acdf-5a37-4e73-afa1-912cf3003ff6" xml:space="preserve">
+          <source>In Visual Studio, create a console application project and name it <bpt id="6322b1ae-83d5-437a-ae80-d75baee30ec0">&lt;em&gt;</bpt>SimpleDropboxTest<ept id="6322b1ae-83d5-437a-ae80-d75baee30ec0">&lt;/em&gt;</ept>.</source>
+          <target state="new">In Visual Studio, create a console application project and name it <bpt id="6322b1ae-83d5-437a-ae80-d75baee30ec0">&lt;em&gt;</bpt>SimpleDropboxTest<ept id="6322b1ae-83d5-437a-ae80-d75baee30ec0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bf0b962-b60e-4ef9-b561-429ed9679298" xml:space="preserve">
+          <source>Set a reference to System.Windows.Forms.</source>
+          <target state="new">Set a reference to System.Windows.Forms.</target>
+        </trans-unit>
+        <trans-unit id="91d7475a-1371-4ffa-bd70-ae625338a2aa" xml:space="preserve">
+          <source>In <bpt id="0b72b510-13d5-424e-8397-72fda3bcadac">&lt;strong&gt;</bpt>Solution Explorer<ept id="0b72b510-13d5-424e-8397-72fda3bcadac">&lt;/strong&gt;</ept>, right-click <bpt id="4892946c-928c-400e-850c-8e6232803e36">&lt;strong&gt;</bpt>References<ept id="4892946c-928c-400e-850c-8e6232803e36">&lt;/strong&gt;</ept>, then click <bpt id="12297609-3170-4ac7-ab74-55559442e855">&lt;strong&gt;</bpt>Add Reference<ept id="12297609-3170-4ac7-ab74-55559442e855">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="0b72b510-13d5-424e-8397-72fda3bcadac">&lt;strong&gt;</bpt>Solution Explorer<ept id="0b72b510-13d5-424e-8397-72fda3bcadac">&lt;/strong&gt;</ept>, right-click <bpt id="4892946c-928c-400e-850c-8e6232803e36">&lt;strong&gt;</bpt>References<ept id="4892946c-928c-400e-850c-8e6232803e36">&lt;/strong&gt;</ept>, then click <bpt id="12297609-3170-4ac7-ab74-55559442e855">&lt;strong&gt;</bpt>Add Reference<ept id="12297609-3170-4ac7-ab74-55559442e855">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2e0fad9-033b-4014-b3bc-1ee8cbbfbef7" xml:space="preserve">
+          <source>Select the check box at the left of <bpt id="8fc44ce6-3ceb-4f7e-b372-9400d2e58692">&lt;strong&gt;</bpt>System.Windows.Forms<ept id="8fc44ce6-3ceb-4f7e-b372-9400d2e58692">&lt;/strong&gt;</ept>, and then click <bpt id="aa7605bf-69f9-4f1b-875a-ab47428b5e97">&lt;strong&gt;</bpt>OK<ept id="aa7605bf-69f9-4f1b-875a-ab47428b5e97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the check box at the left of <bpt id="8fc44ce6-3ceb-4f7e-b372-9400d2e58692">&lt;strong&gt;</bpt>System.Windows.Forms<ept id="8fc44ce6-3ceb-4f7e-b372-9400d2e58692">&lt;/strong&gt;</ept>, and then click <bpt id="aa7605bf-69f9-4f1b-875a-ab47428b5e97">&lt;strong&gt;</bpt>OK<ept id="aa7605bf-69f9-4f1b-875a-ab47428b5e97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62e7f3b9-807c-41bc-964b-367123ff06ae" xml:space="preserve">
+          <source><bpt id="84fae1d0-19e2-48f9-a83f-4ebe2b5aa785">&lt;linkText&gt;</bpt><ept id="84fae1d0-19e2-48f9-a83f-4ebe2b5aa785">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84fae1d0-19e2-48f9-a83f-4ebe2b5aa785">&lt;linkText&gt;</bpt><ept id="84fae1d0-19e2-48f9-a83f-4ebe2b5aa785">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2faa9898-f3dd-41fc-a4ea-17d9e8a00f36" xml:space="preserve">
+          <source>The console application will use the Windows Forms assembly to instantiate a browser control when it needs to enable the user to log in to the gateway and to Dropbox.</source>
+          <target state="new">The console application will use the Windows Forms assembly to instantiate a browser control when it needs to enable the user to log in to the gateway and to Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="0ca9cc87-f57d-4efb-bb7f-1a72b195f7a2" xml:space="preserve">
+          <source>The screenshots in this section show a ContactsList project and API app, but for this tutorial select the SimpleDropboxTest project and SimpleDropbox API app.</source>
+          <target state="new">The screenshots in this section show a ContactsList project and API app, but for this tutorial select the SimpleDropboxTest project and SimpleDropbox API app.</target>
+        </trans-unit>
+        <trans-unit id="a74fcf88-db38-4a9b-91d8-cca05e4eac46" xml:space="preserve">
+          <source><bpt id="59bfc448-6e1a-4475-ae1e-9d1d4ce098e0">&lt;token href="../../includes/app-service-api-dotnet-add-generated-client.md"&gt;</bpt><ept id="59bfc448-6e1a-4475-ae1e-9d1d4ce098e0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="59bfc448-6e1a-4475-ae1e-9d1d4ce098e0">&lt;token href="../../includes/app-service-api-dotnet-add-generated-client.md"&gt;</bpt><ept id="59bfc448-6e1a-4475-ae1e-9d1d4ce098e0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="352e9dec-63f3-46d3-b75f-39d041bb5a7b" xml:space="preserve">
+          <source>Open <bpt id="dcd78234-cf4b-4ffd-8cd8-3bb3b15c8537">&lt;em&gt;</bpt>Program.cs<ept id="dcd78234-cf4b-4ffd-8cd8-3bb3b15c8537">&lt;/em&gt;</ept> and replace the code in it with the following code.</source>
+          <target state="new">Open <bpt id="dcd78234-cf4b-4ffd-8cd8-3bb3b15c8537">&lt;em&gt;</bpt>Program.cs<ept id="dcd78234-cf4b-4ffd-8cd8-3bb3b15c8537">&lt;/em&gt;</ept> and replace the code in it with the following code.</target>
+        </trans-unit>
+        <trans-unit id="c93dc62f-3358-4fe0-b2fa-cd7b4a3249bd" xml:space="preserve">
+          <source>Replace {gateway url} with the actual URL of your gateway.</source>
+          <target state="new">Replace {gateway url} with the actual URL of your gateway.</target>
+        </trans-unit>
+        <trans-unit id="c4e17b71-8ad3-4cff-acaa-e4fc0916a417" xml:space="preserve">
+          <source>You can get the gateway URL from the <bpt id="9134a58d-d1f8-44a9-a066-491edb64f4b7">&lt;strong&gt;</bpt>gateway<ept id="9134a58d-d1f8-44a9-a066-491edb64f4b7">&lt;/strong&gt;</ept> blade in the portal:</source>
+          <target state="new">You can get the gateway URL from the <bpt id="9134a58d-d1f8-44a9-a066-491edb64f4b7">&lt;strong&gt;</bpt>gateway<ept id="9134a58d-d1f8-44a9-a066-491edb64f4b7">&lt;/strong&gt;</ept> blade in the portal:</target>
+        </trans-unit>
+        <trans-unit id="75de7c62-01c6-4183-b175-1a4a518ffc25" xml:space="preserve">
+          <source><bpt id="48ee5a9e-f0ca-469b-b65a-a1869c19e320">&lt;linkText&gt;</bpt><ept id="48ee5a9e-f0ca-469b-b65a-a1869c19e320">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48ee5a9e-f0ca-469b-b65a-a1869c19e320">&lt;linkText&gt;</bpt><ept id="48ee5a9e-f0ca-469b-b65a-a1869c19e320">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81a37238-906a-46cb-962a-9bae3793abf9" xml:space="preserve">
+          <source><bpt id="96197642-6df6-4d20-a902-8d30ac715573">&lt;strong&gt;</bpt>Important<ept id="96197642-6df6-4d20-a902-8d30ac715573">&lt;/strong&gt;</ept>: Make sure the gateway URL begins with <bpt id="5fef871e-a932-4362-93fe-9e71078b9398">&lt;code&gt;</bpt>https://<ept id="5fef871e-a932-4362-93fe-9e71078b9398">&lt;/code&gt;</ept>, not <bpt id="48e72555-136f-4ac7-846a-0b915f5de33a">&lt;code&gt;</bpt>http://<ept id="48e72555-136f-4ac7-846a-0b915f5de33a">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="96197642-6df6-4d20-a902-8d30ac715573">&lt;strong&gt;</bpt>Important<ept id="96197642-6df6-4d20-a902-8d30ac715573">&lt;/strong&gt;</ept>: Make sure the gateway URL begins with <bpt id="5fef871e-a932-4362-93fe-9e71078b9398">&lt;code&gt;</bpt>https://<ept id="5fef871e-a932-4362-93fe-9e71078b9398">&lt;/code&gt;</ept>, not <bpt id="48e72555-136f-4ac7-846a-0b915f5de33a">&lt;code&gt;</bpt>http://<ept id="48e72555-136f-4ac7-846a-0b915f5de33a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51765820-0f2a-4531-8d81-8d59daade2d2" xml:space="preserve">
+          <source><bpt id="1ab07d2a-7a4b-4967-9837-19d4796f3d14">&lt;strong&gt;</bpt>If you copy http:// from the portal, you have to change it to https:// when you paste it in the code.<ept id="1ab07d2a-7a4b-4967-9837-19d4796f3d14">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ab07d2a-7a4b-4967-9837-19d4796f3d14">&lt;strong&gt;</bpt>If you copy http:// from the portal, you have to change it to https:// when you paste it in the code.<ept id="1ab07d2a-7a4b-4967-9837-19d4796f3d14">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aafe06b-b825-4929-907d-1718e7a19a56" xml:space="preserve">
+          <source>This console application is designed to use a minimum amount of code to illustrate the steps that a client app has to go through.</source>
+          <target state="new">This console application is designed to use a minimum amount of code to illustrate the steps that a client app has to go through.</target>
+        </trans-unit>
+        <trans-unit id="ca211175-07ae-4a3e-9f41-f4ed9ddb0b0d" xml:space="preserve">
+          <source>A production application would not typically be a console application and would implement error handling and logging.</source>
+          <target state="new">A production application would not typically be a console application and would implement error handling and logging.</target>
+        </trans-unit>
+        <trans-unit id="873c5730-b4a5-4456-8404-4c87f7528598" xml:space="preserve">
+          <source>Here's an overview of what the code is doing:</source>
+          <target state="new">Here's an overview of what the code is doing:</target>
+        </trans-unit>
+        <trans-unit id="4a04a877-28f0-4a42-8be4-9427d9a12561" xml:space="preserve">
+          <source>Opens a browser to the gateway login URL for the configured identity provider, in this case Azure Active Directory.</source>
+          <target state="new">Opens a browser to the gateway login URL for the configured identity provider, in this case Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="b57403c4-b6f8-4634-b18c-2e8c491217bb" xml:space="preserve">
+          <source>Handles expected response URL after user logs in:  extract user ID and Zumo token, provide them to App Service client object.</source>
+          <target state="new">Handles expected response URL after user logs in:  extract user ID and Zumo token, provide them to App Service client object.</target>
+        </trans-unit>
+        <trans-unit id="fa88e415-4b28-4d7c-92aa-7d47d7cf656a" xml:space="preserve">
+          <source>Uses App Service client object to retrieve a gateway URL that will redirect to the Dropbox  link for login and consent.</source>
+          <target state="new">Uses App Service client object to retrieve a gateway URL that will redirect to the Dropbox  link for login and consent.</target>
+        </trans-unit>
+        <trans-unit id="6d4a9fcd-db5d-4220-9b74-bf2be88838d5" xml:space="preserve">
+          <source>Step 1 in the diagram.</source>
+          <target state="new">Step 1 in the diagram.</target>
+        </trans-unit>
+        <trans-unit id="45e8744f-09c3-412e-a05b-6a31ac7ade97" xml:space="preserve">
+          <source>Opens a browser to the gateway consent URL.</source>
+          <target state="new">Opens a browser to the gateway consent URL.</target>
+        </trans-unit>
+        <trans-unit id="50a5ab57-9cc4-4540-88b6-ed8f4d0a5120" xml:space="preserve">
+          <source>Browser gets redirected to Dropbox login and consent link.</source>
+          <target state="new">Browser gets redirected to Dropbox login and consent link.</target>
+        </trans-unit>
+        <trans-unit id="bc750ca9-63af-434d-b6bb-b22a90d2e929" xml:space="preserve">
+          <source>Step 2 in the diagram.</source>
+          <target state="new">Step 2 in the diagram.</target>
+        </trans-unit>
+        <trans-unit id="b77ac3a6-8309-49dc-9266-1d3bc9c65152" xml:space="preserve">
+          <source>Closes browser after user logs and gives consent at Dropbox.com.</source>
+          <target state="new">Closes browser after user logs and gives consent at Dropbox.com.</target>
+        </trans-unit>
+        <trans-unit id="3b75daa2-6f64-4c13-8be0-946f18287141" xml:space="preserve">
+          <source>Step 3 in the diagram.</source>
+          <target state="new">Step 3 in the diagram.</target>
+        </trans-unit>
+        <trans-unit id="07de4970-76fe-428d-98e3-3e0f16757285" xml:space="preserve">
+          <source>Calls the API app.</source>
+          <target state="new">Calls the API app.</target>
+        </trans-unit>
+        <trans-unit id="affbd16f-5079-40d4-b99d-39e65f9b3e38" xml:space="preserve">
+          <source>Step 5 in the diagram.</source>
+          <target state="new">Step 5 in the diagram.</target>
+        </trans-unit>
+        <trans-unit id="2e87440c-cba8-45aa-899b-6b85e521a9c5" xml:space="preserve">
+          <source>(Step 4 happens behind the scenes between Dropbox.com and the gateway, steps 6 and 7 are done from the API app, not the client.)</source>
+          <target state="new">(Step 4 happens behind the scenes between Dropbox.com and the gateway, steps 6 and 7 are done from the API app, not the client.)</target>
+        </trans-unit>
+        <trans-unit id="195a26e5-7d40-4896-9235-b1bc22a77e6c" xml:space="preserve">
+          <source><bpt id="a49424b0-3b42-41fe-bfb5-8c14e2c45083">&lt;linkText&gt;</bpt><ept id="a49424b0-3b42-41fe-bfb5-8c14e2c45083">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a49424b0-3b42-41fe-bfb5-8c14e2c45083">&lt;linkText&gt;</bpt><ept id="a49424b0-3b42-41fe-bfb5-8c14e2c45083">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d01c949-c4ca-42a4-a715-e2b86f5f74cf" xml:space="preserve">
+          <source>Additional notes:</source>
+          <target state="new">Additional notes:</target>
+        </trans-unit>
+        <trans-unit id="b2f10eda-140b-4bf5-a938-f94cfbaf4939" xml:space="preserve">
+          <source>The <bpt id="756ddfce-406f-47f0-a6ac-8e65914edcb4">&lt;code&gt;</bpt>STAThread<ept id="756ddfce-406f-47f0-a6ac-8e65914edcb4">&lt;/code&gt;</ept> attribute on the <bpt id="e0d86284-eff4-4b6c-ac16-93d5574dad09">&lt;code&gt;</bpt>Main<ept id="e0d86284-eff4-4b6c-ac16-93d5574dad09">&lt;/code&gt;</ept> method is required by the web browser control and is not related to setting up for or calling the API app.</source>
+          <target state="new">The <bpt id="756ddfce-406f-47f0-a6ac-8e65914edcb4">&lt;code&gt;</bpt>STAThread<ept id="756ddfce-406f-47f0-a6ac-8e65914edcb4">&lt;/code&gt;</ept> attribute on the <bpt id="e0d86284-eff4-4b6c-ac16-93d5574dad09">&lt;code&gt;</bpt>Main<ept id="e0d86284-eff4-4b6c-ac16-93d5574dad09">&lt;/code&gt;</ept> method is required by the web browser control and is not related to setting up for or calling the API app.</target>
+        </trans-unit>
+        <trans-unit id="bbe2be2c-aa9a-4bad-a8d2-d9167fc144b0" xml:space="preserve">
+          <source>The gateway login URL shown ends in <bpt id="34c9068b-9778-47ff-a410-6fc317b438fc">&lt;code&gt;</bpt>/aad<ept id="34c9068b-9778-47ff-a410-6fc317b438fc">&lt;/code&gt;</ept> for Azure Active Directory.</source>
+          <target state="new">The gateway login URL shown ends in <bpt id="34c9068b-9778-47ff-a410-6fc317b438fc">&lt;code&gt;</bpt>/aad<ept id="34c9068b-9778-47ff-a410-6fc317b438fc">&lt;/code&gt;</ept> for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="89cb1b15-1951-49a2-bdae-5c182b9beae4" xml:space="preserve">
+          <source>Here are the values to use for the other providers:</source>
+          <target state="new">Here are the values to use for the other providers:</target>
+        </trans-unit>
+        <trans-unit id="06525405-9cb0-495e-95b8-9eb95865b3f0" xml:space="preserve">
+          <source>"microsoftaccount"</source>
+          <target state="new">"microsoftaccount"</target>
+        </trans-unit>
+        <trans-unit id="e28501f4-d77e-45dc-ba20-3b461a6254f2" xml:space="preserve">
+          <source>"facebook"</source>
+          <target state="new">"facebook"</target>
+        </trans-unit>
+        <trans-unit id="d3d7b4dc-a0f6-44d6-9d19-f0fc684d0ee3" xml:space="preserve">
+          <source>"twitter"</source>
+          <target state="new">"twitter"</target>
+        </trans-unit>
+        <trans-unit id="7482268e-bc39-4e23-b531-feef1cab66d8" xml:space="preserve">
+          <source>"google"
+&lt;br/&gt;&lt;br/&gt;</source>
+          <target state="new">"google"
+&lt;br/&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="3d507b6e-0b60-4acf-b764-41b72ade97d4" xml:space="preserve">
+          <source>The second parameter for the <bpt id="6d2c6e7c-4f97-4495-8632-30c6fe5b64b1">&lt;code&gt;</bpt>GetConsentLinkAsync()<ept id="6d2c6e7c-4f97-4495-8632-30c6fe5b64b1">&lt;/code&gt;</ept> method is the callback URL that the consent server redirects to after the user logs in to Dropbox and gives consent to access the user's account.</source>
+          <target state="new">The second parameter for the <bpt id="6d2c6e7c-4f97-4495-8632-30c6fe5b64b1">&lt;code&gt;</bpt>GetConsentLinkAsync()<ept id="6d2c6e7c-4f97-4495-8632-30c6fe5b64b1">&lt;/code&gt;</ept> method is the callback URL that the consent server redirects to after the user logs in to Dropbox and gives consent to access the user's account.</target>
+        </trans-unit>
+        <trans-unit id="b0ec24e5-3e11-47a7-bc96-2f550d746e2b" xml:space="preserve">
+          <source>For this parameter you would normally specify the next web page that the user should go to in the client application.</source>
+          <target state="new">For this parameter you would normally specify the next web page that the user should go to in the client application.</target>
+        </trans-unit>
+        <trans-unit id="85a53e5f-f860-405a-a3b0-a85b65869597" xml:space="preserve">
+          <source>Since this demo code is in a console app, there is no application page to go to, and the code specifies the gateway URL just as a convenient landing page.</source>
+          <target state="new">Since this demo code is in a console app, there is no application page to go to, and the code specifies the gateway URL just as a convenient landing page.</target>
+        </trans-unit>
+        <trans-unit id="ff5fc48f-9ff0-4b6a-9ade-4c322da8ad84" xml:space="preserve">
+          <source>The client application should verify that it gets redirected to this URL and that there is no error message.</source>
+          <target state="new">The client application should verify that it gets redirected to this URL and that there is no error message.</target>
+        </trans-unit>
+        <trans-unit id="f4e49465-639a-41bc-a93c-cf395e61856c" xml:space="preserve">
+          <source>If the login/consent process fails, the redirect URL may contain an error message in the querystring.</source>
+          <target state="new">If the login/consent process fails, the redirect URL may contain an error message in the querystring.</target>
+        </trans-unit>
+        <trans-unit id="1cb51176-e0e5-44c7-9ab2-a9c000d6a101" xml:space="preserve">
+          <source>For more information, see the <bpt id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;linkText&gt;</bpt>Troubleshooting<ept id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;/linkText&gt;</ept><bpt id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;title&gt;</bpt><ept id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information, see the <bpt id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;linkText&gt;</bpt>Troubleshooting<ept id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;/linkText&gt;</ept><bpt id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;title&gt;</bpt><ept id="c64ee787-bb65-47c4-aec7-7ea4e152d44e">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="433e2d7e-a434-46d0-a921-0a5a2c53cf92" xml:space="preserve">
+          <source>Run the SimpleDropboxTest console application.</source>
+          <target state="new">Run the SimpleDropboxTest console application.</target>
+        </trans-unit>
+        <trans-unit id="5244e521-cb6a-427c-9fd1-629c93838186" xml:space="preserve">
+          <source>In the first logon page, sign in using your Azure Active Directory credentials (or credentials for another identity provider such as Google or Twitter if that's what you configured in the gateway).</source>
+          <target state="new">In the first logon page, sign in using your Azure Active Directory credentials (or credentials for another identity provider such as Google or Twitter if that's what you configured in the gateway).</target>
+        </trans-unit>
+        <trans-unit id="abfc6d8f-2b84-434a-b580-85523b15f2e6" xml:space="preserve">
+          <source><bpt id="5085ba7a-678d-44bc-b031-0daa4653cef7">&lt;linkText&gt;</bpt><ept id="5085ba7a-678d-44bc-b031-0daa4653cef7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5085ba7a-678d-44bc-b031-0daa4653cef7">&lt;linkText&gt;</bpt><ept id="5085ba7a-678d-44bc-b031-0daa4653cef7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="109707cf-f711-43a0-abbb-b463acb6e5dd" xml:space="preserve">
+          <source>In the Dropbox.com login page, sign in using your Dropbox credentials.</source>
+          <target state="new">In the Dropbox.com login page, sign in using your Dropbox credentials.</target>
+        </trans-unit>
+        <trans-unit id="fe5afac4-77da-4d48-8ac9-ee0bdb0da3bb" xml:space="preserve">
+          <source><bpt id="ad3748c5-7908-4976-99b4-0900b829a09a">&lt;linkText&gt;</bpt><ept id="ad3748c5-7908-4976-99b4-0900b829a09a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad3748c5-7908-4976-99b4-0900b829a09a">&lt;linkText&gt;</bpt><ept id="ad3748c5-7908-4976-99b4-0900b829a09a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d471d4a-cefa-48c1-891e-a808d214aa63" xml:space="preserve">
+          <source>In the Dropbox consent page, give the application permission to access your data.</source>
+          <target state="new">In the Dropbox consent page, give the application permission to access your data.</target>
+        </trans-unit>
+        <trans-unit id="2406cf1f-a758-4dfc-8cd0-3f08525e6057" xml:space="preserve">
+          <source><bpt id="83b5d5d9-3e4e-4578-bc2c-de69b221b13f">&lt;linkText&gt;</bpt><ept id="83b5d5d9-3e4e-4578-bc2c-de69b221b13f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83b5d5d9-3e4e-4578-bc2c-de69b221b13f">&lt;linkText&gt;</bpt><ept id="83b5d5d9-3e4e-4578-bc2c-de69b221b13f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d99d58d-7f23-47da-a19b-2786de87498d" xml:space="preserve">
+          <source>The console app then calls the API app and it returns a list of the files in your Dropbox account.</source>
+          <target state="new">The console app then calls the API app and it returns a list of the files in your Dropbox account.</target>
+        </trans-unit>
+        <trans-unit id="4686e0e4-5379-4740-8c54-bb5febe35baf" xml:space="preserve">
+          <source><bpt id="6b7a8afe-0590-4416-9230-d5db39c6a42d">&lt;linkText&gt;</bpt><ept id="6b7a8afe-0590-4416-9230-d5db39c6a42d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b7a8afe-0590-4416-9230-d5db39c6a42d">&lt;linkText&gt;</bpt><ept id="6b7a8afe-0590-4416-9230-d5db39c6a42d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="141ead09-451f-48da-9691-3475a04679aa" xml:space="preserve">
+          <source>This section contains the following topics:</source>
+          <target state="new">This section contains the following topics:</target>
+        </trans-unit>
+        <trans-unit id="dfb59f6a-f7c9-42c6-ac55-bee96806bd99" xml:space="preserve">
+          <source><bpt id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;linkText&gt;</bpt>HTTP Error 405 after gateway login<ept id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;/linkText&gt;</ept><bpt id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;title&gt;</bpt><ept id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;linkText&gt;</bpt>HTTP Error 405 after gateway login<ept id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;/linkText&gt;</ept><bpt id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;title&gt;</bpt><ept id="330b3a27-7ade-498b-9e85-f1549bc4cf7b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea7c1e62-0c1e-4ba8-9702-8227ca376ace" xml:space="preserve">
+          <source><bpt id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;linkText&gt;</bpt>HTTP Error 400 instead of Dropbox login page<ept id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;/linkText&gt;</ept><bpt id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;title&gt;</bpt><ept id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;linkText&gt;</bpt>HTTP Error 400 instead of Dropbox login page<ept id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;/linkText&gt;</ept><bpt id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;title&gt;</bpt><ept id="5a392359-ffa9-4fab-88d6-e0d5da2b1aec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eab145f2-8991-4bae-a989-a2eabe11a2c8" xml:space="preserve">
+          <source><bpt id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;linkText&gt;</bpt>HTTP Error 403 when calling the API app<ept id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;/linkText&gt;</ept><bpt id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;title&gt;</bpt><ept id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;linkText&gt;</bpt>HTTP Error 403 when calling the API app<ept id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;/linkText&gt;</ept><bpt id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;title&gt;</bpt><ept id="b9b7655a-7b5d-4f06-88a7-961ff8e5f517">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="663ee2f3-ec57-46ad-8157-a75bb713d44a" xml:space="preserve">
+          <source>If you get HTTP Error 405 when the code calls GetConsentLinkAsync, verify that you used https://, not http:// for the gateway URL.</source>
+          <target state="new">If you get HTTP Error 405 when the code calls GetConsentLinkAsync, verify that you used https://, not http:// for the gateway URL.</target>
+        </trans-unit>
+        <trans-unit id="9d3fa99a-9f4c-47b9-a27b-8ffaac76c5a5" xml:space="preserve">
+          <source><bpt id="1860723b-87bd-4446-803e-bb0af09b3f60">&lt;linkText&gt;</bpt><ept id="1860723b-87bd-4446-803e-bb0af09b3f60">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1860723b-87bd-4446-803e-bb0af09b3f60">&lt;linkText&gt;</bpt><ept id="1860723b-87bd-4446-803e-bb0af09b3f60">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c210a2a-d927-4416-9bd2-b70addd98750" xml:space="preserve">
+          <source>The 405 method not allowed error is received because the client attempts to make a non-SSL HTTP POST request, the gateway redirects to <bpt id="0cccd5d6-2eea-4f33-acc2-83294cf6907b">&lt;em&gt;</bpt>https://<ept id="0cccd5d6-2eea-4f33-acc2-83294cf6907b">&lt;/em&gt;</ept>, and the redirect causes a GET request.</source>
+          <target state="new">The 405 method not allowed error is received because the client attempts to make a non-SSL HTTP POST request, the gateway redirects to <bpt id="0cccd5d6-2eea-4f33-acc2-83294cf6907b">&lt;em&gt;</bpt>https://<ept id="0cccd5d6-2eea-4f33-acc2-83294cf6907b">&lt;/em&gt;</ept>, and the redirect causes a GET request.</target>
+        </trans-unit>
+        <trans-unit id="e96c916d-905e-4558-b8ae-5098b258ad30" xml:space="preserve">
+          <source>The URL for retrieving a consent link only accepts POST requests.</source>
+          <target state="new">The URL for retrieving a consent link only accepts POST requests.</target>
+        </trans-unit>
+        <trans-unit id="2f7c504d-ee1b-4194-a6b7-e81d3ae0c052" xml:space="preserve">
+          <source>Make sure that you have the correct <bpt id="b5d32440-fbd8-425c-bd0d-f260563e1038">&lt;strong&gt;</bpt>client ID<ept id="b5d32440-fbd8-425c-bd0d-f260563e1038">&lt;/strong&gt;</ept> in the API app's <bpt id="52e2c8ad-1728-4d17-a25d-083292b3583b">&lt;strong&gt;</bpt>Authentication<ept id="52e2c8ad-1728-4d17-a25d-083292b3583b">&lt;/strong&gt;</ept> blade, and make sure there are no leading or trailing spaces.</source>
+          <target state="new">Make sure that you have the correct <bpt id="b5d32440-fbd8-425c-bd0d-f260563e1038">&lt;strong&gt;</bpt>client ID<ept id="b5d32440-fbd8-425c-bd0d-f260563e1038">&lt;/strong&gt;</ept> in the API app's <bpt id="52e2c8ad-1728-4d17-a25d-083292b3583b">&lt;strong&gt;</bpt>Authentication<ept id="52e2c8ad-1728-4d17-a25d-083292b3583b">&lt;/strong&gt;</ept> blade, and make sure there are no leading or trailing spaces.</target>
+        </trans-unit>
+        <trans-unit id="ebe42a8d-7ccd-4ebe-ab7f-830b924262d0" xml:space="preserve">
+          <source>Make sure that the <bpt id="a53cf6df-9572-4ff3-a56d-a05757a72635">&lt;strong&gt;</bpt>Access Level<ept id="a53cf6df-9572-4ff3-a56d-a05757a72635">&lt;/strong&gt;</ept> of the API app is set to <bpt id="205e68dc-8e07-4c33-a29a-32235ec6c4da">&lt;strong&gt;</bpt>Public (authenticated)<ept id="205e68dc-8e07-4c33-a29a-32235ec6c4da">&lt;/strong&gt;</ept>, not <bpt id="064fb3cd-be2c-41fd-b402-a6a2e20c7b8e">&lt;strong&gt;</bpt>Internal<ept id="064fb3cd-be2c-41fd-b402-a6a2e20c7b8e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make sure that the <bpt id="a53cf6df-9572-4ff3-a56d-a05757a72635">&lt;strong&gt;</bpt>Access Level<ept id="a53cf6df-9572-4ff3-a56d-a05757a72635">&lt;/strong&gt;</ept> of the API app is set to <bpt id="205e68dc-8e07-4c33-a29a-32235ec6c4da">&lt;strong&gt;</bpt>Public (authenticated)<ept id="205e68dc-8e07-4c33-a29a-32235ec6c4da">&lt;/strong&gt;</ept>, not <bpt id="064fb3cd-be2c-41fd-b402-a6a2e20c7b8e">&lt;strong&gt;</bpt>Internal<ept id="064fb3cd-be2c-41fd-b402-a6a2e20c7b8e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d67c9c29-2a14-4637-b963-349083e48548" xml:space="preserve">
+          <source>Make sure that you have the correct <bpt id="9b8ffb0d-1f0e-40c8-b46f-15ff9682e492">&lt;strong&gt;</bpt>client secret<ept id="9b8ffb0d-1f0e-40c8-b46f-15ff9682e492">&lt;/strong&gt;</ept> in the API app's <bpt id="427a0eec-05d8-4e0c-bb90-b180c083e0e0">&lt;strong&gt;</bpt>Authentication<ept id="427a0eec-05d8-4e0c-bb90-b180c083e0e0">&lt;/strong&gt;</ept> blade, and make sure there are no leading or trailing spaces.</source>
+          <target state="new">Make sure that you have the correct <bpt id="9b8ffb0d-1f0e-40c8-b46f-15ff9682e492">&lt;strong&gt;</bpt>client secret<ept id="9b8ffb0d-1f0e-40c8-b46f-15ff9682e492">&lt;/strong&gt;</ept> in the API app's <bpt id="427a0eec-05d8-4e0c-bb90-b180c083e0e0">&lt;strong&gt;</bpt>Authentication<ept id="427a0eec-05d8-4e0c-bb90-b180c083e0e0">&lt;/strong&gt;</ept> blade, and make sure there are no leading or trailing spaces.</target>
+        </trans-unit>
+        <trans-unit id="edbd7f04-366d-496e-8e4b-4a05712a0063" xml:space="preserve">
+          <source>The redirect URL after Dropbox login may look like this example:</source>
+          <target state="new">The redirect URL after Dropbox login may look like this example:</target>
+        </trans-unit>
+        <trans-unit id="7981ff78-3743-4356-9070-cf2ce3c821e0" xml:space="preserve">
+          <source>If you remove the %3d%3d from the end of the <bpt id="f26f526e-225f-4ef8-9cb6-cafa08b53d2e">&lt;code&gt;</bpt>error<ept id="f26f526e-225f-4ef8-9cb6-cafa08b53d2e">&lt;/code&gt;</ept> querystring value, this is a valid base64 encoded string.</source>
+          <target state="new">If you remove the %3d%3d from the end of the <bpt id="f26f526e-225f-4ef8-9cb6-cafa08b53d2e">&lt;code&gt;</bpt>error<ept id="f26f526e-225f-4ef8-9cb6-cafa08b53d2e">&lt;/code&gt;</ept> querystring value, this is a valid base64 encoded string.</target>
+        </trans-unit>
+        <trans-unit id="be2fcb87-8d91-49b2-8fbe-2fe43d37ee35" xml:space="preserve">
+          <source>Decode the string to get the error message:</source>
+          <target state="new">Decode the string to get the error message:</target>
+        </trans-unit>
+        <trans-unit id="2956af4e-d031-4297-b9a1-f6d92da53389" xml:space="preserve">
+          <source>You've seen how to code and configure an API app that connects to a SaaS platform.</source>
+          <target state="new">You've seen how to code and configure an API app that connects to a SaaS platform.</target>
+        </trans-unit>
+        <trans-unit id="37c1e324-ce51-42dd-9343-50da7a896772" xml:space="preserve">
+          <source>For links to other tutorials about how to handle authentication in API apps, see <bpt id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps - Next steps<ept id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;/linkText&gt;</ept><bpt id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;title&gt;</bpt><ept id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For links to other tutorials about how to handle authentication in API apps, see <bpt id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;linkText&gt;</bpt>Authentication for API apps and mobile apps - Next steps<ept id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;/linkText&gt;</ept><bpt id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;title&gt;</bpt><ept id="d7777f71-a523-4efd-95f0-a4f734cdece6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34531bbb-6727-4547-b070-34552d7bd494" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="7344b9fe-d40f-4972-b4ed-de33f3c80db5" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="de67cf98-ee00-4c74-9b98-ae4dbe719eff" />
+    </body>
+  </file>
+</xliff>

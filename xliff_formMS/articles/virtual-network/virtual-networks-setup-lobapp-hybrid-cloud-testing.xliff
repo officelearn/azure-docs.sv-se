@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="deda3c48-b5a6-4fa5-a1c4-b97039542107" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="deda3c48-b5a6-4fa5-a1c4-b97039542107" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="068196ba-51cd-40f8-86ca-c07ae2b666f6">
+        <trans-unit id="e983e5b9-6c65-45a1-b266-9bc06913f481" xml:space="preserve">
+          <source>LOB application test environment | Microsoft Azure</source>
+          <target state="new">LOB application test environment | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c46a733f-c7a4-4e8c-b89f-b61d11da6940" xml:space="preserve">
+          <source>Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing.</source>
+          <target state="new">Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing.</target>
+        </trans-unit>
+        <trans-unit id="03af30ef-509d-47e7-9c3b-3792b9153340" xml:space="preserve">
+          <source>This topic steps you through creating a hybrid cloud environment for testing an intranet line-of-business (LOB) application hosted in Microsoft Azure.</source>
+          <target state="new">This topic steps you through creating a hybrid cloud environment for testing an intranet line-of-business (LOB) application hosted in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="854f5eac-6883-47d9-8bae-bdeb46e214b9" xml:space="preserve">
+          <source>Here is the resulting configuration.</source>
+          <target state="new">Here is the resulting configuration.</target>
+        </trans-unit>
+        <trans-unit id="ff4556c2-d940-4025-82d2-e5c1ab1ffce8" xml:space="preserve">
+          <source><bpt id="3aed5661-fd55-4455-bb73-3d8d6d8080c6">&lt;linkText&gt;</bpt><ept id="3aed5661-fd55-4455-bb73-3d8d6d8080c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3aed5661-fd55-4455-bb73-3d8d6d8080c6">&lt;linkText&gt;</bpt><ept id="3aed5661-fd55-4455-bb73-3d8d6d8080c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70fce854-09b9-4043-8d16-4c9ae722a7bb" xml:space="preserve">
+          <source>For an example of a production LOB application hosted in Azure, see the <bpt id="5ca577c4-76cf-42ea-b27b-e01c4fa46cdc">&lt;strong&gt;</bpt>Line of business applications<ept id="5ca577c4-76cf-42ea-b27b-e01c4fa46cdc">&lt;/strong&gt;</ept> architecture blueprint at <bpt id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;linkText&gt;</bpt>Microsoft Software Architecture Diagrams and Blueprints<ept id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;/linkText&gt;</ept><bpt id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;title&gt;</bpt><ept id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an example of a production LOB application hosted in Azure, see the <bpt id="5ca577c4-76cf-42ea-b27b-e01c4fa46cdc">&lt;strong&gt;</bpt>Line of business applications<ept id="5ca577c4-76cf-42ea-b27b-e01c4fa46cdc">&lt;/strong&gt;</ept> architecture blueprint at <bpt id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;linkText&gt;</bpt>Microsoft Software Architecture Diagrams and Blueprints<ept id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;/linkText&gt;</ept><bpt id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;title&gt;</bpt><ept id="8739d507-751f-45c2-bd24-eb4253193cc1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78887ca3-a3ff-4710-ac26-5c8e743b95d3" xml:space="preserve">
+          <source>This configuration simulates an LOB application in Azure production environment from your location on the Internet.</source>
+          <target state="new">This configuration simulates an LOB application in Azure production environment from your location on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="825ba122-c24e-4ce1-978e-139d1b09fed1" xml:space="preserve">
+          <source>It consists of:</source>
+          <target state="new">It consists of:</target>
+        </trans-unit>
+        <trans-unit id="1761000d-4012-4696-bfcc-d8c7c4cafed1" xml:space="preserve">
+          <source>A simplified on-premises network (the Corpnet subnet).</source>
+          <target state="new">A simplified on-premises network (the Corpnet subnet).</target>
+        </trans-unit>
+        <trans-unit id="79a77e87-12b2-4df4-bf91-5b962f7da783" xml:space="preserve">
+          <source>A cross-premises virtual network hosted in Azure (TestVNET).</source>
+          <target state="new">A cross-premises virtual network hosted in Azure (TestVNET).</target>
+        </trans-unit>
+        <trans-unit id="cc703bf3-6e7c-44e7-8590-368d9632087f" xml:space="preserve">
+          <source>A site-to-site VPN connection.</source>
+          <target state="new">A site-to-site VPN connection.</target>
+        </trans-unit>
+        <trans-unit id="e8c6a4a0-7dc7-43f6-8b1f-ce19b282e989" xml:space="preserve">
+          <source>A line of business server, SQL server, and secondary domain controller in the TestVNET virtual network.</source>
+          <target state="new">A line of business server, SQL server, and secondary domain controller in the TestVNET virtual network.</target>
+        </trans-unit>
+        <trans-unit id="4b1808f0-c923-4006-8d79-27c30b9be589" xml:space="preserve">
+          <source>This configuration provides a basis and common starting point from which you can:</source>
+          <target state="new">This configuration provides a basis and common starting point from which you can:</target>
+        </trans-unit>
+        <trans-unit id="390c6674-4dbb-4bf3-81ae-b7396c89d565" xml:space="preserve">
+          <source>Develop and test LOB applications hosted on Internet Information Services (IIS) with a SQL Server 2014 database backend in Azure.</source>
+          <target state="new">Develop and test LOB applications hosted on Internet Information Services (IIS) with a SQL Server 2014 database backend in Azure.</target>
+        </trans-unit>
+        <trans-unit id="f7d1e9cd-25f8-434d-9b9e-13507fb35262" xml:space="preserve">
+          <source>Perform testing of this hybrid cloud-based IT workload.</source>
+          <target state="new">Perform testing of this hybrid cloud-based IT workload.</target>
+        </trans-unit>
+        <trans-unit id="b66b342c-b3ac-4f00-b6a1-efc2de42966d" xml:space="preserve">
+          <source>There are three major phases to setting up this hybrid cloud test environment:</source>
+          <target state="new">There are three major phases to setting up this hybrid cloud test environment:</target>
+        </trans-unit>
+        <trans-unit id="beb28be8-c8f0-4db3-898c-a5b28294dbd6" xml:space="preserve">
+          <source>Set up the hybrid cloud environment for testing.</source>
+          <target state="new">Set up the hybrid cloud environment for testing.</target>
+        </trans-unit>
+        <trans-unit id="4fbc5d99-45e2-420e-8637-3013a9222dad" xml:space="preserve">
+          <source>Configure the SQL server computer (SQL1).</source>
+          <target state="new">Configure the SQL server computer (SQL1).</target>
+        </trans-unit>
+        <trans-unit id="65bed5f8-a6c2-467e-8346-e5c0b0b0feeb" xml:space="preserve">
+          <source>Configure the LOB server (LOB1).</source>
+          <target state="new">Configure the LOB server (LOB1).</target>
+        </trans-unit>
+        <trans-unit id="f5f39759-fc14-4181-ae85-f10e2f76b920" xml:space="preserve">
+          <source>If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;linkText&gt;</bpt>Try Azure<ept id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;/linkText&gt;</ept><bpt id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;title&gt;</bpt><ept id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have an Azure subscription, you can sign up for a free trial at <bpt id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;linkText&gt;</bpt>Try Azure<ept id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;/linkText&gt;</ept><bpt id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;title&gt;</bpt><ept id="72c1e20e-73cb-493b-b993-026fb24a9d62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8415bf5-e542-476d-9c69-0e3fc65cc133" xml:space="preserve">
+          <source>If you have an MSDN Subscription, see <bpt id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;/linkText&gt;</ept><bpt id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;title&gt;</bpt><ept id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN Subscription, see <bpt id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;linkText&gt;</bpt>Azure benefit for MSDN subscribers<ept id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;/linkText&gt;</ept><bpt id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;title&gt;</bpt><ept id="562cf7a5-5b97-4e84-921e-bb6086d3cd2e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b16c075b-b2ff-4abd-8bdc-6b0c15fab66b" xml:space="preserve">
+          <source>Use the instructions in the <bpt id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;/linkText&gt;</ept><bpt id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;title&gt;</bpt><ept id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">Use the instructions in the <bpt id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;/linkText&gt;</ept><bpt id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;title&gt;</bpt><ept id="efb983da-c3d0-4d69-8496-c8de552d2c2d">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="e4002025-e55c-47c6-9666-a4d75f9a0db2" xml:space="preserve">
+          <source>Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.</source>
+          <target state="new">Because this test environment does not require the presence of the APP1 server on the Corpnet subnet, feel free to shut it down for now.</target>
+        </trans-unit>
+        <trans-unit id="f6f03d74-a1d9-45eb-a4ca-71019b95a58c" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="134427eb-4a46-4fd6-b7b8-f00fdae0e4d0" xml:space="preserve">
+          <source><bpt id="5ca86537-053b-400b-bee5-a345af878e0d">&lt;linkText&gt;</bpt><ept id="5ca86537-053b-400b-bee5-a345af878e0d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ca86537-053b-400b-bee5-a345af878e0d">&lt;linkText&gt;</bpt><ept id="5ca86537-053b-400b-bee5-a345af878e0d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d9a9d3e-9e6c-4832-951f-3e49170a1efd" xml:space="preserve">
+          <source>For Phase 1, you can also set up the simulated hybrid cloud test environment.</source>
+          <target state="new">For Phase 1, you can also set up the simulated hybrid cloud test environment.</target>
+        </trans-unit>
+        <trans-unit id="3a893f48-2e6c-428a-a68c-cd6a99a56530" xml:space="preserve">
+          <source>See <bpt id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;/linkText&gt;</ept><bpt id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;title&gt;</bpt><ept id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;/title&gt;</ept> for the instructions.</source>
+          <target state="new">See <bpt id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;/linkText&gt;</ept><bpt id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;title&gt;</bpt><ept id="0b41b8ec-2e64-4432-ac94-4d9edf7c5aa6">&lt;/title&gt;</ept> for the instructions.</target>
+        </trans-unit>
+        <trans-unit id="ada7a23a-878e-48d5-981b-1cfbea7a9200" xml:space="preserve">
+          <source>From the Azure Management Portal, start the DC2 computer if needed.</source>
+          <target state="new">From the Azure Management Portal, start the DC2 computer if needed.</target>
+        </trans-unit>
+        <trans-unit id="17515382-c810-445e-bd11-b874341d055b" xml:space="preserve">
+          <source>Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the &lt; and &gt; characters.</source>
+          <target state="new">Next, create an Azure Virtual Machine for SQL1 with these commands at an Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the &lt; and &gt; characters.</target>
+        </trans-unit>
+        <trans-unit id="3b1bea4f-1631-4ab5-a8dc-3329af4f6e8c" xml:space="preserve">
+          <source>Next, connect to the new SQL1 virtual machine <bpt id="ca74bf85-0cd4-4295-b62d-da1b58198d4f">&lt;em&gt;</bpt>using the local administrator account<ept id="ca74bf85-0cd4-4295-b62d-da1b58198d4f">&lt;/em&gt;</ept>.</source>
+          <target state="new">Next, connect to the new SQL1 virtual machine <bpt id="ca74bf85-0cd4-4295-b62d-da1b58198d4f">&lt;em&gt;</bpt>using the local administrator account<ept id="ca74bf85-0cd4-4295-b62d-da1b58198d4f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e01c6486-5a34-4cc6-90c9-ac0ba61a85ba" xml:space="preserve">
+          <source>In the left pane of the Azure Management Portal, click <bpt id="630bc1c7-4751-4bd3-bddd-9ae83e7b52bd">&lt;strong&gt;</bpt>Virtual Machines<ept id="630bc1c7-4751-4bd3-bddd-9ae83e7b52bd">&lt;/strong&gt;</ept>, and then click <bpt id="6dd5ebd4-9b84-491a-a3d0-f4c07d62b9ec">&lt;strong&gt;</bpt>Running<ept id="6dd5ebd4-9b84-491a-a3d0-f4c07d62b9ec">&lt;/strong&gt;</ept> in the Status column for SQL1.</source>
+          <target state="new">In the left pane of the Azure Management Portal, click <bpt id="630bc1c7-4751-4bd3-bddd-9ae83e7b52bd">&lt;strong&gt;</bpt>Virtual Machines<ept id="630bc1c7-4751-4bd3-bddd-9ae83e7b52bd">&lt;/strong&gt;</ept>, and then click <bpt id="6dd5ebd4-9b84-491a-a3d0-f4c07d62b9ec">&lt;strong&gt;</bpt>Running<ept id="6dd5ebd4-9b84-491a-a3d0-f4c07d62b9ec">&lt;/strong&gt;</ept> in the Status column for SQL1.</target>
+        </trans-unit>
+        <trans-unit id="8f05ccd1-a429-4f2c-979b-8e3f8e05b828" xml:space="preserve">
+          <source>In the task bar, click <bpt id="f9714c9a-f381-4f58-8c75-9e0108a40d55">&lt;strong&gt;</bpt>Connect<ept id="f9714c9a-f381-4f58-8c75-9e0108a40d55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the task bar, click <bpt id="f9714c9a-f381-4f58-8c75-9e0108a40d55">&lt;strong&gt;</bpt>Connect<ept id="f9714c9a-f381-4f58-8c75-9e0108a40d55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1513d064-8cd9-4fa3-b19f-9e0396de4974" xml:space="preserve">
+          <source>When prompted to open SQL1.rdp, click <bpt id="838e444b-58f4-43e0-b642-f9a547833770">&lt;strong&gt;</bpt>Open<ept id="838e444b-58f4-43e0-b642-f9a547833770">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted to open SQL1.rdp, click <bpt id="838e444b-58f4-43e0-b642-f9a547833770">&lt;strong&gt;</bpt>Open<ept id="838e444b-58f4-43e0-b642-f9a547833770">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b05e8552-ad5b-4f41-b71e-e79aca83d87c" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box, click <bpt id="f7354ee9-9f7d-4ade-822e-d7290bab3c3f">&lt;strong&gt;</bpt>Connect<ept id="f7354ee9-9f7d-4ade-822e-d7290bab3c3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box, click <bpt id="f7354ee9-9f7d-4ade-822e-d7290bab3c3f">&lt;strong&gt;</bpt>Connect<ept id="f7354ee9-9f7d-4ade-822e-d7290bab3c3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d2e3820-dbdc-411a-8155-138c2d013e2a" xml:space="preserve">
+          <source>When prompted for credentials, use these:</source>
+          <target state="new">When prompted for credentials, use these:</target>
+        </trans-unit>
+        <trans-unit id="5e58a1e7-8c5c-4b4f-b4ea-2f7e0d8f4659" xml:space="preserve">
+          <source>Name: <bpt id="eda147a9-0d36-4ff8-a7fa-85d958d61ed8">&lt;strong&gt;</bpt>SQL1\\<ept id="eda147a9-0d36-4ff8-a7fa-85d958d61ed8">&lt;/strong&gt;</ept>[Local administrator account name]</source>
+          <target state="new">Name: <bpt id="eda147a9-0d36-4ff8-a7fa-85d958d61ed8">&lt;strong&gt;</bpt>SQL1\\<ept id="eda147a9-0d36-4ff8-a7fa-85d958d61ed8">&lt;/strong&gt;</ept>[Local administrator account name]</target>
+        </trans-unit>
+        <trans-unit id="32a0bcc2-3565-4268-a56b-2e639bf3e42e" xml:space="preserve">
+          <source>Password: [Local administrator account password]</source>
+          <target state="new">Password: [Local administrator account password]</target>
+        </trans-unit>
+        <trans-unit id="288926f9-8c4d-45cd-ad7e-b58d41af3ec7" xml:space="preserve">
+          <source>When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="2c25b43f-2db8-4759-8fe5-efb3a555e87d">&lt;strong&gt;</bpt>Yes<ept id="2c25b43f-2db8-4759-8fe5-efb3a555e87d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted with a Remote Desktop Connection message box referring to certificates, click <bpt id="2c25b43f-2db8-4759-8fe5-efb3a555e87d">&lt;strong&gt;</bpt>Yes<ept id="2c25b43f-2db8-4759-8fe5-efb3a555e87d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf02c560-768a-457d-b2e2-568409153fd1" xml:space="preserve">
+          <source>Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server.</source>
+          <target state="new">Next, configure Windows Firewall rules to allow traffic for basic connectivity testing and SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="13150237-cc14-42a5-abeb-08efb8b32ad6" xml:space="preserve">
+          <source>From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.</source>
+          <target state="new">From an administrator-level Windows PowerShell command prompt on SQL1, run these commands.</target>
+        </trans-unit>
+        <trans-unit id="a82fb108-472e-490f-a01d-e389e4902ca3" xml:space="preserve">
+          <source>The ping command should result in four successful replies from IP address 10.0.0.1.</source>
+          <target state="new">The ping command should result in four successful replies from IP address 10.0.0.1.</target>
+        </trans-unit>
+        <trans-unit id="ed67393d-a813-4084-baa9-0aac8086081f" xml:space="preserve">
+          <source>Next, add the extra data disk as a new volume with the drive letter F:.</source>
+          <target state="new">Next, add the extra data disk as a new volume with the drive letter F:.</target>
+        </trans-unit>
+        <trans-unit id="23159e4c-63f6-4a0a-80d2-bb7045d64102" xml:space="preserve">
+          <source>In the left pane of Server Manager, click <bpt id="f8ec51a6-6a76-480b-b4a5-38d36f7d51eb">&lt;strong&gt;</bpt>File and Storage Services<ept id="f8ec51a6-6a76-480b-b4a5-38d36f7d51eb">&lt;/strong&gt;</ept>, and then click <bpt id="272a0340-49f9-4ef3-b3cf-4225683a9144">&lt;strong&gt;</bpt>Disks<ept id="272a0340-49f9-4ef3-b3cf-4225683a9144">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of Server Manager, click <bpt id="f8ec51a6-6a76-480b-b4a5-38d36f7d51eb">&lt;strong&gt;</bpt>File and Storage Services<ept id="f8ec51a6-6a76-480b-b4a5-38d36f7d51eb">&lt;/strong&gt;</ept>, and then click <bpt id="272a0340-49f9-4ef3-b3cf-4225683a9144">&lt;strong&gt;</bpt>Disks<ept id="272a0340-49f9-4ef3-b3cf-4225683a9144">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5c1a122-cfac-4556-914f-d42264edb42b" xml:space="preserve">
+          <source>In the contents pane, in the <bpt id="e787dc07-eac5-4eee-b750-1164697bc059">&lt;strong&gt;</bpt>Disks<ept id="e787dc07-eac5-4eee-b750-1164697bc059">&lt;/strong&gt;</ept> group, click <bpt id="6c9586d1-152f-4a2b-b0c4-b193fdc4bfdf">&lt;strong&gt;</bpt>disk 2<ept id="6c9586d1-152f-4a2b-b0c4-b193fdc4bfdf">&lt;/strong&gt;</ept> (with the <bpt id="80e28fde-3053-4f05-9b6e-abbd218a1ce0">&lt;strong&gt;</bpt>Partition<ept id="80e28fde-3053-4f05-9b6e-abbd218a1ce0">&lt;/strong&gt;</ept> set to <bpt id="bff3260c-69bc-4237-9844-e4fe8ad7cd4b">&lt;strong&gt;</bpt>Unknown<ept id="bff3260c-69bc-4237-9844-e4fe8ad7cd4b">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In the contents pane, in the <bpt id="e787dc07-eac5-4eee-b750-1164697bc059">&lt;strong&gt;</bpt>Disks<ept id="e787dc07-eac5-4eee-b750-1164697bc059">&lt;/strong&gt;</ept> group, click <bpt id="6c9586d1-152f-4a2b-b0c4-b193fdc4bfdf">&lt;strong&gt;</bpt>disk 2<ept id="6c9586d1-152f-4a2b-b0c4-b193fdc4bfdf">&lt;/strong&gt;</ept> (with the <bpt id="80e28fde-3053-4f05-9b6e-abbd218a1ce0">&lt;strong&gt;</bpt>Partition<ept id="80e28fde-3053-4f05-9b6e-abbd218a1ce0">&lt;/strong&gt;</ept> set to <bpt id="bff3260c-69bc-4237-9844-e4fe8ad7cd4b">&lt;strong&gt;</bpt>Unknown<ept id="bff3260c-69bc-4237-9844-e4fe8ad7cd4b">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="238153e5-822a-4493-9d5b-809d7c4a427d" xml:space="preserve">
+          <source>Click <bpt id="198d7a02-9123-490d-b547-a11a294c2e47">&lt;strong&gt;</bpt>Tasks<ept id="198d7a02-9123-490d-b547-a11a294c2e47">&lt;/strong&gt;</ept>, and then click <bpt id="65ca69ea-8610-4f35-992b-3433168a25a1">&lt;strong&gt;</bpt>New Volume<ept id="65ca69ea-8610-4f35-992b-3433168a25a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="198d7a02-9123-490d-b547-a11a294c2e47">&lt;strong&gt;</bpt>Tasks<ept id="198d7a02-9123-490d-b547-a11a294c2e47">&lt;/strong&gt;</ept>, and then click <bpt id="65ca69ea-8610-4f35-992b-3433168a25a1">&lt;strong&gt;</bpt>New Volume<ept id="65ca69ea-8610-4f35-992b-3433168a25a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06983b99-c8a0-439f-869d-bfbe2e5ae3d6" xml:space="preserve">
+          <source>On the Before you begin page of the New Volume Wizard, click <bpt id="91d8e9f9-ea7b-4052-a266-d3cb910fadb4">&lt;strong&gt;</bpt>Next<ept id="91d8e9f9-ea7b-4052-a266-d3cb910fadb4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page of the New Volume Wizard, click <bpt id="91d8e9f9-ea7b-4052-a266-d3cb910fadb4">&lt;strong&gt;</bpt>Next<ept id="91d8e9f9-ea7b-4052-a266-d3cb910fadb4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95a89e9a-2587-4487-bcda-c9b751deb973" xml:space="preserve">
+          <source>On the Select the server and disk page, click <bpt id="1faf8bd6-8bb0-4c06-b906-d4c74245ecf3">&lt;strong&gt;</bpt>Disk 2<ept id="1faf8bd6-8bb0-4c06-b906-d4c74245ecf3">&lt;/strong&gt;</ept>, and then click <bpt id="36b4dcdf-18bb-415e-b9bf-53a52f3b0793">&lt;strong&gt;</bpt>Next<ept id="36b4dcdf-18bb-415e-b9bf-53a52f3b0793">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select the server and disk page, click <bpt id="1faf8bd6-8bb0-4c06-b906-d4c74245ecf3">&lt;strong&gt;</bpt>Disk 2<ept id="1faf8bd6-8bb0-4c06-b906-d4c74245ecf3">&lt;/strong&gt;</ept>, and then click <bpt id="36b4dcdf-18bb-415e-b9bf-53a52f3b0793">&lt;strong&gt;</bpt>Next<ept id="36b4dcdf-18bb-415e-b9bf-53a52f3b0793">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53536751-5e55-4d44-99bb-7dede3082a92" xml:space="preserve">
+          <source>When prompted, click <bpt id="a358457d-649d-4ab3-9938-4df120404a20">&lt;strong&gt;</bpt>OK<ept id="a358457d-649d-4ab3-9938-4df120404a20">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="a358457d-649d-4ab3-9938-4df120404a20">&lt;strong&gt;</bpt>OK<ept id="a358457d-649d-4ab3-9938-4df120404a20">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f632eae-2f50-49e1-bc11-4570e6cb87e0" xml:space="preserve">
+          <source>On the Specify the size of the volume page, click <bpt id="4cbb683a-8278-4955-a475-3be79aa098eb">&lt;strong&gt;</bpt>Next<ept id="4cbb683a-8278-4955-a475-3be79aa098eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the size of the volume page, click <bpt id="4cbb683a-8278-4955-a475-3be79aa098eb">&lt;strong&gt;</bpt>Next<ept id="4cbb683a-8278-4955-a475-3be79aa098eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="038032ad-5781-4837-90c7-8d8c94a63bd4" xml:space="preserve">
+          <source>On the Assign to a drive letter or folder page, click <bpt id="412ef043-70a6-4ef1-8271-c156b5d4c830">&lt;strong&gt;</bpt>Next<ept id="412ef043-70a6-4ef1-8271-c156b5d4c830">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Assign to a drive letter or folder page, click <bpt id="412ef043-70a6-4ef1-8271-c156b5d4c830">&lt;strong&gt;</bpt>Next<ept id="412ef043-70a6-4ef1-8271-c156b5d4c830">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85c234cd-57a4-4791-a7e3-59bb5e237d0d" xml:space="preserve">
+          <source>On the Select file system settings page, click <bpt id="052a6aaa-13dd-4e20-838b-ca3a28073620">&lt;strong&gt;</bpt>Next<ept id="052a6aaa-13dd-4e20-838b-ca3a28073620">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select file system settings page, click <bpt id="052a6aaa-13dd-4e20-838b-ca3a28073620">&lt;strong&gt;</bpt>Next<ept id="052a6aaa-13dd-4e20-838b-ca3a28073620">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79571151-e413-47b9-bed0-814ff14a3d6a" xml:space="preserve">
+          <source>On the Confirm selections page, click <bpt id="705dc022-61d2-47a9-b227-15fe203b1507">&lt;strong&gt;</bpt>Create<ept id="705dc022-61d2-47a9-b227-15fe203b1507">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Confirm selections page, click <bpt id="705dc022-61d2-47a9-b227-15fe203b1507">&lt;strong&gt;</bpt>Create<ept id="705dc022-61d2-47a9-b227-15fe203b1507">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48d412da-7368-4467-874f-abc676824379" xml:space="preserve">
+          <source>When complete, click <bpt id="4bcf534a-cd20-4742-a704-73a5cc958f42">&lt;strong&gt;</bpt>Close<ept id="4bcf534a-cd20-4742-a704-73a5cc958f42">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When complete, click <bpt id="4bcf534a-cd20-4742-a704-73a5cc958f42">&lt;strong&gt;</bpt>Close<ept id="4bcf534a-cd20-4742-a704-73a5cc958f42">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97414b9c-8976-49b1-bc8d-f11d7b7e526e" xml:space="preserve">
+          <source>Run these commands at the Windows PowerShell command prompt on SQL1:</source>
+          <target state="new">Run these commands at the Windows PowerShell command prompt on SQL1:</target>
+        </trans-unit>
+        <trans-unit id="457f7731-bc5d-4dab-93b3-3c23e3ec3a2b" xml:space="preserve">
+          <source>Next, configure SQL Server 2014 to use the F: drive for new databases and for user account permissions.</source>
+          <target state="new">Next, configure SQL Server 2014 to use the F: drive for new databases and for user account permissions.</target>
+        </trans-unit>
+        <trans-unit id="dd03bd0b-0924-4227-adde-6a3685c53009" xml:space="preserve">
+          <source>From the Start screen, type <bpt id="39e13d46-c03a-4c39-9864-3e6b0a253363">&lt;strong&gt;</bpt>SQL Server Management<ept id="39e13d46-c03a-4c39-9864-3e6b0a253363">&lt;/strong&gt;</ept>, and then click <bpt id="b420f14c-95c4-4586-9e62-fb210fa0a4eb">&lt;strong&gt;</bpt>SQL Server 2014 Management Studio<ept id="b420f14c-95c4-4586-9e62-fb210fa0a4eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen, type <bpt id="39e13d46-c03a-4c39-9864-3e6b0a253363">&lt;strong&gt;</bpt>SQL Server Management<ept id="39e13d46-c03a-4c39-9864-3e6b0a253363">&lt;/strong&gt;</ept>, and then click <bpt id="b420f14c-95c4-4586-9e62-fb210fa0a4eb">&lt;strong&gt;</bpt>SQL Server 2014 Management Studio<ept id="b420f14c-95c4-4586-9e62-fb210fa0a4eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c13c041f-df7a-48dd-83ff-d75953bdc2de" xml:space="preserve">
+          <source>In <bpt id="820fb83b-4d94-42cc-9652-a8feb859e83a">&lt;strong&gt;</bpt>Connect to Server<ept id="820fb83b-4d94-42cc-9652-a8feb859e83a">&lt;/strong&gt;</ept>, click <bpt id="1c184cd1-46ff-4cab-b847-fcea51a96ee9">&lt;strong&gt;</bpt>Connect<ept id="1c184cd1-46ff-4cab-b847-fcea51a96ee9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="820fb83b-4d94-42cc-9652-a8feb859e83a">&lt;strong&gt;</bpt>Connect to Server<ept id="820fb83b-4d94-42cc-9652-a8feb859e83a">&lt;/strong&gt;</ept>, click <bpt id="1c184cd1-46ff-4cab-b847-fcea51a96ee9">&lt;strong&gt;</bpt>Connect<ept id="1c184cd1-46ff-4cab-b847-fcea51a96ee9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74c4f6cc-46d0-4999-a398-3a4428b47b2a" xml:space="preserve">
+          <source>In the Object Explorer tree pane, right-click <bpt id="84fd5140-3d42-4fda-ae0b-ae0370af86e2">&lt;strong&gt;</bpt>SQL1<ept id="84fd5140-3d42-4fda-ae0b-ae0370af86e2">&lt;/strong&gt;</ept>, and then click <bpt id="d501d53d-ae12-4519-a2fb-52cd9d384502">&lt;strong&gt;</bpt>Properties<ept id="d501d53d-ae12-4519-a2fb-52cd9d384502">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Object Explorer tree pane, right-click <bpt id="84fd5140-3d42-4fda-ae0b-ae0370af86e2">&lt;strong&gt;</bpt>SQL1<ept id="84fd5140-3d42-4fda-ae0b-ae0370af86e2">&lt;/strong&gt;</ept>, and then click <bpt id="d501d53d-ae12-4519-a2fb-52cd9d384502">&lt;strong&gt;</bpt>Properties<ept id="d501d53d-ae12-4519-a2fb-52cd9d384502">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4eb74a03-0c3c-4757-a2a9-728e0159140d" xml:space="preserve">
+          <source>In the <bpt id="4dced107-1513-4ded-b5f7-b738cafb9861">&lt;strong&gt;</bpt>Server Properties<ept id="4dced107-1513-4ded-b5f7-b738cafb9861">&lt;/strong&gt;</ept> window, click <bpt id="ae422807-c661-4c1b-8111-969c0d3e574f">&lt;strong&gt;</bpt>Database Settings<ept id="ae422807-c661-4c1b-8111-969c0d3e574f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4dced107-1513-4ded-b5f7-b738cafb9861">&lt;strong&gt;</bpt>Server Properties<ept id="4dced107-1513-4ded-b5f7-b738cafb9861">&lt;/strong&gt;</ept> window, click <bpt id="ae422807-c661-4c1b-8111-969c0d3e574f">&lt;strong&gt;</bpt>Database Settings<ept id="ae422807-c661-4c1b-8111-969c0d3e574f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14361a78-b72d-493b-94a5-e588f9dcde01" xml:space="preserve">
+          <source>Locate the <bpt id="e1a14ceb-34c1-41ec-9e0f-46b31ae99fb3">&lt;strong&gt;</bpt>Database default locations<ept id="e1a14ceb-34c1-41ec-9e0f-46b31ae99fb3">&lt;/strong&gt;</ept> and set these values: </source>
+          <target state="new">Locate the <bpt id="e1a14ceb-34c1-41ec-9e0f-46b31ae99fb3">&lt;strong&gt;</bpt>Database default locations<ept id="e1a14ceb-34c1-41ec-9e0f-46b31ae99fb3">&lt;/strong&gt;</ept> and set these values: </target>
+        </trans-unit>
+        <trans-unit id="db2e3ac5-90eb-4dd8-a615-27b6b375a97b" xml:space="preserve">
+          <source>For <bpt id="82c60e83-6909-400a-b169-9fd737b299e4">&lt;strong&gt;</bpt>Data<ept id="82c60e83-6909-400a-b169-9fd737b299e4">&lt;/strong&gt;</ept>, type the path <bpt id="5b52ffb4-5f61-44a9-9942-3edad07dbe3f">&lt;strong&gt;</bpt>f:\Data<ept id="5b52ffb4-5f61-44a9-9942-3edad07dbe3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="82c60e83-6909-400a-b169-9fd737b299e4">&lt;strong&gt;</bpt>Data<ept id="82c60e83-6909-400a-b169-9fd737b299e4">&lt;/strong&gt;</ept>, type the path <bpt id="5b52ffb4-5f61-44a9-9942-3edad07dbe3f">&lt;strong&gt;</bpt>f:\Data<ept id="5b52ffb4-5f61-44a9-9942-3edad07dbe3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d325a591-b88f-4861-9b8b-2f96b3ff2caa" xml:space="preserve">
+          <source>For <bpt id="380d193d-613c-472c-888c-5dac273942a7">&lt;strong&gt;</bpt>Log<ept id="380d193d-613c-472c-888c-5dac273942a7">&lt;/strong&gt;</ept>, type the path <bpt id="7070081e-6e67-4be4-a38e-78093010cfc4">&lt;strong&gt;</bpt>f:\Log<ept id="7070081e-6e67-4be4-a38e-78093010cfc4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="380d193d-613c-472c-888c-5dac273942a7">&lt;strong&gt;</bpt>Log<ept id="380d193d-613c-472c-888c-5dac273942a7">&lt;/strong&gt;</ept>, type the path <bpt id="7070081e-6e67-4be4-a38e-78093010cfc4">&lt;strong&gt;</bpt>f:\Log<ept id="7070081e-6e67-4be4-a38e-78093010cfc4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9828a46d-9a7b-41ce-a25e-caee83a9a6ce" xml:space="preserve">
+          <source>For <bpt id="2a534145-5cdc-4ac3-bdcd-03a91af18bee">&lt;strong&gt;</bpt>Backup<ept id="2a534145-5cdc-4ac3-bdcd-03a91af18bee">&lt;/strong&gt;</ept>, type the path <bpt id="5717fad0-35c8-4211-9914-7387e86a54db">&lt;strong&gt;</bpt>f:\Backup<ept id="5717fad0-35c8-4211-9914-7387e86a54db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="2a534145-5cdc-4ac3-bdcd-03a91af18bee">&lt;strong&gt;</bpt>Backup<ept id="2a534145-5cdc-4ac3-bdcd-03a91af18bee">&lt;/strong&gt;</ept>, type the path <bpt id="5717fad0-35c8-4211-9914-7387e86a54db">&lt;strong&gt;</bpt>f:\Backup<ept id="5717fad0-35c8-4211-9914-7387e86a54db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ef3d9e5-e9cd-4efe-a9ee-c1ae541d6591" xml:space="preserve">
+          <source>Note: Only new databases use these locations.</source>
+          <target state="new">Note: Only new databases use these locations.</target>
+        </trans-unit>
+        <trans-unit id="d9fc7387-ff08-4c66-a8cf-b19fe1c471a8" xml:space="preserve">
+          <source>Click the <bpt id="4a9497ea-024a-4e90-87dc-f87df53766c9">&lt;strong&gt;</bpt>OK<ept id="4a9497ea-024a-4e90-87dc-f87df53766c9">&lt;/strong&gt;</ept> to close the window.</source>
+          <target state="new">Click the <bpt id="4a9497ea-024a-4e90-87dc-f87df53766c9">&lt;strong&gt;</bpt>OK<ept id="4a9497ea-024a-4e90-87dc-f87df53766c9">&lt;/strong&gt;</ept> to close the window.</target>
+        </trans-unit>
+        <trans-unit id="d494fa82-6b54-44a1-b1ff-695c9f0ad08f" xml:space="preserve">
+          <source>In the <bpt id="427db031-ea6f-4017-81e4-204842f2eded">&lt;strong&gt;</bpt>Object Explorer<ept id="427db031-ea6f-4017-81e4-204842f2eded">&lt;/strong&gt;</ept> tree pane, open <bpt id="5c89103d-3085-4524-b1a9-a1757ea26430">&lt;strong&gt;</bpt>Security<ept id="5c89103d-3085-4524-b1a9-a1757ea26430">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="427db031-ea6f-4017-81e4-204842f2eded">&lt;strong&gt;</bpt>Object Explorer<ept id="427db031-ea6f-4017-81e4-204842f2eded">&lt;/strong&gt;</ept> tree pane, open <bpt id="5c89103d-3085-4524-b1a9-a1757ea26430">&lt;strong&gt;</bpt>Security<ept id="5c89103d-3085-4524-b1a9-a1757ea26430">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2e3adff-b464-424e-9aba-e1bba4d0e0fa" xml:space="preserve">
+          <source>Right-click <bpt id="28f13ddf-be3a-4133-b592-f064cf97b43f">&lt;strong&gt;</bpt>Logins<ept id="28f13ddf-be3a-4133-b592-f064cf97b43f">&lt;/strong&gt;</ept> and then click <bpt id="71037ed9-7471-4b0a-a8f3-7cbbdd7079f2">&lt;strong&gt;</bpt>New Login<ept id="71037ed9-7471-4b0a-a8f3-7cbbdd7079f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="28f13ddf-be3a-4133-b592-f064cf97b43f">&lt;strong&gt;</bpt>Logins<ept id="28f13ddf-be3a-4133-b592-f064cf97b43f">&lt;/strong&gt;</ept> and then click <bpt id="71037ed9-7471-4b0a-a8f3-7cbbdd7079f2">&lt;strong&gt;</bpt>New Login<ept id="71037ed9-7471-4b0a-a8f3-7cbbdd7079f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d28cee17-4319-4cc8-ab5e-78515b3ca258" xml:space="preserve">
+          <source>In <bpt id="2fa93275-032b-464b-b54a-8b80d66b5c37">&lt;strong&gt;</bpt>Login name<ept id="2fa93275-032b-464b-b54a-8b80d66b5c37">&lt;/strong&gt;</ept>, type <bpt id="9afda6f1-2760-4f99-b421-f87170e1c0f6">&lt;strong&gt;</bpt>CORP\User1<ept id="9afda6f1-2760-4f99-b421-f87170e1c0f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="2fa93275-032b-464b-b54a-8b80d66b5c37">&lt;strong&gt;</bpt>Login name<ept id="2fa93275-032b-464b-b54a-8b80d66b5c37">&lt;/strong&gt;</ept>, type <bpt id="9afda6f1-2760-4f99-b421-f87170e1c0f6">&lt;strong&gt;</bpt>CORP\User1<ept id="9afda6f1-2760-4f99-b421-f87170e1c0f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd8e7b98-871b-4bf2-81c5-05ea44493e3e" xml:space="preserve">
+          <source>On the <bpt id="24ed0c85-0d2f-41db-a879-fe7c2537882f">&lt;strong&gt;</bpt>Server Roles<ept id="24ed0c85-0d2f-41db-a879-fe7c2537882f">&lt;/strong&gt;</ept> page, click <bpt id="dd415be6-6d3a-48ae-b3c2-0e1f30303ddd">&lt;strong&gt;</bpt>sysadmin<ept id="dd415be6-6d3a-48ae-b3c2-0e1f30303ddd">&lt;/strong&gt;</ept>, and then click <bpt id="ac5c5050-1b48-44c5-8332-6dedc2037330">&lt;strong&gt;</bpt>OK<ept id="ac5c5050-1b48-44c5-8332-6dedc2037330">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="24ed0c85-0d2f-41db-a879-fe7c2537882f">&lt;strong&gt;</bpt>Server Roles<ept id="24ed0c85-0d2f-41db-a879-fe7c2537882f">&lt;/strong&gt;</ept> page, click <bpt id="dd415be6-6d3a-48ae-b3c2-0e1f30303ddd">&lt;strong&gt;</bpt>sysadmin<ept id="dd415be6-6d3a-48ae-b3c2-0e1f30303ddd">&lt;/strong&gt;</ept>, and then click <bpt id="ac5c5050-1b48-44c5-8332-6dedc2037330">&lt;strong&gt;</bpt>OK<ept id="ac5c5050-1b48-44c5-8332-6dedc2037330">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca2f2a7b-f2ee-4e79-9258-96128b72efe8" xml:space="preserve">
+          <source>Close Microsoft SQL Server Management Studio.</source>
+          <target state="new">Close Microsoft SQL Server Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="61261fe9-3edd-41ce-add7-4165e684228c" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="b47f2d02-3529-4b53-905c-3fea41ffff82" xml:space="preserve">
+          <source><bpt id="089211b6-bc6d-49d3-b877-9f20e272764f">&lt;linkText&gt;</bpt><ept id="089211b6-bc6d-49d3-b877-9f20e272764f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="089211b6-bc6d-49d3-b877-9f20e272764f">&lt;linkText&gt;</bpt><ept id="089211b6-bc6d-49d3-b877-9f20e272764f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b857f3f0-25b5-47b1-9ec6-696c96669258" xml:space="preserve">
+          <source>First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.</source>
+          <target state="new">First, create an Azure Virtual Machine for LOB1 with these commands at the Azure PowerShell command prompt on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="1505ef56-3988-472d-8017-a784e7bfc86c" xml:space="preserve">
+          <source>Next, connect to the LOB1 virtual machine with the CORP\User1 account credentials.</source>
+          <target state="new">Next, connect to the LOB1 virtual machine with the CORP\User1 account credentials.</target>
+        </trans-unit>
+        <trans-unit id="c9a421b1-572a-4c76-8b47-176f7970d270" xml:space="preserve">
+          <source>Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</source>
+          <target state="new">Next, configure a Windows Firewall rule to allow traffic for basic connectivity testing.</target>
+        </trans-unit>
+        <trans-unit id="3dfba9f9-86bd-47ab-bb7c-0056a86c8bf0" xml:space="preserve">
+          <source>From an administrator-level Windows PowerShell command prompt on LOB1, run these commands.</source>
+          <target state="new">From an administrator-level Windows PowerShell command prompt on LOB1, run these commands.</target>
+        </trans-unit>
+        <trans-unit id="ca47b7ca-f718-41b8-90d9-db28c761a016" xml:space="preserve">
+          <source>The ping command should result in four successful replies from IP address 10.0.0.1.</source>
+          <target state="new">The ping command should result in four successful replies from IP address 10.0.0.1.</target>
+        </trans-unit>
+        <trans-unit id="0231e587-df23-45ee-ba7e-fbba11a56300" xml:space="preserve">
+          <source>Next, configure LOB1 for IIS and test access from CLIENT1.</source>
+          <target state="new">Next, configure LOB1 for IIS and test access from CLIENT1.</target>
+        </trans-unit>
+        <trans-unit id="0b4aeaa6-454c-488d-ab6a-da4eb18905ba" xml:space="preserve">
+          <source>Run Server Manager, and then click <bpt id="cab2f556-f299-47ae-8da6-b13a5193bfb5">&lt;strong&gt;</bpt>Add roles and features<ept id="cab2f556-f299-47ae-8da6-b13a5193bfb5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run Server Manager, and then click <bpt id="cab2f556-f299-47ae-8da6-b13a5193bfb5">&lt;strong&gt;</bpt>Add roles and features<ept id="cab2f556-f299-47ae-8da6-b13a5193bfb5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="556ac1d0-e699-4407-a046-3a888b9c4f43" xml:space="preserve">
+          <source>On the Before you begin page, click <bpt id="fcb8d797-9a0a-4c8b-9998-417ef2b77e76">&lt;strong&gt;</bpt>Next<ept id="fcb8d797-9a0a-4c8b-9998-417ef2b77e76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page, click <bpt id="fcb8d797-9a0a-4c8b-9998-417ef2b77e76">&lt;strong&gt;</bpt>Next<ept id="fcb8d797-9a0a-4c8b-9998-417ef2b77e76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ceeb5a8f-b0da-4ed6-a82f-df3516b3375e" xml:space="preserve">
+          <source>On the Select installation type page, click <bpt id="a5d428c1-8cf9-4292-aaf0-77e6bf707d7e">&lt;strong&gt;</bpt>Next<ept id="a5d428c1-8cf9-4292-aaf0-77e6bf707d7e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select installation type page, click <bpt id="a5d428c1-8cf9-4292-aaf0-77e6bf707d7e">&lt;strong&gt;</bpt>Next<ept id="a5d428c1-8cf9-4292-aaf0-77e6bf707d7e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0ff67f3-0615-406d-9ac0-620172602e47" xml:space="preserve">
+          <source>On the Select destination server page, click <bpt id="2ac90676-bb8c-412a-b20e-a97df68a3bdd">&lt;strong&gt;</bpt>Next<ept id="2ac90676-bb8c-412a-b20e-a97df68a3bdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select destination server page, click <bpt id="2ac90676-bb8c-412a-b20e-a97df68a3bdd">&lt;strong&gt;</bpt>Next<ept id="2ac90676-bb8c-412a-b20e-a97df68a3bdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48516d43-563e-45b3-964c-4e8ccb7fa6a8" xml:space="preserve">
+          <source>On the Server roles page, click <bpt id="bae642c2-831e-4c7e-a203-5566af72e4ad">&lt;strong&gt;</bpt>Web Server (IIS)<ept id="bae642c2-831e-4c7e-a203-5566af72e4ad">&lt;/strong&gt;</ept> in the list of <bpt id="53dacac6-12ee-4c75-a785-d6c656e0ce2d">&lt;strong&gt;</bpt>Roles<ept id="53dacac6-12ee-4c75-a785-d6c656e0ce2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server roles page, click <bpt id="bae642c2-831e-4c7e-a203-5566af72e4ad">&lt;strong&gt;</bpt>Web Server (IIS)<ept id="bae642c2-831e-4c7e-a203-5566af72e4ad">&lt;/strong&gt;</ept> in the list of <bpt id="53dacac6-12ee-4c75-a785-d6c656e0ce2d">&lt;strong&gt;</bpt>Roles<ept id="53dacac6-12ee-4c75-a785-d6c656e0ce2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="291264a5-30f8-4040-811f-1ba3f3fdaca1" xml:space="preserve">
+          <source>When prompted, click <bpt id="559fff41-1c19-4c12-94ec-b67c571d169c">&lt;strong&gt;</bpt>Add Features<ept id="559fff41-1c19-4c12-94ec-b67c571d169c">&lt;/strong&gt;</ept>, and then click <bpt id="d3d55b1f-25f8-46df-9f89-c97ee97e013c">&lt;strong&gt;</bpt>Next<ept id="d3d55b1f-25f8-46df-9f89-c97ee97e013c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="559fff41-1c19-4c12-94ec-b67c571d169c">&lt;strong&gt;</bpt>Add Features<ept id="559fff41-1c19-4c12-94ec-b67c571d169c">&lt;/strong&gt;</ept>, and then click <bpt id="d3d55b1f-25f8-46df-9f89-c97ee97e013c">&lt;strong&gt;</bpt>Next<ept id="d3d55b1f-25f8-46df-9f89-c97ee97e013c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62e41803-53c9-48a3-b45e-758184deb30d" xml:space="preserve">
+          <source>On the Select features page, click <bpt id="f9f288e9-0e06-4539-8e47-cfe4e4c529fd">&lt;strong&gt;</bpt>Next<ept id="f9f288e9-0e06-4539-8e47-cfe4e4c529fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select features page, click <bpt id="f9f288e9-0e06-4539-8e47-cfe4e4c529fd">&lt;strong&gt;</bpt>Next<ept id="f9f288e9-0e06-4539-8e47-cfe4e4c529fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edfb9704-b816-440b-b83e-b347e739b368" xml:space="preserve">
+          <source>On the Web Server (IIS) page, click <bpt id="b68483b1-7c37-44e5-b498-6e66e91733dc">&lt;strong&gt;</bpt>Next<ept id="b68483b1-7c37-44e5-b498-6e66e91733dc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Web Server (IIS) page, click <bpt id="b68483b1-7c37-44e5-b498-6e66e91733dc">&lt;strong&gt;</bpt>Next<ept id="b68483b1-7c37-44e5-b498-6e66e91733dc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="414518c6-7247-44ff-9b52-fa632ee7e518" xml:space="preserve">
+          <source>On the Select role services page, select or clear the check boxes for the services you need for testing your LOB application, and then click <bpt id="4a3492a5-3e80-4b88-af99-90b2bfbc1d3f">&lt;strong&gt;</bpt>Next<ept id="4a3492a5-3e80-4b88-af99-90b2bfbc1d3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select role services page, select or clear the check boxes for the services you need for testing your LOB application, and then click <bpt id="4a3492a5-3e80-4b88-af99-90b2bfbc1d3f">&lt;strong&gt;</bpt>Next<ept id="4a3492a5-3e80-4b88-af99-90b2bfbc1d3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6792d989-6a32-46e2-a9b9-af9906b27996" xml:space="preserve">
+          <source>On the Confirm installation selections page, click <bpt id="f771b84f-720d-4136-aa4f-8b38d62e2bc5">&lt;strong&gt;</bpt>Install<ept id="f771b84f-720d-4136-aa4f-8b38d62e2bc5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Confirm installation selections page, click <bpt id="f771b84f-720d-4136-aa4f-8b38d62e2bc5">&lt;strong&gt;</bpt>Install<ept id="f771b84f-720d-4136-aa4f-8b38d62e2bc5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6819938e-1aa2-4872-bc4c-38b420f56934" xml:space="preserve">
+          <source>Wait until the installation of components has completed and then click <bpt id="a20b3669-8ecc-4d67-88b5-a554057376a4">&lt;strong&gt;</bpt>Close<ept id="a20b3669-8ecc-4d67-88b5-a554057376a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the installation of components has completed and then click <bpt id="a20b3669-8ecc-4d67-88b5-a554057376a4">&lt;strong&gt;</bpt>Close<ept id="a20b3669-8ecc-4d67-88b5-a554057376a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ac3aaba-1303-450e-b835-5312f5f799a9" xml:space="preserve">
+          <source>Log on to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.</source>
+          <target state="new">Log on to the CLIENT1 computer with the CORP\User1 account credentials, and then start Internet Explorer.</target>
+        </trans-unit>
+        <trans-unit id="c4c72dd1-9807-472b-ba1a-d2734245c8e8" xml:space="preserve">
+          <source>In the Address bar, type <bpt id="98aa7ac9-fc17-4ac4-98fb-5188f5a80a20">&lt;strong&gt;</bpt>http://lob1/<ept id="98aa7ac9-fc17-4ac4-98fb-5188f5a80a20">&lt;/strong&gt;</ept> and then press ENTER.</source>
+          <target state="new">In the Address bar, type <bpt id="98aa7ac9-fc17-4ac4-98fb-5188f5a80a20">&lt;strong&gt;</bpt>http://lob1/<ept id="98aa7ac9-fc17-4ac4-98fb-5188f5a80a20">&lt;/strong&gt;</ept> and then press ENTER.</target>
+        </trans-unit>
+        <trans-unit id="bb7cd2e9-6359-49e2-9f29-2fc1eed046ba" xml:space="preserve">
+          <source>You should see the default IIS 8 web page.</source>
+          <target state="new">You should see the default IIS 8 web page.</target>
+        </trans-unit>
+        <trans-unit id="eea83140-0a82-43c6-8b41-9ace01e26402" xml:space="preserve">
+          <source>This is your current configuration.</source>
+          <target state="new">This is your current configuration.</target>
+        </trans-unit>
+        <trans-unit id="990b1c80-0b4c-44e8-9e53-495561b2d46c" xml:space="preserve">
+          <source><bpt id="b7dbc19b-8090-4c8e-93a2-d69cfa6a738a">&lt;linkText&gt;</bpt><ept id="b7dbc19b-8090-4c8e-93a2-d69cfa6a738a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b7dbc19b-8090-4c8e-93a2-d69cfa6a738a">&lt;linkText&gt;</bpt><ept id="b7dbc19b-8090-4c8e-93a2-d69cfa6a738a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f351c8d-d702-410b-b2f2-e8e8aa3040be" xml:space="preserve">
+          <source>This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.</source>
+          <target state="new">This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.</target>
+        </trans-unit>
+        <trans-unit id="51528cef-d4ba-4f9f-bd99-9f7d7da16dbc" xml:space="preserve">
+          <source><bpt id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;linkText&gt;</bpt>Microsoft Software Architecture Diagrams and Blueprints<ept id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;/linkText&gt;</ept><bpt id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;title&gt;</bpt><ept id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;linkText&gt;</bpt>Microsoft Software Architecture Diagrams and Blueprints<ept id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;/linkText&gt;</ept><bpt id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;title&gt;</bpt><ept id="980d55a2-0bb9-4d68-a340-dfbf04558e33">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7beb7259-7ec2-4bb3-a865-2d70e1add1a9" xml:space="preserve">
+          <source><bpt id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;linkText&gt;</bpt>Hosting-Friendly Web Server Platform (IIS)<ept id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;/linkText&gt;</ept><bpt id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;title&gt;</bpt><ept id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;linkText&gt;</bpt>Hosting-Friendly Web Server Platform (IIS)<ept id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;/linkText&gt;</ept><bpt id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;title&gt;</bpt><ept id="95cf14df-abb3-4c20-900e-9416024bea94">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6892d31-57ae-414d-a223-a8e8c44d53fe" xml:space="preserve">
+          <source><bpt id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;/linkText&gt;</ept><bpt id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;title&gt;</bpt><ept id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;linkText&gt;</bpt>Set up a hybrid cloud environment for testing<ept id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;/linkText&gt;</ept><bpt id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;title&gt;</bpt><ept id="ca56ad61-7a87-495e-b994-320914cb3530">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2644b6a0-b379-465d-9a53-6238189761ee" xml:space="preserve">
+          <source><bpt id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;/linkText&gt;</ept><bpt id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;title&gt;</bpt><ept id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;linkText&gt;</bpt>Set up a SharePoint intranet farm in a hybrid cloud for testing<ept id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;/linkText&gt;</ept><bpt id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;title&gt;</bpt><ept id="d28c0247-db21-4bdb-97e8-f36c63d2ca9b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9606ba3-2e64-4f3d-9bf3-5e0fb210324e" xml:space="preserve">
+          <source><bpt id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;linkText&gt;</bpt>Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing<ept id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;/linkText&gt;</ept><bpt id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;title&gt;</bpt><ept id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;linkText&gt;</bpt>Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing<ept id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;/linkText&gt;</ept><bpt id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;title&gt;</bpt><ept id="1c88d336-1f40-41b0-b979-02f4446b82e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b6df63e-f66a-483e-9647-65a531ce70e4" xml:space="preserve">
+          <source><bpt id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;/linkText&gt;</ept><bpt id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;title&gt;</bpt><ept id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;linkText&gt;</bpt>Set up a simulated hybrid cloud environment for testing<ept id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;/linkText&gt;</ept><bpt id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;title&gt;</bpt><ept id="18c68f8e-2483-43d7-85ce-dfa87f223072">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd561391-3bac-4711-91e5-cb33af886de7" xml:space="preserve">
+          <source><bpt id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;/linkText&gt;</ept><bpt id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;title&gt;</bpt><ept id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;/linkText&gt;</ept><bpt id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;title&gt;</bpt><ept id="e6fcd2bc-bc6d-4495-a619-59a1d164d6bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7470fe13-0db4-4de7-b4ce-ec7957ccf6fe" xml:space="preserve">
+          <source><bpt id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;/linkText&gt;</ept><bpt id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;title&gt;</bpt><ept id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;/linkText&gt;</ept><bpt id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;title&gt;</bpt><ept id="afa50ed4-8797-4c1f-b400-333172e080ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

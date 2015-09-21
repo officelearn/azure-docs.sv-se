@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="12afd8a0-5c46-403a-a283-ab4a5f357226" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="12afd8a0-5c46-403a-a283-ab4a5f357226" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0170d132-01b9-4ec9-abe2-d7a1e2ad774e">
+        <trans-unit id="7824a7ba-ec9f-48a5-8339-ddf6c481c43d" xml:space="preserve">
+          <source>Use the MMC menu actions in StorSimple Snapshot Manager | Microsoft Azure</source>
+          <target state="new">Use the MMC menu actions in StorSimple Snapshot Manager | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d4fccb37-5da0-4c9e-b722-c9563420c119" xml:space="preserve">
+          <source>Describes how to use the Microsoft Management Console (MMC) menu actions in StorSimple Snapshot Manager.</source>
+          <target state="new">Describes how to use the Microsoft Management Console (MMC) menu actions in StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="42d034b8-de15-4957-bfb0-40360b99d8d9" xml:space="preserve">
+          <source>In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the <bpt id="d2ca49f7-0618-49e8-a418-cad1e67b10ac">&lt;strong&gt;</bpt>Actions<ept id="d2ca49f7-0618-49e8-a418-cad1e67b10ac">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the <bpt id="d2ca49f7-0618-49e8-a418-cad1e67b10ac">&lt;strong&gt;</bpt>Actions<ept id="d2ca49f7-0618-49e8-a418-cad1e67b10ac">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="2d9b4a24-11d1-4135-af33-24d1a95fe85d" xml:space="preserve">
+          <source>View</source>
+          <target state="new">View</target>
+        </trans-unit>
+        <trans-unit id="8fe5b7cc-de5a-4a23-a614-392157e5025a" xml:space="preserve">
+          <source>New Window from Here </source>
+          <target state="new">New Window from Here </target>
+        </trans-unit>
+        <trans-unit id="425bddd6-36d3-4629-88b0-e46a278360b9" xml:space="preserve">
+          <source>Refresh </source>
+          <target state="new">Refresh </target>
+        </trans-unit>
+        <trans-unit id="4606a34d-3b84-44a6-bb0a-cc1e3094f22e" xml:space="preserve">
+          <source>Export List </source>
+          <target state="new">Export List </target>
+        </trans-unit>
+        <trans-unit id="53ebfa08-0661-4f98-8086-36d4e1f7278a" xml:space="preserve">
+          <source>Help </source>
+          <target state="new">Help </target>
+        </trans-unit>
+        <trans-unit id="dd9623a9-25a9-4c6f-8599-606197a50e60" xml:space="preserve">
+          <source>These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager.</source>
+          <target state="new">These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="5b38be69-4fc4-43d3-8070-c74ea288433b" xml:space="preserve">
+          <source>This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.</source>
+          <target state="new">This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="0c6a7ff0-f9d4-46b6-a0e6-362e7248cf95" xml:space="preserve">
+          <source>You can use the <bpt id="6a1de15a-aecb-43f4-b468-0220fa5607c8">&lt;strong&gt;</bpt>View<ept id="6a1de15a-aecb-43f4-b468-0220fa5607c8">&lt;/strong&gt;</ept> option to change the <bpt id="2c2d36b7-66f4-44d1-87da-ee3c820660cc">&lt;strong&gt;</bpt>Results<ept id="2c2d36b7-66f4-44d1-87da-ee3c820660cc">&lt;/strong&gt;</ept> pane view and to change the console window view.</source>
+          <target state="new">You can use the <bpt id="6a1de15a-aecb-43f4-b468-0220fa5607c8">&lt;strong&gt;</bpt>View<ept id="6a1de15a-aecb-43f4-b468-0220fa5607c8">&lt;/strong&gt;</ept> option to change the <bpt id="2c2d36b7-66f4-44d1-87da-ee3c820660cc">&lt;strong&gt;</bpt>Results<ept id="2c2d36b7-66f4-44d1-87da-ee3c820660cc">&lt;/strong&gt;</ept> pane view and to change the console window view.</target>
+        </trans-unit>
+        <trans-unit id="849fa631-8780-4bda-93e0-54e18f1c0146" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="411ca55d-4214-4451-830f-b1da9f8df1b5" xml:space="preserve">
+          <source>In the <bpt id="6a406e1c-bd46-476d-aa4f-f4b32c4ccd14">&lt;strong&gt;</bpt>Scope<ept id="6a406e1c-bd46-476d-aa4f-f4b32c4ccd14">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="c5edc736-20de-424d-9366-3d3e3bdaee45">&lt;strong&gt;</bpt>Results<ept id="c5edc736-20de-424d-9366-3d3e3bdaee45">&lt;/strong&gt;</ept> pane, and then click the <bpt id="6a35fb75-9190-42f6-89dc-acf8bdb92ec5">&lt;strong&gt;</bpt>View<ept id="6a35fb75-9190-42f6-89dc-acf8bdb92ec5">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">In the <bpt id="6a406e1c-bd46-476d-aa4f-f4b32c4ccd14">&lt;strong&gt;</bpt>Scope<ept id="6a406e1c-bd46-476d-aa4f-f4b32c4ccd14">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="c5edc736-20de-424d-9366-3d3e3bdaee45">&lt;strong&gt;</bpt>Results<ept id="c5edc736-20de-424d-9366-3d3e3bdaee45">&lt;/strong&gt;</ept> pane, and then click the <bpt id="6a35fb75-9190-42f6-89dc-acf8bdb92ec5">&lt;strong&gt;</bpt>View<ept id="6a35fb75-9190-42f6-89dc-acf8bdb92ec5">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="07622c4c-8f9f-4b6e-bd89-f9e1e2d8b573" xml:space="preserve">
+          <source>To add or remove the columns that appear in the <bpt id="dffcce2c-7334-4b49-9f1f-680fbd201d74">&lt;strong&gt;</bpt>Results<ept id="dffcce2c-7334-4b49-9f1f-680fbd201d74">&lt;/strong&gt;</ept> pane, click <bpt id="4c02f009-0435-46c9-9716-c50500996819">&lt;strong&gt;</bpt>Add/Remove Columns<ept id="4c02f009-0435-46c9-9716-c50500996819">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add or remove the columns that appear in the <bpt id="dffcce2c-7334-4b49-9f1f-680fbd201d74">&lt;strong&gt;</bpt>Results<ept id="dffcce2c-7334-4b49-9f1f-680fbd201d74">&lt;/strong&gt;</ept> pane, click <bpt id="4c02f009-0435-46c9-9716-c50500996819">&lt;strong&gt;</bpt>Add/Remove Columns<ept id="4c02f009-0435-46c9-9716-c50500996819">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d1b30a63-5038-4215-9b04-b08c82e3f022" xml:space="preserve">
+          <source>The <bpt id="72d5beee-72dd-4cc3-af26-49b37fd58d1c">&lt;strong&gt;</bpt>Add/Remove Columns<ept id="72d5beee-72dd-4cc3-af26-49b37fd58d1c">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="72d5beee-72dd-4cc3-af26-49b37fd58d1c">&lt;strong&gt;</bpt>Add/Remove Columns<ept id="72d5beee-72dd-4cc3-af26-49b37fd58d1c">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="9f00ee44-7716-4cea-8ba9-ba182add948e" xml:space="preserve">
+          <source><bpt id="d14cf02d-c82f-4284-8a26-c52c4ee24822">&lt;linkText&gt;</bpt>Add or remove columns from Results pane<ept id="d14cf02d-c82f-4284-8a26-c52c4ee24822">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="d14cf02d-c82f-4284-8a26-c52c4ee24822">&lt;linkText&gt;</bpt>Add or remove columns from Results pane<ept id="d14cf02d-c82f-4284-8a26-c52c4ee24822">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="87d2dca4-80d9-448c-be8d-d9c027f0e46f" xml:space="preserve">
+          <source>Complete the form as follows:</source>
+          <target state="new">Complete the form as follows:</target>
+        </trans-unit>
+        <trans-unit id="82015aba-b9a7-45f6-a818-f136b86acfaf" xml:space="preserve">
+          <source>Select items from the <bpt id="7c3a0e79-ad45-43ac-b954-c7538892be07">&lt;strong&gt;</bpt>Available<ept id="7c3a0e79-ad45-43ac-b954-c7538892be07">&lt;/strong&gt;</ept> columns list and click <bpt id="5cc7b766-c1c2-4510-9e76-cfd979f893db">&lt;strong&gt;</bpt>Add<ept id="5cc7b766-c1c2-4510-9e76-cfd979f893db">&lt;/strong&gt;</ept> to add them to the <bpt id="c3493ccb-6327-4436-83ee-3730773514bb">&lt;strong&gt;</bpt>Displayed columns<ept id="c3493ccb-6327-4436-83ee-3730773514bb">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">Select items from the <bpt id="7c3a0e79-ad45-43ac-b954-c7538892be07">&lt;strong&gt;</bpt>Available<ept id="7c3a0e79-ad45-43ac-b954-c7538892be07">&lt;/strong&gt;</ept> columns list and click <bpt id="5cc7b766-c1c2-4510-9e76-cfd979f893db">&lt;strong&gt;</bpt>Add<ept id="5cc7b766-c1c2-4510-9e76-cfd979f893db">&lt;/strong&gt;</ept> to add them to the <bpt id="c3493ccb-6327-4436-83ee-3730773514bb">&lt;strong&gt;</bpt>Displayed columns<ept id="c3493ccb-6327-4436-83ee-3730773514bb">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="26d0d64c-4df4-4aab-94f0-a78f3f2cb883" xml:space="preserve">
+          <source>Click items in the <bpt id="7b29fd0a-ccc7-4c04-bf15-46b03c3e9ffb">&lt;strong&gt;</bpt>Displayed columns<ept id="7b29fd0a-ccc7-4c04-bf15-46b03c3e9ffb">&lt;/strong&gt;</ept> list, and click <bpt id="46776dc4-f54a-4437-ac1d-cbaa1d52f561">&lt;strong&gt;</bpt>Remove<ept id="46776dc4-f54a-4437-ac1d-cbaa1d52f561">&lt;/strong&gt;</ept> to remove them from the list.</source>
+          <target state="new">Click items in the <bpt id="7b29fd0a-ccc7-4c04-bf15-46b03c3e9ffb">&lt;strong&gt;</bpt>Displayed columns<ept id="7b29fd0a-ccc7-4c04-bf15-46b03c3e9ffb">&lt;/strong&gt;</ept> list, and click <bpt id="46776dc4-f54a-4437-ac1d-cbaa1d52f561">&lt;strong&gt;</bpt>Remove<ept id="46776dc4-f54a-4437-ac1d-cbaa1d52f561">&lt;/strong&gt;</ept> to remove them from the list.</target>
+        </trans-unit>
+        <trans-unit id="5384dddf-66d6-4084-91f9-6c21a7c4f4d3" xml:space="preserve">
+          <source>Select an item in the <bpt id="f2ff42dd-209b-4b64-9297-9e4c4d314480">&lt;strong&gt;</bpt>Displayed<ept id="f2ff42dd-209b-4b64-9297-9e4c4d314480">&lt;/strong&gt;</ept> columns list and click <bpt id="e216c326-bc93-4b82-8a30-88e41171a34a">&lt;strong&gt;</bpt>Move Up<ept id="e216c326-bc93-4b82-8a30-88e41171a34a">&lt;/strong&gt;</ept> or <bpt id="ce518c7e-66e9-4ebe-a82e-6bd567644d35">&lt;strong&gt;</bpt>Move Down<ept id="ce518c7e-66e9-4ebe-a82e-6bd567644d35">&lt;/strong&gt;</ept> to move the item up or down in the list.</source>
+          <target state="new">Select an item in the <bpt id="f2ff42dd-209b-4b64-9297-9e4c4d314480">&lt;strong&gt;</bpt>Displayed<ept id="f2ff42dd-209b-4b64-9297-9e4c4d314480">&lt;/strong&gt;</ept> columns list and click <bpt id="e216c326-bc93-4b82-8a30-88e41171a34a">&lt;strong&gt;</bpt>Move Up<ept id="e216c326-bc93-4b82-8a30-88e41171a34a">&lt;/strong&gt;</ept> or <bpt id="ce518c7e-66e9-4ebe-a82e-6bd567644d35">&lt;strong&gt;</bpt>Move Down<ept id="ce518c7e-66e9-4ebe-a82e-6bd567644d35">&lt;/strong&gt;</ept> to move the item up or down in the list.</target>
+        </trans-unit>
+        <trans-unit id="75cde483-f7af-4557-a299-feb9ede34137" xml:space="preserve">
+          <source>Click <bpt id="8c4df5b7-67bf-4cf5-8d3e-a7537e84be2c">&lt;strong&gt;</bpt>Restore Defaults<ept id="8c4df5b7-67bf-4cf5-8d3e-a7537e84be2c">&lt;/strong&gt;</ept> to return to the default <bpt id="18d22dbd-4bb7-4568-a1a7-a3b8a7e878f1">&lt;strong&gt;</bpt>Results<ept id="18d22dbd-4bb7-4568-a1a7-a3b8a7e878f1">&lt;/strong&gt;</ept> pane configuration.</source>
+          <target state="new">Click <bpt id="8c4df5b7-67bf-4cf5-8d3e-a7537e84be2c">&lt;strong&gt;</bpt>Restore Defaults<ept id="8c4df5b7-67bf-4cf5-8d3e-a7537e84be2c">&lt;/strong&gt;</ept> to return to the default <bpt id="18d22dbd-4bb7-4568-a1a7-a3b8a7e878f1">&lt;strong&gt;</bpt>Results<ept id="18d22dbd-4bb7-4568-a1a7-a3b8a7e878f1">&lt;/strong&gt;</ept> pane configuration.</target>
+        </trans-unit>
+        <trans-unit id="2b1c2bee-6c4e-4ce1-820d-115d5e9630c9" xml:space="preserve">
+          <source>When you are finished with your selections, click <bpt id="0d350cc5-4f5e-40aa-8197-d703b43b714e">&lt;strong&gt;</bpt>OK<ept id="0d350cc5-4f5e-40aa-8197-d703b43b714e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are finished with your selections, click <bpt id="0d350cc5-4f5e-40aa-8197-d703b43b714e">&lt;strong&gt;</bpt>OK<ept id="0d350cc5-4f5e-40aa-8197-d703b43b714e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="136b17ed-0575-4f45-a020-746af8bb2fe8" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="adbaf79c-b338-4ec7-abe6-87bcc87c443b" xml:space="preserve">
+          <source>In the <bpt id="589adb5c-925a-4917-8736-cf8cfde490f5">&lt;strong&gt;</bpt>Scope<ept id="589adb5c-925a-4917-8736-cf8cfde490f5">&lt;/strong&gt;</ept> pane, right-click any node, click <bpt id="199bf785-7f57-4ded-8ad8-e4c045fb279a">&lt;strong&gt;</bpt>View<ept id="199bf785-7f57-4ded-8ad8-e4c045fb279a">&lt;/strong&gt;</ept>, and then click <bpt id="eddc8672-f4fb-4a9e-b142-4146bd4835d0">&lt;strong&gt;</bpt>Customize<ept id="eddc8672-f4fb-4a9e-b142-4146bd4835d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="589adb5c-925a-4917-8736-cf8cfde490f5">&lt;strong&gt;</bpt>Scope<ept id="589adb5c-925a-4917-8736-cf8cfde490f5">&lt;/strong&gt;</ept> pane, right-click any node, click <bpt id="199bf785-7f57-4ded-8ad8-e4c045fb279a">&lt;strong&gt;</bpt>View<ept id="199bf785-7f57-4ded-8ad8-e4c045fb279a">&lt;/strong&gt;</ept>, and then click <bpt id="eddc8672-f4fb-4a9e-b142-4146bd4835d0">&lt;strong&gt;</bpt>Customize<ept id="eddc8672-f4fb-4a9e-b142-4146bd4835d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0acad99e-620f-4012-9645-974a870f7526" xml:space="preserve">
+          <source>The <bpt id="7586f740-8950-4caa-9170-dd444191fc0d">&lt;strong&gt;</bpt>Customize<ept id="7586f740-8950-4caa-9170-dd444191fc0d">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="7586f740-8950-4caa-9170-dd444191fc0d">&lt;strong&gt;</bpt>Customize<ept id="7586f740-8950-4caa-9170-dd444191fc0d">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="177e6510-0728-4532-9480-8b0621947576" xml:space="preserve">
+          <source><bpt id="54f4c0eb-9f2c-4071-a71d-c43659d5424c">&lt;linkText&gt;</bpt>Customize the console window<ept id="54f4c0eb-9f2c-4071-a71d-c43659d5424c">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="54f4c0eb-9f2c-4071-a71d-c43659d5424c">&lt;linkText&gt;</bpt>Customize the console window<ept id="54f4c0eb-9f2c-4071-a71d-c43659d5424c">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e1b90fac-7768-455d-a6fa-c6cfd18e82bd" xml:space="preserve">
+          <source>Select or clear the check boxes to show or hide items in the console window.</source>
+          <target state="new">Select or clear the check boxes to show or hide items in the console window.</target>
+        </trans-unit>
+        <trans-unit id="6765efbf-016d-4210-8977-84693b704ba4" xml:space="preserve">
+          <source>When you are finished with your selections, click <bpt id="324c7af9-2244-4836-80a7-bcea93bd49c4">&lt;strong&gt;</bpt>OK<ept id="324c7af9-2244-4836-80a7-bcea93bd49c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you are finished with your selections, click <bpt id="324c7af9-2244-4836-80a7-bcea93bd49c4">&lt;strong&gt;</bpt>OK<ept id="324c7af9-2244-4836-80a7-bcea93bd49c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="095be4c9-cb17-4a6b-9b2d-0d7d001128b0" xml:space="preserve">
+          <source>You can use the <bpt id="acd9b784-5f68-48eb-81ee-0e3c06c28f1b">&lt;strong&gt;</bpt>New Window from Here<ept id="acd9b784-5f68-48eb-81ee-0e3c06c28f1b">&lt;/strong&gt;</ept> option to open a new console window.</source>
+          <target state="new">You can use the <bpt id="acd9b784-5f68-48eb-81ee-0e3c06c28f1b">&lt;strong&gt;</bpt>New Window from Here<ept id="acd9b784-5f68-48eb-81ee-0e3c06c28f1b">&lt;/strong&gt;</ept> option to open a new console window.</target>
+        </trans-unit>
+        <trans-unit id="6aad0cf3-eafa-4303-be14-26987fcd3fe9" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="df9bbe2d-95db-4691-9b41-318aa5c37ee6" xml:space="preserve">
+          <source>In the <bpt id="2fc59312-d6ef-41e8-ab0c-33274725319d">&lt;strong&gt;</bpt>Scope<ept id="2fc59312-d6ef-41e8-ab0c-33274725319d">&lt;/strong&gt;</ept> pane, right-click any node, and then click <bpt id="1cbe35ce-911c-4ef0-a68c-fa9392ec5cd3">&lt;strong&gt;</bpt>New Window from Here<ept id="1cbe35ce-911c-4ef0-a68c-fa9392ec5cd3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2fc59312-d6ef-41e8-ab0c-33274725319d">&lt;strong&gt;</bpt>Scope<ept id="2fc59312-d6ef-41e8-ab0c-33274725319d">&lt;/strong&gt;</ept> pane, right-click any node, and then click <bpt id="1cbe35ce-911c-4ef0-a68c-fa9392ec5cd3">&lt;strong&gt;</bpt>New Window from Here<ept id="1cbe35ce-911c-4ef0-a68c-fa9392ec5cd3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="777a26ad-e3e4-4daa-964d-43573b3f9184" xml:space="preserve">
+          <source>A new window appears, showing only the scope that you selected.</source>
+          <target state="new">A new window appears, showing only the scope that you selected.</target>
+        </trans-unit>
+        <trans-unit id="187c5b34-c6f8-47c6-ae58-026b67ebdd42" xml:space="preserve">
+          <source>For example, if you right-click the <bpt id="db1743a8-3e1c-4d51-a366-972bb9efb850">&lt;strong&gt;</bpt>Backup Policies<ept id="db1743a8-3e1c-4d51-a366-972bb9efb850">&lt;/strong&gt;</ept> node, the new window will show only the <bpt id="79e35c9c-7674-4914-9ff1-b40d984e0c8f">&lt;strong&gt;</bpt>Backup Policies<ept id="79e35c9c-7674-4914-9ff1-b40d984e0c8f">&lt;/strong&gt;</ept> node in the <bpt id="e1d79d90-b31c-45fd-a4c4-17585eb8646a">&lt;strong&gt;</bpt>Scope<ept id="e1d79d90-b31c-45fd-a4c4-17585eb8646a">&lt;/strong&gt;</ept> pane and a list of defined backup policies in the <bpt id="3984c875-9c24-40fa-a20f-d1449a6e5421">&lt;strong&gt;</bpt>Results<ept id="3984c875-9c24-40fa-a20f-d1449a6e5421">&lt;/strong&gt;</ept> pane.</source>
+          <target state="new">For example, if you right-click the <bpt id="db1743a8-3e1c-4d51-a366-972bb9efb850">&lt;strong&gt;</bpt>Backup Policies<ept id="db1743a8-3e1c-4d51-a366-972bb9efb850">&lt;/strong&gt;</ept> node, the new window will show only the <bpt id="79e35c9c-7674-4914-9ff1-b40d984e0c8f">&lt;strong&gt;</bpt>Backup Policies<ept id="79e35c9c-7674-4914-9ff1-b40d984e0c8f">&lt;/strong&gt;</ept> node in the <bpt id="e1d79d90-b31c-45fd-a4c4-17585eb8646a">&lt;strong&gt;</bpt>Scope<ept id="e1d79d90-b31c-45fd-a4c4-17585eb8646a">&lt;/strong&gt;</ept> pane and a list of defined backup policies in the <bpt id="3984c875-9c24-40fa-a20f-d1449a6e5421">&lt;strong&gt;</bpt>Results<ept id="3984c875-9c24-40fa-a20f-d1449a6e5421">&lt;/strong&gt;</ept> pane.</target>
+        </trans-unit>
+        <trans-unit id="f7c78c1d-80cf-4e9a-81ee-a89553a9a149" xml:space="preserve">
+          <source>See the following example.</source>
+          <target state="new">See the following example.</target>
+        </trans-unit>
+        <trans-unit id="fd1c50d8-b1c2-498d-be0a-a6b43faa049e" xml:space="preserve">
+          <source><bpt id="fa7020e3-29c8-4e73-9fbc-6774f5c9c17c">&lt;linkText&gt;</bpt>New Window from Here<ept id="fa7020e3-29c8-4e73-9fbc-6774f5c9c17c">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="fa7020e3-29c8-4e73-9fbc-6774f5c9c17c">&lt;linkText&gt;</bpt>New Window from Here<ept id="fa7020e3-29c8-4e73-9fbc-6774f5c9c17c">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="13c44146-1e7b-4330-9798-7966b813ea50" xml:space="preserve">
+          <source>You can use the <bpt id="8cd659fd-2731-4b35-9e4d-606a5b2d7e29">&lt;strong&gt;</bpt>Refresh<ept id="8cd659fd-2731-4b35-9e4d-606a5b2d7e29">&lt;/strong&gt;</ept> action to update the console window.</source>
+          <target state="new">You can use the <bpt id="8cd659fd-2731-4b35-9e4d-606a5b2d7e29">&lt;strong&gt;</bpt>Refresh<ept id="8cd659fd-2731-4b35-9e4d-606a5b2d7e29">&lt;/strong&gt;</ept> action to update the console window.</target>
+        </trans-unit>
+        <trans-unit id="dd642bd6-5bf7-49c5-98de-3c98c1289da5" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="9eac4ddb-d70e-43b3-b7cb-4b362524737c" xml:space="preserve">
+          <source>In the <bpt id="419c27da-4490-4486-883e-8b5de882a00a">&lt;strong&gt;</bpt>Scope<ept id="419c27da-4490-4486-883e-8b5de882a00a">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="406c9f6f-18da-40c0-9d25-e0a00aaba842">&lt;strong&gt;</bpt>Results<ept id="406c9f6f-18da-40c0-9d25-e0a00aaba842">&lt;/strong&gt;</ept> pane, and then click <bpt id="58e73a42-4067-44f6-ae5b-882ab7964671">&lt;strong&gt;</bpt>Refresh<ept id="58e73a42-4067-44f6-ae5b-882ab7964671">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="419c27da-4490-4486-883e-8b5de882a00a">&lt;strong&gt;</bpt>Scope<ept id="419c27da-4490-4486-883e-8b5de882a00a">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="406c9f6f-18da-40c0-9d25-e0a00aaba842">&lt;strong&gt;</bpt>Results<ept id="406c9f6f-18da-40c0-9d25-e0a00aaba842">&lt;/strong&gt;</ept> pane, and then click <bpt id="58e73a42-4067-44f6-ae5b-882ab7964671">&lt;strong&gt;</bpt>Refresh<ept id="58e73a42-4067-44f6-ae5b-882ab7964671">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c336e570-f9ac-4a7b-8d46-8d7f764e5648" xml:space="preserve">
+          <source>You can use the <bpt id="3306f45a-040f-43d1-84d2-bdc6144d7b72">&lt;strong&gt;</bpt>Export List<ept id="3306f45a-040f-43d1-84d2-bdc6144d7b72">&lt;/strong&gt;</ept> action to save a list in a comma-separated value (CSV) file.</source>
+          <target state="new">You can use the <bpt id="3306f45a-040f-43d1-84d2-bdc6144d7b72">&lt;strong&gt;</bpt>Export List<ept id="3306f45a-040f-43d1-84d2-bdc6144d7b72">&lt;/strong&gt;</ept> action to save a list in a comma-separated value (CSV) file.</target>
+        </trans-unit>
+        <trans-unit id="6b513826-5610-4c13-a217-eb64ac24023e" xml:space="preserve">
+          <source>For example, you can export the list of backup policies or the backup catalog.</source>
+          <target state="new">For example, you can export the list of backup policies or the backup catalog.</target>
+        </trans-unit>
+        <trans-unit id="7969a88e-2d6d-4f29-b143-cc3e770d7582" xml:space="preserve">
+          <source>You can then import the CSV file into a spreadsheet application for analysis.</source>
+          <target state="new">You can then import the CSV file into a spreadsheet application for analysis.</target>
+        </trans-unit>
+        <trans-unit id="7c8c58c6-c558-46cc-a600-ed9333e47738" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="214f1c57-834b-4fed-96e4-043aed7d2075" xml:space="preserve">
+          <source>In the <bpt id="137ff758-7545-4819-971a-889899cc74c7">&lt;strong&gt;</bpt>Scope<ept id="137ff758-7545-4819-971a-889899cc74c7">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="5b379c65-19ec-4e8d-841c-15e23492885b">&lt;strong&gt;</bpt>Results<ept id="5b379c65-19ec-4e8d-841c-15e23492885b">&lt;/strong&gt;</ept> pane, and then click <bpt id="5b841afa-9e45-4da3-9e72-3c75a292b139">&lt;strong&gt;</bpt>Export List<ept id="5b841afa-9e45-4da3-9e72-3c75a292b139">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="137ff758-7545-4819-971a-889899cc74c7">&lt;strong&gt;</bpt>Scope<ept id="137ff758-7545-4819-971a-889899cc74c7">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="5b379c65-19ec-4e8d-841c-15e23492885b">&lt;strong&gt;</bpt>Results<ept id="5b379c65-19ec-4e8d-841c-15e23492885b">&lt;/strong&gt;</ept> pane, and then click <bpt id="5b841afa-9e45-4da3-9e72-3c75a292b139">&lt;strong&gt;</bpt>Export List<ept id="5b841afa-9e45-4da3-9e72-3c75a292b139">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="139c9f79-ee83-4263-836e-b7be1b0d7b82" xml:space="preserve">
+          <source>The <bpt id="0f71c9ed-aee1-4497-aa78-03aebbfa0fc9">&lt;strong&gt;</bpt>Export List<ept id="0f71c9ed-aee1-4497-aa78-03aebbfa0fc9">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="0f71c9ed-aee1-4497-aa78-03aebbfa0fc9">&lt;strong&gt;</bpt>Export List<ept id="0f71c9ed-aee1-4497-aa78-03aebbfa0fc9">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="bd6e5c4e-6295-45b0-a1aa-a4b74a1a4cda" xml:space="preserve">
+          <source>Complete the form as follows:</source>
+          <target state="new">Complete the form as follows:</target>
+        </trans-unit>
+        <trans-unit id="ec2ab88a-4e06-4659-9a9d-8557262003bb" xml:space="preserve">
+          <source>In the <bpt id="7bfe414c-d063-4701-bfd4-31400f385a85">&lt;strong&gt;</bpt>File name<ept id="7bfe414c-d063-4701-bfd4-31400f385a85">&lt;/strong&gt;</ept> box, type a name for the CSV file or click the arrow to select from the drop-down list.</source>
+          <target state="new">In the <bpt id="7bfe414c-d063-4701-bfd4-31400f385a85">&lt;strong&gt;</bpt>File name<ept id="7bfe414c-d063-4701-bfd4-31400f385a85">&lt;/strong&gt;</ept> box, type a name for the CSV file or click the arrow to select from the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="06875df9-f205-4cce-98b2-245f6f146ec1" xml:space="preserve">
+          <source>In the <bpt id="dc6e2efa-1f41-484c-adb9-1535b5e03f59">&lt;strong&gt;</bpt>Save as type<ept id="dc6e2efa-1f41-484c-adb9-1535b5e03f59">&lt;/strong&gt;</ept> box, click the arrow and select a file type from the drop-down list.</source>
+          <target state="new">In the <bpt id="dc6e2efa-1f41-484c-adb9-1535b5e03f59">&lt;strong&gt;</bpt>Save as type<ept id="dc6e2efa-1f41-484c-adb9-1535b5e03f59">&lt;/strong&gt;</ept> box, click the arrow and select a file type from the drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="65d84a5a-83f7-4aef-bbcd-22bc49ae075f" xml:space="preserve">
+          <source>To save only selected items, select the rows and then click the <bpt id="d3bbc839-8dda-4071-9b9e-c2b031088d8d">&lt;strong&gt;</bpt>Save Only Selected Rows<ept id="d3bbc839-8dda-4071-9b9e-c2b031088d8d">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To save only selected items, select the rows and then click the <bpt id="d3bbc839-8dda-4071-9b9e-c2b031088d8d">&lt;strong&gt;</bpt>Save Only Selected Rows<ept id="d3bbc839-8dda-4071-9b9e-c2b031088d8d">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="8ed783e1-a13d-4c4f-8f80-95d35c400286" xml:space="preserve">
+          <source>To save all exported lists, clear the <bpt id="c364d949-ef77-4514-a350-560741fd8659">&lt;strong&gt;</bpt>Save Only Selected Rows<ept id="c364d949-ef77-4514-a350-560741fd8659">&lt;/strong&gt;</ept> check box.</source>
+          <target state="new">To save all exported lists, clear the <bpt id="c364d949-ef77-4514-a350-560741fd8659">&lt;strong&gt;</bpt>Save Only Selected Rows<ept id="c364d949-ef77-4514-a350-560741fd8659">&lt;/strong&gt;</ept> check box.</target>
+        </trans-unit>
+        <trans-unit id="17d27694-65a7-4c8b-a848-d4e2d20682d9" xml:space="preserve">
+          <source>Click <bpt id="a98176ec-e0c1-4ed5-815a-c8a17a23d34e">&lt;strong&gt;</bpt>Save<ept id="a98176ec-e0c1-4ed5-815a-c8a17a23d34e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a98176ec-e0c1-4ed5-815a-c8a17a23d34e">&lt;strong&gt;</bpt>Save<ept id="a98176ec-e0c1-4ed5-815a-c8a17a23d34e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e65b024-7904-4af9-95d4-d4adf1407fb6" xml:space="preserve">
+          <source><bpt id="b3075edd-2772-4575-a0e7-98a3c5b7f2c4">&lt;linkText&gt;</bpt>Export list as a comma-separated value file<ept id="b3075edd-2772-4575-a0e7-98a3c5b7f2c4">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="b3075edd-2772-4575-a0e7-98a3c5b7f2c4">&lt;linkText&gt;</bpt>Export list as a comma-separated value file<ept id="b3075edd-2772-4575-a0e7-98a3c5b7f2c4">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e32569c7-f141-47d4-b6ab-c6febbc5c6ca" xml:space="preserve">
+          <source>You can use the <bpt id="47175562-fa70-4d23-95f3-7dd50c0c2ded">&lt;strong&gt;</bpt>Help<ept id="47175562-fa70-4d23-95f3-7dd50c0c2ded">&lt;/strong&gt;</ept> menu to view available online help for StorSimple Snapshot Manager and the MMC.</source>
+          <target state="new">You can use the <bpt id="47175562-fa70-4d23-95f3-7dd50c0c2ded">&lt;strong&gt;</bpt>Help<ept id="47175562-fa70-4d23-95f3-7dd50c0c2ded">&lt;/strong&gt;</ept> menu to view available online help for StorSimple Snapshot Manager and the MMC.</target>
+        </trans-unit>
+        <trans-unit id="591c8804-2e2f-416d-b59c-8740d56077b3" xml:space="preserve">
+          <source>Click the desktop icon to start StorSimple Snapshot Manager.</source>
+          <target state="new">Click the desktop icon to start StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="99924307-b33e-4cfe-bcf6-9abe7ee6776a" xml:space="preserve">
+          <source>In the <bpt id="c5805e06-4a2e-4684-b631-2d110afa509e">&lt;strong&gt;</bpt>Scope<ept id="c5805e06-4a2e-4684-b631-2d110afa509e">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="93cad279-c0a0-4116-98d2-140e87fc05d0">&lt;strong&gt;</bpt>Results<ept id="93cad279-c0a0-4116-98d2-140e87fc05d0">&lt;/strong&gt;</ept> pane, and then click <bpt id="55f92c2e-28ae-41cb-a6f9-a37b94e8c58f">&lt;strong&gt;</bpt>Help<ept id="55f92c2e-28ae-41cb-a6f9-a37b94e8c58f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c5805e06-4a2e-4684-b631-2d110afa509e">&lt;strong&gt;</bpt>Scope<ept id="c5805e06-4a2e-4684-b631-2d110afa509e">&lt;/strong&gt;</ept> pane, right-click any node or expand the node and right-click an item in the <bpt id="93cad279-c0a0-4116-98d2-140e87fc05d0">&lt;strong&gt;</bpt>Results<ept id="93cad279-c0a0-4116-98d2-140e87fc05d0">&lt;/strong&gt;</ept> pane, and then click <bpt id="55f92c2e-28ae-41cb-a6f9-a37b94e8c58f">&lt;strong&gt;</bpt>Help<ept id="55f92c2e-28ae-41cb-a6f9-a37b94e8c58f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="097386b7-05b6-4a98-8c5c-758a52350781" xml:space="preserve">
+          <source><bpt id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;linkText&gt;</bpt>Learn more about the StorSimple Snapshot Manager user interface<ept id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;/linkText&gt;</ept><bpt id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;title&gt;</bpt><ept id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;linkText&gt;</bpt>Learn more about the StorSimple Snapshot Manager user interface<ept id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;/linkText&gt;</ept><bpt id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;title&gt;</bpt><ept id="66a800e5-7f10-4c42-a54f-c0decf2f5f08">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

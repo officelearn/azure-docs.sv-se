@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="388135f3-74b0-4e4b-a896-5d601daf55d3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="388135f3-74b0-4e4b-a896-5d601daf55d3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a89c0f9f-cb8c-4bc6-a2c7-ee0fe4cb32f0">
+        <trans-unit id="877ac4db-55ad-4b26-b803-18e227fad19e" xml:space="preserve">
+          <source>Capture an image of a virtual machine running Linux</source>
+          <target state="new">Capture an image of a virtual machine running Linux</target>
+        </trans-unit>
+        <trans-unit id="6c134586-7a5b-49da-abcf-dac8c19abbbe" xml:space="preserve">
+          <source>Learn how to capture an image of an Azure virtual machine (VM) running Linux.</source>
+          <target state="new">Learn how to capture an image of an Azure virtual machine (VM) running Linux.</target>
+        </trans-unit>
+        <trans-unit id="d93fdb88-4370-47d7-bc19-033249053273" xml:space="preserve">
+          <source>This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines.</source>
+          <target state="new">This article shows you how to capture an Azure virtual machine running Linux so you can use it like a template to create other virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="3c1fb1d5-4865-416e-9a64-5ebbf59598d9" xml:space="preserve">
+          <source>This template includes the OS disk and data disks attached to the virtual machine.</source>
+          <target state="new">This template includes the OS disk and data disks attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7c1e7311-9986-4e61-92ec-65379a4d0e23" xml:space="preserve">
+          <source>It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.</source>
+          <target state="new">It doesn't include networking configuration, so you'll need to configure that when you create the other virtual machines that use the template.</target>
+        </trans-unit>
+        <trans-unit id="96870895-cc29-42be-aa8a-3f8226ad0f54" xml:space="preserve">
+          <source>Azure treats this template as an image and stores it under <bpt id="acb7c7f9-b606-4fe7-85bc-6a8729b502f9">&lt;strong&gt;</bpt>Images<ept id="acb7c7f9-b606-4fe7-85bc-6a8729b502f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure treats this template as an image and stores it under <bpt id="acb7c7f9-b606-4fe7-85bc-6a8729b502f9">&lt;strong&gt;</bpt>Images<ept id="acb7c7f9-b606-4fe7-85bc-6a8729b502f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb254881-4f5e-4785-a695-abfcd76010ef" xml:space="preserve">
+          <source>This is also where any images you've uploaded are stored.</source>
+          <target state="new">This is also where any images you've uploaded are stored.</target>
+        </trans-unit>
+        <trans-unit id="57beec11-5d11-4e9c-af64-578fd45b8564" xml:space="preserve">
+          <source>For more information about images, see <bpt id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;linkText&gt;</bpt>About Virtual Machine Images in Azure<ept id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;/linkText&gt;</ept><bpt id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;title&gt;</bpt><ept id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about images, see <bpt id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;linkText&gt;</bpt>About Virtual Machine Images in Azure<ept id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;/linkText&gt;</ept><bpt id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;title&gt;</bpt><ept id="3514011b-703d-4791-b9b5-d4cfc6972148">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d2d62b2-919a-4b66-8a67-c5716b8a0e17" xml:space="preserve">
+          <source>These steps assume that you've already created an Azure virtual machine using the classic deployment model and configured the operating system, including attaching any data disks.</source>
+          <target state="new">These steps assume that you've already created an Azure virtual machine using the classic deployment model and configured the operating system, including attaching any data disks.</target>
+        </trans-unit>
+        <trans-unit id="b513f68a-d7d9-469d-b938-b234b78a2d7c" xml:space="preserve">
+          <source>If you haven't done this yet, see these instructions:</source>
+          <target state="new">If you haven't done this yet, see these instructions:</target>
+        </trans-unit>
+        <trans-unit id="8a7e4cfd-fcfb-44f0-a127-8fe309862289" xml:space="preserve">
+          <source><bpt id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;linkText&gt;</bpt>How to Create a Virtual Machine Running Linux<ept id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;/linkText&gt;</ept><bpt id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;title&gt;</bpt><ept id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;linkText&gt;</bpt>How to Create a Virtual Machine Running Linux<ept id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;/linkText&gt;</ept><bpt id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;title&gt;</bpt><ept id="59f10a9a-56c4-4792-8f49-a0e008a3a670">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ab269e1-ab4f-41e3-8129-0d539fbdbfbb" xml:space="preserve">
+          <source>Connect to the virtual machine using an SSH client of your choice.</source>
+          <target state="new">Connect to the virtual machine using an SSH client of your choice.</target>
+        </trans-unit>
+        <trans-unit id="06501215-797a-4b0d-bd02-ecd3b8cfde0c" xml:space="preserve">
+          <source>For details, see <bpt id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;/linkText&gt;</ept><bpt id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;title&gt;</bpt><ept id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;linkText&gt;</bpt>How to Log on to a Virtual Machine Running Linux<ept id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;/linkText&gt;</ept><bpt id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;title&gt;</bpt><ept id="40af8147-6ab6-4bb0-8954-de72ce2292cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d720a1c-7f64-4200-a7e2-2bcebc6a3575" xml:space="preserve">
+          <source>In the SSH window, type the following command.</source>
+          <target state="new">In the SSH window, type the following command.</target>
+        </trans-unit>
+        <trans-unit id="85986f88-8158-4bf2-83c0-4a589596b22a" xml:space="preserve">
+          <source>Note that the output from <bpt id="1fdb08c5-f8f1-45a2-a03d-13799f34c828">&lt;code&gt;</bpt>waagent<ept id="1fdb08c5-f8f1-45a2-a03d-13799f34c828">&lt;/code&gt;</ept> may vary slightly depending on the version of this utility:</source>
+          <target state="new">Note that the output from <bpt id="1fdb08c5-f8f1-45a2-a03d-13799f34c828">&lt;code&gt;</bpt>waagent<ept id="1fdb08c5-f8f1-45a2-a03d-13799f34c828">&lt;/code&gt;</ept> may vary slightly depending on the version of this utility:</target>
+        </trans-unit>
+        <trans-unit id="b386116f-c638-4631-968c-8a300811f7d4" xml:space="preserve">
+          <source><bpt id="9f4192b0-1ef8-4536-a9b2-54b2cc186dae">&lt;code&gt;</bpt>sudo waagent -deprovision<ept id="9f4192b0-1ef8-4536-a9b2-54b2cc186dae">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="9f4192b0-1ef8-4536-a9b2-54b2cc186dae">&lt;code&gt;</bpt>sudo waagent -deprovision<ept id="9f4192b0-1ef8-4536-a9b2-54b2cc186dae">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07a8ca59-dd0f-4521-9103-468b855afaa6" xml:space="preserve">
+          <source>This command will attempt to clean the system and make it suitable for re-provisioning.</source>
+          <target state="new">This command will attempt to clean the system and make it suitable for re-provisioning.</target>
+        </trans-unit>
+        <trans-unit id="c3752e11-94b6-4a8a-b814-4f7add750713" xml:space="preserve">
+          <source>This operation performs the following tasks:</source>
+          <target state="new">This operation performs the following tasks:</target>
+        </trans-unit>
+        <trans-unit id="90def9b7-9d2e-48df-bc4b-0d55319c3cba" xml:space="preserve">
+          <source>Removes SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)</source>
+          <target state="new">Removes SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)</target>
+        </trans-unit>
+        <trans-unit id="81b8be6f-db4f-450a-b9bb-8a60b14e58ad" xml:space="preserve">
+          <source>Clears nameserver configuration in /etc/resolv.conf</source>
+          <target state="new">Clears nameserver configuration in /etc/resolv.conf</target>
+        </trans-unit>
+        <trans-unit id="a5788d1c-ae60-491b-af82-80a96e19b462" xml:space="preserve">
+          <source>Removes the <bpt id="d3952826-5d2e-47c3-b845-ab75305df195">&lt;code&gt;</bpt>root<ept id="d3952826-5d2e-47c3-b845-ab75305df195">&lt;/code&gt;</ept> user's password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)</source>
+          <target state="new">Removes the <bpt id="d3952826-5d2e-47c3-b845-ab75305df195">&lt;code&gt;</bpt>root<ept id="d3952826-5d2e-47c3-b845-ab75305df195">&lt;/code&gt;</ept> user's password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)</target>
+        </trans-unit>
+        <trans-unit id="d41302c3-bdfd-4a45-8d5f-6ef8646b7ad7" xml:space="preserve">
+          <source>Removes cached DHCP client leases</source>
+          <target state="new">Removes cached DHCP client leases</target>
+        </trans-unit>
+        <trans-unit id="1c8222e4-113b-43e3-9674-29efee88a0fe" xml:space="preserve">
+          <source>Resets host name to localhost.localdomain</source>
+          <target state="new">Resets host name to localhost.localdomain</target>
+        </trans-unit>
+        <trans-unit id="747391fe-4056-4108-88a8-0cfebc807954" xml:space="preserve">
+          <source>Deletes the last provisioned user account (obtained from /var/lib/waagent) <bpt id="71ab65e6-dca1-43f6-9d7b-5e48ac9d77e3">&lt;strong&gt;</bpt>and associated data<ept id="71ab65e6-dca1-43f6-9d7b-5e48ac9d77e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Deletes the last provisioned user account (obtained from /var/lib/waagent) <bpt id="71ab65e6-dca1-43f6-9d7b-5e48ac9d77e3">&lt;strong&gt;</bpt>and associated data<ept id="71ab65e6-dca1-43f6-9d7b-5e48ac9d77e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5df90df9-e47c-43f8-b9a6-040d4858bdd8" xml:space="preserve">
+          <source>Deprovisioning deletes files and data in an effort to "generalize" the image.</source>
+          <target state="new">Deprovisioning deletes files and data in an effort to "generalize" the image.</target>
+        </trans-unit>
+        <trans-unit id="a59aad4a-1934-45d2-82e6-d250faba4209" xml:space="preserve">
+          <source>Only run this command on virtual machines that you intend to capture as a new image template.</source>
+          <target state="new">Only run this command on virtual machines that you intend to capture as a new image template.</target>
+        </trans-unit>
+        <trans-unit id="b99c5d62-823b-4771-a5df-ff920462ea95" xml:space="preserve">
+          <source>It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.</source>
+          <target state="new">It does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution to third parties.</target>
+        </trans-unit>
+        <trans-unit id="ed367f22-e7bc-4c69-87b6-5f0e84d5d658" xml:space="preserve">
+          <source>Type <bpt id="4f7a7f16-1ed5-476e-9b6f-4b82e2a5cf9b">&lt;strong&gt;</bpt>y<ept id="4f7a7f16-1ed5-476e-9b6f-4b82e2a5cf9b">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Type <bpt id="4f7a7f16-1ed5-476e-9b6f-4b82e2a5cf9b">&lt;strong&gt;</bpt>y<ept id="4f7a7f16-1ed5-476e-9b6f-4b82e2a5cf9b">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="396d26fb-cc19-42f1-9a61-a19746a19907" xml:space="preserve">
+          <source>You can add the <bpt id="316fb3fd-da43-4efc-9f0d-964b921e26d1">&lt;code&gt;</bpt>-force<ept id="316fb3fd-da43-4efc-9f0d-964b921e26d1">&lt;/code&gt;</ept> parameter to avoid this confirmation step.</source>
+          <target state="new">You can add the <bpt id="316fb3fd-da43-4efc-9f0d-964b921e26d1">&lt;code&gt;</bpt>-force<ept id="316fb3fd-da43-4efc-9f0d-964b921e26d1">&lt;/code&gt;</ept> parameter to avoid this confirmation step.</target>
+        </trans-unit>
+        <trans-unit id="2236592f-c75f-45e2-b539-60fce10a844c" xml:space="preserve">
+          <source>Type <bpt id="0587d4a9-c090-4f41-b4ac-13663c731087">&lt;strong&gt;</bpt>Exit<ept id="0587d4a9-c090-4f41-b4ac-13663c731087">&lt;/strong&gt;</ept> to close the SSH client.</source>
+          <target state="new">Type <bpt id="0587d4a9-c090-4f41-b4ac-13663c731087">&lt;strong&gt;</bpt>Exit<ept id="0587d4a9-c090-4f41-b4ac-13663c731087">&lt;/strong&gt;</ept> to close the SSH client.</target>
+        </trans-unit>
+        <trans-unit id="8eac537a-2e81-4d87-bffa-a510d8c37478" xml:space="preserve">
+          <source>The next steps assume you have already <bpt id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;linkText&gt;</bpt>installed the Azure CLI<ept id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;/linkText&gt;</ept><bpt id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;title&gt;</bpt><ept id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;/title&gt;</ept> on your client computer.</source>
+          <target state="new">The next steps assume you have already <bpt id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;linkText&gt;</bpt>installed the Azure CLI<ept id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;/linkText&gt;</ept><bpt id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;title&gt;</bpt><ept id="013d4118-ea27-4261-b56d-e8296e0e308f">&lt;/title&gt;</ept> on your client computer.</target>
+        </trans-unit>
+        <trans-unit id="81fc72a8-9d9a-420d-bae3-8619243809d9" xml:space="preserve">
+          <source>All the steps below can also be done in the <bpt id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;linkText&gt;</bpt>Management Portal<ept id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;/linkText&gt;</ept><bpt id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;title&gt;</bpt><ept id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;/title&gt;</ept>.</source>
+          <target state="new">All the steps below can also be done in the <bpt id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;linkText&gt;</bpt>Management Portal<ept id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;/linkText&gt;</ept><bpt id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;title&gt;</bpt><ept id="a97dd73a-490c-421f-b730-618ea2412bb6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11a90306-68ca-4ab8-993d-1a59b295c74e" xml:space="preserve">
+          <source>From your client computer, open Azure CLI and login to your Azure subscription.</source>
+          <target state="new">From your client computer, open Azure CLI and login to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="03914986-a8b1-4c88-bfbc-ab1c83c387a5" xml:space="preserve">
+          <source>For details, read <bpt id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;linkText&gt;</bpt>Connect to an Azure subscription from the Azure CLI<ept id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;/linkText&gt;</ept><bpt id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;title&gt;</bpt><ept id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, read <bpt id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;linkText&gt;</bpt>Connect to an Azure subscription from the Azure CLI<ept id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;/linkText&gt;</ept><bpt id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;title&gt;</bpt><ept id="df407976-f9b3-4ae4-b8dc-ff64b90f036f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62e17b63-0ab5-496f-92f6-5e18834f1051" xml:space="preserve">
+          <source>Make sure you are in Service Management mode:</source>
+          <target state="new">Make sure you are in Service Management mode:</target>
+        </trans-unit>
+        <trans-unit id="ac8d9ec3-5821-4a6c-af96-9cba21ebd5ae" xml:space="preserve">
+          <source><bpt id="553940b5-5d50-4601-81e7-0620f5759795">&lt;code&gt;</bpt>azure config mode asm<ept id="553940b5-5d50-4601-81e7-0620f5759795">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="553940b5-5d50-4601-81e7-0620f5759795">&lt;code&gt;</bpt>azure config mode asm<ept id="553940b5-5d50-4601-81e7-0620f5759795">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3aa7f65e-145e-4c84-8972-473d5d1d9285" xml:space="preserve">
+          <source>Shut down the virtual machine which is already deprovisioned in the steps above with:</source>
+          <target state="new">Shut down the virtual machine which is already deprovisioned in the steps above with:</target>
+        </trans-unit>
+        <trans-unit id="a6fa9acf-4cc1-471e-92f9-11e3700a8b85" xml:space="preserve">
+          <source><bpt id="1cb079db-4d69-4f97-ad7b-1ebdee4d48e4">&lt;code&gt;</bpt>azure vm shutdown &lt;your-virtual-machine-name&gt;<ept id="1cb079db-4d69-4f97-ad7b-1ebdee4d48e4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1cb079db-4d69-4f97-ad7b-1ebdee4d48e4">&lt;code&gt;</bpt>azure vm shutdown &lt;your-virtual-machine-name&gt;<ept id="1cb079db-4d69-4f97-ad7b-1ebdee4d48e4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73e7fded-251e-4791-9feb-dab9ac4c0c72" xml:space="preserve">
+          <source>You can find out all the virtual machines created in your subscription by using <bpt id="4868c4d1-d798-47bb-a6f7-4ae1b8c7f05d">&lt;code&gt;</bpt>azure vm list<ept id="4868c4d1-d798-47bb-a6f7-4ae1b8c7f05d">&lt;/code&gt;</ept></source>
+          <target state="new">You can find out all the virtual machines created in your subscription by using <bpt id="4868c4d1-d798-47bb-a6f7-4ae1b8c7f05d">&lt;code&gt;</bpt>azure vm list<ept id="4868c4d1-d798-47bb-a6f7-4ae1b8c7f05d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f78b19c7-f126-49c8-9025-035b22f67ba5" xml:space="preserve">
+          <source>When the virtual machine is stopped, capture the image with the command:</source>
+          <target state="new">When the virtual machine is stopped, capture the image with the command:</target>
+        </trans-unit>
+        <trans-unit id="4297c90b-02c9-412e-afe6-2a7c22c3f10e" xml:space="preserve">
+          <source><bpt id="43d977d7-648e-4d13-adc6-a0417534ab13">&lt;code&gt;</bpt>azure vm capture -t &lt;your-virtual-machine-name&gt; &lt;new-image-name&gt;<ept id="43d977d7-648e-4d13-adc6-a0417534ab13">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="43d977d7-648e-4d13-adc6-a0417534ab13">&lt;code&gt;</bpt>azure vm capture -t &lt;your-virtual-machine-name&gt; &lt;new-image-name&gt;<ept id="43d977d7-648e-4d13-adc6-a0417534ab13">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b098b30-88f7-45be-899b-6a7893776c1d" xml:space="preserve">
+          <source>Type the image name you want in place of <bpt id="3b07b07c-bd50-46f2-800c-5f18e72186a9">&lt;em&gt;</bpt>new-image-name<ept id="3b07b07c-bd50-46f2-800c-5f18e72186a9">&lt;/em&gt;</ept>.</source>
+          <target state="new">Type the image name you want in place of <bpt id="3b07b07c-bd50-46f2-800c-5f18e72186a9">&lt;em&gt;</bpt>new-image-name<ept id="3b07b07c-bd50-46f2-800c-5f18e72186a9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ba200a2-9f35-49c4-8dc8-2ff5da90ca11" xml:space="preserve">
+          <source>This command creates a generalized OS image.</source>
+          <target state="new">This command creates a generalized OS image.</target>
+        </trans-unit>
+        <trans-unit id="d39976ba-1e67-46a8-b0fc-b9099ce55cb9" xml:space="preserve">
+          <source>The <bpt id="24a36486-29e5-4029-a585-9be46e2f3136">&lt;code&gt;</bpt>-t<ept id="24a36486-29e5-4029-a585-9be46e2f3136">&lt;/code&gt;</ept> subcommand deletes the original virtual machine.</source>
+          <target state="new">The <bpt id="24a36486-29e5-4029-a585-9be46e2f3136">&lt;code&gt;</bpt>-t<ept id="24a36486-29e5-4029-a585-9be46e2f3136">&lt;/code&gt;</ept> subcommand deletes the original virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c3873b46-b0dc-4615-a254-727eaceb20ce" xml:space="preserve">
+          <source>The new image is now available in the list of images that can be used to configure any new virtual machines.</source>
+          <target state="new">The new image is now available in the list of images that can be used to configure any new virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="580c7a2a-3dce-4bd3-a5b2-6cc2b52f4aac" xml:space="preserve">
+          <source>You can view it with the command:</source>
+          <target state="new">You can view it with the command:</target>
+        </trans-unit>
+        <trans-unit id="10424a7e-960b-4962-94ce-11345ebefacd" xml:space="preserve">
+          <source><bpt id="92d174cb-ce74-45f2-b382-cbbdf5d02088">&lt;code&gt;</bpt>azure vm image list<ept id="92d174cb-ce74-45f2-b382-cbbdf5d02088">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="92d174cb-ce74-45f2-b382-cbbdf5d02088">&lt;code&gt;</bpt>azure vm image list<ept id="92d174cb-ce74-45f2-b382-cbbdf5d02088">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="695f8989-659f-4264-a2c9-8839f58ab325" xml:space="preserve">
+          <source>On the <bpt id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;linkText&gt;</bpt>Management Portal<ept id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;/linkText&gt;</ept><bpt id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;title&gt;</bpt><ept id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;/title&gt;</ept>, it will appear in the <bpt id="58648604-cb9e-407b-8847-197bc457ebbf">&lt;strong&gt;</bpt>IMAGES<ept id="58648604-cb9e-407b-8847-197bc457ebbf">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">On the <bpt id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;linkText&gt;</bpt>Management Portal<ept id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;/linkText&gt;</ept><bpt id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;title&gt;</bpt><ept id="beea3a04-a370-41de-a3c9-b3f43f8cbe99">&lt;/title&gt;</ept>, it will appear in the <bpt id="58648604-cb9e-407b-8847-197bc457ebbf">&lt;strong&gt;</bpt>IMAGES<ept id="58648604-cb9e-407b-8847-197bc457ebbf">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="038a68fa-f7be-4d40-b44d-9ff0405e6629" xml:space="preserve">
+          <source><bpt id="2b5be6a1-6432-4349-be74-41f7752cbb25">&lt;linkText&gt;</bpt>Image capture successful<ept id="2b5be6a1-6432-4349-be74-41f7752cbb25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2b5be6a1-6432-4349-be74-41f7752cbb25">&lt;linkText&gt;</bpt>Image capture successful<ept id="2b5be6a1-6432-4349-be74-41f7752cbb25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a983c756-7d6d-447b-b89c-fd8a174657a2" xml:space="preserve">
+          <source>The image is ready to be used as a template to create virtual machines.</source>
+          <target state="new">The image is ready to be used as a template to create virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="7aa8a006-599c-4dbd-831c-dd3866b4e25d" xml:space="preserve">
+          <source>You can use the Azure CLI command <bpt id="2cebe18b-d232-4604-b1f3-2b97fbceebd4">&lt;code&gt;</bpt>azure vm create<ept id="2cebe18b-d232-4604-b1f3-2b97fbceebd4">&lt;/code&gt;</ept> and supply the image name you just created.</source>
+          <target state="new">You can use the Azure CLI command <bpt id="2cebe18b-d232-4604-b1f3-2b97fbceebd4">&lt;code&gt;</bpt>azure vm create<ept id="2cebe18b-d232-4604-b1f3-2b97fbceebd4">&lt;/code&gt;</ept> and supply the image name you just created.</target>
+        </trans-unit>
+        <trans-unit id="95b64b6e-e122-4794-9ba7-2618891c5966" xml:space="preserve">
+          <source>See <bpt id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;linkText&gt;</bpt>Using Azure CLI with the Service Management API<ept id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;/linkText&gt;</ept><bpt id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;title&gt;</bpt><ept id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;/title&gt;</ept> for details about the command.</source>
+          <target state="new">See <bpt id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;linkText&gt;</bpt>Using Azure CLI with the Service Management API<ept id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;/linkText&gt;</ept><bpt id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;title&gt;</bpt><ept id="5f21b0fd-9d89-48a4-94ab-776e9da5dd31">&lt;/title&gt;</ept> for details about the command.</target>
+        </trans-unit>
+        <trans-unit id="791f9c7c-d252-4144-8555-b5edc839241b" xml:space="preserve">
+          <source>Alternatively, you can use the <bpt id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;linkText&gt;</bpt>Management Portal<ept id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;/linkText&gt;</ept><bpt id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;title&gt;</bpt><ept id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;/title&gt;</ept> to create a custom virtual machine by using the <bpt id="22dc27d4-e132-4d7a-b582-f67ad1192aac">&lt;strong&gt;</bpt>From Gallery<ept id="22dc27d4-e132-4d7a-b582-f67ad1192aac">&lt;/strong&gt;</ept> method and selecting the image you just created.</source>
+          <target state="new">Alternatively, you can use the <bpt id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;linkText&gt;</bpt>Management Portal<ept id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;/linkText&gt;</ept><bpt id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;title&gt;</bpt><ept id="9165ce00-f6e0-495e-98e0-ce7cd025d68c">&lt;/title&gt;</ept> to create a custom virtual machine by using the <bpt id="22dc27d4-e132-4d7a-b582-f67ad1192aac">&lt;strong&gt;</bpt>From Gallery<ept id="22dc27d4-e132-4d7a-b582-f67ad1192aac">&lt;/strong&gt;</ept> method and selecting the image you just created.</target>
+        </trans-unit>
+        <trans-unit id="45606141-6380-4b06-9556-dc4c697ed4ed" xml:space="preserve">
+          <source>See <bpt id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;linkText&gt;</bpt>How to Create a Custom Virtual Machine<ept id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;/linkText&gt;</ept><bpt id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;title&gt;</bpt><ept id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;linkText&gt;</bpt>How to Create a Custom Virtual Machine<ept id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;/linkText&gt;</ept><bpt id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;title&gt;</bpt><ept id="d0424cf7-1351-4e30-a00f-c68128f0dacb">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="f7c41a0d-3945-4290-ab4d-ec84cf2ef3ff" xml:space="preserve">
+          <source><bpt id="35125d4f-7cb0-48dc-b5da-3ccdf4d248a3">&lt;strong&gt;</bpt>See Also:<ept id="35125d4f-7cb0-48dc-b5da-3ccdf4d248a3">&lt;/strong&gt;</ept> <bpt id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;linkText&gt;</bpt>Azure Linux Agent User Guide<ept id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;/linkText&gt;</ept><bpt id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;title&gt;</bpt><ept id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35125d4f-7cb0-48dc-b5da-3ccdf4d248a3">&lt;strong&gt;</bpt>See Also:<ept id="35125d4f-7cb0-48dc-b5da-3ccdf4d248a3">&lt;/strong&gt;</ept> <bpt id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;linkText&gt;</bpt>Azure Linux Agent User Guide<ept id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;/linkText&gt;</ept><bpt id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;title&gt;</bpt><ept id="bd2858e6-faca-41db-9c2d-e43173a19a69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="576326d8-628b-4167-9b58-db7f11210f01" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="939ec658-0df6-4daf-acc6-f76328854c00" xml:space="preserve">
+          <source>virtual-machines-linux-how-to-log-on.md</source>
+          <target state="new">virtual-machines-linux-how-to-log-on.md</target>
+        </trans-unit>
+        <trans-unit id="d1a4cd12-68e0-4014-b068-66bc1e3c15b9" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn790290.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn790290.aspx</target>
+        </trans-unit>
+        <trans-unit id="e745f2f1-60dd-4966-947c-64574e779e4f" xml:space="preserve">
+          <source>virtual-machines-create-custom.md</source>
+          <target state="new">virtual-machines-create-custom.md</target>
+        </trans-unit>
+        <trans-unit id="978c81ba-fa72-4370-9346-ae451185c6b7" xml:space="preserve">
+          <source>storage-windows-attach-disk.md</source>
+          <target state="new">storage-windows-attach-disk.md</target>
+        </trans-unit>
+        <trans-unit id="4c349756-0436-4988-8c04-09e1a1f72293" xml:space="preserve">
+          <source>virtual-machines-linux-tutorial.md</source>
+          <target state="new">virtual-machines-linux-tutorial.md</target>
+        </trans-unit>
+      </group>
+      <group id="723ae3c1-45eb-4023-b1d5-2d2df1729c8c" />
+    </body>
+  </file>
+</xliff>

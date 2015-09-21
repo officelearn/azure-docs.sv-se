@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="97f70155-5d60-4e71-b651-ffd85207b05f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="97f70155-5d60-4e71-b651-ffd85207b05f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a82d3e69-f384-4143-9b27-a47d88ecbf09">
+        <trans-unit id="b1f56239-27bd-466c-a4c2-73a8c61f3b94" xml:space="preserve">
+          <source>Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 20012, you must verify that the hotfix <bpt id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;linkText&gt;</bpt>KB2854082<ept id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;/linkText&gt;</ept><bpt id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;title&gt;</bpt><ept id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;/title&gt;</ept> is installed on each of the on-premises servers or Azure VMs that are part of the cluster.</source>
+          <target state="new">Next, if any servers on the cluster are running Windows Server 2008 R2 or Windows Server 20012, you must verify that the hotfix <bpt id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;linkText&gt;</bpt>KB2854082<ept id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;/linkText&gt;</ept><bpt id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;title&gt;</bpt><ept id="6618addb-7427-4dec-aa3b-d9047b49fd52">&lt;/title&gt;</ept> is installed on each of the on-premises servers or Azure VMs that are part of the cluster.</target>
+        </trans-unit>
+        <trans-unit id="a9ea61f2-4da6-4f21-86e5-d0a754ad8bb2" xml:space="preserve">
+          <source>Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.</source>
+          <target state="new">Any server or VM that is in the cluster, but not in the availability group, should also have this hotfix installed.</target>
+        </trans-unit>
+        <trans-unit id="37fa81ff-0e30-4e79-853d-dba6a9eaa269" xml:space="preserve">
+          <source>In the remote desktop session for each of the cluster nodes, download <bpt id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;linkText&gt;</bpt>KB2854082<ept id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;/linkText&gt;</ept><bpt id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;title&gt;</bpt><ept id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;/title&gt;</ept> to a local directory.</source>
+          <target state="new">In the remote desktop session for each of the cluster nodes, download <bpt id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;linkText&gt;</bpt>KB2854082<ept id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;/linkText&gt;</ept><bpt id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;title&gt;</bpt><ept id="4f65a4bb-8c99-474a-9b63-db3af845c226">&lt;/title&gt;</ept> to a local directory.</target>
+        </trans-unit>
+        <trans-unit id="694090c1-94d0-4a2e-91f6-d91f543a3f4a" xml:space="preserve">
+          <source>Then, install the hotfix on each of the cluster nodes sequentially.</source>
+          <target state="new">Then, install the hotfix on each of the cluster nodes sequentially.</target>
+        </trans-unit>
+        <trans-unit id="d951df9b-94e4-4e81-a578-22ee98780829" xml:space="preserve">
+          <source>If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.</source>
+          <target state="new">If the cluster service is currently running on the cluster node, the server is restarted at the end of the hotfix installation.</target>
+        </trans-unit>
+        <trans-unit id="bed89e32-f6f9-4643-9e05-136dcc858ca4" xml:space="preserve">
+          <source>Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and may cause your cluster to go offline.</source>
+          <target state="new">Stopping the cluster service or restarting the server affects the quorum health of your cluster and the availability group, and may cause your cluster to go offline.</target>
+        </trans-unit>
+        <trans-unit id="609c416f-7972-48b6-bd9e-463af5f94eba" xml:space="preserve">
+          <source>To maintain the high availability of your cluster during installation, make sure that:</source>
+          <target state="new">To maintain the high availability of your cluster during installation, make sure that:</target>
+        </trans-unit>
+        <trans-unit id="a3603b31-f334-4069-b3ae-b6626ce2f718" xml:space="preserve">
+          <source>The cluster is in optimal quorum health, </source>
+          <target state="new">The cluster is in optimal quorum health, </target>
+        </trans-unit>
+        <trans-unit id="4fd4b10c-f753-48ec-9293-342d001bea00" xml:space="preserve">
+          <source>All cluster nodes are online before installing the hotfix on any node, and</source>
+          <target state="new">All cluster nodes are online before installing the hotfix on any node, and</target>
+        </trans-unit>
+        <trans-unit id="71650832-2e60-4661-a040-dea0f1d73149" xml:space="preserve">
+          <source>Allow the hotfix installation to run to completion on one node, including fully restarting the server, before installing the hotfix on any other node in the cluster.</source>
+          <target state="new">Allow the hotfix installation to run to completion on one node, including fully restarting the server, before installing the hotfix on any other node in the cluster.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a00a92ff-31c6-499d-949b-3ed83abc69a5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a00a92ff-31c6-499d-949b-3ed83abc69a5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0dac6923-7c31-465b-ab75-dde7d79585b3">
+        <trans-unit id="19985705-0029-4d7e-b4c4-7ca07307a425" xml:space="preserve">
+          <source>Create a database in SQL Database Update V12</source>
+          <target state="new">Create a database in SQL Database Update V12</target>
+        </trans-unit>
+        <trans-unit id="f7e700a1-704e-400e-beb3-08c75480905d" xml:space="preserve">
+          <source>Demonstrates how to create a database in Azure SQL Database Update V12</source>
+          <target state="new">Demonstrates how to create a database in Azure SQL Database Update V12</target>
+        </trans-unit>
+        <trans-unit id="84158cb0-029b-4e85-bd58-9bcdf373795d" xml:space="preserve">
+          <source><bpt id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;linkText&gt;</bpt>Sign up<ept id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;/linkText&gt;</ept><bpt id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;title&gt;</bpt><ept id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;/title&gt;</ept> for the SQL Database V12 <bpt id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;linkText&gt;</bpt>(Preview in some regions)<ept id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;/linkText&gt;</ept><bpt id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;title&gt;</bpt><ept id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;/title&gt;</ept> to take advantage of the next generation of  SQL Database on Microsoft Azure.</source>
+          <target state="new"><bpt id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;linkText&gt;</bpt>Sign up<ept id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;/linkText&gt;</ept><bpt id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;title&gt;</bpt><ept id="5c3fae32-5b1a-4f84-8e47-e995c67380a4">&lt;/title&gt;</ept> for the SQL Database V12 <bpt id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;linkText&gt;</bpt>(Preview in some regions)<ept id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;/linkText&gt;</ept><bpt id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;title&gt;</bpt><ept id="429bf2eb-e393-4208-aeb8-551056cf0ada">&lt;/title&gt;</ept> to take advantage of the next generation of  SQL Database on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="fbad6d6e-00ae-418f-b9e8-50286eb95479" xml:space="preserve">
+          <source>To get started, you need a subscription for Microsoft Azure.</source>
+          <target state="new">To get started, you need a subscription for Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="10eeee5e-3c29-422a-aeb6-80fc33c0c298" xml:space="preserve">
+          <source>Sign up for a <bpt id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;linkText&gt;</bpt>free Azure trial<ept id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;/linkText&gt;</ept><bpt id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;title&gt;</bpt><ept id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;/title&gt;</ept> and review <bpt id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;linkText&gt;</bpt>pricing<ept id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;/linkText&gt;</ept><bpt id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;title&gt;</bpt><ept id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;/title&gt;</ept> information.</source>
+          <target state="new">Sign up for a <bpt id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;linkText&gt;</bpt>free Azure trial<ept id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;/linkText&gt;</ept><bpt id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;title&gt;</bpt><ept id="63c25dc1-3431-47bd-8a6f-5502ed6a7821">&lt;/title&gt;</ept> and review <bpt id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;linkText&gt;</bpt>pricing<ept id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;/linkText&gt;</ept><bpt id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;title&gt;</bpt><ept id="daad6d48-e3c0-45d5-9d94-ecc046b44864">&lt;/title&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="e0db0927-bb6e-4af4-833e-da6de9cdc81e" xml:space="preserve">
+          <source>Create database</source>
+          <target state="new">Create database</target>
+        </trans-unit>
+        <trans-unit id="20aebbe4-7984-47b3-afe7-3aa81d89ad92" xml:space="preserve">
+          <source>Screen shot</source>
+          <target state="new">Screen shot</target>
+        </trans-unit>
+        <trans-unit id="42e83d0b-f207-40a7-8321-79e7cf513866" xml:space="preserve">
+          <source>1. Sign in to <bpt id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;linkText&gt;</bpt>http://portal.azure.com/<ept id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;/linkText&gt;</ept><bpt id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;title&gt;</bpt><ept id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;/title&gt;</ept>.</source>
+          <target state="new">1. Sign in to <bpt id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;linkText&gt;</bpt>http://portal.azure.com/<ept id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;/linkText&gt;</ept><bpt id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;title&gt;</bpt><ept id="0a86799a-afc4-448f-888a-a0a6c6dda48c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d048378e-0427-41dc-b729-2c25cc7f2e64" xml:space="preserve">
+          <source><bpt id="809e3b0c-66d1-464c-a5a5-a480ddf8bf3a">&lt;linkText&gt;</bpt>New Azure Portal<ept id="809e3b0c-66d1-464c-a5a5-a480ddf8bf3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="809e3b0c-66d1-464c-a5a5-a480ddf8bf3a">&lt;linkText&gt;</bpt>New Azure Portal<ept id="809e3b0c-66d1-464c-a5a5-a480ddf8bf3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f77cc940-eae8-4831-833b-296bdf517569" xml:space="preserve">
+          <source>2. At the bottom of the page, on the left, click <bpt id="32b10480-47bd-4503-85d2-772734f4629c">&lt;strong&gt;</bpt>New<ept id="32b10480-47bd-4503-85d2-772734f4629c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">2. At the bottom of the page, on the left, click <bpt id="32b10480-47bd-4503-85d2-772734f4629c">&lt;strong&gt;</bpt>New<ept id="32b10480-47bd-4503-85d2-772734f4629c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d105b1de-b40d-456c-bc77-4995412b8bbc" xml:space="preserve">
+          <source><bpt id="ce04a82e-c772-40ea-967a-8f0c06e11ed6">&lt;linkText&gt;</bpt>Initiate New service<ept id="ce04a82e-c772-40ea-967a-8f0c06e11ed6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce04a82e-c772-40ea-967a-8f0c06e11ed6">&lt;linkText&gt;</bpt>Initiate New service<ept id="ce04a82e-c772-40ea-967a-8f0c06e11ed6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="872e8a0b-d347-46a7-9d1b-d22287dc87a6" xml:space="preserve">
+          <source>3. Click <bpt id="41fea9ea-501c-4cce-baad-df77f95f8408">&lt;strong&gt;</bpt>SQL database<ept id="41fea9ea-501c-4cce-baad-df77f95f8408">&lt;/strong&gt;</ept>.</source>
+          <target state="new">3. Click <bpt id="41fea9ea-501c-4cce-baad-df77f95f8408">&lt;strong&gt;</bpt>SQL database<ept id="41fea9ea-501c-4cce-baad-df77f95f8408">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e4ae556-1fc0-4815-8101-72a814b5451e" xml:space="preserve">
+          <source><bpt id="9bdd48ad-70d2-4cff-9809-d85cea2b8901">&lt;linkText&gt;</bpt>Different services to select from<ept id="9bdd48ad-70d2-4cff-9809-d85cea2b8901">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bdd48ad-70d2-4cff-9809-d85cea2b8901">&lt;linkText&gt;</bpt>Different services to select from<ept id="9bdd48ad-70d2-4cff-9809-d85cea2b8901">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcd60b8f-b4ee-451d-afa0-6ea1b8e9e632" xml:space="preserve">
+          <source>4. A <bpt id="6a1c8e5f-8d20-43a1-88f0-139903beb704">&lt;strong&gt;</bpt>SQL database<ept id="6a1c8e5f-8d20-43a1-88f0-139903beb704">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">4. A <bpt id="6a1c8e5f-8d20-43a1-88f0-139903beb704">&lt;strong&gt;</bpt>SQL database<ept id="6a1c8e5f-8d20-43a1-88f0-139903beb704">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="1f03acb8-901f-43e4-a0d0-9b60855e22d5" xml:space="preserve">
+          <source>In the <bpt id="311ba5ea-465e-4360-99a1-c105215ff30c">&lt;strong&gt;</bpt>Name<ept id="311ba5ea-465e-4360-99a1-c105215ff30c">&lt;/strong&gt;</ept> field, specify a database name.</source>
+          <target state="new">In the <bpt id="311ba5ea-465e-4360-99a1-c105215ff30c">&lt;strong&gt;</bpt>Name<ept id="311ba5ea-465e-4360-99a1-c105215ff30c">&lt;/strong&gt;</ept> field, specify a database name.</target>
+        </trans-unit>
+        <trans-unit id="e6865868-4278-499f-926a-d718e9aecade" xml:space="preserve">
+          <source><bpt id="eb012b77-1885-40ad-8155-e813b82766c0">&lt;linkText&gt;</bpt>Name the database<ept id="eb012b77-1885-40ad-8155-e813b82766c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb012b77-1885-40ad-8155-e813b82766c0">&lt;linkText&gt;</bpt>Name the database<ept id="eb012b77-1885-40ad-8155-e813b82766c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb328586-53ec-4d5a-9948-cbfe981eb413" xml:space="preserve">
+          <source>5. In <bpt id="f4c9995a-e7ad-4c05-b08c-c18c5420a12e">&lt;strong&gt;</bpt>SQL Database blade<ept id="f4c9995a-e7ad-4c05-b08c-c18c5420a12e">&lt;/strong&gt;</ept>, click <bpt id="b4f42d5b-e23e-479f-9e11-64d46a300731">&lt;strong&gt;</bpt>SERVER<ept id="b4f42d5b-e23e-479f-9e11-64d46a300731">&lt;/strong&gt;</ept>.</source>
+          <target state="new">5. In <bpt id="f4c9995a-e7ad-4c05-b08c-c18c5420a12e">&lt;strong&gt;</bpt>SQL Database blade<ept id="f4c9995a-e7ad-4c05-b08c-c18c5420a12e">&lt;/strong&gt;</ept>, click <bpt id="b4f42d5b-e23e-479f-9e11-64d46a300731">&lt;strong&gt;</bpt>SERVER<ept id="b4f42d5b-e23e-479f-9e11-64d46a300731">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f0e78e8-fb12-44b6-8b59-97e564b47996" xml:space="preserve">
+          <source>A <bpt id="28db2b82-262f-4acc-bee6-d3514abc12f3">&lt;strong&gt;</bpt>Server<ept id="28db2b82-262f-4acc-bee6-d3514abc12f3">&lt;/strong&gt;</ept> blade opens that provides two choices: either you can create a new server or use an existing server.</source>
+          <target state="new">A <bpt id="28db2b82-262f-4acc-bee6-d3514abc12f3">&lt;strong&gt;</bpt>Server<ept id="28db2b82-262f-4acc-bee6-d3514abc12f3">&lt;/strong&gt;</ept> blade opens that provides two choices: either you can create a new server or use an existing server.</target>
+        </trans-unit>
+        <trans-unit id="4b1dcdab-b39f-4da3-963f-32de69335802" xml:space="preserve">
+          <source><bpt id="013e4fd1-d141-420b-b5bd-bd06edd938fd">&lt;linkText&gt;</bpt>select type of server<ept id="013e4fd1-d141-420b-b5bd-bd06edd938fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="013e4fd1-d141-420b-b5bd-bd06edd938fd">&lt;linkText&gt;</bpt>select type of server<ept id="013e4fd1-d141-420b-b5bd-bd06edd938fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="073e8644-b5b3-4de7-a7ce-a4a276c0c63a" xml:space="preserve">
+          <source>5a.</source>
+          <target state="new">5a.</target>
+        </trans-unit>
+        <trans-unit id="93ca3a0f-fae4-45dd-9993-f3cf94da2f29" xml:space="preserve">
+          <source>If you select <bpt id="65ae1a79-c769-433e-92cf-d3285c04c0cb">&lt;strong&gt;</bpt>Use an existing server<ept id="65ae1a79-c769-433e-92cf-d3285c04c0cb">&lt;/strong&gt;</ept> option, select a server of your choice and click <bpt id="d4c6c197-34f1-4358-9d72-c42ba6e32ecc">&lt;strong&gt;</bpt>Select<ept id="d4c6c197-34f1-4358-9d72-c42ba6e32ecc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you select <bpt id="65ae1a79-c769-433e-92cf-d3285c04c0cb">&lt;strong&gt;</bpt>Use an existing server<ept id="65ae1a79-c769-433e-92cf-d3285c04c0cb">&lt;/strong&gt;</ept> option, select a server of your choice and click <bpt id="d4c6c197-34f1-4358-9d72-c42ba6e32ecc">&lt;strong&gt;</bpt>Select<ept id="d4c6c197-34f1-4358-9d72-c42ba6e32ecc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1017fec0-273e-42fe-9481-ee7adffdb770" xml:space="preserve">
+          <source>Then, complete all the actions from step 6 on wards.</source>
+          <target state="new">Then, complete all the actions from step 6 on wards.</target>
+        </trans-unit>
+        <trans-unit id="6054a55a-0a00-4822-8d04-32967952d419" xml:space="preserve">
+          <source><bpt id="a9fa2652-6fe8-44ba-b158-36cf1289be59">&lt;linkText&gt;</bpt>select a server from the list<ept id="a9fa2652-6fe8-44ba-b158-36cf1289be59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9fa2652-6fe8-44ba-b158-36cf1289be59">&lt;linkText&gt;</bpt>select a server from the list<ept id="a9fa2652-6fe8-44ba-b158-36cf1289be59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e198bec0-fbb3-481b-bdd5-a14c769c51b0" xml:space="preserve">
+          <source>5b.</source>
+          <target state="new">5b.</target>
+        </trans-unit>
+        <trans-unit id="d526f655-c85f-4c1d-bc08-ae4917668dab" xml:space="preserve">
+          <source>If you select <bpt id="8d6eb856-7d52-4ce2-aebd-a21d45bd8835">&lt;strong&gt;</bpt>Create a new server<ept id="8d6eb856-7d52-4ce2-aebd-a21d45bd8835">&lt;/strong&gt;</ept>, the <bpt id="94ba491c-1465-4f21-beb8-021de3d46878">&lt;strong&gt;</bpt>New server<ept id="94ba491c-1465-4f21-beb8-021de3d46878">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">If you select <bpt id="8d6eb856-7d52-4ce2-aebd-a21d45bd8835">&lt;strong&gt;</bpt>Create a new server<ept id="8d6eb856-7d52-4ce2-aebd-a21d45bd8835">&lt;/strong&gt;</ept>, the <bpt id="94ba491c-1465-4f21-beb8-021de3d46878">&lt;strong&gt;</bpt>New server<ept id="94ba491c-1465-4f21-beb8-021de3d46878">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="2461fcd4-8342-4227-bd87-f975fedf07d6" xml:space="preserve">
+          <source>Specify the server name, server admin login, and password.</source>
+          <target state="new">Specify the server name, server admin login, and password.</target>
+        </trans-unit>
+        <trans-unit id="1553c342-614e-4e5e-a43d-a86c92bae274" xml:space="preserve">
+          <source>Click <bpt id="4588f688-88cb-45d3-a144-88d35ae1ddc7">&lt;strong&gt;</bpt>Location<ept id="4588f688-88cb-45d3-a144-88d35ae1ddc7">&lt;/strong&gt;</ept> to select the server location.</source>
+          <target state="new">Click <bpt id="4588f688-88cb-45d3-a144-88d35ae1ddc7">&lt;strong&gt;</bpt>Location<ept id="4588f688-88cb-45d3-a144-88d35ae1ddc7">&lt;/strong&gt;</ept> to select the server location.</target>
+        </trans-unit>
+        <trans-unit id="25bf6110-1aef-4501-bda2-43d21be9dfea" xml:space="preserve">
+          <source><bpt id="83c5b25f-b1f6-4882-8b14-4459ad4a3008">&lt;linkText&gt;</bpt>Complete create new server options<ept id="83c5b25f-b1f6-4882-8b14-4459ad4a3008">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83c5b25f-b1f6-4882-8b14-4459ad4a3008">&lt;linkText&gt;</bpt>Complete create new server options<ept id="83c5b25f-b1f6-4882-8b14-4459ad4a3008">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2eca029d-618e-48b8-bb92-b42152456f74" xml:space="preserve">
+          <source>5c.The <bpt id="450123d3-a778-4e66-a5d7-28e3a0f361da">&lt;strong&gt;</bpt>New server<ept id="450123d3-a778-4e66-a5d7-28e3a0f361da">&lt;/strong&gt;</ept> blade gives you the choice to create the new server with V12 updates.</source>
+          <target state="new">5c.The <bpt id="450123d3-a778-4e66-a5d7-28e3a0f361da">&lt;strong&gt;</bpt>New server<ept id="450123d3-a778-4e66-a5d7-28e3a0f361da">&lt;/strong&gt;</ept> blade gives you the choice to create the new server with V12 updates.</target>
+        </trans-unit>
+        <trans-unit id="d952a4d9-3b42-42f0-8a16-da9f539e19f3" xml:space="preserve">
+          <source>To learn more about the features in V12 servers, review <bpt id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;/linkText&gt;</ept><bpt id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;title&gt;</bpt><ept id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about the features in V12 servers, review <bpt id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;/linkText&gt;</ept><bpt id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;title&gt;</bpt><ept id="6ef74c09-80e6-46c2-8b54-73ca13124b5b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc969d38-2ec8-46ff-bd4e-3cf8c3d375e3" xml:space="preserve">
+          <source><bpt id="26a34826-4e3e-47fd-90a7-cf7b52811d0f">&lt;linkText&gt;</bpt>Select V12 server<ept id="26a34826-4e3e-47fd-90a7-cf7b52811d0f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26a34826-4e3e-47fd-90a7-cf7b52811d0f">&lt;linkText&gt;</bpt>Select V12 server<ept id="26a34826-4e3e-47fd-90a7-cf7b52811d0f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f5279f7-2049-4dfe-8b6b-c646cc4e41d2" xml:space="preserve">
+          <source>5d.</source>
+          <target state="new">5d.</target>
+        </trans-unit>
+        <trans-unit id="d88f948a-68f4-4d0c-b2de-7396b88c3e24" xml:space="preserve">
+          <source>Make your selections on the <bpt id="7a1e30e5-806a-48a8-bf48-d64ee767f257">&lt;strong&gt;</bpt>New server<ept id="7a1e30e5-806a-48a8-bf48-d64ee767f257">&lt;/strong&gt;</ept> blade and click <bpt id="87cd30cf-da76-4f0f-b4cd-b0870cb35cb5">&lt;strong&gt;</bpt>OK<ept id="87cd30cf-da76-4f0f-b4cd-b0870cb35cb5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make your selections on the <bpt id="7a1e30e5-806a-48a8-bf48-d64ee767f257">&lt;strong&gt;</bpt>New server<ept id="7a1e30e5-806a-48a8-bf48-d64ee767f257">&lt;/strong&gt;</ept> blade and click <bpt id="87cd30cf-da76-4f0f-b4cd-b0870cb35cb5">&lt;strong&gt;</bpt>OK<ept id="87cd30cf-da76-4f0f-b4cd-b0870cb35cb5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5505156d-d9ac-4dad-a0a2-d1d6d580c9ed" xml:space="preserve">
+          <source>That will take you back to the <bpt id="6822296c-837e-4554-acdf-8ee009a0a942">&lt;strong&gt;</bpt>SQL Database<ept id="6822296c-837e-4554-acdf-8ee009a0a942">&lt;/strong&gt;</ept> blade to complete the rest of the actions to create a database.</source>
+          <target state="new">That will take you back to the <bpt id="6822296c-837e-4554-acdf-8ee009a0a942">&lt;strong&gt;</bpt>SQL Database<ept id="6822296c-837e-4554-acdf-8ee009a0a942">&lt;/strong&gt;</ept> blade to complete the rest of the actions to create a database.</target>
+        </trans-unit>
+        <trans-unit id="acbf8caa-8eed-497c-af62-8b8557762a2c" xml:space="preserve">
+          <source><bpt id="a38c961e-4d05-47af-b436-54c95ff81e18">&lt;linkText&gt;</bpt>Complete New Server blade actions<ept id="a38c961e-4d05-47af-b436-54c95ff81e18">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a38c961e-4d05-47af-b436-54c95ff81e18">&lt;linkText&gt;</bpt>Complete New Server blade actions<ept id="a38c961e-4d05-47af-b436-54c95ff81e18">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="974f2cd6-6e0e-4432-9455-eac03a8ff483" xml:space="preserve">
+          <source>6. Click <bpt id="03641a03-4697-4fde-a9c8-bd2bbbe94114">&lt;strong&gt;</bpt>Select Source<ept id="03641a03-4697-4fde-a9c8-bd2bbbe94114">&lt;/strong&gt;</ept>.</source>
+          <target state="new">6. Click <bpt id="03641a03-4697-4fde-a9c8-bd2bbbe94114">&lt;strong&gt;</bpt>Select Source<ept id="03641a03-4697-4fde-a9c8-bd2bbbe94114">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98a24ab1-1efe-45dd-83b8-d44a560cfc5d" xml:space="preserve">
+          <source>The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.</source>
+          <target state="new">The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.</target>
+        </trans-unit>
+        <trans-unit id="4ed11b94-9d2c-4429-880c-d03ff30026c6" xml:space="preserve">
+          <source><bpt id="ff1a9a37-ce52-4c23-a283-7bce696d217c">&lt;linkText&gt;</bpt>Select the source for the database<ept id="ff1a9a37-ce52-4c23-a283-7bce696d217c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff1a9a37-ce52-4c23-a283-7bce696d217c">&lt;linkText&gt;</bpt>Select the source for the database<ept id="ff1a9a37-ce52-4c23-a283-7bce696d217c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60a24380-6570-4cca-a9b1-ac5c20344a8d" xml:space="preserve">
+          <source>7. Next, in the <bpt id="f47bd606-c4ef-49a2-aaa9-ffd1907de512">&lt;strong&gt;</bpt>SQL database<ept id="f47bd606-c4ef-49a2-aaa9-ffd1907de512">&lt;/strong&gt;</ept> blade, click <bpt id="11817079-fb5c-4131-9469-feb1d4c2f725">&lt;strong&gt;</bpt>PRICING TIER<ept id="11817079-fb5c-4131-9469-feb1d4c2f725">&lt;/strong&gt;</ept>. You can select one of the recommended pricing tier or <bpt id="09befe3f-ee3d-4b2b-b0cc-824085bd5cc6">&lt;strong&gt;</bpt>View all<ept id="09befe3f-ee3d-4b2b-b0cc-824085bd5cc6">&lt;/strong&gt;</ept> available pricing tiers. After you make a choice, click <bpt id="5c21e6ec-5672-4979-a7e0-0f91de146697">&lt;strong&gt;</bpt>Select<ept id="5c21e6ec-5672-4979-a7e0-0f91de146697">&lt;/strong&gt;</ept>. &lt;p&gt; For more information about pricing tiers, see <bpt id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers<ept id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;/linkText&gt;</ept><bpt id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;title&gt;</bpt><ept id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;/title&gt;</ept> and <bpt id="b4787979-f520-4b10-9f84-319025581d21">&lt;linkText&gt;</bpt>Azure SQL Database Service Tiers and Performance Levels<ept id="b4787979-f520-4b10-9f84-319025581d21">&lt;/linkText&gt;</ept><bpt id="b4787979-f520-4b10-9f84-319025581d21">&lt;title&gt;</bpt><ept id="b4787979-f520-4b10-9f84-319025581d21">&lt;/title&gt;</ept>.</source>
+          <target state="new">7. Next, in the <bpt id="f47bd606-c4ef-49a2-aaa9-ffd1907de512">&lt;strong&gt;</bpt>SQL database<ept id="f47bd606-c4ef-49a2-aaa9-ffd1907de512">&lt;/strong&gt;</ept> blade, click <bpt id="11817079-fb5c-4131-9469-feb1d4c2f725">&lt;strong&gt;</bpt>PRICING TIER<ept id="11817079-fb5c-4131-9469-feb1d4c2f725">&lt;/strong&gt;</ept>. You can select one of the recommended pricing tier or <bpt id="09befe3f-ee3d-4b2b-b0cc-824085bd5cc6">&lt;strong&gt;</bpt>View all<ept id="09befe3f-ee3d-4b2b-b0cc-824085bd5cc6">&lt;/strong&gt;</ept> available pricing tiers. After you make a choice, click <bpt id="5c21e6ec-5672-4979-a7e0-0f91de146697">&lt;strong&gt;</bpt>Select<ept id="5c21e6ec-5672-4979-a7e0-0f91de146697">&lt;/strong&gt;</ept>. &lt;p&gt; For more information about pricing tiers, see <bpt id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;linkText&gt;</bpt>Upgrade SQL Database Web/Business Databases to New Service Tiers<ept id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;/linkText&gt;</ept><bpt id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;title&gt;</bpt><ept id="ca85fb14-b6cb-4989-be3c-111641a674e2">&lt;/title&gt;</ept> and <bpt id="b4787979-f520-4b10-9f84-319025581d21">&lt;linkText&gt;</bpt>Azure SQL Database Service Tiers and Performance Levels<ept id="b4787979-f520-4b10-9f84-319025581d21">&lt;/linkText&gt;</ept><bpt id="b4787979-f520-4b10-9f84-319025581d21">&lt;title&gt;</bpt><ept id="b4787979-f520-4b10-9f84-319025581d21">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d4d1c61-cecc-4f0d-b485-e7c0945348f4" xml:space="preserve">
+          <source><bpt id="93daa52e-b63f-4ebe-b353-0f4cf1efb230">&lt;linkText&gt;</bpt>Select a pricing tier<ept id="93daa52e-b63f-4ebe-b353-0f4cf1efb230">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93daa52e-b63f-4ebe-b353-0f4cf1efb230">&lt;linkText&gt;</bpt>Select a pricing tier<ept id="93daa52e-b63f-4ebe-b353-0f4cf1efb230">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3762a574-a100-467a-a917-7759f76cf52b" xml:space="preserve">
+          <source>8. Next, in <bpt id="f1538039-594d-478e-9965-c10bbbd8cc95">&lt;strong&gt;</bpt>SQL database<ept id="f1538039-594d-478e-9965-c10bbbd8cc95">&lt;/strong&gt;</ept> blade, click <bpt id="7f430cba-ce31-4127-8698-784d93423a1f">&lt;strong&gt;</bpt>Optional Configuration<ept id="7f430cba-ce31-4127-8698-784d93423a1f">&lt;/strong&gt;</ept>, make the selections and click <bpt id="96367117-891c-4d1f-a2f5-135f58c1bb88">&lt;strong&gt;</bpt>OK<ept id="96367117-891c-4d1f-a2f5-135f58c1bb88">&lt;/strong&gt;</ept>.</source>
+          <target state="new">8. Next, in <bpt id="f1538039-594d-478e-9965-c10bbbd8cc95">&lt;strong&gt;</bpt>SQL database<ept id="f1538039-594d-478e-9965-c10bbbd8cc95">&lt;/strong&gt;</ept> blade, click <bpt id="7f430cba-ce31-4127-8698-784d93423a1f">&lt;strong&gt;</bpt>Optional Configuration<ept id="7f430cba-ce31-4127-8698-784d93423a1f">&lt;/strong&gt;</ept>, make the selections and click <bpt id="96367117-891c-4d1f-a2f5-135f58c1bb88">&lt;strong&gt;</bpt>OK<ept id="96367117-891c-4d1f-a2f5-135f58c1bb88">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a946df54-9499-47e7-865e-67731d7a49de" xml:space="preserve">
+          <source>9. When you select existing server, <bpt id="596d924b-7a0d-4442-90e7-068a4be665ce">&lt;strong&gt;</bpt>Resource Group<ept id="596d924b-7a0d-4442-90e7-068a4be665ce">&lt;/strong&gt;</ept> and <bpt id="4b43b5c2-d118-4864-b74d-c8e84e0127c6">&lt;strong&gt;</bpt>Subscription<ept id="4b43b5c2-d118-4864-b74d-c8e84e0127c6">&lt;/strong&gt;</ept> are already chosen for you.</source>
+          <target state="new">9. When you select existing server, <bpt id="596d924b-7a0d-4442-90e7-068a4be665ce">&lt;strong&gt;</bpt>Resource Group<ept id="596d924b-7a0d-4442-90e7-068a4be665ce">&lt;/strong&gt;</ept> and <bpt id="4b43b5c2-d118-4864-b74d-c8e84e0127c6">&lt;strong&gt;</bpt>Subscription<ept id="4b43b5c2-d118-4864-b74d-c8e84e0127c6">&lt;/strong&gt;</ept> are already chosen for you.</target>
+        </trans-unit>
+        <trans-unit id="01d0ebca-97d5-4a51-920c-d4041f870ee7" xml:space="preserve">
+          <source>In the <bpt id="122e40a2-daa4-4bd5-87b1-2db82e032fcb">&lt;strong&gt;</bpt>SQL database<ept id="122e40a2-daa4-4bd5-87b1-2db82e032fcb">&lt;/strong&gt;</ept> blade, you will see a locked icon next to <bpt id="8a7e043b-7c26-4ab0-935d-f5189f1a1300">&lt;strong&gt;</bpt>Resource Group<ept id="8a7e043b-7c26-4ab0-935d-f5189f1a1300">&lt;/strong&gt;</ept> and <bpt id="5223db89-d0b2-47b7-b439-67eccc33ddc7">&lt;strong&gt;</bpt>Subscription<ept id="5223db89-d0b2-47b7-b439-67eccc33ddc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="122e40a2-daa4-4bd5-87b1-2db82e032fcb">&lt;strong&gt;</bpt>SQL database<ept id="122e40a2-daa4-4bd5-87b1-2db82e032fcb">&lt;/strong&gt;</ept> blade, you will see a locked icon next to <bpt id="8a7e043b-7c26-4ab0-935d-f5189f1a1300">&lt;strong&gt;</bpt>Resource Group<ept id="8a7e043b-7c26-4ab0-935d-f5189f1a1300">&lt;/strong&gt;</ept> and <bpt id="5223db89-d0b2-47b7-b439-67eccc33ddc7">&lt;strong&gt;</bpt>Subscription<ept id="5223db89-d0b2-47b7-b439-67eccc33ddc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34b24b18-71cc-42c8-9c38-c11c205aa737" xml:space="preserve">
+          <source>If you create a new server, then you get to select or create a resource group.</source>
+          <target state="new">If you create a new server, then you get to select or create a resource group.</target>
+        </trans-unit>
+        <trans-unit id="d1af20af-e7da-4d33-87f2-0d30de4a5422" xml:space="preserve">
+          <source>For more information, review <bpt id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources.<ept id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;/linkText&gt;</ept><bpt id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;title&gt;</bpt><ept id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, review <bpt id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;linkText&gt;</bpt>Using resource groups to manage your Azure resources.<ept id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;/linkText&gt;</ept><bpt id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;title&gt;</bpt><ept id="95879dcf-9647-4e6c-a857-2043395fb59b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="358ce521-f2b2-4019-8977-fa004a9db2a4" xml:space="preserve">
+          <source><bpt id="132b02e8-4eb3-4852-8308-06cb35cd371c">&lt;linkText&gt;</bpt>Specify Resource group<ept id="132b02e8-4eb3-4852-8308-06cb35cd371c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="132b02e8-4eb3-4852-8308-06cb35cd371c">&lt;linkText&gt;</bpt>Specify Resource group<ept id="132b02e8-4eb3-4852-8308-06cb35cd371c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12edbdbb-bfba-4943-ad33-e1a18782a392" xml:space="preserve">
+          <source>10. Click <bpt id="a6e64b20-e396-4891-b949-e01cb917c7a2">&lt;strong&gt;</bpt>Create<ept id="a6e64b20-e396-4891-b949-e01cb917c7a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">10. Click <bpt id="a6e64b20-e396-4891-b949-e01cb917c7a2">&lt;strong&gt;</bpt>Create<ept id="a6e64b20-e396-4891-b949-e01cb917c7a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1146c690-e678-4156-bb14-e5064a4030a9" xml:space="preserve">
+          <source>A new database with SQL Database V12 features is created.</source>
+          <target state="new">A new database with SQL Database V12 features is created.</target>
+        </trans-unit>
+        <trans-unit id="63416a19-0047-46ce-893b-84c1413528fb" xml:space="preserve">
+          <source><bpt id="f5548061-fb97-4492-891e-2e4c3fff7420">&lt;linkText&gt;</bpt>Creates a new database<ept id="f5548061-fb97-4492-891e-2e4c3fff7420">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f5548061-fb97-4492-891e-2e4c3fff7420">&lt;linkText&gt;</bpt>Creates a new database<ept id="f5548061-fb97-4492-891e-2e4c3fff7420">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9a87db6-2f02-47e4-9b8a-da26b0575ffb" xml:space="preserve">
+          <source><bpt id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;/linkText&gt;</ept><bpt id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;title&gt;</bpt><ept id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;linkText&gt;</bpt>What's new in SQL Database V12<ept id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;/linkText&gt;</ept><bpt id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;title&gt;</bpt><ept id="4a84b687-7d00-42ae-90b1-ccba383bc481">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a2dbad6-3ec9-440a-ad25-70c159ea1d3f" xml:space="preserve">
+          <source><bpt id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;linkText&gt;</bpt>Plan and Prepare to Upgrade to Azure SQL Database V12<ept id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;/linkText&gt;</ept><bpt id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;title&gt;</bpt><ept id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;linkText&gt;</bpt>Plan and Prepare to Upgrade to Azure SQL Database V12<ept id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;/linkText&gt;</ept><bpt id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;title&gt;</bpt><ept id="85acb2dd-d330-40d6-9958-53c6b7bbff48">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfd088fd-f168-4b36-b6d5-58fe21c80d27" xml:space="preserve">
+          <source>./media/sql-database-create/firstscreenportal.png</source>
+          <target state="new">./media/sql-database-create/firstscreenportal.png</target>
+        </trans-unit>
+        <trans-unit id="2d6844db-6d14-4402-858f-0cc18b55fda9" xml:space="preserve">
+          <source>./media/sql-database-create/new.png</source>
+          <target state="new">./media/sql-database-create/new.png</target>
+        </trans-unit>
+        <trans-unit id="0b8dfa4d-2f94-4f95-a870-e3804d6dc558" xml:space="preserve">
+          <source>./media/sql-database-create/sqldatabase.png</source>
+          <target state="new">./media/sql-database-create/sqldatabase.png</target>
+        </trans-unit>
+        <trans-unit id="c1632b38-1046-4474-b58e-647a5d4e0cae" xml:space="preserve">
+          <source>./media/sql-database-create/databasename.png</source>
+          <target state="new">./media/sql-database-create/databasename.png</target>
+        </trans-unit>
+        <trans-unit id="669e78e5-5d77-4d93-89f1-826f854499f7" xml:space="preserve">
+          <source>./media/sql-database-create/useexistingserver.PNG</source>
+          <target state="new">./media/sql-database-create/useexistingserver.PNG</target>
+        </trans-unit>
+        <trans-unit id="d1fbec92-a1fb-42b5-a74f-c670bd3b9070" xml:space="preserve">
+          <source>./media/sql-database-create/v12server.PNG</source>
+          <target state="new">./media/sql-database-create/v12server.PNG</target>
+        </trans-unit>
+        <trans-unit id="1e3b1256-6828-45d7-9e4b-31704a089ceb" xml:space="preserve">
+          <source>./media/sql-database-create/pricingtierdetails.png</source>
+          <target state="new">./media/sql-database-create/pricingtierdetails.png</target>
+        </trans-unit>
+        <trans-unit id="5245c018-298f-4405-8848-8f1f2b106edb" xml:space="preserve">
+          <source>./media/sql-database-create/finishnewserverblade.png</source>
+          <target state="new">./media/sql-database-create/finishnewserverblade.png</target>
+        </trans-unit>
+        <trans-unit id="9cd6a168-b6fb-4f77-9b51-5a0d80b4e4c5" xml:space="preserve">
+          <source>./media/sql-database-create/createnewserver.png</source>
+          <target state="new">./media/sql-database-create/createnewserver.png</target>
+        </trans-unit>
+        <trans-unit id="1ec35ac1-ba3b-4a6f-a154-0e12071f0d0b" xml:space="preserve">
+          <source>./media/sql-database-create/selectsource.png</source>
+          <target state="new">./media/sql-database-create/selectsource.png</target>
+        </trans-unit>
+        <trans-unit id="de2edb03-cbfa-4383-9fac-afbb417f5339" xml:space="preserve">
+          <source>./media/sql-database-create/resourcegroup.png</source>
+          <target state="new">./media/sql-database-create/resourcegroup.png</target>
+        </trans-unit>
+        <trans-unit id="00fd2326-eff2-4ebf-bba9-c67c525836f8" xml:space="preserve">
+          <source>./media/sql-database-create/create.png</source>
+          <target state="new">./media/sql-database-create/create.png</target>
+        </trans-unit>
+      </group>
+      <group id="97e1be3c-7626-45bf-b7f5-be792a99e51f" />
+    </body>
+  </file>
+</xliff>

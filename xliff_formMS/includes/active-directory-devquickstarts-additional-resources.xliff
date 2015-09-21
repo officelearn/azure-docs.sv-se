@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4fee6727-04eb-4b01-82a1-a7f3fe63bb6f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4fee6727-04eb-4b01-82a1-a7f3fe63bb6f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fab07fa2-b3cc-44a1-9d0b-9cb2fc5bf510">
+        <trans-unit id="97e69902-7c9f-4346-b20b-0feb17104fa1" xml:space="preserve">
+          <source><bpt id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;linkText&gt;</bpt>The Azure AD Developer's Guide<ept id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;/linkText&gt;</ept><bpt id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;title&gt;</bpt><ept id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;linkText&gt;</bpt>The Azure AD Developer's Guide<ept id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;/linkText&gt;</ept><bpt id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;title&gt;</bpt><ept id="67140fa5-47ce-493f-b2eb-a798ed74afe7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30a2bcf7-eae7-4b05-97c7-445d7d4cda20" xml:space="preserve">
+          <source><bpt id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;linkText&gt;</bpt>AzureADSamples on GitHub<ept id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;/linkText&gt;</ept><bpt id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;title&gt;</bpt><ept id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;linkText&gt;</bpt>AzureADSamples on GitHub<ept id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;/linkText&gt;</ept><bpt id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;title&gt;</bpt><ept id="60d93be2-9afa-4d39-a82c-3d782ed94321">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb0532ad-d2c2-442e-9283-bf3a236b53ef" xml:space="preserve">
+          <source><bpt id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;linkText&gt;</bpt>CloudIdentity.com<ept id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;/linkText&gt;</ept><bpt id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;title&gt;</bpt><ept id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;linkText&gt;</bpt>CloudIdentity.com<ept id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;/linkText&gt;</ept><bpt id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;title&gt;</bpt><ept id="027bc283-44ce-418c-9ade-f120fa27b8f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

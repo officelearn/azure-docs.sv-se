@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0dd6e892-e502-4caf-a4af-23ee46a9e78a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0dd6e892-e502-4caf-a4af-23ee46a9e78a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="56dda8d3-9dd3-4394-9a0d-4e1754e71725">
+        <trans-unit id="3eaae772-9d07-448f-b300-30671278c28c" xml:space="preserve">
+          <source>Setting a custom domain name is only available for the <bpt id="e3cd75a3-f1ae-4d34-99e9-6d40102fc059">&lt;strong&gt;</bpt>Shared<ept id="e3cd75a3-f1ae-4d34-99e9-6d40102fc059">&lt;/strong&gt;</ept>, <bpt id="d3588c4e-efb4-4c6f-badb-425a3ed9ee9c">&lt;strong&gt;</bpt>Basic<ept id="d3588c4e-efb4-4c6f-badb-425a3ed9ee9c">&lt;/strong&gt;</ept> and <bpt id="7758e308-4bfc-4fad-bd6a-d6b91b4130ab">&lt;strong&gt;</bpt>Standard<ept id="7758e308-4bfc-4fad-bd6a-d6b91b4130ab">&lt;/strong&gt;</ept> modes for Web Apps.</source>
+          <target state="new">Setting a custom domain name is only available for the <bpt id="e3cd75a3-f1ae-4d34-99e9-6d40102fc059">&lt;strong&gt;</bpt>Shared<ept id="e3cd75a3-f1ae-4d34-99e9-6d40102fc059">&lt;/strong&gt;</ept>, <bpt id="d3588c4e-efb4-4c6f-badb-425a3ed9ee9c">&lt;strong&gt;</bpt>Basic<ept id="d3588c4e-efb4-4c6f-badb-425a3ed9ee9c">&lt;/strong&gt;</ept> and <bpt id="7758e308-4bfc-4fad-bd6a-d6b91b4130ab">&lt;strong&gt;</bpt>Standard<ept id="7758e308-4bfc-4fad-bd6a-d6b91b4130ab">&lt;/strong&gt;</ept> modes for Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="3c1d2859-1d99-438d-9643-c1f5205cfa0e" xml:space="preserve">
+          <source>Before switching a web app from the <bpt id="207c649d-a8d4-401a-a02e-62af8da98b52">&lt;strong&gt;</bpt>Free<ept id="207c649d-a8d4-401a-a02e-62af8da98b52">&lt;/strong&gt;</ept> mode to the <bpt id="8058bccb-bd7f-492a-ac63-60cb3d712333">&lt;strong&gt;</bpt>Shared<ept id="8058bccb-bd7f-492a-ac63-60cb3d712333">&lt;/strong&gt;</ept>, <bpt id="3b9ea5cb-32ed-4b88-9c78-a4774d025038">&lt;strong&gt;</bpt>Basic<ept id="3b9ea5cb-32ed-4b88-9c78-a4774d025038">&lt;/strong&gt;</ept> or <bpt id="fb9137e4-20fb-41d0-9f7b-cf4b16519a87">&lt;strong&gt;</bpt>Standard<ept id="fb9137e4-20fb-41d0-9f7b-cf4b16519a87">&lt;/strong&gt;</ept> mode, you must first remove spending caps in place for your Web Apps subscription.</source>
+          <target state="new">Before switching a web app from the <bpt id="207c649d-a8d4-401a-a02e-62af8da98b52">&lt;strong&gt;</bpt>Free<ept id="207c649d-a8d4-401a-a02e-62af8da98b52">&lt;/strong&gt;</ept> mode to the <bpt id="8058bccb-bd7f-492a-ac63-60cb3d712333">&lt;strong&gt;</bpt>Shared<ept id="8058bccb-bd7f-492a-ac63-60cb3d712333">&lt;/strong&gt;</ept>, <bpt id="3b9ea5cb-32ed-4b88-9c78-a4774d025038">&lt;strong&gt;</bpt>Basic<ept id="3b9ea5cb-32ed-4b88-9c78-a4774d025038">&lt;/strong&gt;</ept> or <bpt id="fb9137e4-20fb-41d0-9f7b-cf4b16519a87">&lt;strong&gt;</bpt>Standard<ept id="fb9137e4-20fb-41d0-9f7b-cf4b16519a87">&lt;/strong&gt;</ept> mode, you must first remove spending caps in place for your Web Apps subscription.</target>
+        </trans-unit>
+        <trans-unit id="79a1ff0b-d1cb-4a11-9c2f-71170970a402" xml:space="preserve">
+          <source>For more information on the App Service plan modes, including how to change the mode of your site, see <bpt id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;linkText&gt;</bpt>How to scale web apps<ept id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;/linkText&gt;</ept><bpt id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;title&gt;</bpt><ept id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the App Service plan modes, including how to change the mode of your site, see <bpt id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;linkText&gt;</bpt>How to scale web apps<ept id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;/linkText&gt;</ept><bpt id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;title&gt;</bpt><ept id="407d6b00-2fa7-46a0-9aec-329319b4023e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

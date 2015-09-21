@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4ee32254-7d65-4be0-84c2-1c9404a69881" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4ee32254-7d65-4be0-84c2-1c9404a69881" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e60f4596-99ba-4e8c-8c2d-8805f0b42792">
+        <trans-unit id="e8b21320-555f-4f80-8ab2-b07b45d910ba" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Concur | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Concur | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0e256913-b1de-4b0a-bd8d-24bbf86c71a7" xml:space="preserve">
+          <source>Learn how to use Concur with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Concur with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="10650fd6-c1b0-4548-95fa-667ed0e7b4f2" xml:space="preserve">
+          <source>For feedback, click <bpt id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;linkText&gt;</bpt>here<ept id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;/linkText&gt;</ept><bpt id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;title&gt;</bpt><ept id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;linkText&gt;</bpt>here<ept id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;/linkText&gt;</ept><bpt id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;title&gt;</bpt><ept id="3e00a580-39bd-4957-b0e7-66e7b53a34a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61d5c8ca-4c53-456e-958a-5001a0db61c2" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Concur.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Concur.</target>
+        </trans-unit>
+        <trans-unit id="9313778d-ef6f-432d-a9b2-b42db0162d24" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="9554c963-30f7-4eea-ab11-a7c97d206cf8" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="1e76eb9c-9a48-4056-bd77-ef228cefa629" xml:space="preserve">
+          <source>A tenant in Concur</source>
+          <target state="new">A tenant in Concur</target>
+        </trans-unit>
+        <trans-unit id="53401ef7-e7e6-48ca-b0e5-67f9d55c7f92" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="8004f435-1d26-4846-b664-37c53c8efcb4" xml:space="preserve">
+          <source>Enabling the application integration for Concur</source>
+          <target state="new">Enabling the application integration for Concur</target>
+        </trans-unit>
+        <trans-unit id="5dedeee2-6fcf-44a8-9758-2c3593c7d307" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="05e47081-9a7d-45cc-a4ae-e92bf947bce5" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="f3a3d31b-40d5-4bb0-ab7b-4ee843ea5d1b" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="fa4a817c-3c0e-49ee-b2d4-652b01bad2c7" xml:space="preserve">
+          <source><bpt id="e7136396-0cfa-451a-9a00-6882eacd5914">&lt;linkText&gt;</bpt>Scenario<ept id="e7136396-0cfa-451a-9a00-6882eacd5914">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7136396-0cfa-451a-9a00-6882eacd5914">&lt;linkText&gt;</bpt>Scenario<ept id="e7136396-0cfa-451a-9a00-6882eacd5914">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5135704-0ce4-4333-b236-c7dc01a3f1ef" xml:space="preserve">
+          <source>The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</source>
+          <target state="new">The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</target>
+        </trans-unit>
+        <trans-unit id="a8a5af4b-d205-4d18-a9ee-6972f11d367e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Concur.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Concur.</target>
+        </trans-unit>
+        <trans-unit id="c4c65d17-01a5-4c2b-b1c5-baf44fff3ac7" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="254e01d9-1548-4797-b434-5bbe993d0a0c">&lt;strong&gt;</bpt>Active Directory<ept id="254e01d9-1548-4797-b434-5bbe993d0a0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="254e01d9-1548-4797-b434-5bbe993d0a0c">&lt;strong&gt;</bpt>Active Directory<ept id="254e01d9-1548-4797-b434-5bbe993d0a0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d6aef06-3d78-44f4-9365-769e322c999a" xml:space="preserve">
+          <source><bpt id="55ecbf6b-c639-4cab-bdbe-91fc986e140d">&lt;linkText&gt;</bpt>Active Directory<ept id="55ecbf6b-c639-4cab-bdbe-91fc986e140d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55ecbf6b-c639-4cab-bdbe-91fc986e140d">&lt;linkText&gt;</bpt>Active Directory<ept id="55ecbf6b-c639-4cab-bdbe-91fc986e140d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="604ead06-638f-4331-a846-418a25cf5506" xml:space="preserve">
+          <source>From the <bpt id="b4cb164c-8113-4ffd-b440-2719b5633ebc">&lt;strong&gt;</bpt>Directory<ept id="b4cb164c-8113-4ffd-b440-2719b5633ebc">&lt;/strong&gt;</ept> list, select the directory for which want to enable directory integration.</source>
+          <target state="new">From the <bpt id="b4cb164c-8113-4ffd-b440-2719b5633ebc">&lt;strong&gt;</bpt>Directory<ept id="b4cb164c-8113-4ffd-b440-2719b5633ebc">&lt;/strong&gt;</ept> list, select the directory for which want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="96ad5758-18ae-41f5-9697-292f425c8ebb" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="3fa9aaf0-169e-4a1e-85ea-b9c4ac6a35e8">&lt;strong&gt;</bpt>Applications<ept id="3fa9aaf0-169e-4a1e-85ea-b9c4ac6a35e8">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="3fa9aaf0-169e-4a1e-85ea-b9c4ac6a35e8">&lt;strong&gt;</bpt>Applications<ept id="3fa9aaf0-169e-4a1e-85ea-b9c4ac6a35e8">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ea92ff04-5f1b-4a28-86b2-e629f7e63666" xml:space="preserve">
+          <source><bpt id="9a90c8e5-124b-440f-ac08-3962979eea53">&lt;linkText&gt;</bpt>Applications<ept id="9a90c8e5-124b-440f-ac08-3962979eea53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a90c8e5-124b-440f-ac08-3962979eea53">&lt;linkText&gt;</bpt>Applications<ept id="9a90c8e5-124b-440f-ac08-3962979eea53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4cfc992-f469-4e74-981b-88fc5fce486a" xml:space="preserve">
+          <source>To open the <bpt id="77c3f6fe-380a-49e6-9164-2c9fa5df5d7b">&lt;strong&gt;</bpt>Application Gallery<ept id="77c3f6fe-380a-49e6-9164-2c9fa5df5d7b">&lt;/strong&gt;</ept>, click <bpt id="e1a2a9f1-9c92-422a-acc8-957ebdd8fc5b">&lt;strong&gt;</bpt>Add An App<ept id="e1a2a9f1-9c92-422a-acc8-957ebdd8fc5b">&lt;/strong&gt;</ept>, and then click <bpt id="a42c1b97-2e61-476c-bc1d-06fb8a7a8d5f">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="a42c1b97-2e61-476c-bc1d-06fb8a7a8d5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the <bpt id="77c3f6fe-380a-49e6-9164-2c9fa5df5d7b">&lt;strong&gt;</bpt>Application Gallery<ept id="77c3f6fe-380a-49e6-9164-2c9fa5df5d7b">&lt;/strong&gt;</ept>, click <bpt id="e1a2a9f1-9c92-422a-acc8-957ebdd8fc5b">&lt;strong&gt;</bpt>Add An App<ept id="e1a2a9f1-9c92-422a-acc8-957ebdd8fc5b">&lt;/strong&gt;</ept>, and then click <bpt id="a42c1b97-2e61-476c-bc1d-06fb8a7a8d5f">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="a42c1b97-2e61-476c-bc1d-06fb8a7a8d5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21ef8a30-0069-49df-82d4-e731b7beb54e" xml:space="preserve">
+          <source><bpt id="e793f7e4-f30f-4bfd-bbe0-8f7948539c43">&lt;linkText&gt;</bpt>What do you want to do?<ept id="e793f7e4-f30f-4bfd-bbe0-8f7948539c43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e793f7e4-f30f-4bfd-bbe0-8f7948539c43">&lt;linkText&gt;</bpt>What do you want to do?<ept id="e793f7e4-f30f-4bfd-bbe0-8f7948539c43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47cb9caf-8693-4437-a274-c321925f1ba6" xml:space="preserve">
+          <source>In the <bpt id="d2ff9b90-6c26-428e-a1c3-a78cfa8b3062">&lt;strong&gt;</bpt>search box<ept id="d2ff9b90-6c26-428e-a1c3-a78cfa8b3062">&lt;/strong&gt;</ept>, type <bpt id="0a711a19-8698-4d39-ae71-72e23abb7be8">&lt;strong&gt;</bpt>Concur<ept id="0a711a19-8698-4d39-ae71-72e23abb7be8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d2ff9b90-6c26-428e-a1c3-a78cfa8b3062">&lt;strong&gt;</bpt>search box<ept id="d2ff9b90-6c26-428e-a1c3-a78cfa8b3062">&lt;/strong&gt;</ept>, type <bpt id="0a711a19-8698-4d39-ae71-72e23abb7be8">&lt;strong&gt;</bpt>Concur<ept id="0a711a19-8698-4d39-ae71-72e23abb7be8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7bc202e-6b26-4750-9ca6-db19c32c4cb9" xml:space="preserve">
+          <source><bpt id="26fcaffb-5b94-4988-a85e-6f60ac05fc42">&lt;linkText&gt;</bpt>Application Gallery<ept id="26fcaffb-5b94-4988-a85e-6f60ac05fc42">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26fcaffb-5b94-4988-a85e-6f60ac05fc42">&lt;linkText&gt;</bpt>Application Gallery<ept id="26fcaffb-5b94-4988-a85e-6f60ac05fc42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2814f005-647a-4d72-bddf-6062caa4e301" xml:space="preserve">
+          <source>In the results pane, select <bpt id="e28aee12-38bf-4dec-bc19-c2f063004664">&lt;strong&gt;</bpt>Concur<ept id="e28aee12-38bf-4dec-bc19-c2f063004664">&lt;/strong&gt;</ept>, and then click <bpt id="e933bfe8-31d9-4742-8c0c-16b04110456a">&lt;strong&gt;</bpt>Complete<ept id="e933bfe8-31d9-4742-8c0c-16b04110456a">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="e28aee12-38bf-4dec-bc19-c2f063004664">&lt;strong&gt;</bpt>Concur<ept id="e28aee12-38bf-4dec-bc19-c2f063004664">&lt;/strong&gt;</ept>, and then click <bpt id="e933bfe8-31d9-4742-8c0c-16b04110456a">&lt;strong&gt;</bpt>Complete<ept id="e933bfe8-31d9-4742-8c0c-16b04110456a">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="1349984f-30f2-4372-adec-1f402732d286" xml:space="preserve">
+          <source><bpt id="4191242e-9724-4ed0-a555-a5ce3b68ed0a">&lt;linkText&gt;</bpt>Concur<ept id="4191242e-9724-4ed0-a555-a5ce3b68ed0a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4191242e-9724-4ed0-a555-a5ce3b68ed0a">&lt;linkText&gt;</bpt>Concur<ept id="4191242e-9724-4ed0-a555-a5ce3b68ed0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ed9f315-352c-4e53-be19-4b8dde0dd67c" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Concur with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Concur with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="f3820d84-7b08-4c74-ac29-d18fe6a6f452" xml:space="preserve">
+          <source>The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</source>
+          <target state="new">The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</target>
+        </trans-unit>
+        <trans-unit id="4b74626a-bcf0-4753-83d1-0baf48c7569e" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="294b4335-9d69-4d97-a643-32868bcc7b09">&lt;strong&gt;</bpt>Concur **application integration page, click **Configure single sign-on<ept id="294b4335-9d69-4d97-a643-32868bcc7b09">&lt;/strong&gt;</ept> to open the <bpt id="900ad60e-902e-4a12-86ca-9a832486ea1b">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="900ad60e-902e-4a12-86ca-9a832486ea1b">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="294b4335-9d69-4d97-a643-32868bcc7b09">&lt;strong&gt;</bpt>Concur **application integration page, click **Configure single sign-on<ept id="294b4335-9d69-4d97-a643-32868bcc7b09">&lt;/strong&gt;</ept> to open the <bpt id="900ad60e-902e-4a12-86ca-9a832486ea1b">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="900ad60e-902e-4a12-86ca-9a832486ea1b">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="f47fd1c5-1936-48c6-b6fa-94ae0d22773c" xml:space="preserve">
+          <source><bpt id="7dfb685b-2323-4ca9-95d6-67ece1e32c48">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7dfb685b-2323-4ca9-95d6-67ece1e32c48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dfb685b-2323-4ca9-95d6-67ece1e32c48">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="7dfb685b-2323-4ca9-95d6-67ece1e32c48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9b0de33-6011-4dcc-9dcf-39aa76db98b6" xml:space="preserve">
+          <source>On the <bpt id="c6b7e5a8-7d6e-4b2c-94d6-12c3133d181f">&lt;strong&gt;</bpt>How would you like users to sign on to Concur<ept id="c6b7e5a8-7d6e-4b2c-94d6-12c3133d181f">&lt;/strong&gt;</ept> page, select <bpt id="28ad59fc-f59a-41c7-8f82-ad2a006667e4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="28ad59fc-f59a-41c7-8f82-ad2a006667e4">&lt;/strong&gt;</ept>, and then click <bpt id="694469ed-d176-4784-8812-105107a5487b">&lt;strong&gt;</bpt>Next<ept id="694469ed-d176-4784-8812-105107a5487b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c6b7e5a8-7d6e-4b2c-94d6-12c3133d181f">&lt;strong&gt;</bpt>How would you like users to sign on to Concur<ept id="c6b7e5a8-7d6e-4b2c-94d6-12c3133d181f">&lt;/strong&gt;</ept> page, select <bpt id="28ad59fc-f59a-41c7-8f82-ad2a006667e4">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="28ad59fc-f59a-41c7-8f82-ad2a006667e4">&lt;/strong&gt;</ept>, and then click <bpt id="694469ed-d176-4784-8812-105107a5487b">&lt;strong&gt;</bpt>Next<ept id="694469ed-d176-4784-8812-105107a5487b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7789514c-f015-4a7a-9548-de5d62ae0b42" xml:space="preserve">
+          <source><bpt id="a137c125-c544-4996-835c-4ba79b169547">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a137c125-c544-4996-835c-4ba79b169547">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a137c125-c544-4996-835c-4ba79b169547">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a137c125-c544-4996-835c-4ba79b169547">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dc3fd9a-7b09-40a4-9c51-1a15e0f38408" xml:space="preserve">
+          <source>On the <bpt id="7edd132e-ba1a-4858-a175-a008be980377">&lt;strong&gt;</bpt>Configure App URL<ept id="7edd132e-ba1a-4858-a175-a008be980377">&lt;/strong&gt;</ept> page, in the <bpt id="3da26e6a-26cb-4a68-9dba-bcb9fa93335c">&lt;strong&gt;</bpt>Concur Sign In URL<ept id="3da26e6a-26cb-4a68-9dba-bcb9fa93335c">&lt;/strong&gt;</ept> textbox, type your concur tenant sign-in URL, and then click <bpt id="503bebd3-53a5-476a-bb27-959683bb3d46">&lt;strong&gt;</bpt>Next<ept id="503bebd3-53a5-476a-bb27-959683bb3d46">&lt;/strong&gt;</ept>: </source>
+          <target state="new">On the <bpt id="7edd132e-ba1a-4858-a175-a008be980377">&lt;strong&gt;</bpt>Configure App URL<ept id="7edd132e-ba1a-4858-a175-a008be980377">&lt;/strong&gt;</ept> page, in the <bpt id="3da26e6a-26cb-4a68-9dba-bcb9fa93335c">&lt;strong&gt;</bpt>Concur Sign In URL<ept id="3da26e6a-26cb-4a68-9dba-bcb9fa93335c">&lt;/strong&gt;</ept> textbox, type your concur tenant sign-in URL, and then click <bpt id="503bebd3-53a5-476a-bb27-959683bb3d46">&lt;strong&gt;</bpt>Next<ept id="503bebd3-53a5-476a-bb27-959683bb3d46">&lt;/strong&gt;</ept>: </target>
+        </trans-unit>
+        <trans-unit id="bafab05b-905d-483a-8158-ee619b392af0" xml:space="preserve">
+          <source><bpt id="db1c06bf-092a-4ee3-9492-6176e918ddd0">&lt;linkText&gt;</bpt>Configure sign in URL<ept id="db1c06bf-092a-4ee3-9492-6176e918ddd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db1c06bf-092a-4ee3-9492-6176e918ddd0">&lt;linkText&gt;</bpt>Configure sign in URL<ept id="db1c06bf-092a-4ee3-9492-6176e918ddd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c57b65b-1bf3-46b0-96fb-ea4d7d0e36a4" xml:space="preserve">
+          <source>On the <bpt id="d7586475-34f9-42b4-9f84-cd7c96a535b5">&lt;strong&gt;</bpt>Configure single sign-on at Concur<ept id="d7586475-34f9-42b4-9f84-cd7c96a535b5">&lt;/strong&gt;</ept> page, perform the following steps.</source>
+          <target state="new">On the <bpt id="d7586475-34f9-42b4-9f84-cd7c96a535b5">&lt;strong&gt;</bpt>Configure single sign-on at Concur<ept id="d7586475-34f9-42b4-9f84-cd7c96a535b5">&lt;/strong&gt;</ept> page, perform the following steps.</target>
+        </trans-unit>
+        <trans-unit id="60dc48e3-3300-491b-a359-ea7cae86d132" xml:space="preserve">
+          <source><bpt id="54477834-97de-433f-92da-63da0f9d82e5">&lt;linkText&gt;</bpt>Configure sign in URL<ept id="54477834-97de-433f-92da-63da0f9d82e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54477834-97de-433f-92da-63da0f9d82e5">&lt;linkText&gt;</bpt>Configure sign in URL<ept id="54477834-97de-433f-92da-63da0f9d82e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="73e6aa0a-af85-423c-b6d9-6246169d4ada" xml:space="preserve">
+          <source>Click Download the metadata, and then safe the data file to your computer.</source>
+          <target state="new">Click Download the metadata, and then safe the data file to your computer.</target>
+        </trans-unit>
+        <trans-unit id="510a12d2-f79d-4ad3-93de-cfb6b52241d2" xml:space="preserve">
+          <source>Contact the Concur support team to configure SSO for your tenant.</source>
+          <target state="new">Contact the Concur support team to configure SSO for your tenant.</target>
+        </trans-unit>
+        <trans-unit id="4bdfdca2-06a3-4bee-917b-4c3f52a932e2" xml:space="preserve">
+          <source>Select the single sign-on configuration confirmation, and then click <bpt id="a391478d-49a5-4223-bb4f-5332f9eaf265">&lt;strong&gt;</bpt>Complete<ept id="a391478d-49a5-4223-bb4f-5332f9eaf265">&lt;/strong&gt;</ept> to close the <bpt id="4b80653c-3bba-490d-870f-8c1a4391fbc7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="4b80653c-3bba-490d-870f-8c1a4391fbc7">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Select the single sign-on configuration confirmation, and then click <bpt id="a391478d-49a5-4223-bb4f-5332f9eaf265">&lt;strong&gt;</bpt>Complete<ept id="a391478d-49a5-4223-bb4f-5332f9eaf265">&lt;/strong&gt;</ept> to close the <bpt id="4b80653c-3bba-490d-870f-8c1a4391fbc7">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="4b80653c-3bba-490d-870f-8c1a4391fbc7">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="db7a2a03-5832-49b0-97c7-38f21b4d73cb" xml:space="preserve">
+          <source>The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</source>
+          <target state="new">The configuration of your Concur subscription for federated SSO via SAML is a separate task, which you must contact Concur to perform.</target>
+        </trans-unit>
+        <trans-unit id="841db7fe-048e-4cbc-b1b9-17b12f3d2cdd" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Concur.</source>
+          <target state="new">The objective of this section is to outline how to enable provisioning of Active Directory user accounts to Concur.</target>
+        </trans-unit>
+        <trans-unit id="fb2ba202-a526-4174-a665-7605cd8b73a3" xml:space="preserve">
+          <source>To enable apps in the Expense Service, there has to be proper setup and use of a Web Service Admin profile. Don't simply add the WS Admin role to your existing administrator profile that you use for T&amp;E administrative functions.</source>
+          <target state="new">To enable apps in the Expense Service, there has to be proper setup and use of a Web Service Admin profile. Don't simply add the WS Admin role to your existing administrator profile that you use for T&amp;E administrative functions.</target>
+        </trans-unit>
+        <trans-unit id="8a4965d1-ee9f-40b8-baec-868e745e167d" xml:space="preserve">
+          <source>Concur Consultants or the client administrator must create a distinct Web Service Administrator profile and the Client administrator must use this profile for the Web Services Administrator functions (e.g. enabling apps). These profiles must be kept separate from the client administrator's daily T&amp;E admin profile (the T&amp;E admin profile should not have the WSAdmin role assigned).</source>
+          <target state="new">Concur Consultants or the client administrator must create a distinct Web Service Administrator profile and the Client administrator must use this profile for the Web Services Administrator functions (e.g. enabling apps). These profiles must be kept separate from the client administrator's daily T&amp;E admin profile (the T&amp;E admin profile should not have the WSAdmin role assigned).</target>
+        </trans-unit>
+        <trans-unit id="a4e4bdb0-8645-4d15-beb8-658cff3feaff" xml:space="preserve">
+          <source>When you create the profile to be used for enabling the app, enter the client administrator's name into the user profile fields.</source>
+          <target state="new">When you create the profile to be used for enabling the app, enter the client administrator's name into the user profile fields.</target>
+        </trans-unit>
+        <trans-unit id="1250088f-2efd-4a7c-9310-badf063efff7" xml:space="preserve">
+          <source>This will assign ownership to the profile.Once the profile(s) is created, the client must log in with this profile to click the "<bpt id="f27b1e83-cfc6-4ce6-9bbb-ee4814b2b880">&lt;em&gt;</bpt>Enable<ept id="f27b1e83-cfc6-4ce6-9bbb-ee4814b2b880">&lt;/em&gt;</ept>" button for a Partner App within the Web Services menu.</source>
+          <target state="new">This will assign ownership to the profile.Once the profile(s) is created, the client must log in with this profile to click the "<bpt id="f27b1e83-cfc6-4ce6-9bbb-ee4814b2b880">&lt;em&gt;</bpt>Enable<ept id="f27b1e83-cfc6-4ce6-9bbb-ee4814b2b880">&lt;/em&gt;</ept>" button for a Partner App within the Web Services menu.</target>
+        </trans-unit>
+        <trans-unit id="dcd16e3b-34c3-4464-9b19-4f2ed3b2253a" xml:space="preserve">
+          <source>For the following reasons, this action should not be done with the profile they use for normal T&amp;E administration.</source>
+          <target state="new">For the following reasons, this action should not be done with the profile they use for normal T&amp;E administration.</target>
+        </trans-unit>
+        <trans-unit id="98c6d841-7d1d-48ab-b300-753bf9fb5129" xml:space="preserve">
+          <source>The client has to be the one that clicks "<bpt id="867ed0f4-3394-423a-a3f3-c9f11c8520db">&lt;em&gt;</bpt>Yes<ept id="867ed0f4-3394-423a-a3f3-c9f11c8520db">&lt;/em&gt;</ept>" on the dialogue window that is displayed after an app is enabled.</source>
+          <target state="new">The client has to be the one that clicks "<bpt id="867ed0f4-3394-423a-a3f3-c9f11c8520db">&lt;em&gt;</bpt>Yes<ept id="867ed0f4-3394-423a-a3f3-c9f11c8520db">&lt;/em&gt;</ept>" on the dialogue window that is displayed after an app is enabled.</target>
+        </trans-unit>
+        <trans-unit id="81ecde5d-5632-46dc-a38a-b23f8119bbb9" xml:space="preserve">
+          <source>This click acknowledges the client is willing for the Partner application to access their data, so you or the Partner cannot click that Yes button.</source>
+          <target state="new">This click acknowledges the client is willing for the Partner application to access their data, so you or the Partner cannot click that Yes button.</target>
+        </trans-unit>
+        <trans-unit id="d05fad19-f0d4-43fc-9152-e6764c9bf36d" xml:space="preserve">
+          <source>If a client administrator that has enabled an app using the T&amp;E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile will not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.</source>
+          <target state="new">If a client administrator that has enabled an app using the T&amp;E admin profile leaves the company (resulting in the profile being inactivated), any apps enabled using that profile will not function until the app is enabled with another active WS Admin profile. This is why you are supposed to create distinct WS Admin profiles.</target>
+        </trans-unit>
+        <trans-unit id="c96bceed-a6f8-470c-aca9-526c62011192" xml:space="preserve">
+          <source>If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated</source>
+          <target state="new">If an administrator leaves the company, the name associated to the WS Admin profile can be changed to the replacement administrator if desired without impacting the enabled app because that profile does not need inactivated</target>
+        </trans-unit>
+        <trans-unit id="80848b2f-b89f-44b7-8580-554c787470d8" xml:space="preserve">
+          <source>Logon to your <bpt id="4fbef2df-cc5c-4d42-8510-510b6bcd3cf2">&lt;strong&gt;</bpt>Concur<ept id="4fbef2df-cc5c-4d42-8510-510b6bcd3cf2">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Logon to your <bpt id="4fbef2df-cc5c-4d42-8510-510b6bcd3cf2">&lt;strong&gt;</bpt>Concur<ept id="4fbef2df-cc5c-4d42-8510-510b6bcd3cf2">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="26120bae-8598-46b5-9fd9-29b91825fac3" xml:space="preserve">
+          <source>From the <bpt id="fb136657-57c2-46ee-b93b-ed1c2807aac4">&lt;strong&gt;</bpt>Administration<ept id="fb136657-57c2-46ee-b93b-ed1c2807aac4">&lt;/strong&gt;</ept> menu, select <bpt id="aad064ff-6304-4c88-ac9d-e8d2b2b94c2a">&lt;strong&gt;</bpt>Web Services<ept id="aad064ff-6304-4c88-ac9d-e8d2b2b94c2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="fb136657-57c2-46ee-b93b-ed1c2807aac4">&lt;strong&gt;</bpt>Administration<ept id="fb136657-57c2-46ee-b93b-ed1c2807aac4">&lt;/strong&gt;</ept> menu, select <bpt id="aad064ff-6304-4c88-ac9d-e8d2b2b94c2a">&lt;strong&gt;</bpt>Web Services<ept id="aad064ff-6304-4c88-ac9d-e8d2b2b94c2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c40e773-930e-4c0e-b7a3-bf6943f61ea3" xml:space="preserve">
+          <source><bpt id="34eb00b4-fcf9-4e35-8a45-0a4d0f24529c">&lt;linkText&gt;</bpt>Concur tenant<ept id="34eb00b4-fcf9-4e35-8a45-0a4d0f24529c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="34eb00b4-fcf9-4e35-8a45-0a4d0f24529c">&lt;linkText&gt;</bpt>Concur tenant<ept id="34eb00b4-fcf9-4e35-8a45-0a4d0f24529c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24371d7d-83ee-48f2-a435-81a5c2531fda" xml:space="preserve">
+          <source>On the left side, from the <bpt id="a01a9aba-f7ce-4146-8dde-3848a69a42f8">&lt;strong&gt;</bpt>Web Services<ept id="a01a9aba-f7ce-4146-8dde-3848a69a42f8">&lt;/strong&gt;</ept> pane, select <bpt id="303b5961-8926-4b28-9ab3-03af19311640">&lt;strong&gt;</bpt>Enable Partner Application<ept id="303b5961-8926-4b28-9ab3-03af19311640">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the left side, from the <bpt id="a01a9aba-f7ce-4146-8dde-3848a69a42f8">&lt;strong&gt;</bpt>Web Services<ept id="a01a9aba-f7ce-4146-8dde-3848a69a42f8">&lt;/strong&gt;</ept> pane, select <bpt id="303b5961-8926-4b28-9ab3-03af19311640">&lt;strong&gt;</bpt>Enable Partner Application<ept id="303b5961-8926-4b28-9ab3-03af19311640">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da872cce-94d5-44b4-a8a0-d46707b3c827" xml:space="preserve">
+          <source><bpt id="ad2caba1-8578-4860-a5f1-e3f1457f22b5">&lt;linkText&gt;</bpt>Enable Partner Application<ept id="ad2caba1-8578-4860-a5f1-e3f1457f22b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad2caba1-8578-4860-a5f1-e3f1457f22b5">&lt;linkText&gt;</bpt>Enable Partner Application<ept id="ad2caba1-8578-4860-a5f1-e3f1457f22b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f5e80d4-59e6-4e75-a173-4b5c9000a561" xml:space="preserve">
+          <source>From the <bpt id="b988fb43-a131-4b3d-96b5-d981662c6ea5">&lt;strong&gt;</bpt>Enable Application<ept id="b988fb43-a131-4b3d-96b5-d981662c6ea5">&lt;/strong&gt;</ept> list, select <bpt id="791a286a-4914-4a01-8cf4-8d1e41354a5c">&lt;strong&gt;</bpt>Azure Active Directory<ept id="791a286a-4914-4a01-8cf4-8d1e41354a5c">&lt;/strong&gt;</ept>, and then click <bpt id="1426b181-9d86-4288-9ac9-55ba7a89513d">&lt;strong&gt;</bpt>Enable<ept id="1426b181-9d86-4288-9ac9-55ba7a89513d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="b988fb43-a131-4b3d-96b5-d981662c6ea5">&lt;strong&gt;</bpt>Enable Application<ept id="b988fb43-a131-4b3d-96b5-d981662c6ea5">&lt;/strong&gt;</ept> list, select <bpt id="791a286a-4914-4a01-8cf4-8d1e41354a5c">&lt;strong&gt;</bpt>Azure Active Directory<ept id="791a286a-4914-4a01-8cf4-8d1e41354a5c">&lt;/strong&gt;</ept>, and then click <bpt id="1426b181-9d86-4288-9ac9-55ba7a89513d">&lt;strong&gt;</bpt>Enable<ept id="1426b181-9d86-4288-9ac9-55ba7a89513d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fbe68d7-c7ff-4678-ada8-c7980c207782" xml:space="preserve">
+          <source><bpt id="5bc9ca82-f428-4281-a734-c054e6667c3a">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory<ept id="5bc9ca82-f428-4281-a734-c054e6667c3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bc9ca82-f428-4281-a734-c054e6667c3a">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory<ept id="5bc9ca82-f428-4281-a734-c054e6667c3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d531e81-bd87-4f01-ae8d-704f6b5cc4d3" xml:space="preserve">
+          <source>Click <bpt id="d9b0c6c1-1e40-480e-981b-7d831b917ee9">&lt;strong&gt;</bpt>Yes<ept id="d9b0c6c1-1e40-480e-981b-7d831b917ee9">&lt;/strong&gt;</ept> to close the <bpt id="43024b10-541a-4a72-82c9-06904a5aefa8">&lt;strong&gt;</bpt>Confirm Action<ept id="43024b10-541a-4a72-82c9-06904a5aefa8">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Click <bpt id="d9b0c6c1-1e40-480e-981b-7d831b917ee9">&lt;strong&gt;</bpt>Yes<ept id="d9b0c6c1-1e40-480e-981b-7d831b917ee9">&lt;/strong&gt;</ept> to close the <bpt id="43024b10-541a-4a72-82c9-06904a5aefa8">&lt;strong&gt;</bpt>Confirm Action<ept id="43024b10-541a-4a72-82c9-06904a5aefa8">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="99a73936-95e6-4664-b01b-a267375c482f" xml:space="preserve">
+          <source><bpt id="096e38b7-b058-46fe-81ad-15fd259e6381">&lt;linkText&gt;</bpt>Confirm Action<ept id="096e38b7-b058-46fe-81ad-15fd259e6381">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="096e38b7-b058-46fe-81ad-15fd259e6381">&lt;linkText&gt;</bpt>Confirm Action<ept id="096e38b7-b058-46fe-81ad-15fd259e6381">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec81c4c1-7010-4e19-9142-f3132c24861f" xml:space="preserve">
+          <source>In the Azure Management Portal, select <bpt id="b2e6716f-ad1e-42a7-86a8-7a98b478cc20">&lt;strong&gt;</bpt>Concur<ept id="b2e6716f-ad1e-42a7-86a8-7a98b478cc20">&lt;/strong&gt;</ept> from the applications list to open the <bpt id="91c5a915-8a94-4128-ac3d-193f7f8f9daf">&lt;strong&gt;</bpt>Concur<ept id="91c5a915-8a94-4128-ac3d-193f7f8f9daf">&lt;/strong&gt;</ept> dialog page.</source>
+          <target state="new">In the Azure Management Portal, select <bpt id="b2e6716f-ad1e-42a7-86a8-7a98b478cc20">&lt;strong&gt;</bpt>Concur<ept id="b2e6716f-ad1e-42a7-86a8-7a98b478cc20">&lt;/strong&gt;</ept> from the applications list to open the <bpt id="91c5a915-8a94-4128-ac3d-193f7f8f9daf">&lt;strong&gt;</bpt>Concur<ept id="91c5a915-8a94-4128-ac3d-193f7f8f9daf">&lt;/strong&gt;</ept> dialog page.</target>
+        </trans-unit>
+        <trans-unit id="c3314ee4-ed41-4886-a83a-3360451cbb6c" xml:space="preserve">
+          <source>To open the <bpt id="5daec1d4-5d50-4685-9330-ce955b83a007">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="5daec1d4-5d50-4685-9330-ce955b83a007">&lt;/strong&gt;</ept> dialog page, click <bpt id="cdfbf3a0-a696-4e9b-b54a-0f2c558af44d">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cdfbf3a0-a696-4e9b-b54a-0f2c558af44d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the <bpt id="5daec1d4-5d50-4685-9330-ce955b83a007">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="5daec1d4-5d50-4685-9330-ce955b83a007">&lt;/strong&gt;</ept> dialog page, click <bpt id="cdfbf3a0-a696-4e9b-b54a-0f2c558af44d">&lt;strong&gt;</bpt>Configure user provisioning<ept id="cdfbf3a0-a696-4e9b-b54a-0f2c558af44d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de68615e-60d8-41e2-90d3-1e033a4a3764" xml:space="preserve">
+          <source>Enter the user name and the password of your Concur administrator, and then click <bpt id="d3436d4f-3d42-448e-9efa-122394e85628">&lt;strong&gt;</bpt>Next<ept id="d3436d4f-3d42-448e-9efa-122394e85628">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the user name and the password of your Concur administrator, and then click <bpt id="d3436d4f-3d42-448e-9efa-122394e85628">&lt;strong&gt;</bpt>Next<ept id="d3436d4f-3d42-448e-9efa-122394e85628">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0120a1cc-f055-4807-9e05-202f80813443" xml:space="preserve">
+          <source>To finish the configuration, on the <bpt id="c2c7c58b-9173-4278-a7fd-4cc9f341cab0">&lt;strong&gt;</bpt>Confirmation<ept id="c2c7c58b-9173-4278-a7fd-4cc9f341cab0">&lt;/strong&gt;</ept> page, click the <bpt id="0f630a11-d824-43d0-8a6f-022e5c624980">&lt;strong&gt;</bpt>Complete<ept id="0f630a11-d824-43d0-8a6f-022e5c624980">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To finish the configuration, on the <bpt id="c2c7c58b-9173-4278-a7fd-4cc9f341cab0">&lt;strong&gt;</bpt>Confirmation<ept id="c2c7c58b-9173-4278-a7fd-4cc9f341cab0">&lt;/strong&gt;</ept> page, click the <bpt id="0f630a11-d824-43d0-8a6f-022e5c624980">&lt;strong&gt;</bpt>Complete<ept id="0f630a11-d824-43d0-8a6f-022e5c624980">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="95fb5245-5fe9-471b-8536-b09a5d8ea689" xml:space="preserve">
+          <source>You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Concur.</source>
+          <target state="new">You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Concur.</target>
+        </trans-unit>
+        <trans-unit id="60400055-0187-4c8d-b821-847d90a6f8dd" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="962adb11-d762-4786-b6b9-b7b3d72cda1e" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="e09d5a00-c061-4639-a8e9-0f92a070c9da" xml:space="preserve">
+          <source>On the <bpt id="6d753d32-1bdf-4c01-900a-9bca4092fb1d">&lt;strong&gt;</bpt>Concur **application integration page, click **Assign users<ept id="6d753d32-1bdf-4c01-900a-9bca4092fb1d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6d753d32-1bdf-4c01-900a-9bca4092fb1d">&lt;strong&gt;</bpt>Concur **application integration page, click **Assign users<ept id="6d753d32-1bdf-4c01-900a-9bca4092fb1d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e679167c-cb6d-41fc-b762-8528fadc38a2" xml:space="preserve">
+          <source><bpt id="20520a3b-6e04-4d10-8cdb-6d4b670930e7">&lt;linkText&gt;</bpt>Assign users<ept id="20520a3b-6e04-4d10-8cdb-6d4b670930e7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20520a3b-6e04-4d10-8cdb-6d4b670930e7">&lt;linkText&gt;</bpt>Assign users<ept id="20520a3b-6e04-4d10-8cdb-6d4b670930e7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82920763-7ee1-4905-bcc2-c07b6a3c0822" xml:space="preserve">
+          <source>Select your test user, click <bpt id="94f0997b-24af-4dce-8e20-4d1f9f31dd0e">&lt;strong&gt;</bpt>Assign<ept id="94f0997b-24af-4dce-8e20-4d1f9f31dd0e">&lt;/strong&gt;</ept>, and then click <bpt id="d0c5cdaa-41ec-49ce-a8c2-069b3940cca7">&lt;strong&gt;</bpt>Yes<ept id="d0c5cdaa-41ec-49ce-a8c2-069b3940cca7">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="94f0997b-24af-4dce-8e20-4d1f9f31dd0e">&lt;strong&gt;</bpt>Assign<ept id="94f0997b-24af-4dce-8e20-4d1f9f31dd0e">&lt;/strong&gt;</ept>, and then click <bpt id="d0c5cdaa-41ec-49ce-a8c2-069b3940cca7">&lt;strong&gt;</bpt>Yes<ept id="d0c5cdaa-41ec-49ce-a8c2-069b3940cca7">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="95d19e2d-1cb6-4e20-93a7-0af371c2acd4" xml:space="preserve">
+          <source><bpt id="f218aaa5-ae4a-4e7d-96de-40f3bf3a4840">&lt;linkText&gt;</bpt>Yes<ept id="f218aaa5-ae4a-4e7d-96de-40f3bf3a4840">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f218aaa5-ae4a-4e7d-96de-40f3bf3a4840">&lt;linkText&gt;</bpt>Yes<ept id="f218aaa5-ae4a-4e7d-96de-40f3bf3a4840">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33043f13-d3d1-4361-918f-3c97539eded6" xml:space="preserve">
+          <source>You should now wait for 10 minutes and verify that the account has been synchronized to Concur.</source>
+          <target state="new">You should now wait for 10 minutes and verify that the account has been synchronized to Concur.</target>
+        </trans-unit>
+        <trans-unit id="13600baf-6344-4692-8627-bd1b959ec920" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="ca619d5d-e88c-4550-85e0-f53a499c295e" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="00793710-06a1-4318-b577-841763a4c0e8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="00793710-06a1-4318-b577-841763a4c0e8">&lt;/linkText&gt;</ept><bpt id="00793710-06a1-4318-b577-841763a4c0e8">&lt;title&gt;</bpt><ept id="00793710-06a1-4318-b577-841763a4c0e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="00793710-06a1-4318-b577-841763a4c0e8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="00793710-06a1-4318-b577-841763a4c0e8">&lt;/linkText&gt;</ept><bpt id="00793710-06a1-4318-b577-841763a4c0e8">&lt;title&gt;</bpt><ept id="00793710-06a1-4318-b577-841763a4c0e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

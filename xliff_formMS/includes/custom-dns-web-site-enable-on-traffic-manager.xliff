@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dbe0573d-d919-46c3-b65d-585a35e5cd21" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dbe0573d-d919-46c3-b65d-585a35e5cd21" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0c0a1b00-8892-48ed-8c23-9e283a216cc7">
+        <trans-unit id="415324f4-d916-48e7-ba5c-7850b3d96786" xml:space="preserve">
+          <source>After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.</source>
+          <target state="new">After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="02a57245-df70-4da5-b4e4-d2eb08cd69ca" xml:space="preserve">
+          <source>It can take some time for your CNAME to propagate through the DNS system.</source>
+          <target state="new">It can take some time for your CNAME to propagate through the DNS system.</target>
+        </trans-unit>
+        <trans-unit id="b1f3d36f-9336-43b9-b849-ec121f38538d" xml:space="preserve">
+          <source>You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</source>
+          <target state="new">You can use a service such as &lt;a href="http://www.digwebinterface.com/"&gt;http://www.digwebinterface.com/&lt;/a&gt; to verify that the CNAME is available.</target>
+        </trans-unit>
+        <trans-unit id="77b69c80-8fb2-44be-9dcb-7984e87d05b6" xml:space="preserve">
+          <source>If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager.</source>
+          <target state="new">If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="312a43b6-885d-45d5-af46-227316a3231e" xml:space="preserve">
+          <source>Traffic Manager then routes to your web app.</source>
+          <target state="new">Traffic Manager then routes to your web app.</target>
+        </trans-unit>
+        <trans-unit id="f687e5e7-8a51-4d07-a6f3-717a99d362fb" xml:space="preserve">
+          <source>Use the information in <bpt id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;linkText&gt;</bpt>Add or Delete Endpoints<ept id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;/linkText&gt;</ept><bpt id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;title&gt;</bpt><ept id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;/title&gt;</ept> to add your web app as an endpoint in your Traffic Manager profile.</source>
+          <target state="new">Use the information in <bpt id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;linkText&gt;</bpt>Add or Delete Endpoints<ept id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;/linkText&gt;</ept><bpt id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;title&gt;</bpt><ept id="46a598ff-0363-4bce-80d8-b92c6c8b5239">&lt;/title&gt;</ept> to add your web app as an endpoint in your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="9fa207b6-e2c1-4f28-a9e4-f47581556afd" xml:space="preserve">
+          <source>If your web app is not listed when adding an endpoint, verify that it is configured for <bpt id="d02761ea-0275-429c-90b4-55a1a1fa3977">&lt;strong&gt;</bpt>Standard<ept id="d02761ea-0275-429c-90b4-55a1a1fa3977">&lt;/strong&gt;</ept> App Service plan mode.</source>
+          <target state="new">If your web app is not listed when adding an endpoint, verify that it is configured for <bpt id="d02761ea-0275-429c-90b4-55a1a1fa3977">&lt;strong&gt;</bpt>Standard<ept id="d02761ea-0275-429c-90b4-55a1a1fa3977">&lt;/strong&gt;</ept> App Service plan mode.</target>
+        </trans-unit>
+        <trans-unit id="6e15ad41-c747-4fcf-b3ae-ba367b7dc98e" xml:space="preserve">
+          <source>You must use <bpt id="dd3e1fd5-2a85-47b5-a331-9e00a3cfd539">&lt;strong&gt;</bpt>Standard<ept id="dd3e1fd5-2a85-47b5-a331-9e00a3cfd539">&lt;/strong&gt;</ept> mode for your web app in order to work with Traffic Manager.</source>
+          <target state="new">You must use <bpt id="dd3e1fd5-2a85-47b5-a331-9e00a3cfd539">&lt;strong&gt;</bpt>Standard<ept id="dd3e1fd5-2a85-47b5-a331-9e00a3cfd539">&lt;/strong&gt;</ept> mode for your web app in order to work with Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="1e7877d6-df78-4e9b-b0eb-84d3cb11d3fe" xml:space="preserve">
+          <source>In your browser, open the <bpt id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;linkText&gt;</bpt>Azure Portal<ept id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;/linkText&gt;</ept><bpt id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;title&gt;</bpt><ept id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, open the <bpt id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;linkText&gt;</bpt>Azure Portal<ept id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;/linkText&gt;</ept><bpt id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;title&gt;</bpt><ept id="972f6d1c-ca70-47c0-833e-a1e25a19c22f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3ed1727-dad2-412a-a394-183a37163c2e" xml:space="preserve">
+          <source>In the <bpt id="c69bf347-8d89-47bf-b5cb-685a8f8db1e2">&lt;strong&gt;</bpt>Web Apps<ept id="c69bf347-8d89-47bf-b5cb-685a8f8db1e2">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="e496b61e-587d-4b28-9bd8-50417f02a502">&lt;strong&gt;</bpt>Settings<ept id="e496b61e-587d-4b28-9bd8-50417f02a502">&lt;/strong&gt;</ept>, and then select <bpt id="27a3d620-81e6-4534-8464-211633c0966d">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="27a3d620-81e6-4534-8464-211633c0966d">&lt;/strong&gt;</ept></source>
+          <target state="new">In the <bpt id="c69bf347-8d89-47bf-b5cb-685a8f8db1e2">&lt;strong&gt;</bpt>Web Apps<ept id="c69bf347-8d89-47bf-b5cb-685a8f8db1e2">&lt;/strong&gt;</ept> tab, click the name of your web app, select <bpt id="e496b61e-587d-4b28-9bd8-50417f02a502">&lt;strong&gt;</bpt>Settings<ept id="e496b61e-587d-4b28-9bd8-50417f02a502">&lt;/strong&gt;</ept>, and then select <bpt id="27a3d620-81e6-4534-8464-211633c0966d">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="27a3d620-81e6-4534-8464-211633c0966d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a49f77d0-30c1-4377-ac9b-a74cd06f1c1d" xml:space="preserve">
+          <source><bpt id="c11c12b7-0edd-4909-9b03-22f947a266c3">&lt;linkText&gt;</bpt><ept id="c11c12b7-0edd-4909-9b03-22f947a266c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c11c12b7-0edd-4909-9b03-22f947a266c3">&lt;linkText&gt;</bpt><ept id="c11c12b7-0edd-4909-9b03-22f947a266c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f365beb-25b8-48ec-8d6c-941b30786e84" xml:space="preserve">
+          <source>In the <bpt id="34669ae9-154e-4486-b0ae-5d285506089f">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="34669ae9-154e-4486-b0ae-5d285506089f">&lt;/strong&gt;</ept> blade, click <bpt id="bed4ead6-cf3b-41d9-ae15-0bf0be2f0e8b">&lt;strong&gt;</bpt>Bring external domains<ept id="bed4ead6-cf3b-41d9-ae15-0bf0be2f0e8b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="34669ae9-154e-4486-b0ae-5d285506089f">&lt;strong&gt;</bpt>Custom domains and SSL<ept id="34669ae9-154e-4486-b0ae-5d285506089f">&lt;/strong&gt;</ept> blade, click <bpt id="bed4ead6-cf3b-41d9-ae15-0bf0be2f0e8b">&lt;strong&gt;</bpt>Bring external domains<ept id="bed4ead6-cf3b-41d9-ae15-0bf0be2f0e8b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d876f93-469b-458b-82b1-6402043b076f" xml:space="preserve">
+          <source><bpt id="6412a6c6-c6f8-4d23-b13e-6142378ad1ac">&lt;linkText&gt;</bpt><ept id="6412a6c6-c6f8-4d23-b13e-6142378ad1ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6412a6c6-c6f8-4d23-b13e-6142378ad1ac">&lt;linkText&gt;</bpt><ept id="6412a6c6-c6f8-4d23-b13e-6142378ad1ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df463fe2-e3d9-4609-b085-93ae08b24688" xml:space="preserve">
+          <source>Use the <bpt id="126f16ee-2dd0-4b14-8e2b-532ce06c1205">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="126f16ee-2dd0-4b14-8e2b-532ce06c1205">&lt;/strong&gt;</ept> text boxes to enter the Traffic Manager domain name (contoso.trafficmanager.net) to associate with this web app.</source>
+          <target state="new">Use the <bpt id="126f16ee-2dd0-4b14-8e2b-532ce06c1205">&lt;strong&gt;</bpt>DOMAIN NAMES<ept id="126f16ee-2dd0-4b14-8e2b-532ce06c1205">&lt;/strong&gt;</ept> text boxes to enter the Traffic Manager domain name (contoso.trafficmanager.net) to associate with this web app.</target>
+        </trans-unit>
+        <trans-unit id="8ac64f4e-adf5-4ed9-b3e9-2d2259266183" xml:space="preserve">
+          <source><bpt id="8f78656f-0699-41d6-8c13-d9faaf9db84d">&lt;linkText&gt;</bpt><ept id="8f78656f-0699-41d6-8c13-d9faaf9db84d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8f78656f-0699-41d6-8c13-d9faaf9db84d">&lt;linkText&gt;</bpt><ept id="8f78656f-0699-41d6-8c13-d9faaf9db84d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb26584d-1aa2-4966-a4a5-8b8f8ec0d2b8" xml:space="preserve">
+          <source>Click <bpt id="2687b4f6-3449-4412-81d8-0062cb988d4e">&lt;strong&gt;</bpt>Save<ept id="2687b4f6-3449-4412-81d8-0062cb988d4e">&lt;/strong&gt;</ept> to save the domain name configuration.</source>
+          <target state="new">Click <bpt id="2687b4f6-3449-4412-81d8-0062cb988d4e">&lt;strong&gt;</bpt>Save<ept id="2687b4f6-3449-4412-81d8-0062cb988d4e">&lt;/strong&gt;</ept> to save the domain name configuration.</target>
+        </trans-unit>
+        <trans-unit id="4c0f268f-bd3e-44a9-a310-c6453515e6f9" xml:space="preserve">
+          <source>Once configuration has completed, the custom domain name will be listed in the <bpt id="b2320a55-9e41-4ed0-b216-b68cbd526de6">&lt;strong&gt;</bpt>domain names<ept id="b2320a55-9e41-4ed0-b216-b68cbd526de6">&lt;/strong&gt;</ept> section of your web app.</source>
+          <target state="new">Once configuration has completed, the custom domain name will be listed in the <bpt id="b2320a55-9e41-4ed0-b216-b68cbd526de6">&lt;strong&gt;</bpt>domain names<ept id="b2320a55-9e41-4ed0-b216-b68cbd526de6">&lt;/strong&gt;</ept> section of your web app.</target>
+        </trans-unit>
+        <trans-unit id="ddc8943f-0861-46d1-be69-cf0d7d3aeb25" xml:space="preserve">
+          <source>At this point, you should be able to enter the Traffic Manager domain name (contoso.trafficmanager.net) name in your browser and see that it successfully takes you to your web app.</source>
+          <target state="new">At this point, you should be able to enter the Traffic Manager domain name (contoso.trafficmanager.net) name in your browser and see that it successfully takes you to your web app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5753dce0-96a6-4b94-b2ed-2b39cb315f79" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5753dce0-96a6-4b94-b2ed-2b39cb315f79" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4f5b2ee0-0eac-4146-a7e8-c6adb56eb2e7">
+        <trans-unit id="3151c75a-f22f-4375-bee5-47bc044bb3b0" xml:space="preserve">
+          <source>SQL Data Warehouse reference topics | Microsoft Azure</source>
+          <target state="new">SQL Data Warehouse reference topics | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="37d38ca8-ec01-485c-80b1-9aac7959f09d" xml:space="preserve">
+          <source>Reference content links for SQL Data Warehouse.</source>
+          <target state="new">Reference content links for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="ab19939b-2584-4da2-9b55-2dc9c424e417" xml:space="preserve">
+          <source>These articles contain reference information for SQL Data Warehouse.</source>
+          <target state="new">These articles contain reference information for SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="12c2e370-878e-492a-afac-322e0805f3b0" xml:space="preserve">
+          <source><bpt id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;linkText&gt;</bpt>Transact-SQL language elements<ept id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;/linkText&gt;</ept><bpt id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;title&gt;</bpt><ept id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;/title&gt;</ept>
+<bpt id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;linkText&gt;</bpt>Transact-SQL statements<ept id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;/linkText&gt;</ept><bpt id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;title&gt;</bpt><ept id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;/title&gt;</ept>
+<bpt id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;linkText&gt;</bpt>Transact-SQL system views<ept id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;/linkText&gt;</ept><bpt id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;title&gt;</bpt><ept id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;/title&gt;</ept>
+<bpt id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;linkText&gt;</bpt>PowerShell cmdlets<ept id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;/linkText&gt;</ept><bpt id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;title&gt;</bpt><ept id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;linkText&gt;</bpt>Transact-SQL language elements<ept id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;/linkText&gt;</ept><bpt id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;title&gt;</bpt><ept id="ce77d3c8-961d-4f66-af14-d9ec51d13e6e">&lt;/title&gt;</ept>
+<bpt id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;linkText&gt;</bpt>Transact-SQL statements<ept id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;/linkText&gt;</ept><bpt id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;title&gt;</bpt><ept id="63626489-9823-4d76-a9de-8d8b918040cb">&lt;/title&gt;</ept>
+<bpt id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;linkText&gt;</bpt>Transact-SQL system views<ept id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;/linkText&gt;</ept><bpt id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;title&gt;</bpt><ept id="65874005-005a-4bb5-aeb5-ce04e57d453b">&lt;/title&gt;</ept>
+<bpt id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;linkText&gt;</bpt>PowerShell cmdlets<ept id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;/linkText&gt;</ept><bpt id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;title&gt;</bpt><ept id="b24b8e2b-8830-429e-b319-69781c1c207b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf3199ed-5029-41a9-a192-046ae8ce8c83" xml:space="preserve">
+          <source>For development information, see <bpt id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;linkText&gt;</bpt>development overview<ept id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;/linkText&gt;</ept><bpt id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;title&gt;</bpt><ept id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;/title&gt;</ept>.</source>
+          <target state="new">For development information, see <bpt id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;linkText&gt;</bpt>development overview<ept id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;/linkText&gt;</ept><bpt id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;title&gt;</bpt><ept id="0cbcf078-2aee-4ff5-a389-b3f15f13d484">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8f99545-2ac0-47a8-a14c-67a8ab5a1a99" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="18ec5652-4717-4cee-8889-b2234c46b050" xml:space="preserve">
+          <source>sql-data-warehouse-reference-tsql-language-elements.md</source>
+          <target state="new">sql-data-warehouse-reference-tsql-language-elements.md</target>
+        </trans-unit>
+        <trans-unit id="209e2ed9-5fd5-49ae-959e-5850fa283d6b" xml:space="preserve">
+          <source>sql-data-warehouse-reference-tsql-statements.md</source>
+          <target state="new">sql-data-warehouse-reference-tsql-statements.md</target>
+        </trans-unit>
+        <trans-unit id="48c62c67-60d4-49dc-9756-7dbff3fe9eb1" xml:space="preserve">
+          <source>sql-data-warehouse-reference-tsql-system-views.md</source>
+          <target state="new">sql-data-warehouse-reference-tsql-system-views.md</target>
+        </trans-unit>
+        <trans-unit id="8507c01b-7834-46d8-8d2f-7aca34eb407e" xml:space="preserve">
+          <source>sql-data-warehouse-reference-powershell-cmdlets.md</source>
+          <target state="new">sql-data-warehouse-reference-powershell-cmdlets.md</target>
+        </trans-unit>
+      </group>
+      <group id="2926fd88-fa29-4726-a388-fc299395c69c" />
+    </body>
+  </file>
+</xliff>

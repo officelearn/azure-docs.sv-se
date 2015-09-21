@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4d103a78-da64-46db-ba6c-8f03569e242b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4d103a78-da64-46db-ba6c-8f03569e242b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="813a8823-a396-4248-a5ff-aebe7047296f">
+        <trans-unit id="6ef3d361-9759-44ff-acf2-79a33e55bf14" xml:space="preserve">
+          <source>Navigate and select Azure virtual machine images with PowerShell and the Azure CLI</source>
+          <target state="new">Navigate and select Azure virtual machine images with PowerShell and the Azure CLI</target>
+        </trans-unit>
+        <trans-unit id="791aef57-e551-418c-b3b7-0881fdbcb9b9" xml:space="preserve">
+          <source>Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with Resource Manager.</source>
+          <target state="new">Learn how to determine the publisher, offer, and SKU for images when creating an Azure virtual machine with Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="fef50a73-cc27-47da-9fd2-e2ca77abd811" xml:space="preserve">
+          <source>When you're searching for virtual machine images in this topic, you're using the <bpt id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;linkText&gt;</bpt>Azure Resource Manager mode<ept id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;/linkText&gt;</ept><bpt id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;title&gt;</bpt><ept id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;/title&gt;</ept> with a recent installation of either the Azure Command-Line interface for Mac, Linux, and Windows or of Windows PowerShell.</source>
+          <target state="new">When you're searching for virtual machine images in this topic, you're using the <bpt id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;linkText&gt;</bpt>Azure Resource Manager mode<ept id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;/linkText&gt;</ept><bpt id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;title&gt;</bpt><ept id="fe0a26e8-881f-4675-8033-2d8763b2f4e4">&lt;/title&gt;</ept> with a recent installation of either the Azure Command-Line interface for Mac, Linux, and Windows or of Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="6459dbe4-1841-4f5f-b819-c1691517ed63" xml:space="preserve">
+          <source>With the Azure CLI, enter that mode by typing <bpt id="4dc6b0e5-0e7c-415e-b9a8-843602ff8a86">&lt;code&gt;</bpt>azure config mode arm<ept id="4dc6b0e5-0e7c-415e-b9a8-843602ff8a86">&lt;/code&gt;</ept>.</source>
+          <target state="new">With the Azure CLI, enter that mode by typing <bpt id="4dc6b0e5-0e7c-415e-b9a8-843602ff8a86">&lt;code&gt;</bpt>azure config mode arm<ept id="4dc6b0e5-0e7c-415e-b9a8-843602ff8a86">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b045f7c6-4324-4218-ae36-9694bd49f131" xml:space="preserve">
+          <source>With PowerShell, type <bpt id="10f5f987-51ef-4aef-8534-ea1b893b3151">&lt;code&gt;</bpt>Switch-AzureMode AzureResourceManager<ept id="10f5f987-51ef-4aef-8534-ea1b893b3151">&lt;/code&gt;</ept>.</source>
+          <target state="new">With PowerShell, type <bpt id="10f5f987-51ef-4aef-8534-ea1b893b3151">&lt;code&gt;</bpt>Switch-AzureMode AzureResourceManager<ept id="10f5f987-51ef-4aef-8534-ea1b893b3151">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0672d6e1-626d-45ae-b0f5-e601fea9b4f2" xml:space="preserve">
+          <source>See <bpt id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;linkText&gt;</bpt>Using Azure CLI with Resource Manager<ept id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;/linkText&gt;</ept><bpt id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;title&gt;</bpt><ept id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;/title&gt;</ept> and <bpt id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;/linkText&gt;</ept><bpt id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;title&gt;</bpt><ept id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;/title&gt;</ept> for more complete update and configuration details.</source>
+          <target state="new">See <bpt id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;linkText&gt;</bpt>Using Azure CLI with Resource Manager<ept id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;/linkText&gt;</ept><bpt id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;title&gt;</bpt><ept id="d0275ba6-fd43-4ce0-8019-dd0584a9786d">&lt;/title&gt;</ept> and <bpt id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;linkText&gt;</bpt>Using Azure PowerShell with Azure Resource Manager<ept id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;/linkText&gt;</ept><bpt id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;title&gt;</bpt><ept id="63fca1b0-5fc9-43ba-9837-1247caa8e28d">&lt;/title&gt;</ept> for more complete update and configuration details.</target>
+        </trans-unit>
+        <trans-unit id="39563efc-0cf8-403d-a656-34468897baf2" xml:space="preserve">
+          <source>PublisherName</source>
+          <target state="new">PublisherName</target>
+        </trans-unit>
+        <trans-unit id="7468d018-4303-4193-81af-f2bf77867493" xml:space="preserve">
+          <source>Offer</source>
+          <target state="new">Offer</target>
+        </trans-unit>
+        <trans-unit id="a292d112-abcc-4faa-ab70-2d7a2fa9fc00" xml:space="preserve">
+          <source>Sku</source>
+          <target state="new">Sku</target>
+        </trans-unit>
+        <trans-unit id="592abc04-8478-42fd-a3b8-96227a29b9e1" xml:space="preserve">
+          <source>OpenLogic</source>
+          <target state="new">OpenLogic</target>
+        </trans-unit>
+        <trans-unit id="24531e28-244c-4d51-a78e-308adda59811" xml:space="preserve">
+          <source>CentOS</source>
+          <target state="new">CentOS</target>
+        </trans-unit>
+        <trans-unit id="8a5837b9-6aa5-4c87-9e06-f68bfa1a3340" xml:space="preserve">
+          <source>7</source>
+          <target state="new">7</target>
+        </trans-unit>
+        <trans-unit id="a1cfea5e-6e6e-45fd-86db-1d1c5f6fa6d4" xml:space="preserve">
+          <source>OpenLogic</source>
+          <target state="new">OpenLogic</target>
+        </trans-unit>
+        <trans-unit id="3a52f0da-609e-4fa1-bfb6-2d92f58a52c6" xml:space="preserve">
+          <source>CentOS</source>
+          <target state="new">CentOS</target>
+        </trans-unit>
+        <trans-unit id="28f615f0-fc91-4f55-a34a-cba2b26468a8" xml:space="preserve">
+          <source>7.1</source>
+          <target state="new">7.1</target>
+        </trans-unit>
+        <trans-unit id="dc6f1dc8-0313-4e29-a022-e28801a4cbd5" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="cd537979-f8ad-4d17-b3bc-01cd97015b63" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="7e83bfd1-5a8b-4c18-ba8c-0efb86052f52" xml:space="preserve">
+          <source>Beta</source>
+          <target state="new">Beta</target>
+        </trans-unit>
+        <trans-unit id="88c523f1-7ae3-4667-be69-beab9997dfa6" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="37c1009d-1dc9-4145-90d8-5d730d2f5111" xml:space="preserve">
+          <source>CoreOS</source>
+          <target state="new">CoreOS</target>
+        </trans-unit>
+        <trans-unit id="608f0a25-0334-4d2e-8fa1-9a7644542a37" xml:space="preserve">
+          <source>Stable</source>
+          <target state="new">Stable</target>
+        </trans-unit>
+        <trans-unit id="f1c61dc3-2390-41be-9194-6e6a1c0cc115" xml:space="preserve">
+          <source>MicrosoftDynamicsNAV</source>
+          <target state="new">MicrosoftDynamicsNAV</target>
+        </trans-unit>
+        <trans-unit id="c4b555cc-a3a6-4a15-82eb-0e6eaa8e8d75" xml:space="preserve">
+          <source>DynamicsNAV</source>
+          <target state="new">DynamicsNAV</target>
+        </trans-unit>
+        <trans-unit id="7c2c0357-f77b-43e7-bd1b-004ffa24f2d8" xml:space="preserve">
+          <source>2015</source>
+          <target state="new">2015</target>
+        </trans-unit>
+        <trans-unit id="2c84f8c6-84d0-4235-834a-f05d4d28cc97" xml:space="preserve">
+          <source>MicrosoftSharePoint</source>
+          <target state="new">MicrosoftSharePoint</target>
+        </trans-unit>
+        <trans-unit id="755c4de9-6d1e-4a7a-a9f5-f37b0cc900a4" xml:space="preserve">
+          <source>MicrosoftSharePointServer</source>
+          <target state="new">MicrosoftSharePointServer</target>
+        </trans-unit>
+        <trans-unit id="a725479b-e4c5-4a4c-9465-867977a639e3" xml:space="preserve">
+          <source>2013</source>
+          <target state="new">2013</target>
+        </trans-unit>
+        <trans-unit id="46f6d05a-8b95-4f9d-a9b4-9884a82a2591" xml:space="preserve">
+          <source>Microsoft</source>
+          <target state="new">Microsoft</target>
+        </trans-unit>
+        <trans-unit id="d373e7e0-a8b9-4e69-9c22-a374dca6b4de" xml:space="preserve">
+          <source>Oracle-Database-12c-Weblogic-Server-12c</source>
+          <target state="new">Oracle-Database-12c-Weblogic-Server-12c</target>
+        </trans-unit>
+        <trans-unit id="76c2fb8b-829f-41a4-9452-25dae36544cd" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="596b8e15-556b-49bd-b210-2fe297b224b6" xml:space="preserve">
+          <source>Microsoft</source>
+          <target state="new">Microsoft</target>
+        </trans-unit>
+        <trans-unit id="a0f1acf3-d50d-4f0b-bec7-c65383e8cad6" xml:space="preserve">
+          <source>Oracle-Database-12c-Weblogic-Server-12c</source>
+          <target state="new">Oracle-Database-12c-Weblogic-Server-12c</target>
+        </trans-unit>
+        <trans-unit id="1dc24573-9d9c-4eaa-bf0b-9a6d619c84a0" xml:space="preserve">
+          <source>Enterprise</source>
+          <target state="new">Enterprise</target>
+        </trans-unit>
+        <trans-unit id="3f8e24f9-959a-4be7-b8ea-995dd8db671e" xml:space="preserve">
+          <source>MicrosoftSQLServer</source>
+          <target state="new">MicrosoftSQLServer</target>
+        </trans-unit>
+        <trans-unit id="96f4f3ae-6f75-4708-8b4d-1dd6022181b7" xml:space="preserve">
+          <source>SQL2014-WS2012R2</source>
+          <target state="new">SQL2014-WS2012R2</target>
+        </trans-unit>
+        <trans-unit id="e72b6385-f20d-4539-acac-0949d2231a58" xml:space="preserve">
+          <source>Enterprise-Optimized-for-DW</source>
+          <target state="new">Enterprise-Optimized-for-DW</target>
+        </trans-unit>
+        <trans-unit id="b5919390-3e2f-4964-ae17-63a1739dc0e1" xml:space="preserve">
+          <source>MicrosoftSQLServer</source>
+          <target state="new">MicrosoftSQLServer</target>
+        </trans-unit>
+        <trans-unit id="6f08ff2e-6b13-48c6-94aa-f7230a4a2a8c" xml:space="preserve">
+          <source>SQL2014-WS2012R2</source>
+          <target state="new">SQL2014-WS2012R2</target>
+        </trans-unit>
+        <trans-unit id="6361a43d-f9c5-4945-9cfe-1824a9dc1085" xml:space="preserve">
+          <source>Enterprise-Optimized-for-OLTP</source>
+          <target state="new">Enterprise-Optimized-for-OLTP</target>
+        </trans-unit>
+        <trans-unit id="5118483c-30bc-4550-9e6f-b7d2582137d5" xml:space="preserve">
+          <source>Canonical</source>
+          <target state="new">Canonical</target>
+        </trans-unit>
+        <trans-unit id="57d863ba-786b-45ac-bdcd-7ad1056ca3cf" xml:space="preserve">
+          <source>UbuntuServer</source>
+          <target state="new">UbuntuServer</target>
+        </trans-unit>
+        <trans-unit id="3e7b6f42-9d1d-46ff-a451-d107fbf8cf7e" xml:space="preserve">
+          <source>12.04.5-LTS</source>
+          <target state="new">12.04.5-LTS</target>
+        </trans-unit>
+        <trans-unit id="56a3f603-28f5-4e6a-92bf-352ede42f91a" xml:space="preserve">
+          <source>Canonical</source>
+          <target state="new">Canonical</target>
+        </trans-unit>
+        <trans-unit id="21172003-36a7-4b1a-9f52-ebf7f22f0b30" xml:space="preserve">
+          <source>UbuntuServer</source>
+          <target state="new">UbuntuServer</target>
+        </trans-unit>
+        <trans-unit id="9b78aa19-5146-49e6-ad50-f7f9cb1c0fa9" xml:space="preserve">
+          <source>14.04.2-LTS</source>
+          <target state="new">14.04.2-LTS</target>
+        </trans-unit>
+        <trans-unit id="7a6880ed-19f5-448a-8a2e-0d46e6c77477" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="c48077fe-7efb-4d80-af68-5d83d3eb77b1" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="e5635532-4bcc-4e69-91ac-7b13f6e343b1" xml:space="preserve">
+          <source>2012-Datacenter</source>
+          <target state="new">2012-Datacenter</target>
+        </trans-unit>
+        <trans-unit id="70ef6aec-8562-4543-b632-c2b969440db3" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="f76dd86a-d27c-420e-bd2a-2c7310466392" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="a5ff1665-4154-4db7-b3d5-12777eebe88f" xml:space="preserve">
+          <source>2012-R2-Datacenter</source>
+          <target state="new">2012-R2-Datacenter</target>
+        </trans-unit>
+        <trans-unit id="99321227-018a-440f-ad78-9ad0b7695ae2" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="6ea89aa3-5cfa-4506-907a-1b44816a4c7a" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="32014671-1713-4b82-a258-560dce079355" xml:space="preserve">
+          <source>2008-R2-SP1</source>
+          <target state="new">2008-R2-SP1</target>
+        </trans-unit>
+        <trans-unit id="d2c36280-6efa-49eb-9bed-5c56a994a93e" xml:space="preserve">
+          <source>MicrosoftWindowsServer</source>
+          <target state="new">MicrosoftWindowsServer</target>
+        </trans-unit>
+        <trans-unit id="b021572d-61c7-46db-9e9f-c9e15669c517" xml:space="preserve">
+          <source>WindowsServer</source>
+          <target state="new">WindowsServer</target>
+        </trans-unit>
+        <trans-unit id="391b18c2-b417-442d-a40e-8df5b51098cf" xml:space="preserve">
+          <source>Windows-Server-Technical-Preview</source>
+          <target state="new">Windows-Server-Technical-Preview</target>
+        </trans-unit>
+        <trans-unit id="5f731cec-d418-4616-b5b7-ee74f572378c" xml:space="preserve">
+          <source>MicrosoftWindowsServerEssentials</source>
+          <target state="new">MicrosoftWindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="9ad0ab27-132b-4ef4-9f09-6a860ec08e09" xml:space="preserve">
+          <source>WindowsServerEssentials</source>
+          <target state="new">WindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="6185e33f-6b7d-4a08-82f1-047a59f961ad" xml:space="preserve">
+          <source>WindowsServerEssentials</source>
+          <target state="new">WindowsServerEssentials</target>
+        </trans-unit>
+        <trans-unit id="0f7c2218-c980-446f-b1ee-7929790d5834" xml:space="preserve">
+          <source>MicrosoftWindowsServerHPCPack</source>
+          <target state="new">MicrosoftWindowsServerHPCPack</target>
+        </trans-unit>
+        <trans-unit id="02044e3a-ec47-40e0-81a9-65cd0072260b" xml:space="preserve">
+          <source>WindowsServerHPCPack</source>
+          <target state="new">WindowsServerHPCPack</target>
+        </trans-unit>
+        <trans-unit id="a89f7050-5be3-4cbb-95ed-78b75c840942" xml:space="preserve">
+          <source>2012R2</source>
+          <target state="new">2012R2</target>
+        </trans-unit>
+        <trans-unit id="5affedf2-a167-4bf1-92db-4ae01287f849" xml:space="preserve">
+          <source>The easiest and quickest way to locate an image to use either with <bpt id="b3a8d283-c575-49c0-88e5-23454762b1f3">&lt;code&gt;</bpt>azure vm quick-create<ept id="b3a8d283-c575-49c0-88e5-23454762b1f3">&lt;/code&gt;</ept> or to create a resource group template file is to call the <bpt id="1a3f6908-8c85-4e35-ac49-a3b37b5e2bed">&lt;code&gt;</bpt>azure vm image list<ept id="1a3f6908-8c85-4e35-ac49-a3b37b5e2bed">&lt;/code&gt;</ept> command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer.</source>
+          <target state="new">The easiest and quickest way to locate an image to use either with <bpt id="b3a8d283-c575-49c0-88e5-23454762b1f3">&lt;code&gt;</bpt>azure vm quick-create<ept id="b3a8d283-c575-49c0-88e5-23454762b1f3">&lt;/code&gt;</ept> or to create a resource group template file is to call the <bpt id="1a3f6908-8c85-4e35-ac49-a3b37b5e2bed">&lt;code&gt;</bpt>azure vm image list<ept id="1a3f6908-8c85-4e35-ac49-a3b37b5e2bed">&lt;/code&gt;</ept> command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer.</target>
+        </trans-unit>
+        <trans-unit id="c655db34-5e28-46cc-b464-34fbba1109fd" xml:space="preserve">
+          <source>For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.</source>
+          <target state="new">For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.</target>
+        </trans-unit>
+        <trans-unit id="f2247a5a-990c-4934-b0dc-9d6fb03265d0" xml:space="preserve">
+          <source>The <bpt id="330308ea-85e6-4982-ae25-6dfb28f1479f">&lt;strong&gt;</bpt>Urn<ept id="330308ea-85e6-4982-ae25-6dfb28f1479f">&lt;/strong&gt;</ept> column will be the form you pass to <bpt id="e416ef74-cfa2-42d8-a777-d802bfa9d0b6">&lt;code&gt;</bpt>azure vm quick-create<ept id="e416ef74-cfa2-42d8-a777-d802bfa9d0b6">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="330308ea-85e6-4982-ae25-6dfb28f1479f">&lt;strong&gt;</bpt>Urn<ept id="330308ea-85e6-4982-ae25-6dfb28f1479f">&lt;/strong&gt;</ept> column will be the form you pass to <bpt id="e416ef74-cfa2-42d8-a777-d802bfa9d0b6">&lt;code&gt;</bpt>azure vm quick-create<ept id="e416ef74-cfa2-42d8-a777-d802bfa9d0b6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0b705e7-2202-43fe-b541-871bc368fa7d" xml:space="preserve">
+          <source>Often, however, you don't yet know what is available.</source>
+          <target state="new">Often, however, you don't yet know what is available.</target>
+        </trans-unit>
+        <trans-unit id="623f71c0-3810-4098-b54e-7effa6f13c02" xml:space="preserve">
+          <source>In this case, you can navigate images by discovering publishers first by using <bpt id="547de78a-49df-4a24-a4b4-08f47b1e471b">&lt;code&gt;</bpt>azure vm image list-publishers<ept id="547de78a-49df-4a24-a4b4-08f47b1e471b">&lt;/code&gt;</ept> and responding to the location prompt with a data center location you expect to use for your resource group.</source>
+          <target state="new">In this case, you can navigate images by discovering publishers first by using <bpt id="547de78a-49df-4a24-a4b4-08f47b1e471b">&lt;code&gt;</bpt>azure vm image list-publishers<ept id="547de78a-49df-4a24-a4b4-08f47b1e471b">&lt;/code&gt;</ept> and responding to the location prompt with a data center location you expect to use for your resource group.</target>
+        </trans-unit>
+        <trans-unit id="92445ca8-f15c-47b6-8e95-3983ed40a4bd" xml:space="preserve">
+          <source>For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)</source>
+          <target state="new">For example, the following lists all image publishers in the West US location (pass the location argument by lowercasing and removing spaces from the standard locations)</target>
+        </trans-unit>
+        <trans-unit id="f748e893-d441-438e-8c7c-9b7778272c71" xml:space="preserve">
+          <source>These lists can be quite long, so the example list above is just a snippet.</source>
+          <target state="new">These lists can be quite long, so the example list above is just a snippet.</target>
+        </trans-unit>
+        <trans-unit id="2e5774fd-8a05-4599-a712-f7eb5fa4e0e0" xml:space="preserve">
+          <source>Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location.</source>
+          <target state="new">Let's say that I noticed that Canonical is, indeed, an image publisher in the West US location.</target>
+        </trans-unit>
+        <trans-unit id="57e5f90e-5d63-4a69-b1b1-754efb3aceac" xml:space="preserve">
+          <source>You can now find their offers by calling <bpt id="73b301bc-900b-48b6-bb56-a0561ccc27f0">&lt;code&gt;</bpt>azure vm image list-offers<ept id="73b301bc-900b-48b6-bb56-a0561ccc27f0">&lt;/code&gt;</ept> and pass the location and the publisher at the prompts, like the following example:</source>
+          <target state="new">You can now find their offers by calling <bpt id="73b301bc-900b-48b6-bb56-a0561ccc27f0">&lt;code&gt;</bpt>azure vm image list-offers<ept id="73b301bc-900b-48b6-bb56-a0561ccc27f0">&lt;/code&gt;</ept> and pass the location and the publisher at the prompts, like the following example:</target>
+        </trans-unit>
+        <trans-unit id="2065c7e7-8504-4c4d-a25c-47b9e51f65dc" xml:space="preserve">
+          <source>Now we know that in the West US region, Canonical publishes the <bpt id="5afe4e42-f7ba-4590-bd65-8f1832c38ca9">&lt;strong&gt;</bpt>UbuntuServer<ept id="5afe4e42-f7ba-4590-bd65-8f1832c38ca9">&lt;/strong&gt;</ept> offer on Azure.</source>
+          <target state="new">Now we know that in the West US region, Canonical publishes the <bpt id="5afe4e42-f7ba-4590-bd65-8f1832c38ca9">&lt;strong&gt;</bpt>UbuntuServer<ept id="5afe4e42-f7ba-4590-bd65-8f1832c38ca9">&lt;/strong&gt;</ept> offer on Azure.</target>
+        </trans-unit>
+        <trans-unit id="8ab2af96-d866-4a51-a41a-9226ad4a94b9" xml:space="preserve">
+          <source>But what SKUs?</source>
+          <target state="new">But what SKUs?</target>
+        </trans-unit>
+        <trans-unit id="bbe57684-b5db-4fde-9b27-d69cf93c54ba" xml:space="preserve">
+          <source>To get those, you call <bpt id="e5597734-4c01-403c-a1b2-1bad6fad0476">&lt;code&gt;</bpt>azure vm image list-skus<ept id="e5597734-4c01-403c-a1b2-1bad6fad0476">&lt;/code&gt;</ept> and respond to the prompt with the location, publisher, and offer that you have discovered.</source>
+          <target state="new">To get those, you call <bpt id="e5597734-4c01-403c-a1b2-1bad6fad0476">&lt;code&gt;</bpt>azure vm image list-skus<ept id="e5597734-4c01-403c-a1b2-1bad6fad0476">&lt;/code&gt;</ept> and respond to the prompt with the location, publisher, and offer that you have discovered.</target>
+        </trans-unit>
+        <trans-unit id="dd0dfb4a-df54-4eab-a45b-7cc194de3151" xml:space="preserve">
+          <source>With this information, you can now find exactly the image you want by calling the original call at the top.</source>
+          <target state="new">With this information, you can now find exactly the image you want by calling the original call at the top.</target>
+        </trans-unit>
+        <trans-unit id="43ee48a0-e2e6-4f17-adf4-b9afbdfcf907" xml:space="preserve">
+          <source>Now you can choose precisely the image you want to use.</source>
+          <target state="new">Now you can choose precisely the image you want to use.</target>
+        </trans-unit>
+        <trans-unit id="af307bb3-17bb-4564-a072-0d660c079b95" xml:space="preserve">
+          <source>To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see <bpt id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;/linkText&gt;</ept><bpt id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;title&gt;</bpt><ept id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see <bpt id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;linkText&gt;</bpt>Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager<ept id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;/linkText&gt;</ept><bpt id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;title&gt;</bpt><ept id="2d009a09-cf92-471e-b10e-07e211257af0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a1f7152-ed36-4de9-992b-54134fd16632" xml:space="preserve">
+          <source>This video demonstrates the above steps using the CLI.</source>
+          <target state="new">This video demonstrates the above steps using the CLI.</target>
+        </trans-unit>
+        <trans-unit id="a7e6eeeb-e073-4173-b410-e40084d5a87b" xml:space="preserve">
+          <source>[AZURE.VIDEO resource-groups-vm-searching-cli]</source>
+          <target state="new">[AZURE.VIDEO resource-groups-vm-searching-cli]</target>
+        </trans-unit>
+        <trans-unit id="af1dae43-ab47-4e2c-982f-3ac09997031a" xml:space="preserve">
+          <source>When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:</source>
+          <target state="new">When creating a new virtual machine with Azure Resource Manager, in some cases you need to specify an image with the combination of the following image properties:</target>
+        </trans-unit>
+        <trans-unit id="73480126-1a04-4d40-b3d0-4f9bcb9ba848" xml:space="preserve">
+          <source>Publisher</source>
+          <target state="new">Publisher</target>
+        </trans-unit>
+        <trans-unit id="659c6a70-a451-4885-a6ae-d4e2f6ff1f3f" xml:space="preserve">
+          <source>Offer</source>
+          <target state="new">Offer</target>
+        </trans-unit>
+        <trans-unit id="6b077d0f-92a7-4300-a3fe-4b79fa977565" xml:space="preserve">
+          <source>SKU</source>
+          <target state="new">SKU</target>
+        </trans-unit>
+        <trans-unit id="1f0dfb8a-23e0-41ab-8dec-5b3db8569ddb" xml:space="preserve">
+          <source>For example, these values are needed for the <bpt id="6d32e216-c2a6-40d6-bbdd-5bf94664ce0b">&lt;strong&gt;</bpt>Set-AzureVMSourceImage<ept id="6d32e216-c2a6-40d6-bbdd-5bf94664ce0b">&lt;/strong&gt;</ept> PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.</source>
+          <target state="new">For example, these values are needed for the <bpt id="6d32e216-c2a6-40d6-bbdd-5bf94664ce0b">&lt;strong&gt;</bpt>Set-AzureVMSourceImage<ept id="6d32e216-c2a6-40d6-bbdd-5bf94664ce0b">&lt;/strong&gt;</ept> PowerShell cmdlet or with a resource group template file in which you must specify the type of virtual machine to be created.</target>
+        </trans-unit>
+        <trans-unit id="7c71f0e1-dfea-4013-9549-9865c2a5139e" xml:space="preserve">
+          <source>If you need to determine these values, you can navigate the images to determine these values:</source>
+          <target state="new">If you need to determine these values, you can navigate the images to determine these values:</target>
+        </trans-unit>
+        <trans-unit id="77943db8-8ddb-424f-a16d-a528a6bdea07" xml:space="preserve">
+          <source>List the image publishers.</source>
+          <target state="new">List the image publishers.</target>
+        </trans-unit>
+        <trans-unit id="a3445de1-4501-424d-a103-59a93cab37dc" xml:space="preserve">
+          <source>For a given publisher, list their offers.</source>
+          <target state="new">For a given publisher, list their offers.</target>
+        </trans-unit>
+        <trans-unit id="7632520b-2bde-4a08-b9d4-07c396817a22" xml:space="preserve">
+          <source>For a given offer, list their SKUs.</source>
+          <target state="new">For a given offer, list their SKUs.</target>
+        </trans-unit>
+        <trans-unit id="6b7c914b-f70c-4478-9fd7-2fe5a43f506c" xml:space="preserve">
+          <source>To do this in PowerShell, first switch to the Resource Manager mode of Azure PowerShell.</source>
+          <target state="new">To do this in PowerShell, first switch to the Resource Manager mode of Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="a61d6911-7fae-48ae-a4cd-a5620f97ece5" xml:space="preserve">
+          <source>For the first step above, list the publishers with these commands.</source>
+          <target state="new">For the first step above, list the publishers with these commands.</target>
+        </trans-unit>
+        <trans-unit id="40c26882-ba72-4d94-8674-3161f43fa8d1" xml:space="preserve">
+          <source>Fill in your chosen publisher name and run these commands.</source>
+          <target state="new">Fill in your chosen publisher name and run these commands.</target>
+        </trans-unit>
+        <trans-unit id="02a17d92-a53b-408c-9cc6-b65cbe87b9b5" xml:space="preserve">
+          <source>Fill in your chosen offer name and run these commands.</source>
+          <target state="new">Fill in your chosen offer name and run these commands.</target>
+        </trans-unit>
+        <trans-unit id="d9098307-8aa2-47ac-b64f-406270b21840" xml:space="preserve">
+          <source>From the display of the <bpt id="82b02ea6-57b2-432d-a383-e84ed03cf875">&lt;strong&gt;</bpt>Get-AzureVMImageSku<ept id="82b02ea6-57b2-432d-a383-e84ed03cf875">&lt;/strong&gt;</ept> command, you have all the information you need to specify the image for a new virtual machine.</source>
+          <target state="new">From the display of the <bpt id="82b02ea6-57b2-432d-a383-e84ed03cf875">&lt;strong&gt;</bpt>Get-AzureVMImageSku<ept id="82b02ea6-57b2-432d-a383-e84ed03cf875">&lt;/strong&gt;</ept> command, you have all the information you need to specify the image for a new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d5368ee4-0554-471e-b564-4b6bb022a854" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="ce0d5ff1-fc31-4875-996c-a2d9636d91da" xml:space="preserve">
+          <source>For the "MicrosoftWindowsServer" publisher:</source>
+          <target state="new">For the "MicrosoftWindowsServer" publisher:</target>
+        </trans-unit>
+        <trans-unit id="61c56186-c9f8-4d41-b58c-3da8e1ce1b89" xml:space="preserve">
+          <source>For the "WindowsServer" offer:</source>
+          <target state="new">For the "WindowsServer" offer:</target>
+        </trans-unit>
+        <trans-unit id="31f4c003-fa11-493b-b2c9-d22dc307ea27" xml:space="preserve">
+          <source>From this list, copy the chosen SKU name, and you have all the information for the <bpt id="ae5d987b-408f-4c2d-a9a1-13eb76d0ae17">&lt;strong&gt;</bpt>Set-AzureVMSourceImage<ept id="ae5d987b-408f-4c2d-a9a1-13eb76d0ae17">&lt;/strong&gt;</ept> PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.</source>
+          <target state="new">From this list, copy the chosen SKU name, and you have all the information for the <bpt id="ae5d987b-408f-4c2d-a9a1-13eb76d0ae17">&lt;strong&gt;</bpt>Set-AzureVMSourceImage<ept id="ae5d987b-408f-4c2d-a9a1-13eb76d0ae17">&lt;/strong&gt;</ept> PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.</target>
+        </trans-unit>
+        <trans-unit id="caba66fd-d362-4e28-b5c1-bd9762101916" xml:space="preserve">
+          <source>This video demonstrates the above steps using PowerShell.</source>
+          <target state="new">This video demonstrates the above steps using PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="8568d288-04cc-4cbe-8a86-88082377e2e8" xml:space="preserve">
+          <source>[AZURE.VIDEO resource-groups-vm-searching-posh]</source>
+          <target state="new">[AZURE.VIDEO resource-groups-vm-searching-posh]</target>
+        </trans-unit>
+        <trans-unit id="9d041038-34f1-48a3-b4d9-acf5aa4330e2" xml:space="preserve">
+          <source>./media/markdown-template-for-new-articles/octocats.png</source>
+          <target state="new">./media/markdown-template-for-new-articles/octocats.png</target>
+        </trans-unit>
+        <trans-unit id="8f5c7b79-85a8-4e50-ab25-1513dea292d6" xml:space="preserve">
+          <source>./media/markdown-template-for-new-articles/pretty49.png</source>
+          <target state="new">./media/markdown-template-for-new-articles/pretty49.png</target>
+        </trans-unit>
+        <trans-unit id="d58f24e5-bcde-46f1-960a-b6a58d425d8e" xml:space="preserve">
+          <source>./media/markdown-template-for-new-articles/channel-9.png</source>
+          <target state="new">./media/markdown-template-for-new-articles/channel-9.png</target>
+        </trans-unit>
+        <trans-unit id="d6d5f62d-829a-4708-9a9e-e4d9f49dd482" xml:space="preserve">
+          <source>./media/markdown-template-for-new-articles/copytemplate.png</source>
+          <target state="new">./media/markdown-template-for-new-articles/copytemplate.png</target>
+        </trans-unit>
+        <trans-unit id="8fad3b3e-7734-41d4-bcc2-b567f64763bc" xml:space="preserve">
+          <source>http://google.com/</source>
+          <target state="new">http://google.com/</target>
+        </trans-unit>
+        <trans-unit id="b78c3ef8-febc-4042-b3d6-a1f0fbc8cd4d" xml:space="preserve">
+          <source>http://search.yahoo.com/</source>
+          <target state="new">http://search.yahoo.com/</target>
+        </trans-unit>
+        <trans-unit id="54f576a4-d7d0-43fb-a190-c335b1d52fc0" xml:space="preserve">
+          <source>http://search.msn.com/</source>
+          <target state="new">http://search.msn.com/</target>
+        </trans-unit>
+      </group>
+      <group id="ca791590-4401-44ef-8da1-c50756deee6f" />
+    </body>
+  </file>
+</xliff>

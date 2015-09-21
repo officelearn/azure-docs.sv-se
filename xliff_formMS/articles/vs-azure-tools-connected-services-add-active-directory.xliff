@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c7e25a3d-0970-40b1-b97c-30f24dd7a1a9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c7e25a3d-0970-40b1-b97c-30f24dd7a1a9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eff1141e-2547-44f5-8bae-5f427c810d4c">
+        <trans-unit id="b7887899-4e81-4ac5-a1b5-b3ad36d49362" xml:space="preserve">
+          <source>Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Azure</source>
+          <target state="new">Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8fe2ac57-09ea-48df-9d1f-7028420a4e3e" xml:space="preserve">
+          <source>Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box</source>
+          <target state="new">Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box</target>
+        </trans-unit>
+        <trans-unit id="5849dfe6-fabb-4fb7-8753-3f41afa347f1" xml:space="preserve">
+          <source>By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or AD Authentication in Web API services.</source>
+          <target state="new">By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or AD Authentication in Web API services.</target>
+        </trans-unit>
+        <trans-unit id="ca3db6bc-1c64-41e9-a244-2b559ce0b9d5" xml:space="preserve">
+          <source>With Azure AD Authentication, your users can use their accounts from Azure AD to connect to your web applications.</source>
+          <target state="new">With Azure AD Authentication, your users can use their accounts from Azure AD to connect to your web applications.</target>
+        </trans-unit>
+        <trans-unit id="88c38fb2-6939-4237-9c44-b9f98e9441c4" xml:space="preserve">
+          <source>The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application.</source>
+          <target state="new">The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application.</target>
+        </trans-unit>
+        <trans-unit id="3b3cb19b-c98b-48fb-9b76-028f03b342d3" xml:space="preserve">
+          <source>With Azure AD, you do not have to manage a separate authentication system with its own account and user management.</source>
+          <target state="new">With Azure AD, you do not have to manage a separate authentication system with its own account and user management.</target>
+        </trans-unit>
+        <trans-unit id="cb145cf8-194e-49bd-972e-5afd47806400" xml:space="preserve">
+          <source>You can use the Connected Services dialog to connect to Azure AD in the following project types.</source>
+          <target state="new">You can use the Connected Services dialog to connect to Azure AD in the following project types.</target>
+        </trans-unit>
+        <trans-unit id="73faed29-b52b-4a5e-aa44-36bbfd779f4a" xml:space="preserve">
+          <source>ASP.NET MVC Projects</source>
+          <target state="new">ASP.NET MVC Projects</target>
+        </trans-unit>
+        <trans-unit id="4241ac0f-0ad8-41b9-b34f-dbdd67679892" xml:space="preserve">
+          <source>ASP.NET Web API Projects</source>
+          <target state="new">ASP.NET Web API Projects</target>
+        </trans-unit>
+        <trans-unit id="dc270315-575d-4bce-8cd9-551e6edfd44e" xml:space="preserve">
+          <source>Make sure you have an Azure account.</source>
+          <target state="new">Make sure you have an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="78c1eff4-6d70-4df1-99f7-5a7bb94bb296" xml:space="preserve">
+          <source>If you don't have an Azure account, you can sign up for a <bpt id="14084de9-555f-47ff-b18a-28f313292cee">&lt;linkText&gt;</bpt>free trial<ept id="14084de9-555f-47ff-b18a-28f313292cee">&lt;/linkText&gt;</ept><bpt id="14084de9-555f-47ff-b18a-28f313292cee">&lt;title&gt;</bpt><ept id="14084de9-555f-47ff-b18a-28f313292cee">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't have an Azure account, you can sign up for a <bpt id="14084de9-555f-47ff-b18a-28f313292cee">&lt;linkText&gt;</bpt>free trial<ept id="14084de9-555f-47ff-b18a-28f313292cee">&lt;/linkText&gt;</ept><bpt id="14084de9-555f-47ff-b18a-28f313292cee">&lt;title&gt;</bpt><ept id="14084de9-555f-47ff-b18a-28f313292cee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e8ae0d2-2b29-465f-b920-fcbba863727c" xml:space="preserve">
+          <source>In Visual Studio, open the shortcut menu of the <bpt id="00470392-e39b-4e07-a32e-99902070b25e">&lt;strong&gt;</bpt>References<ept id="00470392-e39b-4e07-a32e-99902070b25e">&lt;/strong&gt;</ept> node in your project and choose <bpt id="863b7023-c0ce-43d5-9c68-05a678036d0d">&lt;strong&gt;</bpt>Add Connected Services<ept id="863b7023-c0ce-43d5-9c68-05a678036d0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, open the shortcut menu of the <bpt id="00470392-e39b-4e07-a32e-99902070b25e">&lt;strong&gt;</bpt>References<ept id="00470392-e39b-4e07-a32e-99902070b25e">&lt;/strong&gt;</ept> node in your project and choose <bpt id="863b7023-c0ce-43d5-9c68-05a678036d0d">&lt;strong&gt;</bpt>Add Connected Services<ept id="863b7023-c0ce-43d5-9c68-05a678036d0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01e760e3-d38d-40f1-b87f-e8e7beffb053" xml:space="preserve">
+          <source>Select <bpt id="cbb78c50-00b2-4531-ac26-4b5648054c8a">&lt;strong&gt;</bpt>Azure AD Authentication<ept id="cbb78c50-00b2-4531-ac26-4b5648054c8a">&lt;/strong&gt;</ept> and then choose <bpt id="47b1e916-4817-4e92-bc93-7705499bfd8a">&lt;strong&gt;</bpt>Configure<ept id="47b1e916-4817-4e92-bc93-7705499bfd8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="cbb78c50-00b2-4531-ac26-4b5648054c8a">&lt;strong&gt;</bpt>Azure AD Authentication<ept id="cbb78c50-00b2-4531-ac26-4b5648054c8a">&lt;/strong&gt;</ept> and then choose <bpt id="47b1e916-4817-4e92-bc93-7705499bfd8a">&lt;strong&gt;</bpt>Configure<ept id="47b1e916-4817-4e92-bc93-7705499bfd8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc91564b-d4a6-41a9-a796-4bff09e32632" xml:space="preserve">
+          <source><bpt id="f20c17cd-78d2-421c-8ded-9dda8c2a5e29">&lt;linkText&gt;</bpt>Choose Add Azure AD Authentication<ept id="f20c17cd-78d2-421c-8ded-9dda8c2a5e29">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f20c17cd-78d2-421c-8ded-9dda8c2a5e29">&lt;linkText&gt;</bpt>Choose Add Azure AD Authentication<ept id="f20c17cd-78d2-421c-8ded-9dda8c2a5e29">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9bcf316-474b-4652-8ca8-7aac640fadb1" xml:space="preserve">
+          <source>On the first page of the <bpt id="749b4a2a-535a-4d40-9473-9dff21d8694e">&lt;strong&gt;</bpt>Configure Azure AD Authentication<ept id="749b4a2a-535a-4d40-9473-9dff21d8694e">&lt;/strong&gt;</ept>, check <bpt id="88a72078-f8f2-4607-8119-d3ac8e90a412">&lt;strong&gt;</bpt>Configure Single Sign-on using Azure AD<ept id="88a72078-f8f2-4607-8119-d3ac8e90a412">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the first page of the <bpt id="749b4a2a-535a-4d40-9473-9dff21d8694e">&lt;strong&gt;</bpt>Configure Azure AD Authentication<ept id="749b4a2a-535a-4d40-9473-9dff21d8694e">&lt;/strong&gt;</ept>, check <bpt id="88a72078-f8f2-4607-8119-d3ac8e90a412">&lt;strong&gt;</bpt>Configure Single Sign-on using Azure AD<ept id="88a72078-f8f2-4607-8119-d3ac8e90a412">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8775e59d-ceb7-4b00-a5c0-184d0900b5b0" xml:space="preserve">
+          <source>If your project is configured with another authentication configuration, the wizard warns you that continuing will disable the previous configuration.</source>
+          <target state="new">If your project is configured with another authentication configuration, the wizard warns you that continuing will disable the previous configuration.</target>
+        </trans-unit>
+        <trans-unit id="9e2847cd-9cc5-41fe-8d6b-278895c66788" xml:space="preserve">
+          <source><bpt id="0612eb8f-e9cd-41e6-9631-8e7355c3c0d7">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="0612eb8f-e9cd-41e6-9631-8e7355c3c0d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0612eb8f-e9cd-41e6-9631-8e7355c3c0d7">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="0612eb8f-e9cd-41e6-9631-8e7355c3c0d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6b97c02-505d-45ad-905e-6d8c50c23909" xml:space="preserve">
+          <source>On the second page, select a domain from the <bpt id="505aef59-87d8-4bb7-84b9-1c6533f2d448">&lt;strong&gt;</bpt>Domain<ept id="505aef59-87d8-4bb7-84b9-1c6533f2d448">&lt;/strong&gt;</ept> drop-down list.</source>
+          <target state="new">On the second page, select a domain from the <bpt id="505aef59-87d8-4bb7-84b9-1c6533f2d448">&lt;strong&gt;</bpt>Domain<ept id="505aef59-87d8-4bb7-84b9-1c6533f2d448">&lt;/strong&gt;</ept> drop-down list.</target>
+        </trans-unit>
+        <trans-unit id="588d99ec-865d-4f80-9b55-3aa0ec8c8efe" xml:space="preserve">
+          <source>The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog.</source>
+          <target state="new">The list of domains contains all domains accessible by the accounts listed in the Account Settings dialog.</target>
+        </trans-unit>
+        <trans-unit id="6c3d53a9-aada-4a30-9448-898b1dcedc11" xml:space="preserve">
+          <source>As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as mydomain.onmicrosoft.com.</source>
+          <target state="new">As an alternative, you can enter a domain name if you don’t find the one you’re looking for, such as mydomain.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="0d3641b1-852f-4bc5-a65e-afb7bbef9b2d" xml:space="preserve">
+          <source>You can choose the option to create a new Azure AD app or use the settings from an existing Azure AD app.</source>
+          <target state="new">You can choose the option to create a new Azure AD app or use the settings from an existing Azure AD app.</target>
+        </trans-unit>
+        <trans-unit id="afbbfa9b-611b-4f79-8fb3-e7fbbe24f86e" xml:space="preserve">
+          <source><bpt id="cc6d95f8-aef8-44e5-88d7-8581d8aee91c">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="cc6d95f8-aef8-44e5-88d7-8581d8aee91c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc6d95f8-aef8-44e5-88d7-8581d8aee91c">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="cc6d95f8-aef8-44e5-88d7-8581d8aee91c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e10b6d6-3cf8-4b9f-a475-f981cfc4163d" xml:space="preserve">
+          <source>On the third page of the wizard, make sure that <bpt id="3b60749b-8608-4164-abb1-589e58a61777">&lt;strong&gt;</bpt>Read directory data<ept id="3b60749b-8608-4164-abb1-589e58a61777">&lt;/strong&gt;</ept> is checked.</source>
+          <target state="new">On the third page of the wizard, make sure that <bpt id="3b60749b-8608-4164-abb1-589e58a61777">&lt;strong&gt;</bpt>Read directory data<ept id="3b60749b-8608-4164-abb1-589e58a61777">&lt;/strong&gt;</ept> is checked.</target>
+        </trans-unit>
+        <trans-unit id="4ad25ffc-4e86-4998-9939-d074df3eaf72" xml:space="preserve">
+          <source>The wizard will fill in the <bpt id="7d31fe7d-8734-45a8-aca2-97db908e7214">&lt;strong&gt;</bpt>Client secret<ept id="7d31fe7d-8734-45a8-aca2-97db908e7214">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The wizard will fill in the <bpt id="7d31fe7d-8734-45a8-aca2-97db908e7214">&lt;strong&gt;</bpt>Client secret<ept id="7d31fe7d-8734-45a8-aca2-97db908e7214">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbc24ee4-5e66-4f48-84f0-fc0f8e02c746" xml:space="preserve">
+          <source><bpt id="116c2bb0-3102-4b06-9c97-8425510e916d">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="116c2bb0-3102-4b06-9c97-8425510e916d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="116c2bb0-3102-4b06-9c97-8425510e916d">&lt;linkText&gt;</bpt>Configure Azure AD in the wizard<ept id="116c2bb0-3102-4b06-9c97-8425510e916d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4cd2b278-d88c-4b98-ac30-442a67470a84" xml:space="preserve">
+          <source>Choose the <bpt id="3e0764b4-de93-47a8-8c54-9fa9afe34d68">&lt;strong&gt;</bpt>Finish<ept id="3e0764b4-de93-47a8-8c54-9fa9afe34d68">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Choose the <bpt id="3e0764b4-de93-47a8-8c54-9fa9afe34d68">&lt;strong&gt;</bpt>Finish<ept id="3e0764b4-de93-47a8-8c54-9fa9afe34d68">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="c0d6faa6-43d6-4caa-8372-9d5c079f79dc" xml:space="preserve">
+          <source>The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication.</source>
+          <target state="new">The dialog adds the necessary configuration code and references to enable your project for Azure AD authentication.</target>
+        </trans-unit>
+        <trans-unit id="ea4ce8ba-052e-427a-a18a-6666c615cb10" xml:space="preserve">
+          <source>You can see the AD domain on the Azure portal.</source>
+          <target state="new">You can see the AD domain on the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="bea75f76-51d5-4c2b-a453-1ea4819d2e71" xml:space="preserve">
+          <source>Review the Getting Started page that appears in your browser for ideas on next steps, and the What Happened page to see how your project was modified.</source>
+          <target state="new">Review the Getting Started page that appears in your browser for ideas on next steps, and the What Happened page to see how your project was modified.</target>
+        </trans-unit>
+        <trans-unit id="8cbf543b-a4b0-40dd-9750-675fba5eac25" xml:space="preserve">
+          <source>If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in What Happened are there.</source>
+          <target state="new">If you want to check that everything worked, open one of the modified configuration files and verify that the settings mentioned in What Happened are there.</target>
+        </trans-unit>
+        <trans-unit id="40fc3c05-91dc-43db-9877-9d47e697ba4d" xml:space="preserve">
+          <source>For example, the main web.config in an ASP.NET MVC project will have these settings added:</source>
+          <target state="new">For example, the main web.config in an ASP.NET MVC project will have these settings added:</target>
+        </trans-unit>
+        <trans-unit id="e78cd6b9-59ed-4d01-8306-99d664791058" xml:space="preserve">
+          <source>When you run the wizard, Visual Studio adds Azure AD and associated references to your project.</source>
+          <target state="new">When you run the wizard, Visual Studio adds Azure AD and associated references to your project.</target>
+        </trans-unit>
+        <trans-unit id="e73c66fe-3dbe-4dd8-82a4-8c3fab844043" xml:space="preserve">
+          <source>Configuration files and code files in your project are also modified to add support for Azure AD.</source>
+          <target state="new">Configuration files and code files in your project are also modified to add support for Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ea11362f-0b4a-4e89-9878-e0b4627c51bb" xml:space="preserve">
+          <source>The specific modifications that Visual Studio makes depend on the project type.</source>
+          <target state="new">The specific modifications that Visual Studio makes depend on the project type.</target>
+        </trans-unit>
+        <trans-unit id="3f13bc28-5de5-4829-92dd-98c718b18167" xml:space="preserve">
+          <source>For detailed information about how ASP.NET MVC projects are modified, see <bpt id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;linkText&gt;</bpt>What happened– MVC Projects<ept id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;/linkText&gt;</ept><bpt id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;title&gt;</bpt><ept id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information about how ASP.NET MVC projects are modified, see <bpt id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;linkText&gt;</bpt>What happened– MVC Projects<ept id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;/linkText&gt;</ept><bpt id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;title&gt;</bpt><ept id="4cc13056-2d80-4751-9c05-32d26c6d98a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab154b34-91fe-4bd9-a148-cbd5b23b573d" xml:space="preserve">
+          <source>For Web API projects, see <bpt id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;linkText&gt;</bpt>What happened – Web API Projects<ept id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;/linkText&gt;</ept><bpt id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;title&gt;</bpt><ept id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Web API projects, see <bpt id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;linkText&gt;</bpt>What happened – Web API Projects<ept id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;/linkText&gt;</ept><bpt id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;title&gt;</bpt><ept id="27bb7466-cb76-44ad-89be-7479b26c986a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eeb2635f-1eb6-47d8-8637-9915ae54200e" xml:space="preserve">
+          <source>Ask questions and get help.</source>
+          <target state="new">Ask questions and get help.</target>
+        </trans-unit>
+        <trans-unit id="6b4e4d67-1deb-4f40-82b8-4a6af49cbd17" xml:space="preserve">
+          <source><bpt id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;linkText&gt;</bpt>MSDN Forum: Azure AD<ept id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;/linkText&gt;</ept><bpt id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;title&gt;</bpt><ept id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;linkText&gt;</bpt>MSDN Forum: Azure AD<ept id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;/linkText&gt;</ept><bpt id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;title&gt;</bpt><ept id="8958e842-e046-4984-b3ee-8f124d509c08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="242f6918-2516-4081-a749-bcafe78c4c0f" xml:space="preserve">
+          <source><bpt id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;linkText&gt;</bpt>Azure AD Documentation<ept id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;/linkText&gt;</ept><bpt id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;title&gt;</bpt><ept id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;linkText&gt;</bpt>Azure AD Documentation<ept id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;/linkText&gt;</ept><bpt id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;title&gt;</bpt><ept id="ac6bbf03-0020-4183-9216-7e7cc638d1b4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66d5aaf9-206c-42d1-92d8-d9568f09f45c" xml:space="preserve">
+          <source><bpt id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;linkText&gt;</bpt>Blog Post: Intro to Azure AD<ept id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;/linkText&gt;</ept><bpt id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;title&gt;</bpt><ept id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;linkText&gt;</bpt>Blog Post: Intro to Azure AD<ept id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;/linkText&gt;</ept><bpt id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;title&gt;</bpt><ept id="2b1a272e-2a44-4e2a-8a0f-bd5b48518f44">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

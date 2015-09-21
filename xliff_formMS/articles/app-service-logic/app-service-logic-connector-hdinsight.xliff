@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="88f21759-1767-497c-bdcf-8690cc880094" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="88f21759-1767-497c-bdcf-8690cc880094" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c626a2be-9b34-4e6d-99ab-ada6bc4bebfb">
+        <trans-unit id="3908f127-f2a1-483b-b386-2a089989a73f" xml:space="preserve">
+          <source>Using the HDInsight connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the HDInsight connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="96ae06ab-e1fe-4916-8852-1ca05e2de2cc" xml:space="preserve">
+          <source>How to create and configure the HDInsight Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the HDInsight Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="b5eef997-65f7-4c7b-8af9-fbf3fce3078d" xml:space="preserve">
+          <source>HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs.</source>
+          <target state="new">HDInsight Connector lets you create a Hadoop clusters on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce and Streaming MapReduce jobs.</target>
+        </trans-unit>
+        <trans-unit id="d6d78e3a-ef4f-4351-82f2-975a19816845" xml:space="preserve">
+          <source>Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.</source>
+          <target state="new">Azure HDInsight service deploys and provisions Apache Hadoop clusters in the cloud, providing a software framework designed to manage, analyze, and report on big data.</target>
+        </trans-unit>
+        <trans-unit id="fed58f0e-1eef-4128-92d9-9ddba0ac9863" xml:space="preserve">
+          <source>The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system.</source>
+          <target state="new">The Hadoop core provides reliable data storage with the Hadoop Distributed File System (HDFS), and a simple MapReduce programming model to process and analyze, in parallel, the data stored in this distributed system.</target>
+        </trans-unit>
+        <trans-unit id="c8bc8efa-3005-4f21-90ef-76291ce7ccbf" xml:space="preserve">
+          <source>Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.</source>
+          <target state="new">Using HDInsight connector, you can create or delete a cluster, submit a job and wait for it to complete.</target>
+        </trans-unit>
+        <trans-unit id="1fdafbf5-5718-4b4b-a16c-edfcef794dd7" xml:space="preserve">
+          <source>Connectors can be used in Logic apps to fetch, process or push data as a part of a flow.</source>
+          <target state="new">Connectors can be used in Logic apps to fetch, process or push data as a part of a flow.</target>
+        </trans-unit>
+        <trans-unit id="0af8f68a-d234-48c7-a479-5e63987fa80e" xml:space="preserve">
+          <source>You can add the HDInsight connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the HDInsight connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="a20f8305-d632-4bfa-9d36-fcc0756b1c31" xml:space="preserve">
+          <source>Create Cluster</source>
+          <target state="new">Create Cluster</target>
+        </trans-unit>
+        <trans-unit id="0e4d1611-8a13-4dad-b8fd-3eb48b7d6f98" xml:space="preserve">
+          <source>Wait For Cluster Creation</source>
+          <target state="new">Wait For Cluster Creation</target>
+        </trans-unit>
+        <trans-unit id="4633ec2f-0c1d-4352-853a-4002e8321902" xml:space="preserve">
+          <source>Submit Pig Job</source>
+          <target state="new">Submit Pig Job</target>
+        </trans-unit>
+        <trans-unit id="4e860168-c039-482f-b6d7-35769cd09ab6" xml:space="preserve">
+          <source>Submit Hive Job</source>
+          <target state="new">Submit Hive Job</target>
+        </trans-unit>
+        <trans-unit id="6a3a7c4c-a153-42d7-9fed-47887a01ce27" xml:space="preserve">
+          <source>Submit MapReduce Job</source>
+          <target state="new">Submit MapReduce Job</target>
+        </trans-unit>
+        <trans-unit id="e7093bb5-decf-442e-b5f5-3a79a732a40b" xml:space="preserve">
+          <source>Wait For Job Completion</source>
+          <target state="new">Wait For Job Completion</target>
+        </trans-unit>
+        <trans-unit id="6796b031-3bb7-4f26-a19c-dfa8b39c7d77" xml:space="preserve">
+          <source>Delete Cluster</source>
+          <target state="new">Delete Cluster</target>
+        </trans-unit>
+        <trans-unit id="4a4a78aa-755d-4e62-83db-e4b14933dc52" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="7316afa4-fb90-4cdb-91a0-75760e5180d2" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="ca955b21-aaf9-439c-9705-b47238242e05" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="885ddce2-c6d3-40c7-9ec8-f19c23c31878">&lt;strong&gt;</bpt>Marketplace<ept id="885ddce2-c6d3-40c7-9ec8-f19c23c31878">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="885ddce2-c6d3-40c7-9ec8-f19c23c31878">&lt;strong&gt;</bpt>Marketplace<ept id="885ddce2-c6d3-40c7-9ec8-f19c23c31878">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f653b788-2d80-4bf0-a7b0-4e738c43d43a" xml:space="preserve">
+          <source>Search for “HDInsight Connector”, select it, and select <bpt id="e38754de-e6f0-47b9-b3ab-a7395916ca08">&lt;strong&gt;</bpt>Create<ept id="e38754de-e6f0-47b9-b3ab-a7395916ca08">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for “HDInsight Connector”, select it, and select <bpt id="e38754de-e6f0-47b9-b3ab-a7395916ca08">&lt;strong&gt;</bpt>Create<ept id="e38754de-e6f0-47b9-b3ab-a7395916ca08">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f82e539-8ff3-452e-b297-11968553f343" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties.</source>
+          <target state="new">Enter the Name, App Service Plan, and other properties.</target>
+        </trans-unit>
+        <trans-unit id="a9cc7fd5-1e5b-4e93-8f5e-1bbbc92d6d2c" xml:space="preserve">
+          <source>In the Package settings, enter the HDInsight cluster user name and password.</source>
+          <target state="new">In the Package settings, enter the HDInsight cluster user name and password.</target>
+        </trans-unit>
+        <trans-unit id="e5cd1b5e-dec9-40b6-8201-62e6bccd2b2b" xml:space="preserve">
+          <source>Select <bpt id="bd6794eb-c858-493e-9290-a17ab75d0896">&lt;strong&gt;</bpt>OK<ept id="bd6794eb-c858-493e-9290-a17ab75d0896">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bd6794eb-c858-493e-9290-a17ab75d0896">&lt;strong&gt;</bpt>OK<ept id="bd6794eb-c858-493e-9290-a17ab75d0896">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11ddc160-5137-4846-b88a-0764c9984a08" xml:space="preserve">
+          <source>Select <bpt id="aa530d75-334d-422e-acdc-691548e269bd">&lt;strong&gt;</bpt>Create<ept id="aa530d75-334d-422e-acdc-691548e269bd">&lt;/strong&gt;</ept>:  
+<bpt id="b14c3ebb-6f0b-4420-bc02-f47679b14f88">&lt;linkText&gt;</bpt><ept id="b14c3ebb-6f0b-4420-bc02-f47679b14f88">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">Select <bpt id="aa530d75-334d-422e-acdc-691548e269bd">&lt;strong&gt;</bpt>Create<ept id="aa530d75-334d-422e-acdc-691548e269bd">&lt;/strong&gt;</ept>:  
+<bpt id="b14c3ebb-6f0b-4420-bc02-f47679b14f88">&lt;linkText&gt;</bpt><ept id="b14c3ebb-6f0b-4420-bc02-f47679b14f88">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="15b3d7d5-17f6-498e-b2e5-35bf15074dba" xml:space="preserve">
+          <source>This step is required only if you want to perform management operations (create and delete of clusters) in logic app.</source>
+          <target state="new">This step is required only if you want to perform management operations (create and delete of clusters) in logic app.</target>
+        </trans-unit>
+        <trans-unit id="e9102796-8a64-4324-87b9-c971ad362b84" xml:space="preserve">
+          <source>Browse to the just created HDInsight Connector API App and you will see that the 'Security' component shows 0 - meaning that there is no management certificate uploaded:  
+<bpt id="be389c52-e31c-4193-be0d-55ea5d4ab371">&lt;linkText&gt;</bpt><ept id="be389c52-e31c-4193-be0d-55ea5d4ab371">&lt;/linkText&gt;</ept></source>
+          <target state="new">Browse to the just created HDInsight Connector API App and you will see that the 'Security' component shows 0 - meaning that there is no management certificate uploaded:  
+<bpt id="be389c52-e31c-4193-be0d-55ea5d4ab371">&lt;linkText&gt;</bpt><ept id="be389c52-e31c-4193-be0d-55ea5d4ab371">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff960c03-422c-4d4e-912f-b4526738b8a0" xml:space="preserve">
+          <source>To upload the management certificate to your API App:</source>
+          <target state="new">To upload the management certificate to your API App:</target>
+        </trans-unit>
+        <trans-unit id="9a617b3e-4d92-4788-a5de-1706b69285ad" xml:space="preserve">
+          <source>Select the 'Security' component.</source>
+          <target state="new">Select the 'Security' component.</target>
+        </trans-unit>
+        <trans-unit id="5267c7c5-4973-4303-8688-4febe03f7370" xml:space="preserve">
+          <source>In the 'Security' blade, select <bpt id="f8bc6939-24f8-4b55-9666-653cde2480cd">&lt;strong&gt;</bpt>UPLOAD CERTIFICATE<ept id="f8bc6939-24f8-4b55-9666-653cde2480cd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the 'Security' blade, select <bpt id="f8bc6939-24f8-4b55-9666-653cde2480cd">&lt;strong&gt;</bpt>UPLOAD CERTIFICATE<ept id="f8bc6939-24f8-4b55-9666-653cde2480cd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8226bedb-f2f4-47c1-8a72-c5662c86503e" xml:space="preserve">
+          <source>Browse and select the certificate file in the next blade.</source>
+          <target state="new">Browse and select the certificate file in the next blade.</target>
+        </trans-unit>
+        <trans-unit id="eaceb67a-d063-4f45-a032-0db8cb49b415" xml:space="preserve">
+          <source>Once the certificate is selected, select <bpt id="e614be36-1246-4679-8e0f-c7889d1fbb53">&lt;strong&gt;</bpt>OK<ept id="e614be36-1246-4679-8e0f-c7889d1fbb53">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the certificate is selected, select <bpt id="e614be36-1246-4679-8e0f-c7889d1fbb53">&lt;strong&gt;</bpt>OK<ept id="e614be36-1246-4679-8e0f-c7889d1fbb53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68066c09-1457-4251-90c2-facba7c2731c" xml:space="preserve">
+          <source>Once the certificate is successfully uploaded, the certificate details are shown:  
+<bpt id="a5ba38c1-e7df-48a2-bdad-d9b3fabe700e">&lt;linkText&gt;</bpt><ept id="a5ba38c1-e7df-48a2-bdad-d9b3fabe700e">&lt;/linkText&gt;</ept></source>
+          <target state="new">Once the certificate is successfully uploaded, the certificate details are shown:  
+<bpt id="a5ba38c1-e7df-48a2-bdad-d9b3fabe700e">&lt;linkText&gt;</bpt><ept id="a5ba38c1-e7df-48a2-bdad-d9b3fabe700e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="049cf55e-5f37-48c8-8b9e-6bd0e05adaa6" xml:space="preserve">
+          <source>If you want to change the certificate, you can upload another certificate ; which replaces the existing certificate.</source>
+          <target state="new">If you want to change the certificate, you can upload another certificate ; which replaces the existing certificate.</target>
+        </trans-unit>
+        <trans-unit id="0732a861-08e6-4ecf-bee8-8fa29b933a55" xml:space="preserve">
+          <source>HDInsight Connector can be used only as an action in logic app.</source>
+          <target state="new">HDInsight Connector can be used only as an action in logic app.</target>
+        </trans-unit>
+        <trans-unit id="d0396f87-63b6-45d1-8191-e5ee0d500814" xml:space="preserve">
+          <source>Let us take a simple logic app which creates a cluster, runs a 'Hive' job and deletes the cluster at the end of job completion.</source>
+          <target state="new">Let us take a simple logic app which creates a cluster, runs a 'Hive' job and deletes the cluster at the end of job completion.</target>
+        </trans-unit>
+        <trans-unit id="806ff001-95ea-4914-ba29-f5a409b273b6" xml:space="preserve">
+          <source>In the 'Start logic' card, click 'Run this logic manually'.</source>
+          <target state="new">In the 'Start logic' card, click 'Run this logic manually'.</target>
+        </trans-unit>
+        <trans-unit id="af1ea062-c8e7-4c9c-b370-d869f594d3d1" xml:space="preserve">
+          <source>Select the HDInsight Connector API App created from the gallery.</source>
+          <target state="new">Select the HDInsight Connector API App created from the gallery.</target>
+        </trans-unit>
+        <trans-unit id="46a894e1-f873-435e-ad66-3f4c537b012b" xml:space="preserve">
+          <source>The available actions are listed:  
+<bpt id="0a08e031-ad75-4ba4-8058-14a1f8f47635">&lt;linkText&gt;</bpt><ept id="0a08e031-ad75-4ba4-8058-14a1f8f47635">&lt;/linkText&gt;</ept></source>
+          <target state="new">The available actions are listed:  
+<bpt id="0a08e031-ad75-4ba4-8058-14a1f8f47635">&lt;linkText&gt;</bpt><ept id="0a08e031-ad75-4ba4-8058-14a1f8f47635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4090a3d1-6e4f-44ff-bc75-e45851194ee5" xml:space="preserve">
+          <source>Select 'Create Cluster', enter all the required cluster parameters, and select the ✓:   
+<bpt id="0bf09066-d412-4114-b7b5-da85a42fcef5">&lt;linkText&gt;</bpt><ept id="0bf09066-d412-4114-b7b5-da85a42fcef5">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select 'Create Cluster', enter all the required cluster parameters, and select the ✓:   
+<bpt id="0bf09066-d412-4114-b7b5-da85a42fcef5">&lt;linkText&gt;</bpt><ept id="0bf09066-d412-4114-b7b5-da85a42fcef5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4447b571-3227-4631-a39f-df476774991c" xml:space="preserve">
+          <source>The action now appears as configured in the logic app.</source>
+          <target state="new">The action now appears as configured in the logic app.</target>
+        </trans-unit>
+        <trans-unit id="c7d7afff-5300-4b06-96a0-0cd2aeeade93" xml:space="preserve">
+          <source>The output(s) of the action are shown and can be used inputs in any subsequent actions:  
+<bpt id="98a228e1-93c9-4d27-8b14-c2669e4428d0">&lt;linkText&gt;</bpt><ept id="98a228e1-93c9-4d27-8b14-c2669e4428d0">&lt;/linkText&gt;</ept></source>
+          <target state="new">The output(s) of the action are shown and can be used inputs in any subsequent actions:  
+<bpt id="98a228e1-93c9-4d27-8b14-c2669e4428d0">&lt;linkText&gt;</bpt><ept id="98a228e1-93c9-4d27-8b14-c2669e4428d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8418fc5-9c8d-4783-b201-6a33d126c31e" xml:space="preserve">
+          <source>Select the same HDInsight connector from gallery as an action.</source>
+          <target state="new">Select the same HDInsight connector from gallery as an action.</target>
+        </trans-unit>
+        <trans-unit id="c479c1ec-650a-40bc-a5d4-1da1d9aafe17" xml:space="preserve">
+          <source>Select 'Wait For Cluster Creation' action, enter all the required parameters, and select the ✓:  
+<bpt id="50d1fd74-1cd1-4ad6-b3af-9f2cda2bf839">&lt;linkText&gt;</bpt><ept id="50d1fd74-1cd1-4ad6-b3af-9f2cda2bf839">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select 'Wait For Cluster Creation' action, enter all the required parameters, and select the ✓:  
+<bpt id="50d1fd74-1cd1-4ad6-b3af-9f2cda2bf839">&lt;linkText&gt;</bpt><ept id="50d1fd74-1cd1-4ad6-b3af-9f2cda2bf839">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17bba43d-2ef7-472e-8bda-999558b1ea26" xml:space="preserve">
+          <source>Select the same HDInsight connector from gallery as an action.</source>
+          <target state="new">Select the same HDInsight connector from gallery as an action.</target>
+        </trans-unit>
+        <trans-unit id="510a19e4-a733-4623-afe1-e8a23b03d60f" xml:space="preserve">
+          <source>Select 'Submit Hive Job' action, enter all the required parameters, and select the ✓:  
+<bpt id="da6b9f1a-ee15-4328-a69c-e272ae7092ee">&lt;linkText&gt;</bpt><ept id="da6b9f1a-ee15-4328-a69c-e272ae7092ee">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select 'Submit Hive Job' action, enter all the required parameters, and select the ✓:  
+<bpt id="da6b9f1a-ee15-4328-a69c-e272ae7092ee">&lt;linkText&gt;</bpt><ept id="da6b9f1a-ee15-4328-a69c-e272ae7092ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f34ec58f-2796-4d6a-ba98-138e71c71067" xml:space="preserve">
+          <source>Select the same HDInsight connector from gallery as an action.</source>
+          <target state="new">Select the same HDInsight connector from gallery as an action.</target>
+        </trans-unit>
+        <trans-unit id="829667bd-feb4-4235-99e6-2c78056def07" xml:space="preserve">
+          <source>Select 'Wait For Job Completion' action, enter all the required parameters, and select the ✓:  
+<bpt id="52a3b103-17bd-4a96-8f81-aa38d444be68">&lt;linkText&gt;</bpt><ept id="52a3b103-17bd-4a96-8f81-aa38d444be68">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select 'Wait For Job Completion' action, enter all the required parameters, and select the ✓:  
+<bpt id="52a3b103-17bd-4a96-8f81-aa38d444be68">&lt;linkText&gt;</bpt><ept id="52a3b103-17bd-4a96-8f81-aa38d444be68">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7578932f-9064-463e-98da-ce393da7efc3" xml:space="preserve">
+          <source>Select the same HDInsight connector from gallery as an action.</source>
+          <target state="new">Select the same HDInsight connector from gallery as an action.</target>
+        </trans-unit>
+        <trans-unit id="71eec04e-39e5-4082-bdd2-c00f6dd8c132" xml:space="preserve">
+          <source>Select 'Delete Cluster' action, enter all the required parameters, and select the ✓:  
+<bpt id="b5c8ae20-c757-4207-aa9c-b31db5a6be3b">&lt;linkText&gt;</bpt><ept id="b5c8ae20-c757-4207-aa9c-b31db5a6be3b">&lt;/linkText&gt;</ept></source>
+          <target state="new">Select 'Delete Cluster' action, enter all the required parameters, and select the ✓:  
+<bpt id="b5c8ae20-c757-4207-aa9c-b31db5a6be3b">&lt;linkText&gt;</bpt><ept id="b5c8ae20-c757-4207-aa9c-b31db5a6be3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="526c1ff3-d5c5-4863-9276-5b23f649015c" xml:space="preserve">
+          <source>Save the logic app using the save command at the top of the designer.</source>
+          <target state="new">Save the logic app using the save command at the top of the designer.</target>
+        </trans-unit>
+        <trans-unit id="96b6ca17-d9d0-4516-bf8b-b16f267d9e7e" xml:space="preserve">
+          <source>To test the scenario, select <bpt id="ddf461da-8562-4762-b2a9-725158fe2da2">&lt;strong&gt;</bpt>Run Now<ept id="ddf461da-8562-4762-b2a9-725158fe2da2">&lt;/strong&gt;</ept> to start the logic app manually.</source>
+          <target state="new">To test the scenario, select <bpt id="ddf461da-8562-4762-b2a9-725158fe2da2">&lt;strong&gt;</bpt>Run Now<ept id="ddf461da-8562-4762-b2a9-725158fe2da2">&lt;/strong&gt;</ept> to start the logic app manually.</target>
+        </trans-unit>
+        <trans-unit id="914aa78c-c468-4e22-877e-f6eff04be85a" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="25c28bfc-c7f5-4efd-bbf7-82a61aa132a2" xml:space="preserve">
+          <source>See <bpt id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;/linkText&gt;</ept><bpt id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;title&gt;</bpt><ept id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;/linkText&gt;</ept><bpt id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;title&gt;</bpt><ept id="b424240d-7e7d-4bf2-9e45-ad94e933f7f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5d13348-4873-4ce2-9af8-dc564c194d9c" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;/linkText&gt;</ept><bpt id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;title&gt;</bpt><ept id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;/linkText&gt;</ept><bpt id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;title&gt;</bpt><ept id="f868f585-b64d-4866-b4bb-b9d2be4cd8be">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0c0376d-5794-4177-966c-7392121117eb" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="1b4c8a43-a1c9-491c-9ec3-10d005b3549a" xml:space="preserve">
+          <source>See <bpt id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;/linkText&gt;</ept><bpt id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;title&gt;</bpt><ept id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;/linkText&gt;</ept><bpt id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;title&gt;</bpt><ept id="35d4ca11-ff88-4059-9468-218967304ba1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37ebd39c-aa9d-498c-91aa-a2ed35869e1f" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/Create.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/Create.jpg</target>
+        </trans-unit>
+        <trans-unit id="442d8a33-ab45-4e27-bab8-44bec13c0440" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg</target>
+        </trans-unit>
+        <trans-unit id="3641cfe5-dba5-4c38-a4f0-081311e1c747" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/CertConfigured.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/CertConfigured.jpg</target>
+        </trans-unit>
+        <trans-unit id="5856542c-1030-4b81-be86-8c4987a67043" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp1.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp1.jpg</target>
+        </trans-unit>
+        <trans-unit id="76dd62f9-6712-47ed-97de-c7c8846b3119" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp2.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp2.jpg</target>
+        </trans-unit>
+        <trans-unit id="352b9585-4a48-4b41-8231-2503f8d5e375" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp3.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp3.jpg</target>
+        </trans-unit>
+        <trans-unit id="7dddaa94-ea4c-42ec-a932-e3a95dbd8076" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp4.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp4.jpg</target>
+        </trans-unit>
+        <trans-unit id="99622e0d-491a-4cf7-b953-9b15e6042c13" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp5.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp5.jpg</target>
+        </trans-unit>
+        <trans-unit id="df7f4af2-bf82-4c62-bd98-35db112abd70" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp6.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp6.jpg</target>
+        </trans-unit>
+        <trans-unit id="1aa9bd75-ba76-4c6c-ac30-2e00801c8bc5" xml:space="preserve">
+          <source>./media/app-service-logic-connector-hdinsight/LogicApp7.jpg</source>
+          <target state="new">./media/app-service-logic-connector-hdinsight/LogicApp7.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="ac8f3d89-fc70-40e7-9c2c-108452cd7253" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0e8ff75b-9f9e-4963-8c83-3e2ab9e74e51" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0e8ff75b-9f9e-4963-8c83-3e2ab9e74e51" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d8a22555-2aa6-4867-9d44-de8dd1d19278">
+        <trans-unit id="b8a6045e-ecdb-4bff-b128-b745c71936c5" xml:space="preserve">
+          <source>In Solution Explorer in Visual Studio, expand the App_Start folder and open the WebApiConfig.cs project file.</source>
+          <target state="new">In Solution Explorer in Visual Studio, expand the App_Start folder and open the WebApiConfig.cs project file.</target>
+        </trans-unit>
+        <trans-unit id="68a2ae3a-245b-4172-8ead-b0340eab2d65" xml:space="preserve">
+          <source>Add the following line of code to the Register method after the <bpt id="337883ed-e9d6-4240-8af8-8365041675bc">&lt;strong&gt;</bpt>ConfigOptions<ept id="337883ed-e9d6-4240-8af8-8365041675bc">&lt;/strong&gt;</ept> definition:</source>
+          <target state="new">Add the following line of code to the Register method after the <bpt id="337883ed-e9d6-4240-8af8-8365041675bc">&lt;strong&gt;</bpt>ConfigOptions<ept id="337883ed-e9d6-4240-8af8-8365041675bc">&lt;/strong&gt;</ept> definition:</target>
+        </trans-unit>
+        <trans-unit id="2be85ab5-5757-416a-a8c2-39d5d2f78f15" xml:space="preserve">
+          <source>This enforces user authentication before registering for push notifications.</source>
+          <target state="new">This enforces user authentication before registering for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="8066e31f-dba0-4ee4-8772-65944325724f" xml:space="preserve">
+          <source>Right-click the project, click <bpt id="600368b9-78fa-496c-a41b-dff66c611f0e">&lt;strong&gt;</bpt>Add<ept id="600368b9-78fa-496c-a41b-dff66c611f0e">&lt;/strong&gt;</ept> then click <bpt id="035a89ac-0bfc-428f-ac44-896afed72134">&lt;strong&gt;</bpt>Class...<ept id="035a89ac-0bfc-428f-ac44-896afed72134">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the project, click <bpt id="600368b9-78fa-496c-a41b-dff66c611f0e">&lt;strong&gt;</bpt>Add<ept id="600368b9-78fa-496c-a41b-dff66c611f0e">&lt;/strong&gt;</ept> then click <bpt id="035a89ac-0bfc-428f-ac44-896afed72134">&lt;strong&gt;</bpt>Class...<ept id="035a89ac-0bfc-428f-ac44-896afed72134">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d6c7704-5c3b-4e85-b8e9-f4831a1e3558" xml:space="preserve">
+          <source>Name the new empty class <bpt id="52dd381c-7836-42d0-8f0b-39e712c91a25">&lt;code&gt;</bpt>PushRegistrationHandler<ept id="52dd381c-7836-42d0-8f0b-39e712c91a25">&lt;/code&gt;</ept> then click <bpt id="134e4b1d-3900-4401-b658-f74e52971892">&lt;strong&gt;</bpt>Add<ept id="134e4b1d-3900-4401-b658-f74e52971892">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Name the new empty class <bpt id="52dd381c-7836-42d0-8f0b-39e712c91a25">&lt;code&gt;</bpt>PushRegistrationHandler<ept id="52dd381c-7836-42d0-8f0b-39e712c91a25">&lt;/code&gt;</ept> then click <bpt id="134e4b1d-3900-4401-b658-f74e52971892">&lt;strong&gt;</bpt>Add<ept id="134e4b1d-3900-4401-b658-f74e52971892">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edaac992-7cdb-4d12-aca9-813efed478fa" xml:space="preserve">
+          <source>At the top of the code page, add the following <bpt id="ce665089-4ca6-4410-a097-dadf8adeca6a">&lt;strong&gt;</bpt>using<ept id="ce665089-4ca6-4410-a097-dadf8adeca6a">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">At the top of the code page, add the following <bpt id="ce665089-4ca6-4410-a097-dadf8adeca6a">&lt;strong&gt;</bpt>using<ept id="ce665089-4ca6-4410-a097-dadf8adeca6a">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="33e661ef-4acb-4e8d-b350-81afeeb098d5" xml:space="preserve">
+          <source>Replace the existing <bpt id="5b840568-a798-4cef-83e1-28b46a186752">&lt;strong&gt;</bpt>PushRegistrationHandler<ept id="5b840568-a798-4cef-83e1-28b46a186752">&lt;/strong&gt;</ept> class with the following code:</source>
+          <target state="new">Replace the existing <bpt id="5b840568-a798-4cef-83e1-28b46a186752">&lt;strong&gt;</bpt>PushRegistrationHandler<ept id="5b840568-a798-4cef-83e1-28b46a186752">&lt;/strong&gt;</ept> class with the following code:</target>
+        </trans-unit>
+        <trans-unit id="e5aeb746-7d00-486e-9f84-b911f75eab64" xml:space="preserve">
+          <source>The <bpt id="37ce1214-efe9-49bd-b3e6-83b19a5850da">&lt;strong&gt;</bpt>Register<ept id="37ce1214-efe9-49bd-b3e6-83b19a5850da">&lt;/strong&gt;</ept> method is called during registration.</source>
+          <target state="new">The <bpt id="37ce1214-efe9-49bd-b3e6-83b19a5850da">&lt;strong&gt;</bpt>Register<ept id="37ce1214-efe9-49bd-b3e6-83b19a5850da">&lt;/strong&gt;</ept> method is called during registration.</target>
+        </trans-unit>
+        <trans-unit id="7963d4f9-0b23-47b7-a422-4d108f4876be" xml:space="preserve">
+          <source>This lets you add a tag to the registration that is the ID of the logged-in user.</source>
+          <target state="new">This lets you add a tag to the registration that is the ID of the logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="153e52c3-8417-4ded-ae50-ada7cf0902e1" xml:space="preserve">
+          <source>The supplied tags are validated to prevent a user from registering for another user's ID.</source>
+          <target state="new">The supplied tags are validated to prevent a user from registering for another user's ID.</target>
+        </trans-unit>
+        <trans-unit id="b9788c4e-7f7e-4861-bf9d-af47a802c097" xml:space="preserve">
+          <source>When a notification is sent to this user, it is received on this and any other device registered by the user.</source>
+          <target state="new">When a notification is sent to this user, it is received on this and any other device registered by the user.</target>
+        </trans-unit>
+        <trans-unit id="a726f1dd-f69a-4976-b505-9c964b7917e6" xml:space="preserve">
+          <source>Expand the Controllers folder, open the TodoItemController.cs project file, locate the <bpt id="505e9791-9121-4d0a-bcbb-7eee32829919">&lt;strong&gt;</bpt>PostTodoItem<ept id="505e9791-9121-4d0a-bcbb-7eee32829919">&lt;/strong&gt;</ept> method and replace the line of code that calls <bpt id="acae8565-0c7b-4220-ab51-f5e541294b72">&lt;strong&gt;</bpt>SendAsync<ept id="acae8565-0c7b-4220-ab51-f5e541294b72">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">Expand the Controllers folder, open the TodoItemController.cs project file, locate the <bpt id="505e9791-9121-4d0a-bcbb-7eee32829919">&lt;strong&gt;</bpt>PostTodoItem<ept id="505e9791-9121-4d0a-bcbb-7eee32829919">&lt;/strong&gt;</ept> method and replace the line of code that calls <bpt id="acae8565-0c7b-4220-ab51-f5e541294b72">&lt;strong&gt;</bpt>SendAsync<ept id="acae8565-0c7b-4220-ab51-f5e541294b72">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="9f8b35e3-f226-433f-893b-5c5839c93b83" xml:space="preserve">
+          <source>Republish the mobile service project.</source>
+          <target state="new">Republish the mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="7c044f8a-635c-4ac7-958a-00433d0f7198" xml:space="preserve">
+          <source>Now, the service uses the user ID tag to send a push notification (with the text of the inserted item) to all registrations created by the logged-in user.</source>
+          <target state="new">Now, the service uses the user ID tag to send a push notification (with the text of the inserted item) to all registrations created by the logged-in user.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

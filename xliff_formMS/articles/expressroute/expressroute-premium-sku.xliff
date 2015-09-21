@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c574a230-0758-4d9f-8829-f2f5e9c11d6d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c574a230-0758-4d9f-8829-f2f5e9c11d6d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd812454-295c-4451-bbe5-0ba77484836e">
+        <trans-unit id="0f619a0c-e6c0-4e59-b46f-7ea2c14058a4" xml:space="preserve">
+          <source>How to Enable or Disable ExpressRoute Premium Add-on | Microsoft Azure</source>
+          <target state="new">How to Enable or Disable ExpressRoute Premium Add-on | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="658c04da-7dbf-4d08-aa34-e07dca774a72" xml:space="preserve">
+          <source>How to enable or disable ExpressRoute Premium add-on for an ExpressRoute circuit. ExpressRoute Premium lets you add up to 10,000 routes for public and private peering and up to 10 virtual networks to your ExpressRoute Circuit. You can also link a virtual network in one region to a ExpressRoute circuit in another.</source>
+          <target state="new">How to enable or disable ExpressRoute Premium add-on for an ExpressRoute circuit. ExpressRoute Premium lets you add up to 10,000 routes for public and private peering and up to 10 virtual networks to your ExpressRoute Circuit. You can also link a virtual network in one region to a ExpressRoute circuit in another.</target>
+        </trans-unit>
+        <trans-unit id="e5d1661b-92d2-4d7e-9ed3-6137a8d97e7b" xml:space="preserve">
+          <source>ExpressRoute Premium is a collection of features listed below:</source>
+          <target state="new">ExpressRoute Premium is a collection of features listed below:</target>
+        </trans-unit>
+        <trans-unit id="aa6f3e11-fc46-4462-9e65-aa9675126c51" xml:space="preserve">
+          <source>Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.</source>
+          <target state="new">Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.</target>
+        </trans-unit>
+        <trans-unit id="54d195ac-c59a-4033-9f8b-4ff9319d3e92" xml:space="preserve">
+          <source>Increased number of virtual networks (VNets) that can be connected to the ExpressRoute circuit (default is 10).</source>
+          <target state="new">Increased number of virtual networks (VNets) that can be connected to the ExpressRoute circuit (default is 10).</target>
+        </trans-unit>
+        <trans-unit id="22b679fb-d1e6-4b60-b645-d1e83fc46ad2" xml:space="preserve">
+          <source>Global connectivity over the Microsoft core network.</source>
+          <target state="new">Global connectivity over the Microsoft core network.</target>
+        </trans-unit>
+        <trans-unit id="9eaa9949-3706-4ce6-af8d-fd43e8fd1f66" xml:space="preserve">
+          <source>You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region.</source>
+          <target state="new">You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region.</target>
+        </trans-unit>
+        <trans-unit id="8a6f3620-d590-4dff-90a6-40ac65ed295d" xml:space="preserve">
+          <source><bpt id="d97f666f-59ea-498f-9a9c-d3eb16dea4ac">&lt;strong&gt;</bpt>Example:<ept id="d97f666f-59ea-498f-9a9c-d3eb16dea4ac">&lt;/strong&gt;</ept> You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.</source>
+          <target state="new"><bpt id="d97f666f-59ea-498f-9a9c-d3eb16dea4ac">&lt;strong&gt;</bpt>Example:<ept id="d97f666f-59ea-498f-9a9c-d3eb16dea4ac">&lt;/strong&gt;</ept> You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.</target>
+        </trans-unit>
+        <trans-unit id="27a28a3a-ba0b-4e4f-ad85-a89be6d97e13" xml:space="preserve">
+          <source>Refer to the <bpt id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;/linkText&gt;</ept><bpt id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;title&gt;</bpt><ept id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;/title&gt;</ept> page for more information on ExpressRoute Premium add-on.</source>
+          <target state="new">Refer to the <bpt id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;linkText&gt;</bpt>ExpressRoute FAQ<ept id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;/linkText&gt;</ept><bpt id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;title&gt;</bpt><ept id="014a5a3f-483f-4299-9e01-bccdef9d22d5">&lt;/title&gt;</ept> page for more information on ExpressRoute Premium add-on.</target>
+        </trans-unit>
+        <trans-unit id="04375fa0-5ab2-43bb-9e54-e39c010f79fa" xml:space="preserve">
+          <source>Refer to the <bpt id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;linkText&gt;</bpt>Pricing Details<ept id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;/linkText&gt;</ept><bpt id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;title&gt;</bpt><ept id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;/title&gt;</ept> page for cost.</source>
+          <target state="new">Refer to the <bpt id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;linkText&gt;</bpt>Pricing Details<ept id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;/linkText&gt;</ept><bpt id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;title&gt;</bpt><ept id="48326f16-7f79-4c82-9a81-0761e9b7e4b4">&lt;/title&gt;</ept> page for cost.</target>
+        </trans-unit>
+        <trans-unit id="1a3ff4fb-ce44-4971-a116-8bfd119a723e" xml:space="preserve">
+          <source>These instructions below will help you do the following:</source>
+          <target state="new">These instructions below will help you do the following:</target>
+        </trans-unit>
+        <trans-unit id="5e48ddda-fc8e-4e1a-85c9-a213b0600a92" xml:space="preserve">
+          <source>Create an ExpressRoute circuit with the Premium add-on enabled.</source>
+          <target state="new">Create an ExpressRoute circuit with the Premium add-on enabled.</target>
+        </trans-unit>
+        <trans-unit id="f4439686-5edc-4a2d-8a61-f31bfad3de23" xml:space="preserve">
+          <source>Update an existing ExpressRoute circuit to enable the Premium add-on.</source>
+          <target state="new">Update an existing ExpressRoute circuit to enable the Premium add-on.</target>
+        </trans-unit>
+        <trans-unit id="a8a786a2-9928-4c48-a925-dda8703c979a" xml:space="preserve">
+          <source>Disable the ExpressRoute Premium add-on for a circuit.</source>
+          <target state="new">Disable the ExpressRoute Premium add-on for a circuit.</target>
+        </trans-unit>
+        <trans-unit id="2eb28cfd-afc3-44d1-bce8-16a72669ddc2" xml:space="preserve">
+          <source>Before you begin configuration, verify that you have the following prerequisites:</source>
+          <target state="new">Before you begin configuration, verify that you have the following prerequisites:</target>
+        </trans-unit>
+        <trans-unit id="fc9f6c69-a8ba-419c-8144-2b76f1546bb3" xml:space="preserve">
+          <source>An Azure subscription</source>
+          <target state="new">An Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="53fa411e-93f8-45bd-8e18-18ecc32e9f13" xml:space="preserve">
+          <source>The latest version of Azure PowerShell</source>
+          <target state="new">The latest version of Azure PowerShell</target>
+        </trans-unit>
+        <trans-unit id="544156ee-1c1a-47e8-a1e0-3a3d27ee4137" xml:space="preserve">
+          <source>Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</source>
+          <target state="new">Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</target>
+        </trans-unit>
+        <trans-unit id="f338e673-a1ec-4823-bedc-9834a14df884" xml:space="preserve">
+          <source>For more information, please refer to the PowerShell documentation in <bpt id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;linkText&gt;</bpt>MSDN<ept id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;/linkText&gt;</ept><bpt id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;title&gt;</bpt><ept id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, please refer to the PowerShell documentation in <bpt id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;linkText&gt;</bpt>MSDN<ept id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;/linkText&gt;</ept><bpt id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;title&gt;</bpt><ept id="ec84b201-b8fb-4b15-b026-311a166ad06b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27bb6fef-f229-4bd7-987d-13788fcb9539" xml:space="preserve">
+          <source>Use the cmdlets below to import the PowerShell module for ExpressRoute:</source>
+          <target state="new">Use the cmdlets below to import the PowerShell module for ExpressRoute:</target>
+        </trans-unit>
+        <trans-unit id="91b9db9f-713a-400a-a1f7-c5324cfa8232" xml:space="preserve">
+          <source>You can create a new ExpressRoute circuit with the Premium add-on enabled at the time of creation.</source>
+          <target state="new">You can create a new ExpressRoute circuit with the Premium add-on enabled at the time of creation.</target>
+        </trans-unit>
+        <trans-unit id="2ea32423-0c4c-4b6b-8c8e-1305d4fc27b6" xml:space="preserve">
+          <source>Follow the instructions on how to create ExpressRoute circuits with <bpt id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;linkText&gt;</bpt>NSPs<ept id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;/linkText&gt;</ept><bpt id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;title&gt;</bpt><ept id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;/title&gt;</ept> or <bpt id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;linkText&gt;</bpt>EXPs<ept id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;/linkText&gt;</ept><bpt id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;title&gt;</bpt><ept id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow the instructions on how to create ExpressRoute circuits with <bpt id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;linkText&gt;</bpt>NSPs<ept id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;/linkText&gt;</ept><bpt id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;title&gt;</bpt><ept id="0e7cf99d-af30-4f0d-bc3d-173fc4d6b2b3">&lt;/title&gt;</ept> or <bpt id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;linkText&gt;</bpt>EXPs<ept id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;/linkText&gt;</ept><bpt id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;title&gt;</bpt><ept id="24b3f2fa-601b-4e53-9b82-e1799dda8d6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f745807-31cf-435d-ba91-9b647ee2ca72" xml:space="preserve">
+          <source>We have a new optional parameter in the New-AzureDedicatedCircuit cmdlet that lets you specify the SKU.</source>
+          <target state="new">We have a new optional parameter in the New-AzureDedicatedCircuit cmdlet that lets you specify the SKU.</target>
+        </trans-unit>
+        <trans-unit id="00a70a3e-1e60-4c9c-9459-fd57911d045a" xml:space="preserve">
+          <source>The SKU can either be Standard or Premium.</source>
+          <target state="new">The SKU can either be Standard or Premium.</target>
+        </trans-unit>
+        <trans-unit id="ea709750-56f4-40fb-a0f5-b73914c28b7c" xml:space="preserve">
+          <source>The default value is standard.</source>
+          <target state="new">The default value is standard.</target>
+        </trans-unit>
+        <trans-unit id="4ce6b18b-8002-4af1-9525-803ab8587d37" xml:space="preserve">
+          <source>Passing on the SKU as Premium will enable the circuit with the Premium add-on features.</source>
+          <target state="new">Passing on the SKU as Premium will enable the circuit with the Premium add-on features.</target>
+        </trans-unit>
+        <trans-unit id="96ac6c2d-5f73-4256-bfb7-21d96ca069e9" xml:space="preserve">
+          <source>You can check and see if the ExpressRoute Premium add-on is enabled for your circuit.</source>
+          <target state="new">You can check and see if the ExpressRoute Premium add-on is enabled for your circuit.</target>
+        </trans-unit>
+        <trans-unit id="4ca7b40f-8b1c-4692-a429-05b9d5bed719" xml:space="preserve">
+          <source>In the example below, the ExpressRoute circuit does not have ExpressRoute Premium add-on features enabled.</source>
+          <target state="new">In the example below, the ExpressRoute circuit does not have ExpressRoute Premium add-on features enabled.</target>
+        </trans-unit>
+        <trans-unit id="92dcbc46-19d5-4e68-80d5-ea1e9597b921" xml:space="preserve">
+          <source>The SKU will show up as <bpt id="47336e9b-10ec-4bb6-9197-252cd6b9c25e">&lt;strong&gt;</bpt>*Premium*<ept id="47336e9b-10ec-4bb6-9197-252cd6b9c25e">&lt;/strong&gt;</ept> if the add-on is enabled.</source>
+          <target state="new">The SKU will show up as <bpt id="47336e9b-10ec-4bb6-9197-252cd6b9c25e">&lt;strong&gt;</bpt>*Premium*<ept id="47336e9b-10ec-4bb6-9197-252cd6b9c25e">&lt;/strong&gt;</ept> if the add-on is enabled.</target>
+        </trans-unit>
+        <trans-unit id="53ad2c46-62ee-491f-8dbe-6c2c0f07ebf7" xml:space="preserve">
+          <source>You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit you have already created.</source>
+          <target state="new">You can enable ExpressRoute Premium add-on features for any ExpressRoute circuit you have already created.</target>
+        </trans-unit>
+        <trans-unit id="fe6563b4-3afc-4f48-9180-baebb71b09bc" xml:space="preserve">
+          <source><bpt id="5cab1224-e9c9-4de4-ba05-3627deda9966">&lt;strong&gt;</bpt>Get details of the ExpressRoute Circuit<ept id="5cab1224-e9c9-4de4-ba05-3627deda9966">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5cab1224-e9c9-4de4-ba05-3627deda9966">&lt;strong&gt;</bpt>Get details of the ExpressRoute Circuit<ept id="5cab1224-e9c9-4de4-ba05-3627deda9966">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06c381a1-5c88-49a7-89e4-986e72e08401" xml:space="preserve">
+          <source>You can get details of your ExpressRoute circuit using the following PowerShell cmdlet:</source>
+          <target state="new">You can get details of your ExpressRoute circuit using the following PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="8cc2498c-15b4-4d4e-82ef-d54adcf195da" xml:space="preserve">
+          <source>This command will return a list of all circuits you have created in the subscription.</source>
+          <target state="new">This command will return a list of all circuits you have created in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="88210744-e3e7-40fe-b094-7e65df7a32d5" xml:space="preserve">
+          <source>You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you</source>
+          <target state="new">You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you</target>
+        </trans-unit>
+        <trans-unit id="422c4638-1804-4a8a-b496-b3e4ae6bea52" xml:space="preserve">
+          <source>Replace the &lt;skey&gt; with the actual service key.</source>
+          <target state="new">Replace the &lt;skey&gt; with the actual service key.</target>
+        </trans-unit>
+        <trans-unit id="78e0d1d7-4220-4886-bde6-0fdef5d9c816" xml:space="preserve">
+          <source><bpt id="b7a4a8de-f9d8-4f84-acd7-80f51f202ae2">&lt;strong&gt;</bpt>Enable the ExpressRoute Premium add-on for the circuit<ept id="b7a4a8de-f9d8-4f84-acd7-80f51f202ae2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b7a4a8de-f9d8-4f84-acd7-80f51f202ae2">&lt;strong&gt;</bpt>Enable the ExpressRoute Premium add-on for the circuit<ept id="b7a4a8de-f9d8-4f84-acd7-80f51f202ae2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63cbe4bb-eb65-48c4-9acf-06a534987ecd" xml:space="preserve">
+          <source>You can enable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:</source>
+          <target state="new">You can enable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="67c3b1ec-4dde-44d0-b2a0-e3e5531eca85" xml:space="preserve">
+          <source>Your circuit will now have the ExpressRoute Premium add-on features enabled.</source>
+          <target state="new">Your circuit will now have the ExpressRoute Premium add-on features enabled.</target>
+        </trans-unit>
+        <trans-unit id="78be9af0-41bc-48f4-b61a-d9621fc3edfc" xml:space="preserve">
+          <source>Note that we will start billing you for the Premium add-on capability as soon as the command has successfully run.</source>
+          <target state="new">Note that we will start billing you for the Premium add-on capability as soon as the command has successfully run.</target>
+        </trans-unit>
+        <trans-unit id="b34b55c1-7812-4eda-aefe-62ce6cfe71d3" xml:space="preserve">
+          <source>You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that has the Premium add-on enabled.</source>
+          <target state="new">You can disable the ExpressRoute Premium add-on for an ExpressRoute circuit that has the Premium add-on enabled.</target>
+        </trans-unit>
+        <trans-unit id="16365351-8925-47aa-9913-03454fbe8724" xml:space="preserve">
+          <source><bpt id="8458ecab-0fe0-4bd0-94b4-93be2afd3c80">&lt;strong&gt;</bpt>Note<ept id="8458ecab-0fe0-4bd0-94b4-93be2afd3c80">&lt;/strong&gt;</ept>: You must make sure that you have stopped using the features listed in the Premium add-on feature list before you do so.</source>
+          <target state="new"><bpt id="8458ecab-0fe0-4bd0-94b4-93be2afd3c80">&lt;strong&gt;</bpt>Note<ept id="8458ecab-0fe0-4bd0-94b4-93be2afd3c80">&lt;/strong&gt;</ept>: You must make sure that you have stopped using the features listed in the Premium add-on feature list before you do so.</target>
+        </trans-unit>
+        <trans-unit id="1827c180-be9b-4a1d-8681-18448820fa18" xml:space="preserve">
+          <source>We will fail your request to disable the Premium add-on if you have greater than 10 VNets linked to your circuit.</source>
+          <target state="new">We will fail your request to disable the Premium add-on if you have greater than 10 VNets linked to your circuit.</target>
+        </trans-unit>
+        <trans-unit id="bb1e943c-b5c1-490f-9f95-de621e7c0ad1" xml:space="preserve">
+          <source>You will also see that we will drop our BGP sessions if you advertise greater than 5000 routes to us once you disable the Premium add-on.</source>
+          <target state="new">You will also see that we will drop our BGP sessions if you advertise greater than 5000 routes to us once you disable the Premium add-on.</target>
+        </trans-unit>
+        <trans-unit id="ede03a96-62c6-47ff-9ec0-0323c8fed386" xml:space="preserve">
+          <source><bpt id="e17e8373-67f1-47c8-bcc6-f0c69cf48903">&lt;strong&gt;</bpt>Get the details of the ExpressRoute Circuit<ept id="e17e8373-67f1-47c8-bcc6-f0c69cf48903">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e17e8373-67f1-47c8-bcc6-f0c69cf48903">&lt;strong&gt;</bpt>Get the details of the ExpressRoute Circuit<ept id="e17e8373-67f1-47c8-bcc6-f0c69cf48903">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26cb2da6-b014-40fe-beb9-425d2038ece9" xml:space="preserve">
+          <source>You can get details of your ExpressRoute circuit using the following PowerShell cmdlet:</source>
+          <target state="new">You can get details of your ExpressRoute circuit using the following PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="fb029c69-b6cd-4f32-a440-d3c6473f7af3" xml:space="preserve">
+          <source>This command will return a list of all circuits you have created in the subscription.</source>
+          <target state="new">This command will return a list of all circuits you have created in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="e27413dd-3f70-4c0d-99d5-2135fcd06db9" xml:space="preserve">
+          <source>You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you</source>
+          <target state="new">You can use the following command to get details of a specific ExpressRoute circuit if you have the service key with you</target>
+        </trans-unit>
+        <trans-unit id="88c60f2b-b69b-4826-b5db-ffcd406c7363" xml:space="preserve">
+          <source>Replace the &lt;skey&gt; with the actual service key.</source>
+          <target state="new">Replace the &lt;skey&gt; with the actual service key.</target>
+        </trans-unit>
+        <trans-unit id="c3cd11a5-f7a8-49cc-b576-b29d2b4608c9" xml:space="preserve">
+          <source><bpt id="62655a46-6d94-416e-8f15-167b080a6c8b">&lt;strong&gt;</bpt>Disable the ExpressRoute Premium add-on for the circuit<ept id="62655a46-6d94-416e-8f15-167b080a6c8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="62655a46-6d94-416e-8f15-167b080a6c8b">&lt;strong&gt;</bpt>Disable the ExpressRoute Premium add-on for the circuit<ept id="62655a46-6d94-416e-8f15-167b080a6c8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b32f11ea-424c-43e0-aa4e-770ec0dbb3ac" xml:space="preserve">
+          <source>You can disable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:</source>
+          <target state="new">You can disable the ExpressRoute Premium add-on for your existing circuit using the following PowerShell cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="bd57a61d-1c81-4b04-bc92-2f906a6b9a3d" xml:space="preserve">
+          <source>The Premium add-on is now disabled for your circuit.</source>
+          <target state="new">The Premium add-on is now disabled for your circuit.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

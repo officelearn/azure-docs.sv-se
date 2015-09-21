@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6588a29b-cf31-4e95-9594-9847c6895698" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6588a29b-cf31-4e95-9594-9847c6895698" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="03ee61f3-566b-494f-aab1-108d199247f1">
+        <trans-unit id="61876665-2a4c-46e1-ba28-8131be894c8d" xml:space="preserve">
+          <source>Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream</source>
+          <target state="new">Use .NET SDK to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream</target>
+        </trans-unit>
+        <trans-unit id="eea4ac9d-2a33-457a-8f4c-7656278c0026" xml:space="preserve">
+          <source>This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</source>
+          <target state="new">This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</target>
+        </trans-unit>
+        <trans-unit id="225f2b78-9661-4de1-afc6-dc133a4bde71" xml:space="preserve">
+          <source>This tutorial walks you through the steps of creating a <bpt id="e64fbe98-c367-4243-afba-47e9775be931">&lt;strong&gt;</bpt>Channel<ept id="e64fbe98-c367-4243-afba-47e9775be931">&lt;/strong&gt;</ept> that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</source>
+          <target state="new">This tutorial walks you through the steps of creating a <bpt id="e64fbe98-c367-4243-afba-47e9775be931">&lt;strong&gt;</bpt>Channel<ept id="e64fbe98-c367-4243-afba-47e9775be931">&lt;/strong&gt;</ept> that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</target>
+        </trans-unit>
+        <trans-unit id="3e710be8-78ea-4e13-9e18-fc2bd248b5ab" xml:space="preserve">
+          <source>For more conceptual information related to Channels that are enabled for live encoding, see <bpt id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;/linkText&gt;</ept><bpt id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;title&gt;</bpt><ept id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more conceptual information related to Channels that are enabled for live encoding, see <bpt id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;/linkText&gt;</ept><bpt id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;title&gt;</bpt><ept id="865ab345-3110-47c0-9a17-a25be899ae00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcaabf64-9e7d-4e1b-9e3e-ae650d2fab85" xml:space="preserve">
+          <source>You must use Media Services .NET SDK version 3.2.0.0 or newer.</source>
+          <target state="new">You must use Media Services .NET SDK version 3.2.0.0 or newer.</target>
+        </trans-unit>
+        <trans-unit id="fd6d8446-6de5-4bf1-8328-ce16e91ebb24" xml:space="preserve">
+          <source>The following steps describe tasks involved in creating common live streaming applications.</source>
+          <target state="new">The following steps describe tasks involved in creating common live streaming applications.</target>
+        </trans-unit>
+        <trans-unit id="355287cd-29a5-49ec-b72e-fb4f6fce4706" xml:space="preserve">
+          <source>Connect a video camera to a computer.</source>
+          <target state="new">Connect a video camera to a computer.</target>
+        </trans-unit>
+        <trans-unit id="7ae223aa-9c9d-4527-8730-574af5b7f21c" xml:space="preserve">
+          <source>Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS).</source>
+          <target state="new">Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS).</target>
+        </trans-unit>
+        <trans-unit id="240ff551-3a55-4e32-a3da-7373cee6da39" xml:space="preserve">
+          <source>For more information, see <bpt id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;linkText&gt;</bpt>Azure Media Services RTMP Support and Live Encoders<ept id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;/linkText&gt;</ept><bpt id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;title&gt;</bpt><ept id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;linkText&gt;</bpt>Azure Media Services RTMP Support and Live Encoders<ept id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;/linkText&gt;</ept><bpt id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;title&gt;</bpt><ept id="e8138052-23f0-40b2-97c1-e89858a67686">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f97322e7-2a90-4501-a11d-4bfb14cfb3bb" xml:space="preserve">
+          <source>This step could also be performed after you create your Channel.</source>
+          <target state="new">This step could also be performed after you create your Channel.</target>
+        </trans-unit>
+        <trans-unit id="bfb37fca-f753-4885-8fc3-aa4113260c65" xml:space="preserve">
+          <source>Create and start a Channel.</source>
+          <target state="new">Create and start a Channel.</target>
+        </trans-unit>
+        <trans-unit id="5d46d568-64f2-40bc-a07b-b30036a2a5a9" xml:space="preserve">
+          <source>Retrieve the Channel ingest URL.</source>
+          <target state="new">Retrieve the Channel ingest URL.</target>
+        </trans-unit>
+        <trans-unit id="ec03cc82-1158-4ccf-a54e-6d68d17ec34b" xml:space="preserve">
+          <source>The ingest URL is used by the live encoder to send the stream to the Channel.</source>
+          <target state="new">The ingest URL is used by the live encoder to send the stream to the Channel.</target>
+        </trans-unit>
+        <trans-unit id="877e7afd-db45-4ab4-8b98-0783e3fac850" xml:space="preserve">
+          <source>Retrieve the Channel preview URL.</source>
+          <target state="new">Retrieve the Channel preview URL.</target>
+        </trans-unit>
+        <trans-unit id="8120da03-5b87-4585-8da1-882d17a3c8ef" xml:space="preserve">
+          <source>Use this URL to verify that your channel is properly receiving the live stream.</source>
+          <target state="new">Use this URL to verify that your channel is properly receiving the live stream.</target>
+        </trans-unit>
+        <trans-unit id="2e54822c-d7e9-46d2-98d0-480b4c215763" xml:space="preserve">
+          <source>Create an asset.</source>
+          <target state="new">Create an asset.</target>
+        </trans-unit>
+        <trans-unit id="51c1457f-11b2-46ee-b262-f483e3b91ce4" xml:space="preserve">
+          <source>If you want for the asset to be dynamically encrypted during playback, do the following:     </source>
+          <target state="new">If you want for the asset to be dynamically encrypted during playback, do the following:     </target>
+        </trans-unit>
+        <trans-unit id="a623d0c9-1f5b-4a96-819a-6a4641a5c52d" xml:space="preserve">
+          <source>Create a content key.</source>
+          <target state="new">Create a content key.</target>
+        </trans-unit>
+        <trans-unit id="8ff679a9-ed1f-489d-b8f7-e292b2bace4c" xml:space="preserve">
+          <source>Configure the content key's authorization policy.</source>
+          <target state="new">Configure the content key's authorization policy.</target>
+        </trans-unit>
+        <trans-unit id="1020a107-736a-4901-8932-11e1955b66fa" xml:space="preserve">
+          <source>Configure asset delivery policy (used by dynamic packaging and dynamic encryption).</source>
+          <target state="new">Configure asset delivery policy (used by dynamic packaging and dynamic encryption).</target>
+        </trans-unit>
+        <trans-unit id="ab968aa7-e094-40cd-b4fe-5e95cf3e4a75" xml:space="preserve">
+          <source>Create a program and specify to use the asset that you created.</source>
+          <target state="new">Create a program and specify to use the asset that you created.</target>
+        </trans-unit>
+        <trans-unit id="aff9854d-a425-4c34-bcce-3bae28315946" xml:space="preserve">
+          <source>Publish the asset associated with the program by creating an OnDemand locator.</source>
+          <target state="new">Publish the asset associated with the program by creating an OnDemand locator.</target>
+        </trans-unit>
+        <trans-unit id="3155f52c-18cb-4a8a-a08a-7d1c207cfb96" xml:space="preserve">
+          <source>Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.</source>
+          <target state="new">Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.</target>
+        </trans-unit>
+        <trans-unit id="83ab43a6-c596-424c-8aba-6224ed739cb2" xml:space="preserve">
+          <source>Start the program when you are ready to start streaming and archiving.</source>
+          <target state="new">Start the program when you are ready to start streaming and archiving.</target>
+        </trans-unit>
+        <trans-unit id="785245b4-a9ad-4156-aeec-d413134bb688" xml:space="preserve">
+          <source>Optionally, the live encoder can be signaled to start an advertisement.</source>
+          <target state="new">Optionally, the live encoder can be signaled to start an advertisement.</target>
+        </trans-unit>
+        <trans-unit id="aeb161a9-26b1-416c-a5dd-92ebd4c53eea" xml:space="preserve">
+          <source>The advertisement is inserted in the output stream.</source>
+          <target state="new">The advertisement is inserted in the output stream.</target>
+        </trans-unit>
+        <trans-unit id="6ee75c44-8191-4ee8-bba8-9dd97e127e34" xml:space="preserve">
+          <source>Stop the program whenever you want to stop streaming and archiving the event.</source>
+          <target state="new">Stop the program whenever you want to stop streaming and archiving the event.</target>
+        </trans-unit>
+        <trans-unit id="a3abb00b-de72-4233-bf69-73ff0a464fdb" xml:space="preserve">
+          <source>Delete the Program (and optionally delete the asset).</source>
+          <target state="new">Delete the Program (and optionally delete the asset).</target>
+        </trans-unit>
+        <trans-unit id="f10df86c-2cd6-4d9f-b7fc-86beb2a83426" xml:space="preserve">
+          <source>This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK.</source>
+          <target state="new">This topic shows you how to execute different operations on channels and programs using Media Services .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="7b51a48a-1d8c-4cc3-b2a7-93e5e206bbf3" xml:space="preserve">
+          <source>Because many operations are long-running .NET APIs that manage long running operations are used.</source>
+          <target state="new">Because many operations are long-running .NET APIs that manage long running operations are used.</target>
+        </trans-unit>
+        <trans-unit id="ea8f62e4-f8e0-4083-969d-089bde356ea9" xml:space="preserve">
+          <source>The topic shows how to do the following:</source>
+          <target state="new">The topic shows how to do the following:</target>
+        </trans-unit>
+        <trans-unit id="646a6f22-0668-4a3a-8e40-2e543564c67f" xml:space="preserve">
+          <source>Create and start a channel.</source>
+          <target state="new">Create and start a channel.</target>
+        </trans-unit>
+        <trans-unit id="69f9b941-c238-4383-bbb9-c8e2effeb0f4" xml:space="preserve">
+          <source>Long-running APIs are used.</source>
+          <target state="new">Long-running APIs are used.</target>
+        </trans-unit>
+        <trans-unit id="35db72b5-5943-4146-a519-36c97a6bc936" xml:space="preserve">
+          <source>Get the channels ingest (input) endpoint.</source>
+          <target state="new">Get the channels ingest (input) endpoint.</target>
+        </trans-unit>
+        <trans-unit id="60578a24-1e78-4c7e-8a23-6f2308921306" xml:space="preserve">
+          <source>This endpoint should be provided to the encoder that can send a single bitrate live stream.</source>
+          <target state="new">This endpoint should be provided to the encoder that can send a single bitrate live stream.</target>
+        </trans-unit>
+        <trans-unit id="a5c527b8-55b8-47b0-a6b3-a08856553338" xml:space="preserve">
+          <source>Get the preview endpoint.</source>
+          <target state="new">Get the preview endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3750beca-fdcf-48b7-a148-ff49b0980bba" xml:space="preserve">
+          <source>This endpoint is used to preview your stream.</source>
+          <target state="new">This endpoint is used to preview your stream.</target>
+        </trans-unit>
+        <trans-unit id="47c14166-3454-4c92-bab5-dbca0c3e826f" xml:space="preserve">
+          <source>Create an asset that will be used to store your content.</source>
+          <target state="new">Create an asset that will be used to store your content.</target>
+        </trans-unit>
+        <trans-unit id="7a0250ed-c01b-4829-9a45-9ca6b26616da" xml:space="preserve">
+          <source>The asset delivery policies should be configured as well, as shown in this example.</source>
+          <target state="new">The asset delivery policies should be configured as well, as shown in this example.</target>
+        </trans-unit>
+        <trans-unit id="f3e0c218-b854-4a26-92a7-4601f9fa33c7" xml:space="preserve">
+          <source>Create a program and specify to use the asset that was created earlier.</source>
+          <target state="new">Create a program and specify to use the asset that was created earlier.</target>
+        </trans-unit>
+        <trans-unit id="6061c2d6-7f3e-43ac-a5ad-5183506395d3" xml:space="preserve">
+          <source>Start the program.</source>
+          <target state="new">Start the program.</target>
+        </trans-unit>
+        <trans-unit id="cb85630b-ebda-4c23-b7bb-11ddab69d0fe" xml:space="preserve">
+          <source>Long-running APIs are used.</source>
+          <target state="new">Long-running APIs are used.</target>
+        </trans-unit>
+        <trans-unit id="c6c609d5-5f8b-406d-8ea1-178ffff7842a" xml:space="preserve">
+          <source>Create a locator for the asset, so the content gets published and can be streamed to your clients.</source>
+          <target state="new">Create a locator for the asset, so the content gets published and can be streamed to your clients.</target>
+        </trans-unit>
+        <trans-unit id="8c2ae6f6-289a-46f6-9880-c5e6dea90f8c" xml:space="preserve">
+          <source>Show and hide slates.</source>
+          <target state="new">Show and hide slates.</target>
+        </trans-unit>
+        <trans-unit id="df4f04aa-3fd3-4501-b751-079484c1cdf7" xml:space="preserve">
+          <source>Start and stop advertisements.</source>
+          <target state="new">Start and stop advertisements.</target>
+        </trans-unit>
+        <trans-unit id="89663d31-38b7-4289-b0dd-0d084caea64a" xml:space="preserve">
+          <source>Long-running APIs are used.</source>
+          <target state="new">Long-running APIs are used.</target>
+        </trans-unit>
+        <trans-unit id="5af26ba5-3134-4946-8f52-256b841f8495" xml:space="preserve">
+          <source>Clean up your channel and all the associated resources.</source>
+          <target state="new">Clean up your channel and all the associated resources.</target>
+        </trans-unit>
+        <trans-unit id="8f4f0670-b31d-4689-8537-ac77ff280d24" xml:space="preserve">
+          <source>While this feature is in Preview, max recommended duration of a live event is 8 hours.</source>
+          <target state="new">While this feature is in Preview, max recommended duration of a live event is 8 hours.</target>
+        </trans-unit>
+        <trans-unit id="ca8409e0-be08-4d31-8477-c407c4900cea" xml:space="preserve">
+          <source>The following are required to complete the tutorial.</source>
+          <target state="new">The following are required to complete the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="fbbcdf92-1d3b-471c-89d7-ae566bd37b1d" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="f9ec7614-94d3-4562-9b81-c4a797a4dbf9" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="6e85c33e-f777-40d2-a78c-c96c0e73877e" xml:space="preserve">
+          <source>For details, see <bpt id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;/linkText&gt;</ept><bpt id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;title&gt;</bpt><ept id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;/linkText&gt;</ept><bpt id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;title&gt;</bpt><ept id="bd60fcec-a769-4582-9d4c-5aeeb177c3ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5213a8d3-fca6-46cc-b9f9-48849e2d1db1" xml:space="preserve">
+          <source>A Media Services account.</source>
+          <target state="new">A Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="012b8e87-9d2e-4c0b-8b1c-1f62961f34ac" xml:space="preserve">
+          <source>To create a Media Services account, see <bpt id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;linkText&gt;</bpt>Create Account<ept id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;/linkText&gt;</ept><bpt id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;title&gt;</bpt><ept id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a Media Services account, see <bpt id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;linkText&gt;</bpt>Create Account<ept id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;/linkText&gt;</ept><bpt id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;title&gt;</bpt><ept id="ff889e08-2017-4b30-bb82-58f02a5e2f17">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b49e499-8aa0-4a04-a279-1621ffd77030" xml:space="preserve">
+          <source>Visual Studio 2010 SP1 or higher.</source>
+          <target state="new">Visual Studio 2010 SP1 or higher.</target>
+        </trans-unit>
+        <trans-unit id="f9d9e144-263a-4f10-a5ba-6ad9dde9ae4e" xml:space="preserve">
+          <source>A webcam and an encoder that can send a single bitrate live stream.</source>
+          <target state="new">A webcam and an encoder that can send a single bitrate live stream.</target>
+        </trans-unit>
+        <trans-unit id="e6d7900b-5ca1-466b-ad5c-b2ee6d35af86" xml:space="preserve">
+          <source>Create a console application using Visual Studio.</source>
+          <target state="new">Create a console application using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="1a03be5b-82f0-4a52-ac45-20acdc236379" xml:space="preserve">
+          <source>Add the Media Services SDK for .NET to your console application using Media Services NuGet package.</source>
+          <target state="new">Add the Media Services SDK for .NET to your console application using Media Services NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="a91e2dc0-dd27-4fff-8c1c-fcbf96b14182" xml:space="preserve">
+          <source>As a best practice, you should use an app.config file to store the Media Services name and account key.</source>
+          <target state="new">As a best practice, you should use an app.config file to store the Media Services name and account key.</target>
+        </trans-unit>
+        <trans-unit id="acad87dc-9bc1-45cf-b40c-d47fe51861e6" xml:space="preserve">
+          <source>To find the Name and Key values, go to the Azure Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window.</source>
+          <target state="new">To find the Name and Key values, go to the Azure Portal, select your Media Service account, and click on the “MANAGE KEYS” icon on the bottom of the portal window.</target>
+        </trans-unit>
+        <trans-unit id="7253e0a5-8720-454c-bb99-6e51580d286e" xml:space="preserve">
+          <source>Clicking on the icon next to each text box copies the value to the system clipboard.</source>
+          <target state="new">Clicking on the icon next to each text box copies the value to the system clipboard.</target>
+        </trans-unit>
+        <trans-unit id="dcc0d0c7-e3f5-4e2f-891b-57b47b3fd8d7" xml:space="preserve">
+          <source>Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.</source>
+          <target state="new">Add the appSettings section to the app.config file, and set the values for your Media Services account name and account key.</target>
+        </trans-unit>
+        <trans-unit id="04c5789f-2b4f-4eb4-af46-4c9a03afc35b" xml:space="preserve">
+          <source><bpt id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;/linkText&gt;</ept><bpt id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;title&gt;</bpt><ept id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;/linkText&gt;</ept><bpt id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;title&gt;</bpt><ept id="b8ec8671-dd81-45de-b988-d8246171386a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

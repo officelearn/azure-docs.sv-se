@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="85d13dbe-9958-4631-988f-032345d651c4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="85d13dbe-9958-4631-988f-032345d651c4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="38121480-d4ce-403f-94f5-cdaf47d5933e">
+        <trans-unit id="9a8a4d78-6fde-4300-b076-29f092cf1e9e" xml:space="preserve">
+          <source>The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services.</source>
+          <target state="new">The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services.</target>
+        </trans-unit>
+        <trans-unit id="f29d30a2-59e9-47a0-9512-a50cded0a69c" xml:space="preserve">
+          <source>We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application.</source>
+          <target state="new">We recommend that you maintain your storage connection string in a configuration file, rather than hard-coding it into your application.</target>
+        </trans-unit>
+        <trans-unit id="1326bf42-1758-43fe-9f86-e9083fdd9ff5" xml:space="preserve">
+          <source>You have two options for saving your connection string:</source>
+          <target state="new">You have two options for saving your connection string:</target>
+        </trans-unit>
+        <trans-unit id="d7c7da49-8ed1-435c-ad6f-46cdedf6bcf6" xml:space="preserve">
+          <source>If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (<bpt id="2785f42d-45dc-4eed-a060-5a5cbf692ffe">&lt;code&gt;</bpt>*.csdef<ept id="2785f42d-45dc-4eed-a060-5a5cbf692ffe">&lt;/code&gt;</ept> and <bpt id="e31bdfb0-188b-4291-96cf-ea21133f6b44">&lt;code&gt;</bpt>*.cscfg<ept id="e31bdfb0-188b-4291-96cf-ea21133f6b44">&lt;/code&gt;</ept> files).</source>
+          <target state="new">If your application runs in an Azure cloud service, save your connection string using the Azure service configuration system (<bpt id="2785f42d-45dc-4eed-a060-5a5cbf692ffe">&lt;code&gt;</bpt>*.csdef<ept id="2785f42d-45dc-4eed-a060-5a5cbf692ffe">&lt;/code&gt;</ept> and <bpt id="e31bdfb0-188b-4291-96cf-ea21133f6b44">&lt;code&gt;</bpt>*.cscfg<ept id="e31bdfb0-188b-4291-96cf-ea21133f6b44">&lt;/code&gt;</ept> files).</target>
+        </trans-unit>
+        <trans-unit id="910b2ba4-8f43-4247-beed-c900200e9bed" xml:space="preserve">
+          <source>See <bpt id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;linkText&gt;</bpt>How to create and deploy a cloud service<ept id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;/linkText&gt;</ept><bpt id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;title&gt;</bpt><ept id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;/title&gt;</ept> for details about Azure cloud service configuration.</source>
+          <target state="new">See <bpt id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;linkText&gt;</bpt>How to create and deploy a cloud service<ept id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;/linkText&gt;</ept><bpt id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;title&gt;</bpt><ept id="7eeeb831-2925-4f99-bf3c-d1a31ce01de1">&lt;/title&gt;</ept> for details about Azure cloud service configuration.</target>
+        </trans-unit>
+        <trans-unit id="b6255f5b-7b38-4709-bdfa-d974d1105b9d" xml:space="preserve">
+          <source>If your application runs on Azure virtual machines, or if you are building .NET applications that will run outside of Azure, save your connection string using the .NET configuration system (e.g. <bpt id="b13ed250-7969-4e9d-8d90-79abc5be8574">&lt;code&gt;</bpt>web.config<ept id="b13ed250-7969-4e9d-8d90-79abc5be8574">&lt;/code&gt;</ept> or <bpt id="36fb20f8-4208-4185-a5aa-fb2f4f8c72e6">&lt;code&gt;</bpt>app.config<ept id="36fb20f8-4208-4185-a5aa-fb2f4f8c72e6">&lt;/code&gt;</ept> file).</source>
+          <target state="new">If your application runs on Azure virtual machines, or if you are building .NET applications that will run outside of Azure, save your connection string using the .NET configuration system (e.g. <bpt id="b13ed250-7969-4e9d-8d90-79abc5be8574">&lt;code&gt;</bpt>web.config<ept id="b13ed250-7969-4e9d-8d90-79abc5be8574">&lt;/code&gt;</ept> or <bpt id="36fb20f8-4208-4185-a5aa-fb2f4f8c72e6">&lt;code&gt;</bpt>app.config<ept id="36fb20f8-4208-4185-a5aa-fb2f4f8c72e6">&lt;/code&gt;</ept> file).</target>
+        </trans-unit>
+        <trans-unit id="b07aa081-32d0-4b69-8f1d-45ff9db94414" xml:space="preserve">
+          <source>Later on in this guide, we will show how to retrieve your connection string from your code.</source>
+          <target state="new">Later on in this guide, we will show how to retrieve your connection string from your code.</target>
+        </trans-unit>
+        <trans-unit id="c6a2d409-1ad8-47a8-8127-9bfc1c034a3a" xml:space="preserve">
+          <source>Azure Cloud Services has a unique service configuration mechanism that enables you to dynamically change configuration settings from the Azure Management Portal without redeploying your application.</source>
+          <target state="new">Azure Cloud Services has a unique service configuration mechanism that enables you to dynamically change configuration settings from the Azure Management Portal without redeploying your application.</target>
+        </trans-unit>
+        <trans-unit id="0d622d71-49d5-4158-afcc-5aa226787156" xml:space="preserve">
+          <source>To configure your connection string in the Azure service configuration:</source>
+          <target state="new">To configure your connection string in the Azure service configuration:</target>
+        </trans-unit>
+        <trans-unit id="63e1df47-70fc-4c39-810b-002ea7ad5e0c" xml:space="preserve">
+          <source>Within the Solution Explorer of Visual Studio, in the <bpt id="fb5faba8-e1e2-4898-830b-f375873ab43c">&lt;strong&gt;</bpt>Roles<ept id="fb5faba8-e1e2-4898-830b-f375873ab43c">&lt;/strong&gt;</ept>
+folder of your Azure Deployment Project, right-click your
+web role or worker role and click <bpt id="4656ec12-151b-4b94-b6f2-448510f7f3c6">&lt;strong&gt;</bpt>Properties<ept id="4656ec12-151b-4b94-b6f2-448510f7f3c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the Solution Explorer of Visual Studio, in the <bpt id="fb5faba8-e1e2-4898-830b-f375873ab43c">&lt;strong&gt;</bpt>Roles<ept id="fb5faba8-e1e2-4898-830b-f375873ab43c">&lt;/strong&gt;</ept>
+folder of your Azure Deployment Project, right-click your
+web role or worker role and click <bpt id="4656ec12-151b-4b94-b6f2-448510f7f3c6">&lt;strong&gt;</bpt>Properties<ept id="4656ec12-151b-4b94-b6f2-448510f7f3c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9465e72-be85-486b-814e-8a7e8ccab85a" xml:space="preserve">
+          <source><bpt id="f50d4707-3b86-474f-af07-16e9fbe30318">&lt;linkText&gt;</bpt>Select the properties on a Cloud Service role in Visual Studio<ept id="f50d4707-3b86-474f-af07-16e9fbe30318">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f50d4707-3b86-474f-af07-16e9fbe30318">&lt;linkText&gt;</bpt>Select the properties on a Cloud Service role in Visual Studio<ept id="f50d4707-3b86-474f-af07-16e9fbe30318">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7e51ad9-9338-44ae-890a-dc9b7029c84f" xml:space="preserve">
+          <source>Click the <bpt id="e1140211-2815-4bdb-8f6f-f4d972818ae8">&lt;strong&gt;</bpt>Settings<ept id="e1140211-2815-4bdb-8f6f-f4d972818ae8">&lt;/strong&gt;</ept> tab and press the <bpt id="a994d1bb-86b5-40ac-9536-c970faf9a22d">&lt;strong&gt;</bpt>Add Setting<ept id="a994d1bb-86b5-40ac-9536-c970faf9a22d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="e1140211-2815-4bdb-8f6f-f4d972818ae8">&lt;strong&gt;</bpt>Settings<ept id="e1140211-2815-4bdb-8f6f-f4d972818ae8">&lt;/strong&gt;</ept> tab and press the <bpt id="a994d1bb-86b5-40ac-9536-c970faf9a22d">&lt;strong&gt;</bpt>Add Setting<ept id="a994d1bb-86b5-40ac-9536-c970faf9a22d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="da7e8468-1be3-4abb-8a59-78cfe00cbbeb" xml:space="preserve">
+          <source><bpt id="9cdce507-c58f-4b3b-bf83-11414bf4968d">&lt;linkText&gt;</bpt>Add a Cloud Service setting in visual Studio<ept id="9cdce507-c58f-4b3b-bf83-11414bf4968d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9cdce507-c58f-4b3b-bf83-11414bf4968d">&lt;linkText&gt;</bpt>Add a Cloud Service setting in visual Studio<ept id="9cdce507-c58f-4b3b-bf83-11414bf4968d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7c1ace2-e6f7-4bc6-a85e-3c5b8a4e0136" xml:space="preserve">
+          <source>A new <bpt id="39126340-a243-4a7b-8496-4bfedb2744d2">&lt;strong&gt;</bpt>Setting1<ept id="39126340-a243-4a7b-8496-4bfedb2744d2">&lt;/strong&gt;</ept> entry will then show up in the settings grid.</source>
+          <target state="new">A new <bpt id="39126340-a243-4a7b-8496-4bfedb2744d2">&lt;strong&gt;</bpt>Setting1<ept id="39126340-a243-4a7b-8496-4bfedb2744d2">&lt;/strong&gt;</ept> entry will then show up in the settings grid.</target>
+        </trans-unit>
+        <trans-unit id="04a69e05-c459-4bac-b935-dd9c81aed179" xml:space="preserve">
+          <source>In the <bpt id="ef71793c-69bb-4a52-a4ef-c66e74abfaa2">&lt;strong&gt;</bpt>Type<ept id="ef71793c-69bb-4a52-a4ef-c66e74abfaa2">&lt;/strong&gt;</ept> drop-down of the new <bpt id="a868ef58-bcc3-4692-9da3-0ac7b701c6ff">&lt;strong&gt;</bpt>Setting1<ept id="a868ef58-bcc3-4692-9da3-0ac7b701c6ff">&lt;/strong&gt;</ept> entry, choose
+<bpt id="c6ac46b4-811b-4242-91fd-e851c0445e98">&lt;strong&gt;</bpt>Connection String<ept id="c6ac46b4-811b-4242-91fd-e851c0445e98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ef71793c-69bb-4a52-a4ef-c66e74abfaa2">&lt;strong&gt;</bpt>Type<ept id="ef71793c-69bb-4a52-a4ef-c66e74abfaa2">&lt;/strong&gt;</ept> drop-down of the new <bpt id="a868ef58-bcc3-4692-9da3-0ac7b701c6ff">&lt;strong&gt;</bpt>Setting1<ept id="a868ef58-bcc3-4692-9da3-0ac7b701c6ff">&lt;/strong&gt;</ept> entry, choose
+<bpt id="c6ac46b4-811b-4242-91fd-e851c0445e98">&lt;strong&gt;</bpt>Connection String<ept id="c6ac46b4-811b-4242-91fd-e851c0445e98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc82d2da-5b47-4b65-ab0a-49d138458ca5" xml:space="preserve">
+          <source><bpt id="d8f48ab4-bc99-4a2f-8827-9eb08b4e92c9">&lt;linkText&gt;</bpt>Set connection string type<ept id="d8f48ab4-bc99-4a2f-8827-9eb08b4e92c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8f48ab4-bc99-4a2f-8827-9eb08b4e92c9">&lt;linkText&gt;</bpt>Set connection string type<ept id="d8f48ab4-bc99-4a2f-8827-9eb08b4e92c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53d469ee-ecca-4150-a17c-0774c9639e81" xml:space="preserve">
+          <source>Click the <bpt id="a4108ddf-70ed-49f8-9b67-24d66dcb4833">&lt;strong&gt;</bpt>...<ept id="a4108ddf-70ed-49f8-9b67-24d66dcb4833">&lt;/strong&gt;</ept> button at the right end of the <bpt id="aa3199ba-0c5a-4085-95b5-5a5e8aa0935b">&lt;strong&gt;</bpt>Setting1<ept id="aa3199ba-0c5a-4085-95b5-5a5e8aa0935b">&lt;/strong&gt;</ept> entry.</source>
+          <target state="new">Click the <bpt id="a4108ddf-70ed-49f8-9b67-24d66dcb4833">&lt;strong&gt;</bpt>...<ept id="a4108ddf-70ed-49f8-9b67-24d66dcb4833">&lt;/strong&gt;</ept> button at the right end of the <bpt id="aa3199ba-0c5a-4085-95b5-5a5e8aa0935b">&lt;strong&gt;</bpt>Setting1<ept id="aa3199ba-0c5a-4085-95b5-5a5e8aa0935b">&lt;/strong&gt;</ept> entry.</target>
+        </trans-unit>
+        <trans-unit id="ee31bf4d-1fc0-4e86-9dcc-9b6d6de3d731" xml:space="preserve">
+          <source>The <bpt id="5a54361e-8f84-40a8-bb7e-f78aa534ec9b">&lt;strong&gt;</bpt>Storage Account Connection String<ept id="5a54361e-8f84-40a8-bb7e-f78aa534ec9b">&lt;/strong&gt;</ept> dialog will open.</source>
+          <target state="new">The <bpt id="5a54361e-8f84-40a8-bb7e-f78aa534ec9b">&lt;strong&gt;</bpt>Storage Account Connection String<ept id="5a54361e-8f84-40a8-bb7e-f78aa534ec9b">&lt;/strong&gt;</ept> dialog will open.</target>
+        </trans-unit>
+        <trans-unit id="a35c1574-6b8e-4abe-a08c-e5430d78c379" xml:space="preserve">
+          <source>Choose whether you want to target the storage emulator (Microsoft
+Azure storage simulated on your local machine) or a storage
+account in the cloud.</source>
+          <target state="new">Choose whether you want to target the storage emulator (Microsoft
+Azure storage simulated on your local machine) or a storage
+account in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="b54337ff-bf72-484e-80a2-b0f01bb4b16a" xml:space="preserve">
+          <source>The code in this guide works with either
+option.</source>
+          <target state="new">The code in this guide works with either
+option.</target>
+        </trans-unit>
+        <trans-unit id="99263122-2f4e-4200-85f5-6b5b707ef722" xml:space="preserve">
+          <source>You can target the storage emulator to avoid incurring any costs associated with Azure Storage.</source>
+          <target state="new">You can target the storage emulator to avoid incurring any costs associated with Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="56265835-6cac-4b8b-908a-9191da513824" xml:space="preserve">
+          <source>However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.</source>
+          <target state="new">However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.</target>
+        </trans-unit>
+        <trans-unit id="88c66f2d-75ed-41d9-b8e2-57701b22a763" xml:space="preserve">
+          <source>If you are targeting a storage account in the cloud, then enter the primary access key for that storage account.</source>
+          <target state="new">If you are targeting a storage account in the cloud, then enter the primary access key for that storage account.</target>
+        </trans-unit>
+        <trans-unit id="cbc36007-67a4-4a2d-856e-1f12c7a82d02" xml:space="preserve">
+          <source>To learn how to copy your primary access key via the Azure Management Portal, see <bpt id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;linkText&gt;</bpt>View, copy, and regenerate storage access keys<ept id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;/linkText&gt;</ept><bpt id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;title&gt;</bpt><ept id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to copy your primary access key via the Azure Management Portal, see <bpt id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;linkText&gt;</bpt>View, copy, and regenerate storage access keys<ept id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;/linkText&gt;</ept><bpt id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;title&gt;</bpt><ept id="be1680d4-bc50-4fba-852e-02fd6adf182a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="559fb618-4453-4ffe-9e70-fbb448d38fb3" xml:space="preserve">
+          <source>Your storage account key is similar to the root password for your storage account.</source>
+          <target state="new">Your storage account key is similar to the root password for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="d2eab323-0bee-441d-858e-f189960a82f9" xml:space="preserve">
+          <source>Be sure to protect your key.</source>
+          <target state="new">Be sure to protect your key.</target>
+        </trans-unit>
+        <trans-unit id="7eb97fea-232e-466a-b6df-b931eab687ab" xml:space="preserve">
+          <source>Avoid distributing it to other users or saving it in a plain-text file that is accessible to others.</source>
+          <target state="new">Avoid distributing it to other users or saving it in a plain-text file that is accessible to others.</target>
+        </trans-unit>
+        <trans-unit id="4dffbca3-0dd3-4630-893c-f04373896a97" xml:space="preserve">
+          <source>Regenerate your key using the Management Portal if you believe it may have been compromised.</source>
+          <target state="new">Regenerate your key using the Management Portal if you believe it may have been compromised.</target>
+        </trans-unit>
+        <trans-unit id="e3a3eb89-8254-40ed-856d-1d4b4fe9246e" xml:space="preserve">
+          <source><bpt id="6bfde6de-5c11-4e2a-b9e6-a6739be5f818">&lt;linkText&gt;</bpt>Select target environment<ept id="6bfde6de-5c11-4e2a-b9e6-a6739be5f818">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bfde6de-5c11-4e2a-b9e6-a6739be5f818">&lt;linkText&gt;</bpt>Select target environment<ept id="6bfde6de-5c11-4e2a-b9e6-a6739be5f818">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bd6438f-fc44-4611-b1b8-614b113cfe9a" xml:space="preserve">
+          <source>Change the entry <bpt id="2d15297e-ab84-4e74-b7d5-c4642ec98eef">&lt;strong&gt;</bpt>Name<ept id="2d15297e-ab84-4e74-b7d5-c4642ec98eef">&lt;/strong&gt;</ept> from <bpt id="a7b48a36-6054-4191-81b8-03188f2e5fe8">&lt;strong&gt;</bpt>Setting1<ept id="a7b48a36-6054-4191-81b8-03188f2e5fe8">&lt;/strong&gt;</ept> to a friendlier name
+like <bpt id="c4b6b4bd-8c84-40a2-a176-41bc5722b5c4">&lt;strong&gt;</bpt>StorageConnectionString<ept id="c4b6b4bd-8c84-40a2-a176-41bc5722b5c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Change the entry <bpt id="2d15297e-ab84-4e74-b7d5-c4642ec98eef">&lt;strong&gt;</bpt>Name<ept id="2d15297e-ab84-4e74-b7d5-c4642ec98eef">&lt;/strong&gt;</ept> from <bpt id="a7b48a36-6054-4191-81b8-03188f2e5fe8">&lt;strong&gt;</bpt>Setting1<ept id="a7b48a36-6054-4191-81b8-03188f2e5fe8">&lt;/strong&gt;</ept> to a friendlier name
+like <bpt id="c4b6b4bd-8c84-40a2-a176-41bc5722b5c4">&lt;strong&gt;</bpt>StorageConnectionString<ept id="c4b6b4bd-8c84-40a2-a176-41bc5722b5c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86e84976-7d49-4108-96ae-635531da293f" xml:space="preserve">
+          <source>You will reference this
+connection string later in the code in this guide.</source>
+          <target state="new">You will reference this
+connection string later in the code in this guide.</target>
+        </trans-unit>
+        <trans-unit id="9d6e74d1-9b26-474d-9900-0a3ec5402af6" xml:space="preserve">
+          <source><bpt id="28c54420-2c9e-4dc7-b49d-0d0df190c415">&lt;linkText&gt;</bpt>Change connection string name<ept id="28c54420-2c9e-4dc7-b49d-0d0df190c415">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28c54420-2c9e-4dc7-b49d-0d0df190c415">&lt;linkText&gt;</bpt>Change connection string name<ept id="28c54420-2c9e-4dc7-b49d-0d0df190c415">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c127adf-2230-44a9-afd8-44e73486fed9" xml:space="preserve">
+          <source>If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. <bpt id="a37c3883-239b-4d85-adf0-dd8df1090aef">&lt;code&gt;</bpt>web.config<ept id="a37c3883-239b-4d85-adf0-dd8df1090aef">&lt;/code&gt;</ept> or <bpt id="1e4414cc-f835-40a8-9615-132b83cc24a4">&lt;code&gt;</bpt>app.config<ept id="1e4414cc-f835-40a8-9615-132b83cc24a4">&lt;/code&gt;</ept>). This includes Azure Websites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the <bpt id="9f767366-37d5-4ef3-8538-e42e648dc607">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="9f767366-37d5-4ef3-8538-e42e648dc607">&lt;/code&gt;</ept> element as follows. Replace <bpt id="68207803-dc4f-4553-985f-517853dfd766">&lt;code&gt;</bpt>account-name<ept id="68207803-dc4f-4553-985f-517853dfd766">&lt;/code&gt;</ept> with the name of your storage account, and <bpt id="2f0a0701-5b0a-47dc-9b5b-e189cbf9293a">&lt;code&gt;</bpt>account-key<ept id="2f0a0701-5b0a-47dc-9b5b-e189cbf9293a">&lt;/code&gt;</ept> with your account access key:</source>
+          <target state="new">If you are writing an application that is not an Azure cloud service, (see previous section), it is recommended you use the .NET configuration system (e.g. <bpt id="a37c3883-239b-4d85-adf0-dd8df1090aef">&lt;code&gt;</bpt>web.config<ept id="a37c3883-239b-4d85-adf0-dd8df1090aef">&lt;/code&gt;</ept> or <bpt id="1e4414cc-f835-40a8-9615-132b83cc24a4">&lt;code&gt;</bpt>app.config<ept id="1e4414cc-f835-40a8-9615-132b83cc24a4">&lt;/code&gt;</ept>). This includes Azure Websites or Azure Virtual Machines, as well as applications designed to run outside of Azure. You store the connection string using the <bpt id="9f767366-37d5-4ef3-8538-e42e648dc607">&lt;code&gt;</bpt>&lt;appSettings&gt;<ept id="9f767366-37d5-4ef3-8538-e42e648dc607">&lt;/code&gt;</ept> element as follows. Replace <bpt id="68207803-dc4f-4553-985f-517853dfd766">&lt;code&gt;</bpt>account-name<ept id="68207803-dc4f-4553-985f-517853dfd766">&lt;/code&gt;</ept> with the name of your storage account, and <bpt id="2f0a0701-5b0a-47dc-9b5b-e189cbf9293a">&lt;code&gt;</bpt>account-key<ept id="2f0a0701-5b0a-47dc-9b5b-e189cbf9293a">&lt;/code&gt;</ept> with your account access key:</target>
+        </trans-unit>
+        <trans-unit id="398a048a-c50e-40a3-aba9-fd6241660b53" xml:space="preserve">
+          <source>For example, the configuration setting in your config file may be similar to:</source>
+          <target state="new">For example, the configuration setting in your config file may be similar to:</target>
+        </trans-unit>
+        <trans-unit id="bfe29ef7-669a-4f40-bdc8-f244645dcc54" xml:space="preserve">
+          <source>You are now ready to perform the how-to tasks in this guide.</source>
+          <target state="new">You are now ready to perform the how-to tasks in this guide.</target>
+        </trans-unit>
+        <trans-unit id="0d57ab8a-879e-42be-9969-0f39350cd97b" xml:space="preserve">
+          <source>./media/storage-configure-connection-string-include/connection-string1.png</source>
+          <target state="new">./media/storage-configure-connection-string-include/connection-string1.png</target>
+        </trans-unit>
+        <trans-unit id="026e08ab-ae44-42f3-b715-b2457b0dddb3" xml:space="preserve">
+          <source>./media/storage-configure-connection-string-include/connection-string2.png</source>
+          <target state="new">./media/storage-configure-connection-string-include/connection-string2.png</target>
+        </trans-unit>
+        <trans-unit id="845c416f-b3bd-4756-99be-a7dd1f9ddb60" xml:space="preserve">
+          <source>./media/storage-configure-connection-string-include/connection-string3.png</source>
+          <target state="new">./media/storage-configure-connection-string-include/connection-string3.png</target>
+        </trans-unit>
+        <trans-unit id="d0c6c864-cadc-40d7-8101-3298b4f5e2b0" xml:space="preserve">
+          <source>./media/storage-configure-connection-string-include/connection-string4.png</source>
+          <target state="new">./media/storage-configure-connection-string-include/connection-string4.png</target>
+        </trans-unit>
+        <trans-unit id="c51f4152-a1bb-41f9-99ed-f83e83be717b" xml:space="preserve">
+          <source>./media/storage-configure-connection-string-include/connection-string5.png</source>
+          <target state="new">./media/storage-configure-connection-string-include/connection-string5.png</target>
+        </trans-unit>
+        <trans-unit id="c12c5f03-8fe0-4fe3-86bf-5efbb2e071b5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/ee758697.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/ee758697.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="46e5be14-f60d-42c7-a3f7-c9fe30097fef" />
+    </body>
+  </file>
+</xliff>

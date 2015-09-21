@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="40d095ef-bdbe-40b6-bd03-ffadf3ce6237" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="40d095ef-bdbe-40b6-bd03-ffadf3ce6237" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ea66c921-1cfc-473f-8a40-8b84698924ff">
+        <trans-unit id="ac8c8e84-fe04-4016-8c8d-cb02a4db74ef" xml:space="preserve">
+          <source>Guest OS family 1 retirement notice | Microsoft Azure</source>
+          <target state="new">Guest OS family 1 retirement notice | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3643dd79-a452-453e-b7ca-34ad67f8af61" xml:space="preserve">
+          <source>Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected</source>
+          <target state="new">Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected</target>
+        </trans-unit>
+        <trans-unit id="e75bb9cc-876e-4137-af7b-371b0e2d1039" xml:space="preserve">
+          <source>The retirement of OS Family 1 was first announced on June 1, 2013.</source>
+          <target state="new">The retirement of OS Family 1 was first announced on June 1, 2013.</target>
+        </trans-unit>
+        <trans-unit id="16b44d42-c783-4a84-8277-a171db3cb41c" xml:space="preserve">
+          <source><bpt id="937a6d2a-aa5e-4ff8-b6ae-5b7826ca6676">&lt;strong&gt;</bpt>Sept 2, 2014<ept id="937a6d2a-aa5e-4ff8-b6ae-5b7826ca6676">&lt;/strong&gt;</ept> The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired.</source>
+          <target state="new"><bpt id="937a6d2a-aa5e-4ff8-b6ae-5b7826ca6676">&lt;strong&gt;</bpt>Sept 2, 2014<ept id="937a6d2a-aa5e-4ff8-b6ae-5b7826ca6676">&lt;/strong&gt;</ept> The Azure Guest operating system (Guest OS) Family 1.x, which is based on the Windows Server 2008 operating system, was officially retired.</target>
+        </trans-unit>
+        <trans-unit id="d17d3dab-5d1d-447c-a2c8-f928783270ef" xml:space="preserve">
+          <source>All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.</source>
+          <target state="new">All attempts to deploy new services or upgrade existing services using Family 1 will fail with an error message informing you that the Guest OS Family 1 has been retired.</target>
+        </trans-unit>
+        <trans-unit id="79e822db-a986-48a2-b56b-2e8e19df3c99" xml:space="preserve">
+          <source><bpt id="0f5d718d-eab6-4486-a64b-5ad135457a22">&lt;strong&gt;</bpt>November 3, 2014<ept id="0f5d718d-eab6-4486-a64b-5ad135457a22">&lt;/strong&gt;</ept> Extended support for Guest OS Family 1 ended and it is fully retired.</source>
+          <target state="new"><bpt id="0f5d718d-eab6-4486-a64b-5ad135457a22">&lt;strong&gt;</bpt>November 3, 2014<ept id="0f5d718d-eab6-4486-a64b-5ad135457a22">&lt;/strong&gt;</ept> Extended support for Guest OS Family 1 ended and it is fully retired.</target>
+        </trans-unit>
+        <trans-unit id="6726843d-3164-42ea-87af-ae371def8e1b" xml:space="preserve">
+          <source>All services still on Family 1 will be impacted.</source>
+          <target state="new">All services still on Family 1 will be impacted.</target>
+        </trans-unit>
+        <trans-unit id="abdeac6d-74db-489e-a5b6-f4ec9a03a033" xml:space="preserve">
+          <source>We may stop those services at any time.</source>
+          <target state="new">We may stop those services at any time.</target>
+        </trans-unit>
+        <trans-unit id="3f32ceff-75fa-4efb-944a-173221213d36" xml:space="preserve">
+          <source>There is no guarantee your services will continue to run unless you manually upgrade them yourself.</source>
+          <target state="new">There is no guarantee your services will continue to run unless you manually upgrade them yourself.</target>
+        </trans-unit>
+        <trans-unit id="abd6081a-b28b-46b3-a0b3-40d1957f2d53" xml:space="preserve">
+          <source>If you have additional questions, please visit the <bpt id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;linkText&gt;</bpt>Cloud Services Forums<ept id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;/linkText&gt;</ept><bpt id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;title&gt;</bpt><ept id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;/title&gt;</ept> or <bpt id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;linkText&gt;</bpt>contact Azure support<ept id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;/linkText&gt;</ept><bpt id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;title&gt;</bpt><ept id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have additional questions, please visit the <bpt id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;linkText&gt;</bpt>Cloud Services Forums<ept id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;/linkText&gt;</ept><bpt id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;title&gt;</bpt><ept id="8e441c60-7868-4081-8e10-21709e03f84d">&lt;/title&gt;</ept> or <bpt id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;linkText&gt;</bpt>contact Azure support<ept id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;/linkText&gt;</ept><bpt id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;title&gt;</bpt><ept id="3e9b88c7-973b-491e-a1a8-f356617979ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42a71869-882c-4911-9304-25db0b83dfca" xml:space="preserve">
+          <source>Your Cloud Services are affected if any one of the following applies:</source>
+          <target state="new">Your Cloud Services are affected if any one of the following applies:</target>
+        </trans-unit>
+        <trans-unit id="d0fe299b-5444-4cda-bafd-59a9911b983f" xml:space="preserve">
+          <source>You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.</source>
+          <target state="new">You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="36f4a606-69e3-4fa2-b0bb-745e8b07c936" xml:space="preserve">
+          <source>You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.</source>
+          <target state="new">You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service.</target>
+        </trans-unit>
+        <trans-unit id="1df19aea-b203-4ead-849f-77f37e8616e3" xml:space="preserve">
+          <source>Currently, the system uses the default value of "1" in this case.</source>
+          <target state="new">Currently, the system uses the default value of "1" in this case.</target>
+        </trans-unit>
+        <trans-unit id="df169bae-3cf8-48d1-93a5-b11eadaf2d39" xml:space="preserve">
+          <source>The Azure Management Portal lists your Guest Operating System family value as "Windows Server 2008".</source>
+          <target state="new">The Azure Management Portal lists your Guest Operating System family value as "Windows Server 2008".</target>
+        </trans-unit>
+        <trans-unit id="94ecadb2-b780-4a1e-abf8-d0b8d3140145" xml:space="preserve">
+          <source>See <bpt id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;linkText&gt;</bpt>this<ept id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;/linkText&gt;</ept><bpt id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;title&gt;</bpt><ept id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;/title&gt;</ept> to locate this value.</source>
+          <target state="new">See <bpt id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;linkText&gt;</bpt>this<ept id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;/linkText&gt;</ept><bpt id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;title&gt;</bpt><ept id="ea70616e-52d8-4f72-8e42-95d4a395f7f1">&lt;/title&gt;</ept> to locate this value.</target>
+        </trans-unit>
+        <trans-unit id="9c373abb-3985-468f-9a89-f97c81ee1688" xml:space="preserve">
+          <source>To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must <bpt id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;linkText&gt;</bpt>set up Azure PowerShell<ept id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;/linkText&gt;</ept><bpt id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;title&gt;</bpt><ept id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;/title&gt;</ept> first.</source>
+          <target state="new">To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must <bpt id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;linkText&gt;</bpt>set up Azure PowerShell<ept id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;/linkText&gt;</ept><bpt id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;title&gt;</bpt><ept id="ad31d92e-701b-4463-bb5e-ada54f7fb3a9">&lt;/title&gt;</ept> first.</target>
+        </trans-unit>
+        <trans-unit id="067e6f24-11cd-43a4-af01-73c7338a9bf5" xml:space="preserve">
+          <source>For additional details on the script, see <bpt id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;linkText&gt;</bpt>Azure Guest OS Family 1 End of Life: June 2014<ept id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;/linkText&gt;</ept><bpt id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;title&gt;</bpt><ept id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional details on the script, see <bpt id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;linkText&gt;</bpt>Azure Guest OS Family 1 End of Life: June 2014<ept id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;/linkText&gt;</ept><bpt id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;title&gt;</bpt><ept id="d5867472-2ae1-4aa5-be7b-12b3e7f32f7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b032e64b-0898-41b6-a1fe-db798634cf62" xml:space="preserve">
+          <source>Your cloud services will be impacted by OS Family 1 retirement if the osFamily column in the script output is empty or contains a "1".</source>
+          <target state="new">Your cloud services will be impacted by OS Family 1 retirement if the osFamily column in the script output is empty or contains a "1".</target>
+        </trans-unit>
+        <trans-unit id="a548599d-4981-47dd-a89f-48989c61db88" xml:space="preserve">
+          <source>We recommend you migrate your Cloud Service roles to one of the supported Guest OS Families:</source>
+          <target state="new">We recommend you migrate your Cloud Service roles to one of the supported Guest OS Families:</target>
+        </trans-unit>
+        <trans-unit id="1f3e6c1c-c20f-4535-8449-a84d31151d96" xml:space="preserve">
+          <source><bpt id="79b1e629-0da6-4d2d-8335-38c0a126a442">&lt;strong&gt;</bpt>Guest OS family 4.x<ept id="79b1e629-0da6-4d2d-8335-38c0a126a442">&lt;/strong&gt;</ept> - Windows Server 2012 R2 <bpt id="3a6fe2e5-bf5f-4a8a-8472-73609d4878e2">&lt;em&gt;</bpt>(recommended)<ept id="3a6fe2e5-bf5f-4a8a-8472-73609d4878e2">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="79b1e629-0da6-4d2d-8335-38c0a126a442">&lt;strong&gt;</bpt>Guest OS family 4.x<ept id="79b1e629-0da6-4d2d-8335-38c0a126a442">&lt;/strong&gt;</ept> - Windows Server 2012 R2 <bpt id="3a6fe2e5-bf5f-4a8a-8472-73609d4878e2">&lt;em&gt;</bpt>(recommended)<ept id="3a6fe2e5-bf5f-4a8a-8472-73609d4878e2">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82a98fe9-c990-4113-acc1-57e110c69c4f" xml:space="preserve">
+          <source>Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.</source>
+          <target state="new">Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.</target>
+        </trans-unit>
+        <trans-unit id="8ce5ac96-0bf8-44b5-b86b-991072502d51" xml:space="preserve">
+          <source>Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</source>
+          <target state="new">Set the osFamily attribute to “4” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="de289817-7b83-468f-a945-cb5bb16e1ccd" xml:space="preserve">
+          <source><bpt id="c84ce36b-1634-433d-9797-e25e82c9fc3e">&lt;strong&gt;</bpt>Guest OS family 3.x<ept id="c84ce36b-1634-433d-9797-e25e82c9fc3e">&lt;/strong&gt;</ept> - Windows Server 2012</source>
+          <target state="new"><bpt id="c84ce36b-1634-433d-9797-e25e82c9fc3e">&lt;strong&gt;</bpt>Guest OS family 3.x<ept id="c84ce36b-1634-433d-9797-e25e82c9fc3e">&lt;/strong&gt;</ept> - Windows Server 2012</target>
+        </trans-unit>
+        <trans-unit id="f41ca9b6-0725-40c3-8480-1a473ced75d9" xml:space="preserve">
+          <source>Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.</source>
+          <target state="new">Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5.</target>
+        </trans-unit>
+        <trans-unit id="4e7b0137-bf1a-4282-9790-f15aea7a2eed" xml:space="preserve">
+          <source>Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</source>
+          <target state="new">Set the osFamily attribute to “3” in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="444ec49b-9c8d-4d68-b544-42e7b7a3f9c8" xml:space="preserve">
+          <source><bpt id="5fcb2cd5-97f1-45c4-a05d-7e704bd693b7">&lt;strong&gt;</bpt>Guest OS family 2.x<ept id="5fcb2cd5-97f1-45c4-a05d-7e704bd693b7">&lt;/strong&gt;</ept> - Windows Server 2008 R2</source>
+          <target state="new"><bpt id="5fcb2cd5-97f1-45c4-a05d-7e704bd693b7">&lt;strong&gt;</bpt>Guest OS family 2.x<ept id="5fcb2cd5-97f1-45c4-a05d-7e704bd693b7">&lt;/strong&gt;</ept> - Windows Server 2008 R2</target>
+        </trans-unit>
+        <trans-unit id="a0157239-a584-4183-8958-3ae5bf3a3f1b" xml:space="preserve">
+          <source>Ensure that your application is using SDK 1.3 and above with .NET framework 3.5 or 4.0.</source>
+          <target state="new">Ensure that your application is using SDK 1.3 and above with .NET framework 3.5 or 4.0.</target>
+        </trans-unit>
+        <trans-unit id="555e8cc7-8e74-4fc3-b961-410ec39b6675" xml:space="preserve">
+          <source>Set the osFamily attribute to "2" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</source>
+          <target state="new">Set the osFamily attribute to "2" in the ServiceConfiguration.cscfg file, and redeploy your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="4b869862-5164-4589-aa8b-7b420e2f4c09" xml:space="preserve">
+          <source>Cloud services on Guest OS family 1 are no longer supported.</source>
+          <target state="new">Cloud services on Guest OS family 1 are no longer supported.</target>
+        </trans-unit>
+        <trans-unit id="decf393a-1231-4581-8166-48b7a8305d6e" xml:space="preserve">
+          <source>Please migrate off family 1 as soon as possible to avoid service disruption.</source>
+          <target state="new">Please migrate off family 1 as soon as possible to avoid service disruption.</target>
+        </trans-unit>
+        <trans-unit id="70c7d406-273f-4d4f-9c9f-998b409154a3" xml:space="preserve">
+          <source>Review the latest <bpt id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;linkText&gt;</bpt>Guest OS releases<ept id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;/linkText&gt;</ept><bpt id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;title&gt;</bpt><ept id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;/title&gt;</ept>.</source>
+          <target state="new">Review the latest <bpt id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;linkText&gt;</bpt>Guest OS releases<ept id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;/linkText&gt;</ept><bpt id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;title&gt;</bpt><ept id="bae0191e-a704-4eed-88ad-abad409c6552">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

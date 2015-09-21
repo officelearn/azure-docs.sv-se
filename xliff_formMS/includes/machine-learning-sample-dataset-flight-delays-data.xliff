@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="14a7a719-6133-4bc8-ba14-58f61dcc49cb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="14a7a719-6133-4bc8-ba14-58f61dcc49cb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8d7cba9e-c4fb-4c1d-9b65-7cff31684f14">
+        <trans-unit id="653dfcd1-a2b8-498d-8737-3bf7c6c789df" xml:space="preserve">
+          <source>Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (&lt;a href="http://www.transtats.bts.gov/DL<bpt id="6810f77c-0ac6-441e-99ea-7e15f405c446">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="6810f77c-0ac6-441e-99ea-7e15f405c446">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="0a670d33-d79c-44f0-ba2a-6943d7541040">&lt;em&gt;</bpt>Short<ept id="0a670d33-d79c-44f0-ba2a-6943d7541040">&lt;/em&gt;</ept>Name=On-Time"&gt;On-Time&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The dataset covers the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;The dataset was filtered to cover only the 70 busiest airports in the continental US&lt;/li&gt;&lt;li&gt;Cancelled flights were labeled as delayed by more than 15 minutes&lt;/li&gt;&lt;li&gt;Diverted flights were filtered out&lt;/li&gt;&lt;li&gt;The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (&lt;a href="http://www.transtats.bts.gov/DL<bpt id="6810f77c-0ac6-441e-99ea-7e15f405c446">&lt;em&gt;</bpt>SelectFields.asp?Table<ept id="6810f77c-0ac6-441e-99ea-7e15f405c446">&lt;/em&gt;</ept>ID=236&amp;DB<bpt id="0a670d33-d79c-44f0-ba2a-6943d7541040">&lt;em&gt;</bpt>Short<ept id="0a670d33-d79c-44f0-ba2a-6943d7541040">&lt;/em&gt;</ept>Name=On-Time"&gt;On-Time&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The dataset covers the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;The dataset was filtered to cover only the 70 busiest airports in the continental US&lt;/li&gt;&lt;li&gt;Cancelled flights were labeled as delayed by more than 15 minutes&lt;/li&gt;&lt;li&gt;Diverted flights were filtered out&lt;/li&gt;&lt;li&gt;The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

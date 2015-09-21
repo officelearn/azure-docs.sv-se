@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="488b4473-5c42-4088-a1fb-fc153f8b897f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="488b4473-5c42-4088-a1fb-fc153f8b897f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="947713b0-61b3-4e76-b224-edca09a14faf">
+        <trans-unit id="0bcb9b79-149d-40a5-b897-9abf5218203e" xml:space="preserve">
+          <source>Detach a disk from a Linux virtual machine in Azure</source>
+          <target state="new">Detach a disk from a Linux virtual machine in Azure</target>
+        </trans-unit>
+        <trans-unit id="214644b0-f292-48cb-ab93-af82817c3fe4" xml:space="preserve">
+          <source>Learn to detach a data disk from an Azure virtual machine created using the classic deployment model.</source>
+          <target state="new">Learn to detach a data disk from an Azure virtual machine created using the classic deployment model.</target>
+        </trans-unit>
+        <trans-unit id="79c17903-3fc3-481d-91d6-94fba0269238" xml:space="preserve">
+          <source><bpt id="55ed731d-e658-4f55-a726-fcdd3e4788eb">&lt;token href="../../includes/howto-detach-disk-linux.md"&gt;</bpt><ept id="55ed731d-e658-4f55-a726-fcdd3e4788eb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="55ed731d-e658-4f55-a726-fcdd3e4788eb">&lt;token href="../../includes/howto-detach-disk-linux.md"&gt;</bpt><ept id="55ed731d-e658-4f55-a726-fcdd3e4788eb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a778324-e1de-46d6-8f86-e6f8cbe5345a" xml:space="preserve">
+          <source><bpt id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;linkText&gt;</bpt>How to Attach a Data Disk to a Linux Virtual Machine<ept id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;/linkText&gt;</ept><bpt id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;title&gt;</bpt><ept id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;linkText&gt;</bpt>How to Attach a Data Disk to a Linux Virtual Machine<ept id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;/linkText&gt;</ept><bpt id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;title&gt;</bpt><ept id="ce26a6bb-0e04-43df-ab48-cdbb47399504">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72b0862b-7492-43d2-a080-d3f7adb0d484" xml:space="preserve">
+          <source><bpt id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;linkText&gt;</bpt>Using the Azure CLI with the Service Management API<ept id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;/linkText&gt;</ept><bpt id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;title&gt;</bpt><ept id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;linkText&gt;</bpt>Using the Azure CLI with the Service Management API<ept id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;/linkText&gt;</ept><bpt id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;title&gt;</bpt><ept id="de46bb5e-8372-4ec9-89f4-9bbdd544b9a5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

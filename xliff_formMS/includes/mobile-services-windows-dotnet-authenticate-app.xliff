@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="062bad12-fc64-4beb-af36-442457fba3e5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="062bad12-fc64-4beb-af36-442457fba3e5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f071b631-39f7-4ecb-a330-25fe029c366a">
+        <trans-unit id="e0b5c559-4935-4e39-8429-04982eec6698" xml:space="preserve">
+          <source>Open the project file MainPage.xaml.cs and add the following using statement:</source>
+          <target state="new">Open the project file MainPage.xaml.cs and add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="92e53c3c-fc9f-4b7a-932b-f519cc68f6f7" xml:space="preserve">
+          <source>Add the following code snippet to the MainPage class:</source>
+          <target state="new">Add the following code snippet to the MainPage class:</target>
+        </trans-unit>
+        <trans-unit id="e5672e10-f55a-430a-9cf0-f0e5878bbc04" xml:space="preserve">
+          <source>This creates a member variable for storing the current user and a method to handle the authentication process.</source>
+          <target state="new">This creates a member variable for storing the current user and a method to handle the authentication process.</target>
+        </trans-unit>
+        <trans-unit id="5d146978-1caa-4410-8434-92eca572ff5e" xml:space="preserve">
+          <source>The user is authenticated by using a Facebook login.</source>
+          <target state="new">The user is authenticated by using a Facebook login.</target>
+        </trans-unit>
+        <trans-unit id="5077d58c-693e-4c9f-9870-627d28d8fc02" xml:space="preserve">
+          <source>If you are using an identity provider other than Facebook, change the value of <bpt id="dd4a8ead-a7e4-4f21-81f1-3e315e366527">&lt;strong&gt;</bpt>MobileServiceAuthenticationProvider<ept id="dd4a8ead-a7e4-4f21-81f1-3e315e366527">&lt;/strong&gt;</ept> above to the value for your provider.</source>
+          <target state="new">If you are using an identity provider other than Facebook, change the value of <bpt id="dd4a8ead-a7e4-4f21-81f1-3e315e366527">&lt;strong&gt;</bpt>MobileServiceAuthenticationProvider<ept id="dd4a8ead-a7e4-4f21-81f1-3e315e366527">&lt;/strong&gt;</ept> above to the value for your provider.</target>
+        </trans-unit>
+        <trans-unit id="30bbdac1-5d58-40a2-92dd-2a70c344c0f9" xml:space="preserve">
+          <source>Replace the existing <bpt id="686683ae-b270-4916-8a6f-a113114a7036">&lt;strong&gt;</bpt>OnNavigatedTo<ept id="686683ae-b270-4916-8a6f-a113114a7036">&lt;/strong&gt;</ept> method override with the following method that calls the new <bpt id="c04d98c9-923f-458a-a223-6290f8fc05c2">&lt;strong&gt;</bpt>Authenticate<ept id="c04d98c9-923f-458a-a223-6290f8fc05c2">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Replace the existing <bpt id="686683ae-b270-4916-8a6f-a113114a7036">&lt;strong&gt;</bpt>OnNavigatedTo<ept id="686683ae-b270-4916-8a6f-a113114a7036">&lt;/strong&gt;</ept> method override with the following method that calls the new <bpt id="c04d98c9-923f-458a-a223-6290f8fc05c2">&lt;strong&gt;</bpt>Authenticate<ept id="c04d98c9-923f-458a-a223-6290f8fc05c2">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="05f8cae1-22e4-46ad-8ae8-d7aee8264746" xml:space="preserve">
+          <source>Press the F5 key to run the app and sign into the app with your chosen identity provider.</source>
+          <target state="new">Press the F5 key to run the app and sign into the app with your chosen identity provider.</target>
+        </trans-unit>
+        <trans-unit id="18babdff-6307-4679-a67c-9f84729dbd7d" xml:space="preserve">
+          <source>When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</source>
+          <target state="new">When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

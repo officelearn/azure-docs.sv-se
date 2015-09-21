@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3ebac994-d556-4d86-a75f-5c70cea9e591" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3ebac994-d556-4d86-a75f-5c70cea9e591" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e648168d-0c48-4a93-9e09-e15b51131341">
+        <trans-unit id="13b60b78-1e89-4595-a29e-af287f8d1819" xml:space="preserve">
+          <source>Global Load Balanced Web Tier (Azure Architecture Patterns)</source>
+          <target state="new">Global Load Balanced Web Tier (Azure Architecture Patterns)</target>
+        </trans-unit>
+        <trans-unit id="8ce70c1d-1fbc-4e00-bb82-61cbc2c07e6b" xml:space="preserve">
+          <source>The Global Load Balanced Web Tier pattern is part of the Foundation area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The Global Load Balanced Web Tier pattern is part of the Foundation area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="7aebc7ea-1f2c-4048-8d53-25f219fd0048" xml:space="preserve">
+          <source>The <bpt id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;/linkText&gt;</ept><bpt id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;title&gt;</bpt><ept id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</source>
+          <target state="new">The <bpt id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;/linkText&gt;</ept><bpt id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;title&gt;</bpt><ept id="8a0ae817-2ac9-46ac-a6e1-2ae22701c270">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</target>
+        </trans-unit>
+        <trans-unit id="56fbbff4-8968-4dd6-8a0e-a81974bf6283" xml:space="preserve">
+          <source>CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</source>
+          <target state="new">CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="d2b43be6-abc3-439b-abb0-7d64917581de" xml:space="preserve">
+          <source>The <bpt id="a5341cc6-a247-4675-a847-4666b57de32e">&lt;strong&gt;</bpt>Global Load Balanced Web Tier<ept id="a5341cc6-a247-4675-a847-4666b57de32e">&lt;/strong&gt;</ept> pattern is part of the <bpt id="deeb4dae-5a4f-4e2a-be07-97367e538548">&lt;strong&gt;</bpt>Foundation<ept id="deeb4dae-5a4f-4e2a-be07-97367e538548">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The <bpt id="a5341cc6-a247-4675-a847-4666b57de32e">&lt;strong&gt;</bpt>Global Load Balanced Web Tier<ept id="a5341cc6-a247-4675-a847-4666b57de32e">&lt;/strong&gt;</ept> pattern is part of the <bpt id="deeb4dae-5a4f-4e2a-be07-97367e538548">&lt;strong&gt;</bpt>Foundation<ept id="deeb4dae-5a4f-4e2a-be07-97367e538548">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="52c7e08e-fff5-46c8-9e07-e06cfd8bb35e" xml:space="preserve">
+          <source>The Global Load Balanced Web Tier design pattern details the Azure features and services required to deliver web tier services that can provide predictable performance and high availability across geographic boundaries.</source>
+          <target state="new">The Global Load Balanced Web Tier design pattern details the Azure features and services required to deliver web tier services that can provide predictable performance and high availability across geographic boundaries.</target>
+        </trans-unit>
+        <trans-unit id="7d31fdaa-0dd0-4ef1-b57d-9a2fcd87ffd4" xml:space="preserve">
+          <source>For the purposes of this design pattern a web tier is defined as a tier of service providing traditional HTTP/HTTPS content or application services in either an isolated manner or as part of a multi-tiered web application.</source>
+          <target state="new">For the purposes of this design pattern a web tier is defined as a tier of service providing traditional HTTP/HTTPS content or application services in either an isolated manner or as part of a multi-tiered web application.</target>
+        </trans-unit>
+        <trans-unit id="535d15f8-9b61-4db0-9f57-5fecae763fcd" xml:space="preserve">
+          <source>Within this pattern, load balancing of the web tier is provided both locally within the region and across regions.</source>
+          <target state="new">Within this pattern, load balancing of the web tier is provided both locally within the region and across regions.</target>
+        </trans-unit>
+        <trans-unit id="61ef7247-1334-4e94-a458-f15a734270f8" xml:space="preserve">
+          <source>From a compute perspective, these services can be provided through Microsoft Azure virtual machines, web sites or a combination of both.</source>
+          <target state="new">From a compute perspective, these services can be provided through Microsoft Azure virtual machines, web sites or a combination of both.</target>
+        </trans-unit>
+        <trans-unit id="f2dfc6e1-02cd-44bf-86f4-5f3e1e4cb94c" xml:space="preserve">
+          <source>Virtual machines providing web services can host content using any supported Microsoft Windows or Linux distribution guest operating system within Microsoft Azure.</source>
+          <target state="new">Virtual machines providing web services can host content using any supported Microsoft Windows or Linux distribution guest operating system within Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="8b8ba161-04fd-425f-9b64-64f731c118e1" xml:space="preserve">
+          <source>This document describes a pattern for providing access to web services or web server content over multiple geographies for the purposes of availability and redundancy.</source>
+          <target state="new">This document describes a pattern for providing access to web services or web server content over multiple geographies for the purposes of availability and redundancy.</target>
+        </trans-unit>
+        <trans-unit id="79f9f9a4-438d-435e-937b-e5f6b773466c" xml:space="preserve">
+          <source>Critical services are illustrated below without attention to web platform constraints or development methodology within the web service itself.</source>
+          <target state="new">Critical services are illustrated below without attention to web platform constraints or development methodology within the web service itself.</target>
+        </trans-unit>
+        <trans-unit id="5d2133da-0b65-4502-9452-930d215023a8" xml:space="preserve">
+          <source>There are two variations to this pattern – one which hosts the web content or services on virtual machines (using Azure supported operating systems and families) and one which uses Azure Websites.</source>
+          <target state="new">There are two variations to this pattern – one which hosts the web content or services on virtual machines (using Azure supported operating systems and families) and one which uses Azure Websites.</target>
+        </trans-unit>
+        <trans-unit id="6444ff8e-6825-4d58-bff5-796dd371d617" xml:space="preserve">
+          <source>The diagram below is a simple illustration of the relevant services and how they are used as part of this pattern using the example of virtual machines.</source>
+          <target state="new">The diagram below is a simple illustration of the relevant services and how they are used as part of this pattern using the example of virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="54466b51-af04-4c59-8f6f-663785d24e03" xml:space="preserve">
+          <source><bpt id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier (pdf)<ept id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;/linkText&gt;</ept><bpt id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;title&gt;</bpt><ept id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier (pdf)<ept id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;/linkText&gt;</ept><bpt id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;title&gt;</bpt><ept id="92a7f30a-f0e7-4b73-8eb3-c5154b8c4d33">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e62b3e01-2bad-4c5b-ad98-39a78c9702ad" xml:space="preserve">
+          <source><bpt id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;/linkText&gt;</ept><bpt id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;title&gt;</bpt><ept id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;/linkText&gt;</ept><bpt id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;title&gt;</bpt><ept id="7a43eb06-4b1c-487d-902c-fe5a2567a5eb">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="acfdcfbe-f06a-43f3-bd0a-a2ecb8837eb3" xml:space="preserve">
+          <source><bpt id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;/linkText&gt;</ept><bpt id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;title&gt;</bpt><ept id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;linkText&gt;</bpt>Load Balanced Data Tier<ept id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;/linkText&gt;</ept><bpt id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;title&gt;</bpt><ept id="4995c4d6-697f-4be3-abdc-012edcb338f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08691798-9e68-40ac-8ad0-b6ef21a4f891" xml:space="preserve">
+          <source><bpt id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;/linkText&gt;</ept><bpt id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;title&gt;</bpt><ept id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;/linkText&gt;</ept><bpt id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;title&gt;</bpt><ept id="ec89bc2e-0b30-4e4f-8e26-d08ab26e5b40">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7156f825-11b0-41b9-9aee-2ee2bac181c9" xml:space="preserve">
+          <source><bpt id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;/linkText&gt;</ept><bpt id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;title&gt;</bpt><ept id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;/linkText&gt;</ept><bpt id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;title&gt;</bpt><ept id="9c587bae-d92c-44fa-ade5-52b2e6d86614">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="df50ba0e-d9d9-4dd4-b7a7-c831699a6cbd" xml:space="preserve">
+          <source><bpt id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;/linkText&gt;</ept><bpt id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;title&gt;</bpt><ept id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;/linkText&gt;</ept><bpt id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;title&gt;</bpt><ept id="d54ad697-2f13-4c13-b5d8-4019b9ff3fab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

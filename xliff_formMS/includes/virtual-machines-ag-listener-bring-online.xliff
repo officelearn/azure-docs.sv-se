@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="caae5be0-36a2-4dff-9f32-aef9859d108d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="caae5be0-36a2-4dff-9f32-aef9859d108d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bb649c49-6c10-4f61-a45b-1bb4dfbeba70">
+        <trans-unit id="8568e07e-ecdd-45a3-86be-891a7dd8f6c5" xml:space="preserve">
+          <source>Navigate back to Failover Cluster Manager.</source>
+          <target state="new">Navigate back to Failover Cluster Manager.</target>
+        </trans-unit>
+        <trans-unit id="726adebc-91c4-4915-96e4-5aa8e5b43008" xml:space="preserve">
+          <source>Expand <bpt id="15eebe06-f0b1-41bb-8280-28ce44153b19">&lt;strong&gt;</bpt>Roles<ept id="15eebe06-f0b1-41bb-8280-28ce44153b19">&lt;/strong&gt;</ept> and then highlight your Availability Group.</source>
+          <target state="new">Expand <bpt id="15eebe06-f0b1-41bb-8280-28ce44153b19">&lt;strong&gt;</bpt>Roles<ept id="15eebe06-f0b1-41bb-8280-28ce44153b19">&lt;/strong&gt;</ept> and then highlight your Availability Group.</target>
+        </trans-unit>
+        <trans-unit id="31ca5469-e9ad-4e51-b2e6-fc043123ef51" xml:space="preserve">
+          <source>On the <bpt id="37ec9055-0011-4f9b-8c05-7af546c79996">&lt;strong&gt;</bpt>Resources<ept id="37ec9055-0011-4f9b-8c05-7af546c79996">&lt;/strong&gt;</ept> tab, right-click the listener name and click Properties.</source>
+          <target state="new">On the <bpt id="37ec9055-0011-4f9b-8c05-7af546c79996">&lt;strong&gt;</bpt>Resources<ept id="37ec9055-0011-4f9b-8c05-7af546c79996">&lt;/strong&gt;</ept> tab, right-click the listener name and click Properties.</target>
+        </trans-unit>
+        <trans-unit id="b43bac42-241b-48cb-8e39-8a48842e5c63" xml:space="preserve">
+          <source>Click the <bpt id="e35cbf49-29bf-4dfd-83b8-2eccc7d4698c">&lt;strong&gt;</bpt>Dependencies<ept id="e35cbf49-29bf-4dfd-83b8-2eccc7d4698c">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="e35cbf49-29bf-4dfd-83b8-2eccc7d4698c">&lt;strong&gt;</bpt>Dependencies<ept id="e35cbf49-29bf-4dfd-83b8-2eccc7d4698c">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="71050c0b-c57b-4d87-84fe-cc6d192a193b" xml:space="preserve">
+          <source>If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.</source>
+          <target state="new">If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.</target>
+        </trans-unit>
+        <trans-unit id="41e10104-1ada-4d55-ba7f-e3fd73cd2b9a" xml:space="preserve">
+          <source>Click <bpt id="8f9e0cd1-b8f7-4640-b6e0-220fd478e313">&lt;strong&gt;</bpt>OK<ept id="8f9e0cd1-b8f7-4640-b6e0-220fd478e313">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8f9e0cd1-b8f7-4640-b6e0-220fd478e313">&lt;strong&gt;</bpt>OK<ept id="8f9e0cd1-b8f7-4640-b6e0-220fd478e313">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ecdde1f-78ea-4f65-bbd2-01a73bfb37ac" xml:space="preserve">
+          <source>Right-click the listener name and click <bpt id="8c7fdc21-9da9-404a-b3b8-dfbdee6fcf61">&lt;strong&gt;</bpt>Bring Online<ept id="8c7fdc21-9da9-404a-b3b8-dfbdee6fcf61">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the listener name and click <bpt id="8c7fdc21-9da9-404a-b3b8-dfbdee6fcf61">&lt;strong&gt;</bpt>Bring Online<ept id="8c7fdc21-9da9-404a-b3b8-dfbdee6fcf61">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcb9a655-ea05-44fd-97b0-25c6500c9c93" xml:space="preserve">
+          <source>Once the listener is online, from the <bpt id="bed71eeb-73b1-4b45-a47c-c146e63c0eae">&lt;strong&gt;</bpt>Resources<ept id="bed71eeb-73b1-4b45-a47c-c146e63c0eae">&lt;/strong&gt;</ept> tab, right-click the availability group and click <bpt id="7a36806d-dc2f-4a4d-b1e1-05f1b96a598f">&lt;strong&gt;</bpt>Properties<ept id="7a36806d-dc2f-4a4d-b1e1-05f1b96a598f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the listener is online, from the <bpt id="bed71eeb-73b1-4b45-a47c-c146e63c0eae">&lt;strong&gt;</bpt>Resources<ept id="bed71eeb-73b1-4b45-a47c-c146e63c0eae">&lt;/strong&gt;</ept> tab, right-click the availability group and click <bpt id="7a36806d-dc2f-4a4d-b1e1-05f1b96a598f">&lt;strong&gt;</bpt>Properties<ept id="7a36806d-dc2f-4a4d-b1e1-05f1b96a598f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41cadf97-4bcc-4f8d-b06a-45ff984107a3" xml:space="preserve">
+          <source><bpt id="b0c7b57d-04ca-43c9-9268-f108c9c0a437">&lt;linkText&gt;</bpt>Configure the Availability Group Resource<ept id="b0c7b57d-04ca-43c9-9268-f108c9c0a437">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0c7b57d-04ca-43c9-9268-f108c9c0a437">&lt;linkText&gt;</bpt>Configure the Availability Group Resource<ept id="b0c7b57d-04ca-43c9-9268-f108c9c0a437">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a5eec3c-9096-4719-b820-7e0038214dc9" xml:space="preserve">
+          <source>Create a dependency on the listener name resource (not the IP address resources name).</source>
+          <target state="new">Create a dependency on the listener name resource (not the IP address resources name).</target>
+        </trans-unit>
+        <trans-unit id="c6cf35c3-4dac-4cc8-83b2-243225bce6ac" xml:space="preserve">
+          <source>Click <bpt id="43b7b38b-d4b3-4c3e-b0ec-470dac56fd5f">&lt;strong&gt;</bpt>OK<ept id="43b7b38b-d4b3-4c3e-b0ec-470dac56fd5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="43b7b38b-d4b3-4c3e-b0ec-470dac56fd5f">&lt;strong&gt;</bpt>OK<ept id="43b7b38b-d4b3-4c3e-b0ec-470dac56fd5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15439b3c-493f-4f68-ac3e-fb34806ed145" xml:space="preserve">
+          <source><bpt id="0cc90c6e-9751-4601-82b1-5047c0d71559">&lt;linkText&gt;</bpt>Add Dependency on the Listener Name<ept id="0cc90c6e-9751-4601-82b1-5047c0d71559">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0cc90c6e-9751-4601-82b1-5047c0d71559">&lt;linkText&gt;</bpt>Add Dependency on the Listener Name<ept id="0cc90c6e-9751-4601-82b1-5047c0d71559">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b958e2d9-07d2-46dd-a741-66b2bc45c3b6" xml:space="preserve">
+          <source>Launch <bpt id="b03b2c7c-aea8-4981-9954-e14dbdc42d0a">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="b03b2c7c-aea8-4981-9954-e14dbdc42d0a">&lt;/strong&gt;</ept> and connect to the primary replica.</source>
+          <target state="new">Launch <bpt id="b03b2c7c-aea8-4981-9954-e14dbdc42d0a">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="b03b2c7c-aea8-4981-9954-e14dbdc42d0a">&lt;/strong&gt;</ept> and connect to the primary replica.</target>
+        </trans-unit>
+        <trans-unit id="bf5ad0dd-74f9-4a41-9077-d53a2032daa9" xml:space="preserve">
+          <source>Navigate to <bpt id="32247c95-2894-497f-a18d-ef9b60836db0">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="32247c95-2894-497f-a18d-ef9b60836db0">&lt;/strong&gt;</ept> | <bpt id="48bab4c4-3bc3-40c9-832a-fcee2398039c">&lt;strong&gt;</bpt>Availability Groups<ept id="48bab4c4-3bc3-40c9-832a-fcee2398039c">&lt;/strong&gt;</ept> | <bpt id="ed434be6-56c1-4551-a89e-e2e91ed32454">&lt;strong&gt;</bpt>&lt;AvailabilityGroupName&gt;<ept id="ed434be6-56c1-4551-a89e-e2e91ed32454">&lt;/strong&gt;</ept> | <bpt id="d034f869-5351-4dfd-90c7-0f30164fc973">&lt;strong&gt;</bpt>Availability Group Listeners<ept id="d034f869-5351-4dfd-90c7-0f30164fc973">&lt;/strong&gt;</ept>. </source>
+          <target state="new">Navigate to <bpt id="32247c95-2894-497f-a18d-ef9b60836db0">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="32247c95-2894-497f-a18d-ef9b60836db0">&lt;/strong&gt;</ept> | <bpt id="48bab4c4-3bc3-40c9-832a-fcee2398039c">&lt;strong&gt;</bpt>Availability Groups<ept id="48bab4c4-3bc3-40c9-832a-fcee2398039c">&lt;/strong&gt;</ept> | <bpt id="ed434be6-56c1-4551-a89e-e2e91ed32454">&lt;strong&gt;</bpt>&lt;AvailabilityGroupName&gt;<ept id="ed434be6-56c1-4551-a89e-e2e91ed32454">&lt;/strong&gt;</ept> | <bpt id="d034f869-5351-4dfd-90c7-0f30164fc973">&lt;strong&gt;</bpt>Availability Group Listeners<ept id="d034f869-5351-4dfd-90c7-0f30164fc973">&lt;/strong&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="b431fa21-dbcb-4f4d-80d4-22793360b714" xml:space="preserve">
+          <source>You should now see the listener name that you created in Failover Cluster Manager.</source>
+          <target state="new">You should now see the listener name that you created in Failover Cluster Manager.</target>
+        </trans-unit>
+        <trans-unit id="efbed34c-9ef4-407e-b7ef-7164fbf22137" xml:space="preserve">
+          <source>Right-click the listener name and click <bpt id="c309b489-6c7f-4479-9c5e-f814afe81586">&lt;strong&gt;</bpt>Properties<ept id="c309b489-6c7f-4479-9c5e-f814afe81586">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the listener name and click <bpt id="c309b489-6c7f-4479-9c5e-f814afe81586">&lt;strong&gt;</bpt>Properties<ept id="c309b489-6c7f-4479-9c5e-f814afe81586">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cec5244-0cf8-465a-9799-e3bfb01d0e62" xml:space="preserve">
+          <source>In the <bpt id="4dd57f2b-bd2a-4ba8-80b8-f8e4cfdbfb1f">&lt;strong&gt;</bpt>Port<ept id="4dd57f2b-bd2a-4ba8-80b8-f8e4cfdbfb1f">&lt;/strong&gt;</ept> box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click <bpt id="aad581e4-113f-4151-82ca-b0abf38d1052">&lt;strong&gt;</bpt>OK<ept id="aad581e4-113f-4151-82ca-b0abf38d1052">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4dd57f2b-bd2a-4ba8-80b8-f8e4cfdbfb1f">&lt;strong&gt;</bpt>Port<ept id="4dd57f2b-bd2a-4ba8-80b8-f8e4cfdbfb1f">&lt;/strong&gt;</ept> box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (in this tutorial, 1433 was the default), then click <bpt id="aad581e4-113f-4151-82ca-b0abf38d1052">&lt;strong&gt;</bpt>OK<ept id="aad581e4-113f-4151-82ca-b0abf38d1052">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

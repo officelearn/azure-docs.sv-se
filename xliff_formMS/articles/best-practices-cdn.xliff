@@ -1,0 +1,818 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="61830870-9cf3-4d49-8aa6-937c340a89c8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="61830870-9cf3-4d49-8aa6-937c340a89c8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="39a01e80-174a-4ce2-8c86-bae4cdacfb73">
+        <trans-unit id="c6c2bd52-ed00-4c20-913b-70fd83b7f2ae" xml:space="preserve">
+          <source>Content Delivery Network (CDN) guidance | Microsoft Azure</source>
+          <target state="new">Content Delivery Network (CDN) guidance | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5d76ac40-9d1e-43e1-b2d2-b95441ec4331" xml:space="preserve">
+          <source>Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.</source>
+          <target state="new">Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="cf57c917-2cbb-478b-ba4b-7600359e6766" xml:space="preserve">
+          <source><bpt id="1883626f-ecb5-4463-b741-a9eae6f167ee">&lt;linkText&gt;</bpt><ept id="1883626f-ecb5-4463-b741-a9eae6f167ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1883626f-ecb5-4463-b741-a9eae6f167ee">&lt;linkText&gt;</bpt><ept id="1883626f-ecb5-4463-b741-a9eae6f167ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="754e5438-8506-44d9-86ae-f88e733f9138" xml:space="preserve">
+          <source>The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure.</source>
+          <target state="new">The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="b157ed7c-0101-4c66-b8e0-8b205d756d1b" xml:space="preserve">
+          <source>The CDN caches publicly available objects loaded from Azure blob storage or an application folder at strategically placed locations to provide maximum bandwidth for delivering content to users.</source>
+          <target state="new">The CDN caches publicly available objects loaded from Azure blob storage or an application folder at strategically placed locations to provide maximum bandwidth for delivering content to users.</target>
+        </trans-unit>
+        <trans-unit id="744b22dd-22ed-4d1c-826a-561eaa1b73b8" xml:space="preserve">
+          <source>It is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.</source>
+          <target state="new">It is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.</target>
+        </trans-unit>
+        <trans-unit id="6695befb-99d3-44ac-8de1-ad50ba94e134" xml:space="preserve">
+          <source>The major advantages of using the CDN are lower latency and faster delivery of content to users irrespective of their geographical location in relation to the datacenter where the application is hosted, and a reduction in the load on the application itself because it is relieved of the processing required to access and deliver the content.</source>
+          <target state="new">The major advantages of using the CDN are lower latency and faster delivery of content to users irrespective of their geographical location in relation to the datacenter where the application is hosted, and a reduction in the load on the application itself because it is relieved of the processing required to access and deliver the content.</target>
+        </trans-unit>
+        <trans-unit id="7f3bba55-ca93-4474-ab99-1b4e4f0d7e37" xml:space="preserve">
+          <source>This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting cost by reducing the processing resources required to achieve a specific level of performance and availability.</source>
+          <target state="new">This reduction in load can help to increase the performance and scalability of the application, as well as minimizing hosting cost by reducing the processing resources required to achieve a specific level of performance and availability.</target>
+        </trans-unit>
+        <trans-unit id="8d064dbe-7d3a-4ebe-920e-91f50372e2ee" xml:space="preserve">
+          <source>You may be able to use other content delivery network systems that are not implemented by Azure in your applications if the Azure CDN does not meet your needs.</source>
+          <target state="new">You may be able to use other content delivery network systems that are not implemented by Azure in your applications if the Azure CDN does not meet your needs.</target>
+        </trans-unit>
+        <trans-unit id="fcfff2b3-587d-4dfd-b5ac-44763d3f175d" xml:space="preserve">
+          <source>Alternatively, you may be able to use the Azure CDN for applications hosted with other providers by exposing the static content in Azure storage or in Azure compute instances.</source>
+          <target state="new">Alternatively, you may be able to use the Azure CDN for applications hosted with other providers by exposing the static content in Azure storage or in Azure compute instances.</target>
+        </trans-unit>
+        <trans-unit id="fc7f7647-1a3a-4891-8961-6c3d6640a9f0" xml:space="preserve">
+          <source><bpt id="545de3a1-6298-4826-b476-c3532212c643">&lt;linkText&gt;</bpt><ept id="545de3a1-6298-4826-b476-c3532212c643">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="545de3a1-6298-4826-b476-c3532212c643">&lt;linkText&gt;</bpt><ept id="545de3a1-6298-4826-b476-c3532212c643">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd40ddbf-15aa-4144-a8cd-3f00fca104c5" xml:space="preserve">
+          <source>Typical uses for the CDN include:  </source>
+          <target state="new">Typical uses for the CDN include:  </target>
+        </trans-unit>
+        <trans-unit id="bbf39778-0f4e-48fe-af32-3dac82a5465c" xml:space="preserve">
+          <source>Delivering static resources for client applications, often from a website.</source>
+          <target state="new">Delivering static resources for client applications, often from a website.</target>
+        </trans-unit>
+        <trans-unit id="93858292-443b-4965-bc30-21ea2254a899" xml:space="preserve">
+          <source>These can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request.</source>
+          <target state="new">These can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request.</target>
+        </trans-unit>
+        <trans-unit id="6997ead7-2eaf-4d16-850c-cd09d9499648" xml:space="preserve">
+          <source>The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.</source>
+          <target state="new">The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.</target>
+        </trans-unit>
+        <trans-unit id="c37d9eb0-a967-45a3-9068-531c19b32df8" xml:space="preserve">
+          <source>Delivering public static and shared content to devices such as mobile phones and tablet computers where the application itself is a web service that offers an API to clients.</source>
+          <target state="new">Delivering public static and shared content to devices such as mobile phones and tablet computers where the application itself is a web service that offers an API to clients.</target>
+        </trans-unit>
+        <trans-unit id="7a4947f3-e757-4e9b-af2a-fe4c8de66c4c" xml:space="preserve">
+          <source>In addition to other content that the server does not need to modify for each request, the CDN can deliver static datasets for the client to use - perhaps to generate the client UI.</source>
+          <target state="new">In addition to other content that the server does not need to modify for each request, the CDN can deliver static datasets for the client to use - perhaps to generate the client UI.</target>
+        </trans-unit>
+        <trans-unit id="0daf8661-9c9c-4cc1-91bc-369396d2a622" xml:space="preserve">
+          <source>For example, it could be used to deliver JSON or XML documents.</source>
+          <target state="new">For example, it could be used to deliver JSON or XML documents.</target>
+        </trans-unit>
+        <trans-unit id="736269d9-ce52-4959-b4f1-efa0d72c6651" xml:space="preserve">
+          <source>Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.</source>
+          <target state="new">Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.</target>
+        </trans-unit>
+        <trans-unit id="647b8299-6130-4982-82f5-9d6cf5192079" xml:space="preserve">
+          <source>Streaming video files to the client on demand.</source>
+          <target state="new">Streaming video files to the client on demand.</target>
+        </trans-unit>
+        <trans-unit id="b802db93-02ec-41af-8c6b-c9ab7f08546f" xml:space="preserve">
+          <source>Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.</source>
+          <target state="new">Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.</target>
+        </trans-unit>
+        <trans-unit id="bff5c466-cba5-4dc4-8cc8-3f3d7e0e15b9" xml:space="preserve">
+          <source>Generally improving the experience for users, especially those located far from the application’s datacenter location who would otherwise suffer higher latency.</source>
+          <target state="new">Generally improving the experience for users, especially those located far from the application’s datacenter location who would otherwise suffer higher latency.</target>
+        </trans-unit>
+        <trans-unit id="3aac5434-c5c7-43b7-835d-ae7db74415ca" xml:space="preserve">
+          <source>A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers.</source>
+          <target state="new">A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers.</target>
+        </trans-unit>
+        <trans-unit id="71f0068b-e51a-4566-b129-1f77e7ec04dc" xml:space="preserve">
+          <source>Coping with the growing load on applications that service mobile and fixed devices that are part of the Internet of Things (IoT).</source>
+          <target state="new">Coping with the growing load on applications that service mobile and fixed devices that are part of the Internet of Things (IoT).</target>
+        </trans-unit>
+        <trans-unit id="ebe2c13c-a2a7-4b6c-bc96-29fe71aec9f0" xml:space="preserve">
+          <source>The huge numbers of such devices and appliances could easily overwhelm the application if it was required to process broadcast messages and manage firmware update distribution directly.</source>
+          <target state="new">The huge numbers of such devices and appliances could easily overwhelm the application if it was required to process broadcast messages and manage firmware update distribution directly.</target>
+        </trans-unit>
+        <trans-unit id="cdd6b6bb-b555-4d17-bdc0-1e09482a3dd7" xml:space="preserve">
+          <source>Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increase running costs.</source>
+          <target state="new">Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increase running costs.</target>
+        </trans-unit>
+        <trans-unit id="237230b9-28f0-407c-9d89-5b4b0bf777ce" xml:space="preserve">
+          <source>For example, when an update is released to an operating system, for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.</source>
+          <target state="new">For example, when an update is released to an operating system, for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.</target>
+        </trans-unit>
+        <trans-unit id="1ae69c0d-a865-42c3-84f0-02e2c4e0d712" xml:space="preserve">
+          <source>The following table shows examples of the median time to first byte from various geographic locations.</source>
+          <target state="new">The following table shows examples of the median time to first byte from various geographic locations.</target>
+        </trans-unit>
+        <trans-unit id="ddc92b2f-981f-4e2a-bc04-55e2bf71610b" xml:space="preserve">
+          <source>The target web role is deployed to Azure West US.</source>
+          <target state="new">The target web role is deployed to Azure West US.</target>
+        </trans-unit>
+        <trans-unit id="80a60970-a30a-457f-99e6-b61e76d0652d" xml:space="preserve">
+          <source>There is a strong correlation between greater boost due to the CDN and proximity to a CDN node.</source>
+          <target state="new">There is a strong correlation between greater boost due to the CDN and proximity to a CDN node.</target>
+        </trans-unit>
+        <trans-unit id="483a4046-d499-43a8-8d74-2b7c26338cdd" xml:space="preserve">
+          <source>A list of Azure CDN node locations is available at <bpt id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;linkText&gt;</bpt>Azure Content Delivery Network (CDN) Node Locations<ept id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;/linkText&gt;</ept><bpt id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;title&gt;</bpt><ept id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;/title&gt;</ept>.</source>
+          <target state="new">A list of Azure CDN node locations is available at <bpt id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;linkText&gt;</bpt>Azure Content Delivery Network (CDN) Node Locations<ept id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;/linkText&gt;</ept><bpt id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;title&gt;</bpt><ept id="3a488adb-5a66-4660-b094-0b6b4108161b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d7a078d-cba0-4f12-a423-d72c43f62754" xml:space="preserve">
+          <source>City</source>
+          <target state="new">City</target>
+        </trans-unit>
+        <trans-unit id="be825f37-bde0-4dec-bc2a-de2e0f01e63e" xml:space="preserve">
+          <source>Time to First Byte (Origin)</source>
+          <target state="new">Time to First Byte (Origin)</target>
+        </trans-unit>
+        <trans-unit id="babf20a4-c5fc-4724-afde-26feb1f07798" xml:space="preserve">
+          <source>Time to First Byte (CDN)</source>
+          <target state="new">Time to First Byte (CDN)</target>
+        </trans-unit>
+        <trans-unit id="bd096e4e-7a53-48eb-ab1d-9c473934457d" xml:space="preserve">
+          <source>% faster for CDN</source>
+          <target state="new">% faster for CDN</target>
+        </trans-unit>
+        <trans-unit id="e553e6de-9e30-49ff-84dc-c27d7f8e41fe" xml:space="preserve">
+          <source>San Jose, CA&lt;sub&gt;1&lt;/sub&gt;</source>
+          <target state="new">San Jose, CA&lt;sub&gt;1&lt;/sub&gt;</target>
+        </trans-unit>
+        <trans-unit id="7e331f7d-dc41-4a2b-96e1-d2733f55adec" xml:space="preserve">
+          <source>47.5</source>
+          <target state="new">47.5</target>
+        </trans-unit>
+        <trans-unit id="5a41eabf-daae-427c-8285-aec00c297830" xml:space="preserve">
+          <source>46.5</source>
+          <target state="new">46.5</target>
+        </trans-unit>
+        <trans-unit id="3a8ce679-1527-4168-9eee-f1d5e9f31980" xml:space="preserve">
+          <source>2%</source>
+          <target state="new">2%</target>
+        </trans-unit>
+        <trans-unit id="d295bed1-9017-4f3d-8dbc-546c1ffa9193" xml:space="preserve">
+          <source>Dulles, VA&lt;sub&gt;2&lt;/sub&gt;</source>
+          <target state="new">Dulles, VA&lt;sub&gt;2&lt;/sub&gt;</target>
+        </trans-unit>
+        <trans-unit id="31c633d2-4968-4fea-8e78-e4ba38a1d204" xml:space="preserve">
+          <source>109</source>
+          <target state="new">109</target>
+        </trans-unit>
+        <trans-unit id="8a0bc9f5-32c0-498b-b848-43c8f9b66d32" xml:space="preserve">
+          <source>40.5</source>
+          <target state="new">40.5</target>
+        </trans-unit>
+        <trans-unit id="f8a174b4-1c39-417e-88da-ad0ba5ba84b5" xml:space="preserve">
+          <source>169%</source>
+          <target state="new">169%</target>
+        </trans-unit>
+        <trans-unit id="61c0ab39-ee1b-4c62-a5d4-7b8d2c3766f6" xml:space="preserve">
+          <source>Buenos Aires,AR</source>
+          <target state="new">Buenos Aires,AR</target>
+        </trans-unit>
+        <trans-unit id="64ee460b-de53-458d-a5bd-d6a56ad1fa1d" xml:space="preserve">
+          <source>210</source>
+          <target state="new">210</target>
+        </trans-unit>
+        <trans-unit id="45fcef47-dd09-40a9-97dd-698fe7393c87" xml:space="preserve">
+          <source>151</source>
+          <target state="new">151</target>
+        </trans-unit>
+        <trans-unit id="c42f0888-b448-4c25-a44f-c2a570962410" xml:space="preserve">
+          <source>39%</source>
+          <target state="new">39%</target>
+        </trans-unit>
+        <trans-unit id="f948ddd3-f704-431b-8c81-f00f86b242bb" xml:space="preserve">
+          <source>London, UK&lt;sub&gt;1&lt;/sub&gt;</source>
+          <target state="new">London, UK&lt;sub&gt;1&lt;/sub&gt;</target>
+        </trans-unit>
+        <trans-unit id="18df3bbe-ff0f-4bdf-a1dd-f213209820a4" xml:space="preserve">
+          <source>195</source>
+          <target state="new">195</target>
+        </trans-unit>
+        <trans-unit id="dcd39ac6-734d-42fa-b69a-a6b063b02048" xml:space="preserve">
+          <source>44</source>
+          <target state="new">44</target>
+        </trans-unit>
+        <trans-unit id="99ef8f57-7cae-4661-a7ac-01815386bb02" xml:space="preserve">
+          <source>343%</source>
+          <target state="new">343%</target>
+        </trans-unit>
+        <trans-unit id="7c59129f-73bd-4136-ac4b-82158d99e67f" xml:space="preserve">
+          <source>Shanghai, CN</source>
+          <target state="new">Shanghai, CN</target>
+        </trans-unit>
+        <trans-unit id="f70388cc-1791-4146-9825-e5b47227fba0" xml:space="preserve">
+          <source>242</source>
+          <target state="new">242</target>
+        </trans-unit>
+        <trans-unit id="36bb5f7b-bbc1-40ef-a625-6eadeccb1ed8" xml:space="preserve">
+          <source>206</source>
+          <target state="new">206</target>
+        </trans-unit>
+        <trans-unit id="35338dd2-1e70-45c1-ba0f-927db2f573ec" xml:space="preserve">
+          <source>17%</source>
+          <target state="new">17%</target>
+        </trans-unit>
+        <trans-unit id="d0faddf4-78e1-443e-986d-fd05795bda2e" xml:space="preserve">
+          <source>Singapore&lt;sub&gt;1&lt;/sub&gt;</source>
+          <target state="new">Singapore&lt;sub&gt;1&lt;/sub&gt;</target>
+        </trans-unit>
+        <trans-unit id="4e6803c7-623c-4c71-a0ea-67c8f869f6af" xml:space="preserve">
+          <source>214</source>
+          <target state="new">214</target>
+        </trans-unit>
+        <trans-unit id="ba461688-33f4-4f77-9cdf-8cfb24afa9a4" xml:space="preserve">
+          <source>74</source>
+          <target state="new">74</target>
+        </trans-unit>
+        <trans-unit id="033f48c5-5640-49be-a518-1f5640f1d1a8" xml:space="preserve">
+          <source>189%</source>
+          <target state="new">189%</target>
+        </trans-unit>
+        <trans-unit id="1fb14105-20cb-438a-9312-5a85ab8c0b81" xml:space="preserve">
+          <source>Tokyo, JP&lt;sub&gt;1&lt;/sub&gt;</source>
+          <target state="new">Tokyo, JP&lt;sub&gt;1&lt;/sub&gt;</target>
+        </trans-unit>
+        <trans-unit id="60779e66-e243-417a-a3a3-b27fbd3738a8" xml:space="preserve">
+          <source>163</source>
+          <target state="new">163</target>
+        </trans-unit>
+        <trans-unit id="d1915d82-d36f-4d99-8e72-cab712555c0b" xml:space="preserve">
+          <source>48</source>
+          <target state="new">48</target>
+        </trans-unit>
+        <trans-unit id="1df38e91-70fb-44a6-b41c-cf9f0124ae9a" xml:space="preserve">
+          <source>240%</source>
+          <target state="new">240%</target>
+        </trans-unit>
+        <trans-unit id="fe593822-d4b4-4594-8c51-9dd4838d4c1c" xml:space="preserve">
+          <source>Seoul, KR</source>
+          <target state="new">Seoul, KR</target>
+        </trans-unit>
+        <trans-unit id="4a855ca7-eb46-4838-bf8d-f4bce726dec1" xml:space="preserve">
+          <source>190</source>
+          <target state="new">190</target>
+        </trans-unit>
+        <trans-unit id="3d639786-8719-4cdb-af7a-814a61e3e457" xml:space="preserve">
+          <source>190</source>
+          <target state="new">190</target>
+        </trans-unit>
+        <trans-unit id="360b8bdf-9265-4fea-85e0-4c1fd91ff549" xml:space="preserve">
+          <source>0%</source>
+          <target state="new">0%</target>
+        </trans-unit>
+        <trans-unit id="b0949ccf-3d72-4840-98b2-1a115fd9f0bf" xml:space="preserve">
+          <source>Has an Azure CDN node in the same city.&lt;sub&gt;1&lt;/sub&gt;  
+Has an Azure CDN node in a neighboring city.&lt;sub&gt;2&lt;/sub&gt;  </source>
+          <target state="new">Has an Azure CDN node in the same city.&lt;sub&gt;1&lt;/sub&gt;  
+Has an Azure CDN node in a neighboring city.&lt;sub&gt;2&lt;/sub&gt;  </target>
+        </trans-unit>
+        <trans-unit id="46eaa9d0-528d-4911-b26c-41714b1ea153" xml:space="preserve">
+          <source>There are several challenges to take into account when planning to use the CDN:  </source>
+          <target state="new">There are several challenges to take into account when planning to use the CDN:  </target>
+        </trans-unit>
+        <trans-unit id="08c994a9-62a3-48be-b08e-fe864a1ab993" xml:space="preserve">
+          <source><bpt id="b857b936-4db3-463e-ab43-f6ff312317dc">&lt;strong&gt;</bpt>Deployment<ept id="b857b936-4db3-463e-ab43-f6ff312317dc">&lt;/strong&gt;</ept> You must decide where to load content for the CDN from (the origin from which the CDN will fetch the content), and whether you need to deploy the content in more than one storage system (such as on the CDN and in an alternative location).</source>
+          <target state="new"><bpt id="b857b936-4db3-463e-ab43-f6ff312317dc">&lt;strong&gt;</bpt>Deployment<ept id="b857b936-4db3-463e-ab43-f6ff312317dc">&lt;/strong&gt;</ept> You must decide where to load content for the CDN from (the origin from which the CDN will fetch the content), and whether you need to deploy the content in more than one storage system (such as on the CDN and in an alternative location).</target>
+        </trans-unit>
+        <trans-unit id="fa091d72-2094-4a2c-b249-76a739015c30" xml:space="preserve">
+          <source>Your application deployment mechanism must take into account deploying static content and resources as well as deploying the application files such as ASPX pages.</source>
+          <target state="new">Your application deployment mechanism must take into account deploying static content and resources as well as deploying the application files such as ASPX pages.</target>
+        </trans-unit>
+        <trans-unit id="f05b05f6-8029-4a49-b1fd-7064b7d8ada1" xml:space="preserve">
+          <source>For example, it may require a separate step to load content into Azure blob storage.</source>
+          <target state="new">For example, it may require a separate step to load content into Azure blob storage.</target>
+        </trans-unit>
+        <trans-unit id="aefe02df-3abb-4b3c-9812-ac7daf34ac28" xml:space="preserve">
+          <source><bpt id="755af375-bf01-4d55-ae45-43f3d8935774">&lt;strong&gt;</bpt>Versioning and cache-control<ept id="755af375-bf01-4d55-ae45-43f3d8935774">&lt;/strong&gt;</ept> You must consider how you will update static content and deploy new versions.</source>
+          <target state="new"><bpt id="755af375-bf01-4d55-ae45-43f3d8935774">&lt;strong&gt;</bpt>Versioning and cache-control<ept id="755af375-bf01-4d55-ae45-43f3d8935774">&lt;/strong&gt;</ept> You must consider how you will update static content and deploy new versions.</target>
+        </trans-unit>
+        <trans-unit id="134ccf0a-0a86-4040-b96f-1602d2f46fb4" xml:space="preserve">
+          <source>The CDN does not currently provide a mechanism for flushing content so that new versions are available.</source>
+          <target state="new">The CDN does not currently provide a mechanism for flushing content so that new versions are available.</target>
+        </trans-unit>
+        <trans-unit id="1d6842a3-f4e0-4476-be06-1930beadffbd" xml:space="preserve">
+          <source>This is a similar challenge to managing client side caching, such as in a web browser.</source>
+          <target state="new">This is a similar challenge to managing client side caching, such as in a web browser.</target>
+        </trans-unit>
+        <trans-unit id="b0519638-3d05-4cd3-a41f-4b727833df76" xml:space="preserve">
+          <source><bpt id="4a1164f2-3d09-4842-8917-7813e516d32e">&lt;strong&gt;</bpt>Testing<ept id="4a1164f2-3d09-4842-8917-7813e516d32e">&lt;/strong&gt;</ept> It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in staging.</source>
+          <target state="new"><bpt id="4a1164f2-3d09-4842-8917-7813e516d32e">&lt;strong&gt;</bpt>Testing<ept id="4a1164f2-3d09-4842-8917-7813e516d32e">&lt;/strong&gt;</ept> It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in staging.</target>
+        </trans-unit>
+        <trans-unit id="825cbbdd-aef7-4b78-ba48-660f3eaac9e3" xml:space="preserve">
+          <source><bpt id="47d9ec78-b2ce-4381-9fd9-5da153918999">&lt;strong&gt;</bpt>SEO<ept id="47d9ec78-b2ce-4381-9fd9-5da153918999">&lt;/strong&gt;</ept> Content such as images and documents are served from a different domain when you use they CDN, which will have an effect on SEO for this content.</source>
+          <target state="new"><bpt id="47d9ec78-b2ce-4381-9fd9-5da153918999">&lt;strong&gt;</bpt>SEO<ept id="47d9ec78-b2ce-4381-9fd9-5da153918999">&lt;/strong&gt;</ept> Content such as images and documents are served from a different domain when you use they CDN, which will have an effect on SEO for this content.</target>
+        </trans-unit>
+        <trans-unit id="44837abf-6334-4962-8a2c-43a318c2cffa" xml:space="preserve">
+          <source><bpt id="8ac0e69b-c059-4382-9411-c8f3cbe8e84c">&lt;strong&gt;</bpt>Security<ept id="8ac0e69b-c059-4382-9411-c8f3cbe8e84c">&lt;/strong&gt;</ept> Many CDN services such as Azure CDN do not currently offer any type of access control for the content.</source>
+          <target state="new"><bpt id="8ac0e69b-c059-4382-9411-c8f3cbe8e84c">&lt;strong&gt;</bpt>Security<ept id="8ac0e69b-c059-4382-9411-c8f3cbe8e84c">&lt;/strong&gt;</ept> Many CDN services such as Azure CDN do not currently offer any type of access control for the content.</target>
+        </trans-unit>
+        <trans-unit id="e37b7871-bf2c-49f8-bb95-bd19973b3f6b" xml:space="preserve">
+          <source><bpt id="94fef0cb-1da9-4620-a4ad-8f06070775d9">&lt;strong&gt;</bpt>Resiliency<ept id="94fef0cb-1da9-4620-a4ad-8f06070775d9">&lt;/strong&gt;</ept> CDN is a potential single point of failure for an application.</source>
+          <target state="new"><bpt id="94fef0cb-1da9-4620-a4ad-8f06070775d9">&lt;strong&gt;</bpt>Resiliency<ept id="94fef0cb-1da9-4620-a4ad-8f06070775d9">&lt;/strong&gt;</ept> CDN is a potential single point of failure for an application.</target>
+        </trans-unit>
+        <trans-unit id="384e2ce9-604b-4607-9d6f-c5481510a97d" xml:space="preserve">
+          <source>It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.</source>
+          <target state="new">It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.</target>
+        </trans-unit>
+        <trans-unit id="1986bc16-82d2-4519-b184-4926bbe6083b" xml:space="preserve">
+          <source>Clients may be connecting from an environment that does not allow access to resources on the CDN.</source>
+          <target state="new">Clients may be connecting from an environment that does not allow access to resources on the CDN.</target>
+        </trans-unit>
+        <trans-unit id="540a133a-9a78-43ba-8aac-3c48488a0ba7" xml:space="preserve">
+          <source>This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin.</source>
+          <target state="new">This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin.</target>
+        </trans-unit>
+        <trans-unit id="22cda0d0-1d46-460a-9a83-7804657f121a" xml:space="preserve">
+          <source>Therefore, a fallback implementation will be required.</source>
+          <target state="new">Therefore, a fallback implementation will be required.</target>
+        </trans-unit>
+        <trans-unit id="2eb5be06-17aa-417b-a5c6-42335edef9ae" xml:space="preserve">
+          <source>You should implement a mechanism to monitor your content availability through the CDN.</source>
+          <target state="new">You should implement a mechanism to monitor your content availability through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="b073d6b9-c760-43bd-be6a-f3b289f7fd2d" xml:space="preserve">
+          <source>Scenarios where CDN may be less useful include:  </source>
+          <target state="new">Scenarios where CDN may be less useful include:  </target>
+        </trans-unit>
+        <trans-unit id="cd388ba0-eee4-4f8c-a942-dbf408b16e0c" xml:space="preserve">
+          <source>When the content has a low hit rate and so may be accessed few times, or just once, during the time-to-live validity period.</source>
+          <target state="new">When the content has a low hit rate and so may be accessed few times, or just once, during the time-to-live validity period.</target>
+        </trans-unit>
+        <trans-unit id="ef5e265a-ee3e-4722-923f-fef76c61e0e2" xml:space="preserve">
+          <source>The first time an item is downloaded you incur two transaction charges (from the origin to the CDN, and then from the CDN to the customer).</source>
+          <target state="new">The first time an item is downloaded you incur two transaction charges (from the origin to the CDN, and then from the CDN to the customer).</target>
+        </trans-unit>
+        <trans-unit id="53e24457-1785-41b5-b504-1eabb840c0f7" xml:space="preserve">
+          <source>When the data is private, such as for large enterprises or supply chain ecosystems.</source>
+          <target state="new">When the data is private, such as for large enterprises or supply chain ecosystems.</target>
+        </trans-unit>
+        <trans-unit id="c05c3343-42ef-43ce-8fbe-0fe53a829101" xml:space="preserve">
+          <source>Using the CDN is a good way to minimize the load on your application, and maximize availability and performance.</source>
+          <target state="new">Using the CDN is a good way to minimize the load on your application, and maximize availability and performance.</target>
+        </trans-unit>
+        <trans-unit id="049b4480-2711-4053-b137-1e032b50c6ac" xml:space="preserve">
+          <source>You should consider this for all of the appropriate content and resources you application uses.</source>
+          <target state="new">You should consider this for all of the appropriate content and resources you application uses.</target>
+        </trans-unit>
+        <trans-unit id="2a8f1c80-2352-4c14-8f63-ae22c1b11c88" xml:space="preserve">
+          <source>Consider the following points when designing your strategy to use the CDN:</source>
+          <target state="new">Consider the following points when designing your strategy to use the CDN:</target>
+        </trans-unit>
+        <trans-unit id="582f8770-a436-4f15-98cb-e52ff8c5c134" xml:space="preserve">
+          <source><bpt id="07a75e56-78c8-40cb-b955-4e9a8076a34b">&lt;strong&gt;</bpt>Origin<ept id="07a75e56-78c8-40cb-b955-4e9a8076a34b">&lt;/strong&gt;</ept> Deploying content through the CDN simply requires you to specify an HTTP (port 80) endpoint that the CDN service will use to access and cache the content.</source>
+          <target state="new"><bpt id="07a75e56-78c8-40cb-b955-4e9a8076a34b">&lt;strong&gt;</bpt>Origin<ept id="07a75e56-78c8-40cb-b955-4e9a8076a34b">&lt;/strong&gt;</ept> Deploying content through the CDN simply requires you to specify an HTTP (port 80) endpoint that the CDN service will use to access and cache the content.</target>
+        </trans-unit>
+        <trans-unit id="e2e1ffaf-f7aa-4dd8-aa6c-620e82cdd4d1" xml:space="preserve">
+          <source>+ The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN.</source>
+          <target state="new">+ The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="afb475b3-bc46-4088-a457-e025b10132b1" xml:space="preserve">
+          <source>The container must be marked as public.</source>
+          <target state="new">The container must be marked as public.</target>
+        </trans-unit>
+        <trans-unit id="c6d86292-e059-403b-909b-4275e9961a6f" xml:space="preserve">
+          <source>Only blobs in a public container that have public read access will be available through the CDN.</source>
+          <target state="new">Only blobs in a public container that have public read access will be available through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="fe9002bd-97bf-4aeb-9d84-e8b5f79e08e6" xml:space="preserve">
+          <source>The endpoint can specify a folder named <bpt id="1af3cf9c-2d17-44bc-88f4-514a91e16cac">&lt;strong&gt;</bpt>cdn<ept id="1af3cf9c-2d17-44bc-88f4-514a91e16cac">&lt;/strong&gt;</ept> in the root of one of application’s compute layers (such as a web role or a virtual machine).</source>
+          <target state="new">The endpoint can specify a folder named <bpt id="1af3cf9c-2d17-44bc-88f4-514a91e16cac">&lt;strong&gt;</bpt>cdn<ept id="1af3cf9c-2d17-44bc-88f4-514a91e16cac">&lt;/strong&gt;</ept> in the root of one of application’s compute layers (such as a web role or a virtual machine).</target>
+        </trans-unit>
+        <trans-unit id="d6da30b6-1d5f-47bf-a715-6a1eaddbe270" xml:space="preserve">
+          <source>The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN.</source>
+          <target state="new">The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN.</target>
+        </trans-unit>
+        <trans-unit id="fa965248-fc0a-4b7c-87d9-99a646dedd86" xml:space="preserve">
+          <source>The minimum cacheability period is 300 seconds.</source>
+          <target state="new">The minimum cacheability period is 300 seconds.</target>
+        </trans-unit>
+        <trans-unit id="20fba649-12af-476e-adbf-8f306a401bcf" xml:space="preserve">
+          <source>Any shorter period will prevent the content from being deployed to the CDN (see the section "&lt;a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;Cache control&lt;/a&gt;" for more information).</source>
+          <target state="new">Any shorter period will prevent the content from being deployed to the CDN (see the section "&lt;a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;Cache control&lt;/a&gt;" for more information).</target>
+        </trans-unit>
+        <trans-unit id="a6fbb932-f134-4765-a60e-6ded694ec1fe" xml:space="preserve">
+          <source>If you are using Azure Web Sites, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance.</source>
+          <target state="new">If you are using Azure Web Sites, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance.</target>
+        </trans-unit>
+        <trans-unit id="e68042a2-ff8c-4dc6-b3fc-035ba81b7e3d" xml:space="preserve">
+          <source>All of the content for the site will be available through the CDN.</source>
+          <target state="new">All of the content for the site will be available through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="a86310c8-178c-4eba-9d35-8a93f85f7d4f" xml:space="preserve">
+          <source>In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application will offer more flexibility and control.</source>
+          <target state="new">In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application will offer more flexibility and control.</target>
+        </trans-unit>
+        <trans-unit id="3654f85d-e92e-4cde-bbbe-c0e0285f61f1" xml:space="preserve">
+          <source>For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.</source>
+          <target state="new">For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.</target>
+        </trans-unit>
+        <trans-unit id="add60c21-6269-4c1a-a76c-aa8ede3fd714" xml:space="preserve">
+          <source>You can use query strings to differentiate objects in the cache when content is delivered from dynamic sources such as ASPX pages.</source>
+          <target state="new">You can use query strings to differentiate objects in the cache when content is delivered from dynamic sources such as ASPX pages.</target>
+        </trans-unit>
+        <trans-unit id="ccd5c217-d249-4aa3-9427-e511c74157f8" xml:space="preserve">
+          <source>However, this behavior can be disabled by a setting in the management portal when you specify the CDN endpoint.</source>
+          <target state="new">However, this behavior can be disabled by a setting in the management portal when you specify the CDN endpoint.</target>
+        </trans-unit>
+        <trans-unit id="db075c56-cbd5-495b-82ad-cfe275ea14a8" xml:space="preserve">
+          <source>When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.</source>
+          <target state="new">When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.</target>
+        </trans-unit>
+        <trans-unit id="7c566627-4195-43d5-8cb1-4f877579f0bf" xml:space="preserve">
+          <source>You can utilize URL rewriting for resources such as scripts and other content to avoid moving your files to the CDN origin folder.</source>
+          <target state="new">You can utilize URL rewriting for resources such as scripts and other content to avoid moving your files to the CDN origin folder.</target>
+        </trans-unit>
+        <trans-unit id="ef549631-ecf3-4d47-99b9-8d3d2d3196e4" xml:space="preserve">
+          <source>When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.</source>
+          <target state="new">When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.</target>
+        </trans-unit>
+        <trans-unit id="d5f692e8-3643-497c-9367-c53479a34f26" xml:space="preserve">
+          <source>When using Azure Web Sites, you specify the path to the CDN instance in the links to resources.</source>
+          <target state="new">When using Azure Web Sites, you specify the path to the CDN instance in the links to resources.</target>
+        </trans-unit>
+        <trans-unit id="6a27e494-de04-4b7c-9bb4-dff48836c082" xml:space="preserve">
+          <source>For example, the following specifies an image file in the <bpt id="cf03b4a0-78ea-4fac-98cd-b25da2e24af5">&lt;strong&gt;</bpt>Images<ept id="cf03b4a0-78ea-4fac-98cd-b25da2e24af5">&lt;/strong&gt;</ept> folder of the site that will be delivered through the CDN:</source>
+          <target state="new">For example, the following specifies an image file in the <bpt id="cf03b4a0-78ea-4fac-98cd-b25da2e24af5">&lt;strong&gt;</bpt>Images<ept id="cf03b4a0-78ea-4fac-98cd-b25da2e24af5">&lt;/strong&gt;</ept> folder of the site that will be delivered through the CDN:</target>
+        </trans-unit>
+        <trans-unit id="3cc22f19-cd73-44ee-a315-fd3489fcd523" xml:space="preserve">
+          <source><bpt id="20c2e7ca-da37-4752-8d6b-aa73f57c537b">&lt;strong&gt;</bpt>Deployment<ept id="20c2e7ca-da37-4752-8d6b-aa73f57c537b">&lt;/strong&gt;</ept> Static content may need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process.</source>
+          <target state="new"><bpt id="20c2e7ca-da37-4752-8d6b-aa73f57c537b">&lt;strong&gt;</bpt>Deployment<ept id="20c2e7ca-da37-4752-8d6b-aa73f57c537b">&lt;/strong&gt;</ept> Static content may need to be provisioned and deployed independently from the application if you do not include it in the application deployment package or process.</target>
+        </trans-unit>
+        <trans-unit id="b54c85ce-47d6-415b-bcfe-6bbc77b30643" xml:space="preserve">
+          <source>Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.</source>
+          <target state="new">Consider how this will affect the versioning approach you use to manage both the application components and the static resource content.</target>
+        </trans-unit>
+        <trans-unit id="deb41856-1330-4a37-b3a4-f75ca09719fd" xml:space="preserve">
+          <source>Consider how bundling (combining several files into one file) and minification (removing unnecessary characters such as white space, new line characters, comments, and other characters) for script and CSS files will be handled.</source>
+          <target state="new">Consider how bundling (combining several files into one file) and minification (removing unnecessary characters such as white space, new line characters, comments, and other characters) for script and CSS files will be handled.</target>
+        </trans-unit>
+        <trans-unit id="38566061-4fb7-4fc6-b5bb-060ec129a525" xml:space="preserve">
+          <source>These commonly used techniques can reduce load times for clients, and are compatible with delivering content through the CDN.</source>
+          <target state="new">These commonly used techniques can reduce load times for clients, and are compatible with delivering content through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="f7484f81-8ffb-4f6e-add4-8c42856061cc" xml:space="preserve">
+          <source>For more information, see <bpt id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;linkText&gt;</bpt>Bundling and Minification<ept id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;/linkText&gt;</ept><bpt id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;title&gt;</bpt><ept id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;linkText&gt;</bpt>Bundling and Minification<ept id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;/linkText&gt;</ept><bpt id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;title&gt;</bpt><ept id="fa7bd060-1797-4b3e-a877-6eb2fa81b5c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5cf6242-f970-46b8-8e5f-50d802206e6f" xml:space="preserve">
+          <source>If you need to deploy the content to an additional location, this will be an extra step in the deployment process.</source>
+          <target state="new">If you need to deploy the content to an additional location, this will be an extra step in the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="31438ed8-1478-4181-94b9-c74115a1ee19" xml:space="preserve">
+          <source>If the application updates the content for the CDN, perhaps at regular intervals or in response to an event, it must store the updated content in any additional locations as well as the endpoint for the CDN.</source>
+          <target state="new">If the application updates the content for the CDN, perhaps at regular intervals or in response to an event, it must store the updated content in any additional locations as well as the endpoint for the CDN.</target>
+        </trans-unit>
+        <trans-unit id="dcf38b3a-4b9c-4421-9092-63929371edf9" xml:space="preserve">
+          <source>You cannot set up a CDN endpoint for an application deployed in Azure staging, or in the local Azure emulator in Visual Studio.</source>
+          <target state="new">You cannot set up a CDN endpoint for an application deployed in Azure staging, or in the local Azure emulator in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="b107da69-96f6-48a6-ab9a-9f28ef99dd5f" xml:space="preserve">
+          <source>This will affect unit testing, functional testing, and final pre-deployment testing.</source>
+          <target state="new">This will affect unit testing, functional testing, and final pre-deployment testing.</target>
+        </trans-unit>
+        <trans-unit id="dda0c616-a2c2-40e6-87e9-fa9cae7d0e56" xml:space="preserve">
+          <source>You must allow for this by implementing an alternative mechanism.</source>
+          <target state="new">You must allow for this by implementing an alternative mechanism.</target>
+        </trans-unit>
+        <trans-unit id="2f3c3011-8f78-4a38-bf3c-7f96ab94d770" xml:space="preserve">
+          <source>For example, you could pre-deploy the content to the CDN using a temporary custom application or utility, and perform testing during the period it is cached.</source>
+          <target state="new">For example, you could pre-deploy the content to the CDN using a temporary custom application or utility, and perform testing during the period it is cached.</target>
+        </trans-unit>
+        <trans-unit id="0e12e62f-3b37-4f12-a00d-7b82df8bdad8" xml:space="preserve">
+          <source>Alternatively, use compile directives or global constants to control where the application loads the resources from.</source>
+          <target state="new">Alternatively, use compile directives or global constants to control where the application loads the resources from.</target>
+        </trans-unit>
+        <trans-unit id="211747b9-b760-4a00-b0cb-464b235cc33f" xml:space="preserve">
+          <source>For example, when running in debug mode it could load resources such as client-side script bundles and other content from a local folder, and use the CDN when running in release mode.</source>
+          <target state="new">For example, when running in debug mode it could load resources such as client-side script bundles and other content from a local folder, and use the CDN when running in release mode.</target>
+        </trans-unit>
+        <trans-unit id="f90b6b62-a785-4e14-afe1-87e8f9553644" xml:space="preserve">
+          <source>The CDN does not support any native compression capabilities.</source>
+          <target state="new">The CDN does not support any native compression capabilities.</target>
+        </trans-unit>
+        <trans-unit id="7514d908-12f9-4f88-a535-48c46dbbe93b" xml:space="preserve">
+          <source>However, it will deliver content that is already compressed, such as zip and gzip files.</source>
+          <target state="new">However, it will deliver content that is already compressed, such as zip and gzip files.</target>
+        </trans-unit>
+        <trans-unit id="23ec5d48-7189-4000-a534-d0074bf91845" xml:space="preserve">
+          <source>When using an application folder as the CDN endpoint, the server may compress some content by default in the same way as when delivering it directly to a web browser or other type of client.</source>
+          <target state="new">When using an application folder as the CDN endpoint, the server may compress some content by default in the same way as when delivering it directly to a web browser or other type of client.</target>
+        </trans-unit>
+        <trans-unit id="2971871d-a196-4cca-a610-ab441d1a3c28" xml:space="preserve">
+          <source>This relies on the <bpt id="07f8b38d-d290-4760-bc04-0736a63af428">&lt;strong&gt;</bpt>Accept-Encoding<ept id="07f8b38d-d290-4760-bc04-0736a63af428">&lt;/strong&gt;</ept> value sent from the client.</source>
+          <target state="new">This relies on the <bpt id="07f8b38d-d290-4760-bc04-0736a63af428">&lt;strong&gt;</bpt>Accept-Encoding<ept id="07f8b38d-d290-4760-bc04-0736a63af428">&lt;/strong&gt;</ept> value sent from the client.</target>
+        </trans-unit>
+        <trans-unit id="43ac471e-1345-4df2-9092-2d368d3721ef" xml:space="preserve">
+          <source>In Azure the default is to automatically compress content when CPU utilization is below 50%.</source>
+          <target state="new">In Azure the default is to automatically compress content when CPU utilization is below 50%.</target>
+        </trans-unit>
+        <trans-unit id="df5a774c-a210-4af5-b590-0a217f38a5f3" xml:space="preserve">
+          <source>Changing the settings and may require use of a startup task to turn on compression of dynamic output in IIS if you are using Cloud Services to host the application.</source>
+          <target state="new">Changing the settings and may require use of a startup task to turn on compression of dynamic output in IIS if you are using Cloud Services to host the application.</target>
+        </trans-unit>
+        <trans-unit id="eee7d485-33b5-4184-b5d2-c004a87e69c9" xml:space="preserve">
+          <source>See <bpt id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;linkText&gt;</bpt>Enabling gzip compression with Azure CDN through a Web Role<ept id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;/linkText&gt;</ept><bpt id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;title&gt;</bpt><ept id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;linkText&gt;</bpt>Enabling gzip compression with Azure CDN through a Web Role<ept id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;/linkText&gt;</ept><bpt id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;title&gt;</bpt><ept id="3d140faa-84fe-4ae1-ada3-a274895955eb">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="bd258243-8244-42f2-a6f7-7e330f9ffe7c" xml:space="preserve">
+          <source><bpt id="f46baa1f-5df8-4ceb-a4a1-286b8cb0fb0d">&lt;strong&gt;</bpt>Routing and versioning<ept id="f46baa1f-5df8-4ceb-a4a1-286b8cb0fb0d">&lt;/strong&gt;</ept> You may need to use different CDN instances; for example, when you deploy a new version of the application you may want to use a different CDN.</source>
+          <target state="new"><bpt id="f46baa1f-5df8-4ceb-a4a1-286b8cb0fb0d">&lt;strong&gt;</bpt>Routing and versioning<ept id="f46baa1f-5df8-4ceb-a4a1-286b8cb0fb0d">&lt;/strong&gt;</ept> You may need to use different CDN instances; for example, when you deploy a new version of the application you may want to use a different CDN.</target>
+        </trans-unit>
+        <trans-unit id="b50f6e0f-276b-42b6-9e77-26e455cb878e" xml:space="preserve">
+          <source>If you use Azure blob storage as the content origin, you can simply create a separate storage account or a separate container and point the CDN endpoint to it.</source>
+          <target state="new">If you use Azure blob storage as the content origin, you can simply create a separate storage account or a separate container and point the CDN endpoint to it.</target>
+        </trans-unit>
+        <trans-unit id="82c817ce-357d-4f4a-8c64-e291c8c5c996" xml:space="preserve">
+          <source>If you use the <bpt id="60d42269-c0b0-48bb-8439-aaea094d57a7">&lt;strong&gt;</bpt>cdn<ept id="60d42269-c0b0-48bb-8439-aaea094d57a7">&lt;/strong&gt;</ept> root folder within the application as the CDN endpoint you can use URL rewriting techniques to direct requests to a different folder.</source>
+          <target state="new">If you use the <bpt id="60d42269-c0b0-48bb-8439-aaea094d57a7">&lt;strong&gt;</bpt>cdn<ept id="60d42269-c0b0-48bb-8439-aaea094d57a7">&lt;/strong&gt;</ept> root folder within the application as the CDN endpoint you can use URL rewriting techniques to direct requests to a different folder.</target>
+        </trans-unit>
+        <trans-unit id="dd195212-8ab4-4fe4-a718-fcbbca965e16" xml:space="preserve">
+          <source>Do not use the query string to denote different versions of the application in links to resources on the CDN because, when drawing content from Azure blob storage, the query string is part of the resource name (the blob name).</source>
+          <target state="new">Do not use the query string to denote different versions of the application in links to resources on the CDN because, when drawing content from Azure blob storage, the query string is part of the resource name (the blob name).</target>
+        </trans-unit>
+        <trans-unit id="61a64df5-4806-4ac3-9629-2df445d98975" xml:space="preserve">
+          <source>It can also affect how the client caches the resources.</source>
+          <target state="new">It can also affect how the client caches the resources.</target>
+        </trans-unit>
+        <trans-unit id="608864d6-1fbc-42f7-a00a-a3d6105321d0" xml:space="preserve">
+          <source>Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN.</source>
+          <target state="new">Deploying new versions of static content when you update an application can be a challenge if the previous resources are cached on the CDN.</target>
+        </trans-unit>
+        <trans-unit id="ef7ff253-d5c4-4c78-9a55-aa286d923673" xml:space="preserve">
+          <source>For more information, see the section "&lt;a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;Cache control&lt;/a&gt;".</source>
+          <target state="new">For more information, see the section "&lt;a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;Cache control&lt;/a&gt;".</target>
+        </trans-unit>
+        <trans-unit id="9f83d359-dfe7-40da-9ece-e38278c25859" xml:space="preserve">
+          <source>&lt;a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;&lt;span /&gt;&lt;/a&gt;<bpt id="8d1cc967-9f74-4c5e-a7b7-2777289d0bb1">&lt;strong&gt;</bpt>Cache control<ept id="8d1cc967-9f74-4c5e-a7b7-2777289d0bb1">&lt;/strong&gt;</ept>+ Consider how you want to manage caching, and at what layers of the application.</source>
+          <target state="new">&lt;a name="cachecontrol" href="#" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;&lt;span /&gt;&lt;/a&gt;<bpt id="8d1cc967-9f74-4c5e-a7b7-2777289d0bb1">&lt;strong&gt;</bpt>Cache control<ept id="8d1cc967-9f74-4c5e-a7b7-2777289d0bb1">&lt;/strong&gt;</ept>+ Consider how you want to manage caching, and at what layers of the application.</target>
+        </trans-unit>
+        <trans-unit id="18e29d9f-f881-40fb-b79e-6d90ce7a503c" xml:space="preserve">
+          <source>For example, when using a folder as the CDN origin you can specify the cacheability of pages that generate the content, and the content expiry for all the resources in a specific folder.</source>
+          <target state="new">For example, when using a folder as the CDN origin you can specify the cacheability of pages that generate the content, and the content expiry for all the resources in a specific folder.</target>
+        </trans-unit>
+        <trans-unit id="068bdec3-f04e-4bb1-a6b3-54dedfa9686a" xml:space="preserve">
+          <source>You can also specify cache properties for the CDN, and for the client using standard HTTP headers.</source>
+          <target state="new">You can also specify cache properties for the CDN, and for the client using standard HTTP headers.</target>
+        </trans-unit>
+        <trans-unit id="f3e68bad-218f-444f-a30a-f573d2fa4e8b" xml:space="preserve">
+          <source>Although you should already be managing caching on the server and client, using the CDN will help to make you more aware of how your content is cached, and where.</source>
+          <target state="new">Although you should already be managing caching on the server and client, using the CDN will help to make you more aware of how your content is cached, and where.</target>
+        </trans-unit>
+        <trans-unit id="22bfd47e-9bcf-4ccd-a9f6-01585a28c169" xml:space="preserve">
+          <source>To prevent objects from being available on the CDN you can delete them from the origin (blob container or application <bpt id="a22a632a-bb0a-40cb-a73f-79e799d5d806">&lt;strong&gt;</bpt>cdn<ept id="a22a632a-bb0a-40cb-a73f-79e799d5d806">&lt;/strong&gt;</ept> root folder), remove or delete the CDN endpoint, or—in the case of blob storage—make the container or blob private.</source>
+          <target state="new">To prevent objects from being available on the CDN you can delete them from the origin (blob container or application <bpt id="a22a632a-bb0a-40cb-a73f-79e799d5d806">&lt;strong&gt;</bpt>cdn<ept id="a22a632a-bb0a-40cb-a73f-79e799d5d806">&lt;/strong&gt;</ept> root folder), remove or delete the CDN endpoint, or—in the case of blob storage—make the container or blob private.</target>
+        </trans-unit>
+        <trans-unit id="e6ee1548-47df-4926-b395-2a8360b34627" xml:space="preserve">
+          <source>However, items will be removed from the CDN only when their time-to-live (TTL) expires.</source>
+          <target state="new">However, items will be removed from the CDN only when their time-to-live (TTL) expires.</target>
+        </trans-unit>
+        <trans-unit id="3dec19d4-1169-43fd-9292-231c3c776206" xml:space="preserve">
+          <source>If no cache expiry period is specified (such as when content is loaded from blob storage), it will be cached on the CDN for up to 72 hours.</source>
+          <target state="new">If no cache expiry period is specified (such as when content is loaded from blob storage), it will be cached on the CDN for up to 72 hours.</target>
+        </trans-unit>
+        <trans-unit id="2c58c649-97c4-4418-8d7c-3d978ce13590" xml:space="preserve">
+          <source>In a web application, you can set the caching and expiry for all content by using the <bpt id="77bb6d33-3884-4db9-8fe4-20c193d1c3b2">&lt;strong&gt;</bpt>clientCache<ept id="77bb6d33-3884-4db9-8fe4-20c193d1c3b2">&lt;/strong&gt;</ept> element in the <bpt id="cd817cfc-ebf4-4868-b7a3-1cf244ec45a4">&lt;strong&gt;</bpt>system.webServer/staticContent<ept id="cd817cfc-ebf4-4868-b7a3-1cf244ec45a4">&lt;/strong&gt;</ept> section of a web.config file.</source>
+          <target state="new">In a web application, you can set the caching and expiry for all content by using the <bpt id="77bb6d33-3884-4db9-8fe4-20c193d1c3b2">&lt;strong&gt;</bpt>clientCache<ept id="77bb6d33-3884-4db9-8fe4-20c193d1c3b2">&lt;/strong&gt;</ept> element in the <bpt id="cd817cfc-ebf4-4868-b7a3-1cf244ec45a4">&lt;strong&gt;</bpt>system.webServer/staticContent<ept id="cd817cfc-ebf4-4868-b7a3-1cf244ec45a4">&lt;/strong&gt;</ept> section of a web.config file.</target>
+        </trans-unit>
+        <trans-unit id="d4d93cf5-c5d6-4a2d-9385-18159bd85b56" xml:space="preserve">
+          <source>You can place a web.config file in any folder so that it affects the files in that folder and the files in all subfolders.</source>
+          <target state="new">You can place a web.config file in any folder so that it affects the files in that folder and the files in all subfolders.</target>
+        </trans-unit>
+        <trans-unit id="dd9fd3a5-4276-4607-99bd-e29a3c9600cc" xml:space="preserve">
+          <source>If you use a dynamic technique such as ASP.NET to create the content for the CDN, ensure that you specify the <bpt id="468eab9f-58a6-4cf7-adff-a117cd10664c">&lt;strong&gt;</bpt>Cache.SetExpires<ept id="468eab9f-58a6-4cf7-adff-a117cd10664c">&lt;/strong&gt;</ept> property on each page.</source>
+          <target state="new">If you use a dynamic technique such as ASP.NET to create the content for the CDN, ensure that you specify the <bpt id="468eab9f-58a6-4cf7-adff-a117cd10664c">&lt;strong&gt;</bpt>Cache.SetExpires<ept id="468eab9f-58a6-4cf7-adff-a117cd10664c">&lt;/strong&gt;</ept> property on each page.</target>
+        </trans-unit>
+        <trans-unit id="8d3105dc-4a76-406b-96a0-fd85e564275d" xml:space="preserve">
+          <source>The CDN will not cache the output from pages that use the default cacheability setting of public.</source>
+          <target state="new">The CDN will not cache the output from pages that use the default cacheability setting of public.</target>
+        </trans-unit>
+        <trans-unit id="63936568-4c28-4a98-8afe-7d1d68c2311d" xml:space="preserve">
+          <source>Set the cache expiry period to a suitable value to ensure that the content is not discarded and reloaded from the application at very short intervals.</source>
+          <target state="new">Set the cache expiry period to a suitable value to ensure that the content is not discarded and reloaded from the application at very short intervals.</target>
+        </trans-unit>
+        <trans-unit id="f1dc5618-9e55-4ded-9dbc-740b2a0a173d" xml:space="preserve">
+          <source><bpt id="42cea759-6d50-421f-87e4-11a78ba2b9e3">&lt;strong&gt;</bpt>Security<ept id="42cea759-6d50-421f-87e4-11a78ba2b9e3">&lt;/strong&gt;</ept> The CDN can deliver content over HTTPS (SSL) using the certificate provided by the CDN, but it will also be available over HTTP as well.</source>
+          <target state="new"><bpt id="42cea759-6d50-421f-87e4-11a78ba2b9e3">&lt;strong&gt;</bpt>Security<ept id="42cea759-6d50-421f-87e4-11a78ba2b9e3">&lt;/strong&gt;</ept> The CDN can deliver content over HTTPS (SSL) using the certificate provided by the CDN, but it will also be available over HTTP as well.</target>
+        </trans-unit>
+        <trans-unit id="fd76e085-e8be-45c7-86ac-b3703adf5223" xml:space="preserve">
+          <source>You cannot block HTTP access to items in the CDN.</source>
+          <target state="new">You cannot block HTTP access to items in the CDN.</target>
+        </trans-unit>
+        <trans-unit id="14e56099-6cad-48d2-8b12-d10bfc8db816" xml:space="preserve">
+          <source>You may need to use HTTPS to request static content that is displayed in pages loaded through HTTPS (such as a shopping cart) to avoid browser warnings about mixed content.</source>
+          <target state="new">You may need to use HTTPS to request static content that is displayed in pages loaded through HTTPS (such as a shopping cart) to avoid browser warnings about mixed content.</target>
+        </trans-unit>
+        <trans-unit id="36991a1d-d500-4723-a6b9-162f2fd7dc28" xml:space="preserve">
+          <source>Many CDN services, such as the Azure CDN, do not presently offer any facilities for access control to secure access to the content.</source>
+          <target state="new">Many CDN services, such as the Azure CDN, do not presently offer any facilities for access control to secure access to the content.</target>
+        </trans-unit>
+        <trans-unit id="25870936-4514-46de-8c5b-f060ec9d2b06" xml:space="preserve">
+          <source>You cannot use Shared Access Signatures (SAS) with the CDN.</source>
+          <target state="new">You cannot use Shared Access Signatures (SAS) with the CDN.</target>
+        </trans-unit>
+        <trans-unit id="f123f2b3-c77c-4469-9972-c4b98178b25b" xml:space="preserve">
+          <source>If you deliver client-side scripts using the CDN, you may encounter issues if these scripts use an <bpt id="cbc24b02-bb63-4baf-b783-22f9feb7e27a">&lt;strong&gt;</bpt>XMLHttpRequest<ept id="cbc24b02-bb63-4baf-b783-22f9feb7e27a">&lt;/strong&gt;</ept> call to make HTTP requests for other resources such as data, images, or fonts in a different domain.</source>
+          <target state="new">If you deliver client-side scripts using the CDN, you may encounter issues if these scripts use an <bpt id="cbc24b02-bb63-4baf-b783-22f9feb7e27a">&lt;strong&gt;</bpt>XMLHttpRequest<ept id="cbc24b02-bb63-4baf-b783-22f9feb7e27a">&lt;/strong&gt;</ept> call to make HTTP requests for other resources such as data, images, or fonts in a different domain.</target>
+        </trans-unit>
+        <trans-unit id="51794008-f2d1-430a-a6a6-2d79e292c722" xml:space="preserve">
+          <source>Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers.</source>
+          <target state="new">Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers.</target>
+        </trans-unit>
+        <trans-unit id="259ce0a4-ede0-4b6d-9c79-fb517c0c548d" xml:space="preserve">
+          <source>For more information about CORS, see the section "Threat mitigation" in the guide &lt;span class="highlight" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;API security considerations&lt;/span&gt;.</source>
+          <target state="new">For more information about CORS, see the section "Threat mitigation" in the guide &lt;span class="highlight" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp"&gt;API security considerations&lt;/span&gt;.</target>
+        </trans-unit>
+        <trans-unit id="497b76f3-f20e-4aba-9a34-a4750ae0d5a5" xml:space="preserve">
+          <source>You can configure the CDN to support CORS:+ If the origin from which you are delivering content is Azure blob storage, you can add a <bpt id="6057e574-5312-4653-9a6d-4f2e3be6e9bf">&lt;strong&gt;</bpt>CorsRule<ept id="6057e574-5312-4653-9a6d-4f2e3be6e9bf">&lt;/strong&gt;</ept> to the service properties.</source>
+          <target state="new">You can configure the CDN to support CORS:+ If the origin from which you are delivering content is Azure blob storage, you can add a <bpt id="6057e574-5312-4653-9a6d-4f2e3be6e9bf">&lt;strong&gt;</bpt>CorsRule<ept id="6057e574-5312-4653-9a6d-4f2e3be6e9bf">&lt;/strong&gt;</ept> to the service properties.</target>
+        </trans-unit>
+        <trans-unit id="d33fc41d-7f17-4580-8b28-6b424f87587b" xml:space="preserve">
+          <source>The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content).</source>
+          <target state="new">The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content).</target>
+        </trans-unit>
+        <trans-unit id="347b59d9-3c4e-43ac-b2c4-c12f5b6868da" xml:space="preserve">
+          <source>For more information, see <bpt id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;linkText&gt;</bpt>Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services<ept id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;/linkText&gt;</ept><bpt id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;title&gt;</bpt><ept id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;linkText&gt;</bpt>Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services<ept id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;/linkText&gt;</ept><bpt id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;title&gt;</bpt><ept id="826bd168-a7a9-4ba0-9283-86de238d0829">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6031a420-f89f-4192-8550-216d913ff080" xml:space="preserve">
+          <source>If the origin from which you are delivering content is a folder within the application, such as the <bpt id="a5871f6c-3cf6-433f-8790-72f51a92b1b0">&lt;strong&gt;</bpt>cdn<ept id="a5871f6c-3cf6-433f-8790-72f51a92b1b0">&lt;/strong&gt;</ept> root folder, you can configure outbound rules in the application configuration file to set an <bpt id="45c46d06-947d-48a7-b886-70bb57b24175">&lt;strong&gt;</bpt>Access-Control-Allow-Origin<ept id="45c46d06-947d-48a7-b886-70bb57b24175">&lt;/strong&gt;</ept> header on all responses.</source>
+          <target state="new">If the origin from which you are delivering content is a folder within the application, such as the <bpt id="a5871f6c-3cf6-433f-8790-72f51a92b1b0">&lt;strong&gt;</bpt>cdn<ept id="a5871f6c-3cf6-433f-8790-72f51a92b1b0">&lt;/strong&gt;</ept> root folder, you can configure outbound rules in the application configuration file to set an <bpt id="45c46d06-947d-48a7-b886-70bb57b24175">&lt;strong&gt;</bpt>Access-Control-Allow-Origin<ept id="45c46d06-947d-48a7-b886-70bb57b24175">&lt;/strong&gt;</ept> header on all responses.</target>
+        </trans-unit>
+        <trans-unit id="b3f57155-3728-4bb9-88e0-4d29d67a321c" xml:space="preserve">
+          <source>For more information about using rewrite rules, see <bpt id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;linkText&gt;</bpt>URL Rewrite Module<ept id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;/linkText&gt;</ept><bpt id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;title&gt;</bpt><ept id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using rewrite rules, see <bpt id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;linkText&gt;</bpt>URL Rewrite Module<ept id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;/linkText&gt;</ept><bpt id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;title&gt;</bpt><ept id="9813c044-5b77-4c9b-b336-b49e91e80495">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70e0a9ca-bee8-4537-bb52-89bbd1cb575f" xml:space="preserve">
+          <source>Note that this technique is not possible when using Azure Web Sites.</source>
+          <target state="new">Note that this technique is not possible when using Azure Web Sites.</target>
+        </trans-unit>
+        <trans-unit id="3c4d8ee5-5eaa-4262-a8c2-553530c3b8b7" xml:space="preserve">
+          <source><bpt id="a4c71f67-3156-42e7-8672-bbd0455ea962">&lt;strong&gt;</bpt>Custom domains<ept id="a4c71f67-3156-42e7-8672-bbd0455ea962">&lt;/strong&gt;</ept>+ Most CDNs, including the Azure CDN, allow you to specify a custom domain name and use it to access resources through the CDN.</source>
+          <target state="new"><bpt id="a4c71f67-3156-42e7-8672-bbd0455ea962">&lt;strong&gt;</bpt>Custom domains<ept id="a4c71f67-3156-42e7-8672-bbd0455ea962">&lt;/strong&gt;</ept>+ Most CDNs, including the Azure CDN, allow you to specify a custom domain name and use it to access resources through the CDN.</target>
+        </trans-unit>
+        <trans-unit id="d026329c-ac12-4b9a-bab8-417f8758c1c2" xml:space="preserve">
+          <source>You can also set up a custom subdomain name using a <bpt id="193a6892-e945-4a2d-935b-7b411ec9898c">&lt;strong&gt;</bpt>CNAME<ept id="193a6892-e945-4a2d-935b-7b411ec9898c">&lt;/strong&gt;</ept> record in your DNS.</source>
+          <target state="new">You can also set up a custom subdomain name using a <bpt id="193a6892-e945-4a2d-935b-7b411ec9898c">&lt;strong&gt;</bpt>CNAME<ept id="193a6892-e945-4a2d-935b-7b411ec9898c">&lt;/strong&gt;</ept> record in your DNS.</target>
+        </trans-unit>
+        <trans-unit id="cc86370f-7c38-44a4-8130-b6df3443fc4d" xml:space="preserve">
+          <source>Using this approach can provide an additional layer of abstraction and control.</source>
+          <target state="new">Using this approach can provide an additional layer of abstraction and control.</target>
+        </trans-unit>
+        <trans-unit id="31e54dd4-08e2-4905-be1a-8d601b13c57d" xml:space="preserve">
+          <source>If you use a <bpt id="49d1daa4-4369-4656-8a38-1ca30230a6c4">&lt;strong&gt;</bpt>CNAME<ept id="49d1daa4-4369-4656-8a38-1ca30230a6c4">&lt;/strong&gt;</ept>, you cannot (at the time this guide was written) also use SSL because the CDN uses its own single SSL certificate, and this will not match your custom domain/subdomain names.</source>
+          <target state="new">If you use a <bpt id="49d1daa4-4369-4656-8a38-1ca30230a6c4">&lt;strong&gt;</bpt>CNAME<ept id="49d1daa4-4369-4656-8a38-1ca30230a6c4">&lt;/strong&gt;</ept>, you cannot (at the time this guide was written) also use SSL because the CDN uses its own single SSL certificate, and this will not match your custom domain/subdomain names.</target>
+        </trans-unit>
+        <trans-unit id="043c5499-c032-4a21-be94-144a58f674e6" xml:space="preserve">
+          <source><bpt id="fa5512ac-89aa-4e1d-8fc8-a67d5809d33b">&lt;strong&gt;</bpt>CDN fallback<ept id="fa5512ac-89aa-4e1d-8fc8-a67d5809d33b">&lt;/strong&gt;</ept> You should consider how your application will cope with a failure or temporary unavailability of the CDN.</source>
+          <target state="new"><bpt id="fa5512ac-89aa-4e1d-8fc8-a67d5809d33b">&lt;strong&gt;</bpt>CDN fallback<ept id="fa5512ac-89aa-4e1d-8fc8-a67d5809d33b">&lt;/strong&gt;</ept> You should consider how your application will cope with a failure or temporary unavailability of the CDN.</target>
+        </trans-unit>
+        <trans-unit id="fcac12d9-1ef4-4236-872c-a17a0d06d29b" xml:space="preserve">
+          <source>Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or they can use code that detects failures and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.</source>
+          <target state="new">Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or they can use code that detects failures and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="c4531824-6842-4e72-9e91-a2f84536a3aa" xml:space="preserve">
+          <source><bpt id="c7362e40-a693-4eb4-b329-3149b3f8bb1f">&lt;strong&gt;</bpt>SEO<ept id="c7362e40-a693-4eb4-b329-3149b3f8bb1f">&lt;/strong&gt;</ept> If SEO is an important consideration in your application, make sure you:+ Include a <bpt id="c2c87b47-73d3-4acb-9b30-ae80164e98c9">&lt;strong&gt;</bpt>Rel<ept id="c2c87b47-73d3-4acb-9b30-ae80164e98c9">&lt;/strong&gt;</ept> canonical header in each page or resource.</source>
+          <target state="new"><bpt id="c7362e40-a693-4eb4-b329-3149b3f8bb1f">&lt;strong&gt;</bpt>SEO<ept id="c7362e40-a693-4eb4-b329-3149b3f8bb1f">&lt;/strong&gt;</ept> If SEO is an important consideration in your application, make sure you:+ Include a <bpt id="c2c87b47-73d3-4acb-9b30-ae80164e98c9">&lt;strong&gt;</bpt>Rel<ept id="c2c87b47-73d3-4acb-9b30-ae80164e98c9">&lt;/strong&gt;</ept> canonical header in each page or resource.</target>
+        </trans-unit>
+        <trans-unit id="233582ae-5085-4f4a-a172-abf24ef66be5" xml:space="preserve">
+          <source>Use a <bpt id="23e5dc49-9b26-4f1e-8f37-561d3ef23e79">&lt;strong&gt;</bpt>CNAME<ept id="23e5dc49-9b26-4f1e-8f37-561d3ef23e79">&lt;/strong&gt;</ept> subdomain record and access the resources using this name.</source>
+          <target state="new">Use a <bpt id="23e5dc49-9b26-4f1e-8f37-561d3ef23e79">&lt;strong&gt;</bpt>CNAME<ept id="23e5dc49-9b26-4f1e-8f37-561d3ef23e79">&lt;/strong&gt;</ept> subdomain record and access the resources using this name.</target>
+        </trans-unit>
+        <trans-unit id="08f1dbcc-39fd-4a17-86c4-ae4b1cca0e53" xml:space="preserve">
+          <source>Consider the impact of the fact that the IP address of the CDN may be a country or region that differs from that of the application itself.</source>
+          <target state="new">Consider the impact of the fact that the IP address of the CDN may be a country or region that differs from that of the application itself.</target>
+        </trans-unit>
+        <trans-unit id="c62a4c8f-1035-4742-9661-d0a2656376a6" xml:space="preserve">
+          <source>When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.</source>
+          <target state="new">When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.</target>
+        </trans-unit>
+        <trans-unit id="968e49a4-ddab-4232-94a4-7c3972921956" xml:space="preserve">
+          <source><bpt id="c2520c65-b167-4219-9444-982a93f832dc">&lt;strong&gt;</bpt>Monitoring &amp; Logging<ept id="c2520c65-b167-4219-9444-982a93f832dc">&lt;/strong&gt;</ept> Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.</source>
+          <target state="new"><bpt id="c2520c65-b167-4219-9444-982a93f832dc">&lt;strong&gt;</bpt>Monitoring &amp; Logging<ept id="c2520c65-b167-4219-9444-982a93f832dc">&lt;/strong&gt;</ept> Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.</target>
+        </trans-unit>
+        <trans-unit id="ab1b9609-70f4-4809-9c04-a3093f95a5ba" xml:space="preserve">
+          <source>Enable logging for the CDN and include it as part of your daily operations.</source>
+          <target state="new">Enable logging for the CDN and include it as part of your daily operations.</target>
+        </trans-unit>
+        <trans-unit id="30a55342-2473-4f50-ada8-b2b89705fdd1" xml:space="preserve">
+          <source><bpt id="a2f47d24-5188-42d8-8dca-f5c12b7ab6e3">&lt;strong&gt;</bpt>Cost implication<ept id="a2f47d24-5188-42d8-8dca-f5c12b7ab6e3">&lt;/strong&gt;</ept> You are charged for both outbound data transfers from the CDN and for storage transactions when the CDN loads data from your application.</source>
+          <target state="new"><bpt id="a2f47d24-5188-42d8-8dca-f5c12b7ab6e3">&lt;strong&gt;</bpt>Cost implication<ept id="a2f47d24-5188-42d8-8dca-f5c12b7ab6e3">&lt;/strong&gt;</ept> You are charged for both outbound data transfers from the CDN and for storage transactions when the CDN loads data from your application.</target>
+        </trans-unit>
+        <trans-unit id="ad66d104-5ad3-4ccc-8ad8-67ccf62daddf" xml:space="preserve">
+          <source>You should set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.</source>
+          <target state="new">You should set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.</target>
+        </trans-unit>
+        <trans-unit id="4e283ae2-a73e-422b-b6f7-f385f6abc69c" xml:space="preserve">
+          <source>However, very long expiry periods make it more difficult to remove items from the CDN because you must wait for them to expire.</source>
+          <target state="new">However, very long expiry periods make it more difficult to remove items from the CDN because you must wait for them to expire.</target>
+        </trans-unit>
+        <trans-unit id="48ab963f-15b8-4c2a-b19f-ec4953527ba5" xml:space="preserve">
+          <source>Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.</source>
+          <target state="new">Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.</target>
+        </trans-unit>
+        <trans-unit id="906468ec-61a2-4c30-980e-d60dd768add5" xml:space="preserve">
+          <source>This section contains some examples of code and techniques for working with the CDN.</source>
+          <target state="new">This section contains some examples of code and techniques for working with the CDN.</target>
+        </trans-unit>
+        <trans-unit id="83187d34-6c8d-4807-a2b8-af86cfbeaf05" xml:space="preserve">
+          <source>The following except from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform URL rewriting when using the CDN.</source>
+          <target state="new">The following except from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform URL rewriting when using the CDN.</target>
+        </trans-unit>
+        <trans-unit id="725cbc9f-8874-4543-9b13-f8c34a272518" xml:space="preserve">
+          <source>Requests from the CDN for content it will cache are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).</source>
+          <target state="new">Requests from the CDN for content it will cache are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).</target>
+        </trans-unit>
+        <trans-unit id="77b6c759-79ce-4a2e-9b79-a9337ae5a3e4" xml:space="preserve">
+          <source>The addition of the rewrite rules performs the following redirections:  </source>
+          <target state="new">The addition of the rewrite rules performs the following redirections:  </target>
+        </trans-unit>
+        <trans-unit id="b084cdbe-aee9-4821-ad3b-59c4ca46e879" xml:space="preserve">
+          <source>The first rule allows you to embed a version in the file name of a resource, which is then ignored.</source>
+          <target state="new">The first rule allows you to embed a version in the file name of a resource, which is then ignored.</target>
+        </trans-unit>
+        <trans-unit id="ad6a9df9-c405-49de-8080-971796946308" xml:space="preserve">
+          <source>For example, <bpt id="221d18d7-4883-4b39-9de7-d8a728ea2b68">&lt;strong&gt;</bpt>Filename_v123.jpg<ept id="221d18d7-4883-4b39-9de7-d8a728ea2b68">&lt;/strong&gt;</ept> is rewritten as <bpt id="070df7e5-5a16-4745-8fc6-e24ac58e1610">&lt;strong&gt;</bpt>Filename.jpg<ept id="070df7e5-5a16-4745-8fc6-e24ac58e1610">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="221d18d7-4883-4b39-9de7-d8a728ea2b68">&lt;strong&gt;</bpt>Filename_v123.jpg<ept id="221d18d7-4883-4b39-9de7-d8a728ea2b68">&lt;/strong&gt;</ept> is rewritten as <bpt id="070df7e5-5a16-4745-8fc6-e24ac58e1610">&lt;strong&gt;</bpt>Filename.jpg<ept id="070df7e5-5a16-4745-8fc6-e24ac58e1610">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecd64b9e-32b5-48ec-b134-528d2882ce54" xml:space="preserve">
+          <source>The next four rules show how to redirect requests if you do not want to store the resources in a folder named <bpt id="fb009c52-58ac-44d2-b8a3-dc5a1d70620c">&lt;strong&gt;</bpt>cdn<ept id="fb009c52-58ac-44d2-b8a3-dc5a1d70620c">&lt;/strong&gt;</ept> in the root of the web role.</source>
+          <target state="new">The next four rules show how to redirect requests if you do not want to store the resources in a folder named <bpt id="fb009c52-58ac-44d2-b8a3-dc5a1d70620c">&lt;strong&gt;</bpt>cdn<ept id="fb009c52-58ac-44d2-b8a3-dc5a1d70620c">&lt;/strong&gt;</ept> in the root of the web role.</target>
+        </trans-unit>
+        <trans-unit id="7a2fc6a8-25c3-4f21-8624-62dc42ceb6d3" xml:space="preserve">
+          <source>The rules map the <bpt id="7ee04024-41db-4098-95c7-2f12a40e33c2">&lt;strong&gt;</bpt>cdn/Images<ept id="7ee04024-41db-4098-95c7-2f12a40e33c2">&lt;/strong&gt;</ept>, <bpt id="57c01c22-f747-4787-b1f3-ce2f99de4f98">&lt;strong&gt;</bpt>cdn/Content<ept id="57c01c22-f747-4787-b1f3-ce2f99de4f98">&lt;/strong&gt;</ept>, <bpt id="56a73a56-a59d-4d33-9c34-efc36115ccd6">&lt;strong&gt;</bpt>cdn/Scripts<ept id="56a73a56-a59d-4d33-9c34-efc36115ccd6">&lt;/strong&gt;</ept>, and <bpt id="b1b45d61-787d-4fdb-b69d-ef7ff6d9cd93">&lt;strong&gt;</bpt>cdn/bundles<ept id="b1b45d61-787d-4fdb-b69d-ef7ff6d9cd93">&lt;/strong&gt;</ept> URLs to their respective root folders in the web role.</source>
+          <target state="new">The rules map the <bpt id="7ee04024-41db-4098-95c7-2f12a40e33c2">&lt;strong&gt;</bpt>cdn/Images<ept id="7ee04024-41db-4098-95c7-2f12a40e33c2">&lt;/strong&gt;</ept>, <bpt id="57c01c22-f747-4787-b1f3-ce2f99de4f98">&lt;strong&gt;</bpt>cdn/Content<ept id="57c01c22-f747-4787-b1f3-ce2f99de4f98">&lt;/strong&gt;</ept>, <bpt id="56a73a56-a59d-4d33-9c34-efc36115ccd6">&lt;strong&gt;</bpt>cdn/Scripts<ept id="56a73a56-a59d-4d33-9c34-efc36115ccd6">&lt;/strong&gt;</ept>, and <bpt id="b1b45d61-787d-4fdb-b69d-ef7ff6d9cd93">&lt;strong&gt;</bpt>cdn/bundles<ept id="b1b45d61-787d-4fdb-b69d-ef7ff6d9cd93">&lt;/strong&gt;</ept> URLs to their respective root folders in the web role.</target>
+        </trans-unit>
+        <trans-unit id="ca7dd0f9-96f8-4196-862b-b96b0d45afb6" xml:space="preserve">
+          <source>Using URL rewriting requires you to make some changes to the bundling of resources.</source>
+          <target state="new">Using URL rewriting requires you to make some changes to the bundling of resources.</target>
+        </trans-unit>
+        <trans-unit id="0aa262f2-57e3-4311-bf5b-e14f050b6efb" xml:space="preserve">
+          <source>Bundling and minification can be handled by ASP.NET.</source>
+          <target state="new">Bundling and minification can be handled by ASP.NET.</target>
+        </trans-unit>
+        <trans-unit id="2266a083-233d-4618-8bc3-2b114ad3e943" xml:space="preserve">
+          <source>In an MVC project, you define your bundles in <bpt id="390df329-a3c0-4650-8ae0-6521daec82ce">&lt;strong&gt;</bpt>BundleConfig.cs<ept id="390df329-a3c0-4650-8ae0-6521daec82ce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In an MVC project, you define your bundles in <bpt id="390df329-a3c0-4650-8ae0-6521daec82ce">&lt;strong&gt;</bpt>BundleConfig.cs<ept id="390df329-a3c0-4650-8ae0-6521daec82ce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6b550bb-016a-4a72-9823-f3109cd92b18" xml:space="preserve">
+          <source>A reference to the minified script bundle is created by calling the <bpt id="134e8e7b-8bcd-464b-bd3d-bf16587fc3b6">&lt;strong&gt;</bpt>Script.Render<ept id="134e8e7b-8bcd-464b-bd3d-bf16587fc3b6">&lt;/strong&gt;</ept> method, typically in code in the view class.</source>
+          <target state="new">A reference to the minified script bundle is created by calling the <bpt id="134e8e7b-8bcd-464b-bd3d-bf16587fc3b6">&lt;strong&gt;</bpt>Script.Render<ept id="134e8e7b-8bcd-464b-bd3d-bf16587fc3b6">&lt;/strong&gt;</ept> method, typically in code in the view class.</target>
+        </trans-unit>
+        <trans-unit id="df519ddd-0fa8-4eca-8248-f1e5908f4560" xml:space="preserve">
+          <source>This reference contains a query string that includes a hash, which is based on the content of the bundle.</source>
+          <target state="new">This reference contains a query string that includes a hash, which is based on the content of the bundle.</target>
+        </trans-unit>
+        <trans-unit id="a3d2a194-b4c8-4f1c-9ee4-948abe4727c5" xml:space="preserve">
+          <source>If the bundle contents change, the generated hash will also change.</source>
+          <target state="new">If the bundle contents change, the generated hash will also change.</target>
+        </trans-unit>
+        <trans-unit id="f4062af8-d697-4cb3-9399-012d40a4fdae" xml:space="preserve">
+          <source>By default, Azure CDN instances have the <bpt id="59bfec49-841e-4722-83bb-ca5f9e31fe99">&lt;strong&gt;</bpt>Query String Status<ept id="59bfec49-841e-4722-83bb-ca5f9e31fe99">&lt;/strong&gt;</ept> setting disabled.</source>
+          <target state="new">By default, Azure CDN instances have the <bpt id="59bfec49-841e-4722-83bb-ca5f9e31fe99">&lt;strong&gt;</bpt>Query String Status<ept id="59bfec49-841e-4722-83bb-ca5f9e31fe99">&lt;/strong&gt;</ept> setting disabled.</target>
+        </trans-unit>
+        <trans-unit id="80261936-43ed-4a61-930e-a36abfc6f54e" xml:space="preserve">
+          <source>In order for updated script bundles to be handled properly by the CDN, you must enable the <bpt id="5d3db26e-0bae-483c-b50f-750ccce1984f">&lt;strong&gt;</bpt>Query String Status<ept id="5d3db26e-0bae-483c-b50f-750ccce1984f">&lt;/strong&gt;</ept> setting for the CDN instance.</source>
+          <target state="new">In order for updated script bundles to be handled properly by the CDN, you must enable the <bpt id="5d3db26e-0bae-483c-b50f-750ccce1984f">&lt;strong&gt;</bpt>Query String Status<ept id="5d3db26e-0bae-483c-b50f-750ccce1984f">&lt;/strong&gt;</ept> setting for the CDN instance.</target>
+        </trans-unit>
+        <trans-unit id="4023ece6-b7e5-435b-a7eb-0236bd94d933" xml:space="preserve">
+          <source>Note that it may be an hour or more before creating the CDN and changing the settings takes effect.</source>
+          <target state="new">Note that it may be an hour or more before creating the CDN and changing the settings takes effect.</target>
+        </trans-unit>
+        <trans-unit id="1a3a0df4-fd13-47a3-883e-1c8518e0f64a" xml:space="preserve">
+          <source><bpt id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;linkText&gt;</bpt>Azure CDN<ept id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;/linkText&gt;</ept><bpt id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;title&gt;</bpt><ept id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;linkText&gt;</bpt>Azure CDN<ept id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;/linkText&gt;</ept><bpt id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;title&gt;</bpt><ept id="45c07baf-66f3-4fb6-8ee4-8eccbaf07031">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a33103d2-c061-4e60-a4ac-d7daabaaccb4" xml:space="preserve">
+          <source><bpt id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;/linkText&gt;</ept><bpt id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;title&gt;</bpt><ept id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;linkText&gt;</bpt>Overview of the Azure Content Delivery Network (CDN)<ept id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;/linkText&gt;</ept><bpt id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;title&gt;</bpt><ept id="12c35fbb-36ae-48ca-9897-8d2d77b04f3d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53a32d0f-2315-43d8-8086-895ff6852c71" xml:space="preserve">
+          <source><bpt id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;linkText&gt;</bpt>Serve Content from Azure CDN in Your Web Application<ept id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;/linkText&gt;</ept><bpt id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;title&gt;</bpt><ept id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;linkText&gt;</bpt>Serve Content from Azure CDN in Your Web Application<ept id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;/linkText&gt;</ept><bpt id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;title&gt;</bpt><ept id="4875aa5e-31ab-47ab-9e0a-360e65e804d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d22eefe8-acd5-45f0-a638-d33f69798893" xml:space="preserve">
+          <source><bpt id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;linkText&gt;</bpt>Integrate a cloud service with Azure CDN<ept id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;/linkText&gt;</ept><bpt id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;title&gt;</bpt><ept id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;linkText&gt;</bpt>Integrate a cloud service with Azure CDN<ept id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;/linkText&gt;</ept><bpt id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;title&gt;</bpt><ept id="5bb6f73d-ddfb-4c5f-884c-fa01a2e51dd0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="997abd1b-d305-42ea-a90e-1a89b3d1c023" xml:space="preserve">
+          <source><bpt id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;linkText&gt;</bpt>Best Practices for the Azure Content Delivery Network<ept id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;/linkText&gt;</ept><bpt id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;title&gt;</bpt><ept id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;linkText&gt;</bpt>Best Practices for the Azure Content Delivery Network<ept id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;/linkText&gt;</ept><bpt id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;title&gt;</bpt><ept id="5d5ddb69-cdab-4d0b-af24-0dc066c57c4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

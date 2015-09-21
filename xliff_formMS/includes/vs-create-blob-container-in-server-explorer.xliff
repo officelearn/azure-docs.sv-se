@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a9cca229-1efd-4c09-a9be-7ec4ac1d8993" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a9cca229-1efd-4c09-a9be-7ec4ac1d8993" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="28404d11-6ba2-42ca-a329-24ceaa80199d">
+        <trans-unit id="a2491e85-a5d3-4c2b-8f12-174c43cd9d02" xml:space="preserve">
+          <source>You can create Azure storage queues by using Visual Studio <bpt id="21b08237-8f88-48fb-b8e9-12b427a9fb07">&lt;strong&gt;</bpt>Server Explorer<ept id="21b08237-8f88-48fb-b8e9-12b427a9fb07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can create Azure storage queues by using Visual Studio <bpt id="21b08237-8f88-48fb-b8e9-12b427a9fb07">&lt;strong&gt;</bpt>Server Explorer<ept id="21b08237-8f88-48fb-b8e9-12b427a9fb07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c8a48b5-fa38-4201-bae7-8763480c294b" xml:space="preserve">
+          <source><bpt id="6a30f893-4a8a-4548-9765-c1a3153c3f2e">&lt;linkText&gt;</bpt>Server Explorer Blobs<ept id="6a30f893-4a8a-4548-9765-c1a3153c3f2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a30f893-4a8a-4548-9765-c1a3153c3f2e">&lt;linkText&gt;</bpt>Server Explorer Blobs<ept id="6a30f893-4a8a-4548-9765-c1a3153c3f2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad7de649-0daf-4c55-b4b8-07e2f56f7683" xml:space="preserve">
+          <source>On the <bpt id="752d7596-f2a3-4751-bc65-640c0d3a061a">&lt;strong&gt;</bpt>View<ept id="752d7596-f2a3-4751-bc65-640c0d3a061a">&lt;/strong&gt;</ept> menu, choose <bpt id="d5a01d7a-cd67-44c0-90d5-5c7a100bafd4">&lt;strong&gt;</bpt>Server Explorer<ept id="d5a01d7a-cd67-44c0-90d5-5c7a100bafd4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="752d7596-f2a3-4751-bc65-640c0d3a061a">&lt;strong&gt;</bpt>View<ept id="752d7596-f2a3-4751-bc65-640c0d3a061a">&lt;/strong&gt;</ept> menu, choose <bpt id="d5a01d7a-cd67-44c0-90d5-5c7a100bafd4">&lt;strong&gt;</bpt>Server Explorer<ept id="d5a01d7a-cd67-44c0-90d5-5c7a100bafd4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8a236f4-b393-4b79-bd31-c8e314b2c6a2" xml:space="preserve">
+          <source>In Server Explorer, expand the <bpt id="890e6197-8feb-4bdd-abab-3bb746e0febb">&lt;strong&gt;</bpt>Azure<ept id="890e6197-8feb-4bdd-abab-3bb746e0febb">&lt;/strong&gt;</ept> node for your subscription, expand the <bpt id="e3902059-3d09-4bc3-a35d-a0ddae20781d">&lt;strong&gt;</bpt>Storage<ept id="e3902059-3d09-4bc3-a35d-a0ddae20781d">&lt;/strong&gt;</ept> node and the node for the storage account you specified in the Azure Storage connected service.</source>
+          <target state="new">In Server Explorer, expand the <bpt id="890e6197-8feb-4bdd-abab-3bb746e0febb">&lt;strong&gt;</bpt>Azure<ept id="890e6197-8feb-4bdd-abab-3bb746e0febb">&lt;/strong&gt;</ept> node for your subscription, expand the <bpt id="e3902059-3d09-4bc3-a35d-a0ddae20781d">&lt;strong&gt;</bpt>Storage<ept id="e3902059-3d09-4bc3-a35d-a0ddae20781d">&lt;/strong&gt;</ept> node and the node for the storage account you specified in the Azure Storage connected service.</target>
+        </trans-unit>
+        <trans-unit id="c84c8fd3-2098-4cc0-a4c5-de9d90fe5b42" xml:space="preserve">
+          <source>Select the <bpt id="0c8f3846-b482-48bb-81c9-01a3f9f5d5ef">&lt;strong&gt;</bpt>Queues<ept id="0c8f3846-b482-48bb-81c9-01a3f9f5d5ef">&lt;/strong&gt;</ept> node and choose <bpt id="830fbb43-0736-410a-8516-e9e85e95a374">&lt;strong&gt;</bpt>Create Queue<ept id="830fbb43-0736-410a-8516-e9e85e95a374">&lt;/strong&gt;</ept> from the context menu.</source>
+          <target state="new">Select the <bpt id="0c8f3846-b482-48bb-81c9-01a3f9f5d5ef">&lt;strong&gt;</bpt>Queues<ept id="0c8f3846-b482-48bb-81c9-01a3f9f5d5ef">&lt;/strong&gt;</ept> node and choose <bpt id="830fbb43-0736-410a-8516-e9e85e95a374">&lt;strong&gt;</bpt>Create Queue<ept id="830fbb43-0736-410a-8516-e9e85e95a374">&lt;/strong&gt;</ept> from the context menu.</target>
+        </trans-unit>
+        <trans-unit id="978c1e22-0997-481a-82f9-ea138b0039dd" xml:space="preserve">
+          <source>Enter a name for the container and choose <bpt id="a5943a7c-07c7-494f-babc-bb7fcbd7229b">&lt;strong&gt;</bpt>OK<ept id="a5943a7c-07c7-494f-babc-bb7fcbd7229b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a name for the container and choose <bpt id="a5943a7c-07c7-494f-babc-bb7fcbd7229b">&lt;strong&gt;</bpt>OK<ept id="a5943a7c-07c7-494f-babc-bb7fcbd7229b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="baebc23e-2232-41e1-81a9-ec8555aff8ce" xml:space="preserve">
+          <source>By default, the new container is private and you must specify your storage access key to download blobs from this container.</source>
+          <target state="new">By default, the new container is private and you must specify your storage access key to download blobs from this container.</target>
+        </trans-unit>
+        <trans-unit id="9b36077e-c431-4d77-b54c-3f37761aeedc" xml:space="preserve">
+          <source>If you want to make the files in the container public, select the container in <bpt id="a3dff480-f53f-4762-9748-3e3fb25bd57b">&lt;strong&gt;</bpt>Server Explorer<ept id="a3dff480-f53f-4762-9748-3e3fb25bd57b">&lt;/strong&gt;</ept> and press <bpt id="b1b24c45-1b21-45d3-aeb2-d1d8957eabf6">&lt;code&gt;</bpt>F4<ept id="b1b24c45-1b21-45d3-aeb2-d1d8957eabf6">&lt;/code&gt;</ept> to display the <bpt id="e54f7af5-749b-4163-b777-f474b71049a0">&lt;strong&gt;</bpt>Properties<ept id="e54f7af5-749b-4163-b777-f474b71049a0">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">If you want to make the files in the container public, select the container in <bpt id="a3dff480-f53f-4762-9748-3e3fb25bd57b">&lt;strong&gt;</bpt>Server Explorer<ept id="a3dff480-f53f-4762-9748-3e3fb25bd57b">&lt;/strong&gt;</ept> and press <bpt id="b1b24c45-1b21-45d3-aeb2-d1d8957eabf6">&lt;code&gt;</bpt>F4<ept id="b1b24c45-1b21-45d3-aeb2-d1d8957eabf6">&lt;/code&gt;</ept> to display the <bpt id="e54f7af5-749b-4163-b777-f474b71049a0">&lt;strong&gt;</bpt>Properties<ept id="e54f7af5-749b-4163-b777-f474b71049a0">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="566f4319-4123-439f-bad5-241164ed7002" xml:space="preserve">
+          <source>Set the <bpt id="58b49943-5e3a-42ce-b997-6869795ec4ed">&lt;strong&gt;</bpt>Public Read Access<ept id="58b49943-5e3a-42ce-b997-6869795ec4ed">&lt;/strong&gt;</ept> to <bpt id="ee40ece7-18db-4713-aac4-f8ab05cd2b71">&lt;strong&gt;</bpt>Blob<ept id="ee40ece7-18db-4713-aac4-f8ab05cd2b71">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set the <bpt id="58b49943-5e3a-42ce-b997-6869795ec4ed">&lt;strong&gt;</bpt>Public Read Access<ept id="58b49943-5e3a-42ce-b997-6869795ec4ed">&lt;/strong&gt;</ept> to <bpt id="ee40ece7-18db-4713-aac4-f8ab05cd2b71">&lt;strong&gt;</bpt>Blob<ept id="ee40ece7-18db-4713-aac4-f8ab05cd2b71">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8357b20d-8eec-4aaf-9068-3a0539219c9a" xml:space="preserve">
+          <source>Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.</source>
+          <target state="new">Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.</target>
+        </trans-unit>
+        <trans-unit id="ccc0e32a-4b6c-4112-bac4-8c8e82f4b5ab" xml:space="preserve">
+          <source>./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png</source>
+          <target state="new">./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png</target>
+        </trans-unit>
+      </group>
+      <group id="abe91d75-7bce-48ac-b95c-2d8819156f51" />
+    </body>
+  </file>
+</xliff>

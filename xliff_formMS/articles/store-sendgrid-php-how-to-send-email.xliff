@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9dadb1d1-448a-4796-96a9-6855532aa1e9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9dadb1d1-448a-4796-96a9-6855532aa1e9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="22fa16af-eeb2-4f31-8963-479ad8b251ce">
+        <trans-unit id="19db9773-0b28-471e-acbf-1429890a44a8" xml:space="preserve">
+          <source>How to use the SendGrid email service (PHP) | Microsoft Azure</source>
+          <target state="new">How to use the SendGrid email service (PHP) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="fee9bf6b-63c7-4f8d-9a7f-0c81dc6dc019" xml:space="preserve">
+          <source>Learn how send email with the SendGrid email service on Azure. Code samples written in PHP.</source>
+          <target state="new">Learn how send email with the SendGrid email service on Azure. Code samples written in PHP.</target>
+        </trans-unit>
+        <trans-unit id="5fba8113-175d-45fd-9713-e66695651515" xml:space="preserve">
+          <source>This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure.</source>
+          <target state="new">This guide demonstrates how to perform common programming tasks with the SendGrid email service on Azure.</target>
+        </trans-unit>
+        <trans-unit id="dc0d5bf6-72ed-4fd9-bcbe-518cbbb46cb1" xml:space="preserve">
+          <source>The samples are written in PHP.</source>
+          <target state="new">The samples are written in PHP.</target>
+        </trans-unit>
+        <trans-unit id="2b48af77-1621-4650-85ce-022ea5b8893b" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="b8e0be40-36b9-4a09-88d3-acea450b6e86">&lt;strong&gt;</bpt>constructing email<ept id="b8e0be40-36b9-4a09-88d3-acea450b6e86">&lt;/strong&gt;</ept>, <bpt id="37ba3bb0-72b3-4971-841a-9e6cd152d894">&lt;strong&gt;</bpt>sending email<ept id="37ba3bb0-72b3-4971-841a-9e6cd152d894">&lt;/strong&gt;</ept>, and <bpt id="9f423be2-d122-44e1-b1a5-25b803744ffb">&lt;strong&gt;</bpt>adding attachments<ept id="9f423be2-d122-44e1-b1a5-25b803744ffb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="b8e0be40-36b9-4a09-88d3-acea450b6e86">&lt;strong&gt;</bpt>constructing email<ept id="b8e0be40-36b9-4a09-88d3-acea450b6e86">&lt;/strong&gt;</ept>, <bpt id="37ba3bb0-72b3-4971-841a-9e6cd152d894">&lt;strong&gt;</bpt>sending email<ept id="37ba3bb0-72b3-4971-841a-9e6cd152d894">&lt;/strong&gt;</ept>, and <bpt id="9f423be2-d122-44e1-b1a5-25b803744ffb">&lt;strong&gt;</bpt>adding attachments<ept id="9f423be2-d122-44e1-b1a5-25b803744ffb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41b63dca-87ac-4eb9-839d-1127832e7cb2" xml:space="preserve">
+          <source>For more information on SendGrid and sending email, see the <bpt id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;linkText&gt;</bpt>Next Steps<ept id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;/linkText&gt;</ept><bpt id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;title&gt;</bpt><ept id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on SendGrid and sending email, see the <bpt id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;linkText&gt;</bpt>Next Steps<ept id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;/linkText&gt;</ept><bpt id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;title&gt;</bpt><ept id="c0b4a972-9690-4305-a302-fe5caae40123">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="74a7ddb1-ce2a-4fc7-90f8-79dc2c69ee4e" xml:space="preserve">
+          <source>SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</source>
+          <target state="new">SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</target>
+        </trans-unit>
+        <trans-unit id="16ee2133-47a0-4486-9c35-ecc764940b9c" xml:space="preserve">
+          <source>Common SendGrid usage scenarios
+include:</source>
+          <target state="new">Common SendGrid usage scenarios
+include:</target>
+        </trans-unit>
+        <trans-unit id="d8792479-8c5c-4cce-a94a-a50278e53c56" xml:space="preserve">
+          <source>Automatically sending receipts to customers</source>
+          <target state="new">Automatically sending receipts to customers</target>
+        </trans-unit>
+        <trans-unit id="d0fe88d8-fd7c-46da-952f-334924d050f1" xml:space="preserve">
+          <source>Administering distribution lists for sending customers monthly
+e-fliers and special offers</source>
+          <target state="new">Administering distribution lists for sending customers monthly
+e-fliers and special offers</target>
+        </trans-unit>
+        <trans-unit id="05a080fc-af3b-4334-b327-1763ee6dfc75" xml:space="preserve">
+          <source>Collecting real-time metrics for things like blocked e-mail, and
+customer responsiveness</source>
+          <target state="new">Collecting real-time metrics for things like blocked e-mail, and
+customer responsiveness</target>
+        </trans-unit>
+        <trans-unit id="72619e77-ba36-417a-9cd1-5a2433d71047" xml:space="preserve">
+          <source>Generating reports to help identify trends</source>
+          <target state="new">Generating reports to help identify trends</target>
+        </trans-unit>
+        <trans-unit id="c7e8d346-0a49-477c-a17f-1dd57bee29d6" xml:space="preserve">
+          <source>Forwarding customer inquiries</source>
+          <target state="new">Forwarding customer inquiries</target>
+        </trans-unit>
+        <trans-unit id="cdca8304-870f-4464-acce-aa524d3c5259" xml:space="preserve">
+          <source>Email notifications from your application</source>
+          <target state="new">Email notifications from your application</target>
+        </trans-unit>
+        <trans-unit id="fdafec48-41cb-46aa-ba11-fbf528423e59" xml:space="preserve">
+          <source>For more information, see <bpt id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;/linkText&gt;</ept><bpt id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;title&gt;</bpt><ept id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;/linkText&gt;</ept><bpt id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;title&gt;</bpt><ept id="18f966a8-0fbf-40d1-aa22-a0a7df85bf97">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4c16d0b-811f-4c9c-ac74-fb1eda79867e" xml:space="preserve">
+          <source><bpt id="5a4d17d2-ba0a-4ee8-a6b7-91c5359802c7">&lt;token href="../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="5a4d17d2-ba0a-4ee8-a6b7-91c5359802c7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5a4d17d2-ba0a-4ee8-a6b7-91c5359802c7">&lt;token href="../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="5a4d17d2-ba0a-4ee8-a6b7-91c5359802c7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46fb524f-be44-4290-961b-a97216f5a729" xml:space="preserve">
+          <source>Using SendGrid in an Azure PHP application requires no special
+configuration or coding.</source>
+          <target state="new">Using SendGrid in an Azure PHP application requires no special
+configuration or coding.</target>
+        </trans-unit>
+        <trans-unit id="2f70ea0f-fa6d-4298-b074-dbe048025207" xml:space="preserve">
+          <source>Because SendGrid is a service, it can be
+accessed in exactly the same way from a cloud application as it can from
+an on-premises application.</source>
+          <target state="new">Because SendGrid is a service, it can be
+accessed in exactly the same way from a cloud application as it can from
+an on-premises application.</target>
+        </trans-unit>
+        <trans-unit id="f55625fc-9d43-4b5e-aef8-4b1d53b6d191" xml:space="preserve">
+          <source>You can send email using either SMTP or the Web API provided by
+SendGrid.</source>
+          <target state="new">You can send email using either SMTP or the Web API provided by
+SendGrid.</target>
+        </trans-unit>
+        <trans-unit id="d8a51b23-54e2-4c7b-884d-8cf16d0a7a08" xml:space="preserve">
+          <source>To send email using the SendGrid SMTP API, use <bpt id="bebc463e-ae6a-4f10-8080-ee1c9e7e3936">&lt;em&gt;</bpt>Swift Mailer<ept id="bebc463e-ae6a-4f10-8080-ee1c9e7e3936">&lt;/em&gt;</ept>, a
+component-based library for sending emails from PHP applications.</source>
+          <target state="new">To send email using the SendGrid SMTP API, use <bpt id="bebc463e-ae6a-4f10-8080-ee1c9e7e3936">&lt;em&gt;</bpt>Swift Mailer<ept id="bebc463e-ae6a-4f10-8080-ee1c9e7e3936">&lt;/em&gt;</ept>, a
+component-based library for sending emails from PHP applications.</target>
+        </trans-unit>
+        <trans-unit id="61983045-a188-4a45-a431-e4258dbbd326" xml:space="preserve">
+          <source>You
+can download the <bpt id="76a3458f-eb15-4a8f-962e-d4cd44d199f2">&lt;em&gt;</bpt>Swift Mailer<ept id="76a3458f-eb15-4a8f-962e-d4cd44d199f2">&lt;/em&gt;</ept> library from
+<bpt id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;linkText&gt;</bpt>http://swiftmailer.org/download<ept id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;/linkText&gt;</ept><bpt id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;title&gt;</bpt><ept id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;/title&gt;</ept> v5.3.0 (use [Composer] to install Swift Mailer).</source>
+          <target state="new">You
+can download the <bpt id="76a3458f-eb15-4a8f-962e-d4cd44d199f2">&lt;em&gt;</bpt>Swift Mailer<ept id="76a3458f-eb15-4a8f-962e-d4cd44d199f2">&lt;/em&gt;</ept> library from
+<bpt id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;linkText&gt;</bpt>http://swiftmailer.org/download<ept id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;/linkText&gt;</ept><bpt id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;title&gt;</bpt><ept id="3c6d2a39-1c09-471d-9bb6-0ac46b140c0b">&lt;/title&gt;</ept> v5.3.0 (use [Composer] to install Swift Mailer).</target>
+        </trans-unit>
+        <trans-unit id="efec9cf9-9dee-4a30-853f-80cdad0ce308" xml:space="preserve">
+          <source>Sending email with the library
+involves creating instances of the
+&lt;span class="auto-style2"&gt;Swift\<bpt id="1b944f89-0667-4f15-bcb9-3785926e37cb">&lt;em&gt;</bpt>SmtpTransport&lt;/span&gt;,
+&lt;span class="auto-style2"&gt;Swift\<ept id="1b944f89-0667-4f15-bcb9-3785926e37cb">&lt;/em&gt;</ept>Mailer&lt;/span&gt;, and
+&lt;span class="auto-style2"&gt;Swift\<bpt id="55f560b1-fc73-44b8-9e83-11636a2581da">&lt;em&gt;</bpt>Message&lt;/span&gt; classes, setting the
+appropriate properties, and calling the
+&lt;span class="auto-style2"&gt;Swift\<ept id="55f560b1-fc73-44b8-9e83-11636a2581da">&lt;/em&gt;</ept>Mailer::send&lt;/span&gt; method.</source>
+          <target state="new">Sending email with the library
+involves creating instances of the
+&lt;span class="auto-style2"&gt;Swift\<bpt id="1b944f89-0667-4f15-bcb9-3785926e37cb">&lt;em&gt;</bpt>SmtpTransport&lt;/span&gt;,
+&lt;span class="auto-style2"&gt;Swift\<ept id="1b944f89-0667-4f15-bcb9-3785926e37cb">&lt;/em&gt;</ept>Mailer&lt;/span&gt;, and
+&lt;span class="auto-style2"&gt;Swift\<bpt id="55f560b1-fc73-44b8-9e83-11636a2581da">&lt;em&gt;</bpt>Message&lt;/span&gt; classes, setting the
+appropriate properties, and calling the
+&lt;span class="auto-style2"&gt;Swift\<ept id="55f560b1-fc73-44b8-9e83-11636a2581da">&lt;/em&gt;</ept>Mailer::send&lt;/span&gt; method.</target>
+        </trans-unit>
+        <trans-unit id="aa7450c3-20a6-407e-ab72-cf16110e2504" xml:space="preserve">
+          <source>Use PHP's <bpt id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;linkText&gt;</bpt>curl function<ept id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;/linkText&gt;</ept><bpt id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;title&gt;</bpt><ept id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;/title&gt;</ept> to send email using the SendGrid Web API.</source>
+          <target state="new">Use PHP's <bpt id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;linkText&gt;</bpt>curl function<ept id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;/linkText&gt;</ept><bpt id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;title&gt;</bpt><ept id="5d6534d9-dafa-42ef-aaf0-8d3253dc63bb">&lt;/title&gt;</ept> to send email using the SendGrid Web API.</target>
+        </trans-unit>
+        <trans-unit id="794df1e2-0935-46d3-94df-3fa5755caeb5" xml:space="preserve">
+          <source>SendGrid's Web API is very similar to a REST API, though it is
+not truly a RESTful API since, in most calls, both GET and POST verbs
+can be used interchangeably.</source>
+          <target state="new">SendGrid's Web API is very similar to a REST API, though it is
+not truly a RESTful API since, in most calls, both GET and POST verbs
+can be used interchangeably.</target>
+        </trans-unit>
+        <trans-unit id="c21c5f58-f9e5-481a-8faa-4d6037c7010f" xml:space="preserve">
+          <source>Sending an attachment using the SMTP API involves one additional line of
+code to the example script for sending an email with Swift Mailer.</source>
+          <target state="new">Sending an attachment using the SMTP API involves one additional line of
+code to the example script for sending an email with Swift Mailer.</target>
+        </trans-unit>
+        <trans-unit id="49550efd-c63a-4410-9b89-7df4bd1e819b" xml:space="preserve">
+          <source>The additional line of code is as follows:</source>
+          <target state="new">The additional line of code is as follows:</target>
+        </trans-unit>
+        <trans-unit id="249dffca-c840-4a2d-8f26-1c1c74bb2231" xml:space="preserve">
+          <source>This line of code calls the attach method on the
+&lt;span class="auto-style2"&gt;Swift\<bpt id="a66a9814-a9b8-4669-bcb8-0b440114bf72">&lt;em&gt;</bpt>Message&lt;/span&gt; object and uses static
+method &lt;span class="auto-style2"&gt;fromPath&lt;/span&gt; on the
+&lt;span class="auto-style2"&gt;Swift\<ept id="a66a9814-a9b8-4669-bcb8-0b440114bf72">&lt;/em&gt;</ept>Attachment&lt;/span&gt; class to get and
+attach a file to a message.</source>
+          <target state="new">This line of code calls the attach method on the
+&lt;span class="auto-style2"&gt;Swift\<bpt id="a66a9814-a9b8-4669-bcb8-0b440114bf72">&lt;em&gt;</bpt>Message&lt;/span&gt; object and uses static
+method &lt;span class="auto-style2"&gt;fromPath&lt;/span&gt; on the
+&lt;span class="auto-style2"&gt;Swift\<ept id="a66a9814-a9b8-4669-bcb8-0b440114bf72">&lt;/em&gt;</ept>Attachment&lt;/span&gt; class to get and
+attach a file to a message.</target>
+        </trans-unit>
+        <trans-unit id="7b16f02d-d953-491f-8980-2967b237711e" xml:space="preserve">
+          <source>Sending an attachment using the Web API is very similar to sending an
+email using the Web API.</source>
+          <target state="new">Sending an attachment using the Web API is very similar to sending an
+email using the Web API.</target>
+        </trans-unit>
+        <trans-unit id="52914ca6-1279-42a2-83c8-aa9b3a697730" xml:space="preserve">
+          <source>However, note that in the example that follows,
+the parameter array must contain this element:</source>
+          <target state="new">However, note that in the example that follows,
+the parameter array must contain this element:</target>
+        </trans-unit>
+        <trans-unit id="ec0f3453-da1a-47fd-9ec5-15ae84644363" xml:space="preserve">
+          <source>Example:</source>
+          <target state="new">Example:</target>
+        </trans-unit>
+        <trans-unit id="b5764418-304f-416b-b877-31cf344a7c91" xml:space="preserve">
+          <source>SendGrid provides additional email functionality through the use of
+'filters'.</source>
+          <target state="new">SendGrid provides additional email functionality through the use of
+'filters'.</target>
+        </trans-unit>
+        <trans-unit id="a9579e2e-4c95-438d-9758-83a5cd494285" xml:space="preserve">
+          <source>These are settings that can be added to an email message to
+enable specific functionality such as enabling click tracking, Google
+analytics, subscription tracking, and so on.</source>
+          <target state="new">These are settings that can be added to an email message to
+enable specific functionality such as enabling click tracking, Google
+analytics, subscription tracking, and so on.</target>
+        </trans-unit>
+        <trans-unit id="7066cdcc-1c38-4af6-94c1-a02c19382d7d" xml:space="preserve">
+          <source>Filters can be applied to a message by using the filters property.</source>
+          <target state="new">Filters can be applied to a message by using the filters property.</target>
+        </trans-unit>
+        <trans-unit id="76f777cc-37be-4e08-8ded-8329cbd193f6" xml:space="preserve">
+          <source>Each
+filter is specified by a hash containing filter-specific settings.</source>
+          <target state="new">Each
+filter is specified by a hash containing filter-specific settings.</target>
+        </trans-unit>
+        <trans-unit id="6e06982f-e214-419c-8e71-dd8bce784c7a" xml:space="preserve">
+          <source>The
+following example enables the footer filter and specifies a text message
+that will be appended to the bottom of the email message.</source>
+          <target state="new">The
+following example enables the footer filter and specifies a text message
+that will be appended to the bottom of the email message.</target>
+        </trans-unit>
+        <trans-unit id="9032be2c-9161-4330-8ccd-202cf2c8ed10" xml:space="preserve">
+          <source>For this example we will use [sendgrid-php library].</source>
+          <target state="new">For this example we will use [sendgrid-php library].</target>
+        </trans-unit>
+        <trans-unit id="eccc8cd4-f1b4-45fc-be7d-e75db6c7c3a6" xml:space="preserve">
+          <source>Use [Composer] to install library:</source>
+          <target state="new">Use [Composer] to install library:</target>
+        </trans-unit>
+        <trans-unit id="4892ee6c-bc8c-4ac1-95ba-927357a37e6c" xml:space="preserve">
+          <source>Example:    </source>
+          <target state="new">Example:    </target>
+        </trans-unit>
+        <trans-unit id="376afd5d-0f27-43b7-865d-cc3a6318ff1f" xml:space="preserve">
+          <source>Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</source>
+          <target state="new">Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="9d86353c-77b2-46d4-9c1d-872d7d7bd5d3" xml:space="preserve">
+          <source>SendGrid documentation: &lt;https://sendgrid.com/docs&gt;</source>
+          <target state="new">SendGrid documentation: &lt;https://sendgrid.com/docs&gt;</target>
+        </trans-unit>
+        <trans-unit id="c3b7f7f8-9c7e-40cb-861d-7f665ef0b00f" xml:space="preserve">
+          <source>SendGrid PHP library: &lt;https://github.com/sendgrid/sendgrid-php&gt;</source>
+          <target state="new">SendGrid PHP library: &lt;https://github.com/sendgrid/sendgrid-php&gt;</target>
+        </trans-unit>
+        <trans-unit id="46404b85-57e9-47c9-bfed-301c132affba" xml:space="preserve">
+          <source>SendGrid special offer for Azure customers: &lt;https://sendgrid.com/windowsazure.html&gt;</source>
+          <target state="new">SendGrid special offer for Azure customers: &lt;https://sendgrid.com/windowsazure.html&gt;</target>
+        </trans-unit>
+        <trans-unit id="61973f06-ae08-4276-a281-ed453de396c2" xml:space="preserve">
+          <source>https://sendgrid.com</source>
+          <target state="new">https://sendgrid.com</target>
+        </trans-unit>
+        <trans-unit id="31aebb25-2f2a-4fac-9185-53694e981282" xml:space="preserve">
+          <source>https://sendgrid.com/transactional-email/pricing</source>
+          <target state="new">https://sendgrid.com/transactional-email/pricing</target>
+        </trans-unit>
+        <trans-unit id="d7b6f8d0-b530-47a4-b1a9-994de8a7ce7b" xml:space="preserve">
+          <source>https://www.sendgrid.com/windowsazure.html</source>
+          <target state="new">https://www.sendgrid.com/windowsazure.html</target>
+        </trans-unit>
+        <trans-unit id="3c5d7137-f398-43b4-9cab-e749cbbc4c62" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx</target>
+        </trans-unit>
+        <trans-unit id="ad5a0283-ad7f-4154-8eb8-220182920ff1" xml:space="preserve">
+          <source>http://swiftmailer.org/download</source>
+          <target state="new">http://swiftmailer.org/download</target>
+        </trans-unit>
+        <trans-unit id="9e9d80e7-ea47-405b-b021-caa7a99ebbbc" xml:space="preserve">
+          <source>http://php.net/curl</source>
+          <target state="new">http://php.net/curl</target>
+        </trans-unit>
+        <trans-unit id="040f144e-b94f-46d7-a0fb-0a1ba400c078" xml:space="preserve">
+          <source>https://sendgrid.com/email-solutions</source>
+          <target state="new">https://sendgrid.com/email-solutions</target>
+        </trans-unit>
+        <trans-unit id="dfaa50fd-af39-44ba-9f07-1d3b295cdda1" xml:space="preserve">
+          <source>https://sendgrid.com/transactional-email</source>
+          <target state="new">https://sendgrid.com/transactional-email</target>
+        </trans-unit>
+        <trans-unit id="a93d134f-5c14-4559-bd40-50e8fa017b9d" xml:space="preserve">
+          <source>https://github.com/sendgrid/sendgrid-php/tree/v2.1.1</source>
+          <target state="new">https://github.com/sendgrid/sendgrid-php/tree/v2.1.1</target>
+        </trans-unit>
+        <trans-unit id="b0f763b7-86fc-4c09-b026-c78d9fb35206" xml:space="preserve">
+          <source>https://getcomposer.org/download/</source>
+          <target state="new">https://getcomposer.org/download/</target>
+        </trans-unit>
+      </group>
+      <group id="404b0f5e-d96c-4d02-9d88-f3792a781684" />
+    </body>
+  </file>
+</xliff>

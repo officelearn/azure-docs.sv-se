@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="902ad514-d969-4e74-8c48-73e8b8a5ed10" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="902ad514-d969-4e74-8c48-73e8b8a5ed10" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e929d02d-d9f7-47c1-87f1-7b7052766bc1">
+        <trans-unit id="c0fd949e-b810-4ec8-b41b-7f88d70f0800" xml:space="preserve">
+          <source>Operational Insights Log Search API</source>
+          <target state="new">Operational Insights Log Search API</target>
+        </trans-unit>
+        <trans-unit id="e7cf4df4-197c-430d-a4e6-7a833484370a" xml:space="preserve">
+          <source>Provides an overview of the Operational Insights Search API and includes examples that show you how to use it.</source>
+          <target state="new">Provides an overview of the Operational Insights Search API and includes examples that show you how to use it.</target>
+        </trans-unit>
+        <trans-unit id="7a8e28ae-9b62-4b26-ad42-7597517e2d9d" xml:space="preserve">
+          <source>This guide provides a basic tutorial describing how you can use the Operational Insights Log Search API and it provides examples that show you how to use the commands.</source>
+          <target state="new">This guide provides a basic tutorial describing how you can use the Operational Insights Log Search API and it provides examples that show you how to use the commands.</target>
+        </trans-unit>
+        <trans-unit id="9770cb21-f1fb-478f-9f30-9c21fbed3045" xml:space="preserve">
+          <source>The Operational Insights Log Search API is RESTful and can be accessed via the Azure Resource Manager API.</source>
+          <target state="new">The Operational Insights Log Search API is RESTful and can be accessed via the Azure Resource Manager API.</target>
+        </trans-unit>
+        <trans-unit id="048094f3-b524-4c2b-a530-95fcbb9ad44c" xml:space="preserve">
+          <source>In this document you will find examples where the API is accessed through the <bpt id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;linkText&gt;</bpt>ARMClient<ept id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;/linkText&gt;</ept><bpt id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;title&gt;</bpt><ept id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;/title&gt;</ept>, an open source command line tool that simplifies invoking the Azure Resource Manager API.</source>
+          <target state="new">In this document you will find examples where the API is accessed through the <bpt id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;linkText&gt;</bpt>ARMClient<ept id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;/linkText&gt;</ept><bpt id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;title&gt;</bpt><ept id="abd39324-96c3-4026-9963-2c8aadc1ffa2">&lt;/title&gt;</ept>, an open source command line tool that simplifies invoking the Azure Resource Manager API.</target>
+        </trans-unit>
+        <trans-unit id="ce983851-ea7b-44fa-8f0f-272097b70357" xml:space="preserve">
+          <source>The use of ARMClient and PowerShell is one of many options to access the Operational Insights Log Search API.</source>
+          <target state="new">The use of ARMClient and PowerShell is one of many options to access the Operational Insights Log Search API.</target>
+        </trans-unit>
+        <trans-unit id="8c047ee0-2f99-42ce-815a-f155fa2655a8" xml:space="preserve">
+          <source>With these tools you can utilize the RESTful Azure Resource Manager API to make calls to Operational Insights workspaces and perform search commands within them.</source>
+          <target state="new">With these tools you can utilize the RESTful Azure Resource Manager API to make calls to Operational Insights workspaces and perform search commands within them.</target>
+        </trans-unit>
+        <trans-unit id="75fec2cc-eedc-436d-a347-59ad6157e14d" xml:space="preserve">
+          <source>The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.</source>
+          <target state="new">The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.</target>
+        </trans-unit>
+        <trans-unit id="e8997b62-b076-45f0-a629-a2a71f137db1" xml:space="preserve">
+          <source>The Azure Resource Manager can be used via a <bpt id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;linkText&gt;</bpt>Library for .NET<ept id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;/linkText&gt;</ept><bpt id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;title&gt;</bpt><ept id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;/title&gt;</ept> as well as a <bpt id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;linkText&gt;</bpt>REST API<ept id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;/linkText&gt;</ept><bpt id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;title&gt;</bpt><ept id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure Resource Manager can be used via a <bpt id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;linkText&gt;</bpt>Library for .NET<ept id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;/linkText&gt;</ept><bpt id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;title&gt;</bpt><ept id="7fb0635b-39a8-4623-b5c8-9e3ebe5572e6">&lt;/title&gt;</ept> as well as a <bpt id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;linkText&gt;</bpt>REST API<ept id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;/linkText&gt;</ept><bpt id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;title&gt;</bpt><ept id="6bfe8aed-6fde-4c09-9720-58f055363a46">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6db67e3d-8e96-45e6-87d6-a437d02e47d8" xml:space="preserve">
+          <source>Review the liked web pages to learn more.</source>
+          <target state="new">Review the liked web pages to learn more.</target>
+        </trans-unit>
+        <trans-unit id="7b1c5da8-ab34-4bd3-b4b7-a347d8d234d1" xml:space="preserve">
+          <source>Install <bpt id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;linkText&gt;</bpt>Chocolatey<ept id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;/linkText&gt;</ept><bpt id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;title&gt;</bpt><ept id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;/title&gt;</ept>, which is an an Open Source Machine Package Manager for Windows.</source>
+          <target state="new">Install <bpt id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;linkText&gt;</bpt>Chocolatey<ept id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;/linkText&gt;</ept><bpt id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;title&gt;</bpt><ept id="2d96ba53-c2a9-4216-bc22-648692c035f5">&lt;/title&gt;</ept>, which is an an Open Source Machine Package Manager for Windows.</target>
+        </trans-unit>
+        <trans-unit id="591cd6b6-d8ed-48b2-aa1b-c4c9c39a3d13" xml:space="preserve">
+          <source>Open a PowerShell window as administrator and then run the following command:</source>
+          <target state="new">Open a PowerShell window as administrator and then run the following command:</target>
+        </trans-unit>
+        <trans-unit id="b2199315-db3e-49f2-b43f-668738e18863" xml:space="preserve">
+          <source>Install the ARMClient by opening a new command prompt and run the following command:</source>
+          <target state="new">Install the ARMClient by opening a new command prompt and run the following command:</target>
+        </trans-unit>
+        <trans-unit id="81f5f32e-6d13-466d-8992-077d034f56e5" xml:space="preserve">
+          <source>Login to your Microsoft or OrgID account:</source>
+          <target state="new">Login to your Microsoft or OrgID account:</target>
+        </trans-unit>
+        <trans-unit id="a150f92c-6a15-4d29-8212-015151987000" xml:space="preserve">
+          <source>The following examples show you how you can use the Search API.</source>
+          <target state="new">The following examples show you how you can use the Search API.</target>
+        </trans-unit>
+        <trans-unit id="221d2ac1-068d-4ddc-9b89-48ea2468526d" xml:space="preserve">
+          <source><bpt id="09aa163c-824d-4c75-90c0-b9d919ea8886">&lt;strong&gt;</bpt>Sample Url:<ept id="09aa163c-824d-4c75-90c0-b9d919ea8886">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="09aa163c-824d-4c75-90c0-b9d919ea8886">&lt;strong&gt;</bpt>Sample Url:<ept id="09aa163c-824d-4c75-90c0-b9d919ea8886">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b4ac6ff-ba5b-4512-af4f-b8186deb995c" xml:space="preserve">
+          <source><bpt id="b5dcf35c-7740-4b57-b14e-472c7f9b46c3">&lt;strong&gt;</bpt>Request:<ept id="b5dcf35c-7740-4b57-b14e-472c7f9b46c3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b5dcf35c-7740-4b57-b14e-472c7f9b46c3">&lt;strong&gt;</bpt>Request:<ept id="b5dcf35c-7740-4b57-b14e-472c7f9b46c3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="244a9f93-cf42-4e96-b5bd-e1e416db8984" xml:space="preserve">
+          <source>The following table describes the properties that are available.</source>
+          <target state="new">The following table describes the properties that are available.</target>
+        </trans-unit>
+        <trans-unit id="7df69ed6-c265-4456-a102-5d9d2048a87a" xml:space="preserve">
+          <source><bpt id="8426c95c-1d27-40ae-8e06-ba055cb6d217">&lt;strong&gt;</bpt>Property<ept id="8426c95c-1d27-40ae-8e06-ba055cb6d217">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8426c95c-1d27-40ae-8e06-ba055cb6d217">&lt;strong&gt;</bpt>Property<ept id="8426c95c-1d27-40ae-8e06-ba055cb6d217">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8e113e4-6468-40c8-92b0-cdfaf7dc41a2" xml:space="preserve">
+          <source><bpt id="5c50bc8a-f06a-47b5-9132-6f5bd2bac993">&lt;strong&gt;</bpt>Description<ept id="5c50bc8a-f06a-47b5-9132-6f5bd2bac993">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5c50bc8a-f06a-47b5-9132-6f5bd2bac993">&lt;strong&gt;</bpt>Description<ept id="5c50bc8a-f06a-47b5-9132-6f5bd2bac993">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4db4a799-a577-4141-8cec-a01b10bd1765" xml:space="preserve">
+          <source>top</source>
+          <target state="new">top</target>
+        </trans-unit>
+        <trans-unit id="822352aa-b3dd-43c7-962a-10a2ac2d244e" xml:space="preserve">
+          <source>The maximum number of results to return.</source>
+          <target state="new">The maximum number of results to return.</target>
+        </trans-unit>
+        <trans-unit id="45b7a81a-09e4-4303-9ed5-91edd2214cf4" xml:space="preserve">
+          <source>highlight</source>
+          <target state="new">highlight</target>
+        </trans-unit>
+        <trans-unit id="b3139317-01b9-469c-a215-b6e1279d148c" xml:space="preserve">
+          <source>Contains pre and post parameters, used usually for highlighting matching fields</source>
+          <target state="new">Contains pre and post parameters, used usually for highlighting matching fields</target>
+        </trans-unit>
+        <trans-unit id="b7916a08-9bd4-47f8-94c9-e43ad938ef5d" xml:space="preserve">
+          <source>pre</source>
+          <target state="new">pre</target>
+        </trans-unit>
+        <trans-unit id="74bd9cfc-f0b1-4750-93d0-97e718be0add" xml:space="preserve">
+          <source>Prefixes the given string to your matched fields.</source>
+          <target state="new">Prefixes the given string to your matched fields.</target>
+        </trans-unit>
+        <trans-unit id="79ed0e16-160a-4376-8078-f30f313471e0" xml:space="preserve">
+          <source>post</source>
+          <target state="new">post</target>
+        </trans-unit>
+        <trans-unit id="46c77f7b-dc49-4550-b476-2b9c2a908e72" xml:space="preserve">
+          <source>Appends the given string to your matched fields.</source>
+          <target state="new">Appends the given string to your matched fields.</target>
+        </trans-unit>
+        <trans-unit id="3bed9c3b-0f60-4ab7-8467-f4d0d72e00d9" xml:space="preserve">
+          <source>query</source>
+          <target state="new">query</target>
+        </trans-unit>
+        <trans-unit id="1a6841f7-0b32-441d-b794-32dbf3eb8c81" xml:space="preserve">
+          <source>The search query used to collect and return results.</source>
+          <target state="new">The search query used to collect and return results.</target>
+        </trans-unit>
+        <trans-unit id="71b7e744-b239-4c34-9735-ffb682ead8a6" xml:space="preserve">
+          <source>start</source>
+          <target state="new">start</target>
+        </trans-unit>
+        <trans-unit id="c9e48d1a-57ae-4785-ab82-21836d62484d" xml:space="preserve">
+          <source>The beginning of the time window you want results to be found from.</source>
+          <target state="new">The beginning of the time window you want results to be found from.</target>
+        </trans-unit>
+        <trans-unit id="cfab659e-9601-48bf-9d79-9ec524d7918f" xml:space="preserve">
+          <source>end</source>
+          <target state="new">end</target>
+        </trans-unit>
+        <trans-unit id="39ed8699-7ed6-470d-b4a2-775184d563d5" xml:space="preserve">
+          <source>The end of the time window you want results to be found from.</source>
+          <target state="new">The end of the time window you want results to be found from.</target>
+        </trans-unit>
+        <trans-unit id="5ea401a5-11e4-4127-b88d-921e82192517" xml:space="preserve">
+          <source><bpt id="707433c3-e28d-4847-9b40-7a376eceef00">&lt;strong&gt;</bpt>Response:<ept id="707433c3-e28d-4847-9b40-7a376eceef00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="707433c3-e28d-4847-9b40-7a376eceef00">&lt;strong&gt;</bpt>Response:<ept id="707433c3-e28d-4847-9b40-7a376eceef00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="409d6871-d69b-4de9-91c0-c9b24312f69a" xml:space="preserve">
+          <source><bpt id="e4f5bfc8-6667-445b-8af0-6ab7d597db8b">&lt;strong&gt;</bpt>Request the contents of a Saved Search:<ept id="e4f5bfc8-6667-445b-8af0-6ab7d597db8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e4f5bfc8-6667-445b-8af0-6ab7d597db8b">&lt;strong&gt;</bpt>Request the contents of a Saved Search:<ept id="e4f5bfc8-6667-445b-8af0-6ab7d597db8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c889e32-6544-4259-9eaf-27fc6be3305e" xml:space="preserve">
+          <source>If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API.</source>
+          <target state="new">If the search returns with a ‘Pending’ status, then polling the updated results can be done through this API.</target>
+        </trans-unit>
+        <trans-unit id="9a43b26e-d862-479c-ab9f-6df6d0597e3d" xml:space="preserve">
+          <source>After 6 min, the result of the search will be dropped from the cache and Http Gone will be returned.</source>
+          <target state="new">After 6 min, the result of the search will be dropped from the cache and Http Gone will be returned.</target>
+        </trans-unit>
+        <trans-unit id="a1a049d6-8df5-425e-ae76-ea8d5502c6f2" xml:space="preserve">
+          <source>If the initial search request returned a ‘Successful’ status immediately, it will not be added to the cache causing this API to return Http Gone if queried.</source>
+          <target state="new">If the initial search request returned a ‘Successful’ status immediately, it will not be added to the cache causing this API to return Http Gone if queried.</target>
+        </trans-unit>
+        <trans-unit id="dd6a0c95-6612-4ab7-9412-d972837a4703" xml:space="preserve">
+          <source>The contents of an Http 200 result will be in the same format as the initial search request just with updated values.</source>
+          <target state="new">The contents of an Http 200 result will be in the same format as the initial search request just with updated values.</target>
+        </trans-unit>
+        <trans-unit id="a1fb0a61-f7ff-46b4-af73-1631e880f863" xml:space="preserve">
+          <source><bpt id="f4584cdb-9df7-4aab-83c1-f3c58ddc381e">&lt;strong&gt;</bpt>Request List of Saved Searches:<ept id="f4584cdb-9df7-4aab-83c1-f3c58ddc381e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f4584cdb-9df7-4aab-83c1-f3c58ddc381e">&lt;strong&gt;</bpt>Request List of Saved Searches:<ept id="f4584cdb-9df7-4aab-83c1-f3c58ddc381e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a77b26f-11c2-4f49-b9d4-ab51e54d80ba" xml:space="preserve">
+          <source>Supported methods: GET PUT DELETE</source>
+          <target state="new">Supported methods: GET PUT DELETE</target>
+        </trans-unit>
+        <trans-unit id="52cdca52-9ab7-4ea9-b2ee-f4990b92c107" xml:space="preserve">
+          <source>Supported collection methods: GET</source>
+          <target state="new">Supported collection methods: GET</target>
+        </trans-unit>
+        <trans-unit id="6f68d9df-f030-462a-a130-3dfc294b9ec9" xml:space="preserve">
+          <source>The following table describes the properties that are available.</source>
+          <target state="new">The following table describes the properties that are available.</target>
+        </trans-unit>
+        <trans-unit id="8c034ac5-e956-4f0f-ac3e-9a1224d23a3c" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="6227dea6-7df5-4b1d-9200-29220b47b183" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="447df1a9-17d7-4483-9c32-b1d996607dcb" xml:space="preserve">
+          <source>Id</source>
+          <target state="new">Id</target>
+        </trans-unit>
+        <trans-unit id="e5bccd37-44a4-42f7-89e1-9f3047faeffb" xml:space="preserve">
+          <source>The unique identifier.</source>
+          <target state="new">The unique identifier.</target>
+        </trans-unit>
+        <trans-unit id="ff64cbc3-51a4-45e1-8c40-a6d70ba5c7d3" xml:space="preserve">
+          <source>Etag</source>
+          <target state="new">Etag</target>
+        </trans-unit>
+        <trans-unit id="fd685e93-983c-4c8b-bfdd-dae147b78c1a" xml:space="preserve">
+          <source><bpt id="8659756b-6729-4c70-8659-eaa27808e1ca">&lt;strong&gt;</bpt>Required for Patch<ept id="8659756b-6729-4c70-8659-eaa27808e1ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8659756b-6729-4c70-8659-eaa27808e1ca">&lt;strong&gt;</bpt>Required for Patch<ept id="8659756b-6729-4c70-8659-eaa27808e1ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb35c8fb-fad8-4d50-b1cf-9e1e1d2de0af" xml:space="preserve">
+          <source>Updated by server on each write.</source>
+          <target state="new">Updated by server on each write.</target>
+        </trans-unit>
+        <trans-unit id="a0723d6c-84ff-44ec-a0b3-1caf4248d8ed" xml:space="preserve">
+          <source>Value must be equal to the current stored value or ‘*’ to update.</source>
+          <target state="new">Value must be equal to the current stored value or ‘*’ to update.</target>
+        </trans-unit>
+        <trans-unit id="2429a8f1-2509-4cf7-ae7c-9a07c171f570" xml:space="preserve">
+          <source>409 returned for old/invalid values.</source>
+          <target state="new">409 returned for old/invalid values.</target>
+        </trans-unit>
+        <trans-unit id="784eb40d-1fd2-4a2a-8342-9bc20fdbca3b" xml:space="preserve">
+          <source>properties.query</source>
+          <target state="new">properties.query</target>
+        </trans-unit>
+        <trans-unit id="02f97688-af31-419c-a350-c003915dbab4" xml:space="preserve">
+          <source><bpt id="4de33730-ee10-40b2-909c-66e13eeebec8">&lt;strong&gt;</bpt>Required<ept id="4de33730-ee10-40b2-909c-66e13eeebec8">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4de33730-ee10-40b2-909c-66e13eeebec8">&lt;strong&gt;</bpt>Required<ept id="4de33730-ee10-40b2-909c-66e13eeebec8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a23437a-d664-463d-90c6-5ae674f397cd" xml:space="preserve">
+          <source>The search query.</source>
+          <target state="new">The search query.</target>
+        </trans-unit>
+        <trans-unit id="4756dc69-12c7-4a49-a9d2-fc8c0703eeb0" xml:space="preserve">
+          <source>properties.displayName</source>
+          <target state="new">properties.displayName</target>
+        </trans-unit>
+        <trans-unit id="05fa7bb7-0d86-4538-8c69-6d3402aa2cdb" xml:space="preserve">
+          <source><bpt id="e006a588-cc1e-4591-bad1-a46ad070dfd3">&lt;strong&gt;</bpt>Required<ept id="e006a588-cc1e-4591-bad1-a46ad070dfd3">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e006a588-cc1e-4591-bad1-a46ad070dfd3">&lt;strong&gt;</bpt>Required<ept id="e006a588-cc1e-4591-bad1-a46ad070dfd3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bc19b8e-c2b6-4f88-8f92-a69985bf7472" xml:space="preserve">
+          <source>The user defined display name of the query.</source>
+          <target state="new">The user defined display name of the query.</target>
+        </trans-unit>
+        <trans-unit id="40a75818-5005-47bf-a0db-d50c9256e8fe" xml:space="preserve">
+          <source>If modeled as an Azure resource, this would be a Tag.</source>
+          <target state="new">If modeled as an Azure resource, this would be a Tag.</target>
+        </trans-unit>
+        <trans-unit id="ea058e56-f2a9-45b3-a480-d590c985680f" xml:space="preserve">
+          <source>properties.category</source>
+          <target state="new">properties.category</target>
+        </trans-unit>
+        <trans-unit id="d0eacc52-abac-4be7-9d31-336cf6595102" xml:space="preserve">
+          <source><bpt id="5bd156f3-4b0c-443e-82f6-53cc60a47bb0">&lt;strong&gt;</bpt>Required<ept id="5bd156f3-4b0c-443e-82f6-53cc60a47bb0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="5bd156f3-4b0c-443e-82f6-53cc60a47bb0">&lt;strong&gt;</bpt>Required<ept id="5bd156f3-4b0c-443e-82f6-53cc60a47bb0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cbc260c-0019-4ef5-9e6b-9ec931704571" xml:space="preserve">
+          <source>The user defined category of the query.</source>
+          <target state="new">The user defined category of the query.</target>
+        </trans-unit>
+        <trans-unit id="8013c880-8103-4de0-8cee-2efc088b53cb" xml:space="preserve">
+          <source>If modeled as an Azure resource this would be a Tag.</source>
+          <target state="new">If modeled as an Azure resource this would be a Tag.</target>
+        </trans-unit>
+        <trans-unit id="9b2bcd4f-5e84-41b6-82b6-4904cf4cda04" xml:space="preserve">
+          <source>The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace.</source>
+          <target state="new">The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace.</target>
+        </trans-unit>
+        <trans-unit id="ce48080e-8b75-4788-a1c0-8bae6e264f71" xml:space="preserve">
+          <source>The API will not return saved searches provided by solutions at this time.</source>
+          <target state="new">The API will not return saved searches provided by solutions at this time.</target>
+        </trans-unit>
+        <trans-unit id="f706d85e-1470-4433-bf97-dca0915742f6" xml:space="preserve">
+          <source>This functionality will be added at a later date.</source>
+          <target state="new">This functionality will be added at a later date.</target>
+        </trans-unit>
+        <trans-unit id="b233885c-9509-4481-87a1-0732094a5154" xml:space="preserve">
+          <source><bpt id="f42d0459-47fc-4d93-bbd1-e9174c5ad9ea">&lt;strong&gt;</bpt>Request:<ept id="f42d0459-47fc-4d93-bbd1-e9174c5ad9ea">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f42d0459-47fc-4d93-bbd1-e9174c5ad9ea">&lt;strong&gt;</bpt>Request:<ept id="f42d0459-47fc-4d93-bbd1-e9174c5ad9ea">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcc69af5-539d-4a81-be29-54317c490c41" xml:space="preserve">
+          <source> <bpt id="6f493556-368c-472c-a28d-0af6419813f0">&lt;strong&gt;</bpt>Request:<ept id="6f493556-368c-472c-a28d-0af6419813f0">&lt;/strong&gt;</ept></source>
+          <target state="new"> <bpt id="6f493556-368c-472c-a28d-0af6419813f0">&lt;strong&gt;</bpt>Request:<ept id="6f493556-368c-472c-a28d-0af6419813f0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43c04f74-9c2c-4398-8371-536cf3e72f95" xml:space="preserve">
+          <source>Here’s a way to see the fields for all log types for the data collected in your workspace.</source>
+          <target state="new">Here’s a way to see the fields for all log types for the data collected in your workspace.</target>
+        </trans-unit>
+        <trans-unit id="6dfeadb8-5097-4463-a8d6-95b83be673c6" xml:space="preserve">
+          <source>For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.</source>
+          <target state="new">For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.</target>
+        </trans-unit>
+        <trans-unit id="79029338-adef-4da2-940a-26f4b42203d2" xml:space="preserve">
+          <source><bpt id="3b0a6b6d-f135-4da5-83da-21fc8dbc6bc9">&lt;strong&gt;</bpt>Request for Fields:<ept id="3b0a6b6d-f135-4da5-83da-21fc8dbc6bc9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3b0a6b6d-f135-4da5-83da-21fc8dbc6bc9">&lt;strong&gt;</bpt>Request for Fields:<ept id="3b0a6b6d-f135-4da5-83da-21fc8dbc6bc9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf48dbf7-40a2-4776-93f4-5f710d390049" xml:space="preserve">
+          <source><bpt id="0408d6a3-8062-4122-be54-7541fa2d1d2b">&lt;strong&gt;</bpt>Response:<ept id="0408d6a3-8062-4122-be54-7541fa2d1d2b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0408d6a3-8062-4122-be54-7541fa2d1d2b">&lt;strong&gt;</bpt>Response:<ept id="0408d6a3-8062-4122-be54-7541fa2d1d2b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c0c1c9f-0f57-444b-a551-6ef751a10f49" xml:space="preserve">
+          <source>The following table describes the properties that are available.</source>
+          <target state="new">The following table describes the properties that are available.</target>
+        </trans-unit>
+        <trans-unit id="fc5ff686-1c78-4fa8-931d-a99ceb5dcafc" xml:space="preserve">
+          <source><bpt id="7d2df626-f84f-433e-a301-29284dc5f24d">&lt;strong&gt;</bpt>Property<ept id="7d2df626-f84f-433e-a301-29284dc5f24d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7d2df626-f84f-433e-a301-29284dc5f24d">&lt;strong&gt;</bpt>Property<ept id="7d2df626-f84f-433e-a301-29284dc5f24d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c0eaca2-fe88-4e03-aea0-2f29eca399fd" xml:space="preserve">
+          <source><bpt id="004283ed-2e86-40b2-ba78-43a9b906cbcd">&lt;strong&gt;</bpt>Description<ept id="004283ed-2e86-40b2-ba78-43a9b906cbcd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="004283ed-2e86-40b2-ba78-43a9b906cbcd">&lt;strong&gt;</bpt>Description<ept id="004283ed-2e86-40b2-ba78-43a9b906cbcd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="998ad0ef-fc31-4d8a-ac00-0336744308ea" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="cbce44af-460a-494d-ba89-28ca6db68564" xml:space="preserve">
+          <source>Field name.</source>
+          <target state="new">Field name.</target>
+        </trans-unit>
+        <trans-unit id="8b8ab785-ef69-4f9c-bfcb-2edd55570394" xml:space="preserve">
+          <source>displayName</source>
+          <target state="new">displayName</target>
+        </trans-unit>
+        <trans-unit id="37fbab00-15a6-42f7-bf3f-698984d002a7" xml:space="preserve">
+          <source>The display name of the field.</source>
+          <target state="new">The display name of the field.</target>
+        </trans-unit>
+        <trans-unit id="d1e94d71-4718-416b-8835-c92ecfca84bf" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="9ebb91ce-753b-4d6e-b93e-cca2aa0f892e" xml:space="preserve">
+          <source>The Type of the field value.</source>
+          <target state="new">The Type of the field value.</target>
+        </trans-unit>
+        <trans-unit id="40ebd329-ad96-46e6-b506-f6acc9b176c2" xml:space="preserve">
+          <source>facetable</source>
+          <target state="new">facetable</target>
+        </trans-unit>
+        <trans-unit id="7e468171-31a2-495f-96bf-e71d88ba9659" xml:space="preserve">
+          <source>Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.</source>
+          <target state="new">Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.</target>
+        </trans-unit>
+        <trans-unit id="b10e71e3-78c3-43c2-b185-1a44c98ffe14" xml:space="preserve">
+          <source>display</source>
+          <target state="new">display</target>
+        </trans-unit>
+        <trans-unit id="0fe9462a-385d-4b12-8f79-1633c941d67f" xml:space="preserve">
+          <source>Current ‘display’ property.</source>
+          <target state="new">Current ‘display’ property.</target>
+        </trans-unit>
+        <trans-unit id="6e83a52f-a0b6-4f08-9abd-127c1730e86b" xml:space="preserve">
+          <source>True if field is visible in search.</source>
+          <target state="new">True if field is visible in search.</target>
+        </trans-unit>
+        <trans-unit id="b52f4482-1a30-4649-98cd-807025b14275" xml:space="preserve">
+          <source>ownerType</source>
+          <target state="new">ownerType</target>
+        </trans-unit>
+        <trans-unit id="8dcd419b-8d81-48b5-ac40-0433d8fc5759" xml:space="preserve">
+          <source>Reduced to only Types belonging to onboarded IP’s.</source>
+          <target state="new">Reduced to only Types belonging to onboarded IP’s.</target>
+        </trans-unit>
+        <trans-unit id="36f26f4f-d803-4647-a3f7-0c713a39b160" xml:space="preserve">
+          <source>The following information describes optional parameters available.</source>
+          <target state="new">The following information describes optional parameters available.</target>
+        </trans-unit>
+        <trans-unit id="6d4ffe12-ec5b-41d5-82b8-7b96270e0a88" xml:space="preserve">
+          <source>The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.</source>
+          <target state="new">The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.</target>
+        </trans-unit>
+        <trans-unit id="eebb544f-d752-4979-b38f-e9aa2d82560a" xml:space="preserve">
+          <source>These markers indicate the start and end highlighted text that matches the terms provided in your search query.</source>
+          <target state="new">These markers indicate the start and end highlighted text that matches the terms provided in your search query.</target>
+        </trans-unit>
+        <trans-unit id="636e3bb8-91e1-44f4-bfe3-b43f156812d4" xml:space="preserve">
+          <source>You may specify the start and end markers that will be used by search to wrap the highlighted term.</source>
+          <target state="new">You may specify the start and end markers that will be used by search to wrap the highlighted term.</target>
+        </trans-unit>
+        <trans-unit id="68f73050-3512-4e8b-8a4a-af570f2ed278" xml:space="preserve">
+          <source><bpt id="d53ead50-7673-4b0d-b94b-f3ec8209dfaf">&lt;strong&gt;</bpt>Example search query<ept id="d53ead50-7673-4b0d-b94b-f3ec8209dfaf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d53ead50-7673-4b0d-b94b-f3ec8209dfaf">&lt;strong&gt;</bpt>Example search query<ept id="d53ead50-7673-4b0d-b94b-f3ec8209dfaf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfc704fc-cb9d-4735-b648-81485c2e0f9c" xml:space="preserve">
+          <source><bpt id="73994918-e1b6-438b-b7dd-18bfed901936">&lt;strong&gt;</bpt>Sample result:<ept id="73994918-e1b6-438b-b7dd-18bfed901936">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="73994918-e1b6-438b-b7dd-18bfed901936">&lt;strong&gt;</bpt>Sample result:<ept id="73994918-e1b6-438b-b7dd-18bfed901936">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e77bfd0-2b09-4f6a-b667-2b28bc572608" xml:space="preserve">
+          <source>Notice that the result above contains an error message that has been prefixed and appended.</source>
+          <target state="new">Notice that the result above contains an error message that has been prefixed and appended.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

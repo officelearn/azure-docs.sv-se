@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a690cc60-0890-4c3b-a600-de6baa3865b7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a690cc60-0890-4c3b-a600-de6baa3865b7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8a02ff43-bcbd-46ae-b377-13ef42a84805">
+        <trans-unit id="816ecb6d-9384-48f8-85ee-ca2bc20906ca" xml:space="preserve">
+          <source>Get the service registration key</source>
+          <target state="new">Get the service registration key</target>
+        </trans-unit>
+        <trans-unit id="4a940f7c-4b67-4003-9db3-99f989f7c6b2" xml:space="preserve">
+          <source>Explains how to get the registration key used to register all StorSimple devices.</source>
+          <target state="new">Explains how to get the registration key used to register all StorSimple devices.</target>
+        </trans-unit>
+        <trans-unit id="459c33a4-c9d6-47f2-a454-7cf38bb5b9d9" xml:space="preserve">
+          <source>On the <bpt id="8d7ba891-1b21-4af1-be40-e8ae118597bd">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="8d7ba891-1b21-4af1-be40-e8ae118597bd">&lt;/strong&gt;</ept> page, click the service that you created.</source>
+          <target state="new">On the <bpt id="8d7ba891-1b21-4af1-be40-e8ae118597bd">&lt;strong&gt;</bpt>StorSimple Manager service<ept id="8d7ba891-1b21-4af1-be40-e8ae118597bd">&lt;/strong&gt;</ept> page, click the service that you created.</target>
+        </trans-unit>
+        <trans-unit id="5f30f4c4-261f-4ab7-863e-b284bc74198b" xml:space="preserve">
+          <source>This will take you to the <bpt id="fee0a3b2-cca7-471c-8ba4-6002b341ffa4">&lt;strong&gt;</bpt>Quick Start<ept id="fee0a3b2-cca7-471c-8ba4-6002b341ffa4">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This will take you to the <bpt id="fee0a3b2-cca7-471c-8ba4-6002b341ffa4">&lt;strong&gt;</bpt>Quick Start<ept id="fee0a3b2-cca7-471c-8ba4-6002b341ffa4">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="097d61c3-80e2-4d9e-85dc-af0f305ef15b" xml:space="preserve">
+          <source>(You can click the quick start icon <bpt id="4f14a621-5696-46fe-9de7-e285d2ba90cf">&lt;linkText&gt;</bpt>StorSimple Quick Start icon <ept id="4f14a621-5696-46fe-9de7-e285d2ba90cf">&lt;/linkText&gt;</ept> to access the <bpt id="2bf320b2-0fb4-4011-aefe-afed683d290c">&lt;strong&gt;</bpt>Quick Start<ept id="2bf320b2-0fb4-4011-aefe-afed683d290c">&lt;/strong&gt;</ept> page at any time.)</source>
+          <target state="new">(You can click the quick start icon <bpt id="4f14a621-5696-46fe-9de7-e285d2ba90cf">&lt;linkText&gt;</bpt>StorSimple Quick Start icon <ept id="4f14a621-5696-46fe-9de7-e285d2ba90cf">&lt;/linkText&gt;</ept> to access the <bpt id="2bf320b2-0fb4-4011-aefe-afed683d290c">&lt;strong&gt;</bpt>Quick Start<ept id="2bf320b2-0fb4-4011-aefe-afed683d290c">&lt;/strong&gt;</ept> page at any time.)</target>
+        </trans-unit>
+        <trans-unit id="8e964bc9-bbd2-444a-b4a0-9ce32af8fdc3" xml:space="preserve">
+          <source> <bpt id="5490f203-c1f6-49f6-909d-e467899c2988">&lt;linkText&gt;</bpt>StorSimple Quick Start page<ept id="5490f203-c1f6-49f6-909d-e467899c2988">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="5490f203-c1f6-49f6-909d-e467899c2988">&lt;linkText&gt;</bpt>StorSimple Quick Start page<ept id="5490f203-c1f6-49f6-909d-e467899c2988">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="63afd6d4-5686-47c8-8479-42d24d7d2cca" xml:space="preserve">
+          <source>Click <bpt id="2ff6fc36-c2ef-4d90-a008-d6eb56f02b84">&lt;strong&gt;</bpt>Get service registration key<ept id="2ff6fc36-c2ef-4d90-a008-d6eb56f02b84">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="2ff6fc36-c2ef-4d90-a008-d6eb56f02b84">&lt;strong&gt;</bpt>Get service registration key<ept id="2ff6fc36-c2ef-4d90-a008-d6eb56f02b84">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cf0dffe-cba7-4e1e-b321-e90826b1c2ff" xml:space="preserve">
+          <source>You can also click <bpt id="4af5c51a-eea6-4f0a-aa31-b7a845daee98">&lt;strong&gt;</bpt>Registration Key<ept id="4af5c51a-eea6-4f0a-aa31-b7a845daee98">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">You can also click <bpt id="4af5c51a-eea6-4f0a-aa31-b7a845daee98">&lt;strong&gt;</bpt>Registration Key<ept id="4af5c51a-eea6-4f0a-aa31-b7a845daee98">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="8cdce8ad-edbf-449c-a5b4-abf72d8f3d2e" xml:space="preserve">
+          <source>You will have to wait for a few minutes while the key is retrieved.</source>
+          <target state="new">You will have to wait for a few minutes while the key is retrieved.</target>
+        </trans-unit>
+        <trans-unit id="6ccd67ee-f607-4388-ae02-8833f298ca96" xml:space="preserve">
+          <source>The <bpt id="05a297dc-0398-49ba-a411-fd3b3ede68c7">&lt;strong&gt;</bpt>Service Registration Key<ept id="05a297dc-0398-49ba-a411-fd3b3ede68c7">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="05a297dc-0398-49ba-a411-fd3b3ede68c7">&lt;strong&gt;</bpt>Service Registration Key<ept id="05a297dc-0398-49ba-a411-fd3b3ede68c7">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="7bac8a44-0f5a-4cbb-b0d8-20a576cc4fa6" xml:space="preserve">
+          <source> <bpt id="d5760384-aefb-4723-8b7e-9d8a59c3a8c6">&lt;linkText&gt;</bpt>Service Registration Key dialog box<ept id="d5760384-aefb-4723-8b7e-9d8a59c3a8c6">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="d5760384-aefb-4723-8b7e-9d8a59c3a8c6">&lt;linkText&gt;</bpt>Service Registration Key dialog box<ept id="d5760384-aefb-4723-8b7e-9d8a59c3a8c6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17502181-9484-4b27-86aa-18884e3e8a1e" xml:space="preserve">
+          <source>Locate the service registration key.</source>
+          <target state="new">Locate the service registration key.</target>
+        </trans-unit>
+        <trans-unit id="bd361079-6a45-46d6-8a98-da13dda88902" xml:space="preserve">
+          <source>Click the copy icon <bpt id="5b275eba-a5a5-45d5-b09c-d4001986181a">&lt;linkText&gt;</bpt>StorSimple Copy icon<ept id="5b275eba-a5a5-45d5-b09c-d4001986181a">&lt;/linkText&gt;</ept> to copy the key and save it for later use.</source>
+          <target state="new">Click the copy icon <bpt id="5b275eba-a5a5-45d5-b09c-d4001986181a">&lt;linkText&gt;</bpt>StorSimple Copy icon<ept id="5b275eba-a5a5-45d5-b09c-d4001986181a">&lt;/linkText&gt;</ept> to copy the key and save it for later use.</target>
+        </trans-unit>
+        <trans-unit id="72205c26-6985-4aef-8f9a-ee5918e0dcef" xml:space="preserve">
+          <source>Click the check icon <bpt id="c4e29cc0-b0a9-4294-a850-57cc3a99ebbe">&lt;linkText&gt;</bpt>StorSimple Check icon<ept id="c4e29cc0-b0a9-4294-a850-57cc3a99ebbe">&lt;/linkText&gt;</ept> to close this dialog box and return to the <bpt id="faf603a1-b805-47f7-a3ef-b0d30bafb6d3">&lt;strong&gt;</bpt>Quick Start<ept id="faf603a1-b805-47f7-a3ef-b0d30bafb6d3">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click the check icon <bpt id="c4e29cc0-b0a9-4294-a850-57cc3a99ebbe">&lt;linkText&gt;</bpt>StorSimple Check icon<ept id="c4e29cc0-b0a9-4294-a850-57cc3a99ebbe">&lt;/linkText&gt;</ept> to close this dialog box and return to the <bpt id="faf603a1-b805-47f7-a3ef-b0d30bafb6d3">&lt;strong&gt;</bpt>Quick Start<ept id="faf603a1-b805-47f7-a3ef-b0d30bafb6d3">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="cb8b199d-7e02-46de-8503-6154e88614a6" xml:space="preserve">
+          <source>The service registration key is used to register all the devices that need to register with your StorSimple Manager service.</source>
+          <target state="new">The service registration key is used to register all the devices that need to register with your StorSimple Manager service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

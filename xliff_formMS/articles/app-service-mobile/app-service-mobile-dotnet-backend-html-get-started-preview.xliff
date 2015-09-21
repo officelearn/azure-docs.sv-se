@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="33a5e203-1b0a-45da-99b8-c66db6630b5b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="33a5e203-1b0a-45da-99b8-c66db6630b5b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7adfd6dd-b46b-47c6-af90-aafded0560e8">
+        <trans-unit id="765a2712-036b-4bf3-938d-89c9bed4fbb3" xml:space="preserve">
+          <source>Get Started with mobile app backends for HTML/JavaScript apps | Azure App Service Mobile Apps</source>
+          <target state="new">Get Started with mobile app backends for HTML/JavaScript apps | Azure App Service Mobile Apps</target>
+        </trans-unit>
+        <trans-unit id="8f3d5674-1916-4ba3-8563-e4ae8e23ee9f" xml:space="preserve">
+          <source>Follow this tutorial to get started using Azure mobile app backends for web app development in HTML5 and JavaScript.</source>
+          <target state="new">Follow this tutorial to get started using Azure mobile app backends for web app development in HTML5 and JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="04432c4f-95a1-45cf-9a48-31e42f7d6398" xml:space="preserve">
+          <source><bpt id="c738f7eb-d692-4b32-a212-5ebcb83cbf7d">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="c738f7eb-d692-4b32-a212-5ebcb83cbf7d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c738f7eb-d692-4b32-a212-5ebcb83cbf7d">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="c738f7eb-d692-4b32-a212-5ebcb83cbf7d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07fc0db3-3a2e-42be-b8c4-959778ca5421" xml:space="preserve">
+          <source>This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app using an Azure Mobile App backend.</source>
+          <target state="new">This tutorial shows you how to add a cloud-based backend service to an HTML5/JavaScript web app using an Azure Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="c845ed6a-5580-4af1-9f0c-7eff487dbf8b" xml:space="preserve">
+          <source>You will create both a new Mobile App backend and a simple <bpt id="b5aea439-70f7-46fd-a667-064ddfe92196">&lt;em&gt;</bpt>To do list<ept id="b5aea439-70f7-46fd-a667-064ddfe92196">&lt;/em&gt;</ept> web app that stores app data in Azure.</source>
+          <target state="new">You will create both a new Mobile App backend and a simple <bpt id="b5aea439-70f7-46fd-a667-064ddfe92196">&lt;em&gt;</bpt>To do list<ept id="b5aea439-70f7-46fd-a667-064ddfe92196">&lt;/em&gt;</ept> web app that stores app data in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ee34a54e-54bd-4983-87a4-c54ab78dc053" xml:space="preserve">
+          <source>A screenshot from the completed app is below:</source>
+          <target state="new">A screenshot from the completed app is below:</target>
+        </trans-unit>
+        <trans-unit id="e4c83e9e-6da1-4386-bee1-b95619432940" xml:space="preserve">
+          <source><bpt id="cf1286a7-d7a3-4e01-8eb7-c7ad34e731bc">&lt;linkText&gt;</bpt>Screenshot of completed app<ept id="cf1286a7-d7a3-4e01-8eb7-c7ad34e731bc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf1286a7-d7a3-4e01-8eb7-c7ad34e731bc">&lt;linkText&gt;</bpt>Screenshot of completed app<ept id="cf1286a7-d7a3-4e01-8eb7-c7ad34e731bc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec41fb04-c5f3-46bf-9dc9-8223f95ff0e1" xml:space="preserve">
+          <source>Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for HTML apps.</source>
+          <target state="new">Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for HTML apps.</target>
+        </trans-unit>
+        <trans-unit id="9e549be8-b7bc-4653-8561-48671036b5e3" xml:space="preserve">
+          <source>To complete this tutorial, you need the following:</source>
+          <target state="new">To complete this tutorial, you need the following:</target>
+        </trans-unit>
+        <trans-unit id="3c068e21-c277-4302-8bbe-dc8977c70ebe" xml:space="preserve">
+          <source>An active Azure account.</source>
+          <target state="new">An active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="637f6084-fe8d-4458-80a7-1ae6ae1273c8" xml:space="preserve">
+          <source>If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends.</source>
+          <target state="new">If you don't have an account, you can sign up for an Azure trial and get up to 10 free Mobile Apps that you can keep using even after your trial ends.</target>
+        </trans-unit>
+        <trans-unit id="af6ca941-c06f-4adb-873e-c4ee43cd4a69" xml:space="preserve">
+          <source>For details, see <bpt id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;/linkText&gt;</ept><bpt id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;title&gt;</bpt><ept id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;/linkText&gt;</ept><bpt id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;title&gt;</bpt><ept id="950174b8-7c86-4562-91ae-23bfd36cab2c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d61e1d8a-3845-4947-a2f8-a0da29dedfb1" xml:space="preserve">
+          <source>[Visual Studio Community 2013] or a later version.</source>
+          <target state="new">[Visual Studio Community 2013] or a later version.</target>
+        </trans-unit>
+        <trans-unit id="08c5bd2b-a928-4a58-9a65-a3cac97cc2cb" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;linkText&gt;</bpt>Try App Service<ept id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;/linkText&gt;</ept><bpt id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;title&gt;</bpt><ept id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;linkText&gt;</bpt>Try App Service<ept id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;/linkText&gt;</ept><bpt id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;title&gt;</bpt><ept id="ab0bddc8-7565-4fdd-af66-ffe414cd9214">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="ee5169e3-2d4f-453e-b4de-11629b10fc50" xml:space="preserve">
+          <source><bpt id="3da334e7-a76a-4067-838c-72c65e5bd46b">&lt;token href="../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md"&gt;</bpt><ept id="3da334e7-a76a-4067-838c-72c65e5bd46b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3da334e7-a76a-4067-838c-72c65e5bd46b">&lt;token href="../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md"&gt;</bpt><ept id="3da334e7-a76a-4067-838c-72c65e5bd46b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a61fa53-ab43-4504-9fb1-415bf5c50325" xml:space="preserve">
+          <source>In the [Azure Portal], click <bpt id="148643ed-4967-419c-b483-9731f6814dba">&lt;strong&gt;</bpt>Browse All<ept id="148643ed-4967-419c-b483-9731f6814dba">&lt;/strong&gt;</ept> &gt; <bpt id="bd45b7fd-a3a5-4853-8073-040a6220850d">&lt;strong&gt;</bpt>Web Apps<ept id="bd45b7fd-a3a5-4853-8073-040a6220850d">&lt;/strong&gt;</ept>, then click the Mobile App backend that you just created.</source>
+          <target state="new">In the [Azure Portal], click <bpt id="148643ed-4967-419c-b483-9731f6814dba">&lt;strong&gt;</bpt>Browse All<ept id="148643ed-4967-419c-b483-9731f6814dba">&lt;/strong&gt;</ept> &gt; <bpt id="bd45b7fd-a3a5-4853-8073-040a6220850d">&lt;strong&gt;</bpt>Web Apps<ept id="bd45b7fd-a3a5-4853-8073-040a6220850d">&lt;/strong&gt;</ept>, then click the Mobile App backend that you just created.</target>
+        </trans-unit>
+        <trans-unit id="b01e4710-7dd0-4830-ac18-450db062244d" xml:space="preserve">
+          <source>In the Mobile App backend, click <bpt id="54cb6618-0ee6-4b55-876b-2fd495d7327a">&lt;strong&gt;</bpt>All settings<ept id="54cb6618-0ee6-4b55-876b-2fd495d7327a">&lt;/strong&gt;</ept> and under <bpt id="8ea4dd6e-64f8-431d-8cb7-81479745c4ab">&lt;strong&gt;</bpt>Mobile App<ept id="8ea4dd6e-64f8-431d-8cb7-81479745c4ab">&lt;/strong&gt;</ept> click <bpt id="e41940c0-7ed2-4e7b-8ece-e9b7c031e625">&lt;strong&gt;</bpt>Quickstart<ept id="e41940c0-7ed2-4e7b-8ece-e9b7c031e625">&lt;/strong&gt;</ept> &gt; <bpt id="b2d12176-9567-4b7e-b387-aa690dddb951">&lt;strong&gt;</bpt>HTML/JavaScript<ept id="b2d12176-9567-4b7e-b387-aa690dddb951">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Mobile App backend, click <bpt id="54cb6618-0ee6-4b55-876b-2fd495d7327a">&lt;strong&gt;</bpt>All settings<ept id="54cb6618-0ee6-4b55-876b-2fd495d7327a">&lt;/strong&gt;</ept> and under <bpt id="8ea4dd6e-64f8-431d-8cb7-81479745c4ab">&lt;strong&gt;</bpt>Mobile App<ept id="8ea4dd6e-64f8-431d-8cb7-81479745c4ab">&lt;/strong&gt;</ept> click <bpt id="e41940c0-7ed2-4e7b-8ece-e9b7c031e625">&lt;strong&gt;</bpt>Quickstart<ept id="e41940c0-7ed2-4e7b-8ece-e9b7c031e625">&lt;/strong&gt;</ept> &gt; <bpt id="b2d12176-9567-4b7e-b387-aa690dddb951">&lt;strong&gt;</bpt>HTML/JavaScript<ept id="b2d12176-9567-4b7e-b387-aa690dddb951">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ace6839-1d01-4139-ae1d-9d3f0e0028ea" xml:space="preserve">
+          <source>Under <bpt id="257f48fd-8fc7-4ebb-9494-d9db31ed977a">&lt;strong&gt;</bpt>Download and run your server project<ept id="257f48fd-8fc7-4ebb-9494-d9db31ed977a">&lt;/strong&gt;</ept> in <bpt id="94cba12d-8fe3-41b0-abae-253c9390e00e">&lt;strong&gt;</bpt>Create a new app<ept id="94cba12d-8fe3-41b0-abae-253c9390e00e">&lt;/strong&gt;</ept>, click <bpt id="e7804dce-c058-43bf-b5c0-8188fdc96b1f">&lt;strong&gt;</bpt>Download<ept id="e7804dce-c058-43bf-b5c0-8188fdc96b1f">&lt;/strong&gt;</ept>, extract the compressed project files to your local computer, and open the solution in Visual Studio.</source>
+          <target state="new">Under <bpt id="257f48fd-8fc7-4ebb-9494-d9db31ed977a">&lt;strong&gt;</bpt>Download and run your server project<ept id="257f48fd-8fc7-4ebb-9494-d9db31ed977a">&lt;/strong&gt;</ept> in <bpt id="94cba12d-8fe3-41b0-abae-253c9390e00e">&lt;strong&gt;</bpt>Create a new app<ept id="94cba12d-8fe3-41b0-abae-253c9390e00e">&lt;/strong&gt;</ept>, click <bpt id="e7804dce-c058-43bf-b5c0-8188fdc96b1f">&lt;strong&gt;</bpt>Download<ept id="e7804dce-c058-43bf-b5c0-8188fdc96b1f">&lt;/strong&gt;</ept>, extract the compressed project files to your local computer, and open the solution in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="1bd1640a-efc1-453b-9ce7-909c8f6d453f" xml:space="preserve">
+          <source>Build the project to restore the NuGet packages.</source>
+          <target state="new">Build the project to restore the NuGet packages.</target>
+        </trans-unit>
+        <trans-unit id="113cc1ec-7645-4894-be9c-10fa29124601" xml:space="preserve">
+          <source>Cross-origin resource sharing (CORS) is a way for your web-based app to indicate from which domains requests are safe and should be permitted by the browser.</source>
+          <target state="new">Cross-origin resource sharing (CORS) is a way for your web-based app to indicate from which domains requests are safe and should be permitted by the browser.</target>
+        </trans-unit>
+        <trans-unit id="79c0fe07-f5df-4c57-9c0b-dad3cc14348d" xml:space="preserve">
+          <source>You must add a CORS entry for every web site that will access your Mobile App backend.</source>
+          <target state="new">You must add a CORS entry for every web site that will access your Mobile App backend.</target>
+        </trans-unit>
+        <trans-unit id="6fdf608c-3f8f-4d19-bf1b-be5b783e786d" xml:space="preserve">
+          <source>You control your CORS settings by using the standard ASP.NET Web API behaviors.</source>
+          <target state="new">You control your CORS settings by using the standard ASP.NET Web API behaviors.</target>
+        </trans-unit>
+        <trans-unit id="e23c7852-989c-4081-b678-2c9a14d36665" xml:space="preserve">
+          <source>For more information, see <bpt id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;linkText&gt;</bpt>Enabling Cross-Origin Requests in ASP.NET Web API<ept id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;/linkText&gt;</ept><bpt id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;title&gt;</bpt><ept id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;linkText&gt;</bpt>Enabling Cross-Origin Requests in ASP.NET Web API<ept id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;/linkText&gt;</ept><bpt id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;title&gt;</bpt><ept id="4c88891c-38c5-4cc5-aac5-60d7e10ccacc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c369ea4-bf98-479b-a041-0577b4cb9df1" xml:space="preserve">
+          <source>By default, the client quickstart project that you will download from the portal runs on localhost on port 8000.</source>
+          <target state="new">By default, the client quickstart project that you will download from the portal runs on localhost on port 8000.</target>
+        </trans-unit>
+        <trans-unit id="e53d9ac0-fba6-4381-b859-b055695e05a0" xml:space="preserve">
+          <source>Because of this, you will next enable CORS for <bpt id="a1b84696-f035-4a22-a0e0-15b72a42f36d">&lt;code&gt;</bpt>http://localhost:8000<ept id="a1b84696-f035-4a22-a0e0-15b72a42f36d">&lt;/code&gt;</ept> in the server project.</source>
+          <target state="new">Because of this, you will next enable CORS for <bpt id="a1b84696-f035-4a22-a0e0-15b72a42f36d">&lt;code&gt;</bpt>http://localhost:8000<ept id="a1b84696-f035-4a22-a0e0-15b72a42f36d">&lt;/code&gt;</ept> in the server project.</target>
+        </trans-unit>
+        <trans-unit id="5d960fa6-4ba8-41de-9d45-b810d4c31238" xml:space="preserve">
+          <source>In Visual Studio in the Tools menu, click <bpt id="b940c38e-3cad-421a-9730-36469b0287fe">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b940c38e-3cad-421a-9730-36469b0287fe">&lt;/strong&gt;</ept> &gt; <bpt id="c927619e-66c8-46d8-90a8-94d95d02f0b1">&lt;strong&gt;</bpt>Package Manager Console<ept id="c927619e-66c8-46d8-90a8-94d95d02f0b1">&lt;/strong&gt;</ept>, select Nuget.org as the <bpt id="23785c72-d5f9-4b2b-9b44-02b4b5957703">&lt;strong&gt;</bpt>Package source<ept id="23785c72-d5f9-4b2b-9b44-02b4b5957703">&lt;/strong&gt;</ept> and execute the following command in the console window:</source>
+          <target state="new">In Visual Studio in the Tools menu, click <bpt id="b940c38e-3cad-421a-9730-36469b0287fe">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b940c38e-3cad-421a-9730-36469b0287fe">&lt;/strong&gt;</ept> &gt; <bpt id="c927619e-66c8-46d8-90a8-94d95d02f0b1">&lt;strong&gt;</bpt>Package Manager Console<ept id="c927619e-66c8-46d8-90a8-94d95d02f0b1">&lt;/strong&gt;</ept>, select Nuget.org as the <bpt id="23785c72-d5f9-4b2b-9b44-02b4b5957703">&lt;strong&gt;</bpt>Package source<ept id="23785c72-d5f9-4b2b-9b44-02b4b5957703">&lt;/strong&gt;</ept> and execute the following command in the console window:</target>
+        </trans-unit>
+        <trans-unit id="419a9afc-08e9-4074-9c75-35b05f11b69a" xml:space="preserve">
+          <source>This installs the CORS support required by the backend.</source>
+          <target state="new">This installs the CORS support required by the backend.</target>
+        </trans-unit>
+        <trans-unit id="4f61aaa4-a6f2-4508-86c1-59af140a5ed7" xml:space="preserve">
+          <source>Open the App_Start/WebApiConfig.cs project file and add the following using statement:</source>
+          <target state="new">Open the App_Start/WebApiConfig.cs project file and add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="02344fe1-9f1e-4ed8-acca-01f212615452" xml:space="preserve">
+          <source>Next, add the following code to the <bpt id="bce6082a-d328-49a3-b7b7-8e04798beca8">&lt;strong&gt;</bpt>WebApiConfig.Register<ept id="bce6082a-d328-49a3-b7b7-8e04798beca8">&lt;/strong&gt;</ept> method after the <bpt id="8ec53070-95aa-4e8d-a9fd-292741579c7a">&lt;strong&gt;</bpt>HttpConfiguration<ept id="8ec53070-95aa-4e8d-a9fd-292741579c7a">&lt;/strong&gt;</ept> is created:</source>
+          <target state="new">Next, add the following code to the <bpt id="bce6082a-d328-49a3-b7b7-8e04798beca8">&lt;strong&gt;</bpt>WebApiConfig.Register<ept id="bce6082a-d328-49a3-b7b7-8e04798beca8">&lt;/strong&gt;</ept> method after the <bpt id="8ec53070-95aa-4e8d-a9fd-292741579c7a">&lt;strong&gt;</bpt>HttpConfiguration<ept id="8ec53070-95aa-4e8d-a9fd-292741579c7a">&lt;/strong&gt;</ept> is created:</target>
+        </trans-unit>
+        <trans-unit id="024537c4-1f8e-46fa-9ba2-1b1febb5fa87" xml:space="preserve">
+          <source>Save your updates.</source>
+          <target state="new">Save your updates.</target>
+        </trans-unit>
+        <trans-unit id="62bb8e66-a0ed-423f-a67c-86d7f9635028" xml:space="preserve">
+          <source>Next, you will deploy your CORS-enabled project to Azure.</source>
+          <target state="new">Next, you will deploy your CORS-enabled project to Azure.</target>
+        </trans-unit>
+        <trans-unit id="8a7f4cfd-32e9-4e21-9c3c-0068291a6576" xml:space="preserve">
+          <source><bpt id="11f26983-0407-41c6-9813-9f1f049ccb4d">&lt;token href="../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md"&gt;</bpt><ept id="11f26983-0407-41c6-9813-9f1f049ccb4d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="11f26983-0407-41c6-9813-9f1f049ccb4d">&lt;token href="../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md"&gt;</bpt><ept id="11f26983-0407-41c6-9813-9f1f049ccb4d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69a108e6-bca8-420c-b356-bfc7cc43f78e" xml:space="preserve">
+          <source>Back in the blade for your Mobile App backend, click <bpt id="cdb55576-4155-44b8-8814-2c593dd67e25">&lt;strong&gt;</bpt>All settings<ept id="cdb55576-4155-44b8-8814-2c593dd67e25">&lt;/strong&gt;</ept> and under <bpt id="f07e2bab-7287-49f8-a845-f55a1eb630c1">&lt;strong&gt;</bpt>Mobile App<ept id="f07e2bab-7287-49f8-a845-f55a1eb630c1">&lt;/strong&gt;</ept> click <bpt id="6025a05e-c5df-466b-911e-5c5ae38b4473">&lt;strong&gt;</bpt>Quickstart<ept id="6025a05e-c5df-466b-911e-5c5ae38b4473">&lt;/strong&gt;</ept> &gt; <bpt id="67c50960-f37d-47c7-8e51-beb497fb0711">&lt;strong&gt;</bpt>HTML/JavaScript<ept id="67c50960-f37d-47c7-8e51-beb497fb0711">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Back in the blade for your Mobile App backend, click <bpt id="cdb55576-4155-44b8-8814-2c593dd67e25">&lt;strong&gt;</bpt>All settings<ept id="cdb55576-4155-44b8-8814-2c593dd67e25">&lt;/strong&gt;</ept> and under <bpt id="f07e2bab-7287-49f8-a845-f55a1eb630c1">&lt;strong&gt;</bpt>Mobile App<ept id="f07e2bab-7287-49f8-a845-f55a1eb630c1">&lt;/strong&gt;</ept> click <bpt id="6025a05e-c5df-466b-911e-5c5ae38b4473">&lt;strong&gt;</bpt>Quickstart<ept id="6025a05e-c5df-466b-911e-5c5ae38b4473">&lt;/strong&gt;</ept> &gt; <bpt id="67c50960-f37d-47c7-8e51-beb497fb0711">&lt;strong&gt;</bpt>HTML/JavaScript<ept id="67c50960-f37d-47c7-8e51-beb497fb0711">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db878702-f822-4609-8575-c7c3448ec848" xml:space="preserve">
+          <source>Under <bpt id="5fb1d243-a562-4cb6-8ff7-ce4a09de597c">&lt;strong&gt;</bpt>Download and run your HTML/Javascript project<ept id="5fb1d243-a562-4cb6-8ff7-ce4a09de597c">&lt;/strong&gt;</ept> in <bpt id="f4f14d23-afbc-41e0-acce-0adc12f59f9d">&lt;strong&gt;</bpt>Create a new app<ept id="f4f14d23-afbc-41e0-acce-0adc12f59f9d">&lt;/strong&gt;</ept>, click <bpt id="42857c70-eafb-4c56-b5ad-bfdd719204e2">&lt;strong&gt;</bpt>Download<ept id="42857c70-eafb-4c56-b5ad-bfdd719204e2">&lt;/strong&gt;</ept> and save the compressed project files to your local computer.</source>
+          <target state="new">Under <bpt id="5fb1d243-a562-4cb6-8ff7-ce4a09de597c">&lt;strong&gt;</bpt>Download and run your HTML/Javascript project<ept id="5fb1d243-a562-4cb6-8ff7-ce4a09de597c">&lt;/strong&gt;</ept> in <bpt id="f4f14d23-afbc-41e0-acce-0adc12f59f9d">&lt;strong&gt;</bpt>Create a new app<ept id="f4f14d23-afbc-41e0-acce-0adc12f59f9d">&lt;/strong&gt;</ept>, click <bpt id="42857c70-eafb-4c56-b5ad-bfdd719204e2">&lt;strong&gt;</bpt>Download<ept id="42857c70-eafb-4c56-b5ad-bfdd719204e2">&lt;/strong&gt;</ept> and save the compressed project files to your local computer.</target>
+        </trans-unit>
+        <trans-unit id="f9cc8948-0c8f-4270-b728-83ebf7bb73c5" xml:space="preserve">
+          <source>Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the <bpt id="5ba6e35f-1892-40a3-ad9b-2b2041bddef2">&lt;strong&gt;</bpt>server<ept id="5ba6e35f-1892-40a3-ad9b-2b2041bddef2">&lt;/strong&gt;</ept> subfolder.</source>
+          <target state="new">Browse to the location where you saved the compressed project files, expand the files on your computer, and launch one of the following command files from the <bpt id="5ba6e35f-1892-40a3-ad9b-2b2041bddef2">&lt;strong&gt;</bpt>server<ept id="5ba6e35f-1892-40a3-ad9b-2b2041bddef2">&lt;/strong&gt;</ept> subfolder.</target>
+        </trans-unit>
+        <trans-unit id="6f1c90fc-f9ac-4471-b9f1-7fb58175fc75" xml:space="preserve">
+          <source><bpt id="480d2bbe-38b7-4ffe-9213-91a117c87445">&lt;strong&gt;</bpt>launch-windows<ept id="480d2bbe-38b7-4ffe-9213-91a117c87445">&lt;/strong&gt;</ept> (Windows computers)</source>
+          <target state="new"><bpt id="480d2bbe-38b7-4ffe-9213-91a117c87445">&lt;strong&gt;</bpt>launch-windows<ept id="480d2bbe-38b7-4ffe-9213-91a117c87445">&lt;/strong&gt;</ept> (Windows computers)</target>
+        </trans-unit>
+        <trans-unit id="4d7c9bad-7bc5-4f89-ad5f-fb26fb4ef12f" xml:space="preserve">
+          <source><bpt id="84b7861e-c413-41be-9193-13d7213ed5c5">&lt;strong&gt;</bpt>launch-mac.command<ept id="84b7861e-c413-41be-9193-13d7213ed5c5">&lt;/strong&gt;</ept> (Mac OS X computers)</source>
+          <target state="new"><bpt id="84b7861e-c413-41be-9193-13d7213ed5c5">&lt;strong&gt;</bpt>launch-mac.command<ept id="84b7861e-c413-41be-9193-13d7213ed5c5">&lt;/strong&gt;</ept> (Mac OS X computers)</target>
+        </trans-unit>
+        <trans-unit id="68200dab-e061-4fb0-be81-95652fe4b410" xml:space="preserve">
+          <source><bpt id="0c280596-9d0e-4317-9e34-b1aedc9901a5">&lt;strong&gt;</bpt>launch-linux.sh<ept id="0c280596-9d0e-4317-9e34-b1aedc9901a5">&lt;/strong&gt;</ept> (Linux computers)</source>
+          <target state="new"><bpt id="0c280596-9d0e-4317-9e34-b1aedc9901a5">&lt;strong&gt;</bpt>launch-linux.sh<ept id="0c280596-9d0e-4317-9e34-b1aedc9901a5">&lt;/strong&gt;</ept> (Linux computers)</target>
+        </trans-unit>
+        <trans-unit id="a4bc29c4-2b4b-49f4-aca4-f35c569cc79c" xml:space="preserve">
+          <source>On a Windows computer, type <bpt id="094af77f-13ff-4101-b015-880012e49c1c">&lt;code&gt;</bpt>R<ept id="094af77f-13ff-4101-b015-880012e49c1c">&lt;/code&gt;</ept> when PowerShell asks you to confirm that you want to run the script.</source>
+          <target state="new">On a Windows computer, type <bpt id="094af77f-13ff-4101-b015-880012e49c1c">&lt;code&gt;</bpt>R<ept id="094af77f-13ff-4101-b015-880012e49c1c">&lt;/code&gt;</ept> when PowerShell asks you to confirm that you want to run the script.</target>
+        </trans-unit>
+        <trans-unit id="3cd65d9b-b13e-4dfd-955f-a3d5f9f2b026" xml:space="preserve">
+          <source>Your web browser might warn you to not run the script because it was downloaded from the internet.</source>
+          <target state="new">Your web browser might warn you to not run the script because it was downloaded from the internet.</target>
+        </trans-unit>
+        <trans-unit id="f0d71ae7-0c0c-4c23-a5d9-3770c59d886f" xml:space="preserve">
+          <source>When this happens, you must request that the browser proceed to load the script.</source>
+          <target state="new">When this happens, you must request that the browser proceed to load the script.</target>
+        </trans-unit>
+        <trans-unit id="7bf52927-48d7-4f52-8638-b42be3bb7be7" xml:space="preserve">
+          <source>This starts a web server on your local computer to host the new app.</source>
+          <target state="new">This starts a web server on your local computer to host the new app.</target>
+        </trans-unit>
+        <trans-unit id="863f8820-9cf7-47ad-8557-530e4ec46708" xml:space="preserve">
+          <source>Open the URL &lt;a href="http://localhost:8000/" target="_blank"&gt;http://localhost:8000/&lt;/a&gt; in a web browser to start the app.</source>
+          <target state="new">Open the URL &lt;a href="http://localhost:8000/" target="_blank"&gt;http://localhost:8000/&lt;/a&gt; in a web browser to start the app.</target>
+        </trans-unit>
+        <trans-unit id="eae25f1e-1556-457d-badb-bbf779cb5f10" xml:space="preserve">
+          <source>The client app is configured to connect to your Mobile App backend in Azure.</source>
+          <target state="new">The client app is configured to connect to your Mobile App backend in Azure.</target>
+        </trans-unit>
+        <trans-unit id="347520fa-0ba1-4baf-97f0-a06bc5b6c372" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="f1c5917d-d139-4dca-892a-4cd091bab179">&lt;em&gt;</bpt>Complete the tutorial<ept id="f1c5917d-d139-4dca-892a-4cd091bab179">&lt;/em&gt;</ept>, in <bpt id="6380db3d-4bf3-413b-a4ca-0b9586736e4a">&lt;strong&gt;</bpt>Enter new task<ept id="6380db3d-4bf3-413b-a4ca-0b9586736e4a">&lt;/strong&gt;</ept>, and then click <bpt id="1c3b58c5-bc42-48ed-af85-3e0623ce898c">&lt;strong&gt;</bpt>Add<ept id="1c3b58c5-bc42-48ed-af85-3e0623ce898c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="f1c5917d-d139-4dca-892a-4cd091bab179">&lt;em&gt;</bpt>Complete the tutorial<ept id="f1c5917d-d139-4dca-892a-4cd091bab179">&lt;/em&gt;</ept>, in <bpt id="6380db3d-4bf3-413b-a4ca-0b9586736e4a">&lt;strong&gt;</bpt>Enter new task<ept id="6380db3d-4bf3-413b-a4ca-0b9586736e4a">&lt;/strong&gt;</ept>, and then click <bpt id="1c3b58c5-bc42-48ed-af85-3e0623ce898c">&lt;strong&gt;</bpt>Add<ept id="1c3b58c5-bc42-48ed-af85-3e0623ce898c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9ce9671-e567-4cd3-b380-ea26de3db6ff" xml:space="preserve">
+          <source><bpt id="00d5461a-8277-4634-a87b-6cfc91f31128">&lt;linkText&gt;</bpt>Running the app<ept id="00d5461a-8277-4634-a87b-6cfc91f31128">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="00d5461a-8277-4634-a87b-6cfc91f31128">&lt;linkText&gt;</bpt>Running the app<ept id="00d5461a-8277-4634-a87b-6cfc91f31128">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae2cbcea-e258-4dce-9b3d-eebe5a3d0dd3" xml:space="preserve">
+          <source>This sends a POST request to the new Mobile App backend hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new Mobile App backend hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="61d5692c-4bc5-436c-8f4f-045d8fdb5531" xml:space="preserve">
+          <source>Data from the request is inserted into the TodoItem table in the Mobile App schema.</source>
+          <target state="new">Data from the request is inserted into the TodoItem table in the Mobile App schema.</target>
+        </trans-unit>
+        <trans-unit id="8ee72948-9ba6-4693-9a8d-208fb4f908b3" xml:space="preserve">
+          <source>Items stored in the table are returned by the service, and the data is displayed in the second column in the app.</source>
+          <target state="new">Items stored in the table are returned by the service, and the data is displayed in the second column in the app.</target>
+        </trans-unit>
+        <trans-unit id="cb7db70b-0137-43e5-adfe-e1e22d2af371" xml:space="preserve">
+          <source>You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.</source>
+          <target state="new">You can review the code that accesses your mobile service to query and insert data, which is found in the app.js file.</target>
+        </trans-unit>
+        <trans-unit id="3e896573-5a8d-4977-bc3c-99a14272b073" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md</target>
+        </trans-unit>
+        <trans-unit id="d1929c7d-b691-4a99-808f-605410280ddf" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="812a5c64-8e14-457c-b020-f2d2ee43d677" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="11ba0c8f-12cc-465a-b19e-cfbfa3352a5d" xml:space="preserve">
+          <source>https://www.visualstudio.com/downloads</source>
+          <target state="new">https://www.visualstudio.com/downloads</target>
+        </trans-unit>
+      </group>
+      <group id="c108c6a3-49da-4086-8d73-b9653b6c455a" />
+    </body>
+  </file>
+</xliff>

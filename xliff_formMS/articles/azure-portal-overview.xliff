@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="559498a4-0833-4d6b-a393-1b5893decde0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="559498a4-0833-4d6b-a393-1b5893decde0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="311afdea-8194-4373-bd2d-4c99d8d5ed18">
+        <trans-unit id="ce67c123-db78-48e2-93b4-fd976699f503" xml:space="preserve">
+          <source>Microsoft Azure preview portal overview</source>
+          <target state="new">Microsoft Azure preview portal overview</target>
+        </trans-unit>
+        <trans-unit id="8d50498b-e414-4324-a2fc-1dd0ea76526d" xml:space="preserve">
+          <source>Learn how to use the Microsoft Azure preview portal.</source>
+          <target state="new">Learn how to use the Microsoft Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="99c7f5c9-7aeb-45df-931d-1c21ccd59d1e" xml:space="preserve">
+          <source>The Microsoft Azure preview portal is a central place where you can provision and manage your Azure resources.</source>
+          <target state="new">The Microsoft Azure preview portal is a central place where you can provision and manage your Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="6e1fed63-0a6a-453c-bf85-1767df3d5be6" xml:space="preserve">
+          <source>This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:</source>
+          <target state="new">This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:</target>
+        </trans-unit>
+        <trans-unit id="eca7e8e3-1a4b-4446-a071-fe6456682bee" xml:space="preserve">
+          <source>A <bpt id="85db131f-43ab-4970-8a53-1e83685f17d7">&lt;strong&gt;</bpt>comprehensive marketplace<ept id="85db131f-43ab-4970-8a53-1e83685f17d7">&lt;/strong&gt;</ept> that lets you browse through thousands of items from Microsoft and other vendors that can be purchased and/or provisioned.</source>
+          <target state="new">A <bpt id="85db131f-43ab-4970-8a53-1e83685f17d7">&lt;strong&gt;</bpt>comprehensive marketplace<ept id="85db131f-43ab-4970-8a53-1e83685f17d7">&lt;/strong&gt;</ept> that lets you browse through thousands of items from Microsoft and other vendors that can be purchased and/or provisioned.</target>
+        </trans-unit>
+        <trans-unit id="e13c6ca1-d993-4751-8393-c99e49c43890" xml:space="preserve">
+          <source>A <bpt id="65f0c317-13fd-4be9-bf9c-6364800921a1">&lt;strong&gt;</bpt>unified and scalable browse experience<ept id="65f0c317-13fd-4be9-bf9c-6364800921a1">&lt;/strong&gt;</ept> that makes it easy to find the resources you care about and perform various management operations.</source>
+          <target state="new">A <bpt id="65f0c317-13fd-4be9-bf9c-6364800921a1">&lt;strong&gt;</bpt>unified and scalable browse experience<ept id="65f0c317-13fd-4be9-bf9c-6364800921a1">&lt;/strong&gt;</ept> that makes it easy to find the resources you care about and perform various management operations.</target>
+        </trans-unit>
+        <trans-unit id="57d7b8d0-90b1-4bdd-b681-5c013ef272f4" xml:space="preserve">
+          <source><bpt id="b182c61f-9d4d-436a-be6c-08b2a2f686ad">&lt;strong&gt;</bpt>Consistent management pages<ept id="b182c61f-9d4d-436a-be6c-08b2a2f686ad">&lt;/strong&gt;</ept> (or blades) that let you manage Azure’s wide variety of services through a consistent way of exposing settings, actions, billing information, health monitoring and usage data, and much more.</source>
+          <target state="new"><bpt id="b182c61f-9d4d-436a-be6c-08b2a2f686ad">&lt;strong&gt;</bpt>Consistent management pages<ept id="b182c61f-9d4d-436a-be6c-08b2a2f686ad">&lt;/strong&gt;</ept> (or blades) that let you manage Azure’s wide variety of services through a consistent way of exposing settings, actions, billing information, health monitoring and usage data, and much more.</target>
+        </trans-unit>
+        <trans-unit id="4def7426-1b2f-45b6-b1b8-36d3298be892" xml:space="preserve">
+          <source>A <bpt id="3c0d13f7-40ce-4835-a09a-8b675f651f07">&lt;strong&gt;</bpt>personal experience<ept id="3c0d13f7-40ce-4835-a09a-8b675f651f07">&lt;/strong&gt;</ept> that lets you create a customized start screen that shows the information that you want to see whenever you log in.</source>
+          <target state="new">A <bpt id="3c0d13f7-40ce-4835-a09a-8b675f651f07">&lt;strong&gt;</bpt>personal experience<ept id="3c0d13f7-40ce-4835-a09a-8b675f651f07">&lt;/strong&gt;</ept> that lets you create a customized start screen that shows the information that you want to see whenever you log in.</target>
+        </trans-unit>
+        <trans-unit id="fd821f59-b1f0-4186-b823-0a3e9a8ac030" xml:space="preserve">
+          <source>You can also customize any of the management blades that contain tiles.</source>
+          <target state="new">You can also customize any of the management blades that contain tiles.</target>
+        </trans-unit>
+        <trans-unit id="10e842f3-341c-4daa-8ed1-2982fd40c20b" xml:space="preserve">
+          <source><bpt id="6c616664-e046-4676-8c05-487dc69bf610">&lt;linkText&gt;</bpt>Azure Portal UI Orientation<ept id="6c616664-e046-4676-8c05-487dc69bf610">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c616664-e046-4676-8c05-487dc69bf610">&lt;linkText&gt;</bpt>Azure Portal UI Orientation<ept id="6c616664-e046-4676-8c05-487dc69bf610">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="915ef683-99eb-41c3-b3ed-127e6e74e146" xml:space="preserve">
+          <source>You will need a valid Azure subscription to go through this tutorial.</source>
+          <target state="new">You will need a valid Azure subscription to go through this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="cb61cf3e-6c27-474e-afe1-faa7993c5348" xml:space="preserve">
+          <source>If you don’t have one, then <bpt id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;linkText&gt;</bpt>sign up for a free trial<ept id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;/linkText&gt;</ept><bpt id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;title&gt;</bpt><ept id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;/title&gt;</ept> today.</source>
+          <target state="new">If you don’t have one, then <bpt id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;linkText&gt;</bpt>sign up for a free trial<ept id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;/linkText&gt;</ept><bpt id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;title&gt;</bpt><ept id="d28d008f-71d7-47c9-ba88-7b51a600cf02">&lt;/title&gt;</ept> today.</target>
+        </trans-unit>
+        <trans-unit id="43a2f8d3-4fa8-4cb7-815f-bb6f9a908821" xml:space="preserve">
+          <source>Once you have a subscription, you can access the portal at [https://portal.azure.com].</source>
+          <target state="new">Once you have a subscription, you can access the portal at [https://portal.azure.com].</target>
+        </trans-unit>
+        <trans-unit id="ec476ef9-462c-4cfb-8083-3668bfd66599" xml:space="preserve">
+          <source>Azure has a marketplace with thousands of items that you can create from one place.</source>
+          <target state="new">Azure has a marketplace with thousands of items that you can create from one place.</target>
+        </trans-unit>
+        <trans-unit id="dacb7869-9732-47be-ba4e-79a828d4824e" xml:space="preserve">
+          <source>Let’s say you want to create a new Windows Server 2012 VM.</source>
+          <target state="new">Let’s say you want to create a new Windows Server 2012 VM.</target>
+        </trans-unit>
+        <trans-unit id="f760ef77-ca67-46b6-89a9-0df614124cf7" xml:space="preserve">
+          <source>The +NEW hub is your entry point into a curated set of featured categories from the marketplace.</source>
+          <target state="new">The +NEW hub is your entry point into a curated set of featured categories from the marketplace.</target>
+        </trans-unit>
+        <trans-unit id="eb9588ce-126b-47d7-be68-e00cd4994ea6" xml:space="preserve">
+          <source>Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search.</source>
+          <target state="new">Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search.</target>
+        </trans-unit>
+        <trans-unit id="325b31e6-bb8c-442f-b283-711219677e1d" xml:space="preserve">
+          <source>To create that new Windows Server 2012 VM, perform the following actions:</source>
+          <target state="new">To create that new Windows Server 2012 VM, perform the following actions:</target>
+        </trans-unit>
+        <trans-unit id="230fb253-ad38-4113-b638-52be1d369377" xml:space="preserve">
+          <source>Windows Server 2012 is featured, so you can select it from the Compute category.</source>
+          <target state="new">Windows Server 2012 is featured, so you can select it from the Compute category.</target>
+        </trans-unit>
+        <trans-unit id="5ba8328b-3917-4183-8280-668a8263d63a" xml:space="preserve">
+          <source>Fill out some basic inputs on a form.</source>
+          <target state="new">Fill out some basic inputs on a form.</target>
+        </trans-unit>
+        <trans-unit id="3bc13cc8-4a39-4a1a-8af0-1547f6c8f18a" xml:space="preserve">
+          <source>Click ‘Create’ and you’re VM will begin to provision immediately.</source>
+          <target state="new">Click ‘Create’ and you’re VM will begin to provision immediately.</target>
+        </trans-unit>
+        <trans-unit id="629fe0f5-e85f-4d98-acfc-934d38f0f865" xml:space="preserve">
+          <source>The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).</source>
+          <target state="new">The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).</target>
+        </trans-unit>
+        <trans-unit id="d17f9b0e-45e9-47ea-beda-5bd1bb487951" xml:space="preserve">
+          <source><bpt id="51cfd2ad-8d28-4d3a-a45a-9d104b25c199">&lt;linkText&gt;</bpt>Portal Categories<ept id="51cfd2ad-8d28-4d3a-a45a-9d104b25c199">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51cfd2ad-8d28-4d3a-a45a-9d104b25c199">&lt;linkText&gt;</bpt>Portal Categories<ept id="51cfd2ad-8d28-4d3a-a45a-9d104b25c199">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ab79e31-6a90-4c57-8a6a-9ae87d4226d4" xml:space="preserve">
+          <source>You can always pin frequently accessed resources to your startboard, but you might need to browse to something that you don’t frequently access.</source>
+          <target state="new">You can always pin frequently accessed resources to your startboard, but you might need to browse to something that you don’t frequently access.</target>
+        </trans-unit>
+        <trans-unit id="b4d1727f-7f7e-4caf-8b8a-bb95e31c6af5" xml:space="preserve">
+          <source>The browse hub shown below is your way to get to all of your resources.</source>
+          <target state="new">The browse hub shown below is your way to get to all of your resources.</target>
+        </trans-unit>
+        <trans-unit id="7dd9363a-524e-4065-9b64-0d55137f1e3d" xml:space="preserve">
+          <source>You can filter by subscription, choose/resize columns, and navigate to the management blades by clicking on individual items.</source>
+          <target state="new">You can filter by subscription, choose/resize columns, and navigate to the management blades by clicking on individual items.</target>
+        </trans-unit>
+        <trans-unit id="58e7cc4c-21ab-457c-8000-927348ebaf33" xml:space="preserve">
+          <source><bpt id="721fda0d-393c-4103-9d73-46521247de69">&lt;linkText&gt;</bpt>Browse Hub<ept id="721fda0d-393c-4103-9d73-46521247de69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="721fda0d-393c-4103-9d73-46521247de69">&lt;linkText&gt;</bpt>Browse Hub<ept id="721fda0d-393c-4103-9d73-46521247de69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="546749b4-59e6-4455-8327-91e799f242b1" xml:space="preserve">
+          <source>From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.</source>
+          <target state="new">From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.</target>
+        </trans-unit>
+        <trans-unit id="c8bab10b-f55e-4a49-bdfc-c04332f48f2a" xml:space="preserve">
+          <source>Delegating access based on role is critical to managing at scale.</source>
+          <target state="new">Delegating access based on role is critical to managing at scale.</target>
+        </trans-unit>
+        <trans-unit id="ba5f359f-2544-465b-9825-461ebe4fcc9c" xml:space="preserve">
+          <source>Click <bpt id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;linkText&gt;</bpt>here<ept id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;/linkText&gt;</ept><bpt id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;title&gt;</bpt><ept id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;/title&gt;</ept> to learn more about it.</source>
+          <target state="new">Click <bpt id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;linkText&gt;</bpt>here<ept id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;/linkText&gt;</ept><bpt id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;title&gt;</bpt><ept id="3bd57ae8-d220-45ad-bf44-ea0ab7b5d894">&lt;/title&gt;</ept> to learn more about it.</target>
+        </trans-unit>
+        <trans-unit id="f0a9ee6d-e5e5-43c7-8357-4dd451560693" xml:space="preserve">
+          <source>To delegate access to a resource, perform the following actions:</source>
+          <target state="new">To delegate access to a resource, perform the following actions:</target>
+        </trans-unit>
+        <trans-unit id="fcb9fa9a-e130-4e08-941c-98d03fbb9948" xml:space="preserve">
+          <source>Browse to your resource.</source>
+          <target state="new">Browse to your resource.</target>
+        </trans-unit>
+        <trans-unit id="500818c9-e5e2-4e55-aa6c-1d822fdaece9" xml:space="preserve">
+          <source>Click ‘All settings’ in the Essentials section.</source>
+          <target state="new">Click ‘All settings’ in the Essentials section.</target>
+        </trans-unit>
+        <trans-unit id="871ecfc1-e62c-4657-a761-a9805e7b849b" xml:space="preserve">
+          <source>Click ‘Users’ in the settings list.</source>
+          <target state="new">Click ‘Users’ in the settings list.</target>
+        </trans-unit>
+        <trans-unit id="de23d764-3303-4779-9189-ba6c68105967" xml:space="preserve">
+          <source>Click ‘Add’ in the command bar.</source>
+          <target state="new">Click ‘Add’ in the command bar.</target>
+        </trans-unit>
+        <trans-unit id="4ed253d0-8007-4c9c-91e5-8e3b76a78d9f" xml:space="preserve">
+          <source>Choose a user and a role.</source>
+          <target state="new">Choose a user and a role.</target>
+        </trans-unit>
+        <trans-unit id="ec974c44-739b-4382-bcb2-fdcebaad6c0a" xml:space="preserve">
+          <source><bpt id="bf6084c4-1ee3-4c89-ae52-be8bf5e1857d">&lt;linkText&gt;</bpt>Managing a Resource<ept id="bf6084c4-1ee3-4c89-ae52-be8bf5e1857d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf6084c4-1ee3-4c89-ae52-be8bf5e1857d">&lt;linkText&gt;</bpt>Managing a Resource<ept id="bf6084c4-1ee3-4c89-ae52-be8bf5e1857d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dac2abc-e3ab-4337-b463-242ec3b9686b" xml:space="preserve">
+          <source>Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.</source>
+          <target state="new">Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.</target>
+        </trans-unit>
+        <trans-unit id="ac744165-b8bc-483e-b925-e0c59ca8e2ca" xml:space="preserve">
+          <source>You can easily go into customize mode to add, remove, resize, or re-arrange the tiles.</source>
+          <target state="new">You can easily go into customize mode to add, remove, resize, or re-arrange the tiles.</target>
+        </trans-unit>
+        <trans-unit id="a8878768-7b02-484d-ab16-c616806511fb" xml:space="preserve">
+          <source>To customize a blade, perform the following actions:</source>
+          <target state="new">To customize a blade, perform the following actions:</target>
+        </trans-unit>
+        <trans-unit id="373acf7a-9abe-41eb-8338-8f98e7f4e7cb" xml:space="preserve">
+          <source>Browse to your resource.</source>
+          <target state="new">Browse to your resource.</target>
+        </trans-unit>
+        <trans-unit id="4047df6c-464a-4bbc-a034-a3daffcfee8e" xml:space="preserve">
+          <source>Click the ‘…’</source>
+          <target state="new">Click the ‘…’</target>
+        </trans-unit>
+        <trans-unit id="082a2ef3-5de0-45ee-8d1b-1ab87fbfa798" xml:space="preserve">
+          <source>at the top of the blade you want to customize.</source>
+          <target state="new">at the top of the blade you want to customize.</target>
+        </trans-unit>
+        <trans-unit id="85c4a1ed-d88d-41fa-bc03-1f217701825c" xml:space="preserve">
+          <source>Click ‘Add parts’.</source>
+          <target state="new">Click ‘Add parts’.</target>
+        </trans-unit>
+        <trans-unit id="861e1169-c9f4-4b11-a40e-6a45334ea611" xml:space="preserve">
+          <source>Start dragging and dropping parts.</source>
+          <target state="new">Start dragging and dropping parts.</target>
+        </trans-unit>
+        <trans-unit id="6e2bcb08-0f22-40c6-a070-174dbe9faf36" xml:space="preserve">
+          <source><bpt id="acb8bf2e-ae7f-4827-8efa-c4b9bbe843b0">&lt;linkText&gt;</bpt>Customizing Blades<ept id="acb8bf2e-ae7f-4827-8efa-c4b9bbe843b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acb8bf2e-ae7f-4827-8efa-c4b9bbe843b0">&lt;linkText&gt;</bpt>Customizing Blades<ept id="acb8bf2e-ae7f-4827-8efa-c4b9bbe843b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="435c093a-c82c-4db7-826e-21d286a72010" xml:space="preserve">
+          <source>If you ever have a problem, we’re here for you.</source>
+          <target state="new">If you ever have a problem, we’re here for you.</target>
+        </trans-unit>
+        <trans-unit id="76cbbb17-91e3-4c2d-9729-d25103c2d47d" xml:space="preserve">
+          <source>The portal has a help and support page that can point you in the right direction.</source>
+          <target state="new">The portal has a help and support page that can point you in the right direction.</target>
+        </trans-unit>
+        <trans-unit id="d292ebbc-b106-48d2-bd61-7601b385547a" xml:space="preserve">
+          <source>Depending on your <bpt id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;linkText&gt;</bpt>support plan<ept id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;/linkText&gt;</ept><bpt id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;title&gt;</bpt><ept id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;/title&gt;</ept>, you can also create support tickets directly in the portal.</source>
+          <target state="new">Depending on your <bpt id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;linkText&gt;</bpt>support plan<ept id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;/linkText&gt;</ept><bpt id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;title&gt;</bpt><ept id="b90271b9-98d8-4c04-b451-be1d1805ff1f">&lt;/title&gt;</ept>, you can also create support tickets directly in the portal.</target>
+        </trans-unit>
+        <trans-unit id="14b4a5b9-5b7a-4377-9288-2998ef95620c" xml:space="preserve">
+          <source>After creating a support ticket, you can manage the lifecycle of the ticket from within the portal.</source>
+          <target state="new">After creating a support ticket, you can manage the lifecycle of the ticket from within the portal.</target>
+        </trans-unit>
+        <trans-unit id="524d9652-3585-4027-807f-943a1543c7ff" xml:space="preserve">
+          <source>You can get to the help and support page by navigating to Browse -&gt; Help + support.</source>
+          <target state="new">You can get to the help and support page by navigating to Browse -&gt; Help + support.</target>
+        </trans-unit>
+        <trans-unit id="2fcda5b0-3d6b-4105-ac58-b4f5c77a9c12" xml:space="preserve">
+          <source><bpt id="8ddfd6cb-3c0a-4418-a506-a43832cbe8c3">&lt;linkText&gt;</bpt>Help and support<ept id="8ddfd6cb-3c0a-4418-a506-a43832cbe8c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ddfd6cb-3c0a-4418-a506-a43832cbe8c3">&lt;linkText&gt;</bpt>Help and support<ept id="8ddfd6cb-3c0a-4418-a506-a43832cbe8c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4b109f2-726f-47b2-8c77-489856753494" xml:space="preserve">
+          <source>Let’s review what you learned in this tutorial:</source>
+          <target state="new">Let’s review what you learned in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="c15098c9-b418-4360-a6b2-3d5f89be053c" xml:space="preserve">
+          <source>You learned how to sign up, get a subscription, and browse to the portal</source>
+          <target state="new">You learned how to sign up, get a subscription, and browse to the portal</target>
+        </trans-unit>
+        <trans-unit id="3337a9b2-656e-4d06-a088-f00c83daa450" xml:space="preserve">
+          <source>You got oriented with the portal UI and learned how to create and browse resources</source>
+          <target state="new">You got oriented with the portal UI and learned how to create and browse resources</target>
+        </trans-unit>
+        <trans-unit id="85b53e5c-d7bf-43bc-8a1d-277ef36d671d" xml:space="preserve">
+          <source>You learned how to create a resource and browse resources</source>
+          <target state="new">You learned how to create a resource and browse resources</target>
+        </trans-unit>
+        <trans-unit id="fe9a2e54-cf55-4e30-912e-eadba625420d" xml:space="preserve">
+          <source>You learned about the structure or management blades and how you can consistently manage different types of resources</source>
+          <target state="new">You learned about the structure or management blades and how you can consistently manage different types of resources</target>
+        </trans-unit>
+        <trans-unit id="2edcab78-004a-4a31-aa56-207d421789d0" xml:space="preserve">
+          <source>You learned how to customize the portal to bring the information you care about to the front and center</source>
+          <target state="new">You learned how to customize the portal to bring the information you care about to the front and center</target>
+        </trans-unit>
+        <trans-unit id="06880a11-cabe-4ef0-8844-001d58ab6618" xml:space="preserve">
+          <source>You learned how to control access to resources using role based access (RBAC)</source>
+          <target state="new">You learned how to control access to resources using role based access (RBAC)</target>
+        </trans-unit>
+        <trans-unit id="ce859080-55f0-4ca6-9926-264667026633" xml:space="preserve">
+          <source>You learned how to get help and support</source>
+          <target state="new">You learned how to get help and support</target>
+        </trans-unit>
+        <trans-unit id="42060699-4020-49de-86c4-1ed4ef1a061f" xml:space="preserve">
+          <source>The Microsoft Azure preview portal radically simplifies building and managing your applications in the cloud.</source>
+          <target state="new">The Microsoft Azure preview portal radically simplifies building and managing your applications in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="a96bfa8f-880a-470d-8b40-01a27dbfb851" xml:space="preserve">
+          <source>Take a look at the <bpt id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;linkText&gt;</bpt>management blog<ept id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;/linkText&gt;</ept><bpt id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;title&gt;</bpt><ept id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;/title&gt;</ept> to keep up to date as we’re constantly <bpt id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;linkText&gt;</bpt>listening to feedback<ept id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;/linkText&gt;</ept><bpt id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;title&gt;</bpt><ept id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;/title&gt;</ept> and making improvements.</source>
+          <target state="new">Take a look at the <bpt id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;linkText&gt;</bpt>management blog<ept id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;/linkText&gt;</ept><bpt id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;title&gt;</bpt><ept id="6e37a4cd-a2d6-4057-baad-09e5da950b80">&lt;/title&gt;</ept> to keep up to date as we’re constantly <bpt id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;linkText&gt;</bpt>listening to feedback<ept id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;/linkText&gt;</ept><bpt id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;title&gt;</bpt><ept id="5d9490b2-456d-44a7-b265-cf6b83a9bdc4">&lt;/title&gt;</ept> and making improvements.</target>
+        </trans-unit>
+        <trans-unit id="943e4998-7349-4275-9f84-84ff23e795bd" xml:space="preserve">
+          <source><bpt id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;linkText&gt;</bpt>ScottGu’s blog<ept id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;/linkText&gt;</ept><bpt id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;title&gt;</bpt><ept id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;/title&gt;</ept> is another great place to look for all Azure updates.</source>
+          <target state="new"><bpt id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;linkText&gt;</bpt>ScottGu’s blog<ept id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;/linkText&gt;</ept><bpt id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;title&gt;</bpt><ept id="f110b99d-1cb6-4c6e-99f1-217c3ae9bd0c">&lt;/title&gt;</ept> is another great place to look for all Azure updates.</target>
+        </trans-unit>
+        <trans-unit id="dc6af5e4-d0fa-4ecb-bc9a-825e99a692c0" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_1.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_1.png</target>
+        </trans-unit>
+        <trans-unit id="5d443082-c49c-4533-8d3f-4c4dfa10f112" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_2.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_2.png</target>
+        </trans-unit>
+        <trans-unit id="5b1339fc-e6f9-4142-ba6a-6ae740b11f32" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_3.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_3.png</target>
+        </trans-unit>
+        <trans-unit id="b6712218-6d9b-4ef3-80c2-a687bc223af0" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_4.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_4.png</target>
+        </trans-unit>
+        <trans-unit id="b2206106-0eaf-4e38-b733-a6df73404258" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_5.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_5.png</target>
+        </trans-unit>
+        <trans-unit id="27573a60-ba57-490f-a1b0-3619b868bde2" xml:space="preserve">
+          <source>./media/azure-portal-how-to-use/azure_portal_6.png</source>
+          <target state="new">./media/azure-portal-how-to-use/azure_portal_6.png</target>
+        </trans-unit>
+      </group>
+      <group id="ac6b6c20-9963-4611-853d-8b45b9e6bc8e" />
+    </body>
+  </file>
+</xliff>

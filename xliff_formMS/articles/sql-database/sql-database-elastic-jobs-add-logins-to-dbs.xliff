@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="16edbdcc-d54a-4cf7-84e0-5ae8dba510c0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="16edbdcc-d54a-4cf7-84e0-5ae8dba510c0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b02ee830-8de0-4815-aa75-81e56e9cebae">
+        <trans-unit id="a8674555-b695-4d9d-953c-635c08e329de" xml:space="preserve">
+          <source>How to add a users to an elastic database pool</source>
+          <target state="new">How to add a users to an elastic database pool</target>
+        </trans-unit>
+        <trans-unit id="3fff409f-c198-474b-b3ea-bd933b6cc612" xml:space="preserve">
+          <source>You must add a user with privileges to each db in the pool</source>
+          <target state="new">You must add a user with privileges to each db in the pool</target>
+        </trans-unit>
+        <trans-unit id="06f7e8d1-1419-4db7-b69f-6dc9d14137cd" xml:space="preserve">
+          <source>The <bpt id="06baa866-d775-4beb-b7c0-8e9c990853fb">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="06baa866-d775-4beb-b7c0-8e9c990853fb">&lt;/strong&gt;</ept> feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an <bpt id="c0ad4b03-61e7-4bdd-975a-f73fcfa5b4a3">&lt;strong&gt;</bpt>Elastic Database pool<ept id="c0ad4b03-61e7-4bdd-975a-f73fcfa5b4a3">&lt;/strong&gt;</ept> or an <bpt id="599ef8fa-9341-4606-bd84-ff7ed01c7420">&lt;strong&gt;</bpt>Elastic Database shard set<ept id="599ef8fa-9341-4606-bd84-ff7ed01c7420">&lt;/strong&gt;</ept> in Azure SQL Database.</source>
+          <target state="new">The <bpt id="06baa866-d775-4beb-b7c0-8e9c990853fb">&lt;strong&gt;</bpt>Elastic Database jobs<ept id="06baa866-d775-4beb-b7c0-8e9c990853fb">&lt;/strong&gt;</ept> feature (preview) enables you to run a Transact-SQL script across a group of databases including custom-defined collection of databases, an <bpt id="c0ad4b03-61e7-4bdd-975a-f73fcfa5b4a3">&lt;strong&gt;</bpt>Elastic Database pool<ept id="c0ad4b03-61e7-4bdd-975a-f73fcfa5b4a3">&lt;/strong&gt;</ept> or an <bpt id="599ef8fa-9341-4606-bd84-ff7ed01c7420">&lt;strong&gt;</bpt>Elastic Database shard set<ept id="599ef8fa-9341-4606-bd84-ff7ed01c7420">&lt;/strong&gt;</ept> in Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="7515a74e-50ed-413e-b452-59170274ae8d" xml:space="preserve">
+          <source>To run the script, a user with the appropriate permissions must be added to every database in which the job will execute.</source>
+          <target state="new">To run the script, a user with the appropriate permissions must be added to every database in which the job will execute.</target>
+        </trans-unit>
+        <trans-unit id="c498b96b-27d9-4cd3-94a1-1f2edb5a62db" xml:space="preserve">
+          <source>For more information, see <bpt id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;linkText&gt;</bpt>Managing Databases and Logins in Azure SQL Database<ept id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;/linkText&gt;</ept><bpt id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;title&gt;</bpt><ept id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;/title&gt;</ept> or <bpt id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;linkText&gt;</bpt>Adding Users to Your SQL Azure Database<ept id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;/linkText&gt;</ept><bpt id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;title&gt;</bpt><ept id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;linkText&gt;</bpt>Managing Databases and Logins in Azure SQL Database<ept id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;/linkText&gt;</ept><bpt id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;title&gt;</bpt><ept id="1a7aa8ad-0efe-4abf-8802-8b0b5c0fa219">&lt;/title&gt;</ept> or <bpt id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;linkText&gt;</bpt>Adding Users to Your SQL Azure Database<ept id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;/linkText&gt;</ept><bpt id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;title&gt;</bpt><ept id="32935463-ede2-4ceb-aad7-317ae990545c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8281641-93f5-4b6b-af75-fb706ca8eee3" xml:space="preserve">
+          <source>Install the <bpt id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;linkText&gt;</bpt>elastic job components<ept id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;/linkText&gt;</ept><bpt id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;title&gt;</bpt><ept id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install the <bpt id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;linkText&gt;</bpt>elastic job components<ept id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;/linkText&gt;</ept><bpt id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;title&gt;</bpt><ept id="4bb8a065-e246-431e-ad42-39991913fdc6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94672314-1962-401b-9482-b93c719271a9" xml:space="preserve">
+          <source>First connect to <bpt id="2794d980-c4f1-4c53-afe7-bdb4cabf3467">&lt;strong&gt;</bpt>master<ept id="2794d980-c4f1-4c53-afe7-bdb4cabf3467">&lt;/strong&gt;</ept> of the Azure SQL Database server where the databases in your elastic database pool reside and create a new login using the same credentials provided when installing <bpt id="499b129a-533d-467b-8cee-24be4e998a2e">&lt;strong&gt;</bpt>elastic database jobs<ept id="499b129a-533d-467b-8cee-24be4e998a2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">First connect to <bpt id="2794d980-c4f1-4c53-afe7-bdb4cabf3467">&lt;strong&gt;</bpt>master<ept id="2794d980-c4f1-4c53-afe7-bdb4cabf3467">&lt;/strong&gt;</ept> of the Azure SQL Database server where the databases in your elastic database pool reside and create a new login using the same credentials provided when installing <bpt id="499b129a-533d-467b-8cee-24be4e998a2e">&lt;strong&gt;</bpt>elastic database jobs<ept id="499b129a-533d-467b-8cee-24be4e998a2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb731a20-6d58-4427-bee2-6161ed4ac1b6" xml:space="preserve">
+          <source>Log into each database in the pool and create a user using the same name and password.</source>
+          <target state="new">Log into each database in the pool and create a user using the same name and password.</target>
+        </trans-unit>
+        <trans-unit id="5637a6cb-2a21-45d1-9bea-336525ca46d9" xml:space="preserve">
+          <source>The user must have sufficient permissions to execute the job.</source>
+          <target state="new">The user must have sufficient permissions to execute the job.</target>
+        </trans-unit>
+        <trans-unit id="904aaf8e-4a60-4615-ac11-cf04cae0438d" xml:space="preserve">
+          <source>This code must be run on each database.</source>
+          <target state="new">This code must be run on each database.</target>
+        </trans-unit>
+        <trans-unit id="8b65cdf3-5a3e-4e56-ac9e-b3b32d4808a3" xml:space="preserve">
+          <source>The user must have permissions as well, sufficient to execute the script specified for the job.</source>
+          <target state="new">The user must have permissions as well, sufficient to execute the script specified for the job.</target>
+        </trans-unit>
+        <trans-unit id="d7ea278e-b6e3-4ac8-afe2-80e5c9fc02d6" xml:space="preserve">
+          <source>Use the <bpt id="c430f9a0-3084-4a18-944b-bb84bcce4d10">&lt;strong&gt;</bpt>sp_addrolemember<ept id="c430f9a0-3084-4a18-944b-bb84bcce4d10">&lt;/strong&gt;</ept> procedure to provide the user with the minimum required permissions for the script to execute succesfully.</source>
+          <target state="new">Use the <bpt id="c430f9a0-3084-4a18-944b-bb84bcce4d10">&lt;strong&gt;</bpt>sp_addrolemember<ept id="c430f9a0-3084-4a18-944b-bb84bcce4d10">&lt;/strong&gt;</ept> procedure to provide the user with the minimum required permissions for the script to execute succesfully.</target>
+        </trans-unit>
+        <trans-unit id="fc73f706-3ed8-43dd-9a01-cc427a9a6ef0" xml:space="preserve">
+          <source>Create and manage jobs, see <bpt id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;linkText&gt;</bpt>Creating and managing elastic database jobs<ept id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;/linkText&gt;</ept><bpt id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;title&gt;</bpt><ept id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create and manage jobs, see <bpt id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;linkText&gt;</bpt>Creating and managing elastic database jobs<ept id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;/linkText&gt;</ept><bpt id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;title&gt;</bpt><ept id="d5c37425-2a76-4f8c-91e3-0e0eaa2889a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b018129-25b0-4b8f-9c49-0d77d925105e" xml:space="preserve">
+          <source><bpt id="0ecc0021-4478-4ca1-9528-425e9efd3acf">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="0ecc0021-4478-4ca1-9528-425e9efd3acf">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0ecc0021-4478-4ca1-9528-425e9efd3acf">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="0ecc0021-4478-4ca1-9528-425e9efd3acf">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="921c75e7-1214-4531-bc26-5ccf8fae80a3" xml:space="preserve">
+          <source>./media/sql-database-elastic-jobs-overview/elastic-jobs.png</source>
+          <target state="new">./media/sql-database-elastic-jobs-overview/elastic-jobs.png</target>
+        </trans-unit>
+      </group>
+      <group id="6eec30a0-3b4c-411b-beab-1e7e0c459cd4" />
+    </body>
+  </file>
+</xliff>

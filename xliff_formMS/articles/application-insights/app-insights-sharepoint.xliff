@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aac6d2f2-6203-495b-940d-9c061f953600" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aac6d2f2-6203-495b-940d-9c061f953600" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d2e2697b-5ec2-4953-80da-db1663c0506d">
+        <trans-unit id="89247d27-b647-4163-bd91-9165e0dccddf" xml:space="preserve">
+          <source>Monitor a SharePoint site with Application Insights</source>
+          <target state="new">Monitor a SharePoint site with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="4d2f04c9-a12b-4003-9919-f7144375d54a" xml:space="preserve">
+          <source>Start monitoring a new application with a new instrumentation key</source>
+          <target state="new">Start monitoring a new application with a new instrumentation key</target>
+        </trans-unit>
+        <trans-unit id="7a0e1d47-b8e5-4191-b9f9-b9f19a5b401a" xml:space="preserve">
+          <source><bpt id="bc9525cb-c55c-437b-a3dc-3df9700fc3f0">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="bc9525cb-c55c-437b-a3dc-3df9700fc3f0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bc9525cb-c55c-437b-a3dc-3df9700fc3f0">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="bc9525cb-c55c-437b-a3dc-3df9700fc3f0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbcd5f70-797f-41a4-b901-987990907a91" xml:space="preserve">
+          <source>Visual Studio Application Insights monitors the availability, performance and usage of your apps.</source>
+          <target state="new">Visual Studio Application Insights monitors the availability, performance and usage of your apps.</target>
+        </trans-unit>
+        <trans-unit id="5e811a04-dd47-4c34-a4ee-b9475c8033c4" xml:space="preserve">
+          <source>Here you'll learn how to set it up for a SharePoint site.</source>
+          <target state="new">Here you'll learn how to set it up for a SharePoint site.</target>
+        </trans-unit>
+        <trans-unit id="52d4c592-1600-4e2e-b300-9632317dc849" xml:space="preserve">
+          <source>In the <bpt id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;linkText&gt;</bpt>Azure portal<ept id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;/linkText&gt;</ept><bpt id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;title&gt;</bpt><ept id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;/title&gt;</ept>, create a new Application Insights resource.</source>
+          <target state="new">In the <bpt id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;linkText&gt;</bpt>Azure portal<ept id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;/linkText&gt;</ept><bpt id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;title&gt;</bpt><ept id="9af59984-bcf4-4e1f-8348-2eebe5ee9604">&lt;/title&gt;</ept>, create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="387f7255-0e2b-491e-b813-64fb565179c1" xml:space="preserve">
+          <source>Choose ASP.NET as the application type.</source>
+          <target state="new">Choose ASP.NET as the application type.</target>
+        </trans-unit>
+        <trans-unit id="a2224d14-42ef-4a5f-b4a8-eced6e419dda" xml:space="preserve">
+          <source><bpt id="769ad4e3-959e-4280-b066-0894bbf0fdd4">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="769ad4e3-959e-4280-b066-0894bbf0fdd4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="769ad4e3-959e-4280-b066-0894bbf0fdd4">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="769ad4e3-959e-4280-b066-0894bbf0fdd4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1054955-9f73-4ad6-b5b1-bb3b8a57aa50" xml:space="preserve">
+          <source>The blade that opens is the place where you'll see performance and usage data about your app.</source>
+          <target state="new">The blade that opens is the place where you'll see performance and usage data about your app.</target>
+        </trans-unit>
+        <trans-unit id="26d03cb3-c49a-49d8-893c-ea5d18e57598" xml:space="preserve">
+          <source>To get back to it next time you login to Azure, you should find a tile for it on the start screen.</source>
+          <target state="new">To get back to it next time you login to Azure, you should find a tile for it on the start screen.</target>
+        </trans-unit>
+        <trans-unit id="51fcaeb4-f16a-48c7-91cb-86ce38683c4f" xml:space="preserve">
+          <source>Alternatively click Browse to find it.</source>
+          <target state="new">Alternatively click Browse to find it.</target>
+        </trans-unit>
+        <trans-unit id="b6baef03-13df-4e74-b31b-78a14cfddf65" xml:space="preserve">
+          <source>In Quick Start, get the script for web pages:</source>
+          <target state="new">In Quick Start, get the script for web pages:</target>
+        </trans-unit>
+        <trans-unit id="c36c7740-f1ee-4a90-8413-85d6de48943c" xml:space="preserve">
+          <source><bpt id="5f12e763-fa14-467a-a611-5cac214549b2">&lt;linkText&gt;</bpt><ept id="5f12e763-fa14-467a-a611-5cac214549b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f12e763-fa14-467a-a611-5cac214549b2">&lt;linkText&gt;</bpt><ept id="5f12e763-fa14-467a-a611-5cac214549b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f3a5af5-01d2-4b59-902a-aa6b37d4f64a" xml:space="preserve">
+          <source>Insert the script just before the &amp;lt;/head&amp;gt; tag of every page you want to track.</source>
+          <target state="new">Insert the script just before the &amp;lt;/head&amp;gt; tag of every page you want to track.</target>
+        </trans-unit>
+        <trans-unit id="135d583d-57cc-4807-a5a1-131ae6f0fe23" xml:space="preserve">
+          <source>If your website has a master page, you can put the script there.</source>
+          <target state="new">If your website has a master page, you can put the script there.</target>
+        </trans-unit>
+        <trans-unit id="dbbf3230-ba8b-43a4-95dd-52951a175273" xml:space="preserve">
+          <source>For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml</source>
+          <target state="new">For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml</target>
+        </trans-unit>
+        <trans-unit id="d8dec18a-872c-4bd5-bf1b-9d99e55b6384" xml:space="preserve">
+          <source>The script contains the instrumentation key that directs the telemetry to your Application Insights resource.</source>
+          <target state="new">The script contains the instrumentation key that directs the telemetry to your Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="da6fe26d-46fc-4038-9641-e366f3f242ab" xml:space="preserve">
+          <source>If you can edit the site's master page, that will provide monitoring for every page in the site.</source>
+          <target state="new">If you can edit the site's master page, that will provide monitoring for every page in the site.</target>
+        </trans-unit>
+        <trans-unit id="84a93181-8879-403b-9e9a-8bfb246fccb6" xml:space="preserve">
+          <source>Check out the master page and edit it using SharePoint Designer or any other editor.</source>
+          <target state="new">Check out the master page and edit it using SharePoint Designer or any other editor.</target>
+        </trans-unit>
+        <trans-unit id="4f7fff73-206b-4073-be25-5b38629f7146" xml:space="preserve">
+          <source><bpt id="359489a7-562e-4b8e-8834-ab9e2565606b">&lt;linkText&gt;</bpt><ept id="359489a7-562e-4b8e-8834-ab9e2565606b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="359489a7-562e-4b8e-8834-ab9e2565606b">&lt;linkText&gt;</bpt><ept id="359489a7-562e-4b8e-8834-ab9e2565606b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbb45260-deca-4fc2-bd77-b1f5b5d57274" xml:space="preserve">
+          <source>Add the code just before the &lt;/head&gt; tag. </source>
+          <target state="new">Add the code just before the &lt;/head&gt; tag. </target>
+        </trans-unit>
+        <trans-unit id="83d106bf-6a2d-479e-b9ab-125f4f10d55d" xml:space="preserve">
+          <source><bpt id="efe7ad44-04b3-43e7-b248-f42fff1b4a4d">&lt;linkText&gt;</bpt><ept id="efe7ad44-04b3-43e7-b248-f42fff1b4a4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efe7ad44-04b3-43e7-b248-f42fff1b4a4d">&lt;linkText&gt;</bpt><ept id="efe7ad44-04b3-43e7-b248-f42fff1b4a4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8074dd9d-4956-4cee-a53c-dbb3d283e9e7" xml:space="preserve">
+          <source>To monitor a limited set of pages, add the script separately to each page.</source>
+          <target state="new">To monitor a limited set of pages, add the script separately to each page.</target>
+        </trans-unit>
+        <trans-unit id="e543aa17-6a81-46a5-999a-6987c20e9b27" xml:space="preserve">
+          <source>Insert a web part and embed the code snippet in it.</source>
+          <target state="new">Insert a web part and embed the code snippet in it.</target>
+        </trans-unit>
+        <trans-unit id="4f61d207-2659-4a87-a3a5-e536a8278fa3" xml:space="preserve">
+          <source><bpt id="662f04ab-d749-4bf7-bf26-006b4c35d0fd">&lt;linkText&gt;</bpt><ept id="662f04ab-d749-4bf7-bf26-006b4c35d0fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="662f04ab-d749-4bf7-bf26-006b4c35d0fd">&lt;linkText&gt;</bpt><ept id="662f04ab-d749-4bf7-bf26-006b4c35d0fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92756e77-5b0e-4c20-8f97-a9014fc9894c" xml:space="preserve">
+          <source>Redeploy your app.</source>
+          <target state="new">Redeploy your app.</target>
+        </trans-unit>
+        <trans-unit id="c71e3499-2d5c-4703-84db-71a31f5f1712" xml:space="preserve">
+          <source>Return to your application blade in the <bpt id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;linkText&gt;</bpt>Azure portal<ept id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;/linkText&gt;</ept><bpt id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;title&gt;</bpt><ept id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;/title&gt;</ept>.</source>
+          <target state="new">Return to your application blade in the <bpt id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;linkText&gt;</bpt>Azure portal<ept id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;/linkText&gt;</ept><bpt id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;title&gt;</bpt><ept id="d6f79383-35a3-47f3-aa61-4c0b15dd2867">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="557e69bb-4bcb-4bfb-9fa2-55640e8be7c1" xml:space="preserve">
+          <source>The first events will appear in Diagnostic Search.</source>
+          <target state="new">The first events will appear in Diagnostic Search.</target>
+        </trans-unit>
+        <trans-unit id="cc30283c-cfc2-4a3c-af0c-a1ad135ab7fc" xml:space="preserve">
+          <source><bpt id="1c603fdf-c5cd-404e-8e9e-0a0ca1863fa5">&lt;linkText&gt;</bpt><ept id="1c603fdf-c5cd-404e-8e9e-0a0ca1863fa5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c603fdf-c5cd-404e-8e9e-0a0ca1863fa5">&lt;linkText&gt;</bpt><ept id="1c603fdf-c5cd-404e-8e9e-0a0ca1863fa5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb1d2df2-1a48-4760-8cf7-aa937aea6ca2" xml:space="preserve">
+          <source>Click Refresh after a few seconds if you're expecting more data.</source>
+          <target state="new">Click Refresh after a few seconds if you're expecting more data.</target>
+        </trans-unit>
+        <trans-unit id="4edd71bb-bc48-4e9c-92bb-b6b94c365a5c" xml:space="preserve">
+          <source><bpt id="4a77ebc0-b56c-448d-b652-f11a88c6ec96">&lt;strong&gt;</bpt>Usage analytics<ept id="4a77ebc0-b56c-448d-b652-f11a88c6ec96">&lt;/strong&gt;</ept> link to charts of users, sessions and page views:</source>
+          <target state="new"><bpt id="4a77ebc0-b56c-448d-b652-f11a88c6ec96">&lt;strong&gt;</bpt>Usage analytics<ept id="4a77ebc0-b56c-448d-b652-f11a88c6ec96">&lt;/strong&gt;</ept> link to charts of users, sessions and page views:</target>
+        </trans-unit>
+        <trans-unit id="496b0239-0d4a-45a0-9be3-df1d49311275" xml:space="preserve">
+          <source><bpt id="89de0e78-bc85-4bfa-a5f5-f7052161798c">&lt;linkText&gt;</bpt><ept id="89de0e78-bc85-4bfa-a5f5-f7052161798c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89de0e78-bc85-4bfa-a5f5-f7052161798c">&lt;linkText&gt;</bpt><ept id="89de0e78-bc85-4bfa-a5f5-f7052161798c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="288e6960-8228-4d95-839b-20d0e2735b9f" xml:space="preserve">
+          <source>For example, click Page Views to see more details: </source>
+          <target state="new">For example, click Page Views to see more details: </target>
+        </trans-unit>
+        <trans-unit id="d9102576-10ca-4ff8-b05f-2b25b3a882ed" xml:space="preserve">
+          <source><bpt id="be119664-a73d-4ac8-af13-e124b958e288">&lt;linkText&gt;</bpt><ept id="be119664-a73d-4ac8-af13-e124b958e288">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be119664-a73d-4ac8-af13-e124b958e288">&lt;linkText&gt;</bpt><ept id="be119664-a73d-4ac8-af13-e124b958e288">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fbaf0bbc-4bcf-4f0e-a94a-1d2dc68b35f0" xml:space="preserve">
+          <source>Click through Users to see details about new users and their locations.</source>
+          <target state="new">Click through Users to see details about new users and their locations.</target>
+        </trans-unit>
+        <trans-unit id="b67742f6-19b4-4e41-a747-12adf3887c19" xml:space="preserve">
+          <source><bpt id="9d7c0fc1-9112-4a9c-b078-5fe07bc93d88">&lt;linkText&gt;</bpt><ept id="9d7c0fc1-9112-4a9c-b078-5fe07bc93d88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9d7c0fc1-9112-4a9c-b078-5fe07bc93d88">&lt;linkText&gt;</bpt><ept id="9d7c0fc1-9112-4a9c-b078-5fe07bc93d88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbf52d3a-901c-4048-980c-fedabecba478" xml:space="preserve">
+          <source><bpt id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;linkText&gt;</bpt>Web tests<ept id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;/linkText&gt;</ept><bpt id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;title&gt;</bpt><ept id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;/title&gt;</ept> to monitor the availability of your site.</source>
+          <target state="new"><bpt id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;linkText&gt;</bpt>Web tests<ept id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;/linkText&gt;</ept><bpt id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;title&gt;</bpt><ept id="528c4cfe-f8d6-4a37-a662-e9e5d35b1019">&lt;/title&gt;</ept> to monitor the availability of your site.</target>
+        </trans-unit>
+        <trans-unit id="c27583f3-83c2-45b3-93cf-9a033311c99f" xml:space="preserve">
+          <source><bpt id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;linkText&gt;</bpt>Application Insights<ept id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;/linkText&gt;</ept><bpt id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;title&gt;</bpt><ept id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;/title&gt;</ept> for other types of app.</source>
+          <target state="new"><bpt id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;linkText&gt;</bpt>Application Insights<ept id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;/linkText&gt;</ept><bpt id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;title&gt;</bpt><ept id="1ae4d562-eda6-45f0-b591-b59d78c96e41">&lt;/title&gt;</ept> for other types of app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

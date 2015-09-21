@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="adcf1160-31b3-4410-9ea8-d17a53f26b1f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="adcf1160-31b3-4410-9ea8-d17a53f26b1f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0273541c-fdbf-4c5e-871b-f9542124030e">
+        <trans-unit id="c4e95dcf-6d95-48db-b6e8-2adf49cd2358" xml:space="preserve">
+          <source>Configure software RAID on avirtual machine running Linux in Azure</source>
+          <target state="new">Configure software RAID on avirtual machine running Linux in Azure</target>
+        </trans-unit>
+        <trans-unit id="df53ecf6-bf12-4ae1-8c32-61e4b4834904" xml:space="preserve">
+          <source>Learn how to use mdadm to configure RAID on Linux in Azure.</source>
+          <target state="new">Learn how to use mdadm to configure RAID on Linux in Azure.</target>
+        </trans-unit>
+        <trans-unit id="1f082b8c-5890-4f23-a500-65bdf6bdbadf" xml:space="preserve">
+          <source>It's a common scenario to use software RAID on Linux virtual machines in Azure to present multiple attached data disks as a single RAID device.</source>
+          <target state="new">It's a common scenario to use software RAID on Linux virtual machines in Azure to present multiple attached data disks as a single RAID device.</target>
+        </trans-unit>
+        <trans-unit id="91d59320-a338-4e7b-a966-2555fb037390" xml:space="preserve">
+          <source>Typically this can be used to improve performance and allow for improved throughput compared to using just a single disk.</source>
+          <target state="new">Typically this can be used to improve performance and allow for improved throughput compared to using just a single disk.</target>
+        </trans-unit>
+        <trans-unit id="2dc72a51-8f60-4169-8a15-db8a8970af3c" xml:space="preserve">
+          <source>Two or more empty data disks will typically be needed to configure a RAID device.</source>
+          <target state="new">Two or more empty data disks will typically be needed to configure a RAID device.</target>
+        </trans-unit>
+        <trans-unit id="fa8bf5b4-8732-4cef-987a-732f096bc03d" xml:space="preserve">
+          <source>This article will not go into detail on how to attach data disks to a Linux virtual machine.</source>
+          <target state="new">This article will not go into detail on how to attach data disks to a Linux virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f3b56938-ff63-4a27-8da1-b516e1606790" xml:space="preserve">
+          <source>Please see the Microsoft Azure article <bpt id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;linkText&gt;</bpt>attach a disk<ept id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;/linkText&gt;</ept><bpt id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;title&gt;</bpt><ept id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;/title&gt;</ept> for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.</source>
+          <target state="new">Please see the Microsoft Azure article <bpt id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;linkText&gt;</bpt>attach a disk<ept id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;/linkText&gt;</ept><bpt id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;title&gt;</bpt><ept id="11efe3e4-0e80-4f82-a98f-351b94e449ff">&lt;/title&gt;</ept> for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.</target>
+        </trans-unit>
+        <trans-unit id="68861063-381c-40de-a434-e8213e64bb17" xml:space="preserve">
+          <source>The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.</source>
+          <target state="new">The ExtraSmall VM size does not support more than one data disk attached to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bf72e138-03e3-4857-9a77-933f9b27c686" xml:space="preserve">
+          <source>Please see <bpt id="571d7d11-749f-450d-861d-523ddf02f512">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Microsoft Azure<ept id="571d7d11-749f-450d-861d-523ddf02f512">&lt;/linkText&gt;</ept><bpt id="571d7d11-749f-450d-861d-523ddf02f512">&lt;title&gt;</bpt><ept id="571d7d11-749f-450d-861d-523ddf02f512">&lt;/title&gt;</ept> for detailed information about VM sizes and the number of data disks supported.</source>
+          <target state="new">Please see <bpt id="571d7d11-749f-450d-861d-523ddf02f512">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Microsoft Azure<ept id="571d7d11-749f-450d-861d-523ddf02f512">&lt;/linkText&gt;</ept><bpt id="571d7d11-749f-450d-861d-523ddf02f512">&lt;title&gt;</bpt><ept id="571d7d11-749f-450d-861d-523ddf02f512">&lt;/title&gt;</ept> for detailed information about VM sizes and the number of data disks supported.</target>
+        </trans-unit>
+        <trans-unit id="5f7c3081-5696-42cc-9d4e-ec46ed93123d" xml:space="preserve">
+          <source><bpt id="71c37d0a-187c-4bee-9a2d-46ff355a0aec">&lt;strong&gt;</bpt>Ubuntu<ept id="71c37d0a-187c-4bee-9a2d-46ff355a0aec">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="71c37d0a-187c-4bee-9a2d-46ff355a0aec">&lt;strong&gt;</bpt>Ubuntu<ept id="71c37d0a-187c-4bee-9a2d-46ff355a0aec">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97ee0896-77e9-4a0f-89b5-ea63b3853b2a" xml:space="preserve">
+          <source><bpt id="56335550-4050-4b4d-ac3f-5f5290bade30">&lt;strong&gt;</bpt>CentOS &amp; Oracle Linux<ept id="56335550-4050-4b4d-ac3f-5f5290bade30">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56335550-4050-4b4d-ac3f-5f5290bade30">&lt;strong&gt;</bpt>CentOS &amp; Oracle Linux<ept id="56335550-4050-4b4d-ac3f-5f5290bade30">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be6bffbe-7d80-4f38-883e-605fb9b3fe5e" xml:space="preserve">
+          <source><bpt id="13a0bbcc-5e0c-404b-97fc-b8bd3911ca80">&lt;strong&gt;</bpt>SLES and openSUSE<ept id="13a0bbcc-5e0c-404b-97fc-b8bd3911ca80">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="13a0bbcc-5e0c-404b-97fc-b8bd3911ca80">&lt;strong&gt;</bpt>SLES and openSUSE<ept id="13a0bbcc-5e0c-404b-97fc-b8bd3911ca80">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0800fe9d-adee-4e7b-a3b7-e9dd2e1fe228" xml:space="preserve">
+          <source>In this example we will create a single disk partition on /dev/sdc.</source>
+          <target state="new">In this example we will create a single disk partition on /dev/sdc.</target>
+        </trans-unit>
+        <trans-unit id="da8662b7-e8b2-4c8a-b5da-8da3fc3f9283" xml:space="preserve">
+          <source>The new disk partition will then be called /dev/sdc1.</source>
+          <target state="new">The new disk partition will then be called /dev/sdc1.</target>
+        </trans-unit>
+        <trans-unit id="09869716-3f60-40fb-8178-aebe377b1c5b" xml:space="preserve">
+          <source>Start fdisk to begin creating partitions</source>
+          <target state="new">Start fdisk to begin creating partitions</target>
+        </trans-unit>
+        <trans-unit id="275c045b-bba4-43e4-84c1-9d997ae6cd42" xml:space="preserve">
+          <source>Press 'n' at the prompt to create a <bpt id="d4b4b89d-d5fc-4f57-9d21-799da218a362">&lt;strong&gt;</bpt>n<ept id="d4b4b89d-d5fc-4f57-9d21-799da218a362">&lt;/strong&gt;</ept>ew partition:</source>
+          <target state="new">Press 'n' at the prompt to create a <bpt id="d4b4b89d-d5fc-4f57-9d21-799da218a362">&lt;strong&gt;</bpt>n<ept id="d4b4b89d-d5fc-4f57-9d21-799da218a362">&lt;/strong&gt;</ept>ew partition:</target>
+        </trans-unit>
+        <trans-unit id="152617fb-eea7-4860-b892-23394d2d641f" xml:space="preserve">
+          <source>Next, press 'p' to create a <bpt id="dc515387-5bdb-4a9b-a5a6-c667d608488b">&lt;strong&gt;</bpt>p<ept id="dc515387-5bdb-4a9b-a5a6-c667d608488b">&lt;/strong&gt;</ept>rimary partition:</source>
+          <target state="new">Next, press 'p' to create a <bpt id="dc515387-5bdb-4a9b-a5a6-c667d608488b">&lt;strong&gt;</bpt>p<ept id="dc515387-5bdb-4a9b-a5a6-c667d608488b">&lt;/strong&gt;</ept>rimary partition:</target>
+        </trans-unit>
+        <trans-unit id="aa1da161-f0b3-436f-a44f-289e2b0ae38f" xml:space="preserve">
+          <source>Press '1' to select partition number 1:</source>
+          <target state="new">Press '1' to select partition number 1:</target>
+        </trans-unit>
+        <trans-unit id="38957a50-e6a0-48ad-83ae-05094f6368ee" xml:space="preserve">
+          <source>Select the starting point of the new partition, or just press <bpt id="0b3f514d-496d-490b-9080-4e24c4bb30f1">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="0b3f514d-496d-490b-9080-4e24c4bb30f1">&lt;/code&gt;</ept> to accept the default to place the partition at the beginning of the free space on the drive:</source>
+          <target state="new">Select the starting point of the new partition, or just press <bpt id="0b3f514d-496d-490b-9080-4e24c4bb30f1">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="0b3f514d-496d-490b-9080-4e24c4bb30f1">&lt;/code&gt;</ept> to accept the default to place the partition at the beginning of the free space on the drive:</target>
+        </trans-unit>
+        <trans-unit id="7eadd18f-3b1d-4486-b55b-cf66f1b19436" xml:space="preserve">
+          <source>Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press <bpt id="3716f343-1d65-468e-8814-71cc107d8413">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="3716f343-1d65-468e-8814-71cc107d8413">&lt;/code&gt;</ept> create a single partition that spans the entire drive:</source>
+          <target state="new">Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, just press <bpt id="3716f343-1d65-468e-8814-71cc107d8413">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="3716f343-1d65-468e-8814-71cc107d8413">&lt;/code&gt;</ept> create a single partition that spans the entire drive:</target>
+        </trans-unit>
+        <trans-unit id="1cbb33bd-5667-4f26-813b-dd84e2dc205f" xml:space="preserve">
+          <source>Next, change the ID and <bpt id="f2454287-e80e-4030-a765-e91107962d18">&lt;strong&gt;</bpt>t<ept id="f2454287-e80e-4030-a765-e91107962d18">&lt;/strong&gt;</ept>ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):</source>
+          <target state="new">Next, change the ID and <bpt id="f2454287-e80e-4030-a765-e91107962d18">&lt;strong&gt;</bpt>t<ept id="f2454287-e80e-4030-a765-e91107962d18">&lt;/strong&gt;</ept>ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):</target>
+        </trans-unit>
+        <trans-unit id="88e108eb-9dc5-4a2d-801c-e911f9aa2a2b" xml:space="preserve">
+          <source>Finally, write the partition table to the drive and exit fdisk:</source>
+          <target state="new">Finally, write the partition table to the drive and exit fdisk:</target>
+        </trans-unit>
+        <trans-unit id="fb4bb313-e406-46b0-b504-b9f95eef97a5" xml:space="preserve">
+          <source>The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1):</source>
+          <target state="new">The following example will "stripe" (RAID level 0) three partitions located on three separate data disks (sdc1, sdd1, sde1):</target>
+        </trans-unit>
+        <trans-unit id="cb97a222-2751-421c-955d-49fa11f17307" xml:space="preserve">
+          <source>In this example, after running this command a new RAID device called <bpt id="a4a7c795-3d2a-4c48-938c-6714406fcc36">&lt;strong&gt;</bpt>/dev/md127<ept id="a4a7c795-3d2a-4c48-938c-6714406fcc36">&lt;/strong&gt;</ept> will be created.</source>
+          <target state="new">In this example, after running this command a new RAID device called <bpt id="a4a7c795-3d2a-4c48-938c-6714406fcc36">&lt;strong&gt;</bpt>/dev/md127<ept id="a4a7c795-3d2a-4c48-938c-6714406fcc36">&lt;/strong&gt;</ept> will be created.</target>
+        </trans-unit>
+        <trans-unit id="2986db6d-8913-4225-a783-db617eb697fb" xml:space="preserve">
+          <source>Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the <bpt id="61348756-5ad8-41df-8cdb-992ec6d178f4">&lt;code&gt;</bpt>--force<ept id="61348756-5ad8-41df-8cdb-992ec6d178f4">&lt;/code&gt;</ept> parameter to the <bpt id="15136695-2518-4153-9d17-8ff7ab0ef8e1">&lt;code&gt;</bpt>mdadm<ept id="15136695-2518-4153-9d17-8ff7ab0ef8e1">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Also note that if these data disks we previously part of another defunct RAID array it may be necessary to add the <bpt id="61348756-5ad8-41df-8cdb-992ec6d178f4">&lt;code&gt;</bpt>--force<ept id="61348756-5ad8-41df-8cdb-992ec6d178f4">&lt;/code&gt;</ept> parameter to the <bpt id="15136695-2518-4153-9d17-8ff7ab0ef8e1">&lt;code&gt;</bpt>mdadm<ept id="15136695-2518-4153-9d17-8ff7ab0ef8e1">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="86943ef9-db76-4fb5-852e-57f4715672df" xml:space="preserve">
+          <source>Create the file system on the new RAID device</source>
+          <target state="new">Create the file system on the new RAID device</target>
+        </trans-unit>
+        <trans-unit id="5524543a-9832-4501-a49e-ac8e2e951886" xml:space="preserve">
+          <source><bpt id="3ac4f013-35e9-4387-b0a7-f6d5a4a902d7">&lt;strong&gt;</bpt>CentOS, Oracle Linux, SLES 12, openSUSE and Ubuntu<ept id="3ac4f013-35e9-4387-b0a7-f6d5a4a902d7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3ac4f013-35e9-4387-b0a7-f6d5a4a902d7">&lt;strong&gt;</bpt>CentOS, Oracle Linux, SLES 12, openSUSE and Ubuntu<ept id="3ac4f013-35e9-4387-b0a7-f6d5a4a902d7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5bd7265-dfbe-4cab-9776-bf6139e84f58" xml:space="preserve">
+          <source><bpt id="687c070a-1ad3-440a-91f1-c3010a09f565">&lt;strong&gt;</bpt>SLES 11<ept id="687c070a-1ad3-440a-91f1-c3010a09f565">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="687c070a-1ad3-440a-91f1-c3010a09f565">&lt;strong&gt;</bpt>SLES 11<ept id="687c070a-1ad3-440a-91f1-c3010a09f565">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb8e6411-a27c-4bb0-8bdf-8b3d60357ff5" xml:space="preserve">
+          <source><bpt id="551c9eef-0943-42b3-a93b-d2c6bb484f13">&lt;strong&gt;</bpt>SLES 11 &amp; openSUSE<ept id="551c9eef-0943-42b3-a93b-d2c6bb484f13">&lt;/strong&gt;</ept> - enable boot.md and create mdadm.conf</source>
+          <target state="new"><bpt id="551c9eef-0943-42b3-a93b-d2c6bb484f13">&lt;strong&gt;</bpt>SLES 11 &amp; openSUSE<ept id="551c9eef-0943-42b3-a93b-d2c6bb484f13">&lt;/strong&gt;</ept> - enable boot.md and create mdadm.conf</target>
+        </trans-unit>
+        <trans-unit id="e988e6f1-10a8-472b-9cb2-02dd8f056061" xml:space="preserve">
+          <source>A reboot may be required after making these changes on SUSE systems.</source>
+          <target state="new">A reboot may be required after making these changes on SUSE systems.</target>
+        </trans-unit>
+        <trans-unit id="46cdc5ee-d6de-404c-9272-64c07a909c66" xml:space="preserve">
+          <source>This step is <bpt id="dfe469e8-2567-49da-9c0b-e9296a898f6d">&lt;em&gt;</bpt>not<ept id="dfe469e8-2567-49da-9c0b-e9296a898f6d">&lt;/em&gt;</ept> required on SLES 12.</source>
+          <target state="new">This step is <bpt id="dfe469e8-2567-49da-9c0b-e9296a898f6d">&lt;em&gt;</bpt>not<ept id="dfe469e8-2567-49da-9c0b-e9296a898f6d">&lt;/em&gt;</ept> required on SLES 12.</target>
+        </trans-unit>
+        <trans-unit id="d2680182-b9e4-4f1a-955b-2f02292ea879" xml:space="preserve">
+          <source><bpt id="4ffdf9da-d123-45c5-bb66-71579cf8a901">&lt;strong&gt;</bpt>Caution:<ept id="4ffdf9da-d123-45c5-bb66-71579cf8a901">&lt;/strong&gt;</ept> Improperly editing the /etc/fstab file could result in an unbootable system.</source>
+          <target state="new"><bpt id="4ffdf9da-d123-45c5-bb66-71579cf8a901">&lt;strong&gt;</bpt>Caution:<ept id="4ffdf9da-d123-45c5-bb66-71579cf8a901">&lt;/strong&gt;</ept> Improperly editing the /etc/fstab file could result in an unbootable system.</target>
+        </trans-unit>
+        <trans-unit id="a24929c6-ed3d-46f2-8f72-aa20d762ca2a" xml:space="preserve">
+          <source>If unsure, please refer to the distribution's documentation for information on how to properly edit this file.</source>
+          <target state="new">If unsure, please refer to the distribution's documentation for information on how to properly edit this file.</target>
+        </trans-unit>
+        <trans-unit id="f00641d4-3ed4-40ef-8eec-0efab95bfeef" xml:space="preserve">
+          <source>It is also recommended that a backup of the /etc/fstab file is created before editing.</source>
+          <target state="new">It is also recommended that a backup of the /etc/fstab file is created before editing.</target>
+        </trans-unit>
+        <trans-unit id="7ae7b9ec-f4dd-4b03-89bc-4b9e2924f6c8" xml:space="preserve">
+          <source>Create the desired mount point for your new file system, for example:</source>
+          <target state="new">Create the desired mount point for your new file system, for example:</target>
+        </trans-unit>
+        <trans-unit id="15578975-bd3f-4c43-b0fd-5f5bdbd67a13" xml:space="preserve">
+          <source>When editing /etc/fstab, the <bpt id="f9a39deb-4383-4eaf-b786-45ad5d444b27">&lt;strong&gt;</bpt>UUID<ept id="f9a39deb-4383-4eaf-b786-45ad5d444b27">&lt;/strong&gt;</ept> should be used to reference the file system rather than the device name.</source>
+          <target state="new">When editing /etc/fstab, the <bpt id="f9a39deb-4383-4eaf-b786-45ad5d444b27">&lt;strong&gt;</bpt>UUID<ept id="f9a39deb-4383-4eaf-b786-45ad5d444b27">&lt;/strong&gt;</ept> should be used to reference the file system rather than the device name.</target>
+        </trans-unit>
+        <trans-unit id="4ad2633b-7197-4f34-9c54-d7bc632723f4" xml:space="preserve">
+          <source>Use the <bpt id="26473494-610b-4df1-b526-03aaec55a77b">&lt;code&gt;</bpt>blkid<ept id="26473494-610b-4df1-b526-03aaec55a77b">&lt;/code&gt;</ept> utility to determine the UUID for the new file system:</source>
+          <target state="new">Use the <bpt id="26473494-610b-4df1-b526-03aaec55a77b">&lt;code&gt;</bpt>blkid<ept id="26473494-610b-4df1-b526-03aaec55a77b">&lt;/code&gt;</ept> utility to determine the UUID for the new file system:</target>
+        </trans-unit>
+        <trans-unit id="50c616a2-042d-4630-9e18-0c1145628fa3" xml:space="preserve">
+          <source>Open /etc/fstab in a text editor and add an entry for the new file system, for example:</source>
+          <target state="new">Open /etc/fstab in a text editor and add an entry for the new file system, for example:</target>
+        </trans-unit>
+        <trans-unit id="3af90632-8cdd-43b3-a24d-77839cf9f9f3" xml:space="preserve">
+          <source>Or on <bpt id="243af1c4-349a-4cc9-ba77-946d79b67d19">&lt;strong&gt;</bpt>SLES 11 &amp; openSUSE<ept id="243af1c4-349a-4cc9-ba77-946d79b67d19">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Or on <bpt id="243af1c4-349a-4cc9-ba77-946d79b67d19">&lt;strong&gt;</bpt>SLES 11 &amp; openSUSE<ept id="243af1c4-349a-4cc9-ba77-946d79b67d19">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="b1bf7e10-ad2e-4341-96bc-14a26d0d584c" xml:space="preserve">
+          <source>Then, save and close /etc/fstab.</source>
+          <target state="new">Then, save and close /etc/fstab.</target>
+        </trans-unit>
+        <trans-unit id="48dbf401-149e-462f-8030-1b3ab57df6aa" xml:space="preserve">
+          <source>Test that the /etc/fstab entry is correct:</source>
+          <target state="new">Test that the /etc/fstab entry is correct:</target>
+        </trans-unit>
+        <trans-unit id="599367c0-6e80-49b7-88e1-5a508950cf9d" xml:space="preserve">
+          <source>If this command results in an error message please check the syntax in the /etc/fstab file.</source>
+          <target state="new">If this command results in an error message please check the syntax in the /etc/fstab file.</target>
+        </trans-unit>
+        <trans-unit id="d00a95b2-6066-4c44-bb7d-76586e734367" xml:space="preserve">
+          <source>Next run the <bpt id="a80b0eba-766f-4b1c-83c9-571c7ce6f48d">&lt;code&gt;</bpt>mount<ept id="a80b0eba-766f-4b1c-83c9-571c7ce6f48d">&lt;/code&gt;</ept> command to ensure the file system is mounted:</source>
+          <target state="new">Next run the <bpt id="a80b0eba-766f-4b1c-83c9-571c7ce6f48d">&lt;code&gt;</bpt>mount<ept id="a80b0eba-766f-4b1c-83c9-571c7ce6f48d">&lt;/code&gt;</ept> command to ensure the file system is mounted:</target>
+        </trans-unit>
+        <trans-unit id="9379f0ff-f519-457a-b645-f70c10d4ff50" xml:space="preserve">
+          <source>(Optional) Failsafe Boot Parameters</source>
+          <target state="new">(Optional) Failsafe Boot Parameters</target>
+        </trans-unit>
+        <trans-unit id="1d85d922-3bcd-426b-a162-41f8cd370e89" xml:space="preserve">
+          <source><bpt id="a7746b54-99d2-48b8-9a66-cc4dc0252241">&lt;strong&gt;</bpt>fstab configuration<ept id="a7746b54-99d2-48b8-9a66-cc4dc0252241">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a7746b54-99d2-48b8-9a66-cc4dc0252241">&lt;strong&gt;</bpt>fstab configuration<ept id="a7746b54-99d2-48b8-9a66-cc4dc0252241">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b83e98b6-ec57-4b42-9fa5-89e8134c792d" xml:space="preserve">
+          <source>Many distributions include either the <bpt id="718223c5-a26d-4b8c-9334-01dc7efb33ee">&lt;code&gt;</bpt>nobootwait<ept id="718223c5-a26d-4b8c-9334-01dc7efb33ee">&lt;/code&gt;</ept> or <bpt id="d65c4568-55f4-4d41-afae-e6cfaa426529">&lt;code&gt;</bpt>nofail<ept id="d65c4568-55f4-4d41-afae-e6cfaa426529">&lt;/code&gt;</ept> mount parameters that may be added to the /etc/fstab file.</source>
+          <target state="new">Many distributions include either the <bpt id="718223c5-a26d-4b8c-9334-01dc7efb33ee">&lt;code&gt;</bpt>nobootwait<ept id="718223c5-a26d-4b8c-9334-01dc7efb33ee">&lt;/code&gt;</ept> or <bpt id="d65c4568-55f4-4d41-afae-e6cfaa426529">&lt;code&gt;</bpt>nofail<ept id="d65c4568-55f4-4d41-afae-e6cfaa426529">&lt;/code&gt;</ept> mount parameters that may be added to the /etc/fstab file.</target>
+        </trans-unit>
+        <trans-unit id="f4d9a7b2-fda6-422c-9160-b50c8f9f2f74" xml:space="preserve">
+          <source>These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system.</source>
+          <target state="new">These parameters allow for failures when mounting a particular file system and allow the Linux system to continue to boot even if it is unable to properly mount the RAID file system.</target>
+        </trans-unit>
+        <trans-unit id="783e00a9-7231-4367-9996-459c48cb79a7" xml:space="preserve">
+          <source>Please refer to your distribution's documentation for more information on these parameters.</source>
+          <target state="new">Please refer to your distribution's documentation for more information on these parameters.</target>
+        </trans-unit>
+        <trans-unit id="117bb6b8-29bb-4cef-ba44-3ab81ceac9a2" xml:space="preserve">
+          <source>Example (Ubuntu):</source>
+          <target state="new">Example (Ubuntu):</target>
+        </trans-unit>
+        <trans-unit id="c231b3ff-fbb4-4e9b-b50b-a9f646aecdf4" xml:space="preserve">
+          <source><bpt id="955d058f-d05a-428f-9e20-633127e2e0ea">&lt;strong&gt;</bpt>Linux boot parameters<ept id="955d058f-d05a-428f-9e20-633127e2e0ea">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="955d058f-d05a-428f-9e20-633127e2e0ea">&lt;strong&gt;</bpt>Linux boot parameters<ept id="955d058f-d05a-428f-9e20-633127e2e0ea">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42e5ce6d-255a-43be-babb-6c1e043ccd86" xml:space="preserve">
+          <source>In addition to the above parameters, the kernel parameter "<bpt id="0ec1f71f-6e72-4e1d-b7b0-ec0932cf29d3">&lt;code&gt;</bpt>bootdegraded=true<ept id="0ec1f71f-6e72-4e1d-b7b0-ec0932cf29d3">&lt;/code&gt;</ept>" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine.</source>
+          <target state="new">In addition to the above parameters, the kernel parameter "<bpt id="0ec1f71f-6e72-4e1d-b7b0-ec0932cf29d3">&lt;code&gt;</bpt>bootdegraded=true<ept id="0ec1f71f-6e72-4e1d-b7b0-ec0932cf29d3">&lt;/code&gt;</ept>" can allow the system to boot even if the RAID is perceived as damaged or degraded, for example if a data drive is inadvertently removed from the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7f1131a6-c79a-44f2-ac65-68b852222bf4" xml:space="preserve">
+          <source>By default this could also result in a non-bootable system.</source>
+          <target state="new">By default this could also result in a non-bootable system.</target>
+        </trans-unit>
+        <trans-unit id="2b9e37fb-2068-4966-b490-ad38e7c21579" xml:space="preserve">
+          <source>Please refer to your distribution's documentation on how to properly edit kernel parameters.</source>
+          <target state="new">Please refer to your distribution's documentation on how to properly edit kernel parameters.</target>
+        </trans-unit>
+        <trans-unit id="9e7686d9-2869-4150-8536-b8c530e60b87" xml:space="preserve">
+          <source>For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "<bpt id="912ef96a-5ef3-4be5-9fb0-0bff2e87984e">&lt;code&gt;</bpt>/boot/grub/menu.lst<ept id="912ef96a-5ef3-4be5-9fb0-0bff2e87984e">&lt;/code&gt;</ept>" file.</source>
+          <target state="new">For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "<bpt id="912ef96a-5ef3-4be5-9fb0-0bff2e87984e">&lt;code&gt;</bpt>/boot/grub/menu.lst<ept id="912ef96a-5ef3-4be5-9fb0-0bff2e87984e">&lt;/code&gt;</ept>" file.</target>
+        </trans-unit>
+        <trans-unit id="0a35f604-8ff5-41cc-b4cf-8007835da6f4" xml:space="preserve">
+          <source>On Ubuntu this parameter can be added to the <bpt id="c63d678d-9005-47b9-b166-843b70016cd4">&lt;code&gt;</bpt>GRUB_CMDLINE_LINUX_DEFAULT<ept id="c63d678d-9005-47b9-b166-843b70016cd4">&lt;/code&gt;</ept> variable on "/etc/default/grub".</source>
+          <target state="new">On Ubuntu this parameter can be added to the <bpt id="c63d678d-9005-47b9-b166-843b70016cd4">&lt;code&gt;</bpt>GRUB_CMDLINE_LINUX_DEFAULT<ept id="c63d678d-9005-47b9-b166-843b70016cd4">&lt;/code&gt;</ept> variable on "/etc/default/grub".</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e26b256f-be5c-471b-be1a-4276d0d91cc6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e26b256f-be5c-471b-be1a-4276d0d91cc6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="63454f30-2a06-417d-98d3-99a8f448ea25">
+        <trans-unit id="08e4e52f-d785-45a3-94f8-2667bfdea870" xml:space="preserve">
+          <source>Introduction to Azure Backup | Microsoft Azure</source>
+          <target state="new">Introduction to Azure Backup | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4a7e6c3c-63ec-478c-a332-728fe978f541" xml:space="preserve">
+          <source>This article provides an overview of the Azure Backup service which enables customers to backup data to Azure and in Azure</source>
+          <target state="new">This article provides an overview of the Azure Backup service which enables customers to backup data to Azure and in Azure</target>
+        </trans-unit>
+        <trans-unit id="0a6887e9-ce61-49e3-9bf3-6a600ba078aa" xml:space="preserve">
+          <source>This article provides a high level overview of Microsoft's cloud integrated backup solution that enables customers to back up their data present either on-premises or in Azure.</source>
+          <target state="new">This article provides a high level overview of Microsoft's cloud integrated backup solution that enables customers to back up their data present either on-premises or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="23eece2a-ed66-426a-862f-6e8a946ea5e3" xml:space="preserve">
+          <source>Azure Backup is a multi-tenanted Azure service that enables you to back up your data present anywhere: on-premises or in Azure.</source>
+          <target state="new">Azure Backup is a multi-tenanted Azure service that enables you to back up your data present anywhere: on-premises or in Azure.</target>
+        </trans-unit>
+        <trans-unit id="05b7d719-8192-4ffd-9835-fea8edd9b11f" xml:space="preserve">
+          <source>It replaces your existing on-premises or offsite backup solution with a reliable, secure and cost competitive cloud based offering.</source>
+          <target state="new">It replaces your existing on-premises or offsite backup solution with a reliable, secure and cost competitive cloud based offering.</target>
+        </trans-unit>
+        <trans-unit id="d70afe04-d4d0-41b1-896b-8015eb6ee866" xml:space="preserve">
+          <source>It also provides the flexibility of protecting assets running in the cloud.</source>
+          <target state="new">It also provides the flexibility of protecting assets running in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="24f23fd9-ed9e-435f-903b-518b97c61d25" xml:space="preserve">
+          <source>Azure Backup is built on top of a world class infrastructure that is scalable, durable and highly available.</source>
+          <target state="new">Azure Backup is built on top of a world class infrastructure that is scalable, durable and highly available.</target>
+        </trans-unit>
+        <trans-unit id="1ee08d97-1067-460d-b671-327098f2cda8" xml:space="preserve">
+          <source>Using this solution, you can back up data and applications from their System Center Data Protection Manager (SCDPM) servers, Windows servers, Windows client machines or Azure IaaS virtual machines.</source>
+          <target state="new">Using this solution, you can back up data and applications from their System Center Data Protection Manager (SCDPM) servers, Windows servers, Windows client machines or Azure IaaS virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0dcad8c8-e884-405e-96f5-13e73fafb782" xml:space="preserve">
+          <source>Azure Backup and SCDPM are the fundamental technologies which make up Microsoft's cloud-integrated backup solution.</source>
+          <target state="new">Azure Backup and SCDPM are the fundamental technologies which make up Microsoft's cloud-integrated backup solution.</target>
+        </trans-unit>
+        <trans-unit id="e981b878-3721-4713-9e85-a008b4167b9b" xml:space="preserve">
+          <source>Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, easy to deploy and provides a consistent experience, it has limited uses and does not take full advantage of the underlying platform. This translates to an inefficient, expensive solution for end customers. By treating Azure as "just as a storage endpoint", backup solutions are unable to tap into the richness and power of the public cloud platform. Azure Backup, on the other hand, delivers a true service which uses the cloud to deliver a powerful &amp; affordable backup solution. It integrates with your on-premises backup solution (SCDPM) to provide an end-to-end hybrid solution.</source>
+          <target state="new">Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, easy to deploy and provides a consistent experience, it has limited uses and does not take full advantage of the underlying platform. This translates to an inefficient, expensive solution for end customers. By treating Azure as "just as a storage endpoint", backup solutions are unable to tap into the richness and power of the public cloud platform. Azure Backup, on the other hand, delivers a true service which uses the cloud to deliver a powerful &amp; affordable backup solution. It integrates with your on-premises backup solution (SCDPM) to provide an end-to-end hybrid solution.</target>
+        </trans-unit>
+        <trans-unit id="e4ad58fb-e754-42c1-8e48-b060769cd01a" xml:space="preserve">
+          <source>The advantages to this approach are:</source>
+          <target state="new">The advantages to this approach are:</target>
+        </trans-unit>
+        <trans-unit id="0cf5a0c4-7ac1-4c5e-a382-3b1ee83e5229" xml:space="preserve">
+          <source>Efficient cloud storage architecture that provides low-cost, resilient data storage</source>
+          <target state="new">Efficient cloud storage architecture that provides low-cost, resilient data storage</target>
+        </trans-unit>
+        <trans-unit id="4353c235-3f72-4dee-bdb9-a5a8649bdcb5" xml:space="preserve">
+          <source>Nonintrusive, auto scaling of the service with high availability guarantees</source>
+          <target state="new">Nonintrusive, auto scaling of the service with high availability guarantees</target>
+        </trans-unit>
+        <trans-unit id="9856dedd-fad7-478a-a920-c59043d7b08b" xml:space="preserve">
+          <source>Consistent way to back up on premise, hybrid and IaaS deployments</source>
+          <target state="new">Consistent way to back up on premise, hybrid and IaaS deployments</target>
+        </trans-unit>
+        <trans-unit id="b4bf4269-7ce3-4e5c-adc0-356157f16522" xml:space="preserve">
+          <source>The key features of this solution are:</source>
+          <target state="new">The key features of this solution are:</target>
+        </trans-unit>
+        <trans-unit id="3d9edf22-8634-400a-ad65-e33e648411e8" xml:space="preserve">
+          <source><bpt id="86588a7c-1f51-4b75-9eb4-f99dbefd718a">&lt;strong&gt;</bpt>Reliable service<ept id="86588a7c-1f51-4b75-9eb4-f99dbefd718a">&lt;/strong&gt;</ept>: By adopting Azure Backup, you get a backup service which is highly available.</source>
+          <target state="new"><bpt id="86588a7c-1f51-4b75-9eb4-f99dbefd718a">&lt;strong&gt;</bpt>Reliable service<ept id="86588a7c-1f51-4b75-9eb4-f99dbefd718a">&lt;/strong&gt;</ept>: By adopting Azure Backup, you get a backup service which is highly available.</target>
+        </trans-unit>
+        <trans-unit id="f39bda92-847d-4adb-9b3a-92b82bf7ae1c" xml:space="preserve">
+          <source>The service is multi-tenanted and you do not have to worry about managing the underlying compute or storage.</source>
+          <target state="new">The service is multi-tenanted and you do not have to worry about managing the underlying compute or storage.</target>
+        </trans-unit>
+        <trans-unit id="8eb56ef5-c30a-41d5-8a8d-86b0be78eaae" xml:space="preserve">
+          <source><bpt id="843c36e0-9ab0-480a-ac28-ad868596221a">&lt;strong&gt;</bpt>Reliable storage<ept id="843c36e0-9ab0-480a-ac28-ad868596221a">&lt;/strong&gt;</ept>: Azure Backup is built on top of reliable cloud storage which is backed by high SLAs.</source>
+          <target state="new"><bpt id="843c36e0-9ab0-480a-ac28-ad868596221a">&lt;strong&gt;</bpt>Reliable storage<ept id="843c36e0-9ab0-480a-ac28-ad868596221a">&lt;/strong&gt;</ept>: Azure Backup is built on top of reliable cloud storage which is backed by high SLAs.</target>
+        </trans-unit>
+        <trans-unit id="2bd168c9-5917-4dd7-bfc3-a50d06ffa1e6" xml:space="preserve">
+          <source>You do not have to worry about capital or operation expenses in maintaining the storage.</source>
+          <target state="new">You do not have to worry about capital or operation expenses in maintaining the storage.</target>
+        </trans-unit>
+        <trans-unit id="f16d09b9-20d0-4173-9c66-16d7642a2e05" xml:space="preserve">
+          <source>Furthermore you have the choice of backing up to LRS (Locally Redundant Storage) or GRS (Geo Replication storage) storage.</source>
+          <target state="new">Furthermore you have the choice of backing up to LRS (Locally Redundant Storage) or GRS (Geo Replication storage) storage.</target>
+        </trans-unit>
+        <trans-unit id="13bfa782-3806-4113-850e-6f4bd2d289e7" xml:space="preserve">
+          <source>While LRS enables 3 copies of the data in the same geo which protects against local hardware failures; GRS provides 3 additional copies (a total of 6 copies) in a paired data center.</source>
+          <target state="new">While LRS enables 3 copies of the data in the same geo which protects against local hardware failures; GRS provides 3 additional copies (a total of 6 copies) in a paired data center.</target>
+        </trans-unit>
+        <trans-unit id="3e265acb-258e-406e-b812-0e953a9e5916" xml:space="preserve">
+          <source>This ensures that your backup data is highly available.</source>
+          <target state="new">This ensures that your backup data is highly available.</target>
+        </trans-unit>
+        <trans-unit id="64f09461-586b-46a9-b96f-97fcce78a1b8" xml:space="preserve">
+          <source>Even if there is an Azure-site-level disaster, the backup data is safe with us.</source>
+          <target state="new">Even if there is an Azure-site-level disaster, the backup data is safe with us.</target>
+        </trans-unit>
+        <trans-unit id="b19a9e07-6851-4dad-8cdd-4d92e1287009" xml:space="preserve">
+          <source><bpt id="86548c8d-05c8-48b6-91a7-50df027d8669">&lt;strong&gt;</bpt>Secure<ept id="86548c8d-05c8-48b6-91a7-50df027d8669">&lt;/strong&gt;</ept>: Azure backup data is encrypted at source, during transmission and stored encrypted in Azure.</source>
+          <target state="new"><bpt id="86548c8d-05c8-48b6-91a7-50df027d8669">&lt;strong&gt;</bpt>Secure<ept id="86548c8d-05c8-48b6-91a7-50df027d8669">&lt;/strong&gt;</ept>: Azure backup data is encrypted at source, during transmission and stored encrypted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="dfbb0b62-4c7c-4f71-8115-8b36d8b26802" xml:space="preserve">
+          <source>The encryption key is stored at source and is never transmitted or stored in Azure.</source>
+          <target state="new">The encryption key is stored at source and is never transmitted or stored in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d4edde53-dd94-42e9-99b0-6739903c9e65" xml:space="preserve">
+          <source>The encryption key is required to restore any of the data and only the customer has full access to the data in the service.</source>
+          <target state="new">The encryption key is required to restore any of the data and only the customer has full access to the data in the service.</target>
+        </trans-unit>
+        <trans-unit id="35722333-d04a-4fbe-969e-8b302d5deec7" xml:space="preserve">
+          <source><bpt id="bada90a0-d1d2-4afa-a332-673515bad00a">&lt;strong&gt;</bpt>Offsite protection<ept id="bada90a0-d1d2-4afa-a332-673515bad00a">&lt;/strong&gt;</ept>: Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost.</source>
+          <target state="new"><bpt id="bada90a0-d1d2-4afa-a332-673515bad00a">&lt;strong&gt;</bpt>Offsite protection<ept id="bada90a0-d1d2-4afa-a332-673515bad00a">&lt;/strong&gt;</ept>: Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost.</target>
+        </trans-unit>
+        <trans-unit id="79bd1ea8-3191-43f4-8e93-de36d3ef4303" xml:space="preserve">
+          <source><bpt id="c34f503e-6967-4785-ad7a-e037315ee84c">&lt;strong&gt;</bpt>Simplicity<ept id="c34f503e-6967-4785-ad7a-e037315ee84c">&lt;/strong&gt;</ept>: Azure Backup provides a familiar interface that can scale to protect a deployment of any size.</source>
+          <target state="new"><bpt id="c34f503e-6967-4785-ad7a-e037315ee84c">&lt;strong&gt;</bpt>Simplicity<ept id="c34f503e-6967-4785-ad7a-e037315ee84c">&lt;/strong&gt;</ept>: Azure Backup provides a familiar interface that can scale to protect a deployment of any size.</target>
+        </trans-unit>
+        <trans-unit id="54bd5093-b7ed-4194-a80b-c7f3081d12b2" xml:space="preserve">
+          <source>As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location.</source>
+          <target state="new">As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location.</target>
+        </trans-unit>
+        <trans-unit id="3fd70a36-3437-4bd6-bb95-d8b7ea113182" xml:space="preserve">
+          <source><bpt id="a731546f-3bc3-4bd2-9457-c9fd8138da01">&lt;strong&gt;</bpt>Cost effective<ept id="a731546f-3bc3-4bd2-9457-c9fd8138da01">&lt;/strong&gt;</ept>:  Azure Backup pricing includes a per-instance backup management fee and cost of storage (block blob price) consumed on Azure.</source>
+          <target state="new"><bpt id="a731546f-3bc3-4bd2-9457-c9fd8138da01">&lt;strong&gt;</bpt>Cost effective<ept id="a731546f-3bc3-4bd2-9457-c9fd8138da01">&lt;/strong&gt;</ept>:  Azure Backup pricing includes a per-instance backup management fee and cost of storage (block blob price) consumed on Azure.</target>
+        </trans-unit>
+        <trans-unit id="22cbec09-6f99-46ca-af23-e2a4cbc5316d" xml:space="preserve">
+          <source>Unlike other cloud based backup offering, Azure Backup does not charge its customers for any restore operation.</source>
+          <target state="new">Unlike other cloud based backup offering, Azure Backup does not charge its customers for any restore operation.</target>
+        </trans-unit>
+        <trans-unit id="632e092d-3e80-4b1e-aba5-ac58943dd844" xml:space="preserve">
+          <source>Furthermore, customers are not charged for any egress (outbound) data transfer cost during a restore operation.</source>
+          <target state="new">Furthermore, customers are not charged for any egress (outbound) data transfer cost during a restore operation.</target>
+        </trans-unit>
+        <trans-unit id="90b39079-7391-4490-b42e-492febc0256b" xml:space="preserve">
+          <source><bpt id="e42ae35b-28a3-432b-bffb-4fbf1e603ff6">&lt;strong&gt;</bpt>Backup in Cloud<ept id="e42ae35b-28a3-432b-bffb-4fbf1e603ff6">&lt;/strong&gt;</ept>: Azure Backup provides VSS-based application-consistent backup of Azure IaaS virtual machines running without the need to shut down the virtual machine.</source>
+          <target state="new"><bpt id="e42ae35b-28a3-432b-bffb-4fbf1e603ff6">&lt;strong&gt;</bpt>Backup in Cloud<ept id="e42ae35b-28a3-432b-bffb-4fbf1e603ff6">&lt;/strong&gt;</ept>: Azure Backup provides VSS-based application-consistent backup of Azure IaaS virtual machines running without the need to shut down the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="61ded1d4-f742-4260-966d-3e84d922137f" xml:space="preserve">
+          <source>It can also backup Linux virtual machines in Azure with filesystem consistency.</source>
+          <target state="new">It can also backup Linux virtual machines in Azure with filesystem consistency.</target>
+        </trans-unit>
+        <trans-unit id="84e60d68-1db7-4d20-8410-10dc45512c5b" xml:space="preserve">
+          <source>Workload</source>
+          <target state="new">Workload</target>
+        </trans-unit>
+        <trans-unit id="2b06ec05-067d-48ad-b51f-0747d9841e75" xml:space="preserve">
+          <source>Source machine</source>
+          <target state="new">Source machine</target>
+        </trans-unit>
+        <trans-unit id="dfe01ccf-7d14-4b6e-92d1-2d5873c1ac16" xml:space="preserve">
+          <source>Azure Backup solution</source>
+          <target state="new">Azure Backup solution</target>
+        </trans-unit>
+        <trans-unit id="b028e1bf-40b8-40ae-9fa6-33907be9643f" xml:space="preserve">
+          <source>File &amp; folders</source>
+          <target state="new">File &amp; folders</target>
+        </trans-unit>
+        <trans-unit id="f602a2c7-8fca-4eae-a13f-9c9173ec610e" xml:space="preserve">
+          <source>Windows Server, Windows client</source>
+          <target state="new">Windows Server, Windows client</target>
+        </trans-unit>
+        <trans-unit id="66d1100a-4049-40d3-af1f-e1ba70c6ec45" xml:space="preserve">
+          <source>Azure Backup agent</source>
+          <target state="new">Azure Backup agent</target>
+        </trans-unit>
+        <trans-unit id="6da48fe1-f6c6-4fca-a545-3dc3082a4f41" xml:space="preserve">
+          <source>File &amp; folders</source>
+          <target state="new">File &amp; folders</target>
+        </trans-unit>
+        <trans-unit id="7525bb39-dd36-4899-93a5-296981b1eac3" xml:space="preserve">
+          <source>Windows Server, Windows client</source>
+          <target state="new">Windows Server, Windows client</target>
+        </trans-unit>
+        <trans-unit id="66fed9dc-0293-4449-b77b-3532005d2d90" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="73dacc7a-c9a8-488f-b3da-cab016df6f62" xml:space="preserve">
+          <source>Hyper-V Virtual machine (Windows)</source>
+          <target state="new">Hyper-V Virtual machine (Windows)</target>
+        </trans-unit>
+        <trans-unit id="02ba9cd6-09c4-46a8-b67a-b24555f2319b" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="cb9580bc-15c5-4368-9402-72beec2aa4bd" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="f53c5ee7-c869-4f17-9ad9-a641d9c1f2b8" xml:space="preserve">
+          <source>Hyper-V Virtual machine (Linux)</source>
+          <target state="new">Hyper-V Virtual machine (Linux)</target>
+        </trans-unit>
+        <trans-unit id="51484173-bde3-4ef4-93a5-0d5180595511" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="af1e5d82-a9be-4735-888f-28d25a473ab5" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="2bc9538c-2466-40c9-bb4a-3bede1800ca5" xml:space="preserve">
+          <source>Microsoft SQL Server</source>
+          <target state="new">Microsoft SQL Server</target>
+        </trans-unit>
+        <trans-unit id="43a41b62-37ef-4940-8c53-436a6a1e9394" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="8a93b403-8b09-44a6-9e7d-f8ef0fb078e7" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="709a514a-381b-4376-a366-f462d766bb17" xml:space="preserve">
+          <source>Microsoft SharePoint</source>
+          <target state="new">Microsoft SharePoint</target>
+        </trans-unit>
+        <trans-unit id="c2ca6b5b-99b9-4dcb-b72c-f2a9d4980045" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="d39530d4-5bd8-4336-8d25-daa9f66e3b9c" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="5f6ff1c0-c438-4365-acd8-8e1ae43c56b6" xml:space="preserve">
+          <source>Microsoft Exchange</source>
+          <target state="new">Microsoft Exchange</target>
+        </trans-unit>
+        <trans-unit id="abd4cfc8-2d24-44df-a51a-4c0cc46a097f" xml:space="preserve">
+          <source>Windows Server</source>
+          <target state="new">Windows Server</target>
+        </trans-unit>
+        <trans-unit id="3e9de140-bc69-431d-a763-078b15771573" xml:space="preserve">
+          <source>System Center DPM</source>
+          <target state="new">System Center DPM</target>
+        </trans-unit>
+        <trans-unit id="28fee54a-ed56-4954-92ac-e75f1c36d3a5" xml:space="preserve">
+          <source>Azure IaaS VMs (Windows)</source>
+          <target state="new">Azure IaaS VMs (Windows)</target>
+        </trans-unit>
+        <trans-unit id="7ae54efa-bfc6-487e-86c4-c2491a5283b8" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="67c547a4-4435-4339-b197-98dc36b1ef30" xml:space="preserve">
+          <source>Azure Backup</source>
+          <target state="new">Azure Backup</target>
+        </trans-unit>
+        <trans-unit id="83512ee8-4a13-41b6-bb02-1d2cd8f188dd" xml:space="preserve">
+          <source>Azure IaaS VMs (Linux)</source>
+          <target state="new">Azure IaaS VMs (Linux)</target>
+        </trans-unit>
+        <trans-unit id="df1bfe03-1097-41e3-a1f5-e24720341fe5" xml:space="preserve">
+          <source>-</source>
+          <target state="new">-</target>
+        </trans-unit>
+        <trans-unit id="a6f80fd1-57ac-470f-9a36-68cff3b2dae3" xml:space="preserve">
+          <source>Azure Backup</source>
+          <target state="new">Azure Backup</target>
+        </trans-unit>
+        <trans-unit id="47fa50c2-ed43-433c-8644-be8e1c3a8768" xml:space="preserve">
+          <source><bpt id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;linkText&gt;</bpt>Try Azure Backup<ept id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;/linkText&gt;</ept><bpt id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;title&gt;</bpt><ept id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;linkText&gt;</bpt>Try Azure Backup<ept id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;/linkText&gt;</ept><bpt id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;title&gt;</bpt><ept id="8665ae20-b30d-4ad1-9b8c-02141b35f6a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53828766-6d8a-45f8-8685-1e2b0a6f7c95" xml:space="preserve">
+          <source>Frequently asked question on the Azure Backup service is listed <bpt id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;linkText&gt;</bpt>here<ept id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;/linkText&gt;</ept><bpt id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;title&gt;</bpt><ept id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Frequently asked question on the Azure Backup service is listed <bpt id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;linkText&gt;</bpt>here<ept id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;/linkText&gt;</ept><bpt id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;title&gt;</bpt><ept id="bc1d3f48-bda3-4bf8-91ba-29136759d76c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f748e71-a2a6-4eff-9207-66aa0e426ef4" xml:space="preserve">
+          <source>Visit the <bpt id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;linkText&gt;</bpt>Azure Backup Forum<ept id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;/linkText&gt;</ept><bpt id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;title&gt;</bpt><ept id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;linkText&gt;</bpt>Azure Backup Forum<ept id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;/linkText&gt;</ept><bpt id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;title&gt;</bpt><ept id="5ec0368c-b455-4661-8669-a29c072585cf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

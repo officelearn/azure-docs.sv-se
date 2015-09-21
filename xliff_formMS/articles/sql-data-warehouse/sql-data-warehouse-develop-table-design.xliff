@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2b734377-1205-4026-ac80-d3e0a02d7782" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2b734377-1205-4026-ac80-d3e0a02d7782" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c794b381-519d-490d-bf1d-6921a4bcb13d">
+        <trans-unit id="7f20b974-5863-4e14-8626-c6cb621fb7f6" xml:space="preserve">
+          <source>Table design in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Table design in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0c3bf198-5019-402a-b64c-13cb3f6c70f6" xml:space="preserve">
+          <source>Tips for designing tables in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for designing tables in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="b8302a47-c046-4eab-85d7-6afd2c6726c2" xml:space="preserve">
+          <source>SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.</source>
+          <target state="new">SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.</target>
+        </trans-unit>
+        <trans-unit id="d0c11bac-29f7-4f75-8794-1c630f6ab3ce" xml:space="preserve">
+          <source>Consequently, it stores data across many different locations known as <bpt id="b3f622af-38e4-4c9f-87d0-815f9085fac6">&lt;strong&gt;</bpt>distributions<ept id="b3f622af-38e4-4c9f-87d0-815f9085fac6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Consequently, it stores data across many different locations known as <bpt id="b3f622af-38e4-4c9f-87d0-815f9085fac6">&lt;strong&gt;</bpt>distributions<ept id="b3f622af-38e4-4c9f-87d0-815f9085fac6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb29f3ad-eee4-435c-8375-81443f0d0f53" xml:space="preserve">
+          <source>Each <bpt id="dbad31c5-c42f-4475-9197-a69859172a35">&lt;strong&gt;</bpt>distribution<ept id="dbad31c5-c42f-4475-9197-a69859172a35">&lt;/strong&gt;</ept> is like a bucket; storing a unique subset of the data in the data warehouse.</source>
+          <target state="new">Each <bpt id="dbad31c5-c42f-4475-9197-a69859172a35">&lt;strong&gt;</bpt>distribution<ept id="dbad31c5-c42f-4475-9197-a69859172a35">&lt;/strong&gt;</ept> is like a bucket; storing a unique subset of the data in the data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="a5af9bd8-237b-4e8a-bff5-78fbea9abe7a" xml:space="preserve">
+          <source>By spreading the data and processing capability across multiple nodes SQL Data Warehouse is able to offer huge scalability - far beyond any single system.</source>
+          <target state="new">By spreading the data and processing capability across multiple nodes SQL Data Warehouse is able to offer huge scalability - far beyond any single system.</target>
+        </trans-unit>
+        <trans-unit id="fa33674f-3c50-4843-8504-c8fca4ecbd9e" xml:space="preserve">
+          <source>When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.</source>
+          <target state="new">When a table is created in SQL Data Warehouse, it is actually spread across all of the the distributions.</target>
+        </trans-unit>
+        <trans-unit id="8c6ca3b6-19ea-489b-9e03-cfe7b1a21496" xml:space="preserve">
+          <source>This article will cover the following topics:</source>
+          <target state="new">This article will cover the following topics:</target>
+        </trans-unit>
+        <trans-unit id="da49423a-f444-43b6-b124-9690a3d878f6" xml:space="preserve">
+          <source>Supported data types</source>
+          <target state="new">Supported data types</target>
+        </trans-unit>
+        <trans-unit id="955f3ff7-5ffe-4cbf-8527-bde9d744ab25" xml:space="preserve">
+          <source>Principles of data distribution</source>
+          <target state="new">Principles of data distribution</target>
+        </trans-unit>
+        <trans-unit id="426ead0d-f688-4759-a3a2-d7f4c448b8b0" xml:space="preserve">
+          <source>Round Robin Distribution</source>
+          <target state="new">Round Robin Distribution</target>
+        </trans-unit>
+        <trans-unit id="5876bc52-e26d-4c83-a33b-28a2a7a2656e" xml:space="preserve">
+          <source>Hash Distribution</source>
+          <target state="new">Hash Distribution</target>
+        </trans-unit>
+        <trans-unit id="df9bbeb2-44be-4fc6-bdbe-f16ba49bca6f" xml:space="preserve">
+          <source>Table Partitioning</source>
+          <target state="new">Table Partitioning</target>
+        </trans-unit>
+        <trans-unit id="7b1b76c1-d225-4f7a-8e73-b401a280cdd2" xml:space="preserve">
+          <source>Statistics</source>
+          <target state="new">Statistics</target>
+        </trans-unit>
+        <trans-unit id="eaa6405d-6cbb-49ca-a1f4-b08372fab542" xml:space="preserve">
+          <source>Unsupported features</source>
+          <target state="new">Unsupported features</target>
+        </trans-unit>
+        <trans-unit id="442586ba-da41-48b0-aca8-92d0aa6a8fcf" xml:space="preserve">
+          <source>SQL Data Warehouse supports the common business data types:</source>
+          <target state="new">SQL Data Warehouse supports the common business data types:</target>
+        </trans-unit>
+        <trans-unit id="54f9a21b-4c5a-406f-a0cf-1721593f771a" xml:space="preserve">
+          <source><bpt id="87b47c01-9c8f-4295-b448-766f3a98069f">&lt;strong&gt;</bpt>bigint<ept id="87b47c01-9c8f-4295-b448-766f3a98069f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="87b47c01-9c8f-4295-b448-766f3a98069f">&lt;strong&gt;</bpt>bigint<ept id="87b47c01-9c8f-4295-b448-766f3a98069f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91fc2909-0b15-403a-b392-96b3738a6b38" xml:space="preserve">
+          <source><bpt id="0024f6e7-3420-48d8-8202-786f7fe55035">&lt;strong&gt;</bpt>binary<ept id="0024f6e7-3420-48d8-8202-786f7fe55035">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0024f6e7-3420-48d8-8202-786f7fe55035">&lt;strong&gt;</bpt>binary<ept id="0024f6e7-3420-48d8-8202-786f7fe55035">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93cafea6-ab2f-492a-a165-98487a8c2b88" xml:space="preserve">
+          <source><bpt id="141d3f92-8cd1-486d-ad38-f9bffdef5554">&lt;strong&gt;</bpt>bit<ept id="141d3f92-8cd1-486d-ad38-f9bffdef5554">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="141d3f92-8cd1-486d-ad38-f9bffdef5554">&lt;strong&gt;</bpt>bit<ept id="141d3f92-8cd1-486d-ad38-f9bffdef5554">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0075e340-34a7-4123-a488-e7829392b352" xml:space="preserve">
+          <source><bpt id="aa22a0a7-6d62-48f1-a0c6-52284f47d8af">&lt;strong&gt;</bpt>char<ept id="aa22a0a7-6d62-48f1-a0c6-52284f47d8af">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="aa22a0a7-6d62-48f1-a0c6-52284f47d8af">&lt;strong&gt;</bpt>char<ept id="aa22a0a7-6d62-48f1-a0c6-52284f47d8af">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cd5f82a-f368-4775-a443-40c2f928f85b" xml:space="preserve">
+          <source><bpt id="9b1a9098-86af-49ed-a9e4-deef20c26740">&lt;strong&gt;</bpt>date<ept id="9b1a9098-86af-49ed-a9e4-deef20c26740">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9b1a9098-86af-49ed-a9e4-deef20c26740">&lt;strong&gt;</bpt>date<ept id="9b1a9098-86af-49ed-a9e4-deef20c26740">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4300d55-e336-46aa-9f1f-57981067788d" xml:space="preserve">
+          <source><bpt id="c0b8d424-a78e-49e6-afe2-c7cd293f5674">&lt;strong&gt;</bpt>datetime<ept id="c0b8d424-a78e-49e6-afe2-c7cd293f5674">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c0b8d424-a78e-49e6-afe2-c7cd293f5674">&lt;strong&gt;</bpt>datetime<ept id="c0b8d424-a78e-49e6-afe2-c7cd293f5674">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b38eb369-31a6-4453-b548-123d6cc50bf5" xml:space="preserve">
+          <source><bpt id="b869baff-16f2-4c2b-8e1c-1bc51867bf3f">&lt;strong&gt;</bpt>datetime2<ept id="b869baff-16f2-4c2b-8e1c-1bc51867bf3f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b869baff-16f2-4c2b-8e1c-1bc51867bf3f">&lt;strong&gt;</bpt>datetime2<ept id="b869baff-16f2-4c2b-8e1c-1bc51867bf3f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="043c6f10-cbf0-4fb7-bc3c-ebb8bc59ddf1" xml:space="preserve">
+          <source><bpt id="96ab12bc-a962-4a72-ae5d-3c97c7af4b49">&lt;strong&gt;</bpt>datetimeoffset<ept id="96ab12bc-a962-4a72-ae5d-3c97c7af4b49">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="96ab12bc-a962-4a72-ae5d-3c97c7af4b49">&lt;strong&gt;</bpt>datetimeoffset<ept id="96ab12bc-a962-4a72-ae5d-3c97c7af4b49">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32dd2ef2-cd5d-41e9-8c59-e8d193bcbeaf" xml:space="preserve">
+          <source><bpt id="dbecf0bd-aa38-4e95-b0e1-edb89920518e">&lt;strong&gt;</bpt>decimal<ept id="dbecf0bd-aa38-4e95-b0e1-edb89920518e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dbecf0bd-aa38-4e95-b0e1-edb89920518e">&lt;strong&gt;</bpt>decimal<ept id="dbecf0bd-aa38-4e95-b0e1-edb89920518e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bcb12453-63ab-4dca-b627-301b9dbb3f9f" xml:space="preserve">
+          <source><bpt id="cf205ea6-097a-46cb-8ec0-b1c19db701bc">&lt;strong&gt;</bpt>float<ept id="cf205ea6-097a-46cb-8ec0-b1c19db701bc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cf205ea6-097a-46cb-8ec0-b1c19db701bc">&lt;strong&gt;</bpt>float<ept id="cf205ea6-097a-46cb-8ec0-b1c19db701bc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01f36609-b7b5-4e23-b488-fade1c4ed5ff" xml:space="preserve">
+          <source><bpt id="bf30daab-e047-4995-82d5-fc58b96bcc70">&lt;strong&gt;</bpt>int<ept id="bf30daab-e047-4995-82d5-fc58b96bcc70">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bf30daab-e047-4995-82d5-fc58b96bcc70">&lt;strong&gt;</bpt>int<ept id="bf30daab-e047-4995-82d5-fc58b96bcc70">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e0253f6-00d3-4707-aab5-cbb855ded70e" xml:space="preserve">
+          <source><bpt id="2dcbcfa6-ec63-42ca-bc55-237c3f816ff0">&lt;strong&gt;</bpt>money<ept id="2dcbcfa6-ec63-42ca-bc55-237c3f816ff0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2dcbcfa6-ec63-42ca-bc55-237c3f816ff0">&lt;strong&gt;</bpt>money<ept id="2dcbcfa6-ec63-42ca-bc55-237c3f816ff0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="009cfb7e-e8df-4478-8e16-05ead3430864" xml:space="preserve">
+          <source><bpt id="228c6f4d-5090-4892-9e85-8e26b3109bd3">&lt;strong&gt;</bpt>nchar<ept id="228c6f4d-5090-4892-9e85-8e26b3109bd3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="228c6f4d-5090-4892-9e85-8e26b3109bd3">&lt;strong&gt;</bpt>nchar<ept id="228c6f4d-5090-4892-9e85-8e26b3109bd3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdfe56c3-af4a-43f2-9817-b66e1531e27f" xml:space="preserve">
+          <source><bpt id="873acf79-9fc1-4ee8-a290-b832e7b829f9">&lt;strong&gt;</bpt>nvarchar<ept id="873acf79-9fc1-4ee8-a290-b832e7b829f9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="873acf79-9fc1-4ee8-a290-b832e7b829f9">&lt;strong&gt;</bpt>nvarchar<ept id="873acf79-9fc1-4ee8-a290-b832e7b829f9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9474abca-31ca-4e7c-8463-0a8a90ae0c80" xml:space="preserve">
+          <source><bpt id="a6d3aaee-594b-4434-a854-cfc59ed20466">&lt;strong&gt;</bpt>real<ept id="a6d3aaee-594b-4434-a854-cfc59ed20466">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a6d3aaee-594b-4434-a854-cfc59ed20466">&lt;strong&gt;</bpt>real<ept id="a6d3aaee-594b-4434-a854-cfc59ed20466">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="795da73c-8d80-4f4a-b5e7-f52bfd361c6e" xml:space="preserve">
+          <source><bpt id="035c82f5-c33e-4031-a396-2d8383309736">&lt;strong&gt;</bpt>smalldatetime<ept id="035c82f5-c33e-4031-a396-2d8383309736">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="035c82f5-c33e-4031-a396-2d8383309736">&lt;strong&gt;</bpt>smalldatetime<ept id="035c82f5-c33e-4031-a396-2d8383309736">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9b233f7-6da4-4427-a3cd-0fb5a88224b2" xml:space="preserve">
+          <source><bpt id="4f666354-c613-4733-a51f-d908686f1cf3">&lt;strong&gt;</bpt>smallint<ept id="4f666354-c613-4733-a51f-d908686f1cf3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4f666354-c613-4733-a51f-d908686f1cf3">&lt;strong&gt;</bpt>smallint<ept id="4f666354-c613-4733-a51f-d908686f1cf3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e6fdc34-5dec-465b-a535-44680a344b48" xml:space="preserve">
+          <source><bpt id="a3ecc2d5-cf55-4cf8-b7a7-7f4e4f4b4df3">&lt;strong&gt;</bpt>smallmoney<ept id="a3ecc2d5-cf55-4cf8-b7a7-7f4e4f4b4df3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a3ecc2d5-cf55-4cf8-b7a7-7f4e4f4b4df3">&lt;strong&gt;</bpt>smallmoney<ept id="a3ecc2d5-cf55-4cf8-b7a7-7f4e4f4b4df3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eed1b523-e3d0-49d3-8f98-d61fdc0b2ee0" xml:space="preserve">
+          <source><bpt id="55f6b35b-b403-463f-a308-dba504c58007">&lt;strong&gt;</bpt>time<ept id="55f6b35b-b403-463f-a308-dba504c58007">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="55f6b35b-b403-463f-a308-dba504c58007">&lt;strong&gt;</bpt>time<ept id="55f6b35b-b403-463f-a308-dba504c58007">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f9176f8-3eb2-492e-824f-8f2348edeac4" xml:space="preserve">
+          <source><bpt id="80d2331a-3380-4157-a028-5419ed8c11db">&lt;strong&gt;</bpt>tinyint<ept id="80d2331a-3380-4157-a028-5419ed8c11db">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="80d2331a-3380-4157-a028-5419ed8c11db">&lt;strong&gt;</bpt>tinyint<ept id="80d2331a-3380-4157-a028-5419ed8c11db">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b0aabfa-5830-445e-888e-7e4b9762f54d" xml:space="preserve">
+          <source><bpt id="ae1e225b-d89c-444d-8dcb-88b5ea46f54d">&lt;strong&gt;</bpt>varbinary<ept id="ae1e225b-d89c-444d-8dcb-88b5ea46f54d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ae1e225b-d89c-444d-8dcb-88b5ea46f54d">&lt;strong&gt;</bpt>varbinary<ept id="ae1e225b-d89c-444d-8dcb-88b5ea46f54d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64c9e827-5bc3-4875-b277-23e2cbbc5c09" xml:space="preserve">
+          <source><bpt id="d8286f8a-6add-43d2-aaf1-1a85b17d040b">&lt;strong&gt;</bpt>varchar<ept id="d8286f8a-6add-43d2-aaf1-1a85b17d040b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8286f8a-6add-43d2-aaf1-1a85b17d040b">&lt;strong&gt;</bpt>varchar<ept id="d8286f8a-6add-43d2-aaf1-1a85b17d040b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0f72844-5e59-4850-ac0a-64931066981a" xml:space="preserve">
+          <source>You can identify columns in your data warehouse that contain incompatible types using the following query:</source>
+          <target state="new">You can identify columns in your data warehouse that contain incompatible types using the following query:</target>
+        </trans-unit>
+        <trans-unit id="4a13117f-fee2-48c5-be68-60cc71a9c660" xml:space="preserve">
+          <source>The query includes any user defined data types which are also not supported.</source>
+          <target state="new">The query includes any user defined data types which are also not supported.</target>
+        </trans-unit>
+        <trans-unit id="c802bc39-24bb-43d2-ac91-4ae527b101ec" xml:space="preserve">
+          <source>If you have unsupported types in your database do not worry.</source>
+          <target state="new">If you have unsupported types in your database do not worry.</target>
+        </trans-unit>
+        <trans-unit id="62fbd5e8-4716-4a5d-a0b2-21521dfa7359" xml:space="preserve">
+          <source>Some alternatives you can use instead are proposed below.</source>
+          <target state="new">Some alternatives you can use instead are proposed below.</target>
+        </trans-unit>
+        <trans-unit id="150f5874-842a-4d6f-a88a-ed4893a02a76" xml:space="preserve">
+          <source>Instead of:</source>
+          <target state="new">Instead of:</target>
+        </trans-unit>
+        <trans-unit id="9cd707e6-4af6-4255-8bd8-7d95add1f987" xml:space="preserve">
+          <source><bpt id="1ae08202-bbe4-4c88-ba1d-f379e22d2313">&lt;strong&gt;</bpt>geometry<ept id="1ae08202-bbe4-4c88-ba1d-f379e22d2313">&lt;/strong&gt;</ept>, use a varbinary type</source>
+          <target state="new"><bpt id="1ae08202-bbe4-4c88-ba1d-f379e22d2313">&lt;strong&gt;</bpt>geometry<ept id="1ae08202-bbe4-4c88-ba1d-f379e22d2313">&lt;/strong&gt;</ept>, use a varbinary type</target>
+        </trans-unit>
+        <trans-unit id="348c244b-aca5-46a3-8313-fcc6c6c65fd9" xml:space="preserve">
+          <source><bpt id="e1808bb9-43be-4e53-b225-c9d708d4f8d9">&lt;strong&gt;</bpt>geography<ept id="e1808bb9-43be-4e53-b225-c9d708d4f8d9">&lt;/strong&gt;</ept>, use a varbinary type</source>
+          <target state="new"><bpt id="e1808bb9-43be-4e53-b225-c9d708d4f8d9">&lt;strong&gt;</bpt>geography<ept id="e1808bb9-43be-4e53-b225-c9d708d4f8d9">&lt;/strong&gt;</ept>, use a varbinary type</target>
+        </trans-unit>
+        <trans-unit id="473594bb-a91f-45dd-8e16-6caff068112d" xml:space="preserve">
+          <source><bpt id="3dd8fa80-e66a-4c52-9daa-c08834622277">&lt;strong&gt;</bpt>hierarchyid<ept id="3dd8fa80-e66a-4c52-9daa-c08834622277">&lt;/strong&gt;</ept>, CLR type not native</source>
+          <target state="new"><bpt id="3dd8fa80-e66a-4c52-9daa-c08834622277">&lt;strong&gt;</bpt>hierarchyid<ept id="3dd8fa80-e66a-4c52-9daa-c08834622277">&lt;/strong&gt;</ept>, CLR type not native</target>
+        </trans-unit>
+        <trans-unit id="53c8859c-b65e-4bb8-b702-95fff5efb9ae" xml:space="preserve">
+          <source><bpt id="38218adc-6944-43a6-a0cf-7a64e0962e45">&lt;strong&gt;</bpt>image<ept id="38218adc-6944-43a6-a0cf-7a64e0962e45">&lt;/strong&gt;</ept>, <bpt id="b8eabb67-47b2-4c5c-9ed9-afd4cc1bbfc6">&lt;strong&gt;</bpt>text<ept id="b8eabb67-47b2-4c5c-9ed9-afd4cc1bbfc6">&lt;/strong&gt;</ept>, <bpt id="d82c68b9-0176-474b-9b1e-70ecb85dc0cd">&lt;strong&gt;</bpt>ntext<ept id="d82c68b9-0176-474b-9b1e-70ecb85dc0cd">&lt;/strong&gt;</ept> when text based use varchar/nvarchar (smaller the better)</source>
+          <target state="new"><bpt id="38218adc-6944-43a6-a0cf-7a64e0962e45">&lt;strong&gt;</bpt>image<ept id="38218adc-6944-43a6-a0cf-7a64e0962e45">&lt;/strong&gt;</ept>, <bpt id="b8eabb67-47b2-4c5c-9ed9-afd4cc1bbfc6">&lt;strong&gt;</bpt>text<ept id="b8eabb67-47b2-4c5c-9ed9-afd4cc1bbfc6">&lt;/strong&gt;</ept>, <bpt id="d82c68b9-0176-474b-9b1e-70ecb85dc0cd">&lt;strong&gt;</bpt>ntext<ept id="d82c68b9-0176-474b-9b1e-70ecb85dc0cd">&lt;/strong&gt;</ept> when text based use varchar/nvarchar (smaller the better)</target>
+        </trans-unit>
+        <trans-unit id="ad12d07b-b28c-44e9-b77e-301531a04952" xml:space="preserve">
+          <source><bpt id="51f8db15-d4eb-48cc-8d36-406b277a7613">&lt;strong&gt;</bpt>nvarchar(max)<ept id="51f8db15-d4eb-48cc-8d36-406b277a7613">&lt;/strong&gt;</ept>, use varchar(4000) or smaller for better performance</source>
+          <target state="new"><bpt id="51f8db15-d4eb-48cc-8d36-406b277a7613">&lt;strong&gt;</bpt>nvarchar(max)<ept id="51f8db15-d4eb-48cc-8d36-406b277a7613">&lt;/strong&gt;</ept>, use varchar(4000) or smaller for better performance</target>
+        </trans-unit>
+        <trans-unit id="cfd05d0b-0c4e-4914-8bc6-c66a5a89c396" xml:space="preserve">
+          <source><bpt id="caa336a3-b303-4906-8315-dabe0b7ff231">&lt;strong&gt;</bpt>numeric<ept id="caa336a3-b303-4906-8315-dabe0b7ff231">&lt;/strong&gt;</ept>, use decimal</source>
+          <target state="new"><bpt id="caa336a3-b303-4906-8315-dabe0b7ff231">&lt;strong&gt;</bpt>numeric<ept id="caa336a3-b303-4906-8315-dabe0b7ff231">&lt;/strong&gt;</ept>, use decimal</target>
+        </trans-unit>
+        <trans-unit id="78d603ed-fd24-47e8-9a84-b658d1ebf92b" xml:space="preserve">
+          <source><bpt id="7bfa027b-e9ec-4c07-85eb-e7ec2d79d0d7">&lt;strong&gt;</bpt>sql_variant<ept id="7bfa027b-e9ec-4c07-85eb-e7ec2d79d0d7">&lt;/strong&gt;</ept>, split column into several strongly typed columns</source>
+          <target state="new"><bpt id="7bfa027b-e9ec-4c07-85eb-e7ec2d79d0d7">&lt;strong&gt;</bpt>sql_variant<ept id="7bfa027b-e9ec-4c07-85eb-e7ec2d79d0d7">&lt;/strong&gt;</ept>, split column into several strongly typed columns</target>
+        </trans-unit>
+        <trans-unit id="7a62de2e-22e5-4613-9e53-69a6bf5b4251" xml:space="preserve">
+          <source><bpt id="dbafcc7e-486d-4d35-9237-9549de9bcd20">&lt;strong&gt;</bpt>sysname<ept id="dbafcc7e-486d-4d35-9237-9549de9bcd20">&lt;/strong&gt;</ept>, use nvarchar(128)</source>
+          <target state="new"><bpt id="dbafcc7e-486d-4d35-9237-9549de9bcd20">&lt;strong&gt;</bpt>sysname<ept id="dbafcc7e-486d-4d35-9237-9549de9bcd20">&lt;/strong&gt;</ept>, use nvarchar(128)</target>
+        </trans-unit>
+        <trans-unit id="86c1bf80-53fa-4e41-9b96-6400829ece53" xml:space="preserve">
+          <source><bpt id="db01775c-242d-4707-ae95-66d25d574756">&lt;strong&gt;</bpt>table<ept id="db01775c-242d-4707-ae95-66d25d574756">&lt;/strong&gt;</ept>, convert to temporary tables</source>
+          <target state="new"><bpt id="db01775c-242d-4707-ae95-66d25d574756">&lt;strong&gt;</bpt>table<ept id="db01775c-242d-4707-ae95-66d25d574756">&lt;/strong&gt;</ept>, convert to temporary tables</target>
+        </trans-unit>
+        <trans-unit id="7a6465b6-cbd9-4080-b25c-48efae23d912" xml:space="preserve">
+          <source><bpt id="2dd8e5ca-9e0b-4b86-9cf8-ba5c71264ed9">&lt;strong&gt;</bpt>timestamp<ept id="2dd8e5ca-9e0b-4b86-9cf8-ba5c71264ed9">&lt;/strong&gt;</ept>, re-work code to use datetime2 and <bpt id="46edf8d0-c915-4531-b02f-bd6c367d37e9">&lt;code&gt;</bpt>CURRENT_TIMESTAMP<ept id="46edf8d0-c915-4531-b02f-bd6c367d37e9">&lt;/code&gt;</ept> function.</source>
+          <target state="new"><bpt id="2dd8e5ca-9e0b-4b86-9cf8-ba5c71264ed9">&lt;strong&gt;</bpt>timestamp<ept id="2dd8e5ca-9e0b-4b86-9cf8-ba5c71264ed9">&lt;/strong&gt;</ept>, re-work code to use datetime2 and <bpt id="46edf8d0-c915-4531-b02f-bd6c367d37e9">&lt;code&gt;</bpt>CURRENT_TIMESTAMP<ept id="46edf8d0-c915-4531-b02f-bd6c367d37e9">&lt;/code&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="22f5678e-aa0c-4843-b13e-89675af31b2f" xml:space="preserve">
+          <source>Note you cannot have current_timestamp as a default constraint and the value will not automatically update.</source>
+          <target state="new">Note you cannot have current_timestamp as a default constraint and the value will not automatically update.</target>
+        </trans-unit>
+        <trans-unit id="ed9d470f-9abb-4e55-badb-5ee98af14ec1" xml:space="preserve">
+          <source>If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.</source>
+          <target state="new">If you need to migrate rowversion values from a timestamp typed column then use BINARY(8) or VARBINARY(8) for NOT NULL or NULL row version values.</target>
+        </trans-unit>
+        <trans-unit id="a54a17d5-6e20-405b-baf7-ebcc52e750fc" xml:space="preserve">
+          <source><bpt id="56470f47-81e3-4815-aab9-0d2343239e41">&lt;strong&gt;</bpt>varchar(max)<ept id="56470f47-81e3-4815-aab9-0d2343239e41">&lt;/strong&gt;</ept>, use varchar(8000) or smaller for better performance</source>
+          <target state="new"><bpt id="56470f47-81e3-4815-aab9-0d2343239e41">&lt;strong&gt;</bpt>varchar(max)<ept id="56470f47-81e3-4815-aab9-0d2343239e41">&lt;/strong&gt;</ept>, use varchar(8000) or smaller for better performance</target>
+        </trans-unit>
+        <trans-unit id="5a6b4381-5e6a-4617-aad7-e1e9731ca35c" xml:space="preserve">
+          <source><bpt id="fdcfef87-fbd6-4d5a-9b3f-37e2182f151e">&lt;strong&gt;</bpt>uniqueidentifier<ept id="fdcfef87-fbd6-4d5a-9b3f-37e2182f151e">&lt;/strong&gt;</ept>, use varbinary(8)</source>
+          <target state="new"><bpt id="fdcfef87-fbd6-4d5a-9b3f-37e2182f151e">&lt;strong&gt;</bpt>uniqueidentifier<ept id="fdcfef87-fbd6-4d5a-9b3f-37e2182f151e">&lt;/strong&gt;</ept>, use varbinary(8)</target>
+        </trans-unit>
+        <trans-unit id="858b9854-b773-4ea4-bc46-821dfa99161a" xml:space="preserve">
+          <source><bpt id="9f76757f-7f48-4fdf-ab77-0cf4fcac7261">&lt;strong&gt;</bpt>user defined types<ept id="9f76757f-7f48-4fdf-ab77-0cf4fcac7261">&lt;/strong&gt;</ept>, convert back to their native types where possible</source>
+          <target state="new"><bpt id="9f76757f-7f48-4fdf-ab77-0cf4fcac7261">&lt;strong&gt;</bpt>user defined types<ept id="9f76757f-7f48-4fdf-ab77-0cf4fcac7261">&lt;/strong&gt;</ept>, convert back to their native types where possible</target>
+        </trans-unit>
+        <trans-unit id="31e0487f-c69e-4e49-a34a-374768b4586e" xml:space="preserve">
+          <source><bpt id="f3a386f4-8530-4247-adca-bf0217759aff">&lt;strong&gt;</bpt>xml<ept id="f3a386f4-8530-4247-adca-bf0217759aff">&lt;/strong&gt;</ept>, use a varchar(8000) or smaller for better performance - split across columns if needed</source>
+          <target state="new"><bpt id="f3a386f4-8530-4247-adca-bf0217759aff">&lt;strong&gt;</bpt>xml<ept id="f3a386f4-8530-4247-adca-bf0217759aff">&lt;/strong&gt;</ept>, use a varchar(8000) or smaller for better performance - split across columns if needed</target>
+        </trans-unit>
+        <trans-unit id="58ea84b2-cc94-4085-bd1b-201acff648af" xml:space="preserve">
+          <source>Partial support:</source>
+          <target state="new">Partial support:</target>
+        </trans-unit>
+        <trans-unit id="6615c85d-8d2d-4a4d-8ce9-86afec88ff85" xml:space="preserve">
+          <source>Default constraints support literals and constants only.</source>
+          <target state="new">Default constraints support literals and constants only.</target>
+        </trans-unit>
+        <trans-unit id="38ec2e31-51d5-4208-b25b-ac11a988db75" xml:space="preserve">
+          <source>Non-deterministic expressions or functions, such as <bpt id="f8d5b794-2d92-4d76-a1e1-b3d1c7df6dbb">&lt;code&gt;</bpt>GETDATE()<ept id="f8d5b794-2d92-4d76-a1e1-b3d1c7df6dbb">&lt;/code&gt;</ept> or <bpt id="78d63eef-bbd2-4782-a6db-7a2740020775">&lt;code&gt;</bpt>CURRENT_TIMESTAMP<ept id="78d63eef-bbd2-4782-a6db-7a2740020775">&lt;/code&gt;</ept>, are not supported.</source>
+          <target state="new">Non-deterministic expressions or functions, such as <bpt id="f8d5b794-2d92-4d76-a1e1-b3d1c7df6dbb">&lt;code&gt;</bpt>GETDATE()<ept id="f8d5b794-2d92-4d76-a1e1-b3d1c7df6dbb">&lt;/code&gt;</ept> or <bpt id="78d63eef-bbd2-4782-a6db-7a2740020775">&lt;code&gt;</bpt>CURRENT_TIMESTAMP<ept id="78d63eef-bbd2-4782-a6db-7a2740020775">&lt;/code&gt;</ept>, are not supported.</target>
+        </trans-unit>
+        <trans-unit id="36365691-888a-4059-af5e-3512dff0cf2c" xml:space="preserve">
+          <source>Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.</source>
+          <target state="new">Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes.</target>
+        </trans-unit>
+        <trans-unit id="3c1c1e04-89b4-4f17-a826-3c3340f993db" xml:space="preserve">
+          <source>While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table.</source>
+          <target state="new">While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table.</target>
+        </trans-unit>
+        <trans-unit id="49828191-7873-41f7-8ee5-017dfa14a5e3" xml:space="preserve">
+          <source>Also, try to limit the size of your variable length columns for even better throughput for running queries.</source>
+          <target state="new">Also, try to limit the size of your variable length columns for even better throughput for running queries.</target>
+        </trans-unit>
+        <trans-unit id="90260523-7d53-43bf-b889-fa05562cdc87" xml:space="preserve">
+          <source>There are two choices for distributing data in SQL Data Warehouse:</source>
+          <target state="new">There are two choices for distributing data in SQL Data Warehouse:</target>
+        </trans-unit>
+        <trans-unit id="47e23972-6ba5-4842-bfb1-0241646b4636" xml:space="preserve">
+          <source>Distribute data based on hashing values from a single column</source>
+          <target state="new">Distribute data based on hashing values from a single column</target>
+        </trans-unit>
+        <trans-unit id="d11c7cc0-90e1-4821-bc52-14f7d6ac9cf6" xml:space="preserve">
+          <source>Distribute data evenly but randomly  </source>
+          <target state="new">Distribute data evenly but randomly  </target>
+        </trans-unit>
+        <trans-unit id="b67e8f00-3c22-4fb3-8ff1-cc48f248fee0" xml:space="preserve">
+          <source>Data distribution is decided at the table level.</source>
+          <target state="new">Data distribution is decided at the table level.</target>
+        </trans-unit>
+        <trans-unit id="93b6f679-5291-412e-9579-39d85b139963" xml:space="preserve">
+          <source>All tables are distributed so you will have the opportunity to make this decision for each table in your SQL Data Warehouse database.</source>
+          <target state="new">All tables are distributed so you will have the opportunity to make this decision for each table in your SQL Data Warehouse database.</target>
+        </trans-unit>
+        <trans-unit id="a5ee9f8e-7d88-4418-b20d-3275c0886091" xml:space="preserve">
+          <source>The first option is known as <bpt id="6fbf7b54-7429-4f2f-9660-2b1d814324cc">&lt;strong&gt;</bpt>round-robin<ept id="6fbf7b54-7429-4f2f-9660-2b1d814324cc">&lt;/strong&gt;</ept> distribution - sometimes known as the random hash.</source>
+          <target state="new">The first option is known as <bpt id="6fbf7b54-7429-4f2f-9660-2b1d814324cc">&lt;strong&gt;</bpt>round-robin<ept id="6fbf7b54-7429-4f2f-9660-2b1d814324cc">&lt;/strong&gt;</ept> distribution - sometimes known as the random hash.</target>
+        </trans-unit>
+        <trans-unit id="01e133b0-91bb-4007-ab77-cb3156e753fe" xml:space="preserve">
+          <source>You can think of this as the default or fail safe option.</source>
+          <target state="new">You can think of this as the default or fail safe option.</target>
+        </trans-unit>
+        <trans-unit id="edcc4253-183b-4195-aa5f-12329059fde0" xml:space="preserve">
+          <source>The second option is known as the <bpt id="a63384db-2b76-42ce-ad65-90c981b15b6f">&lt;strong&gt;</bpt>hash<ept id="a63384db-2b76-42ce-ad65-90c981b15b6f">&lt;/strong&gt;</ept> distribution.</source>
+          <target state="new">The second option is known as the <bpt id="a63384db-2b76-42ce-ad65-90c981b15b6f">&lt;strong&gt;</bpt>hash<ept id="a63384db-2b76-42ce-ad65-90c981b15b6f">&lt;/strong&gt;</ept> distribution.</target>
+        </trans-unit>
+        <trans-unit id="7654e641-e610-47bc-86e2-49fea6232bc6" xml:space="preserve">
+          <source>You can consider it an optimized form of data distribution.</source>
+          <target state="new">You can consider it an optimized form of data distribution.</target>
+        </trans-unit>
+        <trans-unit id="f07f4872-204f-4ef7-ae70-940443f44c05" xml:space="preserve">
+          <source>It is preferred where clusters of tables share common joining and/or aggregation criteria.</source>
+          <target state="new">It is preferred where clusters of tables share common joining and/or aggregation criteria.</target>
+        </trans-unit>
+        <trans-unit id="0911bafc-504d-44d6-94c1-ab0114255d4c" xml:space="preserve">
+          <source>Round-Robin distribution is a method of spreading data as evenly as possible across all distributions.</source>
+          <target state="new">Round-Robin distribution is a method of spreading data as evenly as possible across all distributions.</target>
+        </trans-unit>
+        <trans-unit id="e895cd49-069b-459b-8ce4-2228cf4cacfe" xml:space="preserve">
+          <source>Buffers containing rows of data are allocated in turn (hence the name round robin) to each distribution.</source>
+          <target state="new">Buffers containing rows of data are allocated in turn (hence the name round robin) to each distribution.</target>
+        </trans-unit>
+        <trans-unit id="e103373c-c236-436c-8a9b-4f842ea79da4" xml:space="preserve">
+          <source>The process is repeated until all data buffers have been allocated.</source>
+          <target state="new">The process is repeated until all data buffers have been allocated.</target>
+        </trans-unit>
+        <trans-unit id="7692d9f8-e163-434b-b948-0dcfcb7824e4" xml:space="preserve">
+          <source>At no stage is the data sorted or ordered in a round robin distributed table.</source>
+          <target state="new">At no stage is the data sorted or ordered in a round robin distributed table.</target>
+        </trans-unit>
+        <trans-unit id="5b135b9f-30c0-4a10-b16a-8cd21c9f348f" xml:space="preserve">
+          <source>A round robin distribution is sometimes called a random hash for this reason.</source>
+          <target state="new">A round robin distribution is sometimes called a random hash for this reason.</target>
+        </trans-unit>
+        <trans-unit id="78f7ca0f-2e97-4732-9d60-58f8354b0894" xml:space="preserve">
+          <source>The data is simply spread as evenly as possible across the distributions.</source>
+          <target state="new">The data is simply spread as evenly as possible across the distributions.</target>
+        </trans-unit>
+        <trans-unit id="9ac3c82a-808f-4ec4-92cb-1fc8ca8da46f" xml:space="preserve">
+          <source>Below is an example of round robin distributed table:</source>
+          <target state="new">Below is an example of round robin distributed table:</target>
+        </trans-unit>
+        <trans-unit id="fe191d02-70f9-4261-815a-e130ced11b66" xml:space="preserve">
+          <source>This is also an example of a round robin distributed table:</source>
+          <target state="new">This is also an example of a round robin distributed table:</target>
+        </trans-unit>
+        <trans-unit id="c0838d11-2938-43e2-a1f5-52b78f6ff4ad" xml:space="preserve">
+          <source>Notice that the second example above makes no mention of the distribution key.</source>
+          <target state="new">Notice that the second example above makes no mention of the distribution key.</target>
+        </trans-unit>
+        <trans-unit id="c39b4d37-3cb6-425a-bb64-4385597b2780" xml:space="preserve">
+          <source>Round Robin is the default and so it is not absolutely required.</source>
+          <target state="new">Round Robin is the default and so it is not absolutely required.</target>
+        </trans-unit>
+        <trans-unit id="4af863ed-0279-461d-ac54-0a1969a03e11" xml:space="preserve">
+          <source>Being explicit however, is considered to be a good practice as ensures that your peers are aware of your intentions when reviewing the table design.</source>
+          <target state="new">Being explicit however, is considered to be a good practice as ensures that your peers are aware of your intentions when reviewing the table design.</target>
+        </trans-unit>
+        <trans-unit id="3b6d734c-4686-4df4-b361-3b8acf690183" xml:space="preserve">
+          <source>This table type is commonly used when there is no obvious key column to hash the data by.</source>
+          <target state="new">This table type is commonly used when there is no obvious key column to hash the data by.</target>
+        </trans-unit>
+        <trans-unit id="4cfb67d8-4e7f-41ba-84b1-70e234857047" xml:space="preserve">
+          <source>It can also be used by smaller or less significant tables where the movement cost may not be so great.</source>
+          <target state="new">It can also be used by smaller or less significant tables where the movement cost may not be so great.</target>
+        </trans-unit>
+        <trans-unit id="5991d73b-768b-4df1-84fd-bdb51ad2371d" xml:space="preserve">
+          <source>Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table.</source>
+          <target state="new">Loading data into a round robin distributed table tends to be faster than loading into a hash distributed table.</target>
+        </trans-unit>
+        <trans-unit id="177ca8b8-702b-49f5-8de3-47b41eecddea" xml:space="preserve">
+          <source>With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading.</source>
+          <target state="new">With a round-robin distributed table there is no need to understand the data or perform the hash prior to loading.</target>
+        </trans-unit>
+        <trans-unit id="022c0b6b-eaa0-492d-9364-12e9c7296ef2" xml:space="preserve">
+          <source>For this reason Round-Robin tables often make good good loading targets.</source>
+          <target state="new">For this reason Round-Robin tables often make good good loading targets.</target>
+        </trans-unit>
+        <trans-unit id="e89ae170-d1ec-43ca-9878-9d92c89c36d0" xml:space="preserve">
+          <source>When data is round robin distributed the data is allocated to the distribution at the <bpt id="e4072500-f8d1-40de-83b0-7a41299577e3">&lt;em&gt;</bpt>buffer<ept id="e4072500-f8d1-40de-83b0-7a41299577e3">&lt;/em&gt;</ept> level.</source>
+          <target state="new">When data is round robin distributed the data is allocated to the distribution at the <bpt id="e4072500-f8d1-40de-83b0-7a41299577e3">&lt;em&gt;</bpt>buffer<ept id="e4072500-f8d1-40de-83b0-7a41299577e3">&lt;/em&gt;</ept> level.</target>
+        </trans-unit>
+        <trans-unit id="c65e5764-c6e6-44d3-a77f-1cf02f7884ca" xml:space="preserve">
+          <source>Consider using Round Robin distribution for your table in the following scenarios:</source>
+          <target state="new">Consider using Round Robin distribution for your table in the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="a00c9d94-e310-4306-b33f-bc6ceb505bc0" xml:space="preserve">
+          <source>When there is no obvious joining key</source>
+          <target state="new">When there is no obvious joining key</target>
+        </trans-unit>
+        <trans-unit id="29a61ede-70c8-446f-a559-b22f38845b78" xml:space="preserve">
+          <source>If a candidate hash distribution key is not known</source>
+          <target state="new">If a candidate hash distribution key is not known</target>
+        </trans-unit>
+        <trans-unit id="39115a04-d79e-41c8-82ba-b711bcbd85b2" xml:space="preserve">
+          <source>If the table does not share a common joining key with other tables</source>
+          <target state="new">If the table does not share a common joining key with other tables</target>
+        </trans-unit>
+        <trans-unit id="80333296-0e93-4d10-a33e-0900d44d5018" xml:space="preserve">
+          <source>If the join is less significant than other joins in the query</source>
+          <target state="new">If the join is less significant than other joins in the query</target>
+        </trans-unit>
+        <trans-unit id="23c2c4be-5208-4e63-a145-fd3121edd923" xml:space="preserve">
+          <source>When the table is an initial loading table</source>
+          <target state="new">When the table is an initial loading table</target>
+        </trans-unit>
+        <trans-unit id="e0675f30-4f3a-4176-abbe-8578ba8a8c7a" xml:space="preserve">
+          <source>Hash distribution uses an internal function to spread a dataset across the distributions by hashing a single column.</source>
+          <target state="new">Hash distribution uses an internal function to spread a dataset across the distributions by hashing a single column.</target>
+        </trans-unit>
+        <trans-unit id="bff23ffd-9063-4263-b049-a637b4bb90f4" xml:space="preserve">
+          <source>When data is hashed there is no explicit order to the data being allocated to a distribution.</source>
+          <target state="new">When data is hashed there is no explicit order to the data being allocated to a distribution.</target>
+        </trans-unit>
+        <trans-unit id="d4da4eaa-51e2-48ea-b699-4bac1697db6c" xml:space="preserve">
+          <source>However, the hash itself is a deterministic process.</source>
+          <target state="new">However, the hash itself is a deterministic process.</target>
+        </trans-unit>
+        <trans-unit id="ffcb695f-dfe1-4cf0-b310-e51376589df9" xml:space="preserve">
+          <source>This makes the results of the hash predictable.</source>
+          <target state="new">This makes the results of the hash predictable.</target>
+        </trans-unit>
+        <trans-unit id="73657c0c-012c-41c5-b2db-b47b0e93534d" xml:space="preserve">
+          <source>For example, hashing an integer column containing the value 10 will always yield the same hash value.</source>
+          <target state="new">For example, hashing an integer column containing the value 10 will always yield the same hash value.</target>
+        </trans-unit>
+        <trans-unit id="5807df0e-69f2-44d5-9e9d-e5384c384ea2" xml:space="preserve">
+          <source>This means that <bpt id="a15eb7b6-a5f4-4f9a-bf26-033c00638808">&lt;strong&gt;</bpt>*any*<ept id="a15eb7b6-a5f4-4f9a-bf26-033c00638808">&lt;/strong&gt;</ept> hashed integer column  containing the value 10 would end up being allocated to the same distribution.</source>
+          <target state="new">This means that <bpt id="a15eb7b6-a5f4-4f9a-bf26-033c00638808">&lt;strong&gt;</bpt>*any*<ept id="a15eb7b6-a5f4-4f9a-bf26-033c00638808">&lt;/strong&gt;</ept> hashed integer column  containing the value 10 would end up being allocated to the same distribution.</target>
+        </trans-unit>
+        <trans-unit id="38bffc94-2e5e-4f58-bf19-0897854a9fbb" xml:space="preserve">
+          <source>This is true even across tables.</source>
+          <target state="new">This is true even across tables.</target>
+        </trans-unit>
+        <trans-unit id="789c779e-8fe4-4759-b3da-b894c4de3bfb" xml:space="preserve">
+          <source>The predictability of the hash is extremely important.</source>
+          <target state="new">The predictability of the hash is extremely important.</target>
+        </trans-unit>
+        <trans-unit id="74dac822-f9a5-45c4-8230-54a04bf21a32" xml:space="preserve">
+          <source>It means that hash distributing the data can lead to performance improvements when reading data and joining tables together.</source>
+          <target state="new">It means that hash distributing the data can lead to performance improvements when reading data and joining tables together.</target>
+        </trans-unit>
+        <trans-unit id="346507d8-70b3-4112-a5d2-07308bdd3f53" xml:space="preserve">
+          <source>As you will see below, hash distribution can be very effective for query optimization.</source>
+          <target state="new">As you will see below, hash distribution can be very effective for query optimization.</target>
+        </trans-unit>
+        <trans-unit id="daf9c3a7-d002-46ee-a9b9-ea7375be1865" xml:space="preserve">
+          <source>This is why it is considered to be an optimized form of data distribution.</source>
+          <target state="new">This is why it is considered to be an optimized form of data distribution.</target>
+        </trans-unit>
+        <trans-unit id="af3975f0-4e5e-49df-9708-51843806c7ba" xml:space="preserve">
+          <source>Remember!</source>
+          <target state="new">Remember!</target>
+        </trans-unit>
+        <trans-unit id="12a937da-553c-4299-ae00-d25520c1da43" xml:space="preserve">
+          <source>The hash is not based on the value of the data but rather on the type of the data being hashed.</source>
+          <target state="new">The hash is not based on the value of the data but rather on the type of the data being hashed.</target>
+        </trans-unit>
+        <trans-unit id="57631d44-57aa-412d-9ef5-7fe1780c28fe" xml:space="preserve">
+          <source>Below is a table that has been hash distributed by ProductKey.</source>
+          <target state="new">Below is a table that has been hash distributed by ProductKey.</target>
+        </trans-unit>
+        <trans-unit id="219d9bf5-f562-4a24-99b3-3faac1433c90" xml:space="preserve">
+          <source>When data is hash distributed the data is allocated to the distribution at the row level.</source>
+          <target state="new">When data is hash distributed the data is allocated to the distribution at the row level.</target>
+        </trans-unit>
+        <trans-unit id="70ac45af-31e2-4367-bc39-b9d66d064cf1" xml:space="preserve">
+          <source>Table partitions are supported and easy to define.</source>
+          <target state="new">Table partitions are supported and easy to define.</target>
+        </trans-unit>
+        <trans-unit id="4fc4cb6b-e908-4003-9e88-41f3bd593cc3" xml:space="preserve">
+          <source>Example SQL Data Warehouse partitioned <bpt id="49304760-13c1-4871-8829-f9b577d145dd">&lt;code&gt;</bpt>CREATE TABLE<ept id="49304760-13c1-4871-8829-f9b577d145dd">&lt;/code&gt;</ept> command:</source>
+          <target state="new">Example SQL Data Warehouse partitioned <bpt id="49304760-13c1-4871-8829-f9b577d145dd">&lt;code&gt;</bpt>CREATE TABLE<ept id="49304760-13c1-4871-8829-f9b577d145dd">&lt;/code&gt;</ept> command:</target>
+        </trans-unit>
+        <trans-unit id="ac83fc7b-8d57-445c-85fa-2cb76f215937" xml:space="preserve">
+          <source>Notice that there is no partitioning function or scheme in the definition.</source>
+          <target state="new">Notice that there is no partitioning function or scheme in the definition.</target>
+        </trans-unit>
+        <trans-unit id="01aea947-e58c-453e-87a5-fe36090d2e0b" xml:space="preserve">
+          <source>All that is taken care of when the table is created.</source>
+          <target state="new">All that is taken care of when the table is created.</target>
+        </trans-unit>
+        <trans-unit id="1c4a276d-d9c9-4e06-a0f0-bd8a89f6dc61" xml:space="preserve">
+          <source>All you have to do is identify the boundary points for the column that is going to be the partitioning key.</source>
+          <target state="new">All you have to do is identify the boundary points for the column that is going to be the partitioning key.</target>
+        </trans-unit>
+        <trans-unit id="14a14a2d-92fb-418a-8bb5-f424fbd8ad19" xml:space="preserve">
+          <source>SQL Data Warehouse uses a distributed query optimizer to create the appropriate query plan when users query tables.</source>
+          <target state="new">SQL Data Warehouse uses a distributed query optimizer to create the appropriate query plan when users query tables.</target>
+        </trans-unit>
+        <trans-unit id="0dcb071a-5d37-4750-b08a-5d997794d802" xml:space="preserve">
+          <source>Once created, the query plan provides the strategy and method used by the database to access the data and fulfill the user request.</source>
+          <target state="new">Once created, the query plan provides the strategy and method used by the database to access the data and fulfill the user request.</target>
+        </trans-unit>
+        <trans-unit id="32ce1ae0-c5f5-43e8-81c3-6216150a4063" xml:space="preserve">
+          <source>SQL Data Warehouse's query optimizer is based on cost.</source>
+          <target state="new">SQL Data Warehouse's query optimizer is based on cost.</target>
+        </trans-unit>
+        <trans-unit id="11a20f2b-b124-4521-b364-7be906e9a87e" xml:space="preserve">
+          <source>In other words it compares various options (plans) based on their relative cost and chooses the most efficient plan available to it.</source>
+          <target state="new">In other words it compares various options (plans) based on their relative cost and chooses the most efficient plan available to it.</target>
+        </trans-unit>
+        <trans-unit id="6227daab-397c-4d08-9144-d964d2ed0b80" xml:space="preserve">
+          <source>Consequently, SQL Data Warehouse needs a lot of information to make informed, cost based decisions.</source>
+          <target state="new">Consequently, SQL Data Warehouse needs a lot of information to make informed, cost based decisions.</target>
+        </trans-unit>
+        <trans-unit id="5dfc6ed2-f3c8-4f41-8ce2-dc1aa4cd2408" xml:space="preserve">
+          <source>It holds statistics information about the table (for table size) and in database objects known as <bpt id="e13eb3ed-2f25-4242-862a-1d708cdb29ac">&lt;code&gt;</bpt>STATISTICS<ept id="e13eb3ed-2f25-4242-862a-1d708cdb29ac">&lt;/code&gt;</ept>.</source>
+          <target state="new">It holds statistics information about the table (for table size) and in database objects known as <bpt id="e13eb3ed-2f25-4242-862a-1d708cdb29ac">&lt;code&gt;</bpt>STATISTICS<ept id="e13eb3ed-2f25-4242-862a-1d708cdb29ac">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a813dc5d-5ace-4d80-8648-01bbc78b796d" xml:space="preserve">
+          <source>Statistics are held against single or multiple columns of indexes or tables.</source>
+          <target state="new">Statistics are held against single or multiple columns of indexes or tables.</target>
+        </trans-unit>
+        <trans-unit id="f8b24076-f200-4fa3-9d1a-689a2123ff65" xml:space="preserve">
+          <source>They provide the cost-based optimizer with important information concerning cardinality and selectivity of values.</source>
+          <target state="new">They provide the cost-based optimizer with important information concerning cardinality and selectivity of values.</target>
+        </trans-unit>
+        <trans-unit id="362a8e3e-63b5-411e-95e0-de499d87c6d3" xml:space="preserve">
+          <source>This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.</source>
+          <target state="new">This is of particular interest when the optimizer needs to evaluate JOINs, GROUP BY, HAVING and WHERE clauses in a query.</target>
+        </trans-unit>
+        <trans-unit id="c62f80a1-3bcc-4660-bd26-dc6075a3deb3" xml:space="preserve">
+          <source>It is therefore very important that the information contained in these statistics objects <bpt id="14eb9a55-cd7c-4ca6-9169-863f06bd3df7">&lt;em&gt;</bpt>accurately<ept id="14eb9a55-cd7c-4ca6-9169-863f06bd3df7">&lt;/em&gt;</ept> reflects the current state of the table.</source>
+          <target state="new">It is therefore very important that the information contained in these statistics objects <bpt id="14eb9a55-cd7c-4ca6-9169-863f06bd3df7">&lt;em&gt;</bpt>accurately<ept id="14eb9a55-cd7c-4ca6-9169-863f06bd3df7">&lt;/em&gt;</ept> reflects the current state of the table.</target>
+        </trans-unit>
+        <trans-unit id="9657c77f-edce-4f20-89a7-7f2a8ef9ce39" xml:space="preserve">
+          <source>It is vital to understand that it is the accuracy of the cost that is important.</source>
+          <target state="new">It is vital to understand that it is the accuracy of the cost that is important.</target>
+        </trans-unit>
+        <trans-unit id="a229cb98-e9be-42f2-aee3-4581ca3bbde2" xml:space="preserve">
+          <source>If the statistics accurately reflect the state of the table then plans can be compared for lowest cost.</source>
+          <target state="new">If the statistics accurately reflect the state of the table then plans can be compared for lowest cost.</target>
+        </trans-unit>
+        <trans-unit id="924726be-0d6a-4c49-86c5-72d6ac2c42bf" xml:space="preserve">
+          <source>If they aren't accurate then SQL Data Warehouse may choose the wrong plan.</source>
+          <target state="new">If they aren't accurate then SQL Data Warehouse may choose the wrong plan.</target>
+        </trans-unit>
+        <trans-unit id="a06058da-8cf1-459a-bd3d-706b2f7f0beb" xml:space="preserve">
+          <source>Column-level statistics in SQL Data Warehouse are user-defined.</source>
+          <target state="new">Column-level statistics in SQL Data Warehouse are user-defined.</target>
+        </trans-unit>
+        <trans-unit id="c98c93f8-d737-4332-8c4d-95ed298508d9" xml:space="preserve">
+          <source>In other words we have to create them ourselves.</source>
+          <target state="new">In other words we have to create them ourselves.</target>
+        </trans-unit>
+        <trans-unit id="a7748f95-c414-4255-9363-5a16dd5622fc" xml:space="preserve">
+          <source>As we have just learned, this is not something to overlook.</source>
+          <target state="new">As we have just learned, this is not something to overlook.</target>
+        </trans-unit>
+        <trans-unit id="13d479b3-60d1-4e98-bf46-e1196c25ce67" xml:space="preserve">
+          <source>This is an important difference between SQL Server and SQL Data Warehouse.</source>
+          <target state="new">This is an important difference between SQL Server and SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="6ce08505-86d6-49f9-b1a7-b9f10c0d8324" xml:space="preserve">
+          <source>SQL Server will automatically create statistics when columns are queried.</source>
+          <target state="new">SQL Server will automatically create statistics when columns are queried.</target>
+        </trans-unit>
+        <trans-unit id="796de493-a075-4fae-9d15-fa261d134d51" xml:space="preserve">
+          <source>By default, SQL Server will also automatically update those statistics.</source>
+          <target state="new">By default, SQL Server will also automatically update those statistics.</target>
+        </trans-unit>
+        <trans-unit id="dbcfc22b-a148-4086-99a7-be266be1938b" xml:space="preserve">
+          <source>However, in SQL Data Warehouse statistics need to be created manually and managed manually.</source>
+          <target state="new">However, in SQL Data Warehouse statistics need to be created manually and managed manually.</target>
+        </trans-unit>
+        <trans-unit id="2a48858a-36d2-46c5-8c6c-5f6436ff888d" xml:space="preserve">
+          <source>Apply the following recommendations for generating statistics:</source>
+          <target state="new">Apply the following recommendations for generating statistics:</target>
+        </trans-unit>
+        <trans-unit id="9e4c1cbf-14ab-4f98-b11d-02182bbb0499" xml:space="preserve">
+          <source>Create Single column statistics on columns used in <bpt id="05e3d33a-bb69-40ec-8cd0-ecd045748840">&lt;code&gt;</bpt>WHERE<ept id="05e3d33a-bb69-40ec-8cd0-ecd045748840">&lt;/code&gt;</ept>, <bpt id="77453213-2eae-4909-a187-f28da3c7b329">&lt;code&gt;</bpt>JOIN<ept id="77453213-2eae-4909-a187-f28da3c7b329">&lt;/code&gt;</ept>, <bpt id="8146e913-ca9b-4941-a47d-14b29ea122a1">&lt;code&gt;</bpt>GROUP BY<ept id="8146e913-ca9b-4941-a47d-14b29ea122a1">&lt;/code&gt;</ept>, <bpt id="34402c70-20b5-45a0-8d92-352f88b89cc0">&lt;code&gt;</bpt>ORDER BY<ept id="34402c70-20b5-45a0-8d92-352f88b89cc0">&lt;/code&gt;</ept> and <bpt id="9c5e8486-7e1a-4e99-bfdd-007eb966a9ac">&lt;code&gt;</bpt>DISTINCT<ept id="9c5e8486-7e1a-4e99-bfdd-007eb966a9ac">&lt;/code&gt;</ept> clauses</source>
+          <target state="new">Create Single column statistics on columns used in <bpt id="05e3d33a-bb69-40ec-8cd0-ecd045748840">&lt;code&gt;</bpt>WHERE<ept id="05e3d33a-bb69-40ec-8cd0-ecd045748840">&lt;/code&gt;</ept>, <bpt id="77453213-2eae-4909-a187-f28da3c7b329">&lt;code&gt;</bpt>JOIN<ept id="77453213-2eae-4909-a187-f28da3c7b329">&lt;/code&gt;</ept>, <bpt id="8146e913-ca9b-4941-a47d-14b29ea122a1">&lt;code&gt;</bpt>GROUP BY<ept id="8146e913-ca9b-4941-a47d-14b29ea122a1">&lt;/code&gt;</ept>, <bpt id="34402c70-20b5-45a0-8d92-352f88b89cc0">&lt;code&gt;</bpt>ORDER BY<ept id="34402c70-20b5-45a0-8d92-352f88b89cc0">&lt;/code&gt;</ept> and <bpt id="9c5e8486-7e1a-4e99-bfdd-007eb966a9ac">&lt;code&gt;</bpt>DISTINCT<ept id="9c5e8486-7e1a-4e99-bfdd-007eb966a9ac">&lt;/code&gt;</ept> clauses</target>
+        </trans-unit>
+        <trans-unit id="165cf444-7cf9-4ada-9f15-4ff223d5d4fb" xml:space="preserve">
+          <source>Generate multi-column statistics on composite clauses</source>
+          <target state="new">Generate multi-column statistics on composite clauses</target>
+        </trans-unit>
+        <trans-unit id="8a3102bb-26c8-467b-b217-c3f84823c216" xml:space="preserve">
+          <source>Update statistics periodically.</source>
+          <target state="new">Update statistics periodically.</target>
+        </trans-unit>
+        <trans-unit id="2adead28-18d3-49b6-8f08-84fae0219341" xml:space="preserve">
+          <source>Remember that this is not done automatically!</source>
+          <target state="new">Remember that this is not done automatically!</target>
+        </trans-unit>
+        <trans-unit id="18f9b0ed-1564-49af-bb05-5b05305b6301" xml:space="preserve">
+          <source>It is common for SQL Server Data Warehouse to rely solely on <bpt id="4cc70381-9a3d-43f7-93de-5732e03d6fa1">&lt;code&gt;</bpt>AUTOSTATS<ept id="4cc70381-9a3d-43f7-93de-5732e03d6fa1">&lt;/code&gt;</ept> to keep the column statistics up to date.</source>
+          <target state="new">It is common for SQL Server Data Warehouse to rely solely on <bpt id="4cc70381-9a3d-43f7-93de-5732e03d6fa1">&lt;code&gt;</bpt>AUTOSTATS<ept id="4cc70381-9a3d-43f7-93de-5732e03d6fa1">&lt;/code&gt;</ept> to keep the column statistics up to date.</target>
+        </trans-unit>
+        <trans-unit id="4c0fc8ff-5014-4a14-a13e-5414809deac9" xml:space="preserve">
+          <source>This is not a best practice even for SQL Server data warehouses.</source>
+          <target state="new">This is not a best practice even for SQL Server data warehouses.</target>
+        </trans-unit>
+        <trans-unit id="31d7d96f-df14-48ee-a5a8-fd073f9904fd" xml:space="preserve">
+          <source><bpt id="c7ee204f-c3ab-437f-8885-8955d2d74588">&lt;code&gt;</bpt>AUTOSTATS<ept id="c7ee204f-c3ab-437f-8885-8955d2d74588">&lt;/code&gt;</ept> are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient.</source>
+          <target state="new"><bpt id="c7ee204f-c3ab-437f-8885-8955d2d74588">&lt;code&gt;</bpt>AUTOSTATS<ept id="c7ee204f-c3ab-437f-8885-8955d2d74588">&lt;/code&gt;</ept> are triggered by a 20% rate of change which for large fact tables containing millions or billions of rows may not be sufficient.</target>
+        </trans-unit>
+        <trans-unit id="d1b11364-c9cd-4e3a-bce8-f8535c8e56ce" xml:space="preserve">
+          <source>It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.</source>
+          <target state="new">It is therefore always a good idea to keep on top of statistics updates to ensure that the statistics accurately reflect the cardinality of the table.</target>
+        </trans-unit>
+        <trans-unit id="0b474059-c2b9-47e1-90db-846de17f23b8" xml:space="preserve">
+          <source>SQL Data Warehouse does not use or support these features:</source>
+          <target state="new">SQL Data Warehouse does not use or support these features:</target>
+        </trans-unit>
+        <trans-unit id="74539abd-306a-49fe-857c-a12b01a8f446" xml:space="preserve">
+          <source>primary keys</source>
+          <target state="new">primary keys</target>
+        </trans-unit>
+        <trans-unit id="581ceff1-2e98-441b-9f6d-f419b46d8649" xml:space="preserve">
+          <source>foreign keys</source>
+          <target state="new">foreign keys</target>
+        </trans-unit>
+        <trans-unit id="59d231de-d518-42c7-b493-f4e5b8f61e10" xml:space="preserve">
+          <source>check constraints</source>
+          <target state="new">check constraints</target>
+        </trans-unit>
+        <trans-unit id="8adf29cc-dd00-47cc-bd8d-75a2525139ad" xml:space="preserve">
+          <source>unique constraints</source>
+          <target state="new">unique constraints</target>
+        </trans-unit>
+        <trans-unit id="a2a36965-2570-4750-9007-808ab5f49441" xml:space="preserve">
+          <source>unique indexes</source>
+          <target state="new">unique indexes</target>
+        </trans-unit>
+        <trans-unit id="2e8a5551-5c2b-4b8b-a3e2-093403c11c75" xml:space="preserve">
+          <source>computed columns</source>
+          <target state="new">computed columns</target>
+        </trans-unit>
+        <trans-unit id="102ae6d1-966d-4971-b00e-89d783546187" xml:space="preserve">
+          <source>sparse columns</source>
+          <target state="new">sparse columns</target>
+        </trans-unit>
+        <trans-unit id="7c91d1d0-2e18-47b2-ab37-5a91108f613b" xml:space="preserve">
+          <source>user-defined types</source>
+          <target state="new">user-defined types</target>
+        </trans-unit>
+        <trans-unit id="bd7c9a0a-bbd6-4b9b-9290-2a89a9f173a2" xml:space="preserve">
+          <source>indexed views</source>
+          <target state="new">indexed views</target>
+        </trans-unit>
+        <trans-unit id="d2afe42f-83ec-4a6f-a5af-60d3c72f46fa" xml:space="preserve">
+          <source>identities</source>
+          <target state="new">identities</target>
+        </trans-unit>
+        <trans-unit id="6c87746c-1bc9-47ea-9fa5-cfb1dfee5bc7" xml:space="preserve">
+          <source>sequences</source>
+          <target state="new">sequences</target>
+        </trans-unit>
+        <trans-unit id="51251c49-cae3-4fb8-844a-3dbb07256b81" xml:space="preserve">
+          <source>triggers</source>
+          <target state="new">triggers</target>
+        </trans-unit>
+        <trans-unit id="9d69ec44-0daf-46a3-bc57-88a4874ba38c" xml:space="preserve">
+          <source>synonyms</source>
+          <target state="new">synonyms</target>
+        </trans-unit>
+        <trans-unit id="515ff77f-bfec-43c0-a8a1-37dcbe3da65d" xml:space="preserve">
+          <source>For more development tips, see <bpt id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;linkText&gt;</bpt>development overview<ept id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;/linkText&gt;</ept><bpt id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;title&gt;</bpt><ept id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;linkText&gt;</bpt>development overview<ept id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;/linkText&gt;</ept><bpt id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;title&gt;</bpt><ept id="e655eee7-5828-4c6a-8ae7-e260585377b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="021d72ba-273b-4256-93fa-430b8c06d17b" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+      </group>
+      <group id="3c947902-3256-416c-b481-e6cb08b2dadc" />
+    </body>
+  </file>
+</xliff>

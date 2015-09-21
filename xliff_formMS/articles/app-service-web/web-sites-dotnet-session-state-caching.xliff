@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="897cc35f-d28d-42d6-a2a8-eb1f35efc817" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="897cc35f-d28d-42d6-a2a8-eb1f35efc817" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e8c1caf7-af1b-4bc1-b735-cfac36849c3e">
+        <trans-unit id="f0541bb0-8a05-4f74-953e-b4d89523c15a" xml:space="preserve">
+          <source>Session state with Azure Redis cache in Azure App Service</source>
+          <target state="new">Session state with Azure Redis cache in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="ede7fe75-d87d-423c-8bc7-b15b7e2a5e65" xml:space="preserve">
+          <source>Learn how to use the Azure Cache Service to support ASP.NET session state caching.</source>
+          <target state="new">Learn how to use the Azure Cache Service to support ASP.NET session state caching.</target>
+        </trans-unit>
+        <trans-unit id="5c9de014-0b76-423d-9efb-0a5292d0b316" xml:space="preserve">
+          <source>This topic explains how to use the Azure Redis Cache Service for session state.</source>
+          <target state="new">This topic explains how to use the Azure Redis Cache Service for session state.</target>
+        </trans-unit>
+        <trans-unit id="53e54b52-d533-4be0-ab55-17b609d3359f" xml:space="preserve">
+          <source>If your ASP.NET web app uses session state, you will need to configure an external session state provider (either the Redis Cache Service or a SQL Server session state provider).</source>
+          <target state="new">If your ASP.NET web app uses session state, you will need to configure an external session state provider (either the Redis Cache Service or a SQL Server session state provider).</target>
+        </trans-unit>
+        <trans-unit id="e4e45ead-1fa8-48cc-b043-1b4cc88631d1" xml:space="preserve">
+          <source>If you use session state, and don't use an external provider, you will be limited to one instance of your web app.</source>
+          <target state="new">If you use session state, and don't use an external provider, you will be limited to one instance of your web app.</target>
+        </trans-unit>
+        <trans-unit id="cc780abb-7ac9-4b28-b9d9-ac4e5cdc3a26" xml:space="preserve">
+          <source>The Redis Cache Service is the fastest and simplest to enable.</source>
+          <target state="new">The Redis Cache Service is the fastest and simplest to enable.</target>
+        </trans-unit>
+        <trans-unit id="ded0430d-9207-442a-8f8c-907c7cfe9413" xml:space="preserve">
+          <source>Follow <bpt id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;linkText&gt;</bpt>these directions<ept id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;/linkText&gt;</ept><bpt id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;title&gt;</bpt><ept id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;/title&gt;</ept> to create the cache.</source>
+          <target state="new">Follow <bpt id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;linkText&gt;</bpt>these directions<ept id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;/linkText&gt;</ept><bpt id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;title&gt;</bpt><ept id="e9d75b48-b329-4941-bd83-c5d9ef3e2a84">&lt;/title&gt;</ept> to create the cache.</target>
+        </trans-unit>
+        <trans-unit id="d7986eff-7a46-4e40-ac7c-8b7dd656140c" xml:space="preserve">
+          <source>Install the NuGet <bpt id="5bff82ab-a758-46b3-a0c6-dbc7dcc51983">&lt;code&gt;</bpt>RedisSessionStateProvider<ept id="5bff82ab-a758-46b3-a0c6-dbc7dcc51983">&lt;/code&gt;</ept> package.</source>
+          <target state="new">Install the NuGet <bpt id="5bff82ab-a758-46b3-a0c6-dbc7dcc51983">&lt;code&gt;</bpt>RedisSessionStateProvider<ept id="5bff82ab-a758-46b3-a0c6-dbc7dcc51983">&lt;/code&gt;</ept> package.</target>
+        </trans-unit>
+        <trans-unit id="4e58d427-1d09-4ecb-b804-e1f7fd2529bc" xml:space="preserve">
+          <source>Use the following command to install from the package manager console (<bpt id="93633328-22a9-47ad-bee1-a420dd171dcd">&lt;strong&gt;</bpt>Tools<ept id="93633328-22a9-47ad-bee1-a420dd171dcd">&lt;/strong&gt;</ept> &gt; <bpt id="b3844707-390c-48c9-be50-58cb09d385b3">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b3844707-390c-48c9-be50-58cb09d385b3">&lt;/strong&gt;</ept> &gt; <bpt id="cbdf0a92-cf83-418d-bd7b-155eac7c1081">&lt;strong&gt;</bpt>Package Manager Console<ept id="cbdf0a92-cf83-418d-bd7b-155eac7c1081">&lt;/strong&gt;</ept>):</source>
+          <target state="new">Use the following command to install from the package manager console (<bpt id="93633328-22a9-47ad-bee1-a420dd171dcd">&lt;strong&gt;</bpt>Tools<ept id="93633328-22a9-47ad-bee1-a420dd171dcd">&lt;/strong&gt;</ept> &gt; <bpt id="b3844707-390c-48c9-be50-58cb09d385b3">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="b3844707-390c-48c9-be50-58cb09d385b3">&lt;/strong&gt;</ept> &gt; <bpt id="cbdf0a92-cf83-418d-bd7b-155eac7c1081">&lt;strong&gt;</bpt>Package Manager Console<ept id="cbdf0a92-cf83-418d-bd7b-155eac7c1081">&lt;/strong&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="6ea636eb-e324-4d0f-a56c-39985ce9a01a" xml:space="preserve">
+          <source>  <bpt id="a8380e08-a346-4633-b962-31505e61b38d">&lt;code&gt;</bpt>PM&gt; Install-Package Microsoft.Web.RedisSessionStateProvider<ept id="a8380e08-a346-4633-b962-31505e61b38d">&lt;/code&gt;</ept></source>
+          <target state="new">  <bpt id="a8380e08-a346-4633-b962-31505e61b38d">&lt;code&gt;</bpt>PM&gt; Install-Package Microsoft.Web.RedisSessionStateProvider<ept id="a8380e08-a346-4633-b962-31505e61b38d">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30b03149-2a3f-4f13-b90c-6f8e92541793" xml:space="preserve">
+          <source>To install from <bpt id="a672b797-4d5a-4e26-b9b2-362cc7c5de75">&lt;strong&gt;</bpt>Tools<ept id="a672b797-4d5a-4e26-b9b2-362cc7c5de75">&lt;/strong&gt;</ept> &gt; <bpt id="d30bac09-7382-40a8-999c-9b21aad9e60f">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="d30bac09-7382-40a8-999c-9b21aad9e60f">&lt;/strong&gt;</ept> &gt; <bpt id="a279bce9-7ca8-4041-9369-cd5085251833">&lt;strong&gt;</bpt>Manage NugGet Packages for Solution<ept id="a279bce9-7ca8-4041-9369-cd5085251833">&lt;/strong&gt;</ept>, search for <bpt id="7cba060b-65db-460e-b09d-829ab89f02dd">&lt;code&gt;</bpt>RedisSessionStateProvider<ept id="7cba060b-65db-460e-b09d-829ab89f02dd">&lt;/code&gt;</ept>.</source>
+          <target state="new">To install from <bpt id="a672b797-4d5a-4e26-b9b2-362cc7c5de75">&lt;strong&gt;</bpt>Tools<ept id="a672b797-4d5a-4e26-b9b2-362cc7c5de75">&lt;/strong&gt;</ept> &gt; <bpt id="d30bac09-7382-40a8-999c-9b21aad9e60f">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="d30bac09-7382-40a8-999c-9b21aad9e60f">&lt;/strong&gt;</ept> &gt; <bpt id="a279bce9-7ca8-4041-9369-cd5085251833">&lt;strong&gt;</bpt>Manage NugGet Packages for Solution<ept id="a279bce9-7ca8-4041-9369-cd5085251833">&lt;/strong&gt;</ept>, search for <bpt id="7cba060b-65db-460e-b09d-829ab89f02dd">&lt;code&gt;</bpt>RedisSessionStateProvider<ept id="7cba060b-65db-460e-b09d-829ab89f02dd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86cb6681-ad3a-4026-a428-abcf08758e49" xml:space="preserve">
+          <source>For more information see the <bpt id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;linkText&gt;</bpt>NuGet RedisSessionStateProvider page<ept id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;/linkText&gt;</ept><bpt id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;title&gt;</bpt><ept id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;/title&gt;</ept> and <bpt id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;linkText&gt;</bpt>Configure the cache client<ept id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;/linkText&gt;</ept><bpt id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;title&gt;</bpt><ept id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see the <bpt id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;linkText&gt;</bpt>NuGet RedisSessionStateProvider page<ept id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;/linkText&gt;</ept><bpt id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;title&gt;</bpt><ept id="3834d488-e2e0-4f35-a928-1c8658e4cecd">&lt;/title&gt;</ept> and <bpt id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;linkText&gt;</bpt>Configure the cache client<ept id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;/linkText&gt;</ept><bpt id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;title&gt;</bpt><ept id="2a1a0331-b8af-4353-930e-c06737f46a22">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dbe80cf9-0b7c-4dc1-b5f7-616f197b88ca" xml:space="preserve">
+          <source>In addition to making assembly references for Cache, the NuGet package adds stub entries in the <bpt id="0caabcb9-f9ae-417a-94fc-30b69217f007">&lt;em&gt;</bpt>web.config<ept id="0caabcb9-f9ae-417a-94fc-30b69217f007">&lt;/em&gt;</ept> file.</source>
+          <target state="new">In addition to making assembly references for Cache, the NuGet package adds stub entries in the <bpt id="0caabcb9-f9ae-417a-94fc-30b69217f007">&lt;em&gt;</bpt>web.config<ept id="0caabcb9-f9ae-417a-94fc-30b69217f007">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="fc3bd106-8c86-4106-a897-7ebdeeb7dd87" xml:space="preserve">
+          <source>Open the <bpt id="ec96c434-3ee3-487f-a3c4-e97bc0740b5a">&lt;em&gt;</bpt>web.config<ept id="ec96c434-3ee3-487f-a3c4-e97bc0740b5a">&lt;/em&gt;</ept> and find the the <bpt id="e7a08a67-e67b-4759-8a22-60bbe058d392">&lt;strong&gt;</bpt>sessionState<ept id="e7a08a67-e67b-4759-8a22-60bbe058d392">&lt;/strong&gt;</ept> element.</source>
+          <target state="new">Open the <bpt id="ec96c434-3ee3-487f-a3c4-e97bc0740b5a">&lt;em&gt;</bpt>web.config<ept id="ec96c434-3ee3-487f-a3c4-e97bc0740b5a">&lt;/em&gt;</ept> and find the the <bpt id="e7a08a67-e67b-4759-8a22-60bbe058d392">&lt;strong&gt;</bpt>sessionState<ept id="e7a08a67-e67b-4759-8a22-60bbe058d392">&lt;/strong&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="97a21643-c839-4956-8bf5-ed57af4b8bc6" xml:space="preserve">
+          <source>Enter the values for <bpt id="6f1e33d6-2b95-48a1-8d85-118ae630a2e7">&lt;code&gt;</bpt>host<ept id="6f1e33d6-2b95-48a1-8d85-118ae630a2e7">&lt;/code&gt;</ept>, <bpt id="66282c86-46a2-4c3c-8930-97f83500308f">&lt;code&gt;</bpt>accessKey<ept id="66282c86-46a2-4c3c-8930-97f83500308f">&lt;/code&gt;</ept>, <bpt id="63990794-f3e7-4667-8214-71a047010ca6">&lt;code&gt;</bpt>port<ept id="63990794-f3e7-4667-8214-71a047010ca6">&lt;/code&gt;</ept> (the SSL port should be 6380), and set <bpt id="8da74a37-1111-4dfd-92a2-aecf3754fb3b">&lt;code&gt;</bpt>SSL<ept id="8da74a37-1111-4dfd-92a2-aecf3754fb3b">&lt;/code&gt;</ept> to <bpt id="76073d19-69ce-4814-9c03-0af61b6d1b4b">&lt;code&gt;</bpt>true<ept id="76073d19-69ce-4814-9c03-0af61b6d1b4b">&lt;/code&gt;</ept>.</source>
+          <target state="new">Enter the values for <bpt id="6f1e33d6-2b95-48a1-8d85-118ae630a2e7">&lt;code&gt;</bpt>host<ept id="6f1e33d6-2b95-48a1-8d85-118ae630a2e7">&lt;/code&gt;</ept>, <bpt id="66282c86-46a2-4c3c-8930-97f83500308f">&lt;code&gt;</bpt>accessKey<ept id="66282c86-46a2-4c3c-8930-97f83500308f">&lt;/code&gt;</ept>, <bpt id="63990794-f3e7-4667-8214-71a047010ca6">&lt;code&gt;</bpt>port<ept id="63990794-f3e7-4667-8214-71a047010ca6">&lt;/code&gt;</ept> (the SSL port should be 6380), and set <bpt id="8da74a37-1111-4dfd-92a2-aecf3754fb3b">&lt;code&gt;</bpt>SSL<ept id="8da74a37-1111-4dfd-92a2-aecf3754fb3b">&lt;/code&gt;</ept> to <bpt id="76073d19-69ce-4814-9c03-0af61b6d1b4b">&lt;code&gt;</bpt>true<ept id="76073d19-69ce-4814-9c03-0af61b6d1b4b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b4e9bbf2-3608-4517-9027-2cac3591f532" xml:space="preserve">
+          <source>These values can be obtained from the <bpt id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;linkText&gt;</bpt>Azure Portal<ept id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;/linkText&gt;</ept><bpt id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;title&gt;</bpt><ept id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;/title&gt;</ept> blade for your cache instance.</source>
+          <target state="new">These values can be obtained from the <bpt id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;linkText&gt;</bpt>Azure Portal<ept id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;/linkText&gt;</ept><bpt id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;title&gt;</bpt><ept id="6f86e066-2aeb-4a17-8a3a-e494e4ed45a2">&lt;/title&gt;</ept> blade for your cache instance.</target>
+        </trans-unit>
+        <trans-unit id="b63220ce-9ea7-48e1-92e6-4de615fbff76" xml:space="preserve">
+          <source>For more information, see <bpt id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;linkText&gt;</bpt>Connect to the cache<ept id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;/linkText&gt;</ept><bpt id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;title&gt;</bpt><ept id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;linkText&gt;</bpt>Connect to the cache<ept id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;/linkText&gt;</ept><bpt id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;title&gt;</bpt><ept id="30be244b-0aa0-4b57-b25a-472f2d9ae397">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b963b701-1bcb-4ed3-9a79-6c169d659f86" xml:space="preserve">
+          <source>Note that the non-SSL port is disabled by default for new caches.</source>
+          <target state="new">Note that the non-SSL port is disabled by default for new caches.</target>
+        </trans-unit>
+        <trans-unit id="80cb6185-95fb-4d5f-bb6b-694bbbed401b" xml:space="preserve">
+          <source>For more information about enabling the non-SSL port, see the <bpt id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;linkText&gt;</bpt>Access Ports<ept id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;/linkText&gt;</ept><bpt id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;title&gt;</bpt><ept id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;/title&gt;</ept> section in the <bpt id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;linkText&gt;</bpt>Configure a cache in Azure Redis Cache<ept id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;/linkText&gt;</ept><bpt id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;title&gt;</bpt><ept id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">For more information about enabling the non-SSL port, see the <bpt id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;linkText&gt;</bpt>Access Ports<ept id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;/linkText&gt;</ept><bpt id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;title&gt;</bpt><ept id="e5a40a5e-dac3-49b3-9423-c2fe126efdf9">&lt;/title&gt;</ept> section in the <bpt id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;linkText&gt;</bpt>Configure a cache in Azure Redis Cache<ept id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;/linkText&gt;</ept><bpt id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;title&gt;</bpt><ept id="16f76e90-2f2b-4d81-b0b3-55f62aceed5c">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="955692e4-8a23-4da3-b434-42af8cf564f8" xml:space="preserve">
+          <source>The following markup shows the changes to the <bpt id="9f16fcb6-f470-482b-bd8e-9c7acaf563c0">&lt;em&gt;</bpt>web.config<ept id="9f16fcb6-f470-482b-bd8e-9c7acaf563c0">&lt;/em&gt;</ept> file, specifically the changes to <bpt id="74a67bf7-7a80-4640-95be-2a54b8512133">&lt;em&gt;</bpt>port<ept id="74a67bf7-7a80-4640-95be-2a54b8512133">&lt;/em&gt;</ept>, <bpt id="43fddff7-77bf-4440-b9ea-23a80de65512">&lt;em&gt;</bpt>host<ept id="43fddff7-77bf-4440-b9ea-23a80de65512">&lt;/em&gt;</ept>, accessKey<bpt id="057294a4-fa3d-401e-b87e-59d2d506c210">&lt;em&gt;</bpt>, and *ssl<ept id="057294a4-fa3d-401e-b87e-59d2d506c210">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following markup shows the changes to the <bpt id="9f16fcb6-f470-482b-bd8e-9c7acaf563c0">&lt;em&gt;</bpt>web.config<ept id="9f16fcb6-f470-482b-bd8e-9c7acaf563c0">&lt;/em&gt;</ept> file, specifically the changes to <bpt id="74a67bf7-7a80-4640-95be-2a54b8512133">&lt;em&gt;</bpt>port<ept id="74a67bf7-7a80-4640-95be-2a54b8512133">&lt;/em&gt;</ept>, <bpt id="43fddff7-77bf-4440-b9ea-23a80de65512">&lt;em&gt;</bpt>host<ept id="43fddff7-77bf-4440-b9ea-23a80de65512">&lt;/em&gt;</ept>, accessKey<bpt id="057294a4-fa3d-401e-b87e-59d2d506c210">&lt;em&gt;</bpt>, and *ssl<ept id="057294a4-fa3d-401e-b87e-59d2d506c210">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a358e60e-83df-44eb-9de0-bd5a85f9a4ba" xml:space="preserve">
+          <source>The final step is to begin using the Session object in your ASP.NET code.</source>
+          <target state="new">The final step is to begin using the Session object in your ASP.NET code.</target>
+        </trans-unit>
+        <trans-unit id="588020e5-c14b-4b63-b53d-fe4529650756" xml:space="preserve">
+          <source>You add objects to session state by using the <bpt id="64fb6735-6b33-4ff9-8ad5-5b09b396c62c">&lt;strong&gt;</bpt>Session.Add<ept id="64fb6735-6b33-4ff9-8ad5-5b09b396c62c">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">You add objects to session state by using the <bpt id="64fb6735-6b33-4ff9-8ad5-5b09b396c62c">&lt;strong&gt;</bpt>Session.Add<ept id="64fb6735-6b33-4ff9-8ad5-5b09b396c62c">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="bcb9023a-be73-4618-bcda-19951fba2409" xml:space="preserve">
+          <source>This method uses key-value pairs to store items in the session state cache.</source>
+          <target state="new">This method uses key-value pairs to store items in the session state cache.</target>
+        </trans-unit>
+        <trans-unit id="e29e5b6f-b8f2-424f-8076-cc32320ad6c2" xml:space="preserve">
+          <source>The following code retrieves this value from session state.</source>
+          <target state="new">The following code retrieves this value from session state.</target>
+        </trans-unit>
+        <trans-unit id="58bf69cf-d992-4908-a3c6-fbdc1a906e8b" xml:space="preserve">
+          <source>You can also use the Redis Cache to cache objects in your web app.</source>
+          <target state="new">You can also use the Redis Cache to cache objects in your web app.</target>
+        </trans-unit>
+        <trans-unit id="7308c401-ce18-4912-9c5d-962f62d777d8" xml:space="preserve">
+          <source>For more info, see <bpt id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;linkText&gt;</bpt>MVC movie app with Azure Redis Cache in 15 minutes<ept id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;/linkText&gt;</ept><bpt id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;title&gt;</bpt><ept id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more info, see <bpt id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;linkText&gt;</bpt>MVC movie app with Azure Redis Cache in 15 minutes<ept id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;/linkText&gt;</ept><bpt id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;title&gt;</bpt><ept id="e28ad6d5-d428-468d-ac1c-28044df483a0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7af5dd85-a4d8-4297-a3ba-095483411a52" xml:space="preserve">
+          <source>For more details about how to use ASP.NET session state, see <bpt id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;linkText&gt;</bpt>ASP.NET Session State Overview<ept id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;/linkText&gt;</ept><bpt id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;title&gt;</bpt><ept id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about how to use ASP.NET session state, see <bpt id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;linkText&gt;</bpt>ASP.NET Session State Overview<ept id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;/linkText&gt;</ept><bpt id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;title&gt;</bpt><ept id="6fbba710-1acb-4cb2-8206-7191cda86514">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb436507-f79e-4516-93c5-efc0a65b1dcc" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;linkText&gt;</bpt>Try App Service<ept id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;/linkText&gt;</ept><bpt id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;title&gt;</bpt><ept id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;linkText&gt;</bpt>Try App Service<ept id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;/linkText&gt;</ept><bpt id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;title&gt;</bpt><ept id="dd8004a3-400a-491b-919a-29d9398760e5">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="46ce48be-dc93-412a-806d-b85cf8cf3c2c" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="1e3fe545-8a59-4695-afb4-391f2dba8754" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;/linkText&gt;</ept><bpt id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;title&gt;</bpt><ept id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;/linkText&gt;</ept><bpt id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;title&gt;</bpt><ept id="7d7cae64-ba8b-486d-918e-79b4dbcd7b72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08d7fe3f-40ea-48ba-8e87-b092b227dddd" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;/linkText&gt;</ept><bpt id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;title&gt;</bpt><ept id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;/linkText&gt;</ept><bpt id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;title&gt;</bpt><ept id="ea008a16-43bc-4a51-a455-7be9866fe048">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97abbcb0-1a66-44d2-a1cf-891d0fb88ebb" xml:space="preserve">
+          <source><bpt id="83f37446-426f-4cd3-b121-61645516ef6b">&lt;em&gt;</bpt>By [Rick Anderson](https://twitter.com/RickAndMSFT)<ept id="83f37446-426f-4cd3-b121-61645516ef6b">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="83f37446-426f-4cd3-b121-61645516ef6b">&lt;em&gt;</bpt>By [Rick Anderson](https://twitter.com/RickAndMSFT)<ept id="83f37446-426f-4cd3-b121-61645516ef6b">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d39ac0e-35e8-457e-ae05-d8ededb036e8" xml:space="preserve">
+          <source>http://www.windowsazure.com/downloads/?sdk=net</source>
+          <target state="new">http://www.windowsazure.com/downloads/?sdk=net</target>
+        </trans-unit>
+        <trans-unit id="8fbbccb8-9d13-47b9-84a1-52c4fd792bf6" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/ms178581.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/ms178581.aspx</target>
+        </trans-unit>
+        <trans-unit id="33ba8df3-e278-48f5-870c-873f9ffde828" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png</target>
+        </trans-unit>
+        <trans-unit id="65fc6eef-9d2e-4415-b5b9-07a9542b0830" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CreateOptions.png</target>
+        </trans-unit>
+        <trans-unit id="9cab18d7-12c9-4f0f-8eb9-1a174b9a1b80" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheIcon.png</target>
+        </trans-unit>
+        <trans-unit id="d26e66fd-d82b-4ce2-858b-c1b8cb6e6474" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_NuGet.png</target>
+        </trans-unit>
+        <trans-unit id="2457c4be-472e-4a33-b24a-21cb9449fd55" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png</target>
+        </trans-unit>
+        <trans-unit id="fda8590b-ac29-4066-9ff0-f926abd1bcfc" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png</target>
+        </trans-unit>
+        <trans-unit id="f6feadd6-22f7-4e55-9ed9-f3ecd25d79cc" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png</target>
+        </trans-unit>
+        <trans-unit id="c1cc23fc-e1ba-4e92-b876-fb8855d5c756" xml:space="preserve">
+          <source>./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png</source>
+          <target state="new">./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png</target>
+        </trans-unit>
+      </group>
+      <group id="6c7a2535-7e66-4038-9a8d-6aca3e1bcad2" />
+    </body>
+  </file>
+</xliff>

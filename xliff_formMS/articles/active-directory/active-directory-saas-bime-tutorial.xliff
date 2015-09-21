@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ab4efb99-6063-48cf-890e-d19c27071d67" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ab4efb99-6063-48cf-890e-d19c27071d67" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f131bdd3-a0a6-481b-ac92-d1f796139e98">
+        <trans-unit id="2340262a-2171-463f-8e44-2ec62aab4727" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Bime | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Bime | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="108ab995-0811-4b8a-99a0-e955fde60062" xml:space="preserve">
+          <source>Learn how to use Bime with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Bime with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="0859996f-acb2-4bea-9869-1285d169cac4" xml:space="preserve">
+          <source>For feedback, click <bpt id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;linkText&gt;</bpt>here<ept id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;/linkText&gt;</ept><bpt id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;title&gt;</bpt><ept id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;linkText&gt;</bpt>here<ept id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;/linkText&gt;</ept><bpt id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;title&gt;</bpt><ept id="318d3bff-2d46-4f4b-a136-be1c5afe9ec0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7312a96-ac0e-4c5a-b5bf-d6823bb62add" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Bime.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Bime.</target>
+        </trans-unit>
+        <trans-unit id="5fb0ed2f-e32c-441a-8467-b23aabab95f5" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="e168358f-9bfc-4b4c-b29a-9229a0697887" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="ddbacf61-f82c-4c01-bfa1-36eb2fe8914e" xml:space="preserve">
+          <source>A Bime tenant</source>
+          <target state="new">A Bime tenant</target>
+        </trans-unit>
+        <trans-unit id="7656bc95-3980-418f-aece-ddf50a9b76f1" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Bime will be able to single sign into the application at your Bime company site (service provider initiated sign on), or using the <bpt id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;/linkText&gt;</ept><bpt id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;title&gt;</bpt><ept id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Bime will be able to single sign into the application at your Bime company site (service provider initiated sign on), or using the <bpt id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;/linkText&gt;</ept><bpt id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;title&gt;</bpt><ept id="a32507b2-3255-406e-977b-85f1ba56e1d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ee4fba8-b1f0-4668-8a36-5400d5680495" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="b2a090a0-8df4-4485-a88d-b4ac1655738b" xml:space="preserve">
+          <source>Enabling the application integration for Bime</source>
+          <target state="new">Enabling the application integration for Bime</target>
+        </trans-unit>
+        <trans-unit id="f64e282b-36fc-45f6-8827-2a293f4acdfa" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="0c0abfcd-a5fc-4dfe-9e03-37a816423d76" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="8f221b9a-5dad-460f-b52e-2fbdd33a5acb" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="fc268e62-bd0e-41bd-81e9-59afbd2ac3e9" xml:space="preserve">
+          <source><bpt id="6d724d7d-8e5c-49b8-a063-40f1fc6b7e3e">&lt;linkText&gt;</bpt>Scenario<ept id="6d724d7d-8e5c-49b8-a063-40f1fc6b7e3e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d724d7d-8e5c-49b8-a063-40f1fc6b7e3e">&lt;linkText&gt;</bpt>Scenario<ept id="6d724d7d-8e5c-49b8-a063-40f1fc6b7e3e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a9194f7-fa0d-4242-bb15-1ddc4e1f3197" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Bime.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Bime.</target>
+        </trans-unit>
+        <trans-unit id="ee18c09f-e590-492b-b00a-d3b5f4d4eedc" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="6f55950e-7db7-4713-9a99-5c21a1a361e8">&lt;strong&gt;</bpt>Active Directory<ept id="6f55950e-7db7-4713-9a99-5c21a1a361e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="6f55950e-7db7-4713-9a99-5c21a1a361e8">&lt;strong&gt;</bpt>Active Directory<ept id="6f55950e-7db7-4713-9a99-5c21a1a361e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a628fc5-64bd-494f-bc34-604e7b975f6e" xml:space="preserve">
+          <source><bpt id="83cfe5ef-c1c8-42a7-9c3b-563f8285a591">&lt;linkText&gt;</bpt>Active Directory<ept id="83cfe5ef-c1c8-42a7-9c3b-563f8285a591">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83cfe5ef-c1c8-42a7-9c3b-563f8285a591">&lt;linkText&gt;</bpt>Active Directory<ept id="83cfe5ef-c1c8-42a7-9c3b-563f8285a591">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f91f117f-aa80-465b-98c5-ec50bbf710ab" xml:space="preserve">
+          <source>From the <bpt id="9b38f886-6524-45d5-b69e-76317cd777cc">&lt;strong&gt;</bpt>Directory<ept id="9b38f886-6524-45d5-b69e-76317cd777cc">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="9b38f886-6524-45d5-b69e-76317cd777cc">&lt;strong&gt;</bpt>Directory<ept id="9b38f886-6524-45d5-b69e-76317cd777cc">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="0d818cd3-48de-42e7-9a42-c5c1f5bd9825" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="2ab8e7d6-00ee-4678-ab1f-fec4a67e9e32">&lt;strong&gt;</bpt>Applications<ept id="2ab8e7d6-00ee-4678-ab1f-fec4a67e9e32">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="2ab8e7d6-00ee-4678-ab1f-fec4a67e9e32">&lt;strong&gt;</bpt>Applications<ept id="2ab8e7d6-00ee-4678-ab1f-fec4a67e9e32">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="78a130bc-34d5-4cad-a435-c96f731c0847" xml:space="preserve">
+          <source><bpt id="f6bd7286-c949-4320-b666-bd6c6b4e510c">&lt;linkText&gt;</bpt>Applications<ept id="f6bd7286-c949-4320-b666-bd6c6b4e510c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6bd7286-c949-4320-b666-bd6c6b4e510c">&lt;linkText&gt;</bpt>Applications<ept id="f6bd7286-c949-4320-b666-bd6c6b4e510c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="975cf9e9-2070-456b-9843-0201932e7a13" xml:space="preserve">
+          <source>Click <bpt id="52cbcd5a-fe52-44d2-92f8-ea682529630e">&lt;strong&gt;</bpt>Add<ept id="52cbcd5a-fe52-44d2-92f8-ea682529630e">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="52cbcd5a-fe52-44d2-92f8-ea682529630e">&lt;strong&gt;</bpt>Add<ept id="52cbcd5a-fe52-44d2-92f8-ea682529630e">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="5fbf1dd7-ff31-459d-97c4-3ab50bf24e29" xml:space="preserve">
+          <source><bpt id="6e39901e-c531-486c-8239-1b2d644087c2">&lt;linkText&gt;</bpt>Add application<ept id="6e39901e-c531-486c-8239-1b2d644087c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e39901e-c531-486c-8239-1b2d644087c2">&lt;linkText&gt;</bpt>Add application<ept id="6e39901e-c531-486c-8239-1b2d644087c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="874c27a5-7cab-4fe1-8118-94183f62313a" xml:space="preserve">
+          <source>On the <bpt id="cac2fbc4-afa1-42a0-89f7-78ee5e058eb4">&lt;strong&gt;</bpt>What do you want to do<ept id="cac2fbc4-afa1-42a0-89f7-78ee5e058eb4">&lt;/strong&gt;</ept> dialog, click <bpt id="a359dd74-763a-4625-bd9d-cb0f3d6cc328">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a359dd74-763a-4625-bd9d-cb0f3d6cc328">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="cac2fbc4-afa1-42a0-89f7-78ee5e058eb4">&lt;strong&gt;</bpt>What do you want to do<ept id="cac2fbc4-afa1-42a0-89f7-78ee5e058eb4">&lt;/strong&gt;</ept> dialog, click <bpt id="a359dd74-763a-4625-bd9d-cb0f3d6cc328">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="a359dd74-763a-4625-bd9d-cb0f3d6cc328">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="264a5b72-f3c5-4901-aad7-9572fb44eaaf" xml:space="preserve">
+          <source><bpt id="91fc8d01-27d5-4409-8f0b-a537a66c8663">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="91fc8d01-27d5-4409-8f0b-a537a66c8663">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="91fc8d01-27d5-4409-8f0b-a537a66c8663">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="91fc8d01-27d5-4409-8f0b-a537a66c8663">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8dcc2c1-11d5-4cbc-bd06-e281421a690f" xml:space="preserve">
+          <source>In the <bpt id="1be2c2f0-aa91-427a-aa2c-bd217b479901">&lt;strong&gt;</bpt>search box<ept id="1be2c2f0-aa91-427a-aa2c-bd217b479901">&lt;/strong&gt;</ept>, type <bpt id="5b37872e-916c-4a79-98c3-1ca0aeb8dbff">&lt;strong&gt;</bpt>Bime<ept id="5b37872e-916c-4a79-98c3-1ca0aeb8dbff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1be2c2f0-aa91-427a-aa2c-bd217b479901">&lt;strong&gt;</bpt>search box<ept id="1be2c2f0-aa91-427a-aa2c-bd217b479901">&lt;/strong&gt;</ept>, type <bpt id="5b37872e-916c-4a79-98c3-1ca0aeb8dbff">&lt;strong&gt;</bpt>Bime<ept id="5b37872e-916c-4a79-98c3-1ca0aeb8dbff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51288525-3561-411d-8468-45628abea1ad" xml:space="preserve">
+          <source><bpt id="613e74f2-da06-426f-b8e6-ef20a266873c">&lt;linkText&gt;</bpt>Application Gallery<ept id="613e74f2-da06-426f-b8e6-ef20a266873c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="613e74f2-da06-426f-b8e6-ef20a266873c">&lt;linkText&gt;</bpt>Application Gallery<ept id="613e74f2-da06-426f-b8e6-ef20a266873c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e41cffb-f2e2-4cbe-9bd1-c2008cd2fe3f" xml:space="preserve">
+          <source>In the results pane, select <bpt id="09044cd1-e536-4c00-8592-b392656781d4">&lt;strong&gt;</bpt>Bime<ept id="09044cd1-e536-4c00-8592-b392656781d4">&lt;/strong&gt;</ept>, and then click <bpt id="ae30cf33-1902-4620-b37e-e7a1021ac9ea">&lt;strong&gt;</bpt>Complete<ept id="ae30cf33-1902-4620-b37e-e7a1021ac9ea">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="09044cd1-e536-4c00-8592-b392656781d4">&lt;strong&gt;</bpt>Bime<ept id="09044cd1-e536-4c00-8592-b392656781d4">&lt;/strong&gt;</ept>, and then click <bpt id="ae30cf33-1902-4620-b37e-e7a1021ac9ea">&lt;strong&gt;</bpt>Complete<ept id="ae30cf33-1902-4620-b37e-e7a1021ac9ea">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="901160cf-835e-42d5-8162-1d028fd4b03f" xml:space="preserve">
+          <source><bpt id="685eb1f2-a448-4f6b-9341-23b2593dbad2">&lt;linkText&gt;</bpt>Bime<ept id="685eb1f2-a448-4f6b-9341-23b2593dbad2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="685eb1f2-a448-4f6b-9341-23b2593dbad2">&lt;linkText&gt;</bpt>Bime<ept id="685eb1f2-a448-4f6b-9341-23b2593dbad2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a196b8ed-55d7-47a7-8788-9f057d1647d3" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Bime with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Bime with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="d6ac948d-23a1-45ea-a884-7393d16766cb" xml:space="preserve">
+          <source>Configuring single sign-on for Bime requires you to retrieve a thumbprint value from a certificate.</source>
+          <target state="new">Configuring single sign-on for Bime requires you to retrieve a thumbprint value from a certificate.</target>
+        </trans-unit>
+        <trans-unit id="4c31b726-f4e4-46f0-9062-f814e1ba1bd6" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;/linkText&gt;</ept><bpt id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;title&gt;</bpt><ept id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;/linkText&gt;</ept><bpt id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;title&gt;</bpt><ept id="e256a795-ef8f-47ec-bedd-7c982e9abca0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfb56211-786d-4fff-b375-322f5dcaf5bb" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="4a6ae6ba-038d-46b3-8b12-37870cc47ddb">&lt;strong&gt;</bpt>Bime<ept id="4a6ae6ba-038d-46b3-8b12-37870cc47ddb">&lt;/strong&gt;</ept> application integration page, click <bpt id="d9636f37-470b-4629-ac2c-839177edb152">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d9636f37-470b-4629-ac2c-839177edb152">&lt;/strong&gt;</ept> to open the <bpt id="da4db7b7-c5e8-4cd1-8a4b-d6a68cc2e413">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="da4db7b7-c5e8-4cd1-8a4b-d6a68cc2e413">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="4a6ae6ba-038d-46b3-8b12-37870cc47ddb">&lt;strong&gt;</bpt>Bime<ept id="4a6ae6ba-038d-46b3-8b12-37870cc47ddb">&lt;/strong&gt;</ept> application integration page, click <bpt id="d9636f37-470b-4629-ac2c-839177edb152">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d9636f37-470b-4629-ac2c-839177edb152">&lt;/strong&gt;</ept> to open the <bpt id="da4db7b7-c5e8-4cd1-8a4b-d6a68cc2e413">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="da4db7b7-c5e8-4cd1-8a4b-d6a68cc2e413">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="2eafabd8-d792-4ad7-b2a0-3acb2a19c16d" xml:space="preserve">
+          <source><bpt id="e3ffacea-6920-46a4-a2a5-033b0d99e51d">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="e3ffacea-6920-46a4-a2a5-033b0d99e51d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3ffacea-6920-46a4-a2a5-033b0d99e51d">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="e3ffacea-6920-46a4-a2a5-033b0d99e51d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c73130a-818c-43b7-a145-e5336c9f29b6" xml:space="preserve">
+          <source>On the <bpt id="e0cca328-8cc1-4f9a-8221-1f54b3f8dc84">&lt;strong&gt;</bpt>How would you like users to sign on to Bime<ept id="e0cca328-8cc1-4f9a-8221-1f54b3f8dc84">&lt;/strong&gt;</ept> page, select <bpt id="5745d43b-1db7-438b-ad60-18cac6c66df5">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="5745d43b-1db7-438b-ad60-18cac6c66df5">&lt;/strong&gt;</ept>, and then click <bpt id="6704316a-7e33-4ec2-8829-908c297e8bf2">&lt;strong&gt;</bpt>Next<ept id="6704316a-7e33-4ec2-8829-908c297e8bf2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e0cca328-8cc1-4f9a-8221-1f54b3f8dc84">&lt;strong&gt;</bpt>How would you like users to sign on to Bime<ept id="e0cca328-8cc1-4f9a-8221-1f54b3f8dc84">&lt;/strong&gt;</ept> page, select <bpt id="5745d43b-1db7-438b-ad60-18cac6c66df5">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="5745d43b-1db7-438b-ad60-18cac6c66df5">&lt;/strong&gt;</ept>, and then click <bpt id="6704316a-7e33-4ec2-8829-908c297e8bf2">&lt;strong&gt;</bpt>Next<ept id="6704316a-7e33-4ec2-8829-908c297e8bf2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8525add-cbaf-4383-9a9e-e0c5c3c9be4b" xml:space="preserve">
+          <source><bpt id="cc3fc757-fe0e-4448-8603-d2f89bd2c5d6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cc3fc757-fe0e-4448-8603-d2f89bd2c5d6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc3fc757-fe0e-4448-8603-d2f89bd2c5d6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="cc3fc757-fe0e-4448-8603-d2f89bd2c5d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="efe5f476-85cc-42ea-b72a-e28083aabe0e" xml:space="preserve">
+          <source>On the <bpt id="e8db6f1d-4228-4fe0-a293-de8298b38327">&lt;strong&gt;</bpt>Configure App URL<ept id="e8db6f1d-4228-4fe0-a293-de8298b38327">&lt;/strong&gt;</ept> page, in the <bpt id="85b9a7df-ac88-4eac-91b6-f7002eb93745">&lt;strong&gt;</bpt>Bime Sign In URL<ept id="85b9a7df-ac88-4eac-91b6-f7002eb93745">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="41f20ea5-610b-43d8-9500-368891d72c1b">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Bimeapp.com<ept id="41f20ea5-610b-43d8-9500-368891d72c1b">&lt;/em&gt;</ept>", and then click <bpt id="27b9ce57-f1b2-4243-ad5e-a94660331cec">&lt;strong&gt;</bpt>Next<ept id="27b9ce57-f1b2-4243-ad5e-a94660331cec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="e8db6f1d-4228-4fe0-a293-de8298b38327">&lt;strong&gt;</bpt>Configure App URL<ept id="e8db6f1d-4228-4fe0-a293-de8298b38327">&lt;/strong&gt;</ept> page, in the <bpt id="85b9a7df-ac88-4eac-91b6-f7002eb93745">&lt;strong&gt;</bpt>Bime Sign In URL<ept id="85b9a7df-ac88-4eac-91b6-f7002eb93745">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="41f20ea5-610b-43d8-9500-368891d72c1b">&lt;em&gt;</bpt>https://\&lt;tenant-name\&gt;.Bimeapp.com<ept id="41f20ea5-610b-43d8-9500-368891d72c1b">&lt;/em&gt;</ept>", and then click <bpt id="27b9ce57-f1b2-4243-ad5e-a94660331cec">&lt;strong&gt;</bpt>Next<ept id="27b9ce57-f1b2-4243-ad5e-a94660331cec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c91861d0-8851-4d4a-b55d-66b3ba3bb6bf" xml:space="preserve">
+          <source><bpt id="6dd3046a-1796-4f8e-8eaa-67c109874ec9">&lt;linkText&gt;</bpt>Configure App URL<ept id="6dd3046a-1796-4f8e-8eaa-67c109874ec9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6dd3046a-1796-4f8e-8eaa-67c109874ec9">&lt;linkText&gt;</bpt>Configure App URL<ept id="6dd3046a-1796-4f8e-8eaa-67c109874ec9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4bd6373-4af7-400a-94a8-1e07962ec5d6" xml:space="preserve">
+          <source>On the <bpt id="f052715e-28f0-48fc-bdd3-a2f0f81d717f">&lt;strong&gt;</bpt>Configure single sign-on at Bime<ept id="f052715e-28f0-48fc-bdd3-a2f0f81d717f">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="d6c50f10-d50e-43c3-bb95-350cf08b5df2">&lt;strong&gt;</bpt>Download certificate<ept id="d6c50f10-d50e-43c3-bb95-350cf08b5df2">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="ae2875f4-42f5-48f1-bfed-35452b4c5e72">&lt;strong&gt;</bpt>c:\\Bime.cer<ept id="ae2875f4-42f5-48f1-bfed-35452b4c5e72">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f052715e-28f0-48fc-bdd3-a2f0f81d717f">&lt;strong&gt;</bpt>Configure single sign-on at Bime<ept id="f052715e-28f0-48fc-bdd3-a2f0f81d717f">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="d6c50f10-d50e-43c3-bb95-350cf08b5df2">&lt;strong&gt;</bpt>Download certificate<ept id="d6c50f10-d50e-43c3-bb95-350cf08b5df2">&lt;/strong&gt;</ept>, and then save the certificate file locally as <bpt id="ae2875f4-42f5-48f1-bfed-35452b4c5e72">&lt;strong&gt;</bpt>c:\\Bime.cer<ept id="ae2875f4-42f5-48f1-bfed-35452b4c5e72">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b90c7dad-13b1-4462-9aa7-467e37362bf8" xml:space="preserve">
+          <source><bpt id="3388f52d-6e98-4ba7-b42b-3fbe5b2280f6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3388f52d-6e98-4ba7-b42b-3fbe5b2280f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3388f52d-6e98-4ba7-b42b-3fbe5b2280f6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3388f52d-6e98-4ba7-b42b-3fbe5b2280f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd7c888a-8243-4f00-9bdb-f067fdcc25cc" xml:space="preserve">
+          <source>In a different web browser window, log into your Bime company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Bime company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="4cb69355-59f4-42f8-8319-7d9de7e280c5" xml:space="preserve">
+          <source>In the toolbar, click <bpt id="4889ef0d-f784-49a4-8b0c-c8c44f95a0a0">&lt;strong&gt;</bpt>Admin<ept id="4889ef0d-f784-49a4-8b0c-c8c44f95a0a0">&lt;/strong&gt;</ept>, and then <bpt id="1633ed40-f0fa-4078-a5fa-4ed3e6f8162d">&lt;strong&gt;</bpt>Account<ept id="1633ed40-f0fa-4078-a5fa-4ed3e6f8162d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar, click <bpt id="4889ef0d-f784-49a4-8b0c-c8c44f95a0a0">&lt;strong&gt;</bpt>Admin<ept id="4889ef0d-f784-49a4-8b0c-c8c44f95a0a0">&lt;/strong&gt;</ept>, and then <bpt id="1633ed40-f0fa-4078-a5fa-4ed3e6f8162d">&lt;strong&gt;</bpt>Account<ept id="1633ed40-f0fa-4078-a5fa-4ed3e6f8162d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac6bb8c8-fd8e-4aec-a831-c994571e1580" xml:space="preserve">
+          <source><bpt id="c4e99722-7c55-4385-a76c-a5a98ea1d718">&lt;linkText&gt;</bpt>Admin<ept id="c4e99722-7c55-4385-a76c-a5a98ea1d718">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c4e99722-7c55-4385-a76c-a5a98ea1d718">&lt;linkText&gt;</bpt>Admin<ept id="c4e99722-7c55-4385-a76c-a5a98ea1d718">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c0eaf61-4464-41aa-bb10-0daf2ce8a531" xml:space="preserve">
+          <source>On the account configuration page, perform the following steps:</source>
+          <target state="new">On the account configuration page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="4123b18a-d67c-4538-8a3b-e284fb2e8ed3" xml:space="preserve">
+          <source><bpt id="fd5e81a6-d126-4875-915f-c37a7ba0e9e4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fd5e81a6-d126-4875-915f-c37a7ba0e9e4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd5e81a6-d126-4875-915f-c37a7ba0e9e4">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fd5e81a6-d126-4875-915f-c37a7ba0e9e4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0cb3c528-9969-4512-a1bd-74665070f9a1" xml:space="preserve">
+          <source>Select <bpt id="a683ab09-e4d3-4e19-94ec-3ea8c6c9a059">&lt;strong&gt;</bpt>Enable SAML authentication<ept id="a683ab09-e4d3-4e19-94ec-3ea8c6c9a059">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="a683ab09-e4d3-4e19-94ec-3ea8c6c9a059">&lt;strong&gt;</bpt>Enable SAML authentication<ept id="a683ab09-e4d3-4e19-94ec-3ea8c6c9a059">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15607e0b-765f-405d-926a-c107233d8153" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="ffceb048-9d21-4130-9f29-02aaa6bfcd10">&lt;strong&gt;</bpt>Configure single sign-on at Bime<ept id="ffceb048-9d21-4130-9f29-02aaa6bfcd10">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3baee600-9964-4e98-86fa-5dd926d86c95">&lt;strong&gt;</bpt>Remote Login URL<ept id="3baee600-9964-4e98-86fa-5dd926d86c95">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="62fa3799-291f-4ceb-97a7-b1ca33b98462">&lt;strong&gt;</bpt>Remote Login URL<ept id="62fa3799-291f-4ceb-97a7-b1ca33b98462">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="ffceb048-9d21-4130-9f29-02aaa6bfcd10">&lt;strong&gt;</bpt>Configure single sign-on at Bime<ept id="ffceb048-9d21-4130-9f29-02aaa6bfcd10">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="3baee600-9964-4e98-86fa-5dd926d86c95">&lt;strong&gt;</bpt>Remote Login URL<ept id="3baee600-9964-4e98-86fa-5dd926d86c95">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="62fa3799-291f-4ceb-97a7-b1ca33b98462">&lt;strong&gt;</bpt>Remote Login URL<ept id="62fa3799-291f-4ceb-97a7-b1ca33b98462">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="69ae8a31-b266-49a0-8500-94ff1239ebcc" xml:space="preserve">
+          <source>Copy the <bpt id="d50ba44a-5d4f-4415-b294-51109d0e762e">&lt;strong&gt;</bpt>Thumbprint<ept id="d50ba44a-5d4f-4415-b294-51109d0e762e">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="1ed564e5-6dd3-4b4f-bf4c-21b492c15937">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="1ed564e5-6dd3-4b4f-bf4c-21b492c15937">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">Copy the <bpt id="d50ba44a-5d4f-4415-b294-51109d0e762e">&lt;strong&gt;</bpt>Thumbprint<ept id="d50ba44a-5d4f-4415-b294-51109d0e762e">&lt;/strong&gt;</ept> value from the exported certificate, and then paste it into the <bpt id="1ed564e5-6dd3-4b4f-bf4c-21b492c15937">&lt;strong&gt;</bpt>Certificate Fingerprint<ept id="1ed564e5-6dd3-4b4f-bf4c-21b492c15937">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="cd641ea7-103c-4b5f-b753-9b215e1b8bae" xml:space="preserve">
+          <source>For more details, see <bpt id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;/linkText&gt;</ept><bpt id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;title&gt;</bpt><ept id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;linkText&gt;</bpt>How to retrieve a certificate's thumbprint value<ept id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;/linkText&gt;</ept><bpt id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;title&gt;</bpt><ept id="31dcb9ae-1ba1-46d2-96a4-a4d80c760376">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25e70d60-1dd1-4de3-8dc2-c9686021d524" xml:space="preserve">
+          <source>Click <bpt id="f9b7a21b-69d6-49f9-86de-3277337e470d">&lt;strong&gt;</bpt>Save<ept id="f9b7a21b-69d6-49f9-86de-3277337e470d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f9b7a21b-69d6-49f9-86de-3277337e470d">&lt;strong&gt;</bpt>Save<ept id="f9b7a21b-69d6-49f9-86de-3277337e470d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33bff8e3-03ea-408e-a2ce-581077affac9" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4aba18fa-5600-4e61-83b0-f706ac1d4a61">&lt;strong&gt;</bpt>Complete<ept id="4aba18fa-5600-4e61-83b0-f706ac1d4a61">&lt;/strong&gt;</ept> to close the <bpt id="36dcf67b-71ea-4550-a788-4e4cd0bec444">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="36dcf67b-71ea-4550-a788-4e4cd0bec444">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="4aba18fa-5600-4e61-83b0-f706ac1d4a61">&lt;strong&gt;</bpt>Complete<ept id="4aba18fa-5600-4e61-83b0-f706ac1d4a61">&lt;/strong&gt;</ept> to close the <bpt id="36dcf67b-71ea-4550-a788-4e4cd0bec444">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="36dcf67b-71ea-4550-a788-4e4cd0bec444">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="cd8faa38-b1fa-4944-a344-698be5ace309" xml:space="preserve">
+          <source><bpt id="aca65d3f-2598-48ba-b40a-ab9c893d2146">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="aca65d3f-2598-48ba-b40a-ab9c893d2146">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aca65d3f-2598-48ba-b40a-ab9c893d2146">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="aca65d3f-2598-48ba-b40a-ab9c893d2146">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42510d59-ac67-428e-adae-50029e6af87a" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Bime, they must be provisioned into Bime.</source>
+          <target state="new">In order to enable Azure AD users to log into Bime, they must be provisioned into Bime.</target>
+        </trans-unit>
+        <trans-unit id="1fe2682b-be2a-465f-bb6f-fae7ebeac07d" xml:space="preserve">
+          <source>In the case of Bime, provisioning is a manual task.</source>
+          <target state="new">In the case of Bime, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="a0b740ed-0443-4049-acdf-1a24639db6fa" xml:space="preserve">
+          <source>Log in to your <bpt id="feee81fe-79e5-4655-9ac2-d2f2da358086">&lt;strong&gt;</bpt>Bime<ept id="feee81fe-79e5-4655-9ac2-d2f2da358086">&lt;/strong&gt;</ept> tenant.</source>
+          <target state="new">Log in to your <bpt id="feee81fe-79e5-4655-9ac2-d2f2da358086">&lt;strong&gt;</bpt>Bime<ept id="feee81fe-79e5-4655-9ac2-d2f2da358086">&lt;/strong&gt;</ept> tenant.</target>
+        </trans-unit>
+        <trans-unit id="01e18c15-ed61-450a-b6ca-830493fe07f0" xml:space="preserve">
+          <source>In the toolbar, click <bpt id="8707db77-eb7a-452a-8ecb-da5b69229c34">&lt;strong&gt;</bpt>Admin<ept id="8707db77-eb7a-452a-8ecb-da5b69229c34">&lt;/strong&gt;</ept>, and then <bpt id="03671b8e-fce0-4eff-b65a-47b82ec0acbc">&lt;strong&gt;</bpt>Users<ept id="03671b8e-fce0-4eff-b65a-47b82ec0acbc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar, click <bpt id="8707db77-eb7a-452a-8ecb-da5b69229c34">&lt;strong&gt;</bpt>Admin<ept id="8707db77-eb7a-452a-8ecb-da5b69229c34">&lt;/strong&gt;</ept>, and then <bpt id="03671b8e-fce0-4eff-b65a-47b82ec0acbc">&lt;strong&gt;</bpt>Users<ept id="03671b8e-fce0-4eff-b65a-47b82ec0acbc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="abea6a38-0ab4-4890-b7e0-3da258b39fa8" xml:space="preserve">
+          <source><bpt id="41321822-589b-4e50-ba24-2ea2fbf91187">&lt;linkText&gt;</bpt>Admin<ept id="41321822-589b-4e50-ba24-2ea2fbf91187">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="41321822-589b-4e50-ba24-2ea2fbf91187">&lt;linkText&gt;</bpt>Admin<ept id="41321822-589b-4e50-ba24-2ea2fbf91187">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c34da680-4945-4660-8215-4b045fdd80c0" xml:space="preserve">
+          <source>In the <bpt id="908ebe55-210c-4590-aa93-24281923b74a">&lt;strong&gt;</bpt>Users List<ept id="908ebe55-210c-4590-aa93-24281923b74a">&lt;/strong&gt;</ept>, click <bpt id="006892a0-5066-4ae6-a010-9d666b5870d1">&lt;strong&gt;</bpt>Add New User<ept id="006892a0-5066-4ae6-a010-9d666b5870d1">&lt;/strong&gt;</ept> (“+”).</source>
+          <target state="new">In the <bpt id="908ebe55-210c-4590-aa93-24281923b74a">&lt;strong&gt;</bpt>Users List<ept id="908ebe55-210c-4590-aa93-24281923b74a">&lt;/strong&gt;</ept>, click <bpt id="006892a0-5066-4ae6-a010-9d666b5870d1">&lt;strong&gt;</bpt>Add New User<ept id="006892a0-5066-4ae6-a010-9d666b5870d1">&lt;/strong&gt;</ept> (“+”).</target>
+        </trans-unit>
+        <trans-unit id="0d0a44e9-b493-4b7b-8cba-e6ccee06c532" xml:space="preserve">
+          <source><bpt id="6f1be775-9c7e-4709-957c-ec9d2d87b976">&lt;linkText&gt;</bpt>Users<ept id="6f1be775-9c7e-4709-957c-ec9d2d87b976">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f1be775-9c7e-4709-957c-ec9d2d87b976">&lt;linkText&gt;</bpt>Users<ept id="6f1be775-9c7e-4709-957c-ec9d2d87b976">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9b4d370-c894-46e2-8660-fd63febc6d94" xml:space="preserve">
+          <source>On the <bpt id="7a04805c-ae65-4c7c-a9fc-82606f8f37ef">&lt;strong&gt;</bpt>User Details<ept id="7a04805c-ae65-4c7c-a9fc-82606f8f37ef">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="7a04805c-ae65-4c7c-a9fc-82606f8f37ef">&lt;strong&gt;</bpt>User Details<ept id="7a04805c-ae65-4c7c-a9fc-82606f8f37ef">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="dd54c184-7c9d-43d8-984e-a2951c31439e" xml:space="preserve">
+          <source><bpt id="e3427e0a-9ff5-4328-8199-71d4b5a2a202">&lt;linkText&gt;</bpt>User Details<ept id="e3427e0a-9ff5-4328-8199-71d4b5a2a202">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3427e0a-9ff5-4328-8199-71d4b5a2a202">&lt;linkText&gt;</bpt>User Details<ept id="e3427e0a-9ff5-4328-8199-71d4b5a2a202">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="918ed043-1d6b-408e-a34c-9bf595791e4a" xml:space="preserve">
+          <source>Enter the First Name, Last Name, Login, Email of a valid AAD account you want to provision.</source>
+          <target state="new">Enter the First Name, Last Name, Login, Email of a valid AAD account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="af38d374-1d4e-40aa-b020-9a97b5e01d68" xml:space="preserve">
+          <source>Click Save.</source>
+          <target state="new">Click Save.</target>
+        </trans-unit>
+        <trans-unit id="92d0bb5e-f794-4356-88d4-24de636e4e40" xml:space="preserve">
+          <source>You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.</source>
+          <target state="new">You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="2217158f-2fbe-495a-aac2-3b794e2e76ac" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="58935f71-d08f-444d-88fa-5c856d37ff04" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="c4d744d7-d5d8-4683-bc6e-69a99c8f43c9" xml:space="preserve">
+          <source>On the <bpt id="dc400d6a-bafe-4a6e-8808-67c3dbb5ed19">&lt;strong&gt;</bpt>Bime **application integration page, click **Assign users<ept id="dc400d6a-bafe-4a6e-8808-67c3dbb5ed19">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="dc400d6a-bafe-4a6e-8808-67c3dbb5ed19">&lt;strong&gt;</bpt>Bime **application integration page, click **Assign users<ept id="dc400d6a-bafe-4a6e-8808-67c3dbb5ed19">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b23bcb0-6458-4416-9cba-cd1168914dbb" xml:space="preserve">
+          <source><bpt id="0ad9e9c5-bb93-483a-ad84-fb5d2ae99786">&lt;linkText&gt;</bpt>Assign users<ept id="0ad9e9c5-bb93-483a-ad84-fb5d2ae99786">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ad9e9c5-bb93-483a-ad84-fb5d2ae99786">&lt;linkText&gt;</bpt>Assign users<ept id="0ad9e9c5-bb93-483a-ad84-fb5d2ae99786">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5bf74bc-ce87-4e68-8997-dcee28182a49" xml:space="preserve">
+          <source>Select your test user, click <bpt id="8df7000b-f216-442c-a36f-7809befe652a">&lt;strong&gt;</bpt>Assign<ept id="8df7000b-f216-442c-a36f-7809befe652a">&lt;/strong&gt;</ept>, and then click <bpt id="c8702f8b-fb2e-4a26-af3a-157f6c63b69f">&lt;strong&gt;</bpt>Yes<ept id="c8702f8b-fb2e-4a26-af3a-157f6c63b69f">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="8df7000b-f216-442c-a36f-7809befe652a">&lt;strong&gt;</bpt>Assign<ept id="8df7000b-f216-442c-a36f-7809befe652a">&lt;/strong&gt;</ept>, and then click <bpt id="c8702f8b-fb2e-4a26-af3a-157f6c63b69f">&lt;strong&gt;</bpt>Yes<ept id="c8702f8b-fb2e-4a26-af3a-157f6c63b69f">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="5b9427c7-c152-4e8a-b614-d1cd493fd78a" xml:space="preserve">
+          <source><bpt id="ae10a570-49d1-4487-8a72-47eb2460cd30">&lt;linkText&gt;</bpt>Yes<ept id="ae10a570-49d1-4487-8a72-47eb2460cd30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ae10a570-49d1-4487-8a72-47eb2460cd30">&lt;linkText&gt;</bpt>Yes<ept id="ae10a570-49d1-4487-8a72-47eb2460cd30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9edcc501-d642-454f-9304-36e8874f77ae" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="acba98d2-697c-4acd-8ac7-381fe97394bd" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;/linkText&gt;</ept><bpt id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;title&gt;</bpt><ept id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;/linkText&gt;</ept><bpt id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;title&gt;</bpt><ept id="d42edee2-e5d0-4d7a-a3f9-b13a3751aea3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

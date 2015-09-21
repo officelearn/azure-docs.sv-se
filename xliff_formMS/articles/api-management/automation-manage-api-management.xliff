@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b76f8e46-5ae8-436d-8c99-3f42c95ebe1b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b76f8e46-5ae8-436d-8c99-3f42c95ebe1b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="33283373-b246-4669-beaa-a11e46c3d081">
+        <trans-unit id="aebd4c45-ff37-49c4-beff-6e9c4c1743fc" xml:space="preserve">
+          <source>Manage Azure API Management using Azure Automation</source>
+          <target state="new">Manage Azure API Management using Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="dc5d0cf2-1f74-4935-acf1-b9c3c4d72306" xml:space="preserve">
+          <source>Learn about how the Azure Automation service can be used to manage Azure API Management.</source>
+          <target state="new">Learn about how the Azure Automation service can be used to manage Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="dbd0ad07-aaeb-4ac0-8111-eafef264cd78" xml:space="preserve">
+          <source>This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure API Management.</source>
+          <target state="new">This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="eccac27f-2392-470c-b628-0a2f27e9c77c" xml:space="preserve">
+          <source><bpt id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;linkText&gt;</bpt>Azure Automation<ept id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;/linkText&gt;</ept><bpt id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;title&gt;</bpt><ept id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</source>
+          <target state="new"><bpt id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;linkText&gt;</bpt>Azure Automation<ept id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;/linkText&gt;</ept><bpt id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;title&gt;</bpt><ept id="62f33b0e-8c79-4ffc-9f0d-98b16fad2621">&lt;/title&gt;</ept> is an Azure service for simplifying cloud management through process automation.</target>
+        </trans-unit>
+        <trans-unit id="c2cc0175-6403-444d-98d0-859eade4bcd3" xml:space="preserve">
+          <source>Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.</source>
+          <target state="new">Using Azure Automation, manual, frequently-repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.</target>
+        </trans-unit>
+        <trans-unit id="f2e648ef-c650-4153-a88c-55d50f6c5ea1" xml:space="preserve">
+          <source>Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs.</source>
+          <target state="new">Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs.</target>
+        </trans-unit>
+        <trans-unit id="b232c642-2323-45b2-9664-9c06189bd82f" xml:space="preserve">
+          <source>In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</source>
+          <target state="new">In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.</target>
+        </trans-unit>
+        <trans-unit id="d667ae1c-d67b-4aa7-a2cf-9dcd1c16030f" xml:space="preserve">
+          <source>Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</source>
+          <target state="new">Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="4a470e51-b0fd-4429-a038-75974c283e1c" xml:space="preserve">
+          <source>API Management can be managed in Azure Automation by using the <bpt id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;linkText&gt;</bpt>API Management REST API<ept id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;/linkText&gt;</ept><bpt id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;title&gt;</bpt><ept id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;/title&gt;</ept>.</source>
+          <target state="new">API Management can be managed in Azure Automation by using the <bpt id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;linkText&gt;</bpt>API Management REST API<ept id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;/linkText&gt;</ept><bpt id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;title&gt;</bpt><ept id="cb699166-f3de-44f0-b534-b3804f5af983">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ecc84a0-00fc-4aa8-897f-94dd0746f40f" xml:space="preserve">
+          <source>Within Azure Automation you can write PowerShell workflow scripts to perform many of your API Management tasks using the REST API.</source>
+          <target state="new">Within Azure Automation you can write PowerShell workflow scripts to perform many of your API Management tasks using the REST API.</target>
+        </trans-unit>
+        <trans-unit id="6d48ee18-d4e8-401f-868d-a9db933f29e8" xml:space="preserve">
+          <source>You can also pair these REST API calls in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</source>
+          <target state="new">You can also pair these REST API calls in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.</target>
+        </trans-unit>
+        <trans-unit id="85a38a2a-8b28-4ad8-bdd5-e9d08e4a246c" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure Automation and how it can be used to manage Azure API Management, follow these links to learn more.</source>
+          <target state="new">Now that you've learned the basics of Azure Automation and how it can be used to manage Azure API Management, follow these links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="890474f3-de54-48c3-a1f9-6ec853b721c9" xml:space="preserve">
+          <source>See the Azure Automation <bpt id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;/linkText&gt;</ept><bpt id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;title&gt;</bpt><ept id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the Azure Automation <bpt id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;linkText&gt;</bpt>Getting Started Tutorial<ept id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;/linkText&gt;</ept><bpt id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;title&gt;</bpt><ept id="cf191eca-0b57-4c2a-aa05-7a48b83c353f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faaae71c-468c-481c-8a51-72a3d2709a7d" xml:space="preserve">
+          <source>Read the <bpt id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;linkText&gt;</bpt>PowerShell Module for the #Azure API Management REST APIs<ept id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;/linkText&gt;</ept><bpt id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;title&gt;</bpt><ept id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;/title&gt;</ept> community blog post.</source>
+          <target state="new">Read the <bpt id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;linkText&gt;</bpt>PowerShell Module for the #Azure API Management REST APIs<ept id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;/linkText&gt;</ept><bpt id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;title&gt;</bpt><ept id="6750ec7c-462d-42d3-b65d-ec90e0687f88">&lt;/title&gt;</ept> community blog post.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

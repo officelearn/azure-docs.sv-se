@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ada4f1a6-4a63-4cb8-9f6e-31df3dc2b011" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ada4f1a6-4a63-4cb8-9f6e-31df3dc2b011" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8eeffd86-7fcc-463e-b0f0-0be399331fc2">
+        <trans-unit id="b4d45a9c-2a43-4ff0-96e0-95ca0178f35c" xml:space="preserve">
+          <source>Debug and analyze Hadoop services with heap dumps | Microsoft Azure</source>
+          <target state="new">Debug and analyze Hadoop services with heap dumps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1ba4b6db-482f-4d4c-8342-e651987b736f" xml:space="preserve">
+          <source>Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.</source>
+          <target state="new">Automatically collect heap dumps for Hadoop services and place inside the Azure Blob storage account for debugging and analysis.</target>
+        </trans-unit>
+        <trans-unit id="2afe0f84-9abc-4818-b88f-83f69546c72b" xml:space="preserve">
+          <source><bpt id="91cc8d57-4ab8-4c36-978d-0aa8a32ef309">&lt;token href="../../includes/hdinsight-selector-heap-dump.md"&gt;</bpt><ept id="91cc8d57-4ab8-4c36-978d-0aa8a32ef309">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="91cc8d57-4ab8-4c36-978d-0aa8a32ef309">&lt;token href="../../includes/hdinsight-selector-heap-dump.md"&gt;</bpt><ept id="91cc8d57-4ab8-4c36-978d-0aa8a32ef309">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5397f9c7-3d17-43c0-ae8c-3ca9d4c67be3" xml:space="preserve">
+          <source>Heap dumps can be automatically collected for Hadoop services and placed inside the Azure Blob storage account of a user under HDInsightHeapDumps/.</source>
+          <target state="new">Heap dumps can be automatically collected for Hadoop services and placed inside the Azure Blob storage account of a user under HDInsightHeapDumps/.</target>
+        </trans-unit>
+        <trans-unit id="31ccb234-0db5-45f1-ad29-891426d3cf43" xml:space="preserve">
+          <source>Dump files for a service with heaps contain a snapshot of the application's memory.</source>
+          <target state="new">Dump files for a service with heaps contain a snapshot of the application's memory.</target>
+        </trans-unit>
+        <trans-unit id="e63430f7-efb8-4933-81e7-0b47a5991ea4" xml:space="preserve">
+          <source>This includes the values of variables at the time the dump was created.</source>
+          <target state="new">This includes the values of variables at the time the dump was created.</target>
+        </trans-unit>
+        <trans-unit id="f2a4346f-029e-40ab-9789-fbee23e073ee" xml:space="preserve">
+          <source>The collection of heap dumps for various services must be enabled for services on individual clusters.</source>
+          <target state="new">The collection of heap dumps for various services must be enabled for services on individual clusters.</target>
+        </trans-unit>
+        <trans-unit id="ce211003-0ae6-4e94-aad9-c3e72c2db798" xml:space="preserve">
+          <source>The default for this feature is to be off for a cluster.</source>
+          <target state="new">The default for this feature is to be off for a cluster.</target>
+        </trans-unit>
+        <trans-unit id="2a0cef21-2d6d-48d7-b23f-22d3d47f0326" xml:space="preserve">
+          <source>These heap dumps can be large, so it is advisable to monitor the Blob storage account where they are being saved once the collection has been enabled.</source>
+          <target state="new">These heap dumps can be large, so it is advisable to monitor the Blob storage account where they are being saved once the collection has been enabled.</target>
+        </trans-unit>
+        <trans-unit id="09390b42-97a7-4346-9659-8493f1263e4c" xml:space="preserve">
+          <source>The information in this article only applies to Windows-based HDInsight.</source>
+          <target state="new">The information in this article only applies to Windows-based HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="94be785c-25c1-4bf8-a2f0-10e2f1a1dd19" xml:space="preserve">
+          <source>For information on Linux-based HDInsight, see <bpt id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;linkText&gt;</bpt>Enable heap dumps for Hadoop services on Linux-based HDInsight<ept id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;/linkText&gt;</ept><bpt id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;title&gt;</bpt><ept id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;/title&gt;</ept></source>
+          <target state="new">For information on Linux-based HDInsight, see <bpt id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;linkText&gt;</bpt>Enable heap dumps for Hadoop services on Linux-based HDInsight<ept id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;/linkText&gt;</ept><bpt id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;title&gt;</bpt><ept id="db86bb56-02d9-4cf1-9cf4-0ab383904489">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87c4f206-e399-4db6-86c5-916830762299" xml:space="preserve">
+          <source>The services that can have heap dumps enabled if requested are:</source>
+          <target state="new">The services that can have heap dumps enabled if requested are:</target>
+        </trans-unit>
+        <trans-unit id="bf6e8a9e-1d9d-4ac8-9b05-644be55f72be" xml:space="preserve">
+          <source><bpt id="7ac0830e-d74e-4eec-b406-95513fe3bed3">&lt;strong&gt;</bpt>hcatalog<ept id="7ac0830e-d74e-4eec-b406-95513fe3bed3">&lt;/strong&gt;</ept> - tempelton</source>
+          <target state="new"><bpt id="7ac0830e-d74e-4eec-b406-95513fe3bed3">&lt;strong&gt;</bpt>hcatalog<ept id="7ac0830e-d74e-4eec-b406-95513fe3bed3">&lt;/strong&gt;</ept> - tempelton</target>
+        </trans-unit>
+        <trans-unit id="5ad8ca78-5a65-4160-b1e1-7555bcb76d7e" xml:space="preserve">
+          <source><bpt id="b6b0e7cf-d877-4e68-93fd-1c0a11d2c4df">&lt;strong&gt;</bpt>hive<ept id="b6b0e7cf-d877-4e68-93fd-1c0a11d2c4df">&lt;/strong&gt;</ept> - hiveserver2, metastore, derbyserver</source>
+          <target state="new"><bpt id="b6b0e7cf-d877-4e68-93fd-1c0a11d2c4df">&lt;strong&gt;</bpt>hive<ept id="b6b0e7cf-d877-4e68-93fd-1c0a11d2c4df">&lt;/strong&gt;</ept> - hiveserver2, metastore, derbyserver</target>
+        </trans-unit>
+        <trans-unit id="8d7303c1-3f92-4264-9618-c43d7883f465" xml:space="preserve">
+          <source><bpt id="d2243cdc-8571-4350-a0e5-df7941c516a5">&lt;strong&gt;</bpt>mapreduce<ept id="d2243cdc-8571-4350-a0e5-df7941c516a5">&lt;/strong&gt;</ept> - jobhistoryserver</source>
+          <target state="new"><bpt id="d2243cdc-8571-4350-a0e5-df7941c516a5">&lt;strong&gt;</bpt>mapreduce<ept id="d2243cdc-8571-4350-a0e5-df7941c516a5">&lt;/strong&gt;</ept> - jobhistoryserver</target>
+        </trans-unit>
+        <trans-unit id="69567139-71d5-4c69-9969-dbc7e3137338" xml:space="preserve">
+          <source><bpt id="c674f937-8dd9-4879-80b3-2063f57a977e">&lt;strong&gt;</bpt>yarn<ept id="c674f937-8dd9-4879-80b3-2063f57a977e">&lt;/strong&gt;</ept> - resourcemanager, nodemanager, timelineserver</source>
+          <target state="new"><bpt id="c674f937-8dd9-4879-80b3-2063f57a977e">&lt;strong&gt;</bpt>yarn<ept id="c674f937-8dd9-4879-80b3-2063f57a977e">&lt;/strong&gt;</ept> - resourcemanager, nodemanager, timelineserver</target>
+        </trans-unit>
+        <trans-unit id="537c29eb-d5ab-4879-ada2-945bdc76197d" xml:space="preserve">
+          <source><bpt id="dc7f7399-4208-41bd-993b-a8046ac29a0a">&lt;strong&gt;</bpt>hdfs<ept id="dc7f7399-4208-41bd-993b-a8046ac29a0a">&lt;/strong&gt;</ept> - datanode, secondarynamenode, namenode</source>
+          <target state="new"><bpt id="dc7f7399-4208-41bd-993b-a8046ac29a0a">&lt;strong&gt;</bpt>hdfs<ept id="dc7f7399-4208-41bd-993b-a8046ac29a0a">&lt;/strong&gt;</ept> - datanode, secondarynamenode, namenode</target>
+        </trans-unit>
+        <trans-unit id="bc62f1a2-791c-4567-b2cb-28f02d3dc806" xml:space="preserve">
+          <source>To turn on heap dumps for a service, you need to set the appropriate configuration elements in the section for that service, which is specified by <bpt id="3da75f9e-ed5e-4cf2-ba94-c2a7b1cd6dd2">&lt;strong&gt;</bpt>service_name<ept id="3da75f9e-ed5e-4cf2-ba94-c2a7b1cd6dd2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To turn on heap dumps for a service, you need to set the appropriate configuration elements in the section for that service, which is specified by <bpt id="3da75f9e-ed5e-4cf2-ba94-c2a7b1cd6dd2">&lt;strong&gt;</bpt>service_name<ept id="3da75f9e-ed5e-4cf2-ba94-c2a7b1cd6dd2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c07117aa-724f-4edf-afc8-b64f5dccbd09" xml:space="preserve">
+          <source>The value of <bpt id="9a992fc9-7c2b-4098-ba65-e0279a22156a">&lt;strong&gt;</bpt>service_name<ept id="9a992fc9-7c2b-4098-ba65-e0279a22156a">&lt;/strong&gt;</ept> can be any of the services listed above: tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode, or namenode.</source>
+          <target state="new">The value of <bpt id="9a992fc9-7c2b-4098-ba65-e0279a22156a">&lt;strong&gt;</bpt>service_name<ept id="9a992fc9-7c2b-4098-ba65-e0279a22156a">&lt;/strong&gt;</ept> can be any of the services listed above: tempelton, hiveserver2, metastore, derbyserver, jobhistoryserver, resourcemanager, nodemanager, timelineserver, datanode, secondarynamenode, or namenode.</target>
+        </trans-unit>
+        <trans-unit id="8511d093-e0ab-4402-9153-a001983897c3" xml:space="preserve">
+          <source>For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserver, you would do the following:</source>
+          <target state="new">For example, to turn on heap dumps by using Azure PowerShell for jobhistoryserver, you would do the following:</target>
+        </trans-unit>
+        <trans-unit id="e01332aa-0ee9-4696-a2bd-eecc015edb29" xml:space="preserve">
+          <source>For example, to turn on heap dumps by using the Azure HDInsight .NET SDK for jobhistoryserver, you would do the following:</source>
+          <target state="new">For example, to turn on heap dumps by using the Azure HDInsight .NET SDK for jobhistoryserver, you would do the following:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

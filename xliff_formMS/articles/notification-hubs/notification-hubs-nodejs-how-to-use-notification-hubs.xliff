@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d3930161-c4d5-4491-bd58-0037b7787bd0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d3930161-c4d5-4491-bd58-0037b7787bd0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f1055796-ba10-43a6-8585-3f3b0f9573fd">
+        <trans-unit id="e90dc685-87a0-4ec3-af7b-dd59202809f1" xml:space="preserve">
+          <source>How to use Notification Hubs with Node.js</source>
+          <target state="new">How to use Notification Hubs with Node.js</target>
+        </trans-unit>
+        <trans-unit id="8f857334-dcb2-4c47-884e-1e290c3cec92" xml:space="preserve">
+          <source>Learn how to use Notification Hubs to send push notifications from a Node.js application.</source>
+          <target state="new">Learn how to use Notification Hubs to send push notifications from a Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="a28387fc-7109-465d-a39b-7c5bdab60b6f" xml:space="preserve">
+          <source>This guide will show you how to use Notification Hubs
+from Node.js applications.</source>
+          <target state="new">This guide will show you how to use Notification Hubs
+from Node.js applications.</target>
+        </trans-unit>
+        <trans-unit id="00c4a963-92ca-4a43-97ba-9d12715f3c69" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="db8110ec-9107-4ce6-9eea-0d20e6c82193">&lt;strong&gt;</bpt>sending notifications to Android, iOS, Windows Phone and Windows Store applications<ept id="db8110ec-9107-4ce6-9eea-0d20e6c82193">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="db8110ec-9107-4ce6-9eea-0d20e6c82193">&lt;strong&gt;</bpt>sending notifications to Android, iOS, Windows Phone and Windows Store applications<ept id="db8110ec-9107-4ce6-9eea-0d20e6c82193">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c7032f3-dc75-465a-82fd-165345a3fb10" xml:space="preserve">
+          <source>For more information on notification hubs, see the <bpt id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;linkText&gt;</bpt>Next Steps<ept id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;/linkText&gt;</ept><bpt id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;title&gt;</bpt><ept id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on notification hubs, see the <bpt id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;linkText&gt;</bpt>Next Steps<ept id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;/linkText&gt;</ept><bpt id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;title&gt;</bpt><ept id="f9bd4b9c-39c1-415c-a25b-13a2803be33c">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="a3369e61-5652-4d95-b529-2015db87edb1" xml:space="preserve">
+          <source>Azure Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices.</source>
+          <target state="new">Azure Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices.</target>
+        </trans-unit>
+        <trans-unit id="799a6c49-e0f6-4059-888c-50f4835071e7" xml:space="preserve">
+          <source>For more information, see <bpt id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;linkText&gt;</bpt>Azure Notification Hubs<ept id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;/linkText&gt;</ept><bpt id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;title&gt;</bpt><ept id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;linkText&gt;</bpt>Azure Notification Hubs<ept id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;/linkText&gt;</ept><bpt id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;title&gt;</bpt><ept id="cd99c50e-f46c-4061-b031-b2ef40b320e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="125813a0-1156-426b-9495-6cfd0294d087" xml:space="preserve">
+          <source>Create a blank Node.js application.</source>
+          <target state="new">Create a blank Node.js application.</target>
+        </trans-unit>
+        <trans-unit id="4b1dd2b2-6fd1-4787-91a2-f774877115e5" xml:space="preserve">
+          <source>For instructions creating a Node.js application, see <bpt id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;linkText&gt;</bpt>Create and deploy a Node.js application to Azure Web Site[nodejswebsite]<ept id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;/linkText&gt;</ept><bpt id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;title&gt;</bpt><ept id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;/title&gt;</ept>, <bpt id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;linkText&gt;</bpt>Node.js Cloud Service[node.js cloud service]<ept id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;/linkText&gt;</ept><bpt id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;title&gt;</bpt><ept id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;/title&gt;</ept> (using Windows PowerShell), or [Web Site with WebMatrix].</source>
+          <target state="new">For instructions creating a Node.js application, see <bpt id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;linkText&gt;</bpt>Create and deploy a Node.js application to Azure Web Site[nodejswebsite]<ept id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;/linkText&gt;</ept><bpt id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;title&gt;</bpt><ept id="dce874e8-eef5-4a7f-9294-a7cab4541c14">&lt;/title&gt;</ept>, <bpt id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;linkText&gt;</bpt>Node.js Cloud Service[node.js cloud service]<ept id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;/linkText&gt;</ept><bpt id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;title&gt;</bpt><ept id="1b8d9099-0368-4f86-840e-37ffc7f8f26b">&lt;/title&gt;</ept> (using Windows PowerShell), or [Web Site with WebMatrix].</target>
+        </trans-unit>
+        <trans-unit id="30a088c5-d1ea-4920-8a12-c2ed93d08e1e" xml:space="preserve">
+          <source>To use Azure Notification Hub, you need to download and use the
+Node.js azure package.</source>
+          <target state="new">To use Azure Notification Hub, you need to download and use the
+Node.js azure package.</target>
+        </trans-unit>
+        <trans-unit id="e19e2411-4ce3-48b1-8afb-714947f540c6" xml:space="preserve">
+          <source>This includes a set of convenience libraries that
+communicate with the REST services.</source>
+          <target state="new">This includes a set of convenience libraries that
+communicate with the REST services.</target>
+        </trans-unit>
+        <trans-unit id="794fa52d-7c8b-4780-ab06-168bddbf57a6" xml:space="preserve">
+          <source>Use a command-line interface such as <bpt id="e4c34e32-810f-40d2-883d-57b8abc3417a">&lt;strong&gt;</bpt>PowerShell<ept id="e4c34e32-810f-40d2-883d-57b8abc3417a">&lt;/strong&gt;</ept> (Windows,) <bpt id="c82507d9-9786-4cdb-b982-719bf851f4cd">&lt;strong&gt;</bpt>Terminal<ept id="c82507d9-9786-4cdb-b982-719bf851f4cd">&lt;/strong&gt;</ept> (Mac,) or <bpt id="d34f3bbd-30b8-40b4-b3e3-e0cadbadbf9b">&lt;strong&gt;</bpt>Bash<ept id="d34f3bbd-30b8-40b4-b3e3-e0cadbadbf9b">&lt;/strong&gt;</ept> (Unix), navigate to the folder where you created your sample application.</source>
+          <target state="new">Use a command-line interface such as <bpt id="e4c34e32-810f-40d2-883d-57b8abc3417a">&lt;strong&gt;</bpt>PowerShell<ept id="e4c34e32-810f-40d2-883d-57b8abc3417a">&lt;/strong&gt;</ept> (Windows,) <bpt id="c82507d9-9786-4cdb-b982-719bf851f4cd">&lt;strong&gt;</bpt>Terminal<ept id="c82507d9-9786-4cdb-b982-719bf851f4cd">&lt;/strong&gt;</ept> (Mac,) or <bpt id="d34f3bbd-30b8-40b4-b3e3-e0cadbadbf9b">&lt;strong&gt;</bpt>Bash<ept id="d34f3bbd-30b8-40b4-b3e3-e0cadbadbf9b">&lt;/strong&gt;</ept> (Unix), navigate to the folder where you created your sample application.</target>
+        </trans-unit>
+        <trans-unit id="783ba191-e389-4e84-baf8-53b98b05373a" xml:space="preserve">
+          <source>Type <bpt id="5e3dc2ea-e9a4-4875-8837-06b1119ad3db">&lt;strong&gt;</bpt>npm install azure<ept id="5e3dc2ea-e9a4-4875-8837-06b1119ad3db">&lt;/strong&gt;</ept> in the command window, which should
+result in the following output:</source>
+          <target state="new">Type <bpt id="5e3dc2ea-e9a4-4875-8837-06b1119ad3db">&lt;strong&gt;</bpt>npm install azure<ept id="5e3dc2ea-e9a4-4875-8837-06b1119ad3db">&lt;/strong&gt;</ept> in the command window, which should
+result in the following output:</target>
+        </trans-unit>
+        <trans-unit id="3ca44b06-db0d-4b43-a6d4-da4eed735d56" xml:space="preserve">
+          <source>You can manually run the <bpt id="731ed424-3fb2-4e9b-9899-c2fb96d1c80f">&lt;strong&gt;</bpt>ls<ept id="731ed424-3fb2-4e9b-9899-c2fb96d1c80f">&lt;/strong&gt;</ept> or <bpt id="659347b3-4f72-44ac-9d8b-7401b841066b">&lt;strong&gt;</bpt>dir<ept id="659347b3-4f72-44ac-9d8b-7401b841066b">&lt;/strong&gt;</ept> command to verify that a
+<bpt id="712cacab-760c-4c1c-8e96-6fea35b5d8d6">&lt;strong&gt;</bpt>node\_modules<ept id="712cacab-760c-4c1c-8e96-6fea35b5d8d6">&lt;/strong&gt;</ept> folder was created.</source>
+          <target state="new">You can manually run the <bpt id="731ed424-3fb2-4e9b-9899-c2fb96d1c80f">&lt;strong&gt;</bpt>ls<ept id="731ed424-3fb2-4e9b-9899-c2fb96d1c80f">&lt;/strong&gt;</ept> or <bpt id="659347b3-4f72-44ac-9d8b-7401b841066b">&lt;strong&gt;</bpt>dir<ept id="659347b3-4f72-44ac-9d8b-7401b841066b">&lt;/strong&gt;</ept> command to verify that a
+<bpt id="712cacab-760c-4c1c-8e96-6fea35b5d8d6">&lt;strong&gt;</bpt>node\_modules<ept id="712cacab-760c-4c1c-8e96-6fea35b5d8d6">&lt;/strong&gt;</ept> folder was created.</target>
+        </trans-unit>
+        <trans-unit id="f4558fff-d3b7-4be8-9149-625135559c5a" xml:space="preserve">
+          <source>Inside that folder find the
+<bpt id="9beec14d-cf4b-491a-8ee4-1245bf741c7a">&lt;strong&gt;</bpt>azure<ept id="9beec14d-cf4b-491a-8ee4-1245bf741c7a">&lt;/strong&gt;</ept> package, which contains the libraries you need to access
+Notification Hub.</source>
+          <target state="new">Inside that folder find the
+<bpt id="9beec14d-cf4b-491a-8ee4-1245bf741c7a">&lt;strong&gt;</bpt>azure<ept id="9beec14d-cf4b-491a-8ee4-1245bf741c7a">&lt;/strong&gt;</ept> package, which contains the libraries you need to access
+Notification Hub.</target>
+        </trans-unit>
+        <trans-unit id="f90bc82a-e348-4904-9a16-d203bade94f0" xml:space="preserve">
+          <source>Using a text editor, add the following to the top of
+the <bpt id="674d8222-78a4-4d20-a95f-a6e1e025b83a">&lt;strong&gt;</bpt>server.js<ept id="674d8222-78a4-4d20-a95f-a6e1e025b83a">&lt;/strong&gt;</ept> file of the application:</source>
+          <target state="new">Using a text editor, add the following to the top of
+the <bpt id="674d8222-78a4-4d20-a95f-a6e1e025b83a">&lt;strong&gt;</bpt>server.js<ept id="674d8222-78a4-4d20-a95f-a6e1e025b83a">&lt;/strong&gt;</ept> file of the application:</target>
+        </trans-unit>
+        <trans-unit id="14f82e5c-87ba-4bb5-9527-9eda5213b4bf" xml:space="preserve">
+          <source>The <bpt id="413480ab-1127-4e71-ad5d-79fce1aa021a">&lt;strong&gt;</bpt>NotificationHubService<ept id="413480ab-1127-4e71-ad5d-79fce1aa021a">&lt;/strong&gt;</ept> object lets you work with notification hubs.</source>
+          <target state="new">The <bpt id="413480ab-1127-4e71-ad5d-79fce1aa021a">&lt;strong&gt;</bpt>NotificationHubService<ept id="413480ab-1127-4e71-ad5d-79fce1aa021a">&lt;/strong&gt;</ept> object lets you work with notification hubs.</target>
+        </trans-unit>
+        <trans-unit id="27004bbb-af43-4fbd-ae89-74b8bb690832" xml:space="preserve">
+          <source>The
+following code creates a <bpt id="a7e8619a-fd46-4276-af41-360ecb63396d">&lt;strong&gt;</bpt>NotificationHubService<ept id="a7e8619a-fd46-4276-af41-360ecb63396d">&lt;/strong&gt;</ept> object for the nofication hub named <bpt id="3f915fee-e363-4b10-b058-776317da6f1e">&lt;strong&gt;</bpt>hubname<ept id="3f915fee-e363-4b10-b058-776317da6f1e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The
+following code creates a <bpt id="a7e8619a-fd46-4276-af41-360ecb63396d">&lt;strong&gt;</bpt>NotificationHubService<ept id="a7e8619a-fd46-4276-af41-360ecb63396d">&lt;/strong&gt;</ept> object for the nofication hub named <bpt id="3f915fee-e363-4b10-b058-776317da6f1e">&lt;strong&gt;</bpt>hubname<ept id="3f915fee-e363-4b10-b058-776317da6f1e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19cf8333-8c12-4564-930d-42de9c5a4ef4" xml:space="preserve">
+          <source>Add it near the
+top of the <bpt id="54cbe6bb-d739-40b7-a603-cfe241fc20e0">&lt;strong&gt;</bpt>server.js<ept id="54cbe6bb-d739-40b7-a603-cfe241fc20e0">&lt;/strong&gt;</ept> file, after the statement to import the azure
+module:</source>
+          <target state="new">Add it near the
+top of the <bpt id="54cbe6bb-d739-40b7-a603-cfe241fc20e0">&lt;strong&gt;</bpt>server.js<ept id="54cbe6bb-d739-40b7-a603-cfe241fc20e0">&lt;/strong&gt;</ept> file, after the statement to import the azure
+module:</target>
+        </trans-unit>
+        <trans-unit id="d7134652-1c7b-4966-b6a6-3340893c9baf" xml:space="preserve">
+          <source>The connection <bpt id="29abf9f1-f72e-4591-b64e-63ef635094aa">&lt;strong&gt;</bpt>connectionstring<ept id="29abf9f1-f72e-4591-b64e-63ef635094aa">&lt;/strong&gt;</ept> value can be obtained from the Azure Management portal by performing the following steps:</source>
+          <target state="new">The connection <bpt id="29abf9f1-f72e-4591-b64e-63ef635094aa">&lt;strong&gt;</bpt>connectionstring<ept id="29abf9f1-f72e-4591-b64e-63ef635094aa">&lt;/strong&gt;</ept> value can be obtained from the Azure Management portal by performing the following steps:</target>
+        </trans-unit>
+        <trans-unit id="cd59c356-ec8b-4ea8-9721-46ae4269983f" xml:space="preserve">
+          <source>From the Azure Management portal, select <bpt id="433043f1-21bd-410a-ac26-0f8cb6014531">&lt;strong&gt;</bpt>Service Bus<ept id="433043f1-21bd-410a-ac26-0f8cb6014531">&lt;/strong&gt;</ept>, and then select the namespace that contains the notification hub.</source>
+          <target state="new">From the Azure Management portal, select <bpt id="433043f1-21bd-410a-ac26-0f8cb6014531">&lt;strong&gt;</bpt>Service Bus<ept id="433043f1-21bd-410a-ac26-0f8cb6014531">&lt;/strong&gt;</ept>, and then select the namespace that contains the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="2270279a-f7ae-41b1-8926-c0c10a76648e" xml:space="preserve">
+          <source>Select <bpt id="541a079c-da1b-4083-8d0b-a96bd0f8030e">&lt;strong&gt;</bpt>NOTIFICATION HUBS<ept id="541a079c-da1b-4083-8d0b-a96bd0f8030e">&lt;/strong&gt;</ept>, and then select the hub you wish to use.</source>
+          <target state="new">Select <bpt id="541a079c-da1b-4083-8d0b-a96bd0f8030e">&lt;strong&gt;</bpt>NOTIFICATION HUBS<ept id="541a079c-da1b-4083-8d0b-a96bd0f8030e">&lt;/strong&gt;</ept>, and then select the hub you wish to use.</target>
+        </trans-unit>
+        <trans-unit id="1b57fcd2-e54a-489d-aefa-492c8dfe1acc" xml:space="preserve">
+          <source>Select <bpt id="a3e73ac7-6e74-43ac-bca5-1a7034f30a25">&lt;strong&gt;</bpt>View Connection String<ept id="a3e73ac7-6e74-43ac-bca5-1a7034f30a25">&lt;/strong&gt;</ept> from the <bpt id="8f943047-ddda-4672-b0fc-54a677c73b8f">&lt;strong&gt;</bpt>quick glance<ept id="8f943047-ddda-4672-b0fc-54a677c73b8f">&lt;/strong&gt;</ept> section, and copy the connection string value.</source>
+          <target state="new">Select <bpt id="a3e73ac7-6e74-43ac-bca5-1a7034f30a25">&lt;strong&gt;</bpt>View Connection String<ept id="a3e73ac7-6e74-43ac-bca5-1a7034f30a25">&lt;/strong&gt;</ept> from the <bpt id="8f943047-ddda-4672-b0fc-54a677c73b8f">&lt;strong&gt;</bpt>quick glance<ept id="8f943047-ddda-4672-b0fc-54a677c73b8f">&lt;/strong&gt;</ept> section, and copy the connection string value.</target>
+        </trans-unit>
+        <trans-unit id="cb73397e-e2f9-41a1-a4fa-3ea20bf0fd25" xml:space="preserve">
+          <source>You can also retrieve the connection string using the <bpt id="96aff333-459f-4ea5-bccf-5cc729987001">&lt;strong&gt;</bpt>Get-AzureSbNamespace<ept id="96aff333-459f-4ea5-bccf-5cc729987001">&lt;/strong&gt;</ept> cmdlet provided by Azure PowerShell or the <bpt id="bcd801fe-b7ee-49ba-9cb0-ab3fb3ba394e">&lt;strong&gt;</bpt>azure sb namespace show<ept id="bcd801fe-b7ee-49ba-9cb0-ab3fb3ba394e">&lt;/strong&gt;</ept> command with the Azure Command-Line Interface (Azure CLI).</source>
+          <target state="new">You can also retrieve the connection string using the <bpt id="96aff333-459f-4ea5-bccf-5cc729987001">&lt;strong&gt;</bpt>Get-AzureSbNamespace<ept id="96aff333-459f-4ea5-bccf-5cc729987001">&lt;/strong&gt;</ept> cmdlet provided by Azure PowerShell or the <bpt id="bcd801fe-b7ee-49ba-9cb0-ab3fb3ba394e">&lt;strong&gt;</bpt>azure sb namespace show<ept id="bcd801fe-b7ee-49ba-9cb0-ab3fb3ba394e">&lt;/strong&gt;</ept> command with the Azure Command-Line Interface (Azure CLI).</target>
+        </trans-unit>
+        <trans-unit id="a5a1ccbe-226b-4465-921c-5ad12f63b7de" xml:space="preserve">
+          <source>&lt;/div&gt;</source>
+          <target state="new">&lt;/div&gt;</target>
+        </trans-unit>
+        <trans-unit id="02ffe732-3447-4354-9230-f9e01e72732a" xml:space="preserve">
+          <source>The <bpt id="cfa71470-3afc-4784-b225-991c061371b9">&lt;strong&gt;</bpt>NotificationHubService<ept id="cfa71470-3afc-4784-b225-991c061371b9">&lt;/strong&gt;</ept> object exposes the following object instances for sending notifications to specific devices and applications:</source>
+          <target state="new">The <bpt id="cfa71470-3afc-4784-b225-991c061371b9">&lt;strong&gt;</bpt>NotificationHubService<ept id="cfa71470-3afc-4784-b225-991c061371b9">&lt;/strong&gt;</ept> object exposes the following object instances for sending notifications to specific devices and applications:</target>
+        </trans-unit>
+        <trans-unit id="26a7db0c-a78a-429f-8d38-1465d1d7fa08" xml:space="preserve">
+          <source><bpt id="ef169e8b-ca7f-4d1d-ab09-eb04097dc8ec">&lt;strong&gt;</bpt>Android<ept id="ef169e8b-ca7f-4d1d-ab09-eb04097dc8ec">&lt;/strong&gt;</ept> - use the <bpt id="233b612b-7f35-4c4c-978c-fbf1eb563bb3">&lt;strong&gt;</bpt>GcmService<ept id="233b612b-7f35-4c4c-978c-fbf1eb563bb3">&lt;/strong&gt;</ept> object, which is available at <bpt id="c63e49f6-3e07-4595-8ef2-cfffeabe6e66">&lt;strong&gt;</bpt>notificationHubService.gcm<ept id="c63e49f6-3e07-4595-8ef2-cfffeabe6e66">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ef169e8b-ca7f-4d1d-ab09-eb04097dc8ec">&lt;strong&gt;</bpt>Android<ept id="ef169e8b-ca7f-4d1d-ab09-eb04097dc8ec">&lt;/strong&gt;</ept> - use the <bpt id="233b612b-7f35-4c4c-978c-fbf1eb563bb3">&lt;strong&gt;</bpt>GcmService<ept id="233b612b-7f35-4c4c-978c-fbf1eb563bb3">&lt;/strong&gt;</ept> object, which is available at <bpt id="c63e49f6-3e07-4595-8ef2-cfffeabe6e66">&lt;strong&gt;</bpt>notificationHubService.gcm<ept id="c63e49f6-3e07-4595-8ef2-cfffeabe6e66">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1322ede3-f66c-4de8-81ce-3f01a9e8ebec" xml:space="preserve">
+          <source><bpt id="0a49df19-5db7-4d94-97e8-5a692aff21da">&lt;strong&gt;</bpt>iOS<ept id="0a49df19-5db7-4d94-97e8-5a692aff21da">&lt;/strong&gt;</ept> - use the <bpt id="9c041e9d-b95e-4cfe-ba69-c7943274a524">&lt;strong&gt;</bpt>ApnsService<ept id="9c041e9d-b95e-4cfe-ba69-c7943274a524">&lt;/strong&gt;</ept> object, which is accessible at <bpt id="ba341331-17a3-4ab2-8029-7293a9f8e14b">&lt;strong&gt;</bpt>notificationHubService.apns<ept id="ba341331-17a3-4ab2-8029-7293a9f8e14b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0a49df19-5db7-4d94-97e8-5a692aff21da">&lt;strong&gt;</bpt>iOS<ept id="0a49df19-5db7-4d94-97e8-5a692aff21da">&lt;/strong&gt;</ept> - use the <bpt id="9c041e9d-b95e-4cfe-ba69-c7943274a524">&lt;strong&gt;</bpt>ApnsService<ept id="9c041e9d-b95e-4cfe-ba69-c7943274a524">&lt;/strong&gt;</ept> object, which is accessible at <bpt id="ba341331-17a3-4ab2-8029-7293a9f8e14b">&lt;strong&gt;</bpt>notificationHubService.apns<ept id="ba341331-17a3-4ab2-8029-7293a9f8e14b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59806d07-041c-4453-82cf-28049df7c7de" xml:space="preserve">
+          <source><bpt id="3fd15678-309e-4a4d-bbb2-bceb1c93c269">&lt;strong&gt;</bpt>Windows Phone<ept id="3fd15678-309e-4a4d-bbb2-bceb1c93c269">&lt;/strong&gt;</ept> - use the <bpt id="74bc9db4-502d-42c8-bbf0-0a236058f716">&lt;strong&gt;</bpt>MpnsService<ept id="74bc9db4-502d-42c8-bbf0-0a236058f716">&lt;/strong&gt;</ept> object, which is available at <bpt id="f6ba2a9e-fb55-4a88-a4be-a67ece2fee6d">&lt;strong&gt;</bpt>notificationHubService.mpns<ept id="f6ba2a9e-fb55-4a88-a4be-a67ece2fee6d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3fd15678-309e-4a4d-bbb2-bceb1c93c269">&lt;strong&gt;</bpt>Windows Phone<ept id="3fd15678-309e-4a4d-bbb2-bceb1c93c269">&lt;/strong&gt;</ept> - use the <bpt id="74bc9db4-502d-42c8-bbf0-0a236058f716">&lt;strong&gt;</bpt>MpnsService<ept id="74bc9db4-502d-42c8-bbf0-0a236058f716">&lt;/strong&gt;</ept> object, which is available at <bpt id="f6ba2a9e-fb55-4a88-a4be-a67ece2fee6d">&lt;strong&gt;</bpt>notificationHubService.mpns<ept id="f6ba2a9e-fb55-4a88-a4be-a67ece2fee6d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98e88f96-24af-43fc-a911-3a146357ff92" xml:space="preserve">
+          <source><bpt id="6f1352fc-d010-4cf4-a9c0-c4b239d82f92">&lt;strong&gt;</bpt>Windows Store applications<ept id="6f1352fc-d010-4cf4-a9c0-c4b239d82f92">&lt;/strong&gt;</ept> - use the <bpt id="a6ef5b5f-ad90-4093-b655-1a5bbedba115">&lt;strong&gt;</bpt>WnsService<ept id="a6ef5b5f-ad90-4093-b655-1a5bbedba115">&lt;/strong&gt;</ept> object, which is available at <bpt id="559e0657-4fce-46b0-ac4d-29934e734ca2">&lt;strong&gt;</bpt>notificationHubService.wns<ept id="559e0657-4fce-46b0-ac4d-29934e734ca2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6f1352fc-d010-4cf4-a9c0-c4b239d82f92">&lt;strong&gt;</bpt>Windows Store applications<ept id="6f1352fc-d010-4cf4-a9c0-c4b239d82f92">&lt;/strong&gt;</ept> - use the <bpt id="a6ef5b5f-ad90-4093-b655-1a5bbedba115">&lt;strong&gt;</bpt>WnsService<ept id="a6ef5b5f-ad90-4093-b655-1a5bbedba115">&lt;/strong&gt;</ept> object, which is available at <bpt id="559e0657-4fce-46b0-ac4d-29934e734ca2">&lt;strong&gt;</bpt>notificationHubService.wns<ept id="559e0657-4fce-46b0-ac4d-29934e734ca2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="077ddf2a-6b01-4f23-bc55-c6b1e677a975" xml:space="preserve">
+          <source>The <bpt id="0b6fffe8-265e-40a9-983b-f3114b0e7437">&lt;strong&gt;</bpt>GcmService<ept id="0b6fffe8-265e-40a9-983b-f3114b0e7437">&lt;/strong&gt;</ept> object provides a <bpt id="caa6a86c-2c66-4584-95c0-cc44a37372d0">&lt;strong&gt;</bpt>send<ept id="caa6a86c-2c66-4584-95c0-cc44a37372d0">&lt;/strong&gt;</ept> method that can be used to send notifications to Android applications.</source>
+          <target state="new">The <bpt id="0b6fffe8-265e-40a9-983b-f3114b0e7437">&lt;strong&gt;</bpt>GcmService<ept id="0b6fffe8-265e-40a9-983b-f3114b0e7437">&lt;/strong&gt;</ept> object provides a <bpt id="caa6a86c-2c66-4584-95c0-cc44a37372d0">&lt;strong&gt;</bpt>send<ept id="caa6a86c-2c66-4584-95c0-cc44a37372d0">&lt;/strong&gt;</ept> method that can be used to send notifications to Android applications.</target>
+        </trans-unit>
+        <trans-unit id="ff4ce5ab-e3ab-470b-bd1d-1a2d1b4f99ab" xml:space="preserve">
+          <source>The <bpt id="ef3ee864-2710-42c5-9da9-0ac99eb98980">&lt;strong&gt;</bpt>send<ept id="ef3ee864-2710-42c5-9da9-0ac99eb98980">&lt;/strong&gt;</ept> method accepts the following parameters:</source>
+          <target state="new">The <bpt id="ef3ee864-2710-42c5-9da9-0ac99eb98980">&lt;strong&gt;</bpt>send<ept id="ef3ee864-2710-42c5-9da9-0ac99eb98980">&lt;/strong&gt;</ept> method accepts the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="aaacfeae-6012-41ee-a266-1bc60236a481" xml:space="preserve">
+          <source>Tags - the tag identifier.</source>
+          <target state="new">Tags - the tag identifier.</target>
+        </trans-unit>
+        <trans-unit id="45cc22a5-7f88-46f7-b2b8-8b5e269fd28b" xml:space="preserve">
+          <source>If no tag is provided, the notification will be sent to al clients</source>
+          <target state="new">If no tag is provided, the notification will be sent to al clients</target>
+        </trans-unit>
+        <trans-unit id="e7216ffe-626b-43d1-b57c-e116763a3865" xml:space="preserve">
+          <source>Payload - the message's JSON or string payload</source>
+          <target state="new">Payload - the message's JSON or string payload</target>
+        </trans-unit>
+        <trans-unit id="c8dbb6ab-9e0e-4cd4-a682-1b3367bd1112" xml:space="preserve">
+          <source>Callback - the callback function</source>
+          <target state="new">Callback - the callback function</target>
+        </trans-unit>
+        <trans-unit id="1075a45b-9aed-4eb4-94c7-1adbb1861c72" xml:space="preserve">
+          <source>For more information on the payload format, see the Payload section of <bpt id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;linkText&gt;</bpt>Implementing GCM Server<ept id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;/linkText&gt;</ept><bpt id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;title&gt;</bpt><ept id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the payload format, see the Payload section of <bpt id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;linkText&gt;</bpt>Implementing GCM Server<ept id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;/linkText&gt;</ept><bpt id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;title&gt;</bpt><ept id="970ebdee-794a-434a-84d6-01cef8bcc2f6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20903537-6492-4bf5-8406-b2a63ae68326" xml:space="preserve">
+          <source>The following code uses the <bpt id="83c36fc8-4002-4dcc-a056-5eb599e38c7c">&lt;strong&gt;</bpt>GcmService<ept id="83c36fc8-4002-4dcc-a056-5eb599e38c7c">&lt;/strong&gt;</ept> instance exposed by the <bpt id="1be46a76-4d8f-426b-b8db-63b8b22ad1d2">&lt;strong&gt;</bpt>NotificationHubService<ept id="1be46a76-4d8f-426b-b8db-63b8b22ad1d2">&lt;/strong&gt;</ept> to send a message to all clients.</source>
+          <target state="new">The following code uses the <bpt id="83c36fc8-4002-4dcc-a056-5eb599e38c7c">&lt;strong&gt;</bpt>GcmService<ept id="83c36fc8-4002-4dcc-a056-5eb599e38c7c">&lt;/strong&gt;</ept> instance exposed by the <bpt id="1be46a76-4d8f-426b-b8db-63b8b22ad1d2">&lt;strong&gt;</bpt>NotificationHubService<ept id="1be46a76-4d8f-426b-b8db-63b8b22ad1d2">&lt;/strong&gt;</ept> to send a message to all clients.</target>
+        </trans-unit>
+        <trans-unit id="b679e3d5-8ddb-4abe-b063-159041e60c22" xml:space="preserve">
+          <source>The <bpt id="5b6a7163-bf4e-4278-ac92-bd1ffc5ba26f">&lt;strong&gt;</bpt>ApnsService<ept id="5b6a7163-bf4e-4278-ac92-bd1ffc5ba26f">&lt;/strong&gt;</ept> object provides a <bpt id="d1de9b80-14a4-4c31-84d9-1d5fed638db4">&lt;strong&gt;</bpt>send<ept id="d1de9b80-14a4-4c31-84d9-1d5fed638db4">&lt;/strong&gt;</ept> method that can be used to send notifications to iOS applications.</source>
+          <target state="new">The <bpt id="5b6a7163-bf4e-4278-ac92-bd1ffc5ba26f">&lt;strong&gt;</bpt>ApnsService<ept id="5b6a7163-bf4e-4278-ac92-bd1ffc5ba26f">&lt;/strong&gt;</ept> object provides a <bpt id="d1de9b80-14a4-4c31-84d9-1d5fed638db4">&lt;strong&gt;</bpt>send<ept id="d1de9b80-14a4-4c31-84d9-1d5fed638db4">&lt;/strong&gt;</ept> method that can be used to send notifications to iOS applications.</target>
+        </trans-unit>
+        <trans-unit id="5785406f-ec37-4b45-a7d6-3d50a2a64517" xml:space="preserve">
+          <source>The <bpt id="ced0945c-9b6a-4974-9224-8bd385a97142">&lt;strong&gt;</bpt>send<ept id="ced0945c-9b6a-4974-9224-8bd385a97142">&lt;/strong&gt;</ept> method accepts the following parameters:</source>
+          <target state="new">The <bpt id="ced0945c-9b6a-4974-9224-8bd385a97142">&lt;strong&gt;</bpt>send<ept id="ced0945c-9b6a-4974-9224-8bd385a97142">&lt;/strong&gt;</ept> method accepts the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="a0b9d502-1d5a-41fa-8125-5914144f2509" xml:space="preserve">
+          <source>Tags - the tag identifier.</source>
+          <target state="new">Tags - the tag identifier.</target>
+        </trans-unit>
+        <trans-unit id="0a4dcb16-db3e-49d9-8366-d69fe702552b" xml:space="preserve">
+          <source>If no tag is provided, the notification will be sent to all clients</source>
+          <target state="new">If no tag is provided, the notification will be sent to all clients</target>
+        </trans-unit>
+        <trans-unit id="6d96165e-faef-462f-bce2-a5f0b2031152" xml:space="preserve">
+          <source>Payload - the message's JSON or string payload</source>
+          <target state="new">Payload - the message's JSON or string payload</target>
+        </trans-unit>
+        <trans-unit id="3444c06e-2780-44f4-b0ff-28553cd87527" xml:space="preserve">
+          <source>Callback - the callback function</source>
+          <target state="new">Callback - the callback function</target>
+        </trans-unit>
+        <trans-unit id="4af8896b-228b-41b1-88cc-1fb3ed28440d" xml:space="preserve">
+          <source>For more information the payload format, see The Notification Payload section of the <bpt id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;linkText&gt;</bpt>Local and Push Notification Programming Guide<ept id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;/linkText&gt;</ept><bpt id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;title&gt;</bpt><ept id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information the payload format, see The Notification Payload section of the <bpt id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;linkText&gt;</bpt>Local and Push Notification Programming Guide<ept id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;/linkText&gt;</ept><bpt id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;title&gt;</bpt><ept id="1c767382-3704-471e-9f3e-5797d95ddfce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c09c985-3fac-4bb2-935a-7ea6d3f5bc27" xml:space="preserve">
+          <source>The following code uses the <bpt id="6378840c-10eb-4404-bc58-dbd79b17a154">&lt;strong&gt;</bpt>ApnsService<ept id="6378840c-10eb-4404-bc58-dbd79b17a154">&lt;/strong&gt;</ept> instance exposed by the <bpt id="2fabdf7d-7b4f-4121-a8f4-945eefd74d88">&lt;strong&gt;</bpt>NotificationHubService<ept id="2fabdf7d-7b4f-4121-a8f4-945eefd74d88">&lt;/strong&gt;</ept> to send an alert message to all clients:</source>
+          <target state="new">The following code uses the <bpt id="6378840c-10eb-4404-bc58-dbd79b17a154">&lt;strong&gt;</bpt>ApnsService<ept id="6378840c-10eb-4404-bc58-dbd79b17a154">&lt;/strong&gt;</ept> instance exposed by the <bpt id="2fabdf7d-7b4f-4121-a8f4-945eefd74d88">&lt;strong&gt;</bpt>NotificationHubService<ept id="2fabdf7d-7b4f-4121-a8f4-945eefd74d88">&lt;/strong&gt;</ept> to send an alert message to all clients:</target>
+        </trans-unit>
+        <trans-unit id="d84d573b-464b-45bf-b39a-9258b021e427" xml:space="preserve">
+          <source>The <bpt id="08a73a10-12cf-48ad-8207-7a51a1e76941">&lt;strong&gt;</bpt>MpnsService<ept id="08a73a10-12cf-48ad-8207-7a51a1e76941">&lt;/strong&gt;</ept> object provides a <bpt id="eebf00f5-fce1-4b2d-81ad-138357659fbd">&lt;strong&gt;</bpt>send<ept id="eebf00f5-fce1-4b2d-81ad-138357659fbd">&lt;/strong&gt;</ept> method that can be used to send notifications to Windows Phone applications.</source>
+          <target state="new">The <bpt id="08a73a10-12cf-48ad-8207-7a51a1e76941">&lt;strong&gt;</bpt>MpnsService<ept id="08a73a10-12cf-48ad-8207-7a51a1e76941">&lt;/strong&gt;</ept> object provides a <bpt id="eebf00f5-fce1-4b2d-81ad-138357659fbd">&lt;strong&gt;</bpt>send<ept id="eebf00f5-fce1-4b2d-81ad-138357659fbd">&lt;/strong&gt;</ept> method that can be used to send notifications to Windows Phone applications.</target>
+        </trans-unit>
+        <trans-unit id="3dd21439-871d-427d-be00-1e93939dde9d" xml:space="preserve">
+          <source>The <bpt id="35ac9b8c-9051-4b80-ae28-9d60f74bb6e9">&lt;strong&gt;</bpt>send<ept id="35ac9b8c-9051-4b80-ae28-9d60f74bb6e9">&lt;/strong&gt;</ept> method accepts the following parameters:</source>
+          <target state="new">The <bpt id="35ac9b8c-9051-4b80-ae28-9d60f74bb6e9">&lt;strong&gt;</bpt>send<ept id="35ac9b8c-9051-4b80-ae28-9d60f74bb6e9">&lt;/strong&gt;</ept> method accepts the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="29c75307-c115-4ebb-ae57-b91accd7b3ff" xml:space="preserve">
+          <source>Tags - the tag identifier.</source>
+          <target state="new">Tags - the tag identifier.</target>
+        </trans-unit>
+        <trans-unit id="ac280843-9e14-4df2-96be-2e37a8c2aa33" xml:space="preserve">
+          <source>If no tag is provided, the notification will be sent to all clients</source>
+          <target state="new">If no tag is provided, the notification will be sent to all clients</target>
+        </trans-unit>
+        <trans-unit id="d1465ca9-8a67-4f5c-9540-f5fdd8d79010" xml:space="preserve">
+          <source>Payload - the message's XML payload</source>
+          <target state="new">Payload - the message's XML payload</target>
+        </trans-unit>
+        <trans-unit id="93b8ba87-edc9-4a87-b8a0-51c76fe9060d" xml:space="preserve">
+          <source>TargetName - 'toast' for toast notifications.</source>
+          <target state="new">TargetName - 'toast' for toast notifications.</target>
+        </trans-unit>
+        <trans-unit id="040d31a1-aa89-46c7-9413-32d5f68382c6" xml:space="preserve">
+          <source>'token' for tile notifications.</source>
+          <target state="new">'token' for tile notifications.</target>
+        </trans-unit>
+        <trans-unit id="51c7b0f1-cd60-429d-b1e8-a7ad0942b765" xml:space="preserve">
+          <source>NotificationClass - The priority of the notification.</source>
+          <target state="new">NotificationClass - The priority of the notification.</target>
+        </trans-unit>
+        <trans-unit id="c67a0a4c-fa83-4037-901c-9014d26a8415" xml:space="preserve">
+          <source>See the HTTP Header Elements section of <bpt id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;linkText&gt;</bpt>Push notifications from a server<ept id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;/linkText&gt;</ept><bpt id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;title&gt;</bpt><ept id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;/title&gt;</ept> for valid values.</source>
+          <target state="new">See the HTTP Header Elements section of <bpt id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;linkText&gt;</bpt>Push notifications from a server<ept id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;/linkText&gt;</ept><bpt id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;title&gt;</bpt><ept id="51d017b4-ac2e-47d3-a612-2537dc1e533b">&lt;/title&gt;</ept> for valid values.</target>
+        </trans-unit>
+        <trans-unit id="7f2b21de-7d76-4b6b-8711-98f710e23e39" xml:space="preserve">
+          <source>Options - optional request headers</source>
+          <target state="new">Options - optional request headers</target>
+        </trans-unit>
+        <trans-unit id="38348f2e-0c65-49d7-9a50-bf2f8410a392" xml:space="preserve">
+          <source>Callback - the callback function</source>
+          <target state="new">Callback - the callback function</target>
+        </trans-unit>
+        <trans-unit id="40ce9f16-c3da-48f3-b874-8ee1c11ee6be" xml:space="preserve">
+          <source>For a list of valid TargetName, NotificationClass, and header options, see <bpt id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;linkText&gt;</bpt>Push notifications from a server<ept id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;/linkText&gt;</ept><bpt id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;title&gt;</bpt><ept id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of valid TargetName, NotificationClass, and header options, see <bpt id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;linkText&gt;</bpt>Push notifications from a server<ept id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;/linkText&gt;</ept><bpt id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;title&gt;</bpt><ept id="1538456c-ef11-4fa7-af34-50b1e841028a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="711defbb-0101-45ca-b73c-afc95d9894d3" xml:space="preserve">
+          <source>The following code uses the <bpt id="ee787f16-3f3c-4e4a-b687-d8bde5ebffbf">&lt;strong&gt;</bpt>MpnsService<ept id="ee787f16-3f3c-4e4a-b687-d8bde5ebffbf">&lt;/strong&gt;</ept> instance exposed by the <bpt id="e2a8f144-bf56-49be-94b3-06aa66fa917c">&lt;strong&gt;</bpt>NotificationHubService<ept id="e2a8f144-bf56-49be-94b3-06aa66fa917c">&lt;/strong&gt;</ept> to send a toast alert:</source>
+          <target state="new">The following code uses the <bpt id="ee787f16-3f3c-4e4a-b687-d8bde5ebffbf">&lt;strong&gt;</bpt>MpnsService<ept id="ee787f16-3f3c-4e4a-b687-d8bde5ebffbf">&lt;/strong&gt;</ept> instance exposed by the <bpt id="e2a8f144-bf56-49be-94b3-06aa66fa917c">&lt;strong&gt;</bpt>NotificationHubService<ept id="e2a8f144-bf56-49be-94b3-06aa66fa917c">&lt;/strong&gt;</ept> to send a toast alert:</target>
+        </trans-unit>
+        <trans-unit id="37164a2f-8215-480e-829b-b7f3515cfca7" xml:space="preserve">
+          <source>The <bpt id="6411f125-3b5b-4baa-8547-1116a4fd52be">&lt;strong&gt;</bpt>WnsService<ept id="6411f125-3b5b-4baa-8547-1116a4fd52be">&lt;/strong&gt;</ept> object provides a <bpt id="ceb5f8b1-5803-4518-b770-749db7a3c086">&lt;strong&gt;</bpt>send<ept id="ceb5f8b1-5803-4518-b770-749db7a3c086">&lt;/strong&gt;</ept> method that can be used to send notifications to Windows Store applications.</source>
+          <target state="new">The <bpt id="6411f125-3b5b-4baa-8547-1116a4fd52be">&lt;strong&gt;</bpt>WnsService<ept id="6411f125-3b5b-4baa-8547-1116a4fd52be">&lt;/strong&gt;</ept> object provides a <bpt id="ceb5f8b1-5803-4518-b770-749db7a3c086">&lt;strong&gt;</bpt>send<ept id="ceb5f8b1-5803-4518-b770-749db7a3c086">&lt;/strong&gt;</ept> method that can be used to send notifications to Windows Store applications.</target>
+        </trans-unit>
+        <trans-unit id="a032c401-c14f-492a-a2cc-b92d0f2c89d1" xml:space="preserve">
+          <source>The <bpt id="e45d6979-36da-4dcf-bbb2-b4c060ccb5fd">&lt;strong&gt;</bpt>send<ept id="e45d6979-36da-4dcf-bbb2-b4c060ccb5fd">&lt;/strong&gt;</ept> method accepts the following parameters:</source>
+          <target state="new">The <bpt id="e45d6979-36da-4dcf-bbb2-b4c060ccb5fd">&lt;strong&gt;</bpt>send<ept id="e45d6979-36da-4dcf-bbb2-b4c060ccb5fd">&lt;/strong&gt;</ept> method accepts the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="f1117d69-f3b5-4c54-854c-2fc5667f02d1" xml:space="preserve">
+          <source>Tags - the tag identifier.</source>
+          <target state="new">Tags - the tag identifier.</target>
+        </trans-unit>
+        <trans-unit id="9b169a92-b9a1-4882-b81c-8118f2086b12" xml:space="preserve">
+          <source>If no tag is provided, the notification will be sent to all clients</source>
+          <target state="new">If no tag is provided, the notification will be sent to all clients</target>
+        </trans-unit>
+        <trans-unit id="abd479e0-cd35-4f4c-9286-a79300a8f553" xml:space="preserve">
+          <source>Payload - the XML message payload</source>
+          <target state="new">Payload - the XML message payload</target>
+        </trans-unit>
+        <trans-unit id="06227957-b4b9-4a4d-81cd-3a1639374127" xml:space="preserve">
+          <source>Type - the notification type</source>
+          <target state="new">Type - the notification type</target>
+        </trans-unit>
+        <trans-unit id="aee571b9-ed5b-42e4-9ca6-0dc1bafabd45" xml:space="preserve">
+          <source>Options - optional request headers</source>
+          <target state="new">Options - optional request headers</target>
+        </trans-unit>
+        <trans-unit id="6184c9b7-c004-4fbc-81fe-97e9a4824941" xml:space="preserve">
+          <source>Callback - the callback function</source>
+          <target state="new">Callback - the callback function</target>
+        </trans-unit>
+        <trans-unit id="1e3d3861-2bf7-4edd-bd6d-f2744310efc0" xml:space="preserve">
+          <source>For a list of valid Types and request headers, see <bpt id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;linkText&gt;</bpt>Push notification service request and response headers<ept id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;/linkText&gt;</ept><bpt id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;title&gt;</bpt><ept id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of valid Types and request headers, see <bpt id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;linkText&gt;</bpt>Push notification service request and response headers<ept id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;/linkText&gt;</ept><bpt id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;title&gt;</bpt><ept id="5b26ad92-775a-4870-bcbe-abe7dbbfc310">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f92203f-e2ad-4e86-ba99-9551cd44ba93" xml:space="preserve">
+          <source>The following code uses the <bpt id="05f98b4d-ec31-41bf-a9af-79ee26244b22">&lt;strong&gt;</bpt>WnsService<ept id="05f98b4d-ec31-41bf-a9af-79ee26244b22">&lt;/strong&gt;</ept> instance exposed by the <bpt id="a9c1b466-42e1-4ecd-bce4-93b609e000b6">&lt;strong&gt;</bpt>NotificationHubService<ept id="a9c1b466-42e1-4ecd-bce4-93b609e000b6">&lt;/strong&gt;</ept> to send a toast alert:</source>
+          <target state="new">The following code uses the <bpt id="05f98b4d-ec31-41bf-a9af-79ee26244b22">&lt;strong&gt;</bpt>WnsService<ept id="05f98b4d-ec31-41bf-a9af-79ee26244b22">&lt;/strong&gt;</ept> instance exposed by the <bpt id="a9c1b466-42e1-4ecd-bce4-93b609e000b6">&lt;strong&gt;</bpt>NotificationHubService<ept id="a9c1b466-42e1-4ecd-bce4-93b609e000b6">&lt;/strong&gt;</ept> to send a toast alert:</target>
+        </trans-unit>
+        <trans-unit id="c4e7a2be-c039-48d7-af95-458477728faf" xml:space="preserve">
+          <source>Now that you've learned the basics of using Notification Hub, follow these
+links to learn more.</source>
+          <target state="new">Now that you've learned the basics of using Notification Hub, follow these
+links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="f6ac0431-6f9b-4648-b4ff-388dba198d99" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;linkText&gt;</bpt>Azure Notification Hubs<ept id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;/linkText&gt;</ept><bpt id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;title&gt;</bpt><ept id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the MSDN Reference: <bpt id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;linkText&gt;</bpt>Azure Notification Hubs<ept id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;/linkText&gt;</ept><bpt id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;title&gt;</bpt><ept id="3a19a382-2667-4a1b-9a81-dbf209823ca2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31689789-de39-42ea-b36d-9f63339f0bf8" xml:space="preserve">
+          <source>Visit the [Azure SDK for Node] repository on GitHub.</source>
+          <target state="new">Visit the [Azure SDK for Node] repository on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="9de2569a-1328-49a0-ab39-208a42ae5cce" xml:space="preserve">
+          <source>https://github.com/WindowsAzure/azure-sdk-for-node</source>
+          <target state="new">https://github.com/WindowsAzure/azure-sdk-for-node</target>
+        </trans-unit>
+        <trans-unit id="69def21e-f9f1-4264-85c9-b36489989056" xml:space="preserve">
+          <source>#nextsteps</source>
+          <target state="new">#nextsteps</target>
+        </trans-unit>
+        <trans-unit id="a255723f-1dc5-459b-aa00-6f37dd39a507" xml:space="preserve">
+          <source>#what-are-service-bus-topics</source>
+          <target state="new">#what-are-service-bus-topics</target>
+        </trans-unit>
+        <trans-unit id="2d033fbc-e38c-4f72-b4b1-2443d3bb4966" xml:space="preserve">
+          <source>#create-a-service-namespace</source>
+          <target state="new">#create-a-service-namespace</target>
+        </trans-unit>
+        <trans-unit id="d87ce37a-71ef-4e0f-aaef-79e376a02b0c" xml:space="preserve">
+          <source>#obtain-default-credentials</source>
+          <target state="new">#obtain-default-credentials</target>
+        </trans-unit>
+        <trans-unit id="5fadcf26-da27-407e-9591-5a793ea8ea1d" xml:space="preserve">
+          <source>#Create_a_Nodejs_Application</source>
+          <target state="new">#Create_a_Nodejs_Application</target>
+        </trans-unit>
+        <trans-unit id="67a94b52-772d-45ba-9b6c-1b37a07882c2" xml:space="preserve">
+          <source>#Configure_Your_Application_to_Use_Service_Bus</source>
+          <target state="new">#Configure_Your_Application_to_Use_Service_Bus</target>
+        </trans-unit>
+        <trans-unit id="a011318c-2098-4778-a422-3d687087d992" xml:space="preserve">
+          <source>#How_to_Create_a_Topic</source>
+          <target state="new">#How_to_Create_a_Topic</target>
+        </trans-unit>
+        <trans-unit id="db5957e1-926d-41c9-ac7d-745d17b5195a" xml:space="preserve">
+          <source>#How_to_Create_Subscriptions</source>
+          <target state="new">#How_to_Create_Subscriptions</target>
+        </trans-unit>
+        <trans-unit id="bb1eb55e-5cc6-4f3e-bbeb-589f3865e5fc" xml:space="preserve">
+          <source>#How_to_Send_Messages_to_a_Topic</source>
+          <target state="new">#How_to_Send_Messages_to_a_Topic</target>
+        </trans-unit>
+        <trans-unit id="39e8fb11-5d44-416e-ba2d-dda66a4e8aeb" xml:space="preserve">
+          <source>#How_to_Receive_Messages_from_a_Subscription</source>
+          <target state="new">#How_to_Receive_Messages_from_a_Subscription</target>
+        </trans-unit>
+        <trans-unit id="e233fb85-aa60-4157-a374-6fc30465047e" xml:space="preserve">
+          <source>#How_to_Handle_Application_Crashes_and_Unreadable_Messages</source>
+          <target state="new">#How_to_Handle_Application_Crashes_and_Unreadable_Messages</target>
+        </trans-unit>
+        <trans-unit id="c9a0f408-040c-406c-87c8-d3573fa79ee9" xml:space="preserve">
+          <source>#How_to_Delete_Topics_and_Subscriptions</source>
+          <target state="new">#How_to_Delete_Topics_and_Subscriptions</target>
+        </trans-unit>
+        <trans-unit id="746d9d88-2554-4255-aa98-c583e24dadcf" xml:space="preserve">
+          <source>#Next_Steps</source>
+          <target state="new">#Next_Steps</target>
+        </trans-unit>
+        <trans-unit id="5cb61a12-caf4-4d5b-9518-b6286beb3602" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png</target>
+        </trans-unit>
+        <trans-unit id="e5da9c76-0a62-4d16-91fc-521864672239" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="1442bfce-e50b-4456-8415-8da81ff071b8" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png</target>
+        </trans-unit>
+        <trans-unit id="1d0e5864-6224-4e97-bb3a-35163eb92acb" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png</target>
+        </trans-unit>
+        <trans-unit id="1f0723ec-4653-4f5a-a986-2793adaf7e3c" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png</target>
+        </trans-unit>
+        <trans-unit id="3e2db4a7-ecf2-48a3-a879-979a4d7731a0" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png</target>
+        </trans-unit>
+        <trans-unit id="d8ca5143-2f8e-4e85-9985-7e4231f95300" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png</target>
+        </trans-unit>
+        <trans-unit id="79be4e70-5dc2-4701-9ad9-7fc883f91750" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx</target>
+        </trans-unit>
+        <trans-unit id="d8bb5111-5d2d-44e3-ba38-026186007c5d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/jj927170.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/jj927170.aspx</target>
+        </trans-unit>
+        <trans-unit id="a6d6825a-8311-4ffb-833c-50f6ceee587f" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx</target>
+        </trans-unit>
+        <trans-unit id="cc28ade3-d400-449e-b6e6-d1cf5941cd21" xml:space="preserve">
+          <source>/develop/nodejs/tutorials/web-site-with-webmatrix/</source>
+          <target state="new">/develop/nodejs/tutorials/web-site-with-webmatrix/</target>
+        </trans-unit>
+        <trans-unit id="6836ace7-3f87-4a3d-bf98-28995e6994a6" xml:space="preserve">
+          <source>../cloud-services-nodejs-develop-deploy-app.md</source>
+          <target state="new">../cloud-services-nodejs-develop-deploy-app.md</target>
+        </trans-unit>
+        <trans-unit id="9e997022-4fb2-49f7-8778-f77a019257c0" xml:space="preserve">
+          <source>.media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png</source>
+          <target state="new">.media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png</target>
+        </trans-unit>
+        <trans-unit id="c3b226e0-7c87-4b35-887d-3aa6ea68c1b7" xml:space="preserve">
+          <source>/develop/nodejs/tutorials/create-a-website-(mac)/</source>
+          <target state="new">/develop/nodejs/tutorials/create-a-website-(mac)/</target>
+        </trans-unit>
+        <trans-unit id="704a35ca-7dbf-4760-8923-94af5764040c" xml:space="preserve">
+          <source>/develop/nodejs/tutorials/web-app-with-storage/</source>
+          <target state="new">/develop/nodejs/tutorials/web-app-with-storage/</target>
+        </trans-unit>
+        <trans-unit id="9191344d-ef68-4836-ba1f-8b4de969e70e" xml:space="preserve">
+          <source>/develop/nodejs/tutorials/web-site-with-storage/</source>
+          <target state="new">/develop/nodejs/tutorials/web-site-with-storage/</target>
+        </trans-unit>
+      </group>
+      <group id="19104eeb-2b23-41bf-ae21-07f61f2462e1" />
+    </body>
+  </file>
+</xliff>

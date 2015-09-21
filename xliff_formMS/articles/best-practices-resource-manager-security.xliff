@@ -1,0 +1,1346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fd161655-9605-4b5a-8983-90c8e821776b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fd161655-9605-4b5a-8983-90c8e821776b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5a23b6b-584b-4777-bcc7-76013ad4282b">
+        <trans-unit id="8f24bb10-0e45-4867-b5fb-44b1db376dc5" xml:space="preserve">
+          <source>Security considerations for Azure Resource Manager</source>
+          <target state="new">Security considerations for Azure Resource Manager</target>
+        </trans-unit>
+        <trans-unit id="d556f269-c20d-4222-98a1-2be0575cd793" xml:space="preserve">
+          <source>Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups.</source>
+          <target state="new">Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups.</target>
+        </trans-unit>
+        <trans-unit id="41db3549-759b-4ee7-81c6-89ff07e433f3" xml:space="preserve">
+          <source>When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, 
+and network security groups.</source>
+          <target state="new">When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider – keys and secrets, role-based access control, 
+and network security groups.</target>
+        </trans-unit>
+        <trans-unit id="4b443287-cffa-491c-9107-ecb64bccfc7c" xml:space="preserve">
+          <source>This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager.</source>
+          <target state="new">This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="16373750-cfa6-4c81-be5b-9f2f71e7dc86" xml:space="preserve">
+          <source>For more information, see 
+<bpt id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;/linkText&gt;</ept><bpt id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;title&gt;</bpt><ept id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;/title&gt;</ept> and 
+<bpt id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;linkText&gt;</bpt>Managing and Auditing Access to Resources<ept id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;/linkText&gt;</ept><bpt id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;title&gt;</bpt><ept id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see 
+<bpt id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;/linkText&gt;</ept><bpt id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;title&gt;</bpt><ept id="89e2c5b0-0e4a-40de-8bea-bc63a4b142bf">&lt;/title&gt;</ept> and 
+<bpt id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;linkText&gt;</bpt>Managing and Auditing Access to Resources<ept id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;/linkText&gt;</ept><bpt id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;title&gt;</bpt><ept id="48464d1f-59c8-444c-a799-3cc08a95f853">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20b5c6ea-97ad-4069-ada9-ac67025caf4f" xml:space="preserve">
+          <source>This topic is part of a larger whitepaper.</source>
+          <target state="new">This topic is part of a larger whitepaper.</target>
+        </trans-unit>
+        <trans-unit id="5467e83a-63a0-4cb4-bcce-c3950d077741" xml:space="preserve">
+          <source>To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).</source>
+          <target state="new">To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).</target>
+        </trans-unit>
+        <trans-unit id="49e0c9f2-ad0d-49da-88e4-e3070bf16333" xml:space="preserve">
+          <source>Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are 
+to be deployed in the VM.</source>
+          <target state="new">Azure Virtual Machines, Azure Resource Manager and Azure Key Vault are fully integrated to provide support for the secure handling of certificates which are 
+to be deployed in the VM.</target>
+        </trans-unit>
+        <trans-unit id="a73091bc-9429-4536-b7ba-b32b75383937" xml:space="preserve">
+          <source>Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and 
+provides the following advantages:</source>
+          <target state="new">Utilizing Azure Key Vault with Resource Manager to orchestrate and store VM secrets and certificates is a best practice and 
+provides the following advantages:</target>
+        </trans-unit>
+        <trans-unit id="8c6252c5-6134-44e3-b487-017d1afdc4f9" xml:space="preserve">
+          <source>The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories.</source>
+          <target state="new">The templates only contain URI references to the secrets, which means the actual secrets are not in code, configuration or source code repositories.</target>
+        </trans-unit>
+        <trans-unit id="93728e0f-2ac9-427f-b27b-65fc1aa0f02d" xml:space="preserve">
+          <source>This prevents 
+key phishing attacks on internal or external repos, such as harvest-bots in GitHub.</source>
+          <target state="new">This prevents 
+key phishing attacks on internal or external repos, such as harvest-bots in GitHub.</target>
+        </trans-unit>
+        <trans-unit id="b1e1a16b-5e4a-471a-92a5-a919d384b505" xml:space="preserve">
+          <source>Secrets stored in the Key Vault are under full RBAC control of a trusted operator.</source>
+          <target state="new">Secrets stored in the Key Vault are under full RBAC control of a trusted operator.</target>
+        </trans-unit>
+        <trans-unit id="6069eb4c-fe94-42f0-aad4-8377a28eb4ff" xml:space="preserve">
+          <source>If the trusted operator leaves the company or transfers within the 
+company to a new group, they no longer have access to the keys they created in the Vault.</source>
+          <target state="new">If the trusted operator leaves the company or transfers within the 
+company to a new group, they no longer have access to the keys they created in the Vault.</target>
+        </trans-unit>
+        <trans-unit id="fd299ea2-e8a4-4c43-bd7b-a661becdb677" xml:space="preserve">
+          <source>Full compartmentalization of all assets:</source>
+          <target state="new">Full compartmentalization of all assets:</target>
+        </trans-unit>
+        <trans-unit id="319cccad-d8eb-4ee2-ab66-620ccffec62d" xml:space="preserve">
+          <source>the templates to deploy the keys </source>
+          <target state="new">the templates to deploy the keys </target>
+        </trans-unit>
+        <trans-unit id="04e89133-560d-4849-abf2-ae5c15affb07" xml:space="preserve">
+          <source>the templates to deploy a VM with references to the keys </source>
+          <target state="new">the templates to deploy a VM with references to the keys </target>
+        </trans-unit>
+        <trans-unit id="953de434-87ea-4fa6-b983-c9c081072b29" xml:space="preserve">
+          <source>the actual key materials in the Vault.</source>
+          <target state="new">the actual key materials in the Vault.</target>
+        </trans-unit>
+        <trans-unit id="ea605714-432c-4780-9af7-3e3d14015575" xml:space="preserve">
+          <source>Each template (and action) can be under different RBAC roles for full separation of duties.</source>
+          <target state="new">Each template (and action) can be under different RBAC roles for full separation of duties.</target>
+        </trans-unit>
+        <trans-unit id="8f6e67a6-201f-4481-b4f0-6c56f00aed1c" xml:space="preserve">
+          <source>The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft 
+datacenter.</source>
+          <target state="new">The loading of secrets into a VM at deployment time occurs via direct channel between the Azure Fabric and the Key Vault within the confines of the Microsoft 
+datacenter.</target>
+        </trans-unit>
+        <trans-unit id="52df7eac-2cc2-47e3-9d8e-9c19353bea7e" xml:space="preserve">
+          <source>Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.</source>
+          <target state="new">Once the keys are in the Key Vault, they never see 'daylight' over an untrusted channel outside of the datacenter.</target>
+        </trans-unit>
+        <trans-unit id="c2363550-babc-46b9-9c8c-dd29f7fa6ce7" xml:space="preserve">
+          <source>Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs.</source>
+          <target state="new">Key Vaults are always regional, so the secrets always have locality (and sovereignty) with the VMs.</target>
+        </trans-unit>
+        <trans-unit id="406ba9e2-71bb-43cc-b278-efef7779ea93" xml:space="preserve">
+          <source>There are no global Key Vaults.</source>
+          <target state="new">There are no global Key Vaults.</target>
+        </trans-unit>
+        <trans-unit id="cd98b187-ede2-4b94-b06e-52c1de7c79c6" xml:space="preserve">
+          <source>A best practice is to maintain separate templates for:</source>
+          <target state="new">A best practice is to maintain separate templates for:</target>
+        </trans-unit>
+        <trans-unit id="6161a3ad-9263-4816-9fe1-555c0489526e" xml:space="preserve">
+          <source>Creation of vaults (which will contain the key material)</source>
+          <target state="new">Creation of vaults (which will contain the key material)</target>
+        </trans-unit>
+        <trans-unit id="40e73297-dd26-45ac-901c-aec0bcef6845" xml:space="preserve">
+          <source>Deployment of the VMs (with URI references to the keys contained in the vaults)</source>
+          <target state="new">Deployment of the VMs (with URI references to the keys contained in the vaults)</target>
+        </trans-unit>
+        <trans-unit id="60c16987-85cc-418c-a257-9c88dd715795" xml:space="preserve">
+          <source>A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, with a broader group 
+of dev/ops personnel who can create or update VM deployments.</source>
+          <target state="new">A typical enterprise scenario is to have a small group of Trusted Operators who have access to critical secrets within the deployed workloads, with a broader group 
+of dev/ops personnel who can create or update VM deployments.</target>
+        </trans-unit>
+        <trans-unit id="1d270e7c-ba98-45d9-b3fb-f7d2afac1a4f" xml:space="preserve">
+          <source>Below is an example ARM template which creates and configures a new vault in the context 
+of the currently authenticated user's identity in Azure Active Directory.</source>
+          <target state="new">Below is an example ARM template which creates and configures a new vault in the context 
+of the currently authenticated user's identity in Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="94e8ae35-e293-40e5-99c1-4cacb198e4b2" xml:space="preserve">
+          <source>This user would have the default permission to create, delete, list, update, backup, 
+restore, and get the public half of keys in this new key vault.</source>
+          <target state="new">This user would have the default permission to create, delete, list, update, backup, 
+restore, and get the public half of keys in this new key vault.</target>
+        </trans-unit>
+        <trans-unit id="c16c0db1-7db8-4f43-b472-08d6dba7e6f2" xml:space="preserve">
+          <source>While most of the fields in this template should be self-explanatory, the <bpt id="132025d9-34d3-4dce-ac76-b2da6c9d0a28">&lt;strong&gt;</bpt>enableVaultForDeployment<ept id="132025d9-34d3-4dce-ac76-b2da6c9d0a28">&lt;/strong&gt;</ept> setting deserves more background: vaults do not have any default 
+standing access by any other Azure infrastructure component.</source>
+          <target state="new">While most of the fields in this template should be self-explanatory, the <bpt id="132025d9-34d3-4dce-ac76-b2da6c9d0a28">&lt;strong&gt;</bpt>enableVaultForDeployment<ept id="132025d9-34d3-4dce-ac76-b2da6c9d0a28">&lt;/strong&gt;</ept> setting deserves more background: vaults do not have any default 
+standing access by any other Azure infrastructure component.</target>
+        </trans-unit>
+        <trans-unit id="d4b891cf-35f1-469e-8037-8c6a49a7a633" xml:space="preserve">
+          <source>By setting this value, it allows the Azure Compute infrastructure components read-only access to this 
+specific named vault.</source>
+          <target state="new">By setting this value, it allows the Azure Compute infrastructure components read-only access to this 
+specific named vault.</target>
+        </trans-unit>
+        <trans-unit id="fecd17cb-c74b-4bfe-8e57-b557493d0204" xml:space="preserve">
+          <source>Therefore, a further best practice is to not comingle corporate sensitive data in the same vault as virtual machine secrets.</source>
+          <target state="new">Therefore, a further best practice is to not comingle corporate sensitive data in the same vault as virtual machine secrets.</target>
+        </trans-unit>
+        <trans-unit id="2a8480c5-eeda-4629-b372-42795e84bf4d" xml:space="preserve">
+          <source>Once the vault is created, the next step is to reference that vault in the deployment template of a new VM.</source>
+          <target state="new">Once the vault is created, the next step is to reference that vault in the deployment template of a new VM.</target>
+        </trans-unit>
+        <trans-unit id="61954694-df89-4407-bfc2-38688b11280a" xml:space="preserve">
+          <source>As mentioned above, a best practice is to have a 
+different dev/ops group manage VM deployments, with that group having no direct access to the keys as stored in the vault.</source>
+          <target state="new">As mentioned above, a best practice is to have a 
+different dev/ops group manage VM deployments, with that group having no direct access to the keys as stored in the vault.</target>
+        </trans-unit>
+        <trans-unit id="6587326e-cc46-42c8-9c4b-3c22588a32f3" xml:space="preserve">
+          <source>The below template fragment would be composed into higher order deployment constructs, each safely and securely referencing highly-sensitive secrets which are not 
+under the direct control of the operator.</source>
+          <target state="new">The below template fragment would be composed into higher order deployment constructs, each safely and securely referencing highly-sensitive secrets which are not 
+under the direct control of the operator.</target>
+        </trans-unit>
+        <trans-unit id="1db462b1-5281-4b5f-9f6e-d755ea28fd06" xml:space="preserve">
+          <source>Service identities are represented by service principals in Active Directory.</source>
+          <target state="new">Service identities are represented by service principals in Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="30f8e8a3-352c-4b8a-8ae3-7cfd2e467263" xml:space="preserve">
+          <source>Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV).</source>
+          <target state="new">Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV).</target>
+        </trans-unit>
+        <trans-unit id="430cf8c9-8d05-4125-8c30-6bfbc268b264" xml:space="preserve">
+          <source>Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.</source>
+          <target state="new">Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.</target>
+        </trans-unit>
+        <trans-unit id="db35403d-5891-418d-acaf-a2bf7264d34c" xml:space="preserve">
+          <source>Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription.</source>
+          <target state="new">Your organization could provide an offering that will monitor a solution deployed in your customers environment and subscription.</target>
+        </trans-unit>
+        <trans-unit id="22b283dd-8039-47c6-b82d-d03d9f335fb9" xml:space="preserve">
+          <source>In this case, you will need to 
+get access to logs and other data within a customers account so that you can utilize it in your monitoring solution.</source>
+          <target state="new">In this case, you will need to 
+get access to logs and other data within a customers account so that you can utilize it in your monitoring solution.</target>
+        </trans-unit>
+        <trans-unit id="fa23b27a-7eb0-4356-8b43-f6fdb613f30b" xml:space="preserve">
+          <source>If you're a corporate IT organization, a systems integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
+such as a data analytics platform, where the offering resides in the customers own subscription.</source>
+          <target state="new">If you're a corporate IT organization, a systems integrator, you may provide an offering to a customer where you will deploy and manage a capability for them, 
+such as a data analytics platform, where the offering resides in the customers own subscription.</target>
+        </trans-unit>
+        <trans-unit id="7a754ff2-bcc6-47ae-a532-05e396383d63" xml:space="preserve">
+          <source>In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.</source>
+          <target state="new">In these use cases, your organization would require an identity that could be given access to perform these actions within the context of a customer subscription.</target>
+        </trans-unit>
+        <trans-unit id="ae81c26f-5778-4f62-8d3f-d0e3dd1deeeb" xml:space="preserve">
+          <source>These scenarios bring with them a certain set of considerations for your customer:</source>
+          <target state="new">These scenarios bring with them a certain set of considerations for your customer:</target>
+        </trans-unit>
+        <trans-unit id="243b5ee1-381b-4fbd-9968-0bd049f48d8b" xml:space="preserve">
+          <source>For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.</source>
+          <target state="new">For security reasons, access may need to be scoped to certain types of actions, e.g. read only access.</target>
+        </trans-unit>
+        <trans-unit id="e0281a23-6b6d-44c6-8c4b-57115c857980" xml:space="preserve">
+          <source>As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.</source>
+          <target state="new">As deployed resources are provided at a cost, there may be similar constraints on access required for financial reasons.</target>
+        </trans-unit>
+        <trans-unit id="dc8543da-9980-4539-8cce-d9b859ef834a" xml:space="preserve">
+          <source>For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)</source>
+          <target state="new">For security reasons, access may need to be scoped only to a specific resource (storage accounts) or resources (resource group containing an environment or solution)</target>
+        </trans-unit>
+        <trans-unit id="2076c6c7-1942-45b2-9ffc-2f2178dc35a9" xml:space="preserve">
+          <source>As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV</source>
+          <target state="new">As a relationship with a vendor may change, the customer will want to have the ability to enable/disable access to SI or CSV</target>
+        </trans-unit>
+        <trans-unit id="697e4d74-156a-4a12-86ab-1321d2bc6892" xml:space="preserve">
+          <source>As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.</source>
+          <target state="new">As actions against this account having billing implications, the customer desires support for auditability and accountability for billing.</target>
+        </trans-unit>
+        <trans-unit id="0e718e36-81ca-4b53-a26f-be392f9f1c67" xml:space="preserve">
+          <source>From a compliance perspective, the customer will want to be able to audit your behavior within their environment</source>
+          <target state="new">From a compliance perspective, the customer will want to be able to audit your behavior within their environment</target>
+        </trans-unit>
+        <trans-unit id="cc8ebad9-d678-4736-989d-eb9bfdc1971c" xml:space="preserve">
+          <source>A combination of a service principal and RBAC can be used to address these requirements.</source>
+          <target state="new">A combination of a service principal and RBAC can be used to address these requirements.</target>
+        </trans-unit>
+        <trans-unit id="ce55239d-f7a3-4d30-af54-c200cc67f4aa" xml:space="preserve">
+          <source>Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled.</source>
+          <target state="new">Many scenarios will have requirements that specify how traffic to one or more VM instances in your virtual network is controlled.</target>
+        </trans-unit>
+        <trans-unit id="072f824b-8163-46e4-a609-0fdd809db74d" xml:space="preserve">
+          <source>You can use a Network Security 
+Group (NSG) to do this as part of an ARM template deployment.</source>
+          <target state="new">You can use a Network Security 
+Group (NSG) to do this as part of an ARM template deployment.</target>
+        </trans-unit>
+        <trans-unit id="656f04c9-6c4b-46f9-afeb-36ac90752032" xml:space="preserve">
+          <source>A network security group is a top-level object that is associated with your subscription.</source>
+          <target state="new">A network security group is a top-level object that is associated with your subscription.</target>
+        </trans-unit>
+        <trans-unit id="8b8b986b-4136-42c9-866b-39c51dfcb128" xml:space="preserve">
+          <source>An NSG contains access control rules that allow or deny traffic to 
+VM instances.</source>
+          <target state="new">An NSG contains access control rules that allow or deny traffic to 
+VM instances.</target>
+        </trans-unit>
+        <trans-unit id="9d5eb1ec-4122-4170-9463-6c0b3ab8aff6" xml:space="preserve">
+          <source>The rules of an NSG can be changed at any time, and changes are applied to all associated instances.</source>
+          <target state="new">The rules of an NSG can be changed at any time, and changes are applied to all associated instances.</target>
+        </trans-unit>
+        <trans-unit id="befbe6c4-b3dc-4279-9a16-14d18706d38d" xml:space="preserve">
+          <source>To use an NSG, you must have a virtual network 
+that is associated with a region (location).</source>
+          <target state="new">To use an NSG, you must have a virtual network 
+that is associated with a region (location).</target>
+        </trans-unit>
+        <trans-unit id="f8d654aa-6b4e-4d7e-bedb-13dfc904f6ca" xml:space="preserve">
+          <source>NSGs are not compatible with virtual networks that are associated with an affinity group.</source>
+          <target state="new">NSGs are not compatible with virtual networks that are associated with an affinity group.</target>
+        </trans-unit>
+        <trans-unit id="f4fb0b47-82eb-4a94-951b-6769c5d3ba90" xml:space="preserve">
+          <source>If you don’t have a 
+regional virtual network and you want to control traffic to your endpoints, please see <bpt id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;linkText&gt;</bpt>About Network Access Control Lists (ACLs)<ept id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;/linkText&gt;</ept><bpt id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;title&gt;</bpt><ept id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don’t have a 
+regional virtual network and you want to control traffic to your endpoints, please see <bpt id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;linkText&gt;</bpt>About Network Access Control Lists (ACLs)<ept id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;/linkText&gt;</ept><bpt id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;title&gt;</bpt><ept id="dd70a338-e036-49ae-a7c7-b6d0414e78e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60dcce88-4bb8-47df-b46b-c38cecd2f2dc" xml:space="preserve">
+          <source>You can associate an NSG with a VM, or to a subnet within a virtual network.</source>
+          <target state="new">You can associate an NSG with a VM, or to a subnet within a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="f55eb82d-8fb4-4a96-a54f-15dddb595ec5" xml:space="preserve">
+          <source>When associated with a VM, the NSG applies to all the traffic that is sent and 
+received by the VM instance.</source>
+          <target state="new">When associated with a VM, the NSG applies to all the traffic that is sent and 
+received by the VM instance.</target>
+        </trans-unit>
+        <trans-unit id="79dd29fd-48d1-499d-9196-b832b5918ce2" xml:space="preserve">
+          <source>When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances 
+in the subnet.</source>
+          <target state="new">When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances 
+in the subnet.</target>
+        </trans-unit>
+        <trans-unit id="553f9369-3a74-43be-a9ef-cc67b8de664e" xml:space="preserve">
+          <source>A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules.</source>
+          <target state="new">A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules.</target>
+        </trans-unit>
+        <trans-unit id="e3684ffb-5f2b-4dd3-a4a6-8ade555f95ca" xml:space="preserve">
+          <source>You can have 100 NSGs per subscription.</source>
+          <target state="new">You can have 100 NSGs per subscription.</target>
+        </trans-unit>
+        <trans-unit id="2280f219-6ae8-472c-984d-07e073bd80d8" xml:space="preserve">
+          <source>Endpoint-based ACLs and network security groups are not supported on the same VM instance.</source>
+          <target state="new">Endpoint-based ACLs and network security groups are not supported on the same VM instance.</target>
+        </trans-unit>
+        <trans-unit id="af022647-4bcc-4e33-a7ac-556197d060b1" xml:space="preserve">
+          <source>If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL.</source>
+          <target state="new">If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL.</target>
+        </trans-unit>
+        <trans-unit id="920618f9-120e-4b14-ae76-1bcf8e55f334" xml:space="preserve">
+          <source>For information about how to do this, see <bpt id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;linkText&gt;</bpt>Managing Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;/linkText&gt;</ept><bpt id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;title&gt;</bpt><ept id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to do this, see <bpt id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;linkText&gt;</bpt>Managing Access Control Lists (ACLs) for Endpoints by using PowerShell<ept id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;/linkText&gt;</ept><bpt id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;title&gt;</bpt><ept id="7dd1ceae-e4af-441b-8d5e-3aa2bbfe93b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2496b00-d465-4392-9243-4bdb87536e35" xml:space="preserve">
+          <source>Network security groups are different than endpoint-based ACLs.</source>
+          <target state="new">Network security groups are different than endpoint-based ACLs.</target>
+        </trans-unit>
+        <trans-unit id="063dd30e-dd2e-4089-ac15-2ee35bedc680" xml:space="preserve">
+          <source>Endpoint ACLs work only on the public port that is exposed through the Input endpoint.</source>
+          <target state="new">Endpoint ACLs work only on the public port that is exposed through the Input endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e5c8746f-dd3e-4fb4-9834-86ac94f076ae" xml:space="preserve">
+          <source>An 
+NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.</source>
+          <target state="new">An 
+NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.</target>
+        </trans-unit>
+        <trans-unit id="8648f8ff-0ea2-407a-8719-fbd681f3b458" xml:space="preserve">
+          <source>A network security group has a <bpt id="b153b22f-7c3f-494a-9d01-35d34d1baf70">&lt;em&gt;</bpt>Name<ept id="b153b22f-7c3f-494a-9d01-35d34d1baf70">&lt;/em&gt;</ept>, is associated with a <bpt id="19a7436b-de71-4510-9897-f0859123a009">&lt;em&gt;</bpt>Region<ept id="19a7436b-de71-4510-9897-f0859123a009">&lt;/em&gt;</ept> (one of the supported Azure locations), and has a descriptive label.</source>
+          <target state="new">A network security group has a <bpt id="b153b22f-7c3f-494a-9d01-35d34d1baf70">&lt;em&gt;</bpt>Name<ept id="b153b22f-7c3f-494a-9d01-35d34d1baf70">&lt;/em&gt;</ept>, is associated with a <bpt id="19a7436b-de71-4510-9897-f0859123a009">&lt;em&gt;</bpt>Region<ept id="19a7436b-de71-4510-9897-f0859123a009">&lt;/em&gt;</ept> (one of the supported Azure locations), and has a descriptive label.</target>
+        </trans-unit>
+        <trans-unit id="f4c27b15-2f81-480e-9379-866f4f356b92" xml:space="preserve">
+          <source>It contains two types of 
+rules, Inbound and Outbound.</source>
+          <target state="new">It contains two types of 
+rules, Inbound and Outbound.</target>
+        </trans-unit>
+        <trans-unit id="2b13ee8b-439e-4ea8-b88e-2c689da7a5ed" xml:space="preserve">
+          <source>The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM.</source>
+          <target state="new">The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM.</target>
+        </trans-unit>
+        <trans-unit id="424498d8-0bd3-459f-a0bb-97dec460ed11" xml:space="preserve">
+          <source>The rules are applied at the server machine where the VM is located.</source>
+          <target state="new">The rules are applied at the server machine where the VM is located.</target>
+        </trans-unit>
+        <trans-unit id="d723d376-b0bf-4bb3-a7e3-4ab8a991e154" xml:space="preserve">
+          <source>An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, it’s dropped.</source>
+          <target state="new">An incoming or outgoing packet must match an Allow rule to be permitted; otherwise, it’s dropped.</target>
+        </trans-unit>
+        <trans-unit id="9df968b0-f528-45fd-88a7-c189e2e3c0e5" xml:space="preserve">
+          <source>Rules are processed in the order of priority.</source>
+          <target state="new">Rules are processed in the order of priority.</target>
+        </trans-unit>
+        <trans-unit id="55fdf7b9-80cf-4a2f-b992-6c997d63b5d7" xml:space="preserve">
+          <source>For example, a rule with a lower priority number such as 100 is processed before rules with a higher priority numbers 
+such as 200.</source>
+          <target state="new">For example, a rule with a lower priority number such as 100 is processed before rules with a higher priority numbers 
+such as 200.</target>
+        </trans-unit>
+        <trans-unit id="989fdeab-c0f8-41d7-8fbf-b9c99fbf6075" xml:space="preserve">
+          <source>Once a match is found, no more rules are processed.</source>
+          <target state="new">Once a match is found, no more rules are processed.</target>
+        </trans-unit>
+        <trans-unit id="86ab760c-4141-4e82-9be6-873f7305c0a1" xml:space="preserve">
+          <source>A rule specifies the following:</source>
+          <target state="new">A rule specifies the following:</target>
+        </trans-unit>
+        <trans-unit id="add9df29-2587-408e-a833-b274e3a4383d" xml:space="preserve">
+          <source>Name: A unique identifier for the rule</source>
+          <target state="new">Name: A unique identifier for the rule</target>
+        </trans-unit>
+        <trans-unit id="04c61024-1b20-4716-8149-8c2f30ad1117" xml:space="preserve">
+          <source>Type: Inbound/Outbound</source>
+          <target state="new">Type: Inbound/Outbound</target>
+        </trans-unit>
+        <trans-unit id="a897683f-b536-4993-bd55-ba1fe0a4c07c" xml:space="preserve">
+          <source>Priority: An integer between 100 and 4096 (rules processed from low to high)</source>
+          <target state="new">Priority: An integer between 100 and 4096 (rules processed from low to high)</target>
+        </trans-unit>
+        <trans-unit id="112ab0ca-2e5d-436d-9a36-c944cb3d43a4" xml:space="preserve">
+          <source>Source IP Address: CIDR of source IP range</source>
+          <target state="new">Source IP Address: CIDR of source IP range</target>
+        </trans-unit>
+        <trans-unit id="1d93d680-1c1c-407a-a64d-5fa462802b2d" xml:space="preserve">
+          <source>Source Port Range: An integer or range between 0 and 65536</source>
+          <target state="new">Source Port Range: An integer or range between 0 and 65536</target>
+        </trans-unit>
+        <trans-unit id="61846bd2-b1c8-45f5-92ad-357bcdf38c19" xml:space="preserve">
+          <source>Destination IP Range: CIDR of the destination IP Range</source>
+          <target state="new">Destination IP Range: CIDR of the destination IP Range</target>
+        </trans-unit>
+        <trans-unit id="d28c54ef-56a5-491b-9c9a-c6b357f6edb2" xml:space="preserve">
+          <source>Destination Port Range: An integer or range between 0 and 65536</source>
+          <target state="new">Destination Port Range: An integer or range between 0 and 65536</target>
+        </trans-unit>
+        <trans-unit id="1afbe88a-006c-434d-ad62-2c8196907114" xml:space="preserve">
+          <source>Protocol: TCP, UDP or ‘\*’</source>
+          <target state="new">Protocol: TCP, UDP or ‘\*’</target>
+        </trans-unit>
+        <trans-unit id="3d6c08b6-b4ed-44e4-b3b9-6ec5549c2953" xml:space="preserve">
+          <source>Access: Allow/Deny</source>
+          <target state="new">Access: Allow/Deny</target>
+        </trans-unit>
+        <trans-unit id="e460ade7-d545-4ce4-bc9e-02e3a8aa7958" xml:space="preserve">
+          <source>An NSG contains default rules.</source>
+          <target state="new">An NSG contains default rules.</target>
+        </trans-unit>
+        <trans-unit id="1f61a5cb-7ca7-4bcd-8ec4-1562f13bac8a" xml:space="preserve">
+          <source>The default rules can't be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that 
+you create.</source>
+          <target state="new">The default rules can't be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that 
+you create.</target>
+        </trans-unit>
+        <trans-unit id="b361f8a1-a4ed-42f4-91dc-81ebe2b890d2" xml:space="preserve">
+          <source>The default rules describe the default settings recommended by the platform.</source>
+          <target state="new">The default rules describe the default settings recommended by the platform.</target>
+        </trans-unit>
+        <trans-unit id="d96dee78-3b03-488a-9101-3b82a48da445" xml:space="preserve">
+          <source>As illustrated by the default rules below, traffic originating and ending 
+in a virtual network is allowed both in Inbound and Outbound directions.</source>
+          <target state="new">As illustrated by the default rules below, traffic originating and ending 
+in a virtual network is allowed both in Inbound and Outbound directions.</target>
+        </trans-unit>
+        <trans-unit id="23cc73b1-2379-4985-9350-d0c10b758b42" xml:space="preserve">
+          <source>While connectivity to the Internet is allowed for outbound direction, it is by default blocked for inbound direction.</source>
+          <target state="new">While connectivity to the Internet is allowed for outbound direction, it is by default blocked for inbound direction.</target>
+        </trans-unit>
+        <trans-unit id="95f54991-5f63-45db-a859-b0b0bb484e16" xml:space="preserve">
+          <source>A default rule allows the Azure load balancer 
+to probe the health of a VM.</source>
+          <target state="new">A default rule allows the Azure load balancer 
+to probe the health of a VM.</target>
+        </trans-unit>
+        <trans-unit id="17803745-13e6-41dd-badc-ecee09cdd974" xml:space="preserve">
+          <source>You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.</source>
+          <target state="new">You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.</target>
+        </trans-unit>
+        <trans-unit id="ca3c388c-cd43-4501-8cf8-f1edc62c8147" xml:space="preserve">
+          <source>The default rules are shown in the tables below.</source>
+          <target state="new">The default rules are shown in the tables below.</target>
+        </trans-unit>
+        <trans-unit id="13d3d789-bcc1-480b-b01c-dbf69d6c0c96" xml:space="preserve">
+          <source><bpt id="faf4a8d7-e5d0-4b20-b43f-6e3b4052c726">&lt;strong&gt;</bpt>Inbound default rules<ept id="faf4a8d7-e5d0-4b20-b43f-6e3b4052c726">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="faf4a8d7-e5d0-4b20-b43f-6e3b4052c726">&lt;strong&gt;</bpt>Inbound default rules<ept id="faf4a8d7-e5d0-4b20-b43f-6e3b4052c726">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="115c208a-5cd8-49e1-8b37-7a0a2178f267" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="eeada76a-92e9-4776-9714-fa9b228cd63d" xml:space="preserve">
+          <source>Priority</source>
+          <target state="new">Priority</target>
+        </trans-unit>
+        <trans-unit id="3240ffa2-7986-4de3-92a8-feb3222c8210" xml:space="preserve">
+          <source>Source IP</source>
+          <target state="new">Source IP</target>
+        </trans-unit>
+        <trans-unit id="dfbd5003-aff1-4e91-a237-2290b8d5d876" xml:space="preserve">
+          <source>Source Port</source>
+          <target state="new">Source Port</target>
+        </trans-unit>
+        <trans-unit id="5ff2d357-b3dd-4f1b-88b0-87abfc9a73c2" xml:space="preserve">
+          <source>Destination IP</source>
+          <target state="new">Destination IP</target>
+        </trans-unit>
+        <trans-unit id="178a64b3-32f2-4a20-9c23-586c8883b553" xml:space="preserve">
+          <source>Destination Port</source>
+          <target state="new">Destination Port</target>
+        </trans-unit>
+        <trans-unit id="1439a0ee-49b3-4c4a-a923-47d82ed40422" xml:space="preserve">
+          <source>Protocol</source>
+          <target state="new">Protocol</target>
+        </trans-unit>
+        <trans-unit id="21279a44-8d58-44f6-873f-7173ae58635e" xml:space="preserve">
+          <source>Access</source>
+          <target state="new">Access</target>
+        </trans-unit>
+        <trans-unit id="e43f4b0f-59de-41f8-b141-865a2615533d" xml:space="preserve">
+          <source>ALLOW VNET INBOUND</source>
+          <target state="new">ALLOW VNET INBOUND</target>
+        </trans-unit>
+        <trans-unit id="4279815b-3925-4669-ada1-acd6f15e47cd" xml:space="preserve">
+          <source>65000</source>
+          <target state="new">65000</target>
+        </trans-unit>
+        <trans-unit id="574e93ba-ff73-4538-9460-5a2ed88e36b3" xml:space="preserve">
+          <source>VIRTUAL_NETWORK</source>
+          <target state="new">VIRTUAL_NETWORK</target>
+        </trans-unit>
+        <trans-unit id="54ad6020-2c15-4b23-92ca-5243d9098699" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="e5507bbb-4567-4e57-8481-8ac52ca09493" xml:space="preserve">
+          <source>VIRTUAL_NETWORK</source>
+          <target state="new">VIRTUAL_NETWORK</target>
+        </trans-unit>
+        <trans-unit id="92f1f165-666d-4a07-addc-3c7310ec08a2" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="63dd239f-401f-4a4b-9bef-3da7d2041b2b" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="ae520036-11bb-4995-9693-965b0120b6d5" xml:space="preserve">
+          <source>ALLOW</source>
+          <target state="new">ALLOW</target>
+        </trans-unit>
+        <trans-unit id="5397bce8-fdaf-44b6-a4ee-87e61cc809b9" xml:space="preserve">
+          <source>ALLOW AZURE LOAD BALANCER INBOUND</source>
+          <target state="new">ALLOW AZURE LOAD BALANCER INBOUND</target>
+        </trans-unit>
+        <trans-unit id="8c942b46-e32a-45cc-91cd-96879a9d1f5b" xml:space="preserve">
+          <source>65001</source>
+          <target state="new">65001</target>
+        </trans-unit>
+        <trans-unit id="330c548c-56e9-4ba3-ac7a-1b02eff3842c" xml:space="preserve">
+          <source>AZURE_LOADBALANCER</source>
+          <target state="new">AZURE_LOADBALANCER</target>
+        </trans-unit>
+        <trans-unit id="81299a46-4c87-4f05-a767-ef852774bc49" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="1dbc3dc7-ff2d-41b9-8aba-40bfd5cb8e81" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="616f4b57-869e-4c7a-b71d-3a3fee51f7b2" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="a3894468-533a-4664-a83d-53a16ad23722" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="0c1df71e-4ce7-4171-a708-e58869fac0ef" xml:space="preserve">
+          <source>ALLOW</source>
+          <target state="new">ALLOW</target>
+        </trans-unit>
+        <trans-unit id="1e17050f-0308-4464-9d84-604b73322a93" xml:space="preserve">
+          <source>DENY ALL INBOUND</source>
+          <target state="new">DENY ALL INBOUND</target>
+        </trans-unit>
+        <trans-unit id="6be6ec7f-2219-4c97-a786-acd4ea694cbc" xml:space="preserve">
+          <source>65500</source>
+          <target state="new">65500</target>
+        </trans-unit>
+        <trans-unit id="2a342033-19c9-48cc-b654-1d206de5c2a8" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="dd9622ff-2058-4940-90da-7b5ae28200d8" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="1d1d60e9-ca84-4a89-87e9-52149d9c7ab8" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="48490579-9e1c-47c1-8626-ffc8c4e3a89f" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="5e1ff81d-f80a-4697-a959-5aaa764d978b" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="b2ddcec2-f0a1-4ae9-9abd-895d07d9f38b" xml:space="preserve">
+          <source>DENY</source>
+          <target state="new">DENY</target>
+        </trans-unit>
+        <trans-unit id="ef3e57ea-ea42-457b-b9f8-06d5704b0b00" xml:space="preserve">
+          <source><bpt id="145bcb11-3201-4612-a0a1-fcfd22ad6796">&lt;strong&gt;</bpt>Outbound default rules<ept id="145bcb11-3201-4612-a0a1-fcfd22ad6796">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="145bcb11-3201-4612-a0a1-fcfd22ad6796">&lt;strong&gt;</bpt>Outbound default rules<ept id="145bcb11-3201-4612-a0a1-fcfd22ad6796">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e6bbdad-b7fb-4fc3-8aba-43b4be5493f3" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="7f83ea9e-40ef-43c8-ba9d-55b04f9ed08f" xml:space="preserve">
+          <source>Priority</source>
+          <target state="new">Priority</target>
+        </trans-unit>
+        <trans-unit id="a549eac3-ac6b-4fb9-868d-6178c82a14d4" xml:space="preserve">
+          <source>Source IP</source>
+          <target state="new">Source IP</target>
+        </trans-unit>
+        <trans-unit id="2d209fa2-519f-4f6f-84d2-973371a620d6" xml:space="preserve">
+          <source>Source Port</source>
+          <target state="new">Source Port</target>
+        </trans-unit>
+        <trans-unit id="1063f634-d623-447c-b4d0-eda30b3b0d68" xml:space="preserve">
+          <source>Destination IP</source>
+          <target state="new">Destination IP</target>
+        </trans-unit>
+        <trans-unit id="fcdf118e-8f95-4238-a756-e488190cd2e0" xml:space="preserve">
+          <source>Destination Port</source>
+          <target state="new">Destination Port</target>
+        </trans-unit>
+        <trans-unit id="e0b483db-3d04-4722-a104-340ec9bc2749" xml:space="preserve">
+          <source>Protocol</source>
+          <target state="new">Protocol</target>
+        </trans-unit>
+        <trans-unit id="5aac37d5-b49e-4356-a638-0cc2220471a4" xml:space="preserve">
+          <source>Access</source>
+          <target state="new">Access</target>
+        </trans-unit>
+        <trans-unit id="eb5e3331-44b3-4243-af85-d39df25c22fe" xml:space="preserve">
+          <source>ALLOW VNET OUTBOUND</source>
+          <target state="new">ALLOW VNET OUTBOUND</target>
+        </trans-unit>
+        <trans-unit id="6e809ca1-b445-481a-973f-d199ed700018" xml:space="preserve">
+          <source>65000</source>
+          <target state="new">65000</target>
+        </trans-unit>
+        <trans-unit id="5adb0d3a-241c-459f-86bd-5786aa95006b" xml:space="preserve">
+          <source>VIRTUAL_NETWORK</source>
+          <target state="new">VIRTUAL_NETWORK</target>
+        </trans-unit>
+        <trans-unit id="60668930-743d-42bf-adac-de5199cea64d" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="35e6f627-e4e9-4e23-9f43-8de70e4eb669" xml:space="preserve">
+          <source>VIRTUAL_NETWORK</source>
+          <target state="new">VIRTUAL_NETWORK</target>
+        </trans-unit>
+        <trans-unit id="92577708-2037-4ef8-8995-7e6d38253df9" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="6b73e69d-ff43-47f6-8793-ad22ebf25b0c" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="9fb7c03a-7226-4e93-b192-ca9f765ac2e0" xml:space="preserve">
+          <source>ALLOW</source>
+          <target state="new">ALLOW</target>
+        </trans-unit>
+        <trans-unit id="60a17f4a-6c15-41eb-9f42-b7dda6c5aae3" xml:space="preserve">
+          <source>ALLOW INTERNET OUTBOUND</source>
+          <target state="new">ALLOW INTERNET OUTBOUND</target>
+        </trans-unit>
+        <trans-unit id="a04145ec-6b59-4e76-9ba8-c5706a21331e" xml:space="preserve">
+          <source>65001</source>
+          <target state="new">65001</target>
+        </trans-unit>
+        <trans-unit id="4fcde081-090e-4925-83cd-1bec4081f8f3" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="dcdff22a-2b9d-4e6f-831d-c891bb524c8a" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="ff3a090f-7782-443b-85ad-d4a12e5f78c5" xml:space="preserve">
+          <source>INTERNET</source>
+          <target state="new">INTERNET</target>
+        </trans-unit>
+        <trans-unit id="6169706e-b092-458e-8fa8-36ec972211b4" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="cfb45053-50a4-410f-ab74-77c8a5100836" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="fac6890b-0c4c-46db-bbbb-d6efc8ab7a0a" xml:space="preserve">
+          <source>ALLOW</source>
+          <target state="new">ALLOW</target>
+        </trans-unit>
+        <trans-unit id="cc6470e0-e0af-4081-997d-60e9eb569577" xml:space="preserve">
+          <source>DENY ALL OUTBOUND</source>
+          <target state="new">DENY ALL OUTBOUND</target>
+        </trans-unit>
+        <trans-unit id="e174fa35-b4e4-47aa-b4ca-dc9de268c11d" xml:space="preserve">
+          <source>65500</source>
+          <target state="new">65500</target>
+        </trans-unit>
+        <trans-unit id="87a4eb87-b9ed-4b67-b202-8387fd069630" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="846b2c8e-88c2-4d54-8880-f184ecd4c46b" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="9ab3dbf3-14b7-4fb4-af93-3db099b2fd44" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="9204f30b-019b-4c1f-a097-74ba6b952b63" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="d328660b-d1e0-49be-a2fe-1d18689ecbc6" xml:space="preserve">
+          <source>\*</source>
+          <target state="new">\*</target>
+        </trans-unit>
+        <trans-unit id="57780469-9fd0-40b8-8810-620ddc60bc84" xml:space="preserve">
+          <source>DENY</source>
+          <target state="new">DENY</target>
+        </trans-unit>
+        <trans-unit id="53ad3855-298e-4f21-8d8d-a882b8dbc0a7" xml:space="preserve">
+          <source>NSG rules are explicit.</source>
+          <target state="new">NSG rules are explicit.</target>
+        </trans-unit>
+        <trans-unit id="a759ac5f-13a6-4473-b169-27e922de15fb" xml:space="preserve">
+          <source>No traffic is allowed or denied beyond what is specified in the NSG rules.</source>
+          <target state="new">No traffic is allowed or denied beyond what is specified in the NSG rules.</target>
+        </trans-unit>
+        <trans-unit id="dabc8163-5a55-48b1-8551-6febc953786f" xml:space="preserve">
+          <source>However, two types of traffic are always allowed regardless of the 
+Network Security group specification.</source>
+          <target state="new">However, two types of traffic are always allowed regardless of the 
+Network Security group specification.</target>
+        </trans-unit>
+        <trans-unit id="62b9decc-61f5-460b-a3d1-658a703df2b6" xml:space="preserve">
+          <source>These provisions are made to support the infrastructure:</source>
+          <target state="new">These provisions are made to support the infrastructure:</target>
+        </trans-unit>
+        <trans-unit id="1f73ebb1-779d-46c3-8ad4-0c4b1d69f09a" xml:space="preserve">
+          <source><bpt id="dd53e304-6316-47c6-b9ec-0e94e6ecb930">&lt;strong&gt;</bpt>Virtual IP of the Host Node<ept id="dd53e304-6316-47c6-b9ec-0e94e6ecb930">&lt;/strong&gt;</ept>: Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 
+168.63.129.16.</source>
+          <target state="new"><bpt id="dd53e304-6316-47c6-b9ec-0e94e6ecb930">&lt;strong&gt;</bpt>Virtual IP of the Host Node<ept id="dd53e304-6316-47c6-b9ec-0e94e6ecb930">&lt;/strong&gt;</ept>: Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 
+168.63.129.16.</target>
+        </trans-unit>
+        <trans-unit id="6aed2dce-08fb-4c7a-a4da-692df3dcd659" xml:space="preserve">
+          <source>This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose.</source>
+          <target state="new">This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose.</target>
+        </trans-unit>
+        <trans-unit id="8c862463-551c-4f02-9df2-db295b619bde" xml:space="preserve">
+          <source>This IP address maps to 
+the physical IP address of the server machine (host node) hosting the VM.</source>
+          <target state="new">This IP address maps to 
+the physical IP address of the server machine (host node) hosting the VM.</target>
+        </trans-unit>
+        <trans-unit id="0be97498-c340-4dc3-9a4c-a9f4b323df59" xml:space="preserve">
+          <source>The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the 
+load balancer health probe and the machine health probe.</source>
+          <target state="new">The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the 
+load balancer health probe and the machine health probe.</target>
+        </trans-unit>
+        <trans-unit id="0128f9fb-ec36-40bc-b70f-a95676338ecd" xml:space="preserve">
+          <source>Communication to this IP address should not be considered as an attack.</source>
+          <target state="new">Communication to this IP address should not be considered as an attack.</target>
+        </trans-unit>
+        <trans-unit id="5aadba61-f5e7-4cb8-8136-761a41b44fdc" xml:space="preserve">
+          <source><bpt id="71339c2e-156a-43cb-bc8a-1688507630f8">&lt;strong&gt;</bpt>Licensing (Key Management Service)<ept id="71339c2e-156a-43cb-bc8a-1688507630f8">&lt;/strong&gt;</ept>: Windows images running in the VMs should be licensed.</source>
+          <target state="new"><bpt id="71339c2e-156a-43cb-bc8a-1688507630f8">&lt;strong&gt;</bpt>Licensing (Key Management Service)<ept id="71339c2e-156a-43cb-bc8a-1688507630f8">&lt;/strong&gt;</ept>: Windows images running in the VMs should be licensed.</target>
+        </trans-unit>
+        <trans-unit id="126b3258-810f-4c23-b2f9-e3f9af8a9010" xml:space="preserve">
+          <source>To do this, a licensing request is sent to the Key Management Service 
+host servers that handle such queries.</source>
+          <target state="new">To do this, a licensing request is sent to the Key Management Service 
+host servers that handle such queries.</target>
+        </trans-unit>
+        <trans-unit id="20be112f-4a8e-4c77-9957-9b5c948840ae" xml:space="preserve">
+          <source>This will always be on outbound port 1688.</source>
+          <target state="new">This will always be on outbound port 1688.</target>
+        </trans-unit>
+        <trans-unit id="800d1278-a58b-458e-87d7-27a6a23e9aee" xml:space="preserve">
+          <source>Default tags are system-provided identifiers to address a category of IP addresses.</source>
+          <target state="new">Default tags are system-provided identifiers to address a category of IP addresses.</target>
+        </trans-unit>
+        <trans-unit id="f3094598-b479-4123-a9a2-e8c077ed48e2" xml:space="preserve">
+          <source>Default tags can be specified in user-defined rules.</source>
+          <target state="new">Default tags can be specified in user-defined rules.</target>
+        </trans-unit>
+        <trans-unit id="34051fdc-35fd-4a4c-86f4-fd95bc3673c2" xml:space="preserve">
+          <source><bpt id="0a4f3e94-059d-4dd3-97ae-acbabe0d242a">&lt;strong&gt;</bpt>Default tags for NSGs<ept id="0a4f3e94-059d-4dd3-97ae-acbabe0d242a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0a4f3e94-059d-4dd3-97ae-acbabe0d242a">&lt;strong&gt;</bpt>Default tags for NSGs<ept id="0a4f3e94-059d-4dd3-97ae-acbabe0d242a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="227c6f36-14f7-40fc-973a-5890b511b2c7" xml:space="preserve">
+          <source>Tag</source>
+          <target state="new">Tag</target>
+        </trans-unit>
+        <trans-unit id="7f05c262-11c9-44ed-a135-2fb073d73b8a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="79311599-4383-49cd-b0ca-34a6585c193a" xml:space="preserve">
+          <source>VIRTUAL_NETWORK</source>
+          <target state="new">VIRTUAL_NETWORK</target>
+        </trans-unit>
+        <trans-unit id="cbb3442a-6ee0-4a10-ac8d-04faac9a5930" xml:space="preserve">
+          <source>Denotes all of your network address space.</source>
+          <target state="new">Denotes all of your network address space.</target>
+        </trans-unit>
+        <trans-unit id="9c39817d-2526-45bd-aa78-625de0e5d03c" xml:space="preserve">
+          <source>It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks).</source>
+          <target state="new">It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks).</target>
+        </trans-unit>
+        <trans-unit id="51182346-8c44-46dc-9e34-911bfe87b33d" xml:space="preserve">
+          <source>This also includes virtual network-to-virtual network address spaces.</source>
+          <target state="new">This also includes virtual network-to-virtual network address spaces.</target>
+        </trans-unit>
+        <trans-unit id="3b0f9761-cf70-4744-b903-2d69878a5398" xml:space="preserve">
+          <source>AZURE_LOADBALANCER</source>
+          <target state="new">AZURE_LOADBALANCER</target>
+        </trans-unit>
+        <trans-unit id="0d28566b-be59-412a-9802-ebc2de019ed1" xml:space="preserve">
+          <source>Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate.</source>
+          <target state="new">Denotes the Azure Infrastructure load balancer and will translate to an Azure datacenter IP where Azure’s health probes will originate.</target>
+        </trans-unit>
+        <trans-unit id="22869cef-c1bb-4bca-8058-d5c53f8c84ca" xml:space="preserve">
+          <source>This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.</source>
+          <target state="new">This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.</target>
+        </trans-unit>
+        <trans-unit id="21a1ba51-e549-4a33-8063-367b9457216a" xml:space="preserve">
+          <source>INTERNET</source>
+          <target state="new">INTERNET</target>
+        </trans-unit>
+        <trans-unit id="d8362e37-42bc-4c72-bcd7-b86b109ce65c" xml:space="preserve">
+          <source>Denotes the IP address space that is outside the virtual network and can be reached by public Internet.</source>
+          <target state="new">Denotes the IP address space that is outside the virtual network and can be reached by public Internet.</target>
+        </trans-unit>
+        <trans-unit id="62586bb0-45b7-4369-8691-a8e865c2b7a2" xml:space="preserve">
+          <source>This range includes Azure-owned public IP space as well.</source>
+          <target state="new">This range includes Azure-owned public IP space as well.</target>
+        </trans-unit>
+        <trans-unit id="0a3a5717-35ec-4995-a979-3b7e1a75d04e" xml:space="preserve">
+          <source>NSG rules can be specified on a single source or destination port, or on a port range.</source>
+          <target state="new">NSG rules can be specified on a single source or destination port, or on a port range.</target>
+        </trans-unit>
+        <trans-unit id="c26d41a5-7829-4b26-8551-007e6bfc09e6" xml:space="preserve">
+          <source>This approach is particularly useful when you want to open a wide range of ports 
+for an application, such as FTP.</source>
+          <target state="new">This approach is particularly useful when you want to open a wide range of ports 
+for an application, such as FTP.</target>
+        </trans-unit>
+        <trans-unit id="b62f70af-4b68-4cac-a866-e87526c752d7" xml:space="preserve">
+          <source>The range must be sequential and can't be mixed with individual port specifications.</source>
+          <target state="new">The range must be sequential and can't be mixed with individual port specifications.</target>
+        </trans-unit>
+        <trans-unit id="6af67666-85ab-414b-b93d-b94ee446b2b8" xml:space="preserve">
+          <source>To specify a range of ports, use the hyphen (–) character.</source>
+          <target state="new">To specify a range of ports, use the hyphen (–) character.</target>
+        </trans-unit>
+        <trans-unit id="bf709de9-6ca1-439d-a025-485bca533a1c" xml:space="preserve">
+          <source>For example, <bpt id="625e2ba5-88d2-4322-acd6-08403664da92">&lt;strong&gt;</bpt>100-500<ept id="625e2ba5-88d2-4322-acd6-08403664da92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="625e2ba5-88d2-4322-acd6-08403664da92">&lt;strong&gt;</bpt>100-500<ept id="625e2ba5-88d2-4322-acd6-08403664da92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2db4e784-254f-4b42-ae39-a3fb8a8a8514" xml:space="preserve">
+          <source>With the current NSG rules, you can specify TCP or UDP as protocols but not ICMP.</source>
+          <target state="new">With the current NSG rules, you can specify TCP or UDP as protocols but not ICMP.</target>
+        </trans-unit>
+        <trans-unit id="c83ed97c-1cfa-41f0-906c-ddffa8dd6fc9" xml:space="preserve">
+          <source>However, ICMP traffic is allowed within a virtual network by default through 
+the Inbound rules that support traffic from and to any port and protocol (\*) within the virtual network.</source>
+          <target state="new">However, ICMP traffic is allowed within a virtual network by default through 
+the Inbound rules that support traffic from and to any port and protocol (\*) within the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="a96d67ce-85ae-4c9f-a30b-d11900f290d2" xml:space="preserve">
+          <source>When an NSG is directly associated with a VM, the network access rules in the NSG are directly applied to all traffic that is destined to the VM.</source>
+          <target state="new">When an NSG is directly associated with a VM, the network access rules in the NSG are directly applied to all traffic that is destined to the VM.</target>
+        </trans-unit>
+        <trans-unit id="51720e25-56d3-4fb5-9e41-351f4b6046f2" xml:space="preserve">
+          <source>Whenever the NSG is 
+updated for rule changes, the traffic handling reflects the updates within minutes.</source>
+          <target state="new">Whenever the NSG is 
+updated for rule changes, the traffic handling reflects the updates within minutes.</target>
+        </trans-unit>
+        <trans-unit id="eb87fa69-ba08-4a85-becb-71c434175cab" xml:space="preserve">
+          <source>When the NSG is disassociated from the VM, the state reverts to its 
+pre-NSG condition—that is, to the system defaults before the NSG was introduced.</source>
+          <target state="new">When the NSG is disassociated from the VM, the state reverts to its 
+pre-NSG condition—that is, to the system defaults before the NSG was introduced.</target>
+        </trans-unit>
+        <trans-unit id="23ff81b5-c17a-4705-881a-f228e36df824" xml:space="preserve">
+          <source>When an NSG is associated with a subnet, the network access rules in the NSG are applied to all the VMs in the subnet.</source>
+          <target state="new">When an NSG is associated with a subnet, the network access rules in the NSG are applied to all the VMs in the subnet.</target>
+        </trans-unit>
+        <trans-unit id="55749398-ff25-4dd6-89f5-de0a228b1360" xml:space="preserve">
+          <source>Whenever the access rules in the NSG are 
+updated, the changes are applied to all VMs in the subnet within minutes.</source>
+          <target state="new">Whenever the access rules in the NSG are 
+updated, the changes are applied to all VMs in the subnet within minutes.</target>
+        </trans-unit>
+        <trans-unit id="72ba3c5d-d080-4eab-8050-753e33c1f047" xml:space="preserve">
+          <source>You can associate one NSG with a VM and another NSG with the subnet where the VM resides.</source>
+          <target state="new">You can associate one NSG with a VM and another NSG with the subnet where the VM resides.</target>
+        </trans-unit>
+        <trans-unit id="c390d43c-3c91-4797-a020-ee8606973023" xml:space="preserve">
+          <source>This scenario is supported to provide the VM with two layers of protection.</source>
+          <target state="new">This scenario is supported to provide the VM with two layers of protection.</target>
+        </trans-unit>
+        <trans-unit id="ddf30c35-289b-42ef-bb61-db0cb79fa977" xml:space="preserve">
+          <source>On the inbound traffic, the packet follows the access rules specified in the subnet, followed by rules in the VM.</source>
+          <target state="new">On the inbound traffic, the packet follows the access rules specified in the subnet, followed by rules in the VM.</target>
+        </trans-unit>
+        <trans-unit id="1079c01b-3526-4c20-b065-274376b8a4b1" xml:space="preserve">
+          <source>When outbound, the packet follows the rules specified 
+in the VM first, then follows the rules specified in the subnet as shown below.</source>
+          <target state="new">When outbound, the packet follows the rules specified 
+in the VM first, then follows the rules specified in the subnet as shown below.</target>
+        </trans-unit>
+        <trans-unit id="2f9aa4db-cd28-4d54-9fef-d7b2bd668efd" xml:space="preserve">
+          <source><bpt id="152e2c5f-d507-4570-be8c-2e1e015a3b7d">&lt;linkText&gt;</bpt>Associating an NSG to a subnet and a VM<ept id="152e2c5f-d507-4570-be8c-2e1e015a3b7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="152e2c5f-d507-4570-be8c-2e1e015a3b7d">&lt;linkText&gt;</bpt>Associating an NSG to a subnet and a VM<ept id="152e2c5f-d507-4570-be8c-2e1e015a3b7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bcbfe37-7914-4e05-9539-4d16109ab865" xml:space="preserve">
+          <source>When an NSG is associated with a VM or subnet, the network access control rules become very explicit.</source>
+          <target state="new">When an NSG is associated with a VM or subnet, the network access control rules become very explicit.</target>
+        </trans-unit>
+        <trans-unit id="ab7a56da-69e2-49a8-9353-cb2c6fef6803" xml:space="preserve">
+          <source>The platform will not insert any implicit rule to allow 
+traffic to a particular port.</source>
+          <target state="new">The platform will not insert any implicit rule to allow 
+traffic to a particular port.</target>
+        </trans-unit>
+        <trans-unit id="3bd069bb-224f-45c5-a32e-1947d4507e86" xml:space="preserve">
+          <source>In this case, if you create an endpoint in the VM, you must also create a rule to allow traffic from the Internet.</source>
+          <target state="new">In this case, if you create an endpoint in the VM, you must also create a rule to allow traffic from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="8af95f95-3680-4ded-aeff-d6dbe06efc4d" xml:space="preserve">
+          <source>If you don't do 
+this, the <bpt id="06b60380-f60d-4c37-b55e-f402ba849eda">&lt;em&gt;</bpt>VIP:{Port}<ept id="06b60380-f60d-4c37-b55e-f402ba849eda">&lt;/em&gt;</ept> can't be accessed from outside.</source>
+          <target state="new">If you don't do 
+this, the <bpt id="06b60380-f60d-4c37-b55e-f402ba849eda">&lt;em&gt;</bpt>VIP:{Port}<ept id="06b60380-f60d-4c37-b55e-f402ba849eda">&lt;/em&gt;</ept> can't be accessed from outside.</target>
+        </trans-unit>
+        <trans-unit id="0323c888-85c9-4412-ae7d-b14d9ce875c9" xml:space="preserve">
+          <source>For example, you can create a new VM and a new NSG.</source>
+          <target state="new">For example, you can create a new VM and a new NSG.</target>
+        </trans-unit>
+        <trans-unit id="483a6628-85db-436a-ac21-e25ecf2e0556" xml:space="preserve">
+          <source>You associate the NSG with the VM.</source>
+          <target state="new">You associate the NSG with the VM.</target>
+        </trans-unit>
+        <trans-unit id="7b7e3f80-a7ca-4d15-aa3d-9c6810b3e043" xml:space="preserve">
+          <source>The VM can communicate with other VMs in the virtual network through the 
+ALLOW VNET INBOUND rule.</source>
+          <target state="new">The VM can communicate with other VMs in the virtual network through the 
+ALLOW VNET INBOUND rule.</target>
+        </trans-unit>
+        <trans-unit id="4e4473c2-6cfc-4eef-b65f-b8179cceeb47" xml:space="preserve">
+          <source>The VM can also make outbound connections to the Internet using the ALLOW INTERNET OUTBOUND rule.</source>
+          <target state="new">The VM can also make outbound connections to the Internet using the ALLOW INTERNET OUTBOUND rule.</target>
+        </trans-unit>
+        <trans-unit id="b09a62b8-bfa7-424d-826e-7c97ed5ef7b2" xml:space="preserve">
+          <source>Later, you create an endpoint on port 80 
+to receive traffic to your website running in the VM.</source>
+          <target state="new">Later, you create an endpoint on port 80 
+to receive traffic to your website running in the VM.</target>
+        </trans-unit>
+        <trans-unit id="28830c72-a622-4567-a977-87c69d701c4d" xml:space="preserve">
+          <source>Packets destined to port 80 on the VIP (public Virtual IP address) from the Internet will not reach the VM until 
+you add a rule similar to the following table to the NSG.</source>
+          <target state="new">Packets destined to port 80 on the VIP (public Virtual IP address) from the Internet will not reach the VM until 
+you add a rule similar to the following table to the NSG.</target>
+        </trans-unit>
+        <trans-unit id="1fed40ad-cf76-44c0-a5c4-391aa1d9dc87" xml:space="preserve">
+          <source><bpt id="7b6b63ea-5416-4df8-bcb5-cd3c86f518b6">&lt;strong&gt;</bpt>Explicit rule allowing traffic to a particular port<ept id="7b6b63ea-5416-4df8-bcb5-cd3c86f518b6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7b6b63ea-5416-4df8-bcb5-cd3c86f518b6">&lt;strong&gt;</bpt>Explicit rule allowing traffic to a particular port<ept id="7b6b63ea-5416-4df8-bcb5-cd3c86f518b6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9908b6c3-2102-4968-a28c-1eb13cc2d2bc" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="5c9ace71-5e92-4c98-8d44-14566ed034b4" xml:space="preserve">
+          <source>Priority</source>
+          <target state="new">Priority</target>
+        </trans-unit>
+        <trans-unit id="4caa209c-79c6-4d50-b0e3-a5e0cdf028bc" xml:space="preserve">
+          <source>Source IP</source>
+          <target state="new">Source IP</target>
+        </trans-unit>
+        <trans-unit id="0e446ee2-cba7-4f8b-aa08-00c4577ed533" xml:space="preserve">
+          <source>Source Port</source>
+          <target state="new">Source Port</target>
+        </trans-unit>
+        <trans-unit id="73991782-c678-4f4c-8510-dba1058291cf" xml:space="preserve">
+          <source>Destination IP</source>
+          <target state="new">Destination IP</target>
+        </trans-unit>
+        <trans-unit id="8515b428-dff3-4d53-9404-07594048666e" xml:space="preserve">
+          <source>Destination Port</source>
+          <target state="new">Destination Port</target>
+        </trans-unit>
+        <trans-unit id="9626a3cd-da80-4ebb-acfc-ad7238524944" xml:space="preserve">
+          <source>Protocol</source>
+          <target state="new">Protocol</target>
+        </trans-unit>
+        <trans-unit id="3bb41b4b-b13f-40b0-b642-bf13ba31bc4e" xml:space="preserve">
+          <source>Access</source>
+          <target state="new">Access</target>
+        </trans-unit>
+        <trans-unit id="25b545db-496b-46d8-8305-331aa21f3f47" xml:space="preserve">
+          <source>WEB</source>
+          <target state="new">WEB</target>
+        </trans-unit>
+        <trans-unit id="f7d81a45-7b3b-4337-ab5f-4948980e364f" xml:space="preserve">
+          <source>100</source>
+          <target state="new">100</target>
+        </trans-unit>
+        <trans-unit id="d6a8539a-51db-4c46-b3e1-0195b973e6ec" xml:space="preserve">
+          <source>INTERNET</source>
+          <target state="new">INTERNET</target>
+        </trans-unit>
+        <trans-unit id="5ebbd6fb-c17c-497b-8f99-e9423bd746ab" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="e8655d39-7353-4c6d-a342-b3b4b17f4748" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="7271ff4a-bf70-4132-aa34-a5f42fbd5b62" xml:space="preserve">
+          <source>80</source>
+          <target state="new">80</target>
+        </trans-unit>
+        <trans-unit id="4bd43053-e142-4529-8ed0-97309bda0569" xml:space="preserve">
+          <source>TCP</source>
+          <target state="new">TCP</target>
+        </trans-unit>
+        <trans-unit id="930c3267-d447-4fa0-b1db-2a6ed02f0c71" xml:space="preserve">
+          <source>ALLOW</source>
+          <target state="new">ALLOW</target>
+        </trans-unit>
+        <trans-unit id="859c8ae5-c04b-4283-a454-1f7ba9aa224e" xml:space="preserve">
+          <source>Azure uses a route table to decide how to forward IP traffic based on the destination of each packet.</source>
+          <target state="new">Azure uses a route table to decide how to forward IP traffic based on the destination of each packet.</target>
+        </trans-unit>
+        <trans-unit id="36ce68b3-c52f-474f-8152-0210174f02b9" xml:space="preserve">
+          <source>Although Azure provides a default route table based on 
+your virtual network settings, you may need to add custom routes to that table.</source>
+          <target state="new">Although Azure provides a default route table based on 
+your virtual network settings, you may need to add custom routes to that table.</target>
+        </trans-unit>
+        <trans-unit id="4da48774-ed28-4569-ac2b-1c89c09ccc10" xml:space="preserve">
+          <source>The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment.</source>
+          <target state="new">The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="c52f87a6-bb56-4b41-a51f-81eba53c7234" xml:space="preserve">
+          <source>Take into account the scenario shown in 
+the Figure below.</source>
+          <target state="new">Take into account the scenario shown in 
+the Figure below.</target>
+        </trans-unit>
+        <trans-unit id="87c7bb15-d065-4fd8-b0f8-1f98502216f6" xml:space="preserve">
+          <source>Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a 
+virtual firewall appliance.</source>
+          <target state="new">Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a 
+virtual firewall appliance.</target>
+        </trans-unit>
+        <trans-unit id="4a208b08-d4a0-443e-8522-fe0af09d3fa2" xml:space="preserve">
+          <source>Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality.</source>
+          <target state="new">Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality.</target>
+        </trans-unit>
+        <trans-unit id="d6ae79c8-dc24-4fc4-aa7c-6e5199cdb48f" xml:space="preserve">
+          <source>You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance.</source>
+          <target state="new">You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance.</target>
+        </trans-unit>
+        <trans-unit id="857cc277-25c1-48d0-ab37-ff3998eebb07" xml:space="preserve">
+          <source>The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet.</source>
+          <target state="new">The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet.</target>
+        </trans-unit>
+        <trans-unit id="bac3ec2f-a235-4ca0-9d79-fe55fe1ef0e0" xml:space="preserve">
+          <source>To ensure the virtual 
+appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance.</source>
+          <target state="new">To ensure the virtual 
+appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="4ab38ad9-8ebe-42e8-b383-018c24f9fcb6" xml:space="preserve">
+          <source>Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network.</source>
+          <target state="new">Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network.</target>
+        </trans-unit>
+        <trans-unit id="2c8006a5-104d-4f18-844f-1fd92bf79b27" xml:space="preserve">
+          <source>A route table is a collection of individual 
+routes used to decide where to forward packets based on the destination IP address.</source>
+          <target state="new">A route table is a collection of individual 
+routes used to decide where to forward packets based on the destination IP address.</target>
+        </trans-unit>
+        <trans-unit id="4caeba9e-51d5-41d7-ab2f-beebb4db562d" xml:space="preserve">
+          <source>A route consists of the following:</source>
+          <target state="new">A route consists of the following:</target>
+        </trans-unit>
+        <trans-unit id="58fc5dea-3335-4bce-a41d-19768825d25b" xml:space="preserve">
+          <source>Address Prefix.</source>
+          <target state="new">Address Prefix.</target>
+        </trans-unit>
+        <trans-unit id="e0ef45ac-79fc-40f9-ba91-c487642201d5" xml:space="preserve">
+          <source>The destination CIDR to which the route applies, such as 10.1.0.0/16.</source>
+          <target state="new">The destination CIDR to which the route applies, such as 10.1.0.0/16.</target>
+        </trans-unit>
+        <trans-unit id="a6f3ec78-8b6f-4f7d-a317-99f545d4f3c7" xml:space="preserve">
+          <source>Next hop type.</source>
+          <target state="new">Next hop type.</target>
+        </trans-unit>
+        <trans-unit id="c3026046-fc4e-4e34-9753-6e8ca529cc64" xml:space="preserve">
+          <source>The type of Azure hop the packet should be sent to.</source>
+          <target state="new">The type of Azure hop the packet should be sent to.</target>
+        </trans-unit>
+        <trans-unit id="2e485ebd-bb9b-482e-b67c-37cb19b167d2" xml:space="preserve">
+          <source>Possible values are:</source>
+          <target state="new">Possible values are:</target>
+        </trans-unit>
+        <trans-unit id="b3690eb5-8c38-4da9-8608-ead0d43334ee" xml:space="preserve">
+          <source>Local.</source>
+          <target state="new">Local.</target>
+        </trans-unit>
+        <trans-unit id="fd2638bd-e591-41ae-9b1e-0173e1c92521" xml:space="preserve">
+          <source>Represents the local virtual network.</source>
+          <target state="new">Represents the local virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9d30f2db-e47b-4354-9018-443443f41458" xml:space="preserve">
+          <source>For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.</source>
+          <target state="new">For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of Local.</target>
+        </trans-unit>
+        <trans-unit id="8ce0f1f3-efbb-4da7-a499-0009bde0a559" xml:space="preserve">
+          <source>VPN Gateway.</source>
+          <target state="new">VPN Gateway.</target>
+        </trans-unit>
+        <trans-unit id="7f008508-3501-4224-96c0-effd482af414" xml:space="preserve">
+          <source>Represents an Azure S2S VPN Gateway.</source>
+          <target state="new">Represents an Azure S2S VPN Gateway.</target>
+        </trans-unit>
+        <trans-unit id="40a9a5e3-0f44-4eb5-8fcf-603750bbe340" xml:space="preserve">
+          <source>Internet.</source>
+          <target state="new">Internet.</target>
+        </trans-unit>
+        <trans-unit id="a7318c78-669f-4077-8df9-0cfe3c5be507" xml:space="preserve">
+          <source>Represents the default Internet gateway provided by the Azure Infrastructure</source>
+          <target state="new">Represents the default Internet gateway provided by the Azure Infrastructure</target>
+        </trans-unit>
+        <trans-unit id="67acdc11-fd2d-427e-be90-ddb88f81eb95" xml:space="preserve">
+          <source>Virtual Appliance.</source>
+          <target state="new">Virtual Appliance.</target>
+        </trans-unit>
+        <trans-unit id="09585592-6bc1-4799-ac2d-b1cee068f0a2" xml:space="preserve">
+          <source>Represents a virtual appliance you added to your Azure virtual network.</source>
+          <target state="new">Represents a virtual appliance you added to your Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="41216974-73f2-433e-9744-46650f704705" xml:space="preserve">
+          <source>NULL.</source>
+          <target state="new">NULL.</target>
+        </trans-unit>
+        <trans-unit id="010ac422-591c-4c87-a5a3-d0b919554fca" xml:space="preserve">
+          <source>Represents a black hole.</source>
+          <target state="new">Represents a black hole.</target>
+        </trans-unit>
+        <trans-unit id="46159976-217d-43fe-a18e-74839a972deb" xml:space="preserve">
+          <source>Packets forwarded to a black hole will not be forwarded at all.</source>
+          <target state="new">Packets forwarded to a black hole will not be forwarded at all.</target>
+        </trans-unit>
+        <trans-unit id="d86193c0-d7ba-4636-bf56-b23a3325e721" xml:space="preserve">
+          <source>Nexthop Value.</source>
+          <target state="new">Nexthop Value.</target>
+        </trans-unit>
+        <trans-unit id="d8bf3770-7299-41bd-b5d7-f8ea110c83f7" xml:space="preserve">
+          <source>The next hop value contains the IP address packets should be forwarded to.</source>
+          <target state="new">The next hop value contains the IP address packets should be forwarded to.</target>
+        </trans-unit>
+        <trans-unit id="0ca2f5ed-d405-4720-b229-6ab1c92b0f0a" xml:space="preserve">
+          <source>Next hop values are only allowed in routes where the next hop type is <bpt id="fc6e75a1-30d7-4270-9757-7e17fba1f16b">&lt;em&gt;</bpt>Virtual Appliance<ept id="fc6e75a1-30d7-4270-9757-7e17fba1f16b">&lt;/em&gt;</ept>.</source>
+          <target state="new">Next hop values are only allowed in routes where the next hop type is <bpt id="fc6e75a1-30d7-4270-9757-7e17fba1f16b">&lt;em&gt;</bpt>Virtual Appliance<ept id="fc6e75a1-30d7-4270-9757-7e17fba1f16b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b81c82c-93f6-427c-b34e-a32bff541ccb" xml:space="preserve">
+          <source>The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet.</source>
+          <target state="new">The next hop needs to be on the subnet (the local interface of the virtual appliance according to the network ID), not a remote subnet.</target>
+        </trans-unit>
+        <trans-unit id="22d0d512-f6be-48f0-b6a8-460354f4904e" xml:space="preserve">
+          <source><bpt id="fa7fdeb6-d39b-46e0-9ff5-4042706f552f">&lt;linkText&gt;</bpt>Routing<ept id="fa7fdeb6-d39b-46e0-9ff5-4042706f552f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa7fdeb6-d39b-46e0-9ff5-4042706f552f">&lt;linkText&gt;</bpt>Routing<ept id="fa7fdeb6-d39b-46e0-9ff5-4042706f552f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d3d9291-d123-4af7-9009-f48705dd6109" xml:space="preserve">
+          <source>Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:</source>
+          <target state="new">Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:</target>
+        </trans-unit>
+        <trans-unit id="6d9c9206-72aa-45b9-9696-a59d5654010a" xml:space="preserve">
+          <source>Local VNet Rule: This rule is automatically created for every subnet in a virtual network.</source>
+          <target state="new">Local VNet Rule: This rule is automatically created for every subnet in a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="5c9a0139-1d6f-4fee-b674-5906883fa98d" xml:space="preserve">
+          <source>It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.</source>
+          <target state="new">It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.</target>
+        </trans-unit>
+        <trans-unit id="307cd9e7-c797-4597-9434-a05c0d3451d6" xml:space="preserve">
+          <source>This enables the VMs on the same subnet, regardless of the network ID that the VMs exist in, to communicate with each other without requiring a default gateway address.</source>
+          <target state="new">This enables the VMs on the same subnet, regardless of the network ID that the VMs exist in, to communicate with each other without requiring a default gateway address.</target>
+        </trans-unit>
+        <trans-unit id="69548afd-76ce-42f5-b378-e95153cf486f" xml:space="preserve">
+          <source>On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.</source>
+          <target state="new">On-premises Rule: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.</target>
+        </trans-unit>
+        <trans-unit id="78290791-33ce-4dda-99ce-f0dd845ddcad" xml:space="preserve">
+          <source>Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.</source>
+          <target state="new">Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="0041a95d-ea45-41b7-8ef6-a890d43728c2" xml:space="preserve">
+          <source>At the time of this writing, <bpt id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;linkText&gt;</bpt>ExpressRoute<ept id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;/linkText&gt;</ept><bpt id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;title&gt;</bpt><ept id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;/title&gt;</ept> is not yet supported in the <bpt id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;linkText&gt;</bpt>Network Resource Provider<ept id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;/linkText&gt;</ept><bpt id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;title&gt;</bpt><ept id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;/title&gt;</ept> for Azure Resource Manager.</source>
+          <target state="new">At the time of this writing, <bpt id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;linkText&gt;</bpt>ExpressRoute<ept id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;/linkText&gt;</ept><bpt id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;title&gt;</bpt><ept id="8aabca8b-cd51-4ca2-a559-1543dfe129a9">&lt;/title&gt;</ept> is not yet supported in the <bpt id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;linkText&gt;</bpt>Network Resource Provider<ept id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;/linkText&gt;</ept><bpt id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;title&gt;</bpt><ept id="ffc8342c-d87e-4f56-8bcb-bda5e32bfd18">&lt;/title&gt;</ept> for Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="48ce26e9-c803-4315-b544-b8e2ae3702f5" xml:space="preserve">
+          <source>If you have an ExpressRoute connection between your 
+on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP.</source>
+          <target state="new">If you have an ExpressRoute connection between your 
+on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP.</target>
+        </trans-unit>
+        <trans-unit id="3be0b438-77e9-43bb-82da-a3fa5aaf40c9" xml:space="preserve">
+          <source>These 
+BGP routes are used in the same way as default routes and user defined routes in each Azure subnet.</source>
+          <target state="new">These 
+BGP routes are used in the same way as default routes and user defined routes in each Azure subnet.</target>
+        </trans-unit>
+        <trans-unit id="aec00902-58ad-45fb-b83f-9d5ccfccd68c" xml:space="preserve">
+          <source>For more information see 
+<bpt id="e8f06754-609f-4613-b520-4860681a6236">&lt;linkText&gt;</bpt>ExpressRoute Introduction<ept id="e8f06754-609f-4613-b520-4860681a6236">&lt;/linkText&gt;</ept><bpt id="e8f06754-609f-4613-b520-4860681a6236">&lt;title&gt;</bpt><ept id="e8f06754-609f-4613-b520-4860681a6236">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see 
+<bpt id="e8f06754-609f-4613-b520-4860681a6236">&lt;linkText&gt;</bpt>ExpressRoute Introduction<ept id="e8f06754-609f-4613-b520-4860681a6236">&lt;/linkText&gt;</ept><bpt id="e8f06754-609f-4613-b520-4860681a6236">&lt;title&gt;</bpt><ept id="e8f06754-609f-4613-b520-4860681a6236">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7194d43a-fb85-4dbd-af45-7e78e914dd64" xml:space="preserve">
+          <source>When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop.</source>
+          <target state="new">When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop.</target>
+        </trans-unit>
+        <trans-unit id="108a2088-ca68-4bcf-a51a-f36d55782d72" xml:space="preserve">
+          <source>However, this only works if you are using a VPN gateway, not ExpressRoute.</source>
+          <target state="new">However, this only works if you are using a VPN gateway, not ExpressRoute.</target>
+        </trans-unit>
+        <trans-unit id="1c908c93-29d6-4108-ad34-e0af1b0f1e7f" xml:space="preserve">
+          <source>For ExpressRoute, forced tunneling is configured through BGP.</source>
+          <target state="new">For ExpressRoute, forced tunneling is configured through BGP.</target>
+        </trans-unit>
+        <trans-unit id="8e8d9c86-1645-4dcd-bf00-a35b3401b18a" xml:space="preserve">
+          <source>You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need.</source>
+          <target state="new">You cannot view the default routes specified above in your Azure environment, and for most environments, those are the only routes you will need.</target>
+        </trans-unit>
+        <trans-unit id="e92acfa6-39be-4cda-9aeb-9dda41121325" xml:space="preserve">
+          <source>However, you may need to create a route table and add one or more routes in specific cases, such as:</source>
+          <target state="new">However, you may need to create a route table and add one or more routes in specific cases, such as:</target>
+        </trans-unit>
+        <trans-unit id="ecf3d17b-8aab-497c-ba55-542114dfb5b1" xml:space="preserve">
+          <source>Forced tunneling to the Internet via your on-premises network.</source>
+          <target state="new">Forced tunneling to the Internet via your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="6fbeccfe-8013-4222-a552-b019b0cb4fa9" xml:space="preserve">
+          <source>Use of virtual appliances in your Azure environment.</source>
+          <target state="new">Use of virtual appliances in your Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="1992dfe8-93ee-4eaf-bf6c-2dd2e58aa757" xml:space="preserve">
+          <source>In the scenarios above, you will have to create a route table and add user defined routes to it.</source>
+          <target state="new">In the scenarios above, you will have to create a route table and add user defined routes to it.</target>
+        </trans-unit>
+        <trans-unit id="1fe43001-8c02-4fdc-8435-ddef8f5e0c1f" xml:space="preserve">
+          <source>You can have multiple route tables, and the same route table can 
+be associated to one or more subnets.</source>
+          <target state="new">You can have multiple route tables, and the same route table can 
+be associated to one or more subnets.</target>
+        </trans-unit>
+        <trans-unit id="d632de2e-57c4-4c1b-9e0b-7e44f0f354d8" xml:space="preserve">
+          <source>And each subnet can only be associated to a single route table.</source>
+          <target state="new">And each subnet can only be associated to a single route table.</target>
+        </trans-unit>
+        <trans-unit id="03ea9106-1147-40b7-8c38-bc6db1cc9b00" xml:space="preserve">
+          <source>All VMs and cloud services in a subnet use the route table 
+associated to that subnet.</source>
+          <target state="new">All VMs and cloud services in a subnet use the route table 
+associated to that subnet.</target>
+        </trans-unit>
+        <trans-unit id="bda34233-160e-4290-a7c7-05b93324adae" xml:space="preserve">
+          <source>Subnets rely on default routes until a route table is associated to the subnet.</source>
+          <target state="new">Subnets rely on default routes until a route table is associated to the subnet.</target>
+        </trans-unit>
+        <trans-unit id="cfe3e235-3999-4666-92e1-b2770f17ac9e" xml:space="preserve">
+          <source>Once an association exists, routing is done based on [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest<bpt id="fe24fb4b-d5ed-4680-855f-a3caaf9cc7ab">&lt;em&gt;</bpt>prefix<ept id="fe24fb4b-d5ed-4680-855f-a3caaf9cc7ab">&lt;/em&gt;</ept>match) 
+among both user defined routes and default routes.</source>
+          <target state="new">Once an association exists, routing is done based on [Longest Prefix Match (LPM)](https://en.wikipedia.org/wiki/Longest<bpt id="fe24fb4b-d5ed-4680-855f-a3caaf9cc7ab">&lt;em&gt;</bpt>prefix<ept id="fe24fb4b-d5ed-4680-855f-a3caaf9cc7ab">&lt;/em&gt;</ept>match) 
+among both user defined routes and default routes.</target>
+        </trans-unit>
+        <trans-unit id="63e6b5f2-c81c-47a3-bebf-9768277bc8db" xml:space="preserve">
+          <source>If there is more than one route with the same LPM match then a route is selected based on its origin in the following 
+order:</source>
+          <target state="new">If there is more than one route with the same LPM match then a route is selected based on its origin in the following 
+order:</target>
+        </trans-unit>
+        <trans-unit id="8e3a8490-a396-4148-8a9c-d580aed8257e" xml:space="preserve">
+          <source>User defined route</source>
+          <target state="new">User defined route</target>
+        </trans-unit>
+        <trans-unit id="543d148d-3c93-4105-862c-01af550346c9" xml:space="preserve">
+          <source>BGP route (when ExpressRoute is used)</source>
+          <target state="new">BGP route (when ExpressRoute is used)</target>
+        </trans-unit>
+        <trans-unit id="767992fe-baba-4465-868f-fadc51fd2d50" xml:space="preserve">
+          <source>Default route</source>
+          <target state="new">Default route</target>
+        </trans-unit>
+        <trans-unit id="92e16f04-dfe7-4b77-9d89-8fb853d7dc0a" xml:space="preserve">
+          <source>User defined routes are only applied to Azure VMs and cloud services.</source>
+          <target state="new">User defined routes are only applied to Azure VMs and cloud services.</target>
+        </trans-unit>
+        <trans-unit id="19d2900d-b732-4506-ba2c-0beba33baf50" xml:space="preserve">
+          <source>For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance.</source>
+          <target state="new">For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="c746006c-0ca6-45b5-a632-c45db4f67c50" xml:space="preserve">
+          <source>However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.</source>
+          <target state="new">However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="baa17ab6-96e6-4daf-b2a3-e07ee9480284" xml:space="preserve">
+          <source>As described above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance.</source>
+          <target state="new">As described above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="170a9b12-6c99-4a2a-bb08-f35f8e05f272" xml:space="preserve">
+          <source>A virtual appliance is nothing more than a 
+VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.</source>
+          <target state="new">A virtual appliance is nothing more than a 
+VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.</target>
+        </trans-unit>
+        <trans-unit id="d1235be5-7ea3-46a0-a6d7-079b4c865abe" xml:space="preserve">
+          <source>This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself.</source>
+          <target state="new">This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself.</target>
+        </trans-unit>
+        <trans-unit id="31c3b2ae-dcf9-4e23-9520-437d485d4d21" xml:space="preserve">
+          <source>To allow a VM to receive traffic addressed to other destinations, 
+you must enable IP Forwarding in the VM.</source>
+          <target state="new">To allow a VM to receive traffic addressed to other destinations, 
+you must enable IP Forwarding in the VM.</target>
+        </trans-unit>
+        <trans-unit id="195d07e8-2d61-4b4b-a7e5-0b74e7044507" xml:space="preserve">
+          <source>To understand how to set up security principals with the correct access to work with resources in your organization, see <bpt id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;linkText&gt;</bpt>Authenticating a Service Principal with Azure Resource Manager<ept id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;/linkText&gt;</ept><bpt id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;title&gt;</bpt><ept id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;/title&gt;</ept></source>
+          <target state="new">To understand how to set up security principals with the correct access to work with resources in your organization, see <bpt id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;linkText&gt;</bpt>Authenticating a Service Principal with Azure Resource Manager<ept id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;/linkText&gt;</ept><bpt id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;title&gt;</bpt><ept id="c127e99e-d47a-4d11-8cc5-939a50982e8f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd41c83b-55a6-4d05-9010-47ce571fcb58" xml:space="preserve">
+          <source>If you need to lock access to a resource, you can use management locks.</source>
+          <target state="new">If you need to lock access to a resource, you can use management locks.</target>
+        </trans-unit>
+        <trans-unit id="623346d9-5556-4d03-8ac3-8a087b19d211" xml:space="preserve">
+          <source>See <bpt id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;linkText&gt;</bpt>Lock Resources with Azure Resource Manager<ept id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;/linkText&gt;</ept><bpt id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;title&gt;</bpt><ept id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;/title&gt;</ept></source>
+          <target state="new">See <bpt id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;linkText&gt;</bpt>Lock Resources with Azure Resource Manager<ept id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;/linkText&gt;</ept><bpt id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;title&gt;</bpt><ept id="6090c523-6510-4be7-803a-63f24d9daf8b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c02fc732-f426-4292-a0c2-0790b01cb2eb" xml:space="preserve">
+          <source>To configure routing and IP forwarding, see <bpt id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;/linkText&gt;</ept><bpt id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;title&gt;</bpt><ept id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;/title&gt;</ept> </source>
+          <target state="new">To configure routing and IP forwarding, see <bpt id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;/linkText&gt;</ept><bpt id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;title&gt;</bpt><ept id="ba566f40-1c17-44f2-af3e-783e70450534">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="671186af-ad62-454a-93c2-e0937ae45b0a" xml:space="preserve">
+          <source>For an overview of role-based access control, see <bpt id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;/linkText&gt;</ept><bpt id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;title&gt;</bpt><ept id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;/title&gt;</ept></source>
+          <target state="new">For an overview of role-based access control, see <bpt id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;linkText&gt;</bpt>Role-based access control in the Microsoft Azure portal<ept id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;/linkText&gt;</ept><bpt id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;title&gt;</bpt><ept id="18f29716-2757-4089-8c5c-99e692ed6829">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

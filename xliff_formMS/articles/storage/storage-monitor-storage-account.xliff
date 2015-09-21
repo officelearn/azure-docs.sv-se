@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="460589e4-6daa-4472-a173-6f3db6ca3f34" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="460589e4-6daa-4472-a173-6f3db6ca3f34" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98f1893f-4bca-464d-b7f6-bb6981b76db6">
+        <trans-unit id="18389b9c-5663-45a3-ac1a-0dfed7e1905f" xml:space="preserve">
+          <source>How to monitor a storage account | Microsoft Azure</source>
+          <target state="new">How to monitor a storage account | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="417f2874-35b0-437d-a42b-f2390d84b387" xml:space="preserve">
+          <source>Learn how to monitor a storage account in Azure by using the Azure portal.</source>
+          <target state="new">Learn how to monitor a storage account in Azure by using the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="66f712db-169e-4999-be74-fab59133eae7" xml:space="preserve">
+          <source>You can monitor your storage account from the Azure portal.</source>
+          <target state="new">You can monitor your storage account from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="18091f2c-78c5-433d-9493-1c849e3681db" xml:space="preserve">
+          <source>When you configure your storage account for monitoring through the portal, Azure Storage uses <bpt id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;linkText&gt;</bpt>Storage Analytics<ept id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;/linkText&gt;</ept><bpt id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;title&gt;</bpt><ept id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;/title&gt;</ept> to track metrics for your account and log request data.</source>
+          <target state="new">When you configure your storage account for monitoring through the portal, Azure Storage uses <bpt id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;linkText&gt;</bpt>Storage Analytics<ept id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;/linkText&gt;</ept><bpt id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;title&gt;</bpt><ept id="d2993056-2fc1-4ead-b9d2-02454589b8f1">&lt;/title&gt;</ept> to track metrics for your account and log request data.</target>
+        </trans-unit>
+        <trans-unit id="e2fdf147-d326-4dc4-9dce-6dc1b54425e6" xml:space="preserve">
+          <source>Additional costs are associated with examining monitoring data in the Azure portal.</source>
+          <target state="new">Additional costs are associated with examining monitoring data in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="86b7c2dc-1fca-4dbe-b41d-7f2ce762568e" xml:space="preserve">
+          <source>For more information, see &lt;a href="http://msdn.microsoft.com/library/azure/hh360997.aspx"&gt;Storage Analytics and Billing&lt;/a&gt;.</source>
+          <target state="new">For more information, see &lt;a href="http://msdn.microsoft.com/library/azure/hh360997.aspx"&gt;Storage Analytics and Billing&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="0841bde6-aabf-4809-9707-5d3c2dd2969d" xml:space="preserve">
+          <source>&lt;br /&gt;</source>
+          <target state="new">&lt;br /&gt;</target>
+        </trans-unit>
+        <trans-unit id="74f268cc-6863-414c-9259-3be0740be5e0" xml:space="preserve">
+          <source>The Azure File service does not currently support Storage Analytics.</source>
+          <target state="new">The Azure File service does not currently support Storage Analytics.</target>
+        </trans-unit>
+        <trans-unit id="efcf7c6e-eb6d-4cda-b5f4-cd4a3b21345a" xml:space="preserve">
+          <source>For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see <bpt id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;linkText&gt;</bpt>Monitor, diagnose, and troubleshoot Microsoft Azure Storage<ept id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;/linkText&gt;</ept><bpt id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;title&gt;</bpt><ept id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see <bpt id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;linkText&gt;</bpt>Monitor, diagnose, and troubleshoot Microsoft Azure Storage<ept id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;/linkText&gt;</ept><bpt id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;title&gt;</bpt><ept id="e4a1de6e-f413-4997-b3b9-844c34eda5cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c9157ec-4253-426f-a81a-db52414d4286" xml:space="preserve">
+          <source>In the <bpt id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;linkText&gt;</bpt>Azure portal<ept id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;/linkText&gt;</ept><bpt id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;title&gt;</bpt><ept id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;/title&gt;</ept>, click <bpt id="5ed9ab5d-719f-472a-8e05-d8dd9a1eb27b">&lt;strong&gt;</bpt>Storage<ept id="5ed9ab5d-719f-472a-8e05-d8dd9a1eb27b">&lt;/strong&gt;</ept>, and then click the storage account name to open the dashboard.</source>
+          <target state="new">In the <bpt id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;linkText&gt;</bpt>Azure portal<ept id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;/linkText&gt;</ept><bpt id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;title&gt;</bpt><ept id="f4444456-9060-4f17-971e-168ffafc2dbc">&lt;/title&gt;</ept>, click <bpt id="5ed9ab5d-719f-472a-8e05-d8dd9a1eb27b">&lt;strong&gt;</bpt>Storage<ept id="5ed9ab5d-719f-472a-8e05-d8dd9a1eb27b">&lt;/strong&gt;</ept>, and then click the storage account name to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="7fa323ad-f5f3-4de0-b2fd-4aabdebc364e" xml:space="preserve">
+          <source>Click <bpt id="061aaad4-153e-4445-93e7-7d1b39bd0ce1">&lt;strong&gt;</bpt>Configure<ept id="061aaad4-153e-4445-93e7-7d1b39bd0ce1">&lt;/strong&gt;</ept>, and scroll down to the <bpt id="a99ee7c5-921c-4377-bf20-8ffcb54569bb">&lt;strong&gt;</bpt>monitoring<ept id="a99ee7c5-921c-4377-bf20-8ffcb54569bb">&lt;/strong&gt;</ept> settings for the blob, table, and queue services.</source>
+          <target state="new">Click <bpt id="061aaad4-153e-4445-93e7-7d1b39bd0ce1">&lt;strong&gt;</bpt>Configure<ept id="061aaad4-153e-4445-93e7-7d1b39bd0ce1">&lt;/strong&gt;</ept>, and scroll down to the <bpt id="a99ee7c5-921c-4377-bf20-8ffcb54569bb">&lt;strong&gt;</bpt>monitoring<ept id="a99ee7c5-921c-4377-bf20-8ffcb54569bb">&lt;/strong&gt;</ept> settings for the blob, table, and queue services.</target>
+        </trans-unit>
+        <trans-unit id="ae388e30-0a3e-422c-a5dd-a4eb005fc040" xml:space="preserve">
+          <source><bpt id="8d425c28-f8a2-42b3-8fac-a9e21bd2b397">&lt;linkText&gt;</bpt>MonitoringOptions<ept id="8d425c28-f8a2-42b3-8fac-a9e21bd2b397">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d425c28-f8a2-42b3-8fac-a9e21bd2b397">&lt;linkText&gt;</bpt>MonitoringOptions<ept id="8d425c28-f8a2-42b3-8fac-a9e21bd2b397">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c10b3f8a-ce59-4289-b980-ebbf97ef7a19" xml:space="preserve">
+          <source>In <bpt id="d05bb0dd-1f52-4997-9d0f-9b054cfe869c">&lt;strong&gt;</bpt>monitoring<ept id="d05bb0dd-1f52-4997-9d0f-9b054cfe869c">&lt;/strong&gt;</ept>, set the level of monitoring and the data retention policy for each service:</source>
+          <target state="new">In <bpt id="d05bb0dd-1f52-4997-9d0f-9b054cfe869c">&lt;strong&gt;</bpt>monitoring<ept id="d05bb0dd-1f52-4997-9d0f-9b054cfe869c">&lt;/strong&gt;</ept>, set the level of monitoring and the data retention policy for each service:</target>
+        </trans-unit>
+        <trans-unit id="bfd12155-5f5a-4564-9865-dafeea734437" xml:space="preserve">
+          <source>To set the monitoring level, select one of the following:</source>
+          <target state="new">To set the monitoring level, select one of the following:</target>
+        </trans-unit>
+        <trans-unit id="6b0f5748-a77d-47af-911c-6fec8c75b373" xml:space="preserve">
+          <source><bpt id="fb78c6b2-737d-4b93-9dba-cabd5ea63fa5">&lt;strong&gt;</bpt>Minimal<ept id="fb78c6b2-737d-4b93-9dba-cabd5ea63fa5">&lt;/strong&gt;</ept> - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, table, and queue services.</source>
+          <target state="new"><bpt id="fb78c6b2-737d-4b93-9dba-cabd5ea63fa5">&lt;strong&gt;</bpt>Minimal<ept id="fb78c6b2-737d-4b93-9dba-cabd5ea63fa5">&lt;/strong&gt;</ept> - Collects metrics such as ingress/egress, availability, latency, and success percentages, which are aggregated for the blob, table, and queue services.</target>
+        </trans-unit>
+        <trans-unit id="8d84eae7-9024-463d-855f-98beabd76817" xml:space="preserve">
+          <source><bpt id="974a1bcd-db2f-4dd8-893f-2821de2f6680">&lt;strong&gt;</bpt>Verbose<ept id="974a1bcd-db2f-4dd8-893f-2821de2f6680">&lt;/strong&gt;</ept> - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Azure Storage Service API.</source>
+          <target state="new"><bpt id="974a1bcd-db2f-4dd8-893f-2821de2f6680">&lt;strong&gt;</bpt>Verbose<ept id="974a1bcd-db2f-4dd8-893f-2821de2f6680">&lt;/strong&gt;</ept> - In addition to the minimal metrics, collects the same set of metrics for each storage operation in the Azure Storage Service API.</target>
+        </trans-unit>
+        <trans-unit id="f0d83d45-d63a-45db-b193-1327c9a01107" xml:space="preserve">
+          <source>Verbose metrics enable closer analysis of issues that occur during application operations.</source>
+          <target state="new">Verbose metrics enable closer analysis of issues that occur during application operations.</target>
+        </trans-unit>
+        <trans-unit id="695d43f5-603b-4829-a3fd-7054c170c9fd" xml:space="preserve">
+          <source><bpt id="aa7fe67b-03f1-4799-b96c-895738938523">&lt;strong&gt;</bpt>Off<ept id="aa7fe67b-03f1-4799-b96c-895738938523">&lt;/strong&gt;</ept> - Turns off monitoring.</source>
+          <target state="new"><bpt id="aa7fe67b-03f1-4799-b96c-895738938523">&lt;strong&gt;</bpt>Off<ept id="aa7fe67b-03f1-4799-b96c-895738938523">&lt;/strong&gt;</ept> - Turns off monitoring.</target>
+        </trans-unit>
+        <trans-unit id="cc7c20d7-ba2e-470b-a3c2-5563d70fb75a" xml:space="preserve">
+          <source>Existing monitoring data is persisted through the end of the retention period.</source>
+          <target state="new">Existing monitoring data is persisted through the end of the retention period.</target>
+        </trans-unit>
+        <trans-unit id="c39e6993-538e-4f75-b3f2-40d9590f5bd6" xml:space="preserve">
+          <source>To set the data retention policy, in <bpt id="ddd2731c-d642-482d-8c4c-6e3b0a241704">&lt;strong&gt;</bpt>Retention (in days)<ept id="ddd2731c-d642-482d-8c4c-6e3b0a241704">&lt;/strong&gt;</ept>, type the number of days of data to retain from 1 to 365 days.</source>
+          <target state="new">To set the data retention policy, in <bpt id="ddd2731c-d642-482d-8c4c-6e3b0a241704">&lt;strong&gt;</bpt>Retention (in days)<ept id="ddd2731c-d642-482d-8c4c-6e3b0a241704">&lt;/strong&gt;</ept>, type the number of days of data to retain from 1 to 365 days.</target>
+        </trans-unit>
+        <trans-unit id="6b753573-0e06-4853-a1e6-934f324f6e69" xml:space="preserve">
+          <source>If you do not want to set a retention policy, enter zero.</source>
+          <target state="new">If you do not want to set a retention policy, enter zero.</target>
+        </trans-unit>
+        <trans-unit id="14dbcce5-5bc4-4fa9-92ae-b16b466978cc" xml:space="preserve">
+          <source>If there is no retention policy, it is up to you to delete the monitoring data.</source>
+          <target state="new">If there is no retention policy, it is up to you to delete the monitoring data.</target>
+        </trans-unit>
+        <trans-unit id="ea190556-9184-4324-a834-cce5c373d52c" xml:space="preserve">
+          <source>We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by system at no cost.</source>
+          <target state="new">We recommend setting a retention policy based on how long you want to retain storage analytics data for your account so that old and unused analytics data can be deleted by system at no cost.</target>
+        </trans-unit>
+        <trans-unit id="e724d060-2442-4dae-8c7b-b169632394f4" xml:space="preserve">
+          <source>When you finish the monitoring configuration, click <bpt id="86c03690-a414-4a11-8602-61671205656a">&lt;strong&gt;</bpt>Save<ept id="86c03690-a414-4a11-8602-61671205656a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you finish the monitoring configuration, click <bpt id="86c03690-a414-4a11-8602-61671205656a">&lt;strong&gt;</bpt>Save<ept id="86c03690-a414-4a11-8602-61671205656a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e28eaba9-15aa-4f8a-bc94-01ea89fb605d" xml:space="preserve">
+          <source>You should start seeing monitoring data on the dashboard and the <bpt id="ce9087e9-c62a-4c7b-886a-6d0228d556f5">&lt;strong&gt;</bpt>Monitor<ept id="ce9087e9-c62a-4c7b-886a-6d0228d556f5">&lt;/strong&gt;</ept> page after about an hour.</source>
+          <target state="new">You should start seeing monitoring data on the dashboard and the <bpt id="ce9087e9-c62a-4c7b-886a-6d0228d556f5">&lt;strong&gt;</bpt>Monitor<ept id="ce9087e9-c62a-4c7b-886a-6d0228d556f5">&lt;/strong&gt;</ept> page after about an hour.</target>
+        </trans-unit>
+        <trans-unit id="25f4d9df-1405-4b9d-a3ba-2ffb3c4e7eba" xml:space="preserve">
+          <source>Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and <bpt id="fb97e76c-8fa6-4552-b2a8-e8ab16ba458a">&lt;strong&gt;</bpt>Monitor<ept id="fb97e76c-8fa6-4552-b2a8-e8ab16ba458a">&lt;/strong&gt;</ept> page are empty.</source>
+          <target state="new">Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and <bpt id="fb97e76c-8fa6-4552-b2a8-e8ab16ba458a">&lt;strong&gt;</bpt>Monitor<ept id="fb97e76c-8fa6-4552-b2a8-e8ab16ba458a">&lt;/strong&gt;</ept> page are empty.</target>
+        </trans-unit>
+        <trans-unit id="f8907cb2-05b5-4a8e-a506-127449f65ede" xml:space="preserve">
+          <source>After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the Azure portal, and which metrics to plot on metrics charts.</source>
+          <target state="new">After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the Azure portal, and which metrics to plot on metrics charts.</target>
+        </trans-unit>
+        <trans-unit id="3aa5ca95-9e66-477b-8e56-5e2a078d0740" xml:space="preserve">
+          <source>A default set of metrics are displayed at each monitoring level.</source>
+          <target state="new">A default set of metrics are displayed at each monitoring level.</target>
+        </trans-unit>
+        <trans-unit id="6fc37bf4-1d0c-4737-913f-cd0b3c5cba98" xml:space="preserve">
+          <source>You can use <bpt id="3cc82500-b949-4bf8-bc3b-99dc8c83ef58">&lt;strong&gt;</bpt>Add Metrics<ept id="3cc82500-b949-4bf8-bc3b-99dc8c83ef58">&lt;/strong&gt;</ept> to add or remove metrics from the metrics list.</source>
+          <target state="new">You can use <bpt id="3cc82500-b949-4bf8-bc3b-99dc8c83ef58">&lt;strong&gt;</bpt>Add Metrics<ept id="3cc82500-b949-4bf8-bc3b-99dc8c83ef58">&lt;/strong&gt;</ept> to add or remove metrics from the metrics list.</target>
+        </trans-unit>
+        <trans-unit id="da682dcc-b561-42ac-a988-6d1ced7382bb" xml:space="preserve">
+          <source>Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob.</source>
+          <target state="new">Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob.</target>
+        </trans-unit>
+        <trans-unit id="80211a8d-bcb8-49bd-8319-212960ab987d" xml:space="preserve">
+          <source>For more information, see <bpt id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;linkText&gt;</bpt>About Storage Analytics Metrics<ept id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;/linkText&gt;</ept><bpt id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;title&gt;</bpt><ept id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;linkText&gt;</bpt>About Storage Analytics Metrics<ept id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;/linkText&gt;</ept><bpt id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;title&gt;</bpt><ept id="362051d1-bd35-4348-8339-82f7fabb0add">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f656069-aa5b-4941-ac93-2b5814d1551b" xml:space="preserve">
+          <source>On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics.</source>
+          <target state="new">On the dashboard, you can choose up to six metrics to plot on the metrics chart from nine available metrics.</target>
+        </trans-unit>
+        <trans-unit id="51649bee-514a-4515-a3cb-2f48551f85b9" xml:space="preserve">
+          <source>For each service (blob, table, and queue), the Availability, Success Percentage, and Total Requests metrics are available.</source>
+          <target state="new">For each service (blob, table, and queue), the Availability, Success Percentage, and Total Requests metrics are available.</target>
+        </trans-unit>
+        <trans-unit id="ffb23d71-960a-4773-8638-ebd71b0c42e3" xml:space="preserve">
+          <source>The metrics available on the dashboard are the same for minimal or verbose monitoring.</source>
+          <target state="new">The metrics available on the dashboard are the same for minimal or verbose monitoring.</target>
+        </trans-unit>
+        <trans-unit id="2bd9afe2-bfba-4b0a-bd3a-99acda5fffde" xml:space="preserve">
+          <source>In the <bpt id="29599545-7256-44dd-960c-10591f5f033a">&lt;linkText&gt;</bpt>Azure portal<ept id="29599545-7256-44dd-960c-10591f5f033a">&lt;/linkText&gt;</ept><bpt id="29599545-7256-44dd-960c-10591f5f033a">&lt;title&gt;</bpt><ept id="29599545-7256-44dd-960c-10591f5f033a">&lt;/title&gt;</ept>, click <bpt id="7bdf4781-ae64-4b98-8c77-e417082d7800">&lt;strong&gt;</bpt>Storage<ept id="7bdf4781-ae64-4b98-8c77-e417082d7800">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</source>
+          <target state="new">In the <bpt id="29599545-7256-44dd-960c-10591f5f033a">&lt;linkText&gt;</bpt>Azure portal<ept id="29599545-7256-44dd-960c-10591f5f033a">&lt;/linkText&gt;</ept><bpt id="29599545-7256-44dd-960c-10591f5f033a">&lt;title&gt;</bpt><ept id="29599545-7256-44dd-960c-10591f5f033a">&lt;/title&gt;</ept>, click <bpt id="7bdf4781-ae64-4b98-8c77-e417082d7800">&lt;strong&gt;</bpt>Storage<ept id="7bdf4781-ae64-4b98-8c77-e417082d7800">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="ba926888-4894-4dc2-a34e-c6a87d6af952" xml:space="preserve">
+          <source>To change the metrics that are plotted on the chart, take one of the following actions:</source>
+          <target state="new">To change the metrics that are plotted on the chart, take one of the following actions:</target>
+        </trans-unit>
+        <trans-unit id="f3dbd754-0429-43bb-91eb-0d979b20ee29" xml:space="preserve">
+          <source>To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.</source>
+          <target state="new">To add a new metric to the chart, click the colored check box next to the metric header in the table below the chart.</target>
+        </trans-unit>
+        <trans-unit id="a72abc53-7696-4620-8a72-a4f8c9b74f6b" xml:space="preserve">
+          <source>To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.</source>
+          <target state="new">To hide a metric that is plotted on the chart, clear the colored check box next to the metric header.</target>
+        </trans-unit>
+        <trans-unit id="0df47509-6663-4d34-be9f-5c1356cd5135" xml:space="preserve">
+          <source><bpt id="6d5462d0-10fd-4a19-8eb6-baadd990a39a">&lt;linkText&gt;</bpt>Monitoring_nmore<ept id="6d5462d0-10fd-4a19-8eb6-baadd990a39a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d5462d0-10fd-4a19-8eb6-baadd990a39a">&lt;linkText&gt;</bpt>Monitoring_nmore<ept id="6d5462d0-10fd-4a19-8eb6-baadd990a39a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af92e856-70dd-4c75-baa8-dffd26dac71e" xml:space="preserve">
+          <source>By default, the chart shows trends, displaying only the current value of each metric (the <bpt id="1b166e60-f9dc-46d4-b04b-c2fa17f2142d">&lt;strong&gt;</bpt>Relative<ept id="1b166e60-f9dc-46d4-b04b-c2fa17f2142d">&lt;/strong&gt;</ept> option at the top of the chart).</source>
+          <target state="new">By default, the chart shows trends, displaying only the current value of each metric (the <bpt id="1b166e60-f9dc-46d4-b04b-c2fa17f2142d">&lt;strong&gt;</bpt>Relative<ept id="1b166e60-f9dc-46d4-b04b-c2fa17f2142d">&lt;/strong&gt;</ept> option at the top of the chart).</target>
+        </trans-unit>
+        <trans-unit id="0262ee14-aa90-438b-b2d7-5ab813086136" xml:space="preserve">
+          <source>To display a Y axis so you can see absolute values, select <bpt id="c94424bc-1b70-4901-ad08-b8bb8c680f37">&lt;strong&gt;</bpt>Absolute<ept id="c94424bc-1b70-4901-ad08-b8bb8c680f37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To display a Y axis so you can see absolute values, select <bpt id="c94424bc-1b70-4901-ad08-b8bb8c680f37">&lt;strong&gt;</bpt>Absolute<ept id="c94424bc-1b70-4901-ad08-b8bb8c680f37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7df8689b-efba-46e7-aa50-a036b5495fa5" xml:space="preserve">
+          <source>To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.</source>
+          <target state="new">To change the time range the metrics chart displays, select 6 hours, 24 hours, or 7 days at the top of the chart.</target>
+        </trans-unit>
+        <trans-unit id="9a1be392-98d6-4066-891c-f3e46caf3eff" xml:space="preserve">
+          <source>On the <bpt id="8503271e-7a43-48ef-9b87-305fafb81873">&lt;strong&gt;</bpt>Monitor<ept id="8503271e-7a43-48ef-9b87-305fafb81873">&lt;/strong&gt;</ept> page, you can view the full set of metrics for your storage account.</source>
+          <target state="new">On the <bpt id="8503271e-7a43-48ef-9b87-305fafb81873">&lt;strong&gt;</bpt>Monitor<ept id="8503271e-7a43-48ef-9b87-305fafb81873">&lt;/strong&gt;</ept> page, you can view the full set of metrics for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="0e2d6e27-3d11-4714-b99f-39e9926a7b38" xml:space="preserve">
+          <source>If your storage account has minimal monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.</source>
+          <target state="new">If your storage account has minimal monitoring configured, metrics such as ingress/egress, availability, latency, and success percentages are aggregated from the blob, table, and queue services.</target>
+        </trans-unit>
+        <trans-unit id="840122b0-3534-4973-a258-5f8dbc4333bf" xml:space="preserve">
+          <source>If your storage account has verbose monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.</source>
+          <target state="new">If your storage account has verbose monitoring configured, the metrics are available at a finer resolution of individual storage operations in addition to the service-level aggregates.</target>
+        </trans-unit>
+        <trans-unit id="ff578607-c7d2-42e3-a971-d51556c524ff" xml:space="preserve">
+          <source>Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the <bpt id="970aa8fa-d4fa-4555-9a61-2a4625e89b06">&lt;strong&gt;</bpt>Monitor<ept id="970aa8fa-d4fa-4555-9a61-2a4625e89b06">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Use the following procedures to choose which storage metrics to view in the metrics charts and table that are displayed on the <bpt id="970aa8fa-d4fa-4555-9a61-2a4625e89b06">&lt;strong&gt;</bpt>Monitor<ept id="970aa8fa-d4fa-4555-9a61-2a4625e89b06">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="24b78244-bef4-497c-83f7-b655ec7d9ced" xml:space="preserve">
+          <source>These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.</source>
+          <target state="new">These settings do not affect the collection, aggregation, and storage of monitoring data in the storage account.</target>
+        </trans-unit>
+        <trans-unit id="885f8e09-1c9d-4d96-866d-448776183d24" xml:space="preserve">
+          <source>In the <bpt id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;linkText&gt;</bpt>Azure portal<ept id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;/linkText&gt;</ept><bpt id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;title&gt;</bpt><ept id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;/title&gt;</ept>, click <bpt id="df331886-8586-43b7-8925-eead9fa226fe">&lt;strong&gt;</bpt>Storage<ept id="df331886-8586-43b7-8925-eead9fa226fe">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</source>
+          <target state="new">In the <bpt id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;linkText&gt;</bpt>Azure portal<ept id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;/linkText&gt;</ept><bpt id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;title&gt;</bpt><ept id="9d56b064-8c68-420d-8945-5d12cf45910c">&lt;/title&gt;</ept>, click <bpt id="df331886-8586-43b7-8925-eead9fa226fe">&lt;strong&gt;</bpt>Storage<ept id="df331886-8586-43b7-8925-eead9fa226fe">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="63f043b3-e657-47e5-a67e-61e26fa83d9a" xml:space="preserve">
+          <source>Click <bpt id="e0b04482-6fb3-4888-b4cd-de35c13f6dd3">&lt;strong&gt;</bpt>Monitor<ept id="e0b04482-6fb3-4888-b4cd-de35c13f6dd3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e0b04482-6fb3-4888-b4cd-de35c13f6dd3">&lt;strong&gt;</bpt>Monitor<ept id="e0b04482-6fb3-4888-b4cd-de35c13f6dd3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50803738-9e44-460d-a514-277bd5079fe1" xml:space="preserve">
+          <source>The <bpt id="8f2bc8b0-792a-49d3-94f8-8c75b12602bf">&lt;strong&gt;</bpt>Monitor<ept id="8f2bc8b0-792a-49d3-94f8-8c75b12602bf">&lt;/strong&gt;</ept> page opens.</source>
+          <target state="new">The <bpt id="8f2bc8b0-792a-49d3-94f8-8c75b12602bf">&lt;strong&gt;</bpt>Monitor<ept id="8f2bc8b0-792a-49d3-94f8-8c75b12602bf">&lt;/strong&gt;</ept> page opens.</target>
+        </trans-unit>
+        <trans-unit id="cd3284dd-0a58-4ca6-adfe-6a5b95fc7544" xml:space="preserve">
+          <source>By default, the metrics table displays a subset of the metrics that are available for monitoring.</source>
+          <target state="new">By default, the metrics table displays a subset of the metrics that are available for monitoring.</target>
+        </trans-unit>
+        <trans-unit id="1625006b-dc70-4622-8354-993a7730dc50" xml:space="preserve">
+          <source>The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services.</source>
+          <target state="new">The illustration shows the default Monitor display for a storage account with verbose monitoring configured for all three services.</target>
+        </trans-unit>
+        <trans-unit id="6176f986-7f86-4bc5-abbf-7f1667cf40d2" xml:space="preserve">
+          <source>Use <bpt id="8c06e21f-5e65-496c-9d61-630608689f2b">&lt;strong&gt;</bpt>Add Metrics<ept id="8c06e21f-5e65-496c-9d61-630608689f2b">&lt;/strong&gt;</ept> to select the metrics you want to monitor from all available metrics.</source>
+          <target state="new">Use <bpt id="8c06e21f-5e65-496c-9d61-630608689f2b">&lt;strong&gt;</bpt>Add Metrics<ept id="8c06e21f-5e65-496c-9d61-630608689f2b">&lt;/strong&gt;</ept> to select the metrics you want to monitor from all available metrics.</target>
+        </trans-unit>
+        <trans-unit id="fd3fcd72-ae61-4a1a-b4bb-dc6c80426ef0" xml:space="preserve">
+          <source><bpt id="20fdb69b-d1d5-4445-991c-464d7700197a">&lt;linkText&gt;</bpt>Monitoring_VerboseDisplay<ept id="20fdb69b-d1d5-4445-991c-464d7700197a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="20fdb69b-d1d5-4445-991c-464d7700197a">&lt;linkText&gt;</bpt>Monitoring_VerboseDisplay<ept id="20fdb69b-d1d5-4445-991c-464d7700197a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="943ade19-5d1e-4988-9e02-2fbfa3f02dde" xml:space="preserve">
+          <source>Consider costs when you select the metrics.</source>
+          <target state="new">Consider costs when you select the metrics.</target>
+        </trans-unit>
+        <trans-unit id="77926d18-47f2-4c7b-94cb-59bba6d238bd" xml:space="preserve">
+          <source>There are transaction and egress costs associated with refreshing monitoring displays.</source>
+          <target state="new">There are transaction and egress costs associated with refreshing monitoring displays.</target>
+        </trans-unit>
+        <trans-unit id="dff19ed3-1e6d-43ac-a850-4e2702f85607" xml:space="preserve">
+          <source>For more information, see <bpt id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;linkText&gt;</bpt>Storage Analytics and Billing<ept id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;/linkText&gt;</ept><bpt id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;title&gt;</bpt><ept id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;linkText&gt;</bpt>Storage Analytics and Billing<ept id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;/linkText&gt;</ept><bpt id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;title&gt;</bpt><ept id="5f3f4c75-60e8-4939-8316-749c239061b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cf73daa-0d3b-4393-a40c-e6f9144d394b" xml:space="preserve">
+          <source>Click <bpt id="d16caf4c-2f08-425c-8026-239bb157e1bc">&lt;strong&gt;</bpt>Add Metrics<ept id="d16caf4c-2f08-425c-8026-239bb157e1bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d16caf4c-2f08-425c-8026-239bb157e1bc">&lt;strong&gt;</bpt>Add Metrics<ept id="d16caf4c-2f08-425c-8026-239bb157e1bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e69b86fe-f5aa-4ed0-b938-266b58699dee" xml:space="preserve">
+          <source>The aggregate metrics that are available in minimal monitoring are at the top of the list.</source>
+          <target state="new">The aggregate metrics that are available in minimal monitoring are at the top of the list.</target>
+        </trans-unit>
+        <trans-unit id="a7a17e83-197e-4b53-a38a-7bc44e623012" xml:space="preserve">
+          <source>If the check box is selected, the metric is displayed in the metrics list.</source>
+          <target state="new">If the check box is selected, the metric is displayed in the metrics list.</target>
+        </trans-unit>
+        <trans-unit id="887391b6-50ee-4463-ac2c-82e1a8b4886c" xml:space="preserve">
+          <source><bpt id="da83524d-362c-42e1-90e4-f4fd6240f644">&lt;linkText&gt;</bpt>AddMetricsInitialDisplay<ept id="da83524d-362c-42e1-90e4-f4fd6240f644">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da83524d-362c-42e1-90e4-f4fd6240f644">&lt;linkText&gt;</bpt>AddMetricsInitialDisplay<ept id="da83524d-362c-42e1-90e4-f4fd6240f644">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cff4458-8af7-462d-b32c-84a72fe16c76" xml:space="preserve">
+          <source>Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.</source>
+          <target state="new">Hover over the right side of the dialog box to display a scrollbar that you can drag to scroll additional metrics into view.</target>
+        </trans-unit>
+        <trans-unit id="4a915a9f-20bf-4f4e-b70e-2f8b9ec18356" xml:space="preserve">
+          <source><bpt id="b27284b4-dd24-4137-a734-714cb6d0bbe8">&lt;linkText&gt;</bpt>AddMetricsScrollbar<ept id="b27284b4-dd24-4137-a734-714cb6d0bbe8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b27284b4-dd24-4137-a734-714cb6d0bbe8">&lt;linkText&gt;</bpt>AddMetricsScrollbar<ept id="b27284b4-dd24-4137-a734-714cb6d0bbe8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74e86328-6001-4f3f-adfa-6bcb0df037e5" xml:space="preserve">
+          <source>Click the down arrow by a metric to expand a list of operations the metric is scoped to include.</source>
+          <target state="new">Click the down arrow by a metric to expand a list of operations the metric is scoped to include.</target>
+        </trans-unit>
+        <trans-unit id="fc95e6d9-dea9-4e0d-918e-57ea93d291ec" xml:space="preserve">
+          <source>Select each operation that you want to view in the metrics table in the Azure portal.</source>
+          <target state="new">Select each operation that you want to view in the metrics table in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="7b97640b-f50f-4873-aaf6-6ccde8f46d0c" xml:space="preserve">
+          <source>In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.</source>
+          <target state="new">In the following illustration, the AUTHORIZATION ERROR PERCENTAGE metric has been expanded.</target>
+        </trans-unit>
+        <trans-unit id="51cd113e-f777-4638-8371-7470d5d5b835" xml:space="preserve">
+          <source><bpt id="590fbe90-60a7-4a8b-ba54-cf3db9cff4cb">&lt;linkText&gt;</bpt>ExpandCollapse<ept id="590fbe90-60a7-4a8b-ba54-cf3db9cff4cb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="590fbe90-60a7-4a8b-ba54-cf3db9cff4cb">&lt;linkText&gt;</bpt>ExpandCollapse<ept id="590fbe90-60a7-4a8b-ba54-cf3db9cff4cb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81f31281-a64b-46b2-8761-e48742c6197f" xml:space="preserve">
+          <source>After you select metrics for all services, click OK (checkmark) to update the monitoring configuration.</source>
+          <target state="new">After you select metrics for all services, click OK (checkmark) to update the monitoring configuration.</target>
+        </trans-unit>
+        <trans-unit id="6d06e5e5-f7af-4203-b06b-337503a96e2e" xml:space="preserve">
+          <source>The selected metrics are added to the metrics table.</source>
+          <target state="new">The selected metrics are added to the metrics table.</target>
+        </trans-unit>
+        <trans-unit id="2cc19644-2836-48f0-ab4f-d67ffb4ddda7" xml:space="preserve">
+          <source>To delete a metric from the table, click the metric to select it, and then click <bpt id="dbe88ad9-2d26-418f-b85c-9d0a50658c59">&lt;strong&gt;</bpt>Delete Metric<ept id="dbe88ad9-2d26-418f-b85c-9d0a50658c59">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To delete a metric from the table, click the metric to select it, and then click <bpt id="dbe88ad9-2d26-418f-b85c-9d0a50658c59">&lt;strong&gt;</bpt>Delete Metric<ept id="dbe88ad9-2d26-418f-b85c-9d0a50658c59">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4970471d-b302-4eb4-a6e2-e881c2e75ffa" xml:space="preserve">
+          <source><bpt id="168c923f-e756-49a9-a0e9-47f3435d5219">&lt;linkText&gt;</bpt>DeleteMetric<ept id="168c923f-e756-49a9-a0e9-47f3435d5219">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="168c923f-e756-49a9-a0e9-47f3435d5219">&lt;linkText&gt;</bpt>DeleteMetric<ept id="168c923f-e756-49a9-a0e9-47f3435d5219">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85287f34-69de-49c2-9e2f-73544d94de96" xml:space="preserve">
+          <source>On the <bpt id="f4bb2e9c-5bdd-4fdc-a7f5-b1c8a4ee168d">&lt;strong&gt;</bpt>Monitor<ept id="f4bb2e9c-5bdd-4fdc-a7f5-b1c8a4ee168d">&lt;/strong&gt;</ept> page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart.</source>
+          <target state="new">On the <bpt id="f4bb2e9c-5bdd-4fdc-a7f5-b1c8a4ee168d">&lt;strong&gt;</bpt>Monitor<ept id="f4bb2e9c-5bdd-4fdc-a7f5-b1c8a4ee168d">&lt;/strong&gt;</ept> page for the storage account, in the metrics table, select up to 6 metrics to plot on the metrics chart.</target>
+        </trans-unit>
+        <trans-unit id="004f3ff1-8e90-4bcc-8355-2c1aa4efab68" xml:space="preserve">
+          <source>To select a metric, click the check box on its left side.</source>
+          <target state="new">To select a metric, click the check box on its left side.</target>
+        </trans-unit>
+        <trans-unit id="2a0cb099-a13b-496a-8067-ac887a7eb903" xml:space="preserve">
+          <source>To remove a metric from the chart, clear the check box.</source>
+          <target state="new">To remove a metric from the chart, clear the check box.</target>
+        </trans-unit>
+        <trans-unit id="e0bf1275-4ebb-4833-8e62-d5a3b91bf3f5" xml:space="preserve">
+          <source>To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select <bpt id="1f5fe056-88a3-4ff2-9b81-5651093e5b40">&lt;strong&gt;</bpt>Relative<ept id="1f5fe056-88a3-4ff2-9b81-5651093e5b40">&lt;/strong&gt;</ept> or <bpt id="b673992e-a6b2-47e7-880c-6679ffe6d060">&lt;strong&gt;</bpt>Absolute<ept id="b673992e-a6b2-47e7-880c-6679ffe6d060">&lt;/strong&gt;</ept> at the top of the chart.</source>
+          <target state="new">To switch the chart between relative values (final value only displayed) and absolute values (Y axis displayed), select <bpt id="1f5fe056-88a3-4ff2-9b81-5651093e5b40">&lt;strong&gt;</bpt>Relative<ept id="1f5fe056-88a3-4ff2-9b81-5651093e5b40">&lt;/strong&gt;</ept> or <bpt id="b673992e-a6b2-47e7-880c-6679ffe6d060">&lt;strong&gt;</bpt>Absolute<ept id="b673992e-a6b2-47e7-880c-6679ffe6d060">&lt;/strong&gt;</ept> at the top of the chart.</target>
+        </trans-unit>
+        <trans-unit id="24539c0e-70e3-433e-9349-86707b07bd13" xml:space="preserve">
+          <source>To change the time range the metrics chart displays, select <bpt id="59d9f225-b52b-4a39-a408-891db0e12cc4">&lt;strong&gt;</bpt>6 hours<ept id="59d9f225-b52b-4a39-a408-891db0e12cc4">&lt;/strong&gt;</ept>, <bpt id="f3df3f9d-0b0e-49ce-ae4a-89c7ce2d975c">&lt;strong&gt;</bpt>24 hours<ept id="f3df3f9d-0b0e-49ce-ae4a-89c7ce2d975c">&lt;/strong&gt;</ept>, or <bpt id="420d7ce9-68cf-4bb6-9ffa-ae0691190278">&lt;strong&gt;</bpt>7 days<ept id="420d7ce9-68cf-4bb6-9ffa-ae0691190278">&lt;/strong&gt;</ept> at the top of the chart.</source>
+          <target state="new">To change the time range the metrics chart displays, select <bpt id="59d9f225-b52b-4a39-a408-891db0e12cc4">&lt;strong&gt;</bpt>6 hours<ept id="59d9f225-b52b-4a39-a408-891db0e12cc4">&lt;/strong&gt;</ept>, <bpt id="f3df3f9d-0b0e-49ce-ae4a-89c7ce2d975c">&lt;strong&gt;</bpt>24 hours<ept id="f3df3f9d-0b0e-49ce-ae4a-89c7ce2d975c">&lt;/strong&gt;</ept>, or <bpt id="420d7ce9-68cf-4bb6-9ffa-ae0691190278">&lt;strong&gt;</bpt>7 days<ept id="420d7ce9-68cf-4bb6-9ffa-ae0691190278">&lt;/strong&gt;</ept> at the top of the chart.</target>
+        </trans-unit>
+        <trans-unit id="2b7134ae-101a-402f-83ab-6d2435efe40b" xml:space="preserve">
+          <source>For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.</source>
+          <target state="new">For each of the storage services available with your storage account (blob, table, and queue), you can save diagnostics logs for Read Requests, Write Requests, and/or Delete Requests, and can set the data retention policy for each of the services.</target>
+        </trans-unit>
+        <trans-unit id="93b4479f-9c02-4e6b-bace-6d35c8bea60c" xml:space="preserve">
+          <source>In the <bpt id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;linkText&gt;</bpt>Azure portal<ept id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;/linkText&gt;</ept><bpt id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;title&gt;</bpt><ept id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;/title&gt;</ept>, click <bpt id="80d5a65f-b06d-49a9-8262-2a58dba276d6">&lt;strong&gt;</bpt>Storage<ept id="80d5a65f-b06d-49a9-8262-2a58dba276d6">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</source>
+          <target state="new">In the <bpt id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;linkText&gt;</bpt>Azure portal<ept id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;/linkText&gt;</ept><bpt id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;title&gt;</bpt><ept id="dfdfb040-7995-4084-bb4c-0053c08daafe">&lt;/title&gt;</ept>, click <bpt id="80d5a65f-b06d-49a9-8262-2a58dba276d6">&lt;strong&gt;</bpt>Storage<ept id="80d5a65f-b06d-49a9-8262-2a58dba276d6">&lt;/strong&gt;</ept>, and then click the name of the storage account to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="d52f2c0c-a6b8-4ffe-b561-67e4f52bfdd3" xml:space="preserve">
+          <source>Click <bpt id="7e58fadf-8b9c-42dc-96ed-744fea21d994">&lt;strong&gt;</bpt>Configure<ept id="7e58fadf-8b9c-42dc-96ed-744fea21d994">&lt;/strong&gt;</ept>, and use the Down arrow on the keyboard to scroll down to <bpt id="e8729776-2bf8-41fe-80fa-8439a2b034c1">&lt;strong&gt;</bpt>logging<ept id="e8729776-2bf8-41fe-80fa-8439a2b034c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7e58fadf-8b9c-42dc-96ed-744fea21d994">&lt;strong&gt;</bpt>Configure<ept id="7e58fadf-8b9c-42dc-96ed-744fea21d994">&lt;/strong&gt;</ept>, and use the Down arrow on the keyboard to scroll down to <bpt id="e8729776-2bf8-41fe-80fa-8439a2b034c1">&lt;strong&gt;</bpt>logging<ept id="e8729776-2bf8-41fe-80fa-8439a2b034c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d406d002-1b3f-42de-bffd-9c6b5118c794" xml:space="preserve">
+          <source><bpt id="3f62bfe5-54fb-48b2-8468-f9307544b44b">&lt;linkText&gt;</bpt>Storagelogging<ept id="3f62bfe5-54fb-48b2-8468-f9307544b44b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f62bfe5-54fb-48b2-8468-f9307544b44b">&lt;linkText&gt;</bpt>Storagelogging<ept id="3f62bfe5-54fb-48b2-8468-f9307544b44b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13763ee1-ba1b-4e3c-905f-b308aa46194d" xml:space="preserve">
+          <source>For each service (blob, table, and queue), configure the following:</source>
+          <target state="new">For each service (blob, table, and queue), configure the following:</target>
+        </trans-unit>
+        <trans-unit id="fc9018d3-f37f-4582-bcd3-fb31b3771d24" xml:space="preserve">
+          <source>The types of request to log: Read Requests, Write Requests, and Delete Requests.</source>
+          <target state="new">The types of request to log: Read Requests, Write Requests, and Delete Requests.</target>
+        </trans-unit>
+        <trans-unit id="d3a5587b-f1d7-495d-b942-0ea793d02747" xml:space="preserve">
+          <source>The number of days to retain the logged data.</source>
+          <target state="new">The number of days to retain the logged data.</target>
+        </trans-unit>
+        <trans-unit id="52af84b7-f2c7-4ccf-90ba-273189feae31" xml:space="preserve">
+          <source>Enter zero is if you do not want to set a retention policy.</source>
+          <target state="new">Enter zero is if you do not want to set a retention policy.</target>
+        </trans-unit>
+        <trans-unit id="116d6320-6f76-46fd-b0a5-f161063d7813" xml:space="preserve">
+          <source>If you do not set a retention policy, it is up to you to delete the logs.</source>
+          <target state="new">If you do not set a retention policy, it is up to you to delete the logs.</target>
+        </trans-unit>
+        <trans-unit id="0ea11510-2f5e-4c2b-8003-41abf63f12ac" xml:space="preserve">
+          <source>Click <bpt id="b5cf9799-0bea-4b45-9048-cd5fd07f0ca7">&lt;strong&gt;</bpt>Save<ept id="b5cf9799-0bea-4b45-9048-cd5fd07f0ca7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b5cf9799-0bea-4b45-9048-cd5fd07f0ca7">&lt;strong&gt;</bpt>Save<ept id="b5cf9799-0bea-4b45-9048-cd5fd07f0ca7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="596d4d04-6dca-4c3f-907f-857fd902c20c" xml:space="preserve">
+          <source>The diagnostics logs are saved in a blob container named $logs in your storage account.</source>
+          <target state="new">The diagnostics logs are saved in a blob container named $logs in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="f2b7070c-9540-400f-90cc-0a7d4a0ef447" xml:space="preserve">
+          <source>For information about accessing the $logs container, see <bpt id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;linkText&gt;</bpt>About Storage Analytics Logging<ept id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;/linkText&gt;</ept><bpt id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;title&gt;</bpt><ept id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about accessing the $logs container, see <bpt id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;linkText&gt;</bpt>About Storage Analytics Logging<ept id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;/linkText&gt;</ept><bpt id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;title&gt;</bpt><ept id="07de2fd8-06cd-4f43-81cc-e36ab14fd1c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

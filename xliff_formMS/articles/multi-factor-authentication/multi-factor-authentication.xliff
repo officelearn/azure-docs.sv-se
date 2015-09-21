@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7d523a2a-8424-45e8-accd-51174191aa4e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7d523a2a-8424-45e8-accd-51174191aa4e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="42b5e833-3313-47d9-847b-4ceb49e8aa70">
+        <trans-unit id="6d068986-7af7-49f6-9d36-38921bc6b9d0" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication - What is It?</source>
+          <target state="new">Azure Multi-Factor Authentication - What is It?</target>
+        </trans-unit>
+        <trans-unit id="ab139875-5aa8-47cc-8d57-150ee3b8ae86" xml:space="preserve">
+          <source>Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions.</source>
+          <target state="new">Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions.</target>
+        </trans-unit>
+        <trans-unit id="0970057a-db55-4593-bf23-1580d13ca2dc" xml:space="preserve">
+          <source>Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions.</source>
+          <target state="new">Multi-factor authentication (MFA) is a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions.</target>
+        </trans-unit>
+        <trans-unit id="3d720627-247c-4d00-a76a-b8f18b55ec52" xml:space="preserve">
+          <source>It works by requiring any two or more of the following verification methods:</source>
+          <target state="new">It works by requiring any two or more of the following verification methods:</target>
+        </trans-unit>
+        <trans-unit id="9c155405-d4bf-48ae-a0a8-ec95264800bd" xml:space="preserve">
+          <source>Something you know (typically a password)</source>
+          <target state="new">Something you know (typically a password)</target>
+        </trans-unit>
+        <trans-unit id="a0343700-f682-4a13-9656-eebdc93b45ba" xml:space="preserve">
+          <source>Something you have (a trusted device that is not easily duplicated, like a phone)</source>
+          <target state="new">Something you have (a trusted device that is not easily duplicated, like a phone)</target>
+        </trans-unit>
+        <trans-unit id="6eee523f-a816-4df0-b4b8-afcc23272a13" xml:space="preserve">
+          <source>Something you are (biometrics)</source>
+          <target state="new">Something you are (biometrics)</target>
+        </trans-unit>
+        <trans-unit id="badfe4df-853e-456b-b91b-1f97ec9646de" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="d6397d9f-5e4b-429d-b397-18c094e41887">&lt;linkText&gt;</bpt>Username and Password<ept id="d6397d9f-5e4b-429d-b397-18c094e41887">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="3ddd8fe9-da8e-40f3-8c3c-fa652bc58edb">&lt;linkText&gt;</bpt>Certificates<ept id="3ddd8fe9-da8e-40f3-8c3c-fa652bc58edb">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="c7ba97a7-943d-46b5-9c50-6a1f2acd3c97">&lt;linkText&gt;</bpt>Smart Phone<ept id="c7ba97a7-943d-46b5-9c50-6a1f2acd3c97">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="9a9f9980-09c6-4ff0-b356-b2a29fd79509">&lt;linkText&gt;</bpt>Smart Card<ept id="9a9f9980-09c6-4ff0-b356-b2a29fd79509">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="c0b0a3c7-7895-4939-a9a0-3d3e66223705">&lt;linkText&gt;</bpt>Virtual Smart Card<ept id="c0b0a3c7-7895-4939-a9a0-3d3e66223705">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="4f2bca35-4b25-4b27-bf76-c2a10d087846">&lt;linkText&gt;</bpt>Username and Password<ept id="4f2bca35-4b25-4b27-bf76-c2a10d087846">&lt;/linkText&gt;</ept>&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="d6397d9f-5e4b-429d-b397-18c094e41887">&lt;linkText&gt;</bpt>Username and Password<ept id="d6397d9f-5e4b-429d-b397-18c094e41887">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="3ddd8fe9-da8e-40f3-8c3c-fa652bc58edb">&lt;linkText&gt;</bpt>Certificates<ept id="3ddd8fe9-da8e-40f3-8c3c-fa652bc58edb">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="c7ba97a7-943d-46b5-9c50-6a1f2acd3c97">&lt;linkText&gt;</bpt>Smart Phone<ept id="c7ba97a7-943d-46b5-9c50-6a1f2acd3c97">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="9a9f9980-09c6-4ff0-b356-b2a29fd79509">&lt;linkText&gt;</bpt>Smart Card<ept id="9a9f9980-09c6-4ff0-b356-b2a29fd79509">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="c0b0a3c7-7895-4939-a9a0-3d3e66223705">&lt;linkText&gt;</bpt>Virtual Smart Card<ept id="c0b0a3c7-7895-4939-a9a0-3d3e66223705">&lt;/linkText&gt;</ept> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<bpt id="4f2bca35-4b25-4b27-bf76-c2a10d087846">&lt;linkText&gt;</bpt>Username and Password<ept id="4f2bca35-4b25-4b27-bf76-c2a10d087846">&lt;/linkText&gt;</ept>&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="155a5d71-05cf-451b-940c-36eec22858aa" xml:space="preserve">
+          <source>Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password.</source>
+          <target state="new">Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password.</target>
+        </trans-unit>
+        <trans-unit id="7640cc77-6865-4955-9553-6edf8ed6274d" xml:space="preserve">
+          <source>It provides a second layer of security to user sign-ins and transactions.</source>
+          <target state="new">It provides a second layer of security to user sign-ins and transactions.</target>
+        </trans-unit>
+        <trans-unit id="0771f62d-49df-4659-a18b-d4d938ca3c10" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.</source>
+          <target state="new">Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.</target>
+        </trans-unit>
+        <trans-unit id="1af6fde1-b6f8-48c0-ad7f-8c8e7fb6cf94" xml:space="preserve">
+          <source>It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.</source>
+          <target state="new">It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.</target>
+        </trans-unit>
+        <trans-unit id="85fe44bd-2117-4687-961d-929172cbf396" xml:space="preserve">
+          <source>For an overview of how Azure Multi-Factor Authentication works see the following video.</source>
+          <target state="new">For an overview of how Azure Multi-Factor Authentication works see the following video.</target>
+        </trans-unit>
+        <trans-unit id="dd23bd07-40ec-4d7c-aa4f-87cf586f4f45" xml:space="preserve">
+          <source>&lt;center&gt;[AZURE.VIDEO multi-factor-authentication-overview]&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;[AZURE.VIDEO multi-factor-authentication-overview]&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="85ddd5f1-8d47-46ec-b516-fedd9032b41c" xml:space="preserve">
+          <source>Today, now more than ever, people are increasingly connected.</source>
+          <target state="new">Today, now more than ever, people are increasingly connected.</target>
+        </trans-unit>
+        <trans-unit id="898cae68-fb56-4e42-950a-78845aec03d5" xml:space="preserve">
+          <source>With smart phones, tablets, laptops, and PCs, people have several different options on how they are going to connect and stay connected at any time.</source>
+          <target state="new">With smart phones, tablets, laptops, and PCs, people have several different options on how they are going to connect and stay connected at any time.</target>
+        </trans-unit>
+        <trans-unit id="42816bb6-9003-4fa6-9c6c-68bfc7923b51" xml:space="preserve">
+          <source>People can access their accounts and applications from anywhere and this means that they can get more work done and serve their customers better.</source>
+          <target state="new">People can access their accounts and applications from anywhere and this means that they can get more work done and serve their customers better.</target>
+        </trans-unit>
+        <trans-unit id="d34dcb67-ccf8-4b8e-9994-5c0dbc3a460f" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solution that provides a second method of authentication so your users are always protected.</source>
+          <target state="new">Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solution that provides a second method of authentication so your users are always protected.</target>
+        </trans-unit>
+        <trans-unit id="12b65c15-c1d3-49ad-8b3e-1c5c12358046" xml:space="preserve">
+          <source><bpt id="068c140a-66f1-4d88-ab12-e4d1272eaa28">&lt;linkText&gt;</bpt>Easy to Use<ept id="068c140a-66f1-4d88-ab12-e4d1272eaa28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="068c140a-66f1-4d88-ab12-e4d1272eaa28">&lt;linkText&gt;</bpt>Easy to Use<ept id="068c140a-66f1-4d88-ab12-e4d1272eaa28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d522ecca-015d-461b-86ed-4189f1ba5c95" xml:space="preserve">
+          <source><bpt id="dbdf8fb8-b25f-4490-ad58-e84601207169">&lt;linkText&gt;</bpt>Scalable<ept id="dbdf8fb8-b25f-4490-ad58-e84601207169">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dbdf8fb8-b25f-4490-ad58-e84601207169">&lt;linkText&gt;</bpt>Scalable<ept id="dbdf8fb8-b25f-4490-ad58-e84601207169">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="445274ab-ae2d-4971-b670-93ceea782f2b" xml:space="preserve">
+          <source><bpt id="4d7e7197-b6a5-4231-bdc9-f125d6f8a9c5">&lt;linkText&gt;</bpt>Always Protected<ept id="4d7e7197-b6a5-4231-bdc9-f125d6f8a9c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d7e7197-b6a5-4231-bdc9-f125d6f8a9c5">&lt;linkText&gt;</bpt>Always Protected<ept id="4d7e7197-b6a5-4231-bdc9-f125d6f8a9c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a8a1e33-ac70-44b5-9b95-004d03fae87a" xml:space="preserve">
+          <source><bpt id="4db62ea1-f9cf-4af2-82fa-45d63d5ead03">&lt;linkText&gt;</bpt>Reliable<ept id="4db62ea1-f9cf-4af2-82fa-45d63d5ead03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4db62ea1-f9cf-4af2-82fa-45d63d5ead03">&lt;linkText&gt;</bpt>Reliable<ept id="4db62ea1-f9cf-4af2-82fa-45d63d5ead03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9195e5e7-c341-4450-a280-c3ace09ac9ac" xml:space="preserve">
+          <source><bpt id="97abe9c8-0a5e-4c6a-b78a-a9fdfdb6a539">&lt;strong&gt;</bpt>Easy to use<ept id="97abe9c8-0a5e-4c6a-b78a-a9fdfdb6a539">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="97abe9c8-0a5e-4c6a-b78a-a9fdfdb6a539">&lt;strong&gt;</bpt>Easy to use<ept id="97abe9c8-0a5e-4c6a-b78a-a9fdfdb6a539">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77008f73-783a-4b1d-bd62-c9be9903a68d" xml:space="preserve">
+          <source><bpt id="b0d2814d-c7d6-4764-8d89-c7265d759878">&lt;strong&gt;</bpt>Scalable<ept id="b0d2814d-c7d6-4764-8d89-c7265d759878">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b0d2814d-c7d6-4764-8d89-c7265d759878">&lt;strong&gt;</bpt>Scalable<ept id="b0d2814d-c7d6-4764-8d89-c7265d759878">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db87cee5-5919-4c8c-adaf-406eacb5c87a" xml:space="preserve">
+          <source><bpt id="f5c692cc-e69d-4e32-ae8a-e272184a448a">&lt;strong&gt;</bpt>Always Protected<ept id="f5c692cc-e69d-4e32-ae8a-e272184a448a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f5c692cc-e69d-4e32-ae8a-e272184a448a">&lt;strong&gt;</bpt>Always Protected<ept id="f5c692cc-e69d-4e32-ae8a-e272184a448a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b338ad16-60f4-420c-9f04-8c26555f6137" xml:space="preserve">
+          <source><bpt id="a99d74fe-f7d6-489a-985a-29b3cd0865ff">&lt;strong&gt;</bpt>Reliable<ept id="a99d74fe-f7d6-489a-985a-29b3cd0865ff">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a99d74fe-f7d6-489a-985a-29b3cd0865ff">&lt;strong&gt;</bpt>Reliable<ept id="a99d74fe-f7d6-489a-985a-29b3cd0865ff">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3bf7bfa1-5255-47de-9be6-fc6cafb96308" xml:space="preserve">
+          <source><bpt id="d85d14d9-6b6f-42ec-9be4-b178feef9611">&lt;strong&gt;</bpt>Easy to Use<ept id="d85d14d9-6b6f-42ec-9be4-b178feef9611">&lt;/strong&gt;</ept> - Azure Multi-Factor Authenticaton is simple to setup and use.</source>
+          <target state="new"><bpt id="d85d14d9-6b6f-42ec-9be4-b178feef9611">&lt;strong&gt;</bpt>Easy to Use<ept id="d85d14d9-6b6f-42ec-9be4-b178feef9611">&lt;/strong&gt;</ept> - Azure Multi-Factor Authenticaton is simple to setup and use.</target>
+        </trans-unit>
+        <trans-unit id="f49e69c6-21d7-4787-9a2a-c4fb255bb96f" xml:space="preserve">
+          <source>The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be setup with just a few simple clicks.</source>
+          <target state="new">The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be setup with just a few simple clicks.</target>
+        </trans-unit>
+        <trans-unit id="0f037179-5c8a-4930-b395-6676b0049847" xml:space="preserve">
+          <source><bpt id="5996fab8-6021-4f52-a388-7347659abf92">&lt;strong&gt;</bpt>Scalable<ept id="5996fab8-6021-4f52-a388-7347659abf92">&lt;/strong&gt;</ept> - Azure Multi-Factor Authenticaton utilizes the power of the cloud and integrates with your on-premises AD and custom apps.</source>
+          <target state="new"><bpt id="5996fab8-6021-4f52-a388-7347659abf92">&lt;strong&gt;</bpt>Scalable<ept id="5996fab8-6021-4f52-a388-7347659abf92">&lt;/strong&gt;</ept> - Azure Multi-Factor Authenticaton utilizes the power of the cloud and integrates with your on-premises AD and custom apps.</target>
+        </trans-unit>
+        <trans-unit id="10c1d611-d099-4c09-acdd-fab0dc05a117" xml:space="preserve">
+          <source>This protection is even extended to your high volume mission critical scenarios.</source>
+          <target state="new">This protection is even extended to your high volume mission critical scenarios.</target>
+        </trans-unit>
+        <trans-unit id="12fd5ea4-43a5-4551-9ce6-0855c3727511" xml:space="preserve">
+          <source><bpt id="e29020d2-08db-479f-b6cb-281405c71818">&lt;strong&gt;</bpt>Always Protected<ept id="e29020d2-08db-479f-b6cb-281405c71818">&lt;/strong&gt;</ept> - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.</source>
+          <target state="new"><bpt id="e29020d2-08db-479f-b6cb-281405c71818">&lt;strong&gt;</bpt>Always Protected<ept id="e29020d2-08db-479f-b6cb-281405c71818">&lt;/strong&gt;</ept> - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.</target>
+        </trans-unit>
+        <trans-unit id="2283f50b-f18a-4563-ad9a-790231f715f2" xml:space="preserve">
+          <source><bpt id="16cbbd9a-2b84-4c50-8bd0-25faa7e2757f">&lt;strong&gt;</bpt>Reliable<ept id="16cbbd9a-2b84-4c50-8bd0-25faa7e2757f">&lt;/strong&gt;</ept> - We guarantee 99.9% availability of Azure Multi-Factor Authentication.</source>
+          <target state="new"><bpt id="16cbbd9a-2b84-4c50-8bd0-25faa7e2757f">&lt;strong&gt;</bpt>Reliable<ept id="16cbbd9a-2b84-4c50-8bd0-25faa7e2757f">&lt;/strong&gt;</ept> - We guarantee 99.9% availability of Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="92daea2a-245a-4912-963f-30eb86de4f97" xml:space="preserve">
+          <source>The service is considered unavailable when it is unable to receive or process authentication requests for the multi-factor authentication.</source>
+          <target state="new">The service is considered unavailable when it is unable to receive or process authentication requests for the multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="dbb0b8b0-60af-484e-a200-7834f711eac2" xml:space="preserve">
+          <source>For additional information on why use Azure Multi-Factor Authentication see the following video.</source>
+          <target state="new">For additional information on why use Azure Multi-Factor Authentication see the following video.</target>
+        </trans-unit>
+        <trans-unit id="fd503198-658d-49ff-b1f4-f7e425962538" xml:space="preserve">
+          <source>&lt;center&gt;[AZURE.VIDEO windows-azure-multi-factor-authentication]&lt;/center&gt;</source>
+          <target state="new">&lt;center&gt;[AZURE.VIDEO windows-azure-multi-factor-authentication]&lt;/center&gt;</target>
+        </trans-unit>
+        <trans-unit id="b764ca8b-4780-4cde-b39c-b14880923d4b" xml:space="preserve">
+          <source>The security of multi-factor authentication lies in its layered approach.</source>
+          <target state="new">The security of multi-factor authentication lies in its layered approach.</target>
+        </trans-unit>
+        <trans-unit id="9aec9331-9c16-451f-9c59-6c52a3e1c87d" xml:space="preserve">
+          <source>Compromising multiple authentication factors presents a significant challenge for attackers.</source>
+          <target state="new">Compromising multiple authentication factors presents a significant challenge for attackers.</target>
+        </trans-unit>
+        <trans-unit id="4ebde5f8-7929-47ce-9361-0795d1c4f892" xml:space="preserve">
+          <source>Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device.</source>
+          <target state="new">Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device.</target>
+        </trans-unit>
+        <trans-unit id="71fdc48f-6050-4d37-81d9-6c62f5a0205f" xml:space="preserve">
+          <source>Should the user lose the device, the person who finds it won't be able to use it unless he or she also knows the user's password.</source>
+          <target state="new">Should the user lose the device, the person who finds it won't be able to use it unless he or she also knows the user's password.</target>
+        </trans-unit>
+        <trans-unit id="c85f2df1-576c-4427-be94-93a17e4b9b52" xml:space="preserve">
+          <source><bpt id="3350b83b-3e85-4c78-910f-a242eeaaa0ab">&lt;linkText&gt;</bpt>Proofup<ept id="3350b83b-3e85-4c78-910f-a242eeaaa0ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3350b83b-3e85-4c78-910f-a242eeaaa0ab">&lt;linkText&gt;</bpt>Proofup<ept id="3350b83b-3e85-4c78-910f-a242eeaaa0ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5bf2cc8-ed67-4754-b754-fe3fd3507b16" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.</source>
+          <target state="new">Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.</target>
+        </trans-unit>
+        <trans-unit id="2a6d98ea-083a-4397-b3c6-7e6982c08cb0" xml:space="preserve">
+          <source>It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options:</source>
+          <target state="new">It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options:</target>
+        </trans-unit>
+        <trans-unit id="5cf96b3d-6dda-4ed6-bd10-b45af18d5372" xml:space="preserve">
+          <source>phone call </source>
+          <target state="new">phone call </target>
+        </trans-unit>
+        <trans-unit id="b67f33fe-b6eb-4b55-97f6-8ab33e1ab13a" xml:space="preserve">
+          <source>text message</source>
+          <target state="new">text message</target>
+        </trans-unit>
+        <trans-unit id="103fc2f9-8d52-44ab-a5c6-ff794ace82a2" xml:space="preserve">
+          <source>mobile app notification—allowing users to choose the method they prefer</source>
+          <target state="new">mobile app notification—allowing users to choose the method they prefer</target>
+        </trans-unit>
+        <trans-unit id="afde0b95-c7c0-4c4c-aea4-7d91c5789578" xml:space="preserve">
+          <source>mobile app verification code</source>
+          <target state="new">mobile app verification code</target>
+        </trans-unit>
+        <trans-unit id="0f045b19-d1a9-4a2e-b495-6698483a3d17" xml:space="preserve">
+          <source>3rd party OATH tokens</source>
+          <target state="new">3rd party OATH tokens</target>
+        </trans-unit>
+        <trans-unit id="3a772f16-d1e8-4cf2-87e2-09a4f6adbad2" xml:space="preserve">
+          <source>For additional information oh how it works see the following video.</source>
+          <target state="new">For additional information oh how it works see the following video.</target>
+        </trans-unit>
+        <trans-unit id="2ee73b0e-90dd-47ef-957b-3daf782cf911" xml:space="preserve">
+          <source>[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]</source>
+          <target state="new">[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]</target>
+        </trans-unit>
+        <trans-unit id="49f5ea1f-5ad5-471d-a99e-51fccdf1c394" xml:space="preserve">
+          <source>When a user signs in, an additional verification is sent to the user.</source>
+          <target state="new">When a user signs in, an additional verification is sent to the user.</target>
+        </trans-unit>
+        <trans-unit id="e5fb0343-7151-4397-a98d-6350b7b1d1dd" xml:space="preserve">
+          <source>The following are a list of methods that can be used for this second verification.</source>
+          <target state="new">The following are a list of methods that can be used for this second verification.</target>
+        </trans-unit>
+        <trans-unit id="2634e547-c22b-4fa1-90d4-d4e5c53b5a86" xml:space="preserve">
+          <source>Verification Method</source>
+          <target state="new">Verification Method</target>
+        </trans-unit>
+        <trans-unit id="4d304f97-0a9c-49dc-bdfa-13806584082f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="202f06f8-9197-476a-bbe0-6555ea357c71" xml:space="preserve">
+          <source>Phone Call</source>
+          <target state="new">Phone Call</target>
+        </trans-unit>
+        <trans-unit id="90b1decc-fdbf-4ac1-b806-5946d821a11e" xml:space="preserve">
+          <source>A call is placed to a user’s smart phone asking them to verify that they are signing in by pressing the # sign.</source>
+          <target state="new">A call is placed to a user’s smart phone asking them to verify that they are signing in by pressing the # sign.</target>
+        </trans-unit>
+        <trans-unit id="5064fd0e-3453-4000-8334-7d4153b8c9bf" xml:space="preserve">
+          <source>This will complete the verification process.</source>
+          <target state="new">This will complete the verification process.</target>
+        </trans-unit>
+        <trans-unit id="5242a133-51d1-4e6f-bba8-a66302ed2d8f" xml:space="preserve">
+          <source>This option is configurable and can be changed to a code that you specify.</source>
+          <target state="new">This option is configurable and can be changed to a code that you specify.</target>
+        </trans-unit>
+        <trans-unit id="1ac0dda3-e624-4c8f-a58c-f399fac26b79" xml:space="preserve">
+          <source>Text Message</source>
+          <target state="new">Text Message</target>
+        </trans-unit>
+        <trans-unit id="e7623884-7882-4828-bd69-b5113fd91116" xml:space="preserve">
+          <source>A text message will be sent to a user’s smart phone with a 6 digit code.</source>
+          <target state="new">A text message will be sent to a user’s smart phone with a 6 digit code.</target>
+        </trans-unit>
+        <trans-unit id="61e3250c-2386-4454-8c47-31e9232602bd" xml:space="preserve">
+          <source>Enter this code in to complete the verification process.</source>
+          <target state="new">Enter this code in to complete the verification process.</target>
+        </trans-unit>
+        <trans-unit id="ca7fa9d6-c466-44b4-bdd0-ee6b87b7a7f7" xml:space="preserve">
+          <source>Mobile App Notification</source>
+          <target state="new">Mobile App Notification</target>
+        </trans-unit>
+        <trans-unit id="63f9eadc-99af-4d11-836b-198a09666708" xml:space="preserve">
+          <source>A verification request will be sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app.</source>
+          <target state="new">A verification request will be sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app.</target>
+        </trans-unit>
+        <trans-unit id="6762cece-386c-4ee5-953b-a50035b13739" xml:space="preserve">
+          <source>This will occur if you selected app notification as your primary verification method.</source>
+          <target state="new">This will occur if you selected app notification as your primary verification method.</target>
+        </trans-unit>
+        <trans-unit id="ee793ea2-c0b4-4c49-af31-b0ee8f6d20d1" xml:space="preserve">
+          <source>If they receive this when they are not signing in, they can choose to report it as fraud.</source>
+          <target state="new">If they receive this when they are not signing in, they can choose to report it as fraud.</target>
+        </trans-unit>
+        <trans-unit id="a49978e2-fd63-4735-a3a0-b1fda32678cb" xml:space="preserve">
+          <source>Verification code with Mobile App</source>
+          <target state="new">Verification code with Mobile App</target>
+        </trans-unit>
+        <trans-unit id="997f08ec-951c-4216-a57a-9a644e031571" xml:space="preserve">
+          <source>A verification code will be sent to the mobile app that is running on a user’s smart phone.</source>
+          <target state="new">A verification code will be sent to the mobile app that is running on a user’s smart phone.</target>
+        </trans-unit>
+        <trans-unit id="e38c1a52-b655-4db5-aee2-e99284f1728b" xml:space="preserve">
+          <source>This will occur if you selected a verification code as your primary verification method.</source>
+          <target state="new">This will occur if you selected a verification code as your primary verification method.</target>
+        </trans-unit>
+        <trans-unit id="ea69a245-548b-4a35-8f76-a97db243d9a6" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication is available in three different versions.</source>
+          <target state="new">Azure Multi-Factor Authentication is available in three different versions.</target>
+        </trans-unit>
+        <trans-unit id="df510fd2-debd-4f77-a29e-ff5ab3dd388e" xml:space="preserve">
+          <source>The table below describes each of these in more detail.</source>
+          <target state="new">The table below describes each of these in more detail.</target>
+        </trans-unit>
+        <trans-unit id="40afda54-5e1b-4793-874f-dc060697c189" xml:space="preserve">
+          <source>Version</source>
+          <target state="new">Version</target>
+        </trans-unit>
+        <trans-unit id="79b42fe3-06df-4716-99df-32af6452cbc9" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="bb5a6856-45d6-4cb6-9398-a353c2844dd8" xml:space="preserve">
+          <source>Multi-Factor Authentication for Office 365</source>
+          <target state="new">Multi-Factor Authentication for Office 365</target>
+        </trans-unit>
+        <trans-unit id="6b211a68-892c-4bb3-a5ae-d361cb86edd1" xml:space="preserve">
+          <source>This version works exclusively with Office 365 applications and is managed from the Office 365 portal.</source>
+          <target state="new">This version works exclusively with Office 365 applications and is managed from the Office 365 portal.</target>
+        </trans-unit>
+        <trans-unit id="ab9d8f61-57e2-4bb0-bd3c-97e051e36593" xml:space="preserve">
+          <source>So administrators can now help secure their Office 365 resources by using multi-factor authentication.</source>
+          <target state="new">So administrators can now help secure their Office 365 resources by using multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="520f13f2-6b61-42cf-b82f-473ab1a841f9" xml:space="preserve">
+          <source>This version comes with an Office 365 subscription.</source>
+          <target state="new">This version comes with an Office 365 subscription.</target>
+        </trans-unit>
+        <trans-unit id="7de2eb6b-a9f8-4075-8ea3-9407cd101ac8" xml:space="preserve">
+          <source>Multi-Factor Authentication for Azure Administrators</source>
+          <target state="new">Multi-Factor Authentication for Azure Administrators</target>
+        </trans-unit>
+        <trans-unit id="ae9540ed-b992-44e3-a119-d1e08fb47e15" xml:space="preserve">
+          <source>The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators.</source>
+          <target state="new">The same subset of Multi-Factor Authentication capabilities for Office 365 will be available at no cost to all Azure administrators.</target>
+        </trans-unit>
+        <trans-unit id="f779a3ce-b332-4772-985e-58cca3158315" xml:space="preserve">
+          <source>Every administrative account of a Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality.</source>
+          <target state="new">Every administrative account of a Azure subscription can now get additional protection by enabling this core multi-factor authentication functionality.</target>
+        </trans-unit>
+        <trans-unit id="88f7da1c-ea07-403a-a9de-5312ad3c40b8" xml:space="preserve">
+          <source>So an administrator that wants to access Azure portal to create a VM, a web site, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.</source>
+          <target state="new">So an administrator that wants to access Azure portal to create a VM, a web site, manage storage, mobile services or any other Azure Service can add multi-factor authentication to his administrator account.</target>
+        </trans-unit>
+        <trans-unit id="d6dc61eb-2610-4874-9e2c-dfa8388c1498" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication</source>
+          <target state="new">Azure Multi-Factor Authentication</target>
+        </trans-unit>
+        <trans-unit id="940132e3-ee82-48b8-8e8e-e881d7f536de" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication offers the richest set of capabilities.</source>
+          <target state="new">Azure Multi-Factor Authentication offers the richest set of capabilities.</target>
+        </trans-unit>
+        <trans-unit id="f2bcd65e-b859-45bb-8b9e-d37edcc3067b" xml:space="preserve">
+          <source>It provides additional configuration options via the Azure Management portal, advanced reporting, and support for a range of on-premises and cloud applications.</source>
+          <target state="new">It provides additional configuration options via the Azure Management portal, advanced reporting, and support for a range of on-premises and cloud applications.</target>
+        </trans-unit>
+        <trans-unit id="bdcb7436-8917-4b3f-8597-77e565e7bfd7" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium.</source>
+          <target state="new">Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium.</target>
+        </trans-unit>
+        <trans-unit id="071ad5be-4db9-4f70-aee6-bde3174723da" xml:space="preserve">
+          <source>The following table below provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.</source>
+          <target state="new">The following table below provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="88ab4d41-0330-4f4c-989b-378ef7428068" xml:space="preserve">
+          <source>Feature</source>
+          <target state="new">Feature</target>
+        </trans-unit>
+        <trans-unit id="5533e137-ec82-4b7d-8fd9-6d9f9476855d" xml:space="preserve">
+          <source>Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)</source>
+          <target state="new">Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)</target>
+        </trans-unit>
+        <trans-unit id="93be240a-a13d-43d5-98bf-b6057df3dc7a" xml:space="preserve">
+          <source>Multi-Factor Authentication for Azure Administrators (included with Azure subscription)</source>
+          <target state="new">Multi-Factor Authentication for Azure Administrators (included with Azure subscription)</target>
+        </trans-unit>
+        <trans-unit id="87bcf053-fcb7-4e70-8cc2-89550d9ebc1f" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite)</source>
+          <target state="new">Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite)</target>
+        </trans-unit>
+        <trans-unit id="4071f510-cffa-40db-bde8-167ad434d629" xml:space="preserve">
+          <source>Administrators can protect accounts with MFA</source>
+          <target state="new">Administrators can protect accounts with MFA</target>
+        </trans-unit>
+        <trans-unit id="e7d09e22-7e12-4e4a-8dab-bee20b5fe8bc" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="fff69605-9bb4-455e-ae54-c03383960864" xml:space="preserve">
+          <source>* (Available only for Azure Administrator accounts)</source>
+          <target state="new">* (Available only for Azure Administrator accounts)</target>
+        </trans-unit>
+        <trans-unit id="ee4c53e4-aaca-453d-8baf-1c538421136f" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="0d7a4f6e-d416-4ee5-9ec0-826eb9ab605f" xml:space="preserve">
+          <source>Mobile app as a second factor</source>
+          <target state="new">Mobile app as a second factor</target>
+        </trans-unit>
+        <trans-unit id="9d2e81de-4746-46d4-bd0f-6d6f83e2a836" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="9716c019-8fb7-4167-9f0a-ab4f4f73f35d" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="34c4a29a-7ea5-4f3a-8f7f-d7333faa7d18" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="b536edd5-002d-4873-a2b0-256e7e03d4d3" xml:space="preserve">
+          <source>Phone call as a second factor</source>
+          <target state="new">Phone call as a second factor</target>
+        </trans-unit>
+        <trans-unit id="07acc7b1-f7cd-4b74-abc7-5d55928cd17c" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="4481417c-5653-4cfd-8209-3fad988dbddc" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="6c085ab5-c866-46d1-9284-367f7094d165" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="7b6a3c67-f4f1-47e8-8aa7-bec175514f06" xml:space="preserve">
+          <source>SMS as a second factor</source>
+          <target state="new">SMS as a second factor</target>
+        </trans-unit>
+        <trans-unit id="1a8c7be6-08a3-466a-9566-a38e22e5a721" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="92e27952-e257-4f40-b0a4-f6b93ae8828f" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="045c14a7-3ff5-438a-a8f3-293cae777a9f" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="d7cb2b18-cf1a-40f4-bde7-4029a1690023" xml:space="preserve">
+          <source>App passwords for clients that don't support MFA</source>
+          <target state="new">App passwords for clients that don't support MFA</target>
+        </trans-unit>
+        <trans-unit id="d685b43f-8505-4900-b665-38381eeca917" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="4e11ca68-1052-4ead-a3ec-2fd9b7488b85" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="01a4b1f6-6f73-4a15-abef-0a81e667d99d" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="2ceb5447-d37d-484b-bdf9-ae7b144b333a" xml:space="preserve">
+          <source>Admin control over authentication methods</source>
+          <target state="new">Admin control over authentication methods</target>
+        </trans-unit>
+        <trans-unit id="28a16b7e-dc7e-4d7a-a553-d8395738bbe3" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="f2bc596e-c55d-4aff-b071-d1a57f11238d" xml:space="preserve">
+          <source>PIN mode</source>
+          <target state="new">PIN mode</target>
+        </trans-unit>
+        <trans-unit id="06ec2214-d085-4106-8816-e36a6abc53b4" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="5d015e7e-89d7-4db2-9bfd-4343fbe040b8" xml:space="preserve">
+          <source>Fraud alert</source>
+          <target state="new">Fraud alert</target>
+        </trans-unit>
+        <trans-unit id="c8e3821e-6a75-414b-b5b3-797af9312404" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="2a67a5ad-f401-4f27-b7f8-c6b4a40c6c60" xml:space="preserve">
+          <source>MFA Reports</source>
+          <target state="new">MFA Reports</target>
+        </trans-unit>
+        <trans-unit id="41cc2156-832f-4556-808a-52543a6805b0" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="3e5edf16-0920-4308-a132-3621772372e2" xml:space="preserve">
+          <source>One-Time Bypass</source>
+          <target state="new">One-Time Bypass</target>
+        </trans-unit>
+        <trans-unit id="a7ee7d8c-01b1-4363-bf1f-13b10fac08ff" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="461bb287-db45-4ffc-8f7f-ac48ec3b7fa9" xml:space="preserve">
+          <source>Custom greetings for phone calls</source>
+          <target state="new">Custom greetings for phone calls</target>
+        </trans-unit>
+        <trans-unit id="b720e3bd-daac-4fc5-b0d7-2ad0e8d42be2" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="4ef425a1-07db-4b2a-99bd-7009aa7249c7" xml:space="preserve">
+          <source>Customization of caller ID for phone calls</source>
+          <target state="new">Customization of caller ID for phone calls</target>
+        </trans-unit>
+        <trans-unit id="5dc009e0-277e-4ef7-9c40-df9064dc19e9" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="0f8f3c83-0ee7-454b-8314-a94aaf9da920" xml:space="preserve">
+          <source>Event Confirmation</source>
+          <target state="new">Event Confirmation</target>
+        </trans-unit>
+        <trans-unit id="1a6c3550-a62b-43af-8f0f-bc69e4abcee6" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="c05d3683-ee40-4956-9151-5dc30c7f8a15" xml:space="preserve">
+          <source>Trusted IPs</source>
+          <target state="new">Trusted IPs</target>
+        </trans-unit>
+        <trans-unit id="6a956034-bd7b-48e8-b392-bf2b3420e187" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="66cd9105-4fd5-40a2-ac99-1786cfaba1f2" xml:space="preserve">
+          <source>Suspend MFA for remembered devices (Public Preview)</source>
+          <target state="new">Suspend MFA for remembered devices (Public Preview)</target>
+        </trans-unit>
+        <trans-unit id="a9dc1037-496f-4135-9b7f-59d3f5fdbcef" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="303be024-65f0-4f09-9ab4-0b4314258500" xml:space="preserve">
+          <source>MFA SDK</source>
+          <target state="new">MFA SDK</target>
+        </trans-unit>
+        <trans-unit id="e8a84bda-3196-4c85-8042-dc32d8f8be4b" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="638f0f78-b45d-4fcc-b9d4-07f2578ed273" xml:space="preserve">
+          <source>MFA for on-premises applications using MFA server</source>
+          <target state="new">MFA for on-premises applications using MFA server</target>
+        </trans-unit>
+        <trans-unit id="c0888044-bb81-4b6c-a0fe-d48b019ef277" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="a4acbb72-4a63-45dc-a4c0-329e4bb8f7aa" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium and the Enterprise Mobility Suite.</source>
+          <target state="new">Azure Multi-Factor Authentication comes as part of Azure Active Directory Premium and the Enterprise Mobility Suite.</target>
+        </trans-unit>
+        <trans-unit id="3afee769-af3c-4581-b942-12919ee88475" xml:space="preserve">
+          <source>If you already have these then you have Azure Multi-Factor Authentication.</source>
+          <target state="new">If you already have these then you have Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="fb3e127b-92b8-4b70-8f3e-ecf861c149c3" xml:space="preserve">
+          <source>If you are an Office 365 users or an Azure subscriber and want to take advantage of the additional features provide by Azure Multi-Factor Authentication then continue reading.</source>
+          <target state="new">If you are an Office 365 users or an Azure subscriber and want to take advantage of the additional features provide by Azure Multi-Factor Authentication then continue reading.</target>
+        </trans-unit>
+        <trans-unit id="dff1e237-0f5c-4263-a332-e54f35437f58" xml:space="preserve">
+          <source>If you do not have any of the above, then to begin using Azure Multi-Factor Authentication, you first need an Azure subscription or an <bpt id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;linkText&gt;</bpt>Azure trial subscription<ept id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;/linkText&gt;</ept><bpt id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;title&gt;</bpt><ept id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not have any of the above, then to begin using Azure Multi-Factor Authentication, you first need an Azure subscription or an <bpt id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;linkText&gt;</bpt>Azure trial subscription<ept id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;/linkText&gt;</ept><bpt id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;title&gt;</bpt><ept id="2d6c149a-7931-4cd5-ba9f-e569569bb126">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc498506-4398-42aa-b1bc-693aacf46ed1" xml:space="preserve">
+          <source>When using Azure Multi-Factor Authentication there are two billing options available:</source>
+          <target state="new">When using Azure Multi-Factor Authentication there are two billing options available:</target>
+        </trans-unit>
+        <trans-unit id="ccf546ae-bd71-449a-85ba-f00aa28228b2" xml:space="preserve">
+          <source><bpt id="8cce483a-57d5-45bf-8929-e3fc8c2c9e9a">&lt;strong&gt;</bpt>Per User<ept id="8cce483a-57d5-45bf-8929-e3fc8c2c9e9a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="8cce483a-57d5-45bf-8929-e3fc8c2c9e9a">&lt;strong&gt;</bpt>Per User<ept id="8cce483a-57d5-45bf-8929-e3fc8c2c9e9a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a4c7cd89-3a71-4edf-9f86-e55379c32bdc" xml:space="preserve">
+          <source>Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.</source>
+          <target state="new">Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.</target>
+        </trans-unit>
+        <trans-unit id="051cb622-6e6e-4635-9eaa-b5c798e3141c" xml:space="preserve">
+          <source><bpt id="620c7695-8c73-4ca5-bdec-ff740fa5d539">&lt;strong&gt;</bpt>Per Authentication<ept id="620c7695-8c73-4ca5-bdec-ff740fa5d539">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="620c7695-8c73-4ca5-bdec-ff740fa5d539">&lt;strong&gt;</bpt>Per Authentication<ept id="620c7695-8c73-4ca5-bdec-ff740fa5d539">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65ddf07c-b738-4b45-a1ae-2b689d5076c5" xml:space="preserve">
+          <source>Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.</source>
+          <target state="new">Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.</target>
+        </trans-unit>
+        <trans-unit id="0149ab5b-728c-4e8f-9cf7-e57c023fec28" xml:space="preserve">
+          <source>For pricing details see <bpt id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;linkText&gt;</bpt>Azure MFA Pricing.<ept id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;/linkText&gt;</ept><bpt id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;title&gt;</bpt><ept id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;/title&gt;</ept></source>
+          <target state="new">For pricing details see <bpt id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;linkText&gt;</bpt>Azure MFA Pricing.<ept id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;/linkText&gt;</ept><bpt id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;title&gt;</bpt><ept id="68f8f9d8-bd36-4793-9ebe-963f374ea5d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde3c286-187d-4a7f-97db-5c4daa485700" xml:space="preserve">
+          <source>Choose the model that works best for your organization.</source>
+          <target state="new">Choose the model that works best for your organization.</target>
+        </trans-unit>
+        <trans-unit id="d65d53ec-2abe-4562-a65e-bd69eea0439f" xml:space="preserve">
+          <source>Then to get started see <bpt id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;linkText&gt;</bpt>Getting Started<ept id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;/linkText&gt;</ept><bpt id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;title&gt;</bpt><ept id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;/title&gt;</ept></source>
+          <target state="new">Then to get started see <bpt id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;linkText&gt;</bpt>Getting Started<ept id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;/linkText&gt;</ept><bpt id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;title&gt;</bpt><ept id="5ca42ae9-1bb3-4053-957f-659606255283">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28ae95f7-be73-4ac1-95f2-a0c640d7c2a8" xml:space="preserve">
+          <source>Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.</source>
+          <target state="new">Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.</target>
+        </trans-unit>
+        <trans-unit id="ed928d48-ee15-4734-8bb9-c136eac5f95c" xml:space="preserve">
+          <source>Those things are:</source>
+          <target state="new">Those things are:</target>
+        </trans-unit>
+        <trans-unit id="6fdc1336-0358-4f22-bce0-6f0d64269d2d" xml:space="preserve">
+          <source><bpt id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;linkText&gt;</bpt>What am I trying to secure<ept id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;/linkText&gt;</ept><bpt id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;title&gt;</bpt><ept id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;linkText&gt;</bpt>What am I trying to secure<ept id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;/linkText&gt;</ept><bpt id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;title&gt;</bpt><ept id="3e044fbc-01ee-4971-8e60-0a7fdb52eef8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ffb8223c-53e2-451e-b24e-78a4c63541b4" xml:space="preserve">
+          <source><bpt id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;linkText&gt;</bpt>Where are the users located<ept id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;/linkText&gt;</ept><bpt id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;title&gt;</bpt><ept id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;linkText&gt;</bpt>Where are the users located<ept id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;/linkText&gt;</ept><bpt id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;title&gt;</bpt><ept id="30aaab5f-b347-44c4-a7fb-dd463a874aed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bce1a6b-ac78-415b-a9de-8d54bbb19fb4" xml:space="preserve">
+          <source>The following sections will provide guidance on determining each of these.</source>
+          <target state="new">The following sections will provide guidance on determining each of these.</target>
+        </trans-unit>
+        <trans-unit id="80bd1fcb-6d13-4890-b6bb-2c576721cb52" xml:space="preserve">
+          <source>In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.</source>
+          <target state="new">In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.</target>
+        </trans-unit>
+        <trans-unit id="b20f6039-cb33-4538-9156-293e9c082e3b" xml:space="preserve">
+          <source>Is it an application that is in Azure?</source>
+          <target state="new">Is it an application that is in Azure?</target>
+        </trans-unit>
+        <trans-unit id="aecdede6-f66a-47e0-9418-b40b478a2a6f" xml:space="preserve">
+          <source>Or is it a remote access system for example.</source>
+          <target state="new">Or is it a remote access system for example.</target>
+        </trans-unit>
+        <trans-unit id="4f2fe07a-3279-475d-910d-2415c0aa35e5" xml:space="preserve">
+          <source>By determining what we are trying to secure, we will see to answer the question of where multi-factor authentication needs to be enabled.</source>
+          <target state="new">By determining what we are trying to secure, we will see to answer the question of where multi-factor authentication needs to be enabled.</target>
+        </trans-unit>
+        <trans-unit id="b492fe8d-8aee-463a-9b87-1c266622b2a0" xml:space="preserve">
+          <source>What are you trying to secure</source>
+          <target state="new">What are you trying to secure</target>
+        </trans-unit>
+        <trans-unit id="efd50092-800c-4ef9-9169-35290d8e05a3" xml:space="preserve">
+          <source>Multi-Factor Authentication in the cloud</source>
+          <target state="new">Multi-Factor Authentication in the cloud</target>
+        </trans-unit>
+        <trans-unit id="fd5ad885-898d-4813-b6d4-ab40bd8f8c48" xml:space="preserve">
+          <source>Multi-Factor Authentication Server</source>
+          <target state="new">Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="6636b584-4c5d-4b73-94be-6a675a515c41" xml:space="preserve">
+          <source>First party Microsoft apps</source>
+          <target state="new">First party Microsoft apps</target>
+        </trans-unit>
+        <trans-unit id="e72eb40e-b9d1-4bd5-ac47-4292273d0634" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="4365aeb2-52f3-4a92-86db-4d71c528b703" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="d9440296-a5e4-419c-9f34-07ed6a500bb7" xml:space="preserve">
+          <source>Saas apps in the app gallery</source>
+          <target state="new">Saas apps in the app gallery</target>
+        </trans-unit>
+        <trans-unit id="5df4281b-9f79-468c-868f-8100622e8ff7" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="f845f4f8-9d2f-4332-984d-f51f8a02ff6b" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="f16d7d8a-5c5f-42ad-b1cd-813d004b76c6" xml:space="preserve">
+          <source>IIS applications published through Azure AD App Proxy</source>
+          <target state="new">IIS applications published through Azure AD App Proxy</target>
+        </trans-unit>
+        <trans-unit id="b919b90f-cb6a-4674-bf11-7b875853ae5d" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="90cfad80-40cc-4be3-ae85-ef1ddc5ef2a8" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="88e3eff1-5c6b-4093-b189-09c71ab164bc" xml:space="preserve">
+          <source>IIS applications not published through Azure AD App Proxy</source>
+          <target state="new">IIS applications not published through Azure AD App Proxy</target>
+        </trans-unit>
+        <trans-unit id="4ed15095-81cb-4713-bffc-d1d0bf701b1d" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="4160dade-dcd6-4a7b-8000-c2d639d5bd14" xml:space="preserve">
+          <source>Remote access such as VPN, RDG</source>
+          <target state="new">Remote access such as VPN, RDG</target>
+        </trans-unit>
+        <trans-unit id="05752f1f-08fc-4b73-9e06-ff032badd4ef" xml:space="preserve">
+          <source>*</source>
+          <target state="new">*</target>
+        </trans-unit>
+        <trans-unit id="7d7c03e0-c9b7-4d97-8f42-e5ff848fcad4" xml:space="preserve">
+          <source>Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.</source>
+          <target state="new">Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.</target>
+        </trans-unit>
+        <trans-unit id="226c9b5d-4fad-416a-9aa9-b517f9671af9" xml:space="preserve">
+          <source>User Location</source>
+          <target state="new">User Location</target>
+        </trans-unit>
+        <trans-unit id="acf9ef80-32c9-460a-806d-329480553f19" xml:space="preserve">
+          <source>Solution</source>
+          <target state="new">Solution</target>
+        </trans-unit>
+        <trans-unit id="2752225b-e1b3-4539-927f-ec0227e1ad1b" xml:space="preserve">
+          <source>Azure Active Directory</source>
+          <target state="new">Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="668ccd82-1f99-406f-8c81-1f3381823cea" xml:space="preserve">
+          <source>Multi-Factor Authentication in the cloud</source>
+          <target state="new">Multi-Factor Authentication in the cloud</target>
+        </trans-unit>
+        <trans-unit id="6d6db352-2e60-45ae-a2a6-f89ea593f287" xml:space="preserve">
+          <source>Azure AD and on-premises AD using federation with AD FS</source>
+          <target state="new">Azure AD and on-premises AD using federation with AD FS</target>
+        </trans-unit>
+        <trans-unit id="961e6a0c-bfcb-4b56-af43-030a3b3fc173" xml:space="preserve">
+          <source>Both MFA in the cloud and MFA Server are available options</source>
+          <target state="new">Both MFA in the cloud and MFA Server are available options</target>
+        </trans-unit>
+        <trans-unit id="e1f741a9-6c6d-4c43-95a1-7056293ef5bf" xml:space="preserve">
+          <source>Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync</source>
+          <target state="new">Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync</target>
+        </trans-unit>
+        <trans-unit id="64473e32-b8a6-44e4-9d77-36cb2adf5f0c" xml:space="preserve">
+          <source>Both MFA in the cloud and MFA Server are available options</source>
+          <target state="new">Both MFA in the cloud and MFA Server are available options</target>
+        </trans-unit>
+        <trans-unit id="ce82a0e2-67fc-46b9-b2c1-b7c3f948715e" xml:space="preserve">
+          <source>Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync</source>
+          <target state="new">Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync</target>
+        </trans-unit>
+        <trans-unit id="a82fc02e-7d5a-4a3b-b17c-2f594806b338" xml:space="preserve">
+          <source>Multi-Factor Authentication in the cloud</source>
+          <target state="new">Multi-Factor Authentication in the cloud</target>
+        </trans-unit>
+        <trans-unit id="d8108f11-6da4-4698-944f-84d877d91743" xml:space="preserve">
+          <source>On-premises Active Directory</source>
+          <target state="new">On-premises Active Directory</target>
+        </trans-unit>
+        <trans-unit id="ecbd7c8e-7a4a-4ea6-ba94-e0bca4f4145e" xml:space="preserve">
+          <source>Multi-Factor Authentication Server</source>
+          <target state="new">Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="a5239934-05c1-46a1-b6d9-2102a5d7dc5f" xml:space="preserve">
+          <source>The following table is a comparison of the features that are a with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.</source>
+          <target state="new">The following table is a comparison of the features that are a with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.</target>
+        </trans-unit>
+        <trans-unit id="c4708fec-6b90-4a04-87c3-5a6eb8ae4420" xml:space="preserve">
+          <source>Multi-Factor Authentication in the cloud</source>
+          <target state="new">Multi-Factor Authentication in the cloud</target>
+        </trans-unit>
+        <trans-unit id="fbc35a7f-ad02-43b1-b000-0d184b7cc1d5" xml:space="preserve">
+          <source>Multi-Factor Authentication Server</source>
+          <target state="new">Multi-Factor Authentication Server</target>
+        </trans-unit>
+        <trans-unit id="d0226b20-0ca5-4694-83f6-2972ca179362" xml:space="preserve">
+          <source>Mobile app notification as a second factor</source>
+          <target state="new">Mobile app notification as a second factor</target>
+        </trans-unit>
+        <trans-unit id="e0a7a6f9-8ec3-41f0-80b3-bdd148adc473" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="fd711430-a079-4509-bc36-dd8038b87caa" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="150fa353-db27-4394-a67e-b2723af5bbbc" xml:space="preserve">
+          <source>Mobile app verification code as a second factor</source>
+          <target state="new">Mobile app verification code as a second factor</target>
+        </trans-unit>
+        <trans-unit id="bc8e5303-1ba5-4b95-9f49-3417602a1e6a" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="3e2a3d3d-9aee-4923-995d-9a6876acc426" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="d2ed0287-0c84-4081-b49d-d2f8c4c6997e" xml:space="preserve">
+          <source>Phone call as second factor</source>
+          <target state="new">Phone call as second factor</target>
+        </trans-unit>
+        <trans-unit id="a046b3b4-7f47-49a7-ad57-021ba6e01717" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="6f4ccb15-b675-48c5-9bc9-41d7f387bd3a" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="cbb592f7-c2e8-463a-8006-7183f5d4b8c2" xml:space="preserve">
+          <source>One-way SMS as second factor</source>
+          <target state="new">One-way SMS as second factor</target>
+        </trans-unit>
+        <trans-unit id="0ba3d62f-15f5-407c-8d88-2a34b0d8d528" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="612364d2-9c88-4d59-93c1-fee474b17d11" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="e60f6713-0a76-4293-a4cd-c2d77f1b8e43" xml:space="preserve">
+          <source>Two-way SMS as second factor</source>
+          <target state="new">Two-way SMS as second factor</target>
+        </trans-unit>
+        <trans-unit id="77923243-4149-4d44-ab8e-68cc582e7c2a" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="c13500db-53e3-4e59-be25-74e414b4fe71" xml:space="preserve">
+          <source>Hardware Tokens as second factor</source>
+          <target state="new">Hardware Tokens as second factor</target>
+        </trans-unit>
+        <trans-unit id="4dd3c52c-781d-4985-be4a-3ffa0077ed95" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="12b42ea2-07de-4d4a-9846-b71c7059f6df" xml:space="preserve">
+          <source>App passwords for clients that don’t support MFA</source>
+          <target state="new">App passwords for clients that don’t support MFA</target>
+        </trans-unit>
+        <trans-unit id="5c054701-6c60-4b43-9c99-2de920342274" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="48b98bc6-baf4-4f3e-aa1f-c5896453c616" xml:space="preserve">
+          <source>Admin control over authentication methods</source>
+          <target state="new">Admin control over authentication methods</target>
+        </trans-unit>
+        <trans-unit id="cedd639a-9e3c-4bc4-a93e-f6794359f692" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="8d3be45d-7b79-4862-abfb-7450ab3585ea" xml:space="preserve">
+          <source>PIN mode</source>
+          <target state="new">PIN mode</target>
+        </trans-unit>
+        <trans-unit id="6e076e30-d097-4c7a-846d-0c6bd1cb66e7" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="2e846a92-66bd-40a1-9f20-87a6930eb53b" xml:space="preserve">
+          <source>Fraud alert</source>
+          <target state="new">Fraud alert</target>
+        </trans-unit>
+        <trans-unit id="22b9f495-871e-4fac-be10-a150a99d16b5" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="c5408f12-33a9-4514-be0d-ffe1cb573a71" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="7062663f-f37b-44df-b7d2-953119c5b24a" xml:space="preserve">
+          <source>MFA Reports</source>
+          <target state="new">MFA Reports</target>
+        </trans-unit>
+        <trans-unit id="be21c987-9f91-46ff-8e4f-219f6b7d06f7" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="5c4f190d-3111-4a14-87ba-da4d3c7cdff5" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="6ab73295-63d7-40ba-b6f0-6eb1ab272252" xml:space="preserve">
+          <source>One-Time Bypass</source>
+          <target state="new">One-Time Bypass</target>
+        </trans-unit>
+        <trans-unit id="ca6b22cd-8f3a-4806-ac59-e9eec142e52c" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="81411ed7-baae-4887-a99b-a74b30440034" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="2aace06a-461e-4f4c-a281-37696fbc468b" xml:space="preserve">
+          <source>Custom greetings for phone calls</source>
+          <target state="new">Custom greetings for phone calls</target>
+        </trans-unit>
+        <trans-unit id="7c3a9c6d-c55b-4727-acb1-246fb8035f74" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="2a42d564-c777-46a3-a514-373b2e910f18" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="a0aab34a-7b93-408e-8b75-2f57bbf2a9b2" xml:space="preserve">
+          <source>Customizable caller ID for phone calls</source>
+          <target state="new">Customizable caller ID for phone calls</target>
+        </trans-unit>
+        <trans-unit id="a368b514-6270-4f8d-a3c7-de174eabe1c2" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="900149d5-c409-4ddb-969b-6294d02c37a9" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="dddc55b9-ed0c-4062-89c8-277d442bcaef" xml:space="preserve">
+          <source>Trusted IPs</source>
+          <target state="new">Trusted IPs</target>
+        </trans-unit>
+        <trans-unit id="3f63fd8b-14f8-49da-9cf7-3e00775d27f2" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="b1c7d606-1956-4c09-bc05-e2416a2a0b28" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="e799adba-9155-48ef-8759-74fb64c98760" xml:space="preserve">
+          <source>Suspend MFA for remembered devices (Public Preview)</source>
+          <target state="new">Suspend MFA for remembered devices (Public Preview)</target>
+        </trans-unit>
+        <trans-unit id="f7351218-5859-4fbd-b998-a99742d1428e" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="35a7fcfe-4110-4f89-8cea-ac41c3ef49d4" xml:space="preserve">
+          <source>Conditional access</source>
+          <target state="new">Conditional access</target>
+        </trans-unit>
+        <trans-unit id="8f88041d-1ad9-4b4f-8ff6-ea86d10ae5d3" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="0e8db27d-ecd8-4332-93ff-5b94f85294fa" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="04180b63-3f42-4a33-8180-9df330902c20" xml:space="preserve">
+          <source>Cache</source>
+          <target state="new">Cache</target>
+        </trans-unit>
+        <trans-unit id="b3902a94-6df3-4e70-ac85-39d8fa26fb87" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="362e84af-856a-4234-836e-aab2c504df7c" xml:space="preserve">
+          <source>●</source>
+          <target state="new">●</target>
+        </trans-unit>
+        <trans-unit id="5a36b1ed-cc5b-42e9-a76d-bd551d543b18" xml:space="preserve">
+          <source>Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.</source>
+          <target state="new">Now that we have determined whether to use cloud multi-factor authentication or the MFA Server on-premises, we can get started setting up and using Azure Multi-Factor Authentication.</target>
+        </trans-unit>
+        <trans-unit id="628637a5-1548-4dca-aea0-b4081a246735" xml:space="preserve">
+          <source><bpt id="b9c80f25-998f-4f31-bef9-7d4730b354d0">&lt;strong&gt;</bpt>Select the icon that represents your scenario!<ept id="b9c80f25-998f-4f31-bef9-7d4730b354d0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b9c80f25-998f-4f31-bef9-7d4730b354d0">&lt;strong&gt;</bpt>Select the icon that represents your scenario!<ept id="b9c80f25-998f-4f31-bef9-7d4730b354d0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdab3f88-f6ea-42cc-b822-8e258a2476ac" xml:space="preserve">
+          <source>&lt;center&gt;</source>
+          <target state="new">&lt;center&gt;</target>
+        </trans-unit>
+        <trans-unit id="4db7be1b-45cd-4e0a-9650-98c5feb67536" xml:space="preserve">
+          <source>[<bpt id="b5339aee-25bc-4824-800f-c6e36b14111a">&lt;linkText&gt;</bpt>Cloud<ept id="b5339aee-25bc-4824-800f-c6e36b14111a">&lt;/linkText&gt;</ept>](multi-factor-authentication-get-started-cloud.md)  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[<bpt id="d7f1f334-8099-40ca-816c-3b5104eefe61">&lt;linkText&gt;</bpt>Proofup<ept id="d7f1f334-8099-40ca-816c-3b5104eefe61">&lt;/linkText&gt;</ept>](multi-factor-authentication-get-started-server.md) &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;/center&gt;</source>
+          <target state="new">[<bpt id="b5339aee-25bc-4824-800f-c6e36b14111a">&lt;linkText&gt;</bpt>Cloud<ept id="b5339aee-25bc-4824-800f-c6e36b14111a">&lt;/linkText&gt;</ept>](multi-factor-authentication-get-started-cloud.md)  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[<bpt id="d7f1f334-8099-40ca-816c-3b5104eefe61">&lt;linkText&gt;</bpt>Proofup<ept id="d7f1f334-8099-40ca-816c-3b5104eefe61">&lt;/linkText&gt;</ept>](multi-factor-authentication-get-started-server.md) &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;/center&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

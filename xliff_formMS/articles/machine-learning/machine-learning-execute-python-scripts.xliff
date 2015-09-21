@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="61f3be6a-eda7-4f49-98b4-1dfa91e3cdad" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="61f3be6a-eda7-4f49-98b4-1dfa91e3cdad" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b6f6a18f-5b38-4bcc-aa8a-a7ad9b3bb920">
+        <trans-unit id="bd1e96b5-43bb-4dc7-a035-f5986bc9bef5" xml:space="preserve">
+          <source>Execute Python machine learning scripts | Microsoft Azure</source>
+          <target state="new">Execute Python machine learning scripts | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1577e5fb-e1b0-4fc1-8d5f-189b83b14991" xml:space="preserve">
+          <source>Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations.</source>
+          <target state="new">Outlines design principles underlying support for Python scripts in Azure Machine Learning and basic usage scenarios, capabilities, and limitations.</target>
+        </trans-unit>
+        <trans-unit id="24de78af-c97f-40c7-b836-63606e82459c" xml:space="preserve">
+          <source>This topic describes the design principles underlying the current support for Python scripts in Azure Machine Learning.</source>
+          <target state="new">This topic describes the design principles underlying the current support for Python scripts in Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="66bb7cb5-ff31-4c96-b5be-90c0efa93b9a" xml:space="preserve">
+          <source>The main capabilities are also outlined, including support for importing existing code, exporting visualizations and, finally, some of the limitations and ongoing work are discussed.</source>
+          <target state="new">The main capabilities are also outlined, including support for importing existing code, exporting visualizations and, finally, some of the limitations and ongoing work are discussed.</target>
+        </trans-unit>
+        <trans-unit id="b35d4c3f-93b9-4691-80c7-ee807b552389" xml:space="preserve">
+          <source><bpt id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;linkText&gt;</bpt>Python<ept id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;/linkText&gt;</ept><bpt id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;title&gt;</bpt><ept id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;/title&gt;</ept> is an indispensable tool in the tool chest of many data scientists.</source>
+          <target state="new"><bpt id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;linkText&gt;</bpt>Python<ept id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;/linkText&gt;</ept><bpt id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;title&gt;</bpt><ept id="cb5b0304-0721-4339-8e37-c5d080c0795c">&lt;/title&gt;</ept> is an indispensable tool in the tool chest of many data scientists.</target>
+        </trans-unit>
+        <trans-unit id="7f4016cc-b350-4737-9bb5-5a2d10d4c1fa" xml:space="preserve">
+          <source>It has an elegant and concise syntax, cross-platform support, a vast collection of powerful libraries, and mature development tools.</source>
+          <target state="new">It has an elegant and concise syntax, cross-platform support, a vast collection of powerful libraries, and mature development tools.</target>
+        </trans-unit>
+        <trans-unit id="f122a52a-fde4-4417-b888-5aec35386f27" xml:space="preserve">
+          <source>Python is being used in all phases of the workflow typically used in machine learning modeling, starting from data ingest and processing, to feature construction to training, validation and deployment of models.</source>
+          <target state="new">Python is being used in all phases of the workflow typically used in machine learning modeling, starting from data ingest and processing, to feature construction to training, validation and deployment of models.</target>
+        </trans-unit>
+        <trans-unit id="37dc9e91-c7e4-4210-ae17-ac9e50374c2e" xml:space="preserve">
+          <source>Azure Machine Learning Studio supports embedding Python scripts into various parts of a machine learning experiment and also seamlessly publishing them as scalable, operationalized web services on Microsoft Azure.</source>
+          <target state="new">Azure Machine Learning Studio supports embedding Python scripts into various parts of a machine learning experiment and also seamlessly publishing them as scalable, operationalized web services on Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="9bc34a06-e025-4abd-b081-1a1aa3360239" xml:space="preserve">
+          <source><bpt id="b699e8c0-d06f-4d0e-b1a4-45f8fbaa6e1f">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b699e8c0-d06f-4d0e-b1a4-45f8fbaa6e1f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b699e8c0-d06f-4d0e-b1a4-45f8fbaa6e1f">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="b699e8c0-d06f-4d0e-b1a4-45f8fbaa6e1f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec957c32-d018-470c-8cb0-bda3c4545dcc" xml:space="preserve">
+          <source>The primary interface to Python in Azure Machine Learning Studio is via the <bpt id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;/linkText&gt;</ept><bpt id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;title&gt;</bpt><ept id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;/title&gt;</ept> module shown in Figure 1.</source>
+          <target state="new">The primary interface to Python in Azure Machine Learning Studio is via the <bpt id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;/linkText&gt;</ept><bpt id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;title&gt;</bpt><ept id="ff9ea31f-c391-42e0-88f9-9d5336497dd3">&lt;/title&gt;</ept> module shown in Figure 1.</target>
+        </trans-unit>
+        <trans-unit id="287b2b89-6a2e-45d2-8074-3839fe058710" xml:space="preserve">
+          <source><bpt id="013bbe6f-5c80-4d18-b3cc-dba60ead542e">&lt;linkText&gt;</bpt>image1<ept id="013bbe6f-5c80-4d18-b3cc-dba60ead542e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="013bbe6f-5c80-4d18-b3cc-dba60ead542e">&lt;linkText&gt;</bpt>image1<ept id="013bbe6f-5c80-4d18-b3cc-dba60ead542e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c40576f-8e0f-452b-85e0-aaca6782eaed" xml:space="preserve">
+          <source><bpt id="6aabdd23-492d-4954-ba15-5dee2a24bf61">&lt;linkText&gt;</bpt>image2<ept id="6aabdd23-492d-4954-ba15-5dee2a24bf61">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6aabdd23-492d-4954-ba15-5dee2a24bf61">&lt;linkText&gt;</bpt>image2<ept id="6aabdd23-492d-4954-ba15-5dee2a24bf61">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f937815e-4915-4d7c-abd6-9d82f27b61ba" xml:space="preserve">
+          <source>Figure 1.</source>
+          <target state="new">Figure 1.</target>
+        </trans-unit>
+        <trans-unit id="cc484ee4-0793-4a68-8f10-0656b7f96528" xml:space="preserve">
+          <source>The <bpt id="90f98873-62a1-4802-a9b3-43d7885a3a12">&lt;strong&gt;</bpt>Execute Python Script<ept id="90f98873-62a1-4802-a9b3-43d7885a3a12">&lt;/strong&gt;</ept> module.</source>
+          <target state="new">The <bpt id="90f98873-62a1-4802-a9b3-43d7885a3a12">&lt;strong&gt;</bpt>Execute Python Script<ept id="90f98873-62a1-4802-a9b3-43d7885a3a12">&lt;/strong&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="95d9455e-f856-493f-814b-9c12ae40a63f" xml:space="preserve">
+          <source>The <bpt id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;/linkText&gt;</ept><bpt id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;title&gt;</bpt><ept id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;/title&gt;</ept> module accepts up to three inputs and produces up to two outputs (discussed below), just like its R analogue, the <bpt id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;/linkText&gt;</ept><bpt id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;title&gt;</bpt><ept id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;/title&gt;</ept> module.</source>
+          <target state="new">The <bpt id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;/linkText&gt;</ept><bpt id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;title&gt;</bpt><ept id="2a4f3fb8-c6f1-4136-a087-c49bda9122f4">&lt;/title&gt;</ept> module accepts up to three inputs and produces up to two outputs (discussed below), just like its R analogue, the <bpt id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;/linkText&gt;</ept><bpt id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;title&gt;</bpt><ept id="b56db1b4-c6e0-488e-b047-33f44e0d44bf">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="74f4d8d6-01db-4484-9284-b618912e4aae" xml:space="preserve">
+          <source>The Python code to be executed is entered into the parameter box as a specially-named entry-point function called <bpt id="52c6ffae-ae2f-4de7-ba92-d3e5a298825d">&lt;code&gt;</bpt>azureml_main<ept id="52c6ffae-ae2f-4de7-ba92-d3e5a298825d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The Python code to be executed is entered into the parameter box as a specially-named entry-point function called <bpt id="52c6ffae-ae2f-4de7-ba92-d3e5a298825d">&lt;code&gt;</bpt>azureml_main<ept id="52c6ffae-ae2f-4de7-ba92-d3e5a298825d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5648c310-6167-4de5-b86f-27aa6fcdee15" xml:space="preserve">
+          <source>Here are the key design principles used to implement this module:</source>
+          <target state="new">Here are the key design principles used to implement this module:</target>
+        </trans-unit>
+        <trans-unit id="5f15e9f9-49ab-4061-bb1b-72656bdb3435" xml:space="preserve">
+          <source><bpt id="b9fb2658-7641-4502-b5d8-30ac915a65fa">&lt;em&gt;</bpt>Must be idiomatic for Python users.<ept id="b9fb2658-7641-4502-b5d8-30ac915a65fa">&lt;/em&gt;</ept> Most Python users factor their code as functions inside modules, so putting a lot of executable statements in a top-level module is relatively rare.</source>
+          <target state="new"><bpt id="b9fb2658-7641-4502-b5d8-30ac915a65fa">&lt;em&gt;</bpt>Must be idiomatic for Python users.<ept id="b9fb2658-7641-4502-b5d8-30ac915a65fa">&lt;/em&gt;</ept> Most Python users factor their code as functions inside modules, so putting a lot of executable statements in a top-level module is relatively rare.</target>
+        </trans-unit>
+        <trans-unit id="df6d4d42-69ac-4b4c-bd16-41990bb85fcd" xml:space="preserve">
+          <source>As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements.</source>
+          <target state="new">As a result, the script box also takes a specially named Python function as opposed to just a sequence of statements.</target>
+        </trans-unit>
+        <trans-unit id="68baf2a9-caba-469a-a313-fb141b2c86db" xml:space="preserve">
+          <source>The objects exposed in the function are standard Python library types such as <bpt id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;linkText&gt;</bpt>Pandas<ept id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;/linkText&gt;</ept><bpt id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;title&gt;</bpt><ept id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;/title&gt;</ept> data frames and <bpt id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;linkText&gt;</bpt>NumPy<ept id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;/linkText&gt;</ept><bpt id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;title&gt;</bpt><ept id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;/title&gt;</ept> arrays.</source>
+          <target state="new">The objects exposed in the function are standard Python library types such as <bpt id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;linkText&gt;</bpt>Pandas<ept id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;/linkText&gt;</ept><bpt id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;title&gt;</bpt><ept id="fb7a8bb2-3ffc-4799-8d15-143705a5d8b6">&lt;/title&gt;</ept> data frames and <bpt id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;linkText&gt;</bpt>NumPy<ept id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;/linkText&gt;</ept><bpt id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;title&gt;</bpt><ept id="62ec1dd6-e1d9-4567-9c9f-c4fb1f0ad334">&lt;/title&gt;</ept> arrays.</target>
+        </trans-unit>
+        <trans-unit id="45ddb0bd-063c-4ed1-bf43-1ece133010f2" xml:space="preserve">
+          <source><bpt id="db918091-9013-432b-8349-3b1a4d73db9d">&lt;em&gt;</bpt>Must have high-fidelity between local and cloud executions.<ept id="db918091-9013-432b-8349-3b1a4d73db9d">&lt;/em&gt;</ept> The backend used to execute the Python code is based on <bpt id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;linkText&gt;</bpt>Anaconda<ept id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;/linkText&gt;</ept><bpt id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;title&gt;</bpt><ept id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;/title&gt;</ept> 2.1, a widely-used cross-platform scientific Python distribution.</source>
+          <target state="new"><bpt id="db918091-9013-432b-8349-3b1a4d73db9d">&lt;em&gt;</bpt>Must have high-fidelity between local and cloud executions.<ept id="db918091-9013-432b-8349-3b1a4d73db9d">&lt;/em&gt;</ept> The backend used to execute the Python code is based on <bpt id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;linkText&gt;</bpt>Anaconda<ept id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;/linkText&gt;</ept><bpt id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;title&gt;</bpt><ept id="a25cd319-7dae-4493-a817-d512bab9ecb2">&lt;/title&gt;</ept> 2.1, a widely-used cross-platform scientific Python distribution.</target>
+        </trans-unit>
+        <trans-unit id="aa44f783-0188-4834-87e8-ae81ba11c10e" xml:space="preserve">
+          <source>It comes with close to 200 of the most common Python packages.</source>
+          <target state="new">It comes with close to 200 of the most common Python packages.</target>
+        </trans-unit>
+        <trans-unit id="9926a47c-c792-4669-9c10-bc26167f4468" xml:space="preserve">
+          <source>Therefore, a data scientist can debug and qualify their code on his or her local Azure Machine Learning compatible Anaconda environment using existing development environments such as <bpt id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;linkText&gt;</bpt>IPython<ept id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;/linkText&gt;</ept><bpt id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;title&gt;</bpt><ept id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;/title&gt;</ept> notebook or [Python Tools for Visual Studio] and run it as part of an Azure Machine Learning experiment with high confidence.</source>
+          <target state="new">Therefore, a data scientist can debug and qualify their code on his or her local Azure Machine Learning compatible Anaconda environment using existing development environments such as <bpt id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;linkText&gt;</bpt>IPython<ept id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;/linkText&gt;</ept><bpt id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;title&gt;</bpt><ept id="dcb01197-d0f5-406a-a1bc-15d399f37229">&lt;/title&gt;</ept> notebook or [Python Tools for Visual Studio] and run it as part of an Azure Machine Learning experiment with high confidence.</target>
+        </trans-unit>
+        <trans-unit id="53e1acc1-9837-4cc8-8757-f80c99bb452f" xml:space="preserve">
+          <source>Further, the <bpt id="023e780c-c0e8-4604-b896-cd78be68e5cb">&lt;code&gt;</bpt>azureml_main<ept id="023e780c-c0e8-4604-b896-cd78be68e5cb">&lt;/code&gt;</ept> entry point is a vanilla Python function and can be authored without Azure Machine Learning specific code or the SDK installed.</source>
+          <target state="new">Further, the <bpt id="023e780c-c0e8-4604-b896-cd78be68e5cb">&lt;code&gt;</bpt>azureml_main<ept id="023e780c-c0e8-4604-b896-cd78be68e5cb">&lt;/code&gt;</ept> entry point is a vanilla Python function and can be authored without Azure Machine Learning specific code or the SDK installed.</target>
+        </trans-unit>
+        <trans-unit id="28854b64-e041-412f-9d7f-adbb86e4ed56" xml:space="preserve">
+          <source><bpt id="16bf6b49-3349-4fa6-97d1-bbb8cc3892cc">&lt;em&gt;</bpt>Must be seamlessly composable with other Azure Machine Learning modules.<ept id="16bf6b49-3349-4fa6-97d1-bbb8cc3892cc">&lt;/em&gt;</ept> The <bpt id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;/linkText&gt;</ept><bpt id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;title&gt;</bpt><ept id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;/title&gt;</ept> module accepts, as inputs and outputs, standard Azure Machine Learning datasets.</source>
+          <target state="new"><bpt id="16bf6b49-3349-4fa6-97d1-bbb8cc3892cc">&lt;em&gt;</bpt>Must be seamlessly composable with other Azure Machine Learning modules.<ept id="16bf6b49-3349-4fa6-97d1-bbb8cc3892cc">&lt;/em&gt;</ept> The <bpt id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;/linkText&gt;</ept><bpt id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;title&gt;</bpt><ept id="43d112d3-ca5e-496b-87a5-2fd44a636640">&lt;/title&gt;</ept> module accepts, as inputs and outputs, standard Azure Machine Learning datasets.</target>
+        </trans-unit>
+        <trans-unit id="c7eb5e8e-753b-44f7-aeb0-f04906780d36" xml:space="preserve">
+          <source>The underlying framework transparently and efficiently bridges the Azure Machine Learning and Python runtimes (supporting features such as missing values).</source>
+          <target state="new">The underlying framework transparently and efficiently bridges the Azure Machine Learning and Python runtimes (supporting features such as missing values).</target>
+        </trans-unit>
+        <trans-unit id="a7531974-fda7-4af0-9c91-4cc11b3b9932" xml:space="preserve">
+          <source>Python can therefore be used in conjunction with existing Azure Machine Learning workflows, including those that call into R and SQLite.</source>
+          <target state="new">Python can therefore be used in conjunction with existing Azure Machine Learning workflows, including those that call into R and SQLite.</target>
+        </trans-unit>
+        <trans-unit id="8c6d1314-a1de-4b5e-8693-72d26123583a" xml:space="preserve">
+          <source>One can therefore envisage workflows that:</source>
+          <target state="new">One can therefore envisage workflows that:</target>
+        </trans-unit>
+        <trans-unit id="ef7fe78f-adc2-4a13-9db7-6bb270693b4a" xml:space="preserve">
+          <source>use Python and Pandas for data pre-processing and cleaning, </source>
+          <target state="new">use Python and Pandas for data pre-processing and cleaning, </target>
+        </trans-unit>
+        <trans-unit id="2bd3ea86-25f3-406a-aac0-781384f3debe" xml:space="preserve">
+          <source>feed the data to a SQL transformation, joining multiple datasets to form features, </source>
+          <target state="new">feed the data to a SQL transformation, joining multiple datasets to form features, </target>
+        </trans-unit>
+        <trans-unit id="f3dc8cf4-e9cf-42e6-b2ba-42cd83d11542" xml:space="preserve">
+          <source>train models using the extensive collection of algorithms in Azure Machine Learning, and </source>
+          <target state="new">train models using the extensive collection of algorithms in Azure Machine Learning, and </target>
+        </trans-unit>
+        <trans-unit id="5ca8cd84-3187-4c0d-819c-59d73a9a225b" xml:space="preserve">
+          <source>evaluate and post-process the results using R.</source>
+          <target state="new">evaluate and post-process the results using R.</target>
+        </trans-unit>
+        <trans-unit id="e87bda88-3eeb-4713-8974-f2ac3234db82" xml:space="preserve">
+          <source>In this section, we survey some of the basic uses of the <bpt id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;/linkText&gt;</ept><bpt id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;title&gt;</bpt><ept id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;/title&gt;</ept> module.</source>
+          <target state="new">In this section, we survey some of the basic uses of the <bpt id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;/linkText&gt;</ept><bpt id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;title&gt;</bpt><ept id="60cfee61-3be0-44b5-b49b-de97d2fa1d1d">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="7b839c58-8c7f-4a9f-b444-ff6f05150e48" xml:space="preserve">
+          <source>As mentioned earlier, any inputs to the Python module are exposed as Pandas data frames.</source>
+          <target state="new">As mentioned earlier, any inputs to the Python module are exposed as Pandas data frames.</target>
+        </trans-unit>
+        <trans-unit id="274a26ba-3dd3-40cb-bb90-2128c95730fa" xml:space="preserve">
+          <source>More information on Python Pandas and how it can be used to manipulate data effectively and efficiently can be found in <bpt id="600267b4-516b-42e9-9be6-db11dd68e5d4">&lt;em&gt;</bpt>Python for Data Analysis<ept id="600267b4-516b-42e9-9be6-db11dd68e5d4">&lt;/em&gt;</ept> (Sebastopol, CA.: O'Reilly, 2012) by W. McKinney.</source>
+          <target state="new">More information on Python Pandas and how it can be used to manipulate data effectively and efficiently can be found in <bpt id="600267b4-516b-42e9-9be6-db11dd68e5d4">&lt;em&gt;</bpt>Python for Data Analysis<ept id="600267b4-516b-42e9-9be6-db11dd68e5d4">&lt;/em&gt;</ept> (Sebastopol, CA.: O'Reilly, 2012) by W. McKinney.</target>
+        </trans-unit>
+        <trans-unit id="d75395cc-17f5-4659-9819-b3263d48939a" xml:space="preserve">
+          <source>The function must return a single Pandas data frame packaged inside of a Python <bpt id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;linkText&gt;</bpt>sequence<ept id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;/linkText&gt;</ept><bpt id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;title&gt;</bpt><ept id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;/title&gt;</ept> such as a tuple, list, or NumPy array.</source>
+          <target state="new">The function must return a single Pandas data frame packaged inside of a Python <bpt id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;linkText&gt;</bpt>sequence<ept id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;/linkText&gt;</ept><bpt id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;title&gt;</bpt><ept id="5df8ef98-1574-48c4-964f-9383c4733fa1">&lt;/title&gt;</ept> such as a tuple, list, or NumPy array.</target>
+        </trans-unit>
+        <trans-unit id="f073a251-b5d3-4f4d-9e07-d590231cc06e" xml:space="preserve">
+          <source>The first element of this sequence is then returned in the first output port of the module.</source>
+          <target state="new">The first element of this sequence is then returned in the first output port of the module.</target>
+        </trans-unit>
+        <trans-unit id="434a5e52-dfec-46db-b089-c57a23b0a502" xml:space="preserve">
+          <source>This scheme is shown in Figure 2.</source>
+          <target state="new">This scheme is shown in Figure 2.</target>
+        </trans-unit>
+        <trans-unit id="31afc23d-1f7e-4080-8355-f42aa3e1a167" xml:space="preserve">
+          <source><bpt id="e11c2c7e-63fd-4658-b1de-d19470d105e9">&lt;linkText&gt;</bpt>image3<ept id="e11c2c7e-63fd-4658-b1de-d19470d105e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e11c2c7e-63fd-4658-b1de-d19470d105e9">&lt;linkText&gt;</bpt>image3<ept id="e11c2c7e-63fd-4658-b1de-d19470d105e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c47ac9d3-5abc-488f-bacb-8b71032cee7e" xml:space="preserve">
+          <source>Figure 2.</source>
+          <target state="new">Figure 2.</target>
+        </trans-unit>
+        <trans-unit id="282984d2-068e-40a1-bcbc-0323bc480ee1" xml:space="preserve">
+          <source>Mapping of input ports to parameters and return value to output port.</source>
+          <target state="new">Mapping of input ports to parameters and return value to output port.</target>
+        </trans-unit>
+        <trans-unit id="7fabc928-4b01-48be-8749-3b89377b3720" xml:space="preserve">
+          <source>More detailed semantics of how the input ports get mapped to parameters of the <bpt id="28a5355c-10ec-460f-80fe-e74c0a4aa934">&lt;code&gt;</bpt>azureml_main<ept id="28a5355c-10ec-460f-80fe-e74c0a4aa934">&lt;/code&gt;</ept> function are shown in Table 1:</source>
+          <target state="new">More detailed semantics of how the input ports get mapped to parameters of the <bpt id="28a5355c-10ec-460f-80fe-e74c0a4aa934">&lt;code&gt;</bpt>azureml_main<ept id="28a5355c-10ec-460f-80fe-e74c0a4aa934">&lt;/code&gt;</ept> function are shown in Table 1:</target>
+        </trans-unit>
+        <trans-unit id="4ed23747-5e82-46eb-b4bf-6dd620888593" xml:space="preserve">
+          <source><bpt id="030625d3-c853-4aaa-bc0c-7b9acb9308f9">&lt;linkText&gt;</bpt>image1T<ept id="030625d3-c853-4aaa-bc0c-7b9acb9308f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="030625d3-c853-4aaa-bc0c-7b9acb9308f9">&lt;linkText&gt;</bpt>image1T<ept id="030625d3-c853-4aaa-bc0c-7b9acb9308f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13476ea8-2e66-41d9-b659-6ab2efb1018d" xml:space="preserve">
+          <source>Table 1.</source>
+          <target state="new">Table 1.</target>
+        </trans-unit>
+        <trans-unit id="7fae7b86-3fbd-4205-8a17-0828d62263d3" xml:space="preserve">
+          <source>Mapping of input ports to function parameters.</source>
+          <target state="new">Mapping of input ports to function parameters.</target>
+        </trans-unit>
+        <trans-unit id="3b80cd94-f484-4bef-bc71-c3c2667dde6b" xml:space="preserve">
+          <source>Note that the mapping between input ports and function parameters is positional, i.e., the first connected input port is mapped to the first parameter of the function and the second input (if connected) is mapped to the second parameter of the function.</source>
+          <target state="new">Note that the mapping between input ports and function parameters is positional, i.e., the first connected input port is mapped to the first parameter of the function and the second input (if connected) is mapped to the second parameter of the function.</target>
+        </trans-unit>
+        <trans-unit id="a2c8995c-381c-4a63-adaf-66143e9a130c" xml:space="preserve">
+          <source>As explained earlier, input datasets in Azure Machine Learning are converted to data frames in Pandas and output data frames are converted back to Azure Machine Learning datasets.</source>
+          <target state="new">As explained earlier, input datasets in Azure Machine Learning are converted to data frames in Pandas and output data frames are converted back to Azure Machine Learning datasets.</target>
+        </trans-unit>
+        <trans-unit id="57a9a2d3-9e10-435c-942a-981df7d9e63e" xml:space="preserve">
+          <source>The following conversions are performed:</source>
+          <target state="new">The following conversions are performed:</target>
+        </trans-unit>
+        <trans-unit id="42b6892b-c244-4313-8f70-e55839a9a32d" xml:space="preserve">
+          <source>String and numeric columns are converted as-is and missing values in a dataset are converted to ‘NA’ values in Pandas.</source>
+          <target state="new">String and numeric columns are converted as-is and missing values in a dataset are converted to ‘NA’ values in Pandas.</target>
+        </trans-unit>
+        <trans-unit id="357a0b52-c97c-4f60-860c-f29a3578886e" xml:space="preserve">
+          <source>The same conversion happens on the way back (NA values in Pandas are converted to missing values in Azure Machine Learning).</source>
+          <target state="new">The same conversion happens on the way back (NA values in Pandas are converted to missing values in Azure Machine Learning).</target>
+        </trans-unit>
+        <trans-unit id="48fafeb5-a155-47e2-b561-353ad12cd814" xml:space="preserve">
+          <source>Index vectors in Pandas are not supported in Azure Machine Learning and all input data frames in the Python function will always have a 64-bit numerical index from 0 through the number of rows minus 1.</source>
+          <target state="new">Index vectors in Pandas are not supported in Azure Machine Learning and all input data frames in the Python function will always have a 64-bit numerical index from 0 through the number of rows minus 1.</target>
+        </trans-unit>
+        <trans-unit id="ffec9c58-1145-445d-a005-c3b42e49c27e" xml:space="preserve">
+          <source>Azure Machine Learning datasets cannot have duplicate column names and column names that are not strings.</source>
+          <target state="new">Azure Machine Learning datasets cannot have duplicate column names and column names that are not strings.</target>
+        </trans-unit>
+        <trans-unit id="f4548909-5bb0-41fb-a53b-f9facd805624" xml:space="preserve">
+          <source>If an output data frame contains non-numeric columns, the framework calls <bpt id="087809ce-20af-430a-9298-aed0ce5cf7dc">&lt;code&gt;</bpt>str<ept id="087809ce-20af-430a-9298-aed0ce5cf7dc">&lt;/code&gt;</ept> on the column names.</source>
+          <target state="new">If an output data frame contains non-numeric columns, the framework calls <bpt id="087809ce-20af-430a-9298-aed0ce5cf7dc">&lt;code&gt;</bpt>str<ept id="087809ce-20af-430a-9298-aed0ce5cf7dc">&lt;/code&gt;</ept> on the column names.</target>
+        </trans-unit>
+        <trans-unit id="5c7f49bc-45b3-4cf9-8952-3e9acec68e0a" xml:space="preserve">
+          <source>Likewise, any duplicate column names are automatically mangled to insure the names are unique.</source>
+          <target state="new">Likewise, any duplicate column names are automatically mangled to insure the names are unique.</target>
+        </trans-unit>
+        <trans-unit id="265c5eae-dead-4732-9dfa-e77d60162c04" xml:space="preserve">
+          <source>The suffix (2) is added to the first duplicate, (3) to the second duplicate, etc.</source>
+          <target state="new">The suffix (2) is added to the first duplicate, (3) to the second duplicate, etc.</target>
+        </trans-unit>
+        <trans-unit id="3810dc86-e22b-4b58-bfb6-b354b026a0fc" xml:space="preserve">
+          <source>Any <bpt id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;/linkText&gt;</ept><bpt id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;title&gt;</bpt><ept id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;/title&gt;</ept> modules in a scoring experiment are called when published as a web service.</source>
+          <target state="new">Any <bpt id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;/linkText&gt;</ept><bpt id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;title&gt;</bpt><ept id="f1185859-7684-489e-9898-2ee5c58a1cd9">&lt;/title&gt;</ept> modules in a scoring experiment are called when published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="459b680f-9a1c-4518-aca8-bdf5c906ae06" xml:space="preserve">
+          <source>For example, Figure 3 shows a scoring experiment containing the code to evaluate a single Python expression.</source>
+          <target state="new">For example, Figure 3 shows a scoring experiment containing the code to evaluate a single Python expression.</target>
+        </trans-unit>
+        <trans-unit id="38813b97-20c7-42ac-9bad-c3e61f707e10" xml:space="preserve">
+          <source><bpt id="ea61b5e3-aff1-430c-b723-813db305a9ff">&lt;linkText&gt;</bpt>image4<ept id="ea61b5e3-aff1-430c-b723-813db305a9ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ea61b5e3-aff1-430c-b723-813db305a9ff">&lt;linkText&gt;</bpt>image4<ept id="ea61b5e3-aff1-430c-b723-813db305a9ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02902f59-2df5-4241-8e6e-33fa2e60b9f7" xml:space="preserve">
+          <source><bpt id="51309137-63a2-4e4c-aaf7-a3475eca7950">&lt;linkText&gt;</bpt>image5<ept id="51309137-63a2-4e4c-aaf7-a3475eca7950">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51309137-63a2-4e4c-aaf7-a3475eca7950">&lt;linkText&gt;</bpt>image5<ept id="51309137-63a2-4e4c-aaf7-a3475eca7950">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65e89406-0d71-452b-bebc-99ce05188226" xml:space="preserve">
+          <source>Figure 3.</source>
+          <target state="new">Figure 3.</target>
+        </trans-unit>
+        <trans-unit id="d94ac985-5b40-4ebe-bd68-8a6f78aece0e" xml:space="preserve">
+          <source>Web service for evaluating a Python expression.</source>
+          <target state="new">Web service for evaluating a Python expression.</target>
+        </trans-unit>
+        <trans-unit id="968d9927-3b8a-46df-bf36-7b2e6cab8047" xml:space="preserve">
+          <source>A web service created from this experiment takes as input a Python expression (as a string), sends it to the Python interpreter and returns a table containing both the expression and the evaluated result.</source>
+          <target state="new">A web service created from this experiment takes as input a Python expression (as a string), sends it to the Python interpreter and returns a table containing both the expression and the evaluated result.</target>
+        </trans-unit>
+        <trans-unit id="73244728-47dc-416d-a3fc-493f4348e812" xml:space="preserve">
+          <source>A common use-case for many data scientists is to incorporate existing Python scripts into Azure Machine Learning experiments.</source>
+          <target state="new">A common use-case for many data scientists is to incorporate existing Python scripts into Azure Machine Learning experiments.</target>
+        </trans-unit>
+        <trans-unit id="ca28a6a7-8108-4828-b24b-9335fa69c9b8" xml:space="preserve">
+          <source>Instead of concatenating and pasting all the code into a single script box, the <bpt id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;/linkText&gt;</ept><bpt id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;title&gt;</bpt><ept id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;/title&gt;</ept> module accepts a third input port to which a zip file that contains the Python modules can be connected.</source>
+          <target state="new">Instead of concatenating and pasting all the code into a single script box, the <bpt id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;/linkText&gt;</ept><bpt id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;title&gt;</bpt><ept id="6f446f04-dcbc-421c-8328-ad9c40cb73f1">&lt;/title&gt;</ept> module accepts a third input port to which a zip file that contains the Python modules can be connected.</target>
+        </trans-unit>
+        <trans-unit id="ba47a981-8e1b-4d57-97aa-0182574e4af8" xml:space="preserve">
+          <source>The file is then unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter.</source>
+          <target state="new">The file is then unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter.</target>
+        </trans-unit>
+        <trans-unit id="0beb6d47-a092-4e3b-8a68-f7df7d751e0a" xml:space="preserve">
+          <source>The <bpt id="78bdc73a-6010-48ed-b690-ab18f32caf3d">&lt;code&gt;</bpt>azureml_main<ept id="78bdc73a-6010-48ed-b690-ab18f32caf3d">&lt;/code&gt;</ept> entry point function can then import these modules directly.</source>
+          <target state="new">The <bpt id="78bdc73a-6010-48ed-b690-ab18f32caf3d">&lt;code&gt;</bpt>azureml_main<ept id="78bdc73a-6010-48ed-b690-ab18f32caf3d">&lt;/code&gt;</ept> entry point function can then import these modules directly.</target>
+        </trans-unit>
+        <trans-unit id="d325be6d-5cf9-44e6-b424-5b3970dd8797" xml:space="preserve">
+          <source>As an example, consider the file Hello.py containing a simple “Hello, World” function.</source>
+          <target state="new">As an example, consider the file Hello.py containing a simple “Hello, World” function.</target>
+        </trans-unit>
+        <trans-unit id="47987821-d19c-4b17-a3c3-4f3a00213878" xml:space="preserve">
+          <source><bpt id="99f2e538-e1f9-407b-9113-be42fcced90b">&lt;linkText&gt;</bpt>image6<ept id="99f2e538-e1f9-407b-9113-be42fcced90b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99f2e538-e1f9-407b-9113-be42fcced90b">&lt;linkText&gt;</bpt>image6<ept id="99f2e538-e1f9-407b-9113-be42fcced90b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04114346-6827-4186-876f-0e10bc471540" xml:space="preserve">
+          <source>Figure 4.</source>
+          <target state="new">Figure 4.</target>
+        </trans-unit>
+        <trans-unit id="fb83563a-cffd-4c2c-8d37-d4c23c746d09" xml:space="preserve">
+          <source>User-defined function.</source>
+          <target state="new">User-defined function.</target>
+        </trans-unit>
+        <trans-unit id="c2bffbfc-1f61-4188-81c8-a547aab5c3f5" xml:space="preserve">
+          <source>Next, we can create a file Hello.zip containing Hello.py:</source>
+          <target state="new">Next, we can create a file Hello.zip containing Hello.py:</target>
+        </trans-unit>
+        <trans-unit id="d021f07b-bb0a-426e-86f0-67c3850c068e" xml:space="preserve">
+          <source><bpt id="17a1c753-f05d-445a-816c-74035f03f7ae">&lt;linkText&gt;</bpt>image7<ept id="17a1c753-f05d-445a-816c-74035f03f7ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17a1c753-f05d-445a-816c-74035f03f7ae">&lt;linkText&gt;</bpt>image7<ept id="17a1c753-f05d-445a-816c-74035f03f7ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb2890e2-9b98-4993-ae35-7459b79ef513" xml:space="preserve">
+          <source>Figure 5.</source>
+          <target state="new">Figure 5.</target>
+        </trans-unit>
+        <trans-unit id="e956b33b-b227-43fc-966d-37cbadb46b69" xml:space="preserve">
+          <source>Zip file containing user-defined Python code.</source>
+          <target state="new">Zip file containing user-defined Python code.</target>
+        </trans-unit>
+        <trans-unit id="f6a9c803-4e93-4e83-aa29-b13e645df9f0" xml:space="preserve">
+          <source>Then, upload this as a dataset into Azure Machine Learning Studio.</source>
+          <target state="new">Then, upload this as a dataset into Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="fa3d8b11-a068-4898-a470-8a982012b750" xml:space="preserve">
+          <source>If we then create and run a simple experiment a uses the module:</source>
+          <target state="new">If we then create and run a simple experiment a uses the module:</target>
+        </trans-unit>
+        <trans-unit id="ee62788e-ec8d-4659-b74b-40f072dd0f96" xml:space="preserve">
+          <source><bpt id="4cfb7259-23ec-4457-808e-430a43ced4bb">&lt;linkText&gt;</bpt>image8<ept id="4cfb7259-23ec-4457-808e-430a43ced4bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4cfb7259-23ec-4457-808e-430a43ced4bb">&lt;linkText&gt;</bpt>image8<ept id="4cfb7259-23ec-4457-808e-430a43ced4bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e855f474-2f9d-4429-ba21-8f38df924c1d" xml:space="preserve">
+          <source><bpt id="af630d42-2a58-49f5-92cd-4a2c759f2fa4">&lt;linkText&gt;</bpt>image9<ept id="af630d42-2a58-49f5-92cd-4a2c759f2fa4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af630d42-2a58-49f5-92cd-4a2c759f2fa4">&lt;linkText&gt;</bpt>image9<ept id="af630d42-2a58-49f5-92cd-4a2c759f2fa4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bc600fd-dd12-4c40-89ea-73f2c3b72685" xml:space="preserve">
+          <source>Figure 6.</source>
+          <target state="new">Figure 6.</target>
+        </trans-unit>
+        <trans-unit id="fdec8196-5302-4ef9-b550-1d8d03fbd435" xml:space="preserve">
+          <source>Sample experiment with user-defined Python code uploaded as a zip file.</source>
+          <target state="new">Sample experiment with user-defined Python code uploaded as a zip file.</target>
+        </trans-unit>
+        <trans-unit id="aa1116bb-06e6-4a22-be14-f96e515700a4" xml:space="preserve">
+          <source>The module output shows that the zip file has been unpackaged and the function <bpt id="731d00e7-f4b1-4599-96c2-7352d0598617">&lt;code&gt;</bpt>print_hello<ept id="731d00e7-f4b1-4599-96c2-7352d0598617">&lt;/code&gt;</ept> has indeed been run.</source>
+          <target state="new">The module output shows that the zip file has been unpackaged and the function <bpt id="731d00e7-f4b1-4599-96c2-7352d0598617">&lt;code&gt;</bpt>print_hello<ept id="731d00e7-f4b1-4599-96c2-7352d0598617">&lt;/code&gt;</ept> has indeed been run.</target>
+        </trans-unit>
+        <trans-unit id="50133145-8cf2-44d4-a6d6-b7d31fe27f88" xml:space="preserve">
+          <source><bpt id="f66ad84d-8531-4837-a466-acd473f0632e">&lt;linkText&gt;</bpt>image10<ept id="f66ad84d-8531-4837-a466-acd473f0632e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f66ad84d-8531-4837-a466-acd473f0632e">&lt;linkText&gt;</bpt>image10<ept id="f66ad84d-8531-4837-a466-acd473f0632e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0243c43b-2a2b-4921-8c1f-151881c95e86" xml:space="preserve">
+          <source>Figure 7.</source>
+          <target state="new">Figure 7.</target>
+        </trans-unit>
+        <trans-unit id="0ba9b345-59f2-49df-af40-5a4ce692b4a1" xml:space="preserve">
+          <source>User-defined function in use inside the <bpt id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;/linkText&gt;</ept><bpt id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;title&gt;</bpt><ept id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;/title&gt;</ept> module.</source>
+          <target state="new">User-defined function in use inside the <bpt id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;/linkText&gt;</ept><bpt id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;title&gt;</bpt><ept id="6423f42f-b76e-4b92-ada3-790235f38cd5">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="a3c48a75-29ac-435d-ba0d-9289c855c62e" xml:space="preserve">
+          <source>Plots created using MatplotLib that can be visualized on the browser can be returned by the <bpt id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;/linkText&gt;</ept><bpt id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;title&gt;</bpt><ept id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Plots created using MatplotLib that can be visualized on the browser can be returned by the <bpt id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;/linkText&gt;</ept><bpt id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;title&gt;</bpt><ept id="81685bc1-c073-4a12-b2d3-6aaab50e3ba3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f2b1840-3dde-4236-a94d-9ae10a72c214" xml:space="preserve">
+          <source>But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.</source>
+          <target state="new">But the plots are not automatically redirected to images as they are when using R. So the user must explicitly save any plots to PNG files if they are to be returned back to Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="8c7d02e4-ef83-4915-ac39-019edb66294d" xml:space="preserve">
+          <source>In order to generate images from MatplotLib, you must compete the following procedure:</source>
+          <target state="new">In order to generate images from MatplotLib, you must compete the following procedure:</target>
+        </trans-unit>
+        <trans-unit id="4e36f2b9-de54-475e-a39e-20c1da1bdaed" xml:space="preserve">
+          <source>switch the backend to “AGG” from the default Qt-based renderer </source>
+          <target state="new">switch the backend to “AGG” from the default Qt-based renderer </target>
+        </trans-unit>
+        <trans-unit id="5a3bab5f-ad2f-4b71-a18d-0286563019a3" xml:space="preserve">
+          <source>create a new figure object </source>
+          <target state="new">create a new figure object </target>
+        </trans-unit>
+        <trans-unit id="091e3474-bbb0-487d-92e8-3b5144898563" xml:space="preserve">
+          <source>get the axis and generate all plots into it </source>
+          <target state="new">get the axis and generate all plots into it </target>
+        </trans-unit>
+        <trans-unit id="a4bb8682-b541-4e54-af04-08608a4e5dd8" xml:space="preserve">
+          <source>save the figure to a PNG file </source>
+          <target state="new">save the figure to a PNG file </target>
+        </trans-unit>
+        <trans-unit id="bdb63d28-3df0-4dd5-a55c-919c040f8dee" xml:space="preserve">
+          <source>This process is illustrated in Figure 8 below that creates a scatter plot matrix using the scatter_matrix function in Pandas.</source>
+          <target state="new">This process is illustrated in Figure 8 below that creates a scatter plot matrix using the scatter_matrix function in Pandas.</target>
+        </trans-unit>
+        <trans-unit id="9dc6e063-775c-4826-92f7-e095537130b5" xml:space="preserve">
+          <source><bpt id="cf3b421f-b089-458b-a085-f6e866e5440f">&lt;linkText&gt;</bpt>image1v<ept id="cf3b421f-b089-458b-a085-f6e866e5440f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf3b421f-b089-458b-a085-f6e866e5440f">&lt;linkText&gt;</bpt>image1v<ept id="cf3b421f-b089-458b-a085-f6e866e5440f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9275bf65-0982-4af4-a469-e57f190a7dea" xml:space="preserve">
+          <source>Figure 8.</source>
+          <target state="new">Figure 8.</target>
+        </trans-unit>
+        <trans-unit id="a4bd5c16-d797-4927-9fea-127660466f6b" xml:space="preserve">
+          <source>Saving MatplotLib figures to images.</source>
+          <target state="new">Saving MatplotLib figures to images.</target>
+        </trans-unit>
+        <trans-unit id="c9802903-88b9-4a0e-8571-5011fa290689" xml:space="preserve">
+          <source>Figure 9 shows an experiment that uses the script shown above to return plots via the second output port.</source>
+          <target state="new">Figure 9 shows an experiment that uses the script shown above to return plots via the second output port.</target>
+        </trans-unit>
+        <trans-unit id="98160e9b-2db4-407c-8103-8f508ebf7caa" xml:space="preserve">
+          <source><bpt id="f8960188-8fd7-450e-8d4f-8ace352b3b27">&lt;linkText&gt;</bpt>image2v<ept id="f8960188-8fd7-450e-8d4f-8ace352b3b27">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="f8960188-8fd7-450e-8d4f-8ace352b3b27">&lt;linkText&gt;</bpt>image2v<ept id="f8960188-8fd7-450e-8d4f-8ace352b3b27">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="5e52c2ad-cfb9-4f64-83e4-533f6252f2e0" xml:space="preserve">
+          <source><bpt id="45db46d2-4710-4214-ab31-4a1d1263411e">&lt;linkText&gt;</bpt>image2v<ept id="45db46d2-4710-4214-ab31-4a1d1263411e">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="45db46d2-4710-4214-ab31-4a1d1263411e">&lt;linkText&gt;</bpt>image2v<ept id="45db46d2-4710-4214-ab31-4a1d1263411e">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="903d67ef-a250-418e-b914-1ec8e4dff1cd" xml:space="preserve">
+          <source>Figure 9.</source>
+          <target state="new">Figure 9.</target>
+        </trans-unit>
+        <trans-unit id="06126caa-298d-4c19-baf7-38fe0067fcb1" xml:space="preserve">
+          <source>Visualizing plots generated from Python code.</source>
+          <target state="new">Visualizing plots generated from Python code.</target>
+        </trans-unit>
+        <trans-unit id="5a905139-4718-44ef-b83d-1cde31d21187" xml:space="preserve">
+          <source>Note that it is possible to return multiple figures by saving them into different images, the Azure Machine Learning runtime picks up all images and concatenates them for visualization.</source>
+          <target state="new">Note that it is possible to return multiple figures by saving them into different images, the Azure Machine Learning runtime picks up all images and concatenates them for visualization.</target>
+        </trans-unit>
+        <trans-unit id="cbfa80f0-2038-4836-a795-a398d2440f28" xml:space="preserve">
+          <source>The Anaconda environment installed in Azure Machine Learning contains common packages such as NumPy, SciPy and Scikits-Learn and these can be effectively used for various data processing tasks in a typical machine learning pipeline.</source>
+          <target state="new">The Anaconda environment installed in Azure Machine Learning contains common packages such as NumPy, SciPy and Scikits-Learn and these can be effectively used for various data processing tasks in a typical machine learning pipeline.</target>
+        </trans-unit>
+        <trans-unit id="d7cccf99-1ddd-412c-aee7-3bf318568135" xml:space="preserve">
+          <source>As an example, the following experiment and script illustrates the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset.</source>
+          <target state="new">As an example, the following experiment and script illustrates the use of ensemble learners in Scikits-Learn to compute feature importance scores for a dataset.</target>
+        </trans-unit>
+        <trans-unit id="a28464a7-51ed-4e7e-862a-5642f842b1a7" xml:space="preserve">
+          <source>The scores can then be used to perform supervised feature selection before feeding into another machine learning model.</source>
+          <target state="new">The scores can then be used to perform supervised feature selection before feeding into another machine learning model.</target>
+        </trans-unit>
+        <trans-unit id="db87d3c8-f0ba-48f5-ba07-53953e5cb4bf" xml:space="preserve">
+          <source>The Python function to compute the importance scores and order the features based on it is shown below:</source>
+          <target state="new">The Python function to compute the importance scores and order the features based on it is shown below:</target>
+        </trans-unit>
+        <trans-unit id="1d98f25b-7ca5-4da1-8d57-98d110c9db03" xml:space="preserve">
+          <source><bpt id="0593026a-c7c4-4c4f-b660-b4fc231a6df9">&lt;linkText&gt;</bpt>image11<ept id="0593026a-c7c4-4c4f-b660-b4fc231a6df9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0593026a-c7c4-4c4f-b660-b4fc231a6df9">&lt;linkText&gt;</bpt>image11<ept id="0593026a-c7c4-4c4f-b660-b4fc231a6df9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d7419b9-7dc6-4aca-a865-9953992f5755" xml:space="preserve">
+          <source>Figure 10.</source>
+          <target state="new">Figure 10.</target>
+        </trans-unit>
+        <trans-unit id="5c0cd38f-78dd-42fc-942e-6658512e73f6" xml:space="preserve">
+          <source>Function to rank features by scores.</source>
+          <target state="new">Function to rank features by scores.</target>
+        </trans-unit>
+        <trans-unit id="a176c79c-1568-4bf6-8844-ac154fed3bd9" xml:space="preserve">
+          <source>The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in Azure Machine Learning:</source>
+          <target state="new">The following experiment then computes and returns the importance scores of features in the “Pima Indian Diabetes” dataset in Azure Machine Learning:</target>
+        </trans-unit>
+        <trans-unit id="46e55c23-2b3b-4242-8dae-028bdef235e0" xml:space="preserve">
+          <source><bpt id="fed911b5-c6d3-41dd-8c01-1c0ac220ec29">&lt;linkText&gt;</bpt>image12<ept id="fed911b5-c6d3-41dd-8c01-1c0ac220ec29">&lt;/linkText&gt;</ept>
+<bpt id="00aac2ce-b66a-4a84-a57b-61e41c5f845c">&lt;linkText&gt;</bpt>image13<ept id="00aac2ce-b66a-4a84-a57b-61e41c5f845c">&lt;/linkText&gt;</ept>    </source>
+          <target state="new"><bpt id="fed911b5-c6d3-41dd-8c01-1c0ac220ec29">&lt;linkText&gt;</bpt>image12<ept id="fed911b5-c6d3-41dd-8c01-1c0ac220ec29">&lt;/linkText&gt;</ept>
+<bpt id="00aac2ce-b66a-4a84-a57b-61e41c5f845c">&lt;linkText&gt;</bpt>image13<ept id="00aac2ce-b66a-4a84-a57b-61e41c5f845c">&lt;/linkText&gt;</ept>    </target>
+        </trans-unit>
+        <trans-unit id="6cab091f-2c9d-4760-8402-142c6ee53710" xml:space="preserve">
+          <source>Figure 11.</source>
+          <target state="new">Figure 11.</target>
+        </trans-unit>
+        <trans-unit id="5fff8411-e205-4e5b-9b9d-53b5b7d25b93" xml:space="preserve">
+          <source>Experiment to rank features in the Pima Indian Diabetes dataset.</source>
+          <target state="new">Experiment to rank features in the Pima Indian Diabetes dataset.</target>
+        </trans-unit>
+        <trans-unit id="26a8d7c5-b825-4f20-84ef-0b8d92248ea1" xml:space="preserve">
+          <source>The <bpt id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;/linkText&gt;</ept><bpt id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;title&gt;</bpt><ept id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;/title&gt;</ept> currently has the following limitations:</source>
+          <target state="new">The <bpt id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;/linkText&gt;</ept><bpt id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;title&gt;</bpt><ept id="3cc7255d-8670-44a0-9bac-cfd25ab74e14">&lt;/title&gt;</ept> currently has the following limitations:</target>
+        </trans-unit>
+        <trans-unit id="41563482-2275-4940-8d1f-18c581c7bd40" xml:space="preserve">
+          <source><bpt id="a36ef798-e29f-4dea-a299-9aaa56393c5f">&lt;em&gt;</bpt>Sandboxed execution.<ept id="a36ef798-e29f-4dea-a299-9aaa56393c5f">&lt;/em&gt;</ept> The Python runtime is currently sandboxed and, as a result, does not allow access to the network or to the local file system in a persistent manner.</source>
+          <target state="new"><bpt id="a36ef798-e29f-4dea-a299-9aaa56393c5f">&lt;em&gt;</bpt>Sandboxed execution.<ept id="a36ef798-e29f-4dea-a299-9aaa56393c5f">&lt;/em&gt;</ept> The Python runtime is currently sandboxed and, as a result, does not allow access to the network or to the local file system in a persistent manner.</target>
+        </trans-unit>
+        <trans-unit id="35512935-044f-49df-98b4-f96d166d879b" xml:space="preserve">
+          <source>All files saved locally are isolated and deleted once the module finishes.</source>
+          <target state="new">All files saved locally are isolated and deleted once the module finishes.</target>
+        </trans-unit>
+        <trans-unit id="1fd18b8b-cece-4955-97f4-f179234dcc33" xml:space="preserve">
+          <source>The Python code cannot access most directories on the machine it runs on, the exception being the current directory and its sub-directories.</source>
+          <target state="new">The Python code cannot access most directories on the machine it runs on, the exception being the current directory and its sub-directories.</target>
+        </trans-unit>
+        <trans-unit id="0a7c6c2f-3fc9-43d2-ae94-5a11849f6285" xml:space="preserve">
+          <source><bpt id="c6efc15b-ab7e-4c22-8873-bf09054c5d97">&lt;em&gt;</bpt>Lack of sophisticated development and debugging support.<ept id="c6efc15b-ab7e-4c22-8873-bf09054c5d97">&lt;/em&gt;</ept> The Python module currently does not support IDE features such as intellisense and debugging.</source>
+          <target state="new"><bpt id="c6efc15b-ab7e-4c22-8873-bf09054c5d97">&lt;em&gt;</bpt>Lack of sophisticated development and debugging support.<ept id="c6efc15b-ab7e-4c22-8873-bf09054c5d97">&lt;/em&gt;</ept> The Python module currently does not support IDE features such as intellisense and debugging.</target>
+        </trans-unit>
+        <trans-unit id="6ae5e9d4-5c75-4305-952b-fc0f2b12e785" xml:space="preserve">
+          <source>Also, if the module fails at runtime, the full Python stack trace is available, but must be viewed in the output log for the module.</source>
+          <target state="new">Also, if the module fails at runtime, the full Python stack trace is available, but must be viewed in the output log for the module.</target>
+        </trans-unit>
+        <trans-unit id="64df95ea-7ad4-4214-a757-c45ed05f775e" xml:space="preserve">
+          <source>We currently recommend that users develop and debug their Python scripts in an environment such as IPython and then import the code into the module.</source>
+          <target state="new">We currently recommend that users develop and debug their Python scripts in an environment such as IPython and then import the code into the module.</target>
+        </trans-unit>
+        <trans-unit id="26476d28-1546-4beb-a9ca-92e99ce564ba" xml:space="preserve">
+          <source><bpt id="0340da1b-1fc3-40a3-b795-2a2558d0ca99">&lt;em&gt;</bpt>Single data frame output.<ept id="0340da1b-1fc3-40a3-b795-2a2558d0ca99">&lt;/em&gt;</ept> The Python entry point is only permitted to return a single data frame as output.</source>
+          <target state="new"><bpt id="0340da1b-1fc3-40a3-b795-2a2558d0ca99">&lt;em&gt;</bpt>Single data frame output.<ept id="0340da1b-1fc3-40a3-b795-2a2558d0ca99">&lt;/em&gt;</ept> The Python entry point is only permitted to return a single data frame as output.</target>
+        </trans-unit>
+        <trans-unit id="cc3e09a6-1b10-416a-8aed-9446eafd13ba" xml:space="preserve">
+          <source>It is not currently possible to return arbitrary Python objects such as trained models directly back to the Azure Machine Learning runtime.</source>
+          <target state="new">It is not currently possible to return arbitrary Python objects such as trained models directly back to the Azure Machine Learning runtime.</target>
+        </trans-unit>
+        <trans-unit id="94fa43b9-98f0-4dfb-8d81-720818e855eb" xml:space="preserve">
+          <source>Like <bpt id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;/linkText&gt;</ept><bpt id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;title&gt;</bpt><ept id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;/title&gt;</ept>, which has the same limitation, it is however possible in many cases to pickle objects into a byte array and then return that inside of a data frame.</source>
+          <target state="new">Like <bpt id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;/linkText&gt;</ept><bpt id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;title&gt;</bpt><ept id="9dc4f702-75c4-423a-9c95-cda9d026121e">&lt;/title&gt;</ept>, which has the same limitation, it is however possible in many cases to pickle objects into a byte array and then return that inside of a data frame.</target>
+        </trans-unit>
+        <trans-unit id="cad68e6d-7b71-4ccf-8689-a87cd6e99170" xml:space="preserve">
+          <source><bpt id="f8b07a46-6264-42c6-a2ff-251ae8227e4b">&lt;em&gt;</bpt>Inability to customize Python installation<ept id="f8b07a46-6264-42c6-a2ff-251ae8227e4b">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="f8b07a46-6264-42c6-a2ff-251ae8227e4b">&lt;em&gt;</bpt>Inability to customize Python installation<ept id="f8b07a46-6264-42c6-a2ff-251ae8227e4b">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34b432e0-1121-420d-9c7b-76d20d29f911" xml:space="preserve">
+          <source>Currently, the only way to add custom Python modules is via the zip file mechanism described earlier.</source>
+          <target state="new">Currently, the only way to add custom Python modules is via the zip file mechanism described earlier.</target>
+        </trans-unit>
+        <trans-unit id="4cd66ef6-d473-470c-919b-3af6bb32885e" xml:space="preserve">
+          <source>While this is feasible for small modules, it is cumbersome for large modules (especially those with native DLLs) or a large number of modules.</source>
+          <target state="new">While this is feasible for small modules, it is cumbersome for large modules (especially those with native DLLs) or a large number of modules.</target>
+        </trans-unit>
+        <trans-unit id="108ee924-40b2-457e-8953-8092298af15d" xml:space="preserve">
+          <source>The <bpt id="1dad3386-466f-4671-a787-627879fd6f34">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="1dad3386-466f-4671-a787-627879fd6f34">&lt;/linkText&gt;</ept><bpt id="1dad3386-466f-4671-a787-627879fd6f34">&lt;title&gt;</bpt><ept id="1dad3386-466f-4671-a787-627879fd6f34">&lt;/title&gt;</ept> module allows a data scientist to incorporate existing Python code into cloud-hosted machine learning workflows in Azure Machine Learning and to seamlessly operationalize them as part of a web service.</source>
+          <target state="new">The <bpt id="1dad3386-466f-4671-a787-627879fd6f34">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="1dad3386-466f-4671-a787-627879fd6f34">&lt;/linkText&gt;</ept><bpt id="1dad3386-466f-4671-a787-627879fd6f34">&lt;title&gt;</bpt><ept id="1dad3386-466f-4671-a787-627879fd6f34">&lt;/title&gt;</ept> module allows a data scientist to incorporate existing Python code into cloud-hosted machine learning workflows in Azure Machine Learning and to seamlessly operationalize them as part of a web service.</target>
+        </trans-unit>
+        <trans-unit id="b33c3385-baec-41b4-8441-105e82d76205" xml:space="preserve">
+          <source>The Python script module interoperates naturally with other modules in Azure Machine Learning and can be used for a range of tasks from data exploration to pre-processing, to feature extraction, to evaluation and post-processing of the results.</source>
+          <target state="new">The Python script module interoperates naturally with other modules in Azure Machine Learning and can be used for a range of tasks from data exploration to pre-processing, to feature extraction, to evaluation and post-processing of the results.</target>
+        </trans-unit>
+        <trans-unit id="6c84303e-68f1-476f-ae57-994f9b6f50e8" xml:space="preserve">
+          <source>The backend runtime used for execution is based on Anaconda, a well-tested and widely-used Python distribution.</source>
+          <target state="new">The backend runtime used for execution is based on Anaconda, a well-tested and widely-used Python distribution.</target>
+        </trans-unit>
+        <trans-unit id="488f0451-eb5c-48a4-b6ba-e6a755f7a235" xml:space="preserve">
+          <source>This makes it simple for users to onboard existing code assets into the cloud.</source>
+          <target state="new">This makes it simple for users to onboard existing code assets into the cloud.</target>
+        </trans-unit>
+        <trans-unit id="a7d903b0-65b6-4167-9657-448d80f18808" xml:space="preserve">
+          <source>Over the coming months, we expect to provide additional functionality to the <bpt id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;/linkText&gt;</ept><bpt id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;title&gt;</bpt><ept id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;/title&gt;</ept> module such as the ability to train and operationalize models in Python and to add better support for the development and debugging code in Azure Machine Learning Studio.</source>
+          <target state="new">Over the coming months, we expect to provide additional functionality to the <bpt id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;linkText&gt;</bpt>Execute Python Script[execute-python-script]<ept id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;/linkText&gt;</ept><bpt id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;title&gt;</bpt><ept id="9082f85c-ca34-41c1-a800-2e11be627915">&lt;/title&gt;</ept> module such as the ability to train and operationalize models in Python and to add better support for the development and debugging code in Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="0b65fc44-ba74-4695-9a8a-f4d7f0753014" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/</target>
+        </trans-unit>
+        <trans-unit id="ba173ae5-4c48-4f7f-a649-c2bdaa05988f" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+        <trans-unit id="cb503d64-56b3-4643-9a66-1cc0fb389618" xml:space="preserve">
+          <source>http://aka.ms/ptvs</source>
+          <target state="new">http://aka.ms/ptvs</target>
+        </trans-unit>
+      </group>
+      <group id="9f90788c-b023-496d-8615-1e9b8d737a80" />
+    </body>
+  </file>
+</xliff>

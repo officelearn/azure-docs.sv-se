@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9fe6978c-bc3a-4433-8529-928f8122c7b7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9fe6978c-bc3a-4433-8529-928f8122c7b7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="43e891d7-e2a8-4902-9e1b-3299f0e71e50">
+        <trans-unit id="e2515726-fbf5-4e77-a6a9-6d3c571b6b98" xml:space="preserve">
+          <source>Service Bus Messaging overview | Microsoft Azure</source>
+          <target state="new">Service Bus Messaging overview | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="df906710-36a9-4b0d-80d6-a79ec0e0bb29" xml:space="preserve">
+          <source>Service Bus Messaging: Flexible Data Delivery in the Cloud</source>
+          <target state="new">Service Bus Messaging: Flexible Data Delivery in the Cloud</target>
+        </trans-unit>
+        <trans-unit id="bed3389b-4b6f-407c-be36-6cf0500bd290" xml:space="preserve">
+          <source>Service Bus messaging is a reliable information delivery service.</source>
+          <target state="new">Service Bus messaging is a reliable information delivery service.</target>
+        </trans-unit>
+        <trans-unit id="690ffad5-d384-422e-bc01-0034367e15b5" xml:space="preserve">
+          <source>The purpose of this service is to make communication easier.</source>
+          <target state="new">The purpose of this service is to make communication easier.</target>
+        </trans-unit>
+        <trans-unit id="c3649379-9b15-450d-b148-c17c869a104a" xml:space="preserve">
+          <source>When two or more parties want to exchange information, they need a communication mechanism.</source>
+          <target state="new">When two or more parties want to exchange information, they need a communication mechanism.</target>
+        </trans-unit>
+        <trans-unit id="a0a1575d-4559-4e69-b9da-ee21058fd057" xml:space="preserve">
+          <source>Service Bus messaging is a brokered, or third party communication mechanism.</source>
+          <target state="new">Service Bus messaging is a brokered, or third party communication mechanism.</target>
+        </trans-unit>
+        <trans-unit id="c8457774-3995-434a-9fb1-2d45cac176a8" xml:space="preserve">
+          <source>This is similar to a postal service in the physical world.</source>
+          <target state="new">This is similar to a postal service in the physical world.</target>
+        </trans-unit>
+        <trans-unit id="ae8377da-0f00-4b66-b013-d66169ae3940" xml:space="preserve">
+          <source>Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.</source>
+          <target state="new">Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.</target>
+        </trans-unit>
+        <trans-unit id="3f5111e2-6c5e-4076-8ad4-10fd142ff6c3" xml:space="preserve">
+          <source>Similar to the postal service delivering letters, Azure Service Bus messaging is about flexible information delivery from both the sender and the recipient.</source>
+          <target state="new">Similar to the postal service delivering letters, Azure Service Bus messaging is about flexible information delivery from both the sender and the recipient.</target>
+        </trans-unit>
+        <trans-unit id="86de80d2-9023-4f7f-a935-430c1f491879" xml:space="preserve">
+          <source>The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same instant.</source>
+          <target state="new">The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same instant.</target>
+        </trans-unit>
+        <trans-unit id="2eecab35-7aac-4cac-ab96-0e7a31dd2c85" xml:space="preserve">
+          <source>In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).</source>
+          <target state="new">In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).</target>
+        </trans-unit>
+        <trans-unit id="096617a8-b785-45a8-a16b-f9ea92b69440" xml:space="preserve">
+          <source>The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time based expiration, and batching.</source>
+          <target state="new">The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time based expiration, and batching.</target>
+        </trans-unit>
+        <trans-unit id="3f840cea-aa21-47a6-8082-80d3c135dfe3" xml:space="preserve">
+          <source>These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.</source>
+          <target state="new">These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.</target>
+        </trans-unit>
+        <trans-unit id="392a2fb2-46ae-4ebc-bc64-7a59363e17b1" xml:space="preserve">
+          <source>Service Bus messaging has two separate features: queues and topics.</source>
+          <target state="new">Service Bus messaging has two separate features: queues and topics.</target>
+        </trans-unit>
+        <trans-unit id="9708ea25-30c1-4d24-8acd-8191bb89f552" xml:space="preserve">
+          <source>Both messaging entities support all of the concepts presented above - and more.</source>
+          <target state="new">Both messaging entities support all of the concepts presented above - and more.</target>
+        </trans-unit>
+        <trans-unit id="0128eaad-fa38-440f-a0f8-b162a49af860" xml:space="preserve">
+          <source>The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients.</source>
+          <target state="new">The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients.</target>
+        </trans-unit>
+        <trans-unit id="d5ee174b-d11f-4f02-ad61-5f3c603085fb" xml:space="preserve">
+          <source>To learn more about Service Bus messaging, see the following topics.</source>
+          <target state="new">To learn more about Service Bus messaging, see the following topics.</target>
+        </trans-unit>
+        <trans-unit id="8beff5a4-e955-4d60-8860-db70b1a3d761" xml:space="preserve">
+          <source><bpt id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;linkText&gt;</bpt>Azure Service Bus Architectural Overview<ept id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;/linkText&gt;</ept><bpt id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;title&gt;</bpt><ept id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;linkText&gt;</bpt>Azure Service Bus Architectural Overview<ept id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;/linkText&gt;</ept><bpt id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;title&gt;</bpt><ept id="56efac26-f276-4e1b-8a48-26ba0d311cd9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26a7f5d9-6b55-4165-817a-284e4b2c0a68" xml:space="preserve">
+          <source><bpt id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;linkText&gt;</bpt>How to use Service Bus Queues<ept id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;/linkText&gt;</ept><bpt id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;title&gt;</bpt><ept id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;linkText&gt;</bpt>How to use Service Bus Queues<ept id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;/linkText&gt;</ept><bpt id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;title&gt;</bpt><ept id="b57f15c6-4e2d-4b76-99d6-e50254f04a1e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b33b6cc-128a-4916-bb49-0870291bedb2" xml:space="preserve">
+          <source><bpt id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;linkText&gt;</bpt>How to use Service Bus Topics<ept id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;/linkText&gt;</ept><bpt id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;title&gt;</bpt><ept id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;linkText&gt;</bpt>How to use Service Bus Topics<ept id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;/linkText&gt;</ept><bpt id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;title&gt;</bpt><ept id="7820c8ca-ca6d-41fe-88bc-0600a38e1926">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

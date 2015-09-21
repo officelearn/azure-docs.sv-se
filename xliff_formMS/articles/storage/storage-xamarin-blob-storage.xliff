@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1711be18-6465-413f-a9fa-420709c0e78b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1711be18-6465-413f-a9fa-420709c0e78b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d12b0d11-8ef5-442f-b688-06f246ecad00">
+        <trans-unit id="6ee7cb23-9d3a-4b68-995a-3f45ebffd221" xml:space="preserve">
+          <source>How to use Blob Storage from Xamarin (Preview) | Microsoft Azure</source>
+          <target state="new">How to use Blob Storage from Xamarin (Preview) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d574ed94-ffc1-4c1f-b6b5-9d49a52bb058" xml:space="preserve">
+          <source>The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage.</source>
+          <target state="new">The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage.</target>
+        </trans-unit>
+        <trans-unit id="f4b10089-b11a-4e91-8639-7e1cc22ee9ea" xml:space="preserve">
+          <source><bpt id="03f468f1-31c2-4199-bb36-36ff72eec9d3">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="03f468f1-31c2-4199-bb36-36ff72eec9d3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="03f468f1-31c2-4199-bb36-36ff72eec9d3">&lt;token href="../../includes/storage-selector-blob-include.md"&gt;</bpt><ept id="03f468f1-31c2-4199-bb36-36ff72eec9d3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40e7161c-9aa4-4693-967d-1bc2bd3f5254" xml:space="preserve">
+          <source>Xamarin enables developers to use a shared C# codebase to create iOS, Android, and Windows Store apps with their native user interfaces.</source>
+          <target state="new">Xamarin enables developers to use a shared C# codebase to create iOS, Android, and Windows Store apps with their native user interfaces.</target>
+        </trans-unit>
+        <trans-unit id="628c8c9c-681a-4615-a510-0f97a47ba657" xml:space="preserve">
+          <source>The Azure Storage Client Library for Xamarin is a preview library; note that it may change in the future.</source>
+          <target state="new">The Azure Storage Client Library for Xamarin is a preview library; note that it may change in the future.</target>
+        </trans-unit>
+        <trans-unit id="f6591eea-40f1-40ad-9890-e47e1bdbd73b" xml:space="preserve">
+          <source>This tutorial shows you how to use Azure Blob storage with a Xamarin Android application.</source>
+          <target state="new">This tutorial shows you how to use Azure Blob storage with a Xamarin Android application.</target>
+        </trans-unit>
+        <trans-unit id="6b42fac3-675f-4a63-bd86-51c0bea58672" xml:space="preserve">
+          <source>To learn more about Azure Storage before diving into the code, see <bpt id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;linkText&gt;</bpt>Next steps<ept id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;/linkText&gt;</ept><bpt id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;title&gt;</bpt><ept id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;/title&gt;</ept> at the end of this document.</source>
+          <target state="new">To learn more about Azure Storage before diving into the code, see <bpt id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;linkText&gt;</bpt>Next steps<ept id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;/linkText&gt;</ept><bpt id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;title&gt;</bpt><ept id="a066f7e8-01ae-4e00-bcd4-883c4b0f2f05">&lt;/title&gt;</ept> at the end of this document.</target>
+        </trans-unit>
+        <trans-unit id="61e49114-1087-44a6-a7d8-b57b6de6cb29" xml:space="preserve">
+          <source><bpt id="70fce25e-7119-44f3-af7c-81a31bd00c4e">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="70fce25e-7119-44f3-af7c-81a31bd00c4e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="70fce25e-7119-44f3-af7c-81a31bd00c4e">&lt;token href="../../includes/storage-create-account-include.md"&gt;</bpt><ept id="70fce25e-7119-44f3-af7c-81a31bd00c4e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f2c26b5-a174-469f-bf01-a2df6467fbe8" xml:space="preserve">
+          <source>When developing with the Azure Storage Client Library for Xamarin, you cannot authenticate access to an Azure Storage account using your account access keys.</source>
+          <target state="new">When developing with the Azure Storage Client Library for Xamarin, you cannot authenticate access to an Azure Storage account using your account access keys.</target>
+        </trans-unit>
+        <trans-unit id="a9ebe00d-5a2d-46b6-acd2-6d789a0780bb" xml:space="preserve">
+          <source>This is to prevent your account credentials from being distributed to users that may download your app.</source>
+          <target state="new">This is to prevent your account credentials from being distributed to users that may download your app.</target>
+        </trans-unit>
+        <trans-unit id="8fa9be97-b15d-4bf9-bf65-6113a7c04b21" xml:space="preserve">
+          <source>Instead, we encourage the use of shared access signatures (SAS), which won’t expose your account credentials.</source>
+          <target state="new">Instead, we encourage the use of shared access signatures (SAS), which won’t expose your account credentials.</target>
+        </trans-unit>
+        <trans-unit id="e96e93e7-8955-4f9c-928f-18f29c7f7e03" xml:space="preserve">
+          <source>In this guide, we'll use Azure PowerShell to generate a SAS token.</source>
+          <target state="new">In this guide, we'll use Azure PowerShell to generate a SAS token.</target>
+        </trans-unit>
+        <trans-unit id="bbdd44b2-ebc4-49b5-b6ee-9595b667b0a3" xml:space="preserve">
+          <source>Then we'll create a Xamarin app that uses the generated SAS.</source>
+          <target state="new">Then we'll create a Xamarin app that uses the generated SAS.</target>
+        </trans-unit>
+        <trans-unit id="96de2d1a-66f0-4184-9b5d-be79325de8ab" xml:space="preserve">
+          <source>First, you’ll need to install Azure PowerShell.</source>
+          <target state="new">First, you’ll need to install Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="eca95507-7606-41cb-95cb-471af353abcd" xml:space="preserve">
+          <source>Check out <bpt id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;/linkText&gt;</ept><bpt id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;title&gt;</bpt><ept id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">Check out <bpt id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;/linkText&gt;</ept><bpt id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;title&gt;</bpt><ept id="a54fb860-b0b3-40a4-b18d-7ac53fcd3e2c">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="cda97408-c35c-41b2-801a-8c17b401f4fe" xml:space="preserve">
+          <source>Next, open Azure PowerShell and run the following commands.</source>
+          <target state="new">Next, open Azure PowerShell and run the following commands.</target>
+        </trans-unit>
+        <trans-unit id="3c49c6fc-8dc9-4568-bf25-e8a03703f9fd" xml:space="preserve">
+          <source>Remember to replace <bpt id="e5a92124-32e5-4feb-ba5c-f237845c03ed">&lt;code&gt;</bpt>ACCOUNT_NAME<ept id="e5a92124-32e5-4feb-ba5c-f237845c03ed">&lt;/code&gt;</ept> and <bpt id="e2d3d77c-6722-41a1-a3f7-964d5711ead5">&lt;code&gt;</bpt>ACCOUNT_KEY== <ept id="e2d3d77c-6722-41a1-a3f7-964d5711ead5">&lt;/code&gt;</ept> with your storage account credentials.</source>
+          <target state="new">Remember to replace <bpt id="e5a92124-32e5-4feb-ba5c-f237845c03ed">&lt;code&gt;</bpt>ACCOUNT_NAME<ept id="e5a92124-32e5-4feb-ba5c-f237845c03ed">&lt;/code&gt;</ept> and <bpt id="e2d3d77c-6722-41a1-a3f7-964d5711ead5">&lt;code&gt;</bpt>ACCOUNT_KEY== <ept id="e2d3d77c-6722-41a1-a3f7-964d5711ead5">&lt;/code&gt;</ept> with your storage account credentials.</target>
+        </trans-unit>
+        <trans-unit id="437a74e2-a993-48d4-8175-710d6c26c571" xml:space="preserve">
+          <source>Replace <bpt id="6bf2573d-437a-41b8-bc80-4ab06f4a94ea">&lt;code&gt;</bpt>CONTAINER_NAME<ept id="6bf2573d-437a-41b8-bc80-4ab06f4a94ea">&lt;/code&gt;</ept> with a name of your choosing.</source>
+          <target state="new">Replace <bpt id="6bf2573d-437a-41b8-bc80-4ab06f4a94ea">&lt;code&gt;</bpt>CONTAINER_NAME<ept id="6bf2573d-437a-41b8-bc80-4ab06f4a94ea">&lt;/code&gt;</ept> with a name of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="8d1d912b-c90e-4807-ac7c-06ec2769c904" xml:space="preserve">
+          <source>The shared access signature URI for the new container should be similar to the following:</source>
+          <target state="new">The shared access signature URI for the new container should be similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="0361f137-7d62-467e-a8a0-39bddc188d6a" xml:space="preserve">
+          <source>The shared access signature that you created on the container will be valid for the next day.</source>
+          <target state="new">The shared access signature that you created on the container will be valid for the next day.</target>
+        </trans-unit>
+        <trans-unit id="c101e258-398e-4acc-b030-115a50abc38b" xml:space="preserve">
+          <source>The signature grants full permissions (<bpt id="f7a2b21a-a95f-4e10-b16f-c0ef926760d2">&lt;em&gt;</bpt>e.g.<ept id="f7a2b21a-a95f-4e10-b16f-c0ef926760d2">&lt;/em&gt;</ept>, read, write, delete, and list) to blobs within the container.</source>
+          <target state="new">The signature grants full permissions (<bpt id="f7a2b21a-a95f-4e10-b16f-c0ef926760d2">&lt;em&gt;</bpt>e.g.<ept id="f7a2b21a-a95f-4e10-b16f-c0ef926760d2">&lt;/em&gt;</ept>, read, write, delete, and list) to blobs within the container.</target>
+        </trans-unit>
+        <trans-unit id="f3fdd8f5-72da-4169-a4b7-389bbe4dd152" xml:space="preserve">
+          <source>For more information about shared access signatures, see the <bpt id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;linkText&gt;</bpt>SAS tutorial for .NET<ept id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;/linkText&gt;</ept><bpt id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;title&gt;</bpt><ept id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about shared access signatures, see the <bpt id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;linkText&gt;</bpt>SAS tutorial for .NET<ept id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;/linkText&gt;</ept><bpt id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;title&gt;</bpt><ept id="6eed27bf-7182-48f3-bc00-9bcc5e8f7646">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d65446c-3852-4a52-bf56-cfdc84918e15" xml:space="preserve">
+          <source>For this tutorial, we'll be creating our Xamarin application in Visual Studio.</source>
+          <target state="new">For this tutorial, we'll be creating our Xamarin application in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="4a23b3df-a490-4042-b998-50106d4e8118" xml:space="preserve">
+          <source>Follow these steps to create the application:</source>
+          <target state="new">Follow these steps to create the application:</target>
+        </trans-unit>
+        <trans-unit id="181951f5-c5ff-415f-b420-6f98ef66f06e" xml:space="preserve">
+          <source>Download and install <bpt id="2869d88f-15f2-461f-97e4-184387b15937">&lt;linkText&gt;</bpt>Visual Studio<ept id="2869d88f-15f2-461f-97e4-184387b15937">&lt;/linkText&gt;</ept><bpt id="2869d88f-15f2-461f-97e4-184387b15937">&lt;title&gt;</bpt><ept id="2869d88f-15f2-461f-97e4-184387b15937">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download and install <bpt id="2869d88f-15f2-461f-97e4-184387b15937">&lt;linkText&gt;</bpt>Visual Studio<ept id="2869d88f-15f2-461f-97e4-184387b15937">&lt;/linkText&gt;</ept><bpt id="2869d88f-15f2-461f-97e4-184387b15937">&lt;title&gt;</bpt><ept id="2869d88f-15f2-461f-97e4-184387b15937">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="036330d8-489b-41ba-90d2-b870746863ff" xml:space="preserve">
+          <source>Download and install <bpt id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;linkText&gt;</bpt>Xamarin<ept id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;/linkText&gt;</ept><bpt id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;title&gt;</bpt><ept id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download and install <bpt id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;linkText&gt;</bpt>Xamarin<ept id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;/linkText&gt;</ept><bpt id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;title&gt;</bpt><ept id="1ac140cf-0fce-4c74-b72b-99673f74b610">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f424657e-c7f1-4280-a6a2-0fa6f7f8423f" xml:space="preserve">
+          <source>Open Visual Studio, and select <bpt id="2d1d5bf2-5ede-4156-8f0a-9972f276aab8">&lt;strong&gt;</bpt>File &gt; New &gt; Project &gt; Android &gt; Blank App(Android)<ept id="2d1d5bf2-5ede-4156-8f0a-9972f276aab8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Visual Studio, and select <bpt id="2d1d5bf2-5ede-4156-8f0a-9972f276aab8">&lt;strong&gt;</bpt>File &gt; New &gt; Project &gt; Android &gt; Blank App(Android)<ept id="2d1d5bf2-5ede-4156-8f0a-9972f276aab8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a205484e-ddff-4a6d-a9fb-95e36e83d134" xml:space="preserve">
+          <source>Right-click your project in the Solution Explorer pane and select <bpt id="3689431a-396e-43e9-bf31-2bc33d9b010e">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="3689431a-396e-43e9-bf31-2bc33d9b010e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click your project in the Solution Explorer pane and select <bpt id="3689431a-396e-43e9-bf31-2bc33d9b010e">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="3689431a-396e-43e9-bf31-2bc33d9b010e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5103198c-53db-439e-acdf-b02818d25da9" xml:space="preserve">
+          <source>Then search for <bpt id="65a8ff3a-a392-4a58-81ff-7d964058e8e8">&lt;strong&gt;</bpt>Azure Storage<ept id="65a8ff3a-a392-4a58-81ff-7d964058e8e8">&lt;/strong&gt;</ept> and install <bpt id="ecff12af-b9a0-4fe1-afb4-8a24b5f13b2b">&lt;strong&gt;</bpt>Azure Storage 4.4.0-preview<ept id="ecff12af-b9a0-4fe1-afb4-8a24b5f13b2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then search for <bpt id="65a8ff3a-a392-4a58-81ff-7d964058e8e8">&lt;strong&gt;</bpt>Azure Storage<ept id="65a8ff3a-a392-4a58-81ff-7d964058e8e8">&lt;/strong&gt;</ept> and install <bpt id="ecff12af-b9a0-4fe1-afb4-8a24b5f13b2b">&lt;strong&gt;</bpt>Azure Storage 4.4.0-preview<ept id="ecff12af-b9a0-4fe1-afb4-8a24b5f13b2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77f84b67-4d3b-4cb6-b856-254df72d4326" xml:space="preserve">
+          <source>You should now have an application that allows you to click a button and increment a counter.</source>
+          <target state="new">You should now have an application that allows you to click a button and increment a counter.</target>
+        </trans-unit>
+        <trans-unit id="7ba9fbec-aeaf-4e76-92d4-89b32c295e83" xml:space="preserve">
+          <source>Next, add code to perform a series of container operations using the SAS URI that you generated.</source>
+          <target state="new">Next, add code to perform a series of container operations using the SAS URI that you generated.</target>
+        </trans-unit>
+        <trans-unit id="2dcec9ad-2a37-44d6-999a-a9d6a8d3d3c1" xml:space="preserve">
+          <source>First add the following <bpt id="029ebb31-e10f-47e4-839d-8c67369f5871">&lt;strong&gt;</bpt>using<ept id="029ebb31-e10f-47e4-839d-8c67369f5871">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">First add the following <bpt id="029ebb31-e10f-47e4-839d-8c67369f5871">&lt;strong&gt;</bpt>using<ept id="029ebb31-e10f-47e4-839d-8c67369f5871">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="89361996-2abc-4802-ad81-d56aa82b0b63" xml:space="preserve">
+          <source>Next, add a line for your SAS token.</source>
+          <target state="new">Next, add a line for your SAS token.</target>
+        </trans-unit>
+        <trans-unit id="d903fea4-a11a-493c-b9e2-a1f95544a460" xml:space="preserve">
+          <source>Replace the <bpt id="814eb89d-eb53-47a0-9609-56814552c413">&lt;code&gt;</bpt>"SAS_URI"<ept id="814eb89d-eb53-47a0-9609-56814552c413">&lt;/code&gt;</ept> string with the SAS URI that you generated in Azure PowerShell.</source>
+          <target state="new">Replace the <bpt id="814eb89d-eb53-47a0-9609-56814552c413">&lt;code&gt;</bpt>"SAS_URI"<ept id="814eb89d-eb53-47a0-9609-56814552c413">&lt;/code&gt;</ept> string with the SAS URI that you generated in Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="6cc5e13d-c0e7-4313-9b84-9698676fb677" xml:space="preserve">
+          <source>Then add a line for a call to the <bpt id="485ce863-b002-42c3-81a3-d617c949dac7">&lt;code&gt;</bpt>UseContainerSAS<ept id="485ce863-b002-42c3-81a3-d617c949dac7">&lt;/code&gt;</ept> method that we’ll create below.</source>
+          <target state="new">Then add a line for a call to the <bpt id="485ce863-b002-42c3-81a3-d617c949dac7">&lt;code&gt;</bpt>UseContainerSAS<ept id="485ce863-b002-42c3-81a3-d617c949dac7">&lt;/code&gt;</ept> method that we’ll create below.</target>
+        </trans-unit>
+        <trans-unit id="62c848b5-d176-4963-9cda-818e90030be4" xml:space="preserve">
+          <source>Note that the <bpt id="2cc665eb-1564-4311-b366-9c4f2671efbf">&lt;strong&gt;</bpt>async<ept id="2cc665eb-1564-4311-b366-9c4f2671efbf">&lt;/strong&gt;</ept> keyword has been added before the delegate.</source>
+          <target state="new">Note that the <bpt id="2cc665eb-1564-4311-b366-9c4f2671efbf">&lt;strong&gt;</bpt>async<ept id="2cc665eb-1564-4311-b366-9c4f2671efbf">&lt;/strong&gt;</ept> keyword has been added before the delegate.</target>
+        </trans-unit>
+        <trans-unit id="c4bb2b80-82f4-426f-a9dc-6066b840b868" xml:space="preserve">
+          <source>Add a new method, <bpt id="06bca32a-9530-4071-9f6e-7936fced3a22">&lt;code&gt;</bpt>UseContainerSAS<ept id="06bca32a-9530-4071-9f6e-7936fced3a22">&lt;/code&gt;</ept>, under the <bpt id="3e6b115e-7f62-40bc-ad4a-f97851bda3ef">&lt;code&gt;</bpt>OnCreate<ept id="3e6b115e-7f62-40bc-ad4a-f97851bda3ef">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Add a new method, <bpt id="06bca32a-9530-4071-9f6e-7936fced3a22">&lt;code&gt;</bpt>UseContainerSAS<ept id="06bca32a-9530-4071-9f6e-7936fced3a22">&lt;/code&gt;</ept>, under the <bpt id="3e6b115e-7f62-40bc-ad4a-f97851bda3ef">&lt;code&gt;</bpt>OnCreate<ept id="3e6b115e-7f62-40bc-ad4a-f97851bda3ef">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="f7bfa6e1-e7a2-4933-8196-55985a562da5" xml:space="preserve">
+          <source>You can now run this application in an emulator or Android device.</source>
+          <target state="new">You can now run this application in an emulator or Android device.</target>
+        </trans-unit>
+        <trans-unit id="1f758be9-c7f4-4769-a160-a6796c8c7824" xml:space="preserve">
+          <source>Although this getting started focused on Android, you can use the <bpt id="f96927bd-ea87-4289-bd9c-a8f59e07b73a">&lt;code&gt;</bpt>UseContainerSAS<ept id="f96927bd-ea87-4289-bd9c-a8f59e07b73a">&lt;/code&gt;</ept> method in your iOS or Windows Store applications as well.</source>
+          <target state="new">Although this getting started focused on Android, you can use the <bpt id="f96927bd-ea87-4289-bd9c-a8f59e07b73a">&lt;code&gt;</bpt>UseContainerSAS<ept id="f96927bd-ea87-4289-bd9c-a8f59e07b73a">&lt;/code&gt;</ept> method in your iOS or Windows Store applications as well.</target>
+        </trans-unit>
+        <trans-unit id="e14a1322-25bd-4621-9659-4424f9079525" xml:space="preserve">
+          <source>Xamarin also allows developers to create Windows Phone apps; however, our library does not yet support this.</source>
+          <target state="new">Xamarin also allows developers to create Windows Phone apps; however, our library does not yet support this.</target>
+        </trans-unit>
+        <trans-unit id="c49ee0e5-59eb-4f9e-b016-4f5e3f598a2e" xml:space="preserve">
+          <source>In this tutorial, you learned how to use Azure Blob storage and SAS with a Xamarin application.</source>
+          <target state="new">In this tutorial, you learned how to use Azure Blob storage and SAS with a Xamarin application.</target>
+        </trans-unit>
+        <trans-unit id="39d58311-e1ce-4696-ac03-c0a226394981" xml:space="preserve">
+          <source>As a further exercise, a similar pattern could be applied to generate a SAS token for an Azure table or queue.</source>
+          <target state="new">As a further exercise, a similar pattern could be applied to generate a SAS token for an Azure table or queue.</target>
+        </trans-unit>
+        <trans-unit id="6816eaf3-78ea-4478-9a49-bcd910468f13" xml:space="preserve">
+          <source>Learn more about blobs, tables, and queues by checking out the following links:</source>
+          <target state="new">Learn more about blobs, tables, and queues by checking out the following links:</target>
+        </trans-unit>
+        <trans-unit id="bf1c2877-2cfa-4e53-87fe-5ffbc5bd30a0" xml:space="preserve">
+          <source><bpt id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;linkText&gt;</bpt>Introduction to Microsoft Azure Storage<ept id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;/linkText&gt;</ept><bpt id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;title&gt;</bpt><ept id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;/title&gt;</ept>  
+<bpt id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;/linkText&gt;</ept><bpt id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;title&gt;</bpt><ept id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;/title&gt;</ept>  
+<bpt id="850454d1-ec96-420a-b805-77f485edffbb">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="850454d1-ec96-420a-b805-77f485edffbb">&lt;/linkText&gt;</ept><bpt id="850454d1-ec96-420a-b805-77f485edffbb">&lt;title&gt;</bpt><ept id="850454d1-ec96-420a-b805-77f485edffbb">&lt;/title&gt;</ept>  
+<bpt id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;linkText&gt;</bpt>How to use Queue Storage from .NET<ept id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;/linkText&gt;</ept><bpt id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;title&gt;</bpt><ept id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;linkText&gt;</bpt>Introduction to Microsoft Azure Storage<ept id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;/linkText&gt;</ept><bpt id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;title&gt;</bpt><ept id="7785a1d3-6d36-44d4-82e3-f97c111ec723">&lt;/title&gt;</ept>  
+<bpt id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;/linkText&gt;</ept><bpt id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;title&gt;</bpt><ept id="7574b958-1542-45a1-bc2f-a3d850d7fd09">&lt;/title&gt;</ept>  
+<bpt id="850454d1-ec96-420a-b805-77f485edffbb">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="850454d1-ec96-420a-b805-77f485edffbb">&lt;/linkText&gt;</ept><bpt id="850454d1-ec96-420a-b805-77f485edffbb">&lt;title&gt;</bpt><ept id="850454d1-ec96-420a-b805-77f485edffbb">&lt;/title&gt;</ept>  
+<bpt id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;linkText&gt;</bpt>How to use Queue Storage from .NET<ept id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;/linkText&gt;</ept><bpt id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;title&gt;</bpt><ept id="08fd6946-553b-4894-9c47-d777cde2d906">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="54d9bdab-0605-4a6c-b482-5ac479a0f6fa" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="54d9bdab-0605-4a6c-b482-5ac479a0f6fa" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b09a2816-a31a-49e9-8876-58f1e6eb5c4c">
+        <trans-unit id="14e5dcc4-7814-4fe8-836a-ab5277f1a3f2" xml:space="preserve">
+          <source>Using the QuickBooks Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the QuickBooks Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="01fc8c9d-d221-4161-8d7e-f0e423a165de" xml:space="preserve">
+          <source>How to create and configure the QuickBooks Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the QuickBooks Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="592ee9e8-8148-4a28-9ac4-c0fd3470818a" xml:space="preserve">
+          <source>Use the QuickBooks connector to create and modify different QuickBooks entities.</source>
+          <target state="new">Use the QuickBooks connector to create and modify different QuickBooks entities.</target>
+        </trans-unit>
+        <trans-unit id="7365d63e-b0c9-4cc8-b5aa-19d5d08a4fb6" xml:space="preserve">
+          <source>The following table lists the supported entities:</source>
+          <target state="new">The following table lists the supported entities:</target>
+        </trans-unit>
+        <trans-unit id="65acc2c7-decf-407a-bbcc-6f56fb0b049c" xml:space="preserve">
+          <source>Entities</source>
+          <target state="new">Entities</target>
+        </trans-unit>
+        <trans-unit id="9464e95b-7381-4109-a776-69d9e020d0c6" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f6958e2a-a22a-4d35-b428-7e8bc6cc170e" xml:space="preserve">
+          <source>Account</source>
+          <target state="new">Account</target>
+        </trans-unit>
+        <trans-unit id="0eb809c3-4666-4335-b9c6-c819b274464c" xml:space="preserve">
+          <source>Account is a component of a Chart Of Accounts, and is part of a Ledger.</source>
+          <target state="new">Account is a component of a Chart Of Accounts, and is part of a Ledger.</target>
+        </trans-unit>
+        <trans-unit id="045bfd65-7db7-4933-bbfe-d49e33f3b182" xml:space="preserve">
+          <source>Used to record a total monetary amount allocated against a specific use</source>
+          <target state="new">Used to record a total monetary amount allocated against a specific use</target>
+        </trans-unit>
+        <trans-unit id="5a4421f9-0955-4364-95af-525343570682" xml:space="preserve">
+          <source>CreditMemo</source>
+          <target state="new">CreditMemo</target>
+        </trans-unit>
+        <trans-unit id="5ba8ab7a-1344-4933-bc9e-68abef674ad1" xml:space="preserve">
+          <source>The CreditMemo is a financial transaction representing a refund or credit of payment or part of a payment for goods or services that have been sold.</source>
+          <target state="new">The CreditMemo is a financial transaction representing a refund or credit of payment or part of a payment for goods or services that have been sold.</target>
+        </trans-unit>
+        <trans-unit id="68b421e4-fc0b-452d-a9f4-3fe10c8fcb43" xml:space="preserve">
+          <source>Customer</source>
+          <target state="new">Customer</target>
+        </trans-unit>
+        <trans-unit id="420fc63c-376b-4c89-8a7d-a4aa66d4b6fa" xml:space="preserve">
+          <source>A customer is a consumer of the service or product that your business offers.</source>
+          <target state="new">A customer is a consumer of the service or product that your business offers.</target>
+        </trans-unit>
+        <trans-unit id="a95dd39d-bc06-49b8-81c2-40fdbc50bc56" xml:space="preserve">
+          <source>Estimate</source>
+          <target state="new">Estimate</target>
+        </trans-unit>
+        <trans-unit id="5bc50127-988e-483c-b5c3-52c76580bfd5" xml:space="preserve">
+          <source>The Estimate represents a proposal for a financial transaction from a business to a customer for goods or services proposed to be sold, including proposed pricing.</source>
+          <target state="new">The Estimate represents a proposal for a financial transaction from a business to a customer for goods or services proposed to be sold, including proposed pricing.</target>
+        </trans-unit>
+        <trans-unit id="003f3787-7891-433e-a8a4-04174b5cfcab" xml:space="preserve">
+          <source>Invoice</source>
+          <target state="new">Invoice</target>
+        </trans-unit>
+        <trans-unit id="d2d63caf-7760-46c0-9192-b271bb04176c" xml:space="preserve">
+          <source>An Invoice represents a sales form where the customer pays for a product or service later.</source>
+          <target state="new">An Invoice represents a sales form where the customer pays for a product or service later.</target>
+        </trans-unit>
+        <trans-unit id="496df668-034e-47b0-89da-ab74e378b640" xml:space="preserve">
+          <source>Additional information about using the Invoice data model can be found here.</source>
+          <target state="new">Additional information about using the Invoice data model can be found here.</target>
+        </trans-unit>
+        <trans-unit id="797eed8c-382d-4180-b70e-5fbd194f6179" xml:space="preserve">
+          <source>Item</source>
+          <target state="new">Item</target>
+        </trans-unit>
+        <trans-unit id="776a4704-975e-4e85-b973-313c2636fd6b" xml:space="preserve">
+          <source>An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).</source>
+          <target state="new">An item is a thing that your company buys, sells, or re-sells, such as products, shipping and handling charges, discounts, and sales tax (if applicable).</target>
+        </trans-unit>
+        <trans-unit id="ef5b36a9-cae9-467f-9151-44c7426b0bef" xml:space="preserve">
+          <source>An item is shown as a line on an invoice or other sales form.</source>
+          <target state="new">An item is shown as a line on an invoice or other sales form.</target>
+        </trans-unit>
+        <trans-unit id="18e99377-04a1-47e9-968d-00075c2ec28c" xml:space="preserve">
+          <source>SalesReceipt</source>
+          <target state="new">SalesReceipt</target>
+        </trans-unit>
+        <trans-unit id="0d8747b2-4786-4781-b355-55d0b78133cf" xml:space="preserve">
+          <source>This entity represents the sales receipt that is given to a customer.</source>
+          <target state="new">This entity represents the sales receipt that is given to a customer.</target>
+        </trans-unit>
+        <trans-unit id="8f75db62-e3d8-4945-a8b0-d3e522a51fbd" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="d5968dd0-a485-4fda-8b94-5c53eb60e9bd" xml:space="preserve">
+          <source>You can add the QuickBooks Connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the QuickBooks Connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="ba4b4e56-8c92-40dd-a9c9-00bb2381629a" xml:space="preserve">
+          <source>Following are the different actions available in QuickBooks connector.</source>
+          <target state="new">Following are the different actions available in QuickBooks connector.</target>
+        </trans-unit>
+        <trans-unit id="2f78fb44-2e1a-498f-a3c2-1f9efe598b75" xml:space="preserve">
+          <source>Action</source>
+          <target state="new">Action</target>
+        </trans-unit>
+        <trans-unit id="917e5f82-4e35-4662-b2cd-d9d24a940e21" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0ab47561-440f-42c1-9f7e-2595e72e097b" xml:space="preserve">
+          <source>Read Entity</source>
+          <target state="new">Read Entity</target>
+        </trans-unit>
+        <trans-unit id="9fef41b9-c75a-44a3-890b-3b2fc21a991e" xml:space="preserve">
+          <source>Read entity object</source>
+          <target state="new">Read entity object</target>
+        </trans-unit>
+        <trans-unit id="9452b14a-6b6e-461c-a96d-ad430d2b2a76" xml:space="preserve">
+          <source>Create Or Update Entity</source>
+          <target state="new">Create Or Update Entity</target>
+        </trans-unit>
+        <trans-unit id="2a664820-19ef-4915-9f91-ddb8a0f912a8" xml:space="preserve">
+          <source>Create or Update entity object.</source>
+          <target state="new">Create or Update entity object.</target>
+        </trans-unit>
+        <trans-unit id="ec7f7289-f388-42e2-b225-da06e574339c" xml:space="preserve">
+          <source>Object is updated if it already exists else a new object is created</source>
+          <target state="new">Object is updated if it already exists else a new object is created</target>
+        </trans-unit>
+        <trans-unit id="7c62f3d9-48a6-4a3b-bdeb-c020d045c8db" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="63b08638-5263-4142-a60a-f26d70a7d674" xml:space="preserve">
+          <source>This action deletes specified object from selected entity</source>
+          <target state="new">This action deletes specified object from selected entity</target>
+        </trans-unit>
+        <trans-unit id="d133b82e-063b-49ed-a330-8d9725bffc23" xml:space="preserve">
+          <source>Query</source>
+          <target state="new">Query</target>
+        </trans-unit>
+        <trans-unit id="2e917419-de95-4485-81c3-cc13be413d0c" xml:space="preserve">
+          <source>The query operation is the method for creating a guided query against an entity.</source>
+          <target state="new">The query operation is the method for creating a guided query against an entity.</target>
+        </trans-unit>
+        <trans-unit id="00dda661-d81e-4540-8036-191138a733ad" xml:space="preserve">
+          <source>Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.</source>
+          <target state="new">Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="8134058d-3552-4310-92ff-1218c81ab258" xml:space="preserve">
+          <source>Browse to “Web and Mobile &gt; API apps” and search for “QuickBooks”.</source>
+          <target state="new">Browse to “Web and Mobile &gt; API apps” and search for “QuickBooks”.</target>
+        </trans-unit>
+        <trans-unit id="23f30b4b-802f-4e0e-b12a-89f54b4bca8f" xml:space="preserve">
+          <source>Configure the QuickBooks Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.</source>
+          <target state="new">Configure the QuickBooks Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.</target>
+        </trans-unit>
+        <trans-unit id="05287ae5-263d-487d-8615-5066e3ed84dc" xml:space="preserve">
+          <source><bpt id="6f696e86-5710-4a93-8720-d0f11b3b9253">&lt;linkText&gt;</bpt><ept id="6f696e86-5710-4a93-8720-d0f11b3b9253">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f696e86-5710-4a93-8720-d0f11b3b9253">&lt;linkText&gt;</bpt><ept id="6f696e86-5710-4a93-8720-d0f11b3b9253">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06ec5af1-0bac-4ead-898f-ad227f36d5dd" xml:space="preserve">
+          <source>Configure the QuickBooks Entities you are interested in reading/writing in the 'Package Settings'.</source>
+          <target state="new">Configure the QuickBooks Entities you are interested in reading/writing in the 'Package Settings'.</target>
+        </trans-unit>
+        <trans-unit id="2fc897f6-cf0f-4f54-9746-556b9bbc1d91" xml:space="preserve">
+          <source>With this, you can now create a QuickBooks Conenctor API App.</source>
+          <target state="new">With this, you can now create a QuickBooks Conenctor API App.</target>
+        </trans-unit>
+        <trans-unit id="8cf5df74-3d3b-4256-98fd-c4b36557102c" xml:space="preserve">
+          <source>Let us create a simple logic app that creates an account in QuickBooks and update 'Category Type' of the same account.</source>
+          <target state="new">Let us create a simple logic app that creates an account in QuickBooks and update 'Category Type' of the same account.</target>
+        </trans-unit>
+        <trans-unit id="1474b375-d186-4e4e-92b6-d3e19ff548d1" xml:space="preserve">
+          <source>Login to Azure Portal and click on ‘New -&gt; Web + mobile -&gt; Logic App’</source>
+          <target state="new">Login to Azure Portal and click on ‘New -&gt; Web + mobile -&gt; Logic App’</target>
+        </trans-unit>
+        <trans-unit id="5e793b97-7336-4b75-a92f-e9ad6980bf66" xml:space="preserve">
+          <source><bpt id="646c6e08-3089-4cb0-939b-8439b7aaf542">&lt;linkText&gt;</bpt><ept id="646c6e08-3089-4cb0-939b-8439b7aaf542">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="646c6e08-3089-4cb0-939b-8439b7aaf542">&lt;linkText&gt;</bpt><ept id="646c6e08-3089-4cb0-939b-8439b7aaf542">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b911400d-99f5-4bc5-ad4b-b6567b3b9ffb" xml:space="preserve">
+          <source>In the ‘Create logic app’ page, provide the required details such as name, app service plan and location.</source>
+          <target state="new">In the ‘Create logic app’ page, provide the required details such as name, app service plan and location.</target>
+        </trans-unit>
+        <trans-unit id="c1f7b42d-b4f8-4340-ac55-6d7466e19948" xml:space="preserve">
+          <source><bpt id="2fccc47d-8791-4bb6-b425-73e81ad43788">&lt;linkText&gt;</bpt><ept id="2fccc47d-8791-4bb6-b425-73e81ad43788">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2fccc47d-8791-4bb6-b425-73e81ad43788">&lt;linkText&gt;</bpt><ept id="2fccc47d-8791-4bb6-b425-73e81ad43788">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fb89842-fb3e-48c2-b80c-bf8fbf28a46d" xml:space="preserve">
+          <source>Click on ‘Triggers and Actions’ and the Logic App editor screen comes up.</source>
+          <target state="new">Click on ‘Triggers and Actions’ and the Logic App editor screen comes up.</target>
+        </trans-unit>
+        <trans-unit id="db2f8967-8156-4704-b0dd-cd0186fdacd6" xml:space="preserve">
+          <source><bpt id="666687f3-c00d-4d3a-b881-470041b379ab">&lt;linkText&gt;</bpt><ept id="666687f3-c00d-4d3a-b881-470041b379ab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="666687f3-c00d-4d3a-b881-470041b379ab">&lt;linkText&gt;</bpt><ept id="666687f3-c00d-4d3a-b881-470041b379ab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="297e2ea6-3e6a-4570-917e-31a7ec1e8ccf" xml:space="preserve">
+          <source>Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.</source>
+          <target state="new">Select ‘Run this logic manually’ which means that this logic app can be invoked only manually.</target>
+        </trans-unit>
+        <trans-unit id="b38b593e-9991-4450-abe6-52649509bddf" xml:space="preserve">
+          <source>Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps.</source>
+          <target state="new">Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps.</target>
+        </trans-unit>
+        <trans-unit id="dd9a5516-43e8-41d3-9723-d3f66951f434" xml:space="preserve">
+          <source>Select ‘QuickBooks Connector’ from the gallery and the ‘QuickBooks Connector’ gets added to the flow.</source>
+          <target state="new">Select ‘QuickBooks Connector’ from the gallery and the ‘QuickBooks Connector’ gets added to the flow.</target>
+        </trans-unit>
+        <trans-unit id="30510a3e-4512-414c-beea-863047ab5228" xml:space="preserve">
+          <source>You would have to authenticate and authorize logic apps to perform operations on your behalf if QuickBooks online.</source>
+          <target state="new">You would have to authenticate and authorize logic apps to perform operations on your behalf if QuickBooks online.</target>
+        </trans-unit>
+        <trans-unit id="8601d7b5-0722-4e9d-9ac5-ecf7242a5c5e" xml:space="preserve">
+          <source>To start the authorization click Authorize on QuickBooks Connector.</source>
+          <target state="new">To start the authorization click Authorize on QuickBooks Connector.</target>
+        </trans-unit>
+        <trans-unit id="12f97032-15c8-43ae-9ca6-3c0cf894d5bc" xml:space="preserve">
+          <source><bpt id="efcd1e8e-694c-4f54-9061-2e5bc400dd69">&lt;linkText&gt;</bpt><ept id="efcd1e8e-694c-4f54-9061-2e5bc400dd69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efcd1e8e-694c-4f54-9061-2e5bc400dd69">&lt;linkText&gt;</bpt><ept id="efcd1e8e-694c-4f54-9061-2e5bc400dd69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="113c24cd-3b8e-41d5-8ae3-b5c843513efb" xml:space="preserve">
+          <source>Clicking Authorize would open QuickBook’s authentication dialog.</source>
+          <target state="new">Clicking Authorize would open QuickBook’s authentication dialog.</target>
+        </trans-unit>
+        <trans-unit id="44eeb743-b479-4e1e-9a6e-690b832db2e8" xml:space="preserve">
+          <source>Provide the login details of the QuickBooks account on which you want to perform the operations.</source>
+          <target state="new">Provide the login details of the QuickBooks account on which you want to perform the operations.</target>
+        </trans-unit>
+        <trans-unit id="ee7f7db3-7178-4aa0-af8c-9ab4057b05dd" xml:space="preserve">
+          <source><bpt id="68771413-2464-4aef-82ec-499ef7288b50">&lt;linkText&gt;</bpt><ept id="68771413-2464-4aef-82ec-499ef7288b50">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="68771413-2464-4aef-82ec-499ef7288b50">&lt;linkText&gt;</bpt><ept id="68771413-2464-4aef-82ec-499ef7288b50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c05a98b-c88c-42ba-844f-f62e26a1b650" xml:space="preserve">
+          <source>Grant logic apps access to your account to perform operation on your behalf by clicking Authorize on the consent dialog.</source>
+          <target state="new">Grant logic apps access to your account to perform operation on your behalf by clicking Authorize on the consent dialog.</target>
+        </trans-unit>
+        <trans-unit id="d4760d92-d5b3-4bc6-b9e3-af2cd2d6c096" xml:space="preserve">
+          <source><bpt id="ff8400ce-6635-481a-b8aa-b5ee83e3ba26">&lt;linkText&gt;</bpt><ept id="ff8400ce-6635-481a-b8aa-b5ee83e3ba26">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ff8400ce-6635-481a-b8aa-b5ee83e3ba26">&lt;linkText&gt;</bpt><ept id="ff8400ce-6635-481a-b8aa-b5ee83e3ba26">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32baa25a-bd54-4ec9-aed9-1de500be1e0a" xml:space="preserve">
+          <source>Once the authorization is complete, all the actions are displayed.</source>
+          <target state="new">Once the authorization is complete, all the actions are displayed.</target>
+        </trans-unit>
+        <trans-unit id="add65267-837c-4565-b934-f62cc6f03eea" xml:space="preserve">
+          <source><bpt id="e43a0517-1ed4-4554-a2dc-ca646a68018e">&lt;linkText&gt;</bpt><ept id="e43a0517-1ed4-4554-a2dc-ca646a68018e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e43a0517-1ed4-4554-a2dc-ca646a68018e">&lt;linkText&gt;</bpt><ept id="e43a0517-1ed4-4554-a2dc-ca646a68018e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="913b2573-5f51-4ead-84e1-d6a85fe7edeb" xml:space="preserve">
+          <source>Select ‘Create Or Update Account’ action and the input parameters are displayed.</source>
+          <target state="new">Select ‘Create Or Update Account’ action and the input parameters are displayed.</target>
+        </trans-unit>
+        <trans-unit id="c7113c5f-a7b3-43f8-8061-e20d729cfbaa" xml:space="preserve">
+          <source><bpt id="46606c3b-29d7-4276-bd9f-3f594d01c416">&lt;linkText&gt;</bpt><ept id="46606c3b-29d7-4276-bd9f-3f594d01c416">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46606c3b-29d7-4276-bd9f-3f594d01c416">&lt;linkText&gt;</bpt><ept id="46606c3b-29d7-4276-bd9f-3f594d01c416">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4b98844-9028-4253-8a6a-15a8093a0e38" xml:space="preserve">
+          <source>Provide ‘Name’ and 'Account Type' and click ✓.</source>
+          <target state="new">Provide ‘Name’ and 'Account Type' and click ✓.</target>
+        </trans-unit>
+        <trans-unit id="15867819-ff52-413a-a33b-dafaf6276a70" xml:space="preserve">
+          <source><bpt id="80c399e6-e063-46bd-bda0-df0b73279e10">&lt;linkText&gt;</bpt><ept id="80c399e6-e063-46bd-bda0-df0b73279e10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="80c399e6-e063-46bd-bda0-df0b73279e10">&lt;linkText&gt;</bpt><ept id="80c399e6-e063-46bd-bda0-df0b73279e10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e511a09-8384-4706-9ffd-f74baf3eeb56" xml:space="preserve">
+          <source>Select ‘QuickBooks Connector’ from the ‘Recently Used’ section in the gallery and a new QuickBooks action gets added.</source>
+          <target state="new">Select ‘QuickBooks Connector’ from the ‘Recently Used’ section in the gallery and a new QuickBooks action gets added.</target>
+        </trans-unit>
+        <trans-unit id="c3a7f7bd-0825-4d25-bb9c-c72152c84311" xml:space="preserve">
+          <source>Select ‘Create or Update Account’ from the list of actions and the input parameters of the action are displayed.</source>
+          <target state="new">Select ‘Create or Update Account’ from the list of actions and the input parameters of the action are displayed.</target>
+        </trans-unit>
+        <trans-unit id="4265b99c-31ea-4f6b-a249-3feb7e717b67" xml:space="preserve">
+          <source><bpt id="bcdf0f1e-4b59-4224-bab8-d771a3020a60">&lt;linkText&gt;</bpt><ept id="bcdf0f1e-4b59-4224-bab8-d771a3020a60">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bcdf0f1e-4b59-4224-bab8-d771a3020a60">&lt;linkText&gt;</bpt><ept id="bcdf0f1e-4b59-4224-bab8-d771a3020a60">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8de97931-7f77-41d8-8b0a-c1173aaa770a" xml:space="preserve">
+          <source>Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action.</source>
+          <target state="new">Click on ‘+’ next to ‘Id’ to pick the id value from the output of Create Account action.</target>
+        </trans-unit>
+        <trans-unit id="42220611-6899-403b-9dbf-e907905f375a" xml:space="preserve">
+          <source><bpt id="761d0d22-1357-483a-b97d-ed69f313cf0e">&lt;linkText&gt;</bpt><ept id="761d0d22-1357-483a-b97d-ed69f313cf0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="761d0d22-1357-483a-b97d-ed69f313cf0e">&lt;linkText&gt;</bpt><ept id="761d0d22-1357-483a-b97d-ed69f313cf0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c274ae68-230d-4c26-ba3f-a4643dcad5ba" xml:space="preserve">
+          <source>Provide new values for Account Type and click ✓.</source>
+          <target state="new">Provide new values for Account Type and click ✓.</target>
+        </trans-unit>
+        <trans-unit id="8432f526-87c8-47b5-a505-2c2020dfad7b" xml:space="preserve">
+          <source><bpt id="99adbd65-6159-4367-8983-63d2f2ec3030">&lt;linkText&gt;</bpt><ept id="99adbd65-6159-4367-8983-63d2f2ec3030">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99adbd65-6159-4367-8983-63d2f2ec3030">&lt;linkText&gt;</bpt><ept id="99adbd65-6159-4367-8983-63d2f2ec3030">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e7d049f-54a5-4a30-a4ad-70af8710d42f" xml:space="preserve">
+          <source>Click on OK on Logic app editor screen and then click 'Create'.</source>
+          <target state="new">Click on OK on Logic app editor screen and then click 'Create'.</target>
+        </trans-unit>
+        <trans-unit id="b8f5fa2e-d8f1-4783-8b33-cfdc3d4c05e8" xml:space="preserve">
+          <source>It will take approximately 30 seconds for the creation to complete.</source>
+          <target state="new">It will take approximately 30 seconds for the creation to complete.</target>
+        </trans-unit>
+        <trans-unit id="4a70b014-f54f-4779-a224-06868e9808bf" xml:space="preserve">
+          <source>Browse the newly created Logic App and click on 'Run' to initiate a run.</source>
+          <target state="new">Browse the newly created Logic App and click on 'Run' to initiate a run.</target>
+        </trans-unit>
+        <trans-unit id="20ceef8c-807f-4d4c-a08e-d41f268b824b" xml:space="preserve">
+          <source>You can check that a new account by name 'Contoso' gets created in your QuickBooks account.</source>
+          <target state="new">You can check that a new account by name 'Contoso' gets created in your QuickBooks account.</target>
+        </trans-unit>
+        <trans-unit id="7551b65c-57c0-44af-baf6-f0a1df4da8e3" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="aff15ddb-151a-4dd9-9650-885355696504" xml:space="preserve">
+          <source>See <bpt id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;/linkText&gt;</ept><bpt id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;title&gt;</bpt><ept id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;/linkText&gt;</ept><bpt id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;title&gt;</bpt><ept id="6890ca83-9d8f-4441-85f6-2802fcea4846">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="142df7f4-fbf3-4e6f-9a4b-b9b6286797f4" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;/linkText&gt;</ept><bpt id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;title&gt;</bpt><ept id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;/linkText&gt;</ept><bpt id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;title&gt;</bpt><ept id="4b9bcfce-b424-423e-a0f9-49656e11352e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c39aa225-06f1-42d3-b0a8-df763c18afb6" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="9a8aa8cc-74d9-49cc-a119-7b02c6cb71c5" xml:space="preserve">
+          <source>See <bpt id="9cc68903-22a1-483b-bd25-30d595119175">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="9cc68903-22a1-483b-bd25-30d595119175">&lt;/linkText&gt;</ept><bpt id="9cc68903-22a1-483b-bd25-30d595119175">&lt;title&gt;</bpt><ept id="9cc68903-22a1-483b-bd25-30d595119175">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="9cc68903-22a1-483b-bd25-30d595119175">&lt;linkText&gt;</bpt>Manage and Monitor your built-in API Apps and Connectors<ept id="9cc68903-22a1-483b-bd25-30d595119175">&lt;/linkText&gt;</ept><bpt id="9cc68903-22a1-483b-bd25-30d595119175">&lt;title&gt;</bpt><ept id="9cc68903-22a1-483b-bd25-30d595119175">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9f8e0d3-620e-4a93-94b8-b18b9ce69b08" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/1_New_Logic_App.png</target>
+        </trans-unit>
+        <trans-unit id="82374ea6-9853-4787-8f28-beaeafbd36bb" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/2_Logic_App_Settings.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/2_Logic_App_Settings.png</target>
+        </trans-unit>
+        <trans-unit id="bd087634-c3eb-4128-89f0-a30fea71785e" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/3_Logic_App_Editor.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/3_Logic_App_Editor.png</target>
+        </trans-unit>
+        <trans-unit id="9de26490-5c72-4e0b-80b8-0198b73af5ad" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/4_QuickBooks_Authorize.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/4_QuickBooks_Authorize.png</target>
+        </trans-unit>
+        <trans-unit id="7ab4b15a-d176-49ce-9ccf-e5e483ecf800" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/5_QuickBooks_Login.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/5_QuickBooks_Login.png</target>
+        </trans-unit>
+        <trans-unit id="a838596c-a570-4786-99f6-c43ef3d54d38" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/6_QuickBooks_User_Consent.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/6_QuickBooks_User_Consent.png</target>
+        </trans-unit>
+        <trans-unit id="7dcb68ac-5284-4200-b9ac-119189d825b8" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/7_QuickBooks_Actions.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/7_QuickBooks_Actions.png</target>
+        </trans-unit>
+        <trans-unit id="e75f530b-3358-4fa8-8097-b6ba69376a5f" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/8_QuickBooks_Create_Account.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/8_QuickBooks_Create_Account.png</target>
+        </trans-unit>
+        <trans-unit id="72d658d1-5ed1-4b37-a80a-1108445417e3" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/9_Create_Account_OK.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/9_Create_Account_OK.png</target>
+        </trans-unit>
+        <trans-unit id="370ff080-a04a-4dc3-97a7-b0f65ec8d233" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/10_QuickBooks_Update_Account.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/10_QuickBooks_Update_Account.png</target>
+        </trans-unit>
+        <trans-unit id="3fdb0bfd-5307-4ec0-b00e-cc291a09c9aa" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/11_Record_ID_from_Create.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/11_Record_ID_from_Create.png</target>
+        </trans-unit>
+        <trans-unit id="3ea9596b-e70d-4fe8-b4e0-d06816dfdd21" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png</target>
+        </trans-unit>
+        <trans-unit id="2dfd33f4-8528-47ae-b68e-f243326f1a1a" xml:space="preserve">
+          <source>./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png</source>
+          <target state="new">./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png</target>
+        </trans-unit>
+      </group>
+      <group id="b18b40df-d43e-4e84-b06d-ac8ecc9eb93b" />
+    </body>
+  </file>
+</xliff>

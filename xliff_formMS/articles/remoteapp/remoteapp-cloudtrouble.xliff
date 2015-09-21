@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3e016449-6caa-4080-b05a-09d0b11f11fe" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3e016449-6caa-4080-b05a-09d0b11f11fe" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="28436421-fd51-49ab-8497-3cd8068c64cd">
+        <trans-unit id="f436f564-a288-47a8-958d-12a7d5238999" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Troubleshoot RemoteApp cloud collections - creation"
+    description="Learn how to troubleshoot RemoteApp cloud collection creation failures" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="vkbucha" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Troubleshoot RemoteApp cloud collections - creation"
+    description="Learn how to troubleshoot RemoteApp cloud collection creation failures" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="vkbucha" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="577665cf-1a9c-4234-a6b6-b0b6173b4c12" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="vikbucha" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="tbd" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="vikbucha" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="7a87c06b-3187-4e00-9daf-9b542d496659" xml:space="preserve">
+          <source>Common errors seen in the Azure Management portal:</source>
+          <target state="new">Common errors seen in the Azure Management portal:</target>
+        </trans-unit>
+        <trans-unit id="f00bca15-fedf-430e-8fe8-cf9bb586ed30" xml:space="preserve">
+          <source>Cloud collections often fail during creation because of you are using custom images.</source>
+          <target state="new">Cloud collections often fail during creation because of you are using custom images.</target>
+        </trans-unit>
+        <trans-unit id="f88244a6-78f3-4a89-83dc-c4fe0074c9ce" xml:space="preserve">
+          <source>If you see one of the above errors and you are using a custom image to create the collection, please check the following things:</source>
+          <target state="new">If you see one of the above errors and you are using a custom image to create the collection, please check the following things:</target>
+        </trans-unit>
+        <trans-unit id="36d530f0-d3a4-437c-8042-7d575e29136e" xml:space="preserve">
+          <source>Ensure that the custom image you uploaded meets image requirements.</source>
+          <target state="new">Ensure that the custom image you uploaded meets image requirements.</target>
+        </trans-unit>
+        <trans-unit id="621b84d0-3e90-4427-95ab-b20bd41c48f8" xml:space="preserve">
+          <source>Most often the common problem is that the image was not properly syspreped.</source>
+          <target state="new">Most often the common problem is that the image was not properly syspreped.</target>
+        </trans-unit>
+        <trans-unit id="7c7ff721-3abb-4e6a-a711-e33967fb40de" xml:space="preserve">
+          <source>Verify the image can boot within Hyper-V or try creating an IAAS VM directly in your Azure subscription using the image.</source>
+          <target state="new">Verify the image can boot within Hyper-V or try creating an IAAS VM directly in your Azure subscription using the image.</target>
+        </trans-unit>
+        <trans-unit id="2cb01be5-7df5-4350-933e-a4b53a58aca4" xml:space="preserve">
+          <source>If the VM fails to boot and not start, then this usually indicates that the custom image was not prepared correctly.</source>
+          <target state="new">If the VM fails to boot and not start, then this usually indicates that the custom image was not prepared correctly.</target>
+        </trans-unit>
+        <trans-unit id="164bb529-ca8e-4d2b-a39b-3bb0ac087826" xml:space="preserve">
+          <source>Verify the custom image was built following the How to create a custom template image for RemoteApp</source>
+          <target state="new">Verify the custom image was built following the How to create a custom template image for RemoteApp</target>
+        </trans-unit>
+        <trans-unit id="79c0c095-a2f4-401d-a4c1-b877173c7271" xml:space="preserve">
+          <source>If you are using one of the Microsoft images included with your subscription, try to create the collection again.</source>
+          <target state="new">If you are using one of the Microsoft images included with your subscription, try to create the collection again.</target>
+        </trans-unit>
+        <trans-unit id="44444e2a-22cb-41d4-b75c-af811495f74a" xml:space="preserve">
+          <source>If the issue persists then please contact Microsoft support.</source>
+          <target state="new">If the issue persists then please contact Microsoft support.</target>
+        </trans-unit>
+        <trans-unit id="03aa3332-414e-487f-a450-bb4165fa6c15" xml:space="preserve">
+          <source>If you see this error this usually means that you been upgraded to a paid account but you are trying to use a Microsoft provided image that is valid only during the trial mode of the service.</source>
+          <target state="new">If you see this error this usually means that you been upgraded to a paid account but you are trying to use a Microsoft provided image that is valid only during the trial mode of the service.</target>
+        </trans-unit>
+        <trans-unit id="5fa3767a-a1e2-42a9-aeb5-34e3b7cb4bd1" xml:space="preserve">
+          <source>In this case, try to create your cloud collection again, but be sure to specify the correct image.</source>
+          <target state="new">In this case, try to create your cloud collection again, but be sure to specify the correct image.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

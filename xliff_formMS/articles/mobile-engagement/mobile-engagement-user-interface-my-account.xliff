@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="693400af-46bf-4868-b3f6-9f073292b303" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="693400af-46bf-4868-b3f6-9f073292b303" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9071f730-41b8-4e71-97b3-2399ef14e2cd">
+        <trans-unit id="bc67daa2-10ac-4d43-94fb-6c754196bd0a" xml:space="preserve">
+          <source>Azure Mobile Engagement User Interface - My Account</source>
+          <target state="new">Azure Mobile Engagement User Interface - My Account</target>
+        </trans-unit>
+        <trans-unit id="84cc0c33-8f92-4039-b2e7-8d99d05a1d36" xml:space="preserve">
+          <source>Learn how to manage your account profile and test devices using Azure Mobile Engagement</source>
+          <target state="new">Learn how to manage your account profile and test devices using Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="146ada50-8dbc-4930-bde1-69cf8ac5bf20" xml:space="preserve">
+          <source>The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs.</source>
+          <target state="new">The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs.</target>
+        </trans-unit>
+        <trans-unit id="eda49321-c97a-464c-a3d1-3cccc8bf104f" xml:space="preserve">
+          <source>These settings contain items that can also be accessed via the Device API.</source>
+          <target state="new">These settings contain items that can also be accessed via the Device API.</target>
+        </trans-unit>
+        <trans-unit id="dbdf0789-4009-4e01-8358-398877e66d77" xml:space="preserve">
+          <source><bpt id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;linkText&gt;</bpt>Troubleshooting Guide - Service[link 24]<ept id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;/linkText&gt;</ept><bpt id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;title&gt;</bpt><ept id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;linkText&gt;</bpt>Troubleshooting Guide - Service[link 24]<ept id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;/linkText&gt;</ept><bpt id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;title&gt;</bpt><ept id="653a5101-6bae-4e3d-ab80-f3fd12bd1ea3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34e7d4ae-d8df-439f-927c-652b4f6bf91c" xml:space="preserve">
+          <source><bpt id="f0abcbe5-3209-4a04-b7de-731263205234">&lt;linkText&gt;</bpt>MyAccount1<ept id="f0abcbe5-3209-4a04-b7de-731263205234">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="f0abcbe5-3209-4a04-b7de-731263205234">&lt;linkText&gt;</bpt>MyAccount1<ept id="f0abcbe5-3209-4a04-b7de-731263205234">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="e54279a2-b26a-448f-8aa5-d8f681eb4578" xml:space="preserve">
+          <source>You can view or change any of your account settings: Password, First Name, Last Name, Organization, Phone Number, Time Zone, or E-mail opt-in or opt-out of e-mail updates.</source>
+          <target state="new">You can view or change any of your account settings: Password, First Name, Last Name, Organization, Phone Number, Time Zone, or E-mail opt-in or opt-out of e-mail updates.</target>
+        </trans-unit>
+        <trans-unit id="779d52ab-ff36-4dde-a2b1-5f1025565d09" xml:space="preserve">
+          <source>You can also give another user permission to use your application based on their e-mail address from “home”.</source>
+          <target state="new">You can also give another user permission to use your application based on their e-mail address from “home”.</target>
+        </trans-unit>
+        <trans-unit id="b519b4be-8d5a-4660-8fec-cd1754c873a8" xml:space="preserve">
+          <source><bpt id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;linkText&gt;</bpt>UI Documentation - Home[link 13]<ept id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;/linkText&gt;</ept><bpt id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;title&gt;</bpt><ept id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;linkText&gt;</bpt>UI Documentation - Home[link 13]<ept id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;/linkText&gt;</ept><bpt id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;title&gt;</bpt><ept id="cad741ad-e8a6-4235-9b1d-b99d5e385d03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6ab2e16-8fa7-429c-b97c-197c85c62924" xml:space="preserve">
+          <source><bpt id="f267eb0e-3f27-4f0d-a974-b650a3576341">&lt;linkText&gt;</bpt>MyAccount2<ept id="f267eb0e-3f27-4f0d-a974-b650a3576341">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="f267eb0e-3f27-4f0d-a974-b650a3576341">&lt;linkText&gt;</bpt>MyAccount2<ept id="f267eb0e-3f27-4f0d-a974-b650a3576341">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="a8df92e9-2bc0-48db-aca9-e1a10e2627bd" xml:space="preserve">
+          <source>You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns.</source>
+          <target state="new">You can view, add, or remove test Device ID's of the test devices that you can use to test your reach or push campaigns.</target>
+        </trans-unit>
+        <trans-unit id="8b003278-19a8-41e0-b35e-66674f512d5e" xml:space="preserve">
+          <source>Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.)</source>
+          <target state="new">Contextual instructions for how to find the Device ID of devices for each platform (iOS, Android, Windows Phone, etc.)</target>
+        </trans-unit>
+        <trans-unit id="2c4ac387-606e-42e4-bf83-7d45db9b22d9" xml:space="preserve">
+          <source>are displayed when you click "New Device".</source>
+          <target state="new">are displayed when you click "New Device".</target>
+        </trans-unit>
+        <trans-unit id="355a4aec-3728-4801-9540-7dffa5b51c18" xml:space="preserve">
+          <source><bpt id="c4be7d47-85dc-4f37-8dfb-0b37709445b2">&lt;linkText&gt;</bpt>MyAccount3<ept id="c4be7d47-85dc-4f37-8dfb-0b37709445b2">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="c4be7d47-85dc-4f37-8dfb-0b37709445b2">&lt;linkText&gt;</bpt>MyAccount3<ept id="c4be7d47-85dc-4f37-8dfb-0b37709445b2">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="28530dd2-10e4-4f4d-857e-8e222ea655be" xml:space="preserve">
+          <source>To use Push API or Device API you need to know your users' unique device identifier (the deviceid parameter).</source>
+          <target state="new">To use Push API or Device API you need to know your users' unique device identifier (the deviceid parameter).</target>
+        </trans-unit>
+        <trans-unit id="ef9f9b1e-58b3-4c6c-b372-1182ee6a63bc" xml:space="preserve">
+          <source>There are several ways to retrieve it:</source>
+          <target state="new">There are several ways to retrieve it:</target>
+        </trans-unit>
+        <trans-unit id="bdda8d2e-2a90-403f-bbd5-9828db94414b" xml:space="preserve">
+          <source>From your backend, you can use the "Get" feature of the Device API to get the full list of device identifiers.</source>
+          <target state="new">From your backend, you can use the "Get" feature of the Device API to get the full list of device identifiers.</target>
+        </trans-unit>
+        <trans-unit id="6c7e234b-7ca2-4e45-a8b7-eca1aa683c33" xml:space="preserve">
+          <source>From your app, you can use the SDK to get it.</source>
+          <target state="new">From your app, you can use the SDK to get it.</target>
+        </trans-unit>
+        <trans-unit id="8b3498f5-f630-45dd-8aa0-1d76b69ee16f" xml:space="preserve">
+          <source>(On Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class.)</source>
+          <target state="new">(On Android, call the getDeviceID() function of the Agent class, and on iOS, read the deviceid property of the Agent class.)</target>
+        </trans-unit>
+        <trans-unit id="d9a46785-49c2-4a27-8e03-0503cdc3ab4b" xml:space="preserve">
+          <source>From a Reach announcement, if the action URL associated with the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device triggering the action.
+http://&lt;example&gt;.com/registeruser?deviceid={deviceid}&amp;otherparam=myparamdata 
+will be replaced by:
+http://&lt;example&gt;.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&amp;otherparam=myparamdata </source>
+          <target state="new">From a Reach announcement, if the action URL associated with the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device triggering the action.
+http://&lt;example&gt;.com/registeruser?deviceid={deviceid}&amp;otherparam=myparamdata 
+will be replaced by:
+http://&lt;example&gt;.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&amp;otherparam=myparamdata </target>
+        </trans-unit>
+        <trans-unit id="32cb9ceb-bbe8-4b1e-86e3-30ba24b466e9" xml:space="preserve">
+          <source>From a Reach web announcement, if the HTML code of the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device displaying the web announcement.</source>
+          <target state="new">From a Reach web announcement, if the HTML code of the announcement contains the {deviceid} pattern, it will be automatically replaced by the identifier of the device displaying the web announcement.</target>
+        </trans-unit>
+        <trans-unit id="becc7328-ea91-4aae-b248-d2ca25c0fb82" xml:space="preserve">
+          <source>Here is my device identifier: {deviceid}
+will be replaced by:
+Here is my device identifier: XXXXXXXXXXXXXXXX</source>
+          <target state="new">Here is my device identifier: {deviceid}
+will be replaced by:
+Here is my device identifier: XXXXXXXXXXXXXXXX</target>
+        </trans-unit>
+        <trans-unit id="1828cd4d-2b3e-4fd7-af4c-0a73496560ae" xml:space="preserve">
+          <source>Open your application on your device and perform an Event in your app which has been tagged.</source>
+          <target state="new">Open your application on your device and perform an Event in your app which has been tagged.</target>
+        </trans-unit>
+        <trans-unit id="e82da1c9-7b9d-4892-8c4c-ba3b9370aa75" xml:space="preserve">
+          <source>From "UI - your app - Monitor - Events - Details", find the Event you performed in the list.</source>
+          <target state="new">From "UI - your app - Monitor - Events - Details", find the Event you performed in the list.</target>
+        </trans-unit>
+        <trans-unit id="ec01271e-5334-427e-ba5e-fef476490452" xml:space="preserve">
+          <source>Click to this event in the Monitor.</source>
+          <target state="new">Click to this event in the Monitor.</target>
+        </trans-unit>
+        <trans-unit id="71c9dee3-8f5e-4395-aa3f-b0d3dc487c81" xml:space="preserve">
+          <source>You should find your Device ID in the list of the devices that have performed this event.</source>
+          <target state="new">You should find your Device ID in the list of the devices that have performed this event.</target>
+        </trans-unit>
+        <trans-unit id="62e5748c-331d-419d-a09a-b36c306e6254" xml:space="preserve">
+          <source>Then, you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform".</source>
+          <target state="new">Then, you can copy this Device ID and register it in the "UI - My Account - Devices - New Device - Select your device platform".</target>
+        </trans-unit>
+        <trans-unit id="b97bb0fe-47cf-4f9f-b838-4616466d3ad4" xml:space="preserve">
+          <source>(Be aware that when IDFA is disabled for iOS, the Device ID may change over the time if you uninstall and reinstall your app.)</source>
+          <target state="new">(Be aware that when IDFA is disabled for iOS, the Device ID may change over the time if you uninstall and reinstall your app.)</target>
+        </trans-unit>
+        <trans-unit id="f0e23b12-6f10-4927-8ed6-4912c887830e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-navigation/navigation1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-navigation/navigation1.png</target>
+        </trans-unit>
+        <trans-unit id="ac94d597-b80e-4ccf-b9d9-e2027bd71288" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home1.png</target>
+        </trans-unit>
+        <trans-unit id="d3a221e5-75e0-42e1-89ed-ab9d8b0df0c1" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home2.png</target>
+        </trans-unit>
+        <trans-unit id="90ddb635-d318-4606-9caf-07c4c9330688" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home3.png</target>
+        </trans-unit>
+        <trans-unit id="9b239899-5fca-4948-a541-a02699b06bcb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home4.png</target>
+        </trans-unit>
+        <trans-unit id="c1b51fd6-a705-4569-9205-413fe23ddc83" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home5.png</target>
+        </trans-unit>
+        <trans-unit id="5b6355cf-5756-4004-8ad7-2f46448421eb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount1.png</target>
+        </trans-unit>
+        <trans-unit id="22711169-d7bd-4032-8141-c134ee703b49" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount2.png</target>
+        </trans-unit>
+        <trans-unit id="86421397-99ce-431a-bd07-88fcfabfa07c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount3.png</target>
+        </trans-unit>
+        <trans-unit id="5a6fed58-78d5-4cec-8ea5-b20b20d6084f" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics1.png</target>
+        </trans-unit>
+        <trans-unit id="6b84eab0-de1e-4640-9711-b92cdbeb2b43" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics2.png</target>
+        </trans-unit>
+        <trans-unit id="2894ee9b-8ce4-4836-8a00-92988c8badf1" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics3.png</target>
+        </trans-unit>
+        <trans-unit id="10eac476-981f-44cc-b70c-3ec3f4e5c0b7" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics4.png</target>
+        </trans-unit>
+        <trans-unit id="bfb16285-bc5d-42b7-beed-101cfc407ee4" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor1.png</target>
+        </trans-unit>
+        <trans-unit id="eaf992af-d107-4b43-9d1e-c4b31908dc3b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor2.png</target>
+        </trans-unit>
+        <trans-unit id="9f17b276-19d3-41bf-a3e5-bb1cf42768a2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor3.png</target>
+        </trans-unit>
+        <trans-unit id="e6626506-0ed9-4c70-b499-d9b0b6fc68c6" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor4.png</target>
+        </trans-unit>
+        <trans-unit id="5ce86150-0223-431a-af8b-665168d67ed4" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach/reach1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach/reach1.png</target>
+        </trans-unit>
+        <trans-unit id="c1a39051-8037-4c39-9da4-1763d2325b63" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach/reach2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach/reach2.png</target>
+        </trans-unit>
+        <trans-unit id="e6c55c35-fdcc-4712-a530-a2490929580e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png</target>
+        </trans-unit>
+        <trans-unit id="da380e7c-5144-45a7-b146-824b0c9271fa" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png</target>
+        </trans-unit>
+        <trans-unit id="353d6783-5e31-4b27-85d6-6dcc13e1f5d6" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png</target>
+        </trans-unit>
+        <trans-unit id="e6f2d6b7-68df-4e60-a922-8bfb3796e549" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png</target>
+        </trans-unit>
+        <trans-unit id="7d60c371-153a-4726-8823-4c758d5dfbac" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png</target>
+        </trans-unit>
+        <trans-unit id="323fd7db-5169-43a2-bf8e-fb4c4ed7c85c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png</target>
+        </trans-unit>
+        <trans-unit id="893ca738-da9b-474c-99ea-7d0dd177ae8c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png</target>
+        </trans-unit>
+        <trans-unit id="0773af8e-138f-45a4-9b26-712a0645bb45" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png</target>
+        </trans-unit>
+        <trans-unit id="f216fd0d-8bd0-4eda-bac9-b0c405cb59a0" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png</target>
+        </trans-unit>
+        <trans-unit id="c30cc8c3-2279-4fb6-90a6-a37c687e21eb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png</target>
+        </trans-unit>
+        <trans-unit id="bcff911d-97f0-402a-9a36-39d2a42315ad" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png</target>
+        </trans-unit>
+        <trans-unit id="1f959625-6a32-491d-a755-2e90606ffdcb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png</target>
+        </trans-unit>
+        <trans-unit id="8edfa05d-b899-4c01-9987-826b552945b2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png</target>
+        </trans-unit>
+        <trans-unit id="6199d005-562c-4831-bb0c-181d3953a2fb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png</target>
+        </trans-unit>
+        <trans-unit id="8305b91c-c03b-45db-97d5-1076d7b753ae" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-dashboard/dashboard1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-dashboard/dashboard1.png</target>
+        </trans-unit>
+        <trans-unit id="5d62ccaa-a3e4-4d4c-bf33-4be8cf9ccc75" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments1.png</target>
+        </trans-unit>
+        <trans-unit id="1a09010a-1284-47aa-91af-0ba9772a29fb" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments2.png</target>
+        </trans-unit>
+        <trans-unit id="484fc381-e52a-43c2-96ac-d088b5765820" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments3.png</target>
+        </trans-unit>
+        <trans-unit id="f8afe401-9d29-4a3c-8f6b-2cf0a4de6d12" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments4.png</target>
+        </trans-unit>
+        <trans-unit id="28d4ca90-f927-4c75-bea7-75d6fcb589ed" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments5.png</target>
+        </trans-unit>
+        <trans-unit id="ab32d54f-620e-4ce4-986a-c4b4571b913b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments6.png</target>
+        </trans-unit>
+        <trans-unit id="574b13b4-b63c-4f30-826a-be5edcab54c1" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments7.png</target>
+        </trans-unit>
+        <trans-unit id="6d788300-4c18-444e-8969-1b25fcaa6fca" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments8.png</target>
+        </trans-unit>
+        <trans-unit id="2ad38406-2eda-4321-8b55-b3bcd69fd9f1" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments9.png</target>
+        </trans-unit>
+        <trans-unit id="5a81391a-7bf8-4673-8276-34c593a81d0f" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments10.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments10.png</target>
+        </trans-unit>
+        <trans-unit id="3d01d2e4-de6a-4c23-855e-7aa50115cc2e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments11.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments11.png</target>
+        </trans-unit>
+        <trans-unit id="12632a60-77c7-4aed-82bd-2f30d0ac5932" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings1.png</target>
+        </trans-unit>
+        <trans-unit id="bce080dc-a9f5-4554-8243-8076ae67a5f2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings2.png</target>
+        </trans-unit>
+        <trans-unit id="21eb37c9-c0bb-4a27-a7f3-46601f79fd22" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings3.png</target>
+        </trans-unit>
+        <trans-unit id="f3ba9d80-234b-446a-9b8b-470804c218b2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings4.png</target>
+        </trans-unit>
+        <trans-unit id="ae8f9d31-fbea-4706-8f93-034c1e9c7116" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings5.png</target>
+        </trans-unit>
+        <trans-unit id="d92f0453-3b72-42a0-9aaf-27020ee3fb04" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings6.png</target>
+        </trans-unit>
+        <trans-unit id="eff416e2-2db5-4a25-b913-c83cc5acc315" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings7.png</target>
+        </trans-unit>
+        <trans-unit id="27ed55b6-08ab-472b-b9b3-963b0eb7ea7b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings8.png</target>
+        </trans-unit>
+        <trans-unit id="5d3924a5-32f1-4e0a-85c8-3cdce7c9fa57" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings9.png</target>
+        </trans-unit>
+        <trans-unit id="5d94c2a1-d9a1-4e36-b65d-e0e09a61a051" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings10.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings10.png</target>
+        </trans-unit>
+        <trans-unit id="35975dfa-5471-41c0-ad16-b527b5514ce5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings11.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings11.png</target>
+        </trans-unit>
+        <trans-unit id="52b0e286-f823-4c4d-bc61-b49dff584aa5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings12.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings12.png</target>
+        </trans-unit>
+        <trans-unit id="4212dee0-8516-4f5a-8c66-30310c84b981" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings13.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings13.png</target>
+        </trans-unit>
+        <trans-unit id="05fa987e-c6f6-45a6-86b5-210b05720fc7" xml:space="preserve">
+          <source>mobile-engagement-user-interface.md</source>
+          <target state="new">mobile-engagement-user-interface.md</target>
+        </trans-unit>
+        <trans-unit id="1f8bfc5c-680a-40b7-ad9c-693c2889fcdc" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide.md</target>
+        </trans-unit>
+        <trans-unit id="652f9269-77f2-4483-bb30-d7b1abc8f6e7" xml:space="preserve">
+          <source>mobile-engagement-how-tos.md</source>
+          <target state="new">mobile-engagement-how-tos.md</target>
+        </trans-unit>
+        <trans-unit id="eb0e8ea5-0d92-4413-9592-7415b889b094" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525553</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525553</target>
+        </trans-unit>
+        <trans-unit id="94d13b2e-dedc-4afb-b893-e4f8fecb2c6b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525554</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525554</target>
+        </trans-unit>
+        <trans-unit id="9705f627-c181-4a7f-bbd0-a1954b9a55be" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=525555</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=525555</target>
+        </trans-unit>
+        <trans-unit id="a1f12e07-47a0-4878-b9d8-f5103c95dfa9" xml:space="preserve">
+          <source>https://account.windowsazure.com/PreviewFeatures</source>
+          <target state="new">https://account.windowsazure.com/PreviewFeatures</target>
+        </trans-unit>
+        <trans-unit id="58eb05af-d4d3-48ba-8ca8-ca83b60bf048" xml:space="preserve">
+          <source>https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</source>
+          <target state="new">https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</target>
+        </trans-unit>
+        <trans-unit id="96c47c83-5fe9-4e55-a9d9-0225d9e5604a" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="cab0be41-43e1-4de7-951b-8fd13e3fd1a0" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="3d003c62-51dc-44a7-9c93-6849c34e9e0b" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="a2e7a3ee-3dce-42b9-9604-e1223e70be73" xml:space="preserve">
+          <source>mobile-engagement-user-interface-navigation.md</source>
+          <target state="new">mobile-engagement-user-interface-navigation.md</target>
+        </trans-unit>
+        <trans-unit id="68d9c0d1-ce5f-4f5d-9ad7-f4439d59f9aa" xml:space="preserve">
+          <source>mobile-engagement-user-interface-home.md</source>
+          <target state="new">mobile-engagement-user-interface-home.md</target>
+        </trans-unit>
+        <trans-unit id="69206245-72dc-468f-a775-2664cbac2d2a" xml:space="preserve">
+          <source>mobile-engagement-user-interface-my-account.md</source>
+          <target state="new">mobile-engagement-user-interface-my-account.md</target>
+        </trans-unit>
+        <trans-unit id="95fed9e7-5fb5-4b8c-b5cf-453ae828235f" xml:space="preserve">
+          <source>mobile-engagement-user-interface-analytics.md</source>
+          <target state="new">mobile-engagement-user-interface-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="acb1ad42-f869-4c4f-bdd3-4ddb6292e684" xml:space="preserve">
+          <source>mobile-engagement-user-interface-monitor.md</source>
+          <target state="new">mobile-engagement-user-interface-monitor.md</target>
+        </trans-unit>
+        <trans-unit id="79422af9-f6f2-46e9-9110-fadd8ce7f0bf" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach.md</source>
+          <target state="new">mobile-engagement-user-interface-reach.md</target>
+        </trans-unit>
+        <trans-unit id="402e9c41-5e28-4f71-b989-12b13ecd1aa0" xml:space="preserve">
+          <source>mobile-engagement-user-interface-segments.md</source>
+          <target state="new">mobile-engagement-user-interface-segments.md</target>
+        </trans-unit>
+        <trans-unit id="44726f71-7b52-4042-af68-28e07e7c4de1" xml:space="preserve">
+          <source>mobile-engagement-user-interface-dashboard.md</source>
+          <target state="new">mobile-engagement-user-interface-dashboard.md</target>
+        </trans-unit>
+        <trans-unit id="51ae02d9-fda1-4141-96f1-b9d84136f9c0" xml:space="preserve">
+          <source>mobile-engagement-user-interface-settings.md</source>
+          <target state="new">mobile-engagement-user-interface-settings.md</target>
+        </trans-unit>
+        <trans-unit id="64b03b54-9b49-49dc-bff6-1ba7e37725c6" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-analytics.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="628c66ca-1bac-4585-99b7-dc3eaeaf3cd6" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-apis.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-apis.md</target>
+        </trans-unit>
+        <trans-unit id="615fd34c-6db5-4deb-9bbf-e5999ba3e2c0" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-push-reach.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-push-reach.md</target>
+        </trans-unit>
+        <trans-unit id="c63db0ae-b007-4491-abe9-13e0bd0326e7" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-service.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-service.md</target>
+        </trans-unit>
+        <trans-unit id="758123a9-4e02-4cc3-bf57-7da8344bb2a3" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sdk.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="a87c74f0-b771-45bc-b251-557274355033" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sr-info.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sr-info.md</target>
+        </trans-unit>
+        <trans-unit id="32148fab-eb47-42f6-935a-a82904da5a38" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-first-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-first-push.md</target>
+        </trans-unit>
+        <trans-unit id="6f8ef3e0-3f4c-4627-8ac3-b2ac3c647c69" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-test-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-test-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="6fb85294-909f-43b7-a291-b9b0a3076e9d" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-personalize-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-personalize-push.md</target>
+        </trans-unit>
+        <trans-unit id="8b583f75-c59a-471e-adfc-dcd06866fc78" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-differentiate-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-differentiate-push.md</target>
+        </trans-unit>
+        <trans-unit id="0a1c8d16-957d-48fb-84a7-73399474aad6" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-schedule-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-schedule-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="7543847d-e70f-41da-8e6b-1a557591c543" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-text-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-text-view.md</target>
+        </trans-unit>
+        <trans-unit id="d23a87aa-7803-4dc1-b026-514899af6d9f" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-web-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-web-view.md</target>
+        </trans-unit>
+      </group>
+      <group id="e742d925-c550-428c-aab0-4460035faa96" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="88393caf-5bd3-4d6e-8e6b-6b4cd6995dd0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="88393caf-5bd3-4d6e-8e6b-6b4cd6995dd0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f57b5d6e-2358-4fda-adea-205b65a654ad">
+        <trans-unit id="8e5df116-7130-4b61-afd2-9fe1f5ab184f" xml:space="preserve">
+          <source>What is Azure Automation</source>
+          <target state="new">What is Azure Automation</target>
+        </trans-unit>
+        <trans-unit id="027fb410-f1be-44af-9867-802c4e52625d" xml:space="preserve">
+          <source>Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating and using runbooks.</source>
+          <target state="new">Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating and using runbooks.</target>
+        </trans-unit>
+        <trans-unit id="35de2c66-bedf-4021-8a8d-2e8ecaa0c327" xml:space="preserve">
+          <source>Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment.</source>
+          <target state="new">Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment.</target>
+        </trans-unit>
+        <trans-unit id="c52f9b9e-b72c-464a-a812-d2f4b5f5e814" xml:space="preserve">
+          <source>This article provides brief answers to common questions about Azure Automation.</source>
+          <target state="new">This article provides brief answers to common questions about Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="9ee2b0ff-8028-4d00-8c83-ec3043926fdd" xml:space="preserve">
+          <source>You can refer to other articles in this library for more detailed information on the different topics.</source>
+          <target state="new">You can refer to other articles in this library for more detailed information on the different topics.</target>
+        </trans-unit>
+        <trans-unit id="63a469be-6d85-4611-a77e-6366ec80dafd" xml:space="preserve">
+          <source>Azure Automation saves time and increases the reliability of the regular administrative tasks that you perform in cloud and enterprise environments.</source>
+          <target state="new">Azure Automation saves time and increases the reliability of the regular administrative tasks that you perform in cloud and enterprise environments.</target>
+        </trans-unit>
+        <trans-unit id="505c4ee2-d605-4e50-8705-1cab18cd67cf" xml:space="preserve">
+          <source>You can implement these processes as runbooks which can perform multiple tasks with no human intervention and even schedule them to be automatically performed at regular intervals.</source>
+          <target state="new">You can implement these processes as runbooks which can perform multiple tasks with no human intervention and even schedule them to be automatically performed at regular intervals.</target>
+        </trans-unit>
+        <trans-unit id="51ea7eb0-0574-41aa-bddf-0078676ccaf4" xml:space="preserve">
+          <source>A runbook is a set of tasks that perform some automated process in Azure Automation.</source>
+          <target state="new">A runbook is a set of tasks that perform some automated process in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="116ffc5c-e13d-4e44-94f2-d780703955c6" xml:space="preserve">
+          <source>It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds.</source>
+          <target state="new">It may be a simple process such as starting a virtual machine or creating a log entry, or you may have a complex runbook that combines other smaller runbooks to perform a complex process across multiple resources or even multiple clouds.</target>
+        </trans-unit>
+        <trans-unit id="6d517421-48af-4c2c-9076-9339c7e0caca" xml:space="preserve">
+          <source>For example, you might have an existing manual process for provisioning a new virtual machine that includes multiple steps such as creating the virtual machine, connecting it to a network, assigning it an IP address, and then notifying a user that it's ready.</source>
+          <target state="new">For example, you might have an existing manual process for provisioning a new virtual machine that includes multiple steps such as creating the virtual machine, connecting it to a network, assigning it an IP address, and then notifying a user that it's ready.</target>
+        </trans-unit>
+        <trans-unit id="84841c94-39dc-40be-af65-898a5f42e145" xml:space="preserve">
+          <source>Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process.</source>
+          <target state="new">Instead of manually performing each of these steps, you could create a runbook that would perform all of these tasks as a single process.</target>
+        </trans-unit>
+        <trans-unit id="f03c4c26-7479-4ea6-bf0a-98194a0da926" xml:space="preserve">
+          <source>You would start the runbook, provide the required information such as the virtual machine name, IP address, and recipient e-mail and then sit back while the process completes without you.</source>
+          <target state="new">You would start the runbook, provide the required information such as the virtual machine name, IP address, and recipient e-mail and then sit back while the process completes without you.</target>
+        </trans-unit>
+        <trans-unit id="762b15d6-a761-4704-af04-2a2d3f9b637d" xml:space="preserve">
+          <source>Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.</source>
+          <target state="new">Runbooks in Azure Automation are based on PowerShell Workflow, so they do anything that PowerShell can do.</target>
+        </trans-unit>
+        <trans-unit id="55c77b27-3b23-4524-82b8-cb84875bbc1e" xml:space="preserve">
+          <source>If an application or service has an API, then a runbook can work with it.</source>
+          <target state="new">If an application or service has an API, then a runbook can work with it.</target>
+        </trans-unit>
+        <trans-unit id="2636e489-f408-49dc-b3f1-494d0f8c26e7" xml:space="preserve">
+          <source>If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.</source>
+          <target state="new">If you have a PowerShell module for it, then you can load that module into Azure Automation and include those cmdlets in your runbook.</target>
+        </trans-unit>
+        <trans-unit id="65b99f76-720e-4e42-af32-86249064dcf3" xml:space="preserve">
+          <source>Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.</source>
+          <target state="new">Azure Automation runbooks run in the Azure cloud so that can access any resources in the cloud or external resources that can be accessed from the cloud.</target>
+        </trans-unit>
+        <trans-unit id="fe339ebe-b96c-4b23-a0cc-75ffde431220" xml:space="preserve">
+          <source>Using <bpt id="5039df40-e831-4263-b143-67c69bb405e7">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="5039df40-e831-4263-b143-67c69bb405e7">&lt;/linkText&gt;</ept><bpt id="5039df40-e831-4263-b143-67c69bb405e7">&lt;title&gt;</bpt><ept id="5039df40-e831-4263-b143-67c69bb405e7">&lt;/title&gt;</ept>, runbooks can run in your local data center to manage local resources.</source>
+          <target state="new">Using <bpt id="5039df40-e831-4263-b143-67c69bb405e7">&lt;linkText&gt;</bpt>Hybrid Runbook Worker<ept id="5039df40-e831-4263-b143-67c69bb405e7">&lt;/linkText&gt;</ept><bpt id="5039df40-e831-4263-b143-67c69bb405e7">&lt;title&gt;</bpt><ept id="5039df40-e831-4263-b143-67c69bb405e7">&lt;/title&gt;</ept>, runbooks can run in your local data center to manage local resources.</target>
+        </trans-unit>
+        <trans-unit id="b6f0de3a-2915-42e8-bfcb-275cf68bd037" xml:space="preserve">
+          <source>The <bpt id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;/linkText&gt;</ept><bpt id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;title&gt;</bpt><ept id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;/title&gt;</ept> contains runbooks from Microsoft and the community that you can either use unchanged in your environment or customize them for your own purposes.</source>
+          <target state="new">The <bpt id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;/linkText&gt;</ept><bpt id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;title&gt;</bpt><ept id="dee9af04-a6b9-4d68-9a5d-e90992552f5d">&lt;/title&gt;</ept> contains runbooks from Microsoft and the community that you can either use unchanged in your environment or customize them for your own purposes.</target>
+        </trans-unit>
+        <trans-unit id="f1f665c7-9138-4027-89f3-f5cec803b438" xml:space="preserve">
+          <source>They are also useful to as references to learn how to create your own runbooks.</source>
+          <target state="new">They are also useful to as references to learn how to create your own runbooks.</target>
+        </trans-unit>
+        <trans-unit id="dd98b3af-f859-404b-8b5b-1c42c4419686" xml:space="preserve">
+          <source>You can even contribute your own runbooks to the gallery that you think other users may find useful.</source>
+          <target state="new">You can even contribute your own runbooks to the gallery that you think other users may find useful.</target>
+        </trans-unit>
+        <trans-unit id="89a5097a-9bb7-4af9-8e7a-50b705b6799e" xml:space="preserve">
+          <source>You can <bpt id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;linkText&gt;</bpt>create your own runbooks<ept id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;/linkText&gt;</ept><bpt id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;title&gt;</bpt><ept id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;/title&gt;</ept> from scratch or modify runbooks from the <bpt id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;/linkText&gt;</ept><bpt id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;title&gt;</bpt><ept id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;/title&gt;</ept> for your own requirements.</source>
+          <target state="new">You can <bpt id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;linkText&gt;</bpt>create your own runbooks<ept id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;/linkText&gt;</ept><bpt id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;title&gt;</bpt><ept id="16da6480-7579-4ef2-915f-4dfd46845159">&lt;/title&gt;</ept> from scratch or modify runbooks from the <bpt id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;linkText&gt;</bpt>Runbook Gallery<ept id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;/linkText&gt;</ept><bpt id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;title&gt;</bpt><ept id="9cb3535e-613f-4317-af83-f40ef0d5bd7e">&lt;/title&gt;</ept> for your own requirements.</target>
+        </trans-unit>
+        <trans-unit id="c3568a76-3c65-4ce9-b005-effd5d641832" xml:space="preserve">
+          <source>If you prefer to work directly with the PowerShell code, you can <bpt id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;linkText&gt;</bpt>edit the runbook using the textual editor<ept id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;/linkText&gt;</ept><bpt id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;title&gt;</bpt><ept id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;/title&gt;</ept> in the Azure portal or edit if offline.</source>
+          <target state="new">If you prefer to work directly with the PowerShell code, you can <bpt id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;linkText&gt;</bpt>edit the runbook using the textual editor<ept id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;/linkText&gt;</ept><bpt id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;title&gt;</bpt><ept id="33382598-8459-4d94-9ad7-1d5f2fe00e34">&lt;/title&gt;</ept> in the Azure portal or edit if offline.</target>
+        </trans-unit>
+        <trans-unit id="c71c92fc-b1b5-4e47-b222-ec128bd9e440" xml:space="preserve">
+          <source>If you prefer to edit a runbook without being exposed to the underlying code, then you can use the <bpt id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;linkText&gt;</bpt>graphical editor<ept id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;/linkText&gt;</ept><bpt id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;title&gt;</bpt><ept id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;/title&gt;</ept> in the Azure preview portal.</source>
+          <target state="new">If you prefer to edit a runbook without being exposed to the underlying code, then you can use the <bpt id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;linkText&gt;</bpt>graphical editor<ept id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;/linkText&gt;</ept><bpt id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;title&gt;</bpt><ept id="fb4fb919-8e76-4480-b526-d404a2fa1906">&lt;/title&gt;</ept> in the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="603aac6d-0d26-4981-9941-ec37bf88d01e" xml:space="preserve">
+          <source><bpt id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;linkText&gt;</bpt>Service Management Automation (SMA)<ept id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;/linkText&gt;</ept><bpt id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;title&gt;</bpt><ept id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;/title&gt;</ept> is intended to automate management tasks in the private cloud.</source>
+          <target state="new"><bpt id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;linkText&gt;</bpt>Service Management Automation (SMA)<ept id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;/linkText&gt;</ept><bpt id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;title&gt;</bpt><ept id="074cd95c-c408-4d40-8d90-9d0cbf7156ba">&lt;/title&gt;</ept> is intended to automate management tasks in the private cloud.</target>
+        </trans-unit>
+        <trans-unit id="430dbbf2-16ed-4768-bc6c-776c705614d0" xml:space="preserve">
+          <source>It is installed locally in your data center as a component of <bpt id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;linkText&gt;</bpt>Windows Azure Pack<ept id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;/linkText&gt;</ept><bpt id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;title&gt;</bpt><ept id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;/title&gt;</ept>.</source>
+          <target state="new">It is installed locally in your data center as a component of <bpt id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;linkText&gt;</bpt>Windows Azure Pack<ept id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;/linkText&gt;</ept><bpt id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;title&gt;</bpt><ept id="c69720c9-25a9-45cd-bcfe-f7dfdad9fa70">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b4992d2-2be3-49b1-bc46-0aa4f2107402" xml:space="preserve">
+          <source>SMA and Azure Automation use the same runbook format based on Windows PowerShell Workflow, but SMA does not support <bpt id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;linkText&gt;</bpt>graphical runbooks<ept id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;/linkText&gt;</ept><bpt id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;title&gt;</bpt><ept id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;/title&gt;</ept>.</source>
+          <target state="new">SMA and Azure Automation use the same runbook format based on Windows PowerShell Workflow, but SMA does not support <bpt id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;linkText&gt;</bpt>graphical runbooks<ept id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;/linkText&gt;</ept><bpt id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;title&gt;</bpt><ept id="a7c82f21-a7cd-43f9-81d0-12e427ac4823">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32d6a4be-8cad-4fb0-9076-348f8a4ffe29" xml:space="preserve">
+          <source><bpt id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;linkText&gt;</bpt>System Center 2012 Orchestrator<ept id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;/linkText&gt;</ept><bpt id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;title&gt;</bpt><ept id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;/title&gt;</ept> is intended for automation of on-premises resources.</source>
+          <target state="new"><bpt id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;linkText&gt;</bpt>System Center 2012 Orchestrator<ept id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;/linkText&gt;</ept><bpt id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;title&gt;</bpt><ept id="ba4a77e3-e5ae-4d4d-8f17-5525d646b646">&lt;/title&gt;</ept> is intended for automation of on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="d9bffd2c-5bd8-4814-802a-88a32e0c7151" xml:space="preserve">
+          <source>It uses a different runbook format than Azure Automation and Service Management Automation and has a graphical interface to create runbooks without requiring any scripting.</source>
+          <target state="new">It uses a different runbook format than Azure Automation and Service Management Automation and has a graphical interface to create runbooks without requiring any scripting.</target>
+        </trans-unit>
+        <trans-unit id="7d46a2bb-1fe6-484f-948f-63fd3efb02b7" xml:space="preserve">
+          <source>Its runbooks are composed of activities from Integration Packs that are written specifically for Orchestrator.</source>
+          <target state="new">Its runbooks are composed of activities from Integration Packs that are written specifically for Orchestrator.</target>
+        </trans-unit>
+        <trans-unit id="c1dcd414-bdf2-4ab0-83d0-7d1b63572152" xml:space="preserve">
+          <source>A variety of resources are available for you to learn more about Azure Automation and creating your own runbooks.</source>
+          <target state="new">A variety of resources are available for you to learn more about Azure Automation and creating your own runbooks.</target>
+        </trans-unit>
+        <trans-unit id="e8170b32-553b-4006-9d55-3ec7c98b412a" xml:space="preserve">
+          <source><bpt id="bffbe0fb-5d47-47b6-adf5-7d0a41803378">&lt;strong&gt;</bpt>Azure Automation Library<ept id="bffbe0fb-5d47-47b6-adf5-7d0a41803378">&lt;/strong&gt;</ept> is where you are right now.</source>
+          <target state="new"><bpt id="bffbe0fb-5d47-47b6-adf5-7d0a41803378">&lt;strong&gt;</bpt>Azure Automation Library<ept id="bffbe0fb-5d47-47b6-adf5-7d0a41803378">&lt;/strong&gt;</ept> is where you are right now.</target>
+        </trans-unit>
+        <trans-unit id="cde5ce1c-cc00-42c8-9358-bd91077d82a0" xml:space="preserve">
+          <source>The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks.</source>
+          <target state="new">The articles in this library provide complete documentation on the configuration and administration of Azure Automation and for authoring your own runbooks.</target>
+        </trans-unit>
+        <trans-unit id="3ffcbe6d-ac6b-4ad3-82b1-8dd480fbbffd" xml:space="preserve">
+          <source><bpt id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;/linkText&gt;</ept><bpt id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;title&gt;</bpt><ept id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;/title&gt;</ept> provides information for automating Azure operations using Windows PowerShell.</source>
+          <target state="new"><bpt id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;/linkText&gt;</ept><bpt id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;title&gt;</bpt><ept id="e5e8ad2a-e320-41e8-b858-bb0bc993931b">&lt;/title&gt;</ept> provides information for automating Azure operations using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="c8de37cd-ee71-427d-99cd-a69166235e6b" xml:space="preserve">
+          <source>Runbooks use these cmdlets to work with Azure resources.</source>
+          <target state="new">Runbooks use these cmdlets to work with Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="0f29c905-02aa-45e1-bc72-219943b0ff4a" xml:space="preserve">
+          <source><bpt id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;/linkText&gt;</ept><bpt id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;title&gt;</bpt><ept id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;/title&gt;</ept> provides the latest information on Azure Automation from Microsoft.</source>
+          <target state="new"><bpt id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;linkText&gt;</bpt>Azure Automation Blog<ept id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;/linkText&gt;</ept><bpt id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;title&gt;</bpt><ept id="a9e15cbc-6b63-4d62-b24a-313fef2179d0">&lt;/title&gt;</ept> provides the latest information on Azure Automation from Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="a380b308-9a9c-4b36-834d-2b26bcd248fc" xml:space="preserve">
+          <source>You should subscribe to this blog to stay up to date with the latest from the Azure Automation team.</source>
+          <target state="new">You should subscribe to this blog to stay up to date with the latest from the Azure Automation team.</target>
+        </trans-unit>
+        <trans-unit id="eae6bf3e-d12d-4cad-9ed7-307af21a2185" xml:space="preserve">
+          <source><bpt id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;linkText&gt;</bpt>Automation Forum<ept id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;/linkText&gt;</ept><bpt id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;title&gt;</bpt><ept id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;/title&gt;</ept> allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.</source>
+          <target state="new"><bpt id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;linkText&gt;</bpt>Automation Forum<ept id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;/linkText&gt;</ept><bpt id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;title&gt;</bpt><ept id="b9c8b740-b98e-4e0b-8918-1f9bf889fe0d">&lt;/title&gt;</ept> allows you to post questions about Azure Automation to be addressed by Microsoft and the Automation community.</target>
+        </trans-unit>
+        <trans-unit id="e922f52d-d1a9-4d12-a0dc-9a2f347baf7f" xml:space="preserve">
+          <source><bpt id="872996f1-76ce-4f03-9597-d5bc939187a5">&lt;strong&gt;</bpt>Please give us feedback!<ept id="872996f1-76ce-4f03-9597-d5bc939187a5">&lt;/strong&gt;</ept>  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.</source>
+          <target state="new"><bpt id="872996f1-76ce-4f03-9597-d5bc939187a5">&lt;strong&gt;</bpt>Please give us feedback!<ept id="872996f1-76ce-4f03-9597-d5bc939187a5">&lt;/strong&gt;</ept>  If you are looking for an Azure Automation runbook solution or an integration module, post a Script Request on Script Center.</target>
+        </trans-unit>
+        <trans-unit id="3d268a8a-fe1a-4669-b702-4edee42efdd7" xml:space="preserve">
+          <source>If you have feedback or feature requests for Azure Automation, post them on <bpt id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;linkText&gt;</bpt>User Voice<ept id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;/linkText&gt;</ept><bpt id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;title&gt;</bpt><ept id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have feedback or feature requests for Azure Automation, post them on <bpt id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;linkText&gt;</bpt>User Voice<ept id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;/linkText&gt;</ept><bpt id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;title&gt;</bpt><ept id="0e8c3cb7-3135-4214-83ff-68eaf6110f66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d772caf-fd61-442e-a8af-d98b9c451e65" xml:space="preserve">
+          <source>Thanks!</source>
+          <target state="new">Thanks!</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

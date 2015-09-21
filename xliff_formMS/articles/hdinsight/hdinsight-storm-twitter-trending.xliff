@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="45f74b72-b411-45f1-b9c7-005366ca9ff4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="45f74b72-b411-45f1-b9c7-005366ca9ff4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="699886a0-8a5f-48f2-ad82-7e9e79cd948e">
+        <trans-unit id="c3f69869-c6d5-44e5-84f5-0c190e9e91a9" xml:space="preserve">
+          <source>Twitter trending topics with Apache Storm on HDInsight | Microsoft Azure</source>
+          <target state="new">Twitter trending topics with Apache Storm on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2e42ef0e-f4f8-492c-9daf-f13c72f285db" xml:space="preserve">
+          <source>Learn how to use Trident to create an Apache Storm topology that determines trending topics on Twitter based on hashtags.</source>
+          <target state="new">Learn how to use Trident to create an Apache Storm topology that determines trending topics on Twitter based on hashtags.</target>
+        </trans-unit>
+        <trans-unit id="cf829ef6-efb5-4f35-b6a0-4513e6d943e3" xml:space="preserve">
+          <source>Learn how to use Trident to create a Storm topology that determines trending topics (hash tags) on Twitter.</source>
+          <target state="new">Learn how to use Trident to create a Storm topology that determines trending topics (hash tags) on Twitter.</target>
+        </trans-unit>
+        <trans-unit id="3686d45b-febb-4bd6-9156-885dab77ceab" xml:space="preserve">
+          <source>Trident is a high-level abstraction that provides tools such as joins, aggregations, grouping, functions, and filters.</source>
+          <target state="new">Trident is a high-level abstraction that provides tools such as joins, aggregations, grouping, functions, and filters.</target>
+        </trans-unit>
+        <trans-unit id="16ff5354-2291-4bf9-88cd-b9736e28876a" xml:space="preserve">
+          <source>Additionally, Trident adds primitives for doing stateful, incremental processing.</source>
+          <target state="new">Additionally, Trident adds primitives for doing stateful, incremental processing.</target>
+        </trans-unit>
+        <trans-unit id="d5e21f23-a979-41de-850f-37537b54d220" xml:space="preserve">
+          <source>This example demonstrates how you can build a topology using a custom spout, function, and several built-in functions provided by Trident.</source>
+          <target state="new">This example demonstrates how you can build a topology using a custom spout, function, and several built-in functions provided by Trident.</target>
+        </trans-unit>
+        <trans-unit id="60937d9e-116b-4996-86d0-b92d3fed090d" xml:space="preserve">
+          <source>This example is heavily based on the <bpt id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;linkText&gt;</bpt>Trident Storm<ept id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;/linkText&gt;</ept><bpt id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;title&gt;</bpt><ept id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;/title&gt;</ept> example by Juan Alonso.</source>
+          <target state="new">This example is heavily based on the <bpt id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;linkText&gt;</bpt>Trident Storm<ept id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;/linkText&gt;</ept><bpt id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;title&gt;</bpt><ept id="75f44567-9c91-49d6-b6b9-4ef075f0b713">&lt;/title&gt;</ept> example by Juan Alonso.</target>
+        </trans-unit>
+        <trans-unit id="4a3e1307-54e7-4c96-bd66-ba9d713d869e" xml:space="preserve">
+          <source>&lt;a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank"&gt;Java and the JDK 1.7&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank"&gt;Java and the JDK 1.7&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="2840c23d-e9a9-43df-964b-e0058c947afd" xml:space="preserve">
+          <source>&lt;a href="http://maven.apache.org/what-is-maven.html" target="_blank"&gt;Maven&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://maven.apache.org/what-is-maven.html" target="_blank"&gt;Maven&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="d7b7503b-52f8-4fcb-8aed-1d567441bd4e" xml:space="preserve">
+          <source>&lt;a href="http://git-scm.com/" target="_blank"&gt;Git&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://git-scm.com/" target="_blank"&gt;Git&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="f2935553-80ee-4933-aa37-d7e13e62be56" xml:space="preserve">
+          <source>A Twitter developer account</source>
+          <target state="new">A Twitter developer account</target>
+        </trans-unit>
+        <trans-unit id="5ca6fc65-b173-42ce-ba77-96de239568c8" xml:space="preserve">
+          <source>Use the following code to clone the project locally.</source>
+          <target state="new">Use the following code to clone the project locally.</target>
+        </trans-unit>
+        <trans-unit id="a4548f3b-d90b-4897-9e54-082252cedd46" xml:space="preserve">
+          <source>The topology for this example is as follows:</source>
+          <target state="new">The topology for this example is as follows:</target>
+        </trans-unit>
+        <trans-unit id="dce5ab9e-bbeb-4c0a-81db-4b40455d5941" xml:space="preserve">
+          <source><bpt id="f45a6770-8f44-4475-98f5-ab2adc1c9aa3">&lt;linkText&gt;</bpt>topology<ept id="f45a6770-8f44-4475-98f5-ab2adc1c9aa3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f45a6770-8f44-4475-98f5-ab2adc1c9aa3">&lt;linkText&gt;</bpt>topology<ept id="f45a6770-8f44-4475-98f5-ab2adc1c9aa3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fc70f24-da58-456f-823e-45032ef5e4f2" xml:space="preserve">
+          <source>This is a simplified view of the topology.</source>
+          <target state="new">This is a simplified view of the topology.</target>
+        </trans-unit>
+        <trans-unit id="035b5cda-d2dc-4a7c-b487-c8f87cf64602" xml:space="preserve">
+          <source>Multiple instances of the components will be distributed across the nodes in the cluster.</source>
+          <target state="new">Multiple instances of the components will be distributed across the nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="580b4143-63fc-4dba-8efb-e1aed4ee22c2" xml:space="preserve">
+          <source>The Trident code that implements the topology is as follows:</source>
+          <target state="new">The Trident code that implements the topology is as follows:</target>
+        </trans-unit>
+        <trans-unit id="2d31aded-3905-4f72-8c00-bd1cede2d51a" xml:space="preserve">
+          <source>This code does the following:</source>
+          <target state="new">This code does the following:</target>
+        </trans-unit>
+        <trans-unit id="efa468fc-05d5-4135-9eee-a156e1949152" xml:space="preserve">
+          <source>Creates a new stream from the spout.</source>
+          <target state="new">Creates a new stream from the spout.</target>
+        </trans-unit>
+        <trans-unit id="4efb82cf-0ef5-4f16-b2f1-2938e37221ed" xml:space="preserve">
+          <source>The spout retrieves tweets from Twitter, and filters them for specific keywords (love, music, and coffee in this example).</source>
+          <target state="new">The spout retrieves tweets from Twitter, and filters them for specific keywords (love, music, and coffee in this example).</target>
+        </trans-unit>
+        <trans-unit id="e043bbbb-f633-466b-9afb-ef5291380336" xml:space="preserve">
+          <source>HashtagExtractor, a custom function, is used to extract hash tags from each tweet.</source>
+          <target state="new">HashtagExtractor, a custom function, is used to extract hash tags from each tweet.</target>
+        </trans-unit>
+        <trans-unit id="a2e78dfb-1107-4410-b99f-9dd38f53c8d6" xml:space="preserve">
+          <source>These are emitted to the stream.</source>
+          <target state="new">These are emitted to the stream.</target>
+        </trans-unit>
+        <trans-unit id="fd38dbfc-fb83-4cc3-aaa1-1e12ee7e380c" xml:space="preserve">
+          <source>The stream is grouped by hash tag, and passed to an aggregator.</source>
+          <target state="new">The stream is grouped by hash tag, and passed to an aggregator.</target>
+        </trans-unit>
+        <trans-unit id="28080bcf-9877-4527-8787-8552456a735d" xml:space="preserve">
+          <source>This aggregator creates a count of how many times each hash tag has occurred.</source>
+          <target state="new">This aggregator creates a count of how many times each hash tag has occurred.</target>
+        </trans-unit>
+        <trans-unit id="678a1d3b-cc56-4759-85c0-d3bbfb2eb7c2" xml:space="preserve">
+          <source>This data is persisted in memory.</source>
+          <target state="new">This data is persisted in memory.</target>
+        </trans-unit>
+        <trans-unit id="2ee9758d-d6f8-4a25-84ca-f51131c54106" xml:space="preserve">
+          <source>Finally, a new stream is emitted that contains the hash tag and the count.</source>
+          <target state="new">Finally, a new stream is emitted that contains the hash tag and the count.</target>
+        </trans-unit>
+        <trans-unit id="fcdf1d2b-50e9-47f3-8276-0ea6ab870083" xml:space="preserve">
+          <source>Because we are only interested in the most popular hash tags for a given batch of tweets, the <bpt id="9c400655-c333-40b9-aefc-ba91f07229d7">&lt;strong&gt;</bpt>FirstN<ept id="9c400655-c333-40b9-aefc-ba91f07229d7">&lt;/strong&gt;</ept> assembly is applied to return only the top 10 values, based on the count field.</source>
+          <target state="new">Because we are only interested in the most popular hash tags for a given batch of tweets, the <bpt id="9c400655-c333-40b9-aefc-ba91f07229d7">&lt;strong&gt;</bpt>FirstN<ept id="9c400655-c333-40b9-aefc-ba91f07229d7">&lt;/strong&gt;</ept> assembly is applied to return only the top 10 values, based on the count field.</target>
+        </trans-unit>
+        <trans-unit id="64494ff9-3f14-4b60-87dc-f4fcf29d8fdb" xml:space="preserve">
+          <source>Other than the spout and HashtagExtractor, we are using built-in Trident functionality.</source>
+          <target state="new">Other than the spout and HashtagExtractor, we are using built-in Trident functionality.</target>
+        </trans-unit>
+        <trans-unit id="34041456-196b-4a81-bdf9-4498b8ed5bdd" xml:space="preserve">
+          <source>For information about built-in operations, see &lt;a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank"&gt;Package storm.trident.operation.builtin&lt;/a&gt;.</source>
+          <target state="new">For information about built-in operations, see &lt;a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank"&gt;Package storm.trident.operation.builtin&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="751ff005-aed8-450b-afb5-5f77918d113f" xml:space="preserve">
+          <source>For Trident-state implementations other than MemoryMapState, see the following:</source>
+          <target state="new">For Trident-state implementations other than MemoryMapState, see the following:</target>
+        </trans-unit>
+        <trans-unit id="765e69e2-a20d-4a1b-b64d-804135474926" xml:space="preserve">
+          <source>&lt;a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank"&gt;Storm Trident elastic search&lt;/a&gt;</source>
+          <target state="new">&lt;a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank"&gt;Storm Trident elastic search&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="6429278a-847e-40f8-a839-219c1655408c" xml:space="preserve">
+          <source>&lt;a href="https://github.com/kstyrc/trident-redis" target="_blank"&gt;trident-redis&lt;/a&gt;</source>
+          <target state="new">&lt;a href="https://github.com/kstyrc/trident-redis" target="_blank"&gt;trident-redis&lt;/a&gt;</target>
+        </trans-unit>
+        <trans-unit id="ccfa0c06-2a38-4a6e-82af-0a012ec36b31" xml:space="preserve">
+          <source>The spout, <bpt id="b30d856d-6716-4aba-aa5c-b590ed04d52f">&lt;strong&gt;</bpt>TwitterSpout<ept id="b30d856d-6716-4aba-aa5c-b590ed04d52f">&lt;/strong&gt;</ept>, uses &lt;a href="http://twitter4j.org/en/" target="_blank"&gt;Twitter4j&lt;/a&gt; to retrieve tweets from Twitter.</source>
+          <target state="new">The spout, <bpt id="b30d856d-6716-4aba-aa5c-b590ed04d52f">&lt;strong&gt;</bpt>TwitterSpout<ept id="b30d856d-6716-4aba-aa5c-b590ed04d52f">&lt;/strong&gt;</ept>, uses &lt;a href="http://twitter4j.org/en/" target="_blank"&gt;Twitter4j&lt;/a&gt; to retrieve tweets from Twitter.</target>
+        </trans-unit>
+        <trans-unit id="6e3d650e-d40e-4957-9e7b-c94dd87a59c2" xml:space="preserve">
+          <source>A filter is created (love, music, and coffee in this example), and the incoming tweets (status) that match the filter are stored in a linked blocking queue.</source>
+          <target state="new">A filter is created (love, music, and coffee in this example), and the incoming tweets (status) that match the filter are stored in a linked blocking queue.</target>
+        </trans-unit>
+        <trans-unit id="4cc388f2-f0fb-4818-9ade-73d2f9468c80" xml:space="preserve">
+          <source>(For more information, see &lt;a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank"&gt;Class LinkedBlockingQueue&lt;/a&gt;.)</source>
+          <target state="new">(For more information, see &lt;a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank"&gt;Class LinkedBlockingQueue&lt;/a&gt;.)</target>
+        </trans-unit>
+        <trans-unit id="902a7a10-1040-48dd-ae55-3350024d6bc5" xml:space="preserve">
+          <source>Finally, items are pulled off the queue and emitted to the topology.</source>
+          <target state="new">Finally, items are pulled off the queue and emitted to the topology.</target>
+        </trans-unit>
+        <trans-unit id="3f6edf04-111e-4216-9efe-968e38769927" xml:space="preserve">
+          <source>To extract hash tags, &lt;a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank"&gt;getHashtagEntities&lt;/a&gt; is used to retrieve all hash tags that are contained in the tweet.</source>
+          <target state="new">To extract hash tags, &lt;a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank"&gt;getHashtagEntities&lt;/a&gt; is used to retrieve all hash tags that are contained in the tweet.</target>
+        </trans-unit>
+        <trans-unit id="a2a95bb5-30e0-4ffa-922a-4eef921e618b" xml:space="preserve">
+          <source>These are then emitted to the stream.</source>
+          <target state="new">These are then emitted to the stream.</target>
+        </trans-unit>
+        <trans-unit id="05fc8136-9b61-4b7d-9c85-85b1a2d66f0a" xml:space="preserve">
+          <source>Use the following steps to register a new Twitter application and obtain the consumer and access token information needed to read from Twitter:</source>
+          <target state="new">Use the following steps to register a new Twitter application and obtain the consumer and access token information needed to read from Twitter:</target>
+        </trans-unit>
+        <trans-unit id="ba58f7e2-263f-4f52-a20d-fe877222043b" xml:space="preserve">
+          <source>Go to &lt;a href="https://apps.twitter.com" target="_blank"&gt;Twitter Apps&lt;/a&gt; and click the <bpt id="6056a27f-02bd-49fd-a6c1-8e1fc03b9471">&lt;strong&gt;</bpt>Create new app<ept id="6056a27f-02bd-49fd-a6c1-8e1fc03b9471">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Go to &lt;a href="https://apps.twitter.com" target="_blank"&gt;Twitter Apps&lt;/a&gt; and click the <bpt id="6056a27f-02bd-49fd-a6c1-8e1fc03b9471">&lt;strong&gt;</bpt>Create new app<ept id="6056a27f-02bd-49fd-a6c1-8e1fc03b9471">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="2753781d-6f55-4713-90aa-c589d4e0974e" xml:space="preserve">
+          <source>When filling in the form, leave the <bpt id="ff4338a1-0fa1-4729-b719-2f87aa7c4626">&lt;strong&gt;</bpt>Callback URL<ept id="ff4338a1-0fa1-4729-b719-2f87aa7c4626">&lt;/strong&gt;</ept> field empty.</source>
+          <target state="new">When filling in the form, leave the <bpt id="ff4338a1-0fa1-4729-b719-2f87aa7c4626">&lt;strong&gt;</bpt>Callback URL<ept id="ff4338a1-0fa1-4729-b719-2f87aa7c4626">&lt;/strong&gt;</ept> field empty.</target>
+        </trans-unit>
+        <trans-unit id="917fea9b-f4f0-413b-8b5c-992561c82c59" xml:space="preserve">
+          <source>When the app is created, click the <bpt id="8a4c48b9-7e1c-40b2-ad27-401a6bd449ee">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="8a4c48b9-7e1c-40b2-ad27-401a6bd449ee">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">When the app is created, click the <bpt id="8a4c48b9-7e1c-40b2-ad27-401a6bd449ee">&lt;strong&gt;</bpt>Keys and Access Tokens<ept id="8a4c48b9-7e1c-40b2-ad27-401a6bd449ee">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5848ed54-8187-4250-a7be-515308f3dfde" xml:space="preserve">
+          <source>Copy the <bpt id="70b4021a-08d3-45b0-854b-5a58d0385464">&lt;strong&gt;</bpt>Consumer Key<ept id="70b4021a-08d3-45b0-854b-5a58d0385464">&lt;/strong&gt;</ept> and <bpt id="c7e2356b-5716-47bd-a1f9-82d2cfe98a56">&lt;strong&gt;</bpt>Consumer Secret<ept id="c7e2356b-5716-47bd-a1f9-82d2cfe98a56">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">Copy the <bpt id="70b4021a-08d3-45b0-854b-5a58d0385464">&lt;strong&gt;</bpt>Consumer Key<ept id="70b4021a-08d3-45b0-854b-5a58d0385464">&lt;/strong&gt;</ept> and <bpt id="c7e2356b-5716-47bd-a1f9-82d2cfe98a56">&lt;strong&gt;</bpt>Consumer Secret<ept id="c7e2356b-5716-47bd-a1f9-82d2cfe98a56">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="29e9cd4e-8046-4db5-8072-778eaf88ca93" xml:space="preserve">
+          <source>At the bottom of the page, select <bpt id="8ec5ae71-8213-4474-aa04-7817a7f591ec">&lt;strong&gt;</bpt>Create my access token<ept id="8ec5ae71-8213-4474-aa04-7817a7f591ec">&lt;/strong&gt;</ept> if no tokens exist.</source>
+          <target state="new">At the bottom of the page, select <bpt id="8ec5ae71-8213-4474-aa04-7817a7f591ec">&lt;strong&gt;</bpt>Create my access token<ept id="8ec5ae71-8213-4474-aa04-7817a7f591ec">&lt;/strong&gt;</ept> if no tokens exist.</target>
+        </trans-unit>
+        <trans-unit id="28849feb-a30a-42e5-a962-ea833cbdeff9" xml:space="preserve">
+          <source>When the tokens have been created, copy the <bpt id="b092a12c-0d8b-4d61-bf20-b5e1558e20b1">&lt;strong&gt;</bpt>Access Token<ept id="b092a12c-0d8b-4d61-bf20-b5e1558e20b1">&lt;/strong&gt;</ept> and <bpt id="cac62cc4-436a-4208-8a7d-6610af5d2d55">&lt;strong&gt;</bpt>Access Token Secret<ept id="cac62cc4-436a-4208-8a7d-6610af5d2d55">&lt;/strong&gt;</ept> information.</source>
+          <target state="new">When the tokens have been created, copy the <bpt id="b092a12c-0d8b-4d61-bf20-b5e1558e20b1">&lt;strong&gt;</bpt>Access Token<ept id="b092a12c-0d8b-4d61-bf20-b5e1558e20b1">&lt;/strong&gt;</ept> and <bpt id="cac62cc4-436a-4208-8a7d-6610af5d2d55">&lt;strong&gt;</bpt>Access Token Secret<ept id="cac62cc4-436a-4208-8a7d-6610af5d2d55">&lt;/strong&gt;</ept> information.</target>
+        </trans-unit>
+        <trans-unit id="61944219-a7b4-42b8-8e5d-994155087e63" xml:space="preserve">
+          <source>In the <bpt id="51449b9f-bee5-41fa-ba57-0f68c2c7bdbd">&lt;strong&gt;</bpt>TwitterSpoutTopology<ept id="51449b9f-bee5-41fa-ba57-0f68c2c7bdbd">&lt;/strong&gt;</ept> project you previously cloned, open the <bpt id="97176ee6-0522-4c00-a6af-b02051c4c80e">&lt;strong&gt;</bpt>resources/twitter4j.properties<ept id="97176ee6-0522-4c00-a6af-b02051c4c80e">&lt;/strong&gt;</ept> file, add the information you gathered in the previous steps, and then save the file.</source>
+          <target state="new">In the <bpt id="51449b9f-bee5-41fa-ba57-0f68c2c7bdbd">&lt;strong&gt;</bpt>TwitterSpoutTopology<ept id="51449b9f-bee5-41fa-ba57-0f68c2c7bdbd">&lt;/strong&gt;</ept> project you previously cloned, open the <bpt id="97176ee6-0522-4c00-a6af-b02051c4c80e">&lt;strong&gt;</bpt>resources/twitter4j.properties<ept id="97176ee6-0522-4c00-a6af-b02051c4c80e">&lt;/strong&gt;</ept> file, add the information you gathered in the previous steps, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="96316ba6-f729-41b3-b499-4dbef5cbd52a" xml:space="preserve">
+          <source>Use the following code to build the project:</source>
+          <target state="new">Use the following code to build the project:</target>
+        </trans-unit>
+        <trans-unit id="3a6a2163-7812-4385-a55a-82b6ab23b63b" xml:space="preserve">
+          <source>Use the following command to test the topology locally:</source>
+          <target state="new">Use the following command to test the topology locally:</target>
+        </trans-unit>
+        <trans-unit id="7b16494a-4d0b-4576-81bd-b453d56f26fe" xml:space="preserve">
+          <source>After the topology starts, you should see debug information that contains the hash tags and counts emitted by the topology.</source>
+          <target state="new">After the topology starts, you should see debug information that contains the hash tags and counts emitted by the topology.</target>
+        </trans-unit>
+        <trans-unit id="d124ad47-4dc1-4fbb-8b45-b2a809e1bee5" xml:space="preserve">
+          <source>The output should appear similar to the following:</source>
+          <target state="new">The output should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="b2ddce81-cec0-47fc-80d2-9e5fdc9b3809" xml:space="preserve">
+          <source>Now that you have tested the topology locally, discover how to deploy the topology: <bpt id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies on HDInsight<ept id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;/linkText&gt;</ept><bpt id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;title&gt;</bpt><ept id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Now that you have tested the topology locally, discover how to deploy the topology: <bpt id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;linkText&gt;</bpt>Deploy and manage Apache Storm topologies on HDInsight<ept id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;/linkText&gt;</ept><bpt id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;title&gt;</bpt><ept id="aaf2c442-d12e-47fa-983d-0f8b484eab0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed901f76-f143-4011-8ff3-995629191893" xml:space="preserve">
+          <source>You may also be interested in the following Storm topics:</source>
+          <target state="new">You may also be interested in the following Storm topics:</target>
+        </trans-unit>
+        <trans-unit id="5e696d34-0d21-4e43-a40b-0f07535aab64" xml:space="preserve">
+          <source><bpt id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;linkText&gt;</bpt>Develop Java topologies for Storm on HDInsight using Maven<ept id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;/linkText&gt;</ept><bpt id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;title&gt;</bpt><ept id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;linkText&gt;</bpt>Develop Java topologies for Storm on HDInsight using Maven<ept id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;/linkText&gt;</ept><bpt id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;title&gt;</bpt><ept id="d3b7d5eb-9781-4252-8a48-e2235736e7c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72f79a8f-461e-4e77-9c4c-6d2e0c6bd424" xml:space="preserve">
+          <source><bpt id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;linkText&gt;</bpt>Develop C# topologies for Storm on HDInsight using Visual Studio<ept id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;/linkText&gt;</ept><bpt id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;title&gt;</bpt><ept id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;linkText&gt;</bpt>Develop C# topologies for Storm on HDInsight using Visual Studio<ept id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;/linkText&gt;</ept><bpt id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;title&gt;</bpt><ept id="5ebbb858-d8cc-47de-939f-bb7f1e7f3d74">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3bdcca0-2326-46ca-8208-a9f82a094c0d" xml:space="preserve">
+          <source>For more Storm examples for HDinsight:</source>
+          <target state="new">For more Storm examples for HDinsight:</target>
+        </trans-unit>
+        <trans-unit id="9eb21c86-ec51-4443-8581-37f24ab22bdd" xml:space="preserve">
+          <source><bpt id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;/linkText&gt;</ept><bpt id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;title&gt;</bpt><ept id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;linkText&gt;</bpt>Example topologies for Storm on HDInsight<ept id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;/linkText&gt;</ept><bpt id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;title&gt;</bpt><ept id="df119e4c-aa22-489f-9d92-4c50e00a3727">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

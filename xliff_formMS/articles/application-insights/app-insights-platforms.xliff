@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d7a4504f-36e7-498d-83c5-bb9f47896dc8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d7a4504f-36e7-498d-83c5-bb9f47896dc8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5096731a-6210-408f-9acd-eb45cecf274f">
+        <trans-unit id="56e97f32-085a-4c07-bf8b-a25dfd807c9e" xml:space="preserve">
+          <source>Application Insights: languages and platforms| Microsoft Azure</source>
+          <target state="new">Application Insights: languages and platforms| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="884ddbfa-6cb4-4ecd-8b4a-91fa03d7e3e5" xml:space="preserve">
+          <source>Languages and platforms available for Application Insights</source>
+          <target state="new">Languages and platforms available for Application Insights</target>
+        </trans-unit>
+        <trans-unit id="1563d4c7-b176-4cc1-8454-175a1ec008e5" xml:space="preserve">
+          <source><bpt id="1e0f87f0-ca56-411a-9f01-4e10cb4929c3">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="1e0f87f0-ca56-411a-9f01-4e10cb4929c3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1e0f87f0-ca56-411a-9f01-4e10cb4929c3">&lt;token href="../../includes/app-insights-selector-get-started.md"&gt;</bpt><ept id="1e0f87f0-ca56-411a-9f01-4e10cb4929c3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dff0ce6-7635-4a3c-a519-4c9ff283fefa" xml:space="preserve">
+          <source><bpt id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;linkText&gt;</bpt>C#|VB (.NET)<ept id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;/linkText&gt;</ept><bpt id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;title&gt;</bpt><ept id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;linkText&gt;</bpt>C#|VB (.NET)<ept id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;/linkText&gt;</ept><bpt id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;title&gt;</bpt><ept id="49748991-a8c2-4562-8c18-e4274b1a1779">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="633719cb-6482-4ed6-8828-b0ec93b7bda4" xml:space="preserve">
+          <source><bpt id="9dc99606-bb78-4619-a878-022a85da202f">&lt;linkText&gt;</bpt>C#|VB (Windows Store)<ept id="9dc99606-bb78-4619-a878-022a85da202f">&lt;/linkText&gt;</ept><bpt id="9dc99606-bb78-4619-a878-022a85da202f">&lt;title&gt;</bpt><ept id="9dc99606-bb78-4619-a878-022a85da202f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9dc99606-bb78-4619-a878-022a85da202f">&lt;linkText&gt;</bpt>C#|VB (Windows Store)<ept id="9dc99606-bb78-4619-a878-022a85da202f">&lt;/linkText&gt;</ept><bpt id="9dc99606-bb78-4619-a878-022a85da202f">&lt;title&gt;</bpt><ept id="9dc99606-bb78-4619-a878-022a85da202f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f529d248-da08-4cd5-a6df-78f78ac395d9" xml:space="preserve">
+          <source><bpt id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;linkText&gt;</bpt>C++ (Windows Store)<ept id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;/linkText&gt;</ept><bpt id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;title&gt;</bpt><ept id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;linkText&gt;</bpt>C++ (Windows Store)<ept id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;/linkText&gt;</ept><bpt id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;title&gt;</bpt><ept id="9fdb9305-4c69-4c64-83ed-190ddf656f4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="76ced9d5-5e69-4ccd-a835-a3c33c5a0c73" xml:space="preserve">
+          <source><bpt id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;linkText&gt;</bpt>Java<ept id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;/linkText&gt;</ept><bpt id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;title&gt;</bpt><ept id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;linkText&gt;</bpt>Java<ept id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;/linkText&gt;</ept><bpt id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;title&gt;</bpt><ept id="72f71d30-2074-4b4d-8d27-ef2be4daddbe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5551d3f-28c4-4deb-b7bc-6e3af52eafc3" xml:space="preserve">
+          <source><bpt id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;linkText&gt;</bpt>JavaScript web pages<ept id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;/linkText&gt;</ept><bpt id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;title&gt;</bpt><ept id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;linkText&gt;</bpt>JavaScript web pages<ept id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;/linkText&gt;</ept><bpt id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;title&gt;</bpt><ept id="c8cc8c57-8865-4174-8a6a-e6a4b3b853f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53819bd1-8e2c-46d1-bad6-d7a5f02cc4c3" xml:space="preserve">
+          <source><bpt id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;linkText&gt;</bpt>Objective-C<ept id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;/linkText&gt;</ept><bpt id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;title&gt;</bpt><ept id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;linkText&gt;</bpt>Objective-C<ept id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;/linkText&gt;</ept><bpt id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;title&gt;</bpt><ept id="94e9967b-25a8-4f3f-86ae-21b3c70a0505">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5890be3a-e74f-450a-a05d-063789acc3fa" xml:space="preserve">
+          <source><bpt id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;linkText&gt;</bpt>PHP<ept id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;/linkText&gt;</ept><bpt id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;title&gt;</bpt><ept id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;linkText&gt;</bpt>PHP<ept id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;/linkText&gt;</ept><bpt id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;title&gt;</bpt><ept id="03b46b65-7171-4463-a992-325dcf1d373c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="448b15e4-d892-4637-a11b-b7b1f5b93de3" xml:space="preserve">
+          <source><bpt id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;linkText&gt;</bpt>Python<ept id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;/linkText&gt;</ept><bpt id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;title&gt;</bpt><ept id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;linkText&gt;</bpt>Python<ept id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;/linkText&gt;</ept><bpt id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;title&gt;</bpt><ept id="0532bc50-1c59-4e07-b91e-2a57d2c5c74a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7a5f1b7-3a65-4686-bdf0-cbbd5ee540bf" xml:space="preserve">
+          <source><bpt id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;linkText&gt;</bpt>Ruby<ept id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;/linkText&gt;</ept><bpt id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;title&gt;</bpt><ept id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;linkText&gt;</bpt>Ruby<ept id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;/linkText&gt;</ept><bpt id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;title&gt;</bpt><ept id="ea54bdb3-7a46-4ece-8310-0efb546a7cb6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e463e69f-7b05-4c9d-aa72-10acd33041d0" xml:space="preserve">
+          <source><bpt id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;linkText&gt;</bpt>Anything else<ept id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;/linkText&gt;</ept><bpt id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;title&gt;</bpt><ept id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;linkText&gt;</bpt>Anything else<ept id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;/linkText&gt;</ept><bpt id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;title&gt;</bpt><ept id="bac197ea-8065-43a0-a9e0-6e4c72c3e630">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="121b11b8-73e0-4d78-a7d6-4fc61c10dbfd" xml:space="preserve">
+          <source><bpt id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;linkText&gt;</bpt>Angular<ept id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;/linkText&gt;</ept><bpt id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;title&gt;</bpt><ept id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;linkText&gt;</bpt>Angular<ept id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;/linkText&gt;</ept><bpt id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;title&gt;</bpt><ept id="b5a8e33c-75bd-4940-9bac-54a9ec3ea252">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57fb30a0-a02c-4e05-ac6f-59df6de55849" xml:space="preserve">
+          <source><bpt id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;linkText&gt;</bpt>ASP.NET<ept id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;/linkText&gt;</ept><bpt id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;title&gt;</bpt><ept id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;linkText&gt;</bpt>ASP.NET<ept id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;/linkText&gt;</ept><bpt id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;title&gt;</bpt><ept id="eadaa30a-666d-400e-99eb-019292c41b88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f7c8ace-81e7-45a7-aba4-5c7fc6c27105" xml:space="preserve">
+          <source><bpt id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;linkText&gt;</bpt>ASP.NET - already live<ept id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;/linkText&gt;</ept><bpt id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;title&gt;</bpt><ept id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;linkText&gt;</bpt>ASP.NET - already live<ept id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;/linkText&gt;</ept><bpt id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;title&gt;</bpt><ept id="6beaa108-82a7-4b80-83c6-ac4507491f53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61273b6b-ade7-4b9a-92cd-e6ef27f038ef" xml:space="preserve">
+          <source><bpt id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;linkText&gt;</bpt>ASP.NET 5<ept id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;/linkText&gt;</ept><bpt id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;title&gt;</bpt><ept id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;linkText&gt;</bpt>ASP.NET 5<ept id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;/linkText&gt;</ept><bpt id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;title&gt;</bpt><ept id="fa26cba7-4929-4ed6-b370-48337f478d71">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ec29245-ed23-4f2e-bc59-3475e5458c21" xml:space="preserve">
+          <source><bpt id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;linkText&gt;</bpt>Android<ept id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;/linkText&gt;</ept><bpt id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;title&gt;</bpt><ept id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;linkText&gt;</bpt>Android<ept id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;/linkText&gt;</ept><bpt id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;title&gt;</bpt><ept id="bdcfedfe-810a-4e35-a1a7-9e20f137160b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc133789-a31a-4824-817d-7dd161138273" xml:space="preserve">
+          <source><bpt id="5192567c-e0af-435a-9853-83f4290e390e">&lt;linkText&gt;</bpt>Azure web apps and VMs<ept id="5192567c-e0af-435a-9853-83f4290e390e">&lt;/linkText&gt;</ept><bpt id="5192567c-e0af-435a-9853-83f4290e390e">&lt;title&gt;</bpt><ept id="5192567c-e0af-435a-9853-83f4290e390e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5192567c-e0af-435a-9853-83f4290e390e">&lt;linkText&gt;</bpt>Azure web apps and VMs<ept id="5192567c-e0af-435a-9853-83f4290e390e">&lt;/linkText&gt;</ept><bpt id="5192567c-e0af-435a-9853-83f4290e390e">&lt;title&gt;</bpt><ept id="5192567c-e0af-435a-9853-83f4290e390e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32d5dd3a-17c4-479f-b0d3-879b1ddfd473" xml:space="preserve">
+          <source><bpt id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;linkText&gt;</bpt>Azure Cloud Services<ept id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;/linkText&gt;</ept><bpt id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;title&gt;</bpt><ept id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;/title&gt;</ept>&amp;#151;including both web and worker roles</source>
+          <target state="new"><bpt id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;linkText&gt;</bpt>Azure Cloud Services<ept id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;/linkText&gt;</ept><bpt id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;title&gt;</bpt><ept id="a9bed142-3693-4347-8300-b127e8f302f2">&lt;/title&gt;</ept>&amp;#151;including both web and worker roles</target>
+        </trans-unit>
+        <trans-unit id="7e8bf721-2272-4c56-ac38-c19021741578" xml:space="preserve">
+          <source><bpt id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;linkText&gt;</bpt>iOS<ept id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;/linkText&gt;</ept><bpt id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;title&gt;</bpt><ept id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;linkText&gt;</bpt>iOS<ept id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;/linkText&gt;</ept><bpt id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;title&gt;</bpt><ept id="cd655b2a-b776-4386-93ef-f0e3a0a4cc88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8538e55b-8e9e-485b-9e8f-46d8e9969e8b" xml:space="preserve">
+          <source><bpt id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;linkText&gt;</bpt>J2EE<ept id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;/linkText&gt;</ept><bpt id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;title&gt;</bpt><ept id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;linkText&gt;</bpt>J2EE<ept id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;/linkText&gt;</ept><bpt id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;title&gt;</bpt><ept id="b38ffc9b-a2bc-44a5-b717-c01e8731d297">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ed046d6-25ce-4647-bb52-5e69c30d9600" xml:space="preserve">
+          <source><bpt id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;linkText&gt;</bpt>J2EE - already live<ept id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;/linkText&gt;</ept><bpt id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;title&gt;</bpt><ept id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;linkText&gt;</bpt>J2EE - already live<ept id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;/linkText&gt;</ept><bpt id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;title&gt;</bpt><ept id="40c0e2d9-34bb-4023-99a5-f662e3ddd606">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a213c4dd-3b46-4696-b8e4-c69a5fa053f1" xml:space="preserve">
+          <source><bpt id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;linkText&gt;</bpt>Joomla<ept id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;/linkText&gt;</ept><bpt id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;title&gt;</bpt><ept id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;linkText&gt;</bpt>Joomla<ept id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;/linkText&gt;</ept><bpt id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;title&gt;</bpt><ept id="e75ad677-5339-4d5d-ae7d-970acedc241d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="639b0337-9dec-406e-bd89-7b105162687e" xml:space="preserve">
+          <source><bpt id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;linkText&gt;</bpt>Microsoft CRM<ept id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;/linkText&gt;</ept><bpt id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;title&gt;</bpt><ept id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;linkText&gt;</bpt>Microsoft CRM<ept id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;/linkText&gt;</ept><bpt id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;title&gt;</bpt><ept id="0f919c53-1a35-4975-a192-2058c58bb958">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93c6abd6-36c4-4238-b6ab-5f1c4936174e" xml:space="preserve">
+          <source><bpt id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;linkText&gt;</bpt>Node.JS<ept id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;/linkText&gt;</ept><bpt id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;title&gt;</bpt><ept id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;linkText&gt;</bpt>Node.JS<ept id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;/linkText&gt;</ept><bpt id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;title&gt;</bpt><ept id="73d21463-9bae-4a8c-bf4c-5c141f0c8066">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1b56009-a624-411b-9eb5-85b618b1f161" xml:space="preserve">
+          <source><bpt id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;linkText&gt;</bpt>OSX<ept id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;/linkText&gt;</ept><bpt id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;title&gt;</bpt><ept id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;linkText&gt;</bpt>OSX<ept id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;/linkText&gt;</ept><bpt id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;title&gt;</bpt><ept id="35ea3bdc-7a76-4e1f-9657-3a77718b4ddb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80d84158-a089-4b9c-a330-26c49617953d" xml:space="preserve">
+          <source><bpt id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;linkText&gt;</bpt>SharePoint<ept id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;/linkText&gt;</ept><bpt id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;title&gt;</bpt><ept id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;linkText&gt;</bpt>SharePoint<ept id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;/linkText&gt;</ept><bpt id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;title&gt;</bpt><ept id="644de8f4-73bf-4065-b20d-1bbe3998b7e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="600f1c58-b8aa-4844-a256-b13819819da8" xml:space="preserve">
+          <source><bpt id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;linkText&gt;</bpt>Windows Store C#|VB<ept id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;/linkText&gt;</ept><bpt id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;title&gt;</bpt><ept id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;linkText&gt;</bpt>Windows Store C#|VB<ept id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;/linkText&gt;</ept><bpt id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;title&gt;</bpt><ept id="bf531a9b-c28d-40e0-ba73-58eab14dddbb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de5fc28e-dbba-4715-92e4-279857ed0ec1" xml:space="preserve">
+          <source><bpt id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;linkText&gt;</bpt>Windows Store C++<ept id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;/linkText&gt;</ept><bpt id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;title&gt;</bpt><ept id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;linkText&gt;</bpt>Windows Store C++<ept id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;/linkText&gt;</ept><bpt id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;title&gt;</bpt><ept id="c996771a-cd12-4d90-8904-ce409f1c14b0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e09ab4e-b9bd-4bbf-ac3e-ff0ab19f78fc" xml:space="preserve">
+          <source><bpt id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;linkText&gt;</bpt>Windows desktop applications, services, and worker roles<ept id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;/linkText&gt;</ept><bpt id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;title&gt;</bpt><ept id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;linkText&gt;</bpt>Windows desktop applications, services, and worker roles<ept id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;/linkText&gt;</ept><bpt id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;title&gt;</bpt><ept id="78aaf0d3-0803-4ce6-8994-32f719b5cabe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27ce6f78-9cbe-40c8-b167-8017668004fa" xml:space="preserve">
+          <source><bpt id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;linkText&gt;</bpt>WordPress<ept id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;/linkText&gt;</ept><bpt id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;title&gt;</bpt><ept id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;linkText&gt;</bpt>WordPress<ept id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;/linkText&gt;</ept><bpt id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;title&gt;</bpt><ept id="fa6a0775-7891-4eb4-a7bf-a6610fc92b78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="801ddf76-ef3a-4cb3-b426-93b8cd43d010" xml:space="preserve">
+          <source><bpt id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;linkText&gt;</bpt>Anything else<ept id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;/linkText&gt;</ept><bpt id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;title&gt;</bpt><ept id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;linkText&gt;</bpt>Anything else<ept id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;/linkText&gt;</ept><bpt id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;title&gt;</bpt><ept id="f5325d5e-afe2-4f3f-8d07-4f1041fc0a32">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca218068-3e03-490c-bd63-85bbf0f61015" xml:space="preserve">
+          <source><bpt id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;linkText&gt;</bpt>Log4Net, NLog, or System.Diagnostics.Trace<ept id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;/linkText&gt;</ept><bpt id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;title&gt;</bpt><ept id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;linkText&gt;</bpt>Log4Net, NLog, or System.Diagnostics.Trace<ept id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;/linkText&gt;</ept><bpt id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;title&gt;</bpt><ept id="eabc062d-9bdb-4a37-8459-5b3651beaad0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8f995d4-d0ed-4740-ac27-942fcba13d00" xml:space="preserve">
+          <source><bpt id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;linkText&gt;</bpt>Java, Log4J, or Logback<ept id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;/linkText&gt;</ept><bpt id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;title&gt;</bpt><ept id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;linkText&gt;</bpt>Java, Log4J, or Logback<ept id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;/linkText&gt;</ept><bpt id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;title&gt;</bpt><ept id="9edbc979-0a84-4250-981c-7f10278563a4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5837a05e-28f8-44dd-b60f-faad49cf3379" xml:space="preserve">
+          <source><bpt id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;linkText&gt;</bpt>Semantic Logging<ept id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;/linkText&gt;</ept><bpt id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;title&gt;</bpt><ept id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;/title&gt;</ept>&amp;#151;integrates with <bpt id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;linkText&gt;</bpt>Semantic Logging Application Block<ept id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;/linkText&gt;</ept><bpt id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;title&gt;</bpt><ept id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;linkText&gt;</bpt>Semantic Logging<ept id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;/linkText&gt;</ept><bpt id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;title&gt;</bpt><ept id="27de5058-8c05-469e-958f-d365d4d0f972">&lt;/title&gt;</ept>&amp;#151;integrates with <bpt id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;linkText&gt;</bpt>Semantic Logging Application Block<ept id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;/linkText&gt;</ept><bpt id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;title&gt;</bpt><ept id="cbcdb453-caec-4bc5-95d5-28adf97a2ff7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da14108f-d299-48aa-b948-9bd152775a60" xml:space="preserve">
+          <source><bpt id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;linkText&gt;</bpt>Cloud-based load testing<ept id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;/linkText&gt;</ept><bpt id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;title&gt;</bpt><ept id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;linkText&gt;</bpt>Cloud-based load testing<ept id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;/linkText&gt;</ept><bpt id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;title&gt;</bpt><ept id="51dfded9-f2f6-43ab-b3a0-21a060968ddb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c7e6433-1742-41db-8c51-0b838085ef65" xml:space="preserve">
+          <source>If there isn't yet an SDK for your language or platform, perhaps you'd like to build one?</source>
+          <target state="new">If there isn't yet an SDK for your language or platform, perhaps you'd like to build one?</target>
+        </trans-unit>
+        <trans-unit id="e489ff95-1f35-44c7-9a9d-f7e1225bd318" xml:space="preserve">
+          <source>Take a look at the code of the existing SDKs listed in the <bpt id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;linkText&gt;</bpt>Application Insights SDK project on GitHub<ept id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;/linkText&gt;</ept><bpt id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;title&gt;</bpt><ept id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;/title&gt;</ept></source>
+          <target state="new">Take a look at the code of the existing SDKs listed in the <bpt id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;linkText&gt;</bpt>Application Insights SDK project on GitHub<ept id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;/linkText&gt;</ept><bpt id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;title&gt;</bpt><ept id="9957cb01-9477-4e57-9c8d-4a3544e6ede6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ace1f68-907e-426d-83c0-6b773ed4cb4a" xml:space="preserve">
+          <source><bpt id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;linkText&gt;</bpt>Cordova<ept id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;/linkText&gt;</ept><bpt id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;title&gt;</bpt><ept id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;linkText&gt;</bpt>Cordova<ept id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;/linkText&gt;</ept><bpt id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;title&gt;</bpt><ept id="5579acaf-6734-4040-8830-1c1157896ae2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="273cd5aa-5fca-4374-9687-4ecc2c8dba76" xml:space="preserve">
+          <source><bpt id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;linkText&gt;</bpt>Windows Store apps using JavaScript<ept id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;/linkText&gt;</ept><bpt id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;title&gt;</bpt><ept id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;linkText&gt;</bpt>Windows Store apps using JavaScript<ept id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;/linkText&gt;</ept><bpt id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;title&gt;</bpt><ept id="b59f22cb-c0cb-4226-8fb8-7b723e95c29c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

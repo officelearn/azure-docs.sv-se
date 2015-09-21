@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e23db540-d064-4c46-a498-13f6c4b942db" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e23db540-d064-4c46-a498-13f6c4b942db" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f16fdff4-cc38-4d99-a2a8-58d814e8992d">
+        <trans-unit id="e6cddc37-8ff6-4a18-b728-226bfc602562" xml:space="preserve">
+          <source>How to monitor Azure Redis Cache</source>
+          <target state="new">How to monitor Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="166fcfbb-2cb3-4084-b9b0-4094fa541186" xml:space="preserve">
+          <source>Learn how to monitor the health and performance your Azure Redis Cache instances</source>
+          <target state="new">Learn how to monitor the health and performance your Azure Redis Cache instances</target>
+        </trans-unit>
+        <trans-unit id="c7ed4c6b-3c27-478b-97b0-63256d5ee4cd" xml:space="preserve">
+          <source>Azure Redis Cache provides several options for monitoring your cache instances.</source>
+          <target state="new">Azure Redis Cache provides several options for monitoring your cache instances.</target>
+        </trans-unit>
+        <trans-unit id="44c7d221-c60c-42b0-97da-9aa7da211193" xml:space="preserve">
+          <source>You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met.</source>
+          <target state="new">You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met.</target>
+        </trans-unit>
+        <trans-unit id="1249b017-ff83-4cd6-af29-5d9d2b90600d" xml:space="preserve">
+          <source>These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.</source>
+          <target state="new">These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications.</target>
+        </trans-unit>
+        <trans-unit id="f0377764-ec82-46e7-b61c-fd264fe1b9d5" xml:space="preserve">
+          <source>When cache diagnostics are enabled, metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.</source>
+          <target state="new">When cache diagnostics are enabled, metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.</target>
+        </trans-unit>
+        <trans-unit id="3e92b251-3934-4b28-85c7-4b2fdce8fee5" xml:space="preserve">
+          <source>Cache metrics are collected using the Redis <bpt id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;linkText&gt;</bpt>INFO<ept id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;/linkText&gt;</ept><bpt id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;title&gt;</bpt><ept id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;/title&gt;</ept> command.</source>
+          <target state="new">Cache metrics are collected using the Redis <bpt id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;linkText&gt;</bpt>INFO<ept id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;/linkText&gt;</ept><bpt id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;title&gt;</bpt><ept id="e8648546-1fa6-4a2f-adf0-37089e8adfd6">&lt;/title&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="722fda85-6807-4f0f-8b4c-c4123e3b1a26" xml:space="preserve">
+          <source>For more information about the different INFO commands used for each cache metric, see <bpt id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;linkText&gt;</bpt>Available metrics and reporting intervals<ept id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;/linkText&gt;</ept><bpt id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;title&gt;</bpt><ept id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the different INFO commands used for each cache metric, see <bpt id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;linkText&gt;</bpt>Available metrics and reporting intervals<ept id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;/linkText&gt;</ept><bpt id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;title&gt;</bpt><ept id="e04dc150-b195-4218-aa2b-ff16e5525bf8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59146965-f50b-4693-bfd9-cc8bea24dd36" xml:space="preserve">
+          <source>To view cache metrics, <bpt id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;linkText&gt;</bpt>browse<ept id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;/linkText&gt;</ept><bpt id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;title&gt;</bpt><ept id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;/title&gt;</ept> to your cache instance in the <bpt id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;linkText&gt;</bpt>Azure preview portal<ept id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;/linkText&gt;</ept><bpt id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;title&gt;</bpt><ept id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To view cache metrics, <bpt id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;linkText&gt;</bpt>browse<ept id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;/linkText&gt;</ept><bpt id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;title&gt;</bpt><ept id="e5c52165-8801-4f2d-87f4-f35ef5d4d002">&lt;/title&gt;</ept> to your cache instance in the <bpt id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;linkText&gt;</bpt>Azure preview portal<ept id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;/linkText&gt;</ept><bpt id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;title&gt;</bpt><ept id="25d3236c-bfc6-47b0-b7e2-2b865273c66d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="110fb473-d37b-4190-932b-9667bb5e5406" xml:space="preserve">
+          <source>Metrics for Azure Redis Cache instances are accessed on the <bpt id="5f863f58-7619-4435-a477-11f1fc2a3d32">&lt;strong&gt;</bpt>Redis Cache<ept id="5f863f58-7619-4435-a477-11f1fc2a3d32">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Metrics for Azure Redis Cache instances are accessed on the <bpt id="5f863f58-7619-4435-a477-11f1fc2a3d32">&lt;strong&gt;</bpt>Redis Cache<ept id="5f863f58-7619-4435-a477-11f1fc2a3d32">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="42b5a4d2-5883-4816-a617-349ca93fb16f" xml:space="preserve">
+          <source><bpt id="774113cf-8033-4ff7-9d0c-619e95873c04">&lt;linkText&gt;</bpt>Monitor<ept id="774113cf-8033-4ff7-9d0c-619e95873c04">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="774113cf-8033-4ff7-9d0c-619e95873c04">&lt;linkText&gt;</bpt>Monitor<ept id="774113cf-8033-4ff7-9d0c-619e95873c04">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee4d3377-a803-490c-b9e5-92a8a71b61e9" xml:space="preserve">
+          <source>If the following message is displayed in the preview portal, follow the steps in the <bpt id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;/linkText&gt;</ept><bpt id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;title&gt;</bpt><ept id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;/title&gt;</ept> section to enable cache diagnostics.</source>
+          <target state="new">If the following message is displayed in the preview portal, follow the steps in the <bpt id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;/linkText&gt;</ept><bpt id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;title&gt;</bpt><ept id="c8efdecf-dc1d-4f6a-a30d-453e69e88ba0">&lt;/title&gt;</ept> section to enable cache diagnostics.</target>
+        </trans-unit>
+        <trans-unit id="e942df00-a56f-4180-80d8-d96a1edab667" xml:space="preserve">
+          <source>`Monitoring may not be enabled.</source>
+          <target state="new">`Monitoring may not be enabled.</target>
+        </trans-unit>
+        <trans-unit id="a98770b8-913f-4e13-a811-088a0c75e8b7" xml:space="preserve">
+          <source>Click here to turn on Diagnostics.`</source>
+          <target state="new">Click here to turn on Diagnostics.`</target>
+        </trans-unit>
+        <trans-unit id="7af4c83f-bbb3-465d-9dfa-f31070b3562f" xml:space="preserve">
+          <source>The <bpt id="6772aeba-7b75-4bb4-83dc-41313a48202e">&lt;strong&gt;</bpt>Redis Cache<ept id="6772aeba-7b75-4bb4-83dc-41313a48202e">&lt;/strong&gt;</ept> blade has <bpt id="63a384c3-90c8-49c0-a2d3-e1183085a82c">&lt;strong&gt;</bpt>Monitoring<ept id="63a384c3-90c8-49c0-a2d3-e1183085a82c">&lt;/strong&gt;</ept> charts and <bpt id="dd6a0046-2f9c-410c-bf41-1f0b76e98154">&lt;strong&gt;</bpt>Usage<ept id="dd6a0046-2f9c-410c-bf41-1f0b76e98154">&lt;/strong&gt;</ept> charts that display cache metrics.</source>
+          <target state="new">The <bpt id="6772aeba-7b75-4bb4-83dc-41313a48202e">&lt;strong&gt;</bpt>Redis Cache<ept id="6772aeba-7b75-4bb4-83dc-41313a48202e">&lt;/strong&gt;</ept> blade has <bpt id="63a384c3-90c8-49c0-a2d3-e1183085a82c">&lt;strong&gt;</bpt>Monitoring<ept id="63a384c3-90c8-49c0-a2d3-e1183085a82c">&lt;/strong&gt;</ept> charts and <bpt id="dd6a0046-2f9c-410c-bf41-1f0b76e98154">&lt;strong&gt;</bpt>Usage<ept id="dd6a0046-2f9c-410c-bf41-1f0b76e98154">&lt;/strong&gt;</ept> charts that display cache metrics.</target>
+        </trans-unit>
+        <trans-unit id="4458a98c-1a73-4676-a8be-cd9f896abf33" xml:space="preserve">
+          <source>Each chart can be customized by adding or removing metrics and changing the reporting interval.</source>
+          <target state="new">Each chart can be customized by adding or removing metrics and changing the reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="9b94035c-7e4d-450f-b22b-cdde06813e51" xml:space="preserve">
+          <source>The <bpt id="e2b2811e-d433-4064-a1cc-6fc0ef984ba6">&lt;strong&gt;</bpt>Redis Cache<ept id="e2b2811e-d433-4064-a1cc-6fc0ef984ba6">&lt;/strong&gt;</ept> blade also has an <bpt id="806953eb-d243-42d4-871a-cfadf38ea9e3">&lt;strong&gt;</bpt>Operations<ept id="806953eb-d243-42d4-871a-cfadf38ea9e3">&lt;/strong&gt;</ept> section that displays cache <bpt id="82550a7c-2acb-4a1e-abb6-939bf2a42d34">&lt;strong&gt;</bpt>Events<ept id="82550a7c-2acb-4a1e-abb6-939bf2a42d34">&lt;/strong&gt;</ept> and <bpt id="189678fe-3b78-4624-9ebc-03fcf36bcbf7">&lt;strong&gt;</bpt>Alert rules<ept id="189678fe-3b78-4624-9ebc-03fcf36bcbf7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="e2b2811e-d433-4064-a1cc-6fc0ef984ba6">&lt;strong&gt;</bpt>Redis Cache<ept id="e2b2811e-d433-4064-a1cc-6fc0ef984ba6">&lt;/strong&gt;</ept> blade also has an <bpt id="806953eb-d243-42d4-871a-cfadf38ea9e3">&lt;strong&gt;</bpt>Operations<ept id="806953eb-d243-42d4-871a-cfadf38ea9e3">&lt;/strong&gt;</ept> section that displays cache <bpt id="82550a7c-2acb-4a1e-abb6-939bf2a42d34">&lt;strong&gt;</bpt>Events<ept id="82550a7c-2acb-4a1e-abb6-939bf2a42d34">&lt;/strong&gt;</ept> and <bpt id="189678fe-3b78-4624-9ebc-03fcf36bcbf7">&lt;strong&gt;</bpt>Alert rules<ept id="189678fe-3b78-4624-9ebc-03fcf36bcbf7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="586db534-527a-49fc-984e-656c5ee0d528" xml:space="preserve">
+          <source>Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly.</source>
+          <target state="new">Azure Redis Cache provides you the ability to have diagnostics data stored in a storage account so you can use any tools you want to access and process the data directly.</target>
+        </trans-unit>
+        <trans-unit id="4779e919-b67f-4ad1-aa33-ff0b636b6e55" xml:space="preserve">
+          <source>In order for cache diagnostics to be collected, stored, and displayed in the Azure preview portal, a storage account must be configured.</source>
+          <target state="new">In order for cache diagnostics to be collected, stored, and displayed in the Azure preview portal, a storage account must be configured.</target>
+        </trans-unit>
+        <trans-unit id="dd42c2c1-6cfa-4afb-b1d6-6cb4356674f6" xml:space="preserve">
+          <source>Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.</source>
+          <target state="new">Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.</target>
+        </trans-unit>
+        <trans-unit id="13c05316-f3fa-4ae4-9728-4efce34f3dc6" xml:space="preserve">
+          <source>To enable and configure cache diagnostics, navigate to the <bpt id="f144565a-8e45-4747-90d1-77e48008716a">&lt;strong&gt;</bpt>Redis Cache<ept id="f144565a-8e45-4747-90d1-77e48008716a">&lt;/strong&gt;</ept> blade for your cache instance.</source>
+          <target state="new">To enable and configure cache diagnostics, navigate to the <bpt id="f144565a-8e45-4747-90d1-77e48008716a">&lt;strong&gt;</bpt>Redis Cache<ept id="f144565a-8e45-4747-90d1-77e48008716a">&lt;/strong&gt;</ept> blade for your cache instance.</target>
+        </trans-unit>
+        <trans-unit id="9a9e9789-4cf0-459a-b211-7ea64dd4a657" xml:space="preserve">
+          <source>If diagnostics are not yet enabled, a message is displayed instead of a diagnostics chart.</source>
+          <target state="new">If diagnostics are not yet enabled, a message is displayed instead of a diagnostics chart.</target>
+        </trans-unit>
+        <trans-unit id="0f9c08b0-4ebe-447f-b769-aa28ba4d5fb9" xml:space="preserve">
+          <source><bpt id="0819f807-d70f-4379-9c98-b4839f0dc30c">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="0819f807-d70f-4379-9c98-b4839f0dc30c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0819f807-d70f-4379-9c98-b4839f0dc30c">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="0819f807-d70f-4379-9c98-b4839f0dc30c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0c42a3b-b7b5-43f2-aed4-ee1ccade05d3" xml:space="preserve">
+          <source>Click one of the monitoring charts such as <bpt id="54056c14-9213-414a-88e6-6fc20430c54e">&lt;strong&gt;</bpt>Hits and Misses<ept id="54056c14-9213-414a-88e6-6fc20430c54e">&lt;/strong&gt;</ept> to display the <bpt id="7cc5570b-d258-492f-8acd-301af42ae05d">&lt;strong&gt;</bpt>Metric<ept id="7cc5570b-d258-492f-8acd-301af42ae05d">&lt;/strong&gt;</ept> blade and click <bpt id="64062494-1e21-4480-9f22-df76739067f8">&lt;strong&gt;</bpt>Diagnostic settings<ept id="64062494-1e21-4480-9f22-df76739067f8">&lt;/strong&gt;</ept> to enable and configure the diagnostic settings for the cache service instance.</source>
+          <target state="new">Click one of the monitoring charts such as <bpt id="54056c14-9213-414a-88e6-6fc20430c54e">&lt;strong&gt;</bpt>Hits and Misses<ept id="54056c14-9213-414a-88e6-6fc20430c54e">&lt;/strong&gt;</ept> to display the <bpt id="7cc5570b-d258-492f-8acd-301af42ae05d">&lt;strong&gt;</bpt>Metric<ept id="7cc5570b-d258-492f-8acd-301af42ae05d">&lt;/strong&gt;</ept> blade and click <bpt id="64062494-1e21-4480-9f22-df76739067f8">&lt;strong&gt;</bpt>Diagnostic settings<ept id="64062494-1e21-4480-9f22-df76739067f8">&lt;/strong&gt;</ept> to enable and configure the diagnostic settings for the cache service instance.</target>
+        </trans-unit>
+        <trans-unit id="6f19b1f7-7c99-4205-ad67-62af66ecd201" xml:space="preserve">
+          <source><bpt id="bb08f54a-fa83-4ac2-abbd-f87f83b028eb">&lt;linkText&gt;</bpt>Diagnostics settings<ept id="bb08f54a-fa83-4ac2-abbd-f87f83b028eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb08f54a-fa83-4ac2-abbd-f87f83b028eb">&lt;linkText&gt;</bpt>Diagnostics settings<ept id="bb08f54a-fa83-4ac2-abbd-f87f83b028eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee54357c-4331-40bf-ad7e-5351bf59a9d1" xml:space="preserve">
+          <source><bpt id="1a404aa6-020f-411e-9f8a-a94fb1a42355">&lt;linkText&gt;</bpt>Configure diagnostics<ept id="1a404aa6-020f-411e-9f8a-a94fb1a42355">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1a404aa6-020f-411e-9f8a-a94fb1a42355">&lt;linkText&gt;</bpt>Configure diagnostics<ept id="1a404aa6-020f-411e-9f8a-a94fb1a42355">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49ea842f-075f-4802-b0d8-824d145056ec" xml:space="preserve">
+          <source>Click the <bpt id="6f8c954d-cc65-46d8-9caf-a15de90bfc27">&lt;strong&gt;</bpt>On<ept id="6f8c954d-cc65-46d8-9caf-a15de90bfc27">&lt;/strong&gt;</ept> button to enable cache diagnostics and display the diagnostics configuration.</source>
+          <target state="new">Click the <bpt id="6f8c954d-cc65-46d8-9caf-a15de90bfc27">&lt;strong&gt;</bpt>On<ept id="6f8c954d-cc65-46d8-9caf-a15de90bfc27">&lt;/strong&gt;</ept> button to enable cache diagnostics and display the diagnostics configuration.</target>
+        </trans-unit>
+        <trans-unit id="ae57035d-836c-485b-9ba4-f880b8ef97c2" xml:space="preserve">
+          <source>Click the arrow to the right of <bpt id="6a28f17c-8efa-45f0-99a5-4c7d68456f77">&lt;strong&gt;</bpt>Storage Account<ept id="6a28f17c-8efa-45f0-99a5-4c7d68456f77">&lt;/strong&gt;</ept> to select a storage account to hold diagnostic data.</source>
+          <target state="new">Click the arrow to the right of <bpt id="6a28f17c-8efa-45f0-99a5-4c7d68456f77">&lt;strong&gt;</bpt>Storage Account<ept id="6a28f17c-8efa-45f0-99a5-4c7d68456f77">&lt;/strong&gt;</ept> to select a storage account to hold diagnostic data.</target>
+        </trans-unit>
+        <trans-unit id="943ff328-3976-4f32-90d4-4659b4851711" xml:space="preserve">
+          <source>For best performance, select a storage account in the same region as your cache.</source>
+          <target state="new">For best performance, select a storage account in the same region as your cache.</target>
+        </trans-unit>
+        <trans-unit id="d8e81ca6-f536-44d6-9e60-cb4fd5f7680d" xml:space="preserve">
+          <source>Use the <bpt id="be9cf02a-78a2-4fdf-8ad8-8696f5b15ff7">&lt;strong&gt;</bpt>Retention (days)<ept id="be9cf02a-78a2-4fdf-8ad8-8696f5b15ff7">&lt;/strong&gt;</ept> drop-down to select the retention period for the diagnostic data.</source>
+          <target state="new">Use the <bpt id="be9cf02a-78a2-4fdf-8ad8-8696f5b15ff7">&lt;strong&gt;</bpt>Retention (days)<ept id="be9cf02a-78a2-4fdf-8ad8-8696f5b15ff7">&lt;/strong&gt;</ept> drop-down to select the retention period for the diagnostic data.</target>
+        </trans-unit>
+        <trans-unit id="8fcf7fd6-b808-400e-b7e0-61b61e2d7ff6" xml:space="preserve">
+          <source>You can also type the desired number of days into the textbox at the top of the list.</source>
+          <target state="new">You can also type the desired number of days into the textbox at the top of the list.</target>
+        </trans-unit>
+        <trans-unit id="a01f1601-f892-4d7e-ae64-6b4a868ff52c" xml:space="preserve">
+          <source>Once the diagnostic settings are configured, click <bpt id="68a548d2-78fa-4baa-a545-4d0ccb08c051">&lt;strong&gt;</bpt>Save<ept id="68a548d2-78fa-4baa-a545-4d0ccb08c051">&lt;/strong&gt;</ept> to save the configuration.</source>
+          <target state="new">Once the diagnostic settings are configured, click <bpt id="68a548d2-78fa-4baa-a545-4d0ccb08c051">&lt;strong&gt;</bpt>Save<ept id="68a548d2-78fa-4baa-a545-4d0ccb08c051">&lt;/strong&gt;</ept> to save the configuration.</target>
+        </trans-unit>
+        <trans-unit id="663cce2b-2e9c-4a6f-a9d6-9630c97104d9" xml:space="preserve">
+          <source>Note that it may take a few moments for the changes to take effect.</source>
+          <target state="new">Note that it may take a few moments for the changes to take effect.</target>
+        </trans-unit>
+        <trans-unit id="260e9788-c93d-4b21-b66a-ee7c3aa809c9" xml:space="preserve">
+          <source>Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.</source>
+          <target state="new">Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.</target>
+        </trans-unit>
+        <trans-unit id="b78ee482-f5c2-436b-8abb-2c7512e1cf58" xml:space="preserve">
+          <source>To view the stored metrics, examine the tables in your storage account with names that start with <bpt id="a7c0dea6-20fe-46c6-b612-b6f4a0d47f86">&lt;code&gt;</bpt>WADMetrics<ept id="a7c0dea6-20fe-46c6-b612-b6f4a0d47f86">&lt;/code&gt;</ept>.</source>
+          <target state="new">To view the stored metrics, examine the tables in your storage account with names that start with <bpt id="a7c0dea6-20fe-46c6-b612-b6f4a0d47f86">&lt;code&gt;</bpt>WADMetrics<ept id="a7c0dea6-20fe-46c6-b612-b6f4a0d47f86">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf0f81d5-bc99-4536-853a-6e83d4c0e43d" xml:space="preserve">
+          <source>For more information about accessing the stored metrics outside of the preview portal, see the <bpt id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;linkText&gt;</bpt>Access Redis Cache Monitoring data<ept id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;/linkText&gt;</ept><bpt id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;title&gt;</bpt><ept id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;/title&gt;</ept> sample.</source>
+          <target state="new">For more information about accessing the stored metrics outside of the preview portal, see the <bpt id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;linkText&gt;</bpt>Access Redis Cache Monitoring data<ept id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;/linkText&gt;</ept><bpt id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;title&gt;</bpt><ept id="7714bbb6-7ad8-45bb-8544-afcd513a8e33">&lt;/title&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="a80430b6-9139-480e-a1bb-98141b212be2" xml:space="preserve">
+          <source>Only metrics that are stored in the selected storage account are displayed in the preview portal.</source>
+          <target state="new">Only metrics that are stored in the selected storage account are displayed in the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="179fb7e2-6119-4d42-9a99-7fb10349cfb2" xml:space="preserve">
+          <source>If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the preview portal and is not purged when the retention period interval elapses.</source>
+          <target state="new">If you change storage accounts, the data in the previously configured storage account remains available for download, but it is not displayed in the preview portal and is not purged when the retention period interval elapses.</target>
+        </trans-unit>
+        <trans-unit id="e9d08bcd-2eae-45a6-befc-f3b21413372f" xml:space="preserve">
+          <source>Cache metrics are reported using several reporting intervals, including <bpt id="99c15db5-8ed3-4e88-be8c-7f60644c6ea4">&lt;strong&gt;</bpt>Past hour<ept id="99c15db5-8ed3-4e88-be8c-7f60644c6ea4">&lt;/strong&gt;</ept>, <bpt id="983751bd-d18d-4db2-842d-8343278d0c12">&lt;strong&gt;</bpt>Today<ept id="983751bd-d18d-4db2-842d-8343278d0c12">&lt;/strong&gt;</ept>, <bpt id="59c5771a-ce76-4cf3-bb79-776e87e4a347">&lt;strong&gt;</bpt>Past week<ept id="59c5771a-ce76-4cf3-bb79-776e87e4a347">&lt;/strong&gt;</ept>, and <bpt id="4c175bd2-dfce-4ede-afbd-79ef1f6e315c">&lt;strong&gt;</bpt>Custom<ept id="4c175bd2-dfce-4ede-afbd-79ef1f6e315c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Cache metrics are reported using several reporting intervals, including <bpt id="99c15db5-8ed3-4e88-be8c-7f60644c6ea4">&lt;strong&gt;</bpt>Past hour<ept id="99c15db5-8ed3-4e88-be8c-7f60644c6ea4">&lt;/strong&gt;</ept>, <bpt id="983751bd-d18d-4db2-842d-8343278d0c12">&lt;strong&gt;</bpt>Today<ept id="983751bd-d18d-4db2-842d-8343278d0c12">&lt;/strong&gt;</ept>, <bpt id="59c5771a-ce76-4cf3-bb79-776e87e4a347">&lt;strong&gt;</bpt>Past week<ept id="59c5771a-ce76-4cf3-bb79-776e87e4a347">&lt;/strong&gt;</ept>, and <bpt id="4c175bd2-dfce-4ede-afbd-79ef1f6e315c">&lt;strong&gt;</bpt>Custom<ept id="4c175bd2-dfce-4ede-afbd-79ef1f6e315c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea393785-768e-4829-a40c-7c85ed32ddc7" xml:space="preserve">
+          <source>The <bpt id="294c7ebf-fe49-4d4b-bc0c-ebc0da966fb5">&lt;strong&gt;</bpt>Metric<ept id="294c7ebf-fe49-4d4b-bc0c-ebc0da966fb5">&lt;/strong&gt;</ept> blade for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.</source>
+          <target state="new">The <bpt id="294c7ebf-fe49-4d4b-bc0c-ebc0da966fb5">&lt;strong&gt;</bpt>Metric<ept id="294c7ebf-fe49-4d4b-bc0c-ebc0da966fb5">&lt;/strong&gt;</ept> blade for each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="41fad529-a864-4a07-931c-b6f236c521c7" xml:space="preserve">
+          <source>Even when the cache is idle with no connected active client applications, you may see some cache activity, such as connected clients, memory usage, and operations being performed.</source>
+          <target state="new">Even when the cache is idle with no connected active client applications, you may see some cache activity, such as connected clients, memory usage, and operations being performed.</target>
+        </trans-unit>
+        <trans-unit id="73b156a1-a9bf-44d6-afa8-7ddb1338e4c3" xml:space="preserve">
+          <source>This activity is normal during the operation of an Azure Redis Cache instance.</source>
+          <target state="new">This activity is normal during the operation of an Azure Redis Cache instance.</target>
+        </trans-unit>
+        <trans-unit id="c8e35116-b6b8-4ea3-9d69-b293b81259a3" xml:space="preserve">
+          <source>Metric</source>
+          <target state="new">Metric</target>
+        </trans-unit>
+        <trans-unit id="5ad75b73-b258-4959-adc4-12bf54f9b11d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="57ad8363-6eaa-4548-8176-c117e59ae375" xml:space="preserve">
+          <source>Cache Hits</source>
+          <target state="new">Cache Hits</target>
+        </trans-unit>
+        <trans-unit id="2156f0ff-74e6-4e95-bf81-3b1f54363ba1" xml:space="preserve">
+          <source>The number of successful key lookups during the specified reporting interval.</source>
+          <target state="new">The number of successful key lookups during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="a8d8cce6-fd50-40bd-8ed9-8f7b14f10b3f" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="1a9a3743-46fc-4110-b429-8951617c125e">&lt;code&gt;</bpt>keyspace_hits command<ept id="1a9a3743-46fc-4110-b429-8951617c125e">&lt;/code&gt;</ept>.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="1a9a3743-46fc-4110-b429-8951617c125e">&lt;code&gt;</bpt>keyspace_hits command<ept id="1a9a3743-46fc-4110-b429-8951617c125e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ccbe603-235e-4a0d-9d8b-1da0d2da45c4" xml:space="preserve">
+          <source>Cache Misses</source>
+          <target state="new">Cache Misses</target>
+        </trans-unit>
+        <trans-unit id="3fb40eff-4d8c-4f72-a5d9-1d1667d19000" xml:space="preserve">
+          <source>The number of failed key lookups during the specified reporting interval.</source>
+          <target state="new">The number of failed key lookups during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="ce596cf0-0bb9-4ee5-bfff-a4639903ef23" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="5fd54f2c-e354-4cd2-a9fc-45360d174478">&lt;code&gt;</bpt>keyspace_misses<ept id="5fd54f2c-e354-4cd2-a9fc-45360d174478">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="5fd54f2c-e354-4cd2-a9fc-45360d174478">&lt;code&gt;</bpt>keyspace_misses<ept id="5fd54f2c-e354-4cd2-a9fc-45360d174478">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="41e26eb8-e41f-4786-b823-9fcc0e2528c5" xml:space="preserve">
+          <source>Cache misses do not necessarily mean there is an issue with the cache.</source>
+          <target state="new">Cache misses do not necessarily mean there is an issue with the cache.</target>
+        </trans-unit>
+        <trans-unit id="79248591-d35b-4c39-99f4-7a27c96cebd6" xml:space="preserve">
+          <source>For example, when using the cache-aside programming pattern, an application looks first in the cache for an item.</source>
+          <target state="new">For example, when using the cache-aside programming pattern, an application looks first in the cache for an item.</target>
+        </trans-unit>
+        <trans-unit id="b970a868-5c89-4644-9d62-5ef329cde1e6" xml:space="preserve">
+          <source>If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time.</source>
+          <target state="new">If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time.</target>
+        </trans-unit>
+        <trans-unit id="f4e1fb9b-39a5-474b-8628-76c591965ce9" xml:space="preserve">
+          <source>Cache misses are normal behavior for the cache-aside programming pattern.</source>
+          <target state="new">Cache misses are normal behavior for the cache-aside programming pattern.</target>
+        </trans-unit>
+        <trans-unit id="932c4cbb-6f0e-486b-b1a5-edf4114def15" xml:space="preserve">
+          <source>If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache.</source>
+          <target state="new">If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache.</target>
+        </trans-unit>
+        <trans-unit id="6fbe9ff5-c8de-43df-a56f-0c96ccc6408c" xml:space="preserve">
+          <source>If items are being evicted from the cache due to memory pressure then there may be some cache misses, but a better metric to monitor for memory pressure would be <bpt id="9383f6c6-9564-4cc3-9acb-ae5f0a3eb707">&lt;code&gt;</bpt>Used Memory<ept id="9383f6c6-9564-4cc3-9acb-ae5f0a3eb707">&lt;/code&gt;</ept> or <bpt id="28093e26-8881-47dc-865e-c696d0901573">&lt;code&gt;</bpt>Evicted Keys<ept id="28093e26-8881-47dc-865e-c696d0901573">&lt;/code&gt;</ept>.</source>
+          <target state="new">If items are being evicted from the cache due to memory pressure then there may be some cache misses, but a better metric to monitor for memory pressure would be <bpt id="9383f6c6-9564-4cc3-9acb-ae5f0a3eb707">&lt;code&gt;</bpt>Used Memory<ept id="9383f6c6-9564-4cc3-9acb-ae5f0a3eb707">&lt;/code&gt;</ept> or <bpt id="28093e26-8881-47dc-865e-c696d0901573">&lt;code&gt;</bpt>Evicted Keys<ept id="28093e26-8881-47dc-865e-c696d0901573">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da04ab06-24fb-4b13-93a8-9a44ceb43e0f" xml:space="preserve">
+          <source>Connected Clients</source>
+          <target state="new">Connected Clients</target>
+        </trans-unit>
+        <trans-unit id="1f8be6ce-c29e-4e07-9d74-ff8a9a1b5693" xml:space="preserve">
+          <source>The number of client connections to the cache during the specified reporting interval.</source>
+          <target state="new">The number of client connections to the cache during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="7478b1be-61f6-46ac-a302-914f648d26af" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="29a11e42-ebfe-4f7b-9ac1-1aeb7e60c944">&lt;code&gt;</bpt>connected_clients<ept id="29a11e42-ebfe-4f7b-9ac1-1aeb7e60c944">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="29a11e42-ebfe-4f7b-9ac1-1aeb7e60c944">&lt;code&gt;</bpt>connected_clients<ept id="29a11e42-ebfe-4f7b-9ac1-1aeb7e60c944">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="df984786-e77c-4331-b239-638de5bbe516" xml:space="preserve">
+          <source>The connected clients limit is 10,000 and once it is reached subsequent connection attempts to the cache will fail.</source>
+          <target state="new">The connected clients limit is 10,000 and once it is reached subsequent connection attempts to the cache will fail.</target>
+        </trans-unit>
+        <trans-unit id="a8094bf6-d4c8-40c4-9aec-80fce254b48c" xml:space="preserve">
+          <source>Note that even if there are no active client application, there may still be a few instances of connected clients due to internal processes and connections.</source>
+          <target state="new">Note that even if there are no active client application, there may still be a few instances of connected clients due to internal processes and connections.</target>
+        </trans-unit>
+        <trans-unit id="caee02f2-e010-47b0-be91-4b7b1c695f67" xml:space="preserve">
+          <source>Evicted Keys</source>
+          <target state="new">Evicted Keys</target>
+        </trans-unit>
+        <trans-unit id="dc1559e7-96dd-4681-98ee-c5a16b0d9ea3" xml:space="preserve">
+          <source>The number of items evicted from the cache during the specified reporting interval due to the <bpt id="90c7f703-5e63-49fc-99a9-e92076469828">&lt;code&gt;</bpt>maxmemory<ept id="90c7f703-5e63-49fc-99a9-e92076469828">&lt;/code&gt;</ept> limit.</source>
+          <target state="new">The number of items evicted from the cache during the specified reporting interval due to the <bpt id="90c7f703-5e63-49fc-99a9-e92076469828">&lt;code&gt;</bpt>maxmemory<ept id="90c7f703-5e63-49fc-99a9-e92076469828">&lt;/code&gt;</ept> limit.</target>
+        </trans-unit>
+        <trans-unit id="e4ba05b3-3a2b-424c-adaa-383c18c59736" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="34236a3d-54d5-49d9-a7c5-690c8f955879">&lt;code&gt;</bpt>evicted_keys<ept id="34236a3d-54d5-49d9-a7c5-690c8f955879">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="34236a3d-54d5-49d9-a7c5-690c8f955879">&lt;code&gt;</bpt>evicted_keys<ept id="34236a3d-54d5-49d9-a7c5-690c8f955879">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="a77f369b-387d-4e86-930d-4aa31aecaca9" xml:space="preserve">
+          <source>Expired Keys</source>
+          <target state="new">Expired Keys</target>
+        </trans-unit>
+        <trans-unit id="4ea847e3-03f0-4e7b-a1e3-8304c5e78f6a" xml:space="preserve">
+          <source>The number of items expired from the cache during the specified reporting interval.</source>
+          <target state="new">The number of items expired from the cache during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="157dc1b9-dfc8-4686-a73e-b6f8ed135786" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="4cbfc974-c25f-43f2-b8d0-ee059b474ec0">&lt;code&gt;</bpt>expired_keys<ept id="4cbfc974-c25f-43f2-b8d0-ee059b474ec0">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="4cbfc974-c25f-43f2-b8d0-ee059b474ec0">&lt;code&gt;</bpt>expired_keys<ept id="4cbfc974-c25f-43f2-b8d0-ee059b474ec0">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="3111266c-1690-4716-bfb7-40708edfef29" xml:space="preserve">
+          <source>Gets</source>
+          <target state="new">Gets</target>
+        </trans-unit>
+        <trans-unit id="505c9c6a-02c8-425e-9296-b7b7b0253186" xml:space="preserve">
+          <source>The number of get operations from the cache during the specified reporting interval.</source>
+          <target state="new">The number of get operations from the cache during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="26ecb9e9-942c-4eed-8f6a-9887f6d78d94" xml:space="preserve">
+          <source>This value is the sum of the following values from the Redis INFO all command: <bpt id="3c611d58-f1db-4e31-b092-b6a9c8b20c29">&lt;code&gt;</bpt>cmdstat_get<ept id="3c611d58-f1db-4e31-b092-b6a9c8b20c29">&lt;/code&gt;</ept>, <bpt id="3f23a401-c9c3-46ed-bbcb-6627b57fe524">&lt;code&gt;</bpt>cmdstat_hget<ept id="3f23a401-c9c3-46ed-bbcb-6627b57fe524">&lt;/code&gt;</ept>, <bpt id="c96c3cf5-5732-4167-997a-956741f9623f">&lt;code&gt;</bpt>cmdstat_hgetall<ept id="c96c3cf5-5732-4167-997a-956741f9623f">&lt;/code&gt;</ept>, <bpt id="4df9d2b3-4d75-4699-809a-5e6a304fcd8d">&lt;code&gt;</bpt>cmdstat_hmget<ept id="4df9d2b3-4d75-4699-809a-5e6a304fcd8d">&lt;/code&gt;</ept>, <bpt id="97c42df4-9a0d-403d-9618-1dbb8dbd9bee">&lt;code&gt;</bpt>cmdstat_mget<ept id="97c42df4-9a0d-403d-9618-1dbb8dbd9bee">&lt;/code&gt;</ept>, <bpt id="cd3cc778-fb37-4a12-a491-defe9269c417">&lt;code&gt;</bpt>cmdstat_getbit<ept id="cd3cc778-fb37-4a12-a491-defe9269c417">&lt;/code&gt;</ept>, and <bpt id="37c79e80-7756-455b-9522-2d2cffb6c598">&lt;code&gt;</bpt>cmdstat_getrange<ept id="37c79e80-7756-455b-9522-2d2cffb6c598">&lt;/code&gt;</ept>, and is equivalent to the sum of cache hits and misses during the reporting interval.</source>
+          <target state="new">This value is the sum of the following values from the Redis INFO all command: <bpt id="3c611d58-f1db-4e31-b092-b6a9c8b20c29">&lt;code&gt;</bpt>cmdstat_get<ept id="3c611d58-f1db-4e31-b092-b6a9c8b20c29">&lt;/code&gt;</ept>, <bpt id="3f23a401-c9c3-46ed-bbcb-6627b57fe524">&lt;code&gt;</bpt>cmdstat_hget<ept id="3f23a401-c9c3-46ed-bbcb-6627b57fe524">&lt;/code&gt;</ept>, <bpt id="c96c3cf5-5732-4167-997a-956741f9623f">&lt;code&gt;</bpt>cmdstat_hgetall<ept id="c96c3cf5-5732-4167-997a-956741f9623f">&lt;/code&gt;</ept>, <bpt id="4df9d2b3-4d75-4699-809a-5e6a304fcd8d">&lt;code&gt;</bpt>cmdstat_hmget<ept id="4df9d2b3-4d75-4699-809a-5e6a304fcd8d">&lt;/code&gt;</ept>, <bpt id="97c42df4-9a0d-403d-9618-1dbb8dbd9bee">&lt;code&gt;</bpt>cmdstat_mget<ept id="97c42df4-9a0d-403d-9618-1dbb8dbd9bee">&lt;/code&gt;</ept>, <bpt id="cd3cc778-fb37-4a12-a491-defe9269c417">&lt;code&gt;</bpt>cmdstat_getbit<ept id="cd3cc778-fb37-4a12-a491-defe9269c417">&lt;/code&gt;</ept>, and <bpt id="37c79e80-7756-455b-9522-2d2cffb6c598">&lt;code&gt;</bpt>cmdstat_getrange<ept id="37c79e80-7756-455b-9522-2d2cffb6c598">&lt;/code&gt;</ept>, and is equivalent to the sum of cache hits and misses during the reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="9bf66024-7d97-4a62-acea-d4ed9b6f773d" xml:space="preserve">
+          <source>Redis Server Load</source>
+          <target state="new">Redis Server Load</target>
+        </trans-unit>
+        <trans-unit id="88c871e3-7a9d-4e81-ae0f-5a834e7d1210" xml:space="preserve">
+          <source>The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages.</source>
+          <target state="new">The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages.</target>
+        </trans-unit>
+        <trans-unit id="74f02d2b-3676-402e-bc28-d9c645fa6659" xml:space="preserve">
+          <source>If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster.</source>
+          <target state="new">If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster.</target>
+        </trans-unit>
+        <trans-unit id="c8b2c181-b5a9-4cef-b131-8fbf6ed5800b" xml:space="preserve">
+          <source>If you are seeing high Redis Server Load then you will see timeout exceptions in the client.</source>
+          <target state="new">If you are seeing high Redis Server Load then you will see timeout exceptions in the client.</target>
+        </trans-unit>
+        <trans-unit id="3df02236-b67d-4db1-8feb-ed9c9e96f6a0" xml:space="preserve">
+          <source>In this case you should consider scaling up or partitioning your data into multiple caches.</source>
+          <target state="new">In this case you should consider scaling up or partitioning your data into multiple caches.</target>
+        </trans-unit>
+        <trans-unit id="2bbfad32-a651-4e23-a38c-7da90f74951a" xml:space="preserve">
+          <source>Sets</source>
+          <target state="new">Sets</target>
+        </trans-unit>
+        <trans-unit id="e23008e3-b3b4-4bf5-9259-e7fe3e191b4f" xml:space="preserve">
+          <source>The number of set operations to the cache during the specified reporting interval.</source>
+          <target state="new">The number of set operations to the cache during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="70fdc8d3-a3e4-4fa1-bae4-9c832c8c30f4" xml:space="preserve">
+          <source>This value is the sum of the following values from the Redis INFO all command: <bpt id="6007b88b-ae5f-49ef-8d9a-c320ee21e5c0">&lt;code&gt;</bpt>cmdstat_set<ept id="6007b88b-ae5f-49ef-8d9a-c320ee21e5c0">&lt;/code&gt;</ept>, <bpt id="d7f74640-c5a5-4e62-8b7c-7f43f8d2c172">&lt;code&gt;</bpt>cmdstat_hset<ept id="d7f74640-c5a5-4e62-8b7c-7f43f8d2c172">&lt;/code&gt;</ept>, <bpt id="ff78c730-ea86-452f-9117-740cf81a5f8e">&lt;code&gt;</bpt>cmdstat_hmset<ept id="ff78c730-ea86-452f-9117-740cf81a5f8e">&lt;/code&gt;</ept>, <bpt id="43a33208-f6d6-47f6-8dd4-c934ee754305">&lt;code&gt;</bpt>cmdstat_hsetnx<ept id="43a33208-f6d6-47f6-8dd4-c934ee754305">&lt;/code&gt;</ept>, <bpt id="d1906224-c044-4876-a2f8-3f7c686dc2a1">&lt;code&gt;</bpt>cmdstat_lset<ept id="d1906224-c044-4876-a2f8-3f7c686dc2a1">&lt;/code&gt;</ept>, <bpt id="7766f136-456f-4578-ac53-586316bc0cbb">&lt;code&gt;</bpt>cmdstat_mset<ept id="7766f136-456f-4578-ac53-586316bc0cbb">&lt;/code&gt;</ept>, <bpt id="3a248b02-bcac-4fe1-8d79-04dcb4fb3587">&lt;code&gt;</bpt>cmdstat_msetnx<ept id="3a248b02-bcac-4fe1-8d79-04dcb4fb3587">&lt;/code&gt;</ept>, <bpt id="20eca619-6198-4dcd-b896-301a754a3813">&lt;code&gt;</bpt>cmdstat_setbit<ept id="20eca619-6198-4dcd-b896-301a754a3813">&lt;/code&gt;</ept>, <bpt id="ab360c50-4d29-42e8-920a-1062e33c45d6">&lt;code&gt;</bpt>cmdstat_setex<ept id="ab360c50-4d29-42e8-920a-1062e33c45d6">&lt;/code&gt;</ept>, <bpt id="b925b4cd-2fec-4fd5-b11e-a0563d62aaae">&lt;code&gt;</bpt>cmdstat_setrange<ept id="b925b4cd-2fec-4fd5-b11e-a0563d62aaae">&lt;/code&gt;</ept>, and <bpt id="2bebad25-66cd-4936-89b6-c0634509dbf4">&lt;code&gt;</bpt>cmdstat_setnx<ept id="2bebad25-66cd-4936-89b6-c0634509dbf4">&lt;/code&gt;</ept>.</source>
+          <target state="new">This value is the sum of the following values from the Redis INFO all command: <bpt id="6007b88b-ae5f-49ef-8d9a-c320ee21e5c0">&lt;code&gt;</bpt>cmdstat_set<ept id="6007b88b-ae5f-49ef-8d9a-c320ee21e5c0">&lt;/code&gt;</ept>, <bpt id="d7f74640-c5a5-4e62-8b7c-7f43f8d2c172">&lt;code&gt;</bpt>cmdstat_hset<ept id="d7f74640-c5a5-4e62-8b7c-7f43f8d2c172">&lt;/code&gt;</ept>, <bpt id="ff78c730-ea86-452f-9117-740cf81a5f8e">&lt;code&gt;</bpt>cmdstat_hmset<ept id="ff78c730-ea86-452f-9117-740cf81a5f8e">&lt;/code&gt;</ept>, <bpt id="43a33208-f6d6-47f6-8dd4-c934ee754305">&lt;code&gt;</bpt>cmdstat_hsetnx<ept id="43a33208-f6d6-47f6-8dd4-c934ee754305">&lt;/code&gt;</ept>, <bpt id="d1906224-c044-4876-a2f8-3f7c686dc2a1">&lt;code&gt;</bpt>cmdstat_lset<ept id="d1906224-c044-4876-a2f8-3f7c686dc2a1">&lt;/code&gt;</ept>, <bpt id="7766f136-456f-4578-ac53-586316bc0cbb">&lt;code&gt;</bpt>cmdstat_mset<ept id="7766f136-456f-4578-ac53-586316bc0cbb">&lt;/code&gt;</ept>, <bpt id="3a248b02-bcac-4fe1-8d79-04dcb4fb3587">&lt;code&gt;</bpt>cmdstat_msetnx<ept id="3a248b02-bcac-4fe1-8d79-04dcb4fb3587">&lt;/code&gt;</ept>, <bpt id="20eca619-6198-4dcd-b896-301a754a3813">&lt;code&gt;</bpt>cmdstat_setbit<ept id="20eca619-6198-4dcd-b896-301a754a3813">&lt;/code&gt;</ept>, <bpt id="ab360c50-4d29-42e8-920a-1062e33c45d6">&lt;code&gt;</bpt>cmdstat_setex<ept id="ab360c50-4d29-42e8-920a-1062e33c45d6">&lt;/code&gt;</ept>, <bpt id="b925b4cd-2fec-4fd5-b11e-a0563d62aaae">&lt;code&gt;</bpt>cmdstat_setrange<ept id="b925b4cd-2fec-4fd5-b11e-a0563d62aaae">&lt;/code&gt;</ept>, and <bpt id="2bebad25-66cd-4936-89b6-c0634509dbf4">&lt;code&gt;</bpt>cmdstat_setnx<ept id="2bebad25-66cd-4936-89b6-c0634509dbf4">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbe276a0-e22c-479e-8ccd-83737ff212e7" xml:space="preserve">
+          <source>Total Operations</source>
+          <target state="new">Total Operations</target>
+        </trans-unit>
+        <trans-unit id="41fa0af5-53c7-475b-a720-81d67dee3487" xml:space="preserve">
+          <source>The total number of commands processed by the cache server during the specified reporting interval.</source>
+          <target state="new">The total number of commands processed by the cache server during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="99ab1864-2174-4060-8eb9-fb7c9e13e910" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="2d35b584-7ad6-4cd9-a35e-ed8807ee8922">&lt;code&gt;</bpt>total_commands_processed<ept id="2d35b584-7ad6-4cd9-a35e-ed8807ee8922">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="2d35b584-7ad6-4cd9-a35e-ed8807ee8922">&lt;code&gt;</bpt>total_commands_processed<ept id="2d35b584-7ad6-4cd9-a35e-ed8807ee8922">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="87546042-4e5d-4d6b-a6b0-affc3b20f0fb" xml:space="preserve">
+          <source>Note that when Azure Redis Cache is used purely for pub/sub there will be no metrics for <bpt id="f30b0095-468b-4575-a1bc-553064d6079a">&lt;code&gt;</bpt>Cache Hits<ept id="f30b0095-468b-4575-a1bc-553064d6079a">&lt;/code&gt;</ept>, <bpt id="a4f04fd6-dff0-47c8-a286-c14a777f9f0a">&lt;code&gt;</bpt>Cache Misses<ept id="a4f04fd6-dff0-47c8-a286-c14a777f9f0a">&lt;/code&gt;</ept>, <bpt id="9bcbcb79-3605-4120-b47d-e5ceab73ae15">&lt;code&gt;</bpt>Gets<ept id="9bcbcb79-3605-4120-b47d-e5ceab73ae15">&lt;/code&gt;</ept>, or <bpt id="80824222-bb83-41cc-8aff-cfca81d11732">&lt;code&gt;</bpt>Sets<ept id="80824222-bb83-41cc-8aff-cfca81d11732">&lt;/code&gt;</ept>, but there will be <bpt id="8b1a7173-63a2-47d7-9a6b-ab73f2e6d86a">&lt;code&gt;</bpt>Total Operations<ept id="8b1a7173-63a2-47d7-9a6b-ab73f2e6d86a">&lt;/code&gt;</ept> metrics that reflect the cache usage for pub/sub operations.</source>
+          <target state="new">Note that when Azure Redis Cache is used purely for pub/sub there will be no metrics for <bpt id="f30b0095-468b-4575-a1bc-553064d6079a">&lt;code&gt;</bpt>Cache Hits<ept id="f30b0095-468b-4575-a1bc-553064d6079a">&lt;/code&gt;</ept>, <bpt id="a4f04fd6-dff0-47c8-a286-c14a777f9f0a">&lt;code&gt;</bpt>Cache Misses<ept id="a4f04fd6-dff0-47c8-a286-c14a777f9f0a">&lt;/code&gt;</ept>, <bpt id="9bcbcb79-3605-4120-b47d-e5ceab73ae15">&lt;code&gt;</bpt>Gets<ept id="9bcbcb79-3605-4120-b47d-e5ceab73ae15">&lt;/code&gt;</ept>, or <bpt id="80824222-bb83-41cc-8aff-cfca81d11732">&lt;code&gt;</bpt>Sets<ept id="80824222-bb83-41cc-8aff-cfca81d11732">&lt;/code&gt;</ept>, but there will be <bpt id="8b1a7173-63a2-47d7-9a6b-ab73f2e6d86a">&lt;code&gt;</bpt>Total Operations<ept id="8b1a7173-63a2-47d7-9a6b-ab73f2e6d86a">&lt;/code&gt;</ept> metrics that reflect the cache usage for pub/sub operations.</target>
+        </trans-unit>
+        <trans-unit id="fe84859f-4b33-47dd-b6d9-1c9adafc36d1" xml:space="preserve">
+          <source>Used Memory</source>
+          <target state="new">Used Memory</target>
+        </trans-unit>
+        <trans-unit id="eae29121-72e5-4eec-9ffe-a214b8a669f5" xml:space="preserve">
+          <source>The amount of cache memory used in MB during the specified reporting interval.</source>
+          <target state="new">The amount of cache memory used in MB during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="60d7d801-81eb-4fb8-bdf9-7be243a2029a" xml:space="preserve">
+          <source>This value maps to the Redis INFO <bpt id="af6feecd-de58-40fa-9753-5138c0446a0c">&lt;code&gt;</bpt>used_memory<ept id="af6feecd-de58-40fa-9753-5138c0446a0c">&lt;/code&gt;</ept> command.</source>
+          <target state="new">This value maps to the Redis INFO <bpt id="af6feecd-de58-40fa-9753-5138c0446a0c">&lt;code&gt;</bpt>used_memory<ept id="af6feecd-de58-40fa-9753-5138c0446a0c">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="bedf9f1b-f371-47ca-9668-bee9ca378432" xml:space="preserve">
+          <source>CPU</source>
+          <target state="new">CPU</target>
+        </trans-unit>
+        <trans-unit id="a6bb1fe2-091d-4035-abcc-bf38db77f06d" xml:space="preserve">
+          <source>The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval.</source>
+          <target state="new">The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="1704ff5b-78eb-490b-9a2f-0428a330b9f9" xml:space="preserve">
+          <source>This value maps to the operating system <bpt id="015a2c59-0ab7-413e-b31b-b2c8904509f2">&lt;code&gt;</bpt>\Processor(_Total)\% Processor Time<ept id="015a2c59-0ab7-413e-b31b-b2c8904509f2">&lt;/code&gt;</ept> performance counter.</source>
+          <target state="new">This value maps to the operating system <bpt id="015a2c59-0ab7-413e-b31b-b2c8904509f2">&lt;code&gt;</bpt>\Processor(_Total)\% Processor Time<ept id="015a2c59-0ab7-413e-b31b-b2c8904509f2">&lt;/code&gt;</ept> performance counter.</target>
+        </trans-unit>
+        <trans-unit id="2d4d19ee-2c1d-4d4f-b7f5-a7ba9db2d5f6" xml:space="preserve">
+          <source>Cache Read</source>
+          <target state="new">Cache Read</target>
+        </trans-unit>
+        <trans-unit id="1615a6c0-0b45-499a-86c8-1bd3bb022a3b" xml:space="preserve">
+          <source>The amount of data read from the cache in KB/s during the specified reporting interval.</source>
+          <target state="new">The amount of data read from the cache in KB/s during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="383de226-e3bc-4a73-84ba-52fdbb139fa2" xml:space="preserve">
+          <source>This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.</source>
+          <target state="new">This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.</target>
+        </trans-unit>
+        <trans-unit id="e1db94c7-ca3b-41c9-a18d-3f9e9a76c9d2" xml:space="preserve">
+          <source>Cache Write</source>
+          <target state="new">Cache Write</target>
+        </trans-unit>
+        <trans-unit id="d2440e70-bb6c-4dc1-9a24-78dcf92e36ad" xml:space="preserve">
+          <source>The amount of data written to the cache in KB/s during the specified reporting interval.</source>
+          <target state="new">The amount of data written to the cache in KB/s during the specified reporting interval.</target>
+        </trans-unit>
+        <trans-unit id="fd4be78d-f80a-4729-b26b-514b8e91f24f" xml:space="preserve">
+          <source>This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.</source>
+          <target state="new">This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.</target>
+        </trans-unit>
+        <trans-unit id="2de7c4f5-3c79-40db-af65-b6ae2abd8778" xml:space="preserve">
+          <source>The <bpt id="5112bb0e-5e96-43d2-b264-a6ed5dccc8ea">&lt;strong&gt;</bpt>Monitoring<ept id="5112bb0e-5e96-43d2-b264-a6ed5dccc8ea">&lt;/strong&gt;</ept> section has <bpt id="2eb16f68-7d6c-4847-b9b3-f31c4033b42e">&lt;strong&gt;</bpt>Hits and Misses<ept id="2eb16f68-7d6c-4847-b9b3-f31c4033b42e">&lt;/strong&gt;</ept>, <bpt id="82253148-b188-4807-a7fe-54080d806237">&lt;strong&gt;</bpt>Gets and Sets<ept id="82253148-b188-4807-a7fe-54080d806237">&lt;/strong&gt;</ept>, <bpt id="a1b553f6-c6a0-450a-89ac-4778e3935c2f">&lt;strong&gt;</bpt>Connections<ept id="a1b553f6-c6a0-450a-89ac-4778e3935c2f">&lt;/strong&gt;</ept>, and <bpt id="fb2ea671-3fd4-4d17-a1f8-94687c6c893d">&lt;strong&gt;</bpt>Total Commands<ept id="fb2ea671-3fd4-4d17-a1f8-94687c6c893d">&lt;/strong&gt;</ept> charts.</source>
+          <target state="new">The <bpt id="5112bb0e-5e96-43d2-b264-a6ed5dccc8ea">&lt;strong&gt;</bpt>Monitoring<ept id="5112bb0e-5e96-43d2-b264-a6ed5dccc8ea">&lt;/strong&gt;</ept> section has <bpt id="2eb16f68-7d6c-4847-b9b3-f31c4033b42e">&lt;strong&gt;</bpt>Hits and Misses<ept id="2eb16f68-7d6c-4847-b9b3-f31c4033b42e">&lt;/strong&gt;</ept>, <bpt id="82253148-b188-4807-a7fe-54080d806237">&lt;strong&gt;</bpt>Gets and Sets<ept id="82253148-b188-4807-a7fe-54080d806237">&lt;/strong&gt;</ept>, <bpt id="a1b553f6-c6a0-450a-89ac-4778e3935c2f">&lt;strong&gt;</bpt>Connections<ept id="a1b553f6-c6a0-450a-89ac-4778e3935c2f">&lt;/strong&gt;</ept>, and <bpt id="fb2ea671-3fd4-4d17-a1f8-94687c6c893d">&lt;strong&gt;</bpt>Total Commands<ept id="fb2ea671-3fd4-4d17-a1f8-94687c6c893d">&lt;/strong&gt;</ept> charts.</target>
+        </trans-unit>
+        <trans-unit id="5095a8d4-1781-409f-b3f4-9c5cc015f1c7" xml:space="preserve">
+          <source><bpt id="e4584c19-1c17-4b6b-9a75-929fb97089b6">&lt;linkText&gt;</bpt>Monitoring charts<ept id="e4584c19-1c17-4b6b-9a75-929fb97089b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4584c19-1c17-4b6b-9a75-929fb97089b6">&lt;linkText&gt;</bpt>Monitoring charts<ept id="e4584c19-1c17-4b6b-9a75-929fb97089b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01e614f6-dcd9-4a7d-8bf0-9bbf9c23360e" xml:space="preserve">
+          <source>The <bpt id="186d5820-3a2f-4f75-b22d-bf05ec2fb409">&lt;strong&gt;</bpt>Monitoring<ept id="186d5820-3a2f-4f75-b22d-bf05ec2fb409">&lt;/strong&gt;</ept> charts display the following metrics.</source>
+          <target state="new">The <bpt id="186d5820-3a2f-4f75-b22d-bf05ec2fb409">&lt;strong&gt;</bpt>Monitoring<ept id="186d5820-3a2f-4f75-b22d-bf05ec2fb409">&lt;/strong&gt;</ept> charts display the following metrics.</target>
+        </trans-unit>
+        <trans-unit id="af3015e6-82b7-4aad-bbcf-589957b74de6" xml:space="preserve">
+          <source>Monitoring chart</source>
+          <target state="new">Monitoring chart</target>
+        </trans-unit>
+        <trans-unit id="eaad87cc-db6a-41f1-a349-a1a56e5a2fbd" xml:space="preserve">
+          <source>Cache metrics</source>
+          <target state="new">Cache metrics</target>
+        </trans-unit>
+        <trans-unit id="54b5cfc9-8d98-4311-a67f-7145365c3c42" xml:space="preserve">
+          <source>Hits and Misses</source>
+          <target state="new">Hits and Misses</target>
+        </trans-unit>
+        <trans-unit id="db740b6f-3f9a-421d-91eb-f07056804b87" xml:space="preserve">
+          <source>Cache Hits</source>
+          <target state="new">Cache Hits</target>
+        </trans-unit>
+        <trans-unit id="e28f4a12-5022-4281-87bf-b0a2cf5dcce8" xml:space="preserve">
+          <source>Cache Misses</source>
+          <target state="new">Cache Misses</target>
+        </trans-unit>
+        <trans-unit id="67b76c4c-5363-453e-98a2-4e31ba9e4c4c" xml:space="preserve">
+          <source>Gets and Sets</source>
+          <target state="new">Gets and Sets</target>
+        </trans-unit>
+        <trans-unit id="46d0fc5f-daa3-4c1d-8edf-6653ed151ac0" xml:space="preserve">
+          <source>Gets</source>
+          <target state="new">Gets</target>
+        </trans-unit>
+        <trans-unit id="966ec202-4523-4189-b94e-1393ff943c3c" xml:space="preserve">
+          <source>Sets</source>
+          <target state="new">Sets</target>
+        </trans-unit>
+        <trans-unit id="45d5e53d-9231-4cd7-81a3-1c8d712991ed" xml:space="preserve">
+          <source>Connections</source>
+          <target state="new">Connections</target>
+        </trans-unit>
+        <trans-unit id="d6c6a2a5-a529-4425-873f-2f16f432ed1d" xml:space="preserve">
+          <source>Connected Clients</source>
+          <target state="new">Connected Clients</target>
+        </trans-unit>
+        <trans-unit id="e14e9184-d8a0-4e74-9141-e43b39e9226e" xml:space="preserve">
+          <source>Total Commands</source>
+          <target state="new">Total Commands</target>
+        </trans-unit>
+        <trans-unit id="718d31d4-b746-4772-a139-b5a61f777c04" xml:space="preserve">
+          <source>Total Operations</source>
+          <target state="new">Total Operations</target>
+        </trans-unit>
+        <trans-unit id="3c498ade-148c-4e4b-865d-891eea1642c2" xml:space="preserve">
+          <source>For information on viewing the metrics and customizing the individual charts in this section, see the following <bpt id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;linkText&gt;</bpt>How to view metrics and customize metrics charts<ept id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;/linkText&gt;</ept><bpt id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;title&gt;</bpt><ept id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For information on viewing the metrics and customizing the individual charts in this section, see the following <bpt id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;linkText&gt;</bpt>How to view metrics and customize metrics charts<ept id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;/linkText&gt;</ept><bpt id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;title&gt;</bpt><ept id="2310221e-46ca-4a8d-b633-2a799ee4617a">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="3cf2fea9-7a23-403d-bb59-2ac1b63e9245" xml:space="preserve">
+          <source>The <bpt id="2167d8d4-6a67-49ff-a89e-7a65a6a5159a">&lt;strong&gt;</bpt>Usage<ept id="2167d8d4-6a67-49ff-a89e-7a65a6a5159a">&lt;/strong&gt;</ept> section has <bpt id="94cb3916-415e-4ccd-93d8-adaffc7313c4">&lt;strong&gt;</bpt>Redis Server Load<ept id="94cb3916-415e-4ccd-93d8-adaffc7313c4">&lt;/strong&gt;</ept>, <bpt id="11165c58-2bfd-40dc-a958-9d1e7f8913bd">&lt;strong&gt;</bpt>Memory Usage<ept id="11165c58-2bfd-40dc-a958-9d1e7f8913bd">&lt;/strong&gt;</ept>, <bpt id="c2861ebf-5902-4529-8d21-f5bee3668a4a">&lt;strong&gt;</bpt>Network Bandwith<ept id="c2861ebf-5902-4529-8d21-f5bee3668a4a">&lt;/strong&gt;</ept>, and <bpt id="f1798969-4721-49fb-953b-924d91c47060">&lt;strong&gt;</bpt>CPU Usage<ept id="f1798969-4721-49fb-953b-924d91c47060">&lt;/strong&gt;</ept> charts, and also displays the <bpt id="93faa4ac-a6bf-441a-82f1-ed9a183990a5">&lt;strong&gt;</bpt>Pricing tier<ept id="93faa4ac-a6bf-441a-82f1-ed9a183990a5">&lt;/strong&gt;</ept> for the cache instance.</source>
+          <target state="new">The <bpt id="2167d8d4-6a67-49ff-a89e-7a65a6a5159a">&lt;strong&gt;</bpt>Usage<ept id="2167d8d4-6a67-49ff-a89e-7a65a6a5159a">&lt;/strong&gt;</ept> section has <bpt id="94cb3916-415e-4ccd-93d8-adaffc7313c4">&lt;strong&gt;</bpt>Redis Server Load<ept id="94cb3916-415e-4ccd-93d8-adaffc7313c4">&lt;/strong&gt;</ept>, <bpt id="11165c58-2bfd-40dc-a958-9d1e7f8913bd">&lt;strong&gt;</bpt>Memory Usage<ept id="11165c58-2bfd-40dc-a958-9d1e7f8913bd">&lt;/strong&gt;</ept>, <bpt id="c2861ebf-5902-4529-8d21-f5bee3668a4a">&lt;strong&gt;</bpt>Network Bandwith<ept id="c2861ebf-5902-4529-8d21-f5bee3668a4a">&lt;/strong&gt;</ept>, and <bpt id="f1798969-4721-49fb-953b-924d91c47060">&lt;strong&gt;</bpt>CPU Usage<ept id="f1798969-4721-49fb-953b-924d91c47060">&lt;/strong&gt;</ept> charts, and also displays the <bpt id="93faa4ac-a6bf-441a-82f1-ed9a183990a5">&lt;strong&gt;</bpt>Pricing tier<ept id="93faa4ac-a6bf-441a-82f1-ed9a183990a5">&lt;/strong&gt;</ept> for the cache instance.</target>
+        </trans-unit>
+        <trans-unit id="8ff659ae-d026-4ddf-b31a-35c9c001d95c" xml:space="preserve">
+          <source><bpt id="6801dfd1-6840-4af5-8a00-5c52c1e03fcf">&lt;linkText&gt;</bpt>Usage charts<ept id="6801dfd1-6840-4af5-8a00-5c52c1e03fcf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6801dfd1-6840-4af5-8a00-5c52c1e03fcf">&lt;linkText&gt;</bpt>Usage charts<ept id="6801dfd1-6840-4af5-8a00-5c52c1e03fcf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3443e993-c44d-4427-ae10-91a5f83b9c3c" xml:space="preserve">
+          <source>The <bpt id="23ab80e6-91d1-43a3-b289-61e93569cb30">&lt;strong&gt;</bpt>Pricing tier<ept id="23ab80e6-91d1-43a3-b289-61e93569cb30">&lt;/strong&gt;</ept> displays the cache pricing tier, and can be used to <bpt id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;linkText&gt;</bpt>scale<ept id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;/linkText&gt;</ept><bpt id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;title&gt;</bpt><ept id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;/title&gt;</ept> the cache to a different pricing tier.</source>
+          <target state="new">The <bpt id="23ab80e6-91d1-43a3-b289-61e93569cb30">&lt;strong&gt;</bpt>Pricing tier<ept id="23ab80e6-91d1-43a3-b289-61e93569cb30">&lt;/strong&gt;</ept> displays the cache pricing tier, and can be used to <bpt id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;linkText&gt;</bpt>scale<ept id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;/linkText&gt;</ept><bpt id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;title&gt;</bpt><ept id="1ed4600e-516b-4638-a7df-c589fd9dbd29">&lt;/title&gt;</ept> the cache to a different pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="4d21f8bf-befd-4ffc-bd39-b1ff2dc67b7c" xml:space="preserve">
+          <source>The <bpt id="a991d5c0-8fec-4508-9e0e-5608b511faaf">&lt;strong&gt;</bpt>Usage<ept id="a991d5c0-8fec-4508-9e0e-5608b511faaf">&lt;/strong&gt;</ept> charts display the following metrics.</source>
+          <target state="new">The <bpt id="a991d5c0-8fec-4508-9e0e-5608b511faaf">&lt;strong&gt;</bpt>Usage<ept id="a991d5c0-8fec-4508-9e0e-5608b511faaf">&lt;/strong&gt;</ept> charts display the following metrics.</target>
+        </trans-unit>
+        <trans-unit id="de189a34-9249-484a-ba4b-a069f0e82091" xml:space="preserve">
+          <source>Usage chart</source>
+          <target state="new">Usage chart</target>
+        </trans-unit>
+        <trans-unit id="f6d38a4b-50d5-4638-8e88-7e57c9b379fe" xml:space="preserve">
+          <source>Cache metrics</source>
+          <target state="new">Cache metrics</target>
+        </trans-unit>
+        <trans-unit id="7af887c8-00f0-4241-934c-f13cd8bcb140" xml:space="preserve">
+          <source>Redis Server Load</source>
+          <target state="new">Redis Server Load</target>
+        </trans-unit>
+        <trans-unit id="33d60868-4dd0-45f5-972b-2941d24409d7" xml:space="preserve">
+          <source>Server Load</source>
+          <target state="new">Server Load</target>
+        </trans-unit>
+        <trans-unit id="9740e614-5c21-4927-bedf-c52f7d19c0e2" xml:space="preserve">
+          <source>Memory Usage</source>
+          <target state="new">Memory Usage</target>
+        </trans-unit>
+        <trans-unit id="cf9ad12e-09d7-457a-b51a-cb2462d1dd7e" xml:space="preserve">
+          <source>Used Memory</source>
+          <target state="new">Used Memory</target>
+        </trans-unit>
+        <trans-unit id="291f3a59-2a8f-4030-a0cb-9c9c089db138" xml:space="preserve">
+          <source>Network Bandwidth</source>
+          <target state="new">Network Bandwidth</target>
+        </trans-unit>
+        <trans-unit id="6bd6e0f9-f128-4732-8866-b973eae3106f" xml:space="preserve">
+          <source>Cache Write</source>
+          <target state="new">Cache Write</target>
+        </trans-unit>
+        <trans-unit id="f3c4a484-323b-4d95-9514-266dc013306c" xml:space="preserve">
+          <source>CPU Usage</source>
+          <target state="new">CPU Usage</target>
+        </trans-unit>
+        <trans-unit id="f87475ba-d7af-4ea9-9dd6-aa1765295492" xml:space="preserve">
+          <source>CPU</source>
+          <target state="new">CPU</target>
+        </trans-unit>
+        <trans-unit id="5b969588-c9fb-42e3-9a27-f1465c508ab1" xml:space="preserve">
+          <source>For information on viewing the metrics and customizing the individual charts in this section, see the following <bpt id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;linkText&gt;</bpt>How to view metrics and customize metrics charts<ept id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;/linkText&gt;</ept><bpt id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;title&gt;</bpt><ept id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For information on viewing the metrics and customizing the individual charts in this section, see the following <bpt id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;linkText&gt;</bpt>How to view metrics and customize metrics charts<ept id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;/linkText&gt;</ept><bpt id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;title&gt;</bpt><ept id="fc5bcdc1-ad32-48cb-9091-121512f0dd29">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="4413be5a-a3ef-4a97-982b-8bedcfdb1ff3" xml:space="preserve">
+          <source>You can view an overview of the metrics on the <bpt id="64872c00-c5f1-4390-95c3-b1e46c173a2e">&lt;strong&gt;</bpt>Redis Cache<ept id="64872c00-c5f1-4390-95c3-b1e46c173a2e">&lt;/strong&gt;</ept> blade in the <bpt id="76378261-1879-4254-925a-397ffba49e78">&lt;strong&gt;</bpt>Monitoring<ept id="76378261-1879-4254-925a-397ffba49e78">&lt;/strong&gt;</ept> and <bpt id="ed9580ca-6e7c-4fc9-b215-b8ee38b61867">&lt;strong&gt;</bpt>Usage<ept id="ed9580ca-6e7c-4fc9-b215-b8ee38b61867">&lt;/strong&gt;</ept> charts as described in the previous sections.</source>
+          <target state="new">You can view an overview of the metrics on the <bpt id="64872c00-c5f1-4390-95c3-b1e46c173a2e">&lt;strong&gt;</bpt>Redis Cache<ept id="64872c00-c5f1-4390-95c3-b1e46c173a2e">&lt;/strong&gt;</ept> blade in the <bpt id="76378261-1879-4254-925a-397ffba49e78">&lt;strong&gt;</bpt>Monitoring<ept id="76378261-1879-4254-925a-397ffba49e78">&lt;/strong&gt;</ept> and <bpt id="ed9580ca-6e7c-4fc9-b215-b8ee38b61867">&lt;strong&gt;</bpt>Usage<ept id="ed9580ca-6e7c-4fc9-b215-b8ee38b61867">&lt;/strong&gt;</ept> charts as described in the previous sections.</target>
+        </trans-unit>
+        <trans-unit id="5720154a-daaf-4f09-8b5f-3fb8350543e8" xml:space="preserve">
+          <source>For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the <bpt id="e05f81ca-8797-4702-a147-467e235dfe47">&lt;strong&gt;</bpt>Redis Cache<ept id="e05f81ca-8797-4702-a147-467e235dfe47">&lt;/strong&gt;</ept> blade to display the <bpt id="d3c67b34-4fde-4e0d-b510-338e26a32560">&lt;strong&gt;</bpt>Metric<ept id="d3c67b34-4fde-4e0d-b510-338e26a32560">&lt;/strong&gt;</ept> blade for that chart.</source>
+          <target state="new">For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the <bpt id="e05f81ca-8797-4702-a147-467e235dfe47">&lt;strong&gt;</bpt>Redis Cache<ept id="e05f81ca-8797-4702-a147-467e235dfe47">&lt;/strong&gt;</ept> blade to display the <bpt id="d3c67b34-4fde-4e0d-b510-338e26a32560">&lt;strong&gt;</bpt>Metric<ept id="d3c67b34-4fde-4e0d-b510-338e26a32560">&lt;/strong&gt;</ept> blade for that chart.</target>
+        </trans-unit>
+        <trans-unit id="0eebf681-3f9e-4c07-965f-2c2b7b4e60af" xml:space="preserve">
+          <source><bpt id="574ba99f-cce7-4ea1-96a5-47da11e28030">&lt;linkText&gt;</bpt>Metric blade<ept id="574ba99f-cce7-4ea1-96a5-47da11e28030">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="574ba99f-cce7-4ea1-96a5-47da11e28030">&lt;linkText&gt;</bpt>Metric blade<ept id="574ba99f-cce7-4ea1-96a5-47da11e28030">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8f9238c-c5a9-47a0-8325-17dc62591ab4" xml:space="preserve">
+          <source>Any alerts that are set on the metrics displayed by a chart are listed at the bottom of the <bpt id="977bfbd7-7cac-4e6f-9bc4-50faf8316444">&lt;strong&gt;</bpt>Metric<ept id="977bfbd7-7cac-4e6f-9bc4-50faf8316444">&lt;/strong&gt;</ept> blade for that chart.</source>
+          <target state="new">Any alerts that are set on the metrics displayed by a chart are listed at the bottom of the <bpt id="977bfbd7-7cac-4e6f-9bc4-50faf8316444">&lt;strong&gt;</bpt>Metric<ept id="977bfbd7-7cac-4e6f-9bc4-50faf8316444">&lt;/strong&gt;</ept> blade for that chart.</target>
+        </trans-unit>
+        <trans-unit id="81399ba7-7620-4c14-bd70-09f9c3e17ee7" xml:space="preserve">
+          <source>To add or remove metrics or change the reporting interval, right-click the chart and choose <bpt id="c6652086-2aad-466f-b631-f136d089ccda">&lt;strong&gt;</bpt>Edit Chart<ept id="c6652086-2aad-466f-b631-f136d089ccda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To add or remove metrics or change the reporting interval, right-click the chart and choose <bpt id="c6652086-2aad-466f-b631-f136d089ccda">&lt;strong&gt;</bpt>Edit Chart<ept id="c6652086-2aad-466f-b631-f136d089ccda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4095d397-3c5a-45e9-868c-0961602fa1cf" xml:space="preserve">
+          <source>You can also edit charts directly from the <bpt id="7329c190-95ff-487a-8cb9-46d4ec3d2c80">&lt;strong&gt;</bpt>Redis Cache<ept id="7329c190-95ff-487a-8cb9-46d4ec3d2c80">&lt;/strong&gt;</ept> blade by right-clicking the desired chart and choosing <bpt id="43aee566-0c1a-4fcb-8bf8-e3c0d1b6d076">&lt;strong&gt;</bpt>Edit Chart<ept id="43aee566-0c1a-4fcb-8bf8-e3c0d1b6d076">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also edit charts directly from the <bpt id="7329c190-95ff-487a-8cb9-46d4ec3d2c80">&lt;strong&gt;</bpt>Redis Cache<ept id="7329c190-95ff-487a-8cb9-46d4ec3d2c80">&lt;/strong&gt;</ept> blade by right-clicking the desired chart and choosing <bpt id="43aee566-0c1a-4fcb-8bf8-e3c0d1b6d076">&lt;strong&gt;</bpt>Edit Chart<ept id="43aee566-0c1a-4fcb-8bf8-e3c0d1b6d076">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c13f689a-0432-4f55-8e7e-b8c5ea3d1fe5" xml:space="preserve">
+          <source>To add or remove metrics from the chart, click the checkbox beside the name of the metric.</source>
+          <target state="new">To add or remove metrics from the chart, click the checkbox beside the name of the metric.</target>
+        </trans-unit>
+        <trans-unit id="317f40b2-e18e-413d-ad14-3c26d20eefaf" xml:space="preserve">
+          <source>To change the reporting interval, click the desired interval.</source>
+          <target state="new">To change the reporting interval, click the desired interval.</target>
+        </trans-unit>
+        <trans-unit id="9bba497a-dab5-4bba-a86a-c70f05b09350" xml:space="preserve">
+          <source>To change the <bpt id="0e48d4da-22f5-43ca-8d0f-4082199084fd">&lt;strong&gt;</bpt>Chart type<ept id="0e48d4da-22f5-43ca-8d0f-4082199084fd">&lt;/strong&gt;</ept>, click the desired style.</source>
+          <target state="new">To change the <bpt id="0e48d4da-22f5-43ca-8d0f-4082199084fd">&lt;strong&gt;</bpt>Chart type<ept id="0e48d4da-22f5-43ca-8d0f-4082199084fd">&lt;/strong&gt;</ept>, click the desired style.</target>
+        </trans-unit>
+        <trans-unit id="de65d88b-ef0a-4e28-aab0-31c54dec4981" xml:space="preserve">
+          <source>Once the desired changes are made, click <bpt id="29f73bff-ca64-4931-8a05-89c85259421a">&lt;strong&gt;</bpt>Save<ept id="29f73bff-ca64-4931-8a05-89c85259421a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the desired changes are made, click <bpt id="29f73bff-ca64-4931-8a05-89c85259421a">&lt;strong&gt;</bpt>Save<ept id="29f73bff-ca64-4931-8a05-89c85259421a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c35dfe1b-1d6b-4ecd-8dab-4270f4ddae7d" xml:space="preserve">
+          <source><bpt id="0fa5f527-6847-4f9e-b9d1-0edf21c250dd">&lt;linkText&gt;</bpt>Edit chart<ept id="0fa5f527-6847-4f9e-b9d1-0edf21c250dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fa5f527-6847-4f9e-b9d1-0edf21c250dd">&lt;linkText&gt;</bpt>Edit chart<ept id="0fa5f527-6847-4f9e-b9d1-0edf21c250dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ba75267-ea85-4c34-a097-efd2e07383d7" xml:space="preserve">
+          <source>When you click <bpt id="3c7df16f-f18f-4555-92d5-b190dd0af86a">&lt;strong&gt;</bpt>Save<ept id="3c7df16f-f18f-4555-92d5-b190dd0af86a">&lt;/strong&gt;</ept> your changes will persist until you leave the <bpt id="e57cbdd5-8bfd-4dc0-b621-83bc2deae30a">&lt;strong&gt;</bpt>Metric<ept id="e57cbdd5-8bfd-4dc0-b621-83bc2deae30a">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">When you click <bpt id="3c7df16f-f18f-4555-92d5-b190dd0af86a">&lt;strong&gt;</bpt>Save<ept id="3c7df16f-f18f-4555-92d5-b190dd0af86a">&lt;/strong&gt;</ept> your changes will persist until you leave the <bpt id="e57cbdd5-8bfd-4dc0-b621-83bc2deae30a">&lt;strong&gt;</bpt>Metric<ept id="e57cbdd5-8bfd-4dc0-b621-83bc2deae30a">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="d1b01eaf-8dff-4168-9a8c-edcd1e47f6d0" xml:space="preserve">
+          <source>When you come back later, you'll see the original metric and time range again.</source>
+          <target state="new">When you come back later, you'll see the original metric and time range again.</target>
+        </trans-unit>
+        <trans-unit id="341f5337-9cd8-4c93-85c9-8d07d1c30854" xml:space="preserve">
+          <source>For more information on customizing charts, see <bpt id="f7108557-af9b-4c29-a613-735942d60466">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="f7108557-af9b-4c29-a613-735942d60466">&lt;/linkText&gt;</ept><bpt id="f7108557-af9b-4c29-a613-735942d60466">&lt;title&gt;</bpt><ept id="f7108557-af9b-4c29-a613-735942d60466">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on customizing charts, see <bpt id="f7108557-af9b-4c29-a613-735942d60466">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="f7108557-af9b-4c29-a613-735942d60466">&lt;/linkText&gt;</ept><bpt id="f7108557-af9b-4c29-a613-735942d60466">&lt;title&gt;</bpt><ept id="f7108557-af9b-4c29-a613-735942d60466">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73931406-6e62-4d45-9f3c-df1f66f639a7" xml:space="preserve">
+          <source>To view the metrics for a specific time period on a chart, hover the mouse over one of the specific bars or points on the chart that corresponds to the desired time, and the metrics for that interval are displayed.</source>
+          <target state="new">To view the metrics for a specific time period on a chart, hover the mouse over one of the specific bars or points on the chart that corresponds to the desired time, and the metrics for that interval are displayed.</target>
+        </trans-unit>
+        <trans-unit id="eb6e789f-784c-46ce-b22c-f214a30c1d58" xml:space="preserve">
+          <source><bpt id="f96bfef8-e325-4ddc-9ad8-ff2a660f95bd">&lt;linkText&gt;</bpt>View chart details<ept id="f96bfef8-e325-4ddc-9ad8-ff2a660f95bd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f96bfef8-e325-4ddc-9ad8-ff2a660f95bd">&lt;linkText&gt;</bpt>View chart details<ept id="f96bfef8-e325-4ddc-9ad8-ff2a660f95bd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b3a5dd4-dd0e-4bea-8294-59cbd5b1b42b" xml:space="preserve">
+          <source>The <bpt id="71d4d7d6-6e3a-4968-86c0-d2e2b3323509">&lt;strong&gt;</bpt>Operations<ept id="71d4d7d6-6e3a-4968-86c0-d2e2b3323509">&lt;/strong&gt;</ept> section has <bpt id="ef12c094-ad90-40db-b244-eeccd14dc600">&lt;strong&gt;</bpt>Events<ept id="ef12c094-ad90-40db-b244-eeccd14dc600">&lt;/strong&gt;</ept> and <bpt id="21c0ee70-49eb-469f-8624-856499c2c152">&lt;strong&gt;</bpt>Alert rules<ept id="21c0ee70-49eb-469f-8624-856499c2c152">&lt;/strong&gt;</ept> sections.</source>
+          <target state="new">The <bpt id="71d4d7d6-6e3a-4968-86c0-d2e2b3323509">&lt;strong&gt;</bpt>Operations<ept id="71d4d7d6-6e3a-4968-86c0-d2e2b3323509">&lt;/strong&gt;</ept> section has <bpt id="ef12c094-ad90-40db-b244-eeccd14dc600">&lt;strong&gt;</bpt>Events<ept id="ef12c094-ad90-40db-b244-eeccd14dc600">&lt;/strong&gt;</ept> and <bpt id="21c0ee70-49eb-469f-8624-856499c2c152">&lt;strong&gt;</bpt>Alert rules<ept id="21c0ee70-49eb-469f-8624-856499c2c152">&lt;/strong&gt;</ept> sections.</target>
+        </trans-unit>
+        <trans-unit id="9bd77949-4ca6-4196-a8ca-30baac4cd4d0" xml:space="preserve">
+          <source><bpt id="a4a5868d-ad66-4549-a259-7ec10713c8dd">&lt;linkText&gt;</bpt>Oeprations<ept id="a4a5868d-ad66-4549-a259-7ec10713c8dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4a5868d-ad66-4549-a259-7ec10713c8dd">&lt;linkText&gt;</bpt>Oeprations<ept id="a4a5868d-ad66-4549-a259-7ec10713c8dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21f42c10-d236-4890-8bdf-f70e625ead33" xml:space="preserve">
+          <source>To see a list of recent cache operations, click the <bpt id="480a6e66-ccd2-4b3d-af62-338b22195350">&lt;strong&gt;</bpt>Events<ept id="480a6e66-ccd2-4b3d-af62-338b22195350">&lt;/strong&gt;</ept> chart to display the <bpt id="ac762db8-67cd-48d0-81b1-60707b250742">&lt;strong&gt;</bpt>Events<ept id="ac762db8-67cd-48d0-81b1-60707b250742">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To see a list of recent cache operations, click the <bpt id="480a6e66-ccd2-4b3d-af62-338b22195350">&lt;strong&gt;</bpt>Events<ept id="480a6e66-ccd2-4b3d-af62-338b22195350">&lt;/strong&gt;</ept> chart to display the <bpt id="ac762db8-67cd-48d0-81b1-60707b250742">&lt;strong&gt;</bpt>Events<ept id="ac762db8-67cd-48d0-81b1-60707b250742">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3d8660eb-6118-418e-b032-63575c4fcd19" xml:space="preserve">
+          <source>Examples of operations include retrieving and regenerating access keys, and the activation and resolution of alert rules.</source>
+          <target state="new">Examples of operations include retrieving and regenerating access keys, and the activation and resolution of alert rules.</target>
+        </trans-unit>
+        <trans-unit id="41b6e5b5-8877-40d4-8d46-f91ea95b371f" xml:space="preserve">
+          <source>For more information about each event, click the event in the <bpt id="24010e67-9c0c-46e9-8aec-7b3dc31ff0b7">&lt;strong&gt;</bpt>Events<ept id="24010e67-9c0c-46e9-8aec-7b3dc31ff0b7">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">For more information about each event, click the event in the <bpt id="24010e67-9c0c-46e9-8aec-7b3dc31ff0b7">&lt;strong&gt;</bpt>Events<ept id="24010e67-9c0c-46e9-8aec-7b3dc31ff0b7">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="c65c63ad-7363-4512-962a-a148a3450d83" xml:space="preserve">
+          <source>For more information on events, see <bpt id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;linkText&gt;</bpt>View events and audit logs<ept id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;/linkText&gt;</ept><bpt id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;title&gt;</bpt><ept id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on events, see <bpt id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;linkText&gt;</bpt>View events and audit logs<ept id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;/linkText&gt;</ept><bpt id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;title&gt;</bpt><ept id="e31e54f7-f3cf-4675-a9db-5292a2953c0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0808ecdf-43ec-4eac-9554-889184721bbc" xml:space="preserve">
+          <source>The <bpt id="92f57815-dea2-47f6-a5a9-5690052a5d56">&lt;strong&gt;</bpt>Alert rules<ept id="92f57815-dea2-47f6-a5a9-5690052a5d56">&lt;/strong&gt;</ept> section displays the count of alerts for the cache instance.</source>
+          <target state="new">The <bpt id="92f57815-dea2-47f6-a5a9-5690052a5d56">&lt;strong&gt;</bpt>Alert rules<ept id="92f57815-dea2-47f6-a5a9-5690052a5d56">&lt;/strong&gt;</ept> section displays the count of alerts for the cache instance.</target>
+        </trans-unit>
+        <trans-unit id="efc3c013-e6e3-4fea-9864-496fb88203d3" xml:space="preserve">
+          <source>An alert rule enables you to monitor your cache instance and receive an email whenever a certain metric value reaches the threshold defined in the rule.</source>
+          <target state="new">An alert rule enables you to monitor your cache instance and receive an email whenever a certain metric value reaches the threshold defined in the rule.</target>
+        </trans-unit>
+        <trans-unit id="bfde5bef-5d7b-44dd-9dd3-ab464af0867e" xml:space="preserve">
+          <source>Alert rules are evaluated approximately every five minutes, and when an alert rule is activated, any configured notifications are sent.</source>
+          <target state="new">Alert rules are evaluated approximately every five minutes, and when an alert rule is activated, any configured notifications are sent.</target>
+        </trans-unit>
+        <trans-unit id="cbe51de3-8941-41b0-b360-dece075b6de7" xml:space="preserve">
+          <source>Alert rule activations and notifications are not processed instantaneously; there may be a delay of several minutes before an alert rule is activated and notifications sent.</source>
+          <target state="new">Alert rule activations and notifications are not processed instantaneously; there may be a delay of several minutes before an alert rule is activated and notifications sent.</target>
+        </trans-unit>
+        <trans-unit id="34236cb9-e72f-4f40-b4e6-1768ffdce143" xml:space="preserve">
+          <source>Alert rules can be viewed and set from the <bpt id="663be5a3-b487-4df9-8a7e-a56e6744bbb8">&lt;strong&gt;</bpt>Metric<ept id="663be5a3-b487-4df9-8a7e-a56e6744bbb8">&lt;/strong&gt;</ept> blade for a specific monitoring chart, or from the <bpt id="adbdcbc1-63e8-412d-b892-3eb3599fb6f2">&lt;strong&gt;</bpt>Alert rules<ept id="adbdcbc1-63e8-412d-b892-3eb3599fb6f2">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Alert rules can be viewed and set from the <bpt id="663be5a3-b487-4df9-8a7e-a56e6744bbb8">&lt;strong&gt;</bpt>Metric<ept id="663be5a3-b487-4df9-8a7e-a56e6744bbb8">&lt;/strong&gt;</ept> blade for a specific monitoring chart, or from the <bpt id="adbdcbc1-63e8-412d-b892-3eb3599fb6f2">&lt;strong&gt;</bpt>Alert rules<ept id="adbdcbc1-63e8-412d-b892-3eb3599fb6f2">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="4651e1bb-ce73-4bc6-85fd-4c9b52a40d8a" xml:space="preserve">
+          <source>Alert rules have the following properties.</source>
+          <target state="new">Alert rules have the following properties.</target>
+        </trans-unit>
+        <trans-unit id="e7db1400-d28b-47c8-b5d9-11f371b5f880" xml:space="preserve">
+          <source>Alert rule property</source>
+          <target state="new">Alert rule property</target>
+        </trans-unit>
+        <trans-unit id="ad31dee7-ec65-4fb4-be30-d3ceb74bdbca" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="09bc6267-266c-4511-9fd7-26033d97abec" xml:space="preserve">
+          <source>Resource</source>
+          <target state="new">Resource</target>
+        </trans-unit>
+        <trans-unit id="2d78abdb-29ee-4cd1-b949-aa6157632e0c" xml:space="preserve">
+          <source>The resource evaluated by the alert rule.</source>
+          <target state="new">The resource evaluated by the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="db3b472a-f164-46ae-b7b2-4e7cda239c7e" xml:space="preserve">
+          <source>When creating an alert rule from a Redis cache, the cache is the resource.</source>
+          <target state="new">When creating an alert rule from a Redis cache, the cache is the resource.</target>
+        </trans-unit>
+        <trans-unit id="3e32415d-cd74-4ff1-909b-c44c623d4ee8" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="99b5617b-9041-4d62-90e3-533f6470ec4a" xml:space="preserve">
+          <source>Name that uniquely identifies the alert rule within the current cache instance.</source>
+          <target state="new">Name that uniquely identifies the alert rule within the current cache instance.</target>
+        </trans-unit>
+        <trans-unit id="63516cc0-7560-4a94-860f-e0073ca69576" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="66b0970e-48a4-4f66-9665-555c43c923b6" xml:space="preserve">
+          <source>Optional description of the alert rule.</source>
+          <target state="new">Optional description of the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="598380eb-d0b3-485b-a7d8-32c7cecc1b61" xml:space="preserve">
+          <source>Metric</source>
+          <target state="new">Metric</target>
+        </trans-unit>
+        <trans-unit id="eba7f07f-bbcb-4640-b217-e120b196fc4d" xml:space="preserve">
+          <source>The metric to be monitored by the alert rule.</source>
+          <target state="new">The metric to be monitored by the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="fd3bebed-3075-4b51-a101-95b4e57622d7" xml:space="preserve">
+          <source>For a list of cache metrics, see Available metrics and reporting intervals.</source>
+          <target state="new">For a list of cache metrics, see Available metrics and reporting intervals.</target>
+        </trans-unit>
+        <trans-unit id="98339b37-ae66-4554-b206-833aab2d5f69" xml:space="preserve">
+          <source>Condition</source>
+          <target state="new">Condition</target>
+        </trans-unit>
+        <trans-unit id="5a9d6c0c-d541-4682-9ebe-24a1314dec00" xml:space="preserve">
+          <source>The condition operator for the alert rule.</source>
+          <target state="new">The condition operator for the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="f92f7190-258b-4c7e-856f-ad229e54bf1a" xml:space="preserve">
+          <source>Possible choices are: greater than, greater than or equal to, less than, less than or equal to</source>
+          <target state="new">Possible choices are: greater than, greater than or equal to, less than, less than or equal to</target>
+        </trans-unit>
+        <trans-unit id="2550cb3e-fb0a-46ab-9f8a-fc5f7d512b7d" xml:space="preserve">
+          <source>Threshold</source>
+          <target state="new">Threshold</target>
+        </trans-unit>
+        <trans-unit id="4e74cfff-7614-4f87-938c-5c078408334a" xml:space="preserve">
+          <source>The value used to compare with the metric using the operator specified by the condition property.</source>
+          <target state="new">The value used to compare with the metric using the operator specified by the condition property.</target>
+        </trans-unit>
+        <trans-unit id="c1e63081-386f-4dc8-80ef-dbfb7e8b9956" xml:space="preserve">
+          <source>Depending on the metric, this value may be in bytes/second, bytes, %, or count.</source>
+          <target state="new">Depending on the metric, this value may be in bytes/second, bytes, %, or count.</target>
+        </trans-unit>
+        <trans-unit id="b0fff421-3773-4b05-8c97-6bbc1882be9b" xml:space="preserve">
+          <source>Period</source>
+          <target state="new">Period</target>
+        </trans-unit>
+        <trans-unit id="b2ccdfbd-fba6-450f-90ba-16f5bef18ad2" xml:space="preserve">
+          <source>Specifies the period over which the average value of the metric is used for the alert rule comparison.</source>
+          <target state="new">Specifies the period over which the average value of the metric is used for the alert rule comparison.</target>
+        </trans-unit>
+        <trans-unit id="1ea39686-f4fe-487e-a0b0-63a4e57b5d44" xml:space="preserve">
+          <source>For example, if the period is Over the last hour, the average value of the metric over the previous hour interval is used for the comparison.</source>
+          <target state="new">For example, if the period is Over the last hour, the average value of the metric over the previous hour interval is used for the comparison.</target>
+        </trans-unit>
+        <trans-unit id="588255df-ffa5-4ac7-ac92-0b629661ff15" xml:space="preserve">
+          <source>If you want to be notified when the threshold is met due to a spike in activity, then a shorter period is appropriate.</source>
+          <target state="new">If you want to be notified when the threshold is met due to a spike in activity, then a shorter period is appropriate.</target>
+        </trans-unit>
+        <trans-unit id="5979680e-733c-411b-8623-28179f23112d" xml:space="preserve">
+          <source>To be notified when there is sustained activity above the threshold, use a longer period.</source>
+          <target state="new">To be notified when there is sustained activity above the threshold, use a longer period.</target>
+        </trans-unit>
+        <trans-unit id="89e8facc-8e5e-4a2f-a63f-5f32f2d70f55" xml:space="preserve">
+          <source>Email service and co-administrators</source>
+          <target state="new">Email service and co-administrators</target>
+        </trans-unit>
+        <trans-unit id="1cc1ca6d-87b9-4299-b0e3-b8944c41b8f9" xml:space="preserve">
+          <source>When true, the service administrator and co-administrator are emailed when the alert is activated.</source>
+          <target state="new">When true, the service administrator and co-administrator are emailed when the alert is activated.</target>
+        </trans-unit>
+        <trans-unit id="60cbd8c8-6f8f-4c04-86bd-4c4e73cd350a" xml:space="preserve">
+          <source>Additional administrator email</source>
+          <target state="new">Additional administrator email</target>
+        </trans-unit>
+        <trans-unit id="6441f12c-2af9-46cf-b60c-9e633f83522e" xml:space="preserve">
+          <source>Optional email address for an additional administrator to be notified when the alert is activated.</source>
+          <target state="new">Optional email address for an additional administrator to be notified when the alert is activated.</target>
+        </trans-unit>
+        <trans-unit id="0f2b69d0-4789-4ae9-81b5-9cdeec1709ab" xml:space="preserve">
+          <source>Only one notification is sent per alert rule activation.</source>
+          <target state="new">Only one notification is sent per alert rule activation.</target>
+        </trans-unit>
+        <trans-unit id="3b7fa4ea-95ce-4035-a751-b3efd101b229" xml:space="preserve">
+          <source>Once the threshold for a rule is exceeded and a notification is sent, the rule is not re-evaluated until the metric falls below the threshold.</source>
+          <target state="new">Once the threshold for a rule is exceeded and a notification is sent, the rule is not re-evaluated until the metric falls below the threshold.</target>
+        </trans-unit>
+        <trans-unit id="49295ab0-408b-4298-85c7-4577e511a2d6" xml:space="preserve">
+          <source>If the metric subsequently exceeds the threshold, the alert is reactivated and a new notification is sent.</source>
+          <target state="new">If the metric subsequently exceeds the threshold, the alert is reactivated and a new notification is sent.</target>
+        </trans-unit>
+        <trans-unit id="1a4151ee-2fb0-449f-819c-21118b6a86a8" xml:space="preserve">
+          <source>To view all of the alert rules for your cache instance, click the <bpt id="22b7d85c-6889-4afa-a993-922d935c8847">&lt;strong&gt;</bpt>Alert rules<ept id="22b7d85c-6889-4afa-a993-922d935c8847">&lt;/strong&gt;</ept> part in the <bpt id="ef8ef758-c4e8-41c5-a95c-4f2b5d9cd2e5">&lt;strong&gt;</bpt>Redis Cache<ept id="ef8ef758-c4e8-41c5-a95c-4f2b5d9cd2e5">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To view all of the alert rules for your cache instance, click the <bpt id="22b7d85c-6889-4afa-a993-922d935c8847">&lt;strong&gt;</bpt>Alert rules<ept id="22b7d85c-6889-4afa-a993-922d935c8847">&lt;/strong&gt;</ept> part in the <bpt id="ef8ef758-c4e8-41c5-a95c-4f2b5d9cd2e5">&lt;strong&gt;</bpt>Redis Cache<ept id="ef8ef758-c4e8-41c5-a95c-4f2b5d9cd2e5">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3463be81-f732-40f6-8a6f-06308e4e58eb" xml:space="preserve">
+          <source>To view only the alert rules that use a specific metric, navigate to the <bpt id="f019244e-5008-402e-a52f-e3b7368faddb">&lt;strong&gt;</bpt>Metric<ept id="f019244e-5008-402e-a52f-e3b7368faddb">&lt;/strong&gt;</ept> blade for the chart that contains that metric.</source>
+          <target state="new">To view only the alert rules that use a specific metric, navigate to the <bpt id="f019244e-5008-402e-a52f-e3b7368faddb">&lt;strong&gt;</bpt>Metric<ept id="f019244e-5008-402e-a52f-e3b7368faddb">&lt;/strong&gt;</ept> blade for the chart that contains that metric.</target>
+        </trans-unit>
+        <trans-unit id="ac8009cd-ed7f-40d1-b634-ef1eab5d1929" xml:space="preserve">
+          <source><bpt id="09472e2d-23a7-4090-b0ee-8078065a2cdf">&lt;linkText&gt;</bpt>Alert rules<ept id="09472e2d-23a7-4090-b0ee-8078065a2cdf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09472e2d-23a7-4090-b0ee-8078065a2cdf">&lt;linkText&gt;</bpt>Alert rules<ept id="09472e2d-23a7-4090-b0ee-8078065a2cdf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8b11c25-c6f1-4038-a96b-e0f2750f6e21" xml:space="preserve">
+          <source>To add an alert rule, click <bpt id="69c94bd7-0dc8-45a3-9ab4-f7e412083942">&lt;strong&gt;</bpt>Add alert<ept id="69c94bd7-0dc8-45a3-9ab4-f7e412083942">&lt;/strong&gt;</ept> from either the <bpt id="e09295be-1bea-4297-931b-52558c8a1755">&lt;strong&gt;</bpt>Metric<ept id="e09295be-1bea-4297-931b-52558c8a1755">&lt;/strong&gt;</ept> blade or the <bpt id="760a9963-4e71-48c2-8d49-7ed45727627e">&lt;strong&gt;</bpt>Alert rules<ept id="760a9963-4e71-48c2-8d49-7ed45727627e">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To add an alert rule, click <bpt id="69c94bd7-0dc8-45a3-9ab4-f7e412083942">&lt;strong&gt;</bpt>Add alert<ept id="69c94bd7-0dc8-45a3-9ab4-f7e412083942">&lt;/strong&gt;</ept> from either the <bpt id="e09295be-1bea-4297-931b-52558c8a1755">&lt;strong&gt;</bpt>Metric<ept id="e09295be-1bea-4297-931b-52558c8a1755">&lt;/strong&gt;</ept> blade or the <bpt id="760a9963-4e71-48c2-8d49-7ed45727627e">&lt;strong&gt;</bpt>Alert rules<ept id="760a9963-4e71-48c2-8d49-7ed45727627e">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="0ca6dd84-eca5-41cc-9e34-76abe5c1471e" xml:space="preserve">
+          <source>Enter the desired rule criteria into the <bpt id="25d10a62-d2ec-4a48-8ce7-ebb8b448cb90">&lt;strong&gt;</bpt>Add an alert<ept id="25d10a62-d2ec-4a48-8ce7-ebb8b448cb90">&lt;/strong&gt;</ept> rule blade and click <bpt id="a54546c2-f1c0-4af0-b22b-532735d0898b">&lt;strong&gt;</bpt>OK<ept id="a54546c2-f1c0-4af0-b22b-532735d0898b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the desired rule criteria into the <bpt id="25d10a62-d2ec-4a48-8ce7-ebb8b448cb90">&lt;strong&gt;</bpt>Add an alert<ept id="25d10a62-d2ec-4a48-8ce7-ebb8b448cb90">&lt;/strong&gt;</ept> rule blade and click <bpt id="a54546c2-f1c0-4af0-b22b-532735d0898b">&lt;strong&gt;</bpt>OK<ept id="a54546c2-f1c0-4af0-b22b-532735d0898b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fa11dcb-4389-4acf-8ab8-eba960310ffb" xml:space="preserve">
+          <source><bpt id="2198645c-a2f3-4152-8097-fd671214373d">&lt;linkText&gt;</bpt>Add alert rule<ept id="2198645c-a2f3-4152-8097-fd671214373d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2198645c-a2f3-4152-8097-fd671214373d">&lt;linkText&gt;</bpt>Add alert rule<ept id="2198645c-a2f3-4152-8097-fd671214373d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d009f544-cfe2-49d8-b748-1933b2f9e9ea" xml:space="preserve">
+          <source>When an alert rule is created by clicking <bpt id="fecfc8b8-d1d9-4edc-b3dd-c931ad38bb98">&lt;strong&gt;</bpt>Add alert<ept id="fecfc8b8-d1d9-4edc-b3dd-c931ad38bb98">&lt;/strong&gt;</ept> from the <bpt id="3edd1c58-e2e3-4edd-9b29-39810d093b39">&lt;strong&gt;</bpt>Metric<ept id="3edd1c58-e2e3-4edd-9b29-39810d093b39">&lt;/strong&gt;</ept> blade, only the metrics displayed on the chart in that blade appear in the <bpt id="e132e305-0519-4b9e-8e27-faf7afde7096">&lt;strong&gt;</bpt>Metric<ept id="e132e305-0519-4b9e-8e27-faf7afde7096">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">When an alert rule is created by clicking <bpt id="fecfc8b8-d1d9-4edc-b3dd-c931ad38bb98">&lt;strong&gt;</bpt>Add alert<ept id="fecfc8b8-d1d9-4edc-b3dd-c931ad38bb98">&lt;/strong&gt;</ept> from the <bpt id="3edd1c58-e2e3-4edd-9b29-39810d093b39">&lt;strong&gt;</bpt>Metric<ept id="3edd1c58-e2e3-4edd-9b29-39810d093b39">&lt;/strong&gt;</ept> blade, only the metrics displayed on the chart in that blade appear in the <bpt id="e132e305-0519-4b9e-8e27-faf7afde7096">&lt;strong&gt;</bpt>Metric<ept id="e132e305-0519-4b9e-8e27-faf7afde7096">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="356f16fe-3969-42a4-bc10-5aa52202672c" xml:space="preserve">
+          <source>When an alert rule is created by clicking <bpt id="a09c7082-314f-4516-9066-e5e96d9b0d33">&lt;strong&gt;</bpt>Add alert<ept id="a09c7082-314f-4516-9066-e5e96d9b0d33">&lt;/strong&gt;</ept> from the <bpt id="d59e5579-7621-41aa-919f-f46e9ef3b6bd">&lt;strong&gt;</bpt>Alert rules<ept id="d59e5579-7621-41aa-919f-f46e9ef3b6bd">&lt;/strong&gt;</ept> blade, all cache metrics are available in the <bpt id="59885e64-4ae7-4492-83a7-ca102b5b93d5">&lt;strong&gt;</bpt>Metric<ept id="59885e64-4ae7-4492-83a7-ca102b5b93d5">&lt;/strong&gt;</ept> drop-down.</source>
+          <target state="new">When an alert rule is created by clicking <bpt id="a09c7082-314f-4516-9066-e5e96d9b0d33">&lt;strong&gt;</bpt>Add alert<ept id="a09c7082-314f-4516-9066-e5e96d9b0d33">&lt;/strong&gt;</ept> from the <bpt id="d59e5579-7621-41aa-919f-f46e9ef3b6bd">&lt;strong&gt;</bpt>Alert rules<ept id="d59e5579-7621-41aa-919f-f46e9ef3b6bd">&lt;/strong&gt;</ept> blade, all cache metrics are available in the <bpt id="59885e64-4ae7-4492-83a7-ca102b5b93d5">&lt;strong&gt;</bpt>Metric<ept id="59885e64-4ae7-4492-83a7-ca102b5b93d5">&lt;/strong&gt;</ept> drop-down.</target>
+        </trans-unit>
+        <trans-unit id="cf20e95c-f733-4220-9ed6-ed764eb90d5e" xml:space="preserve">
+          <source>Once an alert rule is saved it appears on the <bpt id="b3e7e27c-58f6-4a93-9ddf-8a3e35424795">&lt;strong&gt;</bpt>Alert rules<ept id="b3e7e27c-58f6-4a93-9ddf-8a3e35424795">&lt;/strong&gt;</ept> blade as well as on the <bpt id="76f21a31-5a92-4a71-b339-a4a4a348cb16">&lt;strong&gt;</bpt>Metric<ept id="76f21a31-5a92-4a71-b339-a4a4a348cb16">&lt;/strong&gt;</ept> blade for any charts that display the metric used in the alert rule.</source>
+          <target state="new">Once an alert rule is saved it appears on the <bpt id="b3e7e27c-58f6-4a93-9ddf-8a3e35424795">&lt;strong&gt;</bpt>Alert rules<ept id="b3e7e27c-58f6-4a93-9ddf-8a3e35424795">&lt;/strong&gt;</ept> blade as well as on the <bpt id="76f21a31-5a92-4a71-b339-a4a4a348cb16">&lt;strong&gt;</bpt>Metric<ept id="76f21a31-5a92-4a71-b339-a4a4a348cb16">&lt;/strong&gt;</ept> blade for any charts that display the metric used in the alert rule.</target>
+        </trans-unit>
+        <trans-unit id="b5af0392-51e7-4a7c-99df-f3dcb071cd06" xml:space="preserve">
+          <source>To edit an alert rule, click the name of the alert rule to display the <bpt id="7a2a520f-3ab4-4f82-9fec-755d8aeaa5c6">&lt;strong&gt;</bpt>Edit Rule<ept id="7a2a520f-3ab4-4f82-9fec-755d8aeaa5c6">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">To edit an alert rule, click the name of the alert rule to display the <bpt id="7a2a520f-3ab4-4f82-9fec-755d8aeaa5c6">&lt;strong&gt;</bpt>Edit Rule<ept id="7a2a520f-3ab4-4f82-9fec-755d8aeaa5c6">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="1843d350-b195-4e82-be80-e3cc7a32533c" xml:space="preserve">
+          <source>From the <bpt id="45bfeba0-0846-400f-bf1f-ef7de2b671ca">&lt;strong&gt;</bpt>Edit Rule<ept id="45bfeba0-0846-400f-bf1f-ef7de2b671ca">&lt;/strong&gt;</ept> blade you can edit the properties of the rule, delete or disable the alert rule, or re-enable the rule if it was previously disabled.</source>
+          <target state="new">From the <bpt id="45bfeba0-0846-400f-bf1f-ef7de2b671ca">&lt;strong&gt;</bpt>Edit Rule<ept id="45bfeba0-0846-400f-bf1f-ef7de2b671ca">&lt;/strong&gt;</ept> blade you can edit the properties of the rule, delete or disable the alert rule, or re-enable the rule if it was previously disabled.</target>
+        </trans-unit>
+        <trans-unit id="d5ad72ca-ab0e-4630-9d63-bcd25f742e8d" xml:space="preserve">
+          <source>Any changes you make to the properties of the rule may take a moment before they are reflected on the <bpt id="6faa5813-694b-461e-bbf5-1dca255493ce">&lt;strong&gt;</bpt>Alert rules<ept id="6faa5813-694b-461e-bbf5-1dca255493ce">&lt;/strong&gt;</ept> blade or the <bpt id="3336f10a-3b5a-48cb-ac8a-242459ef7009">&lt;strong&gt;</bpt>Metric<ept id="3336f10a-3b5a-48cb-ac8a-242459ef7009">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Any changes you make to the properties of the rule may take a moment before they are reflected on the <bpt id="6faa5813-694b-461e-bbf5-1dca255493ce">&lt;strong&gt;</bpt>Alert rules<ept id="6faa5813-694b-461e-bbf5-1dca255493ce">&lt;/strong&gt;</ept> blade or the <bpt id="3336f10a-3b5a-48cb-ac8a-242459ef7009">&lt;strong&gt;</bpt>Metric<ept id="3336f10a-3b5a-48cb-ac8a-242459ef7009">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3630400d-d7b4-402d-bc0c-a00b5b2f58d7" xml:space="preserve">
+          <source>When an alert rule is activated, an email is sent depending on the configuration of the alert rule, and an alert icon is displayed in the <bpt id="ad220d96-ecca-454c-87e6-1233f3b5b585">&lt;strong&gt;</bpt>Alert rules<ept id="ad220d96-ecca-454c-87e6-1233f3b5b585">&lt;/strong&gt;</ept> part on the <bpt id="a089a301-1084-4e8f-863e-6d1d3a687c31">&lt;strong&gt;</bpt>Redis Cache<ept id="a089a301-1084-4e8f-863e-6d1d3a687c31">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">When an alert rule is activated, an email is sent depending on the configuration of the alert rule, and an alert icon is displayed in the <bpt id="ad220d96-ecca-454c-87e6-1233f3b5b585">&lt;strong&gt;</bpt>Alert rules<ept id="ad220d96-ecca-454c-87e6-1233f3b5b585">&lt;/strong&gt;</ept> part on the <bpt id="a089a301-1084-4e8f-863e-6d1d3a687c31">&lt;strong&gt;</bpt>Redis Cache<ept id="a089a301-1084-4e8f-863e-6d1d3a687c31">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3d6db93a-1b8f-496c-aae3-486be35e2d4f" xml:space="preserve">
+          <source>An alert rule is considered to be resolved when the alert condition no longer evaluates to true.</source>
+          <target state="new">An alert rule is considered to be resolved when the alert condition no longer evaluates to true.</target>
+        </trans-unit>
+        <trans-unit id="b168ae28-ec6a-4db1-966a-e7ec380077bc" xml:space="preserve">
+          <source>Once the alert rule condition is resolved, the alert icon is replaced with a check mark.</source>
+          <target state="new">Once the alert rule condition is resolved, the alert icon is replaced with a check mark.</target>
+        </trans-unit>
+        <trans-unit id="22e78c70-786f-4b0b-84b2-fb6c090f4e53" xml:space="preserve">
+          <source>For details on alert activations and resolutions, click the <bpt id="f7f8ed8c-7b42-43af-a39e-0bf9d7e1baf3">&lt;strong&gt;</bpt>Events<ept id="f7f8ed8c-7b42-43af-a39e-0bf9d7e1baf3">&lt;/strong&gt;</ept> part on the <bpt id="b3fc7033-1485-4d4e-9dc2-6dc93004d8d1">&lt;strong&gt;</bpt>Redis Cache<ept id="b3fc7033-1485-4d4e-9dc2-6dc93004d8d1">&lt;/strong&gt;</ept> blade to view the events on the <bpt id="c91beff0-b6bf-41d0-a1f2-dace46f2a3b7">&lt;strong&gt;</bpt>Events<ept id="c91beff0-b6bf-41d0-a1f2-dace46f2a3b7">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">For details on alert activations and resolutions, click the <bpt id="f7f8ed8c-7b42-43af-a39e-0bf9d7e1baf3">&lt;strong&gt;</bpt>Events<ept id="f7f8ed8c-7b42-43af-a39e-0bf9d7e1baf3">&lt;/strong&gt;</ept> part on the <bpt id="b3fc7033-1485-4d4e-9dc2-6dc93004d8d1">&lt;strong&gt;</bpt>Redis Cache<ept id="b3fc7033-1485-4d4e-9dc2-6dc93004d8d1">&lt;/strong&gt;</ept> blade to view the events on the <bpt id="c91beff0-b6bf-41d0-a1f2-dace46f2a3b7">&lt;strong&gt;</bpt>Events<ept id="c91beff0-b6bf-41d0-a1f2-dace46f2a3b7">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="7086b7e8-e1f7-4565-8021-289fcab71595" xml:space="preserve">
+          <source>For more information about alerts in Azure, see <bpt id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;/linkText&gt;</ept><bpt id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;title&gt;</bpt><ept id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about alerts in Azure, see <bpt id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;/linkText&gt;</ept><bpt id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;title&gt;</bpt><ept id="6223fa5d-6981-4b0b-999c-3c8fe03f173c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25604f69-0165-4efc-8bbd-f28882a010be" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-monitor-overview.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-monitor-overview.png</target>
+        </trans-unit>
+        <trans-unit id="93ddd656-443c-4f12-a9cf-8015a424f27e" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png</target>
+        </trans-unit>
+        <trans-unit id="f951d147-d72c-44e4-b433-5b58424b21fd" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-diagnostic-settings.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-diagnostic-settings.png</target>
+        </trans-unit>
+        <trans-unit id="0a887755-8427-4cdb-97f8-e37d86edecbd" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-configure-diagnostics.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-configure-diagnostics.png</target>
+        </trans-unit>
+        <trans-unit id="5616a9e9-8db6-4dc9-b9b1-fd01f377bdf5" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-monitoring-part.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-monitoring-part.png</target>
+        </trans-unit>
+        <trans-unit id="565befd9-650f-4554-9cf4-39a001cd92aa" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-usage-part.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-usage-part.png</target>
+        </trans-unit>
+        <trans-unit id="ea49f3bd-a7b2-447b-bcb4-55eda6b3d523" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-metric-blade.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-metric-blade.png</target>
+        </trans-unit>
+        <trans-unit id="2bd66264-8732-4378-87f7-777ba5eeca7c" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-edit-chart.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-edit-chart.png</target>
+        </trans-unit>
+        <trans-unit id="cf463854-b7db-4ac3-8471-f9fc435f7b25" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-view-chart-details.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-view-chart-details.png</target>
+        </trans-unit>
+        <trans-unit id="7a0871a5-abb2-4386-a328-a44302514f73" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-operations-events.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-operations-events.png</target>
+        </trans-unit>
+        <trans-unit id="7b992519-690d-4b59-8b48-c19ba8eab11d" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-alert-rules.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-alert-rules.png</target>
+        </trans-unit>
+        <trans-unit id="5d401487-fddf-49ed-8153-6a552b4776c2" xml:space="preserve">
+          <source>./media/cache-how-to-monitor/redis-cache-add-alert.png</source>
+          <target state="new">./media/cache-how-to-monitor/redis-cache-add-alert.png</target>
+        </trans-unit>
+      </group>
+      <group id="b656462d-a0a8-418c-93ab-37f6e92c80be" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d45fd548-c1ff-41c8-b328-d6db34632af3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d45fd548-c1ff-41c8-b328-d6db34632af3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c9bd1765-db71-41b5-94a2-4d110ee5a60d">
+        <trans-unit id="be3d4b29-42fe-4630-b88f-e426e56fa95c" xml:space="preserve">
+          <source>User Defined Routes and IP Forwarding Overview</source>
+          <target state="new">User Defined Routes and IP Forwarding Overview</target>
+        </trans-unit>
+        <trans-unit id="0458514a-4e2a-4870-8adb-fcf74e0a9a64" xml:space="preserve">
+          <source>Understanding UDR and IP Forwarding</source>
+          <target state="new">Understanding UDR and IP Forwarding</target>
+        </trans-unit>
+        <trans-unit id="3340b784-be50-41a2-a98a-b66e26f80915" xml:space="preserve">
+          <source>When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with other over the network, automatically.</source>
+          <target state="new">When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with other over the network, automatically.</target>
+        </trans-unit>
+        <trans-unit id="07bb642d-ea3a-46e8-9bbd-e1578af82d12" xml:space="preserve">
+          <source>You do not need to specify a gateway, even though the VMs are in different subnets.</source>
+          <target state="new">You do not need to specify a gateway, even though the VMs are in different subnets.</target>
+        </trans-unit>
+        <trans-unit id="c8c3cf30-f19a-4577-b015-87ebb2eef853" xml:space="preserve">
+          <source>The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.</source>
+          <target state="new">The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.</target>
+        </trans-unit>
+        <trans-unit id="a86154a6-69d0-4bb0-9a89-4bdb1a3cffc1" xml:space="preserve">
+          <source>This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows.</source>
+          <target state="new">This flow of communication is possible because Azure uses a series of system routes to define how IP traffic flows.</target>
+        </trans-unit>
+        <trans-unit id="64f34dd1-46f2-4f7f-9e64-68cafcfbe660" xml:space="preserve">
+          <source>System routes control the flow of communication in the following scenarios:</source>
+          <target state="new">System routes control the flow of communication in the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="65d64e8d-241f-4f75-9af2-ad895b8682ad" xml:space="preserve">
+          <source>From within the same subnet.</source>
+          <target state="new">From within the same subnet.</target>
+        </trans-unit>
+        <trans-unit id="eb9034bf-c31f-4864-af8c-332c286f7810" xml:space="preserve">
+          <source>From a subnet to another within a VNet.</source>
+          <target state="new">From a subnet to another within a VNet.</target>
+        </trans-unit>
+        <trans-unit id="782ffbbb-fe73-4f1e-ab37-cdc1714d3cb7" xml:space="preserve">
+          <source>From VMs to the Internet.</source>
+          <target state="new">From VMs to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="031853b8-c0f1-4cea-b531-1497400ef12a" xml:space="preserve">
+          <source>From a VNet to another VNet through a VPN gateway.</source>
+          <target state="new">From a VNet to another VNet through a VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="adf7f3df-ae50-47ab-92fd-e3e73a4c8847" xml:space="preserve">
+          <source>From a VNet to your on-premises network through a VPN gateway.</source>
+          <target state="new">From a VNet to your on-premises network through a VPN gateway.</target>
+        </trans-unit>
+        <trans-unit id="60136db6-fade-4331-aacc-f393338cd8f4" xml:space="preserve">
+          <source>The figure below shows a simple setup with a VNet, two subnets, and a few VMs, along with the system routes that allow IP traffic to flow.</source>
+          <target state="new">The figure below shows a simple setup with a VNet, two subnets, and a few VMs, along with the system routes that allow IP traffic to flow.</target>
+        </trans-unit>
+        <trans-unit id="a1223497-2545-4767-97a8-c30bd68a5981" xml:space="preserve">
+          <source><bpt id="9f32b93f-1e22-49bf-a74f-5de0a804be1b">&lt;linkText&gt;</bpt>System routes in Azure<ept id="9f32b93f-1e22-49bf-a74f-5de0a804be1b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f32b93f-1e22-49bf-a74f-5de0a804be1b">&lt;linkText&gt;</bpt>System routes in Azure<ept id="9f32b93f-1e22-49bf-a74f-5de0a804be1b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d98f422-f10c-46e5-b5d1-e1953e7b94b9" xml:space="preserve">
+          <source>Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.</source>
+          <target state="new">Although the use of system routes facilitates traffic automatically for your deployment, there are cases in which you want to control the routing of packets through a virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="386b1b9d-13da-4052-b0e8-0829379f4339" xml:space="preserve">
+          <source>You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.</source>
+          <target state="new">You can do so by creating user defined routes that specify the next hop for packets flowing to a specific subnet to go to your virtual appliance instead, and enabling IP forwarding for the VM running as the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="2784eafb-8e15-4d8c-bf4d-289402f512a6" xml:space="preserve">
+          <source>The figure below shows an example of user defined routes and IP forwarding to force packets going from a frontend subnet to the Internet to pass through a virtual appliance, and all packets going from the frontend subnet to the backend subnet to go through a different appliance.</source>
+          <target state="new">The figure below shows an example of user defined routes and IP forwarding to force packets going from a frontend subnet to the Internet to pass through a virtual appliance, and all packets going from the frontend subnet to the backend subnet to go through a different appliance.</target>
+        </trans-unit>
+        <trans-unit id="5e2dee40-925d-49b3-b3fd-ef86881d78d2" xml:space="preserve">
+          <source>Notice that traffic from the backend subnet to the frontend subnet is still going through the system route, bypassing the appliance.</source>
+          <target state="new">Notice that traffic from the backend subnet to the frontend subnet is still going through the system route, bypassing the appliance.</target>
+        </trans-unit>
+        <trans-unit id="6b793ac1-6853-4b92-a6f3-5f116bcca175" xml:space="preserve">
+          <source><bpt id="5ea070a7-9845-4897-a0b3-7991c8897776">&lt;linkText&gt;</bpt>System routes in Azure<ept id="5ea070a7-9845-4897-a0b3-7991c8897776">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5ea070a7-9845-4897-a0b3-7991c8897776">&lt;linkText&gt;</bpt>System routes in Azure<ept id="5ea070a7-9845-4897-a0b3-7991c8897776">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f78a89f6-e75f-4143-86e9-f208052f2c79" xml:space="preserve">
+          <source>Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network.</source>
+          <target state="new">Packets are routed over a TCP/IP network based on a route table defined at each node on the physical network.</target>
+        </trans-unit>
+        <trans-unit id="5c3ff6dc-1063-4d3d-b4b0-fe707432633c" xml:space="preserve">
+          <source>A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address.</source>
+          <target state="new">A route table is a collection of individual routes used to decide where to forward packets based on the destination IP address.</target>
+        </trans-unit>
+        <trans-unit id="b62fdc92-d337-4040-8d03-5bcc78d79df6" xml:space="preserve">
+          <source>A route consists of the following:</source>
+          <target state="new">A route consists of the following:</target>
+        </trans-unit>
+        <trans-unit id="66acc963-ca35-430a-86b7-06e1bdf5e1cc" xml:space="preserve">
+          <source><bpt id="75c2aa7b-9853-42e7-aeca-b36f36426223">&lt;strong&gt;</bpt>Address Prefix<ept id="75c2aa7b-9853-42e7-aeca-b36f36426223">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="75c2aa7b-9853-42e7-aeca-b36f36426223">&lt;strong&gt;</bpt>Address Prefix<ept id="75c2aa7b-9853-42e7-aeca-b36f36426223">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ae4bb8a-839c-4001-b5ca-ebc4237e7536" xml:space="preserve">
+          <source>The destination CIDR to which the route applies, such as 10.1.0.0/16.</source>
+          <target state="new">The destination CIDR to which the route applies, such as 10.1.0.0/16.</target>
+        </trans-unit>
+        <trans-unit id="a02bbee8-48f0-48cb-894c-f0489e12d7dc" xml:space="preserve">
+          <source><bpt id="be635ebc-3f0d-4b97-90e8-436672b33cd9">&lt;strong&gt;</bpt>Next hop type<ept id="be635ebc-3f0d-4b97-90e8-436672b33cd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="be635ebc-3f0d-4b97-90e8-436672b33cd9">&lt;strong&gt;</bpt>Next hop type<ept id="be635ebc-3f0d-4b97-90e8-436672b33cd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ad5f2a0-6830-43bf-971e-23ca3533fd6b" xml:space="preserve">
+          <source>The type of Azure hop the packet should be sent to.</source>
+          <target state="new">The type of Azure hop the packet should be sent to.</target>
+        </trans-unit>
+        <trans-unit id="0b720323-0876-4034-b7c2-8037781048d7" xml:space="preserve">
+          <source>Possible values are:</source>
+          <target state="new">Possible values are:</target>
+        </trans-unit>
+        <trans-unit id="0321e0cd-cf11-4d5b-a7ab-42a579ebcd30" xml:space="preserve">
+          <source><bpt id="756da7df-f773-4e6c-8197-f40788591e83">&lt;strong&gt;</bpt>Local<ept id="756da7df-f773-4e6c-8197-f40788591e83">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="756da7df-f773-4e6c-8197-f40788591e83">&lt;strong&gt;</bpt>Local<ept id="756da7df-f773-4e6c-8197-f40788591e83">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d82ad7a6-5d03-45af-8b14-9887bde03bb4" xml:space="preserve">
+          <source>Represents the local virtual network.</source>
+          <target state="new">Represents the local virtual network.</target>
+        </trans-unit>
+        <trans-unit id="b1f0a228-9f6e-4df4-9756-e54c578232ac" xml:space="preserve">
+          <source>For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of <bpt id="6a25e43e-8596-4baa-9082-13575c2dbe47">&lt;em&gt;</bpt>Local<ept id="6a25e43e-8596-4baa-9082-13575c2dbe47">&lt;/em&gt;</ept>.</source>
+          <target state="new">For instance, if you have two subnets, 10.1.0.0/16 and 10.2.0.0/16 in the same virtual network, the route for each subnet in the route table will have a next hop value of <bpt id="6a25e43e-8596-4baa-9082-13575c2dbe47">&lt;em&gt;</bpt>Local<ept id="6a25e43e-8596-4baa-9082-13575c2dbe47">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12ffc388-f758-4074-9dcc-6945592e12db" xml:space="preserve">
+          <source><bpt id="a98489d3-f35b-4cc0-96dc-7477a4060da9">&lt;strong&gt;</bpt>VPN Gateway<ept id="a98489d3-f35b-4cc0-96dc-7477a4060da9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="a98489d3-f35b-4cc0-96dc-7477a4060da9">&lt;strong&gt;</bpt>VPN Gateway<ept id="a98489d3-f35b-4cc0-96dc-7477a4060da9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90744de8-7ac4-4bdc-a5d0-a13bee927622" xml:space="preserve">
+          <source>Represents an Azure S2S VPN Gateway.</source>
+          <target state="new">Represents an Azure S2S VPN Gateway.</target>
+        </trans-unit>
+        <trans-unit id="a4aeb66d-da06-4c0d-8622-4fc148dd7edf" xml:space="preserve">
+          <source><bpt id="3257822c-9f2b-48c7-a766-44b71120b179">&lt;strong&gt;</bpt>Internet<ept id="3257822c-9f2b-48c7-a766-44b71120b179">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3257822c-9f2b-48c7-a766-44b71120b179">&lt;strong&gt;</bpt>Internet<ept id="3257822c-9f2b-48c7-a766-44b71120b179">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f904206-a46f-47af-8605-4588c4273299" xml:space="preserve">
+          <source>Represents the default Internet gateway provided by the Azure Infrastructure</source>
+          <target state="new">Represents the default Internet gateway provided by the Azure Infrastructure</target>
+        </trans-unit>
+        <trans-unit id="e6af476f-2f2f-43b4-898f-4740b2534524" xml:space="preserve">
+          <source><bpt id="423987cb-8445-4b92-a0e6-43b491390ecd">&lt;strong&gt;</bpt>Virtual Appliance<ept id="423987cb-8445-4b92-a0e6-43b491390ecd">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="423987cb-8445-4b92-a0e6-43b491390ecd">&lt;strong&gt;</bpt>Virtual Appliance<ept id="423987cb-8445-4b92-a0e6-43b491390ecd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb7ffefc-d04f-434d-ad57-25a8f3bf36ae" xml:space="preserve">
+          <source>Represents a virtual appliance you added to your Azure virtual network.</source>
+          <target state="new">Represents a virtual appliance you added to your Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="56d2fe52-c016-48d0-aff5-5c901417d53d" xml:space="preserve">
+          <source><bpt id="16e162af-4230-4792-a326-17060cfc9a63">&lt;strong&gt;</bpt>NULL<ept id="16e162af-4230-4792-a326-17060cfc9a63">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="16e162af-4230-4792-a326-17060cfc9a63">&lt;strong&gt;</bpt>NULL<ept id="16e162af-4230-4792-a326-17060cfc9a63">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca418d93-797d-4b5d-8e23-158c36dcc7ec" xml:space="preserve">
+          <source>Represents a black hole.</source>
+          <target state="new">Represents a black hole.</target>
+        </trans-unit>
+        <trans-unit id="7a0e48c6-7011-4e87-a1e9-3c0a191f7015" xml:space="preserve">
+          <source>Packets forwarded to a black hole will not be forwarded at all.</source>
+          <target state="new">Packets forwarded to a black hole will not be forwarded at all.</target>
+        </trans-unit>
+        <trans-unit id="9f333341-addc-4f74-8058-3d36fb4212a9" xml:space="preserve">
+          <source><bpt id="45066da3-7743-4936-a026-eba888dec446">&lt;strong&gt;</bpt>Nexthop Value<ept id="45066da3-7743-4936-a026-eba888dec446">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="45066da3-7743-4936-a026-eba888dec446">&lt;strong&gt;</bpt>Nexthop Value<ept id="45066da3-7743-4936-a026-eba888dec446">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="249fc91b-9afd-49c9-ad93-10f3185c3ed9" xml:space="preserve">
+          <source>The next hop value contains the IP address packets should be forwarded to.</source>
+          <target state="new">The next hop value contains the IP address packets should be forwarded to.</target>
+        </trans-unit>
+        <trans-unit id="3d8d3aa7-0a30-409c-99ff-782526aae2d4" xml:space="preserve">
+          <source>Next hop values are only allowed in routes where the next hop type is <bpt id="1ce1b817-65ac-45a2-b6bd-694179c65e17">&lt;em&gt;</bpt>Virtual Appliance<ept id="1ce1b817-65ac-45a2-b6bd-694179c65e17">&lt;/em&gt;</ept>.</source>
+          <target state="new">Next hop values are only allowed in routes where the next hop type is <bpt id="1ce1b817-65ac-45a2-b6bd-694179c65e17">&lt;em&gt;</bpt>Virtual Appliance<ept id="1ce1b817-65ac-45a2-b6bd-694179c65e17">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69159bdf-08d3-456a-84c1-e617658bdf71" xml:space="preserve">
+          <source>Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:</source>
+          <target state="new">Every subnet created in a virtual network is automatically associated with a route table that contains the following system route rules:</target>
+        </trans-unit>
+        <trans-unit id="cbbe4376-dc4c-4607-b203-3c47e87580c7" xml:space="preserve">
+          <source><bpt id="6526eb91-ce92-4f54-919a-e5f362a65d33">&lt;strong&gt;</bpt>Local Vnet Rule<ept id="6526eb91-ce92-4f54-919a-e5f362a65d33">&lt;/strong&gt;</ept>: This rule is automatically created for every subnet in a virtual network.</source>
+          <target state="new"><bpt id="6526eb91-ce92-4f54-919a-e5f362a65d33">&lt;strong&gt;</bpt>Local Vnet Rule<ept id="6526eb91-ce92-4f54-919a-e5f362a65d33">&lt;/strong&gt;</ept>: This rule is automatically created for every subnet in a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="d2c6233f-4ad5-4880-8354-3b092e22109c" xml:space="preserve">
+          <source>It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.</source>
+          <target state="new">It specifies that there is a direct link between the VMs in the VNet and there is no intermediate next hop.</target>
+        </trans-unit>
+        <trans-unit id="d0463681-a63b-41ce-bd97-25f6822e144a" xml:space="preserve">
+          <source><bpt id="fac2c6ec-4ab7-42f7-8a89-353a3ea09053">&lt;strong&gt;</bpt>On-premises Rule<ept id="fac2c6ec-4ab7-42f7-8a89-353a3ea09053">&lt;/strong&gt;</ept>: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.</source>
+          <target state="new"><bpt id="fac2c6ec-4ab7-42f7-8a89-353a3ea09053">&lt;strong&gt;</bpt>On-premises Rule<ept id="fac2c6ec-4ab7-42f7-8a89-353a3ea09053">&lt;/strong&gt;</ept>: This rule applies to all traffic destined to the on-premises address range and uses VPN gateway as the next hop destination.</target>
+        </trans-unit>
+        <trans-unit id="12a32834-7405-46bc-a71f-e8ec6b29df69" xml:space="preserve">
+          <source><bpt id="3f80a9b7-0302-4356-bc24-9eb89a301d22">&lt;strong&gt;</bpt>Internet Rule<ept id="3f80a9b7-0302-4356-bc24-9eb89a301d22">&lt;/strong&gt;</ept>: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.</source>
+          <target state="new"><bpt id="3f80a9b7-0302-4356-bc24-9eb89a301d22">&lt;strong&gt;</bpt>Internet Rule<ept id="3f80a9b7-0302-4356-bc24-9eb89a301d22">&lt;/strong&gt;</ept>: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="b9ccc5b1-2e99-4f72-aacc-24e9d86ee3b8" xml:space="preserve">
+          <source>For most environments you will only need the system routes already defined by Azure.</source>
+          <target state="new">For most environments you will only need the system routes already defined by Azure.</target>
+        </trans-unit>
+        <trans-unit id="933d5d6d-0024-449c-aa38-903ad620f665" xml:space="preserve">
+          <source>However, you may need to create a route table and add one or more routes in specific cases, such as:</source>
+          <target state="new">However, you may need to create a route table and add one or more routes in specific cases, such as:</target>
+        </trans-unit>
+        <trans-unit id="82b02fa6-23df-4e48-bf75-471070bceb91" xml:space="preserve">
+          <source>Force tunneling to the Internet via your on-premises network.</source>
+          <target state="new">Force tunneling to the Internet via your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="3b289896-c8b1-454d-9261-28d4ae880509" xml:space="preserve">
+          <source>Use of virtual appliances in your Azure environment.</source>
+          <target state="new">Use of virtual appliances in your Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="4ea9bf3b-444c-4c73-b892-c4a1708a2801" xml:space="preserve">
+          <source>In the scenarios above, you will have to create a route table and add user defined routes to it.</source>
+          <target state="new">In the scenarios above, you will have to create a route table and add user defined routes to it.</target>
+        </trans-unit>
+        <trans-unit id="7a6bdcba-7b50-42e7-af14-5f099baae3a1" xml:space="preserve">
+          <source>You can have multiple route tables, and the same route table can be associated to one or more subnets.</source>
+          <target state="new">You can have multiple route tables, and the same route table can be associated to one or more subnets.</target>
+        </trans-unit>
+        <trans-unit id="7f67fc9c-c2e2-42ef-92c0-f2b01e16f7af" xml:space="preserve">
+          <source>And each subnet can only be associated to a single route table.</source>
+          <target state="new">And each subnet can only be associated to a single route table.</target>
+        </trans-unit>
+        <trans-unit id="e7d97731-3833-4c6f-854b-52c2efefe4a1" xml:space="preserve">
+          <source>All VMs and cloud services in a subnet use the route table associated to that subnet.</source>
+          <target state="new">All VMs and cloud services in a subnet use the route table associated to that subnet.</target>
+        </trans-unit>
+        <trans-unit id="4a79057b-6664-4640-b675-6fca51b0aed8" xml:space="preserve">
+          <source>Subnets rely on system routes until a route table is associated to the subnet.</source>
+          <target state="new">Subnets rely on system routes until a route table is associated to the subnet.</target>
+        </trans-unit>
+        <trans-unit id="a83347fa-4ed0-4270-826f-05dac6a6f822" xml:space="preserve">
+          <source>Once an association exists, routing is done based on Longest Prefix Match (LPM) among both user defined routes and system routes.</source>
+          <target state="new">Once an association exists, routing is done based on Longest Prefix Match (LPM) among both user defined routes and system routes.</target>
+        </trans-unit>
+        <trans-unit id="0c3edf65-0890-452e-90c6-0677e85d74bd" xml:space="preserve">
+          <source>If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:</source>
+          <target state="new">If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:</target>
+        </trans-unit>
+        <trans-unit id="2ca6c28a-e6dc-4544-8fa6-ced82184aa6d" xml:space="preserve">
+          <source>User defined route</source>
+          <target state="new">User defined route</target>
+        </trans-unit>
+        <trans-unit id="b465cb79-0a9d-49f8-9b84-ee6d7fafe264" xml:space="preserve">
+          <source>BGP route (when ExpressRoute is used)</source>
+          <target state="new">BGP route (when ExpressRoute is used)</target>
+        </trans-unit>
+        <trans-unit id="4cf91174-7b98-43f0-a65e-208dc3323168" xml:space="preserve">
+          <source>System route</source>
+          <target state="new">System route</target>
+        </trans-unit>
+        <trans-unit id="1fc8ac01-905b-47af-a8ac-a10d4663b086" xml:space="preserve">
+          <source>To learn how to create user defined routes, see <bpt id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;/linkText&gt;</ept><bpt id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;title&gt;</bpt><ept id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to create user defined routes, see <bpt id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;/linkText&gt;</ept><bpt id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;title&gt;</bpt><ept id="254841fb-1c46-428e-93c0-f0fae2fde07e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e04d1d79-3db5-46a1-bce0-97d52d1bc4f2" xml:space="preserve">
+          <source>User defined routes are only applied to Azure VMs and cloud services.</source>
+          <target state="new">User defined routes are only applied to Azure VMs and cloud services.</target>
+        </trans-unit>
+        <trans-unit id="ae57b51a-d41a-44cd-afd8-9b30ccc02baf" xml:space="preserve">
+          <source>For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance.</source>
+          <target state="new">For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forward all traffic going to the on-premises address space to the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="a2a2378e-9202-4401-86b1-8bebbe3f6825" xml:space="preserve">
+          <source>However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.</source>
+          <target state="new">However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="6e385c9d-2ce6-4c75-a954-120bbf45ebc8" xml:space="preserve">
+          <source>If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure.</source>
+          <target state="new">If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure.</target>
+        </trans-unit>
+        <trans-unit id="57434014-dd92-4be9-a423-59a9f17cb607" xml:space="preserve">
+          <source>These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet.</source>
+          <target state="new">These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet.</target>
+        </trans-unit>
+        <trans-unit id="f1eba70d-fb7e-4373-b9d3-e0b4e6df86e7" xml:space="preserve">
+          <source>For more information see <bpt id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;linkText&gt;</bpt>ExpressRoute Introduction<ept id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;/linkText&gt;</ept><bpt id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;title&gt;</bpt><ept id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;linkText&gt;</bpt>ExpressRoute Introduction<ept id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;/linkText&gt;</ept><bpt id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;title&gt;</bpt><ept id="af400a4f-ccc5-4c9a-9648-49fd414349f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8709d380-5e0b-4f7a-9486-5c640d885354" xml:space="preserve">
+          <source>You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop.</source>
+          <target state="new">You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop.</target>
+        </trans-unit>
+        <trans-unit id="b6dbecd1-4995-409d-8b52-fb70a8dc82c4" xml:space="preserve">
+          <source>However, this only works if you are using a VPN gateway, not ExpressRoute.</source>
+          <target state="new">However, this only works if you are using a VPN gateway, not ExpressRoute.</target>
+        </trans-unit>
+        <trans-unit id="90ddef49-44f3-42e1-9272-323233ebb2da" xml:space="preserve">
+          <source>For ExpressRoute, forced tunneling is configured through BGP.</source>
+          <target state="new">For ExpressRoute, forced tunneling is configured through BGP.</target>
+        </trans-unit>
+        <trans-unit id="1da9b03f-51d0-4973-a78f-bc293c85bb64" xml:space="preserve">
+          <source>As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance.</source>
+          <target state="new">As describe above, one of the main reasons to create a user defined route is to forward traffic to a virtual appliance.</target>
+        </trans-unit>
+        <trans-unit id="aebaa8ff-6c53-4e6b-b971-950c3f0c73fa" xml:space="preserve">
+          <source>A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.</source>
+          <target state="new">A virtual appliance is nothing more than a VM that runs an application used to handle network traffic in some way, such as a firewall or a NAT device.</target>
+        </trans-unit>
+        <trans-unit id="b7a04b28-fa9c-43e3-8b04-b4d78707ee96" xml:space="preserve">
+          <source>This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself.</source>
+          <target state="new">This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself.</target>
+        </trans-unit>
+        <trans-unit id="4abc3f72-2374-49b5-889b-c082f6ee1f51" xml:space="preserve">
+          <source>To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM.</source>
+          <target state="new">To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM.</target>
+        </trans-unit>
+        <trans-unit id="9d795da2-7237-422b-af9e-4767318ae0f9" xml:space="preserve">
+          <source>This is an Azure setting, not a setting in the guest operating system.</source>
+          <target state="new">This is an Azure setting, not a setting in the guest operating system.</target>
+        </trans-unit>
+        <trans-unit id="6c99f52a-da13-4962-b3a0-74ccd13a130b" xml:space="preserve">
+          <source>To learn how to enable IP forwarding for a VM in Azure, see <bpt id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;/linkText&gt;</ept><bpt id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;title&gt;</bpt><ept id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to enable IP forwarding for a VM in Azure, see <bpt id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;linkText&gt;</bpt>How to Create Routes and Enable IP Forwarding in Azure<ept id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;/linkText&gt;</ept><bpt id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;title&gt;</bpt><ept id="1780d433-d0bd-421b-bd51-19f1419c284d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9952558d-3fe0-4b1d-8e0c-1fb7f4729a7b" xml:space="preserve">
+          <source>Learn how to <bpt id="44735b06-44b6-4172-920a-a0e69425a011">&lt;linkText&gt;</bpt>create routes<ept id="44735b06-44b6-4172-920a-a0e69425a011">&lt;/linkText&gt;</ept><bpt id="44735b06-44b6-4172-920a-a0e69425a011">&lt;title&gt;</bpt><ept id="44735b06-44b6-4172-920a-a0e69425a011">&lt;/title&gt;</ept> and associate them to subnets.</source>
+          <target state="new">Learn how to <bpt id="44735b06-44b6-4172-920a-a0e69425a011">&lt;linkText&gt;</bpt>create routes<ept id="44735b06-44b6-4172-920a-a0e69425a011">&lt;/linkText&gt;</ept><bpt id="44735b06-44b6-4172-920a-a0e69425a011">&lt;title&gt;</bpt><ept id="44735b06-44b6-4172-920a-a0e69425a011">&lt;/title&gt;</ept> and associate them to subnets.</target>
+        </trans-unit>
+        <trans-unit id="ca96906d-0735-4bb7-9987-82dc26525088" xml:space="preserve">
+          <source>Learn how to <bpt id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;linkText&gt;</bpt>enable IP forwarding<ept id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;/linkText&gt;</ept><bpt id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;title&gt;</bpt><ept id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;/title&gt;</ept> for a VM running a virtual appliance.</source>
+          <target state="new">Learn how to <bpt id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;linkText&gt;</bpt>enable IP forwarding<ept id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;/linkText&gt;</ept><bpt id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;title&gt;</bpt><ept id="2d48a13d-bed6-447d-9443-993ce594a1fa">&lt;/title&gt;</ept> for a VM running a virtual appliance.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

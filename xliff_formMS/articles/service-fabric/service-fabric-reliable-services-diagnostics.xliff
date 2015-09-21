@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="880f9c7d-7f53-4a06-9dfe-a2237904a08a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="880f9c7d-7f53-4a06-9dfe-a2237904a08a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5f4b0594-dd6a-478f-8e39-1fdc4e1f348f">
+        <trans-unit id="3ef205cb-2b49-4992-a53a-f2a688fa6c26" xml:space="preserve">
+          <source>Stateful Reliable Service Diagnostics</source>
+          <target state="new">Stateful Reliable Service Diagnostics</target>
+        </trans-unit>
+        <trans-unit id="21650aa7-951b-43ef-9988-c4b53fe7b452" xml:space="preserve">
+          <source>Diagnostic Functionality for Stateful Reliable Services</source>
+          <target state="new">Diagnostic Functionality for Stateful Reliable Services</target>
+        </trans-unit>
+        <trans-unit id="05761484-f868-4cb6-b5f8-0a7b8745d3c3" xml:space="preserve">
+          <source>The Stateful Reliable Services StatefulServiceBase class emits <bpt id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;linkText&gt;</bpt>EventSource<ept id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;/linkText&gt;</ept><bpt id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;title&gt;</bpt><ept id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;/title&gt;</ept> events 
+that can be used for debugging the service, provide insights into how the runtime is operating and help with troubleshooting.</source>
+          <target state="new">The Stateful Reliable Services StatefulServiceBase class emits <bpt id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;linkText&gt;</bpt>EventSource<ept id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;/linkText&gt;</ept><bpt id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;title&gt;</bpt><ept id="c0a22bcd-bea0-4214-bdd8-b553001dea89">&lt;/title&gt;</ept> events 
+that can be used for debugging the service, provide insights into how the runtime is operating and help with troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="c4183413-bcd5-4887-8021-dd161c408e3e" xml:space="preserve">
+          <source>The EventSource name for Stateful Reliable Service StatefulServiceBase class is "Microsoft-ServiceFabric-Services".</source>
+          <target state="new">The EventSource name for Stateful Reliable Service StatefulServiceBase class is "Microsoft-ServiceFabric-Services".</target>
+        </trans-unit>
+        <trans-unit id="81ed8dd8-24bc-4640-995e-44f0817f5aab" xml:space="preserve">
+          <source>Events from this event source appear in the 
+<bpt id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;linkText&gt;</bpt>Diagnostics Events<ept id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;/linkText&gt;</ept><bpt id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;title&gt;</bpt><ept id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;/title&gt;</ept> window when the service 
+is being <bpt id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;linkText&gt;</bpt>debugged in Visual Studio<ept id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;/linkText&gt;</ept><bpt id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;title&gt;</bpt><ept id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;/title&gt;</ept>.</source>
+          <target state="new">Events from this event source appear in the 
+<bpt id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;linkText&gt;</bpt>Diagnostics Events<ept id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;/linkText&gt;</ept><bpt id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;title&gt;</bpt><ept id="ab3dd6e4-5dec-4b21-8c66-a1b728ba9588">&lt;/title&gt;</ept> window when the service 
+is being <bpt id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;linkText&gt;</bpt>debugged in Visual Studio<ept id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;/linkText&gt;</ept><bpt id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;title&gt;</bpt><ept id="ecb315a1-f743-4722-bb97-849fcab17459">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3625e916-c0be-48d4-bce3-38687d099506" xml:space="preserve">
+          <source>Service Fabric also offers the option of directing these events to <bpt id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;linkText&gt;</bpt>Application Insights<ept id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;/linkText&gt;</ept><bpt id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;title&gt;</bpt><ept id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;/title&gt;</ept>.</source>
+          <target state="new">Service Fabric also offers the option of directing these events to <bpt id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;linkText&gt;</bpt>Application Insights<ept id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;/linkText&gt;</ept><bpt id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;title&gt;</bpt><ept id="7e7a9c3a-0432-45bd-a9ed-599165d2e752">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cd06512-add8-4fb9-b0be-d0d3b7967dbd" xml:space="preserve">
+          <source>For more information on this, please see 
+the article on <bpt id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;linkText&gt;</bpt>Application Insights setup for Service Fabric<ept id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;/linkText&gt;</ept><bpt id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;title&gt;</bpt><ept id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on this, please see 
+the article on <bpt id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;linkText&gt;</bpt>Application Insights setup for Service Fabric<ept id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;/linkText&gt;</ept><bpt id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;title&gt;</bpt><ept id="b171aa9f-0f60-4704-a8ce-9d81c249db9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1977552-5842-42b3-9d58-51b5f7a0b1cc" xml:space="preserve">
+          <source>Other examples of tools and technologies that help in collecting and/or viewing EventSource events are <bpt id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;linkText&gt;</bpt>PerfView<ept id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;/linkText&gt;</ept><bpt id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;title&gt;</bpt><ept id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;/title&gt;</ept>, 
+<bpt id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;linkText&gt;</bpt>Microsoft Azure Diagnostics<ept id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;/linkText&gt;</ept><bpt id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;title&gt;</bpt><ept id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;/title&gt;</ept> and the 
+<bpt id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;linkText&gt;</bpt>Microsoft TraceEvent Library<ept id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;/linkText&gt;</ept><bpt id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;title&gt;</bpt><ept id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Other examples of tools and technologies that help in collecting and/or viewing EventSource events are <bpt id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;linkText&gt;</bpt>PerfView<ept id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;/linkText&gt;</ept><bpt id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;title&gt;</bpt><ept id="119ab2ad-0998-4a2a-b09a-efd80fac9441">&lt;/title&gt;</ept>, 
+<bpt id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;linkText&gt;</bpt>Microsoft Azure Diagnostics<ept id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;/linkText&gt;</ept><bpt id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;title&gt;</bpt><ept id="75a71bed-67e9-4e6e-b41e-928505516651">&lt;/title&gt;</ept> and the 
+<bpt id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;linkText&gt;</bpt>Microsoft TraceEvent Library<ept id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;/linkText&gt;</ept><bpt id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;title&gt;</bpt><ept id="ce920af2-6bd4-4a1e-bde2-1a1085efb54d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa72a676-c171-40f0-91af-2cd42560c8db" xml:space="preserve">
+          <source>Event Name</source>
+          <target state="new">Event Name</target>
+        </trans-unit>
+        <trans-unit id="f9bc23ea-33c4-4a1d-ba21-f5845406e792" xml:space="preserve">
+          <source>Event Id</source>
+          <target state="new">Event Id</target>
+        </trans-unit>
+        <trans-unit id="0a61d3eb-1a55-4bf1-ac7c-2286beaefcd4" xml:space="preserve">
+          <source>Level</source>
+          <target state="new">Level</target>
+        </trans-unit>
+        <trans-unit id="b057e384-7e86-4258-9331-d2dcb6d58d50" xml:space="preserve">
+          <source>Event Description</source>
+          <target state="new">Event Description</target>
+        </trans-unit>
+        <trans-unit id="03b594b1-c05d-4232-b981-75ab98c62349" xml:space="preserve">
+          <source>StatefulRunAsyncInvocation</source>
+          <target state="new">StatefulRunAsyncInvocation</target>
+        </trans-unit>
+        <trans-unit id="9ad55606-4181-45c2-b09e-98f79736b0f0" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="d844ce35-d7bb-4b53-80b0-06437e40c640" xml:space="preserve">
+          <source>Informational</source>
+          <target state="new">Informational</target>
+        </trans-unit>
+        <trans-unit id="ab14fca4-9091-43ea-b04f-3352b20d0b05" xml:space="preserve">
+          <source>Emitted when service RunAsync task is started</source>
+          <target state="new">Emitted when service RunAsync task is started</target>
+        </trans-unit>
+        <trans-unit id="75c71377-fff5-4ff3-9e48-e2b2178f0f27" xml:space="preserve">
+          <source>StatefulRunAsyncCancellation</source>
+          <target state="new">StatefulRunAsyncCancellation</target>
+        </trans-unit>
+        <trans-unit id="dfd81b9a-b415-4c3b-a48b-37b643dfba89" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="081c2c60-bf51-4ec4-a0b3-d030dd65b0dd" xml:space="preserve">
+          <source>Informational</source>
+          <target state="new">Informational</target>
+        </trans-unit>
+        <trans-unit id="011f0170-cbc0-499a-bf3c-b39a599f28e1" xml:space="preserve">
+          <source>Emitted when service RunAsync task is cancelled</source>
+          <target state="new">Emitted when service RunAsync task is cancelled</target>
+        </trans-unit>
+        <trans-unit id="5720087a-bd7b-437a-8d42-d13c6b0a049b" xml:space="preserve">
+          <source>StatefulRunAsyncCompletion</source>
+          <target state="new">StatefulRunAsyncCompletion</target>
+        </trans-unit>
+        <trans-unit id="ad6d95e8-6300-4670-a85d-1e12fc6d5e80" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="33b41a3f-2c2d-4fc6-bff5-c1f1f5179f0f" xml:space="preserve">
+          <source>Informational</source>
+          <target state="new">Informational</target>
+        </trans-unit>
+        <trans-unit id="6603f773-a585-4b8a-a0a2-fa9b516c1ebc" xml:space="preserve">
+          <source>Emitted when service RunAsync task is completed</source>
+          <target state="new">Emitted when service RunAsync task is completed</target>
+        </trans-unit>
+        <trans-unit id="a10b571b-748f-4c97-af96-52f9cc81a865" xml:space="preserve">
+          <source>StatefulRunAsyncSlowCancellation</source>
+          <target state="new">StatefulRunAsyncSlowCancellation</target>
+        </trans-unit>
+        <trans-unit id="45e35d56-e4cf-4c4a-9445-ef8df9cea230" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="ddda7c19-c622-45db-820a-9dc27135ad01" xml:space="preserve">
+          <source>Warning</source>
+          <target state="new">Warning</target>
+        </trans-unit>
+        <trans-unit id="fa7582e8-7211-45aa-9735-a4e0241019ae" xml:space="preserve">
+          <source>Emitted when service RunAsync task takes too long to complete cancellation</source>
+          <target state="new">Emitted when service RunAsync task takes too long to complete cancellation</target>
+        </trans-unit>
+        <trans-unit id="5791d3c4-e549-418d-889a-d0608352ec7e" xml:space="preserve">
+          <source>StatefulRunAsyncFailure</source>
+          <target state="new">StatefulRunAsyncFailure</target>
+        </trans-unit>
+        <trans-unit id="e2ec40dc-5102-431b-af8c-e5c611497cc0" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="c61339b5-785b-46d1-bf82-c31ca079977d" xml:space="preserve">
+          <source>Error</source>
+          <target state="new">Error</target>
+        </trans-unit>
+        <trans-unit id="061385d9-6ed3-4c51-8411-562d599bdec1" xml:space="preserve">
+          <source>Emitted when service RunAsync task throws an exception</source>
+          <target state="new">Emitted when service RunAsync task throws an exception</target>
+        </trans-unit>
+        <trans-unit id="1698cf6e-1d46-48d4-9377-0d28123cad55" xml:space="preserve">
+          <source>StatefulRunAsyncInvocation, StatefulRunAsyncCompletion and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service as well as the timing for when a 
+service is started, cancelled and completed.</source>
+          <target state="new">StatefulRunAsyncInvocation, StatefulRunAsyncCompletion and StatefulRunAsyncCancellation events are useful to the service writer to understand the lifecycle of a service as well as the timing for when a 
+service is started, cancelled and completed.</target>
+        </trans-unit>
+        <trans-unit id="2986a34b-597f-467f-8d00-cf161deea3a1" xml:space="preserve">
+          <source>This can be useful when debugging service issues or understanding the service lifecycle.</source>
+          <target state="new">This can be useful when debugging service issues or understanding the service lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="98c3d30d-229b-4eef-8161-0409e19eb208" xml:space="preserve">
+          <source>Service writers should pay close attention 
+to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events as they indicate issues with the service.</source>
+          <target state="new">Service writers should pay close attention 
+to StatefulRunAsyncSlowCancellation and StatefulRunAsyncFailure events as they indicate issues with the service.</target>
+        </trans-unit>
+        <trans-unit id="1fd2a637-2832-4efb-a8f1-11a147dc2fdd" xml:space="preserve">
+          <source>StatefulRunAsyncFailure is emitted whenever
+the service RunAsync() task throws an exception.</source>
+          <target state="new">StatefulRunAsyncFailure is emitted whenever
+the service RunAsync() task throws an exception.</target>
+        </trans-unit>
+        <trans-unit id="48880aba-dae6-45ae-adce-f260028b363b" xml:space="preserve">
+          <source>Typically an exception thrown indicates an error or bug in the service.</source>
+          <target state="new">Typically an exception thrown indicates an error or bug in the service.</target>
+        </trans-unit>
+        <trans-unit id="d38c6746-12c3-4125-9371-69a89413b79d" xml:space="preserve">
+          <source>Additionally the exception causes the service to fail and thus moved to a 
+different node which can be an expensive operation and delay incoming requests while the service is moved.</source>
+          <target state="new">Additionally the exception causes the service to fail and thus moved to a 
+different node which can be an expensive operation and delay incoming requests while the service is moved.</target>
+        </trans-unit>
+        <trans-unit id="496f1ab7-130b-429c-9647-ca118a3b8021" xml:space="preserve">
+          <source>Service writers should determine the cause of the exception and if possible mitigate it.</source>
+          <target state="new">Service writers should determine the cause of the exception and if possible mitigate it.</target>
+        </trans-unit>
+        <trans-unit id="a0101228-d7c5-442f-9976-071bd00ee7c6" xml:space="preserve">
+          <source>StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than 4 seconds.</source>
+          <target state="new">StatefulRunAsyncSlowCancellation is emitted whenever a cancellation request for the RunAsync task takes longer than 4 seconds.</target>
+        </trans-unit>
+        <trans-unit id="a5b45ca4-6348-418d-b535-c1bae40bca67" xml:space="preserve">
+          <source>When a service takes too long to complete cancellation, it impacts
+the ability for the service to be quickly restarted on another node and may impact overall availability of the service.</source>
+          <target state="new">When a service takes too long to complete cancellation, it impacts
+the ability for the service to be quickly restarted on another node and may impact overall availability of the service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

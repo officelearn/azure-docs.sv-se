@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42ad0197-607c-41dd-b4c5-c82f0409d908" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42ad0197-607c-41dd-b4c5-c82f0409d908" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="af6a1511-e919-44dd-92a9-20582ff4bc23">
+        <trans-unit id="c7bdcce3-97b8-46b6-8d4b-88e175d192fc" xml:space="preserve">
+          <source>Log on to the <bpt id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;/linkText&gt;</ept><bpt id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;title&gt;</bpt><ept id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;/title&gt;</ept>, click <bpt id="57844689-ce62-46ac-b38f-0eb34e6e1620">&lt;strong&gt;</bpt>Mobile Services<ept id="57844689-ce62-46ac-b38f-0eb34e6e1620">&lt;/strong&gt;</ept>, and then click your app.</source>
+          <target state="new">Log on to the <bpt id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;/linkText&gt;</ept><bpt id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;title&gt;</bpt><ept id="9319a6c0-37f6-4617-a583-66e93eb090a7">&lt;/title&gt;</ept>, click <bpt id="57844689-ce62-46ac-b38f-0eb34e6e1620">&lt;strong&gt;</bpt>Mobile Services<ept id="57844689-ce62-46ac-b38f-0eb34e6e1620">&lt;/strong&gt;</ept>, and then click your app.</target>
+        </trans-unit>
+        <trans-unit id="f8e244d1-922a-455a-bbba-2cdbb43fd0a9" xml:space="preserve">
+          <source>Click the <bpt id="1aa9a4b5-fa13-44de-bb16-7397ec27ebdc">&lt;strong&gt;</bpt>Push<ept id="1aa9a4b5-fa13-44de-bb16-7397ec27ebdc">&lt;/strong&gt;</ept> tab, enter the <bpt id="71b1527d-198a-4f2c-840b-fd2523c30124">&lt;strong&gt;</bpt>API Key<ept id="71b1527d-198a-4f2c-840b-fd2523c30124">&lt;/strong&gt;</ept> value obtained from GCM in the previous procedure, then click <bpt id="dd559b82-c52a-47f5-b524-c0ce31a32ee2">&lt;strong&gt;</bpt>Save<ept id="dd559b82-c52a-47f5-b524-c0ce31a32ee2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="1aa9a4b5-fa13-44de-bb16-7397ec27ebdc">&lt;strong&gt;</bpt>Push<ept id="1aa9a4b5-fa13-44de-bb16-7397ec27ebdc">&lt;/strong&gt;</ept> tab, enter the <bpt id="71b1527d-198a-4f2c-840b-fd2523c30124">&lt;strong&gt;</bpt>API Key<ept id="71b1527d-198a-4f2c-840b-fd2523c30124">&lt;/strong&gt;</ept> value obtained from GCM in the previous procedure, then click <bpt id="dd559b82-c52a-47f5-b524-c0ce31a32ee2">&lt;strong&gt;</bpt>Save<ept id="dd559b82-c52a-47f5-b524-c0ce31a32ee2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dce3825-7569-42a2-b45e-011f1dbf39a0" xml:space="preserve">
+          <source><bpt id="8290d55b-dab1-4702-abd0-f4e5875f38d5">&lt;linkText&gt;</bpt><ept id="8290d55b-dab1-4702-abd0-f4e5875f38d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8290d55b-dab1-4702-abd0-f4e5875f38d5">&lt;linkText&gt;</bpt><ept id="8290d55b-dab1-4702-abd0-f4e5875f38d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40b4f1e0-7e65-49c9-9667-2041b7589dc3" xml:space="preserve">
+          <source>When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</source>
+          <target state="new">When you set your GCM credentials for enhanced push notifications in the Push tab in the portal, they are shared with Notification Hubs to configure the notification hub with your app.</target>
+        </trans-unit>
+        <trans-unit id="62e63b8b-194c-46a0-a4f8-137c47e01dc8" xml:space="preserve">
+          <source>Both your mobile service and your app are now configured to work with GCM and Notification Hubs.</source>
+          <target state="new">Both your mobile service and your app are now configured to work with GCM and Notification Hubs.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

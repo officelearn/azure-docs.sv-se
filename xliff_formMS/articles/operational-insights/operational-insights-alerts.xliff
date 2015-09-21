@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="57d513cf-5fb9-4757-90c1-9b6ea7e4dce5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="57d513cf-5fb9-4757-90c1-9b6ea7e4dce5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b8babd24-d338-4ea3-84ce-a4d8b376d7c8">
+        <trans-unit id="8744b40e-2a01-4ded-99eb-639e7c1772e9" xml:space="preserve">
+          <source>View alerts from Operations Manager</source>
+          <target state="new">View alerts from Operations Manager</target>
+        </trans-unit>
+        <trans-unit id="42c15de7-51cb-4ac5-84cc-d16afaa5b871" xml:space="preserve">
+          <source>Learn about managing alerts from Operations Manager for monitored servers in your infrastructure</source>
+          <target state="new">Learn about managing alerts from Operations Manager for monitored servers in your infrastructure</target>
+        </trans-unit>
+        <trans-unit id="110e1f1e-8ff7-42a7-98fd-25853050ab47" xml:space="preserve">
+          <source><bpt id="ee88a9d2-7b22-4f61-b578-a2ba8a3cd9af">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="ee88a9d2-7b22-4f61-b578-a2ba8a3cd9af">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ee88a9d2-7b22-4f61-b578-a2ba8a3cd9af">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="ee88a9d2-7b22-4f61-b578-a2ba8a3cd9af">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10dc9876-b78a-4c5d-85fc-7095c38b3a1f" xml:space="preserve">
+          <source>Before you can use Alert Management in Microsoft Azure Operational Insights, you must have the solution installed.</source>
+          <target state="new">Before you can use Alert Management in Microsoft Azure Operational Insights, you must have the solution installed.</target>
+        </trans-unit>
+        <trans-unit id="58a7aaa2-607d-41dc-a8af-174b609b6a04" xml:space="preserve">
+          <source>To read more about installing solutions, see <bpt id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;linkText&gt;</bpt>Setup your workspace<ept id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;/linkText&gt;</ept><bpt id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;title&gt;</bpt><ept id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;/title&gt;</ept>.</source>
+          <target state="new">To read more about installing solutions, see <bpt id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;linkText&gt;</bpt>Setup your workspace<ept id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;/linkText&gt;</ept><bpt id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;title&gt;</bpt><ept id="29c8b074-cd01-4a6a-bc84-723456d18864">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d72abd47-65e5-4247-9e84-b1d77a7e7d8c" xml:space="preserve">
+          <source>The solution only works when  your servers are monitored by to Operations Manager agents.</source>
+          <target state="new">The solution only works when  your servers are monitored by to Operations Manager agents.</target>
+        </trans-unit>
+        <trans-unit id="cd93ebb1-ad47-46a3-8f48-6aec53d6bcc5" xml:space="preserve">
+          <source>See <bpt id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;linkText&gt;</bpt>Connect to Operational Insights from System Center Operations Manager<ept id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;/linkText&gt;</ept><bpt id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;title&gt;</bpt><ept id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;/title&gt;</ept> for information about using Operations Manager with Operational Insights.</source>
+          <target state="new">See <bpt id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;linkText&gt;</bpt>Connect to Operational Insights from System Center Operations Manager<ept id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;/linkText&gt;</ept><bpt id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;title&gt;</bpt><ept id="7f33e6b4-52ad-4700-97e8-0d695907b3b7">&lt;/title&gt;</ept> for information about using Operations Manager with Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="8fb52722-683a-4f3f-8218-c0260200fb9e" xml:space="preserve">
+          <source>After the solution is installed, you can view alerts for your monitored servers by using the <bpt id="9e646a7c-42db-42e9-a146-0eb1b07011fe">&lt;strong&gt;</bpt>Alert Management<ept id="9e646a7c-42db-42e9-a146-0eb1b07011fe">&lt;/strong&gt;</ept> tile on the <bpt id="0338ee74-f3b3-4985-b2e5-abbbfa6a92c3">&lt;strong&gt;</bpt>Overview<ept id="0338ee74-f3b3-4985-b2e5-abbbfa6a92c3">&lt;/strong&gt;</ept> dashboard in Operational Insights.</source>
+          <target state="new">After the solution is installed, you can view alerts for your monitored servers by using the <bpt id="9e646a7c-42db-42e9-a146-0eb1b07011fe">&lt;strong&gt;</bpt>Alert Management<ept id="9e646a7c-42db-42e9-a146-0eb1b07011fe">&lt;/strong&gt;</ept> tile on the <bpt id="0338ee74-f3b3-4985-b2e5-abbbfa6a92c3">&lt;strong&gt;</bpt>Overview<ept id="0338ee74-f3b3-4985-b2e5-abbbfa6a92c3">&lt;/strong&gt;</ept> dashboard in Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="e878a7dd-ef63-42ad-8ca9-d692337cf934" xml:space="preserve">
+          <source><bpt id="21d05268-b482-4616-8935-f17416351a1b">&lt;linkText&gt;</bpt>image of Alert Management tile<ept id="21d05268-b482-4616-8935-f17416351a1b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21d05268-b482-4616-8935-f17416351a1b">&lt;linkText&gt;</bpt>image of Alert Management tile<ept id="21d05268-b482-4616-8935-f17416351a1b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c6c01a7-945d-4a9c-bafd-3fcfdd41f502" xml:space="preserve">
+          <source>You can view and manage Microsoft Azure Operational Insights alerts from the <bpt id="5dbbf041-9c66-4e94-9cfa-b562c9a1c293">&lt;strong&gt;</bpt>Alerts<ept id="5dbbf041-9c66-4e94-9cfa-b562c9a1c293">&lt;/strong&gt;</ept> dashboard.</source>
+          <target state="new">You can view and manage Microsoft Azure Operational Insights alerts from the <bpt id="5dbbf041-9c66-4e94-9cfa-b562c9a1c293">&lt;strong&gt;</bpt>Alerts<ept id="5dbbf041-9c66-4e94-9cfa-b562c9a1c293">&lt;/strong&gt;</ept> dashboard.</target>
+        </trans-unit>
+        <trans-unit id="4feb640a-865d-415f-87eb-b876a31fd467" xml:space="preserve">
+          <source>On the dashboard, alert information is displayed in the following categories:</source>
+          <target state="new">On the dashboard, alert information is displayed in the following categories:</target>
+        </trans-unit>
+        <trans-unit id="f74fc313-70b9-4573-885b-ec0eeb64c13a" xml:space="preserve">
+          <source>Active Alerts</source>
+          <target state="new">Active Alerts</target>
+        </trans-unit>
+        <trans-unit id="2d1522de-dd5e-4c79-b2b3-2d6e35457419" xml:space="preserve">
+          <source>Critical Alerts</source>
+          <target state="new">Critical Alerts</target>
+        </trans-unit>
+        <trans-unit id="635635ce-7871-49d9-b953-66fe35df5c5f" xml:space="preserve">
+          <source>Warning Alerts</source>
+          <target state="new">Warning Alerts</target>
+        </trans-unit>
+        <trans-unit id="416c142a-4543-4775-8818-bca2b4a41882" xml:space="preserve">
+          <source>Alert Sources</source>
+          <target state="new">Alert Sources</target>
+        </trans-unit>
+        <trans-unit id="582dcfb2-c06f-4180-bd19-5326279e8821" xml:space="preserve">
+          <source>All Active Alerts</source>
+          <target state="new">All Active Alerts</target>
+        </trans-unit>
+        <trans-unit id="285d7219-e920-4684-afd4-66443a626002" xml:space="preserve">
+          <source>Shows the percentage of alerts that are critical, warnings, and informational.</source>
+          <target state="new">Shows the percentage of alerts that are critical, warnings, and informational.</target>
+        </trans-unit>
+        <trans-unit id="d4c71314-1774-42ab-b86c-e73d39561148" xml:space="preserve">
+          <source>Common Alert Queries</source>
+          <target state="new">Common Alert Queries</target>
+        </trans-unit>
+        <trans-unit id="fbd48c2b-3d9f-4cb0-8a92-f3939092dfce" xml:space="preserve">
+          <source>This area contains pre-built queries that the Operational Insights software development team has created to help you get started using alerts.</source>
+          <target state="new">This area contains pre-built queries that the Operational Insights software development team has created to help you get started using alerts.</target>
+        </trans-unit>
+        <trans-unit id="8311fd4f-a48b-4077-965e-6253a8f70942" xml:space="preserve">
+          <source>Alerts tell you that an issue was detected, which server the alert affects, the priority, and the name of the alert.</source>
+          <target state="new">Alerts tell you that an issue was detected, which server the alert affects, the priority, and the name of the alert.</target>
+        </trans-unit>
+        <trans-unit id="d2bbba2a-089a-43b3-b202-658123a60fd6" xml:space="preserve">
+          <source><bpt id="e036ba09-8679-4c36-8dd1-9b42a7707240">&lt;linkText&gt;</bpt>image of Alert dashboard<ept id="e036ba09-8679-4c36-8dd1-9b42a7707240">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e036ba09-8679-4c36-8dd1-9b42a7707240">&lt;linkText&gt;</bpt>image of Alert dashboard<ept id="e036ba09-8679-4c36-8dd1-9b42a7707240">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70a2edf3-ccec-4c86-b0b1-fda35604b423" xml:space="preserve">
+          <source><bpt id="b1eb38e8-d4fc-4fab-9e1c-423d54f6e657">&lt;linkText&gt;</bpt>image of Alert dashboard<ept id="b1eb38e8-d4fc-4fab-9e1c-423d54f6e657">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1eb38e8-d4fc-4fab-9e1c-423d54f6e657">&lt;linkText&gt;</bpt>image of Alert dashboard<ept id="b1eb38e8-d4fc-4fab-9e1c-423d54f6e657">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e405aa2a-7319-4630-b0f1-e4b00010e112" xml:space="preserve">
+          <source>On the <bpt id="581d694a-d849-4442-990c-bed181ce0699">&lt;strong&gt;</bpt>Alert Management<ept id="581d694a-d849-4442-990c-bed181ce0699">&lt;/strong&gt;</ept> dashboard, you can view all the alerts that Microsoft Azure Operational Insights has found.</source>
+          <target state="new">On the <bpt id="581d694a-d849-4442-990c-bed181ce0699">&lt;strong&gt;</bpt>Alert Management<ept id="581d694a-d849-4442-990c-bed181ce0699">&lt;/strong&gt;</ept> dashboard, you can view all the alerts that Microsoft Azure Operational Insights has found.</target>
+        </trans-unit>
+        <trans-unit id="e22c954a-92a5-490d-baa5-8dae0efa3568" xml:space="preserve">
+          <source>On the <bpt id="2fded3ab-17ec-4107-899b-444d741deaeb">&lt;strong&gt;</bpt>Overview<ept id="2fded3ab-17ec-4107-899b-444d741deaeb">&lt;/strong&gt;</ept> page, click the <bpt id="03cdbad9-4f83-4206-a2a8-6a35153517af">&lt;strong&gt;</bpt>Alert Management<ept id="03cdbad9-4f83-4206-a2a8-6a35153517af">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">On the <bpt id="2fded3ab-17ec-4107-899b-444d741deaeb">&lt;strong&gt;</bpt>Overview<ept id="2fded3ab-17ec-4107-899b-444d741deaeb">&lt;/strong&gt;</ept> page, click the <bpt id="03cdbad9-4f83-4206-a2a8-6a35153517af">&lt;strong&gt;</bpt>Alert Management<ept id="03cdbad9-4f83-4206-a2a8-6a35153517af">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="3d67642a-649d-4772-890b-5c4bf8b039c7" xml:space="preserve">
+          <source>On the <bpt id="3a991ce7-c9e9-41df-9998-e0d43bdea805">&lt;strong&gt;</bpt>Alert Management<ept id="3a991ce7-c9e9-41df-9998-e0d43bdea805">&lt;/strong&gt;</ept> dashboard, view the alert categories and choose one to work with.</source>
+          <target state="new">On the <bpt id="3a991ce7-c9e9-41df-9998-e0d43bdea805">&lt;strong&gt;</bpt>Alert Management<ept id="3a991ce7-c9e9-41df-9998-e0d43bdea805">&lt;/strong&gt;</ept> dashboard, view the alert categories and choose one to work with.</target>
+        </trans-unit>
+        <trans-unit id="3adeae10-7e10-4ff9-a47e-bafcb668ce22" xml:space="preserve">
+          <source>Click a tile or any item to view detailed information about it in the <bpt id="43da99e9-2971-4533-97f4-f69f202df396">&lt;strong&gt;</bpt>Search<ept id="43da99e9-2971-4533-97f4-f69f202df396">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click a tile or any item to view detailed information about it in the <bpt id="43da99e9-2971-4533-97f4-f69f202df396">&lt;strong&gt;</bpt>Search<ept id="43da99e9-2971-4533-97f4-f69f202df396">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="4f68cc7b-5850-434b-b8c7-8aca596717c2" xml:space="preserve">
+          <source>By using the information you've found, you can investigate the alert and determine additional actions you might need to take to resolve it.</source>
+          <target state="new">By using the information you've found, you can investigate the alert and determine additional actions you might need to take to resolve it.</target>
+        </trans-unit>
+        <trans-unit id="649b3482-edf9-4a7e-859e-db6c5a6c3a74" xml:space="preserve">
+          <source><bpt id="e28499f6-3f11-43ee-a567-ac69d4762726">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="e28499f6-3f11-43ee-a567-ac69d4762726">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e28499f6-3f11-43ee-a567-ac69d4762726">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="e28499f6-3f11-43ee-a567-ac69d4762726">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

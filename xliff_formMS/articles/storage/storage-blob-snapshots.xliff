@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d9754a4a-bdb2-4ed3-ae03-ecb121f7f2d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d9754a4a-bdb2-4ed3-ae03-ecb121f7f2d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e9213b4-fe20-44d9-aac6-611c0a7d3f86">
+        <trans-unit id="126491e4-ccc1-49bf-ad31-abd6463200b1" xml:space="preserve">
+          <source>Creating a Snapshot of a Blob</source>
+          <target state="new">Creating a Snapshot of a Blob</target>
+        </trans-unit>
+        <trans-unit id="e939f8fd-7132-457b-a54f-b0cdc24f9034" xml:space="preserve">
+          <source>A how to guide for creating Azure Storage Blob Snapshots</source>
+          <target state="new">A how to guide for creating Azure Storage Blob Snapshots</target>
+        </trans-unit>
+        <trans-unit id="828d4930-a8d0-4825-948d-c76140bc01e7" xml:space="preserve">
+          <source>A snapshot is a read-only version of a blob that's taken at a point in time.</source>
+          <target state="new">A snapshot is a read-only version of a blob that's taken at a point in time.</target>
+        </trans-unit>
+        <trans-unit id="24f51d2b-f992-4257-833a-7caeac3323e9" xml:space="preserve">
+          <source>Snapshots are useful for backing up blobs.</source>
+          <target state="new">Snapshots are useful for backing up blobs.</target>
+        </trans-unit>
+        <trans-unit id="c9c80b1d-a92a-43bd-ac75-1be9814ea0b0" xml:space="preserve">
+          <source>Once a snapshot has been created, you can read, copy, or delete it, but you cannot modify it.</source>
+          <target state="new">Once a snapshot has been created, you can read, copy, or delete it, but you cannot modify it.</target>
+        </trans-unit>
+        <trans-unit id="b6e19ab6-1aff-416a-a38d-1498372a4804" xml:space="preserve">
+          <source>A snapshot of a blob has the same name as the base blob from which the snapshot is taken, with a <bpt id="5ed79b94-6fb6-4d79-b605-5b0501baa62d">&lt;strong&gt;</bpt>DateTime<ept id="5ed79b94-6fb6-4d79-b605-5b0501baa62d">&lt;/strong&gt;</ept> value appended to indicate the time at which the snapshot was taken.</source>
+          <target state="new">A snapshot of a blob has the same name as the base blob from which the snapshot is taken, with a <bpt id="5ed79b94-6fb6-4d79-b605-5b0501baa62d">&lt;strong&gt;</bpt>DateTime<ept id="5ed79b94-6fb6-4d79-b605-5b0501baa62d">&lt;/strong&gt;</ept> value appended to indicate the time at which the snapshot was taken.</target>
+        </trans-unit>
+        <trans-unit id="6a843ebe-d79e-4e89-9cce-3179f34e1e22" xml:space="preserve">
+          <source>For example, if a page blob URI is <bpt id="6fc1fa00-fbe1-430b-b1f2-f3586760a05c">&lt;code&gt;</bpt>http://storagesample.core.blob.windows.net/mydrives/myvhd<ept id="6fc1fa00-fbe1-430b-b1f2-f3586760a05c">&lt;/code&gt;</ept>, the snapshot URI will be similar to <bpt id="cf6bb965-f7b2-4f7a-ad4e-c8eb68dbf438">&lt;code&gt;</bpt>http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z<ept id="cf6bb965-f7b2-4f7a-ad4e-c8eb68dbf438">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, if a page blob URI is <bpt id="6fc1fa00-fbe1-430b-b1f2-f3586760a05c">&lt;code&gt;</bpt>http://storagesample.core.blob.windows.net/mydrives/myvhd<ept id="6fc1fa00-fbe1-430b-b1f2-f3586760a05c">&lt;/code&gt;</ept>, the snapshot URI will be similar to <bpt id="cf6bb965-f7b2-4f7a-ad4e-c8eb68dbf438">&lt;code&gt;</bpt>http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z<ept id="cf6bb965-f7b2-4f7a-ad4e-c8eb68dbf438">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25058212-6b1f-4e85-a1b3-7ac068ea5abd" xml:space="preserve">
+          <source>All of a blob's snapshots share its URI and are distinguished only by the appended <bpt id="6525b6bd-c0de-4fde-b664-a34e6686f147">&lt;strong&gt;</bpt>DateTime<ept id="6525b6bd-c0de-4fde-b664-a34e6686f147">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">All of a blob's snapshots share its URI and are distinguished only by the appended <bpt id="6525b6bd-c0de-4fde-b664-a34e6686f147">&lt;strong&gt;</bpt>DateTime<ept id="6525b6bd-c0de-4fde-b664-a34e6686f147">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="00951f64-f242-46b6-b167-7ef7c951cc05" xml:space="preserve">
+          <source>A blob may have any number of snapshots.</source>
+          <target state="new">A blob may have any number of snapshots.</target>
+        </trans-unit>
+        <trans-unit id="b05da85e-7f81-4a6b-8686-e0047b92166e" xml:space="preserve">
+          <source>Snapshots persist until they are explicitly deleted.</source>
+          <target state="new">Snapshots persist until they are explicitly deleted.</target>
+        </trans-unit>
+        <trans-unit id="4e8322ad-2583-4f17-84b7-375613915ef3" xml:space="preserve">
+          <source>Note that a snapshot cannot outlive its source blob.</source>
+          <target state="new">Note that a snapshot cannot outlive its source blob.</target>
+        </trans-unit>
+        <trans-unit id="28700b67-ae45-4ccf-ba6b-795464164e6a" xml:space="preserve">
+          <source>You can enumerate the snapshots associated with your blob to track your current snapshots.</source>
+          <target state="new">You can enumerate the snapshots associated with your blob to track your current snapshots.</target>
+        </trans-unit>
+        <trans-unit id="efc62546-0c20-4b58-84cd-9a35dc2a258c" xml:space="preserve">
+          <source>When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values.</source>
+          <target state="new">When you create a snapshot of a blob, the blob's system properties are copied to the snapshot with the same values.</target>
+        </trans-unit>
+        <trans-unit id="5074a205-d9b1-45dc-89f0-bdf040a72263" xml:space="preserve">
+          <source>Any leases associated with the base blob do not affect the snapshot.</source>
+          <target state="new">Any leases associated with the base blob do not affect the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="c50cb3d4-4fd7-4fee-a6b7-9dfa33d4dc22" xml:space="preserve">
+          <source>You cannot acquire a lease on a snapshot.</source>
+          <target state="new">You cannot acquire a lease on a snapshot.</target>
+        </trans-unit>
+        <trans-unit id="29ec1b81-ff8e-4ad3-80f0-40c705055f69" xml:space="preserve">
+          <source>Copy operations involving blobs and snapshots follow these rules:</source>
+          <target state="new">Copy operations involving blobs and snapshots follow these rules:</target>
+        </trans-unit>
+        <trans-unit id="bae86d1d-5722-4dfd-aa0e-482492af79ae" xml:space="preserve">
+          <source>You can copy a snapshot over its base blob.</source>
+          <target state="new">You can copy a snapshot over its base blob.</target>
+        </trans-unit>
+        <trans-unit id="3d1933d5-0086-41f3-8b37-6524b48dbd92" xml:space="preserve">
+          <source>By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.</source>
+          <target state="new">By promoting a snapshot to the position of the base blob, you can restore an earlier version of a blob.</target>
+        </trans-unit>
+        <trans-unit id="1ca0edbd-3439-4cd4-8900-2cc8954db67e" xml:space="preserve">
+          <source>The snapshot remains, but the base blob is overwritten with a writable copy of the snapshot.</source>
+          <target state="new">The snapshot remains, but the base blob is overwritten with a writable copy of the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="8949fe32-b86d-4692-8f04-e616158f7d10" xml:space="preserve">
+          <source>You can copy a snapshot to a destination blob with a different name.</source>
+          <target state="new">You can copy a snapshot to a destination blob with a different name.</target>
+        </trans-unit>
+        <trans-unit id="e93c2858-4267-4697-8a1c-ae1eec72d8fb" xml:space="preserve">
+          <source>The resulting destination blob is a writable blob and not a snapshot.</source>
+          <target state="new">The resulting destination blob is a writable blob and not a snapshot.</target>
+        </trans-unit>
+        <trans-unit id="280f42d3-fdd9-4c6b-9288-3f1c5c947e17" xml:space="preserve">
+          <source>When a source blob is copied, any snapshots of the source blob are not copied to the destination.</source>
+          <target state="new">When a source blob is copied, any snapshots of the source blob are not copied to the destination.</target>
+        </trans-unit>
+        <trans-unit id="932c46fd-6dc9-4947-b433-edad0447435d" xml:space="preserve">
+          <source>When a destination blob is overwritten with a copy, any snapshots associated with the destination blob at the time it was overwritten remain intact under its name.</source>
+          <target state="new">When a destination blob is overwritten with a copy, any snapshots associated with the destination blob at the time it was overwritten remain intact under its name.</target>
+        </trans-unit>
+        <trans-unit id="4cfae717-bc41-4e20-8732-c1ccf8cbc9cc" xml:space="preserve">
+          <source>When you create a snapshot of a block blob, the blob's committed block list is also copied to the snapshot.</source>
+          <target state="new">When you create a snapshot of a block blob, the blob's committed block list is also copied to the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="e9e30ebb-7746-4ae3-bf88-5fe895799443" xml:space="preserve">
+          <source>Any uncommitted blocks are not copied.</source>
+          <target state="new">Any uncommitted blocks are not copied.</target>
+        </trans-unit>
+        <trans-unit id="c5f61424-7c4a-4531-9cdc-7b0555385853" xml:space="preserve">
+          <source>You can specify an access condition so that the snapshot is created only if a condition is met.</source>
+          <target state="new">You can specify an access condition so that the snapshot is created only if a condition is met.</target>
+        </trans-unit>
+        <trans-unit id="1d48a9e2-e646-434e-bf76-a45842f20562" xml:space="preserve">
+          <source>To specify an access condition, use the AccessCondition property.</source>
+          <target state="new">To specify an access condition, use the AccessCondition property.</target>
+        </trans-unit>
+        <trans-unit id="ae1191e9-dca6-414b-8389-1b6069330c40" xml:space="preserve">
+          <source>If the specified condition is not met, the snapshot is not created, and the Blob service returns status code HTTPStatusCode.PreconditionFailed.</source>
+          <target state="new">If the specified condition is not met, the snapshot is not created, and the Blob service returns status code HTTPStatusCode.PreconditionFailed.</target>
+        </trans-unit>
+        <trans-unit id="157d5354-b8ab-404d-b42a-e5e6c41f199d" xml:space="preserve">
+          <source>A blob that has snapshots cannot be deleted unless the snapshots are also deleted.</source>
+          <target state="new">A blob that has snapshots cannot be deleted unless the snapshots are also deleted.</target>
+        </trans-unit>
+        <trans-unit id="aa883508-6b07-44d3-9719-b369fe7372de" xml:space="preserve">
+          <source>You can delete a snapshot individually, or tell the storage service to delete all snapshots when deleting the source blob.</source>
+          <target state="new">You can delete a snapshot individually, or tell the storage service to delete all snapshots when deleting the source blob.</target>
+        </trans-unit>
+        <trans-unit id="e6374329-9e86-46e5-80c7-5e81676e61dd" xml:space="preserve">
+          <source>If you attempt to delete a blob that still has snapshots, you'll get an error.</source>
+          <target state="new">If you attempt to delete a blob that still has snapshots, you'll get an error.</target>
+        </trans-unit>
+        <trans-unit id="1c3e0960-77d8-40ba-b818-6856f825bb9e" xml:space="preserve">
+          <source>Using snapshots with Premium Storage follow these rules:</source>
+          <target state="new">Using snapshots with Premium Storage follow these rules:</target>
+        </trans-unit>
+        <trans-unit id="e369fb9f-e177-4938-86bc-8528daad59db" xml:space="preserve">
+          <source>The number of snapshots per page blob in a Premium Storage account is limited to 100.</source>
+          <target state="new">The number of snapshots per page blob in a Premium Storage account is limited to 100.</target>
+        </trans-unit>
+        <trans-unit id="648dbec7-c4fc-4a0a-98da-2ca32e4ad97c" xml:space="preserve">
+          <source>If that limit is exceeded, the Snapshot Blob operation returns error code 409 (<bpt id="e2025b4b-2039-4021-b9f5-8f553f7c0970">&lt;strong&gt;</bpt>SnapshotCountExceeded<ept id="e2025b4b-2039-4021-b9f5-8f553f7c0970">&lt;/strong&gt;</ept>).</source>
+          <target state="new">If that limit is exceeded, the Snapshot Blob operation returns error code 409 (<bpt id="e2025b4b-2039-4021-b9f5-8f553f7c0970">&lt;strong&gt;</bpt>SnapshotCountExceeded<ept id="e2025b4b-2039-4021-b9f5-8f553f7c0970">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="c9d2223b-5503-4ec1-bade-7ef2c5d93de6" xml:space="preserve">
+          <source>A snapshot of a page blob in a Premium Storage account may be taken once every ten minutes.</source>
+          <target state="new">A snapshot of a page blob in a Premium Storage account may be taken once every ten minutes.</target>
+        </trans-unit>
+        <trans-unit id="7f1cc31c-7c9e-4701-9fc2-989a24354e4a" xml:space="preserve">
+          <source>If that rate is exceeded, the Snapshot Blob operation returns error code 409 (<bpt id="bfc13e37-43c9-40ee-8673-497bbeed9683">&lt;strong&gt;</bpt>SnaphotOperationRateExceeded<ept id="bfc13e37-43c9-40ee-8673-497bbeed9683">&lt;/strong&gt;</ept>).</source>
+          <target state="new">If that rate is exceeded, the Snapshot Blob operation returns error code 409 (<bpt id="bfc13e37-43c9-40ee-8673-497bbeed9683">&lt;strong&gt;</bpt>SnaphotOperationRateExceeded<ept id="bfc13e37-43c9-40ee-8673-497bbeed9683">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="6c0fc8d2-03bc-453e-a609-833a2f1ca755" xml:space="preserve">
+          <source>Reading a snapshot of a page blob in a Premium Storage account via Get Blob is not supported.</source>
+          <target state="new">Reading a snapshot of a page blob in a Premium Storage account via Get Blob is not supported.</target>
+        </trans-unit>
+        <trans-unit id="f8101d18-5ab4-48b3-adab-6ebfb0837801" xml:space="preserve">
+          <source>Calling Get Blob on a snapshot in a Premium Storage account returns error code 400 (<bpt id="b01543e0-82c0-4983-89bf-6f79a241d62d">&lt;strong&gt;</bpt>InvalidOperation<ept id="b01543e0-82c0-4983-89bf-6f79a241d62d">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Calling Get Blob on a snapshot in a Premium Storage account returns error code 400 (<bpt id="b01543e0-82c0-4983-89bf-6f79a241d62d">&lt;strong&gt;</bpt>InvalidOperation<ept id="b01543e0-82c0-4983-89bf-6f79a241d62d">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="cff13bcf-ada3-4d29-99a9-4f6b0eb57bdb" xml:space="preserve">
+          <source>However, calling Get Blob Properties and Get Blob Metadata against a snapshot is supported.</source>
+          <target state="new">However, calling Get Blob Properties and Get Blob Metadata against a snapshot is supported.</target>
+        </trans-unit>
+        <trans-unit id="92e55ec4-4871-4151-a1a2-8f316684aced" xml:space="preserve">
+          <source>To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account.</source>
+          <target state="new">To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account.</target>
+        </trans-unit>
+        <trans-unit id="58e916ca-33a1-48ed-8081-51791ebc1622" xml:space="preserve">
+          <source>The destination blob for the copy operation must not have any existing snapshots.</source>
+          <target state="new">The destination blob for the copy operation must not have any existing snapshots.</target>
+        </trans-unit>
+        <trans-unit id="00a9289d-3a2e-4e84-94e5-85f1838bd97f" xml:space="preserve">
+          <source>If the destination blob does have snapshots, then Copy Blob returns error code 409 (<bpt id="25341a99-56ab-464a-94c5-4a32821f27d4">&lt;strong&gt;</bpt>SnapshotsPresent<ept id="25341a99-56ab-464a-94c5-4a32821f27d4">&lt;/strong&gt;</ept>).</source>
+          <target state="new">If the destination blob does have snapshots, then Copy Blob returns error code 409 (<bpt id="25341a99-56ab-464a-94c5-4a32821f27d4">&lt;strong&gt;</bpt>SnapshotsPresent<ept id="25341a99-56ab-464a-94c5-4a32821f27d4">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="6d421113-cacc-4439-90da-bc157788ed83" xml:space="preserve">
+          <source>This C# code example creates a new snapshot and writes out the absolute URI for the primary location.</source>
+          <target state="new">This C# code example creates a new snapshot and writes out the absolute URI for the primary location.</target>
+        </trans-unit>
+        <trans-unit id="f42be3a7-6112-47d8-82c0-877d87a2bfd3" xml:space="preserve">
+          <source>Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account.</source>
+          <target state="new">Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account.</target>
+        </trans-unit>
+        <trans-unit id="cd41612a-6fca-4e3f-bc96-5fd63df7bfa8" xml:space="preserve">
+          <source>When designing your application, it is important to be aware how these charges may accrue so that you can minimize unnecessary costs.</source>
+          <target state="new">When designing your application, it is important to be aware how these charges may accrue so that you can minimize unnecessary costs.</target>
+        </trans-unit>
+        <trans-unit id="a1a97700-f76d-45f9-b875-a4ce360b5284" xml:space="preserve">
+          <source>The following list includes key points to consider when creating a snapshot.</source>
+          <target state="new">The following list includes key points to consider when creating a snapshot.</target>
+        </trans-unit>
+        <trans-unit id="0872adcb-c63d-4166-a712-c146fa754b2c" xml:space="preserve">
+          <source>Charges are incurred for unique blocks or pages, whether they are in the blob or in the snapshot.</source>
+          <target state="new">Charges are incurred for unique blocks or pages, whether they are in the blob or in the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="ca52ac48-629b-4c74-b64a-ccebeea98270" xml:space="preserve">
+          <source>Your account does not incur additional charges for snapshots associated with a blob until you update the blob on which they are based.</source>
+          <target state="new">Your account does not incur additional charges for snapshots associated with a blob until you update the blob on which they are based.</target>
+        </trans-unit>
+        <trans-unit id="1fa47020-fb40-4cf6-9e6c-3caa01c4c140" xml:space="preserve">
+          <source>Once you update the base blob, it diverges from its snapshots, and you will be charged for the unique blocks or pages in each blob or snapshot.</source>
+          <target state="new">Once you update the base blob, it diverges from its snapshots, and you will be charged for the unique blocks or pages in each blob or snapshot.</target>
+        </trans-unit>
+        <trans-unit id="3ada3b00-77b6-4943-a392-5e77f1ed6f3a" xml:space="preserve">
+          <source>When you replace a block within a block blob, that block is subsequently charged as a unique block.</source>
+          <target state="new">When you replace a block within a block blob, that block is subsequently charged as a unique block.</target>
+        </trans-unit>
+        <trans-unit id="3033bace-1bf4-4da6-b91d-5cb2075d49bb" xml:space="preserve">
+          <source>This is true even if the block has the same block ID and the same data as it has in the snapshot.</source>
+          <target state="new">This is true even if the block has the same block ID and the same data as it has in the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="4d31f242-fe87-4e52-ab99-2a8b21fe0ff8" xml:space="preserve">
+          <source>Once the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data.</source>
+          <target state="new">Once the block is committed again, it diverges from its counterpart in any snapshot, and you will be charged for its data.</target>
+        </trans-unit>
+        <trans-unit id="988dbcc3-2f63-41fa-8f62-119dd6cccf9c" xml:space="preserve">
+          <source>The same holds true for a page in a page blob that’s updated with identical data.</source>
+          <target state="new">The same holds true for a page in a page blob that’s updated with identical data.</target>
+        </trans-unit>
+        <trans-unit id="cf73f0ee-0673-4511-a864-afa009dd52de" xml:space="preserve">
+          <source>Replacing a block blob by calling the UploadFile, UploadText, UploadStream, or UploadByteArray method replaces all of the blocks in that blob.</source>
+          <target state="new">Replacing a block blob by calling the UploadFile, UploadText, UploadStream, or UploadByteArray method replaces all of the blocks in that blob.</target>
+        </trans-unit>
+        <trans-unit id="682a1042-52f7-499a-b764-b5087113d73a" xml:space="preserve">
+          <source>If you have a snapshot associated with that blob, all of the blocks in the base blob and snapshot will now diverge and you will be charged for all of the blocks in both blobs.</source>
+          <target state="new">If you have a snapshot associated with that blob, all of the blocks in the base blob and snapshot will now diverge and you will be charged for all of the blocks in both blobs.</target>
+        </trans-unit>
+        <trans-unit id="613667ca-e7c6-4055-8f33-677fd576c88c" xml:space="preserve">
+          <source>This is true even if the data in the base blob and the snapshot remain identical.</source>
+          <target state="new">This is true even if the data in the base blob and the snapshot remain identical.</target>
+        </trans-unit>
+        <trans-unit id="d514d7c7-1553-49a6-94cd-b73b2e65afbc" xml:space="preserve">
+          <source>The Azure Blob service does not have a means to determine whether two blocks contain identical data.</source>
+          <target state="new">The Azure Blob service does not have a means to determine whether two blocks contain identical data.</target>
+        </trans-unit>
+        <trans-unit id="65b4d052-909e-40f5-a23e-9668aaab0be1" xml:space="preserve">
+          <source>Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID.</source>
+          <target state="new">Each block that is uploaded and committed is treated as unique, even if it has the same data and the same block ID.</target>
+        </trans-unit>
+        <trans-unit id="f81c6efb-7f4a-46a9-9f34-f1a075d8bb88" xml:space="preserve">
+          <source>Because charges accrue for unique blocks, it is important to consider that updating a blob that has a snapshot will result in additional unique blocks and additional charges.</source>
+          <target state="new">Because charges accrue for unique blocks, it is important to consider that updating a blob that has a snapshot will result in additional unique blocks and additional charges.</target>
+        </trans-unit>
+        <trans-unit id="7c5ec480-9be9-4850-88e9-053cce849a1b" xml:space="preserve">
+          <source>Best practices dictate that you manage snapshots carefully to avoid extra charges.</source>
+          <target state="new">Best practices dictate that you manage snapshots carefully to avoid extra charges.</target>
+        </trans-unit>
+        <trans-unit id="dbcebf14-28a1-484f-8e59-94537374f8d7" xml:space="preserve">
+          <source>It’s recommended that you manage snapshots in the following manner:</source>
+          <target state="new">It’s recommended that you manage snapshots in the following manner:</target>
+        </trans-unit>
+        <trans-unit id="2a44e7e2-f64c-4cc1-9f6e-684c44472b91" xml:space="preserve">
+          <source>Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots.</source>
+          <target state="new">Delete and re-create snapshots associated with a blob whenever you update the blob, even if you are updating with identical data, unless your application design requires that you maintain snapshots.</target>
+        </trans-unit>
+        <trans-unit id="2c0fcf05-305b-421b-92a5-144071086f5f" xml:space="preserve">
+          <source>By deleting and re-creating the blob’s snapshots, you can ensure that the blob and snapshots do not diverge.</source>
+          <target state="new">By deleting and re-creating the blob’s snapshots, you can ensure that the blob and snapshots do not diverge.</target>
+        </trans-unit>
+        <trans-unit id="86ee3932-94ca-45a7-911e-e929a4ac6823" xml:space="preserve">
+          <source>If you are maintaining snapshots for a blob, avoid calling UploadFile, UploadText, UploadStream, or UploadByteArray to update the blob, as those methods replace all of the blocks in the blob.</source>
+          <target state="new">If you are maintaining snapshots for a blob, avoid calling UploadFile, UploadText, UploadStream, or UploadByteArray to update the blob, as those methods replace all of the blocks in the blob.</target>
+        </trans-unit>
+        <trans-unit id="deaa2733-86fa-41cc-9085-1e929180aac8" xml:space="preserve">
+          <source>Instead, update the fewest possible number of blocks by using the PutBlock and PutBlockList methods.</source>
+          <target state="new">Instead, update the fewest possible number of blocks by using the PutBlock and PutBlockList methods.</target>
+        </trans-unit>
+        <trans-unit id="d9aebac9-e228-4c6a-b920-1dc7f81cd8b8" xml:space="preserve">
+          <source>The following scenarios demonstrate how charges accrue for a block blob and its snapshots.</source>
+          <target state="new">The following scenarios demonstrate how charges accrue for a block blob and its snapshots.</target>
+        </trans-unit>
+        <trans-unit id="31a54942-1961-4251-92b2-0af5afdbd32b" xml:space="preserve">
+          <source>In Scenario 1, the base blob has not been updated since the snapshot was taken, so charges are incurred only for unique blocks 1, 2, and 3.</source>
+          <target state="new">In Scenario 1, the base blob has not been updated since the snapshot was taken, so charges are incurred only for unique blocks 1, 2, and 3.</target>
+        </trans-unit>
+        <trans-unit id="e8e68d87-a3a0-464f-8afa-61c7fea07970" xml:space="preserve">
+          <source><bpt id="9c953f12-57d8-4eea-b258-f20ee204bb06">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="9c953f12-57d8-4eea-b258-f20ee204bb06">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9c953f12-57d8-4eea-b258-f20ee204bb06">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="9c953f12-57d8-4eea-b258-f20ee204bb06">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="feb31527-7e6c-4091-89a5-81d581d75a11" xml:space="preserve">
+          <source>In Scenario 2, the base blob has been updated, but the snapshot has not.</source>
+          <target state="new">In Scenario 2, the base blob has been updated, but the snapshot has not.</target>
+        </trans-unit>
+        <trans-unit id="d249b5e0-4ac4-4163-b0af-52da21029676" xml:space="preserve">
+          <source>Block 3 was updated, and even though it contains the same data and the same ID, it is not the same as block 3 in the snapshot.</source>
+          <target state="new">Block 3 was updated, and even though it contains the same data and the same ID, it is not the same as block 3 in the snapshot.</target>
+        </trans-unit>
+        <trans-unit id="f077b237-dded-410c-bd22-8422d684e5cc" xml:space="preserve">
+          <source>As a result, the account is charged for four blocks.</source>
+          <target state="new">As a result, the account is charged for four blocks.</target>
+        </trans-unit>
+        <trans-unit id="0f59e7f1-ee2d-45c0-8a3f-2ad3d787c9a3" xml:space="preserve">
+          <source><bpt id="d2a1355d-d318-449f-b281-00cc6fc55fb8">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="d2a1355d-d318-449f-b281-00cc6fc55fb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2a1355d-d318-449f-b281-00cc6fc55fb8">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="d2a1355d-d318-449f-b281-00cc6fc55fb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ead0266f-86a8-4608-b011-83ecc1d90446" xml:space="preserve">
+          <source>In Scenario 3, the base blob has been updated, but the snapshot has not.</source>
+          <target state="new">In Scenario 3, the base blob has been updated, but the snapshot has not.</target>
+        </trans-unit>
+        <trans-unit id="60d1fac0-4a7f-4f04-9b2f-dccc46e64ae6" xml:space="preserve">
+          <source>Block 3 was replaced with block 4 in the base blob, but the snapshot still reflects block 3.</source>
+          <target state="new">Block 3 was replaced with block 4 in the base blob, but the snapshot still reflects block 3.</target>
+        </trans-unit>
+        <trans-unit id="240370ab-d848-4da7-9ad0-3670b146169e" xml:space="preserve">
+          <source>As a result, the account is charged for four blocks.</source>
+          <target state="new">As a result, the account is charged for four blocks.</target>
+        </trans-unit>
+        <trans-unit id="66d818d3-fc78-4bfa-b3c1-739b6b65fa96" xml:space="preserve">
+          <source><bpt id="31fbde62-3240-46ea-b772-fd8e9e1a72b1">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="31fbde62-3240-46ea-b772-fd8e9e1a72b1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31fbde62-3240-46ea-b772-fd8e9e1a72b1">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="31fbde62-3240-46ea-b772-fd8e9e1a72b1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="faf7dedf-710a-4163-87de-cb3acaa43c97" xml:space="preserve">
+          <source>In Scenario 4, the base blob has been completely updated and contains none of its original blocks.</source>
+          <target state="new">In Scenario 4, the base blob has been completely updated and contains none of its original blocks.</target>
+        </trans-unit>
+        <trans-unit id="0ed3c12d-569c-441d-8ea0-794d6bcfd0b6" xml:space="preserve">
+          <source>As a result, the account is charged for all eight unique blocks.</source>
+          <target state="new">As a result, the account is charged for all eight unique blocks.</target>
+        </trans-unit>
+        <trans-unit id="8650ec8f-6222-477d-bc1c-809e00573001" xml:space="preserve">
+          <source>This scenario can occur if you are using an update method such as UploadFile, UploadText, UploadFromStream, or UploadByteArray, because these methods replace all of the contents of a blob.</source>
+          <target state="new">This scenario can occur if you are using an update method such as UploadFile, UploadText, UploadFromStream, or UploadByteArray, because these methods replace all of the contents of a blob.</target>
+        </trans-unit>
+        <trans-unit id="74ed5055-437a-421e-abc4-420668d215bb" xml:space="preserve">
+          <source><bpt id="77df36a8-b09d-4c69-8972-19aab7e419e2">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="77df36a8-b09d-4c69-8972-19aab7e419e2">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="77df36a8-b09d-4c69-8972-19aab7e419e2">&lt;linkText&gt;</bpt>Azure Storage Resources<ept id="77df36a8-b09d-4c69-8972-19aab7e419e2">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="398a6021-2153-4246-b286-6a5b9fb9e63c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="398a6021-2153-4246-b286-6a5b9fb9e63c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b10b79b2-27ec-4543-bc65-0f5e0a551f43">
+        <trans-unit id="75e07da0-a363-4d09-b389-f2f4f9f1b58a" xml:space="preserve">
+          <source>In this section you will use Visual Studio to host the mobile service locally on your development workstation in IIS Express.</source>
+          <target state="new">In this section you will use Visual Studio to host the mobile service locally on your development workstation in IIS Express.</target>
+        </trans-unit>
+        <trans-unit id="5a25a903-daf1-4c21-ae05-be98f1b4b967" xml:space="preserve">
+          <source>Then you will test the app and the backend service.</source>
+          <target state="new">Then you will test the app and the backend service.</target>
+        </trans-unit>
+        <trans-unit id="291d7f23-70c7-4f53-b380-96d821285d8c" xml:space="preserve">
+          <source>In Visual Studio, press the F7 key or click <bpt id="bfaa9a08-5cfa-4db2-b375-d25f171a7c7f">&lt;strong&gt;</bpt>Build Solution<ept id="bfaa9a08-5cfa-4db2-b375-d25f171a7c7f">&lt;/strong&gt;</ept> from the <bpt id="70eba0d6-a926-4d86-8158-ba993dbbe213">&lt;strong&gt;</bpt>Build<ept id="70eba0d6-a926-4d86-8158-ba993dbbe213">&lt;/strong&gt;</ept> menu to build both the Windows Store app and the mobile service.</source>
+          <target state="new">In Visual Studio, press the F7 key or click <bpt id="bfaa9a08-5cfa-4db2-b375-d25f171a7c7f">&lt;strong&gt;</bpt>Build Solution<ept id="bfaa9a08-5cfa-4db2-b375-d25f171a7c7f">&lt;/strong&gt;</ept> from the <bpt id="70eba0d6-a926-4d86-8158-ba993dbbe213">&lt;strong&gt;</bpt>Build<ept id="70eba0d6-a926-4d86-8158-ba993dbbe213">&lt;/strong&gt;</ept> menu to build both the Windows Store app and the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="d4e4bfd3-c5ae-4ee3-b10f-de5030d5152c" xml:space="preserve">
+          <source>Verify both projects build with no errors in the output window of Visual Studio</source>
+          <target state="new">Verify both projects build with no errors in the output window of Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="d55bfdce-9155-430f-bf82-6136a1493203" xml:space="preserve">
+          <source>In Visual Studio, press the F5 key or click <bpt id="a77661fd-e9c5-4088-b5c5-806eb2b65d91">&lt;strong&gt;</bpt>Start Debugging<ept id="a77661fd-e9c5-4088-b5c5-806eb2b65d91">&lt;/strong&gt;</ept> from the <bpt id="549c2eae-e04e-4423-b454-7939f449d267">&lt;strong&gt;</bpt>Debug<ept id="549c2eae-e04e-4423-b454-7939f449d267">&lt;/strong&gt;</ept> menu to run the app and host the mobile service locally in IIS Express.</source>
+          <target state="new">In Visual Studio, press the F5 key or click <bpt id="a77661fd-e9c5-4088-b5c5-806eb2b65d91">&lt;strong&gt;</bpt>Start Debugging<ept id="a77661fd-e9c5-4088-b5c5-806eb2b65d91">&lt;/strong&gt;</ept> from the <bpt id="549c2eae-e04e-4423-b454-7939f449d267">&lt;strong&gt;</bpt>Debug<ept id="549c2eae-e04e-4423-b454-7939f449d267">&lt;/strong&gt;</ept> menu to run the app and host the mobile service locally in IIS Express.</target>
+        </trans-unit>
+        <trans-unit id="ca8e8024-b7fa-4c27-8108-42b495112831" xml:space="preserve">
+          <source>Enter a new todoitem's text.</source>
+          <target state="new">Enter a new todoitem's text.</target>
+        </trans-unit>
+        <trans-unit id="0b08bbf6-5567-4f73-91bc-5f90b25228d9" xml:space="preserve">
+          <source>Then click <bpt id="de18e65d-3c28-42a4-9963-c345ab7279de">&lt;strong&gt;</bpt>Save<ept id="de18e65d-3c28-42a4-9963-c345ab7279de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="de18e65d-3c28-42a4-9963-c345ab7279de">&lt;strong&gt;</bpt>Save<ept id="de18e65d-3c28-42a4-9963-c345ab7279de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="965d1c6c-9b75-4707-90a9-8bdc0fdd268f" xml:space="preserve">
+          <source>This inserts a new todoItem in the database created by the mobile service hosted locally in IIS Express.</source>
+          <target state="new">This inserts a new todoItem in the database created by the mobile service hosted locally in IIS Express.</target>
+        </trans-unit>
+        <trans-unit id="f5188c74-ba88-44a1-b8e8-ef6a6de7788f" xml:space="preserve">
+          <source><bpt id="eec47abc-0545-4ad2-a08d-5069ad2685e1">&lt;linkText&gt;</bpt><ept id="eec47abc-0545-4ad2-a08d-5069ad2685e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eec47abc-0545-4ad2-a08d-5069ad2685e1">&lt;linkText&gt;</bpt><ept id="eec47abc-0545-4ad2-a08d-5069ad2685e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66c035e7-d4ff-42bc-9290-4151ae494e05" xml:space="preserve">
+          <source>Click the checkbox for one of the items to mark it as completed.</source>
+          <target state="new">Click the checkbox for one of the items to mark it as completed.</target>
+        </trans-unit>
+        <trans-unit id="6678b4ca-f5c4-4b81-97cf-50e1469a7fbc" xml:space="preserve">
+          <source><bpt id="24dae102-069d-48cb-8012-bf9f5a06de51">&lt;linkText&gt;</bpt><ept id="24dae102-069d-48cb-8012-bf9f5a06de51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24dae102-069d-48cb-8012-bf9f5a06de51">&lt;linkText&gt;</bpt><ept id="24dae102-069d-48cb-8012-bf9f5a06de51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8791af80-d245-44cd-9264-748a8d50faca" xml:space="preserve">
+          <source>In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections.</source>
+          <target state="new">In Visual Studio you can view the changes in the database created for the backend service by opening Server Explorer and expanding the Data Connections.</target>
+        </trans-unit>
+        <trans-unit id="31b46767-6f48-4e1f-8522-d2cfe4c6efc5" xml:space="preserve">
+          <source>Right click the TodoItems table under <bpt id="00b62b55-17db-49f4-8f0e-8c0fa9f11a9b">&lt;strong&gt;</bpt>MS_TableConnectionString<ept id="00b62b55-17db-49f4-8f0e-8c0fa9f11a9b">&lt;/strong&gt;</ept> and click <bpt id="73b95137-15d5-41f3-9ab5-bfdc8d14a46f">&lt;strong&gt;</bpt>Show Table Data<ept id="73b95137-15d5-41f3-9ab5-bfdc8d14a46f">&lt;/strong&gt;</ept></source>
+          <target state="new">Right click the TodoItems table under <bpt id="00b62b55-17db-49f4-8f0e-8c0fa9f11a9b">&lt;strong&gt;</bpt>MS_TableConnectionString<ept id="00b62b55-17db-49f4-8f0e-8c0fa9f11a9b">&lt;/strong&gt;</ept> and click <bpt id="73b95137-15d5-41f3-9ab5-bfdc8d14a46f">&lt;strong&gt;</bpt>Show Table Data<ept id="73b95137-15d5-41f3-9ab5-bfdc8d14a46f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c63975c-b1fb-463a-a024-105269bac19f" xml:space="preserve">
+          <source><bpt id="09877e87-148c-41ac-9c19-85fcb3ec78f5">&lt;linkText&gt;</bpt><ept id="09877e87-148c-41ac-9c19-85fcb3ec78f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09877e87-148c-41ac-9c19-85fcb3ec78f5">&lt;linkText&gt;</bpt><ept id="09877e87-148c-41ac-9c19-85fcb3ec78f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="abed3a66-af26-45fd-9905-daa1877698de" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="abed3a66-af26-45fd-9905-daa1877698de" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="32bf45f0-4fd8-40a2-a038-ab45b1c1424b">
+        <trans-unit id="66be210d-c196-4ff3-8177-bf1697d7e5ee" xml:space="preserve">
+          <source>Configure proxy and firewall settings for Operational Insights</source>
+          <target state="new">Configure proxy and firewall settings for Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="ef182f75-8a86-48d8-a82f-652d701d73ad" xml:space="preserve">
+          <source>Learn about the proxy and firewall settings that you need to configure for the type of agent that you use with Operational Insights</source>
+          <target state="new">Learn about the proxy and firewall settings that you need to configure for the type of agent that you use with Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="2ac72514-a576-473d-8007-0b5afb194b38" xml:space="preserve">
+          <source><bpt id="a8c8b5d9-1d38-42b4-9eab-d90025a3df7a">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="a8c8b5d9-1d38-42b4-9eab-d90025a3df7a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a8c8b5d9-1d38-42b4-9eab-d90025a3df7a">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="a8c8b5d9-1d38-42b4-9eab-d90025a3df7a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1dad60ba-ad53-4747-bc5a-dadf5fa6f97c" xml:space="preserve">
+          <source>Actions needed to configure proxy and firewall settings for Operational Insights differ when you use Operations Manager and it’s agents versus Microsoft Monitoring Agents that connect directly to servers.</source>
+          <target state="new">Actions needed to configure proxy and firewall settings for Operational Insights differ when you use Operations Manager and it’s agents versus Microsoft Monitoring Agents that connect directly to servers.</target>
+        </trans-unit>
+        <trans-unit id="c288e509-8243-48af-bab7-638e7ec8665f" xml:space="preserve">
+          <source>Review the following sections for the type of agent that you use.</source>
+          <target state="new">Review the following sections for the type of agent that you use.</target>
+        </trans-unit>
+        <trans-unit id="0e9f53f5-a188-43a0-a7ce-29c327584a41" xml:space="preserve">
+          <source>For the Microsoft Monitoring Agent to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs.</source>
+          <target state="new">For the Microsoft Monitoring Agent to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs.</target>
+        </trans-unit>
+        <trans-unit id="b61f191f-5746-47cb-b770-d801f883d195" xml:space="preserve">
+          <source>If you use a proxy server for communication between the agent and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible.</source>
+          <target state="new">If you use a proxy server for communication between the agent and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible.</target>
+        </trans-unit>
+        <trans-unit id="9b8b6cb6-0db9-4cb2-b38a-f0f586d5bbb7" xml:space="preserve">
+          <source>If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights.</source>
+          <target state="new">If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="a111f3ba-2fc1-4d26-96b3-b641cb87adfd" xml:space="preserve">
+          <source>The following tables list the ports that Operational Insights needs.</source>
+          <target state="new">The following tables list the ports that Operational Insights needs.</target>
+        </trans-unit>
+        <trans-unit id="f1ff9315-c4f5-40b7-a2fe-b20b02a8c545" xml:space="preserve">
+          <source><bpt id="5d757262-b947-4ca2-a157-7edded7b1217">&lt;strong&gt;</bpt>Agent Resource<ept id="5d757262-b947-4ca2-a157-7edded7b1217">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5d757262-b947-4ca2-a157-7edded7b1217">&lt;strong&gt;</bpt>Agent Resource<ept id="5d757262-b947-4ca2-a157-7edded7b1217">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="293ab3e3-4887-4f48-bb9a-e90d93ac890f" xml:space="preserve">
+          <source><bpt id="f6823413-9d28-4356-8351-1e8bac54fca7">&lt;strong&gt;</bpt>Ports<ept id="f6823413-9d28-4356-8351-1e8bac54fca7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f6823413-9d28-4356-8351-1e8bac54fca7">&lt;strong&gt;</bpt>Ports<ept id="f6823413-9d28-4356-8351-1e8bac54fca7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="90b5e24a-dea0-4f08-b9fe-c1bd408e5416" xml:space="preserve">
+          <source>*.ods.opinsights.azure.com</source>
+          <target state="new">*.ods.opinsights.azure.com</target>
+        </trans-unit>
+        <trans-unit id="3a3b98f0-4ca5-46c3-99e7-c211d35f8791" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="93b4423f-9679-462f-9a35-e682883eecaa" xml:space="preserve">
+          <source>*.oms.opinsights.azure.com</source>
+          <target state="new">*.oms.opinsights.azure.com</target>
+        </trans-unit>
+        <trans-unit id="1407e956-283b-4255-98ff-1ae397334864" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="16c042c5-16da-475b-a6c0-1182cb46e59c" xml:space="preserve">
+          <source>ods.systemcenteradvisor.com</source>
+          <target state="new">ods.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="99136d25-f318-4199-9e02-e0ff2fc40419" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="11c4963a-49a6-4eb0-a8e8-50d8c52abc69" xml:space="preserve">
+          <source><bpt id="01d3364f-4070-4c7a-bbe5-5861dba813c0">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="01d3364f-4070-4c7a-bbe5-5861dba813c0">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="01d3364f-4070-4c7a-bbe5-5861dba813c0">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="01d3364f-4070-4c7a-bbe5-5861dba813c0">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b5d09ef-0d62-454c-8b8e-149c486b8b00" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="ebb6a61b-e310-460e-bd66-25e6f2e105e7" xml:space="preserve">
+          <source>You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel.</source>
+          <target state="new">You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel.</target>
+        </trans-unit>
+        <trans-unit id="5d9d32de-c271-49c9-822c-bb1df7f9efd4" xml:space="preserve">
+          <source>You'll need to use the procedure for each server.</source>
+          <target state="new">You'll need to use the procedure for each server.</target>
+        </trans-unit>
+        <trans-unit id="0f4a11fb-7089-42f4-b941-8221da84df30" xml:space="preserve">
+          <source>If you have many servers that you need to configure, you might find it easier to use a script to automate this process.</source>
+          <target state="new">If you have many servers that you need to configure, you might find it easier to use a script to automate this process.</target>
+        </trans-unit>
+        <trans-unit id="b048069f-b688-40d9-938d-f31b25f384e7" xml:space="preserve">
+          <source>If so, see the next procedure <bpt id="1e31e93a-31c4-4000-97ff-d90b2e97f500">&lt;em&gt;</bpt>To configure proxy settings for the Microsoft Monitoring Agent using a script<ept id="1e31e93a-31c4-4000-97ff-d90b2e97f500">&lt;/em&gt;</ept>.</source>
+          <target state="new">If so, see the next procedure <bpt id="1e31e93a-31c4-4000-97ff-d90b2e97f500">&lt;em&gt;</bpt>To configure proxy settings for the Microsoft Monitoring Agent using a script<ept id="1e31e93a-31c4-4000-97ff-d90b2e97f500">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce6d9383-ac71-40b1-af9d-4c29dc5299f3" xml:space="preserve">
+          <source>Open <bpt id="c5af4bd4-3b1d-48a0-a234-e71fae3443b0">&lt;strong&gt;</bpt>Control Panel<ept id="c5af4bd4-3b1d-48a0-a234-e71fae3443b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="c5af4bd4-3b1d-48a0-a234-e71fae3443b0">&lt;strong&gt;</bpt>Control Panel<ept id="c5af4bd4-3b1d-48a0-a234-e71fae3443b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="148c0ab8-ffb5-4972-a763-90fb8a4dd614" xml:space="preserve">
+          <source>Open <bpt id="4afa95d7-2512-43cf-8ac2-0a370858794f">&lt;strong&gt;</bpt>Microsoft Monitoring Agent<ept id="4afa95d7-2512-43cf-8ac2-0a370858794f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="4afa95d7-2512-43cf-8ac2-0a370858794f">&lt;strong&gt;</bpt>Microsoft Monitoring Agent<ept id="4afa95d7-2512-43cf-8ac2-0a370858794f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33094876-ac69-4706-96e2-e8d757370128" xml:space="preserve">
+          <source>Click the <bpt id="074130d2-2bdf-40b3-abc3-2d83b0bed72c">&lt;strong&gt;</bpt>Proxy Settings<ept id="074130d2-2bdf-40b3-abc3-2d83b0bed72c">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="074130d2-2bdf-40b3-abc3-2d83b0bed72c">&lt;strong&gt;</bpt>Proxy Settings<ept id="074130d2-2bdf-40b3-abc3-2d83b0bed72c">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="daf2d401-6e90-4017-9bba-4d23c702a521" xml:space="preserve">
+          <source><bpt id="4b689a83-451d-4d5c-88d8-af81abd2afb5">&lt;linkText&gt;</bpt>proxy settings tab<ept id="4b689a83-451d-4d5c-88d8-af81abd2afb5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b689a83-451d-4d5c-88d8-af81abd2afb5">&lt;linkText&gt;</bpt>proxy settings tab<ept id="4b689a83-451d-4d5c-88d8-af81abd2afb5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f85bc494-3335-4974-9018-39905cea92d5" xml:space="preserve">
+          <source>Select <bpt id="77b0d52a-1275-4944-9541-f8ffe2149fb8">&lt;strong&gt;</bpt>Use a proxy server<ept id="77b0d52a-1275-4944-9541-f8ffe2149fb8">&lt;/strong&gt;</ept> and type the URL and port number, if one is needed, similar to the example shown.</source>
+          <target state="new">Select <bpt id="77b0d52a-1275-4944-9541-f8ffe2149fb8">&lt;strong&gt;</bpt>Use a proxy server<ept id="77b0d52a-1275-4944-9541-f8ffe2149fb8">&lt;/strong&gt;</ept> and type the URL and port number, if one is needed, similar to the example shown.</target>
+        </trans-unit>
+        <trans-unit id="b459fd47-8419-46e8-b4e7-2c177386c000" xml:space="preserve">
+          <source>If your proxy server requires authentication, type the username and password to access the proxy server.</source>
+          <target state="new">If your proxy server requires authentication, type the username and password to access the proxy server.</target>
+        </trans-unit>
+        <trans-unit id="7f69f87b-5cd5-4535-99fa-b37d37e8fe2a" xml:space="preserve">
+          <source>Use the following procedure to create a PowerShell script that you can run to set the proxy settings for each agent that connects directly to servers.</source>
+          <target state="new">Use the following procedure to create a PowerShell script that you can run to set the proxy settings for each agent that connects directly to servers.</target>
+        </trans-unit>
+        <trans-unit id="b78778ca-957e-4632-b3ce-7a30a68294d3" xml:space="preserve">
+          <source>Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the Operational Insights service.</source>
+          <target state="new">Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="54e0ec90-6e83-44e5-987d-32e21cd0ba36" xml:space="preserve">
+          <source>For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port numbers of your domains and URLs.</source>
+          <target state="new">For an Operations Manager management group to connect to and register with the Operational Insights service, it must have access to the port numbers of your domains and URLs.</target>
+        </trans-unit>
+        <trans-unit id="06d132ac-3ff0-4e7e-a00e-2692e2fac7f7" xml:space="preserve">
+          <source>If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible.</source>
+          <target state="new">If you use a proxy server for communication between the Operations Manager management server and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible.</target>
+        </trans-unit>
+        <trans-unit id="3c0d4907-cec7-475a-a7c1-9b9ca5e50a6d" xml:space="preserve">
+          <source>If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights.</source>
+          <target state="new">If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="7c2c9da3-fe18-4268-95e7-d11e42d8bbb4" xml:space="preserve">
+          <source>Even if an Operations Manager management server is not behind a proxy server, it's agents might.</source>
+          <target state="new">Even if an Operations Manager management server is not behind a proxy server, it's agents might.</target>
+        </trans-unit>
+        <trans-unit id="6d011c5f-4ba4-4b61-b49d-5aa582004958" xml:space="preserve">
+          <source>In this case, the proxy server should to be configured the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the Operational Insights web service.</source>
+          <target state="new">In this case, the proxy server should to be configured the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the Operational Insights web service.</target>
+        </trans-unit>
+        <trans-unit id="7a156527-ed2e-4af9-ba96-540ebd5aefbc" xml:space="preserve">
+          <source>In order for Operations Manager agents to communicate with the Operational Insights service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version.</source>
+          <target state="new">In order for Operations Manager agents to communicate with the Operational Insights service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version.</target>
+        </trans-unit>
+        <trans-unit id="3ad05652-46f6-43ed-bae7-a21129dd1c02" xml:space="preserve">
+          <source>The proxy setting for agents is specified in the Operations Manager console.</source>
+          <target state="new">The proxy setting for agents is specified in the Operations Manager console.</target>
+        </trans-unit>
+        <trans-unit id="329db8cc-87f8-47ca-b4bf-01e9da0fda25" xml:space="preserve">
+          <source>Your version should be one of the of the following:</source>
+          <target state="new">Your version should be one of the of the following:</target>
+        </trans-unit>
+        <trans-unit id="b2ee8947-68b9-412d-936a-1f20ff14f47e" xml:space="preserve">
+          <source>Operations Manager 2012 SP1 Update Rollup 7 or later</source>
+          <target state="new">Operations Manager 2012 SP1 Update Rollup 7 or later</target>
+        </trans-unit>
+        <trans-unit id="3bc7015e-a18c-4200-a60f-c9d9497100f5" xml:space="preserve">
+          <source>Operations Manager 2012 R2 Update Rollup 3 or later</source>
+          <target state="new">Operations Manager 2012 R2 Update Rollup 3 or later</target>
+        </trans-unit>
+        <trans-unit id="fbe136ab-3f6e-47c8-a4ed-6ea27c9411b3" xml:space="preserve">
+          <source>The following tables list the ports related to these tasks.</source>
+          <target state="new">The following tables list the ports related to these tasks.</target>
+        </trans-unit>
+        <trans-unit id="251096ac-45c7-43c1-9385-05666818479a" xml:space="preserve">
+          <source>Some of the following resources mention Advisor.</source>
+          <target state="new">Some of the following resources mention Advisor.</target>
+        </trans-unit>
+        <trans-unit id="0b1750b0-6764-42a1-bba2-9ccae6d11382" xml:space="preserve">
+          <source>However, the listed resources will change in the future.</source>
+          <target state="new">However, the listed resources will change in the future.</target>
+        </trans-unit>
+        <trans-unit id="cb9a7f49-5462-4b5c-8844-98bc23f7a0b5" xml:space="preserve">
+          <source><bpt id="25c60f84-8df2-4ddf-927b-cea45729d11a">&lt;strong&gt;</bpt>Agent Resource<ept id="25c60f84-8df2-4ddf-927b-cea45729d11a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="25c60f84-8df2-4ddf-927b-cea45729d11a">&lt;strong&gt;</bpt>Agent Resource<ept id="25c60f84-8df2-4ddf-927b-cea45729d11a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7496bf13-0ca1-46a4-85dc-748530f4a352" xml:space="preserve">
+          <source><bpt id="5680aee9-5751-4200-9386-a5c81901b6d5">&lt;strong&gt;</bpt>Ports<ept id="5680aee9-5751-4200-9386-a5c81901b6d5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5680aee9-5751-4200-9386-a5c81901b6d5">&lt;strong&gt;</bpt>Ports<ept id="5680aee9-5751-4200-9386-a5c81901b6d5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cb0d99b-023b-4279-a045-b3504d91e3c0" xml:space="preserve">
+          <source>*.ods.opinsights.azure.com</source>
+          <target state="new">*.ods.opinsights.azure.com</target>
+        </trans-unit>
+        <trans-unit id="7520dc06-1500-4c49-9e01-f699a522c3fd" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="d1c01c85-6e62-4c67-936b-b13d283b80d2" xml:space="preserve">
+          <source>*.oms.opinsights.azure.com</source>
+          <target state="new">*.oms.opinsights.azure.com</target>
+        </trans-unit>
+        <trans-unit id="f419daec-c9a5-484a-9b90-456c2d415cc7" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="1cf59b91-5d0d-4fa1-b8b3-b061a1918903" xml:space="preserve">
+          <source>ods.systemcenteradvisor.com</source>
+          <target state="new">ods.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="00916f6c-06f1-4010-836b-cfe6088cf24c" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="da2999a4-ddd6-4d34-bed2-6daecedb994b" xml:space="preserve">
+          <source><bpt id="dc17451c-5fbc-4c84-9a41-715e3c9cb39d">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="dc17451c-5fbc-4c84-9a41-715e3c9cb39d">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="dc17451c-5fbc-4c84-9a41-715e3c9cb39d">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="dc17451c-5fbc-4c84-9a41-715e3c9cb39d">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eed1101e-3ecb-4c14-b131-303c5cef6f67" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="5d248fb7-6f98-4e76-ae66-d4ddbc2ff981" xml:space="preserve">
+          <source><bpt id="f15d4ef1-4c1b-4d9e-ad39-cbd3da8986e4">&lt;strong&gt;</bpt>Management server resource<ept id="f15d4ef1-4c1b-4d9e-ad39-cbd3da8986e4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f15d4ef1-4c1b-4d9e-ad39-cbd3da8986e4">&lt;strong&gt;</bpt>Management server resource<ept id="f15d4ef1-4c1b-4d9e-ad39-cbd3da8986e4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="214672da-e5dd-4c3e-a4d3-487413a7976e" xml:space="preserve">
+          <source><bpt id="73c4046a-c3cc-4184-b260-7a717a95b647">&lt;strong&gt;</bpt>Ports<ept id="73c4046a-c3cc-4184-b260-7a717a95b647">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="73c4046a-c3cc-4184-b260-7a717a95b647">&lt;strong&gt;</bpt>Ports<ept id="73c4046a-c3cc-4184-b260-7a717a95b647">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62fe463f-c519-405b-91d7-fae6709b712b" xml:space="preserve">
+          <source>*.ods.opinsights.azure.com</source>
+          <target state="new">*.ods.opinsights.azure.com</target>
+        </trans-unit>
+        <trans-unit id="a007d484-5f53-4369-b573-2b43428a3e96" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="252aa845-6773-4736-84e9-ae2ca590755a" xml:space="preserve">
+          <source>service.systemcenteradvisor.com</source>
+          <target state="new">service.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="ddc6cdf5-b83a-4181-aaab-492a5a757b6a" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="a8b20db1-9f75-4d6c-a919-f1ecdc814541" xml:space="preserve">
+          <source>scadvisor.accesscontrol.windows.net</source>
+          <target state="new">scadvisor.accesscontrol.windows.net</target>
+        </trans-unit>
+        <trans-unit id="0861c654-8c60-4a7c-8724-8d0300e49ad0" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="de3f444a-6172-4a02-87d2-a5571e6317e8" xml:space="preserve">
+          <source>scadvisorservice.accesscontrol.windows.net</source>
+          <target state="new">scadvisorservice.accesscontrol.windows.net</target>
+        </trans-unit>
+        <trans-unit id="49e2cc20-1b47-4f2b-8a21-74d4bdb41e00" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="d6d36ad4-5faa-4266-9c6c-db4d4390ebc1" xml:space="preserve">
+          <source><bpt id="ce0c0249-0e1d-4881-a016-5a160858a9ff">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="ce0c0249-0e1d-4881-a016-5a160858a9ff">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ce0c0249-0e1d-4881-a016-5a160858a9ff">&lt;em&gt;</bpt>.blob.core.windows.net/<ept id="ce0c0249-0e1d-4881-a016-5a160858a9ff">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab090b46-5e95-4b71-a1eb-df54920cdd1b" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="ddb08168-b6b7-4d68-b24c-9229b0566253" xml:space="preserve">
+          <source>data.systemcenteradvisor.com</source>
+          <target state="new">data.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="ec2780b8-5dbc-48f8-a9d8-f82077383a05" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="56f1624e-12de-4bcc-8e60-5eeba1bb91fc" xml:space="preserve">
+          <source>ods.systemcenteradvisor.com</source>
+          <target state="new">ods.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="2453e703-0a2a-4468-ae02-d066c29eea0a" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="38b882b9-6004-476d-b5db-a63bf296121e" xml:space="preserve">
+          <source>*.systemcenteradvisor.com</source>
+          <target state="new">*.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="54f338b5-b017-43ee-8f16-36989f7ce69c" xml:space="preserve">
+          <source>Port 443</source>
+          <target state="new">Port 443</target>
+        </trans-unit>
+        <trans-unit id="299ae675-93ac-4dd8-8d13-b770363d66e7" xml:space="preserve">
+          <source><bpt id="01fceafa-863c-4e0c-aa14-1e509285e513">&lt;strong&gt;</bpt>Operational Insights and Operations Manager console resource<ept id="01fceafa-863c-4e0c-aa14-1e509285e513">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="01fceafa-863c-4e0c-aa14-1e509285e513">&lt;strong&gt;</bpt>Operational Insights and Operations Manager console resource<ept id="01fceafa-863c-4e0c-aa14-1e509285e513">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c648c545-8790-407c-9e75-607a85ff920c" xml:space="preserve">
+          <source><bpt id="3b391325-6ab5-45f6-85da-8a76a3b7861b">&lt;strong&gt;</bpt>Ports<ept id="3b391325-6ab5-45f6-85da-8a76a3b7861b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3b391325-6ab5-45f6-85da-8a76a3b7861b">&lt;strong&gt;</bpt>Ports<ept id="3b391325-6ab5-45f6-85da-8a76a3b7861b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2205c2f5-0538-4b41-b317-845ad790b2fb" xml:space="preserve">
+          <source>*.systemcenteradvisor.com</source>
+          <target state="new">*.systemcenteradvisor.com</target>
+        </trans-unit>
+        <trans-unit id="1bdcf56b-2dbd-4c5e-a7d4-f8480bd5d987" xml:space="preserve">
+          <source>Port 80 and 443</source>
+          <target state="new">Port 80 and 443</target>
+        </trans-unit>
+        <trans-unit id="ab56edfa-4a02-4e2a-b613-813821a100de" xml:space="preserve">
+          <source>*.live.com</source>
+          <target state="new">*.live.com</target>
+        </trans-unit>
+        <trans-unit id="824564e2-095a-434f-8f53-d484b712e0fb" xml:space="preserve">
+          <source>Port 80 and 443</source>
+          <target state="new">Port 80 and 443</target>
+        </trans-unit>
+        <trans-unit id="30d8c62f-5509-470f-bf61-5cffdb1f283f" xml:space="preserve">
+          <source>*.microsoftonline.com</source>
+          <target state="new">*.microsoftonline.com</target>
+        </trans-unit>
+        <trans-unit id="824ce1e1-1f73-46ca-beaa-34e123384fde" xml:space="preserve">
+          <source>Port 80 and 443</source>
+          <target state="new">Port 80 and 443</target>
+        </trans-unit>
+        <trans-unit id="54e82afc-b3d7-48b9-a693-d83c760a11cb" xml:space="preserve">
+          <source>login.windows.net</source>
+          <target state="new">login.windows.net</target>
+        </trans-unit>
+        <trans-unit id="c61d5f84-305a-41d2-bf46-939ebd332ddc" xml:space="preserve">
+          <source>Port 80 and 443</source>
+          <target state="new">Port 80 and 443</target>
+        </trans-unit>
+        <trans-unit id="563b6e8a-d5a2-422c-ae16-6de1451da3ba" xml:space="preserve">
+          <source>Use the following procedures to register your Operations Manager management group with the Operational Insights service.</source>
+          <target state="new">Use the following procedures to register your Operations Manager management group with the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="5c4685af-4607-41b7-becc-2113f30bdabc" xml:space="preserve">
+          <source>If you are having communication problems between the management group and the Operational Insights service, use the validation procedures to troubleshoot data transmission to the Operational Insights service.</source>
+          <target state="new">If you are having communication problems between the management group and the Operational Insights service, use the validation procedures to troubleshoot data transmission to the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="113956c9-d868-42c8-93ce-b91391d61f63" xml:space="preserve">
+          <source>Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.</source>
+          <target state="new">Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.</target>
+        </trans-unit>
+        <trans-unit id="4c446862-3ca3-4ca7-8c5f-5407b01c7708" xml:space="preserve">
+          <source>Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and Operational Insights are accessible through any firewalls you might have.</source>
+          <target state="new">Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and Operational Insights are accessible through any firewalls you might have.</target>
+        </trans-unit>
+        <trans-unit id="84df8628-20a4-49f2-a9d8-c64ca9b5fb59" xml:space="preserve">
+          <source>If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly.</source>
+          <target state="new">If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly.</target>
+        </trans-unit>
+        <trans-unit id="bdc374f8-108b-4276-8358-b92744f1acc8" xml:space="preserve">
+          <source>To verify, you can open a secure web connection (https), for example <bpt id="40271e22-66e4-449b-b21f-092559f95936">&lt;linkText&gt;</bpt>https://bing.com<ept id="40271e22-66e4-449b-b21f-092559f95936">&lt;/linkText&gt;</ept><bpt id="40271e22-66e4-449b-b21f-092559f95936">&lt;title&gt;</bpt><ept id="40271e22-66e4-449b-b21f-092559f95936">&lt;/title&gt;</ept>.</source>
+          <target state="new">To verify, you can open a secure web connection (https), for example <bpt id="40271e22-66e4-449b-b21f-092559f95936">&lt;linkText&gt;</bpt>https://bing.com<ept id="40271e22-66e4-449b-b21f-092559f95936">&lt;/linkText&gt;</ept><bpt id="40271e22-66e4-449b-b21f-092559f95936">&lt;title&gt;</bpt><ept id="40271e22-66e4-449b-b21f-092559f95936">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f3d73c3-f100-4ec8-a771-69d2f2ad3ec5" xml:space="preserve">
+          <source>If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.</source>
+          <target state="new">If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="7f2a0ee7-24e7-424b-9f4a-6928bfac76d1" xml:space="preserve">
+          <source>Open the Operations Manager console and select the <bpt id="307df0cc-a135-48ba-91f5-8f3dcb72c998">&lt;strong&gt;</bpt>Administration<ept id="307df0cc-a135-48ba-91f5-8f3dcb72c998">&lt;/strong&gt;</ept> workspace.</source>
+          <target state="new">Open the Operations Manager console and select the <bpt id="307df0cc-a135-48ba-91f5-8f3dcb72c998">&lt;strong&gt;</bpt>Administration<ept id="307df0cc-a135-48ba-91f5-8f3dcb72c998">&lt;/strong&gt;</ept> workspace.</target>
+        </trans-unit>
+        <trans-unit id="3dec87bf-554f-4e98-b4f8-43eb0c54f725" xml:space="preserve">
+          <source>Expand <bpt id="bc70411d-d8a0-4287-a693-8078259c3861">&lt;strong&gt;</bpt>Operational Insights<ept id="bc70411d-d8a0-4287-a693-8078259c3861">&lt;/strong&gt;</ept>, and then select <bpt id="108ded00-c12f-4a1e-b71a-18b6618c4a29">&lt;strong&gt;</bpt>Operational Insights Connection<ept id="108ded00-c12f-4a1e-b71a-18b6618c4a29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand <bpt id="bc70411d-d8a0-4287-a693-8078259c3861">&lt;strong&gt;</bpt>Operational Insights<ept id="bc70411d-d8a0-4287-a693-8078259c3861">&lt;/strong&gt;</ept>, and then select <bpt id="108ded00-c12f-4a1e-b71a-18b6618c4a29">&lt;strong&gt;</bpt>Operational Insights Connection<ept id="108ded00-c12f-4a1e-b71a-18b6618c4a29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c087eee-9634-435b-b852-c22fe04c45ac" xml:space="preserve">
+          <source><bpt id="911bc990-c34e-4806-a374-d24e7d22a7fb">&lt;linkText&gt;</bpt>Operations Manager Operational Insights Connection<ept id="911bc990-c34e-4806-a374-d24e7d22a7fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="911bc990-c34e-4806-a374-d24e7d22a7fb">&lt;linkText&gt;</bpt>Operations Manager Operational Insights Connection<ept id="911bc990-c34e-4806-a374-d24e7d22a7fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ea63cd7-3a66-4542-aa01-8978f13db17f" xml:space="preserve">
+          <source>In the Operational Insights Connection view, click <bpt id="af482de9-e2f9-460c-af74-ba1bb8e654aa">&lt;strong&gt;</bpt>Configure Proxy Server<ept id="af482de9-e2f9-460c-af74-ba1bb8e654aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Operational Insights Connection view, click <bpt id="af482de9-e2f9-460c-af74-ba1bb8e654aa">&lt;strong&gt;</bpt>Configure Proxy Server<ept id="af482de9-e2f9-460c-af74-ba1bb8e654aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba0d02c3-a535-49f4-833f-bd133b9cd102" xml:space="preserve">
+          <source><bpt id="b92afbc9-00a2-4bde-b383-a8b5b4689bf1">&lt;linkText&gt;</bpt>Operations Manager Operational Insights Connection Configure Proxy Server<ept id="b92afbc9-00a2-4bde-b383-a8b5b4689bf1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b92afbc9-00a2-4bde-b383-a8b5b4689bf1">&lt;linkText&gt;</bpt>Operations Manager Operational Insights Connection Configure Proxy Server<ept id="b92afbc9-00a2-4bde-b383-a8b5b4689bf1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="927c4dc9-8254-46c6-9ec4-492fa87f0fee" xml:space="preserve">
+          <source>In Operational Insights Settings Wizard: Proxy Server, select <bpt id="075a3301-3abb-4b16-b32a-5e2c27b01119">&lt;strong&gt;</bpt>Use a proxy server to access the Operational Insights Web Service<ept id="075a3301-3abb-4b16-b32a-5e2c27b01119">&lt;/strong&gt;</ept>, and then type the URL with the port number, for example, <bpt id="91ebca43-7b2f-4ea8-b504-50a35fca5ba9">&lt;strong&gt;</bpt>http://myproxy:80<ept id="91ebca43-7b2f-4ea8-b504-50a35fca5ba9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Operational Insights Settings Wizard: Proxy Server, select <bpt id="075a3301-3abb-4b16-b32a-5e2c27b01119">&lt;strong&gt;</bpt>Use a proxy server to access the Operational Insights Web Service<ept id="075a3301-3abb-4b16-b32a-5e2c27b01119">&lt;/strong&gt;</ept>, and then type the URL with the port number, for example, <bpt id="91ebca43-7b2f-4ea8-b504-50a35fca5ba9">&lt;strong&gt;</bpt>http://myproxy:80<ept id="91ebca43-7b2f-4ea8-b504-50a35fca5ba9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cfbbe10c-ddf8-4f58-9cee-63cfb980a39d" xml:space="preserve">
+          <source><bpt id="a6f162c5-ced8-43e2-bc92-41ccdf31fca4">&lt;linkText&gt;</bpt>Operations Manager Operational Insights proxy address<ept id="a6f162c5-ced8-43e2-bc92-41ccdf31fca4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6f162c5-ced8-43e2-bc92-41ccdf31fca4">&lt;linkText&gt;</bpt>Operations Manager Operational Insights proxy address<ept id="a6f162c5-ced8-43e2-bc92-41ccdf31fca4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8692d40e-b3da-4163-9e1f-34d2b486b78d" xml:space="preserve">
+          <source>Proxy server credentials and settings need to propagate to managed computers that will report to Operational Insights.</source>
+          <target state="new">Proxy server credentials and settings need to propagate to managed computers that will report to Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="25a5d3b5-6272-4f6f-9fde-51a0832470e7" xml:space="preserve">
+          <source>Those servers should be in the <bpt id="1070aa87-4725-4ce3-9d0c-86f1e139a910">&lt;em&gt;</bpt>Microsoft System Center Advisor Monitoring Server Group<ept id="1070aa87-4725-4ce3-9d0c-86f1e139a910">&lt;/em&gt;</ept>.</source>
+          <target state="new">Those servers should be in the <bpt id="1070aa87-4725-4ce3-9d0c-86f1e139a910">&lt;em&gt;</bpt>Microsoft System Center Advisor Monitoring Server Group<ept id="1070aa87-4725-4ce3-9d0c-86f1e139a910">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50350fe3-104c-42f8-80b5-c07400869a61" xml:space="preserve">
+          <source>Credentials are encrypted in the registry of each server in the group.</source>
+          <target state="new">Credentials are encrypted in the registry of each server in the group.</target>
+        </trans-unit>
+        <trans-unit id="082d3ef6-0a11-47ad-9bcc-2093e04fe07f" xml:space="preserve">
+          <source>Open the Operations Manager console and select the <bpt id="826d7cb9-de0a-48b6-bba0-ceae08b793eb">&lt;strong&gt;</bpt>Administration<ept id="826d7cb9-de0a-48b6-bba0-ceae08b793eb">&lt;/strong&gt;</ept> workspace.</source>
+          <target state="new">Open the Operations Manager console and select the <bpt id="826d7cb9-de0a-48b6-bba0-ceae08b793eb">&lt;strong&gt;</bpt>Administration<ept id="826d7cb9-de0a-48b6-bba0-ceae08b793eb">&lt;/strong&gt;</ept> workspace.</target>
+        </trans-unit>
+        <trans-unit id="e54a0d23-2da8-446a-b443-0bd9ecb010a9" xml:space="preserve">
+          <source>Under <bpt id="140d9c79-9c76-4b6e-a6bb-3943caeb7dbc">&lt;strong&gt;</bpt>RunAs Configuration<ept id="140d9c79-9c76-4b6e-a6bb-3943caeb7dbc">&lt;/strong&gt;</ept>, select <bpt id="9a909ed1-cbf6-46eb-8e3b-f1688db768f5">&lt;strong&gt;</bpt>Profiles<ept id="9a909ed1-cbf6-46eb-8e3b-f1688db768f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="140d9c79-9c76-4b6e-a6bb-3943caeb7dbc">&lt;strong&gt;</bpt>RunAs Configuration<ept id="140d9c79-9c76-4b6e-a6bb-3943caeb7dbc">&lt;/strong&gt;</ept>, select <bpt id="9a909ed1-cbf6-46eb-8e3b-f1688db768f5">&lt;strong&gt;</bpt>Profiles<ept id="9a909ed1-cbf6-46eb-8e3b-f1688db768f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fde7e8d-4443-4148-9416-f412be264932" xml:space="preserve">
+          <source>Open the <bpt id="679b31f2-8640-4b4a-b4dc-2f859d2ecb17">&lt;strong&gt;</bpt>System Center Advisor Run As Profile Proxy<ept id="679b31f2-8640-4b4a-b4dc-2f859d2ecb17">&lt;/strong&gt;</ept> profile.</source>
+          <target state="new">Open the <bpt id="679b31f2-8640-4b4a-b4dc-2f859d2ecb17">&lt;strong&gt;</bpt>System Center Advisor Run As Profile Proxy<ept id="679b31f2-8640-4b4a-b4dc-2f859d2ecb17">&lt;/strong&gt;</ept> profile.</target>
+        </trans-unit>
+        <trans-unit id="a2c676f3-ef02-47d5-aee7-87e64a3d1ee5" xml:space="preserve">
+          <source><bpt id="8f820591-2dd8-4169-9a03-36f34fb3597e">&lt;linkText&gt;</bpt>image of the System Center Advisor Run As Proxy profile<ept id="8f820591-2dd8-4169-9a03-36f34fb3597e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8f820591-2dd8-4169-9a03-36f34fb3597e">&lt;linkText&gt;</bpt>image of the System Center Advisor Run As Proxy profile<ept id="8f820591-2dd8-4169-9a03-36f34fb3597e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55186bea-a9bd-4a22-8db5-2bfd3e4147ce" xml:space="preserve">
+          <source>In the Run As Profile Wizard, click <bpt id="c1a89558-fe0a-46cd-bc84-d705be89c1d1">&lt;strong&gt;</bpt>Add<ept id="c1a89558-fe0a-46cd-bc84-d705be89c1d1">&lt;/strong&gt;</ept> to use a Run As account.</source>
+          <target state="new">In the Run As Profile Wizard, click <bpt id="c1a89558-fe0a-46cd-bc84-d705be89c1d1">&lt;strong&gt;</bpt>Add<ept id="c1a89558-fe0a-46cd-bc84-d705be89c1d1">&lt;/strong&gt;</ept> to use a Run As account.</target>
+        </trans-unit>
+        <trans-unit id="cc67064b-e52d-4012-a4ef-650237e817a8" xml:space="preserve">
+          <source>You can create a new Run As account or use an existing account.</source>
+          <target state="new">You can create a new Run As account or use an existing account.</target>
+        </trans-unit>
+        <trans-unit id="73edc9f7-9e7e-4f91-be41-59df98e2fbf8" xml:space="preserve">
+          <source>This account needs to have sufficient permissions to pass through the proxy server.</source>
+          <target state="new">This account needs to have sufficient permissions to pass through the proxy server.</target>
+        </trans-unit>
+        <trans-unit id="ceaac392-c301-42bf-873a-a23be38dc267" xml:space="preserve">
+          <source><bpt id="83b0dcc4-46fa-4ada-a9af-358ca88ceb0f">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="83b0dcc4-46fa-4ada-a9af-358ca88ceb0f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="83b0dcc4-46fa-4ada-a9af-358ca88ceb0f">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="83b0dcc4-46fa-4ada-a9af-358ca88ceb0f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c2a7d4c-cb73-4e49-9788-abec6de3baf5" xml:space="preserve">
+          <source>To set the account to manage, choose <bpt id="c62f567a-480a-4c8b-a240-cd025f7487b5">&lt;strong&gt;</bpt>A selected class, group, or object<ept id="c62f567a-480a-4c8b-a240-cd025f7487b5">&lt;/strong&gt;</ept> to open the Object Search box.</source>
+          <target state="new">To set the account to manage, choose <bpt id="c62f567a-480a-4c8b-a240-cd025f7487b5">&lt;strong&gt;</bpt>A selected class, group, or object<ept id="c62f567a-480a-4c8b-a240-cd025f7487b5">&lt;/strong&gt;</ept> to open the Object Search box.</target>
+        </trans-unit>
+        <trans-unit id="74df8a91-903a-4ed3-9926-ee5d4a1a7f11" xml:space="preserve">
+          <source><bpt id="8ab59f66-8f28-44c7-841e-3c41799461ac">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="8ab59f66-8f28-44c7-841e-3c41799461ac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ab59f66-8f28-44c7-841e-3c41799461ac">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="8ab59f66-8f28-44c7-841e-3c41799461ac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f71bcd1f-6c79-4fac-918a-74ca1983a388" xml:space="preserve">
+          <source>Search for then select <bpt id="8a08e9d3-4d98-43bc-be31-51c6daecaa0c">&lt;strong&gt;</bpt>Microsoft System Center Advisor Monitoring Server Group<ept id="8a08e9d3-4d98-43bc-be31-51c6daecaa0c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Search for then select <bpt id="8a08e9d3-4d98-43bc-be31-51c6daecaa0c">&lt;strong&gt;</bpt>Microsoft System Center Advisor Monitoring Server Group<ept id="8a08e9d3-4d98-43bc-be31-51c6daecaa0c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2037f442-86b0-4ed3-a25c-2979af3744e7" xml:space="preserve">
+          <source><bpt id="ce8b0293-fe66-4c19-babe-96ac71e9b335">&lt;linkText&gt;</bpt>image of the Object Search box<ept id="ce8b0293-fe66-4c19-babe-96ac71e9b335">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce8b0293-fe66-4c19-babe-96ac71e9b335">&lt;linkText&gt;</bpt>image of the Object Search box<ept id="ce8b0293-fe66-4c19-babe-96ac71e9b335">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4178f8f-0ae3-489e-9d4e-d83f740fc1d9" xml:space="preserve">
+          <source>Click <bpt id="fc1fd310-17bc-4a01-8da7-3c779fb2ee33">&lt;strong&gt;</bpt>OK<ept id="fc1fd310-17bc-4a01-8da7-3c779fb2ee33">&lt;/strong&gt;</ept> to close the Add a Run As account box
+<bpt id="c677741b-5a22-49d5-a7a9-4e1e7bab7638">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="c677741b-5a22-49d5-a7a9-4e1e7bab7638">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="fc1fd310-17bc-4a01-8da7-3c779fb2ee33">&lt;strong&gt;</bpt>OK<ept id="fc1fd310-17bc-4a01-8da7-3c779fb2ee33">&lt;/strong&gt;</ept> to close the Add a Run As account box
+<bpt id="c677741b-5a22-49d5-a7a9-4e1e7bab7638">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="c677741b-5a22-49d5-a7a9-4e1e7bab7638">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4817c1f-ed00-462d-80ff-1f85575344ea" xml:space="preserve">
+          <source>Complete the wizard and save the changes.</source>
+          <target state="new">Complete the wizard and save the changes.</target>
+        </trans-unit>
+        <trans-unit id="43ca8e78-535a-413c-ba51-cd11649a0dfb" xml:space="preserve">
+          <source><bpt id="ef9e5d44-323f-4519-b9f5-0a8b40dfe5d0">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="ef9e5d44-323f-4519-b9f5-0a8b40dfe5d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ef9e5d44-323f-4519-b9f5-0a8b40dfe5d0">&lt;linkText&gt;</bpt>image of the Run As Profile Wizard<ept id="ef9e5d44-323f-4519-b9f5-0a8b40dfe5d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79dd4d29-dffc-4926-9ab9-4a277e1e9f24" xml:space="preserve">
+          <source>If you added solutions by using Operational Insights, you can view them in the Operations Manager console as management packs under <bpt id="78846a70-49fa-4f18-824f-bc2f81357abf">&lt;strong&gt;</bpt>Administration<ept id="78846a70-49fa-4f18-824f-bc2f81357abf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you added solutions by using Operational Insights, you can view them in the Operations Manager console as management packs under <bpt id="78846a70-49fa-4f18-824f-bc2f81357abf">&lt;strong&gt;</bpt>Administration<ept id="78846a70-49fa-4f18-824f-bc2f81357abf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f28a73d-7922-48a6-bd9c-d80e202f4349" xml:space="preserve">
+          <source>Search for <bpt id="9c170811-d247-4e72-a3ed-8ef883e9ab60">&lt;em&gt;</bpt>System Center Advisor<ept id="9c170811-d247-4e72-a3ed-8ef883e9ab60">&lt;/em&gt;</ept> to quickly find them.</source>
+          <target state="new">Search for <bpt id="9c170811-d247-4e72-a3ed-8ef883e9ab60">&lt;em&gt;</bpt>System Center Advisor<ept id="9c170811-d247-4e72-a3ed-8ef883e9ab60">&lt;/em&gt;</ept> to quickly find them.</target>
+        </trans-unit>
+        <trans-unit id="b9aee070-ca56-46bf-9735-a1c21a3f9239" xml:space="preserve">
+          <source><bpt id="e2c14a80-ad86-41d9-a840-9b9718c1d2f4">&lt;linkText&gt;</bpt>management packs downloaded<ept id="e2c14a80-ad86-41d9-a840-9b9718c1d2f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2c14a80-ad86-41d9-a840-9b9718c1d2f4">&lt;linkText&gt;</bpt>management packs downloaded<ept id="e2c14a80-ad86-41d9-a840-9b9718c1d2f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0a4ae26-0eb8-40d7-9fc9-1475ec3a265c" xml:space="preserve">
+          <source>Or, You can also check for Operational Insights management packs by using the following Windows PowerShell commands in the Operations Manager management server:</source>
+          <target state="new">Or, You can also check for Operational Insights management packs by using the following Windows PowerShell commands in the Operations Manager management server:</target>
+        </trans-unit>
+        <trans-unit id="495c0d03-df10-491e-bc85-f8644e0287d0" xml:space="preserve">
+          <source>In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select <bpt id="2f6a4202-8845-4f78-bb0b-e8026afe9667">&lt;strong&gt;</bpt>Performance Monitor<ept id="2f6a4202-8845-4f78-bb0b-e8026afe9667">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select <bpt id="2f6a4202-8845-4f78-bb0b-e8026afe9667">&lt;strong&gt;</bpt>Performance Monitor<ept id="2f6a4202-8845-4f78-bb0b-e8026afe9667">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a7d3614-eca2-4b3b-9490-213697fe6d08" xml:space="preserve">
+          <source>Click <bpt id="38cbbb89-3216-4d4c-a090-5ca582b5f9ca">&lt;strong&gt;</bpt>Add<ept id="38cbbb89-3216-4d4c-a090-5ca582b5f9ca">&lt;/strong&gt;</ept>, and then select <bpt id="7c6b2faf-b534-4613-9cab-c462ea36839a">&lt;strong&gt;</bpt>Health Service Management Groups<ept id="7c6b2faf-b534-4613-9cab-c462ea36839a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="38cbbb89-3216-4d4c-a090-5ca582b5f9ca">&lt;strong&gt;</bpt>Add<ept id="38cbbb89-3216-4d4c-a090-5ca582b5f9ca">&lt;/strong&gt;</ept>, and then select <bpt id="7c6b2faf-b534-4613-9cab-c462ea36839a">&lt;strong&gt;</bpt>Health Service Management Groups<ept id="7c6b2faf-b534-4613-9cab-c462ea36839a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6ceedf4-666d-4092-b180-e7c975d7c9a3" xml:space="preserve">
+          <source>Add all the counters that start with <bpt id="2b62045f-47e5-4a81-99c2-9e8a4ba14bca">&lt;strong&gt;</bpt>HTTP<ept id="2b62045f-47e5-4a81-99c2-9e8a4ba14bca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add all the counters that start with <bpt id="2b62045f-47e5-4a81-99c2-9e8a4ba14bca">&lt;strong&gt;</bpt>HTTP<ept id="2b62045f-47e5-4a81-99c2-9e8a4ba14bca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e5f23f5-e7f0-4676-b85c-1466730e926b" xml:space="preserve">
+          <source><bpt id="c6aa6aed-9e64-4adc-8735-68a45d8f2ced">&lt;linkText&gt;</bpt>add counters<ept id="c6aa6aed-9e64-4adc-8735-68a45d8f2ced">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c6aa6aed-9e64-4adc-8735-68a45d8f2ced">&lt;linkText&gt;</bpt>add counters<ept id="c6aa6aed-9e64-4adc-8735-68a45d8f2ced">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49410c7e-e152-4e5d-9b17-bb9b45e5279e" xml:space="preserve">
+          <source>If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.</source>
+          <target state="new">If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in Operational Insights and the configured log collection policy.</target>
+        </trans-unit>
+        <trans-unit id="4b93fe36-89a3-4227-8dd7-67b9b8293635" xml:space="preserve">
+          <source><bpt id="b506cdf6-1b9d-44d7-a047-dfe094ff3d77">&lt;linkText&gt;</bpt>Performance Monitor showing activity<ept id="b506cdf6-1b9d-44d7-a047-dfe094ff3d77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b506cdf6-1b9d-44d7-a047-dfe094ff3d77">&lt;linkText&gt;</bpt>Performance Monitor showing activity<ept id="b506cdf6-1b9d-44d7-a047-dfe094ff3d77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4aac7ac9-d09f-49fb-80fa-9a04a5d86104" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4aac7ac9-d09f-49fb-80fa-9a04a5d86104" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="343990e1-26fb-4b55-9816-74763c43cc61">
+        <trans-unit id="429586df-e379-445a-b533-7b1a4e43a91d" xml:space="preserve">
+          <source>While it's possible to paste a MongoLab URI into your code, we recommend configuring it in the environment for ease of management.</source>
+          <target state="new">While it's possible to paste a MongoLab URI into your code, we recommend configuring it in the environment for ease of management.</target>
+        </trans-unit>
+        <trans-unit id="7d9db5a8-6cfb-41ff-8f0e-619af7afc46a" xml:space="preserve">
+          <source>This way, if the URI changes, you can update it through the Azure Portal without going to the code.</source>
+          <target state="new">This way, if the URI changes, you can update it through the Azure Portal without going to the code.</target>
+        </trans-unit>
+        <trans-unit id="7946b9f4-5f65-40b2-91c4-ba4dc1f597e1" xml:space="preserve">
+          <source>In the Azure Portal, select <bpt id="bb5f966d-e776-4d67-aa64-a930b69c0e0b">&lt;strong&gt;</bpt>Web Apps<ept id="bb5f966d-e776-4d67-aa64-a930b69c0e0b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Portal, select <bpt id="bb5f966d-e776-4d67-aa64-a930b69c0e0b">&lt;strong&gt;</bpt>Web Apps<ept id="bb5f966d-e776-4d67-aa64-a930b69c0e0b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8db771b-9332-490c-b3c7-4781778436f1" xml:space="preserve">
+          <source>Click the name of the web app in the Web Apps list.</source>
+          <target state="new">Click the name of the web app in the Web Apps list.</target>
+        </trans-unit>
+        <trans-unit id="964438d5-4f43-4d10-a291-dd2cabfb01b5" xml:space="preserve">
+          <source><bpt id="9785b423-f7e2-4722-bd80-21c8efe21a72">&lt;linkText&gt;</bpt>WebAppEntry<ept id="9785b423-f7e2-4722-bd80-21c8efe21a72">&lt;/linkText&gt;</ept>  
+The Web App dashboard displays.</source>
+          <target state="new"><bpt id="9785b423-f7e2-4722-bd80-21c8efe21a72">&lt;linkText&gt;</bpt>WebAppEntry<ept id="9785b423-f7e2-4722-bd80-21c8efe21a72">&lt;/linkText&gt;</ept>  
+The Web App dashboard displays.</target>
+        </trans-unit>
+        <trans-unit id="8bc4bd50-a901-4df8-a33b-4bce3a210f74" xml:space="preserve">
+          <source>Click <bpt id="72c5925e-b646-4a61-b0e8-97888e2d77e6">&lt;strong&gt;</bpt>Configure<ept id="72c5925e-b646-4a61-b0e8-97888e2d77e6">&lt;/strong&gt;</ept> in the menu bar.</source>
+          <target state="new">Click <bpt id="72c5925e-b646-4a61-b0e8-97888e2d77e6">&lt;strong&gt;</bpt>Configure<ept id="72c5925e-b646-4a61-b0e8-97888e2d77e6">&lt;/strong&gt;</ept> in the menu bar.</target>
+        </trans-unit>
+        <trans-unit id="5df0eae6-4427-4863-8073-ae5c4bb546be" xml:space="preserve">
+          <source><bpt id="f95754a6-edd2-4ccf-8bd0-c184d841d8d8">&lt;linkText&gt;</bpt>WebAppDashboardConfig<ept id="f95754a6-edd2-4ccf-8bd0-c184d841d8d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f95754a6-edd2-4ccf-8bd0-c184d841d8d8">&lt;linkText&gt;</bpt>WebAppDashboardConfig<ept id="f95754a6-edd2-4ccf-8bd0-c184d841d8d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50d2aefa-bd87-4611-abc1-b88bf7df4e6a" xml:space="preserve">
+          <source>Scroll down to the Connection Strings section.</source>
+          <target state="new">Scroll down to the Connection Strings section.</target>
+        </trans-unit>
+        <trans-unit id="68a5bbb9-fe16-4889-b380-77ea9f9ffa02" xml:space="preserve">
+          <source><bpt id="1700ef45-c406-4237-921c-291f65f680bb">&lt;linkText&gt;</bpt>WebAppConnectionStrings<ept id="1700ef45-c406-4237-921c-291f65f680bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1700ef45-c406-4237-921c-291f65f680bb">&lt;linkText&gt;</bpt>WebAppConnectionStrings<ept id="1700ef45-c406-4237-921c-291f65f680bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c5bdcbb-53a5-4a19-9552-1d6e1c5036b4" xml:space="preserve">
+          <source>For <bpt id="d042e786-d5b2-4296-9045-9fe61367c691">&lt;strong&gt;</bpt>Name<ept id="d042e786-d5b2-4296-9045-9fe61367c691">&lt;/strong&gt;</ept>, enter MONGOLAB_URI.</source>
+          <target state="new">For <bpt id="d042e786-d5b2-4296-9045-9fe61367c691">&lt;strong&gt;</bpt>Name<ept id="d042e786-d5b2-4296-9045-9fe61367c691">&lt;/strong&gt;</ept>, enter MONGOLAB_URI.</target>
+        </trans-unit>
+        <trans-unit id="7a914b8c-52f9-47d7-b0a6-ef24ea6bc80d" xml:space="preserve">
+          <source>For <bpt id="69bfee62-1777-4e65-8fbb-65b60c6ef1f6">&lt;strong&gt;</bpt>Value<ept id="69bfee62-1777-4e65-8fbb-65b60c6ef1f6">&lt;/strong&gt;</ept>, paste the connection string we obtained in the previous section.</source>
+          <target state="new">For <bpt id="69bfee62-1777-4e65-8fbb-65b60c6ef1f6">&lt;strong&gt;</bpt>Value<ept id="69bfee62-1777-4e65-8fbb-65b60c6ef1f6">&lt;/strong&gt;</ept>, paste the connection string we obtained in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="438673d3-4e80-4f35-a619-0e0589332fe6" xml:space="preserve">
+          <source>Select <bpt id="ce991116-364e-4b4a-903c-0843b6690864">&lt;strong&gt;</bpt>Custom<ept id="ce991116-364e-4b4a-903c-0843b6690864">&lt;/strong&gt;</ept> in the <bpt id="22ab9e1c-3f8a-4b17-b027-a0417eb46682">&lt;strong&gt;</bpt>Type<ept id="22ab9e1c-3f8a-4b17-b027-a0417eb46682">&lt;/strong&gt;</ept> drop-down list (instead of the default <bpt id="f4253618-41d5-49e4-b261-1933fc1dd01a">&lt;strong&gt;</bpt>SQLAzure<ept id="f4253618-41d5-49e4-b261-1933fc1dd01a">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Select <bpt id="ce991116-364e-4b4a-903c-0843b6690864">&lt;strong&gt;</bpt>Custom<ept id="ce991116-364e-4b4a-903c-0843b6690864">&lt;/strong&gt;</ept> in the <bpt id="22ab9e1c-3f8a-4b17-b027-a0417eb46682">&lt;strong&gt;</bpt>Type<ept id="22ab9e1c-3f8a-4b17-b027-a0417eb46682">&lt;/strong&gt;</ept> drop-down list (instead of the default <bpt id="f4253618-41d5-49e4-b261-1933fc1dd01a">&lt;strong&gt;</bpt>SQLAzure<ept id="f4253618-41d5-49e4-b261-1933fc1dd01a">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="4b678079-a93d-4975-a79a-5bdad5023359" xml:space="preserve">
+          <source>Click <bpt id="44714eb6-a13a-4cba-a6a2-6c8d67486808">&lt;strong&gt;</bpt>Save<ept id="44714eb6-a13a-4cba-a6a2-6c8d67486808">&lt;/strong&gt;</ept> on the toolbar.</source>
+          <target state="new">Click <bpt id="44714eb6-a13a-4cba-a6a2-6c8d67486808">&lt;strong&gt;</bpt>Save<ept id="44714eb6-a13a-4cba-a6a2-6c8d67486808">&lt;/strong&gt;</ept> on the toolbar.</target>
+        </trans-unit>
+        <trans-unit id="61719b7f-a718-4cbb-a421-ae9b5812edaf" xml:space="preserve">
+          <source><bpt id="03108d38-4e24-417f-aa6b-dd5c975b02dd">&lt;linkText&gt;</bpt>SaveWebApp<ept id="03108d38-4e24-417f-aa6b-dd5c975b02dd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03108d38-4e24-417f-aa6b-dd5c975b02dd">&lt;linkText&gt;</bpt>SaveWebApp<ept id="03108d38-4e24-417f-aa6b-dd5c975b02dd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a11d883c-91c0-4cab-9de3-6c9eb29c7a5c" xml:space="preserve">
+          <source><bpt id="5fe03cf8-e2c0-4797-9df4-8f52c735e2cf">&lt;strong&gt;</bpt>Note:<ept id="5fe03cf8-e2c0-4797-9df4-8f52c735e2cf">&lt;/strong&gt;</ept> Azure adds the <bpt id="91672be4-bcde-437e-8e4d-30b859ed779e">&lt;strong&gt;</bpt>CUSTOMCONNSTR\_<ept id="91672be4-bcde-437e-8e4d-30b859ed779e">&lt;/strong&gt;</ept> prefix to this variable, which is why the code above references <bpt id="5c153390-e96f-48fe-80d3-2e22ed54020b">&lt;strong&gt;</bpt>CUSTOMCONNSTR\_MONGOLAB_URI.<ept id="5c153390-e96f-48fe-80d3-2e22ed54020b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5fe03cf8-e2c0-4797-9df4-8f52c735e2cf">&lt;strong&gt;</bpt>Note:<ept id="5fe03cf8-e2c0-4797-9df4-8f52c735e2cf">&lt;/strong&gt;</ept> Azure adds the <bpt id="91672be4-bcde-437e-8e4d-30b859ed779e">&lt;strong&gt;</bpt>CUSTOMCONNSTR\_<ept id="91672be4-bcde-437e-8e4d-30b859ed779e">&lt;/strong&gt;</ept> prefix to this variable, which is why the code above references <bpt id="5c153390-e96f-48fe-80d3-2e22ed54020b">&lt;strong&gt;</bpt>CUSTOMCONNSTR\_MONGOLAB_URI.<ept id="5c153390-e96f-48fe-80d3-2e22ed54020b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db14ced3-8cf9-4be3-9d08-94c2a12d1cd9" xml:space="preserve">
+          <source>./media/howto-save-connectioninfo-mongolab/entry-website.png</source>
+          <target state="new">./media/howto-save-connectioninfo-mongolab/entry-website.png</target>
+        </trans-unit>
+        <trans-unit id="d199be18-0bf1-4441-9d09-37513e4e65fa" xml:space="preserve">
+          <source>./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png</source>
+          <target state="new">./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png</target>
+        </trans-unit>
+        <trans-unit id="7931d63d-e47c-4677-bfad-704309d1d406" xml:space="preserve">
+          <source>./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png</source>
+          <target state="new">./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png</target>
+        </trans-unit>
+        <trans-unit id="580480d9-6123-48f3-be94-c3b1d2eb04fe" xml:space="preserve">
+          <source>./media/howto-save-connectioninfo-mongolab/button-website-save.png</source>
+          <target state="new">./media/howto-save-connectioninfo-mongolab/button-website-save.png</target>
+        </trans-unit>
+      </group>
+      <group id="f294c03b-7b53-404a-bbb5-9b1cf0dc7a71" />
+    </body>
+  </file>
+</xliff>

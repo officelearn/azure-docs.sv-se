@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f9ff86b3-4f88-472a-93f5-93660f3b51cd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f9ff86b3-4f88-472a-93f5-93660f3b51cd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="878f17fc-6780-456e-ae65-98e2817a3650">
+        <trans-unit id="68199e56-252c-4c29-b31b-92ba2931769c" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Azure Backup - manage virtual machines"
+    description="Learn how to manage an Azure virtual machine"
+    services="backup"
+    documentationCenter=""
+    authors="aashishr"
+    manager="shreeshd"
+    editor=""/&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Azure Backup - manage virtual machines"
+    description="Learn how to manage an Azure virtual machine"
+    services="backup"
+    documentationCenter=""
+    authors="aashishr"
+    manager="shreeshd"
+    editor=""/&gt;</target>
+        </trans-unit>
+        <trans-unit id="8e1ed6b8-48aa-4de0-8004-059024e47656" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/17/2015"
+    ms.author="aashishr"; "jimpark"/&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/17/2015"
+    ms.author="aashishr"; "jimpark"/&gt;</target>
+        </trans-unit>
+        <trans-unit id="af64de6d-acd3-4f4f-b801-7e589693a9e2" xml:space="preserve">
+          <source>To view and manage backup settings for a virtual machine click the <bpt id="6572b826-e59c-402f-a328-9bb87b70dd6a">&lt;strong&gt;</bpt>Protected Items<ept id="6572b826-e59c-402f-a328-9bb87b70dd6a">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To view and manage backup settings for a virtual machine click the <bpt id="6572b826-e59c-402f-a328-9bb87b70dd6a">&lt;strong&gt;</bpt>Protected Items<ept id="6572b826-e59c-402f-a328-9bb87b70dd6a">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="b3cf8d32-3b45-4a23-9c7f-52ff72bfebf0" xml:space="preserve">
+          <source>Click on the name of a protected item to see the <bpt id="ba05c251-de31-4dea-9fd7-89646218d98c">&lt;strong&gt;</bpt>Backup Details<ept id="ba05c251-de31-4dea-9fd7-89646218d98c">&lt;/strong&gt;</ept> tab, which shows you information about the last backup.</source>
+          <target state="new">Click on the name of a protected item to see the <bpt id="ba05c251-de31-4dea-9fd7-89646218d98c">&lt;strong&gt;</bpt>Backup Details<ept id="ba05c251-de31-4dea-9fd7-89646218d98c">&lt;/strong&gt;</ept> tab, which shows you information about the last backup.</target>
+        </trans-unit>
+        <trans-unit id="1eb84996-a848-4a40-8951-8419bae59192" xml:space="preserve">
+          <source><bpt id="5a3e461a-07fc-49e1-bce7-dac70215df83">&lt;linkText&gt;</bpt>Virtual machine backup<ept id="5a3e461a-07fc-49e1-bce7-dac70215df83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a3e461a-07fc-49e1-bce7-dac70215df83">&lt;linkText&gt;</bpt>Virtual machine backup<ept id="5a3e461a-07fc-49e1-bce7-dac70215df83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1a69d38-b26d-4faf-98c2-46d90e7a1a3b" xml:space="preserve">
+          <source>To view and manage backup policy settings for a virtual machine click the <bpt id="b0f7dd39-9976-4c10-8c33-94f1e173aa78">&lt;strong&gt;</bpt>Policies<ept id="b0f7dd39-9976-4c10-8c33-94f1e173aa78">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To view and manage backup policy settings for a virtual machine click the <bpt id="b0f7dd39-9976-4c10-8c33-94f1e173aa78">&lt;strong&gt;</bpt>Policies<ept id="b0f7dd39-9976-4c10-8c33-94f1e173aa78">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f8d79f0a-3637-4bc5-b9dd-539f96078c1c" xml:space="preserve">
+          <source>The <bpt id="c89e2e51-bc17-4267-97f1-3853acce0ce0">&lt;strong&gt;</bpt>Backup Policies<ept id="c89e2e51-bc17-4267-97f1-3853acce0ce0">&lt;/strong&gt;</ept> tab shows you the existing policy.</source>
+          <target state="new">The <bpt id="c89e2e51-bc17-4267-97f1-3853acce0ce0">&lt;strong&gt;</bpt>Backup Policies<ept id="c89e2e51-bc17-4267-97f1-3853acce0ce0">&lt;/strong&gt;</ept> tab shows you the existing policy.</target>
+        </trans-unit>
+        <trans-unit id="6950d533-304c-4866-b121-84545350daee" xml:space="preserve">
+          <source>You can modify as needed.</source>
+          <target state="new">You can modify as needed.</target>
+        </trans-unit>
+        <trans-unit id="8f4bd1dc-1377-40ff-8509-d5f7d36ae854" xml:space="preserve">
+          <source>If you need to create a new policy click <bpt id="340e0b7a-3a12-4257-9eeb-2a2b1f6363be">&lt;strong&gt;</bpt>Create<ept id="340e0b7a-3a12-4257-9eeb-2a2b1f6363be">&lt;/strong&gt;</ept> on the <bpt id="297a6240-ba9d-4462-aa15-ef40269a46bf">&lt;strong&gt;</bpt>Policies<ept id="297a6240-ba9d-4462-aa15-ef40269a46bf">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">If you need to create a new policy click <bpt id="340e0b7a-3a12-4257-9eeb-2a2b1f6363be">&lt;strong&gt;</bpt>Create<ept id="340e0b7a-3a12-4257-9eeb-2a2b1f6363be">&lt;/strong&gt;</ept> on the <bpt id="297a6240-ba9d-4462-aa15-ef40269a46bf">&lt;strong&gt;</bpt>Policies<ept id="297a6240-ba9d-4462-aa15-ef40269a46bf">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="4520cef9-823e-4a35-8542-6e0c30eb7ebd" xml:space="preserve">
+          <source>Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.</source>
+          <target state="new">Note that if you want to remove a policy it shouldn't have any virtual machines associated with it.</target>
+        </trans-unit>
+        <trans-unit id="2aad5ac1-3c57-436e-9615-4f86cc7b59c9" xml:space="preserve">
+          <source><bpt id="60624af1-9163-4a13-8ec9-3f60e729b74d">&lt;linkText&gt;</bpt>Virtual machine policy<ept id="60624af1-9163-4a13-8ec9-3f60e729b74d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="60624af1-9163-4a13-8ec9-3f60e729b74d">&lt;linkText&gt;</bpt>Virtual machine policy<ept id="60624af1-9163-4a13-8ec9-3f60e729b74d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="295ef1ef-5bd7-43bd-8657-2ed3cc8538ed" xml:space="preserve">
+          <source>You can get more information about actions or status for a virtual machine on the <bpt id="6d18d242-9694-43e6-9980-f896fef85c34">&lt;strong&gt;</bpt>Jobs<ept id="6d18d242-9694-43e6-9980-f896fef85c34">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can get more information about actions or status for a virtual machine on the <bpt id="6d18d242-9694-43e6-9980-f896fef85c34">&lt;strong&gt;</bpt>Jobs<ept id="6d18d242-9694-43e6-9980-f896fef85c34">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="de6be282-2888-4a29-926d-9d65349e933c" xml:space="preserve">
+          <source>Click a job in the list to get more details, or filter jobs for a specific virtual machine.</source>
+          <target state="new">Click a job in the list to get more details, or filter jobs for a specific virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="87d8831d-b37d-4270-8bba-304b32dbaa99" xml:space="preserve">
+          <source><bpt id="c54e2b50-ef0e-447a-9f57-232974d800ea">&lt;linkText&gt;</bpt>Jobs<ept id="c54e2b50-ef0e-447a-9f57-232974d800ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c54e2b50-ef0e-447a-9f57-232974d800ea">&lt;linkText&gt;</bpt>Jobs<ept id="c54e2b50-ef0e-447a-9f57-232974d800ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca96af69-3e74-47c6-af6f-898762ff52a0" xml:space="preserve">
+          <source>You can take an on-demand backup of a virtual once it is configured for protection.</source>
+          <target state="new">You can take an on-demand backup of a virtual once it is configured for protection.</target>
+        </trans-unit>
+        <trans-unit id="f4734bf4-37cc-427d-8324-8331c107c142" xml:space="preserve">
+          <source>If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault.</source>
+          <target state="new">If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault.</target>
+        </trans-unit>
+        <trans-unit id="aeebbfba-cfe9-4dc2-ab56-0df9f67e3b34" xml:space="preserve">
+          <source>If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault.</source>
+          <target state="new">If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault.</target>
+        </trans-unit>
+        <trans-unit id="d475527a-dbc1-452f-b530-75c251934fd1" xml:space="preserve">
+          <source>To take an on-demand backup of a virtual machine:</source>
+          <target state="new">To take an on-demand backup of a virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="c317d864-7b70-4062-a272-8400ef890bce" xml:space="preserve">
+          <source>Navigate to <bpt id="9c093dc5-f210-423d-b42f-24fc4c8ded13">&lt;strong&gt;</bpt>Protected Items<ept id="9c093dc5-f210-423d-b42f-24fc4c8ded13">&lt;/strong&gt;</ept> page and select <bpt id="b11bad3c-8d0e-4dcc-b9af-2b7e37d83b56">&lt;strong&gt;</bpt>Azure Virtual Machine<ept id="b11bad3c-8d0e-4dcc-b9af-2b7e37d83b56">&lt;/strong&gt;</ept> as <bpt id="7c9f65f0-1204-484e-ae79-00aa20bd9ba4">&lt;strong&gt;</bpt>Type<ept id="7c9f65f0-1204-484e-ae79-00aa20bd9ba4">&lt;/strong&gt;</ept> (if not already selected) and click on <bpt id="19e35466-1bdb-416d-a49f-313846fb82f1">&lt;strong&gt;</bpt>Select<ept id="19e35466-1bdb-416d-a49f-313846fb82f1">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Navigate to <bpt id="9c093dc5-f210-423d-b42f-24fc4c8ded13">&lt;strong&gt;</bpt>Protected Items<ept id="9c093dc5-f210-423d-b42f-24fc4c8ded13">&lt;/strong&gt;</ept> page and select <bpt id="b11bad3c-8d0e-4dcc-b9af-2b7e37d83b56">&lt;strong&gt;</bpt>Azure Virtual Machine<ept id="b11bad3c-8d0e-4dcc-b9af-2b7e37d83b56">&lt;/strong&gt;</ept> as <bpt id="7c9f65f0-1204-484e-ae79-00aa20bd9ba4">&lt;strong&gt;</bpt>Type<ept id="7c9f65f0-1204-484e-ae79-00aa20bd9ba4">&lt;/strong&gt;</ept> (if not already selected) and click on <bpt id="19e35466-1bdb-416d-a49f-313846fb82f1">&lt;strong&gt;</bpt>Select<ept id="19e35466-1bdb-416d-a49f-313846fb82f1">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="835c2330-19a0-451b-8a5c-7767cce914c0" xml:space="preserve">
+          <source><bpt id="5a44806a-8ea4-499c-bf16-a53781f8b187">&lt;linkText&gt;</bpt>VM Type<ept id="5a44806a-8ea4-499c-bf16-a53781f8b187">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a44806a-8ea4-499c-bf16-a53781f8b187">&lt;linkText&gt;</bpt>VM Type<ept id="5a44806a-8ea4-499c-bf16-a53781f8b187">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5317e73b-0644-4bb0-8fb4-8aaa565906b7" xml:space="preserve">
+          <source>Select the virtual machine on which you want to take an on-demand backup and click on <bpt id="39d1b42e-bb37-4b8e-87d1-d7dd6e293fc7">&lt;strong&gt;</bpt>Backup Now<ept id="39d1b42e-bb37-4b8e-87d1-d7dd6e293fc7">&lt;/strong&gt;</ept> button at the bottom of the page.</source>
+          <target state="new">Select the virtual machine on which you want to take an on-demand backup and click on <bpt id="39d1b42e-bb37-4b8e-87d1-d7dd6e293fc7">&lt;strong&gt;</bpt>Backup Now<ept id="39d1b42e-bb37-4b8e-87d1-d7dd6e293fc7">&lt;/strong&gt;</ept> button at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="2e5526e6-377e-4e19-a6ba-7da6c0bb9ef4" xml:space="preserve">
+          <source><bpt id="cbb57da3-9c77-4b49-b22b-0b6bb9ea47da">&lt;linkText&gt;</bpt>Back up now<ept id="cbb57da3-9c77-4b49-b22b-0b6bb9ea47da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cbb57da3-9c77-4b49-b22b-0b6bb9ea47da">&lt;linkText&gt;</bpt>Back up now<ept id="cbb57da3-9c77-4b49-b22b-0b6bb9ea47da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14f10384-caf5-4420-9012-ec7a75bd6d52" xml:space="preserve">
+          <source>This will create a backup job on the selected virtual machine.</source>
+          <target state="new">This will create a backup job on the selected virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7c1515e1-99d5-415c-bee2-946ef8c169b8" xml:space="preserve">
+          <source>Retention range of recovery point created through this job will be same as that specified in the policy associated with the virtual machine.</source>
+          <target state="new">Retention range of recovery point created through this job will be same as that specified in the policy associated with the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6798b294-c2af-4380-9fcf-73f0dde88d43" xml:space="preserve">
+          <source><bpt id="d28be847-949d-406f-a323-99f79987b6a1">&lt;linkText&gt;</bpt>Creating backup job<ept id="d28be847-949d-406f-a323-99f79987b6a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d28be847-949d-406f-a323-99f79987b6a1">&lt;linkText&gt;</bpt>Creating backup job<ept id="d28be847-949d-406f-a323-99f79987b6a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e83cda4-c56d-4994-be93-e584e2eb8ecd" xml:space="preserve">
+          <source>To view the policy associated with a virtual machine, drill down into virtual machine in the <bpt id="58c85a93-7bf6-406b-a172-5ade780d357b">&lt;strong&gt;</bpt>Protected Items<ept id="58c85a93-7bf6-406b-a172-5ade780d357b">&lt;/strong&gt;</ept> page and go to backup policy tab.</source>
+          <target state="new">To view the policy associated with a virtual machine, drill down into virtual machine in the <bpt id="58c85a93-7bf6-406b-a172-5ade780d357b">&lt;strong&gt;</bpt>Protected Items<ept id="58c85a93-7bf6-406b-a172-5ade780d357b">&lt;/strong&gt;</ept> page and go to backup policy tab.</target>
+        </trans-unit>
+        <trans-unit id="7f8a4158-0824-4a17-bf84-a537c939623a" xml:space="preserve">
+          <source>Once the job is created, you can click on <bpt id="12b23ec4-ebed-4a27-a929-3456be90833f">&lt;strong&gt;</bpt>View job<ept id="12b23ec4-ebed-4a27-a929-3456be90833f">&lt;/strong&gt;</ept> button in the toast bar to see the corresponding job in the jobs page.</source>
+          <target state="new">Once the job is created, you can click on <bpt id="12b23ec4-ebed-4a27-a929-3456be90833f">&lt;strong&gt;</bpt>View job<ept id="12b23ec4-ebed-4a27-a929-3456be90833f">&lt;/strong&gt;</ept> button in the toast bar to see the corresponding job in the jobs page.</target>
+        </trans-unit>
+        <trans-unit id="77395c15-072e-4521-ac82-0195777be889" xml:space="preserve">
+          <source><bpt id="6baa042f-b822-47e8-b3e1-b7bcc38e2047">&lt;linkText&gt;</bpt>Backup job created<ept id="6baa042f-b822-47e8-b3e1-b7bcc38e2047">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6baa042f-b822-47e8-b3e1-b7bcc38e2047">&lt;linkText&gt;</bpt>Backup job created<ept id="6baa042f-b822-47e8-b3e1-b7bcc38e2047">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4e12b1f-2239-48e6-b4c4-a47150210a73" xml:space="preserve">
+          <source>After successful completion of the job, a recovery point will be created which you can use to restore the virtual machine.</source>
+          <target state="new">After successful completion of the job, a recovery point will be created which you can use to restore the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8f05f2f3-8d68-467f-b21e-1ac208be87d8" xml:space="preserve">
+          <source>This will also increment the recovery point column value by 1 in <bpt id="436b4131-acf4-48d6-96dd-6eea1ace93d9">&lt;strong&gt;</bpt>Protected Items<ept id="436b4131-acf4-48d6-96dd-6eea1ace93d9">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This will also increment the recovery point column value by 1 in <bpt id="436b4131-acf4-48d6-96dd-6eea1ace93d9">&lt;strong&gt;</bpt>Protected Items<ept id="436b4131-acf4-48d6-96dd-6eea1ace93d9">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="fc380ab8-6a51-4624-9470-96a7db18e3d8" xml:space="preserve">
+          <source>You can choose to stop the future backups of a virtual machine with the following options:</source>
+          <target state="new">You can choose to stop the future backups of a virtual machine with the following options:</target>
+        </trans-unit>
+        <trans-unit id="e772feaf-9b5c-431d-b9d9-4f4c7e0746f8" xml:space="preserve">
+          <source>Retain backup data associated with virtual machine in Azure Backup vault</source>
+          <target state="new">Retain backup data associated with virtual machine in Azure Backup vault</target>
+        </trans-unit>
+        <trans-unit id="7bfa63d1-e628-42b2-905b-9297605f4826" xml:space="preserve">
+          <source>Delete backup data associated with virtual machine</source>
+          <target state="new">Delete backup data associated with virtual machine</target>
+        </trans-unit>
+        <trans-unit id="4dc41e2c-3919-45a2-9eeb-0176ed74f974" xml:space="preserve">
+          <source>If you have selected the first option, you can use the backup data to restore the virtual machine.</source>
+          <target state="new">If you have selected the first option, you can use the backup data to restore the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f3aca3db-2841-44f8-8660-2a39f8ec57d2" xml:space="preserve">
+          <source>For pricing details for such virtual machines, click <bpt id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;linkText&gt;</bpt>here<ept id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;/linkText&gt;</ept><bpt id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;title&gt;</bpt><ept id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For pricing details for such virtual machines, click <bpt id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;linkText&gt;</bpt>here<ept id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;/linkText&gt;</ept><bpt id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;title&gt;</bpt><ept id="765365f5-eae2-4d05-8a9b-3d47256f49a9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5681d30c-e217-4e46-92a8-6c735f8b6bf2" xml:space="preserve">
+          <source>To Stop protection for a virtual machine:</source>
+          <target state="new">To Stop protection for a virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="938a7b55-cf5f-4083-8973-8a3e177e3419" xml:space="preserve">
+          <source>Navigate to <bpt id="87b1a790-b4e9-4ef4-b794-9ff1b6b1ad93">&lt;strong&gt;</bpt>Protected Items<ept id="87b1a790-b4e9-4ef4-b794-9ff1b6b1ad93">&lt;/strong&gt;</ept> page and select <bpt id="692140ca-f567-4742-99ca-a6e24f30ac18">&lt;strong&gt;</bpt>Azure virtual machine<ept id="692140ca-f567-4742-99ca-a6e24f30ac18">&lt;/strong&gt;</ept> as the filter type(if not already selected) and click on <bpt id="9f9b350e-81ab-4458-833e-4452251e234b">&lt;strong&gt;</bpt>Select<ept id="9f9b350e-81ab-4458-833e-4452251e234b">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Navigate to <bpt id="87b1a790-b4e9-4ef4-b794-9ff1b6b1ad93">&lt;strong&gt;</bpt>Protected Items<ept id="87b1a790-b4e9-4ef4-b794-9ff1b6b1ad93">&lt;/strong&gt;</ept> page and select <bpt id="692140ca-f567-4742-99ca-a6e24f30ac18">&lt;strong&gt;</bpt>Azure virtual machine<ept id="692140ca-f567-4742-99ca-a6e24f30ac18">&lt;/strong&gt;</ept> as the filter type(if not already selected) and click on <bpt id="9f9b350e-81ab-4458-833e-4452251e234b">&lt;strong&gt;</bpt>Select<ept id="9f9b350e-81ab-4458-833e-4452251e234b">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="535fc67d-d034-41df-9566-b8955786795d" xml:space="preserve">
+          <source><bpt id="432f91e4-dc75-4e18-9c13-303fcd87b117">&lt;linkText&gt;</bpt>VM Type<ept id="432f91e4-dc75-4e18-9c13-303fcd87b117">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="432f91e4-dc75-4e18-9c13-303fcd87b117">&lt;linkText&gt;</bpt>VM Type<ept id="432f91e4-dc75-4e18-9c13-303fcd87b117">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69b4ca01-75cd-4bee-b24f-a2d11536778b" xml:space="preserve">
+          <source>Select the virtual machine and click on <bpt id="7b70d3bd-14d1-4d7d-92d8-7c81e8143b7d">&lt;strong&gt;</bpt>Stop Protection<ept id="7b70d3bd-14d1-4d7d-92d8-7c81e8143b7d">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Select the virtual machine and click on <bpt id="7b70d3bd-14d1-4d7d-92d8-7c81e8143b7d">&lt;strong&gt;</bpt>Stop Protection<ept id="7b70d3bd-14d1-4d7d-92d8-7c81e8143b7d">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="6b17b1c1-0ce2-4af9-b876-31ebfe6a6716" xml:space="preserve">
+          <source><bpt id="eb850ab3-95cc-4f86-b4a2-48cf1dcda796">&lt;linkText&gt;</bpt>Stop protection<ept id="eb850ab3-95cc-4f86-b4a2-48cf1dcda796">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb850ab3-95cc-4f86-b4a2-48cf1dcda796">&lt;linkText&gt;</bpt>Stop protection<ept id="eb850ab3-95cc-4f86-b4a2-48cf1dcda796">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="931f4ab7-2fd2-4992-a554-0d563b777191" xml:space="preserve">
+          <source>By default, Azure Backup doesn’t delete the backup data associated with the Virtual machine.</source>
+          <target state="new">By default, Azure Backup doesn’t delete the backup data associated with the Virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="92ed5621-e83c-4a99-9b4d-5d871eb8ffd6" xml:space="preserve">
+          <source><bpt id="bc40d904-bf6a-4e71-a5da-3ffa7a538547">&lt;linkText&gt;</bpt>Confirm stop protection<ept id="bc40d904-bf6a-4e71-a5da-3ffa7a538547">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc40d904-bf6a-4e71-a5da-3ffa7a538547">&lt;linkText&gt;</bpt>Confirm stop protection<ept id="bc40d904-bf6a-4e71-a5da-3ffa7a538547">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1f31aa1-9071-4380-9ddc-85dfdc92de89" xml:space="preserve">
+          <source>If you want to delete backup data, select the check box.</source>
+          <target state="new">If you want to delete backup data, select the check box.</target>
+        </trans-unit>
+        <trans-unit id="f295eea9-2727-45dd-a1e1-802b257df9ec" xml:space="preserve">
+          <source><bpt id="09aa9d6d-6a65-4eb3-8d85-77d87665887a">&lt;linkText&gt;</bpt>Checkbox<ept id="09aa9d6d-6a65-4eb3-8d85-77d87665887a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09aa9d6d-6a65-4eb3-8d85-77d87665887a">&lt;linkText&gt;</bpt>Checkbox<ept id="09aa9d6d-6a65-4eb3-8d85-77d87665887a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2720e8d0-6185-45b4-a12e-16d1a2816ed7" xml:space="preserve">
+          <source>Please select a reason for stopping the backup.</source>
+          <target state="new">Please select a reason for stopping the backup.</target>
+        </trans-unit>
+        <trans-unit id="d69add4c-6346-4905-ac1d-5aecd18445a3" xml:space="preserve">
+          <source>While this is optional, providing a reason will help Azure Backup to work on the feedback and prioritize the customer scenarios.</source>
+          <target state="new">While this is optional, providing a reason will help Azure Backup to work on the feedback and prioritize the customer scenarios.</target>
+        </trans-unit>
+        <trans-unit id="ed3eaac7-bf7a-459a-873d-1d6cd1a0b544" xml:space="preserve">
+          <source>Click on <bpt id="67d7baee-2856-4021-b94a-bb73faf77246">&lt;strong&gt;</bpt>Submit<ept id="67d7baee-2856-4021-b94a-bb73faf77246">&lt;/strong&gt;</ept> button to submit the <bpt id="7b9d23c2-54d6-44d0-a2e7-73ddb672b0a1">&lt;strong&gt;</bpt>Stop protection<ept id="7b9d23c2-54d6-44d0-a2e7-73ddb672b0a1">&lt;/strong&gt;</ept> job.</source>
+          <target state="new">Click on <bpt id="67d7baee-2856-4021-b94a-bb73faf77246">&lt;strong&gt;</bpt>Submit<ept id="67d7baee-2856-4021-b94a-bb73faf77246">&lt;/strong&gt;</ept> button to submit the <bpt id="7b9d23c2-54d6-44d0-a2e7-73ddb672b0a1">&lt;strong&gt;</bpt>Stop protection<ept id="7b9d23c2-54d6-44d0-a2e7-73ddb672b0a1">&lt;/strong&gt;</ept> job.</target>
+        </trans-unit>
+        <trans-unit id="bec4f44c-9b28-4a7d-8845-7323ea71fde1" xml:space="preserve">
+          <source>Click on <bpt id="03dbf627-ee2b-44d4-9765-e09408857d7f">&lt;strong&gt;</bpt>View Job<ept id="03dbf627-ee2b-44d4-9765-e09408857d7f">&lt;/strong&gt;</ept> to see the corresponding the job in <bpt id="c21d3664-357f-430b-8152-4aabe6218b81">&lt;strong&gt;</bpt>Jobs<ept id="c21d3664-357f-430b-8152-4aabe6218b81">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click on <bpt id="03dbf627-ee2b-44d4-9765-e09408857d7f">&lt;strong&gt;</bpt>View Job<ept id="03dbf627-ee2b-44d4-9765-e09408857d7f">&lt;/strong&gt;</ept> to see the corresponding the job in <bpt id="c21d3664-357f-430b-8152-4aabe6218b81">&lt;strong&gt;</bpt>Jobs<ept id="c21d3664-357f-430b-8152-4aabe6218b81">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="c5e90dfa-a7b0-44d4-ac9b-d035333b2f60" xml:space="preserve">
+          <source><bpt id="f7f3b641-013f-467a-a7d9-843d746bca35">&lt;linkText&gt;</bpt>Stop protection<ept id="f7f3b641-013f-467a-a7d9-843d746bca35">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7f3b641-013f-467a-a7d9-843d746bca35">&lt;linkText&gt;</bpt>Stop protection<ept id="f7f3b641-013f-467a-a7d9-843d746bca35">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="816e5ada-67fc-4d97-a783-960b324d147a" xml:space="preserve">
+          <source>If you have not selected <bpt id="e575218b-2e33-425d-a53d-cd83c01a5af4">&lt;strong&gt;</bpt>Delete associated backup data<ept id="e575218b-2e33-425d-a53d-cd83c01a5af4">&lt;/strong&gt;</ept> option during <bpt id="3e0b47c0-c28b-4bbb-b604-fc5d3b34e264">&lt;strong&gt;</bpt>Stop Protection<ept id="3e0b47c0-c28b-4bbb-b604-fc5d3b34e264">&lt;/strong&gt;</ept> wizard, then post job completion, protection status changes to <bpt id="de1fd3be-e47e-4b6a-ba0d-e86d2c7a8369">&lt;strong&gt;</bpt>Protection Stopped<ept id="de1fd3be-e47e-4b6a-ba0d-e86d2c7a8369">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have not selected <bpt id="e575218b-2e33-425d-a53d-cd83c01a5af4">&lt;strong&gt;</bpt>Delete associated backup data<ept id="e575218b-2e33-425d-a53d-cd83c01a5af4">&lt;/strong&gt;</ept> option during <bpt id="3e0b47c0-c28b-4bbb-b604-fc5d3b34e264">&lt;strong&gt;</bpt>Stop Protection<ept id="3e0b47c0-c28b-4bbb-b604-fc5d3b34e264">&lt;/strong&gt;</ept> wizard, then post job completion, protection status changes to <bpt id="de1fd3be-e47e-4b6a-ba0d-e86d2c7a8369">&lt;strong&gt;</bpt>Protection Stopped<ept id="de1fd3be-e47e-4b6a-ba0d-e86d2c7a8369">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebf5f5a8-18e0-4125-9048-cf12e27fdd12" xml:space="preserve">
+          <source>The data remains with Azure Backup until it is explicitly deleted.</source>
+          <target state="new">The data remains with Azure Backup until it is explicitly deleted.</target>
+        </trans-unit>
+        <trans-unit id="8df45225-9f4c-4932-b9f4-2b6c0136778e" xml:space="preserve">
+          <source>You can always delete the data by selecting the virtual machine in the <bpt id="1899e7a7-2db6-4048-ab0c-7ade07e2935f">&lt;strong&gt;</bpt>Protected Items<ept id="1899e7a7-2db6-4048-ab0c-7ade07e2935f">&lt;/strong&gt;</ept> page and clicking <bpt id="5e79a90b-36ba-44ac-972e-73d034bc7505">&lt;strong&gt;</bpt>Delete<ept id="5e79a90b-36ba-44ac-972e-73d034bc7505">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can always delete the data by selecting the virtual machine in the <bpt id="1899e7a7-2db6-4048-ab0c-7ade07e2935f">&lt;strong&gt;</bpt>Protected Items<ept id="1899e7a7-2db6-4048-ab0c-7ade07e2935f">&lt;/strong&gt;</ept> page and clicking <bpt id="5e79a90b-36ba-44ac-972e-73d034bc7505">&lt;strong&gt;</bpt>Delete<ept id="5e79a90b-36ba-44ac-972e-73d034bc7505">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15e0f71a-3eeb-4e6d-a86e-cec4f219cbca" xml:space="preserve">
+          <source><bpt id="30a2bee2-ae7f-413e-ae8a-1b507d1f0efa">&lt;linkText&gt;</bpt>Stopped protection<ept id="30a2bee2-ae7f-413e-ae8a-1b507d1f0efa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30a2bee2-ae7f-413e-ae8a-1b507d1f0efa">&lt;linkText&gt;</bpt>Stopped protection<ept id="30a2bee2-ae7f-413e-ae8a-1b507d1f0efa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aff960c-d9d3-4a97-9e7a-0f4a68145722" xml:space="preserve">
+          <source>If you have selected the <bpt id="fc1c8cd4-0403-43c2-a9a3-5fd4a8af611f">&lt;strong&gt;</bpt>Delete associated backup data<ept id="fc1c8cd4-0403-43c2-a9a3-5fd4a8af611f">&lt;/strong&gt;</ept> option, virtual machine won’t be part of <bpt id="ecfdde0e-56c2-45d7-b312-ae7c0367c0a8">&lt;strong&gt;</bpt>Protected Items<ept id="ecfdde0e-56c2-45d7-b312-ae7c0367c0a8">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">If you have selected the <bpt id="fc1c8cd4-0403-43c2-a9a3-5fd4a8af611f">&lt;strong&gt;</bpt>Delete associated backup data<ept id="fc1c8cd4-0403-43c2-a9a3-5fd4a8af611f">&lt;/strong&gt;</ept> option, virtual machine won’t be part of <bpt id="ecfdde0e-56c2-45d7-b312-ae7c0367c0a8">&lt;strong&gt;</bpt>Protected Items<ept id="ecfdde0e-56c2-45d7-b312-ae7c0367c0a8">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="0f5ec2ae-2315-4ed3-81d4-b56aa93c5a87" xml:space="preserve">
+          <source>If you have not selected the <bpt id="4f744a28-4fec-4101-a023-3a31367ac6c2">&lt;strong&gt;</bpt>Delete associate backup data<ept id="4f744a28-4fec-4101-a023-3a31367ac6c2">&lt;/strong&gt;</ept> option in <bpt id="d1f859ed-7acc-45ce-8361-730edb22f3de">&lt;strong&gt;</bpt>Stop Protection<ept id="d1f859ed-7acc-45ce-8361-730edb22f3de">&lt;/strong&gt;</ept>, you can re-protect the virtual machine by following the steps similar to backing up registered virtual machines.</source>
+          <target state="new">If you have not selected the <bpt id="4f744a28-4fec-4101-a023-3a31367ac6c2">&lt;strong&gt;</bpt>Delete associate backup data<ept id="4f744a28-4fec-4101-a023-3a31367ac6c2">&lt;/strong&gt;</ept> option in <bpt id="d1f859ed-7acc-45ce-8361-730edb22f3de">&lt;strong&gt;</bpt>Stop Protection<ept id="d1f859ed-7acc-45ce-8361-730edb22f3de">&lt;/strong&gt;</ept>, you can re-protect the virtual machine by following the steps similar to backing up registered virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0cdf91fb-1fe7-4d34-b7cd-66cdb9aad6fb" xml:space="preserve">
+          <source>Once protected, this virtual machine will have backup data retained prior to stop protection and recovery points created after re-protect.</source>
+          <target state="new">Once protected, this virtual machine will have backup data retained prior to stop protection and recovery points created after re-protect.</target>
+        </trans-unit>
+        <trans-unit id="12e0d6bc-144c-43e2-bfe6-01ff51d22be2" xml:space="preserve">
+          <source>After re-protect, the virtual machine’s protection status will be changed to <bpt id="84683bae-45d7-4aa2-bd37-971d21d99599">&lt;strong&gt;</bpt>Protected<ept id="84683bae-45d7-4aa2-bd37-971d21d99599">&lt;/strong&gt;</ept> if there are recovery points prior to <bpt id="152d75ac-e5aa-42da-821a-162e756ffa26">&lt;strong&gt;</bpt>Stop Protection<ept id="152d75ac-e5aa-42da-821a-162e756ffa26">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After re-protect, the virtual machine’s protection status will be changed to <bpt id="84683bae-45d7-4aa2-bd37-971d21d99599">&lt;strong&gt;</bpt>Protected<ept id="84683bae-45d7-4aa2-bd37-971d21d99599">&lt;/strong&gt;</ept> if there are recovery points prior to <bpt id="152d75ac-e5aa-42da-821a-162e756ffa26">&lt;strong&gt;</bpt>Stop Protection<ept id="152d75ac-e5aa-42da-821a-162e756ffa26">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3cd76664-460e-4544-b6d8-a12bcb4893a9" xml:space="preserve">
+          <source>  <bpt id="a9d35d1e-963e-4adf-9d32-1c5832cd0283">&lt;linkText&gt;</bpt>Reprotected VM<ept id="a9d35d1e-963e-4adf-9d32-1c5832cd0283">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="a9d35d1e-963e-4adf-9d32-1c5832cd0283">&lt;linkText&gt;</bpt>Reprotected VM<ept id="a9d35d1e-963e-4adf-9d32-1c5832cd0283">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06e2a11d-4247-4569-98ef-692955ee0522" xml:space="preserve">
+          <source>When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.</source>
+          <target state="new">When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.</target>
+        </trans-unit>
+        <trans-unit id="9a4a5f71-0c5e-40b7-8b38-4b492848da28" xml:space="preserve">
+          <source>If you want to remove the virtual machine from the backup vault:</source>
+          <target state="new">If you want to remove the virtual machine from the backup vault:</target>
+        </trans-unit>
+        <trans-unit id="1c85b8ce-d874-436c-b7ac-934b86cadc93" xml:space="preserve">
+          <source>Click on the <bpt id="ecc6d6f5-8da9-4c08-876b-6e8f0069f2fa">&lt;strong&gt;</bpt>UNREGISTER<ept id="ecc6d6f5-8da9-4c08-876b-6e8f0069f2fa">&lt;/strong&gt;</ept> button at the bottom of the page.</source>
+          <target state="new">Click on the <bpt id="ecc6d6f5-8da9-4c08-876b-6e8f0069f2fa">&lt;strong&gt;</bpt>UNREGISTER<ept id="ecc6d6f5-8da9-4c08-876b-6e8f0069f2fa">&lt;/strong&gt;</ept> button at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="c2205910-ab23-40e5-a016-5678ab98e9c9" xml:space="preserve">
+          <source><bpt id="e681055d-5038-4feb-bca4-131ab0662f10">&lt;linkText&gt;</bpt>Disable protection<ept id="e681055d-5038-4feb-bca4-131ab0662f10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e681055d-5038-4feb-bca4-131ab0662f10">&lt;linkText&gt;</bpt>Disable protection<ept id="e681055d-5038-4feb-bca4-131ab0662f10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78aa769c-3c18-4639-8102-e60df7000b6f" xml:space="preserve">
+          <source>A toast notification will appear at the bottom of the screen requesting confirmation.</source>
+          <target state="new">A toast notification will appear at the bottom of the screen requesting confirmation.</target>
+        </trans-unit>
+        <trans-unit id="0547f778-3dd0-485b-bf1c-5217665ad24e" xml:space="preserve">
+          <source>Click <bpt id="3e8d7409-7c1b-41ed-963e-4cee82fa87aa">&lt;strong&gt;</bpt>YES<ept id="3e8d7409-7c1b-41ed-963e-4cee82fa87aa">&lt;/strong&gt;</ept> to continue.</source>
+          <target state="new">Click <bpt id="3e8d7409-7c1b-41ed-963e-4cee82fa87aa">&lt;strong&gt;</bpt>YES<ept id="3e8d7409-7c1b-41ed-963e-4cee82fa87aa">&lt;/strong&gt;</ept> to continue.</target>
+        </trans-unit>
+        <trans-unit id="336d29c6-e9b9-4387-b07a-ede48c14bd6c" xml:space="preserve">
+          <source><bpt id="301bb3eb-829f-411f-80d4-26b1fea432aa">&lt;linkText&gt;</bpt>Disable protection<ept id="301bb3eb-829f-411f-80d4-26b1fea432aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="301bb3eb-829f-411f-80d4-26b1fea432aa">&lt;linkText&gt;</bpt>Disable protection<ept id="301bb3eb-829f-411f-80d4-26b1fea432aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2328b839-26d6-4f98-a589-a23056a2edf2" xml:space="preserve">
+          <source>You can delete backup data associated with a virtual machine, either:</source>
+          <target state="new">You can delete backup data associated with a virtual machine, either:</target>
+        </trans-unit>
+        <trans-unit id="e98f9846-9c93-4ef9-a3a6-45a83d7472f5" xml:space="preserve">
+          <source>During Stop Protection Job</source>
+          <target state="new">During Stop Protection Job</target>
+        </trans-unit>
+        <trans-unit id="276a6aa2-aee3-4fe6-888e-c08d8f118ba4" xml:space="preserve">
+          <source>After a stop protection job is completed on a virtual machine</source>
+          <target state="new">After a stop protection job is completed on a virtual machine</target>
+        </trans-unit>
+        <trans-unit id="22529bcb-d6d1-43ae-8903-b7357d676c98" xml:space="preserve">
+          <source>To delete backup data on a virtual machine, which is in the “Protection Stopped” state post successful completion of <bpt id="f6d34289-73d9-4cda-98a8-56c81dc6a19d">&lt;strong&gt;</bpt>Stop Backup<ept id="f6d34289-73d9-4cda-98a8-56c81dc6a19d">&lt;/strong&gt;</ept> job:</source>
+          <target state="new">To delete backup data on a virtual machine, which is in the “Protection Stopped” state post successful completion of <bpt id="f6d34289-73d9-4cda-98a8-56c81dc6a19d">&lt;strong&gt;</bpt>Stop Backup<ept id="f6d34289-73d9-4cda-98a8-56c81dc6a19d">&lt;/strong&gt;</ept> job:</target>
+        </trans-unit>
+        <trans-unit id="471b7b47-ec6d-4fc3-8fd3-f2e3714d3df1" xml:space="preserve">
+          <source>Navigate to <bpt id="33c7ccec-1f36-4d1e-80e4-42e95df10c82">&lt;strong&gt;</bpt>Protected Items<ept id="33c7ccec-1f36-4d1e-80e4-42e95df10c82">&lt;/strong&gt;</ept> page and select <bpt id="fa88c37f-78d8-4e6a-a3c7-34b2ea8fa946">&lt;strong&gt;</bpt>Azure Virtual Machine<ept id="fa88c37f-78d8-4e6a-a3c7-34b2ea8fa946">&lt;/strong&gt;</ept> as type and click on <bpt id="b1143dbc-eaf6-4ebc-9560-c7fd54158ffe">&lt;strong&gt;</bpt>Select<ept id="b1143dbc-eaf6-4ebc-9560-c7fd54158ffe">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Navigate to <bpt id="33c7ccec-1f36-4d1e-80e4-42e95df10c82">&lt;strong&gt;</bpt>Protected Items<ept id="33c7ccec-1f36-4d1e-80e4-42e95df10c82">&lt;/strong&gt;</ept> page and select <bpt id="fa88c37f-78d8-4e6a-a3c7-34b2ea8fa946">&lt;strong&gt;</bpt>Azure Virtual Machine<ept id="fa88c37f-78d8-4e6a-a3c7-34b2ea8fa946">&lt;/strong&gt;</ept> as type and click on <bpt id="b1143dbc-eaf6-4ebc-9560-c7fd54158ffe">&lt;strong&gt;</bpt>Select<ept id="b1143dbc-eaf6-4ebc-9560-c7fd54158ffe">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="78f26f44-9788-4045-b968-1f6816212f09" xml:space="preserve">
+          <source><bpt id="81be8630-1200-4674-a5d2-072464835072">&lt;linkText&gt;</bpt>VM Type<ept id="81be8630-1200-4674-a5d2-072464835072">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="81be8630-1200-4674-a5d2-072464835072">&lt;linkText&gt;</bpt>VM Type<ept id="81be8630-1200-4674-a5d2-072464835072">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec59836d-afd1-41a6-98e3-9f33b475c89e" xml:space="preserve">
+          <source>Select the virtual machine.</source>
+          <target state="new">Select the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e5d121ec-6763-42f4-891d-c6eb176d486e" xml:space="preserve">
+          <source>The virtual machine will be in <bpt id="d935bed4-5921-4775-8b8f-a100178d52b5">&lt;strong&gt;</bpt>Protection Stopped<ept id="d935bed4-5921-4775-8b8f-a100178d52b5">&lt;/strong&gt;</ept> state.</source>
+          <target state="new">The virtual machine will be in <bpt id="d935bed4-5921-4775-8b8f-a100178d52b5">&lt;strong&gt;</bpt>Protection Stopped<ept id="d935bed4-5921-4775-8b8f-a100178d52b5">&lt;/strong&gt;</ept> state.</target>
+        </trans-unit>
+        <trans-unit id="3f3f9c4d-2796-445e-aa86-542f2827d6d7" xml:space="preserve">
+          <source><bpt id="57f7a814-a691-48a8-b1cb-5d1742319257">&lt;linkText&gt;</bpt>Protection stopped<ept id="57f7a814-a691-48a8-b1cb-5d1742319257">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="57f7a814-a691-48a8-b1cb-5d1742319257">&lt;linkText&gt;</bpt>Protection stopped<ept id="57f7a814-a691-48a8-b1cb-5d1742319257">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b99d3b55-6a55-45fb-8de5-a794d81f3200" xml:space="preserve">
+          <source>Click on the <bpt id="c6841841-258f-40de-a90d-7d20f53d5d58">&lt;strong&gt;</bpt>DELETE<ept id="c6841841-258f-40de-a90d-7d20f53d5d58">&lt;/strong&gt;</ept> button at the bottom of the page.</source>
+          <target state="new">Click on the <bpt id="c6841841-258f-40de-a90d-7d20f53d5d58">&lt;strong&gt;</bpt>DELETE<ept id="c6841841-258f-40de-a90d-7d20f53d5d58">&lt;/strong&gt;</ept> button at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="9e444ecf-9489-483b-86c5-53166218d9ec" xml:space="preserve">
+          <source><bpt id="84b18826-a4df-4e13-91ad-2285ca4a434e">&lt;linkText&gt;</bpt>Delete backup<ept id="84b18826-a4df-4e13-91ad-2285ca4a434e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="84b18826-a4df-4e13-91ad-2285ca4a434e">&lt;linkText&gt;</bpt>Delete backup<ept id="84b18826-a4df-4e13-91ad-2285ca4a434e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b2a4d47-4cf5-48df-8bd5-851f6c129e30" xml:space="preserve">
+          <source>In the <bpt id="854f9d4c-1a50-4225-8dec-9b211640be2e">&lt;strong&gt;</bpt>Delete backup data<ept id="854f9d4c-1a50-4225-8dec-9b211640be2e">&lt;/strong&gt;</ept> wizard, select a reason for deleting backup data (highly recommended) and click on <bpt id="2c07e2cd-dbec-4956-bb0f-9fa75e7af21e">&lt;strong&gt;</bpt>Submit<ept id="2c07e2cd-dbec-4956-bb0f-9fa75e7af21e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="854f9d4c-1a50-4225-8dec-9b211640be2e">&lt;strong&gt;</bpt>Delete backup data<ept id="854f9d4c-1a50-4225-8dec-9b211640be2e">&lt;/strong&gt;</ept> wizard, select a reason for deleting backup data (highly recommended) and click on <bpt id="2c07e2cd-dbec-4956-bb0f-9fa75e7af21e">&lt;strong&gt;</bpt>Submit<ept id="2c07e2cd-dbec-4956-bb0f-9fa75e7af21e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd66e68a-e567-434c-94c1-59ee15f7f905" xml:space="preserve">
+          <source><bpt id="4381efc4-fd0e-4fcb-8230-d372841e03a5">&lt;linkText&gt;</bpt>Delete backup data<ept id="4381efc4-fd0e-4fcb-8230-d372841e03a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4381efc4-fd0e-4fcb-8230-d372841e03a5">&lt;linkText&gt;</bpt>Delete backup data<ept id="4381efc4-fd0e-4fcb-8230-d372841e03a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4df6139-9d6c-4081-9c86-0420eb871aa4" xml:space="preserve">
+          <source>This will create a job to delete backup data of selected virtual machine.</source>
+          <target state="new">This will create a job to delete backup data of selected virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="874f5b0d-0275-4f29-96f0-5e82b11848be" xml:space="preserve">
+          <source>Click on <bpt id="76edc43b-25d9-458c-adb2-3d7ba9c28093">&lt;strong&gt;</bpt>View job<ept id="76edc43b-25d9-458c-adb2-3d7ba9c28093">&lt;/strong&gt;</ept> to see corresponding job in Jobs page.</source>
+          <target state="new">Click on <bpt id="76edc43b-25d9-458c-adb2-3d7ba9c28093">&lt;strong&gt;</bpt>View job<ept id="76edc43b-25d9-458c-adb2-3d7ba9c28093">&lt;/strong&gt;</ept> to see corresponding job in Jobs page.</target>
+        </trans-unit>
+        <trans-unit id="8b066b7d-1dad-472d-bc2e-5dc6c2961215" xml:space="preserve">
+          <source><bpt id="b8f1cb34-9a3a-423d-a412-599c103c97ed">&lt;linkText&gt;</bpt>Data deletion successful<ept id="b8f1cb34-9a3a-423d-a412-599c103c97ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8f1cb34-9a3a-423d-a412-599c103c97ed">&lt;linkText&gt;</bpt>Data deletion successful<ept id="b8f1cb34-9a3a-423d-a412-599c103c97ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6f61ab3-c03c-46d6-a5af-16529770c475" xml:space="preserve">
+          <source>Once the job is completed, entry corresponding to virtual machine will be removed from <bpt id="552297f5-b6fd-4a2c-b76b-9180efb33925">&lt;strong&gt;</bpt>Protected items<ept id="552297f5-b6fd-4a2c-b76b-9180efb33925">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Once the job is completed, entry corresponding to virtual machine will be removed from <bpt id="552297f5-b6fd-4a2c-b76b-9180efb33925">&lt;strong&gt;</bpt>Protected items<ept id="552297f5-b6fd-4a2c-b76b-9180efb33925">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="ba273b05-8152-47e6-991f-a7b75a2c51ec" xml:space="preserve">
+          <source>On the <bpt id="215d5e6c-ddeb-461c-ab32-b459f03ed867">&lt;strong&gt;</bpt>Dashboard<ept id="215d5e6c-ddeb-461c-ab32-b459f03ed867">&lt;/strong&gt;</ept> page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours.</source>
+          <target state="new">On the <bpt id="215d5e6c-ddeb-461c-ab32-b459f03ed867">&lt;strong&gt;</bpt>Dashboard<ept id="215d5e6c-ddeb-461c-ab32-b459f03ed867">&lt;/strong&gt;</ept> page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours.</target>
+        </trans-unit>
+        <trans-unit id="af6ba31e-99be-41ca-b63b-4af62f7d8350" xml:space="preserve">
+          <source>You can view backup status and any associated backup errors.</source>
+          <target state="new">You can view backup status and any associated backup errors.</target>
+        </trans-unit>
+        <trans-unit id="01080a6f-0594-4e36-a6bc-b3e8ea8a373a" xml:space="preserve">
+          <source>  <bpt id="40391f70-d7c2-46f1-a8a9-156abb3eca52">&lt;linkText&gt;</bpt>Dashboard<ept id="40391f70-d7c2-46f1-a8a9-156abb3eca52">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="40391f70-d7c2-46f1-a8a9-156abb3eca52">&lt;linkText&gt;</bpt>Dashboard<ept id="40391f70-d7c2-46f1-a8a9-156abb3eca52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

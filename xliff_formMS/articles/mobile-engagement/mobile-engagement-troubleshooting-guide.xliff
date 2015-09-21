@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7067dd99-7107-4c7e-a6a2-dd5c42c2e6bb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7067dd99-7107-4c7e-a6a2-dd5c42c2e6bb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dd423332-9b88-4364-be07-715db5a5756e">
+        <trans-unit id="2993eaf7-5399-4869-a313-f5bb026d526b" xml:space="preserve">
+          <source>Azure Mobile Engagement Troubleshooting Guides</source>
+          <target state="new">Azure Mobile Engagement Troubleshooting Guides</target>
+        </trans-unit>
+        <trans-unit id="458228e2-bc18-4667-b6cd-22017af00244" xml:space="preserve">
+          <source>Troubleshooting Guides for Azure Mobile Engagement</source>
+          <target state="new">Troubleshooting Guides for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="b319cef2-8dae-464a-a3bc-f91afec9c1b8" xml:space="preserve">
+          <source>The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of <bpt id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;linkText&gt;</bpt>billing[link 11]<ept id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;/linkText&gt;</ept><bpt id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;title&gt;</bpt><ept id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;/title&gt;</ept> questions and assistance signing up for the <bpt id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;linkText&gt;</bpt>preview[link 7]<ept id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;/linkText&gt;</ept><bpt id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;title&gt;</bpt><ept id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;/title&gt;</ept>.</source>
+          <target state="new">The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of <bpt id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;linkText&gt;</bpt>billing[link 11]<ept id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;/linkText&gt;</ept><bpt id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;title&gt;</bpt><ept id="76544ef8-742e-4ba2-bc67-f654ec65d16a">&lt;/title&gt;</ept> questions and assistance signing up for the <bpt id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;linkText&gt;</bpt>preview[link 7]<ept id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;/linkText&gt;</ept><bpt id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;title&gt;</bpt><ept id="ea2306cd-eda3-4f3b-8a9f-fc5d44f3e0e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df53d5b5-d11e-4177-8dfe-85c37d1c0797" xml:space="preserve">
+          <source>If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an <bpt id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;linkText&gt;</bpt>Azure Support Agreement<ept id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;/linkText&gt;</ept><bpt id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;title&gt;</bpt><ept id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;/title&gt;</ept> - or you can request assistance on the <bpt id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;linkText&gt;</bpt>MSDN Forum[link 8]<ept id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;/linkText&gt;</ept><bpt id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;title&gt;</bpt><ept id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an <bpt id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;linkText&gt;</bpt>Azure Support Agreement<ept id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;/linkText&gt;</ept><bpt id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;title&gt;</bpt><ept id="10bbfbc6-1c26-41fb-ad0d-8e873de6d66b">&lt;/title&gt;</ept> - or you can request assistance on the <bpt id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;linkText&gt;</bpt>MSDN Forum[link 8]<ept id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;/linkText&gt;</ept><bpt id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;title&gt;</bpt><ept id="3143b337-cbb2-439a-ab97-24386760b0d2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="89ff4ead-b847-4314-8945-34abfcf13198" xml:space="preserve">
+          <source>Make sure to include all the troubleshooting information from <bpt id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;linkText&gt;</bpt>Service Request Info<ept id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;/linkText&gt;</ept><bpt id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;title&gt;</bpt><ept id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;/title&gt;</ept> when you open a service request to help technical support to investigate your issue.</source>
+          <target state="new">Make sure to include all the troubleshooting information from <bpt id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;linkText&gt;</bpt>Service Request Info<ept id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;/linkText&gt;</ept><bpt id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;title&gt;</bpt><ept id="bf23bbf0-5bc6-40fd-b9dc-204316f527ef">&lt;/title&gt;</ept> when you open a service request to help technical support to investigate your issue.</target>
+        </trans-unit>
+        <trans-unit id="62af5faf-b06b-438c-94b2-22ac3dae881e" xml:space="preserve">
+          <source><bpt id="b81de270-6828-4555-bafd-c88732c64148">&lt;linkText&gt;</bpt>Analytics[link 21]<ept id="b81de270-6828-4555-bafd-c88732c64148">&lt;/linkText&gt;</ept><bpt id="b81de270-6828-4555-bafd-c88732c64148">&lt;title&gt;</bpt><ept id="b81de270-6828-4555-bafd-c88732c64148">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b81de270-6828-4555-bafd-c88732c64148">&lt;linkText&gt;</bpt>Analytics[link 21]<ept id="b81de270-6828-4555-bafd-c88732c64148">&lt;/linkText&gt;</ept><bpt id="b81de270-6828-4555-bafd-c88732c64148">&lt;title&gt;</bpt><ept id="b81de270-6828-4555-bafd-c88732c64148">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5111ff03-a95e-43ee-abf1-e8c02794bf3c" xml:space="preserve">
+          <source><bpt id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;linkText&gt;</bpt>APIs[link 22]<ept id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;/linkText&gt;</ept><bpt id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;title&gt;</bpt><ept id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;linkText&gt;</bpt>APIs[link 22]<ept id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;/linkText&gt;</ept><bpt id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;title&gt;</bpt><ept id="49b71d51-51af-45d9-a790-03d9208c3229">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a164239-471a-417a-aa26-047ad87c349e" xml:space="preserve">
+          <source><bpt id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;linkText&gt;</bpt>Push/Reach[link 23]<ept id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;/linkText&gt;</ept><bpt id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;title&gt;</bpt><ept id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;linkText&gt;</bpt>Push/Reach[link 23]<ept id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;/linkText&gt;</ept><bpt id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;title&gt;</bpt><ept id="1ddb2340-7c48-40ac-8f2a-84854c0fada9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb8303f5-4ae1-4dd7-85d7-61440d39323b" xml:space="preserve">
+          <source><bpt id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;linkText&gt;</bpt>Service[link 24]<ept id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;/linkText&gt;</ept><bpt id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;title&gt;</bpt><ept id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;linkText&gt;</bpt>Service[link 24]<ept id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;/linkText&gt;</ept><bpt id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;title&gt;</bpt><ept id="35cf6bd9-7695-47c7-bcd9-11373ae41580">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a527394-7cb9-4cbd-961b-375ead5fc72f" xml:space="preserve">
+          <source><bpt id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;linkText&gt;</bpt>SDK[link 25]<ept id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;/linkText&gt;</ept><bpt id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;title&gt;</bpt><ept id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;linkText&gt;</bpt>SDK[link 25]<ept id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;/linkText&gt;</ept><bpt id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;title&gt;</bpt><ept id="d0425356-cf5b-4f3a-9ee3-e9ac38396022">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9158839-0d71-4b5c-8adf-8d686181c21e" xml:space="preserve">
+          <source><bpt id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;linkText&gt;</bpt>SR Info[link 26]<ept id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;/linkText&gt;</ept><bpt id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;title&gt;</bpt><ept id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;linkText&gt;</bpt>SR Info[link 26]<ept id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;/linkText&gt;</ept><bpt id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;title&gt;</bpt><ept id="826072b3-25c9-4b3c-b4df-4aa78aa63500">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bf06163-a31c-40e0-8a9a-a06a93fe5459" xml:space="preserve">
+          <source>https://account.windowsazure.com/PreviewFeatures</source>
+          <target state="new">https://account.windowsazure.com/PreviewFeatures</target>
+        </trans-unit>
+        <trans-unit id="958d036a-79fc-4b2d-aa59-d9ca8aad87b7" xml:space="preserve">
+          <source>https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</source>
+          <target state="new">https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</target>
+        </trans-unit>
+        <trans-unit id="a331a673-a8d2-4672-869d-eebc4800e1cf" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="e004b9bc-7ce3-4817-b786-1763dfc69177" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-analytics.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="08ca9b06-d3ff-4f21-9b51-35ce3e08802e" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-apis.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-apis.md</target>
+        </trans-unit>
+        <trans-unit id="336e933b-26af-40f7-831b-8080a58d843d" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-push-reach.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-push-reach.md</target>
+        </trans-unit>
+        <trans-unit id="bceff474-9c94-43d3-bac9-fe6a2eabea08" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-service.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-service.md</target>
+        </trans-unit>
+        <trans-unit id="04b82a5a-2557-4987-984b-c785e2a73321" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sdk.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="a354caad-eab5-4d74-8ffa-e5c6d62c9e97" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sr-info.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sr-info.md</target>
+        </trans-unit>
+      </group>
+      <group id="c4204fdd-e31b-4c96-bbda-9baacf6742a7" />
+    </body>
+  </file>
+</xliff>

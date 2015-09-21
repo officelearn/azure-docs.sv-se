@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0940c229-e1bc-4ca2-b6f6-777dd0b10ea2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0940c229-e1bc-4ca2-b6f6-777dd0b10ea2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c3a67095-9c61-435f-b202-73b5e384d3ac">
+        <trans-unit id="7515b16d-c884-4a1e-9ea0-246b04fcae0e" xml:space="preserve">
+          <source>Azure AD Xamarin Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD Xamarin Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9749b02c-5f3e-449d-a169-c711754ba9e6" xml:space="preserve">
+          <source>How to build a Xamarin application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</source>
+          <target state="new">How to build a Xamarin application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</target>
+        </trans-unit>
+        <trans-unit id="169a6ef5-e03f-4189-9426-5864b30c99ce" xml:space="preserve">
+          <source><bpt id="3fa5d1cb-0c3c-4329-bc88-f36bf42cf7b6">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="3fa5d1cb-0c3c-4329-bc88-f36bf42cf7b6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3fa5d1cb-0c3c-4329-bc88-f36bf42cf7b6">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="3fa5d1cb-0c3c-4329-bc88-f36bf42cf7b6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77267ede-649c-4927-85e7-9d800c5dc847" xml:space="preserve">
+          <source><bpt id="d187d093-2ec8-47d9-b417-cc04632320dd">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="d187d093-2ec8-47d9-b417-cc04632320dd">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="d187d093-2ec8-47d9-b417-cc04632320dd">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="d187d093-2ec8-47d9-b417-cc04632320dd">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e722b55-edbe-449f-ba2b-4bb9717047e8" xml:space="preserve">
+          <source>Xamarin allows you to write applications in C# that can run on several different platforms, including mobile devices and pc's alike.</source>
+          <target state="new">Xamarin allows you to write applications in C# that can run on several different platforms, including mobile devices and pc's alike.</target>
+        </trans-unit>
+        <trans-unit id="f4c77d29-7637-4fd4-bc19-867eb8aa34a3" xml:space="preserve">
+          <source>If you're building an app using Xamarin, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.</source>
+          <target state="new">If you're building an app using Xamarin, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.</target>
+        </trans-unit>
+        <trans-unit id="80460f3c-ad83-4561-8591-40620bc573a9" xml:space="preserve">
+          <source>It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.</source>
+          <target state="new">It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.</target>
+        </trans-unit>
+        <trans-unit id="78698158-9af5-4730-94d1-88df211cc3ba" xml:space="preserve">
+          <source>For Xamarin apps that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.</source>
+          <target state="new">For Xamarin apps that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.</target>
+        </trans-unit>
+        <trans-unit id="1a75e7ba-9d32-4a63-b7dd-5cfc7f4a5b71" xml:space="preserve">
+          <source>ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</source>
+          <target state="new">ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</target>
+        </trans-unit>
+        <trans-unit id="b9ce71db-f9df-44ef-95ed-5682a6198e85" xml:space="preserve">
+          <source>To demonstrate just how easy it is, here we’ll build a "Directory Searcher" app that:</source>
+          <target state="new">To demonstrate just how easy it is, here we’ll build a "Directory Searcher" app that:</target>
+        </trans-unit>
+        <trans-unit id="5246ffa0-fbc4-4628-b7fd-b4386e0c944a" xml:space="preserve">
+          <source>Runs on iOS, Android, Windows Desktop, Windows Phone, and Windows Store.</source>
+          <target state="new">Runs on iOS, Android, Windows Desktop, Windows Phone, and Windows Store.</target>
+        </trans-unit>
+        <trans-unit id="462dac1e-d77b-448a-81fd-822ef9f5718e" xml:space="preserve">
+          <source>Uses a single portable class library (PCL) to authenticate users and get tokens for the Azure AD Graph API</source>
+          <target state="new">Uses a single portable class library (PCL) to authenticate users and get tokens for the Azure AD Graph API</target>
+        </trans-unit>
+        <trans-unit id="7fc092f8-0a73-4b75-af35-193c7625725b" xml:space="preserve">
+          <source>Searches a directory for users with a given UPN.</source>
+          <target state="new">Searches a directory for users with a given UPN.</target>
+        </trans-unit>
+        <trans-unit id="8cb0c9aa-1fd8-48f5-ba15-efb7518356b4" xml:space="preserve">
+          <source>To build the complete working application, you’ll need to:</source>
+          <target state="new">To build the complete working application, you’ll need to:</target>
+        </trans-unit>
+        <trans-unit id="7339f191-bf25-4cab-9034-c794d91beef1" xml:space="preserve">
+          <source>Set up your Xamarin development environment</source>
+          <target state="new">Set up your Xamarin development environment</target>
+        </trans-unit>
+        <trans-unit id="18e7c376-b1fc-46ab-a00d-16248bca8150" xml:space="preserve">
+          <source>Register your application with Azure AD.</source>
+          <target state="new">Register your application with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="9725d521-c6bd-45d1-9e19-75566bacaa53" xml:space="preserve">
+          <source>Install &amp; Configure ADAL.</source>
+          <target state="new">Install &amp; Configure ADAL.</target>
+        </trans-unit>
+        <trans-unit id="ad11b9c3-3899-42b2-a92a-7d8b5fa75909" xml:space="preserve">
+          <source>Use ADAL to get tokens from Azure AD.</source>
+          <target state="new">Use ADAL to get tokens from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="2fb4f703-b874-4f8f-ba12-c597d62a0df8" xml:space="preserve">
+          <source>To get started, <bpt id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;linkText&gt;</bpt>download a skeleton project<ept id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;/linkText&gt;</ept><bpt id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;title&gt;</bpt><ept id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;/title&gt;</ept> or <bpt id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;linkText&gt;</bpt>download the completed sample<ept id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;/linkText&gt;</ept><bpt id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;title&gt;</bpt><ept id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, <bpt id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;linkText&gt;</bpt>download a skeleton project<ept id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;/linkText&gt;</ept><bpt id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;title&gt;</bpt><ept id="2e84b311-7633-4584-aeac-4cb2a271ba2d">&lt;/title&gt;</ept> or <bpt id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;linkText&gt;</bpt>download the completed sample<ept id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;/linkText&gt;</ept><bpt id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;title&gt;</bpt><ept id="98891c06-88b2-4eeb-9d32-728d363175d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="adce5fb2-ce81-4938-b917-160e1acbb9aa" xml:space="preserve">
+          <source>Each is a Visual Studio 2013 solution.</source>
+          <target state="new">Each is a Visual Studio 2013 solution.</target>
+        </trans-unit>
+        <trans-unit id="bd3d2425-b139-4d46-bc5a-eb88c225ae01" xml:space="preserve">
+          <source>You'll also need an Azure AD tenant in which you can create users and register an application.</source>
+          <target state="new">You'll also need an Azure AD tenant in which you can create users and register an application.</target>
+        </trans-unit>
+        <trans-unit id="4a2d1e20-6d7e-4625-88b1-0ea0b7250d9e" xml:space="preserve">
+          <source>If you don't already have a tenant, <bpt id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;linkText&gt;</bpt>learn how to get one<ept id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;/linkText&gt;</ept><bpt id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;title&gt;</bpt><ept id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have a tenant, <bpt id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;linkText&gt;</bpt>learn how to get one<ept id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;/linkText&gt;</ept><bpt id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;title&gt;</bpt><ept id="aa93e99c-2c35-49dc-9c14-63186f7f0a72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8011e2dc-eca3-4f12-b956-4db027ac735b" xml:space="preserve">
+          <source>There are several different ways you might want to set up Xamarin, depending on the specific platforms you wish to target.</source>
+          <target state="new">There are several different ways you might want to set up Xamarin, depending on the specific platforms you wish to target.</target>
+        </trans-unit>
+        <trans-unit id="438dbcd3-a7f5-4848-907a-c356ee79f592" xml:space="preserve">
+          <source>Since this tutorial includes projects for iOS, Android, and Windows, we'll elect to use Visual Studio 2013 and the <bpt id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;linkText&gt;</bpt>Xamarin.iOS Build Host<ept id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;/linkText&gt;</ept><bpt id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;title&gt;</bpt><ept id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;/title&gt;</ept>, which will require:</source>
+          <target state="new">Since this tutorial includes projects for iOS, Android, and Windows, we'll elect to use Visual Studio 2013 and the <bpt id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;linkText&gt;</bpt>Xamarin.iOS Build Host<ept id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;/linkText&gt;</ept><bpt id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;title&gt;</bpt><ept id="50c012a2-8a1e-4e48-972f-ed5f5d75d106">&lt;/title&gt;</ept>, which will require:</target>
+        </trans-unit>
+        <trans-unit id="eb7a8cb6-370d-4aa7-99af-63951220fad8" xml:space="preserve">
+          <source>A windows machine to run Visual Studio &amp; the Windows apps</source>
+          <target state="new">A windows machine to run Visual Studio &amp; the Windows apps</target>
+        </trans-unit>
+        <trans-unit id="47647e69-b547-4bbb-b77a-63823be70bff" xml:space="preserve">
+          <source>An OSX machine (if you want to be able to run the iOS app)</source>
+          <target state="new">An OSX machine (if you want to be able to run the iOS app)</target>
+        </trans-unit>
+        <trans-unit id="be182d7e-b40e-4f72-8997-e08071b7bc12" xml:space="preserve">
+          <source>A Xamarin Business subscription (a [free trial](http://developer.xamarin.com/guides/cross-platform/getting<bpt id="4a1d4765-5411-432e-9a27-5220cbfb7906">&lt;em&gt;</bpt>started/beginning<ept id="4a1d4765-5411-432e-9a27-5220cbfb7906">&lt;/em&gt;</ept>a<bpt id="2a8cc2f9-c7ff-4578-9682-cdb613f604cc">&lt;em&gt;</bpt>xamarin<ept id="2a8cc2f9-c7ff-4578-9682-cdb613f604cc">&lt;/em&gt;</ept>trial/) is sufficient)</source>
+          <target state="new">A Xamarin Business subscription (a [free trial](http://developer.xamarin.com/guides/cross-platform/getting<bpt id="4a1d4765-5411-432e-9a27-5220cbfb7906">&lt;em&gt;</bpt>started/beginning<ept id="4a1d4765-5411-432e-9a27-5220cbfb7906">&lt;/em&gt;</ept>a<bpt id="2a8cc2f9-c7ff-4578-9682-cdb613f604cc">&lt;em&gt;</bpt>xamarin<ept id="2a8cc2f9-c7ff-4578-9682-cdb613f604cc">&lt;/em&gt;</ept>trial/) is sufficient)</target>
+        </trans-unit>
+        <trans-unit id="e3e6d257-b5b9-43fb-9170-1b37c8835021" xml:space="preserve">
+          <source><bpt id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;linkText&gt;</bpt>Xamarin for Windows<ept id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;/linkText&gt;</ept><bpt id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;title&gt;</bpt><ept id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;/title&gt;</ept>, which includes Xamarin.iOS, Xamarin.Android, and the Visual Studio Integration (recommended for this sample).</source>
+          <target state="new"><bpt id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;linkText&gt;</bpt>Xamarin for Windows<ept id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;/linkText&gt;</ept><bpt id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;title&gt;</bpt><ept id="188a04eb-8f93-47fa-b7cc-cac89829c4c3">&lt;/title&gt;</ept>, which includes Xamarin.iOS, Xamarin.Android, and the Visual Studio Integration (recommended for this sample).</target>
+        </trans-unit>
+        <trans-unit id="dd5d3d4f-d841-47ce-9b35-f92fbcbcf9b0" xml:space="preserve">
+          <source><bpt id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;linkText&gt;</bpt>Xamarin for OS X<ept id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;/linkText&gt;</ept><bpt id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;title&gt;</bpt><ept id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;/title&gt;</ept>, which includes Xamarin.iOS (and the Xamarin.iOS Build Host), Xamarin.Android, Xamarin.Mac, and Xamarin Studio.</source>
+          <target state="new"><bpt id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;linkText&gt;</bpt>Xamarin for OS X<ept id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;/linkText&gt;</ept><bpt id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;title&gt;</bpt><ept id="183983a3-bfd2-44bf-97e2-abeed3bec3e0">&lt;/title&gt;</ept>, which includes Xamarin.iOS (and the Xamarin.iOS Build Host), Xamarin.Android, Xamarin.Mac, and Xamarin Studio.</target>
+        </trans-unit>
+        <trans-unit id="c173be63-396e-4bc3-8169-a8df4188a232" xml:space="preserve">
+          <source>We recommend you begin with the <bpt id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;linkText&gt;</bpt>Xamarin Download Page<ept id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;/linkText&gt;</ept><bpt id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;title&gt;</bpt><ept id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;/title&gt;</ept>, installing Xamarin on both your Mac and PC.</source>
+          <target state="new">We recommend you begin with the <bpt id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;linkText&gt;</bpt>Xamarin Download Page<ept id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;/linkText&gt;</ept><bpt id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;title&gt;</bpt><ept id="be3a20c3-93d4-47f4-8445-752effbcc237">&lt;/title&gt;</ept>, installing Xamarin on both your Mac and PC.</target>
+        </trans-unit>
+        <trans-unit id="9fc91db7-66de-4bf6-ab8f-dd93b761b75a" xml:space="preserve">
+          <source>If you don't have both machines available, you can still run the sample, but certain projects will have to be omitted.</source>
+          <target state="new">If you don't have both machines available, you can still run the sample, but certain projects will have to be omitted.</target>
+        </trans-unit>
+        <trans-unit id="46cc308d-26bc-4934-af91-2b3db5d256a8" xml:space="preserve">
+          <source>Follow the [detailed installation guides](http://developer.xamarin.com/guides/cross-platform/getting<bpt id="fdb3fad7-db54-4f8c-82ef-33ce7ff0f5a5">&lt;em&gt;</bpt>started/installation/) for iOS and Android, and if you would like to understand more about the options available to you for development, have a look at the [Building Cross Platform Applications](http://developer.xamarin.com/guides/cross-platform/application<ept id="fdb3fad7-db54-4f8c-82ef-33ce7ff0f5a5">&lt;/em&gt;</ept>fundamentals/building<bpt id="29267229-53a3-4bfd-bfc3-eb08838a8dde">&lt;em&gt;</bpt>cross<ept id="29267229-53a3-4bfd-bfc3-eb08838a8dde">&lt;/em&gt;</ept>platform<bpt id="f233f51d-01ea-482e-b731-2f43dc66a204">&lt;em&gt;</bpt>applications/part<ept id="f233f51d-01ea-482e-b731-2f43dc66a204">&lt;/em&gt;</ept>1<bpt id="6b7325f7-c9eb-478c-98ff-2443936a91ab">&lt;em&gt;</bpt>-<ept id="6b7325f7-c9eb-478c-98ff-2443936a91ab">&lt;/em&gt;</ept>understanding<bpt id="e80ba4e4-ed2d-4513-915c-a8137a5e1d59">&lt;em&gt;</bpt>the<ept id="e80ba4e4-ed2d-4513-915c-a8137a5e1d59">&lt;/em&gt;</ept>xamarin<bpt id="5025d49b-5c3a-41cc-8789-eaf7ec74993e">&lt;em&gt;</bpt>mobile<ept id="5025d49b-5c3a-41cc-8789-eaf7ec74993e">&lt;/em&gt;</ept>platform/) guide.</source>
+          <target state="new">Follow the [detailed installation guides](http://developer.xamarin.com/guides/cross-platform/getting<bpt id="fdb3fad7-db54-4f8c-82ef-33ce7ff0f5a5">&lt;em&gt;</bpt>started/installation/) for iOS and Android, and if you would like to understand more about the options available to you for development, have a look at the [Building Cross Platform Applications](http://developer.xamarin.com/guides/cross-platform/application<ept id="fdb3fad7-db54-4f8c-82ef-33ce7ff0f5a5">&lt;/em&gt;</ept>fundamentals/building<bpt id="29267229-53a3-4bfd-bfc3-eb08838a8dde">&lt;em&gt;</bpt>cross<ept id="29267229-53a3-4bfd-bfc3-eb08838a8dde">&lt;/em&gt;</ept>platform<bpt id="f233f51d-01ea-482e-b731-2f43dc66a204">&lt;em&gt;</bpt>applications/part<ept id="f233f51d-01ea-482e-b731-2f43dc66a204">&lt;/em&gt;</ept>1<bpt id="6b7325f7-c9eb-478c-98ff-2443936a91ab">&lt;em&gt;</bpt>-<ept id="6b7325f7-c9eb-478c-98ff-2443936a91ab">&lt;/em&gt;</ept>understanding<bpt id="e80ba4e4-ed2d-4513-915c-a8137a5e1d59">&lt;em&gt;</bpt>the<ept id="e80ba4e4-ed2d-4513-915c-a8137a5e1d59">&lt;/em&gt;</ept>xamarin<bpt id="5025d49b-5c3a-41cc-8789-eaf7ec74993e">&lt;em&gt;</bpt>mobile<ept id="5025d49b-5c3a-41cc-8789-eaf7ec74993e">&lt;/em&gt;</ept>platform/) guide.</target>
+        </trans-unit>
+        <trans-unit id="32fd0368-cccf-4add-8dc7-1650fe3e371c" xml:space="preserve">
+          <source>You do not need to setup a device for development at this time, nor do you need a Apple Developer Program subscription (unless, of course, you want to run the iOS app on a device).</source>
+          <target state="new">You do not need to setup a device for development at this time, nor do you need a Apple Developer Program subscription (unless, of course, you want to run the iOS app on a device).</target>
+        </trans-unit>
+        <trans-unit id="2416117b-cdde-40de-8cc2-0d860abcfdd8" xml:space="preserve">
+          <source>Once you've completed the necessary setup, open the solution in Visual Studio to get started.</source>
+          <target state="new">Once you've completed the necessary setup, open the solution in Visual Studio to get started.</target>
+        </trans-unit>
+        <trans-unit id="d6bead2a-2a77-4ebf-ae01-66c64273c1db" xml:space="preserve">
+          <source>You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, <bpt id="b9b2693a-2844-4c92-b65a-14843eb9f414">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="b9b2693a-2844-4c92-b65a-14843eb9f414">&lt;/code&gt;</ept></source>
+          <target state="new">You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, <bpt id="b9b2693a-2844-4c92-b65a-14843eb9f414">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="b9b2693a-2844-4c92-b65a-14843eb9f414">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54474f7f-85e1-4167-8b1c-596217790eeb" xml:space="preserve">
+          <source>To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:</source>
+          <target state="new">To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:</target>
+        </trans-unit>
+        <trans-unit id="50157233-a42a-4388-8458-b7f2183dd10f" xml:space="preserve">
+          <source>Sign into the <bpt id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;/linkText&gt;</ept><bpt id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;title&gt;</bpt><ept id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;/title&gt;</ept></source>
+          <target state="new">Sign into the <bpt id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;/linkText&gt;</ept><bpt id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;title&gt;</bpt><ept id="1e1fe494-d4f2-4b66-b379-ec84e3698734">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa7a1341-9239-4507-8af8-aad13a0bb6d0" xml:space="preserve">
+          <source>In the left hand nav, click on <bpt id="ba170599-279b-4a6b-94b6-2385dc787609">&lt;strong&gt;</bpt>Active Directory<ept id="ba170599-279b-4a6b-94b6-2385dc787609">&lt;/strong&gt;</ept></source>
+          <target state="new">In the left hand nav, click on <bpt id="ba170599-279b-4a6b-94b6-2385dc787609">&lt;strong&gt;</bpt>Active Directory<ept id="ba170599-279b-4a6b-94b6-2385dc787609">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac0439ed-2a26-4fd6-96de-5a54af586de8" xml:space="preserve">
+          <source>Select a tenant in which to register the application.</source>
+          <target state="new">Select a tenant in which to register the application.</target>
+        </trans-unit>
+        <trans-unit id="87bc60c0-563a-4732-a633-7b117d2103b0" xml:space="preserve">
+          <source>Click the <bpt id="41fd3ccb-ca1a-40d6-87f0-aa03da8a3223">&lt;strong&gt;</bpt>Applications<ept id="41fd3ccb-ca1a-40d6-87f0-aa03da8a3223">&lt;/strong&gt;</ept> tab, and click <bpt id="e5a37eb3-3aa0-4f3d-8729-672dc631fbf7">&lt;strong&gt;</bpt>Add<ept id="e5a37eb3-3aa0-4f3d-8729-672dc631fbf7">&lt;/strong&gt;</ept> in the bottom drawer.</source>
+          <target state="new">Click the <bpt id="41fd3ccb-ca1a-40d6-87f0-aa03da8a3223">&lt;strong&gt;</bpt>Applications<ept id="41fd3ccb-ca1a-40d6-87f0-aa03da8a3223">&lt;/strong&gt;</ept> tab, and click <bpt id="e5a37eb3-3aa0-4f3d-8729-672dc631fbf7">&lt;strong&gt;</bpt>Add<ept id="e5a37eb3-3aa0-4f3d-8729-672dc631fbf7">&lt;/strong&gt;</ept> in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="3eb01edd-6810-4b27-9533-efdfaefa21d5" xml:space="preserve">
+          <source>Follow the prompts and create a new <bpt id="4f636c40-e292-4385-815a-d64d0b9615d9">&lt;strong&gt;</bpt>Native Client Application<ept id="4f636c40-e292-4385-815a-d64d0b9615d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Follow the prompts and create a new <bpt id="4f636c40-e292-4385-815a-d64d0b9615d9">&lt;strong&gt;</bpt>Native Client Application<ept id="4f636c40-e292-4385-815a-d64d0b9615d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ee6b263-75f5-494f-9913-31e0d35adcf0" xml:space="preserve">
+          <source>The <bpt id="61a9ed99-2a32-4617-938b-338f55885744">&lt;strong&gt;</bpt>Name<ept id="61a9ed99-2a32-4617-938b-338f55885744">&lt;/strong&gt;</ept> of the application will describe your application to end-users</source>
+          <target state="new">The <bpt id="61a9ed99-2a32-4617-938b-338f55885744">&lt;strong&gt;</bpt>Name<ept id="61a9ed99-2a32-4617-938b-338f55885744">&lt;/strong&gt;</ept> of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="62e29008-9608-44c6-b682-f3911c108cca" xml:space="preserve">
+          <source>The <bpt id="e0effbaf-19c5-4c41-ab83-7da0e0361e32">&lt;strong&gt;</bpt>Redirect Uri<ept id="e0effbaf-19c5-4c41-ab83-7da0e0361e32">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD will use to return token responses.</source>
+          <target state="new">The <bpt id="e0effbaf-19c5-4c41-ab83-7da0e0361e32">&lt;strong&gt;</bpt>Redirect Uri<ept id="e0effbaf-19c5-4c41-ab83-7da0e0361e32">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD will use to return token responses.</target>
+        </trans-unit>
+        <trans-unit id="3aabe020-9cd0-4ab2-ae76-1ea215c3ebb6" xml:space="preserve">
+          <source>Enter a value, e.g. <bpt id="5f1d50cb-a1f7-469c-8564-17bb191652bd">&lt;code&gt;</bpt>http://DirectorySearcher<ept id="5f1d50cb-a1f7-469c-8564-17bb191652bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">Enter a value, e.g. <bpt id="5f1d50cb-a1f7-469c-8564-17bb191652bd">&lt;code&gt;</bpt>http://DirectorySearcher<ept id="5f1d50cb-a1f7-469c-8564-17bb191652bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9988037d-5a4a-4b88-91b5-4e1ccede5c6b" xml:space="preserve">
+          <source>Once you’ve completed registration, AAD will assign your app a unique client identifier.</source>
+          <target state="new">Once you’ve completed registration, AAD will assign your app a unique client identifier.</target>
+        </trans-unit>
+        <trans-unit id="63bb7971-12bb-4421-bb04-82ef65bf31b8" xml:space="preserve">
+          <source>You’ll need this value in the next sections, so copy it from the <bpt id="7b19643f-8915-44b3-a0b7-b7c68dc77645">&lt;strong&gt;</bpt>Configure<ept id="7b19643f-8915-44b3-a0b7-b7c68dc77645">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">You’ll need this value in the next sections, so copy it from the <bpt id="7b19643f-8915-44b3-a0b7-b7c68dc77645">&lt;strong&gt;</bpt>Configure<ept id="7b19643f-8915-44b3-a0b7-b7c68dc77645">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="099e818f-2b8c-405f-bd79-3b55b9bb8896" xml:space="preserve">
+          <source>Also in <bpt id="b697ae67-e77e-4d70-8533-9301eb73b421">&lt;strong&gt;</bpt>Configure<ept id="b697ae67-e77e-4d70-8533-9301eb73b421">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section.</source>
+          <target state="new">Also in <bpt id="b697ae67-e77e-4d70-8533-9301eb73b421">&lt;strong&gt;</bpt>Configure<ept id="b697ae67-e77e-4d70-8533-9301eb73b421">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section.</target>
+        </trans-unit>
+        <trans-unit id="d37ca14a-e0f4-4bea-a099-45fb90bf03de" xml:space="preserve">
+          <source>For the "Azure Active Directory" application, add the <bpt id="8bf21d33-41c4-4b9f-b05b-85985b8037d8">&lt;strong&gt;</bpt>Access Your Organization's Directory<ept id="8bf21d33-41c4-4b9f-b05b-85985b8037d8">&lt;/strong&gt;</ept> permission under <bpt id="c921fc56-5830-44ac-a8f4-751f34364965">&lt;strong&gt;</bpt>Delegated Permissions<ept id="c921fc56-5830-44ac-a8f4-751f34364965">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the "Azure Active Directory" application, add the <bpt id="8bf21d33-41c4-4b9f-b05b-85985b8037d8">&lt;strong&gt;</bpt>Access Your Organization's Directory<ept id="8bf21d33-41c4-4b9f-b05b-85985b8037d8">&lt;/strong&gt;</ept> permission under <bpt id="c921fc56-5830-44ac-a8f4-751f34364965">&lt;strong&gt;</bpt>Delegated Permissions<ept id="c921fc56-5830-44ac-a8f4-751f34364965">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="520d43d9-5442-441d-a0ed-16a1695b4f4a" xml:space="preserve">
+          <source>This will enable your application to query the Graph API for users.</source>
+          <target state="new">This will enable your application to query the Graph API for users.</target>
+        </trans-unit>
+        <trans-unit id="fb212c8b-85d4-4e93-80f1-a024421c2874" xml:space="preserve">
+          <source>Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.</source>
+          <target state="new">Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.</target>
+        </trans-unit>
+        <trans-unit id="ddb1459d-666e-46de-8846-c95057e6fde7" xml:space="preserve">
+          <source>In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.</source>
+          <target state="new">In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.</target>
+        </trans-unit>
+        <trans-unit id="22078684-3a01-4274-bc3d-fbb1febf066c" xml:space="preserve">
+          <source>Begin by adding ADAL to each of the projects in the solution using the Package Manager Console.</source>
+          <target state="new">Begin by adding ADAL to each of the projects in the solution using the Package Manager Console.</target>
+        </trans-unit>
+        <trans-unit id="3d130b5c-6fd7-4626-b84d-7504fbd881b3" xml:space="preserve">
+          <source><bpt id="c9e24e6e-96b4-48b9-9dc0-0d87d83a9759">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
+<ept id="c9e24e6e-96b4-48b9-9dc0-0d87d83a9759">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="c9e24e6e-96b4-48b9-9dc0-0d87d83a9759">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
+<ept id="c9e24e6e-96b4-48b9-9dc0-0d87d83a9759">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="505eb20d-05b5-41f7-8b63-8ce56342288b" xml:space="preserve">
+          <source><bpt id="2ae843f0-60d6-43c9-b72d-64afd37fcd0a">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android -IncludePrerelease
+<ept id="2ae843f0-60d6-43c9-b72d-64afd37fcd0a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="2ae843f0-60d6-43c9-b72d-64afd37fcd0a">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android -IncludePrerelease
+<ept id="2ae843f0-60d6-43c9-b72d-64afd37fcd0a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d493cc3c-b2ce-4387-8331-50486f83458e" xml:space="preserve">
+          <source><bpt id="8a1950ca-7e05-4c17-9ed4-d5fe7e001e0e">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop -IncludePrerelease
+<ept id="8a1950ca-7e05-4c17-9ed4-d5fe7e001e0e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="8a1950ca-7e05-4c17-9ed4-d5fe7e001e0e">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop -IncludePrerelease
+<ept id="8a1950ca-7e05-4c17-9ed4-d5fe7e001e0e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3cde7d07-2c69-4eca-84b8-73c901bddea8" xml:space="preserve">
+          <source><bpt id="64b082f9-b6e5-4a9c-8c55-a87bb91152ce">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS -IncludePrerelease
+<ept id="64b082f9-b6e5-4a9c-8c55-a87bb91152ce">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="64b082f9-b6e5-4a9c-8c55-a87bb91152ce">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS -IncludePrerelease
+<ept id="64b082f9-b6e5-4a9c-8c55-a87bb91152ce">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb483df8-c1b3-4d98-848a-f83c1aba08a5" xml:space="preserve">
+          <source><bpt id="ca3c3808-7daa-4708-a74b-bf846479f8f4">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.Windows -IncludePrerelease
+<ept id="ca3c3808-7daa-4708-a74b-bf846479f8f4">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ca3c3808-7daa-4708-a74b-bf846479f8f4">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.Windows -IncludePrerelease
+<ept id="ca3c3808-7daa-4708-a74b-bf846479f8f4">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adb03db8-0cb7-49e2-9a31-1648e87faa22" xml:space="preserve">
+          <source><bpt id="a7814f4d-4d1d-4479-9ed4-6ca35b91b639">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.WindowsPhone -IncludePrerelease
+<ept id="a7814f4d-4d1d-4479-9ed4-6ca35b91b639">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="a7814f4d-4d1d-4479-9ed4-6ca35b91b639">&lt;code&gt;</bpt>
+PM&gt; Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal.WindowsPhone -IncludePrerelease
+<ept id="a7814f4d-4d1d-4479-9ed4-6ca35b91b639">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ef51138-87cf-41c1-9c0b-f5b24701f6e0" xml:space="preserve">
+          <source>You should notice that two library references are added to each project - the PCL portion of ADAL and a platform-specific portion.</source>
+          <target state="new">You should notice that two library references are added to each project - the PCL portion of ADAL and a platform-specific portion.</target>
+        </trans-unit>
+        <trans-unit id="e3ffc42c-592a-474f-b4ca-1eed48957077" xml:space="preserve">
+          <source>In the DirectorySearcherLib project, open <bpt id="47364bbf-0a06-42b6-bfa4-faec48c07603">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="47364bbf-0a06-42b6-bfa4-faec48c07603">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the DirectorySearcherLib project, open <bpt id="47364bbf-0a06-42b6-bfa4-faec48c07603">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="47364bbf-0a06-42b6-bfa4-faec48c07603">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9a9b698-5f42-406b-b0ba-3de88f17aaf8" xml:space="preserve">
+          <source>Change the class member values to reflect the values you input into the Azure Portal.</source>
+          <target state="new">Change the class member values to reflect the values you input into the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="3ccf1924-fbb7-4261-98cd-e0b9874520bc" xml:space="preserve">
+          <source>Your code will reference these values whenever it uses ADAL.</source>
+          <target state="new">Your code will reference these values whenever it uses ADAL.</target>
+        </trans-unit>
+        <trans-unit id="5399b79e-f50c-46ba-9245-c8f81d24d53a" xml:space="preserve">
+          <source>The <bpt id="26670eed-9567-4518-bcb9-e934e4a67a7a">&lt;code&gt;</bpt>tenant<ept id="26670eed-9567-4518-bcb9-e934e4a67a7a">&lt;/code&gt;</ept> is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com</source>
+          <target state="new">The <bpt id="26670eed-9567-4518-bcb9-e934e4a67a7a">&lt;code&gt;</bpt>tenant<ept id="26670eed-9567-4518-bcb9-e934e4a67a7a">&lt;/code&gt;</ept> is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com</target>
+        </trans-unit>
+        <trans-unit id="cb317de3-fc46-43d4-a3a6-8928cb4e10f8" xml:space="preserve">
+          <source>The <bpt id="3f8c8044-b820-4dba-b20a-fe9a3a4fd0fd">&lt;code&gt;</bpt>clientId<ept id="3f8c8044-b820-4dba-b20a-fe9a3a4fd0fd">&lt;/code&gt;</ept> is the clientId of your application you copied from the portal.</source>
+          <target state="new">The <bpt id="3f8c8044-b820-4dba-b20a-fe9a3a4fd0fd">&lt;code&gt;</bpt>clientId<ept id="3f8c8044-b820-4dba-b20a-fe9a3a4fd0fd">&lt;/code&gt;</ept> is the clientId of your application you copied from the portal.</target>
+        </trans-unit>
+        <trans-unit id="98d67eac-ac0b-4c7e-af0a-087576caaff8" xml:space="preserve">
+          <source>The <bpt id="83e6e84e-b08e-4255-b50a-e3dcc3572a6f">&lt;code&gt;</bpt>returnUri<ept id="83e6e84e-b08e-4255-b50a-e3dcc3572a6f">&lt;/code&gt;</ept> is the redirectUri you entered in the portal, e.g. <bpt id="1d6ebe8a-491b-4447-91da-d155f8daad01">&lt;code&gt;</bpt>http://DirectorySearcher<ept id="1d6ebe8a-491b-4447-91da-d155f8daad01">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="83e6e84e-b08e-4255-b50a-e3dcc3572a6f">&lt;code&gt;</bpt>returnUri<ept id="83e6e84e-b08e-4255-b50a-e3dcc3572a6f">&lt;/code&gt;</ept> is the redirectUri you entered in the portal, e.g. <bpt id="1d6ebe8a-491b-4447-91da-d155f8daad01">&lt;code&gt;</bpt>http://DirectorySearcher<ept id="1d6ebe8a-491b-4447-91da-d155f8daad01">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e19f8d0-1142-4792-82d3-0b9c4ecd4267" xml:space="preserve">
+          <source><bpt id="409bab4b-7493-4b0f-9647-abda6caea589">&lt;em&gt;</bpt>Almost<ept id="409bab4b-7493-4b0f-9647-abda6caea589">&lt;/em&gt;</ept> all of the app's authentication logic lies in <bpt id="9fa0ee93-186a-4151-833e-35a71eef3c78">&lt;code&gt;</bpt>DirectorySearcher.SearchByAlias(...)<ept id="9fa0ee93-186a-4151-833e-35a71eef3c78">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="409bab4b-7493-4b0f-9647-abda6caea589">&lt;em&gt;</bpt>Almost<ept id="409bab4b-7493-4b0f-9647-abda6caea589">&lt;/em&gt;</ept> all of the app's authentication logic lies in <bpt id="9fa0ee93-186a-4151-833e-35a71eef3c78">&lt;code&gt;</bpt>DirectorySearcher.SearchByAlias(...)<ept id="9fa0ee93-186a-4151-833e-35a71eef3c78">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f1b4b77-7dc4-40c1-812e-02ea53ecc882" xml:space="preserve">
+          <source>All that is necessary in the platform-specific projects is to pass a contextual parameter to the <bpt id="e752eccc-de20-4652-a9dd-818501ae6131">&lt;code&gt;</bpt>DirectorySearcher<ept id="e752eccc-de20-4652-a9dd-818501ae6131">&lt;/code&gt;</ept> PCL.</source>
+          <target state="new">All that is necessary in the platform-specific projects is to pass a contextual parameter to the <bpt id="e752eccc-de20-4652-a9dd-818501ae6131">&lt;code&gt;</bpt>DirectorySearcher<ept id="e752eccc-de20-4652-a9dd-818501ae6131">&lt;/code&gt;</ept> PCL.</target>
+        </trans-unit>
+        <trans-unit id="9b2236d2-17c5-4bf0-90b3-7de38f6b7fe6" xml:space="preserve">
+          <source>First, open <bpt id="3a93f8b9-5fdf-4091-81ca-04417c590d29">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="3a93f8b9-5fdf-4091-81ca-04417c590d29">&lt;/code&gt;</ept> and add a new parameter to the <bpt id="d2ea3624-79a7-422e-b4d2-e91eaae13535">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="d2ea3624-79a7-422e-b4d2-e91eaae13535">&lt;/code&gt;</ept> method.</source>
+          <target state="new">First, open <bpt id="3a93f8b9-5fdf-4091-81ca-04417c590d29">&lt;code&gt;</bpt>DirectorySearcher.cs<ept id="3a93f8b9-5fdf-4091-81ca-04417c590d29">&lt;/code&gt;</ept> and add a new parameter to the <bpt id="d2ea3624-79a7-422e-b4d2-e91eaae13535">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="d2ea3624-79a7-422e-b4d2-e91eaae13535">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="acb2c469-cca8-436b-b301-57d3abc97b39" xml:space="preserve">
+          <source><bpt id="1eaf3289-af2f-45ee-9caf-9da96d771f16">&lt;code&gt;</bpt>IPlatformParameters<ept id="1eaf3289-af2f-45ee-9caf-9da96d771f16">&lt;/code&gt;</ept> is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform authentication.</source>
+          <target state="new"><bpt id="1eaf3289-af2f-45ee-9caf-9da96d771f16">&lt;code&gt;</bpt>IPlatformParameters<ept id="1eaf3289-af2f-45ee-9caf-9da96d771f16">&lt;/code&gt;</ept> is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform authentication.</target>
+        </trans-unit>
+        <trans-unit id="ca27841f-16df-4db8-a597-069382726223" xml:space="preserve">
+          <source>Next, initialize the <bpt id="8f58f0f3-e9f7-4277-8d06-c2062e2c0edd">&lt;code&gt;</bpt>AuthenticationContext<ept id="8f58f0f3-e9f7-4277-8d06-c2062e2c0edd">&lt;/code&gt;</ept> - ADAL’s primary class.</source>
+          <target state="new">Next, initialize the <bpt id="8f58f0f3-e9f7-4277-8d06-c2062e2c0edd">&lt;code&gt;</bpt>AuthenticationContext<ept id="8f58f0f3-e9f7-4277-8d06-c2062e2c0edd">&lt;/code&gt;</ept> - ADAL’s primary class.</target>
+        </trans-unit>
+        <trans-unit id="a6137dae-bd29-4245-97cd-add2d7f8d559" xml:space="preserve">
+          <source>This is where you pass ADAL the coordinates it needs to communicate with Azure AD.</source>
+          <target state="new">This is where you pass ADAL the coordinates it needs to communicate with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="01131372-17a6-44e9-8c61-1d1e9d6c69de" xml:space="preserve">
+          <source>Then call <bpt id="383d3e46-2e95-4e3e-aee6-38be927848ed">&lt;code&gt;</bpt>AcquireTokenAsync(...)<ept id="383d3e46-2e95-4e3e-aee6-38be927848ed">&lt;/code&gt;</ept>, which accepts the <bpt id="f07cf183-db25-4b71-93a6-4564a8a7490f">&lt;code&gt;</bpt>IPlatformParameters<ept id="f07cf183-db25-4b71-93a6-4564a8a7490f">&lt;/code&gt;</ept> object and will invoke the authentication flow necessary to return a token to the app.</source>
+          <target state="new">Then call <bpt id="383d3e46-2e95-4e3e-aee6-38be927848ed">&lt;code&gt;</bpt>AcquireTokenAsync(...)<ept id="383d3e46-2e95-4e3e-aee6-38be927848ed">&lt;/code&gt;</ept>, which accepts the <bpt id="f07cf183-db25-4b71-93a6-4564a8a7490f">&lt;code&gt;</bpt>IPlatformParameters<ept id="f07cf183-db25-4b71-93a6-4564a8a7490f">&lt;/code&gt;</ept> object and will invoke the authentication flow necessary to return a token to the app.</target>
+        </trans-unit>
+        <trans-unit id="b93dcc7d-9fb0-4055-9650-3e876742cadc" xml:space="preserve">
+          <source><bpt id="fc94cfd7-acb8-4996-9811-7d3b6a3ec6c1">&lt;code&gt;</bpt>AcquireTokenAsync(...)<ept id="fc94cfd7-acb8-4996-9811-7d3b6a3ec6c1">&lt;/code&gt;</ept> will first attempt to return a token for the requested resource (the Graph API in this case) without prompting the user to enter their credentials (via caching or refreshing old tokens).</source>
+          <target state="new"><bpt id="fc94cfd7-acb8-4996-9811-7d3b6a3ec6c1">&lt;code&gt;</bpt>AcquireTokenAsync(...)<ept id="fc94cfd7-acb8-4996-9811-7d3b6a3ec6c1">&lt;/code&gt;</ept> will first attempt to return a token for the requested resource (the Graph API in this case) without prompting the user to enter their credentials (via caching or refreshing old tokens).</target>
+        </trans-unit>
+        <trans-unit id="0296de82-59e7-493e-a12d-40e90bc993e6" xml:space="preserve">
+          <source>Only if necessary, it will show the user the Azure AD sign in page before acquiring the requested token.</source>
+          <target state="new">Only if necessary, it will show the user the Azure AD sign in page before acquiring the requested token.</target>
+        </trans-unit>
+        <trans-unit id="00c60ac5-540f-430e-9ec9-deb78af74700" xml:space="preserve">
+          <source>You can then attach the access token to the Graph API request in the Authorization header:</source>
+          <target state="new">You can then attach the access token to the Graph API request in the Authorization header:</target>
+        </trans-unit>
+        <trans-unit id="e8a39c7f-c809-4bae-95f3-981afababa36" xml:space="preserve">
+          <source>That's all for the <bpt id="201e2df9-779c-4877-b74b-74acf37f99a6">&lt;code&gt;</bpt>DirectorySearcher<ept id="201e2df9-779c-4877-b74b-74acf37f99a6">&lt;/code&gt;</ept> PCL and your app's identity-related code.</source>
+          <target state="new">That's all for the <bpt id="201e2df9-779c-4877-b74b-74acf37f99a6">&lt;code&gt;</bpt>DirectorySearcher<ept id="201e2df9-779c-4877-b74b-74acf37f99a6">&lt;/code&gt;</ept> PCL and your app's identity-related code.</target>
+        </trans-unit>
+        <trans-unit id="e9bbdf06-8860-4ece-b9c1-c164b8cb8cc9" xml:space="preserve">
+          <source>All that remains is to call the <bpt id="85e49b43-8e40-4f63-a1cb-1a651b7af6eb">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="85e49b43-8e40-4f63-a1cb-1a651b7af6eb">&lt;/code&gt;</ept> method in each platform's views, and where necessary add code for correctly handling the UI lifecycle.</source>
+          <target state="new">All that remains is to call the <bpt id="85e49b43-8e40-4f63-a1cb-1a651b7af6eb">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="85e49b43-8e40-4f63-a1cb-1a651b7af6eb">&lt;/code&gt;</ept> method in each platform's views, and where necessary add code for correctly handling the UI lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="e16958ba-e811-4500-87de-86076c287bfb" xml:space="preserve">
+          <source>In <bpt id="fd292661-672b-4d41-b73e-59e650c0fe2c">&lt;code&gt;</bpt>MainActivity.cs<ept id="fd292661-672b-4d41-b73e-59e650c0fe2c">&lt;/code&gt;</ept>, add a call to <bpt id="a6271e91-4101-4fd3-829e-fe071e822758">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="a6271e91-4101-4fd3-829e-fe071e822758">&lt;/code&gt;</ept> in the button click handler:</source>
+          <target state="new">In <bpt id="fd292661-672b-4d41-b73e-59e650c0fe2c">&lt;code&gt;</bpt>MainActivity.cs<ept id="fd292661-672b-4d41-b73e-59e650c0fe2c">&lt;/code&gt;</ept>, add a call to <bpt id="a6271e91-4101-4fd3-829e-fe071e822758">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="a6271e91-4101-4fd3-829e-fe071e822758">&lt;/code&gt;</ept> in the button click handler:</target>
+        </trans-unit>
+        <trans-unit id="42839d7d-47f6-4b8e-9072-681f10934d69" xml:space="preserve">
+          <source>You also need to override the <bpt id="acc34c6e-2914-46b7-afaa-e98e4f5cf9ff">&lt;code&gt;</bpt>OnActivityResult<ept id="acc34c6e-2914-46b7-afaa-e98e4f5cf9ff">&lt;/code&gt;</ept> lifecycle method to forward any authentication redirects back to the appropriate method.</source>
+          <target state="new">You also need to override the <bpt id="acc34c6e-2914-46b7-afaa-e98e4f5cf9ff">&lt;code&gt;</bpt>OnActivityResult<ept id="acc34c6e-2914-46b7-afaa-e98e4f5cf9ff">&lt;/code&gt;</ept> lifecycle method to forward any authentication redirects back to the appropriate method.</target>
+        </trans-unit>
+        <trans-unit id="0640bebb-43bc-40b0-9504-b0adf9a5ffc2" xml:space="preserve">
+          <source>ADAL provides a helper method for this in Android:</source>
+          <target state="new">ADAL provides a helper method for this in Android:</target>
+        </trans-unit>
+        <trans-unit id="d3441a7c-8aed-4f8c-abc8-2150f418d51e" xml:space="preserve">
+          <source>In <bpt id="eedb6f1c-f61d-4109-bebe-6f19ad4ca7eb">&lt;code&gt;</bpt>MainWindow.xaml.cs<ept id="eedb6f1c-f61d-4109-bebe-6f19ad4ca7eb">&lt;/code&gt;</ept>, simply make a call to <bpt id="100ac960-dc30-43df-a8d3-ccbc91f32295">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="100ac960-dc30-43df-a8d3-ccbc91f32295">&lt;/code&gt;</ept> passing a <bpt id="fb8b311c-1c72-426a-a564-8afd04bd40e2">&lt;code&gt;</bpt>WindowInteropHelper<ept id="fb8b311c-1c72-426a-a564-8afd04bd40e2">&lt;/code&gt;</ept> in the desktop's <bpt id="d8cdd342-7ea7-4ce4-a174-a2b2d3cb3d61">&lt;code&gt;</bpt>PlatformParameters<ept id="d8cdd342-7ea7-4ce4-a174-a2b2d3cb3d61">&lt;/code&gt;</ept> object:</source>
+          <target state="new">In <bpt id="eedb6f1c-f61d-4109-bebe-6f19ad4ca7eb">&lt;code&gt;</bpt>MainWindow.xaml.cs<ept id="eedb6f1c-f61d-4109-bebe-6f19ad4ca7eb">&lt;/code&gt;</ept>, simply make a call to <bpt id="100ac960-dc30-43df-a8d3-ccbc91f32295">&lt;code&gt;</bpt>SearchByAlias(...)<ept id="100ac960-dc30-43df-a8d3-ccbc91f32295">&lt;/code&gt;</ept> passing a <bpt id="fb8b311c-1c72-426a-a564-8afd04bd40e2">&lt;code&gt;</bpt>WindowInteropHelper<ept id="fb8b311c-1c72-426a-a564-8afd04bd40e2">&lt;/code&gt;</ept> in the desktop's <bpt id="d8cdd342-7ea7-4ce4-a174-a2b2d3cb3d61">&lt;code&gt;</bpt>PlatformParameters<ept id="d8cdd342-7ea7-4ce4-a174-a2b2d3cb3d61">&lt;/code&gt;</ept> object:</target>
+        </trans-unit>
+        <trans-unit id="22b8bcb7-019e-4917-a917-4df6906d387f" xml:space="preserve">
+          <source>In <bpt id="db84d66a-0f51-4435-9944-0e54bdb6bfe6">&lt;code&gt;</bpt>DirSearchClient_iOSViewController.cs<ept id="db84d66a-0f51-4435-9944-0e54bdb6bfe6">&lt;/code&gt;</ept>, the iOS <bpt id="55591231-1725-4f62-a256-bf63f91828b1">&lt;code&gt;</bpt>PlatformParameters<ept id="55591231-1725-4f62-a256-bf63f91828b1">&lt;/code&gt;</ept> object simply takes a reference to the View Controller:</source>
+          <target state="new">In <bpt id="db84d66a-0f51-4435-9944-0e54bdb6bfe6">&lt;code&gt;</bpt>DirSearchClient_iOSViewController.cs<ept id="db84d66a-0f51-4435-9944-0e54bdb6bfe6">&lt;/code&gt;</ept>, the iOS <bpt id="55591231-1725-4f62-a256-bf63f91828b1">&lt;code&gt;</bpt>PlatformParameters<ept id="55591231-1725-4f62-a256-bf63f91828b1">&lt;/code&gt;</ept> object simply takes a reference to the View Controller:</target>
+        </trans-unit>
+        <trans-unit id="1ef0298d-d88d-48f2-ad56-8ccb9c742dff" xml:space="preserve">
+          <source>In Windows Store, open <bpt id="5a0929c8-a30c-4cf1-9f96-881c314abc4c">&lt;code&gt;</bpt>MainPage.xaml.cs<ept id="5a0929c8-a30c-4cf1-9f96-881c314abc4c">&lt;/code&gt;</ept> and implement the <bpt id="860cf940-cbbf-4eb9-b3dd-2f3002c89363">&lt;code&gt;</bpt>Search<ept id="860cf940-cbbf-4eb9-b3dd-2f3002c89363">&lt;/code&gt;</ept> method, which uses a helper method in a shared project to update UI as necessary.</source>
+          <target state="new">In Windows Store, open <bpt id="5a0929c8-a30c-4cf1-9f96-881c314abc4c">&lt;code&gt;</bpt>MainPage.xaml.cs<ept id="5a0929c8-a30c-4cf1-9f96-881c314abc4c">&lt;/code&gt;</ept> and implement the <bpt id="860cf940-cbbf-4eb9-b3dd-2f3002c89363">&lt;code&gt;</bpt>Search<ept id="860cf940-cbbf-4eb9-b3dd-2f3002c89363">&lt;/code&gt;</ept> method, which uses a helper method in a shared project to update UI as necessary.</target>
+        </trans-unit>
+        <trans-unit id="bb4effa5-dab2-48aa-8a46-c5a0f581911d" xml:space="preserve">
+          <source>In Windows Phone, open <bpt id="367e04fc-33d5-479b-b79e-a67e30013156">&lt;code&gt;</bpt>MainPage.xaml.cs<ept id="367e04fc-33d5-479b-b79e-a67e30013156">&lt;/code&gt;</ept> and implement the <bpt id="99dec033-4381-42b4-9b09-4ada1fad5977">&lt;code&gt;</bpt>Search<ept id="99dec033-4381-42b4-9b09-4ada1fad5977">&lt;/code&gt;</ept> method, which uses the same helper method in a shared project to update UI.</source>
+          <target state="new">In Windows Phone, open <bpt id="367e04fc-33d5-479b-b79e-a67e30013156">&lt;code&gt;</bpt>MainPage.xaml.cs<ept id="367e04fc-33d5-479b-b79e-a67e30013156">&lt;/code&gt;</ept> and implement the <bpt id="99dec033-4381-42b4-9b09-4ada1fad5977">&lt;code&gt;</bpt>Search<ept id="99dec033-4381-42b4-9b09-4ada1fad5977">&lt;/code&gt;</ept> method, which uses the same helper method in a shared project to update UI.</target>
+        </trans-unit>
+        <trans-unit id="322db7f4-1488-453b-97ac-dff8a12a6e74" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="a8771e34-25c3-487f-bc8f-104b32949ca2" xml:space="preserve">
+          <source>You now have a working Xamarin app that has the ability to authenticate users and securely call Web APIs using OAuth 2.0 across five different platforms.</source>
+          <target state="new">You now have a working Xamarin app that has the ability to authenticate users and securely call Web APIs using OAuth 2.0 across five different platforms.</target>
+        </trans-unit>
+        <trans-unit id="76c1632a-a6ce-4de1-8dc1-74d53771fd84" xml:space="preserve">
+          <source>If you haven’t already, now is the time to populate your tenant with some users.</source>
+          <target state="new">If you haven’t already, now is the time to populate your tenant with some users.</target>
+        </trans-unit>
+        <trans-unit id="447b413a-453c-4cd1-ac99-b36210086701" xml:space="preserve">
+          <source>Run your DirectorySearcher app, and sign in with one of those users.</source>
+          <target state="new">Run your DirectorySearcher app, and sign in with one of those users.</target>
+        </trans-unit>
+        <trans-unit id="248a8082-004b-4879-a198-e945a54125f1" xml:space="preserve">
+          <source>Search for other users based on their UPN.</source>
+          <target state="new">Search for other users based on their UPN.</target>
+        </trans-unit>
+        <trans-unit id="6b019411-e107-4109-b327-57bd6cf732e8" xml:space="preserve">
+          <source>ADAL makes it easy to incorporate common identity features into your application.</source>
+          <target state="new">ADAL makes it easy to incorporate common identity features into your application.</target>
+        </trans-unit>
+        <trans-unit id="ab8dd36e-d7b9-4fd7-8349-24038db4a0ae" xml:space="preserve">
+          <source>It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.</source>
+          <target state="new">It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.</target>
+        </trans-unit>
+        <trans-unit id="6c856779-d04e-4aab-bd4d-8745ed47a65f" xml:space="preserve">
+          <source>All you really need to know is a single API call, <bpt id="9d9de84a-09a9-4cf3-8f8a-b5c1036dddf5">&lt;code&gt;</bpt>authContext.AcquireToken*(…)<ept id="9d9de84a-09a9-4cf3-8f8a-b5c1036dddf5">&lt;/code&gt;</ept>.</source>
+          <target state="new">All you really need to know is a single API call, <bpt id="9d9de84a-09a9-4cf3-8f8a-b5c1036dddf5">&lt;code&gt;</bpt>authContext.AcquireToken*(…)<ept id="9d9de84a-09a9-4cf3-8f8a-b5c1036dddf5">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef1fe126-17e6-4750-958b-58ff98bdf342" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) is provided <bpt id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;linkText&gt;</bpt>here<ept id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;/linkText&gt;</ept><bpt id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;title&gt;</bpt><ept id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) is provided <bpt id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;linkText&gt;</bpt>here<ept id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;/linkText&gt;</ept><bpt id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;title&gt;</bpt><ept id="14e83d5c-fffd-42f5-a71d-f0f6c9adb7ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c638f69c-f661-475d-95f7-78e70f656ab8" xml:space="preserve">
+          <source>You can now move on to additional identity scenarios.</source>
+          <target state="new">You can now move on to additional identity scenarios.</target>
+        </trans-unit>
+        <trans-unit id="6bdd9e18-71fa-4a6a-8af0-c6aaa67e8d1d" xml:space="preserve">
+          <source>You may want to try:</source>
+          <target state="new">You may want to try:</target>
+        </trans-unit>
+        <trans-unit id="667c9169-4acc-4639-a11b-67a31ce25958" xml:space="preserve">
+          <source><bpt id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;linkText&gt;</bpt>Secure a .NET Web API with Azure AD &gt;&gt;<ept id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;/linkText&gt;</ept><bpt id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;title&gt;</bpt><ept id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;linkText&gt;</bpt>Secure a .NET Web API with Azure AD &gt;&gt;<ept id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;/linkText&gt;</ept><bpt id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;title&gt;</bpt><ept id="3dc130d5-49b5-4909-84b0-d36b3f0b8e79">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18e3e1ff-a688-4240-a0dd-b1a05da7d835" xml:space="preserve">
+          <source><bpt id="df4dfecd-0ebf-4a49-9747-1dbdc06e3b3e">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="df4dfecd-0ebf-4a49-9747-1dbdc06e3b3e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="df4dfecd-0ebf-4a49-9747-1dbdc06e3b3e">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="df4dfecd-0ebf-4a49-9747-1dbdc06e3b3e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

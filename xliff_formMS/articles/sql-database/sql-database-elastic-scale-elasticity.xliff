@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="30ff1b46-4a10-468c-93cf-869d68ae2002" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="30ff1b46-4a10-468c-93cf-869d68ae2002" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="381050f2-ccf8-4351-a409-a41ec0536605">
+        <trans-unit id="5f1734ab-432b-4dfd-982f-f0ad58b1fb89" xml:space="preserve">
+          <source>Shard Elasticity</source>
+          <target state="new">Shard Elasticity</target>
+        </trans-unit>
+        <trans-unit id="41686076-f711-40f5-8c1f-6b05efdd8a04" xml:space="preserve">
+          <source>Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily.</source>
+          <target state="new">Explains concepts and gives examples behind shard elasticity, the ability to scale out Azure SQL databases easily.</target>
+        </trans-unit>
+        <trans-unit id="64e85c43-1b0d-4857-80b5-9b16d187e341" xml:space="preserve">
+          <source><bpt id="db4a5838-1b6a-4d18-90a4-7fc6f9e55f7b">&lt;strong&gt;</bpt>Shard elasticity<ept id="db4a5838-1b6a-4d18-90a4-7fc6f9e55f7b">&lt;/strong&gt;</ept> enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs.</source>
+          <target state="new"><bpt id="db4a5838-1b6a-4d18-90a4-7fc6f9e55f7b">&lt;strong&gt;</bpt>Shard elasticity<ept id="db4a5838-1b6a-4d18-90a4-7fc6f9e55f7b">&lt;/strong&gt;</ept> enables application developers to dynamically grow and shrink database resources according to need, enabling one to optimize the performance of their applications, and also to minimize costs.</target>
+        </trans-unit>
+        <trans-unit id="8a05ca78-7636-459f-9df0-08c2b9a8aa56" xml:space="preserve">
+          <source>The combination of the <bpt id="fbbb534c-95ff-4d40-8335-16d1f10b2533">&lt;strong&gt;</bpt>Elastic Database tools<ept id="fbbb534c-95ff-4d40-8335-16d1f10b2533">&lt;/strong&gt;</ept> for Azure SQL Database along with the <bpt id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;linkText&gt;</bpt>Basic, Standard, and Premium service tiers<ept id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;/linkText&gt;</ept><bpt id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;title&gt;</bpt><ept id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;/title&gt;</ept> provides very compelling elasticity scenarios.</source>
+          <target state="new">The combination of the <bpt id="fbbb534c-95ff-4d40-8335-16d1f10b2533">&lt;strong&gt;</bpt>Elastic Database tools<ept id="fbbb534c-95ff-4d40-8335-16d1f10b2533">&lt;/strong&gt;</ept> for Azure SQL Database along with the <bpt id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;linkText&gt;</bpt>Basic, Standard, and Premium service tiers<ept id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;/linkText&gt;</ept><bpt id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;title&gt;</bpt><ept id="cd1faeac-5658-433b-8ee1-20f103dc2c1e">&lt;/title&gt;</ept> provides very compelling elasticity scenarios.</target>
+        </trans-unit>
+        <trans-unit id="a6d216fc-ffef-4693-9557-63a58088ec44" xml:space="preserve">
+          <source>Elastic database tools enable horizontal scaling - a design pattern in which databases (also <bpt id="c604da85-5bd5-4683-8f20-795469e55389">&lt;linkText&gt;</bpt>known as "shards”<ept id="c604da85-5bd5-4683-8f20-795469e55389">&lt;/linkText&gt;</ept><bpt id="c604da85-5bd5-4683-8f20-795469e55389">&lt;title&gt;</bpt><ept id="c604da85-5bd5-4683-8f20-795469e55389">&lt;/title&gt;</ept>) are added or removed from a shard set to grow or shrink capacity.</source>
+          <target state="new">Elastic database tools enable horizontal scaling - a design pattern in which databases (also <bpt id="c604da85-5bd5-4683-8f20-795469e55389">&lt;linkText&gt;</bpt>known as "shards”<ept id="c604da85-5bd5-4683-8f20-795469e55389">&lt;/linkText&gt;</ept><bpt id="c604da85-5bd5-4683-8f20-795469e55389">&lt;title&gt;</bpt><ept id="c604da85-5bd5-4683-8f20-795469e55389">&lt;/title&gt;</ept>) are added or removed from a shard set to grow or shrink capacity.</target>
+        </trans-unit>
+        <trans-unit id="d5946a59-2889-4890-8170-d44ec7713d34" xml:space="preserve">
+          <source>Similarly, the SQL Database service tiers provide <bpt id="910b2c12-47fd-4e4d-8b01-8993a1a84995">&lt;strong&gt;</bpt>vertical scaling<ept id="910b2c12-47fd-4e4d-8b01-8993a1a84995">&lt;/strong&gt;</ept> capabilities in that a single database's resources can scale up or down to appropriately match demand.</source>
+          <target state="new">Similarly, the SQL Database service tiers provide <bpt id="910b2c12-47fd-4e4d-8b01-8993a1a84995">&lt;strong&gt;</bpt>vertical scaling<ept id="910b2c12-47fd-4e4d-8b01-8993a1a84995">&lt;/strong&gt;</ept> capabilities in that a single database's resources can scale up or down to appropriately match demand.</target>
+        </trans-unit>
+        <trans-unit id="503f878f-6359-413f-8730-981d7bda54f3" xml:space="preserve">
+          <source>Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.</source>
+          <target state="new">Together, the vertical scaling of a single shard and the horizontal scaling of many shards, affords application developers a very flexible environment that can scale to meet performance, capacity and cost-optimization needs.</target>
+        </trans-unit>
+        <trans-unit id="df863b8c-981d-4d48-82e4-47f0a5bb1e75" xml:space="preserve">
+          <source>With the newly introduced <bpt id="bfb3662f-e934-4aa1-8821-78124c1124d2">&lt;strong&gt;</bpt>elastic database pools<ept id="bfb3662f-e934-4aa1-8821-78124c1124d2">&lt;/strong&gt;</ept> capability, vertical scaling is even simpler to achieve.</source>
+          <target state="new">With the newly introduced <bpt id="bfb3662f-e934-4aa1-8821-78124c1124d2">&lt;strong&gt;</bpt>elastic database pools<ept id="bfb3662f-e934-4aa1-8821-78124c1124d2">&lt;/strong&gt;</ept> capability, vertical scaling is even simpler to achieve.</target>
+        </trans-unit>
+        <trans-unit id="2f9602ea-b6b6-4228-b046-e65b9880f645" xml:space="preserve">
+          <source>Pools allow an individual database’s resource consumption to grow or shrink <bpt id="02098676-9723-4ed6-8aac-7bd2962e5789">&lt;em&gt;</bpt>automatically<ept id="02098676-9723-4ed6-8aac-7bd2962e5789">&lt;/em&gt;</ept> within a budget shared among the entire pool.</source>
+          <target state="new">Pools allow an individual database’s resource consumption to grow or shrink <bpt id="02098676-9723-4ed6-8aac-7bd2962e5789">&lt;em&gt;</bpt>automatically<ept id="02098676-9723-4ed6-8aac-7bd2962e5789">&lt;/em&gt;</ept> within a budget shared among the entire pool.</target>
+        </trans-unit>
+        <trans-unit id="efb93082-9fea-4cdb-a9cd-b2d6a2c9e482" xml:space="preserve">
+          <source>For applications that choose not to take advantage of elastic database pools, this article will describe other techniques for implementing policy-based mechanics for managing vertical scaling, as well as some common scenarios for automating horizontal scaling operations.</source>
+          <target state="new">For applications that choose not to take advantage of elastic database pools, this article will describe other techniques for implementing policy-based mechanics for managing vertical scaling, as well as some common scenarios for automating horizontal scaling operations.</target>
+        </trans-unit>
+        <trans-unit id="481c7423-f188-44f0-a5da-4761be8b6807" xml:space="preserve">
+          <source>A canonical scenario for horizontal scaling is an application that processes transactions for concert tickets.</source>
+          <target state="new">A canonical scenario for horizontal scaling is an application that processes transactions for concert tickets.</target>
+        </trans-unit>
+        <trans-unit id="314dd6cc-0ebb-4819-8fc2-b650c78db8c8" xml:space="preserve">
+          <source>Under normal customer volume, the application uses minimal database resources to handle purchase transactions.</source>
+          <target state="new">Under normal customer volume, the application uses minimal database resources to handle purchase transactions.</target>
+        </trans-unit>
+        <trans-unit id="ef4e168d-6cf0-4bdc-adce-a0c47640e110" xml:space="preserve">
+          <source>However, when tickets go on sale for a popular concert, a single database cannot handle the large spike in customer demand.</source>
+          <target state="new">However, when tickets go on sale for a popular concert, a single database cannot handle the large spike in customer demand.</target>
+        </trans-unit>
+        <trans-unit id="779019cf-70d2-4dec-a5bd-f109001c6634" xml:space="preserve">
+          <source>To process the dramatic increase in transactions, the application scales horizontally.</source>
+          <target state="new">To process the dramatic increase in transactions, the application scales horizontally.</target>
+        </trans-unit>
+        <trans-unit id="a1cc494e-5952-4417-8bb3-68d620f2ee16" xml:space="preserve">
+          <source>The application can now distribute the transaction load across many shards.</source>
+          <target state="new">The application can now distribute the transaction load across many shards.</target>
+        </trans-unit>
+        <trans-unit id="e46751c1-0768-44f7-9973-5b733018c1a0" xml:space="preserve">
+          <source>When the additional resources are no longer needed, the database tier shrinks back for normal usage.</source>
+          <target state="new">When the additional resources are no longer needed, the database tier shrinks back for normal usage.</target>
+        </trans-unit>
+        <trans-unit id="6caa04ae-b12d-42d1-88e5-ca01a02ac885" xml:space="preserve">
+          <source>Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.</source>
+          <target state="new">Here horizontal scaling enables an application to scale-out to match customer demand and scale-in when the resources are no longer needed.</target>
+        </trans-unit>
+        <trans-unit id="1900a8f3-257d-4e9a-b870-2d0a7082b2ef" xml:space="preserve">
+          <source>A canonical scenario for vertical scaling is an application that uses a <bpt id="56a55f05-8ae9-4ead-973f-ed67b3596f6f">&lt;strong&gt;</bpt>shard set<ept id="56a55f05-8ae9-4ead-973f-ed67b3596f6f">&lt;/strong&gt;</ept> to store operational telemetry.</source>
+          <target state="new">A canonical scenario for vertical scaling is an application that uses a <bpt id="56a55f05-8ae9-4ead-973f-ed67b3596f6f">&lt;strong&gt;</bpt>shard set<ept id="56a55f05-8ae9-4ead-973f-ed67b3596f6f">&lt;/strong&gt;</ept> to store operational telemetry.</target>
+        </trans-unit>
+        <trans-unit id="09933478-d04d-47d0-a078-ae9b8703a19d" xml:space="preserve">
+          <source>In this scenario, it is better to co-locate all telemetry data for a single day on a single shard.</source>
+          <target state="new">In this scenario, it is better to co-locate all telemetry data for a single day on a single shard.</target>
+        </trans-unit>
+        <trans-unit id="5c099728-30b3-4db7-a194-c121ad2b6886" xml:space="preserve">
+          <source>In this application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days.</source>
+          <target state="new">In this application, data for the current day is ingested into a shard and a new shard is provisioned for subsequent days.</target>
+        </trans-unit>
+        <trans-unit id="2371b970-1cb2-47aa-b659-d9eb1893d494" xml:space="preserve">
+          <source>The operational data can then be aged and queried as appropriate.</source>
+          <target state="new">The operational data can then be aged and queried as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="cdb80463-9e23-4bbb-906b-831f9b22a1fd" xml:space="preserve">
+          <source>To ingest telemetry data at high loads, it is better to employ a higher service tier.</source>
+          <target state="new">To ingest telemetry data at high loads, it is better to employ a higher service tier.</target>
+        </trans-unit>
+        <trans-unit id="c007e30d-3e07-4ed4-89f0-3c3cda3c4e3d" xml:space="preserve">
+          <source>In other words, a Premium database is better than a Basic database.</source>
+          <target state="new">In other words, a Premium database is better than a Basic database.</target>
+        </trans-unit>
+        <trans-unit id="33ec3d2f-7760-42f6-8369-dba33b9e8de5" xml:space="preserve">
+          <source>Once the database reaches its capacity, it switches from ingestion to analysis and reporting.</source>
+          <target state="new">Once the database reaches its capacity, it switches from ingestion to analysis and reporting.</target>
+        </trans-unit>
+        <trans-unit id="57a6c451-4890-4d1c-a1f1-949937b1cccb" xml:space="preserve">
+          <source>For that, the Standard tier's performance is equal to the task.</source>
+          <target state="new">For that, the Standard tier's performance is equal to the task.</target>
+        </trans-unit>
+        <trans-unit id="2a3fea45-e689-41d1-99b9-ec7e03d6f644" xml:space="preserve">
+          <source>Thus one can vertically scale down the service tier on shards (other than the most recently created one) in order to fit the lower performance requirements for older data.</source>
+          <target state="new">Thus one can vertically scale down the service tier on shards (other than the most recently created one) in order to fit the lower performance requirements for older data.</target>
+        </trans-unit>
+        <trans-unit id="c76b7b82-1a1e-4a3c-ad55-2101d3577ed9" xml:space="preserve">
+          <source>Vertical scaling can also be used to increase the performance of a single database in order to achieve increased performance.</source>
+          <target state="new">Vertical scaling can also be used to increase the performance of a single database in order to achieve increased performance.</target>
+        </trans-unit>
+        <trans-unit id="4128bf61-0ee7-4b70-912d-90dfaab2fa3a" xml:space="preserve">
+          <source>An example is a tax filing application.</source>
+          <target state="new">An example is a tax filing application.</target>
+        </trans-unit>
+        <trans-unit id="667377a5-f158-4e6f-9d92-77db0311984c" xml:space="preserve">
+          <source>At filing time, it is better to keep a single customer’s data all on the same database and increase the performance of that shard.</source>
+          <target state="new">At filing time, it is better to keep a single customer’s data all on the same database and increase the performance of that shard.</target>
+        </trans-unit>
+        <trans-unit id="71455ce9-8760-44c3-991b-1bef62781725" xml:space="preserve">
+          <source>Depending on the application, vertically scaling up and down resources is advantageous to optimize for both cost and performance requirements.</source>
+          <target state="new">Depending on the application, vertically scaling up and down resources is advantageous to optimize for both cost and performance requirements.</target>
+        </trans-unit>
+        <trans-unit id="7ff7616b-98bd-4234-a935-5ce4ad81e52f" xml:space="preserve">
+          <source>Together, both horizontal and vertical scaling of the database tier are at the core of application scalability and shard elasticity.</source>
+          <target state="new">Together, both horizontal and vertical scaling of the database tier are at the core of application scalability and shard elasticity.</target>
+        </trans-unit>
+        <trans-unit id="9dcc3ccd-0d11-4fba-ac55-01abca044929" xml:space="preserve">
+          <source>This document provides the context for shard elasticity scenarios as well as references to example implementations of both vertical and horizontal scaling.</source>
+          <target state="new">This document provides the context for shard elasticity scenarios as well as references to example implementations of both vertical and horizontal scaling.</target>
+        </trans-unit>
+        <trans-unit id="7041798c-cc10-43ad-889b-5a3d4c2b44bc" xml:space="preserve">
+          <source>Vertical and horizontal scaling is a function of three basic components: </source>
+          <target state="new">Vertical and horizontal scaling is a function of three basic components: </target>
+        </trans-unit>
+        <trans-unit id="19a8b8b5-9e1b-488b-96af-e38075be698d" xml:space="preserve">
+          <source><bpt id="0f27a8e1-6208-4c86-bd37-ce6b48dadc5c">&lt;strong&gt;</bpt>Telemetry<ept id="0f27a8e1-6208-4c86-bd37-ce6b48dadc5c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0f27a8e1-6208-4c86-bd37-ce6b48dadc5c">&lt;strong&gt;</bpt>Telemetry<ept id="0f27a8e1-6208-4c86-bd37-ce6b48dadc5c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="677b4fcd-0dca-4c06-af04-c224f0f1c87a" xml:space="preserve">
+          <source><bpt id="ca237ac2-1850-4877-b8a9-b35a989a9935">&lt;strong&gt;</bpt>Rule<ept id="ca237ac2-1850-4877-b8a9-b35a989a9935">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ca237ac2-1850-4877-b8a9-b35a989a9935">&lt;strong&gt;</bpt>Rule<ept id="ca237ac2-1850-4877-b8a9-b35a989a9935">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9080019a-5a97-47a5-99ba-093c7fa2d947" xml:space="preserve">
+          <source><bpt id="b98be775-7348-45ca-92b6-cf64fa0e1fff">&lt;strong&gt;</bpt>Action<ept id="b98be775-7348-45ca-92b6-cf64fa0e1fff">&lt;/strong&gt;</ept>   </source>
+          <target state="new"><bpt id="b98be775-7348-45ca-92b6-cf64fa0e1fff">&lt;strong&gt;</bpt>Action<ept id="b98be775-7348-45ca-92b6-cf64fa0e1fff">&lt;/strong&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="835c9eec-87c0-49c6-8a0c-a0c6a43dc9c1" xml:space="preserve">
+          <source><bpt id="2aa2f0ab-86ac-47d5-940b-b80e825fa058">&lt;strong&gt;</bpt>Data-driven elasticity<ept id="2aa2f0ab-86ac-47d5-940b-b80e825fa058">&lt;/strong&gt;</ept> is at the heart of an elastic scale application.</source>
+          <target state="new"><bpt id="2aa2f0ab-86ac-47d5-940b-b80e825fa058">&lt;strong&gt;</bpt>Data-driven elasticity<ept id="2aa2f0ab-86ac-47d5-940b-b80e825fa058">&lt;/strong&gt;</ept> is at the heart of an elastic scale application.</target>
+        </trans-unit>
+        <trans-unit id="1740f157-1d6e-4124-8268-f8ee1787aac7" xml:space="preserve">
+          <source>Depending on the performance requirements, use telemetry to make data-driven decisions on whether to scale vertically or horizontally.</source>
+          <target state="new">Depending on the performance requirements, use telemetry to make data-driven decisions on whether to scale vertically or horizontally.</target>
+        </trans-unit>
+        <trans-unit id="d5426d69-510d-4281-b28e-9c08c24dfc02" xml:space="preserve">
+          <source>In the context of Azure SQL DB, there are a handful of key sources that can be leveraged as data sources for shard elasticity.</source>
+          <target state="new">In the context of Azure SQL DB, there are a handful of key sources that can be leveraged as data sources for shard elasticity.</target>
+        </trans-unit>
+        <trans-unit id="ec8e62e9-2bf8-41fe-b33b-977b7172ce4d" xml:space="preserve">
+          <source><bpt id="eeabb373-5fb9-4e2b-94d2-27546a162965">&lt;strong&gt;</bpt>Performance telemetry<ept id="eeabb373-5fb9-4e2b-94d2-27546a162965">&lt;/strong&gt;</ept> is exposed in five-minute durations in the <bpt id="faa2e9b6-34cf-4966-b909-a03cd011123f">&lt;strong&gt;</bpt>sys.resource_stats<ept id="faa2e9b6-34cf-4966-b909-a03cd011123f">&lt;/strong&gt;</ept> view </source>
+          <target state="new"><bpt id="eeabb373-5fb9-4e2b-94d2-27546a162965">&lt;strong&gt;</bpt>Performance telemetry<ept id="eeabb373-5fb9-4e2b-94d2-27546a162965">&lt;/strong&gt;</ept> is exposed in five-minute durations in the <bpt id="faa2e9b6-34cf-4966-b909-a03cd011123f">&lt;strong&gt;</bpt>sys.resource_stats<ept id="faa2e9b6-34cf-4966-b909-a03cd011123f">&lt;/strong&gt;</ept> view </target>
+        </trans-unit>
+        <trans-unit id="f738491b-ab57-498e-9023-448ad746255d" xml:space="preserve">
+          <source>Hourly <bpt id="51b648e3-8195-4543-adde-d352e4e5d1d7">&lt;strong&gt;</bpt>database capacity telemetry<ept id="51b648e3-8195-4543-adde-d352e4e5d1d7">&lt;/strong&gt;</ept> is exposed via the <bpt id="bac28dd6-2f2e-4b75-a552-0fa5ab1e228e">&lt;strong&gt;</bpt>sys.resource_usage<ept id="bac28dd6-2f2e-4b75-a552-0fa5ab1e228e">&lt;/strong&gt;</ept> view.</source>
+          <target state="new">Hourly <bpt id="51b648e3-8195-4543-adde-d352e4e5d1d7">&lt;strong&gt;</bpt>database capacity telemetry<ept id="51b648e3-8195-4543-adde-d352e4e5d1d7">&lt;/strong&gt;</ept> is exposed via the <bpt id="bac28dd6-2f2e-4b75-a552-0fa5ab1e228e">&lt;strong&gt;</bpt>sys.resource_usage<ept id="bac28dd6-2f2e-4b75-a552-0fa5ab1e228e">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="a1f3926c-361a-44e6-a25f-6984b2f9af32" xml:space="preserve">
+          <source>One can analyze the performance resources usage by querying the master DB using the following query where ‘Shard_20140623’ is the name of the targeted database.</source>
+          <target state="new">One can analyze the performance resources usage by querying the master DB using the following query where ‘Shard_20140623’ is the name of the targeted database.</target>
+        </trans-unit>
+        <trans-unit id="4dbf1be7-a33b-44ef-82c9-44c9236e782c" xml:space="preserve">
+          <source><bpt id="d592949e-fb64-4981-92e1-f82edb4452eb">&lt;strong&gt;</bpt>Performance telemetry<ept id="d592949e-fb64-4981-92e1-f82edb4452eb">&lt;/strong&gt;</ept> can be summarized over a period of time (seven days in the query below) in order to remove transient behaviors.</source>
+          <target state="new"><bpt id="d592949e-fb64-4981-92e1-f82edb4452eb">&lt;strong&gt;</bpt>Performance telemetry<ept id="d592949e-fb64-4981-92e1-f82edb4452eb">&lt;/strong&gt;</ept> can be summarized over a period of time (seven days in the query below) in order to remove transient behaviors.</target>
+        </trans-unit>
+        <trans-unit id="b5dca8aa-1efa-4776-9bd6-96eb0e0fc10f" xml:space="preserve">
+          <source><bpt id="1c294163-a080-4f72-bdad-8cac47035212">&lt;strong&gt;</bpt>Database capacity<ept id="1c294163-a080-4f72-bdad-8cac47035212">&lt;/strong&gt;</ept> can be measured with a similar query against the <bpt id="4e5a9242-ab73-45a0-a840-fb4812b5df40">&lt;strong&gt;</bpt>sys.resource_usage<ept id="4e5a9242-ab73-45a0-a840-fb4812b5df40">&lt;/strong&gt;</ept> view.</source>
+          <target state="new"><bpt id="1c294163-a080-4f72-bdad-8cac47035212">&lt;strong&gt;</bpt>Database capacity<ept id="1c294163-a080-4f72-bdad-8cac47035212">&lt;/strong&gt;</ept> can be measured with a similar query against the <bpt id="4e5a9242-ab73-45a0-a840-fb4812b5df40">&lt;strong&gt;</bpt>sys.resource_usage<ept id="4e5a9242-ab73-45a0-a840-fb4812b5df40">&lt;/strong&gt;</ept> view.</target>
+        </trans-unit>
+        <trans-unit id="95344423-1584-4091-9d6a-9a1f38aa4a32" xml:space="preserve">
+          <source>The max of the <bpt id="b03b6389-6a6e-40c1-a184-e1326d6a235d">&lt;strong&gt;</bpt>storage_in_megabytes<ept id="b03b6389-6a6e-40c1-a184-e1326d6a235d">&lt;/strong&gt;</ept> column yields the current size of the database.</source>
+          <target state="new">The max of the <bpt id="b03b6389-6a6e-40c1-a184-e1326d6a235d">&lt;strong&gt;</bpt>storage_in_megabytes<ept id="b03b6389-6a6e-40c1-a184-e1326d6a235d">&lt;/strong&gt;</ept> column yields the current size of the database.</target>
+        </trans-unit>
+        <trans-unit id="14a7e1c6-6691-4f8d-9488-d85ed73f2552" xml:space="preserve">
+          <source>Such telemetry is useful for horizontally scaling an application when a particular shard reaches its capacity.</source>
+          <target state="new">Such telemetry is useful for horizontally scaling an application when a particular shard reaches its capacity.</target>
+        </trans-unit>
+        <trans-unit id="99e3fef9-0b45-4eb5-b0d2-b4f655297408" xml:space="preserve">
+          <source>As data is ingested into a particular shard, it is useful to project forward a day and determine if the shard has sufficient capacity to handle the coming workload.</source>
+          <target state="new">As data is ingested into a particular shard, it is useful to project forward a day and determine if the shard has sufficient capacity to handle the coming workload.</target>
+        </trans-unit>
+        <trans-unit id="5704d19e-a241-4c73-82ab-861b1bde363b" xml:space="preserve">
+          <source>While not a true implementation of linear regression, the following query returns the maximum delta in database capacity between two consecutive days.</source>
+          <target state="new">While not a true implementation of linear regression, the following query returns the maximum delta in database capacity between two consecutive days.</target>
+        </trans-unit>
+        <trans-unit id="1f706444-78ee-4cf9-a4fe-2b8d7e1187a0" xml:space="preserve">
+          <source>Such telemetry can then be applied to a rule that would then result in an action (or non-action) being taken.</source>
+          <target state="new">Such telemetry can then be applied to a rule that would then result in an action (or non-action) being taken.</target>
+        </trans-unit>
+        <trans-unit id="750a0592-0b12-4c8d-b3bb-fff4a1da3107" xml:space="preserve">
+          <source>The rule is the decision engine that determines whether or not an action is taken.</source>
+          <target state="new">The rule is the decision engine that determines whether or not an action is taken.</target>
+        </trans-unit>
+        <trans-unit id="15774bb5-a22b-4709-bd38-d4c7da4d5e46" xml:space="preserve">
+          <source>Some rules are very straightforward and some are much more complicated.</source>
+          <target state="new">Some rules are very straightforward and some are much more complicated.</target>
+        </trans-unit>
+        <trans-unit id="a32d6572-5bf0-451b-a187-7d1210d9077b" xml:space="preserve">
+          <source>As shown in the code snippet below, a capacity-focused rule can be configured so that when a shard reaches $SafetyMargin, e.g., 80%, of its maximum capacity, a new shard is provisioned.</source>
+          <target state="new">As shown in the code snippet below, a capacity-focused rule can be configured so that when a shard reaches $SafetyMargin, e.g., 80%, of its maximum capacity, a new shard is provisioned.</target>
+        </trans-unit>
+        <trans-unit id="e549c411-0bb5-468b-8551-2afdb07c9f21" xml:space="preserve">
+          <source>Given the data sources above, a number of rules can be formulated in order to accomplish numerous shard elasticity scenarios.</source>
+          <target state="new">Given the data sources above, a number of rules can be formulated in order to accomplish numerous shard elasticity scenarios.</target>
+        </trans-unit>
+        <trans-unit id="d42c1c1d-bff4-4b1b-832f-a7b3df7ae255" xml:space="preserve">
+          <source>Based on the outcome of the rule, the action (or non-action) is the result.</source>
+          <target state="new">Based on the outcome of the rule, the action (or non-action) is the result.</target>
+        </trans-unit>
+        <trans-unit id="42efda4b-5cd9-4ded-b338-60f0537189ee" xml:space="preserve">
+          <source>The two most common actions are:</source>
+          <target state="new">The two most common actions are:</target>
+        </trans-unit>
+        <trans-unit id="6bb7bab0-d076-48ad-9869-67b26c5d1100" xml:space="preserve">
+          <source>The increase or decrease of the service tier or performance level of the shard </source>
+          <target state="new">The increase or decrease of the service tier or performance level of the shard </target>
+        </trans-unit>
+        <trans-unit id="693d7da6-dd15-4b32-ac43-58f282a6d683" xml:space="preserve">
+          <source>The addition or removal of a shard from a shard set.</source>
+          <target state="new">The addition or removal of a shard from a shard set.</target>
+        </trans-unit>
+        <trans-unit id="8f584e57-9bf0-490d-af17-e5483b6b8898" xml:space="preserve">
+          <source>Note that in both horizontal and vertical scaling solutions, the result of an action is not immediate.</source>
+          <target state="new">Note that in both horizontal and vertical scaling solutions, the result of an action is not immediate.</target>
+        </trans-unit>
+        <trans-unit id="dba03efd-4b84-454e-b520-a89216fbb758" xml:space="preserve">
+          <source>When scaling vertically, for example, the issuing of the ALTER DATABASE command to increase the service tier of a Basic database to a Premium database takes a variable amount of time.</source>
+          <target state="new">When scaling vertically, for example, the issuing of the ALTER DATABASE command to increase the service tier of a Basic database to a Premium database takes a variable amount of time.</target>
+        </trans-unit>
+        <trans-unit id="c3630262-99e3-4c62-888d-cbb1c4abbd9e" xml:space="preserve">
+          <source>The duration is largely dependent on the size of the database (for more information please see <bpt id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;linkText&gt;</bpt>Change Service Tiers and Performance Levels<ept id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;/linkText&gt;</ept><bpt id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;title&gt;</bpt><ept id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;/title&gt;</ept>.</source>
+          <target state="new">The duration is largely dependent on the size of the database (for more information please see <bpt id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;linkText&gt;</bpt>Change Service Tiers and Performance Levels<ept id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;/linkText&gt;</ept><bpt id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;title&gt;</bpt><ept id="169f40a8-17c6-4266-a828-2ede7168f295">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5242329d-6cad-4ada-bb13-fc3dd36b5529" xml:space="preserve">
+          <source>Similarly, the allocation or provisioning of a new shard is not instantaneous either.</source>
+          <target state="new">Similarly, the allocation or provisioning of a new shard is not instantaneous either.</target>
+        </trans-unit>
+        <trans-unit id="b4527164-1927-4323-93f3-71142c0cabc8" xml:space="preserve">
+          <source>Thus, for both vertical and horizontal scaling, applications should take into account the non-zero time for altering or provisioning a new database.</source>
+          <target state="new">Thus, for both vertical and horizontal scaling, applications should take into account the non-zero time for altering or provisioning a new database.</target>
+        </trans-unit>
+        <trans-unit id="dd4a7649-47a3-4363-89d0-5c09bc1179f4" xml:space="preserve">
+          <source>The example depicted in the figure below highlights two elastic scale scenarios: </source>
+          <target state="new">The example depicted in the figure below highlights two elastic scale scenarios: </target>
+        </trans-unit>
+        <trans-unit id="0074cb62-29b4-4b7c-8d78-95695d3d7462" xml:space="preserve">
+          <source>horizontal scaling of a shard map </source>
+          <target state="new">horizontal scaling of a shard map </target>
+        </trans-unit>
+        <trans-unit id="d9d1264c-35c2-4e18-a2aa-0432e4d53958" xml:space="preserve">
+          <source>vertical scaling of an individual shard.</source>
+          <target state="new">vertical scaling of an individual shard.</target>
+        </trans-unit>
+        <trans-unit id="811eb165-9cfc-4bc7-a73c-34c037de66a4" xml:space="preserve">
+          <source><bpt id="700da2fa-5eaa-41fd-94a3-d905d68b877a">&lt;linkText&gt;</bpt>Operationl Data Ingestion<ept id="700da2fa-5eaa-41fd-94a3-d905d68b877a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="700da2fa-5eaa-41fd-94a3-d905d68b877a">&lt;linkText&gt;</bpt>Operationl Data Ingestion<ept id="700da2fa-5eaa-41fd-94a3-d905d68b877a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5027c09-128a-4833-8109-f207cba8af50" xml:space="preserve">
+          <source>To horizontally scale, a rule (based on date or database size) is used to provision a new shard and register it with the shard map, thus growing the database tier horizontally.</source>
+          <target state="new">To horizontally scale, a rule (based on date or database size) is used to provision a new shard and register it with the shard map, thus growing the database tier horizontally.</target>
+        </trans-unit>
+        <trans-unit id="cb6689db-6566-4261-a4bf-73f84c23d50b" xml:space="preserve">
+          <source>Secondly, to scale vertically, a second rule is implemented in which any shard that is older than one day is downgraded from Premium Edition to a Standard or Basic Edition.</source>
+          <target state="new">Secondly, to scale vertically, a second rule is implemented in which any shard that is older than one day is downgraded from Premium Edition to a Standard or Basic Edition.</target>
+        </trans-unit>
+        <trans-unit id="93f68e2a-df32-48d8-abad-93e6ac24a108" xml:space="preserve">
+          <source>Consider the telemetry scenario again: the application shards by date.</source>
+          <target state="new">Consider the telemetry scenario again: the application shards by date.</target>
+        </trans-unit>
+        <trans-unit id="32660b34-0c6b-458b-8835-7a27dda5cafb" xml:space="preserve">
+          <source>It collects telemetry data continuously, requiring a high performance edition at loading time, but lower performance as the data ages.</source>
+          <target state="new">It collects telemetry data continuously, requiring a high performance edition at loading time, but lower performance as the data ages.</target>
+        </trans-unit>
+        <trans-unit id="f04367bc-ce22-4229-b0de-f237eba0bb38" xml:space="preserve">
+          <source>The current day’s data [Tnow] is written to a high performance database (Premium).</source>
+          <target state="new">The current day’s data [Tnow] is written to a high performance database (Premium).</target>
+        </trans-unit>
+        <trans-unit id="e54e409c-abcc-487a-a278-cc7e3a72d925" xml:space="preserve">
+          <source>Once the clock strikes midnight, the previous day’s shard (now [T-1]) is no longer be used for ingestion.</source>
+          <target state="new">Once the clock strikes midnight, the previous day’s shard (now [T-1]) is no longer be used for ingestion.</target>
+        </trans-unit>
+        <trans-unit id="15a77dbd-9601-47a7-beb3-572c5374de85" xml:space="preserve">
+          <source>The current data is ingested by the current [Tnow].</source>
+          <target state="new">The current data is ingested by the current [Tnow].</target>
+        </trans-unit>
+        <trans-unit id="23b79df4-b3bf-436f-a259-8338b184973e" xml:space="preserve">
+          <source>In advance of the next day, a new shard must be provisioned and registered with the shard map ([T+1]).</source>
+          <target state="new">In advance of the next day, a new shard must be provisioned and registered with the shard map ([T+1]).</target>
+        </trans-unit>
+        <trans-unit id="bd2216df-9e49-40c7-a972-dd8d43026332" xml:space="preserve">
+          <source>This can be done by either provisioning a new shard in advance of every new day or by provisioning a new shard when the current shard ([Tnow]) nears its maximum capacity.</source>
+          <target state="new">This can be done by either provisioning a new shard in advance of every new day or by provisioning a new shard when the current shard ([Tnow]) nears its maximum capacity.</target>
+        </trans-unit>
+        <trans-unit id="663286ff-dde5-43db-a8a3-87af2108d0fa" xml:space="preserve">
+          <source>Using either of these methods preserves the data locality for all telemetry written for a particular day.</source>
+          <target state="new">Using either of these methods preserves the data locality for all telemetry written for a particular day.</target>
+        </trans-unit>
+        <trans-unit id="5f3f67ff-4dab-4bb0-ae1f-ec162f8745d9" xml:space="preserve">
+          <source>Per-hour sharding could also be applied for finer granularity.</source>
+          <target state="new">Per-hour sharding could also be applied for finer granularity.</target>
+        </trans-unit>
+        <trans-unit id="b965465a-45c0-4d37-8f68-8c7fce0d243a" xml:space="preserve">
+          <source>Once a new shard is provisioned, and because [T-1] is used for querying and reporting, it is desirable to reduce the performance level of the database reduce costs.</source>
+          <target state="new">Once a new shard is provisioned, and because [T-1] is used for querying and reporting, it is desirable to reduce the performance level of the database reduce costs.</target>
+        </trans-unit>
+        <trans-unit id="8ec67897-18ce-4825-aa80-e4b4c93686e5" xml:space="preserve">
+          <source>As the content in DBs age, the performance tier can be further reduced and/or the content of the DBs can be archived to Azure Storage or deleted depending on the application.</source>
+          <target state="new">As the content in DBs age, the performance tier can be further reduced and/or the content of the DBs can be archived to Azure Storage or deleted depending on the application.</target>
+        </trans-unit>
+        <trans-unit id="1e95799e-dbf2-43c1-9f96-ffa0adaa873b" xml:space="preserve">
+          <source>To facilitate the actual implementation of both horizontal and vertical scaling scenarios, a number of <bpt id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;linkText&gt;</bpt>Shard elasticity example scripts<ept id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;/linkText&gt;</ept><bpt id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;title&gt;</bpt><ept id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;/title&gt;</ept> have been created and posted on Script Center.</source>
+          <target state="new">To facilitate the actual implementation of both horizontal and vertical scaling scenarios, a number of <bpt id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;linkText&gt;</bpt>Shard elasticity example scripts<ept id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;/linkText&gt;</ept><bpt id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;title&gt;</bpt><ept id="91d5b801-5017-4021-afd8-aae38c9d425d">&lt;/title&gt;</ept> have been created and posted on Script Center.</target>
+        </trans-unit>
+        <trans-unit id="50adbcc8-a708-4ad0-a6e6-a9f288118d69" xml:space="preserve">
+          <source>Written to run in the Azure Automation service, these PowerShell runbooks provide a number of methods that interact with the elastic database client library and Azure SQL Database.</source>
+          <target state="new">Written to run in the Azure Automation service, these PowerShell runbooks provide a number of methods that interact with the elastic database client library and Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="722dec9a-8c9f-4e84-846a-e6682012c0ad" xml:space="preserve">
+          <source>Building upon, or extracting from these code samples, one can craft the necessary scripts in order to automate the horizontal, vertical or both scaling scenarios for their application.</source>
+          <target state="new">Building upon, or extracting from these code samples, one can craft the necessary scripts in order to automate the horizontal, vertical or both scaling scenarios for their application.</target>
+        </trans-unit>
+        <trans-unit id="2b587f17-4a6b-40f7-b5ab-a853189d3244" xml:space="preserve">
+          <source><bpt id="096fc52a-2c3d-4708-b896-0f99437d28bb">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="096fc52a-2c3d-4708-b896-0f99437d28bb">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="096fc52a-2c3d-4708-b896-0f99437d28bb">&lt;token href="../../includes/elastic-scale-include.md"&gt;</bpt><ept id="096fc52a-2c3d-4708-b896-0f99437d28bb">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10f6f68c-4c41-4b32-a699-0e089623012a" xml:space="preserve">
+          <source>./media/sql-database-elastic-scale-elasticity/data-ingestion.png</source>
+          <target state="new">./media/sql-database-elastic-scale-elasticity/data-ingestion.png</target>
+        </trans-unit>
+        <trans-unit id="1fb95636-48f5-4cf2-ac23-313c63993a76" xml:space="preserve">
+          <source>#telemetry</source>
+          <target state="new">#telemetry</target>
+        </trans-unit>
+        <trans-unit id="864e2979-b9d5-4e3a-81e4-cd771f678f78" xml:space="preserve">
+          <source>#rule</source>
+          <target state="new">#rule</target>
+        </trans-unit>
+        <trans-unit id="de6b3387-c97d-4ffa-95c8-e92fbfd8de97" xml:space="preserve">
+          <source>#action</source>
+          <target state="new">#action</target>
+        </trans-unit>
+      </group>
+      <group id="0a793b0b-b074-487b-a0ab-b10abfb480ef" />
+    </body>
+  </file>
+</xliff>

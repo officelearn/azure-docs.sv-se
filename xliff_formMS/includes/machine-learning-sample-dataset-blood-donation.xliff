@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="daeef193-2577-4219-a698-f9b9fd031afd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="daeef193-2577-4219-a698-f9b9fd031afd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="32de3ce1-9af8-49e3-b9d4-9fa1a9e0b453">
+        <trans-unit id="dea73b04-a7df-41ad-936e-5ab8d4c51cc7" xml:space="preserve">
+          <source>A subset of data from the blood donor database of the Blood Transfusion Service Center of Hsin-Chu City, Taiwan.&lt;p&gt; &lt;/p&gt;Donor data includes the months since last donation), and frequency, or the total number of donations, time since last donation, and amount of blood donated.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; The goal is to predict via classification whether the donor donated blood in March 2007, where 1 indicates a donor during the target period, and 0 a non-donor.</source>
+          <target state="new">A subset of data from the blood donor database of the Blood Transfusion Service Center of Hsin-Chu City, Taiwan.&lt;p&gt; &lt;/p&gt;Donor data includes the months since last donation), and frequency, or the total number of donations, time since last donation, and amount of blood donated.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; The goal is to predict via classification whether the donor donated blood in March 2007, where 1 indicates a donor during the target period, and 0 a non-donor.</target>
+        </trans-unit>
+        <trans-unit id="905d3248-f96d-49bb-828d-3b8d887706ff" xml:space="preserve">
+          <source>&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Yeh, I.C., (2008).</source>
+          <target state="new">&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Yeh, I.C., (2008).</target>
+        </trans-unit>
+        <trans-unit id="63e19c3d-3f8b-47c4-b943-ec3f74a8f49d" xml:space="preserve">
+          <source>UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</source>
+          <target state="new">UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ce5ba253-4a75-426e-b78a-8a896dc234c7" xml:space="preserve">
+          <source>Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, &lt;a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018"&gt;http://dx.doi.org/10.1016/j.eswa.2008.07.018&lt;/a&gt;</source>
+          <target state="new">Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, &lt;a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018"&gt;http://dx.doi.org/10.1016/j.eswa.2008.07.018&lt;/a&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

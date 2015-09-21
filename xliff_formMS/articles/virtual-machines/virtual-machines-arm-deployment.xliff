@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="afc43e58-6e22-44ea-906e-01a063f2b38f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="afc43e58-6e22-44ea-906e-01a063f2b38f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8634bb69-0fb6-44b3-bb0b-7a760fa95787">
+        <trans-unit id="cbacaaa4-c154-4d00-9c6f-799ffe6b9d06" xml:space="preserve">
+          <source>Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries</source>
+          <target state="new">Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries</target>
+        </trans-unit>
+        <trans-unit id="7e9b3f8d-63ff-4422-ba2e-657ecb8c6dfe" xml:space="preserve">
+          <source>Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure</source>
+          <target state="new">Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="61278c83-aeea-4f77-a561-9752118a7123" xml:space="preserve">
+          <source>This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure.</source>
+          <target state="new">This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="dc8672a6-2644-4060-83f8-a0482af01c8f" xml:space="preserve">
+          <source>It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.</source>
+          <target state="new">It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="54082e80-3af6-49a6-b221-05f992d08582" xml:space="preserve">
+          <source><bpt id="c4704bad-a238-4ea2-a760-41aac4e5eb9a">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="c4704bad-a238-4ea2-a760-41aac4e5eb9a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c4704bad-a238-4ea2-a760-41aac4e5eb9a">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="c4704bad-a238-4ea2-a760-41aac4e5eb9a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea515145-3262-49f1-884e-1461a77b54e0" xml:space="preserve">
+          <source>To complete this tutorial you also need:</source>
+          <target state="new">To complete this tutorial you also need:</target>
+        </trans-unit>
+        <trans-unit id="249528b1-9c66-4881-b69c-62332a72d4d5" xml:space="preserve">
+          <source><bpt id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;linkText&gt;</bpt>Visual Studio<ept id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;/linkText&gt;</ept><bpt id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;title&gt;</bpt><ept id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;linkText&gt;</bpt>Visual Studio<ept id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;/linkText&gt;</ept><bpt id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;title&gt;</bpt><ept id="9f04f19e-f3be-48b5-9a53-b25abd813a53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e7f2d05-c221-4cf0-adcd-152390831a6c" xml:space="preserve">
+          <source><bpt id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;linkText&gt;</bpt>Azure storage account<ept id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;/linkText&gt;</ept><bpt id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;title&gt;</bpt><ept id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;linkText&gt;</bpt>Azure storage account<ept id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;/linkText&gt;</ept><bpt id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;title&gt;</bpt><ept id="2bf8b67f-d236-4762-a431-12bb5f547e49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12cacd29-22f7-4dd6-8de2-4d0373bef71d" xml:space="preserve">
+          <source><bpt id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;linkText&gt;</bpt>Windows Management Framework 3.0<ept id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;/linkText&gt;</ept><bpt id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;title&gt;</bpt><ept id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;/title&gt;</ept> or <bpt id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;linkText&gt;</bpt>Windows Management Framework 4.0<ept id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;/linkText&gt;</ept><bpt id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;title&gt;</bpt><ept id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;linkText&gt;</bpt>Windows Management Framework 3.0<ept id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;/linkText&gt;</ept><bpt id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;title&gt;</bpt><ept id="86a848de-1a02-4156-b74d-cb99973046f0">&lt;/title&gt;</ept> or <bpt id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;linkText&gt;</bpt>Windows Management Framework 4.0<ept id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;/linkText&gt;</ept><bpt id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;title&gt;</bpt><ept id="d98d58ea-f36c-405f-9b01-96b1340a1285">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f4387b7-a6c8-4cc3-a50c-4d9eb7854fce" xml:space="preserve">
+          <source><bpt id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;/linkText&gt;</ept><bpt id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;title&gt;</bpt><ept id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;linkText&gt;</bpt>Azure PowerShell<ept id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;/linkText&gt;</ept><bpt id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;title&gt;</bpt><ept id="03efb59c-ef7a-491d-a3a4-afaea4952d50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b46cee4-c70d-413e-be69-35789576bd18" xml:space="preserve">
+          <source>It takes about 30 minutes to do these steps.</source>
+          <target state="new">It takes about 30 minutes to do these steps.</target>
+        </trans-unit>
+        <trans-unit id="2387b991-38fa-492b-8cf4-bf65387a3622" xml:space="preserve">
+          <source>To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory.</source>
+          <target state="new">To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory.</target>
+        </trans-unit>
+        <trans-unit id="0ec80886-0e05-4669-9aa7-35ae0a2f7d97" xml:space="preserve">
+          <source>Do the following to add an application:</source>
+          <target state="new">Do the following to add an application:</target>
+        </trans-unit>
+        <trans-unit id="00427a13-54d6-4937-99bd-c43b8bc2a0d8" xml:space="preserve">
+          <source>Open an Azure PowerShell prompt, and then run this command:</source>
+          <target state="new">Open an Azure PowerShell prompt, and then run this command:</target>
+        </trans-unit>
+        <trans-unit id="eb41330d-5e16-408e-b83b-76c42842f01c" xml:space="preserve">
+          <source>Set the Azure account that you want to use for this tutorial.</source>
+          <target state="new">Set the Azure account that you want to use for this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="b75ca174-006d-4e66-a69f-a36621076d3c" xml:space="preserve">
+          <source>Run this command and enter the credentials for your subscription when prompted:</source>
+          <target state="new">Run this command and enter the credentials for your subscription when prompted:</target>
+        </trans-unit>
+        <trans-unit id="055d314f-fc1b-4402-8481-22cb1e060d6b" xml:space="preserve">
+          <source>Replace {password} in the following command with the one that you want to use and then run it to create the application:</source>
+          <target state="new">Replace {password} in the following command with the one that you want to use and then run it to create the application:</target>
+        </trans-unit>
+        <trans-unit id="f087f375-d26a-4b5c-8b1d-d1a13805bd8d" xml:space="preserve">
+          <source>Record the ApplicationId value in the response from the previous step.</source>
+          <target state="new">Record the ApplicationId value in the response from the previous step.</target>
+        </trans-unit>
+        <trans-unit id="789af48b-3016-4798-9f7b-44c66c965d36" xml:space="preserve">
+          <source>You will need it later in this tutorial:</source>
+          <target state="new">You will need it later in this tutorial:</target>
+        </trans-unit>
+        <trans-unit id="ac7a3657-21c9-475b-84e6-85ac5d00d9c3" xml:space="preserve">
+          <source><bpt id="3715c3cf-503e-4904-8f54-b4470aea37b5">&lt;linkText&gt;</bpt>Create an AD application<ept id="3715c3cf-503e-4904-8f54-b4470aea37b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3715c3cf-503e-4904-8f54-b4470aea37b5">&lt;linkText&gt;</bpt>Create an AD application<ept id="3715c3cf-503e-4904-8f54-b4470aea37b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1b65ba2-d1f2-4334-bdc5-431b75d91d04" xml:space="preserve">
+          <source>You can also find the application identifier in the client id field of the application in the Management Portal.</source>
+          <target state="new">You can also find the application identifier in the client id field of the application in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8a26dbd3-2590-4c7e-ac24-ca0fd940ee8b" xml:space="preserve">
+          <source>Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:</source>
+          <target state="new">Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:</target>
+        </trans-unit>
+        <trans-unit id="e8552b62-2325-430c-99cd-d01943255819" xml:space="preserve">
+          <source>Set the permission to use the application:</source>
+          <target state="new">Set the permission to use the application:</target>
+        </trans-unit>
+        <trans-unit id="103b4d12-e0d6-4ae8-8d32-7dcce9804e44" xml:space="preserve">
+          <source>NuGet packages are the easiest way to install the libraries that you need to finish this tutorial.</source>
+          <target state="new">NuGet packages are the easiest way to install the libraries that you need to finish this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="7abde66e-51db-4d1c-b4da-326d1d2b90b7" xml:space="preserve">
+          <source>You must install the Azure Resource Management Library, the Azure Active Directory Authentication Library, and the Computer Resource Provider Library.</source>
+          <target state="new">You must install the Azure Resource Management Library, the Azure Active Directory Authentication Library, and the Computer Resource Provider Library.</target>
+        </trans-unit>
+        <trans-unit id="f18a4712-a4ff-416a-9570-34f6d2728d8e" xml:space="preserve">
+          <source>To get these libraries in Visual Studio, do the following:</source>
+          <target state="new">To get these libraries in Visual Studio, do the following:</target>
+        </trans-unit>
+        <trans-unit id="d89b331b-8281-42d4-a1f0-4a3e9fd121f7" xml:space="preserve">
+          <source>Click <bpt id="3ccd5ab0-bd0c-461a-9db1-d817fb245371">&lt;strong&gt;</bpt>File<ept id="3ccd5ab0-bd0c-461a-9db1-d817fb245371">&lt;/strong&gt;</ept> &gt; <bpt id="a153b90e-a502-4bb3-acb2-cdb02df8c39a">&lt;strong&gt;</bpt>New<ept id="a153b90e-a502-4bb3-acb2-cdb02df8c39a">&lt;/strong&gt;</ept> &gt; <bpt id="0a42abc0-f23b-41ea-8579-3c98c302e4f5">&lt;strong&gt;</bpt>Project<ept id="0a42abc0-f23b-41ea-8579-3c98c302e4f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3ccd5ab0-bd0c-461a-9db1-d817fb245371">&lt;strong&gt;</bpt>File<ept id="3ccd5ab0-bd0c-461a-9db1-d817fb245371">&lt;/strong&gt;</ept> &gt; <bpt id="a153b90e-a502-4bb3-acb2-cdb02df8c39a">&lt;strong&gt;</bpt>New<ept id="a153b90e-a502-4bb3-acb2-cdb02df8c39a">&lt;/strong&gt;</ept> &gt; <bpt id="0a42abc0-f23b-41ea-8579-3c98c302e4f5">&lt;strong&gt;</bpt>Project<ept id="0a42abc0-f23b-41ea-8579-3c98c302e4f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87e4b697-3645-4eb7-abe0-10820f5b51ff" xml:space="preserve">
+          <source>In <bpt id="d0ca3b35-6938-4159-a837-3a3e42a97199">&lt;strong&gt;</bpt>Templates<ept id="d0ca3b35-6938-4159-a837-3a3e42a97199">&lt;/strong&gt;</ept> &gt; <bpt id="c2848cd2-81a5-41e0-b5fa-c19b67cb9d20">&lt;strong&gt;</bpt>Visual C#<ept id="c2848cd2-81a5-41e0-b5fa-c19b67cb9d20">&lt;/strong&gt;</ept>, select <bpt id="e9f43056-36d5-4983-9a47-975607a27576">&lt;strong&gt;</bpt>Console Application<ept id="e9f43056-36d5-4983-9a47-975607a27576">&lt;/strong&gt;</ept>, enter the name and location of the project, and then click <bpt id="7c627b31-d63a-4d10-957d-86bdf7d483ed">&lt;strong&gt;</bpt>OK<ept id="7c627b31-d63a-4d10-957d-86bdf7d483ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="d0ca3b35-6938-4159-a837-3a3e42a97199">&lt;strong&gt;</bpt>Templates<ept id="d0ca3b35-6938-4159-a837-3a3e42a97199">&lt;/strong&gt;</ept> &gt; <bpt id="c2848cd2-81a5-41e0-b5fa-c19b67cb9d20">&lt;strong&gt;</bpt>Visual C#<ept id="c2848cd2-81a5-41e0-b5fa-c19b67cb9d20">&lt;/strong&gt;</ept>, select <bpt id="e9f43056-36d5-4983-9a47-975607a27576">&lt;strong&gt;</bpt>Console Application<ept id="e9f43056-36d5-4983-9a47-975607a27576">&lt;/strong&gt;</ept>, enter the name and location of the project, and then click <bpt id="7c627b31-d63a-4d10-957d-86bdf7d483ed">&lt;strong&gt;</bpt>OK<ept id="7c627b31-d63a-4d10-957d-86bdf7d483ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aca06924-128e-47d3-ac8c-5601eae055a1" xml:space="preserve">
+          <source>Right-click the project name in the Solution Explorer, and then click <bpt id="1df8da19-83b6-417b-b648-eb10bd9ae777">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="1df8da19-83b6-417b-b648-eb10bd9ae777">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the project name in the Solution Explorer, and then click <bpt id="1df8da19-83b6-417b-b648-eb10bd9ae777">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="1df8da19-83b6-417b-b648-eb10bd9ae777">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e05f5b0e-bbd4-4967-949b-22020f42a6e6" xml:space="preserve">
+          <source>Type <bpt id="623fbfc7-d444-4f09-8e10-a4f1551f97ba">&lt;em&gt;</bpt>Active Directory<ept id="623fbfc7-d444-4f09-8e10-a4f1551f97ba">&lt;/em&gt;</ept> in the search box, click <bpt id="dadfb51c-3859-4925-939b-5432e82b5cef">&lt;strong&gt;</bpt>Install<ept id="dadfb51c-3859-4925-939b-5432e82b5cef">&lt;/strong&gt;</ept> for the Active Directory Authentication Library package, and then follow the instructions to install the package.</source>
+          <target state="new">Type <bpt id="623fbfc7-d444-4f09-8e10-a4f1551f97ba">&lt;em&gt;</bpt>Active Directory<ept id="623fbfc7-d444-4f09-8e10-a4f1551f97ba">&lt;/em&gt;</ept> in the search box, click <bpt id="dadfb51c-3859-4925-939b-5432e82b5cef">&lt;strong&gt;</bpt>Install<ept id="dadfb51c-3859-4925-939b-5432e82b5cef">&lt;/strong&gt;</ept> for the Active Directory Authentication Library package, and then follow the instructions to install the package.</target>
+        </trans-unit>
+        <trans-unit id="c4ac081f-0b1a-4539-ab29-66a7330a8e4f" xml:space="preserve">
+          <source>At the top of the page, select <bpt id="6736bf49-e078-4aac-a5e8-908b6603f0aa">&lt;strong&gt;</bpt>Include Prerelease<ept id="6736bf49-e078-4aac-a5e8-908b6603f0aa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the top of the page, select <bpt id="6736bf49-e078-4aac-a5e8-908b6603f0aa">&lt;strong&gt;</bpt>Include Prerelease<ept id="6736bf49-e078-4aac-a5e8-908b6603f0aa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c742cf7-e818-42d8-8a3f-e9cb62259e8e" xml:space="preserve">
+          <source>Type <bpt id="57c2e659-d9a5-48ed-9cfe-bcfc4be3c889">&lt;em&gt;</bpt>Azure Compute<ept id="57c2e659-d9a5-48ed-9cfe-bcfc4be3c889">&lt;/em&gt;</ept> in the search box, click <bpt id="aba651b8-532e-4cf2-9d72-f7df29c62f7f">&lt;strong&gt;</bpt>Install<ept id="aba651b8-532e-4cf2-9d72-f7df29c62f7f">&lt;/strong&gt;</ept> for the Compute .NET Libraries, and then follow the instructions to install the package.</source>
+          <target state="new">Type <bpt id="57c2e659-d9a5-48ed-9cfe-bcfc4be3c889">&lt;em&gt;</bpt>Azure Compute<ept id="57c2e659-d9a5-48ed-9cfe-bcfc4be3c889">&lt;/em&gt;</ept> in the search box, click <bpt id="aba651b8-532e-4cf2-9d72-f7df29c62f7f">&lt;strong&gt;</bpt>Install<ept id="aba651b8-532e-4cf2-9d72-f7df29c62f7f">&lt;/strong&gt;</ept> for the Compute .NET Libraries, and then follow the instructions to install the package.</target>
+        </trans-unit>
+        <trans-unit id="fc3707e6-f013-4301-b6e5-14f66ac8d9ff" xml:space="preserve">
+          <source>Type <bpt id="ad19a1aa-d60b-469b-9b46-e9f69036aac4">&lt;em&gt;</bpt>Azure Network<ept id="ad19a1aa-d60b-469b-9b46-e9f69036aac4">&lt;/em&gt;</ept> in the search box, click <bpt id="9c58cafe-8508-45b5-9ca9-35976bea1140">&lt;strong&gt;</bpt>Install<ept id="9c58cafe-8508-45b5-9ca9-35976bea1140">&lt;/strong&gt;</ept> for the Network .NET Libraries, and then follow the instructions to install the package.</source>
+          <target state="new">Type <bpt id="ad19a1aa-d60b-469b-9b46-e9f69036aac4">&lt;em&gt;</bpt>Azure Network<ept id="ad19a1aa-d60b-469b-9b46-e9f69036aac4">&lt;/em&gt;</ept> in the search box, click <bpt id="9c58cafe-8508-45b5-9ca9-35976bea1140">&lt;strong&gt;</bpt>Install<ept id="9c58cafe-8508-45b5-9ca9-35976bea1140">&lt;/strong&gt;</ept> for the Network .NET Libraries, and then follow the instructions to install the package.</target>
+        </trans-unit>
+        <trans-unit id="16ea9f54-3834-4703-a057-e385859d5080" xml:space="preserve">
+          <source>Type <bpt id="a3cf82f5-8cb2-44fb-ab04-8e5385fe24e2">&lt;em&gt;</bpt>Azure Storage<ept id="a3cf82f5-8cb2-44fb-ab04-8e5385fe24e2">&lt;/em&gt;</ept> in the search box, click <bpt id="793511a7-718f-4ffd-907f-ee5001c36669">&lt;strong&gt;</bpt>Install<ept id="793511a7-718f-4ffd-907f-ee5001c36669">&lt;/strong&gt;</ept> for the Network .NET Libraries, and then follow the instructions to install the package.</source>
+          <target state="new">Type <bpt id="a3cf82f5-8cb2-44fb-ab04-8e5385fe24e2">&lt;em&gt;</bpt>Azure Storage<ept id="a3cf82f5-8cb2-44fb-ab04-8e5385fe24e2">&lt;/em&gt;</ept> in the search box, click <bpt id="793511a7-718f-4ffd-907f-ee5001c36669">&lt;strong&gt;</bpt>Install<ept id="793511a7-718f-4ffd-907f-ee5001c36669">&lt;/strong&gt;</ept> for the Network .NET Libraries, and then follow the instructions to install the package.</target>
+        </trans-unit>
+        <trans-unit id="fcb36984-24c0-4b55-bde2-8847b2a50dfa" xml:space="preserve">
+          <source>Type <bpt id="12ed8d4d-5137-4ddb-93fc-5c0dbf634a63">&lt;em&gt;</bpt>Azure Resource Management<ept id="12ed8d4d-5137-4ddb-93fc-5c0dbf634a63">&lt;/em&gt;</ept> in the search box, click <bpt id="600d2348-be7a-4085-8785-94694905e99d">&lt;strong&gt;</bpt>Install<ept id="600d2348-be7a-4085-8785-94694905e99d">&lt;/strong&gt;</ept> for the Resource Management Libraries.</source>
+          <target state="new">Type <bpt id="12ed8d4d-5137-4ddb-93fc-5c0dbf634a63">&lt;em&gt;</bpt>Azure Resource Management<ept id="12ed8d4d-5137-4ddb-93fc-5c0dbf634a63">&lt;/em&gt;</ept> in the search box, click <bpt id="600d2348-be7a-4085-8785-94694905e99d">&lt;strong&gt;</bpt>Install<ept id="600d2348-be7a-4085-8785-94694905e99d">&lt;/strong&gt;</ept> for the Resource Management Libraries.</target>
+        </trans-unit>
+        <trans-unit id="09165a3e-bb25-4141-afc2-156d2295d50f" xml:space="preserve">
+          <source>You are now ready to start using the libraries to create your application.</source>
+          <target state="new">You are now ready to start using the libraries to create your application.</target>
+        </trans-unit>
+        <trans-unit id="d3f8be59-b603-480d-ba15-e42b86698221" xml:space="preserve">
+          <source>Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager.</source>
+          <target state="new">Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="1f619b6d-e28f-41ce-9041-d257e0d0e161" xml:space="preserve">
+          <source>Do the following:</source>
+          <target state="new">Do the following:</target>
+        </trans-unit>
+        <trans-unit id="6c314d8a-b526-4a75-bb27-8fad45a18a2d" xml:space="preserve">
+          <source>Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:</source>
+          <target state="new">Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="67852301-ae5c-45c4-8119-f52cca046c22" xml:space="preserve">
+          <source>Add the following method to the Program class to get the token that is needed to create the credentials:</source>
+          <target state="new">Add the following method to the Program class to get the token that is needed to create the credentials:</target>
+        </trans-unit>
+        <trans-unit id="c6d0d42e-b894-4f1a-b1ea-1352ae6d5e30" xml:space="preserve">
+          <source>Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription.</source>
+          <target state="new">Replace {application-id} with the application identifier that you recorded earlier, {password} with the password that you chose for the AD application, and {tenant-id} with the tenant identifier for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="a12ebfbb-cc5a-40ee-a829-1c3e16332495" xml:space="preserve">
+          <source>You can find the tenant id by running Get-AzureSubscription.</source>
+          <target state="new">You can find the tenant id by running Get-AzureSubscription.</target>
+        </trans-unit>
+        <trans-unit id="21851478-9a9c-4cf5-9216-ad8fb36507fe" xml:space="preserve">
+          <source>Add the following code to the Main method in the Program.cs file to create the credentials:</source>
+          <target state="new">Add the following code to the Main method in the Program.cs file to create the credentials:</target>
+        </trans-unit>
+        <trans-unit id="df3a902d-4333-4c91-9931-c225d59c82f4" xml:space="preserve">
+          <source>Replace {subscription-id} with your subscription identifier.</source>
+          <target state="new">Replace {subscription-id} with your subscription identifier.</target>
+        </trans-unit>
+        <trans-unit id="922436c3-ee0d-4e86-837a-e480e05ea7ee" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="e6992003-508d-43e7-a952-c01d58b5af1a" xml:space="preserve">
+          <source>Resources are always deployed to a resource group.</source>
+          <target state="new">Resources are always deployed to a resource group.</target>
+        </trans-unit>
+        <trans-unit id="9d5bc111-b4f9-4173-83f8-9cf1f57db862" xml:space="preserve">
+          <source>You use the <bpt id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;linkText&gt;</bpt>ResourceGroup<ept id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;/linkText&gt;</ept><bpt id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;title&gt;</bpt><ept id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;/title&gt;</ept> and the <bpt id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;linkText&gt;</bpt>ResourceManagementClient<ept id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;/linkText&gt;</ept><bpt id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;title&gt;</bpt><ept id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;/title&gt;</ept> classes to create the resource group that the resources are deployed to.</source>
+          <target state="new">You use the <bpt id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;linkText&gt;</bpt>ResourceGroup<ept id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;/linkText&gt;</ept><bpt id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;title&gt;</bpt><ept id="68c9b886-ccc0-44cd-a414-f64ca9e461d3">&lt;/title&gt;</ept> and the <bpt id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;linkText&gt;</bpt>ResourceManagementClient<ept id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;/linkText&gt;</ept><bpt id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;title&gt;</bpt><ept id="1286c2c4-16e6-448f-af38-2a371ae38c21">&lt;/title&gt;</ept> classes to create the resource group that the resources are deployed to.</target>
+        </trans-unit>
+        <trans-unit id="d629fa6c-40f0-444d-9461-39c60b93dd59" xml:space="preserve">
+          <source>Add the following method to the Program class to create the resource group:</source>
+          <target state="new">Add the following method to the Program class to create the resource group:</target>
+        </trans-unit>
+        <trans-unit id="3d2db199-4ea4-4e5f-8081-a8dcb773e442" xml:space="preserve">
+          <source>Add the following code to the Main method to call the method that you just added:</source>
+          <target state="new">Add the following code to the Main method to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="d77dbe07-9d78-4532-be3c-d8b50fdb7974" xml:space="preserve">
+          <source>A storage account is needed to store the virtual hard disk file that is created for the virtual machine.</source>
+          <target state="new">A storage account is needed to store the virtual hard disk file that is created for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b529efe7-2016-4bbb-9361-6a2204a6376e" xml:space="preserve">
+          <source>Add the following method to the Program class to create the storage account:</source>
+          <target state="new">Add the following method to the Program class to create the storage account:</target>
+        </trans-unit>
+        <trans-unit id="759cfa66-4b3f-4f75-b0f3-f809d23cc56d" xml:space="preserve">
+          <source>Add the following code to the Main method to call the method that you just added:</source>
+          <target state="new">Add the following code to the Main method to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="674f1e74-9751-436c-895b-4f61d7d36f71" xml:space="preserve">
+          <source>A virtual machine is most productive when it is added to a virtual network.</source>
+          <target state="new">A virtual machine is most productive when it is added to a virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9703afa0-d7d8-4a0f-a5f7-e58301594968" xml:space="preserve">
+          <source>Add the following method to the Program class to create a subnet, a public IP address, and a virtual network:</source>
+          <target state="new">Add the following method to the Program class to create a subnet, a public IP address, and a virtual network:</target>
+        </trans-unit>
+        <trans-unit id="765b6ce2-3aae-45dd-941e-30423fbad416" xml:space="preserve">
+          <source>Add the following code to the Main method to call the method that you just added:</source>
+          <target state="new">Add the following code to the Main method to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="c65f2b04-0e78-4475-bb3f-c05351763994" xml:space="preserve">
+          <source>Now that you created all of the supporting resources, you can create a virtual machine.</source>
+          <target state="new">Now that you created all of the supporting resources, you can create a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e404c6c8-87cc-46fc-b74b-82012315bf6b" xml:space="preserve">
+          <source>Add the following method to the Program class to create the virtual machine:</source>
+          <target state="new">Add the following method to the Program class to create the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="5199e65d-bfee-4758-beca-2cd202bc55c4" xml:space="preserve">
+          <source>Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine.</source>
+          <target state="new">Image vhd names change regularly in the image gallery, so you need to get a current image name to deploy the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5a542bfa-4452-41b7-a6ef-bdf98b5ff158" xml:space="preserve">
+          <source>To do this, see <bpt id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;linkText&gt;</bpt>Manage Images Windows using Windows PowerShell<ept id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;/linkText&gt;</ept><bpt id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;title&gt;</bpt><ept id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;/title&gt;</ept>, and then replace {source-image-name} with the name of the vhd file that you want to use.</source>
+          <target state="new">To do this, see <bpt id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;linkText&gt;</bpt>Manage Images Windows using Windows PowerShell<ept id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;/linkText&gt;</ept><bpt id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;title&gt;</bpt><ept id="d6e6509c-639d-4d82-8ca6-86ba20f7ce85">&lt;/title&gt;</ept>, and then replace {source-image-name} with the name of the vhd file that you want to use.</target>
+        </trans-unit>
+        <trans-unit id="98bf9d6d-2cec-4af8-8a59-31ee0816355d" xml:space="preserve">
+          <source>For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".</source>
+          <target state="new">For example,  "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".</target>
+        </trans-unit>
+        <trans-unit id="c7853c08-0191-4ad6-a405-453a6c241c79" xml:space="preserve">
+          <source>Replace {subscription-id} with the identifier of your subscription.</source>
+          <target state="new">Replace {subscription-id} with the identifier of your subscription.</target>
+        </trans-unit>
+        <trans-unit id="aca6dae1-ff7f-46d0-a2a3-0e7545cc3ec8" xml:space="preserve">
+          <source>Add the following code to the Main method to call the method that you just added:</source>
+          <target state="new">Add the following code to the Main method to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="d62b97c0-3c90-43d7-97e6-5709b60c8448" xml:space="preserve">
+          <source>Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed.</source>
+          <target state="new">Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed.</target>
+        </trans-unit>
+        <trans-unit id="32e6357d-f498-41c7-b23b-5bed06ac71e9" xml:space="preserve">
+          <source>If you want to delete the virtual machines and all of the supporting resources, all you have to do is delete the resource group.</source>
+          <target state="new">If you want to delete the virtual machines and all of the supporting resources, all you have to do is delete the resource group.</target>
+        </trans-unit>
+        <trans-unit id="e4b2bd76-4f33-4b1b-bb68-2c0e86a78909" xml:space="preserve">
+          <source>Add the following method to the Program class to delete the resource group:</source>
+          <target state="new">Add the following method to the Program class to delete the resource group:</target>
+        </trans-unit>
+        <trans-unit id="b8b7f5f1-7531-4fd3-8479-b8d31cbd70af" xml:space="preserve">
+          <source>Add the following code to the Main method to call the method that you just added:</source>
+          <target state="new">Add the following code to the Main method to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="f6dca5fb-02bc-466f-abf3-6fc9b3b448d4" xml:space="preserve">
+          <source>To run the console application, click <bpt id="53799864-8ef9-469e-916d-335b649b3903">&lt;strong&gt;</bpt>Start<ept id="53799864-8ef9-469e-916d-335b649b3903">&lt;/strong&gt;</ept> in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.</source>
+          <target state="new">To run the console application, click <bpt id="53799864-8ef9-469e-916d-335b649b3903">&lt;strong&gt;</bpt>Start<ept id="53799864-8ef9-469e-916d-335b649b3903">&lt;/strong&gt;</ept> in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.</target>
+        </trans-unit>
+        <trans-unit id="cbc9cf53-6810-4a1e-b9da-9f218b3f9d2b" xml:space="preserve">
+          <source>Press <bpt id="61ad3183-83f1-4fc2-97d4-c8c6bab39c42">&lt;strong&gt;</bpt>Enter<ept id="61ad3183-83f1-4fc2-97d4-c8c6bab39c42">&lt;/strong&gt;</ept> after each status code is returned to create each resource.</source>
+          <target state="new">Press <bpt id="61ad3183-83f1-4fc2-97d4-c8c6bab39c42">&lt;strong&gt;</bpt>Enter<ept id="61ad3183-83f1-4fc2-97d4-c8c6bab39c42">&lt;/strong&gt;</ept> after each status code is returned to create each resource.</target>
+        </trans-unit>
+        <trans-unit id="ade4207c-7ff8-409a-bfad-f4a0cf7de2cf" xml:space="preserve">
+          <source>After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.</source>
+          <target state="new">After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.</target>
+        </trans-unit>
+        <trans-unit id="e5ae1c8e-573e-4673-9612-6ea4a879b9dc" xml:space="preserve">
+          <source>It should take about 5 minutes for this console application to run completely from start to finish.</source>
+          <target state="new">It should take about 5 minutes for this console application to run completely from start to finish.</target>
+        </trans-unit>
+        <trans-unit id="0b938e84-bb2a-41e5-8fb0-9fbe8af8abcc" xml:space="preserve">
+          <source>Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure preview portal before you delete them.</source>
+          <target state="new">Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure preview portal before you delete them.</target>
+        </trans-unit>
+        <trans-unit id="7826dd3c-487d-4cdb-954f-b49a4a9f9cb1" xml:space="preserve">
+          <source>Browse to the Audit Logs in the Azure preview portal to see the status of the resources:</source>
+          <target state="new">Browse to the Audit Logs in the Azure preview portal to see the status of the resources:</target>
+        </trans-unit>
+        <trans-unit id="e8bb6377-3ece-46b7-a36d-b4c22492b0f8" xml:space="preserve">
+          <source><bpt id="ddf9d446-43dc-46c7-bbd5-7812882b27e2">&lt;linkText&gt;</bpt>Create an AD application<ept id="ddf9d446-43dc-46c7-bbd5-7812882b27e2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ddf9d446-43dc-46c7-bbd5-7812882b27e2">&lt;linkText&gt;</bpt>Create an AD application<ept id="ddf9d446-43dc-46c7-bbd5-7812882b27e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

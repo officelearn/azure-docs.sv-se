@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1030bbf1-b4d8-4a5c-a4c2-c7b81b86ef8d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1030bbf1-b4d8-4a5c-a4c2-c7b81b86ef8d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a86d2952-e25b-45f1-a7fd-aa7db287f7f5">
+        <trans-unit id="ed4be548-5ac7-4b48-a4c8-ceb6c1386e78" xml:space="preserve">
+          <source>Protecting Content Overview</source>
+          <target state="new">Protecting Content Overview</target>
+        </trans-unit>
+        <trans-unit id="5ff0731c-ee73-4339-ad28-9e339f7414eb" xml:space="preserve">
+          <source>This articles give an overview of content protection with Media Services.</source>
+          <target state="new">This articles give an overview of content protection with Media Services.</target>
+        </trans-unit>
+        <trans-unit id="72e6b01f-e9de-4a27-b1b5-303ff970b618" xml:space="preserve">
+          <source>Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery.</source>
+          <target state="new">Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery.</target>
+        </trans-unit>
+        <trans-unit id="ee1d2a14-11c7-490b-9d6e-22a4452c4e63" xml:space="preserve">
+          <source>Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</source>
+          <target state="new">Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</target>
+        </trans-unit>
+        <trans-unit id="a3d590bd-00b6-486a-a8f2-16fe1b972d58" xml:space="preserve">
+          <source>Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients.</source>
+          <target state="new">Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients.</target>
+        </trans-unit>
+        <trans-unit id="01d3042a-f7a1-4413-a9e6-971b3540034a" xml:space="preserve">
+          <source><bpt id="dbc21afd-be19-4ba7-8487-f78e23732d0a">&lt;linkText&gt;</bpt>content-protection<ept id="dbc21afd-be19-4ba7-8487-f78e23732d0a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dbc21afd-be19-4ba7-8487-f78e23732d0a">&lt;linkText&gt;</bpt>content-protection<ept id="dbc21afd-be19-4ba7-8487-f78e23732d0a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0feeed51-628c-44de-abbc-a8d6b426e10c" xml:space="preserve">
+          <source>To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.</source>
+          <target state="new">To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.</target>
+        </trans-unit>
+        <trans-unit id="281ee72a-5607-4da6-a181-ee1675231236" xml:space="preserve">
+          <source>Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.</source>
+          <target state="new">Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.</target>
+        </trans-unit>
+        <trans-unit id="4fe82495-ede9-4250-b6d0-26a59c7f97f9" xml:space="preserve">
+          <source><bpt id="38069ec6-8ff1-43df-8c13-f03ed0eb2376">&lt;strong&gt;</bpt>None<ept id="38069ec6-8ff1-43df-8c13-f03ed0eb2376">&lt;/strong&gt;</ept> No encryption is used.</source>
+          <target state="new"><bpt id="38069ec6-8ff1-43df-8c13-f03ed0eb2376">&lt;strong&gt;</bpt>None<ept id="38069ec6-8ff1-43df-8c13-f03ed0eb2376">&lt;/strong&gt;</ept> No encryption is used.</target>
+        </trans-unit>
+        <trans-unit id="184f9c5e-13b3-46b5-b65c-90a93eb1c3fc" xml:space="preserve">
+          <source>This is the default value.</source>
+          <target state="new">This is the default value.</target>
+        </trans-unit>
+        <trans-unit id="bfa886e5-1668-41da-bebc-82969d4752e2" xml:space="preserve">
+          <source>Note that when using this option your content is not protected in transit or at rest in storage.</source>
+          <target state="new">Note that when using this option your content is not protected in transit or at rest in storage.</target>
+        </trans-unit>
+        <trans-unit id="692a08cf-200f-431e-aadc-3cdf757488be" xml:space="preserve">
+          <source>If you plan to deliver an MP4 using progressive download, use this option to upload your content.</source>
+          <target state="new">If you plan to deliver an MP4 using progressive download, use this option to upload your content.</target>
+        </trans-unit>
+        <trans-unit id="d7ad85ee-e7df-48bc-a3c8-af82d8f0e45e" xml:space="preserve">
+          <source><bpt id="35b278e1-8101-4edc-a3aa-9f99c778d259">&lt;strong&gt;</bpt>StorageEncrypted<ept id="35b278e1-8101-4edc-a3aa-9f99c778d259">&lt;/strong&gt;</ept> – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.</source>
+          <target state="new"><bpt id="35b278e1-8101-4edc-a3aa-9f99c778d259">&lt;strong&gt;</bpt>StorageEncrypted<ept id="35b278e1-8101-4edc-a3aa-9f99c778d259">&lt;/strong&gt;</ept> – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.</target>
+        </trans-unit>
+        <trans-unit id="37d507cf-2ffd-4831-8f74-c81ffb7109cb" xml:space="preserve">
+          <source>Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</source>
+          <target state="new">Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset.</target>
+        </trans-unit>
+        <trans-unit id="1b3c4418-1816-4d97-9e6d-ca829240c8f4" xml:space="preserve">
+          <source>The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</source>
+          <target state="new">The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.</target>
+        </trans-unit>
+        <trans-unit id="e563fd43-bda0-47bb-8efa-a08c8d769967" xml:space="preserve">
+          <source>In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content.</source>
+          <target state="new">In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content.</target>
+        </trans-unit>
+        <trans-unit id="ce09e1de-a3f9-48b3-a81a-17bd8d07ab42" xml:space="preserve">
+          <source>Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption).</source>
+          <target state="new">Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption).</target>
+        </trans-unit>
+        <trans-unit id="ca730205-ac4d-4d22-888d-98f481bc04b3" xml:space="preserve">
+          <source><bpt id="f3d55499-25bc-404f-b791-fe7ebb335ef5">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="f3d55499-25bc-404f-b791-fe7ebb335ef5">&lt;/strong&gt;</ept> - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</source>
+          <target state="new"><bpt id="f3d55499-25bc-404f-b791-fe7ebb335ef5">&lt;strong&gt;</bpt>CommonEncryptionProtected<ept id="f3d55499-25bc-404f-b791-fe7ebb335ef5">&lt;/strong&gt;</ept> - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).</target>
+        </trans-unit>
+        <trans-unit id="6e43d2f1-05be-444d-a9b7-9a56b8a007dc" xml:space="preserve">
+          <source><bpt id="0cc99698-2ad3-41c7-be00-6d45094baf9a">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="0cc99698-2ad3-41c7-be00-6d45094baf9a">&lt;/strong&gt;</ept> – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES).</source>
+          <target state="new"><bpt id="0cc99698-2ad3-41c7-be00-6d45094baf9a">&lt;strong&gt;</bpt>EnvelopeEncryptionProtected<ept id="0cc99698-2ad3-41c7-be00-6d45094baf9a">&lt;/strong&gt;</ept> – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES).</target>
+        </trans-unit>
+        <trans-unit id="8a5d0998-a1be-4e62-bc13-fe025552da39" xml:space="preserve">
+          <source>Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.</source>
+          <target state="new">Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.</target>
+        </trans-unit>
+        <trans-unit id="53ce5349-52d9-448b-8aee-657df973c66c" xml:space="preserve">
+          <source>Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</source>
+          <target state="new">Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM.</target>
+        </trans-unit>
+        <trans-unit id="53cf5047-a8f8-4cbc-b850-74a3bd8d35dd" xml:space="preserve">
+          <source>Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</source>
+          <target state="new">Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming.</target>
+        </trans-unit>
+        <trans-unit id="7fe695ee-59a0-4175-a2ea-00aeae3dfecd" xml:space="preserve">
+          <source>You cannot encrypt HDS streaming format, or progressive downloads.</source>
+          <target state="new">You cannot encrypt HDS streaming format, or progressive downloads.</target>
+        </trans-unit>
+        <trans-unit id="6d262d52-ed99-4e03-9439-03db800f62e2" xml:space="preserve">
+          <source>If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.</source>
+          <target state="new">If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.</target>
+        </trans-unit>
+        <trans-unit id="c6dd7115-f71c-4713-98e5-989878a2c3ae" xml:space="preserve">
+          <source>You also need to configure the asset's delivery policy.</source>
+          <target state="new">You also need to configure the asset's delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="013f8eac-dc1a-4eee-b3c7-bec4cc9b2415" xml:space="preserve">
+          <source>If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.</source>
+          <target state="new">If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="16f3e54c-a20c-4bd1-b409-38aaed28085b" xml:space="preserve">
+          <source>When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption.</source>
+          <target state="new">When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption.</target>
+        </trans-unit>
+        <trans-unit id="cd02d688-7af6-4d2e-bded-53da2a26198c" xml:space="preserve">
+          <source>To decrypt the stream, the player will request the key from the key delivery service.</source>
+          <target state="new">To decrypt the stream, the player will request the key from the key delivery service.</target>
+        </trans-unit>
+        <trans-unit id="71ae3dee-42d1-4d68-ba7a-0ca8ceef38e4" xml:space="preserve">
+          <source>To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</source>
+          <target state="new">To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.</target>
+        </trans-unit>
+        <trans-unit id="c6c82ee1-1feb-45d2-a127-e7f82db84f07" xml:space="preserve">
+          <source>To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content.</source>
+          <target state="new">To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content.</target>
+        </trans-unit>
+        <trans-unit id="673f2573-111a-4829-93ac-50b03c474c19" xml:space="preserve">
+          <source>For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale<bpt id="f0416a04-97b5-4185-9258-9092dcc93fc0">&lt;em&gt;</bpt>streaming<ept id="f0416a04-97b5-4185-9258-9092dcc93fc0">&lt;/em&gt;</ept>endpoints).</source>
+          <target state="new">For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale<bpt id="f0416a04-97b5-4185-9258-9092dcc93fc0">&lt;em&gt;</bpt>streaming<ept id="f0416a04-97b5-4185-9258-9092dcc93fc0">&lt;/em&gt;</ept>endpoints).</target>
+        </trans-unit>
+        <trans-unit id="5dddd367-1292-4af6-a7dd-8652d9c233c2" xml:space="preserve">
+          <source>Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients.</source>
+          <target state="new">Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients.</target>
+        </trans-unit>
+        <trans-unit id="954ea02d-9628-4caf-8632-767bbaf20ad3" xml:space="preserve">
+          <source>You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.</source>
+          <target state="new">You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.</target>
+        </trans-unit>
+        <trans-unit id="6c1f3406-e925-4883-bbbd-4f99da76f7a5" xml:space="preserve">
+          <source>Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content).</source>
+          <target state="new">Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content).</target>
+        </trans-unit>
+        <trans-unit id="893dcd38-1ed9-41d1-86c4-7d2336e190f4" xml:space="preserve">
+          <source>Use Media Services SDK for .NET if you want more control over the configurations.</source>
+          <target state="new">Use Media Services SDK for .NET if you want more control over the configurations.</target>
+        </trans-unit>
+        <trans-unit id="cdacc97e-4e2e-4e58-8716-1ebf70832a11" xml:space="preserve">
+          <source>Media Services provides a service for delivering PlayReady licenses.</source>
+          <target state="new">Media Services provides a service for delivering PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="46f7d1ca-0227-4f7e-bc86-6189d49dd1c9" xml:space="preserve">
+          <source>When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</source>
+          <target state="new">When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license.</target>
+        </trans-unit>
+        <trans-unit id="dc666dc9-d653-4454-848d-30cf576d9dd8" xml:space="preserve">
+          <source>If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</source>
+          <target state="new">If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.</target>
+        </trans-unit>
+        <trans-unit id="04253175-e691-499b-9788-1c4eeb5f513c" xml:space="preserve">
+          <source>Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</source>
+          <target state="new">Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content.</target>
+        </trans-unit>
+        <trans-unit id="914098e2-3878-41ba-8982-e7ae2df3ba12" xml:space="preserve">
+          <source>Media Services provides APIs that let you configure your PlayReady licenses.</source>
+          <target state="new">Media Services provides APIs that let you configure your PlayReady licenses.</target>
+        </trans-unit>
+        <trans-unit id="7e5bdc59-4a2c-4004-ad53-e9f8760198cb" xml:space="preserve">
+          <source>For more information, see <bpt id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;linkText&gt;</bpt>Media Services PlayReady License Template Overview<ept id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;/linkText&gt;</ept><bpt id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;title&gt;</bpt><ept id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;linkText&gt;</bpt>Media Services PlayReady License Template Overview<ept id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;/linkText&gt;</ept><bpt id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;title&gt;</bpt><ept id="e810e777-0c3b-47d1-9f91-d179b9ff7643">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a335a01-c0a4-40cb-8156-3cfdef1f3edf" xml:space="preserve">
+          <source>The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction.</source>
+          <target state="new">The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction.</target>
+        </trans-unit>
+        <trans-unit id="23d97ba9-539e-4417-b085-42f262da8c54" xml:space="preserve">
+          <source>The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</source>
+          <target state="new">The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</target>
+        </trans-unit>
+        <trans-unit id="09189ff3-a9f0-4d2c-83ea-e39ef06868fb" xml:space="preserve">
+          <source>Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</source>
+          <target state="new">Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</target>
+        </trans-unit>
+        <trans-unit id="9cab9f67-e3a9-4fc7-8645-9ef40944601e" xml:space="preserve">
+          <source>Media Services does not provide Secure Token Services.</source>
+          <target state="new">Media Services does not provide Secure Token Services.</target>
+        </trans-unit>
+        <trans-unit id="ab9c4c86-21ff-4152-9184-3177fc61c3b4" xml:space="preserve">
+          <source>You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</source>
+          <target state="new">You can create a custom STS or leverage Microsoft Azure ACS to issue tokens.</target>
+        </trans-unit>
+        <trans-unit id="5e4c6d7d-f051-4c2f-ab71-7e440ac77cf4" xml:space="preserve">
+          <source>The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</source>
+          <target state="new">The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration.</target>
+        </trans-unit>
+        <trans-unit id="80377251-2824-4244-b25b-4180e9a138b1" xml:space="preserve">
+          <source>The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).</source>
+          <target state="new">The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).</target>
+        </trans-unit>
+        <trans-unit id="18457500-dab1-433c-be04-1be5d5ba96b4" xml:space="preserve">
+          <source>When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters.</source>
+          <target state="new">When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters.</target>
+        </trans-unit>
+        <trans-unit id="fbdcaa53-6e0a-4be4-bb2e-4bfa329be847" xml:space="preserve">
+          <source>The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</source>
+          <target state="new">The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token.</target>
+        </trans-unit>
+        <trans-unit id="d89f967a-139f-49e1-9a31-7d3894836c75" xml:space="preserve">
+          <source>The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</source>
+          <target state="new">The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to.</target>
+        </trans-unit>
+        <trans-unit id="16d17376-7bee-4633-8c40-c3133281cbd6" xml:space="preserve">
+          <source>The Media Services key delivery service validates that these values in the token match the values in the template.</source>
+          <target state="new">The Media Services key delivery service validates that these values in the token match the values in the template.</target>
+        </trans-unit>
+        <trans-unit id="1ae35e83-d98c-4ae7-b090-58950b84a72a" xml:space="preserve">
+          <source>Ingest a high-quality mezzanine file into an asset.</source>
+          <target state="new">Ingest a high-quality mezzanine file into an asset.</target>
+        </trans-unit>
+        <trans-unit id="73f6c3e2-ceb9-4e6e-b9f3-e48bf3f9936b" xml:space="preserve">
+          <source>Apply storage encryption option to the asset.</source>
+          <target state="new">Apply storage encryption option to the asset.</target>
+        </trans-unit>
+        <trans-unit id="7a14657f-9e11-4470-bb1a-6740ecc81ad6" xml:space="preserve">
+          <source>Configure streaming endpoints.</source>
+          <target state="new">Configure streaming endpoints.</target>
+        </trans-unit>
+        <trans-unit id="4bda5461-f7e8-4ff4-aec9-67ad20a2deb3" xml:space="preserve">
+          <source>Encode to adaptive bitrate MP4 set.</source>
+          <target state="new">Encode to adaptive bitrate MP4 set.</target>
+        </trans-unit>
+        <trans-unit id="efb6df24-6a86-4cdb-9752-e10ae1e785b1" xml:space="preserve">
+          <source>Apply storage encryption option to the output asset.</source>
+          <target state="new">Apply storage encryption option to the output asset.</target>
+        </trans-unit>
+        <trans-unit id="cdb892c6-00f7-4175-9932-1077f8b39141" xml:space="preserve">
+          <source>Create encryption content key for the asset you want to be dynamically encrypted during playback.</source>
+          <target state="new">Create encryption content key for the asset you want to be dynamically encrypted during playback.</target>
+        </trans-unit>
+        <trans-unit id="cde04978-97b3-4614-ab4c-63a984d12725" xml:space="preserve">
+          <source>Configure content key authorization policy.</source>
+          <target state="new">Configure content key authorization policy.</target>
+        </trans-unit>
+        <trans-unit id="2b7efb3b-2e06-4262-9b92-1aaed22d7688" xml:space="preserve">
+          <source>Configure asset delivery policy (used by dynamic packaging and dynamic encryption).</source>
+          <target state="new">Configure asset delivery policy (used by dynamic packaging and dynamic encryption).</target>
+        </trans-unit>
+        <trans-unit id="c8dda43c-bd83-451f-ab11-0e1a5c3e3462" xml:space="preserve">
+          <source>Publish the asset by creating an OnDemand locator.</source>
+          <target state="new">Publish the asset by creating an OnDemand locator.</target>
+        </trans-unit>
+        <trans-unit id="3ffe7daf-ba75-4bcb-97c4-dfdcae52a60d" xml:space="preserve">
+          <source>Stream published content.</source>
+          <target state="new">Stream published content.</target>
+        </trans-unit>
+        <trans-unit id="7cda5cfc-2364-43f7-8499-ebfbad642a08" xml:space="preserve">
+          <source>For more information, see <bpt id="13261815-9feb-4979-992c-c9a1661200a4">&lt;linkText&gt;</bpt>How to integrate Azure PlayReady License service with your own encryptor/streaming server<ept id="13261815-9feb-4979-992c-c9a1661200a4">&lt;/linkText&gt;</ept><bpt id="13261815-9feb-4979-992c-c9a1661200a4">&lt;title&gt;</bpt><ept id="13261815-9feb-4979-992c-c9a1661200a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="13261815-9feb-4979-992c-c9a1661200a4">&lt;linkText&gt;</bpt>How to integrate Azure PlayReady License service with your own encryptor/streaming server<ept id="13261815-9feb-4979-992c-c9a1661200a4">&lt;/linkText&gt;</ept><bpt id="13261815-9feb-4979-992c-c9a1661200a4">&lt;title&gt;</bpt><ept id="13261815-9feb-4979-992c-c9a1661200a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4574ffe0-dcdd-4e3d-8da4-fb6cfc46ea7e" xml:space="preserve">
+          <source><bpt id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;linkText&gt;</bpt>Using castLabs to deliver DRM licenses to Azure Media Services<ept id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;/linkText&gt;</ept><bpt id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;title&gt;</bpt><ept id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;linkText&gt;</bpt>Using castLabs to deliver DRM licenses to Azure Media Services<ept id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;/linkText&gt;</ept><bpt id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;title&gt;</bpt><ept id="b7cb94ef-2b14-4400-aab4-fc7ecb897cc4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2faa63a1-28d5-484e-b266-981a7fe4537e" xml:space="preserve">
+          <source>If your content is storage encrypted, be sure to configure asset delivery policy.</source>
+          <target state="new">If your content is storage encrypted, be sure to configure asset delivery policy.</target>
+        </trans-unit>
+        <trans-unit id="0b2a71e1-86cd-425b-bf46-d5861917e6a1" xml:space="preserve">
+          <source>For an overview about streaming endpoints and information on how to manage them, see <bpt id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;linkText&gt;</bpt>How to Manage Streaming Endpoints in a Media Services Account<ept id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;/linkText&gt;</ept><bpt id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;title&gt;</bpt><ept id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview about streaming endpoints and information on how to manage them, see <bpt id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;linkText&gt;</bpt>How to Manage Streaming Endpoints in a Media Services Account<ept id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;/linkText&gt;</ept><bpt id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;title&gt;</bpt><ept id="821a90c3-7dbf-42a7-a94b-5fad55bdc2e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8428fae7-22e4-4baf-9fd5-380b76040bc2" xml:space="preserve">
+          <source>Create a content key with which you want to encrypt your asset using <bpt id="c8b7ae79-b83a-4d22-b236-6a60905809e8">&lt;strong&gt;</bpt>.NET<ept id="c8b7ae79-b83a-4d22-b236-6a60905809e8">&lt;/strong&gt;</ept> or <bpt id="4a2dcd3b-e0e0-42d3-94a7-16c81f717e52">&lt;strong&gt;</bpt>REST API<ept id="4a2dcd3b-e0e0-42d3-94a7-16c81f717e52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a content key with which you want to encrypt your asset using <bpt id="c8b7ae79-b83a-4d22-b236-6a60905809e8">&lt;strong&gt;</bpt>.NET<ept id="c8b7ae79-b83a-4d22-b236-6a60905809e8">&lt;/strong&gt;</ept> or <bpt id="4a2dcd3b-e0e0-42d3-94a7-16c81f717e52">&lt;strong&gt;</bpt>REST API<ept id="4a2dcd3b-e0e0-42d3-94a7-16c81f717e52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99eaea07-b98b-4951-96f4-817ca2356860" xml:space="preserve">
+          <source><bpt id="e25bdd03-000c-4f7a-9230-8b48334838f7">&lt;token href="../../includes/media-services-selector-create-contentkey.md"&gt;</bpt><ept id="e25bdd03-000c-4f7a-9230-8b48334838f7">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e25bdd03-000c-4f7a-9230-8b48334838f7">&lt;token href="../../includes/media-services-selector-create-contentkey.md"&gt;</bpt><ept id="e25bdd03-000c-4f7a-9230-8b48334838f7">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e319bfcd-2edd-4e74-8963-f4c30c2a72c1" xml:space="preserve">
+          <source>Configure content protection and key authorization policy using <bpt id="ada7e3da-ea04-46d9-971b-af6b47fc29de">&lt;strong&gt;</bpt>.NET<ept id="ada7e3da-ea04-46d9-971b-af6b47fc29de">&lt;/strong&gt;</ept> or <bpt id="959abeef-dbe4-42a2-a633-e25bf822ea06">&lt;strong&gt;</bpt>REST API<ept id="959abeef-dbe4-42a2-a633-e25bf822ea06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure content protection and key authorization policy using <bpt id="ada7e3da-ea04-46d9-971b-af6b47fc29de">&lt;strong&gt;</bpt>.NET<ept id="ada7e3da-ea04-46d9-971b-af6b47fc29de">&lt;/strong&gt;</ept> or <bpt id="959abeef-dbe4-42a2-a633-e25bf822ea06">&lt;strong&gt;</bpt>REST API<ept id="959abeef-dbe4-42a2-a633-e25bf822ea06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba537de0-e4d4-43c2-ba50-1d977fd9a548" xml:space="preserve">
+          <source><bpt id="4def5403-96b0-4733-b986-115cf57f158d">&lt;token href="../../includes/media-services-selector-content-key-auth-policy.md"&gt;</bpt><ept id="4def5403-96b0-4733-b986-115cf57f158d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4def5403-96b0-4733-b986-115cf57f158d">&lt;token href="../../includes/media-services-selector-content-key-auth-policy.md"&gt;</bpt><ept id="4def5403-96b0-4733-b986-115cf57f158d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="221d23c4-3aea-4744-9a4c-1439f8ff574a" xml:space="preserve">
+          <source>Configure asset delivery policy using <bpt id="11570309-42cc-42e1-9fa1-ad524de5b12b">&lt;strong&gt;</bpt>.NET<ept id="11570309-42cc-42e1-9fa1-ad524de5b12b">&lt;/strong&gt;</ept> or <bpt id="5af44ec1-3f28-4c88-8a61-3c489cbd235e">&lt;strong&gt;</bpt>REST API<ept id="5af44ec1-3f28-4c88-8a61-3c489cbd235e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure asset delivery policy using <bpt id="11570309-42cc-42e1-9fa1-ad524de5b12b">&lt;strong&gt;</bpt>.NET<ept id="11570309-42cc-42e1-9fa1-ad524de5b12b">&lt;/strong&gt;</ept> or <bpt id="5af44ec1-3f28-4c88-8a61-3c489cbd235e">&lt;strong&gt;</bpt>REST API<ept id="5af44ec1-3f28-4c88-8a61-3c489cbd235e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b916678-1912-444a-b987-80919a2dd61f" xml:space="preserve">
+          <source><bpt id="62ac5217-1ca2-4dcc-8825-7cbade1c12b8">&lt;token href="../../includes/media-services-selector-asset-delivery-policy.md"&gt;</bpt><ept id="62ac5217-1ca2-4dcc-8825-7cbade1c12b8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="62ac5217-1ca2-4dcc-8825-7cbade1c12b8">&lt;token href="../../includes/media-services-selector-asset-delivery-policy.md"&gt;</bpt><ept id="62ac5217-1ca2-4dcc-8825-7cbade1c12b8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="365248aa-228c-4374-b04b-a1f66c411558" xml:space="preserve">
+          <source><bpt id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;linkText&gt;</bpt>Announcing PlayReady as a service and AES dynamic encryption with Azure Media Services<ept id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;/linkText&gt;</ept><bpt id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;title&gt;</bpt><ept id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;linkText&gt;</bpt>Announcing PlayReady as a service and AES dynamic encryption with Azure Media Services<ept id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;/linkText&gt;</ept><bpt id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;title&gt;</bpt><ept id="2e808a6d-d211-45dd-ab40-abd25b2a0a4b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fe40ee9-7c79-4ead-8cb1-c39dcf0f905d" xml:space="preserve">
+          <source><bpt id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;linkText&gt;</bpt>Azure Media Services PlayReady license delivery pricing explained<ept id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;/linkText&gt;</ept><bpt id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;title&gt;</bpt><ept id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;linkText&gt;</bpt>Azure Media Services PlayReady license delivery pricing explained<ept id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;/linkText&gt;</ept><bpt id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;title&gt;</bpt><ept id="696100f4-646c-4d57-a937-7c180bee5bb5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c3a9fb5-2fe3-4cb7-a999-eee2ce5efca9" xml:space="preserve">
+          <source><bpt id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;linkText&gt;</bpt>How to debug for AES encrypted stream in Azure Media Services<ept id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;/linkText&gt;</ept><bpt id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;title&gt;</bpt><ept id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;linkText&gt;</bpt>How to debug for AES encrypted stream in Azure Media Services<ept id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;/linkText&gt;</ept><bpt id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;title&gt;</bpt><ept id="3ced06f3-da76-4e56-a01a-29ae33f80f49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="109c1a8f-b654-46ec-b2b4-f94e326fe17e" xml:space="preserve">
+          <source><bpt id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;linkText&gt;</bpt>JWT token authenitcation<ept id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;/linkText&gt;</ept><bpt id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;title&gt;</bpt><ept id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;linkText&gt;</bpt>JWT token authenitcation<ept id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;/linkText&gt;</ept><bpt id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;title&gt;</bpt><ept id="42eabe4d-96dc-4dc4-9560-72857de60d9c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff394596-ec43-497c-aa34-4bba213a2b61" xml:space="preserve">
+          <source><bpt id="e1285527-5c93-437d-b239-7058411c09e4">&lt;linkText&gt;</bpt>Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims<ept id="e1285527-5c93-437d-b239-7058411c09e4">&lt;/linkText&gt;</ept><bpt id="e1285527-5c93-437d-b239-7058411c09e4">&lt;title&gt;</bpt><ept id="e1285527-5c93-437d-b239-7058411c09e4">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e1285527-5c93-437d-b239-7058411c09e4">&lt;linkText&gt;</bpt>Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims<ept id="e1285527-5c93-437d-b239-7058411c09e4">&lt;/linkText&gt;</ept><bpt id="e1285527-5c93-437d-b239-7058411c09e4">&lt;title&gt;</bpt><ept id="e1285527-5c93-437d-b239-7058411c09e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fa8a6f62-8747-499a-9304-1e3183440ea8" xml:space="preserve">
+          <source><bpt id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;linkText&gt;</bpt>Use Azure ACS to issue tokens<ept id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;/linkText&gt;</ept><bpt id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;title&gt;</bpt><ept id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;linkText&gt;</bpt>Use Azure ACS to issue tokens<ept id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;/linkText&gt;</ept><bpt id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;title&gt;</bpt><ept id="4b782ab8-ea8c-4cdd-9967-cc16dc89ceff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d45baf0a-d14d-4539-810a-0363a6ff1987" xml:space="preserve">
+          <source>./media/media-services-content-protection-overview/media-services-content-protection.png</source>
+          <target state="new">./media/media-services-content-protection-overview/media-services-content-protection.png</target>
+        </trans-unit>
+      </group>
+      <group id="5654db8b-91e1-4be5-a236-207ca54b738a" />
+    </body>
+  </file>
+</xliff>

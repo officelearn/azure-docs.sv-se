@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="427142be-5b40-4fcc-aabd-83856c2e0000" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="427142be-5b40-4fcc-aabd-83856c2e0000" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a8e08f40-eb09-44dc-8bfb-982a6f26e74a">
+        <trans-unit id="a610731d-9432-4058-ba3f-52c897edfdd4" xml:space="preserve">
+          <source>If you do not already have a Traffic Manager profile, use the information in <bpt id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;linkText&gt;</bpt>Create a Traffic Manager profile using Quick Create<ept id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;/linkText&gt;</ept><bpt id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;title&gt;</bpt><ept id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;/title&gt;</ept> to create one.</source>
+          <target state="new">If you do not already have a Traffic Manager profile, use the information in <bpt id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;linkText&gt;</bpt>Create a Traffic Manager profile using Quick Create<ept id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;/linkText&gt;</ept><bpt id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;title&gt;</bpt><ept id="a5f73bb5-e6b8-4081-9eaf-c2de36bed8ae">&lt;/title&gt;</ept> to create one.</target>
+        </trans-unit>
+        <trans-unit id="5b3d403d-bf58-40f7-b51c-0a622024c70b" xml:space="preserve">
+          <source>Note the <bpt id="6dae36bb-c511-47ce-ab07-a6833c7c5553">&lt;strong&gt;</bpt>.trafficmanager.net<ept id="6dae36bb-c511-47ce-ab07-a6833c7c5553">&lt;/strong&gt;</ept> domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.</source>
+          <target state="new">Note the <bpt id="6dae36bb-c511-47ce-ab07-a6833c7c5553">&lt;strong&gt;</bpt>.trafficmanager.net<ept id="6dae36bb-c511-47ce-ab07-a6833c7c5553">&lt;/strong&gt;</ept> domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

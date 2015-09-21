@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0e27b8fd-f38d-48fa-a669-83392c9b8f52" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0e27b8fd-f38d-48fa-a669-83392c9b8f52" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9c4ba939-a248-4bea-aebc-0ee4d105e5d7">
+        <trans-unit id="3eb3a8cb-7381-4443-9bc7-f32c3c9d8e9c" xml:space="preserve">
+          <source>Cluster Model | Microsoft Azure</source>
+          <target state="new">Cluster Model | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="119ff4be-a9aa-426f-8cc4-196803a30992" xml:space="preserve">
+          <source>Cluster Model</source>
+          <target state="new">Cluster Model</target>
+        </trans-unit>
+        <trans-unit id="c2152662-1227-4eb1-b1a2-09404228d31e" xml:space="preserve">
+          <source>How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers?</source>
+          <target state="new">How can we predict groups of credit cardholders’ behaviors in order to reduce the charge-off risk of credit card issuers?</target>
+        </trans-unit>
+        <trans-unit id="b367d0fc-7e44-446f-8330-bfce2e6e07de" xml:space="preserve">
+          <source>How can we define groups of personality traits of employees in order to improve their performance at work?</source>
+          <target state="new">How can we define groups of personality traits of employees in order to improve their performance at work?</target>
+        </trans-unit>
+        <trans-unit id="41e3ed0c-de59-4958-ac92-d268467af993" xml:space="preserve">
+          <source>How can doctors classify patients into groups based on the characteristics of their diseases?</source>
+          <target state="new">How can doctors classify patients into groups based on the characteristics of their diseases?</target>
+        </trans-unit>
+        <trans-unit id="61254e94-dfcc-487e-8d3e-df1dbb330155" xml:space="preserve">
+          <source>In principle, all of these questions can be answered through cluster analysis.</source>
+          <target state="new">In principle, all of these questions can be answered through cluster analysis.</target>
+        </trans-unit>
+        <trans-unit id="3cb59e25-014a-4e1e-9b6d-d2cb8641a779" xml:space="preserve">
+          <source><bpt id="9861adc1-7b78-401f-953b-9e6c3b6fdc74">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="9861adc1-7b78-401f-953b-9e6c3b6fdc74">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="9861adc1-7b78-401f-953b-9e6c3b6fdc74">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="9861adc1-7b78-401f-953b-9e6c3b6fdc74">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="dad28646-4f62-4163-b366-5c48b313dea5" xml:space="preserve">
+          <source>Cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables.</source>
+          <target state="new">Cluster analysis classifies a set of observations into two or more mutually exclusive unknown groups based on combinations of variables.</target>
+        </trans-unit>
+        <trans-unit id="6e0a7b1d-4873-45a4-83c8-80f02a0b469a" xml:space="preserve">
+          <source>The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common.</source>
+          <target state="new">The purpose of cluster analysis is to discover a system of organizing observations, usually people or their characteristics, into groups, where members of the groups share properties in common.</target>
+        </trans-unit>
+        <trans-unit id="5f0ee892-87e4-4e2f-b40b-9ccb6889f18b" xml:space="preserve">
+          <source>This [service](https://datamarket.azure.com/dataset/aml<bpt id="27f696bc-55b8-4418-8d09-6c9289cca762">&lt;em&gt;</bpt>labs/k<ept id="27f696bc-55b8-4418-8d09-6c9289cca762">&lt;/em&gt;</ept>cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups.</source>
+          <target state="new">This [service](https://datamarket.azure.com/dataset/aml<bpt id="27f696bc-55b8-4418-8d09-6c9289cca762">&lt;em&gt;</bpt>labs/k<ept id="27f696bc-55b8-4418-8d09-6c9289cca762">&lt;/em&gt;</ept>cluster_model) uses the K-Means methodology, a commonly used clustering technique, to cluster arbitrary data into groups.</target>
+        </trans-unit>
+        <trans-unit id="6c918586-3e0f-450e-968b-9458647a8b1b" xml:space="preserve">
+          <source>This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs.</source>
+          <target state="new">This web service takes the data and the number of k clusters as input, and produces predictions of which of the k groups to which each observations belongs.</target>
+        </trans-unit>
+        <trans-unit id="f11ffd39-68c0-45e7-9b73-902813d18f91" xml:space="preserve">
+          <source>This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</source>
+          <target state="new">This web service could be consumed by users – potentially through a mobile app, through a website, or even on a local computer, for example.</target>
+        </trans-unit>
+        <trans-unit id="c9e6a575-5eb4-47b1-9112-50b2d3ff2f02" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="3ab6f1f6-d463-474a-8f11-9dcab53b02df" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="74a442a6-59ae-4187-a7a6-70dd623b4336" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world with no infrastructure setup by the author of the web service.</target>
+        </trans-unit>
+        <trans-unit id="30f9cd6d-d8fe-4abe-a272-121ab7d8cb81" xml:space="preserve">
+          <source>This web service groups the data into a set of k groups and outputs the group assignment for each row.</source>
+          <target state="new">This web service groups the data into a set of k groups and outputs the group assignment for each row.</target>
+        </trans-unit>
+        <trans-unit id="f7e43a70-159d-4197-9b17-3aac5b9e919a" xml:space="preserve">
+          <source>The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;).</source>
+          <target state="new">The web service expects the end user to input data as a string where rows are separated by commas (,) and columns are separated by semicolons (;).</target>
+        </trans-unit>
+        <trans-unit id="e9058ba8-1126-42c7-acf4-afe84ed7bb10" xml:space="preserve">
+          <source>The web service expects 1 row at a time.</source>
+          <target state="new">The web service expects 1 row at a time.</target>
+        </trans-unit>
+        <trans-unit id="f3a062ac-013f-47e9-b101-d7db1d2e8117" xml:space="preserve">
+          <source>An example dataset could look like this:</source>
+          <target state="new">An example dataset could look like this:</target>
+        </trans-unit>
+        <trans-unit id="4c2051fc-d0a0-43c4-8e22-660000dc9ec6" xml:space="preserve">
+          <source><bpt id="c979f314-43db-4ca3-9519-d6fd32496b9e">&lt;linkText&gt;</bpt>Sample data<ept id="c979f314-43db-4ca3-9519-d6fd32496b9e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c979f314-43db-4ca3-9519-d6fd32496b9e">&lt;linkText&gt;</bpt>Sample data<ept id="c979f314-43db-4ca3-9519-d6fd32496b9e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dac531ef-2f48-46f0-92cd-7a400ca831c9" xml:space="preserve">
+          <source>Suppose the user wanted to separate this data into 3 mutually exclusive groups.</source>
+          <target state="new">Suppose the user wanted to separate this data into 3 mutually exclusive groups.</target>
+        </trans-unit>
+        <trans-unit id="cfbf4427-57a8-4602-9937-0becccb629bd" xml:space="preserve">
+          <source>The data input for the above dataset would be the following: value = “10;5;2,18;1;6,7;5;5,22;3;4,12;2;1,10;3;4”; k=”3”.</source>
+          <target state="new">The data input for the above dataset would be the following: value = “10;5;2,18;1;6,7;5;5,22;3;4,12;2;1,10;3;4”; k=”3”.</target>
+        </trans-unit>
+        <trans-unit id="723aac9d-f556-4c84-845b-7dcfccd85d56" xml:space="preserve">
+          <source>The output is the predicted group membership for each of the rows.</source>
+          <target state="new">The output is the predicted group membership for each of the rows.</target>
+        </trans-unit>
+        <trans-unit id="b45a7281-3006-48e3-9874-d22c44e98a80" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="f4bd88d2-f1ef-41a5-a70d-2a51c060a6a4" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;linkText&gt;</bpt>here<ept id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;/linkText&gt;</ept><bpt id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;title&gt;</bpt><ept id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (an example app is <bpt id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;linkText&gt;</bpt>here<ept id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;/linkText&gt;</ept><bpt id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;title&gt;</bpt><ept id="5f59438e-3f8f-4809-b37b-cac616cbfa56">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="8d6954a1-198e-4668-a64e-5fe43c7416ba" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="9546df83-2843-420f-a114-b2e77e6d8285" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;linkText&gt;</bpt>publishing web services<ept id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;/linkText&gt;</ept><bpt id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;title&gt;</bpt><ept id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;/title&gt;</ept>, please see <bpt id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;linkText&gt;</bpt>azure.com/ml<ept id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;/linkText&gt;</ept><bpt id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;title&gt;</bpt><ept id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;linkText&gt;</bpt>publishing web services<ept id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;/linkText&gt;</ept><bpt id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;title&gt;</bpt><ept id="8485f4fe-a2bb-47cc-a999-db1ca69821cf">&lt;/title&gt;</ept>, please see <bpt id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;linkText&gt;</bpt>azure.com/ml<ept id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;/linkText&gt;</ept><bpt id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;title&gt;</bpt><ept id="1379874c-f9e3-4c7a-9ce6-696abbb9a80b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0269d01b-7765-4ff4-8e30-4c7cd130dfa3" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="48ef2e1b-6ffa-4866-8571-35c07927ef15" xml:space="preserve">
+          <source>From within Azure Machine Learning, a new blank experiment was created and two <bpt id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;/linkText&gt;</ept><bpt id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;title&gt;</bpt><ept id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;/title&gt;</ept> modules pulled onto the workspace.</source>
+          <target state="new">From within Azure Machine Learning, a new blank experiment was created and two <bpt id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;/linkText&gt;</ept><bpt id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;title&gt;</bpt><ept id="2615ac2b-65b3-4560-92d3-b0e2cb7116b2">&lt;/title&gt;</ept> modules pulled onto the workspace.</target>
+        </trans-unit>
+        <trans-unit id="1130bad5-76eb-400f-800e-257cdd747e36" xml:space="preserve">
+          <source>The data schema was created with a simple <bpt id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;/linkText&gt;</ept><bpt id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;title&gt;</bpt><ept id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The data schema was created with a simple <bpt id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;/linkText&gt;</ept><bpt id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;title&gt;</bpt><ept id="9f20b73e-9bf4-477a-8b27-c10ee8d3f64d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf3a222f-b0f7-4122-aca3-e9d435a01617" xml:space="preserve">
+          <source>Then, the data schema was linked to the cluster model section, again created with an <bpt id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;/linkText&gt;</ept><bpt id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;title&gt;</bpt><ept id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Then, the data schema was linked to the cluster model section, again created with an <bpt id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;/linkText&gt;</ept><bpt id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;title&gt;</bpt><ept id="20ea0664-83c1-47f0-8731-6768d4d9028f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88622784-fef3-4513-8218-b6c8ef6cd37a" xml:space="preserve">
+          <source>In the <bpt id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;/linkText&gt;</ept><bpt id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;title&gt;</bpt><ept id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;/title&gt;</ept> used for the cluster model, the web service then utilizes the “k-means” function, which is prebuilt into the <bpt id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;/linkText&gt;</ept><bpt id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;title&gt;</bpt><ept id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;/title&gt;</ept> of Azure Machine Learning.</source>
+          <target state="new">In the <bpt id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;/linkText&gt;</ept><bpt id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;title&gt;</bpt><ept id="c3a857b5-9d00-4c24-b344-2ff9ac4887ee">&lt;/title&gt;</ept> used for the cluster model, the web service then utilizes the “k-means” function, which is prebuilt into the <bpt id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;/linkText&gt;</ept><bpt id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;title&gt;</bpt><ept id="7c9c35dd-b730-48da-9205-a62be8bcaced">&lt;/title&gt;</ept> of Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="ed4409d6-9af1-4f6b-9f0d-6b5372ed161b" xml:space="preserve">
+          <source><bpt id="ac2a243f-bacd-4fff-88c7-f904e5f79f83">&lt;linkText&gt;</bpt>Experiment flow<ept id="ac2a243f-bacd-4fff-88c7-f904e5f79f83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ac2a243f-bacd-4fff-88c7-f904e5f79f83">&lt;linkText&gt;</bpt>Experiment flow<ept id="ac2a243f-bacd-4fff-88c7-f904e5f79f83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="471bb8c4-059c-432d-a73c-634f05f39685" xml:space="preserve">
+          <source>This is a very simple example of a clustering web service.</source>
+          <target state="new">This is a very simple example of a clustering web service.</target>
+        </trans-unit>
+        <trans-unit id="32380031-1d99-41c5-9294-89c6511e8f34" xml:space="preserve">
+          <source>As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service.</source>
+          <target state="new">As can be seen from the example code above, no error catching is implemented and the service assumes everything is a continuous variable (no categorical features allowed), as the service only inputs numeric values at the time of the creation of this web service.</target>
+        </trans-unit>
+        <trans-unit id="d9b46ec8-dc91-4d3a-b308-a92688b8487e" xml:space="preserve">
+          <source>Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called.</source>
+          <target state="new">Also, the service currently handles limited data size, due to the request/response nature of the web service call and the fact that the model is being fit every time the web service is called.</target>
+        </trans-unit>
+        <trans-unit id="62e3d77f-b34b-4fb3-aa32-537484ca1a42" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;linkText&gt;</bpt>here<ept id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;/linkText&gt;</ept><bpt id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;title&gt;</bpt><ept id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;linkText&gt;</bpt>here<ept id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;/linkText&gt;</ept><bpt id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;title&gt;</bpt><ept id="e21cf685-4128-400b-a34f-4a5d1d0e6c76">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ef75615-081f-421f-9b47-24108dbd36d3" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-cluster-model/cluster-img1.png</source>
+          <target state="new">./media/machine-learning-r-csharp-cluster-model/cluster-img1.png</target>
+        </trans-unit>
+        <trans-unit id="940db1d9-3232-4876-944d-a3375708dcaf" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-cluster-model/cluster-img2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-cluster-model/cluster-img2.png</target>
+        </trans-unit>
+        <trans-unit id="99cea74b-32db-4210-806d-526171517625" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-cluster-model/cluster-img3.png</source>
+          <target state="new">./media/machine-learning-r-csharp-cluster-model/cluster-img3.png</target>
+        </trans-unit>
+        <trans-unit id="2593ba56-9e9a-4fd0-9087-de8480ffde1e" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+      </group>
+      <group id="7f7dba0d-0cec-47eb-8fc9-092d8f6236e8" />
+    </body>
+  </file>
+</xliff>

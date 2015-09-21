@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a60bd9a7-0513-4c81-8f1c-fd8c93fa24d9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a60bd9a7-0513-4c81-8f1c-fd8c93fa24d9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1141e1d6-abc5-45c6-bfb9-32d887244d04">
+        <trans-unit id="40271703-d4a5-4806-8063-7f1890e2a287" xml:space="preserve">
+          <source>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine</source>
+          <target state="new">Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="87ee9f74-9940-4a10-94b6-d64c2b091555" xml:space="preserve">
+          <source>If you can't connect your Linux-based Azure virtual machine, use these steps to isolate the source of the problem.</source>
+          <target state="new">If you can't connect your Linux-based Azure virtual machine, use these steps to isolate the source of the problem.</target>
+        </trans-unit>
+        <trans-unit id="7384a523-a833-4c18-9024-68804f6f9650" xml:space="preserve">
+          <source>If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem.</source>
+          <target state="new">If you can't connect to Linux-based Azure virtual machines, this article describes a methodical approach for isolating and correcting the problem.</target>
+        </trans-unit>
+        <trans-unit id="2d5356e3-fd02-43a3-8fc3-97e598865620" xml:space="preserve">
+          <source>Follow the instructions in <bpt id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;/linkText&gt;</ept><bpt id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;title&gt;</bpt><ept id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;/title&gt;</ept> on the virtual machine.</source>
+          <target state="new">Follow the instructions in <bpt id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;/linkText&gt;</ept><bpt id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;title&gt;</bpt><ept id="6c2b191c-e51a-49cb-bdf6-dfba0aec6043">&lt;/title&gt;</ept> on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3e19aedf-4bf2-41f4-9e4b-7231a038f1b4" xml:space="preserve">
+          <source>With these instructions, you can:</source>
+          <target state="new">With these instructions, you can:</target>
+        </trans-unit>
+        <trans-unit id="9b23f63f-1af5-40ac-bdad-2a49727beddd" xml:space="preserve">
+          <source>Reset the password or SSH key.</source>
+          <target state="new">Reset the password or SSH key.</target>
+        </trans-unit>
+        <trans-unit id="e6e54b6f-8b47-4672-89ba-cf73c86329dd" xml:space="preserve">
+          <source>Create a new sudo user account.</source>
+          <target state="new">Create a new sudo user account.</target>
+        </trans-unit>
+        <trans-unit id="82697eed-776b-4286-8e12-dbbc39b877f5" xml:space="preserve">
+          <source>Reset the SSH configuration.</source>
+          <target state="new">Reset the SSH configuration.</target>
+        </trans-unit>
+        <trans-unit id="23405225-714c-49ad-bda8-f696f846617b" xml:space="preserve">
+          <source>If the SSH client still cannot reach the SSH service on the virtual machine, it can be due to many causes.</source>
+          <target state="new">If the SSH client still cannot reach the SSH service on the virtual machine, it can be due to many causes.</target>
+        </trans-unit>
+        <trans-unit id="1d1ac82e-600b-4af2-96b6-0d86a23515bf" xml:space="preserve">
+          <source>Here is the set of components involved.</source>
+          <target state="new">Here is the set of components involved.</target>
+        </trans-unit>
+        <trans-unit id="3787c332-19b7-4492-bdbb-b69ef3d5bd9e" xml:space="preserve">
+          <source><bpt id="9fc16116-7819-49d0-885c-da36cf33c5bb">&lt;linkText&gt;</bpt><ept id="9fc16116-7819-49d0-885c-da36cf33c5bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9fc16116-7819-49d0-885c-da36cf33c5bb">&lt;linkText&gt;</bpt><ept id="9fc16116-7819-49d0-885c-da36cf33c5bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1de7167c-5b4c-41be-80ad-6757f157bb3a" xml:space="preserve">
+          <source>The following sections step through isolating and determining the various causes for this problem and providing solutions and workarounds.</source>
+          <target state="new">The following sections step through isolating and determining the various causes for this problem and providing solutions and workarounds.</target>
+        </trans-unit>
+        <trans-unit id="f8f5522a-bd14-4f4c-a923-63bb4915d152" xml:space="preserve">
+          <source>First, check the status of virtual machine in the Azure management portal or the Azure preview portal.</source>
+          <target state="new">First, check the status of virtual machine in the Azure management portal or the Azure preview portal.</target>
+        </trans-unit>
+        <trans-unit id="f22fa4a5-cb3d-4852-b27e-549ba784e26b" xml:space="preserve">
+          <source>In the Azure management portal:</source>
+          <target state="new">In the Azure management portal:</target>
+        </trans-unit>
+        <trans-unit id="b3c3a1b8-d6ff-4331-9826-e9be13a9ccb4" xml:space="preserve">
+          <source>Click <bpt id="596301a6-4146-4ed4-bb73-611800cb044a">&lt;strong&gt;</bpt>Virtual machines<ept id="596301a6-4146-4ed4-bb73-611800cb044a">&lt;/strong&gt;</ept> &gt; <bpt id="3f1f7d9a-6305-421c-a1ae-5fb0aad6754d">&lt;em&gt;</bpt>VM name<ept id="3f1f7d9a-6305-421c-a1ae-5fb0aad6754d">&lt;/em&gt;</ept>.</source>
+          <target state="new">Click <bpt id="596301a6-4146-4ed4-bb73-611800cb044a">&lt;strong&gt;</bpt>Virtual machines<ept id="596301a6-4146-4ed4-bb73-611800cb044a">&lt;/strong&gt;</ept> &gt; <bpt id="3f1f7d9a-6305-421c-a1ae-5fb0aad6754d">&lt;em&gt;</bpt>VM name<ept id="3f1f7d9a-6305-421c-a1ae-5fb0aad6754d">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a38547a8-2168-4aa0-af2f-a885cc703955" xml:space="preserve">
+          <source>Click <bpt id="00af6514-b18e-41fa-94da-980331d2acb3">&lt;strong&gt;</bpt>Dashboard<ept id="00af6514-b18e-41fa-94da-980331d2acb3">&lt;/strong&gt;</ept> for the virtual machine to check its status.</source>
+          <target state="new">Click <bpt id="00af6514-b18e-41fa-94da-980331d2acb3">&lt;strong&gt;</bpt>Dashboard<ept id="00af6514-b18e-41fa-94da-980331d2acb3">&lt;/strong&gt;</ept> for the virtual machine to check its status.</target>
+        </trans-unit>
+        <trans-unit id="13560739-ca9c-4cd7-b2bb-8d48bd31552e" xml:space="preserve">
+          <source>Click <bpt id="f4944552-0e9d-4a4e-8860-8526a4ab0f05">&lt;strong&gt;</bpt>Monitor<ept id="f4944552-0e9d-4a4e-8860-8526a4ab0f05">&lt;/strong&gt;</ept> to see recent activity for compute, storage, and network resources.</source>
+          <target state="new">Click <bpt id="f4944552-0e9d-4a4e-8860-8526a4ab0f05">&lt;strong&gt;</bpt>Monitor<ept id="f4944552-0e9d-4a4e-8860-8526a4ab0f05">&lt;/strong&gt;</ept> to see recent activity for compute, storage, and network resources.</target>
+        </trans-unit>
+        <trans-unit id="0b1e8884-ed3b-446a-a510-d232e5a62557" xml:space="preserve">
+          <source>Click <bpt id="94b7c93e-ff10-46d2-9ac4-8992cbf38624">&lt;strong&gt;</bpt>Endpoints<ept id="94b7c93e-ff10-46d2-9ac4-8992cbf38624">&lt;/strong&gt;</ept> to ensure that there is an endpoint for SSH traffic.</source>
+          <target state="new">Click <bpt id="94b7c93e-ff10-46d2-9ac4-8992cbf38624">&lt;strong&gt;</bpt>Endpoints<ept id="94b7c93e-ff10-46d2-9ac4-8992cbf38624">&lt;/strong&gt;</ept> to ensure that there is an endpoint for SSH traffic.</target>
+        </trans-unit>
+        <trans-unit id="d0765e0f-2c35-4a75-8d3a-f2cbbcd88d3c" xml:space="preserve">
+          <source>In the Azure preview portal:</source>
+          <target state="new">In the Azure preview portal:</target>
+        </trans-unit>
+        <trans-unit id="f72b6359-0a20-4391-b7af-0ae3ab7438fa" xml:space="preserve">
+          <source>Click <bpt id="e333bfa9-cffc-4d52-b78e-8bc91d64d705">&lt;strong&gt;</bpt>Browse<ept id="e333bfa9-cffc-4d52-b78e-8bc91d64d705">&lt;/strong&gt;</ept> &gt; <bpt id="16282f9e-479c-4519-b4bb-d014a3f650af">&lt;strong&gt;</bpt>Virtual machines<ept id="16282f9e-479c-4519-b4bb-d014a3f650af">&lt;/strong&gt;</ept> &gt; <bpt id="f2d9e713-c322-4850-855f-eaf6497a9a04">&lt;em&gt;</bpt>VM name<ept id="f2d9e713-c322-4850-855f-eaf6497a9a04">&lt;/em&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e333bfa9-cffc-4d52-b78e-8bc91d64d705">&lt;strong&gt;</bpt>Browse<ept id="e333bfa9-cffc-4d52-b78e-8bc91d64d705">&lt;/strong&gt;</ept> &gt; <bpt id="16282f9e-479c-4519-b4bb-d014a3f650af">&lt;strong&gt;</bpt>Virtual machines<ept id="16282f9e-479c-4519-b4bb-d014a3f650af">&lt;/strong&gt;</ept> &gt; <bpt id="f2d9e713-c322-4850-855f-eaf6497a9a04">&lt;em&gt;</bpt>VM name<ept id="f2d9e713-c322-4850-855f-eaf6497a9a04">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f3c79db-0c94-4fe1-9b2a-2561554f089d" xml:space="preserve">
+          <source>For a virtual machine created in Azure Resource Manager, click <bpt id="7f286178-b2e0-4764-89e5-0bc9bd1b126a">&lt;strong&gt;</bpt>Browse<ept id="7f286178-b2e0-4764-89e5-0bc9bd1b126a">&lt;/strong&gt;</ept> &gt; <bpt id="03440725-a3a3-4e79-bef2-4bc2f07619f8">&lt;strong&gt;</bpt>Virtual machines (v2)<ept id="03440725-a3a3-4e79-bef2-4bc2f07619f8">&lt;/strong&gt;</ept> &gt; <bpt id="21e0d1e9-e3f8-414e-9ad6-18ba27e6e3be">&lt;em&gt;</bpt>VM name<ept id="21e0d1e9-e3f8-414e-9ad6-18ba27e6e3be">&lt;/em&gt;</ept>.</source>
+          <target state="new">For a virtual machine created in Azure Resource Manager, click <bpt id="7f286178-b2e0-4764-89e5-0bc9bd1b126a">&lt;strong&gt;</bpt>Browse<ept id="7f286178-b2e0-4764-89e5-0bc9bd1b126a">&lt;/strong&gt;</ept> &gt; <bpt id="03440725-a3a3-4e79-bef2-4bc2f07619f8">&lt;strong&gt;</bpt>Virtual machines (v2)<ept id="03440725-a3a3-4e79-bef2-4bc2f07619f8">&lt;/strong&gt;</ept> &gt; <bpt id="21e0d1e9-e3f8-414e-9ad6-18ba27e6e3be">&lt;em&gt;</bpt>VM name<ept id="21e0d1e9-e3f8-414e-9ad6-18ba27e6e3be">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fbe3f9b8-db08-4902-b6c4-afc5f2e46081" xml:space="preserve">
+          <source>The status pane for the virtual machine should show <bpt id="26a61e47-3d36-4443-b1f7-5238698b34c8">&lt;strong&gt;</bpt>Running<ept id="26a61e47-3d36-4443-b1f7-5238698b34c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The status pane for the virtual machine should show <bpt id="26a61e47-3d36-4443-b1f7-5238698b34c8">&lt;strong&gt;</bpt>Running<ept id="26a61e47-3d36-4443-b1f7-5238698b34c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edd15188-560e-43f2-a5a0-8c014d54018c" xml:space="preserve">
+          <source>Scroll down to show recent activity for compute, storage, and network resources.</source>
+          <target state="new">Scroll down to show recent activity for compute, storage, and network resources.</target>
+        </trans-unit>
+        <trans-unit id="8433e5a8-ce8d-453d-8c44-868b3567a2ec" xml:space="preserve">
+          <source>Click <bpt id="91cb5606-3abb-408e-baae-93fc206780ba">&lt;strong&gt;</bpt>Settings<ept id="91cb5606-3abb-408e-baae-93fc206780ba">&lt;/strong&gt;</ept> to examine endpoints, IP addresses, and other settings.</source>
+          <target state="new">Click <bpt id="91cb5606-3abb-408e-baae-93fc206780ba">&lt;strong&gt;</bpt>Settings<ept id="91cb5606-3abb-408e-baae-93fc206780ba">&lt;/strong&gt;</ept> to examine endpoints, IP addresses, and other settings.</target>
+        </trans-unit>
+        <trans-unit id="0a354b79-0519-472f-98c1-309612593854" xml:space="preserve">
+          <source>To verify network connectivity, analyze the configured endpoints and determine if you can reach the virtual machine through another protocol, such as HTTP or another known service.</source>
+          <target state="new">To verify network connectivity, analyze the configured endpoints and determine if you can reach the virtual machine through another protocol, such as HTTP or another known service.</target>
+        </trans-unit>
+        <trans-unit id="9258475b-80f1-4d16-9c7f-9a5775119eda" xml:space="preserve">
+          <source>If needed, <bpt id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;linkText&gt;</bpt>Restart the virtual machine<ept id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;/linkText&gt;</ept><bpt id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;title&gt;</bpt><ept id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;/title&gt;</ept> or <bpt id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;linkText&gt;</bpt>Resize the virtual machine<ept id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;/linkText&gt;</ept><bpt id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;title&gt;</bpt><ept id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;/title&gt;</ept>.</source>
+          <target state="new">If needed, <bpt id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;linkText&gt;</bpt>Restart the virtual machine<ept id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;/linkText&gt;</ept><bpt id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;title&gt;</bpt><ept id="f77568dd-91ca-4670-ac48-2d422aa25b63">&lt;/title&gt;</ept> or <bpt id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;linkText&gt;</bpt>Resize the virtual machine<ept id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;/linkText&gt;</ept><bpt id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;title&gt;</bpt><ept id="393d0eb4-9ace-4f87-b87b-adf9eb08dbcd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25888e3c-2571-449b-9813-e13983a1fed7" xml:space="preserve">
+          <source>After these steps, try the SSH connection again.</source>
+          <target state="new">After these steps, try the SSH connection again.</target>
+        </trans-unit>
+        <trans-unit id="9fce40b9-1d93-4efb-b677-f18b33adfffb" xml:space="preserve">
+          <source>The inability of your SSH client to reach the SSH service on the Azure virtual machine can be due to the following sources of issues or misconfigurations:</source>
+          <target state="new">The inability of your SSH client to reach the SSH service on the Azure virtual machine can be due to the following sources of issues or misconfigurations:</target>
+        </trans-unit>
+        <trans-unit id="76edf037-588c-4d1b-8c24-9d1a2346dcfb" xml:space="preserve">
+          <source>SSH client computer</source>
+          <target state="new">SSH client computer</target>
+        </trans-unit>
+        <trans-unit id="17d43022-7bf8-4325-8e2d-63a8123ac1f2" xml:space="preserve">
+          <source>Organization edge device</source>
+          <target state="new">Organization edge device</target>
+        </trans-unit>
+        <trans-unit id="48273d15-e291-40b7-b41a-4949a1d56cd0" xml:space="preserve">
+          <source>Cloud service endpoint and access control list (ACL)</source>
+          <target state="new">Cloud service endpoint and access control list (ACL)</target>
+        </trans-unit>
+        <trans-unit id="574c7f97-71d6-4fdc-b714-5df4e064db30" xml:space="preserve">
+          <source>Network Security Groups</source>
+          <target state="new">Network Security Groups</target>
+        </trans-unit>
+        <trans-unit id="250e91a5-2cdd-4766-8649-7dc9a695e409" xml:space="preserve">
+          <source>Linux-based Azure virtual machine</source>
+          <target state="new">Linux-based Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="56083b01-3d8a-405e-b7d6-a7b7c7eba76f" xml:space="preserve">
+          <source>To eliminate your computer as being the source of issues or misconfiguration, verify that your computer can make SSH connections to another on-premises, Linux-based computer.</source>
+          <target state="new">To eliminate your computer as being the source of issues or misconfiguration, verify that your computer can make SSH connections to another on-premises, Linux-based computer.</target>
+        </trans-unit>
+        <trans-unit id="f7b5873a-1c52-47af-ba66-c11eb7cbdc28" xml:space="preserve">
+          <source><bpt id="3b0f5cb5-83ae-47a5-b231-8eafe618820e">&lt;linkText&gt;</bpt><ept id="3b0f5cb5-83ae-47a5-b231-8eafe618820e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3b0f5cb5-83ae-47a5-b231-8eafe618820e">&lt;linkText&gt;</bpt><ept id="3b0f5cb5-83ae-47a5-b231-8eafe618820e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5834bec0-70f9-454b-9c12-7b3b29aec508" xml:space="preserve">
+          <source>If you cannot, check for these on your computer:</source>
+          <target state="new">If you cannot, check for these on your computer:</target>
+        </trans-unit>
+        <trans-unit id="83f9b51e-f390-4c54-a6cd-f826c28f6a26" xml:space="preserve">
+          <source>A local firewall setting that is blocking inbound or outbound SSH traffic (TCP 22)</source>
+          <target state="new">A local firewall setting that is blocking inbound or outbound SSH traffic (TCP 22)</target>
+        </trans-unit>
+        <trans-unit id="1995976a-e069-4d02-9190-e696cf0f14d9" xml:space="preserve">
+          <source>Locally installed client proxy software that is preventing SSH connections</source>
+          <target state="new">Locally installed client proxy software that is preventing SSH connections</target>
+        </trans-unit>
+        <trans-unit id="a1571789-f7b5-4aeb-b779-db22b2bae3a7" xml:space="preserve">
+          <source>Locally installed network monitoring software that is preventing SSH connections</source>
+          <target state="new">Locally installed network monitoring software that is preventing SSH connections</target>
+        </trans-unit>
+        <trans-unit id="212a5e47-12a0-4552-834e-599c1eacff9b" xml:space="preserve">
+          <source>Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing SSH connections</source>
+          <target state="new">Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing SSH connections</target>
+        </trans-unit>
+        <trans-unit id="f657b6b8-9d60-4f6e-8563-ad7eb861a438" xml:space="preserve">
+          <source>In all of these cases, try to temporarily disable the software and attempt an SSH connection to an on-premises computer to determine the cause.</source>
+          <target state="new">In all of these cases, try to temporarily disable the software and attempt an SSH connection to an on-premises computer to determine the cause.</target>
+        </trans-unit>
+        <trans-unit id="58af6870-703a-4998-b9bf-e3a64913b43a" xml:space="preserve">
+          <source>Then, work with your network administrator to correct the settings of the software to allow SSH connections.</source>
+          <target state="new">Then, work with your network administrator to correct the settings of the software to allow SSH connections.</target>
+        </trans-unit>
+        <trans-unit id="88127044-ab2e-492a-a255-b84d83b34557" xml:space="preserve">
+          <source>If you are using certificate authentication, verify that you have these permissions to the .ssh folder in your home directory:</source>
+          <target state="new">If you are using certificate authentication, verify that you have these permissions to the .ssh folder in your home directory:</target>
+        </trans-unit>
+        <trans-unit id="fe4e4a1d-831a-43e9-a283-05892bf44bad" xml:space="preserve">
+          <source>Chmod 700 ~/.ssh</source>
+          <target state="new">Chmod 700 ~/.ssh</target>
+        </trans-unit>
+        <trans-unit id="f209a5a2-0ca4-408f-a1aa-c292471fd79d" xml:space="preserve">
+          <source>Chmod 644 ~/.ssh/*.pub</source>
+          <target state="new">Chmod 644 ~/.ssh/*.pub</target>
+        </trans-unit>
+        <trans-unit id="1dad8110-98bf-4d8b-b285-6977914e39a1" xml:space="preserve">
+          <source>Chmod 600 ~/.ssh/id_rsa (or whatever other files you might have your private keys stored in)</source>
+          <target state="new">Chmod 600 ~/.ssh/id_rsa (or whatever other files you might have your private keys stored in)</target>
+        </trans-unit>
+        <trans-unit id="3a9dde2f-f60d-44ff-8729-65579e10b00d" xml:space="preserve">
+          <source>Chmod 644 ~/.ssh/known_hosts (contains hosts you’ve connected to via SSH)</source>
+          <target state="new">Chmod 644 ~/.ssh/known_hosts (contains hosts you’ve connected to via SSH)</target>
+        </trans-unit>
+        <trans-unit id="794b50e0-26b8-45ba-b445-42a5a5a61d44" xml:space="preserve">
+          <source>To eliminate your organization edge device as being the source of issues or misconfiguration, verify that a computer directly connected to the Internet can make SSH connections to your Azure virtual machine.</source>
+          <target state="new">To eliminate your organization edge device as being the source of issues or misconfiguration, verify that a computer directly connected to the Internet can make SSH connections to your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3dda97fc-9df1-47e1-91f7-318a84bb207d" xml:space="preserve">
+          <source>If you are accessing the virtual machine over a site-to-site VPN or ExpressRoute connection, skip to <bpt id="97c0c527-1efd-446b-a126-70de7612d431">&lt;linkText&gt;</bpt>Source 4: Network security groups<ept id="97c0c527-1efd-446b-a126-70de7612d431">&lt;/linkText&gt;</ept><bpt id="97c0c527-1efd-446b-a126-70de7612d431">&lt;title&gt;</bpt><ept id="97c0c527-1efd-446b-a126-70de7612d431">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are accessing the virtual machine over a site-to-site VPN or ExpressRoute connection, skip to <bpt id="97c0c527-1efd-446b-a126-70de7612d431">&lt;linkText&gt;</bpt>Source 4: Network security groups<ept id="97c0c527-1efd-446b-a126-70de7612d431">&lt;/linkText&gt;</ept><bpt id="97c0c527-1efd-446b-a126-70de7612d431">&lt;title&gt;</bpt><ept id="97c0c527-1efd-446b-a126-70de7612d431">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f235d8b-8afc-4739-a037-2600699046e2" xml:space="preserve">
+          <source><bpt id="2d0807f4-201d-49b8-9e73-f46df35a5ddb">&lt;linkText&gt;</bpt><ept id="2d0807f4-201d-49b8-9e73-f46df35a5ddb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d0807f4-201d-49b8-9e73-f46df35a5ddb">&lt;linkText&gt;</bpt><ept id="2d0807f4-201d-49b8-9e73-f46df35a5ddb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="517dcb17-7b8a-4f43-8d89-c204c5836b57" xml:space="preserve">
+          <source>If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it.</source>
+          <target state="new">If you do not have a computer that is directly connected to the Internet, you can easily create a new Azure virtual machine in its own resource group or cloud service and use it.</target>
+        </trans-unit>
+        <trans-unit id="84896981-2647-46ea-b6b9-a897c0021ec5" xml:space="preserve">
+          <source>For more information, see <bpt id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;linkText&gt;</bpt>Create a virtual machine running Linux in Azure<ept id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;/linkText&gt;</ept><bpt id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;title&gt;</bpt><ept id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;linkText&gt;</bpt>Create a virtual machine running Linux in Azure<ept id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;/linkText&gt;</ept><bpt id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;title&gt;</bpt><ept id="a05eaa8b-8b21-4aa4-a948-fa1627a8ee18">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87b4ea3d-7157-48d6-b334-87ebe9602435" xml:space="preserve">
+          <source>Delete the resource group or virtual machine and cloud service when you are done with your testing.</source>
+          <target state="new">Delete the resource group or virtual machine and cloud service when you are done with your testing.</target>
+        </trans-unit>
+        <trans-unit id="0464697f-fcae-4402-bad9-09ec268faaa3" xml:space="preserve">
+          <source>If you can create an SSH connection with a computer directly attached to the Internet, check your organization edge device for:</source>
+          <target state="new">If you can create an SSH connection with a computer directly attached to the Internet, check your organization edge device for:</target>
+        </trans-unit>
+        <trans-unit id="678684b2-1989-4fa4-a1b3-d230c4134dc7" xml:space="preserve">
+          <source>An internal firewall that is blocking SSH traffic with the Internet</source>
+          <target state="new">An internal firewall that is blocking SSH traffic with the Internet</target>
+        </trans-unit>
+        <trans-unit id="f41ea14f-65e5-4d0a-b917-fc0e55304135" xml:space="preserve">
+          <source>Your proxy server that is preventing SSH connections</source>
+          <target state="new">Your proxy server that is preventing SSH connections</target>
+        </trans-unit>
+        <trans-unit id="37c3dd18-33a5-41f9-bec2-b2918c6e3d60" xml:space="preserve">
+          <source>Intrusion detection or network monitoring software running on devices in your edge network that is preventing SSH connections</source>
+          <target state="new">Intrusion detection or network monitoring software running on devices in your edge network that is preventing SSH connections</target>
+        </trans-unit>
+        <trans-unit id="0a508409-8615-42cc-abd7-fe3b4fda2a80" xml:space="preserve">
+          <source>Work with your network administrator to correct the settings of your organization edge devices to allow SSH traffic with the Internet.</source>
+          <target state="new">Work with your network administrator to correct the settings of your organization edge devices to allow SSH traffic with the Internet.</target>
+        </trans-unit>
+        <trans-unit id="02891e04-f643-4f6b-8537-76d58df42edf" xml:space="preserve">
+          <source>To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same virtual network can make SSH connections to your Azure virtual machine.</source>
+          <target state="new">To eliminate the cloud service endpoint and ACL as being the source of issues or misconfiguration for virtual machines created using the Service Management API, verify that another Azure virtual machine that is in the same virtual network can make SSH connections to your Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="94754a26-1c9a-4899-a7a4-ccaab136fa17" xml:space="preserve">
+          <source><bpt id="f40eeaeb-8940-4267-a65e-7fbb76054d40">&lt;linkText&gt;</bpt><ept id="f40eeaeb-8940-4267-a65e-7fbb76054d40">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f40eeaeb-8940-4267-a65e-7fbb76054d40">&lt;linkText&gt;</bpt><ept id="f40eeaeb-8940-4267-a65e-7fbb76054d40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99c189cb-d201-44d5-8cb3-3029206b8978" xml:space="preserve">
+          <source>For virtual machines created in Azure Resource Manager, skip to <bpt id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;linkText&gt;</bpt>source 4: Network security groups<ept id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;/linkText&gt;</ept><bpt id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;title&gt;</bpt><ept id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For virtual machines created in Azure Resource Manager, skip to <bpt id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;linkText&gt;</bpt>source 4: Network security groups<ept id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;/linkText&gt;</ept><bpt id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;title&gt;</bpt><ept id="e746ac6d-b0ba-418e-a4de-cd421f8281c0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a76c5b8-e083-4cab-b43f-e61dfdbb48a0" xml:space="preserve">
+          <source>If you do not have another virtual machine in the same virtual network, you can easily create a new one.</source>
+          <target state="new">If you do not have another virtual machine in the same virtual network, you can easily create a new one.</target>
+        </trans-unit>
+        <trans-unit id="9cc902d8-633a-49eb-a8e0-83e7e5462620" xml:space="preserve">
+          <source>For more information, see <bpt id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;linkText&gt;</bpt>Create a virtual machine running Linux in Azure<ept id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;/linkText&gt;</ept><bpt id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;title&gt;</bpt><ept id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;linkText&gt;</bpt>Create a virtual machine running Linux in Azure<ept id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;/linkText&gt;</ept><bpt id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;title&gt;</bpt><ept id="43370f23-0755-49f2-b470-fef929f41bf9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7dd7abc5-3228-48e7-9dea-8365dda238e5" xml:space="preserve">
+          <source>Delete the extra virtual machine when you are done with your testing.</source>
+          <target state="new">Delete the extra virtual machine when you are done with your testing.</target>
+        </trans-unit>
+        <trans-unit id="f88ceab6-f1d2-489b-b91f-773838002765" xml:space="preserve">
+          <source>If you can create an SSH connection with a virtual machine in the same virtual network, check:</source>
+          <target state="new">If you can create an SSH connection with a virtual machine in the same virtual network, check:</target>
+        </trans-unit>
+        <trans-unit id="d90c38f5-f74a-4162-b97f-865dab37a20e" xml:space="preserve">
+          <source>The endpoint configuration for SSH traffic on the target virtual machine.</source>
+          <target state="new">The endpoint configuration for SSH traffic on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="88f7db75-2538-4391-bbe9-1088a8802cba" xml:space="preserve">
+          <source>The private TCP port of the endpoint must match the TCP port on which the SSH service on the virtual machine is listening, which by default is 22.</source>
+          <target state="new">The private TCP port of the endpoint must match the TCP port on which the SSH service on the virtual machine is listening, which by default is 22.</target>
+        </trans-unit>
+        <trans-unit id="092ef261-c6fc-46ea-8a03-ccdfbee2b528" xml:space="preserve">
+          <source>For virtual machines created in Azure Resource Manager using templates, verify the SSH TCP port number in the Azure preview portal with <bpt id="e222cf0b-c62a-4d85-aae1-a54f42b51814">&lt;strong&gt;</bpt>Browse<ept id="e222cf0b-c62a-4d85-aae1-a54f42b51814">&lt;/strong&gt;</ept> &gt; <bpt id="745f45c6-605c-4cd8-9154-cff6c7cf3fdd">&lt;strong&gt;</bpt>Virtual machines (v2)<ept id="745f45c6-605c-4cd8-9154-cff6c7cf3fdd">&lt;/strong&gt;</ept> &gt; <bpt id="d124eeba-5378-475c-b760-37db2d8edbbb">&lt;em&gt;</bpt>VM name<ept id="d124eeba-5378-475c-b760-37db2d8edbbb">&lt;/em&gt;</ept> &gt; <bpt id="b065d11c-e400-4f87-a4f6-33f333144269">&lt;strong&gt;</bpt>Settings<ept id="b065d11c-e400-4f87-a4f6-33f333144269">&lt;/strong&gt;</ept> &gt; <bpt id="17f3cdbd-8d89-47f8-a9fa-d8ab0fd781e3">&lt;strong&gt;</bpt>Endpoints<ept id="17f3cdbd-8d89-47f8-a9fa-d8ab0fd781e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For virtual machines created in Azure Resource Manager using templates, verify the SSH TCP port number in the Azure preview portal with <bpt id="e222cf0b-c62a-4d85-aae1-a54f42b51814">&lt;strong&gt;</bpt>Browse<ept id="e222cf0b-c62a-4d85-aae1-a54f42b51814">&lt;/strong&gt;</ept> &gt; <bpt id="745f45c6-605c-4cd8-9154-cff6c7cf3fdd">&lt;strong&gt;</bpt>Virtual machines (v2)<ept id="745f45c6-605c-4cd8-9154-cff6c7cf3fdd">&lt;/strong&gt;</ept> &gt; <bpt id="d124eeba-5378-475c-b760-37db2d8edbbb">&lt;em&gt;</bpt>VM name<ept id="d124eeba-5378-475c-b760-37db2d8edbbb">&lt;/em&gt;</ept> &gt; <bpt id="b065d11c-e400-4f87-a4f6-33f333144269">&lt;strong&gt;</bpt>Settings<ept id="b065d11c-e400-4f87-a4f6-33f333144269">&lt;/strong&gt;</ept> &gt; <bpt id="17f3cdbd-8d89-47f8-a9fa-d8ab0fd781e3">&lt;strong&gt;</bpt>Endpoints<ept id="17f3cdbd-8d89-47f8-a9fa-d8ab0fd781e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2935903d-aa75-45db-88f2-12fe2035f4ca" xml:space="preserve">
+          <source>The ACL for the SSH traffic endpoint on the target virtual machine.</source>
+          <target state="new">The ACL for the SSH traffic endpoint on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e4b57319-bbf5-45cd-9769-895249d2ff92" xml:space="preserve">
+          <source>ACLs allow you to specify allowed or denied incoming traffic from the Internet, based on its source IP address.</source>
+          <target state="new">ACLs allow you to specify allowed or denied incoming traffic from the Internet, based on its source IP address.</target>
+        </trans-unit>
+        <trans-unit id="22af58bc-e989-4ac2-9602-807bf8a83e4a" xml:space="preserve">
+          <source>Misconfigured ACLs can prevent incoming SSH traffic to the endpoint.</source>
+          <target state="new">Misconfigured ACLs can prevent incoming SSH traffic to the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="cb2411ae-d021-4fc8-a8b0-5f52e79de033" xml:space="preserve">
+          <source>Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server are allowed.</source>
+          <target state="new">Examine your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server are allowed.</target>
+        </trans-unit>
+        <trans-unit id="b2e9c1b2-11bf-4bd7-893e-80e092f73cc1" xml:space="preserve">
+          <source>For more information, see <bpt id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;linkText&gt;</bpt>About network access control lists (ACLs)<ept id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;/linkText&gt;</ept><bpt id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;title&gt;</bpt><ept id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;linkText&gt;</bpt>About network access control lists (ACLs)<ept id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;/linkText&gt;</ept><bpt id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;title&gt;</bpt><ept id="2f5aabde-7466-4b2c-8648-b7d85df5fc0a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41927fbb-c171-4d6d-86f0-804fe759086b" xml:space="preserve">
+          <source>To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, specifying the <bpt id="289fd8a1-2d25-43cf-bf88-5bb9f99f1fc3">&lt;strong&gt;</bpt>SSH<ept id="289fd8a1-2d25-43cf-bf88-5bb9f99f1fc3">&lt;/strong&gt;</ept> name (TCP port 22 for the public and private port number).</source>
+          <target state="new">To eliminate the endpoint as a source of the problem, remove the current endpoint and create a new endpoint, specifying the <bpt id="289fd8a1-2d25-43cf-bf88-5bb9f99f1fc3">&lt;strong&gt;</bpt>SSH<ept id="289fd8a1-2d25-43cf-bf88-5bb9f99f1fc3">&lt;/strong&gt;</ept> name (TCP port 22 for the public and private port number).</target>
+        </trans-unit>
+        <trans-unit id="3d38bd64-7237-4734-ad78-679f62ffb1c0" xml:space="preserve">
+          <source>For more information, see <bpt id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;linkText&gt;</bpt>Set up endpoints on a virtual machine in Azure<ept id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;/linkText&gt;</ept><bpt id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;title&gt;</bpt><ept id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;linkText&gt;</bpt>Set up endpoints on a virtual machine in Azure<ept id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;/linkText&gt;</ept><bpt id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;title&gt;</bpt><ept id="ff85725e-ea51-4d78-ad33-f6909903286f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fd15642c-735b-4421-82b5-0278f9897b06" xml:space="preserve">
+          <source>Network security groups allow you to have more granular control of allowed inbound and outbound traffic.</source>
+          <target state="new">Network security groups allow you to have more granular control of allowed inbound and outbound traffic.</target>
+        </trans-unit>
+        <trans-unit id="dfcef6f7-599d-49da-bfda-f2b309e316d7" xml:space="preserve">
+          <source>You can create rules that span subnets and cloud services in an Azure virtual network.</source>
+          <target state="new">You can create rules that span subnets and cloud services in an Azure virtual network.</target>
+        </trans-unit>
+        <trans-unit id="361b43fc-5bd3-463f-8208-e8bec42ba59d" xml:space="preserve">
+          <source>Examine your network security group rules to ensure that SSH traffic to and from the Internet is allowed.</source>
+          <target state="new">Examine your network security group rules to ensure that SSH traffic to and from the Internet is allowed.</target>
+        </trans-unit>
+        <trans-unit id="1247968d-598a-4996-8dc1-52132271b250" xml:space="preserve">
+          <source>For more information, see <bpt id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;linkText&gt;</bpt>About network security groups<ept id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;/linkText&gt;</ept><bpt id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;title&gt;</bpt><ept id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;linkText&gt;</bpt>About network security groups<ept id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;/linkText&gt;</ept><bpt id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;title&gt;</bpt><ept id="18bf90bb-d42f-45d1-9cfa-865ec2480597">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdbb0b0c-83cd-45a3-8b2a-7628c325de12" xml:space="preserve">
+          <source>The last source of possible problems is the Azure virtual machine itself.</source>
+          <target state="new">The last source of possible problems is the Azure virtual machine itself.</target>
+        </trans-unit>
+        <trans-unit id="778601e6-1309-4656-9df4-53a2cdf17385" xml:space="preserve">
+          <source><bpt id="aa225157-82d0-49a5-8081-18b7b89986d0">&lt;linkText&gt;</bpt><ept id="aa225157-82d0-49a5-8081-18b7b89986d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa225157-82d0-49a5-8081-18b7b89986d0">&lt;linkText&gt;</bpt><ept id="aa225157-82d0-49a5-8081-18b7b89986d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9094d6b4-350d-4df1-ad9f-c355ec4bc6fe" xml:space="preserve">
+          <source>If you have not done so already, follow the instructions in <bpt id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;/linkText&gt;</ept><bpt id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;title&gt;</bpt><ept id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;/title&gt;</ept> on the virtual machine.</source>
+          <target state="new">If you have not done so already, follow the instructions in <bpt id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;/linkText&gt;</ept><bpt id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;title&gt;</bpt><ept id="a5401107-0116-47bc-8c53-23713cc598d1">&lt;/title&gt;</ept> on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="9f32b2d9-46af-4d41-bc3c-6f7428a4cb23" xml:space="preserve">
+          <source>Try the connection from your computer again.</source>
+          <target state="new">Try the connection from your computer again.</target>
+        </trans-unit>
+        <trans-unit id="e205e91e-6196-40bd-8185-46c50e383589" xml:space="preserve">
+          <source>If you are not successful, here are some of the possible problems:</source>
+          <target state="new">If you are not successful, here are some of the possible problems:</target>
+        </trans-unit>
+        <trans-unit id="219d3dd6-47aa-4eca-8788-0c9f46c4c4f8" xml:space="preserve">
+          <source>The SSH service is not running on the target virtual machine.</source>
+          <target state="new">The SSH service is not running on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="58ed234b-255f-463f-875f-e89cf3343b5f" xml:space="preserve">
+          <source>The SSH service is not listening on TCP port 22.</source>
+          <target state="new">The SSH service is not listening on TCP port 22.</target>
+        </trans-unit>
+        <trans-unit id="9d08e4df-30b1-4300-93f5-52fd67f5e0e9" xml:space="preserve">
+          <source>To test this, install a telnet client on your local computer and run "telnet <bpt id="cc1af00e-8f8a-49bb-b914-ed1d4c1b6fe6">&lt;em&gt;</bpt>cloudServiceName<ept id="cc1af00e-8f8a-49bb-b914-ed1d4c1b6fe6">&lt;/em&gt;</ept>.cloudapp.net 22".</source>
+          <target state="new">To test this, install a telnet client on your local computer and run "telnet <bpt id="cc1af00e-8f8a-49bb-b914-ed1d4c1b6fe6">&lt;em&gt;</bpt>cloudServiceName<ept id="cc1af00e-8f8a-49bb-b914-ed1d4c1b6fe6">&lt;/em&gt;</ept>.cloudapp.net 22".</target>
+        </trans-unit>
+        <trans-unit id="0defef45-574a-41f2-a895-3d37f4da0776" xml:space="preserve">
+          <source>This will determine whether the virtual machine allows inbound and outbound communication to the SSH endpoint.</source>
+          <target state="new">This will determine whether the virtual machine allows inbound and outbound communication to the SSH endpoint.</target>
+        </trans-unit>
+        <trans-unit id="5250b310-63ba-43ce-84c6-94cc3beb0f19" xml:space="preserve">
+          <source>The local firewall on the target virtual machine has rules that are preventing inbound or outbound SSH traffic.</source>
+          <target state="new">The local firewall on the target virtual machine has rules that are preventing inbound or outbound SSH traffic.</target>
+        </trans-unit>
+        <trans-unit id="bd7f0b67-bc9c-45c6-b995-7ea320c6c283" xml:space="preserve">
+          <source>Intrusion detection or network monitoring software running on the Azure virtual machine is preventing SSH connections.</source>
+          <target state="new">Intrusion detection or network monitoring software running on the Azure virtual machine is preventing SSH connections.</target>
+        </trans-unit>
+        <trans-unit id="39626bd8-e7ca-4f1c-9cf0-e402675ddaf7" xml:space="preserve">
+          <source>To get help from Azure experts around the world, you can submit your issue to either the MSDN Azure or Stack Overflow forums.</source>
+          <target state="new">To get help from Azure experts around the world, you can submit your issue to either the MSDN Azure or Stack Overflow forums.</target>
+        </trans-unit>
+        <trans-unit id="d99efc55-d76c-4f5f-8558-334d9846ab79" xml:space="preserve">
+          <source>See <bpt id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;linkText&gt;</bpt>Microsoft Azure forums<ept id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;/linkText&gt;</ept><bpt id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;title&gt;</bpt><ept id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;linkText&gt;</bpt>Microsoft Azure forums<ept id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;/linkText&gt;</ept><bpt id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;title&gt;</bpt><ept id="9d356be8-c4a4-482c-a91c-ab0c58e4e31b">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="fad61452-6a00-4b41-8921-2ee526d8a8e3" xml:space="preserve">
+          <source>If you have done steps 1 through 4 in this article and submitted your issue to the Azure support forums, but still cannot create an SSH connection, one alternative to consider is whether you can re-create the virtual machine.</source>
+          <target state="new">If you have done steps 1 through 4 in this article and submitted your issue to the Azure support forums, but still cannot create an SSH connection, one alternative to consider is whether you can re-create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="ce199c57-99b0-4623-b8c8-4df9ccb14283" xml:space="preserve">
+          <source>If you cannot re-create the virtual machine, it might be time for you to file an Azure support incident.</source>
+          <target state="new">If you cannot re-create the virtual machine, it might be time for you to file an Azure support incident.</target>
+        </trans-unit>
+        <trans-unit id="96934452-0ac5-4c7c-92ee-ebf5e425c1f3" xml:space="preserve">
+          <source>To file an incident, go to the <bpt id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;linkText&gt;</bpt>Azure Support site<ept id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;/linkText&gt;</ept><bpt id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;title&gt;</bpt><ept id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;/title&gt;</ept>, and then click <bpt id="39b09d72-c77b-40bf-bf79-de9a8bffc201">&lt;strong&gt;</bpt>Get Support<ept id="39b09d72-c77b-40bf-bf79-de9a8bffc201">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To file an incident, go to the <bpt id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;linkText&gt;</bpt>Azure Support site<ept id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;/linkText&gt;</ept><bpt id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;title&gt;</bpt><ept id="d528a8ec-d694-4d33-b0cd-90607739898f">&lt;/title&gt;</ept>, and then click <bpt id="39b09d72-c77b-40bf-bf79-de9a8bffc201">&lt;strong&gt;</bpt>Get Support<ept id="39b09d72-c77b-40bf-bf79-de9a8bffc201">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ee96df2-9564-4558-b1ad-e50499f326b1" xml:space="preserve">
+          <source>For information about using Azure Support, see the <bpt id="12867c27-9fb9-460a-af82-f32de239a190">&lt;linkText&gt;</bpt>Microsoft Azure Support FAQ<ept id="12867c27-9fb9-460a-af82-f32de239a190">&lt;/linkText&gt;</ept><bpt id="12867c27-9fb9-460a-af82-f32de239a190">&lt;title&gt;</bpt><ept id="12867c27-9fb9-460a-af82-f32de239a190">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure Support, see the <bpt id="12867c27-9fb9-460a-af82-f32de239a190">&lt;linkText&gt;</bpt>Microsoft Azure Support FAQ<ept id="12867c27-9fb9-460a-af82-f32de239a190">&lt;/linkText&gt;</ept><bpt id="12867c27-9fb9-460a-af82-f32de239a190">&lt;title&gt;</bpt><ept id="12867c27-9fb9-460a-af82-f32de239a190">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e85f7317-42ef-4920-8e0c-8c618b45a4ca" xml:space="preserve">
+          <source><bpt id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;/linkText&gt;</ept><bpt id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;title&gt;</bpt><ept id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;linkText&gt;</bpt>How to reset a password or SSH for Linux-based virtual machines<ept id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;/linkText&gt;</ept><bpt id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;title&gt;</bpt><ept id="1185983e-4b3b-40a5-97df-6d9cc7a32c46">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4616a80c-bd6d-4020-ae95-d71e448380c7" xml:space="preserve">
+          <source><bpt id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;linkText&gt;</bpt>Troubleshoot Windows Remote Desktop connections to a Windows-based Azure virtual machine<ept id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;/linkText&gt;</ept><bpt id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;title&gt;</bpt><ept id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;linkText&gt;</bpt>Troubleshoot Windows Remote Desktop connections to a Windows-based Azure virtual machine<ept id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;/linkText&gt;</ept><bpt id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;title&gt;</bpt><ept id="fd02bfd4-7a77-403b-8ff1-3fa734f59c37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b56e47d-7227-4fa0-b344-dad137234a47" xml:space="preserve">
+          <source><bpt id="a7940545-051e-4861-be76-c8ef24926a99">&lt;linkText&gt;</bpt>Troubleshoot access to an application running on an Azure virtual machine<ept id="a7940545-051e-4861-be76-c8ef24926a99">&lt;/linkText&gt;</ept><bpt id="a7940545-051e-4861-be76-c8ef24926a99">&lt;title&gt;</bpt><ept id="a7940545-051e-4861-be76-c8ef24926a99">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a7940545-051e-4861-be76-c8ef24926a99">&lt;linkText&gt;</bpt>Troubleshoot access to an application running on an Azure virtual machine<ept id="a7940545-051e-4861-be76-c8ef24926a99">&lt;/linkText&gt;</ept><bpt id="a7940545-051e-4861-be76-c8ef24926a99">&lt;title&gt;</bpt><ept id="a7940545-051e-4861-be76-c8ef24926a99">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

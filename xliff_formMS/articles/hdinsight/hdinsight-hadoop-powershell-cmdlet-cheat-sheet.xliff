@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ed32d5d-f2f0-4bbc-bd1a-f8bdd98c0e47" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ed32d5d-f2f0-4bbc-bd1a-f8bdd98c0e47" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4cddc1bf-e5f5-43e8-87ed-f04ed12605cc">
+        <trans-unit id="2903ff46-0149-4235-9d3a-7dbdebb60103" xml:space="preserve">
+          <source>HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Microsoft Azure</source>
+          <target state="new">HDInsight Hadoop PowerShell Cmdlet Cheat Sheet | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e7540433-3ff9-486c-a26a-ebc3610788a5" xml:space="preserve">
+          <source>A downloadable HDInsight Hadoop powershell cmdlet cheat sheet that can help you perform standard Hadoop tasks in Azure HDInsight.</source>
+          <target state="new">A downloadable HDInsight Hadoop powershell cmdlet cheat sheet that can help you perform standard Hadoop tasks in Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="97fd5973-23e1-41af-847c-7c57624361b3" xml:space="preserve">
+          <source>Microsoft Azure HDInsight provides PowerShell cmdlets to perform Hadoop tasks on a cluster.</source>
+          <target state="new">Microsoft Azure HDInsight provides PowerShell cmdlets to perform Hadoop tasks on a cluster.</target>
+        </trans-unit>
+        <trans-unit id="fac46345-0b93-42bd-a69f-1a3b45cddef7" xml:space="preserve">
+          <source>The <bpt id="793fe949-e58b-425e-8468-36006550ea14">&lt;strong&gt;</bpt>Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet<ept id="793fe949-e58b-425e-8468-36006550ea14">&lt;/strong&gt;</ept> is designed to provide you with PowerShell cmdlets for the most common Hadoop tasks such as create a cluster, run jobs, delete a cluster, etc. The cheat sheet also provides a list of all the PowerShell cmdlets available for Microsoft Azure HDInsight.</source>
+          <target state="new">The <bpt id="793fe949-e58b-425e-8468-36006550ea14">&lt;strong&gt;</bpt>Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet<ept id="793fe949-e58b-425e-8468-36006550ea14">&lt;/strong&gt;</ept> is designed to provide you with PowerShell cmdlets for the most common Hadoop tasks such as create a cluster, run jobs, delete a cluster, etc. The cheat sheet also provides a list of all the PowerShell cmdlets available for Microsoft Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="317ac8dc-3c2d-4c1f-8dfc-55acf17f9d84" xml:space="preserve">
+          <source><bpt id="79f9b6a8-8168-4aba-9672-6a6268846fbc">&lt;strong&gt;</bpt>Download the cheat sheet here: [Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet](http://download.microsoft.com/download/B/7/D/B7DBB509-164D-4343-9894-12D1FB053776/HDI_PowerShell_Cmdlet_CheatSheet.pdf)<ept id="79f9b6a8-8168-4aba-9672-6a6268846fbc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="79f9b6a8-8168-4aba-9672-6a6268846fbc">&lt;strong&gt;</bpt>Download the cheat sheet here: [Microsoft Azure HDInsight PowerShell Cmdlet Cheat Sheet](http://download.microsoft.com/download/B/7/D/B7DBB509-164D-4343-9894-12D1FB053776/HDI_PowerShell_Cmdlet_CheatSheet.pdf)<ept id="79f9b6a8-8168-4aba-9672-6a6268846fbc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35e19e34-b78d-4a2f-a2bc-f27ffdad6275" xml:space="preserve">
+          <source><bpt id="dc7b1f7f-8e99-4d09-95bf-a3ccb99a6896">&lt;strong&gt;</bpt>Look at the Microsoft Azure HDInsight PowerShell reference document: [Azure HDInsight PowerShell reference](https://msdn.microsoft.com/library/azure/dn858087.aspx)<ept id="dc7b1f7f-8e99-4d09-95bf-a3ccb99a6896">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dc7b1f7f-8e99-4d09-95bf-a3ccb99a6896">&lt;strong&gt;</bpt>Look at the Microsoft Azure HDInsight PowerShell reference document: [Azure HDInsight PowerShell reference](https://msdn.microsoft.com/library/azure/dn858087.aspx)<ept id="dc7b1f7f-8e99-4d09-95bf-a3ccb99a6896">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6107e226-c8f1-40e4-b76f-8540910d1de4" xml:space="preserve">
+          <source><bpt id="9b981744-1a3b-4254-993d-4edb269b7086">&lt;linkText&gt;</bpt>HDInsight PowerShell Cmdlet cheat sheet for performing common Hadoop tasks<ept id="9b981744-1a3b-4254-993d-4edb269b7086">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b981744-1a3b-4254-993d-4edb269b7086">&lt;linkText&gt;</bpt>HDInsight PowerShell Cmdlet cheat sheet for performing common Hadoop tasks<ept id="9b981744-1a3b-4254-993d-4edb269b7086">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c245ed9c-1f84-4d35-b2fa-faaf42d0aa40" xml:space="preserve">
+          <source><bpt id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;linkText&gt;</bpt>Learning path for HDInsight<ept id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;/linkText&gt;</ept><bpt id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;title&gt;</bpt><ept id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;linkText&gt;</bpt>Learning path for HDInsight<ept id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;/linkText&gt;</ept><bpt id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;title&gt;</bpt><ept id="e6b5f9fd-38db-493d-9b96-9f7279ad9a06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

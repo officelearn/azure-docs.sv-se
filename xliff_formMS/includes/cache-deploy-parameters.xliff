@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="be69b402-ff00-451c-8368-c4e55b9b2fba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="be69b402-ff00-451c-8368-c4e55b9b2fba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4c20452b-78bf-4bf2-bb98-2aae495f21fe">
+        <trans-unit id="e76db41a-5596-4f4a-93b3-144e221338e4" xml:space="preserve">
+          <source>The name of the Azure Redis Cache to create.</source>
+          <target state="new">The name of the Azure Redis Cache to create.</target>
+        </trans-unit>
+        <trans-unit id="d7d35163-b6a2-40b8-8678-f5ae6dc75a0e" xml:space="preserve">
+          <source>The pricing tier of the new Azure Redis Cache.</source>
+          <target state="new">The pricing tier of the new Azure Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="30c70db9-b101-4d99-a5a4-e3fbffcab764" xml:space="preserve">
+          <source>The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified.</source>
+          <target state="new">The template defines the values that are permitted for this parameter (Basic or Standard), and assigns a default value (Basic) if no value is specified.</target>
+        </trans-unit>
+        <trans-unit id="a9b3c91e-b640-4c45-8aaa-bda03eb3f0ca" xml:space="preserve">
+          <source>Basic provides a single node with multiple sizes available up to 53 GB.</source>
+          <target state="new">Basic provides a single node with multiple sizes available up to 53 GB.</target>
+        </trans-unit>
+        <trans-unit id="006859c2-5151-4896-838e-2c16f003d995" xml:space="preserve">
+          <source>Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.</source>
+          <target state="new">Standard provides two-node Primary/Replica with multiple sizes available up to 53 GB and 99.9% SLA.</target>
+        </trans-unit>
+        <trans-unit id="44a76347-59da-462a-af11-459a75fe8043" xml:space="preserve">
+          <source>The family for the sku.</source>
+          <target state="new">The family for the sku.</target>
+        </trans-unit>
+        <trans-unit id="73d2852c-0f5e-46c2-985e-a9e10dd2d2b9" xml:space="preserve">
+          <source>The size of the new Azure Redis Cache instance.</source>
+          <target state="new">The size of the new Azure Redis Cache instance.</target>
+        </trans-unit>
+        <trans-unit id="24677443-256c-4488-a48b-ce19c3f00cc5" xml:space="preserve">
+          <source>The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (0) if no value is specified.</source>
+          <target state="new">The template defines the values that are permitted for this parameter (0, 1, 2, 3, 4, 5 or 6), and assigns a default value (0) if no value is specified.</target>
+        </trans-unit>
+        <trans-unit id="e2a7a441-e061-463a-90f7-efa68d3a7862" xml:space="preserve">
+          <source>Those numbers correspond to following cache sizes: 
+0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB</source>
+          <target state="new">Those numbers correspond to following cache sizes: 
+0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB</target>
+        </trans-unit>
+        <trans-unit id="65ff8978-8065-444b-8c62-d3cda991ad2f" xml:space="preserve">
+          <source>The Redis server version of the new cache.</source>
+          <target state="new">The Redis server version of the new cache.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

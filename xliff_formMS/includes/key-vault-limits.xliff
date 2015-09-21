@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cecd83df-0177-47fc-b4e3-390aba771989" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cecd83df-0177-47fc-b4e3-390aba771989" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9bf52d2f-c99f-483d-a43c-d4ac977ba8d0">
+        <trans-unit id="70e9e31c-5a58-4255-a4d1-9087539a4477" xml:space="preserve">
+          <source>Transactions Type</source>
+          <target state="new">Transactions Type</target>
+        </trans-unit>
+        <trans-unit id="d0d1e400-9d81-444e-9c89-dcbd1a4f2146" xml:space="preserve">
+          <source>Max transactions allowed in 10 seconds, per vault per region</source>
+          <target state="new">Max transactions allowed in 10 seconds, per vault per region</target>
+        </trans-unit>
+        <trans-unit id="fccb0885-499e-4b20-aee2-49959a122065" xml:space="preserve">
+          <source>HSM- CREATE KEY</source>
+          <target state="new">HSM- CREATE KEY</target>
+        </trans-unit>
+        <trans-unit id="cfe1d4c5-7409-40a8-9cee-67c3a03acd5a" xml:space="preserve">
+          <source>5</source>
+          <target state="new">5</target>
+        </trans-unit>
+        <trans-unit id="6de528e5-9086-484a-a84d-987b4d179944" xml:space="preserve">
+          <source>HSM- other transactions</source>
+          <target state="new">HSM- other transactions</target>
+        </trans-unit>
+        <trans-unit id="78303ed5-360e-414d-abf0-cc06b55d29e1" xml:space="preserve">
+          <source>1000</source>
+          <target state="new">1000</target>
+        </trans-unit>
+        <trans-unit id="7ca1474b-2801-4ede-956c-0349979d2224" xml:space="preserve">
+          <source>Soft-key CREATE KEY</source>
+          <target state="new">Soft-key CREATE KEY</target>
+        </trans-unit>
+        <trans-unit id="f6fb7e99-a141-44ff-a237-c9dc29d7c90d" xml:space="preserve">
+          <source>10</source>
+          <target state="new">10</target>
+        </trans-unit>
+        <trans-unit id="ecfb34a3-6d2e-4e34-b248-620a0fe306b8" xml:space="preserve">
+          <source>Soft-key other transactions</source>
+          <target state="new">Soft-key other transactions</target>
+        </trans-unit>
+        <trans-unit id="5f15782c-838a-4738-818f-cfeaddba4b8a" xml:space="preserve">
+          <source>1500</source>
+          <target state="new">1500</target>
+        </trans-unit>
+        <trans-unit id="0e3b1157-b263-46b7-8172-cb82d21a5249" xml:space="preserve">
+          <source>All secrets, vault related transactions</source>
+          <target state="new">All secrets, vault related transactions</target>
+        </trans-unit>
+        <trans-unit id="61e6e194-55a1-4c35-95ab-11238e329f8d" xml:space="preserve">
+          <source>2000</source>
+          <target state="new">2000</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

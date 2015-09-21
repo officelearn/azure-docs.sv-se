@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="55d28c4d-86eb-4f31-a01c-044218cea3b5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="55d28c4d-86eb-4f31-a01c-044218cea3b5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e9c0a2da-998d-4c57-be48-656ffed7caba">
+        <trans-unit id="1a3f73c7-3f78-4a98-b4dd-60e88f7df8b3" xml:space="preserve">
+          <source>Create a WordPress web app in Azure App Service</source>
+          <target state="new">Create a WordPress web app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="e1d36d6c-f61b-488d-bc0c-9dc91a17ed15" xml:space="preserve">
+          <source>A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Preview Portal.</source>
+          <target state="new">A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="c025fb89-24cd-4bde-8795-31a68946908c" xml:space="preserve">
+          <source><bpt id="7aec6d90-9a14-4333-aaa8-139ac53fd073">&lt;token href="../../includes/website-from-gallery.md"&gt;</bpt><ept id="7aec6d90-9a14-4333-aaa8-139ac53fd073">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7aec6d90-9a14-4333-aaa8-139ac53fd073">&lt;token href="../../includes/website-from-gallery.md"&gt;</bpt><ept id="7aec6d90-9a14-4333-aaa8-139ac53fd073">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="775e5b29-06d8-40a6-b16e-d7718e763cf3" xml:space="preserve">
+          <source>You've seen how to create and deploy a web app from the gallery.</source>
+          <target state="new">You've seen how to create and deploy a web app from the gallery.</target>
+        </trans-unit>
+        <trans-unit id="5a0ff9aa-8237-4d64-ae83-5f0b34a71b48" xml:space="preserve">
+          <source>To learn more about how to create, configure, deploy, and scale Azure web apps, check out these resources:</source>
+          <target state="new">To learn more about how to create, configure, deploy, and scale Azure web apps, check out these resources:</target>
+        </trans-unit>
+        <trans-unit id="3da12f8c-2c78-4df1-95a4-941bf1b2ec46" xml:space="preserve">
+          <source><bpt id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure web app and deploy using Git<ept id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;/linkText&gt;</ept><bpt id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;title&gt;</bpt><ept id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;/title&gt;</ept> -- Create an PHP web app from scratch and deploy it to Azure App Service using Git</source>
+          <target state="new"><bpt id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;linkText&gt;</bpt>Create a PHP-MySQL Azure web app and deploy using Git<ept id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;/linkText&gt;</ept><bpt id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;title&gt;</bpt><ept id="a379328f-d65f-4cd8-b1a7-5a02b64768a5">&lt;/title&gt;</ept> -- Create an PHP web app from scratch and deploy it to Azure App Service using Git</target>
+        </trans-unit>
+        <trans-unit id="1df65fa3-bcba-4712-b433-1d4091956240" xml:space="preserve">
+          <source><bpt id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;linkText&gt;</bpt>More PHP tutorials<ept id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;/linkText&gt;</ept><bpt id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;title&gt;</bpt><ept id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;/title&gt;</ept> - Create additional types of applications using PHP and Azure</source>
+          <target state="new"><bpt id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;linkText&gt;</bpt>More PHP tutorials<ept id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;/linkText&gt;</ept><bpt id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;title&gt;</bpt><ept id="a3ff8a05-814f-4a52-aba7-7c5d808e8a15">&lt;/title&gt;</ept> - Create additional types of applications using PHP and Azure</target>
+        </trans-unit>
+        <trans-unit id="5f606024-40c0-42a3-b9fc-dcdab39ec8d6" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;/linkText&gt;</ept><bpt id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;title&gt;</bpt><ept id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;/linkText&gt;</ept><bpt id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;title&gt;</bpt><ept id="fec12393-c5f2-4bf2-bf18-136a95f27f81">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71528044-f50f-4ca1-b9f6-f3866547c1e7" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;/linkText&gt;</ept><bpt id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;title&gt;</bpt><ept id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;/linkText&gt;</ept><bpt id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;title&gt;</bpt><ept id="bbd9d37b-cb10-49a7-923d-cdbf3e7e393c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

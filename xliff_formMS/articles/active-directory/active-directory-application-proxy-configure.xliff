@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a3e96069-232c-4882-9c27-62efcab8b0a3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a3e96069-232c-4882-9c27-62efcab8b0a3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0738bb73-ba17-4101-b741-ffd458e91aa0">
+        <trans-unit id="24ff5913-7a39-4d5e-b92b-af0ea0ca79ca" xml:space="preserve">
+          <source>Using Application Proxy to publish applications for secure remote access</source>
+          <target state="new">Using Application Proxy to publish applications for secure remote access</target>
+        </trans-unit>
+        <trans-unit id="277246a1-49ef-4d47-9264-4c68ee723785" xml:space="preserve">
+          <source>A topic that explains how to publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</source>
+          <target state="new">A topic that explains how to publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</target>
+        </trans-unit>
+        <trans-unit id="e443fa28-7389-423b-982b-328f7b560d05" xml:space="preserve">
+          <source>Microsoft Azure AD Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</source>
+          <target state="new">Microsoft Azure AD Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access and IIS-based apps, inside your private network and provides secure access to users outside your network.</target>
+        </trans-unit>
+        <trans-unit id="20745b70-6340-4b5a-8a2f-8497183d66eb" xml:space="preserve">
+          <source>Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy.</source>
+          <target state="new">Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy.</target>
+        </trans-unit>
+        <trans-unit id="4233b379-9e74-444c-b1df-176490e2c580" xml:space="preserve">
+          <source>Azure AD Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Azure AD Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="feaf6883-1dba-423c-ba2e-7310c9e4908b" xml:space="preserve">
+          <source>For more information, see <bpt id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;/linkText&gt;</ept><bpt id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;title&gt;</bpt><ept id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;/linkText&gt;</ept><bpt id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;title&gt;</bpt><ept id="74757bc6-98d4-4065-a0d8-e3d87b8b9f4e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dae57bd9-3af3-402c-a1f4-0b38d0455686" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="3dca6334-7bef-4a21-9d42-d3175cff6627" xml:space="preserve">
+          <source>Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</source>
+          <target state="new">Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China.</target>
+        </trans-unit>
+        <trans-unit id="a14fc293-e4e7-4f6a-8684-81fe89e2e0d2" xml:space="preserve">
+          <source>For more information, contact us at the <bpt id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;/linkText&gt;</ept><bpt id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;title&gt;</bpt><ept id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, contact us at the <bpt id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;/linkText&gt;</ept><bpt id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;title&gt;</bpt><ept id="7824fb95-189c-46d7-aa45-65a38de26b32">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26cefe5d-f973-43ae-9e4c-fa28dd5eca80" xml:space="preserve">
+          <source>To get started using Application Proxy, follow these steps:</source>
+          <target state="new">To get started using Application Proxy, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="115be44a-bbaa-49eb-aeb1-0a99cefe433b" xml:space="preserve">
+          <source><bpt id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;/linkText&gt;</ept><bpt id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;title&gt;</bpt><ept id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;/linkText&gt;</ept><bpt id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;title&gt;</bpt><ept id="658c146d-6bd0-4483-b1a3-3bdeacd37fe1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f1348e5-131f-4d11-ac5b-5eab59dceaf7" xml:space="preserve">
+          <source><bpt id="025f8119-0108-47af-93ca-83df1158abf5">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="025f8119-0108-47af-93ca-83df1158abf5">&lt;/linkText&gt;</ept><bpt id="025f8119-0108-47af-93ca-83df1158abf5">&lt;title&gt;</bpt><ept id="025f8119-0108-47af-93ca-83df1158abf5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="025f8119-0108-47af-93ca-83df1158abf5">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="025f8119-0108-47af-93ca-83df1158abf5">&lt;/linkText&gt;</ept><bpt id="025f8119-0108-47af-93ca-83df1158abf5">&lt;title&gt;</bpt><ept id="025f8119-0108-47af-93ca-83df1158abf5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e327a300-085f-4c75-b707-1343fa56c8a2" xml:space="preserve">
+          <source><bpt id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;linkText&gt;</bpt>Microsoft Azure blog<ept id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;/linkText&gt;</ept><bpt id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;title&gt;</bpt><ept id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;/title&gt;</ept>
+<bpt id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;/linkText&gt;</ept><bpt id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;title&gt;</bpt><ept id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;/title&gt;</ept>
+<bpt id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;/linkText&gt;</ept><bpt id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;title&gt;</bpt><ept id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;/title&gt;</ept>
+<bpt id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;linkText&gt;</bpt>Troubleshoot Application Proxy<ept id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;/linkText&gt;</ept><bpt id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;title&gt;</bpt><ept id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;linkText&gt;</bpt>Microsoft Azure blog<ept id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;/linkText&gt;</ept><bpt id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;title&gt;</bpt><ept id="7b9bcc0f-f64d-4a6c-ad1f-ef366e1f3dd4">&lt;/title&gt;</ept>
+<bpt id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;linkText&gt;</bpt>Enable Application Proxy services<ept id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;/linkText&gt;</ept><bpt id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;title&gt;</bpt><ept id="5b773f8c-af65-4800-aa56-2b7b173c1622">&lt;/title&gt;</ept>
+<bpt id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;/linkText&gt;</ept><bpt id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;title&gt;</bpt><ept id="395a5b85-e212-4800-a973-5f39539ba62b">&lt;/title&gt;</ept>
+<bpt id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;linkText&gt;</bpt>Troubleshoot Application Proxy<ept id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;/linkText&gt;</ept><bpt id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;title&gt;</bpt><ept id="32274e13-98cf-47cb-a469-1b83d28be753">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

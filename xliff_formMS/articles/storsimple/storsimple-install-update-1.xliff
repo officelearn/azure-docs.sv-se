@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fbb3596c-47d5-4004-b623-24048c0898af" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fbb3596c-47d5-4004-b623-24048c0898af" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="027a6417-9a52-42e0-907d-227c55bc3b7a">
+        <trans-unit id="1ca4fee5-4d83-433a-91c8-1a97001bc638" xml:space="preserve">
+          <source>Install Update 1 on your StorSimple device | Microsoft Azure</source>
+          <target state="new">Install Update 1 on your StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4e9b6c83-dfa6-4cfe-9318-7f557fed8ced" xml:space="preserve">
+          <source>Explains how to install StorSimple 8000 Series Update 1 on your device.</source>
+          <target state="new">Explains how to install StorSimple 8000 Series Update 1 on your device.</target>
+        </trans-unit>
+        <trans-unit id="dff0d360-86de-4ae7-a0a0-03fe2cb8b3ab" xml:space="preserve">
+          <source>This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1.</source>
+          <target state="new">This tutorial explains how to install Update 1 on a StorSimple device that is running a software version prior to Update 1.</target>
+        </trans-unit>
+        <trans-unit id="67386737-4666-44b8-8072-07388eb7bcc4" xml:space="preserve">
+          <source>Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software.</source>
+          <target state="new">Your device could be running the generally available (GA) release, Update 0.1, Update 0.2, or Update 0.3 software.</target>
+        </trans-unit>
+        <trans-unit id="f9f64320-2587-41dd-9333-143add794d63" xml:space="preserve">
+          <source>During this installation, if your device is running a version prior to Update 1, then checks are performed on your device.</source>
+          <target state="new">During this installation, if your device is running a version prior to Update 1, then checks are performed on your device.</target>
+        </trans-unit>
+        <trans-unit id="5bb556f9-3a57-4b11-b42c-99fc2d0e6442" xml:space="preserve">
+          <source>These checks determine the device health in terms of hardware state and network connectivity.</source>
+          <target state="new">These checks determine the device health in terms of hardware state and network connectivity.</target>
+        </trans-unit>
+        <trans-unit id="016802a4-06b6-4f6f-a16b-3e212d4c5b92" xml:space="preserve">
+          <source>You will be prompted to perform a manual pre-check to ensure that:</source>
+          <target state="new">You will be prompted to perform a manual pre-check to ensure that:</target>
+        </trans-unit>
+        <trans-unit id="d3bc9004-6f3b-40dd-9c44-e302c38a135a" xml:space="preserve">
+          <source>The controller fixed IPs are routable and can connect to the Internet.</source>
+          <target state="new">The controller fixed IPs are routable and can connect to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="2aec3438-eebc-452c-8093-a7563db6630d" xml:space="preserve">
+          <source>These IPs are used to service updates to your StorSimple device.</source>
+          <target state="new">These IPs are used to service updates to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="89c904cd-15fe-4e3e-8f22-fc9b26c2b705" xml:space="preserve">
+          <source>You can test this by running the following cmdlet on each controller:</source>
+          <target state="new">You can test this by running the following cmdlet on each controller:</target>
+        </trans-unit>
+        <trans-unit id="c291c4a6-1d1a-4a2e-bbd5-39f6e5f13702" xml:space="preserve">
+          <source><bpt id="22ac94fe-7ab6-48a5-8997-c8f5cec6a878">&lt;code&gt;</bpt>Test-Connection -Source &lt;Fixed IP of your device controller&gt; -Destination &lt;Any IP or computer name outside of datacenter network&gt; <ept id="22ac94fe-7ab6-48a5-8997-c8f5cec6a878">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="22ac94fe-7ab6-48a5-8997-c8f5cec6a878">&lt;code&gt;</bpt>Test-Connection -Source &lt;Fixed IP of your device controller&gt; -Destination &lt;Any IP or computer name outside of datacenter network&gt; <ept id="22ac94fe-7ab6-48a5-8997-c8f5cec6a878">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="405a4e2c-4d89-458f-b4e3-fa7f14ec4f50" xml:space="preserve">
+          <source><bpt id="97342455-8adb-4072-bc78-f349060b2314">&lt;strong&gt;</bpt>Sample output for Test-Connection when fixed IPs can connect to the Internet<ept id="97342455-8adb-4072-bc78-f349060b2314">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="97342455-8adb-4072-bc78-f349060b2314">&lt;strong&gt;</bpt>Sample output for Test-Connection when fixed IPs can connect to the Internet<ept id="97342455-8adb-4072-bc78-f349060b2314">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42d3aaf3-d108-479f-872b-6a0bdb3fc471" xml:space="preserve">
+          <source>Before updating the device, we recommend that you take a cloud snapshot of the device data.</source>
+          <target state="new">Before updating the device, we recommend that you take a cloud snapshot of the device data.</target>
+        </trans-unit>
+        <trans-unit id="922666d5-c69a-4f80-ad0c-5671cd800629" xml:space="preserve">
+          <source>After you have verified and acknowledged the manual checks (above), a set of automatic pre-update checks will be performed.</source>
+          <target state="new">After you have verified and acknowledged the manual checks (above), a set of automatic pre-update checks will be performed.</target>
+        </trans-unit>
+        <trans-unit id="49d90ee6-ff77-45d1-b044-c3e58a5559f5" xml:space="preserve">
+          <source>These include:</source>
+          <target state="new">These include:</target>
+        </trans-unit>
+        <trans-unit id="169bfc72-dd94-456d-a9ef-2ecf5a1cdebb" xml:space="preserve">
+          <source><bpt id="a3435255-491b-4dee-ab90-32167fcab8e5">&lt;strong&gt;</bpt>Controller health checks<ept id="a3435255-491b-4dee-ab90-32167fcab8e5">&lt;/strong&gt;</ept> to verify that both the device controllers are healthy and online.</source>
+          <target state="new"><bpt id="a3435255-491b-4dee-ab90-32167fcab8e5">&lt;strong&gt;</bpt>Controller health checks<ept id="a3435255-491b-4dee-ab90-32167fcab8e5">&lt;/strong&gt;</ept> to verify that both the device controllers are healthy and online.</target>
+        </trans-unit>
+        <trans-unit id="0b13b018-17ff-467e-af59-74278bf04f76" xml:space="preserve">
+          <source><bpt id="ef3de6e2-a60b-49a4-aaff-22f770c18218">&lt;strong&gt;</bpt>Hardware component health checks<ept id="ef3de6e2-a60b-49a4-aaff-22f770c18218">&lt;/strong&gt;</ept> to verify that all the hardware components on your StorSimple device are healthy.</source>
+          <target state="new"><bpt id="ef3de6e2-a60b-49a4-aaff-22f770c18218">&lt;strong&gt;</bpt>Hardware component health checks<ept id="ef3de6e2-a60b-49a4-aaff-22f770c18218">&lt;/strong&gt;</ept> to verify that all the hardware components on your StorSimple device are healthy.</target>
+        </trans-unit>
+        <trans-unit id="4ad7d9fd-ded1-492f-a8bd-1c4679be4474" xml:space="preserve">
+          <source><bpt id="ea048d71-e6f4-4152-a071-0d58573534de">&lt;strong&gt;</bpt>DATA 0 checks<ept id="ea048d71-e6f4-4152-a071-0d58573534de">&lt;/strong&gt;</ept> to verify that DATA 0 is enabled on your device.</source>
+          <target state="new"><bpt id="ea048d71-e6f4-4152-a071-0d58573534de">&lt;strong&gt;</bpt>DATA 0 checks<ept id="ea048d71-e6f4-4152-a071-0d58573534de">&lt;/strong&gt;</ept> to verify that DATA 0 is enabled on your device.</target>
+        </trans-unit>
+        <trans-unit id="16728054-796b-4cc0-bbc8-02e5c7443093" xml:space="preserve">
+          <source>If this interface is not enabled, you will need to enable it and then retry.</source>
+          <target state="new">If this interface is not enabled, you will need to enable it and then retry.</target>
+        </trans-unit>
+        <trans-unit id="9613cbdc-2202-4743-b9e1-5d102949bb50" xml:space="preserve">
+          <source><bpt id="8930ce76-ccf9-4ef6-a6eb-7aa2d5788a5d">&lt;strong&gt;</bpt>DATA 2 and DATA 3 checks<ept id="8930ce76-ccf9-4ef6-a6eb-7aa2d5788a5d">&lt;/strong&gt;</ept> to verify that DATA 2 and DATA 3 network interfaces are not enabled.</source>
+          <target state="new"><bpt id="8930ce76-ccf9-4ef6-a6eb-7aa2d5788a5d">&lt;strong&gt;</bpt>DATA 2 and DATA 3 checks<ept id="8930ce76-ccf9-4ef6-a6eb-7aa2d5788a5d">&lt;/strong&gt;</ept> to verify that DATA 2 and DATA 3 network interfaces are not enabled.</target>
+        </trans-unit>
+        <trans-unit id="ffa790b9-5112-4a39-b0c8-70c866609437" xml:space="preserve">
+          <source>If these interfaces are enabled, then you will need to disable them and then try to update your device.</source>
+          <target state="new">If these interfaces are enabled, then you will need to disable them and then try to update your device.</target>
+        </trans-unit>
+        <trans-unit id="d7129ae9-629e-4264-859b-ffc7318ec678" xml:space="preserve">
+          <source>This check is performed only if you are updating from a device running GA software.</source>
+          <target state="new">This check is performed only if you are updating from a device running GA software.</target>
+        </trans-unit>
+        <trans-unit id="f91f56ed-3503-4a90-aaa4-0a2114993bc8" xml:space="preserve">
+          <source>Devices running versions 0.1, 0.2, or 0.3 will not need this check.</source>
+          <target state="new">Devices running versions 0.1, 0.2, or 0.3 will not need this check.</target>
+        </trans-unit>
+        <trans-unit id="a5894932-a923-4338-aa64-29e03db2e7c9" xml:space="preserve">
+          <source><bpt id="fac9a1d5-2c9e-4a21-8590-c40f9c540568">&lt;strong&gt;</bpt>Gateway check<ept id="fac9a1d5-2c9e-4a21-8590-c40f9c540568">&lt;/strong&gt;</ept> on any device running a version prior to Update 1.</source>
+          <target state="new"><bpt id="fac9a1d5-2c9e-4a21-8590-c40f9c540568">&lt;strong&gt;</bpt>Gateway check<ept id="fac9a1d5-2c9e-4a21-8590-c40f9c540568">&lt;/strong&gt;</ept> on any device running a version prior to Update 1.</target>
+        </trans-unit>
+        <trans-unit id="cc57fbce-62ef-4b52-ac52-7e66fc253319" xml:space="preserve">
+          <source>This check is performed only on devices that have a gateway configured for a network interface other than DATA 0.</source>
+          <target state="new">This check is performed only on devices that have a gateway configured for a network interface other than DATA 0.</target>
+        </trans-unit>
+        <trans-unit id="d4baa84f-17d2-4bdc-a6e8-4f7e0bc1fd64" xml:space="preserve">
+          <source>Update 1 will only be applied if all the pre-update checks are successfully completed.</source>
+          <target state="new">Update 1 will only be applied if all the pre-update checks are successfully completed.</target>
+        </trans-unit>
+        <trans-unit id="f6954713-182a-4362-956f-894668e118c7" xml:space="preserve">
+          <source>After you have applied Update 1 on your StorSimple device, future updates will not have the Data 2 and Data 3 checks and the Gateway check.</source>
+          <target state="new">After you have applied Update 1 on your StorSimple device, future updates will not have the Data 2 and Data 3 checks and the Gateway check.</target>
+        </trans-unit>
+        <trans-unit id="2e2de410-1661-4390-9b21-3ade29a1bf30" xml:space="preserve">
+          <source>The other pre-checks will occur.</source>
+          <target state="new">The other pre-checks will occur.</target>
+        </trans-unit>
+        <trans-unit id="5624d040-d1ed-4b35-a387-dd3e33a8bc86" xml:space="preserve">
+          <source>We recommend that you use the Azure Management Portal to update a device that is running the GA version.</source>
+          <target state="new">We recommend that you use the Azure Management Portal to update a device that is running the GA version.</target>
+        </trans-unit>
+        <trans-unit id="3560ade5-d137-486f-afb9-612447d27c6a" xml:space="preserve">
+          <source>Perform the following steps to update your device.</source>
+          <target state="new">Perform the following steps to update your device.</target>
+        </trans-unit>
+        <trans-unit id="3316204b-012c-41b9-bba2-0447d9634838" xml:space="preserve">
+          <source><bpt id="ee28751f-4c07-421e-bd90-c584e0be3bf1">&lt;token href="../../includes/storsimple-install-update-via-portal.md"&gt;</bpt><ept id="ee28751f-4c07-421e-bd90-c584e0be3bf1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ee28751f-4c07-421e-bd90-c584e0be3bf1">&lt;token href="../../includes/storsimple-install-update-via-portal.md"&gt;</bpt><ept id="ee28751f-4c07-421e-bd90-c584e0be3bf1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0fae959a-8b59-46e2-bdf6-06fbc51b3090" xml:space="preserve">
+          <source><bpt id="157a67d4-df5a-49c5-b35e-aeb5e8fa2e00">&lt;strong&gt;</bpt>What if you see a notification that the pre-upgrade checks have failed?<ept id="157a67d4-df5a-49c5-b35e-aeb5e8fa2e00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="157a67d4-df5a-49c5-b35e-aeb5e8fa2e00">&lt;strong&gt;</bpt>What if you see a notification that the pre-upgrade checks have failed?<ept id="157a67d4-df5a-49c5-b35e-aeb5e8fa2e00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="439641d8-9ad5-40f3-b7f8-85bb90a1576d" xml:space="preserve">
+          <source>If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page.</source>
+          <target state="new">If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f8fa718f-2bfd-4e1b-930f-2d0e1b223b17" xml:space="preserve">
+          <source>This provides guidance as to which pre-check has failed.</source>
+          <target state="new">This provides guidance as to which pre-check has failed.</target>
+        </trans-unit>
+        <trans-unit id="4d7bc0cb-2342-495d-a9dd-536e329db084" xml:space="preserve">
+          <source>The following illustration shows an instance in which such a notification appears.</source>
+          <target state="new">The following illustration shows an instance in which such a notification appears.</target>
+        </trans-unit>
+        <trans-unit id="5c2f8641-81eb-42d9-97d2-905d01521159" xml:space="preserve">
+          <source>In this case, the controller health check and hardware component health check have failed.</source>
+          <target state="new">In this case, the controller health check and hardware component health check have failed.</target>
+        </trans-unit>
+        <trans-unit id="b0f546b8-6db1-4618-9b26-a4915a0e2bb3" xml:space="preserve">
+          <source>Under the <bpt id="e32153a5-9442-411c-9b55-15c16bbac0e9">&lt;strong&gt;</bpt>Hardware Status<ept id="e32153a5-9442-411c-9b55-15c16bbac0e9">&lt;/strong&gt;</ept> section, you can see that both Controller 0 and Controller 1 components need attention.</source>
+          <target state="new">Under the <bpt id="e32153a5-9442-411c-9b55-15c16bbac0e9">&lt;strong&gt;</bpt>Hardware Status<ept id="e32153a5-9442-411c-9b55-15c16bbac0e9">&lt;/strong&gt;</ept> section, you can see that both Controller 0 and Controller 1 components need attention.</target>
+        </trans-unit>
+        <trans-unit id="c879a5a1-a773-481f-9d49-fdc2b808df07" xml:space="preserve">
+          <source>  <bpt id="7390fac2-d2ca-4b89-ade2-574c6e99eb3b">&lt;linkText&gt;</bpt>Pre-check failure<ept id="7390fac2-d2ca-4b89-ade2-574c6e99eb3b">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="7390fac2-d2ca-4b89-ade2-574c6e99eb3b">&lt;linkText&gt;</bpt>Pre-check failure<ept id="7390fac2-d2ca-4b89-ade2-574c6e99eb3b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1708e69d-84dc-433e-9899-0ae25c2a01be" xml:space="preserve">
+          <source>You will need to make sure that both controllers are healthy and online.</source>
+          <target state="new">You will need to make sure that both controllers are healthy and online.</target>
+        </trans-unit>
+        <trans-unit id="7437bf82-265a-46a6-b095-993f470e5452" xml:space="preserve">
+          <source>You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page.</source>
+          <target state="new">You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page.</target>
+        </trans-unit>
+        <trans-unit id="bd237f97-0787-4727-a955-ac0a08de4282" xml:space="preserve">
+          <source>You can then try to install updates.</source>
+          <target state="new">You can then try to install updates.</target>
+        </trans-unit>
+        <trans-unit id="e2b9fbcf-dd1e-417f-a5d6-117c2e04a243" xml:space="preserve">
+          <source>If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.</source>
+          <target state="new">If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="8f5ab850-e6ce-4eb8-83d6-300805ae535e" xml:space="preserve">
+          <source><bpt id="bbd76286-4911-41c3-bc20-4dc5c5b3107d">&lt;strong&gt;</bpt>What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?<ept id="bbd76286-4911-41c3-bc20-4dc5c5b3107d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bbd76286-4911-41c3-bc20-4dc5c5b3107d">&lt;strong&gt;</bpt>What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?<ept id="bbd76286-4911-41c3-bc20-4dc5c5b3107d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bd2c129-90a4-4a9b-b571-4d4c805e95d8" xml:space="preserve">
+          <source>One likely cause for this could be that you do not have connectivity to the Microsoft Update servers.</source>
+          <target state="new">One likely cause for this could be that you do not have connectivity to the Microsoft Update servers.</target>
+        </trans-unit>
+        <trans-unit id="a7074927-7159-4443-92d5-6d4f01982865" xml:space="preserve">
+          <source>This is a manual check that needs to be performed.</source>
+          <target state="new">This is a manual check that needs to be performed.</target>
+        </trans-unit>
+        <trans-unit id="71b2e8e7-e626-4e5d-a1d9-5f7c6018b145" xml:space="preserve">
+          <source>If you lose connectivity to the update server, your update job would fail.</source>
+          <target state="new">If you lose connectivity to the update server, your update job would fail.</target>
+        </trans-unit>
+        <trans-unit id="01133c11-946e-4fa2-b326-e0402fe60e2a" xml:space="preserve">
+          <source>You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:</source>
+          <target state="new">You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:</target>
+        </trans-unit>
+        <trans-unit id="4f779067-348b-492d-a826-51ab50c7ccec" xml:space="preserve">
+          <source> <bpt id="900f6fd4-d330-47f0-9eab-83b0c5edca50">&lt;code&gt;</bpt>Test-Connection -Source &lt;Fixed IP of your device controller&gt; -Destination &lt;Any IP or computer name outside of datacenter&gt;<ept id="900f6fd4-d330-47f0-9eab-83b0c5edca50">&lt;/code&gt;</ept></source>
+          <target state="new"> <bpt id="900f6fd4-d330-47f0-9eab-83b0c5edca50">&lt;code&gt;</bpt>Test-Connection -Source &lt;Fixed IP of your device controller&gt; -Destination &lt;Any IP or computer name outside of datacenter&gt;<ept id="900f6fd4-d330-47f0-9eab-83b0c5edca50">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2bf6fe3e-a17a-4487-91ca-044ae276150e" xml:space="preserve">
+          <source>Run the cmdlet on both controllers.</source>
+          <target state="new">Run the cmdlet on both controllers.</target>
+        </trans-unit>
+        <trans-unit id="fe6405e7-c81f-43ca-99f3-3b74c4a654b6" xml:space="preserve">
+          <source>If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.</source>
+          <target state="new">If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="abf1991b-2dce-488c-8d76-4e6038992e31" xml:space="preserve">
+          <source>Learn more about <bpt id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;linkText&gt;</bpt>Microsoft Azure StorSimple<ept id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;/linkText&gt;</ept><bpt id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;title&gt;</bpt><ept id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;/title&gt;</ept> </source>
+          <target state="new">Learn more about <bpt id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;linkText&gt;</bpt>Microsoft Azure StorSimple<ept id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;/linkText&gt;</ept><bpt id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;title&gt;</bpt><ept id="fad8dfbc-450c-4bca-bb69-97d0a6401c8c">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ecb66ac5-d5f7-4d9c-aabe-a0f5e737a515" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ecb66ac5-d5f7-4d9c-aabe-a0f5e737a515" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="22ce75a2-4f29-4f41-9c69-8264d985f7b5">
+        <trans-unit id="5224bf1d-394d-434c-bfb0-3dbe80e31458" xml:space="preserve">
+          <source>Archive AS2 Connector messages | Microsoft Azure App Service</source>
+          <target state="new">Archive AS2 Connector messages | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="78fd3927-742d-4a0c-be7c-acaaf8aa122d" xml:space="preserve">
+          <source>How to Archive or Store AS2 Connector messages in Azure App Service</source>
+          <target state="new">How to Archive or Store AS2 Connector messages in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="0575f8c6-f852-4090-adb4-1b3f4da85bb0" xml:space="preserve">
+          <source><bpt id="8fb9fcf6-34ee-4c5d-83fc-e918681b228f">&lt;strong&gt;</bpt>AS2 Connector<ept id="8fb9fcf6-34ee-4c5d-83fc-e918681b228f">&lt;/strong&gt;</ept> exposes the ability to archive messages.</source>
+          <target state="new"><bpt id="8fb9fcf6-34ee-4c5d-83fc-e918681b228f">&lt;strong&gt;</bpt>AS2 Connector<ept id="8fb9fcf6-34ee-4c5d-83fc-e918681b228f">&lt;/strong&gt;</ept> exposes the ability to archive messages.</target>
+        </trans-unit>
+        <trans-unit id="ab8d7ce0-24e5-4eba-a7fa-e0a561e56f0b" xml:space="preserve">
+          <source>Archiving stores the message in the <bpt id="6d49afd4-b96a-453b-954c-7dd6eac094ce">&lt;strong&gt;</bpt>Azure Blob Container<ept id="6d49afd4-b96a-453b-954c-7dd6eac094ce">&lt;/strong&gt;</ept> that is a part of package settings.</source>
+          <target state="new">Archiving stores the message in the <bpt id="6d49afd4-b96a-453b-954c-7dd6eac094ce">&lt;strong&gt;</bpt>Azure Blob Container<ept id="6d49afd4-b96a-453b-954c-7dd6eac094ce">&lt;/strong&gt;</ept> that is a part of package settings.</target>
+        </trans-unit>
+        <trans-unit id="48629723-7223-46ab-9bc7-f9de55be4b64" xml:space="preserve">
+          <source>Archiving is exposed at two points for both messages and acknowledgements (MDNs):</source>
+          <target state="new">Archiving is exposed at two points for both messages and acknowledgements (MDNs):</target>
+        </trans-unit>
+        <trans-unit id="f83c644b-9f87-4996-9e51-65448e50208a" xml:space="preserve">
+          <source><bpt id="264225b6-1932-4283-a090-08cd161a3851">&lt;strong&gt;</bpt>Receive/Decode Trigger<ept id="264225b6-1932-4283-a090-08cd161a3851">&lt;/strong&gt;</ept>: the message is archived as soon as it is received by the API App instance </source>
+          <target state="new"><bpt id="264225b6-1932-4283-a090-08cd161a3851">&lt;strong&gt;</bpt>Receive/Decode Trigger<ept id="264225b6-1932-4283-a090-08cd161a3851">&lt;/strong&gt;</ept>: the message is archived as soon as it is received by the API App instance </target>
+        </trans-unit>
+        <trans-unit id="d9806b8b-3683-48d5-ba41-2789c80d08b1" xml:space="preserve">
+          <source><bpt id="3ed9a7bb-c1c9-43b0-a1ea-e3117fb82e6f">&lt;strong&gt;</bpt>Encode/Send Action<ept id="3ed9a7bb-c1c9-43b0-a1ea-e3117fb82e6f">&lt;/strong&gt;</ept>: the encoded message is archived, after all processing is complete and just before it is sent to the partner </source>
+          <target state="new"><bpt id="3ed9a7bb-c1c9-43b0-a1ea-e3117fb82e6f">&lt;strong&gt;</bpt>Encode/Send Action<ept id="3ed9a7bb-c1c9-43b0-a1ea-e3117fb82e6f">&lt;/strong&gt;</ept>: the encoded message is archived, after all processing is complete and just before it is sent to the partner </target>
+        </trans-unit>
+        <trans-unit id="a1c6019e-2e5e-43eb-811c-68c95ad175d9" xml:space="preserve">
+          <source>Browse to the AS2 Connector API App instance and click 'Tracking'.</source>
+          <target state="new">Browse to the AS2 Connector API App instance and click 'Tracking'.</target>
+        </trans-unit>
+        <trans-unit id="048050a6-c078-4dd1-ab56-895fb4c7c3da" xml:space="preserve">
+          <source>Narrow down the tracking information by using filter parameters.</source>
+          <target state="new">Narrow down the tracking information by using filter parameters.</target>
+        </trans-unit>
+        <trans-unit id="5b0cf620-f6f1-440e-b122-90f6bb7d022c" xml:space="preserve">
+          <source>Once your message is in view, click to see its detailed view.</source>
+          <target state="new">Once your message is in view, click to see its detailed view.</target>
+        </trans-unit>
+        <trans-unit id="c350d63b-3112-4f95-a515-061265ed210d" xml:space="preserve">
+          <source>The archived URL for the message is displayed in this detailed view:  
+<bpt id="252de207-55ab-4f7f-837d-4175ede3c877">&lt;linkText&gt;</bpt><ept id="252de207-55ab-4f7f-837d-4175ede3c877">&lt;/linkText&gt;</ept></source>
+          <target state="new">The archived URL for the message is displayed in this detailed view:  
+<bpt id="252de207-55ab-4f7f-837d-4175ede3c877">&lt;linkText&gt;</bpt><ept id="252de207-55ab-4f7f-837d-4175ede3c877">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a4c783c-47cb-4cea-a38f-cc73e23f92d1" xml:space="preserve">
+          <source>Use the URL retrieved above to retrieve the archived message from Azure Blob Storage.</source>
+          <target state="new">Use the URL retrieved above to retrieve the archived message from Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="ab82b85a-7ac7-4bd6-9f83-d0a10ef6d3d6" xml:space="preserve">
+          <source>./media/app-service-logic-archive-as2-messages/Tracking.jpg</source>
+          <target state="new">./media/app-service-logic-archive-as2-messages/Tracking.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="ead18cad-6237-4e90-8ba4-9a0a74cb05e1" />
+    </body>
+  </file>
+</xliff>

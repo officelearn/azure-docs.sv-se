@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="421cddf8-34d3-4ae9-a0e1-8a58cb3092c3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="421cddf8-34d3-4ae9-a0e1-8a58cb3092c3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d3b599f6-9ad5-4fa2-8677-a5972e4aefed">
+        <trans-unit id="eacf933e-8618-41d2-aab9-a33655272bf1" xml:space="preserve">
+          <source>Machine Learning Gallery of experiments | Microsoft Azure</source>
+          <target state="new">Machine Learning Gallery of experiments | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a6592892-0784-4b01-9b0a-a15cd2f681f8" xml:space="preserve">
+          <source>Share and discover machine learning experiments in the Azure Machine Learning Gallery. Learn from others’ experiments, or just get started with machine learning.</source>
+          <target state="new">Share and discover machine learning experiments in the Azure Machine Learning Gallery. Learn from others’ experiments, or just get started with machine learning.</target>
+        </trans-unit>
+        <trans-unit id="ac72949b-ca7e-4b4b-bb6c-76059253c08c" xml:space="preserve">
+          <source>The Azure Machine Learning Gallery is a community driven site for discovering experiments that solve interesting problems.</source>
+          <target state="new">The Azure Machine Learning Gallery is a community driven site for discovering experiments that solve interesting problems.</target>
+        </trans-unit>
+        <trans-unit id="a4ff3f52-890c-4f89-a0ad-0e356447c0d1" xml:space="preserve">
+          <source>It is a destination for users looking to learn from others’ experiments, or to simply get started on Azure Machine Learning.</source>
+          <target state="new">It is a destination for users looking to learn from others’ experiments, or to simply get started on Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="b4b29582-a80b-415a-817d-3c7be0394cb1" xml:space="preserve">
+          <source>These experiments are primarily contributed by the Azure Machine Learning user community.</source>
+          <target state="new">These experiments are primarily contributed by the Azure Machine Learning user community.</target>
+        </trans-unit>
+        <trans-unit id="bbf1dad4-876e-430a-9943-56793c0116ea" xml:space="preserve">
+          <source>The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.</source>
+          <target state="new">The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.</target>
+        </trans-unit>
+        <trans-unit id="39955bf7-f888-413a-85f1-3a20fd99e431" xml:space="preserve">
+          <source><bpt id="7acf0d58-7ca3-448a-b1e5-9c31e490fbbf">&lt;strong&gt;</bpt>[TAKE ME TO THE GALLERY &gt;&gt;](http://gallery.azureml.net)<ept id="7acf0d58-7ca3-448a-b1e5-9c31e490fbbf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7acf0d58-7ca3-448a-b1e5-9c31e490fbbf">&lt;strong&gt;</bpt>[TAKE ME TO THE GALLERY &gt;&gt;](http://gallery.azureml.net)<ept id="7acf0d58-7ca3-448a-b1e5-9c31e490fbbf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de8484c1-4b2d-45f9-9af3-1438634f5cfe" xml:space="preserve">
+          <source><bpt id="ba295609-8008-4f0a-bae9-4970e301ea6c">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="ba295609-8008-4f0a-bae9-4970e301ea6c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ba295609-8008-4f0a-bae9-4970e301ea6c">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="ba295609-8008-4f0a-bae9-4970e301ea6c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5686f77a-d99a-45b3-9af6-877a735ec922" xml:space="preserve">
+          <source>Start using the Gallery to enjoy these benefits:</source>
+          <target state="new">Start using the Gallery to enjoy these benefits:</target>
+        </trans-unit>
+        <trans-unit id="145b50b4-0a50-4103-88cc-e5a2cf276746" xml:space="preserve">
+          <source>Discover interesting experiments </source>
+          <target state="new">Discover interesting experiments </target>
+        </trans-unit>
+        <trans-unit id="74dc41ad-61ed-4da9-9653-66a62baa910a" xml:space="preserve">
+          <source>Learn from others</source>
+          <target state="new">Learn from others</target>
+        </trans-unit>
+        <trans-unit id="7f70e79d-2765-412b-8a3b-9786ca270b63" xml:space="preserve">
+          <source>Sign in using your Microsoft account to enjoy this additional benefits:</source>
+          <target state="new">Sign in using your Microsoft account to enjoy this additional benefits:</target>
+        </trans-unit>
+        <trans-unit id="c596cc90-e62d-43c8-a66f-10253ee4cbd0" xml:space="preserve">
+          <source>Copy experiments to your workspace and get started with solving your own problems using Azure ML</source>
+          <target state="new">Copy experiments to your workspace and get started with solving your own problems using Azure ML</target>
+        </trans-unit>
+        <trans-unit id="353defde-89c5-461b-a2c7-0137a325a1fd" xml:space="preserve">
+          <source>Contribute and showcase your work</source>
+          <target state="new">Contribute and showcase your work</target>
+        </trans-unit>
+        <trans-unit id="f2e02a3c-9a13-44ab-8bc9-338c8f11f14e" xml:space="preserve">
+          <source>You can search and browse interesting experiments in the Gallery that help solve your machine learning needs or to simply get started on creating Azure Machine Learning experiments.</source>
+          <target state="new">You can search and browse interesting experiments in the Gallery that help solve your machine learning needs or to simply get started on creating Azure Machine Learning experiments.</target>
+        </trans-unit>
+        <trans-unit id="5a28b9eb-199b-41df-ae2c-eaeccdb8a23d" xml:space="preserve">
+          <source>You can start using gallery for discovering and learning more about experiments without signing in.</source>
+          <target state="new">You can start using gallery for discovering and learning more about experiments without signing in.</target>
+        </trans-unit>
+        <trans-unit id="7140a438-87b3-409d-b1e6-ac9a0297acc6" xml:space="preserve">
+          <source>Easily find recently published experiments, trending experiments in the gallery or search by experiment name, tags, algorithms and other attributes.</source>
+          <target state="new">Easily find recently published experiments, trending experiments in the gallery or search by experiment name, tags, algorithms and other attributes.</target>
+        </trans-unit>
+        <trans-unit id="714d656c-856b-4bb5-8412-3036f276a024" xml:space="preserve">
+          <source>View experiment contributions from a particular author by clicking on the author name from within any of the experiment tiles.</source>
+          <target state="new">View experiment contributions from a particular author by clicking on the author name from within any of the experiment tiles.</target>
+        </trans-unit>
+        <trans-unit id="e4b7f947-191f-43d1-a327-88ce7a6702fe" xml:space="preserve">
+          <source>If interested in a particular experiment, you can read additional information about the experiment in the experiment Details Page.</source>
+          <target state="new">If interested in a particular experiment, you can read additional information about the experiment in the experiment Details Page.</target>
+        </trans-unit>
+        <trans-unit id="e8a2ee90-f1c2-43d0-a4e8-cfddff01548e" xml:space="preserve">
+          <source>You can also comment, provide feedback or ask questions through the comments section on each experiment page.</source>
+          <target state="new">You can also comment, provide feedback or ask questions through the comments section on each experiment page.</target>
+        </trans-unit>
+        <trans-unit id="06b1ed07-6dd2-4952-bfa3-3fdd0afb910e" xml:space="preserve">
+          <source>You can further share an experiment of interest with friends or colleagues using share capabilities with LinkedIn or Twitter accounts.</source>
+          <target state="new">You can further share an experiment of interest with friends or colleagues using share capabilities with LinkedIn or Twitter accounts.</target>
+        </trans-unit>
+        <trans-unit id="fb0e0a5a-d467-4d45-83a6-799a6e24e254" xml:space="preserve">
+          <source>You may also email links to these experiments to invite other users to view the experiment pages.</source>
+          <target state="new">You may also email links to these experiments to invite other users to view the experiment pages.</target>
+        </trans-unit>
+        <trans-unit id="98cf1fe5-276d-4854-b25b-493dfe290929" xml:space="preserve">
+          <source>Azure Machine Learning Gallery you to easily copy experiments to your workspace with a single click and immediately start using it for your purpose.</source>
+          <target state="new">Azure Machine Learning Gallery you to easily copy experiments to your workspace with a single click and immediately start using it for your purpose.</target>
+        </trans-unit>
+        <trans-unit id="a3f7964c-fea4-45f9-a0f6-730d349d4b2f" xml:space="preserve">
+          <source>If you are not already signed in while browsing, you will be prompted to sign-in using your Microsoft account before the experiment is copied to their studio workspace.</source>
+          <target state="new">If you are not already signed in while browsing, you will be prompted to sign-in using your Microsoft account before the experiment is copied to their studio workspace.</target>
+        </trans-unit>
+        <trans-unit id="5e807f1f-6817-4b7d-94c4-832fb74b74ba" xml:space="preserve">
+          <source>Are you ready to start contributing experiments to the Gallery?</source>
+          <target state="new">Are you ready to start contributing experiments to the Gallery?</target>
+        </trans-unit>
+        <trans-unit id="0bf97f47-e580-4b7a-9fd5-f60c2ad87137" xml:space="preserve">
+          <source>Follow these steps:</source>
+          <target state="new">Follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="d76e1086-f8f6-4574-a877-5ae299f9887a" xml:space="preserve">
+          <source>Sign-in to the studio using your Microsoft account (Please make sure your profile picture and Name in the Microsoft Account profile settings are as you want them showing up)</source>
+          <target state="new">Sign-in to the studio using your Microsoft account (Please make sure your profile picture and Name in the Microsoft Account profile settings are as you want them showing up)</target>
+        </trans-unit>
+        <trans-unit id="d9315d87-eb70-442e-899a-4df97458ed05" xml:space="preserve">
+          <source>Create your experiment and run it</source>
+          <target state="new">Create your experiment and run it</target>
+        </trans-unit>
+        <trans-unit id="b43465f7-b3b3-4b8d-a90e-3065731f0be5" xml:space="preserve">
+          <source>When you’re ready to publish your experiment to the Gallery, click on ‘Publish to Gallery’ in the Studio’s lower black bar.</source>
+          <target state="new">When you’re ready to publish your experiment to the Gallery, click on ‘Publish to Gallery’ in the Studio’s lower black bar.</target>
+        </trans-unit>
+        <trans-unit id="87a39341-90d9-41b7-a1b9-1e7289b4332a" xml:space="preserve">
+          <source><bpt id="2681369c-8ddd-442f-a6b1-8f498be3401a">&lt;linkText&gt;</bpt>Publish<ept id="2681369c-8ddd-442f-a6b1-8f498be3401a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2681369c-8ddd-442f-a6b1-8f498be3401a">&lt;linkText&gt;</bpt>Publish<ept id="2681369c-8ddd-442f-a6b1-8f498be3401a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1561f8d-dd9e-454e-a3a7-492f94314eeb" xml:space="preserve">
+          <source>Enjoy!</source>
+          <target state="new">Enjoy!</target>
+        </trans-unit>
+        <trans-unit id="4a4ae26a-f32d-452d-b434-8d39db200431" xml:space="preserve">
+          <source>We want the Gallery to be driven by our users and for our users.</source>
+          <target state="new">We want the Gallery to be driven by our users and for our users.</target>
+        </trans-unit>
+        <trans-unit id="b85290d7-2e33-439d-b8d7-3b6b95dd835e" xml:space="preserve">
+          <source>Use the smiley on the right to tell us what you love or hate about the Gallery.</source>
+          <target state="new">Use the smiley on the right to tell us what you love or hate about the Gallery.</target>
+        </trans-unit>
+        <trans-unit id="1a4cef1e-2d7f-41c3-815b-c7afb6bb39eb" xml:space="preserve">
+          <source><bpt id="a883970c-9e53-49a7-98c0-56cdfc78ce78">&lt;linkText&gt;</bpt>Feedback<ept id="a883970c-9e53-49a7-98c0-56cdfc78ce78">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a883970c-9e53-49a7-98c0-56cdfc78ce78">&lt;linkText&gt;</bpt>Feedback<ept id="a883970c-9e53-49a7-98c0-56cdfc78ce78">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d073c437-239a-4496-b9b6-486b25e86215" xml:space="preserve">
+          <source>**I would like to make changes to the workflow of the experiment I submitted to the Gallery.</source>
+          <target state="new">**I would like to make changes to the workflow of the experiment I submitted to the Gallery.</target>
+        </trans-unit>
+        <trans-unit id="eb6d2fee-a98f-40a4-bcc2-7bbb4b176d35" xml:space="preserve">
+          <source>How can I do that?**</source>
+          <target state="new">How can I do that?**</target>
+        </trans-unit>
+        <trans-unit id="c76b48c5-f128-45c7-ba51-895c4fbcf822" xml:space="preserve">
+          <source>As of right now we do not support workflow updates to experiments you have already published to the Gallery.</source>
+          <target state="new">As of right now we do not support workflow updates to experiments you have already published to the Gallery.</target>
+        </trans-unit>
+        <trans-unit id="ca688140-c505-4b38-97dd-90325083d841" xml:space="preserve">
+          <source>You may publish any such changes as a new experiment into the Gallery and delete your old one.</source>
+          <target state="new">You may publish any such changes as a new experiment into the Gallery and delete your old one.</target>
+        </trans-unit>
+        <trans-unit id="9cc595de-dc24-492b-85ee-ac0656372fe4" xml:space="preserve">
+          <source>We are actively working on enabling publising updates to workflow for already contributed Gallery.</source>
+          <target state="new">We are actively working on enabling publising updates to workflow for already contributed Gallery.</target>
+        </trans-unit>
+        <trans-unit id="dd78eeb7-3e8a-49c3-b8c6-939e2a863e99" xml:space="preserve">
+          <source>Stay Tuned.</source>
+          <target state="new">Stay Tuned.</target>
+        </trans-unit>
+        <trans-unit id="db8e0f6c-3f1c-4e9e-acef-9e22b84a6762" xml:space="preserve">
+          <source><bpt id="7e576311-d72f-4163-8478-8580aa038ccf">&lt;strong&gt;</bpt>Will I need to publish a new experiment even if I have to edit only the tags or description?<ept id="7e576311-d72f-4163-8478-8580aa038ccf">&lt;/strong&gt;</ept>
+Following type of edits can be made to an experiment you have already contributed, without having to go through a publish again:</source>
+          <target state="new"><bpt id="7e576311-d72f-4163-8478-8580aa038ccf">&lt;strong&gt;</bpt>Will I need to publish a new experiment even if I have to edit only the tags or description?<ept id="7e576311-d72f-4163-8478-8580aa038ccf">&lt;/strong&gt;</ept>
+Following type of edits can be made to an experiment you have already contributed, without having to go through a publish again:</target>
+        </trans-unit>
+        <trans-unit id="5a74c412-ab91-4aa3-8791-b5cf29f9018d" xml:space="preserve">
+          <source>Experiment Name</source>
+          <target state="new">Experiment Name</target>
+        </trans-unit>
+        <trans-unit id="cd0ff7b6-102c-48b7-8352-a921bd5c4131" xml:space="preserve">
+          <source>Summary Text</source>
+          <target state="new">Summary Text</target>
+        </trans-unit>
+        <trans-unit id="9bef7bda-43d8-4ad9-a3eb-ef89499337a0" xml:space="preserve">
+          <source>Description Text</source>
+          <target state="new">Description Text</target>
+        </trans-unit>
+        <trans-unit id="ff5fff38-23f6-4d53-aa5c-5254677d8426" xml:space="preserve">
+          <source>Tags</source>
+          <target state="new">Tags</target>
+        </trans-unit>
+        <trans-unit id="8af781b6-87aa-4099-b432-daa8648fbca8" xml:space="preserve">
+          <source>Images</source>
+          <target state="new">Images</target>
+        </trans-unit>
+        <trans-unit id="01fce63e-4495-47b7-92af-085d8fa081f8" xml:space="preserve">
+          <source>In order to edit these fields, click on the specific experiment you would like to edit(make sure you're signed in with your Microsoft account).</source>
+          <target state="new">In order to edit these fields, click on the specific experiment you would like to edit(make sure you're signed in with your Microsoft account).</target>
+        </trans-unit>
+        <trans-unit id="db2581b8-0c78-4084-be5d-114aab74a943" xml:space="preserve">
+          <source>This will navigate you to the experiment details page where you can see options to edit or delete.</source>
+          <target state="new">This will navigate you to the experiment details page where you can see options to edit or delete.</target>
+        </trans-unit>
+        <trans-unit id="8a047538-511e-4b26-af68-c4b0c1830c15" xml:space="preserve">
+          <source>Clicking on 'Edit' allows you to edit any of the above fields.</source>
+          <target state="new">Clicking on 'Edit' allows you to edit any of the above fields.</target>
+        </trans-unit>
+        <trans-unit id="f7af9d87-3073-4e3c-bc7f-aeca7994f00a" xml:space="preserve">
+          <source>**I just published my experiment to the Azure Machine Learning Gallery.</source>
+          <target state="new">**I just published my experiment to the Azure Machine Learning Gallery.</target>
+        </trans-unit>
+        <trans-unit id="9780d664-7e2e-4bcf-9326-d3dcb505e789" xml:space="preserve">
+          <source>I don’t see my profile picture showing up with my name**</source>
+          <target state="new">I don’t see my profile picture showing up with my name**</target>
+        </trans-unit>
+        <trans-unit id="495b0a06-6ca1-4520-b7cf-5fa2c5675160" xml:space="preserve">
+          <source>It is possible that you are using an account other than @outlook, @msn, @live or @hotmail.</source>
+          <target state="new">It is possible that you are using an account other than @outlook, @msn, @live or @hotmail.</target>
+        </trans-unit>
+        <trans-unit id="b6073923-670a-4f63-9568-3f95a546a055" xml:space="preserve">
+          <source>If that is the case, you will see a placeholder image instead of the profile picture from your Microsoft account configuration settings.</source>
+          <target state="new">If that is the case, you will see a placeholder image instead of the profile picture from your Microsoft account configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="b699df9f-7dab-4d14-b06e-e1130284012b" xml:space="preserve">
+          <source>Using a Microsoft account and re-submitting the experiment should help solve this issue</source>
+          <target state="new">Using a Microsoft account and re-submitting the experiment should help solve this issue</target>
+        </trans-unit>
+        <trans-unit id="2cf0a55b-afe5-4b45-9d28-4faf738826d7" xml:space="preserve">
+          <source>**I updated my profile picture in my Microsoft account configuration settings.</source>
+          <target state="new">**I updated my profile picture in my Microsoft account configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="b0bfbbd6-fac5-4b86-a70d-5fd4d7026074" xml:space="preserve">
+          <source>Why are my existing experiment contributions not reflecting this new profile picture?**</source>
+          <target state="new">Why are my existing experiment contributions not reflecting this new profile picture?**</target>
+        </trans-unit>
+        <trans-unit id="e36ecbae-fa34-4b04-b7af-8ef543c9f746" xml:space="preserve">
+          <source>If you are looking to reflect the most recent profile change (profile picture or first name or last name) for all your experiments, you should re-submit the older experiments to the Gallery.</source>
+          <target state="new">If you are looking to reflect the most recent profile change (profile picture or first name or last name) for all your experiments, you should re-submit the older experiments to the Gallery.</target>
+        </trans-unit>
+        <trans-unit id="721dd60d-1542-4e8b-9788-4ace23093b48" xml:space="preserve">
+          <source>In doing so you will need to delete the older copies that reflect the old profile settings.</source>
+          <target state="new">In doing so you will need to delete the older copies that reflect the old profile settings.</target>
+        </trans-unit>
+        <trans-unit id="1295af78-946e-4be9-aa87-1137fe326f44" xml:space="preserve">
+          <source><bpt id="b111bf5c-703e-4e8a-a666-e447dee0184d">&lt;strong&gt;</bpt>What are the image requirements when submitting or editing an image for my experiment?<ept id="b111bf5c-703e-4e8a-a666-e447dee0184d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b111bf5c-703e-4e8a-a666-e447dee0184d">&lt;strong&gt;</bpt>What are the image requirements when submitting or editing an image for my experiment?<ept id="b111bf5c-703e-4e8a-a666-e447dee0184d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="655fa6df-00d6-40f2-93e8-99354129d3f9" xml:space="preserve">
+          <source>The images you submit along with your experiment will be used to create an experiment tile for your contribution. It is recommended that the images be &lt; 500Kb in size, with an aspect ratio of 3:2. A resolution of 960x640 is recommended</source>
+          <target state="new">The images you submit along with your experiment will be used to create an experiment tile for your contribution. It is recommended that the images be &lt; 500Kb in size, with an aspect ratio of 3:2. A resolution of 960x640 is recommended</target>
+        </trans-unit>
+        <trans-unit id="14168211-33a6-4230-837a-feb3fbca7c7e" xml:space="preserve">
+          <source>**What happens to the dataset I have used in the experiment?</source>
+          <target state="new">**What happens to the dataset I have used in the experiment?</target>
+        </trans-unit>
+        <trans-unit id="5e5a37d0-e225-43f8-bd14-345486797f21" xml:space="preserve">
+          <source>Does the data set get published to the Gallery as well?**</source>
+          <target state="new">Does the data set get published to the Gallery as well?**</target>
+        </trans-unit>
+        <trans-unit id="018fdee8-34e9-4983-bd28-89ba77d36770" xml:space="preserve">
+          <source>If your Data Set is part of your experiment and not being pulled through a reader module, it is part of your experiment and gets published to the Gallery with your experiment.</source>
+          <target state="new">If your Data Set is part of your experiment and not being pulled through a reader module, it is part of your experiment and gets published to the Gallery with your experiment.</target>
+        </trans-unit>
+        <trans-unit id="3c4facae-815e-438f-9608-44f75700361c" xml:space="preserve">
+          <source>For this reason ensure that the data set you are publishing with the experiment has the appropriate licensing terms that allowed sharing and downloading by anybody.</source>
+          <target state="new">For this reason ensure that the data set you are publishing with the experiment has the appropriate licensing terms that allowed sharing and downloading by anybody.</target>
+        </trans-unit>
+        <trans-unit id="2c30457f-87c0-4bad-9720-3bf161e44b3f" xml:space="preserve">
+          <source>**I have an experiment that uses a Reader module to pull data from HDInsight or SQL.</source>
+          <target state="new">**I have an experiment that uses a Reader module to pull data from HDInsight or SQL.</target>
+        </trans-unit>
+        <trans-unit id="a26d9353-b05e-44a4-975c-42bd03c871ec" xml:space="preserve">
+          <source>It uses my credentials to retrieve the data.</source>
+          <target state="new">It uses my credentials to retrieve the data.</target>
+        </trans-unit>
+        <trans-unit id="87c6f6b4-68e1-42d0-9b56-f65bb71e6827" xml:space="preserve">
+          <source>How can I publish such an experiment and be assured that my credentials will not be shared?**</source>
+          <target state="new">How can I publish such an experiment and be assured that my credentials will not be shared?**</target>
+        </trans-unit>
+        <trans-unit id="b0e23ba8-04e2-4937-8cfd-c00d02f5069c" xml:space="preserve">
+          <source>At this time we do not allow publishing of experiments that use credentials.</source>
+          <target state="new">At this time we do not allow publishing of experiments that use credentials.</target>
+        </trans-unit>
+        <trans-unit id="262da72e-7752-4bcb-bbe1-4284073104d5" xml:space="preserve">
+          <source><bpt id="e64677ec-e86f-44b7-a380-fcf8b2cbc490">&lt;strong&gt;</bpt>How do I de-limit tags?<ept id="e64677ec-e86f-44b7-a380-fcf8b2cbc490">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e64677ec-e86f-44b7-a380-fcf8b2cbc490">&lt;strong&gt;</bpt>How do I de-limit tags?<ept id="e64677ec-e86f-44b7-a380-fcf8b2cbc490">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="53cdc7f9-4a3f-4fce-b300-45280bf0dbce" xml:space="preserve">
+          <source>You can use tab to de-limit tags.</source>
+          <target state="new">You can use tab to de-limit tags.</target>
+        </trans-unit>
+        <trans-unit id="453dc74f-28be-447f-b48c-c88a7aef1396" xml:space="preserve">
+          <source>**I see some experiments have rich descriptions with rich rendering capabilities.</source>
+          <target state="new">**I see some experiments have rich descriptions with rich rendering capabilities.</target>
+        </trans-unit>
+        <trans-unit id="6535ef31-05cb-4751-bc60-c714d6998086" xml:space="preserve">
+          <source>However when I try to provide a description, the description is presented in plain text.**</source>
+          <target state="new">However when I try to provide a description, the description is presented in plain text.**</target>
+        </trans-unit>
+        <trans-unit id="ac02e845-1b7d-439d-926d-fecac9670e32" xml:space="preserve">
+          <source>Rich description rendering is not available to all Gallery users widely.</source>
+          <target state="new">Rich description rendering is not available to all Gallery users widely.</target>
+        </trans-unit>
+        <trans-unit id="19202499-91ba-4a11-9dcf-bd636cd2a629" xml:space="preserve">
+          <source>We are actively working on making this capability available through support for markdown rendering.</source>
+          <target state="new">We are actively working on making this capability available through support for markdown rendering.</target>
+        </trans-unit>
+        <trans-unit id="e4092255-926e-4386-9b6f-16e7dff01f62" xml:space="preserve">
+          <source><bpt id="58c5312b-1786-4cef-a1be-d0fb8949273e">&lt;strong&gt;</bpt>[TAKE ME TO THE GALLERY &gt;&gt;](http://gallery.azureml.net)<ept id="58c5312b-1786-4cef-a1be-d0fb8949273e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="58c5312b-1786-4cef-a1be-d0fb8949273e">&lt;strong&gt;</bpt>[TAKE ME TO THE GALLERY &gt;&gt;](http://gallery.azureml.net)<ept id="58c5312b-1786-4cef-a1be-d0fb8949273e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

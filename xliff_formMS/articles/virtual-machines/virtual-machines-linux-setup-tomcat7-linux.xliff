@@ -1,0 +1,739 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="292c6773-3068-42bd-ac41-ddca44a2871c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="292c6773-3068-42bd-ac41-ddca44a2871c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c7794384-f64e-4a84-bc2e-f4c281d3920e">
+        <trans-unit id="3bdc8358-33a3-4c86-bc27-38fb0598f7ed" xml:space="preserve">
+          <source>How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure</source>
+          <target state="new">How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="bac91cc2-f592-41a9-a356-83226092fd28" xml:space="preserve">
+          <source>Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux.</source>
+          <target state="new">Learn how to set up Tomcat7 with Microsoft Azure using an Azure virtual machine (VM) running Linux.</target>
+        </trans-unit>
+        <trans-unit id="b5eb004a-2afb-484d-a0f1-ad7ef746c40e" xml:space="preserve">
+          <source>Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF).</source>
+          <target state="new">Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF).</target>
+        </trans-unit>
+        <trans-unit id="e23206eb-1b43-4ae0-b41f-9bb59845d221" xml:space="preserve">
+          <source>Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code.</source>
+          <target state="new">Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code.</target>
+        </trans-unit>
+        <trans-unit id="8c272322-8c6a-4c4c-be62-e14b5b2baff6" xml:space="preserve">
+          <source>In the simplest configuration, Tomcat runs in a single operating system process.</source>
+          <target state="new">In the simplest configuration, Tomcat runs in a single operating system process.</target>
+        </trans-unit>
+        <trans-unit id="aad3eae3-bed9-4a7d-8991-8f947fde001e" xml:space="preserve">
+          <source>This process runs a Java virtual machine (JVM).</source>
+          <target state="new">This process runs a Java virtual machine (JVM).</target>
+        </trans-unit>
+        <trans-unit id="ec5f6e38-fa9d-4561-9ee4-b4d436b00ba6" xml:space="preserve">
+          <source>Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.</source>
+          <target state="new">Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.</target>
+        </trans-unit>
+        <trans-unit id="381702c7-1bc7-462c-bb96-0681b7b047ba" xml:space="preserve">
+          <source>In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.</source>
+          <target state="new">In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="b1409306-072b-4d00-80be-8eb3d52c87b5" xml:space="preserve">
+          <source>You will learn:  </source>
+          <target state="new">You will learn:  </target>
+        </trans-unit>
+        <trans-unit id="de864c3d-84d3-4eb6-ae7c-25c22d1fbaaa" xml:space="preserve">
+          <source>How to create a virtual machine in Azure.</source>
+          <target state="new">How to create a virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="cb67b181-f1d3-4426-8f18-2cc09d560f8c" xml:space="preserve">
+          <source>How to prepare the virtual machine for tomcat7.</source>
+          <target state="new">How to prepare the virtual machine for tomcat7.</target>
+        </trans-unit>
+        <trans-unit id="f01ae019-8c1a-4c65-b694-81daf8f64252" xml:space="preserve">
+          <source>How to install tomcat7.</source>
+          <target state="new">How to install tomcat7.</target>
+        </trans-unit>
+        <trans-unit id="ac69cc22-6518-4d2e-a349-22646a5405ab" xml:space="preserve">
+          <source>It is assumed that the reader already has an Azure subscription.</source>
+          <target state="new">It is assumed that the reader already has an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="f79dd11d-ab9c-4a18-9ad8-8b292b318fc4" xml:space="preserve">
+          <source>If not you can sign up for a free trial at <bpt id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;/linkText&gt;</ept><bpt id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;title&gt;</bpt><ept id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;/title&gt;</ept>.</source>
+          <target state="new">If not you can sign up for a free trial at <bpt id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;linkText&gt;</bpt>http://azure.microsoft.com<ept id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;/linkText&gt;</ept><bpt id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;title&gt;</bpt><ept id="318c3d23-cc47-4a6a-baef-3213dc340c03">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61833b2b-fee0-4d9e-bf07-a1075b86ad30" xml:space="preserve">
+          <source>If you have an MSDN subscription, see <bpt id="5037318d-0782-419a-ad52-433d42a93de5">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="5037318d-0782-419a-ad52-433d42a93de5">&lt;/linkText&gt;</ept><bpt id="5037318d-0782-419a-ad52-433d42a93de5">&lt;title&gt;</bpt><ept id="5037318d-0782-419a-ad52-433d42a93de5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have an MSDN subscription, see <bpt id="5037318d-0782-419a-ad52-433d42a93de5">&lt;linkText&gt;</bpt>Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits<ept id="5037318d-0782-419a-ad52-433d42a93de5">&lt;/linkText&gt;</ept><bpt id="5037318d-0782-419a-ad52-433d42a93de5">&lt;title&gt;</bpt><ept id="5037318d-0782-419a-ad52-433d42a93de5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ccd3075-b15a-4def-96d7-366f623bc63c" xml:space="preserve">
+          <source>To learn more about Azure, see <bpt id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;linkText&gt;</bpt>What is Azure?<ept id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;/linkText&gt;</ept><bpt id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;title&gt;</bpt><ept id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure, see <bpt id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;linkText&gt;</bpt>What is Azure?<ept id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;/linkText&gt;</ept><bpt id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;title&gt;</bpt><ept id="3f99bae4-d25d-45b6-a5aa-b66176c92dd4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1c9b3790-ce4f-408f-9d16-93daebc17b99" xml:space="preserve">
+          <source>This topic assumes that you have basic working knowledge of tomcat and Linux.</source>
+          <target state="new">This topic assumes that you have basic working knowledge of tomcat and Linux.</target>
+        </trans-unit>
+        <trans-unit id="a0aa5c35-478f-4776-a98e-f787469de455" xml:space="preserve">
+          <source>In this phase, you will create a virtual machine using a Linux image in Azure.</source>
+          <target state="new">In this phase, you will create a virtual machine using a Linux image in Azure.</target>
+        </trans-unit>
+        <trans-unit id="be6e45db-53ce-4649-bf00-f9167b0be093" xml:space="preserve">
+          <source>SSH is an important tool for system administrators.</source>
+          <target state="new">SSH is an important tool for system administrators.</target>
+        </trans-unit>
+        <trans-unit id="6796c9d0-cdcf-4275-83c2-fac531fda0f0" xml:space="preserve">
+          <source>However, configuring access security based on a human-determined password is not a best practice.</source>
+          <target state="new">However, configuring access security based on a human-determined password is not a best practice.</target>
+        </trans-unit>
+        <trans-unit id="5f4464c7-57cb-497e-8605-8996ddfac527" xml:space="preserve">
+          <source>Malicious users can break into your system based on a user name and a weak password.</source>
+          <target state="new">Malicious users can break into your system based on a user name and a weak password.</target>
+        </trans-unit>
+        <trans-unit id="ddf6e672-0b49-4b65-95f6-ec0bbb78ccd2" xml:space="preserve">
+          <source>The good news is that there is a way to leave remote access open and have not to worry about passwords.</source>
+          <target state="new">The good news is that there is a way to leave remote access open and have not to worry about passwords.</target>
+        </trans-unit>
+        <trans-unit id="3ed8ffbf-9055-4ab3-8d31-55bda09f1e00" xml:space="preserve">
+          <source>The method consists of authentication with asymmetric cryptography.</source>
+          <target state="new">The method consists of authentication with asymmetric cryptography.</target>
+        </trans-unit>
+        <trans-unit id="70cf47e6-e7e8-430b-83d7-e23c9744eec6" xml:space="preserve">
+          <source>The user’s private key is the one that grants the authentication.</source>
+          <target state="new">The user’s private key is the one that grants the authentication.</target>
+        </trans-unit>
+        <trans-unit id="e032450a-5753-4f44-876d-43a850ea1148" xml:space="preserve">
+          <source>You can even lock the user’s account to disallow password authentication completely.</source>
+          <target state="new">You can even lock the user’s account to disallow password authentication completely.</target>
+        </trans-unit>
+        <trans-unit id="5fe707d6-7aac-4cc7-8606-37233e36cd20" xml:space="preserve">
+          <source>Another advantage of this method is that you do not need different passwords to log on to different servers.</source>
+          <target state="new">Another advantage of this method is that you do not need different passwords to log on to different servers.</target>
+        </trans-unit>
+        <trans-unit id="27a3395f-fcbd-4789-a9c6-2165a312e965" xml:space="preserve">
+          <source>You can authenticate using the personal private key on all servers, which prevents you from having to remember several passwords.</source>
+          <target state="new">You can authenticate using the personal private key on all servers, which prevents you from having to remember several passwords.</target>
+        </trans-unit>
+        <trans-unit id="d9785ef1-1933-46eb-bf94-99341c8642a8" xml:space="preserve">
+          <source>It is also possible to login with requiring a password with this method.</source>
+          <target state="new">It is also possible to login with requiring a password with this method.</target>
+        </trans-unit>
+        <trans-unit id="198a2dfb-2700-44d8-8986-4b74d95fe0d2" xml:space="preserve">
+          <source>Follow these steps to generate the SSH authentication key.</source>
+          <target state="new">Follow these steps to generate the SSH authentication key.</target>
+        </trans-unit>
+        <trans-unit id="3430e3ed-aa26-418f-832c-36279a60223f" xml:space="preserve">
+          <source>Download and install puttygen from the following location: <bpt id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;/linkText&gt;</ept><bpt id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;title&gt;</bpt><ept id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;/title&gt;</ept> </source>
+          <target state="new">Download and install puttygen from the following location: <bpt id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;linkText&gt;</bpt>http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html<ept id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;/linkText&gt;</ept><bpt id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;title&gt;</bpt><ept id="3ba28e56-d845-4509-bd97-e09894787e15">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4aca41b8-34dd-4b04-980e-2fa6fe601054" xml:space="preserve">
+          <source>Run PUTTYGEN.EXE.</source>
+          <target state="new">Run PUTTYGEN.EXE.</target>
+        </trans-unit>
+        <trans-unit id="1c2e82f2-810a-41e4-a8c7-7f4a6d004916" xml:space="preserve">
+          <source>Click <bpt id="5ca30993-3e1b-499a-b7bb-7eba2203160b">&lt;strong&gt;</bpt>Generate<ept id="5ca30993-3e1b-499a-b7bb-7eba2203160b">&lt;/strong&gt;</ept> to generate the keys.</source>
+          <target state="new">Click <bpt id="5ca30993-3e1b-499a-b7bb-7eba2203160b">&lt;strong&gt;</bpt>Generate<ept id="5ca30993-3e1b-499a-b7bb-7eba2203160b">&lt;/strong&gt;</ept> to generate the keys.</target>
+        </trans-unit>
+        <trans-unit id="9b962cce-8922-4572-b73b-7bfbdb0da5eb" xml:space="preserve">
+          <source>In the process you can increase randomness by moving the mouse over the blank area in the window.</source>
+          <target state="new">In the process you can increase randomness by moving the mouse over the blank area in the window.</target>
+        </trans-unit>
+        <trans-unit id="4fd9a171-f047-4bd7-9f92-1447e6b97628" xml:space="preserve">
+          <source><bpt id="d28e8217-10f1-4920-8c13-211425579d8c">&lt;linkText&gt;</bpt><ept id="d28e8217-10f1-4920-8c13-211425579d8c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d28e8217-10f1-4920-8c13-211425579d8c">&lt;linkText&gt;</bpt><ept id="d28e8217-10f1-4920-8c13-211425579d8c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccb9f0a1-570b-482c-bfda-74ce5145a3a2" xml:space="preserve">
+          <source>After the generate process, Puttygen.exe will show your generated key.</source>
+          <target state="new">After the generate process, Puttygen.exe will show your generated key.</target>
+        </trans-unit>
+        <trans-unit id="f4716d1d-b9d6-4928-a64f-eaefa2eaae46" xml:space="preserve">
+          <source>For example:  
+<bpt id="8737f49b-2a86-499a-8cbd-4ec0ead311d6">&lt;linkText&gt;</bpt><ept id="8737f49b-2a86-499a-8cbd-4ec0ead311d6">&lt;/linkText&gt;</ept></source>
+          <target state="new">For example:  
+<bpt id="8737f49b-2a86-499a-8cbd-4ec0ead311d6">&lt;linkText&gt;</bpt><ept id="8737f49b-2a86-499a-8cbd-4ec0ead311d6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="88ff3e74-658a-4044-8cd3-86da7d5268bf" xml:space="preserve">
+          <source>Select and copy the public key in <bpt id="df4c5884-482f-457d-88d5-fa1d6fae536c">&lt;strong&gt;</bpt>Key<ept id="df4c5884-482f-457d-88d5-fa1d6fae536c">&lt;/strong&gt;</ept> and save it in a file named publicKey.pem.</source>
+          <target state="new">Select and copy the public key in <bpt id="df4c5884-482f-457d-88d5-fa1d6fae536c">&lt;strong&gt;</bpt>Key<ept id="df4c5884-482f-457d-88d5-fa1d6fae536c">&lt;/strong&gt;</ept> and save it in a file named publicKey.pem.</target>
+        </trans-unit>
+        <trans-unit id="f89d798b-d47a-477e-bdae-f20d32e8c744" xml:space="preserve">
+          <source>Don’t click <bpt id="3864f407-136c-41ea-9ffa-2012f2e1e217">&lt;strong&gt;</bpt>Save public key<ept id="3864f407-136c-41ea-9ffa-2012f2e1e217">&lt;/strong&gt;</ept>, because the saved public key’s file format is different from the public key we want.</source>
+          <target state="new">Don’t click <bpt id="3864f407-136c-41ea-9ffa-2012f2e1e217">&lt;strong&gt;</bpt>Save public key<ept id="3864f407-136c-41ea-9ffa-2012f2e1e217">&lt;/strong&gt;</ept>, because the saved public key’s file format is different from the public key we want.</target>
+        </trans-unit>
+        <trans-unit id="684af9e3-f0c0-4002-9a12-8e735a4358ff" xml:space="preserve">
+          <source>Click <bpt id="4534500d-6ef4-4cc3-9b05-8e55ade6e64b">&lt;strong&gt;</bpt>Save private key<ept id="4534500d-6ef4-4cc3-9b05-8e55ade6e64b">&lt;/strong&gt;</ept> and save it in a file named privateKey.ppk.</source>
+          <target state="new">Click <bpt id="4534500d-6ef4-4cc3-9b05-8e55ade6e64b">&lt;strong&gt;</bpt>Save private key<ept id="4534500d-6ef4-4cc3-9b05-8e55ade6e64b">&lt;/strong&gt;</ept> and save it in a file named privateKey.ppk.</target>
+        </trans-unit>
+        <trans-unit id="618a8fc0-5428-4bad-adf2-c06a59565d5b" xml:space="preserve">
+          <source>In the <bpt id="07a59473-f8ac-471c-a231-430f286f070d">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="07a59473-f8ac-471c-a231-430f286f070d">&lt;/linkText&gt;</ept><bpt id="07a59473-f8ac-471c-a231-430f286f070d">&lt;title&gt;</bpt><ept id="07a59473-f8ac-471c-a231-430f286f070d">&lt;/title&gt;</ept>, click <bpt id="98771a16-11ef-42d4-8078-48d5e1670ff4">&lt;strong&gt;</bpt>New<ept id="98771a16-11ef-42d4-8078-48d5e1670ff4">&lt;/strong&gt;</ept> in the task bar to create an image, choosing the Linux image based on your needs.</source>
+          <target state="new">In the <bpt id="07a59473-f8ac-471c-a231-430f286f070d">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="07a59473-f8ac-471c-a231-430f286f070d">&lt;/linkText&gt;</ept><bpt id="07a59473-f8ac-471c-a231-430f286f070d">&lt;title&gt;</bpt><ept id="07a59473-f8ac-471c-a231-430f286f070d">&lt;/title&gt;</ept>, click <bpt id="98771a16-11ef-42d4-8078-48d5e1670ff4">&lt;strong&gt;</bpt>New<ept id="98771a16-11ef-42d4-8078-48d5e1670ff4">&lt;/strong&gt;</ept> in the task bar to create an image, choosing the Linux image based on your needs.</target>
+        </trans-unit>
+        <trans-unit id="2d072347-88d0-4450-8798-2db30961fa3e" xml:space="preserve">
+          <source>The following example uses the Ubuntu 14.04 image.</source>
+          <target state="new">The following example uses the Ubuntu 14.04 image.</target>
+        </trans-unit>
+        <trans-unit id="8ff3ef8c-0853-4d5d-8494-d48b4bd228ac" xml:space="preserve">
+          <source><bpt id="0f33680a-20ae-4d48-86eb-b30121ff60fb">&lt;linkText&gt;</bpt><ept id="0f33680a-20ae-4d48-86eb-b30121ff60fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f33680a-20ae-4d48-86eb-b30121ff60fb">&lt;linkText&gt;</bpt><ept id="0f33680a-20ae-4d48-86eb-b30121ff60fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62fce5e6-c110-4868-b79f-58f4261f5138" xml:space="preserve">
+          <source>For <bpt id="4f790506-9f6c-45e6-9a68-63f9f8966eb6">&lt;strong&gt;</bpt>Host Name<ept id="4f790506-9f6c-45e6-9a68-63f9f8966eb6">&lt;/strong&gt;</ept> specify the name for the URL that you and Internet clients will use to access this virtual machine.</source>
+          <target state="new">For <bpt id="4f790506-9f6c-45e6-9a68-63f9f8966eb6">&lt;strong&gt;</bpt>Host Name<ept id="4f790506-9f6c-45e6-9a68-63f9f8966eb6">&lt;/strong&gt;</ept> specify the name for the URL that you and Internet clients will use to access this virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e6709bf4-4902-4012-8a59-10c1f671f06e" xml:space="preserve">
+          <source>Define the last part of the DNS name, for example tomcatdemo, and Azure will generate the URL as tomcatdemo.cloudapp.net.</source>
+          <target state="new">Define the last part of the DNS name, for example tomcatdemo, and Azure will generate the URL as tomcatdemo.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="bef9c679-f45b-4856-97b0-fa6be41ecfd7" xml:space="preserve">
+          <source>For <bpt id="3f929679-1b7c-4609-9aae-13afdac091bc">&lt;strong&gt;</bpt>SSH Authentication Key<ept id="3f929679-1b7c-4609-9aae-13afdac091bc">&lt;/strong&gt;</ept>, copy the key value from the <bpt id="c7e42908-ee12-4abd-9e24-c3446b32462b">&lt;strong&gt;</bpt>publicKey.pem<ept id="c7e42908-ee12-4abd-9e24-c3446b32462b">&lt;/strong&gt;</ept> file, which contains the public key generated by puttygen.</source>
+          <target state="new">For <bpt id="3f929679-1b7c-4609-9aae-13afdac091bc">&lt;strong&gt;</bpt>SSH Authentication Key<ept id="3f929679-1b7c-4609-9aae-13afdac091bc">&lt;/strong&gt;</ept>, copy the key value from the <bpt id="c7e42908-ee12-4abd-9e24-c3446b32462b">&lt;strong&gt;</bpt>publicKey.pem<ept id="c7e42908-ee12-4abd-9e24-c3446b32462b">&lt;/strong&gt;</ept> file, which contains the public key generated by puttygen.</target>
+        </trans-unit>
+        <trans-unit id="aa378a67-c5c5-4182-8045-23dd76c01183" xml:space="preserve">
+          <source><bpt id="255c5174-58eb-489a-a319-259dca214f49">&lt;linkText&gt;</bpt><ept id="255c5174-58eb-489a-a319-259dca214f49">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="255c5174-58eb-489a-a319-259dca214f49">&lt;linkText&gt;</bpt><ept id="255c5174-58eb-489a-a319-259dca214f49">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e105551d-fff9-414a-8b96-4add7e521e77" xml:space="preserve">
+          <source>Configure other settings as needed, and then click Create.</source>
+          <target state="new">Configure other settings as needed, and then click Create.</target>
+        </trans-unit>
+        <trans-unit id="f625ce93-8f16-42ba-89c7-4164280031d8" xml:space="preserve">
+          <source>In this phase, you will configure an endpoint for tomcat traffic and then connect to your new virtual machine.</source>
+          <target state="new">In this phase, you will configure an endpoint for tomcat traffic and then connect to your new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="500bd389-b128-4f49-a1d7-a4dc191ba3cc" xml:space="preserve">
+          <source>Endpoints in Azure consist of a protocol (TCP or UDP), along with a public and private port.</source>
+          <target state="new">Endpoints in Azure consist of a protocol (TCP or UDP), along with a public and private port.</target>
+        </trans-unit>
+        <trans-unit id="e34e1080-0b20-4e74-be6d-04539bf59fec" xml:space="preserve">
+          <source>The private port is the port that the service is listening on the virtual machine.</source>
+          <target state="new">The private port is the port that the service is listening on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="75ff0923-7409-4fcf-b84e-ea0d6cadcee9" xml:space="preserve">
+          <source>The public port is the port that the Azure cloud service is listening on externally for incoming, Internet-based traffic.</source>
+          <target state="new">The public port is the port that the Azure cloud service is listening on externally for incoming, Internet-based traffic.</target>
+        </trans-unit>
+        <trans-unit id="9c175e24-d4f4-4531-8105-323a2434a31a" xml:space="preserve">
+          <source>TCP port 8080 is the default port number on which tomcat listens.</source>
+          <target state="new">TCP port 8080 is the default port number on which tomcat listens.</target>
+        </trans-unit>
+        <trans-unit id="e2abc44e-aa8e-4cf4-b2a8-ded5df64b88a" xml:space="preserve">
+          <source>Opening this port with an Azure endpoint will allow you and other Internet clients access to tomcat pages.</source>
+          <target state="new">Opening this port with an Azure endpoint will allow you and other Internet clients access to tomcat pages.</target>
+        </trans-unit>
+        <trans-unit id="ad22ee6c-3a69-4cd1-8f26-202b0c4e549e" xml:space="preserve">
+          <source>In the Azure Preview Portal, click <bpt id="a5d357be-6155-4dc7-9bf8-973a34381e81">&lt;strong&gt;</bpt>Browse<ept id="a5d357be-6155-4dc7-9bf8-973a34381e81">&lt;/strong&gt;</ept> -&gt; <bpt id="8ea95ed6-b011-42f8-b199-b0d2aa4eddf6">&lt;strong&gt;</bpt>Virtual Machine<ept id="8ea95ed6-b011-42f8-b199-b0d2aa4eddf6">&lt;/strong&gt;</ept>, and then click the virtual machine that you created.</source>
+          <target state="new">In the Azure Preview Portal, click <bpt id="a5d357be-6155-4dc7-9bf8-973a34381e81">&lt;strong&gt;</bpt>Browse<ept id="a5d357be-6155-4dc7-9bf8-973a34381e81">&lt;/strong&gt;</ept> -&gt; <bpt id="8ea95ed6-b011-42f8-b199-b0d2aa4eddf6">&lt;strong&gt;</bpt>Virtual Machine<ept id="8ea95ed6-b011-42f8-b199-b0d2aa4eddf6">&lt;/strong&gt;</ept>, and then click the virtual machine that you created.</target>
+        </trans-unit>
+        <trans-unit id="fa1ece25-3886-41c4-9dc0-d9094dcf5e5e" xml:space="preserve">
+          <source><bpt id="0a385f60-c9a1-4fb6-a47a-86690c729d2f">&lt;linkText&gt;</bpt><ept id="0a385f60-c9a1-4fb6-a47a-86690c729d2f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a385f60-c9a1-4fb6-a47a-86690c729d2f">&lt;linkText&gt;</bpt><ept id="0a385f60-c9a1-4fb6-a47a-86690c729d2f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5790e89-b16c-42ee-8852-a21c39f0c9f1" xml:space="preserve">
+          <source>To add an endpoint to your virtual machine, click the <bpt id="9d88bdf2-04e4-4004-8a52-7cb13cce3ba8">&lt;strong&gt;</bpt>Endpoints<ept id="9d88bdf2-04e4-4004-8a52-7cb13cce3ba8">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">To add an endpoint to your virtual machine, click the <bpt id="9d88bdf2-04e4-4004-8a52-7cb13cce3ba8">&lt;strong&gt;</bpt>Endpoints<ept id="9d88bdf2-04e4-4004-8a52-7cb13cce3ba8">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="c9c2a745-523b-4f4c-a0b0-6cfb12c237e7" xml:space="preserve">
+          <source><bpt id="b4e83ac3-dc13-4fa0-a545-e88c1f6166fd">&lt;linkText&gt;</bpt><ept id="b4e83ac3-dc13-4fa0-a545-e88c1f6166fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4e83ac3-dc13-4fa0-a545-e88c1f6166fd">&lt;linkText&gt;</bpt><ept id="b4e83ac3-dc13-4fa0-a545-e88c1f6166fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a066719-c116-4616-9985-5500758f4178" xml:space="preserve">
+          <source>Click <bpt id="27e44f93-f04d-4771-9d9e-5f363beb2101">&lt;strong&gt;</bpt>Add<ept id="27e44f93-f04d-4771-9d9e-5f363beb2101">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="27e44f93-f04d-4771-9d9e-5f363beb2101">&lt;strong&gt;</bpt>Add<ept id="27e44f93-f04d-4771-9d9e-5f363beb2101">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="104e4aa9-541a-455c-915f-5fe34e3e889d" xml:space="preserve">
+          <source>For the <bpt id="7afab353-9ffe-4fda-a3fe-b878f094cca9">&lt;strong&gt;</bpt>endpoint<ept id="7afab353-9ffe-4fda-a3fe-b878f094cca9">&lt;/strong&gt;</ept>, type a name for the endpoint in Endpoint, and then type 80 in <bpt id="57f3e949-f3d4-4432-b458-f6e92f6b5109">&lt;strong&gt;</bpt>Public Port<ept id="57f3e949-f3d4-4432-b458-f6e92f6b5109">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="7afab353-9ffe-4fda-a3fe-b878f094cca9">&lt;strong&gt;</bpt>endpoint<ept id="7afab353-9ffe-4fda-a3fe-b878f094cca9">&lt;/strong&gt;</ept>, type a name for the endpoint in Endpoint, and then type 80 in <bpt id="57f3e949-f3d4-4432-b458-f6e92f6b5109">&lt;strong&gt;</bpt>Public Port<ept id="57f3e949-f3d4-4432-b458-f6e92f6b5109">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54fa1c8b-4d7d-4c1f-a937-0e0aee4a4306" xml:space="preserve">
+          <source>If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat.</source>
+          <target state="new">If you set it to 80, don’t need to include the port number in the URL that allows you to access tomcat.</target>
+        </trans-unit>
+        <trans-unit id="f1e05649-c376-4854-8c0d-71502e5a0c88" xml:space="preserve">
+          <source>For example, http://tomcatdemo.cloudapp.net.</source>
+          <target state="new">For example, http://tomcatdemo.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="54743e8a-e5ea-43ef-80fb-955edcd50316" xml:space="preserve">
+          <source>If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat.</source>
+          <target state="new">If you set it to another value, such as 81, you need to add the port number to the URL to access tomcat.</target>
+        </trans-unit>
+        <trans-unit id="fc5abc2d-60ca-4f68-94fe-3b5bb8301b8c" xml:space="preserve">
+          <source>For example,  http://tomcatdemo.cloudapp.net:81/.</source>
+          <target state="new">For example,  http://tomcatdemo.cloudapp.net:81/.</target>
+        </trans-unit>
+        <trans-unit id="53b03072-0aa9-452d-90d7-cfbbff9c413c" xml:space="preserve">
+          <source>Type 8080 in Private Port.</source>
+          <target state="new">Type 8080 in Private Port.</target>
+        </trans-unit>
+        <trans-unit id="d63569ce-b6f1-48ae-8a96-f2ee182346ea" xml:space="preserve">
+          <source>By default, tomcat listens on TCP port 8080.</source>
+          <target state="new">By default, tomcat listens on TCP port 8080.</target>
+        </trans-unit>
+        <trans-unit id="cfbce4f3-a971-4564-bb53-ca5ff57cf3ce" xml:space="preserve">
+          <source>If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.</source>
+          <target state="new">If you changed the default listen port of tomcat, you should update Private Port to be the same as the tomcat listen port.</target>
+        </trans-unit>
+        <trans-unit id="5b4fd71d-2eac-42e6-81a7-9e5707b47c82" xml:space="preserve">
+          <source><bpt id="c73dfc23-57f2-4122-a709-d97bac66de37">&lt;linkText&gt;</bpt><ept id="c73dfc23-57f2-4122-a709-d97bac66de37">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c73dfc23-57f2-4122-a709-d97bac66de37">&lt;linkText&gt;</bpt><ept id="c73dfc23-57f2-4122-a709-d97bac66de37">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e137c38-f9bb-483b-a603-6bfd5a977111" xml:space="preserve">
+          <source>Click <bpt id="ae1a803b-3e7e-4f21-acc1-a9a55754d068">&lt;strong&gt;</bpt>OK<ept id="ae1a803b-3e7e-4f21-acc1-a9a55754d068">&lt;/strong&gt;</ept> to add the endpoint to your virtual machine.</source>
+          <target state="new">Click <bpt id="ae1a803b-3e7e-4f21-acc1-a9a55754d068">&lt;strong&gt;</bpt>OK<ept id="ae1a803b-3e7e-4f21-acc1-a9a55754d068">&lt;/strong&gt;</ept> to add the endpoint to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="28d02619-acbf-4b71-987f-d42b52cb1bd6" xml:space="preserve">
+          <source>You can choose any SSH tool to connect to your virtual machine.</source>
+          <target state="new">You can choose any SSH tool to connect to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="aadb5cf3-f597-425c-b6dd-6e4fd80f8a54" xml:space="preserve">
+          <source>In this example, we use Putty.</source>
+          <target state="new">In this example, we use Putty.</target>
+        </trans-unit>
+        <trans-unit id="169e8818-2fb3-406e-bfa5-a38cef375042" xml:space="preserve">
+          <source>First, get the DNS name of your virtual machine from the Azure Preview Portal.</source>
+          <target state="new">First, get the DNS name of your virtual machine from the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="046db23a-6b91-4e0d-81ef-fa7fa2b13453" xml:space="preserve">
+          <source><bpt id="5ef1c412-f61c-45b2-bbc8-8e1569bf5295">&lt;strong&gt;</bpt>Click Browse<ept id="5ef1c412-f61c-45b2-bbc8-8e1569bf5295">&lt;/strong&gt;</ept> -&gt; <bpt id="ec5bcc0d-2ada-4f5b-a45e-10271e2cdb46">&lt;strong&gt;</bpt>Virtual machines<ept id="ec5bcc0d-2ada-4f5b-a45e-10271e2cdb46">&lt;/strong&gt;</ept> -&gt; the name of your virtual machine -&gt; <bpt id="fe8204ba-0658-4371-a645-6372582ca9c8">&lt;strong&gt;</bpt>Properties<ept id="fe8204ba-0658-4371-a645-6372582ca9c8">&lt;/strong&gt;</ept>, and then look in the <bpt id="3ea6cdac-2c13-4d74-a76e-be23895790a8">&lt;strong&gt;</bpt>Domain Name<ept id="3ea6cdac-2c13-4d74-a76e-be23895790a8">&lt;/strong&gt;</ept> field of the <bpt id="28703744-fa03-4ec2-b348-af4761d2ad2e">&lt;strong&gt;</bpt>Properties<ept id="28703744-fa03-4ec2-b348-af4761d2ad2e">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new"><bpt id="5ef1c412-f61c-45b2-bbc8-8e1569bf5295">&lt;strong&gt;</bpt>Click Browse<ept id="5ef1c412-f61c-45b2-bbc8-8e1569bf5295">&lt;/strong&gt;</ept> -&gt; <bpt id="ec5bcc0d-2ada-4f5b-a45e-10271e2cdb46">&lt;strong&gt;</bpt>Virtual machines<ept id="ec5bcc0d-2ada-4f5b-a45e-10271e2cdb46">&lt;/strong&gt;</ept> -&gt; the name of your virtual machine -&gt; <bpt id="fe8204ba-0658-4371-a645-6372582ca9c8">&lt;strong&gt;</bpt>Properties<ept id="fe8204ba-0658-4371-a645-6372582ca9c8">&lt;/strong&gt;</ept>, and then look in the <bpt id="3ea6cdac-2c13-4d74-a76e-be23895790a8">&lt;strong&gt;</bpt>Domain Name<ept id="3ea6cdac-2c13-4d74-a76e-be23895790a8">&lt;/strong&gt;</ept> field of the <bpt id="28703744-fa03-4ec2-b348-af4761d2ad2e">&lt;strong&gt;</bpt>Properties<ept id="28703744-fa03-4ec2-b348-af4761d2ad2e">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="5ba5daa9-d1b8-47b8-af9d-e916d267af76" xml:space="preserve">
+          <source>Get the port number for SSH connections from the <bpt id="3f07b845-934d-4283-9d3c-7894bbdb8792">&lt;strong&gt;</bpt>SSH<ept id="3f07b845-934d-4283-9d3c-7894bbdb8792">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Get the port number for SSH connections from the <bpt id="3f07b845-934d-4283-9d3c-7894bbdb8792">&lt;strong&gt;</bpt>SSH<ept id="3f07b845-934d-4283-9d3c-7894bbdb8792">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="e5b5355c-7540-46b1-9896-f5bdba79293d" xml:space="preserve">
+          <source>Here is an example.</source>
+          <target state="new">Here is an example.</target>
+        </trans-unit>
+        <trans-unit id="4c47e37e-0716-4ee0-b11b-7aab7c880e38" xml:space="preserve">
+          <source><bpt id="f0e413e0-b7b3-408b-ae9f-97b0c0bd7ec3">&lt;linkText&gt;</bpt><ept id="f0e413e0-b7b3-408b-ae9f-97b0c0bd7ec3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0e413e0-b7b3-408b-ae9f-97b0c0bd7ec3">&lt;linkText&gt;</bpt><ept id="f0e413e0-b7b3-408b-ae9f-97b0c0bd7ec3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5680daa7-74a0-4ba3-af03-d3da7e86b720" xml:space="preserve">
+          <source>Download Putty from <bpt id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;linkText&gt;</bpt>here<ept id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;/linkText&gt;</ept><bpt id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;title&gt;</bpt><ept id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;/title&gt;</ept> .</source>
+          <target state="new">Download Putty from <bpt id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;linkText&gt;</bpt>here<ept id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;/linkText&gt;</ept><bpt id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;title&gt;</bpt><ept id="74b50c0b-5f55-4aa2-b1e5-63e2f45dd822">&lt;/title&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="332b1a7e-6b66-42dc-96cc-d50ee23416d5" xml:space="preserve">
+          <source>After downloading, click the executable file PUTTY.EXE.</source>
+          <target state="new">After downloading, click the executable file PUTTY.EXE.</target>
+        </trans-unit>
+        <trans-unit id="5ea2e2c4-934d-4e2e-afca-21d4a7b7de40" xml:space="preserve">
+          <source>Configure the basic options with the host name and port number obtained from the properties of your virtual machine.</source>
+          <target state="new">Configure the basic options with the host name and port number obtained from the properties of your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6b4e9c24-36b4-429f-8378-f4e6909153b9" xml:space="preserve">
+          <source>Here is an example:  
+<bpt id="01b70708-d4ec-4772-9991-aeebcc2bede0">&lt;linkText&gt;</bpt><ept id="01b70708-d4ec-4772-9991-aeebcc2bede0">&lt;/linkText&gt;</ept></source>
+          <target state="new">Here is an example:  
+<bpt id="01b70708-d4ec-4772-9991-aeebcc2bede0">&lt;linkText&gt;</bpt><ept id="01b70708-d4ec-4772-9991-aeebcc2bede0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="872e2dd2-4a20-4c17-bd2d-b865cdf15fdc" xml:space="preserve">
+          <source>In the left pane, click <bpt id="65025e6a-cd83-4745-9673-64c70861fe72">&lt;strong&gt;</bpt>Connection<ept id="65025e6a-cd83-4745-9673-64c70861fe72">&lt;/strong&gt;</ept> -&gt; <bpt id="c083f495-a1eb-4e71-9a2d-c2ee9a745574">&lt;strong&gt;</bpt>SSH<ept id="c083f495-a1eb-4e71-9a2d-c2ee9a745574">&lt;/strong&gt;</ept> -&gt; <bpt id="c1cef441-7da3-46dd-9df7-c75de390ce6d">&lt;strong&gt;</bpt>Auth<ept id="c1cef441-7da3-46dd-9df7-c75de390ce6d">&lt;/strong&gt;</ept> and then click <bpt id="d38dcfab-99c8-4e84-81e6-93ede2c0d4c0">&lt;strong&gt;</bpt>Browse<ept id="d38dcfab-99c8-4e84-81e6-93ede2c0d4c0">&lt;/strong&gt;</ept> to specify the location of the <bpt id="6baf056b-160d-4826-92e3-3bb00469722d">&lt;strong&gt;</bpt>privateKey.ppk<ept id="6baf056b-160d-4826-92e3-3bb00469722d">&lt;/strong&gt;</ept> file, which contains the private key generated by puttygen in Phase 1: Create an Image.</source>
+          <target state="new">In the left pane, click <bpt id="65025e6a-cd83-4745-9673-64c70861fe72">&lt;strong&gt;</bpt>Connection<ept id="65025e6a-cd83-4745-9673-64c70861fe72">&lt;/strong&gt;</ept> -&gt; <bpt id="c083f495-a1eb-4e71-9a2d-c2ee9a745574">&lt;strong&gt;</bpt>SSH<ept id="c083f495-a1eb-4e71-9a2d-c2ee9a745574">&lt;/strong&gt;</ept> -&gt; <bpt id="c1cef441-7da3-46dd-9df7-c75de390ce6d">&lt;strong&gt;</bpt>Auth<ept id="c1cef441-7da3-46dd-9df7-c75de390ce6d">&lt;/strong&gt;</ept> and then click <bpt id="d38dcfab-99c8-4e84-81e6-93ede2c0d4c0">&lt;strong&gt;</bpt>Browse<ept id="d38dcfab-99c8-4e84-81e6-93ede2c0d4c0">&lt;/strong&gt;</ept> to specify the location of the <bpt id="6baf056b-160d-4826-92e3-3bb00469722d">&lt;strong&gt;</bpt>privateKey.ppk<ept id="6baf056b-160d-4826-92e3-3bb00469722d">&lt;/strong&gt;</ept> file, which contains the private key generated by puttygen in Phase 1: Create an Image.</target>
+        </trans-unit>
+        <trans-unit id="4eb8d9a5-44e7-4cfa-9aa0-2a83e3ad0aa7" xml:space="preserve">
+          <source>Here is an example:  
+<bpt id="f435844a-464a-4a01-8694-6efadf746869">&lt;linkText&gt;</bpt><ept id="f435844a-464a-4a01-8694-6efadf746869">&lt;/linkText&gt;</ept></source>
+          <target state="new">Here is an example:  
+<bpt id="f435844a-464a-4a01-8694-6efadf746869">&lt;linkText&gt;</bpt><ept id="f435844a-464a-4a01-8694-6efadf746869">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="033b29bc-1559-4475-94f7-162124c63958" xml:space="preserve">
+          <source>Click <bpt id="909b5acd-8776-4bd0-a6e7-bc0637123283">&lt;strong&gt;</bpt>Open<ept id="909b5acd-8776-4bd0-a6e7-bc0637123283">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="909b5acd-8776-4bd0-a6e7-bc0637123283">&lt;strong&gt;</bpt>Open<ept id="909b5acd-8776-4bd0-a6e7-bc0637123283">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea9cc00f-dbb1-4023-8cc8-3867fdda02bb" xml:space="preserve">
+          <source>You might be alerted by a message box.</source>
+          <target state="new">You might be alerted by a message box.</target>
+        </trans-unit>
+        <trans-unit id="0bfd1d5f-4014-4e83-8a7b-8ab93cae3299" xml:space="preserve">
+          <source>If you have configured the DNS name and port number correctly, click <bpt id="002aeb66-18a0-454c-9452-7c8d56ef3a21">&lt;strong&gt;</bpt>Yes<ept id="002aeb66-18a0-454c-9452-7c8d56ef3a21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have configured the DNS name and port number correctly, click <bpt id="002aeb66-18a0-454c-9452-7c8d56ef3a21">&lt;strong&gt;</bpt>Yes<ept id="002aeb66-18a0-454c-9452-7c8d56ef3a21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b25774e-9529-4ad2-96d7-711ec2e8af30" xml:space="preserve">
+          <source><bpt id="6e11337a-9d3c-47c7-ad7d-e9ebfd479c9f">&lt;linkText&gt;</bpt><ept id="6e11337a-9d3c-47c7-ad7d-e9ebfd479c9f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e11337a-9d3c-47c7-ad7d-e9ebfd479c9f">&lt;linkText&gt;</bpt><ept id="6e11337a-9d3c-47c7-ad7d-e9ebfd479c9f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e71c313-fb7f-4e11-bb09-eb774ddf1a31" xml:space="preserve">
+          <source>You should see the following:  
+<bpt id="4e4a15cb-5656-4fa5-a66e-7c3ed00590e2">&lt;linkText&gt;</bpt><ept id="4e4a15cb-5656-4fa5-a66e-7c3ed00590e2">&lt;/linkText&gt;</ept></source>
+          <target state="new">You should see the following:  
+<bpt id="4e4a15cb-5656-4fa5-a66e-7c3ed00590e2">&lt;linkText&gt;</bpt><ept id="4e4a15cb-5656-4fa5-a66e-7c3ed00590e2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b84ff0de-dd44-43ca-91b9-61b32022a549" xml:space="preserve">
+          <source>Enter the user name specified when you created the virtual machine in Phase 1: Create an Image.</source>
+          <target state="new">Enter the user name specified when you created the virtual machine in Phase 1: Create an Image.</target>
+        </trans-unit>
+        <trans-unit id="5c7483d2-2219-4369-a992-7fde5d7b4e7a" xml:space="preserve">
+          <source>You will see something like the following:  
+<bpt id="ca8a0b75-e983-4a3c-a42b-e5beb024c576">&lt;linkText&gt;</bpt><ept id="ca8a0b75-e983-4a3c-a42b-e5beb024c576">&lt;/linkText&gt;</ept></source>
+          <target state="new">You will see something like the following:  
+<bpt id="ca8a0b75-e983-4a3c-a42b-e5beb024c576">&lt;linkText&gt;</bpt><ept id="ca8a0b75-e983-4a3c-a42b-e5beb024c576">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68ba70e2-eca0-4501-8f0c-da1e8cedfc4a" xml:space="preserve">
+          <source>In this phase, you install the Java runtime environment, tomcat, and other tomcat components.</source>
+          <target state="new">In this phase, you install the Java runtime environment, tomcat, and other tomcat components.</target>
+        </trans-unit>
+        <trans-unit id="023be9b7-a550-4f1f-b7a9-2773c8a60b79" xml:space="preserve">
+          <source>Tomcat is written in Java.</source>
+          <target state="new">Tomcat is written in Java.</target>
+        </trans-unit>
+        <trans-unit id="c9b11066-be01-4757-b5ec-ec9b50ebd45a" xml:space="preserve">
+          <source>There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.</source>
+          <target state="new">There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.</target>
+        </trans-unit>
+        <trans-unit id="2b801aff-3a17-4675-821a-55d2de7dc1d7" xml:space="preserve">
+          <source>AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different.</source>
+          <target state="new">AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different.</target>
+        </trans-unit>
+        <trans-unit id="fcca7586-e226-4c0b-8edd-aa30f032ee4d" xml:space="preserve">
+          <source>When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones.</source>
+          <target state="new">When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones.</target>
+        </trans-unit>
+        <trans-unit id="8f8501c5-66ba-4305-987e-5522d2ea960f" xml:space="preserve">
+          <source>But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.</source>
+          <target state="new">But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.</target>
+        </trans-unit>
+        <trans-unit id="2f4dc374-f579-43c1-8af3-b6ddf10de6f5" xml:space="preserve">
+          <source>The following commands download the different JDKs.</source>
+          <target state="new">The following commands download the different JDKs.</target>
+        </trans-unit>
+        <trans-unit id="e5bf7984-002f-41bb-a767-bca268792d71" xml:space="preserve">
+          <source>open-jdk   </source>
+          <target state="new">open-jdk   </target>
+        </trans-unit>
+        <trans-unit id="45bdbd55-5c5d-4680-8dea-27ce86b7e100" xml:space="preserve">
+          <source>oracle-jdk  </source>
+          <target state="new">oracle-jdk  </target>
+        </trans-unit>
+        <trans-unit id="79955c8f-4e53-4a4a-8931-c13833fcbe32" xml:space="preserve">
+          <source>To download the JDK from the Oracle website:  </source>
+          <target state="new">To download the JDK from the Oracle website:  </target>
+        </trans-unit>
+        <trans-unit id="66a5813a-6e12-4a6a-b5a3-44ae29cd0aa4" xml:space="preserve">
+          <source>To create a directory to contain the JDK files:  </source>
+          <target state="new">To create a directory to contain the JDK files:  </target>
+        </trans-unit>
+        <trans-unit id="8d097c86-9999-4879-9917-f18cefbadd82" xml:space="preserve">
+          <source>To extract the JDK files into the /usr/lib/jvm/ directory:  </source>
+          <target state="new">To extract the JDK files into the /usr/lib/jvm/ directory:  </target>
+        </trans-unit>
+        <trans-unit id="ec1fd482-271b-429b-998d-04870c9531fe" xml:space="preserve">
+          <source>To set Oracle JDK as the default JVM:  </source>
+          <target state="new">To set Oracle JDK as the default JVM:  </target>
+        </trans-unit>
+        <trans-unit id="a31111de-eac2-4dfe-b943-2e40dee30b77" xml:space="preserve">
+          <source>You can use a command like the following to test if the Java runtime environment is installed correctly:  </source>
+          <target state="new">You can use a command like the following to test if the Java runtime environment is installed correctly:  </target>
+        </trans-unit>
+        <trans-unit id="10b9ac6f-9798-4264-982e-dfeb2e9f4fc7" xml:space="preserve">
+          <source>If you installed open-jdk, you should see a message like the following:
+<bpt id="c703d602-4e58-4320-9d84-3877af98469c">&lt;linkText&gt;</bpt><ept id="c703d602-4e58-4320-9d84-3877af98469c">&lt;/linkText&gt;</ept> </source>
+          <target state="new">If you installed open-jdk, you should see a message like the following:
+<bpt id="c703d602-4e58-4320-9d84-3877af98469c">&lt;linkText&gt;</bpt><ept id="c703d602-4e58-4320-9d84-3877af98469c">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="9f714b8b-874e-4803-bb1d-1eb4314de93d" xml:space="preserve">
+          <source>If you installed oracle-jdk, you should see a message like the following:
+<bpt id="daa849f9-f2ac-4331-8225-314788a74d58">&lt;linkText&gt;</bpt><ept id="daa849f9-f2ac-4331-8225-314788a74d58">&lt;/linkText&gt;</ept> </source>
+          <target state="new">If you installed oracle-jdk, you should see a message like the following:
+<bpt id="daa849f9-f2ac-4331-8225-314788a74d58">&lt;linkText&gt;</bpt><ept id="daa849f9-f2ac-4331-8225-314788a74d58">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f0755b83-fe46-468e-bc05-dce4b6402a10" xml:space="preserve">
+          <source>Using the following command to install tomcat7:  </source>
+          <target state="new">Using the following command to install tomcat7:  </target>
+        </trans-unit>
+        <trans-unit id="d1da74c5-53c6-4bb7-b726-665e9550a219" xml:space="preserve">
+          <source>If you are not using tomcat7, use the appropriate variation of this command.</source>
+          <target state="new">If you are not using tomcat7, use the appropriate variation of this command.</target>
+        </trans-unit>
+        <trans-unit id="91ef84a4-1819-48ea-a286-2be378f0f403" xml:space="preserve">
+          <source>To check if tomcat7 is successfully installed, browse to your tomcat server’s DNS name (http://tomcatexample.cloudapp.net/ is the example URL in this article).</source>
+          <target state="new">To check if tomcat7 is successfully installed, browse to your tomcat server’s DNS name (http://tomcatexample.cloudapp.net/ is the example URL in this article).</target>
+        </trans-unit>
+        <trans-unit id="b2e324dd-58de-494f-a3d7-4e6faba57b72" xml:space="preserve">
+          <source>If you see a page like the following, you have tomcat7 installed correct.</source>
+          <target state="new">If you see a page like the following, you have tomcat7 installed correct.</target>
+        </trans-unit>
+        <trans-unit id="c00fc85c-ecd7-4355-a66f-1d8d387b4908" xml:space="preserve">
+          <source><bpt id="b32aa48f-ca32-45a1-bbd1-64db5566db6f">&lt;linkText&gt;</bpt><ept id="b32aa48f-ca32-45a1-bbd1-64db5566db6f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b32aa48f-ca32-45a1-bbd1-64db5566db6f">&lt;linkText&gt;</bpt><ept id="b32aa48f-ca32-45a1-bbd1-64db5566db6f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f391950a-96a1-4187-87b2-67315091fe69" xml:space="preserve">
+          <source>There are other optional tomcat components that you can also install.</source>
+          <target state="new">There are other optional tomcat components that you can also install.</target>
+        </trans-unit>
+        <trans-unit id="937accb2-bbe3-4c91-ba70-1fa982f17914" xml:space="preserve">
+          <source>Use the <bpt id="7a241af1-2aba-4010-9a6a-9613ba695801">&lt;strong&gt;</bpt>sudo apt-cache search tomcat7<ept id="7a241af1-2aba-4010-9a6a-9613ba695801">&lt;/strong&gt;</ept> command to see all the available components.</source>
+          <target state="new">Use the <bpt id="7a241af1-2aba-4010-9a6a-9613ba695801">&lt;strong&gt;</bpt>sudo apt-cache search tomcat7<ept id="7a241af1-2aba-4010-9a6a-9613ba695801">&lt;/strong&gt;</ept> command to see all the available components.</target>
+        </trans-unit>
+        <trans-unit id="cdb91a02-e1e4-4507-9097-96f86d11fb01" xml:space="preserve">
+          <source>The following commands are examples to install some useful parts.</source>
+          <target state="new">The following commands are examples to install some useful parts.</target>
+        </trans-unit>
+        <trans-unit id="3fbaf579-1636-4694-9e19-e054dadb7309" xml:space="preserve">
+          <source>In this phase, you administer tomcat.</source>
+          <target state="new">In this phase, you administer tomcat.</target>
+        </trans-unit>
+        <trans-unit id="5fa2e344-23fb-49f9-a3e6-b8e738a5461e" xml:space="preserve">
+          <source>The tomcat7 server will automatically start when you install it.</source>
+          <target state="new">The tomcat7 server will automatically start when you install it.</target>
+        </trans-unit>
+        <trans-unit id="7b57bda8-8097-47a9-869a-3c545586be03" xml:space="preserve">
+          <source>You can also start it yourself with the following command:</source>
+          <target state="new">You can also start it yourself with the following command:</target>
+        </trans-unit>
+        <trans-unit id="b674fec5-5184-43cf-ad5e-a3781eb3c9a7" xml:space="preserve">
+          <source>To stop tomcat7：  </source>
+          <target state="new">To stop tomcat7：  </target>
+        </trans-unit>
+        <trans-unit id="700331dc-61d2-49bd-8356-a9ba45ba236e" xml:space="preserve">
+          <source>To view the status of tomcat7：  </source>
+          <target state="new">To view the status of tomcat7：  </target>
+        </trans-unit>
+        <trans-unit id="592d0653-8cf4-4991-9b49-024d5a28c5cf" xml:space="preserve">
+          <source>To restart tomcat services：  </source>
+          <target state="new">To restart tomcat services：  </target>
+        </trans-unit>
+        <trans-unit id="153ad5df-a672-43cb-b70e-ee5edcef2cd1" xml:space="preserve">
+          <source>You can edit the Tomcat user configuration file to setup your admin credentials with the following command:  </source>
+          <target state="new">You can edit the Tomcat user configuration file to setup your admin credentials with the following command:  </target>
+        </trans-unit>
+        <trans-unit id="7167d494-6496-43f8-ab4a-0a4e9ac559eb" xml:space="preserve">
+          <source>Here is an example:  
+<bpt id="abb8e1ee-c325-44bd-9b09-02a79017f8ca">&lt;linkText&gt;</bpt><ept id="abb8e1ee-c325-44bd-9b09-02a79017f8ca">&lt;/linkText&gt;</ept>  </source>
+          <target state="new">Here is an example:  
+<bpt id="abb8e1ee-c325-44bd-9b09-02a79017f8ca">&lt;linkText&gt;</bpt><ept id="abb8e1ee-c325-44bd-9b09-02a79017f8ca">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="f9cbd359-9a00-44bd-a829-7ce8f0eb3e50" xml:space="preserve">
+          <source>AZURE.NOTE: Create a strong password for the admin user name.</source>
+          <target state="new">AZURE.NOTE: Create a strong password for the admin user name.</target>
+        </trans-unit>
+        <trans-unit id="fc73eff3-44cf-411a-aba3-49c6648e4fa8" xml:space="preserve">
+          <source>After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:  </source>
+          <target state="new">After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:  </target>
+        </trans-unit>
+        <trans-unit id="cc133ec3-6dbd-466e-8578-1f02991af545" xml:space="preserve">
+          <source>Open your browser, and enter the URL <bpt id="1780acec-b0e5-42a2-a36a-4fc5f1050d70">&lt;strong&gt;</bpt>http://&lt;your tomcat server DNS name&gt;/manager/html<ept id="1780acec-b0e5-42a2-a36a-4fc5f1050d70">&lt;/strong&gt;</ept>. For the example in this article, the URL is http://tomcatexample.cloudapp.net/manager/html.  </source>
+          <target state="new">Open your browser, and enter the URL <bpt id="1780acec-b0e5-42a2-a36a-4fc5f1050d70">&lt;strong&gt;</bpt>http://&lt;your tomcat server DNS name&gt;/manager/html<ept id="1780acec-b0e5-42a2-a36a-4fc5f1050d70">&lt;/strong&gt;</ept>. For the example in this article, the URL is http://tomcatexample.cloudapp.net/manager/html.  </target>
+        </trans-unit>
+        <trans-unit id="77e2861e-3458-4823-befd-6db180377e69" xml:space="preserve">
+          <source>After connecting, you should see something similar to the following:  
+<bpt id="87b7012d-69a8-4464-b323-479ee9b38bac">&lt;linkText&gt;</bpt><ept id="87b7012d-69a8-4464-b323-479ee9b38bac">&lt;/linkText&gt;</ept></source>
+          <target state="new">After connecting, you should see something similar to the following:  
+<bpt id="87b7012d-69a8-4464-b323-479ee9b38bac">&lt;linkText&gt;</bpt><ept id="87b7012d-69a8-4464-b323-479ee9b38bac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab45c59f-5caf-45fb-9320-64362b55f5af" xml:space="preserve">
+          <source><bpt id="e3973688-b291-4f85-bb4a-5d841d7fc49d">&lt;strong&gt;</bpt>Symptom<ept id="e3973688-b291-4f85-bb4a-5d841d7fc49d">&lt;/strong&gt;</ept>  
+Tomcat is running but you can’t see the Tomcat default page with your browser.</source>
+          <target state="new"><bpt id="e3973688-b291-4f85-bb4a-5d841d7fc49d">&lt;strong&gt;</bpt>Symptom<ept id="e3973688-b291-4f85-bb4a-5d841d7fc49d">&lt;/strong&gt;</ept>  
+Tomcat is running but you can’t see the Tomcat default page with your browser.</target>
+        </trans-unit>
+        <trans-unit id="11394776-893e-4b1a-9275-0f015ad17c8a" xml:space="preserve">
+          <source><bpt id="bd487b2f-1cec-4c4c-8457-8254595065b5">&lt;strong&gt;</bpt>Possible root case<ept id="bd487b2f-1cec-4c4c-8457-8254595065b5">&lt;/strong&gt;</ept>   </source>
+          <target state="new"><bpt id="bd487b2f-1cec-4c4c-8457-8254595065b5">&lt;strong&gt;</bpt>Possible root case<ept id="bd487b2f-1cec-4c4c-8457-8254595065b5">&lt;/strong&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="5cdcbb3b-f366-4387-994f-1d19555997a3" xml:space="preserve">
+          <source>The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.</source>
+          <target state="new">The tomcat listen port is not same as the Private Port of your virtual machine's endpoint for tomcat traffic.</target>
+        </trans-unit>
+        <trans-unit id="96cf9fef-0dd3-44b6-b9ba-03d3ff72b1d7" xml:space="preserve">
+          <source>Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port.</source>
+          <target state="new">Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the tomcat listen port.</target>
+        </trans-unit>
+        <trans-unit id="19648fa9-8560-45dc-ae62-bd571c4a18b9" xml:space="preserve">
+          <source>See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</source>
+          <target state="new">See Phase 1: Create an Image for instructions on configuring endpoints for your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3dbf1f75-013a-4bdb-b162-64d3ed94164c" xml:space="preserve">
+          <source>To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release).</source>
+          <target state="new">To determine the tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release).</target>
+        </trans-unit>
+        <trans-unit id="2997f974-5908-4c69-9c03-b698cd6f0ee2" xml:space="preserve">
+          <source>By default, the tomcat listen port is 8080.</source>
+          <target state="new">By default, the tomcat listen port is 8080.</target>
+        </trans-unit>
+        <trans-unit id="4d735035-72c8-43da-9391-c400336b4cbd" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="990f583e-d662-463e-a4c5-b4f066ed4599" xml:space="preserve">
+          <source>If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS.</source>
+          <target state="new">If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS.</target>
+        </trans-unit>
+        <trans-unit id="41ed2696-eba1-4956-92b0-50a2ec6f9e85" xml:space="preserve">
+          <source>First, open the Profile:</source>
+          <target state="new">First, open the Profile:</target>
+        </trans-unit>
+        <trans-unit id="ca2e58a7-4040-43be-bb80-4f30fc33eead" xml:space="preserve">
+          <source>Then uncomment the last line and change “no” to “yes”.</source>
+          <target state="new">Then uncomment the last line and change “no” to “yes”.</target>
+        </trans-unit>
+        <trans-unit id="0b8ccfe0-8a72-401e-a770-f3efd474e89b" xml:space="preserve">
+          <source>The firewall has disabled the listen port of tomcat.</source>
+          <target state="new">The firewall has disabled the listen port of tomcat.</target>
+        </trans-unit>
+        <trans-unit id="39cc05b2-5a24-4220-aaa1-4d4f96e7d993" xml:space="preserve">
+          <source>If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by tomcat is blocked by the firewall.</source>
+          <target state="new">If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by tomcat is blocked by the firewall.</target>
+        </trans-unit>
+        <trans-unit id="796f2d24-0e22-4a58-a26d-640a65426fb7" xml:space="preserve">
+          <source>You can use the w3m tool to browse the web page.</source>
+          <target state="new">You can use the w3m tool to browse the web page.</target>
+        </trans-unit>
+        <trans-unit id="58214a02-efcd-477f-91ec-c834f4a0eea6" xml:space="preserve">
+          <source>The following commands install w3m and browse to the Tomcat default page:</source>
+          <target state="new">The following commands install w3m and browse to the Tomcat default page:</target>
+        </trans-unit>
+        <trans-unit id="6fb6d3f0-e33d-45b4-9b2d-ed0e1d69999e" xml:space="preserve">
+          <source><bpt id="e060d854-1296-4889-be11-98a728849832">&lt;strong&gt;</bpt>Solution<ept id="e060d854-1296-4889-be11-98a728849832">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="e060d854-1296-4889-be11-98a728849832">&lt;strong&gt;</bpt>Solution<ept id="e060d854-1296-4889-be11-98a728849832">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="66ee0758-1db0-4ad6-92ba-312128bc0569" xml:space="preserve">
+          <source>If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.</source>
+          <target state="new">If the tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the tomcat listen port.</target>
+        </trans-unit>
+        <trans-unit id="87139fa9-ae7e-4735-9e3b-9f8099fe1db7" xml:space="preserve">
+          <source>If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  </source>
+          <target state="new">If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  </target>
+        </trans-unit>
+        <trans-unit id="207d07cc-bd4a-476b-8749-9ba4c1feb79b" xml:space="preserve">
+          <source>Note that the second line is only needed for https traffic.</source>
+          <target state="new">Note that the second line is only needed for https traffic.</target>
+        </trans-unit>
+        <trans-unit id="74a6e037-313d-46f3-8569-3e478967a691" xml:space="preserve">
+          <source>Make sure this is above any lines that would globally restrict access, such as the following:  </source>
+          <target state="new">Make sure this is above any lines that would globally restrict access, such as the following:  </target>
+        </trans-unit>
+        <trans-unit id="69ab1afd-6aed-4696-859b-9da2b3773d24" xml:space="preserve">
+          <source>To reload the iptables, run the following command:  </source>
+          <target state="new">To reload the iptables, run the following command:  </target>
+        </trans-unit>
+        <trans-unit id="5fb119fb-fb84-4655-8e3f-e32603154208" xml:space="preserve">
+          <source>This has been tested on CentOS 6.3.</source>
+          <target state="new">This has been tested on CentOS 6.3.</target>
+        </trans-unit>
+        <trans-unit id="cf01ed5b-c6fb-4e85-8aea-a5f97745203f" xml:space="preserve">
+          <source><bpt id="432ab73d-62c0-45c5-babb-a300026e311a">&lt;strong&gt;</bpt>Symptom<ept id="432ab73d-62c0-45c5-babb-a300026e311a">&lt;/strong&gt;</ept>  
+When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  </source>
+          <target state="new"><bpt id="432ab73d-62c0-45c5-babb-a300026e311a">&lt;strong&gt;</bpt>Symptom<ept id="432ab73d-62c0-45c5-babb-a300026e311a">&lt;/strong&gt;</ept>  
+When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  </target>
+        </trans-unit>
+        <trans-unit id="776d0d66-7983-4b08-b2e4-4396a80919c8" xml:space="preserve">
+          <source><bpt id="fca377be-2761-488b-b2a0-fc45517b7a9d">&lt;strong&gt;</bpt>Possible root case<ept id="fca377be-2761-488b-b2a0-fc45517b7a9d">&lt;/strong&gt;</ept> 
+You have no permissions to access the /var/lib/tomcat7/webapps folder.</source>
+          <target state="new"><bpt id="fca377be-2761-488b-b2a0-fc45517b7a9d">&lt;strong&gt;</bpt>Possible root case<ept id="fca377be-2761-488b-b2a0-fc45517b7a9d">&lt;/strong&gt;</ept> 
+You have no permissions to access the /var/lib/tomcat7/webapps folder.</target>
+        </trans-unit>
+        <trans-unit id="c91411c1-b09b-45e3-a2f1-e251384a11ed" xml:space="preserve">
+          <source><bpt id="462ed7b3-bd9b-4a36-b4b6-839559f009aa">&lt;strong&gt;</bpt>Solution<ept id="462ed7b3-bd9b-4a36-b4b6-839559f009aa">&lt;/strong&gt;</ept>  
+You need get permission from the root account.</source>
+          <target state="new"><bpt id="462ed7b3-bd9b-4a36-b4b6-839559f009aa">&lt;strong&gt;</bpt>Solution<ept id="462ed7b3-bd9b-4a36-b4b6-839559f009aa">&lt;/strong&gt;</ept>  
+You need get permission from the root account.</target>
+        </trans-unit>
+        <trans-unit id="6227083c-9fb3-46a9-b802-566e76b21330" xml:space="preserve">
+          <source>You can change the ownership of that folder from root to the username you used when provisioning the machine.</source>
+          <target state="new">You can change the ownership of that folder from root to the username you used when provisioning the machine.</target>
+        </trans-unit>
+        <trans-unit id="7719724b-8071-4e7c-849f-d367d3466e5f" xml:space="preserve">
+          <source>Here is an example with the azureuser account name:</source>
+          <target state="new">Here is an example with the azureuser account name:</target>
+        </trans-unit>
+        <trans-unit id="07ead5a8-7540-4978-a5f6-f4db731c2a54" xml:space="preserve">
+          <source>Use the -R option to apply the permissions for all files inside of a directory too.</source>
+          <target state="new">Use the -R option to apply the permissions for all files inside of a directory too.</target>
+        </trans-unit>
+        <trans-unit id="385fd2c7-9d5a-49b2-8722-1f981315d9b2" xml:space="preserve">
+          <source>Note that this command also works for directories.</source>
+          <target state="new">Note that this command also works for directories.</target>
+        </trans-unit>
+        <trans-unit id="8d0ce26a-7169-4a1a-b45b-abf98a8c854f" xml:space="preserve">
+          <source>The -R option changes the permissions for all files and directories inside of the directory.</source>
+          <target state="new">The -R option changes the permissions for all files and directories inside of the directory.</target>
+        </trans-unit>
+        <trans-unit id="e33fe453-8f4f-4d5b-88b3-6414b3120e43" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="188c3f58-f1b6-4592-a4c0-de59de8a8cec" xml:space="preserve">
+          <source>This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.</source>
+          <target state="new">This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.</target>
+        </trans-unit>
+        <trans-unit id="59d9b182-b1eb-4d1a-884f-60982ac7fd49" xml:space="preserve">
+          <source>The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.</source>
+          <target state="new">The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.</target>
+        </trans-unit>
+        <trans-unit id="a7229464-72a8-416e-a9aa-6b128c298694" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-01.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-01.png</target>
+        </trans-unit>
+        <trans-unit id="f53687ac-a1bd-4a4d-86b2-cb40b4078cd3" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-02.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-02.png</target>
+        </trans-unit>
+        <trans-unit id="43999e91-ef61-4fa8-89fe-80139e7208be" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-03.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-03.png</target>
+        </trans-unit>
+        <trans-unit id="d5e40c32-539e-46e4-a4c8-ce2cf6cbbcc4" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-04.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-04.png</target>
+        </trans-unit>
+        <trans-unit id="3b0da16d-e916-4be6-892d-5ac64a6e1fd0" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-05.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-05.png</target>
+        </trans-unit>
+        <trans-unit id="4a6738ca-d4d0-41a3-b3fd-eb99a666d7a4" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-06.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-06.png</target>
+        </trans-unit>
+        <trans-unit id="7ace6bd1-c4cf-4144-91e7-698017580c5c" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-07.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-07.png</target>
+        </trans-unit>
+        <trans-unit id="12d9ebef-f8d4-4900-8611-f10707fd2891" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-08.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-08.png</target>
+        </trans-unit>
+        <trans-unit id="c373fb3d-a4eb-43f8-9c7b-cd568165693d" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-09.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-09.png</target>
+        </trans-unit>
+        <trans-unit id="f713eb6c-900a-4eed-8798-4cac1aea219f" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-10.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-10.png</target>
+        </trans-unit>
+        <trans-unit id="715a9884-001a-4ec0-ab46-b093c5f4bc7e" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-11.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-11.png</target>
+        </trans-unit>
+        <trans-unit id="a6df07d1-191b-4113-93c9-5dfacee62cac" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-12.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-12.png</target>
+        </trans-unit>
+        <trans-unit id="3ecd40de-987e-4811-9761-dbbf6c12ebb5" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-13.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-13.png</target>
+        </trans-unit>
+        <trans-unit id="70e20871-d408-4444-bfc7-cb18ed6a4673" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-14.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-14.png</target>
+        </trans-unit>
+        <trans-unit id="fc9c8f7f-cc71-43d4-b8a2-303e0e660e62" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-15.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-15.png</target>
+        </trans-unit>
+        <trans-unit id="7158cc75-6ae6-44c1-bb13-c6922a2a7344" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png</target>
+        </trans-unit>
+        <trans-unit id="ef019f6b-6ac0-4e67-abb7-b8e96f7586bc" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png</target>
+        </trans-unit>
+        <trans-unit id="2ae6747c-6359-4e98-b428-70ecbba89ae4" xml:space="preserve">
+          <source>./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png</source>
+          <target state="new">./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png</target>
+        </trans-unit>
+      </group>
+      <group id="f79690b1-7020-4d41-961c-cef48d112758" />
+    </body>
+  </file>
+</xliff>

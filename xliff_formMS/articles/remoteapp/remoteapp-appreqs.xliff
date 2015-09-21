@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6bff6f63-b5ab-4a1b-951d-4ad9be925a41" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6bff6f63-b5ab-4a1b-951d-4ad9be925a41" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1e177bf7-3cee-49ad-909e-763f143189f0">
+        <trans-unit id="0328b8d6-726a-43f0-80f1-6272822d0572" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="App requirements for Azure RemoteApp"
+    description="Learn about the requirements for apps that you want to use in Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="App requirements for Azure RemoteApp"
+    description="Learn about the requirements for apps that you want to use in Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="84a62bf9-3646-425b-b04c-c18e57791ddd" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="442e6e16-cd8d-4708-8335-cbdcd30ae4f3" xml:space="preserve">
+          <source>Azure RemoteApp supports streaming 32-bit or 64-bit Windows-based applications from a Windows Server 2012 R2 image.</source>
+          <target state="new">Azure RemoteApp supports streaming 32-bit or 64-bit Windows-based applications from a Windows Server 2012 R2 image.</target>
+        </trans-unit>
+        <trans-unit id="2c6b5652-36ed-48c8-a65c-6e1c919e79ef" xml:space="preserve">
+          <source>Most existing 32-bit or 64-bit Windows-based applications run "as is" in Azure RemoteApp (Remote Desktop Services or formerly known as Terminal Services) environment.</source>
+          <target state="new">Most existing 32-bit or 64-bit Windows-based applications run "as is" in Azure RemoteApp (Remote Desktop Services or formerly known as Terminal Services) environment.</target>
+        </trans-unit>
+        <trans-unit id="f7cebfb2-043f-477b-ab94-e5bdcb6a770e" xml:space="preserve">
+          <source>However, there is a difference between running and running well - some applications function correctly and perform well, while others do not.</source>
+          <target state="new">However, there is a difference between running and running well - some applications function correctly and perform well, while others do not.</target>
+        </trans-unit>
+        <trans-unit id="85507868-4f02-4962-b3ab-f7fb51a6d1cb" xml:space="preserve">
+          <source>The following information provides guidance for developing applications in a Remote Desktop Services environment and testing to ensure compatibility.</source>
+          <target state="new">The following information provides guidance for developing applications in a Remote Desktop Services environment and testing to ensure compatibility.</target>
+        </trans-unit>
+        <trans-unit id="7e340646-f77f-429c-9e17-64d5531087d3" xml:space="preserve">
+          <source>Tip: We're working on creating some working examples of apps for you.</source>
+          <target state="new">Tip: We're working on creating some working examples of apps for you.</target>
+        </trans-unit>
+        <trans-unit id="820835b6-d7b1-4658-9ea2-6388a4d6b0b5" xml:space="preserve">
+          <source>You'll see new topics that discuss using Microsoft Access, QuickBooks, and App-V in RemoteApp.</source>
+          <target state="new">You'll see new topics that discuss using Microsoft Access, QuickBooks, and App-V in RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="ed72dfd6-68f1-4d95-a8b8-c58d3b87ee71" xml:space="preserve">
+          <source>These three requirements, if followed, help your application run well in RemoteApp: </source>
+          <target state="new">These three requirements, if followed, help your application run well in RemoteApp: </target>
+        </trans-unit>
+        <trans-unit id="37afc83a-d317-4266-a52a-4c103b1d06f8" xml:space="preserve">
+          <source>Applications that meet all <bpt id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;linkText&gt;</bpt>Certification requirements for Windows desktop apps<ept id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;/linkText&gt;</ept><bpt id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;title&gt;</bpt><ept id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;/title&gt;</ept> and adhere to <bpt id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;linkText&gt;</bpt>Remote Desktop Services programming guidelines<ept id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;/linkText&gt;</ept><bpt id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;title&gt;</bpt><ept id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;/title&gt;</ept> will have complete compatibility with RemoteApp.</source>
+          <target state="new">Applications that meet all <bpt id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;linkText&gt;</bpt>Certification requirements for Windows desktop apps<ept id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;/linkText&gt;</ept><bpt id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;title&gt;</bpt><ept id="4571860a-03bd-4dda-8a3d-baef7c3aadec">&lt;/title&gt;</ept> and adhere to <bpt id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;linkText&gt;</bpt>Remote Desktop Services programming guidelines<ept id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;/linkText&gt;</ept><bpt id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;title&gt;</bpt><ept id="082962d4-49b8-4c50-8e6b-abf16a9f49d4">&lt;/title&gt;</ept> will have complete compatibility with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="a68a6449-0798-4dc8-ac69-56c818645c1d" xml:space="preserve">
+          <source>Applications should never store data locally on the image or RemoteApp instances that can be lost.</source>
+          <target state="new">Applications should never store data locally on the image or RemoteApp instances that can be lost.</target>
+        </trans-unit>
+        <trans-unit id="a168b134-7d0f-484f-984c-f1d1b4074291" xml:space="preserve">
+          <source>After you create a RemoteApp collection, the instances are cloned and are stateless and should only contain applications.</source>
+          <target state="new">After you create a RemoteApp collection, the instances are cloned and are stateless and should only contain applications.</target>
+        </trans-unit>
+        <trans-unit id="0a999713-bebe-4e09-8cd1-e5e94c50dab9" xml:space="preserve">
+          <source>Store data in an external source or within the user's profile.</source>
+          <target state="new">Store data in an external source or within the user's profile.</target>
+        </trans-unit>
+        <trans-unit id="0980f4ad-2973-4962-b6b0-c9c69123a3f2" xml:space="preserve">
+          <source>Custom images should never contain data that can be lost.</source>
+          <target state="new">Custom images should never contain data that can be lost.</target>
+        </trans-unit>
+        <trans-unit id="357aaf0f-9657-4d28-b100-46278639a9b3" xml:space="preserve">
+          <source>Use these steps to testing applications:</source>
+          <target state="new">Use these steps to testing applications:</target>
+        </trans-unit>
+        <trans-unit id="9dd7ffda-2b54-40be-b993-139de034f2ca" xml:space="preserve">
+          <source>Install Windows Server 2012 R2 and your application</source>
+          <target state="new">Install Windows Server 2012 R2 and your application</target>
+        </trans-unit>
+        <trans-unit id="ac19b271-0533-4b71-83dd-6b5d87029300" xml:space="preserve">
+          <source>Enable Remote Desktop</source>
+          <target state="new">Enable Remote Desktop</target>
+        </trans-unit>
+        <trans-unit id="4db101a7-7d29-4b35-bed7-10add111471d" xml:space="preserve">
+          <source>Create two user accounts, UserA and UserB, adding both user accounts to the Remote Desktop security group.</source>
+          <target state="new">Create two user accounts, UserA and UserB, adding both user accounts to the Remote Desktop security group.</target>
+        </trans-unit>
+        <trans-unit id="8d53454a-167d-4af9-98ef-bfebcd3576cf" xml:space="preserve">
+          <source>Check multi-session compatibility by establishing two simultaneous RDS sessions to the PC while launching the application.</source>
+          <target state="new">Check multi-session compatibility by establishing two simultaneous RDS sessions to the PC while launching the application.</target>
+        </trans-unit>
+        <trans-unit id="eddefb62-178a-4045-8ee9-56635169f1c4" xml:space="preserve">
+          <source>Validate app behavior</source>
+          <target state="new">Validate app behavior</target>
+        </trans-unit>
+        <trans-unit id="93750e11-2653-45fc-9259-07e8153f83c3" xml:space="preserve">
+          <source>Use the following guidelines for developing applications for RemoteApp.</source>
+          <target state="new">Use the following guidelines for developing applications for RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="0fa78d76-8527-4970-9bb3-3ae8f41cdef3" xml:space="preserve">
+          <source>Installing an <bpt id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;linkText&gt;</bpt>application for a single user <ept id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;/linkText&gt;</ept><bpt id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;title&gt;</bpt><ept id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;/title&gt;</ept>can create problems in a multiuser environment.</source>
+          <target state="new">Installing an <bpt id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;linkText&gt;</bpt>application for a single user <ept id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;/linkText&gt;</ept><bpt id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;title&gt;</bpt><ept id="ac3c82a0-7b79-490e-8f21-46f3891852e2">&lt;/title&gt;</ept>can create problems in a multiuser environment.</target>
+        </trans-unit>
+        <trans-unit id="e1bf9744-f99f-4fa2-bc60-3b098fec64c2" xml:space="preserve">
+          <source>Applications should <bpt id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;linkText&gt;</bpt>store user-specific information<ept id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;/linkText&gt;</ept><bpt id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;title&gt;</bpt><ept id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;/title&gt;</ept> in user-specific locations, separately from global information that applies to all users.</source>
+          <target state="new">Applications should <bpt id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;linkText&gt;</bpt>store user-specific information<ept id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;/linkText&gt;</ept><bpt id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;title&gt;</bpt><ept id="1da25a21-853e-4350-9434-54e65c507a5b">&lt;/title&gt;</ept> in user-specific locations, separately from global information that applies to all users.</target>
+        </trans-unit>
+        <trans-unit id="6c86a6dd-1727-405b-8fb4-f9d140c2535c" xml:space="preserve">
+          <source>RemoteApp uses multiple <bpt id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;linkText&gt;</bpt>namespaces for kernel objects<ept id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;/linkText&gt;</ept><bpt id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;title&gt;</bpt><ept id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;/title&gt;</ept>; a global namespace is used primarily by services in client/server applications.</source>
+          <target state="new">RemoteApp uses multiple <bpt id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;linkText&gt;</bpt>namespaces for kernel objects<ept id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;/linkText&gt;</ept><bpt id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;title&gt;</bpt><ept id="dc7a2cf1-3558-4528-a62a-3d6ca67fe02f">&lt;/title&gt;</ept>; a global namespace is used primarily by services in client/server applications.</target>
+        </trans-unit>
+        <trans-unit id="2f58c0b9-f434-4b5a-b5c7-1575e3c5be0f" xml:space="preserve">
+          <source>It is not safe to assume that the computer name or the <bpt id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;linkText&gt;</bpt>IP address<ept id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;/linkText&gt;</ept><bpt id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;title&gt;</bpt><ept id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;/title&gt;</ept> assigned to the computer are associated with a single user because multiple users can be logged on simultaneously to a Remote Desktop Session Host (RD Session Host) server.</source>
+          <target state="new">It is not safe to assume that the computer name or the <bpt id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;linkText&gt;</bpt>IP address<ept id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;/linkText&gt;</ept><bpt id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;title&gt;</bpt><ept id="e156d1f4-3b08-48f8-9ca2-5977e2902365">&lt;/title&gt;</ept> assigned to the computer are associated with a single user because multiple users can be logged on simultaneously to a Remote Desktop Session Host (RD Session Host) server.</target>
+        </trans-unit>
+        <trans-unit id="c0281bfa-022d-4b1a-80fc-38b53873035e" xml:space="preserve">
+          <source>Disable <bpt id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;linkText&gt;</bpt>graphic effects<ept id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;/linkText&gt;</ept><bpt id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;title&gt;</bpt><ept id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;/title&gt;</ept> before you add your app to RemoteApp.</source>
+          <target state="new">Disable <bpt id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;linkText&gt;</bpt>graphic effects<ept id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;/linkText&gt;</ept><bpt id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;title&gt;</bpt><ept id="77716547-ba9e-4113-8071-3303d8eb22ba">&lt;/title&gt;</ept> before you add your app to RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="4b5add65-950f-4c7d-ae40-10bbd67fa6b9" xml:space="preserve">
+          <source>To maximize CPU availability for all users, either disable <bpt id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;linkText&gt;</bpt>background tasks <ept id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;/linkText&gt;</ept><bpt id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;title&gt;</bpt><ept id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;/title&gt;</ept> or create efficient background tasks that are not resource-intensive.</source>
+          <target state="new">To maximize CPU availability for all users, either disable <bpt id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;linkText&gt;</bpt>background tasks <ept id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;/linkText&gt;</ept><bpt id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;title&gt;</bpt><ept id="a7fd4d17-3d8e-4519-820f-b47bac2b7870">&lt;/title&gt;</ept> or create efficient background tasks that are not resource-intensive.</target>
+        </trans-unit>
+        <trans-unit id="8bb330c9-1084-4d6b-bcf6-7a2bd9557a75" xml:space="preserve">
+          <source>You should tune and balance application <bpt id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;linkText&gt;</bpt>thread usage<ept id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;/linkText&gt;</ept><bpt id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;title&gt;</bpt><ept id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;/title&gt;</ept> for a multiuser, multiprocessor environment.</source>
+          <target state="new">You should tune and balance application <bpt id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;linkText&gt;</bpt>thread usage<ept id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;/linkText&gt;</ept><bpt id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;title&gt;</bpt><ept id="c290a2df-2c5f-40c0-9cd1-45feec310cef">&lt;/title&gt;</ept> for a multiuser, multiprocessor environment.</target>
+        </trans-unit>
+        <trans-unit id="98ffc2cd-0afa-4b2f-a5fc-fc63dfa3b45f" xml:space="preserve">
+          <source>To optimize performance, it is good practice for applications to <bpt id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;linkText&gt;</bpt>detect<ept id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;/linkText&gt;</ept><bpt id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;title&gt;</bpt><ept id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;/title&gt;</ept> whether they are running in a client session.</source>
+          <target state="new">To optimize performance, it is good practice for applications to <bpt id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;linkText&gt;</bpt>detect<ept id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;/linkText&gt;</ept><bpt id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;title&gt;</bpt><ept id="17af19e2-62df-4d63-8c7b-67ecff84627e">&lt;/title&gt;</ept> whether they are running in a client session.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cb4c1ee6-ba7f-462b-be8b-e4f2982f705b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cb4c1ee6-ba7f-462b-be8b-e4f2982f705b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c4c7aaaa-60ab-4a8f-96b0-f47c38f91b9f">
+        <trans-unit id="bd222f38-94b5-4e95-8476-d9c0681816b6" xml:space="preserve">
+          <source>Understanding resource access in Azure?</source>
+          <target state="new">Understanding resource access in Azure?</target>
+        </trans-unit>
+        <trans-unit id="55e161f2-69c5-43dd-9db7-c2579c980c67" xml:space="preserve">
+          <source>This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.</source>
+          <target state="new">This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="6c851f65-e7d9-4177-96bb-19deabc85c54" xml:space="preserve">
+          <source>This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.</source>
+          <target state="new">This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="69e215bf-a6da-4274-b0ec-5c5be204e439" xml:space="preserve">
+          <source>As an alternative, the Azure Preview portal provides <bpt id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;linkText&gt;</bpt>role-based access control<ept id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;/linkText&gt;</ept><bpt id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;title&gt;</bpt><ept id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;/title&gt;</ept> so Azure resources can be managed more precisely.</source>
+          <target state="new">As an alternative, the Azure Preview portal provides <bpt id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;linkText&gt;</bpt>role-based access control<ept id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;/linkText&gt;</ept><bpt id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;title&gt;</bpt><ept id="46626dc8-19ca-415b-9d21-17d780785c2d">&lt;/title&gt;</ept> so Azure resources can be managed more precisely.</target>
+        </trans-unit>
+        <trans-unit id="738132e5-f93a-40b7-b9fa-6eed5fc8d72a" xml:space="preserve">
+          <source>In October 2013, the Azure Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources.</source>
+          <target state="new">In October 2013, the Azure Management Portal and Service Management APIs were integrated with Azure Active Directory in order to lay the groundwork for improving the user experience for managing access to Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="0bd17c46-83ca-47b6-80ee-977c6d10bf8a" xml:space="preserve">
+          <source>Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control.</source>
+          <target state="new">Azure Active Directory already provides great capabilities such as user management, on-premises directory sync, multi-factor authentication, and application access control.</target>
+        </trans-unit>
+        <trans-unit id="707750e6-0103-4228-a9fe-cfc34b5edcd3" xml:space="preserve">
+          <source>Naturally, these should also be made available for managing Azure resources across-the-board.</source>
+          <target state="new">Naturally, these should also be made available for managing Azure resources across-the-board.</target>
+        </trans-unit>
+        <trans-unit id="95c8c2e2-dc31-49b4-980e-d28c2e8fc63a" xml:space="preserve">
+          <source>Access control in Azure starts from a billing perspective.</source>
+          <target state="new">Access control in Azure starts from a billing perspective.</target>
+        </trans-unit>
+        <trans-unit id="5137b54e-34fd-4e83-a857-1eec7fa4fc87" xml:space="preserve">
+          <source>The owner of an Azure account, accessed by visiting the  <bpt id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;linkText&gt;</bpt>Azure Accounts Center<ept id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;/linkText&gt;</ept><bpt id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;title&gt;</bpt><ept id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;/title&gt;</ept>, is the Account Administrator (AA).</source>
+          <target state="new">The owner of an Azure account, accessed by visiting the  <bpt id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;linkText&gt;</bpt>Azure Accounts Center<ept id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;/linkText&gt;</ept><bpt id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;title&gt;</bpt><ept id="b1534897-cbb3-4a11-8ac6-9f5152b732bc">&lt;/title&gt;</ept>, is the Account Administrator (AA).</target>
+        </trans-unit>
+        <trans-unit id="c9c08022-c469-4eff-aa8f-e62724dec39f" xml:space="preserve">
+          <source>Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the <bpt id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;/linkText&gt;</ept><bpt id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;title&gt;</bpt><ept id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;/title&gt;</ept>.</source>
+          <target state="new">Subscriptions are a container for billing, but they also act as a security boundary: each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the <bpt id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;/linkText&gt;</ept><bpt id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;title&gt;</bpt><ept id="1d0a7340-0360-403f-99af-b0d24024b5bc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6cc4782-eac9-42c1-87ba-c917951ff170" xml:space="preserve">
+          <source>The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.</source>
+          <target state="new">The default SA of a new subscription is the AA, but the AA can change the SA in the Azure Accounts Center.</target>
+        </trans-unit>
+        <trans-unit id="7b5eddf6-7f4e-43f0-b0a1-4bc8899915a0" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;<bpt id="03c4720b-2c45-43e2-99e7-4e6cdc0d7a95">&lt;linkText&gt;</bpt>Azure Accounts<ept id="03c4720b-2c45-43e2-99e7-4e6cdc0d7a95">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;<bpt id="03c4720b-2c45-43e2-99e7-4e6cdc0d7a95">&lt;linkText&gt;</bpt>Azure Accounts<ept id="03c4720b-2c45-43e2-99e7-4e6cdc0d7a95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2d9c301-88d0-4db3-843d-9e4f45be0087" xml:space="preserve">
+          <source>Subscriptions also have an association with a directory.</source>
+          <target state="new">Subscriptions also have an association with a directory.</target>
+        </trans-unit>
+        <trans-unit id="81f63a25-0e5d-4aed-8f1f-aa32d2697695" xml:space="preserve">
+          <source>The directory defines a set of users.</source>
+          <target state="new">The directory defines a set of users.</target>
+        </trans-unit>
+        <trans-unit id="f5f2e14d-f9ef-4341-83b5-5f3fde843200" xml:space="preserve">
+          <source>These can be users from the work or school that created the directory or they can be external users (that is, Microsoft Accounts).</source>
+          <target state="new">These can be users from the work or school that created the directory or they can be external users (that is, Microsoft Accounts).</target>
+        </trans-unit>
+        <trans-unit id="58905d99-0132-43fe-9aff-2cdd9b22b04a" xml:space="preserve">
+          <source>Subscriptions are accessible by a subset of those directory users who have been assigned as either Service Administrator (SA) or Co-Administrator (CA); the only exception is that, for legacy reasons, Microsoft Accounts (formerly Windows Live ID) can be assigned as SA or CA without being present in the directory.</source>
+          <target state="new">Subscriptions are accessible by a subset of those directory users who have been assigned as either Service Administrator (SA) or Co-Administrator (CA); the only exception is that, for legacy reasons, Microsoft Accounts (formerly Windows Live ID) can be assigned as SA or CA without being present in the directory.</target>
+        </trans-unit>
+        <trans-unit id="d7f2afcb-7c83-49cd-a5fb-d0d33556090b" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;<bpt id="f8000daf-a40c-4b50-bfd6-e88d86fd08ff">&lt;linkText&gt;</bpt>Access Control in Azure<ept id="f8000daf-a40c-4b50-bfd6-e88d86fd08ff">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;<bpt id="f8000daf-a40c-4b50-bfd6-e88d86fd08ff">&lt;linkText&gt;</bpt>Access Control in Azure<ept id="f8000daf-a40c-4b50-bfd6-e88d86fd08ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41555cf4-8870-4934-9ac5-d5dcff88433e" xml:space="preserve">
+          <source>Functionality within the Azure Management Portal enables SAs that are signed in using a Microsoft Account to change the directory that a subscription is associated with by using the <bpt id="197fbb1d-eb00-4c70-8ea9-07093a44ec94">&lt;strong&gt;</bpt>Edit Directory<ept id="197fbb1d-eb00-4c70-8ea9-07093a44ec94">&lt;/strong&gt;</ept> command on the <bpt id="51b078c6-f60f-4041-ae08-3f535a8eb9d8">&lt;strong&gt;</bpt>Subscriptions<ept id="51b078c6-f60f-4041-ae08-3f535a8eb9d8">&lt;/strong&gt;</ept> page in <bpt id="c162b873-43da-4437-968a-d04bfd127501">&lt;strong&gt;</bpt>Settings<ept id="c162b873-43da-4437-968a-d04bfd127501">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Functionality within the Azure Management Portal enables SAs that are signed in using a Microsoft Account to change the directory that a subscription is associated with by using the <bpt id="197fbb1d-eb00-4c70-8ea9-07093a44ec94">&lt;strong&gt;</bpt>Edit Directory<ept id="197fbb1d-eb00-4c70-8ea9-07093a44ec94">&lt;/strong&gt;</ept> command on the <bpt id="51b078c6-f60f-4041-ae08-3f535a8eb9d8">&lt;strong&gt;</bpt>Subscriptions<ept id="51b078c6-f60f-4041-ae08-3f535a8eb9d8">&lt;/strong&gt;</ept> page in <bpt id="c162b873-43da-4437-968a-d04bfd127501">&lt;strong&gt;</bpt>Settings<ept id="c162b873-43da-4437-968a-d04bfd127501">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1aee50a3-6fb3-4f34-a8b9-c6210eacfe79" xml:space="preserve">
+          <source>Note that this operation has implications on the access control of that subscription.</source>
+          <target state="new">Note that this operation has implications on the access control of that subscription.</target>
+        </trans-unit>
+        <trans-unit id="09b33ef7-dae2-49fa-a7ad-bcbd80475f11" xml:space="preserve">
+          <source>The <bpt id="b103b6ab-9a97-4245-892a-37176858e149">&lt;strong&gt;</bpt>Edit Directory<ept id="b103b6ab-9a97-4245-892a-37176858e149">&lt;/strong&gt;</ept> command in the Azure Management Portal is not available to users who are signed in using a work or school account because those accounts can sign in only to the directory to which they belong.</source>
+          <target state="new">The <bpt id="b103b6ab-9a97-4245-892a-37176858e149">&lt;strong&gt;</bpt>Edit Directory<ept id="b103b6ab-9a97-4245-892a-37176858e149">&lt;/strong&gt;</ept> command in the Azure Management Portal is not available to users who are signed in using a work or school account because those accounts can sign in only to the directory to which they belong.</target>
+        </trans-unit>
+        <trans-unit id="0bf7d695-b540-42b5-8880-7d686c235063" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;<bpt id="0ab57a6c-8cc5-4b16-be25-f1a37e99474c">&lt;linkText&gt;</bpt>Simple User Login Flow<ept id="0ab57a6c-8cc5-4b16-be25-f1a37e99474c">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;<bpt id="0ab57a6c-8cc5-4b16-be25-f1a37e99474c">&lt;linkText&gt;</bpt>Simple User Login Flow<ept id="0ab57a6c-8cc5-4b16-be25-f1a37e99474c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3069c6b4-0080-484e-9025-a0be441802e5" xml:space="preserve">
+          <source>In the simple case, an organization (such as Contoso) will enforce billing and access control across the same set of subscriptions.</source>
+          <target state="new">In the simple case, an organization (such as Contoso) will enforce billing and access control across the same set of subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="49cd07a1-7273-42d0-8a86-a4291af289fe" xml:space="preserve">
+          <source>That is, the directory is associated to subscriptions that are owned by a single Azure Account.</source>
+          <target state="new">That is, the directory is associated to subscriptions that are owned by a single Azure Account.</target>
+        </trans-unit>
+        <trans-unit id="89def2ec-e562-470a-b109-3602cf8bb4e4" xml:space="preserve">
+          <source>Upon successful login to the Azure Management Portal, users see two collections of resources (depicted in orange in the previous illustration):</source>
+          <target state="new">Upon successful login to the Azure Management Portal, users see two collections of resources (depicted in orange in the previous illustration):</target>
+        </trans-unit>
+        <trans-unit id="546fb8a8-21fe-4243-a98c-15655e5dfe65" xml:space="preserve">
+          <source>Directories where their user account exists (sourced or added as a foreign principal).</source>
+          <target state="new">Directories where their user account exists (sourced or added as a foreign principal).</target>
+        </trans-unit>
+        <trans-unit id="cd5f9b94-d7cf-4d12-9b10-8b407a287653" xml:space="preserve">
+          <source>Note that the directory used for login isn’t relevant to this computation, so your directories will always be shown regardless of where you logged in.</source>
+          <target state="new">Note that the directory used for login isn’t relevant to this computation, so your directories will always be shown regardless of where you logged in.</target>
+        </trans-unit>
+        <trans-unit id="4b6bfffa-f1be-4d9e-9c42-7c367b7c3227" xml:space="preserve">
+          <source>Resources that are part of subscriptions that are associated with the directory used for login AND which the user can access (where they are an SA or CA).</source>
+          <target state="new">Resources that are part of subscriptions that are associated with the directory used for login AND which the user can access (where they are an SA or CA).</target>
+        </trans-unit>
+        <trans-unit id="3b99db26-e7c0-4ee5-b419-78b70c760a64" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;<bpt id="f820d34c-9feb-43a0-a278-f6fe7971cea2">&lt;linkText&gt;</bpt>User with Multiple Subscriptions and Directories<ept id="f820d34c-9feb-43a0-a278-f6fe7971cea2">&lt;/linkText&gt;</ept></source>
+          <target state="new">&lt;br&gt;&lt;br&gt;<bpt id="f820d34c-9feb-43a0-a278-f6fe7971cea2">&lt;linkText&gt;</bpt>User with Multiple Subscriptions and Directories<ept id="f820d34c-9feb-43a0-a278-f6fe7971cea2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d96f1ffa-d731-42e6-a5b7-f2cbba38b84e" xml:space="preserve">
+          <source>Users with subscriptions across multiple directories have the ability to switch the current context of the Azure Management Portal by using the subscription filter.</source>
+          <target state="new">Users with subscriptions across multiple directories have the ability to switch the current context of the Azure Management Portal by using the subscription filter.</target>
+        </trans-unit>
+        <trans-unit id="4939b9fb-0f3a-4f6a-abd1-676803c7eba3" xml:space="preserve">
+          <source>Under the covers, this results in a separate login to a different directory, but this is accomplished seamlessly using single sign-on (SSO).</source>
+          <target state="new">Under the covers, this results in a separate login to a different directory, but this is accomplished seamlessly using single sign-on (SSO).</target>
+        </trans-unit>
+        <trans-unit id="8cafe019-dc33-47e1-af22-d446024cbad7" xml:space="preserve">
+          <source>Operations such as moving resources between subscriptions can be more difficult as a result of this single directory view of subscriptions.</source>
+          <target state="new">Operations such as moving resources between subscriptions can be more difficult as a result of this single directory view of subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="e808f25e-4bc0-46fa-9787-245cb322539b" xml:space="preserve">
+          <source>To perform the resource transfer, it may be necessary to first use the <bpt id="49beb273-b10d-42d5-97a3-33a2354e2a2c">&lt;strong&gt;</bpt>Edit Directory<ept id="49beb273-b10d-42d5-97a3-33a2354e2a2c">&lt;/strong&gt;</ept> command on the Subscriptions page in <bpt id="317e183b-1ddb-4567-b439-262b165ea71b">&lt;strong&gt;</bpt>Settings<ept id="317e183b-1ddb-4567-b439-262b165ea71b">&lt;/strong&gt;</ept> to associate the subscriptions to the same directory.</source>
+          <target state="new">To perform the resource transfer, it may be necessary to first use the <bpt id="49beb273-b10d-42d5-97a3-33a2354e2a2c">&lt;strong&gt;</bpt>Edit Directory<ept id="49beb273-b10d-42d5-97a3-33a2354e2a2c">&lt;/strong&gt;</ept> command on the Subscriptions page in <bpt id="317e183b-1ddb-4567-b439-262b165ea71b">&lt;strong&gt;</bpt>Settings<ept id="317e183b-1ddb-4567-b439-262b165ea71b">&lt;/strong&gt;</ept> to associate the subscriptions to the same directory.</target>
+        </trans-unit>
+        <trans-unit id="50e5e236-70bf-41bc-b758-6b1817ba53d2" xml:space="preserve">
+          <source>./media/active-directory-understanding-resource-access/IC707931.png</source>
+          <target state="new">./media/active-directory-understanding-resource-access/IC707931.png</target>
+        </trans-unit>
+        <trans-unit id="0158ec7d-74ab-446f-9615-a5bba48e96be" xml:space="preserve">
+          <source>./media/active-directory-understanding-resource-access/IC707932.png</source>
+          <target state="new">./media/active-directory-understanding-resource-access/IC707932.png</target>
+        </trans-unit>
+        <trans-unit id="833b3f2f-b57a-4fa2-b925-8f7e188e2b9a" xml:space="preserve">
+          <source>./media/active-directory-understanding-resource-access/IC707933.png</source>
+          <target state="new">./media/active-directory-understanding-resource-access/IC707933.png</target>
+        </trans-unit>
+        <trans-unit id="b0b3fbe8-da73-460f-9eab-22e94a9927a0" xml:space="preserve">
+          <source>./media/active-directory-understanding-resource-access/IC707934.png</source>
+          <target state="new">./media/active-directory-understanding-resource-access/IC707934.png</target>
+        </trans-unit>
+      </group>
+      <group id="023c85f1-5916-4bef-bc82-b08f4b1c862c" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="53097e36-9636-495c-91e9-28962e9c8fac" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="53097e36-9636-495c-91e9-28962e9c8fac" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d3f667cc-f710-4dce-9436-e2736dd7a836">
+        <trans-unit id="c2ec8bdb-4512-4fe3-b4c1-12b945ba2ffd" xml:space="preserve">
+          <source>Detach a disk from a Windows virtual machine | Microsoft Azure</source>
+          <target state="new">Detach a disk from a Windows virtual machine | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8cece103-7014-4e8b-9a38-3799b75be0ba" xml:space="preserve">
+          <source>Learn to detach a disk from a virtual machine in Azure.</source>
+          <target state="new">Learn to detach a disk from a virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e3e51e8a-2786-42b0-970d-0edee96fb346" xml:space="preserve">
+          <source><bpt id="fe8ce7e2-f31e-47e0-9fcb-db1d0f1c076d">&lt;token href="../../includes/howto-detach-disk-windows-linux.md"&gt;</bpt><ept id="fe8ce7e2-f31e-47e0-9fcb-db1d0f1c076d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fe8ce7e2-f31e-47e0-9fcb-db1d0f1c076d">&lt;token href="../../includes/howto-detach-disk-windows-linux.md"&gt;</bpt><ept id="fe8ce7e2-f31e-47e0-9fcb-db1d0f1c076d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7eec399-1f60-4537-b0bd-badee223a936" xml:space="preserve">
+          <source><bpt id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines<ept id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;/linkText&gt;</ept><bpt id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;title&gt;</bpt><ept id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;linkText&gt;</bpt>About disks and VHDs for virtual machines<ept id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;/linkText&gt;</ept><bpt id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;title&gt;</bpt><ept id="3d5afaab-42fb-47cc-a6ea-e13a25f1a987">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="568efed1-12b6-4cfb-aa62-f2eecdfd6f6d" xml:space="preserve">
+          <source><bpt id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;linkText&gt;</bpt>How to attach a data disk to a Windows virtual machine<ept id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;/linkText&gt;</ept><bpt id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;title&gt;</bpt><ept id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;linkText&gt;</bpt>How to attach a data disk to a Windows virtual machine<ept id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;/linkText&gt;</ept><bpt id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;title&gt;</bpt><ept id="8323bfda-8aba-49c4-9443-cd54aa67a848">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

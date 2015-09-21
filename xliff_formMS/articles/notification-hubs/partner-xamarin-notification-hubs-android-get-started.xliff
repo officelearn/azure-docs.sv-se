@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="444bc5b0-dc0e-4936-bd32-5fcea70bd9db" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="444bc5b0-dc0e-4936-bd32-5fcea70bd9db" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4bce5b5a-8383-45bd-9fbe-ba01c99f1bd8">
+        <trans-unit id="bf2b91d4-19ed-4717-a5d0-f615ff6cde01" xml:space="preserve">
+          <source>Get started with Notification Hubs for Xamarin.Android apps | Microsoft Azure</source>
+          <target state="new">Get started with Notification Hubs for Xamarin.Android apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3296ddaa-b9b9-460a-a5de-986ff2d7b823" xml:space="preserve">
+          <source>In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application.</source>
+          <target state="new">In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application.</target>
+        </trans-unit>
+        <trans-unit id="e4c8b51f-f318-46d6-9f0a-62d776fa0a46" xml:space="preserve">
+          <source><bpt id="e381c372-bf2f-403d-b333-5150fda0620d">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="e381c372-bf2f-403d-b333-5150fda0620d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e381c372-bf2f-403d-b333-5150fda0620d">&lt;token href="../../includes/notification-hubs-selector-get-started.md"&gt;</bpt><ept id="e381c372-bf2f-403d-b333-5150fda0620d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edec9867-35fa-4800-b568-1c08634175e2" xml:space="preserve">
+          <source>This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application.</source>
+          <target state="new">This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application.</target>
+        </trans-unit>
+        <trans-unit id="03ed3aff-33bd-43e6-b77a-88513c9c5cc8" xml:space="preserve">
+          <source>You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM).</source>
+          <target state="new">You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM).</target>
+        </trans-unit>
+        <trans-unit id="74f8cc21-b0fe-4194-b3d7-eb3e208ef963" xml:space="preserve">
+          <source>When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.</source>
+          <target state="new">When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app.</target>
+        </trans-unit>
+        <trans-unit id="f03e1f11-f74a-414e-881a-f2e56bfb3a32" xml:space="preserve">
+          <source>The finished code is available in the <bpt id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;linkText&gt;</bpt>NotificationHubs app[github]<ept id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;/linkText&gt;</ept><bpt id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;title&gt;</bpt><ept id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;/title&gt;</ept> sample.</source>
+          <target state="new">The finished code is available in the <bpt id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;linkText&gt;</bpt>NotificationHubs app[github]<ept id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;/linkText&gt;</ept><bpt id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;title&gt;</bpt><ept id="ed142fa2-0eb4-4f4f-8c89-67b83027b471">&lt;/title&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="54723730-4a2c-4b71-bc1a-3d064f359409" xml:space="preserve">
+          <source>This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</source>
+          <target state="new">This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="f0d50702-0838-4916-9dc4-4f0e1417e29c" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="1626a8e3-ce88-4367-a3a4-92009272946b" xml:space="preserve">
+          <source>[Xamarin.Android]</source>
+          <target state="new">[Xamarin.Android]</target>
+        </trans-unit>
+        <trans-unit id="e58d1a36-3ed8-481c-8cf6-7534b257a58a" xml:space="preserve">
+          <source>Active Google account</source>
+          <target state="new">Active Google account</target>
+        </trans-unit>
+        <trans-unit id="146bad8e-4b57-4e87-87ab-e6ea0dbbf2ad" xml:space="preserve">
+          <source>[Azure Mobile Services Component]</source>
+          <target state="new">[Azure Mobile Services Component]</target>
+        </trans-unit>
+        <trans-unit id="0a806f3c-c484-402a-8b3e-0a4e149c167f" xml:space="preserve">
+          <source>[Azure Messaging Component]</source>
+          <target state="new">[Azure Messaging Component]</target>
+        </trans-unit>
+        <trans-unit id="956497f6-29b3-4b26-869c-c24515857269" xml:space="preserve">
+          <source>[Google Cloud Messaging Client Component]</source>
+          <target state="new">[Google Cloud Messaging Client Component]</target>
+        </trans-unit>
+        <trans-unit id="93b310f7-c5d8-4fa8-a498-cfa59df36155" xml:space="preserve">
+          <source>Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Xamarin.Android apps.</source>
+          <target state="new">Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Xamarin.Android apps.</target>
+        </trans-unit>
+        <trans-unit id="a3823568-5f4b-4e00-bcd1-489d4eb38e4d" xml:space="preserve">
+          <source>To complete this tutorial, you must have an active Azure account.</source>
+          <target state="new">To complete this tutorial, you must have an active Azure account.</target>
+        </trans-unit>
+        <trans-unit id="5be6a4e2-57d5-4911-92f7-df311738f89e" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="6a314afe-5836-4790-8092-1279ab4c5127" xml:space="preserve">
+          <source>For details, see <bpt id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;/linkText&gt;</ept><bpt id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;title&gt;</bpt><ept id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;/linkText&gt;</ept><bpt id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;title&gt;</bpt><ept id="a35b1a96-123a-443a-95da-1265cf19f745">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b45a9cb-9d00-496d-93ea-84c585dfe1a2" xml:space="preserve">
+          <source><bpt id="317d742f-8b1d-4684-8bc0-02602fcf8d3d">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="317d742f-8b1d-4684-8bc0-02602fcf8d3d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="317d742f-8b1d-4684-8bc0-02602fcf8d3d">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="317d742f-8b1d-4684-8bc0-02602fcf8d3d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54c7b352-b599-40f9-8c14-08836b91fd71" xml:space="preserve">
+          <source><bpt id="46c82325-fa63-4ba4-b92e-782407b8d185">&lt;token href="../../includes/notification-hubs-android-configure-push.md"&gt;</bpt><ept id="46c82325-fa63-4ba4-b92e-782407b8d185">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="46c82325-fa63-4ba4-b92e-782407b8d185">&lt;token href="../../includes/notification-hubs-android-configure-push.md"&gt;</bpt><ept id="46c82325-fa63-4ba4-b92e-782407b8d185">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6982be18-687d-4a27-aed5-12394a5266f6" xml:space="preserve">
+          <source>In Xamarin Studio (or Visual Studio), click <bpt id="9c5fd0b2-0421-4870-8df2-49d7df9d556f">&lt;strong&gt;</bpt>File<ept id="9c5fd0b2-0421-4870-8df2-49d7df9d556f">&lt;/strong&gt;</ept> and <bpt id="88e17875-7bbb-4c0f-b4dc-53dc45f2e015">&lt;strong&gt;</bpt>New<ept id="88e17875-7bbb-4c0f-b4dc-53dc45f2e015">&lt;/strong&gt;</ept>, click <bpt id="4a01d263-20d4-49bf-bebd-8664a837ef92">&lt;strong&gt;</bpt>Android Application<ept id="4a01d263-20d4-49bf-bebd-8664a837ef92">&lt;/strong&gt;</ept> in the <bpt id="fb13a570-d8d3-4491-97c5-92c855b6a859">&lt;strong&gt;</bpt>New Solution<ept id="fb13a570-d8d3-4491-97c5-92c855b6a859">&lt;/strong&gt;</ept> dialog, and finally click <bpt id="bee7eb23-ca6c-4d7b-8909-28d8ff246a05">&lt;strong&gt;</bpt>OK<ept id="bee7eb23-ca6c-4d7b-8909-28d8ff246a05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Xamarin Studio (or Visual Studio), click <bpt id="9c5fd0b2-0421-4870-8df2-49d7df9d556f">&lt;strong&gt;</bpt>File<ept id="9c5fd0b2-0421-4870-8df2-49d7df9d556f">&lt;/strong&gt;</ept> and <bpt id="88e17875-7bbb-4c0f-b4dc-53dc45f2e015">&lt;strong&gt;</bpt>New<ept id="88e17875-7bbb-4c0f-b4dc-53dc45f2e015">&lt;/strong&gt;</ept>, click <bpt id="4a01d263-20d4-49bf-bebd-8664a837ef92">&lt;strong&gt;</bpt>Android Application<ept id="4a01d263-20d4-49bf-bebd-8664a837ef92">&lt;/strong&gt;</ept> in the <bpt id="fb13a570-d8d3-4491-97c5-92c855b6a859">&lt;strong&gt;</bpt>New Solution<ept id="fb13a570-d8d3-4491-97c5-92c855b6a859">&lt;/strong&gt;</ept> dialog, and finally click <bpt id="bee7eb23-ca6c-4d7b-8909-28d8ff246a05">&lt;strong&gt;</bpt>OK<ept id="bee7eb23-ca6c-4d7b-8909-28d8ff246a05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="768cd36f-d318-4c71-9825-9d75f55da117" xml:space="preserve">
+          <source><bpt id="1fad58f2-e0d0-4f78-bd3f-05bc107fc7a7">&lt;linkText&gt;</bpt><ept id="1fad58f2-e0d0-4f78-bd3f-05bc107fc7a7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fad58f2-e0d0-4f78-bd3f-05bc107fc7a7">&lt;linkText&gt;</bpt><ept id="1fad58f2-e0d0-4f78-bd3f-05bc107fc7a7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac95b957-d729-4e91-aee0-31ebde848647" xml:space="preserve">
+          <source>This creates a new Android project.</source>
+          <target state="new">This creates a new Android project.</target>
+        </trans-unit>
+        <trans-unit id="56a77aea-83ba-4867-be0e-e89e638097d3" xml:space="preserve">
+          <source>Open the project properties by right-clicking your new project in the Solution view and choosing <bpt id="c3bd13ba-c56a-47f2-8e7f-eb519635f210">&lt;strong&gt;</bpt>Options<ept id="c3bd13ba-c56a-47f2-8e7f-eb519635f210">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the project properties by right-clicking your new project in the Solution view and choosing <bpt id="c3bd13ba-c56a-47f2-8e7f-eb519635f210">&lt;strong&gt;</bpt>Options<ept id="c3bd13ba-c56a-47f2-8e7f-eb519635f210">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46d79c59-b9b2-4420-82ba-0184b9400c16" xml:space="preserve">
+          <source>Select the <bpt id="3a0014a1-76ea-4f61-b0dd-29ce18a1eb36">&lt;strong&gt;</bpt>Android Application<ept id="3a0014a1-76ea-4f61-b0dd-29ce18a1eb36">&lt;/strong&gt;</ept> item in the <bpt id="dcdaf1a5-a02a-4ad0-8468-fc7cd262f015">&lt;strong&gt;</bpt>Build<ept id="dcdaf1a5-a02a-4ad0-8468-fc7cd262f015">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Select the <bpt id="3a0014a1-76ea-4f61-b0dd-29ce18a1eb36">&lt;strong&gt;</bpt>Android Application<ept id="3a0014a1-76ea-4f61-b0dd-29ce18a1eb36">&lt;/strong&gt;</ept> item in the <bpt id="dcdaf1a5-a02a-4ad0-8468-fc7cd262f015">&lt;strong&gt;</bpt>Build<ept id="dcdaf1a5-a02a-4ad0-8468-fc7cd262f015">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="2beea2ac-a9fb-4ab6-aad8-da15b8892579" xml:space="preserve">
+          <source><bpt id="119e62eb-64c4-4192-8d1f-530a5f7ba174">&lt;linkText&gt;</bpt><ept id="119e62eb-64c4-4192-8d1f-530a5f7ba174">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="119e62eb-64c4-4192-8d1f-530a5f7ba174">&lt;linkText&gt;</bpt><ept id="119e62eb-64c4-4192-8d1f-530a5f7ba174">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bf164bf-ff9f-44bd-a461-c7d083016b46" xml:space="preserve">
+          <source>Set the <bpt id="1eb28bb6-afef-48f9-896d-404f2397049f">&lt;strong&gt;</bpt>Minimum Android version<ept id="1eb28bb6-afef-48f9-896d-404f2397049f">&lt;/strong&gt;</ept> to API Level 8.</source>
+          <target state="new">Set the <bpt id="1eb28bb6-afef-48f9-896d-404f2397049f">&lt;strong&gt;</bpt>Minimum Android version<ept id="1eb28bb6-afef-48f9-896d-404f2397049f">&lt;/strong&gt;</ept> to API Level 8.</target>
+        </trans-unit>
+        <trans-unit id="a813e6bc-3b95-4348-96f3-6c8987f0daff" xml:space="preserve">
+          <source>Set the <bpt id="e252fc8b-466d-484a-b394-86f19efd49b0">&lt;strong&gt;</bpt>Target Android version<ept id="e252fc8b-466d-484a-b394-86f19efd49b0">&lt;/strong&gt;</ept> to the API version that you want to target (must be API level 8 or higher).</source>
+          <target state="new">Set the <bpt id="e252fc8b-466d-484a-b394-86f19efd49b0">&lt;strong&gt;</bpt>Target Android version<ept id="e252fc8b-466d-484a-b394-86f19efd49b0">&lt;/strong&gt;</ept> to the API version that you want to target (must be API level 8 or higher).</target>
+        </trans-unit>
+        <trans-unit id="380b22f5-bdaf-40dc-9392-4e47e37aeaa5" xml:space="preserve">
+          <source>Ensure that the first letter of your <bpt id="bb1acaae-3f94-4590-af0d-85bdb24ee9cf">&lt;strong&gt;</bpt>Package name<ept id="bb1acaae-3f94-4590-af0d-85bdb24ee9cf">&lt;/strong&gt;</ept> is lowercase.</source>
+          <target state="new">Ensure that the first letter of your <bpt id="bb1acaae-3f94-4590-af0d-85bdb24ee9cf">&lt;strong&gt;</bpt>Package name<ept id="bb1acaae-3f94-4590-af0d-85bdb24ee9cf">&lt;/strong&gt;</ept> is lowercase.</target>
+        </trans-unit>
+        <trans-unit id="56a129fb-772c-4019-bb54-d0ebeebb21c7" xml:space="preserve">
+          <source>The first letter of the package name must be lowercase.</source>
+          <target state="new">The first letter of the package name must be lowercase.</target>
+        </trans-unit>
+        <trans-unit id="121147d6-e4c8-4964-b88a-7cd7078e2354" xml:space="preserve">
+          <source>Otherwise, you will receive application manifest errors when you register your <bpt id="c5064773-5b0c-442e-a3cd-3b0b2d053d51">&lt;strong&gt;</bpt>BroadcastReceiver<ept id="c5064773-5b0c-442e-a3cd-3b0b2d053d51">&lt;/strong&gt;</ept> and <bpt id="161272f8-bb3a-4429-91a3-b40686542c6e">&lt;strong&gt;</bpt>IntentFilter<ept id="161272f8-bb3a-4429-91a3-b40686542c6e">&lt;/strong&gt;</ept> for push notifications below.</source>
+          <target state="new">Otherwise, you will receive application manifest errors when you register your <bpt id="c5064773-5b0c-442e-a3cd-3b0b2d053d51">&lt;strong&gt;</bpt>BroadcastReceiver<ept id="c5064773-5b0c-442e-a3cd-3b0b2d053d51">&lt;/strong&gt;</ept> and <bpt id="161272f8-bb3a-4429-91a3-b40686542c6e">&lt;strong&gt;</bpt>IntentFilter<ept id="161272f8-bb3a-4429-91a3-b40686542c6e">&lt;/strong&gt;</ept> for push notifications below.</target>
+        </trans-unit>
+        <trans-unit id="04e184ab-0268-4983-a987-c6b0b425fc01" xml:space="preserve">
+          <source>The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.</source>
+          <target state="new">The Google Cloud Messaging Client available on the Xamarin Component Store simplifies the process of supporting push notifications in Xamarin.Android.</target>
+        </trans-unit>
+        <trans-unit id="fccfa3c3-2946-4a2f-aa53-fa8995df639a" xml:space="preserve">
+          <source>Right-click the Components folder in Xamarin.Android app and choose <bpt id="3a7417a7-753d-4c29-b511-b421fd217c60">&lt;strong&gt;</bpt>Get More Components<ept id="3a7417a7-753d-4c29-b511-b421fd217c60">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the Components folder in Xamarin.Android app and choose <bpt id="3a7417a7-753d-4c29-b511-b421fd217c60">&lt;strong&gt;</bpt>Get More Components<ept id="3a7417a7-753d-4c29-b511-b421fd217c60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9ecd923-699e-4d30-ad3f-5121e922c299" xml:space="preserve">
+          <source>Search for the <bpt id="c2ca3dd8-e634-4470-944d-1c11aed8582f">&lt;strong&gt;</bpt>Azure Messaging<ept id="c2ca3dd8-e634-4470-944d-1c11aed8582f">&lt;/strong&gt;</ept> component and add it to the project.</source>
+          <target state="new">Search for the <bpt id="c2ca3dd8-e634-4470-944d-1c11aed8582f">&lt;strong&gt;</bpt>Azure Messaging<ept id="c2ca3dd8-e634-4470-944d-1c11aed8582f">&lt;/strong&gt;</ept> component and add it to the project.</target>
+        </trans-unit>
+        <trans-unit id="e656b06b-dc7e-482c-a66a-09e64ff3d7c5" xml:space="preserve">
+          <source>Search for the <bpt id="932aa5b0-9265-4fe5-889d-e0adc63de111">&lt;strong&gt;</bpt>Google Cloud Messaging Client<ept id="932aa5b0-9265-4fe5-889d-e0adc63de111">&lt;/strong&gt;</ept> component and add it to the project.</source>
+          <target state="new">Search for the <bpt id="932aa5b0-9265-4fe5-889d-e0adc63de111">&lt;strong&gt;</bpt>Google Cloud Messaging Client<ept id="932aa5b0-9265-4fe5-889d-e0adc63de111">&lt;/strong&gt;</ept> component and add it to the project.</target>
+        </trans-unit>
+        <trans-unit id="7ab99d97-817a-41ad-9b74-29ef3a6df4b3" xml:space="preserve">
+          <source>Gather the following information for your Android app and notification hub:</source>
+          <target state="new">Gather the following information for your Android app and notification hub:</target>
+        </trans-unit>
+        <trans-unit id="60a2bb8d-d525-4539-9e92-4499010e411f" xml:space="preserve">
+          <source><bpt id="dc848a61-7d94-48dc-9ffb-4fdbcfbe96d7">&lt;strong&gt;</bpt>GoogleProjectNumber<ept id="dc848a61-7d94-48dc-9ffb-4fdbcfbe96d7">&lt;/strong&gt;</ept>:  Get this Project Number value from the overview of your app on the Google Developer Portal.</source>
+          <target state="new"><bpt id="dc848a61-7d94-48dc-9ffb-4fdbcfbe96d7">&lt;strong&gt;</bpt>GoogleProjectNumber<ept id="dc848a61-7d94-48dc-9ffb-4fdbcfbe96d7">&lt;/strong&gt;</ept>:  Get this Project Number value from the overview of your app on the Google Developer Portal.</target>
+        </trans-unit>
+        <trans-unit id="a4867d32-7aa1-45c9-b120-56044778967a" xml:space="preserve">
+          <source>You made a note of this value earlier when you created the app on the portal.</source>
+          <target state="new">You made a note of this value earlier when you created the app on the portal.</target>
+        </trans-unit>
+        <trans-unit id="1bd4f8df-5fed-499d-b83a-99aa43d08a4b" xml:space="preserve">
+          <source><bpt id="7a86e3ef-5245-4c77-8b29-27d4da1e0b36">&lt;strong&gt;</bpt>Listen connection string<ept id="7a86e3ef-5245-4c77-8b29-27d4da1e0b36">&lt;/strong&gt;</ept>: On the dashboard in the Azure portal, click <bpt id="6b35fed4-e320-4a29-ac88-9c2d14cc49e7">&lt;strong&gt;</bpt>View connection strings<ept id="6b35fed4-e320-4a29-ac88-9c2d14cc49e7">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7a86e3ef-5245-4c77-8b29-27d4da1e0b36">&lt;strong&gt;</bpt>Listen connection string<ept id="7a86e3ef-5245-4c77-8b29-27d4da1e0b36">&lt;/strong&gt;</ept>: On the dashboard in the Azure portal, click <bpt id="6b35fed4-e320-4a29-ac88-9c2d14cc49e7">&lt;strong&gt;</bpt>View connection strings<ept id="6b35fed4-e320-4a29-ac88-9c2d14cc49e7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fd776a2-86af-424c-9c82-ef408bab07f8" xml:space="preserve">
+          <source>Copy the <bpt id="8a698fe6-1076-45f6-9c1e-31813f38d6b7">&lt;em&gt;</bpt>DefaultListenSharedAccessSignature<ept id="8a698fe6-1076-45f6-9c1e-31813f38d6b7">&lt;/em&gt;</ept> connection string for this value.</source>
+          <target state="new">Copy the <bpt id="8a698fe6-1076-45f6-9c1e-31813f38d6b7">&lt;em&gt;</bpt>DefaultListenSharedAccessSignature<ept id="8a698fe6-1076-45f6-9c1e-31813f38d6b7">&lt;/em&gt;</ept> connection string for this value.</target>
+        </trans-unit>
+        <trans-unit id="6ac9b78d-4c64-495e-a4d6-b5df082648ed" xml:space="preserve">
+          <source><bpt id="d2828c11-cfed-4e86-8223-1753314e9ac5">&lt;strong&gt;</bpt>Hub name<ept id="d2828c11-cfed-4e86-8223-1753314e9ac5">&lt;/strong&gt;</ept>: This is the name of your hub from the Azure portal.</source>
+          <target state="new"><bpt id="d2828c11-cfed-4e86-8223-1753314e9ac5">&lt;strong&gt;</bpt>Hub name<ept id="d2828c11-cfed-4e86-8223-1753314e9ac5">&lt;/strong&gt;</ept>: This is the name of your hub from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="535612bc-87ea-4f59-be84-b6d1d954f240" xml:space="preserve">
+          <source>For example, <bpt id="94f33c80-81df-4e9b-954f-f0daf16ce371">&lt;em&gt;</bpt>mynotificationhub2<ept id="94f33c80-81df-4e9b-954f-f0daf16ce371">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="94f33c80-81df-4e9b-954f-f0daf16ce371">&lt;em&gt;</bpt>mynotificationhub2<ept id="94f33c80-81df-4e9b-954f-f0daf16ce371">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaaf8ef2-8589-4a67-a49e-dc24d590c565" xml:space="preserve">
+          <source>Create a <bpt id="eaa218ee-9600-40cd-8d05-44381fec5a09">&lt;strong&gt;</bpt>Constants.cs<ept id="eaa218ee-9600-40cd-8d05-44381fec5a09">&lt;/strong&gt;</ept> class for your Xamarin project and define the following constant values in the class.</source>
+          <target state="new">Create a <bpt id="eaa218ee-9600-40cd-8d05-44381fec5a09">&lt;strong&gt;</bpt>Constants.cs<ept id="eaa218ee-9600-40cd-8d05-44381fec5a09">&lt;/strong&gt;</ept> class for your Xamarin project and define the following constant values in the class.</target>
+        </trans-unit>
+        <trans-unit id="2b36822b-82d7-45ab-bfb9-cc5402b061e1" xml:space="preserve">
+          <source>Replace the placeholders with your values.</source>
+          <target state="new">Replace the placeholders with your values.</target>
+        </trans-unit>
+        <trans-unit id="d96591e3-db6a-43da-af8a-1e98c230b0f7" xml:space="preserve">
+          <source>Add the following using statements to <bpt id="675fa4bc-9dac-4055-bf0b-ff7657b77cd3">&lt;strong&gt;</bpt>MainActivity.cs<ept id="675fa4bc-9dac-4055-bf0b-ff7657b77cd3">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add the following using statements to <bpt id="675fa4bc-9dac-4055-bf0b-ff7657b77cd3">&lt;strong&gt;</bpt>MainActivity.cs<ept id="675fa4bc-9dac-4055-bf0b-ff7657b77cd3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="838b5bb2-37f2-4ebe-91f1-b8a16c07428c" xml:space="preserve">
+          <source>Add an instance variable to the <bpt id="f7a530cb-fd91-4074-95ef-3eaa3089d252">&lt;code&gt;</bpt>MainActivity<ept id="f7a530cb-fd91-4074-95ef-3eaa3089d252">&lt;/code&gt;</ept> class that will be used to show an alert dialog when the app is running:</source>
+          <target state="new">Add an instance variable to the <bpt id="f7a530cb-fd91-4074-95ef-3eaa3089d252">&lt;code&gt;</bpt>MainActivity<ept id="f7a530cb-fd91-4074-95ef-3eaa3089d252">&lt;/code&gt;</ept> class that will be used to show an alert dialog when the app is running:</target>
+        </trans-unit>
+        <trans-unit id="80127da1-72da-4a0d-9e51-97c8370c28a2" xml:space="preserve">
+          <source>Create the following method in the <bpt id="ad60edac-4106-4e3c-b267-64700c30d14b">&lt;strong&gt;</bpt>MainActivity<ept id="ad60edac-4106-4e3c-b267-64700c30d14b">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">Create the following method in the <bpt id="ad60edac-4106-4e3c-b267-64700c30d14b">&lt;strong&gt;</bpt>MainActivity<ept id="ad60edac-4106-4e3c-b267-64700c30d14b">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="7928d32b-3b89-45c1-a531-dd6c1eb0719a" xml:space="preserve">
+          <source>Add a call to <bpt id="86cc7ee7-da91-4f61-b900-4f720893161a">&lt;code&gt;</bpt>RegisterWithGCM<ept id="86cc7ee7-da91-4f61-b900-4f720893161a">&lt;/code&gt;</ept> in the <bpt id="a7e8ca94-db52-4351-bb46-a4d897458729">&lt;code&gt;</bpt>OnCreate<ept id="a7e8ca94-db52-4351-bb46-a4d897458729">&lt;/code&gt;</ept> method of <bpt id="44639902-f535-4a2f-ad37-8b5d62f56971">&lt;strong&gt;</bpt>MainActivity.cs<ept id="44639902-f535-4a2f-ad37-8b5d62f56971">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Add a call to <bpt id="86cc7ee7-da91-4f61-b900-4f720893161a">&lt;code&gt;</bpt>RegisterWithGCM<ept id="86cc7ee7-da91-4f61-b900-4f720893161a">&lt;/code&gt;</ept> in the <bpt id="a7e8ca94-db52-4351-bb46-a4d897458729">&lt;code&gt;</bpt>OnCreate<ept id="a7e8ca94-db52-4351-bb46-a4d897458729">&lt;/code&gt;</ept> method of <bpt id="44639902-f535-4a2f-ad37-8b5d62f56971">&lt;strong&gt;</bpt>MainActivity.cs<ept id="44639902-f535-4a2f-ad37-8b5d62f56971">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="83c1188d-4bcb-45df-92db-255f1987597d" xml:space="preserve">
+          <source>Create a new class, <bpt id="a40be60a-25de-490c-8c4b-0d300580595c">&lt;strong&gt;</bpt>MyBroadcastReceiver<ept id="a40be60a-25de-490c-8c4b-0d300580595c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new class, <bpt id="a40be60a-25de-490c-8c4b-0d300580595c">&lt;strong&gt;</bpt>MyBroadcastReceiver<ept id="a40be60a-25de-490c-8c4b-0d300580595c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ef7f6c9-9053-4da7-a5c7-bcbf8f1bd75d" xml:space="preserve">
+          <source>We will walk through creating a <bpt id="5f296de4-1c9d-4407-9809-5a9ab531fe87">&lt;strong&gt;</bpt>BroadcastReceiver<ept id="5f296de4-1c9d-4407-9809-5a9ab531fe87">&lt;/strong&gt;</ept> class from scratch below.</source>
+          <target state="new">We will walk through creating a <bpt id="5f296de4-1c9d-4407-9809-5a9ab531fe87">&lt;strong&gt;</bpt>BroadcastReceiver<ept id="5f296de4-1c9d-4407-9809-5a9ab531fe87">&lt;/strong&gt;</ept> class from scratch below.</target>
+        </trans-unit>
+        <trans-unit id="1de16260-77fe-429a-aded-8773a37ed34e" xml:space="preserve">
+          <source>However, a quick alternative to manually creating <bpt id="5fa786ef-d722-4918-8b53-7719339f52c7">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="5fa786ef-d722-4918-8b53-7719339f52c7">&lt;/strong&gt;</ept> is to refer to the <bpt id="bc1b5358-301e-4261-89e9-436a75640d97">&lt;strong&gt;</bpt>GcmService.cs<ept id="bc1b5358-301e-4261-89e9-436a75640d97">&lt;/strong&gt;</ept> file found in the sample Xamarin.Android project included with the <bpt id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;linkText&gt;</bpt>NotificationHubs samples[github]<ept id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;/linkText&gt;</ept><bpt id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;title&gt;</bpt><ept id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;/title&gt;</ept>.</source>
+          <target state="new">However, a quick alternative to manually creating <bpt id="5fa786ef-d722-4918-8b53-7719339f52c7">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="5fa786ef-d722-4918-8b53-7719339f52c7">&lt;/strong&gt;</ept> is to refer to the <bpt id="bc1b5358-301e-4261-89e9-436a75640d97">&lt;strong&gt;</bpt>GcmService.cs<ept id="bc1b5358-301e-4261-89e9-436a75640d97">&lt;/strong&gt;</ept> file found in the sample Xamarin.Android project included with the <bpt id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;linkText&gt;</bpt>NotificationHubs samples[github]<ept id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;/linkText&gt;</ept><bpt id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;title&gt;</bpt><ept id="6b3b39fa-56ef-40dd-a071-a0f5b716d34a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b053fe53-845e-4af4-8047-ff3d9796c3cd" xml:space="preserve">
+          <source>Duplicating <bpt id="da401570-a0c0-4aed-958d-78583376129b">&lt;strong&gt;</bpt>GcmService.cs<ept id="da401570-a0c0-4aed-958d-78583376129b">&lt;/strong&gt;</ept> and changing class names can be a great place to start as well.</source>
+          <target state="new">Duplicating <bpt id="da401570-a0c0-4aed-958d-78583376129b">&lt;strong&gt;</bpt>GcmService.cs<ept id="da401570-a0c0-4aed-958d-78583376129b">&lt;/strong&gt;</ept> and changing class names can be a great place to start as well.</target>
+        </trans-unit>
+        <trans-unit id="59a3594d-0f53-4d18-83d3-bda9dbe4c71a" xml:space="preserve">
+          <source>Add the following using statements to <bpt id="40a3a88d-a92b-4aa2-88aa-3fac2a5fd9eb">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="40a3a88d-a92b-4aa2-88aa-3fac2a5fd9eb">&lt;/strong&gt;</ept> (referring to the component and assembly that you added earlier):</source>
+          <target state="new">Add the following using statements to <bpt id="40a3a88d-a92b-4aa2-88aa-3fac2a5fd9eb">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="40a3a88d-a92b-4aa2-88aa-3fac2a5fd9eb">&lt;/strong&gt;</ept> (referring to the component and assembly that you added earlier):</target>
+        </trans-unit>
+        <trans-unit id="0ca7383b-8a6f-4f13-be00-2bf4c4a7f4b0" xml:space="preserve">
+          <source>Add the following permission requests between the <bpt id="12ee5f56-ea27-4518-a637-c8d61960d907">&lt;strong&gt;</bpt>using<ept id="12ee5f56-ea27-4518-a637-c8d61960d907">&lt;/strong&gt;</ept> statements and the <bpt id="0ad495c6-1f34-44a4-b843-e00dad9f81e9">&lt;strong&gt;</bpt>namespace<ept id="0ad495c6-1f34-44a4-b843-e00dad9f81e9">&lt;/strong&gt;</ept> declaration:</source>
+          <target state="new">Add the following permission requests between the <bpt id="12ee5f56-ea27-4518-a637-c8d61960d907">&lt;strong&gt;</bpt>using<ept id="12ee5f56-ea27-4518-a637-c8d61960d907">&lt;/strong&gt;</ept> statements and the <bpt id="0ad495c6-1f34-44a4-b843-e00dad9f81e9">&lt;strong&gt;</bpt>namespace<ept id="0ad495c6-1f34-44a4-b843-e00dad9f81e9">&lt;/strong&gt;</ept> declaration:</target>
+        </trans-unit>
+        <trans-unit id="2b1f8aba-bce2-43d2-ab70-706264e39947" xml:space="preserve">
+          <source>In <bpt id="e7c4ad0d-18af-4d1b-b835-7615c004d763">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="e7c4ad0d-18af-4d1b-b835-7615c004d763">&lt;/strong&gt;</ept>, change the <bpt id="85f4cb05-ed35-4fe1-af66-475b3be24033">&lt;strong&gt;</bpt>MyBroadcastReceiver<ept id="85f4cb05-ed35-4fe1-af66-475b3be24033">&lt;/strong&gt;</ept> class to match the following:</source>
+          <target state="new">In <bpt id="e7c4ad0d-18af-4d1b-b835-7615c004d763">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="e7c4ad0d-18af-4d1b-b835-7615c004d763">&lt;/strong&gt;</ept>, change the <bpt id="85f4cb05-ed35-4fe1-af66-475b3be24033">&lt;strong&gt;</bpt>MyBroadcastReceiver<ept id="85f4cb05-ed35-4fe1-af66-475b3be24033">&lt;/strong&gt;</ept> class to match the following:</target>
+        </trans-unit>
+        <trans-unit id="a535f0b5-ed88-4799-80ab-661f51b736e1" xml:space="preserve">
+          <source>Add another class in <bpt id="0480f87b-3eaf-4c7d-b75b-89e68c9a9d4e">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="0480f87b-3eaf-4c7d-b75b-89e68c9a9d4e">&lt;/strong&gt;</ept> named <bpt id="b29e9d16-7425-4963-98ac-48cc3df134c2">&lt;strong&gt;</bpt>PushHandlerService<ept id="b29e9d16-7425-4963-98ac-48cc3df134c2">&lt;/strong&gt;</ept>, which derives from <bpt id="2b9a3294-ce77-463d-a18f-63dcb894bf31">&lt;strong&gt;</bpt>GcmServiceBase<ept id="2b9a3294-ce77-463d-a18f-63dcb894bf31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add another class in <bpt id="0480f87b-3eaf-4c7d-b75b-89e68c9a9d4e">&lt;strong&gt;</bpt>MyBroadcastReceiver.cs<ept id="0480f87b-3eaf-4c7d-b75b-89e68c9a9d4e">&lt;/strong&gt;</ept> named <bpt id="b29e9d16-7425-4963-98ac-48cc3df134c2">&lt;strong&gt;</bpt>PushHandlerService<ept id="b29e9d16-7425-4963-98ac-48cc3df134c2">&lt;/strong&gt;</ept>, which derives from <bpt id="2b9a3294-ce77-463d-a18f-63dcb894bf31">&lt;strong&gt;</bpt>GcmServiceBase<ept id="2b9a3294-ce77-463d-a18f-63dcb894bf31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cea4c2d2-187a-4d21-a9ea-b5c8e1757a7e" xml:space="preserve">
+          <source>Make sure to apply the <bpt id="acaf10b5-2442-45ff-9f03-0b6b8f96446a">&lt;strong&gt;</bpt>Service<ept id="acaf10b5-2442-45ff-9f03-0b6b8f96446a">&lt;/strong&gt;</ept> attribute to the class:</source>
+          <target state="new">Make sure to apply the <bpt id="acaf10b5-2442-45ff-9f03-0b6b8f96446a">&lt;strong&gt;</bpt>Service<ept id="acaf10b5-2442-45ff-9f03-0b6b8f96446a">&lt;/strong&gt;</ept> attribute to the class:</target>
+        </trans-unit>
+        <trans-unit id="7487ea15-2705-48df-a0bc-26fb06656429" xml:space="preserve">
+          <source><bpt id="13272940-07e7-4af1-8584-e0122d6e4ff8">&lt;strong&gt;</bpt>GcmServiceBase<ept id="13272940-07e7-4af1-8584-e0122d6e4ff8">&lt;/strong&gt;</ept> implements methods <bpt id="cd033ced-5ebc-404f-900c-b5884b78ed37">&lt;strong&gt;</bpt>OnRegistered()<ept id="cd033ced-5ebc-404f-900c-b5884b78ed37">&lt;/strong&gt;</ept>, <bpt id="6663ee92-4ff0-4e2f-828b-54308c39754e">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="6663ee92-4ff0-4e2f-828b-54308c39754e">&lt;/strong&gt;</ept>, <bpt id="c48c008b-189e-450d-845b-8f8709ed7296">&lt;strong&gt;</bpt>OnMessage()<ept id="c48c008b-189e-450d-845b-8f8709ed7296">&lt;/strong&gt;</ept>, <bpt id="4dd733d8-4e28-4209-8fa0-08d62a6e5dfd">&lt;strong&gt;</bpt>OnRecoverableError()<ept id="4dd733d8-4e28-4209-8fa0-08d62a6e5dfd">&lt;/strong&gt;</ept>, and <bpt id="718dde7c-9b0d-45f8-af41-00ccffd55ff9">&lt;strong&gt;</bpt>OnError()<ept id="718dde7c-9b0d-45f8-af41-00ccffd55ff9">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="13272940-07e7-4af1-8584-e0122d6e4ff8">&lt;strong&gt;</bpt>GcmServiceBase<ept id="13272940-07e7-4af1-8584-e0122d6e4ff8">&lt;/strong&gt;</ept> implements methods <bpt id="cd033ced-5ebc-404f-900c-b5884b78ed37">&lt;strong&gt;</bpt>OnRegistered()<ept id="cd033ced-5ebc-404f-900c-b5884b78ed37">&lt;/strong&gt;</ept>, <bpt id="6663ee92-4ff0-4e2f-828b-54308c39754e">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="6663ee92-4ff0-4e2f-828b-54308c39754e">&lt;/strong&gt;</ept>, <bpt id="c48c008b-189e-450d-845b-8f8709ed7296">&lt;strong&gt;</bpt>OnMessage()<ept id="c48c008b-189e-450d-845b-8f8709ed7296">&lt;/strong&gt;</ept>, <bpt id="4dd733d8-4e28-4209-8fa0-08d62a6e5dfd">&lt;strong&gt;</bpt>OnRecoverableError()<ept id="4dd733d8-4e28-4209-8fa0-08d62a6e5dfd">&lt;/strong&gt;</ept>, and <bpt id="718dde7c-9b0d-45f8-af41-00ccffd55ff9">&lt;strong&gt;</bpt>OnError()<ept id="718dde7c-9b0d-45f8-af41-00ccffd55ff9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72a69350-24f2-4f92-bc50-6b9fb0830c49" xml:space="preserve">
+          <source>Our implementation class <bpt id="09ee4198-4450-4c8a-8194-1d0507e0ab0e">&lt;strong&gt;</bpt>PushHandlerService<ept id="09ee4198-4450-4c8a-8194-1d0507e0ab0e">&lt;/strong&gt;</ept> must override these methods, and these methods will fire in response to interacting with the notification hub.</source>
+          <target state="new">Our implementation class <bpt id="09ee4198-4450-4c8a-8194-1d0507e0ab0e">&lt;strong&gt;</bpt>PushHandlerService<ept id="09ee4198-4450-4c8a-8194-1d0507e0ab0e">&lt;/strong&gt;</ept> must override these methods, and these methods will fire in response to interacting with the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="d3c02014-5102-4c02-980f-15d135fe5747" xml:space="preserve">
+          <source>Override the <bpt id="df4ee32d-613a-4399-972d-414c1ac8b612">&lt;strong&gt;</bpt>OnRegistered()<ept id="df4ee32d-613a-4399-972d-414c1ac8b612">&lt;/strong&gt;</ept> method in <bpt id="1e2b03a8-5d8a-431d-a369-485bb111d6d0">&lt;strong&gt;</bpt>PushHandlerService<ept id="1e2b03a8-5d8a-431d-a369-485bb111d6d0">&lt;/strong&gt;</ept> by using the following code:</source>
+          <target state="new">Override the <bpt id="df4ee32d-613a-4399-972d-414c1ac8b612">&lt;strong&gt;</bpt>OnRegistered()<ept id="df4ee32d-613a-4399-972d-414c1ac8b612">&lt;/strong&gt;</ept> method in <bpt id="1e2b03a8-5d8a-431d-a369-485bb111d6d0">&lt;strong&gt;</bpt>PushHandlerService<ept id="1e2b03a8-5d8a-431d-a369-485bb111d6d0">&lt;/strong&gt;</ept> by using the following code:</target>
+        </trans-unit>
+        <trans-unit id="34a6144d-3c42-42ff-b4b8-d0740fec49d6" xml:space="preserve">
+          <source>In the <bpt id="12afdef7-0620-45ab-aa85-c5b8e799d81f">&lt;strong&gt;</bpt>OnRegistered()<ept id="12afdef7-0620-45ab-aa85-c5b8e799d81f">&lt;/strong&gt;</ept> code above, you should note the ability to specify tags to register for specific messaging channels.</source>
+          <target state="new">In the <bpt id="12afdef7-0620-45ab-aa85-c5b8e799d81f">&lt;strong&gt;</bpt>OnRegistered()<ept id="12afdef7-0620-45ab-aa85-c5b8e799d81f">&lt;/strong&gt;</ept> code above, you should note the ability to specify tags to register for specific messaging channels.</target>
+        </trans-unit>
+        <trans-unit id="1127abaf-5fa7-4290-9ee6-89cfa936b841" xml:space="preserve">
+          <source>Override the <bpt id="5d7c8e24-83a3-4abe-80de-65148daf3499">&lt;strong&gt;</bpt>OnMessage<ept id="5d7c8e24-83a3-4abe-80de-65148daf3499">&lt;/strong&gt;</ept> method in <bpt id="aab6e340-3d55-4060-be23-1d44a4d3472a">&lt;strong&gt;</bpt>PushHandlerService<ept id="aab6e340-3d55-4060-be23-1d44a4d3472a">&lt;/strong&gt;</ept> by using the following code:</source>
+          <target state="new">Override the <bpt id="5d7c8e24-83a3-4abe-80de-65148daf3499">&lt;strong&gt;</bpt>OnMessage<ept id="5d7c8e24-83a3-4abe-80de-65148daf3499">&lt;/strong&gt;</ept> method in <bpt id="aab6e340-3d55-4060-be23-1d44a4d3472a">&lt;strong&gt;</bpt>PushHandlerService<ept id="aab6e340-3d55-4060-be23-1d44a4d3472a">&lt;/strong&gt;</ept> by using the following code:</target>
+        </trans-unit>
+        <trans-unit id="12d6e055-b986-4c5c-8a2c-72cfdf7a27c2" xml:space="preserve">
+          <source>Add the following <bpt id="05681206-38c3-4f33-9096-b5120e009681">&lt;strong&gt;</bpt>createNotification<ept id="05681206-38c3-4f33-9096-b5120e009681">&lt;/strong&gt;</ept> and <bpt id="b7b024c3-79c5-4e17-8e0d-a3693d5230c0">&lt;strong&gt;</bpt>dialogNotify<ept id="b7b024c3-79c5-4e17-8e0d-a3693d5230c0">&lt;/strong&gt;</ept> methods to <bpt id="b4c43425-ff27-4372-a24f-e87a0d870cbd">&lt;strong&gt;</bpt>PushHandlerService<ept id="b4c43425-ff27-4372-a24f-e87a0d870cbd">&lt;/strong&gt;</ept> for notifying users when a notification is received.</source>
+          <target state="new">Add the following <bpt id="05681206-38c3-4f33-9096-b5120e009681">&lt;strong&gt;</bpt>createNotification<ept id="05681206-38c3-4f33-9096-b5120e009681">&lt;/strong&gt;</ept> and <bpt id="b7b024c3-79c5-4e17-8e0d-a3693d5230c0">&lt;strong&gt;</bpt>dialogNotify<ept id="b7b024c3-79c5-4e17-8e0d-a3693d5230c0">&lt;/strong&gt;</ept> methods to <bpt id="b4c43425-ff27-4372-a24f-e87a0d870cbd">&lt;strong&gt;</bpt>PushHandlerService<ept id="b4c43425-ff27-4372-a24f-e87a0d870cbd">&lt;/strong&gt;</ept> for notifying users when a notification is received.</target>
+        </trans-unit>
+        <trans-unit id="f9a681fc-7883-4116-abe0-47e2d39a0ebd" xml:space="preserve">
+          <source>Notification design in Android version 5.0 and later represents a significant departure from that of previous versions.</source>
+          <target state="new">Notification design in Android version 5.0 and later represents a significant departure from that of previous versions.</target>
+        </trans-unit>
+        <trans-unit id="611fc2d7-deb6-4d0c-bc0c-b01660ff2d83" xml:space="preserve">
+          <source>If you test this on Android 5.0 or later, the app will need to be running to receive the notification.</source>
+          <target state="new">If you test this on Android 5.0 or later, the app will need to be running to receive the notification.</target>
+        </trans-unit>
+        <trans-unit id="77186731-afb6-4fc1-ac8c-b3d5e7a2fe93" xml:space="preserve">
+          <source>For more information, see <bpt id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;linkText&gt;</bpt>Android Notifications<ept id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;/linkText&gt;</ept><bpt id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;title&gt;</bpt><ept id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;linkText&gt;</bpt>Android Notifications<ept id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;/linkText&gt;</ept><bpt id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;title&gt;</bpt><ept id="65023d5d-56e5-4759-a116-c3dcb12e9345">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cc40d2a-81ee-4604-8698-d705a2c106ee" xml:space="preserve">
+          <source>Override abstract members <bpt id="95ca9c29-7a6d-4436-97e6-bc4556986566">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="95ca9c29-7a6d-4436-97e6-bc4556986566">&lt;/strong&gt;</ept>, <bpt id="946db814-ab83-4772-8263-847e7a6f5d41">&lt;strong&gt;</bpt>OnRecoverableError()<ept id="946db814-ab83-4772-8263-847e7a6f5d41">&lt;/strong&gt;</ept>, and <bpt id="10bade67-99ff-4170-ab4c-df7ae42ead0e">&lt;strong&gt;</bpt>OnError()<ept id="10bade67-99ff-4170-ab4c-df7ae42ead0e">&lt;/strong&gt;</ept> so that your code compiles:</source>
+          <target state="new">Override abstract members <bpt id="95ca9c29-7a6d-4436-97e6-bc4556986566">&lt;strong&gt;</bpt>OnUnRegistered()<ept id="95ca9c29-7a6d-4436-97e6-bc4556986566">&lt;/strong&gt;</ept>, <bpt id="946db814-ab83-4772-8263-847e7a6f5d41">&lt;strong&gt;</bpt>OnRecoverableError()<ept id="946db814-ab83-4772-8263-847e7a6f5d41">&lt;/strong&gt;</ept>, and <bpt id="10bade67-99ff-4170-ab4c-df7ae42ead0e">&lt;strong&gt;</bpt>OnError()<ept id="10bade67-99ff-4170-ab4c-df7ae42ead0e">&lt;/strong&gt;</ept> so that your code compiles:</target>
+        </trans-unit>
+        <trans-unit id="71811c15-d3e4-4d97-9ccf-3adc0c101825" xml:space="preserve">
+          <source>If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</source>
+          <target state="new">If you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.</target>
+        </trans-unit>
+        <trans-unit id="868b80b8-3e53-4ed4-8feb-7234b53dbf3d" xml:space="preserve">
+          <source>In order to receive push notifications, you must set up a Google account on your Android Virtual Device.</source>
+          <target state="new">In order to receive push notifications, you must set up a Google account on your Android Virtual Device.</target>
+        </trans-unit>
+        <trans-unit id="e60c0311-4d32-408f-9bf0-0e32da53adb8" xml:space="preserve">
+          <source>(In the emulator, navigate to <bpt id="feafc338-e38d-4c79-9577-7171a4bec083">&lt;strong&gt;</bpt>Settings<ept id="feafc338-e38d-4c79-9577-7171a4bec083">&lt;/strong&gt;</ept> and click <bpt id="b1de2289-5932-4e16-bcea-6530e3208403">&lt;strong&gt;</bpt>Add Account<ept id="b1de2289-5932-4e16-bcea-6530e3208403">&lt;/strong&gt;</ept>.)</source>
+          <target state="new">(In the emulator, navigate to <bpt id="feafc338-e38d-4c79-9577-7171a4bec083">&lt;strong&gt;</bpt>Settings<ept id="feafc338-e38d-4c79-9577-7171a4bec083">&lt;/strong&gt;</ept> and click <bpt id="b1de2289-5932-4e16-bcea-6530e3208403">&lt;strong&gt;</bpt>Add Account<ept id="b1de2289-5932-4e16-bcea-6530e3208403">&lt;/strong&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="27a314ec-47ba-42b3-b84e-7e88ac1596f7" xml:space="preserve">
+          <source>Also, make sure that the emulator is connected to the Internet.</source>
+          <target state="new">Also, make sure that the emulator is connected to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="f5bda1c4-4d52-47f9-9be3-4c166d9974f4" xml:space="preserve">
+          <source>Notification design in Android version 5.0 and later represents a significant departure from that of previous versions.</source>
+          <target state="new">Notification design in Android version 5.0 and later represents a significant departure from that of previous versions.</target>
+        </trans-unit>
+        <trans-unit id="3f64632c-e90f-49d3-9cd9-78135f97145c" xml:space="preserve">
+          <source>If you test this on Android 5.0 or later, the app will need to be running to receive the notification.</source>
+          <target state="new">If you test this on Android 5.0 or later, the app will need to be running to receive the notification.</target>
+        </trans-unit>
+        <trans-unit id="37a184d6-786c-400f-9cfd-368f5b8b9374" xml:space="preserve">
+          <source>For more information, see <bpt id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;linkText&gt;</bpt>Android Notifications<ept id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;/linkText&gt;</ept><bpt id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;title&gt;</bpt><ept id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;linkText&gt;</bpt>Android Notifications<ept id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;/linkText&gt;</ept><bpt id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;title&gt;</bpt><ept id="c3b1bb97-93c2-4a78-adda-ddf0a757391d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8701796f-5740-428c-afa4-4a0828eb2ac4" xml:space="preserve">
+          <source>From <bpt id="7efa22fa-affb-4b0b-9b37-4b8ed2f836a3">&lt;strong&gt;</bpt>Tools<ept id="7efa22fa-affb-4b0b-9b37-4b8ed2f836a3">&lt;/strong&gt;</ept>, click <bpt id="46355d88-ee80-4359-95ea-754f791f0c43">&lt;strong&gt;</bpt>Open Android Emulator Manager<ept id="46355d88-ee80-4359-95ea-754f791f0c43">&lt;/strong&gt;</ept>, select your device, and then click <bpt id="62080c72-0881-4b07-ae4e-b814b414e638">&lt;strong&gt;</bpt>Edit<ept id="62080c72-0881-4b07-ae4e-b814b414e638">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="7efa22fa-affb-4b0b-9b37-4b8ed2f836a3">&lt;strong&gt;</bpt>Tools<ept id="7efa22fa-affb-4b0b-9b37-4b8ed2f836a3">&lt;/strong&gt;</ept>, click <bpt id="46355d88-ee80-4359-95ea-754f791f0c43">&lt;strong&gt;</bpt>Open Android Emulator Manager<ept id="46355d88-ee80-4359-95ea-754f791f0c43">&lt;/strong&gt;</ept>, select your device, and then click <bpt id="62080c72-0881-4b07-ae4e-b814b414e638">&lt;strong&gt;</bpt>Edit<ept id="62080c72-0881-4b07-ae4e-b814b414e638">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="062c3768-8bc0-4d7e-bb43-4b08163947f4" xml:space="preserve">
+          <source><bpt id="911daabd-c90b-4473-a3db-27bf1d116b5c">&lt;linkText&gt;</bpt><ept id="911daabd-c90b-4473-a3db-27bf1d116b5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="911daabd-c90b-4473-a3db-27bf1d116b5c">&lt;linkText&gt;</bpt><ept id="911daabd-c90b-4473-a3db-27bf1d116b5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07e52ec3-f56b-4ae0-87af-90f87fdf61e7" xml:space="preserve">
+          <source>Select <bpt id="63d082e4-685e-4145-99e5-c27c69427335">&lt;strong&gt;</bpt>Google APIs<ept id="63d082e4-685e-4145-99e5-c27c69427335">&lt;/strong&gt;</ept> in <bpt id="19ac7002-ec97-4534-8160-e3f086efead8">&lt;strong&gt;</bpt>Target<ept id="19ac7002-ec97-4534-8160-e3f086efead8">&lt;/strong&gt;</ept>, and then click <bpt id="6cf0e016-6508-4d55-ba95-2473656c97b5">&lt;strong&gt;</bpt>OK<ept id="6cf0e016-6508-4d55-ba95-2473656c97b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="63d082e4-685e-4145-99e5-c27c69427335">&lt;strong&gt;</bpt>Google APIs<ept id="63d082e4-685e-4145-99e5-c27c69427335">&lt;/strong&gt;</ept> in <bpt id="19ac7002-ec97-4534-8160-e3f086efead8">&lt;strong&gt;</bpt>Target<ept id="19ac7002-ec97-4534-8160-e3f086efead8">&lt;/strong&gt;</ept>, and then click <bpt id="6cf0e016-6508-4d55-ba95-2473656c97b5">&lt;strong&gt;</bpt>OK<ept id="6cf0e016-6508-4d55-ba95-2473656c97b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40461b70-81f5-480b-b73d-92f54967cc04" xml:space="preserve">
+          <source><bpt id="c495f4ed-b751-463e-9b5f-91e5a5e03fbf">&lt;linkText&gt;</bpt><ept id="c495f4ed-b751-463e-9b5f-91e5a5e03fbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c495f4ed-b751-463e-9b5f-91e5a5e03fbf">&lt;linkText&gt;</bpt><ept id="c495f4ed-b751-463e-9b5f-91e5a5e03fbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dc0c27e-ec08-4279-b705-8ed0081ff4f3" xml:space="preserve">
+          <source>On the top toolbar, click <bpt id="2252c093-87a5-4165-8f35-5cdb4c77b2a5">&lt;strong&gt;</bpt>Run<ept id="2252c093-87a5-4165-8f35-5cdb4c77b2a5">&lt;/strong&gt;</ept>, and then select your app.</source>
+          <target state="new">On the top toolbar, click <bpt id="2252c093-87a5-4165-8f35-5cdb4c77b2a5">&lt;strong&gt;</bpt>Run<ept id="2252c093-87a5-4165-8f35-5cdb4c77b2a5">&lt;/strong&gt;</ept>, and then select your app.</target>
+        </trans-unit>
+        <trans-unit id="cca2e5c8-4721-442a-ac87-a1e549f6ee21" xml:space="preserve">
+          <source>This starts the emulator and runs the app.</source>
+          <target state="new">This starts the emulator and runs the app.</target>
+        </trans-unit>
+        <trans-unit id="acc10a9e-da92-4f38-a40c-b97d5c9da036" xml:space="preserve">
+          <source>The app retrieves the <bpt id="7621eeea-2439-41be-9d38-0e4e95fdb4d9">&lt;em&gt;</bpt>registrationId<ept id="7621eeea-2439-41be-9d38-0e4e95fdb4d9">&lt;/em&gt;</ept> from GCM and registers with the notification hub.</source>
+          <target state="new">The app retrieves the <bpt id="7621eeea-2439-41be-9d38-0e4e95fdb4d9">&lt;em&gt;</bpt>registrationId<ept id="7621eeea-2439-41be-9d38-0e4e95fdb4d9">&lt;/em&gt;</ept> from GCM and registers with the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="d55920b0-c1a5-4a14-b3f9-ad70f27c7a06" xml:space="preserve">
+          <source>You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.</source>
+          <target state="new">You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.</target>
+        </trans-unit>
+        <trans-unit id="c21c47fe-4ca8-4783-aac5-cc45b7e8d39b" xml:space="preserve">
+          <source><bpt id="2f9bafd4-e1d3-4a95-a600-8e2c12c7b078">&lt;linkText&gt;</bpt><ept id="2f9bafd4-e1d3-4a95-a600-8e2c12c7b078">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f9bafd4-e1d3-4a95-a600-8e2c12c7b078">&lt;linkText&gt;</bpt><ept id="2f9bafd4-e1d3-4a95-a600-8e2c12c7b078">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="430e7f91-9f33-4909-9328-8e67290a1eee" xml:space="preserve">
+          <source>Push notifications are normally sent in a backend service like Mobile Services or ASP.NET through a compatible library.</source>
+          <target state="new">Push notifications are normally sent in a backend service like Mobile Services or ASP.NET through a compatible library.</target>
+        </trans-unit>
+        <trans-unit id="e80e6a71-2863-4665-9358-8b7ba979395e" xml:space="preserve">
+          <source>You can also use the REST API directly to send notification messages if a library is not available for your backend.</source>
+          <target state="new">You can also use the REST API directly to send notification messages if a library is not available for your backend.</target>
+        </trans-unit>
+        <trans-unit id="2b52e30d-a248-4060-95db-074b2dd6d04b" xml:space="preserve">
+          <source>Here is a list of some other tutorials that you may want to review for sending notifications:</source>
+          <target state="new">Here is a list of some other tutorials that you may want to review for sending notifications:</target>
+        </trans-unit>
+        <trans-unit id="80a183dc-5e47-4b43-9f78-1ad4f58b0e15" xml:space="preserve">
+          <source>ASP.NET: See [Use Notification Hubs to push notifications to users].</source>
+          <target state="new">ASP.NET: See [Use Notification Hubs to push notifications to users].</target>
+        </trans-unit>
+        <trans-unit id="b7cddac9-6ea7-4b7a-9f4b-bda385bcb0f6" xml:space="preserve">
+          <source>Azure Notification Hubs Java SDK: See <bpt id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;linkText&gt;</bpt>How to use Notification Hubs from Java<ept id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;/linkText&gt;</ept><bpt id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;title&gt;</bpt><ept id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;/title&gt;</ept> for sending notifications from Java.</source>
+          <target state="new">Azure Notification Hubs Java SDK: See <bpt id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;linkText&gt;</bpt>How to use Notification Hubs from Java<ept id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;/linkText&gt;</ept><bpt id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;title&gt;</bpt><ept id="3b0516fb-6fc6-4573-8f75-5d433224ea5d">&lt;/title&gt;</ept> for sending notifications from Java.</target>
+        </trans-unit>
+        <trans-unit id="1f42c953-bb32-45d2-b899-984069c2277e" xml:space="preserve">
+          <source>This has been tested in Eclipse for Android Development.</source>
+          <target state="new">This has been tested in Eclipse for Android Development.</target>
+        </trans-unit>
+        <trans-unit id="cce470e8-7be5-44cb-b050-ad832c694498" xml:space="preserve">
+          <source>PHP: See <bpt id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;linkText&gt;</bpt>How to use Notification Hubs from PHP<ept id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;/linkText&gt;</ept><bpt id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;title&gt;</bpt><ept id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;/title&gt;</ept>.</source>
+          <target state="new">PHP: See <bpt id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;linkText&gt;</bpt>How to use Notification Hubs from PHP<ept id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;/linkText&gt;</ept><bpt id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;title&gt;</bpt><ept id="ef35d4e1-94de-4db3-82d9-8fa6d7b24e4e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2cd01951-eef7-4550-8c53-f5c5120de22d" xml:space="preserve">
+          <source>In the next subsections of the tutorial, you send notifications by using a .NET console app, and by using a mobile service through a node script.</source>
+          <target state="new">In the next subsections of the tutorial, you send notifications by using a .NET console app, and by using a mobile service through a node script.</target>
+        </trans-unit>
+        <trans-unit id="4839ade2-d7a1-4d03-8a14-ddff95e08655" xml:space="preserve">
+          <source>Microsoft provides the Azure Service Bus SDK for sending notifications on the .NET platform.</source>
+          <target state="new">Microsoft provides the Azure Service Bus SDK for sending notifications on the .NET platform.</target>
+        </trans-unit>
+        <trans-unit id="f619e126-5346-4f53-9775-01abe66e552e" xml:space="preserve">
+          <source>In this section, you will create a .NET console application with Visual Studio to use the Azure Service Bus SDK to send a notification.</source>
+          <target state="new">In this section, you will create a .NET console application with Visual Studio to use the Azure Service Bus SDK to send a notification.</target>
+        </trans-unit>
+        <trans-unit id="da7c7dda-9485-4f2f-b81b-a3a49d2c2652" xml:space="preserve">
+          <source>Create a new Visual C# console application:</source>
+          <target state="new">Create a new Visual C# console application:</target>
+        </trans-unit>
+        <trans-unit id="f8305d74-fe2e-4f84-b2b7-7cbab04009c2" xml:space="preserve">
+          <source><bpt id="52691c14-9325-4337-980d-31c5f7b2d715">&lt;linkText&gt;</bpt><ept id="52691c14-9325-4337-980d-31c5f7b2d715">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="52691c14-9325-4337-980d-31c5f7b2d715">&lt;linkText&gt;</bpt><ept id="52691c14-9325-4337-980d-31c5f7b2d715">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a9ca894-87f8-42a2-b6f4-c8abcd1fd20f" xml:space="preserve">
+          <source>Add a reference to the Azure Service Bus SDK by using the &lt;a href="http://nuget.org/packages/WindowsAzure.ServiceBus/"&gt;WindowsAzure.ServiceBus NuGet package&lt;/a&gt;.</source>
+          <target state="new">Add a reference to the Azure Service Bus SDK by using the &lt;a href="http://nuget.org/packages/WindowsAzure.ServiceBus/"&gt;WindowsAzure.ServiceBus NuGet package&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="5baab88c-56f2-4317-b7d2-502f91db97ee" xml:space="preserve">
+          <source>In the Visual Studio main menu, click <bpt id="fad37cf0-7f95-48fb-a455-3155555b0760">&lt;strong&gt;</bpt>Tools<ept id="fad37cf0-7f95-48fb-a455-3155555b0760">&lt;/strong&gt;</ept>, click <bpt id="bc7cb27e-5abf-4972-8ccd-36afc854eb45">&lt;strong&gt;</bpt>Library Package Manager<ept id="bc7cb27e-5abf-4972-8ccd-36afc854eb45">&lt;/strong&gt;</ept>, and then click <bpt id="05bf1362-7f28-4b95-a578-016054375cdd">&lt;strong&gt;</bpt>Package Manager Console<ept id="05bf1362-7f28-4b95-a578-016054375cdd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Visual Studio main menu, click <bpt id="fad37cf0-7f95-48fb-a455-3155555b0760">&lt;strong&gt;</bpt>Tools<ept id="fad37cf0-7f95-48fb-a455-3155555b0760">&lt;/strong&gt;</ept>, click <bpt id="bc7cb27e-5abf-4972-8ccd-36afc854eb45">&lt;strong&gt;</bpt>Library Package Manager<ept id="bc7cb27e-5abf-4972-8ccd-36afc854eb45">&lt;/strong&gt;</ept>, and then click <bpt id="05bf1362-7f28-4b95-a578-016054375cdd">&lt;strong&gt;</bpt>Package Manager Console<ept id="05bf1362-7f28-4b95-a578-016054375cdd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7988f1f-4b35-4d85-990d-76e85d5a761f" xml:space="preserve">
+          <source>Then, in the console window, type:</source>
+          <target state="new">Then, in the console window, type:</target>
+        </trans-unit>
+        <trans-unit id="8666036c-a6b5-4b1f-a776-77a329f112f2" xml:space="preserve">
+          <source>and press Enter.</source>
+          <target state="new">and press Enter.</target>
+        </trans-unit>
+        <trans-unit id="5fb8e4c9-fa58-42f5-ba60-3d21513970b4" xml:space="preserve">
+          <source>Open the file Program.cs and add the following using statement:</source>
+          <target state="new">Open the file Program.cs and add the following using statement:</target>
+        </trans-unit>
+        <trans-unit id="94e606b6-9094-4f1b-a7f1-db22bde16a49" xml:space="preserve">
+          <source>In your <bpt id="fd338a31-8cd5-486c-9a55-23cbda8b8f3e">&lt;code&gt;</bpt>Program<ept id="fd338a31-8cd5-486c-9a55-23cbda8b8f3e">&lt;/code&gt;</ept> class, add the following method.</source>
+          <target state="new">In your <bpt id="fd338a31-8cd5-486c-9a55-23cbda8b8f3e">&lt;code&gt;</bpt>Program<ept id="fd338a31-8cd5-486c-9a55-23cbda8b8f3e">&lt;/code&gt;</ept> class, add the following method.</target>
+        </trans-unit>
+        <trans-unit id="745e9b4e-44f1-44c5-b53a-67700764b24e" xml:space="preserve">
+          <source>Update the placeholder text with your <bpt id="9295c188-8417-4c98-ad57-76ad551cb911">&lt;em&gt;</bpt>DefaultFullSharedAccessSignature<ept id="9295c188-8417-4c98-ad57-76ad551cb911">&lt;/em&gt;</ept> connection string and hub name from the Azure portal.</source>
+          <target state="new">Update the placeholder text with your <bpt id="9295c188-8417-4c98-ad57-76ad551cb911">&lt;em&gt;</bpt>DefaultFullSharedAccessSignature<ept id="9295c188-8417-4c98-ad57-76ad551cb911">&lt;/em&gt;</ept> connection string and hub name from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="882163bb-d087-40e0-bed2-5503e66a56ce" xml:space="preserve">
+          <source>Add the following lines in your <bpt id="8a543ac8-c989-4d3a-aed5-7ae498216c23">&lt;strong&gt;</bpt>Main<ept id="8a543ac8-c989-4d3a-aed5-7ae498216c23">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Add the following lines in your <bpt id="8a543ac8-c989-4d3a-aed5-7ae498216c23">&lt;strong&gt;</bpt>Main<ept id="8a543ac8-c989-4d3a-aed5-7ae498216c23">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="8529c24b-25e0-47e5-964a-49f57524d76c" xml:space="preserve">
+          <source>Press the F5 key to run the app.</source>
+          <target state="new">Press the F5 key to run the app.</target>
+        </trans-unit>
+        <trans-unit id="11a7bf61-c343-47da-bfb1-f2e42096359b" xml:space="preserve">
+          <source>You should receive a notification in the app.</source>
+          <target state="new">You should receive a notification in the app.</target>
+        </trans-unit>
+        <trans-unit id="07aec48c-58f5-4dab-89c4-9392bc02391a" xml:space="preserve">
+          <source><bpt id="97bb02d4-842c-473c-b2c3-9dbbca7913b4">&lt;linkText&gt;</bpt><ept id="97bb02d4-842c-473c-b2c3-9dbbca7913b4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="97bb02d4-842c-473c-b2c3-9dbbca7913b4">&lt;linkText&gt;</bpt><ept id="97bb02d4-842c-473c-b2c3-9dbbca7913b4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f7a59ec-04cf-4bb3-9e71-54a4beaba6b4" xml:space="preserve">
+          <source>Follow [Get started with Mobile Services].</source>
+          <target state="new">Follow [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="531e4536-7f67-4924-96af-03f47fd42461" xml:space="preserve">
+          <source>Sign in to the [Azure portal], and select your mobile service.</source>
+          <target state="new">Sign in to the [Azure portal], and select your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="f5cc92dc-4722-44ec-b945-7ab784be49da" xml:space="preserve">
+          <source>Select the <bpt id="833e1b09-60b7-48aa-b777-25a3c8d72dc8">&lt;strong&gt;</bpt>Scheduler<ept id="833e1b09-60b7-48aa-b777-25a3c8d72dc8">&lt;/strong&gt;</ept> tab on the top.</source>
+          <target state="new">Select the <bpt id="833e1b09-60b7-48aa-b777-25a3c8d72dc8">&lt;strong&gt;</bpt>Scheduler<ept id="833e1b09-60b7-48aa-b777-25a3c8d72dc8">&lt;/strong&gt;</ept> tab on the top.</target>
+        </trans-unit>
+        <trans-unit id="02168093-104f-4b70-bdee-f5116d2ebcd0" xml:space="preserve">
+          <source><bpt id="c9718756-03fc-44db-a006-17b53e896ef1">&lt;linkText&gt;</bpt><ept id="c9718756-03fc-44db-a006-17b53e896ef1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9718756-03fc-44db-a006-17b53e896ef1">&lt;linkText&gt;</bpt><ept id="c9718756-03fc-44db-a006-17b53e896ef1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a8e0e3e-3b98-46ff-bac4-c87e10fe1c29" xml:space="preserve">
+          <source>Create a new scheduled job, insert a name, and select <bpt id="0532b8ff-5aed-4735-9588-8b9201079a25">&lt;strong&gt;</bpt>On demand<ept id="0532b8ff-5aed-4735-9588-8b9201079a25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new scheduled job, insert a name, and select <bpt id="0532b8ff-5aed-4735-9588-8b9201079a25">&lt;strong&gt;</bpt>On demand<ept id="0532b8ff-5aed-4735-9588-8b9201079a25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b81dd2f-18b0-423a-af57-79d83a7f49a4" xml:space="preserve">
+          <source><bpt id="2651fde9-3910-4f3d-91f2-b9875f3b2dae">&lt;linkText&gt;</bpt><ept id="2651fde9-3910-4f3d-91f2-b9875f3b2dae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2651fde9-3910-4f3d-91f2-b9875f3b2dae">&lt;linkText&gt;</bpt><ept id="2651fde9-3910-4f3d-91f2-b9875f3b2dae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="088bd5fa-12af-4c3c-ab46-1e0bae98ed65" xml:space="preserve">
+          <source>When the job is created, click the job name.</source>
+          <target state="new">When the job is created, click the job name.</target>
+        </trans-unit>
+        <trans-unit id="a5b61cbd-f3e2-470e-8119-5e254452ca70" xml:space="preserve">
+          <source>Then click the <bpt id="fe0b4f72-62fa-45a5-94ee-f85cbff2442e">&lt;strong&gt;</bpt>Script<ept id="fe0b4f72-62fa-45a5-94ee-f85cbff2442e">&lt;/strong&gt;</ept> tab on the top bar.</source>
+          <target state="new">Then click the <bpt id="fe0b4f72-62fa-45a5-94ee-f85cbff2442e">&lt;strong&gt;</bpt>Script<ept id="fe0b4f72-62fa-45a5-94ee-f85cbff2442e">&lt;/strong&gt;</ept> tab on the top bar.</target>
+        </trans-unit>
+        <trans-unit id="59996602-7ae3-4b03-b266-760a483144e7" xml:space="preserve">
+          <source>Insert the following script inside your scheduler function.</source>
+          <target state="new">Insert the following script inside your scheduler function.</target>
+        </trans-unit>
+        <trans-unit id="6ff85f26-a813-4841-a174-a5c0f8353d86" xml:space="preserve">
+          <source>Make sure to replace the placeholders with your notification hub name and the connection string for <bpt id="881d91a4-29b9-467c-831a-ec31cad640ba">&lt;em&gt;</bpt>DefaultFullSharedAccessSignature<ept id="881d91a4-29b9-467c-831a-ec31cad640ba">&lt;/em&gt;</ept> that you obtained earlier.</source>
+          <target state="new">Make sure to replace the placeholders with your notification hub name and the connection string for <bpt id="881d91a4-29b9-467c-831a-ec31cad640ba">&lt;em&gt;</bpt>DefaultFullSharedAccessSignature<ept id="881d91a4-29b9-467c-831a-ec31cad640ba">&lt;/em&gt;</ept> that you obtained earlier.</target>
+        </trans-unit>
+        <trans-unit id="443a64e0-2313-4b85-8864-8e3564d2c4d1" xml:space="preserve">
+          <source>Click <bpt id="7d3a7580-0ef7-4bfc-93c6-de6d64b57705">&lt;strong&gt;</bpt>Save<ept id="7d3a7580-0ef7-4bfc-93c6-de6d64b57705">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7d3a7580-0ef7-4bfc-93c6-de6d64b57705">&lt;strong&gt;</bpt>Save<ept id="7d3a7580-0ef7-4bfc-93c6-de6d64b57705">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db2cdc21-f32f-408f-8957-8573510f22a7" xml:space="preserve">
+          <source>Click <bpt id="6a2f09e8-3be7-4906-ab78-c4916115530c">&lt;strong&gt;</bpt>Run Once<ept id="6a2f09e8-3be7-4906-ab78-c4916115530c">&lt;/strong&gt;</ept> on the bottom bar.</source>
+          <target state="new">Click <bpt id="6a2f09e8-3be7-4906-ab78-c4916115530c">&lt;strong&gt;</bpt>Run Once<ept id="6a2f09e8-3be7-4906-ab78-c4916115530c">&lt;/strong&gt;</ept> on the bottom bar.</target>
+        </trans-unit>
+        <trans-unit id="0a85fe59-78fd-4f21-919b-0c723873f80f" xml:space="preserve">
+          <source>You should receive a toast notification.</source>
+          <target state="new">You should receive a toast notification.</target>
+        </trans-unit>
+        <trans-unit id="afba8bdb-80b6-4fbe-aadd-12d8071219ce" xml:space="preserve">
+          <source>In this simple example, you broadcasted notifications to all your Android devices.</source>
+          <target state="new">In this simple example, you broadcasted notifications to all your Android devices.</target>
+        </trans-unit>
+        <trans-unit id="4b9957c7-ee1d-4182-a28e-577fc7c253c6" xml:space="preserve">
+          <source>In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users].</source>
+          <target state="new">In order to target specific users, refer to the tutorial [Use Notification Hubs to push notifications to users].</target>
+        </trans-unit>
+        <trans-unit id="7f7ac006-5955-4103-a982-bb7673098dc6" xml:space="preserve">
+          <source>If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news].</source>
+          <target state="new">If you want to segment your users by interest groups, you can read [Use Notification Hubs to send breaking news].</target>
+        </trans-unit>
+        <trans-unit id="225802d0-a840-4832-bc52-93134e74fe8d" xml:space="preserve">
+          <source>Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for Android].</source>
+          <target state="new">Learn more about how to use Notification Hubs in [Notification Hubs Guidance] and in the [Notification Hubs How-To for Android].</target>
+        </trans-unit>
+        <trans-unit id="123dff52-90b0-4cfb-b302-e1be1c7683b1" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="57b6727f-9321-44b5-af01-59c3790f4b4a" xml:space="preserve">
+          <source>#configure-hub</source>
+          <target state="new">#configure-hub</target>
+        </trans-unit>
+        <trans-unit id="b489aac9-ec3e-4513-9306-f1defc86777c" xml:space="preserve">
+          <source>#connecting-app</source>
+          <target state="new">#connecting-app</target>
+        </trans-unit>
+        <trans-unit id="25da2bf9-be4e-44ae-a773-fa7b088720d8" xml:space="preserve">
+          <source>#run-app</source>
+          <target state="new">#run-app</target>
+        </trans-unit>
+        <trans-unit id="c4e472d9-3c09-4f6b-86a0-7e87e58a3345" xml:space="preserve">
+          <source>#send</source>
+          <target state="new">#send</target>
+        </trans-unit>
+        <trans-unit id="68b8693b-dc12-40e2-b9fd-b9f52127bb1f" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="fd4a593d-c4e5-4aed-b77a-47260bd9e754" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-developers.png</target>
+        </trans-unit>
+        <trans-unit id="7f0252d2-1c2b-4b4c-bbd6-8508289b0f61" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server.png</target>
+        </trans-unit>
+        <trans-unit id="0dc22dfb-e7f8-4847-8f34-f63361b8918e" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server2.png</target>
+        </trans-unit>
+        <trans-unit id="b20be872-8946-4dab-ae3e-4f10c344ad0f" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/mobile-services-google-create-server3.png</target>
+        </trans-unit>
+        <trans-unit id="3e56b022-e93c-487c-b99f-51056e6cbc25" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal.png</target>
+        </trans-unit>
+        <trans-unit id="d408daa7-1693-4ac9-a414-e4ec2c36636e" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal2.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-from-portal2.png</target>
+        </trans-unit>
+        <trans-unit id="be3cb8fd-09fa-4717-bbcc-3f2777d89f80" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal.png</target>
+        </trans-unit>
+        <trans-unit id="c7ea373c-d93f-4d77-80a0-70ccc32746b1" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal2.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-select-from-portal2.png</target>
+        </trans-unit>
+        <trans-unit id="a421bcf4-02a0-46e5-a846-a9684d27c61a" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-configure-android.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-configure-android.png</target>
+        </trans-unit>
+        <trans-unit id="38a3d1f1-5227-4b6c-bb76-a8c8cc79b942" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-connection-strings.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-connection-strings.png</target>
+        </trans-unit>
+        <trans-unit id="5bf45439-ac6f-4fc8-b67a-e1628da6c4cf" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app1.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app1.png</target>
+        </trans-unit>
+        <trans-unit id="a8962d66-e599-4f4c-8042-426d6df35b4a" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app2.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app2.png</target>
+        </trans-unit>
+        <trans-unit id="ee0f9772-2ef3-4702-b33e-fe8dc92ee4b3" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app3.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-app3.png</target>
+        </trans-unit>
+        <trans-unit id="2885b534-fea3-45bb-9192-7e080be80198" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app7.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app7.png</target>
+        </trans-unit>
+        <trans-unit id="90efb665-fb45-45dc-b151-47ee0d471485" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app8.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-android-app8.png</target>
+        </trans-unit>
+        <trans-unit id="f6070bdb-15a4-4e36-8252-c5f571519d50" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-console-app.png</target>
+        </trans-unit>
+        <trans-unit id="6267c911-09e5-4b03-b0ea-5180d552c2c2" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-android-toast.png</target>
+        </trans-unit>
+        <trans-unit id="c414f343-273c-4edc-90fb-b3b9ceba8f0f" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler1.png</target>
+        </trans-unit>
+        <trans-unit id="495a2f00-2560-4183-930b-1c712b64eb1d" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-scheduler2.png</target>
+        </trans-unit>
+        <trans-unit id="409879fd-56d1-4497-90d3-6b60d352127e" xml:space="preserve">
+          <source>./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png</source>
+          <target state="new">./media/partner-xamarin-notification-hubs-android-get-started/notification-hubs-debug-hub-gcm.png</target>
+        </trans-unit>
+        <trans-unit id="2ea65b6d-570d-42e3-b1f2-e6c3b9e16f42" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkID=266582</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkID=266582</target>
+        </trans-unit>
+        <trans-unit id="4e83e2a6-a821-46a3-872c-779ad5c05b89" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262039</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262039</target>
+        </trans-unit>
+        <trans-unit id="8f66f0c7-ead8-401f-8190-082e7f8fff16" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=262253</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=262253</target>
+        </trans-unit>
+        <trans-unit id="b7122099-d09c-41c3-b5c9-2ec06a57d8e7" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-xamarin-android/#create-new-service</source>
+          <target state="new">/develop/mobile/tutorials/get-started-xamarin-android/#create-new-service</target>
+        </trans-unit>
+        <trans-unit id="3f4c3678-bfa3-4c4c-9d5b-af5e5ecacb7a" xml:space="preserve">
+          <source>/develop/mobile/tutorials/get-started-with-push-js</source>
+          <target state="new">/develop/mobile/tutorials/get-started-with-push-js</target>
+        </trans-unit>
+        <trans-unit id="23e79731-6db8-4beb-b830-85b7ae76237b" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="c026a67d-d341-4585-ab01-f44ed3db5688" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=260591</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=260591</target>
+        </trans-unit>
+        <trans-unit id="063f594c-d13f-48e3-9d92-61e73f4d6d42" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj927170.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj927170.aspx</target>
+        </trans-unit>
+        <trans-unit id="49c13ea6-c26f-48d8-b9e8-18f40873e9c1" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn282661.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn282661.aspx</target>
+        </trans-unit>
+        <trans-unit id="1bd3de0a-fb75-48d3-b75e-586057011885" xml:space="preserve">
+          <source>/manage/services/notification-hubs/notify-users-aspnet</source>
+          <target state="new">/manage/services/notification-hubs/notify-users-aspnet</target>
+        </trans-unit>
+        <trans-unit id="c07f2b16-3307-4b64-87cd-000e37e80716" xml:space="preserve">
+          <source>/manage/services/notification-hubs/breaking-news-dotnet</source>
+          <target state="new">/manage/services/notification-hubs/breaking-news-dotnet</target>
+        </trans-unit>
+        <trans-unit id="ab203eb4-dead-4d0d-aaae-59bbb10ac828" xml:space="preserve">
+          <source>http://components.xamarin.com/view/GCMClient</source>
+          <target state="new">http://components.xamarin.com/view/GCMClient</target>
+        </trans-unit>
+        <trans-unit id="cc3892b4-ad5c-4b15-9d98-07f1fedb5040" xml:space="preserve">
+          <source>https://github.com/SaschaDittmann/Xamarin.NotificationHub</source>
+          <target state="new">https://github.com/SaschaDittmann/Xamarin.NotificationHub</target>
+        </trans-unit>
+        <trans-unit id="5e848f9c-9820-4b97-871b-db30add54c1f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=331329</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=331329</target>
+        </trans-unit>
+        <trans-unit id="df4ca320-1aa1-4391-9b7a-70614d99ccca" xml:space="preserve">
+          <source>http://xamarin.com/download/</source>
+          <target state="new">http://xamarin.com/download/</target>
+        </trans-unit>
+        <trans-unit id="eb5956b0-5bbc-4bd3-be15-55a15369c96f" xml:space="preserve">
+          <source>http://components.xamarin.com/view/azure-mobile-services/</source>
+          <target state="new">http://components.xamarin.com/view/azure-mobile-services/</target>
+        </trans-unit>
+        <trans-unit id="ce2be11b-6b0b-41f1-b2af-c8f6e248e88d" xml:space="preserve">
+          <source>http://components.xamarin.com/view/GCMClient/</source>
+          <target state="new">http://components.xamarin.com/view/GCMClient/</target>
+        </trans-unit>
+        <trans-unit id="ebc33eea-55dd-49f6-9e93-e920b947ecdb" xml:space="preserve">
+          <source>http://components.xamarin.com/view/azure-messaging</source>
+          <target state="new">http://components.xamarin.com/view/azure-messaging</target>
+        </trans-unit>
+      </group>
+      <group id="6dbc6023-b646-4cf1-a8e1-7570c7a69875" />
+    </body>
+  </file>
+</xliff>

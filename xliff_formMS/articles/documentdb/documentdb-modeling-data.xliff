@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f2c43e10-5c31-4847-a48e-ab068bf040a9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f2c43e10-5c31-4847-a48e-ab068bf040a9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb805f43-c107-4019-8396-f22b51fd0208">
+        <trans-unit id="5826c53a-9739-4251-b950-cefb308065da" xml:space="preserve">
+          <source>Modeling data in Azure DocumentDB | Microsoft Azure</source>
+          <target state="new">Modeling data in Azure DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="289bb293-95d9-4bfd-ae86-450704bf428b" xml:space="preserve">
+          <source>Learn how to model data for a NoSQL document database like Azure DocumentDB.</source>
+          <target state="new">Learn how to model data for a NoSQL document database like Azure DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="aed07d95-9e9c-4f63-8f2f-06d2d277bdf9" xml:space="preserve">
+          <source>While schema-free databases, like DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data.</source>
+          <target state="new">While schema-free databases, like DocumentDB, make it super easy to embrace changes to your data model you should still spend some time thinking about your data.</target>
+        </trans-unit>
+        <trans-unit id="4f05a544-0ac1-462f-a2bb-d1f712ac81da" xml:space="preserve">
+          <source>How is data going to be stored?</source>
+          <target state="new">How is data going to be stored?</target>
+        </trans-unit>
+        <trans-unit id="b34df6c3-5cb7-424b-a4f9-d220916a50dd" xml:space="preserve">
+          <source>How is your application going to retrieve and query data?</source>
+          <target state="new">How is your application going to retrieve and query data?</target>
+        </trans-unit>
+        <trans-unit id="2ef77341-73d5-4625-a8fb-9066ead21fdd" xml:space="preserve">
+          <source>Is your application read heavy, or write heavy?</source>
+          <target state="new">Is your application read heavy, or write heavy?</target>
+        </trans-unit>
+        <trans-unit id="40681331-9740-4384-8dfd-92b5aa8c2aec" xml:space="preserve">
+          <source>After reading this article, you will be able to answer the following questions:</source>
+          <target state="new">After reading this article, you will be able to answer the following questions:</target>
+        </trans-unit>
+        <trans-unit id="04ef560e-17e5-4451-9b82-471a0fc72e53" xml:space="preserve">
+          <source>How should I think about a document in a document database?</source>
+          <target state="new">How should I think about a document in a document database?</target>
+        </trans-unit>
+        <trans-unit id="60d21d52-f936-430c-82cd-cfd6911f5b1f" xml:space="preserve">
+          <source>What is data modeling and why should I care?</source>
+          <target state="new">What is data modeling and why should I care?</target>
+        </trans-unit>
+        <trans-unit id="c84adbaf-92ae-4a1f-b869-c7dcf5aad37d" xml:space="preserve">
+          <source>How is modeling data in a document database different to a relational database?</source>
+          <target state="new">How is modeling data in a document database different to a relational database?</target>
+        </trans-unit>
+        <trans-unit id="6ba76d29-cb98-4ef9-a7a4-cd9822f2685f" xml:space="preserve">
+          <source>How do I express data relationships in a non-relational database?</source>
+          <target state="new">How do I express data relationships in a non-relational database?</target>
+        </trans-unit>
+        <trans-unit id="dc8245d3-21b7-442f-b3e3-37a643476156" xml:space="preserve">
+          <source>When do I embed data and when do I link to data?</source>
+          <target state="new">When do I embed data and when do I link to data?</target>
+        </trans-unit>
+        <trans-unit id="ff147233-3675-4492-a2dd-60b4da6fff6d" xml:space="preserve">
+          <source>When you start modeling data in a document store, such as DocumentDB, try to treat your entities as <bpt id="17d0c070-1567-463c-9d93-871604cea53d">&lt;strong&gt;</bpt>self-contained documents<ept id="17d0c070-1567-463c-9d93-871604cea53d">&lt;/strong&gt;</ept> represented in JSON.</source>
+          <target state="new">When you start modeling data in a document store, such as DocumentDB, try to treat your entities as <bpt id="17d0c070-1567-463c-9d93-871604cea53d">&lt;strong&gt;</bpt>self-contained documents<ept id="17d0c070-1567-463c-9d93-871604cea53d">&lt;/strong&gt;</ept> represented in JSON.</target>
+        </trans-unit>
+        <trans-unit id="ee55ce5b-4c37-475e-8ceb-3b8ba16f0c47" xml:space="preserve">
+          <source>Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with.</source>
+          <target state="new">Before we dive in too much further, let us take a few steps back and have a look at how we might model something in a relational database, a subject many of us are already familiar with.</target>
+        </trans-unit>
+        <trans-unit id="306c345b-96fa-4d13-a4d6-c63f3918ab61" xml:space="preserve">
+          <source>The following example shows how a person might be stored in a relational database.</source>
+          <target state="new">The following example shows how a person might be stored in a relational database.</target>
+        </trans-unit>
+        <trans-unit id="b6db9223-7231-4ed4-86f2-3d0741bca2e8" xml:space="preserve">
+          <source><bpt id="c2a86be7-5807-464f-93d7-bec06fb91525">&lt;linkText&gt;</bpt>Relational database model<ept id="c2a86be7-5807-464f-93d7-bec06fb91525">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2a86be7-5807-464f-93d7-bec06fb91525">&lt;linkText&gt;</bpt>Relational database model<ept id="c2a86be7-5807-464f-93d7-bec06fb91525">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9a5cdef-7363-4a06-bb72-5e1af0e1b039" xml:space="preserve">
+          <source>When working with relational databases, we've been taught for years to normalize, normalize, normalize.</source>
+          <target state="new">When working with relational databases, we've been taught for years to normalize, normalize, normalize.</target>
+        </trans-unit>
+        <trans-unit id="6f4d56f5-ad1b-4540-8436-cad50fea5af2" xml:space="preserve">
+          <source>Normalizing your data typically involves taking an entity, such as a person, and breaking it down in to discreet pieces of data.</source>
+          <target state="new">Normalizing your data typically involves taking an entity, such as a person, and breaking it down in to discreet pieces of data.</target>
+        </trans-unit>
+        <trans-unit id="c5c9b0e5-0d9f-491e-bb15-567ce212e27c" xml:space="preserve">
+          <source>In the example above, a person can have multiple contact detail records as well as multiple address records.</source>
+          <target state="new">In the example above, a person can have multiple contact detail records as well as multiple address records.</target>
+        </trans-unit>
+        <trans-unit id="9b86d3d9-701b-4812-8fa8-016210e13e4f" xml:space="preserve">
+          <source>We even go one step further and break down contact details by further extracting common fields like a type.</source>
+          <target state="new">We even go one step further and break down contact details by further extracting common fields like a type.</target>
+        </trans-unit>
+        <trans-unit id="c9349c35-454f-4d43-8eab-fe0c5c51d00d" xml:space="preserve">
+          <source>Same for address, each record here has a type like <bpt id="6ec89eb1-eb2f-481b-ac24-ffb6b4a08248">&lt;em&gt;</bpt>Home<ept id="6ec89eb1-eb2f-481b-ac24-ffb6b4a08248">&lt;/em&gt;</ept> or <bpt id="5496401f-35c8-41dc-b509-d46bc5146b49">&lt;em&gt;</bpt>Business<ept id="5496401f-35c8-41dc-b509-d46bc5146b49">&lt;/em&gt;</ept></source>
+          <target state="new">Same for address, each record here has a type like <bpt id="6ec89eb1-eb2f-481b-ac24-ffb6b4a08248">&lt;em&gt;</bpt>Home<ept id="6ec89eb1-eb2f-481b-ac24-ffb6b4a08248">&lt;/em&gt;</ept> or <bpt id="5496401f-35c8-41dc-b509-d46bc5146b49">&lt;em&gt;</bpt>Business<ept id="5496401f-35c8-41dc-b509-d46bc5146b49">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8400ee5-5c5f-4c70-bd34-91445fb3f04c" xml:space="preserve">
+          <source>The guiding premise when normalizing data is to <bpt id="4293b21e-e9dc-4a9f-91f0-ef43c70cd717">&lt;strong&gt;</bpt>avoid storing redundant data<ept id="4293b21e-e9dc-4a9f-91f0-ef43c70cd717">&lt;/strong&gt;</ept> on each record and rather refer to data.</source>
+          <target state="new">The guiding premise when normalizing data is to <bpt id="4293b21e-e9dc-4a9f-91f0-ef43c70cd717">&lt;strong&gt;</bpt>avoid storing redundant data<ept id="4293b21e-e9dc-4a9f-91f0-ef43c70cd717">&lt;/strong&gt;</ept> on each record and rather refer to data.</target>
+        </trans-unit>
+        <trans-unit id="3ae02f6e-e0df-4e99-84de-4bc197d0f42e" xml:space="preserve">
+          <source>In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively aggregate your data at run time.</source>
+          <target state="new">In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively aggregate your data at run time.</target>
+        </trans-unit>
+        <trans-unit id="05e55b0e-6311-46ff-a67d-08c720deef3a" xml:space="preserve">
+          <source>Updating a single person with their contact details and addresses requires write operations across many individual tables.</source>
+          <target state="new">Updating a single person with their contact details and addresses requires write operations across many individual tables.</target>
+        </trans-unit>
+        <trans-unit id="ae7873c9-684e-40fb-ad37-0ddbd75e0e01" xml:space="preserve">
+          <source>Now let's take a look at how we would model the same data as a self-contained entity in a document database.</source>
+          <target state="new">Now let's take a look at how we would model the same data as a self-contained entity in a document database.</target>
+        </trans-unit>
+        <trans-unit id="525e7aa1-e2ff-4fd0-84ea-58f9435847b8" xml:space="preserve">
+          <source>Using the approach above we have now <bpt id="94f3fcd1-9241-45e3-8c6a-130e860bac4c">&lt;strong&gt;</bpt>denormalized<ept id="94f3fcd1-9241-45e3-8c6a-130e860bac4c">&lt;/strong&gt;</ept> the person record where we <bpt id="de21ec24-6169-4fb3-bb02-9a6c4d46ad33">&lt;strong&gt;</bpt>embedded<ept id="de21ec24-6169-4fb3-bb02-9a6c4d46ad33">&lt;/strong&gt;</ept> all the information relating to this person, such as their contact details and addresses, in to a single JSON document.</source>
+          <target state="new">Using the approach above we have now <bpt id="94f3fcd1-9241-45e3-8c6a-130e860bac4c">&lt;strong&gt;</bpt>denormalized<ept id="94f3fcd1-9241-45e3-8c6a-130e860bac4c">&lt;/strong&gt;</ept> the person record where we <bpt id="de21ec24-6169-4fb3-bb02-9a6c4d46ad33">&lt;strong&gt;</bpt>embedded<ept id="de21ec24-6169-4fb3-bb02-9a6c4d46ad33">&lt;/strong&gt;</ept> all the information relating to this person, such as their contact details and addresses, in to a single JSON document.</target>
+        </trans-unit>
+        <trans-unit id="781ec5ef-996c-4ffb-b516-b5990ea6419d" xml:space="preserve">
+          <source>In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.</source>
+          <target state="new">In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.</target>
+        </trans-unit>
+        <trans-unit id="75715d63-4c49-44b9-9833-cafbd0bdd4df" xml:space="preserve">
+          <source>Retrieving a complete person record from the database is now a single read operation against a single collection and for a single document.</source>
+          <target state="new">Retrieving a complete person record from the database is now a single read operation against a single collection and for a single document.</target>
+        </trans-unit>
+        <trans-unit id="781ed795-a6de-4712-b108-a1a976615b66" xml:space="preserve">
+          <source>Updating a person record, with their contact details and addresses, is also a single write operation against a single document.</source>
+          <target state="new">Updating a person record, with their contact details and addresses, is also a single write operation against a single document.</target>
+        </trans-unit>
+        <trans-unit id="88f13d69-75a3-4d40-902d-ce0ea4161533" xml:space="preserve">
+          <source>By denormalizing data, your application may need to issue fewer queries and updates to complete common operations.</source>
+          <target state="new">By denormalizing data, your application may need to issue fewer queries and updates to complete common operations.</target>
+        </trans-unit>
+        <trans-unit id="9571f49a-d8fe-4c6f-a3a8-b001ddfae431" xml:space="preserve">
+          <source>In general, use embedded data models when:</source>
+          <target state="new">In general, use embedded data models when:</target>
+        </trans-unit>
+        <trans-unit id="79705e60-c277-4ca9-9c5c-66af5548ff01" xml:space="preserve">
+          <source>There are <bpt id="7c613727-c433-4f78-abc4-68f822014579">&lt;strong&gt;</bpt>contains<ept id="7c613727-c433-4f78-abc4-68f822014579">&lt;/strong&gt;</ept> relationships between entities.</source>
+          <target state="new">There are <bpt id="7c613727-c433-4f78-abc4-68f822014579">&lt;strong&gt;</bpt>contains<ept id="7c613727-c433-4f78-abc4-68f822014579">&lt;/strong&gt;</ept> relationships between entities.</target>
+        </trans-unit>
+        <trans-unit id="87da759f-7f44-4b52-961f-49fb4e4b2beb" xml:space="preserve">
+          <source>There are <bpt id="ce07d86e-c617-4777-9c4d-a59fdc8bf9ad">&lt;strong&gt;</bpt>one-to-few<ept id="ce07d86e-c617-4777-9c4d-a59fdc8bf9ad">&lt;/strong&gt;</ept> relationships between entities.</source>
+          <target state="new">There are <bpt id="ce07d86e-c617-4777-9c4d-a59fdc8bf9ad">&lt;strong&gt;</bpt>one-to-few<ept id="ce07d86e-c617-4777-9c4d-a59fdc8bf9ad">&lt;/strong&gt;</ept> relationships between entities.</target>
+        </trans-unit>
+        <trans-unit id="de2609b5-baee-4668-ba34-97ed6a2cf0a5" xml:space="preserve">
+          <source>There is embedded data that <bpt id="2ec226dd-1bf9-40fb-92a4-87c99b951c2a">&lt;strong&gt;</bpt>changes infrequently<ept id="2ec226dd-1bf9-40fb-92a4-87c99b951c2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There is embedded data that <bpt id="2ec226dd-1bf9-40fb-92a4-87c99b951c2a">&lt;strong&gt;</bpt>changes infrequently<ept id="2ec226dd-1bf9-40fb-92a4-87c99b951c2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39a46e7a-a12d-4b3b-ac11-32fa7c7ed450" xml:space="preserve">
+          <source>There is embedded data won't grow <bpt id="4d92c29f-392c-4bb1-835f-e8ba125b245e">&lt;strong&gt;</bpt>without bound<ept id="4d92c29f-392c-4bb1-835f-e8ba125b245e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">There is embedded data won't grow <bpt id="4d92c29f-392c-4bb1-835f-e8ba125b245e">&lt;strong&gt;</bpt>without bound<ept id="4d92c29f-392c-4bb1-835f-e8ba125b245e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed265560-49c7-4f4b-83c5-53fdcf32b567" xml:space="preserve">
+          <source>There is embedded data that is <bpt id="13a124b8-b3fa-4fa6-942c-f531e656c856">&lt;strong&gt;</bpt>integral<ept id="13a124b8-b3fa-4fa6-942c-f531e656c856">&lt;/strong&gt;</ept> to data in a document.</source>
+          <target state="new">There is embedded data that is <bpt id="13a124b8-b3fa-4fa6-942c-f531e656c856">&lt;strong&gt;</bpt>integral<ept id="13a124b8-b3fa-4fa6-942c-f531e656c856">&lt;/strong&gt;</ept> to data in a document.</target>
+        </trans-unit>
+        <trans-unit id="211df15f-8f36-4a69-8f8a-3762a3ea8b76" xml:space="preserve">
+          <source>Typically denormalized data models provide better <bpt id="ea5ce246-2200-4dd9-8eb5-273b46639823">&lt;strong&gt;</bpt>read<ept id="ea5ce246-2200-4dd9-8eb5-273b46639823">&lt;/strong&gt;</ept> performance.</source>
+          <target state="new">Typically denormalized data models provide better <bpt id="ea5ce246-2200-4dd9-8eb5-273b46639823">&lt;strong&gt;</bpt>read<ept id="ea5ce246-2200-4dd9-8eb5-273b46639823">&lt;/strong&gt;</ept> performance.</target>
+        </trans-unit>
+        <trans-unit id="3b2e1ddb-805c-42eb-8134-c67952afa651" xml:space="preserve">
+          <source>While the rule of thumb in a document database is to denormalize everything and embed all data in to a single document, this can lead to some situations that should be avoided.</source>
+          <target state="new">While the rule of thumb in a document database is to denormalize everything and embed all data in to a single document, this can lead to some situations that should be avoided.</target>
+        </trans-unit>
+        <trans-unit id="b4585a30-3499-4764-b207-50e76106197b" xml:space="preserve">
+          <source>Take this JSON snippet.</source>
+          <target state="new">Take this JSON snippet.</target>
+        </trans-unit>
+        <trans-unit id="bc939605-04cc-4bb9-b029-22b578e4aeb1" xml:space="preserve">
+          <source>This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system.</source>
+          <target state="new">This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system.</target>
+        </trans-unit>
+        <trans-unit id="83095287-ffa0-4b8e-8493-d888de48ebc2" xml:space="preserve">
+          <source>The problem with this example is that the comments array is <bpt id="38adc412-84a9-4133-8bc9-599612331002">&lt;strong&gt;</bpt>unbounded<ept id="38adc412-84a9-4133-8bc9-599612331002">&lt;/strong&gt;</ept>, meaning that there is no (practical) limit to the number of comments any single post can have.</source>
+          <target state="new">The problem with this example is that the comments array is <bpt id="38adc412-84a9-4133-8bc9-599612331002">&lt;strong&gt;</bpt>unbounded<ept id="38adc412-84a9-4133-8bc9-599612331002">&lt;/strong&gt;</ept>, meaning that there is no (practical) limit to the number of comments any single post can have.</target>
+        </trans-unit>
+        <trans-unit id="9cd444d2-6ec4-4ab0-841a-840fc827b97e" xml:space="preserve">
+          <source>This will become a problem as the size of the document could grow significantly.</source>
+          <target state="new">This will become a problem as the size of the document could grow significantly.</target>
+        </trans-unit>
+        <trans-unit id="c274c676-35de-4542-a0b0-be58fc5829d4" xml:space="preserve">
+          <source>Documents in DocumentDB have a maximum size.</source>
+          <target state="new">Documents in DocumentDB have a maximum size.</target>
+        </trans-unit>
+        <trans-unit id="47eabcaf-7df3-4698-8268-1b9f081f33f8" xml:space="preserve">
+          <source>For more on this refer to <bpt id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;/linkText&gt;</ept><bpt id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;title&gt;</bpt><ept id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more on this refer to <bpt id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;/linkText&gt;</ept><bpt id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;title&gt;</bpt><ept id="4ceef0da-aa9d-4454-b0d3-d320f75b4746">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf5335cc-beee-4f07-8faf-82415ec64e55" xml:space="preserve">
+          <source>As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.</source>
+          <target state="new">As the size of the document grows the ability to transmit the data over the wire as well as reading and updating the document, at scale, will be impacted.</target>
+        </trans-unit>
+        <trans-unit id="a7fe6f4d-fbbe-4abf-a744-b5bb356274ae" xml:space="preserve">
+          <source>In this case it would be better to consider the following model.</source>
+          <target state="new">In this case it would be better to consider the following model.</target>
+        </trans-unit>
+        <trans-unit id="b4c605d2-d2ad-4e24-9ab6-9e14da3438ea" xml:space="preserve">
+          <source>This model has the three most recent comments embedded on the post itself, which is an array with a fixed bound this time.</source>
+          <target state="new">This model has the three most recent comments embedded on the post itself, which is an array with a fixed bound this time.</target>
+        </trans-unit>
+        <trans-unit id="def63316-c4ff-4588-aa03-4923c164e428" xml:space="preserve">
+          <source>The other comments are grouped in to batches of 100 comments and stored in separate documents.</source>
+          <target state="new">The other comments are grouped in to batches of 100 comments and stored in separate documents.</target>
+        </trans-unit>
+        <trans-unit id="c1bd95f3-d8fe-4389-8f63-bf64c633672b" xml:space="preserve">
+          <source>The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.</source>
+          <target state="new">The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.</target>
+        </trans-unit>
+        <trans-unit id="b1213eb8-de12-4c2f-964e-0d73b960a466" xml:space="preserve">
+          <source>Another case where embedding data is not a good idea is when the embedded data is used often across documents and will change frequently.</source>
+          <target state="new">Another case where embedding data is not a good idea is when the embedded data is used often across documents and will change frequently.</target>
+        </trans-unit>
+        <trans-unit id="21209122-44ad-4334-9383-f0084cbdffeb" xml:space="preserve">
+          <source>Take this JSON snippet.</source>
+          <target state="new">Take this JSON snippet.</target>
+        </trans-unit>
+        <trans-unit id="0b7decb1-6701-4abc-810c-5e61b0f9dfbb" xml:space="preserve">
+          <source>This could represent a person's stock portfolio.</source>
+          <target state="new">This could represent a person's stock portfolio.</target>
+        </trans-unit>
+        <trans-unit id="622abdbd-baa7-4858-9725-59ce8c4ba8d0" xml:space="preserve">
+          <source>We have chosen to embed the stock information in to each portfolio document.</source>
+          <target state="new">We have chosen to embed the stock information in to each portfolio document.</target>
+        </trans-unit>
+        <trans-unit id="d39b0698-ed6a-45e3-88a2-5269d5776458" xml:space="preserve">
+          <source>In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio document every time a stock is traded.</source>
+          <target state="new">In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio document every time a stock is traded.</target>
+        </trans-unit>
+        <trans-unit id="b73a56c5-24c7-4d94-ba0f-28a9988300e2" xml:space="preserve">
+          <source>Stock <bpt id="6d0f75ea-adf9-424e-b6ff-38567a946761">&lt;em&gt;</bpt>zaza<ept id="6d0f75ea-adf9-424e-b6ff-38567a946761">&lt;/em&gt;</ept> may be traded many hundreds of times in a single day and thousands of users could have <bpt id="57e473dd-de60-443a-b264-1ac2daa5bf72">&lt;em&gt;</bpt>zaza<ept id="57e473dd-de60-443a-b264-1ac2daa5bf72">&lt;/em&gt;</ept> on their portfolio.</source>
+          <target state="new">Stock <bpt id="6d0f75ea-adf9-424e-b6ff-38567a946761">&lt;em&gt;</bpt>zaza<ept id="6d0f75ea-adf9-424e-b6ff-38567a946761">&lt;/em&gt;</ept> may be traded many hundreds of times in a single day and thousands of users could have <bpt id="57e473dd-de60-443a-b264-1ac2daa5bf72">&lt;em&gt;</bpt>zaza<ept id="57e473dd-de60-443a-b264-1ac2daa5bf72">&lt;/em&gt;</ept> on their portfolio.</target>
+        </trans-unit>
+        <trans-unit id="cebfba03-3b3c-412f-ba1f-cc3d57c41bdd" xml:space="preserve">
+          <source>With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale very well.</source>
+          <target state="new">With a data model like the above we would have to update many thousands of portfolio documents many times every day leading to a system that won't scale very well.</target>
+        </trans-unit>
+        <trans-unit id="7eea352e-ead2-43b0-a486-e515a6833e7f" xml:space="preserve">
+          <source>So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth.</source>
+          <target state="new">So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth.</target>
+        </trans-unit>
+        <trans-unit id="bc43e0db-1d10-4b53-ba8f-f7ee4aad2f4a" xml:space="preserve">
+          <source>So what do we do now?</source>
+          <target state="new">So what do we do now?</target>
+        </trans-unit>
+        <trans-unit id="b38d1066-3129-415e-b54b-69383a83d207" xml:space="preserve">
+          <source>Relational databases are not the only place where you can create relationships between entities.</source>
+          <target state="new">Relational databases are not the only place where you can create relationships between entities.</target>
+        </trans-unit>
+        <trans-unit id="5e3950e6-fc1f-4929-82e8-55a5c8944aa0" xml:space="preserve">
+          <source>In a document database you can have information in one document that actually relates to data in other documents.</source>
+          <target state="new">In a document database you can have information in one document that actually relates to data in other documents.</target>
+        </trans-unit>
+        <trans-unit id="eb247212-a36c-464d-892c-b1137de31ee1" xml:space="preserve">
+          <source>Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in DocumentDB, or any other document database, but simple relationships are fine and can be very useful.</source>
+          <target state="new">Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in DocumentDB, or any other document database, but simple relationships are fine and can be very useful.</target>
+        </trans-unit>
+        <trans-unit id="668959a3-fc0a-4f5e-b4e4-7e7ddfa81423" xml:space="preserve">
+          <source>In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it.</source>
+          <target state="new">In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it.</target>
+        </trans-unit>
+        <trans-unit id="5b112273-6c02-4d77-a76f-3016118abe86" xml:space="preserve">
+          <source>This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document.</source>
+          <target state="new">This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document.</target>
+        </trans-unit>
+        <trans-unit id="07f0fb1c-bda6-4282-a0a2-24c451556317" xml:space="preserve">
+          <source>An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document.</source>
+          <target state="new">An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document.</target>
+        </trans-unit>
+        <trans-unit id="8579dda4-506a-4cb0-a063-bd885374c700" xml:space="preserve">
+          <source>Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.</source>
+          <target state="new">Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.</target>
+        </trans-unit>
+        <trans-unit id="0a5ed57d-3db6-4347-bb25-87cef21c9f19" xml:space="preserve">
+          <source>Normalized data models <bpt id="393887f2-6832-4bb4-96fd-138ad9e82afd">&lt;strong&gt;</bpt>can require more round trips<ept id="393887f2-6832-4bb4-96fd-138ad9e82afd">&lt;/strong&gt;</ept> to the server.</source>
+          <target state="new">Normalized data models <bpt id="393887f2-6832-4bb4-96fd-138ad9e82afd">&lt;strong&gt;</bpt>can require more round trips<ept id="393887f2-6832-4bb4-96fd-138ad9e82afd">&lt;/strong&gt;</ept> to the server.</target>
+        </trans-unit>
+        <trans-unit id="61f4cdc1-519f-4261-8bbe-0a0b9fcbb2c0" xml:space="preserve">
+          <source>Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself.</source>
+          <target state="new">Because there is currently no concept of a constraint, foreign-key or otherwise, any inter-document relationships that you have in documents are effectively "weak links" and will not be verified by the database itself.</target>
+        </trans-unit>
+        <trans-unit id="5a54c0cb-504d-41ab-978b-6264885df930" xml:space="preserve">
+          <source>If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on DocumentDB.</source>
+          <target state="new">If you want to ensure that the data a document is referring to actually exists, then you need to do this in your application, or through the use of server-side triggers or stored procedures on DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="8d3df5f0-a1b1-4ed6-9812-445e9901acae" xml:space="preserve">
+          <source>In general, use normalized data models when:</source>
+          <target state="new">In general, use normalized data models when:</target>
+        </trans-unit>
+        <trans-unit id="bb2b3623-7ac8-4274-a983-70be8e6e6eb1" xml:space="preserve">
+          <source>Representing <bpt id="ae867933-fc5d-4d91-a379-96f567b07b11">&lt;strong&gt;</bpt>one-to-many<ept id="ae867933-fc5d-4d91-a379-96f567b07b11">&lt;/strong&gt;</ept> relationships.</source>
+          <target state="new">Representing <bpt id="ae867933-fc5d-4d91-a379-96f567b07b11">&lt;strong&gt;</bpt>one-to-many<ept id="ae867933-fc5d-4d91-a379-96f567b07b11">&lt;/strong&gt;</ept> relationships.</target>
+        </trans-unit>
+        <trans-unit id="3dae6d41-b7f9-4d5a-b008-55c0416111c9" xml:space="preserve">
+          <source>Representing <bpt id="32669ef2-7a0d-4335-9920-ec43ed9f8355">&lt;strong&gt;</bpt>many-to-many<ept id="32669ef2-7a0d-4335-9920-ec43ed9f8355">&lt;/strong&gt;</ept> relationships.</source>
+          <target state="new">Representing <bpt id="32669ef2-7a0d-4335-9920-ec43ed9f8355">&lt;strong&gt;</bpt>many-to-many<ept id="32669ef2-7a0d-4335-9920-ec43ed9f8355">&lt;/strong&gt;</ept> relationships.</target>
+        </trans-unit>
+        <trans-unit id="644076d3-f4da-4707-8458-1d8dad6b51e2" xml:space="preserve">
+          <source>Related data <bpt id="5dcb0edb-22a0-43bd-8073-58852abc1ec8">&lt;strong&gt;</bpt>changes frequently<ept id="5dcb0edb-22a0-43bd-8073-58852abc1ec8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Related data <bpt id="5dcb0edb-22a0-43bd-8073-58852abc1ec8">&lt;strong&gt;</bpt>changes frequently<ept id="5dcb0edb-22a0-43bd-8073-58852abc1ec8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0efd6686-cc0c-456b-ba3c-f1bfdfea4102" xml:space="preserve">
+          <source>Referenced data could be <bpt id="2429c1a4-0175-4245-9009-943a4d8f99d2">&lt;strong&gt;</bpt>unbounded<ept id="2429c1a4-0175-4245-9009-943a4d8f99d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Referenced data could be <bpt id="2429c1a4-0175-4245-9009-943a4d8f99d2">&lt;strong&gt;</bpt>unbounded<ept id="2429c1a4-0175-4245-9009-943a4d8f99d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f07b91c8-4efe-4761-9b88-b0746ca6bea5" xml:space="preserve">
+          <source>Typically normalizing provides better <bpt id="cf30ab01-b811-4679-8f43-ab5ff7fcaa08">&lt;strong&gt;</bpt>write<ept id="cf30ab01-b811-4679-8f43-ab5ff7fcaa08">&lt;/strong&gt;</ept> performance.</source>
+          <target state="new">Typically normalizing provides better <bpt id="cf30ab01-b811-4679-8f43-ab5ff7fcaa08">&lt;strong&gt;</bpt>write<ept id="cf30ab01-b811-4679-8f43-ab5ff7fcaa08">&lt;/strong&gt;</ept> performance.</target>
+        </trans-unit>
+        <trans-unit id="ea58ddae-5c49-420f-833f-3f5047ac52cb" xml:space="preserve">
+          <source>The growth of the relationship will help determine in which document to store the reference.</source>
+          <target state="new">The growth of the relationship will help determine in which document to store the reference.</target>
+        </trans-unit>
+        <trans-unit id="a91be9f8-e993-432a-9211-7624c98308c5" xml:space="preserve">
+          <source>If we look at the JSON below that models publishers and books.</source>
+          <target state="new">If we look at the JSON below that models publishers and books.</target>
+        </trans-unit>
+        <trans-unit id="91f4d74b-b96e-4bdb-9e99-4eed340adf63" xml:space="preserve">
+          <source>If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful.</source>
+          <target state="new">If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful.</target>
+        </trans-unit>
+        <trans-unit id="e3f09cb6-ceb7-487e-b5c3-fa91d6072cdc" xml:space="preserve">
+          <source>However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above.</source>
+          <target state="new">However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above.</target>
+        </trans-unit>
+        <trans-unit id="f5a9c355-8758-4065-ac44-8be8e6652a89" xml:space="preserve">
+          <source>Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections.</source>
+          <target state="new">Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections.</target>
+        </trans-unit>
+        <trans-unit id="f3cdab6a-cc2a-47fe-8fae-c48e1eeff6d0" xml:space="preserve">
+          <source>In the above example, we have dropped the unbounded collection on the publisher document.</source>
+          <target state="new">In the above example, we have dropped the unbounded collection on the publisher document.</target>
+        </trans-unit>
+        <trans-unit id="51e2af9d-d4bd-4c03-aa66-7461fea784c8" xml:space="preserve">
+          <source>Instead we just have a a reference to the publisher on each book document.</source>
+          <target state="new">Instead we just have a a reference to the publisher on each book document.</target>
+        </trans-unit>
+        <trans-unit id="9643d09e-7a13-4386-ac41-cdc50b2b075d" xml:space="preserve">
+          <source>In a relational database <bpt id="0b0af5e7-e351-414c-8475-c0965be74697">&lt;em&gt;</bpt>many:many<ept id="0b0af5e7-e351-414c-8475-c0965be74697">&lt;/em&gt;</ept> relationships are often modeled with join tables, which just join records from other tables together.</source>
+          <target state="new">In a relational database <bpt id="0b0af5e7-e351-414c-8475-c0965be74697">&lt;em&gt;</bpt>many:many<ept id="0b0af5e7-e351-414c-8475-c0965be74697">&lt;/em&gt;</ept> relationships are often modeled with join tables, which just join records from other tables together.</target>
+        </trans-unit>
+        <trans-unit id="a9ad1b5c-2d15-4fa3-a43d-557ee4a84332" xml:space="preserve">
+          <source><bpt id="19881760-d7f2-494f-bcb0-0767886e7426">&lt;linkText&gt;</bpt>Join tables<ept id="19881760-d7f2-494f-bcb0-0767886e7426">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="19881760-d7f2-494f-bcb0-0767886e7426">&lt;linkText&gt;</bpt>Join tables<ept id="19881760-d7f2-494f-bcb0-0767886e7426">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9ca9a8b-f961-4ad5-90cb-94a470b73de4" xml:space="preserve">
+          <source>You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.</source>
+          <target state="new">You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.</target>
+        </trans-unit>
+        <trans-unit id="2278ba50-1cee-4ae8-a188-f5d8c8ad18bb" xml:space="preserve">
+          <source>This would work.</source>
+          <target state="new">This would work.</target>
+        </trans-unit>
+        <trans-unit id="57ecb17d-f547-4170-917b-12460fe5f336" xml:space="preserve">
+          <source>However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database.</source>
+          <target state="new">However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database.</target>
+        </trans-unit>
+        <trans-unit id="eebc3a4a-29fe-4bf5-98ed-912891672ebd" xml:space="preserve">
+          <source>One query to the joining document and then another query to fetch the actual document being joined.</source>
+          <target state="new">One query to the joining document and then another query to fetch the actual document being joined.</target>
+        </trans-unit>
+        <trans-unit id="8f8183f0-70f0-4c19-910a-01ddebfa5d93" xml:space="preserve">
+          <source>If all this join table is doing is gluing together two pieces of data, then why not drop it completely?</source>
+          <target state="new">If all this join table is doing is gluing together two pieces of data, then why not drop it completely?</target>
+        </trans-unit>
+        <trans-unit id="663924bc-1cb7-427b-8f36-d141676fd0b5" xml:space="preserve">
+          <source>Consider the following.</source>
+          <target state="new">Consider the following.</target>
+        </trans-unit>
+        <trans-unit id="1a1a6a9d-b433-4bfd-90ce-f7f34672801e" xml:space="preserve">
+          <source>Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s).</source>
+          <target state="new">Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the ids of the author(s).</target>
+        </trans-unit>
+        <trans-unit id="5ebb18e3-6d67-46fb-a0f3-d841294eb17d" xml:space="preserve">
+          <source>This saves that intermediary query against the join table reducing the number of server round trips your application has to make.</source>
+          <target state="new">This saves that intermediary query against the join table reducing the number of server round trips your application has to make.</target>
+        </trans-unit>
+        <trans-unit id="c24b58a8-7483-486e-9145-dea95069f5a0" xml:space="preserve">
+          <source>We've now looked embedding (or denormalizing) and referencing (or normalizing) data, each have their upsides and each have compromises as we have seen.</source>
+          <target state="new">We've now looked embedding (or denormalizing) and referencing (or normalizing) data, each have their upsides and each have compromises as we have seen.</target>
+        </trans-unit>
+        <trans-unit id="91c7e618-9066-42ad-aef9-33d8cd292cc9" xml:space="preserve">
+          <source>It doesn't always have to be either or, don't be scared to mix things up a little.</source>
+          <target state="new">It doesn't always have to be either or, don't be scared to mix things up a little.</target>
+        </trans-unit>
+        <trans-unit id="18d2926b-f62c-4366-a6c0-d3a4569bc6d6" xml:space="preserve">
+          <source>Based on your application's specific usage patterns and workloads there may be cases where mixing embedded and referenced data makes sense and could lead to simpler application logic with fewer server round trips while still maintaining a good level of performance.</source>
+          <target state="new">Based on your application's specific usage patterns and workloads there may be cases where mixing embedded and referenced data makes sense and could lead to simpler application logic with fewer server round trips while still maintaining a good level of performance.</target>
+        </trans-unit>
+        <trans-unit id="cb4ebd2b-575a-4dc5-9d3e-7dd763ba69ee" xml:space="preserve">
+          <source>Consider the following JSON.</source>
+          <target state="new">Consider the following JSON.</target>
+        </trans-unit>
+        <trans-unit id="d0afbb81-05f6-4b96-975c-c758eef9a6f3" xml:space="preserve">
+          <source>Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.</source>
+          <target state="new">Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.</target>
+        </trans-unit>
+        <trans-unit id="b00d1e2e-0a2a-48e3-acdf-abdc8e93e384" xml:space="preserve">
+          <source>If you look at the book document, we can see a few interesting fields when we look at the array of authors.</source>
+          <target state="new">If you look at the book document, we can see a few interesting fields when we look at the array of authors.</target>
+        </trans-unit>
+        <trans-unit id="10535f9b-e1fd-497a-b542-36b3d0298623" xml:space="preserve">
+          <source>There is an <bpt id="8626685d-ad02-40fa-970b-7745b2fc018d">&lt;em&gt;</bpt>id<ept id="8626685d-ad02-40fa-970b-7745b2fc018d">&lt;/em&gt;</ept> field which is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have <bpt id="da98e12d-199b-45e8-af29-e91f6f6fc5ce">&lt;em&gt;</bpt>name<ept id="da98e12d-199b-45e8-af29-e91f6f6fc5ce">&lt;/em&gt;</ept> and <bpt id="ffdeb7e2-ebbc-4677-bff1-8ce0d3fd1fd7">&lt;em&gt;</bpt>thumbnailUrl<ept id="ffdeb7e2-ebbc-4677-bff1-8ce0d3fd1fd7">&lt;/em&gt;</ept>.</source>
+          <target state="new">There is an <bpt id="8626685d-ad02-40fa-970b-7745b2fc018d">&lt;em&gt;</bpt>id<ept id="8626685d-ad02-40fa-970b-7745b2fc018d">&lt;/em&gt;</ept> field which is the field we use to refer back to an author document, standard practice in a normalized model, but then we also have <bpt id="da98e12d-199b-45e8-af29-e91f6f6fc5ce">&lt;em&gt;</bpt>name<ept id="da98e12d-199b-45e8-af29-e91f6f6fc5ce">&lt;/em&gt;</ept> and <bpt id="ffdeb7e2-ebbc-4677-bff1-8ce0d3fd1fd7">&lt;em&gt;</bpt>thumbnailUrl<ept id="ffdeb7e2-ebbc-4677-bff1-8ce0d3fd1fd7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa6d6c86-63e4-4f75-9331-59fb1d786b8e" xml:space="preserve">
+          <source>We could've just stuck with <bpt id="4a2812cc-1394-404c-924e-486f2c837146">&lt;em&gt;</bpt>id<ept id="4a2812cc-1394-404c-924e-486f2c837146">&lt;/em&gt;</ept> and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing <bpt id="5392ed13-7456-4611-93ec-50c8e24e853c">&lt;strong&gt;</bpt>some<ept id="5392ed13-7456-4611-93ec-50c8e24e853c">&lt;/strong&gt;</ept> data from the author.</source>
+          <target state="new">We could've just stuck with <bpt id="4a2812cc-1394-404c-924e-486f2c837146">&lt;em&gt;</bpt>id<ept id="4a2812cc-1394-404c-924e-486f2c837146">&lt;/em&gt;</ept> and left the application to get any additional information it needed from the respective author document using the "link", but because our application displays the author's name and a thumbnail picture with every book displayed we can save a round trip to the server per book in a list by denormalizing <bpt id="5392ed13-7456-4611-93ec-50c8e24e853c">&lt;strong&gt;</bpt>some<ept id="5392ed13-7456-4611-93ec-50c8e24e853c">&lt;/strong&gt;</ept> data from the author.</target>
+        </trans-unit>
+        <trans-unit id="8cd686b7-4edc-4dae-8927-e7030a9d407d" xml:space="preserve">
+          <source>Sure, if the author's name changed or they wanted to update their photo we'd have to go an update every book they ever published but for our application, based on the assumption that authors don't change their names very often, this is an acceptable design decision.</source>
+          <target state="new">Sure, if the author's name changed or they wanted to update their photo we'd have to go an update every book they ever published but for our application, based on the assumption that authors don't change their names very often, this is an acceptable design decision.</target>
+        </trans-unit>
+        <trans-unit id="10070da3-c94e-46e2-a341-b3ea21dad79c" xml:space="preserve">
+          <source>In the example there are <bpt id="b7716727-0bb0-463e-a31f-d00858aba0ca">&lt;strong&gt;</bpt>pre-calculated aggregates<ept id="b7716727-0bb0-463e-a31f-d00858aba0ca">&lt;/strong&gt;</ept> values to save expensive processing on a read operation.</source>
+          <target state="new">In the example there are <bpt id="b7716727-0bb0-463e-a31f-d00858aba0ca">&lt;strong&gt;</bpt>pre-calculated aggregates<ept id="b7716727-0bb0-463e-a31f-d00858aba0ca">&lt;/strong&gt;</ept> values to save expensive processing on a read operation.</target>
+        </trans-unit>
+        <trans-unit id="e3712b0e-9e8d-40c2-916c-d5d5fce34f5f" xml:space="preserve">
+          <source>In the example, some of the data embedded in the author document is data that is calculated at run-time.</source>
+          <target state="new">In the example, some of the data embedded in the author document is data that is calculated at run-time.</target>
+        </trans-unit>
+        <trans-unit id="affb2036-f9db-4a93-93db-fd17efe088cd" xml:space="preserve">
+          <source>Every time a new book is published, a book document is created <bpt id="edeed199-bf48-4b6d-8ba8-533a0c744a5b">&lt;strong&gt;</bpt>and<ept id="edeed199-bf48-4b6d-8ba8-533a0c744a5b">&lt;/strong&gt;</ept> the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author.</source>
+          <target state="new">Every time a new book is published, a book document is created <bpt id="edeed199-bf48-4b6d-8ba8-533a0c744a5b">&lt;strong&gt;</bpt>and<ept id="edeed199-bf48-4b6d-8ba8-533a0c744a5b">&lt;/strong&gt;</ept> the countOfBooks field is set to a calculated value based on the number of book documents that exist for a particular author.</target>
+        </trans-unit>
+        <trans-unit id="2ffd4f24-09e3-4ebb-af9f-5567e43662ad" xml:space="preserve">
+          <source>This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.</source>
+          <target state="new">This optimization would be good in read heavy systems where we can afford to do computations on writes in order to optimize reads.</target>
+        </trans-unit>
+        <trans-unit id="49370b3e-6950-47fa-ab21-2888b40c3b84" xml:space="preserve">
+          <source>The ability to have a model with pre-calculated fields is made possible because DocumentDB supports <bpt id="9ed081bb-dbe1-46e8-b763-681ac71e3be2">&lt;strong&gt;</bpt>multi-document transactions<ept id="9ed081bb-dbe1-46e8-b763-681ac71e3be2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The ability to have a model with pre-calculated fields is made possible because DocumentDB supports <bpt id="9ed081bb-dbe1-46e8-b763-681ac71e3be2">&lt;strong&gt;</bpt>multi-document transactions<ept id="9ed081bb-dbe1-46e8-b763-681ac71e3be2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="335edf49-2915-41ec-8c3a-50b25f9dec45" xml:space="preserve">
+          <source>Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation.</source>
+          <target state="new">Many NoSQL stores cannot do transactions across documents and therefore advocate design decisions, such as "always embed everything", due to this limitation.</target>
+        </trans-unit>
+        <trans-unit id="0cff2971-2d71-4098-a4b8-171422d5d317" xml:space="preserve">
+          <source>With DocumentDB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction.</source>
+          <target state="new">With DocumentDB, you can use server-side triggers, or stored procedures, that insert books and update authors all within an ACID transaction.</target>
+        </trans-unit>
+        <trans-unit id="02b10654-1b59-43a4-a186-24b765f96394" xml:space="preserve">
+          <source>Now you don't <bpt id="f8965edf-17bf-4929-8004-46e62e5fa5e4">&lt;strong&gt;</bpt>have<ept id="f8965edf-17bf-4929-8004-46e62e5fa5e4">&lt;/strong&gt;</ept> to embed everything in to one document just to be sure that your data remains consistent.</source>
+          <target state="new">Now you don't <bpt id="f8965edf-17bf-4929-8004-46e62e5fa5e4">&lt;strong&gt;</bpt>have<ept id="f8965edf-17bf-4929-8004-46e62e5fa5e4">&lt;/strong&gt;</ept> to embed everything in to one document just to be sure that your data remains consistent.</target>
+        </trans-unit>
+        <trans-unit id="2a194bdf-5a59-4a35-9060-4e6107f82b41" xml:space="preserve">
+          <source>The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever.</source>
+          <target state="new">The biggest takeaways from this article is to understand that data modeling in a schema-free world is just as important as ever.</target>
+        </trans-unit>
+        <trans-unit id="031a9718-4d1e-48b4-b0ab-07a5e906430e" xml:space="preserve">
+          <source>Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data.</source>
+          <target state="new">Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data.</target>
+        </trans-unit>
+        <trans-unit id="4a403b69-6358-442a-be9b-c37f1949da66" xml:space="preserve">
+          <source>You need to understand your application and how it will produce, consume, and process the data.</source>
+          <target state="new">You need to understand your application and how it will produce, consume, and process the data.</target>
+        </trans-unit>
+        <trans-unit id="d93d2313-bcc7-477d-b9b4-c716bc2ba7d4" xml:space="preserve">
+          <source>Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application.</source>
+          <target state="new">Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="fa4ea161-515d-4c0f-b5f7-b2e2b30b2ab3" xml:space="preserve">
+          <source>When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily.</source>
+          <target state="new">When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily.</target>
+        </trans-unit>
+        <trans-unit id="e9e88913-8cb7-4dea-8284-e3028a9721bd" xml:space="preserve">
+          <source>To learn more about Azure DocumentDB, refer to the service’s <bpt id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;linkText&gt;</bpt>documentation<ept id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;/linkText&gt;</ept><bpt id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;title&gt;</bpt><ept id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;/title&gt;</ept> page.</source>
+          <target state="new">To learn more about Azure DocumentDB, refer to the service’s <bpt id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;linkText&gt;</bpt>documentation<ept id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;/linkText&gt;</ept><bpt id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;title&gt;</bpt><ept id="72d477b7-8459-49dc-a95e-8e014a5c8446">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="4dc06f26-18a4-4165-a68a-3fa225f6fd88" xml:space="preserve">
+          <source>To learn about tuning indexes in Azure DocumentDB, refer to the article on <bpt id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;linkText&gt;</bpt>indexing policies<ept id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;/linkText&gt;</ept><bpt id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;title&gt;</bpt><ept id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about tuning indexes in Azure DocumentDB, refer to the article on <bpt id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;linkText&gt;</bpt>indexing policies<ept id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;/linkText&gt;</ept><bpt id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;title&gt;</bpt><ept id="80fd4f30-4498-4cb9-8008-9708f0781d47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f38bd237-4d74-42f3-ae81-16ff3a90b9d0" xml:space="preserve">
+          <source>To understand how to shard your data across multiple partitions, refer to <bpt id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;linkText&gt;</bpt>Partitioning Data in DocumentDB<ept id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;/linkText&gt;</ept><bpt id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;title&gt;</bpt><ept id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To understand how to shard your data across multiple partitions, refer to <bpt id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;linkText&gt;</bpt>Partitioning Data in DocumentDB<ept id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;/linkText&gt;</ept><bpt id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;title&gt;</bpt><ept id="40f962dc-148e-47ea-ba63-af2dabd2dca7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c33f4edc-7f12-4bbf-bab5-26ff6d84eeeb" xml:space="preserve">
+          <source>And finally, for guidance on data modeling and sharding for multi-tenant applications, consult <bpt id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;linkText&gt;</bpt>Scaling a Multi-Tenant Application with Azure DocumentDB<ept id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;/linkText&gt;</ept><bpt id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;title&gt;</bpt><ept id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;/title&gt;</ept>.</source>
+          <target state="new">And finally, for guidance on data modeling and sharding for multi-tenant applications, consult <bpt id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;linkText&gt;</bpt>Scaling a Multi-Tenant Application with Azure DocumentDB<ept id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;/linkText&gt;</ept><bpt id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;title&gt;</bpt><ept id="87d3973d-f47f-467b-851c-0fdb895931f5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

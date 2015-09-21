@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="54fd11f4-a000-4135-a3e0-87f9d3597bba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="54fd11f4-a000-4135-a3e0-87f9d3597bba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fb2b626a-307d-4361-8f49-2fa9594ca9be">
+        <trans-unit id="9f19290e-4b0a-4711-ad3a-edf13e5722d5" xml:space="preserve">
+          <source>Creating datasets</source>
+          <target state="new">Creating datasets</target>
+        </trans-unit>
+        <trans-unit id="6d812dce-c023-41dc-98e7-c047cd7c3fa5" xml:space="preserve">
+          <source>Understand Azure Data Factory datasets and learn how to create them.</source>
+          <target state="new">Understand Azure Data Factory datasets and learn how to create them.</target>
+        </trans-unit>
+        <trans-unit id="fe5d75c0-8653-4d31-81cb-d1816e75231d" xml:space="preserve">
+          <source>A Dataset is a logical description of the data.</source>
+          <target state="new">A Dataset is a logical description of the data.</target>
+        </trans-unit>
+        <trans-unit id="5bbe35b1-ab7c-4578-bd2f-81329319f822" xml:space="preserve">
+          <source>The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models.</source>
+          <target state="new">The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models.</target>
+        </trans-unit>
+        <trans-unit id="24ce8ee4-0451-4b3f-958d-94a5fc3c8225" xml:space="preserve">
+          <source>The mechanism (address, protocol, authentication scheme) to access the data is defined in the Linked Service and referenced in the dataset definition.</source>
+          <target state="new">The mechanism (address, protocol, authentication scheme) to access the data is defined in the Linked Service and referenced in the dataset definition.</target>
+        </trans-unit>
+        <trans-unit id="c4898cf8-b44d-4f51-9264-81f63efa2a86" xml:space="preserve">
+          <source><bpt id="d3fa0945-3514-48a7-ba77-67b0ee22d0a0">&lt;strong&gt;</bpt>Syntax details<ept id="d3fa0945-3514-48a7-ba77-67b0ee22d0a0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d3fa0945-3514-48a7-ba77-67b0ee22d0a0">&lt;strong&gt;</bpt>Syntax details<ept id="d3fa0945-3514-48a7-ba77-67b0ee22d0a0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2e23a22-be20-4600-8ac3-08bb9db71350" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="76fd6b7f-dd61-494f-82c2-8ce2fba0b13d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="56621772-c189-4a65-9c21-3abe5e01c9b3" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="5d1803c4-e3a7-4f14-8974-49ea163fa3ad" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
+        <trans-unit id="f9f21c94-3c76-453a-b400-3eb00ad77a1e" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="5aedba45-f0b5-48f0-a3bc-a09bc8d95274" xml:space="preserve">
+          <source>Name of the dataset</source>
+          <target state="new">Name of the dataset</target>
+        </trans-unit>
+        <trans-unit id="380ae310-4f17-43fb-a605-d18cc65f3e96" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e1b8dbc2-cdff-4119-9458-9d2909b177a7" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="7eb1e3c5-ba27-4abe-8a41-2b714ee075e1" xml:space="preserve">
+          <source>Structure</source>
+          <target state="new">Structure</target>
+        </trans-unit>
+        <trans-unit id="04de28c1-7086-4e90-8cdd-6540fa748057" xml:space="preserve">
+          <source>&lt;p&gt;Schema of the dataset&lt;/p&gt;&lt;p&gt;See <bpt id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;linkText&gt;</bpt>Dataset Structure<ept id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;/linkText&gt;</ept><bpt id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;title&gt;</bpt><ept id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;/title&gt;</ept> section for more details&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Schema of the dataset&lt;/p&gt;&lt;p&gt;See <bpt id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;linkText&gt;</bpt>Dataset Structure<ept id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;/linkText&gt;</ept><bpt id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;title&gt;</bpt><ept id="2ffde84a-cd94-4130-81f4-e1c33a51cb4c">&lt;/title&gt;</ept> section for more details&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d15069ac-3f89-403b-9864-49b438a10400" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="adf47ea9-efd6-4679-a99b-865d4068b09e" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="e4054372-80ab-43c8-a4ac-655a22ccb3b8" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="4e0469e2-31c9-473e-9284-68323d616453" xml:space="preserve">
+          <source>Type of the dataset</source>
+          <target state="new">Type of the dataset</target>
+        </trans-unit>
+        <trans-unit id="b3af710c-d958-4a20-8f62-a2cd5df6dcd7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="98dabbf2-1670-4c13-8862-ac8fd307b3dc" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="1d91c915-04eb-478c-9783-1a9d6c161e0e" xml:space="preserve">
+          <source>typeProperties</source>
+          <target state="new">typeProperties</target>
+        </trans-unit>
+        <trans-unit id="bd724ce7-0ae4-4ade-b453-4965708f7b6e" xml:space="preserve">
+          <source>&lt;p&gt;Properties corresponding to the selected type&lt;/p&gt;&lt;p&gt;See <bpt id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;linkText&gt;</bpt>Dataset Type<ept id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;/linkText&gt;</ept><bpt id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;title&gt;</bpt><ept id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;/title&gt;</ept> section for details on the supported types and their properties.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Properties corresponding to the selected type&lt;/p&gt;&lt;p&gt;See <bpt id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;linkText&gt;</bpt>Dataset Type<ept id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;/linkText&gt;</ept><bpt id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;title&gt;</bpt><ept id="7162aef5-fb96-4219-bfb1-7d606811c62b">&lt;/title&gt;</ept> section for details on the supported types and their properties.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6bd5b42d-a3e7-43f4-bfbd-2facad9933e9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e6e483e9-bc65-48d2-9775-07f693a78371" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="4f7bd4f0-d2f3-46a4-9905-9207751bf035" xml:space="preserve">
+          <source>external</source>
+          <target state="new">external</target>
+        </trans-unit>
+        <trans-unit id="00e68488-fe74-4dcf-a542-9b8716903fc5" xml:space="preserve">
+          <source>Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not</source>
+          <target state="new">Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not</target>
+        </trans-unit>
+        <trans-unit id="b1806e16-fe8e-4344-b959-b429e8f0b866" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f76c06f4-4f56-4c37-b19a-19bb44e0523a" xml:space="preserve">
+          <source>false</source>
+          <target state="new">false</target>
+        </trans-unit>
+        <trans-unit id="d5abac8c-bfe6-4555-bbcf-1cc602a4f28d" xml:space="preserve">
+          <source>Availability</source>
+          <target state="new">Availability</target>
+        </trans-unit>
+        <trans-unit id="9a171f0b-f5be-48ba-af9f-0cfacf69ad0d" xml:space="preserve">
+          <source>&lt;p&gt;Defines the processing window or the slicing model for the dataset production. &lt;/p&gt;&lt;p&gt;See <bpt id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;linkText&gt;</bpt>Dataset Availability<ept id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;/linkText&gt;</ept><bpt id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;title&gt;</bpt><ept id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;/title&gt;</ept> topic for more details&lt;/p&gt;&lt;p&gt;See <bpt id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;linkText&gt;</bpt>Scheduling and Execution<ept id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;/linkText&gt;</ept><bpt id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;title&gt;</bpt><ept id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;/title&gt;</ept> article for more details on the dataset slicing model&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Defines the processing window or the slicing model for the dataset production. &lt;/p&gt;&lt;p&gt;See <bpt id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;linkText&gt;</bpt>Dataset Availability<ept id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;/linkText&gt;</ept><bpt id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;title&gt;</bpt><ept id="fa4b991e-4ae4-42f2-ac4f-5e70315a4232">&lt;/title&gt;</ept> topic for more details&lt;/p&gt;&lt;p&gt;See <bpt id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;linkText&gt;</bpt>Scheduling and Execution<ept id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;/linkText&gt;</ept><bpt id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;title&gt;</bpt><ept id="be433e4b-6d51-4754-8d43-7bd974535ab3">&lt;/title&gt;</ept> article for more details on the dataset slicing model&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b6f22952-76cd-413f-be87-d04dda110d51" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d7dbdb01-3161-4fb1-8dbf-c1d46ceb88d4" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="a579f2b6-26b7-4a25-9bd3-85cb833b49e1" xml:space="preserve">
+          <source>policy</source>
+          <target state="new">policy</target>
+        </trans-unit>
+        <trans-unit id="c8f32cd6-1200-40e1-b758-1c478401cd0a" xml:space="preserve">
+          <source>Defines the criteria or the condition that the dataset slices must fulfill.</source>
+          <target state="new">Defines the criteria or the condition that the dataset slices must fulfill.</target>
+        </trans-unit>
+        <trans-unit id="262ec5cf-95b9-4f9d-9ca7-e47d8b7a6db9" xml:space="preserve">
+          <source>&lt;p&gt;See <bpt id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;linkText&gt;</bpt>Dataset Policy<ept id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;/linkText&gt;</ept><bpt id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;title&gt;</bpt><ept id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;/title&gt;</ept> topic for more details&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;See <bpt id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;linkText&gt;</bpt>Dataset Policy<ept id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;/linkText&gt;</ept><bpt id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;title&gt;</bpt><ept id="73269c53-4063-437a-a6cb-11064d653d7d">&lt;/title&gt;</ept> topic for more details&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="02096f97-6614-4833-b08b-494c7759a2ff" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0db11a6b-ceda-4cfd-8c82-ccfd2ef035e1" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="cb8c331a-06f4-40a8-b3c1-3082c019159f" xml:space="preserve">
+          <source>Below is an example of a dataset representing a table named <bpt id="59f3096f-5dcf-4512-8a18-9b85492bbcde">&lt;strong&gt;</bpt>MyTable<ept id="59f3096f-5dcf-4512-8a18-9b85492bbcde">&lt;/strong&gt;</ept> in <bpt id="258e93f2-9769-4bf1-83bf-9b571a2b2b33">&lt;strong&gt;</bpt>Azure SQL database<ept id="258e93f2-9769-4bf1-83bf-9b571a2b2b33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Below is an example of a dataset representing a table named <bpt id="59f3096f-5dcf-4512-8a18-9b85492bbcde">&lt;strong&gt;</bpt>MyTable<ept id="59f3096f-5dcf-4512-8a18-9b85492bbcde">&lt;/strong&gt;</ept> in <bpt id="258e93f2-9769-4bf1-83bf-9b571a2b2b33">&lt;strong&gt;</bpt>Azure SQL database<ept id="258e93f2-9769-4bf1-83bf-9b571a2b2b33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f2a541c-103c-4af9-bed0-03461044d74d" xml:space="preserve">
+          <source>The Azure SQL database connection strings are defined in the <bpt id="e72afc52-2b2a-4155-ae84-6dcc29ce2114">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="e72afc52-2b2a-4155-ae84-6dcc29ce2114">&lt;/strong&gt;</ept> referenced in this dataset.</source>
+          <target state="new">The Azure SQL database connection strings are defined in the <bpt id="e72afc52-2b2a-4155-ae84-6dcc29ce2114">&lt;strong&gt;</bpt>AzureSqlLinkedService<ept id="e72afc52-2b2a-4155-ae84-6dcc29ce2114">&lt;/strong&gt;</ept> referenced in this dataset.</target>
+        </trans-unit>
+        <trans-unit id="6402a26f-4a83-436c-a635-895b50e0438b" xml:space="preserve">
+          <source>This dataset is sliced daily.</source>
+          <target state="new">This dataset is sliced daily.</target>
+        </trans-unit>
+        <trans-unit id="c31c8d85-8a40-4729-8ca5-413847543e46" xml:space="preserve">
+          <source>The <bpt id="71e1f6cc-3734-4c4c-8261-474cee821ea0">&lt;strong&gt;</bpt>Structure<ept id="71e1f6cc-3734-4c4c-8261-474cee821ea0">&lt;/strong&gt;</ept> section asserts the schema of the dataset.</source>
+          <target state="new">The <bpt id="71e1f6cc-3734-4c4c-8261-474cee821ea0">&lt;strong&gt;</bpt>Structure<ept id="71e1f6cc-3734-4c4c-8261-474cee821ea0">&lt;/strong&gt;</ept> section asserts the schema of the dataset.</target>
+        </trans-unit>
+        <trans-unit id="17af3bed-1c9d-472e-b637-e62975acdeb5" xml:space="preserve">
+          <source>It contains the collection of the columns and the type of these columns.</source>
+          <target state="new">It contains the collection of the columns and the type of these columns.</target>
+        </trans-unit>
+        <trans-unit id="0fc034c1-b4e1-484e-9503-f6a2ed8eadc1" xml:space="preserve">
+          <source>Each column contains the following properties:</source>
+          <target state="new">Each column contains the following properties:</target>
+        </trans-unit>
+        <trans-unit id="e552e870-b3fc-44c1-9985-89fc29420f49" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="c393a330-5cad-42f0-abe1-79ff1f17cbee" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="cc242b4d-8742-4c7b-81ab-89c397a7d98b" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="d38c3bca-a285-4441-b71b-ee8814dea446" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
+        <trans-unit id="3b8fd1d4-f5eb-478b-8e3a-1169fc591b97" xml:space="preserve">
+          <source>name</source>
+          <target state="new">name</target>
+        </trans-unit>
+        <trans-unit id="a086c9ff-961c-4f8b-aa88-2d58048ee3da" xml:space="preserve">
+          <source>Name of the column</source>
+          <target state="new">Name of the column</target>
+        </trans-unit>
+        <trans-unit id="20654db4-cb08-4be8-94f4-b0ae40875275" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="7de0d5a5-60d3-47eb-b830-d6fd320f2878" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="fc4526d7-4678-41f8-b525-0912f824e929" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="ad06dd6c-f01e-4012-a98e-7c4b1ab41ae0" xml:space="preserve">
+          <source>Data type of the column</source>
+          <target state="new">Data type of the column</target>
+        </trans-unit>
+        <trans-unit id="a7b07120-ac0c-47fa-9465-a772d3cf2d88" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="85cbcd94-e119-4779-bfde-eb82481f6c15" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="ff7e5b63-ab05-4918-95ed-ec70fd1ed638" xml:space="preserve">
+          <source>In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews.</source>
+          <target state="new">In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews.</target>
+        </trans-unit>
+        <trans-unit id="f9d2c61e-4046-4719-a930-e5032f2dd993" xml:space="preserve">
+          <source>The supported data sources and the dataset types are aligned.</source>
+          <target state="new">The supported data sources and the dataset types are aligned.</target>
+        </trans-unit>
+        <trans-unit id="a6014bb7-4286-475d-8167-9873ba78efa6" xml:space="preserve">
+          <source>See the connector topics referenced in the <bpt id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;linkText&gt;</bpt>Data Movement Activities<ept id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;/linkText&gt;</ept><bpt id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;title&gt;</bpt><ept id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;/title&gt;</ept> article for information on the types and configuration of datasets.</source>
+          <target state="new">See the connector topics referenced in the <bpt id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;linkText&gt;</bpt>Data Movement Activities<ept id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;/linkText&gt;</ept><bpt id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;title&gt;</bpt><ept id="403c408a-36e4-472e-bfd3-6d2c853e65cc">&lt;/title&gt;</ept> article for information on the types and configuration of datasets.</target>
+        </trans-unit>
+        <trans-unit id="00bc27b8-5900-4a93-8396-3db5e64e1d90" xml:space="preserve">
+          <source>The Availability section in a dataset defines the processing window or the slicing model for the dataset production.</source>
+          <target state="new">The Availability section in a dataset defines the processing window or the slicing model for the dataset production.</target>
+        </trans-unit>
+        <trans-unit id="104d35f7-b01f-47f2-b0a7-4976eed9f922" xml:space="preserve">
+          <source>See Dataset Slice topic for more details on the dataset slicing and dependency model.</source>
+          <target state="new">See Dataset Slice topic for more details on the dataset slicing and dependency model.</target>
+        </trans-unit>
+        <trans-unit id="3a835eb9-56eb-4b2c-ae41-36ac05b86b86" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="171dacd5-3882-42a8-bf96-71af2491eb59" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c9186537-c1ad-4e00-8e2a-8440a8da2e0a" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="66a528bb-fe20-459b-9ea1-d3089c53c720" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
+        <trans-unit id="5764d731-94de-4544-9746-7c33facb2636" xml:space="preserve">
+          <source>frequency</source>
+          <target state="new">frequency</target>
+        </trans-unit>
+        <trans-unit id="15ccd9cf-0cb0-4ee7-b54e-6cf62a4e60d5" xml:space="preserve">
+          <source>Specifies the time unit for dataset slice production.&lt;p&gt;<bpt id="b26012be-61e8-48a2-a613-2341b2100a1a">&lt;strong&gt;</bpt>Supported frequency<ept id="b26012be-61e8-48a2-a613-2341b2100a1a">&lt;/strong&gt;</ept>: Minute, Hour, Day, Week, Month&lt;/p&gt;</source>
+          <target state="new">Specifies the time unit for dataset slice production.&lt;p&gt;<bpt id="b26012be-61e8-48a2-a613-2341b2100a1a">&lt;strong&gt;</bpt>Supported frequency<ept id="b26012be-61e8-48a2-a613-2341b2100a1a">&lt;/strong&gt;</ept>: Minute, Hour, Day, Week, Month&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="3bad5ec7-e757-4824-a156-1570ba0fead5" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e43fabf4-b0f7-4beb-b88a-e694074b15d7" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="48edad3c-031f-4213-b876-e8edf664642f" xml:space="preserve">
+          <source>interval</source>
+          <target state="new">interval</target>
+        </trans-unit>
+        <trans-unit id="ff466024-cb06-4afd-9527-9e5418c514d7" xml:space="preserve">
+          <source>Specifies a multiplier for frequency&lt;p&gt;”Frequency x interval” determines how often the slice is produced.&lt;/p&gt;&lt;p&gt;If you need the dataset to be sliced on an hourly basis, you set <bpt id="58d3ea90-9640-4d16-bb0f-aefb89bcb753">&lt;strong&gt;</bpt>Frequency<ept id="58d3ea90-9640-4d16-bb0f-aefb89bcb753">&lt;/strong&gt;</ept> to <bpt id="a1a98c5c-cd88-43f6-821d-1e757c2353bc">&lt;strong&gt;</bpt>Hour<ept id="a1a98c5c-cd88-43f6-821d-1e757c2353bc">&lt;/strong&gt;</ept>, and <bpt id="3b1b7468-99db-4d11-a847-77c8f0dc1424">&lt;strong&gt;</bpt>interval<ept id="3b1b7468-99db-4d11-a847-77c8f0dc1424">&lt;/strong&gt;</ept> to <bpt id="8c4af4d6-7c87-4606-ab44-5f8c49b63790">&lt;strong&gt;</bpt>1<ept id="8c4af4d6-7c87-4606-ab44-5f8c49b63790">&lt;/strong&gt;</ept>.&lt;/p&gt;&lt;p&gt;<bpt id="bdc8f5fc-ac4c-4520-a9ce-63407a0b3489">&lt;strong&gt;</bpt>Note:<ept id="bdc8f5fc-ac4c-4520-a9ce-63407a0b3489">&lt;/strong&gt;</ept> If you specify Frequency as Minute, we recommend that you set the interval to no less than 15&lt;/p&gt;</source>
+          <target state="new">Specifies a multiplier for frequency&lt;p&gt;”Frequency x interval” determines how often the slice is produced.&lt;/p&gt;&lt;p&gt;If you need the dataset to be sliced on an hourly basis, you set <bpt id="58d3ea90-9640-4d16-bb0f-aefb89bcb753">&lt;strong&gt;</bpt>Frequency<ept id="58d3ea90-9640-4d16-bb0f-aefb89bcb753">&lt;/strong&gt;</ept> to <bpt id="a1a98c5c-cd88-43f6-821d-1e757c2353bc">&lt;strong&gt;</bpt>Hour<ept id="a1a98c5c-cd88-43f6-821d-1e757c2353bc">&lt;/strong&gt;</ept>, and <bpt id="3b1b7468-99db-4d11-a847-77c8f0dc1424">&lt;strong&gt;</bpt>interval<ept id="3b1b7468-99db-4d11-a847-77c8f0dc1424">&lt;/strong&gt;</ept> to <bpt id="8c4af4d6-7c87-4606-ab44-5f8c49b63790">&lt;strong&gt;</bpt>1<ept id="8c4af4d6-7c87-4606-ab44-5f8c49b63790">&lt;/strong&gt;</ept>.&lt;/p&gt;&lt;p&gt;<bpt id="bdc8f5fc-ac4c-4520-a9ce-63407a0b3489">&lt;strong&gt;</bpt>Note:<ept id="bdc8f5fc-ac4c-4520-a9ce-63407a0b3489">&lt;/strong&gt;</ept> If you specify Frequency as Minute, we recommend that you set the interval to no less than 15&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b9e6ea90-8523-4487-ae24-3e464a8a4815" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c40864f7-30f5-43ac-8963-dd3d0a52dfe5" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="bf0dd02b-acb2-4126-bce3-ff8c43767c99" xml:space="preserve">
+          <source>style</source>
+          <target state="new">style</target>
+        </trans-unit>
+        <trans-unit id="9fd4d744-6a7a-43ea-a00f-3cbf0d319bc4" xml:space="preserve">
+          <source>Specifies whether the slice should be produced at the start/end of the interval.&lt;ul&gt;&lt;li&gt;StartOfInterval&lt;/li&gt;&lt;li&gt;EndOfInterval&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of moth.&lt;.p&gt;&lt;p&gt;If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.&lt;/p&gt;If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.&lt;/p&gt;</source>
+          <target state="new">Specifies whether the slice should be produced at the start/end of the interval.&lt;ul&gt;&lt;li&gt;StartOfInterval&lt;/li&gt;&lt;li&gt;EndOfInterval&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If Frequency is set to Month and style is set to EndOfInterval, the slice is produced on the last day of month. If the style is set to StartOfInterval, the slice is produced on the first day of moth.&lt;.p&gt;&lt;p&gt;If Frequency is set to Day and style is set to EndOfInterval, the slice is produced in the last hour of the day.&lt;/p&gt;If Frequency is set to Hour and style is set to EndOfInterval, the slice is produced at the end of the hour. For example, for a slice for 1 PM – 2 PM period, the slice is produced at 2 PM.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9b8f0d08-c995-463d-b3d2-1a8478757632" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="625766e6-d6b5-4e54-8570-11709f27fd70" xml:space="preserve">
+          <source>EndOfInterval</source>
+          <target state="new">EndOfInterval</target>
+        </trans-unit>
+        <trans-unit id="890269c7-e0f3-40f3-9f4c-82bdea49dc3b" xml:space="preserve">
+          <source>anchorDateTime</source>
+          <target state="new">anchorDateTime</target>
+        </trans-unit>
+        <trans-unit id="24a6f771-2679-4cb8-ac72-3f8e6b06c5f3" xml:space="preserve">
+          <source>Defines the absolute position in time used by scheduler to compute dataset slice boundaries. &lt;p&gt;<bpt id="f44e9ed8-88fe-431b-ba5c-a353184dab48">&lt;strong&gt;</bpt>Note:<ept id="f44e9ed8-88fe-431b-ba5c-a353184dab48">&lt;/strong&gt;</ept> If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the <bpt id="ce4f794f-7d80-420e-a203-b338b02ea2e7">&lt;strong&gt;</bpt>interval<ept id="ce4f794f-7d80-420e-a203-b338b02ea2e7">&lt;/strong&gt;</ept> is <bpt id="1214e5dc-2e98-4247-b9cb-08b601e1caab">&lt;strong&gt;</bpt>hourly<ept id="1214e5dc-2e98-4247-b9cb-08b601e1caab">&lt;/strong&gt;</ept> (frequency: hour and interval: 1) and the <bpt id="782ff28b-8ae8-4a88-be7e-72ff44c3d5a8">&lt;strong&gt;</bpt>AnchorDateTime<ept id="782ff28b-8ae8-4a88-be7e-72ff44c3d5a8">&lt;/strong&gt;</ept> contains <bpt id="0a68f37e-7f3d-4634-8f5d-2e6cdc02e902">&lt;strong&gt;</bpt>minutes and seconds<ept id="0a68f37e-7f3d-4634-8f5d-2e6cdc02e902">&lt;/strong&gt;</ept>, then the <bpt id="f9b3d40b-345d-4f04-a01d-4587e6540165">&lt;strong&gt;</bpt>minutes and seconds<ept id="f9b3d40b-345d-4f04-a01d-4587e6540165">&lt;/strong&gt;</ept> parts of the AnchorDateTime will be ignored. &lt;/p&gt;</source>
+          <target state="new">Defines the absolute position in time used by scheduler to compute dataset slice boundaries. &lt;p&gt;<bpt id="f44e9ed8-88fe-431b-ba5c-a353184dab48">&lt;strong&gt;</bpt>Note:<ept id="f44e9ed8-88fe-431b-ba5c-a353184dab48">&lt;/strong&gt;</ept> If the AnchorDateTime has date parts that are more granular than the frequency then the more granular parts will be ignored. For example, if the <bpt id="ce4f794f-7d80-420e-a203-b338b02ea2e7">&lt;strong&gt;</bpt>interval<ept id="ce4f794f-7d80-420e-a203-b338b02ea2e7">&lt;/strong&gt;</ept> is <bpt id="1214e5dc-2e98-4247-b9cb-08b601e1caab">&lt;strong&gt;</bpt>hourly<ept id="1214e5dc-2e98-4247-b9cb-08b601e1caab">&lt;/strong&gt;</ept> (frequency: hour and interval: 1) and the <bpt id="782ff28b-8ae8-4a88-be7e-72ff44c3d5a8">&lt;strong&gt;</bpt>AnchorDateTime<ept id="782ff28b-8ae8-4a88-be7e-72ff44c3d5a8">&lt;/strong&gt;</ept> contains <bpt id="0a68f37e-7f3d-4634-8f5d-2e6cdc02e902">&lt;strong&gt;</bpt>minutes and seconds<ept id="0a68f37e-7f3d-4634-8f5d-2e6cdc02e902">&lt;/strong&gt;</ept>, then the <bpt id="f9b3d40b-345d-4f04-a01d-4587e6540165">&lt;strong&gt;</bpt>minutes and seconds<ept id="f9b3d40b-345d-4f04-a01d-4587e6540165">&lt;/strong&gt;</ept> parts of the AnchorDateTime will be ignored. &lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="964df685-50c1-4d94-ba8d-5119026f4e23" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c943b09f-16c7-46ea-812d-1279c77d7102" xml:space="preserve">
+          <source>01/01/0001</source>
+          <target state="new">01/01/0001</target>
+        </trans-unit>
+        <trans-unit id="46a00006-ef44-4d74-8b13-17b7d43cf2b6" xml:space="preserve">
+          <source>Offset</source>
+          <target state="new">Offset</target>
+        </trans-unit>
+        <trans-unit id="9284f872-b997-41b2-9b57-2cb1874cd3c3" xml:space="preserve">
+          <source>Timespan by which the start and end of all dataset slices are shifted.</source>
+          <target state="new">Timespan by which the start and end of all dataset slices are shifted.</target>
+        </trans-unit>
+        <trans-unit id="89c8eded-84c0-464f-a3df-5eedcebc4c20" xml:space="preserve">
+          <source>&lt;p&gt;<bpt id="7e71e7a4-b761-44e2-a902-6955aa223811">&lt;strong&gt;</bpt>Note:<ept id="7e71e7a4-b761-44e2-a902-6955aa223811">&lt;/strong&gt;</ept> If both anchorDateTime and offset are specified, the result is the combined shift.&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;<bpt id="7e71e7a4-b761-44e2-a902-6955aa223811">&lt;strong&gt;</bpt>Note:<ept id="7e71e7a4-b761-44e2-a902-6955aa223811">&lt;/strong&gt;</ept> If both anchorDateTime and offset are specified, the result is the combined shift.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="9fdaf125-4d11-4421-a504-ce2c28826871" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5be52c82-789c-41eb-9387-371810bfce04" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="b45532ea-ddf3-4f6c-9bb4-4bf47bdb8bf6" xml:space="preserve">
+          <source><bpt id="128353b2-c0b9-4717-b5f4-31e3dd45882a">&lt;strong&gt;</bpt>Example:<ept id="128353b2-c0b9-4717-b5f4-31e3dd45882a">&lt;/strong&gt;</ept> 23 hours dataset slices that starts on 2007-04-19T08:00:00</source>
+          <target state="new"><bpt id="128353b2-c0b9-4717-b5f4-31e3dd45882a">&lt;strong&gt;</bpt>Example:<ept id="128353b2-c0b9-4717-b5f4-31e3dd45882a">&lt;/strong&gt;</ept> 23 hours dataset slices that starts on 2007-04-19T08:00:00</target>
+        </trans-unit>
+        <trans-unit id="f4aabfa7-f802-4f15-b2ec-1d6b86ac6da5" xml:space="preserve">
+          <source>Daily slices that starts at 6 AM instead of the default midnight.</source>
+          <target state="new">Daily slices that starts at 6 AM instead of the default midnight.</target>
+        </trans-unit>
+        <trans-unit id="915b14a5-a51e-47ba-bdff-0ce2994a0bac" xml:space="preserve">
+          <source>In this case, SliceStart is shifted by 6 hours and will be 6 AM.</source>
+          <target state="new">In this case, SliceStart is shifted by 6 hours and will be 6 AM.</target>
+        </trans-unit>
+        <trans-unit id="91bc745f-3248-4330-968d-b0e346be825d" xml:space="preserve">
+          <source>For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.</source>
+          <target state="new">For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.</target>
+        </trans-unit>
+        <trans-unit id="31982ba7-c632-4b01-8cbb-b3f5097b6977" xml:space="preserve">
+          <source>The Policy section in the dataset defines the criteria or the condition that the dataset slices must fulfill.</source>
+          <target state="new">The Policy section in the dataset defines the criteria or the condition that the dataset slices must fulfill.</target>
+        </trans-unit>
+        <trans-unit id="af98a532-2ee1-426f-a8e4-8d92f93474da" xml:space="preserve">
+          <source>Policy Name</source>
+          <target state="new">Policy Name</target>
+        </trans-unit>
+        <trans-unit id="e0c32f92-99b0-442a-a76e-328b6be3f6a5" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="dbbf9e54-0e6e-4ebc-be06-fe1efdf97402" xml:space="preserve">
+          <source>Applied To</source>
+          <target state="new">Applied To</target>
+        </trans-unit>
+        <trans-unit id="e3eece50-a31b-45d2-8cf4-39a2a79abd52" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="15ca137f-f697-4a39-b7c4-bb7e662e82eb" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+        </trans-unit>
+        <trans-unit id="ca910907-a34a-46b0-abc3-4f287aac01c6" xml:space="preserve">
+          <source>minimumSizeMB</source>
+          <target state="new">minimumSizeMB</target>
+        </trans-unit>
+        <trans-unit id="49e24518-f1ac-475a-9007-e48b895b646d" xml:space="preserve">
+          <source>Validates that the data in an Azure blob meets the minimum size requirements (in megabytes).</source>
+          <target state="new">Validates that the data in an Azure blob meets the minimum size requirements (in megabytes).</target>
+        </trans-unit>
+        <trans-unit id="7e71ec2a-82bc-4520-bb76-76a16ade1bad" xml:space="preserve">
+          <source>Azure Blob</source>
+          <target state="new">Azure Blob</target>
+        </trans-unit>
+        <trans-unit id="b37cf52c-ba9d-44a7-af9e-e62eeb4ae703" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="33353ed9-e247-482b-ae5f-59235e42ca2c" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="189db306-4d39-4efb-956e-723a78b00afe" xml:space="preserve">
+          <source>minimumRows</source>
+          <target state="new">minimumRows</target>
+        </trans-unit>
+        <trans-unit id="6365ef58-b6f1-4f06-897c-775021339b49" xml:space="preserve">
+          <source>Validates that the data in an Azure SQL database or an Azure table contains the minimum number of rows.</source>
+          <target state="new">Validates that the data in an Azure SQL database or an Azure table contains the minimum number of rows.</target>
+        </trans-unit>
+        <trans-unit id="83851393-70e7-4323-917c-32b6cbf45c57" xml:space="preserve">
+          <source>&lt;ul&gt;&lt;li&gt;Azure SQL Database&lt;/li&gt;&lt;li&gt;Azure Table&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">&lt;ul&gt;&lt;li&gt;Azure SQL Database&lt;/li&gt;&lt;li&gt;Azure Table&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="408387ea-e78a-4df7-aacf-e29bb7b38ff6" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="0e7894ce-6433-4a3f-aad1-f39ae66975a9" xml:space="preserve">
+          <source>NA</source>
+          <target state="new">NA</target>
+        </trans-unit>
+        <trans-unit id="4f904f81-83dc-48f0-9545-7aa56d7585e0" xml:space="preserve">
+          <source><bpt id="89eb592e-35e7-48fb-9b48-582770c2e8ca">&lt;strong&gt;</bpt>minimumSizeMB:<ept id="89eb592e-35e7-48fb-9b48-582770c2e8ca">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="89eb592e-35e7-48fb-9b48-582770c2e8ca">&lt;strong&gt;</bpt>minimumSizeMB:<ept id="89eb592e-35e7-48fb-9b48-582770c2e8ca">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b9d9768-9025-45fd-95e6-b52724ecfb1e" xml:space="preserve">
+          <source><bpt id="ce70b346-8e25-4ec2-9610-5981c9362e10">&lt;strong&gt;</bpt>minimumRows<ept id="ce70b346-8e25-4ec2-9610-5981c9362e10">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ce70b346-8e25-4ec2-9610-5981c9362e10">&lt;strong&gt;</bpt>minimumRows<ept id="ce70b346-8e25-4ec2-9610-5981c9362e10">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b6e84c3-2505-44ca-9348-2d7903c91a2f" xml:space="preserve">
+          <source>External datasets are ones that are not produced by a running pipeline in the data factory.</source>
+          <target state="new">External datasets are ones that are not produced by a running pipeline in the data factory.</target>
+        </trans-unit>
+        <trans-unit id="3d51a245-f497-42ad-8092-321bfd29c38e" xml:space="preserve">
+          <source>If the dataset is marked as External, the ExternalData policy may be defined to influence the behavior of the dataset slice availability.</source>
+          <target state="new">If the dataset is marked as External, the ExternalData policy may be defined to influence the behavior of the dataset slice availability.</target>
+        </trans-unit>
+        <trans-unit id="b7787224-a17d-4560-b9f8-bb1ca881bea2" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="f5a6c677-620b-4dfd-8829-d25ba4dd078f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="643989c9-ab96-428d-90ef-d166ced43cc9" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="edc4ff99-a3ef-4e23-abe0-e481f67b758f" xml:space="preserve">
+          <source>Default Value</source>
+          <target state="new">Default Value</target>
+        </trans-unit>
+        <trans-unit id="537d9616-c85c-4dda-a7c1-33585b0437a4" xml:space="preserve">
+          <source>dataDelay</source>
+          <target state="new">dataDelay</target>
+        </trans-unit>
+        <trans-unit id="f8a40d7f-18de-4823-812f-5091ade067e8" xml:space="preserve">
+          <source>&lt;p&gt;Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is actually available and the corresponding slice is Ready can be delayed by dataDelay.&lt;/p&gt;&lt;p&gt;Only applies to the present time; for example, if it is 1:00 PM right now and this value is 10 minutes, the validation will start at 1:10 PM.&lt;/p&gt;&lt;p&gt;This setting does not affect slices in the past (slices with Slice End Time + dataDelay &lt; Now) will be processed without any delay.&lt;/p&gt; &lt;p&gt;Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it will be treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. &lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is actually available and the corresponding slice is Ready can be delayed by dataDelay.&lt;/p&gt;&lt;p&gt;Only applies to the present time; for example, if it is 1:00 PM right now and this value is 10 minutes, the validation will start at 1:10 PM.&lt;/p&gt;&lt;p&gt;This setting does not affect slices in the past (slices with Slice End Time + dataDelay &lt; Now) will be processed without any delay.&lt;/p&gt; &lt;p&gt;Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it will be treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. &lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="6e0dd1c0-d868-4b06-8fa6-8af333907c09" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b43dbd52-d094-492a-9f36-e8ddaab4b10f" xml:space="preserve">
+          <source>0</source>
+          <target state="new">0</target>
+        </trans-unit>
+        <trans-unit id="dab25d6a-9526-4e21-be24-1665965d5886" xml:space="preserve">
+          <source>retryInterval</source>
+          <target state="new">retryInterval</target>
+        </trans-unit>
+        <trans-unit id="95e3e4ad-8472-4a67-a2c6-a53e4a4437fd" xml:space="preserve">
+          <source>The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. &lt;p&gt;If it is 1:00pm right now, we will begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry will be at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. &lt;/p&gt;&lt;p&gt;For slices in the past, there will be no delay. The retry will happen immediately.&lt;/p&gt;</source>
+          <target state="new">The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. &lt;p&gt;If it is 1:00pm right now, we will begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry will be at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. &lt;/p&gt;&lt;p&gt;For slices in the past, there will be no delay. The retry will happen immediately.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="5d5a33e7-206f-42bc-b5d8-473985ede799" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a4af8045-e0a7-4726-b70a-2c92ec9e723b" xml:space="preserve">
+          <source>00:01:00 (1 minute)</source>
+          <target state="new">00:01:00 (1 minute)</target>
+        </trans-unit>
+        <trans-unit id="12d04e41-4568-40fd-8c85-7dcaa4a3f374" xml:space="preserve">
+          <source>retryTimeout</source>
+          <target state="new">retryTimeout</target>
+        </trans-unit>
+        <trans-unit id="991e4bf4-ab93-4cfc-89cf-292535a15202" xml:space="preserve">
+          <source>The timeout for each retry attempt.&lt;p&gt;If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry will time out.&lt;/p&gt;&lt;p&gt;If all attempts for the validation times out, the slice will be marked as TimedOut.&lt;/p&gt;</source>
+          <target state="new">The timeout for each retry attempt.&lt;p&gt;If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry will time out.&lt;/p&gt;&lt;p&gt;If all attempts for the validation times out, the slice will be marked as TimedOut.&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="461482b9-465c-4d1a-b1b0-8647d101cd55" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="25c76d24-10a2-4a09-add2-d6dab07df075" xml:space="preserve">
+          <source>00:10:00 (10 minutes)</source>
+          <target state="new">00:10:00 (10 minutes)</target>
+        </trans-unit>
+        <trans-unit id="fad37148-2f74-49e3-ab0b-78e9d847bbc4" xml:space="preserve">
+          <source>maximumRetry</source>
+          <target state="new">maximumRetry</target>
+        </trans-unit>
+        <trans-unit id="a5899849-564b-497d-885c-e2f48bec292f" xml:space="preserve">
+          <source>Number of times to check for the availability of the external data.</source>
+          <target state="new">Number of times to check for the availability of the external data.</target>
+        </trans-unit>
+        <trans-unit id="a2cdb709-ca1b-4d30-b113-f611f1c84186" xml:space="preserve">
+          <source>The allowed maximum value is 10.</source>
+          <target state="new">The allowed maximum value is 10.</target>
+        </trans-unit>
+        <trans-unit id="18199923-9da8-403c-af85-165c0d87277c" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9b565f95-71ce-45ec-8240-48ff048e2f76" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="2b6d62f5-ae31-4979-8882-28bec912344a" xml:space="preserve">
+          <source>If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the <bpt id="09115710-f2a7-4742-af8c-9c4db43f6c85">&lt;strong&gt;</bpt>offset<ept id="09115710-f2a7-4742-af8c-9c4db43f6c85">&lt;/strong&gt;</ept> tag to set the date and time it should run.</source>
+          <target state="new">If you need to run a pipeline on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the <bpt id="09115710-f2a7-4742-af8c-9c4db43f6c85">&lt;strong&gt;</bpt>offset<ept id="09115710-f2a7-4742-af8c-9c4db43f6c85">&lt;/strong&gt;</ept> tag to set the date and time it should run.</target>
+        </trans-unit>
+        <trans-unit id="1e36b3e0-17ba-47c0-aece-796e910cc1d0" xml:space="preserve">
+          <source>We would really appreciate your feedback on this article.</source>
+          <target state="new">We would really appreciate your feedback on this article.</target>
+        </trans-unit>
+        <trans-unit id="41a03fca-02c5-43a6-af4f-1930f7fe25d9" xml:space="preserve">
+          <source>Please take a few minutes to submit your feedback via <bpt id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;linkText&gt;</bpt>email<ept id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;/linkText&gt;</ept><bpt id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;title&gt;</bpt><ept id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please take a few minutes to submit your feedback via <bpt id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;linkText&gt;</bpt>email<ept id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;/linkText&gt;</ept><bpt id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;title&gt;</bpt><ept id="68ce3a45-7042-4ffc-a0e0-788ec645b075">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

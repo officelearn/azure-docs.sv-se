@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0698beb9-c54e-410c-b1ec-c784a3038f60" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0698beb9-c54e-410c-b1ec-c784a3038f60" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="65b45ea4-d952-49b5-aaf2-99f1643ed5ee">
+        <trans-unit id="0ba1460a-e7c4-4fa6-bded-58944b649325" xml:space="preserve">
+          <source>Hourly land-based weather observations from NOAA (&lt;a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310"&gt;merged data from 201304 to 201310&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The weather data covers observations made from airport weather stations, covering the time period April-October 2013.</source>
+          <target state="new">Hourly land-based weather observations from NOAA (&lt;a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310"&gt;merged data from 201304 to 201310&lt;/a&gt;).&lt;p&gt; &lt;/p&gt;The weather data covers observations made from airport weather stations, covering the time period April-October 2013.</target>
+        </trans-unit>
+        <trans-unit id="df50bfe1-aeae-4552-856e-89547132f210" xml:space="preserve">
+          <source>Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;Weather station IDs were mapped to corresponding airport IDs&lt;/li&gt;&lt;li&gt;Weather stations not associated with the 70 busiest airports were filtered out&lt;/li&gt;&lt;li&gt;The Date column was split into separate Year, Month, and Day columns&lt;/li&gt;&lt;li&gt;The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">Before uploading to Azure ML Studio, the dataset was processed as follows:&lt;ul&gt;&lt;li&gt;Weather station IDs were mapped to corresponding airport IDs&lt;/li&gt;&lt;li&gt;Weather stations not associated with the 70 busiest airports were filtered out&lt;/li&gt;&lt;li&gt;The Date column was split into separate Year, Month, and Day columns&lt;/li&gt;&lt;li&gt;The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="313efe0d-10b0-4c7d-9eef-658cd49e90b3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="313efe0d-10b0-4c7d-9eef-658cd49e90b3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="491f33a0-5ec4-4727-990f-e6526300e2e4">
+        <trans-unit id="99adc39e-fd0f-4228-a0d1-4b9df70f98b3" xml:space="preserve">
+          <source>Manage DocumentDB capacity | Microsoft Azure</source>
+          <target state="new">Manage DocumentDB capacity | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f966f429-e4e7-4134-8f19-47c9f179d7d1" xml:space="preserve">
+          <source>Learn how you can scale DocumentDB to meet the capacity needs of your application.</source>
+          <target state="new">Learn how you can scale DocumentDB to meet the capacity needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="9f0e627c-0b19-4d9d-8c6b-e01a63f93db4" xml:space="preserve">
+          <source>DocumentDB is a fully managed, scalable document oriented NoSQL database service.</source>
+          <target state="new">DocumentDB is a fully managed, scalable document oriented NoSQL database service.</target>
+        </trans-unit>
+        <trans-unit id="193a7929-7125-4513-b993-abc32b446f3c" xml:space="preserve">
+          <source>With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery.</source>
+          <target state="new">With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="a532ed4d-8349-45a1-971f-8608387d4d2a" xml:space="preserve">
+          <source>DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.</source>
+          <target state="new">DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.</target>
+        </trans-unit>
+        <trans-unit id="f8e54172-a27c-4729-b40a-4a6e5411150a" xml:space="preserve">
+          <source>You can get started with DocumentDB by <bpt id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;linkText&gt;</bpt>creating a database account<ept id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;/linkText&gt;</ept><bpt id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;title&gt;</bpt><ept id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;/title&gt;</ept> through the <bpt id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;/linkText&gt;</ept><bpt id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;title&gt;</bpt><ept id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get started with DocumentDB by <bpt id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;linkText&gt;</bpt>creating a database account<ept id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;/linkText&gt;</ept><bpt id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;title&gt;</bpt><ept id="daf45e05-f7e0-4d4c-baed-e56a8571797d">&lt;/title&gt;</ept> through the <bpt id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;/linkText&gt;</ept><bpt id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;title&gt;</bpt><ept id="2d0c16f2-ef3c-4715-a3ee-d170f014eac1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b51a83a-6215-4b4e-bdd0-ba3a5af706f8" xml:space="preserve">
+          <source>DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput.</source>
+          <target state="new">DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput.</target>
+        </trans-unit>
+        <trans-unit id="f0f9d951-122c-45d8-aec8-301a2dbca564" xml:space="preserve">
+          <source>These units are provisioned by creating database collections within your database account.</source>
+          <target state="new">These units are provisioned by creating database collections within your database account.</target>
+        </trans-unit>
+        <trans-unit id="a2f51fe3-8580-42c0-ba19-fcbdaf2fb6ed" xml:space="preserve">
+          <source>Each collection includes 10GB of database storage with reserved throughput.</source>
+          <target state="new">Each collection includes 10GB of database storage with reserved throughput.</target>
+        </trans-unit>
+        <trans-unit id="4a2459c7-56a1-4e0b-9dfd-0514012816ff" xml:space="preserve">
+          <source>If the throughput requirements of your application change, you dynamically change this by setting the <bpt id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;linkText&gt;</bpt>performance level<ept id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;/linkText&gt;</ept><bpt id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;title&gt;</bpt><ept id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;/title&gt;</ept> for each collection.</source>
+          <target state="new">If the throughput requirements of your application change, you dynamically change this by setting the <bpt id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;linkText&gt;</bpt>performance level<ept id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;/linkText&gt;</ept><bpt id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;title&gt;</bpt><ept id="7b38e1d8-e45d-47d2-abde-41ebf50c4b2d">&lt;/title&gt;</ept> for each collection.</target>
+        </trans-unit>
+        <trans-unit id="86bb083f-9a92-49e1-b041-faddad30bbe4" xml:space="preserve">
+          <source>When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis.</source>
+          <target state="new">When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis.</target>
+        </trans-unit>
+        <trans-unit id="10863606-d1ac-4655-8991-8e60db1ee978" xml:space="preserve">
+          <source>This means that some application requests may succeed while others may be throttled.</source>
+          <target state="new">This means that some application requests may succeed while others may be throttled.</target>
+        </trans-unit>
+        <trans-unit id="b11f6589-87e2-4c7c-a926-b38be77935d4" xml:space="preserve">
+          <source>As an Azure subscriber, you can provision one or more DocumentDB database accounts.</source>
+          <target state="new">As an Azure subscriber, you can provision one or more DocumentDB database accounts.</target>
+        </trans-unit>
+        <trans-unit id="37aedce6-38d6-4ca0-8530-d37ab621d9c5" xml:space="preserve">
+          <source>Each database account comes with a quota of administrative resources including databases, users, and permissions.</source>
+          <target state="new">Each database account comes with a quota of administrative resources including databases, users, and permissions.</target>
+        </trans-unit>
+        <trans-unit id="5eee08f7-da9d-4fbc-abfd-93b6861e04ca" xml:space="preserve">
+          <source>These resources are subject to <bpt id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;linkText&gt;</bpt>limits and quotas<ept id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;/linkText&gt;</ept><bpt id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;title&gt;</bpt><ept id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;/title&gt;</ept>.</source>
+          <target state="new">These resources are subject to <bpt id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;linkText&gt;</bpt>limits and quotas<ept id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;/linkText&gt;</ept><bpt id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;title&gt;</bpt><ept id="eac8142c-2331-4ce5-87a3-24288d894403">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="554b9e51-bf2d-47b0-a9be-16a448d02483" xml:space="preserve">
+          <source>If you need additional administrative resources, please <bpt id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;linkText&gt;</bpt>contact support<ept id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;/linkText&gt;</ept><bpt id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;title&gt;</bpt><ept id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need additional administrative resources, please <bpt id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;linkText&gt;</bpt>contact support<ept id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;/linkText&gt;</ept><bpt id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;title&gt;</bpt><ept id="f1c56b50-5efd-46c4-bc6a-146f007f4c19">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78a437e3-0f4e-447b-b520-7cb5c5f70799" xml:space="preserve">
+          <source>A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections.</source>
+          <target state="new">A single DocumentDB database can contain practically an unlimited amount of document storage partitioned by collections.</target>
+        </trans-unit>
+        <trans-unit id="e0ebd707-b8bd-4711-9872-eb1fd579b044" xml:space="preserve">
+          <source>Collections form the transaction domains for the documents contained within them.</source>
+          <target state="new">Collections form the transaction domains for the documents contained within them.</target>
+        </trans-unit>
+        <trans-unit id="9bacd600-b537-4403-b117-30e1eab9efae" xml:space="preserve">
+          <source>A DocumentDB database is elastic in size – ranging from a few GB to potentially terabytes of SSD backed document storage and provisioned throughput.</source>
+          <target state="new">A DocumentDB database is elastic in size – ranging from a few GB to potentially terabytes of SSD backed document storage and provisioned throughput.</target>
+        </trans-unit>
+        <trans-unit id="f70fca80-a63e-4361-8a5f-83357050e18f" xml:space="preserve">
+          <source>Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.</source>
+          <target state="new">Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine.</target>
+        </trans-unit>
+        <trans-unit id="9ba62bb2-d695-4c2c-94df-25f1410e0d9f" xml:space="preserve">
+          <source>With DocumentDB, as you need to scale your applications, you can create more collections or databases or both.</source>
+          <target state="new">With DocumentDB, as you need to scale your applications, you can create more collections or databases or both.</target>
+        </trans-unit>
+        <trans-unit id="d8b21efd-007f-4248-b608-56799ff44404" xml:space="preserve">
+          <source>Various first party applications within Microsoft are using DocumentDB at consumer scale by creating extremely large DocumentDB databases each containing hundreds or thousands of collections with terabytes of document storage.</source>
+          <target state="new">Various first party applications within Microsoft are using DocumentDB at consumer scale by creating extremely large DocumentDB databases each containing hundreds or thousands of collections with terabytes of document storage.</target>
+        </trans-unit>
+        <trans-unit id="c84cff87-f8bd-4266-82d5-ac47bceda62c" xml:space="preserve">
+          <source>You can grow or shrink a database by adding or removing collections to meet your application’s scale requirements.</source>
+          <target state="new">You can grow or shrink a database by adding or removing collections to meet your application’s scale requirements.</target>
+        </trans-unit>
+        <trans-unit id="673e5689-345d-466c-a213-1b45051b943a" xml:space="preserve">
+          <source>Each DocumentDB database can contain one or more collections.</source>
+          <target state="new">Each DocumentDB database can contain one or more collections.</target>
+        </trans-unit>
+        <trans-unit id="19258141-63a4-4b3c-9cfd-85f56080408c" xml:space="preserve">
+          <source>Collections act as highly available data partitions for document storage and processing.</source>
+          <target state="new">Collections act as highly available data partitions for document storage and processing.</target>
+        </trans-unit>
+        <trans-unit id="22d6f629-a88b-4798-b682-0510e59d0996" xml:space="preserve">
+          <source>Each collection can store documents with heterogeneous schema.</source>
+          <target state="new">Each collection can store documents with heterogeneous schema.</target>
+        </trans-unit>
+        <trans-unit id="57176e05-7289-4f5f-a7ad-eb2ac484acc5" xml:space="preserve">
+          <source>DocumentDB's automatic indexing and query capabilities allow you to easily filter and retrieve documents.</source>
+          <target state="new">DocumentDB's automatic indexing and query capabilities allow you to easily filter and retrieve documents.</target>
+        </trans-unit>
+        <trans-unit id="95d4add9-fbc6-4f4c-90d0-882dadb99054" xml:space="preserve">
+          <source>A collection provides the scope for document storage and query execution.</source>
+          <target state="new">A collection provides the scope for document storage and query execution.</target>
+        </trans-unit>
+        <trans-unit id="839baea5-a458-4bb7-9bdb-ffb0a8fb4c68" xml:space="preserve">
+          <source>A collection is also a transaction domain for all the documents contained within it.</source>
+          <target state="new">A collection is also a transaction domain for all the documents contained within it.</target>
+        </trans-unit>
+        <trans-unit id="cc3c8f89-4465-45e8-816f-f3986f88bf6d" xml:space="preserve">
+          <source>Collections are allocated throughput based on their specified performance level.</source>
+          <target state="new">Collections are allocated throughput based on their specified performance level.</target>
+        </trans-unit>
+        <trans-unit id="999b2517-dd17-4de8-8052-7eaea5089aec" xml:space="preserve">
+          <source>This can be adjusted dynamically through the Azure Preview portal or one of the SDKs.</source>
+          <target state="new">This can be adjusted dynamically through the Azure Preview portal or one of the SDKs.</target>
+        </trans-unit>
+        <trans-unit id="6162248a-ce76-4e8a-b3b8-13492fbb64ec" xml:space="preserve">
+          <source>You can create any number of collections to meet the storage and throughput scale requirements of your applications.</source>
+          <target state="new">You can create any number of collections to meet the storage and throughput scale requirements of your applications.</target>
+        </trans-unit>
+        <trans-unit id="d3047c35-f374-4af8-91b8-96bc2817bec0" xml:space="preserve">
+          <source>Collections can be created through the <bpt id="722427f6-d914-42fb-a776-cf0094492400">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="722427f6-d914-42fb-a776-cf0094492400">&lt;/linkText&gt;</ept><bpt id="722427f6-d914-42fb-a776-cf0094492400">&lt;title&gt;</bpt><ept id="722427f6-d914-42fb-a776-cf0094492400">&lt;/title&gt;</ept> or through any one of the <bpt id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;/linkText&gt;</ept><bpt id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;title&gt;</bpt><ept id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Collections can be created through the <bpt id="722427f6-d914-42fb-a776-cf0094492400">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="722427f6-d914-42fb-a776-cf0094492400">&lt;/linkText&gt;</ept><bpt id="722427f6-d914-42fb-a776-cf0094492400">&lt;title&gt;</bpt><ept id="722427f6-d914-42fb-a776-cf0094492400">&lt;/title&gt;</ept> or through any one of the <bpt id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;/linkText&gt;</ept><bpt id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;title&gt;</bpt><ept id="67cf4ac5-9329-4509-b733-b0b6f18ead4b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b46007c-5acf-414b-bdca-6ab05843edda" xml:space="preserve">
+          <source>Each collection supports storage for up to 10GB of document data.</source>
+          <target state="new">Each collection supports storage for up to 10GB of document data.</target>
+        </trans-unit>
+        <trans-unit id="6b4bd6d5-f586-4e3b-b13e-ed162c19b094" xml:space="preserve">
+          <source>DocumentDB allows for a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures and triggers – all operating on the documents within a database collection.</source>
+          <target state="new">DocumentDB allows for a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures and triggers – all operating on the documents within a database collection.</target>
+        </trans-unit>
+        <trans-unit id="f8b2a625-04bf-4645-a293-009ec7b67d7c" xml:space="preserve">
+          <source>The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.</source>
+          <target state="new">The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation.</target>
+        </trans-unit>
+        <trans-unit id="af020fef-7fd2-4916-a2ad-ceb220ef87cd" xml:space="preserve">
+          <source>Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.</source>
+          <target state="new">Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.</target>
+        </trans-unit>
+        <trans-unit id="1a22e80b-8568-47c9-9fbf-5e67bffe6dc7" xml:space="preserve">
+          <source>Request units are provisioned and assigned based on the performance level set for a collection.</source>
+          <target state="new">Request units are provisioned and assigned based on the performance level set for a collection.</target>
+        </trans-unit>
+        <trans-unit id="b087ea88-1da6-4da7-8793-78604fb9e231" xml:space="preserve">
+          <source>Each collection is designated a performance level upon creation.</source>
+          <target state="new">Each collection is designated a performance level upon creation.</target>
+        </trans-unit>
+        <trans-unit id="6ea5e1b3-8696-453d-a958-cccba0e78a22" xml:space="preserve">
+          <source>This performance level determines the processing capacity of a collection in request units per second.</source>
+          <target state="new">This performance level determines the processing capacity of a collection in request units per second.</target>
+        </trans-unit>
+        <trans-unit id="7440f180-1503-47fb-ac8f-8a9060e709d3" xml:space="preserve">
+          <source>Performance levels can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application.</source>
+          <target state="new">Performance levels can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application.</target>
+        </trans-unit>
+        <trans-unit id="54e3d3db-3413-4031-85da-cad37d81a7d8" xml:space="preserve">
+          <source>For more information, see <bpt id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;linkText&gt;</bpt>DocumentDB performance levels<ept id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;/linkText&gt;</ept><bpt id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;title&gt;</bpt><ept id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;linkText&gt;</bpt>DocumentDB performance levels<ept id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;/linkText&gt;</ept><bpt id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;title&gt;</bpt><ept id="631fa6c4-13d1-4ae2-be8a-347c5db7d9c3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1f5fd95-df2f-49a6-b5a4-b5f78ec4a571" xml:space="preserve">
+          <source>Collections are billable entities.</source>
+          <target state="new">Collections are billable entities.</target>
+        </trans-unit>
+        <trans-unit id="0f285872-1d1d-47ac-aed9-50a7f9279b4c" xml:space="preserve">
+          <source>The cost is determined by the performance level assigned to the collection.</source>
+          <target state="new">The cost is determined by the performance level assigned to the collection.</target>
+        </trans-unit>
+        <trans-unit id="d43447bc-b4fd-4f58-beab-ec8e3b8e6239" xml:space="preserve">
+          <source>Request unit consumption is evaluated as a rate per second.</source>
+          <target state="new">Request unit consumption is evaluated as a rate per second.</target>
+        </trans-unit>
+        <trans-unit id="bdbb6f93-d4ec-4cab-98be-33dda82483ea" xml:space="preserve">
+          <source>For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level.</source>
+          <target state="new">For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level.</target>
+        </trans-unit>
+        <trans-unit id="9b5fcced-edc8-416c-afed-beeda1aefd69" xml:space="preserve">
+          <source>If your application requires a higher level of throughput, you can adjust the performance level of existing collections or spread the applications requests across new collections.</source>
+          <target state="new">If your application requires a higher level of throughput, you can adjust the performance level of existing collections or spread the applications requests across new collections.</target>
+        </trans-unit>
+        <trans-unit id="d17756ad-c063-425f-9e64-ca2adc4f0d41" xml:space="preserve">
+          <source>A request unit is a normalized measure of request processing cost.</source>
+          <target state="new">A request unit is a normalized measure of request processing cost.</target>
+        </trans-unit>
+        <trans-unit id="c32408c9-1484-4bfd-8502-736df4d3de45" xml:space="preserve">
+          <source>A single request unit represents the processing capacity required to read (via self link) a single 1KB JSON document consisting of 10 unique property values.</source>
+          <target state="new">A single request unit represents the processing capacity required to read (via self link) a single 1KB JSON document consisting of 10 unique property values.</target>
+        </trans-unit>
+        <trans-unit id="8bf11734-f460-4efb-8801-5d1e476c042e" xml:space="preserve">
+          <source>The request unit charge assumes a consistency level set to the default “Session” and all of documents automatically indexed.</source>
+          <target state="new">The request unit charge assumes a consistency level set to the default “Session” and all of documents automatically indexed.</target>
+        </trans-unit>
+        <trans-unit id="c9db43b7-59fc-459e-a4b9-ea9bf8a2deff" xml:space="preserve">
+          <source>A request to insert, replace or delete the same document will consume more processing from the service and thereby more request units.</source>
+          <target state="new">A request to insert, replace or delete the same document will consume more processing from the service and thereby more request units.</target>
+        </trans-unit>
+        <trans-unit id="41104dfa-ad68-42f1-a67b-449b1c0001a7" xml:space="preserve">
+          <source>Each response from the service includes a custom header (x-ms-request-charge) that measures the request units consumed for the request.</source>
+          <target state="new">Each response from the service includes a custom header (x-ms-request-charge) that measures the request units consumed for the request.</target>
+        </trans-unit>
+        <trans-unit id="3cd3eda0-3b55-4fbc-b235-1120365d51b7" xml:space="preserve">
+          <source>This header is also accessible through the <bpt id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;linkText&gt;</bpt>SDKs<ept id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;/linkText&gt;</ept><bpt id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;title&gt;</bpt><ept id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;/title&gt;</ept>.</source>
+          <target state="new">This header is also accessible through the <bpt id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;linkText&gt;</bpt>SDKs<ept id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;/linkText&gt;</ept><bpt id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;title&gt;</bpt><ept id="1342027c-da58-4f35-9a83-7efbb49f7425">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86b2e820-5a70-4df7-9e6d-7e936ed96165" xml:space="preserve">
+          <source>In the .NET SDK, RequestCharge is a property of the ResourceResponse object.</source>
+          <target state="new">In the .NET SDK, RequestCharge is a property of the ResourceResponse object.</target>
+        </trans-unit>
+        <trans-unit id="2385379c-316f-4042-b220-896e9ef11c84" xml:space="preserve">
+          <source>The baseline of 1 request unit for a 1KB document corresponds to a simple GET by self link of the document.</source>
+          <target state="new">The baseline of 1 request unit for a 1KB document corresponds to a simple GET by self link of the document.</target>
+        </trans-unit>
+        <trans-unit id="ff8feaa6-4d2b-464e-8de4-2e2cdbef8f7b" xml:space="preserve">
+          <source>There are several factors that impact the request units consumed for an operation against a DocumentDB database account.</source>
+          <target state="new">There are several factors that impact the request units consumed for an operation against a DocumentDB database account.</target>
+        </trans-unit>
+        <trans-unit id="52648c18-6755-4ad5-a617-f539e9f3b56f" xml:space="preserve">
+          <source>These factors include:</source>
+          <target state="new">These factors include:</target>
+        </trans-unit>
+        <trans-unit id="894e4286-72dc-49cb-9f51-a424b0ad5a05" xml:space="preserve">
+          <source>Document size.</source>
+          <target state="new">Document size.</target>
+        </trans-unit>
+        <trans-unit id="d017f1b9-5df0-4b42-8bf6-067df51e0f83" xml:space="preserve">
+          <source>As document sizes increase the units consumed to read or write the data will also increase.</source>
+          <target state="new">As document sizes increase the units consumed to read or write the data will also increase.</target>
+        </trans-unit>
+        <trans-unit id="ed388ed1-b896-4d7c-b059-b982afe6d147" xml:space="preserve">
+          <source>Property count.</source>
+          <target state="new">Property count.</target>
+        </trans-unit>
+        <trans-unit id="df798385-7a9d-4dcc-a89b-2d27f96eb6bb" xml:space="preserve">
+          <source>Assuming default indexing of all properties, the units consumed to write a document will increase as the property count increases.</source>
+          <target state="new">Assuming default indexing of all properties, the units consumed to write a document will increase as the property count increases.</target>
+        </trans-unit>
+        <trans-unit id="d66b702c-5814-45eb-acd7-35ac82776073" xml:space="preserve">
+          <source>Data consistency.</source>
+          <target state="new">Data consistency.</target>
+        </trans-unit>
+        <trans-unit id="305b5736-18e5-4612-922a-32b4d0259441" xml:space="preserve">
+          <source>When using data consistency levels of Strong or Bounded Staleness, additional units will be consumed to read documents.</source>
+          <target state="new">When using data consistency levels of Strong or Bounded Staleness, additional units will be consumed to read documents.</target>
+        </trans-unit>
+        <trans-unit id="71c69d33-a374-4151-bafe-669a034907d5" xml:space="preserve">
+          <source>Indexed properties.</source>
+          <target state="new">Indexed properties.</target>
+        </trans-unit>
+        <trans-unit id="dbe39dbc-b25c-4ac1-af4d-f6437ac244c9" xml:space="preserve">
+          <source>An index policy on each collection determines which properties are indexed by default.</source>
+          <target state="new">An index policy on each collection determines which properties are indexed by default.</target>
+        </trans-unit>
+        <trans-unit id="f1499222-986c-4853-b923-4dde1d67c4b1" xml:space="preserve">
+          <source>You can reduce your request unit consumption by limiting the number of indexed properties.</source>
+          <target state="new">You can reduce your request unit consumption by limiting the number of indexed properties.</target>
+        </trans-unit>
+        <trans-unit id="397ac1d2-d8ff-4190-92f0-08a72b8cf4ac" xml:space="preserve">
+          <source>Document indexing.</source>
+          <target state="new">Document indexing.</target>
+        </trans-unit>
+        <trans-unit id="f0b6ee80-da43-440e-bb76-eb0bce85dd18" xml:space="preserve">
+          <source>By default each document is automatically indexed, you will consume fewer request units if you choose not to index some of your documents.</source>
+          <target state="new">By default each document is automatically indexed, you will consume fewer request units if you choose not to index some of your documents.</target>
+        </trans-unit>
+        <trans-unit id="12c32022-a4dc-4fd9-bbe8-3c9dcf06fbee" xml:space="preserve">
+          <source>Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed.</source>
+          <target state="new">Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed.</target>
+        </trans-unit>
+        <trans-unit id="dc3eb9cd-2014-4f3b-8b4e-c21e008c0800" xml:space="preserve">
+          <source>As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.</source>
+          <target state="new">As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.</target>
+        </trans-unit>
+        <trans-unit id="47f8d1e3-a6de-4809-a101-79ba6557af8a" xml:space="preserve">
+          <source>The choice of default consistency level has an impact on the throughput and latency.</source>
+          <target state="new">The choice of default consistency level has an impact on the throughput and latency.</target>
+        </trans-unit>
+        <trans-unit id="e64a18ac-39c1-4a8d-8756-68fc19c2f146" xml:space="preserve">
+          <source>You can set the default consistency level both programmatically and through the Azure Preview portal.</source>
+          <target state="new">You can set the default consistency level both programmatically and through the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="56168248-fe04-4804-bac4-8a600c772813" xml:space="preserve">
+          <source>You can also override the consistency level on a per request basis.</source>
+          <target state="new">You can also override the consistency level on a per request basis.</target>
+        </trans-unit>
+        <trans-unit id="f488e8ce-ab9b-4edf-912e-9bebba4edd13" xml:space="preserve">
+          <source>By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees.</source>
+          <target state="new">By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees.</target>
+        </trans-unit>
+        <trans-unit id="240fde9d-cfd4-47da-a01f-780d5a6d7cb7" xml:space="preserve">
+          <source>Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.</source>
+          <target state="new">Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.</target>
+        </trans-unit>
+        <trans-unit id="3e184873-8d48-41bf-a5a6-a177c1df846d" xml:space="preserve">
+          <source>For instructions on changing your consistency level on the Azure Preview portal, see <bpt id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;linkText&gt;</bpt>How to Manage a DocumentDB Account<ept id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;/linkText&gt;</ept><bpt id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;title&gt;</bpt><ept id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on changing your consistency level on the Azure Preview portal, see <bpt id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;linkText&gt;</bpt>How to Manage a DocumentDB Account<ept id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;/linkText&gt;</ept><bpt id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;title&gt;</bpt><ept id="5f773edb-9557-454c-95b3-f70cc1d3d2d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="106dc335-7678-4ce6-877b-c64b88a27681" xml:space="preserve">
+          <source>Or, for more information on consistency levels, see <bpt id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;linkText&gt;</bpt>Using consistency levels<ept id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;/linkText&gt;</ept><bpt id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;title&gt;</bpt><ept id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;/title&gt;</ept>.</source>
+          <target state="new">Or, for more information on consistency levels, see <bpt id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;linkText&gt;</bpt>Using consistency levels<ept id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;/linkText&gt;</ept><bpt id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;title&gt;</bpt><ept id="1bb4dc43-6abf-48bc-8e5e-8b60c34b3147">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98062761-a09b-4024-b433-2ec46ce617c2" xml:space="preserve">
+          <source>With each collection created you are provisioned with 10GB of SSD backed document storage.</source>
+          <target state="new">With each collection created you are provisioned with 10GB of SSD backed document storage.</target>
+        </trans-unit>
+        <trans-unit id="3d664343-b05f-4cf2-9c9b-f8ff6dc94b39" xml:space="preserve">
+          <source>The 10GB of document storage includes the documents plus storage for the index.</source>
+          <target state="new">The 10GB of document storage includes the documents plus storage for the index.</target>
+        </trans-unit>
+        <trans-unit id="e8c60ba6-06a3-460f-b4fd-ea0b9786659d" xml:space="preserve">
+          <source>By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema.</source>
+          <target state="new">By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema.</target>
+        </trans-unit>
+        <trans-unit id="c959f4f7-9b55-4da6-b04d-804d67f8b193" xml:space="preserve">
+          <source>Based on applications using DocumentDB, the typical index overhead is between 2-20%.</source>
+          <target state="new">Based on applications using DocumentDB, the typical index overhead is between 2-20%.</target>
+        </trans-unit>
+        <trans-unit id="777bc829-55c9-4e81-bd51-aea7f0ec3b40" xml:space="preserve">
+          <source>The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings.</source>
+          <target state="new">The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings.</target>
+        </trans-unit>
+        <trans-unit id="d6e67437-226b-4f88-a55a-c7f3600409cb" xml:space="preserve">
+          <source>By default all documents are indexed by DocumentDB automatically.</source>
+          <target state="new">By default all documents are indexed by DocumentDB automatically.</target>
+        </trans-unit>
+        <trans-unit id="b7a3ad19-2544-4b94-851d-c51a3fddaaa4" xml:space="preserve">
+          <source>However, if you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document, as described in <bpt id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;/linkText&gt;</ept><bpt id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;title&gt;</bpt><ept id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;/title&gt;</ept>.</source>
+          <target state="new">However, if you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document, as described in <bpt id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;linkText&gt;</bpt>DocumentDB indexing policies<ept id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;/linkText&gt;</ept><bpt id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;title&gt;</bpt><ept id="7176fdf4-175a-4509-a842-84da9faf7485">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5d8d645-bdb7-4e16-94d7-29229d2df5d5" xml:space="preserve">
+          <source>You can configure a DocumentDB collection to exclude all documents within the collection from being indexed.</source>
+          <target state="new">You can configure a DocumentDB collection to exclude all documents within the collection from being indexed.</target>
+        </trans-unit>
+        <trans-unit id="9258b2b7-789d-4935-bbc0-c5e4f5c7ba49" xml:space="preserve">
+          <source>You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents, as described in <bpt id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;linkText&gt;</bpt>Configuring the indexing policy of a collection<ept id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;/linkText&gt;</ept><bpt id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;title&gt;</bpt><ept id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents, as described in <bpt id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;linkText&gt;</bpt>Configuring the indexing policy of a collection<ept id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;/linkText&gt;</ept><bpt id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;title&gt;</bpt><ept id="e08690ed-7518-48c2-8522-e7ab3a5c6295">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb1ad6e8-d797-4d9a-b780-f499863404a3" xml:space="preserve">
+          <source>Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.</source>
+          <target state="new">Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.</target>
+        </trans-unit>
+        <trans-unit id="bfaf90f1-8f3c-4a2d-b1c2-564978b772fd" xml:space="preserve">
+          <source>For instructions on monitoring performance levels on the Azure Preview portal, see <bpt id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;linkText&gt;</bpt>Monitor a DocumentDB account<ept id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;/linkText&gt;</ept><bpt id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;title&gt;</bpt><ept id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on monitoring performance levels on the Azure Preview portal, see <bpt id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;linkText&gt;</bpt>Monitor a DocumentDB account<ept id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;/linkText&gt;</ept><bpt id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;title&gt;</bpt><ept id="590ccd76-9740-4b97-9a1f-58d00b5cb46e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3683d88-e385-493c-8b34-7cdb30363921" xml:space="preserve">
+          <source>For more information on choosing performance levels for collections, see <bpt id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;/linkText&gt;</ept><bpt id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;title&gt;</bpt><ept id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on choosing performance levels for collections, see <bpt id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;linkText&gt;</bpt>Performance levels in DocumentDB<ept id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;/linkText&gt;</ept><bpt id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;title&gt;</bpt><ept id="1f2bd21c-7f19-41c2-9d67-d2cd274c0f45">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

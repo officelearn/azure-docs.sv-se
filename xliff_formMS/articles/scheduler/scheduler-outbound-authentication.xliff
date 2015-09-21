@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d48a3c01-5775-4e27-bebb-cb43aba4d3cb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d48a3c01-5775-4e27-bebb-cb43aba4d3cb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dbbd2a9b-f198-43b2-8f3b-4a53f29ebc32">
+        <trans-unit id="0218bcce-fd6e-4292-b42f-9e0650644f2d" xml:space="preserve">
+          <source>Scheduler Outbound Authentication</source>
+          <target state="new">Scheduler Outbound Authentication</target>
+        </trans-unit>
+        <trans-unit id="d286c9ba-8257-49ec-a80f-3a62e4de337a" xml:space="preserve">
+          <source>Scheduler jobs may need to call out to services that require authentication.</source>
+          <target state="new">Scheduler jobs may need to call out to services that require authentication.</target>
+        </trans-unit>
+        <trans-unit id="68cf9e75-24de-43f6-99f3-b96611b9dfdc" xml:space="preserve">
+          <source>This way, a called service can determine if the Scheduler job can access its resources.</source>
+          <target state="new">This way, a called service can determine if the Scheduler job can access its resources.</target>
+        </trans-unit>
+        <trans-unit id="9728190b-d5c6-41d4-83fd-d0396bd27e4d" xml:space="preserve">
+          <source>Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.</source>
+          <target state="new">Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.</target>
+        </trans-unit>
+        <trans-unit id="bafcbb5b-cbeb-4f5a-861d-c3c1eeb67bd5" xml:space="preserve">
+          <source>Adding authentication to a Scheduler job is simple – add a JSON child element <bpt id="326283fe-d6cb-402e-a81a-de30ac977b2d">&lt;code&gt;</bpt>authentication<ept id="326283fe-d6cb-402e-a81a-de30ac977b2d">&lt;/code&gt;</ept> to the <bpt id="5e43c36e-5199-4f34-accb-9bc50e8d9f98">&lt;code&gt;</bpt>request<ept id="5e43c36e-5199-4f34-accb-9bc50e8d9f98">&lt;/code&gt;</ept> element when creating or updating a job.</source>
+          <target state="new">Adding authentication to a Scheduler job is simple – add a JSON child element <bpt id="326283fe-d6cb-402e-a81a-de30ac977b2d">&lt;code&gt;</bpt>authentication<ept id="326283fe-d6cb-402e-a81a-de30ac977b2d">&lt;/code&gt;</ept> to the <bpt id="5e43c36e-5199-4f34-accb-9bc50e8d9f98">&lt;code&gt;</bpt>request<ept id="5e43c36e-5199-4f34-accb-9bc50e8d9f98">&lt;/code&gt;</ept> element when creating or updating a job.</target>
+        </trans-unit>
+        <trans-unit id="a22df29c-4a22-48ca-a69c-f39e4574bc84" xml:space="preserve">
+          <source>Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the <bpt id="54342280-8597-465b-847a-314df9c73021">&lt;code&gt;</bpt>authentication<ept id="54342280-8597-465b-847a-314df9c73021">&lt;/code&gt;</ept> object – are never returned in responses.</source>
+          <target state="new">Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the <bpt id="54342280-8597-465b-847a-314df9c73021">&lt;code&gt;</bpt>authentication<ept id="54342280-8597-465b-847a-314df9c73021">&lt;/code&gt;</ept> object – are never returned in responses.</target>
+        </trans-unit>
+        <trans-unit id="ee944e29-6d32-4501-ba36-6faa0755b665" xml:space="preserve">
+          <source>In responses, secret information is set to null or may have a public token that represents the authenticated entity.</source>
+          <target state="new">In responses, secret information is set to null or may have a public token that represents the authenticated entity.</target>
+        </trans-unit>
+        <trans-unit id="84c8f6c3-7d94-44d3-9fae-8748351fe51b" xml:space="preserve">
+          <source>To remove authentication, PUT or PATCH the job explicitly, setting the <bpt id="18dfc851-17f3-4d25-9816-99f4e3948ef6">&lt;code&gt;</bpt>authentication<ept id="18dfc851-17f3-4d25-9816-99f4e3948ef6">&lt;/code&gt;</ept> object to null.</source>
+          <target state="new">To remove authentication, PUT or PATCH the job explicitly, setting the <bpt id="18dfc851-17f3-4d25-9816-99f4e3948ef6">&lt;code&gt;</bpt>authentication<ept id="18dfc851-17f3-4d25-9816-99f4e3948ef6">&lt;/code&gt;</ept> object to null.</target>
+        </trans-unit>
+        <trans-unit id="1fb62fb5-1a09-459e-9267-ff54bbab960e" xml:space="preserve">
+          <source>You will not see any authentication properties back in response.</source>
+          <target state="new">You will not see any authentication properties back in response.</target>
+        </trans-unit>
+        <trans-unit id="93f9ba20-860b-44eb-ad92-f140138f9dfa" xml:space="preserve">
+          <source>Currently, the only supported authentication types are the <bpt id="8e799c2b-2958-4bb2-9539-61fc3243fabb">&lt;code&gt;</bpt>ClientCertificate<ept id="8e799c2b-2958-4bb2-9539-61fc3243fabb">&lt;/code&gt;</ept> model (for using the SSL/TLS client certificates), the <bpt id="d1f78964-e45a-4993-be1b-e46075cae62a">&lt;code&gt;</bpt>Basic<ept id="d1f78964-e45a-4993-be1b-e46075cae62a">&lt;/code&gt;</ept> model (for Basic authentication), and the <bpt id="67787dc9-ff0b-4c1a-9068-d17a99440755">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="67787dc9-ff0b-4c1a-9068-d17a99440755">&lt;/code&gt;</ept> model (for Active Directory OAuth authentication.)</source>
+          <target state="new">Currently, the only supported authentication types are the <bpt id="8e799c2b-2958-4bb2-9539-61fc3243fabb">&lt;code&gt;</bpt>ClientCertificate<ept id="8e799c2b-2958-4bb2-9539-61fc3243fabb">&lt;/code&gt;</ept> model (for using the SSL/TLS client certificates), the <bpt id="d1f78964-e45a-4993-be1b-e46075cae62a">&lt;code&gt;</bpt>Basic<ept id="d1f78964-e45a-4993-be1b-e46075cae62a">&lt;/code&gt;</ept> model (for Basic authentication), and the <bpt id="67787dc9-ff0b-4c1a-9068-d17a99440755">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="67787dc9-ff0b-4c1a-9068-d17a99440755">&lt;/code&gt;</ept> model (for Active Directory OAuth authentication.)</target>
+        </trans-unit>
+        <trans-unit id="251a5cf1-6d42-4eac-a036-0a9dc692c238" xml:space="preserve">
+          <source>When adding authentication using the <bpt id="a414c12a-0843-470c-8aff-d52e3fe18c4b">&lt;code&gt;</bpt>ClientCertificate<ept id="a414c12a-0843-470c-8aff-d52e3fe18c4b">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</source>
+          <target state="new">When adding authentication using the <bpt id="a414c12a-0843-470c-8aff-d52e3fe18c4b">&lt;code&gt;</bpt>ClientCertificate<ept id="a414c12a-0843-470c-8aff-d52e3fe18c4b">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</target>
+        </trans-unit>
+        <trans-unit id="f4b3caec-d81f-40f8-b053-81f2f7db58bf" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="5ff5b163-eedc-4954-b44f-f5572bfb55fd" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="12b39080-2194-49f7-92e1-62364b0144b0" xml:space="preserve">
+          <source><bpt id="2b466f32-9e4a-4083-91c4-c362aecc3014">&lt;em&gt;</bpt>authentication (parent element)<ept id="2b466f32-9e4a-4083-91c4-c362aecc3014">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="2b466f32-9e4a-4083-91c4-c362aecc3014">&lt;em&gt;</bpt>authentication (parent element)<ept id="2b466f32-9e4a-4083-91c4-c362aecc3014">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38ae03d4-ca8b-4ccd-a13a-059699d3cede" xml:space="preserve">
+          <source>Authentication object for using an SSL client certificate.</source>
+          <target state="new">Authentication object for using an SSL client certificate.</target>
+        </trans-unit>
+        <trans-unit id="6aad81f6-440d-4c7b-ac47-53aa24813d28" xml:space="preserve">
+          <source><bpt id="ff419c7c-e9b6-4bba-b117-076083b6b90f">&lt;em&gt;</bpt>type<ept id="ff419c7c-e9b6-4bba-b117-076083b6b90f">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="ff419c7c-e9b6-4bba-b117-076083b6b90f">&lt;em&gt;</bpt>type<ept id="ff419c7c-e9b6-4bba-b117-076083b6b90f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e47b3d0-916b-4020-8dd5-d88c40dc1b62" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="eff93e33-b09f-4002-97ab-d07db2b34095" xml:space="preserve">
+          <source>Type of authentication.For SSL client certificates, the value must be <bpt id="79209313-53c3-40d4-9b77-7ff4cad1c83a">&lt;code&gt;</bpt>ClientCertificate<ept id="79209313-53c3-40d4-9b77-7ff4cad1c83a">&lt;/code&gt;</ept>.</source>
+          <target state="new">Type of authentication.For SSL client certificates, the value must be <bpt id="79209313-53c3-40d4-9b77-7ff4cad1c83a">&lt;code&gt;</bpt>ClientCertificate<ept id="79209313-53c3-40d4-9b77-7ff4cad1c83a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="966f121e-c9f3-4710-8fb2-d4c16e515d69" xml:space="preserve">
+          <source><bpt id="d434739b-5839-4c17-8457-a8ee2f308fd6">&lt;em&gt;</bpt>pfx<ept id="d434739b-5839-4c17-8457-a8ee2f308fd6">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d434739b-5839-4c17-8457-a8ee2f308fd6">&lt;em&gt;</bpt>pfx<ept id="d434739b-5839-4c17-8457-a8ee2f308fd6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bd02ae2-c78b-4716-9e8f-5a8a2c946bac" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="14abddf8-3898-4c89-a3c0-62801be38fd1" xml:space="preserve">
+          <source>Base64-encoded contents of the PFX file.</source>
+          <target state="new">Base64-encoded contents of the PFX file.</target>
+        </trans-unit>
+        <trans-unit id="a8299e0a-552e-4c70-8b05-28807cf6e2f8" xml:space="preserve">
+          <source><bpt id="a921ac0b-e725-445f-9ccb-3875544a4931">&lt;em&gt;</bpt>password<ept id="a921ac0b-e725-445f-9ccb-3875544a4931">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="a921ac0b-e725-445f-9ccb-3875544a4931">&lt;em&gt;</bpt>password<ept id="a921ac0b-e725-445f-9ccb-3875544a4931">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="39a22bef-cd53-4ef1-a157-d7f618f5131f" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="b258e154-f7b3-4821-84a3-5f9812e916a9" xml:space="preserve">
+          <source>Password to access the PFX file.</source>
+          <target state="new">Password to access the PFX file.</target>
+        </trans-unit>
+        <trans-unit id="082fe770-8a5a-4638-8f2e-d52c942156cd" xml:space="preserve">
+          <source>When a request is sent with authentication info, the response contains the following authentication-related elements.</source>
+          <target state="new">When a request is sent with authentication info, the response contains the following authentication-related elements.</target>
+        </trans-unit>
+        <trans-unit id="09c202ae-a6e3-4078-911d-e5ba35c58b19" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="77dba06f-f3a9-4f38-ae76-a2d15a7c7b75" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="05d9599f-821b-4cd3-838c-4f5b51465aa6" xml:space="preserve">
+          <source><bpt id="c5e49da1-ba9b-4931-80f7-c232f40d011d">&lt;em&gt;</bpt>authentication (parent element)<ept id="c5e49da1-ba9b-4931-80f7-c232f40d011d">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="c5e49da1-ba9b-4931-80f7-c232f40d011d">&lt;em&gt;</bpt>authentication (parent element)<ept id="c5e49da1-ba9b-4931-80f7-c232f40d011d">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42921e70-d298-4f95-9c1a-7bcbc126d928" xml:space="preserve">
+          <source>Authentication object for using an SSL client certificate.</source>
+          <target state="new">Authentication object for using an SSL client certificate.</target>
+        </trans-unit>
+        <trans-unit id="b5ef7baa-23f5-4a47-870e-5242e090a627" xml:space="preserve">
+          <source><bpt id="22664848-e644-489b-b023-cbdf07791cba">&lt;em&gt;</bpt>type<ept id="22664848-e644-489b-b023-cbdf07791cba">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="22664848-e644-489b-b023-cbdf07791cba">&lt;em&gt;</bpt>type<ept id="22664848-e644-489b-b023-cbdf07791cba">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df2fcd36-f39b-4ab0-879a-4a66e3c9656b" xml:space="preserve">
+          <source>Type of authentication.</source>
+          <target state="new">Type of authentication.</target>
+        </trans-unit>
+        <trans-unit id="931ca1f9-377a-40db-813a-8b3da6743278" xml:space="preserve">
+          <source>For SSL client certificates, the value is <bpt id="8eef71f5-fb73-4d5e-b977-d06cbd2a947e">&lt;code&gt;</bpt>ClientCertificate<ept id="8eef71f5-fb73-4d5e-b977-d06cbd2a947e">&lt;/code&gt;</ept>.</source>
+          <target state="new">For SSL client certificates, the value is <bpt id="8eef71f5-fb73-4d5e-b977-d06cbd2a947e">&lt;code&gt;</bpt>ClientCertificate<ept id="8eef71f5-fb73-4d5e-b977-d06cbd2a947e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="15369347-0a85-45a0-96bc-155509b169bd" xml:space="preserve">
+          <source><bpt id="2913ee62-d9ca-4045-a898-f116d0e116cc">&lt;em&gt;</bpt>certificateThumbprint<ept id="2913ee62-d9ca-4045-a898-f116d0e116cc">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="2913ee62-d9ca-4045-a898-f116d0e116cc">&lt;em&gt;</bpt>certificateThumbprint<ept id="2913ee62-d9ca-4045-a898-f116d0e116cc">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f40e54c4-a39a-494f-b214-760ea2201383" xml:space="preserve">
+          <source>The thumbprint of the certificate.</source>
+          <target state="new">The thumbprint of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="cf54a1d7-b616-4f25-85a6-726254009cd3" xml:space="preserve">
+          <source><bpt id="2b9bf213-919b-4df3-b05f-73d55d4fa2c9">&lt;em&gt;</bpt>certificateSubjectName<ept id="2b9bf213-919b-4df3-b05f-73d55d4fa2c9">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="2b9bf213-919b-4df3-b05f-73d55d4fa2c9">&lt;em&gt;</bpt>certificateSubjectName<ept id="2b9bf213-919b-4df3-b05f-73d55d4fa2c9">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6183fdc6-9310-4562-8735-65ee31c08c43" xml:space="preserve">
+          <source>The subject distinguished name of the certificate.</source>
+          <target state="new">The subject distinguished name of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="7617f783-c607-4bd2-a375-0249aa229fe5" xml:space="preserve">
+          <source><bpt id="9894dabe-a0ec-4a71-8efc-af6d509df68f">&lt;em&gt;</bpt>certificateExpiration<ept id="9894dabe-a0ec-4a71-8efc-af6d509df68f">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="9894dabe-a0ec-4a71-8efc-af6d509df68f">&lt;em&gt;</bpt>certificateExpiration<ept id="9894dabe-a0ec-4a71-8efc-af6d509df68f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77de0b63-90f4-42df-b090-8dd405d889e5" xml:space="preserve">
+          <source>The expiration date of the certificate.</source>
+          <target state="new">The expiration date of the certificate.</target>
+        </trans-unit>
+        <trans-unit id="e2f2ce41-e315-477f-a0f7-f869e878d0a2" xml:space="preserve">
+          <source>The following example request makes a PUT request that incorporates <bpt id="63fe294a-511e-4fe4-b1be-639f5c9256fb">&lt;code&gt;</bpt>ClientCertificate<ept id="63fe294a-511e-4fe4-b1be-639f5c9256fb">&lt;/code&gt;</ept> authentication.</source>
+          <target state="new">The following example request makes a PUT request that incorporates <bpt id="63fe294a-511e-4fe4-b1be-639f5c9256fb">&lt;code&gt;</bpt>ClientCertificate<ept id="63fe294a-511e-4fe4-b1be-639f5c9256fb">&lt;/code&gt;</ept> authentication.</target>
+        </trans-unit>
+        <trans-unit id="17ba793c-3c93-4d47-801f-502a1a9b1e87" xml:space="preserve">
+          <source>The request is as follows:</source>
+          <target state="new">The request is as follows:</target>
+        </trans-unit>
+        <trans-unit id="0df1f65a-998f-4740-8ef5-7c49ebe69e41" xml:space="preserve">
+          <source>Once this request is sent, the response is as follows:</source>
+          <target state="new">Once this request is sent, the response is as follows:</target>
+        </trans-unit>
+        <trans-unit id="1b1aaeea-0176-42eb-b6ee-138f90e0b097" xml:space="preserve">
+          <source>When adding authentication using the <bpt id="b02a3cc9-6b6d-4661-b79d-323910196c9e">&lt;code&gt;</bpt>Basic<ept id="b02a3cc9-6b6d-4661-b79d-323910196c9e">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</source>
+          <target state="new">When adding authentication using the <bpt id="b02a3cc9-6b6d-4661-b79d-323910196c9e">&lt;code&gt;</bpt>Basic<ept id="b02a3cc9-6b6d-4661-b79d-323910196c9e">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</target>
+        </trans-unit>
+        <trans-unit id="c753f5b9-85e6-47a2-af1d-5b8e0ee1a65c" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="289978de-313d-42c5-bb09-ba8b3a97460d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3d785548-4a0a-43cf-a25a-c8eb7afcdaf3" xml:space="preserve">
+          <source><bpt id="88e87895-3e94-44c1-9fe6-56c1031fd13a">&lt;em&gt;</bpt>authentication (parent element)<ept id="88e87895-3e94-44c1-9fe6-56c1031fd13a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="88e87895-3e94-44c1-9fe6-56c1031fd13a">&lt;em&gt;</bpt>authentication (parent element)<ept id="88e87895-3e94-44c1-9fe6-56c1031fd13a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34453f65-bba5-4956-b9a4-8033e8fe075e" xml:space="preserve">
+          <source>Authentication object for using Basic authentication.</source>
+          <target state="new">Authentication object for using Basic authentication.</target>
+        </trans-unit>
+        <trans-unit id="dbbf6907-3d9e-4209-808f-4044a55a54a4" xml:space="preserve">
+          <source><bpt id="2434d250-52dd-4607-bb3a-6e0b80f39459">&lt;em&gt;</bpt>type<ept id="2434d250-52dd-4607-bb3a-6e0b80f39459">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="2434d250-52dd-4607-bb3a-6e0b80f39459">&lt;em&gt;</bpt>type<ept id="2434d250-52dd-4607-bb3a-6e0b80f39459">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af98d897-04cb-469f-9b02-529732dad889" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="f9e66107-b528-4b6b-b353-e70ac6c2c1e3" xml:space="preserve">
+          <source>Type of authentication.</source>
+          <target state="new">Type of authentication.</target>
+        </trans-unit>
+        <trans-unit id="0f1dcace-66ce-4394-baa5-8a899de3ea7c" xml:space="preserve">
+          <source>For Basic authentication, the value must be <bpt id="89f4edb6-416b-455d-a74e-99f9bb831b92">&lt;code&gt;</bpt>Basic<ept id="89f4edb6-416b-455d-a74e-99f9bb831b92">&lt;/code&gt;</ept>.</source>
+          <target state="new">For Basic authentication, the value must be <bpt id="89f4edb6-416b-455d-a74e-99f9bb831b92">&lt;code&gt;</bpt>Basic<ept id="89f4edb6-416b-455d-a74e-99f9bb831b92">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7380470-b697-448e-acac-2cd6e00feef0" xml:space="preserve">
+          <source><bpt id="433ac399-986c-48dd-88b2-2ae1208d6d87">&lt;em&gt;</bpt>username<ept id="433ac399-986c-48dd-88b2-2ae1208d6d87">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="433ac399-986c-48dd-88b2-2ae1208d6d87">&lt;em&gt;</bpt>username<ept id="433ac399-986c-48dd-88b2-2ae1208d6d87">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03bdaf40-2e7e-43c9-8f75-faeb61cfc458" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="2297a139-cc86-4280-8956-c54678fb2f9e" xml:space="preserve">
+          <source>Username to authenticate.</source>
+          <target state="new">Username to authenticate.</target>
+        </trans-unit>
+        <trans-unit id="d93727cd-9f1d-4dc0-ab02-6f7f3a6cbf9f" xml:space="preserve">
+          <source><bpt id="eaea6795-30af-4a29-aa42-7e52a752fca3">&lt;em&gt;</bpt>password<ept id="eaea6795-30af-4a29-aa42-7e52a752fca3">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="eaea6795-30af-4a29-aa42-7e52a752fca3">&lt;em&gt;</bpt>password<ept id="eaea6795-30af-4a29-aa42-7e52a752fca3">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="571d1847-bce5-41ef-852e-b82a96f0c8a3" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="5cc7b50e-fd30-4f97-8715-02d677e44ac6" xml:space="preserve">
+          <source>Password to authenticate.</source>
+          <target state="new">Password to authenticate.</target>
+        </trans-unit>
+        <trans-unit id="ac32aed3-a6d2-4ee3-a898-3322c5fcda99" xml:space="preserve">
+          <source>When a request is sent with authentication info, the response contains the following authentication-related elements.</source>
+          <target state="new">When a request is sent with authentication info, the response contains the following authentication-related elements.</target>
+        </trans-unit>
+        <trans-unit id="000671b5-708b-493e-babe-7078a43325de" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="04fbc6ca-98c9-413c-a960-47b03d763a8d" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0ead9a0f-b3ed-443f-8be1-595d4f1a7b7d" xml:space="preserve">
+          <source><bpt id="2ccc7c93-8a85-4173-b34b-8295660661a6">&lt;em&gt;</bpt>authentication (parent element)<ept id="2ccc7c93-8a85-4173-b34b-8295660661a6">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="2ccc7c93-8a85-4173-b34b-8295660661a6">&lt;em&gt;</bpt>authentication (parent element)<ept id="2ccc7c93-8a85-4173-b34b-8295660661a6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b8a32a3-3247-44d5-9456-37510bc9fbd7" xml:space="preserve">
+          <source>Authentication object for using Basic authentication.</source>
+          <target state="new">Authentication object for using Basic authentication.</target>
+        </trans-unit>
+        <trans-unit id="ae58041a-7d8f-477c-ba83-337871349c9c" xml:space="preserve">
+          <source><bpt id="6ebf88ac-2664-4017-9f9b-38dde2244f2c">&lt;em&gt;</bpt>type<ept id="6ebf88ac-2664-4017-9f9b-38dde2244f2c">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="6ebf88ac-2664-4017-9f9b-38dde2244f2c">&lt;em&gt;</bpt>type<ept id="6ebf88ac-2664-4017-9f9b-38dde2244f2c">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e09b3d95-f0e3-4171-90cf-ee2f4c8c604d" xml:space="preserve">
+          <source>Type of authentication.</source>
+          <target state="new">Type of authentication.</target>
+        </trans-unit>
+        <trans-unit id="cfcd22f5-b97c-42c8-ac64-53c748191432" xml:space="preserve">
+          <source>For Basic authentication, the value is <bpt id="fd52fbd7-5d1e-4f81-80f1-43989ff0475a">&lt;code&gt;</bpt>Basic<ept id="fd52fbd7-5d1e-4f81-80f1-43989ff0475a">&lt;/code&gt;</ept>.</source>
+          <target state="new">For Basic authentication, the value is <bpt id="fd52fbd7-5d1e-4f81-80f1-43989ff0475a">&lt;code&gt;</bpt>Basic<ept id="fd52fbd7-5d1e-4f81-80f1-43989ff0475a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bd5be36-d386-487d-a117-aee9ce4d551c" xml:space="preserve">
+          <source><bpt id="e4acea2a-4b62-4c7e-921e-acf3fff27802">&lt;em&gt;</bpt>username<ept id="e4acea2a-4b62-4c7e-921e-acf3fff27802">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="e4acea2a-4b62-4c7e-921e-acf3fff27802">&lt;em&gt;</bpt>username<ept id="e4acea2a-4b62-4c7e-921e-acf3fff27802">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5ac563d-eaca-4fd8-9e18-fd8daef1779e" xml:space="preserve">
+          <source>The authenticated username.</source>
+          <target state="new">The authenticated username.</target>
+        </trans-unit>
+        <trans-unit id="92a996ef-3da0-46a7-b109-2c9d10a3bc36" xml:space="preserve">
+          <source>The following example request makes a PUT request that incorporates <bpt id="8b2d817f-e023-4428-abfb-3f83d7dcc8da">&lt;code&gt;</bpt>Basic<ept id="8b2d817f-e023-4428-abfb-3f83d7dcc8da">&lt;/code&gt;</ept> authentication.</source>
+          <target state="new">The following example request makes a PUT request that incorporates <bpt id="8b2d817f-e023-4428-abfb-3f83d7dcc8da">&lt;code&gt;</bpt>Basic<ept id="8b2d817f-e023-4428-abfb-3f83d7dcc8da">&lt;/code&gt;</ept> authentication.</target>
+        </trans-unit>
+        <trans-unit id="ce873707-1d0a-4639-813c-6f7dd55c16b7" xml:space="preserve">
+          <source>The request is as follows:</source>
+          <target state="new">The request is as follows:</target>
+        </trans-unit>
+        <trans-unit id="db024de9-1935-43f4-8bdf-3cc91f906276" xml:space="preserve">
+          <source>Once this request is sent, the response is as follows:</source>
+          <target state="new">Once this request is sent, the response is as follows:</target>
+        </trans-unit>
+        <trans-unit id="8ca1a491-4b38-4107-8c9f-6e1150827fc8" xml:space="preserve">
+          <source>When adding authentication using the <bpt id="d1927ac2-df5f-4142-9a11-7755453055e9">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="d1927ac2-df5f-4142-9a11-7755453055e9">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</source>
+          <target state="new">When adding authentication using the <bpt id="d1927ac2-df5f-4142-9a11-7755453055e9">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="d1927ac2-df5f-4142-9a11-7755453055e9">&lt;/code&gt;</ept> model, specify the following additional elements in the request body.</target>
+        </trans-unit>
+        <trans-unit id="8014f87c-f077-4f3c-9325-ac6b621f7baa" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="4443c7af-6a95-457a-8eab-e64e08df0bb5" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c5ca3fce-bec3-4f1a-a33b-8bc6b398da13" xml:space="preserve">
+          <source><bpt id="061f70d8-b9bf-46c4-b629-7f6a73fc172e">&lt;em&gt;</bpt>authentication (parent element)<ept id="061f70d8-b9bf-46c4-b629-7f6a73fc172e">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="061f70d8-b9bf-46c4-b629-7f6a73fc172e">&lt;em&gt;</bpt>authentication (parent element)<ept id="061f70d8-b9bf-46c4-b629-7f6a73fc172e">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81535c39-92e4-43d9-bf82-8673676a89cc" xml:space="preserve">
+          <source>Authentication object for using ActiveDirectoryOAuth authentication.</source>
+          <target state="new">Authentication object for using ActiveDirectoryOAuth authentication.</target>
+        </trans-unit>
+        <trans-unit id="92af5fdd-f818-4b34-9540-0bdd8b42334c" xml:space="preserve">
+          <source><bpt id="311764cd-084b-4a0f-a2eb-0f0b58ee5bb3">&lt;em&gt;</bpt>type<ept id="311764cd-084b-4a0f-a2eb-0f0b58ee5bb3">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="311764cd-084b-4a0f-a2eb-0f0b58ee5bb3">&lt;em&gt;</bpt>type<ept id="311764cd-084b-4a0f-a2eb-0f0b58ee5bb3">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb7f9c0a-9bac-4d11-aa6c-9c33bcff9be8" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="08160ec1-fca0-472e-b5a9-2556a44a3259" xml:space="preserve">
+          <source>Type of authentication.</source>
+          <target state="new">Type of authentication.</target>
+        </trans-unit>
+        <trans-unit id="56b704f6-0d01-4ed0-a5d4-351dae181ab9" xml:space="preserve">
+          <source>For ActiveDirectoryOAuth authentication, the value must be <bpt id="c84602d6-f4a2-49c7-b3e2-91e2bc98e42a">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="c84602d6-f4a2-49c7-b3e2-91e2bc98e42a">&lt;/code&gt;</ept>.</source>
+          <target state="new">For ActiveDirectoryOAuth authentication, the value must be <bpt id="c84602d6-f4a2-49c7-b3e2-91e2bc98e42a">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="c84602d6-f4a2-49c7-b3e2-91e2bc98e42a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cec9c788-9fb5-49a7-99a3-bdcd62661766" xml:space="preserve">
+          <source><bpt id="434bfca1-f37f-491d-8784-ac6e47d99fb7">&lt;em&gt;</bpt>tenant<ept id="434bfca1-f37f-491d-8784-ac6e47d99fb7">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="434bfca1-f37f-491d-8784-ac6e47d99fb7">&lt;em&gt;</bpt>tenant<ept id="434bfca1-f37f-491d-8784-ac6e47d99fb7">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fd261ff-fda0-4787-ac13-05e7cd6fb6e9" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="97f0dc9a-54e2-4a72-93f8-d23b4785f0eb" xml:space="preserve">
+          <source>The tenant identifier is an ID that is used to identify the AD tenant.</source>
+          <target state="new">The tenant identifier is an ID that is used to identify the AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="08f9730e-0779-4c52-af92-8b21ec85772b" xml:space="preserve">
+          <source><bpt id="603cbff0-7ebd-4652-afdd-95ce34b11979">&lt;em&gt;</bpt>audience<ept id="603cbff0-7ebd-4652-afdd-95ce34b11979">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="603cbff0-7ebd-4652-afdd-95ce34b11979">&lt;em&gt;</bpt>audience<ept id="603cbff0-7ebd-4652-afdd-95ce34b11979">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="318baede-f957-47b9-a4ac-14ba467cf46e" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="0c1098d9-8c59-4966-9299-49c128666f2b" xml:space="preserve">
+          <source>This is set to https://management.core.windows.net/.</source>
+          <target state="new">This is set to https://management.core.windows.net/.</target>
+        </trans-unit>
+        <trans-unit id="a6f08b29-d813-4f67-a0a1-f41484a9d2aa" xml:space="preserve">
+          <source><bpt id="cda05ee8-712f-4534-824c-ea9d7edb14c6">&lt;em&gt;</bpt>clientId<ept id="cda05ee8-712f-4534-824c-ea9d7edb14c6">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="cda05ee8-712f-4534-824c-ea9d7edb14c6">&lt;em&gt;</bpt>clientId<ept id="cda05ee8-712f-4534-824c-ea9d7edb14c6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee5fdfee-eb46-4641-914c-a7e6d3e0e48e" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="26b72017-c9d4-46fd-921e-b62f5a27e02b" xml:space="preserve">
+          <source>Provide the client identifier for the Azure AD application.</source>
+          <target state="new">Provide the client identifier for the Azure AD application.</target>
+        </trans-unit>
+        <trans-unit id="6cbfac8c-e80d-4d49-9590-41b7c0940cd4" xml:space="preserve">
+          <source><bpt id="c0e9de7d-92e4-4636-82ad-1280d29a71bd">&lt;em&gt;</bpt>secret<ept id="c0e9de7d-92e4-4636-82ad-1280d29a71bd">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="c0e9de7d-92e4-4636-82ad-1280d29a71bd">&lt;em&gt;</bpt>secret<ept id="c0e9de7d-92e4-4636-82ad-1280d29a71bd">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1aa7bac5-cc98-40bc-9e9d-1c894f196366" xml:space="preserve">
+          <source>Required.</source>
+          <target state="new">Required.</target>
+        </trans-unit>
+        <trans-unit id="5852f23e-e08f-45cb-8b84-d382d48dc83e" xml:space="preserve">
+          <source>Secret of the client that is requesting the token.</source>
+          <target state="new">Secret of the client that is requesting the token.</target>
+        </trans-unit>
+        <trans-unit id="bbcceeb0-d38b-43a6-ac9e-0f26db7fdb31" xml:space="preserve">
+          <source>When a request is sent with authentication info, the response contains the following authentication-related elements.</source>
+          <target state="new">When a request is sent with authentication info, the response contains the following authentication-related elements.</target>
+        </trans-unit>
+        <trans-unit id="b028840c-2a38-4a3a-bd77-425347aed34b" xml:space="preserve">
+          <source>Element</source>
+          <target state="new">Element</target>
+        </trans-unit>
+        <trans-unit id="f8b95640-3216-485e-993a-6c1c130b355b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="a1286184-c460-4aaa-9684-4492e1b80c26" xml:space="preserve">
+          <source><bpt id="87bac647-c592-41a7-8a7c-3f817f17b5aa">&lt;em&gt;</bpt>authentication (parent element)<ept id="87bac647-c592-41a7-8a7c-3f817f17b5aa">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="87bac647-c592-41a7-8a7c-3f817f17b5aa">&lt;em&gt;</bpt>authentication (parent element)<ept id="87bac647-c592-41a7-8a7c-3f817f17b5aa">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="792ab544-9350-4d56-8133-fecb26e5a303" xml:space="preserve">
+          <source>Authentication object for using ActiveDirectoryOAuth authentication.</source>
+          <target state="new">Authentication object for using ActiveDirectoryOAuth authentication.</target>
+        </trans-unit>
+        <trans-unit id="5dcfa7c9-eecb-458d-b905-0db8f3745856" xml:space="preserve">
+          <source><bpt id="3e9ca214-f55a-4e4c-84a7-513b6995c6a6">&lt;em&gt;</bpt>type<ept id="3e9ca214-f55a-4e4c-84a7-513b6995c6a6">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="3e9ca214-f55a-4e4c-84a7-513b6995c6a6">&lt;em&gt;</bpt>type<ept id="3e9ca214-f55a-4e4c-84a7-513b6995c6a6">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="987d89aa-5186-48d3-adbc-4a8c140a63c2" xml:space="preserve">
+          <source>Type of authentication.</source>
+          <target state="new">Type of authentication.</target>
+        </trans-unit>
+        <trans-unit id="082774c9-11a3-4cc5-9672-a62d7e8e50de" xml:space="preserve">
+          <source>For ActiveDirectoryOAuth authentication, the value is <bpt id="33056f33-5865-44ee-a60c-425caf400630">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="33056f33-5865-44ee-a60c-425caf400630">&lt;/code&gt;</ept>.</source>
+          <target state="new">For ActiveDirectoryOAuth authentication, the value is <bpt id="33056f33-5865-44ee-a60c-425caf400630">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="33056f33-5865-44ee-a60c-425caf400630">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4812fa7-292e-4ec2-bd87-38e2549ea7c3" xml:space="preserve">
+          <source><bpt id="71997acb-3a83-4f05-8e40-4529c0f9ff13">&lt;em&gt;</bpt>tenant<ept id="71997acb-3a83-4f05-8e40-4529c0f9ff13">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="71997acb-3a83-4f05-8e40-4529c0f9ff13">&lt;em&gt;</bpt>tenant<ept id="71997acb-3a83-4f05-8e40-4529c0f9ff13">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7c2c80f-44a0-4cfb-8346-07c2075092c1" xml:space="preserve">
+          <source>The tenant identifier used to identify the AD tenant.</source>
+          <target state="new">The tenant identifier used to identify the AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="dcabf79d-8cc2-4ca2-b114-f164ee5eddf1" xml:space="preserve">
+          <source><bpt id="b9fe4964-64b7-4b61-837e-da9aa6babfad">&lt;em&gt;</bpt>audience<ept id="b9fe4964-64b7-4b61-837e-da9aa6babfad">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="b9fe4964-64b7-4b61-837e-da9aa6babfad">&lt;em&gt;</bpt>audience<ept id="b9fe4964-64b7-4b61-837e-da9aa6babfad">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55730bd3-c85d-4b1a-b961-a9905101984d" xml:space="preserve">
+          <source>This is set to https://management.core.windows.net/.</source>
+          <target state="new">This is set to https://management.core.windows.net/.</target>
+        </trans-unit>
+        <trans-unit id="c16acf4c-77af-4e9a-92e1-bd628e2856e1" xml:space="preserve">
+          <source><bpt id="de742ca3-8811-4dc9-8bef-ae90d43bef3b">&lt;em&gt;</bpt>clientId<ept id="de742ca3-8811-4dc9-8bef-ae90d43bef3b">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="de742ca3-8811-4dc9-8bef-ae90d43bef3b">&lt;em&gt;</bpt>clientId<ept id="de742ca3-8811-4dc9-8bef-ae90d43bef3b">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="837008ec-c10e-48cc-9abc-c31b2ab87ef6" xml:space="preserve">
+          <source>The client identifier for the Azure AD application.</source>
+          <target state="new">The client identifier for the Azure AD application.</target>
+        </trans-unit>
+        <trans-unit id="363db0d0-754e-478f-ab39-7f0226c1413a" xml:space="preserve">
+          <source>The following example request makes a PUT request that incorporates <bpt id="97928891-003b-45ac-97de-e3b65f265fa0">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="97928891-003b-45ac-97de-e3b65f265fa0">&lt;/code&gt;</ept> authentication.</source>
+          <target state="new">The following example request makes a PUT request that incorporates <bpt id="97928891-003b-45ac-97de-e3b65f265fa0">&lt;code&gt;</bpt>ActiveDirectoryOAuth<ept id="97928891-003b-45ac-97de-e3b65f265fa0">&lt;/code&gt;</ept> authentication.</target>
+        </trans-unit>
+        <trans-unit id="52112661-c147-4fb3-b7d6-3589c07143bd" xml:space="preserve">
+          <source>The request is as follows:</source>
+          <target state="new">The request is as follows:</target>
+        </trans-unit>
+        <trans-unit id="fd9fd82a-6c9d-4843-8b7f-86d981e858da" xml:space="preserve">
+          <source>Once this request is sent, the response is as follows:</source>
+          <target state="new">Once this request is sent, the response is as follows:</target>
+        </trans-unit>
+        <trans-unit id="16856b21-6872-4915-90d8-597b087f9c94" xml:space="preserve">
+          <source> <bpt id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;/linkText&gt;</ept><bpt id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;title&gt;</bpt><ept id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;linkText&gt;</bpt>What is Scheduler?<ept id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;/linkText&gt;</ept><bpt id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;title&gt;</bpt><ept id="27727144-4921-455b-a63e-b53d44cc3f00">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51c4436a-73fc-4337-9c4b-0427d56695af" xml:space="preserve">
+          <source> <bpt id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;/linkText&gt;</ept><bpt id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;title&gt;</bpt><ept id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;linkText&gt;</bpt>Scheduler Concepts, Terminology, and Entity Hierarchy<ept id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;/linkText&gt;</ept><bpt id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;title&gt;</bpt><ept id="ea5af252-9956-4a5c-bdb2-60142de87cf5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e7db9bd-8474-489f-978e-6d35b8c7aa4a" xml:space="preserve">
+          <source> <bpt id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;/linkText&gt;</ept><bpt id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;title&gt;</bpt><ept id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;linkText&gt;</bpt>Get Started Using Scheduler in the Management Portal<ept id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;/linkText&gt;</ept><bpt id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;title&gt;</bpt><ept id="a33ac924-cf13-4588-92bb-3b86c131477d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="194e93ff-d23b-4015-9e8d-618284fabc69" xml:space="preserve">
+          <source> <bpt id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;/linkText&gt;</ept><bpt id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;title&gt;</bpt><ept id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;linkText&gt;</bpt>Plans and Billing in Azure Scheduler<ept id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;/linkText&gt;</ept><bpt id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;title&gt;</bpt><ept id="81980c31-7353-465c-8f3a-46d6fcf868f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3a12120-b2bb-47c0-a660-e5a8c5be357a" xml:space="preserve">
+          <source> <bpt id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;/linkText&gt;</ept><bpt id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;title&gt;</bpt><ept id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;linkText&gt;</bpt>How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler<ept id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;/linkText&gt;</ept><bpt id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;title&gt;</bpt><ept id="72159eb1-b721-4f99-ae48-50f30eaa2a06">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3d628c9-e1e3-44a4-b77a-a03a8c91dd86" xml:space="preserve">
+          <source> <bpt id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;/linkText&gt;</ept><bpt id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;title&gt;</bpt><ept id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;/title&gt;</ept>   </source>
+          <target state="new"> <bpt id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;linkText&gt;</bpt>Scheduler REST API Reference<ept id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;/linkText&gt;</ept><bpt id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;title&gt;</bpt><ept id="e474ba27-61bc-45de-b088-e5f5094e0ada">&lt;/title&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="b8da7b51-6583-46d0-a0d1-c3fb09aabeec" xml:space="preserve">
+          <source> <bpt id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;/linkText&gt;</ept><bpt id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;title&gt;</bpt><ept id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;linkText&gt;</bpt>Scheduler PowerShell Cmdlets Reference<ept id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;/linkText&gt;</ept><bpt id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;title&gt;</bpt><ept id="c9627c12-81c9-4238-a067-d88ed5df00c1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4276450f-faf8-40ff-ab1d-7faed0829c18" xml:space="preserve">
+          <source> <bpt id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;/linkText&gt;</ept><bpt id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;title&gt;</bpt><ept id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;linkText&gt;</bpt>Scheduler High-Availability and Reliability<ept id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;/linkText&gt;</ept><bpt id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;title&gt;</bpt><ept id="d2323ff8-1d00-4cea-b747-eb6d6e92e684">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5a19ca9-916f-4f5e-82c2-65b2113541e5" xml:space="preserve">
+          <source> <bpt id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;/linkText&gt;</ept><bpt id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;title&gt;</bpt><ept id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;/title&gt;</ept></source>
+          <target state="new"> <bpt id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;linkText&gt;</bpt>Scheduler Limits, Defaults, and Error Codes<ept id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;/linkText&gt;</ept><bpt id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;title&gt;</bpt><ept id="c284a855-bab0-49a1-bd75-29813b1abeb2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

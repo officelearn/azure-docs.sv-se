@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="58c44076-530c-4379-8b6d-143c516647ea" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="58c44076-530c-4379-8b6d-143c516647ea" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="867024b3-26ed-47ec-9825-bdac94a3d610">
+        <trans-unit id="3653fdef-3496-4d14-855f-70a0fd0a350c" xml:space="preserve">
+          <source>Azure Automation Hybrid Runbook Workers</source>
+          <target state="new">Azure Automation Hybrid Runbook Workers</target>
+        </trans-unit>
+        <trans-unit id="7d7093a5-0c09-4e88-bee2-17c8a6dbbaba" xml:space="preserve">
+          <source>This article provides information on installing and using Hybrid Runbook Worker which is a feature of Azure Automation that allows you to run runbooks on machines in your local data center.</source>
+          <target state="new">This article provides information on installing and using Hybrid Runbook Worker which is a feature of Azure Automation that allows you to run runbooks on machines in your local data center.</target>
+        </trans-unit>
+        <trans-unit id="55ea2032-fe9a-4ec8-aa90-47ecc7e541fd" xml:space="preserve">
+          <source>Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.</source>
+          <target state="new">Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="f55b15fd-57de-4104-86aa-acee3fd18c17" xml:space="preserve">
+          <source>The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources.</source>
+          <target state="new">The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources.</target>
+        </trans-unit>
+        <trans-unit id="dc191696-c2ea-4674-a08c-8c146264b3dd" xml:space="preserve">
+          <source>The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premises machines where they are run.</source>
+          <target state="new">The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premises machines where they are run.</target>
+        </trans-unit>
+        <trans-unit id="7a7ed9f3-bb8e-4f16-b333-971301e9abe1" xml:space="preserve">
+          <source>This functionality is illustrated in the following image.</source>
+          <target state="new">This functionality is illustrated in the following image.</target>
+        </trans-unit>
+        <trans-unit id="c71b879b-378a-441e-99cd-e0a63944a10d" xml:space="preserve">
+          <source><bpt id="e4b20e56-1dfb-493f-88d0-7e1e05299760">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Overview<ept id="e4b20e56-1dfb-493f-88d0-7e1e05299760">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4b20e56-1dfb-493f-88d0-7e1e05299760">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Overview<ept id="e4b20e56-1dfb-493f-88d0-7e1e05299760">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9fa53ed-3ff5-4028-9584-51d49ba7e52e" xml:space="preserve">
+          <source>You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.</source>
+          <target state="new">You can designate one or more computers in your data center to act as a Hybrid Runbook Worker and run runbooks from Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="b3c63ff1-7fa2-4d62-87d2-c638475f5b7a" xml:space="preserve">
+          <source>Each worker requires the Microsoft Management Agent with a connection to Azure Operational Insights and the Azure Automation runbook environment.</source>
+          <target state="new">Each worker requires the Microsoft Management Agent with a connection to Azure Operational Insights and the Azure Automation runbook environment.</target>
+        </trans-unit>
+        <trans-unit id="6ef9f8e6-d06a-47a3-b3a6-9d9e5b274621" xml:space="preserve">
+          <source>Operational Insights is only used to install and maintain the management agent and to monitor the functionality of the worker.</source>
+          <target state="new">Operational Insights is only used to install and maintain the management agent and to monitor the functionality of the worker.</target>
+        </trans-unit>
+        <trans-unit id="b3758c73-78b0-49e3-89d9-f45cfd5502d1" xml:space="preserve">
+          <source>The delivery of runbooks and the instruction to run them are performed by Azure Automation.</source>
+          <target state="new">The delivery of runbooks and the instruction to run them are performed by Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="3330f3f6-ef8d-4744-a1ab-7a113c2b1570" xml:space="preserve">
+          <source><bpt id="7631fe4a-6410-4b45-9d30-f10f761ce43e">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Components<ept id="7631fe4a-6410-4b45-9d30-f10f761ce43e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7631fe4a-6410-4b45-9d30-f10f761ce43e">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Components<ept id="7631fe4a-6410-4b45-9d30-f10f761ce43e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6680a85-1e12-4ccc-bb64-0d2edb6720bd" xml:space="preserve">
+          <source>There are no inbound firewall requirements to support Hybrid Runbook Workers.</source>
+          <target state="new">There are no inbound firewall requirements to support Hybrid Runbook Workers.</target>
+        </trans-unit>
+        <trans-unit id="8cdacabb-e651-490b-bbaf-fa268f656554" xml:space="preserve">
+          <source>The agent on the local computer initiates all communication with Azure Automation in the cloud.</source>
+          <target state="new">The agent on the local computer initiates all communication with Azure Automation in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="951e61b6-d3b2-43c2-80b5-153b3a46260c" xml:space="preserve">
+          <source>When a runbook is started, Azure Automation creates an instruction that is retrieved by agent.</source>
+          <target state="new">When a runbook is started, Azure Automation creates an instruction that is retrieved by agent.</target>
+        </trans-unit>
+        <trans-unit id="b49de673-1907-4715-9c23-bb12e6271af8" xml:space="preserve">
+          <source>The agent then pulls down the runbook and any parameters before running it.</source>
+          <target state="new">The agent then pulls down the runbook and any parameters before running it.</target>
+        </trans-unit>
+        <trans-unit id="ecbc0148-a7c9-4ba9-bf60-faae6a457531" xml:space="preserve">
+          <source>It will also retrieve any <bpt id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;linkText&gt;</bpt>assets<ept id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;/linkText&gt;</ept><bpt id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;title&gt;</bpt><ept id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;/title&gt;</ept> that are used by the runbook from Azure Automation.</source>
+          <target state="new">It will also retrieve any <bpt id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;linkText&gt;</bpt>assets<ept id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;/linkText&gt;</ept><bpt id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;title&gt;</bpt><ept id="b79ed369-c74c-4680-aeb6-36654b5b2d90">&lt;/title&gt;</ept> that are used by the runbook from Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="077254a3-240b-4c7e-9dfe-22e272628f5d" xml:space="preserve">
+          <source>Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent.</source>
+          <target state="new">Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent.</target>
+        </trans-unit>
+        <trans-unit id="9784c8b4-5c93-42f0-8aa6-f9d8ae065355" xml:space="preserve">
+          <source>A group can include a single agent, but you can install multiple agents in a group for high availability.</source>
+          <target state="new">A group can include a single agent, but you can install multiple agents in a group for high availability.</target>
+        </trans-unit>
+        <trans-unit id="20df790b-0c88-4aca-b710-43c4ea48756d" xml:space="preserve">
+          <source>When you start a runbook on a Hybrid Runbook Worker, you specify the group that it will run on.</source>
+          <target state="new">When you start a runbook on a Hybrid Runbook Worker, you specify the group that it will run on.</target>
+        </trans-unit>
+        <trans-unit id="2fa1c238-0da5-4421-90b1-77f525c67117" xml:space="preserve">
+          <source>The members of the group will determine which worker will service the request.</source>
+          <target state="new">The members of the group will determine which worker will service the request.</target>
+        </trans-unit>
+        <trans-unit id="9c40f1de-b490-4f9e-866a-c7791f7b89c4" xml:space="preserve">
+          <source>You cannot specify a particular worker.</source>
+          <target state="new">You cannot specify a particular worker.</target>
+        </trans-unit>
+        <trans-unit id="bb716c32-f0d4-4168-b75d-69e99dd7232e" xml:space="preserve">
+          <source>Complete the following steps to prepare your Azure Automation environment for Hybrid Runbook Workers.</source>
+          <target state="new">Complete the following steps to prepare your Azure Automation environment for Hybrid Runbook Workers.</target>
+        </trans-unit>
+        <trans-unit id="77151db4-8d90-4ffe-bd57-6fe1cc3ce3a5" xml:space="preserve">
+          <source>If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  <bpt id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;linkText&gt;</bpt>Set up your Operational Insights workspace<ept id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;/linkText&gt;</ept><bpt id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;title&gt;</bpt><ept id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  <bpt id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;linkText&gt;</bpt>Set up your Operational Insights workspace<ept id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;/linkText&gt;</ept><bpt id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;title&gt;</bpt><ept id="190698b3-4681-4681-81bc-38a51c3ae13f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a741539-3bbd-418a-8a61-477ff6606991" xml:space="preserve">
+          <source>You can use an existing workspace if you already have one.</source>
+          <target state="new">You can use an existing workspace if you already have one.</target>
+        </trans-unit>
+        <trans-unit id="44060f77-c0c0-4125-ac37-ea273388ab9b" xml:space="preserve">
+          <source>The Automation solution in Operational Insights pushes down components required to configure and support the runbook environment.</source>
+          <target state="new">The Automation solution in Operational Insights pushes down components required to configure and support the runbook environment.</target>
+        </trans-unit>
+        <trans-unit id="4c3d9783-83b7-4249-986d-5e6cf545bc96" xml:space="preserve">
+          <source>Follow the instructions at <bpt id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;linkText&gt;</bpt>Operational Insights solutions<ept id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;/linkText&gt;</ept><bpt id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;title&gt;</bpt><ept id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;/title&gt;</ept> to install the <bpt id="1721e297-5af1-42e1-9341-d3d08d34c253">&lt;strong&gt;</bpt>Azure Automation<ept id="1721e297-5af1-42e1-9341-d3d08d34c253">&lt;/strong&gt;</ept> pack.</source>
+          <target state="new">Follow the instructions at <bpt id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;linkText&gt;</bpt>Operational Insights solutions<ept id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;/linkText&gt;</ept><bpt id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;title&gt;</bpt><ept id="6c99c2a2-03a3-4055-898f-ca78e4eca816">&lt;/title&gt;</ept> to install the <bpt id="1721e297-5af1-42e1-9341-d3d08d34c253">&lt;strong&gt;</bpt>Azure Automation<ept id="1721e297-5af1-42e1-9341-d3d08d34c253">&lt;/strong&gt;</ept> pack.</target>
+        </trans-unit>
+        <trans-unit id="22e726fe-d3b6-42e5-a467-466f403335df" xml:space="preserve">
+          <source>Complete the following steps for each of the on-premises machines that will act as a Hybrid Runbook Worker.</source>
+          <target state="new">Complete the following steps for each of the on-premises machines that will act as a Hybrid Runbook Worker.</target>
+        </trans-unit>
+        <trans-unit id="d648a09a-8938-40bf-a3ca-0963ab71045b" xml:space="preserve">
+          <source>The Microsoft Management Agent connects the computer to Operational Insights and allows it to run logic from solutions.</source>
+          <target state="new">The Microsoft Management Agent connects the computer to Operational Insights and allows it to run logic from solutions.</target>
+        </trans-unit>
+        <trans-unit id="4cce2a4b-9ce3-4109-88c6-b96fe504cee9" xml:space="preserve">
+          <source>Follow the instructions at <bpt id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;linkText&gt;</bpt>Connect computers directly to Operational Insights<ept id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;/linkText&gt;</ept><bpt id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;title&gt;</bpt><ept id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;/title&gt;</ept> to install the agent on the on-premises machine and connect it to the Operational Insights.</source>
+          <target state="new">Follow the instructions at <bpt id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;linkText&gt;</bpt>Connect computers directly to Operational Insights<ept id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;/linkText&gt;</ept><bpt id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;title&gt;</bpt><ept id="3ce5e542-2ef6-4497-be20-aafa185d105c">&lt;/title&gt;</ept> to install the agent on the on-premises machine and connect it to the Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="cb30ded3-0e2b-4ff8-8ba6-1501707d2a31" xml:space="preserve">
+          <source>When you add a computer to Operational Insights, the Automation solution pushes down the <bpt id="b6abe8e6-84a7-4369-b372-b49f396eaa10">&lt;strong&gt;</bpt>HybridRegistration<ept id="b6abe8e6-84a7-4369-b372-b49f396eaa10">&lt;/strong&gt;</ept> PowerShell module which contains the <bpt id="2f206ae1-3486-4831-b69c-dac948c4b319">&lt;strong&gt;</bpt>Add-HybridRunbookWorker<ept id="2f206ae1-3486-4831-b69c-dac948c4b319">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">When you add a computer to Operational Insights, the Automation solution pushes down the <bpt id="b6abe8e6-84a7-4369-b372-b49f396eaa10">&lt;strong&gt;</bpt>HybridRegistration<ept id="b6abe8e6-84a7-4369-b372-b49f396eaa10">&lt;/strong&gt;</ept> PowerShell module which contains the <bpt id="2f206ae1-3486-4831-b69c-dac948c4b319">&lt;strong&gt;</bpt>Add-HybridRunbookWorker<ept id="2f206ae1-3486-4831-b69c-dac948c4b319">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="42d83731-eace-440e-969d-1034f0b8eafb" xml:space="preserve">
+          <source>You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.</source>
+          <target state="new">You use this cmdlet to install the runbook environment on the computer and register it with Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="8db74e85-0630-4895-87a9-a9d5e5610699" xml:space="preserve">
+          <source>Open a PowerShell session in Administrator mode and run the following command to import the module.</source>
+          <target state="new">Open a PowerShell session in Administrator mode and run the following command to import the module.</target>
+        </trans-unit>
+        <trans-unit id="9f842a23-05d5-49c0-8b03-920b1369843f" xml:space="preserve">
+          <source>If you receive an error message saying that the module file was not found, then you may need to use the following command that uses the entire path to the module file.</source>
+          <target state="new">If you receive an error message saying that the module file was not found, then you may need to use the following command that uses the entire path to the module file.</target>
+        </trans-unit>
+        <trans-unit id="a013d16e-9fee-492c-aa50-0137d57af40b" xml:space="preserve">
+          <source>Then run the <bpt id="cf0f5f7b-2468-411f-abd1-f950e6457006">&lt;strong&gt;</bpt>Add-HybridRunbookWorker<ept id="cf0f5f7b-2468-411f-abd1-f950e6457006">&lt;/strong&gt;</ept> cmdlet using the following syntax:</source>
+          <target state="new">Then run the <bpt id="cf0f5f7b-2468-411f-abd1-f950e6457006">&lt;strong&gt;</bpt>Add-HybridRunbookWorker<ept id="cf0f5f7b-2468-411f-abd1-f950e6457006">&lt;/strong&gt;</ept> cmdlet using the following syntax:</target>
+        </trans-unit>
+        <trans-unit id="47596e70-d1f7-4c9f-9724-085597fa1b56" xml:space="preserve">
+          <source><bpt id="c20bbc55-d10f-4838-a37f-cfe3b3eedc4f">&lt;strong&gt;</bpt>Name<ept id="c20bbc55-d10f-4838-a37f-cfe3b3eedc4f">&lt;/strong&gt;</ept> is the name of the Hybrid Runbook Worker Group.</source>
+          <target state="new"><bpt id="c20bbc55-d10f-4838-a37f-cfe3b3eedc4f">&lt;strong&gt;</bpt>Name<ept id="c20bbc55-d10f-4838-a37f-cfe3b3eedc4f">&lt;/strong&gt;</ept> is the name of the Hybrid Runbook Worker Group.</target>
+        </trans-unit>
+        <trans-unit id="6bb14a73-0c04-482f-bf4c-65516f45d1ff" xml:space="preserve">
+          <source>If this group already exists in the automation account, then the current computer is added to it.</source>
+          <target state="new">If this group already exists in the automation account, then the current computer is added to it.</target>
+        </trans-unit>
+        <trans-unit id="164d9af6-315b-4fb4-9e0a-e3a5ca633c5b" xml:space="preserve">
+          <source>If it does not already exist, then it is added.</source>
+          <target state="new">If it does not already exist, then it is added.</target>
+        </trans-unit>
+        <trans-unit id="9ba7baac-caaf-415e-a0d8-afb7cae57933" xml:space="preserve">
+          <source><bpt id="50ae19c5-0391-4e8a-9e11-2e8c57188c37">&lt;strong&gt;</bpt>EndPoint<ept id="50ae19c5-0391-4e8a-9e11-2e8c57188c37">&lt;/strong&gt;</ept> is the URL of the Agent service.</source>
+          <target state="new"><bpt id="50ae19c5-0391-4e8a-9e11-2e8c57188c37">&lt;strong&gt;</bpt>EndPoint<ept id="50ae19c5-0391-4e8a-9e11-2e8c57188c37">&lt;/strong&gt;</ept> is the URL of the Agent service.</target>
+        </trans-unit>
+        <trans-unit id="f73ca29d-f9f0-4626-9568-fcb6cd3f6165" xml:space="preserve">
+          <source>You can obtain this from the Azure preview portal on the <bpt id="5bbfd856-9810-4956-89ad-48b2c4cf6d7b">&lt;strong&gt;</bpt>Manage Keys<ept id="5bbfd856-9810-4956-89ad-48b2c4cf6d7b">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">You can obtain this from the Azure preview portal on the <bpt id="5bbfd856-9810-4956-89ad-48b2c4cf6d7b">&lt;strong&gt;</bpt>Manage Keys<ept id="5bbfd856-9810-4956-89ad-48b2c4cf6d7b">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="f5fddd69-e818-498c-bae8-eb70d9821e15" xml:space="preserve">
+          <source><bpt id="46ec7977-9fb0-44e2-ace6-9f9fea573109">&lt;strong&gt;</bpt>Token<ept id="46ec7977-9fb0-44e2-ace6-9f9fea573109">&lt;/strong&gt;</ept> is the <bpt id="7967c217-2f97-4752-becb-5601ced211b3">&lt;strong&gt;</bpt>Primary Access Key<ept id="7967c217-2f97-4752-becb-5601ced211b3">&lt;/strong&gt;</ept> in the <bpt id="2694576c-7f39-4789-9c46-2a9c1de736d5">&lt;strong&gt;</bpt>Manage Keys<ept id="2694576c-7f39-4789-9c46-2a9c1de736d5">&lt;/strong&gt;</ept> blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.&lt;br&gt;&lt;br&gt;<bpt id="99491ee3-232e-44d2-9571-89230b9ee5bb">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Overview<ept id="99491ee3-232e-44d2-9571-89230b9ee5bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46ec7977-9fb0-44e2-ace6-9f9fea573109">&lt;strong&gt;</bpt>Token<ept id="46ec7977-9fb0-44e2-ace6-9f9fea573109">&lt;/strong&gt;</ept> is the <bpt id="7967c217-2f97-4752-becb-5601ced211b3">&lt;strong&gt;</bpt>Primary Access Key<ept id="7967c217-2f97-4752-becb-5601ced211b3">&lt;/strong&gt;</ept> in the <bpt id="2694576c-7f39-4789-9c46-2a9c1de736d5">&lt;strong&gt;</bpt>Manage Keys<ept id="2694576c-7f39-4789-9c46-2a9c1de736d5">&lt;/strong&gt;</ept> blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.&lt;br&gt;&lt;br&gt;<bpt id="99491ee3-232e-44d2-9571-89230b9ee5bb">&lt;linkText&gt;</bpt>Hybrid Runbook Worker Overview<ept id="99491ee3-232e-44d2-9571-89230b9ee5bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24f185c9-bcfb-407a-969b-a2c24c5e1514" xml:space="preserve">
+          <source>Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.</source>
+          <target state="new">Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment.</target>
+        </trans-unit>
+        <trans-unit id="b5291016-cf3a-44e9-8220-fc95058047a5" xml:space="preserve">
+          <source>These modules are not automatically deployed to on-premises machines though, so you must install them manually.</source>
+          <target state="new">These modules are not automatically deployed to on-premises machines though, so you must install them manually.</target>
+        </trans-unit>
+        <trans-unit id="72fd4ee0-e055-43aa-ba46-42ce85ad5288" xml:space="preserve">
+          <source>The exception is the Azure module which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.</source>
+          <target state="new">The exception is the Azure module which is installed by default providing access to cmdlets for all Azure services and activities for Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="4fc4c672-c407-439b-a878-333f838ad253" xml:space="preserve">
+          <source>Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.</source>
+          <target state="new">Since the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you will most likely need to install the modules that support these resources.</target>
+        </trans-unit>
+        <trans-unit id="93481ef7-e743-44f4-8d71-920ccae753ad" xml:space="preserve">
+          <source>You can refer to  <bpt id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;linkText&gt;</bpt>Installing Modules<ept id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;/linkText&gt;</ept><bpt id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;title&gt;</bpt><ept id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;/title&gt;</ept> for information on installing Windows PowerShell modules.</source>
+          <target state="new">You can refer to  <bpt id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;linkText&gt;</bpt>Installing Modules<ept id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;/linkText&gt;</ept><bpt id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;title&gt;</bpt><ept id="032af70c-ba3c-48b2-a8bb-afe30d08dc68">&lt;/title&gt;</ept> for information on installing Windows PowerShell modules.</target>
+        </trans-unit>
+        <trans-unit id="5d67e4c5-c100-44d8-81c2-5b1b7f7c4ce5" xml:space="preserve">
+          <source><bpt id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;/linkText&gt;</ept><bpt id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;title&gt;</bpt><ept id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;/title&gt;</ept> describes different methods for starting a runbook.</source>
+          <target state="new"><bpt id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;/linkText&gt;</ept><bpt id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;title&gt;</bpt><ept id="31fe3245-9741-4410-9f8f-6bcca07e752d">&lt;/title&gt;</ept> describes different methods for starting a runbook.</target>
+        </trans-unit>
+        <trans-unit id="51093984-4d13-4268-8e93-12e86d2438c1" xml:space="preserve">
+          <source>Hybrid Runbook Worker adds a <bpt id="229c73bc-4f06-4f7d-87f2-d9b7ff2d0825">&lt;strong&gt;</bpt>RunOn<ept id="229c73bc-4f06-4f7d-87f2-d9b7ff2d0825">&lt;/strong&gt;</ept> option where you can specify the name of a Hybrid Runbook Worker Group.</source>
+          <target state="new">Hybrid Runbook Worker adds a <bpt id="229c73bc-4f06-4f7d-87f2-d9b7ff2d0825">&lt;strong&gt;</bpt>RunOn<ept id="229c73bc-4f06-4f7d-87f2-d9b7ff2d0825">&lt;/strong&gt;</ept> option where you can specify the name of a Hybrid Runbook Worker Group.</target>
+        </trans-unit>
+        <trans-unit id="3fab33b7-7a29-4a7c-8e3c-a98742683fb9" xml:space="preserve">
+          <source>If a group is specified, then the runbook is retrieved and run by of the workers in that group.</source>
+          <target state="new">If a group is specified, then the runbook is retrieved and run by of the workers in that group.</target>
+        </trans-unit>
+        <trans-unit id="3f8b1c74-8229-4a37-a969-f8558a386d1b" xml:space="preserve">
+          <source>If this option is not specified, then it is run in Azure Automation as normal.</source>
+          <target state="new">If this option is not specified, then it is run in Azure Automation as normal.</target>
+        </trans-unit>
+        <trans-unit id="ae157392-73c8-463d-9a9e-d8f10424bacf" xml:space="preserve">
+          <source>When you start a runbook in the Azure preview portal, you will be presented with a <bpt id="c5c5391c-74e0-4382-aecd-2e4f3ed65755">&lt;strong&gt;</bpt>Run on<ept id="c5c5391c-74e0-4382-aecd-2e4f3ed65755">&lt;/strong&gt;</ept> option where you can select <bpt id="30589a16-d3c1-4a76-9dfd-bdf03668f0eb">&lt;strong&gt;</bpt>Azure<ept id="30589a16-d3c1-4a76-9dfd-bdf03668f0eb">&lt;/strong&gt;</ept> or <bpt id="d4bb5938-a723-4e0e-b966-6e651197990b">&lt;strong&gt;</bpt>Hybrid Worker<ept id="d4bb5938-a723-4e0e-b966-6e651197990b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you start a runbook in the Azure preview portal, you will be presented with a <bpt id="c5c5391c-74e0-4382-aecd-2e4f3ed65755">&lt;strong&gt;</bpt>Run on<ept id="c5c5391c-74e0-4382-aecd-2e4f3ed65755">&lt;/strong&gt;</ept> option where you can select <bpt id="30589a16-d3c1-4a76-9dfd-bdf03668f0eb">&lt;strong&gt;</bpt>Azure<ept id="30589a16-d3c1-4a76-9dfd-bdf03668f0eb">&lt;/strong&gt;</ept> or <bpt id="d4bb5938-a723-4e0e-b966-6e651197990b">&lt;strong&gt;</bpt>Hybrid Worker<ept id="d4bb5938-a723-4e0e-b966-6e651197990b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="305b1fec-9b9c-4f71-845e-9950af2ef595" xml:space="preserve">
+          <source>If you select <bpt id="5714f7ad-2d7d-47a6-b931-ade632cccff3">&lt;strong&gt;</bpt>Hybrid Worker<ept id="5714f7ad-2d7d-47a6-b931-ade632cccff3">&lt;/strong&gt;</ept>, then you can select the group from a dropdown.</source>
+          <target state="new">If you select <bpt id="5714f7ad-2d7d-47a6-b931-ade632cccff3">&lt;strong&gt;</bpt>Hybrid Worker<ept id="5714f7ad-2d7d-47a6-b931-ade632cccff3">&lt;/strong&gt;</ept>, then you can select the group from a dropdown.</target>
+        </trans-unit>
+        <trans-unit id="1c688d11-1629-4e2d-873c-9aa01c06d3f5" xml:space="preserve">
+          <source>Use the <bpt id="557fd265-6877-4afa-8c2b-6e97da2c98e9">&lt;strong&gt;</bpt>RunOn<ept id="557fd265-6877-4afa-8c2b-6e97da2c98e9">&lt;/strong&gt;</ept> parameter  You could use the following command to start a runbook named Test-Runbook on a Hybrid Runbook Worker Group named MyHybridGroup using Windows PowerShell.</source>
+          <target state="new">Use the <bpt id="557fd265-6877-4afa-8c2b-6e97da2c98e9">&lt;strong&gt;</bpt>RunOn<ept id="557fd265-6877-4afa-8c2b-6e97da2c98e9">&lt;/strong&gt;</ept> parameter  You could use the following command to start a runbook named Test-Runbook on a Hybrid Runbook Worker Group named MyHybridGroup using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="0a946ee0-d704-4f7f-85e5-888aa4b93584" xml:space="preserve">
+          <source>The <bpt id="eb213b3d-39b1-45a7-9105-551f2394c7a5">&lt;strong&gt;</bpt>RunOn<ept id="eb213b3d-39b1-45a7-9105-551f2394c7a5">&lt;/strong&gt;</ept> parameter was added to the <bpt id="8c14fc9e-3b98-4a2f-9c5a-29ada145e03e">&lt;strong&gt;</bpt>Start-AzureAutomationRunbook<ept id="8c14fc9e-3b98-4a2f-9c5a-29ada145e03e">&lt;/strong&gt;</ept> cmdlet in version 0.9.1 of Microsoft Azure PowerShell.</source>
+          <target state="new">The <bpt id="eb213b3d-39b1-45a7-9105-551f2394c7a5">&lt;strong&gt;</bpt>RunOn<ept id="eb213b3d-39b1-45a7-9105-551f2394c7a5">&lt;/strong&gt;</ept> parameter was added to the <bpt id="8c14fc9e-3b98-4a2f-9c5a-29ada145e03e">&lt;strong&gt;</bpt>Start-AzureAutomationRunbook<ept id="8c14fc9e-3b98-4a2f-9c5a-29ada145e03e">&lt;/strong&gt;</ept> cmdlet in version 0.9.1 of Microsoft Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="725e0eb3-9cde-474e-affc-6dca864c1cb8" xml:space="preserve">
+          <source>You should <bpt id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;linkText&gt;</bpt>download the latest version<ept id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;/linkText&gt;</ept><bpt id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;title&gt;</bpt><ept id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;/title&gt;</ept> if you have an earlier one installed.</source>
+          <target state="new">You should <bpt id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;linkText&gt;</bpt>download the latest version<ept id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;/linkText&gt;</ept><bpt id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;title&gt;</bpt><ept id="3a227cec-10dc-440d-bc64-14c61dbae89d">&lt;/title&gt;</ept> if you have an earlier one installed.</target>
+        </trans-unit>
+        <trans-unit id="79276fbf-3920-4a5a-b99a-b3dd623eec3a" xml:space="preserve">
+          <source>You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.</source>
+          <target state="new">You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="7eacad1f-1fb1-4430-8676-428f93c922af" xml:space="preserve">
+          <source>You do not need to install it on the worker computer unless you intend to start runbooks from that computer.</source>
+          <target state="new">You do not need to install it on the worker computer unless you intend to start runbooks from that computer.</target>
+        </trans-unit>
+        <trans-unit id="6030b371-60a1-4a8a-9c9f-cfde47d64337" xml:space="preserve">
+          <source>You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.</source>
+          <target state="new">You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.</target>
+        </trans-unit>
+        <trans-unit id="edfb32fd-949e-4423-be7c-0cd9cdd3b33f" xml:space="preserve">
+          <source>The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.</source>
+          <target state="new">The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.</target>
+        </trans-unit>
+        <trans-unit id="0207e06e-7539-4eb4-89f3-b92c2e60ae31" xml:space="preserve">
+          <source>There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker.</source>
+          <target state="new">There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker.</target>
+        </trans-unit>
+        <trans-unit id="5d76ff62-9ef8-4fab-bf0a-4042c0296411" xml:space="preserve">
+          <source>Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.</source>
+          <target state="new">Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="2160e91e-fc5f-46af-b967-9030807df2e2" xml:space="preserve">
+          <source>Runbooks will run in the context of the local System account on the Hybrid Runbook Worker, so they must provide their own authentication to resources that they they will access.</source>
+          <target state="new">Runbooks will run in the context of the local System account on the Hybrid Runbook Worker, so they must provide their own authentication to resources that they they will access.</target>
+        </trans-unit>
+        <trans-unit id="da3c2ec8-8f2b-4546-981d-a0600c234236" xml:space="preserve">
+          <source>They cannot use the same <bpt id="42068f30-9931-4387-b277-960eb137cc76">&lt;linkText&gt;</bpt>method that is typically used for runbooks authenticating to Azure resources<ept id="42068f30-9931-4387-b277-960eb137cc76">&lt;/linkText&gt;</ept><bpt id="42068f30-9931-4387-b277-960eb137cc76">&lt;title&gt;</bpt><ept id="42068f30-9931-4387-b277-960eb137cc76">&lt;/title&gt;</ept> since they will be accessing resources outside of Azure.</source>
+          <target state="new">They cannot use the same <bpt id="42068f30-9931-4387-b277-960eb137cc76">&lt;linkText&gt;</bpt>method that is typically used for runbooks authenticating to Azure resources<ept id="42068f30-9931-4387-b277-960eb137cc76">&lt;/linkText&gt;</ept><bpt id="42068f30-9931-4387-b277-960eb137cc76">&lt;title&gt;</bpt><ept id="42068f30-9931-4387-b277-960eb137cc76">&lt;/title&gt;</ept> since they will be accessing resources outside of Azure.</target>
+        </trans-unit>
+        <trans-unit id="de7f3934-c924-4604-bd11-1e71cc77be30" xml:space="preserve">
+          <source>You can use use <bpt id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;linkText&gt;</bpt>Credential<ept id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;/linkText&gt;</ept><bpt id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;title&gt;</bpt><ept id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;/title&gt;</ept> and <bpt id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;linkText&gt;</bpt>Certificate<ept id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;/linkText&gt;</ept><bpt id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;title&gt;</bpt><ept id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;/title&gt;</ept> assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources.</source>
+          <target state="new">You can use use <bpt id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;linkText&gt;</bpt>Credential<ept id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;/linkText&gt;</ept><bpt id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;title&gt;</bpt><ept id="60381706-a5cb-46af-b939-7da0f83f23a5">&lt;/title&gt;</ept> and <bpt id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;linkText&gt;</bpt>Certificate<ept id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;/linkText&gt;</ept><bpt id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;title&gt;</bpt><ept id="4f5fc999-aec4-4e3c-b988-00adec27f25f">&lt;/title&gt;</ept> assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources.</target>
+        </trans-unit>
+        <trans-unit id="121cf7d8-81ac-4ffb-953c-05e8097321b1" xml:space="preserve">
+          <source>The following example shows a portion of a runbook that restarts a computer.</source>
+          <target state="new">The following example shows a portion of a runbook that restarts a computer.</target>
+        </trans-unit>
+        <trans-unit id="b30b9149-2977-4363-b7ef-d67e6a043c89" xml:space="preserve">
+          <source>It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.</source>
+          <target state="new">It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="5bde5a01-0e30-4006-b982-bec8dcd67b7c" xml:space="preserve">
+          <source>You can also leverage <bpt id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;linkText&gt;</bpt>InlineScript<ept id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;/linkText&gt;</ept><bpt id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;title&gt;</bpt><ept id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;/title&gt;</ept> which will allow you to run blocks of code on another computer with credentials specified by the <bpt id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;linkText&gt;</bpt>PSCredential common parameter<ept id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;/linkText&gt;</ept><bpt id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;title&gt;</bpt><ept id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also leverage <bpt id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;linkText&gt;</bpt>InlineScript<ept id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;/linkText&gt;</ept><bpt id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;title&gt;</bpt><ept id="0ef777ad-9324-4153-b61e-d326c9ad7269">&lt;/title&gt;</ept> which will allow you to run blocks of code on another computer with credentials specified by the <bpt id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;linkText&gt;</bpt>PSCredential common parameter<ept id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;/linkText&gt;</ept><bpt id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;title&gt;</bpt><ept id="5d2f37d2-cf12-4bd8-b9c5-3fc58b0394fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9f22557-bd96-403e-88c4-6aa25a43c38f" xml:space="preserve">
+          <source>You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.</source>
+          <target state="new">You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.</target>
+        </trans-unit>
+        <trans-unit id="a55e49cd-51d6-4d28-8b40-efdd36821174" xml:space="preserve">
+          <source>The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.</source>
+          <target state="new">The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.</target>
+        </trans-unit>
+        <trans-unit id="c94630bd-c5cb-431c-a5ac-354be7f68f82" xml:space="preserve">
+          <source>If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.</source>
+          <target state="new">If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.</target>
+        </trans-unit>
+        <trans-unit id="725f0fca-982a-43ba-af6f-4f89bccfcb20" xml:space="preserve">
+          <source><bpt id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;linkText&gt;</bpt>Service Management Automation (SMA)<ept id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;/linkText&gt;</ept><bpt id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;title&gt;</bpt><ept id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;/title&gt;</ept> is a component of Windows Azure Pack (WAP) that allows you to run the same runbooks that are supported by Azure Automation in your local data center.</source>
+          <target state="new"><bpt id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;linkText&gt;</bpt>Service Management Automation (SMA)<ept id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;/linkText&gt;</ept><bpt id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;title&gt;</bpt><ept id="9309332a-3d8b-4a86-b37b-c097189f2a5e">&lt;/title&gt;</ept> is a component of Windows Azure Pack (WAP) that allows you to run the same runbooks that are supported by Azure Automation in your local data center.</target>
+        </trans-unit>
+        <trans-unit id="248b77ed-1722-4ee4-8ac0-c844b3d93b86" xml:space="preserve">
+          <source>Unlike Azure Automation, SMA requires a local installation that includes the Windows Azure Pack Management Portal and a database to hold runbooks and SMA configuration.</source>
+          <target state="new">Unlike Azure Automation, SMA requires a local installation that includes the Windows Azure Pack Management Portal and a database to hold runbooks and SMA configuration.</target>
+        </trans-unit>
+        <trans-unit id="a0531b94-2bae-418a-9678-f42d7401528d" xml:space="preserve">
+          <source>Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.</source>
+          <target state="new">Azure Automation provides these services in the cloud and only requires you to maintain the Hybrid Runbook Workers in your local environment.</target>
+        </trans-unit>
+        <trans-unit id="3e797587-9c25-4232-8763-9b43eceea10b" xml:space="preserve">
+          <source>If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in <bpt id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;linkText&gt;</bpt>Creating runbooks for Hybrid Runbook Worker<ept id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;/linkText&gt;</ept><bpt id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;title&gt;</bpt><ept id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are an existing SMA user, you can move your runbooks to Azure Automation to be used with Hybrid Runbook Worker with no changes, assuming that they perform their own authentication to resources as described in <bpt id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;linkText&gt;</bpt>Creating runbooks for Hybrid Runbook Worker<ept id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;/linkText&gt;</ept><bpt id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;title&gt;</bpt><ept id="c8fa142e-a6cf-4825-83a3-b717915245a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="45adbb57-659b-44b1-9d1c-e5411fb20650" xml:space="preserve">
+          <source>Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.</source>
+          <target state="new">Runbooks in SMA run in the context of the service account on the worker server which may provide that authentication for the runbooks.</target>
+        </trans-unit>
+        <trans-unit id="a3863ac5-f3fe-4408-a03e-f0be2e9b58ab" xml:space="preserve">
+          <source>You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.</source>
+          <target state="new">You can use the following criteria to determine whether Azure Automation with Hybrid Runbook Worker or Service Management Automation is more appropriate for your requirements.</target>
+        </trans-unit>
+        <trans-unit id="f531dc1b-f0f7-499f-bc88-014345b754f6" xml:space="preserve">
+          <source>SMA requires a local installation of Windows Azure Pack that has higher more local resources and maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.</source>
+          <target state="new">SMA requires a local installation of Windows Azure Pack that has higher more local resources and maintenance costs than Azure Automation which only needs an agent installed on local runbook workers.</target>
+        </trans-unit>
+        <trans-unit id="b8e752b7-386d-4afa-bff4-a33c0d694bf2" xml:space="preserve">
+          <source>The agents are managed by Operational Insights furthering decreasing their maintenance costs.</source>
+          <target state="new">The agents are managed by Operational Insights furthering decreasing their maintenance costs.</target>
+        </trans-unit>
+        <trans-unit id="75e940a8-fe87-47ea-a4b8-9cc5abb70f1e" xml:space="preserve">
+          <source>Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbooks Workers.</source>
+          <target state="new">Azure Automation stores its runbooks in the cloud and delivers them to on-premises Hybrid Runbooks Workers.</target>
+        </trans-unit>
+        <trans-unit id="9b0123ce-5f82-49ca-9131-fa0236333eeb" xml:space="preserve">
+          <source>If your security policy does not allow this behavior then you should use SMA.</source>
+          <target state="new">If your security policy does not allow this behavior then you should use SMA.</target>
+        </trans-unit>
+        <trans-unit id="48974044-63e9-45ef-8f3b-43e0fc4c45a2" xml:space="preserve">
+          <source>Windows Azure Pack is a free download while Azure Automation may incur subscription charges.</source>
+          <target state="new">Windows Azure Pack is a free download while Azure Automation may incur subscription charges.</target>
+        </trans-unit>
+        <trans-unit id="6c0a4355-3c5d-449f-b8a0-64f93e5439a4" xml:space="preserve">
+          <source>Azure.</source>
+          <target state="new">Azure.</target>
+        </trans-unit>
+        <trans-unit id="1b0147ff-82bf-4cd7-b0fd-b1ff14184efc" xml:space="preserve">
+          <source>Must maintain multiple databases for SMA.</source>
+          <target state="new">Must maintain multiple databases for SMA.</target>
+        </trans-unit>
+        <trans-unit id="653e27d0-58ff-46fa-a416-8b377b92d2e6" xml:space="preserve">
+          <source>Azure Automation with Hybrid Runbook Worker allow you to manage runbooks for cloud resources and local resources in one location as opposed to separately managing both Azure Automation and SMA.</source>
+          <target state="new">Azure Automation with Hybrid Runbook Worker allow you to manage runbooks for cloud resources and local resources in one location as opposed to separately managing both Azure Automation and SMA.</target>
+        </trans-unit>
+        <trans-unit id="e3905aca-3edf-4a8f-90a1-2019bcc51244" xml:space="preserve">
+          <source>Azure Automation has advanced features such including graphical authoring that are not available in SMA.</source>
+          <target state="new">Azure Automation has advanced features such including graphical authoring that are not available in SMA.</target>
+        </trans-unit>
+        <trans-unit id="e992bf49-ea0e-4af3-8afb-4ee6cae3262b" xml:space="preserve">
+          <source><bpt id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;/linkText&gt;</ept><bpt id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;title&gt;</bpt><ept id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;linkText&gt;</bpt>Starting a Runbook in Azure Automation<ept id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;/linkText&gt;</ept><bpt id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;title&gt;</bpt><ept id="d23cfacd-16be-4795-b0a0-d41d6ffa0538">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01a45534-21a0-4014-bab2-70653624ac2a" xml:space="preserve">
+          <source><bpt id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;linkText&gt;</bpt>Editing a Runbook in Azure Automation<ept id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;/linkText&gt;</ept><bpt id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;title&gt;</bpt><ept id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;linkText&gt;</bpt>Editing a Runbook in Azure Automation<ept id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;/linkText&gt;</ept><bpt id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;title&gt;</bpt><ept id="a354732c-b6f5-4f7a-8647-c55af805178c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

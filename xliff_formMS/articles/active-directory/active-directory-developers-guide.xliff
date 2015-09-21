@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7eb36baf-635a-4adf-bd8b-2a2a60db09a7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7eb36baf-635a-4adf-bd8b-2a2a60db09a7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="be632f75-6c6d-4dd8-8609-8e32a9df7032">
+        <trans-unit id="6033ed01-29ff-4dbf-acdb-45480027ed61" xml:space="preserve">
+          <source>Azure Active Directory developer's guide | Microsoft Azure</source>
+          <target state="new">Azure Active Directory developer's guide | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e2b4ea66-dc68-4e3a-9ca0-4584820c5a8d" xml:space="preserve">
+          <source>This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory.</source>
+          <target state="new">This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="be60dd7a-c332-41b0-b8db-c09060814a6c" xml:space="preserve">
+          <source>As an identity management as a service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications.</source>
+          <target state="new">As an identity management as a service (IDMaaS) platform, Azure Active Directory provides developers an effective way to integrate identity management into their applications.</target>
+        </trans-unit>
+        <trans-unit id="24cfd37e-e12d-48e4-92de-cd85f980f406" xml:space="preserve">
+          <source>The following articles provide overviews on implementation and key features of Azure Active Directory.</source>
+          <target state="new">The following articles provide overviews on implementation and key features of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="5b42f1b5-5e10-4b3f-83a5-27e91f195255" xml:space="preserve">
+          <source>We suggest that you read them in order, or jump to <bpt id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;linkText&gt;</bpt>Getting started<ept id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;/linkText&gt;</ept><bpt id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;title&gt;</bpt><ept id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;/title&gt;</ept> if you're ready to dig in.</source>
+          <target state="new">We suggest that you read them in order, or jump to <bpt id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;linkText&gt;</bpt>Getting started<ept id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;/linkText&gt;</ept><bpt id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;title&gt;</bpt><ept id="13c492b5-7719-4416-90f2-37caa05cdd55">&lt;/title&gt;</ept> if you're ready to dig in.</target>
+        </trans-unit>
+        <trans-unit id="dc60ae62-f6af-4bbb-a3d6-133b31dbc74f" xml:space="preserve">
+          <source><bpt id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;linkText&gt;</bpt>Integrating with Azure Active Directory<ept id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;/linkText&gt;</ept><bpt id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;title&gt;</bpt><ept id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;/title&gt;</ept>: Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.</source>
+          <target state="new"><bpt id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;linkText&gt;</bpt>Integrating with Azure Active Directory<ept id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;/linkText&gt;</ept><bpt id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;title&gt;</bpt><ept id="ae9d884f-39f2-4865-b212-aa38a73bee17">&lt;/title&gt;</ept>: Discover why integration with Azure Active Directory offers the best solution for secure sign-in and authorization.</target>
+        </trans-unit>
+        <trans-unit id="66bf7764-8d18-4a45-a4c7-1cdf0a178d73" xml:space="preserve">
+          <source><bpt id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;linkText&gt;</bpt>Active Directory authentication scenarios<ept id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;/linkText&gt;</ept><bpt id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;title&gt;</bpt><ept id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;/title&gt;</ept>: Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.</source>
+          <target state="new"><bpt id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;linkText&gt;</bpt>Active Directory authentication scenarios<ept id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;/linkText&gt;</ept><bpt id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;title&gt;</bpt><ept id="6ce08ae2-5805-42eb-b2c3-43a4c8856317">&lt;/title&gt;</ept>: Take advantage of simplified authentication in Azure Active Directory to provide sign-on to your application.</target>
+        </trans-unit>
+        <trans-unit id="d640fff2-70c1-44f5-a351-5a3f2e673e43" xml:space="preserve">
+          <source><bpt id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;linkText&gt;</bpt>Azure Active Directory Graph API<ept id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;/linkText&gt;</ept><bpt id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;title&gt;</bpt><ept id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;/title&gt;</ept>: Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints.</source>
+          <target state="new"><bpt id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;linkText&gt;</bpt>Azure Active Directory Graph API<ept id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;/linkText&gt;</ept><bpt id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;title&gt;</bpt><ept id="5ba8c477-a6c3-4fb9-a401-14deedcb2bbb">&lt;/title&gt;</ept>: Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints.</target>
+        </trans-unit>
+        <trans-unit id="297d4f37-5a27-4022-b881-39a70d2fbdef" xml:space="preserve">
+          <source><bpt id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;linkText&gt;</bpt>Integrating applications in Azure Active Directory<ept id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;/linkText&gt;</ept><bpt id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;title&gt;</bpt><ept id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;/title&gt;</ept>: Learn about registering your application and the branding guidelines for multitenant applications.</source>
+          <target state="new"><bpt id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;linkText&gt;</bpt>Integrating applications in Azure Active Directory<ept id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;/linkText&gt;</ept><bpt id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;title&gt;</bpt><ept id="5c626e12-5433-4c17-bf11-d2cc56a90700">&lt;/title&gt;</ept>: Learn about registering your application and the branding guidelines for multitenant applications.</target>
+        </trans-unit>
+        <trans-unit id="3a98b27c-b63d-4d84-9816-3dbb78a12821" xml:space="preserve">
+          <source><bpt id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;linkText&gt;</bpt>Azure Active Directory authentication libraries<ept id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;/linkText&gt;</ept><bpt id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;title&gt;</bpt><ept id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;/title&gt;</ept>: Easily authenticate users to obtain access tokens by using the Azure authentication libraries.</source>
+          <target state="new"><bpt id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;linkText&gt;</bpt>Azure Active Directory authentication libraries<ept id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;/linkText&gt;</ept><bpt id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;title&gt;</bpt><ept id="bfa097c7-0c78-4c6e-a791-4107f2ace156">&lt;/title&gt;</ept>: Easily authenticate users to obtain access tokens by using the Azure authentication libraries.</target>
+        </trans-unit>
+        <trans-unit id="3e805426-7a8c-460d-90dd-5075f483cbde" xml:space="preserve">
+          <source>To view Azure Active Directory overviews presented at the Build 2015 conference, see the <bpt id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;linkText&gt;</bpt>Videos<ept id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;/linkText&gt;</ept><bpt id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;title&gt;</bpt><ept id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;/title&gt;</ept> section below.</source>
+          <target state="new">To view Azure Active Directory overviews presented at the Build 2015 conference, see the <bpt id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;linkText&gt;</bpt>Videos<ept id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;/linkText&gt;</ept><bpt id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;title&gt;</bpt><ept id="e2647a67-b7de-45c8-b191-44dac4b84a32">&lt;/title&gt;</ept> section below.</target>
+        </trans-unit>
+        <trans-unit id="501e0c5c-b4e4-4ecd-80d8-d78554bc2f91" xml:space="preserve">
+          <source>These tutorials are tailored for multiple platforms and can help you quickly start developing with Azure Active Directory.</source>
+          <target state="new">These tutorials are tailored for multiple platforms and can help you quickly start developing with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="989c225f-813a-44d7-8206-62345c5e088c" xml:space="preserve">
+          <source>As a prerequisite, you must <bpt id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;linkText&gt;</bpt>get an Azure Active Directory tenant<ept id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;/linkText&gt;</ept><bpt id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;title&gt;</bpt><ept id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;/title&gt;</ept>.</source>
+          <target state="new">As a prerequisite, you must <bpt id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;linkText&gt;</bpt>get an Azure Active Directory tenant<ept id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;/linkText&gt;</ept><bpt id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;title&gt;</bpt><ept id="d82eb6b0-8cd2-460d-81ab-ab06c24ecf14">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60cb0814-7711-415a-bd51-7449852487cb" xml:space="preserve">
+          <source>[<bpt id="580f3e87-2042-4d6d-94d9-61dd2a46dd6e">&lt;linkText&gt;</bpt>iOS<ept id="580f3e87-2042-4d6d-94d9-61dd2a46dd6e">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-ios.md)</source>
+          <target state="new">[<bpt id="580f3e87-2042-4d6d-94d9-61dd2a46dd6e">&lt;linkText&gt;</bpt>iOS<ept id="580f3e87-2042-4d6d-94d9-61dd2a46dd6e">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-ios.md)</target>
+        </trans-unit>
+        <trans-unit id="f21af984-1481-438c-afe4-dad96a560b93" xml:space="preserve">
+          <source>[<bpt id="fbabbabe-573a-4442-bded-a0da728372e2">&lt;linkText&gt;</bpt>Android<ept id="fbabbabe-573a-4442-bded-a0da728372e2">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-android.md)</source>
+          <target state="new">[<bpt id="fbabbabe-573a-4442-bded-a0da728372e2">&lt;linkText&gt;</bpt>Android<ept id="fbabbabe-573a-4442-bded-a0da728372e2">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-android.md)</target>
+        </trans-unit>
+        <trans-unit id="098f1509-6612-4e61-b06c-6fdcebca1a57" xml:space="preserve">
+          <source>[<bpt id="cb362aa5-6518-40a1-837c-0a6214986fd3">&lt;linkText&gt;</bpt>.NET<ept id="cb362aa5-6518-40a1-837c-0a6214986fd3">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-dotnet.md)</source>
+          <target state="new">[<bpt id="cb362aa5-6518-40a1-837c-0a6214986fd3">&lt;linkText&gt;</bpt>.NET<ept id="cb362aa5-6518-40a1-837c-0a6214986fd3">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-dotnet.md)</target>
+        </trans-unit>
+        <trans-unit id="bc9f02ea-591f-418b-819b-9674dd884ec5" xml:space="preserve">
+          <source>[<bpt id="df4a1d61-3c13-4923-ac0a-eba46152df8b">&lt;linkText&gt;</bpt>Windows Phone<ept id="df4a1d61-3c13-4923-ac0a-eba46152df8b">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-windowsphone.md)</source>
+          <target state="new">[<bpt id="df4a1d61-3c13-4923-ac0a-eba46152df8b">&lt;linkText&gt;</bpt>Windows Phone<ept id="df4a1d61-3c13-4923-ac0a-eba46152df8b">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-windowsphone.md)</target>
+        </trans-unit>
+        <trans-unit id="267b2a60-ed64-4de8-a574-ce7f3decab6c" xml:space="preserve">
+          <source>[<bpt id="46b26562-755b-4873-91d1-87722fcd6325">&lt;linkText&gt;</bpt>Windows Store<ept id="46b26562-755b-4873-91d1-87722fcd6325">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-windowsstore.md)</source>
+          <target state="new">[<bpt id="46b26562-755b-4873-91d1-87722fcd6325">&lt;linkText&gt;</bpt>Windows Store<ept id="46b26562-755b-4873-91d1-87722fcd6325">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-windowsstore.md)</target>
+        </trans-unit>
+        <trans-unit id="ef30ffe4-1632-4eb9-84eb-dd8496fcf31b" xml:space="preserve">
+          <source>[<bpt id="23f29ebb-94b5-4709-b3fa-4bb37dd7908f">&lt;linkText&gt;</bpt>Xamarin<ept id="23f29ebb-94b5-4709-b3fa-4bb37dd7908f">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-xamarin.md)</source>
+          <target state="new">[<bpt id="23f29ebb-94b5-4709-b3fa-4bb37dd7908f">&lt;linkText&gt;</bpt>Xamarin<ept id="23f29ebb-94b5-4709-b3fa-4bb37dd7908f">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-xamarin.md)</target>
+        </trans-unit>
+        <trans-unit id="5bbadfb2-3424-4a14-843b-c29caa3e2fa7" xml:space="preserve">
+          <source>[<bpt id="d408b9eb-f498-49c6-9022-566b837b58cc">&lt;linkText&gt;</bpt>Cordova<ept id="d408b9eb-f498-49c6-9022-566b837b58cc">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-cordova.md)</source>
+          <target state="new">[<bpt id="d408b9eb-f498-49c6-9022-566b837b58cc">&lt;linkText&gt;</bpt>Cordova<ept id="d408b9eb-f498-49c6-9022-566b837b58cc">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-cordova.md)</target>
+        </trans-unit>
+        <trans-unit id="8c3bcdc4-bca4-48a8-a8f8-8030064d3843" xml:space="preserve">
+          <source><bpt id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;linkText&gt;</bpt>iOS<ept id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;/linkText&gt;</ept><bpt id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;title&gt;</bpt><ept id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;linkText&gt;</bpt>iOS<ept id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;/linkText&gt;</ept><bpt id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;title&gt;</bpt><ept id="08d8cebe-6822-4f43-862a-0b40ec08de95">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0790e7ff-71dd-4962-8885-15df28b98dfa" xml:space="preserve">
+          <source><bpt id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;linkText&gt;</bpt>Android<ept id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;/linkText&gt;</ept><bpt id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;title&gt;</bpt><ept id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;linkText&gt;</bpt>Android<ept id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;/linkText&gt;</ept><bpt id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;title&gt;</bpt><ept id="09c77376-c9c8-4d7a-a44c-c2bc4e46c6bf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb410df8-4b9c-4f24-b882-88eddcfe590c" xml:space="preserve">
+          <source><bpt id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;linkText&gt;</bpt>.NET<ept id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;/linkText&gt;</ept><bpt id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;title&gt;</bpt><ept id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;linkText&gt;</bpt>.NET<ept id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;/linkText&gt;</ept><bpt id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;title&gt;</bpt><ept id="21fb0fb4-0675-41cd-bde4-2d6dc5fef805">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5f0464e-58b6-4347-95f5-02f5b2f9702a" xml:space="preserve">
+          <source><bpt id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;linkText&gt;</bpt>Windows Phone<ept id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;/linkText&gt;</ept><bpt id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;title&gt;</bpt><ept id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;linkText&gt;</bpt>Windows Phone<ept id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;/linkText&gt;</ept><bpt id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;title&gt;</bpt><ept id="df4fc750-10f2-4fa5-b13e-5437018b248d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="093073e1-a9f6-4fc2-b00a-06b5b1ba6ed3" xml:space="preserve">
+          <source><bpt id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;linkText&gt;</bpt>Windows Store<ept id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;/linkText&gt;</ept><bpt id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;title&gt;</bpt><ept id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;linkText&gt;</bpt>Windows Store<ept id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;/linkText&gt;</ept><bpt id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;title&gt;</bpt><ept id="40f36b2a-5154-4590-94ad-8f4e0f0343a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="599850ef-2bd0-4587-8145-d1d384114815" xml:space="preserve">
+          <source><bpt id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;linkText&gt;</bpt>Xamarin<ept id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;/linkText&gt;</ept><bpt id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;title&gt;</bpt><ept id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;linkText&gt;</bpt>Xamarin<ept id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;/linkText&gt;</ept><bpt id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;title&gt;</bpt><ept id="2396e4bd-95bf-4e73-a4b8-3bca3113ed7e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="821a479b-6101-4f34-b345-97a04e998d84" xml:space="preserve">
+          <source><bpt id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;linkText&gt;</bpt>Cordova<ept id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;/linkText&gt;</ept><bpt id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;title&gt;</bpt><ept id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;linkText&gt;</bpt>Cordova<ept id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;/linkText&gt;</ept><bpt id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;title&gt;</bpt><ept id="56adde69-ef46-4d75-8683-9a78871ab2c1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b10eafaf-fe18-4c65-b17a-afe8ec4177d5" xml:space="preserve">
+          <source>[<bpt id="af2ac0c0-5063-4ce7-9b27-735ef95a8b7f">&lt;linkText&gt;</bpt>.NET<ept id="af2ac0c0-5063-4ce7-9b27-735ef95a8b7f">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapp-dotnet.md)</source>
+          <target state="new">[<bpt id="af2ac0c0-5063-4ce7-9b27-735ef95a8b7f">&lt;linkText&gt;</bpt>.NET<ept id="af2ac0c0-5063-4ce7-9b27-735ef95a8b7f">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapp-dotnet.md)</target>
+        </trans-unit>
+        <trans-unit id="0cbfbe1b-d5bf-4005-ad40-c2b5168e5fc4" xml:space="preserve">
+          <source>[<bpt id="2c011e15-dbd3-45b1-a703-128ceefb660e">&lt;linkText&gt;</bpt>.NET<ept id="2c011e15-dbd3-45b1-a703-128ceefb660e">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapi-dotnet.md)</source>
+          <target state="new">[<bpt id="2c011e15-dbd3-45b1-a703-128ceefb660e">&lt;linkText&gt;</bpt>.NET<ept id="2c011e15-dbd3-45b1-a703-128ceefb660e">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapi-dotnet.md)</target>
+        </trans-unit>
+        <trans-unit id="22b21505-7437-4daf-9d40-7213bea65bc4" xml:space="preserve">
+          <source>[<bpt id="cfe4cf17-6164-4503-a9e1-bae157d60a4d">&lt;linkText&gt;</bpt>Javascript<ept id="cfe4cf17-6164-4503-a9e1-bae157d60a4d">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-angular.md)</source>
+          <target state="new">[<bpt id="cfe4cf17-6164-4503-a9e1-bae157d60a4d">&lt;linkText&gt;</bpt>Javascript<ept id="cfe4cf17-6164-4503-a9e1-bae157d60a4d">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-angular.md)</target>
+        </trans-unit>
+        <trans-unit id="0cc2298c-62ba-45b8-829c-239692a439ff" xml:space="preserve">
+          <source>[<bpt id="71091d14-a994-4ffc-9621-b6eeed150c3a">&lt;linkText&gt;</bpt>Node.js<ept id="71091d14-a994-4ffc-9621-b6eeed150c3a">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapi-nodejs.md)</source>
+          <target state="new">[<bpt id="71091d14-a994-4ffc-9621-b6eeed150c3a">&lt;linkText&gt;</bpt>Node.js<ept id="71091d14-a994-4ffc-9621-b6eeed150c3a">&lt;/linkText&gt;</ept>](active-directory-devquickstarts-webapi-nodejs.md)</target>
+        </trans-unit>
+        <trans-unit id="d21e8dcf-8faa-4bba-b318-19e52dc5990d" xml:space="preserve">
+          <source><bpt id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;linkText&gt;</bpt>.NET Web App<ept id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;/linkText&gt;</ept><bpt id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;title&gt;</bpt><ept id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;linkText&gt;</bpt>.NET Web App<ept id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;/linkText&gt;</ept><bpt id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;title&gt;</bpt><ept id="849c50ff-c9c0-40fc-9983-66264157a638">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9f9169e-d91f-44ac-b00d-a2e1ef399975" xml:space="preserve">
+          <source><bpt id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;linkText&gt;</bpt>.NET Web API<ept id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;/linkText&gt;</ept><bpt id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;title&gt;</bpt><ept id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;linkText&gt;</bpt>.NET Web API<ept id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;/linkText&gt;</ept><bpt id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;title&gt;</bpt><ept id="3801335c-f1df-472e-99f2-12f664eec4de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1dad780-ab8f-4b24-afe9-c91942e48729" xml:space="preserve">
+          <source><bpt id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;linkText&gt;</bpt>Javascript<ept id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;/linkText&gt;</ept><bpt id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;title&gt;</bpt><ept id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;linkText&gt;</bpt>Javascript<ept id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;/linkText&gt;</ept><bpt id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;title&gt;</bpt><ept id="f5c1e42a-b9d3-4d58-bbfc-19efa4e66685">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e8ba812-8eed-4169-9bf7-06e5d3257db0" xml:space="preserve">
+          <source><bpt id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;linkText&gt;</bpt>Node.js<ept id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;/linkText&gt;</ept><bpt id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;title&gt;</bpt><ept id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;linkText&gt;</bpt>Node.js<ept id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;/linkText&gt;</ept><bpt id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;title&gt;</bpt><ept id="d9dcae5d-fb2d-497b-8dc1-146dde0ca5ea">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3b543c1-be39-4a03-b3c6-2fa99e0b0b9b" xml:space="preserve">
+          <source>[<bpt id="878a9bcc-6b64-4bc9-a3b4-b8502bcfa43a">&lt;linkText&gt;</bpt>.NET<ept id="878a9bcc-6b64-4bc9-a3b4-b8502bcfa43a">&lt;/linkText&gt;</ept>](active-directory-graph-api-quickstart.md)</source>
+          <target state="new">[<bpt id="878a9bcc-6b64-4bc9-a3b4-b8502bcfa43a">&lt;linkText&gt;</bpt>.NET<ept id="878a9bcc-6b64-4bc9-a3b4-b8502bcfa43a">&lt;/linkText&gt;</ept>](active-directory-graph-api-quickstart.md)</target>
+        </trans-unit>
+        <trans-unit id="b69e444e-9f72-49f9-9719-1b744f0b2d8e" xml:space="preserve">
+          <source><bpt id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;linkText&gt;</bpt>Graph API<ept id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;/linkText&gt;</ept><bpt id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;title&gt;</bpt><ept id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;linkText&gt;</bpt>Graph API<ept id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;/linkText&gt;</ept><bpt id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;title&gt;</bpt><ept id="81f7f0d4-9d6e-4310-8533-f1e3a957008b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b51737d1-0ba2-47f1-8a4b-886bf1c428f0" xml:space="preserve">
+          <source>These articles describe how to perform specific tasks by using Azure Active Directory:</source>
+          <target state="new">These articles describe how to perform specific tasks by using Azure Active Directory:</target>
+        </trans-unit>
+        <trans-unit id="284775d6-bd4a-476d-ba62-f6ddefb9e3b1" xml:space="preserve">
+          <source><bpt id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;linkText&gt;</bpt>How to get an Azure Active Directory tenant<ept id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;/linkText&gt;</ept><bpt id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;title&gt;</bpt><ept id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;linkText&gt;</bpt>How to get an Azure Active Directory tenant<ept id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;/linkText&gt;</ept><bpt id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;title&gt;</bpt><ept id="17fe5be6-3ce3-4cf8-b615-0254a25e79ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3260b07-b704-4d18-bdf0-392cfbdb13fc" xml:space="preserve">
+          <source><bpt id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;linkText&gt;</bpt>Listing your application in the Azure Active Directory application gallery<ept id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;/linkText&gt;</ept><bpt id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;title&gt;</bpt><ept id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;linkText&gt;</bpt>Listing your application in the Azure Active Directory application gallery<ept id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;/linkText&gt;</ept><bpt id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;title&gt;</bpt><ept id="3a2def5d-f4ce-4a66-93ce-eb9ee05dff02">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62a58e04-dccb-449e-a08c-9aae80eaeeb5" xml:space="preserve">
+          <source><bpt id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;linkText&gt;</bpt>Create an app with Office 365 APIs<ept id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;/linkText&gt;</ept><bpt id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;title&gt;</bpt><ept id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;linkText&gt;</bpt>Create an app with Office 365 APIs<ept id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;/linkText&gt;</ept><bpt id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;title&gt;</bpt><ept id="e14a17c2-9306-46aa-b3f6-14f6575899ee">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="310f3f28-13df-4215-9830-872fcadc14b2" xml:space="preserve">
+          <source><bpt id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;linkText&gt;</bpt>Submit web apps for Office 365 to the Seller Dashboard<ept id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;/linkText&gt;</ept><bpt id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;title&gt;</bpt><ept id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;linkText&gt;</bpt>Submit web apps for Office 365 to the Seller Dashboard<ept id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;/linkText&gt;</ept><bpt id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;title&gt;</bpt><ept id="4de3026b-f124-4cb6-997a-110e7fbf7b98">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1857e4ef-1b29-4a41-a6cb-884520c2d6bb" xml:space="preserve">
+          <source><bpt id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;linkText&gt;</bpt>Preview: How to build apps that sign users in with both personal &amp; work or school accounts<ept id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;/linkText&gt;</ept><bpt id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;title&gt;</bpt><ept id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;linkText&gt;</bpt>Preview: How to build apps that sign users in with both personal &amp; work or school accounts<ept id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;/linkText&gt;</ept><bpt id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;title&gt;</bpt><ept id="f93ab98b-e3c6-42af-a632-b26348ac842b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19e1b0e1-7626-4f73-9237-39f41a68d1a0" xml:space="preserve">
+          <source>These articles provide a foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.</source>
+          <target state="new">These articles provide a foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.</target>
+        </trans-unit>
+        <trans-unit id="47f1011d-fa9b-49df-a881-60591d9f6718" xml:space="preserve">
+          <source><bpt id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;linkText&gt;</bpt>Tagged questions<ept id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;/linkText&gt;</ept><bpt id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;title&gt;</bpt><ept id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;/title&gt;</ept>: Find Azure Active Directory solutions on Stack Overflow by searching for the tags <bpt id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;linkText&gt;</bpt>azure-active-directory<ept id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;/linkText&gt;</ept><bpt id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;title&gt;</bpt><ept id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;/title&gt;</ept> and <bpt id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;linkText&gt;</bpt>adal<ept id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;/linkText&gt;</ept><bpt id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;title&gt;</bpt><ept id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;linkText&gt;</bpt>Tagged questions<ept id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;/linkText&gt;</ept><bpt id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;title&gt;</bpt><ept id="70dd493b-ce7e-49d3-b4cc-427c9e6cdbf0">&lt;/title&gt;</ept>: Find Azure Active Directory solutions on Stack Overflow by searching for the tags <bpt id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;linkText&gt;</bpt>azure-active-directory<ept id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;/linkText&gt;</ept><bpt id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;title&gt;</bpt><ept id="4228ea67-a4be-48ee-b77c-bab3ede3f8eb">&lt;/title&gt;</ept> and <bpt id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;linkText&gt;</bpt>adal<ept id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;/linkText&gt;</ept><bpt id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;title&gt;</bpt><ept id="b7cf50b7-0d96-4839-90b9-2d22631ac60d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2be498bc-7911-446e-92c4-6f4c22a0fa64" xml:space="preserve">
+          <source><bpt id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;linkText&gt;</bpt>Azure Active Directory open-source libraries<ept id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;/linkText&gt;</ept><bpt id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;title&gt;</bpt><ept id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;/title&gt;</ept>: The easiest way to find a library’s source is by using our <bpt id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;linkText&gt;</bpt>library list<ept id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;/linkText&gt;</ept><bpt id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;title&gt;</bpt><ept id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;linkText&gt;</bpt>Azure Active Directory open-source libraries<ept id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;/linkText&gt;</ept><bpt id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;title&gt;</bpt><ept id="5bd0e945-9769-4cd8-b913-67a137a2d240">&lt;/title&gt;</ept>: The easiest way to find a library’s source is by using our <bpt id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;linkText&gt;</bpt>library list<ept id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;/linkText&gt;</ept><bpt id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;title&gt;</bpt><ept id="d11c4984-36f6-4832-a7cd-807acaee60ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb0a6967-baca-45f5-ace1-f272143deb87" xml:space="preserve">
+          <source><bpt id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;linkText&gt;</bpt>Azure Active Directory samples<ept id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;/linkText&gt;</ept><bpt id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;title&gt;</bpt><ept id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;/title&gt;</ept>: The easiest way to navigate the list of samples is by using the <bpt id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;linkText&gt;</bpt>index of code samples<ept id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;/linkText&gt;</ept><bpt id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;title&gt;</bpt><ept id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;linkText&gt;</bpt>Azure Active Directory samples<ept id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;/linkText&gt;</ept><bpt id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;title&gt;</bpt><ept id="060e3fd6-7f13-47a0-95b6-420df4f9397a">&lt;/title&gt;</ept>: The easiest way to navigate the list of samples is by using the <bpt id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;linkText&gt;</bpt>index of code samples<ept id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;/linkText&gt;</ept><bpt id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;title&gt;</bpt><ept id="7454e8c2-1336-4151-b5de-59f75411190b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f736f458-79d5-4407-8408-43708c49d2d3" xml:space="preserve">
+          <source><bpt id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;linkText&gt;</bpt>Graph API reference<ept id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;/linkText&gt;</ept><bpt id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;title&gt;</bpt><ept id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;/title&gt;</ept>: REST reference for the Azure Active Directory Graph API.</source>
+          <target state="new"><bpt id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;linkText&gt;</bpt>Graph API reference<ept id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;/linkText&gt;</ept><bpt id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;title&gt;</bpt><ept id="2b475ce0-ed29-43d5-8273-14278ae515b4">&lt;/title&gt;</ept>: REST reference for the Azure Active Directory Graph API.</target>
+        </trans-unit>
+        <trans-unit id="2c7233e1-d979-4103-8baf-7e4587d48b9f" xml:space="preserve">
+          <source><bpt id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;linkText&gt;</bpt>View the interactive Graph API reference experience<ept id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;/linkText&gt;</ept><bpt id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;title&gt;</bpt><ept id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;linkText&gt;</bpt>View the interactive Graph API reference experience<ept id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;/linkText&gt;</ept><bpt id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;title&gt;</bpt><ept id="d27a55b0-5cb2-48e3-8e52-1022e4a479db">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de819aa8-0d93-4bba-9ba5-d28f8854d166" xml:space="preserve">
+          <source><bpt id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;linkText&gt;</bpt>Graph API permission scopes<ept id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;/linkText&gt;</ept><bpt id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;title&gt;</bpt><ept id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;/title&gt;</ept>: OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.</source>
+          <target state="new"><bpt id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;linkText&gt;</bpt>Graph API permission scopes<ept id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;/linkText&gt;</ept><bpt id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;title&gt;</bpt><ept id="b0ca76c3-427a-4db8-b82a-de66b78636ff">&lt;/title&gt;</ept>: OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.</target>
+        </trans-unit>
+        <trans-unit id="9293d046-f6de-4c25-a447-467dd47578db" xml:space="preserve">
+          <source><bpt id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;linkText&gt;</bpt>SAML 2.0 protocol reference<ept id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;/linkText&gt;</ept><bpt id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;title&gt;</bpt><ept id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;/title&gt;</ept>: The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.</source>
+          <target state="new"><bpt id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;linkText&gt;</bpt>SAML 2.0 protocol reference<ept id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;/linkText&gt;</ept><bpt id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;title&gt;</bpt><ept id="b7df85e8-5406-459d-b7b8-d973f499f00c">&lt;/title&gt;</ept>: The SAML 2.0 protocol enables applications to provide a single sign-on experience to their users.</target>
+        </trans-unit>
+        <trans-unit id="b2bff331-c7cf-4dfa-9374-5f3541b9dcd0" xml:space="preserve">
+          <source><bpt id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;linkText&gt;</bpt>OAuth 2.0 protocol reference<ept id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;/linkText&gt;</ept><bpt id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;title&gt;</bpt><ept id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;/title&gt;</ept>: You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.</source>
+          <target state="new"><bpt id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;linkText&gt;</bpt>OAuth 2.0 protocol reference<ept id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;/linkText&gt;</ept><bpt id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;title&gt;</bpt><ept id="0ec15bec-18b3-4d72-9a48-9f5f907d256c">&lt;/title&gt;</ept>: You can use the OAuth 2.0 protocol to authorize access to web applications and web APIs in your Azure Active Directory tenant.</target>
+        </trans-unit>
+        <trans-unit id="94939a11-f5de-46f9-b89a-e8732df94cd6" xml:space="preserve">
+          <source><bpt id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;linkText&gt;</bpt>OpenID Connect 1.0 protocol reference<ept id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;/linkText&gt;</ept><bpt id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;title&gt;</bpt><ept id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;/title&gt;</ept>: The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.</source>
+          <target state="new"><bpt id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;linkText&gt;</bpt>OpenID Connect 1.0 protocol reference<ept id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;/linkText&gt;</ept><bpt id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;title&gt;</bpt><ept id="25d0ca3f-9780-47eb-b185-67a69f3abdc3">&lt;/title&gt;</ept>: The OpenID Connect 1.0 protocol extends OAuth 2.0 for use as an authentication protocol.</target>
+        </trans-unit>
+        <trans-unit id="1f830458-7de8-42c8-80d9-cd0a79d6e354" xml:space="preserve">
+          <source><bpt id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;linkText&gt;</bpt>WS-Federation 1.2 protocol reference<ept id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;/linkText&gt;</ept><bpt id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;title&gt;</bpt><ept id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;/title&gt;</ept>: The WS-Federation 1.2 protocol is specified in the Web Services Federation Version 1.2 Specification.</source>
+          <target state="new"><bpt id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;linkText&gt;</bpt>WS-Federation 1.2 protocol reference<ept id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;/linkText&gt;</ept><bpt id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;title&gt;</bpt><ept id="e4d48415-2439-43f4-b616-9b69b6d0cc53">&lt;/title&gt;</ept>: The WS-Federation 1.2 protocol is specified in the Web Services Federation Version 1.2 Specification.</target>
+        </trans-unit>
+        <trans-unit id="435bb4a6-0647-4d4d-a89d-10b3c6d4183a" xml:space="preserve">
+          <source><bpt id="cc09439e-076a-4c20-892a-319253795ac0">&lt;linkText&gt;</bpt>Supported token and claim types<ept id="cc09439e-076a-4c20-892a-319253795ac0">&lt;/linkText&gt;</ept><bpt id="cc09439e-076a-4c20-892a-319253795ac0">&lt;title&gt;</bpt><ept id="cc09439e-076a-4c20-892a-319253795ac0">&lt;/title&gt;</ept>: You can use this guide to understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.</source>
+          <target state="new"><bpt id="cc09439e-076a-4c20-892a-319253795ac0">&lt;linkText&gt;</bpt>Supported token and claim types<ept id="cc09439e-076a-4c20-892a-319253795ac0">&lt;/linkText&gt;</ept><bpt id="cc09439e-076a-4c20-892a-319253795ac0">&lt;title&gt;</bpt><ept id="cc09439e-076a-4c20-892a-319253795ac0">&lt;/title&gt;</ept>: You can use this guide to understand and evaluate the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.</target>
+        </trans-unit>
+        <trans-unit id="ea657c8f-7a15-413f-befb-2d2cda7b56e9" xml:space="preserve">
+          <source>These overview presentations on developing apps by using Azure Active Directory feature speakers who work directly in the engineering team.</source>
+          <target state="new">These overview presentations on developing apps by using Azure Active Directory feature speakers who work directly in the engineering team.</target>
+        </trans-unit>
+        <trans-unit id="229d1b0e-33bd-476f-90b5-e8b0d9b266f5" xml:space="preserve">
+          <source>The presentations cover fundamental topics, including IDMaaS, authentication, identity federation, and single sign-on.</source>
+          <target state="new">The presentations cover fundamental topics, including IDMaaS, authentication, identity federation, and single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="ef0152bb-5345-4f35-8f4c-db9abfd2961f" xml:space="preserve">
+          <source><bpt id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;linkText&gt;</bpt>Azure Active Directory: Identity management as a service for modern applications<ept id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;/linkText&gt;</ept><bpt id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;title&gt;</bpt><ept id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;linkText&gt;</bpt>Azure Active Directory: Identity management as a service for modern applications<ept id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;/linkText&gt;</ept><bpt id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;title&gt;</bpt><ept id="39c71cf6-0b07-4fd9-83c8-52d2e6a4a7b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b63546f6-6d5d-4439-b7ad-9eef32e31acc" xml:space="preserve">
+          <source><bpt id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;linkText&gt;</bpt>Develop modern web applications with Azure Active Directory<ept id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;/linkText&gt;</ept><bpt id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;title&gt;</bpt><ept id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;linkText&gt;</bpt>Develop modern web applications with Azure Active Directory<ept id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;/linkText&gt;</ept><bpt id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;title&gt;</bpt><ept id="89fc2d85-999a-438c-9224-57657de4b80c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="626d7f43-cf80-4b93-8482-536f0314d145" xml:space="preserve">
+          <source><bpt id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;linkText&gt;</bpt>Develop modern native applications with Azure Active Directory<ept id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;/linkText&gt;</ept><bpt id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;title&gt;</bpt><ept id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;linkText&gt;</bpt>Develop modern native applications with Azure Active Directory<ept id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;/linkText&gt;</ept><bpt id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;title&gt;</bpt><ept id="f04f455a-7940-4d8e-a228-219b356199fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0146e47-7605-4e82-8e52-4d14ee96c450" xml:space="preserve">
+          <source><bpt id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;linkText&gt;</bpt>Azure Friday<ept id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;/linkText&gt;</ept><bpt id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;title&gt;</bpt><ept id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;/title&gt;</ept> is a recurring Friday 1:1 video series that's dedicated to bringing you short (10–15 minutes) interviews with experts on a variety of Azure topics.</source>
+          <target state="new"><bpt id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;linkText&gt;</bpt>Azure Friday<ept id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;/linkText&gt;</ept><bpt id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;title&gt;</bpt><ept id="d47c4b4f-8cc9-447a-ae97-3ac44dd2bb05">&lt;/title&gt;</ept> is a recurring Friday 1:1 video series that's dedicated to bringing you short (10–15 minutes) interviews with experts on a variety of Azure topics.</target>
+        </trans-unit>
+        <trans-unit id="7027a4d2-5aef-429a-9a6d-f2ad6e217570" xml:space="preserve">
+          <source>Use the Services Filter feature on the page to see all Azure Active Directory videos.</source>
+          <target state="new">Use the Services Filter feature on the page to see all Azure Active Directory videos.</target>
+        </trans-unit>
+        <trans-unit id="8f0a29f8-e7c0-4524-adc6-4d317079571c" xml:space="preserve">
+          <source><bpt id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;linkText&gt;</bpt>Azure Identity 101<ept id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;/linkText&gt;</ept><bpt id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;title&gt;</bpt><ept id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;linkText&gt;</bpt>Azure Identity 101<ept id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;/linkText&gt;</ept><bpt id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;title&gt;</bpt><ept id="8af13ddc-7d51-4f34-b27f-87e40852b275">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a7fd90e-22ce-43e3-8ccf-a8e6f6d4a75f" xml:space="preserve">
+          <source><bpt id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;linkText&gt;</bpt>Azure Identity 102<ept id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;/linkText&gt;</ept><bpt id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;title&gt;</bpt><ept id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;linkText&gt;</bpt>Azure Identity 102<ept id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;/linkText&gt;</ept><bpt id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;title&gt;</bpt><ept id="8459d448-1d9c-4a66-9c1f-0640c6978356">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="762ecc01-58c2-4e09-88a8-8fc6b545dc7c" xml:space="preserve">
+          <source><bpt id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;linkText&gt;</bpt>Azure Identity 103<ept id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;/linkText&gt;</ept><bpt id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;title&gt;</bpt><ept id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;linkText&gt;</bpt>Azure Identity 103<ept id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;/linkText&gt;</ept><bpt id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;title&gt;</bpt><ept id="01f2ca80-c3ba-42e8-8d4f-78e0c98c0dfe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e87df44-623f-4a5d-975c-f02ef98f8938" xml:space="preserve">
+          <source><bpt id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;linkText&gt;</bpt>Active Directory Team blog<ept id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;/linkText&gt;</ept><bpt id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;title&gt;</bpt><ept id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;/title&gt;</ept>: The latest developments in the world of Azure Active Directory.</source>
+          <target state="new"><bpt id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;linkText&gt;</bpt>Active Directory Team blog<ept id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;/linkText&gt;</ept><bpt id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;title&gt;</bpt><ept id="2a3b1d9b-e4fb-4d1e-beae-51d164200c6a">&lt;/title&gt;</ept>: The latest developments in the world of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="229da6cc-c536-4cd7-a8a9-3febb4b355d2" xml:space="preserve">
+          <source><bpt id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;linkText&gt;</bpt>Azure Active Directory Graph Team blog<ept id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;/linkText&gt;</ept><bpt id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;title&gt;</bpt><ept id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;/title&gt;</ept>: Azure Active Directory information that's specific to the Graph API.</source>
+          <target state="new"><bpt id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;linkText&gt;</bpt>Azure Active Directory Graph Team blog<ept id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;/linkText&gt;</ept><bpt id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;title&gt;</bpt><ept id="7fa53cf7-72d5-4067-8cc5-645030b045ed">&lt;/title&gt;</ept>: Azure Active Directory information that's specific to the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="1d847331-1542-4fa9-8c12-07ae732b6749" xml:space="preserve">
+          <source><bpt id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;linkText&gt;</bpt>Cloud Identity<ept id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;/linkText&gt;</ept><bpt id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;title&gt;</bpt><ept id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;/title&gt;</ept>: Thoughts on identity management as a service, from a principal Azure Active Directory PM.</source>
+          <target state="new"><bpt id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;linkText&gt;</bpt>Cloud Identity<ept id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;/linkText&gt;</ept><bpt id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;title&gt;</bpt><ept id="869772a4-3656-42d2-864f-f06e97729f4e">&lt;/title&gt;</ept>: Thoughts on identity management as a service, from a principal Azure Active Directory PM.</target>
+        </trans-unit>
+        <trans-unit id="0c160ed1-a6da-4ce5-bf6b-92c27bd9129d" xml:space="preserve">
+          <source><bpt id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;linkText&gt;</bpt>Azure Active Directory on Twitter<ept id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;/linkText&gt;</ept><bpt id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;title&gt;</bpt><ept id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;/title&gt;</ept>: Azure Active Directory announcements in 140 characters or fewer.</source>
+          <target state="new"><bpt id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;linkText&gt;</bpt>Azure Active Directory on Twitter<ept id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;/linkText&gt;</ept><bpt id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;title&gt;</bpt><ept id="bfb367e3-9232-46cc-8984-7e56f71608ca">&lt;/title&gt;</ept>: Azure Active Directory announcements in 140 characters or fewer.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

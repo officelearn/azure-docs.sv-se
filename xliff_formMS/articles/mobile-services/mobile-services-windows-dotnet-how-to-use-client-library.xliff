@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7af4e5b0-3c35-4ce0-93e2-b59f01cb92f5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7af4e5b0-3c35-4ce0-93e2-b59f01cb92f5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="31f4ede1-1218-42bb-aada-ab6314fa1f40">
+        <trans-unit id="e49478a5-a3ec-412d-ad06-37f774b4b3a8" xml:space="preserve">
+          <source>Working with the Mobile Services .NET Client Library</source>
+          <target state="new">Working with the Mobile Services .NET Client Library</target>
+        </trans-unit>
+        <trans-unit id="9d798c21-d92d-433c-9ee7-b5c247316ef5" xml:space="preserve">
+          <source>Learn how to use an .NET client for Azure Mobile Services.</source>
+          <target state="new">Learn how to use an .NET client for Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="92be194f-49c1-45a6-9d26-af05447c3ba0" xml:space="preserve">
+          <source><bpt id="47b12c22-4cc2-44f3-bbb9-846856ba4b42">&lt;token href="../../includes/mobile-services-selector-client-library.md"&gt;</bpt><ept id="47b12c22-4cc2-44f3-bbb9-846856ba4b42">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="47b12c22-4cc2-44f3-bbb9-846856ba4b42">&lt;token href="../../includes/mobile-services-selector-client-library.md"&gt;</bpt><ept id="47b12c22-4cc2-44f3-bbb9-846856ba4b42">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2a733b6-614a-4691-96a1-8c93c209195a" xml:space="preserve">
+          <source>This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps.</source>
+          <target state="new">This guide shows you how to perform common scenarios using a .NET client for Azure Mobile Services, in Windows Store apps and Windows Phone apps.</target>
+        </trans-unit>
+        <trans-unit id="cbeaa0a9-c5ff-4f96-ad8c-28f8cdece6c9" xml:space="preserve">
+          <source>The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors.</source>
+          <target state="new">The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors.</target>
+        </trans-unit>
+        <trans-unit id="4c07013e-50ea-4437-9e4b-92f55c23b1dc" xml:space="preserve">
+          <source>If you are new to Mobile Services, you should consider first completing the <bpt id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;linkText&gt;</bpt>Mobile Services quickstart<ept id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;/linkText&gt;</ept><bpt id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;title&gt;</bpt><ept id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;/title&gt;</ept> tutorial or the tutorial <bpt id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;/linkText&gt;</ept><bpt id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;title&gt;</bpt><ept id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are new to Mobile Services, you should consider first completing the <bpt id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;linkText&gt;</bpt>Mobile Services quickstart<ept id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;/linkText&gt;</ept><bpt id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;title&gt;</bpt><ept id="eaa25718-97c4-4ab7-a404-1f15936969d0">&lt;/title&gt;</ept> tutorial or the tutorial <bpt id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;linkText&gt;</bpt>Add Mobile Services to an existing app<ept id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;/linkText&gt;</ept><bpt id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;title&gt;</bpt><ept id="a035930f-3594-4d32-9261-3d7a3ec0876f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6a53265-35b8-484c-994a-f3825fb6723c" xml:space="preserve">
+          <source><bpt id="3247fbc1-b1f0-4fa9-a43b-d9df45a05092">&lt;token href="../../includes/mobile-services-concepts.md"&gt;</bpt><ept id="3247fbc1-b1f0-4fa9-a43b-d9df45a05092">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3247fbc1-b1f0-4fa9-a43b-d9df45a05092">&lt;token href="../../includes/mobile-services-concepts.md"&gt;</bpt><ept id="3247fbc1-b1f0-4fa9-a43b-d9df45a05092">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79cf8308-acab-4a56-8f07-7bccaf8a58bf" xml:space="preserve">
+          <source>We assume that you have created a mobile service and a table.</source>
+          <target state="new">We assume that you have created a mobile service and a table.</target>
+        </trans-unit>
+        <trans-unit id="b84c86c7-943c-4a1e-8443-b33eac4f0a7b" xml:space="preserve">
+          <source>For more information see <bpt id="35996418-113e-43cc-9046-0409297310e9">&lt;linkText&gt;</bpt>Create a table<ept id="35996418-113e-43cc-9046-0409297310e9">&lt;/linkText&gt;</ept><bpt id="35996418-113e-43cc-9046-0409297310e9">&lt;title&gt;</bpt><ept id="35996418-113e-43cc-9046-0409297310e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="35996418-113e-43cc-9046-0409297310e9">&lt;linkText&gt;</bpt>Create a table<ept id="35996418-113e-43cc-9046-0409297310e9">&lt;/linkText&gt;</ept><bpt id="35996418-113e-43cc-9046-0409297310e9">&lt;title&gt;</bpt><ept id="35996418-113e-43cc-9046-0409297310e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc17f32d-213e-4140-bdd8-d670275bf90c" xml:space="preserve">
+          <source>In the code used in this topic, the table is named <bpt id="f9e6166d-2e1c-4f70-b20e-3aee9f34ded9">&lt;code&gt;</bpt>TodoItem<ept id="f9e6166d-2e1c-4f70-b20e-3aee9f34ded9">&lt;/code&gt;</ept> and it will have the following columns: <bpt id="3ee478d7-02a9-42b0-b921-a98555efb135">&lt;code&gt;</bpt>Id<ept id="3ee478d7-02a9-42b0-b921-a98555efb135">&lt;/code&gt;</ept>, <bpt id="b9d572dc-c099-4262-b338-40895936e036">&lt;code&gt;</bpt>Text<ept id="b9d572dc-c099-4262-b338-40895936e036">&lt;/code&gt;</ept>, and <bpt id="e9645aa0-fc70-4ab5-800a-1c5034365f39">&lt;code&gt;</bpt>Complete<ept id="e9645aa0-fc70-4ab5-800a-1c5034365f39">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the code used in this topic, the table is named <bpt id="f9e6166d-2e1c-4f70-b20e-3aee9f34ded9">&lt;code&gt;</bpt>TodoItem<ept id="f9e6166d-2e1c-4f70-b20e-3aee9f34ded9">&lt;/code&gt;</ept> and it will have the following columns: <bpt id="3ee478d7-02a9-42b0-b921-a98555efb135">&lt;code&gt;</bpt>Id<ept id="3ee478d7-02a9-42b0-b921-a98555efb135">&lt;/code&gt;</ept>, <bpt id="b9d572dc-c099-4262-b338-40895936e036">&lt;code&gt;</bpt>Text<ept id="b9d572dc-c099-4262-b338-40895936e036">&lt;/code&gt;</ept>, and <bpt id="e9645aa0-fc70-4ab5-800a-1c5034365f39">&lt;code&gt;</bpt>Complete<ept id="e9645aa0-fc70-4ab5-800a-1c5034365f39">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="755582c0-7081-4e22-b5cf-d76cf32fb1aa" xml:space="preserve">
+          <source>The corresponding typed client-side .NET type is the following:</source>
+          <target state="new">The corresponding typed client-side .NET type is the following:</target>
+        </trans-unit>
+        <trans-unit id="c2cc7912-557d-485d-a459-8e435f67fda0" xml:space="preserve">
+          <source>When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests.</source>
+          <target state="new">When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests.</target>
+        </trans-unit>
+        <trans-unit id="b7a005b6-abd1-4521-8548-46ee8671265c" xml:space="preserve">
+          <source>For more information, see <bpt id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;linkText&gt;</bpt>Dynamic schema<ept id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;/linkText&gt;</ept><bpt id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;title&gt;</bpt><ept id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;linkText&gt;</bpt>Dynamic schema<ept id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;/linkText&gt;</ept><bpt id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;title&gt;</bpt><ept id="20cc7f21-fc13-4bfa-8c9c-33319fc41813">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54f8501b-5d6b-4d89-88e6-25cf4cd74d87" xml:space="preserve">
+          <source>The following code creates the <bpt id="55337fd8-48c9-48e4-9991-3d2c24d9916f">&lt;code&gt;</bpt>MobileServiceClient<ept id="55337fd8-48c9-48e4-9991-3d2c24d9916f">&lt;/code&gt;</ept> object that is used to access your mobile service.</source>
+          <target state="new">The following code creates the <bpt id="55337fd8-48c9-48e4-9991-3d2c24d9916f">&lt;code&gt;</bpt>MobileServiceClient<ept id="55337fd8-48c9-48e4-9991-3d2c24d9916f">&lt;/code&gt;</ept> object that is used to access your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="360144d0-9904-4927-b1bc-2e4db09722ab" xml:space="preserve">
+          <source>In the code above, replace <bpt id="3c6464ce-3903-4820-b8f3-bb3df73432a1">&lt;code&gt;</bpt>AppUrl<ept id="3c6464ce-3903-4820-b8f3-bb3df73432a1">&lt;/code&gt;</ept> and <bpt id="767c894c-f50d-4dbb-b104-3b5e1059df3f">&lt;code&gt;</bpt>AppKey<ept id="767c894c-f50d-4dbb-b104-3b5e1059df3f">&lt;/code&gt;</ept> with the mobile service URL and application key, in that order.</source>
+          <target state="new">In the code above, replace <bpt id="3c6464ce-3903-4820-b8f3-bb3df73432a1">&lt;code&gt;</bpt>AppUrl<ept id="3c6464ce-3903-4820-b8f3-bb3df73432a1">&lt;/code&gt;</ept> and <bpt id="767c894c-f50d-4dbb-b104-3b5e1059df3f">&lt;code&gt;</bpt>AppKey<ept id="767c894c-f50d-4dbb-b104-3b5e1059df3f">&lt;/code&gt;</ept> with the mobile service URL and application key, in that order.</target>
+        </trans-unit>
+        <trans-unit id="fe447107-dba8-4f7d-a7af-7d0f72a61b94" xml:space="preserve">
+          <source>Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".</source>
+          <target state="new">Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".</target>
+        </trans-unit>
+        <trans-unit id="eed39097-50dd-420b-981e-bc6c39f86f8b" xml:space="preserve">
+          <source>The application key is intended to filter-out random request against your mobile service, and it is distributed with the application.</source>
+          <target state="new">The application key is intended to filter-out random request against your mobile service, and it is distributed with the application.</target>
+        </trans-unit>
+        <trans-unit id="d4cb8d7e-dffc-41bd-827d-1310f3bdb819" xml:space="preserve">
+          <source>Because this key is not encrypted, it cannot be considered secure.</source>
+          <target state="new">Because this key is not encrypted, it cannot be considered secure.</target>
+        </trans-unit>
+        <trans-unit id="47677c28-42d6-4d4a-b13e-5e20fec6af2a" xml:space="preserve">
+          <source>To truly secure your mobile service data, you must instead authenticate users before allowing access.</source>
+          <target state="new">To truly secure your mobile service data, you must instead authenticate users before allowing access.</target>
+        </trans-unit>
+        <trans-unit id="7f2b7a20-b02f-4179-af5d-1a4f09d66d4a" xml:space="preserve">
+          <source>For more information, see <bpt id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;linkText&gt;</bpt>How to: Authenticate users<ept id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;/linkText&gt;</ept><bpt id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;title&gt;</bpt><ept id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;linkText&gt;</bpt>How to: Authenticate users<ept id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;/linkText&gt;</ept><bpt id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;title&gt;</bpt><ept id="1def4b38-d243-4ac2-885d-db42331f58e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d73c5631-06fa-4ed7-a2a4-da06df901a18" xml:space="preserve">
+          <source>All of the code that accesses or modifies data in the Mobile Services table calls functions on the <bpt id="5ad96fad-35b0-4670-ab77-a43537f42d71">&lt;code&gt;</bpt>MobileServiceTable<ept id="5ad96fad-35b0-4670-ab77-a43537f42d71">&lt;/code&gt;</ept> object.</source>
+          <target state="new">All of the code that accesses or modifies data in the Mobile Services table calls functions on the <bpt id="5ad96fad-35b0-4670-ab77-a43537f42d71">&lt;code&gt;</bpt>MobileServiceTable<ept id="5ad96fad-35b0-4670-ab77-a43537f42d71">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="05cb7cd2-ae73-4799-b1cf-6b6ce18a0a32" xml:space="preserve">
+          <source>You get a reference to the table by calling the <bpt id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;linkText&gt;</bpt>GetTable<ept id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;/linkText&gt;</ept><bpt id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;title&gt;</bpt><ept id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;/title&gt;</ept> function on an instance of the <bpt id="aadf6932-47da-449f-b234-59188e2ce051">&lt;code&gt;</bpt>MobileServiceClient<ept id="aadf6932-47da-449f-b234-59188e2ce051">&lt;/code&gt;</ept>.</source>
+          <target state="new">You get a reference to the table by calling the <bpt id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;linkText&gt;</bpt>GetTable<ept id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;/linkText&gt;</ept><bpt id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;title&gt;</bpt><ept id="a42cb7e8-ecdd-44af-964d-bbf440ecc533">&lt;/title&gt;</ept> function on an instance of the <bpt id="aadf6932-47da-449f-b234-59188e2ce051">&lt;code&gt;</bpt>MobileServiceClient<ept id="aadf6932-47da-449f-b234-59188e2ce051">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="685fe820-ea99-4f40-9642-abad4b43af40" xml:space="preserve">
+          <source>This is the typed serialization model; see discussion of the &lt;a href="#untyped"&gt;untyped serialization model&lt;/a&gt; below.</source>
+          <target state="new">This is the typed serialization model; see discussion of the &lt;a href="#untyped"&gt;untyped serialization model&lt;/a&gt; below.</target>
+        </trans-unit>
+        <trans-unit id="fcf46a9f-223c-4df6-97ba-9e9edb4492b2" xml:space="preserve">
+          <source>This section describes how to issue queries to the mobile service, which includes the following functionality:</source>
+          <target state="new">This section describes how to issue queries to the mobile service, which includes the following functionality:</target>
+        </trans-unit>
+        <trans-unit id="38c9d740-7e89-4d08-9869-e038e3b68fb8" xml:space="preserve">
+          <source>[Filter returned data]</source>
+          <target state="new">[Filter returned data]</target>
+        </trans-unit>
+        <trans-unit id="73a9272c-7a94-4c52-94cd-7cdd4e42c278" xml:space="preserve">
+          <source>[Sort returned data]</source>
+          <target state="new">[Sort returned data]</target>
+        </trans-unit>
+        <trans-unit id="f5979c01-6244-4b77-bbcd-33878b450c16" xml:space="preserve">
+          <source>[Return data in pages]</source>
+          <target state="new">[Return data in pages]</target>
+        </trans-unit>
+        <trans-unit id="474ef641-b5bd-4935-9e9b-d0e646f8dde5" xml:space="preserve">
+          <source>[Select specific columns]</source>
+          <target state="new">[Select specific columns]</target>
+        </trans-unit>
+        <trans-unit id="38cfa6c8-6f8e-47be-b857-9592069592db" xml:space="preserve">
+          <source>[Look up data by ID]</source>
+          <target state="new">[Look up data by ID]</target>
+        </trans-unit>
+        <trans-unit id="15f45dde-0767-4f68-b4ac-6bb38bd9520d" xml:space="preserve">
+          <source>A server-driven page size is enforced to prevent all rows from being returned.</source>
+          <target state="new">A server-driven page size is enforced to prevent all rows from being returned.</target>
+        </trans-unit>
+        <trans-unit id="77a6a441-281f-40c2-a217-ce7ea58f39d0" xml:space="preserve">
+          <source>This keeps default requests for large data sets from negatively impacting the service.</source>
+          <target state="new">This keeps default requests for large data sets from negatively impacting the service.</target>
+        </trans-unit>
+        <trans-unit id="ecb375c8-de3b-401d-9f7e-77172eb91594" xml:space="preserve">
+          <source>To return more than 50 rows, use the <bpt id="c84ad3e7-aa92-4c20-9ae3-7ee0f66817a1">&lt;code&gt;</bpt>Take<ept id="c84ad3e7-aa92-4c20-9ae3-7ee0f66817a1">&lt;/code&gt;</ept> method, as described in [Return data in pages].</source>
+          <target state="new">To return more than 50 rows, use the <bpt id="c84ad3e7-aa92-4c20-9ae3-7ee0f66817a1">&lt;code&gt;</bpt>Take<ept id="c84ad3e7-aa92-4c20-9ae3-7ee0f66817a1">&lt;/code&gt;</ept> method, as described in [Return data in pages].</target>
+        </trans-unit>
+        <trans-unit id="7761302d-5c53-48d1-bda7-8b6057737dba" xml:space="preserve">
+          <source>The following code illustrates how to filter data by including a <bpt id="4a77ea9b-ca48-4e38-8d1b-1e8232829aa1">&lt;code&gt;</bpt>Where<ept id="4a77ea9b-ca48-4e38-8d1b-1e8232829aa1">&lt;/code&gt;</ept> clause in a query.</source>
+          <target state="new">The following code illustrates how to filter data by including a <bpt id="4a77ea9b-ca48-4e38-8d1b-1e8232829aa1">&lt;code&gt;</bpt>Where<ept id="4a77ea9b-ca48-4e38-8d1b-1e8232829aa1">&lt;/code&gt;</ept> clause in a query.</target>
+        </trans-unit>
+        <trans-unit id="b1d2e628-51dd-47d2-a4a9-49261306b3fd" xml:space="preserve">
+          <source>It returns all items from <bpt id="48ed420f-571e-44d7-ab84-cafdfdc90608">&lt;code&gt;</bpt>todoTable<ept id="48ed420f-571e-44d7-ab84-cafdfdc90608">&lt;/code&gt;</ept> whose <bpt id="7ecfbb96-476d-4c1a-bfee-64da8475ed89">&lt;code&gt;</bpt>Complete<ept id="7ecfbb96-476d-4c1a-bfee-64da8475ed89">&lt;/code&gt;</ept> property is equal to <bpt id="d688635f-e98a-42f3-aa80-ee4dc99057f6">&lt;code&gt;</bpt>false<ept id="d688635f-e98a-42f3-aa80-ee4dc99057f6">&lt;/code&gt;</ept>.</source>
+          <target state="new">It returns all items from <bpt id="48ed420f-571e-44d7-ab84-cafdfdc90608">&lt;code&gt;</bpt>todoTable<ept id="48ed420f-571e-44d7-ab84-cafdfdc90608">&lt;/code&gt;</ept> whose <bpt id="7ecfbb96-476d-4c1a-bfee-64da8475ed89">&lt;code&gt;</bpt>Complete<ept id="7ecfbb96-476d-4c1a-bfee-64da8475ed89">&lt;/code&gt;</ept> property is equal to <bpt id="d688635f-e98a-42f3-aa80-ee4dc99057f6">&lt;code&gt;</bpt>false<ept id="d688635f-e98a-42f3-aa80-ee4dc99057f6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="853fccc2-8b32-4756-af73-896dd150b5c8" xml:space="preserve">
+          <source>The <bpt id="c09154d8-ef06-4052-bb11-9ef9a941a511">&lt;code&gt;</bpt>Where<ept id="c09154d8-ef06-4052-bb11-9ef9a941a511">&lt;/code&gt;</ept> function applies a row filtering predicate to the query against the table.</source>
+          <target state="new">The <bpt id="c09154d8-ef06-4052-bb11-9ef9a941a511">&lt;code&gt;</bpt>Where<ept id="c09154d8-ef06-4052-bb11-9ef9a941a511">&lt;/code&gt;</ept> function applies a row filtering predicate to the query against the table.</target>
+        </trans-unit>
+        <trans-unit id="4d410699-dbd8-44f4-88c8-0985fa060252" xml:space="preserve">
+          <source>You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler].</source>
+          <target state="new">You can view the URI of the request sent to the mobile service by using message inspection software, such as browser developer tools or [Fiddler].</target>
+        </trans-unit>
+        <trans-unit id="65ba22ad-3aca-4c51-804e-90bbe79bf7c4" xml:space="preserve">
+          <source>If you look at the request URI below,  notice that we are modifying the query string itself:</source>
+          <target state="new">If you look at the request URI below,  notice that we are modifying the query string itself:</target>
+        </trans-unit>
+        <trans-unit id="5e6f3683-74ba-45c9-942a-3039cd4ee252" xml:space="preserve">
+          <source>The function which is passed to the <bpt id="ec02b7b7-8c0c-47af-bad2-1ced0a281534">&lt;code&gt;</bpt>Where<ept id="ec02b7b7-8c0c-47af-bad2-1ced0a281534">&lt;/code&gt;</ept> method can have an arbitrary number of conditions.</source>
+          <target state="new">The function which is passed to the <bpt id="ec02b7b7-8c0c-47af-bad2-1ced0a281534">&lt;code&gt;</bpt>Where<ept id="ec02b7b7-8c0c-47af-bad2-1ced0a281534">&lt;/code&gt;</ept> method can have an arbitrary number of conditions.</target>
+        </trans-unit>
+        <trans-unit id="0709d84f-b917-45b9-9956-a83e07aa6c74" xml:space="preserve">
+          <source>For example, the line below:</source>
+          <target state="new">For example, the line below:</target>
+        </trans-unit>
+        <trans-unit id="7f8c1187-2f11-4ba3-a051-ab321b076377" xml:space="preserve">
+          <source>Would be roughly translated (for the same request shown before) as</source>
+          <target state="new">Would be roughly translated (for the same request shown before) as</target>
+        </trans-unit>
+        <trans-unit id="3dff78db-35ce-4cfa-9489-8b883be905a0" xml:space="preserve">
+          <source>The <bpt id="0900ffcd-9c32-404e-99b0-cdeee6347519">&lt;code&gt;</bpt>where<ept id="0900ffcd-9c32-404e-99b0-cdeee6347519">&lt;/code&gt;</ept> statement above will find items with <bpt id="56ac9836-b91c-4a85-8a43-ea078d1dba8a">&lt;code&gt;</bpt>Complete<ept id="56ac9836-b91c-4a85-8a43-ea078d1dba8a">&lt;/code&gt;</ept> status set to false with non-null <bpt id="5ffcbed2-8bfd-4583-addc-86e5ebc67b3b">&lt;code&gt;</bpt>Text<ept id="5ffcbed2-8bfd-4583-addc-86e5ebc67b3b">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="0900ffcd-9c32-404e-99b0-cdeee6347519">&lt;code&gt;</bpt>where<ept id="0900ffcd-9c32-404e-99b0-cdeee6347519">&lt;/code&gt;</ept> statement above will find items with <bpt id="56ac9836-b91c-4a85-8a43-ea078d1dba8a">&lt;code&gt;</bpt>Complete<ept id="56ac9836-b91c-4a85-8a43-ea078d1dba8a">&lt;/code&gt;</ept> status set to false with non-null <bpt id="5ffcbed2-8bfd-4583-addc-86e5ebc67b3b">&lt;code&gt;</bpt>Text<ept id="5ffcbed2-8bfd-4583-addc-86e5ebc67b3b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dcabc88e-187d-4b7f-a692-ac282a95b78a" xml:space="preserve">
+          <source>We also could have written that in multiple lines instead:</source>
+          <target state="new">We also could have written that in multiple lines instead:</target>
+        </trans-unit>
+        <trans-unit id="aaa1c13e-b287-41dd-8376-70a0a715edc5" xml:space="preserve">
+          <source>The two methods are equivalent and may be used interchangeably.</source>
+          <target state="new">The two methods are equivalent and may be used interchangeably.</target>
+        </trans-unit>
+        <trans-unit id="b4f29569-3fae-47f6-a3e6-91f0fca563ce" xml:space="preserve">
+          <source>The former option -- of concatenating multiple predicates in one query -- is more compact and recommended.</source>
+          <target state="new">The former option -- of concatenating multiple predicates in one query -- is more compact and recommended.</target>
+        </trans-unit>
+        <trans-unit id="18ff5b02-1112-43a7-a11e-1739c5b735d4" xml:space="preserve">
+          <source>The <bpt id="03184d7b-087d-401d-a710-6a0b9947f015">&lt;code&gt;</bpt>where<ept id="03184d7b-087d-401d-a710-6a0b9947f015">&lt;/code&gt;</ept> clause supports operations that be translated into the Mobile Services OData subset. This includes relational operators (==, !=, &lt;, &lt;=, &gt;, &gt;=), arithmetic operators (+, -, /, *, %), number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access properties of an object, and expressions combining all of these.</source>
+          <target state="new">The <bpt id="03184d7b-087d-401d-a710-6a0b9947f015">&lt;code&gt;</bpt>where<ept id="03184d7b-087d-401d-a710-6a0b9947f015">&lt;/code&gt;</ept> clause supports operations that be translated into the Mobile Services OData subset. This includes relational operators (==, !=, &lt;, &lt;=, &gt;, &gt;=), arithmetic operators (+, -, /, *, %), number precision (Math.Floor, Math.Ceiling), string functions (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), date properties (Year, Month, Day, Hour, Minute, Second), access properties of an object, and expressions combining all of these.</target>
+        </trans-unit>
+        <trans-unit id="44b553e6-7752-4505-9d44-7e62e1cdf1cc" xml:space="preserve">
+          <source>The following code illustrates how to sort data by including an <bpt id="4124f44d-e382-4480-a0ed-ec61168532c1">&lt;code&gt;</bpt>OrderBy<ept id="4124f44d-e382-4480-a0ed-ec61168532c1">&lt;/code&gt;</ept> or <bpt id="1953b807-8905-419d-accf-ba8d6b0f4fe2">&lt;code&gt;</bpt>OrderByDescending<ept id="1953b807-8905-419d-accf-ba8d6b0f4fe2">&lt;/code&gt;</ept> function in the query.</source>
+          <target state="new">The following code illustrates how to sort data by including an <bpt id="4124f44d-e382-4480-a0ed-ec61168532c1">&lt;code&gt;</bpt>OrderBy<ept id="4124f44d-e382-4480-a0ed-ec61168532c1">&lt;/code&gt;</ept> or <bpt id="1953b807-8905-419d-accf-ba8d6b0f4fe2">&lt;code&gt;</bpt>OrderByDescending<ept id="1953b807-8905-419d-accf-ba8d6b0f4fe2">&lt;/code&gt;</ept> function in the query.</target>
+        </trans-unit>
+        <trans-unit id="27337036-2d5a-40e9-82bc-7e7a46308497" xml:space="preserve">
+          <source>It returns items from <bpt id="83f85d26-6729-4e6e-91d3-5ff7f39238f1">&lt;code&gt;</bpt>todoTable<ept id="83f85d26-6729-4e6e-91d3-5ff7f39238f1">&lt;/code&gt;</ept> sorted ascending by the <bpt id="c75e1ad0-bd21-4d43-8e18-65441db85d1c">&lt;code&gt;</bpt>Text<ept id="c75e1ad0-bd21-4d43-8e18-65441db85d1c">&lt;/code&gt;</ept> field.</source>
+          <target state="new">It returns items from <bpt id="83f85d26-6729-4e6e-91d3-5ff7f39238f1">&lt;code&gt;</bpt>todoTable<ept id="83f85d26-6729-4e6e-91d3-5ff7f39238f1">&lt;/code&gt;</ept> sorted ascending by the <bpt id="c75e1ad0-bd21-4d43-8e18-65441db85d1c">&lt;code&gt;</bpt>Text<ept id="c75e1ad0-bd21-4d43-8e18-65441db85d1c">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="b601a4a9-39c6-4a01-a7fa-9103f85aa0af" xml:space="preserve">
+          <source>By default, the server returns only the first 50 rows.</source>
+          <target state="new">By default, the server returns only the first 50 rows.</target>
+        </trans-unit>
+        <trans-unit id="5cd6a086-8df7-4039-836b-e6cff3d2dff9" xml:space="preserve">
+          <source>You can increase the number of returned rows by calling the [Take] method.</source>
+          <target state="new">You can increase the number of returned rows by calling the [Take] method.</target>
+        </trans-unit>
+        <trans-unit id="12a8132b-5dd2-4bb2-b3cf-3db9d13d59b4" xml:space="preserve">
+          <source>Use <bpt id="bcb7d5c3-bc69-4e37-8741-d6634c59c697">&lt;code&gt;</bpt>Take<ept id="bcb7d5c3-bc69-4e37-8741-d6634c59c697">&lt;/code&gt;</ept> along with the [Skip] method to request a specific "page" of the total dataset returned by the query.</source>
+          <target state="new">Use <bpt id="bcb7d5c3-bc69-4e37-8741-d6634c59c697">&lt;code&gt;</bpt>Take<ept id="bcb7d5c3-bc69-4e37-8741-d6634c59c697">&lt;/code&gt;</ept> along with the [Skip] method to request a specific "page" of the total dataset returned by the query.</target>
+        </trans-unit>
+        <trans-unit id="e5a41cb4-a1eb-4292-9cae-e1e30e020abc" xml:space="preserve">
+          <source>The following query, when executed, returns the top three items in the table.</source>
+          <target state="new">The following query, when executed, returns the top three items in the table.</target>
+        </trans-unit>
+        <trans-unit id="10133eea-d324-4d21-88bd-c7145ac97c1e" xml:space="preserve">
+          <source>The following revised query skips the first three results and returns the next three after that.</source>
+          <target state="new">The following revised query skips the first three results and returns the next three after that.</target>
+        </trans-unit>
+        <trans-unit id="a2ce8ba3-6725-4e9a-a272-adeab083a64f" xml:space="preserve">
+          <source>This is effectively the second "page" of data, where the page size is three items.</source>
+          <target state="new">This is effectively the second "page" of data, where the page size is three items.</target>
+        </trans-unit>
+        <trans-unit id="07c6db99-2c36-4a73-8ac4-f21ec86eaa23" xml:space="preserve">
+          <source>You can also use the [IncludeTotalCount] method to ensure that the query will get the total count for &lt;i&gt;all&lt;/i&gt; the records that would have been returned, ignoring any take paging/limit clause specified:</source>
+          <target state="new">You can also use the [IncludeTotalCount] method to ensure that the query will get the total count for &lt;i&gt;all&lt;/i&gt; the records that would have been returned, ignoring any take paging/limit clause specified:</target>
+        </trans-unit>
+        <trans-unit id="2ef26f7a-c379-44a2-8f58-56cfc8164fd5" xml:space="preserve">
+          <source>This is a simplified scenario of passing hard-coded paging values to the <bpt id="88e504f5-a7a9-4ba1-95c2-c62ae5c52ff9">&lt;code&gt;</bpt>Take<ept id="88e504f5-a7a9-4ba1-95c2-c62ae5c52ff9">&lt;/code&gt;</ept> and <bpt id="b062fb95-1a1b-49cf-a955-11faf025f11b">&lt;code&gt;</bpt>Skip<ept id="b062fb95-1a1b-49cf-a955-11faf025f11b">&lt;/code&gt;</ept> methods.</source>
+          <target state="new">This is a simplified scenario of passing hard-coded paging values to the <bpt id="88e504f5-a7a9-4ba1-95c2-c62ae5c52ff9">&lt;code&gt;</bpt>Take<ept id="88e504f5-a7a9-4ba1-95c2-c62ae5c52ff9">&lt;/code&gt;</ept> and <bpt id="b062fb95-1a1b-49cf-a955-11faf025f11b">&lt;code&gt;</bpt>Skip<ept id="b062fb95-1a1b-49cf-a955-11faf025f11b">&lt;/code&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="aef93a1c-3d8f-4f7b-a116-8a2a9381b790" xml:space="preserve">
+          <source>In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</source>
+          <target state="new">In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.</target>
+        </trans-unit>
+        <trans-unit id="76878703-1bbe-441e-908c-b85fe591c4bb" xml:space="preserve">
+          <source>To override the 50 row limit in a .NET backend mobile service, you must also apply the <bpt id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;linkText&gt;</bpt>EnableQueryAttribute<ept id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;/linkText&gt;</ept><bpt id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;title&gt;</bpt><ept id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;/title&gt;</ept> to the public GET method and specify the paging behavior.</source>
+          <target state="new">To override the 50 row limit in a .NET backend mobile service, you must also apply the <bpt id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;linkText&gt;</bpt>EnableQueryAttribute<ept id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;/linkText&gt;</ept><bpt id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;title&gt;</bpt><ept id="674b5c0d-84f7-4102-8632-5c50c77d22ec">&lt;/title&gt;</ept> to the public GET method and specify the paging behavior.</target>
+        </trans-unit>
+        <trans-unit id="a3304d16-c452-4748-a985-92aea7512ede" xml:space="preserve">
+          <source>When applied to the method, the following sets the maximum returned rows to 1000:</source>
+          <target state="new">When applied to the method, the following sets the maximum returned rows to 1000:</target>
+        </trans-unit>
+        <trans-unit id="f95a9d55-b33b-4c59-af28-b7de7e78b1ec" xml:space="preserve">
+          <source>You can specify which set of properties to include in the results by adding a <bpt id="c2ada289-a60c-427a-97ba-21e019970c2f">&lt;code&gt;</bpt>Select<ept id="c2ada289-a60c-427a-97ba-21e019970c2f">&lt;/code&gt;</ept> clause to your query.</source>
+          <target state="new">You can specify which set of properties to include in the results by adding a <bpt id="c2ada289-a60c-427a-97ba-21e019970c2f">&lt;code&gt;</bpt>Select<ept id="c2ada289-a60c-427a-97ba-21e019970c2f">&lt;/code&gt;</ept> clause to your query.</target>
+        </trans-unit>
+        <trans-unit id="643b9db5-b73b-4b61-9b07-f60e472e3128" xml:space="preserve">
+          <source>For example, the following code shows how to select just one field and also how to select and format multiple fields:</source>
+          <target state="new">For example, the following code shows how to select just one field and also how to select and format multiple fields:</target>
+        </trans-unit>
+        <trans-unit id="c14d6362-e69f-4730-82a1-2b240f9ff919" xml:space="preserve">
+          <source>All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query.</source>
+          <target state="new">All the functions described so far are additive, so we can just keep calling them and we'll each time affect more of the query.</target>
+        </trans-unit>
+        <trans-unit id="4d37b132-4ca1-4431-845e-6f512cbdca6d" xml:space="preserve">
+          <source>One more example:</source>
+          <target state="new">One more example:</target>
+        </trans-unit>
+        <trans-unit id="ec6d13e9-8402-40bc-a7ca-6164ee4364b4" xml:space="preserve">
+          <source>The <bpt id="986bee97-4886-47ca-861c-85d542f9ccc4">&lt;code&gt;</bpt>LookupAsync<ept id="986bee97-4886-47ca-861c-85d542f9ccc4">&lt;/code&gt;</ept> function can be used to look up objects from the database with a particular ID.</source>
+          <target state="new">The <bpt id="986bee97-4886-47ca-861c-85d542f9ccc4">&lt;code&gt;</bpt>LookupAsync<ept id="986bee97-4886-47ca-861c-85d542f9ccc4">&lt;/code&gt;</ept> function can be used to look up objects from the database with a particular ID.</target>
+        </trans-unit>
+        <trans-unit id="093be534-4083-4402-bfb1-d5a225a486ec" xml:space="preserve">
+          <source>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <bpt id="f2c583fd-95fd-4e8f-83e9-2d7317f0aa76">&lt;strong&gt;</bpt>Id<ept id="f2c583fd-95fd-4e8f-83e9-2d7317f0aa76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <bpt id="f2c583fd-95fd-4e8f-83e9-2d7317f0aa76">&lt;strong&gt;</bpt>Id<ept id="f2c583fd-95fd-4e8f-83e9-2d7317f0aa76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc701071-6684-4efa-81c3-6bbc3113c89f" xml:space="preserve">
+          <source>This is why the example class <bpt id="fc7a3a30-a414-46e3-9447-33ce651778cb">&lt;strong&gt;</bpt>TodoItem<ept id="fc7a3a30-a414-46e3-9447-33ce651778cb">&lt;/strong&gt;</ept> has a member of name <bpt id="a5037fb4-d047-4960-b26d-2df978408b31">&lt;strong&gt;</bpt>Id<ept id="a5037fb4-d047-4960-b26d-2df978408b31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This is why the example class <bpt id="fc7a3a30-a414-46e3-9447-33ce651778cb">&lt;strong&gt;</bpt>TodoItem<ept id="fc7a3a30-a414-46e3-9447-33ce651778cb">&lt;/strong&gt;</ept> has a member of name <bpt id="a5037fb4-d047-4960-b26d-2df978408b31">&lt;strong&gt;</bpt>Id<ept id="a5037fb4-d047-4960-b26d-2df978408b31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ea77af3-41fa-4786-8208-e93bd5d8197e" xml:space="preserve">
+          <source>A valid id value must always be present in update and delete operations.</source>
+          <target state="new">A valid id value must always be present in update and delete operations.</target>
+        </trans-unit>
+        <trans-unit id="d037f335-b46c-40fb-b8fd-2393a4bb8f80" xml:space="preserve">
+          <source>The following code illustrates how to insert new rows into a table.</source>
+          <target state="new">The following code illustrates how to insert new rows into a table.</target>
+        </trans-unit>
+        <trans-unit id="3c1f7607-e039-439a-92e2-253e5bcc445d" xml:space="preserve">
+          <source>The parameter contains the data to be inserted as a .NET object.</source>
+          <target state="new">The parameter contains the data to be inserted as a .NET object.</target>
+        </trans-unit>
+        <trans-unit id="a0aeb11d-6794-49be-a125-bdebfaceefcb" xml:space="preserve">
+          <source>If a unique custom ID value is not included in the <bpt id="f73c2e3c-8128-4f24-b9e6-92912f2b628f">&lt;code&gt;</bpt>todoItem<ept id="f73c2e3c-8128-4f24-b9e6-92912f2b628f">&lt;/code&gt;</ept> passed to the <bpt id="6afee9f8-1815-468e-bffb-3b8c7b9eca2f">&lt;code&gt;</bpt>todoTable.InsertAsync<ept id="6afee9f8-1815-468e-bffb-3b8c7b9eca2f">&lt;/code&gt;</ept> call, a value for ID is generated by the server and is set in the <bpt id="d0ed5e3f-1c71-446b-abea-a213ebbe380c">&lt;code&gt;</bpt>todoItem<ept id="d0ed5e3f-1c71-446b-abea-a213ebbe380c">&lt;/code&gt;</ept> object returned to the client.</source>
+          <target state="new">If a unique custom ID value is not included in the <bpt id="f73c2e3c-8128-4f24-b9e6-92912f2b628f">&lt;code&gt;</bpt>todoItem<ept id="f73c2e3c-8128-4f24-b9e6-92912f2b628f">&lt;/code&gt;</ept> passed to the <bpt id="6afee9f8-1815-468e-bffb-3b8c7b9eca2f">&lt;code&gt;</bpt>todoTable.InsertAsync<ept id="6afee9f8-1815-468e-bffb-3b8c7b9eca2f">&lt;/code&gt;</ept> call, a value for ID is generated by the server and is set in the <bpt id="d0ed5e3f-1c71-446b-abea-a213ebbe380c">&lt;code&gt;</bpt>todoItem<ept id="d0ed5e3f-1c71-446b-abea-a213ebbe380c">&lt;/code&gt;</ept> object returned to the client.</target>
+        </trans-unit>
+        <trans-unit id="1a221afd-fbad-48e5-a83a-712d63ee40e6" xml:space="preserve">
+          <source>To insert untyped data, you may take advantage of Json.NET as shown below.</source>
+          <target state="new">To insert untyped data, you may take advantage of Json.NET as shown below.</target>
+        </trans-unit>
+        <trans-unit id="12e72262-a25f-4f37-92b6-0c59ab90136d" xml:space="preserve">
+          <source>Here is an example using an email address as a unique string id.</source>
+          <target state="new">Here is an example using an email address as a unique string id.</target>
+        </trans-unit>
+        <trans-unit id="6a50bcb0-4c0a-459e-8d62-93601f6066ad" xml:space="preserve">
+          <source>Mobile Services supports unique custom string values for the table's <bpt id="afa346e1-b22d-428f-8727-881233d91a5d">&lt;strong&gt;</bpt>id<ept id="afa346e1-b22d-428f-8727-881233d91a5d">&lt;/strong&gt;</ept> column.</source>
+          <target state="new">Mobile Services supports unique custom string values for the table's <bpt id="afa346e1-b22d-428f-8727-881233d91a5d">&lt;strong&gt;</bpt>id<ept id="afa346e1-b22d-428f-8727-881233d91a5d">&lt;/strong&gt;</ept> column.</target>
+        </trans-unit>
+        <trans-unit id="8861c327-2cc6-4be2-ab38-b8064835ec66" xml:space="preserve">
+          <source>This allows applications to use custom values such as email addresses or user names for the ID.</source>
+          <target state="new">This allows applications to use custom values such as email addresses or user names for the ID.</target>
+        </trans-unit>
+        <trans-unit id="bcf243f4-7634-4363-8888-25224667eade" xml:space="preserve">
+          <source>String IDs provide you with the following benefits:</source>
+          <target state="new">String IDs provide you with the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="df7d26af-9b14-4aea-84df-ad96e0496148" xml:space="preserve">
+          <source>IDs are generated without making a round-trip to the database.</source>
+          <target state="new">IDs are generated without making a round-trip to the database.</target>
+        </trans-unit>
+        <trans-unit id="2c9c672b-31fd-4606-bc36-24c2ac269be3" xml:space="preserve">
+          <source>Records are easier to merge from different tables or databases.</source>
+          <target state="new">Records are easier to merge from different tables or databases.</target>
+        </trans-unit>
+        <trans-unit id="34bf1d92-6be0-4902-b408-08febe8c63ef" xml:space="preserve">
+          <source>IDs values can integrate better with an application's logic.</source>
+          <target state="new">IDs values can integrate better with an application's logic.</target>
+        </trans-unit>
+        <trans-unit id="384a08c7-90b3-4c40-b73c-301effcda567" xml:space="preserve">
+          <source>When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID.</source>
+          <target state="new">When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID.</target>
+        </trans-unit>
+        <trans-unit id="3bf483e6-891a-4110-9453-0496d847b6d1" xml:space="preserve">
+          <source>You can use the <bpt id="eda4fe0c-1bfe-4e2e-ab5d-4dc4fb7afee7">&lt;code&gt;</bpt>Guid.NewGuid()<ept id="eda4fe0c-1bfe-4e2e-ab5d-4dc4fb7afee7">&lt;/code&gt;</ept> method To generate your own ID values, either on the client or in a .NET mobile backend service.</source>
+          <target state="new">You can use the <bpt id="eda4fe0c-1bfe-4e2e-ab5d-4dc4fb7afee7">&lt;code&gt;</bpt>Guid.NewGuid()<ept id="eda4fe0c-1bfe-4e2e-ab5d-4dc4fb7afee7">&lt;/code&gt;</ept> method To generate your own ID values, either on the client or in a .NET mobile backend service.</target>
+        </trans-unit>
+        <trans-unit id="4f93c7fd-4a57-4d4b-a666-3fc59ce2c271" xml:space="preserve">
+          <source>To learn more about generating GUIDs in a JavaScript backend mobile service, see <bpt id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;linkText&gt;</bpt>How to: Generate unique ID values<ept id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;/linkText&gt;</ept><bpt id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;title&gt;</bpt><ept id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about generating GUIDs in a JavaScript backend mobile service, see <bpt id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;linkText&gt;</bpt>How to: Generate unique ID values<ept id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;/linkText&gt;</ept><bpt id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;title&gt;</bpt><ept id="ef577efb-0f65-4022-8864-39862d4f2502">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea43891f-2142-4ea2-ad80-ef9d1296d02d" xml:space="preserve">
+          <source>You can also use integer IDs for your tables.</source>
+          <target state="new">You can also use integer IDs for your tables.</target>
+        </trans-unit>
+        <trans-unit id="30d79968-20cd-4cff-9722-f20cce8cbbc3" xml:space="preserve">
+          <source>To use an integer ID, you must create your table with the <bpt id="3e7b1de9-0208-4df8-b271-69bf12df4e10">&lt;code&gt;</bpt>mobile table create<ept id="3e7b1de9-0208-4df8-b271-69bf12df4e10">&lt;/code&gt;</ept> command using the <bpt id="14e48037-0373-44cb-a570-a48447bf3906">&lt;code&gt;</bpt>--integerId<ept id="14e48037-0373-44cb-a570-a48447bf3906">&lt;/code&gt;</ept> option.</source>
+          <target state="new">To use an integer ID, you must create your table with the <bpt id="3e7b1de9-0208-4df8-b271-69bf12df4e10">&lt;code&gt;</bpt>mobile table create<ept id="3e7b1de9-0208-4df8-b271-69bf12df4e10">&lt;/code&gt;</ept> command using the <bpt id="14e48037-0373-44cb-a570-a48447bf3906">&lt;code&gt;</bpt>--integerId<ept id="14e48037-0373-44cb-a570-a48447bf3906">&lt;/code&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="cf04ddc8-8c14-4768-9d39-256f3f20b8fb" xml:space="preserve">
+          <source>This command is used with the Command-line Interface (CLI) for Azure.</source>
+          <target state="new">This command is used with the Command-line Interface (CLI) for Azure.</target>
+        </trans-unit>
+        <trans-unit id="07d8a0b9-29d5-4999-9ad1-797a496db302" xml:space="preserve">
+          <source>For more information on using the CLI, see <bpt id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;linkText&gt;</bpt>CLI to manage Mobile Services tables<ept id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;/linkText&gt;</ept><bpt id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;title&gt;</bpt><ept id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using the CLI, see <bpt id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;linkText&gt;</bpt>CLI to manage Mobile Services tables<ept id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;/linkText&gt;</ept><bpt id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;title&gt;</bpt><ept id="3dcbdf62-0e7c-42e4-906e-9b8ca7299eea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="166f0800-e1d3-4428-95bc-7f79ffa5516b" xml:space="preserve">
+          <source>The following code illustrates how to update an existing instance with the same ID with new information.</source>
+          <target state="new">The following code illustrates how to update an existing instance with the same ID with new information.</target>
+        </trans-unit>
+        <trans-unit id="c2b64c11-c9e0-4e37-ab0a-d9f33db49c27" xml:space="preserve">
+          <source>The parameter contains the data to be updated as a .NET object.</source>
+          <target state="new">The parameter contains the data to be updated as a .NET object.</target>
+        </trans-unit>
+        <trans-unit id="8d3db16b-18ef-4d9c-b4e1-cf172e86ee09" xml:space="preserve">
+          <source>To insert untyped data, you may take advantage of Json.NET like so.</source>
+          <target state="new">To insert untyped data, you may take advantage of Json.NET like so.</target>
+        </trans-unit>
+        <trans-unit id="f2edb27d-3588-4d1b-9599-0f6f388e7149" xml:space="preserve">
+          <source>Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update.</source>
+          <target state="new">Note that when making an update, an ID must be specified, as that is how the mobile service identifies which instance to update.</target>
+        </trans-unit>
+        <trans-unit id="9f869ce4-d15e-4e3e-9222-5c26db5dad56" xml:space="preserve">
+          <source>The ID can be obtained from the result of the <bpt id="b200afcf-e7ce-4077-9049-0474fb795336">&lt;code&gt;</bpt>InsertAsync<ept id="b200afcf-e7ce-4077-9049-0474fb795336">&lt;/code&gt;</ept> call.</source>
+          <target state="new">The ID can be obtained from the result of the <bpt id="b200afcf-e7ce-4077-9049-0474fb795336">&lt;code&gt;</bpt>InsertAsync<ept id="b200afcf-e7ce-4077-9049-0474fb795336">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="c7e93651-92cb-468c-a235-621f7b429102" xml:space="preserve">
+          <source>If you attempt to update an item without providing the "Id" value, there is no way for the service to tell which instance to update, so the Mobile Services SDK will throw an <bpt id="4db82600-7466-4969-a25e-4a38d5981d26">&lt;code&gt;</bpt>ArgumentException<ept id="4db82600-7466-4969-a25e-4a38d5981d26">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you attempt to update an item without providing the "Id" value, there is no way for the service to tell which instance to update, so the Mobile Services SDK will throw an <bpt id="4db82600-7466-4969-a25e-4a38d5981d26">&lt;code&gt;</bpt>ArgumentException<ept id="4db82600-7466-4969-a25e-4a38d5981d26">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d3518ba-4748-44b5-9bba-0d8245ad4b78" xml:space="preserve">
+          <source>The following code illustrates how to delete an existing instance.</source>
+          <target state="new">The following code illustrates how to delete an existing instance.</target>
+        </trans-unit>
+        <trans-unit id="c85481d1-fa2a-4a95-8780-83ca57f5a1e9" xml:space="preserve">
+          <source>The instance is identified by the "Id" field set on the <bpt id="619aa274-e886-408e-aef9-314d43cbe45d">&lt;code&gt;</bpt>todoItem<ept id="619aa274-e886-408e-aef9-314d43cbe45d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The instance is identified by the "Id" field set on the <bpt id="619aa274-e886-408e-aef9-314d43cbe45d">&lt;code&gt;</bpt>todoItem<ept id="619aa274-e886-408e-aef9-314d43cbe45d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7868618e-d067-4ab6-94be-fdd2348bf5d4" xml:space="preserve">
+          <source>To delete untyped data, you may take advantage of Json.NET like so.</source>
+          <target state="new">To delete untyped data, you may take advantage of Json.NET like so.</target>
+        </trans-unit>
+        <trans-unit id="4cb8d5e4-115d-4892-ab70-a1e65744fa20" xml:space="preserve">
+          <source>Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete.</source>
+          <target state="new">Note that when making a delete request, an ID must be specified, as that is how the mobile service identifies which instance to delete.</target>
+        </trans-unit>
+        <trans-unit id="a7b39dc1-852e-4234-9d00-776a262ab2c5" xml:space="preserve">
+          <source>A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service.</source>
+          <target state="new">A delete request needs only the ID; other properties are not passed to the service, and if any are passed, they are ignored at the service.</target>
+        </trans-unit>
+        <trans-unit id="4ef156ee-5b20-49d9-b4aa-95b23def9abe" xml:space="preserve">
+          <source>The result of a <bpt id="63766b09-ae9f-4788-b748-8eb8df8b8407">&lt;code&gt;</bpt>DeleteAsync<ept id="63766b09-ae9f-4788-b748-8eb8df8b8407">&lt;/code&gt;</ept> call is usually <bpt id="157a42f2-6f12-4462-9e7e-85e99df53e3e">&lt;code&gt;</bpt>null<ept id="157a42f2-6f12-4462-9e7e-85e99df53e3e">&lt;/code&gt;</ept> as well.</source>
+          <target state="new">The result of a <bpt id="63766b09-ae9f-4788-b748-8eb8df8b8407">&lt;code&gt;</bpt>DeleteAsync<ept id="63766b09-ae9f-4788-b748-8eb8df8b8407">&lt;/code&gt;</ept> call is usually <bpt id="157a42f2-6f12-4462-9e7e-85e99df53e3e">&lt;code&gt;</bpt>null<ept id="157a42f2-6f12-4462-9e7e-85e99df53e3e">&lt;/code&gt;</ept> as well.</target>
+        </trans-unit>
+        <trans-unit id="0ad7f65b-202d-4302-ba6c-06bdfcb877ed" xml:space="preserve">
+          <source>The ID to pass in can be obtained from the result of the <bpt id="928d4a67-d75b-4420-9168-ae3405078751">&lt;code&gt;</bpt>InsertAsync<ept id="928d4a67-d75b-4420-9168-ae3405078751">&lt;/code&gt;</ept> call.</source>
+          <target state="new">The ID to pass in can be obtained from the result of the <bpt id="928d4a67-d75b-4420-9168-ae3405078751">&lt;code&gt;</bpt>InsertAsync<ept id="928d4a67-d75b-4420-9168-ae3405078751">&lt;/code&gt;</ept> call.</target>
+        </trans-unit>
+        <trans-unit id="d37f6954-67bc-4660-ae0e-5ff5b4c6da6e" xml:space="preserve">
+          <source>If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a <bpt id="ee3f646b-ecd3-459b-af9e-ab5bc560f94b">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="ee3f646b-ecd3-459b-af9e-ab5bc560f94b">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">If you attempt to delete an item without the "Id" field already set, there is no way for the service to tell which instance to delete, so you will get back a <bpt id="ee3f646b-ecd3-459b-af9e-ab5bc560f94b">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="ee3f646b-ecd3-459b-af9e-ab5bc560f94b">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="9b4fcd3e-55cb-444e-b539-f7447a13cd35" xml:space="preserve">
+          <source>Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a <bpt id="4ee2c5dd-0e7c-4076-aa95-5831cba18aab">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="4ee2c5dd-0e7c-4076-aa95-5831cba18aab">&lt;/code&gt;</ept> from the service.</source>
+          <target state="new">Similarly, if you attempt to delete an untyped item without the "Id" field already set, you will again get back a <bpt id="4ee2c5dd-0e7c-4076-aa95-5831cba18aab">&lt;code&gt;</bpt>MobileServiceInvalidOperationException<ept id="4ee2c5dd-0e7c-4076-aa95-5831cba18aab">&lt;/code&gt;</ept> from the service.</target>
+        </trans-unit>
+        <trans-unit id="055b69ff-d71a-4868-a4e1-fed60fa6eb8b" xml:space="preserve">
+          <source>A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</source>
+          <target state="new">A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation.</target>
+        </trans-unit>
+        <trans-unit id="e319d8b3-d2cd-42d2-93ec-4108b338e7e2" xml:space="preserve">
+          <source>By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</source>
+          <target state="new">By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.</target>
+        </trans-unit>
+        <trans-unit id="f5ee2203-e8da-4d2d-a914-7f27d31163c3" xml:space="preserve">
+          <source>For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].</source>
+          <target state="new">For a complete example, including how to create a custom API in your mobile service, see [Call a custom API from the client].</target>
+        </trans-unit>
+        <trans-unit id="0d79d96f-8b64-480b-a784-1e4464b0d235" xml:space="preserve">
+          <source>You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client.</source>
+          <target state="new">You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client.</target>
+        </trans-unit>
+        <trans-unit id="b006761c-ab95-475a-89a9-59413900cf10" xml:space="preserve">
+          <source>For example, the following line of code sends a POST request to the <bpt id="fa3cc8e6-8234-4f89-98d7-46f9f47a0b92">&lt;strong&gt;</bpt>completeAll<ept id="fa3cc8e6-8234-4f89-98d7-46f9f47a0b92">&lt;/strong&gt;</ept> API on the mobile service:</source>
+          <target state="new">For example, the following line of code sends a POST request to the <bpt id="fa3cc8e6-8234-4f89-98d7-46f9f47a0b92">&lt;strong&gt;</bpt>completeAll<ept id="fa3cc8e6-8234-4f89-98d7-46f9f47a0b92">&lt;/strong&gt;</ept> API on the mobile service:</target>
+        </trans-unit>
+        <trans-unit id="a5711158-446a-42c0-9606-bad62c2039ba" xml:space="preserve">
+          <source>Note that this a typed method call, which requires that the <bpt id="c28fc852-487b-4773-ae6a-cd96fb8c71b6">&lt;strong&gt;</bpt>MarkAllResult<ept id="c28fc852-487b-4773-ae6a-cd96fb8c71b6">&lt;/strong&gt;</ept> return type be defined.</source>
+          <target state="new">Note that this a typed method call, which requires that the <bpt id="c28fc852-487b-4773-ae6a-cd96fb8c71b6">&lt;strong&gt;</bpt>MarkAllResult<ept id="c28fc852-487b-4773-ae6a-cd96fb8c71b6">&lt;/strong&gt;</ept> return type be defined.</target>
+        </trans-unit>
+        <trans-unit id="9d83ec0c-a501-4dcb-a6c0-6dee2d979709" xml:space="preserve">
+          <source>Both typed and untyped methods are supported.</source>
+          <target state="new">Both typed and untyped methods are supported.</target>
+        </trans-unit>
+        <trans-unit id="467826d3-68c3-4542-8b3d-e3c96e3c2a4d" xml:space="preserve">
+          <source>This is an almost trivial example as it is typed, sends no payload, has no query parameters, and doesn't change the request headers.</source>
+          <target state="new">This is an almost trivial example as it is typed, sends no payload, has no query parameters, and doesn't change the request headers.</target>
+        </trans-unit>
+        <trans-unit id="466f78a8-05b3-4ab9-9694-fa7ed1e687d9" xml:space="preserve">
+          <source>For more realistic examples and a more a complete discussion of [InvokeApiAsync], see [Custom API in Azure Mobile Services Client SDKs].</source>
+          <target state="new">For more realistic examples and a more a complete discussion of [InvokeApiAsync], see [Custom API in Azure Mobile Services Client SDKs].</target>
+        </trans-unit>
+        <trans-unit id="755924ca-ed1d-484b-88d1-40fc0ae10dab" xml:space="preserve">
+          <source>The Mobile Services client enables you to register for push notifications with Azure Notification Hubs.</source>
+          <target state="new">The Mobile Services client enables you to register for push notifications with Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="6ceaea92-ad75-4d9f-a157-c165cf1a12bf" xml:space="preserve">
+          <source>When registering, you obtain a channel URI that you obtain from the Windows Platform.</source>
+          <target state="new">When registering, you obtain a channel URI that you obtain from the Windows Platform.</target>
+        </trans-unit>
+        <trans-unit id="fba9a9d8-c0b3-4761-8296-58791ecabb53" xml:space="preserve">
+          <source>You then provide this value along with any tags when you create the registration.</source>
+          <target state="new">You then provide this value along with any tags when you create the registration.</target>
+        </trans-unit>
+        <trans-unit id="c8ad74eb-acd2-4262-a215-4e1d16e2fd7f" xml:space="preserve">
+          <source>The following code registers for push notifications on a Windows Store app that uses the Windows Notification Service (WNS):</source>
+          <target state="new">The following code registers for push notifications on a Windows Store app that uses the Windows Notification Service (WNS):</target>
+        </trans-unit>
+        <trans-unit id="8e7791c7-26fa-4559-8fc4-0e4b75f074f6" xml:space="preserve">
+          <source>Note that in this example, two tags are included with the registration.</source>
+          <target state="new">Note that in this example, two tags are included with the registration.</target>
+        </trans-unit>
+        <trans-unit id="1408ce99-c89a-42d5-9f9c-30f8408e30a3" xml:space="preserve">
+          <source>For more information, see <bpt id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;linkText&gt;</bpt>Add push notifications to your app<ept id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;/linkText&gt;</ept><bpt id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;title&gt;</bpt><ept id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;linkText&gt;</bpt>Add push notifications to your app<ept id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;/linkText&gt;</ept><bpt id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;title&gt;</bpt><ept id="24ac0cbf-0c96-49ca-bc63-3a740ece74ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5014b612-0d0a-4921-89dc-755bae610bfb" xml:space="preserve">
+          <source>When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag.</source>
+          <target state="new">When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag.</target>
+        </trans-unit>
+        <trans-unit id="aa7da4d8-4e5c-4c3e-8870-0a743f48a259" xml:space="preserve">
+          <source>For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID.</source>
+          <target state="new">For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID.</target>
+        </trans-unit>
+        <trans-unit id="6fee0257-1706-497b-9102-e3dc75503052" xml:space="preserve">
+          <source>For more information, see <bpt id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;linkText&gt;</bpt>Send push notifications to authenticated users<ept id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;/linkText&gt;</ept><bpt id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;title&gt;</bpt><ept id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;linkText&gt;</bpt>Send push notifications to authenticated users<ept id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;/linkText&gt;</ept><bpt id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;title&gt;</bpt><ept id="5f767bdb-f1cd-4940-a0e1-76d09e65ea4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c76bd25-e743-4f68-95f0-d58fa0a04f18" xml:space="preserve">
+          <source>Two or more clients may write changes to the same item, at the same time, in some scenarios.</source>
+          <target state="new">Two or more clients may write changes to the same item, at the same time, in some scenarios.</target>
+        </trans-unit>
+        <trans-unit id="0a963b22-5141-4901-9497-5c227306ac1a" xml:space="preserve">
+          <source>Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result.</source>
+          <target state="new">Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result.</target>
+        </trans-unit>
+        <trans-unit id="fc700507-7b15-40d0-b217-b226f5f656ab" xml:space="preserve">
+          <source>Optimistic Concurrency Control assumes that each transaction can commit and therefore does not use any resource locking.</source>
+          <target state="new">Optimistic Concurrency Control assumes that each transaction can commit and therefore does not use any resource locking.</target>
+        </trans-unit>
+        <trans-unit id="b798c135-dcd4-471b-aa9c-530acfa5c5bb" xml:space="preserve">
+          <source>Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data.</source>
+          <target state="new">Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data.</target>
+        </trans-unit>
+        <trans-unit id="3f603ecf-9852-4c37-abc7-bb1f0d4135fe" xml:space="preserve">
+          <source>If the data has been modified, the committing transaction is rolled back.</source>
+          <target state="new">If the data has been modified, the committing transaction is rolled back.</target>
+        </trans-unit>
+        <trans-unit id="632e150f-074c-49c9-9522-587ed473bfcc" xml:space="preserve">
+          <source>Mobile Services supports optimistic concurrency control by tracking changes to each item using the <bpt id="c342b75a-ab55-4b0e-90c4-ca81e56e8e8b">&lt;code&gt;</bpt>__version<ept id="c342b75a-ab55-4b0e-90c4-ca81e56e8e8b">&lt;/code&gt;</ept> system property column that is defined for each table created by Mobile Services. Each time a record is updated, Mobile Services sets the <bpt id="ccf6a74b-8f46-41f3-8994-e316fb1e4f7a">&lt;code&gt;</bpt>__version<ept id="ccf6a74b-8f46-41f3-8994-e316fb1e4f7a">&lt;/code&gt;</ept> property for that record to a new value. During each update request, the <bpt id="0d32292b-88da-4215-81b9-7c68d6d14802">&lt;code&gt;</bpt>__version<ept id="0d32292b-88da-4215-81b9-7c68d6d14802">&lt;/code&gt;</ept> property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the server, then the Mobile Services .NET client library throws a <bpt id="b77704f5-11cd-4fcb-bc93-47f9152f44c8">&lt;code&gt;</bpt>MobileServicePreconditionFailedException&lt;T&gt;<ept id="b77704f5-11cd-4fcb-bc93-47f9152f44c8">&lt;/code&gt;</ept>. The type included with the exception is the record from the server containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct <bpt id="375eacaa-7d8f-4c31-a3eb-d44d47626daf">&lt;code&gt;</bpt>__version<ept id="375eacaa-7d8f-4c31-a3eb-d44d47626daf">&lt;/code&gt;</ept> value from the server to commit changes.  </source>
+          <target state="new">Mobile Services supports optimistic concurrency control by tracking changes to each item using the <bpt id="c342b75a-ab55-4b0e-90c4-ca81e56e8e8b">&lt;code&gt;</bpt>__version<ept id="c342b75a-ab55-4b0e-90c4-ca81e56e8e8b">&lt;/code&gt;</ept> system property column that is defined for each table created by Mobile Services. Each time a record is updated, Mobile Services sets the <bpt id="ccf6a74b-8f46-41f3-8994-e316fb1e4f7a">&lt;code&gt;</bpt>__version<ept id="ccf6a74b-8f46-41f3-8994-e316fb1e4f7a">&lt;/code&gt;</ept> property for that record to a new value. During each update request, the <bpt id="0d32292b-88da-4215-81b9-7c68d6d14802">&lt;code&gt;</bpt>__version<ept id="0d32292b-88da-4215-81b9-7c68d6d14802">&lt;/code&gt;</ept> property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the server, then the Mobile Services .NET client library throws a <bpt id="b77704f5-11cd-4fcb-bc93-47f9152f44c8">&lt;code&gt;</bpt>MobileServicePreconditionFailedException&lt;T&gt;<ept id="b77704f5-11cd-4fcb-bc93-47f9152f44c8">&lt;/code&gt;</ept>. The type included with the exception is the record from the server containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct <bpt id="375eacaa-7d8f-4c31-a3eb-d44d47626daf">&lt;code&gt;</bpt>__version<ept id="375eacaa-7d8f-4c31-a3eb-d44d47626daf">&lt;/code&gt;</ept> value from the server to commit changes.  </target>
+        </trans-unit>
+        <trans-unit id="0864293b-14e0-4850-9c22-f29380df2ad4" xml:space="preserve">
+          <source>To enable optimistic concurrency the application defines a column on the table class for the <bpt id="6c8770ea-a9af-4a58-96ef-518fa6e6b5fc">&lt;code&gt;</bpt>__version<ept id="6c8770ea-a9af-4a58-96ef-518fa6e6b5fc">&lt;/code&gt;</ept> system property.</source>
+          <target state="new">To enable optimistic concurrency the application defines a column on the table class for the <bpt id="6c8770ea-a9af-4a58-96ef-518fa6e6b5fc">&lt;code&gt;</bpt>__version<ept id="6c8770ea-a9af-4a58-96ef-518fa6e6b5fc">&lt;/code&gt;</ept> system property.</target>
+        </trans-unit>
+        <trans-unit id="8a450d70-9f09-445d-aef4-4906ac82de38" xml:space="preserve">
+          <source>The following definition provides an example.</source>
+          <target state="new">The following definition provides an example.</target>
+        </trans-unit>
+        <trans-unit id="f6bb65a4-e75b-432b-8e8a-ac0f9ca3360b" xml:space="preserve">
+          <source>Applications using untyped tables enable optimistic concurrency by setting the <bpt id="8a47aa77-251c-4889-92ee-93891b900164">&lt;code&gt;</bpt>Version<ept id="8a47aa77-251c-4889-92ee-93891b900164">&lt;/code&gt;</ept> flag on the <bpt id="327ef77c-7258-429d-9198-7d9ebc17f040">&lt;code&gt;</bpt>SystemProperties<ept id="327ef77c-7258-429d-9198-7d9ebc17f040">&lt;/code&gt;</ept> of the table as follows.</source>
+          <target state="new">Applications using untyped tables enable optimistic concurrency by setting the <bpt id="8a47aa77-251c-4889-92ee-93891b900164">&lt;code&gt;</bpt>Version<ept id="8a47aa77-251c-4889-92ee-93891b900164">&lt;/code&gt;</ept> flag on the <bpt id="327ef77c-7258-429d-9198-7d9ebc17f040">&lt;code&gt;</bpt>SystemProperties<ept id="327ef77c-7258-429d-9198-7d9ebc17f040">&lt;/code&gt;</ept> of the table as follows.</target>
+        </trans-unit>
+        <trans-unit id="0a90eece-5069-4a8b-9219-e8efd3222b0a" xml:space="preserve">
+          <source>The following code shows how to resolve a write conflict once detected.</source>
+          <target state="new">The following code shows how to resolve a write conflict once detected.</target>
+        </trans-unit>
+        <trans-unit id="3f42d015-ba9e-47d4-99dc-f109ea578044" xml:space="preserve">
+          <source>The correct <bpt id="30250e95-fc25-494d-bffa-57ab9a42f129">&lt;code&gt;</bpt>__version<ept id="30250e95-fc25-494d-bffa-57ab9a42f129">&lt;/code&gt;</ept> value must be included in the <bpt id="e4213e3e-8c1c-44bd-959b-ace73dd70a6a">&lt;code&gt;</bpt>UpdateAsync()<ept id="e4213e3e-8c1c-44bd-959b-ace73dd70a6a">&lt;/code&gt;</ept> call to commit a resolution.</source>
+          <target state="new">The correct <bpt id="30250e95-fc25-494d-bffa-57ab9a42f129">&lt;code&gt;</bpt>__version<ept id="30250e95-fc25-494d-bffa-57ab9a42f129">&lt;/code&gt;</ept> value must be included in the <bpt id="e4213e3e-8c1c-44bd-959b-ace73dd70a6a">&lt;code&gt;</bpt>UpdateAsync()<ept id="e4213e3e-8c1c-44bd-959b-ace73dd70a6a">&lt;/code&gt;</ept> call to commit a resolution.</target>
+        </trans-unit>
+        <trans-unit id="84ca2453-ecb4-45cc-a709-a4f4dfdb56bf" xml:space="preserve">
+          <source>For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].</source>
+          <target state="new">For a more complete example of using optimistic concurrency for Mobile Services, see the [Optimistic Concurrency Tutorial].</target>
+        </trans-unit>
+        <trans-unit id="b60bb6c3-f50e-40e0-937b-713c8bbff83e" xml:space="preserve">
+          <source>This section shows how to display returned data objects using UI elements.</source>
+          <target state="new">This section shows how to display returned data objects using UI elements.</target>
+        </trans-unit>
+        <trans-unit id="8ff2b205-5ac5-4fcb-821c-e65f011a1eb1" xml:space="preserve">
+          <source>To query incomplete items in <bpt id="8735cf96-d0f3-4824-900c-76c1b65c91b5">&lt;code&gt;</bpt>todoTable<ept id="8735cf96-d0f3-4824-900c-76c1b65c91b5">&lt;/code&gt;</ept> and display it in a very simple list, you can run the following example code to bind the source of the list with a query.</source>
+          <target state="new">To query incomplete items in <bpt id="8735cf96-d0f3-4824-900c-76c1b65c91b5">&lt;code&gt;</bpt>todoTable<ept id="8735cf96-d0f3-4824-900c-76c1b65c91b5">&lt;/code&gt;</ept> and display it in a very simple list, you can run the following example code to bind the source of the list with a query.</target>
+        </trans-unit>
+        <trans-unit id="c323251d-5e6d-4c22-b3c1-faf5f3f49ce7" xml:space="preserve">
+          <source>Using <bpt id="50b34e0b-1c9b-4624-a2d2-0bda7c4a6a28">&lt;code&gt;</bpt>MobileServiceCollection<ept id="50b34e0b-1c9b-4624-a2d2-0bda7c4a6a28">&lt;/code&gt;</ept> creates a mobile services-aware binding collection.</source>
+          <target state="new">Using <bpt id="50b34e0b-1c9b-4624-a2d2-0bda7c4a6a28">&lt;code&gt;</bpt>MobileServiceCollection<ept id="50b34e0b-1c9b-4624-a2d2-0bda7c4a6a28">&lt;/code&gt;</ept> creates a mobile services-aware binding collection.</target>
+        </trans-unit>
+        <trans-unit id="1d7afb09-0fca-41ac-b5b1-f54d9a140edc" xml:space="preserve">
+          <source>Some controls in the Windows Runtime support an interface called <bpt id="6ea09380-7655-4e90-8599-8577807e019a">&lt;linkText&gt;</bpt>ISupportIncrementalLoading<ept id="6ea09380-7655-4e90-8599-8577807e019a">&lt;/linkText&gt;</ept><bpt id="6ea09380-7655-4e90-8599-8577807e019a">&lt;title&gt;</bpt><ept id="6ea09380-7655-4e90-8599-8577807e019a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Some controls in the Windows Runtime support an interface called <bpt id="6ea09380-7655-4e90-8599-8577807e019a">&lt;linkText&gt;</bpt>ISupportIncrementalLoading<ept id="6ea09380-7655-4e90-8599-8577807e019a">&lt;/linkText&gt;</ept><bpt id="6ea09380-7655-4e90-8599-8577807e019a">&lt;title&gt;</bpt><ept id="6ea09380-7655-4e90-8599-8577807e019a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34f4a55d-cc67-4667-8a0c-c372c4c99c72" xml:space="preserve">
+          <source>This interface allows controls to request extra data when the user scrolls.</source>
+          <target state="new">This interface allows controls to request extra data when the user scrolls.</target>
+        </trans-unit>
+        <trans-unit id="a7a480b0-5ab9-44a0-bd93-9c529ce6805d" xml:space="preserve">
+          <source>There is built-in support for this interface for Windows Store apps via <bpt id="861a8420-c1c8-4544-a4ad-5a85d9bb8852">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="861a8420-c1c8-4544-a4ad-5a85d9bb8852">&lt;/code&gt;</ept>, which automatically handles the calls from the controls.</source>
+          <target state="new">There is built-in support for this interface for Windows Store apps via <bpt id="861a8420-c1c8-4544-a4ad-5a85d9bb8852">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="861a8420-c1c8-4544-a4ad-5a85d9bb8852">&lt;/code&gt;</ept>, which automatically handles the calls from the controls.</target>
+        </trans-unit>
+        <trans-unit id="7967b919-e55e-45df-bbdf-a9d323c3b0e9" xml:space="preserve">
+          <source>To use <bpt id="0dae231c-b37a-46ac-a409-9500fcddb09f">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="0dae231c-b37a-46ac-a409-9500fcddb09f">&lt;/code&gt;</ept> in Windows Store apps, do the following:</source>
+          <target state="new">To use <bpt id="0dae231c-b37a-46ac-a409-9500fcddb09f">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="0dae231c-b37a-46ac-a409-9500fcddb09f">&lt;/code&gt;</ept> in Windows Store apps, do the following:</target>
+        </trans-unit>
+        <trans-unit id="82168853-3468-4dc1-a41f-f59add844b4f" xml:space="preserve">
+          <source>To use the new collection on Windows Phone, use the <bpt id="58bda954-00b9-4d35-b949-79c768553be6">&lt;code&gt;</bpt>ToCollection<ept id="58bda954-00b9-4d35-b949-79c768553be6">&lt;/code&gt;</ept> extension methods on <bpt id="18538369-7d0d-4c51-89b4-7bed4416604a">&lt;code&gt;</bpt>IMobileServiceTableQuery&lt;T&gt;<ept id="18538369-7d0d-4c51-89b4-7bed4416604a">&lt;/code&gt;</ept> and <bpt id="d7b7f7c3-3f48-40c4-b521-6d58c75d8c42">&lt;code&gt;</bpt>IMobileServiceTable&lt;T&gt;<ept id="d7b7f7c3-3f48-40c4-b521-6d58c75d8c42">&lt;/code&gt;</ept>. To actually load data, call <bpt id="0dbfd8ba-2afd-4f23-a1f2-a834e5eb5d28">&lt;code&gt;</bpt>LoadMoreItemsAsync()<ept id="0dbfd8ba-2afd-4f23-a1f2-a834e5eb5d28">&lt;/code&gt;</ept>.</source>
+          <target state="new">To use the new collection on Windows Phone, use the <bpt id="58bda954-00b9-4d35-b949-79c768553be6">&lt;code&gt;</bpt>ToCollection<ept id="58bda954-00b9-4d35-b949-79c768553be6">&lt;/code&gt;</ept> extension methods on <bpt id="18538369-7d0d-4c51-89b4-7bed4416604a">&lt;code&gt;</bpt>IMobileServiceTableQuery&lt;T&gt;<ept id="18538369-7d0d-4c51-89b4-7bed4416604a">&lt;/code&gt;</ept> and <bpt id="d7b7f7c3-3f48-40c4-b521-6d58c75d8c42">&lt;code&gt;</bpt>IMobileServiceTable&lt;T&gt;<ept id="d7b7f7c3-3f48-40c4-b521-6d58c75d8c42">&lt;/code&gt;</ept>. To actually load data, call <bpt id="0dbfd8ba-2afd-4f23-a1f2-a834e5eb5d28">&lt;code&gt;</bpt>LoadMoreItemsAsync()<ept id="0dbfd8ba-2afd-4f23-a1f2-a834e5eb5d28">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3398986-93cf-43f9-af36-48f0fd653beb" xml:space="preserve">
+          <source>When you use the collection created by calling <bpt id="ef55bb8a-dedc-4c19-bc84-bbeb1619bfa0">&lt;code&gt;</bpt>ToCollectionAsync<ept id="ef55bb8a-dedc-4c19-bc84-bbeb1619bfa0">&lt;/code&gt;</ept> or <bpt id="c004189e-5ae8-4c5d-bd63-ea3d72fb668c">&lt;code&gt;</bpt>ToCollection<ept id="c004189e-5ae8-4c5d-bd63-ea3d72fb668c">&lt;/code&gt;</ept>, you get a collection which can be bound to UI controls.</source>
+          <target state="new">When you use the collection created by calling <bpt id="ef55bb8a-dedc-4c19-bc84-bbeb1619bfa0">&lt;code&gt;</bpt>ToCollectionAsync<ept id="ef55bb8a-dedc-4c19-bc84-bbeb1619bfa0">&lt;/code&gt;</ept> or <bpt id="c004189e-5ae8-4c5d-bd63-ea3d72fb668c">&lt;code&gt;</bpt>ToCollection<ept id="c004189e-5ae8-4c5d-bd63-ea3d72fb668c">&lt;/code&gt;</ept>, you get a collection which can be bound to UI controls.</target>
+        </trans-unit>
+        <trans-unit id="f2e3a1dc-dc30-4641-9dd8-d61ea8e08514" xml:space="preserve">
+          <source>This collection is paging-aware, i.e., a control can ask the collection to "load more items", and the collection will do it for the control.</source>
+          <target state="new">This collection is paging-aware, i.e., a control can ask the collection to "load more items", and the collection will do it for the control.</target>
+        </trans-unit>
+        <trans-unit id="a113a540-2783-44a0-aade-94035c27b293" xml:space="preserve">
+          <source>At that point there is no user code involved, the control will start the flow.</source>
+          <target state="new">At that point there is no user code involved, the control will start the flow.</target>
+        </trans-unit>
+        <trans-unit id="0c7fc2d6-8719-4cc0-b63a-bea0d4979c10" xml:space="preserve">
+          <source>However, since the collection is loading data from the network, it's expected that some times this loading will fail.</source>
+          <target state="new">However, since the collection is loading data from the network, it's expected that some times this loading will fail.</target>
+        </trans-unit>
+        <trans-unit id="a28b4373-051f-4c8f-bcca-390c141ed76b" xml:space="preserve">
+          <source>To handle such failures, you may override the <bpt id="7c77c417-e816-429a-a655-cc444d73d68c">&lt;code&gt;</bpt>OnException<ept id="7c77c417-e816-429a-a655-cc444d73d68c">&lt;/code&gt;</ept> method on <bpt id="f746a9ba-080a-4cbe-b20e-07f3defb9b92">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="f746a9ba-080a-4cbe-b20e-07f3defb9b92">&lt;/code&gt;</ept> to handle exceptions resulting from calls to <bpt id="eec4678d-8b0e-489b-8f8f-5632f63b7a98">&lt;code&gt;</bpt>LoadMoreItemsAsync<ept id="eec4678d-8b0e-489b-8f8f-5632f63b7a98">&lt;/code&gt;</ept> performed by controls.</source>
+          <target state="new">To handle such failures, you may override the <bpt id="7c77c417-e816-429a-a655-cc444d73d68c">&lt;code&gt;</bpt>OnException<ept id="7c77c417-e816-429a-a655-cc444d73d68c">&lt;/code&gt;</ept> method on <bpt id="f746a9ba-080a-4cbe-b20e-07f3defb9b92">&lt;code&gt;</bpt>MobileServiceIncrementalLoadingCollection<ept id="f746a9ba-080a-4cbe-b20e-07f3defb9b92">&lt;/code&gt;</ept> to handle exceptions resulting from calls to <bpt id="eec4678d-8b0e-489b-8f8f-5632f63b7a98">&lt;code&gt;</bpt>LoadMoreItemsAsync<ept id="eec4678d-8b0e-489b-8f8f-5632f63b7a98">&lt;/code&gt;</ept> performed by controls.</target>
+        </trans-unit>
+        <trans-unit id="a422fa0b-92c6-49d4-9b9c-c499310386b5" xml:space="preserve">
+          <source>Finally, imagine that your table has many fields, but you only want to display some of them in your control.</source>
+          <target state="new">Finally, imagine that your table has many fields, but you only want to display some of them in your control.</target>
+        </trans-unit>
+        <trans-unit id="aaa7d26b-28bc-4743-a602-24f5a1b52ebe" xml:space="preserve">
+          <source>You may use the guidance in the section &lt;a href="#selecting"&gt;"Select specific columns"&lt;/a&gt; above to select specific columns to display in the UI.</source>
+          <target state="new">You may use the guidance in the section &lt;a href="#selecting"&gt;"Select specific columns"&lt;/a&gt; above to select specific columns to display in the UI.</target>
+        </trans-unit>
+        <trans-unit id="1f8ba540-6b88-4854-b08e-48b0716d5ab4" xml:space="preserve">
+          <source>Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory.</source>
+          <target state="new">Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="de443e0e-81fc-43f9-9c1a-98933a02cf7b" xml:space="preserve">
+          <source>You can set permissions on tables to restrict access for specific operations to only authenticated users.</source>
+          <target state="new">You can set permissions on tables to restrict access for specific operations to only authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="731d327d-b965-4560-a9f6-b78719c0a111" xml:space="preserve">
+          <source>You can also use the identity of authenticated users to implement authorization rules in server scripts.</source>
+          <target state="new">You can also use the identity of authenticated users to implement authorization rules in server scripts.</target>
+        </trans-unit>
+        <trans-unit id="4e3aa477-7803-45ad-bba4-f410dfbc32a9" xml:space="preserve">
+          <source>For more information, see the tutorial [Add authentication to your app].</source>
+          <target state="new">For more information, see the tutorial [Add authentication to your app].</target>
+        </trans-unit>
+        <trans-unit id="0c41e1c4-5724-4c6c-94dd-49faa617bf8d" xml:space="preserve">
+          <source>Two authentication flows are supported: a <bpt id="339d1e97-5431-4bd5-8167-1abae7aca813">&lt;em&gt;</bpt>server flow<ept id="339d1e97-5431-4bd5-8167-1abae7aca813">&lt;/em&gt;</ept> and a <bpt id="0ac8ed4d-b976-44ab-a048-176f41d99f4f">&lt;em&gt;</bpt>client flow<ept id="0ac8ed4d-b976-44ab-a048-176f41d99f4f">&lt;/em&gt;</ept>.</source>
+          <target state="new">Two authentication flows are supported: a <bpt id="339d1e97-5431-4bd5-8167-1abae7aca813">&lt;em&gt;</bpt>server flow<ept id="339d1e97-5431-4bd5-8167-1abae7aca813">&lt;/em&gt;</ept> and a <bpt id="0ac8ed4d-b976-44ab-a048-176f41d99f4f">&lt;em&gt;</bpt>client flow<ept id="0ac8ed4d-b976-44ab-a048-176f41d99f4f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84ba00e5-7c17-4676-8eed-9a465ca549e2" xml:space="preserve">
+          <source>The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface.</source>
+          <target state="new">The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface.</target>
+        </trans-unit>
+        <trans-unit id="8e36c2cc-92ae-4aae-bf8a-3d7518a78453" xml:space="preserve">
+          <source>The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.</source>
+          <target state="new">The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.</target>
+        </trans-unit>
+        <trans-unit id="de797bf1-5c08-4115-9ad4-83a8a0f72561" xml:space="preserve">
+          <source>To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
+you must register your app with your identity provider.</source>
+          <target state="new">To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app,
+you must register your app with your identity provider.</target>
+        </trans-unit>
+        <trans-unit id="01f2e565-50bc-419e-891a-e3995c11a361" xml:space="preserve">
+          <source>Then in your mobile service, you need to configure the application ID and secret provided by your provider.</source>
+          <target state="new">Then in your mobile service, you need to configure the application ID and secret provided by your provider.</target>
+        </trans-unit>
+        <trans-unit id="c6eb2d27-867c-4b43-a520-0eb957b221fb" xml:space="preserve">
+          <source>For more information, see the tutorial [Add authentication to your app].</source>
+          <target state="new">For more information, see the tutorial [Add authentication to your app].</target>
+        </trans-unit>
+        <trans-unit id="eace948e-076b-491c-9076-d8aece89de35" xml:space="preserve">
+          <source>Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider.</source>
+          <target state="new">Once you have registered your identity provider, simply call the [LoginAsync method] with the [MobileServiceAuthenticationProvider] value of your provider.</target>
+        </trans-unit>
+        <trans-unit id="f0d83149-14cd-4244-84f1-2cbef4809aa9" xml:space="preserve">
+          <source>For example, the following code initiates a server flow login by using Facebook.</source>
+          <target state="new">For example, the following code initiates a server flow login by using Facebook.</target>
+        </trans-unit>
+        <trans-unit id="b1db2696-3ef7-4d30-b4e1-ce3906866732" xml:space="preserve">
+          <source>If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.</source>
+          <target state="new">If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] above to the value for your provider.</target>
+        </trans-unit>
+        <trans-unit id="bf3248c4-03c0-4dcf-b3ed-deea606a2f24" xml:space="preserve">
+          <source>In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider.</source>
+          <target state="new">In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="de3f653f-8269-4822-8341-b296ae49b47c" xml:space="preserve">
+          <source>The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT).</source>
+          <target state="new">The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT).</target>
+        </trans-unit>
+        <trans-unit id="82925cf2-805e-4594-ae50-04bc7e05c6e8" xml:space="preserve">
+          <source>This token can be cached and re-used until it expires.</source>
+          <target state="new">This token can be cached and re-used until it expires.</target>
+        </trans-unit>
+        <trans-unit id="43b6db8c-7744-42d3-87e1-8974391b079f" xml:space="preserve">
+          <source>For more information, see [Caching the authentication token].</source>
+          <target state="new">For more information, see [Caching the authentication token].</target>
+        </trans-unit>
+        <trans-unit id="33506ef5-20a2-49da-a9aa-dd9400b5b2a4" xml:space="preserve">
+          <source><bpt id="865e776d-2992-4cff-a879-374b32830c28">&lt;strong&gt;</bpt>Windows Store app<ept id="865e776d-2992-4cff-a879-374b32830c28">&lt;/strong&gt;</ept>
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services.</source>
+          <target state="new"><bpt id="865e776d-2992-4cff-a879-374b32830c28">&lt;strong&gt;</bpt>Windows Store app<ept id="865e776d-2992-4cff-a879-374b32830c28">&lt;/strong&gt;</ept>
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="0841c1c4-a97d-4627-96db-0bc996e5e052" xml:space="preserve">
+          <source>When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience.</source>
+          <target state="new">When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience.</target>
+        </trans-unit>
+        <trans-unit id="55b2029c-278e-4fb7-9f99-3e695b5876ce" xml:space="preserve">
+          <source>If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called.</source>
+          <target state="new">If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called.</target>
+        </trans-unit>
+        <trans-unit id="2396adea-dd02-4a92-b0b9-8b522d958dd9" xml:space="preserve">
+          <source>To learn how to register your Windows Store app package, see <bpt id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;linkText&gt;</bpt>Register your Windows Store app package for Microsoft authentication<ept id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;/linkText&gt;</ept><bpt id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;title&gt;</bpt><ept id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to register your Windows Store app package, see <bpt id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;linkText&gt;</bpt>Register your Windows Store app package for Microsoft authentication<ept id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;/linkText&gt;</ept><bpt id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;title&gt;</bpt><ept id="143d7ed4-e8b4-44ce-9c24-c9b66f006cac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab5a4639-98b7-4fd1-b6e5-389b4cc8fd5f" xml:space="preserve">
+          <source>After the package information is registered with Mobile Services, call the <bpt id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;linkText&gt;</bpt>LoginAsync<ept id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;/linkText&gt;</ept><bpt id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;title&gt;</bpt><ept id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;/title&gt;</ept> method by supplying a value of <bpt id="095e331f-5ba4-4bfb-afac-5e0c56e19778">&lt;strong&gt;</bpt>true<ept id="095e331f-5ba4-4bfb-afac-5e0c56e19778">&lt;/strong&gt;</ept> for the <bpt id="b3b3d3a8-25a7-4fe3-9806-8cc143a389fd">&lt;em&gt;</bpt>useSingleSignOn<ept id="b3b3d3a8-25a7-4fe3-9806-8cc143a389fd">&lt;/em&gt;</ept> parameter to re-use the credentials.</source>
+          <target state="new">After the package information is registered with Mobile Services, call the <bpt id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;linkText&gt;</bpt>LoginAsync<ept id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;/linkText&gt;</ept><bpt id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;title&gt;</bpt><ept id="ba3e2e3f-a74b-486c-9cd6-691268654bb0">&lt;/title&gt;</ept> method by supplying a value of <bpt id="095e331f-5ba4-4bfb-afac-5e0c56e19778">&lt;strong&gt;</bpt>true<ept id="095e331f-5ba4-4bfb-afac-5e0c56e19778">&lt;/strong&gt;</ept> for the <bpt id="b3b3d3a8-25a7-4fe3-9806-8cc143a389fd">&lt;em&gt;</bpt>useSingleSignOn<ept id="b3b3d3a8-25a7-4fe3-9806-8cc143a389fd">&lt;/em&gt;</ept> parameter to re-use the credentials.</target>
+        </trans-unit>
+        <trans-unit id="fae8b136-200a-44ed-9a42-e91ccacd1cfb" xml:space="preserve">
+          <source>Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication.</source>
+          <target state="new">Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication.</target>
+        </trans-unit>
+        <trans-unit id="91456ffe-6ca3-493d-907c-6ccbf2f6e2de" xml:space="preserve">
+          <source>This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.</source>
+          <target state="new">This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="3bc4029a-19d7-4447-9504-4ce94becce6d" xml:space="preserve">
+          <source>In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.</source>
+          <target state="new">In the most simplified form, you can use the client flow as shown in this snippet for Facebook or Google.</target>
+        </trans-unit>
+        <trans-unit id="7ec2dd03-8cca-4ffc-9516-85808a306d5a" xml:space="preserve">
+          <source>If using a Microsoft account, login like so:</source>
+          <target state="new">If using a Microsoft account, login like so:</target>
+        </trans-unit>
+        <trans-unit id="e0f63f95-f72e-4a11-bff8-75085a12a784" xml:space="preserve">
+          <source>For an example of how to use Microsoft Account to provide a single sign-in experience, see "Authenticate your app with single sign-in" tutorial (<bpt id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;linkText&gt;</bpt>Windows Store<ept id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;/linkText&gt;</ept><bpt id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;title&gt;</bpt><ept id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;/title&gt;</ept>/<bpt id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;linkText&gt;</bpt>Windows Phone<ept id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;/linkText&gt;</ept><bpt id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;title&gt;</bpt><ept id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;/title&gt;</ept>).</source>
+          <target state="new">For an example of how to use Microsoft Account to provide a single sign-in experience, see "Authenticate your app with single sign-in" tutorial (<bpt id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;linkText&gt;</bpt>Windows Store<ept id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;/linkText&gt;</ept><bpt id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;title&gt;</bpt><ept id="d4fa616b-bc98-4812-a2fa-5e10e3fa2e73">&lt;/title&gt;</ept>/<bpt id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;linkText&gt;</bpt>Windows Phone<ept id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;/linkText&gt;</ept><bpt id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;title&gt;</bpt><ept id="e124024d-e68d-4f4a-ae9e-2ebe8d803b10">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="1d973df8-4ec6-4578-b60a-f3733b1b29fa" xml:space="preserve">
+          <source>In some cases, the call to the login method can be avoided after the first time the user authenticates.</source>
+          <target state="new">In some cases, the call to the login method can be avoided after the first time the user authenticates.</target>
+        </trans-unit>
+        <trans-unit id="8f6fe051-7892-4775-a2c0-d25a73a8119e" xml:space="preserve">
+          <source>You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache.</source>
+          <target state="new">You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache.</target>
+        </trans-unit>
+        <trans-unit id="fe2fde40-4e5b-4beb-acf6-f5ad283deeb8" xml:space="preserve">
+          <source>When the cache is empty, you still need to send the user through the login process.</source>
+          <target state="new">When the cache is empty, you still need to send the user through the login process.</target>
+        </trans-unit>
+        <trans-unit id="25468e7a-117e-4cfc-bcf3-c5096459ed3d" xml:space="preserve">
+          <source>For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.</source>
+          <target state="new">For Windows Phone apps, you may encrypt and cache data using the [ProtectedData] class and store sensitive information in isolated storage.</target>
+        </trans-unit>
+        <trans-unit id="58be7058-5884-40ed-b927-e61641ed6c0a" xml:space="preserve">
+          <source>There are several ways to encounter, validate, and work around errors in Mobile Services.</source>
+          <target state="new">There are several ways to encounter, validate, and work around errors in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="09991948-3132-4cee-842d-5b52fe2c10d8" xml:space="preserve">
+          <source>As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification.</source>
+          <target state="new">As an example, server scripts are registered in a mobile service and can be used to perform a wide range of operations on data being inserted and updated, including validation and data modification.</target>
+        </trans-unit>
+        <trans-unit id="4cef6f05-64ae-4aa3-9258-6b66738d3fde" xml:space="preserve">
+          <source>Imagine defining and registering a server script that validate and modify data, like so:</source>
+          <target state="new">Imagine defining and registering a server script that validate and modify data, like so:</target>
+        </trans-unit>
+        <trans-unit id="5916e39b-3b8f-498c-b338-6dd35ec28f3c" xml:space="preserve">
+          <source>This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.</source>
+          <target state="new">This server-side script validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.</target>
+        </trans-unit>
+        <trans-unit id="b63bf30e-c3d0-454f-9b33-a7aa1b101e34" xml:space="preserve">
+          <source>Now that the mobile service is validating data and sending error responses on the server-side, you can update your .NET app to be able to handle error responses from validation.</source>
+          <target state="new">Now that the mobile service is validating data and sending error responses on the server-side, you can update your .NET app to be able to handle error responses from validation.</target>
+        </trans-unit>
+        <trans-unit id="3dad973d-8e72-4d90-8b54-7be88bffd8b8" xml:space="preserve">
+          <source>The .NET client is designed for strongly typed scenarios.</source>
+          <target state="new">The .NET client is designed for strongly typed scenarios.</target>
+        </trans-unit>
+        <trans-unit id="ab842d14-0635-4f86-b555-67dd63dac898" xml:space="preserve">
+          <source>However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema.</source>
+          <target state="new">However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema.</target>
+        </trans-unit>
+        <trans-unit id="1ea309e5-39c1-48d1-81c1-90b6a4016ad4" xml:space="preserve">
+          <source>That scenario is enabled as follows.</source>
+          <target state="new">That scenario is enabled as follows.</target>
+        </trans-unit>
+        <trans-unit id="073a2ffa-3919-4998-bf88-c518ed58246c" xml:space="preserve">
+          <source>In queries, you forego LINQ and use the wire format.</source>
+          <target state="new">In queries, you forego LINQ and use the wire format.</target>
+        </trans-unit>
+        <trans-unit id="36d8fdda-7050-416b-bb50-9eb24a2430d8" xml:space="preserve">
+          <source>You get back JSON values that you can use like a property bag.</source>
+          <target state="new">You get back JSON values that you can use like a property bag.</target>
+        </trans-unit>
+        <trans-unit id="761e9b55-6660-49ef-b4a1-c9f6a38ccda0" xml:space="preserve">
+          <source>For more information on JToken and Json.NET, see <bpt id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;linkText&gt;</bpt>Json.NET<ept id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;/linkText&gt;</ept><bpt id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;title&gt;</bpt><ept id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;/title&gt;</ept></source>
+          <target state="new">For more information on JToken and Json.NET, see <bpt id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;linkText&gt;</bpt>Json.NET<ept id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;/linkText&gt;</ept><bpt id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;title&gt;</bpt><ept id="f2d49921-fe7e-431a-9f69-a6a0fc0169fa">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f864d68e-f8e7-43b4-a42c-f6c3b2b1fe8d" xml:space="preserve">
+          <source>The value returned by <bpt id="c04850bc-1b01-48e2-acc9-602bea774b1e">&lt;code&gt;</bpt>MobileServiceClient.GetTable<ept id="c04850bc-1b01-48e2-acc9-602bea774b1e">&lt;/code&gt;</ept> and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a <bpt id="8463193a-9579-4aee-813b-8517b66e2414">&lt;code&gt;</bpt>MyMockTable : IMobileServiceTable&lt;TodoItem&gt;<ept id="8463193a-9579-4aee-813b-8517b66e2414">&lt;/code&gt;</ept> that implements your testing logic.</source>
+          <target state="new">The value returned by <bpt id="c04850bc-1b01-48e2-acc9-602bea774b1e">&lt;code&gt;</bpt>MobileServiceClient.GetTable<ept id="c04850bc-1b01-48e2-acc9-602bea774b1e">&lt;/code&gt;</ept> and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a <bpt id="8463193a-9579-4aee-813b-8517b66e2414">&lt;code&gt;</bpt>MyMockTable : IMobileServiceTable&lt;TodoItem&gt;<ept id="8463193a-9579-4aee-813b-8517b66e2414">&lt;/code&gt;</ept> that implements your testing logic.</target>
+        </trans-unit>
+        <trans-unit id="d9d67b49-153a-417d-941c-85e902e5c372" xml:space="preserve">
+          <source>This section shows ways in which you can customize the request headers and customize the serialization of JSON objects in the response.</source>
+          <target state="new">This section shows ways in which you can customize the request headers and customize the serialization of JSON objects in the response.</target>
+        </trans-unit>
+        <trans-unit id="718ef78c-943f-47fb-9b14-8cff42afdfc1" xml:space="preserve">
+          <source>To support your specific app scenario, you might need to customize communication with the mobile service.</source>
+          <target state="new">To support your specific app scenario, you might need to customize communication with the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="1fee4e94-8fe5-4bcf-95af-8627810d074a" xml:space="preserve">
+          <source>For example, you may want to add a custom header to every outgoing request or even change responses status codes.</source>
+          <target state="new">For example, you may want to add a custom header to every outgoing request or even change responses status codes.</target>
+        </trans-unit>
+        <trans-unit id="e5aebad7-fcb2-4223-8304-12e6d43ab7fe" xml:space="preserve">
+          <source>You can do this by providing a custom DelegatingHandler, as in the following example:</source>
+          <target state="new">You can do this by providing a custom DelegatingHandler, as in the following example:</target>
+        </trans-unit>
+        <trans-unit id="67e677f3-49ba-40a9-994a-fbf33d7d2da6" xml:space="preserve">
+          <source>This code adds a new <bpt id="66c16d3a-3279-4534-81e6-5331b7bc18d4">&lt;strong&gt;</bpt>x-my-header<ept id="66c16d3a-3279-4534-81e6-5331b7bc18d4">&lt;/strong&gt;</ept> header in the request and arbitrarily sets the response code to unavailable.</source>
+          <target state="new">This code adds a new <bpt id="66c16d3a-3279-4534-81e6-5331b7bc18d4">&lt;strong&gt;</bpt>x-my-header<ept id="66c16d3a-3279-4534-81e6-5331b7bc18d4">&lt;/strong&gt;</ept> header in the request and arbitrarily sets the response code to unavailable.</target>
+        </trans-unit>
+        <trans-unit id="57368e50-2453-40da-b9ff-2eb57a8bbdfd" xml:space="preserve">
+          <source>In a real-world scenario, you would set the response status code based on some custom logic required by your app.</source>
+          <target state="new">In a real-world scenario, you would set the response status code based on some custom logic required by your app.</target>
+        </trans-unit>
+        <trans-unit id="8118ba7f-d0a3-4a93-9bf2-78fc83013bec" xml:space="preserve">
+          <source>The Mobile Services client library uses Json.NET to convert a JSON response into .NET objects on the client.</source>
+          <target state="new">The Mobile Services client library uses Json.NET to convert a JSON response into .NET objects on the client.</target>
+        </trans-unit>
+        <trans-unit id="e11d0ae0-a3aa-429d-8555-7800fd4b608e" xml:space="preserve">
+          <source>You can configure the behavior of this serialization between .NET types and JSON in the messages.</source>
+          <target state="new">You can configure the behavior of this serialization between .NET types and JSON in the messages.</target>
+        </trans-unit>
+        <trans-unit id="ea40950b-d38c-4f5c-a814-6bcfb07eb3de" xml:space="preserve">
+          <source>The <bpt id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;linkText&gt;</bpt>MobileServiceClient<ept id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;/linkText&gt;</ept><bpt id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;title&gt;</bpt><ept id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;/title&gt;</ept> class exposes a <bpt id="5431c302-45f2-4335-b0b9-89a044192307">&lt;code&gt;</bpt>SerializerSettings<ept id="5431c302-45f2-4335-b0b9-89a044192307">&lt;/code&gt;</ept> property of type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T<bpt id="56a56fc2-fbaf-4b95-aa45-73bbbc763e86">&lt;em&gt;</bpt>Newtonsoft<ept id="56a56fc2-fbaf-4b95-aa45-73bbbc763e86">&lt;/em&gt;</ept>Json_JsonSerializerSettings.htm)</source>
+          <target state="new">The <bpt id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;linkText&gt;</bpt>MobileServiceClient<ept id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;/linkText&gt;</ept><bpt id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;title&gt;</bpt><ept id="7a6dbe85-de83-48f8-b30f-0e23710b1243">&lt;/title&gt;</ept> class exposes a <bpt id="5431c302-45f2-4335-b0b9-89a044192307">&lt;code&gt;</bpt>SerializerSettings<ept id="5431c302-45f2-4335-b0b9-89a044192307">&lt;/code&gt;</ept> property of type [JsonSerializerSettings](http://james.newtonking.com/projects/json/help/?topic=html/T<bpt id="56a56fc2-fbaf-4b95-aa45-73bbbc763e86">&lt;em&gt;</bpt>Newtonsoft<ept id="56a56fc2-fbaf-4b95-aa45-73bbbc763e86">&lt;/em&gt;</ept>Json_JsonSerializerSettings.htm)</target>
+        </trans-unit>
+        <trans-unit id="46358db1-c167-442d-af2a-9f9dadbcaae4" xml:space="preserve">
+          <source>Using this property, you may set one of the many Json.NET properties, such as the following:</source>
+          <target state="new">Using this property, you may set one of the many Json.NET properties, such as the following:</target>
+        </trans-unit>
+        <trans-unit id="fcfa71e1-c340-45ec-8e1c-6f72f7f1ab8d" xml:space="preserve">
+          <source>This property converts all properties to lower case during serialization.</source>
+          <target state="new">This property converts all properties to lower case during serialization.</target>
+        </trans-unit>
+        <trans-unit id="5da234e0-676c-4d9c-b92c-facb91ef7dc8" xml:space="preserve">
+          <source>#what-is</source>
+          <target state="new">#what-is</target>
+        </trans-unit>
+        <trans-unit id="ed5cbbad-ce4a-4ea1-aea4-a21432d31ce0" xml:space="preserve">
+          <source>#concepts</source>
+          <target state="new">#concepts</target>
+        </trans-unit>
+        <trans-unit id="7c562fdc-0d42-40b3-a55e-9cff07011353" xml:space="preserve">
+          <source>#create-client</source>
+          <target state="new">#create-client</target>
+        </trans-unit>
+        <trans-unit id="1c3657d7-3385-4f7b-ab21-7e7cc685f19d" xml:space="preserve">
+          <source>#instantiating</source>
+          <target state="new">#instantiating</target>
+        </trans-unit>
+        <trans-unit id="4d1896c3-7824-41f6-ac82-cbe8cb801098" xml:space="preserve">
+          <source>#querying</source>
+          <target state="new">#querying</target>
+        </trans-unit>
+        <trans-unit id="c3056f42-147b-4e91-a3cc-fa5f26366d88" xml:space="preserve">
+          <source>#filtering</source>
+          <target state="new">#filtering</target>
+        </trans-unit>
+        <trans-unit id="3c5b4acf-f3c7-4703-81b7-b7956dc4e687" xml:space="preserve">
+          <source>#sorting</source>
+          <target state="new">#sorting</target>
+        </trans-unit>
+        <trans-unit id="a7782b9c-5168-40ae-b6da-048e9f385dad" xml:space="preserve">
+          <source>#paging</source>
+          <target state="new">#paging</target>
+        </trans-unit>
+        <trans-unit id="ab2f6ff3-9fd3-40fe-b6d6-45de6a84a138" xml:space="preserve">
+          <source>#selecting</source>
+          <target state="new">#selecting</target>
+        </trans-unit>
+        <trans-unit id="ffb39b48-0fa1-4134-a1ef-623b35fddbd6" xml:space="preserve">
+          <source>#lookingup</source>
+          <target state="new">#lookingup</target>
+        </trans-unit>
+        <trans-unit id="9a331778-d5fb-4523-93e0-6af674dea880" xml:space="preserve">
+          <source>#binding</source>
+          <target state="new">#binding</target>
+        </trans-unit>
+        <trans-unit id="1c59b86b-fae8-4844-9241-711f90a4c1e3" xml:space="preserve">
+          <source>#inserting</source>
+          <target state="new">#inserting</target>
+        </trans-unit>
+        <trans-unit id="8bdac91d-40c5-42b3-9b71-2d61bf92a779" xml:space="preserve">
+          <source>#modifying</source>
+          <target state="new">#modifying</target>
+        </trans-unit>
+        <trans-unit id="97b49ae0-7612-41a0-bfb7-0f2b496d4f3f" xml:space="preserve">
+          <source>#deleting</source>
+          <target state="new">#deleting</target>
+        </trans-unit>
+        <trans-unit id="15b2561e-9579-413b-89be-74c7d6486cc3" xml:space="preserve">
+          <source>#optimisticconcurrency</source>
+          <target state="new">#optimisticconcurrency</target>
+        </trans-unit>
+        <trans-unit id="38e3b8db-225e-4dc4-9ce8-31524fe593f2" xml:space="preserve">
+          <source>#authentication</source>
+          <target state="new">#authentication</target>
+        </trans-unit>
+        <trans-unit id="e694669d-bfe3-4c3d-96b2-0d4b36cc2811" xml:space="preserve">
+          <source>#errors</source>
+          <target state="new">#errors</target>
+        </trans-unit>
+        <trans-unit id="1c67bd5e-36ea-4744-a531-c25d70c6fc4f" xml:space="preserve">
+          <source>#unit-testing</source>
+          <target state="new">#unit-testing</target>
+        </trans-unit>
+        <trans-unit id="3cabceeb-d59e-4151-b957-1aff0d81f641" xml:space="preserve">
+          <source>#querying</source>
+          <target state="new">#querying</target>
+        </trans-unit>
+        <trans-unit id="5c706a7e-b6c7-464a-9083-ad07f9394a46" xml:space="preserve">
+          <source>#customizing</source>
+          <target state="new">#customizing</target>
+        </trans-unit>
+        <trans-unit id="53ade1ab-d453-4220-92bd-0340084255c7" xml:space="preserve">
+          <source>#untyped</source>
+          <target state="new">#untyped</target>
+        </trans-unit>
+        <trans-unit id="74f60c35-4d37-4ab0-a590-b3dfaba8370a" xml:space="preserve">
+          <source>#headers</source>
+          <target state="new">#headers</target>
+        </trans-unit>
+        <trans-unit id="7c7f7a85-345a-41bd-9d23-77ca5239a61e" xml:space="preserve">
+          <source>#serialization</source>
+          <target state="new">#serialization</target>
+        </trans-unit>
+        <trans-unit id="17302f27-53a4-4d61-a8c1-5b9bfdc2b574" xml:space="preserve">
+          <source>#nextsteps</source>
+          <target state="new">#nextsteps</target>
+        </trans-unit>
+        <trans-unit id="244454b9-6c8e-4086-8aa9-de1bcc34c63e" xml:space="preserve">
+          <source>#caching</source>
+          <target state="new">#caching</target>
+        </trans-unit>
+        <trans-unit id="ae29161b-d031-4e83-87dd-4b144cd3936d" xml:space="preserve">
+          <source>#custom-api</source>
+          <target state="new">#custom-api</target>
+        </trans-unit>
+        <trans-unit id="11c11f20-f28b-495b-9c79-05dadadacd39" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="15d5afdf-c82b-4698-8779-c7437c4bee5a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx</target>
+        </trans-unit>
+        <trans-unit id="8524bec3-b419-4fb1-b6f9-58ec7226ce8e" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx</target>
+        </trans-unit>
+        <trans-unit id="75f0edcc-3209-41e2-b7de-9b1780336829" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx</target>
+        </trans-unit>
+        <trans-unit id="2974e286-960f-4dd6-9f88-ce7c60501387" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx</target>
+        </trans-unit>
+        <trans-unit id="767a7862-5e24-4dad-a999-d70064076b6a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx</target>
+        </trans-unit>
+        <trans-unit id="f601820a-442f-4164-acbc-bd3bae6bba6d" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx</target>
+        </trans-unit>
+        <trans-unit id="f87a6a74-2216-4a11-9cf3-ed59216423fb" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx</target>
+        </trans-unit>
+        <trans-unit id="962175e7-4196-4689-9ee0-c92d30825a45" xml:space="preserve">
+          <source>http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set</source>
+          <target state="new">http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set</target>
+        </trans-unit>
+        <trans-unit id="4117a7b1-d4da-4468-9464-77437b11b042" xml:space="preserve">
+          <source>../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services</source>
+          <target state="new">../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services</target>
+        </trans-unit>
+        <trans-unit id="684613c2-89f4-4952-b213-0f75e2bb8798" xml:space="preserve">
+          <source>mobile-services-windows-store-dotnet-handle-database-conflicts.md</source>
+          <target state="new">mobile-services-windows-store-dotnet-handle-database-conflicts.md</target>
+        </trans-unit>
+        <trans-unit id="62d36170-e66b-4008-aa51-04001d0efbcc" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dn250560.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dn250560.aspx</target>
+        </trans-unit>
+        <trans-unit id="bacf5756-8a85-43aa-a158-3f350f8c98c8" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dn250573.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dn250573.aspx</target>
+        </trans-unit>
+        <trans-unit id="118af815-70f9-4fe5-ad4d-9634bcdf6da7" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dn250574.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dn250574.aspx</target>
+        </trans-unit>
+        <trans-unit id="814192ca-da9d-4d89-ab69-1fb38ffbedd9" xml:space="preserve">
+          <source>http://www.telerik.com/fiddler</source>
+          <target state="new">http://www.telerik.com/fiddler</target>
+        </trans-unit>
+        <trans-unit id="3b65cc4b-8407-47e6-a06e-c2e6530bb470" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx</source>
+          <target state="new">http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx</target>
+        </trans-unit>
+        <trans-unit id="14ff8fac-172b-4a33-a486-cc59a87b3ca3" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md</target>
+        </trans-unit>
+        <trans-unit id="1d8fe084-e8e4-47f1-859d-f610e0e4fc45" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="064eda81-a0a1-4cc6-8622-3c37d35e5a84" />
+    </body>
+  </file>
+</xliff>

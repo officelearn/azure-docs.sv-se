@@ -1,0 +1,1299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="732d8f44-07d5-48c1-92ed-7080211a71d8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="732d8f44-07d5-48c1-92ed-7080211a71d8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7a343844-80f2-459e-b125-454fa2be34e4">
+        <trans-unit id="b2bd3ab1-87b2-4e59-aa92-646f65d270fb" xml:space="preserve">
+          <source>Continuous delivery for cloud services with TFS in Azure | Microsoft Azure</source>
+          <target state="new">Continuous delivery for cloud services with TFS in Azure | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="38ac6afc-c60a-4ee3-b75b-ec8eb0da1f2a" xml:space="preserve">
+          <source>Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts.</source>
+          <target state="new">Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts.</target>
+        </trans-unit>
+        <trans-unit id="1effe2f1-97c0-446b-94e8-e985d4cc1519" xml:space="preserve">
+          <source>The process described in this article shows you how to set up continuous
+delivery for Azure cloud apps.</source>
+          <target state="new">The process described in this article shows you how to set up continuous
+delivery for Azure cloud apps.</target>
+        </trans-unit>
+        <trans-unit id="0716b99e-4fcd-4270-863a-b620e233f53c" xml:space="preserve">
+          <source>This process enables you to
+automatically create packages and deploy the package to Azure
+after every code check-in.</source>
+          <target state="new">This process enables you to
+automatically create packages and deploy the package to Azure
+after every code check-in.</target>
+        </trans-unit>
+        <trans-unit id="c9a7b5be-a692-4540-a1ba-ef557dabc5d3" xml:space="preserve">
+          <source>The package build process described in this
+article is equivalent to the Package command in Visual Studio, and the
+publishing steps are equivalent to the Publish command in Visual Studio.</source>
+          <target state="new">The package build process described in this
+article is equivalent to the Package command in Visual Studio, and the
+publishing steps are equivalent to the Publish command in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="95f5565f-9bf5-4866-809e-e9f7dd67e1d6" xml:space="preserve">
+          <source>The article covers the methods you would use to create a build server
+with MSBuild command-line statements and Windows PowerShell scripts, and
+it also demonstrates how to optionally configure Visual Studio Team
+Foundation Server - Team Build definitions to use the MSBuild commands
+and PowerShell scripts.</source>
+          <target state="new">The article covers the methods you would use to create a build server
+with MSBuild command-line statements and Windows PowerShell scripts, and
+it also demonstrates how to optionally configure Visual Studio Team
+Foundation Server - Team Build definitions to use the MSBuild commands
+and PowerShell scripts.</target>
+        </trans-unit>
+        <trans-unit id="b99211d3-c5af-4a4e-82cb-57418a02dfd6" xml:space="preserve">
+          <source>The process is customizable for your build
+environment and Azure target environments.</source>
+          <target state="new">The process is customizable for your build
+environment and Azure target environments.</target>
+        </trans-unit>
+        <trans-unit id="e4a75a68-7f27-4770-8174-011539abae37" xml:space="preserve">
+          <source>You can also use Visual Studio Online, a version of TFS that is hosted in Azure, to do this more easily.</source>
+          <target state="new">You can also use Visual Studio Online, a version of TFS that is hosted in Azure, to do this more easily.</target>
+        </trans-unit>
+        <trans-unit id="029dcf14-9195-4c0d-95fb-803995b5056a" xml:space="preserve">
+          <source>For more information, see <bpt id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;linkText&gt;</bpt>Continuous Delivery to Azure by Using Visual Studio Online<ept id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;/linkText&gt;</ept><bpt id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;title&gt;</bpt><ept id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;linkText&gt;</bpt>Continuous Delivery to Azure by Using Visual Studio Online<ept id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;/linkText&gt;</ept><bpt id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;title&gt;</bpt><ept id="880c0c48-351c-483e-bdf6-57487b652c50">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d96a62ea-cab6-4f76-8b95-11486c561cbc" xml:space="preserve">
+          <source>Before you start, you should publish your application from Visual Studio.</source>
+          <target state="new">Before you start, you should publish your application from Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="a49668dd-6f58-47a3-80f1-69fa5a9c49b6" xml:space="preserve">
+          <source>This will ensure that all the resources are available and initialized when you
+attempt to automate the publication process.</source>
+          <target state="new">This will ensure that all the resources are available and initialized when you
+attempt to automate the publication process.</target>
+        </trans-unit>
+        <trans-unit id="0af4cff6-027c-496d-be41-8de21e26ba03" xml:space="preserve">
+          <source>Before you can create an Azure package by using MSBuild, you must
+install the required software and tools on the build server.</source>
+          <target state="new">Before you can create an Azure package by using MSBuild, you must
+install the required software and tools on the build server.</target>
+        </trans-unit>
+        <trans-unit id="cb458fcc-c3b7-4ee3-9634-bbfd29171f1d" xml:space="preserve">
+          <source>Visual Studio is not required to be installed on the build server.</source>
+          <target state="new">Visual Studio is not required to be installed on the build server.</target>
+        </trans-unit>
+        <trans-unit id="969759d6-d1f0-4718-af92-0bd786557157" xml:space="preserve">
+          <source>If
+you want to use Team Foundation Build Service to manage your build
+server, follow the instructions in the <bpt id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;linkText&gt;</bpt>Team Foundation Build Service<ept id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;/linkText&gt;</ept><bpt id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;title&gt;</bpt><ept id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;/title&gt;</ept>
+documentation.</source>
+          <target state="new">If
+you want to use Team Foundation Build Service to manage your build
+server, follow the instructions in the <bpt id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;linkText&gt;</bpt>Team Foundation Build Service<ept id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;/linkText&gt;</ept><bpt id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;title&gt;</bpt><ept id="b95c67bc-6796-4a73-887c-f67cf2757496">&lt;/title&gt;</ept>
+documentation.</target>
+        </trans-unit>
+        <trans-unit id="af55771a-f0c4-4d24-b531-6f38b5ad756d" xml:space="preserve">
+          <source>On the build server, install the <bpt id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;linkText&gt;</bpt>.NET Framework 4<ept id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;/linkText&gt;</ept><bpt id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;title&gt;</bpt><ept id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;/title&gt;</ept>, <bpt id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;linkText&gt;</bpt>.NET Framework 4.5<ept id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;/linkText&gt;</ept><bpt id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;title&gt;</bpt><ept id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;/title&gt;</ept>, or <bpt id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;linkText&gt;</bpt>.NET Framework 4.5.2<ept id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;/linkText&gt;</ept><bpt id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;title&gt;</bpt><ept id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;/title&gt;</ept>, which include MSBuild.</source>
+          <target state="new">On the build server, install the <bpt id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;linkText&gt;</bpt>.NET Framework 4<ept id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;/linkText&gt;</ept><bpt id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;title&gt;</bpt><ept id="c6f7c990-3ae6-4418-97d5-a16447070071">&lt;/title&gt;</ept>, <bpt id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;linkText&gt;</bpt>.NET Framework 4.5<ept id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;/linkText&gt;</ept><bpt id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;title&gt;</bpt><ept id="c9bd8660-8f04-4307-b563-74ad897c06a0">&lt;/title&gt;</ept>, or <bpt id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;linkText&gt;</bpt>.NET Framework 4.5.2<ept id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;/linkText&gt;</ept><bpt id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;title&gt;</bpt><ept id="0cf5c439-da53-411a-969f-1a7fc761880f">&lt;/title&gt;</ept>, which include MSBuild.</target>
+        </trans-unit>
+        <trans-unit id="e0b69f52-a843-4419-8b28-e2c655cf6d2b" xml:space="preserve">
+          <source>Install the <bpt id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;linkText&gt;</bpt>Azure Authoring Tools for .NET<ept id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;/linkText&gt;</ept><bpt id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;title&gt;</bpt><ept id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;/title&gt;</ept> (substitute MicrosoftAzureAuthoringTools-x86.msi in the link instead of MicrosoftAzureAuthoringTools-x64.msi if your build server has a 32-bit OS/processor).</source>
+          <target state="new">Install the <bpt id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;linkText&gt;</bpt>Azure Authoring Tools for .NET<ept id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;/linkText&gt;</ept><bpt id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;title&gt;</bpt><ept id="c6e4c354-c44c-48be-a25d-5a4e2de707b5">&lt;/title&gt;</ept> (substitute MicrosoftAzureAuthoringTools-x86.msi in the link instead of MicrosoftAzureAuthoringTools-x64.msi if your build server has a 32-bit OS/processor).</target>
+        </trans-unit>
+        <trans-unit id="68d94880-5416-43a7-b820-c7e52b26074d" xml:space="preserve">
+          <source>Install the <bpt id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;linkText&gt;</bpt>Azure Libraries for .NET<ept id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;/linkText&gt;</ept><bpt id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;title&gt;</bpt><ept id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;/title&gt;</ept> (substitute MicrosoftAzureLibsForNet-x86.msi in the link if needed).</source>
+          <target state="new">Install the <bpt id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;linkText&gt;</bpt>Azure Libraries for .NET<ept id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;/linkText&gt;</ept><bpt id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;title&gt;</bpt><ept id="0410d3bc-319a-426a-8d70-72fda2f17fa7">&lt;/title&gt;</ept> (substitute MicrosoftAzureLibsForNet-x86.msi in the link if needed).</target>
+        </trans-unit>
+        <trans-unit id="8cd02cac-6861-41e4-bc75-7704278cb53d" xml:space="preserve">
+          <source>Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.</source>
+          <target state="new">Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.</target>
+        </trans-unit>
+        <trans-unit id="e479877f-ddf7-4077-88cb-f79f66b3d34e" xml:space="preserve">
+          <source>On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 for Visual Studio 2013).</source>
+          <target state="new">On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications (v12.0 for Visual Studio 2013).</target>
+        </trans-unit>
+        <trans-unit id="a159f829-23cc-4890-a8d1-b35b7685a470" xml:space="preserve">
+          <source>You should copy it to the same directory on the build server.</source>
+          <target state="new">You should copy it to the same directory on the build server.</target>
+        </trans-unit>
+        <trans-unit id="e6ee6530-43e9-4cc8-9609-fb840dc96c5e" xml:space="preserve">
+          <source>Install the <bpt id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;linkText&gt;</bpt>Azure Tools for Visual Studio<ept id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;/linkText&gt;</ept><bpt id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;title&gt;</bpt><ept id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install the <bpt id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;linkText&gt;</bpt>Azure Tools for Visual Studio<ept id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;/linkText&gt;</ept><bpt id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;title&gt;</bpt><ept id="81c67ba3-58f1-43ce-8bf1-0b1e051d79d7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c3d78962-6a66-4fe0-98c4-7b598e7e38b4" xml:space="preserve">
+          <source>Use MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 projects, or MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects.</source>
+          <target state="new">Use MicrosoftAzureTools.VS140.exe to build Visual Studio 2015 projects, or MicrosoftAzureTools.VS120.exe to build Visual Studio 2013 projects.</target>
+        </trans-unit>
+        <trans-unit id="03220aff-18d2-44db-baaa-6636fe2d3111" xml:space="preserve">
+          <source>This section describes how to construct an MSBuild command that builds an
+Azure package.</source>
+          <target state="new">This section describes how to construct an MSBuild command that builds an
+Azure package.</target>
+        </trans-unit>
+        <trans-unit id="a339c8b0-ad72-4d00-9b36-e1b9eead81b2" xml:space="preserve">
+          <source>Run this step on the build server to verify that
+everything is configured correctly and that the MSBuild command does
+what you want it to do.</source>
+          <target state="new">Run this step on the build server to verify that
+everything is configured correctly and that the MSBuild command does
+what you want it to do.</target>
+        </trans-unit>
+        <trans-unit id="f30b541f-a083-4411-bf9d-062aaa677085" xml:space="preserve">
+          <source>You can either add this command line to existing
+build scripts on the build server, or you can use the command line in a
+TFS Build Definition, as described in the next section.</source>
+          <target state="new">You can either add this command line to existing
+build scripts on the build server, or you can use the command line in a
+TFS Build Definition, as described in the next section.</target>
+        </trans-unit>
+        <trans-unit id="9ec69bb3-9261-4df8-ae84-2ce5832ecfc4" xml:space="preserve">
+          <source>For more
+information about command-line parameters and MSBuild, see <bpt id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;linkText&gt;</bpt>MSBuild Command Line Reference<ept id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;/linkText&gt;</ept><bpt id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;title&gt;</bpt><ept id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more
+information about command-line parameters and MSBuild, see <bpt id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;linkText&gt;</bpt>MSBuild Command Line Reference<ept id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;/linkText&gt;</ept><bpt id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;title&gt;</bpt><ept id="af474764-c851-40dd-a451-53cf92d5ec9b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ce03daf-039c-4dd2-8c31-d9edb01035b8" xml:space="preserve">
+          <source>If Visual Studio is installed on the build server, click
+<bpt id="027703bd-0c35-4ff8-aeab-804193679ac4">&lt;strong&gt;</bpt>Start<ept id="027703bd-0c35-4ff8-aeab-804193679ac4">&lt;/strong&gt;</ept>, click <bpt id="5d63652f-e202-421b-b3f8-35b00c3e9dc0">&lt;strong&gt;</bpt>All Programs<ept id="5d63652f-e202-421b-b3f8-35b00c3e9dc0">&lt;/strong&gt;</ept>, and then locate and click
+<bpt id="760bc108-e76d-4701-9c70-3aa1518540df">&lt;strong&gt;</bpt>Visual Studio Commmand Prompt<ept id="760bc108-e76d-4701-9c70-3aa1518540df">&lt;/strong&gt;</ept> in the <bpt id="a1067072-abb3-4a38-9885-7c3b07bb01e1">&lt;strong&gt;</bpt>Visual Studio Tools<ept id="a1067072-abb3-4a38-9885-7c3b07bb01e1">&lt;/strong&gt;</ept>
+folder.</source>
+          <target state="new">If Visual Studio is installed on the build server, click
+<bpt id="027703bd-0c35-4ff8-aeab-804193679ac4">&lt;strong&gt;</bpt>Start<ept id="027703bd-0c35-4ff8-aeab-804193679ac4">&lt;/strong&gt;</ept>, click <bpt id="5d63652f-e202-421b-b3f8-35b00c3e9dc0">&lt;strong&gt;</bpt>All Programs<ept id="5d63652f-e202-421b-b3f8-35b00c3e9dc0">&lt;/strong&gt;</ept>, and then locate and click
+<bpt id="760bc108-e76d-4701-9c70-3aa1518540df">&lt;strong&gt;</bpt>Visual Studio Commmand Prompt<ept id="760bc108-e76d-4701-9c70-3aa1518540df">&lt;/strong&gt;</ept> in the <bpt id="a1067072-abb3-4a38-9885-7c3b07bb01e1">&lt;strong&gt;</bpt>Visual Studio Tools<ept id="a1067072-abb3-4a38-9885-7c3b07bb01e1">&lt;/strong&gt;</ept>
+folder.</target>
+        </trans-unit>
+        <trans-unit id="9575abd8-8f36-46c4-9d1d-84fd0ccb44eb" xml:space="preserve">
+          <source>If Visual Studio is not installed on the build server, open a
+command prompt and make sure that MSBuild.exe is accessible on the
+path.</source>
+          <target state="new">If Visual Studio is not installed on the build server, open a
+command prompt and make sure that MSBuild.exe is accessible on the
+path.</target>
+        </trans-unit>
+        <trans-unit id="2c66897b-87f6-4438-aa6e-5628a25ab7d9" xml:space="preserve">
+          <source>MSBuild is installed with the .NET Framework in the path
+%WINDIR%\\Microsoft.NET\\Framework\\<bpt id="855c0ebe-f868-4ab1-99fb-72c1c086f773">&lt;em&gt;</bpt>Version<ept id="855c0ebe-f868-4ab1-99fb-72c1c086f773">&lt;/em&gt;</ept>.</source>
+          <target state="new">MSBuild is installed with the .NET Framework in the path
+%WINDIR%\\Microsoft.NET\\Framework\\<bpt id="855c0ebe-f868-4ab1-99fb-72c1c086f773">&lt;em&gt;</bpt>Version<ept id="855c0ebe-f868-4ab1-99fb-72c1c086f773">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="101502ae-86f2-4f0f-bb1c-010b0b378751" xml:space="preserve">
+          <source>For example, to
+add MSBuild.exe to the PATH environment variable when you have .NET
+Framework 4 installed, type the following command at the command
+prompt:</source>
+          <target state="new">For example, to
+add MSBuild.exe to the PATH environment variable when you have .NET
+Framework 4 installed, type the following command at the command
+prompt:</target>
+        </trans-unit>
+        <trans-unit id="c9537ab2-9126-4a9a-8d7a-bf45947833be" xml:space="preserve">
+          <source>At the command prompt, navigate to the folder containing the
+Azure project file that you want to build.</source>
+          <target state="new">At the command prompt, navigate to the folder containing the
+Azure project file that you want to build.</target>
+        </trans-unit>
+        <trans-unit id="b703f17b-5519-4034-9b90-1021b86a67e4" xml:space="preserve">
+          <source>Run msbuild with the /target:Publish option as in the following
+example:</source>
+          <target state="new">Run msbuild with the /target:Publish option as in the following
+example:</target>
+        </trans-unit>
+        <trans-unit id="4528d336-788f-4198-8838-1a9cff6bb1e4" xml:space="preserve">
+          <source>This option can be abbreviated as /t:Publish.</source>
+          <target state="new">This option can be abbreviated as /t:Publish.</target>
+        </trans-unit>
+        <trans-unit id="f3e60706-2d5c-4323-be87-a6d7f7b2ca0a" xml:space="preserve">
+          <source>The /t:Publish option
+in MSBuild should not be confused with the Publish commands
+available in Visual Studio when you have the Azure SDK
+installed.</source>
+          <target state="new">The /t:Publish option
+in MSBuild should not be confused with the Publish commands
+available in Visual Studio when you have the Azure SDK
+installed.</target>
+        </trans-unit>
+        <trans-unit id="af93d213-d652-493f-b605-aed0ecfdc642" xml:space="preserve">
+          <source>The /t:Publish option only builds the Azure
+packages.</source>
+          <target state="new">The /t:Publish option only builds the Azure
+packages.</target>
+        </trans-unit>
+        <trans-unit id="c3f43e10-35fa-4e1b-9231-62ce586d7978" xml:space="preserve">
+          <source>It does not deploy the packages as the Publish commands in
+Visual Studio do.</source>
+          <target state="new">It does not deploy the packages as the Publish commands in
+Visual Studio do.</target>
+        </trans-unit>
+        <trans-unit id="f8cf4670-3c79-428e-92c4-e1d134a6a8cc" xml:space="preserve">
+          <source>Optionally, you can specify the project name as an MSBuild
+parameter.</source>
+          <target state="new">Optionally, you can specify the project name as an MSBuild
+parameter.</target>
+        </trans-unit>
+        <trans-unit id="5575b17b-5ebb-4280-b112-3be6864fc62f" xml:space="preserve">
+          <source>If not specified, the current directory is used.</source>
+          <target state="new">If not specified, the current directory is used.</target>
+        </trans-unit>
+        <trans-unit id="d5db4d19-ec37-4bbf-95b1-94b68a42ff11" xml:space="preserve">
+          <source>For more
+information about MSBuild command line options, see <bpt id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;linkText&gt;</bpt>MSBuild Command
+Line Reference[1]<ept id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;/linkText&gt;</ept><bpt id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;title&gt;</bpt><ept id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more
+information about MSBuild command line options, see <bpt id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;linkText&gt;</bpt>MSBuild Command
+Line Reference[1]<ept id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;/linkText&gt;</ept><bpt id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;title&gt;</bpt><ept id="4a3e0a7a-52f2-48c7-a6ad-7192b50b64f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="494c60b0-ab0b-4eed-bff3-f70c4e4f3227" xml:space="preserve">
+          <source>Locate the output.</source>
+          <target state="new">Locate the output.</target>
+        </trans-unit>
+        <trans-unit id="d9f5466e-b810-4067-90ba-49131bdcd2ab" xml:space="preserve">
+          <source>By default, this command creates a directory in
+relation to the root folder for the project, such as
+<bpt id="35896056-fee4-4763-b504-c7bcedca8f1a">&lt;em&gt;</bpt>ProjectDir<ept id="35896056-fee4-4763-b504-c7bcedca8f1a">&lt;/em&gt;</ept>\\bin\\<bpt id="768f1fdb-4eec-47f1-873d-abe9305f76a0">&lt;em&gt;</bpt>Configuration<ept id="768f1fdb-4eec-47f1-873d-abe9305f76a0">&lt;/em&gt;</ept>\\app.publish\\.</source>
+          <target state="new">By default, this command creates a directory in
+relation to the root folder for the project, such as
+<bpt id="35896056-fee4-4763-b504-c7bcedca8f1a">&lt;em&gt;</bpt>ProjectDir<ept id="35896056-fee4-4763-b504-c7bcedca8f1a">&lt;/em&gt;</ept>\\bin\\<bpt id="768f1fdb-4eec-47f1-873d-abe9305f76a0">&lt;em&gt;</bpt>Configuration<ept id="768f1fdb-4eec-47f1-873d-abe9305f76a0">&lt;/em&gt;</ept>\\app.publish\\.</target>
+        </trans-unit>
+        <trans-unit id="045a6735-6ee1-40a7-b8ca-4f6facf22ee7" xml:space="preserve">
+          <source>When you
+build an Azure project, you generate two files, the package
+file itself and the accompanying configuration file:</source>
+          <target state="new">When you
+build an Azure project, you generate two files, the package
+file itself and the accompanying configuration file:</target>
+        </trans-unit>
+        <trans-unit id="3fad9198-8c5c-4086-860b-b0a5b4022a6b" xml:space="preserve">
+          <source>Project.cspkg</source>
+          <target state="new">Project.cspkg</target>
+        </trans-unit>
+        <trans-unit id="2a89af69-69f9-4164-ae6f-d1f9debcb6ae" xml:space="preserve">
+          <source>ServiceConfiguration.<bpt id="253914cb-f1e1-4ec5-bd60-6b9d1bcb98d9">&lt;em&gt;</bpt>TargetProfile<ept id="253914cb-f1e1-4ec5-bd60-6b9d1bcb98d9">&lt;/em&gt;</ept>.cscfg</source>
+          <target state="new">ServiceConfiguration.<bpt id="253914cb-f1e1-4ec5-bd60-6b9d1bcb98d9">&lt;em&gt;</bpt>TargetProfile<ept id="253914cb-f1e1-4ec5-bd60-6b9d1bcb98d9">&lt;/em&gt;</ept>.cscfg</target>
+        </trans-unit>
+        <trans-unit id="d075845e-5887-4fa3-aea6-b0d9b2521d86" xml:space="preserve">
+          <source>By default, each Azure project includes one
+service configuration file (.cscfg file) for local (debugging)
+builds and another for cloud (staging or production) builds, but you
+can add or remove service configuration files as needed.</source>
+          <target state="new">By default, each Azure project includes one
+service configuration file (.cscfg file) for local (debugging)
+builds and another for cloud (staging or production) builds, but you
+can add or remove service configuration files as needed.</target>
+        </trans-unit>
+        <trans-unit id="6e5827d2-610d-476f-94a0-86c56002eab4" xml:space="preserve">
+          <source>When you
+build a package within Visual Studio, you will be asked which
+service configuration file to include alongside the package.</source>
+          <target state="new">When you
+build a package within Visual Studio, you will be asked which
+service configuration file to include alongside the package.</target>
+        </trans-unit>
+        <trans-unit id="b21be352-685a-4dc8-8780-c429f1d66e85" xml:space="preserve">
+          <source>Specify the service configuration file.</source>
+          <target state="new">Specify the service configuration file.</target>
+        </trans-unit>
+        <trans-unit id="e3a0e6a6-0efa-4efa-8c5c-113a625f365a" xml:space="preserve">
+          <source>When you build a package by
+using MSBuild, the local service configuration file is included by
+default.</source>
+          <target state="new">When you build a package by
+using MSBuild, the local service configuration file is included by
+default.</target>
+        </trans-unit>
+        <trans-unit id="18f254c8-e745-4cdc-b803-aafaad15b667" xml:space="preserve">
+          <source>To include a different service configuration file, set the
+TargetProfile property of the MSBuild command, as in the following
+example:</source>
+          <target state="new">To include a different service configuration file, set the
+TargetProfile property of the MSBuild command, as in the following
+example:</target>
+        </trans-unit>
+        <trans-unit id="2c810bd0-cf12-4457-85ce-7bc5c8b1bb35" xml:space="preserve">
+          <source>Specify the location for the output.</source>
+          <target state="new">Specify the location for the output.</target>
+        </trans-unit>
+        <trans-unit id="42ed7a70-01a9-44ea-b0db-8da618a56770" xml:space="preserve">
+          <source>Set the path by using the
+/p:PublishDir=<bpt id="80366641-1874-4ada-bac8-d7f87f8a7d31">&lt;em&gt;</bpt>Directory<ept id="80366641-1874-4ada-bac8-d7f87f8a7d31">&lt;/em&gt;</ept>\\ option, including the trailing
+backslash separator, as in the following example:</source>
+          <target state="new">Set the path by using the
+/p:PublishDir=<bpt id="80366641-1874-4ada-bac8-d7f87f8a7d31">&lt;em&gt;</bpt>Directory<ept id="80366641-1874-4ada-bac8-d7f87f8a7d31">&lt;/em&gt;</ept>\\ option, including the trailing
+backslash separator, as in the following example:</target>
+        </trans-unit>
+        <trans-unit id="5dea62bf-0b20-4b72-b4e7-2a6a813e43b8" xml:space="preserve">
+          <source>Once you've constructed and tested an appropriate MSBuild command
+line to build your projects and combine them into an Azure package,
+you can add this command line to your build scripts.</source>
+          <target state="new">Once you've constructed and tested an appropriate MSBuild command
+line to build your projects and combine them into an Azure package,
+you can add this command line to your build scripts.</target>
+        </trans-unit>
+        <trans-unit id="c38b0157-c8a9-4f6a-89cc-5b5942ee9a5d" xml:space="preserve">
+          <source>If your build
+server uses custom scripts, this process will depend on the
+specifics of your custom build process.</source>
+          <target state="new">If your build
+server uses custom scripts, this process will depend on the
+specifics of your custom build process.</target>
+        </trans-unit>
+        <trans-unit id="93f2617b-0f33-4d1e-900d-943ed63d947c" xml:space="preserve">
+          <source>If you are using TFS as a
+build environment, then you can follow the instructions in the next
+step to add the Azure package build to your build process.</source>
+          <target state="new">If you are using TFS as a
+build environment, then you can follow the instructions in the next
+step to add the Azure package build to your build process.</target>
+        </trans-unit>
+        <trans-unit id="8b0b2d75-0b2b-4b46-ad92-efa764787e2d" xml:space="preserve">
+          <source>If you have Team Foundation Server (TFS) set up as a build controller
+and the build server set up as a TFS build machine, then you can set up
+an automated build for your Azure package.</source>
+          <target state="new">If you have Team Foundation Server (TFS) set up as a build controller
+and the build server set up as a TFS build machine, then you can set up
+an automated build for your Azure package.</target>
+        </trans-unit>
+        <trans-unit id="732c2021-3e32-44ae-a33d-942c1ca5ba7b" xml:space="preserve">
+          <source>For information on
+how to set up and use Team Foundation server as a build system, see
+<bpt id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;linkText&gt;</bpt>Scale out your build system<ept id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;/linkText&gt;</ept><bpt id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;title&gt;</bpt><ept id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on
+how to set up and use Team Foundation server as a build system, see
+<bpt id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;linkText&gt;</bpt>Scale out your build system<ept id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;/linkText&gt;</ept><bpt id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;title&gt;</bpt><ept id="d0edf0e4-19eb-44a3-9ddd-186eeb11f3bf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7071cbe9-a33e-4858-a419-0a6aeecaf187" xml:space="preserve">
+          <source>In particular, the
+following procedure assumes that you have configured your build server
+as described in <bpt id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;linkText&gt;</bpt>Deploy and configure a build server<ept id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;/linkText&gt;</ept><bpt id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;title&gt;</bpt><ept id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;/title&gt;</ept>, and that you have created
+a team project, created a cloud service project in the team project.</source>
+          <target state="new">In particular, the
+following procedure assumes that you have configured your build server
+as described in <bpt id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;linkText&gt;</bpt>Deploy and configure a build server<ept id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;/linkText&gt;</ept><bpt id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;title&gt;</bpt><ept id="b2b525ca-4f4d-468a-90d5-ff99f4c6b9d1">&lt;/title&gt;</ept>, and that you have created
+a team project, created a cloud service project in the team project.</target>
+        </trans-unit>
+        <trans-unit id="11c37c18-607b-4efb-9cfe-be58f3060b5b" xml:space="preserve">
+          <source>To configure TFS to build Azure packages, perform the following
+steps:</source>
+          <target state="new">To configure TFS to build Azure packages, perform the following
+steps:</target>
+        </trans-unit>
+        <trans-unit id="1d683a86-10af-46fe-84fb-98a8240f83f0" xml:space="preserve">
+          <source>In Visual Studio on your development computer, on the View
+menu, choose <bpt id="baa73ac8-37d4-45ad-b548-4a296454bbf9">&lt;strong&gt;</bpt>Team Explorer<ept id="baa73ac8-37d4-45ad-b548-4a296454bbf9">&lt;/strong&gt;</ept>, or choose Ctrl+\\, Ctrl+M.</source>
+          <target state="new">In Visual Studio on your development computer, on the View
+menu, choose <bpt id="baa73ac8-37d4-45ad-b548-4a296454bbf9">&lt;strong&gt;</bpt>Team Explorer<ept id="baa73ac8-37d4-45ad-b548-4a296454bbf9">&lt;/strong&gt;</ept>, or choose Ctrl+\\, Ctrl+M.</target>
+        </trans-unit>
+        <trans-unit id="12ba503d-16c6-4941-9ddb-931185d2e178" xml:space="preserve">
+          <source>In the
+Team Explorer window, expand the <bpt id="3684c095-4ace-4a9d-8ecc-cda7eb148cdd">&lt;strong&gt;</bpt>Builds<ept id="3684c095-4ace-4a9d-8ecc-cda7eb148cdd">&lt;/strong&gt;</ept> node or choose the <bpt id="1a108f44-a8f9-4d62-8fd3-53889d5fb4e6">&lt;strong&gt;</bpt>Builds<ept id="1a108f44-a8f9-4d62-8fd3-53889d5fb4e6">&lt;/strong&gt;</ept>
+page, and choose <bpt id="fcc7f120-d276-4b0f-875b-cf9eca7d5cf9">&lt;strong&gt;</bpt>New Build Definition<ept id="fcc7f120-d276-4b0f-875b-cf9eca7d5cf9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the
+Team Explorer window, expand the <bpt id="3684c095-4ace-4a9d-8ecc-cda7eb148cdd">&lt;strong&gt;</bpt>Builds<ept id="3684c095-4ace-4a9d-8ecc-cda7eb148cdd">&lt;/strong&gt;</ept> node or choose the <bpt id="1a108f44-a8f9-4d62-8fd3-53889d5fb4e6">&lt;strong&gt;</bpt>Builds<ept id="1a108f44-a8f9-4d62-8fd3-53889d5fb4e6">&lt;/strong&gt;</ept>
+page, and choose <bpt id="fcc7f120-d276-4b0f-875b-cf9eca7d5cf9">&lt;strong&gt;</bpt>New Build Definition<ept id="fcc7f120-d276-4b0f-875b-cf9eca7d5cf9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f42077a8-85f1-4794-99dc-994ea2dd9b0a" xml:space="preserve">
+          <source><bpt id="d3f8cf7a-c121-4a2d-9b5a-26019c130939">&lt;linkText&gt;</bpt><ept id="d3f8cf7a-c121-4a2d-9b5a-26019c130939">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3f8cf7a-c121-4a2d-9b5a-26019c130939">&lt;linkText&gt;</bpt><ept id="d3f8cf7a-c121-4a2d-9b5a-26019c130939">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2306c358-ec42-4bca-b300-e3c3093667e5" xml:space="preserve">
+          <source>Click the <bpt id="a57c4f43-65ec-479a-a6d1-3254639265dd">&lt;strong&gt;</bpt>Trigger<ept id="a57c4f43-65ec-479a-a6d1-3254639265dd">&lt;/strong&gt;</ept> tab, and specify the desired conditions for
+when you want the package to be built.</source>
+          <target state="new">Click the <bpt id="a57c4f43-65ec-479a-a6d1-3254639265dd">&lt;strong&gt;</bpt>Trigger<ept id="a57c4f43-65ec-479a-a6d1-3254639265dd">&lt;/strong&gt;</ept> tab, and specify the desired conditions for
+when you want the package to be built.</target>
+        </trans-unit>
+        <trans-unit id="c4e827fb-dbc2-4742-9f4c-0f3c493f8624" xml:space="preserve">
+          <source>For example, specify
+<bpt id="58551413-0f64-4f26-9407-5f90b2f669a6">&lt;strong&gt;</bpt>Continuous Integration<ept id="58551413-0f64-4f26-9407-5f90b2f669a6">&lt;/strong&gt;</ept> to build the package whenever a source
+control check-in occurs.</source>
+          <target state="new">For example, specify
+<bpt id="58551413-0f64-4f26-9407-5f90b2f669a6">&lt;strong&gt;</bpt>Continuous Integration<ept id="58551413-0f64-4f26-9407-5f90b2f669a6">&lt;/strong&gt;</ept> to build the package whenever a source
+control check-in occurs.</target>
+        </trans-unit>
+        <trans-unit id="9c234b9a-5547-4fc4-8888-ab2eda214352" xml:space="preserve">
+          <source>Choose the <bpt id="78437a76-f5c1-4808-a991-b469b18892bc">&lt;strong&gt;</bpt>Source Settings<ept id="78437a76-f5c1-4808-a991-b469b18892bc">&lt;/strong&gt;</ept> tab, and make sure your project folder is listed
+in the <bpt id="67393a5b-9f8f-4ade-b8a4-af062644acdc">&lt;strong&gt;</bpt>Source Control Folder<ept id="67393a5b-9f8f-4ade-b8a4-af062644acdc">&lt;/strong&gt;</ept> column, and the status is <bpt id="8a45e4c3-5340-47b5-8502-7a88e8349f6d">&lt;strong&gt;</bpt>Active<ept id="8a45e4c3-5340-47b5-8502-7a88e8349f6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose the <bpt id="78437a76-f5c1-4808-a991-b469b18892bc">&lt;strong&gt;</bpt>Source Settings<ept id="78437a76-f5c1-4808-a991-b469b18892bc">&lt;/strong&gt;</ept> tab, and make sure your project folder is listed
+in the <bpt id="67393a5b-9f8f-4ade-b8a4-af062644acdc">&lt;strong&gt;</bpt>Source Control Folder<ept id="67393a5b-9f8f-4ade-b8a4-af062644acdc">&lt;/strong&gt;</ept> column, and the status is <bpt id="8a45e4c3-5340-47b5-8502-7a88e8349f6d">&lt;strong&gt;</bpt>Active<ept id="8a45e4c3-5340-47b5-8502-7a88e8349f6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1df5cb99-7f3f-434f-9ac6-6afa367734c3" xml:space="preserve">
+          <source>Choose the <bpt id="6e9943a3-a8be-4860-8938-bb42c52e2463">&lt;strong&gt;</bpt>Build Defaults<ept id="6e9943a3-a8be-4860-8938-bb42c52e2463">&lt;/strong&gt;</ept> tab, and under Build controller, verify
+the name of the build server.</source>
+          <target state="new">Choose the <bpt id="6e9943a3-a8be-4860-8938-bb42c52e2463">&lt;strong&gt;</bpt>Build Defaults<ept id="6e9943a3-a8be-4860-8938-bb42c52e2463">&lt;/strong&gt;</ept> tab, and under Build controller, verify
+the name of the build server.</target>
+        </trans-unit>
+        <trans-unit id="10905d08-4a80-4a95-a271-279c6df284d3" xml:space="preserve">
+          <source>Also, choose the option <bpt id="559695cd-3493-4a33-ad5f-ecc183e35ba4">&lt;strong&gt;</bpt>Copy build
+output to the following drop folder<ept id="559695cd-3493-4a33-ad5f-ecc183e35ba4">&lt;/strong&gt;</ept> and specify the desired drop
+location.</source>
+          <target state="new">Also, choose the option <bpt id="559695cd-3493-4a33-ad5f-ecc183e35ba4">&lt;strong&gt;</bpt>Copy build
+output to the following drop folder<ept id="559695cd-3493-4a33-ad5f-ecc183e35ba4">&lt;/strong&gt;</ept> and specify the desired drop
+location.</target>
+        </trans-unit>
+        <trans-unit id="769e583a-34c9-4380-8ee3-ed1401939dd1" xml:space="preserve">
+          <source>Click the <bpt id="d8c061a8-efed-468c-9e97-d304ca8e456f">&lt;strong&gt;</bpt>Process<ept id="d8c061a8-efed-468c-9e97-d304ca8e456f">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="d8c061a8-efed-468c-9e97-d304ca8e456f">&lt;strong&gt;</bpt>Process<ept id="d8c061a8-efed-468c-9e97-d304ca8e456f">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="93a49663-e5d5-4e74-8e59-8d6fa6c0eb57" xml:space="preserve">
+          <source>On the Process tab, choose the default
+template, under <bpt id="a9951155-f9ae-428b-a226-c568f4d4c0d5">&lt;strong&gt;</bpt>Build<ept id="a9951155-f9ae-428b-a226-c568f4d4c0d5">&lt;/strong&gt;</ept>, choose the project if it is not already selected,
+and expand the <bpt id="fbd7acf8-081e-4c27-9fdd-2b1823661dea">&lt;strong&gt;</bpt>Advanced<ept id="fbd7acf8-081e-4c27-9fdd-2b1823661dea">&lt;/strong&gt;</ept> section in the <bpt id="46d79011-3016-49e1-a78e-2399d8e7e730">&lt;strong&gt;</bpt>Build<ept id="46d79011-3016-49e1-a78e-2399d8e7e730">&lt;/strong&gt;</ept> section of the grid.</source>
+          <target state="new">On the Process tab, choose the default
+template, under <bpt id="a9951155-f9ae-428b-a226-c568f4d4c0d5">&lt;strong&gt;</bpt>Build<ept id="a9951155-f9ae-428b-a226-c568f4d4c0d5">&lt;/strong&gt;</ept>, choose the project if it is not already selected,
+and expand the <bpt id="fbd7acf8-081e-4c27-9fdd-2b1823661dea">&lt;strong&gt;</bpt>Advanced<ept id="fbd7acf8-081e-4c27-9fdd-2b1823661dea">&lt;/strong&gt;</ept> section in the <bpt id="46d79011-3016-49e1-a78e-2399d8e7e730">&lt;strong&gt;</bpt>Build<ept id="46d79011-3016-49e1-a78e-2399d8e7e730">&lt;/strong&gt;</ept> section of the grid.</target>
+        </trans-unit>
+        <trans-unit id="09bdba51-d65c-4837-8078-4794737a33d1" xml:space="preserve">
+          <source>Choose <bpt id="98fada27-8eaf-47e3-9455-aa655fe9f705">&lt;strong&gt;</bpt>MSBuild Arguments<ept id="98fada27-8eaf-47e3-9455-aa655fe9f705">&lt;/strong&gt;</ept>, and set the appropriate MSBuild
+command line arguments as described in Step 2 above.</source>
+          <target state="new">Choose <bpt id="98fada27-8eaf-47e3-9455-aa655fe9f705">&lt;strong&gt;</bpt>MSBuild Arguments<ept id="98fada27-8eaf-47e3-9455-aa655fe9f705">&lt;/strong&gt;</ept>, and set the appropriate MSBuild
+command line arguments as described in Step 2 above.</target>
+        </trans-unit>
+        <trans-unit id="214dbf89-7d42-4ab3-a2dc-24aa383ad4f5" xml:space="preserve">
+          <source>For example,
+enter <bpt id="4ef9556b-2666-44e7-b891-fee3ec5bcbe0">&lt;strong&gt;</bpt>/t:Publish /p:PublishDir=\\\\myserver\\drops\\<ept id="4ef9556b-2666-44e7-b891-fee3ec5bcbe0">&lt;/strong&gt;</ept> to build a
+package and copy the package files to the location
+\\\\myserver\\drops\\:</source>
+          <target state="new">For example,
+enter <bpt id="4ef9556b-2666-44e7-b891-fee3ec5bcbe0">&lt;strong&gt;</bpt>/t:Publish /p:PublishDir=\\\\myserver\\drops\\<ept id="4ef9556b-2666-44e7-b891-fee3ec5bcbe0">&lt;/strong&gt;</ept> to build a
+package and copy the package files to the location
+\\\\myserver\\drops\\:</target>
+        </trans-unit>
+        <trans-unit id="3dbeac36-ac85-4e37-ba84-35e8fa3976f8" xml:space="preserve">
+          <source><bpt id="5a3a957e-075f-4ad1-8b29-11ae1c10172b">&lt;linkText&gt;</bpt><ept id="5a3a957e-075f-4ad1-8b29-11ae1c10172b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a3a957e-075f-4ad1-8b29-11ae1c10172b">&lt;linkText&gt;</bpt><ept id="5a3a957e-075f-4ad1-8b29-11ae1c10172b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1af7a39f-2054-4128-bca8-b6afc8f7792b" xml:space="preserve">
+          <source><bpt id="31e569bd-90c3-418c-b3ce-0f99a2de0d9e">&lt;strong&gt;</bpt>Note:<ept id="31e569bd-90c3-418c-b3ce-0f99a2de0d9e">&lt;/strong&gt;</ept> Copying the files to a public share makes it easier to
+manually deploy the packages from your development computer.</source>
+          <target state="new"><bpt id="31e569bd-90c3-418c-b3ce-0f99a2de0d9e">&lt;strong&gt;</bpt>Note:<ept id="31e569bd-90c3-418c-b3ce-0f99a2de0d9e">&lt;/strong&gt;</ept> Copying the files to a public share makes it easier to
+manually deploy the packages from your development computer.</target>
+        </trans-unit>
+        <trans-unit id="6042075e-4faa-4cfc-b4c7-ed52437a7b0e" xml:space="preserve">
+          <source>Test the success of your build step by checking in a change to your
+project, or queue up a new build.</source>
+          <target state="new">Test the success of your build step by checking in a change to your
+project, or queue up a new build.</target>
+        </trans-unit>
+        <trans-unit id="bf559721-cb55-40a9-9070-364b37d5173f" xml:space="preserve">
+          <source>To queue up a new build, in the
+Team Explorer, right-click <bpt id="631e21a7-d748-4ac7-95f3-a9734f9d8b75">&lt;strong&gt;</bpt>All Build Definitions,<ept id="631e21a7-d748-4ac7-95f3-a9734f9d8b75">&lt;/strong&gt;</ept> and then
+choose <bpt id="9dad6f74-6f10-45dd-b9df-e925d632509e">&lt;strong&gt;</bpt>Queue New Build<ept id="9dad6f74-6f10-45dd-b9df-e925d632509e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To queue up a new build, in the
+Team Explorer, right-click <bpt id="631e21a7-d748-4ac7-95f3-a9734f9d8b75">&lt;strong&gt;</bpt>All Build Definitions,<ept id="631e21a7-d748-4ac7-95f3-a9734f9d8b75">&lt;/strong&gt;</ept> and then
+choose <bpt id="9dad6f74-6f10-45dd-b9df-e925d632509e">&lt;strong&gt;</bpt>Queue New Build<ept id="9dad6f74-6f10-45dd-b9df-e925d632509e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4461af9f-c4a2-4bcb-9f82-fa0859aa706d" xml:space="preserve">
+          <source>This section describes how to construct a Windows PowerShell script that
+will publish the Cloud app package output to Azure using
+optional parameters.</source>
+          <target state="new">This section describes how to construct a Windows PowerShell script that
+will publish the Cloud app package output to Azure using
+optional parameters.</target>
+        </trans-unit>
+        <trans-unit id="a2d2473c-450e-4a32-aaf6-62776bfd5b98" xml:space="preserve">
+          <source>This script can be called after the build step in
+your custom build automation.</source>
+          <target state="new">This script can be called after the build step in
+your custom build automation.</target>
+        </trans-unit>
+        <trans-unit id="23ad89bc-7507-4933-9a3a-e3895235574f" xml:space="preserve">
+          <source>It can also be called from Process
+Template workflow activities in Visual Studio TFS Team Build.</source>
+          <target state="new">It can also be called from Process
+Template workflow activities in Visual Studio TFS Team Build.</target>
+        </trans-unit>
+        <trans-unit id="ad6f0b8a-a9be-4544-bc57-58e9bc576035" xml:space="preserve">
+          <source>Install the <bpt id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;/linkText&gt;</ept><bpt id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;title&gt;</bpt><ept id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;/title&gt;</ept> (v0.6.1 or higher).</source>
+          <target state="new">Install the <bpt id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;linkText&gt;</bpt>Azure PowerShell cmdlets<ept id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;/linkText&gt;</ept><bpt id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;title&gt;</bpt><ept id="2ee4bcba-bded-4159-b492-a6ef7c71a1a1">&lt;/title&gt;</ept> (v0.6.1 or higher).</target>
+        </trans-unit>
+        <trans-unit id="9476318c-06d2-492e-b788-c1e864bba3a5" xml:space="preserve">
+          <source>During the cmdlet setup phase choose to install as a snap-in.</source>
+          <target state="new">During the cmdlet setup phase choose to install as a snap-in.</target>
+        </trans-unit>
+        <trans-unit id="83241563-4a99-4d53-a112-2485abfceb84" xml:space="preserve">
+          <source>Note
+that this officially supported version replaces the older version
+offered through CodePlex, although the previous versions were numbered 2.x.x.</source>
+          <target state="new">Note
+that this officially supported version replaces the older version
+offered through CodePlex, although the previous versions were numbered 2.x.x.</target>
+        </trans-unit>
+        <trans-unit id="55b117c8-cf04-44be-bc5a-8e7dcc48b818" xml:space="preserve">
+          <source>Start Azure PowerShell using the Start menu or Start page.</source>
+          <target state="new">Start Azure PowerShell using the Start menu or Start page.</target>
+        </trans-unit>
+        <trans-unit id="5d28ef45-a267-426d-adf3-c9c4cc51f906" xml:space="preserve">
+          <source>If you start in this way,
+the Azure PowerShell cmdlets will be loaded.</source>
+          <target state="new">If you start in this way,
+the Azure PowerShell cmdlets will be loaded.</target>
+        </trans-unit>
+        <trans-unit id="6e131864-3c27-4c83-ade3-2483c45b77a2" xml:space="preserve">
+          <source>At the PowerShell prompt, verify that the PowerShell cmdlets are loaded
+by typing the partial command Get-Azure and then pressing tab for statement
+completion.</source>
+          <target state="new">At the PowerShell prompt, verify that the PowerShell cmdlets are loaded
+by typing the partial command Get-Azure and then pressing tab for statement
+completion.</target>
+        </trans-unit>
+        <trans-unit id="57188473-e73f-44d2-9212-49f830033ec2" xml:space="preserve">
+          <source>If you press tab repeatedly, you should see various Azure PowerShell commands.</source>
+          <target state="new">If you press tab repeatedly, you should see various Azure PowerShell commands.</target>
+        </trans-unit>
+        <trans-unit id="d6ebbd82-1b35-4042-99c0-d6ed0b416d42" xml:space="preserve">
+          <source>Verify that you can connect to your Azure subscription by
+importing your subscription information from the .publishsettings file.</source>
+          <target state="new">Verify that you can connect to your Azure subscription by
+importing your subscription information from the .publishsettings file.</target>
+        </trans-unit>
+        <trans-unit id="8136bbe7-55d7-4bc3-97e9-da973c8019d0" xml:space="preserve">
+          <source>Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings</source>
+          <target state="new">Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings</target>
+        </trans-unit>
+        <trans-unit id="20763b64-a5f8-4704-8c95-519e53625004" xml:space="preserve">
+          <source>Then give the command</source>
+          <target state="new">Then give the command</target>
+        </trans-unit>
+        <trans-unit id="e7d88180-2f11-4ac0-afed-e34abd371bd4" xml:space="preserve">
+          <source>Get-AzureSubscription</source>
+          <target state="new">Get-AzureSubscription</target>
+        </trans-unit>
+        <trans-unit id="801bb4bf-d79e-48fe-bbef-1a6980bdf45d" xml:space="preserve">
+          <source>This will display information about your subscription.</source>
+          <target state="new">This will display information about your subscription.</target>
+        </trans-unit>
+        <trans-unit id="e5eb2bda-bfc6-4cb0-961c-5f7c70e36908" xml:space="preserve">
+          <source>Verify that everything is correct.</source>
+          <target state="new">Verify that everything is correct.</target>
+        </trans-unit>
+        <trans-unit id="6da28b77-bd6b-45ce-9755-67bcd507e8a6" xml:space="preserve">
+          <source>Save the script template provided at the <bpt id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;linkText&gt;</bpt>end of this article<ept id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;/linkText&gt;</ept><bpt id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;title&gt;</bpt><ept id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;/title&gt;</ept> to
+your scripts folder as
+c:\\scripts\\WindowsAzure\\<bpt id="add4c659-d001-4113-9103-5f8fbf554331">&lt;strong&gt;</bpt>PublishCloudService.ps1<ept id="add4c659-d001-4113-9103-5f8fbf554331">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Save the script template provided at the <bpt id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;linkText&gt;</bpt>end of this article<ept id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;/linkText&gt;</ept><bpt id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;title&gt;</bpt><ept id="46dbb4d1-d5f8-4713-8994-e4f2620b06bc">&lt;/title&gt;</ept> to
+your scripts folder as
+c:\\scripts\\WindowsAzure\\<bpt id="add4c659-d001-4113-9103-5f8fbf554331">&lt;strong&gt;</bpt>PublishCloudService.ps1<ept id="add4c659-d001-4113-9103-5f8fbf554331">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faa0ebeb-951b-4c99-9987-555c1d680e0f" xml:space="preserve">
+          <source>Review the parameters section of the script.</source>
+          <target state="new">Review the parameters section of the script.</target>
+        </trans-unit>
+        <trans-unit id="85c21062-1de5-4298-b401-da07b77ff3c4" xml:space="preserve">
+          <source>Add or modify any
+default values.</source>
+          <target state="new">Add or modify any
+default values.</target>
+        </trans-unit>
+        <trans-unit id="707e1b03-98d4-4711-9bd9-69cfedae6e33" xml:space="preserve">
+          <source>These values can always be overridden by passing in
+explicit parameters.</source>
+          <target state="new">These values can always be overridden by passing in
+explicit parameters.</target>
+        </trans-unit>
+        <trans-unit id="fe20bf0c-d3fe-49f9-81a1-bef968d2d5a2" xml:space="preserve">
+          <source>Ensure there are valid cloud service and storage accounts created
+in your subscription that can be targeted by the publish script.</source>
+          <target state="new">Ensure there are valid cloud service and storage accounts created
+in your subscription that can be targeted by the publish script.</target>
+        </trans-unit>
+        <trans-unit id="40d397a8-f1fa-431f-ba13-66b464fea48e" xml:space="preserve">
+          <source>The
+storage account (blob storage) will be used to upload and
+temporarily store the deployment package and config file while the
+deployment is being created.</source>
+          <target state="new">The
+storage account (blob storage) will be used to upload and
+temporarily store the deployment package and config file while the
+deployment is being created.</target>
+        </trans-unit>
+        <trans-unit id="27837429-b0ca-4b8c-a16d-56de7d521fa4" xml:space="preserve">
+          <source>To create a new cloud service, you can call this script or use
+the Azure Management Portal.</source>
+          <target state="new">To create a new cloud service, you can call this script or use
+the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8c6f4ecd-f516-461f-aa4f-f1fdb13460b3" xml:space="preserve">
+          <source>The cloud service name
+will be used as a prefix in a fully qualified domain name and
+hence it must be unique.</source>
+          <target state="new">The cloud service name
+will be used as a prefix in a fully qualified domain name and
+hence it must be unique.</target>
+        </trans-unit>
+        <trans-unit id="016b285d-2dda-4f0e-a70e-fffff20391ed" xml:space="preserve">
+          <source>To create a new storage account, you can call this script or use
+the Azure Management Portal.</source>
+          <target state="new">To create a new storage account, you can call this script or use
+the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="a49979c3-b83c-41ef-a717-ce6dd5e5e723" xml:space="preserve">
+          <source>The storage account name
+will be used as a prefix in a fully qualified domain name and
+hence it must be unique.</source>
+          <target state="new">The storage account name
+will be used as a prefix in a fully qualified domain name and
+hence it must be unique.</target>
+        </trans-unit>
+        <trans-unit id="23c18104-214c-4f3e-a2e7-2cc46ec56521" xml:space="preserve">
+          <source>You can try using the same name as the
+cloud service.</source>
+          <target state="new">You can try using the same name as the
+cloud service.</target>
+        </trans-unit>
+        <trans-unit id="fa07b02f-23ae-4afc-a3e2-f922f3c0d4f4" xml:space="preserve">
+          <source>Call the script directly from Azure PowerShell, or wire up this
+script to your host build automation to occur after the package
+build.</source>
+          <target state="new">Call the script directly from Azure PowerShell, or wire up this
+script to your host build automation to occur after the package
+build.</target>
+        </trans-unit>
+        <trans-unit id="eea33bf1-8638-4b18-aa10-e860d04cef86" xml:space="preserve">
+          <source><bpt id="457a0ea7-a229-4059-abff-6a7f052f98bb">&lt;strong&gt;</bpt>WARNING:<ept id="457a0ea7-a229-4059-abff-6a7f052f98bb">&lt;/strong&gt;</ept> The script will always delete or replace your existing
+deployments by default if they are detected.</source>
+          <target state="new"><bpt id="457a0ea7-a229-4059-abff-6a7f052f98bb">&lt;strong&gt;</bpt>WARNING:<ept id="457a0ea7-a229-4059-abff-6a7f052f98bb">&lt;/strong&gt;</ept> The script will always delete or replace your existing
+deployments by default if they are detected.</target>
+        </trans-unit>
+        <trans-unit id="221d8d6d-9d45-4712-b215-0059ce58049b" xml:space="preserve">
+          <source>This is necessary to
+enable continuous delivery from automation where no user prompting
+is possible.</source>
+          <target state="new">This is necessary to
+enable continuous delivery from automation where no user prompting
+is possible.</target>
+        </trans-unit>
+        <trans-unit id="193cf043-801a-4356-b3d6-50ab99ea3bf9" xml:space="preserve">
+          <source><bpt id="09371ac8-0402-4e24-aefd-6661ee2f6bf0">&lt;strong&gt;</bpt>Example scenario 1:<ept id="09371ac8-0402-4e24-aefd-6661ee2f6bf0">&lt;/strong&gt;</ept> continuous deployment to the staging
+environment of a service:</source>
+          <target state="new"><bpt id="09371ac8-0402-4e24-aefd-6661ee2f6bf0">&lt;strong&gt;</bpt>Example scenario 1:<ept id="09371ac8-0402-4e24-aefd-6661ee2f6bf0">&lt;/strong&gt;</ept> continuous deployment to the staging
+environment of a service:</target>
+        </trans-unit>
+        <trans-unit id="e48762a6-8acb-4c39-83e1-4888f675092e" xml:space="preserve">
+          <source>This is typically followed up by test run verification and a VIP
+swap.</source>
+          <target state="new">This is typically followed up by test run verification and a VIP
+swap.</target>
+        </trans-unit>
+        <trans-unit id="43103ce1-d63e-4c6b-9207-f60fabb26bc5" xml:space="preserve">
+          <source>The VIP swap can be done via the Azure Management
+Portal or by using the Move-Deployment cmdlet.</source>
+          <target state="new">The VIP swap can be done via the Azure Management
+Portal or by using the Move-Deployment cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="65bfa257-ad88-47a5-9133-557021596894" xml:space="preserve">
+          <source><bpt id="4078d6ca-662d-4092-8bbe-d917b1ab851c">&lt;strong&gt;</bpt>Example scenario 2:<ept id="4078d6ca-662d-4092-8bbe-d917b1ab851c">&lt;/strong&gt;</ept> continuous deployment to the production
+environment of a dedicated test service</source>
+          <target state="new"><bpt id="4078d6ca-662d-4092-8bbe-d917b1ab851c">&lt;strong&gt;</bpt>Example scenario 2:<ept id="4078d6ca-662d-4092-8bbe-d917b1ab851c">&lt;/strong&gt;</ept> continuous deployment to the production
+environment of a dedicated test service</target>
+        </trans-unit>
+        <trans-unit id="bf2519a7-67fa-4d5a-a4eb-ced1974bb1df" xml:space="preserve">
+          <source><bpt id="810e01be-a42e-4a52-acb4-dd88f75f9db4">&lt;strong&gt;</bpt>Remote Desktop:<ept id="810e01be-a42e-4a52-acb4-dd88f75f9db4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="810e01be-a42e-4a52-acb4-dd88f75f9db4">&lt;strong&gt;</bpt>Remote Desktop:<ept id="810e01be-a42e-4a52-acb4-dd88f75f9db4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35ba330f-6d55-4dc2-9b6d-d513ea1102e2" xml:space="preserve">
+          <source>If Remote Desktop is enabled in your Azure project you will
+need to perform additional one-time steps to ensure the correct
+Cloud Service Certificate is uploaded to all cloud services
+targeted by this script.</source>
+          <target state="new">If Remote Desktop is enabled in your Azure project you will
+need to perform additional one-time steps to ensure the correct
+Cloud Service Certificate is uploaded to all cloud services
+targeted by this script.</target>
+        </trans-unit>
+        <trans-unit id="6fa5f26d-b6be-493a-a9e8-4e545e3f9e28" xml:space="preserve">
+          <source>Locate the certificate thumbprint values expected by your roles.</source>
+          <target state="new">Locate the certificate thumbprint values expected by your roles.</target>
+        </trans-unit>
+        <trans-unit id="61614c9c-f890-4af3-87d6-2441f420720a" xml:space="preserve">
+          <source>The
+thumbprint values are visible in the Certificates section of the
+cloud config file (i.e. ServiceConfiguration.Cloud.cscfg).</source>
+          <target state="new">The
+thumbprint values are visible in the Certificates section of the
+cloud config file (i.e. ServiceConfiguration.Cloud.cscfg).</target>
+        </trans-unit>
+        <trans-unit id="bd188047-988b-43ae-b5df-44ae33f0c238" xml:space="preserve">
+          <source>It is
+also visible in the Remote Desktop Configuration dialog in Visual
+Studio when you Show Options and view the selected certificate.</source>
+          <target state="new">It is
+also visible in the Remote Desktop Configuration dialog in Visual
+Studio when you Show Options and view the selected certificate.</target>
+        </trans-unit>
+        <trans-unit id="5489b2fd-f304-43f5-81fe-827ec9170343" xml:space="preserve">
+          <source>Upload Remote Desktop certificates as a one-time setup step using
+the following cmdlet script:</source>
+          <target state="new">Upload Remote Desktop certificates as a one-time setup step using
+the following cmdlet script:</target>
+        </trans-unit>
+        <trans-unit id="05ea31b8-6012-4142-bfb6-ae24d3fd09e6" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="be27bad1-f352-4fd7-95fb-b086927d07fb" xml:space="preserve">
+          <source>Alternatively you can export the certificate file PFX with private
+key and upload certificates to each target cloud service using the
+Azure Management Portal.</source>
+          <target state="new">Alternatively you can export the certificate file PFX with private
+key and upload certificates to each target cloud service using the
+Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="d9e3203b-4adc-42ef-b82b-74c96ce0ea88" xml:space="preserve">
+          <source>Read the following article to learn
+more:
+<bpt id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;linkText&gt;</bpt>http://msdn.microsoft.com/library/windowsazure/gg443832.aspx<ept id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;/linkText&gt;</ept><bpt id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;title&gt;</bpt><ept id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read the following article to learn
+more:
+<bpt id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;linkText&gt;</bpt>http://msdn.microsoft.com/library/windowsazure/gg443832.aspx<ept id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;/linkText&gt;</ept><bpt id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;title&gt;</bpt><ept id="b27b6ce5-d73b-4e48-a568-c41d7aac2afe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b03d843e-3064-4119-b6eb-c764ce11791e" xml:space="preserve">
+          <source><bpt id="a3e767d0-1dc6-4fab-8aa6-ff6c8c01845c">&lt;strong&gt;</bpt>Upgrade Deployment vs. Delete Deployment -\&gt; New Deployment<ept id="a3e767d0-1dc6-4fab-8aa6-ff6c8c01845c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a3e767d0-1dc6-4fab-8aa6-ff6c8c01845c">&lt;strong&gt;</bpt>Upgrade Deployment vs. Delete Deployment -\&gt; New Deployment<ept id="a3e767d0-1dc6-4fab-8aa6-ff6c8c01845c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcf22d5e-46c2-437a-8297-a2edd366443d" xml:space="preserve">
+          <source>The script will by default perform an Upgrade Deployment
+($enableDeploymentUpgrade = 1) when no parameter is passed in or the
+value 1 is passed explicitly.</source>
+          <target state="new">The script will by default perform an Upgrade Deployment
+($enableDeploymentUpgrade = 1) when no parameter is passed in or the
+value 1 is passed explicitly.</target>
+        </trans-unit>
+        <trans-unit id="7c9a90a0-33bc-42de-8f82-46b646e13003" xml:space="preserve">
+          <source>For single instances this has the
+advantage of taking less time than a full deployment.</source>
+          <target state="new">For single instances this has the
+advantage of taking less time than a full deployment.</target>
+        </trans-unit>
+        <trans-unit id="bcc2667a-b5d5-4b32-8abb-d6ebb7e83492" xml:space="preserve">
+          <source>For instances
+that require high availability this also has the advantage of
+leaving some instances running while others are upgraded (walking
+your update domain), plus your VIP will not be deleted.</source>
+          <target state="new">For instances
+that require high availability this also has the advantage of
+leaving some instances running while others are upgraded (walking
+your update domain), plus your VIP will not be deleted.</target>
+        </trans-unit>
+        <trans-unit id="2ffe2d25-76eb-4c44-8fe5-7c1da2d1ed7f" xml:space="preserve">
+          <source>Upgrade Deployment can be disabled in the script
+($enableDeploymentUpgrade = 0) or by passing
+-enableDeploymentUpgrade 0 as a parameter, which will alter the
+script behavior to first delete any existing deployment and then
+create a new deployment.</source>
+          <target state="new">Upgrade Deployment can be disabled in the script
+($enableDeploymentUpgrade = 0) or by passing
+-enableDeploymentUpgrade 0 as a parameter, which will alter the
+script behavior to first delete any existing deployment and then
+create a new deployment.</target>
+        </trans-unit>
+        <trans-unit id="81c69857-0e29-48ae-a0a0-f80f287dd4f5" xml:space="preserve">
+          <source><bpt id="d0742bbd-6eec-40b1-8b61-74bea4b8a24e">&lt;strong&gt;</bpt>Warning:<ept id="d0742bbd-6eec-40b1-8b61-74bea4b8a24e">&lt;/strong&gt;</ept> The script will always delete or replace your existing
+deployments by default if they are detected.</source>
+          <target state="new"><bpt id="d0742bbd-6eec-40b1-8b61-74bea4b8a24e">&lt;strong&gt;</bpt>Warning:<ept id="d0742bbd-6eec-40b1-8b61-74bea4b8a24e">&lt;/strong&gt;</ept> The script will always delete or replace your existing
+deployments by default if they are detected.</target>
+        </trans-unit>
+        <trans-unit id="7ee57e7b-bfd7-4abe-8490-766597fe421e" xml:space="preserve">
+          <source>This is necessary to
+enable continuous delivery from automation where no user/operator
+prompting is possible.</source>
+          <target state="new">This is necessary to
+enable continuous delivery from automation where no user/operator
+prompting is possible.</target>
+        </trans-unit>
+        <trans-unit id="42669958-be59-4612-93c7-2b64b02d0cdf" xml:space="preserve">
+          <source>This step will wire up TFS Team Build to the script created in step 4,
+which handles publishing of the package build to Azure.</source>
+          <target state="new">This step will wire up TFS Team Build to the script created in step 4,
+which handles publishing of the package build to Azure.</target>
+        </trans-unit>
+        <trans-unit id="437bb6f6-31c5-4ea0-b6cc-60273fc2f49b" xml:space="preserve">
+          <source>This
+entails modifying the Process Template used by your build definition so
+that it runs a Publish activity at the end of the workflow.</source>
+          <target state="new">This
+entails modifying the Process Template used by your build definition so
+that it runs a Publish activity at the end of the workflow.</target>
+        </trans-unit>
+        <trans-unit id="8d293a95-7257-49a4-a79f-425240007ffb" xml:space="preserve">
+          <source>The Publish
+activity will execute your PowerShell command passing in parameters from
+the build.</source>
+          <target state="new">The Publish
+activity will execute your PowerShell command passing in parameters from
+the build.</target>
+        </trans-unit>
+        <trans-unit id="6bdbf0d6-2848-4ac0-9667-6cf1fa286508" xml:space="preserve">
+          <source>Output of the MSBuild targets and publish script will be
+piped into the standard build output.</source>
+          <target state="new">Output of the MSBuild targets and publish script will be
+piped into the standard build output.</target>
+        </trans-unit>
+        <trans-unit id="7c647066-2cc1-44ed-a4ba-424417c2c0a5" xml:space="preserve">
+          <source>Edit the Build Definition responsible for continuous deploy.</source>
+          <target state="new">Edit the Build Definition responsible for continuous deploy.</target>
+        </trans-unit>
+        <trans-unit id="16e07ba2-889a-4dfa-bc4f-699ba61bb98e" xml:space="preserve">
+          <source>Select the <bpt id="6c2cee71-c1b8-4ef7-ae27-1ee90c4c910d">&lt;strong&gt;</bpt>Process<ept id="6c2cee71-c1b8-4ef7-ae27-1ee90c4c910d">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Select the <bpt id="6c2cee71-c1b8-4ef7-ae27-1ee90c4c910d">&lt;strong&gt;</bpt>Process<ept id="6c2cee71-c1b8-4ef7-ae27-1ee90c4c910d">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="5932da2f-e512-4b20-86d0-04f5cc1b5bde" xml:space="preserve">
+          <source>Follow <bpt id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;linkText&gt;</bpt>these instructions<ept id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;/linkText&gt;</ept><bpt id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;title&gt;</bpt><ept id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;/title&gt;</ept> to add an
+Activity project for the build process template, download the default template, add it to
+the project and check it in.</source>
+          <target state="new">Follow <bpt id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;linkText&gt;</bpt>these instructions<ept id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;/linkText&gt;</ept><bpt id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;title&gt;</bpt><ept id="47676b55-3960-43f4-8ee0-4a98c2338afc">&lt;/title&gt;</ept> to add an
+Activity project for the build process template, download the default template, add it to
+the project and check it in.</target>
+        </trans-unit>
+        <trans-unit id="337c06ed-9a17-41fe-adf3-a9091d483785" xml:space="preserve">
+          <source>Give the build process template a new name, such as
+AzureBuildProcessTemplate.</source>
+          <target state="new">Give the build process template a new name, such as
+AzureBuildProcessTemplate.</target>
+        </trans-unit>
+        <trans-unit id="79d6cb04-e2e7-43cc-bf0e-1142b763b0d2" xml:space="preserve">
+          <source>Return to the <bpt id="30ec8330-e455-4433-8c53-c7559916ac22">&lt;strong&gt;</bpt>Process<ept id="30ec8330-e455-4433-8c53-c7559916ac22">&lt;/strong&gt;</ept> tab, and use <bpt id="c40d845c-9365-4b36-92c3-660101bbacb5">&lt;strong&gt;</bpt>Show Details<ept id="c40d845c-9365-4b36-92c3-660101bbacb5">&lt;/strong&gt;</ept> to show a list of available
+build process templates.</source>
+          <target state="new">Return to the <bpt id="30ec8330-e455-4433-8c53-c7559916ac22">&lt;strong&gt;</bpt>Process<ept id="30ec8330-e455-4433-8c53-c7559916ac22">&lt;/strong&gt;</ept> tab, and use <bpt id="c40d845c-9365-4b36-92c3-660101bbacb5">&lt;strong&gt;</bpt>Show Details<ept id="c40d845c-9365-4b36-92c3-660101bbacb5">&lt;/strong&gt;</ept> to show a list of available
+build process templates.</target>
+        </trans-unit>
+        <trans-unit id="b823b8ae-a744-4bfe-80d8-4c0dd5de27c4" xml:space="preserve">
+          <source>Choose the <bpt id="deaec2fb-327b-4748-b371-9fdbb4eac108">&lt;strong&gt;</bpt>New...<ept id="deaec2fb-327b-4748-b371-9fdbb4eac108">&lt;/strong&gt;</ept> button, and navigate to the project you
+just added and checked in.</source>
+          <target state="new">Choose the <bpt id="deaec2fb-327b-4748-b371-9fdbb4eac108">&lt;strong&gt;</bpt>New...<ept id="deaec2fb-327b-4748-b371-9fdbb4eac108">&lt;/strong&gt;</ept> button, and navigate to the project you
+just added and checked in.</target>
+        </trans-unit>
+        <trans-unit id="0811c986-8db6-4b83-b96d-62965754a3f6" xml:space="preserve">
+          <source>Locate the template you just created and choose <bpt id="bebf3a07-935b-4774-9980-4a2abe49b4cf">&lt;strong&gt;</bpt>OK<ept id="bebf3a07-935b-4774-9980-4a2abe49b4cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Locate the template you just created and choose <bpt id="bebf3a07-935b-4774-9980-4a2abe49b4cf">&lt;strong&gt;</bpt>OK<ept id="bebf3a07-935b-4774-9980-4a2abe49b4cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63f7f46f-a887-4667-b8ab-03aebf707771" xml:space="preserve">
+          <source>Open the selected Process Template for editing.</source>
+          <target state="new">Open the selected Process Template for editing.</target>
+        </trans-unit>
+        <trans-unit id="4f418915-3d4e-4031-830f-a849a387fb2b" xml:space="preserve">
+          <source>You can open
+directly in the Workflow designer or in the XML editor to work with
+the XAML.</source>
+          <target state="new">You can open
+directly in the Workflow designer or in the XML editor to work with
+the XAML.</target>
+        </trans-unit>
+        <trans-unit id="4ec15325-1c8d-41df-82f5-0f7a0fcd46dc" xml:space="preserve">
+          <source>Add the following list of new arguments as separate line items in
+the arguments tab of the workflow designer.</source>
+          <target state="new">Add the following list of new arguments as separate line items in
+the arguments tab of the workflow designer.</target>
+        </trans-unit>
+        <trans-unit id="ec8461c5-eb76-4bd8-b0e5-8dc573f43e27" xml:space="preserve">
+          <source>All arguments should
+have direction=In and type=String.</source>
+          <target state="new">All arguments should
+have direction=In and type=String.</target>
+        </trans-unit>
+        <trans-unit id="d0c05886-ff87-42dc-aeb3-5933b079caa7" xml:space="preserve">
+          <source>These will be used to flow
+parameters from the build definition into the workflow, which then
+get used to call the publish script.</source>
+          <target state="new">These will be used to flow
+parameters from the build definition into the workflow, which then
+get used to call the publish script.</target>
+        </trans-unit>
+        <trans-unit id="6f4719d3-4361-4ed0-bbc0-343e2cd50f68" xml:space="preserve">
+          <source><bpt id="4a3b3ba5-1a81-49e3-b005-517e5421bf17">&lt;linkText&gt;</bpt><ept id="4a3b3ba5-1a81-49e3-b005-517e5421bf17">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a3b3ba5-1a81-49e3-b005-517e5421bf17">&lt;linkText&gt;</bpt><ept id="4a3b3ba5-1a81-49e3-b005-517e5421bf17">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3470c382-8eb6-4fe9-ba4a-528e0548dac1" xml:space="preserve">
+          <source>The corresponding XAML looks like this:</source>
+          <target state="new">The corresponding XAML looks like this:</target>
+        </trans-unit>
+        <trans-unit id="e5334f05-e881-42b4-9d43-8bdcd6f6bcf9" xml:space="preserve">
+          <source>Add a new sequence at the end of Run On Agent:</source>
+          <target state="new">Add a new sequence at the end of Run On Agent:</target>
+        </trans-unit>
+        <trans-unit id="24d667e6-245c-49b9-a6c1-5e6ce2b9868b" xml:space="preserve">
+          <source>Start by adding an If Statement activity to check for a valid
+script file.</source>
+          <target state="new">Start by adding an If Statement activity to check for a valid
+script file.</target>
+        </trans-unit>
+        <trans-unit id="d4072789-d2aa-4431-bd59-57a090462b98" xml:space="preserve">
+          <source>Set the condition to this value:</source>
+          <target state="new">Set the condition to this value:</target>
+        </trans-unit>
+        <trans-unit id="eacc18b9-9542-4702-b75a-53c1b78b03e6" xml:space="preserve">
+          <source>In the Then case of the If Statement, add a new Sequence
+activity.</source>
+          <target state="new">In the Then case of the If Statement, add a new Sequence
+activity.</target>
+        </trans-unit>
+        <trans-unit id="909c69cc-b6c5-41d7-b713-e6722b5c16dd" xml:space="preserve">
+          <source>Set the display name to 'Start publish'</source>
+          <target state="new">Set the display name to 'Start publish'</target>
+        </trans-unit>
+        <trans-unit id="756ec4ff-5991-4319-b747-791f63c58f6c" xml:space="preserve">
+          <source>With the Start publish sequence still selected, add the
+following list of new variables as separate line items in the
+variables tab of the workflow designer.</source>
+          <target state="new">With the Start publish sequence still selected, add the
+following list of new variables as separate line items in the
+variables tab of the workflow designer.</target>
+        </trans-unit>
+        <trans-unit id="70b43619-410f-4ea8-b052-de1a4a0c122d" xml:space="preserve">
+          <source>All variables should
+have Variable type =String and Scope=Start publish.</source>
+          <target state="new">All variables should
+have Variable type =String and Scope=Start publish.</target>
+        </trans-unit>
+        <trans-unit id="46770cde-b93c-4f23-b365-e0752edc92c9" xml:space="preserve">
+          <source>These will
+be used to flow parameters from the build definition into the
+workflow, which then get used to call the publish script.</source>
+          <target state="new">These will
+be used to flow parameters from the build definition into the
+workflow, which then get used to call the publish script.</target>
+        </trans-unit>
+        <trans-unit id="56b5935a-05b9-4267-898a-3859c53d344f" xml:space="preserve">
+          <source>SubscriptionDataFilePath, of type String</source>
+          <target state="new">SubscriptionDataFilePath, of type String</target>
+        </trans-unit>
+        <trans-unit id="e9628db3-cb40-4694-b2c7-1b973dbda174" xml:space="preserve">
+          <source>PublishScriptFilePath, of type String</source>
+          <target state="new">PublishScriptFilePath, of type String</target>
+        </trans-unit>
+        <trans-unit id="cbadf22a-858d-47c4-a100-2d754a20796e" xml:space="preserve">
+          <source><bpt id="fc135efb-e773-4ab5-9e2c-9e3d1b07f423">&lt;linkText&gt;</bpt><ept id="fc135efb-e773-4ab5-9e2c-9e3d1b07f423">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc135efb-e773-4ab5-9e2c-9e3d1b07f423">&lt;linkText&gt;</bpt><ept id="fc135efb-e773-4ab5-9e2c-9e3d1b07f423">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d49d0bc7-175e-4cc4-a013-b12e87f74e1a" xml:space="preserve">
+          <source>If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
+Sequence.</source>
+          <target state="new">If you are using TFS 2012 or earlier, add a ConvertWorkspaceItem activity at the beginning of the new
+Sequence.</target>
+        </trans-unit>
+        <trans-unit id="ddf7576d-6b5b-4300-8d19-a1db5686bc89" xml:space="preserve">
+          <source>If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence.</source>
+          <target state="new">If you are using TFS 2013 or later, add a GetLocalPath activity at the beginning of the new sequence.</target>
+        </trans-unit>
+        <trans-unit id="28af2fe5-7989-41f5-9c9f-f7f4d30955dd" xml:space="preserve">
+          <source>For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
+script filename', Input=' PublishScriptLocation',
+Result='PublishScriptFilePath', Workspace='Workspace'.</source>
+          <target state="new">For a ConvertWorkspaceItem, set the properties as follows: Direction=ServerToLocal, DisplayName='Convert publish
+script filename', Input=' PublishScriptLocation',
+Result='PublishScriptFilePath', Workspace='Workspace'.</target>
+        </trans-unit>
+        <trans-unit id="6cce178b-26d5-470f-bd59-99df5d66f305" xml:space="preserve">
+          <source>For a GetLocalPath activity, set the property IncomingPath to 'PublishScriptLocation', and the Result to 'PublishScriptFilePath'.</source>
+          <target state="new">For a GetLocalPath activity, set the property IncomingPath to 'PublishScriptLocation', and the Result to 'PublishScriptFilePath'.</target>
+        </trans-unit>
+        <trans-unit id="a04bfec5-8170-4bdc-97ea-de43d06f4f9c" xml:space="preserve">
+          <source>This
+activity converts the path to the publish script from TFS server
+locations (if applicable) to a standard local disk path.</source>
+          <target state="new">This
+activity converts the path to the publish script from TFS server
+locations (if applicable) to a standard local disk path.</target>
+        </trans-unit>
+        <trans-unit id="d4596123-2211-46fb-a402-58724ae016e9" xml:space="preserve">
+          <source>If you are using TFS 2012 or earlier, add another ConvertWorkspaceItem activity at the end of the new
+Sequence.</source>
+          <target state="new">If you are using TFS 2012 or earlier, add another ConvertWorkspaceItem activity at the end of the new
+Sequence.</target>
+        </trans-unit>
+        <trans-unit id="10b02874-ca7d-41af-a3a7-737a7391a3fc" xml:space="preserve">
+          <source>Direction=ServerToLocal, DisplayName='Convert
+subscription filename', Input=' SubscriptionDataFileLocation',
+Result= 'SubscriptionDataFilePath', Workspace='Workspace'.</source>
+          <target state="new">Direction=ServerToLocal, DisplayName='Convert
+subscription filename', Input=' SubscriptionDataFileLocation',
+Result= 'SubscriptionDataFilePath', Workspace='Workspace'.</target>
+        </trans-unit>
+        <trans-unit id="e049af87-e2f3-46de-8c0a-6652cd468935" xml:space="preserve">
+          <source>If you are using TFS 2013 or later, add another GetLocalPath.</source>
+          <target state="new">If you are using TFS 2013 or later, add another GetLocalPath.</target>
+        </trans-unit>
+        <trans-unit id="6abea3aa-ac22-49bd-98b5-f37f3f591775" xml:space="preserve">
+          <source>IncomingPath='SubscriptionDataFileLocation', and Result='SubscriptionDataFilePath.'</source>
+          <target state="new">IncomingPath='SubscriptionDataFileLocation', and Result='SubscriptionDataFilePath.'</target>
+        </trans-unit>
+        <trans-unit id="2fd4596e-7171-401c-8c93-c4eec69a0026" xml:space="preserve">
+          <source>Add an InvokeProcess activity at the end of the new Sequence.</source>
+          <target state="new">Add an InvokeProcess activity at the end of the new Sequence.</target>
+        </trans-unit>
+        <trans-unit id="129b12d2-78a2-4426-b19c-74c0c1fc8f1e" xml:space="preserve">
+          <source>This activity calls PowerShell.exe with the arguments passed in
+by the Build Definition.</source>
+          <target state="new">This activity calls PowerShell.exe with the arguments passed in
+by the Build Definition.</target>
+        </trans-unit>
+        <trans-unit id="40bf426a-0c59-438a-95df-2bd59e76e19a" xml:space="preserve">
+          <source>Arguments = String.Format(" -File ""{0}"" -serviceName {1}
+-storageAccountName {2} -packageLocation ""{3}""
+-cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}""
+-selectedSubscription {6} -environment ""{7}""",
+PublishScriptFilePath, ServiceName, StorageAccountName,
+PackageLocation, CloudConfigLocation,
+SubscriptionDataFilePath, SubscriptionName, Environment)</source>
+          <target state="new">Arguments = String.Format(" -File ""{0}"" -serviceName {1}
+-storageAccountName {2} -packageLocation ""{3}""
+-cloudConfigLocation ""{4}"" -subscriptionDataFile ""{5}""
+-selectedSubscription {6} -environment ""{7}""",
+PublishScriptFilePath, ServiceName, StorageAccountName,
+PackageLocation, CloudConfigLocation,
+SubscriptionDataFilePath, SubscriptionName, Environment)</target>
+        </trans-unit>
+        <trans-unit id="f1ca4f2f-279b-471e-a060-af88b4e92374" xml:space="preserve">
+          <source>DisplayName = Execute publish script</source>
+          <target state="new">DisplayName = Execute publish script</target>
+        </trans-unit>
+        <trans-unit id="54cec093-b43b-416f-9922-08c9c8dcc393" xml:space="preserve">
+          <source>FileName = "PowerShell" (include the quotes)</source>
+          <target state="new">FileName = "PowerShell" (include the quotes)</target>
+        </trans-unit>
+        <trans-unit id="e9610856-bc62-46df-aa9f-989e292bc105" xml:space="preserve">
+          <source>OutputEncoding=
+System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)</source>
+          <target state="new">OutputEncoding=
+System.Text.Encoding.GetEncoding(System.Globalization.CultureInfo.InstalledUICulture.TextInfo.OEMCodePage)</target>
+        </trans-unit>
+        <trans-unit id="ab43e62e-2099-4eac-91a6-56a5ea571748" xml:space="preserve">
+          <source>In the <bpt id="e26f8f63-7d62-4ee4-9362-5303afc6307f">&lt;strong&gt;</bpt>Handle Standard Output<ept id="e26f8f63-7d62-4ee4-9362-5303afc6307f">&lt;/strong&gt;</ept> section textbox of the
+InvokeProcess, set the textbox value to 'data'.</source>
+          <target state="new">In the <bpt id="e26f8f63-7d62-4ee4-9362-5303afc6307f">&lt;strong&gt;</bpt>Handle Standard Output<ept id="e26f8f63-7d62-4ee4-9362-5303afc6307f">&lt;/strong&gt;</ept> section textbox of the
+InvokeProcess, set the textbox value to 'data'.</target>
+        </trans-unit>
+        <trans-unit id="c5387b08-ca75-4ee9-9988-71a8281b20eb" xml:space="preserve">
+          <source>This is a
+variable to store the standard output data.</source>
+          <target state="new">This is a
+variable to store the standard output data.</target>
+        </trans-unit>
+        <trans-unit id="c611d688-fdee-4101-a067-bec16b14bc47" xml:space="preserve">
+          <source>Add a WriteBuildMessage activity just below the <bpt id="d750cecb-ad5a-4b2e-80e4-5308d7c9438b">&lt;strong&gt;</bpt>Handle Standard Output<ept id="d750cecb-ad5a-4b2e-80e4-5308d7c9438b">&lt;/strong&gt;</ept>
+section.</source>
+          <target state="new">Add a WriteBuildMessage activity just below the <bpt id="d750cecb-ad5a-4b2e-80e4-5308d7c9438b">&lt;strong&gt;</bpt>Handle Standard Output<ept id="d750cecb-ad5a-4b2e-80e4-5308d7c9438b">&lt;/strong&gt;</ept>
+section.</target>
+        </trans-unit>
+        <trans-unit id="65b5a8fc-56e5-4ce4-9a14-2290f2f610f0" xml:space="preserve">
+          <source>Set the Importance =
+'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High'
+and the Message='data'.</source>
+          <target state="new">Set the Importance =
+'Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High'
+and the Message='data'.</target>
+        </trans-unit>
+        <trans-unit id="0db69538-26a6-4d78-9d8b-f87618e8313d" xml:space="preserve">
+          <source>This ensures the standard output of the
+script will get written to the build output.</source>
+          <target state="new">This ensures the standard output of the
+script will get written to the build output.</target>
+        </trans-unit>
+        <trans-unit id="544aef84-8fa4-4296-98af-50ace0e110be" xml:space="preserve">
+          <source>In the <bpt id="528a68ec-58fe-4739-9279-ff8543bebbaa">&lt;strong&gt;</bpt>Handle Error Output<ept id="528a68ec-58fe-4739-9279-ff8543bebbaa">&lt;/strong&gt;</ept> section textbox of the
+InvokeProcess, set the textbox value to 'data'.</source>
+          <target state="new">In the <bpt id="528a68ec-58fe-4739-9279-ff8543bebbaa">&lt;strong&gt;</bpt>Handle Error Output<ept id="528a68ec-58fe-4739-9279-ff8543bebbaa">&lt;/strong&gt;</ept> section textbox of the
+InvokeProcess, set the textbox value to 'data'.</target>
+        </trans-unit>
+        <trans-unit id="0cde4d9a-16c7-41a0-a558-dee461a8df4d" xml:space="preserve">
+          <source>This is a
+variable to store the standard error data.</source>
+          <target state="new">This is a
+variable to store the standard error data.</target>
+        </trans-unit>
+        <trans-unit id="82d254e4-a1cc-4bd9-99fb-c2097391b9ed" xml:space="preserve">
+          <source>Add a WriteBuildError activity just below the <bpt id="ecd89692-b516-459d-986d-0312ddd52202">&lt;strong&gt;</bpt>Handle Error Output<ept id="ecd89692-b516-459d-986d-0312ddd52202">&lt;/strong&gt;</ept>
+section.</source>
+          <target state="new">Add a WriteBuildError activity just below the <bpt id="ecd89692-b516-459d-986d-0312ddd52202">&lt;strong&gt;</bpt>Handle Error Output<ept id="ecd89692-b516-459d-986d-0312ddd52202">&lt;/strong&gt;</ept>
+section.</target>
+        </trans-unit>
+        <trans-unit id="eff30e49-b272-48c7-83c1-d630fdab0072" xml:space="preserve">
+          <source>Set the Message='data'.</source>
+          <target state="new">Set the Message='data'.</target>
+        </trans-unit>
+        <trans-unit id="64fe7171-b1c0-4274-9ba2-c786331aaeec" xml:space="preserve">
+          <source>This ensures the standard
+errors of the script will get written to the build error output.</source>
+          <target state="new">This ensures the standard
+errors of the script will get written to the build error output.</target>
+        </trans-unit>
+        <trans-unit id="6e65a596-23a7-42dd-a9e7-99749a91472d" xml:space="preserve">
+          <source>Correct any errors, indicated by blue exclamation marks.</source>
+          <target state="new">Correct any errors, indicated by blue exclamation marks.</target>
+        </trans-unit>
+        <trans-unit id="4dd9f90b-e69e-42dd-9442-c94ae4d50830" xml:space="preserve">
+          <source>Hover over the
+exclamation marks to get a hint about the error.</source>
+          <target state="new">Hover over the
+exclamation marks to get a hint about the error.</target>
+        </trans-unit>
+        <trans-unit id="704b5211-29a7-4222-8188-81bc875a7e81" xml:space="preserve">
+          <source>Save the workflow to
+clear errors.</source>
+          <target state="new">Save the workflow to
+clear errors.</target>
+        </trans-unit>
+        <trans-unit id="90b1a04b-2356-4fef-b338-0e9a18f18cf3" xml:space="preserve">
+          <source>The final result of the publish workflow activities will look like
+this in the designer:</source>
+          <target state="new">The final result of the publish workflow activities will look like
+this in the designer:</target>
+        </trans-unit>
+        <trans-unit id="fc5672e2-caa6-4459-b978-ac49c11065ea" xml:space="preserve">
+          <source><bpt id="cc6e5bb9-3b7c-4744-a209-086af73ec072">&lt;linkText&gt;</bpt><ept id="cc6e5bb9-3b7c-4744-a209-086af73ec072">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cc6e5bb9-3b7c-4744-a209-086af73ec072">&lt;linkText&gt;</bpt><ept id="cc6e5bb9-3b7c-4744-a209-086af73ec072">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca9bbb42-8297-43c3-b620-9d9bce849b40" xml:space="preserve">
+          <source>The final result of the publish workflow activities will look like
+this in XAML:</source>
+          <target state="new">The final result of the publish workflow activities will look like
+this in XAML:</target>
+        </trans-unit>
+        <trans-unit id="1fb8c9ec-3587-426f-91c3-83b8e1c73b10" xml:space="preserve">
+          <source>Save the build process template workflow and Check In this file.</source>
+          <target state="new">Save the build process template workflow and Check In this file.</target>
+        </trans-unit>
+        <trans-unit id="c5126e8b-48c6-4c07-921e-67fc1151dc15" xml:space="preserve">
+          <source>Edit the build definition (close it if it is already open), and select
+the <bpt id="d38197e5-7d90-4615-bc3c-64c1b1eaff82">&lt;strong&gt;</bpt>New<ept id="d38197e5-7d90-4615-bc3c-64c1b1eaff82">&lt;/strong&gt;</ept> button if you do not yet see the new template in the list of Process Templates.</source>
+          <target state="new">Edit the build definition (close it if it is already open), and select
+the <bpt id="d38197e5-7d90-4615-bc3c-64c1b1eaff82">&lt;strong&gt;</bpt>New<ept id="d38197e5-7d90-4615-bc3c-64c1b1eaff82">&lt;/strong&gt;</ept> button if you do not yet see the new template in the list of Process Templates.</target>
+        </trans-unit>
+        <trans-unit id="e560ef88-a466-4432-8b13-a537847c2ceb" xml:space="preserve">
+          <source>Set the parameter property values in the Misc section as follows:</source>
+          <target state="new">Set the parameter property values in the Misc section as follows:</target>
+        </trans-unit>
+        <trans-unit id="749f2300-d092-44ed-b930-9457255af1c2" xml:space="preserve">
+          <source>CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'
+<bpt id="41fff291-bd23-470f-a7be-73bf94977495">&lt;em&gt;</bpt>This value is derived from:
+($PublishDir)ServiceConfiguration.Cloud.cscfg<ept id="41fff291-bd23-470f-a7be-73bf94977495">&lt;/em&gt;</ept></source>
+          <target state="new">CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg'
+<bpt id="41fff291-bd23-470f-a7be-73bf94977495">&lt;em&gt;</bpt>This value is derived from:
+($PublishDir)ServiceConfiguration.Cloud.cscfg<ept id="41fff291-bd23-470f-a7be-73bf94977495">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfd1f939-4045-47ed-875c-c0989b4b4c69" xml:space="preserve">
+          <source>PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'
+<bpt id="24ceccd0-b9ff-4c9d-85e5-0d55da8b35ec">&lt;em&gt;</bpt>This value is derived from: ($PublishDir)($ProjectName).cspkg<ept id="24ceccd0-b9ff-4c9d-85e5-0d55da8b35ec">&lt;/em&gt;</ept></source>
+          <target state="new">PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg'
+<bpt id="24ceccd0-b9ff-4c9d-85e5-0d55da8b35ec">&lt;em&gt;</bpt>This value is derived from: ($PublishDir)($ProjectName).cspkg<ept id="24ceccd0-b9ff-4c9d-85e5-0d55da8b35ec">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cb2ddc8-ead4-47c8-9612-baeff97cccb6" xml:space="preserve">
+          <source>PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'</source>
+          <target state="new">PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'</target>
+        </trans-unit>
+        <trans-unit id="d23b4b03-7661-4cde-819e-57c376eb4d43" xml:space="preserve">
+          <source>ServiceName = 'mycloudservicename'
+<bpt id="cebccfcb-50e2-472a-b4b9-28f6844e436f">&lt;em&gt;</bpt>Use the appropriate cloud service name here<ept id="cebccfcb-50e2-472a-b4b9-28f6844e436f">&lt;/em&gt;</ept></source>
+          <target state="new">ServiceName = 'mycloudservicename'
+<bpt id="cebccfcb-50e2-472a-b4b9-28f6844e436f">&lt;em&gt;</bpt>Use the appropriate cloud service name here<ept id="cebccfcb-50e2-472a-b4b9-28f6844e436f">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="900c45ab-d0ef-4ced-8419-5d4007510ef9" xml:space="preserve">
+          <source>Environment = 'Staging'</source>
+          <target state="new">Environment = 'Staging'</target>
+        </trans-unit>
+        <trans-unit id="4fa5b0d5-d8cf-41b7-97f8-51f47f68a6df" xml:space="preserve">
+          <source>StorageAccountName = 'mystorageaccountname'
+<bpt id="ca6ec924-5f53-4d49-b3d6-28b4175fed82">&lt;em&gt;</bpt>Use the appropriate storage account name here<ept id="ca6ec924-5f53-4d49-b3d6-28b4175fed82">&lt;/em&gt;</ept></source>
+          <target state="new">StorageAccountName = 'mystorageaccountname'
+<bpt id="ca6ec924-5f53-4d49-b3d6-28b4175fed82">&lt;em&gt;</bpt>Use the appropriate storage account name here<ept id="ca6ec924-5f53-4d49-b3d6-28b4175fed82">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be5cb758-1d12-4d66-99c7-c882da944d89" xml:space="preserve">
+          <source>SubscriptionDataFileLocation =
+'c:\\scripts\\WindowsAzure\\Subscription.xml'</source>
+          <target state="new">SubscriptionDataFileLocation =
+'c:\\scripts\\WindowsAzure\\Subscription.xml'</target>
+        </trans-unit>
+        <trans-unit id="466759b8-dfb3-4b0a-84e8-cd5371245a33" xml:space="preserve">
+          <source>SubscriptionName = 'default'</source>
+          <target state="new">SubscriptionName = 'default'</target>
+        </trans-unit>
+        <trans-unit id="6e7e0a3e-6316-4bf7-832b-51ed07228eb9" xml:space="preserve">
+          <source><bpt id="d14e3513-6016-429e-8e14-3f191a6a0a11">&lt;linkText&gt;</bpt><ept id="d14e3513-6016-429e-8e14-3f191a6a0a11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d14e3513-6016-429e-8e14-3f191a6a0a11">&lt;linkText&gt;</bpt><ept id="d14e3513-6016-429e-8e14-3f191a6a0a11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab8cf3fa-cd77-47f4-9791-72f5653f1985" xml:space="preserve">
+          <source>Save the changes to the Build Definition.</source>
+          <target state="new">Save the changes to the Build Definition.</target>
+        </trans-unit>
+        <trans-unit id="6c3c32a7-6ace-4cdd-9471-9ac2fa0eeed4" xml:space="preserve">
+          <source>Queue a Build to execute both the package build and publish.</source>
+          <target state="new">Queue a Build to execute both the package build and publish.</target>
+        </trans-unit>
+        <trans-unit id="8f63ce89-ef60-4232-afd2-63ec03ff2d3d" xml:space="preserve">
+          <source>If you
+have a trigger set to Continuous Integration, you will execute this
+behavior on every check-in.</source>
+          <target state="new">If you
+have a trigger set to Continuous Integration, you will execute this
+behavior on every check-in.</target>
+        </trans-unit>
+        <trans-unit id="77ec1114-1836-4bdd-83a6-fa3ed7b6898f" xml:space="preserve">
+          <source>To enable remote debugging when using continuous delivery, see <bpt id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;linkText&gt;</bpt>Enable remote debugging when using continuous delivery to publish to Azure<ept id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;/linkText&gt;</ept><bpt id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;title&gt;</bpt><ept id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">To enable remote debugging when using continuous delivery, see <bpt id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;linkText&gt;</bpt>Enable remote debugging when using continuous delivery to publish to Azure<ept id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;/linkText&gt;</ept><bpt id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;title&gt;</bpt><ept id="9db7f6fc-7ee4-42a8-87a6-fe2c5cdff3ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25671c21-c1af-41ef-8dad-04deecfd6a5e" xml:space="preserve">
+          <source>cloud-services-continuous-delivery-use-vso.md</source>
+          <target state="new">cloud-services-continuous-delivery-use-vso.md</target>
+        </trans-unit>
+        <trans-unit id="d220655f-eed1-4422-ab89-efbad7c22d2d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=239963</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=239963</target>
+        </trans-unit>
+        <trans-unit id="771406eb-a50e-48ff-b422-cb398d60bc7d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=239538</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=239538</target>
+        </trans-unit>
+        <trans-unit id="9c0cd3e6-c1bc-4626-9125-adb33d21ee09" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=245484</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=245484</target>
+        </trans-unit>
+        <trans-unit id="fd457d15-ccf5-4465-8d56-2726338058d3" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=521668</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=521668</target>
+        </trans-unit>
+        <trans-unit id="6989e149-45c4-48f9-af64-9a157814d432" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=238798</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=238798</target>
+        </trans-unit>
+        <trans-unit id="40155ee6-910d-4596-b8a4-532ccaedba4d" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=238799</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=238799</target>
+        </trans-unit>
+        <trans-unit id="438fdf0e-b125-4b73-b860-fa529a28ac7f" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/tfs-01.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/tfs-01.png</target>
+        </trans-unit>
+        <trans-unit id="e35cec16-c3a2-4019-8cdc-b32d10ca6c9c" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/tfs-02.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/tfs-02.png</target>
+        </trans-unit>
+        <trans-unit id="7a84cd30-41c3-470b-845a-a4464b484029" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=256262</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=256262</target>
+        </trans-unit>
+        <trans-unit id="1ef39045-e2dc-43ba-884b-3b2ea742700d" xml:space="preserve">
+          <source>https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0</source>
+          <target state="new">https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0</target>
+        </trans-unit>
+        <trans-unit id="743343f2-cdc6-4df1-a77a-cbeae5ebe98c" xml:space="preserve">
+          <source>#script</source>
+          <target state="new">#script</target>
+        </trans-unit>
+        <trans-unit id="547fe085-06c5-4e2a-b49b-a51407581e79" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png</target>
+        </trans-unit>
+        <trans-unit id="f115adfd-75f8-4fdc-a82a-498238339bcd" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png</target>
+        </trans-unit>
+        <trans-unit id="588ab602-3d42-460a-93ae-843a1947403d" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png</target>
+        </trans-unit>
+        <trans-unit id="bb88b106-bbb6-4892-a8b7-7ae9dbbdfb33" xml:space="preserve">
+          <source>./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png</source>
+          <target state="new">./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png</target>
+        </trans-unit>
+      </group>
+      <group id="be46954e-2f05-48dc-a4ac-90399b40b180" />
+    </body>
+  </file>
+</xliff>

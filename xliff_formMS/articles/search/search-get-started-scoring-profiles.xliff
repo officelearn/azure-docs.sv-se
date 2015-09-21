@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4086b5e7-45a1-430b-a584-43ae2f94c1a6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4086b5e7-45a1-430b-a584-43ae2f94c1a6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b642d0db-6d85-411d-9306-96c40512abb1">
+        <trans-unit id="4ab8f359-37e5-4c3c-b78a-599806b4b8b8" xml:space="preserve">
+          <source>How to use scoring profiles in Azure Search</source>
+          <target state="new">How to use scoring profiles in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="5f6be552-2a7c-4542-8cc6-adfc0405dd44" xml:space="preserve">
+          <source>Get started with scoring profiles in Azure Search</source>
+          <target state="new">Get started with scoring profiles in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="552703b5-44ee-48df-bc7e-ee5cccba9c88" xml:space="preserve">
+          <source>Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list.</source>
+          <target state="new">Scoring profiles are a feature of Microsoft Azure Search that customize the calculation of search scores, influencing how items are ranked in a search results list.</target>
+        </trans-unit>
+        <trans-unit id="96f739e3-9a27-4814-9e0a-1d74d9906c64" xml:space="preserve">
+          <source>You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria.</source>
+          <target state="new">You can think of scoring profiles as a way to model relevance, by boosting items that meet predefined criteria.</target>
+        </trans-unit>
+        <trans-unit id="be5737f8-8b35-489d-b881-8f0fdd036047" xml:space="preserve">
+          <source>For example, suppose your application is an online hotel reservation site.</source>
+          <target state="new">For example, suppose your application is an online hotel reservation site.</target>
+        </trans-unit>
+        <trans-unit id="db4fee07-64e0-4d6f-bdbc-b029fe6db861" xml:space="preserve">
+          <source>By boosting the <bpt id="a0ac5dc5-a2f6-4b4b-93c7-8781d2b785f3">&lt;code&gt;</bpt>location<ept id="a0ac5dc5-a2f6-4b4b-93c7-8781d2b785f3">&lt;/code&gt;</ept> field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the <bpt id="d0eb1157-3b45-4a54-bcbd-c3c1cf4577cb">&lt;code&gt;</bpt>location<ept id="d0eb1157-3b45-4a54-bcbd-c3c1cf4577cb">&lt;/code&gt;</ept> field.</source>
+          <target state="new">By boosting the <bpt id="a0ac5dc5-a2f6-4b4b-93c7-8781d2b785f3">&lt;code&gt;</bpt>location<ept id="a0ac5dc5-a2f6-4b4b-93c7-8781d2b785f3">&lt;/code&gt;</ept> field, searches that include a term like Seattle will result in higher scores for items that have Seattle in the <bpt id="d0eb1157-3b45-4a54-bcbd-c3c1cf4577cb">&lt;code&gt;</bpt>location<ept id="d0eb1157-3b45-4a54-bcbd-c3c1cf4577cb">&lt;/code&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="665b78a8-de06-471d-ad6b-2324ed98b638" xml:space="preserve">
+          <source>Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.</source>
+          <target state="new">Note that you can have more than one scoring profile, or none at all, if the default scoring is sufficient for your application.</target>
+        </trans-unit>
+        <trans-unit id="ffc6376d-43fc-4275-b126-960ebbc6b47b" xml:space="preserve">
+          <source>To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results.</source>
+          <target state="new">To help you experiment with scoring profiles, you can download a sample application that uses scoring profiles to change the rank order of search results.</target>
+        </trans-unit>
+        <trans-unit id="76c720b1-c64d-4188-9621-72df40d1c6d9" xml:space="preserve">
+          <source>The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool.</source>
+          <target state="new">The sample is a console application – perhaps not very realistic for real-world application development – but useful nonetheless as  a learning tool.</target>
+        </trans-unit>
+        <trans-unit id="fb754f6d-3ec6-418c-a6d8-1e1b9576717d" xml:space="preserve">
+          <source>The sample application demonstrates scoring behaviors using fictional data, called the <bpt id="d14de655-cc18-479f-8ca0-74500a323ed3">&lt;code&gt;</bpt>musicstoreindex<ept id="d14de655-cc18-479f-8ca0-74500a323ed3">&lt;/code&gt;</ept>.</source>
+          <target state="new">The sample application demonstrates scoring behaviors using fictional data, called the <bpt id="d14de655-cc18-479f-8ca0-74500a323ed3">&lt;code&gt;</bpt>musicstoreindex<ept id="d14de655-cc18-479f-8ca0-74500a323ed3">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70466089-e0ae-404e-876c-a274c5d3de25" xml:space="preserve">
+          <source>The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.</source>
+          <target state="new">The simplicity of the sample app makes it easy to modify scoring profiles and queries, and then see the immediate effects on rank order when the program is executed.</target>
+        </trans-unit>
+        <trans-unit id="a7233289-f491-45a9-8c40-85a13b7893e4" xml:space="preserve">
+          <source><bpt id="ebead792-990a-411a-9fb5-0ef7c2e810db">&lt;bookmark&gt;</bpt><ept id="ebead792-990a-411a-9fb5-0ef7c2e810db">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="ebead792-990a-411a-9fb5-0ef7c2e810db">&lt;bookmark&gt;</bpt><ept id="ebead792-990a-411a-9fb5-0ef7c2e810db">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b461329-27dc-4b17-b816-269eeaac0ab8" xml:space="preserve">
+          <source>The sample application is written in C# using Visual Studio 2013.</source>
+          <target state="new">The sample application is written in C# using Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="34e50501-617e-40b5-8a6a-0739b6b655cc" xml:space="preserve">
+          <source>Try the free <bpt id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;linkText&gt;</bpt>Visual Studio 2013 Express edition<ept id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;/linkText&gt;</ept><bpt id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;title&gt;</bpt><ept id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;/title&gt;</ept> if you don't already have a copy of Visual Studio.</source>
+          <target state="new">Try the free <bpt id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;linkText&gt;</bpt>Visual Studio 2013 Express edition<ept id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;/linkText&gt;</ept><bpt id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;title&gt;</bpt><ept id="984e4d47-3671-41fd-8145-c65c8e7c7a2a">&lt;/title&gt;</ept> if you don't already have a copy of Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="51f2525c-01ad-40f7-8601-a80fc00fa8bb" xml:space="preserve">
+          <source>You will need an Azure subscription and an Azure Search service to complete the tutorial.</source>
+          <target state="new">You will need an Azure subscription and an Azure Search service to complete the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="b15ef9b2-0f19-45bb-8456-1197ffa2b9c8" xml:space="preserve">
+          <source>See <bpt id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;/linkText&gt;</ept><bpt id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;title&gt;</bpt><ept id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;/title&gt;</ept> for help with setting up the service.</source>
+          <target state="new">See <bpt id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;linkText&gt;</bpt>Create a Search service in the portal<ept id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;/linkText&gt;</ept><bpt id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;title&gt;</bpt><ept id="81b5008a-e68f-4f0e-b4a4-85caff7c91ba">&lt;/title&gt;</ept> for help with setting up the service.</target>
+        </trans-unit>
+        <trans-unit id="a11244ca-115d-4dbe-bc85-23e49922c690" xml:space="preserve">
+          <source><bpt id="345086a7-99e7-420d-a438-a2efa19bf9b9">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="345086a7-99e7-420d-a438-a2efa19bf9b9">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="345086a7-99e7-420d-a438-a2efa19bf9b9">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="345086a7-99e7-420d-a438-a2efa19bf9b9">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="70320184-ecab-4341-98eb-427ed55c0ec6" xml:space="preserve">
+          <source><bpt id="5afe616a-e476-4ad0-8ae2-dd4d44d55148">&lt;bookmark&gt;</bpt><ept id="5afe616a-e476-4ad0-8ae2-dd4d44d55148">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="5afe616a-e476-4ad0-8ae2-dd4d44d55148">&lt;bookmark&gt;</bpt><ept id="5afe616a-e476-4ad0-8ae2-dd4d44d55148">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6ca9b65-7384-47e0-87f9-2e2e5debfa43" xml:space="preserve">
+          <source>Go to <bpt id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;linkText&gt;</bpt>Azure Search Scoring Profiles Demo<ept id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;/linkText&gt;</ept><bpt id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;title&gt;</bpt><ept id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;/title&gt;</ept> on codeplex to download the sample application described in this tutorial.</source>
+          <target state="new">Go to <bpt id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;linkText&gt;</bpt>Azure Search Scoring Profiles Demo<ept id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;/linkText&gt;</ept><bpt id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;title&gt;</bpt><ept id="56b934fa-0268-462e-9a96-8adf6922d679">&lt;/title&gt;</ept> on codeplex to download the sample application described in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a399ca7c-6642-48ae-80ac-2155e0805fd2" xml:space="preserve">
+          <source>On the Source Code tab, click <bpt id="529863ff-e397-4e46-93f9-6413377dfd2a">&lt;strong&gt;</bpt>Download<ept id="529863ff-e397-4e46-93f9-6413377dfd2a">&lt;/strong&gt;</ept> to get a zip file of the solution.</source>
+          <target state="new">On the Source Code tab, click <bpt id="529863ff-e397-4e46-93f9-6413377dfd2a">&lt;strong&gt;</bpt>Download<ept id="529863ff-e397-4e46-93f9-6413377dfd2a">&lt;/strong&gt;</ept> to get a zip file of the solution.</target>
+        </trans-unit>
+        <trans-unit id="122fdc78-5168-4734-be74-990671fa3390" xml:space="preserve">
+          <source> <bpt id="70aaa267-9fa6-4245-9e28-3d77aa298fea">&lt;linkText&gt;</bpt><ept id="70aaa267-9fa6-4245-9e28-3d77aa298fea">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="70aaa267-9fa6-4245-9e28-3d77aa298fea">&lt;linkText&gt;</bpt><ept id="70aaa267-9fa6-4245-9e28-3d77aa298fea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47828b66-eeb5-4cc3-aa12-a67bc993cdff" xml:space="preserve">
+          <source><bpt id="c4974a91-ee9b-4fb8-a32b-30385f35c057">&lt;bookmark&gt;</bpt><ept id="c4974a91-ee9b-4fb8-a32b-30385f35c057">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="c4974a91-ee9b-4fb8-a32b-30385f35c057">&lt;bookmark&gt;</bpt><ept id="c4974a91-ee9b-4fb8-a32b-30385f35c057">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27161d62-0aaa-4b9b-b624-68a82f1d5fec" xml:space="preserve">
+          <source>After you extract the files, open the solution in Visual Studio to edit the configuration file.</source>
+          <target state="new">After you extract the files, open the solution in Visual Studio to edit the configuration file.</target>
+        </trans-unit>
+        <trans-unit id="2edae510-1b68-49a4-b79b-83a061cbf6c0" xml:space="preserve">
+          <source>In Solution Explorer, double-click <bpt id="2ca87f5e-f426-430d-978d-ba861062809e">&lt;strong&gt;</bpt>app.config<ept id="2ca87f5e-f426-430d-978d-ba861062809e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, double-click <bpt id="2ca87f5e-f426-430d-978d-ba861062809e">&lt;strong&gt;</bpt>app.config<ept id="2ca87f5e-f426-430d-978d-ba861062809e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02027e78-0e17-48b6-9248-f57f109239e1" xml:space="preserve">
+          <source>This file specifies the service endpoint and an <bpt id="f53d3e1a-1b77-44fa-b3e3-23340fd7d106">&lt;code&gt;</bpt>api-key<ept id="f53d3e1a-1b77-44fa-b3e3-23340fd7d106">&lt;/code&gt;</ept> used to authenticate the request.</source>
+          <target state="new">This file specifies the service endpoint and an <bpt id="f53d3e1a-1b77-44fa-b3e3-23340fd7d106">&lt;code&gt;</bpt>api-key<ept id="f53d3e1a-1b77-44fa-b3e3-23340fd7d106">&lt;/code&gt;</ept> used to authenticate the request.</target>
+        </trans-unit>
+        <trans-unit id="7803f039-2ab4-40d8-a646-270e8769bdcb" xml:space="preserve">
+          <source>You can obtain these values from the management portal.</source>
+          <target state="new">You can obtain these values from the management portal.</target>
+        </trans-unit>
+        <trans-unit id="2670a298-038a-4224-b067-cc7ed9777720" xml:space="preserve">
+          <source>Sign in to the <bpt id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;linkText&gt;</bpt>Azure Portal<ept id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;/linkText&gt;</ept><bpt id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;title&gt;</bpt><ept id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;linkText&gt;</bpt>Azure Portal<ept id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;/linkText&gt;</ept><bpt id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;title&gt;</bpt><ept id="617b468a-d19e-487e-86fd-fecaf60254b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b674b9e-7773-4e52-8b8c-e6f3ac4faf50" xml:space="preserve">
+          <source>Go to the service dashboard for Azure Search.</source>
+          <target state="new">Go to the service dashboard for Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="f7ceb1e7-d01f-460c-92b4-9db71818eef8" xml:space="preserve">
+          <source>Click the <bpt id="b2719b10-5779-417e-b27d-aefbea76925e">&lt;strong&gt;</bpt>Properties<ept id="b2719b10-5779-417e-b27d-aefbea76925e">&lt;/strong&gt;</ept> tile to copy the service URL</source>
+          <target state="new">Click the <bpt id="b2719b10-5779-417e-b27d-aefbea76925e">&lt;strong&gt;</bpt>Properties<ept id="b2719b10-5779-417e-b27d-aefbea76925e">&lt;/strong&gt;</ept> tile to copy the service URL</target>
+        </trans-unit>
+        <trans-unit id="ac96f6df-fde8-45f3-b182-3554ed3b3a17" xml:space="preserve">
+          <source>Click the <bpt id="fcae859f-338f-4e2a-9773-0a8253666373">&lt;strong&gt;</bpt>Keys<ept id="fcae859f-338f-4e2a-9773-0a8253666373">&lt;/strong&gt;</ept> tile to copy the <bpt id="b5fbcce7-798b-434f-b29d-b8b62abe9dea">&lt;code&gt;</bpt>api-key<ept id="b5fbcce7-798b-434f-b29d-b8b62abe9dea">&lt;/code&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="fcae859f-338f-4e2a-9773-0a8253666373">&lt;strong&gt;</bpt>Keys<ept id="fcae859f-338f-4e2a-9773-0a8253666373">&lt;/strong&gt;</ept> tile to copy the <bpt id="b5fbcce7-798b-434f-b29d-b8b62abe9dea">&lt;code&gt;</bpt>api-key<ept id="b5fbcce7-798b-434f-b29d-b8b62abe9dea">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9042c6a4-99dd-491c-a9bd-b171d0698349" xml:space="preserve">
+          <source>When you are finished adding the URL and <bpt id="a2f171c1-70cc-49a8-b5a7-186dcac4c3f6">&lt;code&gt;</bpt>api-key<ept id="a2f171c1-70cc-49a8-b5a7-186dcac4c3f6">&lt;/code&gt;</ept> to app.config, application settings should look like this:</source>
+          <target state="new">When you are finished adding the URL and <bpt id="a2f171c1-70cc-49a8-b5a7-186dcac4c3f6">&lt;code&gt;</bpt>api-key<ept id="a2f171c1-70cc-49a8-b5a7-186dcac4c3f6">&lt;/code&gt;</ept> to app.config, application settings should look like this:</target>
+        </trans-unit>
+        <trans-unit id="899e52d2-8741-4583-92c9-51f5d9889f48" xml:space="preserve">
+          <source>   <bpt id="6cbbd8c5-4990-44d1-b736-41e3aded1e39">&lt;linkText&gt;</bpt><ept id="6cbbd8c5-4990-44d1-b736-41e3aded1e39">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="6cbbd8c5-4990-44d1-b736-41e3aded1e39">&lt;linkText&gt;</bpt><ept id="6cbbd8c5-4990-44d1-b736-41e3aded1e39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35b98157-cedf-4754-99be-559a235f966f" xml:space="preserve">
+          <source><bpt id="bd80def0-9604-419d-ad9a-2d5a635a8c0f">&lt;bookmark&gt;</bpt><ept id="bd80def0-9604-419d-ad9a-2d5a635a8c0f">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="bd80def0-9604-419d-ad9a-2d5a635a8c0f">&lt;bookmark&gt;</bpt><ept id="bd80def0-9604-419d-ad9a-2d5a635a8c0f">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e29c0e5-124d-445a-b717-ba7dfe87f0f8" xml:space="preserve">
+          <source>You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.</source>
+          <target state="new">You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.</target>
+        </trans-unit>
+        <trans-unit id="478978ed-29f7-40a2-80e5-d1878f790c5d" xml:space="preserve">
+          <source><bpt id="63b361a5-4e20-4631-aea3-45056e136346">&lt;strong&gt;</bpt>Schema.json<ept id="63b361a5-4e20-4631-aea3-45056e136346">&lt;/strong&gt;</ept> defines the index, including the scoring profiles that are emphasized in this demo.</source>
+          <target state="new"><bpt id="63b361a5-4e20-4631-aea3-45056e136346">&lt;strong&gt;</bpt>Schema.json<ept id="63b361a5-4e20-4631-aea3-45056e136346">&lt;/strong&gt;</ept> defines the index, including the scoring profiles that are emphasized in this demo.</target>
+        </trans-unit>
+        <trans-unit id="5e956a66-2f7c-4808-a203-ea56aed78f26" xml:space="preserve">
+          <source>Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as <bpt id="a57fcc87-43fa-47df-b459-b983d170596a">&lt;code&gt;</bpt>margin<ept id="a57fcc87-43fa-47df-b459-b983d170596a">&lt;/code&gt;</ept>, that you can use in a scoring profile.</source>
+          <target state="new">Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as <bpt id="a57fcc87-43fa-47df-b459-b983d170596a">&lt;code&gt;</bpt>margin<ept id="a57fcc87-43fa-47df-b459-b983d170596a">&lt;/code&gt;</ept>, that you can use in a scoring profile.</target>
+        </trans-unit>
+        <trans-unit id="3f5de99e-415e-44be-ba18-8dff6fc2fb0d" xml:space="preserve">
+          <source>Scoring profile syntax is documented in <bpt id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;linkText&gt;</bpt>Add a scoring profile to an Azure Search index<ept id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;/linkText&gt;</ept><bpt id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;title&gt;</bpt><ept id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Scoring profile syntax is documented in <bpt id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;linkText&gt;</bpt>Add a scoring profile to an Azure Search index<ept id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;/linkText&gt;</ept><bpt id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;title&gt;</bpt><ept id="03085e9f-62e8-4e38-976b-16091017f4e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94806f0f-315a-4a72-a676-0066667867bb" xml:space="preserve">
+          <source><bpt id="7c84818b-edff-4f19-a531-ec330c5cf3a6">&lt;strong&gt;</bpt>Data1-3.json<ept id="7c84818b-edff-4f19-a531-ec330c5cf3a6">&lt;/strong&gt;</ept> provides the data, 246 albums across a handful of genres.</source>
+          <target state="new"><bpt id="7c84818b-edff-4f19-a531-ec330c5cf3a6">&lt;strong&gt;</bpt>Data1-3.json<ept id="7c84818b-edff-4f19-a531-ec330c5cf3a6">&lt;/strong&gt;</ept> provides the data, 246 albums across a handful of genres.</target>
+        </trans-unit>
+        <trans-unit id="4a23dbf0-8b5e-49d2-ab7f-f53326e05ee2" xml:space="preserve">
+          <source>The data is a combination of actual album and artist information, with fictional fields like <bpt id="8bbd21bc-9608-4686-82eb-1f8776a141e1">&lt;code&gt;</bpt>price<ept id="8bbd21bc-9608-4686-82eb-1f8776a141e1">&lt;/code&gt;</ept> and <bpt id="a0cfae44-d0de-40b4-83b8-d3c40d5edd4a">&lt;code&gt;</bpt>margin<ept id="a0cfae44-d0de-40b4-83b8-d3c40d5edd4a">&lt;/code&gt;</ept> used to illustrate search operations.</source>
+          <target state="new">The data is a combination of actual album and artist information, with fictional fields like <bpt id="8bbd21bc-9608-4686-82eb-1f8776a141e1">&lt;code&gt;</bpt>price<ept id="8bbd21bc-9608-4686-82eb-1f8776a141e1">&lt;/code&gt;</ept> and <bpt id="a0cfae44-d0de-40b4-83b8-d3c40d5edd4a">&lt;code&gt;</bpt>margin<ept id="a0cfae44-d0de-40b4-83b8-d3c40d5edd4a">&lt;/code&gt;</ept> used to illustrate search operations.</target>
+        </trans-unit>
+        <trans-unit id="4b3f4ff0-b9d7-4b6a-be07-9b33be4f5c7d" xml:space="preserve">
+          <source>The data files conform to the index and are uploaded to your Azure Search service.</source>
+          <target state="new">The data files conform to the index and are uploaded to your Azure Search service.</target>
+        </trans-unit>
+        <trans-unit id="bf4c4ede-0af9-459a-ac7b-5a822c80949f" xml:space="preserve">
+          <source>After the data is uploaded and indexed, you can issue queries against it.</source>
+          <target state="new">After the data is uploaded and indexed, you can issue queries against it.</target>
+        </trans-unit>
+        <trans-unit id="9dad4c97-1bec-4df2-b1d6-6198b3ff56a9" xml:space="preserve">
+          <source><bpt id="e2b62ea2-39b0-493e-a325-1d7dc45b6fd7">&lt;strong&gt;</bpt>Program.cs<ept id="e2b62ea2-39b0-493e-a325-1d7dc45b6fd7">&lt;/strong&gt;</ept> performs the following operations:</source>
+          <target state="new"><bpt id="e2b62ea2-39b0-493e-a325-1d7dc45b6fd7">&lt;strong&gt;</bpt>Program.cs<ept id="e2b62ea2-39b0-493e-a325-1d7dc45b6fd7">&lt;/strong&gt;</ept> performs the following operations:</target>
+        </trans-unit>
+        <trans-unit id="a0bec03c-72b6-4c3d-8e7d-d813f3f18236" xml:space="preserve">
+          <source>Opens a console window.</source>
+          <target state="new">Opens a console window.</target>
+        </trans-unit>
+        <trans-unit id="6d4513ff-2aab-4df5-8de4-0834f96a8ac2" xml:space="preserve">
+          <source>Connects to Azure Search using the service URL and <bpt id="b49352b3-7947-4211-b130-8bf0f3b86f91">&lt;code&gt;</bpt>api-key<ept id="b49352b3-7947-4211-b130-8bf0f3b86f91">&lt;/code&gt;</ept>.</source>
+          <target state="new">Connects to Azure Search using the service URL and <bpt id="b49352b3-7947-4211-b130-8bf0f3b86f91">&lt;code&gt;</bpt>api-key<ept id="b49352b3-7947-4211-b130-8bf0f3b86f91">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfb634f0-ac84-4b83-87e5-c2c58390de6d" xml:space="preserve">
+          <source>Deletes the <bpt id="6affc365-15b4-45b1-941f-8ef826642276">&lt;code&gt;</bpt>musicstoreindex<ept id="6affc365-15b4-45b1-941f-8ef826642276">&lt;/code&gt;</ept> if it exists.</source>
+          <target state="new">Deletes the <bpt id="6affc365-15b4-45b1-941f-8ef826642276">&lt;code&gt;</bpt>musicstoreindex<ept id="6affc365-15b4-45b1-941f-8ef826642276">&lt;/code&gt;</ept> if it exists.</target>
+        </trans-unit>
+        <trans-unit id="620838be-cac7-43fb-8dcf-231ec8bd9814" xml:space="preserve">
+          <source>Creates a new <bpt id="1419284b-472e-4f5c-a782-5feb802c21ff">&lt;code&gt;</bpt>musicstoreindex<ept id="1419284b-472e-4f5c-a782-5feb802c21ff">&lt;/code&gt;</ept> using the schema.json file.</source>
+          <target state="new">Creates a new <bpt id="1419284b-472e-4f5c-a782-5feb802c21ff">&lt;code&gt;</bpt>musicstoreindex<ept id="1419284b-472e-4f5c-a782-5feb802c21ff">&lt;/code&gt;</ept> using the schema.json file.</target>
+        </trans-unit>
+        <trans-unit id="0c6f1b58-a012-45b8-8032-3e76f041e485" xml:space="preserve">
+          <source>Populates the index using the data files.</source>
+          <target state="new">Populates the index using the data files.</target>
+        </trans-unit>
+        <trans-unit id="3a98020c-e85d-4bc2-9eee-c7a4bf4f40cd" xml:space="preserve">
+          <source>Queries the index using four queries.</source>
+          <target state="new">Queries the index using four queries.</target>
+        </trans-unit>
+        <trans-unit id="a43d215b-b129-493f-a5bf-0986a86fea71" xml:space="preserve">
+          <source>Notice that the scoring profiles are specified as a query parameter.</source>
+          <target state="new">Notice that the scoring profiles are specified as a query parameter.</target>
+        </trans-unit>
+        <trans-unit id="37e40fe5-fc40-4ac5-b3eb-b3d2ea9ab29a" xml:space="preserve">
+          <source>All of the queries search for the same term, 'best'.</source>
+          <target state="new">All of the queries search for the same term, 'best'.</target>
+        </trans-unit>
+        <trans-unit id="99decc34-a7c2-4229-bc5a-c6abcba187be" xml:space="preserve">
+          <source>The first query demonstrates default scoring.</source>
+          <target state="new">The first query demonstrates default scoring.</target>
+        </trans-unit>
+        <trans-unit id="fe0955ce-641f-4bca-a308-88489c8ec86c" xml:space="preserve">
+          <source>The remaining three queries use a scoring profile.</source>
+          <target state="new">The remaining three queries use a scoring profile.</target>
+        </trans-unit>
+        <trans-unit id="23b9a842-5b7f-4cbe-8584-bbec73df9916" xml:space="preserve">
+          <source><bpt id="feabde92-61f0-48f1-b09f-e8f248a0948e">&lt;bookmark&gt;</bpt><ept id="feabde92-61f0-48f1-b09f-e8f248a0948e">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="feabde92-61f0-48f1-b09f-e8f248a0948e">&lt;bookmark&gt;</bpt><ept id="feabde92-61f0-48f1-b09f-e8f248a0948e">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07864a47-4083-4b2c-b555-c5c928c17c8e" xml:space="preserve">
+          <source>To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first.</source>
+          <target state="new">To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first.</target>
+        </trans-unit>
+        <trans-unit id="715957e3-1c67-46ea-ba27-99c6a55e876d" xml:space="preserve">
+          <source>You should see a console application open in the background.</source>
+          <target state="new">You should see a console application open in the background.</target>
+        </trans-unit>
+        <trans-unit id="0bf7007e-ab27-4253-8857-68fd1d0ea36b" xml:space="preserve">
+          <source>All four queries execute in sequence without pausing.</source>
+          <target state="new">All four queries execute in sequence without pausing.</target>
+        </trans-unit>
+        <trans-unit id="4938a9ed-4993-4428-978a-46ff17d476d1" xml:space="preserve">
+          <source>On many systems, the entire program executes in under 15 seconds.</source>
+          <target state="new">On many systems, the entire program executes in under 15 seconds.</target>
+        </trans-unit>
+        <trans-unit id="fecff0f6-ef7e-4a0c-836c-79be87b5e7e4" xml:space="preserve">
+          <source>If the console application includes a message stating “Complete.</source>
+          <target state="new">If the console application includes a message stating “Complete.</target>
+        </trans-unit>
+        <trans-unit id="20f2b9f0-f66e-4c20-b18d-972c4971e77e" xml:space="preserve">
+          <source>Press enter to continue”, the program completed successfully.</source>
+          <target state="new">Press enter to continue”, the program completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="d719e84f-609b-4809-a260-f479be758b2d" xml:space="preserve">
+          <source>To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file.</source>
+          <target state="new">To compare query runs, you can mark-copy-paste the query results from the console and paste them into an Excel file.</target>
+        </trans-unit>
+        <trans-unit id="d490734d-8b67-49f7-bb91-3d1783de79f3" xml:space="preserve">
+          <source>The following illustration shows results from the first three queries side-by-side.</source>
+          <target state="new">The following illustration shows results from the first three queries side-by-side.</target>
+        </trans-unit>
+        <trans-unit id="e56c3a07-ad50-414c-bc5e-a6e0facf0fdc" xml:space="preserve">
+          <source>All of the queries use the same search term, 'best', which appears in numerous album titles.</source>
+          <target state="new">All of the queries use the same search term, 'best', which appears in numerous album titles.</target>
+        </trans-unit>
+        <trans-unit id="e22e841e-d515-4c18-bce7-84f4f97f8f21" xml:space="preserve">
+          <source>   <bpt id="4a3869f2-c951-4713-8b65-15209316816b">&lt;linkText&gt;</bpt><ept id="4a3869f2-c951-4713-8b65-15209316816b">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="4a3869f2-c951-4713-8b65-15209316816b">&lt;linkText&gt;</bpt><ept id="4a3869f2-c951-4713-8b65-15209316816b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d666a70b-08ee-4935-aa8e-f7c96108de0a" xml:space="preserve">
+          <source>The first query uses default scoring.</source>
+          <target state="new">The first query uses default scoring.</target>
+        </trans-unit>
+        <trans-unit id="41563c38-b32e-4ed3-b20e-a92aeb499368" xml:space="preserve">
+          <source>Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them.</source>
+          <target state="new">Since the search term appears only in album titles, and no other criteria is specified, items having 'best' in the album title are returned in the order in which the search service finds them.</target>
+        </trans-unit>
+        <trans-unit id="30c227b8-0428-48d7-b17e-2b526ea54bad" xml:space="preserve">
+          <source>The second query uses a scoring profile, but notice that the profile had no effect.</source>
+          <target state="new">The second query uses a scoring profile, but notice that the profile had no effect.</target>
+        </trans-unit>
+        <trans-unit id="ce87a9c4-e2f7-4a42-bc9b-d4abb41ca2e4" xml:space="preserve">
+          <source>The results are identical to those of the first query.</source>
+          <target state="new">The results are identical to those of the first query.</target>
+        </trans-unit>
+        <trans-unit id="47e11928-0c91-48b5-8d6e-fb59899108a1" xml:space="preserve">
+          <source>This is because the scoring profile boosts a field ('genre') that is not germane to the query.</source>
+          <target state="new">This is because the scoring profile boosts a field ('genre') that is not germane to the query.</target>
+        </trans-unit>
+        <trans-unit id="a0734826-7168-4de4-af4c-828514b63c4c" xml:space="preserve">
+          <source>The search term 'best' does not exist in any 'genre' field of any document.</source>
+          <target state="new">The search term 'best' does not exist in any 'genre' field of any document.</target>
+        </trans-unit>
+        <trans-unit id="74b4915d-4d6a-4474-ba6b-9f7a058f8ed8" xml:space="preserve">
+          <source>When a scoring profile has no effect, the results are the same as default scoring.</source>
+          <target state="new">When a scoring profile has no effect, the results are the same as default scoring.</target>
+        </trans-unit>
+        <trans-unit id="89f7e573-1203-41a3-8b2e-796e6ba3806b" xml:space="preserve">
+          <source>The third query is the first evidence of scoring profile impact.</source>
+          <target state="new">The third query is the first evidence of scoring profile impact.</target>
+        </trans-unit>
+        <trans-unit id="0821c398-b582-45cd-997f-a3327c7a24d9" xml:space="preserve">
+          <source>The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.</source>
+          <target state="new">The search term is still 'best' so we are working with the same set of albums, but because the scoring profile provides additional criteria that boosts 'rating' and 'last-updated', some items are propelled higher in the list.</target>
+        </trans-unit>
+        <trans-unit id="e259acd9-6ae2-4588-abf5-6e37a46588e1" xml:space="preserve">
+          <source>The next illustration shows the fourth and final query, boosted by 'margin'.</source>
+          <target state="new">The next illustration shows the fourth and final query, boosted by 'margin'.</target>
+        </trans-unit>
+        <trans-unit id="cc88fc29-13cb-4ebd-9594-818567d96611" xml:space="preserve">
+          <source>The 'margin' field is non-searchable and cannot be returned in search results.</source>
+          <target state="new">The 'margin' field is non-searchable and cannot be returned in search results.</target>
+        </trans-unit>
+        <trans-unit id="7ae3dbfd-6215-468c-9c01-144aa276cda7" xml:space="preserve">
+          <source>The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list.</source>
+          <target state="new">The 'margin' value was manually added to the spreadsheet to help illustrate the point that items with higher margins show up higher in the search results list.</target>
+        </trans-unit>
+        <trans-unit id="d4463be8-39e8-4bfd-b3a4-a6404c2453fd" xml:space="preserve">
+          <source>   <bpt id="05c94c51-e534-47ca-8ced-75d7e293bd40">&lt;linkText&gt;</bpt><ept id="05c94c51-e534-47ca-8ced-75d7e293bd40">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="05c94c51-e534-47ca-8ced-75d7e293bd40">&lt;linkText&gt;</bpt><ept id="05c94c51-e534-47ca-8ced-75d7e293bd40">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66926808-9d44-4c1a-b11d-13565d1b983e" xml:space="preserve">
+          <source>Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data.</source>
+          <target state="new">Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data.</target>
+        </trans-unit>
+        <trans-unit id="aa626ddf-a653-4ac9-9590-e13c4f29ee67" xml:space="preserve">
+          <source>Links in the next section provide more information.</source>
+          <target state="new">Links in the next section provide more information.</target>
+        </trans-unit>
+        <trans-unit id="e545f050-7fc1-4d38-80d6-7228c0b8aebc" xml:space="preserve">
+          <source><bpt id="48847387-753e-4438-813c-2e4846231aa6">&lt;bookmark&gt;</bpt><ept id="48847387-753e-4438-813c-2e4846231aa6">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="48847387-753e-4438-813c-2e4846231aa6">&lt;bookmark&gt;</bpt><ept id="48847387-753e-4438-813c-2e4846231aa6">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb88bdb3-4841-4c64-90b9-8d5f3919a65f" xml:space="preserve">
+          <source>Learn more about scoring profiles.</source>
+          <target state="new">Learn more about scoring profiles.</target>
+        </trans-unit>
+        <trans-unit id="d66eb3ce-234d-461e-a3f2-b07c6ba5786b" xml:space="preserve">
+          <source>See <bpt id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;linkText&gt;</bpt>Add a scoring profile to an Azure Search index<ept id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;/linkText&gt;</ept><bpt id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;title&gt;</bpt><ept id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;linkText&gt;</bpt>Add a scoring profile to an Azure Search index<ept id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;/linkText&gt;</ept><bpt id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;title&gt;</bpt><ept id="1dec62be-c439-42c0-9cd2-9c58170e8d25">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="958084f3-0b0a-4a0f-9b1b-314cce3e4fd3" xml:space="preserve">
+          <source>Learn more about search syntax and query parameters.</source>
+          <target state="new">Learn more about search syntax and query parameters.</target>
+        </trans-unit>
+        <trans-unit id="7f367e61-f728-4c71-8ce3-16875f484448" xml:space="preserve">
+          <source>See <bpt id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;linkText&gt;</bpt>Search Documents (Azure Search REST API)<ept id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;/linkText&gt;</ept><bpt id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;title&gt;</bpt><ept id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;linkText&gt;</bpt>Search Documents (Azure Search REST API)<ept id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;/linkText&gt;</ept><bpt id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;title&gt;</bpt><ept id="b0de95ab-2ffb-4339-b4c5-8703aa931e43">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="5404b781-fb8d-4e7a-98c2-e3dfad11919a" xml:space="preserve">
+          <source>Need to step back and learn more about index creation?</source>
+          <target state="new">Need to step back and learn more about index creation?</target>
+        </trans-unit>
+        <trans-unit id="f5262d2b-cdd2-4f48-a779-7ca6a6530603" xml:space="preserve">
+          <source><bpt id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;linkText&gt;</bpt>Watch this video<ept id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;/linkText&gt;</ept><bpt id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;title&gt;</bpt><ept id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;/title&gt;</ept> to understand the basics.</source>
+          <target state="new"><bpt id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;linkText&gt;</bpt>Watch this video<ept id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;/linkText&gt;</ept><bpt id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;title&gt;</bpt><ept id="8dcf6350-2a46-472e-8796-3df976059fcd">&lt;/title&gt;</ept> to understand the basics.</target>
+        </trans-unit>
+        <trans-unit id="786cd62e-5522-43ef-bf96-5d232c95d00c" xml:space="preserve">
+          <source>#sub-1</source>
+          <target state="new">#sub-1</target>
+        </trans-unit>
+        <trans-unit id="40e8d014-6852-4639-86f0-f0830291017f" xml:space="preserve">
+          <source>#sub-2</source>
+          <target state="new">#sub-2</target>
+        </trans-unit>
+        <trans-unit id="d5a13e0a-303d-4cde-95df-cd0f22ec3ee3" xml:space="preserve">
+          <source>#sub-3</source>
+          <target state="new">#sub-3</target>
+        </trans-unit>
+        <trans-unit id="9508917c-92a3-45bf-bac5-efba52b1a4fd" xml:space="preserve">
+          <source>#sub-4</source>
+          <target state="new">#sub-4</target>
+        </trans-unit>
+        <trans-unit id="79e2cd48-ce3f-4103-b18c-9001a1cbbcf7" xml:space="preserve">
+          <source>#sub-5</source>
+          <target state="new">#sub-5</target>
+        </trans-unit>
+        <trans-unit id="26459833-3add-486d-8bca-73fc014608b2" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="10fb09dc-6629-4d67-b89e-6fef90515344" xml:space="preserve">
+          <source>./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG</source>
+          <target state="new">./media/search-get-started-scoring-profiles/AzureSearch_CodeplexDownload.PNG</target>
+        </trans-unit>
+        <trans-unit id="50d5f03b-0a41-451b-a369-86ae0cec172e" xml:space="preserve">
+          <source>./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG</source>
+          <target state="new">./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG</target>
+        </trans-unit>
+        <trans-unit id="b7967cef-68b4-4714-9156-db686b007e06" xml:space="preserve">
+          <source>./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG</source>
+          <target state="new">./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG</target>
+        </trans-unit>
+        <trans-unit id="b4244360-14f2-4ec5-a32e-97a429cbfa09" xml:space="preserve">
+          <source>./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG</source>
+          <target state="new">./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="7ee459d8-5ac7-436f-87b8-0834e4919c0c" />
+    </body>
+  </file>
+</xliff>

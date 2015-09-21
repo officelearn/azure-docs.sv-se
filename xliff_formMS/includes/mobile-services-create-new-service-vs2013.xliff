@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="11a0c2d1-0e24-43ed-84a1-da86430d0453" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="11a0c2d1-0e24-43ed-84a1-da86430d0453" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2e058985-bdc1-4f6f-a58a-bca46f590a60">
+        <trans-unit id="3f306249-fc65-45b1-9010-27b2d3b0db3d" xml:space="preserve">
+          <source>The following steps create a new mobile service in Azure and add code to your project that connects your app to this new service.</source>
+          <target state="new">The following steps create a new mobile service in Azure and add code to your project that connects your app to this new service.</target>
+        </trans-unit>
+        <trans-unit id="bb569c6b-0f78-48ed-b0f2-1c9b6d733e60" xml:space="preserve">
+          <source>Visual Studio 2013 connects to Azure on your behalf to create the new mobile service by using the credentials that you provide.</source>
+          <target state="new">Visual Studio 2013 connects to Azure on your behalf to create the new mobile service by using the credentials that you provide.</target>
+        </trans-unit>
+        <trans-unit id="5988b1fa-b148-4d7a-91d4-817582c89404" xml:space="preserve">
+          <source>When you create a new mobile service, you must specify an Azure SQL Database that is used by the mobile service to store app data.</source>
+          <target state="new">When you create a new mobile service, you must specify an Azure SQL Database that is used by the mobile service to store app data.</target>
+        </trans-unit>
+        <trans-unit id="1cdc402b-7b1c-4098-ac4b-2f486db36e26" xml:space="preserve">
+          <source>In Visual Studio 2013, open Solution Explorer, right-click the Windows Store app project, click <bpt id="1b7bb097-1797-48f3-ad85-c6cafb5d2bb8">&lt;strong&gt;</bpt>Add<ept id="1b7bb097-1797-48f3-ad85-c6cafb5d2bb8">&lt;/strong&gt;</ept>, and then click <bpt id="5db7ba8d-9f4a-429a-9b56-0ed83523e9f4">&lt;strong&gt;</bpt>Connected Service...<ept id="5db7ba8d-9f4a-429a-9b56-0ed83523e9f4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio 2013, open Solution Explorer, right-click the Windows Store app project, click <bpt id="1b7bb097-1797-48f3-ad85-c6cafb5d2bb8">&lt;strong&gt;</bpt>Add<ept id="1b7bb097-1797-48f3-ad85-c6cafb5d2bb8">&lt;/strong&gt;</ept>, and then click <bpt id="5db7ba8d-9f4a-429a-9b56-0ed83523e9f4">&lt;strong&gt;</bpt>Connected Service...<ept id="5db7ba8d-9f4a-429a-9b56-0ed83523e9f4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6c42346-417b-426c-a758-7ccb9fa67314" xml:space="preserve">
+          <source>In the Services Manager dialog, click <bpt id="b9c24926-ce3c-4eb0-aaac-fd737d37f890">&lt;strong&gt;</bpt>Create service...<ept id="b9c24926-ce3c-4eb0-aaac-fd737d37f890">&lt;/strong&gt;</ept>, then select <bpt id="7e6cd359-a110-4746-9810-4fc957e555c7">&lt;strong&gt;</bpt>&amp;lt;Manage...&amp;gt;<ept id="7e6cd359-a110-4746-9810-4fc957e555c7">&lt;/strong&gt;</ept> from  <bpt id="44212500-d94a-446b-8818-7f67fabaea8a">&lt;strong&gt;</bpt>Subscription<ept id="44212500-d94a-446b-8818-7f67fabaea8a">&lt;/strong&gt;</ept> in the Create Mobile Service dialog.</source>
+          <target state="new">In the Services Manager dialog, click <bpt id="b9c24926-ce3c-4eb0-aaac-fd737d37f890">&lt;strong&gt;</bpt>Create service...<ept id="b9c24926-ce3c-4eb0-aaac-fd737d37f890">&lt;/strong&gt;</ept>, then select <bpt id="7e6cd359-a110-4746-9810-4fc957e555c7">&lt;strong&gt;</bpt>&amp;lt;Manage...&amp;gt;<ept id="7e6cd359-a110-4746-9810-4fc957e555c7">&lt;/strong&gt;</ept> from  <bpt id="44212500-d94a-446b-8818-7f67fabaea8a">&lt;strong&gt;</bpt>Subscription<ept id="44212500-d94a-446b-8818-7f67fabaea8a">&lt;/strong&gt;</ept> in the Create Mobile Service dialog.</target>
+        </trans-unit>
+        <trans-unit id="84489e9e-ad6a-485b-a7d8-9c3bfd017e99" xml:space="preserve">
+          <source><bpt id="a30e377b-c323-44a1-882d-942f0ca5fcac">&lt;linkText&gt;</bpt>create service manage subscriptions<ept id="a30e377b-c323-44a1-882d-942f0ca5fcac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a30e377b-c323-44a1-882d-942f0ca5fcac">&lt;linkText&gt;</bpt>create service manage subscriptions<ept id="a30e377b-c323-44a1-882d-942f0ca5fcac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe269d78-44d6-4c3b-90d4-ce6d8367a75a" xml:space="preserve">
+          <source>In Manage Microsoft Azure Subscriptions, click <bpt id="51939487-fdee-4147-a7f4-cb3e257ad485">&lt;strong&gt;</bpt>Sign In...<ept id="51939487-fdee-4147-a7f4-cb3e257ad485">&lt;/strong&gt;</ept> to sign in to your Azure account (if required), select an available subscription, then click <bpt id="dad86f85-6bb9-4e53-b58d-5c4b5a243687">&lt;strong&gt;</bpt>Close<ept id="dad86f85-6bb9-4e53-b58d-5c4b5a243687">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Manage Microsoft Azure Subscriptions, click <bpt id="51939487-fdee-4147-a7f4-cb3e257ad485">&lt;strong&gt;</bpt>Sign In...<ept id="51939487-fdee-4147-a7f4-cb3e257ad485">&lt;/strong&gt;</ept> to sign in to your Azure account (if required), select an available subscription, then click <bpt id="dad86f85-6bb9-4e53-b58d-5c4b5a243687">&lt;strong&gt;</bpt>Close<ept id="dad86f85-6bb9-4e53-b58d-5c4b5a243687">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48c5e735-53cc-4ea6-a65a-afe07acfa9ed" xml:space="preserve">
+          <source>When your subscription already has one or more existing mobile services, the service names are displayed.</source>
+          <target state="new">When your subscription already has one or more existing mobile services, the service names are displayed.</target>
+        </trans-unit>
+        <trans-unit id="75c1c597-fc9e-4943-8237-d75c714c8578" xml:space="preserve">
+          <source>Back in the <bpt id="6c43c287-3abb-4323-ac18-ffdc0b0dcb2c">&lt;strong&gt;</bpt>Create Mobile Service<ept id="6c43c287-3abb-4323-ac18-ffdc0b0dcb2c">&lt;/strong&gt;</ept> dialog, select your <bpt id="2879b847-6ac9-4d0e-a126-199a3a2a2f7a">&lt;strong&gt;</bpt>Subscription<ept id="2879b847-6ac9-4d0e-a126-199a3a2a2f7a">&lt;/strong&gt;</ept>, the <bpt id="15070618-a99f-4928-bd5d-a706f5d8ccff">&lt;strong&gt;</bpt>JavaScript<ept id="15070618-a99f-4928-bd5d-a706f5d8ccff">&lt;/strong&gt;</ept> backend  in <bpt id="651b621e-170c-4c3a-bab9-abdfa2fdf27d">&lt;strong&gt;</bpt>Runtime<ept id="651b621e-170c-4c3a-bab9-abdfa2fdf27d">&lt;/strong&gt;</ept> and a <bpt id="f55bd4d1-b606-49b8-ad77-e900bffe5698">&lt;strong&gt;</bpt>Region<ept id="f55bd4d1-b606-49b8-ad77-e900bffe5698">&lt;/strong&gt;</ept> for your mobile service, then type a <bpt id="277ee3d7-a959-4bb3-85f3-e3f54748c077">&lt;strong&gt;</bpt>Name<ept id="277ee3d7-a959-4bb3-85f3-e3f54748c077">&lt;/strong&gt;</ept> for your mobile service.</source>
+          <target state="new">Back in the <bpt id="6c43c287-3abb-4323-ac18-ffdc0b0dcb2c">&lt;strong&gt;</bpt>Create Mobile Service<ept id="6c43c287-3abb-4323-ac18-ffdc0b0dcb2c">&lt;/strong&gt;</ept> dialog, select your <bpt id="2879b847-6ac9-4d0e-a126-199a3a2a2f7a">&lt;strong&gt;</bpt>Subscription<ept id="2879b847-6ac9-4d0e-a126-199a3a2a2f7a">&lt;/strong&gt;</ept>, the <bpt id="15070618-a99f-4928-bd5d-a706f5d8ccff">&lt;strong&gt;</bpt>JavaScript<ept id="15070618-a99f-4928-bd5d-a706f5d8ccff">&lt;/strong&gt;</ept> backend  in <bpt id="651b621e-170c-4c3a-bab9-abdfa2fdf27d">&lt;strong&gt;</bpt>Runtime<ept id="651b621e-170c-4c3a-bab9-abdfa2fdf27d">&lt;/strong&gt;</ept> and a <bpt id="f55bd4d1-b606-49b8-ad77-e900bffe5698">&lt;strong&gt;</bpt>Region<ept id="f55bd4d1-b606-49b8-ad77-e900bffe5698">&lt;/strong&gt;</ept> for your mobile service, then type a <bpt id="277ee3d7-a959-4bb3-85f3-e3f54748c077">&lt;strong&gt;</bpt>Name<ept id="277ee3d7-a959-4bb3-85f3-e3f54748c077">&lt;/strong&gt;</ept> for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2ae6a79e-2453-4098-b8da-b8a41591ed58" xml:space="preserve">
+          <source>Mobile service names must be unique.</source>
+          <target state="new">Mobile service names must be unique.</target>
+        </trans-unit>
+        <trans-unit id="1e2e1981-d14b-4cbf-ac77-c017143baeed" xml:space="preserve">
+          <source>A red X is displayed next to <bpt id="e9e4e1a4-6cb5-438b-b41e-c62a6642d788">&lt;strong&gt;</bpt>Name<ept id="e9e4e1a4-6cb5-438b-b41e-c62a6642d788">&lt;/strong&gt;</ept> when the name you supplied is not available.</source>
+          <target state="new">A red X is displayed next to <bpt id="e9e4e1a4-6cb5-438b-b41e-c62a6642d788">&lt;strong&gt;</bpt>Name<ept id="e9e4e1a4-6cb5-438b-b41e-c62a6642d788">&lt;/strong&gt;</ept> when the name you supplied is not available.</target>
+        </trans-unit>
+        <trans-unit id="52ccb6bd-13ea-415e-b232-34291a18b86a" xml:space="preserve">
+          <source>In <bpt id="20220410-e4ab-4efc-b552-a1acddb45f29">&lt;strong&gt;</bpt>Database<ept id="20220410-e4ab-4efc-b552-a1acddb45f29">&lt;/strong&gt;</ept>, select <bpt id="e581a199-79cd-4c6f-a931-dbebf9d9cc8b">&lt;strong&gt;</bpt>&amp;lt;Create a free SQL Database&amp;gt;<ept id="e581a199-79cd-4c6f-a931-dbebf9d9cc8b">&lt;/strong&gt;</ept>, supply the <bpt id="aacdf264-32f3-4072-8804-4ceee4d47d65">&lt;strong&gt;</bpt>Server user name<ept id="aacdf264-32f3-4072-8804-4ceee4d47d65">&lt;/strong&gt;</ept>, <bpt id="d21b7b09-55a6-4cf8-85d6-51bd9803b547">&lt;strong&gt;</bpt>Server password<ept id="d21b7b09-55a6-4cf8-85d6-51bd9803b547">&lt;/strong&gt;</ept>, and <bpt id="f2f73430-d86f-4d80-85d1-dac019e10509">&lt;strong&gt;</bpt>Server password confirmation<ept id="f2f73430-d86f-4d80-85d1-dac019e10509">&lt;/strong&gt;</ept> then click <bpt id="754fc9d1-2103-4d31-89e3-a75878ffecc3">&lt;strong&gt;</bpt>Create<ept id="754fc9d1-2103-4d31-89e3-a75878ffecc3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="20220410-e4ab-4efc-b552-a1acddb45f29">&lt;strong&gt;</bpt>Database<ept id="20220410-e4ab-4efc-b552-a1acddb45f29">&lt;/strong&gt;</ept>, select <bpt id="e581a199-79cd-4c6f-a931-dbebf9d9cc8b">&lt;strong&gt;</bpt>&amp;lt;Create a free SQL Database&amp;gt;<ept id="e581a199-79cd-4c6f-a931-dbebf9d9cc8b">&lt;/strong&gt;</ept>, supply the <bpt id="aacdf264-32f3-4072-8804-4ceee4d47d65">&lt;strong&gt;</bpt>Server user name<ept id="aacdf264-32f3-4072-8804-4ceee4d47d65">&lt;/strong&gt;</ept>, <bpt id="d21b7b09-55a6-4cf8-85d6-51bd9803b547">&lt;strong&gt;</bpt>Server password<ept id="d21b7b09-55a6-4cf8-85d6-51bd9803b547">&lt;/strong&gt;</ept>, and <bpt id="f2f73430-d86f-4d80-85d1-dac019e10509">&lt;strong&gt;</bpt>Server password confirmation<ept id="f2f73430-d86f-4d80-85d1-dac019e10509">&lt;/strong&gt;</ept> then click <bpt id="754fc9d1-2103-4d31-89e3-a75878ffecc3">&lt;strong&gt;</bpt>Create<ept id="754fc9d1-2103-4d31-89e3-a75878ffecc3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce05bc58-0440-4df5-9abe-1f6f8129c0d9" xml:space="preserve">
+          <source><bpt id="f7a7d6f2-735c-42ec-9a45-ab4c452fe22a">&lt;linkText&gt;</bpt>create new mobile service in VS 2013<ept id="f7a7d6f2-735c-42ec-9a45-ab4c452fe22a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f7a7d6f2-735c-42ec-9a45-ab4c452fe22a">&lt;linkText&gt;</bpt>create new mobile service in VS 2013<ept id="f7a7d6f2-735c-42ec-9a45-ab4c452fe22a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9eb2dfb5-a533-4e1d-877f-9d54b9d0b015" xml:space="preserve">
+          <source>As part of this tutorial, you create a new free SQL Database instance and server.</source>
+          <target state="new">As part of this tutorial, you create a new free SQL Database instance and server.</target>
+        </trans-unit>
+        <trans-unit id="4a82814d-7d7b-4ab2-8cca-05a2865db163" xml:space="preserve">
+          <source>You can reuse this new database and administer it as you would any other SQL Database instance.</source>
+          <target state="new">You can reuse this new database and administer it as you would any other SQL Database instance.</target>
+        </trans-unit>
+        <trans-unit id="77be8fdf-33df-41ba-a0b6-d9298356b2c3" xml:space="preserve">
+          <source>You can only have one free database instance.</source>
+          <target state="new">You can only have one free database instance.</target>
+        </trans-unit>
+        <trans-unit id="c4f123cb-cf6c-44d9-9764-1e8328078a7a" xml:space="preserve">
+          <source>If you already have a database in the same region as the new mobile service, you can instead choose the existing database.</source>
+          <target state="new">If you already have a database in the same region as the new mobile service, you can instead choose the existing database.</target>
+        </trans-unit>
+        <trans-unit id="cd18ab79-d689-4574-b70b-fb6d26946b2a" xml:space="preserve">
+          <source>When you choose an existing database, make sure that you supply correct login credentials.</source>
+          <target state="new">When you choose an existing database, make sure that you supply correct login credentials.</target>
+        </trans-unit>
+        <trans-unit id="0c324f28-47d9-4059-9e36-a13e66ef55fa" xml:space="preserve">
+          <source>If you supply incorrect login credentials, the mobile service is created in an unhealthy state.</source>
+          <target state="new">If you supply incorrect login credentials, the mobile service is created in an unhealthy state.</target>
+        </trans-unit>
+        <trans-unit id="bc90a826-40fe-4891-a6e1-b5ffff58f453" xml:space="preserve">
+          <source>After the mobile service is created, select the newly created mobile service from the list in Service Manager and click <bpt id="f7b14ebd-f85b-47ee-ba88-17faf8531b3b">&lt;strong&gt;</bpt>OK<ept id="f7b14ebd-f85b-47ee-ba88-17faf8531b3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the mobile service is created, select the newly created mobile service from the list in Service Manager and click <bpt id="f7b14ebd-f85b-47ee-ba88-17faf8531b3b">&lt;strong&gt;</bpt>OK<ept id="f7b14ebd-f85b-47ee-ba88-17faf8531b3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f430e230-6841-47a1-b8f4-554c0860e6ed" xml:space="preserve">
+          <source>After the wizard completes, the required NuGet packages are installed, a reference to the Mobile Services client library is added to the project, and your project source code is updated.</source>
+          <target state="new">After the wizard completes, the required NuGet packages are installed, a reference to the Mobile Services client library is added to the project, and your project source code is updated.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

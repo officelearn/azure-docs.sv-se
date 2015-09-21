@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="86d2dfb9-787e-44b0-a8af-33a834209bf7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="86d2dfb9-787e-44b0-a8af-33a834209bf7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="244ad514-27ff-4dbb-88b9-3a63a7c130cb">
+        <trans-unit id="30e68163-d771-42b5-bba2-8bb444a150c1" xml:space="preserve">
+          <source>Contains weather data, such as temperature and humidity indices and wind speed, from an area of northeast Portugal, combined with records of forest fires.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; This is a difficult regression task, where the aim is to predict the burned area of forest fires. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;. Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: &lt;a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"&gt;http://www.dsi.uminho.pt/~pcortez/fires.pdf&lt;/a&gt;.</source>
+          <target state="new">Contains weather data, such as temperature and humidity indices and wind speed, from an area of northeast Portugal, combined with records of forest fires.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; This is a difficult regression task, where the aim is to predict the burned area of forest fires. &lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;. Irvine, CA: University of California, School of Information and Computer Science &lt;p&gt; &lt;/p&gt;[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: &lt;a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"&gt;http://www.dsi.uminho.pt/~pcortez/fires.pdf&lt;/a&gt;.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

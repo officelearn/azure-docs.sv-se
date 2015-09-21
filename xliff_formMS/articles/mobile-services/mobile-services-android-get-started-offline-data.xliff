@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e4456e47-9a80-4499-bc38-5f1ecea0b33c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e4456e47-9a80-4499-bc38-5f1ecea0b33c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e4fb9580-fecb-4923-8edc-dd0b2d848392">
+        <trans-unit id="16c1a5bc-c067-43df-aa1e-9a16540223e8" xml:space="preserve">
+          <source>Add Offline Data Sync to your Android Mobile Services app | Microsoft Azure</source>
+          <target state="new">Add Offline Data Sync to your Android Mobile Services app | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cc9811c5-c413-4385-8f23-68d403dee9ae" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Services to cache and sync offline data in your Android application</source>
+          <target state="new">Learn how to use Azure Mobile Services to cache and sync offline data in your Android application</target>
+        </trans-unit>
+        <trans-unit id="e373baeb-8e55-45b2-922a-998c06ce90d1" xml:space="preserve">
+          <source><bpt id="5a3a3bbf-b550-4f09-8441-1aa17d961889">&lt;token href="../../includes/mobile-services-selector-offline.md"&gt;</bpt><ept id="5a3a3bbf-b550-4f09-8441-1aa17d961889">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5a3a3bbf-b550-4f09-8441-1aa17d961889">&lt;token href="../../includes/mobile-services-selector-offline.md"&gt;</bpt><ept id="5a3a3bbf-b550-4f09-8441-1aa17d961889">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acf8db87-0dbb-490f-9ec9-da8bf1876638" xml:space="preserve">
+          <source>Mobile apps can lose network connectivity when moving to an area without service, or due to network issues.</source>
+          <target state="new">Mobile apps can lose network connectivity when moving to an area without service, or due to network issues.</target>
+        </trans-unit>
+        <trans-unit id="54a83e41-1a3b-454f-a413-bf5515f83b2b" xml:space="preserve">
+          <source>For example, a construction industry app used at a remote construction site might need to enter scheduling data that is synced up to Azure later.</source>
+          <target state="new">For example, a construction industry app used at a remote construction site might need to enter scheduling data that is synced up to Azure later.</target>
+        </trans-unit>
+        <trans-unit id="0c36c3e1-87e4-456a-aed2-6133e2c6d248" xml:space="preserve">
+          <source>With Azure Mobile Services offline sync, you can keep working when network connectivity is lost, which is essential to many mobile apps.</source>
+          <target state="new">With Azure Mobile Services offline sync, you can keep working when network connectivity is lost, which is essential to many mobile apps.</target>
+        </trans-unit>
+        <trans-unit id="3eade555-2b83-47f5-ad60-2168edfc197e" xml:space="preserve">
+          <source>With offline sync, you work with a local copy of your Azure SQL Server table, and periodically re-sync the two.</source>
+          <target state="new">With offline sync, you work with a local copy of your Azure SQL Server table, and periodically re-sync the two.</target>
+        </trans-unit>
+        <trans-unit id="b38a5eca-5706-42c0-8328-36cf184def5f" xml:space="preserve">
+          <source>In this tutorial, you'll update the app from the [Mobile Services Quick Start tutorial] to enable offline sync, and then test the app by adding data offline,  syncing those items to the online database, and verifying the changes in the Azure Management Portal.</source>
+          <target state="new">In this tutorial, you'll update the app from the [Mobile Services Quick Start tutorial] to enable offline sync, and then test the app by adding data offline,  syncing those items to the online database, and verifying the changes in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1a022357-9996-49f1-bee4-bc9ec3c86789" xml:space="preserve">
+          <source>Whether you are offline or connected, conflicts can arise any time multiple changes are made to data.</source>
+          <target state="new">Whether you are offline or connected, conflicts can arise any time multiple changes are made to data.</target>
+        </trans-unit>
+        <trans-unit id="bd461830-a49b-4343-a9d5-82c4603cebbc" xml:space="preserve">
+          <source>A future tutorial will explore handling sync conflicts, where you choose which version of the changes to accept.</source>
+          <target state="new">A future tutorial will explore handling sync conflicts, where you choose which version of the changes to accept.</target>
+        </trans-unit>
+        <trans-unit id="e3313288-6a97-454e-8296-99a3c9f028f0" xml:space="preserve">
+          <source>In this tutorial, we assume no sync conflicts and any changes you make to existing data will be applied directly to the Azure SQL Server.</source>
+          <target state="new">In this tutorial, we assume no sync conflicts and any changes you make to existing data will be applied directly to the Azure SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="b9fbd0b6-d85c-41ae-bce1-a6c194788ba4" xml:space="preserve">
+          <source><bpt id="1dfa24d6-5dd2-4a1e-9b8c-44c6601d578e">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="1dfa24d6-5dd2-4a1e-9b8c-44c6601d578e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="1dfa24d6-5dd2-4a1e-9b8c-44c6601d578e">&lt;token href="../../includes/mobile-services-android-prerequisites.md"&gt;</bpt><ept id="1dfa24d6-5dd2-4a1e-9b8c-44c6601d578e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3eaf6261-fef6-4f95-8b80-5cdd5f616fa7" xml:space="preserve">
+          <source>With offline sync you read to and write from a <bpt id="c01e3c85-bd3c-4b50-ad5c-c11e0739f5e8">&lt;em&gt;</bpt>sync table<ept id="c01e3c85-bd3c-4b50-ad5c-c11e0739f5e8">&lt;/em&gt;</ept> (using the <bpt id="bb786d4b-da45-4685-80f8-775ade2e141a">&lt;em&gt;</bpt>IMobileServiceSyncTable<ept id="bb786d4b-da45-4685-80f8-775ade2e141a">&lt;/em&gt;</ept> interface), which is part of a <bpt id="956b53f1-6f25-4c17-bf54-692f92db69fa">&lt;strong&gt;</bpt>SQL Light<ept id="956b53f1-6f25-4c17-bf54-692f92db69fa">&lt;/strong&gt;</ept> database on your device.</source>
+          <target state="new">With offline sync you read to and write from a <bpt id="c01e3c85-bd3c-4b50-ad5c-c11e0739f5e8">&lt;em&gt;</bpt>sync table<ept id="c01e3c85-bd3c-4b50-ad5c-c11e0739f5e8">&lt;/em&gt;</ept> (using the <bpt id="bb786d4b-da45-4685-80f8-775ade2e141a">&lt;em&gt;</bpt>IMobileServiceSyncTable<ept id="bb786d4b-da45-4685-80f8-775ade2e141a">&lt;/em&gt;</ept> interface), which is part of a <bpt id="956b53f1-6f25-4c17-bf54-692f92db69fa">&lt;strong&gt;</bpt>SQL Light<ept id="956b53f1-6f25-4c17-bf54-692f92db69fa">&lt;/strong&gt;</ept> database on your device.</target>
+        </trans-unit>
+        <trans-unit id="c3a1a1c1-3ca9-41d4-8ae7-2708cb0adf7f" xml:space="preserve">
+          <source>To push and pull changes between the device and Azure Mobile Services, you use a <bpt id="3c045a0f-1209-4d30-957f-f78693088c38">&lt;em&gt;</bpt>synchronization context<ept id="3c045a0f-1209-4d30-957f-f78693088c38">&lt;/em&gt;</ept> (<bpt id="90ecf977-df13-4cc7-9e1f-339b9f9919f8">&lt;em&gt;</bpt>MobileServiceClient.SyncContext<ept id="90ecf977-df13-4cc7-9e1f-339b9f9919f8">&lt;/em&gt;</ept>), which you initialize with the local database that you use to store data locally.</source>
+          <target state="new">To push and pull changes between the device and Azure Mobile Services, you use a <bpt id="3c045a0f-1209-4d30-957f-f78693088c38">&lt;em&gt;</bpt>synchronization context<ept id="3c045a0f-1209-4d30-957f-f78693088c38">&lt;/em&gt;</ept> (<bpt id="90ecf977-df13-4cc7-9e1f-339b9f9919f8">&lt;em&gt;</bpt>MobileServiceClient.SyncContext<ept id="90ecf977-df13-4cc7-9e1f-339b9f9919f8">&lt;/em&gt;</ept>), which you initialize with the local database that you use to store data locally.</target>
+        </trans-unit>
+        <trans-unit id="9f693040-df8d-42bc-ad46-24907f192947" xml:space="preserve">
+          <source>Add permission to check for network connectivity by adding this code to the <bpt id="dbed57e6-1886-4335-b64f-6b09dc09f7ac">&lt;em&gt;</bpt>AndroidManifest.xml<ept id="dbed57e6-1886-4335-b64f-6b09dc09f7ac">&lt;/em&gt;</ept> file:</source>
+          <target state="new">Add permission to check for network connectivity by adding this code to the <bpt id="dbed57e6-1886-4335-b64f-6b09dc09f7ac">&lt;em&gt;</bpt>AndroidManifest.xml<ept id="dbed57e6-1886-4335-b64f-6b09dc09f7ac">&lt;/em&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="c7418e1c-a18f-4dba-a9d8-62a81ded692d" xml:space="preserve">
+          <source>Add the following <bpt id="4accb457-ea78-4522-b747-322f0232dc45">&lt;strong&gt;</bpt>import<ept id="4accb457-ea78-4522-b747-322f0232dc45">&lt;/strong&gt;</ept> statements to <bpt id="8b48cd66-b73b-4c97-9810-1d7980b9cd78">&lt;em&gt;</bpt>ToDoActivity.java<ept id="8b48cd66-b73b-4c97-9810-1d7980b9cd78">&lt;/em&gt;</ept>:</source>
+          <target state="new">Add the following <bpt id="4accb457-ea78-4522-b747-322f0232dc45">&lt;strong&gt;</bpt>import<ept id="4accb457-ea78-4522-b747-322f0232dc45">&lt;/strong&gt;</ept> statements to <bpt id="8b48cd66-b73b-4c97-9810-1d7980b9cd78">&lt;em&gt;</bpt>ToDoActivity.java<ept id="8b48cd66-b73b-4c97-9810-1d7980b9cd78">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1bef6dd2-b189-4f1f-be6f-da48ec996ccf" xml:space="preserve">
+          <source>Near the top of the <bpt id="015413f4-5870-4897-aa49-fe8733303e05">&lt;code&gt;</bpt>ToDoActivity<ept id="015413f4-5870-4897-aa49-fe8733303e05">&lt;/code&gt;</ept> class, change the declaration of the <bpt id="c5bfb050-c618-4aaf-8de2-636fb6af4e95">&lt;code&gt;</bpt>mToDoTable<ept id="c5bfb050-c618-4aaf-8de2-636fb6af4e95">&lt;/code&gt;</ept> variable from a <bpt id="2d825353-1f50-4c80-b670-e200e6f54b44">&lt;code&gt;</bpt>MobileServiceTable&lt;ToDoItem&gt;<ept id="2d825353-1f50-4c80-b670-e200e6f54b44">&lt;/code&gt;</ept> class to a <bpt id="431adbdd-4c79-471f-8ebe-c4d82e3b1c4e">&lt;code&gt;</bpt>MobileServiceSyncTable&lt;ToDoItem&gt;<ept id="431adbdd-4c79-471f-8ebe-c4d82e3b1c4e">&lt;/code&gt;</ept> class. </source>
+          <target state="new">Near the top of the <bpt id="015413f4-5870-4897-aa49-fe8733303e05">&lt;code&gt;</bpt>ToDoActivity<ept id="015413f4-5870-4897-aa49-fe8733303e05">&lt;/code&gt;</ept> class, change the declaration of the <bpt id="c5bfb050-c618-4aaf-8de2-636fb6af4e95">&lt;code&gt;</bpt>mToDoTable<ept id="c5bfb050-c618-4aaf-8de2-636fb6af4e95">&lt;/code&gt;</ept> variable from a <bpt id="2d825353-1f50-4c80-b670-e200e6f54b44">&lt;code&gt;</bpt>MobileServiceTable&lt;ToDoItem&gt;<ept id="2d825353-1f50-4c80-b670-e200e6f54b44">&lt;/code&gt;</ept> class to a <bpt id="431adbdd-4c79-471f-8ebe-c4d82e3b1c4e">&lt;code&gt;</bpt>MobileServiceSyncTable&lt;ToDoItem&gt;<ept id="431adbdd-4c79-471f-8ebe-c4d82e3b1c4e">&lt;/code&gt;</ept> class. </target>
+        </trans-unit>
+        <trans-unit id="d648cfa8-4702-4703-9f3f-46f62dc05562" xml:space="preserve">
+          <source>This is where you define the sync table.</source>
+          <target state="new">This is where you define the sync table.</target>
+        </trans-unit>
+        <trans-unit id="38294f6b-4aff-48ed-9ffa-791d180639d9" xml:space="preserve">
+          <source>To handle initialization of the local store, in the <bpt id="698eac7a-c0b5-43c3-a4e9-4ab506e6b05f">&lt;code&gt;</bpt>onCreate<ept id="698eac7a-c0b5-43c3-a4e9-4ab506e6b05f">&lt;/code&gt;</ept> method, add the following lines after creating the <bpt id="301922f4-c2a6-4a74-a750-a2d554019c0b">&lt;code&gt;</bpt>MobileServiceClient<ept id="301922f4-c2a6-4a74-a750-a2d554019c0b">&lt;/code&gt;</ept> instance:</source>
+          <target state="new">To handle initialization of the local store, in the <bpt id="698eac7a-c0b5-43c3-a4e9-4ab506e6b05f">&lt;code&gt;</bpt>onCreate<ept id="698eac7a-c0b5-43c3-a4e9-4ab506e6b05f">&lt;/code&gt;</ept> method, add the following lines after creating the <bpt id="301922f4-c2a6-4a74-a750-a2d554019c0b">&lt;code&gt;</bpt>MobileServiceClient<ept id="301922f4-c2a6-4a74-a750-a2d554019c0b">&lt;/code&gt;</ept> instance:</target>
+        </trans-unit>
+        <trans-unit id="7aa1e88c-33be-402f-85f2-0506e34302a2" xml:space="preserve">
+          <source>Following the preceding code, which is inside a <bpt id="fb2df138-09e8-4d56-be9b-c23bd19aad6f">&lt;code&gt;</bpt>try<ept id="fb2df138-09e8-4d56-be9b-c23bd19aad6f">&lt;/code&gt;</ept> block, add an additional <bpt id="0debc05d-4ab7-4dd2-9a59-41049eda3e9a">&lt;code&gt;</bpt>catch<ept id="0debc05d-4ab7-4dd2-9a59-41049eda3e9a">&lt;/code&gt;</ept> block following the <bpt id="4b2f7336-b6d8-43c2-b63f-a62786f55230">&lt;code&gt;</bpt>MalformedURLException<ept id="4b2f7336-b6d8-43c2-b63f-a62786f55230">&lt;/code&gt;</ept> one:</source>
+          <target state="new">Following the preceding code, which is inside a <bpt id="fb2df138-09e8-4d56-be9b-c23bd19aad6f">&lt;code&gt;</bpt>try<ept id="fb2df138-09e8-4d56-be9b-c23bd19aad6f">&lt;/code&gt;</ept> block, add an additional <bpt id="0debc05d-4ab7-4dd2-9a59-41049eda3e9a">&lt;code&gt;</bpt>catch<ept id="0debc05d-4ab7-4dd2-9a59-41049eda3e9a">&lt;/code&gt;</ept> block following the <bpt id="4b2f7336-b6d8-43c2-b63f-a62786f55230">&lt;code&gt;</bpt>MalformedURLException<ept id="4b2f7336-b6d8-43c2-b63f-a62786f55230">&lt;/code&gt;</ept> one:</target>
+        </trans-unit>
+        <trans-unit id="ce93c85c-9ddb-4656-9c1f-d874c99d22ff" xml:space="preserve">
+          <source>Add this method to verify network connectivity:</source>
+          <target state="new">Add this method to verify network connectivity:</target>
+        </trans-unit>
+        <trans-unit id="49d4e3ce-3fdb-4f6e-8a93-b922449aef80" xml:space="preserve">
+          <source>Add this method to sync between the local <bpt id="512e242b-0fd6-48de-a490-1b222ebe48a3">&lt;em&gt;</bpt>SQL Light<ept id="512e242b-0fd6-48de-a490-1b222ebe48a3">&lt;/em&gt;</ept> store and the Azure SQL Server:</source>
+          <target state="new">Add this method to sync between the local <bpt id="512e242b-0fd6-48de-a490-1b222ebe48a3">&lt;em&gt;</bpt>SQL Light<ept id="512e242b-0fd6-48de-a490-1b222ebe48a3">&lt;/em&gt;</ept> store and the Azure SQL Server:</target>
+        </trans-unit>
+        <trans-unit id="e650de0b-61e6-4689-abf3-69bcb8f09536" xml:space="preserve">
+          <source>In the <bpt id="571b31f6-ceec-4d96-9886-3b94658317c2">&lt;code&gt;</bpt>onCreate<ept id="571b31f6-ceec-4d96-9886-3b94658317c2">&lt;/code&gt;</ept> method, add this code as the next-to-the-last line, right before the call to <bpt id="2606101b-45c7-4b0e-87fe-8d5e2f966a78">&lt;code&gt;</bpt>refreshItemsFromTable<ept id="2606101b-45c7-4b0e-87fe-8d5e2f966a78">&lt;/code&gt;</ept>:</source>
+          <target state="new">In the <bpt id="571b31f6-ceec-4d96-9886-3b94658317c2">&lt;code&gt;</bpt>onCreate<ept id="571b31f6-ceec-4d96-9886-3b94658317c2">&lt;/code&gt;</ept> method, add this code as the next-to-the-last line, right before the call to <bpt id="2606101b-45c7-4b0e-87fe-8d5e2f966a78">&lt;code&gt;</bpt>refreshItemsFromTable<ept id="2606101b-45c7-4b0e-87fe-8d5e2f966a78">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e88fa311-8002-4582-a198-f0c562fe2a9b" xml:space="preserve">
+          <source>This causes the device on startup to sync with the Azure table.</source>
+          <target state="new">This causes the device on startup to sync with the Azure table.</target>
+        </trans-unit>
+        <trans-unit id="52aedacb-95a7-4e7f-8084-d3e8c892aa93" xml:space="preserve">
+          <source>Otherwise you would display the last offline contents of the local store.</source>
+          <target state="new">Otherwise you would display the last offline contents of the local store.</target>
+        </trans-unit>
+        <trans-unit id="a1493e2f-b0e4-4a52-a6e3-637edf94b2fe" xml:space="preserve">
+          <source>Update the code in the <bpt id="99cb3255-35cd-4318-980d-0819deea3fb8">&lt;code&gt;</bpt>refreshItemsFromTable<ept id="99cb3255-35cd-4318-980d-0819deea3fb8">&lt;/code&gt;</ept> method to use this query (first line of code inside the <bpt id="fac86734-a30e-4abb-8919-94160183c8c4">&lt;code&gt;</bpt>try<ept id="fac86734-a30e-4abb-8919-94160183c8c4">&lt;/code&gt;</ept> block):</source>
+          <target state="new">Update the code in the <bpt id="99cb3255-35cd-4318-980d-0819deea3fb8">&lt;code&gt;</bpt>refreshItemsFromTable<ept id="99cb3255-35cd-4318-980d-0819deea3fb8">&lt;/code&gt;</ept> method to use this query (first line of code inside the <bpt id="fac86734-a30e-4abb-8919-94160183c8c4">&lt;code&gt;</bpt>try<ept id="fac86734-a30e-4abb-8919-94160183c8c4">&lt;/code&gt;</ept> block):</target>
+        </trans-unit>
+        <trans-unit id="9162f108-c058-4161-9a79-68fc4a554c67" xml:space="preserve">
+          <source>In the <bpt id="5675d4e1-ce16-437e-af03-122acdd01e46">&lt;code&gt;</bpt>onOptionsItemSelected<ept id="5675d4e1-ce16-437e-af03-122acdd01e46">&lt;/code&gt;</ept> method replace the contents of the <bpt id="2e21deac-72cb-44f8-af66-0538678da2bc">&lt;code&gt;</bpt>if<ept id="2e21deac-72cb-44f8-af66-0538678da2bc">&lt;/code&gt;</ept> block with this code:</source>
+          <target state="new">In the <bpt id="5675d4e1-ce16-437e-af03-122acdd01e46">&lt;code&gt;</bpt>onOptionsItemSelected<ept id="5675d4e1-ce16-437e-af03-122acdd01e46">&lt;/code&gt;</ept> method replace the contents of the <bpt id="2e21deac-72cb-44f8-af66-0538678da2bc">&lt;code&gt;</bpt>if<ept id="2e21deac-72cb-44f8-af66-0538678da2bc">&lt;/code&gt;</ept> block with this code:</target>
+        </trans-unit>
+        <trans-unit id="b64d3305-07cb-4d50-a8b4-32989351f885" xml:space="preserve">
+          <source>This code runs when you press the <bpt id="8e9d5aa4-73d9-4b5b-9909-baf820cbd1e3">&lt;strong&gt;</bpt>Refresh<ept id="8e9d5aa4-73d9-4b5b-9909-baf820cbd1e3">&lt;/strong&gt;</ept> button in the upper right corner.</source>
+          <target state="new">This code runs when you press the <bpt id="8e9d5aa4-73d9-4b5b-9909-baf820cbd1e3">&lt;strong&gt;</bpt>Refresh<ept id="8e9d5aa4-73d9-4b5b-9909-baf820cbd1e3">&lt;/strong&gt;</ept> button in the upper right corner.</target>
+        </trans-unit>
+        <trans-unit id="88b74bfb-d9fb-4f7f-ac30-960d18842791" xml:space="preserve">
+          <source>This is the main way you sync your local store to Azure, in addition to syncing at startup.</source>
+          <target state="new">This is the main way you sync your local store to Azure, in addition to syncing at startup.</target>
+        </trans-unit>
+        <trans-unit id="8840d11e-8018-4e33-82b0-920db11e2778" xml:space="preserve">
+          <source>This encourages batching of sync changes, and is efficient given that the pull from Azure is a relatively expensive operation.</source>
+          <target state="new">This encourages batching of sync changes, and is efficient given that the pull from Azure is a relatively expensive operation.</target>
+        </trans-unit>
+        <trans-unit id="b886c589-8d36-4a96-a983-ed0ec7ac37ef" xml:space="preserve">
+          <source>You could also design this app to sync on every change by adding a call to <bpt id="ddf946e0-ae5d-4eae-b757-8ef13ebf9928">&lt;code&gt;</bpt>syncAsync<ept id="ddf946e0-ae5d-4eae-b757-8ef13ebf9928">&lt;/code&gt;</ept> to the <bpt id="2571506d-15d9-4cf6-9548-b1a3ea2470e2">&lt;code&gt;</bpt>addItem<ept id="2571506d-15d9-4cf6-9548-b1a3ea2470e2">&lt;/code&gt;</ept> and <bpt id="a3ec4c5b-a006-45c9-8bdf-d4762e358cef">&lt;code&gt;</bpt>checkItem<ept id="a3ec4c5b-a006-45c9-8bdf-d4762e358cef">&lt;/code&gt;</ept> methods, if your app required this.</source>
+          <target state="new">You could also design this app to sync on every change by adding a call to <bpt id="ddf946e0-ae5d-4eae-b757-8ef13ebf9928">&lt;code&gt;</bpt>syncAsync<ept id="ddf946e0-ae5d-4eae-b757-8ef13ebf9928">&lt;/code&gt;</ept> to the <bpt id="2571506d-15d9-4cf6-9548-b1a3ea2470e2">&lt;code&gt;</bpt>addItem<ept id="2571506d-15d9-4cf6-9548-b1a3ea2470e2">&lt;/code&gt;</ept> and <bpt id="a3ec4c5b-a006-45c9-8bdf-d4762e358cef">&lt;code&gt;</bpt>checkItem<ept id="a3ec4c5b-a006-45c9-8bdf-d4762e358cef">&lt;/code&gt;</ept> methods, if your app required this.</target>
+        </trans-unit>
+        <trans-unit id="5f92054a-b56c-416a-b42e-9c70458f7e95" xml:space="preserve">
+          <source>In this section, you will test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.</source>
+          <target state="new">In this section, you will test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.</target>
+        </trans-unit>
+        <trans-unit id="acf6781b-e388-40cd-88fa-0573a3eac223" xml:space="preserve">
+          <source>When you add data items, they are held in the local SQL Light store, but not synced to the mobile service until you press the <bpt id="6fec31fb-b53d-48c2-8d7c-5807affa8cd0">&lt;strong&gt;</bpt>Refresh<ept id="6fec31fb-b53d-48c2-8d7c-5807affa8cd0">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">When you add data items, they are held in the local SQL Light store, but not synced to the mobile service until you press the <bpt id="6fec31fb-b53d-48c2-8d7c-5807affa8cd0">&lt;strong&gt;</bpt>Refresh<ept id="6fec31fb-b53d-48c2-8d7c-5807affa8cd0">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="b95730b2-251b-4570-bd00-0d62f277f96a" xml:space="preserve">
+          <source>Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.</source>
+          <target state="new">Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.</target>
+        </trans-unit>
+        <trans-unit id="69fcff73-92f7-4e1c-a4e6-2da40b79710a" xml:space="preserve">
+          <source>When you press that button, a new background task starts, and first pushes all the changes made to the local store, by using the synchronization context, and then pulls all changed data from Azure to the local table.</source>
+          <target state="new">When you press that button, a new background task starts, and first pushes all the changes made to the local store, by using the synchronization context, and then pulls all changed data from Azure to the local table.</target>
+        </trans-unit>
+        <trans-unit id="12d6e105-45dd-4335-b490-05cf67a264bd" xml:space="preserve">
+          <source>Lets test the following scenarios.</source>
+          <target state="new">Lets test the following scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e89d7d47-9c7a-423d-b4a8-e4e1d3cb8254" xml:space="preserve">
+          <source>Add some new items on your device; </source>
+          <target state="new">Add some new items on your device; </target>
+        </trans-unit>
+        <trans-unit id="606fe395-c9bb-4a35-99cc-26ac3796c2ae" xml:space="preserve">
+          <source>Verify the items don't show in the portal; </source>
+          <target state="new">Verify the items don't show in the portal; </target>
+        </trans-unit>
+        <trans-unit id="9f39ca92-871e-49b2-99a4-de8620c120d6" xml:space="preserve">
+          <source>next press <bpt id="1aa46ed9-ef1e-40f7-a68e-adfd25559f97">&lt;strong&gt;</bpt>Refresh<ept id="1aa46ed9-ef1e-40f7-a68e-adfd25559f97">&lt;/strong&gt;</ept> and verify that they then show up.</source>
+          <target state="new">next press <bpt id="1aa46ed9-ef1e-40f7-a68e-adfd25559f97">&lt;strong&gt;</bpt>Refresh<ept id="1aa46ed9-ef1e-40f7-a68e-adfd25559f97">&lt;/strong&gt;</ept> and verify that they then show up.</target>
+        </trans-unit>
+        <trans-unit id="81c603ad-0a3b-4693-a7d5-36d48ab60cdd" xml:space="preserve">
+          <source>Change or add an item in the portal, then press <bpt id="262a220f-ff62-4176-b51e-1e0b127aa809">&lt;strong&gt;</bpt>Refresh<ept id="262a220f-ff62-4176-b51e-1e0b127aa809">&lt;/strong&gt;</ept> and verify that the changes show up on your device.</source>
+          <target state="new">Change or add an item in the portal, then press <bpt id="262a220f-ff62-4176-b51e-1e0b127aa809">&lt;strong&gt;</bpt>Refresh<ept id="262a220f-ff62-4176-b51e-1e0b127aa809">&lt;/strong&gt;</ept> and verify that the changes show up on your device.</target>
+        </trans-unit>
+        <trans-unit id="998c1826-5ade-468a-babb-45847c72d6e9" xml:space="preserve">
+          <source>Place the device or simulator in <bpt id="6282da81-edd5-4fed-aa38-bb50e0c99637">&lt;em&gt;</bpt>Airplane Mode<ept id="6282da81-edd5-4fed-aa38-bb50e0c99637">&lt;/em&gt;</ept>.</source>
+          <target state="new">Place the device or simulator in <bpt id="6282da81-edd5-4fed-aa38-bb50e0c99637">&lt;em&gt;</bpt>Airplane Mode<ept id="6282da81-edd5-4fed-aa38-bb50e0c99637">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec94dcb1-29c1-4e42-86f3-35fe6c8c8146" xml:space="preserve">
+          <source>This creates an offline scenario.</source>
+          <target state="new">This creates an offline scenario.</target>
+        </trans-unit>
+        <trans-unit id="449435fe-dc64-469e-af7f-f57a93f88f99" xml:space="preserve">
+          <source>Add some <bpt id="9bb50d0b-8abe-41b5-b521-aee797effe73">&lt;em&gt;</bpt>ToDo<ept id="9bb50d0b-8abe-41b5-b521-aee797effe73">&lt;/em&gt;</ept> items, or mark some items as complete.</source>
+          <target state="new">Add some <bpt id="9bb50d0b-8abe-41b5-b521-aee797effe73">&lt;em&gt;</bpt>ToDo<ept id="9bb50d0b-8abe-41b5-b521-aee797effe73">&lt;/em&gt;</ept> items, or mark some items as complete.</target>
+        </trans-unit>
+        <trans-unit id="ae311711-48ec-4e45-a758-ac48dd3e7deb" xml:space="preserve">
+          <source>Quit the device or simulator (or forcibly close the app) and restart.</source>
+          <target state="new">Quit the device or simulator (or forcibly close the app) and restart.</target>
+        </trans-unit>
+        <trans-unit id="f1346622-7e22-4f40-9e00-3bdb23b5ee47" xml:space="preserve">
+          <source>Verify that your changes have been persisted on the device because they are held in the local SQL Light store.</source>
+          <target state="new">Verify that your changes have been persisted on the device because they are held in the local SQL Light store.</target>
+        </trans-unit>
+        <trans-unit id="cc8c06c0-2db2-43a2-bb77-785b21406a9f" xml:space="preserve">
+          <source>View the contents of the Azure <bpt id="6a1e2d94-52c6-462b-8cff-e41ca1c329d4">&lt;em&gt;</bpt>TodoItem<ept id="6a1e2d94-52c6-462b-8cff-e41ca1c329d4">&lt;/em&gt;</ept> table.</source>
+          <target state="new">View the contents of the Azure <bpt id="6a1e2d94-52c6-462b-8cff-e41ca1c329d4">&lt;em&gt;</bpt>TodoItem<ept id="6a1e2d94-52c6-462b-8cff-e41ca1c329d4">&lt;/em&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="603da78d-dbaf-4272-8f98-6cdb06f23d3c" xml:space="preserve">
+          <source>Verify that the new items have <bpt id="876de5e8-ef81-4bf1-948a-1ce7b4eb38c7">&lt;em&gt;</bpt>not<ept id="876de5e8-ef81-4bf1-948a-1ce7b4eb38c7">&lt;/em&gt;</ept> been synced to the server:</source>
+          <target state="new">Verify that the new items have <bpt id="876de5e8-ef81-4bf1-948a-1ce7b4eb38c7">&lt;em&gt;</bpt>not<ept id="876de5e8-ef81-4bf1-948a-1ce7b4eb38c7">&lt;/em&gt;</ept> been synced to the server:</target>
+        </trans-unit>
+        <trans-unit id="ae729af3-f349-4c45-95fb-fb41bc14219c" xml:space="preserve">
+          <source>For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the <bpt id="a2e8aa16-a246-45f8-af9d-68f877795750">&lt;code&gt;</bpt>TodoItem<ept id="a2e8aa16-a246-45f8-af9d-68f877795750">&lt;/code&gt;</ept> table.</source>
+          <target state="new">For the JavaScript backend, go to the Management Portal, and click the Data tab to view the contents of the <bpt id="a2e8aa16-a246-45f8-af9d-68f877795750">&lt;code&gt;</bpt>TodoItem<ept id="a2e8aa16-a246-45f8-af9d-68f877795750">&lt;/code&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="08fc452f-3772-4753-9f40-2fe9f251e3ce" xml:space="preserve">
+          <source>For the .NET backend, view the table contents either with a SQL tool such as <bpt id="d821292c-8bc1-4725-a0be-40637aa49d1e">&lt;em&gt;</bpt>SQL Server Management Studio<ept id="d821292c-8bc1-4725-a0be-40637aa49d1e">&lt;/em&gt;</ept>, or a REST client such as <bpt id="1b0e3afb-f64c-4835-8087-8d3555b2cd18">&lt;em&gt;</bpt>Fiddler<ept id="1b0e3afb-f64c-4835-8087-8d3555b2cd18">&lt;/em&gt;</ept> or <bpt id="f7204072-95eb-4345-bd50-1db7aa521ec0">&lt;em&gt;</bpt>Postman<ept id="f7204072-95eb-4345-bd50-1db7aa521ec0">&lt;/em&gt;</ept>.</source>
+          <target state="new">For the .NET backend, view the table contents either with a SQL tool such as <bpt id="d821292c-8bc1-4725-a0be-40637aa49d1e">&lt;em&gt;</bpt>SQL Server Management Studio<ept id="d821292c-8bc1-4725-a0be-40637aa49d1e">&lt;/em&gt;</ept>, or a REST client such as <bpt id="1b0e3afb-f64c-4835-8087-8d3555b2cd18">&lt;em&gt;</bpt>Fiddler<ept id="1b0e3afb-f64c-4835-8087-8d3555b2cd18">&lt;/em&gt;</ept> or <bpt id="f7204072-95eb-4345-bd50-1db7aa521ec0">&lt;em&gt;</bpt>Postman<ept id="f7204072-95eb-4345-bd50-1db7aa521ec0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f41f73a-5aab-4faa-b2a9-dd66325f69a6" xml:space="preserve">
+          <source>Turn on WiFi in the device or simulator.</source>
+          <target state="new">Turn on WiFi in the device or simulator.</target>
+        </trans-unit>
+        <trans-unit id="962f1daf-8a7a-4f85-973d-7fc6e04437f6" xml:space="preserve">
+          <source>Next, press the <bpt id="c3b93ee1-a07d-4f4d-9e32-ef66e460c243">&lt;strong&gt;</bpt>Refresh<ept id="c3b93ee1-a07d-4f4d-9e32-ef66e460c243">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Next, press the <bpt id="c3b93ee1-a07d-4f4d-9e32-ef66e460c243">&lt;strong&gt;</bpt>Refresh<ept id="c3b93ee1-a07d-4f4d-9e32-ef66e460c243">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="0c408c08-2807-4434-bc17-34fab2ea1038" xml:space="preserve">
+          <source>View the TodoItem data again in the Azure portal.</source>
+          <target state="new">View the TodoItem data again in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="1c71d593-0ccf-440d-8d88-c035f8e54e0f" xml:space="preserve">
+          <source>The new and changed TodoItems should now appear.</source>
+          <target state="new">The new and changed TodoItems should now appear.</target>
+        </trans-unit>
+        <trans-unit id="cb461946-f35f-4f34-be7b-36ed9902ae59" xml:space="preserve">
+          <source><bpt id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;linkText&gt;</bpt>Using Soft Delete in Mobile Services[soft delete]<ept id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;/linkText&gt;</ept><bpt id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;title&gt;</bpt><ept id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;linkText&gt;</bpt>Using Soft Delete in Mobile Services[soft delete]<ept id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;/linkText&gt;</ept><bpt id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;title&gt;</bpt><ept id="8e766822-b4b4-4b57-89f3-dca7cff27b55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38fa2d18-2c8b-4360-b798-76c47bcdbc1e" xml:space="preserve">
+          <source>[Cloud Cover: Offline Sync in Azure Mobile Services]</source>
+          <target state="new">[Cloud Cover: Offline Sync in Azure Mobile Services]</target>
+        </trans-unit>
+        <trans-unit id="b802083a-d41b-4c90-9563-d29e191cfe71" xml:space="preserve">
+          <source>[Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)</source>
+          <target state="new">[Azure Friday: Offline-enabled apps in Azure Mobile Services] \(note: demos are for Windows, but feature discussion applies to all platforms\)</target>
+        </trans-unit>
+        <trans-unit id="5179f027-f461-430d-85cf-2e566548830f" xml:space="preserve">
+          <source>#get-app</source>
+          <target state="new">#get-app</target>
+        </trans-unit>
+        <trans-unit id="43c97be2-e1a2-4e8f-b232-253b19786d1d" xml:space="preserve">
+          <source>#review-core-data</source>
+          <target state="new">#review-core-data</target>
+        </trans-unit>
+        <trans-unit id="614d0282-f1a1-449b-a2aa-e17ca9678abe" xml:space="preserve">
+          <source>#review-sync</source>
+          <target state="new">#review-sync</target>
+        </trans-unit>
+        <trans-unit id="a6ac87fd-c273-41d4-8df5-2694a7b160bc" xml:space="preserve">
+          <source>#setup-sync</source>
+          <target state="new">#setup-sync</target>
+        </trans-unit>
+        <trans-unit id="8570b9c9-87f9-4771-9bb7-849f3084f00c" xml:space="preserve">
+          <source>#test-app</source>
+          <target state="new">#test-app</target>
+        </trans-unit>
+        <trans-unit id="9ca12f01-9b1b-4aaf-a4ac-53a4380e256a" xml:space="preserve">
+          <source>https://github.com/Azure/mobile-services-samples</source>
+          <target state="new">https://github.com/Azure/mobile-services-samples</target>
+        </trans-unit>
+        <trans-unit id="a7dfd563-20a6-446f-9aeb-12cae9a65219" xml:space="preserve">
+          <source>mobile-services-android-get-started.md</source>
+          <target state="new">mobile-services-android-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="30d48ec5-10fa-494d-bc93-900b0909efc1" xml:space="preserve">
+          <source>mobile-services-android-get-started-data.md</source>
+          <target state="new">mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="a82bc4ba-82c7-4bf2-b279-c780d2ebff38" xml:space="preserve">
+          <source>mobile-services-android-handling-conflicts-offline-data.md</source>
+          <target state="new">mobile-services-android-handling-conflicts-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="251a8146-b23a-407e-ae19-611c22dffe77" xml:space="preserve">
+          <source>mobile-services-using-soft-delete.md</source>
+          <target state="new">mobile-services-using-soft-delete.md</target>
+        </trans-unit>
+        <trans-unit id="032f0690-2251-457d-ae59-d78c749e4f34" xml:space="preserve">
+          <source>http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</source>
+          <target state="new">http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri</target>
+        </trans-unit>
+        <trans-unit id="74239000-e0b7-4341-a6a3-c332fee34a01" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/</source>
+          <target state="new">http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/</target>
+        </trans-unit>
+        <trans-unit id="d972a10f-aee7-4de3-bb07-56ffff01ce5b" xml:space="preserve">
+          <source>mobile-services-android-get-started.md</source>
+          <target state="new">mobile-services-android-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="9e273d90-f18f-4f1f-8315-1e886281b53f" />
+    </body>
+  </file>
+</xliff>

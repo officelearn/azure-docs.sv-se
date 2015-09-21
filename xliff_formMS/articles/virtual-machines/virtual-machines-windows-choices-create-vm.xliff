@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7f72dfd2-ff85-4e29-9792-67a8aed31486" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7f72dfd2-ff85-4e29-9792-67a8aed31486" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e1b64c4c-7295-440b-94f7-1caad90d3221">
+        <trans-unit id="9d487b97-9359-4727-88d6-1b6da0c4102a" xml:space="preserve">
+          <source>Different ways to create a Windows virtual machine</source>
+          <target state="new">Different ways to create a Windows virtual machine</target>
+        </trans-unit>
+        <trans-unit id="55051525-d5fa-48eb-a1ea-94b971d08502" xml:space="preserve">
+          <source>Lists the different ways to create a Windows virtual machine and gives links to instructions.</source>
+          <target state="new">Lists the different ways to create a Windows virtual machine and gives links to instructions.</target>
+        </trans-unit>
+        <trans-unit id="c552cb64-0eb0-4f71-86e5-760c9b068f34" xml:space="preserve">
+          <source>Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes.</source>
+          <target state="new">Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes.</target>
+        </trans-unit>
+        <trans-unit id="8d9820ab-5f21-4af6-8e70-6410cbded3c1" xml:space="preserve">
+          <source>This means that you need to make some choices about the virtual machine and how to create it.</source>
+          <target state="new">This means that you need to make some choices about the virtual machine and how to create it.</target>
+        </trans-unit>
+        <trans-unit id="5afbc157-1c97-4725-81ae-e895f0f65b2d" xml:space="preserve">
+          <source>This article gives you a summary of these choices and links to instructions.</source>
+          <target state="new">This article gives you a summary of these choices and links to instructions.</target>
+        </trans-unit>
+        <trans-unit id="aa8c2d30-2726-4b21-8486-49cfa1ee9354" xml:space="preserve">
+          <source>Azure Resource Manager templates were recently introduced as a way to create and manage a virtual machine and its different resources as one logical deployment unit.</source>
+          <target state="new">Azure Resource Manager templates were recently introduced as a way to create and manage a virtual machine and its different resources as one logical deployment unit.</target>
+        </trans-unit>
+        <trans-unit id="26c5c349-7b53-4e72-ab85-363f2f0f2f06" xml:space="preserve">
+          <source>Instructions for this approach are included below, where available.</source>
+          <target state="new">Instructions for this approach are included below, where available.</target>
+        </trans-unit>
+        <trans-unit id="02cdefa1-321d-4ee0-b744-52b8c7af4af7" xml:space="preserve">
+          <source>To learn more about Azure Resource Manager and how to manage resources as one unit, see the <bpt id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;linkText&gt;</bpt>Overview<ept id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;/linkText&gt;</ept><bpt id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;title&gt;</bpt><ept id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure Resource Manager and how to manage resources as one unit, see the <bpt id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;linkText&gt;</bpt>Overview<ept id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;/linkText&gt;</ept><bpt id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;title&gt;</bpt><ept id="14124650-0811-447f-95b8-2ae125d5c07b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="922b3c1f-d081-4bc0-ae4e-669e7e84c81e" xml:space="preserve">
+          <source>The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure.</source>
+          <target state="new">The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure.</target>
+        </trans-unit>
+        <trans-unit id="813790d9-2654-4f3c-a950-bd871af2eb1a" xml:space="preserve">
+          <source>Use either the Azure portal or the Azure preview portal to create the virtual machine:</source>
+          <target state="new">Use either the Azure portal or the Azure preview portal to create the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="5b4a29de-ece0-474a-a91e-8d0bbc162547" xml:space="preserve">
+          <source><bpt id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;linkText&gt;</bpt>Create a virtual machine running Windows<ept id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;/linkText&gt;</ept><bpt id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;title&gt;</bpt><ept id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;linkText&gt;</bpt>Create a virtual machine running Windows<ept id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;/linkText&gt;</ept><bpt id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;title&gt;</bpt><ept id="3a51601c-82a0-4e98-8706-7456db7d581f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9574e58a-6d84-4347-9969-c3cd4f8b5917" xml:space="preserve">
+          <source>If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.</source>
+          <target state="new">If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.</target>
+        </trans-unit>
+        <trans-unit id="eaa43172-2c14-4628-bd7b-ea32090feb5e" xml:space="preserve">
+          <source>For Azure CLI, see <bpt id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;linkText&gt;</bpt>Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows<ept id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;/linkText&gt;</ept><bpt id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;title&gt;</bpt><ept id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Azure CLI, see <bpt id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;linkText&gt;</bpt>Equivalent Resource Manager and Service Management commands for virtual machine operations with the Azure CLI for Mac, Linux, and Windows<ept id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;/linkText&gt;</ept><bpt id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;title&gt;</bpt><ept id="5d31f3bb-097f-487c-8189-edaadf649726">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d9aa5ab-0bc0-4109-91b2-3b80daf371b6" xml:space="preserve">
+          <source>To use a template, see <bpt id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;/linkText&gt;</ept><bpt id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;title&gt;</bpt><ept id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use a template, see <bpt id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI<ept id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;/linkText&gt;</ept><bpt id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;title&gt;</bpt><ept id="8dd9abe2-c24f-4b0c-aecb-e5972fca1bc8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0cd15a6-23a5-46b3-826d-8f77dc445850" xml:space="preserve">
+          <source>For Azure PowerShell, see <bpt id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows virtual machines<ept id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;/linkText&gt;</ept><bpt id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;title&gt;</bpt><ept id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;/title&gt;</ept> To use a template, see <bpt id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;/linkText&gt;</ept><bpt id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;title&gt;</bpt><ept id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;/title&gt;</ept>.</source>
+          <target state="new">For Azure PowerShell, see <bpt id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows virtual machines<ept id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;/linkText&gt;</ept><bpt id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;title&gt;</bpt><ept id="dbfd9aef-da6a-49e1-bc80-c1817fc7bb34">&lt;/title&gt;</ept> To use a template, see <bpt id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;linkText&gt;</bpt>Deploy and manage virtual machines using Azure Resource Manager templates and PowerShell<ept id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;/linkText&gt;</ept><bpt id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;title&gt;</bpt><ept id="057777a7-e7ba-4876-8cf0-52504b439504">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecb6c3f3-a803-4a18-95b3-0d25a055b0f4" xml:space="preserve">
+          <source>To create virtual machines in the Service Management stack, see <bpt id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows virtual machines<ept id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;/linkText&gt;</ept><bpt id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;title&gt;</bpt><ept id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create virtual machines in the Service Management stack, see <bpt id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;linkText&gt;</bpt>Use Azure PowerShell to create and preconfigure Windows virtual machines<ept id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;/linkText&gt;</ept><bpt id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;title&gt;</bpt><ept id="3a1d9590-a434-45a1-94e3-1afa630d7f68">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="848ddc70-0627-400f-8874-561e8a7d46e0" xml:space="preserve">
+          <source><bpt id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;linkText&gt;</bpt>Create a virtual machine for a website with Visual Studio<ept id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;/linkText&gt;</ept><bpt id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;title&gt;</bpt><ept id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;linkText&gt;</bpt>Create a virtual machine for a website with Visual Studio<ept id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;/linkText&gt;</ept><bpt id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;title&gt;</bpt><ept id="ff78dad8-01a9-491e-8178-1e93ecb89c26">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0f11822b-ecbc-4e30-a839-e6c70597b442" xml:space="preserve">
+          <source><bpt id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;linkText&gt;</bpt>Deploy Azure resources using the Compute, Network, and Storage .NET libraries<ept id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;/linkText&gt;</ept><bpt id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;title&gt;</bpt><ept id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;linkText&gt;</bpt>Deploy Azure resources using the Compute, Network, and Storage .NET libraries<ept id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;/linkText&gt;</ept><bpt id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;title&gt;</bpt><ept id="d89fbe4d-5b8f-443d-8056-e7edf10b6510">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a73ff48-1dff-4226-8607-89a35559eb34" xml:space="preserve">
+          <source>Choose an image based on the operating system you want to run.</source>
+          <target state="new">Choose an image based on the operating system you want to run.</target>
+        </trans-unit>
+        <trans-unit id="f0fa6c12-9fba-4186-a9f1-8f3768143ba0" xml:space="preserve">
+          <source>Azure and its partners offer many images, some of which include applications and tools.</source>
+          <target state="new">Azure and its partners offer many images, some of which include applications and tools.</target>
+        </trans-unit>
+        <trans-unit id="a8e51162-bb19-4153-9a70-d1ea3dd73135" xml:space="preserve">
+          <source>Or, use one of your own images.</source>
+          <target state="new">Or, use one of your own images.</target>
+        </trans-unit>
+        <trans-unit id="515dccf8-3ffe-4b5c-9d9b-dcdf4f530c5e" xml:space="preserve">
+          <source>These instructions show you how to use an Azure image to create a virtual machine that's customized with options for networking, load balancing, and more.</source>
+          <target state="new">These instructions show you how to use an Azure image to create a virtual machine that's customized with options for networking, load balancing, and more.</target>
+        </trans-unit>
+        <trans-unit id="4195d417-bc01-4ab7-844f-f136170f6b81" xml:space="preserve">
+          <source>See <bpt id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;linkText&gt;</bpt>How to create a custom virtual machine running Windows<ept id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;/linkText&gt;</ept><bpt id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;title&gt;</bpt><ept id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;linkText&gt;</bpt>How to create a custom virtual machine running Windows<ept id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;/linkText&gt;</ept><bpt id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;title&gt;</bpt><ept id="ff62a859-04eb-4324-9ffe-ef493c533865">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c9ff50c6-85fa-444f-922c-7c053365476c" xml:space="preserve">
+          <source>Use an image based on an existing Azure virtual machine by <bpt id="1dabe54a-f0a3-4dba-99b8-85770be59147">&lt;em&gt;</bpt>capturing<ept id="1dabe54a-f0a3-4dba-99b8-85770be59147">&lt;/em&gt;</ept> that virtual machine, or upload an image of your own, stored in a virtual hard disk (VHD):</source>
+          <target state="new">Use an image based on an existing Azure virtual machine by <bpt id="1dabe54a-f0a3-4dba-99b8-85770be59147">&lt;em&gt;</bpt>capturing<ept id="1dabe54a-f0a3-4dba-99b8-85770be59147">&lt;/em&gt;</ept> that virtual machine, or upload an image of your own, stored in a virtual hard disk (VHD):</target>
+        </trans-unit>
+        <trans-unit id="e7591f29-9b35-49b7-8bfe-588beb3b115a" xml:space="preserve">
+          <source><bpt id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;linkText&gt;</bpt>How to capture a Windows virtual machine to use as an image<ept id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;/linkText&gt;</ept><bpt id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;title&gt;</bpt><ept id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;linkText&gt;</bpt>How to capture a Windows virtual machine to use as an image<ept id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;/linkText&gt;</ept><bpt id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;title&gt;</bpt><ept id="17a52f45-0405-45c9-9db1-43eda848fd25">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68c7b618-9192-4bba-9bef-00e69d866e69" xml:space="preserve">
+          <source><bpt id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;/linkText&gt;</ept><bpt id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;title&gt;</bpt><ept id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;linkText&gt;</bpt>Create and upload a Windows Server VHD to Azure<ept id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;/linkText&gt;</ept><bpt id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;title&gt;</bpt><ept id="bacefce6-030c-4a62-9d80-de2406827ebe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85540e46-8349-4dc5-a708-264ad5223b6c" xml:space="preserve">
+          <source><bpt id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;linkText&gt;</bpt>Sign in to the virtual machine<ept id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;/linkText&gt;</ept><bpt id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;title&gt;</bpt><ept id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;linkText&gt;</bpt>Sign in to the virtual machine<ept id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;/linkText&gt;</ept><bpt id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;title&gt;</bpt><ept id="c879bb2f-78df-45e4-b15e-1b4c3fbd6409">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48ff53c4-a031-409b-9e45-0bd2415a8476" xml:space="preserve">
+          <source><bpt id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;linkText&gt;</bpt>Attach a data disk<ept id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;/linkText&gt;</ept><bpt id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;title&gt;</bpt><ept id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;linkText&gt;</bpt>Attach a data disk<ept id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;/linkText&gt;</ept><bpt id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;title&gt;</bpt><ept id="eb45f6da-a50c-4590-be94-c3448c8c145f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b906dd98-b2cf-4437-b265-ecbfc79b23e5" xml:space="preserve">
+          <source><bpt id="f57f2786-81f8-4470-a549-139330ad587c">&lt;linkText&gt;</bpt>About Azure virtual machine configuration settings<ept id="f57f2786-81f8-4470-a549-139330ad587c">&lt;/linkText&gt;</ept><bpt id="f57f2786-81f8-4470-a549-139330ad587c">&lt;title&gt;</bpt><ept id="f57f2786-81f8-4470-a549-139330ad587c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f57f2786-81f8-4470-a549-139330ad587c">&lt;linkText&gt;</bpt>About Azure virtual machine configuration settings<ept id="f57f2786-81f8-4470-a549-139330ad587c">&lt;/linkText&gt;</ept><bpt id="f57f2786-81f8-4470-a549-139330ad587c">&lt;title&gt;</bpt><ept id="f57f2786-81f8-4470-a549-139330ad587c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ab58d1f-9960-40ea-9ace-5a340313422d" xml:space="preserve">
+          <source><bpt id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;linkText&gt;</bpt>Base configuration test environment<ept id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;/linkText&gt;</ept><bpt id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;title&gt;</bpt><ept id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;linkText&gt;</bpt>Base configuration test environment<ept id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;/linkText&gt;</ept><bpt id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;title&gt;</bpt><ept id="0f1a6e41-0ddf-4a09-9855-f4924f46a8a6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="890739bf-1d16-478b-9623-c713c17e9b40" xml:space="preserve">
+          <source><bpt id="be5346fd-100c-430f-a322-7314c4124e70">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="be5346fd-100c-430f-a322-7314c4124e70">&lt;/linkText&gt;</ept><bpt id="be5346fd-100c-430f-a322-7314c4124e70">&lt;title&gt;</bpt><ept id="be5346fd-100c-430f-a322-7314c4124e70">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be5346fd-100c-430f-a322-7314c4124e70">&lt;linkText&gt;</bpt>Azure hybrid cloud test environments<ept id="be5346fd-100c-430f-a322-7314c4124e70">&lt;/linkText&gt;</ept><bpt id="be5346fd-100c-430f-a322-7314c4124e70">&lt;title&gt;</bpt><ept id="be5346fd-100c-430f-a322-7314c4124e70">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecfeaf53-8f60-42c7-bda5-a6b141b83285" xml:space="preserve">
+          <source>../resource-group-overview.md</source>
+          <target state="new">../resource-group-overview.md</target>
+        </trans-unit>
+        <trans-unit id="46bed43a-ce6a-435e-af41-9638cc371fed" xml:space="preserve">
+          <source>virtual-machines-windows-tutorial.md</source>
+          <target state="new">virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="cc59c4b2-07a3-4091-94a9-777df6fa4d8b" xml:space="preserve">
+          <source>xplat-cli-azure-manage-vm-asm-arm.md</source>
+          <target state="new">xplat-cli-azure-manage-vm-asm-arm.md</target>
+        </trans-unit>
+        <trans-unit id="c93f8ed5-4097-453e-8b43-3ba333794497" xml:space="preserve">
+          <source>virtual-machines-deploy-rmtemplates-azure-cli.md</source>
+          <target state="new">virtual-machines-deploy-rmtemplates-azure-cli.md</target>
+        </trans-unit>
+        <trans-unit id="d1e9dd8f-0c4d-44bf-bfdd-4c742a988e1f" xml:space="preserve">
+          <source>virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md</source>
+          <target state="new">virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md</target>
+        </trans-unit>
+        <trans-unit id="b7d3e26a-586d-46b9-a545-7d6ca4118cab" xml:space="preserve">
+          <source>virtual-machines-deploy-rmtemplates-powershell.md</source>
+          <target state="new">virtual-machines-deploy-rmtemplates-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="ca1adfbb-dd58-47c8-a97a-bd85ff6d89e4" xml:space="preserve">
+          <source>virtual-machines-ps-create-preconfigure-windows-vms.md</source>
+          <target state="new">virtual-machines-ps-create-preconfigure-windows-vms.md</target>
+        </trans-unit>
+        <trans-unit id="d8f9beed-9e66-43f2-b17b-33da0f36cebf" xml:space="preserve">
+          <source>virtual-machines-windows-create-custom.md</source>
+          <target state="new">virtual-machines-windows-create-custom.md</target>
+        </trans-unit>
+        <trans-unit id="670a4ae8-98a0-4cf8-8265-8937016879c1" xml:space="preserve">
+          <source>virtual-machines-capture-image-windows-server.md</source>
+          <target state="new">virtual-machines-capture-image-windows-server.md</target>
+        </trans-unit>
+        <trans-unit id="07a9bc8d-8bba-435f-bd3c-4c199306f604" xml:space="preserve">
+          <source>virtual-machines-create-upload-vhd-windows-server.md</source>
+          <target state="new">virtual-machines-create-upload-vhd-windows-server.md</target>
+        </trans-unit>
+        <trans-unit id="41d725f9-54f4-4823-b17f-966bb6b28a3c" xml:space="preserve">
+          <source>virtual-machines-dotnet-create-visual-studio-powershell.md</source>
+          <target state="new">virtual-machines-dotnet-create-visual-studio-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="104bd055-8912-48d1-9d63-2b97a304ce43" xml:space="preserve">
+          <source>virtual-machines-arm-deployment.md</source>
+          <target state="new">virtual-machines-arm-deployment.md</target>
+        </trans-unit>
+        <trans-unit id="43c7d71f-194c-4281-9007-f661d51bb1a0" xml:space="preserve">
+          <source>virtual-machines-log-on-windows-server.md</source>
+          <target state="new">virtual-machines-log-on-windows-server.md</target>
+        </trans-unit>
+        <trans-unit id="1523c71e-5006-4aa7-91ce-e65dccc19c97" xml:space="preserve">
+          <source>storage-windows-attach-disk.md</source>
+          <target state="new">storage-windows-attach-disk.md</target>
+        </trans-unit>
+        <trans-unit id="fb090fbe-8680-4704-8e14-286592ef5c6c" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn763935.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn763935.aspx</target>
+        </trans-unit>
+        <trans-unit id="d6fa3c63-11ca-46f9-be46-984a7786ae01" xml:space="preserve">
+          <source>virtual-machines-base-configuration-test-environment.md</source>
+          <target state="new">virtual-machines-base-configuration-test-environment.md</target>
+        </trans-unit>
+        <trans-unit id="1e531326-a7fd-409b-8d0b-0684e9e4d626" xml:space="preserve">
+          <source>virtual-machines-hybrid-cloud-test-environments.md</source>
+          <target state="new">virtual-machines-hybrid-cloud-test-environments.md</target>
+        </trans-unit>
+      </group>
+      <group id="dcbfa5dd-f988-4599-bc39-28665bc64edb" />
+    </body>
+  </file>
+</xliff>

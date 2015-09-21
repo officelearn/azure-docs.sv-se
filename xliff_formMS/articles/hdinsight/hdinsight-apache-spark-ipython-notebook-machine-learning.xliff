@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="57efbbd2-69ae-40a8-8817-98ef0e50cc42" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="57efbbd2-69ae-40a8-8817-98ef0e50cc42" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d8bb7401-8905-4a46-854f-d922b964847d">
+        <trans-unit id="5e234c1f-be31-4ebd-8abe-5901901d7ca5" xml:space="preserve">
+          <source>Use Apache Spark to build machine learning applications on HDInsight | Microsoft Azure</source>
+          <target state="new">Use Apache Spark to build machine learning applications on HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7c720408-22ce-4fa9-8dac-0afc65b7c5fd" xml:space="preserve">
+          <source>Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications</source>
+          <target state="new">Step-by-step instructions on how to use notebooks with Apache Spark to build machine learning applications</target>
+        </trans-unit>
+        <trans-unit id="cb2e6d94-4ec9-4871-9d25-9333ec145c84" xml:space="preserve">
+          <source>Learn how to build a machine learning application using an Apache Spark cluster in HDInsight.</source>
+          <target state="new">Learn how to build a machine learning application using an Apache Spark cluster in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="fbf2d2ff-9a0c-44e8-80c8-542d35eeeb38" xml:space="preserve">
+          <source>This article shows how to use the Jupyter notebook available with the cluster to build and test our application.</source>
+          <target state="new">This article shows how to use the Jupyter notebook available with the cluster to build and test our application.</target>
+        </trans-unit>
+        <trans-unit id="36f318df-3955-4aec-8953-3a94501b0a92" xml:space="preserve">
+          <source>The application uses the sample HVAC.csv data that is available on all clusters by default.</source>
+          <target state="new">The application uses the sample HVAC.csv data that is available on all clusters by default.</target>
+        </trans-unit>
+        <trans-unit id="532fd76d-dcaa-4117-b7c5-1e6d5793b57e" xml:space="preserve">
+          <source><bpt id="c264aa83-97bc-4631-a6ea-aeea81398cca">&lt;strong&gt;</bpt>Prerequisites:<ept id="c264aa83-97bc-4631-a6ea-aeea81398cca">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c264aa83-97bc-4631-a6ea-aeea81398cca">&lt;strong&gt;</bpt>Prerequisites:<ept id="c264aa83-97bc-4631-a6ea-aeea81398cca">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c5c4c2a-2efd-4cb8-aa69-1f507f2bec26" xml:space="preserve">
+          <source>You must have the following:</source>
+          <target state="new">You must have the following:</target>
+        </trans-unit>
+        <trans-unit id="3d29e33c-d055-4965-bdb1-2ef9bfbcf6f5" xml:space="preserve">
+          <source>An Azure subscription.</source>
+          <target state="new">An Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="d676be61-650d-42ae-9a0f-319ecd72cfd2" xml:space="preserve">
+          <source>See <bpt id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;/linkText&gt;</ept><bpt id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;title&gt;</bpt><ept id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;/linkText&gt;</ept><bpt id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;title&gt;</bpt><ept id="a557c6ec-9aee-4917-b3fa-9e4ffd98e67d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0ea222e-52e1-460f-a7ce-50dcece579d8" xml:space="preserve">
+          <source>An Apache Spark cluster.</source>
+          <target state="new">An Apache Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="2fbc3123-dc2e-4318-af6b-0ee030800347" xml:space="preserve">
+          <source>For instructions, see <bpt id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;/linkText&gt;</ept><bpt id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;title&gt;</bpt><ept id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;linkText&gt;</bpt>Provision Apache Spark clusters in Azure HDInsight<ept id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;/linkText&gt;</ept><bpt id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;title&gt;</bpt><ept id="5a973384-6357-469e-8626-f61a3d55c8a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcd0d24b-fa0e-4441-9e7f-aa950fe4bc69" xml:space="preserve">
+          <source>Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data.</source>
+          <target state="new">Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data.</target>
+        </trans-unit>
+        <trans-unit id="0a863c38-2a68-438d-81f1-2b2d0b1b6769" xml:space="preserve">
+          <source>In this article, we use the sample <bpt id="668f86db-4834-4635-95fa-36d1ab24ec37">&lt;strong&gt;</bpt>HVAC.csv<ept id="668f86db-4834-4635-95fa-36d1ab24ec37">&lt;/strong&gt;</ept> data file that is available on all HDInsight clusters by default at <bpt id="d287bb91-559f-4893-917b-1fc8136497fe">&lt;strong&gt;</bpt>\HdiSamples\SensorSampleData\hvac<ept id="d287bb91-559f-4893-917b-1fc8136497fe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this article, we use the sample <bpt id="668f86db-4834-4635-95fa-36d1ab24ec37">&lt;strong&gt;</bpt>HVAC.csv<ept id="668f86db-4834-4635-95fa-36d1ab24ec37">&lt;/strong&gt;</ept> data file that is available on all HDInsight clusters by default at <bpt id="d287bb91-559f-4893-917b-1fc8136497fe">&lt;strong&gt;</bpt>\HdiSamples\SensorSampleData\hvac<ept id="d287bb91-559f-4893-917b-1fc8136497fe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58e77511-de2f-4352-870d-61e6bf77f271" xml:space="preserve">
+          <source>Download and open the CSV file to get a snapshot of the data.</source>
+          <target state="new">Download and open the CSV file to get a snapshot of the data.</target>
+        </trans-unit>
+        <trans-unit id="0e832c84-fae9-49ba-891a-0ae375ccc534" xml:space="preserve">
+          <source><bpt id="e653c74b-8716-443b-a460-8f1826a7f7a0">&lt;linkText&gt;</bpt>HVAC data snapshot<ept id="e653c74b-8716-443b-a460-8f1826a7f7a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e653c74b-8716-443b-a460-8f1826a7f7a0">&lt;linkText&gt;</bpt>HVAC data snapshot<ept id="e653c74b-8716-443b-a460-8f1826a7f7a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="585291be-5385-4e37-b6a3-5cf917d0e4b5" xml:space="preserve">
+          <source>The data shows the target temperature and the actual temperature of a building that has HVAC systems installed.</source>
+          <target state="new">The data shows the target temperature and the actual temperature of a building that has HVAC systems installed.</target>
+        </trans-unit>
+        <trans-unit id="9c62d5c6-fdc5-446f-acbc-30730e408e68" xml:space="preserve">
+          <source>Let's assume the <bpt id="399f51d9-6957-42df-abe6-1cceb2f79de4">&lt;strong&gt;</bpt>System<ept id="399f51d9-6957-42df-abe6-1cceb2f79de4">&lt;/strong&gt;</ept> column represents the system ID and the <bpt id="50bc7467-d575-4fb4-96c0-685c06f2048b">&lt;strong&gt;</bpt>SystemAge<ept id="50bc7467-d575-4fb4-96c0-685c06f2048b">&lt;/strong&gt;</ept> column represents the number of years the HVAC system has been in place at the building.</source>
+          <target state="new">Let's assume the <bpt id="399f51d9-6957-42df-abe6-1cceb2f79de4">&lt;strong&gt;</bpt>System<ept id="399f51d9-6957-42df-abe6-1cceb2f79de4">&lt;/strong&gt;</ept> column represents the system ID and the <bpt id="50bc7467-d575-4fb4-96c0-685c06f2048b">&lt;strong&gt;</bpt>SystemAge<ept id="50bc7467-d575-4fb4-96c0-685c06f2048b">&lt;/strong&gt;</ept> column represents the number of years the HVAC system has been in place at the building.</target>
+        </trans-unit>
+        <trans-unit id="c2fdd0b5-ef4f-4054-be6a-3bd9f2e2886f" xml:space="preserve">
+          <source>We use this data to predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.</source>
+          <target state="new">We use this data to predict whether a building will be hotter or colder based on the target temperature, given a system ID and system age.</target>
+        </trans-unit>
+        <trans-unit id="359820e4-02f4-4838-a9f1-7ea25a00c15b" xml:space="preserve">
+          <source>From the <bpt id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;/linkText&gt;</ept><bpt id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;title&gt;</bpt><ept id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</source>
+          <target state="new">From the <bpt id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;/linkText&gt;</ept><bpt id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;title&gt;</bpt><ept id="7496dcbd-4e8f-48fe-92ae-755561f83634">&lt;/title&gt;</ept>, from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).</target>
+        </trans-unit>
+        <trans-unit id="7bf35b65-654e-485f-ac2e-336c6e17e6ab" xml:space="preserve">
+          <source>You can also navigate to your cluster under <bpt id="87ce0036-d9ef-46df-9bf1-75510558badb">&lt;strong&gt;</bpt>Browse All<ept id="87ce0036-d9ef-46df-9bf1-75510558badb">&lt;/strong&gt;</ept> &gt; <bpt id="7714d5cc-aa49-40e2-95fb-2e0bb1dce626">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="7714d5cc-aa49-40e2-95fb-2e0bb1dce626">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also navigate to your cluster under <bpt id="87ce0036-d9ef-46df-9bf1-75510558badb">&lt;strong&gt;</bpt>Browse All<ept id="87ce0036-d9ef-46df-9bf1-75510558badb">&lt;/strong&gt;</ept> &gt; <bpt id="7714d5cc-aa49-40e2-95fb-2e0bb1dce626">&lt;strong&gt;</bpt>HDInsight Clusters<ept id="7714d5cc-aa49-40e2-95fb-2e0bb1dce626">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87018eae-20de-43a0-a72f-e8a1601eae6b" xml:space="preserve">
+          <source>Launch the <bpt id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;linkText&gt;</bpt>Jupyter<ept id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;/linkText&gt;</ept><bpt id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;title&gt;</bpt><ept id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;/title&gt;</ept> notebook.</source>
+          <target state="new">Launch the <bpt id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;linkText&gt;</bpt>Jupyter<ept id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;/linkText&gt;</ept><bpt id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;title&gt;</bpt><ept id="01343f93-1b5d-4e10-8bf2-ca4045245129">&lt;/title&gt;</ept> notebook.</target>
+        </trans-unit>
+        <trans-unit id="aee96b21-256b-44d0-94bf-8d61d36903c6" xml:space="preserve">
+          <source>From the Spark cluster blade, click <bpt id="0a4398cd-efc3-4caa-927b-57ce50f543d3">&lt;strong&gt;</bpt>Quick Links<ept id="0a4398cd-efc3-4caa-927b-57ce50f543d3">&lt;/strong&gt;</ept>, and then from the <bpt id="afcd0f3b-2f82-40f2-ab96-84c249796f74">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="afcd0f3b-2f82-40f2-ab96-84c249796f74">&lt;/strong&gt;</ept> blade, click <bpt id="423c9098-3dfc-4568-82f6-602090750af7">&lt;strong&gt;</bpt>Jupyter Notebook<ept id="423c9098-3dfc-4568-82f6-602090750af7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Spark cluster blade, click <bpt id="0a4398cd-efc3-4caa-927b-57ce50f543d3">&lt;strong&gt;</bpt>Quick Links<ept id="0a4398cd-efc3-4caa-927b-57ce50f543d3">&lt;/strong&gt;</ept>, and then from the <bpt id="afcd0f3b-2f82-40f2-ab96-84c249796f74">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="afcd0f3b-2f82-40f2-ab96-84c249796f74">&lt;/strong&gt;</ept> blade, click <bpt id="423c9098-3dfc-4568-82f6-602090750af7">&lt;strong&gt;</bpt>Jupyter Notebook<ept id="423c9098-3dfc-4568-82f6-602090750af7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="717a8731-4b1f-4664-bfb3-6795763bf89f" xml:space="preserve">
+          <source>When prompted, enter the admin credentials for the Spark cluster.</source>
+          <target state="new">When prompted, enter the admin credentials for the Spark cluster.</target>
+        </trans-unit>
+        <trans-unit id="9d19bcdf-9578-4467-bbbc-d790e75e9e8d" xml:space="preserve">
+          <source>Create a new notebook.</source>
+          <target state="new">Create a new notebook.</target>
+        </trans-unit>
+        <trans-unit id="de698fef-06f1-49f2-8cbb-aabf3b7f5b34" xml:space="preserve">
+          <source>Click <bpt id="5d42aea6-b11b-4007-9e03-153e2633e87e">&lt;strong&gt;</bpt>New<ept id="5d42aea6-b11b-4007-9e03-153e2633e87e">&lt;/strong&gt;</ept>, and then click <bpt id="b6d633ce-ea4a-4ed6-9d7b-b56e236032cb">&lt;strong&gt;</bpt>Python 2<ept id="b6d633ce-ea4a-4ed6-9d7b-b56e236032cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5d42aea6-b11b-4007-9e03-153e2633e87e">&lt;strong&gt;</bpt>New<ept id="5d42aea6-b11b-4007-9e03-153e2633e87e">&lt;/strong&gt;</ept>, and then click <bpt id="b6d633ce-ea4a-4ed6-9d7b-b56e236032cb">&lt;strong&gt;</bpt>Python 2<ept id="b6d633ce-ea4a-4ed6-9d7b-b56e236032cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a59aa2e-fc1a-4d22-8e9b-c7bfe19f8f97" xml:space="preserve">
+          <source><bpt id="4af5768b-5043-4032-b67a-41a1be2185ad">&lt;linkText&gt;</bpt>Create a new Jupyter notebook<ept id="4af5768b-5043-4032-b67a-41a1be2185ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4af5768b-5043-4032-b67a-41a1be2185ad">&lt;linkText&gt;</bpt>Create a new Jupyter notebook<ept id="4af5768b-5043-4032-b67a-41a1be2185ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bffbff68-6a00-4fba-a943-5e6c703a66b1" xml:space="preserve">
+          <source>A new notebook is created and opened with the name Untitled.pynb.</source>
+          <target state="new">A new notebook is created and opened with the name Untitled.pynb.</target>
+        </trans-unit>
+        <trans-unit id="55dca5e5-4611-4212-b495-054d3bdef861" xml:space="preserve">
+          <source>Click the notebook name at the top, and enter a friendly name.</source>
+          <target state="new">Click the notebook name at the top, and enter a friendly name.</target>
+        </trans-unit>
+        <trans-unit id="125d7879-a1c2-4cb4-9d8b-87770efbf9ac" xml:space="preserve">
+          <source><bpt id="f8f9f662-c88c-4a4d-b455-45b1a7fadb88">&lt;linkText&gt;</bpt>Provide a name for the notebook<ept id="f8f9f662-c88c-4a4d-b455-45b1a7fadb88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8f9f662-c88c-4a4d-b455-45b1a7fadb88">&lt;linkText&gt;</bpt>Provide a name for the notebook<ept id="f8f9f662-c88c-4a4d-b455-45b1a7fadb88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2447a14d-4748-490f-9442-b5a1dd2a3632" xml:space="preserve">
+          <source>Start building your machine learning application.</source>
+          <target state="new">Start building your machine learning application.</target>
+        </trans-unit>
+        <trans-unit id="f5a5cc76-6ae1-40be-8d31-656735a653f0" xml:space="preserve">
+          <source>In this application we use a Spark ML pipeline to perform a document classification.</source>
+          <target state="new">In this application we use a Spark ML pipeline to perform a document classification.</target>
+        </trans-unit>
+        <trans-unit id="3e51e913-1943-4706-9df4-d16e7040237e" xml:space="preserve">
+          <source>In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels.</source>
+          <target state="new">In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels.</target>
+        </trans-unit>
+        <trans-unit id="e6ed7087-db95-46d8-b73c-a3a3f353fe6f" xml:space="preserve">
+          <source>To start building the application, first import the required modules and assign resources to the application.</source>
+          <target state="new">To start building the application, first import the required modules and assign resources to the application.</target>
+        </trans-unit>
+        <trans-unit id="bcce85a6-e825-416d-8d95-942aa2e18554" xml:space="preserve">
+          <source>In the empty cell in the new notebook, paste the following snippet, and then press <bpt id="c249df98-5a29-40bc-99f0-8b59680c0a2b">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="c249df98-5a29-40bc-99f0-8b59680c0a2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the empty cell in the new notebook, paste the following snippet, and then press <bpt id="c249df98-5a29-40bc-99f0-8b59680c0a2b">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="c249df98-5a29-40bc-99f0-8b59680c0a2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fe233c5-3541-45a8-bf39-aca8739e8488" xml:space="preserve">
+          <source>Everytime you run a job in Jupyter, your web browser window title will show a <bpt id="6b6d098e-bea4-4f34-b20a-09f7621d1288">&lt;strong&gt;</bpt>(Busy)<ept id="6b6d098e-bea4-4f34-b20a-09f7621d1288">&lt;/strong&gt;</ept> status along with the notebook title.</source>
+          <target state="new">Everytime you run a job in Jupyter, your web browser window title will show a <bpt id="6b6d098e-bea4-4f34-b20a-09f7621d1288">&lt;strong&gt;</bpt>(Busy)<ept id="6b6d098e-bea4-4f34-b20a-09f7621d1288">&lt;/strong&gt;</ept> status along with the notebook title.</target>
+        </trans-unit>
+        <trans-unit id="e64e951d-e561-4a91-ad0e-46326e93378b" xml:space="preserve">
+          <source>You will also see a solid circle next to the <bpt id="9bce3657-c796-4a61-8e42-2f37be5399af">&lt;strong&gt;</bpt>Python 2<ept id="9bce3657-c796-4a61-8e42-2f37be5399af">&lt;/strong&gt;</ept> text in the top-right corner.</source>
+          <target state="new">You will also see a solid circle next to the <bpt id="9bce3657-c796-4a61-8e42-2f37be5399af">&lt;strong&gt;</bpt>Python 2<ept id="9bce3657-c796-4a61-8e42-2f37be5399af">&lt;/strong&gt;</ept> text in the top-right corner.</target>
+        </trans-unit>
+        <trans-unit id="b0bf3e38-4f85-4a8f-99e8-9a1b36888134" xml:space="preserve">
+          <source>After the job completes, this will change to a hollow circle.</source>
+          <target state="new">After the job completes, this will change to a hollow circle.</target>
+        </trans-unit>
+        <trans-unit id="f849fb14-97ec-43de-b3ad-ef7d73b4153c" xml:space="preserve">
+          <source> <bpt id="86d84cc6-8869-489a-a838-1f167408941f">&lt;linkText&gt;</bpt>Status of a Jupyter notebook job<ept id="86d84cc6-8869-489a-a838-1f167408941f">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="86d84cc6-8869-489a-a838-1f167408941f">&lt;linkText&gt;</bpt>Status of a Jupyter notebook job<ept id="86d84cc6-8869-489a-a838-1f167408941f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dab0ecec-908d-4e98-bdfa-ee34017cd932" xml:space="preserve">
+          <source>You must now load the data (hvac.csv), parse it, and use it to train the model.</source>
+          <target state="new">You must now load the data (hvac.csv), parse it, and use it to train the model.</target>
+        </trans-unit>
+        <trans-unit id="b693f69f-7267-4d88-919a-0f2c2af84df4" xml:space="preserve">
+          <source>For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature.</source>
+          <target state="new">For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature.</target>
+        </trans-unit>
+        <trans-unit id="1ccf5c02-aaba-4277-ba79-0e961e0e8458" xml:space="preserve">
+          <source>If the actual temperature is greater, the building is hot, denoted by the value <bpt id="949be878-3f1d-4540-b208-fef4b5cd6e67">&lt;strong&gt;</bpt>1.0<ept id="949be878-3f1d-4540-b208-fef4b5cd6e67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the actual temperature is greater, the building is hot, denoted by the value <bpt id="949be878-3f1d-4540-b208-fef4b5cd6e67">&lt;strong&gt;</bpt>1.0<ept id="949be878-3f1d-4540-b208-fef4b5cd6e67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="228ea0e7-e477-4751-8f63-cf82598e71b8" xml:space="preserve">
+          <source>If the actual temperature is lesser, the building is cold, denoted by the value <bpt id="f67e5c04-df9d-48be-b35a-49f678d73bd6">&lt;strong&gt;</bpt>0.0<ept id="f67e5c04-df9d-48be-b35a-49f678d73bd6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the actual temperature is lesser, the building is cold, denoted by the value <bpt id="f67e5c04-df9d-48be-b35a-49f678d73bd6">&lt;strong&gt;</bpt>0.0<ept id="f67e5c04-df9d-48be-b35a-49f678d73bd6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc35363b-7104-47cb-afc9-69365cc330da" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="7c6b7df8-478f-4edc-8d40-8bd0ffc2b712">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="7c6b7df8-478f-4edc-8d40-8bd0ffc2b712">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="7c6b7df8-478f-4edc-8d40-8bd0ffc2b712">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="7c6b7df8-478f-4edc-8d40-8bd0ffc2b712">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="557656d7-d0c0-48bb-b1a7-b46b8612ed5b" xml:space="preserve">
+          <source>Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.</source>
+          <target state="new">Configure the Spark machine learning pipeline that consists of three stages: tokenizer, hashingTF, and lr.</target>
+        </trans-unit>
+        <trans-unit id="b005ef02-10a9-4f7f-8a52-404480b1bfd0" xml:space="preserve">
+          <source>For more information about what is a pipeline and how it works see &lt;a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank"&gt;Spark machine learning pipeline&lt;/a&gt;.</source>
+          <target state="new">For more information about what is a pipeline and how it works see &lt;a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank"&gt;Spark machine learning pipeline&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="6484986c-5932-454b-90ef-d1e8955b4c10" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="4c68ecb9-de6d-4b8d-81a9-e9c600719945">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="4c68ecb9-de6d-4b8d-81a9-e9c600719945">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="4c68ecb9-de6d-4b8d-81a9-e9c600719945">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="4c68ecb9-de6d-4b8d-81a9-e9c600719945">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef09479a-e510-407b-999b-f929d31b9511" xml:space="preserve">
+          <source>Fit the pipeline to the training document.</source>
+          <target state="new">Fit the pipeline to the training document.</target>
+        </trans-unit>
+        <trans-unit id="32367c50-0b03-4062-8777-b53e58648fbd" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="cd1f246f-03b6-4ca2-a755-a3fd82eb4775">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="cd1f246f-03b6-4ca2-a755-a3fd82eb4775">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="cd1f246f-03b6-4ca2-a755-a3fd82eb4775">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="cd1f246f-03b6-4ca2-a755-a3fd82eb4775">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="885195dc-570a-4b42-be0e-62afcc51f992" xml:space="preserve">
+          <source>Verify the training document to checkpoint your progress with the application.</source>
+          <target state="new">Verify the training document to checkpoint your progress with the application.</target>
+        </trans-unit>
+        <trans-unit id="3f14f6e5-545b-4258-9862-e37891d47460" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="2cf35465-f34e-4fc5-a94d-d574107103ff">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="2cf35465-f34e-4fc5-a94d-d574107103ff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="2cf35465-f34e-4fc5-a94d-d574107103ff">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="2cf35465-f34e-4fc5-a94d-d574107103ff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0bba56c7-0bdf-400d-99df-934553c591fc" xml:space="preserve">
+          <source>This should give the output similar to the following:</source>
+          <target state="new">This should give the output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="9f05f394-5503-48a7-bb32-bac7b3038680" xml:space="preserve">
+          <source>Go back and verify the output against the raw CSV file.</source>
+          <target state="new">Go back and verify the output against the raw CSV file.</target>
+        </trans-unit>
+        <trans-unit id="dd087d5f-fefc-4672-beae-4468e675776d" xml:space="preserve">
+          <source>For example, the first row the CSV file has this data:</source>
+          <target state="new">For example, the first row the CSV file has this data:</target>
+        </trans-unit>
+        <trans-unit id="db944d1f-51da-427d-88bf-f1e918e4c7b5" xml:space="preserve">
+          <source><bpt id="df012b26-f372-414e-bb60-6c966f76754e">&lt;linkText&gt;</bpt>HVAC data snapshot<ept id="df012b26-f372-414e-bb60-6c966f76754e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df012b26-f372-414e-bb60-6c966f76754e">&lt;linkText&gt;</bpt>HVAC data snapshot<ept id="df012b26-f372-414e-bb60-6c966f76754e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c8355f1-8fe4-4313-8e03-3b3967cf7e12" xml:space="preserve">
+          <source>Notice how the actual temperature is less than the target temperature suggesting the building is cold.</source>
+          <target state="new">Notice how the actual temperature is less than the target temperature suggesting the building is cold.</target>
+        </trans-unit>
+        <trans-unit id="7a1ddd13-480e-46ab-b9b6-4f0fa2ee9699" xml:space="preserve">
+          <source>Hence in the training output, the value for <bpt id="5b0c2ec6-8fc8-4b13-9c3d-9d6bd13e739b">&lt;strong&gt;</bpt>label<ept id="5b0c2ec6-8fc8-4b13-9c3d-9d6bd13e739b">&lt;/strong&gt;</ept> in the first row is <bpt id="f87cdf0c-f909-40f7-b310-c65de1e8a31b">&lt;strong&gt;</bpt>0.0<ept id="f87cdf0c-f909-40f7-b310-c65de1e8a31b">&lt;/strong&gt;</ept>, which means the building is not hot.</source>
+          <target state="new">Hence in the training output, the value for <bpt id="5b0c2ec6-8fc8-4b13-9c3d-9d6bd13e739b">&lt;strong&gt;</bpt>label<ept id="5b0c2ec6-8fc8-4b13-9c3d-9d6bd13e739b">&lt;/strong&gt;</ept> in the first row is <bpt id="f87cdf0c-f909-40f7-b310-c65de1e8a31b">&lt;strong&gt;</bpt>0.0<ept id="f87cdf0c-f909-40f7-b310-c65de1e8a31b">&lt;/strong&gt;</ept>, which means the building is not hot.</target>
+        </trans-unit>
+        <trans-unit id="da90ccd0-5b62-4a70-97bf-67be7ee2c984" xml:space="preserve">
+          <source>Prepare a data set to run the trained model against.</source>
+          <target state="new">Prepare a data set to run the trained model against.</target>
+        </trans-unit>
+        <trans-unit id="5f695844-fa59-421c-aa7f-f3fb0ff4bd0c" xml:space="preserve">
+          <source>To do so, we would pass on a system ID and system age (denoted as <bpt id="e74770c8-7ec7-4eee-8db0-508c24ff9ee3">&lt;strong&gt;</bpt>SystemInfo<ept id="e74770c8-7ec7-4eee-8db0-508c24ff9ee3">&lt;/strong&gt;</ept> in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).</source>
+          <target state="new">To do so, we would pass on a system ID and system age (denoted as <bpt id="e74770c8-7ec7-4eee-8db0-508c24ff9ee3">&lt;strong&gt;</bpt>SystemInfo<ept id="e74770c8-7ec7-4eee-8db0-508c24ff9ee3">&lt;/strong&gt;</ept> in the training output), and the model would predict whether the building with that system ID and system age would be hotter (denoted by 1.0) or cooler (denoted by 0.0).</target>
+        </trans-unit>
+        <trans-unit id="17d8580e-d210-4aeb-8c08-829dc558538e" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="ea93b312-3a93-4ff0-a7c4-44490c2c3670">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="ea93b312-3a93-4ff0-a7c4-44490c2c3670">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="ea93b312-3a93-4ff0-a7c4-44490c2c3670">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="ea93b312-3a93-4ff0-a7c4-44490c2c3670">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f35b5cd6-167a-400c-9635-39c42837a31c" xml:space="preserve">
+          <source>Finally, make predictions on the test data.</source>
+          <target state="new">Finally, make predictions on the test data.</target>
+        </trans-unit>
+        <trans-unit id="353e1ce5-8e1b-4af1-a626-3f92c2782a81" xml:space="preserve">
+          <source>Paste the following snippet in an empty cell and press <bpt id="7e1e0aab-f3e7-4718-8ef1-c7eccd17b045">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="7e1e0aab-f3e7-4718-8ef1-c7eccd17b045">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the following snippet in an empty cell and press <bpt id="7e1e0aab-f3e7-4718-8ef1-c7eccd17b045">&lt;strong&gt;</bpt>SHIFT + ENTER<ept id="7e1e0aab-f3e7-4718-8ef1-c7eccd17b045">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcfbd07c-fac9-433d-8348-dca923014a6c" xml:space="preserve">
+          <source>You should see an output similar to the following:</source>
+          <target state="new">You should see an output similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="7c37d3f4-6e3d-483d-bda6-53370c31d905" xml:space="preserve">
+          <source>From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (<bpt id="44b2a4dd-da53-4168-89e6-99a3625d5abb">&lt;strong&gt;</bpt>prediction=1.0<ept id="44b2a4dd-da53-4168-89e6-99a3625d5abb">&lt;/strong&gt;</ept>).</source>
+          <target state="new">From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (<bpt id="44b2a4dd-da53-4168-89e6-99a3625d5abb">&lt;strong&gt;</bpt>prediction=1.0<ept id="44b2a4dd-da53-4168-89e6-99a3625d5abb">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="9ab9683f-bac2-4c65-adf4-5ff4d43e9fbe" xml:space="preserve">
+          <source>The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0.</source>
+          <target state="new">The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0.</target>
+        </trans-unit>
+        <trans-unit id="fc14da52-8762-44b0-adae-c85431cd6f14" xml:space="preserve">
+          <source>In the output, even though the second value is only marginally higher, the model shows <bpt id="eba1ef3c-77a3-4cc3-b559-6d2722969fe5">&lt;strong&gt;</bpt>prediction=1.0<ept id="eba1ef3c-77a3-4cc3-b559-6d2722969fe5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the output, even though the second value is only marginally higher, the model shows <bpt id="eba1ef3c-77a3-4cc3-b559-6d2722969fe5">&lt;strong&gt;</bpt>prediction=1.0<ept id="eba1ef3c-77a3-4cc3-b559-6d2722969fe5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4c59561-9cf9-4ead-98ad-e48ec1c64408" xml:space="preserve">
+          <source>You can now exit the notebook by restarting the kernel.</source>
+          <target state="new">You can now exit the notebook by restarting the kernel.</target>
+        </trans-unit>
+        <trans-unit id="792512b1-943a-4a39-8bb8-c941f63502ff" xml:space="preserve">
+          <source>From the top menu bar, click <bpt id="8ba6d543-ae0f-4c61-9d3e-994b4421ee6c">&lt;strong&gt;</bpt>Kernel<ept id="8ba6d543-ae0f-4c61-9d3e-994b4421ee6c">&lt;/strong&gt;</ept>, click <bpt id="d3454aac-9e37-4b79-a62f-dd616b19830f">&lt;strong&gt;</bpt>Restart<ept id="d3454aac-9e37-4b79-a62f-dd616b19830f">&lt;/strong&gt;</ept>, and then click <bpt id="c8c5beff-3718-4545-bdea-f598985c4e95">&lt;strong&gt;</bpt>Restart<ept id="c8c5beff-3718-4545-bdea-f598985c4e95">&lt;/strong&gt;</ept> again at the prompt.</source>
+          <target state="new">From the top menu bar, click <bpt id="8ba6d543-ae0f-4c61-9d3e-994b4421ee6c">&lt;strong&gt;</bpt>Kernel<ept id="8ba6d543-ae0f-4c61-9d3e-994b4421ee6c">&lt;/strong&gt;</ept>, click <bpt id="d3454aac-9e37-4b79-a62f-dd616b19830f">&lt;strong&gt;</bpt>Restart<ept id="d3454aac-9e37-4b79-a62f-dd616b19830f">&lt;/strong&gt;</ept>, and then click <bpt id="c8c5beff-3718-4545-bdea-f598985c4e95">&lt;strong&gt;</bpt>Restart<ept id="c8c5beff-3718-4545-bdea-f598985c4e95">&lt;/strong&gt;</ept> again at the prompt.</target>
+        </trans-unit>
+        <trans-unit id="68fcc161-b38c-4a9d-a53f-9ed324d7b680" xml:space="preserve">
+          <source><bpt id="cd7b9398-62f5-4688-ba75-fe05f3ff2c77">&lt;linkText&gt;</bpt>Restart the Jupyter Kernel<ept id="cd7b9398-62f5-4688-ba75-fe05f3ff2c77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd7b9398-62f5-4688-ba75-fe05f3ff2c77">&lt;linkText&gt;</bpt>Restart the Jupyter Kernel<ept id="cd7b9398-62f5-4688-ba75-fe05f3ff2c77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7f1308b-c013-4878-bc94-3c8e32863ee0" xml:space="preserve">
+          <source>Apache Spark clusters on HDInsight include Anaconda libraries.</source>
+          <target state="new">Apache Spark clusters on HDInsight include Anaconda libraries.</target>
+        </trans-unit>
+        <trans-unit id="bd14eb04-3306-4327-a2ba-a72af78732ee" xml:space="preserve">
+          <source>This also includes the <bpt id="ede615d8-3c8e-4546-874a-1605724a8f55">&lt;strong&gt;</bpt>scikit-learn<ept id="ede615d8-3c8e-4546-874a-1605724a8f55">&lt;/strong&gt;</ept> library for machine learning.</source>
+          <target state="new">This also includes the <bpt id="ede615d8-3c8e-4546-874a-1605724a8f55">&lt;strong&gt;</bpt>scikit-learn<ept id="ede615d8-3c8e-4546-874a-1605724a8f55">&lt;/strong&gt;</ept> library for machine learning.</target>
+        </trans-unit>
+        <trans-unit id="0d3f80bf-51e6-4274-b7db-6f8f5cea3727" xml:space="preserve">
+          <source>The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook.</source>
+          <target state="new">The library also includes various data sets that you can use to build sample applications directly from a Jupyter notebook.</target>
+        </trans-unit>
+        <trans-unit id="8a438a72-dcee-43f1-adb6-e7397a130b15" xml:space="preserve">
+          <source>For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto<bpt id="f9719e56-f746-48c7-8b87-8b013e9113da">&lt;em&gt;</bpt>examples/index.html](http://scikit-learn.org/stable/auto<ept id="f9719e56-f746-48c7-8b87-8b013e9113da">&lt;/em&gt;</ept>examples/index.html).</source>
+          <target state="new">For examples on using the scikit-learn library, see [http://scikit-learn.org/stable/auto<bpt id="f9719e56-f746-48c7-8b87-8b013e9113da">&lt;em&gt;</bpt>examples/index.html](http://scikit-learn.org/stable/auto<ept id="f9719e56-f746-48c7-8b87-8b013e9113da">&lt;/em&gt;</ept>examples/index.html).</target>
+        </trans-unit>
+        <trans-unit id="0aad4e9e-1653-4727-b7b6-a3c03b500ed6" xml:space="preserve">
+          <source><bpt id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;/linkText&gt;</ept><bpt id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;title&gt;</bpt><ept id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;linkText&gt;</bpt>Overview: Apache Spark on Azure HDInsight<ept id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;/linkText&gt;</ept><bpt id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;title&gt;</bpt><ept id="d154a3da-064d-436e-b37c-dc1669e2e77b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bfd269a3-194e-44aa-adfc-3d75a4a76147" xml:space="preserve">
+          <source><bpt id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;linkText&gt;</bpt>Provision a Spark on HDInsight cluster<ept id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;/linkText&gt;</ept><bpt id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;title&gt;</bpt><ept id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;linkText&gt;</bpt>Provision a Spark on HDInsight cluster<ept id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;/linkText&gt;</ept><bpt id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;title&gt;</bpt><ept id="9e7cfc5f-f631-484a-9e5b-624828090d67">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d2a39f4-5ea3-401e-878a-995cbe827a51" xml:space="preserve">
+          <source><bpt id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;/linkText&gt;</ept><bpt id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;title&gt;</bpt><ept id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;linkText&gt;</bpt>Perform interactive data analysis using Spark in HDInsight with BI tools<ept id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;/linkText&gt;</ept><bpt id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;title&gt;</bpt><ept id="cd924e09-2646-4f85-a4ad-ac7cafcfaf3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d41c865a-cca8-4d92-ac0a-86122e904b6d" xml:space="preserve">
+          <source><bpt id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;/linkText&gt;</ept><bpt id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;title&gt;</bpt><ept id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;linkText&gt;</bpt>Use Spark in HDInsight for building real-time streaming applications<ept id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;/linkText&gt;</ept><bpt id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;title&gt;</bpt><ept id="0cb135e2-dafb-4951-9a12-eb8a43be7769">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3664f2c-36be-40dc-b9f7-ba1f5fb8e5dd" xml:space="preserve">
+          <source><bpt id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;/linkText&gt;</ept><bpt id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;title&gt;</bpt><ept id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;linkText&gt;</bpt>Manage resources for the Apache Spark cluster in Azure HDInsight<ept id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;/linkText&gt;</ept><bpt id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;title&gt;</bpt><ept id="48146640-4747-4de3-bcfc-1f1c62a68966">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="066d31ba-f8b8-4c0d-9444-6a05c988f0fc" xml:space="preserve">
+          <source>../hdinsight-component-versioning/</source>
+          <target state="new">../hdinsight-component-versioning/</target>
+        </trans-unit>
+        <trans-unit id="5bc44aee-b6fc-4960-b34a-649d67eb9da7" xml:space="preserve">
+          <source>../hdinsight-upload-data/</source>
+          <target state="new">../hdinsight-upload-data/</target>
+        </trans-unit>
+        <trans-unit id="c4779589-c4cd-4028-b0fe-d35007d83187" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage/</source>
+          <target state="new">../hdinsight-use-blob-storage/</target>
+        </trans-unit>
+        <trans-unit id="30b5072a-2446-4df6-92ab-dec20861df0e" xml:space="preserve">
+          <source>../hdinsight-hive-analyze-website-log/</source>
+          <target state="new">../hdinsight-hive-analyze-website-log/</target>
+        </trans-unit>
+        <trans-unit id="1ce1534f-3ba8-479e-9d24-decd53d27716" xml:space="preserve">
+          <source>../hdinsight-hive-analyze-sensor-data/</source>
+          <target state="new">../hdinsight-hive-analyze-sensor-data/</target>
+        </trans-unit>
+        <trans-unit id="50016b2b-cd86-4196-8d47-1c498195a6e7" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="f647f521-3a84-476f-89f1-9a24f5b384d7" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="80bbabe0-0f32-43e1-ba68-6d521344e7d6" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="2eae4f41-e9bf-4f44-9e7c-ae8a6acdb1b6" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="6a46d466-3f29-43e1-b94c-d4f020f68eb9" xml:space="preserve">
+          <source>../storage-create-storage-account/</source>
+          <target state="new">../storage-create-storage-account/</target>
+        </trans-unit>
+      </group>
+      <group id="2f597596-c311-4208-89d1-0a7c2ceced13" />
+    </body>
+  </file>
+</xliff>

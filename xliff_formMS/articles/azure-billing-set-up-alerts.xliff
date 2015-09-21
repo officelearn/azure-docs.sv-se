@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6d0e5092-a0bb-4e85-bfac-053a023cf30b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6d0e5092-a0bb-4e85-bfac-053a023cf30b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="295bfe39-2e3e-4b8b-827e-a1a0c417b4f2">
+        <trans-unit id="a3a40187-0481-43b2-be6c-68348dc6b2ec" xml:space="preserve">
+          <source>Set up billing alerts for your Microsoft Azure subscriptions</source>
+          <target state="new">Set up billing alerts for your Microsoft Azure subscriptions</target>
+        </trans-unit>
+        <trans-unit id="aae374c5-2366-4e19-b057-275225afdc33" xml:space="preserve">
+          <source>Describes how you can set up alerts on your Azure bill so you can avoid billing surprises.</source>
+          <target state="new">Describes how you can set up alerts on your Azure bill so you can avoid billing surprises.</target>
+        </trans-unit>
+        <trans-unit id="b880ef22-1de9-4190-aaf8-9cf2f42ffb9d" xml:space="preserve">
+          <source>Are you concerned about how much you're spending each month for your Azure subscription?</source>
+          <target state="new">Are you concerned about how much you're spending each month for your Azure subscription?</target>
+        </trans-unit>
+        <trans-unit id="46ed3c64-0f3f-4d14-a33b-ccc0728622f7" xml:space="preserve">
+          <source>If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.</source>
+          <target state="new">If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.</target>
+        </trans-unit>
+        <trans-unit id="cf730baa-58c8-4bef-bdfb-a85a0ef20b8d" xml:space="preserve">
+          <source>This service is a preview service, so the first thing you have to do is sign up for it - visit &lt;a href="https://account.windowsazure.com/PreviewFeatures"&gt;the Preview Features page &lt;/a&gt; in the Azure account management portal to do this.</source>
+          <target state="new">This service is a preview service, so the first thing you have to do is sign up for it - visit &lt;a href="https://account.windowsazure.com/PreviewFeatures"&gt;the Preview Features page &lt;/a&gt; in the Azure account management portal to do this.</target>
+        </trans-unit>
+        <trans-unit id="52f97a54-3d7e-41e7-8e0c-4006c053ad47" xml:space="preserve">
+          <source>After you receive the email confirmation that the billing service is turned on for your subscription, visit &lt;a href="https://account.windowsazure.com/Subscriptions"&gt;the Subscriptions page&lt;/a&gt; in the account portal.</source>
+          <target state="new">After you receive the email confirmation that the billing service is turned on for your subscription, visit &lt;a href="https://account.windowsazure.com/Subscriptions"&gt;the Subscriptions page&lt;/a&gt; in the account portal.</target>
+        </trans-unit>
+        <trans-unit id="be3f2361-b2e5-4eb2-9272-c9e299f8bdac" xml:space="preserve">
+          <source>Click the subscription you want to monitor, and then click <bpt id="0a1efe64-f8c8-43c2-a043-8ccf411e1033">&lt;strong&gt;</bpt>Alerts<ept id="0a1efe64-f8c8-43c2-a043-8ccf411e1033">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the subscription you want to monitor, and then click <bpt id="0a1efe64-f8c8-43c2-a043-8ccf411e1033">&lt;strong&gt;</bpt>Alerts<ept id="0a1efe64-f8c8-43c2-a043-8ccf411e1033">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60a5f5e1-f354-42bd-84fa-963020f5e4a3" xml:space="preserve">
+          <source><bpt id="6e68eaf8-870b-44ca-ad25-c3730cf6e618">&lt;linkText&gt;</bpt><ept id="6e68eaf8-870b-44ca-ad25-c3730cf6e618">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e68eaf8-870b-44ca-ad25-c3730cf6e618">&lt;linkText&gt;</bpt><ept id="6e68eaf8-870b-44ca-ad25-c3730cf6e618">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cc068637-6c80-4cfc-84a0-af31a9c8f62d" xml:space="preserve">
+          <source>Next, click <bpt id="8ee891d9-470a-46c1-9c32-1e02532a2b3a">&lt;strong&gt;</bpt>Add Alert<ept id="8ee891d9-470a-46c1-9c32-1e02532a2b3a">&lt;/strong&gt;</ept> to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.</source>
+          <target state="new">Next, click <bpt id="8ee891d9-470a-46c1-9c32-1e02532a2b3a">&lt;strong&gt;</bpt>Add Alert<ept id="8ee891d9-470a-46c1-9c32-1e02532a2b3a">&lt;/strong&gt;</ept> to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.</target>
+        </trans-unit>
+        <trans-unit id="8f4d8ba1-658e-4328-b8e7-3f490f998fb1" xml:space="preserve">
+          <source><bpt id="a7934968-5448-4ede-8e47-54e95bec8902">&lt;linkText&gt;</bpt><ept id="a7934968-5448-4ede-8e47-54e95bec8902">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a7934968-5448-4ede-8e47-54e95bec8902">&lt;linkText&gt;</bpt><ept id="a7934968-5448-4ede-8e47-54e95bec8902">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94a8f903-ec57-4eb9-a75b-c47e9680a337" xml:space="preserve">
+          <source>When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent.</source>
+          <target state="new">When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent.</target>
+        </trans-unit>
+        <trans-unit id="8d4bd26a-a26b-4b25-98dd-e369f1a8e4f0" xml:space="preserve">
+          <source>When setting up the threshold, you can choose either a <bpt id="73d2e380-c48f-4e41-bea3-b7e930bac1e7">&lt;strong&gt;</bpt>Billing Total<ept id="73d2e380-c48f-4e41-bea3-b7e930bac1e7">&lt;/strong&gt;</ept> or a <bpt id="2ce05c5f-bf4a-432f-9b4f-208af5b8eb01">&lt;strong&gt;</bpt>Monetary Credit<ept id="2ce05c5f-bf4a-432f-9b4f-208af5b8eb01">&lt;/strong&gt;</ept> from the <bpt id="c2ec16ea-db4b-46dd-b6d6-7505b07a7893">&lt;strong&gt;</bpt>Alert For<ept id="c2ec16ea-db4b-46dd-b6d6-7505b07a7893">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">When setting up the threshold, you can choose either a <bpt id="73d2e380-c48f-4e41-bea3-b7e930bac1e7">&lt;strong&gt;</bpt>Billing Total<ept id="73d2e380-c48f-4e41-bea3-b7e930bac1e7">&lt;/strong&gt;</ept> or a <bpt id="2ce05c5f-bf4a-432f-9b4f-208af5b8eb01">&lt;strong&gt;</bpt>Monetary Credit<ept id="2ce05c5f-bf4a-432f-9b4f-208af5b8eb01">&lt;/strong&gt;</ept> from the <bpt id="c2ec16ea-db4b-46dd-b6d6-7505b07a7893">&lt;strong&gt;</bpt>Alert For<ept id="c2ec16ea-db4b-46dd-b6d6-7505b07a7893">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="e4572fac-86af-492c-9cec-c31d7ea8e27f" xml:space="preserve">
+          <source>For a billing total, an alert is sent when subscription spending exceeds the threshold.</source>
+          <target state="new">For a billing total, an alert is sent when subscription spending exceeds the threshold.</target>
+        </trans-unit>
+        <trans-unit id="35845ba0-114a-4806-bc13-948c5187de3e" xml:space="preserve">
+          <source>For a monetary credit, an alert is sent when monetary credits drop below the limit.</source>
+          <target state="new">For a monetary credit, an alert is sent when monetary credits drop below the limit.</target>
+        </trans-unit>
+        <trans-unit id="b2ecb674-cca8-418c-985b-86933527bbd2" xml:space="preserve">
+          <source>Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.</source>
+          <target state="new">Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.</target>
+        </trans-unit>
+        <trans-unit id="de5e0a9a-06f4-487f-912e-a8b27f4c3b55" xml:space="preserve">
+          <source><bpt id="e66ee270-9370-470c-94b0-5142fa3be598">&lt;linkText&gt;</bpt><ept id="e66ee270-9370-470c-94b0-5142fa3be598">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e66ee270-9370-470c-94b0-5142fa3be598">&lt;linkText&gt;</bpt><ept id="e66ee270-9370-470c-94b0-5142fa3be598">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71d0408d-ba8a-40f6-a95b-54dea0692c23" xml:space="preserve">
+          <source>Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.</source>
+          <target state="new">Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.</target>
+        </trans-unit>
+        <trans-unit id="de539119-28c8-46ef-bca9-b2c9c381ec2f" xml:space="preserve">
+          <source>After you set up alerts, the Account Center lists them and shows how many more you can set up.</source>
+          <target state="new">After you set up alerts, the Account Center lists them and shows how many more you can set up.</target>
+        </trans-unit>
+        <trans-unit id="b765b1ad-6721-4dce-ae01-c00ad6b8d192" xml:space="preserve">
+          <source>For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up.</source>
+          <target state="new">For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up.</target>
+        </trans-unit>
+        <trans-unit id="3df166e0-0992-4d32-86f5-1c2b4f8ac090" xml:space="preserve">
+          <source>The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format.</source>
+          <target state="new">The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format.</target>
+        </trans-unit>
+        <trans-unit id="4a1144e2-3380-49f0-8d9e-d47dd59977ed" xml:space="preserve">
+          <source>Click the plus sign for an alert in the list to edit it, or click the trash can to delete it.</source>
+          <target state="new">Click the plus sign for an alert in the list to edit it, or click the trash can to delete it.</target>
+        </trans-unit>
+        <trans-unit id="ad2896de-5260-4258-8e24-a8944664fe7a" xml:space="preserve">
+          <source>./media/azure-billing-set-up-alerts/billingalert1.png</source>
+          <target state="new">./media/azure-billing-set-up-alerts/billingalert1.png</target>
+        </trans-unit>
+        <trans-unit id="4857edf3-5c3e-4bb8-a193-980248921f2d" xml:space="preserve">
+          <source>./media/azure-billing-set-up-alerts/billingalert2.png</source>
+          <target state="new">./media/azure-billing-set-up-alerts/billingalert2.png</target>
+        </trans-unit>
+        <trans-unit id="e0000d92-73f2-4820-8228-82585e5453be" xml:space="preserve">
+          <source>./media/azure-billing-set-up-alerts/billingalerts3.png</source>
+          <target state="new">./media/azure-billing-set-up-alerts/billingalerts3.png</target>
+        </trans-unit>
+      </group>
+      <group id="19b783ff-58a7-452f-b498-38385c816882" />
+    </body>
+  </file>
+</xliff>

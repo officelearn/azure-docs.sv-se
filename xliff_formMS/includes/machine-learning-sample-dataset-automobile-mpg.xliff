@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="620236cd-3061-4981-acf7-1e369e54dedb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="620236cd-3061-4981-acf7-1e369e54dedb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="75c9db8e-e00a-425c-ae8c-5f577dff0e6b">
+        <trans-unit id="d9517315-109e-4556-a871-d563c27f1771" xml:space="preserve">
+          <source>This dataset is a slightly modified version of the dataset provided by the StatLib library of Carnegie Mellon University.</source>
+          <target state="new">This dataset is a slightly modified version of the dataset provided by the StatLib library of Carnegie Mellon University.</target>
+        </trans-unit>
+        <trans-unit id="3677d6ea-5cf8-43e2-a77a-ab8ca2ec0980" xml:space="preserve">
+          <source>The dataset was used in the 1983 American Statistical Association Exposition.&lt;p&gt; &lt;/p&gt;The data lists fuel consumption for various automobiles in miles per gallon, along with information such the number of cylinders, engine displacement, horsepower, total weight, and acceleration.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict fuel economy based on 3 multivalued discrete attributes and 5 continuous attributes.</source>
+          <target state="new">The dataset was used in the 1983 American Statistical Association Exposition.&lt;p&gt; &lt;/p&gt;The data lists fuel consumption for various automobiles in miles per gallon, along with information such the number of cylinders, engine displacement, horsepower, total weight, and acceleration.&lt;p&gt; &lt;/p&gt;&lt;b&gt;Usage:&lt;/b&gt; Predict fuel economy based on 3 multivalued discrete attributes and 5 continuous attributes.</target>
+        </trans-unit>
+        <trans-unit id="14b28b91-7faa-42df-9cc8-affe2443beed" xml:space="preserve">
+          <source>&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; StatLib, Carnegie Mellon University, (1993).</source>
+          <target state="new">&lt;p&gt; &lt;/p&gt;&lt;b&gt;Related Research:&lt;/b&gt; StatLib, Carnegie Mellon University, (1993).</target>
+        </trans-unit>
+        <trans-unit id="1c04ae6a-40ed-44a1-8d42-8fb4fe5d45dd" xml:space="preserve">
+          <source>UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</source>
+          <target state="new">UCI Machine Learning Repository &lt;a href="http://archive.ics.uci.edu/ml"&gt;http://archive.ics.uci.edu/ml&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="1803569d-e3c1-4ef7-a13b-bf12d39ae32b" xml:space="preserve">
+          <source>Irvine, CA: University of California, School of Information and Computer Science</source>
+          <target state="new">Irvine, CA: University of California, School of Information and Computer Science</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

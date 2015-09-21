@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8518a8f4-c814-4a7c-8c3a-9e518721ffd2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8518a8f4-c814-4a7c-8c3a-9e518721ffd2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="73102b8e-02d3-417e-bf70-27561e498df3">
+        <trans-unit id="ff0fb683-5d61-437a-a558-64c6de8d0cd4" xml:space="preserve">
+          <source>What is Azure App Service</source>
+          <target state="new">What is Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="63586296-1f91-4537-971f-d9d34e728ea3" xml:space="preserve">
+          <source>Learn why Azure App Service is the best platform for developing web and mobile apps.</source>
+          <target state="new">Learn why Azure App Service is the best platform for developing web and mobile apps.</target>
+        </trans-unit>
+        <trans-unit id="3fd8ef2f-fc77-4d80-808c-308e1bdd8b23" xml:space="preserve">
+          <source>Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device.</source>
+          <target state="new">Azure App Service is the only cloud service that integrates everything you need to quickly and easily build web and mobile apps for any platform and any device.</target>
+        </trans-unit>
+        <trans-unit id="8dd92e9e-7cdf-4693-9d22-4e9bd00e2b12" xml:space="preserve">
+          <source>Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Online and GitHub, staging and production support, and automatic patching.</source>
+          <target state="new">Built for developers, App Service is a fully managed platform with powerful capabilities such as built-in DevOps, continuous integration with Visual Studio Online and GitHub, staging and production support, and automatic patching.</target>
+        </trans-unit>
+        <trans-unit id="3f66a173-2b47-492a-8f80-f4d1f37542cf" xml:space="preserve">
+          <source>Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.</source>
+          <target state="new">Azure App Service is a single service that includes all of the existing capabilities from Azure Websites, Azure Mobile Services, and Azure Biztalk Services, while adding new capabilities.</target>
+        </trans-unit>
+        <trans-unit id="91f1bcaa-dbcd-4ee0-a988-7f64b3cfb05d" xml:space="preserve">
+          <source><bpt id="4b812582-e957-459d-ac59-577072f18142">&lt;linkText&gt;</bpt>Learn more<ept id="4b812582-e957-459d-ac59-577072f18142">&lt;/linkText&gt;</ept><bpt id="4b812582-e957-459d-ac59-577072f18142">&lt;title&gt;</bpt><ept id="4b812582-e957-459d-ac59-577072f18142">&lt;/title&gt;</ept> about how App Service relates to these existing services.</source>
+          <target state="new"><bpt id="4b812582-e957-459d-ac59-577072f18142">&lt;linkText&gt;</bpt>Learn more<ept id="4b812582-e957-459d-ac59-577072f18142">&lt;/linkText&gt;</ept><bpt id="4b812582-e957-459d-ac59-577072f18142">&lt;title&gt;</bpt><ept id="4b812582-e957-459d-ac59-577072f18142">&lt;/title&gt;</ept> about how App Service relates to these existing services.</target>
+        </trans-unit>
+        <trans-unit id="08888af8-cd2f-4410-bc18-05a1d1bea32a" xml:space="preserve">
+          <source>Focused on rapid development of web and mobile apps, as well as automating business processes, Azure App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:</source>
+          <target state="new">Focused on rapid development of web and mobile apps, as well as automating business processes, Azure App Service provides an integrated set of enterprise capabilities through a single development and management experience offering you the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="895f24cf-0e2f-4c17-b3ab-a46611ef54f1" xml:space="preserve">
+          <source><bpt id="29c1b1d3-4333-49d9-9e6d-4e71944f5cea">&lt;strong&gt;</bpt>Build Web and Mobile Apps Fast<ept id="29c1b1d3-4333-49d9-9e6d-4e71944f5cea">&lt;/strong&gt;</ept> - Rapidly build, deploy and manage web and mobile apps for employees or customers using a single back-end.</source>
+          <target state="new"><bpt id="29c1b1d3-4333-49d9-9e6d-4e71944f5cea">&lt;strong&gt;</bpt>Build Web and Mobile Apps Fast<ept id="29c1b1d3-4333-49d9-9e6d-4e71944f5cea">&lt;/strong&gt;</ept> - Rapidly build, deploy and manage web and mobile apps for employees or customers using a single back-end.</target>
+        </trans-unit>
+        <trans-unit id="c832b906-44d3-47aa-b5c2-6bc663cceb0c" xml:space="preserve">
+          <source>Use your existing languages skills -- .NET, Java, NodeJS, PHP, or Python.</source>
+          <target state="new">Use your existing languages skills -- .NET, Java, NodeJS, PHP, or Python.</target>
+        </trans-unit>
+        <trans-unit id="5358e70c-90ef-40aa-8171-1218e42dd982" xml:space="preserve">
+          <source>Accelerate development with access to a rich gallery of APIs, connectors, and logic available in the Azure Marketplace.</source>
+          <target state="new">Accelerate development with access to a rich gallery of APIs, connectors, and logic available in the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="9b365238-dcf9-486b-8c29-9b82c892260d" xml:space="preserve">
+          <source><bpt id="169fed0f-5364-4ce7-a471-d093c6307e36">&lt;strong&gt;</bpt>Connect to any service and unlock your data<ept id="169fed0f-5364-4ce7-a471-d093c6307e36">&lt;/strong&gt;</ept> - Connect your web or mobile app to enterprise systems or SaaS in minutes with built-in connectors.</source>
+          <target state="new"><bpt id="169fed0f-5364-4ce7-a471-d093c6307e36">&lt;strong&gt;</bpt>Connect to any service and unlock your data<ept id="169fed0f-5364-4ce7-a471-d093c6307e36">&lt;/strong&gt;</ept> - Connect your web or mobile app to enterprise systems or SaaS in minutes with built-in connectors.</target>
+        </trans-unit>
+        <trans-unit id="e64994b3-d4c0-49d4-84ed-cda69c24514f" xml:space="preserve">
+          <source>Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle to popular enterprise SaaS services like Salesforce and Office 365 to popular internet services such as Facebook, Twitter and Dropbox.</source>
+          <target state="new">Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle to popular enterprise SaaS services like Salesforce and Office 365 to popular internet services such as Facebook, Twitter and Dropbox.</target>
+        </trans-unit>
+        <trans-unit id="772c2c4d-fedf-421b-91cf-3c647eeac886" xml:space="preserve">
+          <source><bpt id="47754b61-fe75-46f9-9b3b-45ac726095b9">&lt;strong&gt;</bpt>Integration made simple<ept id="47754b61-fe75-46f9-9b3b-45ac726095b9">&lt;/strong&gt;</ept> - Integrate data across clouds and automate business processes in minutes with a simple visual design experience.</source>
+          <target state="new"><bpt id="47754b61-fe75-46f9-9b3b-45ac726095b9">&lt;strong&gt;</bpt>Integration made simple<ept id="47754b61-fe75-46f9-9b3b-45ac726095b9">&lt;/strong&gt;</ept> - Integrate data across clouds and automate business processes in minutes with a simple visual design experience.</target>
+        </trans-unit>
+        <trans-unit id="e880ce50-6a5e-4e53-8e97-87cca2af0757" xml:space="preserve">
+          <source>Easily integrate your logic it with any mobile or web app via standard REST APIs.</source>
+          <target state="new">Easily integrate your logic it with any mobile or web app via standard REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="a11c712c-bf49-4076-a9a3-4ec4793815e7" xml:space="preserve">
+          <source>Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more based on the industry leading BizTalk platform.</source>
+          <target state="new">Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more based on the industry leading BizTalk platform.</target>
+        </trans-unit>
+        <trans-unit id="f994783f-a8cd-4d08-9a72-ff2c79f7e4b2" xml:space="preserve">
+          <source><bpt id="4e59849b-cc20-4ced-916c-ecedb005e52c">&lt;strong&gt;</bpt>Unparalleled developer productivity<ept id="4e59849b-cc20-4ced-916c-ecedb005e52c">&lt;/strong&gt;</ept> - Optimized for DevOps, with continuous integration support for Visual Studio Online and Github, so you can focus on rapidly improving your apps without worrying about infrastructure.</source>
+          <target state="new"><bpt id="4e59849b-cc20-4ced-916c-ecedb005e52c">&lt;strong&gt;</bpt>Unparalleled developer productivity<ept id="4e59849b-cc20-4ced-916c-ecedb005e52c">&lt;/strong&gt;</ept> - Optimized for DevOps, with continuous integration support for Visual Studio Online and Github, so you can focus on rapidly improving your apps without worrying about infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="e8ec731d-7ce1-4121-bf5d-cd05f1efe4fb" xml:space="preserve">
+          <source>Deploy app updates with built-in staging, roll-back and in-production testing capabilities.</source>
+          <target state="new">Deploy app updates with built-in staging, roll-back and in-production testing capabilities.</target>
+        </trans-unit>
+        <trans-unit id="23152b7a-09e6-48aa-8915-38019e1526d2" xml:space="preserve">
+          <source><bpt id="16c42ff6-2fe9-4b52-9a99-1b7da856801d">&lt;strong&gt;</bpt>Enterprise Ready<ept id="16c42ff6-2fe9-4b52-9a99-1b7da856801d">&lt;/strong&gt;</ept> - Enjoy peace of mind with enterprise grade security and management.</source>
+          <target state="new"><bpt id="16c42ff6-2fe9-4b52-9a99-1b7da856801d">&lt;strong&gt;</bpt>Enterprise Ready<ept id="16c42ff6-2fe9-4b52-9a99-1b7da856801d">&lt;/strong&gt;</ept> - Enjoy peace of mind with enterprise grade security and management.</target>
+        </trans-unit>
+        <trans-unit id="36d2900d-54c5-4d6c-933c-bf0fbd7d7a89" xml:space="preserve">
+          <source>Provide delegated and role-based administration; easily secure and manage data flowing to your mobile apps; and protect your assets with built-in backup and restore capability.</source>
+          <target state="new">Provide delegated and role-based administration; easily secure and manage data flowing to your mobile apps; and protect your assets with built-in backup and restore capability.</target>
+        </trans-unit>
+        <trans-unit id="45e67684-3b6a-40d0-87a9-1fe5d3c456a8" xml:space="preserve">
+          <source>Rest confidently knowing App Service is PCI compliant.</source>
+          <target state="new">Rest confidently knowing App Service is PCI compliant.</target>
+        </trans-unit>
+        <trans-unit id="40bbf765-d21c-4066-8d3b-ac20ff0a6d72" xml:space="preserve">
+          <source>Stay in control with dedicated environments, and the ability to deploy across public and private clouds.</source>
+          <target state="new">Stay in control with dedicated environments, and the ability to deploy across public and private clouds.</target>
+        </trans-unit>
+        <trans-unit id="c1ad847d-aaf5-42fc-a386-f9ded09d41d3" xml:space="preserve">
+          <source>Benefit from over 25 years of Microsoft experience and our enterprise Service Level Agreement.</source>
+          <target state="new">Benefit from over 25 years of Microsoft experience and our enterprise Service Level Agreement.</target>
+        </trans-unit>
+        <trans-unit id="77f298c7-c770-451a-b6eb-844e7de45fc2" xml:space="preserve">
+          <source>The following high-level concepts describe what you can do with App Service.</source>
+          <target state="new">The following high-level concepts describe what you can do with App Service.</target>
+        </trans-unit>
+        <trans-unit id="71a77ea9-ef9d-4695-ada1-1c617ddac510" xml:space="preserve">
+          <source>App Service allows you to create the following app types from a single development experience:</source>
+          <target state="new">App Service allows you to create the following app types from a single development experience:</target>
+        </trans-unit>
+        <trans-unit id="3854ecb6-7064-4b23-b0bc-d35e3dd10c9b" xml:space="preserve">
+          <source>[<bpt id="7851fa5b-37d8-4caa-a718-19af35f26000">&lt;strong&gt;</bpt>Web Apps<ept id="7851fa5b-37d8-4caa-a718-19af35f26000">&lt;/strong&gt;</ept>](../app-service-web-overview) - Quickly create and deploy mission critical Web apps that scale with your business.</source>
+          <target state="new">[<bpt id="7851fa5b-37d8-4caa-a718-19af35f26000">&lt;strong&gt;</bpt>Web Apps<ept id="7851fa5b-37d8-4caa-a718-19af35f26000">&lt;/strong&gt;</ept>](../app-service-web-overview) - Quickly create and deploy mission critical Web apps that scale with your business.</target>
+        </trans-unit>
+        <trans-unit id="d826b2bc-b228-4dcc-8339-de248c404bbb" xml:space="preserve">
+          <source>[<bpt id="37b1a560-ee26-4aa0-a712-9cbebb913f66">&lt;strong&gt;</bpt>Mobile Apps<ept id="37b1a560-ee26-4aa0-a712-9cbebb913f66">&lt;/strong&gt;</ept>](../app-service-mobile-value-prop-preview) - Engage employees, partners and customers on any device at any time.</source>
+          <target state="new">[<bpt id="37b1a560-ee26-4aa0-a712-9cbebb913f66">&lt;strong&gt;</bpt>Mobile Apps<ept id="37b1a560-ee26-4aa0-a712-9cbebb913f66">&lt;/strong&gt;</ept>](../app-service-mobile-value-prop-preview) - Engage employees, partners and customers on any device at any time.</target>
+        </trans-unit>
+        <trans-unit id="31786f91-6bd0-4add-acfe-4da10c22c96d" xml:space="preserve">
+          <source>[<bpt id="8ed95955-23a8-41d6-a415-9feaa78eb661">&lt;strong&gt;</bpt>API Apps<ept id="8ed95955-23a8-41d6-a415-9feaa78eb661">&lt;/strong&gt;</ept>](../app-service-api-apps-why-best-platform) - Easily build and consume Cloud APIs and participate in the API economy.</source>
+          <target state="new">[<bpt id="8ed95955-23a8-41d6-a415-9feaa78eb661">&lt;strong&gt;</bpt>API Apps<ept id="8ed95955-23a8-41d6-a415-9feaa78eb661">&lt;/strong&gt;</ept>](../app-service-api-apps-why-best-platform) - Easily build and consume Cloud APIs and participate in the API economy.</target>
+        </trans-unit>
+        <trans-unit id="1a76e662-87b9-4353-b80d-334609a52166" xml:space="preserve">
+          <source>[<bpt id="6528b87a-aed8-4040-8037-4e0951015786">&lt;strong&gt;</bpt>Logic Apps<ept id="6528b87a-aed8-4040-8037-4e0951015786">&lt;/strong&gt;</ept>](../app-service-logic-what-are-logic-apps) - Automate the access and use of data across clouds without writing code.</source>
+          <target state="new">[<bpt id="6528b87a-aed8-4040-8037-4e0951015786">&lt;strong&gt;</bpt>Logic Apps<ept id="6528b87a-aed8-4040-8037-4e0951015786">&lt;/strong&gt;</ept>](../app-service-logic-what-are-logic-apps) - Automate the access and use of data across clouds without writing code.</target>
+        </trans-unit>
+        <trans-unit id="42c187df-15c8-4770-918b-87af236aa4ed" xml:space="preserve">
+          <source>As a single integrated service, App Service makes its easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premise systems as well as popular services such as Office 365 and salesforce.com.</source>
+          <target state="new">As a single integrated service, App Service makes its easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premise systems as well as popular services such as Office 365 and salesforce.com.</target>
+        </trans-unit>
+        <trans-unit id="40bda067-98df-440f-9e1b-a5c6a7b43518" xml:space="preserve">
+          <source>App Service Plans represent a set of features and capacity that you can share across your apps.</source>
+          <target state="new">App Service Plans represent a set of features and capacity that you can share across your apps.</target>
+        </trans-unit>
+        <trans-unit id="08a937d8-da3a-413b-b9f8-2aeff5496f4d" xml:space="preserve">
+          <source>App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.</source>
+          <target state="new">App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, and Standard) where each tier has its own capabilities.</target>
+        </trans-unit>
+        <trans-unit id="53022e68-03b0-445f-be16-4ec1346ff390" xml:space="preserve">
+          <source>You can quickly change which App Service Plan an app is hosted on with no downtime.</source>
+          <target state="new">You can quickly change which App Service Plan an app is hosted on with no downtime.</target>
+        </trans-unit>
+        <trans-unit id="e11a0ada-d7c6-4818-b8ec-29c532a75956" xml:space="preserve">
+          <source><bpt id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;linkText&gt;</bpt>Learn more about App Service Plans<ept id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;/linkText&gt;</ept><bpt id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;title&gt;</bpt><ept id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;linkText&gt;</bpt>Learn more about App Service Plans<ept id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;/linkText&gt;</ept><bpt id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;title&gt;</bpt><ept id="c62425c8-0084-410e-8dbe-a82a39dc8a31">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1216555-319c-4d38-b948-8621ec25f110" xml:space="preserve">
+          <source>Want a taste?</source>
+          <target state="new">Want a taste?</target>
+        </trans-unit>
+        <trans-unit id="4667ba7e-55bb-4b1d-9661-f88eec5ad885" xml:space="preserve">
+          <source>Get going in seconds.</source>
+          <target state="new">Get going in seconds.</target>
+        </trans-unit>
+        <trans-unit id="b869b155-df6d-44f8-9059-a485aa8a53da" xml:space="preserve">
+          <source>With Azure App Service, this is as easy as selecting a language!</source>
+          <target state="new">With Azure App Service, this is as easy as selecting a language!</target>
+        </trans-unit>
+        <trans-unit id="c25837ed-b2e0-4d24-8bab-4d2092fbdd58" xml:space="preserve">
+          <source><bpt id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;linkText&gt;</bpt>Create a new web app<ept id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;/linkText&gt;</ept><bpt id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;title&gt;</bpt><ept id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;/title&gt;</ept> right away for free.</source>
+          <target state="new"><bpt id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;linkText&gt;</bpt>Create a new web app<ept id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;/linkText&gt;</ept><bpt id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;title&gt;</bpt><ept id="c2808cc7-723d-4018-8846-02908a918aa7">&lt;/title&gt;</ept> right away for free.</target>
+        </trans-unit>
+        <trans-unit id="96470df2-391e-4a14-97a7-027a6878854d" xml:space="preserve">
+          <source>No credit card required, no commitments, no hassles.</source>
+          <target state="new">No credit card required, no commitments, no hassles.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

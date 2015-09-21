@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="75894089-c262-4439-9d6a-49ed9b8c17ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="75894089-c262-4439-9d6a-49ed9b8c17ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ee683cfe-925d-4306-8477-6bd4e88fb4ca">
+        <trans-unit id="5a6cb121-f9a6-47db-9e9d-77de9119467c" xml:space="preserve">
+          <source>Data management and business analytics | Microsoft Azure</source>
+          <target state="new">Data management and business analytics | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7117565a-672e-4421-865f-5353dc29b3c0" xml:space="preserve">
+          <source>An introduction to managing and analyzing data in Azure. A range of options are provided for working with relational and non-relational data.</source>
+          <target state="new">An introduction to managing and analyzing data in Azure. A range of options are provided for working with relational and non-relational data.</target>
+        </trans-unit>
+        <trans-unit id="001ea41c-5bcf-47b2-853a-a84ca614460a" xml:space="preserve">
+          <source><bpt id="00250d28-4675-49dd-98f7-b83bbd5a3543">&lt;token href="../../includes/cloud-storage.md"&gt;</bpt><ept id="00250d28-4675-49dd-98f7-b83bbd5a3543">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="00250d28-4675-49dd-98f7-b83bbd5a3543">&lt;token href="../../includes/cloud-storage.md"&gt;</bpt><ept id="00250d28-4675-49dd-98f7-b83bbd5a3543">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4a0ed578-1551-47f9-b726-5360fddc438a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4a0ed578-1551-47f9-b726-5360fddc438a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="322a1550-2f75-4a0d-9003-90b26be7ad69">
+        <trans-unit id="148c5979-f5a9-4510-9a33-4a5b349dfa8f" xml:space="preserve">
+          <source>How to: Configure Firewall Settings | Microsoft Azure</source>
+          <target state="new">How to: Configure Firewall Settings | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4edcf19f-310d-401c-b3ba-23c731b29550" xml:space="preserve">
+          <source>Configure the firewall for IP addresses that access Azure SQL databases.</source>
+          <target state="new">Configure the firewall for IP addresses that access Azure SQL databases.</target>
+        </trans-unit>
+        <trans-unit id="0c78ac90-8f2c-4f7d-9351-adaafe455e60" xml:space="preserve">
+          <source>Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases.</source>
+          <target state="new">Microsoft Azure SQL Database uses firewall rules to allow connections to your servers and databases.</target>
+        </trans-unit>
+        <trans-unit id="6cb82930-7dca-41f5-a24a-cbd698314d83" xml:space="preserve">
+          <source>You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.</source>
+          <target state="new">You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL Database server to selectively allow access to the database.</target>
+        </trans-unit>
+        <trans-unit id="9ca52c22-7e60-4fac-aa6e-02227c03f8f3" xml:space="preserve">
+          <source><bpt id="0e6dd45a-dd9b-4662-b74a-9f61aa091dd1">&lt;strong&gt;</bpt>Important<ept id="0e6dd45a-dd9b-4662-b74a-9f61aa091dd1">&lt;/strong&gt;</ept>  To allow applications from Azure to connect to your database server, Azure connections must be enabled.</source>
+          <target state="new"><bpt id="0e6dd45a-dd9b-4662-b74a-9f61aa091dd1">&lt;strong&gt;</bpt>Important<ept id="0e6dd45a-dd9b-4662-b74a-9f61aa091dd1">&lt;/strong&gt;</ept>  To allow applications from Azure to connect to your database server, Azure connections must be enabled.</target>
+        </trans-unit>
+        <trans-unit id="53085101-cfcd-400a-946e-f19889a681ae" xml:space="preserve">
+          <source>For more information about firewall rules and enabling connections from Azure, see <bpt id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;linkText&gt;</bpt>Azure SQL Database Firewall<ept id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;/linkText&gt;</ept><bpt id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;title&gt;</bpt><ept id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;/title&gt;</ept></source>
+          <target state="new">For more information about firewall rules and enabling connections from Azure, see <bpt id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;linkText&gt;</bpt>Azure SQL Database Firewall<ept id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;/linkText&gt;</ept><bpt id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;title&gt;</bpt><ept id="06cf6dcb-c255-4271-a5d4-e7fd5c76788b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c00eca0-0ff8-4d26-b6b4-1e52fb42aed1" xml:space="preserve">
+          <source>Server-level firewall rules can be created and managed through the Microsoft Azure Management Portal, Transact-SQL, Azure PowerShell, or REST API.</source>
+          <target state="new">Server-level firewall rules can be created and managed through the Microsoft Azure Management Portal, Transact-SQL, Azure PowerShell, or REST API.</target>
+        </trans-unit>
+        <trans-unit id="ca4831a8-ae8b-44b9-af4a-f69187ab7a98" xml:space="preserve">
+          <source>Visit the Azure Portal at https://portal.azure.com and sign-in with your Azure Administrator or Contributor account.</source>
+          <target state="new">Visit the Azure Portal at https://portal.azure.com and sign-in with your Azure Administrator or Contributor account.</target>
+        </trans-unit>
+        <trans-unit id="d428150e-6400-4d02-8259-8747b8c9e41a" xml:space="preserve">
+          <source>On the left banner, click BROWSE ALL, scroll down, and then click SQL servers.</source>
+          <target state="new">On the left banner, click BROWSE ALL, scroll down, and then click SQL servers.</target>
+        </trans-unit>
+        <trans-unit id="be3a5806-97db-4c48-9f7a-c32a3288b285" xml:space="preserve">
+          <source>Click the server that you want to configure firewall rules for in the list of SQL Server displayed.</source>
+          <target state="new">Click the server that you want to configure firewall rules for in the list of SQL Server displayed.</target>
+        </trans-unit>
+        <trans-unit id="e54f5954-7adf-42be-8a4f-fdf4dcf16ae6" xml:space="preserve">
+          <source><bpt id="a0cfae30-a9c2-4aee-ab55-2233811fca6b">&lt;linkText&gt;</bpt>firewall<ept id="a0cfae30-a9c2-4aee-ab55-2233811fca6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a0cfae30-a9c2-4aee-ab55-2233811fca6b">&lt;linkText&gt;</bpt>firewall<ept id="a0cfae30-a9c2-4aee-ab55-2233811fca6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="157995c2-1a63-4f37-b95d-4f51c785f0f8" xml:space="preserve">
+          <source>In the server blade, click Settings at the top of the blade, and then click Firewall to open the Firewall Settings blade for the server.</source>
+          <target state="new">In the server blade, click Settings at the top of the blade, and then click Firewall to open the Firewall Settings blade for the server.</target>
+        </trans-unit>
+        <trans-unit id="d813df44-b36d-4d07-8d97-d59fed3cea67" xml:space="preserve">
+          <source>Add or change a firewall rule.</source>
+          <target state="new">Add or change a firewall rule.</target>
+        </trans-unit>
+        <trans-unit id="552a684f-20fc-4938-bd9b-40cf1ed66ea2" xml:space="preserve">
+          <source>To add the IP address of the current computer, click <bpt id="677e8014-ec21-4407-8536-3b5a5f6abe5a">&lt;strong&gt;</bpt>Add Client IP<ept id="677e8014-ec21-4407-8536-3b5a5f6abe5a">&lt;/strong&gt;</ept> at the top of the blade.</source>
+          <target state="new">To add the IP address of the current computer, click <bpt id="677e8014-ec21-4407-8536-3b5a5f6abe5a">&lt;strong&gt;</bpt>Add Client IP<ept id="677e8014-ec21-4407-8536-3b5a5f6abe5a">&lt;/strong&gt;</ept> at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="429bb650-c7fa-4b09-bdd9-266895357e3d" xml:space="preserve">
+          <source>To add additional IP addresses, type in the <bpt id="2362d935-df94-466f-9b23-7c504736e067">&lt;strong&gt;</bpt>RULE NAME<ept id="2362d935-df94-466f-9b23-7c504736e067">&lt;/strong&gt;</ept>, <bpt id="50f69492-1e16-49c2-af39-051bdec6afb0">&lt;strong&gt;</bpt>START IP<ept id="50f69492-1e16-49c2-af39-051bdec6afb0">&lt;/strong&gt;</ept> address, and <bpt id="316a044e-51a7-4429-be07-f2c7bdaefcfd">&lt;strong&gt;</bpt>END IP<ept id="316a044e-51a7-4429-be07-f2c7bdaefcfd">&lt;/strong&gt;</ept> address.</source>
+          <target state="new">To add additional IP addresses, type in the <bpt id="2362d935-df94-466f-9b23-7c504736e067">&lt;strong&gt;</bpt>RULE NAME<ept id="2362d935-df94-466f-9b23-7c504736e067">&lt;/strong&gt;</ept>, <bpt id="50f69492-1e16-49c2-af39-051bdec6afb0">&lt;strong&gt;</bpt>START IP<ept id="50f69492-1e16-49c2-af39-051bdec6afb0">&lt;/strong&gt;</ept> address, and <bpt id="316a044e-51a7-4429-be07-f2c7bdaefcfd">&lt;strong&gt;</bpt>END IP<ept id="316a044e-51a7-4429-be07-f2c7bdaefcfd">&lt;/strong&gt;</ept> address.</target>
+        </trans-unit>
+        <trans-unit id="363bb5ca-b82b-4a4f-990f-6475408791d9" xml:space="preserve">
+          <source>To modify an existing rule, click and change any of the fields in the rule.</source>
+          <target state="new">To modify an existing rule, click and change any of the fields in the rule.</target>
+        </trans-unit>
+        <trans-unit id="0608480e-9490-421d-b782-a638a2703cbc" xml:space="preserve">
+          <source>To delete an existing rule, click the rule, click the ellipsis (…)</source>
+          <target state="new">To delete an existing rule, click the rule, click the ellipsis (…)</target>
+        </trans-unit>
+        <trans-unit id="e702d961-a5cf-4f9a-bfd2-01d30dbb4d96" xml:space="preserve">
+          <source>at the end of the row, and then click <bpt id="aacb858e-2f03-429d-b937-e8bf021a56bc">&lt;strong&gt;</bpt>Delete<ept id="aacb858e-2f03-429d-b937-e8bf021a56bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">at the end of the row, and then click <bpt id="aacb858e-2f03-429d-b937-e8bf021a56bc">&lt;strong&gt;</bpt>Delete<ept id="aacb858e-2f03-429d-b937-e8bf021a56bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dea56f73-80e2-450d-a972-3170cd53a491" xml:space="preserve">
+          <source>Click Save at the top of the Firewall Settings blade to save the changes.</source>
+          <target state="new">Click Save at the top of the Firewall Settings blade to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="44615fa4-3975-4f63-b972-f82639fb6e35" xml:space="preserve">
+          <source><bpt id="14be740e-0e7c-4ded-bde4-48f06ec47c20">&lt;linkText&gt;</bpt>firewall blade<ept id="14be740e-0e7c-4ded-bde4-48f06ec47c20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14be740e-0e7c-4ded-bde4-48f06ec47c20">&lt;linkText&gt;</bpt>firewall blade<ept id="14be740e-0e7c-4ded-bde4-48f06ec47c20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7c99c33-4ab0-4c30-92a7-107b9be9de46" xml:space="preserve">
+          <source>From the Management Portal, click <bpt id="e8be23bd-89e9-4445-a196-9d7103d7cf83">&lt;strong&gt;</bpt>SQL Databases<ept id="e8be23bd-89e9-4445-a196-9d7103d7cf83">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Management Portal, click <bpt id="e8be23bd-89e9-4445-a196-9d7103d7cf83">&lt;strong&gt;</bpt>SQL Databases<ept id="e8be23bd-89e9-4445-a196-9d7103d7cf83">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe89d460-c110-4bc4-a354-f5073af3ccc0" xml:space="preserve">
+          <source>All databases and their corresponding servers are listed here.</source>
+          <target state="new">All databases and their corresponding servers are listed here.</target>
+        </trans-unit>
+        <trans-unit id="d4342621-7b8d-4a68-a53f-4b17096b753c" xml:space="preserve">
+          <source>Click <bpt id="907c31cd-c82c-4186-b87d-cfcef1a3592d">&lt;strong&gt;</bpt>Servers<ept id="907c31cd-c82c-4186-b87d-cfcef1a3592d">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="907c31cd-c82c-4186-b87d-cfcef1a3592d">&lt;strong&gt;</bpt>Servers<ept id="907c31cd-c82c-4186-b87d-cfcef1a3592d">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="addcdeee-2e9e-409d-89cd-20a4b0b93473" xml:space="preserve">
+          <source>Click the arrow beside the server for which you want to manage firewall rules.</source>
+          <target state="new">Click the arrow beside the server for which you want to manage firewall rules.</target>
+        </trans-unit>
+        <trans-unit id="c05555e2-e8ad-471e-b53a-c423835eaede" xml:space="preserve">
+          <source>Click <bpt id="c489d556-0333-4e2b-97e9-d8b0392b9e55">&lt;strong&gt;</bpt>Configure<ept id="c489d556-0333-4e2b-97e9-d8b0392b9e55">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="c489d556-0333-4e2b-97e9-d8b0392b9e55">&lt;strong&gt;</bpt>Configure<ept id="c489d556-0333-4e2b-97e9-d8b0392b9e55">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="9fa7957f-cfa5-40d0-906c-1da0eb332153" xml:space="preserve">
+          <source>To add the current computer, click Add to the Allowed IP Addresses.</source>
+          <target state="new">To add the current computer, click Add to the Allowed IP Addresses.</target>
+        </trans-unit>
+        <trans-unit id="b4d56a11-61ed-447d-a1d6-9a673f1fd197" xml:space="preserve">
+          <source>To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.</source>
+          <target state="new">To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.</target>
+        </trans-unit>
+        <trans-unit id="d52d34c8-7eda-4807-9d82-f5cd5b34c565" xml:space="preserve">
+          <source>To modify an existing rule, click any of the fields in the rule and modify.</source>
+          <target state="new">To modify an existing rule, click any of the fields in the rule and modify.</target>
+        </trans-unit>
+        <trans-unit id="cca880f4-554d-4586-b223-20116f7875f5" xml:space="preserve">
+          <source>To delete an existing rule, hover over the rule until the X appears at the end of the row.</source>
+          <target state="new">To delete an existing rule, hover over the rule until the X appears at the end of the row.</target>
+        </trans-unit>
+        <trans-unit id="3001df43-35e7-4125-bafa-5b27d2953f59" xml:space="preserve">
+          <source>Click X to remove the rule.</source>
+          <target state="new">Click X to remove the rule.</target>
+        </trans-unit>
+        <trans-unit id="ab202d48-e9c2-4fe7-8f1c-251fb6f1ca1b" xml:space="preserve">
+          <source>Click <bpt id="d77490ca-d682-405c-ade6-f72401a23e62">&lt;strong&gt;</bpt>Save<ept id="d77490ca-d682-405c-ade6-f72401a23e62">&lt;/strong&gt;</ept> at the bottom of the page to save the changes.</source>
+          <target state="new">Click <bpt id="d77490ca-d682-405c-ade6-f72401a23e62">&lt;strong&gt;</bpt>Save<ept id="d77490ca-d682-405c-ade6-f72401a23e62">&lt;/strong&gt;</ept> at the bottom of the page to save the changes.</target>
+        </trans-unit>
+        <trans-unit id="aa09f34a-6165-4372-8589-44deaa3a72d7" xml:space="preserve">
+          <source>Launch a query window through the Management Portal or through SQL Server Management Studio.</source>
+          <target state="new">Launch a query window through the Management Portal or through SQL Server Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="ed35fd9a-8768-4581-b86c-2c5f994b117e" xml:space="preserve">
+          <source>Verify you are connected to the master database.</source>
+          <target state="new">Verify you are connected to the master database.</target>
+        </trans-unit>
+        <trans-unit id="ae33cd6f-06dd-41f5-b862-eb8bb4042edf" xml:space="preserve">
+          <source>Server-level firewall rules can be selected, created, updated, or deleted from within the query window.</source>
+          <target state="new">Server-level firewall rules can be selected, created, updated, or deleted from within the query window.</target>
+        </trans-unit>
+        <trans-unit id="0691e5e3-7334-49da-9dd8-a88b772bb87e" xml:space="preserve">
+          <source>To create or update server-level firewall rules, execute the sp<bpt id="50c3bdda-fee7-4f44-9565-4fdad0286207">&lt;em&gt;</bpt>set<ept id="50c3bdda-fee7-4f44-9565-4fdad0286207">&lt;/em&gt;</ept>firewall rule stored procedure.</source>
+          <target state="new">To create or update server-level firewall rules, execute the sp<bpt id="50c3bdda-fee7-4f44-9565-4fdad0286207">&lt;em&gt;</bpt>set<ept id="50c3bdda-fee7-4f44-9565-4fdad0286207">&lt;/em&gt;</ept>firewall rule stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="c874ea71-d01f-4028-af9b-b674d3605e99" xml:space="preserve">
+          <source>The following example enables a range of IP addresses on the server Contoso.&lt;br/&gt;Start by seeing what rules already exist.</source>
+          <target state="new">The following example enables a range of IP addresses on the server Contoso.&lt;br/&gt;Start by seeing what rules already exist.</target>
+        </trans-unit>
+        <trans-unit id="f16b3744-62c3-4f7a-9f07-8f77422d715b" xml:space="preserve">
+          <source>Next, add a firewall rule.</source>
+          <target state="new">Next, add a firewall rule.</target>
+        </trans-unit>
+        <trans-unit id="43f46bc6-d1c1-41eb-b1e4-b6f2920dec33" xml:space="preserve">
+          <source>To delete a server-level firewall rule, execute the sp<bpt id="bd02afc4-6c1e-44cc-902c-4d95896bee97">&lt;em&gt;</bpt>delete<ept id="bd02afc4-6c1e-44cc-902c-4d95896bee97">&lt;/em&gt;</ept>firewall_rule stored procedure.</source>
+          <target state="new">To delete a server-level firewall rule, execute the sp<bpt id="bd02afc4-6c1e-44cc-902c-4d95896bee97">&lt;em&gt;</bpt>delete<ept id="bd02afc4-6c1e-44cc-902c-4d95896bee97">&lt;/em&gt;</ept>firewall_rule stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="aa27d4da-1fef-485b-afb7-aa102a0fb5cb" xml:space="preserve">
+          <source>The following example deletes the rule named ContosoFirewallRule.</source>
+          <target state="new">The following example deletes the rule named ContosoFirewallRule.</target>
+        </trans-unit>
+        <trans-unit id="cae2ea31-e3d0-4a66-884a-5e8028380d47" xml:space="preserve">
+          <source>Launch Azure PowerShell.</source>
+          <target state="new">Launch Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="5b1bb254-79bd-4f0b-84b1-5a93fb6fae07" xml:space="preserve">
+          <source>Server-level firewall rules can be created, updated, and deleted using Azure PowerShell.</source>
+          <target state="new">Server-level firewall rules can be created, updated, and deleted using Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="7687ccb1-34a6-415e-93fc-1bfa62647477" xml:space="preserve">
+          <source>To create a new server-level firewall rule, execute the New-AzureSqlDatabaseServerFirewallRule cmdlet.</source>
+          <target state="new">To create a new server-level firewall rule, execute the New-AzureSqlDatabaseServerFirewallRule cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="beec0847-75f5-43b7-aea8-2c7ed1d0846a" xml:space="preserve">
+          <source>The following example enables a range of IP addresses on the server Contoso.</source>
+          <target state="new">The following example enables a range of IP addresses on the server Contoso.</target>
+        </trans-unit>
+        <trans-unit id="8315a9cc-ab71-41c0-bafd-247fbc9361c2" xml:space="preserve">
+          <source>To modify an existing server-level firewall rule, execute the Set-AzureSqlDatabaseServerFirewallRule cmdlet.</source>
+          <target state="new">To modify an existing server-level firewall rule, execute the Set-AzureSqlDatabaseServerFirewallRule cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="3adca88b-f791-4b9d-a70f-67a07d948be0" xml:space="preserve">
+          <source>The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.</source>
+          <target state="new">The following example changes the range of acceptable IP addresses for the rule named ContosoFirewallRule.</target>
+        </trans-unit>
+        <trans-unit id="01ec158a-46c5-4ab5-a7e4-ae2a8f2f0d9b" xml:space="preserve">
+          <source>To delete an existing server-level firewall rule, execute the Remove-AzureSqlDatabaseServerFirewallRule cmdlet.</source>
+          <target state="new">To delete an existing server-level firewall rule, execute the Remove-AzureSqlDatabaseServerFirewallRule cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="f4dd0423-e083-46c9-b478-a596cdcef8da" xml:space="preserve">
+          <source>The following example deletes the rule named ContosoFirewallRule.</source>
+          <target state="new">The following example deletes the rule named ContosoFirewallRule.</target>
+        </trans-unit>
+        <trans-unit id="28eb0cd1-4e78-489f-a473-dd95b2c45ef0" xml:space="preserve">
+          <source>Managing firewall rules through REST API must be authenticated.</source>
+          <target state="new">Managing firewall rules through REST API must be authenticated.</target>
+        </trans-unit>
+        <trans-unit id="b96eaaec-f685-4588-ae8d-1e1152b813fb" xml:space="preserve">
+          <source>For information, see Authenticating Service Management Requests.</source>
+          <target state="new">For information, see Authenticating Service Management Requests.</target>
+        </trans-unit>
+        <trans-unit id="117a6ea7-21c1-4427-9246-4b142f98344f" xml:space="preserve">
+          <source>Server-level rules can be created, updated, or deleted using REST API</source>
+          <target state="new">Server-level rules can be created, updated, or deleted using REST API</target>
+        </trans-unit>
+        <trans-unit id="35cf2a8c-4b90-4f79-a25c-9ab8aa6afa14" xml:space="preserve">
+          <source>To create or update a server-level firewall rule, execute the POST method using the following:</source>
+          <target state="new">To create or update a server-level firewall rule, execute the POST method using the following:</target>
+        </trans-unit>
+        <trans-unit id="9e423452-7265-4b64-8a4c-6722f83b3b60" xml:space="preserve">
+          <source>Request Body</source>
+          <target state="new">Request Body</target>
+        </trans-unit>
+        <trans-unit id="ad5e615b-c4f3-4394-8ca6-0da558178059" xml:space="preserve">
+          <source>To remove an existing server-level firewall rule, execute the DELETE method using the following:</source>
+          <target state="new">To remove an existing server-level firewall rule, execute the DELETE method using the following:</target>
+        </trans-unit>
+        <trans-unit id="d4aa605a-df90-44e7-a96c-cc2d646eeeaa" xml:space="preserve">
+          <source>After creating a server-level firewall for your IP address, launch a query window through the Management Portal or through SQL Server Management Studio.</source>
+          <target state="new">After creating a server-level firewall for your IP address, launch a query window through the Management Portal or through SQL Server Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="91ad814f-9089-4d64-a825-ab9f41583e51" xml:space="preserve">
+          <source>Connect to the database for which you want to create a database-level firewall rule.</source>
+          <target state="new">Connect to the database for which you want to create a database-level firewall rule.</target>
+        </trans-unit>
+        <trans-unit id="b899ac42-5bae-4452-b498-e151bb017447" xml:space="preserve">
+          <source>To create a new or update an existing database-level firewall rule, execute the sp<bpt id="c7fbb818-23d8-467a-98ee-77775e910c22">&lt;em&gt;</bpt>set<ept id="c7fbb818-23d8-467a-98ee-77775e910c22">&lt;/em&gt;</ept>database<bpt id="24c8a8a7-188d-4d60-b0f5-41955b47d650">&lt;em&gt;</bpt>firewall<ept id="24c8a8a7-188d-4d60-b0f5-41955b47d650">&lt;/em&gt;</ept>rule stored procedure.</source>
+          <target state="new">To create a new or update an existing database-level firewall rule, execute the sp<bpt id="c7fbb818-23d8-467a-98ee-77775e910c22">&lt;em&gt;</bpt>set<ept id="c7fbb818-23d8-467a-98ee-77775e910c22">&lt;/em&gt;</ept>database<bpt id="24c8a8a7-188d-4d60-b0f5-41955b47d650">&lt;em&gt;</bpt>firewall<ept id="24c8a8a7-188d-4d60-b0f5-41955b47d650">&lt;/em&gt;</ept>rule stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="15213bb0-258e-44fb-8826-b35f6662928f" xml:space="preserve">
+          <source>The following example creates a new firewall rule named ContosoFirewallRule.</source>
+          <target state="new">The following example creates a new firewall rule named ContosoFirewallRule.</target>
+        </trans-unit>
+        <trans-unit id="d961b757-a83d-47af-850b-f031ad8a5e6d" xml:space="preserve">
+          <source>To delete an existing database-level firewall rule, execute the sp<bpt id="802c0d80-8f28-47e0-bd7b-ba328c283583">&lt;em&gt;</bpt>delete<ept id="802c0d80-8f28-47e0-bd7b-ba328c283583">&lt;/em&gt;</ept>database<bpt id="a6f68a34-ebd7-4129-863e-4425a1df22b9">&lt;em&gt;</bpt>firewall<ept id="a6f68a34-ebd7-4129-863e-4425a1df22b9">&lt;/em&gt;</ept>rule stored procedure.</source>
+          <target state="new">To delete an existing database-level firewall rule, execute the sp<bpt id="802c0d80-8f28-47e0-bd7b-ba328c283583">&lt;em&gt;</bpt>delete<ept id="802c0d80-8f28-47e0-bd7b-ba328c283583">&lt;/em&gt;</ept>database<bpt id="a6f68a34-ebd7-4129-863e-4425a1df22b9">&lt;em&gt;</bpt>firewall<ept id="a6f68a34-ebd7-4129-863e-4425a1df22b9">&lt;/em&gt;</ept>rule stored procedure.</target>
+        </trans-unit>
+        <trans-unit id="54d193cb-23cd-48f9-998d-8be83363cc06" xml:space="preserve">
+          <source>The following example deletes the rule named ContosoFirewallRule.</source>
+          <target state="new">The following example deletes the rule named ContosoFirewallRule.</target>
+        </trans-unit>
+        <trans-unit id="7c0309e5-23b6-4d86-b5fd-7b3e73e6eb85" xml:space="preserve">
+          <source><bpt id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;linkText&gt;</bpt>Create Firewall Rule<ept id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;/linkText&gt;</ept><bpt id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;title&gt;</bpt><ept id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;linkText&gt;</bpt>Create Firewall Rule<ept id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;/linkText&gt;</ept><bpt id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;title&gt;</bpt><ept id="7757bd0c-fd18-401d-9777-c95a4180bd84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93fbb3c8-485b-46db-a934-1609bda729da" xml:space="preserve">
+          <source><bpt id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;linkText&gt;</bpt>Delete Firewall Rule<ept id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;/linkText&gt;</ept><bpt id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;title&gt;</bpt><ept id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;linkText&gt;</bpt>Delete Firewall Rule<ept id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;/linkText&gt;</ept><bpt id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;title&gt;</bpt><ept id="4b917ea1-4240-4afb-988d-6c3051d3d713">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e316c6f5-21ec-4edd-bcf6-816294ad15be" xml:space="preserve">
+          <source><bpt id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;linkText&gt;</bpt>Get Firewall Rule<ept id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;/linkText&gt;</ept><bpt id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;title&gt;</bpt><ept id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;linkText&gt;</bpt>Get Firewall Rule<ept id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;/linkText&gt;</ept><bpt id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;title&gt;</bpt><ept id="502a2ee9-4f81-4f19-81cb-f08acc1914f9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9504f73a-fde0-4653-8d9c-81d2ccdcf01f" xml:space="preserve">
+          <source><bpt id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;linkText&gt;</bpt>List Firewall Rules<ept id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;/linkText&gt;</ept><bpt id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;title&gt;</bpt><ept id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;linkText&gt;</bpt>List Firewall Rules<ept id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;/linkText&gt;</ept><bpt id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;title&gt;</bpt><ept id="be9d3f8d-eec7-4964-ad84-6b4726a51c3c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a832aabc-fe9c-4d09-b3d1-91303c172dd6" xml:space="preserve">
+          <source><bpt id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;linkText&gt;</bpt>New-AzureSqlDatabaseServerFirewallRule<ept id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;/linkText&gt;</ept><bpt id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;title&gt;</bpt><ept id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;linkText&gt;</bpt>New-AzureSqlDatabaseServerFirewallRule<ept id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;/linkText&gt;</ept><bpt id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;title&gt;</bpt><ept id="2cffdc90-ba89-4440-bb97-8f8e632b1854">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4fbcbe2-ddc0-4694-b9ca-402d3c83c539" xml:space="preserve">
+          <source><bpt id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;linkText&gt;</bpt>Remove-AzureSqlDatabaseServerFirewallRule<ept id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;/linkText&gt;</ept><bpt id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;title&gt;</bpt><ept id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;linkText&gt;</bpt>Remove-AzureSqlDatabaseServerFirewallRule<ept id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;/linkText&gt;</ept><bpt id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;title&gt;</bpt><ept id="f66c66ef-de79-44d0-b83d-0fe79af9617c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e7e19a8-29fe-4056-9140-3f99440b160f" xml:space="preserve">
+          <source><bpt id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;linkText&gt;</bpt>Set-AzureSqlDatabaseServerFirewallRule<ept id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;/linkText&gt;</ept><bpt id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;title&gt;</bpt><ept id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;linkText&gt;</bpt>Set-AzureSqlDatabaseServerFirewallRule<ept id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;/linkText&gt;</ept><bpt id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;title&gt;</bpt><ept id="8258bef7-13ae-4ef7-83c1-1eece08b2d7f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad78827a-bbf1-46fd-b691-f28cdaf88344" xml:space="preserve">
+          <source><bpt id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;linkText&gt;</bpt>Get-AzureSqlDatabaseServerFirewallRule<ept id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;/linkText&gt;</ept><bpt id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;title&gt;</bpt><ept id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;linkText&gt;</bpt>Get-AzureSqlDatabaseServerFirewallRule<ept id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;/linkText&gt;</ept><bpt id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;title&gt;</bpt><ept id="1cb397e8-b9fa-4b57-822f-ee1d5b63a66b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a19939c3-9628-4f64-84d3-f138e9651925" xml:space="preserve">
+          <source>For a tutorial on creating a database, see <bpt id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;/linkText&gt;</ept><bpt id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;title&gt;</bpt><ept id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a tutorial on creating a database, see <bpt id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;/linkText&gt;</ept><bpt id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;title&gt;</bpt><ept id="cdb17576-c1be-47f1-8d0b-81cc68f0e687">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6434cb7-00cf-4bee-9ce3-a5db18862f77" xml:space="preserve">
+          <source>For help in connecting to an Azure SQL database from open source or third-party applications, see <bpt id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;linkText&gt;</bpt>Guidelines for Connecting to Azure SQL Database Programmatically<ept id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;/linkText&gt;</ept><bpt id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;title&gt;</bpt><ept id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For help in connecting to an Azure SQL database from open source or third-party applications, see <bpt id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;linkText&gt;</bpt>Guidelines for Connecting to Azure SQL Database Programmatically<ept id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;/linkText&gt;</ept><bpt id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;title&gt;</bpt><ept id="0a0679cb-add4-4306-ad86-fc48418745cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d11638a-33f9-479b-88ed-6847dd667d71" xml:space="preserve">
+          <source>To understand how to navigate to databases see <bpt id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;linkText&gt;</bpt>Managing Databases and Logins in Azure SQL Database<ept id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;/linkText&gt;</ept><bpt id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;title&gt;</bpt><ept id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;/title&gt;</ept>.</source>
+          <target state="new">To understand how to navigate to databases see <bpt id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;linkText&gt;</bpt>Managing Databases and Logins in Azure SQL Database<ept id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;/linkText&gt;</ept><bpt id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;title&gt;</bpt><ept id="93728a12-57b5-4263-ba54-12fd0edb035b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d42e4606-baab-4f20-9ce3-8265dbdbb368" xml:space="preserve">
+          <source>./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png</source>
+          <target state="new">./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png</target>
+        </trans-unit>
+        <trans-unit id="48dbb6a4-a692-4fd2-98bf-2fd851213ad5" xml:space="preserve">
+          <source>./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png</source>
+          <target state="new">./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png</target>
+        </trans-unit>
+      </group>
+      <group id="5e1bebbb-a465-42cb-b633-06b813dc91b6" />
+    </body>
+  </file>
+</xliff>

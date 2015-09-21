@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="53fbe507-147e-47fc-aa3c-7c5b7181d847" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="53fbe507-147e-47fc-aa3c-7c5b7181d847" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="28eaefdd-66bb-4ebb-824b-45aa171b3dbc">
+        <trans-unit id="8d549c79-76df-44ad-bd8f-d554df40b18f" xml:space="preserve">
+          <source>Application Insights for Android apps | Microsoft Azure</source>
+          <target state="new">Application Insights for Android apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="343feaba-65e0-49f3-94ce-e8db1e4bfc9e" xml:space="preserve">
+          <source>Analyze usage and performance of your Android app with Application Insights.</source>
+          <target state="new">Analyze usage and performance of your Android app with Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="45c9d7af-d384-4d09-ba69-13605cc02631" xml:space="preserve">
+          <source>Visual Studio Application Insights lets you monitor your mobile application for usage, events, and crashes.</source>
+          <target state="new">Visual Studio Application Insights lets you monitor your mobile application for usage, events, and crashes.</target>
+        </trans-unit>
+        <trans-unit id="77826224-501b-48e6-96bb-1d236217cb8e" xml:space="preserve">
+          <source>You'll need:</source>
+          <target state="new">You'll need:</target>
+        </trans-unit>
+        <trans-unit id="2bfea0a7-659d-4cbc-9b09-5a4850b21c55" xml:space="preserve">
+          <source>A subscription with <bpt id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;/linkText&gt;</ept><bpt id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;title&gt;</bpt><ept id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;/title&gt;</ept>.</source>
+          <target state="new">A subscription with <bpt id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;/linkText&gt;</ept><bpt id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;title&gt;</bpt><ept id="8e5e0a7d-8ef0-4a71-8dd0-ead8e0e95d47">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc54ef0d-6c2f-42e7-8cfd-1efa0672357e" xml:space="preserve">
+          <source>You sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.</source>
+          <target state="new">You sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.</target>
+        </trans-unit>
+        <trans-unit id="3c6132e3-51f1-4803-9f43-56e8ea583aeb" xml:space="preserve">
+          <source>Android Studio</source>
+          <target state="new">Android Studio</target>
+        </trans-unit>
+        <trans-unit id="7628c043-b756-46d8-a58c-34607fb8a5c9" xml:space="preserve">
+          <source>Android SDK Version 9 or later.</source>
+          <target state="new">Android SDK Version 9 or later.</target>
+        </trans-unit>
+        <trans-unit id="1d483f5e-bedc-46ea-a730-d9d1249833d3" xml:space="preserve">
+          <source>In the <bpt id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;/linkText&gt;</ept><bpt id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;title&gt;</bpt><ept id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;/title&gt;</ept>, create a new Application Insights resource.</source>
+          <target state="new">In the <bpt id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;/linkText&gt;</ept><bpt id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;title&gt;</bpt><ept id="12f1cb90-bd6b-4206-9082-6001f6390159">&lt;/title&gt;</ept>, create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="e5771d54-9abb-4f0d-9a9d-810d4a146548" xml:space="preserve">
+          <source>Pick the Android option.</source>
+          <target state="new">Pick the Android option.</target>
+        </trans-unit>
+        <trans-unit id="65f2bc77-a842-43dc-a0dc-29ca9cedf0d8" xml:space="preserve">
+          <source><bpt id="d57b95a3-aeb6-4fbb-8691-78bfe558cc46">&lt;linkText&gt;</bpt>Click New, Developer services, Application Insights<ept id="d57b95a3-aeb6-4fbb-8691-78bfe558cc46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d57b95a3-aeb6-4fbb-8691-78bfe558cc46">&lt;linkText&gt;</bpt>Click New, Developer services, Application Insights<ept id="d57b95a3-aeb6-4fbb-8691-78bfe558cc46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee9b5f4a-6f5f-4ded-9d07-f9de32db500c" xml:space="preserve">
+          <source>The blade that opens is the place where you'll see performance and usage data about your app.</source>
+          <target state="new">The blade that opens is the place where you'll see performance and usage data about your app.</target>
+        </trans-unit>
+        <trans-unit id="59156fc5-9f7e-4f51-9a42-cfd2715169a8" xml:space="preserve">
+          <source>To get back to it next time you login to Azure, you should find a tile for it on the start screen.</source>
+          <target state="new">To get back to it next time you login to Azure, you should find a tile for it on the start screen.</target>
+        </trans-unit>
+        <trans-unit id="7897b413-92d3-4766-a0e5-679439d98225" xml:space="preserve">
+          <source>Alternatively click Browse to find it.</source>
+          <target state="new">Alternatively click Browse to find it.</target>
+        </trans-unit>
+        <trans-unit id="0d56b20b-63d2-4335-97bb-03eea1b9ebdd" xml:space="preserve">
+          <source>(If you didn't do this already.)</source>
+          <target state="new">(If you didn't do this already.)</target>
+        </trans-unit>
+        <trans-unit id="ca316ca6-7b7b-4902-9aad-7ad0e7eedff3" xml:space="preserve">
+          <source>Start Android Studio and configure plugins.</source>
+          <target state="new">Start Android Studio and configure plugins.</target>
+        </trans-unit>
+        <trans-unit id="fc2850b6-c8d9-41ae-893b-ff3314e598ae" xml:space="preserve">
+          <source><bpt id="d3f69f36-f5bc-4909-9b6a-0d410406f941">&lt;linkText&gt;</bpt>Choose Configure<ept id="d3f69f36-f5bc-4909-9b6a-0d410406f941">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3f69f36-f5bc-4909-9b6a-0d410406f941">&lt;linkText&gt;</bpt>Choose Configure<ept id="d3f69f36-f5bc-4909-9b6a-0d410406f941">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1d12901-a626-46b4-878a-99260f10a25a" xml:space="preserve">
+          <source>Select and install the Application Insights Android Studio plugin.</source>
+          <target state="new">Select and install the Application Insights Android Studio plugin.</target>
+        </trans-unit>
+        <trans-unit id="eaa93e49-02ce-4df0-969a-2044a936a04d" xml:space="preserve">
+          <source><bpt id="61cf7602-68c2-4dbe-9329-126fbba276d3">&lt;linkText&gt;</bpt>Select the plugin<ept id="61cf7602-68c2-4dbe-9329-126fbba276d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61cf7602-68c2-4dbe-9329-126fbba276d3">&lt;linkText&gt;</bpt>Select the plugin<ept id="61cf7602-68c2-4dbe-9329-126fbba276d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e704c2f-6b1d-4ad9-aa52-e28c486fc180" xml:space="preserve">
+          <source>Select <bpt id="d456b39c-8bbb-4cf8-85db-2b7ca9cd1903">&lt;strong&gt;</bpt>Tool<ept id="d456b39c-8bbb-4cf8-85db-2b7ca9cd1903">&lt;/strong&gt;</ept> &gt; <bpt id="290ef709-a4bf-426a-8617-d0dda03638c4">&lt;strong&gt;</bpt>Integrate Application Insights SDK<ept id="290ef709-a4bf-426a-8617-d0dda03638c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="d456b39c-8bbb-4cf8-85db-2b7ca9cd1903">&lt;strong&gt;</bpt>Tool<ept id="d456b39c-8bbb-4cf8-85db-2b7ca9cd1903">&lt;/strong&gt;</ept> &gt; <bpt id="290ef709-a4bf-426a-8617-d0dda03638c4">&lt;strong&gt;</bpt>Integrate Application Insights SDK<ept id="290ef709-a4bf-426a-8617-d0dda03638c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cb86d0d-ce2d-4a9f-ae5f-ae500a716062" xml:space="preserve">
+          <source><bpt id="4884a569-784d-45c2-8ed7-974f8cbbafb1">&lt;linkText&gt;</bpt>Integrate Application Insights<ept id="4884a569-784d-45c2-8ed7-974f8cbbafb1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4884a569-784d-45c2-8ed7-974f8cbbafb1">&lt;linkText&gt;</bpt>Integrate Application Insights<ept id="4884a569-784d-45c2-8ed7-974f8cbbafb1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ec962eb-c899-453c-9b0f-4f27647384fc" xml:space="preserve">
+          <source>Create a component in your subscription</source>
+          <target state="new">Create a component in your subscription</target>
+        </trans-unit>
+        <trans-unit id="6fdef9dc-55aa-4771-a1bc-c97ff763f6cf" xml:space="preserve">
+          <source><bpt id="c37d0c5f-0b79-4c91-bf10-71ed822077ae">&lt;linkText&gt;</bpt>Create a component<ept id="c37d0c5f-0b79-4c91-bf10-71ed822077ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c37d0c5f-0b79-4c91-bf10-71ed822077ae">&lt;linkText&gt;</bpt>Create a component<ept id="c37d0c5f-0b79-4c91-bf10-71ed822077ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5025499b-527b-44a5-b465-4bdfa62db623" xml:space="preserve">
+          <source>Use the instrumentation key you got from your Application Insights resource.</source>
+          <target state="new">Use the instrumentation key you got from your Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="879db98d-2cec-48ab-bc03-d930cb1ca4f1" xml:space="preserve">
+          <source>Sync gradle to download the SDK and integrate with your project</source>
+          <target state="new">Sync gradle to download the SDK and integrate with your project</target>
+        </trans-unit>
+        <trans-unit id="804a7e47-c73f-4495-8d26-3dd5a94f23d2" xml:space="preserve">
+          <source><bpt id="fa69e010-3014-4434-ae64-f33c29efffc4">&lt;linkText&gt;</bpt>Sync gradle files to download the SDK<ept id="fa69e010-3014-4434-ae64-f33c29efffc4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa69e010-3014-4434-ae64-f33c29efffc4">&lt;linkText&gt;</bpt>Sync gradle files to download the SDK<ept id="fa69e010-3014-4434-ae64-f33c29efffc4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cd7cd1a-de01-4965-b4fd-02db8b2c7d96" xml:space="preserve">
+          <source>(Additional information is available from the <bpt id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;linkText&gt;</bpt>usage page<ept id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;/linkText&gt;</ept><bpt id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;title&gt;</bpt><ept id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(Additional information is available from the <bpt id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;linkText&gt;</bpt>usage page<ept id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;/linkText&gt;</ept><bpt id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;title&gt;</bpt><ept id="e008e1a7-4952-44c5-9669-873c856089f5">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="d30988d7-d377-446c-99ab-6c761e224fd3" xml:space="preserve">
+          <source>At this point, the following reference was added to the modules build.gradle, permissions for <bpt id="0d838634-bb93-4bf1-bd26-33391740248c">&lt;code&gt;</bpt>INTERNET<ept id="0d838634-bb93-4bf1-bd26-33391740248c">&lt;/code&gt;</ept> and <bpt id="ad0014c5-c088-476f-8f03-5ad77b73742a">&lt;code&gt;</bpt>ACCESS_NETWORK_STATE<ept id="ad0014c5-c088-476f-8f03-5ad77b73742a">&lt;/code&gt;</ept>, and a metadata tag containing the component's instrumentation key were added to the modules's <bpt id="0f77591a-2573-4a15-b31b-af534cb97acc">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0f77591a-2573-4a15-b31b-af534cb97acc">&lt;/code&gt;</ept></source>
+          <target state="new">At this point, the following reference was added to the modules build.gradle, permissions for <bpt id="0d838634-bb93-4bf1-bd26-33391740248c">&lt;code&gt;</bpt>INTERNET<ept id="0d838634-bb93-4bf1-bd26-33391740248c">&lt;/code&gt;</ept> and <bpt id="ad0014c5-c088-476f-8f03-5ad77b73742a">&lt;code&gt;</bpt>ACCESS_NETWORK_STATE<ept id="ad0014c5-c088-476f-8f03-5ad77b73742a">&lt;/code&gt;</ept>, and a metadata tag containing the component's instrumentation key were added to the modules's <bpt id="0f77591a-2573-4a15-b31b-af534cb97acc">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="0f77591a-2573-4a15-b31b-af534cb97acc">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc5c807b-da21-45e7-83b3-1cd75aacf193" xml:space="preserve">
+          <source>It is also possible to set the instrumentation key in code.</source>
+          <target state="new">It is also possible to set the instrumentation key in code.</target>
+        </trans-unit>
+        <trans-unit id="ae16ed6d-aa1b-43ad-a734-524f0a7380aa" xml:space="preserve">
+          <source>This will override the one set in <bpt id="f7db4c86-716e-4f56-955c-79c9a622792e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="f7db4c86-716e-4f56-955c-79c9a622792e">&lt;/code&gt;</ept></source>
+          <target state="new">This will override the one set in <bpt id="f7db4c86-716e-4f56-955c-79c9a622792e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="f7db4c86-716e-4f56-955c-79c9a622792e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55231b0b-847a-40df-a104-f6735061b6de" xml:space="preserve">
+          <source>Initialize the SDK and start tracking telemetry.</source>
+          <target state="new">Initialize the SDK and start tracking telemetry.</target>
+        </trans-unit>
+        <trans-unit id="fd56c62f-dafa-4008-9942-0e930d711ef3" xml:space="preserve">
+          <source>Add the following import to your app's root activity:</source>
+          <target state="new">Add the following import to your app's root activity:</target>
+        </trans-unit>
+        <trans-unit id="8d573ff5-86b6-4762-ae10-55c05ccc5df2" xml:space="preserve">
+          <source>And add the following to the activity's <bpt id="119d126f-ece5-406e-9f52-142485a98908">&lt;code&gt;</bpt>onCreate<ept id="119d126f-ece5-406e-9f52-142485a98908">&lt;/code&gt;</ept> callback:</source>
+          <target state="new">And add the following to the activity's <bpt id="119d126f-ece5-406e-9f52-142485a98908">&lt;code&gt;</bpt>onCreate<ept id="119d126f-ece5-406e-9f52-142485a98908">&lt;/code&gt;</ept> callback:</target>
+        </trans-unit>
+        <trans-unit id="32fdf7bb-dbbf-47c2-bcfb-9a2a9ef413b2" xml:space="preserve">
+          <source>Once <bpt id="76ce3f1b-50a6-489c-8244-c6e705034409">&lt;code&gt;</bpt>ApplicationInsights.start()<ept id="76ce3f1b-50a6-489c-8244-c6e705034409">&lt;/code&gt;</ept> is called, the SDK begins tracking android lifecycle activity and any unhandled exceptions.</source>
+          <target state="new">Once <bpt id="76ce3f1b-50a6-489c-8244-c6e705034409">&lt;code&gt;</bpt>ApplicationInsights.start()<ept id="76ce3f1b-50a6-489c-8244-c6e705034409">&lt;/code&gt;</ept> is called, the SDK begins tracking android lifecycle activity and any unhandled exceptions.</target>
+        </trans-unit>
+        <trans-unit id="1738706e-305e-400e-b1f8-875846db7b1d" xml:space="preserve">
+          <source>Application lifecycle events are only collected in Android SDK version 15 and later (Ice Cream Sandwich+).</source>
+          <target state="new">Application lifecycle events are only collected in Android SDK version 15 and later (Ice Cream Sandwich+).</target>
+        </trans-unit>
+        <trans-unit id="0ac2066b-4c83-4c61-b9c8-264c124db9dd" xml:space="preserve">
+          <source>In addition to this, custom events, traces, metrics, and handled exceptions can be collected.</source>
+          <target state="new">In addition to this, custom events, traces, metrics, and handled exceptions can be collected.</target>
+        </trans-unit>
+        <trans-unit id="f8cebef9-8094-4fe4-9916-902cf2dfb6c5" xml:space="preserve">
+          <source>Use any of the <bpt id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;linkText&gt;</bpt>Application Insights API[api]<ept id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;/linkText&gt;</ept><bpt id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;title&gt;</bpt><ept id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;/title&gt;</ept> to send telemetry.</source>
+          <target state="new">Use any of the <bpt id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;linkText&gt;</bpt>Application Insights API[api]<ept id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;/linkText&gt;</ept><bpt id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;title&gt;</bpt><ept id="713dcc87-87e5-4741-8bf4-32101ee9dc9d">&lt;/title&gt;</ept> to send telemetry.</target>
+        </trans-unit>
+        <trans-unit id="1c79f96e-ea44-4a5a-8bf7-3799560eab83" xml:space="preserve">
+          <source>TrackEvent(eventName) for other user actions</source>
+          <target state="new">TrackEvent(eventName) for other user actions</target>
+        </trans-unit>
+        <trans-unit id="70f4e371-83d8-4b8f-929c-464ac946bb53" xml:space="preserve">
+          <source>TrackTrace(logEvent) for <bpt id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;linkText&gt;</bpt>diagnostic logging[diagnostic]<ept id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;/linkText&gt;</ept><bpt id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;title&gt;</bpt><ept id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;/title&gt;</ept></source>
+          <target state="new">TrackTrace(logEvent) for <bpt id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;linkText&gt;</bpt>diagnostic logging[diagnostic]<ept id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;/linkText&gt;</ept><bpt id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;title&gt;</bpt><ept id="d48a5e3c-cf9a-46f4-b013-c16a11a671da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28bd58b4-c8b0-4585-b7fc-653bbcd96113" xml:space="preserve">
+          <source>TrackHandledException(exception) in catch clauses</source>
+          <target state="new">TrackHandledException(exception) in catch clauses</target>
+        </trans-unit>
+        <trans-unit id="ce1ad4a0-cb66-4a29-a9a7-8d375ad370dd" xml:space="preserve">
+          <source>TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events</source>
+          <target state="new">TrackMetric(name, value) in a background task to send regular reports of metrics not attached to specific events</target>
+        </trans-unit>
+        <trans-unit id="c0ae3879-7965-4339-a9be-8aee5f046962" xml:space="preserve">
+          <source>The following code is an example of initialization and manual telemetry collection:</source>
+          <target state="new">The following code is an example of initialization and manual telemetry collection:</target>
+        </trans-unit>
+        <trans-unit id="74913e98-5eca-4b8f-a70c-893b52652325" xml:space="preserve">
+          <source>Run your application (SHIFT+F10 in Windows, CTRL+R in OS X) to generate telemetry.</source>
+          <target state="new">Run your application (SHIFT+F10 in Windows, CTRL+R in OS X) to generate telemetry.</target>
+        </trans-unit>
+        <trans-unit id="ba73c269-ad0f-49b1-bada-fe229bf298b7" xml:space="preserve">
+          <source>Return to http://portal.azure.com and browse to your Application Insights resource.</source>
+          <target state="new">Return to http://portal.azure.com and browse to your Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="5f6fc93d-18dd-47d1-ae7e-e7c43ec8adc3" xml:space="preserve">
+          <source>Click <bpt id="ab1ca1ec-7f54-4e30-9f3a-c14074da1e6a">&lt;strong&gt;</bpt>Search<ept id="ab1ca1ec-7f54-4e30-9f3a-c14074da1e6a">&lt;/strong&gt;</ept> to open <bpt id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;/linkText&gt;</ept><bpt id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;title&gt;</bpt><ept id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;/title&gt;</ept> - that's where the first events will appear.</source>
+          <target state="new">Click <bpt id="ab1ca1ec-7f54-4e30-9f3a-c14074da1e6a">&lt;strong&gt;</bpt>Search<ept id="ab1ca1ec-7f54-4e30-9f3a-c14074da1e6a">&lt;/strong&gt;</ept> to open <bpt id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;/linkText&gt;</ept><bpt id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;title&gt;</bpt><ept id="e42f2a1c-238e-4632-893a-7a980e1babd2">&lt;/title&gt;</ept> - that's where the first events will appear.</target>
+        </trans-unit>
+        <trans-unit id="34eaf845-c58a-49e2-aa53-63b79cc9bbc1" xml:space="preserve">
+          <source>If you don't see anything, wait a minute or two and click <bpt id="2c0066dc-dc71-4f86-af2c-2ef66ea893a6">&lt;strong&gt;</bpt>Refresh<ept id="2c0066dc-dc71-4f86-af2c-2ef66ea893a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you don't see anything, wait a minute or two and click <bpt id="2c0066dc-dc71-4f86-af2c-2ef66ea893a6">&lt;strong&gt;</bpt>Refresh<ept id="2c0066dc-dc71-4f86-af2c-2ef66ea893a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5ff1b35-45ed-400e-a76b-df4dbb2ca3e9" xml:space="preserve">
+          <source><bpt id="27002967-5a84-4c88-9736-3f1bcb6bc20c">&lt;linkText&gt;</bpt>Click Diagnostic Search<ept id="27002967-5a84-4c88-9736-3f1bcb6bc20c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27002967-5a84-4c88-9736-3f1bcb6bc20c">&lt;linkText&gt;</bpt>Click Diagnostic Search<ept id="27002967-5a84-4c88-9736-3f1bcb6bc20c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5d51e8b-7288-4cbc-b968-395480aba0f3" xml:space="preserve">
+          <source>As your app is used, data appears in the overview blade.</source>
+          <target state="new">As your app is used, data appears in the overview blade.</target>
+        </trans-unit>
+        <trans-unit id="2b205b1a-551e-46eb-b769-c4feb831b3e1" xml:space="preserve">
+          <source><bpt id="5909f4fc-df10-4e63-8252-39a3e95f63a3">&lt;linkText&gt;</bpt>Overview blade<ept id="5909f4fc-df10-4e63-8252-39a3e95f63a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5909f4fc-df10-4e63-8252-39a3e95f63a3">&lt;linkText&gt;</bpt>Overview blade<ept id="5909f4fc-df10-4e63-8252-39a3e95f63a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c4b1c65-b441-42ab-bc4e-1a426ea4b401" xml:space="preserve">
+          <source>Click on any chart to get more detail.</source>
+          <target state="new">Click on any chart to get more detail.</target>
+        </trans-unit>
+        <trans-unit id="9f70d2ed-046f-444f-887e-1a04ac9f7d7c" xml:space="preserve">
+          <source>For example, crashes:</source>
+          <target state="new">For example, crashes:</target>
+        </trans-unit>
+        <trans-unit id="b3c240de-af7a-4b30-8ad8-aeccc4a47ed4" xml:space="preserve">
+          <source><bpt id="abc81f2a-86df-4289-ae13-656a9c8c5b79">&lt;linkText&gt;</bpt>Click the crash chart<ept id="abc81f2a-86df-4289-ae13-656a9c8c5b79">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="abc81f2a-86df-4289-ae13-656a9c8c5b79">&lt;linkText&gt;</bpt>Click the crash chart<ept id="abc81f2a-86df-4289-ae13-656a9c8c5b79">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c19f12b1-314a-49dc-bd54-44a7ded72190" xml:space="preserve">
+          <source><bpt id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;linkText&gt;</bpt>Track usage of your app[track]<ept id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;/linkText&gt;</ept><bpt id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;title&gt;</bpt><ept id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;linkText&gt;</bpt>Track usage of your app[track]<ept id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;/linkText&gt;</ept><bpt id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;title&gt;</bpt><ept id="7bd66b05-0a55-428d-9155-27fd855d8fd1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16266cd2-2012-4667-8694-15dc71740978" xml:space="preserve">
+          <source><bpt id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;linkText&gt;</bpt>Diagnostic search[diagnostic]<ept id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;/linkText&gt;</ept><bpt id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;title&gt;</bpt><ept id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;linkText&gt;</bpt>Diagnostic search[diagnostic]<ept id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;/linkText&gt;</ept><bpt id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;title&gt;</bpt><ept id="97f88662-9758-49a2-921b-5ec7927c5e29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b5b4ef0-c80c-4350-bfa4-759cbf7e8d11" xml:space="preserve">
+          <source><bpt id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;/linkText&gt;</ept><bpt id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;title&gt;</bpt><ept id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;/linkText&gt;</ept><bpt id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;title&gt;</bpt><ept id="5361076a-41b9-4d57-99cb-a2554820be50">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8fe8db4f-7b91-4e68-93ee-459aeb36c9f6" xml:space="preserve">
+          <source><bpt id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;/linkText&gt;</ept><bpt id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;title&gt;</bpt><ept id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;/linkText&gt;</ept><bpt id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;title&gt;</bpt><ept id="ccfaed31-67a9-476f-bfb4-13d49bf86e4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4e936685-dd9c-4205-9f05-ece74779332f" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="ce21e62f-1323-4b90-badf-51498f71b07d" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="92a49015-3de4-421c-a3cc-c79f4ab0e5f9" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="0f5e017f-11ce-44b3-a5b2-d1779ebe08a0" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="6509267a-9765-4629-87e2-49ecb54a81bb" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="5886ecfb-8b97-4747-a719-2c2b1840ad72" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+      </group>
+      <group id="108a7b7f-d37b-4b65-9b44-acf504c81376" />
+    </body>
+  </file>
+</xliff>

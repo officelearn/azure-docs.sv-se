@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5bec7a09-5af7-43ec-8ab5-a2f3a16e1f4d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5bec7a09-5af7-43ec-8ab5-a2f3a16e1f4d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="99e9e763-59f2-40ff-b6d7-8d3b63e36a35">
+        <trans-unit id="24fade5d-b128-4747-ac3a-f1ceb12f8d6d" xml:space="preserve">
+          <source>Comparison: Apache Storm vs. Azure Stream Analytics | Microsoft Azure</source>
+          <target state="new">Comparison: Apache Storm vs. Azure Stream Analytics | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="614a5a12-33fa-447a-ac48-f9fe984206d2" xml:space="preserve">
+          <source>Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.</source>
+          <target state="new">Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.</target>
+        </trans-unit>
+        <trans-unit id="e1089670-393f-4686-a9a5-5a66bf2daf7e" xml:space="preserve">
+          <source>This document illustrates the positioning of Azure Stream Analytics and Apache Storm as a managed service on HDInsight.</source>
+          <target state="new">This document illustrates the positioning of Azure Stream Analytics and Apache Storm as a managed service on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="bd420785-3518-401b-acb9-102eee842468" xml:space="preserve">
+          <source>The goal is to help customers understand the value proposition of both services, and make a decision on which is the right choice for their business use case.</source>
+          <target state="new">The goal is to help customers understand the value proposition of both services, and make a decision on which is the right choice for their business use case.</target>
+        </trans-unit>
+        <trans-unit id="0e6649cd-3d5d-47af-a302-f138b3f673b4" xml:space="preserve">
+          <source>While both provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate these services.</source>
+          <target state="new">While both provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate these services.</target>
+        </trans-unit>
+        <trans-unit id="e962c68a-0f88-4947-a348-d692cb48acf4" xml:space="preserve">
+          <source>We believe that listing out the capabilities, as well as the limitations, of these services will help customers land on the solution they need to achieve their goals.</source>
+          <target state="new">We believe that listing out the capabilities, as well as the limitations, of these services will help customers land on the solution they need to achieve their goals.</target>
+        </trans-unit>
+        <trans-unit id="654fcce0-2841-41ad-be49-7806e12f8637" xml:space="preserve">
+          <source>Azure Stream Analytics</source>
+          <target state="new">Azure Stream Analytics</target>
+        </trans-unit>
+        <trans-unit id="5900159d-e15f-4676-93ac-b7d3ec3200e7" xml:space="preserve">
+          <source>Apache Storm on HDInsight</source>
+          <target state="new">Apache Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="dd72df5d-2189-4de4-9323-0fe3ce53d2aa" xml:space="preserve">
+          <source>Open Source</source>
+          <target state="new">Open Source</target>
+        </trans-unit>
+        <trans-unit id="e22047df-df62-44b6-86f3-dc68424039ba" xml:space="preserve">
+          <source>
+                    No, Azure Stream Analytics is a Microsoft proprietary offering.
+                </source>
+          <target state="new">
+                    No, Azure Stream Analytics is a Microsoft proprietary offering.
+                </target>
+        </trans-unit>
+        <trans-unit id="6b37d949-0f47-41dd-8393-7a0bf0df203f" xml:space="preserve">
+          <source>
+                    Yes, Apache Storm is an Apache licensed technology.
+                </source>
+          <target state="new">
+                    Yes, Apache Storm is an Apache licensed technology.
+                </target>
+        </trans-unit>
+        <trans-unit id="41fb97ec-02b4-493b-8a3b-236c39c52064" xml:space="preserve">
+          <source>Microsoft Supported</source>
+          <target state="new">Microsoft Supported</target>
+        </trans-unit>
+        <trans-unit id="d5dd9d0a-f545-4489-bd88-3e9352149f3a" xml:space="preserve">
+          <source>
+                    Yes
+                </source>
+          <target state="new">
+                    Yes
+                </target>
+        </trans-unit>
+        <trans-unit id="af52892c-5442-4537-b670-d9d189c01b03" xml:space="preserve">
+          <source>
+                    Yes
+                </source>
+          <target state="new">
+                    Yes
+                </target>
+        </trans-unit>
+        <trans-unit id="905b2553-28dd-4337-a44c-6c59760411c6" xml:space="preserve">
+          <source>Hardware requirements</source>
+          <target state="new">Hardware requirements</target>
+        </trans-unit>
+        <trans-unit id="7f6c6212-d103-40d8-9ad7-ae8daeadb6b2" xml:space="preserve">
+          <source>
+                    There are no hardware requirements. Azure Stream Analytics is an Azure Service.
+                </source>
+          <target state="new">
+                    There are no hardware requirements. Azure Stream Analytics is an Azure Service.
+                </target>
+        </trans-unit>
+        <trans-unit id="7d1fdc7d-262a-41b7-92ad-1e872e337781" xml:space="preserve">
+          <source>
+                    There are no hardware requirements. Apache Storm is an Azure Service.
+                </source>
+          <target state="new">
+                    There are no hardware requirements. Apache Storm is an Azure Service.
+                </target>
+        </trans-unit>
+        <trans-unit id="7e33fad8-14cc-4302-b36a-db5143555fe6" xml:space="preserve">
+          <source>Top Level Unit</source>
+          <target state="new">Top Level Unit</target>
+        </trans-unit>
+        <trans-unit id="adef506a-a230-4edc-b640-5d02d12c2fba" xml:space="preserve">
+          <source>
+                    With Azure Stream Analytics customers deploy and monitor streaming jobs.
+                </source>
+          <target state="new">
+                    With Azure Stream Analytics customers deploy and monitor streaming jobs.
+                </target>
+        </trans-unit>
+        <trans-unit id="fc8fa79f-4c32-44db-974f-1f98f18c3723" xml:space="preserve">
+          <source>
+                    With Apache Storm on HDInsight customers deploy and monitor a whole cluster, which can host multiple Storm jobs as well as other  workloads (incl. batch).
+                </source>
+          <target state="new">
+                    With Apache Storm on HDInsight customers deploy and monitor a whole cluster, which can host multiple Storm jobs as well as other  workloads (incl. batch).
+                </target>
+        </trans-unit>
+        <trans-unit id="86d2c2d8-84b8-4248-94e6-276b7b3b92e4" xml:space="preserve">
+          <source>Price</source>
+          <target state="new">Price</target>
+        </trans-unit>
+        <trans-unit id="ba87ccac-b550-4a17-9d77-60bd6eaae297" xml:space="preserve">
+          <source>
+                    Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
+                </source>
+          <target state="new">
+                    Stream Analytics is priced by volume of data processed and the number of streaming units (per hour the job is running) required.
+                </target>
+        </trans-unit>
+        <trans-unit id="a2f74eb6-d823-4df3-a095-de349fb86602" xml:space="preserve">
+          <source>Further pricing information can be found here.</source>
+          <target state="new">Further pricing information can be found here.</target>
+        </trans-unit>
+        <trans-unit id="db081bc8-1748-4ce5-9307-84a6bc7b64c7" xml:space="preserve">
+          <source>
+                    For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
+                </source>
+          <target state="new">
+                    For Apache Storm on HDInsight, the unit of purchase is cluster-based, and is charged based on the time the cluster is running, independent of jobs deployed.
+                </target>
+        </trans-unit>
+        <trans-unit id="ecde4eab-2908-4388-8906-c7c969177815" xml:space="preserve">
+          <source>Further pricing information can be found here.</source>
+          <target state="new">Further pricing information can be found here.</target>
+        </trans-unit>
+        <trans-unit id="4b4775fc-41e1-4a96-9f3f-dab055f6b9ff" xml:space="preserve">
+          <source>Azure Stream Analytics</source>
+          <target state="new">Azure Stream Analytics</target>
+        </trans-unit>
+        <trans-unit id="0d1d476e-1624-46f8-9bc4-34fa9e13c71e" xml:space="preserve">
+          <source>Apache Storm on HDInsight</source>
+          <target state="new">Apache Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="ec7e0462-8937-4c55-a796-e94e09e2c994" xml:space="preserve">
+          <source>Capabilities: SQL DSL</source>
+          <target state="new">Capabilities: SQL DSL</target>
+        </trans-unit>
+        <trans-unit id="1b888ba7-0d7e-46a8-8a33-8dd13fcb94d6" xml:space="preserve">
+          <source>
+                    Yes, an easy to use SQL language support is available.
+                </source>
+          <target state="new">
+                    Yes, an easy to use SQL language support is available.
+                </target>
+        </trans-unit>
+        <trans-unit id="2910c71a-41dd-4c75-a1aa-7d8a1a5d6956" xml:space="preserve">
+          <source>
+                    No, users must write code in Java C# or use Trident APIs.
+                </source>
+          <target state="new">
+                    No, users must write code in Java C# or use Trident APIs.
+                </target>
+        </trans-unit>
+        <trans-unit id="5b1bb0a7-245a-468d-9265-7ef78a904ea8" xml:space="preserve">
+          <source>Capabilities: Temporal operators</source>
+          <target state="new">Capabilities: Temporal operators</target>
+        </trans-unit>
+        <trans-unit id="2f9cfd79-40b5-4093-ae85-5d69f72afd6f" xml:space="preserve">
+          <source>
+                    Windowed aggregates, and temporal joins are supported out of the box.
+                </source>
+          <target state="new">
+                    Windowed aggregates, and temporal joins are supported out of the box.
+                </target>
+        </trans-unit>
+        <trans-unit id="480c8b8f-c2f1-4914-88ad-4682617ba4f2" xml:space="preserve">
+          <source>
+                    Temporal operators must to be implemented by the user.
+                </source>
+          <target state="new">
+                    Temporal operators must to be implemented by the user.
+                </target>
+        </trans-unit>
+        <trans-unit id="09995982-f8a5-4a15-85e7-1869964e72d0" xml:space="preserve">
+          <source>Development Experience</source>
+          <target state="new">Development Experience</target>
+        </trans-unit>
+        <trans-unit id="81899d3e-94b7-497d-bac0-225ad4a7caf8" xml:space="preserve">
+          <source>
+                    Interactive authoring and debugging experience through Azure Portal on sample data.
+                </source>
+          <target state="new">
+                    Interactive authoring and debugging experience through Azure Portal on sample data.
+                </target>
+        </trans-unit>
+        <trans-unit id="e523303a-02c0-4ea6-a78c-68ddc272d78c" xml:space="preserve">
+          <source>
+                    Development, debugging and monitoring experience is provided through the Visual Studio experience for .NET users, while for Java and other languages developers may use the IDE of their choice.
+                </source>
+          <target state="new">
+                    Development, debugging and monitoring experience is provided through the Visual Studio experience for .NET users, while for Java and other languages developers may use the IDE of their choice.
+                </target>
+        </trans-unit>
+        <trans-unit id="e39339ec-eb01-49e8-a7b3-79a8b0324332" xml:space="preserve">
+          <source>Debugging support</source>
+          <target state="new">Debugging support</target>
+        </trans-unit>
+        <trans-unit id="60822d45-6e1f-4282-a051-98784681c238" xml:space="preserve">
+          <source>
+                    Stream Analytics offers basic job status and Operations logs as a way of debugging, but currently does not offer flexibility in what/how much is included in the logs ie: verbose mode.
+                </source>
+          <target state="new">
+                    Stream Analytics offers basic job status and Operations logs as a way of debugging, but currently does not offer flexibility in what/how much is included in the logs ie: verbose mode.
+                </target>
+        </trans-unit>
+        <trans-unit id="ffe70607-29cb-4fb2-a9d5-bda18257030b" xml:space="preserve">
+          <source>
+                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual Studio or user can RDP into the cluster to access logs.
+                </source>
+          <target state="new">
+                    Detailed logs are available for debugging purposes. There are two ways to surface logs to user, via visual Studio or user can RDP into the cluster to access logs.
+                </target>
+        </trans-unit>
+        <trans-unit id="afa06b39-3e89-4d76-9155-4881be5d13eb" xml:space="preserve">
+          <source>Support for UDF (User Defined Functions)</source>
+          <target state="new">Support for UDF (User Defined Functions)</target>
+        </trans-unit>
+        <trans-unit id="c28f0465-df1d-4a31-92b1-cc271ad7d292" xml:space="preserve">
+          <source>
+                    Currently there is no support for UDFs.
+                </source>
+          <target state="new">
+                    Currently there is no support for UDFs.
+                </target>
+        </trans-unit>
+        <trans-unit id="1c55c269-ae4f-4a09-a5d3-3665a97fcd23" xml:space="preserve">
+          <source>
+                    UDFs can be written in C#, Java or the language of your choice.
+                </source>
+          <target state="new">
+                    UDFs can be written in C#, Java or the language of your choice.
+                </target>
+        </trans-unit>
+        <trans-unit id="f5981d46-70d0-438f-ad06-d94bb2fa4bb8" xml:space="preserve">
+          <source>Extensible - custom code </source>
+          <target state="new">Extensible - custom code </target>
+        </trans-unit>
+        <trans-unit id="5b46e655-9be2-45bf-a116-a08bb5d64cf6" xml:space="preserve">
+          <source>
+                    There is no support for extensible code in Stream Analytics.
+                </source>
+          <target state="new">
+                    There is no support for extensible code in Stream Analytics.
+                </target>
+        </trans-unit>
+        <trans-unit id="17ce0efe-115e-43cd-a8d9-da8a490826f6" xml:space="preserve">
+          <source>
+                    Yes, there is availability to write custom code in C#, Java or other supported languages on Storm.
+                </source>
+          <target state="new">
+                    Yes, there is availability to write custom code in C#, Java or other supported languages on Storm.
+                </target>
+        </trans-unit>
+        <trans-unit id="8fe794ce-128f-485a-9442-54e1ddd2cc0d" xml:space="preserve">
+          <source>Azure Stream Analytics</source>
+          <target state="new">Azure Stream Analytics</target>
+        </trans-unit>
+        <trans-unit id="4cc5035d-6abb-43a9-be3e-5a0f609ce43a" xml:space="preserve">
+          <source>Apache Storm on HDInsight</source>
+          <target state="new">Apache Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="db2b498f-2ae0-4a3a-993d-e0c50b89fab8" xml:space="preserve">
+          <source>Input Data Sources</source>
+          <target state="new">Input Data Sources</target>
+        </trans-unit>
+        <trans-unit id="7491ae44-4a90-48f8-8b76-52467d7c33b4" xml:space="preserve">
+          <source>The supported input sources are Azure Event Hubs and Azure Blobs.
+                </source>
+          <target state="new">The supported input sources are Azure Event Hubs and Azure Blobs.
+                </target>
+        </trans-unit>
+        <trans-unit id="47e958e1-afdb-4ec4-9fe1-cb37d706d490" xml:space="preserve">
+          <source>
+                    There are connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
+                </source>
+          <target state="new">
+                    There are connectors available for Event Hubs, Service Bus, Kafka, etc. Unsupported connectors may be implemented via custom code.
+                </target>
+        </trans-unit>
+        <trans-unit id="49805c07-5b94-4b28-bfc3-9309e9260609" xml:space="preserve">
+          <source>Input Data formats</source>
+          <target state="new">Input Data formats</target>
+        </trans-unit>
+        <trans-unit id="3660fe42-9366-4a55-bfb3-f59d81b46731" xml:space="preserve">
+          <source>
+                    Supported input formats are Avro, JSON, CSV.
+                </source>
+          <target state="new">
+                    Supported input formats are Avro, JSON, CSV.
+                </target>
+        </trans-unit>
+        <trans-unit id="377dd094-20f4-4d5c-9eb6-6bf07b3b88bf" xml:space="preserve">
+          <source>
+                    Any format may be implemented via custom code.
+                </source>
+          <target state="new">
+                    Any format may be implemented via custom code.
+                </target>
+        </trans-unit>
+        <trans-unit id="6a3c2b3c-0d01-4007-a32b-24524ce9d3bf" xml:space="preserve">
+          <source>Outputs</source>
+          <target state="new">Outputs</target>
+        </trans-unit>
+        <trans-unit id="262b7e62-ed72-45f3-a0c7-5807f659e17f" xml:space="preserve">
+          <source>
+                    A streaming job may have multiple outputs. Supported Outputs: Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
+                </source>
+          <target state="new">
+                    A streaming job may have multiple outputs. Supported Outputs: Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB, and PowerBI.
+                </target>
+        </trans-unit>
+        <trans-unit id="d8620c64-74e9-4d4f-b687-c4df934a959d" xml:space="preserve">
+          <source>
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                </source>
+          <target state="new">
+                    Support for many outputs in a topology, each output may have custom logic for downstream processing. Out of the box Storm includes connectors for PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL and HBase. Unsupported connectors may be implemented via custom code.
+                </target>
+        </trans-unit>
+        <trans-unit id="2be12011-8a23-46c5-ab72-ea27401fd96a" xml:space="preserve">
+          <source>Data Encoding formats</source>
+          <target state="new">Data Encoding formats</target>
+        </trans-unit>
+        <trans-unit id="2a8998c6-82b3-49c9-b1fa-b77ace3b4730" xml:space="preserve">
+          <source>
+                    Stream Analytics requires UTF-8 data format to be utilized.
+                </source>
+          <target state="new">
+                    Stream Analytics requires UTF-8 data format to be utilized.
+                </target>
+        </trans-unit>
+        <trans-unit id="994d1762-0f1a-4f61-92b3-d389ff8068db" xml:space="preserve">
+          <source>
+                    Any data encoding format may be implemented via custom code.
+                </source>
+          <target state="new">
+                    Any data encoding format may be implemented via custom code.
+                </target>
+        </trans-unit>
+        <trans-unit id="ee1b07be-805d-4742-9c5a-a00b3bcfc72f" xml:space="preserve">
+          <source>Azure Stream Analytics</source>
+          <target state="new">Azure Stream Analytics</target>
+        </trans-unit>
+        <trans-unit id="344ba981-bd26-4909-9b09-94f3b358d580" xml:space="preserve">
+          <source>Apache Storm on HDInsight</source>
+          <target state="new">Apache Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="b3fc09e8-13b1-4cac-934a-0602c9965886" xml:space="preserve">
+          <source>Job Deployment model</source>
+          <target state="new">Job Deployment model</target>
+        </trans-unit>
+        <trans-unit id="1a61e6d8-2fc6-4a9f-aa89-5017ab4ce4e3" xml:space="preserve">
+          <source>
+                    - </source>
+          <target state="new">
+                    - </target>
+        </trans-unit>
+        <trans-unit id="9c53ad52-ea0b-4b6f-886c-b64fefd4c471" xml:space="preserve">
+          <source>Azure Portal</source>
+          <target state="new">Azure Portal</target>
+        </trans-unit>
+        <trans-unit id="b3d4c996-6a59-43ce-8074-5c559ebb4569" xml:space="preserve">
+          <source>
+                    - </source>
+          <target state="new">
+                    - </target>
+        </trans-unit>
+        <trans-unit id="cdd991c3-2c20-4dc0-b83c-5819c8fff6d8" xml:space="preserve">
+          <source>Visual Studio</source>
+          <target state="new">Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="ba688b9d-86e1-417b-89e1-323091234374" xml:space="preserve">
+          <source>
+                    - </source>
+          <target state="new">
+                    - </target>
+        </trans-unit>
+        <trans-unit id="27424a4f-3523-4f8f-8e1f-4cfb58de6a4b" xml:space="preserve">
+          <source>PowerShell</source>
+          <target state="new">PowerShell</target>
+        </trans-unit>
+        <trans-unit id="9c3f7043-2d0b-4c09-8b74-f824a956f22a" xml:space="preserve">
+          <source>
+                    Deployment is implemented via Azure Portal, PowerShell and REST APIs.
+                </source>
+          <target state="new">
+                    Deployment is implemented via Azure Portal, PowerShell and REST APIs.
+                </target>
+        </trans-unit>
+        <trans-unit id="f39d6734-2542-4adc-a40d-b5c0a15258ba" xml:space="preserve">
+          <source>
+                    Depolyment is implemented via Azure Portal, PowerShell, Visual Studio and REST APIs.
+                </source>
+          <target state="new">
+                    Depolyment is implemented via Azure Portal, PowerShell, Visual Studio and REST APIs.
+                </target>
+        </trans-unit>
+        <trans-unit id="a2255c85-9191-4a69-a745-96a78ff845dc" xml:space="preserve">
+          <source>Monitoring (stats, counters, etc.)</source>
+          <target state="new">Monitoring (stats, counters, etc.)</target>
+        </trans-unit>
+        <trans-unit id="0cf88104-bff4-4fc5-897f-9a3553dab8b0" xml:space="preserve">
+          <source>
+                    Monitoring is implemented via Azure Portal and REST APIs.
+                </source>
+          <target state="new">
+                    Monitoring is implemented via Azure Portal and REST APIs.
+                </target>
+        </trans-unit>
+        <trans-unit id="405e1fe5-da21-4e53-87fe-8ad463018571" xml:space="preserve">
+          <source>
+                    The user may also configure Azure alerts.
+                </source>
+          <target state="new">
+                    The user may also configure Azure alerts.
+                </target>
+        </trans-unit>
+        <trans-unit id="6e9f595a-d621-4084-bef7-64e981e5e310" xml:space="preserve">
+          <source>
+                    Monitoring is implemented via Storm UI and REST APIs.
+                </source>
+          <target state="new">
+                    Monitoring is implemented via Storm UI and REST APIs.
+                </target>
+        </trans-unit>
+        <trans-unit id="101cacbc-374a-47c0-b683-16882d6d673f" xml:space="preserve">
+          <source>Scalability</source>
+          <target state="new">Scalability</target>
+        </trans-unit>
+        <trans-unit id="a1b8fb92-58ce-4b89-9642-547bc7ed227f" xml:space="preserve">
+          <source>
+                    Number of Streaming Units for each job. Each Streaming Unit processes up to 1MB/s. Max of 50 units by default. Call to increase limit.
+                </source>
+          <target state="new">
+                    Number of Streaming Units for each job. Each Streaming Unit processes up to 1MB/s. Max of 50 units by default. Call to increase limit.
+                </target>
+        </trans-unit>
+        <trans-unit id="e377c0fd-f752-428b-9fd9-b7f1ce83d6d8" xml:space="preserve">
+          <source>
+                    Number of nodes in the HDI Storm cluster. No limit on number of nodes (Top limit defined by your Azure quota). Call to increase limit.
+                </source>
+          <target state="new">
+                    Number of nodes in the HDI Storm cluster. No limit on number of nodes (Top limit defined by your Azure quota). Call to increase limit.
+                </target>
+        </trans-unit>
+        <trans-unit id="3f1089f8-39a5-4adb-b6df-14c8565fb3b7" xml:space="preserve">
+          <source>Data processing limits</source>
+          <target state="new">Data processing limits</target>
+        </trans-unit>
+        <trans-unit id="af0c6d0e-ceae-49ea-886a-829bab810b7c" xml:space="preserve">
+          <source>
+                    Users can scale up or down number of Streaming Units to increase data processing or optimize costs.
+                </source>
+          <target state="new">
+                    Users can scale up or down number of Streaming Units to increase data processing or optimize costs.
+                </target>
+        </trans-unit>
+        <trans-unit id="9753d8ef-87b5-49fe-aaf9-68bfa0a9f01a" xml:space="preserve">
+          <source>
+                    Scale up to 1 GB/s
+                </source>
+          <target state="new">
+                    Scale up to 1 GB/s
+                </target>
+        </trans-unit>
+        <trans-unit id="7d6b9cf8-1595-472b-a5af-4468eecd4dfd" xml:space="preserve">
+          <source>
+                    User can scale up or down cluster size to meet needs.
+                </source>
+          <target state="new">
+                    User can scale up or down cluster size to meet needs.
+                </target>
+        </trans-unit>
+        <trans-unit id="ba052821-c1a4-4184-bee9-964a0660fb56" xml:space="preserve">
+          <source>Stop/Resume</source>
+          <target state="new">Stop/Resume</target>
+        </trans-unit>
+        <trans-unit id="a8a9cadd-f28d-4285-8098-bbf8519fe398" xml:space="preserve">
+          <source>
+                    Stop and resume from last place stopped.
+                </source>
+          <target state="new">
+                    Stop and resume from last place stopped.
+                </target>
+        </trans-unit>
+        <trans-unit id="b8620877-c495-48a6-926d-2ba6eaf9db4b" xml:space="preserve">
+          <source>
+                    Stop and resume from last place stopped based on the watermark.
+                </source>
+          <target state="new">
+                    Stop and resume from last place stopped based on the watermark.
+                </target>
+        </trans-unit>
+        <trans-unit id="8ae6c1c4-1c49-421a-a6b2-319c078f9659" xml:space="preserve">
+          <source>Service and framework update</source>
+          <target state="new">Service and framework update</target>
+        </trans-unit>
+        <trans-unit id="7c6e7a0b-ba03-4c8d-9783-b99e2197798f" xml:space="preserve">
+          <source>
+                    Automatic patching with no downtime.
+                </source>
+          <target state="new">
+                    Automatic patching with no downtime.
+                </target>
+        </trans-unit>
+        <trans-unit id="0d73c9f4-1ee1-4d73-9c31-fb5e4af8e028" xml:space="preserve">
+          <source>
+                    Automatic patching with no downtime.
+                </source>
+          <target state="new">
+                    Automatic patching with no downtime.
+                </target>
+        </trans-unit>
+        <trans-unit id="a24071f4-4bb7-4a00-813d-2d3078fb04e3" xml:space="preserve">
+          <source>Business continuity through a Highly Available Service with guaranteed SLA’s</source>
+          <target state="new">Business continuity through a Highly Available Service with guaranteed SLA’s</target>
+        </trans-unit>
+        <trans-unit id="7b0bd224-4c54-4254-9490-03d81022403b" xml:space="preserve">
+          <source>
+                    SLA of 99.9% uptime
+                </source>
+          <target state="new">
+                    SLA of 99.9% uptime
+                </target>
+        </trans-unit>
+        <trans-unit id="4a30253f-b73b-4777-a9ab-abaf47155891" xml:space="preserve">
+          <source>
+                    Auto-recovery from failures
+                </source>
+          <target state="new">
+                    Auto-recovery from failures
+                </target>
+        </trans-unit>
+        <trans-unit id="5964e217-8344-42ce-ae4f-9956408ff03f" xml:space="preserve">
+          <source>
+                    Recovery of stateful temporal operators is built-in.
+                </source>
+          <target state="new">
+                    Recovery of stateful temporal operators is built-in.
+                </target>
+        </trans-unit>
+        <trans-unit id="809c2839-241f-4287-bfd4-4f77647be27b" xml:space="preserve">
+          <source>
+                    SLA of 99.9% uptime of the Storm cluster. Apache Storm is a fault tolerant streaming platform however it is the customers' responsibility to ensure their streaming jobs run uninterrupted.
+                </source>
+          <target state="new">
+                    SLA of 99.9% uptime of the Storm cluster. Apache Storm is a fault tolerant streaming platform however it is the customers' responsibility to ensure their streaming jobs run uninterrupted.
+                </target>
+        </trans-unit>
+        <trans-unit id="8e22aecd-671e-4ef1-a8af-3cfcdb1ee0eb" xml:space="preserve">
+          <source>Azure Stream Analytics</source>
+          <target state="new">Azure Stream Analytics</target>
+        </trans-unit>
+        <trans-unit id="fbd3d76d-f2f4-4216-a0b5-3a1ed551e989" xml:space="preserve">
+          <source>Apache Storm on HDInsight</source>
+          <target state="new">Apache Storm on HDInsight</target>
+        </trans-unit>
+        <trans-unit id="d86a290a-e018-49c3-b4bb-795e92c3c1b5" xml:space="preserve">
+          <source>Late arrival and out of order event handling</source>
+          <target state="new">Late arrival and out of order event handling</target>
+        </trans-unit>
+        <trans-unit id="99e5c537-0f72-419d-8f67-01d036168375" xml:space="preserve">
+          <source>
+                    Built-in configurable policies to reorder, drop events or adjust event time.
+                </source>
+          <target state="new">
+                    Built-in configurable policies to reorder, drop events or adjust event time.
+                </target>
+        </trans-unit>
+        <trans-unit id="21711af8-0524-4ea0-925f-f93a3be3cdd7" xml:space="preserve">
+          <source>
+                    User must implement logic to handle this scenario.
+                </source>
+          <target state="new">
+                    User must implement logic to handle this scenario.
+                </target>
+        </trans-unit>
+        <trans-unit id="ce244e2e-3f0d-4469-a5b3-d59601a5b938" xml:space="preserve">
+          <source>Reference data</source>
+          <target state="new">Reference data</target>
+        </trans-unit>
+        <trans-unit id="a3118e2d-5b3f-427c-a29b-fff7b1aa186d" xml:space="preserve">
+          <source>
+                    Reference data available from Azure Blobs with max size of 100 MB of in-memory lookup cache. Refreshing of reference data is managed by the service.
+                </source>
+          <target state="new">
+                    Reference data available from Azure Blobs with max size of 100 MB of in-memory lookup cache. Refreshing of reference data is managed by the service.
+                </target>
+        </trans-unit>
+        <trans-unit id="99de2b2b-3c6b-402a-ae25-3d20505ca684" xml:space="preserve">
+          <source>
+                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code. 
+                </source>
+          <target state="new">
+                    No limits on data size. Connectors available for HBase, DocumentDB, SQL Server and Azure. Unsupported connectors may be implemented via custom code. 
+                </target>
+        </trans-unit>
+        <trans-unit id="822816ce-4e47-47bf-beab-9296daeed8ee" xml:space="preserve">
+          <source>
+                    Refreshing of reference data must be handled by custom code.
+                </source>
+          <target state="new">
+                    Refreshing of reference data must be handled by custom code.
+                </target>
+        </trans-unit>
+        <trans-unit id="f71e50b4-e38f-4176-8995-5b8de82d416f" xml:space="preserve">
+          <source>Integration with Machine Learning</source>
+          <target state="new">Integration with Machine Learning</target>
+        </trans-unit>
+        <trans-unit id="5814275d-f151-426e-98c1-04014d953e8b" xml:space="preserve">
+          <source>
+                    Yes, by configuring published Azure Machine Learning models as functions during ASA job creation.
+                </source>
+          <target state="new">
+                    Yes, by configuring published Azure Machine Learning models as functions during ASA job creation.
+                </target>
+        </trans-unit>
+        <trans-unit id="be9bc087-0d6d-40c0-9194-01db23622adc" xml:space="preserve">
+          <source>
+                    Available through Storm Bolts.
+                </source>
+          <target state="new">
+                    Available through Storm Bolts.
+                </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

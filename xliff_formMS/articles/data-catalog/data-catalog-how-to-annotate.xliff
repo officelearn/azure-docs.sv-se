@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c45eb695-688f-4cb8-bfbc-c41f2ecc9e0c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c45eb695-688f-4cb8-bfbc-c41f2ecc9e0c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="31e202c7-489b-4701-ace2-5ac0b4d05903">
+        <trans-unit id="085a9107-bbbb-44cb-be1d-71cf74b4a770" xml:space="preserve">
+          <source>How to annotate data sources</source>
+          <target state="new">How to annotate data sources</target>
+        </trans-unit>
+        <trans-unit id="fc8bf210-c794-400e-8699-611543948f11" xml:space="preserve">
+          <source>How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.</source>
+          <target state="new">How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.</target>
+        </trans-unit>
+        <trans-unit id="402d7271-1217-4bf2-9331-8956e48cba52" xml:space="preserve">
+          <source><bpt id="5dce3517-d0d7-443a-a69a-178b1eeb1ae5">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="5dce3517-d0d7-443a-a69a-178b1eeb1ae5">&lt;/strong&gt;</ept> is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources.</source>
+          <target state="new"><bpt id="5dce3517-d0d7-443a-a69a-178b1eeb1ae5">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="5dce3517-d0d7-443a-a69a-178b1eeb1ae5">&lt;/strong&gt;</ept> is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources.</target>
+        </trans-unit>
+        <trans-unit id="4b6a09e7-294a-4cd5-b503-12a385fb56b0" xml:space="preserve">
+          <source>In other words, <bpt id="feb67ddc-cf79-4c47-a790-d6e54533677e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="feb67ddc-cf79-4c47-a790-d6e54533677e">&lt;/strong&gt;</ept> is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data.</source>
+          <target state="new">In other words, <bpt id="feb67ddc-cf79-4c47-a790-d6e54533677e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="feb67ddc-cf79-4c47-a790-d6e54533677e">&lt;/strong&gt;</ept> is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data.</target>
+        </trans-unit>
+        <trans-unit id="aa05d674-758f-4528-a82f-c84407ed531e" xml:space="preserve">
+          <source>When a data source is been registered with <bpt id="96b54c5c-d754-409f-853d-738b97450d55">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="96b54c5c-d754-409f-853d-738b97450d55">&lt;/strong&gt;</ept>, its metadata is copied and indexed by the service, but the story doesn’t end there.</source>
+          <target state="new">When a data source is been registered with <bpt id="96b54c5c-d754-409f-853d-738b97450d55">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="96b54c5c-d754-409f-853d-738b97450d55">&lt;/strong&gt;</ept>, its metadata is copied and indexed by the service, but the story doesn’t end there.</target>
+        </trans-unit>
+        <trans-unit id="c948e85b-af1f-470f-bed0-afbb346d5f95" xml:space="preserve">
+          <source><bpt id="4d32c7c8-9a32-4d87-8d66-96cd3737b375">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="4d32c7c8-9a32-4d87-8d66-96cd3737b375">&lt;/strong&gt;</ept> allows users to provide their own descriptive metadata – such as descriptions and tags – to supplement the metadata extracted from the data source, and to make the data source more understandable to more people.</source>
+          <target state="new"><bpt id="4d32c7c8-9a32-4d87-8d66-96cd3737b375">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="4d32c7c8-9a32-4d87-8d66-96cd3737b375">&lt;/strong&gt;</ept> allows users to provide their own descriptive metadata – such as descriptions and tags – to supplement the metadata extracted from the data source, and to make the data source more understandable to more people.</target>
+        </trans-unit>
+        <trans-unit id="b2cc3f68-d0f4-42dc-9888-e17b387e51d2" xml:space="preserve">
+          <source>Everyone has an opinion.</source>
+          <target state="new">Everyone has an opinion.</target>
+        </trans-unit>
+        <trans-unit id="3811655e-d1ff-4ecc-8a02-0e056417184e" xml:space="preserve">
+          <source>And this is a good thing.</source>
+          <target state="new">And this is a good thing.</target>
+        </trans-unit>
+        <trans-unit id="d4d5f11e-b96b-4517-99d8-4f219a9dd5f3" xml:space="preserve">
+          <source><bpt id="00f0959d-5f84-4128-b90a-30712d582de6">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="00f0959d-5f84-4128-b90a-30712d582de6">&lt;/strong&gt;</ept> recognizes that different users have different perspectives on enterprise data sources, and that each of these perspectives can be valuable.</source>
+          <target state="new"><bpt id="00f0959d-5f84-4128-b90a-30712d582de6">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="00f0959d-5f84-4128-b90a-30712d582de6">&lt;/strong&gt;</ept> recognizes that different users have different perspectives on enterprise data sources, and that each of these perspectives can be valuable.</target>
+        </trans-unit>
+        <trans-unit id="658bd896-081c-42f6-abc1-8c59aa7ea4c6" xml:space="preserve">
+          <source>Consider the following scenario:</source>
+          <target state="new">Consider the following scenario:</target>
+        </trans-unit>
+        <trans-unit id="6eac698f-97e4-4c58-9698-a6a853640c49" xml:space="preserve">
+          <source>The system administrator knows the service level agreement for the servers or services that host the data source.</source>
+          <target state="new">The system administrator knows the service level agreement for the servers or services that host the data source.</target>
+        </trans-unit>
+        <trans-unit id="544f962b-e4ac-40f2-a24e-437757332c10" xml:space="preserve">
+          <source>The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.</source>
+          <target state="new">The database administrator knows the backup schedule for each database, and the allowed ETL processing windows.</target>
+        </trans-unit>
+        <trans-unit id="7f36707d-9e7b-453d-a552-f860f2ae0a97" xml:space="preserve">
+          <source>The system owner knows the process for users to request access to the data source.</source>
+          <target state="new">The system owner knows the process for users to request access to the data source.</target>
+        </trans-unit>
+        <trans-unit id="beb647c9-0b07-4e55-9449-8934d507c488" xml:space="preserve">
+          <source>The data steward knows how the assets and attributes in the data source map to the enterprise data model.</source>
+          <target state="new">The data steward knows how the assets and attributes in the data source map to the enterprise data model.</target>
+        </trans-unit>
+        <trans-unit id="b3b0e754-7b50-4a46-9dce-5844d5b8fd3f" xml:space="preserve">
+          <source>The analyst knows how the data is used in the context of the business processes he supports.</source>
+          <target state="new">The analyst knows how the data is used in the context of the business processes he supports.</target>
+        </trans-unit>
+        <trans-unit id="5f9afcf5-b3d3-46b3-8baf-6277aed8396e" xml:space="preserve">
+          <source>Each of these perspectives is valuable, and <bpt id="162530ed-a8ed-4abc-a901-41136ed68066">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="162530ed-a8ed-4abc-a901-41136ed68066">&lt;/strong&gt;</ept> uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources.</source>
+          <target state="new">Each of these perspectives is valuable, and <bpt id="162530ed-a8ed-4abc-a901-41136ed68066">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="162530ed-a8ed-4abc-a901-41136ed68066">&lt;/strong&gt;</ept> uses a crowdsourcing approach to metadata that allows each one to be captured and used to provide a complete picture of registered data sources.</target>
+        </trans-unit>
+        <trans-unit id="8e392f3f-b4e0-4625-9c5a-0cd43a052234" xml:space="preserve">
+          <source>Using the <bpt id="e19df140-206b-4290-933f-3e85ce3d6c6a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e19df140-206b-4290-933f-3e85ce3d6c6a">&lt;/strong&gt;</ept> portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.</source>
+          <target state="new">Using the <bpt id="e19df140-206b-4290-933f-3e85ce3d6c6a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e19df140-206b-4290-933f-3e85ce3d6c6a">&lt;/strong&gt;</ept> portal, each user can add and edit his own annotations, while being able to view annotations provided by other users.</target>
+        </trans-unit>
+        <trans-unit id="de3ea9c0-ee85-480c-8cde-d15478f1239e" xml:space="preserve">
+          <source>During the <bpt id="3af62b5c-9bcc-4fdf-abdf-9e91d6d8784a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="3af62b5c-9bcc-4fdf-abdf-9e91d6d8784a">&lt;/strong&gt;</ept> preview, the following types of annotations are supported:</source>
+          <target state="new">During the <bpt id="3af62b5c-9bcc-4fdf-abdf-9e91d6d8784a">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="3af62b5c-9bcc-4fdf-abdf-9e91d6d8784a">&lt;/strong&gt;</ept> preview, the following types of annotations are supported:</target>
+        </trans-unit>
+        <trans-unit id="a6005e19-f3b7-4901-9a6a-d27b546d42e9" xml:space="preserve">
+          <source>Annotation</source>
+          <target state="new">Annotation</target>
+        </trans-unit>
+        <trans-unit id="c4cd1f47-37a0-4930-b3bc-044e444c1c34" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="aa2872de-bc7b-4e61-8aeb-db378fd570c9" xml:space="preserve">
+          <source>Friendly name</source>
+          <target state="new">Friendly name</target>
+        </trans-unit>
+        <trans-unit id="8703b759-2e16-42e7-bd27-25cc7696fc3d" xml:space="preserve">
+          <source>Friendly names can be supplied at the data asset level, to make the data assets more easily understood.</source>
+          <target state="new">Friendly names can be supplied at the data asset level, to make the data assets more easily understood.</target>
+        </trans-unit>
+        <trans-unit id="6f62b7f0-e425-434e-bbd0-29e777953c49" xml:space="preserve">
+          <source>Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.</source>
+          <target state="new">Friendly names are most useful when the underlying object name is cryptic, abbreviated or otherwise not meaningful to users.</target>
+        </trans-unit>
+        <trans-unit id="033d3394-d34d-475d-a0c6-8d6fba04ca73" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="046ba0f7-f3ce-431f-beed-fcc70a03c513" xml:space="preserve">
+          <source>Descriptions can be supplied at the data asset and attribute / column levels.</source>
+          <target state="new">Descriptions can be supplied at the data asset and attribute / column levels.</target>
+        </trans-unit>
+        <trans-unit id="cf7200e5-3d57-497b-8f72-ee963182e54e" xml:space="preserve">
+          <source>Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.</source>
+          <target state="new">Descriptions are free-form short text annotations that describe the user’s perspective on the data asset or its use.</target>
+        </trans-unit>
+        <trans-unit id="5db7dbf5-9ea4-4568-9bc9-b68d25881a16" xml:space="preserve">
+          <source>Tags</source>
+          <target state="new">Tags</target>
+        </trans-unit>
+        <trans-unit id="3bc52475-977b-4ce7-ab6a-62ebacfa74ff" xml:space="preserve">
+          <source>Tags can be supplied at the data asset and attribute / column levels.</source>
+          <target state="new">Tags can be supplied at the data asset and attribute / column levels.</target>
+        </trans-unit>
+        <trans-unit id="33089f47-09ca-4b0f-bfe3-cf8d479ae93a" xml:space="preserve">
+          <source>Tags are user-defined labels that can be used to categorize data assets or attributes.</source>
+          <target state="new">Tags are user-defined labels that can be used to categorize data assets or attributes.</target>
+        </trans-unit>
+        <trans-unit id="e2dbdd2f-b96f-4447-8517-478e651390da" xml:space="preserve">
+          <source>Experts</source>
+          <target state="new">Experts</target>
+        </trans-unit>
+        <trans-unit id="d66a57f9-38bb-4381-b414-77ce2c588320" xml:space="preserve">
+          <source>Experts can be supplied at the data asset level.</source>
+          <target state="new">Experts can be supplied at the data asset level.</target>
+        </trans-unit>
+        <trans-unit id="298c7650-af60-47cd-903b-bd0af9e4594e" xml:space="preserve">
+          <source>Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.</source>
+          <target state="new">Experts identify users or groups with expert perspectives on the data and can serve as points of contact for users who discover the registered data sources and have questions that are not answered by the existing annotations.</target>
+        </trans-unit>
+        <trans-unit id="d804e807-367b-4eda-84f2-477d26d1db39" xml:space="preserve">
+          <source>Request access</source>
+          <target state="new">Request access</target>
+        </trans-unit>
+        <trans-unit id="2e30c5da-bd99-4f36-93eb-bf442fa9a268" xml:space="preserve">
+          <source>Request access information can be supplied at the data asset level.</source>
+          <target state="new">Request access information can be supplied at the data asset level.</target>
+        </trans-unit>
+        <trans-unit id="9c2697f6-efd5-4169-a375-f94d3d7f9656" xml:space="preserve">
+          <source>This information is for users who discover a data source that they do not yet have permissions to access.</source>
+          <target state="new">This information is for users who discover a data source that they do not yet have permissions to access.</target>
+        </trans-unit>
+        <trans-unit id="bec5e22f-e387-4f33-909a-c10460102e72" xml:space="preserve">
+          <source>Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text.</source>
+          <target state="new">Users can enter the email address of the user or group who grants access, the URL of the process or tool that users need to gain access, or can enter the process itself as text.</target>
+        </trans-unit>
+        <trans-unit id="b40aecaa-1349-4305-8b32-9b069d0057ea" xml:space="preserve">
+          <source>When selecting multiple data assets in the <bpt id="074c07aa-bff8-4aeb-aad4-a9ba5fa69503">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="074c07aa-bff8-4aeb-aad4-a9ba5fa69503">&lt;/strong&gt;</ept> portal, users can annotate all selected assets in a single operation.</source>
+          <target state="new">When selecting multiple data assets in the <bpt id="074c07aa-bff8-4aeb-aad4-a9ba5fa69503">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="074c07aa-bff8-4aeb-aad4-a9ba5fa69503">&lt;/strong&gt;</ept> portal, users can annotate all selected assets in a single operation.</target>
+        </trans-unit>
+        <trans-unit id="67ff42bb-20bd-4909-bd51-7b366de4b0ee" xml:space="preserve">
+          <source>Annotations will apply to all selected assets, making it easy to select and provide a consistent description and sets of tags and experts for related data assets.</source>
+          <target state="new">Annotations will apply to all selected assets, making it easy to select and provide a consistent description and sets of tags and experts for related data assets.</target>
+        </trans-unit>
+        <trans-unit id="c8b0c33f-c8dd-4cfe-afd3-454fc716c317" xml:space="preserve">
+          <source>Tags and experts can also be provided when registering data assets using the <bpt id="5b892ffe-d1d7-4924-bf8f-c04c83907891">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="5b892ffe-d1d7-4924-bf8f-c04c83907891">&lt;/strong&gt;</ept> data source registration tool.</source>
+          <target state="new">Tags and experts can also be provided when registering data assets using the <bpt id="5b892ffe-d1d7-4924-bf8f-c04c83907891">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="5b892ffe-d1d7-4924-bf8f-c04c83907891">&lt;/strong&gt;</ept> data source registration tool.</target>
+        </trans-unit>
+        <trans-unit id="bc72b952-70d7-485e-bd3b-c37ae717efee" xml:space="preserve">
+          <source>When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the <bpt id="ff2e8ffc-86e5-40d9-acfb-590728ac9eec">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ff2e8ffc-86e5-40d9-acfb-590728ac9eec">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">When selecting multiple tables and views, only columns that all selected data assets have in common will be displayed in the <bpt id="ff2e8ffc-86e5-40d9-acfb-590728ac9eec">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="ff2e8ffc-86e5-40d9-acfb-590728ac9eec">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="b8ff1ac5-bd2c-401a-ac02-2e3194450ffc" xml:space="preserve">
+          <source>This allows users to provide tags and descriptions for all columns with the same name for all selected assets.</source>
+          <target state="new">This allows users to provide tags and descriptions for all columns with the same name for all selected assets.</target>
+        </trans-unit>
+        <trans-unit id="7fd6d4c8-899d-4296-97ee-55b1540d7549" xml:space="preserve">
+          <source>Just as the metadata extracted from the data source during registration is added to the <bpt id="d0c74eb4-3309-464e-9140-86608d0d66c0">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d0c74eb4-3309-464e-9140-86608d0d66c0">&lt;/strong&gt;</ept> search index, user-supplied metadata is also indexed.</source>
+          <target state="new">Just as the metadata extracted from the data source during registration is added to the <bpt id="d0c74eb4-3309-464e-9140-86608d0d66c0">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d0c74eb4-3309-464e-9140-86608d0d66c0">&lt;/strong&gt;</ept> search index, user-supplied metadata is also indexed.</target>
+        </trans-unit>
+        <trans-unit id="c353cd0d-dcfc-46fd-92ae-babe8176a617" xml:space="preserve">
+          <source>This means that not only do annotations make it easier for users to understand the data they discover, annotations also make it easier for users to discover the annotated data assets by searching using the terms that make sense to them.</source>
+          <target state="new">This means that not only do annotations make it easier for users to understand the data they discover, annotations also make it easier for users to discover the annotated data assets by searching using the terms that make sense to them.</target>
+        </trans-unit>
+        <trans-unit id="7df6c8e5-3b81-492d-80e1-f2cdd08d9844" xml:space="preserve">
+          <source>Registering a data source with <bpt id="e5f1797a-da66-4fdd-a7ec-e940ad882ade">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e5f1797a-da66-4fdd-a7ec-e940ad882ade">&lt;/strong&gt;</ept> makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service.</source>
+          <target state="new">Registering a data source with <bpt id="e5f1797a-da66-4fdd-a7ec-e940ad882ade">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e5f1797a-da66-4fdd-a7ec-e940ad882ade">&lt;/strong&gt;</ept> makes that data discoverable by copying structural and descriptive metadata from the data source into the Catalog service.</target>
+        </trans-unit>
+        <trans-unit id="56e5a684-d1d3-49c5-b0d5-dadea371830a" xml:space="preserve">
+          <source>Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the <bpt id="f90f31bf-dc5b-4880-b1c4-5c7b84b0d685">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f90f31bf-dc5b-4880-b1c4-5c7b84b0d685">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Once a data source has been registered, users can provide annotations to make easier to discover and understand from within the <bpt id="f90f31bf-dc5b-4880-b1c4-5c7b84b0d685">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="f90f31bf-dc5b-4880-b1c4-5c7b84b0d685">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

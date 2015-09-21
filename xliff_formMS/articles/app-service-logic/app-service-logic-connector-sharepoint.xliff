@@ -1,0 +1,1781 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="aef56de4-a676-4161-8da3-8d2c6b41e29b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="aef56de4-a676-4161-8da3-8d2c6b41e29b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="73b4212e-3ed7-4f13-a869-79516d571692">
+        <trans-unit id="fbb11187-3965-4ce7-bb49-890178cbea69" xml:space="preserve">
+          <source>Using the SharePoint Connector in Logic Apps | Microsoft Azure App Service</source>
+          <target state="new">Using the SharePoint Connector in Logic Apps | Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="6c3fc8ac-4863-473d-816c-daa0d18ada5a" xml:space="preserve">
+          <source>How to create and configure the SharePoint Connector or API app and use it in a logic app in Azure App Service</source>
+          <target state="new">How to create and configure the SharePoint Connector or API app and use it in a logic app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="96a4896d-41f0-4108-baf9-7a52c9cedc21" xml:space="preserve">
+          <source>Connect SharePoint Server or SharePoint Online to manage documents and list items.</source>
+          <target state="new">Connect SharePoint Server or SharePoint Online to manage documents and list items.</target>
+        </trans-unit>
+        <trans-unit id="09026219-6880-4a74-a67e-8754629a5cd1" xml:space="preserve">
+          <source>You can perform various actions such as create, update, get, and delete on documents and list items.</source>
+          <target state="new">You can perform various actions such as create, update, get, and delete on documents and list items.</target>
+        </trans-unit>
+        <trans-unit id="f01c3d8c-8947-461a-bc52-cb05721c7e86" xml:space="preserve">
+          <source>When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.</source>
+          <target state="new">When using on-premises SharePoint server, you enter the Service Bus Connection String as part of connector configuration and install the on-premises listener agent to connect to the server.</target>
+        </trans-unit>
+        <trans-unit id="6b10f89d-07dc-47ed-9c9f-1df74d4d071d" xml:space="preserve">
+          <source>The SharePoint Online Connector and SharePoint Server Connector gallery app provides you Trigger and Actions as mechanisms to interact with SharePoint.</source>
+          <target state="new">The SharePoint Online Connector and SharePoint Server Connector gallery app provides you Trigger and Actions as mechanisms to interact with SharePoint.</target>
+        </trans-unit>
+        <trans-unit id="bfefb49e-05bb-495d-9baa-46cd80aabec0" xml:space="preserve">
+          <source>Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</source>
+          <target state="new">Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow.</target>
+        </trans-unit>
+        <trans-unit id="5b89d1a3-4c08-4592-b03a-040f39749d1f" xml:space="preserve">
+          <source>You can add the SharePoint Connector to your business workflow and process data as part of this workflow within a Logic App.</source>
+          <target state="new">You can add the SharePoint Connector to your business workflow and process data as part of this workflow within a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="b577a32d-a5a1-4fda-8c0a-2012ba39aa76" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="cbde44f7-a582-4661-88a8-abb8319dc04e" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="f3b2d0da-6d23-4afe-8525-71d2c51f76ab" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="be4f44aa-d24d-46a0-b5e1-3c02ef964e0f">&lt;strong&gt;</bpt>Marketplace<ept id="be4f44aa-d24d-46a0-b5e1-3c02ef964e0f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="be4f44aa-d24d-46a0-b5e1-3c02ef964e0f">&lt;strong&gt;</bpt>Marketplace<ept id="be4f44aa-d24d-46a0-b5e1-3c02ef964e0f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09a3318b-4914-4e1a-a2cd-7812ae1f732a" xml:space="preserve">
+          <source>Select <bpt id="3bf0b785-5d91-4490-af4d-3b3f95325ed7">&lt;strong&gt;</bpt>API Apps<ept id="3bf0b785-5d91-4490-af4d-3b3f95325ed7">&lt;/strong&gt;</ept> and search for “SharePoint Online Connector”.</source>
+          <target state="new">Select <bpt id="3bf0b785-5d91-4490-af4d-3b3f95325ed7">&lt;strong&gt;</bpt>API Apps<ept id="3bf0b785-5d91-4490-af4d-3b3f95325ed7">&lt;/strong&gt;</ept> and search for “SharePoint Online Connector”.</target>
+        </trans-unit>
+        <trans-unit id="a36b5e8b-8afd-45a0-9621-ede9528ca476" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties.</source>
+          <target state="new">Enter the Name, App Service Plan, and other properties.</target>
+        </trans-unit>
+        <trans-unit id="c92a284b-0e17-42d0-9b72-c05ec142a8f7" xml:space="preserve">
+          <source>Enter the following package settings:</source>
+          <target state="new">Enter the following package settings:</target>
+        </trans-unit>
+        <trans-unit id="3a5099f3-c49f-418c-a21d-c97d1ff13220" xml:space="preserve">
+          <source>Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site.</source>
+          <target state="new">Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site.</target>
+        </trans-unit>
+        <trans-unit id="05bea1b5-cdd6-42a9-89ab-6b844b14d695" xml:space="preserve">
+          <source>For example, enter: <bpt id="d1ac7e9c-7e2f-46db-93a7-058a3c7450e4">&lt;em&gt;</bpt>https://microsoft.sharepoint.com/teams/wabstest<ept id="d1ac7e9c-7e2f-46db-93a7-058a3c7450e4">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="d1ac7e9c-7e2f-46db-93a7-058a3c7450e4">&lt;em&gt;</bpt>https://microsoft.sharepoint.com/teams/wabstest<ept id="d1ac7e9c-7e2f-46db-93a7-058a3c7450e4">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="536f7f42-aa89-4ce3-abc0-6fbbe3017594" xml:space="preserve">
+          <source>Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector.</source>
+          <target state="new">Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector.</target>
+        </trans-unit>
+        <trans-unit id="b2618143-a642-4cdd-a2b2-3dfd5b0f7d0d" xml:space="preserve">
+          <source>For example, enter: <bpt id="cd89d16f-84f3-4b07-b944-f9c77993d8f9">&lt;em&gt;</bpt>Lists/Task, Shared Documents<ept id="cd89d16f-84f3-4b07-b944-f9c77993d8f9">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="cd89d16f-84f3-4b07-b944-f9c77993d8f9">&lt;em&gt;</bpt>Lists/Task, Shared Documents<ept id="cd89d16f-84f3-4b07-b944-f9c77993d8f9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae980ef7-c10a-44ce-9710-97e2da6f6c5c" xml:space="preserve">
+          <source>When complete, the Package Settings look similar to the following:  
+<bpt id="7e5c2e5f-0fb6-4d2c-8d49-0b567e9e66da">&lt;linkText&gt;</bpt><ept id="7e5c2e5f-0fb6-4d2c-8d49-0b567e9e66da">&lt;/linkText&gt;</ept></source>
+          <target state="new">When complete, the Package Settings look similar to the following:  
+<bpt id="7e5c2e5f-0fb6-4d2c-8d49-0b567e9e66da">&lt;linkText&gt;</bpt><ept id="7e5c2e5f-0fb6-4d2c-8d49-0b567e9e66da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1992e02-e384-4552-ad1c-129db1b202ce" xml:space="preserve">
+          <source>Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.</source>
+          <target state="new">Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Online Connector.</target>
+        </trans-unit>
+        <trans-unit id="05b2ebb4-3d54-44bf-9bbe-0d6068303144" xml:space="preserve">
+          <source>A connector can be created within a logic app or be created directly from the Azure Marketplace.</source>
+          <target state="new">A connector can be created within a logic app or be created directly from the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="d68a6ca1-d6cd-4c20-be07-335ec62169f5" xml:space="preserve">
+          <source>To create a connector from the Marketplace:</source>
+          <target state="new">To create a connector from the Marketplace:</target>
+        </trans-unit>
+        <trans-unit id="a819d153-e83c-48b8-beb9-cd0e03142354" xml:space="preserve">
+          <source>In the Azure startboard, select <bpt id="e6877471-2e1f-4e95-80ef-b4e3a73a8383">&lt;strong&gt;</bpt>Marketplace<ept id="e6877471-2e1f-4e95-80ef-b4e3a73a8383">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure startboard, select <bpt id="e6877471-2e1f-4e95-80ef-b4e3a73a8383">&lt;strong&gt;</bpt>Marketplace<ept id="e6877471-2e1f-4e95-80ef-b4e3a73a8383">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="054be884-08e4-43be-8ce5-3a52fab3776b" xml:space="preserve">
+          <source>Select <bpt id="b6c409e8-d1f3-4ef4-9a0f-69227e223e75">&lt;strong&gt;</bpt>API Apps<ept id="b6c409e8-d1f3-4ef4-9a0f-69227e223e75">&lt;/strong&gt;</ept> and search for “SharePoint Server Connector”.</source>
+          <target state="new">Select <bpt id="b6c409e8-d1f3-4ef4-9a0f-69227e223e75">&lt;strong&gt;</bpt>API Apps<ept id="b6c409e8-d1f3-4ef4-9a0f-69227e223e75">&lt;/strong&gt;</ept> and search for “SharePoint Server Connector”.</target>
+        </trans-unit>
+        <trans-unit id="ee9ab27c-055c-4d71-8e52-a109ba9a6c2f" xml:space="preserve">
+          <source>Enter the Name, App Service Plan, and other properties.</source>
+          <target state="new">Enter the Name, App Service Plan, and other properties.</target>
+        </trans-unit>
+        <trans-unit id="d5f52fb5-f5a8-4767-9dac-f35b9a57b0d7" xml:space="preserve">
+          <source>Enter the following package settings:</source>
+          <target state="new">Enter the following package settings:</target>
+        </trans-unit>
+        <trans-unit id="6ffa27ea-cc9f-4ff4-9c53-37bc59af8d53" xml:space="preserve">
+          <source>Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site.</source>
+          <target state="new">Name | Required | Description
+--- | --- | ---
+Site URL | Yes | Enter the complete URL of the SharePoint web site.</target>
+        </trans-unit>
+        <trans-unit id="fe8be849-f4b7-408f-bb43-9b6a8dd16024" xml:space="preserve">
+          <source>For example, enter: <bpt id="2ca88fd2-0e71-4213-b29f-07027966fd82">&lt;em&gt;</bpt>https://microsoft.sharepoint.com/teams/wabstest<ept id="2ca88fd2-0e71-4213-b29f-07027966fd82">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="2ca88fd2-0e71-4213-b29f-07027966fd82">&lt;em&gt;</bpt>https://microsoft.sharepoint.com/teams/wabstest<ept id="2ca88fd2-0e71-4213-b29f-07027966fd82">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5775ee3-f520-476a-8637-cdd469676c50" xml:space="preserve">
+          <source>Authentication Mode | Yes | Enter the authentication mode to connect to SharePoint Site.</source>
+          <target state="new">Authentication Mode | Yes | Enter the authentication mode to connect to SharePoint Site.</target>
+        </trans-unit>
+        <trans-unit id="71c19991-e015-4708-aca5-fd11ab41fdc9" xml:space="preserve">
+          <source>Options include:&lt;ul&gt;&lt;li&gt;Default&lt;/li&gt;&lt;li&gt;WindowsAuthentication&lt;/li&gt;&lt;li&gt;FormBasedAuthentication&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;If you choose Default, the credentials running the SharePoint Connector are used; Username/Password are not required.</source>
+          <target state="new">Options include:&lt;ul&gt;&lt;li&gt;Default&lt;/li&gt;&lt;li&gt;WindowsAuthentication&lt;/li&gt;&lt;li&gt;FormBasedAuthentication&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;If you choose Default, the credentials running the SharePoint Connector are used; Username/Password are not required.</target>
+        </trans-unit>
+        <trans-unit id="1202ed75-fb48-455c-b0f5-57372e804cda" xml:space="preserve">
+          <source>Username and Password are required for other authentication types.&lt;br/&gt;&lt;br/&gt;<bpt id="053c5493-306c-428a-8eab-20fe47674806">&lt;strong&gt;</bpt>Note<ept id="053c5493-306c-428a-8eab-20fe47674806">&lt;/strong&gt;</ept> Anonymous authentication is not supported.</source>
+          <target state="new">Username and Password are required for other authentication types.&lt;br/&gt;&lt;br/&gt;<bpt id="053c5493-306c-428a-8eab-20fe47674806">&lt;strong&gt;</bpt>Note<ept id="053c5493-306c-428a-8eab-20fe47674806">&lt;/strong&gt;</ept> Anonymous authentication is not supported.</target>
+        </trans-unit>
+        <trans-unit id="bbd9d8ec-1ed1-4545-a354-a7e6446b8ab5" xml:space="preserve">
+          <source>User Name | No | Enter a valid user name to connect to SharePoint site, if Authentication mode is not Default.</source>
+          <target state="new">User Name | No | Enter a valid user name to connect to SharePoint site, if Authentication mode is not Default.</target>
+        </trans-unit>
+        <trans-unit id="c84f23cf-ce72-4b59-92e9-44327506d74a" xml:space="preserve">
+          <source>Password | No | Enter a valid password to connect to SharePoint site, if Authentication mode is not Default.</source>
+          <target state="new">Password | No | Enter a valid password to connect to SharePoint site, if Authentication mode is not Default.</target>
+        </trans-unit>
+        <trans-unit id="482841bc-8ce6-43a3-ba66-d131a2c8bf99" xml:space="preserve">
+          <source>Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector.</source>
+          <target state="new">Document Library / List Relative URLs | Yes | Enter the document libraries/lists URLs, relative to the SharePoint site URL, that are allowed to be modified by the connector.</target>
+        </trans-unit>
+        <trans-unit id="8e96f9a8-4235-467a-a431-1455f36e3499" xml:space="preserve">
+          <source>For example, enter: <bpt id="d073ccf6-2f0b-4ef9-9b76-cade7afebb8f">&lt;em&gt;</bpt>Lists/Task, Shared Documents<ept id="d073ccf6-2f0b-4ef9-9b76-cade7afebb8f">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="d073ccf6-2f0b-4ef9-9b76-cade7afebb8f">&lt;em&gt;</bpt>Lists/Task, Shared Documents<ept id="d073ccf6-2f0b-4ef9-9b76-cade7afebb8f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01c4ce85-8305-4278-bab5-db989a443479" xml:space="preserve">
+          <source>Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.&lt;br/&gt;&lt;br/&gt;<bpt id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;/linkText&gt;</ept><bpt id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;title&gt;</bpt><ept id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;linkText&gt;</bpt>Service Bus Pricing<ept id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;/linkText&gt;</ept><bpt id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;title&gt;</bpt><ept id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;/title&gt;</ept></source>
+          <target state="new">Service Bus Connection String | No | If you're connecting to on-premises, enter the Service Bus relay connection string.&lt;br/&gt;&lt;br/&gt;<bpt id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;/linkText&gt;</ept><bpt id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;title&gt;</bpt><ept id="d120b41a-13cc-4326-8be6-11e985eeb1bf">&lt;/title&gt;</ept>&lt;br/&gt;<bpt id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;linkText&gt;</bpt>Service Bus Pricing<ept id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;/linkText&gt;</ept><bpt id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;title&gt;</bpt><ept id="54e5a328-4594-4556-898b-7e4979442c7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="002e727a-28af-4eac-8334-39a274176a07" xml:space="preserve">
+          <source>When complete, the Package Settings look similar to the following:  
+<bpt id="6ac94dad-dbd4-440f-a849-b87b0ff8447b">&lt;linkText&gt;</bpt><ept id="6ac94dad-dbd4-440f-a849-b87b0ff8447b">&lt;/linkText&gt;</ept></source>
+          <target state="new">When complete, the Package Settings look similar to the following:  
+<bpt id="6ac94dad-dbd4-440f-a849-b87b0ff8447b">&lt;linkText&gt;</bpt><ept id="6ac94dad-dbd4-440f-a849-b87b0ff8447b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ce03d9e-8934-4ef6-b1e3-0ceba66dac51" xml:space="preserve">
+          <source>Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Server Connector.</source>
+          <target state="new">Once that’s done, you can now create a logic App in the same resource group to use the SharePoint Server Connector.</target>
+        </trans-unit>
+        <trans-unit id="d8ad9fa6-2de7-4d85-b998-92d6d92a3c53" xml:space="preserve">
+          <source>Once your API app is created, you can now use the SharePoint Connector as a trigger or action for your Logic App.</source>
+          <target state="new">Once your API app is created, you can now use the SharePoint Connector as a trigger or action for your Logic App.</target>
+        </trans-unit>
+        <trans-unit id="1f32b9ca-6779-4b45-9784-6f106f927516" xml:space="preserve">
+          <source>To do this, you need to:</source>
+          <target state="new">To do this, you need to:</target>
+        </trans-unit>
+        <trans-unit id="10dd0155-a899-4c24-8b6a-7e9947e1dbe8" xml:space="preserve">
+          <source>Create a new Logic App and choose the same resource group that has the SharePoint Connector.</source>
+          <target state="new">Create a new Logic App and choose the same resource group that has the SharePoint Connector.</target>
+        </trans-unit>
+        <trans-unit id="d1e9f1e1-21c2-4aac-a279-690cd3273533" xml:space="preserve">
+          <source>Open <bpt id="26cc8477-e44a-4468-88c6-e5b9fa655292">&lt;strong&gt;</bpt>Triggers and Actions<ept id="26cc8477-e44a-4468-88c6-e5b9fa655292">&lt;/strong&gt;</ept> to open the Logic Apps Designer and configure your workflow.</source>
+          <target state="new">Open <bpt id="26cc8477-e44a-4468-88c6-e5b9fa655292">&lt;strong&gt;</bpt>Triggers and Actions<ept id="26cc8477-e44a-4468-88c6-e5b9fa655292">&lt;/strong&gt;</ept> to open the Logic Apps Designer and configure your workflow.</target>
+        </trans-unit>
+        <trans-unit id="484e0733-b6a2-484d-b3ac-2e2cce83b613" xml:space="preserve">
+          <source>The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side.</source>
+          <target state="new">The SharePoint Connector appears in the “Recently Used” section in the gallery on the right hand side.</target>
+        </trans-unit>
+        <trans-unit id="686e783f-fc8a-4361-bea4-105c8290e670" xml:space="preserve">
+          <source>Select it.</source>
+          <target state="new">Select it.</target>
+        </trans-unit>
+        <trans-unit id="d5976f51-fac6-4463-aae9-846ea723fc6e" xml:space="preserve">
+          <source>If SharePoint connector is selected at the start of the logic app, it acts like trigger.</source>
+          <target state="new">If SharePoint connector is selected at the start of the logic app, it acts like trigger.</target>
+        </trans-unit>
+        <trans-unit id="2e14d4ab-78d0-4445-bd85-b134036a6608" xml:space="preserve">
+          <source>Otherwise, actions could be taken on SharePoint account using the connector.</source>
+          <target state="new">Otherwise, actions could be taken on SharePoint account using the connector.</target>
+        </trans-unit>
+        <trans-unit id="5420b524-a5c5-4bae-b0e5-57a2f681ae10" xml:space="preserve">
+          <source>When using the SharePoint Online Connector, you have to authenticate and authorize logic apps to perform operations on your behalf.</source>
+          <target state="new">When using the SharePoint Online Connector, you have to authenticate and authorize logic apps to perform operations on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="6fd37088-7ea5-4d94-81f3-d59b5d881f0c" xml:space="preserve">
+          <source>To start the authorization, click <bpt id="4433fb98-c291-4eb6-8d56-e4845fa60284">&lt;strong&gt;</bpt>Authorize<ept id="4433fb98-c291-4eb6-8d56-e4845fa60284">&lt;/strong&gt;</ept> on SharePoint Connector:  
+<bpt id="ecd991f2-2ac7-4651-afde-0e9dcbd08635">&lt;linkText&gt;</bpt><ept id="ecd991f2-2ac7-4651-afde-0e9dcbd08635">&lt;/linkText&gt;</ept></source>
+          <target state="new">To start the authorization, click <bpt id="4433fb98-c291-4eb6-8d56-e4845fa60284">&lt;strong&gt;</bpt>Authorize<ept id="4433fb98-c291-4eb6-8d56-e4845fa60284">&lt;/strong&gt;</ept> on SharePoint Connector:  
+<bpt id="ecd991f2-2ac7-4651-afde-0e9dcbd08635">&lt;linkText&gt;</bpt><ept id="ecd991f2-2ac7-4651-afde-0e9dcbd08635">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71bb4823-027b-46b3-9e48-02f63b28a102" xml:space="preserve">
+          <source>Clicking Authorize would open SharePoint’s authentication dialog.</source>
+          <target state="new">Clicking Authorize would open SharePoint’s authentication dialog.</target>
+        </trans-unit>
+        <trans-unit id="5573c7c3-a6b6-44d9-b235-a6f7e8ef8fd1" xml:space="preserve">
+          <source>Enter the sign in details of the SharePoint account on which you want to perform the operations:  
+<bpt id="a8919c3b-069a-4d7d-a799-3ff631f59a7c">&lt;linkText&gt;</bpt><ept id="a8919c3b-069a-4d7d-a799-3ff631f59a7c">&lt;/linkText&gt;</ept></source>
+          <target state="new">Enter the sign in details of the SharePoint account on which you want to perform the operations:  
+<bpt id="a8919c3b-069a-4d7d-a799-3ff631f59a7c">&lt;linkText&gt;</bpt><ept id="a8919c3b-069a-4d7d-a799-3ff631f59a7c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bc5219c-874d-439d-841c-35f998482fc3" xml:space="preserve">
+          <source>Grant logic apps access to your account to perform operation on your behalf:  
+<bpt id="853d7ecf-8483-41a1-a617-b80e9443075d">&lt;linkText&gt;</bpt><ept id="853d7ecf-8483-41a1-a617-b80e9443075d">&lt;/linkText&gt;</ept></source>
+          <target state="new">Grant logic apps access to your account to perform operation on your behalf:  
+<bpt id="853d7ecf-8483-41a1-a617-b80e9443075d">&lt;linkText&gt;</bpt><ept id="853d7ecf-8483-41a1-a617-b80e9443075d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="920ccdf1-2ef0-4a01-a041-63bfb967ed65" xml:space="preserve">
+          <source>If the SharePoint Connector is configured as Trigger, then the triggers are shown.</source>
+          <target state="new">If the SharePoint Connector is configured as Trigger, then the triggers are shown.</target>
+        </trans-unit>
+        <trans-unit id="66071f36-fa57-4cc8-ab29-3cd3f53c2cf3" xml:space="preserve">
+          <source>Otherwise, a list of actions is displayed and you can choose appropriate operation that you want to perform:  
+<bpt id="b601e169-95cb-4111-831e-7ad38107b372">&lt;linkText&gt;</bpt><ept id="b601e169-95cb-4111-831e-7ad38107b372">&lt;/linkText&gt;</ept></source>
+          <target state="new">Otherwise, a list of actions is displayed and you can choose appropriate operation that you want to perform:  
+<bpt id="b601e169-95cb-4111-831e-7ad38107b372">&lt;linkText&gt;</bpt><ept id="b601e169-95cb-4111-831e-7ad38107b372">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6e6fb52-cb70-4b5c-8cd7-3cc24e2e77e3" xml:space="preserve">
+          <source><bpt id="5d003811-82c2-473f-b7ff-1a0e569d925a">&lt;strong&gt;</bpt>Relative URL configured for document library<ept id="5d003811-82c2-473f-b7ff-1a0e569d925a">&lt;/strong&gt;</ept>  
+<bpt id="9901c546-b366-4dd9-b4e5-6bc76e7196ae">&lt;linkText&gt;</bpt><ept id="9901c546-b366-4dd9-b4e5-6bc76e7196ae">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5d003811-82c2-473f-b7ff-1a0e569d925a">&lt;strong&gt;</bpt>Relative URL configured for document library<ept id="5d003811-82c2-473f-b7ff-1a0e569d925a">&lt;/strong&gt;</ept>  
+<bpt id="9901c546-b366-4dd9-b4e5-6bc76e7196ae">&lt;linkText&gt;</bpt><ept id="9901c546-b366-4dd9-b4e5-6bc76e7196ae">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bb31344a-682e-4911-a19b-81811d8039f7" xml:space="preserve">
+          <source><bpt id="dc77104a-e5e0-4a5f-b41d-215841d2c220">&lt;strong&gt;</bpt>Relative URL configured for document list<ept id="dc77104a-e5e0-4a5f-b41d-215841d2c220">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dc77104a-e5e0-4a5f-b41d-215841d2c220">&lt;strong&gt;</bpt>Relative URL configured for document list<ept id="dc77104a-e5e0-4a5f-b41d-215841d2c220">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6fb128a-563f-4181-af1f-6fb9cea843f6" xml:space="preserve">
+          <source>For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List.</source>
+          <target state="new">For the following triggers, it is assumed that you entered 'Shared Documents, Lists/Task' in the Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List.</target>
+        </trans-unit>
+        <trans-unit id="f8b0d346-9808-4395-be99-7ed58882ef31" xml:space="preserve">
+          <source>Use triggers if you want to initiate a logic app.</source>
+          <target state="new">Use triggers if you want to initiate a logic app.</target>
+        </trans-unit>
+        <trans-unit id="5d16f443-d863-4d1e-bcec-a9097bc8f7ff" xml:space="preserve">
+          <source>Triggers delete the files after reading them.</source>
+          <target state="new">Triggers delete the files after reading them.</target>
+        </trans-unit>
+        <trans-unit id="5d9bc058-0125-4514-b89a-17f9477069ce" xml:space="preserve">
+          <source>To preserve these files, please enter a value for the archive location.</source>
+          <target state="new">To preserve these files, please enter a value for the archive location.</target>
+        </trans-unit>
+        <trans-unit id="42b5ccae-9865-441b-ab64-6c5131252d4d" xml:space="preserve">
+          <source>This trigger is fired when a new document is available in 'Shared Documents'.</source>
+          <target state="new">This trigger is fired when a new document is available in 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="ef0f0f81-f537-43ea-bdc0-3be948800a4c" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="31aac943-2ea4-4e27-b586-cb5b2b37ee60" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="75f6b40d-68ea-41bb-a382-b886fe56f3ec" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c07777c3-ec42-4c73-9e2e-a1f9a260d0b0" xml:space="preserve">
+          <source>View Name</source>
+          <target state="new">View Name</target>
+        </trans-unit>
+        <trans-unit id="cb49972e-890f-4dac-b41b-9e69a9784400" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="8190b4cc-55d6-4341-96cb-357a224b6866" xml:space="preserve">
+          <source>Enter a valid view used to filter documents to be picked.</source>
+          <target state="new">Enter a valid view used to filter documents to be picked.</target>
+        </trans-unit>
+        <trans-unit id="fffc3faf-5ff3-465b-94f5-e52e4e906692" xml:space="preserve">
+          <source>For example, enter: 'Approved Orders'.</source>
+          <target state="new">For example, enter: 'Approved Orders'.</target>
+        </trans-unit>
+        <trans-unit id="8400a17d-21f6-47b9-bb79-a35ebcf8ae44" xml:space="preserve">
+          <source>To process all the existing documents, leave this field empty.</source>
+          <target state="new">To process all the existing documents, leave this field empty.</target>
+        </trans-unit>
+        <trans-unit id="89604a9b-d2f9-4f87-9d36-762aa73c1cc0" xml:space="preserve">
+          <source>Archive Location</source>
+          <target state="new">Archive Location</target>
+        </trans-unit>
+        <trans-unit id="dc0bea3b-4553-4e24-8422-38c173f868ba" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="e1117bda-a684-4599-a664-7eab953922f3" xml:space="preserve">
+          <source>Enter a valid folder URL, relative to SharePoint site, where the processed documents are archived.</source>
+          <target state="new">Enter a valid folder URL, relative to SharePoint site, where the processed documents are archived.</target>
+        </trans-unit>
+        <trans-unit id="01c88290-161c-4b2c-bb45-a78f1903b988" xml:space="preserve">
+          <source>Overwrite in Archive</source>
+          <target state="new">Overwrite in Archive</target>
+        </trans-unit>
+        <trans-unit id="dcbc50e6-19c8-470a-9b37-acf316086bc8" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1d847766-0833-4a39-b95d-32b805f9f39d" xml:space="preserve">
+          <source>Check this option to overwrite a file in Archive path if it already exists.</source>
+          <target state="new">Check this option to overwrite a file in Archive path if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="09d85582-9045-42e9-950d-e99bfc6153c2" xml:space="preserve">
+          <source>Caml Query</source>
+          <target state="new">Caml Query</target>
+        </trans-unit>
+        <trans-unit id="1b5b9be4-2376-42af-a2ab-a5846dd08bbb" xml:space="preserve">
+          <source>No, Advanced</source>
+          <target state="new">No, Advanced</target>
+        </trans-unit>
+        <trans-unit id="da46ad72-bc15-4257-9598-d46c5fa7eedc" xml:space="preserve">
+          <source>Enter a valid Caml query to filter documents.</source>
+          <target state="new">Enter a valid Caml query to filter documents.</target>
+        </trans-unit>
+        <trans-unit id="db5ce5f5-f106-4c1b-aa40-727413148d17" xml:space="preserve">
+          <source>For example, enter:  <bpt id="603192a4-f4f3-47b6-b8dc-6bc8beaaa6ba">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="603192a4-f4f3-47b6-b8dc-6bc8beaaa6ba">&lt;/code&gt;</ept></source>
+          <target state="new">For example, enter:  <bpt id="603192a4-f4f3-47b6-b8dc-6bc8beaaa6ba">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="603192a4-f4f3-47b6-b8dc-6bc8beaaa6ba">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e42bc2e-b6e0-45a6-8f6e-19f87549c410" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="92f6299d-046a-47d0-b652-f48e16aac6a8" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="693bfa0d-694e-46a5-bf02-c6e855812478" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="10846ca9-f00e-4e7d-b195-31c31f271efb" xml:space="preserve">
+          <source>Name of the document.</source>
+          <target state="new">Name of the document.</target>
+        </trans-unit>
+        <trans-unit id="f9f3d4bd-9a18-4670-a7f7-a6f56c89a44c" xml:space="preserve">
+          <source>Content</source>
+          <target state="new">Content</target>
+        </trans-unit>
+        <trans-unit id="c30f82a5-4fc2-4894-a906-eb3a763e4e31" xml:space="preserve">
+          <source>Content of the document.</source>
+          <target state="new">Content of the document.</target>
+        </trans-unit>
+        <trans-unit id="80c8f1c2-7627-4259-a6c9-ecc1b86a1f05" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="075b9a2e-7b05-4906-9b5b-d6190d4fc5ca" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="4d5334e3-65f7-47e1-8b3a-b9e91c49de20" xml:space="preserve">
+          <source>("none"or ”base64”)</source>
+          <target state="new">("none"or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="4b182919-d93e-4143-b627-b903c16495c6" xml:space="preserve">
+          <source><bpt id="de509a1a-08dc-45ce-9393-6b4d4a64b0d1">&lt;strong&gt;</bpt>Note<ept id="de509a1a-08dc-45ce-9393-6b4d4a64b0d1">&lt;/strong&gt;</ept> All the columns of the document item are shown in 'Advanced' output properties.</source>
+          <target state="new"><bpt id="de509a1a-08dc-45ce-9393-6b4d4a64b0d1">&lt;strong&gt;</bpt>Note<ept id="de509a1a-08dc-45ce-9393-6b4d4a64b0d1">&lt;/strong&gt;</ept> All the columns of the document item are shown in 'Advanced' output properties.</target>
+        </trans-unit>
+        <trans-unit id="f10e953c-0c79-4e60-8cc9-674e391bdc0b" xml:space="preserve">
+          <source>This trigger is fired when a new item is added in 'Tasks' list.</source>
+          <target state="new">This trigger is fired when a new item is added in 'Tasks' list.</target>
+        </trans-unit>
+        <trans-unit id="0b89253f-d1cb-426e-a21f-4583aea901c9" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6a8fcb59-15e7-470f-a0f8-9b8ddbf60b0b" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="2e3b6576-cfa2-4cf2-acbc-998106b4bc3b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="aaf58547-dbcb-49f6-a88b-9a5d2adf9ed9" xml:space="preserve">
+          <source>View Name</source>
+          <target state="new">View Name</target>
+        </trans-unit>
+        <trans-unit id="be4259cf-8bee-4852-a0c7-c654450eed3c" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="c8134458-2b26-40e0-a007-61eb2b535fde" xml:space="preserve">
+          <source>Enter a valid view used to filter items in the list.</source>
+          <target state="new">Enter a valid view used to filter items in the list.</target>
+        </trans-unit>
+        <trans-unit id="758b736e-8d31-4117-a86f-febe59c0f16a" xml:space="preserve">
+          <source>For example, enter: 'Approved Orders'.</source>
+          <target state="new">For example, enter: 'Approved Orders'.</target>
+        </trans-unit>
+        <trans-unit id="31df12cf-2b6e-464c-8993-0716fa347314" xml:space="preserve">
+          <source>To process all the all the new items, leave this field empty.</source>
+          <target state="new">To process all the all the new items, leave this field empty.</target>
+        </trans-unit>
+        <trans-unit id="11c47d9c-69e0-44cb-b836-2d3c336ca075" xml:space="preserve">
+          <source>Archive Location</source>
+          <target state="new">Archive Location</target>
+        </trans-unit>
+        <trans-unit id="5d62fbb0-ac72-4858-8e93-863ff6404a79" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6564272d-5605-48a5-9c8f-f3dfe24578aa" xml:space="preserve">
+          <source>Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.</source>
+          <target state="new">Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.</target>
+        </trans-unit>
+        <trans-unit id="0d2d5409-33e9-4f17-b5ab-f739d945c7fa" xml:space="preserve">
+          <source>Caml Query</source>
+          <target state="new">Caml Query</target>
+        </trans-unit>
+        <trans-unit id="2df0d3ae-6f76-4b83-8d1a-d8f2fdf5f08e" xml:space="preserve">
+          <source>No, Advanced</source>
+          <target state="new">No, Advanced</target>
+        </trans-unit>
+        <trans-unit id="da502dfb-97aa-4be6-8e34-bf4c6f109455" xml:space="preserve">
+          <source>Enter a valid Caml query to filter documents.</source>
+          <target state="new">Enter a valid Caml query to filter documents.</target>
+        </trans-unit>
+        <trans-unit id="38de359c-6d8a-4350-81d4-94b2d57309ae" xml:space="preserve">
+          <source>For example, enter:  <bpt id="97e4fc25-dc44-4beb-a609-ca92f68a0aae">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="97e4fc25-dc44-4beb-a609-ca92f68a0aae">&lt;/code&gt;</ept></source>
+          <target state="new">For example, enter:  <bpt id="97e4fc25-dc44-4beb-a609-ca92f68a0aae">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="97e4fc25-dc44-4beb-a609-ca92f68a0aae">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b46bbd4c-e28b-4d20-8d4c-c19e57ff0532" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="507d3618-d07c-4448-bb62-4f60084e81cd" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="a636645f-e4e4-4305-bc82-87cce3a11828" xml:space="preserve">
+          <source>The columns in the list are dynamically populated and shown in the output parameters.</source>
+          <target state="new">The columns in the list are dynamically populated and shown in the output parameters.</target>
+        </trans-unit>
+        <trans-unit id="fc1c973c-1cc4-4e13-8217-e9355518dfd2" xml:space="preserve">
+          <source>&amp;nbsp;</source>
+          <target state="new">&amp;nbsp;</target>
+        </trans-unit>
+        <trans-unit id="c6941733-3133-474d-aa54-ee3f9082cb70" xml:space="preserve">
+          <source>This trigger is fired when a new document is available in 'Shared Documents'.</source>
+          <target state="new">This trigger is fired when a new document is available in 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="7b766ec2-b3f2-464e-8677-097b7232334c" xml:space="preserve">
+          <source>The new document is returned as an XML message.</source>
+          <target state="new">The new document is returned as an XML message.</target>
+        </trans-unit>
+        <trans-unit id="593622af-bdc6-4666-871e-14af11205bf5" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="f91cc8d5-834c-481e-af6e-bb5abe6c21a9" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="5ce426b5-abc9-4417-b293-7641c2f4c99b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="65d2d2d9-565d-4555-8064-e246ed596f0f" xml:space="preserve">
+          <source>View Name</source>
+          <target state="new">View Name</target>
+        </trans-unit>
+        <trans-unit id="f2963c7e-458e-4068-9a1d-411536831d76" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b2389853-cc44-462a-a4e4-0ff7ce8a89ab" xml:space="preserve">
+          <source>Enter a valid view used to filter documents to be picked.</source>
+          <target state="new">Enter a valid view used to filter documents to be picked.</target>
+        </trans-unit>
+        <trans-unit id="32a4a7d5-f555-49eb-ae5c-3aff298785d1" xml:space="preserve">
+          <source>For example, enter: 'Approved Orders'.</source>
+          <target state="new">For example, enter: 'Approved Orders'.</target>
+        </trans-unit>
+        <trans-unit id="53cc66fa-4c78-468b-baad-de2eb5105922" xml:space="preserve">
+          <source>To process all the all the existing documents, leave this field empty.</source>
+          <target state="new">To process all the all the existing documents, leave this field empty.</target>
+        </trans-unit>
+        <trans-unit id="09ec7e57-c510-439e-9d9f-e0543798d293" xml:space="preserve">
+          <source>Archive Location</source>
+          <target state="new">Archive Location</target>
+        </trans-unit>
+        <trans-unit id="ebb3c9dc-e4a7-42b7-bc4b-ea806f2fb383" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="4025c045-aec8-495c-a27b-a0ea5c9d9fc2" xml:space="preserve">
+          <source>Enter a valid folder URL, relative to SharePoint site, where the processed list documents are archived.</source>
+          <target state="new">Enter a valid folder URL, relative to SharePoint site, where the processed list documents are archived.</target>
+        </trans-unit>
+        <trans-unit id="cdbe618c-89d1-4cff-8d61-c4ebd9dfcf22" xml:space="preserve">
+          <source>Overwrite in Archive</source>
+          <target state="new">Overwrite in Archive</target>
+        </trans-unit>
+        <trans-unit id="058d60e1-8479-4995-a286-1ca58aea766b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1ab78353-a361-4771-a9ae-5b46967cb912" xml:space="preserve">
+          <source>Check this option to overwrite a file in Archive path if it already exists.</source>
+          <target state="new">Check this option to overwrite a file in Archive path if it already exists.</target>
+        </trans-unit>
+        <trans-unit id="936bd0b9-ab0b-4c7a-a905-cc5d5f038da2" xml:space="preserve">
+          <source>Caml Query</source>
+          <target state="new">Caml Query</target>
+        </trans-unit>
+        <trans-unit id="6863fd1a-241e-4faf-a5df-358fd5449766" xml:space="preserve">
+          <source>No, Advanced</source>
+          <target state="new">No, Advanced</target>
+        </trans-unit>
+        <trans-unit id="b79c83c7-47f9-454f-bd93-97c3d7ceb85c" xml:space="preserve">
+          <source>Enter a valid Caml query to filter documents.</source>
+          <target state="new">Enter a valid Caml query to filter documents.</target>
+        </trans-unit>
+        <trans-unit id="1af2cee6-0ea3-453d-8690-ce511cfc221c" xml:space="preserve">
+          <source>For example, enter:  <bpt id="c882ce0c-c179-4e61-b23d-d29205bcbde3">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="c882ce0c-c179-4e61-b23d-d29205bcbde3">&lt;/code&gt;</ept></source>
+          <target state="new">For example, enter:  <bpt id="c882ce0c-c179-4e61-b23d-d29205bcbde3">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="c882ce0c-c179-4e61-b23d-d29205bcbde3">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d949491-9931-491f-becf-beee632d00dd" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="00d90605-d4d1-43dd-98e7-05ed2c5c2c37" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="a2f33db5-d4e7-48c4-a774-7ada12ced703" xml:space="preserve">
+          <source>Content</source>
+          <target state="new">Content</target>
+        </trans-unit>
+        <trans-unit id="62f8fe6b-3d0b-485c-bb01-2d9966ca4b84" xml:space="preserve">
+          <source>Content of the document.</source>
+          <target state="new">Content of the document.</target>
+        </trans-unit>
+        <trans-unit id="4ba17146-133e-42a8-9908-e1a045ed1751" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="023bd8c0-21b3-4f58-90de-15981e3cbbd7" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="bb3175c0-13ae-4d41-95c3-6200a8a6837c" xml:space="preserve">
+          <source>("none"or ”base64”)</source>
+          <target state="new">("none"or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="5ec89e9f-41b1-4e18-90e7-5b15b14a66df" xml:space="preserve">
+          <source>This trigger is fired when a new item is added in 'Tasks' list.</source>
+          <target state="new">This trigger is fired when a new item is added in 'Tasks' list.</target>
+        </trans-unit>
+        <trans-unit id="0e620ab4-8017-4ed2-86f9-e468beacc9c9" xml:space="preserve">
+          <source>The new list item is returned as an XML message.</source>
+          <target state="new">The new list item is returned as an XML message.</target>
+        </trans-unit>
+        <trans-unit id="f9297b46-1b5f-483d-85c7-dc77f8a9d9a2" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="4f7bd0e4-9c7f-4609-89e7-b3038dd5d1c1" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="9f67481d-8829-42da-921d-b0cec7114c66" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="7e070bad-e190-4033-ac3f-1b9ee9f85a03" xml:space="preserve">
+          <source>View Name</source>
+          <target state="new">View Name</target>
+        </trans-unit>
+        <trans-unit id="298184f5-aa62-4855-87cf-cd1033df6181" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="65cf0169-e89a-48a7-86ce-ac11abf9b315" xml:space="preserve">
+          <source>Enter a valid view used to filter items in the list.</source>
+          <target state="new">Enter a valid view used to filter items in the list.</target>
+        </trans-unit>
+        <trans-unit id="fba2ed6c-0a9d-4e85-affe-755e3a13ed20" xml:space="preserve">
+          <source>Example: 'Approved Orders'.</source>
+          <target state="new">Example: 'Approved Orders'.</target>
+        </trans-unit>
+        <trans-unit id="28f13637-3b91-46a6-9d4d-c767dea4e2bb" xml:space="preserve">
+          <source>To process all the new items, leave this field empty.</source>
+          <target state="new">To process all the new items, leave this field empty.</target>
+        </trans-unit>
+        <trans-unit id="84d178aa-8315-4a91-b86d-92b5ae5cd4b3" xml:space="preserve">
+          <source>Archive Location</source>
+          <target state="new">Archive Location</target>
+        </trans-unit>
+        <trans-unit id="fa33af37-7d02-49a8-a357-37715ee70c4c" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="f34e4997-7659-45ec-8e9f-989245d88b08" xml:space="preserve">
+          <source>Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.</source>
+          <target state="new">Enter a valid folder URL, relative to SharePoint site, where the processed list items are archived.</target>
+        </trans-unit>
+        <trans-unit id="abb03cc1-61a1-4322-a423-919d76fe81ff" xml:space="preserve">
+          <source>Caml Query</source>
+          <target state="new">Caml Query</target>
+        </trans-unit>
+        <trans-unit id="3f130339-627c-4442-b66e-b1ff8135f254" xml:space="preserve">
+          <source>No, Advanced</source>
+          <target state="new">No, Advanced</target>
+        </trans-unit>
+        <trans-unit id="54bfb8e0-8950-4349-8278-e4df0e152ba8" xml:space="preserve">
+          <source>Enter a valid Caml query to filter the list items.</source>
+          <target state="new">Enter a valid Caml query to filter the list items.</target>
+        </trans-unit>
+        <trans-unit id="cca55be5-5134-4085-aa11-a9ff4a391ae6" xml:space="preserve">
+          <source>For example, enter: <bpt id="49c65d0f-697a-437e-9acd-f7ba245fc7f2">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="49c65d0f-697a-437e-9acd-f7ba245fc7f2">&lt;/code&gt;</ept></source>
+          <target state="new">For example, enter: <bpt id="49c65d0f-697a-437e-9acd-f7ba245fc7f2">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="49c65d0f-697a-437e-9acd-f7ba245fc7f2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc3c45bb-ea15-45ae-89ee-3be047e1c82e" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="45d534a5-36b7-4133-94f8-fe51c2057cd9" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="669a264a-5ba3-437e-be37-c85a03d53b62" xml:space="preserve">
+          <source>Content</source>
+          <target state="new">Content</target>
+        </trans-unit>
+        <trans-unit id="9a1add32-c131-489a-a2e1-f8af2511f8e6" xml:space="preserve">
+          <source>Content of the document.</source>
+          <target state="new">Content of the document.</target>
+        </trans-unit>
+        <trans-unit id="fcda6f15-1817-4987-9c36-38fe436d33de" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="400dad03-cd90-4661-b971-3829dc0a7295" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="a2c1f544-93c4-4992-8a56-0a7eb3ce64bf" xml:space="preserve">
+          <source>("none"or ”base64”)</source>
+          <target state="new">("none"or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="8650e03f-016d-43e4-a940-406f3a5c70c7" xml:space="preserve">
+          <source>For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List.</source>
+          <target state="new">For the following actions, it is assumed that you entered 'Shared Documents, Lists/Task' in Connector Package settings, where 'Shared Documents' is a document library and 'Lists/Task' is a List.</target>
+        </trans-unit>
+        <trans-unit id="b33b43d0-421f-4306-948c-90bd20ba6fc0" xml:space="preserve">
+          <source>This action uploads new document to 'Shared Documents'.</source>
+          <target state="new">This action uploads new document to 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="20a9449b-9247-4f35-b941-b8367579fe59" xml:space="preserve">
+          <source>The input is a strongly typed JSON object with all the column fields of the document library.</source>
+          <target state="new">The input is a strongly typed JSON object with all the column fields of the document library.</target>
+        </trans-unit>
+        <trans-unit id="4bd65f60-1001-4e0f-a36a-cbcffab90580" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="f5e83e95-edc1-4504-86de-364fca4acb37" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="68483248-d9eb-4e2f-925b-5f987c238216" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="defbcb4d-6581-4895-9982-c58d7705d049" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="4f7389d2-7b60-4da2-9e6e-ff02b6f7883b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="90c99af3-4c53-4811-99c1-79d7b4801058" xml:space="preserve">
+          <source>Name of the document.</source>
+          <target state="new">Name of the document.</target>
+        </trans-unit>
+        <trans-unit id="479c8fec-2fd9-42fb-ae31-e31896f6effb" xml:space="preserve">
+          <source>Content</source>
+          <target state="new">Content</target>
+        </trans-unit>
+        <trans-unit id="840e167d-3778-4dcb-bda7-1e87a66eaf8a" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4fe5f858-7eb8-4210-8e20-f18a8d1d0070" xml:space="preserve">
+          <source>Content of the document.</source>
+          <target state="new">Content of the document.</target>
+        </trans-unit>
+        <trans-unit id="a19efb0d-8a11-4ed4-a846-a90c6aa5e962" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="408665f3-183e-4c11-8149-2ab8045e279f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4ae251e1-032d-4b4b-a05f-d15631695264" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="3ce36fe1-4c2a-4216-981d-dacb8f3cffea" xml:space="preserve">
+          <source>("none"or ”base64”)</source>
+          <target state="new">("none"or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="0861942f-62ce-4282-867a-7a90dd6c0c5a" xml:space="preserve">
+          <source>Force Overwrite</source>
+          <target state="new">Force Overwrite</target>
+        </trans-unit>
+        <trans-unit id="3d20552a-04bd-48dc-8950-466aa10d0562" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b660652c-9537-4b56-9f05-ea403e27a286" xml:space="preserve">
+          <source>If set to TRUE and a document exists with the given name, it will be overwritten.</source>
+          <target state="new">If set to TRUE and a document exists with the given name, it will be overwritten.</target>
+        </trans-unit>
+        <trans-unit id="0155476e-ea26-482d-8ce8-1b370c0df349" xml:space="preserve">
+          <source>ReqParam1*</source>
+          <target state="new">ReqParam1*</target>
+        </trans-unit>
+        <trans-unit id="039841d1-cbaa-41f5-9945-6d08d68dc97f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b925f45d-82d5-40da-bb14-0e218a4e8c23" xml:space="preserve">
+          <source>This is one of the required parameters to add a document in the document library.</source>
+          <target state="new">This is one of the required parameters to add a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="807a140a-69f5-4113-a7e2-edbd3bd74b09" xml:space="preserve">
+          <source>ReqParam2*</source>
+          <target state="new">ReqParam2*</target>
+        </trans-unit>
+        <trans-unit id="e91d5957-c18a-4525-991b-93d1329da35c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="75ebfa01-d0ff-47c0-9a98-abb0bc997e4e" xml:space="preserve">
+          <source>This is one of the required parameters to add a document in the document library.</source>
+          <target state="new">This is one of the required parameters to add a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="a66ea335-8717-4f5f-aae0-0dc3abae858e" xml:space="preserve">
+          <source>OptionalParam1*</source>
+          <target state="new">OptionalParam1*</target>
+        </trans-unit>
+        <trans-unit id="f1cba955-95eb-4cd8-850e-4e18842b07f9" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="5d5da512-f22c-4ce0-9cb4-27714e2787b3" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="1763928b-f75f-4dc4-9b0c-ab71c2ec6102" xml:space="preserve">
+          <source>This is one of the optional parameters to add a document in the document library.</source>
+          <target state="new">This is one of the optional parameters to add a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="8ba686f3-e3cc-4a57-9907-d35dae7d0a3d" xml:space="preserve">
+          <source>OptionalParam2*</source>
+          <target state="new">OptionalParam2*</target>
+        </trans-unit>
+        <trans-unit id="f47461ff-0a9f-45de-bc92-470aa0aec373" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="79b009ca-145e-42b6-97a0-4e83435b0810" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="79a21d1b-1978-4c31-b301-cfac2c7dd33b" xml:space="preserve">
+          <source>This is one of the optional parameters to add a document in the document library.</source>
+          <target state="new">This is one of the optional parameters to add a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="a270efe5-6066-4247-87f9-49a8c4da851b" xml:space="preserve">
+          <source><bpt id="1018aa17-c56e-470f-afad-478fba3c579a">&lt;strong&gt;</bpt>Note<ept id="1018aa17-c56e-470f-afad-478fba3c579a">&lt;/strong&gt;</ept> All the parameters of the document library are dynamically populated.</source>
+          <target state="new"><bpt id="1018aa17-c56e-470f-afad-478fba3c579a">&lt;strong&gt;</bpt>Note<ept id="1018aa17-c56e-470f-afad-478fba3c579a">&lt;/strong&gt;</ept> All the parameters of the document library are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="838f513c-37ad-470a-a35e-638b04259778" xml:space="preserve">
+          <source>The mandatory parameters are visible, where the optional parameters are in advanced section.</source>
+          <target state="new">The mandatory parameters are visible, where the optional parameters are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="0eca5b58-16db-4875-b44b-2c7ded3f7df1" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="de40b1f5-7e7f-467f-a068-a9e0994db7e9" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="8110a1ab-1a0b-42f9-b4a5-d1c02f4226be" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="a1816c5a-6213-4f82-b189-98661de53013" xml:space="preserve">
+          <source>ItemId of the document added in Document library.</source>
+          <target state="new">ItemId of the document added in Document library.</target>
+        </trans-unit>
+        <trans-unit id="51b88f74-af1d-46b8-b841-0cc2f4ff9aa5" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="6e8ecaad-6bf5-41db-a47e-2e59ba2e1e23" xml:space="preserve">
+          <source>A successful upload of document returns status code 200 (OK).</source>
+          <target state="new">A successful upload of document returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="fbd2326a-7735-4201-be4c-9e9cb4efcff7" xml:space="preserve">
+          <source> </source>
+          <target state="new"> </target>
+        </trans-unit>
+        <trans-unit id="66a878d1-092d-4b68-8a8c-ef1c3eda0ceb" xml:space="preserve">
+          <source>This action gets the document from the document library given the relative URL (folder structure) of the document.</source>
+          <target state="new">This action gets the document from the document library given the relative URL (folder structure) of the document.</target>
+        </trans-unit>
+        <trans-unit id="6ef961d3-55cc-4356-ae58-3b072a2ce2a8" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="bdecab48-5d9d-4b0d-b095-a3d4cdc56323" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="e3933dbe-e6c7-44a8-9f9c-26430a116072" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="b83879d5-7ce4-4ed6-ac19-e888f486ae3c" xml:space="preserve">
+          <source>Document Relative URI</source>
+          <target state="new">Document Relative URI</target>
+        </trans-unit>
+        <trans-unit id="ebd2ae83-d5f7-46ec-a4c7-9e9e60be4eb5" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="50ccee13-906b-4291-ad69-f0f5b9b1e369" xml:space="preserve">
+          <source>Enter the document URL, relative to 'Shared Documents'.</source>
+          <target state="new">Enter the document URL, relative to 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="8f97cc3d-054a-410d-a298-d15aa71104ca" xml:space="preserve">
+          <source>For example, enter: <bpt id="12e8821c-0365-4b2e-92c9-e506c7cd55a7">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="12e8821c-0365-4b2e-92c9-e506c7cd55a7">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="12e8821c-0365-4b2e-92c9-e506c7cd55a7">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="12e8821c-0365-4b2e-92c9-e506c7cd55a7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29dc15d2-2222-40ab-ae72-499a487568da" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="b24b053b-fb12-4148-a959-f22dd51bc981" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="95b96ba0-4764-4c68-94ed-9137f1561d26" xml:space="preserve">
+          <source>Content</source>
+          <target state="new">Content</target>
+        </trans-unit>
+        <trans-unit id="ac4ec94a-8a24-4dc1-8485-d4fcc6deb287" xml:space="preserve">
+          <source>Document Content</source>
+          <target state="new">Document Content</target>
+        </trans-unit>
+        <trans-unit id="91c07729-ca19-47dc-9c8b-6f0599cd94fc" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="09da9d46-0578-417f-85ac-289247fdef20" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="59fdbcfa-a808-47dc-be75-7a4ddaec9a3f" xml:space="preserve">
+          <source>("none" or ”base64”)</source>
+          <target state="new">("none" or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="dcc6cdc5-7043-4e7f-8991-cf0322cd55cb" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="39b21d21-7f6e-4757-b030-4f9dc251ddd8" xml:space="preserve">
+          <source>A successful action execution returns status code 200 (OK).</source>
+          <target state="new">A successful action execution returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="1a5ff423-6469-4c9c-b786-55605ba489a3" xml:space="preserve">
+          <source>Param1*</source>
+          <target state="new">Param1*</target>
+        </trans-unit>
+        <trans-unit id="15686706-ad97-43b6-9228-6a2fb2ac105c" xml:space="preserve">
+          <source>This is one of the parameters of a document in the document library.</source>
+          <target state="new">This is one of the parameters of a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="5b1af3e0-9057-48c5-b4c8-e50df97099f4" xml:space="preserve">
+          <source>Param2*</source>
+          <target state="new">Param2*</target>
+        </trans-unit>
+        <trans-unit id="9f131bd6-cbb2-4309-b7a8-4a5c396ce1e8" xml:space="preserve">
+          <source>This is one of the parameters of a document in the document library.</source>
+          <target state="new">This is one of the parameters of a document in the document library.</target>
+        </trans-unit>
+        <trans-unit id="64aa4d24-8134-41e2-90d5-241eb1a876ca" xml:space="preserve">
+          <source><bpt id="67ed71ac-8107-45d6-936d-bf67e4fd5f0e">&lt;strong&gt;</bpt>Note<ept id="67ed71ac-8107-45d6-936d-bf67e4fd5f0e">&lt;/strong&gt;</ept> All the parameters of the document library are dynamically populated.</source>
+          <target state="new"><bpt id="67ed71ac-8107-45d6-936d-bf67e4fd5f0e">&lt;strong&gt;</bpt>Note<ept id="67ed71ac-8107-45d6-936d-bf67e4fd5f0e">&lt;/strong&gt;</ept> All the parameters of the document library are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="d687a466-65cd-4679-ab57-d6cf62abd28a" xml:space="preserve">
+          <source>And, they are in advanced section.</source>
+          <target state="new">And, they are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="736fa5d7-970e-45af-8899-3bc1977c9a20" xml:space="preserve">
+          <source> </source>
+          <target state="new"> </target>
+        </trans-unit>
+        <trans-unit id="4f7cef35-6690-4380-88e9-577fcc785698" xml:space="preserve">
+          <source>This action deletes the document from the document library given the relative URL (folder structure) of the document.</source>
+          <target state="new">This action deletes the document from the document library given the relative URL (folder structure) of the document.</target>
+        </trans-unit>
+        <trans-unit id="96ef6062-94c5-45a5-a263-80ab16c604b0" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="04bf8a74-3027-4296-b958-8c83e67f3abb" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="450200e0-e5a3-4f63-af81-060b86c50e21" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="ab5e19f7-4a18-4318-827b-38cd86d052f9" xml:space="preserve">
+          <source>Document Relative URI</source>
+          <target state="new">Document Relative URI</target>
+        </trans-unit>
+        <trans-unit id="5b27f70d-eef5-48a1-a36a-f5c8349c39cb" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="296aaa52-1058-4665-abfa-54c8026e452e" xml:space="preserve">
+          <source>Enter the document URL, relative to 'Shared Documents'.</source>
+          <target state="new">Enter the document URL, relative to 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="a2140e85-e6f4-4f00-86ea-0e9c400dadb6" xml:space="preserve">
+          <source>For example, enter: <bpt id="01a5d602-858d-4f96-aba8-daf5ca4cc98d">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="01a5d602-858d-4f96-aba8-daf5ca4cc98d">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="01a5d602-858d-4f96-aba8-daf5ca4cc98d">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="01a5d602-858d-4f96-aba8-daf5ca4cc98d">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ec88f80-9968-4f85-972e-f3c5bbf9a49f" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="4c347ba7-f0ea-4f18-8f02-cad250df94be" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="bb59fc64-9c33-4c19-899d-b738b3bf4edf" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="8255ac3a-6d72-4e12-9568-df81df532cb2" xml:space="preserve">
+          <source>A successful action execution returns status code 200 (OK).</source>
+          <target state="new">A successful action execution returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="4b650e7e-ec09-4beb-9c65-3d1482117dd4" xml:space="preserve">
+          <source>This action adds an item in the Item list.</source>
+          <target state="new">This action adds an item in the Item list.</target>
+        </trans-unit>
+        <trans-unit id="40ecc519-c6b6-4db6-ac5f-cc86de436195" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="a8905cfc-264a-4395-80c8-665b6f77a5ec" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="76025575-8c68-4f5a-8dfc-b7dd22b228b7" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f2dfa758-6e2e-488a-850f-ef37f75c949b" xml:space="preserve">
+          <source>ReqParam1*</source>
+          <target state="new">ReqParam1*</target>
+        </trans-unit>
+        <trans-unit id="0cfed5a8-30cf-493e-9bd7-f9ad97cebeef" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="50dfb353-1409-4a8b-b02d-19b2327c7ae3" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="51f0268e-2039-432a-a4d8-fd8d28a43fd4" xml:space="preserve">
+          <source>ReqParam2*</source>
+          <target state="new">ReqParam2*</target>
+        </trans-unit>
+        <trans-unit id="93a82d10-ae53-49a3-b085-b3f3869f340b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="878fc5de-196b-44c4-af87-884d5892f752" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="ba2ec81a-d1d8-4b7c-82ad-e4eb81a2b985" xml:space="preserve">
+          <source>OptionalParam1*</source>
+          <target state="new">OptionalParam1*</target>
+        </trans-unit>
+        <trans-unit id="06220fdb-a7cc-4898-8a75-19aee59be632" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="c2a1fcf3-87aa-4bab-bc53-6d15a5ebb1a0" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="5dd6bc6b-c6b7-4f84-a853-79852fce67e5" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="4bcc3d2c-b230-46f1-8822-760d49766e67" xml:space="preserve">
+          <source>OptionalParam2*</source>
+          <target state="new">OptionalParam2*</target>
+        </trans-unit>
+        <trans-unit id="53ea24de-44ba-48f7-9818-461b5457ee4d" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="177bea0c-1ded-4cd5-9ef6-4b9d86c47f50" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="8d317071-46e7-4d92-bc98-ba2c5da6a371" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="0f412de9-9521-4f2e-b435-759cb841157e" xml:space="preserve">
+          <source><bpt id="bb088f61-dfa8-43be-a76e-125c60bec79f">&lt;strong&gt;</bpt>Note<ept id="bb088f61-dfa8-43be-a76e-125c60bec79f">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</source>
+          <target state="new"><bpt id="bb088f61-dfa8-43be-a76e-125c60bec79f">&lt;strong&gt;</bpt>Note<ept id="bb088f61-dfa8-43be-a76e-125c60bec79f">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="37ff4cb4-8c78-4d63-bceb-a94f8632a5a7" xml:space="preserve">
+          <source>The mandatory parameters are visible, whereas the optional parameters are in advanced section.</source>
+          <target state="new">The mandatory parameters are visible, whereas the optional parameters are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="578d2bd9-fa70-4228-a843-b1e26bc6d7c9" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="0f86be4c-c47d-498d-bd16-9fbbd6093a72" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="78065c34-9da7-42df-b0bb-7bdb6be4df9c" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="da282049-0a94-412a-bf24-ff00fac8c6b5" xml:space="preserve">
+          <source>ItemId of the List item added.</source>
+          <target state="new">ItemId of the List item added.</target>
+        </trans-unit>
+        <trans-unit id="610178fe-b16c-49c5-adf3-f1eeee3468ec" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="7c46478e-d337-47e6-b8af-c05d027f3a55" xml:space="preserve">
+          <source>A successful insertion of List item returns status code 200 (OK).</source>
+          <target state="new">A successful insertion of List item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="ee66d062-56af-478d-b908-4bd6c1389b99" xml:space="preserve">
+          <source>This action updates an item in the Item list.</source>
+          <target state="new">This action updates an item in the Item list.</target>
+        </trans-unit>
+        <trans-unit id="bb7fcf78-6c4d-4858-91ad-b3fa9e2daf45" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="56825f70-4a12-4ea0-b75a-05e8ab9aa9d1" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="82bafc77-8dd9-4c08-9c5e-71d351cf3a4a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="ade188f9-e0d1-4517-9559-ed7a2b33c229" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="289ff541-aba4-456b-8965-29d0fc8e6898" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b27c996f-b639-47e9-8678-b8a4ea1dfc0e" xml:space="preserve">
+          <source>ItemId of the List item.</source>
+          <target state="new">ItemId of the List item.</target>
+        </trans-unit>
+        <trans-unit id="6be70718-f059-490f-9bed-1509323996ea" xml:space="preserve">
+          <source>ReqParam1*</source>
+          <target state="new">ReqParam1*</target>
+        </trans-unit>
+        <trans-unit id="068412e0-7711-4b18-9d63-b05be2e916ea" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="47215733-2ba3-41f6-951b-2078527d7fb1" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="82c018d6-8c74-4c80-987a-bc57c7ea8ab6" xml:space="preserve">
+          <source>ReqParam2*</source>
+          <target state="new">ReqParam2*</target>
+        </trans-unit>
+        <trans-unit id="d62a36a1-536d-4b8e-826e-62e767b3d4d1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="993d81ee-7b23-4d9f-b820-3c7c1806555b" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="ef327818-7033-45d8-b343-e2a67fd30d08" xml:space="preserve">
+          <source>OptionalParam1*</source>
+          <target state="new">OptionalParam1*</target>
+        </trans-unit>
+        <trans-unit id="72035e76-7a10-4da8-9a0b-11253fb75c4b" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="a480e07f-9ad6-4edd-849a-5364e784186d" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="58251b93-3c04-4b97-b2cb-754a9f56c953" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="c60e667f-352a-4bdc-b614-749adaeafdf0" xml:space="preserve">
+          <source>OptionalParam2*</source>
+          <target state="new">OptionalParam2*</target>
+        </trans-unit>
+        <trans-unit id="5a46bd20-dac1-4896-8c5f-09b400f1fb6c" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="fdeb034c-6246-4def-8162-f4c518ba7003" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="4b02f6be-f116-44b9-9b26-a71fc8cfadb6" xml:space="preserve">
+          <source>This is one of the required parameters to add an item in the List.</source>
+          <target state="new">This is one of the required parameters to add an item in the List.</target>
+        </trans-unit>
+        <trans-unit id="a1f2127a-9758-4c93-bb63-b875e0e38f02" xml:space="preserve">
+          <source><bpt id="089e8d42-f48d-4149-929e-5ec78d7c0d51">&lt;strong&gt;</bpt>Note<ept id="089e8d42-f48d-4149-929e-5ec78d7c0d51">&lt;/strong&gt;</ept>  All the parameters of the 'List' are dynamically populated.</source>
+          <target state="new"><bpt id="089e8d42-f48d-4149-929e-5ec78d7c0d51">&lt;strong&gt;</bpt>Note<ept id="089e8d42-f48d-4149-929e-5ec78d7c0d51">&lt;/strong&gt;</ept>  All the parameters of the 'List' are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="e3145cbc-0847-452d-b8f0-b3f7a019c10f" xml:space="preserve">
+          <source>The mandatory parameters are visible, whereas the optional parameters are in advanced section.</source>
+          <target state="new">The mandatory parameters are visible, whereas the optional parameters are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="93cce9b9-52dd-4793-b5a3-8cbff52e6d43" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="0e4c1b7b-971f-4800-99da-fcb8a4326473" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3652c035-fd53-415e-b87a-d88ad626bc59" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="fd61b8bf-37d8-4b72-9b26-6a4bcf4fe86e" xml:space="preserve">
+          <source>A successful update of List item returns status code 200 (OK).</source>
+          <target state="new">A successful update of List item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="3088ea57-1455-4eb7-afd1-5403e7928b72" xml:space="preserve">
+          <source>This action gets an item from the Item list.</source>
+          <target state="new">This action gets an item from the Item list.</target>
+        </trans-unit>
+        <trans-unit id="eaabf928-10f4-49e3-8fd2-70ce326d0d2d" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="d55000b7-81c4-4c8d-8576-6cecf063c52e" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="b4e9d3e4-742c-4973-9622-5a6c8c697513" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0628d995-7b05-4189-923a-5894bb31144f" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="4b23cdfe-f068-4416-b85b-66af2432158e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="59d7cfdf-1e49-4026-a6fe-324847bb266c" xml:space="preserve">
+          <source>ItemId of the List item.</source>
+          <target state="new">ItemId of the List item.</target>
+        </trans-unit>
+        <trans-unit id="c8a920f1-ae57-42eb-a499-16b079521206" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="e27a19ee-3119-4f1d-a71e-cf77d84b9621" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="d5a1487f-b467-40fd-88e9-5a5b102f7d1e" xml:space="preserve">
+          <source>Column1*</source>
+          <target state="new">Column1*</target>
+        </trans-unit>
+        <trans-unit id="c7adcbc2-ba9f-44ff-9434-e259ff7eabac" xml:space="preserve">
+          <source>This is one of the parameters in the List.</source>
+          <target state="new">This is one of the parameters in the List.</target>
+        </trans-unit>
+        <trans-unit id="4831af4f-132b-457e-aaee-acf906571341" xml:space="preserve">
+          <source>Column2*</source>
+          <target state="new">Column2*</target>
+        </trans-unit>
+        <trans-unit id="91bf67ff-7742-4105-8751-43d766bf1222" xml:space="preserve">
+          <source>This is one of the parameters in the List.</source>
+          <target state="new">This is one of the parameters in the List.</target>
+        </trans-unit>
+        <trans-unit id="4d5e70c5-4c51-4fe9-b3a5-5c358c12244e" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="2d3fbee3-bf67-48f6-9ff3-77e7deb327c7" xml:space="preserve">
+          <source>A successful execute of action returns status code 200 (OK).</source>
+          <target state="new">A successful execute of action returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="428bbc2a-2b4e-4e81-ac30-c28b4966a48e" xml:space="preserve">
+          <source><bpt id="6be28391-ed00-49aa-abcd-c0855ae6362f">&lt;strong&gt;</bpt>Note<ept id="6be28391-ed00-49aa-abcd-c0855ae6362f">&lt;/strong&gt;</ept> The columns in the list are dynamically populated and shown in the output parameters.</source>
+          <target state="new"><bpt id="6be28391-ed00-49aa-abcd-c0855ae6362f">&lt;strong&gt;</bpt>Note<ept id="6be28391-ed00-49aa-abcd-c0855ae6362f">&lt;/strong&gt;</ept> The columns in the list are dynamically populated and shown in the output parameters.</target>
+        </trans-unit>
+        <trans-unit id="2fa951e9-8372-4a9c-8970-fefabd8a5904" xml:space="preserve">
+          <source>This action deletes an item from the Item list.</source>
+          <target state="new">This action deletes an item from the Item list.</target>
+        </trans-unit>
+        <trans-unit id="8a22dfa2-41d2-41b4-9238-faaf74257cff" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="46c89b7b-31d9-4d9d-b5c9-a506ed80c496" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="5238e488-b4c3-4fb4-9c13-f1a87af73b8a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="1b27c7b3-b35c-48c1-90ca-f95669ed8280" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="f9450069-9c71-49b7-8232-26478e58a4ef" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="808c3d8f-8ce8-4544-af41-2f7d5ca65462" xml:space="preserve">
+          <source>ItemId of the List item.</source>
+          <target state="new">ItemId of the List item.</target>
+        </trans-unit>
+        <trans-unit id="23c5fada-9284-4274-9e63-58378028031a" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6f7ae754-95e4-4134-80f6-64d76788b526" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="54b94798-d8a8-4b3b-b49d-01e470f2df05" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="5433d980-c7dd-43a2-bed4-aaffbaa2291d" xml:space="preserve">
+          <source>A successful delete of the list item returns status code 200 (OK).</source>
+          <target state="new">A successful delete of the list item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="02e58ff5-5394-46ac-831b-cda739152073" xml:space="preserve">
+          <source>This action lists all the documents in a document library.</source>
+          <target state="new">This action lists all the documents in a document library.</target>
+        </trans-unit>
+        <trans-unit id="7457f434-2303-4673-8b7e-c09c3e526f1c" xml:space="preserve">
+          <source>You can use a View or a Caml query to filter the documents.</source>
+          <target state="new">You can use a View or a Caml query to filter the documents.</target>
+        </trans-unit>
+        <trans-unit id="a2db41be-12e4-4055-b1bb-73c56114bb15" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="5fa03a52-d44a-4f18-bee2-aacaf9ae1713" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="05be4819-21dc-4da5-b881-e2b094f784f6" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f07de8be-527f-4956-b952-c42b3e855702" xml:space="preserve">
+          <source>View Name</source>
+          <target state="new">View Name</target>
+        </trans-unit>
+        <trans-unit id="03615391-9652-4026-a097-bd6178c96bcf" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="678d91c6-357a-4b89-b84a-a8f1f607717c" xml:space="preserve">
+          <source>Enter a valid view used to filter documents to be picked.</source>
+          <target state="new">Enter a valid view used to filter documents to be picked.</target>
+        </trans-unit>
+        <trans-unit id="67ad566f-db41-4584-b5a3-b9538743e989" xml:space="preserve">
+          <source>For example, enter: 'Approved Orders'.</source>
+          <target state="new">For example, enter: 'Approved Orders'.</target>
+        </trans-unit>
+        <trans-unit id="76681fcb-95c3-4111-b2c3-043e282c258f" xml:space="preserve">
+          <source>To process all the existing documents, leave this field empty.</source>
+          <target state="new">To process all the existing documents, leave this field empty.</target>
+        </trans-unit>
+        <trans-unit id="5f0e80a3-fbc9-4586-999d-dea89af6e9b2" xml:space="preserve">
+          <source>Caml Query</source>
+          <target state="new">Caml Query</target>
+        </trans-unit>
+        <trans-unit id="7e7c4375-e302-4a62-9339-5a7edaa4a525" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d8396565-3aaf-40c7-862c-b2331997ac44" xml:space="preserve">
+          <source>Enter a valid Caml query to filter documents.</source>
+          <target state="new">Enter a valid Caml query to filter documents.</target>
+        </trans-unit>
+        <trans-unit id="a4775b30-9e5a-4cf7-96d3-d3ef24e9d7b2" xml:space="preserve">
+          <source>For example, enter:  <bpt id="29fd6b1b-f8d9-43d4-84ab-a98e84b445e8">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="29fd6b1b-f8d9-43d4-84ab-a98e84b445e8">&lt;/code&gt;</ept></source>
+          <target state="new">For example, enter:  <bpt id="29fd6b1b-f8d9-43d4-84ab-a98e84b445e8">&lt;code&gt;</bpt>&lt;Where&gt;&lt;Geq&gt;&lt;FieldRef Name='ID'/&gt;&lt;Value Type='Number'&gt;10&lt;/Value&gt;&lt;/Geq&gt;&lt;/Where&gt;<ept id="29fd6b1b-f8d9-43d4-84ab-a98e84b445e8">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8170e6fb-ca73-4b53-a397-5882ed5355f6" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="7870f716-78d0-4226-91b2-f1636a2d3499" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="d71c119e-4194-4d37-9325-14721a5fd2e9" xml:space="preserve">
+          <source>Documents</source>
+          <target state="new">Documents</target>
+        </trans-unit>
+        <trans-unit id="50021293-add9-4171-87d5-abb1e5f98872" xml:space="preserve">
+          <source>Array of all the documents.</source>
+          <target state="new">Array of all the documents.</target>
+        </trans-unit>
+        <trans-unit id="a48da8a9-495c-4730-a15e-617aa818f611" xml:space="preserve">
+          <source>Each document has the following fields: &lt;ul&gt;&lt;li&gt;Documents []&lt;/li&gt;&lt;li&gt;Name&lt;/li&gt;&lt;li&gt;Item Id&lt;/li&gt;&lt;li&gt;Item Full URL&lt;/li&gt;&lt;li&gt;Advanced&lt;/li&gt;&lt;li&gt;Item Edit URL&lt;/li&gt;&lt;li&gt;List Name&lt;/li&gt;&lt;li&gt;List Full URL&lt;/li&gt;&lt;/ul&gt;</source>
+          <target state="new">Each document has the following fields: &lt;ul&gt;&lt;li&gt;Documents []&lt;/li&gt;&lt;li&gt;Name&lt;/li&gt;&lt;li&gt;Item Id&lt;/li&gt;&lt;li&gt;Item Full URL&lt;/li&gt;&lt;li&gt;Advanced&lt;/li&gt;&lt;li&gt;Item Edit URL&lt;/li&gt;&lt;li&gt;List Name&lt;/li&gt;&lt;li&gt;List Full URL&lt;/li&gt;&lt;/ul&gt;</target>
+        </trans-unit>
+        <trans-unit id="406e8240-7138-4420-b0c4-2bc08560810f" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="793c769e-ef11-49f8-8773-c033100d9988" xml:space="preserve">
+          <source>A successful insertion of List item returns status code 200 (OK).</source>
+          <target state="new">A successful insertion of List item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="ddf588a5-d59f-423a-bef7-8d009ebddb51" xml:space="preserve">
+          <source>This action uploads new document to 'Shared Documents'.</source>
+          <target state="new">This action uploads new document to 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="9b39bc3c-d8ca-4c55-9183-5da60ce03b5d" xml:space="preserve">
+          <source>The input document should be an XML payload.</source>
+          <target state="new">The input document should be an XML payload.</target>
+        </trans-unit>
+        <trans-unit id="8b38ff57-600b-4d7b-9080-b4dac94caacb" xml:space="preserve">
+          <source>The response of the action will be an XML payload.</source>
+          <target state="new">The response of the action will be an XML payload.</target>
+        </trans-unit>
+        <trans-unit id="b262f6f9-7e90-4a0e-b9c9-b2217ec7537e" xml:space="preserve">
+          <source>Name | Required | Description
+--- | --- | ---
+Name | Yes | Name of the document.</source>
+          <target state="new">Name | Required | Description
+--- | --- | ---
+Name | Yes | Name of the document.</target>
+        </trans-unit>
+        <trans-unit id="01a6938a-cc07-4cf3-a621-f6947f6e2882" xml:space="preserve">
+          <source>Content | Yes | Content of the document.</source>
+          <target state="new">Content | Yes | Content of the document.</target>
+        </trans-unit>
+        <trans-unit id="fd73d76b-20a3-445a-8b4f-36791d7661f4" xml:space="preserve">
+          <source>ContentTransferEncoding | Yes | Content Transfer Encoding of the Message.</source>
+          <target state="new">ContentTransferEncoding | Yes | Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="186dd5f0-4225-4147-803b-dac28070b091" xml:space="preserve">
+          <source>("none" or "base64”)
+Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it is overwritten.</source>
+          <target state="new">("none" or "base64”)
+Force Overwrite | Yes | If set to TRUE and a document exists with the given name, it is overwritten.</target>
+        </trans-unit>
+        <trans-unit id="200d660e-b189-48fe-8fb2-90084ef01338" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="12a953e7-721e-4f8f-9f2a-97b1d0c98016" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4b34b353-cb4b-40a3-a359-fc22c588cb46" xml:space="preserve">
+          <source>Output XML</source>
+          <target state="new">Output XML</target>
+        </trans-unit>
+        <trans-unit id="c98af712-ac7d-4569-be59-9d253cc5178d" xml:space="preserve">
+          <source>Response of the Upload action in XML format.</source>
+          <target state="new">Response of the Upload action in XML format.</target>
+        </trans-unit>
+        <trans-unit id="a2317e21-2968-4da8-894a-ea7da6ad5d43" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="37bba7e9-2ebe-4b98-8e75-0b1b2118091a" xml:space="preserve">
+          <source>A successful upload of document returns status code 200 (OK).</source>
+          <target state="new">A successful upload of document returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="de9a661d-d481-4ebd-85d4-5882be5d18d8" xml:space="preserve">
+          <source>This action gets the document from the document library given the relative URL (folder structure) of the document.</source>
+          <target state="new">This action gets the document from the document library given the relative URL (folder structure) of the document.</target>
+        </trans-unit>
+        <trans-unit id="0ee546f3-c81f-4880-aabb-baf9532e1da7" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="207ade79-722b-4c5c-bc30-9a228d9eebe5" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="ed03d582-4aa0-46c2-8983-a2cff1eabc77" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="69bdb61e-11c6-420f-ad0f-190f5cbef6ac" xml:space="preserve">
+          <source>Document Relative URI</source>
+          <target state="new">Document Relative URI</target>
+        </trans-unit>
+        <trans-unit id="5e42fe5f-1dde-426b-b2ee-d7a194b53608" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="7f77b3d1-dc3d-472c-a54e-4aa83ef4a014" xml:space="preserve">
+          <source>Enter the document URL, relative to 'Shared Documents'.</source>
+          <target state="new">Enter the document URL, relative to 'Shared Documents'.</target>
+        </trans-unit>
+        <trans-unit id="0503ad3b-c323-44a8-a23e-30799b7f6578" xml:space="preserve">
+          <source>For example, enter: <bpt id="70ae81fa-2e87-487b-8859-3f920065b887">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="70ae81fa-2e87-487b-8859-3f920065b887">&lt;/em&gt;</ept>.</source>
+          <target state="new">For example, enter: <bpt id="70ae81fa-2e87-487b-8859-3f920065b887">&lt;em&gt;</bpt>myspec1,myfolder/orders<ept id="70ae81fa-2e87-487b-8859-3f920065b887">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f80a2621-d5cf-4375-9a2c-7615229a6907" xml:space="preserve">
+          <source>File Type</source>
+          <target state="new">File Type</target>
+        </trans-unit>
+        <trans-unit id="e96c7a02-14c9-4ca1-8f58-a090fb9f2c89" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="eb3f5608-db3f-437e-8347-7f7b427b25c6" xml:space="preserve">
+          <source>Enter whether the file is a binary file or a text file.</source>
+          <target state="new">Enter whether the file is a binary file or a text file.</target>
+        </trans-unit>
+        <trans-unit id="730abb1a-4ad8-416b-ad3f-599e398eb617" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="1d3b252d-530c-4f98-9977-6bbe3ab644eb" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="aa978d4a-bbe1-442a-8b18-8b32d5195aaa" xml:space="preserve">
+          <source>Output XML</source>
+          <target state="new">Output XML</target>
+        </trans-unit>
+        <trans-unit id="7a72012c-424f-475a-8e99-b1d921486d8e" xml:space="preserve">
+          <source>Document Content</source>
+          <target state="new">Document Content</target>
+        </trans-unit>
+        <trans-unit id="8e6d5f86-b637-4fc8-ad04-f4da28644af8" xml:space="preserve">
+          <source>ContentTransferEncoding</source>
+          <target state="new">ContentTransferEncoding</target>
+        </trans-unit>
+        <trans-unit id="73633910-8ce0-4590-8883-84d8b28e637c" xml:space="preserve">
+          <source>Content Transfer Encoding of the Message.</source>
+          <target state="new">Content Transfer Encoding of the Message.</target>
+        </trans-unit>
+        <trans-unit id="7d154f3b-59cf-45b5-90b7-cd857c8cc2b6" xml:space="preserve">
+          <source>("none" or ”base64”)</source>
+          <target state="new">("none" or ”base64”)</target>
+        </trans-unit>
+        <trans-unit id="93b4462d-c599-4b7e-9027-098bfcad65e5" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="bc42aa38-4e86-4adc-a27e-ba6263537480" xml:space="preserve">
+          <source>A successful action execution returns status code 200 (OK).</source>
+          <target state="new">A successful action execution returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="4629d0cc-a05d-4299-9891-fa38a2ad655c" xml:space="preserve">
+          <source>This action adds an item in the Item list.</source>
+          <target state="new">This action adds an item in the Item list.</target>
+        </trans-unit>
+        <trans-unit id="ff6fa7ba-3b29-4275-9003-e65eefc8d41d" xml:space="preserve">
+          <source>The input is expected to be an XML payload.</source>
+          <target state="new">The input is expected to be an XML payload.</target>
+        </trans-unit>
+        <trans-unit id="6afa190e-fdd8-45d9-8ef3-d4b451034002" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="6e862be7-f9ae-4818-a7f8-c037a3ba34ae" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="d3a5684d-7b2d-4e06-885d-77facb03265f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="7d2ecc86-4873-4c46-b04d-9d0918bcc58d" xml:space="preserve">
+          <source>Input XML</source>
+          <target state="new">Input XML</target>
+        </trans-unit>
+        <trans-unit id="728966a8-ebcc-4e0e-bb43-48ac69f535b6" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9b61103c-ce12-4791-93ca-0613a943fa0b" xml:space="preserve">
+          <source>The XML message which contains the values of the fields of the list item to be inserted.</source>
+          <target state="new">The XML message which contains the values of the fields of the list item to be inserted.</target>
+        </trans-unit>
+        <trans-unit id="5ffaf70f-fa1c-4345-a5ae-262ed64fd68b" xml:space="preserve">
+          <source>You can use Transform API App to generate the XML message.</source>
+          <target state="new">You can use Transform API App to generate the XML message.</target>
+        </trans-unit>
+        <trans-unit id="baac775e-a1ac-4223-88a6-63e4a2730294" xml:space="preserve">
+          <source><bpt id="a0a6684f-0570-4c30-9d15-6393ea340f63">&lt;strong&gt;</bpt>Note<ept id="a0a6684f-0570-4c30-9d15-6393ea340f63">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</source>
+          <target state="new"><bpt id="a0a6684f-0570-4c30-9d15-6393ea340f63">&lt;strong&gt;</bpt>Note<ept id="a0a6684f-0570-4c30-9d15-6393ea340f63">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="b4897c58-0283-4347-b712-d11096d3cd91" xml:space="preserve">
+          <source>The mandatory parameters are visible, whereas the optional parameters are in advanced section.</source>
+          <target state="new">The mandatory parameters are visible, whereas the optional parameters are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="cc149b02-47da-457d-ab29-094e2f52f2f5" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="9ce91008-ac99-4fae-95fc-52b4954634db" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="22c413a0-18e1-4af8-8205-83729c6f55d3" xml:space="preserve">
+          <source>ItemId</source>
+          <target state="new">ItemId</target>
+        </trans-unit>
+        <trans-unit id="69e540c8-2ee5-4ebd-83c3-08c8dd6cee09" xml:space="preserve">
+          <source>ItemId of the List item added.</source>
+          <target state="new">ItemId of the List item added.</target>
+        </trans-unit>
+        <trans-unit id="07de122b-0dd2-4cdf-a702-1c673b4decc9" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="2483b2f4-ed55-4268-b62c-6aa8877ed9e0" xml:space="preserve">
+          <source>A successful insertion of List item returns status code 200 (OK).</source>
+          <target state="new">A successful insertion of List item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="dc867e12-d076-4f25-b983-cc19598ec965" xml:space="preserve">
+          <source>This action updates an item in the Item list.</source>
+          <target state="new">This action updates an item in the Item list.</target>
+        </trans-unit>
+        <trans-unit id="c98bd224-2310-4861-83d3-bd9ef1f74b27" xml:space="preserve">
+          <source>The input is expected to be an XML payload.</source>
+          <target state="new">The input is expected to be an XML payload.</target>
+        </trans-unit>
+        <trans-unit id="1509b821-e413-45b1-bf19-2e46a132dbf3" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="79ae709c-4e19-4734-825f-3c9bf9e553d8" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="f863f4f3-ae80-46a5-b9f6-76ce6e1031bb" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="28b28286-3049-40ec-9356-27beec1b8858" xml:space="preserve">
+          <source>ItemID</source>
+          <target state="new">ItemID</target>
+        </trans-unit>
+        <trans-unit id="43aee81b-2a39-44b1-b868-3139068f1238" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d258f2a2-586d-474d-8d24-48bfd058903a" xml:space="preserve">
+          <source>ItemId of the List item.</source>
+          <target state="new">ItemId of the List item.</target>
+        </trans-unit>
+        <trans-unit id="6203b73a-72c1-4a33-8e6a-b26b3a063010" xml:space="preserve">
+          <source>Input XML</source>
+          <target state="new">Input XML</target>
+        </trans-unit>
+        <trans-unit id="5fe5b662-94a9-43b3-b5b2-8cdf8fa75e61" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="120cb8f8-c46a-4d1c-8eb0-c2c53514b3fc" xml:space="preserve">
+          <source>The XML message which contains the values of the fields of the list item to be inserted.</source>
+          <target state="new">The XML message which contains the values of the fields of the list item to be inserted.</target>
+        </trans-unit>
+        <trans-unit id="1cf01526-8e20-4091-b7b2-ac7e626a77d5" xml:space="preserve">
+          <source>You can use Transform API App to generate the XML message.</source>
+          <target state="new">You can use Transform API App to generate the XML message.</target>
+        </trans-unit>
+        <trans-unit id="c0dcec22-91fa-42c2-8d49-724e7bb0a7f8" xml:space="preserve">
+          <source><bpt id="ad20712f-8697-4c91-ad23-c39273451748">&lt;strong&gt;</bpt>Note<ept id="ad20712f-8697-4c91-ad23-c39273451748">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</source>
+          <target state="new"><bpt id="ad20712f-8697-4c91-ad23-c39273451748">&lt;strong&gt;</bpt>Note<ept id="ad20712f-8697-4c91-ad23-c39273451748">&lt;/strong&gt;</ept> All the parameters of the 'List' are dynamically populated.</target>
+        </trans-unit>
+        <trans-unit id="99d31ca7-e320-466d-84b2-c84de21c2c6c" xml:space="preserve">
+          <source>The mandatory parameters are visible, whereas the optional parameters are in advanced section.</source>
+          <target state="new">The mandatory parameters are visible, whereas the optional parameters are in advanced section.</target>
+        </trans-unit>
+        <trans-unit id="dd9d1a54-5879-4518-98d7-4fec26700870" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="fba3bf54-ad3d-4aba-b64a-54f1741b2e84" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3203fe4f-c300-477f-baf4-0e787f7252f4" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="f1787b45-7bf8-4e3c-9980-787f3d86e7bb" xml:space="preserve">
+          <source>A successful update of List item returns status code 200 (OK).</source>
+          <target state="new">A successful update of List item returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="3df183c6-83e1-442d-a40d-3bc33cde9bd3" xml:space="preserve">
+          <source>This action gets an item from the Item list.</source>
+          <target state="new">This action gets an item from the Item list.</target>
+        </trans-unit>
+        <trans-unit id="be4c57fd-9686-4792-970e-46d4f6df9b7d" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="dcfc3709-ff9a-42e7-bf53-e54cc897d478" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="e73ae984-29b8-4628-8e9d-f786572f0bfa" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f5783c76-160f-4429-8819-4496c44b6e1f" xml:space="preserve">
+          <source>ItemID</source>
+          <target state="new">ItemID</target>
+        </trans-unit>
+        <trans-unit id="125e1c69-630b-4b2f-af04-2ebec890a0db" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="95774737-6e75-4473-a271-5ce46f7efb60" xml:space="preserve">
+          <source>ItemId of the List item.</source>
+          <target state="new">ItemId of the List item.</target>
+        </trans-unit>
+        <trans-unit id="6837bd8b-f529-47ca-8086-e1ecf2c2711d" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="ac3a4b17-eedd-4798-9356-c7b547039b3f" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="dd2a38b0-b521-426b-96cf-18cb6098009e" xml:space="preserve">
+          <source>Output XML</source>
+          <target state="new">Output XML</target>
+        </trans-unit>
+        <trans-unit id="1d820335-2db4-42cc-bc4a-21b3ee6e3212" xml:space="preserve">
+          <source>The XML message which contains the values of the fields of the list item selected.</source>
+          <target state="new">The XML message which contains the values of the fields of the list item selected.</target>
+        </trans-unit>
+        <trans-unit id="c607b4f3-0a40-4f33-ade2-ef6edbda3fec" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="c843fecc-bab4-4d1a-b767-1b45225a8a84" xml:space="preserve">
+          <source>A successful execute of action returns status code 200 (OK).</source>
+          <target state="new">A successful execute of action returns status code 200 (OK).</target>
+        </trans-unit>
+        <trans-unit id="dca94fba-ef04-4da7-85e3-5eebdc758ef8" xml:space="preserve">
+          <source>This step is required only if you are using SharePoint on-premises behind your firewall.</source>
+          <target state="new">This step is required only if you are using SharePoint on-premises behind your firewall.</target>
+        </trans-unit>
+        <trans-unit id="b7cf58e0-b7da-4301-8323-ca5d08af9c6e" xml:space="preserve">
+          <source>App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system.</source>
+          <target state="new">App Service uses the Hybrid Configuration Manager to connect securely to your on-premises system.</target>
+        </trans-unit>
+        <trans-unit id="09646807-d84f-4aa6-b4d6-8041fc3a2f8f" xml:space="preserve">
+          <source>If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required.</source>
+          <target state="new">If you're connector uses an on-premises SharePoint Server, the Hybrid Connection Manager is required.</target>
+        </trans-unit>
+        <trans-unit id="c753716b-d622-4251-b277-e1f3e3a433e6" xml:space="preserve">
+          <source>See <bpt id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;/linkText&gt;</ept><bpt id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;title&gt;</bpt><ept id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;linkText&gt;</bpt>Using the Hybrid Connection Manager<ept id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;/linkText&gt;</ept><bpt id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;title&gt;</bpt><ept id="bedadc33-44d9-48ac-8f83-fc50d5d64a65">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="291b00e3-6a6b-43ab-9de8-d32a83dc143b" xml:space="preserve">
+          <source>Now that the connector is created, you can add it to a business workflow using a Logic App.</source>
+          <target state="new">Now that the connector is created, you can add it to a business workflow using a Logic App.</target>
+        </trans-unit>
+        <trans-unit id="92025396-9540-4418-9dd6-b663118f1bfb" xml:space="preserve">
+          <source>See <bpt id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;/linkText&gt;</ept><bpt id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;title&gt;</bpt><ept id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;linkText&gt;</bpt>What are Logic Apps?<ept id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;/linkText&gt;</ept><bpt id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;title&gt;</bpt><ept id="07d5a813-e862-4c37-b170-f2cd9c240922">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="845f3598-c63c-4ff3-8f84-6f1bd78fa6d0" xml:space="preserve">
+          <source>View the Swagger REST API reference at <bpt id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;/linkText&gt;</ept><bpt id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;title&gt;</bpt><ept id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;/title&gt;</ept>.</source>
+          <target state="new">View the Swagger REST API reference at <bpt id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;linkText&gt;</bpt>Connectors and API Apps Reference<ept id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;/linkText&gt;</ept><bpt id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;title&gt;</bpt><ept id="bf86c34a-5862-4eda-ba0f-f658453a700b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b235a0ef-1f6a-4a0f-9b15-d6bffd01eda1" xml:space="preserve">
+          <source>You can also review performance statistics and control security to the connector.</source>
+          <target state="new">You can also review performance statistics and control security to the connector.</target>
+        </trans-unit>
+        <trans-unit id="aef6916d-d382-4846-995f-0d6cd1b7d7af" xml:space="preserve">
+          <source>See <bpt id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;/linkText&gt;</ept><bpt id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;title&gt;</bpt><ept id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;linkText&gt;</bpt>Manage  and Monitor API apps and connector<ept id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;/linkText&gt;</ept><bpt id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;title&gt;</bpt><ept id="36332a94-0f26-440f-b05d-42bc9a06bbe6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fd2d80e-4772-4bd7-ad0f-4abe39d8c065" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_0.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_0.png</target>
+        </trans-unit>
+        <trans-unit id="5a075bf0-1a3a-431c-a40b-c0aba61f2025" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_1.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_1.png</target>
+        </trans-unit>
+        <trans-unit id="add299ee-b18f-460d-94c7-9745484587bc" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_2.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_2.png</target>
+        </trans-unit>
+        <trans-unit id="e7eb2150-7313-4e4b-bdb7-229deafa83c9" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_3.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_3.png</target>
+        </trans-unit>
+        <trans-unit id="4176ab16-d2b0-4c3d-bea8-16bc4def16a0" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_4.jpg</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_4.jpg</target>
+        </trans-unit>
+        <trans-unit id="1f354188-410b-4fd8-8a9d-f93747565896" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_5.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_5.png</target>
+        </trans-unit>
+        <trans-unit id="9d7412e8-811b-4045-8205-141d1a6c5bf3" xml:space="preserve">
+          <source>./media/app-service-logic-connector-sharepoint/image_6.png</source>
+          <target state="new">./media/app-service-logic-connector-sharepoint/image_6.png</target>
+        </trans-unit>
+      </group>
+      <group id="d007517c-f4b8-4f27-a903-186579241c60" />
+    </body>
+  </file>
+</xliff>

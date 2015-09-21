@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b286b48c-52da-49a8-b50f-79235c7d7323" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b286b48c-52da-49a8-b50f-79235c7d7323" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="801d2454-87ed-4fab-846d-70b626fdc354">
+        <trans-unit id="0cd4a677-b3e2-49c1-a1df-19ba53042d52" xml:space="preserve">
+          <source>Streaming logs and console</source>
+          <target state="new">Streaming logs and console</target>
+        </trans-unit>
+        <trans-unit id="062b737f-f117-4e3e-8f7d-c0b16adb38e3" xml:space="preserve">
+          <source>Streaming logs and console overview</source>
+          <target state="new">Streaming logs and console overview</target>
+        </trans-unit>
+        <trans-unit id="0ae9d927-0c1d-46ca-ae6c-4e3795a3d63e" xml:space="preserve">
+          <source>The Microsoft Azure Portal provides an integrated streaming log viewer that lets you view tracing events from 
+your Azure App Service web apps in real time.</source>
+          <target state="new">The Microsoft Azure Portal provides an integrated streaming log viewer that lets you view tracing events from 
+your Azure App Service web apps in real time.</target>
+        </trans-unit>
+        <trans-unit id="f3aadee3-948c-498b-8f18-c5b681e63315" xml:space="preserve">
+          <source>Setting this up requires a few simple steps:</source>
+          <target state="new">Setting this up requires a few simple steps:</target>
+        </trans-unit>
+        <trans-unit id="f724a52f-8603-4573-9257-6089a21cdb8d" xml:space="preserve">
+          <source>Write traces in your code</source>
+          <target state="new">Write traces in your code</target>
+        </trans-unit>
+        <trans-unit id="2057eb45-61dc-4a7c-8b29-482e3548c279" xml:space="preserve">
+          <source>Enable Application Diagnostics from within the Azure Portal</source>
+          <target state="new">Enable Application Diagnostics from within the Azure Portal</target>
+        </trans-unit>
+        <trans-unit id="07418a1e-f925-46f7-99c1-5ab4ec74224a" xml:space="preserve">
+          <source>Click on the streaming logs part on the web app's blade</source>
+          <target state="new">Click on the streaming logs part on the web app's blade</target>
+        </trans-unit>
+        <trans-unit id="20c9de9f-603a-4a62-8fb5-f5eecf956d32" xml:space="preserve">
+          <source>Writing traces in your code is easy.</source>
+          <target state="new">Writing traces in your code is easy.</target>
+        </trans-unit>
+        <trans-unit id="986f9538-f0ca-4106-bdb3-84492708cd52" xml:space="preserve">
+          <source>In C# it's as easy as writing the following code:</source>
+          <target state="new">In C# it's as easy as writing the following code:</target>
+        </trans-unit>
+        <trans-unit id="af89df50-1b90-4468-afa8-891406f783e8" xml:space="preserve">
+          <source>The Trace class lives in the System.Diagnostics namespace.</source>
+          <target state="new">The Trace class lives in the System.Diagnostics namespace.</target>
+        </trans-unit>
+        <trans-unit id="48948765-be0b-45fb-916b-ae3f2519a49a" xml:space="preserve">
+          <source>In a node.js app you can write this code to achieve the same result:</source>
+          <target state="new">In a node.js app you can write this code to achieve the same result:</target>
+        </trans-unit>
+        <trans-unit id="c92b2d4b-93e3-4dff-be45-34c4375710b7" xml:space="preserve">
+          <source><bpt id="e1bc34b5-2df2-41c6-b8cc-413a43451beb">&lt;linkText&gt;</bpt><ept id="e1bc34b5-2df2-41c6-b8cc-413a43451beb">&lt;/linkText&gt;</ept>
+Diagnostics are enabled on a per web app basis.</source>
+          <target state="new"><bpt id="e1bc34b5-2df2-41c6-b8cc-413a43451beb">&lt;linkText&gt;</bpt><ept id="e1bc34b5-2df2-41c6-b8cc-413a43451beb">&lt;/linkText&gt;</ept>
+Diagnostics are enabled on a per web app basis.</target>
+        </trans-unit>
+        <trans-unit id="a5a599dc-b514-40a1-86bf-11af78efe6d8" xml:space="preserve">
+          <source>From within the <bpt id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;linkText&gt;</bpt>portal<ept id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;/linkText&gt;</ept><bpt id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;title&gt;</bpt><ept id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;/title&gt;</ept> click the
+ <bpt id="61aa6c14-44a5-4015-a3f2-858d4bacb26c">&lt;strong&gt;</bpt>Browse (1)<ept id="61aa6c14-44a5-4015-a3f2-858d4bacb26c">&lt;/strong&gt;</ept> button on the left menu bar and then click <bpt id="f2a1e765-d41b-490d-a69c-5f4b5c0b0e9a">&lt;strong&gt;</bpt>Web Apps (2)<ept id="f2a1e765-d41b-490d-a69c-5f4b5c0b0e9a">&lt;/strong&gt;</ept> to get to the <bpt id="85a331d3-c751-4e9b-9220-8aa0d265d92a">&lt;strong&gt;</bpt>list (3)<ept id="85a331d3-c751-4e9b-9220-8aa0d265d92a">&lt;/strong&gt;</ept> of 
+ all your web apps.</source>
+          <target state="new">From within the <bpt id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;linkText&gt;</bpt>portal<ept id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;/linkText&gt;</ept><bpt id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;title&gt;</bpt><ept id="39905fcb-9991-4d56-8725-e73029a235a8">&lt;/title&gt;</ept> click the
+ <bpt id="61aa6c14-44a5-4015-a3f2-858d4bacb26c">&lt;strong&gt;</bpt>Browse (1)<ept id="61aa6c14-44a5-4015-a3f2-858d4bacb26c">&lt;/strong&gt;</ept> button on the left menu bar and then click <bpt id="f2a1e765-d41b-490d-a69c-5f4b5c0b0e9a">&lt;strong&gt;</bpt>Web Apps (2)<ept id="f2a1e765-d41b-490d-a69c-5f4b5c0b0e9a">&lt;/strong&gt;</ept> to get to the <bpt id="85a331d3-c751-4e9b-9220-8aa0d265d92a">&lt;strong&gt;</bpt>list (3)<ept id="85a331d3-c751-4e9b-9220-8aa0d265d92a">&lt;/strong&gt;</ept> of 
+ all your web apps.</target>
+        </trans-unit>
+        <trans-unit id="5f0c6acb-f5ca-405b-a1de-45b1529de977" xml:space="preserve">
+          <source>Click on the name of the web app that you want to configure to navigate to it.</source>
+          <target state="new">Click on the name of the web app that you want to configure to navigate to it.</target>
+        </trans-unit>
+        <trans-unit id="10f63233-ec1c-4a0d-bef8-745eec6a5f8d" xml:space="preserve">
+          <source><bpt id="eaaaa13c-be50-4939-82aa-eae0c9898d2b">&lt;linkText&gt;</bpt><ept id="eaaaa13c-be50-4939-82aa-eae0c9898d2b">&lt;/linkText&gt;</ept>
+Then click <bpt id="a86968cb-b870-4d50-8e1b-9b46d3e88f83">&lt;strong&gt;</bpt>Settings (1)<ept id="a86968cb-b870-4d50-8e1b-9b46d3e88f83">&lt;/strong&gt;</ept> &gt; <bpt id="df94fe38-b8b6-4880-9fb0-b606a046abd2">&lt;strong&gt;</bpt>Diagnostic Logs (2)<ept id="df94fe38-b8b6-4880-9fb0-b606a046abd2">&lt;/strong&gt;</ept> and turn <bpt id="050a1ddb-2fae-48a0-acef-001b7e6383d4">&lt;strong&gt;</bpt>On<ept id="050a1ddb-2fae-48a0-acef-001b7e6383d4">&lt;/strong&gt;</ept> 
+<bpt id="7b07db91-9b28-4a94-a16b-af4bbe81846f">&lt;strong&gt;</bpt>Application Logging (Filesystem)(3)<ept id="7b07db91-9b28-4a94-a16b-af4bbe81846f">&lt;/strong&gt;</ept> The <bpt id="0fcc8a8e-6b58-4af2-bf9d-95598e5fbdcc">&lt;strong&gt;</bpt>Level<ept id="0fcc8a8e-6b58-4af2-bf9d-95598e5fbdcc">&lt;/strong&gt;</ept> option letts you change the severity 
+level of traces to capture.</source>
+          <target state="new"><bpt id="eaaaa13c-be50-4939-82aa-eae0c9898d2b">&lt;linkText&gt;</bpt><ept id="eaaaa13c-be50-4939-82aa-eae0c9898d2b">&lt;/linkText&gt;</ept>
+Then click <bpt id="a86968cb-b870-4d50-8e1b-9b46d3e88f83">&lt;strong&gt;</bpt>Settings (1)<ept id="a86968cb-b870-4d50-8e1b-9b46d3e88f83">&lt;/strong&gt;</ept> &gt; <bpt id="df94fe38-b8b6-4880-9fb0-b606a046abd2">&lt;strong&gt;</bpt>Diagnostic Logs (2)<ept id="df94fe38-b8b6-4880-9fb0-b606a046abd2">&lt;/strong&gt;</ept> and turn <bpt id="050a1ddb-2fae-48a0-acef-001b7e6383d4">&lt;strong&gt;</bpt>On<ept id="050a1ddb-2fae-48a0-acef-001b7e6383d4">&lt;/strong&gt;</ept> 
+<bpt id="7b07db91-9b28-4a94-a16b-af4bbe81846f">&lt;strong&gt;</bpt>Application Logging (Filesystem)(3)<ept id="7b07db91-9b28-4a94-a16b-af4bbe81846f">&lt;/strong&gt;</ept> The <bpt id="0fcc8a8e-6b58-4af2-bf9d-95598e5fbdcc">&lt;strong&gt;</bpt>Level<ept id="0fcc8a8e-6b58-4af2-bf9d-95598e5fbdcc">&lt;/strong&gt;</ept> option letts you change the severity 
+level of traces to capture.</target>
+        </trans-unit>
+        <trans-unit id="bba22221-1c8d-49ea-9552-7fad48ac0e3d" xml:space="preserve">
+          <source>You should set this to <bpt id="1f846daf-9af4-4d26-86d7-f4d59bb91a3e">&lt;strong&gt;</bpt>Verbose<ept id="1f846daf-9af4-4d26-86d7-f4d59bb91a3e">&lt;/strong&gt;</ept> if you're just trying to 
+get familiar with the feature as this will ensure all of your trace statements get logged.</source>
+          <target state="new">You should set this to <bpt id="1f846daf-9af4-4d26-86d7-f4d59bb91a3e">&lt;strong&gt;</bpt>Verbose<ept id="1f846daf-9af4-4d26-86d7-f4d59bb91a3e">&lt;/strong&gt;</ept> if you're just trying to 
+get familiar with the feature as this will ensure all of your trace statements get logged.</target>
+        </trans-unit>
+        <trans-unit id="6b4bb65f-db09-4c4f-9803-eaaa5002a10e" xml:space="preserve">
+          <source>Click <bpt id="194b033c-74ee-4b51-9680-b9c8142af584">&lt;strong&gt;</bpt>SAVE<ept id="194b033c-74ee-4b51-9680-b9c8142af584">&lt;/strong&gt;</ept> at the top of the blade and you're ready to view logs.</source>
+          <target state="new">Click <bpt id="194b033c-74ee-4b51-9680-b9c8142af584">&lt;strong&gt;</bpt>SAVE<ept id="194b033c-74ee-4b51-9680-b9c8142af584">&lt;/strong&gt;</ept> at the top of the blade and you're ready to view logs.</target>
+        </trans-unit>
+        <trans-unit id="fe9e59f9-b5c5-4a7c-b225-1306c6e12fd5" xml:space="preserve">
+          <source><bpt id="d5813a65-34dd-40b6-aa97-5a61a17276b0">&lt;strong&gt;</bpt>NOTE:<ept id="d5813a65-34dd-40b6-aa97-5a61a17276b0">&lt;/strong&gt;</ept> The higher the <bpt id="8d1a4d8f-16ad-410d-99cd-77660e075807">&lt;strong&gt;</bpt>severity level<ept id="8d1a4d8f-16ad-410d-99cd-77660e075807">&lt;/strong&gt;</ept> the more resources are consumed to log and the more traces 
+you will get.</source>
+          <target state="new"><bpt id="d5813a65-34dd-40b6-aa97-5a61a17276b0">&lt;strong&gt;</bpt>NOTE:<ept id="d5813a65-34dd-40b6-aa97-5a61a17276b0">&lt;/strong&gt;</ept> The higher the <bpt id="8d1a4d8f-16ad-410d-99cd-77660e075807">&lt;strong&gt;</bpt>severity level<ept id="8d1a4d8f-16ad-410d-99cd-77660e075807">&lt;/strong&gt;</ept> the more resources are consumed to log and the more traces 
+you will get.</target>
+        </trans-unit>
+        <trans-unit id="5860fb2e-99a7-474b-b8cb-3a6c23d657e4" xml:space="preserve">
+          <source>Make sure this is set to the appropriate level when using this feature for 
+a high traffic / production site.</source>
+          <target state="new">Make sure this is set to the appropriate level when using this feature for 
+a high traffic / production site.</target>
+        </trans-unit>
+        <trans-unit id="7b6ba3a8-ff7a-41d1-91ec-c63983e5fd09" xml:space="preserve">
+          <source><bpt id="6fabe5e2-4155-4475-8e81-b1571ab5f598">&lt;linkText&gt;</bpt><ept id="6fabe5e2-4155-4475-8e81-b1571ab5f598">&lt;/linkText&gt;</ept>
+To view the streaming logs from within the portal click <bpt id="e16363ad-f5b6-4530-8c03-f2927046acbe">&lt;strong&gt;</bpt>Tools (1)<ept id="e16363ad-f5b6-4530-8c03-f2927046acbe">&lt;/strong&gt;</ept> &gt; <bpt id="ab9cdd88-644c-456e-92ea-3a9fbd582d60">&lt;strong&gt;</bpt>Log Stream(2)<ept id="ab9cdd88-644c-456e-92ea-3a9fbd582d60">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="6fabe5e2-4155-4475-8e81-b1571ab5f598">&lt;linkText&gt;</bpt><ept id="6fabe5e2-4155-4475-8e81-b1571ab5f598">&lt;/linkText&gt;</ept>
+To view the streaming logs from within the portal click <bpt id="e16363ad-f5b6-4530-8c03-f2927046acbe">&lt;strong&gt;</bpt>Tools (1)<ept id="e16363ad-f5b6-4530-8c03-f2927046acbe">&lt;/strong&gt;</ept> &gt; <bpt id="ab9cdd88-644c-456e-92ea-3a9fbd582d60">&lt;strong&gt;</bpt>Log Stream(2)<ept id="ab9cdd88-644c-456e-92ea-3a9fbd582d60">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78202681-db51-48a3-909a-06daa0eaeae9" xml:space="preserve">
+          <source>If your app 
+is actively writing trace statements then you should see them in the resulting window in near real time.</source>
+          <target state="new">If your app 
+is actively writing trace statements then you should see them in the resulting window in near real time.</target>
+        </trans-unit>
+        <trans-unit id="7d813785-e7ad-4d13-a5c3-1b4524192522" xml:space="preserve">
+          <source>The Azure Portal provides console access to your web app environment.</source>
+          <target state="new">The Azure Portal provides console access to your web app environment.</target>
+        </trans-unit>
+        <trans-unit id="17b90183-0de3-47b4-8116-a1ab2235240b" xml:space="preserve">
+          <source>You can explore your web 
+app's file system and run powershell/cmd scripts.</source>
+          <target state="new">You can explore your web 
+app's file system and run powershell/cmd scripts.</target>
+        </trans-unit>
+        <trans-unit id="66f1e080-399d-41b8-a404-b3be8c052889" xml:space="preserve">
+          <source>You are bound by the same permissions set as 
+your running web app code when executing console commands.</source>
+          <target state="new">You are bound by the same permissions set as 
+your running web app code when executing console commands.</target>
+        </trans-unit>
+        <trans-unit id="c03ae034-2881-4311-8d94-2bef1d36329c" xml:space="preserve">
+          <source>You won't be able to access protected 
+directories or run scripts that require elevated permissions.</source>
+          <target state="new">You won't be able to access protected 
+directories or run scripts that require elevated permissions.</target>
+        </trans-unit>
+        <trans-unit id="912f98c5-4bcd-419d-b765-837844168600" xml:space="preserve">
+          <source><bpt id="dded27bf-b82d-4c37-ab13-3eab5fe1dc0c">&lt;linkText&gt;</bpt><ept id="dded27bf-b82d-4c37-ab13-3eab5fe1dc0c">&lt;/linkText&gt;</ept>
+To get to the console, browse to a web app as described in the section above.</source>
+          <target state="new"><bpt id="dded27bf-b82d-4c37-ab13-3eab5fe1dc0c">&lt;linkText&gt;</bpt><ept id="dded27bf-b82d-4c37-ab13-3eab5fe1dc0c">&lt;/linkText&gt;</ept>
+To get to the console, browse to a web app as described in the section above.</target>
+        </trans-unit>
+        <trans-unit id="4e9dffeb-7dbd-4618-b0fb-55569ee8cc1c" xml:space="preserve">
+          <source>Click on <bpt id="b9db9cee-2b05-40c3-823c-af9bbf9542fb">&lt;strong&gt;</bpt>Tools<ept id="b9db9cee-2b05-40c3-823c-af9bbf9542fb">&lt;/strong&gt;</ept>&gt;<bpt id="f7b55465-abdb-47af-848d-e983b85269f9">&lt;strong&gt;</bpt>Console<ept id="f7b55465-abdb-47af-848d-e983b85269f9">&lt;/strong&gt;</ept> and the console will open.</source>
+          <target state="new">Click on <bpt id="b9db9cee-2b05-40c3-823c-af9bbf9542fb">&lt;strong&gt;</bpt>Tools<ept id="b9db9cee-2b05-40c3-823c-af9bbf9542fb">&lt;/strong&gt;</ept>&gt;<bpt id="f7b55465-abdb-47af-848d-e983b85269f9">&lt;strong&gt;</bpt>Console<ept id="f7b55465-abdb-47af-848d-e983b85269f9">&lt;/strong&gt;</ept> and the console will open.</target>
+        </trans-unit>
+        <trans-unit id="a580f67b-b7f1-4a9d-bf30-06249df7afd1" xml:space="preserve">
+          <source>To get familiar with the console try basic commands like these:</source>
+          <target state="new">To get familiar with the console try basic commands like these:</target>
+        </trans-unit>
+        <trans-unit id="ce25d0f4-2769-4cf6-9b98-3f087ab26b69" xml:space="preserve">
+          <source>./media/web-sites-streaming-logs-and-console/diagnostic-logs.png</source>
+          <target state="new">./media/web-sites-streaming-logs-and-console/diagnostic-logs.png</target>
+        </trans-unit>
+        <trans-unit id="bc237b71-d0c6-4d9a-b7ba-891f71be9a62" xml:space="preserve">
+          <source>./media/web-sites-streaming-logs-and-console/browse-sites.png</source>
+          <target state="new">./media/web-sites-streaming-logs-and-console/browse-sites.png</target>
+        </trans-unit>
+        <trans-unit id="1116ab40-ad8d-40b7-87ba-ae9855d34e36" xml:space="preserve">
+          <source>./media/web-sites-streaming-logs-and-console/streaming-logs.png</source>
+          <target state="new">./media/web-sites-streaming-logs-and-console/streaming-logs.png</target>
+        </trans-unit>
+        <trans-unit id="5341a4f3-ae71-4427-9676-53d194f4227f" xml:space="preserve">
+          <source>./media/web-sites-streaming-logs-and-console/console.png</source>
+          <target state="new">./media/web-sites-streaming-logs-and-console/console.png</target>
+        </trans-unit>
+      </group>
+      <group id="264f6cd6-d566-44a4-b4c1-aef1e0ad60c4" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1fb843a8-12dd-4cf4-bdb6-5eaffdd4f276" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1fb843a8-12dd-4cf4-bdb6-5eaffdd4f276" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="03943a81-69e1-4c48-bba1-a7154c4f5831">
+        <trans-unit id="f546c69a-9913-4d36-af30-ef77cc5558d8" xml:space="preserve">
+          <source>The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the mobile service every time that the app starts.</source>
+          <target state="new">The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the mobile service every time that the app starts.</target>
+        </trans-unit>
+        <trans-unit id="09151a79-aec2-4476-907a-f16f36679268" xml:space="preserve">
+          <source>Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time.</source>
+          <target state="new">Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time.</target>
+        </trans-unit>
+        <trans-unit id="7fadf489-69c8-46be-aa86-ddd18a4d57b7" xml:space="preserve">
+          <source>A better approach is to cache the authorization token returned by Mobile Services and try to use this first before using a provider-based sign-in.</source>
+          <target state="new">A better approach is to cache the authorization token returned by Mobile Services and try to use this first before using a provider-based sign-in.</target>
+        </trans-unit>
+        <trans-unit id="959d2484-db34-4262-8800-f286a93cab9b" xml:space="preserve">
+          <source>You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication.</source>
+          <target state="new">You can cache the token issued by Mobile Services regardless of whether you are using client-managed or service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="5330dcf6-f81f-4c7a-b698-672387240fc8" xml:space="preserve">
+          <source>This tutorial uses service-managed authentication.</source>
+          <target state="new">This tutorial uses service-managed authentication.</target>
+        </trans-unit>
+        <trans-unit id="95d1f06a-4593-4c73-89a9-1e96ef85224c" xml:space="preserve">
+          <source>In the MainPage.xaml.cs project file, add the following <bpt id="ac4c33f2-1002-4cbb-942a-3611cb97070b">&lt;strong&gt;</bpt>using<ept id="ac4c33f2-1002-4cbb-942a-3611cb97070b">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">In the MainPage.xaml.cs project file, add the following <bpt id="ac4c33f2-1002-4cbb-942a-3611cb97070b">&lt;strong&gt;</bpt>using<ept id="ac4c33f2-1002-4cbb-942a-3611cb97070b">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="eba6430f-5b74-4de9-a1bb-7918d941934f" xml:space="preserve">
+          <source>Replace the <bpt id="23d72758-35ee-4c06-ba79-6cb588337cd9">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="23d72758-35ee-4c06-ba79-6cb588337cd9">&lt;/strong&gt;</ept> method with the following code:</source>
+          <target state="new">Replace the <bpt id="23d72758-35ee-4c06-ba79-6cb588337cd9">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="23d72758-35ee-4c06-ba79-6cb588337cd9">&lt;/strong&gt;</ept> method with the following code:</target>
+        </trans-unit>
+        <trans-unit id="40e636f8-04de-4f91-a730-96f2e397a204" xml:space="preserve">
+          <source>In this version of <bpt id="197ff6a5-46cb-4663-9c39-8901ec82facb">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="197ff6a5-46cb-4663-9c39-8901ec82facb">&lt;/strong&gt;</ept>, the app tries to use credentials stored encrypted in local storage to access the mobile service.</source>
+          <target state="new">In this version of <bpt id="197ff6a5-46cb-4663-9c39-8901ec82facb">&lt;strong&gt;</bpt>AuthenticateAsync<ept id="197ff6a5-46cb-4663-9c39-8901ec82facb">&lt;/strong&gt;</ept>, the app tries to use credentials stored encrypted in local storage to access the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="bc640136-1261-46d6-9577-5877730710c1" xml:space="preserve">
+          <source>A simple query is sent to verify that the stored token is not expired.</source>
+          <target state="new">A simple query is sent to verify that the stored token is not expired.</target>
+        </trans-unit>
+        <trans-unit id="3000d8a0-3028-420b-907e-22cdcfa391a6" xml:space="preserve">
+          <source>When a 401 is returned, a regular provider-based sign-in is attempted.</source>
+          <target state="new">When a 401 is returned, a regular provider-based sign-in is attempted.</target>
+        </trans-unit>
+        <trans-unit id="374c350f-eea4-4135-8381-be56215dd5aa" xml:space="preserve">
+          <source>A regular sign-in is also performed when there is no stored credential.</source>
+          <target state="new">A regular sign-in is also performed when there is no stored credential.</target>
+        </trans-unit>
+        <trans-unit id="2758c58e-9d55-4c26-8da3-f97a2c6c993c" xml:space="preserve">
+          <source>This app tests for expired tokens during login, but token expiration can occur after authentication when the app is in use.</source>
+          <target state="new">This app tests for expired tokens during login, but token expiration can occur after authentication when the app is in use.</target>
+        </trans-unit>
+        <trans-unit id="7f15f3fd-3030-4368-b4aa-4c882939bc70" xml:space="preserve">
+          <source>For a solution to handling authorization errors related to expiring tokens, see the post <bpt id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;linkText&gt;</bpt>Caching and handling expired tokens in Azure Mobile Services managed SDK<ept id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;/linkText&gt;</ept><bpt id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;title&gt;</bpt><ept id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a solution to handling authorization errors related to expiring tokens, see the post <bpt id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;linkText&gt;</bpt>Caching and handling expired tokens in Azure Mobile Services managed SDK<ept id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;/linkText&gt;</ept><bpt id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;title&gt;</bpt><ept id="e9053d61-d060-4a7a-a5ee-c55b62b720fd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3119784a-04fe-4e1b-8340-ba4192eb5e1d" xml:space="preserve">
+          <source>Restart the app twice.</source>
+          <target state="new">Restart the app twice.</target>
+        </trans-unit>
+        <trans-unit id="b283c3f6-13e7-46c9-9d5d-a77eb14b8c6c" xml:space="preserve">
+          <source>Notice that on the first start-up, sign-in with the provider is again required.</source>
+          <target state="new">Notice that on the first start-up, sign-in with the provider is again required.</target>
+        </trans-unit>
+        <trans-unit id="325f6bb3-4d18-4444-b79b-36309f1eb06e" xml:space="preserve">
+          <source>However, on the second restart the cached credentials are used and sign-in is bypassed.</source>
+          <target state="new">However, on the second restart the cached credentials are used and sign-in is bypassed.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

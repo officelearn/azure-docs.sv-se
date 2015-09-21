@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d3d2e65e-9098-4630-9f6a-66dd5d63a73f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d3d2e65e-9098-4630-9f6a-66dd5d63a73f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1320cab6-5311-4d4e-819d-7f294fbe4bca">
+        <trans-unit id="50f1b829-276c-4598-9432-9f9d0e7c196f" xml:space="preserve">
+          <source>Create a virtual machine running Windows in the Azure preview portal | Microsoft Azure</source>
+          <target state="new">Create a virtual machine running Windows in the Azure preview portal | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cf8dc763-535d-41fd-949b-aa404922632c" xml:space="preserve">
+          <source>Learn how to create an Azure virtual machine running Windows, using the Azure Marketplace in the Azure preview portal</source>
+          <target state="new">Learn how to create an Azure virtual machine running Windows, using the Azure Marketplace in the Azure preview portal</target>
+        </trans-unit>
+        <trans-unit id="74ed58bf-9a8d-4bb5-ba7f-f9fc46d648a5" xml:space="preserve">
+          <source>This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the preview portal.</source>
+          <target state="new">This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the preview portal.</target>
+        </trans-unit>
+        <trans-unit id="6b78ec13-3b02-417b-82a6-a51f27ed2ff6" xml:space="preserve">
+          <source>We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers.</source>
+          <target state="new">We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers.</target>
+        </trans-unit>
+        <trans-unit id="4d1ce603-f972-41ea-8828-c9ec642f7ad4" xml:space="preserve">
+          <source>Your image choices depend on your subscription.</source>
+          <target state="new">Your image choices depend on your subscription.</target>
+        </trans-unit>
+        <trans-unit id="5f6d066f-1bf2-4515-b30c-489f2c02a126" xml:space="preserve">
+          <source>For example, desktop images may be available to MSDN subscribers.</source>
+          <target state="new">For example, desktop images may be available to MSDN subscribers.</target>
+        </trans-unit>
+        <trans-unit id="bb90892e-511d-4845-a40b-335358e4824d" xml:space="preserve">
+          <source>You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools.</source>
+          <target state="new">You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools.</target>
+        </trans-unit>
+        <trans-unit id="ee691f41-9696-47e6-b9f1-86c6c97a6102" xml:space="preserve">
+          <source>To learn about the different methods, see <bpt id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;linkText&gt;</bpt>Different Ways to Create a Windows Virtual Machine<ept id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;/linkText&gt;</ept><bpt id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;title&gt;</bpt><ept id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn about the different methods, see <bpt id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;linkText&gt;</bpt>Different Ways to Create a Windows Virtual Machine<ept id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;/linkText&gt;</ept><bpt id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;title&gt;</bpt><ept id="33d72f9f-059f-40e5-a128-8d1be6238483">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5bc695aa-3b72-458c-94cb-14bd93e8ddd0" xml:space="preserve">
+          <source>This tutorial uses the Resource Manager deployment model to create the virtual machine. This is recommended instead of the classic deployment model, which is based on Service Management APIs. For details about Resource Manager, see <bpt id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;/linkText&gt;</ept><bpt id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;title&gt;</bpt><ept id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;/title&gt;</ept>. To learn about the benefits of using Resource Manager for virtual machines, see <bpt id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;linkText&gt;</bpt>Azure Compute, Network &amp; Storage Providers under Azure Resource Manager<ept id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;/linkText&gt;</ept><bpt id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;title&gt;</bpt><ept id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial uses the Resource Manager deployment model to create the virtual machine. This is recommended instead of the classic deployment model, which is based on Service Management APIs. For details about Resource Manager, see <bpt id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;/linkText&gt;</ept><bpt id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;title&gt;</bpt><ept id="332eabc8-56ad-4a1e-b136-ce5d82ac6e47">&lt;/title&gt;</ept>. To learn about the benefits of using Resource Manager for virtual machines, see <bpt id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;linkText&gt;</bpt>Azure Compute, Network &amp; Storage Providers under Azure Resource Manager<ept id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;/linkText&gt;</ept><bpt id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;title&gt;</bpt><ept id="174ae7e7-a730-49ff-a4da-4179234ae690">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdbc76c3-68d0-4205-988b-88467807da33" xml:space="preserve">
+          <source><bpt id="0485da72-e99f-46eb-9d4b-5d8aeb0b2423">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="0485da72-e99f-46eb-9d4b-5d8aeb0b2423">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0485da72-e99f-46eb-9d4b-5d8aeb0b2423">&lt;token href="../../includes/free-trial-note.md"&gt;</bpt><ept id="0485da72-e99f-46eb-9d4b-5d8aeb0b2423">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="492c84ef-ba51-4c8d-9594-562bc8d29c5d" xml:space="preserve">
+          <source>Here's a walkthrough of this tutorial.</source>
+          <target state="new">Here's a walkthrough of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="c02ec356-d65d-4c53-b862-e4579b4d30f3" xml:space="preserve">
+          <source>[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]</source>
+          <target state="new">[AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]</target>
+        </trans-unit>
+        <trans-unit id="b992b766-69cc-45eb-9a0b-12ffd4c4a177" xml:space="preserve">
+          <source>Sign in to the <bpt id="5968f755-753a-4677-91b8-803276b1f575">&lt;linkText&gt;</bpt>preview portal<ept id="5968f755-753a-4677-91b8-803276b1f575">&lt;/linkText&gt;</ept><bpt id="5968f755-753a-4677-91b8-803276b1f575">&lt;title&gt;</bpt><ept id="5968f755-753a-4677-91b8-803276b1f575">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="5968f755-753a-4677-91b8-803276b1f575">&lt;linkText&gt;</bpt>preview portal<ept id="5968f755-753a-4677-91b8-803276b1f575">&lt;/linkText&gt;</ept><bpt id="5968f755-753a-4677-91b8-803276b1f575">&lt;title&gt;</bpt><ept id="5968f755-753a-4677-91b8-803276b1f575">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78f0a314-b6d5-4653-ab3f-d684a7b16476" xml:space="preserve">
+          <source>On the Hub menu, click <bpt id="92750f69-132c-4c05-a074-952894aaa2fe">&lt;strong&gt;</bpt>New<ept id="92750f69-132c-4c05-a074-952894aaa2fe">&lt;/strong&gt;</ept> &gt; <bpt id="461603e3-0793-4944-ab45-c65c7bd6cd02">&lt;strong&gt;</bpt>Compute<ept id="461603e3-0793-4944-ab45-c65c7bd6cd02">&lt;/strong&gt;</ept> &gt; <bpt id="07c29f5a-460a-435a-ac2b-5e5f6509bd9c">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="07c29f5a-460a-435a-ac2b-5e5f6509bd9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Hub menu, click <bpt id="92750f69-132c-4c05-a074-952894aaa2fe">&lt;strong&gt;</bpt>New<ept id="92750f69-132c-4c05-a074-952894aaa2fe">&lt;/strong&gt;</ept> &gt; <bpt id="461603e3-0793-4944-ab45-c65c7bd6cd02">&lt;strong&gt;</bpt>Compute<ept id="461603e3-0793-4944-ab45-c65c7bd6cd02">&lt;/strong&gt;</ept> &gt; <bpt id="07c29f5a-460a-435a-ac2b-5e5f6509bd9c">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="07c29f5a-460a-435a-ac2b-5e5f6509bd9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2faae0ad-23f4-421e-96dd-5e67ef65df41" xml:space="preserve">
+          <source><bpt id="ebb33e2c-2abc-44d7-a680-2a1648656a69">&lt;linkText&gt;</bpt>Marketplace<ept id="ebb33e2c-2abc-44d7-a680-2a1648656a69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebb33e2c-2abc-44d7-a680-2a1648656a69">&lt;linkText&gt;</bpt>Marketplace<ept id="ebb33e2c-2abc-44d7-a680-2a1648656a69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df63c8e9-6bc9-4427-8255-2522489a5e36" xml:space="preserve">
+          <source>To find additional images, click <bpt id="8fced2d8-6985-453d-9350-dfe5c507bf20">&lt;strong&gt;</bpt>Marketplace<ept id="8fced2d8-6985-453d-9350-dfe5c507bf20">&lt;/strong&gt;</ept> and then search or filter for available items.</source>
+          <target state="new">To find additional images, click <bpt id="8fced2d8-6985-453d-9350-dfe5c507bf20">&lt;strong&gt;</bpt>Marketplace<ept id="8fced2d8-6985-453d-9350-dfe5c507bf20">&lt;/strong&gt;</ept> and then search or filter for available items.</target>
+        </trans-unit>
+        <trans-unit id="fdfa8e2b-31a6-4a17-9a2a-260ab258c12b" xml:space="preserve">
+          <source>On the <bpt id="7a56b391-a7ff-4fae-ac79-3bd22002be65">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="7a56b391-a7ff-4fae-ac79-3bd22002be65">&lt;/strong&gt;</ept> page, under <bpt id="ea573ef4-33a0-4621-ac03-2e1683073040">&lt;strong&gt;</bpt>Select a deployment model<ept id="ea573ef4-33a0-4621-ac03-2e1683073040">&lt;/strong&gt;</ept>, select <bpt id="4f26a480-5de0-48dc-a820-e07b559fa808">&lt;strong&gt;</bpt>Resource Manager<ept id="4f26a480-5de0-48dc-a820-e07b559fa808">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7a56b391-a7ff-4fae-ac79-3bd22002be65">&lt;strong&gt;</bpt>Windows Server 2012 R2 Datacenter<ept id="7a56b391-a7ff-4fae-ac79-3bd22002be65">&lt;/strong&gt;</ept> page, under <bpt id="ea573ef4-33a0-4621-ac03-2e1683073040">&lt;strong&gt;</bpt>Select a deployment model<ept id="ea573ef4-33a0-4621-ac03-2e1683073040">&lt;/strong&gt;</ept>, select <bpt id="4f26a480-5de0-48dc-a820-e07b559fa808">&lt;strong&gt;</bpt>Resource Manager<ept id="4f26a480-5de0-48dc-a820-e07b559fa808">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7632c82b-a409-4ee2-9d0a-4b7d6ba7b458" xml:space="preserve">
+          <source>Click <bpt id="f91556af-7715-4c28-8386-8cd0dbd7167f">&lt;strong&gt;</bpt>Create<ept id="f91556af-7715-4c28-8386-8cd0dbd7167f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f91556af-7715-4c28-8386-8cd0dbd7167f">&lt;strong&gt;</bpt>Create<ept id="f91556af-7715-4c28-8386-8cd0dbd7167f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a606cb35-9d86-4498-a712-7981e6bf51aa" xml:space="preserve">
+          <source><bpt id="12ad5298-4035-48d9-b410-0bfb2592267d">&lt;linkText&gt;</bpt>Search in the Marketplace<ept id="12ad5298-4035-48d9-b410-0bfb2592267d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12ad5298-4035-48d9-b410-0bfb2592267d">&lt;linkText&gt;</bpt>Search in the Marketplace<ept id="12ad5298-4035-48d9-b410-0bfb2592267d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22cb3ad2-49e2-4193-b702-1c3cd2923b27" xml:space="preserve">
+          <source>After you select the image, you can use Azure's default settings for most of the configuration and quickly create the virtual machine.</source>
+          <target state="new">After you select the image, you can use Azure's default settings for most of the configuration and quickly create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5dce4e90-3b8b-41c9-8bc4-3cd4ad7c0f0f" xml:space="preserve">
+          <source>On the <bpt id="4f2e7a94-0969-42bd-a33f-6a85d24dfc6c">&lt;strong&gt;</bpt>Create virtual machine<ept id="4f2e7a94-0969-42bd-a33f-6a85d24dfc6c">&lt;/strong&gt;</ept> blade, click <bpt id="d385b144-15bd-488e-9478-7606660c91bc">&lt;strong&gt;</bpt>Basics<ept id="d385b144-15bd-488e-9478-7606660c91bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4f2e7a94-0969-42bd-a33f-6a85d24dfc6c">&lt;strong&gt;</bpt>Create virtual machine<ept id="4f2e7a94-0969-42bd-a33f-6a85d24dfc6c">&lt;/strong&gt;</ept> blade, click <bpt id="d385b144-15bd-488e-9478-7606660c91bc">&lt;strong&gt;</bpt>Basics<ept id="d385b144-15bd-488e-9478-7606660c91bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f6ccf4b-9fa4-48eb-904a-f90e7a5fb228" xml:space="preserve">
+          <source>Enter a <bpt id="b12cbd34-974b-4913-88cb-dd6ed1d5e643">&lt;strong&gt;</bpt>Name<ept id="b12cbd34-974b-4913-88cb-dd6ed1d5e643">&lt;/strong&gt;</ept> you want for the virtual machine, the administrative <bpt id="8e274223-df87-48ec-874f-dab3853e97bb">&lt;strong&gt;</bpt>User name<ept id="8e274223-df87-48ec-874f-dab3853e97bb">&lt;/strong&gt;</ept>, and a strong <bpt id="931d39bf-20ad-41d6-830f-69c3e98546a4">&lt;strong&gt;</bpt>Password<ept id="931d39bf-20ad-41d6-830f-69c3e98546a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a <bpt id="b12cbd34-974b-4913-88cb-dd6ed1d5e643">&lt;strong&gt;</bpt>Name<ept id="b12cbd34-974b-4913-88cb-dd6ed1d5e643">&lt;/strong&gt;</ept> you want for the virtual machine, the administrative <bpt id="8e274223-df87-48ec-874f-dab3853e97bb">&lt;strong&gt;</bpt>User name<ept id="8e274223-df87-48ec-874f-dab3853e97bb">&lt;/strong&gt;</ept>, and a strong <bpt id="931d39bf-20ad-41d6-830f-69c3e98546a4">&lt;strong&gt;</bpt>Password<ept id="931d39bf-20ad-41d6-830f-69c3e98546a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="64450dfe-9c7f-4182-bc80-eb90d9fd1e7e" xml:space="preserve">
+          <source>If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing <bpt id="76d339c2-ffcf-417a-a1b3-d17511e8bc12">&lt;strong&gt;</bpt>Resource group<ept id="76d339c2-ffcf-417a-a1b3-d17511e8bc12">&lt;/strong&gt;</ept> and an Azure datacenter <bpt id="faff820f-0c46-46a1-8b3b-f86dca526620">&lt;strong&gt;</bpt>Location<ept id="faff820f-0c46-46a1-8b3b-f86dca526620">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing <bpt id="76d339c2-ffcf-417a-a1b3-d17511e8bc12">&lt;strong&gt;</bpt>Resource group<ept id="76d339c2-ffcf-417a-a1b3-d17511e8bc12">&lt;/strong&gt;</ept> and an Azure datacenter <bpt id="faff820f-0c46-46a1-8b3b-f86dca526620">&lt;strong&gt;</bpt>Location<ept id="faff820f-0c46-46a1-8b3b-f86dca526620">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19e4bf37-f276-4f45-8b3e-2ed127e99b00" xml:space="preserve">
+          <source><bpt id="ffb9fad1-e2fb-4e71-a3d8-57d11357cae1">&lt;linkText&gt;</bpt>Configure VM basics<ept id="ffb9fad1-e2fb-4e71-a3d8-57d11357cae1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffb9fad1-e2fb-4e71-a3d8-57d11357cae1">&lt;linkText&gt;</bpt>Configure VM basics<ept id="ffb9fad1-e2fb-4e71-a3d8-57d11357cae1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e71872d-db59-42d9-8702-3699cdf12c7a" xml:space="preserve">
+          <source><bpt id="6bbd2b29-6188-4959-ac78-741d329c9aa2">&lt;strong&gt;</bpt>User name<ept id="6bbd2b29-6188-4959-ac78-741d329c9aa2">&lt;/strong&gt;</ept> refers to the administrative account that you'll use to manage the server.</source>
+          <target state="new"><bpt id="6bbd2b29-6188-4959-ac78-741d329c9aa2">&lt;strong&gt;</bpt>User name<ept id="6bbd2b29-6188-4959-ac78-741d329c9aa2">&lt;/strong&gt;</ept> refers to the administrative account that you'll use to manage the server.</target>
+        </trans-unit>
+        <trans-unit id="6c9854ef-6257-4e82-a5ce-e6beda36f190" xml:space="preserve">
+          <source>Create a password that's hard for others to guess but that you can remember.</source>
+          <target state="new">Create a password that's hard for others to guess but that you can remember.</target>
+        </trans-unit>
+        <trans-unit id="88f2015e-9519-4ce4-b99b-a29f16d5ce56" xml:space="preserve">
+          <source><bpt id="221a5c07-5768-404e-baf8-0747ba4bb916">&lt;strong&gt;</bpt>You'll need the user name and password to log on to the virtual machine<ept id="221a5c07-5768-404e-baf8-0747ba4bb916">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="221a5c07-5768-404e-baf8-0747ba4bb916">&lt;strong&gt;</bpt>You'll need the user name and password to log on to the virtual machine<ept id="221a5c07-5768-404e-baf8-0747ba4bb916">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b870ea31-c97b-44b2-9641-5fbcc81c3d4e" xml:space="preserve">
+          <source>Click <bpt id="6252b12a-4d3c-4d30-99d3-41673362821f">&lt;strong&gt;</bpt>Size<ept id="6252b12a-4d3c-4d30-99d3-41673362821f">&lt;/strong&gt;</ept> and select an appropriate virtual machine size for your needs.</source>
+          <target state="new">Click <bpt id="6252b12a-4d3c-4d30-99d3-41673362821f">&lt;strong&gt;</bpt>Size<ept id="6252b12a-4d3c-4d30-99d3-41673362821f">&lt;/strong&gt;</ept> and select an appropriate virtual machine size for your needs.</target>
+        </trans-unit>
+        <trans-unit id="f4cc871a-4429-434c-875b-a7210af1dfeb" xml:space="preserve">
+          <source>Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price.</source>
+          <target state="new">Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price.</target>
+        </trans-unit>
+        <trans-unit id="21744488-4dd1-4837-8087-d6bbe727a47d" xml:space="preserve">
+          <source>Azure recommends certain sizes automatically depending on the image you choose.</source>
+          <target state="new">Azure recommends certain sizes automatically depending on the image you choose.</target>
+        </trans-unit>
+        <trans-unit id="d7b66f61-f809-4088-9b32-e7b7c7a5260c" xml:space="preserve">
+          <source><bpt id="82cddbd2-badb-4f9f-b8b5-5d467dd72b45">&lt;linkText&gt;</bpt>Configure VM size<ept id="82cddbd2-badb-4f9f-b8b5-5d467dd72b45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="82cddbd2-badb-4f9f-b8b5-5d467dd72b45">&lt;linkText&gt;</bpt>Configure VM size<ept id="82cddbd2-badb-4f9f-b8b5-5d467dd72b45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6eb69ea-7b0f-4149-a727-7916c1889d7b" xml:space="preserve">
+          <source>Premium storage is available for DS-series virtual machines in certain regions.</source>
+          <target state="new">Premium storage is available for DS-series virtual machines in certain regions.</target>
+        </trans-unit>
+        <trans-unit id="2878f68b-15e4-4c1f-8e7b-4779eabdfad1" xml:space="preserve">
+          <source>Premium storage is the best storage option for data intensive workloads such as a database.</source>
+          <target state="new">Premium storage is the best storage option for data intensive workloads such as a database.</target>
+        </trans-unit>
+        <trans-unit id="d0863667-67d3-45fb-bb70-966bd152e9f8" xml:space="preserve">
+          <source>For details, see <bpt id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;/linkText&gt;</ept><bpt id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;title&gt;</bpt><ept id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;linkText&gt;</bpt>Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads<ept id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;/linkText&gt;</ept><bpt id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;title&gt;</bpt><ept id="07eca924-76db-47c3-8127-8bd39dd3761d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7931c30-6714-4570-93da-635f9c32e6a9" xml:space="preserve">
+          <source>Click <bpt id="838c9acb-e29c-4475-90d3-4f89504d3cc1">&lt;strong&gt;</bpt>Settings<ept id="838c9acb-e29c-4475-90d3-4f89504d3cc1">&lt;/strong&gt;</ept> to see storage and networking settings for the new virtual machine.</source>
+          <target state="new">Click <bpt id="838c9acb-e29c-4475-90d3-4f89504d3cc1">&lt;strong&gt;</bpt>Settings<ept id="838c9acb-e29c-4475-90d3-4f89504d3cc1">&lt;/strong&gt;</ept> to see storage and networking settings for the new virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="b0de1f51-2319-498e-b757-aee50767b2a0" xml:space="preserve">
+          <source>For a first virtual machine you can generally accept the default settings.</source>
+          <target state="new">For a first virtual machine you can generally accept the default settings.</target>
+        </trans-unit>
+        <trans-unit id="a722793a-7731-45a4-a19f-2e1e2ad7a2c6" xml:space="preserve">
+          <source>If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting <bpt id="5c02cb8e-9191-4fe2-9b31-88b97c339946">&lt;strong&gt;</bpt>Premium (SSD)<ept id="5c02cb8e-9191-4fe2-9b31-88b97c339946">&lt;/strong&gt;</ept> under <bpt id="5ae6c012-567a-4724-a264-0827dac6e71a">&lt;strong&gt;</bpt>Disk type<ept id="5ae6c012-567a-4724-a264-0827dac6e71a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting <bpt id="5c02cb8e-9191-4fe2-9b31-88b97c339946">&lt;strong&gt;</bpt>Premium (SSD)<ept id="5c02cb8e-9191-4fe2-9b31-88b97c339946">&lt;/strong&gt;</ept> under <bpt id="5ae6c012-567a-4724-a264-0827dac6e71a">&lt;strong&gt;</bpt>Disk type<ept id="5ae6c012-567a-4724-a264-0827dac6e71a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1e427ca-faae-45d9-9944-a0bd696628a9" xml:space="preserve">
+          <source><bpt id="93ccea05-be24-4843-bb37-1b979582dd08">&lt;linkText&gt;</bpt>Configure VM settings<ept id="93ccea05-be24-4843-bb37-1b979582dd08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93ccea05-be24-4843-bb37-1b979582dd08">&lt;linkText&gt;</bpt>Configure VM settings<ept id="93ccea05-be24-4843-bb37-1b979582dd08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce4331ef-b53d-46e0-9b8e-7735d5d164c5" xml:space="preserve">
+          <source>Click <bpt id="db9a3931-9ac9-44b2-a07f-05a936947655">&lt;strong&gt;</bpt>Summary<ept id="db9a3931-9ac9-44b2-a07f-05a936947655">&lt;/strong&gt;</ept> to review your configuration choices.</source>
+          <target state="new">Click <bpt id="db9a3931-9ac9-44b2-a07f-05a936947655">&lt;strong&gt;</bpt>Summary<ept id="db9a3931-9ac9-44b2-a07f-05a936947655">&lt;/strong&gt;</ept> to review your configuration choices.</target>
+        </trans-unit>
+        <trans-unit id="c911381f-58b2-4c5d-9018-8912dc6158e1" xml:space="preserve">
+          <source>When you're done reviewing or updating the settings, click <bpt id="e300f14f-6ebb-4b05-ae56-b92c7032694e">&lt;strong&gt;</bpt>Create<ept id="e300f14f-6ebb-4b05-ae56-b92c7032694e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you're done reviewing or updating the settings, click <bpt id="e300f14f-6ebb-4b05-ae56-b92c7032694e">&lt;strong&gt;</bpt>Create<ept id="e300f14f-6ebb-4b05-ae56-b92c7032694e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fc83be26-635d-4de9-b0d9-7671746b806e" xml:space="preserve">
+          <source><bpt id="c39060b4-dc28-4d98-a770-c2ba166e00a2">&lt;linkText&gt;</bpt>Configure VM settings<ept id="c39060b4-dc28-4d98-a770-c2ba166e00a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c39060b4-dc28-4d98-a770-c2ba166e00a2">&lt;linkText&gt;</bpt>Configure VM settings<ept id="c39060b4-dc28-4d98-a770-c2ba166e00a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="21734069-3275-44e4-9d07-95b344c03472" xml:space="preserve">
+          <source>While Azure creates the virtual machine, you can track the progress in <bpt id="784beb42-ebdf-4856-bc24-6d26d5ecf635">&lt;strong&gt;</bpt>Notifications<ept id="784beb42-ebdf-4856-bc24-6d26d5ecf635">&lt;/strong&gt;</ept>, in the Hub menu.</source>
+          <target state="new">While Azure creates the virtual machine, you can track the progress in <bpt id="784beb42-ebdf-4856-bc24-6d26d5ecf635">&lt;strong&gt;</bpt>Notifications<ept id="784beb42-ebdf-4856-bc24-6d26d5ecf635">&lt;/strong&gt;</ept>, in the Hub menu.</target>
+        </trans-unit>
+        <trans-unit id="bc2fcea7-ec98-455a-a788-6145c49e7e48" xml:space="preserve">
+          <source>After Azure creates the virtual machine, you'll see it on your Startboard unless you cleared <bpt id="70f8f490-5cee-4a88-b9b5-57beabf61948">&lt;strong&gt;</bpt>Pin to Startboard<ept id="70f8f490-5cee-4a88-b9b5-57beabf61948">&lt;/strong&gt;</ept> in the <bpt id="f92f2270-4333-4835-9068-2d58ff23af22">&lt;strong&gt;</bpt>Create virtual machine<ept id="f92f2270-4333-4835-9068-2d58ff23af22">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">After Azure creates the virtual machine, you'll see it on your Startboard unless you cleared <bpt id="70f8f490-5cee-4a88-b9b5-57beabf61948">&lt;strong&gt;</bpt>Pin to Startboard<ept id="70f8f490-5cee-4a88-b9b5-57beabf61948">&lt;/strong&gt;</ept> in the <bpt id="f92f2270-4333-4835-9068-2d58ff23af22">&lt;strong&gt;</bpt>Create virtual machine<ept id="f92f2270-4333-4835-9068-2d58ff23af22">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="4e87d849-b535-44c3-9b3f-ded6818555cd" xml:space="preserve">
+          <source>After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.</source>
+          <target state="new">After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.</target>
+        </trans-unit>
+        <trans-unit id="5b76f2b4-cc44-4f74-89b6-340e4da1709f" xml:space="preserve">
+          <source>For requirements and troubleshooting tips, see <bpt id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;linkText&gt;</bpt>Connect to an Azure virtual machine with RDP or SSH<ept id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;/linkText&gt;</ept><bpt id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;title&gt;</bpt><ept id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;/title&gt;</ept>.</source>
+          <target state="new">For requirements and troubleshooting tips, see <bpt id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;linkText&gt;</bpt>Connect to an Azure virtual machine with RDP or SSH<ept id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;/linkText&gt;</ept><bpt id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;title&gt;</bpt><ept id="d322a442-265e-448b-aaca-95ae170f2f33">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88914682-e513-4f1f-a4a9-0a70bb48a6f5" xml:space="preserve">
+          <source>If you haven't already done so, sign in to the <bpt id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;linkText&gt;</bpt>preview portal<ept id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;/linkText&gt;</ept><bpt id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;title&gt;</bpt><ept id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't already done so, sign in to the <bpt id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;linkText&gt;</bpt>preview portal<ept id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;/linkText&gt;</ept><bpt id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;title&gt;</bpt><ept id="82ea3920-2702-4cc8-87e9-638866cdb5a4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13a2ea56-e810-43d3-8104-5495e1e34cc5" xml:space="preserve">
+          <source>Click your virtual machine on the Startboard.</source>
+          <target state="new">Click your virtual machine on the Startboard.</target>
+        </trans-unit>
+        <trans-unit id="e5499266-2911-4d97-9e36-37de63616927" xml:space="preserve">
+          <source>If you need to find it, click <bpt id="f75c7efd-6884-4368-ad1b-3ef7a1cbc171">&lt;strong&gt;</bpt>Browse All<ept id="f75c7efd-6884-4368-ad1b-3ef7a1cbc171">&lt;/strong&gt;</ept> &gt; <bpt id="bc8e0933-552d-4d70-bb00-d78580d320e8">&lt;strong&gt;</bpt>Recent<ept id="bc8e0933-552d-4d70-bb00-d78580d320e8">&lt;/strong&gt;</ept> or <bpt id="b1b1ce30-f4af-4539-9c39-1ad3541c2baa">&lt;strong&gt;</bpt>Browse All<ept id="b1b1ce30-f4af-4539-9c39-1ad3541c2baa">&lt;/strong&gt;</ept> &gt; <bpt id="c7bc9850-e665-4152-a1f8-6e854635044c">&lt;strong&gt;</bpt>Virtual machines<ept id="c7bc9850-e665-4152-a1f8-6e854635044c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you need to find it, click <bpt id="f75c7efd-6884-4368-ad1b-3ef7a1cbc171">&lt;strong&gt;</bpt>Browse All<ept id="f75c7efd-6884-4368-ad1b-3ef7a1cbc171">&lt;/strong&gt;</ept> &gt; <bpt id="bc8e0933-552d-4d70-bb00-d78580d320e8">&lt;strong&gt;</bpt>Recent<ept id="bc8e0933-552d-4d70-bb00-d78580d320e8">&lt;/strong&gt;</ept> or <bpt id="b1b1ce30-f4af-4539-9c39-1ad3541c2baa">&lt;strong&gt;</bpt>Browse All<ept id="b1b1ce30-f4af-4539-9c39-1ad3541c2baa">&lt;/strong&gt;</ept> &gt; <bpt id="c7bc9850-e665-4152-a1f8-6e854635044c">&lt;strong&gt;</bpt>Virtual machines<ept id="c7bc9850-e665-4152-a1f8-6e854635044c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8836043-c779-411e-a431-3a50417084ba" xml:space="preserve">
+          <source>Then, select your virtual machine from the list.</source>
+          <target state="new">Then, select your virtual machine from the list.</target>
+        </trans-unit>
+        <trans-unit id="3c5c774f-0cb2-4215-ae22-c48d5f3ad8c7" xml:space="preserve">
+          <source>On the virtual machine blade, click <bpt id="ca5aafff-d691-4ea9-b4c8-d210277808ab">&lt;strong&gt;</bpt>Connect<ept id="ca5aafff-d691-4ea9-b4c8-d210277808ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the virtual machine blade, click <bpt id="ca5aafff-d691-4ea9-b4c8-d210277808ab">&lt;strong&gt;</bpt>Connect<ept id="ca5aafff-d691-4ea9-b4c8-d210277808ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f820ca9f-da2c-41f8-b287-b30981a941b0" xml:space="preserve">
+          <source><bpt id="01c8a4dd-5850-4129-9443-09a6a15edd77">&lt;linkText&gt;</bpt>Log on to the virtual machine<ept id="01c8a4dd-5850-4129-9443-09a6a15edd77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01c8a4dd-5850-4129-9443-09a6a15edd77">&lt;linkText&gt;</bpt>Log on to the virtual machine<ept id="01c8a4dd-5850-4129-9443-09a6a15edd77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4e874e1-482b-4b59-8f85-6ed04adeea92" xml:space="preserve">
+          <source>Click <bpt id="dac8db53-65bf-4dd6-b0bc-51e1ef2bb5ae">&lt;strong&gt;</bpt>Open<ept id="dac8db53-65bf-4dd6-b0bc-51e1ef2bb5ae">&lt;/strong&gt;</ept> to use the Remote Desktop Protocol file that's automatically created for the Windows Server virtual machine.</source>
+          <target state="new">Click <bpt id="dac8db53-65bf-4dd6-b0bc-51e1ef2bb5ae">&lt;strong&gt;</bpt>Open<ept id="dac8db53-65bf-4dd6-b0bc-51e1ef2bb5ae">&lt;/strong&gt;</ept> to use the Remote Desktop Protocol file that's automatically created for the Windows Server virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="fff2791c-20a9-4312-847c-2bd1607ea562" xml:space="preserve">
+          <source>Click <bpt id="d1edcf62-0774-4b63-b03e-8b644422d176">&lt;strong&gt;</bpt>Connect<ept id="d1edcf62-0774-4b63-b03e-8b644422d176">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d1edcf62-0774-4b63-b03e-8b644422d176">&lt;strong&gt;</bpt>Connect<ept id="d1edcf62-0774-4b63-b03e-8b644422d176">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc7afb93-df26-4d1f-a3fc-944cb6ff3493" xml:space="preserve">
+          <source>Type the user name and password you set when you created the virtual machine, and then click <bpt id="69045c1d-320a-4af6-897f-1f39cf0b10a5">&lt;strong&gt;</bpt>OK<ept id="69045c1d-320a-4af6-897f-1f39cf0b10a5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type the user name and password you set when you created the virtual machine, and then click <bpt id="69045c1d-320a-4af6-897f-1f39cf0b10a5">&lt;strong&gt;</bpt>OK<ept id="69045c1d-320a-4af6-897f-1f39cf0b10a5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a425cefd-c512-4c79-988e-461da4a0af9b" xml:space="preserve">
+          <source>Click <bpt id="fdb9539d-a98c-4c87-9c38-8bb2a5b4a216">&lt;strong&gt;</bpt>Yes<ept id="fdb9539d-a98c-4c87-9c38-8bb2a5b4a216">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</source>
+          <target state="new">Click <bpt id="fdb9539d-a98c-4c87-9c38-8bb2a5b4a216">&lt;strong&gt;</bpt>Yes<ept id="fdb9539d-a98c-4c87-9c38-8bb2a5b4a216">&lt;/strong&gt;</ept> to verify the identity of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f0bc4c44-602e-4bc5-bb48-408c4839fa96" xml:space="preserve">
+          <source>You can now work with the virtual machine just as you would with any other server.</source>
+          <target state="new">You can now work with the virtual machine just as you would with any other server.</target>
+        </trans-unit>
+        <trans-unit id="d3d370ec-e649-4200-8b3b-a781c3aa52f9" xml:space="preserve">
+          <source>Use Azure PowerShell and the Azure CLI to <bpt id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;linkText&gt;</bpt>find and select virtual machine images<ept id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;/linkText&gt;</ept><bpt id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;title&gt;</bpt><ept id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use Azure PowerShell and the Azure CLI to <bpt id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;linkText&gt;</bpt>find and select virtual machine images<ept id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;/linkText&gt;</ept><bpt id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;title&gt;</bpt><ept id="fa289cd4-c0d2-48c0-b431-412b4b3e08ec">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1dde7a1-8f59-4d91-ad60-b66ab927ff60" xml:space="preserve">
+          <source>Automate virtual machine and workload deployment and management using <bpt id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;/linkText&gt;</ept><bpt id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;title&gt;</bpt><ept id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;/title&gt;</ept> and <bpt id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;linkText&gt;</bpt>Azure Resource Manager templates<ept id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;/linkText&gt;</ept><bpt id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;title&gt;</bpt><ept id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Automate virtual machine and workload deployment and management using <bpt id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;/linkText&gt;</ept><bpt id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;title&gt;</bpt><ept id="e149fde9-01f8-49db-96f6-994f9f9f2cc9">&lt;/title&gt;</ept> and <bpt id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;linkText&gt;</bpt>Azure Resource Manager templates<ept id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;/linkText&gt;</ept><bpt id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;title&gt;</bpt><ept id="5b818e0c-8a96-44ac-b1d6-52203a07c06c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

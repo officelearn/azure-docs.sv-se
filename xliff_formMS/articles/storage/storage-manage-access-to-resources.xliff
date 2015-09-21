@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="30c1f54f-3362-4098-9145-92858a2a731d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="30c1f54f-3362-4098-9145-92858a2a731d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53a3f51c-d41e-4e8f-aa8e-c9e11a895455">
+        <trans-unit id="5f9312bc-e0f4-4457-a140-d69e6a774396" xml:space="preserve">
+          <source>Manage Access to Azure Storage Resources | Microsoft Azure</source>
+          <target state="new">Manage Access to Azure Storage Resources | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a79d3721-eefe-412d-b6ad-9c285a43fb55" xml:space="preserve">
+          <source>Learn how to manage how users access your Azure Storage resources.</source>
+          <target state="new">Learn how to manage how users access your Azure Storage resources.</target>
+        </trans-unit>
+        <trans-unit id="51b316f1-c429-426a-80da-978d168b29ea" xml:space="preserve">
+          <source>By default, only the owner of the storage account may access storage resources within that account.</source>
+          <target state="new">By default, only the owner of the storage account may access storage resources within that account.</target>
+        </trans-unit>
+        <trans-unit id="c1cdbc1d-44a1-4265-8e61-a2aaccba7a6d" xml:space="preserve">
+          <source>If your service or application needs to make these resources available to other clients without sharing your access key, you have the following options for permitting access:</source>
+          <target state="new">If your service or application needs to make these resources available to other clients without sharing your access key, you have the following options for permitting access:</target>
+        </trans-unit>
+        <trans-unit id="5a2c3e1f-3154-4f71-b7ec-1a464e728c8b" xml:space="preserve">
+          <source>You can set a container's permissions to permit anonymous read access to the container and its blobs.</source>
+          <target state="new">You can set a container's permissions to permit anonymous read access to the container and its blobs.</target>
+        </trans-unit>
+        <trans-unit id="1ca74a69-a574-4044-a551-431a4bc12b57" xml:space="preserve">
+          <source>Anonymous read access is available only for containers and blobs.</source>
+          <target state="new">Anonymous read access is available only for containers and blobs.</target>
+        </trans-unit>
+        <trans-unit id="13e0de22-f7a5-4df1-a20d-5b7e8c7694ed" xml:space="preserve">
+          <source>You can expose a resource via a shared access signature, which enables you to delegate restricted access to a container, blob, table, queue, file share, or file by specifying the interval for which the resources are available and the permissions that a client will have to it.</source>
+          <target state="new">You can expose a resource via a shared access signature, which enables you to delegate restricted access to a container, blob, table, queue, file share, or file by specifying the interval for which the resources are available and the permissions that a client will have to it.</target>
+        </trans-unit>
+        <trans-unit id="923bd620-df30-45d7-854c-7dcb3524ac8e" xml:space="preserve">
+          <source>You can use a stored access policy to manage shared access signatures for a container or its blobs, for a queue, for a table, or for a file share or its files.</source>
+          <target state="new">You can use a stored access policy to manage shared access signatures for a container or its blobs, for a queue, for a table, or for a file share or its files.</target>
+        </trans-unit>
+        <trans-unit id="5ed5f4df-e0d0-4e91-ab3f-71a573017727" xml:space="preserve">
+          <source>The stored access policy gives you an additional measure of control over your shared access signatures and also provides a straightforward means to revoke them.</source>
+          <target state="new">The stored access policy gives you an additional measure of control over your shared access signatures and also provides a straightforward means to revoke them.</target>
+        </trans-unit>
+        <trans-unit id="489cd605-d305-40d3-86f3-cd73b1d02229" xml:space="preserve">
+          <source>By default, a container and any blobs within it may be accessed only by the owner of the storage account.</source>
+          <target state="new">By default, a container and any blobs within it may be accessed only by the owner of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="99e385cc-39da-4be9-92fa-7824d8284b84" xml:space="preserve">
+          <source>To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access.</source>
+          <target state="new">To give anonymous users read permissions to a container and its blobs, you can set the container permissions to allow public access.</target>
+        </trans-unit>
+        <trans-unit id="a08cb4f0-0aa7-48bf-979f-e180b1af70c9" xml:space="preserve">
+          <source>Anonymous users can read blobs within a publicly accessible container without authenticating the request.</source>
+          <target state="new">Anonymous users can read blobs within a publicly accessible container without authenticating the request.</target>
+        </trans-unit>
+        <trans-unit id="9ab33358-c3ed-40c0-a2ac-517bdd747992" xml:space="preserve">
+          <source>Containers provide the following options for managing container access:</source>
+          <target state="new">Containers provide the following options for managing container access:</target>
+        </trans-unit>
+        <trans-unit id="d0670852-fb8b-4007-b646-1d7b9357430d" xml:space="preserve">
+          <source><bpt id="28307ef5-45ae-4dba-8b44-707c65b803db">&lt;strong&gt;</bpt>Full public read access:<ept id="28307ef5-45ae-4dba-8b44-707c65b803db">&lt;/strong&gt;</ept> Container and blob data can be read via anonymous request.</source>
+          <target state="new"><bpt id="28307ef5-45ae-4dba-8b44-707c65b803db">&lt;strong&gt;</bpt>Full public read access:<ept id="28307ef5-45ae-4dba-8b44-707c65b803db">&lt;/strong&gt;</ept> Container and blob data can be read via anonymous request.</target>
+        </trans-unit>
+        <trans-unit id="272a285d-c7b2-472d-bb1b-b3a379061218" xml:space="preserve">
+          <source>Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.</source>
+          <target state="new">Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.</target>
+        </trans-unit>
+        <trans-unit id="6a488a82-a843-4f7e-8d82-4faf8f7ac19a" xml:space="preserve">
+          <source><bpt id="130fadf6-7892-4823-a861-ff2afc9d0d9b">&lt;strong&gt;</bpt>Public read access for blobs only:<ept id="130fadf6-7892-4823-a861-ff2afc9d0d9b">&lt;/strong&gt;</ept> Blob data within this container can be read via anonymous request, but container data is not available.</source>
+          <target state="new"><bpt id="130fadf6-7892-4823-a861-ff2afc9d0d9b">&lt;strong&gt;</bpt>Public read access for blobs only:<ept id="130fadf6-7892-4823-a861-ff2afc9d0d9b">&lt;/strong&gt;</ept> Blob data within this container can be read via anonymous request, but container data is not available.</target>
+        </trans-unit>
+        <trans-unit id="0eb2864e-c02a-40de-80b7-82760d67a6b4" xml:space="preserve">
+          <source>Clients cannot enumerate blobs within the container via anonymous request.</source>
+          <target state="new">Clients cannot enumerate blobs within the container via anonymous request.</target>
+        </trans-unit>
+        <trans-unit id="709eadee-390b-4002-b7a0-8127642df0ce" xml:space="preserve">
+          <source><bpt id="31265d8e-791f-4de8-a891-a3eab7e840b9">&lt;strong&gt;</bpt>No public read access:<ept id="31265d8e-791f-4de8-a891-a3eab7e840b9">&lt;/strong&gt;</ept> Container and blob data can be read by the account owner only.</source>
+          <target state="new"><bpt id="31265d8e-791f-4de8-a891-a3eab7e840b9">&lt;strong&gt;</bpt>No public read access:<ept id="31265d8e-791f-4de8-a891-a3eab7e840b9">&lt;/strong&gt;</ept> Container and blob data can be read by the account owner only.</target>
+        </trans-unit>
+        <trans-unit id="0c662b85-27e5-447e-83b4-77d2895e3c9e" xml:space="preserve">
+          <source>If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users.</source>
+          <target state="new">If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users.</target>
+        </trans-unit>
+        <trans-unit id="1d71aecb-dc0c-4af8-b9bc-4c50ac79ab45" xml:space="preserve">
+          <source>The following table shows which operations may be called by anonymous users when a container's ACL is set to allow public access.</source>
+          <target state="new">The following table shows which operations may be called by anonymous users when a container's ACL is set to allow public access.</target>
+        </trans-unit>
+        <trans-unit id="e8a44ad6-2aca-438b-9423-70b6f0caff40" xml:space="preserve">
+          <source>REST Operation</source>
+          <target state="new">REST Operation</target>
+        </trans-unit>
+        <trans-unit id="e4baa94a-1a69-465e-9315-5238236ee738" xml:space="preserve">
+          <source>Permission with full public read access</source>
+          <target state="new">Permission with full public read access</target>
+        </trans-unit>
+        <trans-unit id="b4f6a2cf-92be-4186-aa6f-7e0fe89f0ac3" xml:space="preserve">
+          <source>Permission with public read access for blobs only</source>
+          <target state="new">Permission with public read access for blobs only</target>
+        </trans-unit>
+        <trans-unit id="6703e5a1-1d50-485c-a05d-5c224fe0eaa5" xml:space="preserve">
+          <source>List Containers</source>
+          <target state="new">List Containers</target>
+        </trans-unit>
+        <trans-unit id="bcffbfb5-a6a0-4614-9f9f-ed7540903f50" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="393abffa-62b1-4b1d-ba49-1475d497ecb3" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="71d1aa94-64d3-47c6-95dd-02fc403b64e3" xml:space="preserve">
+          <source>Create Container</source>
+          <target state="new">Create Container</target>
+        </trans-unit>
+        <trans-unit id="9872ced0-14ac-42ce-8d1a-11878ebf29d5" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="c76f3dba-51ff-4b01-87aa-8385980e343d" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="67240ff0-3c17-4c23-8172-80204d192272" xml:space="preserve">
+          <source>Get Container Properties</source>
+          <target state="new">Get Container Properties</target>
+        </trans-unit>
+        <trans-unit id="19e137be-d897-40ed-874a-2236f5454fb5" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="b3fe6332-5318-4a39-97f3-4670166ffc2c" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="a2f015e5-6921-4ba8-8723-f85424718bdc" xml:space="preserve">
+          <source>Get Container Metadata</source>
+          <target state="new">Get Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="f86ce04b-4a01-452e-a759-77a844ca076f" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="eee4fba8-9479-4dbb-acc8-f19c11ca1264" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="7a74ee3a-d18b-4574-8bb1-16771cf2a1ab" xml:space="preserve">
+          <source>Set Container Metadata</source>
+          <target state="new">Set Container Metadata</target>
+        </trans-unit>
+        <trans-unit id="12ab9eca-9b48-44e8-b820-21325eabfe06" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="c07cf494-b484-4068-99d2-9423f4ea8675" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="3e3e443c-1eec-4af5-9136-20eef9394354" xml:space="preserve">
+          <source>Get Container ACL</source>
+          <target state="new">Get Container ACL</target>
+        </trans-unit>
+        <trans-unit id="f09f7ef1-6473-4df9-9aef-26298362a7d3" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="e1e4de65-c9f1-46fe-9f31-c7d5c7fa8df6" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="98febee8-570e-49a5-ad1b-6f66c18355e4" xml:space="preserve">
+          <source>Set Container ACL</source>
+          <target state="new">Set Container ACL</target>
+        </trans-unit>
+        <trans-unit id="78ff86ed-99eb-42a2-a169-6f69f97be12e" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="c1766ab4-a3a0-4deb-bdf6-e6a536b97591" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="cba2113f-a9a1-4f86-99f4-f27421987f35" xml:space="preserve">
+          <source>Delete Container</source>
+          <target state="new">Delete Container</target>
+        </trans-unit>
+        <trans-unit id="9b358d74-e5f4-4419-a25e-dcae07621399" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="9e5c2164-bb9a-4f48-bd8a-8eacc4fe19f8" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="8cdd0a81-28d0-4133-947b-77d0a41bf236" xml:space="preserve">
+          <source>List Blobs</source>
+          <target state="new">List Blobs</target>
+        </trans-unit>
+        <trans-unit id="af5a74da-df48-4f80-a374-da2663a5a385" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="1818c40d-b974-49c4-ac4f-f610a9c13282" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="9b899c04-16ab-4fce-a5c1-785118cb02fb" xml:space="preserve">
+          <source>Put Blob</source>
+          <target state="new">Put Blob</target>
+        </trans-unit>
+        <trans-unit id="d36fe399-010c-4518-81af-f45b421ca8dd" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="2d4d3395-300b-4524-841a-389ecebbea93" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="f39b7796-7b46-4971-b095-a1170458c2ba" xml:space="preserve">
+          <source>Get Blob</source>
+          <target state="new">Get Blob</target>
+        </trans-unit>
+        <trans-unit id="256a9305-9792-4606-8ea0-68c47070e28b" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="275b76c1-7e14-4f73-a4ab-79a0e71ee360" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="ae363b98-9d1a-4322-b5bd-a25cc1bd63be" xml:space="preserve">
+          <source>Get Blob Properties</source>
+          <target state="new">Get Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="4ff15edb-34c2-445f-8319-755c44fd791c" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="f3d9a7aa-4a3a-4f8f-b987-1ae973a43817" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="ed99f051-17aa-4465-8961-c8312cfe4cbd" xml:space="preserve">
+          <source>Set Blob Properties</source>
+          <target state="new">Set Blob Properties</target>
+        </trans-unit>
+        <trans-unit id="1d1d1466-3e2d-48dd-8edd-16d057316565" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="016eff0b-ba54-4456-9ee0-51be407449bb" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="07ab527e-e217-462f-90f4-4dc1fd1a4421" xml:space="preserve">
+          <source>Get Blob Metadata</source>
+          <target state="new">Get Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="1b9b1034-d8a3-4e91-adf5-79310e821239" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="dae4f877-4819-4283-b8f5-955b9986eb62" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="cc6ed83e-d180-4a36-ac13-f16b594f870e" xml:space="preserve">
+          <source>Set Blob Metadata</source>
+          <target state="new">Set Blob Metadata</target>
+        </trans-unit>
+        <trans-unit id="6a9bd096-e225-4ade-92e3-7c3d5f2a63ca" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="dd3a28b2-0616-40a5-b9bc-5e3577c3b791" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="09a00386-5490-4d23-b251-7d105887a2f7" xml:space="preserve">
+          <source>Put Block</source>
+          <target state="new">Put Block</target>
+        </trans-unit>
+        <trans-unit id="9f62b991-56c5-4cde-bb52-a3994ecd4e81" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="a04dec56-4aa2-46ae-a786-fb35597e80aa" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="28fd633b-eff0-4e16-a61e-efe6c4504277" xml:space="preserve">
+          <source>Get Block List (committed blocks only)</source>
+          <target state="new">Get Block List (committed blocks only)</target>
+        </trans-unit>
+        <trans-unit id="7a4794a8-2d7a-4013-a0cd-27918d118e72" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="6c6602aa-740b-4b83-a3be-1f874ebc8f60" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="d8851a56-314d-485d-8ab9-5c38b4d07af1" xml:space="preserve">
+          <source>Get Block List (uncommitted blocks only or all blocks)</source>
+          <target state="new">Get Block List (uncommitted blocks only or all blocks)</target>
+        </trans-unit>
+        <trans-unit id="67cb8148-f635-49ad-b4f3-d24051f45da2" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="520059fb-6178-4ed9-8d54-795934fbf355" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="cfc2ed55-5b52-4769-b977-7461dad49b2b" xml:space="preserve">
+          <source>Put Block List</source>
+          <target state="new">Put Block List</target>
+        </trans-unit>
+        <trans-unit id="8f49bf86-bd1b-45e9-be61-13dc0bbce505" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="9183bc39-26d3-4183-a325-305809cde8c4" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="907c5059-1292-49d8-b1b8-0865d7d40cd7" xml:space="preserve">
+          <source>Delete Blob</source>
+          <target state="new">Delete Blob</target>
+        </trans-unit>
+        <trans-unit id="4c0d6805-a878-47b6-9ade-b6eb64dd3fa6" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="ca614598-fb80-45d2-8b90-006e03edbf0f" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="47a2516d-4b41-430f-8fba-470553ca7465" xml:space="preserve">
+          <source>Copy Blob</source>
+          <target state="new">Copy Blob</target>
+        </trans-unit>
+        <trans-unit id="3ba019ed-5e74-418c-bb33-3af342f102d5" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="84c18bd9-df96-48f2-b82a-4f563da2fa6f" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="7c1f2a26-2c0d-4b1c-994e-2d1163e552be" xml:space="preserve">
+          <source>Snapshot Blob</source>
+          <target state="new">Snapshot Blob</target>
+        </trans-unit>
+        <trans-unit id="a08745c2-3c45-4a7d-8544-706ac08d0c02" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="b1df63dd-614a-4f2e-bba8-c7be77ce58f7" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="74d30bfb-1037-4aed-9ff5-0c4c27e5dd25" xml:space="preserve">
+          <source>Lease Blob</source>
+          <target state="new">Lease Blob</target>
+        </trans-unit>
+        <trans-unit id="d6b44ec2-4c8b-4f43-9082-5d62a8fdffd8" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="7dbde6a2-109c-4b4f-8a0a-7e8d85025eb7" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="db0c9550-2bc6-4a91-9e0b-72550a5cd0f4" xml:space="preserve">
+          <source>Put Page</source>
+          <target state="new">Put Page</target>
+        </trans-unit>
+        <trans-unit id="ee7df175-d530-4762-82c1-247a00c36cba" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="a596462e-26e1-4033-9e23-db5abfd93ef0" xml:space="preserve">
+          <source>Owner only</source>
+          <target state="new">Owner only</target>
+        </trans-unit>
+        <trans-unit id="840880c7-1c1b-484b-9941-21fc961419d3" xml:space="preserve">
+          <source>Get Page Ranges</source>
+          <target state="new">Get Page Ranges</target>
+        </trans-unit>
+        <trans-unit id="cc5b36a3-6efd-4b49-8b03-899dd81292bf" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="59724b8d-27ab-4c48-a09f-5f1ca5f4119d" xml:space="preserve">
+          <source>All</source>
+          <target state="new">All</target>
+        </trans-unit>
+        <trans-unit id="e7324c80-9434-4b1c-a3c3-081febc3c551" xml:space="preserve">
+          <source>A shared access signature (SAS) is a URI that grants restricted access rights to a storage resource for a specified time interval.</source>
+          <target state="new">A shared access signature (SAS) is a URI that grants restricted access rights to a storage resource for a specified time interval.</target>
+        </trans-unit>
+        <trans-unit id="8687ed9e-1da0-4685-8cdd-d8dab9db3efd" xml:space="preserve">
+          <source>You can create a SAS on these storage resources:</source>
+          <target state="new">You can create a SAS on these storage resources:</target>
+        </trans-unit>
+        <trans-unit id="1a59a9dd-e659-4049-ae04-8ae7e2948f9e" xml:space="preserve">
+          <source>Containers and blobs</source>
+          <target state="new">Containers and blobs</target>
+        </trans-unit>
+        <trans-unit id="31db08fc-933e-4567-bcd4-b0bea45a40b6" xml:space="preserve">
+          <source>Queues</source>
+          <target state="new">Queues</target>
+        </trans-unit>
+        <trans-unit id="90a2dfbe-3e98-4125-889c-8478cc5022fc" xml:space="preserve">
+          <source>Tables</source>
+          <target state="new">Tables</target>
+        </trans-unit>
+        <trans-unit id="d7e5baff-0e0b-4756-8498-d090011e7ef3" xml:space="preserve">
+          <source>File shares and files </source>
+          <target state="new">File shares and files </target>
+        </trans-unit>
+        <trans-unit id="69b91373-ab6b-4a6e-a36a-3ad4af9b8fd6" xml:space="preserve">
+          <source>By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.</source>
+          <target state="new">By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.</target>
+        </trans-unit>
+        <trans-unit id="86439b5a-2df7-4f34-aa62-480297605449" xml:space="preserve">
+          <source>For an in-depth conceptual overview and tutorial on shared access signatures, see <bpt id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;linkText&gt;</bpt>Shared Access Signatures<ept id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;/linkText&gt;</ept><bpt id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;title&gt;</bpt><ept id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an in-depth conceptual overview and tutorial on shared access signatures, see <bpt id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;linkText&gt;</bpt>Shared Access Signatures<ept id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;/linkText&gt;</ept><bpt id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;title&gt;</bpt><ept id="2a65b302-5441-45f2-9a3e-f929edaceba2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8caba48f-ab87-44d0-859f-fbf6803c729e" xml:space="preserve">
+          <source>The shared access signature URI query parameters incorporate all of the information necessary to grant controlled access to a storage resource.</source>
+          <target state="new">The shared access signature URI query parameters incorporate all of the information necessary to grant controlled access to a storage resource.</target>
+        </trans-unit>
+        <trans-unit id="87729ff4-cc4f-44b1-8f20-8600df84edc8" xml:space="preserve">
+          <source>The URI query parameters on a SAS include the time interval over which the shared access signature is valid, the permissions that it grants, the resource that is to be made available, the version to use to execute the request, and the signature that the storage services will use to authenticate the request.</source>
+          <target state="new">The URI query parameters on a SAS include the time interval over which the shared access signature is valid, the permissions that it grants, the resource that is to be made available, the version to use to execute the request, and the signature that the storage services will use to authenticate the request.</target>
+        </trans-unit>
+        <trans-unit id="cb4cdaea-88ac-4b12-b6b2-c1168b60a04e" xml:space="preserve">
+          <source>Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary.</source>
+          <target state="new">Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary.</target>
+        </trans-unit>
+        <trans-unit id="3a4e6659-68d4-47f7-8919-6694e270ce7c" xml:space="preserve">
+          <source>For information on the URI format of a shared access signature, see <bpt id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;/linkText&gt;</ept><bpt id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;title&gt;</bpt><ept id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on the URI format of a shared access signature, see <bpt id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;/linkText&gt;</ept><bpt id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;title&gt;</bpt><ept id="a2253f9b-fa7e-4eec-bc64-ca3e47f0615f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f01ff106-49ef-41fc-8742-491996fc1659" xml:space="preserve">
+          <source>A shared access signature grants access to the resource specified by the URI's granted permissions.</source>
+          <target state="new">A shared access signature grants access to the resource specified by the URI's granted permissions.</target>
+        </trans-unit>
+        <trans-unit id="7dde012f-a81b-4e85-b5a0-4be1651b6698" xml:space="preserve">
+          <source>You should always use HTTPS to construct a shared access signature URI.</source>
+          <target state="new">You should always use HTTPS to construct a shared access signature URI.</target>
+        </trans-unit>
+        <trans-unit id="e1a38d36-8232-4576-b6d4-a25128eb21e3" xml:space="preserve">
+          <source>Using HTTP with shared access signatures can make your storage account vulnerable to malicious use.</source>
+          <target state="new">Using HTTP with shared access signatures can make your storage account vulnerable to malicious use.</target>
+        </trans-unit>
+        <trans-unit id="0c76e960-e2b0-4151-a59b-e99806b41541" xml:space="preserve">
+          <source>If a shared access signature grants access that is not intended for the general public, then it should be constructed with the fewest possible permissions.</source>
+          <target state="new">If a shared access signature grants access that is not intended for the general public, then it should be constructed with the fewest possible permissions.</target>
+        </trans-unit>
+        <trans-unit id="b0762b0b-d604-4472-adbb-361706095612" xml:space="preserve">
+          <source>In addition, a shared access signature should be distributed securely to clients over a secure connection, should be associated with a stored access policy for the purpose of revocation, and should specify the shortest possible lifetime for the signature.</source>
+          <target state="new">In addition, a shared access signature should be distributed securely to clients over a secure connection, should be associated with a stored access policy for the purpose of revocation, and should specify the shortest possible lifetime for the signature.</target>
+        </trans-unit>
+        <trans-unit id="8910305f-5327-4612-8356-1461cd21295a" xml:space="preserve">
+          <source>A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any).</source>
+          <target state="new">A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any).</target>
+        </trans-unit>
+        <trans-unit id="6346ccd4-4409-4148-97e8-2cd87b1c9e1f" xml:space="preserve">
+          <source>If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.</source>
+          <target state="new">If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.</target>
+        </trans-unit>
+        <trans-unit id="fa2fcc55-7ad8-4aaa-a354-f903e43af95c" xml:space="preserve">
+          <source>The following code example creates an access policy on a container and then generates a shared access signature for the container.</source>
+          <target state="new">The following code example creates an access policy on a container and then generates a shared access signature for the container.</target>
+        </trans-unit>
+        <trans-unit id="b67f5b52-079f-40a0-8c3a-9e2f021a3b57" xml:space="preserve">
+          <source>This shared access signature can then be given to clients:</source>
+          <target state="new">This shared access signature can then be given to clients:</target>
+        </trans-unit>
+        <trans-unit id="de915569-891a-47c3-b127-db28a523935e" xml:space="preserve">
+          <source>A client who receives a shared access signature can use it from their code to construct an object of type <bpt id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;linkText&gt;</bpt>StorageCredentials<ept id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;/linkText&gt;</ept><bpt id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;title&gt;</bpt><ept id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;/title&gt;</ept>.</source>
+          <target state="new">A client who receives a shared access signature can use it from their code to construct an object of type <bpt id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;linkText&gt;</bpt>StorageCredentials<ept id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;/linkText&gt;</ept><bpt id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;title&gt;</bpt><ept id="5bacf74d-beb4-4b1d-8091-042e2f875b6d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f95ed8c2-ffff-49e4-a8f1-530d6d4ada22" xml:space="preserve">
+          <source>Those credentials can then be used to construct a <bpt id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;linkText&gt;</bpt>CloudStorageAccount<ept id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;/linkText&gt;</ept><bpt id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;title&gt;</bpt><ept id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;/title&gt;</ept> or a <bpt id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;linkText&gt;</bpt>CloudBlobClient<ept id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;/linkText&gt;</ept><bpt id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;title&gt;</bpt><ept id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;/title&gt;</ept> object for working with the resource, as shown in this example:</source>
+          <target state="new">Those credentials can then be used to construct a <bpt id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;linkText&gt;</bpt>CloudStorageAccount<ept id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;/linkText&gt;</ept><bpt id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;title&gt;</bpt><ept id="ea36be71-05ce-4ce9-8699-099021d3f6d1">&lt;/title&gt;</ept> or a <bpt id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;linkText&gt;</bpt>CloudBlobClient<ept id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;/linkText&gt;</ept><bpt id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;title&gt;</bpt><ept id="1a9a58d9-df74-4d18-9c64-1c06018d22c8">&lt;/title&gt;</ept> object for working with the resource, as shown in this example:</target>
+        </trans-unit>
+        <trans-unit id="af9d5e42-e508-401b-a534-a6662f717bc2" xml:space="preserve">
+          <source>A stored access policy provides an additional level of control over shared access signatures on the server side.</source>
+          <target state="new">A stored access policy provides an additional level of control over shared access signatures on the server side.</target>
+        </trans-unit>
+        <trans-unit id="96871ec8-8ef3-4ea0-863f-d37f55625240" xml:space="preserve">
+          <source>Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</source>
+          <target state="new">Establishing a stored access policy serves to group shared access signatures and to provide additional restrictions for signatures that are bound by the policy.</target>
+        </trans-unit>
+        <trans-unit id="6fbd5b26-fd27-4e6c-80f9-b349790392f8" xml:space="preserve">
+          <source>You can use a stored access policy to change the start time, expiry time, or permissions for a signature, or to revoke it after it has been issued.</source>
+          <target state="new">You can use a stored access policy to change the start time, expiry time, or permissions for a signature, or to revoke it after it has been issued.</target>
+        </trans-unit>
+        <trans-unit id="6b083165-f463-4766-a134-426990c5ffe3" xml:space="preserve">
+          <source>A stored access policy gives you greater control over shared access signatures you have released.</source>
+          <target state="new">A stored access policy gives you greater control over shared access signatures you have released.</target>
+        </trans-unit>
+        <trans-unit id="82865d2d-cd44-4238-91fb-bf0835c4de1a" xml:space="preserve">
+          <source>Instead of specifying the signature's lifetime and permissions on the URL, you can specify these parameters on a stored access policy that is stored on the container, file share, queue, or table that contains the resource being shared.</source>
+          <target state="new">Instead of specifying the signature's lifetime and permissions on the URL, you can specify these parameters on a stored access policy that is stored on the container, file share, queue, or table that contains the resource being shared.</target>
+        </trans-unit>
+        <trans-unit id="e65b8611-49ab-4828-a0fd-6a56e17e5aa5" xml:space="preserve">
+          <source>To change these parameters for one or more signatures, you can modify the stored access policy, rather than reissuing the signatures.</source>
+          <target state="new">To change these parameters for one or more signatures, you can modify the stored access policy, rather than reissuing the signatures.</target>
+        </trans-unit>
+        <trans-unit id="a41d90d6-a474-4327-8a54-761c3cc7938e" xml:space="preserve">
+          <source>You can also quickly revoke the signature by modifying the stored access policy.</source>
+          <target state="new">You can also quickly revoke the signature by modifying the stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="98d291d6-fa42-4e06-a347-53d5dd5ec0fc" xml:space="preserve">
+          <source>For example, suppose you have issued a shared access signature that's associated with a stored access policy.</source>
+          <target state="new">For example, suppose you have issued a shared access signature that's associated with a stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="79859d80-654d-4f24-b684-ae871bbb0617" xml:space="preserve">
+          <source>If you've specified the expiry time within the stored access policy, you can modify the access policy to extend the life of the signature, without having to reissue a new signature.</source>
+          <target state="new">If you've specified the expiry time within the stored access policy, you can modify the access policy to extend the life of the signature, without having to reissue a new signature.</target>
+        </trans-unit>
+        <trans-unit id="3296b9d1-a790-4267-aa63-2e4497f74c4a" xml:space="preserve">
+          <source>Best practices recommend specifying a stored access policy for any signed resource for which you are issuing a shared access signature, as the stored policy can be used to modify or revoke the signature after it has been issued.</source>
+          <target state="new">Best practices recommend specifying a stored access policy for any signed resource for which you are issuing a shared access signature, as the stored policy can be used to modify or revoke the signature after it has been issued.</target>
+        </trans-unit>
+        <trans-unit id="e47bc59e-e5b0-4975-923b-ce78f4bc63be" xml:space="preserve">
+          <source>If you don't specify a stored policy, it's recommended that you limit the lifetime of your signature in order to minimize any risk to your storage account resources.</source>
+          <target state="new">If you don't specify a stored policy, it's recommended that you limit the lifetime of your signature in order to minimize any risk to your storage account resources.</target>
+        </trans-unit>
+        <trans-unit id="f58335b5-efcb-47b1-a958-2eaccddaa38c" xml:space="preserve">
+          <source>A stored access policy includes a name up to 64 characters long that is unique within the container, file share, queue, or table.</source>
+          <target state="new">A stored access policy includes a name up to 64 characters long that is unique within the container, file share, queue, or table.</target>
+        </trans-unit>
+        <trans-unit id="cb021994-e8e7-4782-9ab3-d2cdd9ab7322" xml:space="preserve">
+          <source>To associate a shared access signature with a stored access policy, you specify this identifier when creating the shared access signature.</source>
+          <target state="new">To associate a shared access signature with a stored access policy, you specify this identifier when creating the shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="32f192f3-d8b5-4403-8f26-85882f00834d" xml:space="preserve">
+          <source>On the shared access signature URI, the <bpt id="e1e12f05-cbac-4d5f-a578-9702f67696cf">&lt;em&gt;</bpt>signedidentifier<ept id="e1e12f05-cbac-4d5f-a578-9702f67696cf">&lt;/em&gt;</ept> field specifies the identifier for the stored access policy.</source>
+          <target state="new">On the shared access signature URI, the <bpt id="e1e12f05-cbac-4d5f-a578-9702f67696cf">&lt;em&gt;</bpt>signedidentifier<ept id="e1e12f05-cbac-4d5f-a578-9702f67696cf">&lt;/em&gt;</ept> field specifies the identifier for the stored access policy.</target>
+        </trans-unit>
+        <trans-unit id="27a49475-d950-4554-9401-34ba3c38ef2f" xml:space="preserve">
+          <source>A container, file share, queue, or table can include up to 5 stored access policies.</source>
+          <target state="new">A container, file share, queue, or table can include up to 5 stored access policies.</target>
+        </trans-unit>
+        <trans-unit id="aa2f5b92-976a-41ed-b03c-cc76559610b9" xml:space="preserve">
+          <source>Each policy can be used by any number of shared access signatures.</source>
+          <target state="new">Each policy can be used by any number of shared access signatures.</target>
+        </trans-unit>
+        <trans-unit id="b2d5b6c7-8336-4c9a-96fa-28aa2d9804f9" xml:space="preserve">
+          <source>When you establish a stored access policy on a container, file share, queue, or table, it may take up to 30 seconds to take effect.</source>
+          <target state="new">When you establish a stored access policy on a container, file share, queue, or table, it may take up to 30 seconds to take effect.</target>
+        </trans-unit>
+        <trans-unit id="e2d5bcd7-1170-4925-bbc9-e98513539139" xml:space="preserve">
+          <source>During this interval, a shared access signature that is associated with the stored access policy will fail with status code 403 (Forbidden), until the access policy becomes active.</source>
+          <target state="new">During this interval, a shared access signature that is associated with the stored access policy will fail with status code 403 (Forbidden), until the access policy becomes active.</target>
+        </trans-unit>
+        <trans-unit id="42080b7c-a1ac-4f2b-b230-050fc884a4dc" xml:space="preserve">
+          <source>The stored access policy can specify the following access policy parameters for the signatures with which it's associated:</source>
+          <target state="new">The stored access policy can specify the following access policy parameters for the signatures with which it's associated:</target>
+        </trans-unit>
+        <trans-unit id="e9415887-a6d1-459e-83a0-2a7e571cd475" xml:space="preserve">
+          <source>Start time</source>
+          <target state="new">Start time</target>
+        </trans-unit>
+        <trans-unit id="d3286763-086d-4cbb-b77e-f5153b8cdd66" xml:space="preserve">
+          <source>Expiry time</source>
+          <target state="new">Expiry time</target>
+        </trans-unit>
+        <trans-unit id="8a1e64e5-8aea-4afe-9c0b-596b28411fac" xml:space="preserve">
+          <source>Permissions</source>
+          <target state="new">Permissions</target>
+        </trans-unit>
+        <trans-unit id="717b0888-04e5-4822-adfd-bd87a53e24dc" xml:space="preserve">
+          <source>Depending on how you want to control access to your storage resource, you can specify all of these parameters within the stored access policy, and omit them from the URL for the shared access signature.</source>
+          <target state="new">Depending on how you want to control access to your storage resource, you can specify all of these parameters within the stored access policy, and omit them from the URL for the shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="795f5a94-7949-431b-bd86-556c42a75051" xml:space="preserve">
+          <source>Doing so permits you to modify the associated signature's behavior at any time, as well as to revoke it.</source>
+          <target state="new">Doing so permits you to modify the associated signature's behavior at any time, as well as to revoke it.</target>
+        </trans-unit>
+        <trans-unit id="4919bd7d-0cd2-4302-a239-b4e0dd6cc612" xml:space="preserve">
+          <source>Or you can specify one or more of the access policy parameters within the stored access policy, and the others on the URL.</source>
+          <target state="new">Or you can specify one or more of the access policy parameters within the stored access policy, and the others on the URL.</target>
+        </trans-unit>
+        <trans-unit id="d9170275-6596-4831-af7e-8636f571f156" xml:space="preserve">
+          <source>Finally, you can specify all of the parameters on the URL.</source>
+          <target state="new">Finally, you can specify all of the parameters on the URL.</target>
+        </trans-unit>
+        <trans-unit id="191d701a-fa71-4e63-b7d3-8af73598e3cf" xml:space="preserve">
+          <source>In this case, you can use the stored access policy to revoke the signature, but not to modify its behavior.</source>
+          <target state="new">In this case, you can use the stored access policy to revoke the signature, but not to modify its behavior.</target>
+        </trans-unit>
+        <trans-unit id="213aea99-94c4-42f2-87c4-73bf6fe8651d" xml:space="preserve">
+          <source>Together the shared access signature and the stored access policy must include all fields required to authenticate the signature.</source>
+          <target state="new">Together the shared access signature and the stored access policy must include all fields required to authenticate the signature.</target>
+        </trans-unit>
+        <trans-unit id="9d5841ae-b48f-4f5b-82b4-03c2dd97a869" xml:space="preserve">
+          <source>If any required fields are missing, the request will fail with status code 403 (Forbidden).</source>
+          <target state="new">If any required fields are missing, the request will fail with status code 403 (Forbidden).</target>
+        </trans-unit>
+        <trans-unit id="cb966659-9447-4dc0-a274-7fc8c40a4335" xml:space="preserve">
+          <source>Likewise, if a field is specified both in the shared access signature URL and in the stored access policy, the request will fail with status code 403 (Bad Request).</source>
+          <target state="new">Likewise, if a field is specified both in the shared access signature URL and in the stored access policy, the request will fail with status code 403 (Bad Request).</target>
+        </trans-unit>
+        <trans-unit id="f3183b7f-8ef7-4b36-9a17-70dd470aa5fc" xml:space="preserve">
+          <source>See Create and Use a Shared Access Signature for more information about the fields that comprise the signature.</source>
+          <target state="new">See Create and Use a Shared Access Signature for more information about the fields that comprise the signature.</target>
+        </trans-unit>
+        <trans-unit id="35798c20-9cfd-49fb-a4e8-aa83ab18cf09" xml:space="preserve">
+          <source>To revoke access to shared access signatures that use the same stored access policy, remove the stored policy from the storage resource by overwriting the stored policy list with a new list that does not contain the policy name.</source>
+          <target state="new">To revoke access to shared access signatures that use the same stored access policy, remove the stored policy from the storage resource by overwriting the stored policy list with a new list that does not contain the policy name.</target>
+        </trans-unit>
+        <trans-unit id="1e6c8c2f-e55b-4ef8-bfa7-ee49176cbee8" xml:space="preserve">
+          <source>To change access settings of a stored access policy, overwrite the stored policy list with a new list that contains a policy of the same name that has new access control details.</source>
+          <target state="new">To change access settings of a stored access policy, overwrite the stored policy list with a new list that contains a policy of the same name that has new access control details.</target>
+        </trans-unit>
+        <trans-unit id="37e62d9a-1376-4c91-b777-71e6c48e69cf" xml:space="preserve">
+          <source><bpt id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;linkText&gt;</bpt>Authentication for the Azure Storage Services<ept id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;/linkText&gt;</ept><bpt id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;title&gt;</bpt><ept id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;linkText&gt;</bpt>Authentication for the Azure Storage Services<ept id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;/linkText&gt;</ept><bpt id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;title&gt;</bpt><ept id="fd5c94d0-5ec2-488f-a760-2018a5d62041">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0799504b-0bba-4516-a1df-f7fcc968c363" xml:space="preserve">
+          <source><bpt id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;linkText&gt;</bpt>Shared access signatures: Understanding the SAS Model<ept id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;/linkText&gt;</ept><bpt id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;title&gt;</bpt><ept id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;linkText&gt;</bpt>Shared access signatures: Understanding the SAS Model<ept id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;/linkText&gt;</ept><bpt id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;title&gt;</bpt><ept id="d648ab0c-7112-4f96-8053-3a0b7d057c68">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="206e02ab-67b5-4d05-9481-b689e46a9ab9" xml:space="preserve">
+          <source><bpt id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;/linkText&gt;</ept><bpt id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;title&gt;</bpt><ept id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;linkText&gt;</bpt>Delegating Access with a Shared Access Signature<ept id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;/linkText&gt;</ept><bpt id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;title&gt;</bpt><ept id="f7965296-4b42-4b84-ad3b-34515b27694e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c63f96bd-7b7a-43d4-9512-37a03993c3e1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c63f96bd-7b7a-43d4-9512-37a03993c3e1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="32bcec2e-e41e-4abb-87a4-513120882523">
+        <trans-unit id="acef7829-4cb8-4897-806c-2061ca1eb85d" xml:space="preserve">
+          <source>Troubleshoot your local cluster setup</source>
+          <target state="new">Troubleshoot your local cluster setup</target>
+        </trans-unit>
+        <trans-unit id="87139c4b-da0f-4791-b2f3-266a25add59a" xml:space="preserve">
+          <source>This article covers a set of suggestions for troubleshooting your local development cluster</source>
+          <target state="new">This article covers a set of suggestions for troubleshooting your local development cluster</target>
+        </trans-unit>
+        <trans-unit id="164a045a-f3d6-41f9-bc60-7b8c38bc64f7" xml:space="preserve">
+          <source>If you run into an issue while interacting with your local development cluster, review the following suggestions for potential solutions.</source>
+          <target state="new">If you run into an issue while interacting with your local development cluster, review the following suggestions for potential solutions.</target>
+        </trans-unit>
+        <trans-unit id="d2a3affb-1714-4be2-8c5a-0c0134c3eb6a" xml:space="preserve">
+          <source>While running the DevClusterSetup script, you see an error like this:</source>
+          <target state="new">While running the DevClusterSetup script, you see an error like this:</target>
+        </trans-unit>
+        <trans-unit id="ed2d74a3-1098-4437-95fd-82913e89e96d" xml:space="preserve">
+          <source>Close the current Powershell window and launch a new Powershell window as an Administrator.</source>
+          <target state="new">Close the current Powershell window and launch a new Powershell window as an Administrator.</target>
+        </trans-unit>
+        <trans-unit id="161ba8b7-149c-4b0b-984c-7572f14447db" xml:space="preserve">
+          <source>You should now be able to successfully run the script.</source>
+          <target state="new">You should now be able to successfully run the script.</target>
+        </trans-unit>
+        <trans-unit id="d8915d2f-5e37-4451-a417-4ad360cd81d7" xml:space="preserve">
+          <source>When connecting to the cluster in PowerShell or Service Fabric Explorer, you see a TypeInitializationException for System.Fabric.Common.AppTrace.</source>
+          <target state="new">When connecting to the cluster in PowerShell or Service Fabric Explorer, you see a TypeInitializationException for System.Fabric.Common.AppTrace.</target>
+        </trans-unit>
+        <trans-unit id="cbf8ceae-c727-4838-aefa-89994425249e" xml:space="preserve">
+          <source>Your path variable was not correctly set during installation.</source>
+          <target state="new">Your path variable was not correctly set during installation.</target>
+        </trans-unit>
+        <trans-unit id="7e1a4bc2-a5a0-4e14-b267-ac58da942486" xml:space="preserve">
+          <source>Please log out of Windows and log back in.</source>
+          <target state="new">Please log out of Windows and log back in.</target>
+        </trans-unit>
+        <trans-unit id="3a8dee54-d959-4a7b-b84a-d7b7abe915ae" xml:space="preserve">
+          <source>This will fully refresh your path.</source>
+          <target state="new">This will fully refresh your path.</target>
+        </trans-unit>
+        <trans-unit id="1c53a356-2036-459f-9e76-349b85cd0161" xml:space="preserve">
+          <source>A call to Connect-ServiceFabricCluster fails with an error like this:</source>
+          <target state="new">A call to Connect-ServiceFabricCluster fails with an error like this:</target>
+        </trans-unit>
+        <trans-unit id="fcf5aeaa-7ae6-4a27-9d35-8abc3d767d25" xml:space="preserve">
+          <source>Close the current Powershell window and launch a new Powershell window as an Administrator.</source>
+          <target state="new">Close the current Powershell window and launch a new Powershell window as an Administrator.</target>
+        </trans-unit>
+        <trans-unit id="d3d7e6cb-cdbb-424a-963a-37697f09e77c" xml:space="preserve">
+          <source>You should now be able to successfully connect.</source>
+          <target state="new">You should now be able to successfully connect.</target>
+        </trans-unit>
+        <trans-unit id="9a91196a-7691-4726-9a49-edc35f730530" xml:space="preserve">
+          <source>When debugging from Visual Studio, you get a FabricConnectionDeniedException.</source>
+          <target state="new">When debugging from Visual Studio, you get a FabricConnectionDeniedException.</target>
+        </trans-unit>
+        <trans-unit id="ce98ec72-4dee-403d-949e-12e61fa20ecc" xml:space="preserve">
+          <source>This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.</source>
+          <target state="new">This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.</target>
+        </trans-unit>
+        <trans-unit id="d287ff14-d883-4b9a-bf2c-44d80cddfc84" xml:space="preserve">
+          <source>Ensure that you do not have any service projects set as startup projects in your solution.</source>
+          <target state="new">Ensure that you do not have any service projects set as startup projects in your solution.</target>
+        </trans-unit>
+        <trans-unit id="2c512568-1ce2-447c-b35a-1941471f3371" xml:space="preserve">
+          <source>Only Service Fabric application projects should be set as startup projects.</source>
+          <target state="new">Only Service Fabric application projects should be set as startup projects.</target>
+        </trans-unit>
+        <trans-unit id="a2c425fe-ce73-435f-a9f0-b3cbfac6ea19" xml:space="preserve">
+          <source><bpt id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;linkText&gt;</bpt>Understand and troubleshoot your cluster with system health reports<ept id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;/linkText&gt;</ept><bpt id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;title&gt;</bpt><ept id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;linkText&gt;</bpt>Understand and troubleshoot your cluster with system health reports<ept id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;/linkText&gt;</ept><bpt id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;title&gt;</bpt><ept id="04d14ad1-fdf1-4f08-a717-eb0dae9fa19e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0269686e-d3ce-4797-9c56-5b2d29a570dc" xml:space="preserve">
+          <source><bpt id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;linkText&gt;</bpt>Visualizing your cluster with Service Fabric Explorer<ept id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;/linkText&gt;</ept><bpt id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;title&gt;</bpt><ept id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;linkText&gt;</bpt>Visualizing your cluster with Service Fabric Explorer<ept id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;/linkText&gt;</ept><bpt id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;title&gt;</bpt><ept id="5137ac2e-83db-484b-a4cf-6fc1da4f500a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

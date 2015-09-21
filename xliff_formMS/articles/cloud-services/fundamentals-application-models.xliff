@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7d6ce22b-9df2-4425-a6ad-f3f6c25a8ac7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7d6ce22b-9df2-4425-a6ad-f3f6c25a8ac7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="054482e6-3d69-4d64-9ab4-706cc0b3631e">
+        <trans-unit id="224e6a6a-1677-4e7f-9936-f93e872da2a6" xml:space="preserve">
+          <source>Compute Hosting Options Provided by Azure</source>
+          <target state="new">Compute Hosting Options Provided by Azure</target>
+        </trans-unit>
+        <trans-unit id="7362fef6-8498-4d02-85ac-a9366baba82c" xml:space="preserve">
+          <source>Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others.</source>
+          <target state="new">Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others.</target>
+        </trans-unit>
+        <trans-unit id="700cc468-f7b5-402b-88a4-139a1fce46a9" xml:space="preserve">
+          <source>Azure provides different hosting models for running applications.</source>
+          <target state="new">Azure provides different hosting models for running applications.</target>
+        </trans-unit>
+        <trans-unit id="8166ac38-e2a1-4e7f-9556-fa10c630c937" xml:space="preserve">
+          <source>Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do.</source>
+          <target state="new">Each one provides a different set of services, and so which one you choose depends on exactly what you're trying to do.</target>
+        </trans-unit>
+        <trans-unit id="8e0b7b13-5912-4cab-9dd6-4d2cddc38adb" xml:space="preserve">
+          <source>This article looks at the options, describing each technology and giving examples of when you'd use it.</source>
+          <target state="new">This article looks at the options, describing each technology and giving examples of when you'd use it.</target>
+        </trans-unit>
+        <trans-unit id="7d48f7ef-7858-40c9-bf51-66595c814b3b" xml:space="preserve">
+          <source>Compute Options</source>
+          <target state="new">Compute Options</target>
+        </trans-unit>
+        <trans-unit id="51ed9878-bac5-4fcc-8967-406d701114b0" xml:space="preserve">
+          <source>Audience</source>
+          <target state="new">Audience</target>
+        </trans-unit>
+        <trans-unit id="163dd174-f1f0-4134-8ed5-c91e94ce81dd" xml:space="preserve">
+          <source>[App Service]</source>
+          <target state="new">[App Service]</target>
+        </trans-unit>
+        <trans-unit id="58fec44d-ab5d-422e-b15a-bbce4f0c1ec1" xml:space="preserve">
+          <source>Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device</source>
+          <target state="new">Scalable Web Apps, Mobile Apps, API Apps, and Logic Apps for any device</target>
+        </trans-unit>
+        <trans-unit id="c40a1cf2-094c-490b-8cc4-628a53624bb4" xml:space="preserve">
+          <source>[Cloud Services]</source>
+          <target state="new">[Cloud Services]</target>
+        </trans-unit>
+        <trans-unit id="8bc854f2-86af-4f30-85cf-1b2450a25bea" xml:space="preserve">
+          <source>Highly available, scalable n-tier cloud apps with more control of the OS</source>
+          <target state="new">Highly available, scalable n-tier cloud apps with more control of the OS</target>
+        </trans-unit>
+        <trans-unit id="b26e8da6-3956-418b-97bb-e694faf79922" xml:space="preserve">
+          <source>[Virtual Machines]</source>
+          <target state="new">[Virtual Machines]</target>
+        </trans-unit>
+        <trans-unit id="62e18405-dc53-40e8-8f26-b5f7454226ed" xml:space="preserve">
+          <source>Customized Windows and Linux VMs with complete control of the OS</source>
+          <target state="new">Customized Windows and Linux VMs with complete control of the OS</target>
+        </trans-unit>
+        <trans-unit id="c3b9cd60-54bb-4a89-80e0-dd449f5d00b2" xml:space="preserve">
+          <source><bpt id="e93e6683-92d5-4ccc-862b-48cbdf2d667f">&lt;token href="../../includes/app-service-choose-me-content.md"&gt;</bpt><ept id="e93e6683-92d5-4ccc-862b-48cbdf2d667f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e93e6683-92d5-4ccc-862b-48cbdf2d667f">&lt;token href="../../includes/app-service-choose-me-content.md"&gt;</bpt><ept id="e93e6683-92d5-4ccc-862b-48cbdf2d667f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdeab8ea-0c3b-44ef-a85d-33df0154da59" xml:space="preserve">
+          <source><bpt id="c270316b-7de0-4eac-8053-0b299849e006">&lt;token href="../../includes/cloud-services-choose-me-content.md"&gt;</bpt><ept id="c270316b-7de0-4eac-8053-0b299849e006">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c270316b-7de0-4eac-8053-0b299849e006">&lt;token href="../../includes/cloud-services-choose-me-content.md"&gt;</bpt><ept id="c270316b-7de0-4eac-8053-0b299849e006">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b42e3af-692e-4535-ae48-e8c24451a3cc" xml:space="preserve">
+          <source><bpt id="9680ac73-394a-4a74-8ab9-c0b08e4fcad1">&lt;token href="../../includes/virtual-machines-choose-me-content.md"&gt;</bpt><ept id="9680ac73-394a-4a74-8ab9-c0b08e4fcad1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9680ac73-394a-4a74-8ab9-c0b08e4fcad1">&lt;token href="../../includes/virtual-machines-choose-me-content.md"&gt;</bpt><ept id="9680ac73-394a-4a74-8ab9-c0b08e4fcad1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0500657b-f374-4c76-80eb-073847e49321" xml:space="preserve">
+          <source>Azure also offers other compute hosting models for more specialized purposes, such as the following:</source>
+          <target state="new">Azure also offers other compute hosting models for more specialized purposes, such as the following:</target>
+        </trans-unit>
+        <trans-unit id="8dee28b7-3abe-43ce-a7d2-ab8724e68dec" xml:space="preserve">
+          <source><bpt id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;linkText&gt;</bpt>Mobile Services<ept id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;/linkText&gt;</ept><bpt id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;title&gt;</bpt><ept id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;/title&gt;</ept>  
+Optimized to provide a cloud back-end for apps that run on mobile devices.</source>
+          <target state="new"><bpt id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;linkText&gt;</bpt>Mobile Services<ept id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;/linkText&gt;</ept><bpt id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;title&gt;</bpt><ept id="3d3f60cc-ddb4-441b-ba10-bc601ae10425">&lt;/title&gt;</ept>  
+Optimized to provide a cloud back-end for apps that run on mobile devices.</target>
+        </trans-unit>
+        <trans-unit id="28f690b5-0d12-46dd-86f9-0b86e1b1f8f5" xml:space="preserve">
+          <source><bpt id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;linkText&gt;</bpt>Batch<ept id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;/linkText&gt;</ept><bpt id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;title&gt;</bpt><ept id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;/title&gt;</ept>  
+Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.</source>
+          <target state="new"><bpt id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;linkText&gt;</bpt>Batch<ept id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;/linkText&gt;</ept><bpt id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;title&gt;</bpt><ept id="512a3855-da8a-4ded-bbdb-a1022c78f203">&lt;/title&gt;</ept>  
+Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.</target>
+        </trans-unit>
+        <trans-unit id="2ea7d413-ed07-4a0d-a7aa-c19eaa41d5ef" xml:space="preserve">
+          <source><bpt id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;linkText&gt;</bpt>HDInsight (Hadoop)<ept id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;/linkText&gt;</ept><bpt id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;title&gt;</bpt><ept id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;/title&gt;</ept>  
+Optimized for running <bpt id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;linkText&gt;</bpt>MapReduce<ept id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;/linkText&gt;</ept><bpt id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;title&gt;</bpt><ept id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;/title&gt;</ept> jobs on Hadoop clusters.</source>
+          <target state="new"><bpt id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;linkText&gt;</bpt>HDInsight (Hadoop)<ept id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;/linkText&gt;</ept><bpt id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;title&gt;</bpt><ept id="1662d166-a41b-404b-b592-64d3ce972f69">&lt;/title&gt;</ept>  
+Optimized for running <bpt id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;linkText&gt;</bpt>MapReduce<ept id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;/linkText&gt;</ept><bpt id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;title&gt;</bpt><ept id="de66d824-f59f-494a-abea-9c9e838329a6">&lt;/title&gt;</ept> jobs on Hadoop clusters.</target>
+        </trans-unit>
+        <trans-unit id="7dd5e332-109c-49b3-a98b-f523b421309a" xml:space="preserve">
+          <source>All three of the general purpose Azure compute hosting models let you build scalable, reliable applications in the cloud.</source>
+          <target state="new">All three of the general purpose Azure compute hosting models let you build scalable, reliable applications in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="7dd844f0-36c0-42f2-9a03-eeaa69c8cc39" xml:space="preserve">
+          <source>Given this essential similarity, which one should you use?</source>
+          <target state="new">Given this essential similarity, which one should you use?</target>
+        </trans-unit>
+        <trans-unit id="2924f65b-a932-461d-8b9b-af1cfeb31071" xml:space="preserve">
+          <source>App Service is the best choice for most web apps.</source>
+          <target state="new">App Service is the best choice for most web apps.</target>
+        </trans-unit>
+        <trans-unit id="e4ac25cb-c042-46c5-9f81-1b4e6f82570e" xml:space="preserve">
+          <source>Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability.</source>
+          <target state="new">Deployment and management are integrated into the platform, sites can scale quickly to handle high traffic loads, and the built-in load balancing and traffic manager provide high availability.</target>
+        </trans-unit>
+        <trans-unit id="c07ac9fe-682f-4dfb-ab47-15bd943404ba" xml:space="preserve">
+          <source>You can move existing sites to App Service easily with an <bpt id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;linkText&gt;</bpt>online migration tool<ept id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;/linkText&gt;</ept><bpt id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;title&gt;</bpt><ept id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;/title&gt;</ept>, use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice.</source>
+          <target state="new">You can move existing sites to App Service easily with an <bpt id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;linkText&gt;</bpt>online migration tool<ept id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;/linkText&gt;</ept><bpt id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;title&gt;</bpt><ept id="ae40661c-1544-4a00-b736-af70a45a41b1">&lt;/title&gt;</ept>, use an open-source app from the Web Application Gallery, or create a new site using the framework and tools of your choice.</target>
+        </trans-unit>
+        <trans-unit id="3ffadbfe-ad11-4cc8-a17f-9e6ac874027f" xml:space="preserve">
+          <source>The <bpt id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;linkText&gt;</bpt>WebJobs<ept id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;/linkText&gt;</ept><bpt id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;title&gt;</bpt><ept id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;/title&gt;</ept> feature makes it easy to add background job processing to your app, or even run a compute workload that isn't a web app at all.</source>
+          <target state="new">The <bpt id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;linkText&gt;</bpt>WebJobs<ept id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;/linkText&gt;</ept><bpt id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;title&gt;</bpt><ept id="562c6f8e-ad5d-4474-adea-9fdb971cf9a4">&lt;/title&gt;</ept> feature makes it easy to add background job processing to your app, or even run a compute workload that isn't a web app at all.</target>
+        </trans-unit>
+        <trans-unit id="f65a776c-cdc6-4700-a247-f48899fbdf42" xml:space="preserve">
+          <source>If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.</source>
+          <target state="new">If you need more control over the web server environment, such as the ability to remote into your server or configure server startup tasks, Azure Cloud Services is typically the best option.</target>
+        </trans-unit>
+        <trans-unit id="08b4da57-161b-4a3c-9952-d93836d085d0" xml:space="preserve">
+          <source>If you have an existing application that would require substantial modifications to run in Azure Websites or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud.</source>
+          <target state="new">If you have an existing application that would require substantial modifications to run in Azure Websites or Azure Cloud Services, you could choose Azure Virtual Machines in order to simplify migrating to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="78fdbc2a-7ea1-4ec6-aad0-072c664c0a89" xml:space="preserve">
+          <source>However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure Websites and Cloud Services.</source>
+          <target state="new">However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure Websites and Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="38ff5661-cfb8-48d3-92f5-d95441d747a5" xml:space="preserve">
+          <source>If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.</source>
+          <target state="new">If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.</target>
+        </trans-unit>
+        <trans-unit id="770ef18b-7835-477d-9faa-ec22c0bf8aa5" xml:space="preserve">
+          <source>Sometimes, no single option is right.</source>
+          <target state="new">Sometimes, no single option is right.</target>
+        </trans-unit>
+        <trans-unit id="c8982b74-dabc-452c-b12e-d752f27bc473" xml:space="preserve">
+          <source>In situations like this, it's perfectly legal to combine options.</source>
+          <target state="new">In situations like this, it's perfectly legal to combine options.</target>
+        </trans-unit>
+        <trans-unit id="5b370786-27bc-4d44-8d7d-95599d372d1b" xml:space="preserve">
+          <source>For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server hosted in a Virtual Machine for compatibility or performance reasons.</source>
+          <target state="new">For example, suppose you're building an application where you'd like the management benefits of Cloud Services web roles, but you also need to use standard SQL Server hosted in a Virtual Machine for compatibility or performance reasons.</target>
+        </trans-unit>
+        <trans-unit id="d37fc459-3360-4429-ba7e-b94b472c607b" xml:space="preserve">
+          <source><bpt id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;linkText&gt;</bpt>Compare<ept id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;/linkText&gt;</ept><bpt id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;title&gt;</bpt><ept id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;/title&gt;</ept> App Service, Cloud Services, and Virtual Machines</source>
+          <target state="new"><bpt id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;linkText&gt;</bpt>Compare<ept id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;/linkText&gt;</ept><bpt id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;title&gt;</bpt><ept id="01b21f3b-743d-4e60-9dfc-90ecff69d9db">&lt;/title&gt;</ept> App Service, Cloud Services, and Virtual Machines</target>
+        </trans-unit>
+        <trans-unit id="3ccba99a-7efa-4864-af6d-44f758dc15c2" xml:space="preserve">
+          <source>Learn more about <bpt id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;linkText&gt;</bpt>App Service<ept id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;/linkText&gt;</ept><bpt id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;title&gt;</bpt><ept id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about <bpt id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;linkText&gt;</bpt>App Service<ept id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;/linkText&gt;</ept><bpt id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;title&gt;</bpt><ept id="a0d72d33-6a0a-4e74-b6d0-79983a2765ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="95f28853-430b-41e6-8064-bb0b17a244c7" xml:space="preserve">
+          <source>Learn more about <bpt id="7823edbe-8486-4623-a42b-c223a175287d">&lt;linkText&gt;</bpt>Cloud Service<ept id="7823edbe-8486-4623-a42b-c223a175287d">&lt;/linkText&gt;</ept><bpt id="7823edbe-8486-4623-a42b-c223a175287d">&lt;title&gt;</bpt><ept id="7823edbe-8486-4623-a42b-c223a175287d">&lt;/title&gt;</ept></source>
+          <target state="new">Learn more about <bpt id="7823edbe-8486-4623-a42b-c223a175287d">&lt;linkText&gt;</bpt>Cloud Service<ept id="7823edbe-8486-4623-a42b-c223a175287d">&lt;/linkText&gt;</ept><bpt id="7823edbe-8486-4623-a42b-c223a175287d">&lt;title&gt;</bpt><ept id="7823edbe-8486-4623-a42b-c223a175287d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80f07b04-6d3a-4ffe-a49a-b8a0b732402a" xml:space="preserve">
+          <source>Learn more about <bpt id="9e117377-2b18-416a-952c-5e4443600d99">&lt;linkText&gt;</bpt>Virtual Machines<ept id="9e117377-2b18-416a-952c-5e4443600d99">&lt;/linkText&gt;</ept><bpt id="9e117377-2b18-416a-952c-5e4443600d99">&lt;title&gt;</bpt><ept id="9e117377-2b18-416a-952c-5e4443600d99">&lt;/title&gt;</ept> </source>
+          <target state="new">Learn more about <bpt id="9e117377-2b18-416a-952c-5e4443600d99">&lt;linkText&gt;</bpt>Virtual Machines<ept id="9e117377-2b18-416a-952c-5e4443600d99">&lt;/linkText&gt;</ept><bpt id="9e117377-2b18-416a-952c-5e4443600d99">&lt;title&gt;</bpt><ept id="9e117377-2b18-416a-952c-5e4443600d99">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ace14767-3631-4cf8-8f55-3ac08f927f8b" xml:space="preserve">
+          <source>./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png</source>
+          <target state="new">./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png</target>
+        </trans-unit>
+        <trans-unit id="9e16abef-c173-4454-a332-10151a4ee196" xml:space="preserve">
+          <source>#tellmeas</source>
+          <target state="new">#tellmeas</target>
+        </trans-unit>
+        <trans-unit id="87ee83ce-99ee-436b-b792-9e71594a5b14" xml:space="preserve">
+          <source>#tellmevm</source>
+          <target state="new">#tellmevm</target>
+        </trans-unit>
+        <trans-unit id="5f339f0e-efdf-4a3d-8c49-5ffd28debda8" xml:space="preserve">
+          <source>#tellmecs</source>
+          <target state="new">#tellmecs</target>
+        </trans-unit>
+      </group>
+      <group id="73011eda-ac33-499d-8f1e-54035ce472c5" />
+    </body>
+  </file>
+</xliff>

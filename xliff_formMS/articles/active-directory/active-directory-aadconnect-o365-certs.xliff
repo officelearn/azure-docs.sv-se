@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5bf89411-dd95-4a2f-8d76-923ff7b23df4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5bf89411-dd95-4a2f-8d76-923ff7b23df4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e0e75fd7-481a-4a30-842e-fc5999010c9b">
+        <trans-unit id="7d00b427-6d13-4c88-9ee3-866ee6a2349f" xml:space="preserve">
+          <source>Certificate renewal guidance for Office 365 and Azure AD users.</source>
+          <target state="new">Certificate renewal guidance for Office 365 and Azure AD users.</target>
+        </trans-unit>
+        <trans-unit id="d251cfe3-54df-4ffb-a4b2-8ab2570298c8" xml:space="preserve">
+          <source>This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.</source>
+          <target state="new">This article explains to Office 365 users how to resolve issues with emails that notify them about renewing a certificate.</target>
+        </trans-unit>
+        <trans-unit id="267ee9ad-bd2f-4ae5-a515-11173676746a" xml:space="preserve">
+          <source>If you received an email or a portal notification asking you to renew your certificate for Office 365, this article is intended to help you resolve the issue and keep it from happening again.</source>
+          <target state="new">If you received an email or a portal notification asking you to renew your certificate for Office 365, this article is intended to help you resolve the issue and keep it from happening again.</target>
+        </trans-unit>
+        <trans-unit id="bedd29a3-3f91-4c9a-9c50-63894eebb546" xml:space="preserve">
+          <source>This article assumes that you are using AD FS as your federation server.</source>
+          <target state="new">This article assumes that you are using AD FS as your federation server.</target>
+        </trans-unit>
+        <trans-unit id="43cdcfec-c02f-4901-a107-34afed2d5730" xml:space="preserve">
+          <source>If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires.</source>
+          <target state="new">If you are using AD FS 2.0 or later, Office 365 and Azure AD will automatically update your certificate before it expires.</target>
+        </trans-unit>
+        <trans-unit id="5d1fd513-6254-4d99-b353-166d9581102c" xml:space="preserve">
+          <source>You do not need to perform any manual steps or run a script as a scheduled task.</source>
+          <target state="new">You do not need to perform any manual steps or run a script as a scheduled task.</target>
+        </trans-unit>
+        <trans-unit id="fd56834b-c420-4772-8da2-040fa45bc9dd" xml:space="preserve">
+          <source>For this to work, both of the following default AD FS configuration settings must be in effect:</source>
+          <target state="new">For this to work, both of the following default AD FS configuration settings must be in effect:</target>
+        </trans-unit>
+        <trans-unit id="0ef83719-45b1-4b9b-9104-110e81b8b98c" xml:space="preserve">
+          <source>The AD FS property AutoCertificateRollover must be set to True, indicating that AD FS will automatically generate new token signing and token decryption certificates before the old ones expire.</source>
+          <target state="new">The AD FS property AutoCertificateRollover must be set to True, indicating that AD FS will automatically generate new token signing and token decryption certificates before the old ones expire.</target>
+        </trans-unit>
+        <trans-unit id="bdde4208-c156-4003-94a2-68f36beb02d6" xml:space="preserve">
+          <source>If the value is False, you are using custom certificate settings.</source>
+          <target state="new">If the value is False, you are using custom certificate settings.</target>
+        </trans-unit>
+        <trans-unit id="0ad429fb-c5bd-49c8-b36c-41e10eeebb2a" xml:space="preserve">
+          <source>Go <bpt id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;linkText&gt;</bpt>here<ept id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;/linkText&gt;</ept><bpt id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;title&gt;</bpt><ept id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;/title&gt;</ept>  for comprehensive guidance.</source>
+          <target state="new">Go <bpt id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;linkText&gt;</bpt>here<ept id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;/linkText&gt;</ept><bpt id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;title&gt;</bpt><ept id="9d374a6e-78e9-4486-9c86-227dbc4a50db">&lt;/title&gt;</ept>  for comprehensive guidance.</target>
+        </trans-unit>
+        <trans-unit id="d2e3bb37-3f7c-498f-a69d-8aabeeef8d04" xml:space="preserve">
+          <source>Your federation metadata must be available to the public internet.</source>
+          <target state="new">Your federation metadata must be available to the public internet.</target>
+        </trans-unit>
+        <trans-unit id="371ced03-c1db-40eb-af47-1a22ac1eebff" xml:space="preserve">
+          <source>Here is how to check:</source>
+          <target state="new">Here is how to check:</target>
+        </trans-unit>
+        <trans-unit id="7c14aa48-853b-4ca8-a56b-0e29a5efd5e0" xml:space="preserve">
+          <source>Verify that your AD FS installation is using automatic certificate rollover by executing the following command in a PowerShell command window on your primary federation server:</source>
+          <target state="new">Verify that your AD FS installation is using automatic certificate rollover by executing the following command in a PowerShell command window on your primary federation server:</target>
+        </trans-unit>
+        <trans-unit id="2f29bbb9-ddc9-4fff-ab8b-c8c940d7f1b5" xml:space="preserve">
+          <source><bpt id="955c0633-d694-4670-bf2d-c68de78642af">&lt;code&gt;</bpt>PS C:\&gt; Get-ADFSProperties<ept id="955c0633-d694-4670-bf2d-c68de78642af">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="955c0633-d694-4670-bf2d-c68de78642af">&lt;code&gt;</bpt>PS C:\&gt; Get-ADFSProperties<ept id="955c0633-d694-4670-bf2d-c68de78642af">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a23445c8-9b8b-4cfa-ba94-0cd2b3403585" xml:space="preserve">
+          <source>(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)
+else.</source>
+          <target state="new">(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)
+else.</target>
+        </trans-unit>
+        <trans-unit id="2f149355-548c-478e-a047-a6ed4c926ac2" xml:space="preserve">
+          <source>Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):</source>
+          <target state="new">Check that your federation metadata is publicly accessible by navigating to the following URL from a computer on the public internet (off of the corporate network):</target>
+        </trans-unit>
+        <trans-unit id="07a86d55-abd4-41fb-ab55-705cc7af4885" xml:space="preserve">
+          <source>https://(your<bpt id="bda2b434-028d-4c22-9490-b254ebfd80c5">&lt;em&gt;</bpt>FS<ept id="bda2b434-028d-4c22-9490-b254ebfd80c5">&lt;/em&gt;</ept>name)/federationmetadata/2007-06/federationmetadata.xml </source>
+          <target state="new">https://(your<bpt id="bda2b434-028d-4c22-9490-b254ebfd80c5">&lt;em&gt;</bpt>FS<ept id="bda2b434-028d-4c22-9490-b254ebfd80c5">&lt;/em&gt;</ept>name)/federationmetadata/2007-06/federationmetadata.xml </target>
+        </trans-unit>
+        <trans-unit id="1b1b4340-c480-4797-9183-e2471f028855" xml:space="preserve">
+          <source>where <bpt id="4caf9e32-4d9f-45fa-b530-888168f63729">&lt;code&gt;</bpt>(your_FS_name) <ept id="4caf9e32-4d9f-45fa-b530-888168f63729">&lt;/code&gt;</ept>is replaced with the federation service host name your organization uses, such as fs.contoso.com.</source>
+          <target state="new">where <bpt id="4caf9e32-4d9f-45fa-b530-888168f63729">&lt;code&gt;</bpt>(your_FS_name) <ept id="4caf9e32-4d9f-45fa-b530-888168f63729">&lt;/code&gt;</ept>is replaced with the federation service host name your organization uses, such as fs.contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="19ed98fc-9c88-4e93-9c31-23744ba17f3e" xml:space="preserve">
+          <source>If you are able to verify both of these settings successfully, you do not have to do anything else.</source>
+          <target state="new">If you are able to verify both of these settings successfully, you do not have to do anything else.</target>
+        </trans-unit>
+        <trans-unit id="50f9f2c5-962e-48ce-a5cd-dd99c5064868" xml:space="preserve">
+          <source>Example: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml</source>
+          <target state="new">Example: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml</target>
+        </trans-unit>
+        <trans-unit id="c5553364-ef39-4183-af84-160e633226d1" xml:space="preserve">
+          <source>If your AutoCertificateRollover property is set to False, you are using non-default AD FS certificate settings.</source>
+          <target state="new">If your AutoCertificateRollover property is set to False, you are using non-default AD FS certificate settings.</target>
+        </trans-unit>
+        <trans-unit id="8edbac6d-6555-46d0-8f19-fb23b98955ab" xml:space="preserve">
+          <source>The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.</source>
+          <target state="new">The most common reason for this is that your organization manages AD FS certificates enrolled from an organizational certificate authority.</target>
+        </trans-unit>
+        <trans-unit id="cebeb0e1-4fb9-4ceb-b2e3-4301b26b1dbc" xml:space="preserve">
+          <source>In this case you need to renew and update your certificates yourself.</source>
+          <target state="new">In this case you need to renew and update your certificates yourself.</target>
+        </trans-unit>
+        <trans-unit id="e1912d2f-70b1-4835-8d01-6ef1725b5088" xml:space="preserve">
+          <source>Use the guidance <bpt id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;linkText&gt;</bpt>here<ept id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;/linkText&gt;</ept><bpt id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;title&gt;</bpt><ept id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use the guidance <bpt id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;linkText&gt;</bpt>here<ept id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;/linkText&gt;</ept><bpt id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;title&gt;</bpt><ept id="080f24a3-29ec-4d8f-a5e5-e129ecac1505">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="79b063ce-554d-4b4e-8fd0-3c499cae13e7" xml:space="preserve">
+          <source>If your AutocertificateRollover setting is True but your federation metadata is not publicly available, use the procedure below to ensure your certificates are updated both on premises and in the cloud:</source>
+          <target state="new">If your AutocertificateRollover setting is True but your federation metadata is not publicly available, use the procedure below to ensure your certificates are updated both on premises and in the cloud:</target>
+        </trans-unit>
+        <trans-unit id="fe3354d6-99af-47ab-8944-d407d79aa5b6" xml:space="preserve">
+          <source>verify that you are logged on to the primary AD FS server.</source>
+          <target state="new">verify that you are logged on to the primary AD FS server.</target>
+        </trans-unit>
+        <trans-unit id="96e1ca1b-29a6-4bc7-a82b-deda889d229f" xml:space="preserve">
+          <source>Check the current signing certificates in AD FS by opening a PowerShell command window and running the following command: </source>
+          <target state="new">Check the current signing certificates in AD FS by opening a PowerShell command window and running the following command: </target>
+        </trans-unit>
+        <trans-unit id="832f6970-5c0e-4b29-b786-2e3bd479856c" xml:space="preserve">
+          <source><bpt id="9f7a4c98-139f-4e19-9706-6244e2e27695">&lt;code&gt;</bpt>PS C:\&gt;Get-ADFSCertificate –CertificateType token-signing.<ept id="9f7a4c98-139f-4e19-9706-6244e2e27695">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="9f7a4c98-139f-4e19-9706-6244e2e27695">&lt;code&gt;</bpt>PS C:\&gt;Get-ADFSCertificate –CertificateType token-signing.<ept id="9f7a4c98-139f-4e19-9706-6244e2e27695">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="8620a59a-43fd-47f8-a950-81182ee80cbe" xml:space="preserve">
+          <source>(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)</source>
+          <target state="new">(note that if you are using AD FS 2.0, you will need to run Add-Pssnapin Microsoft.Adfs.Powershell first)</target>
+        </trans-unit>
+        <trans-unit id="4a8695a3-a7dd-450e-a947-20ccba55cfc7" xml:space="preserve">
+          <source>Look at the command output at any certificates listed.</source>
+          <target state="new">Look at the command output at any certificates listed.</target>
+        </trans-unit>
+        <trans-unit id="a05a0915-dacb-4fdd-8236-75cb5d2a044a" xml:space="preserve">
+          <source>If AD FS has generated a new certificate, you should see two certificates in the output:  One for which the IsPrimary value is True and the NotAfter date is within 5 days, and one for which IsPrimary is False and NotAfter is about a year in the future.</source>
+          <target state="new">If AD FS has generated a new certificate, you should see two certificates in the output:  One for which the IsPrimary value is True and the NotAfter date is within 5 days, and one for which IsPrimary is False and NotAfter is about a year in the future.</target>
+        </trans-unit>
+        <trans-unit id="c9c3c881-e5cb-4025-b1ac-efdc73f6dd93" xml:space="preserve">
+          <source>If you only see one certificate, and the NotAfter date is within 5 days, you need to generate a new certificate by executing the following steps.</source>
+          <target state="new">If you only see one certificate, and the NotAfter date is within 5 days, you need to generate a new certificate by executing the following steps.</target>
+        </trans-unit>
+        <trans-unit id="6ebae5f5-1950-40a7-8e74-aff1185d2a72" xml:space="preserve">
+          <source>To generate a new certificate, execute the following command at a PowerShell command prompt: <bpt id="8fbc304b-f373-4a87-b1df-d2331b37f59b">&lt;code&gt;</bpt>PS C:\&gt;Update-ADFSCertificate –CertificateType token-signing<ept id="8fbc304b-f373-4a87-b1df-d2331b37f59b">&lt;/code&gt;</ept>.</source>
+          <target state="new">To generate a new certificate, execute the following command at a PowerShell command prompt: <bpt id="8fbc304b-f373-4a87-b1df-d2331b37f59b">&lt;code&gt;</bpt>PS C:\&gt;Update-ADFSCertificate –CertificateType token-signing<ept id="8fbc304b-f373-4a87-b1df-d2331b37f59b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7953d19e-4176-436a-8220-255a19b22ce2" xml:space="preserve">
+          <source>Verify the update by running the following command again: PS C:\&gt;Get-ADFSCertificate –CertificateType token-signing</source>
+          <target state="new">Verify the update by running the following command again: PS C:\&gt;Get-ADFSCertificate –CertificateType token-signing</target>
+        </trans-unit>
+        <trans-unit id="8aa40c0f-8c92-421b-8d63-c8f2f9a9b6aa" xml:space="preserve">
+          <source>Next, to manually update Office 365 federation trust properties, follow these steps.</source>
+          <target state="new">Next, to manually update Office 365 federation trust properties, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="848351ef-9597-40e4-a2c5-e518615aeb0b" xml:space="preserve">
+          <source>Two certificates should be listed now, one of which has a NotAfter date of approximately one year in the future and for which the IsPrimary value is False.</source>
+          <target state="new">Two certificates should be listed now, one of which has a NotAfter date of approximately one year in the future and for which the IsPrimary value is False.</target>
+        </trans-unit>
+        <trans-unit id="6734dd27-d9bb-45d3-9e9c-6040f8d1e589" xml:space="preserve">
+          <source>Open the Microsoft Azure Active Directory Module for Windows PowerShell.</source>
+          <target state="new">Open the Microsoft Azure Active Directory Module for Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="3297af22-8a15-44e8-98c1-c0bd06d30bed" xml:space="preserve">
+          <source>Run $cred=Get-Credential.</source>
+          <target state="new">Run $cred=Get-Credential.</target>
+        </trans-unit>
+        <trans-unit id="6fd885c0-d278-45a5-a85f-9cdbef7342d4" xml:space="preserve">
+          <source>When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.</source>
+          <target state="new">When this cmdlet prompts you for credentials, type your cloud service administrator account credentials.</target>
+        </trans-unit>
+        <trans-unit id="b567387f-b33a-4d26-ab71-631c6e09a2a9" xml:space="preserve">
+          <source>Run Connect-MsolService –Credential $cred.</source>
+          <target state="new">Run Connect-MsolService –Credential $cred.</target>
+        </trans-unit>
+        <trans-unit id="428ba0dc-3d0c-4a12-befe-bf7a1b4300f6" xml:space="preserve">
+          <source>This cmdlet connects you to the cloud service.</source>
+          <target state="new">This cmdlet connects you to the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="17fd7a91-9ab4-4512-b569-9f9afb3b4886" xml:space="preserve">
+          <source>Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.</source>
+          <target state="new">Creating a context that connects you to the cloud service is required before running any of the additional cmdlets installed by the tool.</target>
+        </trans-unit>
+        <trans-unit id="217cb467-df64-4128-9267-875b94f4b9f9" xml:space="preserve">
+          <source>If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;, where &lt;AD FS primary server&gt; is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS. </source>
+          <target state="new">If you are running these commands on a computer that is not the AD FS primary federation server, run Set-MSOLAdfscontext -Computer &lt;AD FS primary server&gt;, where &lt;AD FS primary server&gt; is the internal FQDN name of the primary AD FS server. This cmdlet creates a context that connects you to AD FS. </target>
+        </trans-unit>
+        <trans-unit id="7a4233cd-120c-4b08-8e14-c1cb3abb52ea" xml:space="preserve">
+          <source>Run Update-MSOLFederatedDomain –DomainName &lt;domain&gt;. This cmdlet updates the settings from AD FS into the cloud service and configures the trust relationship between the two.</source>
+          <target state="new">Run Update-MSOLFederatedDomain –DomainName &lt;domain&gt;. This cmdlet updates the settings from AD FS into the cloud service and configures the trust relationship between the two.</target>
+        </trans-unit>
+        <trans-unit id="a5942a95-080b-4459-9cea-a4898910f167" xml:space="preserve">
+          <source>If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets.</source>
+          <target state="new">If you need to support multiple top-level domains, such as contoso.com and fabrikam.com, you must use the SupportMultipleDomain switch with any cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="23680917-bc7e-4fa0-b77e-1c8357c6ee5e" xml:space="preserve">
+          <source>For more information, see Support for Multiple Top Level Domains.</source>
+          <target state="new">For more information, see Support for Multiple Top Level Domains.</target>
+        </trans-unit>
+        <trans-unit id="9ea12451-7d87-422d-b2a6-0c6bfa806569" xml:space="preserve">
+          <source>Finally, ensure all Web Application Proxy servers are updated with <bpt id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;linkText&gt;</bpt>Windows Server May 2014<ept id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;/linkText&gt;</ept><bpt id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;title&gt;</bpt><ept id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;/title&gt;</ept> rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.</source>
+          <target state="new">Finally, ensure all Web Application Proxy servers are updated with <bpt id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;linkText&gt;</bpt>Windows Server May 2014<ept id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;/linkText&gt;</ept><bpt id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;title&gt;</bpt><ept id="6456775c-2c87-42c1-b381-e10397f6c386">&lt;/title&gt;</ept> rollup, otherwise the proxies may fail to update themselves with the new certificate, resulting in an outage.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

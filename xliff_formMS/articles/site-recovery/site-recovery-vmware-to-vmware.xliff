@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9ee61312-6014-4fa9-93df-03d7f40f5267" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9ee61312-6014-4fa9-93df-03d7f40f5267" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eaad854e-c2bf-4803-a8b1-ee54084e3f2b">
+        <trans-unit id="aa1ddce8-e4a9-464a-8358-2a1fe72c7148" xml:space="preserve">
+          <source>Set up protection between on-premises VMware Sites</source>
+          <target state="new">Set up protection between on-premises VMware Sites</target>
+        </trans-unit>
+        <trans-unit id="a1d76add-aa31-4608-84a5-4e219c734ea5" xml:space="preserve">
+          <source>Use this article to configure protection between two VMware sites using Azure Site Recovery.</source>
+          <target state="new">Use this article to configure protection between two VMware sites using Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="a077cd3b-03b7-4e1d-afb2-b6b9fb4f0582" xml:space="preserve">
+          <source>InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites.</source>
+          <target state="new">InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites.</target>
+        </trans-unit>
+        <trans-unit id="26e7a56f-a794-4090-9f7a-a60ddfacc542" xml:space="preserve">
+          <source>InMage Scout is included in Azure Site Recovery service subscriptions.</source>
+          <target state="new">InMage Scout is included in Azure Site Recovery service subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="e46f6e26-4d49-488d-8619-96055c6fc521" xml:space="preserve">
+          <source><bpt id="224d3ef3-4bdb-4612-95fb-2e5c6bf5ef3c">&lt;strong&gt;</bpt>Azure account<ept id="224d3ef3-4bdb-4612-95fb-2e5c6bf5ef3c">&lt;/strong&gt;</ept>—You'll need a <bpt id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;/linkText&gt;</ept><bpt id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;title&gt;</bpt><ept id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;/title&gt;</ept> account.</source>
+          <target state="new"><bpt id="224d3ef3-4bdb-4612-95fb-2e5c6bf5ef3c">&lt;strong&gt;</bpt>Azure account<ept id="224d3ef3-4bdb-4612-95fb-2e5c6bf5ef3c">&lt;/strong&gt;</ept>—You'll need a <bpt id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;/linkText&gt;</ept><bpt id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;title&gt;</bpt><ept id="ef6bf08a-e1b5-4d2c-9dd3-aee459e1e908">&lt;/title&gt;</ept> account.</target>
+        </trans-unit>
+        <trans-unit id="a789c5ed-edd2-4485-8c61-37745e270f4f" xml:space="preserve">
+          <source>You can start with a <bpt id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;linkText&gt;</bpt>free trial<ept id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;/linkText&gt;</ept><bpt id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;title&gt;</bpt><ept id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can start with a <bpt id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;linkText&gt;</bpt>free trial<ept id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;/linkText&gt;</ept><bpt id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;title&gt;</bpt><ept id="1560492d-66de-488c-8c2e-873ee6731b43">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e910fbd9-a455-4c62-9f33-13aeee81d050" xml:space="preserve">
+          <source>Sign in to the <bpt id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;linkText&gt;</bpt>Management Portal<ept id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;/linkText&gt;</ept><bpt id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;title&gt;</bpt><ept id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;linkText&gt;</bpt>Management Portal<ept id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;/linkText&gt;</ept><bpt id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;title&gt;</bpt><ept id="c39d8bac-a343-4ac4-99a4-1ae4bb22b634">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84ae024f-bc89-4745-98de-5d9834373893" xml:space="preserve">
+          <source>Click <bpt id="f0ed167f-c9c0-4495-858f-4e32e6a3ed2f">&lt;strong&gt;</bpt>Data Services<ept id="f0ed167f-c9c0-4495-858f-4e32e6a3ed2f">&lt;/strong&gt;</ept> &gt; <bpt id="0e26acac-485f-4d07-b1fc-d64b60953ae8">&lt;strong&gt;</bpt>Recovery Services<ept id="0e26acac-485f-4d07-b1fc-d64b60953ae8">&lt;/strong&gt;</ept> &gt; <bpt id="29a2926a-8686-4ffb-b330-56e0d55e579c">&lt;strong&gt;</bpt>Site Recovery Vault<ept id="29a2926a-8686-4ffb-b330-56e0d55e579c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f0ed167f-c9c0-4495-858f-4e32e6a3ed2f">&lt;strong&gt;</bpt>Data Services<ept id="f0ed167f-c9c0-4495-858f-4e32e6a3ed2f">&lt;/strong&gt;</ept> &gt; <bpt id="0e26acac-485f-4d07-b1fc-d64b60953ae8">&lt;strong&gt;</bpt>Recovery Services<ept id="0e26acac-485f-4d07-b1fc-d64b60953ae8">&lt;/strong&gt;</ept> &gt; <bpt id="29a2926a-8686-4ffb-b330-56e0d55e579c">&lt;strong&gt;</bpt>Site Recovery Vault<ept id="29a2926a-8686-4ffb-b330-56e0d55e579c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9615fbeb-fcb8-4dfb-a75e-f408cae9ffc5" xml:space="preserve">
+          <source>Click <bpt id="f966be80-c2c1-48aa-b4f8-ea64eb8cfe72">&lt;strong&gt;</bpt>Create New<ept id="f966be80-c2c1-48aa-b4f8-ea64eb8cfe72">&lt;/strong&gt;</ept> &gt; <bpt id="97a8647a-5f58-4d82-bec0-ca694d4bef6e">&lt;strong&gt;</bpt>Quick Create<ept id="97a8647a-5f58-4d82-bec0-ca694d4bef6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f966be80-c2c1-48aa-b4f8-ea64eb8cfe72">&lt;strong&gt;</bpt>Create New<ept id="f966be80-c2c1-48aa-b4f8-ea64eb8cfe72">&lt;/strong&gt;</ept> &gt; <bpt id="97a8647a-5f58-4d82-bec0-ca694d4bef6e">&lt;strong&gt;</bpt>Quick Create<ept id="97a8647a-5f58-4d82-bec0-ca694d4bef6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="add489dc-e532-4bac-b4d9-4614f996d0a1" xml:space="preserve">
+          <source>In <bpt id="faec70a0-5fab-44e3-a45f-45b4832d1910">&lt;strong&gt;</bpt>Name<ept id="faec70a0-5fab-44e3-a45f-45b4832d1910">&lt;/strong&gt;</ept> enter a friendly name to identify the vault.</source>
+          <target state="new">In <bpt id="faec70a0-5fab-44e3-a45f-45b4832d1910">&lt;strong&gt;</bpt>Name<ept id="faec70a0-5fab-44e3-a45f-45b4832d1910">&lt;/strong&gt;</ept> enter a friendly name to identify the vault.</target>
+        </trans-unit>
+        <trans-unit id="afd5efaa-4dc1-4960-b999-997371f07550" xml:space="preserve">
+          <source>In <bpt id="9394dba2-3af7-45db-ab8f-4c3b08f11df5">&lt;strong&gt;</bpt>Region<ept id="9394dba2-3af7-45db-ab8f-4c3b08f11df5">&lt;/strong&gt;</ept> select the geographic region for the vault.</source>
+          <target state="new">In <bpt id="9394dba2-3af7-45db-ab8f-4c3b08f11df5">&lt;strong&gt;</bpt>Region<ept id="9394dba2-3af7-45db-ab8f-4c3b08f11df5">&lt;/strong&gt;</ept> select the geographic region for the vault.</target>
+        </trans-unit>
+        <trans-unit id="36fb4c85-72a0-4f85-973e-bdad5dc03574" xml:space="preserve">
+          <source>To check supported regions see Geographic Availability in <bpt id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;linkText&gt;</bpt>Azure Site Recovery Pricing Details<ept id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;/linkText&gt;</ept><bpt id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;title&gt;</bpt><ept id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;/title&gt;</ept>.</source>
+          <target state="new">To check supported regions see Geographic Availability in <bpt id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;linkText&gt;</bpt>Azure Site Recovery Pricing Details<ept id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;/linkText&gt;</ept><bpt id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;title&gt;</bpt><ept id="b68e90d4-9a1b-4f81-820d-f9adc39824c8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d34b6c62-d700-4f50-9b99-c1076a5820b5" xml:space="preserve">
+          <source>Check the status bar to confirm that the vault was successfully created.</source>
+          <target state="new">Check the status bar to confirm that the vault was successfully created.</target>
+        </trans-unit>
+        <trans-unit id="8566b49e-69f7-4109-a37a-924a78f6493a" xml:space="preserve">
+          <source>The vault will be listed as <bpt id="9e31d438-a250-4542-b33e-49da81993342">&lt;strong&gt;</bpt>Active<ept id="9e31d438-a250-4542-b33e-49da81993342">&lt;/strong&gt;</ept> on the main Recovery Services page.</source>
+          <target state="new">The vault will be listed as <bpt id="9e31d438-a250-4542-b33e-49da81993342">&lt;strong&gt;</bpt>Active<ept id="9e31d438-a250-4542-b33e-49da81993342">&lt;/strong&gt;</ept> on the main Recovery Services page.</target>
+        </trans-unit>
+        <trans-unit id="17a86e60-26cb-4191-be69-39b0179a9a0e" xml:space="preserve">
+          <source>Click <bpt id="6f60dc1c-8bf2-4d61-9cba-a7b90cb4ee3e">&lt;strong&gt;</bpt>Create vault<ept id="6f60dc1c-8bf2-4d61-9cba-a7b90cb4ee3e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6f60dc1c-8bf2-4d61-9cba-a7b90cb4ee3e">&lt;strong&gt;</bpt>Create vault<ept id="6f60dc1c-8bf2-4d61-9cba-a7b90cb4ee3e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="308c1f85-8335-4471-80df-2480aa06779c" xml:space="preserve">
+          <source>In the <bpt id="edb8896b-a13d-4480-8cdb-c689fa3b782c">&lt;strong&gt;</bpt>Recovery Services<ept id="edb8896b-a13d-4480-8cdb-c689fa3b782c">&lt;/strong&gt;</ept> page, click the vault to open the Quick Start page.</source>
+          <target state="new">In the <bpt id="edb8896b-a13d-4480-8cdb-c689fa3b782c">&lt;strong&gt;</bpt>Recovery Services<ept id="edb8896b-a13d-4480-8cdb-c689fa3b782c">&lt;/strong&gt;</ept> page, click the vault to open the Quick Start page.</target>
+        </trans-unit>
+        <trans-unit id="20b3559e-dba3-45c7-9346-c64e2b8ea07c" xml:space="preserve">
+          <source>In the dropdown list, select <bpt id="7d57eb9c-628f-4c8d-b5d8-8ce7e93ab08e">&lt;strong&gt;</bpt>Between two on-premises VMware sites<ept id="7d57eb9c-628f-4c8d-b5d8-8ce7e93ab08e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the dropdown list, select <bpt id="7d57eb9c-628f-4c8d-b5d8-8ce7e93ab08e">&lt;strong&gt;</bpt>Between two on-premises VMware sites<ept id="7d57eb9c-628f-4c8d-b5d8-8ce7e93ab08e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="febecabf-13e6-4487-9915-eaee5f3c272d" xml:space="preserve">
+          <source>Download InMage Scout.</source>
+          <target state="new">Download InMage Scout.</target>
+        </trans-unit>
+        <trans-unit id="eaf09b62-b5c5-401d-b2ce-80c181f0b098" xml:space="preserve">
+          <source>The setup files for all of the required components are in the downloaded zip file.</source>
+          <target state="new">The setup files for all of the required components are in the downloaded zip file.</target>
+        </trans-unit>
+        <trans-unit id="85103d6c-fd55-4b0b-b16a-3b2a19b4b062" xml:space="preserve">
+          <source>Read about the latest <bpt id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;linkText&gt;</bpt>updates<ept id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;/linkText&gt;</ept><bpt id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;title&gt;</bpt><ept id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read about the latest <bpt id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;linkText&gt;</bpt>updates<ept id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;/linkText&gt;</ept><bpt id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;title&gt;</bpt><ept id="9aad108a-90c5-4c22-955b-129eaf281577">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c26d63b6-9de2-411a-899c-a1b3c1e1bd61" xml:space="preserve">
+          <source>You'll install the update files in the following order:</source>
+          <target state="new">You'll install the update files in the following order:</target>
+        </trans-unit>
+        <trans-unit id="0bd512eb-0e23-4b4d-a32c-36c1c281bafc" xml:space="preserve">
+          <source>RX server if there is one</source>
+          <target state="new">RX server if there is one</target>
+        </trans-unit>
+        <trans-unit id="fb48355b-989d-4791-9fa6-925554eb839c" xml:space="preserve">
+          <source>Configuration servers</source>
+          <target state="new">Configuration servers</target>
+        </trans-unit>
+        <trans-unit id="7bbf4245-4b2e-4244-b7c6-d6bfc141071d" xml:space="preserve">
+          <source>Process servers</source>
+          <target state="new">Process servers</target>
+        </trans-unit>
+        <trans-unit id="8e7603ec-a134-413d-8f4a-9330117595fc" xml:space="preserve">
+          <source>Master target servers.</source>
+          <target state="new">Master target servers.</target>
+        </trans-unit>
+        <trans-unit id="509c66c4-26fa-45f6-a425-bacdc31c7687" xml:space="preserve">
+          <source>vContinuum servers.</source>
+          <target state="new">vContinuum servers.</target>
+        </trans-unit>
+        <trans-unit id="3450de76-6779-4a3e-868c-2950f3eb38ed" xml:space="preserve">
+          <source>Install as follows:</source>
+          <target state="new">Install as follows:</target>
+        </trans-unit>
+        <trans-unit id="51707fda-45df-4c9a-b218-335725c14e21" xml:space="preserve">
+          <source>Download the [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip) zip file.</source>
+          <target state="new">Download the [update](http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASR Scout 8.0.1 Update1.zip) zip file.</target>
+        </trans-unit>
+        <trans-unit id="636e8d7e-a403-488e-a622-91b7e8699e68" xml:space="preserve">
+          <source>This zip file contains the following files:</source>
+          <target state="new">This zip file contains the following files:</target>
+        </trans-unit>
+        <trans-unit id="fa54fc64-1501-4d21-ab11-0e0964379f3d" xml:space="preserve">
+          <source>RX<bpt id="a007885f-f240-4967-8774-3baa131a6243">&lt;em&gt;</bpt>8.0.1.0<ept id="a007885f-f240-4967-8774-3baa131a6243">&lt;/em&gt;</ept>GA<bpt id="7e53dfe2-4497-47fb-998f-af0bd705062d">&lt;em&gt;</bpt>Update<ept id="7e53dfe2-4497-47fb-998f-af0bd705062d">&lt;/em&gt;</ept>1<bpt id="38590960-5bb0-4965-88f8-6f40705f9656">&lt;em&gt;</bpt>3279231<ept id="38590960-5bb0-4965-88f8-6f40705f9656">&lt;/em&gt;</ept>23Jun15.tar.gz</source>
+          <target state="new">RX<bpt id="a007885f-f240-4967-8774-3baa131a6243">&lt;em&gt;</bpt>8.0.1.0<ept id="a007885f-f240-4967-8774-3baa131a6243">&lt;/em&gt;</ept>GA<bpt id="7e53dfe2-4497-47fb-998f-af0bd705062d">&lt;em&gt;</bpt>Update<ept id="7e53dfe2-4497-47fb-998f-af0bd705062d">&lt;/em&gt;</ept>1<bpt id="38590960-5bb0-4965-88f8-6f40705f9656">&lt;em&gt;</bpt>3279231<ept id="38590960-5bb0-4965-88f8-6f40705f9656">&lt;/em&gt;</ept>23Jun15.tar.gz</target>
+        </trans-unit>
+        <trans-unit id="f2296e97-c974-4d31-80a8-355ed16d71a0" xml:space="preserve">
+          <source>CX<bpt id="173e7a3d-71a6-4ad7-8e6c-2f3de69136ca">&lt;em&gt;</bpt>Windows<ept id="173e7a3d-71a6-4ad7-8e6c-2f3de69136ca">&lt;/em&gt;</ept>8.0.1.0<bpt id="cfef34ea-849b-418a-a2d7-a7e9dd93fd2c">&lt;em&gt;</bpt>GA<ept id="cfef34ea-849b-418a-a2d7-a7e9dd93fd2c">&lt;/em&gt;</ept>Update<bpt id="e1e26760-cdb4-4c72-b2bb-2dbbf48ab511">&lt;em&gt;</bpt>1<ept id="e1e26760-cdb4-4c72-b2bb-2dbbf48ab511">&lt;/em&gt;</ept>3259146_23Jun15.exe</source>
+          <target state="new">CX<bpt id="173e7a3d-71a6-4ad7-8e6c-2f3de69136ca">&lt;em&gt;</bpt>Windows<ept id="173e7a3d-71a6-4ad7-8e6c-2f3de69136ca">&lt;/em&gt;</ept>8.0.1.0<bpt id="cfef34ea-849b-418a-a2d7-a7e9dd93fd2c">&lt;em&gt;</bpt>GA<ept id="cfef34ea-849b-418a-a2d7-a7e9dd93fd2c">&lt;/em&gt;</ept>Update<bpt id="e1e26760-cdb4-4c72-b2bb-2dbbf48ab511">&lt;em&gt;</bpt>1<ept id="e1e26760-cdb4-4c72-b2bb-2dbbf48ab511">&lt;/em&gt;</ept>3259146_23Jun15.exe</target>
+        </trans-unit>
+        <trans-unit id="179aec27-db94-4333-a428-076bcf3830b0" xml:space="preserve">
+          <source>UA<bpt id="a1decf80-30c5-433b-8283-0256be0284a4">&lt;em&gt;</bpt>Windows<ept id="a1decf80-30c5-433b-8283-0256be0284a4">&lt;/em&gt;</ept>8.0.1.0<bpt id="350b6121-4114-4d5f-93b5-2efbd35df43b">&lt;em&gt;</bpt>GA<ept id="350b6121-4114-4d5f-93b5-2efbd35df43b">&lt;/em&gt;</ept>Update<bpt id="0d0b5ed8-f665-40f4-9046-a9ebc1a84454">&lt;em&gt;</bpt>1<ept id="0d0b5ed8-f665-40f4-9046-a9ebc1a84454">&lt;/em&gt;</ept>3259401_23Jun15.exe</source>
+          <target state="new">UA<bpt id="a1decf80-30c5-433b-8283-0256be0284a4">&lt;em&gt;</bpt>Windows<ept id="a1decf80-30c5-433b-8283-0256be0284a4">&lt;/em&gt;</ept>8.0.1.0<bpt id="350b6121-4114-4d5f-93b5-2efbd35df43b">&lt;em&gt;</bpt>GA<ept id="350b6121-4114-4d5f-93b5-2efbd35df43b">&lt;/em&gt;</ept>Update<bpt id="0d0b5ed8-f665-40f4-9046-a9ebc1a84454">&lt;em&gt;</bpt>1<ept id="0d0b5ed8-f665-40f4-9046-a9ebc1a84454">&lt;/em&gt;</ept>3259401_23Jun15.exe</target>
+        </trans-unit>
+        <trans-unit id="603485a4-fa94-4cd7-91a2-2866ede8a85c" xml:space="preserve">
+          <source>UA<bpt id="a4cfe2be-ca80-42c1-bc6f-554da38042f7">&lt;em&gt;</bpt>RHEL6-64<ept id="a4cfe2be-ca80-42c1-bc6f-554da38042f7">&lt;/em&gt;</ept>8.0.1.0<bpt id="1f8c8095-edb8-49a6-bd14-14bf5bf44722">&lt;em&gt;</bpt>GA<ept id="1f8c8095-edb8-49a6-bd14-14bf5bf44722">&lt;/em&gt;</ept>Update<bpt id="5db72fbe-2ea7-42b6-b740-8d002ac817d2">&lt;em&gt;</bpt>1<ept id="5db72fbe-2ea7-42b6-b740-8d002ac817d2">&lt;/em&gt;</ept>3259401_23Jun15.tar.gz</source>
+          <target state="new">UA<bpt id="a4cfe2be-ca80-42c1-bc6f-554da38042f7">&lt;em&gt;</bpt>RHEL6-64<ept id="a4cfe2be-ca80-42c1-bc6f-554da38042f7">&lt;/em&gt;</ept>8.0.1.0<bpt id="1f8c8095-edb8-49a6-bd14-14bf5bf44722">&lt;em&gt;</bpt>GA<ept id="1f8c8095-edb8-49a6-bd14-14bf5bf44722">&lt;/em&gt;</ept>Update<bpt id="5db72fbe-2ea7-42b6-b740-8d002ac817d2">&lt;em&gt;</bpt>1<ept id="5db72fbe-2ea7-42b6-b740-8d002ac817d2">&lt;/em&gt;</ept>3259401_23Jun15.tar.gz</target>
+        </trans-unit>
+        <trans-unit id="fa9da7bc-940d-4add-9e54-04b0f04f4273" xml:space="preserve">
+          <source>vCon<bpt id="615f39e6-1f42-490c-93d6-d8fe3c99696d">&lt;em&gt;</bpt>Windows<ept id="615f39e6-1f42-490c-93d6-d8fe3c99696d">&lt;/em&gt;</ept>8.0.1.0<bpt id="52c7ac4b-c743-485a-bda0-06b439cdf547">&lt;em&gt;</bpt>GA<ept id="52c7ac4b-c743-485a-bda0-06b439cdf547">&lt;/em&gt;</ept>Update<bpt id="c7d8648b-fe0f-4020-8e04-b6e7b352f431">&lt;em&gt;</bpt>1<ept id="c7d8648b-fe0f-4020-8e04-b6e7b352f431">&lt;/em&gt;</ept>3259523_23Jun15.exe</source>
+          <target state="new">vCon<bpt id="615f39e6-1f42-490c-93d6-d8fe3c99696d">&lt;em&gt;</bpt>Windows<ept id="615f39e6-1f42-490c-93d6-d8fe3c99696d">&lt;/em&gt;</ept>8.0.1.0<bpt id="52c7ac4b-c743-485a-bda0-06b439cdf547">&lt;em&gt;</bpt>GA<ept id="52c7ac4b-c743-485a-bda0-06b439cdf547">&lt;/em&gt;</ept>Update<bpt id="c7d8648b-fe0f-4020-8e04-b6e7b352f431">&lt;em&gt;</bpt>1<ept id="c7d8648b-fe0f-4020-8e04-b6e7b352f431">&lt;/em&gt;</ept>3259523_23Jun15.exe</target>
+        </trans-unit>
+        <trans-unit id="40055b82-5279-47fa-9ed3-70cf79c155e9" xml:space="preserve">
+          <source>Extract the zip files.</source>
+          <target state="new">Extract the zip files.</target>
+        </trans-unit>
+        <trans-unit id="a84ff6d1-8339-4126-9222-d91fbf84761e" xml:space="preserve">
+          <source><bpt id="a8da8794-6f51-47fe-949c-8ac7c06c4200">&lt;strong&gt;</bpt>RX server<ept id="a8da8794-6f51-47fe-949c-8ac7c06c4200">&lt;/strong&gt;</ept>: Copy <bpt id="897c92bf-1f3f-40c9-8315-6d384b1553cb">&lt;strong&gt;</bpt>RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz<ept id="897c92bf-1f3f-40c9-8315-6d384b1553cb">&lt;/strong&gt;</ept> to the RX server and extract it.</source>
+          <target state="new"><bpt id="a8da8794-6f51-47fe-949c-8ac7c06c4200">&lt;strong&gt;</bpt>RX server<ept id="a8da8794-6f51-47fe-949c-8ac7c06c4200">&lt;/strong&gt;</ept>: Copy <bpt id="897c92bf-1f3f-40c9-8315-6d384b1553cb">&lt;strong&gt;</bpt>RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz<ept id="897c92bf-1f3f-40c9-8315-6d384b1553cb">&lt;/strong&gt;</ept> to the RX server and extract it.</target>
+        </trans-unit>
+        <trans-unit id="250d1681-4a4b-481e-a2f8-37e7ca074b5e" xml:space="preserve">
+          <source>In the extracted folder run <bpt id="df5f8369-c73e-41da-a6ce-1c67f631ffc7">&lt;strong&gt;</bpt>/Install<ept id="df5f8369-c73e-41da-a6ce-1c67f631ffc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the extracted folder run <bpt id="df5f8369-c73e-41da-a6ce-1c67f631ffc7">&lt;strong&gt;</bpt>/Install<ept id="df5f8369-c73e-41da-a6ce-1c67f631ffc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31085cbb-86da-4da3-a970-5f132f5f76d2" xml:space="preserve">
+          <source><bpt id="338c4855-b6a6-4604-8dd4-7a8055e7e1f2">&lt;strong&gt;</bpt>Configuration server/process server<ept id="338c4855-b6a6-4604-8dd4-7a8055e7e1f2">&lt;/strong&gt;</ept>: Copy <bpt id="57095a22-58ff-45eb-9c4f-e603f9833c2f">&lt;strong&gt;</bpt>CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe<ept id="57095a22-58ff-45eb-9c4f-e603f9833c2f">&lt;/strong&gt;</ept> to the configuration server and process server.</source>
+          <target state="new"><bpt id="338c4855-b6a6-4604-8dd4-7a8055e7e1f2">&lt;strong&gt;</bpt>Configuration server/process server<ept id="338c4855-b6a6-4604-8dd4-7a8055e7e1f2">&lt;/strong&gt;</ept>: Copy <bpt id="57095a22-58ff-45eb-9c4f-e603f9833c2f">&lt;strong&gt;</bpt>CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe<ept id="57095a22-58ff-45eb-9c4f-e603f9833c2f">&lt;/strong&gt;</ept> to the configuration server and process server.</target>
+        </trans-unit>
+        <trans-unit id="3f57c871-579d-4a3f-9a93-40f11c88daee" xml:space="preserve">
+          <source>Double click to run it.</source>
+          <target state="new">Double click to run it.</target>
+        </trans-unit>
+        <trans-unit id="b11e3de0-9fd0-4139-8db0-9eee9a97c825" xml:space="preserve">
+          <source><bpt id="cb5fdccd-1726-44e3-bcdf-3caa70d207d6">&lt;strong&gt;</bpt>Windows master target server<ept id="cb5fdccd-1726-44e3-bcdf-3caa70d207d6">&lt;/strong&gt;</ept>: To update the  unified agent copy <bpt id="5dbf4ecd-9c5a-4ae9-bca1-710fc068ac26">&lt;strong&gt;</bpt>UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe<ept id="5dbf4ecd-9c5a-4ae9-bca1-710fc068ac26">&lt;/strong&gt;</ept> to the master target server.</source>
+          <target state="new"><bpt id="cb5fdccd-1726-44e3-bcdf-3caa70d207d6">&lt;strong&gt;</bpt>Windows master target server<ept id="cb5fdccd-1726-44e3-bcdf-3caa70d207d6">&lt;/strong&gt;</ept>: To update the  unified agent copy <bpt id="5dbf4ecd-9c5a-4ae9-bca1-710fc068ac26">&lt;strong&gt;</bpt>UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe<ept id="5dbf4ecd-9c5a-4ae9-bca1-710fc068ac26">&lt;/strong&gt;</ept> to the master target server.</target>
+        </trans-unit>
+        <trans-unit id="71ce84c1-6fe4-4075-b749-0c1f67bae071" xml:space="preserve">
+          <source>Double click it to run it.</source>
+          <target state="new">Double click it to run it.</target>
+        </trans-unit>
+        <trans-unit id="9704248a-362d-46f2-a976-9d56a83209f1" xml:space="preserve">
+          <source>Note that the unified agent for Windows isn't applicable on the source server.</source>
+          <target state="new">Note that the unified agent for Windows isn't applicable on the source server.</target>
+        </trans-unit>
+        <trans-unit id="d82f5e41-a58c-444e-95e8-84cabb8c8d82" xml:space="preserve">
+          <source>It should be installed on the Windows master target server only.</source>
+          <target state="new">It should be installed on the Windows master target server only.</target>
+        </trans-unit>
+        <trans-unit id="26b64f28-183c-41f8-9e86-b1f0b7786e62" xml:space="preserve">
+          <source><bpt id="6cb9aba4-4bf4-4e0e-ae40-9482ade5d154">&lt;strong&gt;</bpt>Linux master target server<ept id="6cb9aba4-4bf4-4e0e-ae40-9482ade5d154">&lt;/strong&gt;</ept>:  To update the unified agent copy <bpt id="d9f64350-5160-41d9-9975-386005a42b0e">&lt;strong&gt;</bpt>UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz<ept id="d9f64350-5160-41d9-9975-386005a42b0e">&lt;/strong&gt;</ept> to the master target server and extract it.</source>
+          <target state="new"><bpt id="6cb9aba4-4bf4-4e0e-ae40-9482ade5d154">&lt;strong&gt;</bpt>Linux master target server<ept id="6cb9aba4-4bf4-4e0e-ae40-9482ade5d154">&lt;/strong&gt;</ept>:  To update the unified agent copy <bpt id="d9f64350-5160-41d9-9975-386005a42b0e">&lt;strong&gt;</bpt>UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz<ept id="d9f64350-5160-41d9-9975-386005a42b0e">&lt;/strong&gt;</ept> to the master target server and extract it.</target>
+        </trans-unit>
+        <trans-unit id="dfd82bca-076e-4e68-a6a7-b491041a216f" xml:space="preserve">
+          <source>In the extracted folder run <bpt id="3e4d25b7-1805-486f-82a6-c68e6a25cf91">&lt;strong&gt;</bpt>/Install<ept id="3e4d25b7-1805-486f-82a6-c68e6a25cf91">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the extracted folder run <bpt id="3e4d25b7-1805-486f-82a6-c68e6a25cf91">&lt;strong&gt;</bpt>/Install<ept id="3e4d25b7-1805-486f-82a6-c68e6a25cf91">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="561ae172-b1de-4c61-9bef-804708a7d7c5" xml:space="preserve">
+          <source><bpt id="79ccc915-d21a-4803-851e-82fdbd02c042">&lt;strong&gt;</bpt>vContinuum server<ept id="79ccc915-d21a-4803-851e-82fdbd02c042">&lt;/strong&gt;</ept>: Copy <bpt id="bed1c5eb-caeb-47bc-8f5e-6bb4d2499ff3">&lt;strong&gt;</bpt>vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe<ept id="bed1c5eb-caeb-47bc-8f5e-6bb4d2499ff3">&lt;/strong&gt;</ept> to the vContinuum server.</source>
+          <target state="new"><bpt id="79ccc915-d21a-4803-851e-82fdbd02c042">&lt;strong&gt;</bpt>vContinuum server<ept id="79ccc915-d21a-4803-851e-82fdbd02c042">&lt;/strong&gt;</ept>: Copy <bpt id="bed1c5eb-caeb-47bc-8f5e-6bb4d2499ff3">&lt;strong&gt;</bpt>vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe<ept id="bed1c5eb-caeb-47bc-8f5e-6bb4d2499ff3">&lt;/strong&gt;</ept> to the vContinuum server.</target>
+        </trans-unit>
+        <trans-unit id="c4e54667-6f3c-402d-9fb0-fdf4f56bf0e1" xml:space="preserve">
+          <source>Make sure you've closed the vContinuum Wizard.</source>
+          <target state="new">Make sure you've closed the vContinuum Wizard.</target>
+        </trans-unit>
+        <trans-unit id="498f6ee4-6b49-441a-a2d4-4472711bbc91" xml:space="preserve">
+          <source>Double click on the file to run it.</source>
+          <target state="new">Double click on the file to run it.</target>
+        </trans-unit>
+        <trans-unit id="cda68580-0b7b-448e-975b-98af4701a5fa" xml:space="preserve">
+          <source>Set up replication between the source and target VMware sites.</source>
+          <target state="new">Set up replication between the source and target VMware sites.</target>
+        </trans-unit>
+        <trans-unit id="4147409e-2148-4b75-9388-4e28375a3610" xml:space="preserve">
+          <source>For guidance, use the InMage Scout documentation that's downloaded with the product.</source>
+          <target state="new">For guidance, use the InMage Scout documentation that's downloaded with the product.</target>
+        </trans-unit>
+        <trans-unit id="1f7ac3dc-bedc-43d4-839f-86cc0d08c846" xml:space="preserve">
+          <source>Alternatively you can access the documentation as follows:</source>
+          <target state="new">Alternatively you can access the documentation as follows:</target>
+        </trans-unit>
+        <trans-unit id="1006ec64-ebe5-43ae-9467-3caebcccc8cb" xml:space="preserve">
+          <source>[Release notes](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage<bpt id="3d084489-5e6c-408a-9cbc-73e0b3fe8e95">&lt;em&gt;</bpt>Scout<ept id="3d084489-5e6c-408a-9cbc-73e0b3fe8e95">&lt;/em&gt;</ept>Standard<bpt id="dcda39d6-73d7-4a41-9e0f-62763b58a0ec">&lt;em&gt;</bpt>Release<ept id="dcda39d6-73d7-4a41-9e0f-62763b58a0ec">&lt;/em&gt;</ept>Notes.pdf)</source>
+          <target state="new">[Release notes](http://download.microsoft.com/download/4/5/0/45008861-4994-4708-BFCD-867736D5621A/InMage<bpt id="3d084489-5e6c-408a-9cbc-73e0b3fe8e95">&lt;em&gt;</bpt>Scout<ept id="3d084489-5e6c-408a-9cbc-73e0b3fe8e95">&lt;/em&gt;</ept>Standard<bpt id="dcda39d6-73d7-4a41-9e0f-62763b58a0ec">&lt;em&gt;</bpt>Release<ept id="dcda39d6-73d7-4a41-9e0f-62763b58a0ec">&lt;/em&gt;</ept>Notes.pdf)</target>
+        </trans-unit>
+        <trans-unit id="76c56e31-810a-49af-b6cf-94a4496182b8" xml:space="preserve">
+          <source>[Compatibility matrix](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage<bpt id="04b30088-f161-4ee4-9934-d1be1aa753e4">&lt;em&gt;</bpt>Scout<ept id="04b30088-f161-4ee4-9934-d1be1aa753e4">&lt;/em&gt;</ept>Standard<bpt id="416f46a2-6623-438c-a2a0-c6586a3ce8e9">&lt;em&gt;</bpt>Compatibility<ept id="416f46a2-6623-438c-a2a0-c6586a3ce8e9">&lt;/em&gt;</ept>Matrix.pdf)</source>
+          <target state="new">[Compatibility matrix](http://download.microsoft.com/download/C/D/A/CDA1221B-74E4-4CCF-8F77-F785E71423C0/InMage<bpt id="04b30088-f161-4ee4-9934-d1be1aa753e4">&lt;em&gt;</bpt>Scout<ept id="04b30088-f161-4ee4-9934-d1be1aa753e4">&lt;/em&gt;</ept>Standard<bpt id="416f46a2-6623-438c-a2a0-c6586a3ce8e9">&lt;em&gt;</bpt>Compatibility<ept id="416f46a2-6623-438c-a2a0-c6586a3ce8e9">&lt;/em&gt;</ept>Matrix.pdf)</target>
+        </trans-unit>
+        <trans-unit id="a2abe69c-5da7-4ace-8b8d-bedb1fbd2061" xml:space="preserve">
+          <source>[User guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage<bpt id="5d30d246-7ee7-4a33-b3e1-890653df2f54">&lt;em&gt;</bpt>Scout<ept id="5d30d246-7ee7-4a33-b3e1-890653df2f54">&lt;/em&gt;</ept>Standard<bpt id="dafbeac9-7e07-4c9c-9045-2f652c4f5cd0">&lt;em&gt;</bpt>User<ept id="dafbeac9-7e07-4c9c-9045-2f652c4f5cd0">&lt;/em&gt;</ept>Guide_8.0.1.pdf)</source>
+          <target state="new">[User guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage<bpt id="5d30d246-7ee7-4a33-b3e1-890653df2f54">&lt;em&gt;</bpt>Scout<ept id="5d30d246-7ee7-4a33-b3e1-890653df2f54">&lt;/em&gt;</ept>Standard<bpt id="dafbeac9-7e07-4c9c-9045-2f652c4f5cd0">&lt;em&gt;</bpt>User<ept id="dafbeac9-7e07-4c9c-9045-2f652c4f5cd0">&lt;/em&gt;</ept>Guide_8.0.1.pdf)</target>
+        </trans-unit>
+        <trans-unit id="695af67d-557b-4c34-9e63-b7757220143b" xml:space="preserve">
+          <source>[RX user guide](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage<bpt id="19f80cc3-17ea-41d3-a371-ea2e18e3c1f9">&lt;em&gt;</bpt>ScoutCloud<ept id="19f80cc3-17ea-41d3-a371-ea2e18e3c1f9">&lt;/em&gt;</ept>RX<bpt id="37edbedf-c1ca-4df9-827c-e4657ea5635f">&lt;em&gt;</bpt>User<ept id="37edbedf-c1ca-4df9-827c-e4657ea5635f">&lt;/em&gt;</ept>Guide_8.0.1.pdf)</source>
+          <target state="new">[RX user guide](http://download.microsoft.com/download/A/7/7/A77504C5-D49F-4799-BBC4-4E92158AFBA4/InMage<bpt id="19f80cc3-17ea-41d3-a371-ea2e18e3c1f9">&lt;em&gt;</bpt>ScoutCloud<ept id="19f80cc3-17ea-41d3-a371-ea2e18e3c1f9">&lt;/em&gt;</ept>RX<bpt id="37edbedf-c1ca-4df9-827c-e4657ea5635f">&lt;em&gt;</bpt>User<ept id="37edbedf-c1ca-4df9-827c-e4657ea5635f">&lt;/em&gt;</ept>Guide_8.0.1.pdf)</target>
+        </trans-unit>
+        <trans-unit id="bbf4b4c4-9876-48eb-88b4-69a078a2a21f" xml:space="preserve">
+          <source>[Quick installation guide](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage<bpt id="e2d664c3-b7cc-4157-8f57-6cfa460d347a">&lt;em&gt;</bpt>Scout<ept id="e2d664c3-b7cc-4157-8f57-6cfa460d347a">&lt;/em&gt;</ept>Standard<bpt id="7e14a908-5956-48a6-a869-bc2fceb0a74c">&lt;em&gt;</bpt>Quick<ept id="7e14a908-5956-48a6-a869-bc2fceb0a74c">&lt;/em&gt;</ept>Install_Guide.pdf)</source>
+          <target state="new">[Quick installation guide](http://download.microsoft.com/download/6/8/5/685E761C-8493-42EB-854F-FE24B5A6D74B/InMage<bpt id="e2d664c3-b7cc-4157-8f57-6cfa460d347a">&lt;em&gt;</bpt>Scout<ept id="e2d664c3-b7cc-4157-8f57-6cfa460d347a">&lt;/em&gt;</ept>Standard<bpt id="7e14a908-5956-48a6-a869-bc2fceb0a74c">&lt;em&gt;</bpt>Quick<ept id="7e14a908-5956-48a6-a869-bc2fceb0a74c">&lt;/em&gt;</ept>Install_Guide.pdf)</target>
+        </trans-unit>
+        <trans-unit id="057c9c96-af4d-4c4e-8c37-a1277df9820f" xml:space="preserve">
+          <source>This latest update includes bug fixes and new features:</source>
+          <target state="new">This latest update includes bug fixes and new features:</target>
+        </trans-unit>
+        <trans-unit id="ab73b74e-4d8b-4793-b9b0-b497d4f070c6" xml:space="preserve">
+          <source>31 days of free protection per server instances.</source>
+          <target state="new">31 days of free protection per server instances.</target>
+        </trans-unit>
+        <trans-unit id="c80c29f8-2efd-46cc-b4c2-671988c6f06d" xml:space="preserve">
+          <source>This enables you to test functionality or set up a proof-of-concept.</source>
+          <target state="new">This enables you to test functionality or set up a proof-of-concept.</target>
+        </trans-unit>
+        <trans-unit id="6be21425-7eec-48f4-9127-42dd78c1a17e" xml:space="preserve">
+          <source>All operations on the server, including failover and failback are free for the first 31 days starting from the time that a server is first protected using ASR Scout.</source>
+          <target state="new">All operations on the server, including failover and failback are free for the first 31 days starting from the time that a server is first protected using ASR Scout.</target>
+        </trans-unit>
+        <trans-unit id="c14b487b-7494-4524-855c-c3c7679afc80" xml:space="preserve">
+          <source>From the 32nd day onwards, each protected server will be charged at the standard instance rate for Azure Site Recovery protection to a customer owned site.</source>
+          <target state="new">From the 32nd day onwards, each protected server will be charged at the standard instance rate for Azure Site Recovery protection to a customer owned site.</target>
+        </trans-unit>
+        <trans-unit id="c8a5959e-2d0d-478f-94c1-0cf88abbd56a" xml:space="preserve">
+          <source>At any time, the number of protected servers that are currently being charged is available on the Dashboard page of the Azure Site Recovery vault.</source>
+          <target state="new">At any time, the number of protected servers that are currently being charged is available on the Dashboard page of the Azure Site Recovery vault.</target>
+        </trans-unit>
+        <trans-unit id="f220d6f7-03f7-444e-a002-d0ba25da4d79" xml:space="preserve">
+          <source>Support added for vCLI 5.5 Update 2.</source>
+          <target state="new">Support added for vCLI 5.5 Update 2.</target>
+        </trans-unit>
+        <trans-unit id="578929a2-3196-4035-876f-2621b4059dff" xml:space="preserve">
+          <source>Support added for Linux operating systems on the source server:</source>
+          <target state="new">Support added for Linux operating systems on the source server:</target>
+        </trans-unit>
+        <trans-unit id="7a724486-b24a-4e5d-b555-f5cebd94b0c3" xml:space="preserve">
+          <source>RHEL 6 Update 6</source>
+          <target state="new">RHEL 6 Update 6</target>
+        </trans-unit>
+        <trans-unit id="8dc33688-dd4a-46cb-b3ed-af8f97027c94" xml:space="preserve">
+          <source>RHEL 5 Update 11</source>
+          <target state="new">RHEL 5 Update 11</target>
+        </trans-unit>
+        <trans-unit id="7c1cdb4d-4bee-4e0b-b8f6-4cab2f3a88b6" xml:space="preserve">
+          <source>CentOS 6 Update 6</source>
+          <target state="new">CentOS 6 Update 6</target>
+        </trans-unit>
+        <trans-unit id="accfe161-db63-463a-971c-f584d2b9b3a5" xml:space="preserve">
+          <source>CentOS 5 Update 11</source>
+          <target state="new">CentOS 5 Update 11</target>
+        </trans-unit>
+        <trans-unit id="c65b22a8-af4c-40dc-9226-c9feee64ee75" xml:space="preserve">
+          <source>Bug fixes to address the following issues:</source>
+          <target state="new">Bug fixes to address the following issues:</target>
+        </trans-unit>
+        <trans-unit id="7ac99f00-d8d8-44e6-9826-0eb91bcbd350" xml:space="preserve">
+          <source>Vault registration fails for the configuration server or RX server.</source>
+          <target state="new">Vault registration fails for the configuration server or RX server.</target>
+        </trans-unit>
+        <trans-unit id="adca7354-e38b-4dcb-846c-8840fc7877b0" xml:space="preserve">
+          <source>Cluster volumes don't appear as expected when clustered virtual machines are reprotected during resume.</source>
+          <target state="new">Cluster volumes don't appear as expected when clustered virtual machines are reprotected during resume.</target>
+        </trans-unit>
+        <trans-unit id="161071c2-8eee-4429-8863-29835f4679a5" xml:space="preserve">
+          <source>Failback fails when master target server is hosted on a different ESXi server from the on-premises production virtual machines.</source>
+          <target state="new">Failback fails when master target server is hosted on a different ESXi server from the on-premises production virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="be9175a9-fa53-4cfb-886f-67df5f7583ac" xml:space="preserve">
+          <source>Configuration file permissions are changed when upgrading to 8.0.1, affecting protection and operations.</source>
+          <target state="new">Configuration file permissions are changed when upgrading to 8.0.1, affecting protection and operations.</target>
+        </trans-unit>
+        <trans-unit id="cb30b4a6-8cc4-4798-b318-9fc8ace6fac9" xml:space="preserve">
+          <source>Resynchronization threshold isn't enforced as expected, leading to inconsistent replication behavior.</source>
+          <target state="new">Resynchronization threshold isn't enforced as expected, leading to inconsistent replication behavior.</target>
+        </trans-unit>
+        <trans-unit id="c9b7990b-e7b8-4e37-af50-a77fa8da5fde" xml:space="preserve">
+          <source>RPO settings not appearing correctly in the configuration server interface.</source>
+          <target state="new">RPO settings not appearing correctly in the configuration server interface.</target>
+        </trans-unit>
+        <trans-unit id="c75c64cb-3f9b-4225-8e2b-63ee6b5b491e" xml:space="preserve">
+          <source>Uncompressed data value incorrectly shows compressed value.</source>
+          <target state="new">Uncompressed data value incorrectly shows compressed value.</target>
+        </trans-unit>
+        <trans-unit id="8a23bbc3-6125-4712-a357-d0ea45eab046" xml:space="preserve">
+          <source>The Remove operation doesn't delete as expected in the vContinuum wizard and replication isn't deleted from the configuration server interface.</source>
+          <target state="new">The Remove operation doesn't delete as expected in the vContinuum wizard and replication isn't deleted from the configuration server interface.</target>
+        </trans-unit>
+        <trans-unit id="baebed90-5f4c-454e-9682-816284a833f6" xml:space="preserve">
+          <source>In the vContinuum wizard the disk is automatically unselected when clicking on <bpt id="badd535e-a469-4a89-b0e1-5112a85332da">&lt;strong&gt;</bpt>Details<ept id="badd535e-a469-4a89-b0e1-5112a85332da">&lt;/strong&gt;</ept> in the disk view during protection of MSCS virtual machines.</source>
+          <target state="new">In the vContinuum wizard the disk is automatically unselected when clicking on <bpt id="badd535e-a469-4a89-b0e1-5112a85332da">&lt;strong&gt;</bpt>Details<ept id="badd535e-a469-4a89-b0e1-5112a85332da">&lt;/strong&gt;</ept> in the disk view during protection of MSCS virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="0f620972-de7b-409c-8f6d-4ae71a088ba3" xml:space="preserve">
+          <source>During P2V scenario required HP sevices such as CIMnotify, CqMgHost aren't moved to Manual in the recover virtual machine, resulting is additional boot time.</source>
+          <target state="new">During P2V scenario required HP sevices such as CIMnotify, CqMgHost aren't moved to Manual in the recover virtual machine, resulting is additional boot time.</target>
+        </trans-unit>
+        <trans-unit id="bfc980a1-10fb-4a8a-8c60-3a9a4b1bcd7c" xml:space="preserve">
+          <source>Linux virtual machine protected fails when there are more than 26 disks on the master target server.</source>
+          <target state="new">Linux virtual machine protected fails when there are more than 26 disks on the master target server.</target>
+        </trans-unit>
+        <trans-unit id="bc9e139f-0f75-4104-9f3f-990437e677c9" xml:space="preserve">
+          <source>Post any questions on the <bpt id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;/linkText&gt;</ept><bpt id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;title&gt;</bpt><ept id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;/title&gt;</ept>.&lt; </source>
+          <target state="new">Post any questions on the <bpt id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;/linkText&gt;</ept><bpt id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;title&gt;</bpt><ept id="a1c4fc02-1680-4f0a-b3d8-8b0db4ea9db1">&lt;/title&gt;</ept>.&lt; </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

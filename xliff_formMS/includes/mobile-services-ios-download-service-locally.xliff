@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="39396fcf-b7ed-4bfa-b153-4f18c7d290a9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="39396fcf-b7ed-4bfa-b153-4f18c7d290a9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b94d37b4-cb63-4fdb-8d3d-8e5a611501bc">
+        <trans-unit id="8e9df0d1-dbe4-4f88-be49-85cd06339ede" xml:space="preserve">
+          <source>In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.</source>
+          <target state="new">In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.</target>
+        </trans-unit>
+        <trans-unit id="2f13abdc-3000-4a34-a198-8eea8ba08daa" xml:space="preserve">
+          <source><bpt id="a621b81e-8ba4-4c5c-ad96-c03af92d7f38">&lt;linkText&gt;</bpt><ept id="a621b81e-8ba4-4c5c-ad96-c03af92d7f38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a621b81e-8ba4-4c5c-ad96-c03af92d7f38">&lt;linkText&gt;</bpt><ept id="a621b81e-8ba4-4c5c-ad96-c03af92d7f38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92b13a81-a8a7-468e-a0cf-fcd90f761b21" xml:space="preserve">
+          <source>Click the <bpt id="2bf44dff-86b3-4648-acf9-670f756850bd">&lt;strong&gt;</bpt>iOS<ept id="2bf44dff-86b3-4648-acf9-670f756850bd">&lt;/strong&gt;</ept> platform.</source>
+          <target state="new">Click the <bpt id="2bf44dff-86b3-4648-acf9-670f756850bd">&lt;strong&gt;</bpt>iOS<ept id="2bf44dff-86b3-4648-acf9-670f756850bd">&lt;/strong&gt;</ept> platform.</target>
+        </trans-unit>
+        <trans-unit id="4343dd32-a101-4721-a742-e0d00f3cc118" xml:space="preserve">
+          <source>Under the <bpt id="ef67b557-51db-4574-a387-4acef5ba4abe">&lt;strong&gt;</bpt>Get Started<ept id="ef67b557-51db-4574-a387-4acef5ba4abe">&lt;/strong&gt;</ept> section, and expand <bpt id="526d64c9-b89e-41f7-b806-94ae56b73b37">&lt;strong&gt;</bpt>Create a new iOS app<ept id="526d64c9-b89e-41f7-b806-94ae56b73b37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under the <bpt id="ef67b557-51db-4574-a387-4acef5ba4abe">&lt;strong&gt;</bpt>Get Started<ept id="ef67b557-51db-4574-a387-4acef5ba4abe">&lt;/strong&gt;</ept> section, and expand <bpt id="526d64c9-b89e-41f7-b806-94ae56b73b37">&lt;strong&gt;</bpt>Create a new iOS app<ept id="526d64c9-b89e-41f7-b806-94ae56b73b37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f49f2c8f-cfc2-46d4-9d41-55465d5c9eda" xml:space="preserve">
+          <source><bpt id="f64fce5c-29cb-458a-88d0-b750e912a508">&lt;linkText&gt;</bpt><ept id="f64fce5c-29cb-458a-88d0-b750e912a508">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f64fce5c-29cb-458a-88d0-b750e912a508">&lt;linkText&gt;</bpt><ept id="f64fce5c-29cb-458a-88d0-b750e912a508">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04fbe80f-3a87-4806-939b-dc45e33071a1" xml:space="preserve">
+          <source>If you haven't already done so, download and install <bpt id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;linkText&gt;</bpt>Visual Studio Professional 2013<ept id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;/linkText&gt;</ept><bpt id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;title&gt;</bpt><ept id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;/title&gt;</ept>, or a later version.</source>
+          <target state="new">If you haven't already done so, download and install <bpt id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;linkText&gt;</bpt>Visual Studio Professional 2013<ept id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;/linkText&gt;</ept><bpt id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;title&gt;</bpt><ept id="03b31617-d0ab-4cbf-9d67-217870336e02">&lt;/title&gt;</ept>, or a later version.</target>
+        </trans-unit>
+        <trans-unit id="113c042b-d76f-44c6-ae56-15af8c6ffcc0" xml:space="preserve">
+          <source>Click <bpt id="555ec2c8-7889-46f2-9496-7766aef86715">&lt;strong&gt;</bpt>Download<ept id="555ec2c8-7889-46f2-9496-7766aef86715">&lt;/strong&gt;</ept> under <bpt id="07b7409c-2e4f-45e1-9d2d-b96baecfcee3">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="07b7409c-2e4f-45e1-9d2d-b96baecfcee3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="555ec2c8-7889-46f2-9496-7766aef86715">&lt;strong&gt;</bpt>Download<ept id="555ec2c8-7889-46f2-9496-7766aef86715">&lt;/strong&gt;</ept> under <bpt id="07b7409c-2e4f-45e1-9d2d-b96baecfcee3">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="07b7409c-2e4f-45e1-9d2d-b96baecfcee3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a8a79e8-1b26-466e-9c1d-5697a46704c1" xml:space="preserve">
+          <source>This downloads the Visual Studio project that implements your mobile service.</source>
+          <target state="new">This downloads the Visual Studio project that implements your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="340c000c-826e-421c-921b-a92d49eed53d" xml:space="preserve">
+          <source>Save the compressed project file to your local computer, and make a note of where you saved it.</source>
+          <target state="new">Save the compressed project file to your local computer, and make a note of where you saved it.</target>
+        </trans-unit>
+        <trans-unit id="74db6770-48f6-4df3-862e-c576e9d70105" xml:space="preserve">
+          <source>Scroll down to the bottom of that <bpt id="c595f720-40c2-4309-9c73-9f0837980d5d">&lt;strong&gt;</bpt>Get Started<ept id="c595f720-40c2-4309-9c73-9f0837980d5d">&lt;/strong&gt;</ept> section to the step titled <bpt id="b7029a23-f180-4a7e-87c5-34772541cce0">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="b7029a23-f180-4a7e-87c5-34772541cce0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down to the bottom of that <bpt id="c595f720-40c2-4309-9c73-9f0837980d5d">&lt;strong&gt;</bpt>Get Started<ept id="c595f720-40c2-4309-9c73-9f0837980d5d">&lt;/strong&gt;</ept> section to the step titled <bpt id="b7029a23-f180-4a7e-87c5-34772541cce0">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="b7029a23-f180-4a7e-87c5-34772541cce0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea5f3d58-f7b7-4eca-a8ac-bf0169cddbd0" xml:space="preserve">
+          <source>Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded.</source>
+          <target state="new">Click the link shown in the screenshot below to download a publish profile file for the mobile service you just downloaded.</target>
+        </trans-unit>
+        <trans-unit id="9c856d82-9aa1-4754-9e63-8c4e3aa6edbe" xml:space="preserve">
+          <source>Save the file in a safe place because it does contain sensitive information pertaining to your Azure account.</source>
+          <target state="new">Save the file in a safe place because it does contain sensitive information pertaining to your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="9f13cb47-1db4-4a85-a95a-12be607cc908" xml:space="preserve">
+          <source>You will delete this file after publishing the mobile service later in this tutorial.</source>
+          <target state="new">You will delete this file after publishing the mobile service later in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="09ed21f5-f0b0-4be7-8c7c-576765be64be" xml:space="preserve">
+          <source><bpt id="5b702691-d4a9-4815-9385-8da876ae4401">&lt;linkText&gt;</bpt><ept id="5b702691-d4a9-4815-9385-8da876ae4401">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b702691-d4a9-4815-9385-8da876ae4401">&lt;linkText&gt;</bpt><ept id="5b702691-d4a9-4815-9385-8da876ae4401">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99ee86c7-12ac-4d83-b1fc-b0e16cf89f33" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="ceb81877-8088-42db-86c3-cacf1144dbb6" />
+    </body>
+  </file>
+</xliff>

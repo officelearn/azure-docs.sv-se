@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2236c9e7-b06c-4cc8-a001-f385adb51e5a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2236c9e7-b06c-4cc8-a001-f385adb51e5a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd2b0d94-25d6-4697-a98e-28d9e5c3fe70">
+        <trans-unit id="92f9bf41-07bf-40be-a92f-b32dea27f4a4" xml:space="preserve">
+          <source>Submit Hadoop jobs in HDInsight | Microsoft Azure</source>
+          <target state="new">Submit Hadoop jobs in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ac1b55ef-b0b9-42e6-adbd-2e4cbf8133c4" xml:space="preserve">
+          <source>Learn how to submit Hadoop jobs to Azure HDInsight Hadoop.</source>
+          <target state="new">Learn how to submit Hadoop jobs to Azure HDInsight Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="1d2458ec-c401-4587-b9f9-ea8ecb6ae8fe" xml:space="preserve">
+          <source>Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to use the HDInsight .NET SDK to submit MapReduce, Hadoop streaming, and Hive jobs.</source>
+          <target state="new">Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to use the HDInsight .NET SDK to submit MapReduce, Hadoop streaming, and Hive jobs.</target>
+        </trans-unit>
+        <trans-unit id="d8c66c12-724f-4b1d-ba29-17445bc16f0c" xml:space="preserve">
+          <source>The steps in this article must be performed from a Windows client.</source>
+          <target state="new">The steps in this article must be performed from a Windows client.</target>
+        </trans-unit>
+        <trans-unit id="20826b79-7bbf-4ba1-9fdf-cfd71af749c3" xml:space="preserve">
+          <source>For information on using a Linux, OS X, or Unix client to work with MapReduce, Hive, or Pig on HDInsight, see the following articles and select either the <bpt id="1a686610-831b-459b-8086-855a81cf6413">&lt;strong&gt;</bpt>SSH<ept id="1a686610-831b-459b-8086-855a81cf6413">&lt;/strong&gt;</ept> or <bpt id="766b6c0b-4de4-4116-a92e-36c93bfb235f">&lt;strong&gt;</bpt>Curl<ept id="766b6c0b-4de4-4116-a92e-36c93bfb235f">&lt;/strong&gt;</ept> links within each:</source>
+          <target state="new">For information on using a Linux, OS X, or Unix client to work with MapReduce, Hive, or Pig on HDInsight, see the following articles and select either the <bpt id="1a686610-831b-459b-8086-855a81cf6413">&lt;strong&gt;</bpt>SSH<ept id="1a686610-831b-459b-8086-855a81cf6413">&lt;/strong&gt;</ept> or <bpt id="766b6c0b-4de4-4116-a92e-36c93bfb235f">&lt;strong&gt;</bpt>Curl<ept id="766b6c0b-4de4-4116-a92e-36c93bfb235f">&lt;/strong&gt;</ept> links within each:</target>
+        </trans-unit>
+        <trans-unit id="70e2e9ae-0c80-40e9-b81d-8a0190e51ecf" xml:space="preserve">
+          <source><bpt id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;/linkText&gt;</ept><bpt id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;title&gt;</bpt><ept id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;linkText&gt;</bpt>Use Hive with HDInsight<ept id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;/linkText&gt;</ept><bpt id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;title&gt;</bpt><ept id="89a8d240-15c6-4eb5-b3e4-1138760ce8e5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31e404ca-72e1-466f-8f0b-2b9c8b9fca37" xml:space="preserve">
+          <source><bpt id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;/linkText&gt;</ept><bpt id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;title&gt;</bpt><ept id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;linkText&gt;</bpt>Use Pig with HDInsight<ept id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;/linkText&gt;</ept><bpt id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;title&gt;</bpt><ept id="53d24902-2156-42e5-ab87-6a21a4360a5c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6715d53-4151-40f9-8bb8-b59b6ac5cb65" xml:space="preserve">
+          <source><bpt id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight<ept id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;/linkText&gt;</ept><bpt id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;title&gt;</bpt><ept id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight<ept id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;/linkText&gt;</ept><bpt id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;title&gt;</bpt><ept id="04e80330-ad0b-4dd6-92db-c615e2c60837">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c5fae4c4-9392-4032-8bef-036d69058465" xml:space="preserve">
+          <source>Before you begin this article, you must have the following:</source>
+          <target state="new">Before you begin this article, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="4ac7e422-efbd-48fa-9265-1576d5a80954" xml:space="preserve">
+          <source><bpt id="f2813e1c-9587-40aa-bb7a-dea46d0ed976">&lt;strong&gt;</bpt>An Azure HDInsight cluster<ept id="f2813e1c-9587-40aa-bb7a-dea46d0ed976">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f2813e1c-9587-40aa-bb7a-dea46d0ed976">&lt;strong&gt;</bpt>An Azure HDInsight cluster<ept id="f2813e1c-9587-40aa-bb7a-dea46d0ed976">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00ec1fb8-6c86-49f9-8861-c9dcd276c04e" xml:space="preserve">
+          <source>For instructions, see <bpt id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;/linkText&gt;</ept><bpt id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;title&gt;</bpt><ept id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;/title&gt;</ept> or <bpt id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;/linkText&gt;</ept><bpt id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;title&gt;</bpt><ept id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;linkText&gt;</bpt>Get started with HDInsight[hdinsight-get-started]<ept id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;/linkText&gt;</ept><bpt id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;title&gt;</bpt><ept id="d93afe98-9557-4a5b-a90b-d3e8720c6827">&lt;/title&gt;</ept> or <bpt id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;/linkText&gt;</ept><bpt id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;title&gt;</bpt><ept id="52aff74e-b140-4439-ba1b-6ab66cfd977a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb046cb1-09e0-4b88-afb5-4728b5f6fd0d" xml:space="preserve">
+          <source><bpt id="ca8b1244-197f-4be8-949e-568433b78d76">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="ca8b1244-197f-4be8-949e-568433b78d76">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ca8b1244-197f-4be8-949e-568433b78d76">&lt;strong&gt;</bpt>A workstation with Azure PowerShell<ept id="ca8b1244-197f-4be8-949e-568433b78d76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d5283260-7b73-4793-b6ad-06597cea47c0" xml:space="preserve">
+          <source>See <bpt id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;/linkText&gt;</ept><bpt id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;title&gt;</bpt><ept id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;linkText&gt;</bpt>Install and use Azure PowerShell<ept id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;/linkText&gt;</ept><bpt id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;title&gt;</bpt><ept id="7a43f108-896b-4214-b95f-c226306d4d9a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c9ccdc6-e77d-4bca-a077-43d996ce7ae5" xml:space="preserve">
+          <source>Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</source>
+          <target state="new">Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure.</target>
+        </trans-unit>
+        <trans-unit id="500eb334-b1b1-4e26-b037-eaed6f75f429" xml:space="preserve">
+          <source>For more information about using Azure PowerShell with HDInsight, see <bpt id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;linkText&gt;</bpt>Manage HDInsight by using PowerShell[hdinsight-admin-powershell]<ept id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;/linkText&gt;</ept><bpt id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;title&gt;</bpt><ept id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using Azure PowerShell with HDInsight, see <bpt id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;linkText&gt;</bpt>Manage HDInsight by using PowerShell[hdinsight-admin-powershell]<ept id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;/linkText&gt;</ept><bpt id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;title&gt;</bpt><ept id="1bb69c37-cc84-4cad-8978-10f6d83d275a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9d248857-027e-4608-acb6-9074f6844475" xml:space="preserve">
+          <source>Hadoop MapReduce is a software framework for writing applications that process vast amounts of data.</source>
+          <target state="new">Hadoop MapReduce is a software framework for writing applications that process vast amounts of data.</target>
+        </trans-unit>
+        <trans-unit id="6a3586ec-9c7d-4c2b-bf6f-77da9ea30ca8" xml:space="preserve">
+          <source>HDInsight clusters come with a JAR file (located at <bpt id="a1c2c863-bc17-45b6-a4e8-d829e77172d5">&lt;em&gt;</bpt>\example\jars\hadoop-mapreduce-examples.jar<ept id="a1c2c863-bc17-45b6-a4e8-d829e77172d5">&lt;/em&gt;</ept>), which contains several MapReduce examples.</source>
+          <target state="new">HDInsight clusters come with a JAR file (located at <bpt id="a1c2c863-bc17-45b6-a4e8-d829e77172d5">&lt;em&gt;</bpt>\example\jars\hadoop-mapreduce-examples.jar<ept id="a1c2c863-bc17-45b6-a4e8-d829e77172d5">&lt;/em&gt;</ept>), which contains several MapReduce examples.</target>
+        </trans-unit>
+        <trans-unit id="46996cf6-8ac7-4db8-a08d-c1dabda7bfb2" xml:space="preserve">
+          <source>One of the examples is for counting word frequencies in source files.</source>
+          <target state="new">One of the examples is for counting word frequencies in source files.</target>
+        </trans-unit>
+        <trans-unit id="a2bdf6c4-8346-47cd-8dfe-23530481ceb1" xml:space="preserve">
+          <source>In this session, you will learn how to use Azure PowerShell from a workstation to run the word count sample.</source>
+          <target state="new">In this session, you will learn how to use Azure PowerShell from a workstation to run the word count sample.</target>
+        </trans-unit>
+        <trans-unit id="5750e5b0-59a8-4159-82d3-8688cbf8ab57" xml:space="preserve">
+          <source>For more information about developing and running MapReduce jobs, see <bpt id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight[hdinsight-use-mapreduce]<ept id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;/linkText&gt;</ept><bpt id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;title&gt;</bpt><ept id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about developing and running MapReduce jobs, see <bpt id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight[hdinsight-use-mapreduce]<ept id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;/linkText&gt;</ept><bpt id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;title&gt;</bpt><ept id="6ad1da9c-d29f-4479-b680-2bbd6821b096">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5587147f-8e4b-4459-a633-0845600b5c16" xml:space="preserve">
+          <source><bpt id="51e02dfc-d95a-4278-b740-1c7f449c38b1">&lt;strong&gt;</bpt>To run the word count MapReduce program by using Azure PowerShell<ept id="51e02dfc-d95a-4278-b740-1c7f449c38b1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="51e02dfc-d95a-4278-b740-1c7f449c38b1">&lt;strong&gt;</bpt>To run the word count MapReduce program by using Azure PowerShell<ept id="51e02dfc-d95a-4278-b740-1c7f449c38b1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13d94b75-e8ac-49ca-a930-73885a8784f1" xml:space="preserve">
+          <source>Open <bpt id="303ccad0-f212-4cb8-bb5b-071030c580b8">&lt;strong&gt;</bpt>Azure PowerShell<ept id="303ccad0-f212-4cb8-bb5b-071030c580b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="303ccad0-f212-4cb8-bb5b-071030c580b8">&lt;strong&gt;</bpt>Azure PowerShell<ept id="303ccad0-f212-4cb8-bb5b-071030c580b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9196980-c6be-4a06-a374-8694c9008ced" xml:space="preserve">
+          <source>For instructions about how to open the Azure PowerShell console window, see <bpt id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;/linkText&gt;</ept><bpt id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;title&gt;</bpt><ept id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions about how to open the Azure PowerShell console window, see <bpt id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;/linkText&gt;</ept><bpt id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;title&gt;</bpt><ept id="fd0f6431-0181-4571-a251-91dc6e5a9583">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26767bea-d84f-4d00-9bed-09f78e02b01f" xml:space="preserve">
+          <source>Set the following variables by running these Azure PowerShell commands:</source>
+          <target state="new">Set the following variables by running these Azure PowerShell commands:</target>
+        </trans-unit>
+        <trans-unit id="22112d4f-19d2-4373-933a-0d0072557d0e" xml:space="preserve">
+          <source>The subscription name is the one you used to create the HDInsight cluster.</source>
+          <target state="new">The subscription name is the one you used to create the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="4aafa682-513d-4f9e-a210-bce35e15f4e9" xml:space="preserve">
+          <source>The HDInsight cluster is the one you want to use to run the MapReduce job.</source>
+          <target state="new">The HDInsight cluster is the one you want to use to run the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="c760b261-af31-4ccf-97bc-2de41297c718" xml:space="preserve">
+          <source>Run the following commands to create a MapReduce job definition:</source>
+          <target state="new">Run the following commands to create a MapReduce job definition:</target>
+        </trans-unit>
+        <trans-unit id="369bf3c7-2f49-42bb-814d-c8de9b5ecbc3" xml:space="preserve">
+          <source>There are two arguments.</source>
+          <target state="new">There are two arguments.</target>
+        </trans-unit>
+        <trans-unit id="ed72a5bf-4643-49ab-9b45-0a2cad1b7b58" xml:space="preserve">
+          <source>The first one is the source file name, and the second is the output file path.</source>
+          <target state="new">The first one is the source file name, and the second is the output file path.</target>
+        </trans-unit>
+        <trans-unit id="70262858-685c-403f-a27a-21958908a4d0" xml:space="preserve">
+          <source>For more information about the wasb:// prefix, see <bpt id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;/linkText&gt;</ept><bpt id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;title&gt;</bpt><ept id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the wasb:// prefix, see <bpt id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;/linkText&gt;</ept><bpt id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;title&gt;</bpt><ept id="6b83b8f9-dadb-4020-8d9f-dcdb717f9264">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="119d023a-cbdd-44cb-b30a-596a1309540e" xml:space="preserve">
+          <source>Run the following command to run the MapReduce job:</source>
+          <target state="new">Run the following command to run the MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="d762b42a-29a0-4dde-9b3f-d3ba6a7fb590" xml:space="preserve">
+          <source>In addition to the MapReduce job definition, you also provide the HDInsight cluster name for where you want to run the MapReduce job.</source>
+          <target state="new">In addition to the MapReduce job definition, you also provide the HDInsight cluster name for where you want to run the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="551d6344-107b-4e8e-882a-dbc0c467b466" xml:space="preserve">
+          <source>Run the following command to check the completion of the MapReduce job:</source>
+          <target state="new">Run the following command to check the completion of the MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="caca506b-def6-435a-b268-af32874c9b1d" xml:space="preserve">
+          <source>Run the following command to check any errors with running the MapReduce job:</source>
+          <target state="new">Run the following command to check any errors with running the MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="4f2b31a9-47de-43fd-99e4-685c29b86427" xml:space="preserve">
+          <source>The following screenshot shows the output of a successful run.</source>
+          <target state="new">The following screenshot shows the output of a successful run.</target>
+        </trans-unit>
+        <trans-unit id="64816b44-365e-4eb4-bef8-510b67c9b509" xml:space="preserve">
+          <source>Otherwise, you will see some error messages.</source>
+          <target state="new">Otherwise, you will see some error messages.</target>
+        </trans-unit>
+        <trans-unit id="02710da9-d2dd-4d43-94e1-62fa0740e993" xml:space="preserve">
+          <source><bpt id="a26b0185-775a-4dab-90b3-233a5eaab45f">&lt;linkText&gt;</bpt>HDI.GettingStarted.RunMRJob<ept id="a26b0185-775a-4dab-90b3-233a5eaab45f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a26b0185-775a-4dab-90b3-233a5eaab45f">&lt;linkText&gt;</bpt>HDI.GettingStarted.RunMRJob<ept id="a26b0185-775a-4dab-90b3-233a5eaab45f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19c9303a-2563-4e19-9934-348ce3d497de" xml:space="preserve">
+          <source><bpt id="fee2eb7e-af3f-4022-b2e8-e3bc7fe07a28">&lt;strong&gt;</bpt>To retrieve the results of the MapReduce job<ept id="fee2eb7e-af3f-4022-b2e8-e3bc7fe07a28">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fee2eb7e-af3f-4022-b2e8-e3bc7fe07a28">&lt;strong&gt;</bpt>To retrieve the results of the MapReduce job<ept id="fee2eb7e-af3f-4022-b2e8-e3bc7fe07a28">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0d4dfad-61cc-40b8-b2d9-305533a7b99a" xml:space="preserve">
+          <source>Open <bpt id="55dad6ed-9933-48da-8530-3582bcce12c2">&lt;strong&gt;</bpt>Azure PowerShell<ept id="55dad6ed-9933-48da-8530-3582bcce12c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="55dad6ed-9933-48da-8530-3582bcce12c2">&lt;strong&gt;</bpt>Azure PowerShell<ept id="55dad6ed-9933-48da-8530-3582bcce12c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d04f846b-cf43-4002-b134-789d643e372a" xml:space="preserve">
+          <source>Set the following variables by running these Azure PowerShell commands:</source>
+          <target state="new">Set the following variables by running these Azure PowerShell commands:</target>
+        </trans-unit>
+        <trans-unit id="a16b48c0-ad0d-4bc6-a66d-bd956a3a4dfd" xml:space="preserve">
+          <source>The Storage account name is the Azure storage account that you specified during the HDInsight cluster provision.</source>
+          <target state="new">The Storage account name is the Azure storage account that you specified during the HDInsight cluster provision.</target>
+        </trans-unit>
+        <trans-unit id="e40a8721-7b68-4d5d-a13a-e98a904d7f31" xml:space="preserve">
+          <source>The storage account is used to host the blob container that is used as the default HDInsight cluster file system.</source>
+          <target state="new">The storage account is used to host the blob container that is used as the default HDInsight cluster file system.</target>
+        </trans-unit>
+        <trans-unit id="17740aaa-4dbb-4513-8e27-6ba8d702a1c7" xml:space="preserve">
+          <source>The container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.</source>
+          <target state="new">The container name usually share the same name as the HDInsight cluster unless you specify a different name when you provision the cluster.</target>
+        </trans-unit>
+        <trans-unit id="b526d021-ca33-4031-8749-d5b1eb254b0f" xml:space="preserve">
+          <source>Run the following commands to create an Azure Blob storage context object:</source>
+          <target state="new">Run the following commands to create an Azure Blob storage context object:</target>
+        </trans-unit>
+        <trans-unit id="2d37e4f5-4930-4c24-83ac-f7110b3f150d" xml:space="preserve">
+          <source><bpt id="1fd79335-6d8a-4bc2-9c61-d93e5f397d24">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="1fd79335-6d8a-4bc2-9c61-d93e5f397d24">&lt;/strong&gt;</ept> is used to set the current subscription if you have multiple subscriptions, and the default subscription is not the one to use.</source>
+          <target state="new"><bpt id="1fd79335-6d8a-4bc2-9c61-d93e5f397d24">&lt;strong&gt;</bpt>Select-AzureSubscription<ept id="1fd79335-6d8a-4bc2-9c61-d93e5f397d24">&lt;/strong&gt;</ept> is used to set the current subscription if you have multiple subscriptions, and the default subscription is not the one to use.</target>
+        </trans-unit>
+        <trans-unit id="86085d13-9ca0-4e3e-9589-e16b582a40ed" xml:space="preserve">
+          <source>Run the following command to download the MapReduce job output from the blob container to the workstation:</source>
+          <target state="new">Run the following command to download the MapReduce job output from the blob container to the workstation:</target>
+        </trans-unit>
+        <trans-unit id="b34b3694-878e-48e7-8209-2b56553f56a6" xml:space="preserve">
+          <source>The <bpt id="d8aad46d-aaaa-48a5-8383-ef719dcb5b97">&lt;em&gt;</bpt>example/data/WordCountOutput<ept id="d8aad46d-aaaa-48a5-8383-ef719dcb5b97">&lt;/em&gt;</ept> folder is the output folder specified when you run the MapReduce job.</source>
+          <target state="new">The <bpt id="d8aad46d-aaaa-48a5-8383-ef719dcb5b97">&lt;em&gt;</bpt>example/data/WordCountOutput<ept id="d8aad46d-aaaa-48a5-8383-ef719dcb5b97">&lt;/em&gt;</ept> folder is the output folder specified when you run the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="09c2ecb9-f694-43fc-8405-7b4148d5d396" xml:space="preserve">
+          <source><bpt id="292416e4-e6e0-444d-89f6-9697da39e1ef">&lt;em&gt;</bpt>part-r-00000<ept id="292416e4-e6e0-444d-89f6-9697da39e1ef">&lt;/em&gt;</ept> is the default file name for MapReduce job output.</source>
+          <target state="new"><bpt id="292416e4-e6e0-444d-89f6-9697da39e1ef">&lt;em&gt;</bpt>part-r-00000<ept id="292416e4-e6e0-444d-89f6-9697da39e1ef">&lt;/em&gt;</ept> is the default file name for MapReduce job output.</target>
+        </trans-unit>
+        <trans-unit id="d7e28f38-fe1d-49d1-9be6-f65654dd68d6" xml:space="preserve">
+          <source>The file will be download to the same folder structure in the local folder.</source>
+          <target state="new">The file will be download to the same folder structure in the local folder.</target>
+        </trans-unit>
+        <trans-unit id="cbd2e967-14e8-4a07-b370-3ac0589845e2" xml:space="preserve">
+          <source>For example, in the following screenshot, the current folder is the C: root folder.</source>
+          <target state="new">For example, in the following screenshot, the current folder is the C: root folder.</target>
+        </trans-unit>
+        <trans-unit id="380d254b-fb6b-4753-bc4f-69bda9aaf779" xml:space="preserve">
+          <source>The file will be downloaded to:</source>
+          <target state="new">The file will be downloaded to:</target>
+        </trans-unit>
+        <trans-unit id="5e42d3d5-2ba3-462c-b1eb-6ea315e72a62" xml:space="preserve">
+          <source><bpt id="0a113214-f3ea-4088-90a8-dd2f7e061af4">&lt;em&gt;</bpt>C:\example\data\WordCountOutput\<ept id="0a113214-f3ea-4088-90a8-dd2f7e061af4">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="0a113214-f3ea-4088-90a8-dd2f7e061af4">&lt;em&gt;</bpt>C:\example\data\WordCountOutput\<ept id="0a113214-f3ea-4088-90a8-dd2f7e061af4">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e18baeda-fec7-4fcd-a7ea-68e454f5c568" xml:space="preserve">
+          <source>Run the following command to print the MapReduce job output file:</source>
+          <target state="new">Run the following command to print the MapReduce job output file:</target>
+        </trans-unit>
+        <trans-unit id="bbb65dbf-255d-49d0-80da-a4276b35673b" xml:space="preserve">
+          <source><bpt id="0fe43af5-63d8-4308-9e70-5056d8e8b21c">&lt;linkText&gt;</bpt>HDI.GettingStarted.MRJobOutput<ept id="0fe43af5-63d8-4308-9e70-5056d8e8b21c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0fe43af5-63d8-4308-9e70-5056d8e8b21c">&lt;linkText&gt;</bpt>HDI.GettingStarted.MRJobOutput<ept id="0fe43af5-63d8-4308-9e70-5056d8e8b21c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c5e2a2e-f2fd-4d8b-bddc-40b6f2ee9a2a" xml:space="preserve">
+          <source>The MapReduce job produces a file named <bpt id="1668137a-7cd2-4dc8-9f5f-0f6d1f1d2819">&lt;em&gt;</bpt>part-r-00000<ept id="1668137a-7cd2-4dc8-9f5f-0f6d1f1d2819">&lt;/em&gt;</ept>, and it contains the words and the counts.</source>
+          <target state="new">The MapReduce job produces a file named <bpt id="1668137a-7cd2-4dc8-9f5f-0f6d1f1d2819">&lt;em&gt;</bpt>part-r-00000<ept id="1668137a-7cd2-4dc8-9f5f-0f6d1f1d2819">&lt;/em&gt;</ept>, and it contains the words and the counts.</target>
+        </trans-unit>
+        <trans-unit id="27217bd5-974b-4fee-ba8e-f7784330d9df" xml:space="preserve">
+          <source>The script uses the <bpt id="2ad67a65-b86d-4202-bbfc-b9d797fadb39">&lt;strong&gt;</bpt>findstr<ept id="2ad67a65-b86d-4202-bbfc-b9d797fadb39">&lt;/strong&gt;</ept> command to list all of the words that contains "there."</source>
+          <target state="new">The script uses the <bpt id="2ad67a65-b86d-4202-bbfc-b9d797fadb39">&lt;strong&gt;</bpt>findstr<ept id="2ad67a65-b86d-4202-bbfc-b9d797fadb39">&lt;/strong&gt;</ept> command to list all of the words that contains "there."</target>
+        </trans-unit>
+        <trans-unit id="57045ed0-0df2-4b91-b2ec-77697a26fa40" xml:space="preserve">
+          <source>If you open ./example/data/WordCountOutput/part-r-00000 (a multiline output from a MapReduce job) in Notepad, you will notice the line breaks do not render correctly.</source>
+          <target state="new">If you open ./example/data/WordCountOutput/part-r-00000 (a multiline output from a MapReduce job) in Notepad, you will notice the line breaks do not render correctly.</target>
+        </trans-unit>
+        <trans-unit id="060d6c7b-f358-4f56-9d1a-f5b3c9909971" xml:space="preserve">
+          <source>This is expected.</source>
+          <target state="new">This is expected.</target>
+        </trans-unit>
+        <trans-unit id="4d8d1682-10f5-4931-b035-f4c992e8d88a" xml:space="preserve">
+          <source><bpt id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;linkText&gt;</bpt>Apache Hive[apache-hive]<ept id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;/linkText&gt;</ept><bpt id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;title&gt;</bpt><ept id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;/title&gt;</ept> provides a means of running MapReduce job through an SQL-like scripting language, called <bpt id="31ba80d2-eaac-4790-afca-1c85b9b6cf72">&lt;em&gt;</bpt>HiveQL<ept id="31ba80d2-eaac-4790-afca-1c85b9b6cf72">&lt;/em&gt;</ept>, which can be applied to summarize, query, and analyze large volumes of data.</source>
+          <target state="new"><bpt id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;linkText&gt;</bpt>Apache Hive[apache-hive]<ept id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;/linkText&gt;</ept><bpt id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;title&gt;</bpt><ept id="19f70880-b610-41ce-a9b0-25fa6bff7b69">&lt;/title&gt;</ept> provides a means of running MapReduce job through an SQL-like scripting language, called <bpt id="31ba80d2-eaac-4790-afca-1c85b9b6cf72">&lt;em&gt;</bpt>HiveQL<ept id="31ba80d2-eaac-4790-afca-1c85b9b6cf72">&lt;/em&gt;</ept>, which can be applied to summarize, query, and analyze large volumes of data.</target>
+        </trans-unit>
+        <trans-unit id="5104b0ca-d395-4ad9-b8e6-01c5bd1c7fa5" xml:space="preserve">
+          <source>HDInsight clusters come with a sample Hive table called <bpt id="8c1e3871-5ee1-42a8-b7b0-99dd44dd4177">&lt;em&gt;</bpt>hivesampletable<ept id="8c1e3871-5ee1-42a8-b7b0-99dd44dd4177">&lt;/em&gt;</ept>.</source>
+          <target state="new">HDInsight clusters come with a sample Hive table called <bpt id="8c1e3871-5ee1-42a8-b7b0-99dd44dd4177">&lt;em&gt;</bpt>hivesampletable<ept id="8c1e3871-5ee1-42a8-b7b0-99dd44dd4177">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80afb315-c91d-421c-9757-4bdd7c0547c1" xml:space="preserve">
+          <source>In this session, you will use Azure PowerShell to run a Hive job to list some data from the Hive table.</source>
+          <target state="new">In this session, you will use Azure PowerShell to run a Hive job to list some data from the Hive table.</target>
+        </trans-unit>
+        <trans-unit id="580da3d1-90aa-46fb-85ca-f2d7386e2bec" xml:space="preserve">
+          <source><bpt id="9ba1d942-9235-42f6-955a-79c18dcbdab0">&lt;strong&gt;</bpt>To run a Hive job by using Azure PowerShell<ept id="9ba1d942-9235-42f6-955a-79c18dcbdab0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9ba1d942-9235-42f6-955a-79c18dcbdab0">&lt;strong&gt;</bpt>To run a Hive job by using Azure PowerShell<ept id="9ba1d942-9235-42f6-955a-79c18dcbdab0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d09d7481-c55b-43ab-849b-70a62fde2d45" xml:space="preserve">
+          <source>Open <bpt id="43263c7b-1dac-4ace-9c7f-b1be3505d471">&lt;strong&gt;</bpt>Azure PowerShell<ept id="43263c7b-1dac-4ace-9c7f-b1be3505d471">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open <bpt id="43263c7b-1dac-4ace-9c7f-b1be3505d471">&lt;strong&gt;</bpt>Azure PowerShell<ept id="43263c7b-1dac-4ace-9c7f-b1be3505d471">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26f3cf64-d894-4ab2-a9c9-3388730d6a9d" xml:space="preserve">
+          <source>For instructions about how to open the Azure PowerShell console window, see <bpt id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;/linkText&gt;</ept><bpt id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;title&gt;</bpt><ept id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions about how to open the Azure PowerShell console window, see <bpt id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell[powershell-install-configure]<ept id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;/linkText&gt;</ept><bpt id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;title&gt;</bpt><ept id="077b5784-8880-4c7f-bcba-e9386b077cff">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2dae4e3-b0f0-47fa-83d2-5f0f9dc7b346" xml:space="preserve">
+          <source>Set the first two variables in the following commands, and then run the commands:</source>
+          <target state="new">Set the first two variables in the following commands, and then run the commands:</target>
+        </trans-unit>
+        <trans-unit id="6991b562-e010-4b5e-91d0-99f3d152a77c" xml:space="preserve">
+          <source>The $querystring is the HiveQL query.</source>
+          <target state="new">The $querystring is the HiveQL query.</target>
+        </trans-unit>
+        <trans-unit id="242a8015-abd0-496a-99f6-b91c8d2b682e" xml:space="preserve">
+          <source>Run the following command to select the Azure subscription and the cluster to run the Hive job:</source>
+          <target state="new">Run the following command to select the Azure subscription and the cluster to run the Hive job:</target>
+        </trans-unit>
+        <trans-unit id="aed70e56-4529-4e59-affd-98be1d541d41" xml:space="preserve">
+          <source>Run the following commands to submit the hive job:</source>
+          <target state="new">Run the following commands to submit the hive job:</target>
+        </trans-unit>
+        <trans-unit id="f7705c49-2d17-4e90-8c4e-9c0dc2d547b3" xml:space="preserve">
+          <source>You can use the <bpt id="c9016a32-4ccc-4233-9ce3-aa44b5ced8c5">&lt;strong&gt;</bpt>-File<ept id="c9016a32-4ccc-4233-9ce3-aa44b5ced8c5">&lt;/strong&gt;</ept> switch to specify a HiveQL script file in the Hadoop distributed file system (HDFS).</source>
+          <target state="new">You can use the <bpt id="c9016a32-4ccc-4233-9ce3-aa44b5ced8c5">&lt;strong&gt;</bpt>-File<ept id="c9016a32-4ccc-4233-9ce3-aa44b5ced8c5">&lt;/strong&gt;</ept> switch to specify a HiveQL script file in the Hadoop distributed file system (HDFS).</target>
+        </trans-unit>
+        <trans-unit id="7972a7e4-2252-4fae-9d98-20bb5acfcccf" xml:space="preserve">
+          <source>For more information about Hive, see <bpt id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;/linkText&gt;</ept><bpt id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;title&gt;</bpt><ept id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Hive, see <bpt id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;/linkText&gt;</ept><bpt id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;title&gt;</bpt><ept id="4e5e6835-b068-4ed7-968a-2f49416e1720">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c7d9458-bc19-4f1e-881f-9933d3c6c8bf" xml:space="preserve">
+          <source>See <bpt id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;linkText&gt;</bpt>Get started using HDInsight Hadoop Tools for Visual Studio[hdinsight-visual-studio-tools]<ept id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;/linkText&gt;</ept><bpt id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;title&gt;</bpt><ept id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;linkText&gt;</bpt>Get started using HDInsight Hadoop Tools for Visual Studio[hdinsight-visual-studio-tools]<ept id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;/linkText&gt;</ept><bpt id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;title&gt;</bpt><ept id="8fd74018-c73d-4cd5-82a8-5c19d874c000">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b73da44-a684-4902-99bf-d03527398a19" xml:space="preserve">
+          <source>See <bpt id="824817ba-8691-471a-8aa0-663024d528fc">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="824817ba-8691-471a-8aa0-663024d528fc">&lt;/linkText&gt;</ept><bpt id="824817ba-8691-471a-8aa0-663024d528fc">&lt;title&gt;</bpt><ept id="824817ba-8691-471a-8aa0-663024d528fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="824817ba-8691-471a-8aa0-663024d528fc">&lt;linkText&gt;</bpt>Use Sqoop with HDInsight[hdinsight-use-sqoop]<ept id="824817ba-8691-471a-8aa0-663024d528fc">&lt;/linkText&gt;</ept><bpt id="824817ba-8691-471a-8aa0-663024d528fc">&lt;title&gt;</bpt><ept id="824817ba-8691-471a-8aa0-663024d528fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51034ad0-ee36-4b0c-8370-fd4c9e90e2c1" xml:space="preserve">
+          <source>The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.</source>
+          <target state="new">The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET.</target>
+        </trans-unit>
+        <trans-unit id="cc0ef357-ff70-40b8-997b-1898a2969f8e" xml:space="preserve">
+          <source>HDInsight clusters come with a JAR file (located at <bpt id="f10ba93b-24bf-435f-9130-cd8baee5f8d0">&lt;em&gt;</bpt>\example\jars\hadoop-mapreduce-examples.jar<ept id="f10ba93b-24bf-435f-9130-cd8baee5f8d0">&lt;/em&gt;</ept>), which contains several MapReduce examples.</source>
+          <target state="new">HDInsight clusters come with a JAR file (located at <bpt id="f10ba93b-24bf-435f-9130-cd8baee5f8d0">&lt;em&gt;</bpt>\example\jars\hadoop-mapreduce-examples.jar<ept id="f10ba93b-24bf-435f-9130-cd8baee5f8d0">&lt;/em&gt;</ept>), which contains several MapReduce examples.</target>
+        </trans-unit>
+        <trans-unit id="91fe1167-4645-45e6-9f33-c24fbdbef267" xml:space="preserve">
+          <source>One of the examples is for counting word frequencies in source files.</source>
+          <target state="new">One of the examples is for counting word frequencies in source files.</target>
+        </trans-unit>
+        <trans-unit id="b8cdcadd-c6ee-4bb7-9f6d-e51be2c15807" xml:space="preserve">
+          <source>In this session, you will learn how to create a .NET application to run the word count sample.</source>
+          <target state="new">In this session, you will learn how to create a .NET application to run the word count sample.</target>
+        </trans-unit>
+        <trans-unit id="dc763fa2-37e7-4a28-8fee-8a4c720b514d" xml:space="preserve">
+          <source>For more information about developing and running MapReduce jobs, see <bpt id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight[hdinsight-use-mapreduce]<ept id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;/linkText&gt;</ept><bpt id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;title&gt;</bpt><ept id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about developing and running MapReduce jobs, see <bpt id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;linkText&gt;</bpt>Use MapReduce with HDInsight[hdinsight-use-mapreduce]<ept id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;/linkText&gt;</ept><bpt id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;title&gt;</bpt><ept id="e32dd6b5-ae9c-48bb-ae5d-7fba5c697b62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="34f33af8-3bc6-4dd8-ba6d-a8653f0d8ab3" xml:space="preserve">
+          <source>The following procedures are needed to provision an HDInsight cluster by using the SDK:</source>
+          <target state="new">The following procedures are needed to provision an HDInsight cluster by using the SDK:</target>
+        </trans-unit>
+        <trans-unit id="b85a7c49-23b5-466d-9362-b14ed64d6dda" xml:space="preserve">
+          <source>Install the HDInsight .NET SDK</source>
+          <target state="new">Install the HDInsight .NET SDK</target>
+        </trans-unit>
+        <trans-unit id="eac83938-b6d2-4d47-921e-fc07a2ff1067" xml:space="preserve">
+          <source>Create a console application</source>
+          <target state="new">Create a console application</target>
+        </trans-unit>
+        <trans-unit id="d6ef360a-2120-4ce6-8ffa-c0fdddc42f3f" xml:space="preserve">
+          <source>Run the application</source>
+          <target state="new">Run the application</target>
+        </trans-unit>
+        <trans-unit id="6f0cec8e-9459-4b18-a64a-0a927fe6ba7b" xml:space="preserve">
+          <source><bpt id="f8e4c2b6-364a-4700-820e-325e422243b2">&lt;strong&gt;</bpt>To install the HDInsight .NET SDK<ept id="f8e4c2b6-364a-4700-820e-325e422243b2">&lt;/strong&gt;</ept>
+You can install latest published build of the SDK from <bpt id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;linkText&gt;</bpt>NuGet<ept id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;/linkText&gt;</ept><bpt id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;title&gt;</bpt><ept id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f8e4c2b6-364a-4700-820e-325e422243b2">&lt;strong&gt;</bpt>To install the HDInsight .NET SDK<ept id="f8e4c2b6-364a-4700-820e-325e422243b2">&lt;/strong&gt;</ept>
+You can install latest published build of the SDK from <bpt id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;linkText&gt;</bpt>NuGet<ept id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;/linkText&gt;</ept><bpt id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;title&gt;</bpt><ept id="7e4f80f5-ba66-4ed9-9208-605acb3d0f19">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5d9fade-a165-4792-9acb-1b8923675688" xml:space="preserve">
+          <source>The instructions will be shown in the next procedure.</source>
+          <target state="new">The instructions will be shown in the next procedure.</target>
+        </trans-unit>
+        <trans-unit id="a4b353fe-9a48-4b3e-80ef-07d0bf940937" xml:space="preserve">
+          <source><bpt id="1ae9dbeb-3237-4200-b4de-a4cd71700ed7">&lt;strong&gt;</bpt>To create a Visual Studio console application<ept id="1ae9dbeb-3237-4200-b4de-a4cd71700ed7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1ae9dbeb-3237-4200-b4de-a4cd71700ed7">&lt;strong&gt;</bpt>To create a Visual Studio console application<ept id="1ae9dbeb-3237-4200-b4de-a4cd71700ed7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08c7519f-9b6e-4795-b59e-b30cf523acdb" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="3837d23c-4a29-41f0-bea3-1ea1645e8a58" xml:space="preserve">
+          <source>From the <bpt id="25c7756b-5f0c-491a-b08a-f785b6c89018">&lt;strong&gt;</bpt>File<ept id="25c7756b-5f0c-491a-b08a-f785b6c89018">&lt;/strong&gt;</ept> menu, click <bpt id="f14f8b70-46db-4934-8fff-4a1245f790f7">&lt;strong&gt;</bpt>New<ept id="f14f8b70-46db-4934-8fff-4a1245f790f7">&lt;/strong&gt;</ept>, and then click <bpt id="b0944160-c30c-4c4c-9cc6-6ba65f2b7a50">&lt;strong&gt;</bpt>Project<ept id="b0944160-c30c-4c4c-9cc6-6ba65f2b7a50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="25c7756b-5f0c-491a-b08a-f785b6c89018">&lt;strong&gt;</bpt>File<ept id="25c7756b-5f0c-491a-b08a-f785b6c89018">&lt;/strong&gt;</ept> menu, click <bpt id="f14f8b70-46db-4934-8fff-4a1245f790f7">&lt;strong&gt;</bpt>New<ept id="f14f8b70-46db-4934-8fff-4a1245f790f7">&lt;/strong&gt;</ept>, and then click <bpt id="b0944160-c30c-4c4c-9cc6-6ba65f2b7a50">&lt;strong&gt;</bpt>Project<ept id="b0944160-c30c-4c4c-9cc6-6ba65f2b7a50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db65eda7-29e2-4cd2-84b6-245e0acbf886" xml:space="preserve">
+          <source>From <bpt id="3986a4b3-2fc1-4ccf-958e-d2af57bfe3f8">&lt;strong&gt;</bpt>New Project<ept id="3986a4b3-2fc1-4ccf-958e-d2af57bfe3f8">&lt;/strong&gt;</ept>, type or select the following values:</source>
+          <target state="new">From <bpt id="3986a4b3-2fc1-4ccf-958e-d2af57bfe3f8">&lt;strong&gt;</bpt>New Project<ept id="3986a4b3-2fc1-4ccf-958e-d2af57bfe3f8">&lt;/strong&gt;</ept>, type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="a87c9c13-f8e8-4fa7-954f-7f8d10c0cc78" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="53431f31-2366-4585-abaa-0a29a352a87c" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="c7f517df-ce8f-4eb7-a20e-4fc8a120e6d5" xml:space="preserve">
+          <source>Category</source>
+          <target state="new">Category</target>
+        </trans-unit>
+        <trans-unit id="7b98f495-8440-4e51-9f98-c2a630040586" xml:space="preserve">
+          <source>Templates/Visual C#/Windows</source>
+          <target state="new">Templates/Visual C#/Windows</target>
+        </trans-unit>
+        <trans-unit id="0f480868-a0c3-461a-97f5-5a59cfba75f7" xml:space="preserve">
+          <source>Template</source>
+          <target state="new">Template</target>
+        </trans-unit>
+        <trans-unit id="5fcf5dc1-d634-4170-b8f6-99155a61a74a" xml:space="preserve">
+          <source>Console Application</source>
+          <target state="new">Console Application</target>
+        </trans-unit>
+        <trans-unit id="ad109d45-a4fa-4915-975b-5db4d45714c6" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="50dd8ad2-b668-4696-851f-99a245a4fbcd" xml:space="preserve">
+          <source>SubmitMapReduceJob</source>
+          <target state="new">SubmitMapReduceJob</target>
+        </trans-unit>
+        <trans-unit id="237f31b2-04c1-4aee-9282-2227b9c20764" xml:space="preserve">
+          <source>Click <bpt id="cb587f17-aea7-4ba7-a417-61e02a7b3616">&lt;strong&gt;</bpt>OK<ept id="cb587f17-aea7-4ba7-a417-61e02a7b3616">&lt;/strong&gt;</ept> to create the project.</source>
+          <target state="new">Click <bpt id="cb587f17-aea7-4ba7-a417-61e02a7b3616">&lt;strong&gt;</bpt>OK<ept id="cb587f17-aea7-4ba7-a417-61e02a7b3616">&lt;/strong&gt;</ept> to create the project.</target>
+        </trans-unit>
+        <trans-unit id="f015c78a-272a-40f2-bc9c-599938c6becf" xml:space="preserve">
+          <source>From the <bpt id="65103ea5-8f6e-4806-b104-c9ed9f9f370d">&lt;strong&gt;</bpt>Tools<ept id="65103ea5-8f6e-4806-b104-c9ed9f9f370d">&lt;/strong&gt;</ept> menu, click <bpt id="8167d67b-0f6e-43ed-be7c-7c39bd358c77">&lt;strong&gt;</bpt>Library Package Manager<ept id="8167d67b-0f6e-43ed-be7c-7c39bd358c77">&lt;/strong&gt;</ept>, and then click <bpt id="5803d903-6c0c-4549-b515-7acf08a323d1">&lt;strong&gt;</bpt>Package Manager Console<ept id="5803d903-6c0c-4549-b515-7acf08a323d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="65103ea5-8f6e-4806-b104-c9ed9f9f370d">&lt;strong&gt;</bpt>Tools<ept id="65103ea5-8f6e-4806-b104-c9ed9f9f370d">&lt;/strong&gt;</ept> menu, click <bpt id="8167d67b-0f6e-43ed-be7c-7c39bd358c77">&lt;strong&gt;</bpt>Library Package Manager<ept id="8167d67b-0f6e-43ed-be7c-7c39bd358c77">&lt;/strong&gt;</ept>, and then click <bpt id="5803d903-6c0c-4549-b515-7acf08a323d1">&lt;strong&gt;</bpt>Package Manager Console<ept id="5803d903-6c0c-4549-b515-7acf08a323d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f1671a6-55d4-418b-bc58-aeec2d7666c6" xml:space="preserve">
+          <source>Run the following commands in the console to install the packages.</source>
+          <target state="new">Run the following commands in the console to install the packages.</target>
+        </trans-unit>
+        <trans-unit id="ee39271c-d386-43a9-b850-251152141146" xml:space="preserve">
+          <source>This command adds .NET libraries and references to them to the current Visual Studio project.</source>
+          <target state="new">This command adds .NET libraries and references to them to the current Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="22c810fb-880d-4b56-8f64-b79023f6b179" xml:space="preserve">
+          <source>The version should be 0.11.0.1 or later.</source>
+          <target state="new">The version should be 0.11.0.1 or later.</target>
+        </trans-unit>
+        <trans-unit id="36e54b04-470f-4ad9-917d-41d8a8cc1fce" xml:space="preserve">
+          <source>From <bpt id="8a34ec56-7e54-4b89-889d-7f9b37fc43c5">&lt;strong&gt;</bpt>Solution Explorer<ept id="8a34ec56-7e54-4b89-889d-7f9b37fc43c5">&lt;/strong&gt;</ept>, double-click <bpt id="879a68ca-3245-44f3-a0c3-8c9d77aca464">&lt;strong&gt;</bpt>Program.cs<ept id="879a68ca-3245-44f3-a0c3-8c9d77aca464">&lt;/strong&gt;</ept> to open it.</source>
+          <target state="new">From <bpt id="8a34ec56-7e54-4b89-889d-7f9b37fc43c5">&lt;strong&gt;</bpt>Solution Explorer<ept id="8a34ec56-7e54-4b89-889d-7f9b37fc43c5">&lt;/strong&gt;</ept>, double-click <bpt id="879a68ca-3245-44f3-a0c3-8c9d77aca464">&lt;strong&gt;</bpt>Program.cs<ept id="879a68ca-3245-44f3-a0c3-8c9d77aca464">&lt;/strong&gt;</ept> to open it.</target>
+        </trans-unit>
+        <trans-unit id="fe3a6f08-8c6a-4bec-b0a5-aa11912cbac7" xml:space="preserve">
+          <source>Add the following using statements to the top of the file:</source>
+          <target state="new">Add the following using statements to the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="85a024a9-4c7e-4fc6-be93-16dda0444531" xml:space="preserve">
+          <source>Add the following function definition to the class.</source>
+          <target state="new">Add the following function definition to the class.</target>
+        </trans-unit>
+        <trans-unit id="82eab3bb-276c-401e-a9fa-21b7e200024b" xml:space="preserve">
+          <source>This function is used to wait for a Hadoop job to complete.</source>
+          <target state="new">This function is used to wait for a Hadoop job to complete.</target>
+        </trans-unit>
+        <trans-unit id="f826712e-4316-4eec-8257-30895dc53996" xml:space="preserve">
+          <source>In the <bpt id="5574ab3b-c7fc-4f55-8bd2-1a930aaefce8">&lt;strong&gt;</bpt>Main()<ept id="5574ab3b-c7fc-4f55-8bd2-1a930aaefce8">&lt;/strong&gt;</ept> function, paste the following code:</source>
+          <target state="new">In the <bpt id="5574ab3b-c7fc-4f55-8bd2-1a930aaefce8">&lt;strong&gt;</bpt>Main()<ept id="5574ab3b-c7fc-4f55-8bd2-1a930aaefce8">&lt;/strong&gt;</ept> function, paste the following code:</target>
+        </trans-unit>
+        <trans-unit id="ae599480-56ed-4c0b-b5e5-55ae0f255a39" xml:space="preserve">
+          <source>These are all of the variables you need to set for the program.</source>
+          <target state="new">These are all of the variables you need to set for the program.</target>
+        </trans-unit>
+        <trans-unit id="155b0c91-517a-4b21-9e24-3ef00564c6e5" xml:space="preserve">
+          <source>You can get the Azure subscription name from the <bpt id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;linkText&gt;</bpt>Azure preview portal[azure-management-portal]<ept id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;/linkText&gt;</ept><bpt id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;title&gt;</bpt><ept id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get the Azure subscription name from the <bpt id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;linkText&gt;</bpt>Azure preview portal[azure-management-portal]<ept id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;/linkText&gt;</ept><bpt id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;title&gt;</bpt><ept id="cbce3d9b-e8e2-4b65-9671-49a050f23b51">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b836a92d-53a9-4c94-bf77-453ea25a555a" xml:space="preserve">
+          <source>For information about the certificate, see <bpt id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure[azure-certificate]<ept id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;/linkText&gt;</ept><bpt id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;title&gt;</bpt><ept id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the certificate, see <bpt id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure[azure-certificate]<ept id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;/linkText&gt;</ept><bpt id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;title&gt;</bpt><ept id="5bc5a665-254c-4807-bd35-c6cee307885e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c83a5f53-6b0d-4444-8257-930f19a27504" xml:space="preserve">
+          <source>An easy way to configure the certificate is to run the <bpt id="4c0d8194-4c26-4ab9-b490-ce34ca8fe657">&lt;strong&gt;</bpt>Get-AzurePublishSettingsFile<ept id="4c0d8194-4c26-4ab9-b490-ce34ca8fe657">&lt;/strong&gt;</ept> and <bpt id="918eecaa-e485-4b3b-9977-737361402231">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="918eecaa-e485-4b3b-9977-737361402231">&lt;/strong&gt;</ept> Azure PowerShell cmdlets.</source>
+          <target state="new">An easy way to configure the certificate is to run the <bpt id="4c0d8194-4c26-4ab9-b490-ce34ca8fe657">&lt;strong&gt;</bpt>Get-AzurePublishSettingsFile<ept id="4c0d8194-4c26-4ab9-b490-ce34ca8fe657">&lt;/strong&gt;</ept> and <bpt id="918eecaa-e485-4b3b-9977-737361402231">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="918eecaa-e485-4b3b-9977-737361402231">&lt;/strong&gt;</ept> Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="8060326b-5c7e-4647-9119-25e7052b0a7c" xml:space="preserve">
+          <source>They will create and upload the management certificate automatically.</source>
+          <target state="new">They will create and upload the management certificate automatically.</target>
+        </trans-unit>
+        <trans-unit id="7fca4e4c-34be-49a6-8b85-646e1e0e570f" xml:space="preserve">
+          <source>After you run these cmdlets, you can open <bpt id="9ae107ab-72ee-4c80-8680-5d3885bbf63c">&lt;strong&gt;</bpt>certmgr.msc<ept id="9ae107ab-72ee-4c80-8680-5d3885bbf63c">&lt;/strong&gt;</ept> from the workstation, and find the certificate by expanding <bpt id="c1277885-22f1-4a84-963d-bf15a898b4f5">&lt;strong&gt;</bpt>Personal<ept id="c1277885-22f1-4a84-963d-bf15a898b4f5">&lt;/strong&gt;</ept> &gt; <bpt id="ce814dc5-6ec2-4b18-b60f-31f3c5b8a098">&lt;strong&gt;</bpt>Certificates<ept id="ce814dc5-6ec2-4b18-b60f-31f3c5b8a098">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you run these cmdlets, you can open <bpt id="9ae107ab-72ee-4c80-8680-5d3885bbf63c">&lt;strong&gt;</bpt>certmgr.msc<ept id="9ae107ab-72ee-4c80-8680-5d3885bbf63c">&lt;/strong&gt;</ept> from the workstation, and find the certificate by expanding <bpt id="c1277885-22f1-4a84-963d-bf15a898b4f5">&lt;strong&gt;</bpt>Personal<ept id="c1277885-22f1-4a84-963d-bf15a898b4f5">&lt;/strong&gt;</ept> &gt; <bpt id="ce814dc5-6ec2-4b18-b60f-31f3c5b8a098">&lt;strong&gt;</bpt>Certificates<ept id="ce814dc5-6ec2-4b18-b60f-31f3c5b8a098">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ec9fe64-c79c-4da8-ba74-38001931874c" xml:space="preserve">
+          <source>The certificate that is created by the Azure PowerShell cmdlets has Azure Tools for the <bpt id="a8a4df8f-3b41-4e36-ad1a-eea95210fc1b">&lt;strong&gt;</bpt>Issued To<ept id="a8a4df8f-3b41-4e36-ad1a-eea95210fc1b">&lt;/strong&gt;</ept> and the <bpt id="4e407dfe-73e3-4abd-a73b-ad263e2b85ba">&lt;strong&gt;</bpt>Issued By<ept id="4e407dfe-73e3-4abd-a73b-ad263e2b85ba">&lt;/strong&gt;</ept> fields.</source>
+          <target state="new">The certificate that is created by the Azure PowerShell cmdlets has Azure Tools for the <bpt id="a8a4df8f-3b41-4e36-ad1a-eea95210fc1b">&lt;strong&gt;</bpt>Issued To<ept id="a8a4df8f-3b41-4e36-ad1a-eea95210fc1b">&lt;/strong&gt;</ept> and the <bpt id="4e407dfe-73e3-4abd-a73b-ad263e2b85ba">&lt;strong&gt;</bpt>Issued By<ept id="4e407dfe-73e3-4abd-a73b-ad263e2b85ba">&lt;/strong&gt;</ept> fields.</target>
+        </trans-unit>
+        <trans-unit id="8fdc0cbf-a8b2-4984-8405-f3d60b75b232" xml:space="preserve">
+          <source>The Azure storage account name is the account you specify when you provision the HDInsight cluster.</source>
+          <target state="new">The Azure storage account name is the account you specify when you provision the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="8a60ceb1-ea7a-4650-a27c-a60306ca6a26" xml:space="preserve">
+          <source>The default container name is the same as the HDInsight cluster name.</source>
+          <target state="new">The default container name is the same as the HDInsight cluster name.</target>
+        </trans-unit>
+        <trans-unit id="53a47f34-20df-4851-8e39-6ad505b5023e" xml:space="preserve">
+          <source>In the <bpt id="5f64073e-fb56-4347-96bb-870b8ceeb3e8">&lt;strong&gt;</bpt>Main()<ept id="5f64073e-fb56-4347-96bb-870b8ceeb3e8">&lt;/strong&gt;</ept> function, append the following code to define the MapReduce job:</source>
+          <target state="new">In the <bpt id="5f64073e-fb56-4347-96bb-870b8ceeb3e8">&lt;strong&gt;</bpt>Main()<ept id="5f64073e-fb56-4347-96bb-870b8ceeb3e8">&lt;/strong&gt;</ept> function, append the following code to define the MapReduce job:</target>
+        </trans-unit>
+        <trans-unit id="6dd08786-7efe-480a-979f-0950b1682c45" xml:space="preserve">
+          <source>There are two arguments.</source>
+          <target state="new">There are two arguments.</target>
+        </trans-unit>
+        <trans-unit id="c35d6bea-ef1d-4347-b300-1b6a06f2349f" xml:space="preserve">
+          <source>The first one is the source file name, and the second is the output file path.</source>
+          <target state="new">The first one is the source file name, and the second is the output file path.</target>
+        </trans-unit>
+        <trans-unit id="8c02b501-98a7-447b-873a-98dff3cc974c" xml:space="preserve">
+          <source>For more information about the wasb:// prefix, see <bpt id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;/linkText&gt;</ept><bpt id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;title&gt;</bpt><ept id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the wasb:// prefix, see <bpt id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;linkText&gt;</bpt>Use Azure Blob storage with HDInsight[hdinsight-storage]<ept id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;/linkText&gt;</ept><bpt id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;title&gt;</bpt><ept id="5d8faf67-258e-4d30-b57b-9c7ceca669b3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6ec8539-899e-4d06-9c4e-a66da06f4764" xml:space="preserve">
+          <source>In the <bpt id="1d50672f-3594-4913-8328-31771d3b72e0">&lt;strong&gt;</bpt>Main()<ept id="1d50672f-3594-4913-8328-31771d3b72e0">&lt;/strong&gt;</ept> function, append the following code to create a JobSubmissionCertificateCredential object:</source>
+          <target state="new">In the <bpt id="1d50672f-3594-4913-8328-31771d3b72e0">&lt;strong&gt;</bpt>Main()<ept id="1d50672f-3594-4913-8328-31771d3b72e0">&lt;/strong&gt;</ept> function, append the following code to create a JobSubmissionCertificateCredential object:</target>
+        </trans-unit>
+        <trans-unit id="ff884bb1-375c-4d85-8614-a1cfd46b7d80" xml:space="preserve">
+          <source>In the <bpt id="516d6f23-c91a-4c49-abd2-d4cf7fdd9fb6">&lt;strong&gt;</bpt>Main()<ept id="516d6f23-c91a-4c49-abd2-d4cf7fdd9fb6">&lt;/strong&gt;</ept> function, append the following code to run the job and wait for the job to complete:</source>
+          <target state="new">In the <bpt id="516d6f23-c91a-4c49-abd2-d4cf7fdd9fb6">&lt;strong&gt;</bpt>Main()<ept id="516d6f23-c91a-4c49-abd2-d4cf7fdd9fb6">&lt;/strong&gt;</ept> function, append the following code to run the job and wait for the job to complete:</target>
+        </trans-unit>
+        <trans-unit id="7d199ea1-016a-41b7-a82f-b19a9002024a" xml:space="preserve">
+          <source>In the <bpt id="b975ae4e-6750-484b-8b14-c0162b04c79c">&lt;strong&gt;</bpt>Main()<ept id="b975ae4e-6750-484b-8b14-c0162b04c79c">&lt;/strong&gt;</ept> function, append the following code to print the MapReduce job output:</source>
+          <target state="new">In the <bpt id="b975ae4e-6750-484b-8b14-c0162b04c79c">&lt;strong&gt;</bpt>Main()<ept id="b975ae4e-6750-484b-8b14-c0162b04c79c">&lt;/strong&gt;</ept> function, append the following code to print the MapReduce job output:</target>
+        </trans-unit>
+        <trans-unit id="af12e117-aa09-4b6d-bb09-1dbced93d2d3" xml:space="preserve">
+          <source>The output folder is specified when you define the MapReduce job.</source>
+          <target state="new">The output folder is specified when you define the MapReduce job.</target>
+        </trans-unit>
+        <trans-unit id="8d03d686-552c-42ff-8993-94181d2d1ebe" xml:space="preserve">
+          <source>The default file name is <bpt id="964852ca-3dc2-44cf-8fbb-905d8ea56079">&lt;strong&gt;</bpt>part-r-00000<ept id="964852ca-3dc2-44cf-8fbb-905d8ea56079">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default file name is <bpt id="964852ca-3dc2-44cf-8fbb-905d8ea56079">&lt;strong&gt;</bpt>part-r-00000<ept id="964852ca-3dc2-44cf-8fbb-905d8ea56079">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8fad667-94b8-4225-92f0-44a35d15c2a2" xml:space="preserve">
+          <source><bpt id="57f642b1-db7b-472f-a941-c06cc9af9b3d">&lt;strong&gt;</bpt>To run the application<ept id="57f642b1-db7b-472f-a941-c06cc9af9b3d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="57f642b1-db7b-472f-a941-c06cc9af9b3d">&lt;strong&gt;</bpt>To run the application<ept id="57f642b1-db7b-472f-a941-c06cc9af9b3d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cd79bae-7276-46df-bf1c-3fd881c0a14e" xml:space="preserve">
+          <source>While the application is open in Visual Studio, press <bpt id="6ab39dbd-f4a6-4eb8-b091-f3f7fbeef5fd">&lt;strong&gt;</bpt>F5<ept id="6ab39dbd-f4a6-4eb8-b091-f3f7fbeef5fd">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">While the application is open in Visual Studio, press <bpt id="6ab39dbd-f4a6-4eb8-b091-f3f7fbeef5fd">&lt;strong&gt;</bpt>F5<ept id="6ab39dbd-f4a6-4eb8-b091-f3f7fbeef5fd">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="dc31aa9e-d638-483b-b888-554d13cbff5a" xml:space="preserve">
+          <source>A console window should open and display the status of the application and the application output.</source>
+          <target state="new">A console window should open and display the status of the application and the application output.</target>
+        </trans-unit>
+        <trans-unit id="04f1aec7-6b16-4ade-a4a8-9fa2d388aaad" xml:space="preserve">
+          <source>HDInsight clusters come with a word-counting Hadoop stream program, which is developed in C#.</source>
+          <target state="new">HDInsight clusters come with a word-counting Hadoop stream program, which is developed in C#.</target>
+        </trans-unit>
+        <trans-unit id="19a72ec3-055d-4407-a3e9-d9c62d0961b9" xml:space="preserve">
+          <source>The mapper program is <bpt id="6138d8cd-3735-41ec-a999-fbd5f6716b03">&lt;em&gt;</bpt>/example/apps/cat.exe<ept id="6138d8cd-3735-41ec-a999-fbd5f6716b03">&lt;/em&gt;</ept>, and the reduce program is <bpt id="9ebf7ac3-d595-4ce2-b235-f85e2b3b09dc">&lt;em&gt;</bpt>/example/apps/wc.exe<ept id="9ebf7ac3-d595-4ce2-b235-f85e2b3b09dc">&lt;/em&gt;</ept>.</source>
+          <target state="new">The mapper program is <bpt id="6138d8cd-3735-41ec-a999-fbd5f6716b03">&lt;em&gt;</bpt>/example/apps/cat.exe<ept id="6138d8cd-3735-41ec-a999-fbd5f6716b03">&lt;/em&gt;</ept>, and the reduce program is <bpt id="9ebf7ac3-d595-4ce2-b235-f85e2b3b09dc">&lt;em&gt;</bpt>/example/apps/wc.exe<ept id="9ebf7ac3-d595-4ce2-b235-f85e2b3b09dc">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af7d5f21-d2ed-42a6-b955-d7c98938c83d" xml:space="preserve">
+          <source>In this session, you will learn how to create a .NET application to run the word-counting sample.</source>
+          <target state="new">In this session, you will learn how to create a .NET application to run the word-counting sample.</target>
+        </trans-unit>
+        <trans-unit id="0d20a5e0-36be-441b-b358-264b8847027e" xml:space="preserve">
+          <source>For the details about creating a .NET application for submitting MapReduce jobs, see <bpt id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;linkText&gt;</bpt>Submit MapReduce jobs using HDInsight .NET SDK<ept id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;/linkText&gt;</ept><bpt id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;title&gt;</bpt><ept id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the details about creating a .NET application for submitting MapReduce jobs, see <bpt id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;linkText&gt;</bpt>Submit MapReduce jobs using HDInsight .NET SDK<ept id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;/linkText&gt;</ept><bpt id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;title&gt;</bpt><ept id="835e32e8-5cdd-412b-b2c1-7b8e400d1ad4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82a30055-53da-4ec4-b283-d94b4c7f5db5" xml:space="preserve">
+          <source>For more information about developing and deploying Hadoop streaming jobs, see <bpt id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming-jobs]<ept id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;/linkText&gt;</ept><bpt id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;title&gt;</bpt><ept id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about developing and deploying Hadoop streaming jobs, see <bpt id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;linkText&gt;</bpt>Develop C# Hadoop streaming programs for HDInsight[hdinsight-develop-streaming-jobs]<ept id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;/linkText&gt;</ept><bpt id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;title&gt;</bpt><ept id="a9ace49d-5bea-4772-bf83-413716220c77">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da905879-54b9-432e-894f-6c2d68716326" xml:space="preserve">
+          <source>HDInsight clusters come with a sample Hive table called <bpt id="ac810114-807b-404c-8e82-8459bb431a1a">&lt;em&gt;</bpt>hivesampletable<ept id="ac810114-807b-404c-8e82-8459bb431a1a">&lt;/em&gt;</ept>.</source>
+          <target state="new">HDInsight clusters come with a sample Hive table called <bpt id="ac810114-807b-404c-8e82-8459bb431a1a">&lt;em&gt;</bpt>hivesampletable<ept id="ac810114-807b-404c-8e82-8459bb431a1a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24111684-a05e-44a4-800e-01831cb877d3" xml:space="preserve">
+          <source>In this session, you will create a .NET application to run a Hive job to list the Hive tables that are created in an HDInsight cluster.</source>
+          <target state="new">In this session, you will create a .NET application to run a Hive job to list the Hive tables that are created in an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="1dd62586-48bf-4cd8-8f86-f07030648fa1" xml:space="preserve">
+          <source>For more information about using Hive, see <bpt id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;/linkText&gt;</ept><bpt id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;title&gt;</bpt><ept id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using Hive, see <bpt id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;/linkText&gt;</ept><bpt id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;title&gt;</bpt><ept id="1f0029b4-0d2e-4ea0-ba34-3b69b6813df2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7f1321e-35d7-4003-8316-7208023a5e84" xml:space="preserve">
+          <source>The following procedures are needed to provision an HDInsight cluster by using the SDK:</source>
+          <target state="new">The following procedures are needed to provision an HDInsight cluster by using the SDK:</target>
+        </trans-unit>
+        <trans-unit id="a664e325-835b-4ebb-b22a-ce95d0017b39" xml:space="preserve">
+          <source>Install the HDInsight .NET SDK</source>
+          <target state="new">Install the HDInsight .NET SDK</target>
+        </trans-unit>
+        <trans-unit id="fb2f154e-602c-42f4-9e10-cc36cc57d148" xml:space="preserve">
+          <source>Create a console application</source>
+          <target state="new">Create a console application</target>
+        </trans-unit>
+        <trans-unit id="57372039-f468-4948-957f-d0ecbf10fb93" xml:space="preserve">
+          <source>Run the application</source>
+          <target state="new">Run the application</target>
+        </trans-unit>
+        <trans-unit id="a2061db1-ea76-4d13-8b2b-6e89a59c805c" xml:space="preserve">
+          <source><bpt id="81a72d2b-53df-405d-9dd1-72455296f66c">&lt;strong&gt;</bpt>To install the HDInsight .NET SDK<ept id="81a72d2b-53df-405d-9dd1-72455296f66c">&lt;/strong&gt;</ept>
+You can install the latest published build of the SDK from <bpt id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;linkText&gt;</bpt>NuGet<ept id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;/linkText&gt;</ept><bpt id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;title&gt;</bpt><ept id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="81a72d2b-53df-405d-9dd1-72455296f66c">&lt;strong&gt;</bpt>To install the HDInsight .NET SDK<ept id="81a72d2b-53df-405d-9dd1-72455296f66c">&lt;/strong&gt;</ept>
+You can install the latest published build of the SDK from <bpt id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;linkText&gt;</bpt>NuGet<ept id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;/linkText&gt;</ept><bpt id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;title&gt;</bpt><ept id="a0db76c4-955b-4e3d-8e77-ae1fa4f483e7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5f0bc65-b9c1-4158-ae28-b5be18be6a69" xml:space="preserve">
+          <source>The instructions will be shown in the next procedure.</source>
+          <target state="new">The instructions will be shown in the next procedure.</target>
+        </trans-unit>
+        <trans-unit id="e10747d3-4660-431f-8964-60535098570b" xml:space="preserve">
+          <source><bpt id="a560826b-ad3d-4e26-9ca5-e1c97de10b6a">&lt;strong&gt;</bpt>To create a Visual Studio console application<ept id="a560826b-ad3d-4e26-9ca5-e1c97de10b6a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a560826b-ad3d-4e26-9ca5-e1c97de10b6a">&lt;strong&gt;</bpt>To create a Visual Studio console application<ept id="a560826b-ad3d-4e26-9ca5-e1c97de10b6a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cb3e609-273c-4ecb-887c-701b24bf4ce6" xml:space="preserve">
+          <source>Open Visual Studio.</source>
+          <target state="new">Open Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="61ad8e54-490c-4f59-a93a-b7785633aef4" xml:space="preserve">
+          <source>From the <bpt id="ec516c49-a1cd-419b-a627-3f61c324eaf4">&lt;strong&gt;</bpt>File<ept id="ec516c49-a1cd-419b-a627-3f61c324eaf4">&lt;/strong&gt;</ept> menu, click <bpt id="86258338-db14-4f9d-83fd-e16f3188becc">&lt;strong&gt;</bpt>New<ept id="86258338-db14-4f9d-83fd-e16f3188becc">&lt;/strong&gt;</ept>, and then click <bpt id="634d7962-4420-4556-8f7c-fdc25adb6b8a">&lt;strong&gt;</bpt>Project<ept id="634d7962-4420-4556-8f7c-fdc25adb6b8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="ec516c49-a1cd-419b-a627-3f61c324eaf4">&lt;strong&gt;</bpt>File<ept id="ec516c49-a1cd-419b-a627-3f61c324eaf4">&lt;/strong&gt;</ept> menu, click <bpt id="86258338-db14-4f9d-83fd-e16f3188becc">&lt;strong&gt;</bpt>New<ept id="86258338-db14-4f9d-83fd-e16f3188becc">&lt;/strong&gt;</ept>, and then click <bpt id="634d7962-4420-4556-8f7c-fdc25adb6b8a">&lt;strong&gt;</bpt>Project<ept id="634d7962-4420-4556-8f7c-fdc25adb6b8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a93f2f85-d041-47b7-9268-b7d333201426" xml:space="preserve">
+          <source>From <bpt id="11e6c981-f796-486e-bba7-85e461d4e73a">&lt;strong&gt;</bpt>New Project<ept id="11e6c981-f796-486e-bba7-85e461d4e73a">&lt;/strong&gt;</ept>, type or select the following values:</source>
+          <target state="new">From <bpt id="11e6c981-f796-486e-bba7-85e461d4e73a">&lt;strong&gt;</bpt>New Project<ept id="11e6c981-f796-486e-bba7-85e461d4e73a">&lt;/strong&gt;</ept>, type or select the following values:</target>
+        </trans-unit>
+        <trans-unit id="8793b061-5b4b-40f9-b925-aab731ec59e8" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="bb0e6852-671f-4fac-92c7-7333f8add20e" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="179a686e-9132-43f1-9ec0-135395a23953" xml:space="preserve">
+          <source>Category</source>
+          <target state="new">Category</target>
+        </trans-unit>
+        <trans-unit id="416e435f-2fba-4c73-b132-c138dfabaf82" xml:space="preserve">
+          <source>Templates/Visual C#/Windows</source>
+          <target state="new">Templates/Visual C#/Windows</target>
+        </trans-unit>
+        <trans-unit id="b229f443-ca39-4fe4-a862-a8d60e5277c9" xml:space="preserve">
+          <source>Template</source>
+          <target state="new">Template</target>
+        </trans-unit>
+        <trans-unit id="17646268-0835-4c6c-b3be-12ed9a645f01" xml:space="preserve">
+          <source>Console Application</source>
+          <target state="new">Console Application</target>
+        </trans-unit>
+        <trans-unit id="5f4325f9-10a5-4819-bbd2-e61728dbfea2" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="965def89-5f7d-4b82-8450-6a03292ebcd0" xml:space="preserve">
+          <source>SubmitHiveJob</source>
+          <target state="new">SubmitHiveJob</target>
+        </trans-unit>
+        <trans-unit id="1e0c189d-fb60-4ad0-be1c-93c2899886d3" xml:space="preserve">
+          <source>Click <bpt id="74bfa827-cb82-4481-804b-01ba4ce93b60">&lt;strong&gt;</bpt>OK<ept id="74bfa827-cb82-4481-804b-01ba4ce93b60">&lt;/strong&gt;</ept> to create the project.</source>
+          <target state="new">Click <bpt id="74bfa827-cb82-4481-804b-01ba4ce93b60">&lt;strong&gt;</bpt>OK<ept id="74bfa827-cb82-4481-804b-01ba4ce93b60">&lt;/strong&gt;</ept> to create the project.</target>
+        </trans-unit>
+        <trans-unit id="5a5ca0e8-fda7-4134-bae5-93a8e4435d4f" xml:space="preserve">
+          <source>From the <bpt id="4b5b54c2-6d03-4e21-b40c-7bb4b7a8276e">&lt;strong&gt;</bpt>Tools<ept id="4b5b54c2-6d03-4e21-b40c-7bb4b7a8276e">&lt;/strong&gt;</ept> menu, click <bpt id="12958f4d-114e-40aa-bc0e-c065bb981092">&lt;strong&gt;</bpt>Library Package Manager<ept id="12958f4d-114e-40aa-bc0e-c065bb981092">&lt;/strong&gt;</ept>, and then click <bpt id="7760414e-2259-4313-a883-235a4dd0a6e4">&lt;strong&gt;</bpt>Package Manager Console<ept id="7760414e-2259-4313-a883-235a4dd0a6e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="4b5b54c2-6d03-4e21-b40c-7bb4b7a8276e">&lt;strong&gt;</bpt>Tools<ept id="4b5b54c2-6d03-4e21-b40c-7bb4b7a8276e">&lt;/strong&gt;</ept> menu, click <bpt id="12958f4d-114e-40aa-bc0e-c065bb981092">&lt;strong&gt;</bpt>Library Package Manager<ept id="12958f4d-114e-40aa-bc0e-c065bb981092">&lt;/strong&gt;</ept>, and then click <bpt id="7760414e-2259-4313-a883-235a4dd0a6e4">&lt;strong&gt;</bpt>Package Manager Console<ept id="7760414e-2259-4313-a883-235a4dd0a6e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6cff3f5c-733d-4e2c-a3c3-27bfd1741983" xml:space="preserve">
+          <source>Run the following command in the console to install the package:</source>
+          <target state="new">Run the following command in the console to install the package:</target>
+        </trans-unit>
+        <trans-unit id="ce04ac46-22e3-43fb-a97a-4ef97c81d96b" xml:space="preserve">
+          <source>This command adds .NET libraries and references to them to the current Visual Studio project.</source>
+          <target state="new">This command adds .NET libraries and references to them to the current Visual Studio project.</target>
+        </trans-unit>
+        <trans-unit id="a7cc0256-300d-423d-835c-83a51daba697" xml:space="preserve">
+          <source>From <bpt id="097c6517-0cf6-4735-b01a-96b44b73c7ff">&lt;strong&gt;</bpt>Solution Explorer<ept id="097c6517-0cf6-4735-b01a-96b44b73c7ff">&lt;/strong&gt;</ept>, double-click <bpt id="8cece9f7-dca5-4632-9cb8-170b8b810b44">&lt;strong&gt;</bpt>Program.cs<ept id="8cece9f7-dca5-4632-9cb8-170b8b810b44">&lt;/strong&gt;</ept> to open it.</source>
+          <target state="new">From <bpt id="097c6517-0cf6-4735-b01a-96b44b73c7ff">&lt;strong&gt;</bpt>Solution Explorer<ept id="097c6517-0cf6-4735-b01a-96b44b73c7ff">&lt;/strong&gt;</ept>, double-click <bpt id="8cece9f7-dca5-4632-9cb8-170b8b810b44">&lt;strong&gt;</bpt>Program.cs<ept id="8cece9f7-dca5-4632-9cb8-170b8b810b44">&lt;/strong&gt;</ept> to open it.</target>
+        </trans-unit>
+        <trans-unit id="1797faa4-9e35-4042-8264-aa595cc233dd" xml:space="preserve">
+          <source>Add the following <bpt id="07aa9a4a-9591-4363-8eaf-c516be8e3828">&lt;strong&gt;</bpt>using<ept id="07aa9a4a-9591-4363-8eaf-c516be8e3828">&lt;/strong&gt;</ept> statements to the top of the file:</source>
+          <target state="new">Add the following <bpt id="07aa9a4a-9591-4363-8eaf-c516be8e3828">&lt;strong&gt;</bpt>using<ept id="07aa9a4a-9591-4363-8eaf-c516be8e3828">&lt;/strong&gt;</ept> statements to the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="ee89a6a4-02a9-4824-a3f2-7964168bde87" xml:space="preserve">
+          <source>Add the following function definition to the class.</source>
+          <target state="new">Add the following function definition to the class.</target>
+        </trans-unit>
+        <trans-unit id="fe6c9a52-1313-47c3-9801-552ccee5d04b" xml:space="preserve">
+          <source>This function is used to wait for a Hadoop job to complete.</source>
+          <target state="new">This function is used to wait for a Hadoop job to complete.</target>
+        </trans-unit>
+        <trans-unit id="f1f39ecb-b757-4180-8c26-f6717eae712f" xml:space="preserve">
+          <source>In the <bpt id="97d34c78-4f2b-4a5b-aa21-a549df173a39">&lt;strong&gt;</bpt>Main()<ept id="97d34c78-4f2b-4a5b-aa21-a549df173a39">&lt;/strong&gt;</ept> function, paste the following code:</source>
+          <target state="new">In the <bpt id="97d34c78-4f2b-4a5b-aa21-a549df173a39">&lt;strong&gt;</bpt>Main()<ept id="97d34c78-4f2b-4a5b-aa21-a549df173a39">&lt;/strong&gt;</ept> function, paste the following code:</target>
+        </trans-unit>
+        <trans-unit id="ef7353f5-1803-49ea-91b3-3676ef4c8f9c" xml:space="preserve">
+          <source>These are all of the variables you need to set for the program.</source>
+          <target state="new">These are all of the variables you need to set for the program.</target>
+        </trans-unit>
+        <trans-unit id="8ea34e9d-7680-419d-b220-3bd69f6de84b" xml:space="preserve">
+          <source>You can get the Azure Subscription ID from your system administrator.</source>
+          <target state="new">You can get the Azure Subscription ID from your system administrator.</target>
+        </trans-unit>
+        <trans-unit id="20dbcc9c-f87c-467b-90e8-d22f25a073f2" xml:space="preserve">
+          <source>For information about the certificate, see <bpt id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure[azure-certificate]<ept id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;/linkText&gt;</ept><bpt id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;title&gt;</bpt><ept id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the certificate, see <bpt id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;linkText&gt;</bpt>Create and Upload a Management Certificate for Azure[azure-certificate]<ept id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;/linkText&gt;</ept><bpt id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;title&gt;</bpt><ept id="11d9379b-f7f2-4c3b-8540-99c8cc31d115">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2aae7c8a-146d-4eee-b7d4-c48bdc5d2dc0" xml:space="preserve">
+          <source>An easy way to configure the certificate is to run the <bpt id="a3bfaaad-17c5-4498-bc00-59d30ffc2d07">&lt;strong&gt;</bpt>Get-AzurePublishSettingsFile<ept id="a3bfaaad-17c5-4498-bc00-59d30ffc2d07">&lt;/strong&gt;</ept> and <bpt id="ee2c1360-e2ef-4dcc-9dd1-d76e6dde5e0f">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="ee2c1360-e2ef-4dcc-9dd1-d76e6dde5e0f">&lt;/strong&gt;</ept> Azure PowerShell cmdlets.</source>
+          <target state="new">An easy way to configure the certificate is to run the <bpt id="a3bfaaad-17c5-4498-bc00-59d30ffc2d07">&lt;strong&gt;</bpt>Get-AzurePublishSettingsFile<ept id="a3bfaaad-17c5-4498-bc00-59d30ffc2d07">&lt;/strong&gt;</ept> and <bpt id="ee2c1360-e2ef-4dcc-9dd1-d76e6dde5e0f">&lt;strong&gt;</bpt>Import-AzurePublishSettingsFile<ept id="ee2c1360-e2ef-4dcc-9dd1-d76e6dde5e0f">&lt;/strong&gt;</ept> Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="9a6f3269-7d73-42c4-83e8-26cb84e18dd0" xml:space="preserve">
+          <source>They will create and upload the management certificate automatically.</source>
+          <target state="new">They will create and upload the management certificate automatically.</target>
+        </trans-unit>
+        <trans-unit id="fdfed630-1135-4ec2-911f-e41637aec3fc" xml:space="preserve">
+          <source>After you run these cmdlets, you can open <bpt id="1490993f-8f51-4c0e-a6ea-ccad7e6e0ce6">&lt;strong&gt;</bpt>certmgr.msc<ept id="1490993f-8f51-4c0e-a6ea-ccad7e6e0ce6">&lt;/strong&gt;</ept> from the workstation, and find the certificate by expanding <bpt id="c60d7a04-abeb-41ae-9ad1-2405416d8860">&lt;strong&gt;</bpt>Personal<ept id="c60d7a04-abeb-41ae-9ad1-2405416d8860">&lt;/strong&gt;</ept> &gt; <bpt id="9c2dc158-f71e-4a0f-a479-5d48fa4d951f">&lt;strong&gt;</bpt>Certificates<ept id="9c2dc158-f71e-4a0f-a479-5d48fa4d951f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you run these cmdlets, you can open <bpt id="1490993f-8f51-4c0e-a6ea-ccad7e6e0ce6">&lt;strong&gt;</bpt>certmgr.msc<ept id="1490993f-8f51-4c0e-a6ea-ccad7e6e0ce6">&lt;/strong&gt;</ept> from the workstation, and find the certificate by expanding <bpt id="c60d7a04-abeb-41ae-9ad1-2405416d8860">&lt;strong&gt;</bpt>Personal<ept id="c60d7a04-abeb-41ae-9ad1-2405416d8860">&lt;/strong&gt;</ept> &gt; <bpt id="9c2dc158-f71e-4a0f-a479-5d48fa4d951f">&lt;strong&gt;</bpt>Certificates<ept id="9c2dc158-f71e-4a0f-a479-5d48fa4d951f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8717d5dc-56d4-4084-a87d-0a53da4677cf" xml:space="preserve">
+          <source>The certificate created by the Azure PowerShell cmdlets has Azure Tools for the <bpt id="0cee29c3-8b59-4791-89be-e42b3fdc209c">&lt;strong&gt;</bpt>Issued To<ept id="0cee29c3-8b59-4791-89be-e42b3fdc209c">&lt;/strong&gt;</ept> and the <bpt id="d50b49d7-cb60-4c17-9229-b506e0bc08a7">&lt;strong&gt;</bpt>Issued By<ept id="d50b49d7-cb60-4c17-9229-b506e0bc08a7">&lt;/strong&gt;</ept> fields.</source>
+          <target state="new">The certificate created by the Azure PowerShell cmdlets has Azure Tools for the <bpt id="0cee29c3-8b59-4791-89be-e42b3fdc209c">&lt;strong&gt;</bpt>Issued To<ept id="0cee29c3-8b59-4791-89be-e42b3fdc209c">&lt;/strong&gt;</ept> and the <bpt id="d50b49d7-cb60-4c17-9229-b506e0bc08a7">&lt;strong&gt;</bpt>Issued By<ept id="d50b49d7-cb60-4c17-9229-b506e0bc08a7">&lt;/strong&gt;</ept> fields.</target>
+        </trans-unit>
+        <trans-unit id="db1a25a6-4f83-491b-b99c-8f7db0ce46f4" xml:space="preserve">
+          <source>In the <bpt id="956c7aa1-ff9a-49d1-b72b-39b6cbd29aa0">&lt;strong&gt;</bpt>Main()<ept id="956c7aa1-ff9a-49d1-b72b-39b6cbd29aa0">&lt;/strong&gt;</ept> function, append the following code to define the Hive job:</source>
+          <target state="new">In the <bpt id="956c7aa1-ff9a-49d1-b72b-39b6cbd29aa0">&lt;strong&gt;</bpt>Main()<ept id="956c7aa1-ff9a-49d1-b72b-39b6cbd29aa0">&lt;/strong&gt;</ept> function, append the following code to define the Hive job:</target>
+        </trans-unit>
+        <trans-unit id="d317a17e-8d5a-4a57-94fc-7a5a40aec50f" xml:space="preserve">
+          <source>You can also use the <bpt id="1fb064e0-f4d4-4784-9df4-294d4be6902e">&lt;strong&gt;</bpt>File<ept id="1fb064e0-f4d4-4784-9df4-294d4be6902e">&lt;/strong&gt;</ept> parameter to specify a HiveQL script file in HDFS, for example:</source>
+          <target state="new">You can also use the <bpt id="1fb064e0-f4d4-4784-9df4-294d4be6902e">&lt;strong&gt;</bpt>File<ept id="1fb064e0-f4d4-4784-9df4-294d4be6902e">&lt;/strong&gt;</ept> parameter to specify a HiveQL script file in HDFS, for example:</target>
+        </trans-unit>
+        <trans-unit id="b677db03-5256-4b0c-b9e6-2229c28250cc" xml:space="preserve">
+          <source>In the <bpt id="586b1c30-b1dc-4ec2-bf11-f80ad2bc1708">&lt;strong&gt;</bpt>Main()<ept id="586b1c30-b1dc-4ec2-bf11-f80ad2bc1708">&lt;/strong&gt;</ept> function, append the following code to create a <bpt id="3a2b1d4b-9a55-4274-9047-1c6ff5214f3d">&lt;strong&gt;</bpt>JobSubmissionCertificateCredential<ept id="3a2b1d4b-9a55-4274-9047-1c6ff5214f3d">&lt;/strong&gt;</ept> object:</source>
+          <target state="new">In the <bpt id="586b1c30-b1dc-4ec2-bf11-f80ad2bc1708">&lt;strong&gt;</bpt>Main()<ept id="586b1c30-b1dc-4ec2-bf11-f80ad2bc1708">&lt;/strong&gt;</ept> function, append the following code to create a <bpt id="3a2b1d4b-9a55-4274-9047-1c6ff5214f3d">&lt;strong&gt;</bpt>JobSubmissionCertificateCredential<ept id="3a2b1d4b-9a55-4274-9047-1c6ff5214f3d">&lt;/strong&gt;</ept> object:</target>
+        </trans-unit>
+        <trans-unit id="e811ad80-6aa3-4d4d-beed-b37155f3ba81" xml:space="preserve">
+          <source>In the <bpt id="742bca2d-8d5f-45c9-837a-5986502f78d9">&lt;strong&gt;</bpt>Main()<ept id="742bca2d-8d5f-45c9-837a-5986502f78d9">&lt;/strong&gt;</ept> function, append the following code to run the job and wait for the job to complete:</source>
+          <target state="new">In the <bpt id="742bca2d-8d5f-45c9-837a-5986502f78d9">&lt;strong&gt;</bpt>Main()<ept id="742bca2d-8d5f-45c9-837a-5986502f78d9">&lt;/strong&gt;</ept> function, append the following code to run the job and wait for the job to complete:</target>
+        </trans-unit>
+        <trans-unit id="1d11360c-ad2d-412a-85e5-c7ee0ead42c4" xml:space="preserve">
+          <source>In the <bpt id="344b5349-6e55-48ba-93ba-9dfae3446b46">&lt;strong&gt;</bpt>Main()<ept id="344b5349-6e55-48ba-93ba-9dfae3446b46">&lt;/strong&gt;</ept> function, append the following code to print the Hive job output:</source>
+          <target state="new">In the <bpt id="344b5349-6e55-48ba-93ba-9dfae3446b46">&lt;strong&gt;</bpt>Main()<ept id="344b5349-6e55-48ba-93ba-9dfae3446b46">&lt;/strong&gt;</ept> function, append the following code to print the Hive job output:</target>
+        </trans-unit>
+        <trans-unit id="f3e5ee65-0db6-43b6-b9e8-74184128233a" xml:space="preserve">
+          <source><bpt id="35009637-b5e2-40de-9b23-b1938466b59d">&lt;strong&gt;</bpt>To run the application<ept id="35009637-b5e2-40de-9b23-b1938466b59d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="35009637-b5e2-40de-9b23-b1938466b59d">&lt;strong&gt;</bpt>To run the application<ept id="35009637-b5e2-40de-9b23-b1938466b59d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c94715b1-dbb5-4289-8b4f-b27f1cc0d06e" xml:space="preserve">
+          <source>While the application is open in Visual Studio, press <bpt id="d46a4d1a-d418-4649-ac19-0d1cbe353740">&lt;strong&gt;</bpt>F5<ept id="d46a4d1a-d418-4649-ac19-0d1cbe353740">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">While the application is open in Visual Studio, press <bpt id="d46a4d1a-d418-4649-ac19-0d1cbe353740">&lt;strong&gt;</bpt>F5<ept id="d46a4d1a-d418-4649-ac19-0d1cbe353740">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="e0c790bb-370d-4c2a-bca3-8e40dba8a3f5" xml:space="preserve">
+          <source>A console window should open and display the status of the application.</source>
+          <target state="new">A console window should open and display the status of the application.</target>
+        </trans-unit>
+        <trans-unit id="9be67179-7e99-44a3-a2eb-6a9f8605be72" xml:space="preserve">
+          <source>The output should be:</source>
+          <target state="new">The output should be:</target>
+        </trans-unit>
+        <trans-unit id="4beed6d6-c45f-4a30-b8a0-2cb34f85e191" xml:space="preserve">
+          <source>Using the HDInsight Tools for Visual Studio, you can run Hive queries and Pig scripts.</source>
+          <target state="new">Using the HDInsight Tools for Visual Studio, you can run Hive queries and Pig scripts.</target>
+        </trans-unit>
+        <trans-unit id="1c6fe5bc-c73d-4db8-94b5-be1af7331f43" xml:space="preserve">
+          <source>See <bpt id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;linkText&gt;</bpt>Get started using Visual Studio Hadoop tools for HDInsight<ept id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;/linkText&gt;</ept><bpt id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;title&gt;</bpt><ept id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;linkText&gt;</bpt>Get started using Visual Studio Hadoop tools for HDInsight<ept id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;/linkText&gt;</ept><bpt id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;title&gt;</bpt><ept id="6999ea42-8bfb-4c70-a87f-01284d630736">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d46c49a-8a42-4967-bad1-39f7cc5fd328" xml:space="preserve">
+          <source>In this article, you have learned several ways to provision an HDInsight cluster.</source>
+          <target state="new">In this article, you have learned several ways to provision an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="6dc022e7-0bca-4b06-9298-7379f3c8fc4d" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="3fd3beb8-a9db-4996-9745-4f8311dac070" xml:space="preserve">
+          <source><bpt id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;/linkText&gt;</ept><bpt id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;title&gt;</bpt><ept id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;/linkText&gt;</ept><bpt id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;title&gt;</bpt><ept id="b9296b50-0e2f-4c9c-93d8-f8adaaa88ee9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed615553-ca7d-4e92-b0d6-d8600080fc96" xml:space="preserve">
+          <source><bpt id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;/linkText&gt;</ept><bpt id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;title&gt;</bpt><ept id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;linkText&gt;</bpt>Provision HDInsight clusters[hdinsight-provision]<ept id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;/linkText&gt;</ept><bpt id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;title&gt;</bpt><ept id="b7a6898c-5cd7-4a8f-8532-88ae006b00b7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="077c296e-4574-4719-adda-914f59b68222" xml:space="preserve">
+          <source><bpt id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;linkText&gt;</bpt>Manage HDInsight by using PowerShell[hdinsight-admin-powershell]<ept id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;/linkText&gt;</ept><bpt id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;title&gt;</bpt><ept id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;linkText&gt;</bpt>Manage HDInsight by using PowerShell[hdinsight-admin-powershell]<ept id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;/linkText&gt;</ept><bpt id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;title&gt;</bpt><ept id="4cad1634-e82e-46a7-9ff8-47161b718810">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68104452-5a64-49f7-835c-d47f328ed092" xml:space="preserve">
+          <source><bpt id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;linkText&gt;</bpt>HDInsight Cmdlet Reference Documentation[hdinsight-powershell-reference]<ept id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;/linkText&gt;</ept><bpt id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;title&gt;</bpt><ept id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;linkText&gt;</bpt>HDInsight Cmdlet Reference Documentation[hdinsight-powershell-reference]<ept id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;/linkText&gt;</ept><bpt id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;title&gt;</bpt><ept id="235eeb89-6efb-4100-a527-5cf9cdd96154">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ffd54c7-f74d-40a6-bc5b-8ebceba17e02" xml:space="preserve">
+          <source><bpt id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;/linkText&gt;</ept><bpt id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;title&gt;</bpt><ept id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;linkText&gt;</bpt>Use Hive with HDInsight[hdinsight-use-hive]<ept id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;/linkText&gt;</ept><bpt id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;title&gt;</bpt><ept id="f167e167-b45c-45ca-8afd-bcbc3ad0c1ac">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4957e21e-6ffb-4f75-9031-c60fc192ca04" xml:space="preserve">
+          <source><bpt id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;/linkText&gt;</ept><bpt id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;title&gt;</bpt><ept id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;linkText&gt;</bpt>Use Pig with HDInsight[hdinsight-use-pig]<ept id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;/linkText&gt;</ept><bpt id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;title&gt;</bpt><ept id="d8c083f3-2aec-4443-8564-6726bb816ad2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4729e5a2-9b22-4c49-9caa-8be85893a28e" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg551722.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg551722.aspx</target>
+        </trans-unit>
+        <trans-unit id="8185beaf-cc7b-44d4-ab1a-b3b51bb605af" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="e0e26c2e-3314-4cc6-b3ee-5a0a3a1cee21" xml:space="preserve">
+          <source>../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md</source>
+          <target state="new">../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="ccba3ab4-9c0a-4d47-a1ee-e2b508e24c99" xml:space="preserve">
+          <source>hdinsight-use-sqoop.md</source>
+          <target state="new">hdinsight-use-sqoop.md</target>
+        </trans-unit>
+        <trans-unit id="3a5300a7-d80b-4623-beaa-5f966b8d50cb" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="66750984-147c-4bd7-9ed5-ec50cfd3829d" xml:space="preserve">
+          <source>hdinsight-use-mapreduce.md</source>
+          <target state="new">hdinsight-use-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="0f069cc5-b8d1-4396-8b30-d425dc1b9a56" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="9e96fac0-d0bf-486e-90e9-dc0281c30aac" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+        <trans-unit id="c7bcb7f9-1c5a-424c-9021-513636322df8" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="cc8e3628-e769-46fa-99d9-637524ba716e" xml:space="preserve">
+          <source>../hdinsight-use-blob-storage.md</source>
+          <target state="new">../hdinsight-use-blob-storage.md</target>
+        </trans-unit>
+        <trans-unit id="eda9643a-0075-4cc5-ae33-4cdf4a0d8151" xml:space="preserve">
+          <source>hdinsight-administer-use-powershell.md</source>
+          <target state="new">hdinsight-administer-use-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="eb55d845-bf77-46ca-9765-0d93df2392e7" xml:space="preserve">
+          <source>hdinsight-hadoop-develop-deploy-streaming-jobs.md</source>
+          <target state="new">hdinsight-hadoop-develop-deploy-streaming-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="dc744b95-2481-4c6e-8d76-97048cb108e5" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn858087.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn858087.aspx</target>
+        </trans-unit>
+        <trans-unit id="29de4cf2-95ee-4833-b036-05a288c6d27f" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="e3b10a72-bea0-49b3-9f43-834fd870f86c" xml:space="preserve">
+          <source>./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png</source>
+          <target state="new">./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png</target>
+        </trans-unit>
+        <trans-unit id="399791fb-f11f-4bf9-8fdf-44eab3636525" xml:space="preserve">
+          <source>./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png</source>
+          <target state="new">./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png</target>
+        </trans-unit>
+        <trans-unit id="3196e8c0-3d8f-46e5-b28e-89a123b87e4b" xml:space="preserve">
+          <source>http://hive.apache.org/</source>
+          <target state="new">http://hive.apache.org/</target>
+        </trans-unit>
+      </group>
+      <group id="f876f04d-4ba7-47d1-9bdc-28abb69a40ae" />
+    </body>
+  </file>
+</xliff>

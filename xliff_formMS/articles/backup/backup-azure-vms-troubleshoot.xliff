@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bd24f988-ab7c-451c-b964-fd2f5efdf46a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bd24f988-ab7c-451c-b964-fd2f5efdf46a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2e4d5f45-c693-4a09-86b5-0bfe2ff083ff">
+        <trans-unit id="46353a38-911b-4b05-b56f-153ef85c315f" xml:space="preserve">
+          <source>Azure virtual machine backup - Troubleshooting | Microsoft Azure</source>
+          <target state="new">Azure virtual machine backup - Troubleshooting | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5e902282-0361-469d-8936-3c75fa4dcc76" xml:space="preserve">
+          <source>Find information to troubleshoot backup and restore of Azure virtual machine</source>
+          <target state="new">Find information to troubleshoot backup and restore of Azure virtual machine</target>
+        </trans-unit>
+        <trans-unit id="2837ac86-4fdc-40fb-a014-e1f7e391b905" xml:space="preserve">
+          <source>You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.</source>
+          <target state="new">You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.</target>
+        </trans-unit>
+        <trans-unit id="9fac513b-1d7c-4c62-a417-84d25111f809" xml:space="preserve">
+          <source>Backup operation</source>
+          <target state="new">Backup operation</target>
+        </trans-unit>
+        <trans-unit id="2b2dcb0c-25b2-49a6-bf1a-3d81621d1878" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="aef678e8-1709-4512-8678-bcdce633f52d" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="30b3b5fc-a6f3-4ebd-b1a5-f751df73cdc8" xml:space="preserve">
+          <source>Discovery</source>
+          <target state="new">Discovery</target>
+        </trans-unit>
+        <trans-unit id="389ad869-e3ca-4d9b-9bce-6220548761dd" xml:space="preserve">
+          <source>Failed to discover new items - Microsoft Azure Backup encountered and internal error.</source>
+          <target state="new">Failed to discover new items - Microsoft Azure Backup encountered and internal error.</target>
+        </trans-unit>
+        <trans-unit id="624a8a6f-eaf8-4050-bdef-21322691420a" xml:space="preserve">
+          <source>Wait for a few minutes and then try the operation again.</source>
+          <target state="new">Wait for a few minutes and then try the operation again.</target>
+        </trans-unit>
+        <trans-unit id="2fcb843a-f2ff-4fd2-b133-072083a654d1" xml:space="preserve">
+          <source>Retry the discovery process after 15 minutes.</source>
+          <target state="new">Retry the discovery process after 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="6471c39e-dae1-4973-9bd7-ced8c6f62b95" xml:space="preserve">
+          <source>Discovery</source>
+          <target state="new">Discovery</target>
+        </trans-unit>
+        <trans-unit id="eafd21ce-e059-45fa-a1ff-897b1008d97f" xml:space="preserve">
+          <source>Failed to discover new items – Another Discovery operation is already in progress.</source>
+          <target state="new">Failed to discover new items – Another Discovery operation is already in progress.</target>
+        </trans-unit>
+        <trans-unit id="ac0d2dc3-e79d-4d5b-9bc4-370f318c9dd1" xml:space="preserve">
+          <source>Please wait until the current Discovery operation has completed.</source>
+          <target state="new">Please wait until the current Discovery operation has completed.</target>
+        </trans-unit>
+        <trans-unit id="6b8fcad3-f859-416f-8ad9-73cb779eed2f" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="a76f2c27-aa7d-4922-9e01-1dcb4a0d0a77" xml:space="preserve">
+          <source>Backup operation</source>
+          <target state="new">Backup operation</target>
+        </trans-unit>
+        <trans-unit id="141ed97e-0f69-41d7-989d-8fbe4d042d94" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="81aeae7a-54d6-4022-ab81-830b64bbc01f" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="a45ca3f1-ce6f-41a1-b0d5-121bd861ce4a" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="b4badcc5-da00-4b92-a383-789e4b400e5a" xml:space="preserve">
+          <source>Azure VM role is not in a state to install extension – Please check if the VM is in the Running state.</source>
+          <target state="new">Azure VM role is not in a state to install extension – Please check if the VM is in the Running state.</target>
+        </trans-unit>
+        <trans-unit id="16896b87-a016-4881-a512-ee14cc6bd4f6" xml:space="preserve">
+          <source>Azure Recovery Services extension requires the VM to be Running.</source>
+          <target state="new">Azure Recovery Services extension requires the VM to be Running.</target>
+        </trans-unit>
+        <trans-unit id="05283e79-4520-4e6f-8510-89f461500465" xml:space="preserve">
+          <source>Start the virtual machine and when it is in the Running state, retry the register operation.</source>
+          <target state="new">Start the virtual machine and when it is in the Running state, retry the register operation.</target>
+        </trans-unit>
+        <trans-unit id="1a4d184c-5b03-4bd5-8e8d-b56e57a79f03" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="93971cc0-e78d-4e0d-ba03-ab7716237f49" xml:space="preserve">
+          <source>Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation.</source>
+          <target state="new">Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="1e7f8b20-b02e-4490-bbf8-d0c87500fce3" xml:space="preserve">
+          <source>Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup</source>
+          <target state="new">Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup</target>
+        </trans-unit>
+        <trans-unit id="9f07a22b-7969-4fd8-9792-b3f8783c193b" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="754e42c6-1495-4e80-971a-b23f20555595" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="6a4056c1-6c76-4579-b67a-43fe4bfc120c" xml:space="preserve">
+          <source>Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again.</source>
+          <target state="new">Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again.</target>
+        </trans-unit>
+        <trans-unit id="fcc9054c-9833-4131-96df-494dd05b657f" xml:space="preserve">
+          <source>If the issue persists, contact Microsoft Support.</source>
+          <target state="new">If the issue persists, contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="906777ad-1a92-4bbe-8565-1c74b4c41156" xml:space="preserve">
+          <source>You can get this error due to one of the following unsupported configurations: &lt;ol&gt;&lt;li&gt;Premium LRS &lt;li&gt;Multi NIC &lt;li&gt;Load balancer &lt;/ol&gt;</source>
+          <target state="new">You can get this error due to one of the following unsupported configurations: &lt;ol&gt;&lt;li&gt;Premium LRS &lt;li&gt;Multi NIC &lt;li&gt;Load balancer &lt;/ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="fa80d5a8-0448-495c-9223-5962754c34af" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="12e1b372-d1c2-4752-a88d-4726a4dcb29f" xml:space="preserve">
+          <source>Registration failed with Install Agent operation timeout</source>
+          <target state="new">Registration failed with Install Agent operation timeout</target>
+        </trans-unit>
+        <trans-unit id="1e05e5d6-5bdf-4b61-8b35-ee7cf630e6be" xml:space="preserve">
+          <source>Check if the OS version of the virtual machine is supported.</source>
+          <target state="new">Check if the OS version of the virtual machine is supported.</target>
+        </trans-unit>
+        <trans-unit id="00c1dc0a-c222-4072-8eba-e486239fc9ab" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="c637a98a-594e-4d89-bd0b-b68e29f975ff" xml:space="preserve">
+          <source>Command execution failed - Another operation is in progress on this item.</source>
+          <target state="new">Command execution failed - Another operation is in progress on this item.</target>
+        </trans-unit>
+        <trans-unit id="11ec6672-3b41-4880-a032-c56f2d9d2b8a" xml:space="preserve">
+          <source>Please wait until the previous operation is completed</source>
+          <target state="new">Please wait until the previous operation is completed</target>
+        </trans-unit>
+        <trans-unit id="da022159-fba3-4b05-9882-9ff98eceb968" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="52da3cdb-a4dc-4640-87c3-c1b4a38eb155" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="8538081b-626a-4569-ac2f-7cba5ed6fe52" xml:space="preserve">
+          <source>Virtual machines having virtual hard disks stored on Premium storage are not supported for backup</source>
+          <target state="new">Virtual machines having virtual hard disks stored on Premium storage are not supported for backup</target>
+        </trans-unit>
+        <trans-unit id="777ee679-3b7d-4d61-95c7-c915a90648ee" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="5bb9b808-0293-441a-aaa8-90741bdb939b" xml:space="preserve">
+          <source>Register</source>
+          <target state="new">Register</target>
+        </trans-unit>
+        <trans-unit id="0d79f221-c05e-416b-9c4d-31a3771ed2df" xml:space="preserve">
+          <source>Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation.</source>
+          <target state="new">Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation.</target>
+        </trans-unit>
+        <trans-unit id="65ed4260-40e7-44c4-bfe3-bdd48913f8ba" xml:space="preserve">
+          <source><bpt id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;linkText&gt;</bpt>Read more<ept id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;/linkText&gt;</ept><bpt id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;title&gt;</bpt><ept id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</source>
+          <target state="new"><bpt id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;linkText&gt;</bpt>Read more<ept id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;/linkText&gt;</ept><bpt id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;title&gt;</bpt><ept id="32d0f5c8-77f9-4e12-91ac-9ac703a2609b">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</target>
+        </trans-unit>
+        <trans-unit id="eabf25c6-3d85-46ce-b977-212f519f386b" xml:space="preserve">
+          <source>Backup operation</source>
+          <target state="new">Backup operation</target>
+        </trans-unit>
+        <trans-unit id="cdc9e6c7-43d4-4bc2-983e-e588b8888546" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="31f295b4-fa40-416c-9105-a82212b005ba" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="71e48f5c-d8fb-4e90-949d-dfebc75e1efe" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="2efef0a5-34a5-4856-96e1-1844357e335f" xml:space="preserve">
+          <source>Copying VHDs from backup vault timed out - Please retry the operation in a few minutes.</source>
+          <target state="new">Copying VHDs from backup vault timed out - Please retry the operation in a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="a1e5b839-ad57-4da6-bda0-733c0ebaad43" xml:space="preserve">
+          <source>If the problem persists, contact Microsoft Support.</source>
+          <target state="new">If the problem persists, contact Microsoft Support.</target>
+        </trans-unit>
+        <trans-unit id="c81118ab-a86a-43c2-a6b9-714e6ebce2e9" xml:space="preserve">
+          <source>This happens when there is too much data to be copied.</source>
+          <target state="new">This happens when there is too much data to be copied.</target>
+        </trans-unit>
+        <trans-unit id="e91d7db3-6ffc-4448-b62a-7f259aa7ac21" xml:space="preserve">
+          <source>Please check if you have less than 16 data disks.</source>
+          <target state="new">Please check if you have less than 16 data disks.</target>
+        </trans-unit>
+        <trans-unit id="e12681cd-8999-47e5-87de-4ec53a0996ec" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="73e24a56-b348-42a0-8ea3-0662f7adc696" xml:space="preserve">
+          <source>Could not communicate with the VM agent for snapshot status.</source>
+          <target state="new">Could not communicate with the VM agent for snapshot status.</target>
+        </trans-unit>
+        <trans-unit id="35d16e28-9361-4d66-9707-0e6373e9b77b" xml:space="preserve">
+          <source>Snapshot VM sub task timed out.</source>
+          <target state="new">Snapshot VM sub task timed out.</target>
+        </trans-unit>
+        <trans-unit id="cf7c6bcb-45fe-407d-8c68-f725dda46c2c" xml:space="preserve">
+          <source>- Please see the troubleshooting guide on how to resolve this.</source>
+          <target state="new">- Please see the troubleshooting guide on how to resolve this.</target>
+        </trans-unit>
+        <trans-unit id="e8218bdb-f490-409f-a59e-1fd23a1a1ca8" xml:space="preserve">
+          <source>This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. &lt;ul&gt;&lt;li&gt;Learn about <bpt id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;linkText&gt;</bpt>debugging VM Agent issues<ept id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;/linkText&gt;</ept><bpt id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;title&gt;</bpt><ept id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;/title&gt;</ept> &lt;li&gt;Learn about <bpt id="20afedce-8566-46d5-bc44-13b26e443307">&lt;linkText&gt;</bpt>debugging networking issues<ept id="20afedce-8566-46d5-bc44-13b26e443307">&lt;/linkText&gt;</ept><bpt id="20afedce-8566-46d5-bc44-13b26e443307">&lt;title&gt;</bpt><ept id="20afedce-8566-46d5-bc44-13b26e443307">&lt;/title&gt;</ept> &lt;/ul&gt;&lt;br&gt;If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state"</source>
+          <target state="new">This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. &lt;ul&gt;&lt;li&gt;Learn about <bpt id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;linkText&gt;</bpt>debugging VM Agent issues<ept id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;/linkText&gt;</ept><bpt id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;title&gt;</bpt><ept id="f445a266-3963-4727-9cf2-3dfe84116ffa">&lt;/title&gt;</ept> &lt;li&gt;Learn about <bpt id="20afedce-8566-46d5-bc44-13b26e443307">&lt;linkText&gt;</bpt>debugging networking issues<ept id="20afedce-8566-46d5-bc44-13b26e443307">&lt;/linkText&gt;</ept><bpt id="20afedce-8566-46d5-bc44-13b26e443307">&lt;title&gt;</bpt><ept id="20afedce-8566-46d5-bc44-13b26e443307">&lt;/title&gt;</ept> &lt;/ul&gt;&lt;br&gt;If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state"</target>
+        </trans-unit>
+        <trans-unit id="536c3ef4-9871-490b-a3f7-74f5457fcc4a" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="200c8a04-a39d-439f-8964-9240bb200151" xml:space="preserve">
+          <source>Backup failed with an internal error - Please retry the operation in a few minutes.</source>
+          <target state="new">Backup failed with an internal error - Please retry the operation in a few minutes.</target>
+        </trans-unit>
+        <trans-unit id="24a93450-49d1-44fa-9f1d-34f8ec4f943b" xml:space="preserve">
+          <source>If the problem persists, contact Microsoft Support</source>
+          <target state="new">If the problem persists, contact Microsoft Support</target>
+        </trans-unit>
+        <trans-unit id="3dce7d54-6d89-46e6-a31d-3dd34fc2d564" xml:space="preserve">
+          <source>You can get this error for 2 reasons: &lt;ol&gt;&lt;li&gt; There is too much data to be copied. &lt;li&gt;The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages.</source>
+          <target state="new">You can get this error for 2 reasons: &lt;ol&gt;&lt;li&gt; There is too much data to be copied. &lt;li&gt;The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages.</target>
+        </trans-unit>
+        <trans-unit id="48281695-8c3a-44de-8964-32e956ba96e7" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="018c0468-266b-4a86-9a4a-927acc4f8703" xml:space="preserve">
+          <source>Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension.</source>
+          <target state="new">Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension.</target>
+        </trans-unit>
+        <trans-unit id="1ee6ba16-cb46-4c7e-968e-2f0958f39b03" xml:space="preserve">
+          <source>Please install the Azure VM agent and restart the registration operation</source>
+          <target state="new">Please install the Azure VM agent and restart the registration operation</target>
+        </trans-unit>
+        <trans-unit id="8a404651-ba44-430e-84e3-464be53b5354" xml:space="preserve">
+          <source>&lt;ol&gt; &lt;li&gt;Check if the VM agent has been installed correctly. &lt;li&gt;Ensure that the flag on the VM config is set correctly.&lt;/ol&gt; <bpt id="b911c551-17fa-468a-8942-699f252a51db">&lt;linkText&gt;</bpt>Read more<ept id="b911c551-17fa-468a-8942-699f252a51db">&lt;/linkText&gt;</ept><bpt id="b911c551-17fa-468a-8942-699f252a51db">&lt;title&gt;</bpt><ept id="b911c551-17fa-468a-8942-699f252a51db">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</source>
+          <target state="new">&lt;ol&gt; &lt;li&gt;Check if the VM agent has been installed correctly. &lt;li&gt;Ensure that the flag on the VM config is set correctly.&lt;/ol&gt; <bpt id="b911c551-17fa-468a-8942-699f252a51db">&lt;linkText&gt;</bpt>Read more<ept id="b911c551-17fa-468a-8942-699f252a51db">&lt;/linkText&gt;</ept><bpt id="b911c551-17fa-468a-8942-699f252a51db">&lt;title&gt;</bpt><ept id="b911c551-17fa-468a-8942-699f252a51db">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</target>
+        </trans-unit>
+        <trans-unit id="3dafafbc-e3ee-4978-8c0d-1dc85b9b69df" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="071fb4e2-14fd-4add-9d3e-1bad8e13e6cb" xml:space="preserve">
+          <source>Command execution failed - Another operation is currently in progress on this item.</source>
+          <target state="new">Command execution failed - Another operation is currently in progress on this item.</target>
+        </trans-unit>
+        <trans-unit id="76d67dae-fab2-4e18-9ec9-21b7713f87c8" xml:space="preserve">
+          <source>Please wait until the previous operation is completed, and then retry</source>
+          <target state="new">Please wait until the previous operation is completed, and then retry</target>
+        </trans-unit>
+        <trans-unit id="0d7f9aa5-13cd-4003-8600-3a927567697a" xml:space="preserve">
+          <source>An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running.</source>
+          <target state="new">An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running.</target>
+        </trans-unit>
+        <trans-unit id="f3da4794-a439-4902-a540-beb559572927" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="3288cacb-febb-48f8-9458-506d3c52d6fa" xml:space="preserve">
+          <source>Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator</source>
+          <target state="new">Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator</target>
+        </trans-unit>
+        <trans-unit id="5fdd1752-3ff1-4b50-b7de-91ad79221ef9" xml:space="preserve">
+          <source>This usually means that the COM+ service is not running.</source>
+          <target state="new">This usually means that the COM+ service is not running.</target>
+        </trans-unit>
+        <trans-unit id="86e1c6b5-4d75-498e-9798-e160c0ead9cb" xml:space="preserve">
+          <source>Contact Microsoft support for help on fixing this issue.</source>
+          <target state="new">Contact Microsoft support for help on fixing this issue.</target>
+        </trans-unit>
+        <trans-unit id="3937e078-c2bb-44b9-ac85-7fe4d66fbca0" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="f4eb9503-ae52-4b07-a716-14a4c6a49602" xml:space="preserve">
+          <source>Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption.</source>
+          <target state="new">Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption.</target>
+        </trans-unit>
+        <trans-unit id="5f8f70de-01fe-46ce-bae8-82d12e852bf6" xml:space="preserve">
+          <source>You must unlock this drive from Control Panel.</source>
+          <target state="new">You must unlock this drive from Control Panel.</target>
+        </trans-unit>
+        <trans-unit id="fb5af9f4-80dc-44c3-b8c2-1e608bae7280" xml:space="preserve">
+          <source>Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved</source>
+          <target state="new">Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved</target>
+        </trans-unit>
+        <trans-unit id="2435baf8-228c-4328-9baf-7ee4b28d9b33" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="09765717-5641-4a62-b11c-7ba27abe6281" xml:space="preserve">
+          <source>Virtual machines having virtual hard disks stored on Premium storage are not supported for backup</source>
+          <target state="new">Virtual machines having virtual hard disks stored on Premium storage are not supported for backup</target>
+        </trans-unit>
+        <trans-unit id="9e3e88fb-985a-4c8a-9a24-47611438cff2" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="0ed34a2d-b662-4b73-815a-bc61250a5334" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="d1aac4a7-f841-4648-bcb8-0744dd98572c" xml:space="preserve">
+          <source>Backup of a virtual machine with a load balancer configuration is not supported.</source>
+          <target state="new">Backup of a virtual machine with a load balancer configuration is not supported.</target>
+        </trans-unit>
+        <trans-unit id="c2e6a404-0d38-4327-9001-8c83c15f94fc" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="38bd929d-b72c-42a4-99f4-20ef672fcf3f" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="cc1b194e-d614-4b36-8a22-eae93e8f7bbc" xml:space="preserve">
+          <source>Backup of a virtual machine with more than one NIC is not supported.</source>
+          <target state="new">Backup of a virtual machine with more than one NIC is not supported.</target>
+        </trans-unit>
+        <trans-unit id="634df59e-385b-4a27-b6fe-0e364e589fa9" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="3112fefe-5231-4603-b737-072c45306d5a" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="20dd2e6b-1760-43b6-9a56-47435b1a35a4" xml:space="preserve">
+          <source>Azure Virtual Machine Not Found.</source>
+          <target state="new">Azure Virtual Machine Not Found.</target>
+        </trans-unit>
+        <trans-unit id="35a391fd-0276-495c-a187-b1c57578d237" xml:space="preserve">
+          <source>This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: &lt;ol&gt;&lt;li&gt;Recreate the virtual machine with the same name and same resource group name [cloud service name], &lt;br&gt;(OR) &lt;li&gt; Disable protection for this VM so that backup jobs will not be created &lt;/ol&gt;</source>
+          <target state="new">This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: &lt;ol&gt;&lt;li&gt;Recreate the virtual machine with the same name and same resource group name [cloud service name], &lt;br&gt;(OR) &lt;li&gt; Disable protection for this VM so that backup jobs will not be created &lt;/ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="bd375d64-2fd3-4ca8-a78f-7693a877c2fc" xml:space="preserve">
+          <source>Backup</source>
+          <target state="new">Backup</target>
+        </trans-unit>
+        <trans-unit id="f512d1d5-e538-492c-8b14-21e0877b6bf5" xml:space="preserve">
+          <source>Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation.</source>
+          <target state="new">Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation.</target>
+        </trans-unit>
+        <trans-unit id="5bd514bc-ac7f-4e70-8021-b5a53784596f" xml:space="preserve">
+          <source><bpt id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;linkText&gt;</bpt>Read more<ept id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;/linkText&gt;</ept><bpt id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;title&gt;</bpt><ept id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</source>
+          <target state="new"><bpt id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;linkText&gt;</bpt>Read more<ept id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;/linkText&gt;</ept><bpt id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;title&gt;</bpt><ept id="aa3e103f-218a-4cfa-9e6f-87e49d0b0a64">&lt;/title&gt;</ept> about VM agent installation, and how to validate the VM agent installation.</target>
+        </trans-unit>
+        <trans-unit id="d5c95b3d-36db-45e1-a24b-25679ed4aa0b" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="c54a30f3-c3f1-4ec6-a735-37a44f7ca0e6" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="df2628e9-95e8-4ac5-9c47-83a348f76935" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="9b5b558d-2853-417f-9bb9-22fbb6dbaf29" xml:space="preserve">
+          <source>Cancel job</source>
+          <target state="new">Cancel job</target>
+        </trans-unit>
+        <trans-unit id="b4ad19dc-abb2-4db4-9e3f-b86ca89864dd" xml:space="preserve">
+          <source>Cancellation is not supported for this job type - Please wait until the job completes.</source>
+          <target state="new">Cancellation is not supported for this job type - Please wait until the job completes.</target>
+        </trans-unit>
+        <trans-unit id="d2012506-2e39-4d10-b8f7-0978862bf810" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="27671d3c-7e5d-431d-b2d4-98d5c7c6a7c3" xml:space="preserve">
+          <source>Cancel job</source>
+          <target state="new">Cancel job</target>
+        </trans-unit>
+        <trans-unit id="4369d554-29e4-49f1-8ac6-5e498086f96a" xml:space="preserve">
+          <source>The job is not in a cancellable state - Please wait until the job completes. &lt;br&gt;OR&lt;br&gt; The selected job is not in a cancellable state - Please wait for the job to complete.</source>
+          <target state="new">The job is not in a cancellable state - Please wait until the job completes. &lt;br&gt;OR&lt;br&gt; The selected job is not in a cancellable state - Please wait for the job to complete.</target>
+        </trans-unit>
+        <trans-unit id="26571f09-017d-4ee1-9565-784cc0d28d2f" xml:space="preserve">
+          <source>In all likelihood the job is almost completed; please wait until the job completes</source>
+          <target state="new">In all likelihood the job is almost completed; please wait until the job completes</target>
+        </trans-unit>
+        <trans-unit id="4fe6b26a-934d-4b95-b1f4-0a3428d15107" xml:space="preserve">
+          <source>Cancel job</source>
+          <target state="new">Cancel job</target>
+        </trans-unit>
+        <trans-unit id="6a015e42-1cea-477c-9ccf-9764c2f9f82a" xml:space="preserve">
+          <source>Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress.</source>
+          <target state="new">Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress.</target>
+        </trans-unit>
+        <trans-unit id="a5cda9a0-6300-48af-bf2d-9dec6b96b7b9" xml:space="preserve">
+          <source>Please attempt cancel on an in progress job.</source>
+          <target state="new">Please attempt cancel on an in progress job.</target>
+        </trans-unit>
+        <trans-unit id="cd59b822-eaf6-4fd6-b89a-3a3cb53bb550" xml:space="preserve">
+          <source>This happens due to a transitory state.</source>
+          <target state="new">This happens due to a transitory state.</target>
+        </trans-unit>
+        <trans-unit id="85d6e969-46b9-48c9-a50b-408676a42e1a" xml:space="preserve">
+          <source>Wait for a minute and retry the cancel operation</source>
+          <target state="new">Wait for a minute and retry the cancel operation</target>
+        </trans-unit>
+        <trans-unit id="56d172ae-cef7-433e-82bf-475b70b4f99f" xml:space="preserve">
+          <source>Cancel job</source>
+          <target state="new">Cancel job</target>
+        </trans-unit>
+        <trans-unit id="0525f2e8-cd22-40f0-8a2e-b1d0eaa3510d" xml:space="preserve">
+          <source>Failed to cancel the Job - Please wait till job finishes.</source>
+          <target state="new">Failed to cancel the Job - Please wait till job finishes.</target>
+        </trans-unit>
+        <trans-unit id="0880151a-d1cb-4365-afcf-2c2b306cc6f0" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="633ece2f-2929-4860-aa53-76462f9898fa" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="0991a969-9ada-4964-ab19-14b6bd040b85" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="721b31c0-eb45-431d-9210-85e2139c3be2" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="015d0d3b-334c-4334-9766-c8bc38f7d865" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="48af441c-a86b-4aad-99c6-ecb8ab329d48" xml:space="preserve">
+          <source>Restore failed with Cloud Internal error</source>
+          <target state="new">Restore failed with Cloud Internal error</target>
+        </trans-unit>
+        <trans-unit id="0ee51306-b1dd-4e65-b775-d677d683f6e2" xml:space="preserve">
+          <source>&lt;ol&gt;&lt;li&gt;Cloud service to which you are trying to restore is configured with DNS settings. You can check &lt;br&gt;$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"  Get-AzureDns -DnsSettings $deployment.DnsSettings&lt;br&gt;If there is Address configured, this means that DNS settings are configured.&lt;br&gt; &lt;li&gt;Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.&lt;br&gt;You can check a cloud service has reserved IP by using following powershell cmdlets:&lt;br&gt;$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName&lt;/ol&gt;</source>
+          <target state="new">&lt;ol&gt;&lt;li&gt;Cloud service to which you are trying to restore is configured with DNS settings. You can check &lt;br&gt;$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"  Get-AzureDns -DnsSettings $deployment.DnsSettings&lt;br&gt;If there is Address configured, this means that DNS settings are configured.&lt;br&gt; &lt;li&gt;Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.&lt;br&gt;You can check a cloud service has reserved IP by using following powershell cmdlets:&lt;br&gt;$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName&lt;/ol&gt;</target>
+        </trans-unit>
+        <trans-unit id="b8c4af9d-4ec1-45ae-a14e-b74ba753a7b6" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="75a85334-313a-4edc-9925-59b5949ffb0b" xml:space="preserve">
+          <source>The selected DNS name is already taken - Please specify a different DNS name and try again.</source>
+          <target state="new">The selected DNS name is already taken - Please specify a different DNS name and try again.</target>
+        </trans-unit>
+        <trans-unit id="24ebc6d9-d130-4af2-af94-c5e01da5441e" xml:space="preserve">
+          <source>The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. &lt;br&gt;&lt;br&gt; Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation.</source>
+          <target state="new">The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. &lt;br&gt;&lt;br&gt; Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation.</target>
+        </trans-unit>
+        <trans-unit id="82d1b196-fb04-4f12-bfa5-b897ee5e1c7e" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="e00bce62-a2ce-4201-91f5-906f87f1e6c6" xml:space="preserve">
+          <source>The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again.</source>
+          <target state="new">The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again.</target>
+        </trans-unit>
+        <trans-unit id="ca13b65c-e2cf-4925-bd83-96d9314b1b28" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="28daa35d-74c0-487b-a3af-76e11780d555" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="892046cc-ec3c-498d-8ecc-a2a459b5accb" xml:space="preserve">
+          <source>The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from.</source>
+          <target state="new">The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from.</target>
+        </trans-unit>
+        <trans-unit id="313c1893-f91b-41c6-aa0e-54e6b612f6cf" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="2a223782-2ae2-4e5e-88d6-31607e894381" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="7fcdafe8-8117-466a-a091-5dd6be245da5" xml:space="preserve">
+          <source>Cloud service has reached limit on number of input end points - Retry the operation by specifying a different cloud service or by using an existing endpoint.</source>
+          <target state="new">Cloud service has reached limit on number of input end points - Retry the operation by specifying a different cloud service or by using an existing endpoint.</target>
+        </trans-unit>
+        <trans-unit id="eca15094-15f9-42c7-8557-1eef23f41921" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="820d217a-78e3-448f-84a3-812bfc06627c" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="0bd6ef17-88f5-4f49-ba8b-a981ffae266e" xml:space="preserve">
+          <source>Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault.</source>
+          <target state="new">Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault.</target>
+        </trans-unit>
+        <trans-unit id="d87d8c74-9ce6-4502-86c6-10ef95ceff90" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="2c840e19-cfea-4b6a-91e8-7307851fde64" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="3edbf8e9-7c81-4847-aeb7-62083c9ce4ff" xml:space="preserve">
+          <source>Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported.</source>
+          <target state="new">Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported.</target>
+        </trans-unit>
+        <trans-unit id="8fd787c5-ae4f-408b-9910-0971747d0732" xml:space="preserve">
+          <source>Please select a supported storage account</source>
+          <target state="new">Please select a supported storage account</target>
+        </trans-unit>
+        <trans-unit id="c21b1b66-2cb8-496d-92a4-0100c1e8e9ab" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="ead0931d-20f8-4251-a6ff-2ff5773b2c96" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="72a39560-40ca-41f0-9ae4-12dafb0cebc9" xml:space="preserve">
+          <source>Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online</source>
+          <target state="new">Type of Storage Account specified for restore operation is not online - Make sure that the storage account specified in restore operation is online</target>
+        </trans-unit>
+        <trans-unit id="3dae21bc-c925-4b02-9d9c-a461606ba1f7" xml:space="preserve">
+          <source>This might happen because of a transient error in Azure Storage or due to an outage.</source>
+          <target state="new">This might happen because of a transient error in Azure Storage or due to an outage.</target>
+        </trans-unit>
+        <trans-unit id="30075711-9d2a-40a2-9342-995e06c16731" xml:space="preserve">
+          <source>Please choose another storage account.</source>
+          <target state="new">Please choose another storage account.</target>
+        </trans-unit>
+        <trans-unit id="234b18b1-3a71-454c-8456-a3cf415bfca3" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="d3a9df54-9723-4709-b2a6-d9930ba6c212" xml:space="preserve">
+          <source>Resource Group Quota has been reached - Please delete some resource groups from preview portal or Contact Azure support to increase the limits.</source>
+          <target state="new">Resource Group Quota has been reached - Please delete some resource groups from preview portal or Contact Azure support to increase the limits.</target>
+        </trans-unit>
+        <trans-unit id="c63f71ed-69cc-44e8-ba26-6a5df5e48561" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="02dbb1e8-0005-48db-b14c-604c8a79bb55" xml:space="preserve">
+          <source>Restore</source>
+          <target state="new">Restore</target>
+        </trans-unit>
+        <trans-unit id="fa8cafdb-848d-43bf-b40c-ebdb5ccefc2b" xml:space="preserve">
+          <source>Selected subnet does not exist - Please select a subnet which exists</source>
+          <target state="new">Selected subnet does not exist - Please select a subnet which exists</target>
+        </trans-unit>
+        <trans-unit id="d558da17-694d-4ade-a742-96ea33e431f6" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="adc677d3-4195-4d5c-ab0d-5e53bca9a416" xml:space="preserve">
+          <source>Operation</source>
+          <target state="new">Operation</target>
+        </trans-unit>
+        <trans-unit id="3017044e-901b-4e98-b9bc-8c5a8f1875c5" xml:space="preserve">
+          <source>Error details</source>
+          <target state="new">Error details</target>
+        </trans-unit>
+        <trans-unit id="47051215-3ebc-474f-951f-91e9ebd8cf54" xml:space="preserve">
+          <source>Workaround</source>
+          <target state="new">Workaround</target>
+        </trans-unit>
+        <trans-unit id="1cdc2e5d-7187-4fe1-ba60-2c348f5d21a0" xml:space="preserve">
+          <source>Create policy</source>
+          <target state="new">Create policy</target>
+        </trans-unit>
+        <trans-unit id="dd9f12ab-1cc6-4745-aa20-7d93dfa33cb9" xml:space="preserve">
+          <source>Failed to create the policy - Please reduce the retention choices to continue with policy configuration.</source>
+          <target state="new">Failed to create the policy - Please reduce the retention choices to continue with policy configuration.</target>
+        </trans-unit>
+        <trans-unit id="a4177b1e-874e-48f1-9585-1ee227ec3654" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="be51a98b-8535-4ca1-96c5-86e9209ca8a0" xml:space="preserve">
+          <source>Typically, the VM Agent is already present in VMs that are created from the Azure gallery.</source>
+          <target state="new">Typically, the VM Agent is already present in VMs that are created from the Azure gallery.</target>
+        </trans-unit>
+        <trans-unit id="b0f55cc1-493f-44ed-af70-b325b136add7" xml:space="preserve">
+          <source>However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed.</source>
+          <target state="new">However, virtual machines that are migrated from on-premises datacenters would not have the VM Agent installed.</target>
+        </trans-unit>
+        <trans-unit id="974bbb19-2767-40c7-8dbc-842e2a23ce39" xml:space="preserve">
+          <source>For such VMs, the VM Agent needs to be installed explicitly.</source>
+          <target state="new">For such VMs, the VM Agent needs to be installed explicitly.</target>
+        </trans-unit>
+        <trans-unit id="11a90c5e-33cd-4bd5-8569-60c6222d31a8" xml:space="preserve">
+          <source>Read more about <bpt id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;linkText&gt;</bpt>installing the VM agent on an existing VM<ept id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;/linkText&gt;</ept><bpt id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;title&gt;</bpt><ept id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;linkText&gt;</bpt>installing the VM agent on an existing VM<ept id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;/linkText&gt;</ept><bpt id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;title&gt;</bpt><ept id="57481c36-cdf9-4e4b-b7fa-471ae6e085b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0e9a70b-e7e5-41ab-ad70-8b974f0803da" xml:space="preserve">
+          <source>For Windows VMs:</source>
+          <target state="new">For Windows VMs:</target>
+        </trans-unit>
+        <trans-unit id="72f565e5-60a0-490a-a864-90a6e66d0805" xml:space="preserve">
+          <source>Download and install the <bpt id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;linkText&gt;</bpt>agent MSI<ept id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;/linkText&gt;</ept><bpt id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;title&gt;</bpt><ept id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;/title&gt;</ept>. You will need Administrator privileges to complete the installation.</source>
+          <target state="new">Download and install the <bpt id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;linkText&gt;</bpt>agent MSI<ept id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;/linkText&gt;</ept><bpt id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;title&gt;</bpt><ept id="28d34608-1531-45ee-b5cc-01550ec8a31f">&lt;/title&gt;</ept>. You will need Administrator privileges to complete the installation.</target>
+        </trans-unit>
+        <trans-unit id="55e0ec02-09e0-46c8-b5ca-18c403fdf0a3" xml:space="preserve">
+          <source><bpt id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;linkText&gt;</bpt>Update the VM property<ept id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;/linkText&gt;</ept><bpt id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;title&gt;</bpt><ept id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;/title&gt;</ept> to indicate that the agent is installed.</source>
+          <target state="new"><bpt id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;linkText&gt;</bpt>Update the VM property<ept id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;/linkText&gt;</ept><bpt id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;title&gt;</bpt><ept id="310c7f64-87f5-4611-bdd3-a47128d9a275">&lt;/title&gt;</ept> to indicate that the agent is installed.</target>
+        </trans-unit>
+        <trans-unit id="a547815a-d21d-4b76-9d92-9be551ef540e" xml:space="preserve">
+          <source>Updating the VM Agent is as simple as reinstalling the <bpt id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;linkText&gt;</bpt>VM Agent binaries<ept id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;/linkText&gt;</ept><bpt id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;title&gt;</bpt><ept id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;/title&gt;</ept>. However, you need to ensure that no backup operation is running while the VM Agent is being updated.</source>
+          <target state="new">Updating the VM Agent is as simple as reinstalling the <bpt id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;linkText&gt;</bpt>VM Agent binaries<ept id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;/linkText&gt;</ept><bpt id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;title&gt;</bpt><ept id="b67e6f08-c524-43d8-ae77-ace156a3ae76">&lt;/title&gt;</ept>. However, you need to ensure that no backup operation is running while the VM Agent is being updated.</target>
+        </trans-unit>
+        <trans-unit id="ce824034-c119-4649-8f81-4f136e2eeeb6" xml:space="preserve">
+          <source>How to check for the VM Agent version on Windows VMs:</source>
+          <target state="new">How to check for the VM Agent version on Windows VMs:</target>
+        </trans-unit>
+        <trans-unit id="0d4d6cf1-08e2-45c5-a38e-45b0b91e5785" xml:space="preserve">
+          <source>Log on to the Azure virtual machine and navigate to the folder <bpt id="8bc35907-7aeb-4e0c-ac91-1daddb20eeef">&lt;em&gt;</bpt>C:\WindowsAzure\Packages<ept id="8bc35907-7aeb-4e0c-ac91-1daddb20eeef">&lt;/em&gt;</ept>.</source>
+          <target state="new">Log on to the Azure virtual machine and navigate to the folder <bpt id="8bc35907-7aeb-4e0c-ac91-1daddb20eeef">&lt;em&gt;</bpt>C:\WindowsAzure\Packages<ept id="8bc35907-7aeb-4e0c-ac91-1daddb20eeef">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85b8ebe3-0221-4402-b420-36341775ce75" xml:space="preserve">
+          <source>You should find the WaAppAgent.exe file present.</source>
+          <target state="new">You should find the WaAppAgent.exe file present.</target>
+        </trans-unit>
+        <trans-unit id="8a115da1-ec21-430f-90cf-dde354b9eb68" xml:space="preserve">
+          <source>Right-click the file, go to <bpt id="aa157761-eb5b-4b7d-8d6a-772adc47ccd8">&lt;strong&gt;</bpt>Properties<ept id="aa157761-eb5b-4b7d-8d6a-772adc47ccd8">&lt;/strong&gt;</ept>, and then select the <bpt id="f1ac5ceb-6b8a-4760-b918-145f9c26e9ca">&lt;strong&gt;</bpt>Details<ept id="f1ac5ceb-6b8a-4760-b918-145f9c26e9ca">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Right-click the file, go to <bpt id="aa157761-eb5b-4b7d-8d6a-772adc47ccd8">&lt;strong&gt;</bpt>Properties<ept id="aa157761-eb5b-4b7d-8d6a-772adc47ccd8">&lt;/strong&gt;</ept>, and then select the <bpt id="f1ac5ceb-6b8a-4760-b918-145f9c26e9ca">&lt;strong&gt;</bpt>Details<ept id="f1ac5ceb-6b8a-4760-b918-145f9c26e9ca">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="fde6286b-e83b-41df-8f4a-ea31b85f3db9" xml:space="preserve">
+          <source>The Product Version field should be 2.6.1198.718 or higher</source>
+          <target state="new">The Product Version field should be 2.6.1198.718 or higher</target>
+        </trans-unit>
+        <trans-unit id="10030ce3-9182-4199-adcf-fb2ba071bb5c" xml:space="preserve">
+          <source>Like all extensions, Backup extension need access to the public internet to work.</source>
+          <target state="new">Like all extensions, Backup extension need access to the public internet to work.</target>
+        </trans-unit>
+        <trans-unit id="d3c1a9e4-af7f-4a9b-b873-55a855fccc04" xml:space="preserve">
+          <source>Not having access to the public internet can manifest itself in a variety of of ways:</source>
+          <target state="new">Not having access to the public internet can manifest itself in a variety of of ways:</target>
+        </trans-unit>
+        <trans-unit id="7712ced8-fd73-4b04-86c8-68f7586ada3c" xml:space="preserve">
+          <source>The extension installation can fail</source>
+          <target state="new">The extension installation can fail</target>
+        </trans-unit>
+        <trans-unit id="8e185104-3f8a-4a8b-81af-e13eec58af69" xml:space="preserve">
+          <source>The backup operations (like disk snapshot) can fail</source>
+          <target state="new">The backup operations (like disk snapshot) can fail</target>
+        </trans-unit>
+        <trans-unit id="4da3242b-9241-41c7-8b7d-02a5122d101e" xml:space="preserve">
+          <source>Displaying the status of the backup operation can fail</source>
+          <target state="new">Displaying the status of the backup operation can fail</target>
+        </trans-unit>
+        <trans-unit id="9da1e3bb-c939-43fe-b165-ed9b78d525c0" xml:space="preserve">
+          <source>The need for resolving public internet addresses has been articulated <bpt id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;linkText&gt;</bpt>here<ept id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;/linkText&gt;</ept><bpt id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;title&gt;</bpt><ept id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;/title&gt;</ept>.</source>
+          <target state="new">The need for resolving public internet addresses has been articulated <bpt id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;linkText&gt;</bpt>here<ept id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;/linkText&gt;</ept><bpt id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;title&gt;</bpt><ept id="466055dc-7b13-472e-b539-7e2f852b7bbf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2922d804-5497-47dd-99b3-df1d7b10df5c" xml:space="preserve">
+          <source>You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.</source>
+          <target state="new">You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.</target>
+        </trans-unit>
+        <trans-unit id="38bf9e65-42f4-4874-948d-190e285c7cf1" xml:space="preserve">
+          <source>Once the name resolution is done correctly, access to the Azure IPs also needs to be provided.</source>
+          <target state="new">Once the name resolution is done correctly, access to the Azure IPs also needs to be provided.</target>
+        </trans-unit>
+        <trans-unit id="ab9478d5-6dff-4201-948d-e0016dd4b70b" xml:space="preserve">
+          <source>To unblock access to the Azure infrastructure, follow these steps:</source>
+          <target state="new">To unblock access to the Azure infrastructure, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="4eeb635e-c8fa-4be5-8e97-e7080a5d23f5" xml:space="preserve">
+          <source>Get the list of <bpt id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;linkText&gt;</bpt>Azure datacenter IPs<ept id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;/linkText&gt;</ept><bpt id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;title&gt;</bpt><ept id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;/title&gt;</ept> to be whitelisted.</source>
+          <target state="new">Get the list of <bpt id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;linkText&gt;</bpt>Azure datacenter IPs<ept id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;/linkText&gt;</ept><bpt id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;title&gt;</bpt><ept id="747102a1-7390-46c1-bdf4-1b700e4bd314">&lt;/title&gt;</ept> to be whitelisted.</target>
+        </trans-unit>
+        <trans-unit id="badb3a41-1781-410d-8275-0d8aaec51ad0" xml:space="preserve">
+          <source>Unblock the IPs using the <bpt id="701eea08-46f5-4110-829d-9fee623185a2">&lt;linkText&gt;</bpt>New-NetRoute<ept id="701eea08-46f5-4110-829d-9fee623185a2">&lt;/linkText&gt;</ept><bpt id="701eea08-46f5-4110-829d-9fee623185a2">&lt;title&gt;</bpt><ept id="701eea08-46f5-4110-829d-9fee623185a2">&lt;/title&gt;</ept> commandlet.</source>
+          <target state="new">Unblock the IPs using the <bpt id="701eea08-46f5-4110-829d-9fee623185a2">&lt;linkText&gt;</bpt>New-NetRoute<ept id="701eea08-46f5-4110-829d-9fee623185a2">&lt;/linkText&gt;</ept><bpt id="701eea08-46f5-4110-829d-9fee623185a2">&lt;title&gt;</bpt><ept id="701eea08-46f5-4110-829d-9fee623185a2">&lt;/title&gt;</ept> commandlet.</target>
+        </trans-unit>
+        <trans-unit id="b61ef5ea-f64b-4136-87ca-11431dd1b1d3" xml:space="preserve">
+          <source>Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).</source>
+          <target state="new">Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="45df3ac6-7eb5-442b-8c96-0a846d160956" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="45df3ac6-7eb5-442b-8c96-0a846d160956" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c5d2db12-2e71-4408-8bed-df95e5501c75">
+        <trans-unit id="4fa2d5af-9741-4ece-ae29-dfacd43bff7d" xml:space="preserve">
+          <source>Run the Hadoop samples in HDInsight | Microsoft Azure</source>
+          <target state="new">Run the Hadoop samples in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d4931bbe-7c56-47c0-88b5-f1496a90f1b6" xml:space="preserve">
+          <source>Get started using MapReduce samples with Linux-based HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.</source>
+          <target state="new">Get started using MapReduce samples with Linux-based HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.</target>
+        </trans-unit>
+        <trans-unit id="775d146f-c3a2-43bf-8b4d-5be0fb232792" xml:space="preserve">
+          <source><bpt id="a6380b5d-9675-4787-8570-b3684d4a1b70">&lt;token href="../../includes/hdinsight-run-samples-selector.md"&gt;</bpt><ept id="a6380b5d-9675-4787-8570-b3684d4a1b70">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a6380b5d-9675-4787-8570-b3684d4a1b70">&lt;token href="../../includes/hdinsight-run-samples-selector.md"&gt;</bpt><ept id="a6380b5d-9675-4787-8570-b3684d4a1b70">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37e69be5-693d-4655-8d88-8722d953c65d" xml:space="preserve">
+          <source>Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs.</source>
+          <target state="new">Linux-based HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs.</target>
+        </trans-unit>
+        <trans-unit id="f755af5f-7421-4363-b849-ea7138d46f59" xml:space="preserve">
+          <source>In this document, you will learn about the available samples and walk through running a few of them.</source>
+          <target state="new">In this document, you will learn about the available samples and walk through running a few of them.</target>
+        </trans-unit>
+        <trans-unit id="8bf4dd0e-9cda-46e6-99bc-61e54f7470ea" xml:space="preserve">
+          <source><bpt id="24ea3692-9ffa-4fba-b828-477895e4d2a0">&lt;strong&gt;</bpt>An Azure subscription<ept id="24ea3692-9ffa-4fba-b828-477895e4d2a0">&lt;/strong&gt;</ept>: See <bpt id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;/linkText&gt;</ept><bpt id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;title&gt;</bpt><ept id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="24ea3692-9ffa-4fba-b828-477895e4d2a0">&lt;strong&gt;</bpt>An Azure subscription<ept id="24ea3692-9ffa-4fba-b828-477895e4d2a0">&lt;/strong&gt;</ept>: See <bpt id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;/linkText&gt;</ept><bpt id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;title&gt;</bpt><ept id="6745ec2e-5c36-43d7-b823-2c5dea8706e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="979e98dd-9922-496f-9618-beb1b4b2305b" xml:space="preserve">
+          <source><bpt id="62891361-988e-4fc9-a7bc-1768c335bb87">&lt;strong&gt;</bpt>A Linux-based HDInsight cluster<ept id="62891361-988e-4fc9-a7bc-1768c335bb87">&lt;/strong&gt;</ept>: See <bpt id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;linkText&gt;</bpt>Get started using Hadoop with Hive in HDInsight on Linux<ept id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;/linkText&gt;</ept><bpt id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;title&gt;</bpt><ept id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62891361-988e-4fc9-a7bc-1768c335bb87">&lt;strong&gt;</bpt>A Linux-based HDInsight cluster<ept id="62891361-988e-4fc9-a7bc-1768c335bb87">&lt;/strong&gt;</ept>: See <bpt id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;linkText&gt;</bpt>Get started using Hadoop with Hive in HDInsight on Linux<ept id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;/linkText&gt;</ept><bpt id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;title&gt;</bpt><ept id="f83450ef-83c9-4f2d-a5fd-61bae4529d1d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b22f559-acd6-45c7-af64-185639b64db1" xml:space="preserve">
+          <source><bpt id="f31ef849-f615-4d56-86ad-7c4366b2596a">&lt;strong&gt;</bpt>An SSH client<ept id="f31ef849-f615-4d56-86ad-7c4366b2596a">&lt;/strong&gt;</ept>: For information on using SSH with HDInsight, see the following articles:</source>
+          <target state="new"><bpt id="f31ef849-f615-4d56-86ad-7c4366b2596a">&lt;strong&gt;</bpt>An SSH client<ept id="f31ef849-f615-4d56-86ad-7c4366b2596a">&lt;/strong&gt;</ept>: For information on using SSH with HDInsight, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="66224fb4-94df-4f23-af57-5888880ec91d" xml:space="preserve">
+          <source><bpt id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;/linkText&gt;</ept><bpt id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;title&gt;</bpt><ept id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;/linkText&gt;</ept><bpt id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;title&gt;</bpt><ept id="8f0fb3cb-cdbc-4604-b7b5-b6dc78ff0f09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fba77331-8d0a-4050-8944-537a5158f59f" xml:space="preserve">
+          <source><bpt id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;/linkText&gt;</ept><bpt id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;title&gt;</bpt><ept id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;/linkText&gt;</ept><bpt id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;title&gt;</bpt><ept id="c9b2e63e-e7b1-4d80-a469-5e820099b97d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74585cb3-bf5a-4b40-861f-272f59a0f382" xml:space="preserve">
+          <source><bpt id="786d3dd3-1611-4f8e-af22-563f566eb4f3">&lt;strong&gt;</bpt>Location<ept id="786d3dd3-1611-4f8e-af22-563f566eb4f3">&lt;/strong&gt;</ept>: The samples are located on the HDInsight cluster at  <bpt id="ea5dfe2e-313c-4f45-85e8-6a6464044403">&lt;strong&gt;</bpt>/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar<ept id="ea5dfe2e-313c-4f45-85e8-6a6464044403">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="786d3dd3-1611-4f8e-af22-563f566eb4f3">&lt;strong&gt;</bpt>Location<ept id="786d3dd3-1611-4f8e-af22-563f566eb4f3">&lt;/strong&gt;</ept>: The samples are located on the HDInsight cluster at  <bpt id="ea5dfe2e-313c-4f45-85e8-6a6464044403">&lt;strong&gt;</bpt>/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar<ept id="ea5dfe2e-313c-4f45-85e8-6a6464044403">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e150d95-f50b-49d2-8935-51036a48420d" xml:space="preserve">
+          <source><bpt id="df61dd15-71db-47f2-8553-3d3c2aa25d3a">&lt;strong&gt;</bpt>Contents<ept id="df61dd15-71db-47f2-8553-3d3c2aa25d3a">&lt;/strong&gt;</ept>: The following samples are contained in this archive:</source>
+          <target state="new"><bpt id="df61dd15-71db-47f2-8553-3d3c2aa25d3a">&lt;strong&gt;</bpt>Contents<ept id="df61dd15-71db-47f2-8553-3d3c2aa25d3a">&lt;/strong&gt;</ept>: The following samples are contained in this archive:</target>
+        </trans-unit>
+        <trans-unit id="1d2b6b37-f8d4-472d-91be-2981abcf810e" xml:space="preserve">
+          <source><bpt id="c540a394-b836-40f9-b997-3c7f6c19e454">&lt;strong&gt;</bpt>aggregatewordcount<ept id="c540a394-b836-40f9-b997-3c7f6c19e454">&lt;/strong&gt;</ept>: An Aggregate based map/reduce program that counts the words in the input files</source>
+          <target state="new"><bpt id="c540a394-b836-40f9-b997-3c7f6c19e454">&lt;strong&gt;</bpt>aggregatewordcount<ept id="c540a394-b836-40f9-b997-3c7f6c19e454">&lt;/strong&gt;</ept>: An Aggregate based map/reduce program that counts the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="36cf864b-725b-4a61-bf95-841bb464d9d6" xml:space="preserve">
+          <source><bpt id="766e6fae-d4a6-4725-a778-fd93a6d80d92">&lt;strong&gt;</bpt>aggregatewordhist<ept id="766e6fae-d4a6-4725-a778-fd93a6d80d92">&lt;/strong&gt;</ept>: An Aggregate based map/reduce program that computes the histogram of the words in the input files</source>
+          <target state="new"><bpt id="766e6fae-d4a6-4725-a778-fd93a6d80d92">&lt;strong&gt;</bpt>aggregatewordhist<ept id="766e6fae-d4a6-4725-a778-fd93a6d80d92">&lt;/strong&gt;</ept>: An Aggregate based map/reduce program that computes the histogram of the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="1de7b015-5cad-46ae-a4f5-b0dd95d19244" xml:space="preserve">
+          <source><bpt id="cadbc777-b464-460c-8fd0-1243deb3d49c">&lt;strong&gt;</bpt>bbp<ept id="cadbc777-b464-460c-8fd0-1243deb3d49c">&lt;/strong&gt;</ept>: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi</source>
+          <target state="new"><bpt id="cadbc777-b464-460c-8fd0-1243deb3d49c">&lt;strong&gt;</bpt>bbp<ept id="cadbc777-b464-460c-8fd0-1243deb3d49c">&lt;/strong&gt;</ept>: A map/reduce program that uses Bailey-Borwein-Plouffe to compute exact digits of Pi</target>
+        </trans-unit>
+        <trans-unit id="e733b2df-dadc-4e6c-8dba-a07fd2693929" xml:space="preserve">
+          <source><bpt id="86e6a792-e2cb-4966-b39a-635cf9c9a16f">&lt;strong&gt;</bpt>dbcount<ept id="86e6a792-e2cb-4966-b39a-635cf9c9a16f">&lt;/strong&gt;</ept>: An example job that count the pageview counts from a database</source>
+          <target state="new"><bpt id="86e6a792-e2cb-4966-b39a-635cf9c9a16f">&lt;strong&gt;</bpt>dbcount<ept id="86e6a792-e2cb-4966-b39a-635cf9c9a16f">&lt;/strong&gt;</ept>: An example job that count the pageview counts from a database</target>
+        </trans-unit>
+        <trans-unit id="aac791e3-afec-4aa0-bba6-ea86c00da616" xml:space="preserve">
+          <source><bpt id="e8ebbc14-464e-4aba-96c0-a080af89c2be">&lt;strong&gt;</bpt>distbbp<ept id="e8ebbc14-464e-4aba-96c0-a080af89c2be">&lt;/strong&gt;</ept>: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi</source>
+          <target state="new"><bpt id="e8ebbc14-464e-4aba-96c0-a080af89c2be">&lt;strong&gt;</bpt>distbbp<ept id="e8ebbc14-464e-4aba-96c0-a080af89c2be">&lt;/strong&gt;</ept>: A map/reduce program that uses a BBP-type formula to compute exact bits of Pi</target>
+        </trans-unit>
+        <trans-unit id="e35be720-d139-4981-8f77-ca48550c90d7" xml:space="preserve">
+          <source><bpt id="5f82f8ed-609a-4d56-84c2-d704d7e2c106">&lt;strong&gt;</bpt>grep<ept id="5f82f8ed-609a-4d56-84c2-d704d7e2c106">&lt;/strong&gt;</ept>: A map/reduce program that counts the matches of a regex in the input</source>
+          <target state="new"><bpt id="5f82f8ed-609a-4d56-84c2-d704d7e2c106">&lt;strong&gt;</bpt>grep<ept id="5f82f8ed-609a-4d56-84c2-d704d7e2c106">&lt;/strong&gt;</ept>: A map/reduce program that counts the matches of a regex in the input</target>
+        </trans-unit>
+        <trans-unit id="0415e784-43c1-4abe-a002-7a564da78180" xml:space="preserve">
+          <source><bpt id="7a2219b5-cad8-43f7-a7ac-e2ffb230f01f">&lt;strong&gt;</bpt>join<ept id="7a2219b5-cad8-43f7-a7ac-e2ffb230f01f">&lt;/strong&gt;</ept>: A job that effects a join over sorted, equally partitioned datasets</source>
+          <target state="new"><bpt id="7a2219b5-cad8-43f7-a7ac-e2ffb230f01f">&lt;strong&gt;</bpt>join<ept id="7a2219b5-cad8-43f7-a7ac-e2ffb230f01f">&lt;/strong&gt;</ept>: A job that effects a join over sorted, equally partitioned datasets</target>
+        </trans-unit>
+        <trans-unit id="5efe99bc-2e0e-488d-9f35-622fa5c4ec3c" xml:space="preserve">
+          <source><bpt id="dad8d9f8-aa07-4e8c-8df1-209225a82d55">&lt;strong&gt;</bpt>multifilewc<ept id="dad8d9f8-aa07-4e8c-8df1-209225a82d55">&lt;/strong&gt;</ept>: A job that counts words from several files</source>
+          <target state="new"><bpt id="dad8d9f8-aa07-4e8c-8df1-209225a82d55">&lt;strong&gt;</bpt>multifilewc<ept id="dad8d9f8-aa07-4e8c-8df1-209225a82d55">&lt;/strong&gt;</ept>: A job that counts words from several files</target>
+        </trans-unit>
+        <trans-unit id="c143698c-1136-4775-820f-7a7fa62c2721" xml:space="preserve">
+          <source><bpt id="c9cdf9e7-6f13-4363-80db-1607948d1184">&lt;strong&gt;</bpt>pentomino<ept id="c9cdf9e7-6f13-4363-80db-1607948d1184">&lt;/strong&gt;</ept>: A map/reduce tile laying program to find solutions to pentomino problems</source>
+          <target state="new"><bpt id="c9cdf9e7-6f13-4363-80db-1607948d1184">&lt;strong&gt;</bpt>pentomino<ept id="c9cdf9e7-6f13-4363-80db-1607948d1184">&lt;/strong&gt;</ept>: A map/reduce tile laying program to find solutions to pentomino problems</target>
+        </trans-unit>
+        <trans-unit id="921dc4b5-ea0b-4640-b1e7-bdce18148f8a" xml:space="preserve">
+          <source><bpt id="99a1131a-8dc1-4fc3-993e-1f8bc6fede59">&lt;strong&gt;</bpt>pi<ept id="99a1131a-8dc1-4fc3-993e-1f8bc6fede59">&lt;/strong&gt;</ept>: A map/reduce program that estimates Pi using a quasi-Monte Carlo method</source>
+          <target state="new"><bpt id="99a1131a-8dc1-4fc3-993e-1f8bc6fede59">&lt;strong&gt;</bpt>pi<ept id="99a1131a-8dc1-4fc3-993e-1f8bc6fede59">&lt;/strong&gt;</ept>: A map/reduce program that estimates Pi using a quasi-Monte Carlo method</target>
+        </trans-unit>
+        <trans-unit id="17830f9e-dbb3-44c8-8127-88bc0fec381c" xml:space="preserve">
+          <source><bpt id="5bec7791-43dc-4f3f-8110-852f7cff564a">&lt;strong&gt;</bpt>randomtextwriter<ept id="5bec7791-43dc-4f3f-8110-852f7cff564a">&lt;/strong&gt;</ept>: A map/reduce program that writes 10GB of random textual data per node</source>
+          <target state="new"><bpt id="5bec7791-43dc-4f3f-8110-852f7cff564a">&lt;strong&gt;</bpt>randomtextwriter<ept id="5bec7791-43dc-4f3f-8110-852f7cff564a">&lt;/strong&gt;</ept>: A map/reduce program that writes 10GB of random textual data per node</target>
+        </trans-unit>
+        <trans-unit id="483f68e5-d1ac-498c-aa09-b33c00a9264d" xml:space="preserve">
+          <source><bpt id="96d03f1e-93c1-43fd-a1ab-e8f4405cf4cf">&lt;strong&gt;</bpt>randomwriter<ept id="96d03f1e-93c1-43fd-a1ab-e8f4405cf4cf">&lt;/strong&gt;</ept>: A map/reduce program that writes 10GB of random data per node</source>
+          <target state="new"><bpt id="96d03f1e-93c1-43fd-a1ab-e8f4405cf4cf">&lt;strong&gt;</bpt>randomwriter<ept id="96d03f1e-93c1-43fd-a1ab-e8f4405cf4cf">&lt;/strong&gt;</ept>: A map/reduce program that writes 10GB of random data per node</target>
+        </trans-unit>
+        <trans-unit id="63017953-4e30-46d1-b9be-10979d316a1e" xml:space="preserve">
+          <source><bpt id="a5b3617c-f993-4899-8b1b-762d0df8b0d5">&lt;strong&gt;</bpt>secondarysort<ept id="a5b3617c-f993-4899-8b1b-762d0df8b0d5">&lt;/strong&gt;</ept>: An example defining a secondary sort to the reduce</source>
+          <target state="new"><bpt id="a5b3617c-f993-4899-8b1b-762d0df8b0d5">&lt;strong&gt;</bpt>secondarysort<ept id="a5b3617c-f993-4899-8b1b-762d0df8b0d5">&lt;/strong&gt;</ept>: An example defining a secondary sort to the reduce</target>
+        </trans-unit>
+        <trans-unit id="50a24bbd-e342-4881-aab5-0d6cb7bbe397" xml:space="preserve">
+          <source><bpt id="774ae8f8-230d-498f-9e37-5b4eb7b66fa4">&lt;strong&gt;</bpt>sort<ept id="774ae8f8-230d-498f-9e37-5b4eb7b66fa4">&lt;/strong&gt;</ept>: A map/reduce program that sorts the data written by the random writer</source>
+          <target state="new"><bpt id="774ae8f8-230d-498f-9e37-5b4eb7b66fa4">&lt;strong&gt;</bpt>sort<ept id="774ae8f8-230d-498f-9e37-5b4eb7b66fa4">&lt;/strong&gt;</ept>: A map/reduce program that sorts the data written by the random writer</target>
+        </trans-unit>
+        <trans-unit id="6d1870e8-939d-4a05-bc1d-7c35ce6c5091" xml:space="preserve">
+          <source><bpt id="1b778eb8-1d42-4f60-a237-e3aea6e2ed04">&lt;strong&gt;</bpt>sudoku<ept id="1b778eb8-1d42-4f60-a237-e3aea6e2ed04">&lt;/strong&gt;</ept>: A sudoku solver</source>
+          <target state="new"><bpt id="1b778eb8-1d42-4f60-a237-e3aea6e2ed04">&lt;strong&gt;</bpt>sudoku<ept id="1b778eb8-1d42-4f60-a237-e3aea6e2ed04">&lt;/strong&gt;</ept>: A sudoku solver</target>
+        </trans-unit>
+        <trans-unit id="d57b8888-272e-4c09-b765-fd9850703b8f" xml:space="preserve">
+          <source><bpt id="20e9748f-4fc3-41b4-8203-9a80cc7c62c0">&lt;strong&gt;</bpt>teragen<ept id="20e9748f-4fc3-41b4-8203-9a80cc7c62c0">&lt;/strong&gt;</ept>: Generate data for the terasort</source>
+          <target state="new"><bpt id="20e9748f-4fc3-41b4-8203-9a80cc7c62c0">&lt;strong&gt;</bpt>teragen<ept id="20e9748f-4fc3-41b4-8203-9a80cc7c62c0">&lt;/strong&gt;</ept>: Generate data for the terasort</target>
+        </trans-unit>
+        <trans-unit id="7fcc5c9a-ba58-4eb4-a819-0f6ffdb2fe8c" xml:space="preserve">
+          <source><bpt id="756a7671-0eb0-440b-9b05-dc264a9017f3">&lt;strong&gt;</bpt>terasort<ept id="756a7671-0eb0-440b-9b05-dc264a9017f3">&lt;/strong&gt;</ept>: Run the terasort</source>
+          <target state="new"><bpt id="756a7671-0eb0-440b-9b05-dc264a9017f3">&lt;strong&gt;</bpt>terasort<ept id="756a7671-0eb0-440b-9b05-dc264a9017f3">&lt;/strong&gt;</ept>: Run the terasort</target>
+        </trans-unit>
+        <trans-unit id="41883f41-dcb9-43ef-ba20-234acc69c782" xml:space="preserve">
+          <source><bpt id="28545f27-fc6d-44de-8bba-81ca627fe86f">&lt;strong&gt;</bpt>teravalidate<ept id="28545f27-fc6d-44de-8bba-81ca627fe86f">&lt;/strong&gt;</ept>: Checking results of terasort</source>
+          <target state="new"><bpt id="28545f27-fc6d-44de-8bba-81ca627fe86f">&lt;strong&gt;</bpt>teravalidate<ept id="28545f27-fc6d-44de-8bba-81ca627fe86f">&lt;/strong&gt;</ept>: Checking results of terasort</target>
+        </trans-unit>
+        <trans-unit id="322388e1-40d6-489e-999a-bf6bebff194b" xml:space="preserve">
+          <source><bpt id="985aff6d-784f-424a-ae21-f02c38923873">&lt;strong&gt;</bpt>wordcount<ept id="985aff6d-784f-424a-ae21-f02c38923873">&lt;/strong&gt;</ept>: A map/reduce program that counts the words in the input files</source>
+          <target state="new"><bpt id="985aff6d-784f-424a-ae21-f02c38923873">&lt;strong&gt;</bpt>wordcount<ept id="985aff6d-784f-424a-ae21-f02c38923873">&lt;/strong&gt;</ept>: A map/reduce program that counts the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="058eb426-46be-4df9-843e-762e449ea09f" xml:space="preserve">
+          <source><bpt id="c78ffbda-c7b3-4999-ab1a-32e2b9b0c73a">&lt;strong&gt;</bpt>wordmean<ept id="c78ffbda-c7b3-4999-ab1a-32e2b9b0c73a">&lt;/strong&gt;</ept>: A map/reduce program that counts the average length of the words in the input files</source>
+          <target state="new"><bpt id="c78ffbda-c7b3-4999-ab1a-32e2b9b0c73a">&lt;strong&gt;</bpt>wordmean<ept id="c78ffbda-c7b3-4999-ab1a-32e2b9b0c73a">&lt;/strong&gt;</ept>: A map/reduce program that counts the average length of the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="7a1f4215-8154-4cde-8d82-d79378482660" xml:space="preserve">
+          <source><bpt id="2e7a0ad8-71f8-4f6f-807d-623182df9ce7">&lt;strong&gt;</bpt>wordmedian<ept id="2e7a0ad8-71f8-4f6f-807d-623182df9ce7">&lt;/strong&gt;</ept>: A map/reduce program that counts the median length of the words in the input files</source>
+          <target state="new"><bpt id="2e7a0ad8-71f8-4f6f-807d-623182df9ce7">&lt;strong&gt;</bpt>wordmedian<ept id="2e7a0ad8-71f8-4f6f-807d-623182df9ce7">&lt;/strong&gt;</ept>: A map/reduce program that counts the median length of the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="a08167c4-d557-49c8-9ad9-1e8e044dd628" xml:space="preserve">
+          <source><bpt id="f21f07b5-7fde-4c98-aadc-91acb079ce60">&lt;strong&gt;</bpt>wordstandarddeviation<ept id="f21f07b5-7fde-4c98-aadc-91acb079ce60">&lt;/strong&gt;</ept>: A map/reduce program that counts the standard deviation of the length of the words in the input files</source>
+          <target state="new"><bpt id="f21f07b5-7fde-4c98-aadc-91acb079ce60">&lt;strong&gt;</bpt>wordstandarddeviation<ept id="f21f07b5-7fde-4c98-aadc-91acb079ce60">&lt;/strong&gt;</ept>: A map/reduce program that counts the standard deviation of the length of the words in the input files</target>
+        </trans-unit>
+        <trans-unit id="a8c71baf-1a16-4a66-a27c-0577e807157c" xml:space="preserve">
+          <source><bpt id="5ac1c4bb-822c-4916-84dd-2517c2b0d628">&lt;strong&gt;</bpt>Source code<ept id="5ac1c4bb-822c-4916-84dd-2517c2b0d628">&lt;/strong&gt;</ept>: Source code for these samples is included on the HDInsight cluster at <bpt id="7d67e410-f7cb-4007-bc60-336a72995bed">&lt;strong&gt;</bpt>/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples<ept id="7d67e410-f7cb-4007-bc60-336a72995bed">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5ac1c4bb-822c-4916-84dd-2517c2b0d628">&lt;strong&gt;</bpt>Source code<ept id="5ac1c4bb-822c-4916-84dd-2517c2b0d628">&lt;/strong&gt;</ept>: Source code for these samples is included on the HDInsight cluster at <bpt id="7d67e410-f7cb-4007-bc60-336a72995bed">&lt;strong&gt;</bpt>/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples<ept id="7d67e410-f7cb-4007-bc60-336a72995bed">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bc5e8b7-f833-479d-9396-d9235e6c3dcd" xml:space="preserve">
+          <source>The <bpt id="48e8e8de-2804-4014-9fa5-f9b83301b543">&lt;code&gt;</bpt>2.2.4.9-1<ept id="48e8e8de-2804-4014-9fa5-f9b83301b543">&lt;/code&gt;</ept> in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may change as HDInsight is updated.</source>
+          <target state="new">The <bpt id="48e8e8de-2804-4014-9fa5-f9b83301b543">&lt;code&gt;</bpt>2.2.4.9-1<ept id="48e8e8de-2804-4014-9fa5-f9b83301b543">&lt;/code&gt;</ept> in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may change as HDInsight is updated.</target>
+        </trans-unit>
+        <trans-unit id="42e5d635-e9a5-4e0e-b076-71a50885aef2" xml:space="preserve">
+          <source>Connect to HDInsight using SSH as described in the following articles:</source>
+          <target state="new">Connect to HDInsight using SSH as described in the following articles:</target>
+        </trans-unit>
+        <trans-unit id="5a801eea-fc49-41dc-bb43-83be00b6c201" xml:space="preserve">
+          <source><bpt id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;/linkText&gt;</ept><bpt id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;title&gt;</bpt><ept id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X<ept id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;/linkText&gt;</ept><bpt id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;title&gt;</bpt><ept id="57dfdedd-2b39-46ef-8dc2-2dfb959c7c4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97da4579-3064-44fa-b045-ab251fa6103a" xml:space="preserve">
+          <source><bpt id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;/linkText&gt;</ept><bpt id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;title&gt;</bpt><ept id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;linkText&gt;</bpt>Use SSH with Linux-based Hadoop on HDInsight from Windows<ept id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;/linkText&gt;</ept><bpt id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;title&gt;</bpt><ept id="d74f71e7-408b-4939-87c5-1e0699314368">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="507d9df1-6c4d-45c1-9228-a447fd61f0ca" xml:space="preserve">
+          <source>From the <bpt id="4d4ccccf-bf62-4eee-aa7f-670758985f60">&lt;code&gt;</bpt>username@headnode0:~$<ept id="4d4ccccf-bf62-4eee-aa7f-670758985f60">&lt;/code&gt;</ept> prompt, use the following command to list the samples:</source>
+          <target state="new">From the <bpt id="4d4ccccf-bf62-4eee-aa7f-670758985f60">&lt;code&gt;</bpt>username@headnode0:~$<ept id="4d4ccccf-bf62-4eee-aa7f-670758985f60">&lt;/code&gt;</ept> prompt, use the following command to list the samples:</target>
+        </trans-unit>
+        <trans-unit id="cf156e90-623f-443c-a1c5-4324f76833d1" xml:space="preserve">
+          <source>This will generate the list of sample from the previous section of this document.</source>
+          <target state="new">This will generate the list of sample from the previous section of this document.</target>
+        </trans-unit>
+        <trans-unit id="b89da40c-aac5-4fa2-a1c3-08ec4a53842e" xml:space="preserve">
+          <source>Use the following command to get help on a specific sample.</source>
+          <target state="new">Use the following command to get help on a specific sample.</target>
+        </trans-unit>
+        <trans-unit id="7c6968a9-d66c-45e5-8676-be225b13e4ac" xml:space="preserve">
+          <source>In this case, the <bpt id="ffd23993-2384-45f4-925e-984280345d04">&lt;strong&gt;</bpt>wordcount<ept id="ffd23993-2384-45f4-925e-984280345d04">&lt;/strong&gt;</ept> sample:</source>
+          <target state="new">In this case, the <bpt id="ffd23993-2384-45f4-925e-984280345d04">&lt;strong&gt;</bpt>wordcount<ept id="ffd23993-2384-45f4-925e-984280345d04">&lt;/strong&gt;</ept> sample:</target>
+        </trans-unit>
+        <trans-unit id="b90a1286-209d-4b39-a1f7-e6068899321e" xml:space="preserve">
+          <source>You should receive the following message:</source>
+          <target state="new">You should receive the following message:</target>
+        </trans-unit>
+        <trans-unit id="5dc996c0-97ef-4b35-acf3-a8591182220e" xml:space="preserve">
+          <source>This indicates that you can provide several input paths for the source documents, and the final path is where the output (count of words in the source documents,) will be located.</source>
+          <target state="new">This indicates that you can provide several input paths for the source documents, and the final path is where the output (count of words in the source documents,) will be located.</target>
+        </trans-unit>
+        <trans-unit id="d7cb14a1-3228-481a-9b0f-9ee07d861ca8" xml:space="preserve">
+          <source>Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:</source>
+          <target state="new">Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:</target>
+        </trans-unit>
+        <trans-unit id="71c0c16c-b477-4fce-81e5-84fdcc54e327" xml:space="preserve">
+          <source>Input for this job is read from <bpt id="3be60089-3e28-41e0-9634-235ad007a5d0">&lt;strong&gt;</bpt>wasb:///example/data/gutenberg/davinci.txt<ept id="3be60089-3e28-41e0-9634-235ad007a5d0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Input for this job is read from <bpt id="3be60089-3e28-41e0-9634-235ad007a5d0">&lt;strong&gt;</bpt>wasb:///example/data/gutenberg/davinci.txt<ept id="3be60089-3e28-41e0-9634-235ad007a5d0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9787076c-27a8-4fc9-a37b-d9713045a73d" xml:space="preserve">
+          <source>Output for this example will be stored in <bpt id="856aaaad-b79c-4002-8b1b-60463ac688c0">&lt;strong&gt;</bpt>wasb:///example/data/davinciwordcount<ept id="856aaaad-b79c-4002-8b1b-60463ac688c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Output for this example will be stored in <bpt id="856aaaad-b79c-4002-8b1b-60463ac688c0">&lt;strong&gt;</bpt>wasb:///example/data/davinciwordcount<ept id="856aaaad-b79c-4002-8b1b-60463ac688c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="673b6ced-ae23-4ff5-9e48-b11aa23c7af6" xml:space="preserve">
+          <source>As noted in the help for the wordcount sample, you could also specify multiple input files.</source>
+          <target state="new">As noted in the help for the wordcount sample, you could also specify multiple input files.</target>
+        </trans-unit>
+        <trans-unit id="ce92de64-75d0-4ad6-962f-580cbe491879" xml:space="preserve">
+          <source>For example, <bpt id="231ac933-813d-4573-8ad9-7c6b7c7ac369">&lt;code&gt;</bpt>hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount<ept id="231ac933-813d-4573-8ad9-7c6b7c7ac369">&lt;/code&gt;</ept> would count words in both davinci.txt and ulysses.txt.</source>
+          <target state="new">For example, <bpt id="231ac933-813d-4573-8ad9-7c6b7c7ac369">&lt;code&gt;</bpt>hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount<ept id="231ac933-813d-4573-8ad9-7c6b7c7ac369">&lt;/code&gt;</ept> would count words in both davinci.txt and ulysses.txt.</target>
+        </trans-unit>
+        <trans-unit id="0595a8ef-7588-4f71-956f-e349b1a37823" xml:space="preserve">
+          <source>Once the job completes, use the following command to view the output:</source>
+          <target state="new">Once the job completes, use the following command to view the output:</target>
+        </trans-unit>
+        <trans-unit id="06ccfa54-58a2-41df-aa31-be935e81625b" xml:space="preserve">
+          <source>This will concatenate all the output files produced by the job, and display them.</source>
+          <target state="new">This will concatenate all the output files produced by the job, and display them.</target>
+        </trans-unit>
+        <trans-unit id="d5b9522c-61d8-4d85-9751-5ffd3e118c46" xml:space="preserve">
+          <source>For this basic example there is only one file, however if there were more this command would iterate over all of them.</source>
+          <target state="new">For this basic example there is only one file, however if there were more this command would iterate over all of them.</target>
+        </trans-unit>
+        <trans-unit id="892f980a-bd1e-4fbf-9b1b-4799ef6b40cf" xml:space="preserve">
+          <source>You will see output similar to the following from this command:</source>
+          <target state="new">You will see output similar to the following from this command:</target>
+        </trans-unit>
+        <trans-unit id="5a230092-6cbf-410a-8d6d-e6454fb72455" xml:space="preserve">
+          <source>Each line represents a word and how many times it occured in the input data.</source>
+          <target state="new">Each line represents a word and how many times it occured in the input data.</target>
+        </trans-unit>
+        <trans-unit id="04c47f90-bee2-45d1-950b-4b68d57bd643" xml:space="preserve">
+          <source>The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle on the command line."</source>
+          <target state="new">The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle on the command line."</target>
+        </trans-unit>
+        <trans-unit id="227c0634-155c-46d7-9616-6fc7df0c3741" xml:space="preserve">
+          <source><bpt id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;linkText&gt;</bpt>Sudoku<ept id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;/linkText&gt;</ept><bpt id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;title&gt;</bpt><ept id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;/title&gt;</ept> is a logic puzzle made up of nine 3x3 grids.</source>
+          <target state="new"><bpt id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;linkText&gt;</bpt>Sudoku<ept id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;/linkText&gt;</ept><bpt id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;title&gt;</bpt><ept id="a20cf2d6-8322-4fc5-bbae-473c7a92da3e">&lt;/title&gt;</ept> is a logic puzzle made up of nine 3x3 grids.</target>
+        </trans-unit>
+        <trans-unit id="7767e41a-7f94-41cd-8aa2-afb9f685fe32" xml:space="preserve">
+          <source>Some cells in the grid have numbers, while others are blank, and the goal is to solve for the blank cells.</source>
+          <target state="new">Some cells in the grid have numbers, while others are blank, and the goal is to solve for the blank cells.</target>
+        </trans-unit>
+        <trans-unit id="bd75954a-63fd-4123-b6d5-adbc8f2f49b9" xml:space="preserve">
+          <source>The link above has more information on the puzzle, but the purpose of this sample is to solve for the blank cells.</source>
+          <target state="new">The link above has more information on the puzzle, but the purpose of this sample is to solve for the blank cells.</target>
+        </trans-unit>
+        <trans-unit id="69a47f22-ca50-46a7-a69a-64df67fa7901" xml:space="preserve">
+          <source>So our input should be a file that is in the following format:</source>
+          <target state="new">So our input should be a file that is in the following format:</target>
+        </trans-unit>
+        <trans-unit id="b807c1b0-6a4f-4c96-ace3-f27ff06beceb" xml:space="preserve">
+          <source>Nine rows of nine columns</source>
+          <target state="new">Nine rows of nine columns</target>
+        </trans-unit>
+        <trans-unit id="622a89d3-bd14-4796-9d83-727acade1ccc" xml:space="preserve">
+          <source>Each column can contain either a number or <bpt id="0be83b92-6616-4373-8513-b2624fc7a31f">&lt;code&gt;</bpt>?<ept id="0be83b92-6616-4373-8513-b2624fc7a31f">&lt;/code&gt;</ept> (which indicates a blank cell)</source>
+          <target state="new">Each column can contain either a number or <bpt id="0be83b92-6616-4373-8513-b2624fc7a31f">&lt;code&gt;</bpt>?<ept id="0be83b92-6616-4373-8513-b2624fc7a31f">&lt;/code&gt;</ept> (which indicates a blank cell)</target>
+        </trans-unit>
+        <trans-unit id="78664f54-dada-43a9-9b30-8337d35529a6" xml:space="preserve">
+          <source>Cells are separated by a space</source>
+          <target state="new">Cells are separated by a space</target>
+        </trans-unit>
+        <trans-unit id="47774e5a-ae2d-4e62-b398-06db6181e39d" xml:space="preserve">
+          <source>Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row.</source>
+          <target state="new">Now, there's a certain way to construct Sudoku puzzles in that you can't repeat a number in a column or row.</target>
+        </trans-unit>
+        <trans-unit id="1be432c3-36e6-48a4-9f86-9964b794b816" xml:space="preserve">
+          <source>Thankfully there's an example on the HDInsight cluster that is properly constructed.</source>
+          <target state="new">Thankfully there's an example on the HDInsight cluster that is properly constructed.</target>
+        </trans-unit>
+        <trans-unit id="e9658c4c-5019-4d3c-9b89-a91ab81015e2" xml:space="preserve">
+          <source>It is located at <bpt id="6467a4bb-72bc-4cfc-aff5-f95b4c940743">&lt;strong&gt;</bpt>/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta<ept id="6467a4bb-72bc-4cfc-aff5-f95b4c940743">&lt;/strong&gt;</ept> and contains the following:</source>
+          <target state="new">It is located at <bpt id="6467a4bb-72bc-4cfc-aff5-f95b4c940743">&lt;strong&gt;</bpt>/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta<ept id="6467a4bb-72bc-4cfc-aff5-f95b4c940743">&lt;/strong&gt;</ept> and contains the following:</target>
+        </trans-unit>
+        <trans-unit id="1eefc7cb-f87c-4cc0-86cc-bb97f15ae668" xml:space="preserve">
+          <source>The <bpt id="7f527292-047a-4a21-b1cf-e80180980919">&lt;code&gt;</bpt>2.2.4.9-1<ept id="7f527292-047a-4a21-b1cf-e80180980919">&lt;/code&gt;</ept> portion of the path may change as updates are made to the HDInsight cluster.</source>
+          <target state="new">The <bpt id="7f527292-047a-4a21-b1cf-e80180980919">&lt;code&gt;</bpt>2.2.4.9-1<ept id="7f527292-047a-4a21-b1cf-e80180980919">&lt;/code&gt;</ept> portion of the path may change as updates are made to the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="a60d7126-bf18-4599-b82a-16e57310fb1a" xml:space="preserve">
+          <source>To run this through the Sudoku example, use the following command:</source>
+          <target state="new">To run this through the Sudoku example, use the following command:</target>
+        </trans-unit>
+        <trans-unit id="6492aa07-32fd-4f56-8ead-153b5d3dfd0c" xml:space="preserve">
+          <source>The results should appear similar to the following:</source>
+          <target state="new">The results should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="5ba82b84-d9a3-46c9-908b-3ecc00fdc737" xml:space="preserve">
+          <source>The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.</source>
+          <target state="new">The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.</target>
+        </trans-unit>
+        <trans-unit id="10a092e7-d59d-4fe1-a3f2-30d689d841e0" xml:space="preserve">
+          <source>Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4.</source>
+          <target state="new">Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4.</target>
+        </trans-unit>
+        <trans-unit id="e66d514a-fe65-447e-84e0-fe79c0b62338" xml:space="preserve">
+          <source>The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square.</source>
+          <target state="new">The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square.</target>
+        </trans-unit>
+        <trans-unit id="6ed267dd-dc4f-4dca-bc30-af814eec6c44" xml:space="preserve">
+          <source>The larger the sample of points used, the better the estimate is.</source>
+          <target state="new">The larger the sample of points used, the better the estimate is.</target>
+        </trans-unit>
+        <trans-unit id="56a94fca-6b2c-4cb4-8e39-51ddbd8cfa01" xml:space="preserve">
+          <source>The mapper for this sample generates a number of points at random inside of a unit square and then counts the number of those points that are inside the circle.</source>
+          <target state="new">The mapper for this sample generates a number of points at random inside of a unit square and then counts the number of those points that are inside the circle.</target>
+        </trans-unit>
+        <trans-unit id="990a2ab9-5c92-4b8d-997f-bd1537e32d7d" xml:space="preserve">
+          <source>The reducer then accumulates points counted by the mappers and estimates the value of pi from the formula 4R, where R is the ratio of the number of points counted inside the circle to the total number of points that are within the square.</source>
+          <target state="new">The reducer then accumulates points counted by the mappers and estimates the value of pi from the formula 4R, where R is the ratio of the number of points counted inside the circle to the total number of points that are within the square.</target>
+        </trans-unit>
+        <trans-unit id="d0c2e182-3203-4ff9-9763-32d844ed366b" xml:space="preserve">
+          <source>Use the following command to run this sample.</source>
+          <target state="new">Use the following command to run this sample.</target>
+        </trans-unit>
+        <trans-unit id="2029aa92-9536-4e65-8840-f6361e8fc486" xml:space="preserve">
+          <source>This uses 16 maps with 10,000,000 samples each to estimate the value of pi:</source>
+          <target state="new">This uses 16 maps with 10,000,000 samples each to estimate the value of pi:</target>
+        </trans-unit>
+        <trans-unit id="f01c83a3-e61e-4a57-8b08-18532f5fb93f" xml:space="preserve">
+          <source>The value returned by this should be similar to <bpt id="dda54dd8-9a94-403c-b4ce-5c7a73d86f8c">&lt;strong&gt;</bpt>3.14159155000000000000<ept id="dda54dd8-9a94-403c-b4ce-5c7a73d86f8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The value returned by this should be similar to <bpt id="dda54dd8-9a94-403c-b4ce-5c7a73d86f8c">&lt;strong&gt;</bpt>3.14159155000000000000<ept id="dda54dd8-9a94-403c-b4ce-5c7a73d86f8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1f7a5e2-a6c0-4b5b-adec-2a5a83b4b3fc" xml:space="preserve">
+          <source>For references, the first 10 decimal places of pi are 3.1415926535.</source>
+          <target state="new">For references, the first 10 decimal places of pi are 3.1415926535.</target>
+        </trans-unit>
+        <trans-unit id="bd23cac4-6223-4de2-ac95-69308c686318" xml:space="preserve">
+          <source>GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100TB minimum.</source>
+          <target state="new">GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100TB minimum.</target>
+        </trans-unit>
+        <trans-unit id="89aeaff8-6c89-48da-8a84-119c2c50b044" xml:space="preserve">
+          <source>This sample uses a modest 10GB of data so that it can be run relatively quickly.</source>
+          <target state="new">This sample uses a modest 10GB of data so that it can be run relatively quickly.</target>
+        </trans-unit>
+        <trans-unit id="08ce0b97-a6ac-44ac-9b7a-d7525bb4a8a3" xml:space="preserve">
+          <source>It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578TB/min (100TB in 173 minutes).</source>
+          <target state="new">It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578TB/min (100TB in 173 minutes).</target>
+        </trans-unit>
+        <trans-unit id="389e134d-db37-4c84-847d-69e37e4d9e85" xml:space="preserve">
+          <source>For more information on this and other sorting benchmarks, see the <bpt id="184d492e-084a-4d1b-91c7-12042d038308">&lt;linkText&gt;</bpt>Sortbenchmark<ept id="184d492e-084a-4d1b-91c7-12042d038308">&lt;/linkText&gt;</ept><bpt id="184d492e-084a-4d1b-91c7-12042d038308">&lt;title&gt;</bpt><ept id="184d492e-084a-4d1b-91c7-12042d038308">&lt;/title&gt;</ept> site.</source>
+          <target state="new">For more information on this and other sorting benchmarks, see the <bpt id="184d492e-084a-4d1b-91c7-12042d038308">&lt;linkText&gt;</bpt>Sortbenchmark<ept id="184d492e-084a-4d1b-91c7-12042d038308">&lt;/linkText&gt;</ept><bpt id="184d492e-084a-4d1b-91c7-12042d038308">&lt;title&gt;</bpt><ept id="184d492e-084a-4d1b-91c7-12042d038308">&lt;/title&gt;</ept> site.</target>
+        </trans-unit>
+        <trans-unit id="94490fd9-cd89-47f7-ab79-f36c53579293" xml:space="preserve">
+          <source>This sample uses three sets of MapReduce programs:</source>
+          <target state="new">This sample uses three sets of MapReduce programs:</target>
+        </trans-unit>
+        <trans-unit id="b8264273-242a-49f8-bba7-7ce03f561582" xml:space="preserve">
+          <source><bpt id="c6a4e6be-8158-495a-b2b1-cbfab5bc7beb">&lt;strong&gt;</bpt>TeraGen<ept id="c6a4e6be-8158-495a-b2b1-cbfab5bc7beb">&lt;/strong&gt;</ept>: A MapReduce program that generates rows of data to sort</source>
+          <target state="new"><bpt id="c6a4e6be-8158-495a-b2b1-cbfab5bc7beb">&lt;strong&gt;</bpt>TeraGen<ept id="c6a4e6be-8158-495a-b2b1-cbfab5bc7beb">&lt;/strong&gt;</ept>: A MapReduce program that generates rows of data to sort</target>
+        </trans-unit>
+        <trans-unit id="c828727c-7f71-4575-9b16-061ca0254260" xml:space="preserve">
+          <source><bpt id="ead8cd1e-95a7-4405-a38e-ebdd9c0b6019">&lt;strong&gt;</bpt>TeraSort<ept id="ead8cd1e-95a7-4405-a38e-ebdd9c0b6019">&lt;/strong&gt;</ept>: Samples the input data and uses MapReduce to sort the data into a total order</source>
+          <target state="new"><bpt id="ead8cd1e-95a7-4405-a38e-ebdd9c0b6019">&lt;strong&gt;</bpt>TeraSort<ept id="ead8cd1e-95a7-4405-a38e-ebdd9c0b6019">&lt;/strong&gt;</ept>: Samples the input data and uses MapReduce to sort the data into a total order</target>
+        </trans-unit>
+        <trans-unit id="ab542179-9797-4309-b5ff-c73d915775a5" xml:space="preserve">
+          <source>TeraSort is a standard sort of MapReduce functions, except for a custom partitioner that uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] &lt;= key &lt; sample[i] are sent to reduce i. This guarantees that the outputs of reduce i are all less than the output of reduce i+1.</source>
+          <target state="new">TeraSort is a standard sort of MapReduce functions, except for a custom partitioner that uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] &lt;= key &lt; sample[i] are sent to reduce i. This guarantees that the outputs of reduce i are all less than the output of reduce i+1.</target>
+        </trans-unit>
+        <trans-unit id="31888e90-8b3a-40ff-ad0e-85416796dc26" xml:space="preserve">
+          <source><bpt id="0b995261-c860-4e04-bd37-4866a01b1a88">&lt;strong&gt;</bpt>TeraValidate<ept id="0b995261-c860-4e04-bd37-4866a01b1a88">&lt;/strong&gt;</ept>: A MapReduce program that validates that the output is globally sorted</source>
+          <target state="new"><bpt id="0b995261-c860-4e04-bd37-4866a01b1a88">&lt;strong&gt;</bpt>TeraValidate<ept id="0b995261-c860-4e04-bd37-4866a01b1a88">&lt;/strong&gt;</ept>: A MapReduce program that validates that the output is globally sorted</target>
+        </trans-unit>
+        <trans-unit id="1e1d9ff4-ebe2-4175-a1d0-22aea8d3e39f" xml:space="preserve">
+          <source>It creates one map per file in the output directory, and each map ensures that each key is less than or equal to the previous one.</source>
+          <target state="new">It creates one map per file in the output directory, and each map ensures that each key is less than or equal to the previous one.</target>
+        </trans-unit>
+        <trans-unit id="e20bbb51-380d-4049-8569-f835a5439b48" xml:space="preserve">
+          <source>The map function also generates records of the first and last keys of each file, and the reduce function ensures that the first key of file i is greater than the last key of file i-1.</source>
+          <target state="new">The map function also generates records of the first and last keys of each file, and the reduce function ensures that the first key of file i is greater than the last key of file i-1.</target>
+        </trans-unit>
+        <trans-unit id="049d61f5-a806-45c9-a24d-6708e71c6742" xml:space="preserve">
+          <source>Any problems are reported as an output of the reduce with the keys that are out of order.</source>
+          <target state="new">Any problems are reported as an output of the reduce with the keys that are out of order.</target>
+        </trans-unit>
+        <trans-unit id="efce7fbd-1cc4-4816-b043-173563d7af7c" xml:space="preserve">
+          <source>Use the following steps to generate data, sort, and then validate the output:</source>
+          <target state="new">Use the following steps to generate data, sort, and then validate the output:</target>
+        </trans-unit>
+        <trans-unit id="3428b44e-0e77-470b-9efb-944a4c5a469f" xml:space="preserve">
+          <source>Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at <bpt id="28aee932-4def-4529-a3a2-b51c2d4b765e">&lt;strong&gt;</bpt>wasb:///example/data/10GB-sort-input<ept id="28aee932-4def-4529-a3a2-b51c2d4b765e">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at <bpt id="28aee932-4def-4529-a3a2-b51c2d4b765e">&lt;strong&gt;</bpt>wasb:///example/data/10GB-sort-input<ept id="28aee932-4def-4529-a3a2-b51c2d4b765e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="9632fdf6-067e-4e58-8a38-bef85606b27a" xml:space="preserve">
+          <source>The <bpt id="1a55d581-ee9b-4d3b-84c4-749b93828e49">&lt;code&gt;</bpt>-Dmapred.map.tasks<ept id="1a55d581-ee9b-4d3b-84c4-749b93828e49">&lt;/code&gt;</ept> tells Hadoop how many map tasks to use for this job.</source>
+          <target state="new">The <bpt id="1a55d581-ee9b-4d3b-84c4-749b93828e49">&lt;code&gt;</bpt>-Dmapred.map.tasks<ept id="1a55d581-ee9b-4d3b-84c4-749b93828e49">&lt;/code&gt;</ept> tells Hadoop how many map tasks to use for this job.</target>
+        </trans-unit>
+        <trans-unit id="979115ab-4522-4783-9059-9923c4f67407" xml:space="preserve">
+          <source>The final two parameters instruct the job to create 10GB worth of data and to store it at <bpt id="da1f6d8c-a854-4c90-b7e9-ee17d3f9e8b3">&lt;strong&gt;</bpt>wasb:///example/data/10GB-sort-input<ept id="da1f6d8c-a854-4c90-b7e9-ee17d3f9e8b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The final two parameters instruct the job to create 10GB worth of data and to store it at <bpt id="da1f6d8c-a854-4c90-b7e9-ee17d3f9e8b3">&lt;strong&gt;</bpt>wasb:///example/data/10GB-sort-input<ept id="da1f6d8c-a854-4c90-b7e9-ee17d3f9e8b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8194f496-91be-48ab-ad63-787a2417c83b" xml:space="preserve">
+          <source>Use the following command to sort the data:</source>
+          <target state="new">Use the following command to sort the data:</target>
+        </trans-unit>
+        <trans-unit id="3131cdf6-515f-4ee0-a6ed-69f7f1953af9" xml:space="preserve">
+          <source>The <bpt id="4a9a363d-d595-4695-9174-5bdb40ebe2e2">&lt;code&gt;</bpt>-Dmapred.reduce.tasks<ept id="4a9a363d-d595-4695-9174-5bdb40ebe2e2">&lt;/code&gt;</ept> tells Hadoop how many reduce tasks to use for the job.</source>
+          <target state="new">The <bpt id="4a9a363d-d595-4695-9174-5bdb40ebe2e2">&lt;code&gt;</bpt>-Dmapred.reduce.tasks<ept id="4a9a363d-d595-4695-9174-5bdb40ebe2e2">&lt;/code&gt;</ept> tells Hadoop how many reduce tasks to use for the job.</target>
+        </trans-unit>
+        <trans-unit id="5909f226-8076-4dd6-a84b-ce72b7cb68de" xml:space="preserve">
+          <source>The final two parameters are just the input and output locations for data.</source>
+          <target state="new">The final two parameters are just the input and output locations for data.</target>
+        </trans-unit>
+        <trans-unit id="eded5cdb-aee6-44e4-93ae-28fb94f719db" xml:space="preserve">
+          <source>Use the following to validate the data generated by the sort:</source>
+          <target state="new">Use the following to validate the data generated by the sort:</target>
+        </trans-unit>
+        <trans-unit id="b56f937f-7507-4613-8371-ab974e05c43a" xml:space="preserve">
+          <source>From this article, you learned how to run the samples included with the Linux-based HDInsight clusters.</source>
+          <target state="new">From this article, you learned how to run the samples included with the Linux-based HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="6c0ed4f2-c8dc-42c9-83f4-52303dc3072b" xml:space="preserve">
+          <source>For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:</source>
+          <target state="new">For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:</target>
+        </trans-unit>
+        <trans-unit id="5742c3ad-963b-44e9-871e-90a296557c36" xml:space="preserve">
+          <source><bpt id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight[hdinsight-use-pig]<ept id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;/linkText&gt;</ept><bpt id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;title&gt;</bpt><ept id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;linkText&gt;</bpt>Use Pig with Hadoop on HDInsight[hdinsight-use-pig]<ept id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;/linkText&gt;</ept><bpt id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;title&gt;</bpt><ept id="7535baa5-ff2a-4425-a67b-bc7682dd917e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="611044e7-cf73-4768-8ea8-6e77f06af755" xml:space="preserve">
+          <source><bpt id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight[hdinsight-use-hive]<ept id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;/linkText&gt;</ept><bpt id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;title&gt;</bpt><ept id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight[hdinsight-use-hive]<ept id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;/linkText&gt;</ept><bpt id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;title&gt;</bpt><ept id="deed5d10-479f-411c-ad8e-4f12eae554e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ed306a5-105d-4091-b3a3-62ea41404f8c" xml:space="preserve">
+          <source><bpt id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;linkText&gt;</bpt>Use MapReduce with Hadoop on HDInsight[hdinsight-use-mapreduce]<ept id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;/linkText&gt;</ept><bpt id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;title&gt;</bpt><ept id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;linkText&gt;</bpt>Use MapReduce with Hadoop on HDInsight[hdinsight-use-mapreduce]<ept id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;/linkText&gt;</ept><bpt id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;title&gt;</bpt><ept id="05e66a7b-84d6-4b9a-8e92-9351e4d845f8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dd58e0ad-6eb4-487e-9403-ba3e849bbd12" xml:space="preserve">
+          <source>hdinsight-debug-jobs.md</source>
+          <target state="new">hdinsight-debug-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="600100fb-d398-4666-a475-8e0993c5c77d" xml:space="preserve">
+          <source>hdinsight-use-mapreduce.md</source>
+          <target state="new">hdinsight-use-mapreduce.md</target>
+        </trans-unit>
+        <trans-unit id="90696d93-b090-4253-aeaa-000b50915a46" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/dn479185.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/dn479185.aspx</target>
+        </trans-unit>
+        <trans-unit id="7b7eda60-888a-4e9d-857c-8d30f7338602" xml:space="preserve">
+          <source>hdinsight-submit-hadoop-jobs-programmatically.md</source>
+          <target state="new">hdinsight-submit-hadoop-jobs-programmatically.md</target>
+        </trans-unit>
+        <trans-unit id="dafe0288-b8fd-4986-a1f6-c8231575a5da" xml:space="preserve">
+          <source>hdinsight-hadoop-introduction.md</source>
+          <target state="new">hdinsight-hadoop-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="1fc4776a-ca9e-46a9-b214-653601d9cde6" xml:space="preserve">
+          <source>../install-configure-powershell.md</source>
+          <target state="new">../install-configure-powershell.md</target>
+        </trans-unit>
+        <trans-unit id="d54b20ae-cca0-4850-bb6c-823770c1f608" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="bd0b5899-a812-414b-9863-034f2554d6bc" xml:space="preserve">
+          <source>hdinsight-run-samples.md</source>
+          <target state="new">hdinsight-run-samples.md</target>
+        </trans-unit>
+        <trans-unit id="e91e3a9a-1996-4762-ab8d-a747fe827d92" xml:space="preserve">
+          <source>hdinsight-sample-10gb-graysort.md</source>
+          <target state="new">hdinsight-sample-10gb-graysort.md</target>
+        </trans-unit>
+        <trans-unit id="4d7f8b8b-7017-46a7-961f-2204be09e16f" xml:space="preserve">
+          <source>hdinsight-sample-csharp-streaming.md</source>
+          <target state="new">hdinsight-sample-csharp-streaming.md</target>
+        </trans-unit>
+        <trans-unit id="ad62592e-722b-4d8d-a1b5-df2d4b0501dc" xml:space="preserve">
+          <source>hdinsight-sample-pi-estimator.md</source>
+          <target state="new">hdinsight-sample-pi-estimator.md</target>
+        </trans-unit>
+        <trans-unit id="ba865183-6f06-4d10-ab7e-534f34248424" xml:space="preserve">
+          <source>hdinsight-sample-wordcount.md</source>
+          <target state="new">hdinsight-sample-wordcount.md</target>
+        </trans-unit>
+        <trans-unit id="6b4ea91b-c7d1-444c-993c-8e883bf9feaf" xml:space="preserve">
+          <source>hdinsight-use-hive.md</source>
+          <target state="new">hdinsight-use-hive.md</target>
+        </trans-unit>
+        <trans-unit id="ba4ad6ed-82cb-4f01-bf17-2a13482454d3" xml:space="preserve">
+          <source>hdinsight-use-pig.md</source>
+          <target state="new">hdinsight-use-pig.md</target>
+        </trans-unit>
+      </group>
+      <group id="8de5848d-8c10-4ef1-8211-d1fa2f350862" />
+    </body>
+  </file>
+</xliff>

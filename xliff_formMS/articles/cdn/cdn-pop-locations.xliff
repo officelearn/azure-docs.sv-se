@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0418988f-bb96-40dd-a5b1-c5788c21c855" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0418988f-bb96-40dd-a5b1-c5788c21c855" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5348fe05-694b-4bbc-a0dc-4d8e8b3461eb">
+        <trans-unit id="65cdecdd-7d65-425c-9324-7d9ef315da52" xml:space="preserve">
+          <source>Azure Content Delivery Network (CDN) POP Locations</source>
+          <target state="new">Azure Content Delivery Network (CDN) POP Locations</target>
+        </trans-unit>
+        <trans-unit id="ec2a3438-19a8-4ed0-98b8-1b554186d94c" xml:space="preserve">
+          <source>This topic lists Azure Content Delivery Network (CDN) POP locations.</source>
+          <target state="new">This topic lists Azure Content Delivery Network (CDN) POP locations.</target>
+        </trans-unit>
+        <trans-unit id="7e7a1988-758b-4a03-a2a3-71ae1c7f2513" xml:space="preserve">
+          <source>This topic lists current Microsoft Azure CDN point of presence (POP) locations.</source>
+          <target state="new">This topic lists current Microsoft Azure CDN point of presence (POP) locations.</target>
+        </trans-unit>
+        <trans-unit id="d477749b-2527-497a-b3d4-d64c3396d491" xml:space="preserve">
+          <source><bpt id="e17f0513-bd36-482d-8810-17abd4a8265f">&lt;linkText&gt;</bpt>CDN POP Locations<ept id="e17f0513-bd36-482d-8810-17abd4a8265f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e17f0513-bd36-482d-8810-17abd4a8265f">&lt;linkText&gt;</bpt>CDN POP Locations<ept id="e17f0513-bd36-482d-8810-17abd4a8265f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fce5e136-0f18-4042-aa0a-3e374ad80be3" xml:space="preserve">
+          <source>Atlanta</source>
+          <target state="new">Atlanta</target>
+        </trans-unit>
+        <trans-unit id="ccdd45ad-3f1d-4585-b77a-6aa68ec4fdfa" xml:space="preserve">
+          <source>Chicago</source>
+          <target state="new">Chicago</target>
+        </trans-unit>
+        <trans-unit id="479a680e-0683-444d-bdc6-18d81414d6b3" xml:space="preserve">
+          <source>Dallas</source>
+          <target state="new">Dallas</target>
+        </trans-unit>
+        <trans-unit id="82a6e816-3fe9-4bfb-af23-d8c886785621" xml:space="preserve">
+          <source>Philadelphia</source>
+          <target state="new">Philadelphia</target>
+        </trans-unit>
+        <trans-unit id="a2f0ecbc-a357-40a9-b460-48a8f0a65962" xml:space="preserve">
+          <source>Los Angeles</source>
+          <target state="new">Los Angeles</target>
+        </trans-unit>
+        <trans-unit id="ea74dd11-c89f-4de6-8a29-546e9bbb61d6" xml:space="preserve">
+          <source>Miami</source>
+          <target state="new">Miami</target>
+        </trans-unit>
+        <trans-unit id="1235fff8-91c7-4da5-93df-6bcde354563f" xml:space="preserve">
+          <source>New York</source>
+          <target state="new">New York</target>
+        </trans-unit>
+        <trans-unit id="2486d253-95cf-4226-8319-ef97656d4d16" xml:space="preserve">
+          <source>San Jose</source>
+          <target state="new">San Jose</target>
+        </trans-unit>
+        <trans-unit id="2bdca19c-6633-4ed9-85e6-3f468e1a6ae3" xml:space="preserve">
+          <source>Seattle</source>
+          <target state="new">Seattle</target>
+        </trans-unit>
+        <trans-unit id="4c415011-d8af-4769-8ca9-40b1eab55159" xml:space="preserve">
+          <source>Washington DC</source>
+          <target state="new">Washington DC</target>
+        </trans-unit>
+        <trans-unit id="6765c401-7c89-4152-9457-1fbde6270870" xml:space="preserve">
+          <source>Boston</source>
+          <target state="new">Boston</target>
+        </trans-unit>
+        <trans-unit id="40827f37-e7cb-41b3-8b61-e9b0db57e959" xml:space="preserve">
+          <source>Amsterdam</source>
+          <target state="new">Amsterdam</target>
+        </trans-unit>
+        <trans-unit id="01b014dd-7036-4ded-b989-1ca10fc3a1cd" xml:space="preserve">
+          <source>Copenhagen</source>
+          <target state="new">Copenhagen</target>
+        </trans-unit>
+        <trans-unit id="29e0f5e0-007a-4f3d-a4ad-e1f5905137f5" xml:space="preserve">
+          <source>Frankfurt</source>
+          <target state="new">Frankfurt</target>
+        </trans-unit>
+        <trans-unit id="34cd601e-dc33-487b-a023-6597cb5c1e62" xml:space="preserve">
+          <source>Helsinki</source>
+          <target state="new">Helsinki</target>
+        </trans-unit>
+        <trans-unit id="edb1d9df-5056-48dc-b1f9-cb5ffffa35f0" xml:space="preserve">
+          <source>London</source>
+          <target state="new">London</target>
+        </trans-unit>
+        <trans-unit id="3e193dec-820f-4d36-a330-db29af7f66d6" xml:space="preserve">
+          <source>Madrid</source>
+          <target state="new">Madrid</target>
+        </trans-unit>
+        <trans-unit id="ba76a9be-b3af-4a3f-8aaa-5685e1465d3c" xml:space="preserve">
+          <source>Milan</source>
+          <target state="new">Milan</target>
+        </trans-unit>
+        <trans-unit id="79f77e6b-f716-40d6-8ec5-a6048328b17e" xml:space="preserve">
+          <source>Paris</source>
+          <target state="new">Paris</target>
+        </trans-unit>
+        <trans-unit id="9a1d3f6c-a44a-4750-8479-e7022e34daec" xml:space="preserve">
+          <source>Stockholm</source>
+          <target state="new">Stockholm</target>
+        </trans-unit>
+        <trans-unit id="59048ac7-efa4-4329-baf5-592943bcd196" xml:space="preserve">
+          <source>Vienna</source>
+          <target state="new">Vienna</target>
+        </trans-unit>
+        <trans-unit id="bc153d4d-b0f6-4361-b2e2-bf8d57235067" xml:space="preserve">
+          <source>Warsaw</source>
+          <target state="new">Warsaw</target>
+        </trans-unit>
+        <trans-unit id="3c536638-eef0-4571-bdb9-d5330a92b2db" xml:space="preserve">
+          <source>Batam</source>
+          <target state="new">Batam</target>
+        </trans-unit>
+        <trans-unit id="f034eeb9-a4aa-4194-aa46-273a6b4a39f6" xml:space="preserve">
+          <source>Hong Kong</source>
+          <target state="new">Hong Kong</target>
+        </trans-unit>
+        <trans-unit id="d9f676c9-c87f-42c1-ba1d-25f63fd82250" xml:space="preserve">
+          <source>Jakarta</source>
+          <target state="new">Jakarta</target>
+        </trans-unit>
+        <trans-unit id="510a8d54-1976-4d94-9adb-100c49fa8907" xml:space="preserve">
+          <source>Kaohsiung</source>
+          <target state="new">Kaohsiung</target>
+        </trans-unit>
+        <trans-unit id="71620df4-49b1-4079-9a26-c897a6d1ba3c" xml:space="preserve">
+          <source>Osaka</source>
+          <target state="new">Osaka</target>
+        </trans-unit>
+        <trans-unit id="a46b121f-caaf-42be-9bf1-3de9ccc60fed" xml:space="preserve">
+          <source>Seoul</source>
+          <target state="new">Seoul</target>
+        </trans-unit>
+        <trans-unit id="93c6e85b-3934-4e70-9fd4-574ad816181d" xml:space="preserve">
+          <source>Singapore</source>
+          <target state="new">Singapore</target>
+        </trans-unit>
+        <trans-unit id="a71cc769-f246-4a7a-a67a-b4a7f6868143" xml:space="preserve">
+          <source>Tokyo</source>
+          <target state="new">Tokyo</target>
+        </trans-unit>
+        <trans-unit id="eb6cd7d7-f3d9-4e78-819a-49b21497a1f4" xml:space="preserve">
+          <source>Melbourne</source>
+          <target state="new">Melbourne</target>
+        </trans-unit>
+        <trans-unit id="b789f667-0740-46a0-a2ed-786a798249c6" xml:space="preserve">
+          <source>Sydney </source>
+          <target state="new">Sydney </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

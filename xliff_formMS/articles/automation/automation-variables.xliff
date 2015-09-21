@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="27df356e-1e6d-4d9e-8e38-c49db72de47e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="27df356e-1e6d-4d9e-8e38-c49db72de47e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1fa0e3a7-e038-444c-af74-cc0ea6a2be8b">
+        <trans-unit id="88991317-a815-489c-9b7b-b5c546c5d397" xml:space="preserve">
+          <source>Variable assets in Azure Automation | Microsoft Azure</source>
+          <target state="new">Variable assets in Azure Automation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="968f1b01-4817-4dac-a2c2-a7a934228292" xml:space="preserve">
+          <source>Variable assets are values that are available to all runbooks in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.</source>
+          <target state="new">Variable assets are values that are available to all runbooks in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.</target>
+        </trans-unit>
+        <trans-unit id="55f93c53-de01-4209-8f71-97bf6382a8c3" xml:space="preserve">
+          <source>Variable assets are values that are available to all runbooks in your automation account.</source>
+          <target state="new">Variable assets are values that are available to all runbooks in your automation account.</target>
+        </trans-unit>
+        <trans-unit id="ce8eee7b-3060-4fe7-b5ba-0b16650d2cc2" xml:space="preserve">
+          <source>They can be created, modified, and retrieved from the Azure portal, Windows PowerShell, and from within a runbook.</source>
+          <target state="new">They can be created, modified, and retrieved from the Azure portal, Windows PowerShell, and from within a runbook.</target>
+        </trans-unit>
+        <trans-unit id="a406e7cd-0f28-47dc-a384-1f9e56b239ab" xml:space="preserve">
+          <source>Automation variables are useful for the following scenarios:</source>
+          <target state="new">Automation variables are useful for the following scenarios:</target>
+        </trans-unit>
+        <trans-unit id="ad627ae1-93f0-4dfd-91a7-477ccc2a3314" xml:space="preserve">
+          <source>Share a value between multiple runbooks.</source>
+          <target state="new">Share a value between multiple runbooks.</target>
+        </trans-unit>
+        <trans-unit id="37a712c5-a5d0-4d71-9c3c-c06606a5c269" xml:space="preserve">
+          <source>Share a value between multiple jobs from the same runbook.</source>
+          <target state="new">Share a value between multiple jobs from the same runbook.</target>
+        </trans-unit>
+        <trans-unit id="38074ee7-310c-4ba8-941a-c02762c1ba69" xml:space="preserve">
+          <source>Manage a value from the portal or from the Windows PowerShell command line that is used by runbooks.</source>
+          <target state="new">Manage a value from the portal or from the Windows PowerShell command line that is used by runbooks.</target>
+        </trans-unit>
+        <trans-unit id="ca6489ab-4606-4c11-be71-2d7a68dbdce5" xml:space="preserve">
+          <source>Automation variables are persisted so that they continue to be available even if the runbook fails.</source>
+          <target state="new">Automation variables are persisted so that they continue to be available even if the runbook fails.</target>
+        </trans-unit>
+        <trans-unit id="8b1e1225-4756-4d3a-970c-f1679c16eada" xml:space="preserve">
+          <source>This also allows a value to be set by one runbook that is then used by another, or is used by the same runbook the next time that it is run.</source>
+          <target state="new">This also allows a value to be set by one runbook that is then used by another, or is used by the same runbook the next time that it is run.</target>
+        </trans-unit>
+        <trans-unit id="d8856cbf-7d21-415a-9106-1d119260f405" xml:space="preserve">
+          <source>When a variable is created, you can specify that it be stored encrypted.</source>
+          <target state="new">When a variable is created, you can specify that it be stored encrypted.</target>
+        </trans-unit>
+        <trans-unit id="c60a41d1-f813-4f24-9037-efc50be2d313" xml:space="preserve">
+          <source>When a variable is encrypted, it is stored securely in Azure Automation, and its value cannot be retrieved from the <bpt id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;/linkText&gt;</ept><bpt id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;title&gt;</bpt><ept id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;/title&gt;</ept> cmdlet that ships as part of the Azure PowerShell module.</source>
+          <target state="new">When a variable is encrypted, it is stored securely in Azure Automation, and its value cannot be retrieved from the <bpt id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;/linkText&gt;</ept><bpt id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;title&gt;</bpt><ept id="63ce726c-2469-49aa-8d1e-6d100ecf9c6f">&lt;/title&gt;</ept> cmdlet that ships as part of the Azure PowerShell module.</target>
+        </trans-unit>
+        <trans-unit id="e4c80da7-0486-4081-ae58-5c5b5fb22211" xml:space="preserve">
+          <source>The only way that an encrypted value can be retrieved is from the <bpt id="2163fedb-91d3-42ef-916d-dada3992d1df">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="2163fedb-91d3-42ef-916d-dada3992d1df">&lt;/strong&gt;</ept> activity in a runbook.</source>
+          <target state="new">The only way that an encrypted value can be retrieved is from the <bpt id="2163fedb-91d3-42ef-916d-dada3992d1df">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="2163fedb-91d3-42ef-916d-dada3992d1df">&lt;/strong&gt;</ept> activity in a runbook.</target>
+        </trans-unit>
+        <trans-unit id="e3f4b9c1-93db-4ca9-a7bb-50f78b5ca675" xml:space="preserve">
+          <source>Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables.</source>
+          <target state="new">Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables.</target>
+        </trans-unit>
+        <trans-unit id="642c6bf2-dacf-42b2-ba43-af260e258237" xml:space="preserve">
+          <source>These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account.</source>
+          <target state="new">These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account.</target>
+        </trans-unit>
+        <trans-unit id="24114cbe-3edf-4b78-baa3-8a78a4a577cd" xml:space="preserve">
+          <source>This key is encrypted by a master certificate and stored in Azure Automation.</source>
+          <target state="new">This key is encrypted by a master certificate and stored in Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="09538611-1e75-4dc2-9331-2f204bb8807e" xml:space="preserve">
+          <source>Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.</source>
+          <target state="new">Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.</target>
+        </trans-unit>
+        <trans-unit id="325792ad-1451-40d1-b030-bc9aaeb9e422" xml:space="preserve">
+          <source>When you create a variable with the Azure portal, you must specify a data type from the dropdown list so the portal can display the appropriate control for entering the variable value.</source>
+          <target state="new">When you create a variable with the Azure portal, you must specify a data type from the dropdown list so the portal can display the appropriate control for entering the variable value.</target>
+        </trans-unit>
+        <trans-unit id="c216b562-bbd6-4e33-97d4-b5ceaf272d07" xml:space="preserve">
+          <source>The variable is not restricted to this data type, but you must set the variable using Windows PowerShell if you want to specify a value of a different type.</source>
+          <target state="new">The variable is not restricted to this data type, but you must set the variable using Windows PowerShell if you want to specify a value of a different type.</target>
+        </trans-unit>
+        <trans-unit id="f374fbab-f06f-48fd-9168-4f5ae35a0c8d" xml:space="preserve">
+          <source>If you specify <bpt id="0a02fe82-86bd-4a31-b1d3-41b07b87f8df">&lt;strong&gt;</bpt>Not defined<ept id="0a02fe82-86bd-4a31-b1d3-41b07b87f8df">&lt;/strong&gt;</ept>, then the value of the variable will be set to <bpt id="f82780d2-5b1f-4129-a243-b85be283b399">&lt;strong&gt;</bpt>$null<ept id="f82780d2-5b1f-4129-a243-b85be283b399">&lt;/strong&gt;</ept>, and you must set the value with the <bpt id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;linkText&gt;</bpt>Set-AzureAutomationVariable<ept id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;/linkText&gt;</ept><bpt id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;title&gt;</bpt><ept id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;/title&gt;</ept> cmdlet or <bpt id="f0f20e81-2328-4f8c-8eb2-48546b2015c1">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="f0f20e81-2328-4f8c-8eb2-48546b2015c1">&lt;/strong&gt;</ept> activity.</source>
+          <target state="new">If you specify <bpt id="0a02fe82-86bd-4a31-b1d3-41b07b87f8df">&lt;strong&gt;</bpt>Not defined<ept id="0a02fe82-86bd-4a31-b1d3-41b07b87f8df">&lt;/strong&gt;</ept>, then the value of the variable will be set to <bpt id="f82780d2-5b1f-4129-a243-b85be283b399">&lt;strong&gt;</bpt>$null<ept id="f82780d2-5b1f-4129-a243-b85be283b399">&lt;/strong&gt;</ept>, and you must set the value with the <bpt id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;linkText&gt;</bpt>Set-AzureAutomationVariable<ept id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;/linkText&gt;</ept><bpt id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;title&gt;</bpt><ept id="19b60be4-b0fc-4c53-b1e5-773a7f603c43">&lt;/title&gt;</ept> cmdlet or <bpt id="f0f20e81-2328-4f8c-8eb2-48546b2015c1">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="f0f20e81-2328-4f8c-8eb2-48546b2015c1">&lt;/strong&gt;</ept> activity.</target>
+        </trans-unit>
+        <trans-unit id="11092bab-3199-4e97-bbbe-670ef81dc58a" xml:space="preserve">
+          <source>You cannot create or change the value for a complex variable type in the portal, but you can provide a value of any type using Windows PowerShell.</source>
+          <target state="new">You cannot create or change the value for a complex variable type in the portal, but you can provide a value of any type using Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="6959fd6e-4422-47d5-a1ad-00cdf5abd260" xml:space="preserve">
+          <source>Complex types will be returned as a <bpt id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;linkText&gt;</bpt>PSCustomObject<ept id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;/linkText&gt;</ept><bpt id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;title&gt;</bpt><ept id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;/title&gt;</ept>.</source>
+          <target state="new">Complex types will be returned as a <bpt id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;linkText&gt;</bpt>PSCustomObject<ept id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;/linkText&gt;</ept><bpt id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;title&gt;</bpt><ept id="07a43758-80fd-4006-9a58-00d6b8f1f2af">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eeef7776-5ca7-4ff0-9a8d-0dfc7f4f6731" xml:space="preserve">
+          <source>You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.</source>
+          <target state="new">You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.</target>
+        </trans-unit>
+        <trans-unit id="30901f68-96a3-4bbe-8369-0b3ca2913376" xml:space="preserve">
+          <source>The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell.</source>
+          <target state="new">The cmdlets in the following table are used to create and manage Automation variables with Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="35066087-3e04-4fbd-b0cc-d2bb04e8f4b6" xml:space="preserve">
+          <source>They ship as part of the <bpt id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;/linkText&gt;</ept><bpt id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;title&gt;</bpt><ept id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;/title&gt;</ept> which is available for use in Automation runbooks.</source>
+          <target state="new">They ship as part of the <bpt id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;linkText&gt;</bpt>Azure PowerShell module<ept id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;/linkText&gt;</ept><bpt id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;title&gt;</bpt><ept id="a4783782-2607-45b4-8ee3-ac24c003c8e9">&lt;/title&gt;</ept> which is available for use in Automation runbooks.</target>
+        </trans-unit>
+        <trans-unit id="678cd59d-e388-42c8-bafd-45c47f27f637" xml:space="preserve">
+          <source>Cmdlets</source>
+          <target state="new">Cmdlets</target>
+        </trans-unit>
+        <trans-unit id="1bb60554-8a15-4f89-ad09-71bc8aecf1f3" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="dfe426ba-aa8c-4875-87cc-8e9d34a17c77" xml:space="preserve">
+          <source><bpt id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;/linkText&gt;</ept><bpt id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;title&gt;</bpt><ept id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;/linkText&gt;</ept><bpt id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;title&gt;</bpt><ept id="6effcc14-d9f0-4ca9-abc0-bd5da7ea50de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07de1294-ecee-4cd5-97ef-d16bf08ac9b5" xml:space="preserve">
+          <source>Retrieves the value of an existing variable.</source>
+          <target state="new">Retrieves the value of an existing variable.</target>
+        </trans-unit>
+        <trans-unit id="1180be62-acf3-46f9-a61c-05f530eea1e2" xml:space="preserve">
+          <source><bpt id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;/linkText&gt;</ept><bpt id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;title&gt;</bpt><ept id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;/linkText&gt;</ept><bpt id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;title&gt;</bpt><ept id="6dc29907-94ec-4745-adc9-a846af33cee7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="151617a7-b408-48c9-975e-6bbe9ab317e6" xml:space="preserve">
+          <source>Creates a new variable and sets its value.</source>
+          <target state="new">Creates a new variable and sets its value.</target>
+        </trans-unit>
+        <trans-unit id="ce0c111c-6ebb-40af-9096-42a21805fdef" xml:space="preserve">
+          <source><bpt id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;linkText&gt;</bpt>Remove-AzureAutomationVariable<ept id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;/linkText&gt;</ept><bpt id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;title&gt;</bpt><ept id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;linkText&gt;</bpt>Remove-AzureAutomationVariable<ept id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;/linkText&gt;</ept><bpt id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;title&gt;</bpt><ept id="6dedb267-5774-4474-a3e4-d76e997b35b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4670f5a5-bb93-4cbe-b591-960aea42a88d" xml:space="preserve">
+          <source>Removes an existing variable.</source>
+          <target state="new">Removes an existing variable.</target>
+        </trans-unit>
+        <trans-unit id="cbd4a539-5fb5-4046-a882-31822f6e49de" xml:space="preserve">
+          <source><bpt id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;linkText&gt;</bpt>Set-AzureAutomationVariable<ept id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;/linkText&gt;</ept><bpt id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;title&gt;</bpt><ept id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;linkText&gt;</bpt>Set-AzureAutomationVariable<ept id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;/linkText&gt;</ept><bpt id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;title&gt;</bpt><ept id="9c8ab45f-185b-47da-9fd6-5304d743cc0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2e3baa6-ab6c-4666-bc43-854455236b5f" xml:space="preserve">
+          <source>Sets the value for an existing variable.</source>
+          <target state="new">Sets the value for an existing variable.</target>
+        </trans-unit>
+        <trans-unit id="0f0b2483-2910-4c85-b0c0-26eef577f47a" xml:space="preserve">
+          <source>The workflow activities in the following table are used to access Automation variables in a runbook.</source>
+          <target state="new">The workflow activities in the following table are used to access Automation variables in a runbook.</target>
+        </trans-unit>
+        <trans-unit id="9386d163-aec5-4161-9817-91b7bd172bf8" xml:space="preserve">
+          <source>They are only available for use in a runbook and do not ship as part of the Azure PowerShell module.</source>
+          <target state="new">They are only available for use in a runbook and do not ship as part of the Azure PowerShell module.</target>
+        </trans-unit>
+        <trans-unit id="685d89b4-be6c-4e42-91fb-8a7d63cd6873" xml:space="preserve">
+          <source>Workflow Activities</source>
+          <target state="new">Workflow Activities</target>
+        </trans-unit>
+        <trans-unit id="32dc6321-293a-4e01-8001-f4d585b88623" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4477ee00-ebc2-4343-b6d0-f6531e0935ec" xml:space="preserve">
+          <source>Get-AutomationVariable</source>
+          <target state="new">Get-AutomationVariable</target>
+        </trans-unit>
+        <trans-unit id="73ea2fd7-ac10-43da-bbb7-407b63b2b73a" xml:space="preserve">
+          <source>Retrieves the value of an existing variable.</source>
+          <target state="new">Retrieves the value of an existing variable.</target>
+        </trans-unit>
+        <trans-unit id="668dd687-f295-4aa5-bade-15ede0848e6c" xml:space="preserve">
+          <source>Set-AutomationVariable</source>
+          <target state="new">Set-AutomationVariable</target>
+        </trans-unit>
+        <trans-unit id="4a7eb938-aaf5-402c-bcdc-69a705ed788a" xml:space="preserve">
+          <source>Sets the value for an existing variable.</source>
+          <target state="new">Sets the value for an existing variable.</target>
+        </trans-unit>
+        <trans-unit id="ce1099c6-c6c6-4235-ad20-5dbdb8bc270a" xml:space="preserve">
+          <source>You should avoid using variables in the –Name parameter of <bpt id="1b6e92d3-c767-4c08-9a3e-d6b95fcd0e36">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="1b6e92d3-c767-4c08-9a3e-d6b95fcd0e36">&lt;/strong&gt;</ept>  in a runbook since this can complicate discovering dependencies between runbooks and Automation variables at design time.</source>
+          <target state="new">You should avoid using variables in the –Name parameter of <bpt id="1b6e92d3-c767-4c08-9a3e-d6b95fcd0e36">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="1b6e92d3-c767-4c08-9a3e-d6b95fcd0e36">&lt;/strong&gt;</ept>  in a runbook since this can complicate discovering dependencies between runbooks and Automation variables at design time.</target>
+        </trans-unit>
+        <trans-unit id="373ae90a-10a0-435b-bd91-9fb6163a963d" xml:space="preserve">
+          <source>From your automation account, click <bpt id="7a0ef02f-30a9-48c0-842a-926c20e0f77d">&lt;strong&gt;</bpt>Assets<ept id="7a0ef02f-30a9-48c0-842a-926c20e0f77d">&lt;/strong&gt;</ept> at the top of the window.</source>
+          <target state="new">From your automation account, click <bpt id="7a0ef02f-30a9-48c0-842a-926c20e0f77d">&lt;strong&gt;</bpt>Assets<ept id="7a0ef02f-30a9-48c0-842a-926c20e0f77d">&lt;/strong&gt;</ept> at the top of the window.</target>
+        </trans-unit>
+        <trans-unit id="3129bf32-fe29-476a-bf99-1646fa61eb1c" xml:space="preserve">
+          <source>At the bottom of the window, click <bpt id="bd6a2b70-59c4-4a49-a68e-649a0dd568fd">&lt;strong&gt;</bpt>Add Setting<ept id="bd6a2b70-59c4-4a49-a68e-649a0dd568fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the window, click <bpt id="bd6a2b70-59c4-4a49-a68e-649a0dd568fd">&lt;strong&gt;</bpt>Add Setting<ept id="bd6a2b70-59c4-4a49-a68e-649a0dd568fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a60e3e9-376d-4955-99df-95dfb3432853" xml:space="preserve">
+          <source>Click <bpt id="8311fa47-4510-4f13-b2e8-792200bad72e">&lt;strong&gt;</bpt>Add Variable<ept id="8311fa47-4510-4f13-b2e8-792200bad72e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8311fa47-4510-4f13-b2e8-792200bad72e">&lt;strong&gt;</bpt>Add Variable<ept id="8311fa47-4510-4f13-b2e8-792200bad72e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a829778-cdf3-437a-ab53-b1744b5d04e2" xml:space="preserve">
+          <source>Complete the wizard and click the checkbox to save the new variable.</source>
+          <target state="new">Complete the wizard and click the checkbox to save the new variable.</target>
+        </trans-unit>
+        <trans-unit id="9fa903fb-6723-4585-9e6a-6015cd4828b1" xml:space="preserve">
+          <source>From your automation account, click the <bpt id="cc6ff227-5f03-4e55-a9e2-0e6261f5a420">&lt;strong&gt;</bpt>Assets<ept id="cc6ff227-5f03-4e55-a9e2-0e6261f5a420">&lt;/strong&gt;</ept> part to open the <bpt id="a80a61a0-6536-4fb9-bcaa-831bd036d8c9">&lt;strong&gt;</bpt>Assets<ept id="a80a61a0-6536-4fb9-bcaa-831bd036d8c9">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">From your automation account, click the <bpt id="cc6ff227-5f03-4e55-a9e2-0e6261f5a420">&lt;strong&gt;</bpt>Assets<ept id="cc6ff227-5f03-4e55-a9e2-0e6261f5a420">&lt;/strong&gt;</ept> part to open the <bpt id="a80a61a0-6536-4fb9-bcaa-831bd036d8c9">&lt;strong&gt;</bpt>Assets<ept id="a80a61a0-6536-4fb9-bcaa-831bd036d8c9">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="8c857492-1108-469f-8065-45a0b9bdc55e" xml:space="preserve">
+          <source>Click the <bpt id="aa088102-84df-4d66-a728-aec2bb443c3e">&lt;strong&gt;</bpt>Variables<ept id="aa088102-84df-4d66-a728-aec2bb443c3e">&lt;/strong&gt;</ept> part to open the <bpt id="a8576eb4-fe8e-4bae-9614-89350f569fca">&lt;strong&gt;</bpt>Variables<ept id="a8576eb4-fe8e-4bae-9614-89350f569fca">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Click the <bpt id="aa088102-84df-4d66-a728-aec2bb443c3e">&lt;strong&gt;</bpt>Variables<ept id="aa088102-84df-4d66-a728-aec2bb443c3e">&lt;/strong&gt;</ept> part to open the <bpt id="a8576eb4-fe8e-4bae-9614-89350f569fca">&lt;strong&gt;</bpt>Variables<ept id="a8576eb4-fe8e-4bae-9614-89350f569fca">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="a4995098-bbcf-4231-bf0e-7b55e988a0b7" xml:space="preserve">
+          <source>Click <bpt id="886a3d6a-509a-43f8-90b9-aea045a1682c">&lt;strong&gt;</bpt>Add a variable<ept id="886a3d6a-509a-43f8-90b9-aea045a1682c">&lt;/strong&gt;</ept> at the top of the blade.</source>
+          <target state="new">Click <bpt id="886a3d6a-509a-43f8-90b9-aea045a1682c">&lt;strong&gt;</bpt>Add a variable<ept id="886a3d6a-509a-43f8-90b9-aea045a1682c">&lt;/strong&gt;</ept> at the top of the blade.</target>
+        </trans-unit>
+        <trans-unit id="3b9d1026-9b5a-4d8a-8b4f-93dde6e91d31" xml:space="preserve">
+          <source>Complete the form and click <bpt id="eae822e3-19d5-476c-b5e8-1a5b0b538b68">&lt;strong&gt;</bpt>Create<ept id="eae822e3-19d5-476c-b5e8-1a5b0b538b68">&lt;/strong&gt;</ept> to save the new variable.</source>
+          <target state="new">Complete the form and click <bpt id="eae822e3-19d5-476c-b5e8-1a5b0b538b68">&lt;strong&gt;</bpt>Create<ept id="eae822e3-19d5-476c-b5e8-1a5b0b538b68">&lt;/strong&gt;</ept> to save the new variable.</target>
+        </trans-unit>
+        <trans-unit id="66db1a8d-c491-44af-a8a6-2caaa9a080fd" xml:space="preserve">
+          <source>The <bpt id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;/linkText&gt;</ept><bpt id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;title&gt;</bpt><ept id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;/title&gt;</ept> cmdlet creates a new variable and sets its initial value.</source>
+          <target state="new">The <bpt id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;/linkText&gt;</ept><bpt id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;title&gt;</bpt><ept id="5c86a831-be47-4e22-af6f-a4320b5ef5fc">&lt;/title&gt;</ept> cmdlet creates a new variable and sets its initial value.</target>
+        </trans-unit>
+        <trans-unit id="b3c541cc-2921-4dd5-a9a9-4f795bd7af07" xml:space="preserve">
+          <source>You can retrieve the value using <bpt id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;/linkText&gt;</ept><bpt id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;title&gt;</bpt><ept id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can retrieve the value using <bpt id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;linkText&gt;</bpt>Get-AzureAutomationVariable<ept id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;/linkText&gt;</ept><bpt id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;title&gt;</bpt><ept id="1beda1cc-891e-4dd3-8c30-c68fb0666405">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6767a787-1af7-48b7-8358-3087ee4df17d" xml:space="preserve">
+          <source>If the value is a simple type, then that same type is returned.</source>
+          <target state="new">If the value is a simple type, then that same type is returned.</target>
+        </trans-unit>
+        <trans-unit id="2b8d0075-8d94-4327-a2b9-d162862cc92e" xml:space="preserve">
+          <source>If it’s a complex type, then a <bpt id="e5d7e1cc-1adc-46bc-b84e-2bd2cca565d2">&lt;strong&gt;</bpt>PSCustomObject<ept id="e5d7e1cc-1adc-46bc-b84e-2bd2cca565d2">&lt;/strong&gt;</ept> is returned.</source>
+          <target state="new">If it’s a complex type, then a <bpt id="e5d7e1cc-1adc-46bc-b84e-2bd2cca565d2">&lt;strong&gt;</bpt>PSCustomObject<ept id="e5d7e1cc-1adc-46bc-b84e-2bd2cca565d2">&lt;/strong&gt;</ept> is returned.</target>
+        </trans-unit>
+        <trans-unit id="08ad8669-b5be-434f-b425-b1be2a7716e8" xml:space="preserve">
+          <source>The following sample commands show how to create a variable of type string and then return its value.</source>
+          <target state="new">The following sample commands show how to create a variable of type string and then return its value.</target>
+        </trans-unit>
+        <trans-unit id="57c58aca-7201-4c90-a231-7e33801e8a44" xml:space="preserve">
+          <source>The following sample commands show how to create a variable with a complex type and then return its properties.</source>
+          <target state="new">The following sample commands show how to create a variable with a complex type and then return its properties.</target>
+        </trans-unit>
+        <trans-unit id="294242eb-1fd6-429a-a82c-04d178e202ca" xml:space="preserve">
+          <source>In this case, a virtual machine object from <bpt id="d93401b2-3df9-4362-a648-768548fe15eb">&lt;strong&gt;</bpt>Get-AzureVM<ept id="d93401b2-3df9-4362-a648-768548fe15eb">&lt;/strong&gt;</ept> is used.</source>
+          <target state="new">In this case, a virtual machine object from <bpt id="d93401b2-3df9-4362-a648-768548fe15eb">&lt;strong&gt;</bpt>Get-AzureVM<ept id="d93401b2-3df9-4362-a648-768548fe15eb">&lt;/strong&gt;</ept> is used.</target>
+        </trans-unit>
+        <trans-unit id="9ea625e6-11af-4e80-a89a-b8af271b027b" xml:space="preserve">
+          <source>Use the <bpt id="1385ffe8-e09b-4bfb-9ea2-7fa6432e16bd">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="1385ffe8-e09b-4bfb-9ea2-7fa6432e16bd">&lt;/strong&gt;</ept> activity to set the value of an Automation variable in a runbook and the <bpt id="678330df-6644-4b2b-85f7-6062a3a255a2">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="678330df-6644-4b2b-85f7-6062a3a255a2">&lt;/strong&gt;</ept> to retrieve it.</source>
+          <target state="new">Use the <bpt id="1385ffe8-e09b-4bfb-9ea2-7fa6432e16bd">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="1385ffe8-e09b-4bfb-9ea2-7fa6432e16bd">&lt;/strong&gt;</ept> activity to set the value of an Automation variable in a runbook and the <bpt id="678330df-6644-4b2b-85f7-6062a3a255a2">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="678330df-6644-4b2b-85f7-6062a3a255a2">&lt;/strong&gt;</ept> to retrieve it.</target>
+        </trans-unit>
+        <trans-unit id="649cbb6b-36f0-4696-a187-4f8413378692" xml:space="preserve">
+          <source>You shouldn't use the <bpt id="e2f90fca-a774-4057-a743-b7263e69cea7">&lt;strong&gt;</bpt>Set-AzureAutomationVariable<ept id="e2f90fca-a774-4057-a743-b7263e69cea7">&lt;/strong&gt;</ept> or  <bpt id="c6d8d12b-e208-429b-966d-847533b8fc46">&lt;strong&gt;</bpt>Get-AzureAutomationVariable<ept id="c6d8d12b-e208-429b-966d-847533b8fc46">&lt;/strong&gt;</ept> cmdlets in a runbook since they are less efficient than the workflow activities.</source>
+          <target state="new">You shouldn't use the <bpt id="e2f90fca-a774-4057-a743-b7263e69cea7">&lt;strong&gt;</bpt>Set-AzureAutomationVariable<ept id="e2f90fca-a774-4057-a743-b7263e69cea7">&lt;/strong&gt;</ept> or  <bpt id="c6d8d12b-e208-429b-966d-847533b8fc46">&lt;strong&gt;</bpt>Get-AzureAutomationVariable<ept id="c6d8d12b-e208-429b-966d-847533b8fc46">&lt;/strong&gt;</ept> cmdlets in a runbook since they are less efficient than the workflow activities.</target>
+        </trans-unit>
+        <trans-unit id="96087979-86bb-40f1-98ba-c215342be610" xml:space="preserve">
+          <source>You also cannot retrieve the value of secure variables with <bpt id="6836f8dc-b718-47d2-b533-52d8d27f2a1f">&lt;strong&gt;</bpt>Get-AzureAutomationVariable<ept id="6836f8dc-b718-47d2-b533-52d8d27f2a1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You also cannot retrieve the value of secure variables with <bpt id="6836f8dc-b718-47d2-b533-52d8d27f2a1f">&lt;strong&gt;</bpt>Get-AzureAutomationVariable<ept id="6836f8dc-b718-47d2-b533-52d8d27f2a1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fac5ac2f-6ab1-4a94-adf0-d765656178bf" xml:space="preserve">
+          <source>The only way to create a new variable from within a runbook is to use the <bpt id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;/linkText&gt;</ept><bpt id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;title&gt;</bpt><ept id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;/title&gt;</ept>  cmdlet.</source>
+          <target state="new">The only way to create a new variable from within a runbook is to use the <bpt id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;linkText&gt;</bpt>New-AzureAutomationVariable<ept id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;/linkText&gt;</ept><bpt id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;title&gt;</bpt><ept id="1970d9ff-8195-4119-b333-8659ce8cbd2c">&lt;/title&gt;</ept>  cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="6dfb9b9f-b432-4b07-9950-ea8f25a99e65" xml:space="preserve">
+          <source>The following sample commands show how to set and retrieve a variable in a textual runbook.</source>
+          <target state="new">The following sample commands show how to set and retrieve a variable in a textual runbook.</target>
+        </trans-unit>
+        <trans-unit id="64eac070-9ed4-4d06-9fd5-56ef6152f646" xml:space="preserve">
+          <source>In this sample, it is assumed that variables of type integer named <bpt id="607ea525-7886-448c-b861-a0018fc4fee0">&lt;em&gt;</bpt>NumberOfIterations<ept id="607ea525-7886-448c-b861-a0018fc4fee0">&lt;/em&gt;</ept> and <bpt id="ca2b8285-162f-44c0-8713-4b0bb9ab3a89">&lt;em&gt;</bpt>NumberOfRunnings<ept id="ca2b8285-162f-44c0-8713-4b0bb9ab3a89">&lt;/em&gt;</ept> and a variable of type string named <bpt id="8950fdf9-551a-4c06-89c6-c8d7859c4fcd">&lt;em&gt;</bpt>SampleMessage<ept id="8950fdf9-551a-4c06-89c6-c8d7859c4fcd">&lt;/em&gt;</ept> have already been created.</source>
+          <target state="new">In this sample, it is assumed that variables of type integer named <bpt id="607ea525-7886-448c-b861-a0018fc4fee0">&lt;em&gt;</bpt>NumberOfIterations<ept id="607ea525-7886-448c-b861-a0018fc4fee0">&lt;/em&gt;</ept> and <bpt id="ca2b8285-162f-44c0-8713-4b0bb9ab3a89">&lt;em&gt;</bpt>NumberOfRunnings<ept id="ca2b8285-162f-44c0-8713-4b0bb9ab3a89">&lt;/em&gt;</ept> and a variable of type string named <bpt id="8950fdf9-551a-4c06-89c6-c8d7859c4fcd">&lt;em&gt;</bpt>SampleMessage<ept id="8950fdf9-551a-4c06-89c6-c8d7859c4fcd">&lt;/em&gt;</ept> have already been created.</target>
+        </trans-unit>
+        <trans-unit id="86356fcf-9a32-40c1-8f64-cce8a004b09a" xml:space="preserve">
+          <source>The following sample code shows how to update a variable with a complex value in a textual runbook.</source>
+          <target state="new">The following sample code shows how to update a variable with a complex value in a textual runbook.</target>
+        </trans-unit>
+        <trans-unit id="6c89d30c-2d7f-4f35-ba0e-52206bf5d94e" xml:space="preserve">
+          <source>In this sample, an Azure virtual machine is retrieved with <bpt id="61efaf0e-288a-46bc-8803-3cdf45c55e98">&lt;strong&gt;</bpt>Get-AzureVM<ept id="61efaf0e-288a-46bc-8803-3cdf45c55e98">&lt;/strong&gt;</ept> and saved to an existing Automation variable.</source>
+          <target state="new">In this sample, an Azure virtual machine is retrieved with <bpt id="61efaf0e-288a-46bc-8803-3cdf45c55e98">&lt;strong&gt;</bpt>Get-AzureVM<ept id="61efaf0e-288a-46bc-8803-3cdf45c55e98">&lt;/strong&gt;</ept> and saved to an existing Automation variable.</target>
+        </trans-unit>
+        <trans-unit id="d82d0b97-3142-4ac4-b710-a7397a61e5f1" xml:space="preserve">
+          <source>As explained in <bpt id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;linkText&gt;</bpt>Variable types<ept id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;/linkText&gt;</ept><bpt id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;title&gt;</bpt><ept id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;/title&gt;</ept>, this is stored as a PSCustomObject.</source>
+          <target state="new">As explained in <bpt id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;linkText&gt;</bpt>Variable types<ept id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;/linkText&gt;</ept><bpt id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;title&gt;</bpt><ept id="0eb3ea11-ea64-4a66-9c07-953b516c47e3">&lt;/title&gt;</ept>, this is stored as a PSCustomObject.</target>
+        </trans-unit>
+        <trans-unit id="62dee268-45ad-4566-b49e-39f496e7616d" xml:space="preserve">
+          <source>In the following code, the value is retrieved from the variable and used to start the virtual machine.</source>
+          <target state="new">In the following code, the value is retrieved from the variable and used to start the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7244ab43-206f-4c60-85cb-074d064dfdf0" xml:space="preserve">
+          <source>The following sample code shows how to use a variable with a collection of complex values in a textual runbook.</source>
+          <target state="new">The following sample code shows how to use a variable with a collection of complex values in a textual runbook.</target>
+        </trans-unit>
+        <trans-unit id="7c35a9d9-6cfe-4af0-a1d4-6b0bdb5bddbd" xml:space="preserve">
+          <source>In this sample, multiple Azure virtual machines are retrieved with <bpt id="a4dd4094-b9f3-4e04-a076-04f73da72d77">&lt;strong&gt;</bpt>Get-AzureVM<ept id="a4dd4094-b9f3-4e04-a076-04f73da72d77">&lt;/strong&gt;</ept> and saved to an existing Automation variable.</source>
+          <target state="new">In this sample, multiple Azure virtual machines are retrieved with <bpt id="a4dd4094-b9f3-4e04-a076-04f73da72d77">&lt;strong&gt;</bpt>Get-AzureVM<ept id="a4dd4094-b9f3-4e04-a076-04f73da72d77">&lt;/strong&gt;</ept> and saved to an existing Automation variable.</target>
+        </trans-unit>
+        <trans-unit id="ca889b47-f358-4121-b43e-4c2a497f04c9" xml:space="preserve">
+          <source>As explained in <bpt id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;linkText&gt;</bpt>Variable types<ept id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;/linkText&gt;</ept><bpt id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;title&gt;</bpt><ept id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;/title&gt;</ept>, this is stored as a collection of PSCustomObjects.</source>
+          <target state="new">As explained in <bpt id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;linkText&gt;</bpt>Variable types<ept id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;/linkText&gt;</ept><bpt id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;title&gt;</bpt><ept id="2b4e0e38-d02e-4048-aa62-ae8a5f0faaf9">&lt;/title&gt;</ept>, this is stored as a collection of PSCustomObjects.</target>
+        </trans-unit>
+        <trans-unit id="2c7159e9-18b1-4595-a228-8e2a6b161f08" xml:space="preserve">
+          <source>In the following code, the collection is retrieved from the variable and used to start each virtual machine.</source>
+          <target state="new">In the following code, the collection is retrieved from the variable and used to start each virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="369cd5e1-5496-47ea-9b61-f5aae4d73c53" xml:space="preserve">
+          <source>In a graphical runbook, you add the <bpt id="a48758de-a3d6-49bc-a52e-a4a22a762d00">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="a48758de-a3d6-49bc-a52e-a4a22a762d00">&lt;/strong&gt;</ept> or <bpt id="ee1ddc11-340e-4e46-ac1d-3ef0d09db5d0">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="ee1ddc11-340e-4e46-ac1d-3ef0d09db5d0">&lt;/strong&gt;</ept> by right-clicking on the variable in the Library pane of the graphical editor and selecting the activity you want.</source>
+          <target state="new">In a graphical runbook, you add the <bpt id="a48758de-a3d6-49bc-a52e-a4a22a762d00">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="a48758de-a3d6-49bc-a52e-a4a22a762d00">&lt;/strong&gt;</ept> or <bpt id="ee1ddc11-340e-4e46-ac1d-3ef0d09db5d0">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="ee1ddc11-340e-4e46-ac1d-3ef0d09db5d0">&lt;/strong&gt;</ept> by right-clicking on the variable in the Library pane of the graphical editor and selecting the activity you want.</target>
+        </trans-unit>
+        <trans-unit id="8d183c17-e0d3-4385-9c55-73690b2f25c0" xml:space="preserve">
+          <source><bpt id="5809b6ee-be56-4ad0-b2bc-91a53b5d3f7d">&lt;linkText&gt;</bpt>Add variable to canvas<ept id="5809b6ee-be56-4ad0-b2bc-91a53b5d3f7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5809b6ee-be56-4ad0-b2bc-91a53b5d3f7d">&lt;linkText&gt;</bpt>Add variable to canvas<ept id="5809b6ee-be56-4ad0-b2bc-91a53b5d3f7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9232241b-740f-451e-8d9c-1d62703fa8b6" xml:space="preserve">
+          <source>The following image shows sample activities to update a variable with a simple value in a graphical runbook.</source>
+          <target state="new">The following image shows sample activities to update a variable with a simple value in a graphical runbook.</target>
+        </trans-unit>
+        <trans-unit id="ef883677-8597-4465-afb6-af060bc01dbe" xml:space="preserve">
+          <source>In this sample, a single Azure virtual machine is retrieved with <bpt id="a06db677-e371-47df-8926-452594e19f57">&lt;strong&gt;</bpt>Get-AzureVM<ept id="a06db677-e371-47df-8926-452594e19f57">&lt;/strong&gt;</ept> and the computer name is saved to an existing Automation variable with a type of String.</source>
+          <target state="new">In this sample, a single Azure virtual machine is retrieved with <bpt id="a06db677-e371-47df-8926-452594e19f57">&lt;strong&gt;</bpt>Get-AzureVM<ept id="a06db677-e371-47df-8926-452594e19f57">&lt;/strong&gt;</ept> and the computer name is saved to an existing Automation variable with a type of String.</target>
+        </trans-unit>
+        <trans-unit id="722af663-d773-43c7-95cf-9733780b1fff" xml:space="preserve">
+          <source>It doesn't matter whether the <bpt id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;linkText&gt;</bpt>link is a pipeline or sequence<ept id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;/linkText&gt;</ept><bpt id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;title&gt;</bpt><ept id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;/title&gt;</ept> since we only expect a single object in the output.</source>
+          <target state="new">It doesn't matter whether the <bpt id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;linkText&gt;</bpt>link is a pipeline or sequence<ept id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;/linkText&gt;</ept><bpt id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;title&gt;</bpt><ept id="ca68b798-4354-4567-8a02-ef34d03a8154">&lt;/title&gt;</ept> since we only expect a single object in the output.</target>
+        </trans-unit>
+        <trans-unit id="31b8ee22-d1d1-444f-8812-ce9fd4d688dd" xml:space="preserve">
+          <source><bpt id="2ba892a8-07a1-4c46-bf56-7645e0b24e72">&lt;linkText&gt;</bpt>Set simple variable<ept id="2ba892a8-07a1-4c46-bf56-7645e0b24e72">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ba892a8-07a1-4c46-bf56-7645e0b24e72">&lt;linkText&gt;</bpt>Set simple variable<ept id="2ba892a8-07a1-4c46-bf56-7645e0b24e72">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b00bec5f-76f7-4c08-b134-50364f02e282" xml:space="preserve">
+          <source>The following image shows the activities used to update a variable with a complex value in a graphical runbook.</source>
+          <target state="new">The following image shows the activities used to update a variable with a complex value in a graphical runbook.</target>
+        </trans-unit>
+        <trans-unit id="38047cae-ba67-41d1-b7f9-47f6eac7953d" xml:space="preserve">
+          <source>The only change from the previous example is not specifying a <bpt id="116024eb-74e1-45ee-ab3f-e47f92a48706">&lt;strong&gt;</bpt>Field path<ept id="116024eb-74e1-45ee-ab3f-e47f92a48706">&lt;/strong&gt;</ept> for the <bpt id="27e99832-736b-4ad6-b603-53804dce898a">&lt;strong&gt;</bpt>Activity output<ept id="27e99832-736b-4ad6-b603-53804dce898a">&lt;/strong&gt;</ept> on the <bpt id="b8371a91-008f-4230-a049-cb5630626763">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="b8371a91-008f-4230-a049-cb5630626763">&lt;/strong&gt;</ept> activity so that the object is stored instead of just a property of the object.</source>
+          <target state="new">The only change from the previous example is not specifying a <bpt id="116024eb-74e1-45ee-ab3f-e47f92a48706">&lt;strong&gt;</bpt>Field path<ept id="116024eb-74e1-45ee-ab3f-e47f92a48706">&lt;/strong&gt;</ept> for the <bpt id="27e99832-736b-4ad6-b603-53804dce898a">&lt;strong&gt;</bpt>Activity output<ept id="27e99832-736b-4ad6-b603-53804dce898a">&lt;/strong&gt;</ept> on the <bpt id="b8371a91-008f-4230-a049-cb5630626763">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="b8371a91-008f-4230-a049-cb5630626763">&lt;/strong&gt;</ept> activity so that the object is stored instead of just a property of the object.</target>
+        </trans-unit>
+        <trans-unit id="d7218072-a7b3-415c-9152-e0bb5ec4ccbd" xml:space="preserve">
+          <source>As explained in <bpt id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;linkText&gt;</bpt>Variable types<ept id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;/linkText&gt;</ept><bpt id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;title&gt;</bpt><ept id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;/title&gt;</ept>, this is stored as a PSCustomObject.</source>
+          <target state="new">As explained in <bpt id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;linkText&gt;</bpt>Variable types<ept id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;/linkText&gt;</ept><bpt id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;title&gt;</bpt><ept id="76f1c508-be32-470a-8f70-8cbb22c2c62d">&lt;/title&gt;</ept>, this is stored as a PSCustomObject.</target>
+        </trans-unit>
+        <trans-unit id="5be7e9f2-0cdd-443d-a063-946419506d7d" xml:space="preserve">
+          <source><bpt id="e93b2d3a-b4ae-4286-a633-8571329e1100">&lt;linkText&gt;</bpt>Set complex variable<ept id="e93b2d3a-b4ae-4286-a633-8571329e1100">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e93b2d3a-b4ae-4286-a633-8571329e1100">&lt;linkText&gt;</bpt>Set complex variable<ept id="e93b2d3a-b4ae-4286-a633-8571329e1100">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="714d1946-c471-432c-8b71-54fc17ad6f4a" xml:space="preserve">
+          <source>The following image shows similar functionality as the previous example, with multiple virtual machines saved to the variable.</source>
+          <target state="new">The following image shows similar functionality as the previous example, with multiple virtual machines saved to the variable.</target>
+        </trans-unit>
+        <trans-unit id="8832c247-3f39-4ee8-9d56-ac0a1f4f5daa" xml:space="preserve">
+          <source>A <bpt id="6636794f-1841-49ec-84f8-4969078fb631">&lt;linkText&gt;</bpt>sequence link<ept id="6636794f-1841-49ec-84f8-4969078fb631">&lt;/linkText&gt;</ept><bpt id="6636794f-1841-49ec-84f8-4969078fb631">&lt;title&gt;</bpt><ept id="6636794f-1841-49ec-84f8-4969078fb631">&lt;/title&gt;</ept> must be used here so that the <bpt id="8b5c4830-6138-4308-b724-c0b8d1257548">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="8b5c4830-6138-4308-b724-c0b8d1257548">&lt;/strong&gt;</ept> activity receives the entire set of virtual machines as one collection.</source>
+          <target state="new">A <bpt id="6636794f-1841-49ec-84f8-4969078fb631">&lt;linkText&gt;</bpt>sequence link<ept id="6636794f-1841-49ec-84f8-4969078fb631">&lt;/linkText&gt;</ept><bpt id="6636794f-1841-49ec-84f8-4969078fb631">&lt;title&gt;</bpt><ept id="6636794f-1841-49ec-84f8-4969078fb631">&lt;/title&gt;</ept> must be used here so that the <bpt id="8b5c4830-6138-4308-b724-c0b8d1257548">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="8b5c4830-6138-4308-b724-c0b8d1257548">&lt;/strong&gt;</ept> activity receives the entire set of virtual machines as one collection.</target>
+        </trans-unit>
+        <trans-unit id="60a50257-d69b-48fc-bd16-468d9786ea41" xml:space="preserve">
+          <source>If a <bpt id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;linkText&gt;</bpt>pipeline link<ept id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;/linkText&gt;</ept><bpt id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;title&gt;</bpt><ept id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;/title&gt;</ept> was used, then the <bpt id="e3717866-8004-417a-a935-c96433b514d8">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="e3717866-8004-417a-a935-c96433b514d8">&lt;/strong&gt;</ept> activity would run separately for each object with the result being that only the last virtual machine in the collection would be saved.</source>
+          <target state="new">If a <bpt id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;linkText&gt;</bpt>pipeline link<ept id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;/linkText&gt;</ept><bpt id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;title&gt;</bpt><ept id="fd7080af-d32b-4fa7-a548-696a66f5a138">&lt;/title&gt;</ept> was used, then the <bpt id="e3717866-8004-417a-a935-c96433b514d8">&lt;strong&gt;</bpt>Set-AutomationVariable<ept id="e3717866-8004-417a-a935-c96433b514d8">&lt;/strong&gt;</ept> activity would run separately for each object with the result being that only the last virtual machine in the collection would be saved.</target>
+        </trans-unit>
+        <trans-unit id="6186ffef-5dab-4b1f-845b-8a0f0a7fdcd8" xml:space="preserve">
+          <source>As explained in <bpt id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;linkText&gt;</bpt>Variable types<ept id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;/linkText&gt;</ept><bpt id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;title&gt;</bpt><ept id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;/title&gt;</ept>, this is stored as a collection of PSCustomObjects.</source>
+          <target state="new">As explained in <bpt id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;linkText&gt;</bpt>Variable types<ept id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;/linkText&gt;</ept><bpt id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;title&gt;</bpt><ept id="a9ece002-403f-4c0b-8401-31a8217c87aa">&lt;/title&gt;</ept>, this is stored as a collection of PSCustomObjects.</target>
+        </trans-unit>
+        <trans-unit id="ef9a5725-1fe1-491b-a802-1f3a412c0158" xml:space="preserve">
+          <source><bpt id="54ec2001-6788-4f26-a9c9-9b5d1e808978">&lt;linkText&gt;</bpt>Set complex collection variable<ept id="54ec2001-6788-4f26-a9c9-9b5d1e808978">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54ec2001-6788-4f26-a9c9-9b5d1e808978">&lt;linkText&gt;</bpt>Set complex collection variable<ept id="54ec2001-6788-4f26-a9c9-9b5d1e808978">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a66f2b4f-5a1f-4d01-b06c-5ea72bd38585" xml:space="preserve">
+          <source>The following image shows sample activities that retrieve and use a variable in a graphical runbook.</source>
+          <target state="new">The following image shows sample activities that retrieve and use a variable in a graphical runbook.</target>
+        </trans-unit>
+        <trans-unit id="5f688785-945d-45f5-9305-225f2fdccb20" xml:space="preserve">
+          <source>The first activity retrieves the virtual machines that were saved to the variable in the previous example.</source>
+          <target state="new">The first activity retrieves the virtual machines that were saved to the variable in the previous example.</target>
+        </trans-unit>
+        <trans-unit id="a4111cef-3784-49b7-bc04-afee558f751d" xml:space="preserve">
+          <source>The link needs to be a <bpt id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;linkText&gt;</bpt>pipeline<ept id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;/linkText&gt;</ept><bpt id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;title&gt;</bpt><ept id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;/title&gt;</ept> so that the <bpt id="c1047c7f-cc0d-4a93-a4b8-9fd72dbfaa6d">&lt;strong&gt;</bpt>Start-AzureVM<ept id="c1047c7f-cc0d-4a93-a4b8-9fd72dbfaa6d">&lt;/strong&gt;</ept> activity runs once for each object sent from the <bpt id="41629348-3991-4c0d-926f-914439a13a72">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="41629348-3991-4c0d-926f-914439a13a72">&lt;/strong&gt;</ept> activity.</source>
+          <target state="new">The link needs to be a <bpt id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;linkText&gt;</bpt>pipeline<ept id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;/linkText&gt;</ept><bpt id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;title&gt;</bpt><ept id="b96cce37-ac03-4ef5-a43f-bdbc3f548a74">&lt;/title&gt;</ept> so that the <bpt id="c1047c7f-cc0d-4a93-a4b8-9fd72dbfaa6d">&lt;strong&gt;</bpt>Start-AzureVM<ept id="c1047c7f-cc0d-4a93-a4b8-9fd72dbfaa6d">&lt;/strong&gt;</ept> activity runs once for each object sent from the <bpt id="41629348-3991-4c0d-926f-914439a13a72">&lt;strong&gt;</bpt>Get-AutomationVariable<ept id="41629348-3991-4c0d-926f-914439a13a72">&lt;/strong&gt;</ept> activity.</target>
+        </trans-unit>
+        <trans-unit id="3dd50a08-7698-4af0-8fb8-cd8144fa0d21" xml:space="preserve">
+          <source>This will work the same whether a a single object or multiple objects are stored in the variable.</source>
+          <target state="new">This will work the same whether a a single object or multiple objects are stored in the variable.</target>
+        </trans-unit>
+        <trans-unit id="c8434eaa-3c0f-45f0-bcba-5748d456aa2d" xml:space="preserve">
+          <source>The <bpt id="bc23bfc8-9dc9-4300-8132-daa62839dfd7">&lt;strong&gt;</bpt>Start-AzureVM<ept id="bc23bfc8-9dc9-4300-8132-daa62839dfd7">&lt;/strong&gt;</ept> activity uses properties of the PSCustomObject that represents each virtual machine.</source>
+          <target state="new">The <bpt id="bc23bfc8-9dc9-4300-8132-daa62839dfd7">&lt;strong&gt;</bpt>Start-AzureVM<ept id="bc23bfc8-9dc9-4300-8132-daa62839dfd7">&lt;/strong&gt;</ept> activity uses properties of the PSCustomObject that represents each virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3b6cbc20-9209-400c-bb21-138eee36f772" xml:space="preserve">
+          <source><bpt id="0153fedf-bc66-45ee-af1a-42b83af8ad62">&lt;linkText&gt;</bpt>Get complex variable<ept id="0153fedf-bc66-45ee-af1a-42b83af8ad62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0153fedf-bc66-45ee-af1a-42b83af8ad62">&lt;linkText&gt;</bpt>Get complex variable<ept id="0153fedf-bc66-45ee-af1a-42b83af8ad62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86a13ce7-b1d3-41f0-ac1f-e0c9f2081f80" xml:space="preserve">
+          <source>The following image shows how to filter the objects that are stored to a variable in a graphical runbook.</source>
+          <target state="new">The following image shows how to filter the objects that are stored to a variable in a graphical runbook.</target>
+        </trans-unit>
+        <trans-unit id="2ee647d4-6150-4f3d-a10a-1baf3565fe29" xml:space="preserve">
+          <source>A <bpt id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;linkText&gt;</bpt>condition<ept id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;/linkText&gt;</ept><bpt id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;title&gt;</bpt><ept id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;/title&gt;</ept> is added to the link in the previous example to filter only those virtual machines that were stopped when the variable was set.</source>
+          <target state="new">A <bpt id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;linkText&gt;</bpt>condition<ept id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;/linkText&gt;</ept><bpt id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;title&gt;</bpt><ept id="bdc5480a-b48c-45d0-9ff6-9721f7891c03">&lt;/title&gt;</ept> is added to the link in the previous example to filter only those virtual machines that were stopped when the variable was set.</target>
+        </trans-unit>
+        <trans-unit id="e00fdc2c-618c-40e0-b3ca-0f3c32e376ef" xml:space="preserve">
+          <source><bpt id="fa431133-e5c9-4db3-9aba-cc28f5291a19">&lt;linkText&gt;</bpt>Get complex variable filtered<ept id="fa431133-e5c9-4db3-9aba-cc28f5291a19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa431133-e5c9-4db3-9aba-cc28f5291a19">&lt;linkText&gt;</bpt>Get complex variable filtered<ept id="fa431133-e5c9-4db3-9aba-cc28f5291a19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4784490b-a18b-4021-8c89-bca98aaaa88a" xml:space="preserve">
+          <source><bpt id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;linkText&gt;</bpt>Links in graphical authoring<ept id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;/linkText&gt;</ept><bpt id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;title&gt;</bpt><ept id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;linkText&gt;</bpt>Links in graphical authoring<ept id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;/linkText&gt;</ept><bpt id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;title&gt;</bpt><ept id="59a9fc4f-73cd-42b5-83b4-aa830c6ff3e3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

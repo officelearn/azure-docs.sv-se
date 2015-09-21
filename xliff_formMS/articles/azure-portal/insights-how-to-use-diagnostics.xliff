@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2cf65857-8df2-473f-9af8-b0dc4fd6078f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2cf65857-8df2-473f-9af8-b0dc4fd6078f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="98155f89-0085-44e1-b1d4-f5958b43352a">
+        <trans-unit id="104ba408-d6b4-44d8-bb8e-44a09a75824d" xml:space="preserve">
+          <source>Enable monitoring and diagnostics</source>
+          <target state="new">Enable monitoring and diagnostics</target>
+        </trans-unit>
+        <trans-unit id="62f94a88-f53f-45fc-bb32-8cfd2d17b3e1" xml:space="preserve">
+          <source>Learn how to set up diagnostics for your resources in Azure.</source>
+          <target state="new">Learn how to set up diagnostics for your resources in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e5771f32-4d83-40d0-b7c2-17a1863a0ce2" xml:space="preserve">
+          <source>In the <bpt id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;linkText&gt;</bpt>Azure Portal<ept id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;/linkText&gt;</ept><bpt id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;title&gt;</bpt><ept id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;/title&gt;</ept>, you can configure rich, frequent, monitoring and diagnostics data about your resources.</source>
+          <target state="new">In the <bpt id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;linkText&gt;</bpt>Azure Portal<ept id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;/linkText&gt;</ept><bpt id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;title&gt;</bpt><ept id="4eaa695d-31a6-489e-a250-fcca5e9e4b9e">&lt;/title&gt;</ept>, you can configure rich, frequent, monitoring and diagnostics data about your resources.</target>
+        </trans-unit>
+        <trans-unit id="21ff451d-9198-4378-8321-dd5abdd997cd" xml:space="preserve">
+          <source>You can also use the <bpt id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;linkText&gt;</bpt>REST API<ept id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;/linkText&gt;</ept><bpt id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;title&gt;</bpt><ept id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;/title&gt;</ept> or <bpt id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;linkText&gt;</bpt>.NET SDK<ept id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;/linkText&gt;</ept><bpt id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;title&gt;</bpt><ept id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;/title&gt;</ept> to configure diagnostics programmatically.</source>
+          <target state="new">You can also use the <bpt id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;linkText&gt;</bpt>REST API<ept id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;/linkText&gt;</ept><bpt id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;title&gt;</bpt><ept id="d59f3de8-f53a-4e2a-9533-b9c7f7baa15f">&lt;/title&gt;</ept> or <bpt id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;linkText&gt;</bpt>.NET SDK<ept id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;/linkText&gt;</ept><bpt id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;title&gt;</bpt><ept id="607ea561-1659-46cf-80af-4c8ef3a97aa9">&lt;/title&gt;</ept> to configure diagnostics programmatically.</target>
+        </trans-unit>
+        <trans-unit id="892f31d0-433e-4007-84c5-edfa6c381a35" xml:space="preserve">
+          <source>Diagnostics, monitoring and metric data in Azure is saved into a Storage account of your choice.</source>
+          <target state="new">Diagnostics, monitoring and metric data in Azure is saved into a Storage account of your choice.</target>
+        </trans-unit>
+        <trans-unit id="9d48b45b-7f77-43d3-9963-3fbf4e0ecedb" xml:space="preserve">
+          <source>This allows you to use whatever tooling you want to read the data, from a storage explorer, to Power BI to third-party tooling.</source>
+          <target state="new">This allows you to use whatever tooling you want to read the data, from a storage explorer, to Power BI to third-party tooling.</target>
+        </trans-unit>
+        <trans-unit id="56073939-8ba4-46c4-a11d-ca241f28980c" xml:space="preserve">
+          <source>Most services allow you to enable diagnostics when you first create them in the <bpt id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;linkText&gt;</bpt>Azure Portal<ept id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;/linkText&gt;</ept><bpt id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;title&gt;</bpt><ept id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Most services allow you to enable diagnostics when you first create them in the <bpt id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;linkText&gt;</bpt>Azure Portal<ept id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;/linkText&gt;</ept><bpt id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;title&gt;</bpt><ept id="116fd97d-7993-4ab6-8b83-858046cda81e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b914c090-160d-4ab9-9242-34310b30b7b9" xml:space="preserve">
+          <source>Go to <bpt id="5edf536c-672b-46b6-abac-964495f1db8b">&lt;strong&gt;</bpt>New<ept id="5edf536c-672b-46b6-abac-964495f1db8b">&lt;/strong&gt;</ept> and choose the resource you are interested in.</source>
+          <target state="new">Go to <bpt id="5edf536c-672b-46b6-abac-964495f1db8b">&lt;strong&gt;</bpt>New<ept id="5edf536c-672b-46b6-abac-964495f1db8b">&lt;/strong&gt;</ept> and choose the resource you are interested in.</target>
+        </trans-unit>
+        <trans-unit id="33098c0a-2066-4a6e-a999-91e712dac926" xml:space="preserve">
+          <source>Select <bpt id="dcdd88f7-0d0f-4337-9509-6978c1a6e845">&lt;strong&gt;</bpt>Optional configuration<ept id="dcdd88f7-0d0f-4337-9509-6978c1a6e845">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="dcdd88f7-0d0f-4337-9509-6978c1a6e845">&lt;strong&gt;</bpt>Optional configuration<ept id="dcdd88f7-0d0f-4337-9509-6978c1a6e845">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18f21613-a13f-4c15-a65d-d1559983811e" xml:space="preserve">
+          <source><bpt id="e46ee4a9-070c-4bc0-9da5-3d07f6b40dd7">&lt;linkText&gt;</bpt>Diagnostics blade<ept id="e46ee4a9-070c-4bc0-9da5-3d07f6b40dd7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e46ee4a9-070c-4bc0-9da5-3d07f6b40dd7">&lt;linkText&gt;</bpt>Diagnostics blade<ept id="e46ee4a9-070c-4bc0-9da5-3d07f6b40dd7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f0de03eb-27d3-4242-ba54-145d015ff871" xml:space="preserve">
+          <source>Select <bpt id="faba1013-0195-4830-bd51-55428918684f">&lt;strong&gt;</bpt>Diagnostics<ept id="faba1013-0195-4830-bd51-55428918684f">&lt;/strong&gt;</ept>, and click <bpt id="cfa06bd7-cebd-4952-ad1d-ee39bdf296b1">&lt;strong&gt;</bpt>On<ept id="cfa06bd7-cebd-4952-ad1d-ee39bdf296b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="faba1013-0195-4830-bd51-55428918684f">&lt;strong&gt;</bpt>Diagnostics<ept id="faba1013-0195-4830-bd51-55428918684f">&lt;/strong&gt;</ept>, and click <bpt id="cfa06bd7-cebd-4952-ad1d-ee39bdf296b1">&lt;strong&gt;</bpt>On<ept id="cfa06bd7-cebd-4952-ad1d-ee39bdf296b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be4e779c-dedf-4c93-a594-1b21c25f755e" xml:space="preserve">
+          <source>You will need to choose the Storage account that you want diagnostics to be saved to.</source>
+          <target state="new">You will need to choose the Storage account that you want diagnostics to be saved to.</target>
+        </trans-unit>
+        <trans-unit id="fd83b2a8-2a27-4079-a33c-308fb8edbea1" xml:space="preserve">
+          <source>You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.</source>
+          <target state="new">You’ll be charged normal data rates for storage and transactions when you send diagnostics to a storage account.</target>
+        </trans-unit>
+        <trans-unit id="fb757a27-ec80-4231-a4ab-8a8a11189a09" xml:space="preserve">
+          <source>Click <bpt id="ba819037-259e-42bc-8ba0-c65f5451b9ea">&lt;strong&gt;</bpt>OK<ept id="ba819037-259e-42bc-8ba0-c65f5451b9ea">&lt;/strong&gt;</ept> and create the resource.</source>
+          <target state="new">Click <bpt id="ba819037-259e-42bc-8ba0-c65f5451b9ea">&lt;strong&gt;</bpt>OK<ept id="ba819037-259e-42bc-8ba0-c65f5451b9ea">&lt;/strong&gt;</ept> and create the resource.</target>
+        </trans-unit>
+        <trans-unit id="d6520859-f29b-4132-8c74-84f8e6647023" xml:space="preserve">
+          <source>If you have already created a resource and you want to change the diagnostics settings (to change the level of data collection, for example), you can do that right in the Azure Portal.</source>
+          <target state="new">If you have already created a resource and you want to change the diagnostics settings (to change the level of data collection, for example), you can do that right in the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="cbbb0f1b-c969-4f34-9d0a-b87a17b284ae" xml:space="preserve">
+          <source>Go to the resource and click the <bpt id="e60c2cf5-8fbb-4c7f-b053-b638e70368f8">&lt;strong&gt;</bpt>Settings<ept id="e60c2cf5-8fbb-4c7f-b053-b638e70368f8">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Go to the resource and click the <bpt id="e60c2cf5-8fbb-4c7f-b053-b638e70368f8">&lt;strong&gt;</bpt>Settings<ept id="e60c2cf5-8fbb-4c7f-b053-b638e70368f8">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="803dd416-6cfd-410b-8fb1-9f0adfc35acc" xml:space="preserve">
+          <source>Select <bpt id="14e19855-038c-44dd-8321-c4fe53fa03ca">&lt;strong&gt;</bpt>Diagnostics<ept id="14e19855-038c-44dd-8321-c4fe53fa03ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="14e19855-038c-44dd-8321-c4fe53fa03ca">&lt;strong&gt;</bpt>Diagnostics<ept id="14e19855-038c-44dd-8321-c4fe53fa03ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c08dac0-ba0d-4fc0-bc50-4eff833568a8" xml:space="preserve">
+          <source>The <bpt id="1b491b9b-3b05-4c76-ab6d-0122b8db1aa9">&lt;strong&gt;</bpt>Diagnostics<ept id="1b491b9b-3b05-4c76-ab6d-0122b8db1aa9">&lt;/strong&gt;</ept> blade has all of the possible diagnostics and monitoring collection data for that resource.</source>
+          <target state="new">The <bpt id="1b491b9b-3b05-4c76-ab6d-0122b8db1aa9">&lt;strong&gt;</bpt>Diagnostics<ept id="1b491b9b-3b05-4c76-ab6d-0122b8db1aa9">&lt;/strong&gt;</ept> blade has all of the possible diagnostics and monitoring collection data for that resource.</target>
+        </trans-unit>
+        <trans-unit id="54202a25-c5b1-4cb6-8990-9b7b748a20a7" xml:space="preserve">
+          <source>For some resources you can also choose a <bpt id="5a12b647-175b-4527-91fc-c1431b4050f1">&lt;strong&gt;</bpt>Retention<ept id="5a12b647-175b-4527-91fc-c1431b4050f1">&lt;/strong&gt;</ept> policy for the data, to clean it up from your storage account.</source>
+          <target state="new">For some resources you can also choose a <bpt id="5a12b647-175b-4527-91fc-c1431b4050f1">&lt;strong&gt;</bpt>Retention<ept id="5a12b647-175b-4527-91fc-c1431b4050f1">&lt;/strong&gt;</ept> policy for the data, to clean it up from your storage account.</target>
+        </trans-unit>
+        <trans-unit id="7aeb7202-afe0-44ce-8a75-e604ef5ffacb" xml:space="preserve">
+          <source><bpt id="f2e9e39f-5ac9-41dd-85a0-0fb69b413120">&lt;linkText&gt;</bpt>Storage diagnostics<ept id="f2e9e39f-5ac9-41dd-85a0-0fb69b413120">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2e9e39f-5ac9-41dd-85a0-0fb69b413120">&lt;linkText&gt;</bpt>Storage diagnostics<ept id="f2e9e39f-5ac9-41dd-85a0-0fb69b413120">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16d883e8-5953-455c-8c74-4d01ffbf8c62" xml:space="preserve">
+          <source>Once you've chosen your settings, click the <bpt id="7acd7495-8691-49f0-9576-1cd5e58ea5a9">&lt;strong&gt;</bpt>Save<ept id="7acd7495-8691-49f0-9576-1cd5e58ea5a9">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Once you've chosen your settings, click the <bpt id="7acd7495-8691-49f0-9576-1cd5e58ea5a9">&lt;strong&gt;</bpt>Save<ept id="7acd7495-8691-49f0-9576-1cd5e58ea5a9">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="a3386ab8-0fd2-4648-b20e-055362d91f02" xml:space="preserve">
+          <source>It may take a little while for monitoring data to show up if you are enabling it for the first time.</source>
+          <target state="new">It may take a little while for monitoring data to show up if you are enabling it for the first time.</target>
+        </trans-unit>
+        <trans-unit id="36a882c3-4877-4437-a98f-715b1d20cc19" xml:space="preserve">
+          <source>For virtual machines all metrics and logs will be recorded at one-minute intervals, so you can always have the most up-to-date information about your machine.</source>
+          <target state="new">For virtual machines all metrics and logs will be recorded at one-minute intervals, so you can always have the most up-to-date information about your machine.</target>
+        </trans-unit>
+        <trans-unit id="acf987e0-2f2a-42f8-8722-3e52b142a35a" xml:space="preserve">
+          <source><bpt id="41c0eb1d-0e93-46fb-9548-381c341dd603">&lt;strong&gt;</bpt>Basic metrics<ept id="41c0eb1d-0e93-46fb-9548-381c341dd603">&lt;/strong&gt;</ept> : Health metrics about your virtual machine such as processor and memory </source>
+          <target state="new"><bpt id="41c0eb1d-0e93-46fb-9548-381c341dd603">&lt;strong&gt;</bpt>Basic metrics<ept id="41c0eb1d-0e93-46fb-9548-381c341dd603">&lt;/strong&gt;</ept> : Health metrics about your virtual machine such as processor and memory </target>
+        </trans-unit>
+        <trans-unit id="34541e6e-a124-48ca-a031-2ce6529406fb" xml:space="preserve">
+          <source><bpt id="7be25742-2664-472a-bf40-df12acc80e6c">&lt;strong&gt;</bpt>Network and web metrics<ept id="7be25742-2664-472a-bf40-df12acc80e6c">&lt;/strong&gt;</ept> : Metrics about your network connections and web services</source>
+          <target state="new"><bpt id="7be25742-2664-472a-bf40-df12acc80e6c">&lt;strong&gt;</bpt>Network and web metrics<ept id="7be25742-2664-472a-bf40-df12acc80e6c">&lt;/strong&gt;</ept> : Metrics about your network connections and web services</target>
+        </trans-unit>
+        <trans-unit id="02762fed-54be-4043-80fa-54431219f037" xml:space="preserve">
+          <source><bpt id="13b32e1d-72c6-4a56-bd92-879a0323fd4b">&lt;strong&gt;</bpt>.NET metrics<ept id="13b32e1d-72c6-4a56-bd92-879a0323fd4b">&lt;/strong&gt;</ept> : Metrics about the .NET and ASP.NET applications running on your virtual machine</source>
+          <target state="new"><bpt id="13b32e1d-72c6-4a56-bd92-879a0323fd4b">&lt;strong&gt;</bpt>.NET metrics<ept id="13b32e1d-72c6-4a56-bd92-879a0323fd4b">&lt;/strong&gt;</ept> : Metrics about the .NET and ASP.NET applications running on your virtual machine</target>
+        </trans-unit>
+        <trans-unit id="08dfee9e-a956-46cb-9121-1407db383ba2" xml:space="preserve">
+          <source><bpt id="e7162b39-5ffa-4a3a-896e-d79d26d09e4f">&lt;strong&gt;</bpt>SQL metrics<ept id="e7162b39-5ffa-4a3a-896e-d79d26d09e4f">&lt;/strong&gt;</ept> : If you are running Microsoft SQL Service, its performance metrics</source>
+          <target state="new"><bpt id="e7162b39-5ffa-4a3a-896e-d79d26d09e4f">&lt;strong&gt;</bpt>SQL metrics<ept id="e7162b39-5ffa-4a3a-896e-d79d26d09e4f">&lt;/strong&gt;</ept> : If you are running Microsoft SQL Service, its performance metrics</target>
+        </trans-unit>
+        <trans-unit id="fb6302a2-3c02-4547-81f2-85fbeb578188" xml:space="preserve">
+          <source><bpt id="045f34e2-3018-433d-896c-ee6ccc3727a8">&lt;strong&gt;</bpt>Windows event application logs<ept id="045f34e2-3018-433d-896c-ee6ccc3727a8">&lt;/strong&gt;</ept> : Windows events that are sent to the application channel</source>
+          <target state="new"><bpt id="045f34e2-3018-433d-896c-ee6ccc3727a8">&lt;strong&gt;</bpt>Windows event application logs<ept id="045f34e2-3018-433d-896c-ee6ccc3727a8">&lt;/strong&gt;</ept> : Windows events that are sent to the application channel</target>
+        </trans-unit>
+        <trans-unit id="282fae7d-6ed1-4d51-8837-5d686e2bcda7" xml:space="preserve">
+          <source><bpt id="4d2ffc8f-88f0-45fb-aaf4-280c9afcc34c">&lt;strong&gt;</bpt>Windows event system logs<ept id="4d2ffc8f-88f0-45fb-aaf4-280c9afcc34c">&lt;/strong&gt;</ept> : Windows events that are sent to the system channel. This also includes all events from <bpt id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;linkText&gt;</bpt>Microsoft Antimalware<ept id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;/linkText&gt;</ept><bpt id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;title&gt;</bpt><ept id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;/title&gt;</ept>. </source>
+          <target state="new"><bpt id="4d2ffc8f-88f0-45fb-aaf4-280c9afcc34c">&lt;strong&gt;</bpt>Windows event system logs<ept id="4d2ffc8f-88f0-45fb-aaf4-280c9afcc34c">&lt;/strong&gt;</ept> : Windows events that are sent to the system channel. This also includes all events from <bpt id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;linkText&gt;</bpt>Microsoft Antimalware<ept id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;/linkText&gt;</ept><bpt id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;title&gt;</bpt><ept id="507030f9-3ba0-45c0-b353-53b3c2f37ac4">&lt;/title&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="a4932e8c-cd79-4a95-80eb-040e689bb51a" xml:space="preserve">
+          <source><bpt id="31ec44c8-8ac0-4dfc-a76c-97716e1898c0">&lt;strong&gt;</bpt>Windows event security logs<ept id="31ec44c8-8ac0-4dfc-a76c-97716e1898c0">&lt;/strong&gt;</ept> : Windows events that are sent to the security channel</source>
+          <target state="new"><bpt id="31ec44c8-8ac0-4dfc-a76c-97716e1898c0">&lt;strong&gt;</bpt>Windows event security logs<ept id="31ec44c8-8ac0-4dfc-a76c-97716e1898c0">&lt;/strong&gt;</ept> : Windows events that are sent to the security channel</target>
+        </trans-unit>
+        <trans-unit id="9cbdde8c-487f-4c35-b321-07a786f4dad5" xml:space="preserve">
+          <source><bpt id="277d5e63-639b-4837-8385-37a748d5b8ce">&lt;strong&gt;</bpt>Diagnostics infrastructure logs<ept id="277d5e63-639b-4837-8385-37a748d5b8ce">&lt;/strong&gt;</ept> : Logging about the diagnostics collection infrastructure</source>
+          <target state="new"><bpt id="277d5e63-639b-4837-8385-37a748d5b8ce">&lt;strong&gt;</bpt>Diagnostics infrastructure logs<ept id="277d5e63-639b-4837-8385-37a748d5b8ce">&lt;/strong&gt;</ept> : Logging about the diagnostics collection infrastructure</target>
+        </trans-unit>
+        <trans-unit id="c0b76316-116e-4784-b431-96d33a5348de" xml:space="preserve">
+          <source><bpt id="a13ea547-80bf-4b25-ae63-a0697f0ee4d1">&lt;strong&gt;</bpt>IIS logs<ept id="a13ea547-80bf-4b25-ae63-a0697f0ee4d1">&lt;/strong&gt;</ept> : Logs about your IIS server</source>
+          <target state="new"><bpt id="a13ea547-80bf-4b25-ae63-a0697f0ee4d1">&lt;strong&gt;</bpt>IIS logs<ept id="a13ea547-80bf-4b25-ae63-a0697f0ee4d1">&lt;/strong&gt;</ept> : Logs about your IIS server</target>
+        </trans-unit>
+        <trans-unit id="3fcd3c66-cbee-4588-a7a4-30210063c551" xml:space="preserve">
+          <source>Note that at this time certain distributions of Linux are not supported, and, the Guest Agent must be installed on the virtual machine.</source>
+          <target state="new">Note that at this time certain distributions of Linux are not supported, and, the Guest Agent must be installed on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="10bc2865-fcfc-4151-8d21-ac1c99c4d5c7" xml:space="preserve">
+          <source><bpt id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;/linkText&gt;</ept><bpt id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;title&gt;</bpt><ept id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</source>
+          <target state="new"><bpt id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;linkText&gt;</bpt>Receive alert notifications<ept id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;/linkText&gt;</ept><bpt id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;title&gt;</bpt><ept id="b39859c3-35bc-46f2-a69e-9efd6cc9b734">&lt;/title&gt;</ept> whenever operational events happen or metrics cross a threshold.</target>
+        </trans-unit>
+        <trans-unit id="c8f917ee-f656-4b44-955d-ffccb699af74" xml:space="preserve">
+          <source><bpt id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;/linkText&gt;</ept><bpt id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;title&gt;</bpt><ept id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;/title&gt;</ept> to make sure your service is available and responsive.</source>
+          <target state="new"><bpt id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;linkText&gt;</bpt>Monitor service metrics<ept id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;/linkText&gt;</ept><bpt id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;title&gt;</bpt><ept id="92008393-9fdc-43c1-90b1-defd15c678e0">&lt;/title&gt;</ept> to make sure your service is available and responsive.</target>
+        </trans-unit>
+        <trans-unit id="9b2ceb03-bf3b-400d-9352-196aaa3bf2c1" xml:space="preserve">
+          <source><bpt id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;linkText&gt;</bpt>Scale instance count automatically<ept id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;/linkText&gt;</ept><bpt id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;title&gt;</bpt><ept id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;/title&gt;</ept> to make sure your service scale based on demand.</source>
+          <target state="new"><bpt id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;linkText&gt;</bpt>Scale instance count automatically<ept id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;/linkText&gt;</ept><bpt id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;title&gt;</bpt><ept id="52c2183f-9f36-412d-a1e6-c2a9c51a387a">&lt;/title&gt;</ept> to make sure your service scale based on demand.</target>
+        </trans-unit>
+        <trans-unit id="d890b92c-6a76-4421-8a57-db05c49fe1cd" xml:space="preserve">
+          <source><bpt id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;linkText&gt;</bpt>Monitor application performance<ept id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;/linkText&gt;</ept><bpt id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;title&gt;</bpt><ept id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</source>
+          <target state="new"><bpt id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;linkText&gt;</bpt>Monitor application performance<ept id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;/linkText&gt;</ept><bpt id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;title&gt;</bpt><ept id="9b4bbe9c-2874-4bbc-acc0-ee08a7d6b6ff">&lt;/title&gt;</ept> if you want to understand exactly how your code is performing in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="3e215478-310b-497b-a1be-03f12bb860c6" xml:space="preserve">
+          <source><bpt id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;linkText&gt;</bpt>View events and audit logs<ept id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;/linkText&gt;</ept><bpt id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;title&gt;</bpt><ept id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;/title&gt;</ept> to learn everything that has happened in your service.</source>
+          <target state="new"><bpt id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;linkText&gt;</bpt>View events and audit logs<ept id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;/linkText&gt;</ept><bpt id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;title&gt;</bpt><ept id="ea25e33c-006d-4fe0-a493-3e73bdfa9540">&lt;/title&gt;</ept> to learn everything that has happened in your service.</target>
+        </trans-unit>
+        <trans-unit id="51ff5c05-8763-4d44-9a4a-b2915951daf8" xml:space="preserve">
+          <source><bpt id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;linkText&gt;</bpt>Track service health<ept id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;/linkText&gt;</ept><bpt id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;title&gt;</bpt><ept id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;/title&gt;</ept> to find out when Azure has experienced performance degradation or service interruptions.</source>
+          <target state="new"><bpt id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;linkText&gt;</bpt>Track service health<ept id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;/linkText&gt;</ept><bpt id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;title&gt;</bpt><ept id="e331ca24-0206-4af1-ab0f-5b7585780ebe">&lt;/title&gt;</ept> to find out when Azure has experienced performance degradation or service interruptions.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

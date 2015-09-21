@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ce5c8686-bdba-4c9c-8433-61ad6bf0e427" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ce5c8686-bdba-4c9c-8433-61ad6bf0e427" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="03cec3fc-0be6-4d66-9fe5-42fd41313e30">
+        <trans-unit id="db7de055-6336-42b2-9f3e-b15e495a2b9b" xml:space="preserve">
+          <source>Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream</source>
+          <target state="new">Use Management Portal to Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream</target>
+        </trans-unit>
+        <trans-unit id="5f2ae818-e00c-4e40-aba5-10e26b3b8ae7" xml:space="preserve">
+          <source>This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</source>
+          <target state="new">This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</target>
+        </trans-unit>
+        <trans-unit id="9af85314-fcd9-440f-b597-83c6b9e96c1d" xml:space="preserve">
+          <source>This tutorial walks you through the steps of creating a <bpt id="43d641ea-e752-47cd-adac-922285e2274c">&lt;strong&gt;</bpt>Channel<ept id="43d641ea-e752-47cd-adac-922285e2274c">&lt;/strong&gt;</ept> that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</source>
+          <target state="new">This tutorial walks you through the steps of creating a <bpt id="43d641ea-e752-47cd-adac-922285e2274c">&lt;strong&gt;</bpt>Channel<ept id="43d641ea-e752-47cd-adac-922285e2274c">&lt;/strong&gt;</ept> that receives a single-bitrate live stream and encodes it to multi-bitrate stream.</target>
+        </trans-unit>
+        <trans-unit id="c1f330ad-c5a5-4df3-8d1e-23cd41059005" xml:space="preserve">
+          <source>For more conceptual information related to Channels that are enabled for live encoding, see <bpt id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;/linkText&gt;</ept><bpt id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;title&gt;</bpt><ept id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more conceptual information related to Channels that are enabled for live encoding, see <bpt id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;/linkText&gt;</ept><bpt id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;title&gt;</bpt><ept id="e56f1483-1561-4b3c-9f39-5a7d8aa1c5d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4a0c38d-b286-4d66-b4b4-c8d4800f8ffb" xml:space="preserve">
+          <source>The following are general steps involved in creating common live streaming applications.</source>
+          <target state="new">The following are general steps involved in creating common live streaming applications.</target>
+        </trans-unit>
+        <trans-unit id="b25f38cb-79ef-4378-95a2-21b3fb6ca459" xml:space="preserve">
+          <source>Connect a video camera to a computer.</source>
+          <target state="new">Connect a video camera to a computer.</target>
+        </trans-unit>
+        <trans-unit id="ecba080c-44be-4dfa-8ae7-d38ff9411b96" xml:space="preserve">
+          <source>Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS).</source>
+          <target state="new">Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS).</target>
+        </trans-unit>
+        <trans-unit id="9661fb63-1fb3-4895-b3ed-3cf35be69764" xml:space="preserve">
+          <source>For more information, see <bpt id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;linkText&gt;</bpt>Azure Media Services RTMP Support and Live Encoders<ept id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;/linkText&gt;</ept><bpt id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;title&gt;</bpt><ept id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;linkText&gt;</bpt>Azure Media Services RTMP Support and Live Encoders<ept id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;/linkText&gt;</ept><bpt id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;title&gt;</bpt><ept id="b2642988-7e9b-4479-9369-599008f8d4b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="97479f3d-e6da-4b61-ba4c-95c590bafcfc" xml:space="preserve">
+          <source>This step could also be performed after you create your Channel.</source>
+          <target state="new">This step could also be performed after you create your Channel.</target>
+        </trans-unit>
+        <trans-unit id="c9d5e8a4-1a97-4c71-91b3-0f185c39375a" xml:space="preserve">
+          <source>Create and start a Channel.</source>
+          <target state="new">Create and start a Channel.</target>
+        </trans-unit>
+        <trans-unit id="6e305ee1-deb0-43e7-9b1e-190ab0090761" xml:space="preserve">
+          <source>Retrieve the Channel ingest URL.</source>
+          <target state="new">Retrieve the Channel ingest URL.</target>
+        </trans-unit>
+        <trans-unit id="302f8fb3-201d-473d-ad4f-05d71e09ef2a" xml:space="preserve">
+          <source>The ingest URL is used by the live encoder to send the stream to the Channel.</source>
+          <target state="new">The ingest URL is used by the live encoder to send the stream to the Channel.</target>
+        </trans-unit>
+        <trans-unit id="48724972-f283-4216-b0c9-16aeddbbf75c" xml:space="preserve">
+          <source>Retrieve the Channel preview URL.</source>
+          <target state="new">Retrieve the Channel preview URL.</target>
+        </trans-unit>
+        <trans-unit id="b19ea6d1-2b3e-437f-8f59-07e2ab21455f" xml:space="preserve">
+          <source>Use this URL to verify that your channel is properly receiving the live stream.</source>
+          <target state="new">Use this URL to verify that your channel is properly receiving the live stream.</target>
+        </trans-unit>
+        <trans-unit id="31cf3bdf-3a5e-461e-9fd3-599e6f9ab4dd" xml:space="preserve">
+          <source>Create a program (that will also create an asset).</source>
+          <target state="new">Create a program (that will also create an asset).</target>
+        </trans-unit>
+        <trans-unit id="16678fd2-1c19-44d0-bfba-e565213c6124" xml:space="preserve">
+          <source>Publish the program (that will create an  OnDemand locator for the associated asset).</source>
+          <target state="new">Publish the program (that will create an  OnDemand locator for the associated asset).</target>
+        </trans-unit>
+        <trans-unit id="ba46431c-d516-4386-9eed-4a955ba3e9a3" xml:space="preserve">
+          <source>Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.</source>
+          <target state="new">Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.</target>
+        </trans-unit>
+        <trans-unit id="82ade9ee-48b7-4944-966b-1c622db95c96" xml:space="preserve">
+          <source>Start the program when you are ready to start streaming and archiving.</source>
+          <target state="new">Start the program when you are ready to start streaming and archiving.</target>
+        </trans-unit>
+        <trans-unit id="90e70aff-5361-4ef6-a250-8013241fe42b" xml:space="preserve">
+          <source>Optionally, the live encoder can be signaled to start an advertisement.</source>
+          <target state="new">Optionally, the live encoder can be signaled to start an advertisement.</target>
+        </trans-unit>
+        <trans-unit id="cb92dcbf-6cb9-44cd-adbd-b7ab67ba6307" xml:space="preserve">
+          <source>The advertisement is inserted in the output stream.</source>
+          <target state="new">The advertisement is inserted in the output stream.</target>
+        </trans-unit>
+        <trans-unit id="4d19b353-43fc-40d6-bea0-938ecd15a5a4" xml:space="preserve">
+          <source>Stop the program whenever you want to stop streaming and archiving the event.</source>
+          <target state="new">Stop the program whenever you want to stop streaming and archiving the event.</target>
+        </trans-unit>
+        <trans-unit id="48e5f36c-b6db-45c7-9080-6a6517997f45" xml:space="preserve">
+          <source>Delete the Program (and optionally delete the asset).</source>
+          <target state="new">Delete the Program (and optionally delete the asset).</target>
+        </trans-unit>
+        <trans-unit id="842a02c1-863d-4df7-accd-1582cbc2f4f7" xml:space="preserve">
+          <source>In this tutorial, the Azure Management Portal is used to accomplish the following tasks: </source>
+          <target state="new">In this tutorial, the Azure Management Portal is used to accomplish the following tasks: </target>
+        </trans-unit>
+        <trans-unit id="1ecc72d2-4c28-4186-be97-ad387716303d" xml:space="preserve">
+          <source>Configure streaming endpoints.</source>
+          <target state="new">Configure streaming endpoints.</target>
+        </trans-unit>
+        <trans-unit id="9774acfa-3fb2-43b9-8770-42a15a317b0a" xml:space="preserve">
+          <source>Create a channel that is enabled to perform live encoding.</source>
+          <target state="new">Create a channel that is enabled to perform live encoding.</target>
+        </trans-unit>
+        <trans-unit id="97067109-d01c-42ec-a1ba-82cb08bad0d7" xml:space="preserve">
+          <source>Get the Ingest URL in order to supply it to live encoder.</source>
+          <target state="new">Get the Ingest URL in order to supply it to live encoder.</target>
+        </trans-unit>
+        <trans-unit id="d3e3058d-b8cd-470c-aba6-97382cce4b10" xml:space="preserve">
+          <source>The live encoder will use this URL to ingest the stream into the Channel.</source>
+          <target state="new">The live encoder will use this URL to ingest the stream into the Channel.</target>
+        </trans-unit>
+        <trans-unit id="a5b2c9ac-5ed1-4d2b-ac87-6d5d39fd86f9" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="f30124dd-cd43-4fe7-a850-ad1d89e3571f" xml:space="preserve">
+          <source>Create a program (and an asset)</source>
+          <target state="new">Create a program (and an asset)</target>
+        </trans-unit>
+        <trans-unit id="c9fbe0a5-6708-4640-9e68-e82d84a0102f" xml:space="preserve">
+          <source>Publish the asset and get streaming URLs  </source>
+          <target state="new">Publish the asset and get streaming URLs  </target>
+        </trans-unit>
+        <trans-unit id="6e19c56d-2e0f-4277-b26c-baae249fc37b" xml:space="preserve">
+          <source>Play your content </source>
+          <target state="new">Play your content </target>
+        </trans-unit>
+        <trans-unit id="fc671e00-6793-4e3d-9863-b5d57dd474ab" xml:space="preserve">
+          <source>Cleaning up</source>
+          <target state="new">Cleaning up</target>
+        </trans-unit>
+        <trans-unit id="63599ac5-7693-479c-a31c-4124595dd10d" xml:space="preserve">
+          <source>The following are required to complete the tutorial.</source>
+          <target state="new">The following are required to complete the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="5eb671d0-f493-4154-b131-cc220c70ad08" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="7741b2ff-93d6-419e-a37c-c44784fb1261" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="7e590ee2-beb8-4ba9-9c36-1ae1fe8d8078" xml:space="preserve">
+          <source>For details, see <bpt id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;/linkText&gt;</ept><bpt id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;title&gt;</bpt><ept id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;/linkText&gt;</ept><bpt id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;title&gt;</bpt><ept id="6f5d7d46-289b-45e7-8d63-e802e2eb5069">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e263c703-0b14-40a4-b73a-2efda00f067f" xml:space="preserve">
+          <source>A Media Services account.</source>
+          <target state="new">A Media Services account.</target>
+        </trans-unit>
+        <trans-unit id="38eaadf5-8f6f-408b-a64d-0e61556e30e5" xml:space="preserve">
+          <source>To create a Media Services account, see <bpt id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;linkText&gt;</bpt>Create Account<ept id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;/linkText&gt;</ept><bpt id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;title&gt;</bpt><ept id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a Media Services account, see <bpt id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;linkText&gt;</bpt>Create Account<ept id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;/linkText&gt;</ept><bpt id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;title&gt;</bpt><ept id="392b9672-121e-4bd8-8114-53488ee2d268">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcc3caf0-014c-4423-a7e5-7bdf1872554b" xml:space="preserve">
+          <source>A webcam and an encoder that can send a single bitrate live stream.</source>
+          <target state="new">A webcam and an encoder that can send a single bitrate live stream.</target>
+        </trans-unit>
+        <trans-unit id="83d14d2c-4549-4a83-a1cf-9932501c8763" xml:space="preserve">
+          <source>When working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</source>
+          <target state="new">When working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients.</target>
+        </trans-unit>
+        <trans-unit id="e5446ac2-e085-4468-b136-0c5516902e76" xml:space="preserve">
+          <source>With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</source>
+          <target state="new">With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors.</target>
+        </trans-unit>
+        <trans-unit id="1c7d943b-0bed-408c-8c7e-5e35ed7752f4" xml:space="preserve">
+          <source>Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="2d98113b-acc5-41b0-8953-514827e1d0d0" xml:space="preserve">
+          <source>When working with live streaming, an on-premises live encoder (in our case Wirecast) ingests a multi-bitrate live stream into your channel.</source>
+          <target state="new">When working with live streaming, an on-premises live encoder (in our case Wirecast) ingests a multi-bitrate live stream into your channel.</target>
+        </trans-unit>
+        <trans-unit id="c03d9414-f3e4-4e56-91fd-0fe14b7103cd" xml:space="preserve">
+          <source>When the stream is requested by a user, Media Services uses dynamic packaging to re-package the source stream into the requested adaptive bitrate stream (HLS, DASH, or Smooth).</source>
+          <target state="new">When the stream is requested by a user, Media Services uses dynamic packaging to re-package the source stream into the requested adaptive bitrate stream (HLS, DASH, or Smooth).</target>
+        </trans-unit>
+        <trans-unit id="0d85b1ee-7867-4a5b-85bf-64c6b088530e" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you need to get at least one streaming unit for the <bpt id="7358f88b-ea21-4f51-8cbf-3ac971ab9c64">&lt;strong&gt;</bpt>streaming endpoint<ept id="7358f88b-ea21-4f51-8cbf-3ac971ab9c64">&lt;/strong&gt;</ept> from which you plan to delivery your content.</source>
+          <target state="new">To take advantage of dynamic packaging, you need to get at least one streaming unit for the <bpt id="7358f88b-ea21-4f51-8cbf-3ac971ab9c64">&lt;strong&gt;</bpt>streaming endpoint<ept id="7358f88b-ea21-4f51-8cbf-3ac971ab9c64">&lt;/strong&gt;</ept> from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="21e4c297-f77a-49f9-b82c-ba14369ea76c" xml:space="preserve">
+          <source>To change the number of streaming reserved units, do the following:</source>
+          <target state="new">To change the number of streaming reserved units, do the following:</target>
+        </trans-unit>
+        <trans-unit id="e8b6a195-f75b-4d36-b861-9d36c561586c" xml:space="preserve">
+          <source>In the <bpt id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;linkText&gt;</bpt>Management Portal<ept id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;/linkText&gt;</ept><bpt id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;title&gt;</bpt><ept id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;/title&gt;</ept>, click <bpt id="6b45893a-5145-4d64-a9b1-c1ddd4978ccd">&lt;strong&gt;</bpt>Media Services<ept id="6b45893a-5145-4d64-a9b1-c1ddd4978ccd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;linkText&gt;</bpt>Management Portal<ept id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;/linkText&gt;</ept><bpt id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;title&gt;</bpt><ept id="ebc6e05b-a301-4e9e-be86-a5af90ecb883">&lt;/title&gt;</ept>, click <bpt id="6b45893a-5145-4d64-a9b1-c1ddd4978ccd">&lt;strong&gt;</bpt>Media Services<ept id="6b45893a-5145-4d64-a9b1-c1ddd4978ccd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc0d5422-7877-49d5-93a2-b2fe734d8712" xml:space="preserve">
+          <source>Then, click the name of the media service.</source>
+          <target state="new">Then, click the name of the media service.</target>
+        </trans-unit>
+        <trans-unit id="31a16258-9537-4cb4-b5d2-6c0aa51d4e76" xml:space="preserve">
+          <source>Select the STREAMING ENDPOINTS page.</source>
+          <target state="new">Select the STREAMING ENDPOINTS page.</target>
+        </trans-unit>
+        <trans-unit id="220b184b-cff3-438a-8ef3-259b3be367f7" xml:space="preserve">
+          <source>Then, click on the streaming endpoint that you want to modify.</source>
+          <target state="new">Then, click on the streaming endpoint that you want to modify.</target>
+        </trans-unit>
+        <trans-unit id="2a5ff25f-eb58-46a5-93a3-c994fa4ae59e" xml:space="preserve">
+          <source>To specify the number of streaming units, select the SCALE tab and move the <bpt id="0110ac60-e670-4737-87ce-acf8aaeb5abe">&lt;strong&gt;</bpt>reserved capacity<ept id="0110ac60-e670-4737-87ce-acf8aaeb5abe">&lt;/strong&gt;</ept> slider.</source>
+          <target state="new">To specify the number of streaming units, select the SCALE tab and move the <bpt id="0110ac60-e670-4737-87ce-acf8aaeb5abe">&lt;strong&gt;</bpt>reserved capacity<ept id="0110ac60-e670-4737-87ce-acf8aaeb5abe">&lt;/strong&gt;</ept> slider.</target>
+        </trans-unit>
+        <trans-unit id="dd83ba9f-6a9a-4e67-914e-a7eb55e06feb" xml:space="preserve">
+          <source><bpt id="db4f3a45-fb4b-4659-aacf-3612adb5993a">&lt;linkText&gt;</bpt>Scale page<ept id="db4f3a45-fb4b-4659-aacf-3612adb5993a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="db4f3a45-fb4b-4659-aacf-3612adb5993a">&lt;linkText&gt;</bpt>Scale page<ept id="db4f3a45-fb4b-4659-aacf-3612adb5993a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf5e8c81-4355-468e-aea1-7b0a92f6ed50" xml:space="preserve">
+          <source>Press the SAVE button to save your changes.</source>
+          <target state="new">Press the SAVE button to save your changes.</target>
+        </trans-unit>
+        <trans-unit id="bb118372-272e-42a5-b8b4-a33bd8c90911" xml:space="preserve">
+          <source>The allocation of any new units takes around 20 minutes to complete.</source>
+          <target state="new">The allocation of any new units takes around 20 minutes to complete.</target>
+        </trans-unit>
+        <trans-unit id="4da77293-03e1-40d9-8ed3-44f1a73e06ec" xml:space="preserve">
+          <source>Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.</source>
+          <target state="new">Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.</target>
+        </trans-unit>
+        <trans-unit id="9bd47c19-93e8-48c7-8339-8b895571d1f0" xml:space="preserve">
+          <source>The highest number of units specified for the 24-hour period is used in calculating the cost.</source>
+          <target state="new">The highest number of units specified for the 24-hour period is used in calculating the cost.</target>
+        </trans-unit>
+        <trans-unit id="e1c79c25-4a48-4436-b24f-15a891b92976" xml:space="preserve">
+          <source>For information about pricing details, see <bpt id="85344730-dd20-4af0-885b-5d80928add00">&lt;linkText&gt;</bpt>Media Services Pricing Details<ept id="85344730-dd20-4af0-885b-5d80928add00">&lt;/linkText&gt;</ept><bpt id="85344730-dd20-4af0-885b-5d80928add00">&lt;title&gt;</bpt><ept id="85344730-dd20-4af0-885b-5d80928add00">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about pricing details, see <bpt id="85344730-dd20-4af0-885b-5d80928add00">&lt;linkText&gt;</bpt>Media Services Pricing Details<ept id="85344730-dd20-4af0-885b-5d80928add00">&lt;/linkText&gt;</ept><bpt id="85344730-dd20-4af0-885b-5d80928add00">&lt;title&gt;</bpt><ept id="85344730-dd20-4af0-885b-5d80928add00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f5bac5e-185c-451b-81e4-0ba19951dab3" xml:space="preserve">
+          <source>In the <bpt id="72ade765-d459-4386-bffd-2279b0542dce">&lt;linkText&gt;</bpt>Management Portal<ept id="72ade765-d459-4386-bffd-2279b0542dce">&lt;/linkText&gt;</ept><bpt id="72ade765-d459-4386-bffd-2279b0542dce">&lt;title&gt;</bpt><ept id="72ade765-d459-4386-bffd-2279b0542dce">&lt;/title&gt;</ept>, click Media Services and then click on the Media Services account name.</source>
+          <target state="new">In the <bpt id="72ade765-d459-4386-bffd-2279b0542dce">&lt;linkText&gt;</bpt>Management Portal<ept id="72ade765-d459-4386-bffd-2279b0542dce">&lt;/linkText&gt;</ept><bpt id="72ade765-d459-4386-bffd-2279b0542dce">&lt;title&gt;</bpt><ept id="72ade765-d459-4386-bffd-2279b0542dce">&lt;/title&gt;</ept>, click Media Services and then click on the Media Services account name.</target>
+        </trans-unit>
+        <trans-unit id="7d2dca42-6394-481a-981d-94e595d265a6" xml:space="preserve">
+          <source>Select the CHANNELS page.</source>
+          <target state="new">Select the CHANNELS page.</target>
+        </trans-unit>
+        <trans-unit id="a7530217-0f7b-43de-a93c-00dfd9ff74ec" xml:space="preserve">
+          <source>Select Add+ to add a new channel.</source>
+          <target state="new">Select Add+ to add a new channel.</target>
+        </trans-unit>
+        <trans-unit id="f040833a-f908-436c-86e5-4628d0b64abe" xml:space="preserve">
+          <source>Choose <bpt id="2ff40063-28ed-4e31-b8d0-f2acb9c8798d">&lt;strong&gt;</bpt>Standard<ept id="2ff40063-28ed-4e31-b8d0-f2acb9c8798d">&lt;/strong&gt;</ept> encoding types.</source>
+          <target state="new">Choose <bpt id="2ff40063-28ed-4e31-b8d0-f2acb9c8798d">&lt;strong&gt;</bpt>Standard<ept id="2ff40063-28ed-4e31-b8d0-f2acb9c8798d">&lt;/strong&gt;</ept> encoding types.</target>
+        </trans-unit>
+        <trans-unit id="141de3e2-9a5e-48e4-aac1-811d71f59992" xml:space="preserve">
+          <source>This type specifies that you want to create a Channel that is enabled for live encoding.</source>
+          <target state="new">This type specifies that you want to create a Channel that is enabled for live encoding.</target>
+        </trans-unit>
+        <trans-unit id="609ea816-c1dd-4544-b355-1ed3205cd5f0" xml:space="preserve">
+          <source>That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings.</source>
+          <target state="new">That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings.</target>
+        </trans-unit>
+        <trans-unit id="954e13ee-914a-475d-a2ea-909a42e48134" xml:space="preserve">
+          <source>For more information, see <bpt id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;/linkText&gt;</ept><bpt id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;title&gt;</bpt><ept id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;/linkText&gt;</ept><bpt id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;title&gt;</bpt><ept id="35c9ab04-62c2-461b-81b5-fec1c1049579">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37bc17b8-2074-426b-87f4-044840cf8640" xml:space="preserve">
+          <source><bpt id="4a8303dd-4334-4e61-acda-d09a6d267036">&lt;linkText&gt;</bpt>standard0<ept id="4a8303dd-4334-4e61-acda-d09a6d267036">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a8303dd-4334-4e61-acda-d09a6d267036">&lt;linkText&gt;</bpt>standard0<ept id="4a8303dd-4334-4e61-acda-d09a6d267036">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d31a789a-2db2-4086-96a6-c991b5a129a3" xml:space="preserve">
+          <source>For the <bpt id="8d96cbbf-aeb9-4155-a979-b30c6c13c881">&lt;strong&gt;</bpt>Standard<ept id="8d96cbbf-aeb9-4155-a979-b30c6c13c881">&lt;/strong&gt;</ept> encoding type, valid ingest protocol options are:</source>
+          <target state="new">For the <bpt id="8d96cbbf-aeb9-4155-a979-b30c6c13c881">&lt;strong&gt;</bpt>Standard<ept id="8d96cbbf-aeb9-4155-a979-b30c6c13c881">&lt;/strong&gt;</ept> encoding type, valid ingest protocol options are:</target>
+        </trans-unit>
+        <trans-unit id="505f8762-eee1-4c2b-a7b8-bec9e92003dc" xml:space="preserve">
+          <source>Single bitrate Fragmented MP4 (Smooth Streaming)</source>
+          <target state="new">Single bitrate Fragmented MP4 (Smooth Streaming)</target>
+        </trans-unit>
+        <trans-unit id="101e734a-e134-4074-ab20-b66eadc5e842" xml:space="preserve">
+          <source>Single bitrate RTMP</source>
+          <target state="new">Single bitrate RTMP</target>
+        </trans-unit>
+        <trans-unit id="a06ef19c-ff2d-47d4-a054-8a1e1101828c" xml:space="preserve">
+          <source>RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.</source>
+          <target state="new">RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.</target>
+        </trans-unit>
+        <trans-unit id="bb9a85e1-e991-4b74-abb1-452b10272bfd" xml:space="preserve">
+          <source>For detailed explanation about each protocol, see <bpt id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;/linkText&gt;</ept><bpt id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;title&gt;</bpt><ept id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed explanation about each protocol, see <bpt id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;/linkText&gt;</ept><bpt id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;title&gt;</bpt><ept id="78e7daae-05ab-491e-b533-fce67e8609d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2b7135d-a23a-4d14-89c6-3e2778b6e52b" xml:space="preserve">
+          <source><bpt id="735714b7-6c02-46e2-8ba0-aca0c6d8e406">&lt;linkText&gt;</bpt>standard1<ept id="735714b7-6c02-46e2-8ba0-aca0c6d8e406">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="735714b7-6c02-46e2-8ba0-aca0c6d8e406">&lt;linkText&gt;</bpt>standard1<ept id="735714b7-6c02-46e2-8ba0-aca0c6d8e406">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b24358e-3c35-482f-8653-865d76de9f88" xml:space="preserve">
+          <source>You cannot change the input protocol while the Channel or its associated programs are running.</source>
+          <target state="new">You cannot change the input protocol while the Channel or its associated programs are running.</target>
+        </trans-unit>
+        <trans-unit id="f436617e-31db-40d5-a072-3131f57b6f96" xml:space="preserve">
+          <source>If you require different protocols, you should create separate channels for each input protocol.</source>
+          <target state="new">If you require different protocols, you should create separate channels for each input protocol.</target>
+        </trans-unit>
+        <trans-unit id="560c8c68-35cb-4677-ab56-819ef592b720" xml:space="preserve">
+          <source>On the <bpt id="858da0d5-5f65-45ae-a6ff-804fa314beed">&lt;strong&gt;</bpt>Advertising Configuration<ept id="858da0d5-5f65-45ae-a6ff-804fa314beed">&lt;/strong&gt;</ept> page you can specify the source for ad markers signals.</source>
+          <target state="new">On the <bpt id="858da0d5-5f65-45ae-a6ff-804fa314beed">&lt;strong&gt;</bpt>Advertising Configuration<ept id="858da0d5-5f65-45ae-a6ff-804fa314beed">&lt;/strong&gt;</ept> page you can specify the source for ad markers signals.</target>
+        </trans-unit>
+        <trans-unit id="cd38730f-55d0-4669-8a98-3fb4e9a7050d" xml:space="preserve">
+          <source>When using Portal, you can only select API, which indicates that the live encoder within the Channel should listen to an asynchronous Ad Marker API.</source>
+          <target state="new">When using Portal, you can only select API, which indicates that the live encoder within the Channel should listen to an asynchronous Ad Marker API.</target>
+        </trans-unit>
+        <trans-unit id="ba8572f3-a3a2-4196-9926-836d10b0b1fa" xml:space="preserve">
+          <source>When using Portal, you can only select API.</source>
+          <target state="new">When using Portal, you can only select API.</target>
+        </trans-unit>
+        <trans-unit id="faf1c59f-e0ab-4691-a387-6baca9c351b5" xml:space="preserve">
+          <source>For more information, see <bpt id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;/linkText&gt;</ept><bpt id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;title&gt;</bpt><ept id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;/linkText&gt;</ept><bpt id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;title&gt;</bpt><ept id="b2d6dc3e-69bd-4e2d-b20b-0e52653ae7cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdcb31bc-e1c4-48c2-a87c-45a6820f0ad3" xml:space="preserve">
+          <source><bpt id="9f2c1007-befe-4fbb-b529-bb465c9b7d62">&lt;linkText&gt;</bpt>standard2<ept id="9f2c1007-befe-4fbb-b529-bb465c9b7d62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f2c1007-befe-4fbb-b529-bb465c9b7d62">&lt;linkText&gt;</bpt>standard2<ept id="9f2c1007-befe-4fbb-b529-bb465c9b7d62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1eb61b5-3abc-4ee4-b4a2-aa45bd4a6cda" xml:space="preserve">
+          <source>On the <bpt id="3520716f-e908-43b7-b455-c142d59f278d">&lt;strong&gt;</bpt>Encoding Preset<ept id="3520716f-e908-43b7-b455-c142d59f278d">&lt;/strong&gt;</ept> page, you can select system presets.</source>
+          <target state="new">On the <bpt id="3520716f-e908-43b7-b455-c142d59f278d">&lt;strong&gt;</bpt>Encoding Preset<ept id="3520716f-e908-43b7-b455-c142d59f278d">&lt;/strong&gt;</ept> page, you can select system presets.</target>
+        </trans-unit>
+        <trans-unit id="261e1d5a-1901-4b46-a448-f8b56b8370d1" xml:space="preserve">
+          <source>Currently, the only system preset you can select is <bpt id="9bc35837-f2d2-4cdb-b374-32e2e9f78b33">&lt;strong&gt;</bpt>Default 720p<ept id="9bc35837-f2d2-4cdb-b374-32e2e9f78b33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Currently, the only system preset you can select is <bpt id="9bc35837-f2d2-4cdb-b374-32e2e9f78b33">&lt;strong&gt;</bpt>Default 720p<ept id="9bc35837-f2d2-4cdb-b374-32e2e9f78b33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="436cb635-1a45-42dd-bb11-1a1bd38a8887" xml:space="preserve">
+          <source><bpt id="89279277-1143-4053-b934-fb82c07cb233">&lt;linkText&gt;</bpt>standard3<ept id="89279277-1143-4053-b934-fb82c07cb233">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89279277-1143-4053-b934-fb82c07cb233">&lt;linkText&gt;</bpt>standard3<ept id="89279277-1143-4053-b934-fb82c07cb233">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a22f8656-fbd9-42fe-8d60-adfad29209c3" xml:space="preserve">
+          <source>On the <bpt id="7945f7c9-76b9-4787-82a1-62bb981edf3d">&lt;strong&gt;</bpt>Channel Creation<ept id="7945f7c9-76b9-4787-82a1-62bb981edf3d">&lt;/strong&gt;</ept> page, you can define the IP addresses that are allowed to publish video to this channel.</source>
+          <target state="new">On the <bpt id="7945f7c9-76b9-4787-82a1-62bb981edf3d">&lt;strong&gt;</bpt>Channel Creation<ept id="7945f7c9-76b9-4787-82a1-62bb981edf3d">&lt;/strong&gt;</ept> page, you can define the IP addresses that are allowed to publish video to this channel.</target>
+        </trans-unit>
+        <trans-unit id="58a8e461-78b4-43a7-9416-4e0e221372e2" xml:space="preserve">
+          <source>Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).</source>
+          <target state="new">Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’).</target>
+        </trans-unit>
+        <trans-unit id="2885b09b-4fd1-4ece-995a-5ec7f29faa6a" xml:space="preserve">
+          <source>If no IP addresses are specified and there is no rule definition then no IP address will be allowed.</source>
+          <target state="new">If no IP addresses are specified and there is no rule definition then no IP address will be allowed.</target>
+        </trans-unit>
+        <trans-unit id="5e25292f-3212-4187-9e53-e25763a8b732" xml:space="preserve">
+          <source>To allow any IP address, create a rule and set 0.0.0.0/0.</source>
+          <target state="new">To allow any IP address, create a rule and set 0.0.0.0/0.</target>
+        </trans-unit>
+        <trans-unit id="de923238-1cec-4441-a058-852befd0db0c" xml:space="preserve">
+          <source><bpt id="0caa22d7-311c-4544-9051-92f5274dea53">&lt;linkText&gt;</bpt>standard4<ept id="0caa22d7-311c-4544-9051-92f5274dea53">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0caa22d7-311c-4544-9051-92f5274dea53">&lt;linkText&gt;</bpt>standard4<ept id="0caa22d7-311c-4544-9051-92f5274dea53">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ef53dd2-5f54-4f59-9f6f-8708caadb88b" xml:space="preserve">
+          <source>Currently in Preview, the Channel start can take up to 30 minutes.</source>
+          <target state="new">Currently in Preview, the Channel start can take up to 30 minutes.</target>
+        </trans-unit>
+        <trans-unit id="890b3225-95f8-4790-82a5-8dc530282ad6" xml:space="preserve">
+          <source>Channel reset can take up to 5 minutes.</source>
+          <target state="new">Channel reset can take up to 5 minutes.</target>
+        </trans-unit>
+        <trans-unit id="b571fce2-1241-4d01-bcc4-e982e3424a7d" xml:space="preserve">
+          <source>Once you created the Channel, you can select the <bpt id="8a3dea91-bb86-4c04-aafe-37d8be56eff4">&lt;strong&gt;</bpt>ENCODER<ept id="8a3dea91-bb86-4c04-aafe-37d8be56eff4">&lt;/strong&gt;</ept> tab where you can view your channels configurations.</source>
+          <target state="new">Once you created the Channel, you can select the <bpt id="8a3dea91-bb86-4c04-aafe-37d8be56eff4">&lt;strong&gt;</bpt>ENCODER<ept id="8a3dea91-bb86-4c04-aafe-37d8be56eff4">&lt;/strong&gt;</ept> tab where you can view your channels configurations.</target>
+        </trans-unit>
+        <trans-unit id="f2fa47c1-cd4c-4504-b5b0-00f31120806d" xml:space="preserve">
+          <source>You can also manage advertisements and slates.</source>
+          <target state="new">You can also manage advertisements and slates.</target>
+        </trans-unit>
+        <trans-unit id="cb9f6495-0065-4c5f-a145-1e85d10026cd" xml:space="preserve">
+          <source><bpt id="35496d9c-1f1b-4980-b369-553a8504ded1">&lt;linkText&gt;</bpt>standard5<ept id="35496d9c-1f1b-4980-b369-553a8504ded1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35496d9c-1f1b-4980-b369-553a8504ded1">&lt;linkText&gt;</bpt>standard5<ept id="35496d9c-1f1b-4980-b369-553a8504ded1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="112d3d09-0473-4337-a05c-073763c32696" xml:space="preserve">
+          <source>For more information, see <bpt id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;/linkText&gt;</ept><bpt id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;title&gt;</bpt><ept id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;linkText&gt;</bpt>Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream<ept id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;/linkText&gt;</ept><bpt id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;title&gt;</bpt><ept id="eb97ae0b-f80a-44e6-84ff-d9d6e38ac62d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f79c1ce-f7c5-43f9-9832-60b421164a26" xml:space="preserve">
+          <source>Once the channel is created, you can get ingest URLs that you will provide to the live encoder.</source>
+          <target state="new">Once the channel is created, you can get ingest URLs that you will provide to the live encoder.</target>
+        </trans-unit>
+        <trans-unit id="b1efa264-2c35-408b-8fcd-fd7d76dd20b8" xml:space="preserve">
+          <source>The encoder uses these URLs to input a live stream.</source>
+          <target state="new">The encoder uses these URLs to input a live stream.</target>
+        </trans-unit>
+        <trans-unit id="fefbc77e-a83a-4f5a-a84c-77b11b5d90db" xml:space="preserve">
+          <source><bpt id="e1f04760-a2b0-4bd8-9091-ebfe8f2a47aa">&lt;linkText&gt;</bpt>readychannel<ept id="e1f04760-a2b0-4bd8-9091-ebfe8f2a47aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1f04760-a2b0-4bd8-9091-ebfe8f2a47aa">&lt;linkText&gt;</bpt>readychannel<ept id="e1f04760-a2b0-4bd8-9091-ebfe8f2a47aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="481bba55-2fcf-4363-82b3-c4313df58116" xml:space="preserve">
+          <source><bpt id="057a24f4-75db-43a9-af93-b2cf2d41ad08">&lt;linkText&gt;</bpt>ingesturls<ept id="057a24f4-75db-43a9-af93-b2cf2d41ad08">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="057a24f4-75db-43a9-af93-b2cf2d41ad08">&lt;linkText&gt;</bpt>ingesturls<ept id="057a24f4-75db-43a9-af93-b2cf2d41ad08">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62c16274-1c38-4fe6-8b3c-a23503122dc3" xml:space="preserve">
+          <source>A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream.</source>
+          <target state="new">A channel is associated with programs that enable you to control the publishing and storage of segments in a live stream.</target>
+        </trans-unit>
+        <trans-unit id="3d1b9b5b-9232-4ce3-9fa9-06b4769f678d" xml:space="preserve">
+          <source>Channels manage Programs.</source>
+          <target state="new">Channels manage Programs.</target>
+        </trans-unit>
+        <trans-unit id="d0e5f165-ca97-4cd8-8cc4-7f1a884dfa1b" xml:space="preserve">
+          <source>The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.</source>
+          <target state="new">The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.</target>
+        </trans-unit>
+        <trans-unit id="231110a7-0e32-4fc4-a1e8-0f6d2b024474" xml:space="preserve">
+          <source>You can specify the number of hours you want to retain the recorded content for the program by setting the <bpt id="0515e66c-779b-46d0-a9ce-718e73f6d5de">&lt;strong&gt;</bpt>Archive Window<ept id="0515e66c-779b-46d0-a9ce-718e73f6d5de">&lt;/strong&gt;</ept> length.</source>
+          <target state="new">You can specify the number of hours you want to retain the recorded content for the program by setting the <bpt id="0515e66c-779b-46d0-a9ce-718e73f6d5de">&lt;strong&gt;</bpt>Archive Window<ept id="0515e66c-779b-46d0-a9ce-718e73f6d5de">&lt;/strong&gt;</ept> length.</target>
+        </trans-unit>
+        <trans-unit id="c7e31d2e-a0f1-4fe0-b146-aab9eaf613b6" xml:space="preserve">
+          <source>This value can be set from a minimum of 5 minutes to a maximum of 25 hours.</source>
+          <target state="new">This value can be set from a minimum of 5 minutes to a maximum of 25 hours.</target>
+        </trans-unit>
+        <trans-unit id="8892766b-232e-43e7-a6bd-7d2c11daca2f" xml:space="preserve">
+          <source>Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position.</source>
+          <target state="new">Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position.</target>
+        </trans-unit>
+        <trans-unit id="6de76154-5ee3-4d29-af3a-b95b3eb3ac52" xml:space="preserve">
+          <source>Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded.</source>
+          <target state="new">Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded.</target>
+        </trans-unit>
+        <trans-unit id="694ea536-84dd-4822-b5c9-af76a926616b" xml:space="preserve">
+          <source>This value of this property also determines how long the client manifests can grow.</source>
+          <target state="new">This value of this property also determines how long the client manifests can grow.</target>
+        </trans-unit>
+        <trans-unit id="ea862f28-f251-455a-97c3-2f731b6f8c42" xml:space="preserve">
+          <source>Each program is associated with an Asset.</source>
+          <target state="new">Each program is associated with an Asset.</target>
+        </trans-unit>
+        <trans-unit id="32ce33ab-43d2-4c4a-9501-db066d805b95" xml:space="preserve">
+          <source>To publish the program you must create an OnDemand locator for the associated asset.</source>
+          <target state="new">To publish the program you must create an OnDemand locator for the associated asset.</target>
+        </trans-unit>
+        <trans-unit id="93a7f8b5-6249-4631-aba7-a4b3da0890ce" xml:space="preserve">
+          <source>Having this locator will enable you to build a streaming URL that you can provide to your clients.</source>
+          <target state="new">Having this locator will enable you to build a streaming URL that you can provide to your clients.</target>
+        </trans-unit>
+        <trans-unit id="6e4c20a7-607f-4d71-8f8b-3702c5d2b320" xml:space="preserve">
+          <source>A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream.</source>
+          <target state="new">A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream.</target>
+        </trans-unit>
+        <trans-unit id="a2a77ef4-0f31-4dd6-9256-77afa9442a31" xml:space="preserve">
+          <source>This allows you to publish and archive different parts of an event as needed.</source>
+          <target state="new">This allows you to publish and archive different parts of an event as needed.</target>
+        </trans-unit>
+        <trans-unit id="be523694-ef9d-47b4-8dfc-e88142f8e882" xml:space="preserve">
+          <source>For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes.</source>
+          <target state="new">For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes.</target>
+        </trans-unit>
+        <trans-unit id="7821f2af-26db-4a59-a0a0-2c0f56f513ff" xml:space="preserve">
+          <source>To accomplish this, you need to create two concurrently running programs.</source>
+          <target state="new">To accomplish this, you need to create two concurrently running programs.</target>
+        </trans-unit>
+        <trans-unit id="194cd400-a5b8-46c6-8a1f-1afda642320d" xml:space="preserve">
+          <source>One program is set to archive 6 hours of the event but the program is not published.</source>
+          <target state="new">One program is set to archive 6 hours of the event but the program is not published.</target>
+        </trans-unit>
+        <trans-unit id="493b923d-7923-4d19-9cfc-b9eee8803a8f" xml:space="preserve">
+          <source>The other program is set to archive for 10 minutes and this program is published.</source>
+          <target state="new">The other program is set to archive for 10 minutes and this program is published.</target>
+        </trans-unit>
+        <trans-unit id="676545d5-dd1a-4b70-98a9-34d1d7e65965" xml:space="preserve">
+          <source>You should not reuse existing programs for new events.</source>
+          <target state="new">You should not reuse existing programs for new events.</target>
+        </trans-unit>
+        <trans-unit id="fd5c7fad-2ff7-4b5a-bac5-bda7b97284c5" xml:space="preserve">
+          <source>Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.</source>
+          <target state="new">Instead, create and start a new program for each event as described in the Programming Live Streaming Applications section.</target>
+        </trans-unit>
+        <trans-unit id="375ed7d6-53c9-4a28-a2a0-15e62289ebf6" xml:space="preserve">
+          <source>Start the program when you are ready to start streaming and archiving.</source>
+          <target state="new">Start the program when you are ready to start streaming and archiving.</target>
+        </trans-unit>
+        <trans-unit id="7e36360e-8892-4c1e-8bfd-6a476f06c874" xml:space="preserve">
+          <source>Stop the program whenever you want to stop streaming and archiving the event.</source>
+          <target state="new">Stop the program whenever you want to stop streaming and archiving the event.</target>
+        </trans-unit>
+        <trans-unit id="ae186109-f466-4bc1-8b0c-03c1a4593cd9" xml:space="preserve">
+          <source>To delete archived content, stop and delete the program and then delete the associated asset.</source>
+          <target state="new">To delete archived content, stop and delete the program and then delete the associated asset.</target>
+        </trans-unit>
+        <trans-unit id="d6bc5a17-8c0a-43c2-a9dc-24df088060af" xml:space="preserve">
+          <source>An asset cannot be deleted if it is used by a program; the program must be deleted first.</source>
+          <target state="new">An asset cannot be deleted if it is used by a program; the program must be deleted first.</target>
+        </trans-unit>
+        <trans-unit id="d85f03cd-04e8-408a-abca-109c34822bad" xml:space="preserve">
+          <source>Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.</source>
+          <target state="new">Even after you stop and delete the program, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.</target>
+        </trans-unit>
+        <trans-unit id="cffa65cb-92fa-47e1-bd09-b3457373b387" xml:space="preserve">
+          <source>If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.</source>
+          <target state="new">If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.</target>
+        </trans-unit>
+        <trans-unit id="76495602-9912-4f90-983f-63abd8b2ce16" xml:space="preserve">
+          <source>Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator.</source>
+          <target state="new">Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator.</target>
+        </trans-unit>
+        <trans-unit id="9221f931-0458-43ab-bf5c-c1b7d7c0783c" xml:space="preserve">
+          <source>This will archive the stream and make it available to viewers through the Streaming Endpoint.</source>
+          <target state="new">This will archive the stream and make it available to viewers through the Streaming Endpoint.</target>
+        </trans-unit>
+        <trans-unit id="5d9545f8-9124-4f60-952c-41f772697697" xml:space="preserve">
+          <source>There are two ways to start event: </source>
+          <target state="new">There are two ways to start event: </target>
+        </trans-unit>
+        <trans-unit id="04dfdfa3-cb26-449a-9535-39902e4df74e" xml:space="preserve">
+          <source>From the <bpt id="427d9031-657a-4f7a-bcec-a5a777c5eda0">&lt;strong&gt;</bpt>CHANNEL<ept id="427d9031-657a-4f7a-bcec-a5a777c5eda0">&lt;/strong&gt;</ept> page, press <bpt id="205450e3-e31a-408c-92ea-3f6ebc4c35fc">&lt;strong&gt;</bpt>ADD<ept id="205450e3-e31a-408c-92ea-3f6ebc4c35fc">&lt;/strong&gt;</ept> to add a new program.</source>
+          <target state="new">From the <bpt id="427d9031-657a-4f7a-bcec-a5a777c5eda0">&lt;strong&gt;</bpt>CHANNEL<ept id="427d9031-657a-4f7a-bcec-a5a777c5eda0">&lt;/strong&gt;</ept> page, press <bpt id="205450e3-e31a-408c-92ea-3f6ebc4c35fc">&lt;strong&gt;</bpt>ADD<ept id="205450e3-e31a-408c-92ea-3f6ebc4c35fc">&lt;/strong&gt;</ept> to add a new program.</target>
+        </trans-unit>
+        <trans-unit id="dd64b2d9-5804-4907-9320-87065bd4a847" xml:space="preserve">
+          <source>Specify: program name, asset name, archive window, and encryption option.</source>
+          <target state="new">Specify: program name, asset name, archive window, and encryption option.</target>
+        </trans-unit>
+        <trans-unit id="d0142b70-e547-4ac4-b2d5-ba7ba5657566" xml:space="preserve">
+          <source><bpt id="5b009cd3-85fc-4100-b381-f048aef57497">&lt;linkText&gt;</bpt>createprogram<ept id="5b009cd3-85fc-4100-b381-f048aef57497">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b009cd3-85fc-4100-b381-f048aef57497">&lt;linkText&gt;</bpt>createprogram<ept id="5b009cd3-85fc-4100-b381-f048aef57497">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="680cbdc8-c596-4893-87ab-38c5da269a5a" xml:space="preserve">
+          <source>If you left <bpt id="0d518adc-16a3-474a-94fa-5978c2283395">&lt;strong&gt;</bpt>Publish this program now<ept id="0d518adc-16a3-474a-94fa-5978c2283395">&lt;/strong&gt;</ept> checked, the program the PUBLISHING URLs will get created.</source>
+          <target state="new">If you left <bpt id="0d518adc-16a3-474a-94fa-5978c2283395">&lt;strong&gt;</bpt>Publish this program now<ept id="0d518adc-16a3-474a-94fa-5978c2283395">&lt;/strong&gt;</ept> checked, the program the PUBLISHING URLs will get created.</target>
+        </trans-unit>
+        <trans-unit id="459f171d-b8e9-4c3f-a87f-45f460a9f5ff" xml:space="preserve">
+          <source>You can press <bpt id="db99854c-1706-43dc-b0d7-54b009ff34e5">&lt;strong&gt;</bpt>START<ept id="db99854c-1706-43dc-b0d7-54b009ff34e5">&lt;/strong&gt;</ept>, whenever you are ready streaming the program.</source>
+          <target state="new">You can press <bpt id="db99854c-1706-43dc-b0d7-54b009ff34e5">&lt;strong&gt;</bpt>START<ept id="db99854c-1706-43dc-b0d7-54b009ff34e5">&lt;/strong&gt;</ept>, whenever you are ready streaming the program.</target>
+        </trans-unit>
+        <trans-unit id="c30fe4ec-141b-494c-8f90-1abec3df6f65" xml:space="preserve">
+          <source>Once you start the program, you can press PLAY to start playing the content.</source>
+          <target state="new">Once you start the program, you can press PLAY to start playing the content.</target>
+        </trans-unit>
+        <trans-unit id="11225099-e984-4b5d-8449-216d0353adb0" xml:space="preserve">
+          <source><bpt id="1e2ae35c-86f1-4dae-b056-abd16bd9d153">&lt;linkText&gt;</bpt>createdprogram<ept id="1e2ae35c-86f1-4dae-b056-abd16bd9d153">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1e2ae35c-86f1-4dae-b056-abd16bd9d153">&lt;linkText&gt;</bpt>createdprogram<ept id="1e2ae35c-86f1-4dae-b056-abd16bd9d153">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f12170a-5122-4a46-842a-49c8e495c3fb" xml:space="preserve">
+          <source>Alternatively, you can use a shortcut and press <bpt id="85550e77-05e7-4973-b0a7-8b06bdd5bd64">&lt;strong&gt;</bpt>START STREAMING<ept id="85550e77-05e7-4973-b0a7-8b06bdd5bd64">&lt;/strong&gt;</ept> button on the <bpt id="c7bf1381-f678-44d6-8128-2d71837a8014">&lt;strong&gt;</bpt>CHANNEL<ept id="c7bf1381-f678-44d6-8128-2d71837a8014">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Alternatively, you can use a shortcut and press <bpt id="85550e77-05e7-4973-b0a7-8b06bdd5bd64">&lt;strong&gt;</bpt>START STREAMING<ept id="85550e77-05e7-4973-b0a7-8b06bdd5bd64">&lt;/strong&gt;</ept> button on the <bpt id="c7bf1381-f678-44d6-8128-2d71837a8014">&lt;strong&gt;</bpt>CHANNEL<ept id="c7bf1381-f678-44d6-8128-2d71837a8014">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="287acc6a-7be0-40bb-a64f-15fcb2bfcb46" xml:space="preserve">
+          <source>This will create an Asset, Program, and Streaming Locator.</source>
+          <target state="new">This will create an Asset, Program, and Streaming Locator.</target>
+        </trans-unit>
+        <trans-unit id="bd78c6c0-e962-457d-86d6-52c484863b17" xml:space="preserve">
+          <source>The program is named DefaultProgram and the archive window is set to 1 hour.</source>
+          <target state="new">The program is named DefaultProgram and the archive window is set to 1 hour.</target>
+        </trans-unit>
+        <trans-unit id="a05f9dc1-1914-4104-888e-215c6efe816f" xml:space="preserve">
+          <source>You can play the published program from the CHANNEL page.</source>
+          <target state="new">You can play the published program from the CHANNEL page.</target>
+        </trans-unit>
+        <trans-unit id="8d734523-cb05-4e01-9c25-b40dc7d53819" xml:space="preserve">
+          <source><bpt id="112f96e5-5360-4370-b26e-9dbddc8631eb">&lt;linkText&gt;</bpt>channelpublish<ept id="112f96e5-5360-4370-b26e-9dbddc8631eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="112f96e5-5360-4370-b26e-9dbddc8631eb">&lt;linkText&gt;</bpt>channelpublish<ept id="112f96e5-5360-4370-b26e-9dbddc8631eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ad32d4d-638a-41e6-8d80-7a7ac79dc530" xml:space="preserve">
+          <source>If you click <bpt id="9dfadf7f-ce0a-4ea0-a806-0319a3124f73">&lt;strong&gt;</bpt>STOP STREAMING<ept id="9dfadf7f-ce0a-4ea0-a806-0319a3124f73">&lt;/strong&gt;</ept> on the <bpt id="e87471d4-157f-464b-b597-2f3504003899">&lt;strong&gt;</bpt>CHANNEL<ept id="e87471d4-157f-464b-b597-2f3504003899">&lt;/strong&gt;</ept> page, the default program will be stopped and deleted.</source>
+          <target state="new">If you click <bpt id="9dfadf7f-ce0a-4ea0-a806-0319a3124f73">&lt;strong&gt;</bpt>STOP STREAMING<ept id="9dfadf7f-ce0a-4ea0-a806-0319a3124f73">&lt;/strong&gt;</ept> on the <bpt id="e87471d4-157f-464b-b597-2f3504003899">&lt;strong&gt;</bpt>CHANNEL<ept id="e87471d4-157f-464b-b597-2f3504003899">&lt;/strong&gt;</ept> page, the default program will be stopped and deleted.</target>
+        </trans-unit>
+        <trans-unit id="5384addf-d866-4d81-b97b-a65ffe36fd2a" xml:space="preserve">
+          <source>The asset will still be there and you can publish or unpublish it from the <bpt id="508d7fa0-22ee-42e4-977f-94f0fd7db624">&lt;strong&gt;</bpt>CONTENT<ept id="508d7fa0-22ee-42e4-977f-94f0fd7db624">&lt;/strong&gt;</ept>  page.</source>
+          <target state="new">The asset will still be there and you can publish or unpublish it from the <bpt id="508d7fa0-22ee-42e4-977f-94f0fd7db624">&lt;strong&gt;</bpt>CONTENT<ept id="508d7fa0-22ee-42e4-977f-94f0fd7db624">&lt;/strong&gt;</ept>  page.</target>
+        </trans-unit>
+        <trans-unit id="0fc9150f-8cff-454a-a43c-652e5520a37d" xml:space="preserve">
+          <source>If you switch to the <bpt id="3c61f79e-7801-4dfa-82d1-a6afcd1983c7">&lt;strong&gt;</bpt>CONTENT<ept id="3c61f79e-7801-4dfa-82d1-a6afcd1983c7">&lt;/strong&gt;</ept> page, you will see the assets that were created for your programs.</source>
+          <target state="new">If you switch to the <bpt id="3c61f79e-7801-4dfa-82d1-a6afcd1983c7">&lt;strong&gt;</bpt>CONTENT<ept id="3c61f79e-7801-4dfa-82d1-a6afcd1983c7">&lt;/strong&gt;</ept> page, you will see the assets that were created for your programs.</target>
+        </trans-unit>
+        <trans-unit id="a729fa36-0ab5-4255-870f-418632809aab" xml:space="preserve">
+          <source><bpt id="fdecec97-58d9-40e5-9cf4-70be537008d1">&lt;linkText&gt;</bpt>contentasset<ept id="fdecec97-58d9-40e5-9cf4-70be537008d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fdecec97-58d9-40e5-9cf4-70be537008d1">&lt;linkText&gt;</bpt>contentasset<ept id="fdecec97-58d9-40e5-9cf4-70be537008d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ad2e582-b603-4f09-9375-88f653a6fca9" xml:space="preserve">
+          <source>To provide your user with a  URL that can be used to stream your content, you first need to "publish" your asset (as was described in the previous section) by creating a locator (when you publish an asset using Portal, locators are created for you).</source>
+          <target state="new">To provide your user with a  URL that can be used to stream your content, you first need to "publish" your asset (as was described in the previous section) by creating a locator (when you publish an asset using Portal, locators are created for you).</target>
+        </trans-unit>
+        <trans-unit id="1634fd4a-26b3-486d-9849-f42d920d7ecb" xml:space="preserve">
+          <source>Locators provide access to files contained in the asset.</source>
+          <target state="new">Locators provide access to files contained in the asset.</target>
+        </trans-unit>
+        <trans-unit id="21b4148f-546e-4b20-bc5f-339b1adacc53" xml:space="preserve">
+          <source>Depending on what streaming protocol you want to use to playback your content, you might need to modify the URL that you get from the <bpt id="567e8961-301c-4f96-a9df-712e09310ad3">&lt;strong&gt;</bpt>PUBLISH URL<ept id="567e8961-301c-4f96-a9df-712e09310ad3">&lt;/strong&gt;</ept> link of the channel\program.</source>
+          <target state="new">Depending on what streaming protocol you want to use to playback your content, you might need to modify the URL that you get from the <bpt id="567e8961-301c-4f96-a9df-712e09310ad3">&lt;strong&gt;</bpt>PUBLISH URL<ept id="567e8961-301c-4f96-a9df-712e09310ad3">&lt;/strong&gt;</ept> link of the channel\program.</target>
+        </trans-unit>
+        <trans-unit id="1a21c456-82d5-4fe2-88bd-483b8d9b8a39" xml:space="preserve">
+          <source>Dynamic packaging will take care of packaging the live stream into the specified protocol.</source>
+          <target state="new">Dynamic packaging will take care of packaging the live stream into the specified protocol.</target>
+        </trans-unit>
+        <trans-unit id="dac2ccbd-0839-4fce-8248-13392a553196" xml:space="preserve">
+          <source>By default, a streaming URL has the following format and you can use it to play Smooth Streaming assets:</source>
+          <target state="new">By default, a streaming URL has the following format and you can use it to play Smooth Streaming assets:</target>
+        </trans-unit>
+        <trans-unit id="cfc61962-7767-467e-bacb-3991e65e2954" xml:space="preserve">
+          <source>To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.</source>
+          <target state="new">To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.</target>
+        </trans-unit>
+        <trans-unit id="18f2a920-5851-418e-90e7-4dae9a069ab8" xml:space="preserve">
+          <source>To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.</source>
+          <target state="new">To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.</target>
+        </trans-unit>
+        <trans-unit id="e2b0f6c8-4b87-4bbf-ad9b-126f55d56234" xml:space="preserve">
+          <source>For more information about delivering your content, see <bpt id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;linkText&gt;</bpt>Delivering content<ept id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;/linkText&gt;</ept><bpt id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;title&gt;</bpt><ept id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about delivering your content, see <bpt id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;linkText&gt;</bpt>Delivering content<ept id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;/linkText&gt;</ept><bpt id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;title&gt;</bpt><ept id="bbd67feb-ad93-4325-89f8-650f9c4f089c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="897f4480-3622-44bc-aef8-69a734fe412e" xml:space="preserve">
+          <source>You can playback Smooth Stream using <bpt id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;linkText&gt;</bpt>AMS Player<ept id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;/linkText&gt;</ept><bpt id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;title&gt;</bpt><ept id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;/title&gt;</ept> or use iOS and Android devices to play HLS version 3.</source>
+          <target state="new">You can playback Smooth Stream using <bpt id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;linkText&gt;</bpt>AMS Player<ept id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;/linkText&gt;</ept><bpt id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;title&gt;</bpt><ept id="06f77e87-58ed-49b2-a380-7aa29fec78e3">&lt;/title&gt;</ept> or use iOS and Android devices to play HLS version 3.</target>
+        </trans-unit>
+        <trans-unit id="38814f53-773c-4f98-b52b-00d10902e3aa" xml:space="preserve">
+          <source>If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.</source>
+          <target state="new">If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="980962ce-bf78-4844-beec-be813982c55b" xml:space="preserve">
+          <source>Stop pushing the stream from the encoder.</source>
+          <target state="new">Stop pushing the stream from the encoder.</target>
+        </trans-unit>
+        <trans-unit id="774a3d1c-7b41-4223-bfb3-9e839e75b85a" xml:space="preserve">
+          <source>Stop the channel.</source>
+          <target state="new">Stop the channel.</target>
+        </trans-unit>
+        <trans-unit id="f8011026-be48-4986-a754-42127f9ba273" xml:space="preserve">
+          <source>Once the Channel is stopped, it will not incur any charges.</source>
+          <target state="new">Once the Channel is stopped, it will not incur any charges.</target>
+        </trans-unit>
+        <trans-unit id="857822f6-8395-49ee-82c3-4686f39501f7" xml:space="preserve">
+          <source>When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.</source>
+          <target state="new">When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.</target>
+        </trans-unit>
+        <trans-unit id="6cddb839-8295-4318-8466-520a2637ce6d" xml:space="preserve">
+          <source>You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream.</source>
+          <target state="new">You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream.</target>
+        </trans-unit>
+        <trans-unit id="447bb164-1443-4dd3-9b8c-0dea6118c589" xml:space="preserve">
+          <source>If the channel is in stopped state, it will not incur any charges.</source>
+          <target state="new">If the channel is in stopped state, it will not incur any charges.</target>
+        </trans-unit>
+        <trans-unit id="12df657f-7ce5-4ed8-b3b2-be9b560c10e2" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard0.png</target>
+        </trans-unit>
+        <trans-unit id="d5765a21-f657-4bdb-bda0-fef0291cbdef" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard1.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard1.png</target>
+        </trans-unit>
+        <trans-unit id="2ba2ca1a-b966-451e-b940-be826af23fef" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard2.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard2.png</target>
+        </trans-unit>
+        <trans-unit id="3972fe88-fbc4-4f7d-9578-24c9178c0263" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png</target>
+        </trans-unit>
+        <trans-unit id="9b4d9964-898f-4db5-b428-d0f257595d5a" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png</target>
+        </trans-unit>
+        <trans-unit id="ebcb6212-7b1d-4d67-96a0-505e68452965" xml:space="preserve">
+          <source>./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png</source>
+          <target state="new">./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png</target>
+        </trans-unit>
+      </group>
+      <group id="98028efe-8a6c-4e4c-b849-ac506d81427c" />
+    </body>
+  </file>
+</xliff>

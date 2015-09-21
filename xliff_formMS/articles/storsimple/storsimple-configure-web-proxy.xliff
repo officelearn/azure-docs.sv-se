@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a7ad8bc5-8645-49f6-8570-2af56a0b4a2d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a7ad8bc5-8645-49f6-8570-2af56a0b4a2d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ea953e6b-cdda-42d9-9503-3df227479a32">
+        <trans-unit id="6d23c822-7258-4606-907b-0998e8850901" xml:space="preserve">
+          <source>Set up web proxy for a StorSimple device | Microsoft Azure</source>
+          <target state="new">Set up web proxy for a StorSimple device | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="343301f5-a638-44e9-9923-4709608fac8c" xml:space="preserve">
+          <source>Learn how to use Windows PowerShell for StorSimple to configure web proxy settings for your StorSimple device.</source>
+          <target state="new">Learn how to use Windows PowerShell for StorSimple to configure web proxy settings for your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="b840b4a7-2e9e-4cba-ba81-6b57cdc98822" xml:space="preserve">
+          <source>This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device.</source>
+          <target state="new">This tutorial describes how to use Windows PowerShell for StorSimple to configure and view web proxy settings for your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="e8483004-0e00-4caf-9b3a-7ac6d29a060e" xml:space="preserve">
+          <source>The web proxy settings are used by the StorSimple device when communicating with the cloud.</source>
+          <target state="new">The web proxy settings are used by the StorSimple device when communicating with the cloud.</target>
+        </trans-unit>
+        <trans-unit id="1ebc37cd-76c4-4562-a540-8f397911b375" xml:space="preserve">
+          <source>A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.</source>
+          <target state="new">A web proxy server is used to add another layer of security, filter content, cache to ease bandwidth requirements or even help with analytics.</target>
+        </trans-unit>
+        <trans-unit id="933053e8-1dbe-4042-b4b3-d05709a9d812" xml:space="preserve">
+          <source>Web proxy is an optional configuration for your StorSimple device.</source>
+          <target state="new">Web proxy is an optional configuration for your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="93889725-f96b-46fd-9e62-39c4fc884c69" xml:space="preserve">
+          <source>You can configure web proxy only via Windows PowerShell for StorSimple.</source>
+          <target state="new">You can configure web proxy only via Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="c785634e-8c8f-4f07-ba5a-704f88c02c78" xml:space="preserve">
+          <source>The configuration is a two-step process as follows:</source>
+          <target state="new">The configuration is a two-step process as follows:</target>
+        </trans-unit>
+        <trans-unit id="d8687a85-79b5-40fb-a8fc-d39f81469e9c" xml:space="preserve">
+          <source>You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.</source>
+          <target state="new">You first configure web proxy settings through the setup wizard or Windows PowerShell for StorSimple cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="55825073-bfc0-4d4f-b91e-a187c6fc9470" xml:space="preserve">
+          <source>You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.</source>
+          <target state="new">You then enable the configured web proxy settings via Windows PowerShell for StorSimple cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="6e2802f1-e138-41d7-a3ed-ac7e4edf429c" xml:space="preserve">
+          <source>After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Manager service and the Windows PowerShell for StorSimple.</source>
+          <target state="new">After the web proxy configuration is complete, you can view the configured web proxy settings in both the Microsoft Azure StorSimple Manager service and the Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="c34d2b75-e635-4a5f-91fc-be7dd4aece31" xml:space="preserve">
+          <source>After reading this tutorial, you will be able to:</source>
+          <target state="new">After reading this tutorial, you will be able to:</target>
+        </trans-unit>
+        <trans-unit id="d21e1d59-7614-489c-a186-a3ecda97689f" xml:space="preserve">
+          <source>Configure web proxy by using setup wizard and cmdlets</source>
+          <target state="new">Configure web proxy by using setup wizard and cmdlets</target>
+        </trans-unit>
+        <trans-unit id="0fdbaa50-9568-44f1-b1e6-bda169145cad" xml:space="preserve">
+          <source>Enable web proxy by using cmdlets</source>
+          <target state="new">Enable web proxy by using cmdlets</target>
+        </trans-unit>
+        <trans-unit id="15ca09d3-1075-4e29-931f-3cfa2bf9fef5" xml:space="preserve">
+          <source>View web proxy settings in the Management Portal</source>
+          <target state="new">View web proxy settings in the Management Portal</target>
+        </trans-unit>
+        <trans-unit id="19dd9967-e4cb-429e-a1d5-5860b1b3982d" xml:space="preserve">
+          <source>Troubleshoot errors during web proxy configuration</source>
+          <target state="new">Troubleshoot errors during web proxy configuration</target>
+        </trans-unit>
+        <trans-unit id="b17d4315-4e08-4183-83c8-0d61c9b13937" xml:space="preserve">
+          <source>You use either of the following to configure web proxy settings:</source>
+          <target state="new">You use either of the following to configure web proxy settings:</target>
+        </trans-unit>
+        <trans-unit id="31b32ea9-fc41-4063-99df-71aca1158eb6" xml:space="preserve">
+          <source>Setup wizard to guide you through the configuration steps.</source>
+          <target state="new">Setup wizard to guide you through the configuration steps.</target>
+        </trans-unit>
+        <trans-unit id="d9b5d6eb-8292-472c-b4c1-b9d37e29a501" xml:space="preserve">
+          <source>Cmdlets in Windows PowerShell for StorSimple.</source>
+          <target state="new">Cmdlets in Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="98070314-e198-4b7d-85a8-1cd6fdd7571e" xml:space="preserve">
+          <source>Each of these methods are discussed in the following sections.</source>
+          <target state="new">Each of these methods are discussed in the following sections.</target>
+        </trans-unit>
+        <trans-unit id="fac2fe4b-0966-4359-af10-7b2642cacb31" xml:space="preserve">
+          <source>You can use the setup wizard to guide you through the steps for web proxy configuration.</source>
+          <target state="new">You can use the setup wizard to guide you through the steps for web proxy configuration.</target>
+        </trans-unit>
+        <trans-unit id="14f8edc1-07f1-457c-84e8-c5acbf10eb84" xml:space="preserve">
+          <source>Perform the following steps to configure web proxy on your device.</source>
+          <target state="new">Perform the following steps to configure web proxy on your device.</target>
+        </trans-unit>
+        <trans-unit id="a68981da-e38d-4a68-b037-7bb7de18ca28" xml:space="preserve">
+          <source>In the serial console menu, choose option 1, <bpt id="430881d1-c581-408a-bac1-9a91aaaccdd7">&lt;strong&gt;</bpt>Log in with full access<ept id="430881d1-c581-408a-bac1-9a91aaaccdd7">&lt;/strong&gt;</ept> and provide the <bpt id="1d471257-9bc3-4b8f-b3cf-ff5862a8a804">&lt;strong&gt;</bpt>device administrator password<ept id="1d471257-9bc3-4b8f-b3cf-ff5862a8a804">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the serial console menu, choose option 1, <bpt id="430881d1-c581-408a-bac1-9a91aaaccdd7">&lt;strong&gt;</bpt>Log in with full access<ept id="430881d1-c581-408a-bac1-9a91aaaccdd7">&lt;/strong&gt;</ept> and provide the <bpt id="1d471257-9bc3-4b8f-b3cf-ff5862a8a804">&lt;strong&gt;</bpt>device administrator password<ept id="1d471257-9bc3-4b8f-b3cf-ff5862a8a804">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08e535bf-4c7d-4fa2-aa3a-7793effd94ed" xml:space="preserve">
+          <source>Type the following command to start a setup wizard session:</source>
+          <target state="new">Type the following command to start a setup wizard session:</target>
+        </trans-unit>
+        <trans-unit id="e2506b43-3a65-4434-96ad-a9f76023bf20" xml:space="preserve">
+          <source><bpt id="aa498b3b-d57f-4311-b169-ee2c8e5aece0">&lt;code&gt;</bpt>Invoke-HcsSetupWizard<ept id="aa498b3b-d57f-4311-b169-ee2c8e5aece0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="aa498b3b-d57f-4311-b169-ee2c8e5aece0">&lt;code&gt;</bpt>Invoke-HcsSetupWizard<ept id="aa498b3b-d57f-4311-b169-ee2c8e5aece0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d7937a8-a429-4a85-b1c1-b4cd6162d4bd" xml:space="preserve">
+          <source>If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration.</source>
+          <target state="new">If this is the first time that you have used the setup wizard for device registration, you will need to configure all the required network settings until you reach the web proxy configuration.</target>
+        </trans-unit>
+        <trans-unit id="27ef1135-d124-43ff-8789-9bb3099534dc" xml:space="preserve">
+          <source>If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration.In the setup wizard, when prompted to configure web proxy settings, type <bpt id="56d5b604-3a84-44ee-bfb5-04d9f5a99c28">&lt;strong&gt;</bpt>Yes<ept id="56d5b604-3a84-44ee-bfb5-04d9f5a99c28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If your device is already registered, you can accept all the configured network settings until you reach the web proxy configuration.In the setup wizard, when prompted to configure web proxy settings, type <bpt id="56d5b604-3a84-44ee-bfb5-04d9f5a99c28">&lt;strong&gt;</bpt>Yes<ept id="56d5b604-3a84-44ee-bfb5-04d9f5a99c28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a418020-46eb-4d6b-8f78-d7dd63094ff5" xml:space="preserve">
+          <source>For the <bpt id="f37cca53-eda6-438d-a25d-c43b26f5b43c">&lt;strong&gt;</bpt>Web Proxy URL<ept id="f37cca53-eda6-438d-a25d-c43b26f5b43c">&lt;/strong&gt;</ept>, specify the IP address or the fully qualified domain name (FQDN) of your web proxy server and the TCP port number that you would like your device to use when communicating with the cloud.</source>
+          <target state="new">For the <bpt id="f37cca53-eda6-438d-a25d-c43b26f5b43c">&lt;strong&gt;</bpt>Web Proxy URL<ept id="f37cca53-eda6-438d-a25d-c43b26f5b43c">&lt;/strong&gt;</ept>, specify the IP address or the fully qualified domain name (FQDN) of your web proxy server and the TCP port number that you would like your device to use when communicating with the cloud.</target>
+        </trans-unit>
+        <trans-unit id="25d7f8b8-d5b9-4ffc-a730-a71aef9a7309" xml:space="preserve">
+          <source>Use the following format:</source>
+          <target state="new">Use the following format:</target>
+        </trans-unit>
+        <trans-unit id="f376cb0e-b7ed-4895-83e3-175425207e7b" xml:space="preserve">
+          <source><bpt id="528826a7-bc39-47f9-8c60-f5f59be1e7cb">&lt;code&gt;</bpt>http://&lt;IP address or FQDN of the web proxy server&gt;:&lt;TCP port number&gt;<ept id="528826a7-bc39-47f9-8c60-f5f59be1e7cb">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="528826a7-bc39-47f9-8c60-f5f59be1e7cb">&lt;code&gt;</bpt>http://&lt;IP address or FQDN of the web proxy server&gt;:&lt;TCP port number&gt;<ept id="528826a7-bc39-47f9-8c60-f5f59be1e7cb">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f3b7ff1-6a0a-4d2f-9a68-4876241400a5" xml:space="preserve">
+          <source>By default, TCP port number 8080 is specified.</source>
+          <target state="new">By default, TCP port number 8080 is specified.</target>
+        </trans-unit>
+        <trans-unit id="1f86a065-a6ba-4231-847d-a4be828c1823" xml:space="preserve">
+          <source>Choose the authentication type as <bpt id="be377955-2259-40fd-bf59-d5d2468818fd">&lt;strong&gt;</bpt>NTLM<ept id="be377955-2259-40fd-bf59-d5d2468818fd">&lt;/strong&gt;</ept>, <bpt id="47bf6ccf-8451-4a85-a5be-927683588047">&lt;strong&gt;</bpt>Basic<ept id="47bf6ccf-8451-4a85-a5be-927683588047">&lt;/strong&gt;</ept>, or <bpt id="e1cb1ae8-a628-4814-8945-6039afe75818">&lt;strong&gt;</bpt>None<ept id="e1cb1ae8-a628-4814-8945-6039afe75818">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose the authentication type as <bpt id="be377955-2259-40fd-bf59-d5d2468818fd">&lt;strong&gt;</bpt>NTLM<ept id="be377955-2259-40fd-bf59-d5d2468818fd">&lt;/strong&gt;</ept>, <bpt id="47bf6ccf-8451-4a85-a5be-927683588047">&lt;strong&gt;</bpt>Basic<ept id="47bf6ccf-8451-4a85-a5be-927683588047">&lt;/strong&gt;</ept>, or <bpt id="e1cb1ae8-a628-4814-8945-6039afe75818">&lt;strong&gt;</bpt>None<ept id="e1cb1ae8-a628-4814-8945-6039afe75818">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e8b8871-12a7-460a-bbf4-37d3073731d1" xml:space="preserve">
+          <source>Basic is the least secure authentication for the proxy server configuration.</source>
+          <target state="new">Basic is the least secure authentication for the proxy server configuration.</target>
+        </trans-unit>
+        <trans-unit id="92e6e9d9-704e-4797-8aa2-a6e82193a08f" xml:space="preserve">
+          <source>NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user.</source>
+          <target state="new">NT LAN Manager (NTLM) is a highly secure and complex authentication protocol that uses a three-way messaging system (sometimes four if additional integrity is required) to authenticate a user.</target>
+        </trans-unit>
+        <trans-unit id="ca5edf4f-336a-412f-b9b2-da62544b44f5" xml:space="preserve">
+          <source>The default authentication is NTLM.</source>
+          <target state="new">The default authentication is NTLM.</target>
+        </trans-unit>
+        <trans-unit id="a79c5f89-35dc-4274-9201-53d5407592a5" xml:space="preserve">
+          <source>For more information, see <bpt id="6e802012-0020-4b34-9691-11f85138739d">&lt;linkText&gt;</bpt>Basic<ept id="6e802012-0020-4b34-9691-11f85138739d">&lt;/linkText&gt;</ept><bpt id="6e802012-0020-4b34-9691-11f85138739d">&lt;title&gt;</bpt><ept id="6e802012-0020-4b34-9691-11f85138739d">&lt;/title&gt;</ept> and <bpt id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;linkText&gt;</bpt>NTLM authentication<ept id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;/linkText&gt;</ept><bpt id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;title&gt;</bpt><ept id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="6e802012-0020-4b34-9691-11f85138739d">&lt;linkText&gt;</bpt>Basic<ept id="6e802012-0020-4b34-9691-11f85138739d">&lt;/linkText&gt;</ept><bpt id="6e802012-0020-4b34-9691-11f85138739d">&lt;title&gt;</bpt><ept id="6e802012-0020-4b34-9691-11f85138739d">&lt;/title&gt;</ept> and <bpt id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;linkText&gt;</bpt>NTLM authentication<ept id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;/linkText&gt;</ept><bpt id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;title&gt;</bpt><ept id="a779629b-d00f-41fe-9ee4-a906e42bfdfc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fede112b-87ac-47db-b526-998f8f6cb901" xml:space="preserve">
+          <source>**In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device.</source>
+          <target state="new">**In the StorSimple Manager service, the device monitoring charts do not work when Basic or NTLM authentication is enabled in the proxy server configuration for the device.</target>
+        </trans-unit>
+        <trans-unit id="ae34741f-82d2-4b0d-a7dc-0a880938cf50" xml:space="preserve">
+          <source>For the monitoring charts to work, you will need to ensure that authentication is set to NONE.**</source>
+          <target state="new">For the monitoring charts to work, you will need to ensure that authentication is set to NONE.**</target>
+        </trans-unit>
+        <trans-unit id="9d3c7051-4e64-4785-98ba-121264040be2" xml:space="preserve">
+          <source>If you are using authentication, supply a <bpt id="6594f60e-8f71-4ea4-aded-f4ecb471cfd1">&lt;strong&gt;</bpt>Web Proxy Username<ept id="6594f60e-8f71-4ea4-aded-f4ecb471cfd1">&lt;/strong&gt;</ept> and a <bpt id="c486bd75-4037-41eb-bc10-6d454d2d90e3">&lt;strong&gt;</bpt>Web Proxy Password<ept id="c486bd75-4037-41eb-bc10-6d454d2d90e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are using authentication, supply a <bpt id="6594f60e-8f71-4ea4-aded-f4ecb471cfd1">&lt;strong&gt;</bpt>Web Proxy Username<ept id="6594f60e-8f71-4ea4-aded-f4ecb471cfd1">&lt;/strong&gt;</ept> and a <bpt id="c486bd75-4037-41eb-bc10-6d454d2d90e3">&lt;strong&gt;</bpt>Web Proxy Password<ept id="c486bd75-4037-41eb-bc10-6d454d2d90e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e69c115f-364a-441a-9075-d3c2f8f2f199" xml:space="preserve">
+          <source>You will also need to confirm the password.</source>
+          <target state="new">You will also need to confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="afe1accb-80ed-457c-9a20-153603bd1b3e" xml:space="preserve">
+          <source><bpt id="208c3924-8a84-4ed2-888f-19272401aa0e">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device1<ept id="208c3924-8a84-4ed2-888f-19272401aa0e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="208c3924-8a84-4ed2-888f-19272401aa0e">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device1<ept id="208c3924-8a84-4ed2-888f-19272401aa0e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="addd3d60-d130-497b-bc79-28cb3d220a32" xml:space="preserve">
+          <source>If you are registering your device for the first time, continue with the registration.</source>
+          <target state="new">If you are registering your device for the first time, continue with the registration.</target>
+        </trans-unit>
+        <trans-unit id="e08b22c9-e37a-462a-9b87-bfaac3959c2f" xml:space="preserve">
+          <source>If your device was already registered, the wizard will exit.</source>
+          <target state="new">If your device was already registered, the wizard will exit.</target>
+        </trans-unit>
+        <trans-unit id="178f2baf-ef18-48e0-b4a9-f6a04fe0be85" xml:space="preserve">
+          <source>The configured settings will be saved.</source>
+          <target state="new">The configured settings will be saved.</target>
+        </trans-unit>
+        <trans-unit id="72a45ba4-4a86-4b16-9f69-3ff40bf25f2e" xml:space="preserve">
+          <source>Web proxy will now also be enabled.</source>
+          <target state="new">Web proxy will now also be enabled.</target>
+        </trans-unit>
+        <trans-unit id="347a2dd4-b957-4b74-b072-741b89252533" xml:space="preserve">
+          <source>You can skip the <bpt id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;linkText&gt;</bpt>Enable web proxy<ept id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;/linkText&gt;</ept><bpt id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;title&gt;</bpt><ept id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;/title&gt;</ept> step and go directly to <bpt id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;linkText&gt;</bpt>View the web proxy settings in the Management Portal<ept id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;/linkText&gt;</ept><bpt id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;title&gt;</bpt><ept id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can skip the <bpt id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;linkText&gt;</bpt>Enable web proxy<ept id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;/linkText&gt;</ept><bpt id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;title&gt;</bpt><ept id="763dd1af-5e0d-4e3f-b677-63be70eb099b">&lt;/title&gt;</ept> step and go directly to <bpt id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;linkText&gt;</bpt>View the web proxy settings in the Management Portal<ept id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;/linkText&gt;</ept><bpt id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;title&gt;</bpt><ept id="1ce513d8-2505-4dae-b623-a4d044b81425">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="445bcf03-82b0-4cd8-8b29-70d6218e64d6" xml:space="preserve">
+          <source>An alternate way to configure web proxy settings is via the Windows PowerShell for StorSimple cmdlets.</source>
+          <target state="new">An alternate way to configure web proxy settings is via the Windows PowerShell for StorSimple cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="34bebc85-b911-4e98-9f71-5c7917031a69" xml:space="preserve">
+          <source>Perform the following steps to configure web proxy.</source>
+          <target state="new">Perform the following steps to configure web proxy.</target>
+        </trans-unit>
+        <trans-unit id="28d6690e-fbcf-47be-b2ab-c17caeb06b98" xml:space="preserve">
+          <source>In the serial console menu, choose option 1, <bpt id="2082263b-c7fc-4b1a-9c9a-a7334fa3bc98">&lt;strong&gt;</bpt>Log in with full access<ept id="2082263b-c7fc-4b1a-9c9a-a7334fa3bc98">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the serial console menu, choose option 1, <bpt id="2082263b-c7fc-4b1a-9c9a-a7334fa3bc98">&lt;strong&gt;</bpt>Log in with full access<ept id="2082263b-c7fc-4b1a-9c9a-a7334fa3bc98">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8dd5020f-88dd-4dec-942f-166bcbbe0853" xml:space="preserve">
+          <source>When prompted, provide the <bpt id="b0e627be-765e-47a1-86fa-2aaa598ef2a6">&lt;strong&gt;</bpt>device administrator password<ept id="b0e627be-765e-47a1-86fa-2aaa598ef2a6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, provide the <bpt id="b0e627be-765e-47a1-86fa-2aaa598ef2a6">&lt;strong&gt;</bpt>device administrator password<ept id="b0e627be-765e-47a1-86fa-2aaa598ef2a6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="267394e9-c5e5-47fa-b1bf-94af6066e789" xml:space="preserve">
+          <source>The default password is  <bpt id="741fc8e8-2974-4c0f-a97c-4927b7996f3d">&lt;code&gt;</bpt>Password1<ept id="741fc8e8-2974-4c0f-a97c-4927b7996f3d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The default password is  <bpt id="741fc8e8-2974-4c0f-a97c-4927b7996f3d">&lt;code&gt;</bpt>Password1<ept id="741fc8e8-2974-4c0f-a97c-4927b7996f3d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="261410a5-5ee3-4309-88cf-b9ba9df4e4e6" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="2916f7a0-4136-49d9-810d-23a3a1b1333d" xml:space="preserve">
+          <source><bpt id="b006ed32-5ff7-4db1-aeec-4dba287a5ede">&lt;code&gt;</bpt>Set-HcsWebProxy -Authentication NTLM -ConnectionURI "&lt;http://&lt;IP address or FQDN of web proxy server&gt;:&lt;TCP port number&gt;" -Username "&lt;Username for web proxy server&gt;"<ept id="b006ed32-5ff7-4db1-aeec-4dba287a5ede">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="b006ed32-5ff7-4db1-aeec-4dba287a5ede">&lt;code&gt;</bpt>Set-HcsWebProxy -Authentication NTLM -ConnectionURI "&lt;http://&lt;IP address or FQDN of web proxy server&gt;:&lt;TCP port number&gt;" -Username "&lt;Username for web proxy server&gt;"<ept id="b006ed32-5ff7-4db1-aeec-4dba287a5ede">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57c21d18-39a8-42d9-a4d0-9a5783112b43" xml:space="preserve">
+          <source>Provide and confirm the password when prompted, as shown below.</source>
+          <target state="new">Provide and confirm the password when prompted, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="1fdff300-c75c-4481-941a-14b4e936ed0e" xml:space="preserve">
+          <source><bpt id="bfd508d3-b685-42fe-a4d8-4be9650e86f8">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device3<ept id="bfd508d3-b685-42fe-a4d8-4be9650e86f8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bfd508d3-b685-42fe-a4d8-4be9650e86f8">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device3<ept id="bfd508d3-b685-42fe-a4d8-4be9650e86f8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d16f867c-2afe-496e-9d05-21c65f3cf67c" xml:space="preserve">
+          <source>The web proxy is now configured and needs to be enabled.</source>
+          <target state="new">The web proxy is now configured and needs to be enabled.</target>
+        </trans-unit>
+        <trans-unit id="d297363d-a2c9-4fee-a272-79647ce661ab" xml:space="preserve">
+          <source>Web proxy is disabled by default.</source>
+          <target state="new">Web proxy is disabled by default.</target>
+        </trans-unit>
+        <trans-unit id="baa19a6d-028d-4a08-a09e-196d4d0ba130" xml:space="preserve">
+          <source>After you configure the web proxy settings on your StorSimple device, you need to use the Windows PowerShell for StorSimple to enable the web proxy settings.</source>
+          <target state="new">After you configure the web proxy settings on your StorSimple device, you need to use the Windows PowerShell for StorSimple to enable the web proxy settings.</target>
+        </trans-unit>
+        <trans-unit id="97099220-c8b7-4b3e-a84b-01c924ee9ec5" xml:space="preserve">
+          <source>**This step will not be required if you used the setup wizard to configure web proxy.</source>
+          <target state="new">**This step will not be required if you used the setup wizard to configure web proxy.</target>
+        </trans-unit>
+        <trans-unit id="a1be5141-e19b-464c-b23d-9a16e0054289" xml:space="preserve">
+          <source>Web proxy is automatically enabled by default after a setup wizard session.**</source>
+          <target state="new">Web proxy is automatically enabled by default after a setup wizard session.**</target>
+        </trans-unit>
+        <trans-unit id="a6876348-99ee-4a15-a2c7-414fe1b088ee" xml:space="preserve">
+          <source>Perform the following steps in Windows PowerShell for StorSimple to enable web proxy on your device:</source>
+          <target state="new">Perform the following steps in Windows PowerShell for StorSimple to enable web proxy on your device:</target>
+        </trans-unit>
+        <trans-unit id="433028bd-2bf0-4a7c-a59a-cab10632884c" xml:space="preserve">
+          <source>In the serial console menu, choose option 1, <bpt id="c9726e0f-d912-4a23-a62d-639c9027f8c7">&lt;strong&gt;</bpt>Log in with full access<ept id="c9726e0f-d912-4a23-a62d-639c9027f8c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the serial console menu, choose option 1, <bpt id="c9726e0f-d912-4a23-a62d-639c9027f8c7">&lt;strong&gt;</bpt>Log in with full access<ept id="c9726e0f-d912-4a23-a62d-639c9027f8c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fcc60d7-f544-469d-8eb2-4d94c9186dd2" xml:space="preserve">
+          <source>When prompted, provide the <bpt id="e23e9d33-8026-4bb3-8773-e29bd6c88c25">&lt;strong&gt;</bpt>device administrator password<ept id="e23e9d33-8026-4bb3-8773-e29bd6c88c25">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, provide the <bpt id="e23e9d33-8026-4bb3-8773-e29bd6c88c25">&lt;strong&gt;</bpt>device administrator password<ept id="e23e9d33-8026-4bb3-8773-e29bd6c88c25">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb3e63a9-2180-4c6e-a6d3-e97c1fd60820" xml:space="preserve">
+          <source>The default password is  <bpt id="0324055b-d401-4dc3-9c36-e443a82dd273">&lt;code&gt;</bpt>Password1<ept id="0324055b-d401-4dc3-9c36-e443a82dd273">&lt;/code&gt;</ept>.</source>
+          <target state="new">The default password is  <bpt id="0324055b-d401-4dc3-9c36-e443a82dd273">&lt;code&gt;</bpt>Password1<ept id="0324055b-d401-4dc3-9c36-e443a82dd273">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98bbfecf-2584-4614-a760-f6a68aceedc1" xml:space="preserve">
+          <source>At the command prompt, type:</source>
+          <target state="new">At the command prompt, type:</target>
+        </trans-unit>
+        <trans-unit id="ef5351cf-1f6f-4984-bb19-071873a6e6fc" xml:space="preserve">
+          <source><bpt id="5201b471-5569-4529-a239-076bcd831094">&lt;code&gt;</bpt>Enable-HcsWebProxy<ept id="5201b471-5569-4529-a239-076bcd831094">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5201b471-5569-4529-a239-076bcd831094">&lt;code&gt;</bpt>Enable-HcsWebProxy<ept id="5201b471-5569-4529-a239-076bcd831094">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9f2e643-9840-46da-9685-0dfd0a9a5221" xml:space="preserve">
+          <source>You have now enabled the web proxy configuration on your StorSimple device.</source>
+          <target state="new">You have now enabled the web proxy configuration on your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="62bafaf5-f375-4bf3-84f1-6ab5fe81d555" xml:space="preserve">
+          <source><bpt id="cd86a077-3eac-4ee6-8ab8-6fe648defbe3">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device4<ept id="cd86a077-3eac-4ee6-8ab8-6fe648defbe3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd86a077-3eac-4ee6-8ab8-6fe648defbe3">&lt;linkText&gt;</bpt>Configure Web Proxy On StorSimple Device4<ept id="cd86a077-3eac-4ee6-8ab8-6fe648defbe3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b279036a-9691-48b9-a5aa-02ccf8d21550" xml:space="preserve">
+          <source>The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal.</source>
+          <target state="new">The web proxy settings are configured through the Windows PowerShell interface and cannot be changed from within the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="15ed9403-ba20-4cd4-bcf8-1f24bb49503a" xml:space="preserve">
+          <source>You can, however, view these configured settings in the Management Portal.</source>
+          <target state="new">You can, however, view these configured settings in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ddabdbf8-cf1e-4aa8-9b23-54411f928a1c" xml:space="preserve">
+          <source>Perform the following steps to view web proxy.</source>
+          <target state="new">Perform the following steps to view web proxy.</target>
+        </trans-unit>
+        <trans-unit id="15afdfb5-6705-4980-9fb6-f2f33e5ff89c" xml:space="preserve">
+          <source>Navigate to <bpt id="4040a110-9939-45c3-bb1f-f6125910db84">&lt;strong&gt;</bpt>StorSimple Manager service &gt; Devices<ept id="4040a110-9939-45c3-bb1f-f6125910db84">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="4040a110-9939-45c3-bb1f-f6125910db84">&lt;strong&gt;</bpt>StorSimple Manager service &gt; Devices<ept id="4040a110-9939-45c3-bb1f-f6125910db84">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="16c7ffa7-4a71-4404-be7a-6b0754a75c71" xml:space="preserve">
+          <source>Select and click a device and then go to <bpt id="855c7567-549c-4105-8618-32753c03442d">&lt;strong&gt;</bpt>Configure<ept id="855c7567-549c-4105-8618-32753c03442d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select and click a device and then go to <bpt id="855c7567-549c-4105-8618-32753c03442d">&lt;strong&gt;</bpt>Configure<ept id="855c7567-549c-4105-8618-32753c03442d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a31674ef-bcb9-4901-9d0a-7e8061ac1c13" xml:space="preserve">
+          <source>Scroll down on the <bpt id="4e46379f-bd50-46fa-a1e1-867e19978ec9">&lt;strong&gt;</bpt>Configure<ept id="4e46379f-bd50-46fa-a1e1-867e19978ec9">&lt;/strong&gt;</ept> page to <bpt id="b5727812-5c62-42f2-8c34-d9fb37a62706">&lt;strong&gt;</bpt>Web proxy settings<ept id="b5727812-5c62-42f2-8c34-d9fb37a62706">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Scroll down on the <bpt id="4e46379f-bd50-46fa-a1e1-867e19978ec9">&lt;strong&gt;</bpt>Configure<ept id="4e46379f-bd50-46fa-a1e1-867e19978ec9">&lt;/strong&gt;</ept> page to <bpt id="b5727812-5c62-42f2-8c34-d9fb37a62706">&lt;strong&gt;</bpt>Web proxy settings<ept id="b5727812-5c62-42f2-8c34-d9fb37a62706">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="0c89c5ec-130e-419b-8d0d-48ef8bfeb008" xml:space="preserve">
+          <source>You can view the configured web proxy settings on your StorSimple device as shown below.</source>
+          <target state="new">You can view the configured web proxy settings on your StorSimple device as shown below.</target>
+        </trans-unit>
+        <trans-unit id="7461cd55-2b01-46b5-9cf6-2831d58283a0" xml:space="preserve">
+          <source><bpt id="7a75ded3-dc60-4019-befc-6ddf30ad722b">&lt;linkText&gt;</bpt>View Web Proxy in Management Portal<ept id="7a75ded3-dc60-4019-befc-6ddf30ad722b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a75ded3-dc60-4019-befc-6ddf30ad722b">&lt;linkText&gt;</bpt>View Web Proxy in Management Portal<ept id="7a75ded3-dc60-4019-befc-6ddf30ad722b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4de91be1-7ef7-4205-b95f-4c21b867ce8c" xml:space="preserve">
+          <source>If the web proxy settings have been configured incorrectly, error messages will be displayed to the user in Windows PowerShell for StorSimple.</source>
+          <target state="new">If the web proxy settings have been configured incorrectly, error messages will be displayed to the user in Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="90e24ef4-cebc-4f65-a3cc-1b7fe4107a37" xml:space="preserve">
+          <source>The following table explains some of these error messages, their probable causes, and recommended actions.</source>
+          <target state="new">The following table explains some of these error messages, their probable causes, and recommended actions.</target>
+        </trans-unit>
+        <trans-unit id="70f6aed7-0ed5-4b34-866c-27ef0b763df6" xml:space="preserve">
+          <source>Serial no.</source>
+          <target state="new">Serial no.</target>
+        </trans-unit>
+        <trans-unit id="6a482c73-b10c-40b7-b84c-001dade4168c" xml:space="preserve">
+          <source>HRESULT error Code</source>
+          <target state="new">HRESULT error Code</target>
+        </trans-unit>
+        <trans-unit id="3138ee68-e418-4d3a-9c2c-470c32e594c3" xml:space="preserve">
+          <source>Possible root cause</source>
+          <target state="new">Possible root cause</target>
+        </trans-unit>
+        <trans-unit id="d4f16a7e-db72-46c7-baa3-d550df4b3720" xml:space="preserve">
+          <source>Recommended action</source>
+          <target state="new">Recommended action</target>
+        </trans-unit>
+        <trans-unit id="29f744fa-c944-4a92-92a9-714a77bf1394" xml:space="preserve">
+          <source>1.</source>
+          <target state="new">1.</target>
+        </trans-unit>
+        <trans-unit id="3e788f2b-b931-45bc-9c02-7923822a940f" xml:space="preserve">
+          <source>0x80070001</source>
+          <target state="new">0x80070001</target>
+        </trans-unit>
+        <trans-unit id="5c99387f-80b2-4834-83cb-a850f0a46eda" xml:space="preserve">
+          <source>Command is run from the passive controller and it is not able to communicate with the active controller.</source>
+          <target state="new">Command is run from the passive controller and it is not able to communicate with the active controller.</target>
+        </trans-unit>
+        <trans-unit id="157c6b73-90b3-40e9-9658-2a01fcf6e277" xml:space="preserve">
+          <source>Run the command on the active controller.</source>
+          <target state="new">Run the command on the active controller.</target>
+        </trans-unit>
+        <trans-unit id="3d2d0b3a-0c0b-4633-b17a-3277955297a1" xml:space="preserve">
+          <source>To run the command from the passive controller, you will need to fix the connectivity from passive to active controller.</source>
+          <target state="new">To run the command from the passive controller, you will need to fix the connectivity from passive to active controller.</target>
+        </trans-unit>
+        <trans-unit id="3fc8babd-7a29-4759-be56-5e9f69a32a83" xml:space="preserve">
+          <source>You will need to engage Microsoft Support if this connectivity is broken.</source>
+          <target state="new">You will need to engage Microsoft Support if this connectivity is broken.</target>
+        </trans-unit>
+        <trans-unit id="261255a6-506c-4703-be46-27fc410d21de" xml:space="preserve">
+          <source>2.</source>
+          <target state="new">2.</target>
+        </trans-unit>
+        <trans-unit id="37da7c46-d398-4312-9be7-c245116d4d26" xml:space="preserve">
+          <source>0x800710dd - The operation identifier is not valid</source>
+          <target state="new">0x800710dd - The operation identifier is not valid</target>
+        </trans-unit>
+        <trans-unit id="d8d26083-a580-4ed1-865a-7c63d43a4100" xml:space="preserve">
+          <source>Proxy settings are not supported on StorSimple virtual device.</source>
+          <target state="new">Proxy settings are not supported on StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="15798432-8bb9-43c6-a8dc-beb174d245c5" xml:space="preserve">
+          <source>Proxy settings are not supported on StorSimple virtual device.</source>
+          <target state="new">Proxy settings are not supported on StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="62441f0a-c581-4de3-b68e-49dbbf261c83" xml:space="preserve">
+          <source>These can only be configured on a StorSimple physical device.</source>
+          <target state="new">These can only be configured on a StorSimple physical device.</target>
+        </trans-unit>
+        <trans-unit id="9cd41bee-73a5-43ed-854d-fabd49d4398d" xml:space="preserve">
+          <source>3.</source>
+          <target state="new">3.</target>
+        </trans-unit>
+        <trans-unit id="3dfcc83b-8eb3-4f1f-87bb-79f6dbe4ae8b" xml:space="preserve">
+          <source>0x80070057 - Invalid parameter</source>
+          <target state="new">0x80070057 - Invalid parameter</target>
+        </trans-unit>
+        <trans-unit id="d0c21e02-dd42-4f25-a9ec-b4d2a9f37c4f" xml:space="preserve">
+          <source>One of the parameters provided for the proxy settings is not valid.</source>
+          <target state="new">One of the parameters provided for the proxy settings is not valid.</target>
+        </trans-unit>
+        <trans-unit id="219a1b0d-25a3-4851-a087-185d066ee408" xml:space="preserve">
+          <source>The URI is not provided in correct format. Use the following format: <bpt id="b2c65b4c-eecc-40ec-b19e-91171e3dfb33">&lt;code&gt;</bpt>http://&lt;IP address or FQDN of the web proxy server&gt;:&lt;TCP port number&gt;<ept id="b2c65b4c-eecc-40ec-b19e-91171e3dfb33">&lt;/code&gt;</ept></source>
+          <target state="new">The URI is not provided in correct format. Use the following format: <bpt id="b2c65b4c-eecc-40ec-b19e-91171e3dfb33">&lt;code&gt;</bpt>http://&lt;IP address or FQDN of the web proxy server&gt;:&lt;TCP port number&gt;<ept id="b2c65b4c-eecc-40ec-b19e-91171e3dfb33">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b9d6aeb-5efa-4fe1-b190-a3284f627a4f" xml:space="preserve">
+          <source>4.</source>
+          <target state="new">4.</target>
+        </trans-unit>
+        <trans-unit id="24477a60-8b61-4896-a97b-3ffa45355bf9" xml:space="preserve">
+          <source>0x800706ba - RPC server not available</source>
+          <target state="new">0x800706ba - RPC server not available</target>
+        </trans-unit>
+        <trans-unit id="9cb5b0b4-7976-4e6a-bf80-66aed70e83d5" xml:space="preserve">
+          <source>The root cause is one of the following:&lt;/br&gt;&lt;/br&gt;Cluster is not up.&lt;/br&gt;&lt;/br&gt;Datapath service is not running.&lt;/br&gt;&lt;/br&gt;The command is run from passive controller and it is not able to communicate with the active controller.</source>
+          <target state="new">The root cause is one of the following:&lt;/br&gt;&lt;/br&gt;Cluster is not up.&lt;/br&gt;&lt;/br&gt;Datapath service is not running.&lt;/br&gt;&lt;/br&gt;The command is run from passive controller and it is not able to communicate with the active controller.</target>
+        </trans-unit>
+        <trans-unit id="9e497b74-331b-4396-a83c-0e92225dfdc5" xml:space="preserve">
+          <source>Please engage Microsoft Support to ensure that the cluster is up and datapath service is running.&lt;/br&gt;&lt;/br&gt;Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure the passive controller can communicate with the active controller. You will need to engage Microsoft Support if this connectivity is broken.</source>
+          <target state="new">Please engage Microsoft Support to ensure that the cluster is up and datapath service is running.&lt;/br&gt;&lt;/br&gt;Run the command from the active controller. If you want to run the command from the passive controller, you will need to ensure the passive controller can communicate with the active controller. You will need to engage Microsoft Support if this connectivity is broken.</target>
+        </trans-unit>
+        <trans-unit id="69389330-cc11-4911-b28e-25df625a01f0" xml:space="preserve">
+          <source>5.</source>
+          <target state="new">5.</target>
+        </trans-unit>
+        <trans-unit id="7481797d-7cc1-4df2-8c72-cd586ba6bf1f" xml:space="preserve">
+          <source>0x800706be - RPC call failed</source>
+          <target state="new">0x800706be - RPC call failed</target>
+        </trans-unit>
+        <trans-unit id="b0f60b53-2958-493c-be83-7899212bee6a" xml:space="preserve">
+          <source>Cluster is down.</source>
+          <target state="new">Cluster is down.</target>
+        </trans-unit>
+        <trans-unit id="274c764a-330c-4a51-935b-069d2cb4ff05" xml:space="preserve">
+          <source>Please engage Microsoft Support to ensure that the cluster is up.</source>
+          <target state="new">Please engage Microsoft Support to ensure that the cluster is up.</target>
+        </trans-unit>
+        <trans-unit id="7b074df5-25b4-4124-99b5-b52edd608cc7" xml:space="preserve">
+          <source>6.</source>
+          <target state="new">6.</target>
+        </trans-unit>
+        <trans-unit id="9f0277c0-e148-4059-ae62-8c066214b811" xml:space="preserve">
+          <source>0x8007138f - Cluster resource not found</source>
+          <target state="new">0x8007138f - Cluster resource not found</target>
+        </trans-unit>
+        <trans-unit id="2dead1ac-5b52-4dc6-a8a3-eba0b029d7ba" xml:space="preserve">
+          <source>Platform service cluster resource is not found.</source>
+          <target state="new">Platform service cluster resource is not found.</target>
+        </trans-unit>
+        <trans-unit id="ae6bab40-4b1a-46e2-822c-b5e572723af6" xml:space="preserve">
+          <source>This can happen when the installation was not proper.</source>
+          <target state="new">This can happen when the installation was not proper.</target>
+        </trans-unit>
+        <trans-unit id="61f219a5-5819-4c36-9694-5de8e6a55f48" xml:space="preserve">
+          <source>You may need to perform a factory reset on your device.You may need to create a platform resource.</source>
+          <target state="new">You may need to perform a factory reset on your device.You may need to create a platform resource.</target>
+        </trans-unit>
+        <trans-unit id="ede7a94b-3447-4449-a02e-2e75cf29ef3a" xml:space="preserve">
+          <source>Please contact Microsoft Support for next steps.</source>
+          <target state="new">Please contact Microsoft Support for next steps.</target>
+        </trans-unit>
+        <trans-unit id="0ffa2e94-4641-417d-bd19-f04b518fb874" xml:space="preserve">
+          <source>7.</source>
+          <target state="new">7.</target>
+        </trans-unit>
+        <trans-unit id="c41fa85b-14df-4094-af1c-d12bff8bb83d" xml:space="preserve">
+          <source>0x8007138c - Cluster resource not online</source>
+          <target state="new">0x8007138c - Cluster resource not online</target>
+        </trans-unit>
+        <trans-unit id="f724eda8-95af-427f-afd5-d4e9c5515cf5" xml:space="preserve">
+          <source>Platform or datapath cluster resources are not online.</source>
+          <target state="new">Platform or datapath cluster resources are not online.</target>
+        </trans-unit>
+        <trans-unit id="3fbe346f-3126-4c37-bc00-fdcb0c7c230d" xml:space="preserve">
+          <source>Please contact Microsoft Support to help ensure that the datapath and platform service resource are online.</source>
+          <target state="new">Please contact Microsoft Support to help ensure that the datapath and platform service resource are online.</target>
+        </trans-unit>
+        <trans-unit id="b46005c6-25db-4bd5-b9af-913e799d44ed" xml:space="preserve">
+          <source>The above list of error messages is not exhaustive.</source>
+          <target state="new">The above list of error messages is not exhaustive.</target>
+        </trans-unit>
+        <trans-unit id="f1ce14b5-3cac-4cf4-a1ad-80507f6b9457" xml:space="preserve">
+          <source>Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service.</source>
+          <target state="new">Errors related to web proxy settings will not be displayed in the Management Portal in your StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="553c0589-854b-4d87-a9ee-20cf1ba909f6" xml:space="preserve">
+          <source>If there is an issue with web proxy after the configuration is completed, the device status will change to <bpt id="222390af-125c-40dc-9416-25f847fce83a">&lt;strong&gt;</bpt>Offline<ept id="222390af-125c-40dc-9416-25f847fce83a">&lt;/strong&gt;</ept> in the Management Portal.|</source>
+          <target state="new">If there is an issue with web proxy after the configuration is completed, the device status will change to <bpt id="222390af-125c-40dc-9416-25f847fce83a">&lt;strong&gt;</bpt>Offline<ept id="222390af-125c-40dc-9416-25f847fce83a">&lt;/strong&gt;</ept> in the Management Portal.|</target>
+        </trans-unit>
+        <trans-unit id="70d1e82b-3549-4b71-86de-34195a92b9b1" xml:space="preserve">
+          <source>If you experience any issues while deploying your device or configuring web proxy settings, refer to <bpt id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;linkText&gt;</bpt>Troubleshoot your StorSimple device deployment<ept id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;/linkText&gt;</ept><bpt id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;title&gt;</bpt><ept id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you experience any issues while deploying your device or configuring web proxy settings, refer to <bpt id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;linkText&gt;</bpt>Troubleshoot your StorSimple device deployment<ept id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;/linkText&gt;</ept><bpt id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;title&gt;</bpt><ept id="6fd6407e-614f-4a60-abba-81da0b8a6f29">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

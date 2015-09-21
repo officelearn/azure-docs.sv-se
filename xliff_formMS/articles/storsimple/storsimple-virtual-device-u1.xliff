@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6ae18085-3685-48b8-bfb3-d873a8265e2a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6ae18085-3685-48b8-bfb3-d873a8265e2a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="27c48293-2a41-4c12-9abf-adc68bdf6878">
+        <trans-unit id="7bf0ade2-7c75-4273-a924-47860412e8e1" xml:space="preserve">
+          <source>StorSimple virtual device Update 1 | Microsoft Azure</source>
+          <target state="new">StorSimple virtual device Update 1 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="9987f115-b26a-426e-8782-229cc8b7f908" xml:space="preserve">
+          <source>Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 1).</source>
+          <target state="new">Learn how to create, deploy, and manage a StorSimple virtual device in a Microsoft Azure virtual network. (Applies to StorSimple Update 1).</target>
+        </trans-unit>
+        <trans-unit id="93c4bb26-d6e2-48a9-a9db-e17cb5d975f7" xml:space="preserve">
+          <source><bpt id="048b1948-46eb-4747-bcc8-baf3941056aa">&lt;token href="../../includes/storsimple-version-selector-sva.md"&gt;</bpt><ept id="048b1948-46eb-4747-bcc8-baf3941056aa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="048b1948-46eb-4747-bcc8-baf3941056aa">&lt;token href="../../includes/storsimple-version-selector-sva.md"&gt;</bpt><ept id="048b1948-46eb-4747-bcc8-baf3941056aa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bead518e-3e7b-4c6b-8037-6ac242f60351" xml:space="preserve">
+          <source>The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution.</source>
+          <target state="new">The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution.</target>
+        </trans-unit>
+        <trans-unit id="4f6aa1b8-cf4c-408e-9d42-04d43e53ac6a" xml:space="preserve">
+          <source>The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts.</source>
+          <target state="new">The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts.</target>
+        </trans-unit>
+        <trans-unit id="560a69d5-b101-49b2-8a68-51ec52c3dea9" xml:space="preserve">
+          <source>The following topics will help you learn about, configure, and use the StorSimple virtual device.</source>
+          <target state="new">The following topics will help you learn about, configure, and use the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="ba20b3cf-0c7d-44c4-bb3a-e5bc3bc3bc63" xml:space="preserve">
+          <source>How the virtual device differs from the physical device</source>
+          <target state="new">How the virtual device differs from the physical device</target>
+        </trans-unit>
+        <trans-unit id="cbfc729a-14d9-4bf9-b0ae-48ac2df3c38c" xml:space="preserve">
+          <source>Security considerations for using a virtual device</source>
+          <target state="new">Security considerations for using a virtual device</target>
+        </trans-unit>
+        <trans-unit id="75fa1aa3-e6da-4199-8c11-664d7325459f" xml:space="preserve">
+          <source>Prerequisites for the virtual device</source>
+          <target state="new">Prerequisites for the virtual device</target>
+        </trans-unit>
+        <trans-unit id="f8ebbb82-5cbe-4257-a526-6f724c4d8d14" xml:space="preserve">
+          <source>Create and configure the virtual device</source>
+          <target state="new">Create and configure the virtual device</target>
+        </trans-unit>
+        <trans-unit id="9e769727-96b0-4de1-93af-f12e11d19465" xml:space="preserve">
+          <source>Work with the virtual device</source>
+          <target state="new">Work with the virtual device</target>
+        </trans-unit>
+        <trans-unit id="bafdcf29-52da-4615-94d9-ac7b77b2b6ae" xml:space="preserve">
+          <source>Fail over to the virtual device</source>
+          <target state="new">Fail over to the virtual device</target>
+        </trans-unit>
+        <trans-unit id="a5d03933-7809-4772-8d74-6bd751eac7ff" xml:space="preserve">
+          <source>Shut down or delete the virtual device</source>
+          <target state="new">Shut down or delete the virtual device</target>
+        </trans-unit>
+        <trans-unit id="88f65283-af31-4b61-b488-d276b1b7adaa" xml:space="preserve">
+          <source>This tutorial applies to all the StorSimple virtual devices running Update 1.</source>
+          <target state="new">This tutorial applies to all the StorSimple virtual devices running Update 1.</target>
+        </trans-unit>
+        <trans-unit id="489ae537-dcb3-49ea-9db9-7f8d84269a56" xml:space="preserve">
+          <source>The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine.</source>
+          <target state="new">The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="4f5b659b-c385-463d-981c-dd41a0ea7f8c" xml:space="preserve">
+          <source>The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in cloud dev and test scenarios.</source>
+          <target state="new">The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in cloud dev and test scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e840d157-88a5-4793-b7ef-106605f224e8" xml:space="preserve">
+          <source>The following are some key differences between the StorSimple virtual device and the physical StorSimple device:</source>
+          <target state="new">The following are some key differences between the StorSimple virtual device and the physical StorSimple device:</target>
+        </trans-unit>
+        <trans-unit id="a8f99918-006d-49b9-83bc-e82872100dc5" xml:space="preserve">
+          <source>The virtual device has only one network interface: DATA 0.</source>
+          <target state="new">The virtual device has only one network interface: DATA 0.</target>
+        </trans-unit>
+        <trans-unit id="40f188f1-7aad-480a-92ce-053223c08cd5" xml:space="preserve">
+          <source>The physical device has six network interfaces: DATA 0 through DATA 5.</source>
+          <target state="new">The physical device has six network interfaces: DATA 0 through DATA 5.</target>
+        </trans-unit>
+        <trans-unit id="a29c039c-b901-4ad0-ac64-b5254aaad360" xml:space="preserve">
+          <source>The virtual device is registered during the configuration step instead of as a separate task.</source>
+          <target state="new">The virtual device is registered during the configuration step instead of as a separate task.</target>
+        </trans-unit>
+        <trans-unit id="77f3f0f3-11be-4fc4-9b63-fac68e2f5f16" xml:space="preserve">
+          <source>The service data encryption key cannot be regenerated from the virtual device.</source>
+          <target state="new">The service data encryption key cannot be regenerated from the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="5aeafbbb-0fd1-416e-9e8d-e21dfa5eb5a1" xml:space="preserve">
+          <source>During key rollover, you will regenerate the key on the physical device and then update the virtual device with the new key.</source>
+          <target state="new">During key rollover, you will regenerate the key on the physical device and then update the virtual device with the new key.</target>
+        </trans-unit>
+        <trans-unit id="d7b6ca80-bc35-4759-8c0b-786a3a5c811b" xml:space="preserve">
+          <source>If updates need to be applied to the virtual device, it will experience some down time, whereas the physical device will not.</source>
+          <target state="new">If updates need to be applied to the virtual device, it will experience some down time, whereas the physical device will not.</target>
+        </trans-unit>
+        <trans-unit id="ee03567a-0d82-41ed-99ac-f43a2ea51f7b" xml:space="preserve">
+          <source>Keep the following security considerations in mind when you use the StorSimple virtual device:</source>
+          <target state="new">Keep the following security considerations in mind when you use the StorSimple virtual device:</target>
+        </trans-unit>
+        <trans-unit id="4d3be10f-7c6d-4079-af2d-615898dec41f" xml:space="preserve">
+          <source>The virtual device is secured through your Microsoft Azure subscription.</source>
+          <target state="new">The virtual device is secured through your Microsoft Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7ac74f49-c181-494e-b1fb-0036d2f9b173" xml:space="preserve">
+          <source>This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.</source>
+          <target state="new">This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.</target>
+        </trans-unit>
+        <trans-unit id="278e1772-6188-4486-8b1c-e1c9552a3f71" xml:space="preserve">
+          <source>The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device.</source>
+          <target state="new">The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="47c26393-3554-41d0-a735-1183e015db7c" xml:space="preserve">
+          <source>On the StorSimple virtual device, both the public and private keys are stored in Azure.</source>
+          <target state="new">On the StorSimple virtual device, both the public and private keys are stored in Azure.</target>
+        </trans-unit>
+        <trans-unit id="cd5319f0-387a-4370-92b3-a30d931085fc" xml:space="preserve">
+          <source>The virtual device is hosted in the Microsoft Azure datacenter.</source>
+          <target state="new">The virtual device is hosted in the Microsoft Azure datacenter.</target>
+        </trans-unit>
+        <trans-unit id="9d8969ee-70e7-4413-a983-d89fbb4b1731" xml:space="preserve">
+          <source>The following sections will help you prepare to use the StorSimple virtual device.</source>
+          <target state="new">The following sections will help you prepare to use the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="1ba863ab-108b-4b36-abbf-f14ec91929eb" xml:space="preserve">
+          <source>Before you provision the virtual device, you need to make the following preparations in your Azure environment:</source>
+          <target state="new">Before you provision the virtual device, you need to make the following preparations in your Azure environment:</target>
+        </trans-unit>
+        <trans-unit id="e109cb5b-b9a6-42c8-ad01-0aa1a73beb10" xml:space="preserve">
+          <source>For the virtual device, <bpt id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;linkText&gt;</bpt>configure a virtual network on Azure<ept id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;/linkText&gt;</ept><bpt id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;title&gt;</bpt><ept id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the virtual device, <bpt id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;linkText&gt;</bpt>configure a virtual network on Azure<ept id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;/linkText&gt;</ept><bpt id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;title&gt;</bpt><ept id="cb088a22-1241-4c41-835f-cf23936b1d62">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d13d3651-17cc-4ae8-a2a3-c65cd3ffae9c" xml:space="preserve">
+          <source>It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name.</source>
+          <target state="new">It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name.</target>
+        </trans-unit>
+        <trans-unit id="79bf8299-b07f-41ec-a0be-d01febde3583" xml:space="preserve">
+          <source>If your DNS server name is not valid, creation of the virtual device will fail.</source>
+          <target state="new">If your DNS server name is not valid, creation of the virtual device will fail.</target>
+        </trans-unit>
+        <trans-unit id="3006037f-d48a-405d-8b2e-156e4014bfb2" xml:space="preserve">
+          <source>Point-to-site and site-to-site are optional, but not required.</source>
+          <target state="new">Point-to-site and site-to-site are optional, but not required.</target>
+        </trans-unit>
+        <trans-unit id="20a0258b-b682-4fa6-b0f4-c421204d3e46" xml:space="preserve">
+          <source>If you wish, you can configure these options for more advanced scenarios.</source>
+          <target state="new">If you wish, you can configure these options for more advanced scenarios.</target>
+        </trans-unit>
+        <trans-unit id="2b828fec-bb97-47c8-bea6-6b69bb6a8c6e" xml:space="preserve">
+          <source><bpt id="60cb268d-3497-47aa-b6d2-a426ef928d39">&lt;strong&gt;</bpt>Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.<ept id="60cb268d-3497-47aa-b6d2-a426ef928d39">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="60cb268d-3497-47aa-b6d2-a426ef928d39">&lt;strong&gt;</bpt>Make sure that the virtual network is in the same region as the cloud storage accounts that you are going to be using with the virtual device.<ept id="60cb268d-3497-47aa-b6d2-a426ef928d39">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ebea355-4d14-4581-bedb-9cc16086ca2c" xml:space="preserve">
+          <source>You can create <bpt id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;/linkText&gt;</ept><bpt id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;title&gt;</bpt><ept id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;/title&gt;</ept> (host servers) in the virtual network that can use the volumes exposed by the virtual device.</source>
+          <target state="new">You can create <bpt id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;/linkText&gt;</ept><bpt id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;title&gt;</bpt><ept id="5978abfa-075a-4fe6-b068-278cff9cca25">&lt;/title&gt;</ept> (host servers) in the virtual network that can use the volumes exposed by the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="0e6cdea5-bd8a-4608-96b1-111f9fe6eb6f" xml:space="preserve">
+          <source>These servers must meet the following requirements:</source>
+          <target state="new">These servers must meet the following requirements:</target>
+        </trans-unit>
+        <trans-unit id="bc6e3dbc-89e6-41d5-bb63-1770ab8870b0" xml:space="preserve">
+          <source>Be Windows or Linux VMs with iSCSI Initiator software installed</source>
+          <target state="new">Be Windows or Linux VMs with iSCSI Initiator software installed</target>
+        </trans-unit>
+        <trans-unit id="fb80438f-906a-4ec9-9561-525e00f245e4" xml:space="preserve">
+          <source>Be running in the same virtual network as the virtual device</source>
+          <target state="new">Be running in the same virtual network as the virtual device</target>
+        </trans-unit>
+        <trans-unit id="5acc8735-638a-4e05-8248-5695fea5efdf" xml:space="preserve">
+          <source>Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device</source>
+          <target state="new">Be able to connect to the iSCSI target of the virtual device through the internal IP address of the virtual device</target>
+        </trans-unit>
+        <trans-unit id="5328492e-581a-4585-b7f1-02fbd9214922" xml:space="preserve">
+          <source>Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.</source>
+          <target state="new">Make sure you have configured support for iSCSI and cloud traffic on the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="af1b6fd7-c27c-46f3-9a22-bb0583fcdf24" xml:space="preserve">
+          <source>Make the following updates to your Azure StorSimple service before you create a virtual device:</source>
+          <target state="new">Make the following updates to your Azure StorSimple service before you create a virtual device:</target>
+        </trans-unit>
+        <trans-unit id="f80c0b8e-e0a0-4fb5-8213-75842bfdd2b6" xml:space="preserve">
+          <source>Add <bpt id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;linkText&gt;</bpt>access control records<ept id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;/linkText&gt;</ept><bpt id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;title&gt;</bpt><ept id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;/title&gt;</ept> for the VMs that are going to be host servers for your virtual device.</source>
+          <target state="new">Add <bpt id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;linkText&gt;</bpt>access control records<ept id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;/linkText&gt;</ept><bpt id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;title&gt;</bpt><ept id="fece13c2-b6c4-4605-8213-ada96be65d54">&lt;/title&gt;</ept> for the VMs that are going to be host servers for your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="90561824-a18c-46f0-9afa-a39952fcfa02" xml:space="preserve">
+          <source>Make sure that you have a <bpt id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;linkText&gt;</bpt>storage account<ept id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;/linkText&gt;</ept><bpt id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;title&gt;</bpt><ept id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;/title&gt;</ept> in the same region as the virtual device.</source>
+          <target state="new">Make sure that you have a <bpt id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;linkText&gt;</bpt>storage account<ept id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;/linkText&gt;</ept><bpt id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;title&gt;</bpt><ept id="eb436f6e-40c0-4d7a-8248-6367fd6db175">&lt;/title&gt;</ept> in the same region as the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="a713f44b-5bca-4f38-af1d-fdea16857d8e" xml:space="preserve">
+          <source>Storage accounts in different regions may result in poor performance.</source>
+          <target state="new">Storage accounts in different regions may result in poor performance.</target>
+        </trans-unit>
+        <trans-unit id="0ee38ae6-23b3-46ec-89e9-bcfeb14709b2" xml:space="preserve">
+          <source>Make sure that you use a different storage account for virtual device creation from the one used for your data.</source>
+          <target state="new">Make sure that you use a different storage account for virtual device creation from the one used for your data.</target>
+        </trans-unit>
+        <trans-unit id="b2a7236e-b372-4f4c-8cd4-fa071a7fb858" xml:space="preserve">
+          <source>Using the same storage account may result in poor performance.</source>
+          <target state="new">Using the same storage account may result in poor performance.</target>
+        </trans-unit>
+        <trans-unit id="382d5bcc-7861-405d-adb7-6a599531c9f9" xml:space="preserve">
+          <source>Make sure that you have the following information before you begin:</source>
+          <target state="new">Make sure that you have the following information before you begin:</target>
+        </trans-unit>
+        <trans-unit id="331aea0f-3ecb-4c8c-8775-272d2f3c7b29" xml:space="preserve">
+          <source>You have your Azure Management Portal account with access credentials.</source>
+          <target state="new">You have your Azure Management Portal account with access credentials.</target>
+        </trans-unit>
+        <trans-unit id="bb629925-40fd-4884-a092-1f5046c2661a" xml:space="preserve">
+          <source>You have your Azure storage account access credentials.</source>
+          <target state="new">You have your Azure storage account access credentials.</target>
+        </trans-unit>
+        <trans-unit id="40a10b0b-5534-4843-b75c-93ebd74ffee9" xml:space="preserve">
+          <source>You have a copy of the service data encryption key from your physical device.</source>
+          <target state="new">You have a copy of the service data encryption key from your physical device.</target>
+        </trans-unit>
+        <trans-unit id="be47c2f2-284f-46e9-9162-e05a808e9147" xml:space="preserve">
+          <source>You have a copy of the cloud storage encryption key for each volume container.</source>
+          <target state="new">You have a copy of the cloud storage encryption key for each volume container.</target>
+        </trans-unit>
+        <trans-unit id="e5c2ecde-2e07-49ed-8cf0-96adcaa0403a" xml:space="preserve">
+          <source>Before performing these procedures, make sure that you have met the <bpt id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;linkText&gt;</bpt>Prerequisites for the virtual device<ept id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;/linkText&gt;</ept><bpt id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;title&gt;</bpt><ept id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before performing these procedures, make sure that you have met the <bpt id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;linkText&gt;</bpt>Prerequisites for the virtual device<ept id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;/linkText&gt;</ept><bpt id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;title&gt;</bpt><ept id="1a3950ad-4daf-42af-9cd1-cbc7f9a94e9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe34faf6-3a74-49a1-aa16-8028119b6547" xml:space="preserve">
+          <source>After completing these procedures, you are ready to <bpt id="043674f1-6826-4069-baaf-13c4317abc72">&lt;linkText&gt;</bpt>Work with the virtual device<ept id="043674f1-6826-4069-baaf-13c4317abc72">&lt;/linkText&gt;</ept><bpt id="043674f1-6826-4069-baaf-13c4317abc72">&lt;title&gt;</bpt><ept id="043674f1-6826-4069-baaf-13c4317abc72">&lt;/title&gt;</ept>.</source>
+          <target state="new">After completing these procedures, you are ready to <bpt id="043674f1-6826-4069-baaf-13c4317abc72">&lt;linkText&gt;</bpt>Work with the virtual device<ept id="043674f1-6826-4069-baaf-13c4317abc72">&lt;/linkText&gt;</ept><bpt id="043674f1-6826-4069-baaf-13c4317abc72">&lt;title&gt;</bpt><ept id="043674f1-6826-4069-baaf-13c4317abc72">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ba45d19-37ac-42e7-bdd4-d4343c055a6f" xml:space="preserve">
+          <source>After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create a StorSimple virtual device.</source>
+          <target state="new">After you have created a virtual network, configured a StorSimple Manager service, and registered your physical StorSimple device with the service, you can use the following steps to create a StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="e8c4e83c-cd44-4947-ad0c-24e7b52dd092" xml:space="preserve">
+          <source>Perform the following steps to create the StorSimple virtual device.</source>
+          <target state="new">Perform the following steps to create the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="196bf2d4-7f43-482d-b762-f6b43c4b43fe" xml:space="preserve">
+          <source>In the Management Portal, go to the <bpt id="3974181d-b74d-4cf2-9b49-72b43de53fc5">&lt;strong&gt;</bpt>StorSimple Manager<ept id="3974181d-b74d-4cf2-9b49-72b43de53fc5">&lt;/strong&gt;</ept> service.</source>
+          <target state="new">In the Management Portal, go to the <bpt id="3974181d-b74d-4cf2-9b49-72b43de53fc5">&lt;strong&gt;</bpt>StorSimple Manager<ept id="3974181d-b74d-4cf2-9b49-72b43de53fc5">&lt;/strong&gt;</ept> service.</target>
+        </trans-unit>
+        <trans-unit id="f0505cad-2db5-467a-b2ed-7a125a3c73ef" xml:space="preserve">
+          <source>Go to the <bpt id="cfa8a96b-d8c9-4458-8859-6e14fe888bbc">&lt;strong&gt;</bpt>Devices<ept id="cfa8a96b-d8c9-4458-8859-6e14fe888bbc">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Go to the <bpt id="cfa8a96b-d8c9-4458-8859-6e14fe888bbc">&lt;strong&gt;</bpt>Devices<ept id="cfa8a96b-d8c9-4458-8859-6e14fe888bbc">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="20b97d6f-5bd7-40dd-998c-208efd91e8fb" xml:space="preserve">
+          <source>Click <bpt id="e9be815d-f89c-49a4-9e0f-392f6868d820">&lt;strong&gt;</bpt>Create virtual device<ept id="e9be815d-f89c-49a4-9e0f-392f6868d820">&lt;/strong&gt;</ept> at the bottom of the <bpt id="9852cc2b-e41a-4031-9a7e-08460e7a9027">&lt;strong&gt;</bpt>Devices<ept id="9852cc2b-e41a-4031-9a7e-08460e7a9027">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click <bpt id="e9be815d-f89c-49a4-9e0f-392f6868d820">&lt;strong&gt;</bpt>Create virtual device<ept id="e9be815d-f89c-49a4-9e0f-392f6868d820">&lt;/strong&gt;</ept> at the bottom of the <bpt id="9852cc2b-e41a-4031-9a7e-08460e7a9027">&lt;strong&gt;</bpt>Devices<ept id="9852cc2b-e41a-4031-9a7e-08460e7a9027">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="477e201e-40a1-4b5b-9bcd-e7d4c026d59a" xml:space="preserve">
+          <source>In the <bpt id="a18907f8-f457-4982-bbb9-4177d9da8965">&lt;strong&gt;</bpt>Create Virtual Device dialog box<ept id="a18907f8-f457-4982-bbb9-4177d9da8965">&lt;/strong&gt;</ept>, specify the following:</source>
+          <target state="new">In the <bpt id="a18907f8-f457-4982-bbb9-4177d9da8965">&lt;strong&gt;</bpt>Create Virtual Device dialog box<ept id="a18907f8-f457-4982-bbb9-4177d9da8965">&lt;/strong&gt;</ept>, specify the following:</target>
+        </trans-unit>
+        <trans-unit id="d70df757-5213-449e-a2f1-f4444d2840e6" xml:space="preserve">
+          <source><bpt id="4d0ea0fe-84d1-4e44-865b-4be5f498cba6">&lt;strong&gt;</bpt>Name<ept id="4d0ea0fe-84d1-4e44-865b-4be5f498cba6">&lt;/strong&gt;</ept> – A unique name for your virtual device.</source>
+          <target state="new"><bpt id="4d0ea0fe-84d1-4e44-865b-4be5f498cba6">&lt;strong&gt;</bpt>Name<ept id="4d0ea0fe-84d1-4e44-865b-4be5f498cba6">&lt;/strong&gt;</ept> – A unique name for your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="cf7cfd0a-1132-4670-8571-653b689eb4d0" xml:space="preserve">
+          <source><bpt id="30491f93-8d64-4241-bac9-3d31cfacb4e9">&lt;strong&gt;</bpt>Version<ept id="30491f93-8d64-4241-bac9-3d31cfacb4e9">&lt;/strong&gt;</ept> - Choose the version of the virtual device.</source>
+          <target state="new"><bpt id="30491f93-8d64-4241-bac9-3d31cfacb4e9">&lt;strong&gt;</bpt>Version<ept id="30491f93-8d64-4241-bac9-3d31cfacb4e9">&lt;/strong&gt;</ept> - Choose the version of the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="da686b05-49e4-4391-a681-1afb075d4ef3" xml:space="preserve">
+          <source>This option will be absent if you only have Update 1 (or above) physical devices registered with this service.</source>
+          <target state="new">This option will be absent if you only have Update 1 (or above) physical devices registered with this service.</target>
+        </trans-unit>
+        <trans-unit id="418cafd0-2fe7-44e9-aded-4c9156946b99" xml:space="preserve">
+          <source>This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service.</source>
+          <target state="new">This field is presented only if you have a combination of pre-update 1 and Update 1 physical devices registered with the service.</target>
+        </trans-unit>
+        <trans-unit id="a69d74ba-d984-4638-a46b-16b732c0a25e" xml:space="preserve">
+          <source>Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device.</source>
+          <target state="new">Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="24c66f98-2c8c-4126-9b8a-65d0850be646" xml:space="preserve">
+          <source>Select:</source>
+          <target state="new">Select:</target>
+        </trans-unit>
+        <trans-unit id="6ed53312-3ff2-4b30-9768-aae6242f0e49" xml:space="preserve">
+          <source>Version Update 0.3 if you will failover or DR from a physical device with GA Release or Updates 0.1 to 0.3.</source>
+          <target state="new">Version Update 0.3 if you will failover or DR from a physical device with GA Release or Updates 0.1 to 0.3.</target>
+        </trans-unit>
+        <trans-unit id="fd19bb6c-4b77-4086-b7ba-be48a996b3dc" xml:space="preserve">
+          <source>Version Update 1 if you will failover or clone from a physical device with Update 1 (or above).</source>
+          <target state="new">Version Update 1 if you will failover or clone from a physical device with Update 1 (or above).</target>
+        </trans-unit>
+        <trans-unit id="bda6fbda-f123-4648-a373-ee77358ee3ff" xml:space="preserve">
+          <source><bpt id="20eaa002-1a39-4c66-af5c-1fbbe55e9a39">&lt;strong&gt;</bpt>Virtual Network<ept id="20eaa002-1a39-4c66-af5c-1fbbe55e9a39">&lt;/strong&gt;</ept> – The name of the virtual network that you want to use with this virtual device.</source>
+          <target state="new"><bpt id="20eaa002-1a39-4c66-af5c-1fbbe55e9a39">&lt;strong&gt;</bpt>Virtual Network<ept id="20eaa002-1a39-4c66-af5c-1fbbe55e9a39">&lt;/strong&gt;</ept> – The name of the virtual network that you want to use with this virtual device.</target>
+        </trans-unit>
+        <trans-unit id="dd4066cd-729d-4c64-aabc-65d101daf539" xml:space="preserve">
+          <source><bpt id="1acd9efb-9371-4c96-a7a8-9a57ed7071cb">&lt;strong&gt;</bpt>Subnet<ept id="1acd9efb-9371-4c96-a7a8-9a57ed7071cb">&lt;/strong&gt;</ept> – The subnet on the virtual network for use with the virtual device.</source>
+          <target state="new"><bpt id="1acd9efb-9371-4c96-a7a8-9a57ed7071cb">&lt;strong&gt;</bpt>Subnet<ept id="1acd9efb-9371-4c96-a7a8-9a57ed7071cb">&lt;/strong&gt;</ept> – The subnet on the virtual network for use with the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="4056d29e-f4e3-43bf-b846-f8a4de9b4654" xml:space="preserve">
+          <source><bpt id="24247b20-8ac5-451c-b5d0-de14c54e81fa">&lt;strong&gt;</bpt>Storage Account for Virtual Device Creation<ept id="24247b20-8ac5-451c-b5d0-de14c54e81fa">&lt;/strong&gt;</ept> – The storage account that will be used to hold the image of the virtual device during provisioning.</source>
+          <target state="new"><bpt id="24247b20-8ac5-451c-b5d0-de14c54e81fa">&lt;strong&gt;</bpt>Storage Account for Virtual Device Creation<ept id="24247b20-8ac5-451c-b5d0-de14c54e81fa">&lt;/strong&gt;</ept> – The storage account that will be used to hold the image of the virtual device during provisioning.</target>
+        </trans-unit>
+        <trans-unit id="2492c963-0d2e-4544-a7bc-5ec5dd324a94" xml:space="preserve">
+          <source>This storage account should be in the same region as the virtual device and virtual network.</source>
+          <target state="new">This storage account should be in the same region as the virtual device and virtual network.</target>
+        </trans-unit>
+        <trans-unit id="c4152a92-d0ac-4bcb-b2af-5dc967d8ac9f" xml:space="preserve">
+          <source>It should not be used for data storage by either the physical device or the virtual device.</source>
+          <target state="new">It should not be used for data storage by either the physical device or the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="00cc0e49-f9c4-410f-8978-6e3d9b3cc447" xml:space="preserve">
+          <source>By default, a new storage account will be created for this purpose.</source>
+          <target state="new">By default, a new storage account will be created for this purpose.</target>
+        </trans-unit>
+        <trans-unit id="e4e7bc4c-c060-47c1-ab09-be2c8b12f12f" xml:space="preserve">
+          <source>However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.</source>
+          <target state="new">However, if you know that you already have a storage account that is suitable for this use, you can select it from the list.</target>
+        </trans-unit>
+        <trans-unit id="4ecf1fc7-ba6c-4352-8ac6-4c4654294a59" xml:space="preserve">
+          <source>The virtual device can only work with the Azure storage accounts.</source>
+          <target state="new">The virtual device can only work with the Azure storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="2900282f-270e-465b-8e26-a1bcba7c2a35" xml:space="preserve">
+          <source>Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.</source>
+          <target state="new">Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="a627c914-29ab-40bc-b35f-7ab00e25f4d7" xml:space="preserve">
+          <source>Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter.</source>
+          <target state="new">Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter.</target>
+        </trans-unit>
+        <trans-unit id="7aca077c-37e2-44c0-8ff2-dc84ca2819e9" xml:space="preserve">
+          <source>When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it.</source>
+          <target state="new">When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it.</target>
+        </trans-unit>
+        <trans-unit id="7c12ab77-e777-47c0-83db-bc9295137da7" xml:space="preserve">
+          <source>When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure.</source>
+          <target state="new">When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="4158dc92-ae56-48dd-852d-eed4e0f311a0" xml:space="preserve">
+          <source>For more information, see <bpt id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;linkText&gt;</bpt>Security considerations for using a virtual device<ept id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;/linkText&gt;</ept><bpt id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;title&gt;</bpt><ept id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;linkText&gt;</bpt>Security considerations for using a virtual device<ept id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;/linkText&gt;</ept><bpt id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;title&gt;</bpt><ept id="484e0a6e-bb91-48b3-ac5f-f97a788c5422">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd4e7035-9554-481e-be58-4a9848c58343" xml:space="preserve">
+          <source>Before starting this procedure, make sure that you have a copy of the service data encryption key.</source>
+          <target state="new">Before starting this procedure, make sure that you have a copy of the service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="ba63c07f-e471-4939-bb72-c9aea6cd9ccb" xml:space="preserve">
+          <source>The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location.</source>
+          <target state="new">The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="20b17772-5f23-4d54-9ba6-fcee0a4b7289" xml:space="preserve">
+          <source>If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.</source>
+          <target state="new">If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.</target>
+        </trans-unit>
+        <trans-unit id="ab1a1310-1818-445c-81c9-914138924e38" xml:space="preserve">
+          <source>Perform the following steps to configure and register your StorSimple virtual device.</source>
+          <target state="new">Perform the following steps to configure and register your StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="1a283baa-a6d9-40b0-8198-b35fa7dda77c" xml:space="preserve">
+          <source>Select the <bpt id="a35326af-3941-4ac4-817c-a9387c694914">&lt;strong&gt;</bpt>StorSimple virtual device<ept id="a35326af-3941-4ac4-817c-a9387c694914">&lt;/strong&gt;</ept> you just created in the Devices page.</source>
+          <target state="new">Select the <bpt id="a35326af-3941-4ac4-817c-a9387c694914">&lt;strong&gt;</bpt>StorSimple virtual device<ept id="a35326af-3941-4ac4-817c-a9387c694914">&lt;/strong&gt;</ept> you just created in the Devices page.</target>
+        </trans-unit>
+        <trans-unit id="b8e6e4a4-65b2-46de-87e3-a7facc11d2e7" xml:space="preserve">
+          <source>Click <bpt id="4ebd36e9-2f87-411d-bf68-635e2b24a642">&lt;strong&gt;</bpt>complete device setup<ept id="4ebd36e9-2f87-411d-bf68-635e2b24a642">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4ebd36e9-2f87-411d-bf68-635e2b24a642">&lt;strong&gt;</bpt>complete device setup<ept id="4ebd36e9-2f87-411d-bf68-635e2b24a642">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad78aa2e-eec7-4c62-a002-40a0163dffaf" xml:space="preserve">
+          <source>This starts the Configure device wizard.</source>
+          <target state="new">This starts the Configure device wizard.</target>
+        </trans-unit>
+        <trans-unit id="ae7426bd-38a8-4935-847b-5e40a0bac264" xml:space="preserve">
+          <source>Enter the <bpt id="b2d9d3ec-dcf2-4213-b726-51fb94478d78">&lt;strong&gt;</bpt>Service Data Encryption Key<ept id="b2d9d3ec-dcf2-4213-b726-51fb94478d78">&lt;/strong&gt;</ept> in the space provided.</source>
+          <target state="new">Enter the <bpt id="b2d9d3ec-dcf2-4213-b726-51fb94478d78">&lt;strong&gt;</bpt>Service Data Encryption Key<ept id="b2d9d3ec-dcf2-4213-b726-51fb94478d78">&lt;/strong&gt;</ept> in the space provided.</target>
+        </trans-unit>
+        <trans-unit id="a3f0dca6-f4bb-44b4-8058-087041607c8e" xml:space="preserve">
+          <source>Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.</source>
+          <target state="new">Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.</target>
+        </trans-unit>
+        <trans-unit id="a4efd993-0923-492a-a9c2-3471821a2a3c" xml:space="preserve">
+          <source>Click the check mark to finish the initial configuration and registration of the virtual device.</source>
+          <target state="new">Click the check mark to finish the initial configuration and registration of the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="973f725b-7473-4a0b-8a04-8e3436824848" xml:space="preserve">
+          <source>The following section describes the device configuration settings that you might want to configure for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.</source>
+          <target state="new">The following section describes the device configuration settings that you might want to configure for the StorSimple virtual device if you want to use CHAP, StorSimple Snapshot Manager or change the Device Administrator password.</target>
+        </trans-unit>
+        <trans-unit id="48231b49-48f7-48a3-bbc0-e65e38e367bf" xml:space="preserve">
+          <source>This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes.</source>
+          <target state="new">This parameter contains the credentials that your virtual device (target) expects from the initiators (servers) that are attempting to access the volumes.</target>
+        </trans-unit>
+        <trans-unit id="7e7d84fa-a666-4703-a539-9b17a0213baf" xml:space="preserve">
+          <source>The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication.</source>
+          <target state="new">The initiators will provide a CHAP user name and a CHAP password to identify themselves to your device during this authentication.</target>
+        </trans-unit>
+        <trans-unit id="29d4927b-0d26-4cb9-9b82-bfc719dea6a0" xml:space="preserve">
+          <source>This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication.</source>
+          <target state="new">This parameter contains the credentials that your virtual device uses when a CHAP-enabled initiator requests mutual or bi-directional authentication.</target>
+        </trans-unit>
+        <trans-unit id="4c1c14a4-81b3-475d-907e-11254cb9a0fa" xml:space="preserve">
+          <source>Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process.</source>
+          <target state="new">Your virtual device will use a Reverse CHAP user name and Reverse CHAP password to identify itself to the initiator during this authentication process.</target>
+        </trans-unit>
+        <trans-unit id="40b0cd14-0885-4081-a2db-91d709e1d9f8" xml:space="preserve">
+          <source>Note that CHAP target settings are global settings.</source>
+          <target state="new">Note that CHAP target settings are global settings.</target>
+        </trans-unit>
+        <trans-unit id="f323f4e4-9b28-4bd5-8b23-a2ce5416e70f" xml:space="preserve">
+          <source>When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication.</source>
+          <target state="new">When these are applied, all the volumes connected to the storage virtual device will use CHAP authentication.</target>
+        </trans-unit>
+        <trans-unit id="5724ffa4-387a-4a11-91e0-a93ad4ba6670" xml:space="preserve">
+          <source>Select your device in the Devices page.</source>
+          <target state="new">Select your device in the Devices page.</target>
+        </trans-unit>
+        <trans-unit id="56035ccf-9faf-4570-990b-a5a9d9c516c7" xml:space="preserve">
+          <source>Go to the Configure page within your devices page and scroll down to find the CHAP section.</source>
+          <target state="new">Go to the Configure page within your devices page and scroll down to find the CHAP section.</target>
+        </trans-unit>
+        <trans-unit id="f79e05ee-32e8-4d43-8624-18187dc3caaf" xml:space="preserve">
+          <source>StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.</source>
+          <target state="new">StorSimple Snapshot Manager software resides on your Windows host and allows administrators to manage backups of your StorSimple device in the form of local and cloud snapshots.</target>
+        </trans-unit>
+        <trans-unit id="7b6e921f-cbfd-43ab-98d9-8a576884e286" xml:space="preserve">
+          <source>For the virtual device, your Windows host is an Azure VM.</source>
+          <target state="new">For the virtual device, your Windows host is an Azure VM.</target>
+        </trans-unit>
+        <trans-unit id="3c459786-f236-4d2f-95c9-d4d07b56cf65" xml:space="preserve">
+          <source>When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device.</source>
+          <target state="new">When configuring a device in the StorSimple Snapshot Manager, you will be prompted to provide the StorSimple device IP address and password to authenticate your storage device.</target>
+        </trans-unit>
+        <trans-unit id="b316bb6a-475e-4656-acd5-72ba8e873680" xml:space="preserve">
+          <source>Perform the following steps to change the StorSimple Snapshot Manager password.</source>
+          <target state="new">Perform the following steps to change the StorSimple Snapshot Manager password.</target>
+        </trans-unit>
+        <trans-unit id="c7fa61a4-f37f-48bb-949a-ac3c1e415cd6" xml:space="preserve">
+          <source>On your virtual device, go to <bpt id="b82dc573-2d00-4e4f-ac1b-2cf589144cdb">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="b82dc573-2d00-4e4f-ac1b-2cf589144cdb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your virtual device, go to <bpt id="b82dc573-2d00-4e4f-ac1b-2cf589144cdb">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="b82dc573-2d00-4e4f-ac1b-2cf589144cdb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9d024cb-142a-444a-a69b-25fec2149f18" xml:space="preserve">
+          <source>Scroll down to the <bpt id="cf26ddf5-f0dc-4d75-a92e-f74ccfbfb71c">&lt;strong&gt;</bpt>Snapshot Manager<ept id="cf26ddf5-f0dc-4d75-a92e-f74ccfbfb71c">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Scroll down to the <bpt id="cf26ddf5-f0dc-4d75-a92e-f74ccfbfb71c">&lt;strong&gt;</bpt>Snapshot Manager<ept id="cf26ddf5-f0dc-4d75-a92e-f74ccfbfb71c">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="d1b7d679-5adc-4898-8081-6616300e0741" xml:space="preserve">
+          <source>Enter a password that is 14 or 15 characters.</source>
+          <target state="new">Enter a password that is 14 or 15 characters.</target>
+        </trans-unit>
+        <trans-unit id="d274c7fd-7203-4a59-b45b-cfda3c2adf12" xml:space="preserve">
+          <source>Make sure that the password contains 3 out of 4 of uppercase, lowercase, numeric, and special characters.</source>
+          <target state="new">Make sure that the password contains 3 out of 4 of uppercase, lowercase, numeric, and special characters.</target>
+        </trans-unit>
+        <trans-unit id="fe9cc8fe-ee54-421a-a672-fa1db27cf0a4" xml:space="preserve">
+          <source>Confirm the password.</source>
+          <target state="new">Confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="f065cfb6-8381-47e5-867d-8c21a8e202e0" xml:space="preserve">
+          <source>Click <bpt id="20754757-d248-460c-a55d-b7acbceb1e18">&lt;strong&gt;</bpt>Save<ept id="20754757-d248-460c-a55d-b7acbceb1e18">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="20754757-d248-460c-a55d-b7acbceb1e18">&lt;strong&gt;</bpt>Save<ept id="20754757-d248-460c-a55d-b7acbceb1e18">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="e618d0ff-7ad4-4134-96fe-7eaf827fb941" xml:space="preserve">
+          <source>The StorSimple Snapshot Manager password is now updated and can be used when you authenticate your Windows hosts.</source>
+          <target state="new">The StorSimple Snapshot Manager password is now updated and can be used when you authenticate your Windows hosts.</target>
+        </trans-unit>
+        <trans-unit id="b6c9530f-5083-4bce-8865-7a33f14022e0" xml:space="preserve">
+          <source>When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password.</source>
+          <target state="new">When you use the Windows PowerShell interface to access the virtual device, you will be required to enter a device administrator password.</target>
+        </trans-unit>
+        <trans-unit id="c61d2e24-7bc1-4bb0-b78b-fddf0fd8c1c4" xml:space="preserve">
+          <source>For the security of your data, you are required to change this password before the virtual device can be used.</source>
+          <target state="new">For the security of your data, you are required to change this password before the virtual device can be used.</target>
+        </trans-unit>
+        <trans-unit id="f8b0eac7-0a4f-4534-af55-3aa1e9bfa0bc" xml:space="preserve">
+          <source>Perform the following steps to change the device administrator password for your StorSimple virtual device.</source>
+          <target state="new">Perform the following steps to change the device administrator password for your StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="268c68e3-3fc3-46d2-a385-2a4a9f998032" xml:space="preserve">
+          <source>On your virtual device, go to <bpt id="4734d142-d47b-4066-b3c0-96b79ed1e87f">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="4734d142-d47b-4066-b3c0-96b79ed1e87f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your virtual device, go to <bpt id="4734d142-d47b-4066-b3c0-96b79ed1e87f">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="4734d142-d47b-4066-b3c0-96b79ed1e87f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1e69def-c416-4065-950a-0684753cbafe" xml:space="preserve">
+          <source>Scroll down to the <bpt id="ce50d17f-1f9d-4b36-9216-5ea76519c9c6">&lt;strong&gt;</bpt>Device Administrator password<ept id="ce50d17f-1f9d-4b36-9216-5ea76519c9c6">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Scroll down to the <bpt id="ce50d17f-1f9d-4b36-9216-5ea76519c9c6">&lt;strong&gt;</bpt>Device Administrator password<ept id="ce50d17f-1f9d-4b36-9216-5ea76519c9c6">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="93fc47e8-c2a2-473f-8779-522ed74c9f6b" xml:space="preserve">
+          <source>Provide an administrator password that contains from 8 to 15 characters.</source>
+          <target state="new">Provide an administrator password that contains from 8 to 15 characters.</target>
+        </trans-unit>
+        <trans-unit id="e485949a-870c-4261-ad9b-5872e3d765b9" xml:space="preserve">
+          <source>The password must contain 3 out of 4 of uppercase, lowercase, numeric, and special characters.</source>
+          <target state="new">The password must contain 3 out of 4 of uppercase, lowercase, numeric, and special characters.</target>
+        </trans-unit>
+        <trans-unit id="af354a22-6aec-4ef4-9dd3-3235998e161e" xml:space="preserve">
+          <source>Confirm the password.</source>
+          <target state="new">Confirm the password.</target>
+        </trans-unit>
+        <trans-unit id="bdf5a543-a763-47f0-842b-6db93f07abd9" xml:space="preserve">
+          <source>Click <bpt id="3f3f59f0-e2b8-44c6-85e5-88b55b95c267">&lt;strong&gt;</bpt>Save<ept id="3f3f59f0-e2b8-44c6-85e5-88b55b95c267">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="3f3f59f0-e2b8-44c6-85e5-88b55b95c267">&lt;strong&gt;</bpt>Save<ept id="3f3f59f0-e2b8-44c6-85e5-88b55b95c267">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="7d0d731a-1264-49b7-bfc2-02fbccc12f9f" xml:space="preserve">
+          <source>The device administrator password should now be updated.</source>
+          <target state="new">The device administrator password should now be updated.</target>
+        </trans-unit>
+        <trans-unit id="cabd3723-c4b9-47ba-896b-90e0ef610b24" xml:space="preserve">
+          <source>You will use this modified password to access the Windows PowerShell interface on your virtual device.</source>
+          <target state="new">You will use this modified password to access the Windows PowerShell interface on your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="f08a16db-806b-4c25-94fa-a4214cea4ec9" xml:space="preserve">
+          <source>Remote access to your virtual device via the Windows PowerShell interface is not enabled by default.</source>
+          <target state="new">Remote access to your virtual device via the Windows PowerShell interface is not enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="e89fe670-4932-4d47-ab0d-54a82710839d" xml:space="preserve">
+          <source>You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.</source>
+          <target state="new">You need to enable remote management on the virtual device first, and then enable it on the client that will be used to access your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="83037f44-4f58-49ac-9ee4-60a86f9a3421" xml:space="preserve">
+          <source>You can choose to connect over HTTP or HTTPS.</source>
+          <target state="new">You can choose to connect over HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="2b094aa8-0545-4522-a40f-303492edc56f" xml:space="preserve">
+          <source>For security reasons, we recommend that you use HTTPS with a self-signed certificate to connect to your virtual device.</source>
+          <target state="new">For security reasons, we recommend that you use HTTPS with a self-signed certificate to connect to your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="33b90270-a58c-49ee-8082-abcd7fdf2c0d" xml:space="preserve">
+          <source>Perform the following steps to configure remote management for your StorSimple virtual device.</source>
+          <target state="new">Perform the following steps to configure remote management for your StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="60c5f355-2c64-42f6-8f6c-08efb8ee559b" xml:space="preserve">
+          <source>On your virtual device, go to <bpt id="43b4776f-bbf8-4f5f-bbed-9c7ee346a9c9">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="43b4776f-bbf8-4f5f-bbed-9c7ee346a9c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your virtual device, go to <bpt id="43b4776f-bbf8-4f5f-bbed-9c7ee346a9c9">&lt;strong&gt;</bpt>Devices &gt; Configure<ept id="43b4776f-bbf8-4f5f-bbed-9c7ee346a9c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f7a2ceb-6784-4dd7-aee5-be2f9b8a4599" xml:space="preserve">
+          <source>Scroll down to the <bpt id="da690082-8580-4e29-8854-715b14ad3ee3">&lt;strong&gt;</bpt>Remote Management<ept id="da690082-8580-4e29-8854-715b14ad3ee3">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Scroll down to the <bpt id="da690082-8580-4e29-8854-715b14ad3ee3">&lt;strong&gt;</bpt>Remote Management<ept id="da690082-8580-4e29-8854-715b14ad3ee3">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="1a5831fe-ed94-4a64-ab55-d04882fbd6df" xml:space="preserve">
+          <source>Set <bpt id="90e4179b-6cba-4c9f-a405-8bec78c72891">&lt;strong&gt;</bpt>Enable Remote Management<ept id="90e4179b-6cba-4c9f-a405-8bec78c72891">&lt;/strong&gt;</ept> to <bpt id="26b7d7cc-6964-4e56-a1e8-21e947778fd6">&lt;strong&gt;</bpt>Yes<ept id="26b7d7cc-6964-4e56-a1e8-21e947778fd6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set <bpt id="90e4179b-6cba-4c9f-a405-8bec78c72891">&lt;strong&gt;</bpt>Enable Remote Management<ept id="90e4179b-6cba-4c9f-a405-8bec78c72891">&lt;/strong&gt;</ept> to <bpt id="26b7d7cc-6964-4e56-a1e8-21e947778fd6">&lt;strong&gt;</bpt>Yes<ept id="26b7d7cc-6964-4e56-a1e8-21e947778fd6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35dbdb77-ebee-4547-a05b-f23007377d63" xml:space="preserve">
+          <source>You can now choose to connect using HTTP.</source>
+          <target state="new">You can now choose to connect using HTTP.</target>
+        </trans-unit>
+        <trans-unit id="ac470375-5d20-43b7-861d-5e9ba10d32d2" xml:space="preserve">
+          <source>The default is to connect over HTTPS.</source>
+          <target state="new">The default is to connect over HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="147e7748-3e0c-4e53-a656-76575ea0046b" xml:space="preserve">
+          <source>Connecting over HTTP is acceptable only on trusted networks.</source>
+          <target state="new">Connecting over HTTP is acceptable only on trusted networks.</target>
+        </trans-unit>
+        <trans-unit id="1c1f94f7-0cf2-4b47-8333-5cfcd9d15625" xml:space="preserve">
+          <source>Click <bpt id="1f90e477-54f0-42af-a3d5-03da4bdef68d">&lt;strong&gt;</bpt>Download Remote Management Certificate<ept id="1f90e477-54f0-42af-a3d5-03da4bdef68d">&lt;/strong&gt;</ept> to download a remote management certificate.</source>
+          <target state="new">Click <bpt id="1f90e477-54f0-42af-a3d5-03da4bdef68d">&lt;strong&gt;</bpt>Download Remote Management Certificate<ept id="1f90e477-54f0-42af-a3d5-03da4bdef68d">&lt;/strong&gt;</ept> to download a remote management certificate.</target>
+        </trans-unit>
+        <trans-unit id="9ed0736f-ece1-4f36-ac25-060c53d7b579" xml:space="preserve">
+          <source>You will specify a location in which to save this file.</source>
+          <target state="new">You will specify a location in which to save this file.</target>
+        </trans-unit>
+        <trans-unit id="ad93878d-8e6c-4b4f-b405-40443be1c0d0" xml:space="preserve">
+          <source>This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.</source>
+          <target state="new">This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="7bee9f56-d298-4f44-af61-d7ec444bc1d8" xml:space="preserve">
+          <source>Click <bpt id="10b3d6bf-2a23-45aa-8f66-9681b83747ae">&lt;strong&gt;</bpt>Save<ept id="10b3d6bf-2a23-45aa-8f66-9681b83747ae">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="10b3d6bf-2a23-45aa-8f66-9681b83747ae">&lt;strong&gt;</bpt>Save<ept id="10b3d6bf-2a23-45aa-8f66-9681b83747ae">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="80eb2caa-ed57-4520-bda0-495cae52b2bd" xml:space="preserve">
+          <source>Now that you have created and configured the StorSimple virtual device, you are ready to start working with it.</source>
+          <target state="new">Now that you have created and configured the StorSimple virtual device, you are ready to start working with it.</target>
+        </trans-unit>
+        <trans-unit id="d200e4d9-d116-473c-9ea3-1bde80fa7292" xml:space="preserve">
+          <source>You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list.</source>
+          <target state="new">You can work with volume containers, volumes, and backup policies on a virtual device just as you would on a physical StorSimple device; the only difference is that you need to make sure that you select the virtual device from your device list.</target>
+        </trans-unit>
+        <trans-unit id="fcafe7f6-2983-4de0-8cf0-f0d164111d00" xml:space="preserve">
+          <source>Refer to the following sections for instructions on associated tasks:</source>
+          <target state="new">Refer to the following sections for instructions on associated tasks:</target>
+        </trans-unit>
+        <trans-unit id="605902b5-fdb9-4f97-8dea-e4e3027870d1" xml:space="preserve">
+          <source><bpt id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;linkText&gt;</bpt>Volume containers<ept id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;/linkText&gt;</ept><bpt id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;title&gt;</bpt><ept id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;linkText&gt;</bpt>Volume containers<ept id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;/linkText&gt;</ept><bpt id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;title&gt;</bpt><ept id="b091effe-9565-470d-83d0-991d2c521ec0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b41ae9e-3dbb-4f46-940e-e8520fd3669b" xml:space="preserve">
+          <source><bpt id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;linkText&gt;</bpt>Volumes<ept id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;/linkText&gt;</ept><bpt id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;title&gt;</bpt><ept id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;linkText&gt;</bpt>Volumes<ept id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;/linkText&gt;</ept><bpt id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;title&gt;</bpt><ept id="eed92201-f4d4-436d-8864-2b9a0358aadd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1e03608-373a-4dd7-b49b-80fb35613a6f" xml:space="preserve">
+          <source><bpt id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;linkText&gt;</bpt>Backup policies<ept id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;/linkText&gt;</ept><bpt id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;title&gt;</bpt><ept id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;linkText&gt;</bpt>Backup policies<ept id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;/linkText&gt;</ept><bpt id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;title&gt;</bpt><ept id="832a37d7-4bc5-4d1c-977e-03296cdb9bbf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92f178ca-de46-40d0-9f69-e6216c65edd0" xml:space="preserve">
+          <source>The following sections discuss some of the differences you will encounter when working with the virtual device.</source>
+          <target state="new">The following sections discuss some of the differences you will encounter when working with the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="d2eace84-1f75-41ee-af86-181954a10151" xml:space="preserve">
+          <source>Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device.</source>
+          <target state="new">Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device.</target>
+        </trans-unit>
+        <trans-unit id="4865e502-d04c-42a4-8ada-e3bb02b6458a" xml:space="preserve">
+          <source>You have the following options:</source>
+          <target state="new">You have the following options:</target>
+        </trans-unit>
+        <trans-unit id="73fe0df6-15f7-4153-abf3-54e88b0fbac7" xml:space="preserve">
+          <source><bpt id="500a280d-95dd-415f-9f9d-ae32d74e3dab">&lt;strong&gt;</bpt>Software updates<ept id="500a280d-95dd-415f-9f9d-ae32d74e3dab">&lt;/strong&gt;</ept> – You can view the date that the software was last updated, together with any update status messages.</source>
+          <target state="new"><bpt id="500a280d-95dd-415f-9f9d-ae32d74e3dab">&lt;strong&gt;</bpt>Software updates<ept id="500a280d-95dd-415f-9f9d-ae32d74e3dab">&lt;/strong&gt;</ept> – You can view the date that the software was last updated, together with any update status messages.</target>
+        </trans-unit>
+        <trans-unit id="436d6360-e61f-42ae-9172-895c254f1bc6" xml:space="preserve">
+          <source>You can use the <bpt id="325c8fc4-c05b-46b6-bae4-8309507778c6">&lt;strong&gt;</bpt>Scan updates<ept id="325c8fc4-c05b-46b6-bae4-8309507778c6">&lt;/strong&gt;</ept> button at the bottom of the page to perform a manual scan if you want to check for new updates.</source>
+          <target state="new">You can use the <bpt id="325c8fc4-c05b-46b6-bae4-8309507778c6">&lt;strong&gt;</bpt>Scan updates<ept id="325c8fc4-c05b-46b6-bae4-8309507778c6">&lt;/strong&gt;</ept> button at the bottom of the page to perform a manual scan if you want to check for new updates.</target>
+        </trans-unit>
+        <trans-unit id="29f349a3-dd4d-40fe-a2ce-ec1fe1ff4c0b" xml:space="preserve">
+          <source>If updates are available, click <bpt id="e76c078c-dff0-44ff-a52f-fb6257bd3b63">&lt;strong&gt;</bpt>Install Updates<ept id="e76c078c-dff0-44ff-a52f-fb6257bd3b63">&lt;/strong&gt;</ept> to install.</source>
+          <target state="new">If updates are available, click <bpt id="e76c078c-dff0-44ff-a52f-fb6257bd3b63">&lt;strong&gt;</bpt>Install Updates<ept id="e76c078c-dff0-44ff-a52f-fb6257bd3b63">&lt;/strong&gt;</ept> to install.</target>
+        </trans-unit>
+        <trans-unit id="4bd2f456-a940-465a-959f-2d9f0bea9396" xml:space="preserve">
+          <source>Because there is only a single interface on the virtual device, this means that there will be a slight service interruption when updates are applied.</source>
+          <target state="new">Because there is only a single interface on the virtual device, this means that there will be a slight service interruption when updates are applied.</target>
+        </trans-unit>
+        <trans-unit id="7011af3e-e78b-420b-b5ca-3852dd607d46" xml:space="preserve">
+          <source>The virtual device will shut down and restart (if necessary) to apply any updates that have been released.</source>
+          <target state="new">The virtual device will shut down and restart (if necessary) to apply any updates that have been released.</target>
+        </trans-unit>
+        <trans-unit id="27eddd32-6734-41ab-b7ce-3afa1f507ab4" xml:space="preserve">
+          <source><bpt id="6fa84000-d0ea-4765-90ed-e3d81e05eb22">&lt;strong&gt;</bpt>Support package<ept id="6fa84000-d0ea-4765-90ed-e3d81e05eb22">&lt;/strong&gt;</ept> – You can create and upload a support package to help Microsoft Support troubleshoot issues with your virtual device.</source>
+          <target state="new"><bpt id="6fa84000-d0ea-4765-90ed-e3d81e05eb22">&lt;strong&gt;</bpt>Support package<ept id="6fa84000-d0ea-4765-90ed-e3d81e05eb22">&lt;/strong&gt;</ept> – You can create and upload a support package to help Microsoft Support troubleshoot issues with your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="6eae47bb-3004-4109-a822-8242ca9ac204" xml:space="preserve">
+          <source>Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device.</source>
+          <target state="new">Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device.</target>
+        </trans-unit>
+        <trans-unit id="a0478e73-c579-4d30-951b-62e2e7d3f0ec" xml:space="preserve">
+          <source>When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components.</source>
+          <target state="new">When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components.</target>
+        </trans-unit>
+        <trans-unit id="95891eb9-94f6-4467-bfd6-48242f48affc" xml:space="preserve">
+          <source>For a virtual device, it is important that all of the components be in the same region to prevent performance issues.</source>
+          <target state="new">For a virtual device, it is important that all of the components be in the same region to prevent performance issues.</target>
+        </trans-unit>
+        <trans-unit id="da5abc44-9f2e-4471-8a31-2d7b216c9798" xml:space="preserve">
+          <source>Deactivating a virtual device deletes the VM and the resources created when it was provisioned.</source>
+          <target state="new">Deactivating a virtual device deletes the VM and the resources created when it was provisioned.</target>
+        </trans-unit>
+        <trans-unit id="a31f7bea-c064-4d7a-bd0b-144d5fe91e6f" xml:space="preserve">
+          <source>After the virtual device is deactivated, it cannot be restored to its previous state.</source>
+          <target state="new">After the virtual device is deactivated, it cannot be restored to its previous state.</target>
+        </trans-unit>
+        <trans-unit id="34105826-4cca-4a30-8ee5-40e336c0a6ec" xml:space="preserve">
+          <source>Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.</source>
+          <target state="new">Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.</target>
+        </trans-unit>
+        <trans-unit id="843b04cc-ca62-4115-99e7-8a8a2ed3a397" xml:space="preserve">
+          <source>Deactivating a virtual device results in the following actions:</source>
+          <target state="new">Deactivating a virtual device results in the following actions:</target>
+        </trans-unit>
+        <trans-unit id="f43791c7-4480-4198-8a82-3884221d1c66" xml:space="preserve">
+          <source>The virtual device is removed.</source>
+          <target state="new">The virtual device is removed.</target>
+        </trans-unit>
+        <trans-unit id="e1d28e67-5823-49bf-8137-90953209db23" xml:space="preserve">
+          <source>The OSDisk and Data Disks created for the virtual device are removed.</source>
+          <target state="new">The OSDisk and Data Disks created for the virtual device are removed.</target>
+        </trans-unit>
+        <trans-unit id="ee6731ea-263a-41c6-a07f-28bd7ec8ea78" xml:space="preserve">
+          <source>The hosted service and virtual network created during provisioning are retained.</source>
+          <target state="new">The hosted service and virtual network created during provisioning are retained.</target>
+        </trans-unit>
+        <trans-unit id="bc28ddb3-f59b-44f7-a802-9f401d0ec5fd" xml:space="preserve">
+          <source>If you are not using them, you should delete them manually.</source>
+          <target state="new">If you are not using them, you should delete them manually.</target>
+        </trans-unit>
+        <trans-unit id="54080a52-8623-437c-a13f-f6951fb30d6f" xml:space="preserve">
+          <source>Cloud snapshots created for the virtual device are retained.</source>
+          <target state="new">Cloud snapshots created for the virtual device are retained.</target>
+        </trans-unit>
+        <trans-unit id="e6584df7-fa02-4ad7-bf86-ebb6152754a1" xml:space="preserve">
+          <source>As soon as the device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from the StorSimple Manager service device list.</source>
+          <target state="new">As soon as the device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from the StorSimple Manager service device list.</target>
+        </trans-unit>
+        <trans-unit id="d63078ce-6aca-46f7-af2c-585889637f97" xml:space="preserve">
+          <source>After you have enabled it on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI.</source>
+          <target state="new">After you have enabled it on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI.</target>
+        </trans-unit>
+        <trans-unit id="398e1277-c71e-4d2c-ab21-8af8144833ac" xml:space="preserve">
+          <source>In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.</source>
+          <target state="new">In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="2340ce47-2929-4770-9210-886564928f08" xml:space="preserve">
+          <source><bpt id="dd6ec13e-8673-4bce-bcef-74a5c3e8347a">&lt;strong&gt;</bpt>For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.<ept id="dd6ec13e-8673-4bce-bcef-74a5c3e8347a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dd6ec13e-8673-4bce-bcef-74a5c3e8347a">&lt;strong&gt;</bpt>For enhanced security, we strongly recommend that you use HTTPS when connecting to the endpoints and then delete the endpoints after you have completed your PowerShell remote session.<ept id="dd6ec13e-8673-4bce-bcef-74a5c3e8347a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d6ba917-dcf2-4cdc-afab-90167f2db348" xml:space="preserve">
+          <source>You should follow the procedures in <bpt id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;linkText&gt;</bpt>Connecting remotely to your StorSimple device<ept id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;/linkText&gt;</ept><bpt id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;title&gt;</bpt><ept id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;/title&gt;</ept> to set up remoting for your virtual device.</source>
+          <target state="new">You should follow the procedures in <bpt id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;linkText&gt;</bpt>Connecting remotely to your StorSimple device<ept id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;/linkText&gt;</ept><bpt id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;title&gt;</bpt><ept id="2afcc7ed-764c-4370-8d14-ba8f316fd4c2">&lt;/title&gt;</ept> to set up remoting for your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="1dbd530b-d1d2-42e1-af44-70724e2d0d55" xml:space="preserve">
+          <source>However, if you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.</source>
+          <target state="new">However, if you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.</target>
+        </trans-unit>
+        <trans-unit id="479af46d-4140-401a-835f-64064b0d8ab7" xml:space="preserve">
+          <source>Perform the following steps to create a public endpoint on the virtual device.</source>
+          <target state="new">Perform the following steps to create a public endpoint on the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="96fe7652-f65d-4897-b7a2-497ae3f6737e" xml:space="preserve">
+          <source>Sign in to the Management Portal.</source>
+          <target state="new">Sign in to the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="f924c839-81ef-4868-b2a5-c129dd3da8bd" xml:space="preserve">
+          <source>Click <bpt id="a212c02e-044d-4ff6-8ae7-8c3688b290e9">&lt;strong&gt;</bpt>Virtual Machines<ept id="a212c02e-044d-4ff6-8ae7-8c3688b290e9">&lt;/strong&gt;</ept>, and then select the virtual machine that is being used as your virtual device.</source>
+          <target state="new">Click <bpt id="a212c02e-044d-4ff6-8ae7-8c3688b290e9">&lt;strong&gt;</bpt>Virtual Machines<ept id="a212c02e-044d-4ff6-8ae7-8c3688b290e9">&lt;/strong&gt;</ept>, and then select the virtual machine that is being used as your virtual device.</target>
+        </trans-unit>
+        <trans-unit id="35327fa7-edaa-4c37-b8a5-d541ca898366" xml:space="preserve">
+          <source>Click <bpt id="1e1248e1-02dd-497a-a40d-4a7ef7fb1d36">&lt;strong&gt;</bpt>Endpoints<ept id="1e1248e1-02dd-497a-a40d-4a7ef7fb1d36">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1e1248e1-02dd-497a-a40d-4a7ef7fb1d36">&lt;strong&gt;</bpt>Endpoints<ept id="1e1248e1-02dd-497a-a40d-4a7ef7fb1d36">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4863cdda-9464-4be3-bc7b-0d37fce60108" xml:space="preserve">
+          <source>The Endpoints page lists all endpoints for the virtual machine.</source>
+          <target state="new">The Endpoints page lists all endpoints for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bc01a09c-004f-4cd9-8097-44645feaf49d" xml:space="preserve">
+          <source>Click <bpt id="afc9d0c2-9e56-4d05-aeb0-996a8e227f64">&lt;strong&gt;</bpt>Add<ept id="afc9d0c2-9e56-4d05-aeb0-996a8e227f64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="afc9d0c2-9e56-4d05-aeb0-996a8e227f64">&lt;strong&gt;</bpt>Add<ept id="afc9d0c2-9e56-4d05-aeb0-996a8e227f64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4fbf5ca-68eb-44f3-bc5c-9387ac373dea" xml:space="preserve">
+          <source>The Add Endpoint dialog box appears.</source>
+          <target state="new">The Add Endpoint dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="7cbfc526-e811-4a2a-9a2b-16cc89bdb04f" xml:space="preserve">
+          <source>Click the arrow to continue.</source>
+          <target state="new">Click the arrow to continue.</target>
+        </trans-unit>
+        <trans-unit id="0a34a636-8987-482f-8278-f255c2d5f22c" xml:space="preserve">
+          <source>For the <bpt id="00abdc5c-9b4f-4f34-b590-c9b67b5b27d8">&lt;strong&gt;</bpt>Name<ept id="00abdc5c-9b4f-4f34-b590-c9b67b5b27d8">&lt;/strong&gt;</ept>, type the following name for the endpoint: <bpt id="da03a96b-4783-4273-8d46-fc16d6ab6912">&lt;strong&gt;</bpt>WinRMHttps<ept id="da03a96b-4783-4273-8d46-fc16d6ab6912">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="00abdc5c-9b4f-4f34-b590-c9b67b5b27d8">&lt;strong&gt;</bpt>Name<ept id="00abdc5c-9b4f-4f34-b590-c9b67b5b27d8">&lt;/strong&gt;</ept>, type the following name for the endpoint: <bpt id="da03a96b-4783-4273-8d46-fc16d6ab6912">&lt;strong&gt;</bpt>WinRMHttps<ept id="da03a96b-4783-4273-8d46-fc16d6ab6912">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="134488eb-5a4d-4300-9587-c0d0a7b7b646" xml:space="preserve">
+          <source>For the <bpt id="4e6055ab-0626-4efb-936e-76fb6fc493ce">&lt;strong&gt;</bpt>Protocol<ept id="4e6055ab-0626-4efb-936e-76fb6fc493ce">&lt;/strong&gt;</ept>, specify <bpt id="12ebaa21-fc14-492f-9794-f196c113cd6e">&lt;strong&gt;</bpt>TCP<ept id="12ebaa21-fc14-492f-9794-f196c113cd6e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="4e6055ab-0626-4efb-936e-76fb6fc493ce">&lt;strong&gt;</bpt>Protocol<ept id="4e6055ab-0626-4efb-936e-76fb6fc493ce">&lt;/strong&gt;</ept>, specify <bpt id="12ebaa21-fc14-492f-9794-f196c113cd6e">&lt;strong&gt;</bpt>TCP<ept id="12ebaa21-fc14-492f-9794-f196c113cd6e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="502e2e89-cbf3-45e7-8e4d-316241fa5763" xml:space="preserve">
+          <source>For the <bpt id="67a89d8f-2058-4c68-b5e3-cca4e36918af">&lt;strong&gt;</bpt>Public Port<ept id="67a89d8f-2058-4c68-b5e3-cca4e36918af">&lt;/strong&gt;</ept>, type the port numbers that you want to use for the connection.</source>
+          <target state="new">For the <bpt id="67a89d8f-2058-4c68-b5e3-cca4e36918af">&lt;strong&gt;</bpt>Public Port<ept id="67a89d8f-2058-4c68-b5e3-cca4e36918af">&lt;/strong&gt;</ept>, type the port numbers that you want to use for the connection.</target>
+        </trans-unit>
+        <trans-unit id="292b15f4-c909-4206-97d3-ab1bb59d92eb" xml:space="preserve">
+          <source>For the <bpt id="a66751b0-64ed-40bf-a6f4-8afed1b62c80">&lt;strong&gt;</bpt>Private Port<ept id="a66751b0-64ed-40bf-a6f4-8afed1b62c80">&lt;/strong&gt;</ept>, type <bpt id="0794ccea-0a5c-4fda-9d19-8ddac5fc1185">&lt;strong&gt;</bpt>5986<ept id="0794ccea-0a5c-4fda-9d19-8ddac5fc1185">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the <bpt id="a66751b0-64ed-40bf-a6f4-8afed1b62c80">&lt;strong&gt;</bpt>Private Port<ept id="a66751b0-64ed-40bf-a6f4-8afed1b62c80">&lt;/strong&gt;</ept>, type <bpt id="0794ccea-0a5c-4fda-9d19-8ddac5fc1185">&lt;strong&gt;</bpt>5986<ept id="0794ccea-0a5c-4fda-9d19-8ddac5fc1185">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23e52741-8b36-4a2b-8840-b22a8ef01427" xml:space="preserve">
+          <source>Click the check mark to create the endpoint.</source>
+          <target state="new">Click the check mark to create the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e80dc796-cade-487a-b06b-9dd5905aa9e2" xml:space="preserve">
+          <source>After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address.</source>
+          <target state="new">After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address.</target>
+        </trans-unit>
+        <trans-unit id="9ecf09f1-586c-4a9d-9dbf-b61daa8deee0" xml:space="preserve">
+          <source>Record this address.</source>
+          <target state="new">Record this address.</target>
+        </trans-unit>
+        <trans-unit id="aeb6d966-8752-4339-8f5c-6e931bc9e637" xml:space="preserve">
+          <source>We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network.</source>
+          <target state="new">We recommend that you connect from another virtual machine inside the same virtual network because this practice minimizes the number of public endpoints on your virtual network.</target>
+        </trans-unit>
+        <trans-unit id="42cbd9d2-30d2-4af0-953b-8f0056d6cc9f" xml:space="preserve">
+          <source>When you use this method, you simply connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network.</source>
+          <target state="new">When you use this method, you simply connect to the virtual machine through a Remote Desktop session and then configure that virtual machine for use as you would any other Windows client on a local network.</target>
+        </trans-unit>
+        <trans-unit id="5f555adb-863b-4784-8a78-a3b2dd5e4cfe" xml:space="preserve">
+          <source>You do not need to append the public port number because the port will already be known.</source>
+          <target state="new">You do not need to append the public port number because the port will already be known.</target>
+        </trans-unit>
+        <trans-unit id="b99a904c-2c24-4438-8cf0-475ba9b1350c" xml:space="preserve">
+          <source>Unlike the physical StorSimple device, there is no power on or power off button to push on a StorSimple virtual device.</source>
+          <target state="new">Unlike the physical StorSimple device, there is no power on or power off button to push on a StorSimple virtual device.</target>
+        </trans-unit>
+        <trans-unit id="ffb1dbde-528c-4d12-b1ce-65cdd0e81b8d" xml:space="preserve">
+          <source>However, there may be occasions where you need to stop and restart the virtual device.</source>
+          <target state="new">However, there may be occasions where you need to stop and restart the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="208a60ea-8105-48d4-8f05-b10440857ec6" xml:space="preserve">
+          <source>For example, some updates might require that the VM be restarted to finish the update process.</source>
+          <target state="new">For example, some updates might require that the VM be restarted to finish the update process.</target>
+        </trans-unit>
+        <trans-unit id="f21cf925-fe1b-4f11-bb97-476ee46aad1d" xml:space="preserve">
+          <source>The easiest way for you to start, stop, and restart a virtual device is to use the Virtual Machines Management Console.</source>
+          <target state="new">The easiest way for you to start, stop, and restart a virtual device is to use the Virtual Machines Management Console.</target>
+        </trans-unit>
+        <trans-unit id="88224ae1-c174-42aa-9a01-d16266656d36" xml:space="preserve">
+          <source>When you look at the Management Console, the virtual device status is <bpt id="0fcb3f46-670e-4e9a-8191-53a8ec37cf35">&lt;strong&gt;</bpt>Running<ept id="0fcb3f46-670e-4e9a-8191-53a8ec37cf35">&lt;/strong&gt;</ept> because it is started by default after it is created.</source>
+          <target state="new">When you look at the Management Console, the virtual device status is <bpt id="0fcb3f46-670e-4e9a-8191-53a8ec37cf35">&lt;strong&gt;</bpt>Running<ept id="0fcb3f46-670e-4e9a-8191-53a8ec37cf35">&lt;/strong&gt;</ept> because it is started by default after it is created.</target>
+        </trans-unit>
+        <trans-unit id="2d1626a0-def8-444e-86b9-9764faeb91f9" xml:space="preserve">
+          <source>You can stop and restart a virtual machine at any time.</source>
+          <target state="new">You can stop and restart a virtual machine at any time.</target>
+        </trans-unit>
+        <trans-unit id="8cd511d9-e782-4b1b-a97e-aedf49ac7294" xml:space="preserve">
+          <source>To stop a virtual device, click its name, and then click <bpt id="a1e2e1ba-f609-4fc5-8fba-f56f8a1e3f16">&lt;strong&gt;</bpt>Shutdown<ept id="a1e2e1ba-f609-4fc5-8fba-f56f8a1e3f16">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To stop a virtual device, click its name, and then click <bpt id="a1e2e1ba-f609-4fc5-8fba-f56f8a1e3f16">&lt;strong&gt;</bpt>Shutdown<ept id="a1e2e1ba-f609-4fc5-8fba-f56f8a1e3f16">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c744905d-487c-4333-9fce-ad94cebf0f61" xml:space="preserve">
+          <source>While the virtual device is shutting down, its status is <bpt id="6ad4957b-1ae0-48b1-bf92-33bcf486e29a">&lt;strong&gt;</bpt>Stopping<ept id="6ad4957b-1ae0-48b1-bf92-33bcf486e29a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">While the virtual device is shutting down, its status is <bpt id="6ad4957b-1ae0-48b1-bf92-33bcf486e29a">&lt;strong&gt;</bpt>Stopping<ept id="6ad4957b-1ae0-48b1-bf92-33bcf486e29a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36ffebb3-84bd-4a0a-99bb-7077c9b3af86" xml:space="preserve">
+          <source>After the virtual device is stopped, its status is <bpt id="5e84f20c-4d9e-4494-9cce-57cb56299ddf">&lt;strong&gt;</bpt>Stopped<ept id="5e84f20c-4d9e-4494-9cce-57cb56299ddf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the virtual device is stopped, its status is <bpt id="5e84f20c-4d9e-4494-9cce-57cb56299ddf">&lt;strong&gt;</bpt>Stopped<ept id="5e84f20c-4d9e-4494-9cce-57cb56299ddf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4f7e8ea-f31d-4b7a-8deb-8bc58d169aaa" xml:space="preserve">
+          <source>When a virtual device is running and you want to restart it, click its name, and then click <bpt id="60eb8f66-50b3-4def-bd1c-1836790ca648">&lt;strong&gt;</bpt>Restart<ept id="60eb8f66-50b3-4def-bd1c-1836790ca648">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When a virtual device is running and you want to restart it, click its name, and then click <bpt id="60eb8f66-50b3-4def-bd1c-1836790ca648">&lt;strong&gt;</bpt>Restart<ept id="60eb8f66-50b3-4def-bd1c-1836790ca648">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="007cd253-2438-4b91-909b-1462a910efb6" xml:space="preserve">
+          <source>While the virtual device is restarting, its status is <bpt id="cef81bba-8a14-4765-a46b-7112e983819f">&lt;strong&gt;</bpt>Restarting<ept id="cef81bba-8a14-4765-a46b-7112e983819f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">While the virtual device is restarting, its status is <bpt id="cef81bba-8a14-4765-a46b-7112e983819f">&lt;strong&gt;</bpt>Restarting<ept id="cef81bba-8a14-4765-a46b-7112e983819f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="178d0b47-2e3e-4b52-869e-1ce7e8d4d394" xml:space="preserve">
+          <source>When the virtual device is ready for you to use, its status is <bpt id="ff730c1a-4164-405d-b49f-066182d1d31d">&lt;strong&gt;</bpt>Running<ept id="ff730c1a-4164-405d-b49f-066182d1d31d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the virtual device is ready for you to use, its status is <bpt id="ff730c1a-4164-405d-b49f-066182d1d31d">&lt;strong&gt;</bpt>Running<ept id="ff730c1a-4164-405d-b49f-066182d1d31d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="712a4788-067a-44ee-90f1-e3779f641d61" xml:space="preserve">
+          <source>You can also use the following Windows PowerShell cmdlets to start, stop, and restart the virtual device.</source>
+          <target state="new">You can also use the following Windows PowerShell cmdlets to start, stop, and restart the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="3efcf996-c1d2-46f9-8131-1e3fe87121c7" xml:space="preserve">
+          <source>An example follows each cmdlet.</source>
+          <target state="new">An example follows each cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="a1341508-d245-4be6-86f7-7f00a961d8ee" xml:space="preserve">
+          <source><bpt id="34edaa87-fe79-4403-8cc8-06102c345c17">&lt;code&gt;</bpt>Start-AzureVMC:\PS&gt;Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="34edaa87-fe79-4403-8cc8-06102c345c17">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="34edaa87-fe79-4403-8cc8-06102c345c17">&lt;code&gt;</bpt>Start-AzureVMC:\PS&gt;Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="34edaa87-fe79-4403-8cc8-06102c345c17">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14f79f7d-b330-4120-ab94-ae9aba5c4e0c" xml:space="preserve">
+          <source><bpt id="7519b947-0805-4546-948a-41da7674ddb7">&lt;code&gt;</bpt>Stop-AzureVMC:\PS&gt;Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="7519b947-0805-4546-948a-41da7674ddb7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="7519b947-0805-4546-948a-41da7674ddb7">&lt;code&gt;</bpt>Stop-AzureVMC:\PS&gt;Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="7519b947-0805-4546-948a-41da7674ddb7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ff51122-576c-45a5-9828-3ecec18d04a2" xml:space="preserve">
+          <source><bpt id="ef562d49-ed26-48d4-925e-465a06929dc6">&lt;code&gt;</bpt>Restart-AzureVMC:\PS&gt;Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="ef562d49-ed26-48d4-925e-465a06929dc6">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="ef562d49-ed26-48d4-925e-465a06929dc6">&lt;code&gt;</bpt>Restart-AzureVMC:\PS&gt;Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"<ept id="ef562d49-ed26-48d4-925e-465a06929dc6">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32e8e92b-e9ea-4bd3-bb8e-f64ed40dab2c" xml:space="preserve">
+          <source>If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one.</source>
+          <target state="new">If you decide that you just want to start over with your virtual device, simply deactivate and delete it and then create a new one.</target>
+        </trans-unit>
+        <trans-unit id="95db16d3-358a-495f-b4e1-0c1771a4d564" xml:space="preserve">
+          <source>Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.</source>
+          <target state="new">Just like when your physical device is reset, your new virtual device will not have any updates installed; therefore, make sure to check for updates before using it.</target>
+        </trans-unit>
+        <trans-unit id="a0514ad2-420c-4ba0-907c-69ece93f7aab" xml:space="preserve">
+          <source>Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for.</source>
+          <target state="new">Disaster recovery (DR) is one of the key scenarios that the StorSimple virtual device was designed for.</target>
+        </trans-unit>
+        <trans-unit id="d2653aa5-0949-4e8e-bd60-444376666834" xml:space="preserve">
+          <source>In this scenario, the physical StorSimple device or entire datacenter might not be available.</source>
+          <target state="new">In this scenario, the physical StorSimple device or entire datacenter might not be available.</target>
+        </trans-unit>
+        <trans-unit id="436be496-5cf3-4cb3-ac4d-0dcd113a71bc" xml:space="preserve">
+          <source>Fortunately, you can use a virtual device to restore operations in an alternate location.</source>
+          <target state="new">Fortunately, you can use a virtual device to restore operations in an alternate location.</target>
+        </trans-unit>
+        <trans-unit id="e5aca210-bbf5-4166-82f5-ed95979fefbf" xml:space="preserve">
+          <source>During DR, the volume containers from the source device change ownership and are transferred to the virtual device.</source>
+          <target state="new">During DR, the volume containers from the source device change ownership and are transferred to the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="6b5d54f4-9d63-4998-a17a-675d221cd516" xml:space="preserve">
+          <source>The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.</source>
+          <target state="new">The prerequisites for DR are that the virtual device has been created and configured, all the volumes within the volume container have been taken offline, and the volume container has an associated cloud snapshot.</target>
+        </trans-unit>
+        <trans-unit id="18d4a9af-9142-4e95-9fe0-b73ab61baf06" xml:space="preserve">
+          <source>You cannot failover or clone from a device running Update 1 to a device running pre-update 1 software.</source>
+          <target state="new">You cannot failover or clone from a device running Update 1 to a device running pre-update 1 software.</target>
+        </trans-unit>
+        <trans-unit id="4287b405-20d5-422f-9474-778fa1ebb816" xml:space="preserve">
+          <source>If you select a target device that is running pre-Update 1 software, you will be notified that you will need to update the target device prior to performing the failover.</source>
+          <target state="new">If you select a target device that is running pre-Update 1 software, you will be notified that you will need to update the target device prior to performing the failover.</target>
+        </trans-unit>
+        <trans-unit id="33229cf3-e239-4c25-94db-aded872efd36" xml:space="preserve">
+          <source>Verify that the volume container you want to fail over has associated cloud snapshots.</source>
+          <target state="new">Verify that the volume container you want to fail over has associated cloud snapshots.</target>
+        </trans-unit>
+        <trans-unit id="50a13418-979a-412b-b23c-7c32efd97bf6" xml:space="preserve">
+          <source>Open the <bpt id="e4260419-a67c-4f5a-99de-cd796bb169d9">&lt;strong&gt;</bpt>Device<ept id="e4260419-a67c-4f5a-99de-cd796bb169d9">&lt;/strong&gt;</ept> page, and then click the <bpt id="78a96cba-26bd-43f4-8a35-deab8f017c33">&lt;strong&gt;</bpt>Volume Containers<ept id="78a96cba-26bd-43f4-8a35-deab8f017c33">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Open the <bpt id="e4260419-a67c-4f5a-99de-cd796bb169d9">&lt;strong&gt;</bpt>Device<ept id="e4260419-a67c-4f5a-99de-cd796bb169d9">&lt;/strong&gt;</ept> page, and then click the <bpt id="78a96cba-26bd-43f4-8a35-deab8f017c33">&lt;strong&gt;</bpt>Volume Containers<ept id="78a96cba-26bd-43f4-8a35-deab8f017c33">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="173fe1fd-6695-4577-9a5a-3fda1575fd28" xml:space="preserve">
+          <source>Select a volume container that you would like to fail over to the virtual device.</source>
+          <target state="new">Select a volume container that you would like to fail over to the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="007b7785-1dbd-4207-adea-570d49064ef3" xml:space="preserve">
+          <source>Click the volume container to display the list of volumes within the container.</source>
+          <target state="new">Click the volume container to display the list of volumes within the container.</target>
+        </trans-unit>
+        <trans-unit id="ffab50fa-ae0f-4010-be74-e496e40c61f8" xml:space="preserve">
+          <source>Select a volume and click <bpt id="b7a3bdd0-977b-465d-948c-cefbd4383651">&lt;strong&gt;</bpt>Take Offline<ept id="b7a3bdd0-977b-465d-948c-cefbd4383651">&lt;/strong&gt;</ept> to take the volume offline.</source>
+          <target state="new">Select a volume and click <bpt id="b7a3bdd0-977b-465d-948c-cefbd4383651">&lt;strong&gt;</bpt>Take Offline<ept id="b7a3bdd0-977b-465d-948c-cefbd4383651">&lt;/strong&gt;</ept> to take the volume offline.</target>
+        </trans-unit>
+        <trans-unit id="fadbdbdc-7006-45ee-9259-466203923aa6" xml:space="preserve">
+          <source>Repeat this process for all the volumes in the volume container.</source>
+          <target state="new">Repeat this process for all the volumes in the volume container.</target>
+        </trans-unit>
+        <trans-unit id="68331de4-ad8e-4bea-bcd0-b5cdb55a40fc" xml:space="preserve">
+          <source>Repeat the previous step for all the volume containers you want to fail over to the virtual device.</source>
+          <target state="new">Repeat the previous step for all the volume containers you want to fail over to the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="13ae46c1-7c21-4d71-8d65-ec7ab39b765d" xml:space="preserve">
+          <source>On the <bpt id="525aca69-5ef2-40e3-bc38-e8bf4669387c">&lt;strong&gt;</bpt>Device<ept id="525aca69-5ef2-40e3-bc38-e8bf4669387c">&lt;/strong&gt;</ept> page, select the device that you need to fail over, and then click <bpt id="cd4ce00a-06b2-4232-ba08-12475d668187">&lt;strong&gt;</bpt>Failover<ept id="cd4ce00a-06b2-4232-ba08-12475d668187">&lt;/strong&gt;</ept> to open the <bpt id="b32a30f9-184f-414a-b0d4-2120c04f2d6c">&lt;strong&gt;</bpt>Device Failover<ept id="b32a30f9-184f-414a-b0d4-2120c04f2d6c">&lt;/strong&gt;</ept> wizard.</source>
+          <target state="new">On the <bpt id="525aca69-5ef2-40e3-bc38-e8bf4669387c">&lt;strong&gt;</bpt>Device<ept id="525aca69-5ef2-40e3-bc38-e8bf4669387c">&lt;/strong&gt;</ept> page, select the device that you need to fail over, and then click <bpt id="cd4ce00a-06b2-4232-ba08-12475d668187">&lt;strong&gt;</bpt>Failover<ept id="cd4ce00a-06b2-4232-ba08-12475d668187">&lt;/strong&gt;</ept> to open the <bpt id="b32a30f9-184f-414a-b0d4-2120c04f2d6c">&lt;strong&gt;</bpt>Device Failover<ept id="b32a30f9-184f-414a-b0d4-2120c04f2d6c">&lt;/strong&gt;</ept> wizard.</target>
+        </trans-unit>
+        <trans-unit id="4640d755-2e8e-4044-855c-d25552eafc73" xml:space="preserve">
+          <source>In <bpt id="59f018ba-c7f6-42b2-b7b2-271a84c41dc5">&lt;strong&gt;</bpt>Choose volume container to failover<ept id="59f018ba-c7f6-42b2-b7b2-271a84c41dc5">&lt;/strong&gt;</ept>, select the volume containers you would like to fail over.</source>
+          <target state="new">In <bpt id="59f018ba-c7f6-42b2-b7b2-271a84c41dc5">&lt;strong&gt;</bpt>Choose volume container to failover<ept id="59f018ba-c7f6-42b2-b7b2-271a84c41dc5">&lt;/strong&gt;</ept>, select the volume containers you would like to fail over.</target>
+        </trans-unit>
+        <trans-unit id="c05b75ae-8058-4bcd-b51d-c712bcf48f6d" xml:space="preserve">
+          <source>To be displayed in this list, the volume container must contain a cloud snapshot and be offline.</source>
+          <target state="new">To be displayed in this list, the volume container must contain a cloud snapshot and be offline.</target>
+        </trans-unit>
+        <trans-unit id="8d8e24d6-f7a0-4e6b-8616-2cd0e6125e72" xml:space="preserve">
+          <source>If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.</source>
+          <target state="new">If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.</target>
+        </trans-unit>
+        <trans-unit id="966fb4c8-d966-4289-b9a3-94b7c6992ad5" xml:space="preserve">
+          <source>On the next page, in <bpt id="312866e1-94d6-45ee-a941-2059a49f8244">&lt;strong&gt;</bpt>Choose a target device for the volumes<ept id="312866e1-94d6-45ee-a941-2059a49f8244">&lt;/strong&gt;</ept> in the selected containers, select the virtual device from the drop-down list of available devices.</source>
+          <target state="new">On the next page, in <bpt id="312866e1-94d6-45ee-a941-2059a49f8244">&lt;strong&gt;</bpt>Choose a target device for the volumes<ept id="312866e1-94d6-45ee-a941-2059a49f8244">&lt;/strong&gt;</ept> in the selected containers, select the virtual device from the drop-down list of available devices.</target>
+        </trans-unit>
+        <trans-unit id="1b8fe835-caa9-44c5-a142-8d87836b0bb8" xml:space="preserve">
+          <source>Only the devices that have the available capacity are displayed on the list.</source>
+          <target state="new">Only the devices that have the available capacity are displayed on the list.</target>
+        </trans-unit>
+        <trans-unit id="a6f70661-cbf1-4ceb-948c-15cd6795a38c" xml:space="preserve">
+          <source>Review all the failover settings on the <bpt id="07cbb7b4-c5cc-422b-9370-b5c860e5c610">&lt;strong&gt;</bpt>Confirm failover<ept id="07cbb7b4-c5cc-422b-9370-b5c860e5c610">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Review all the failover settings on the <bpt id="07cbb7b4-c5cc-422b-9370-b5c860e5c610">&lt;strong&gt;</bpt>Confirm failover<ept id="07cbb7b4-c5cc-422b-9370-b5c860e5c610">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="f339f632-86ce-4c08-8ad4-0651f640a03f" xml:space="preserve">
+          <source>If they are correct, click the check icon.</source>
+          <target state="new">If they are correct, click the check icon.</target>
+        </trans-unit>
+        <trans-unit id="69a65b70-04f8-4d65-8e64-e1e25e971ff3" xml:space="preserve">
+          <source>The failover process will begin.</source>
+          <target state="new">The failover process will begin.</target>
+        </trans-unit>
+        <trans-unit id="42a65ae7-b4db-4719-8473-f92b4b5cfd28" xml:space="preserve">
+          <source>When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process.</source>
+          <target state="new">When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process.</target>
+        </trans-unit>
+        <trans-unit id="1f4982e5-4197-4f5d-becc-cd865a871efa" xml:space="preserve">
+          <source>Go to the Volume Containers page.</source>
+          <target state="new">Go to the Volume Containers page.</target>
+        </trans-unit>
+        <trans-unit id="33492e1f-f1dd-489e-a6a1-03ffcfb84aa3" xml:space="preserve">
+          <source>All the volume containers, along with the volumes from the old device should appear.</source>
+          <target state="new">All the volume containers, along with the volumes from the old device should appear.</target>
+        </trans-unit>
+        <trans-unit id="ad5fbad3-1c3b-40fd-a555-344156012757" xml:space="preserve">
+          <source>The amount of storage supported on the virtual device is 30 TB.</source>
+          <target state="new">The amount of storage supported on the virtual device is 30 TB.</target>
+        </trans-unit>
+        <trans-unit id="7fe3cf11-8401-442a-a05c-e06b11b05504" xml:space="preserve">
+          <source>If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device.</source>
+          <target state="new">If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="c65a3d37-86eb-4bd9-b358-d483ac1d3f43" xml:space="preserve">
+          <source>Shutting down the virtual device doesn’t delete its operating system or data disks in storage.</source>
+          <target state="new">Shutting down the virtual device doesn’t delete its operating system or data disks in storage.</target>
+        </trans-unit>
+        <trans-unit id="ee53cb65-a109-4400-9bbf-0318f4c0b8b5" xml:space="preserve">
+          <source>It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.</source>
+          <target state="new">It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.</target>
+        </trans-unit>
+        <trans-unit id="699a115e-b4de-47e6-a539-5ff6bc75a96d" xml:space="preserve">
+          <source>If you delete or shut down the virtual device, it will appear as <bpt id="6df540ad-16f9-4da4-9302-f0f5bd36fab7">&lt;strong&gt;</bpt>Offline<ept id="6df540ad-16f9-4da4-9302-f0f5bd36fab7">&lt;/strong&gt;</ept> on the Devices page of the StorSimple Manager service.</source>
+          <target state="new">If you delete or shut down the virtual device, it will appear as <bpt id="6df540ad-16f9-4da4-9302-f0f5bd36fab7">&lt;strong&gt;</bpt>Offline<ept id="6df540ad-16f9-4da4-9302-f0f5bd36fab7">&lt;/strong&gt;</ept> on the Devices page of the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="354ba302-2c4b-4638-b51b-f2bfb3e6f4af" xml:space="preserve">
+          <source>You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device.</source>
+          <target state="new">You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="b78a7771-d13f-405d-bc22-483e2c859874" xml:space="preserve">
+          <source>For more information, see <bpt id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;linkText&gt;</bpt>Deactivate a device<ept id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;/linkText&gt;</ept><bpt id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;title&gt;</bpt><ept id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;linkText&gt;</bpt>Deactivate a device<ept id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;/linkText&gt;</ept><bpt id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;title&gt;</bpt><ept id="7aee2186-bee5-4ccf-9e13-a5af2fd58d4f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3e7571d-72e0-4fd5-9348-c173393d551b" xml:space="preserve">
+          <source>Sign in to the Management Portal.</source>
+          <target state="new">Sign in to the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="7308244b-e3d4-4edf-83e2-90c9d565728f" xml:space="preserve">
+          <source>Click <bpt id="11afbc53-91dd-4873-9250-ab0ea864084b">&lt;strong&gt;</bpt>Virtual Machines<ept id="11afbc53-91dd-4873-9250-ab0ea864084b">&lt;/strong&gt;</ept>, and then select the virtual device.</source>
+          <target state="new">Click <bpt id="11afbc53-91dd-4873-9250-ab0ea864084b">&lt;strong&gt;</bpt>Virtual Machines<ept id="11afbc53-91dd-4873-9250-ab0ea864084b">&lt;/strong&gt;</ept>, and then select the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="e7e6f6de-5b1d-4a63-b6f2-ea791497cfb3" xml:space="preserve">
+          <source>Click <bpt id="8b806c9f-a936-41c9-8187-3b11b88fd2c9">&lt;strong&gt;</bpt>Shutdown<ept id="8b806c9f-a936-41c9-8187-3b11b88fd2c9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8b806c9f-a936-41c9-8187-3b11b88fd2c9">&lt;strong&gt;</bpt>Shutdown<ept id="8b806c9f-a936-41c9-8187-3b11b88fd2c9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6831449-bdf9-467e-8365-b70afdb719dc" xml:space="preserve">
+          <source>Sign in to the Management Portal.</source>
+          <target state="new">Sign in to the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="595bb433-c14a-4c7f-88fc-88c543c084e8" xml:space="preserve">
+          <source>Click <bpt id="d73ab614-391a-4efc-992c-4594fa47fe26">&lt;strong&gt;</bpt>Virtual Machines<ept id="d73ab614-391a-4efc-992c-4594fa47fe26">&lt;/strong&gt;</ept>, and then select the virtual device.</source>
+          <target state="new">Click <bpt id="d73ab614-391a-4efc-992c-4594fa47fe26">&lt;strong&gt;</bpt>Virtual Machines<ept id="d73ab614-391a-4efc-992c-4594fa47fe26">&lt;/strong&gt;</ept>, and then select the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="f6190c6e-03f1-4c7b-a601-e0e187613799" xml:space="preserve">
+          <source>Click <bpt id="6f3771b3-1586-4c9f-8830-cbfa262328ed">&lt;strong&gt;</bpt>Delete<ept id="6f3771b3-1586-4c9f-8830-cbfa262328ed">&lt;/strong&gt;</ept> and choose to delete all the virtual machine disks.</source>
+          <target state="new">Click <bpt id="6f3771b3-1586-4c9f-8830-cbfa262328ed">&lt;strong&gt;</bpt>Delete<ept id="6f3771b3-1586-4c9f-8830-cbfa262328ed">&lt;/strong&gt;</ept> and choose to delete all the virtual machine disks.</target>
+        </trans-unit>
+        <trans-unit id="5ddaf180-eba3-447a-9a30-ba31f1d1fe4a" xml:space="preserve">
+          <source>Learn how to <bpt id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;linkText&gt;</bpt>Restore a StorSimple volume from a backup set<ept id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;/linkText&gt;</ept><bpt id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;title&gt;</bpt><ept id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Learn how to <bpt id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;linkText&gt;</bpt>Restore a StorSimple volume from a backup set<ept id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;/linkText&gt;</ept><bpt id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;title&gt;</bpt><ept id="e9506181-de25-47af-9116-52d449ddf5e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

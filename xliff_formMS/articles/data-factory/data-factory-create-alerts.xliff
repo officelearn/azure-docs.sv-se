@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e6f9ddb5-1bdf-486b-b0a3-6f9f280c8d58" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e6f9ddb5-1bdf-486b-b0a3-6f9f280c8d58" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1d810d00-d982-451e-a8af-3c992b713e5a">
+        <trans-unit id="e3ab5047-0fe3-44b0-9732-f5b16b1745c9" xml:space="preserve">
+          <source>Create alerts on Azure Data Factory events</source>
+          <target state="new">Create alerts on Azure Data Factory events</target>
+        </trans-unit>
+        <trans-unit id="ebc308b1-f6cf-4d34-a1f7-23b36c126886" xml:space="preserve">
+          <source>Learn how you can create alerts on events raised by the Azure for data factory operations.</source>
+          <target state="new">Learn how you can create alerts on events raised by the Azure for data factory operations.</target>
+        </trans-unit>
+        <trans-unit id="4f46cec0-ec40-474e-9078-3f867bac92b7" xml:space="preserve">
+          <source>Azure events provide useful insights into what is happening in your Azure resources.</source>
+          <target state="new">Azure events provide useful insights into what is happening in your Azure resources.</target>
+        </trans-unit>
+        <trans-unit id="0a01d184-b273-4c56-b847-6c459745daa8" xml:space="preserve">
+          <source>Azure logs user events when an Azure resource (e.g. data factory) is created, updated or deleted.</source>
+          <target state="new">Azure logs user events when an Azure resource (e.g. data factory) is created, updated or deleted.</target>
+        </trans-unit>
+        <trans-unit id="4a6127cb-3932-4ac4-86a5-72e600c5e0c9" xml:space="preserve">
+          <source>When using the Azure Data Factory, events are generated when:</source>
+          <target state="new">When using the Azure Data Factory, events are generated when:</target>
+        </trans-unit>
+        <trans-unit id="72005df9-540e-428d-8295-bc520c960af7" xml:space="preserve">
+          <source>Azure Data Factory is created/updated/deleted.</source>
+          <target state="new">Azure Data Factory is created/updated/deleted.</target>
+        </trans-unit>
+        <trans-unit id="ca3443fb-cc22-496e-a799-a6cfbd44d540" xml:space="preserve">
+          <source>Data processing (called as Runs) has started/completed.</source>
+          <target state="new">Data processing (called as Runs) has started/completed.</target>
+        </trans-unit>
+        <trans-unit id="98170584-03ce-459c-b03f-e724aa3ebc0c" xml:space="preserve">
+          <source>When an on-demand HDInsight cluster is created and removed.</source>
+          <target state="new">When an on-demand HDInsight cluster is created and removed.</target>
+        </trans-unit>
+        <trans-unit id="5b119ee7-93ff-4ead-a136-e865f90d3979" xml:space="preserve">
+          <source>You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription.</source>
+          <target state="new">You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription.</target>
+        </trans-unit>
+        <trans-unit id="88449faa-dba3-4450-97c7-e611ff6008a6" xml:space="preserve">
+          <source>In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met.</source>
+          <target state="new">In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met.</target>
+        </trans-unit>
+        <trans-unit id="ca98dea8-f243-4f1f-a96f-49b80d92c3b1" xml:space="preserve">
+          <source>To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on.</source>
+          <target state="new">To specify an alert definition, you create a JSON file describing the operations that you want to be alerted on.</target>
+        </trans-unit>
+        <trans-unit id="24759f98-33ad-43e8-b66d-ffc51ecc6656" xml:space="preserve">
+          <source>In the example below, the alert will send an email notification for the <bpt id="ef8d28e9-9122-4b93-a9c0-bb136c43ddff">&lt;strong&gt;</bpt>RunFinished<ept id="ef8d28e9-9122-4b93-a9c0-bb136c43ddff">&lt;/strong&gt;</ept> operation.</source>
+          <target state="new">In the example below, the alert will send an email notification for the <bpt id="ef8d28e9-9122-4b93-a9c0-bb136c43ddff">&lt;strong&gt;</bpt>RunFinished<ept id="ef8d28e9-9122-4b93-a9c0-bb136c43ddff">&lt;/strong&gt;</ept> operation.</target>
+        </trans-unit>
+        <trans-unit id="e02ab05c-dedd-48df-9b92-ad28867385dd" xml:space="preserve">
+          <source>To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).</source>
+          <target state="new">To be specific, an email notification is sent when a run in the data factory has completed and the run has failed (Status = FailedExecution).</target>
+        </trans-unit>
+        <trans-unit id="412229de-b649-412f-b079-2417c6d41b51" xml:space="preserve">
+          <source>From the above JSON definition, <bpt id="fb7ecff6-01b3-4537-99c1-adf8bdfd3a4e">&lt;strong&gt;</bpt>subStatus<ept id="fb7ecff6-01b3-4537-99c1-adf8bdfd3a4e">&lt;/strong&gt;</ept> can be removed if you don’t want to be alerted on a specific failure.</source>
+          <target state="new">From the above JSON definition, <bpt id="fb7ecff6-01b3-4537-99c1-adf8bdfd3a4e">&lt;strong&gt;</bpt>subStatus<ept id="fb7ecff6-01b3-4537-99c1-adf8bdfd3a4e">&lt;/strong&gt;</ept> can be removed if you don’t want to be alerted on a specific failure.</target>
+        </trans-unit>
+        <trans-unit id="9eb51161-3741-484b-ae03-bb1b956b841a" xml:space="preserve">
+          <source>See <bpt id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;linkText&gt;</bpt>Available Operations and Statuses<ept id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;/linkText&gt;</ept><bpt id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;title&gt;</bpt><ept id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;/title&gt;</ept> for the list of operations and statuses (and sub-statuses).</source>
+          <target state="new">See <bpt id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;linkText&gt;</bpt>Available Operations and Statuses<ept id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;/linkText&gt;</ept><bpt id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;title&gt;</bpt><ept id="b8f75854-49c3-45bc-9cec-068ccc9d5c06">&lt;/title&gt;</ept> for the list of operations and statuses (and sub-statuses).</target>
+        </trans-unit>
+        <trans-unit id="d6034315-3f17-4bb0-ba8e-65596d34dcf2" xml:space="preserve">
+          <source>To deploy the alert, use the Azure PowerShell cmdlet: <bpt id="cce49b1f-df63-4c19-bd9a-bf49f949ca70">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="cce49b1f-df63-4c19-bd9a-bf49f949ca70">&lt;/strong&gt;</ept>, as shown in the following example:</source>
+          <target state="new">To deploy the alert, use the Azure PowerShell cmdlet: <bpt id="cce49b1f-df63-4c19-bd9a-bf49f949ca70">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="cce49b1f-df63-4c19-bd9a-bf49f949ca70">&lt;/strong&gt;</ept>, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="e1daa185-ecf2-4980-89f9-7159074db0d8" xml:space="preserve">
+          <source>The StorageAccountName specifies the storage account for storing the deployed alert JSON file.</source>
+          <target state="new">The StorageAccountName specifies the storage account for storing the deployed alert JSON file.</target>
+        </trans-unit>
+        <trans-unit id="538f7ac0-c469-4b1b-9341-cc4a20ced656" xml:space="preserve">
+          <source>Once the resource group deployment has completed successfully, you will see the following messages:</source>
+          <target state="new">Once the resource group deployment has completed successfully, you will see the following messages:</target>
+        </trans-unit>
+        <trans-unit id="0de1df8c-7138-4aa3-a26f-9ac68f2ad41d" xml:space="preserve">
+          <source>To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: <bpt id="73985463-d538-4b17-bc6a-0d2f1cbf0348">&lt;strong&gt;</bpt>Get-AzureResourceGroupDeployment<ept id="73985463-d538-4b17-bc6a-0d2f1cbf0348">&lt;/strong&gt;</ept>, as shown in the following example:</source>
+          <target state="new">To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: <bpt id="73985463-d538-4b17-bc6a-0d2f1cbf0348">&lt;strong&gt;</bpt>Get-AzureResourceGroupDeployment<ept id="73985463-d538-4b17-bc6a-0d2f1cbf0348">&lt;/strong&gt;</ept>, as shown in the following example:</target>
+        </trans-unit>
+        <trans-unit id="64e9d00f-d88a-4c5a-ac06-4df1e18e5067" xml:space="preserve">
+          <source>Operation Name</source>
+          <target state="new">Operation Name</target>
+        </trans-unit>
+        <trans-unit id="ee2f52d5-ce60-49aa-a4d7-2dc52acb4f3b" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit id="bb0550a1-8658-4070-b102-13f86a20d3d9" xml:space="preserve">
+          <source>Sub Status</source>
+          <target state="new">Sub Status</target>
+        </trans-unit>
+        <trans-unit id="0bfd7f91-c6c0-4e96-b4d4-738652a93dd9" xml:space="preserve">
+          <source>RunStarted</source>
+          <target state="new">RunStarted</target>
+        </trans-unit>
+        <trans-unit id="8b7a5b48-25d7-459e-bb26-29dbf635d4f2" xml:space="preserve">
+          <source>Started</source>
+          <target state="new">Started</target>
+        </trans-unit>
+        <trans-unit id="2647e312-ad5b-4401-8bfb-e2202eb408ec" xml:space="preserve">
+          <source>Starting</source>
+          <target state="new">Starting</target>
+        </trans-unit>
+        <trans-unit id="f13c8405-dbd3-4072-ab79-3d735504cb33" xml:space="preserve">
+          <source>RunFinished</source>
+          <target state="new">RunFinished</target>
+        </trans-unit>
+        <trans-unit id="40508de9-67da-496b-a84f-915f99efc7bf" xml:space="preserve">
+          <source>Failed/Succeeded</source>
+          <target state="new">Failed/Succeeded</target>
+        </trans-unit>
+        <trans-unit id="9676e0bb-c0e8-46d1-b881-0c3967e98413" xml:space="preserve">
+          <source>&lt;p&gt;FailedResourceAllocation &lt;/p&gt;&lt;p&gt;Succeeded&lt;/p&gt;&lt;p&gt;FailedExecution&lt;/p&gt;&lt;p&gt;TimedOut&lt;/p&gt;&lt;p&gt;Canceled&lt;/p&gt;&lt;p&gt;FailedValidation&lt;/p&gt;&lt;p&gt;Abandoned&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;FailedResourceAllocation &lt;/p&gt;&lt;p&gt;Succeeded&lt;/p&gt;&lt;p&gt;FailedExecution&lt;/p&gt;&lt;p&gt;TimedOut&lt;/p&gt;&lt;p&gt;Canceled&lt;/p&gt;&lt;p&gt;FailedValidation&lt;/p&gt;&lt;p&gt;Abandoned&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="b5b0b812-8a61-4877-9e51-b9cd909f0817" xml:space="preserve">
+          <source>SliceOnTime</source>
+          <target state="new">SliceOnTime</target>
+        </trans-unit>
+        <trans-unit id="4a0ee557-3a92-4e56-8eca-e1d15b0fe82d" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="new">In Progress</target>
+        </trans-unit>
+        <trans-unit id="a5dc7f19-2552-450b-b865-d8e425dbfcd9" xml:space="preserve">
+          <source>Ontime</source>
+          <target state="new">Ontime</target>
+        </trans-unit>
+        <trans-unit id="4c35e280-3b38-4b4f-88fc-9320db0c21e1" xml:space="preserve">
+          <source>SliceDelayed</source>
+          <target state="new">SliceDelayed</target>
+        </trans-unit>
+        <trans-unit id="e26713de-efcd-48b6-b3ff-da513b82d13a" xml:space="preserve">
+          <source>In Progress</source>
+          <target state="new">In Progress</target>
+        </trans-unit>
+        <trans-unit id="ebeebcbd-b102-4386-aa87-4405d6e38069" xml:space="preserve">
+          <source>Late</source>
+          <target state="new">Late</target>
+        </trans-unit>
+        <trans-unit id="29eac85b-e7ec-4471-be5a-9d18af9eedbf" xml:space="preserve">
+          <source>OnDemandClusterCreateStarted</source>
+          <target state="new">OnDemandClusterCreateStarted</target>
+        </trans-unit>
+        <trans-unit id="24220c54-110e-45f4-a4c8-3e2a3c6e48c5" xml:space="preserve">
+          <source>Started</source>
+          <target state="new">Started</target>
+        </trans-unit>
+        <trans-unit id="e040b4a2-4de3-408b-ace6-d68af6394d96" xml:space="preserve">
+          <source>OnDemandClusterCreateSuccessful</source>
+          <target state="new">OnDemandClusterCreateSuccessful</target>
+        </trans-unit>
+        <trans-unit id="a3918cd2-5444-488a-b3e2-89627181155a" xml:space="preserve">
+          <source>Succeeded</source>
+          <target state="new">Succeeded</target>
+        </trans-unit>
+        <trans-unit id="43aa6d3b-1718-4904-ab72-7dd451f6e62b" xml:space="preserve">
+          <source>OnDemandClusterDeleted</source>
+          <target state="new">OnDemandClusterDeleted</target>
+        </trans-unit>
+        <trans-unit id="00100cfe-171d-4986-8113-756be8b55513" xml:space="preserve">
+          <source>Succeeded</source>
+          <target state="new">Succeeded</target>
+        </trans-unit>
+        <trans-unit id="39097dbe-6289-4b5f-8023-3690999d8504" xml:space="preserve">
+          <source>Run the following command to see the generated events:</source>
+          <target state="new">Run the following command to see the generated events:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

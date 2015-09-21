@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b9a97ef6-275b-4568-b966-eccfe37f427d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b9a97ef6-275b-4568-b966-eccfe37f427d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8f774b4b-30d6-419a-b574-a61682aa4075">
+        <trans-unit id="1cd756d8-953c-4993-a971-bf4f819145c6" xml:space="preserve">
+          <source>Right-click the Windows Store project, click <bpt id="9dc63451-d579-4aa2-bf07-60633caa7221">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="9dc63451-d579-4aa2-bf07-60633caa7221">&lt;/strong&gt;</ept>, then press the F5 key to run the Windows Store app.</source>
+          <target state="new">Right-click the Windows Store project, click <bpt id="9dc63451-d579-4aa2-bf07-60633caa7221">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="9dc63451-d579-4aa2-bf07-60633caa7221">&lt;/strong&gt;</ept>, then press the F5 key to run the Windows Store app.</target>
+        </trans-unit>
+        <trans-unit id="bc3a7efc-b492-4c2e-afae-b2c33662f805" xml:space="preserve">
+          <source>After the app starts, the device is registered for push notifications.</source>
+          <target state="new">After the app starts, the device is registered for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="cf513a46-ec46-4ddd-a184-43825c83953d" xml:space="preserve">
+          <source>Stop the Windows Store app and repeat the previous step for the Windows Phone Store app.</source>
+          <target state="new">Stop the Windows Store app and repeat the previous step for the Windows Phone Store app.</target>
+        </trans-unit>
+        <trans-unit id="7aeba740-3b95-41b6-a774-08e2faa426a6" xml:space="preserve">
+          <source>At this point, both devices are registered to receive push notifications.</source>
+          <target state="new">At this point, both devices are registered to receive push notifications.</target>
+        </trans-unit>
+        <trans-unit id="c4c67907-468d-4864-ace3-555049c1c2bd" xml:space="preserve">
+          <source>Run the Windows Store app again, and type text in <bpt id="ce33a377-f4d1-4297-9256-483f6a5907c9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="ce33a377-f4d1-4297-9256-483f6a5907c9">&lt;/strong&gt;</ept>, and then click <bpt id="e657f054-212c-4512-90c7-d85fdae7e7f2">&lt;strong&gt;</bpt>Save<ept id="e657f054-212c-4512-90c7-d85fdae7e7f2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run the Windows Store app again, and type text in <bpt id="ce33a377-f4d1-4297-9256-483f6a5907c9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="ce33a377-f4d1-4297-9256-483f6a5907c9">&lt;/strong&gt;</ept>, and then click <bpt id="e657f054-212c-4512-90c7-d85fdae7e7f2">&lt;strong&gt;</bpt>Save<ept id="e657f054-212c-4512-90c7-d85fdae7e7f2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d04d7bf6-1bed-40a1-8ea3-b92d732d92d5" xml:space="preserve">
+          <source>Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS.</source>
+          <target state="new">Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS.</target>
+        </trans-unit>
+        <trans-unit id="04f80951-225a-4795-91f3-fb73529ad313" xml:space="preserve">
+          <source>The notification is displayed on Windows Phone even when the app isn't running.</source>
+          <target state="new">The notification is displayed on Windows Phone even when the app isn't running.</target>
+        </trans-unit>
+        <trans-unit id="0480be47-efda-4d3c-8691-a83422c98bff" xml:space="preserve">
+          <source><bpt id="e90e6cda-f9ce-4b04-878d-2fdc9d31dcec">&lt;linkText&gt;</bpt><ept id="e90e6cda-f9ce-4b04-878d-2fdc9d31dcec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e90e6cda-f9ce-4b04-878d-2fdc9d31dcec">&lt;linkText&gt;</bpt><ept id="e90e6cda-f9ce-4b04-878d-2fdc9d31dcec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

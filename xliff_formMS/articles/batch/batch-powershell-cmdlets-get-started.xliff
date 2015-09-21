@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f01535b5-fcf9-4b8d-9346-7f344d1441ef" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f01535b5-fcf9-4b8d-9346-7f344d1441ef" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="16742143-562e-4ca4-9445-df26d10c7981">
+        <trans-unit id="f6d465d6-f67e-43f5-85c7-1a448603651b" xml:space="preserve">
+          <source>Get started with Azure Batch PowerShell cmdlets | Microsoft Azure</source>
+          <target state="new">Get started with Azure Batch PowerShell cmdlets | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5c89dd41-2e43-4e6b-9208-9da4fc9007a1" xml:space="preserve">
+          <source>Introduces the Azure PowerShell cmdlets used to manage the Azure Batch service</source>
+          <target state="new">Introduces the Azure PowerShell cmdlets used to manage the Azure Batch service</target>
+        </trans-unit>
+        <trans-unit id="f2382265-9b0f-4159-9011-23c97f1fb80d" xml:space="preserve">
+          <source>This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.</source>
+          <target state="new">This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.</target>
+        </trans-unit>
+        <trans-unit id="c1b3edc0-7ef7-4f89-9cca-921d1bfda460" xml:space="preserve">
+          <source>For detailed cmdlet syntax, type <bpt id="0421a805-3d8e-4029-9b23-cc0058f9d9f6">&lt;code&gt;</bpt>get-help &lt;Cmdlet_name&gt;<ept id="0421a805-3d8e-4029-9b23-cc0058f9d9f6">&lt;/code&gt;</ept> or see the <bpt id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;linkText&gt;</bpt>Azure Batch cmdlet reference<ept id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;/linkText&gt;</ept><bpt id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;title&gt;</bpt><ept id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed cmdlet syntax, type <bpt id="0421a805-3d8e-4029-9b23-cc0058f9d9f6">&lt;code&gt;</bpt>get-help &lt;Cmdlet_name&gt;<ept id="0421a805-3d8e-4029-9b23-cc0058f9d9f6">&lt;/code&gt;</ept> or see the <bpt id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;linkText&gt;</bpt>Azure Batch cmdlet reference<ept id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;/linkText&gt;</ept><bpt id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;title&gt;</bpt><ept id="42faaf05-afb5-4d25-94d5-1517c792c716">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67228a44-6b39-4521-b557-d80fd6f2204d" xml:space="preserve">
+          <source><bpt id="88d8eabf-99fd-440d-998d-9d49e4015c1b">&lt;strong&gt;</bpt>Azure PowerShell<ept id="88d8eabf-99fd-440d-998d-9d49e4015c1b">&lt;/strong&gt;</ept> - See <bpt id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;/linkText&gt;</ept><bpt id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;title&gt;</bpt><ept id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;/title&gt;</ept> for prerequisites and download and installation instructions.</source>
+          <target state="new"><bpt id="88d8eabf-99fd-440d-998d-9d49e4015c1b">&lt;strong&gt;</bpt>Azure PowerShell<ept id="88d8eabf-99fd-440d-998d-9d49e4015c1b">&lt;/strong&gt;</ept> - See <bpt id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;/linkText&gt;</ept><bpt id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;title&gt;</bpt><ept id="53d06fd7-44d9-423e-b337-e2999c0760bf">&lt;/title&gt;</ept> for prerequisites and download and installation instructions.</target>
+        </trans-unit>
+        <trans-unit id="20cca6dd-a78b-42ee-8fd0-0ce83322c5c7" xml:space="preserve">
+          <source>Batch cmdlets were introduced in version 0.8.10 and later versions.</source>
+          <target state="new">Batch cmdlets were introduced in version 0.8.10 and later versions.</target>
+        </trans-unit>
+        <trans-unit id="0afea5c0-679d-4057-8280-98c791bc4a3d" xml:space="preserve">
+          <source>The Batch cmdlets were updated to use the general availability API in version 0.9.6.</source>
+          <target state="new">The Batch cmdlets were updated to use the general availability API in version 0.9.6.</target>
+        </trans-unit>
+        <trans-unit id="a8cfd24a-531f-410f-aa04-dfbaaef58656" xml:space="preserve">
+          <source>Use standard procedures to start Azure PowerShell and <bpt id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;linkText&gt;</bpt>connect to your Azure subscriptions<ept id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;/linkText&gt;</ept><bpt id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;title&gt;</bpt><ept id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use standard procedures to start Azure PowerShell and <bpt id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;linkText&gt;</bpt>connect to your Azure subscriptions<ept id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;/linkText&gt;</ept><bpt id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;title&gt;</bpt><ept id="5fb09ff1-c67e-43ff-bfe6-7183ac413c52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cb68ebc5-aa0d-4ee2-855e-89478f4273a6" xml:space="preserve">
+          <source>Additionally:</source>
+          <target state="new">Additionally:</target>
+        </trans-unit>
+        <trans-unit id="69fe5e56-1cc9-4af3-8fab-e89b39482375" xml:space="preserve">
+          <source><bpt id="410c5803-0fec-4aaf-97a4-805d2ec30eaf">&lt;strong&gt;</bpt>Select Azure subscription<ept id="410c5803-0fec-4aaf-97a4-805d2ec30eaf">&lt;/strong&gt;</ept> - If you have more than subscription, select a subscription:</source>
+          <target state="new"><bpt id="410c5803-0fec-4aaf-97a4-805d2ec30eaf">&lt;strong&gt;</bpt>Select Azure subscription<ept id="410c5803-0fec-4aaf-97a4-805d2ec30eaf">&lt;/strong&gt;</ept> - If you have more than subscription, select a subscription:</target>
+        </trans-unit>
+        <trans-unit id="98e02dd6-f8e4-4dbe-9ed1-5d6b3cc5e142" xml:space="preserve">
+          <source><bpt id="c7b3b9e6-3d72-439f-8e2d-376024ff705f">&lt;strong&gt;</bpt>Switch to AzureResourceManage mode<ept id="c7b3b9e6-3d72-439f-8e2d-376024ff705f">&lt;/strong&gt;</ept> - The Batch cmdlets ship in the Azure Resource Manager module.</source>
+          <target state="new"><bpt id="c7b3b9e6-3d72-439f-8e2d-376024ff705f">&lt;strong&gt;</bpt>Switch to AzureResourceManage mode<ept id="c7b3b9e6-3d72-439f-8e2d-376024ff705f">&lt;/strong&gt;</ept> - The Batch cmdlets ship in the Azure Resource Manager module.</target>
+        </trans-unit>
+        <trans-unit id="507a152a-451d-4a37-96ac-2243b5f795e8" xml:space="preserve">
+          <source>See <bpt id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;linkText&gt;</bpt>Using Windows PowerShell with Resource Manager<ept id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;/linkText&gt;</ept><bpt id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;title&gt;</bpt><ept id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;linkText&gt;</bpt>Using Windows PowerShell with Resource Manager<ept id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;/linkText&gt;</ept><bpt id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;title&gt;</bpt><ept id="6b20d6ed-2767-421a-8361-3462683d129e">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="2868802d-9cff-4d57-9923-045a106f3fa2" xml:space="preserve">
+          <source>To use this module, run the <bpt id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;linkText&gt;</bpt>Switch-AzureMode<ept id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;/linkText&gt;</ept><bpt id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;title&gt;</bpt><ept id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;/title&gt;</ept> cmdlet:</source>
+          <target state="new">To use this module, run the <bpt id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;linkText&gt;</bpt>Switch-AzureMode<ept id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;/linkText&gt;</ept><bpt id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;title&gt;</bpt><ept id="c1840509-d09b-46a4-a038-0659c49d80df">&lt;/title&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="c9b9dd08-ea51-4f69-a3a4-d8e3730d2a6b" xml:space="preserve">
+          <source><bpt id="e0e6eac8-c2f8-4bd0-aac5-2335d0ac2f0c">&lt;strong&gt;</bpt>Register with the Batch provider namespace (one-time operation)<ept id="e0e6eac8-c2f8-4bd0-aac5-2335d0ac2f0c">&lt;/strong&gt;</ept> - Before you can manage your Batch accounts, you must register with the Batch provider namespace.</source>
+          <target state="new"><bpt id="e0e6eac8-c2f8-4bd0-aac5-2335d0ac2f0c">&lt;strong&gt;</bpt>Register with the Batch provider namespace (one-time operation)<ept id="e0e6eac8-c2f8-4bd0-aac5-2335d0ac2f0c">&lt;/strong&gt;</ept> - Before you can manage your Batch accounts, you must register with the Batch provider namespace.</target>
+        </trans-unit>
+        <trans-unit id="fb079692-e6be-455e-afac-23e26a281ba7" xml:space="preserve">
+          <source>This operation only needs to be performed once per subscription.</source>
+          <target state="new">This operation only needs to be performed once per subscription.</target>
+        </trans-unit>
+        <trans-unit id="8293b0be-0d01-417f-a11b-1c80aedbd138" xml:space="preserve">
+          <source>You can use Azure PowerShell cmdlets to create and manage Batch accounts and keys.</source>
+          <target state="new">You can use Azure PowerShell cmdlets to create and manage Batch accounts and keys.</target>
+        </trans-unit>
+        <trans-unit id="05970294-1f62-48b3-a00d-33239c5c701d" xml:space="preserve">
+          <source><bpt id="6abd0821-429c-4dac-9fbe-50cfe55d12a8">&lt;strong&gt;</bpt>New-AzureBatchAccount<ept id="6abd0821-429c-4dac-9fbe-50cfe55d12a8">&lt;/strong&gt;</ept> creates a new Batch account in a specified resource group.</source>
+          <target state="new"><bpt id="6abd0821-429c-4dac-9fbe-50cfe55d12a8">&lt;strong&gt;</bpt>New-AzureBatchAccount<ept id="6abd0821-429c-4dac-9fbe-50cfe55d12a8">&lt;/strong&gt;</ept> creates a new Batch account in a specified resource group.</target>
+        </trans-unit>
+        <trans-unit id="d68447a8-ede4-4c16-94a3-5766e73ff041" xml:space="preserve">
+          <source>If you do not already have a resource group, create one by running the <bpt id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;linkText&gt;</bpt>New-AzureResourceGroup<ept id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;/linkText&gt;</ept><bpt id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;title&gt;</bpt><ept id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;/title&gt;</ept> cmdlet, specifying one of the Azure regions in the <bpt id="83e2cc2b-eef8-4a83-a01f-b7da42859681">&lt;strong&gt;</bpt>Location<ept id="83e2cc2b-eef8-4a83-a01f-b7da42859681">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">If you do not already have a resource group, create one by running the <bpt id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;linkText&gt;</bpt>New-AzureResourceGroup<ept id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;/linkText&gt;</ept><bpt id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;title&gt;</bpt><ept id="f5e8f3e8-7df5-4c09-b4ae-2883fe907816">&lt;/title&gt;</ept> cmdlet, specifying one of the Azure regions in the <bpt id="83e2cc2b-eef8-4a83-a01f-b7da42859681">&lt;strong&gt;</bpt>Location<ept id="83e2cc2b-eef8-4a83-a01f-b7da42859681">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="8da50d83-4dce-405e-b139-15636705ec8a" xml:space="preserve">
+          <source>(You can find available regions for different Azure resources by running <bpt id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;linkText&gt;</bpt>Get-AzureLocation<ept id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;/linkText&gt;</ept><bpt id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;title&gt;</bpt><ept id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(You can find available regions for different Azure resources by running <bpt id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;linkText&gt;</bpt>Get-AzureLocation<ept id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;/linkText&gt;</ept><bpt id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;title&gt;</bpt><ept id="86952f2b-dec9-4ab2-8b80-1a71ec49e5bd">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="dd3f7ff4-a411-49a3-a4c3-1e0158596d88" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="b795c5ed-f422-429d-b6a4-c387cf8134b2" xml:space="preserve">
+          <source>Then, create a new Batch account account in the resource group, also specifying an account name for &lt;<bpt id="11349ec2-e7ce-490c-9ecc-2538e1280ce0">&lt;em&gt;</bpt>account_name<ept id="11349ec2-e7ce-490c-9ecc-2538e1280ce0">&lt;/em&gt;</ept>&gt; and a location where the Batch service is available. Creating the account can take several minutes to complete. For example:</source>
+          <target state="new">Then, create a new Batch account account in the resource group, also specifying an account name for &lt;<bpt id="11349ec2-e7ce-490c-9ecc-2538e1280ce0">&lt;em&gt;</bpt>account_name<ept id="11349ec2-e7ce-490c-9ecc-2538e1280ce0">&lt;/em&gt;</ept>&gt; and a location where the Batch service is available. Creating the account can take several minutes to complete. For example:</target>
+        </trans-unit>
+        <trans-unit id="39325661-059d-4c12-ac3f-bd9bebd1cf3a" xml:space="preserve">
+          <source>The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use lowercase letters and numbers only.</source>
+          <target state="new">The Batch account name must be unique to Azure, contain between 3 and 24 characters, and use lowercase letters and numbers only.</target>
+        </trans-unit>
+        <trans-unit id="ef9c945b-04e7-4ac3-b657-2368911adc8d" xml:space="preserve">
+          <source><bpt id="3c2e6741-a54b-4c04-b5f8-41186228246b">&lt;strong&gt;</bpt>Get-AzureBatchAccountKeys<ept id="3c2e6741-a54b-4c04-b5f8-41186228246b">&lt;/strong&gt;</ept> shows the access keys associated with an Azure Batch account.</source>
+          <target state="new"><bpt id="3c2e6741-a54b-4c04-b5f8-41186228246b">&lt;strong&gt;</bpt>Get-AzureBatchAccountKeys<ept id="3c2e6741-a54b-4c04-b5f8-41186228246b">&lt;/strong&gt;</ept> shows the access keys associated with an Azure Batch account.</target>
+        </trans-unit>
+        <trans-unit id="1c364083-1c56-4a89-8b6c-2172a26eaffd" xml:space="preserve">
+          <source>For example, run the following to get the primary and secondary keys of the account you created.</source>
+          <target state="new">For example, run the following to get the primary and secondary keys of the account you created.</target>
+        </trans-unit>
+        <trans-unit id="69b30ce9-30e9-4de0-b6b5-1a14e8afb57a" xml:space="preserve">
+          <source><bpt id="2bdde30f-c8f9-4e45-bb62-853a07d1e7d7">&lt;strong&gt;</bpt>New-AzureBatchAccountKey<ept id="2bdde30f-c8f9-4e45-bb62-853a07d1e7d7">&lt;/strong&gt;</ept> generates a new primary or secondary account key for an Azure Batch account.</source>
+          <target state="new"><bpt id="2bdde30f-c8f9-4e45-bb62-853a07d1e7d7">&lt;strong&gt;</bpt>New-AzureBatchAccountKey<ept id="2bdde30f-c8f9-4e45-bb62-853a07d1e7d7">&lt;/strong&gt;</ept> generates a new primary or secondary account key for an Azure Batch account.</target>
+        </trans-unit>
+        <trans-unit id="7fc26957-9b7e-458e-a0b4-a2b6e946225b" xml:space="preserve">
+          <source>For example, to generate a new primary key for your Batch account, type:</source>
+          <target state="new">For example, to generate a new primary key for your Batch account, type:</target>
+        </trans-unit>
+        <trans-unit id="f2e28cd2-0b90-4b27-a8ab-2a31555fc39e" xml:space="preserve">
+          <source>To generate a new secondary key, specify "Secondary" for the <bpt id="69606f51-d308-4b92-9819-1ea4cb67a28c">&lt;strong&gt;</bpt>KeyType<ept id="69606f51-d308-4b92-9819-1ea4cb67a28c">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To generate a new secondary key, specify "Secondary" for the <bpt id="69606f51-d308-4b92-9819-1ea4cb67a28c">&lt;strong&gt;</bpt>KeyType<ept id="69606f51-d308-4b92-9819-1ea4cb67a28c">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="32fa0ed9-d463-4a9b-91f3-c501f23cb576" xml:space="preserve">
+          <source>You have to regenerate the primary and secondary keys separately.</source>
+          <target state="new">You have to regenerate the primary and secondary keys separately.</target>
+        </trans-unit>
+        <trans-unit id="245cb5f0-9c0e-4987-91be-93655f9f481e" xml:space="preserve">
+          <source><bpt id="9946f9be-2958-4cf5-93be-50955874f6f2">&lt;strong&gt;</bpt>Remove-AzureBatchAccount<ept id="9946f9be-2958-4cf5-93be-50955874f6f2">&lt;/strong&gt;</ept> deletes a Batch account.</source>
+          <target state="new"><bpt id="9946f9be-2958-4cf5-93be-50955874f6f2">&lt;strong&gt;</bpt>Remove-AzureBatchAccount<ept id="9946f9be-2958-4cf5-93be-50955874f6f2">&lt;/strong&gt;</ept> deletes a Batch account.</target>
+        </trans-unit>
+        <trans-unit id="7775b108-4815-45ae-8aa0-6bdacf78d870" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="91940f45-dc67-4446-b647-ad99e83d153b" xml:space="preserve">
+          <source>When prompted, confirm you want to remove the account.</source>
+          <target state="new">When prompted, confirm you want to remove the account.</target>
+        </trans-unit>
+        <trans-unit id="07e89579-32bc-45b6-9c8e-f0930883ac98" xml:space="preserve">
+          <source>Account removal can take some time to complete.</source>
+          <target state="new">Account removal can take some time to complete.</target>
+        </trans-unit>
+        <trans-unit id="045f0724-12ba-4937-9d82-6ef3dec76b22" xml:space="preserve">
+          <source>Use cmdlets such as <bpt id="e34af2fd-9f71-40e9-97bb-1505fa3e65c9">&lt;strong&gt;</bpt>Get-AzureBatchJob<ept id="e34af2fd-9f71-40e9-97bb-1505fa3e65c9">&lt;/strong&gt;</ept>, <bpt id="0e48dd17-2794-4e5c-bfe9-7e81c58df480">&lt;strong&gt;</bpt>Get-AzureBatchTask<ept id="0e48dd17-2794-4e5c-bfe9-7e81c58df480">&lt;/strong&gt;</ept>, and <bpt id="ef2b02eb-b9b0-4771-996f-502ff17dcf2e">&lt;strong&gt;</bpt>Get-AzureBatchPool<ept id="ef2b02eb-b9b0-4771-996f-502ff17dcf2e">&lt;/strong&gt;</ept> to query for entities created under a Batch account.</source>
+          <target state="new">Use cmdlets such as <bpt id="e34af2fd-9f71-40e9-97bb-1505fa3e65c9">&lt;strong&gt;</bpt>Get-AzureBatchJob<ept id="e34af2fd-9f71-40e9-97bb-1505fa3e65c9">&lt;/strong&gt;</ept>, <bpt id="0e48dd17-2794-4e5c-bfe9-7e81c58df480">&lt;strong&gt;</bpt>Get-AzureBatchTask<ept id="0e48dd17-2794-4e5c-bfe9-7e81c58df480">&lt;/strong&gt;</ept>, and <bpt id="ef2b02eb-b9b0-4771-996f-502ff17dcf2e">&lt;strong&gt;</bpt>Get-AzureBatchPool<ept id="ef2b02eb-b9b0-4771-996f-502ff17dcf2e">&lt;/strong&gt;</ept> to query for entities created under a Batch account.</target>
+        </trans-unit>
+        <trans-unit id="65567564-638c-46e5-8e31-ece0a882825c" xml:space="preserve">
+          <source>To use these cmdlets, you first need to create an AzureBatchContext object to store your account name and keys:</source>
+          <target state="new">To use these cmdlets, you first need to create an AzureBatchContext object to store your account name and keys:</target>
+        </trans-unit>
+        <trans-unit id="153deaa9-12b2-49b4-8a00-adc5967cf8ce" xml:space="preserve">
+          <source>You pass this context into cmdlets that interact with the Batch service by using the <bpt id="44a7d2af-2804-4f2c-8254-fd35415457e7">&lt;strong&gt;</bpt>BatchContext<ept id="44a7d2af-2804-4f2c-8254-fd35415457e7">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">You pass this context into cmdlets that interact with the Batch service by using the <bpt id="44a7d2af-2804-4f2c-8254-fd35415457e7">&lt;strong&gt;</bpt>BatchContext<ept id="44a7d2af-2804-4f2c-8254-fd35415457e7">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="a46e5079-545f-4cd2-8c55-0ef03f24b357" xml:space="preserve">
+          <source>By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s <bpt id="8d0f2301-ea33-4700-ad3a-d759f2405a1c">&lt;strong&gt;</bpt>KeyInUse<ept id="8d0f2301-ea33-4700-ad3a-d759f2405a1c">&lt;/strong&gt;</ept> property: <bpt id="2f3abeb8-112c-47f9-a189-3322d45bb7bd">&lt;code&gt;</bpt>$context.KeyInUse = "Secondary"<ept id="2f3abeb8-112c-47f9-a189-3322d45bb7bd">&lt;/code&gt;</ept>.</source>
+          <target state="new">By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s <bpt id="8d0f2301-ea33-4700-ad3a-d759f2405a1c">&lt;strong&gt;</bpt>KeyInUse<ept id="8d0f2301-ea33-4700-ad3a-d759f2405a1c">&lt;/strong&gt;</ept> property: <bpt id="2f3abeb8-112c-47f9-a189-3322d45bb7bd">&lt;code&gt;</bpt>$context.KeyInUse = "Secondary"<ept id="2f3abeb8-112c-47f9-a189-3322d45bb7bd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3894659b-2efd-4d4b-b582-8e7b8f6caa54" xml:space="preserve">
+          <source>As an example, use <bpt id="4edf67f0-3387-426d-9d66-8af4ad017d5b">&lt;strong&gt;</bpt>Get-AzureBatchPools<ept id="4edf67f0-3387-426d-9d66-8af4ad017d5b">&lt;/strong&gt;</ept> to find your pools.</source>
+          <target state="new">As an example, use <bpt id="4edf67f0-3387-426d-9d66-8af4ad017d5b">&lt;strong&gt;</bpt>Get-AzureBatchPools<ept id="4edf67f0-3387-426d-9d66-8af4ad017d5b">&lt;/strong&gt;</ept> to find your pools.</target>
+        </trans-unit>
+        <trans-unit id="b16d5b6a-e76e-4d80-987d-23825907a8b2" xml:space="preserve">
+          <source>By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in <bpt id="a32b205c-7e28-40bd-9634-9b407ea58f5f">&lt;em&gt;</bpt>$context<ept id="a32b205c-7e28-40bd-9634-9b407ea58f5f">&lt;/em&gt;</ept>:</source>
+          <target state="new">By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in <bpt id="a32b205c-7e28-40bd-9634-9b407ea58f5f">&lt;em&gt;</bpt>$context<ept id="a32b205c-7e28-40bd-9634-9b407ea58f5f">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a70f976b-7fd4-480e-89dc-fd0497de284f" xml:space="preserve">
+          <source>You can supply an OData filter using the <bpt id="3d8a519a-73dc-4d5d-944f-5a6305fab1af">&lt;strong&gt;</bpt>Filter<ept id="3d8a519a-73dc-4d5d-944f-5a6305fab1af">&lt;/strong&gt;</ept> parameter to find only the objects you’re interested in.</source>
+          <target state="new">You can supply an OData filter using the <bpt id="3d8a519a-73dc-4d5d-944f-5a6305fab1af">&lt;strong&gt;</bpt>Filter<ept id="3d8a519a-73dc-4d5d-944f-5a6305fab1af">&lt;/strong&gt;</ept> parameter to find only the objects you’re interested in.</target>
+        </trans-unit>
+        <trans-unit id="f1b0eae5-584c-4ca4-a892-4987ceabf9e2" xml:space="preserve">
+          <source>For example, you can find all pools with ids starting with “myPool”:</source>
+          <target state="new">For example, you can find all pools with ids starting with “myPool”:</target>
+        </trans-unit>
+        <trans-unit id="f5c70ba5-72fa-4040-a4ad-1b29a10762c4" xml:space="preserve">
+          <source>This method is not as flexible as using “Where-Object” in a local pipeline.</source>
+          <target state="new">This method is not as flexible as using “Where-Object” in a local pipeline.</target>
+        </trans-unit>
+        <trans-unit id="2c1c9831-1e17-4235-b247-2b11e007e31e" xml:space="preserve">
+          <source>However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.</source>
+          <target state="new">However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.</target>
+        </trans-unit>
+        <trans-unit id="4e2a8cd0-36fc-4d96-a676-58524b35876b" xml:space="preserve">
+          <source>An alternative to an OData filter is to use the <bpt id="bfed058d-a069-46b2-a762-785adb075e38">&lt;strong&gt;</bpt>Id<ept id="bfed058d-a069-46b2-a762-785adb075e38">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">An alternative to an OData filter is to use the <bpt id="bfed058d-a069-46b2-a762-785adb075e38">&lt;strong&gt;</bpt>Id<ept id="bfed058d-a069-46b2-a762-785adb075e38">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="58c0a2b6-4d27-4250-adff-d3fb3b084c43" xml:space="preserve">
+          <source>To query for a specific pool with id "myPool":</source>
+          <target state="new">To query for a specific pool with id "myPool":</target>
+        </trans-unit>
+        <trans-unit id="012208af-69ad-4a8a-8ad8-c1a1360ceb7b" xml:space="preserve">
+          <source>The <bpt id="9543ae59-2af0-4d7e-a3dc-6fa40c1e996e">&lt;strong&gt;</bpt>Id<ept id="9543ae59-2af0-4d7e-a3dc-6fa40c1e996e">&lt;/strong&gt;</ept> parameter supports only full-id search, not wildcards or OData-style filters.</source>
+          <target state="new">The <bpt id="9543ae59-2af0-4d7e-a3dc-6fa40c1e996e">&lt;strong&gt;</bpt>Id<ept id="9543ae59-2af0-4d7e-a3dc-6fa40c1e996e">&lt;/strong&gt;</ept> parameter supports only full-id search, not wildcards or OData-style filters.</target>
+        </trans-unit>
+        <trans-unit id="ce539ddb-6984-46ff-af67-369823d35437" xml:space="preserve">
+          <source>Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.</source>
+          <target state="new">Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="cd7c7aea-9862-4c8d-b87c-81bfe6515544" xml:space="preserve">
+          <source>This has the same effect as specifying a parameter but makes listing multiple entities easier.</source>
+          <target state="new">This has the same effect as specifying a parameter but makes listing multiple entities easier.</target>
+        </trans-unit>
+        <trans-unit id="bf44e0e5-d01e-4d85-9667-421bd33199f2" xml:space="preserve">
+          <source>For example, you can find all tasks under your account:</source>
+          <target state="new">For example, you can find all tasks under your account:</target>
+        </trans-unit>
+        <trans-unit id="83cdd2ae-05d2-49e1-9c90-08b1cdb8d1f1" xml:space="preserve">
+          <source>By default, each cmdlet returns a maximum of 1000 objects.</source>
+          <target state="new">By default, each cmdlet returns a maximum of 1000 objects.</target>
+        </trans-unit>
+        <trans-unit id="4f05cb79-c9d5-4fa3-ab56-d87dae3d17d7" xml:space="preserve">
+          <source>If you reach this limit, you can either refine your filter to bring back fewer objects, or explicitly set a maximum using the <bpt id="ccb3201f-cb62-4839-bffa-6cac1d888790">&lt;strong&gt;</bpt>MaxCount<ept id="ccb3201f-cb62-4839-bffa-6cac1d888790">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">If you reach this limit, you can either refine your filter to bring back fewer objects, or explicitly set a maximum using the <bpt id="ccb3201f-cb62-4839-bffa-6cac1d888790">&lt;strong&gt;</bpt>MaxCount<ept id="ccb3201f-cb62-4839-bffa-6cac1d888790">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="9a8235fc-2a17-457b-b79f-b3c9da74e353" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="b3581208-b775-4bc2-8b36-f9952e4e3d92" xml:space="preserve">
+          <source>To remove the upper bound, set <bpt id="b995fc52-daf2-40e1-8a6e-472ea964587f">&lt;strong&gt;</bpt>MaxCount<ept id="b995fc52-daf2-40e1-8a6e-472ea964587f">&lt;/strong&gt;</ept> to 0 or less.</source>
+          <target state="new">To remove the upper bound, set <bpt id="b995fc52-daf2-40e1-8a6e-472ea964587f">&lt;strong&gt;</bpt>MaxCount<ept id="b995fc52-daf2-40e1-8a6e-472ea964587f">&lt;/strong&gt;</ept> to 0 or less.</target>
+        </trans-unit>
+        <trans-unit id="a4898310-408e-4aad-9d31-c55c7a76a2fd" xml:space="preserve">
+          <source><bpt id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;linkText&gt;</bpt>Batch technical overview<ept id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;/linkText&gt;</ept><bpt id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;title&gt;</bpt><ept id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;linkText&gt;</bpt>Batch technical overview<ept id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;/linkText&gt;</ept><bpt id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;title&gt;</bpt><ept id="345a0396-52df-4de0-a621-1f1639aaf41f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="979b6087-8273-422d-9ce8-502b431b9184" xml:space="preserve">
+          <source><bpt id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;linkText&gt;</bpt>Download Azure PowerShell<ept id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;/linkText&gt;</ept><bpt id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;title&gt;</bpt><ept id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;linkText&gt;</bpt>Download Azure PowerShell<ept id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;/linkText&gt;</ept><bpt id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;title&gt;</bpt><ept id="1d3abb18-fffb-42f8-ad62-1916f9b9a67e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc1e5828-220e-49e5-a58b-36f9ed17cb50" xml:space="preserve">
+          <source><bpt id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;linkText&gt;</bpt>Azure Batch cmdlet reference<ept id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;/linkText&gt;</ept><bpt id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;title&gt;</bpt><ept id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;linkText&gt;</bpt>Azure Batch cmdlet reference<ept id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;/linkText&gt;</ept><bpt id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;title&gt;</bpt><ept id="d376ca66-9499-4df4-9375-cf8aff6e4423">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="774388bc-1de6-4626-9cbd-b68991a4ac93" xml:space="preserve">
+          <source><bpt id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;linkText&gt;</bpt>Efficient List Queries<ept id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;/linkText&gt;</ept><bpt id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;title&gt;</bpt><ept id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;linkText&gt;</bpt>Efficient List Queries<ept id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;/linkText&gt;</ept><bpt id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;title&gt;</bpt><ept id="1cfad7e6-abe8-4449-972e-0257312d1d73">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

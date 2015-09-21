@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="136e4023-dc3c-4cbb-87a8-c26e51608b87" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="136e4023-dc3c-4cbb-87a8-c26e51608b87" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9365a7bb-79e2-46ff-b3aa-b5f397c6acb7">
+        <trans-unit id="af1bc8a3-a931-4dce-9e33-e3a12376945b" xml:space="preserve">
+          <source>PowerShell for StorSimple device management | Microsoft Azure</source>
+          <target state="new">PowerShell for StorSimple device management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="14d6d465-eeb1-4963-99c2-ab979b164596" xml:space="preserve">
+          <source>Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device.</source>
+          <target state="new">Learn how to use Windows PowerShell for StorSimple to manage your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="bd8354f0-8ff4-497e-bd83-8a9ec581f2ba" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple provides a command-line interface that you can use to manage your Microsoft Azure StorSimple device.</source>
+          <target state="new">Windows PowerShell for StorSimple provides a command-line interface that you can use to manage your Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="3b361ef3-0f62-4f78-9e70-a3d870899c9f" xml:space="preserve">
+          <source>As the name suggests, it is a Windows PowerShell-based, command-line interface that is built in a constrained runspace.</source>
+          <target state="new">As the name suggests, it is a Windows PowerShell-based, command-line interface that is built in a constrained runspace.</target>
+        </trans-unit>
+        <trans-unit id="934321a6-d8bc-49d6-a2df-84e459ab3437" xml:space="preserve">
+          <source>From the perspective of the user at the command line, a constrained runspace appears as a restricted version of Windows PowerShell.</source>
+          <target state="new">From the perspective of the user at the command line, a constrained runspace appears as a restricted version of Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="eca25b28-580e-4755-9c18-1ad4c43bc302" xml:space="preserve">
+          <source>While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing your Microsoft Azure StorSimple device.</source>
+          <target state="new">While maintaining some of the basic capabilities of Windows PowerShell, this interface has additional dedicated cmdlets that are geared towards managing your Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="3b496506-2cda-414a-974e-fef8bc8d0835" xml:space="preserve">
+          <source>This article describes the Windows PowerShell for StorSimple features, including how you can connect to this interface, and contains links to step-by-step procedures or workflows that you can perform using this interface.</source>
+          <target state="new">This article describes the Windows PowerShell for StorSimple features, including how you can connect to this interface, and contains links to step-by-step procedures or workflows that you can perform using this interface.</target>
+        </trans-unit>
+        <trans-unit id="05feba95-a8ed-4036-90f8-f24b79e9520a" xml:space="preserve">
+          <source>The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.</source>
+          <target state="new">The workflows include how to register your device, configure the network interface on your device, install updates that require the device to be in maintenance mode, change the device state, and troubleshoot any issues that you may experience.</target>
+        </trans-unit>
+        <trans-unit id="3a42d627-9eb6-4ca0-a470-a2aeba8089f2" xml:space="preserve">
+          <source>After reading this article, you will be able to:</source>
+          <target state="new">After reading this article, you will be able to:</target>
+        </trans-unit>
+        <trans-unit id="2b0e66c2-d104-4707-a89f-d9fe837940be" xml:space="preserve">
+          <source>Connect to your StorSimple device using Windows PowerShell for StorSimple.</source>
+          <target state="new">Connect to your StorSimple device using Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="523ec7a7-3c7f-499e-a142-3912da656f03" xml:space="preserve">
+          <source>Administer your StorSimple device using Windows PowerShell for StorSimple.</source>
+          <target state="new">Administer your StorSimple device using Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="add8d4f5-1960-4182-bb84-cf95ab6ddb20" xml:space="preserve">
+          <source>Get help in Windows PowerShell for StorSimple.</source>
+          <target state="new">Get help in Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="5ca0320f-7fae-4c83-be35-f514e1811b35" xml:space="preserve">
+          <source>Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting.</source>
+          <target state="new">Windows PowerShell for StorSimple cmdlets allow you to manage your StorSimple device from a serial console or remotely via Windows PowerShell remoting.</target>
+        </trans-unit>
+        <trans-unit id="1a792835-a6a9-4a45-808b-416a1993676b" xml:space="preserve">
+          <source>For more information about each of the individual cmdlets that can be used in this interface, go to <bpt id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;linkText&gt;</bpt>cmdlet reference for Windows PowerShell for StorSimple<ept id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;/linkText&gt;</ept><bpt id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;title&gt;</bpt><ept id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about each of the individual cmdlets that can be used in this interface, go to <bpt id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;linkText&gt;</bpt>cmdlet reference for Windows PowerShell for StorSimple<ept id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;/linkText&gt;</ept><bpt id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;title&gt;</bpt><ept id="7a96f388-038c-4b7e-bde0-444570cd742f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f794e99-5447-4edf-9e0a-d563741c3e8c" xml:space="preserve">
+          <source>The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line.</source>
+          <target state="new">The Azure PowerShell StorSimple cmdlets are a different collection of cmdlets that allow you to automate StorSimple service-level and migration tasks from the command line.</target>
+        </trans-unit>
+        <trans-unit id="24e3a2e3-290e-4fd4-9efd-d1dc4b57ed34" xml:space="preserve">
+          <source>For more information about the Azure PowerShell cmdlets for StorSimple, go to the <bpt id="e4867532-cdd8-4704-a31d-011575148829">&lt;linkText&gt;</bpt>Azure StorSimple cmdlet reference<ept id="e4867532-cdd8-4704-a31d-011575148829">&lt;/linkText&gt;</ept><bpt id="e4867532-cdd8-4704-a31d-011575148829">&lt;title&gt;</bpt><ept id="e4867532-cdd8-4704-a31d-011575148829">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Azure PowerShell cmdlets for StorSimple, go to the <bpt id="e4867532-cdd8-4704-a31d-011575148829">&lt;linkText&gt;</bpt>Azure StorSimple cmdlet reference<ept id="e4867532-cdd8-4704-a31d-011575148829">&lt;/linkText&gt;</ept><bpt id="e4867532-cdd8-4704-a31d-011575148829">&lt;title&gt;</bpt><ept id="e4867532-cdd8-4704-a31d-011575148829">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaecb88a-5598-4f61-9c5c-8556a02ece5e" xml:space="preserve">
+          <source>You can access the Windows PowerShell for StorSimple using one of the following methods:</source>
+          <target state="new">You can access the Windows PowerShell for StorSimple using one of the following methods:</target>
+        </trans-unit>
+        <trans-unit id="c0b1a2db-f6d3-4327-be45-5dc16df8ae7b" xml:space="preserve">
+          <source><bpt id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;linkText&gt;</bpt>Connect to StorSimple device serial console<ept id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;/linkText&gt;</ept><bpt id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;title&gt;</bpt><ept id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;linkText&gt;</bpt>Connect to StorSimple device serial console<ept id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;/linkText&gt;</ept><bpt id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;title&gt;</bpt><ept id="0faa90e6-691d-4468-86cd-9d235f2672c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5abcb48-28a1-444e-beea-c5436c895302" xml:space="preserve">
+          <source><bpt id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;linkText&gt;</bpt>Connect remotely to StorSimple using Windows PowerShell<ept id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;/linkText&gt;</ept><bpt id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;title&gt;</bpt><ept id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;linkText&gt;</bpt>Connect remotely to StorSimple using Windows PowerShell<ept id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;/linkText&gt;</ept><bpt id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;title&gt;</bpt><ept id="ef91d90b-f719-4e8b-974c-cdd07acb83d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da5c640d-b7b8-40e8-a177-b2db6adc6325" xml:space="preserve">
+          <source>You can <bpt id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;linkText&gt;</bpt>download PuTTY<ept id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;/linkText&gt;</ept><bpt id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;title&gt;</bpt><ept id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;/title&gt;</ept> or similar terminal emulation software to connect to Windows PowerShell for StorSimple.</source>
+          <target state="new">You can <bpt id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;linkText&gt;</bpt>download PuTTY<ept id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;/linkText&gt;</ept><bpt id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;title&gt;</bpt><ept id="21257ec1-ebab-4cc8-b89b-3894e9a1a497">&lt;/title&gt;</ept> or similar terminal emulation software to connect to Windows PowerShell for StorSimple.</target>
+        </trans-unit>
+        <trans-unit id="05b52e73-e4e8-4aff-9097-ab63e86f649a" xml:space="preserve">
+          <source>You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device.</source>
+          <target state="new">You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="e63dc44f-c386-4d4e-a392-64f5b1127cb0" xml:space="preserve">
+          <source>The following topics contain detailed steps about how to configure PuTTy and connect to the device.</source>
+          <target state="new">The following topics contain detailed steps about how to configure PuTTy and connect to the device.</target>
+        </trans-unit>
+        <trans-unit id="0bda872d-4d5b-48db-a74b-dec47ef44a9e" xml:space="preserve">
+          <source>Various menu options in the serial console are also explained.</source>
+          <target state="new">Various menu options in the serial console are also explained.</target>
+        </trans-unit>
+        <trans-unit id="517bab1f-6893-406a-ba10-1a5cd1588625" xml:space="preserve">
+          <source>When you access the Windows PowerShell interface of your StorSimple device through the serial console, a banner message is presented, followed by menu options.</source>
+          <target state="new">When you access the Windows PowerShell interface of your StorSimple device through the serial console, a banner message is presented, followed by menu options.</target>
+        </trans-unit>
+        <trans-unit id="b206f03c-bd33-46f8-b21c-9b7f9bad030c" xml:space="preserve">
+          <source>The banner message contains basic StorSimple device information such as the model, name, installed software version, and status of the controller you are accessing.</source>
+          <target state="new">The banner message contains basic StorSimple device information such as the model, name, installed software version, and status of the controller you are accessing.</target>
+        </trans-unit>
+        <trans-unit id="eb8a837b-e395-4c44-9cb8-363f23e63410" xml:space="preserve">
+          <source>The following image shows an example of a banner message.</source>
+          <target state="new">The following image shows an example of a banner message.</target>
+        </trans-unit>
+        <trans-unit id="b8a05680-034c-4591-874e-bbe970677d34" xml:space="preserve">
+          <source><bpt id="ee2a1775-ae4f-4c5c-98ab-328a41be6116">&lt;linkText&gt;</bpt>Serial banner message<ept id="ee2a1775-ae4f-4c5c-98ab-328a41be6116">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee2a1775-ae4f-4c5c-98ab-328a41be6116">&lt;linkText&gt;</bpt>Serial banner message<ept id="ee2a1775-ae4f-4c5c-98ab-328a41be6116">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e28266dd-a161-4ad6-931a-4c76238d04c2" xml:space="preserve">
+          <source>You can use the banner message to identify whether the controller you are connected to is Active or Passive.</source>
+          <target state="new">You can use the banner message to identify whether the controller you are connected to is Active or Passive.</target>
+        </trans-unit>
+        <trans-unit id="b5c25a75-7531-4b9e-b670-04a37ed9e015" xml:space="preserve">
+          <source>The following image shows the various runspace options that are available in the serial console menu.</source>
+          <target state="new">The following image shows the various runspace options that are available in the serial console menu.</target>
+        </trans-unit>
+        <trans-unit id="f756dab4-fcd4-4826-8c06-11e561515937" xml:space="preserve">
+          <source><bpt id="922e6757-5a71-44c7-98a2-ca5f8b282a20">&lt;linkText&gt;</bpt>Register your device 2<ept id="922e6757-5a71-44c7-98a2-ca5f8b282a20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="922e6757-5a71-44c7-98a2-ca5f8b282a20">&lt;linkText&gt;</bpt>Register your device 2<ept id="922e6757-5a71-44c7-98a2-ca5f8b282a20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af58a8ee-be69-4a61-9b32-29c243b08380" xml:space="preserve">
+          <source>You can choose from the following settings:</source>
+          <target state="new">You can choose from the following settings:</target>
+        </trans-unit>
+        <trans-unit id="ec4c696c-e4e5-4de0-a8d5-340f05e7e742" xml:space="preserve">
+          <source><bpt id="18435c29-748d-4395-9a8d-59e9756f86e4">&lt;strong&gt;</bpt>Log in with full access<ept id="18435c29-748d-4395-9a8d-59e9756f86e4">&lt;/strong&gt;</ept>
+This option allows you to connect (with the proper credentials) to the <bpt id="fc3846f4-613f-4e62-b12a-fb7c2134f9f1">&lt;strong&gt;</bpt>SSAdminConsole<ept id="fc3846f4-613f-4e62-b12a-fb7c2134f9f1">&lt;/strong&gt;</ept> runspace on the local controller.</source>
+          <target state="new"><bpt id="18435c29-748d-4395-9a8d-59e9756f86e4">&lt;strong&gt;</bpt>Log in with full access<ept id="18435c29-748d-4395-9a8d-59e9756f86e4">&lt;/strong&gt;</ept>
+This option allows you to connect (with the proper credentials) to the <bpt id="fc3846f4-613f-4e62-b12a-fb7c2134f9f1">&lt;strong&gt;</bpt>SSAdminConsole<ept id="fc3846f4-613f-4e62-b12a-fb7c2134f9f1">&lt;/strong&gt;</ept> runspace on the local controller.</target>
+        </trans-unit>
+        <trans-unit id="9c13f674-7520-48cd-8f38-f2c570d4f1be" xml:space="preserve">
+          <source>(The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.)</source>
+          <target state="new">(The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.)</target>
+        </trans-unit>
+        <trans-unit id="da6e56e2-95b8-4775-b08a-92a96352aae8" xml:space="preserve">
+          <source>This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues.</source>
+          <target state="new">This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues.</target>
+        </trans-unit>
+        <trans-unit id="d8396585-08cf-460c-b1a3-626e527e9673" xml:space="preserve">
+          <source>After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet.</source>
+          <target state="new">After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="9739f77d-fa90-4af4-8538-3c7b19346572" xml:space="preserve">
+          <source>For details, refer to <bpt id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;linkText&gt;</bpt>Start a support session<ept id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;/linkText&gt;</ept><bpt id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;title&gt;</bpt><ept id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, refer to <bpt id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;linkText&gt;</bpt>Start a support session<ept id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;/linkText&gt;</ept><bpt id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;title&gt;</bpt><ept id="47e91107-5f00-469e-8dce-f0abc48a1b4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9ca830d-19a6-4d11-bb30-1b8b8f154b77" xml:space="preserve">
+          <source>This option connects to a runspace on the local controller.</source>
+          <target state="new">This option connects to a runspace on the local controller.</target>
+        </trans-unit>
+        <trans-unit id="2370fc8b-ea4b-446d-8742-b56b3bcab8f3" xml:space="preserve">
+          <source><bpt id="901e55ed-ecea-42ef-b737-34cfa577c2c8">&lt;strong&gt;</bpt>Log in to peer controller with full access<ept id="901e55ed-ecea-42ef-b737-34cfa577c2c8">&lt;/strong&gt;</ept>
+This option is the same as option 1, except that you can connect (with the proper credentials) to the <bpt id="ad7c6dc8-b585-4581-a8ae-870f2fe23a10">&lt;strong&gt;</bpt>SSAdminConsole<ept id="ad7c6dc8-b585-4581-a8ae-870f2fe23a10">&lt;/strong&gt;</ept> runspace on the peer controller.</source>
+          <target state="new"><bpt id="901e55ed-ecea-42ef-b737-34cfa577c2c8">&lt;strong&gt;</bpt>Log in to peer controller with full access<ept id="901e55ed-ecea-42ef-b737-34cfa577c2c8">&lt;/strong&gt;</ept>
+This option is the same as option 1, except that you can connect (with the proper credentials) to the <bpt id="ad7c6dc8-b585-4581-a8ae-870f2fe23a10">&lt;strong&gt;</bpt>SSAdminConsole<ept id="ad7c6dc8-b585-4581-a8ae-870f2fe23a10">&lt;/strong&gt;</ept> runspace on the peer controller.</target>
+        </trans-unit>
+        <trans-unit id="9d7a3e94-e985-4cfd-b20a-5c22c3a3af23" xml:space="preserve">
+          <source>Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).</source>
+          <target state="new">Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).</target>
+        </trans-unit>
+        <trans-unit id="eec95d49-1af9-435e-b8ae-9e5ca73931fb" xml:space="preserve">
+          <source>Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.</source>
+          <target state="new">Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.</target>
+        </trans-unit>
+        <trans-unit id="b458a841-0dc7-47f5-aae2-437031c9a683" xml:space="preserve">
+          <source><bpt id="a2cc9dd7-1f65-4440-b413-d189229ba9f4">&lt;strong&gt;</bpt>Connect with limited access<ept id="a2cc9dd7-1f65-4440-b413-d189229ba9f4">&lt;/strong&gt;</ept>
+This option is used to access Windows PowerShell interface in limited mode.</source>
+          <target state="new"><bpt id="a2cc9dd7-1f65-4440-b413-d189229ba9f4">&lt;strong&gt;</bpt>Connect with limited access<ept id="a2cc9dd7-1f65-4440-b413-d189229ba9f4">&lt;/strong&gt;</ept>
+This option is used to access Windows PowerShell interface in limited mode.</target>
+        </trans-unit>
+        <trans-unit id="f8774518-37a4-4280-bb2c-7ac8daa426fe" xml:space="preserve">
+          <source>You are not prompted for access credentials.</source>
+          <target state="new">You are not prompted for access credentials.</target>
+        </trans-unit>
+        <trans-unit id="9e693669-a513-43d5-8d22-502af342acc5" xml:space="preserve">
+          <source>This option connects to a more restricted runspace compared to options 1 and 2.</source>
+          <target state="new">This option connects to a more restricted runspace compared to options 1 and 2.</target>
+        </trans-unit>
+        <trans-unit id="51f272db-6949-42f1-9e6b-08c22a0d1e52" xml:space="preserve">
+          <source>Some of the tasks that are available through option 1 that cannot be performed in this runspace are:</source>
+          <target state="new">Some of the tasks that are available through option 1 that cannot be performed in this runspace are:</target>
+        </trans-unit>
+        <trans-unit id="aa1ed41c-f59b-4730-9664-1408d224a750" xml:space="preserve">
+          <source>Reset to the factory settings</source>
+          <target state="new">Reset to the factory settings</target>
+        </trans-unit>
+        <trans-unit id="ba6d0cd1-d4e1-4b21-ba55-f9dcd9334104" xml:space="preserve">
+          <source>Change the password</source>
+          <target state="new">Change the password</target>
+        </trans-unit>
+        <trans-unit id="0ef598db-aa47-49fa-b003-434e40cade8c" xml:space="preserve">
+          <source>Enable or disable support access</source>
+          <target state="new">Enable or disable support access</target>
+        </trans-unit>
+        <trans-unit id="9a0271cf-9c6e-4dd6-93a0-fa391319301b" xml:space="preserve">
+          <source>Apply updates</source>
+          <target state="new">Apply updates</target>
+        </trans-unit>
+        <trans-unit id="09d4171d-1625-422b-aa5c-96dd86cf6a39" xml:space="preserve">
+          <source>Install hotfixes </source>
+          <target state="new">Install hotfixes </target>
+        </trans-unit>
+        <trans-unit id="bbc201da-19b0-4ce0-8818-4abffb3cbb10" xml:space="preserve">
+          <source><bpt id="cc64d1e5-7657-4b38-b46b-03343700b473">&lt;strong&gt;</bpt>This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.<ept id="cc64d1e5-7657-4b38-b46b-03343700b473">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cc64d1e5-7657-4b38-b46b-03343700b473">&lt;strong&gt;</bpt>This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.<ept id="cc64d1e5-7657-4b38-b46b-03343700b473">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1d4cc28-b2d5-49ff-931a-19e6e1aae67a" xml:space="preserve">
+          <source><bpt id="c3095f1d-7f84-481b-88a6-c420daa7cdb3">&lt;strong&gt;</bpt>Change language<ept id="c3095f1d-7f84-481b-88a6-c420daa7cdb3">&lt;/strong&gt;</ept>
+This option allows you to change the display language on the Windows PowerShell interface.</source>
+          <target state="new"><bpt id="c3095f1d-7f84-481b-88a6-c420daa7cdb3">&lt;strong&gt;</bpt>Change language<ept id="c3095f1d-7f84-481b-88a6-c420daa7cdb3">&lt;/strong&gt;</ept>
+This option allows you to change the display language on the Windows PowerShell interface.</target>
+        </trans-unit>
+        <trans-unit id="13f4682e-ee25-4968-a60f-f03d11593836" xml:space="preserve">
+          <source>The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.</source>
+          <target state="new">The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.</target>
+        </trans-unit>
+        <trans-unit id="a3aa8db3-2142-4220-a867-4e492745d276" xml:space="preserve">
+          <source>Make sure that you use the following PuTTY settings to connect to the Windows PowerShell interface from the serial console.</source>
+          <target state="new">Make sure that you use the following PuTTY settings to connect to the Windows PowerShell interface from the serial console.</target>
+        </trans-unit>
+        <trans-unit id="1e83b8bb-d4db-4619-8f4c-04fb13837ed8" xml:space="preserve">
+          <source>In the PuTTY Reconfiguration dialog box, in the <bpt id="3d11f954-b1d6-4b39-aa18-488b669201cf">&lt;strong&gt;</bpt>Category<ept id="3d11f954-b1d6-4b39-aa18-488b669201cf">&lt;/strong&gt;</ept> pane, select <bpt id="cb74d92b-73bc-4ec5-83e2-1524024114ba">&lt;strong&gt;</bpt>Keyboard<ept id="cb74d92b-73bc-4ec5-83e2-1524024114ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the PuTTY Reconfiguration dialog box, in the <bpt id="3d11f954-b1d6-4b39-aa18-488b669201cf">&lt;strong&gt;</bpt>Category<ept id="3d11f954-b1d6-4b39-aa18-488b669201cf">&lt;/strong&gt;</ept> pane, select <bpt id="cb74d92b-73bc-4ec5-83e2-1524024114ba">&lt;strong&gt;</bpt>Keyboard<ept id="cb74d92b-73bc-4ec5-83e2-1524024114ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13e0b7d0-1e3e-4413-96ae-48a06867e84b" xml:space="preserve">
+          <source>Make sure that the following options are selected (these are the default settings when you start a new session).</source>
+          <target state="new">Make sure that the following options are selected (these are the default settings when you start a new session).</target>
+        </trans-unit>
+        <trans-unit id="d39c74ec-3ad3-4f4b-b2c0-62d90a852b0e" xml:space="preserve">
+          <source>|Keyboard item|Select|
+|---|---|
+|Backspace key|Control-?</source>
+          <target state="new">|Keyboard item|Select|
+|---|---|
+|Backspace key|Control-?</target>
+        </trans-unit>
+        <trans-unit id="8cf5dae6-ec89-4cb4-8b0c-50540ec371b0" xml:space="preserve">
+          <source>(127)|
+|Home and End keys|Standard|
+|Function keys and keypad|ESC[n~|
+|Initial state of cursor keys|Normal|
+|Initial state of numeric keypad|Normal|
+|Enable extra keyboard features|Control-Alt is different from AltGr|</source>
+          <target state="new">(127)|
+|Home and End keys|Standard|
+|Function keys and keypad|ESC[n~|
+|Initial state of cursor keys|Normal|
+|Initial state of numeric keypad|Normal|
+|Enable extra keyboard features|Control-Alt is different from AltGr|</target>
+        </trans-unit>
+        <trans-unit id="acb91a3d-615b-4d38-8692-cbe603b4f7c0" xml:space="preserve">
+          <source><bpt id="818590d0-dabe-4396-8027-42d4da5ca49b">&lt;linkText&gt;</bpt>Supported Putty Settings<ept id="818590d0-dabe-4396-8027-42d4da5ca49b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="818590d0-dabe-4396-8027-42d4da5ca49b">&lt;linkText&gt;</bpt>Supported Putty Settings<ept id="818590d0-dabe-4396-8027-42d4da5ca49b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb1bcf2e-3ef4-4236-afd6-304f8b2467cd" xml:space="preserve">
+          <source>Click <bpt id="28170e7c-8b94-4e17-8077-57802ad67d1b">&lt;strong&gt;</bpt>Apply<ept id="28170e7c-8b94-4e17-8077-57802ad67d1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="28170e7c-8b94-4e17-8077-57802ad67d1b">&lt;strong&gt;</bpt>Apply<ept id="28170e7c-8b94-4e17-8077-57802ad67d1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dba1aefb-3943-4d7a-8b93-305fbc046203" xml:space="preserve">
+          <source>In the <bpt id="0c14e096-ed84-4f99-9b18-4428bfce068a">&lt;strong&gt;</bpt>Category<ept id="0c14e096-ed84-4f99-9b18-4428bfce068a">&lt;/strong&gt;</ept> pane, select <bpt id="a8ec0b3f-f729-4acf-a0dd-eecf8d9fa2cf">&lt;strong&gt;</bpt>Translation<ept id="a8ec0b3f-f729-4acf-a0dd-eecf8d9fa2cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="0c14e096-ed84-4f99-9b18-4428bfce068a">&lt;strong&gt;</bpt>Category<ept id="0c14e096-ed84-4f99-9b18-4428bfce068a">&lt;/strong&gt;</ept> pane, select <bpt id="a8ec0b3f-f729-4acf-a0dd-eecf8d9fa2cf">&lt;strong&gt;</bpt>Translation<ept id="a8ec0b3f-f729-4acf-a0dd-eecf8d9fa2cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a394a23a-a182-49df-b717-bc6248f0fbd5" xml:space="preserve">
+          <source>In the <bpt id="7a800830-d640-40cb-b4a4-ab50cd3aba62">&lt;strong&gt;</bpt>Remote character set<ept id="7a800830-d640-40cb-b4a4-ab50cd3aba62">&lt;/strong&gt;</ept> list box, select <bpt id="290d08c5-7891-43ec-9ac2-7a9189983ccf">&lt;strong&gt;</bpt>UTF-8<ept id="290d08c5-7891-43ec-9ac2-7a9189983ccf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="7a800830-d640-40cb-b4a4-ab50cd3aba62">&lt;strong&gt;</bpt>Remote character set<ept id="7a800830-d640-40cb-b4a4-ab50cd3aba62">&lt;/strong&gt;</ept> list box, select <bpt id="290d08c5-7891-43ec-9ac2-7a9189983ccf">&lt;strong&gt;</bpt>UTF-8<ept id="290d08c5-7891-43ec-9ac2-7a9189983ccf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36482fef-c0e3-4c9f-88d8-e17b61257285" xml:space="preserve">
+          <source>Under <bpt id="bb34a43d-bae0-49cf-8381-ed1c6fb6c43b">&lt;strong&gt;</bpt>Handling of line drawing characters<ept id="bb34a43d-bae0-49cf-8381-ed1c6fb6c43b">&lt;/strong&gt;</ept>, select <bpt id="bdd88975-046a-445b-99d1-900d74f9cc75">&lt;strong&gt;</bpt>Use Unicode line drawing code points<ept id="bdd88975-046a-445b-99d1-900d74f9cc75">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="bb34a43d-bae0-49cf-8381-ed1c6fb6c43b">&lt;strong&gt;</bpt>Handling of line drawing characters<ept id="bb34a43d-bae0-49cf-8381-ed1c6fb6c43b">&lt;/strong&gt;</ept>, select <bpt id="bdd88975-046a-445b-99d1-900d74f9cc75">&lt;strong&gt;</bpt>Use Unicode line drawing code points<ept id="bdd88975-046a-445b-99d1-900d74f9cc75">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b70b43a-2808-460a-8518-73d23d40120a" xml:space="preserve">
+          <source>The following illustration shows the correct PuTTY selections.</source>
+          <target state="new">The following illustration shows the correct PuTTY selections.</target>
+        </trans-unit>
+        <trans-unit id="ec695c23-d5f6-4aec-b59f-5984dfac9177" xml:space="preserve">
+          <source><bpt id="bca25919-88f1-4477-bd50-b13e52fc8154">&lt;linkText&gt;</bpt>UTF Putty Settings<ept id="bca25919-88f1-4477-bd50-b13e52fc8154">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bca25919-88f1-4477-bd50-b13e52fc8154">&lt;linkText&gt;</bpt>UTF Putty Settings<ept id="bca25919-88f1-4477-bd50-b13e52fc8154">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a52ab400-725c-44e9-94e0-de51934e8e04" xml:space="preserve">
+          <source>Click <bpt id="534bf33d-2816-440c-9ebc-dac6326ea71e">&lt;strong&gt;</bpt>Apply<ept id="534bf33d-2816-440c-9ebc-dac6326ea71e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="534bf33d-2816-440c-9ebc-dac6326ea71e">&lt;strong&gt;</bpt>Apply<ept id="534bf33d-2816-440c-9ebc-dac6326ea71e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="65131c4c-147e-4c92-beae-9f55b218811f" xml:space="preserve">
+          <source>You can now use PuTTY to connect to the device serial console by doing the following steps:</source>
+          <target state="new">You can now use PuTTY to connect to the device serial console by doing the following steps:</target>
+        </trans-unit>
+        <trans-unit id="dec948df-67d4-41d2-92d8-83587b52666e" xml:space="preserve">
+          <source><bpt id="c35e7a40-f362-45f4-bb40-4153f360cd9b">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="c35e7a40-f362-45f4-bb40-4153f360cd9b">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c35e7a40-f362-45f4-bb40-4153f360cd9b">&lt;token href="../../includes/storsimple-use-putty.md"&gt;</bpt><ept id="c35e7a40-f362-45f4-bb40-4153f360cd9b">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="669de54b-181f-44f2-bf63-b6c743b0d05c" xml:space="preserve">
+          <source>You can use Windows PowerShell remoting to connect to your StorSimple device.</source>
+          <target state="new">You can use Windows PowerShell remoting to connect to your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="fbb42aa8-24ae-4fe9-981c-29fe91633a60" xml:space="preserve">
+          <source>When you connect this way, you will not see a menu.</source>
+          <target state="new">When you connect this way, you will not see a menu.</target>
+        </trans-unit>
+        <trans-unit id="11b2061b-7937-4164-86c5-8e0c61f2a71f" xml:space="preserve">
+          <source>(You see a menu only if you use the serial console on the device to connect.)</source>
+          <target state="new">(You see a menu only if you use the serial console on the device to connect.)</target>
+        </trans-unit>
+        <trans-unit id="19553fca-b14c-4d60-918c-d49d0306cd99" xml:space="preserve">
+          <source>With Windows PowerShell remoting, you connect to a specific runspace.</source>
+          <target state="new">With Windows PowerShell remoting, you connect to a specific runspace.</target>
+        </trans-unit>
+        <trans-unit id="80ebd76e-5fa6-404a-b4b1-a0eb75ecffda" xml:space="preserve">
+          <source>You can also specify the display language.</source>
+          <target state="new">You can also specify the display language.</target>
+        </trans-unit>
+        <trans-unit id="ff75a1ba-6d18-41df-9c61-7545a2d59b3e" xml:space="preserve">
+          <source>The display language is independent of the language that you set by using the Change Language option in the serial console menu.</source>
+          <target state="new">The display language is independent of the language that you set by using the Change Language option in the serial console menu.</target>
+        </trans-unit>
+        <trans-unit id="8938de1c-c3a9-4419-9b60-51c70b32e703" xml:space="preserve">
+          <source>Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.</source>
+          <target state="new">Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.</target>
+        </trans-unit>
+        <trans-unit id="7da2e924-5890-49c9-8372-2091288f263d" xml:space="preserve">
+          <source>If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device.</source>
+          <target state="new">If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device.</target>
+        </trans-unit>
+        <trans-unit id="70e5a244-080a-4391-87a9-3ad7c705cbd3" xml:space="preserve">
+          <source>If you have set up a share location on the host on which to save information from the Windows PowerShell session you should be aware that the Everyone principal includes only authenticated users.</source>
+          <target state="new">If you have set up a share location on the host on which to save information from the Windows PowerShell session you should be aware that the Everyone principal includes only authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="1095f7ff-208c-487a-93fe-8d157cc942f0" xml:space="preserve">
+          <source>Therefore, if you have set the share up to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error.</source>
+          <target state="new">Therefore, if you have set the share up to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error.</target>
+        </trans-unit>
+        <trans-unit id="acfcf51b-9cb4-44e8-acba-206c867d2bbd" xml:space="preserve">
+          <source>To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.</source>
+          <target state="new">To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="1697bb55-13d0-432e-bc20-4d5e745db543" xml:space="preserve">
+          <source>You can use HTTP or HTTPS to connect via Windows PowerShell remoting.</source>
+          <target state="new">You can use HTTP or HTTPS to connect via Windows PowerShell remoting.</target>
+        </trans-unit>
+        <trans-unit id="95069426-9d35-4590-8886-619c8a719a55" xml:space="preserve">
+          <source>Use the instructions in the following tutorials:</source>
+          <target state="new">Use the instructions in the following tutorials:</target>
+        </trans-unit>
+        <trans-unit id="6eff3b50-a598-4bf6-b1bf-f6d3d97bbb50" xml:space="preserve">
+          <source><bpt id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;linkText&gt;</bpt>Connect remotely using http<ept id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;/linkText&gt;</ept><bpt id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;title&gt;</bpt><ept id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;linkText&gt;</bpt>Connect remotely using http<ept id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;/linkText&gt;</ept><bpt id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;title&gt;</bpt><ept id="92df05e5-8150-4ebb-9958-9ab3d28113f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e794a67-42e2-4f17-91ee-9952e2405539" xml:space="preserve">
+          <source><bpt id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;linkText&gt;</bpt>Connect remotely using https<ept id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;/linkText&gt;</ept><bpt id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;title&gt;</bpt><ept id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;linkText&gt;</bpt>Connect remotely using https<ept id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;/linkText&gt;</ept><bpt id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;title&gt;</bpt><ept id="1117def6-b025-4ea6-a851-921a3e45e077">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a899c126-fccd-4fd1-9f17-835d475a7d66" xml:space="preserve">
+          <source>When you are deciding how to connect to Windows PowerShell for StorSimple, consider the following:</source>
+          <target state="new">When you are deciding how to connect to Windows PowerShell for StorSimple, consider the following:</target>
+        </trans-unit>
+        <trans-unit id="9bb44447-4aba-4cfa-825b-190044bcc83e" xml:space="preserve">
+          <source>Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not.</source>
+          <target state="new">Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not.</target>
+        </trans-unit>
+        <trans-unit id="000306b3-05a6-462c-876c-1d85e90a6cd8" xml:space="preserve">
+          <source>Be cautious of the security risk when connecting to device serial over network switches.</source>
+          <target state="new">Be cautious of the security risk when connecting to device serial over network switches.</target>
+        </trans-unit>
+        <trans-unit id="9539618b-c45e-49a8-86f8-0d66fbc1b0f3" xml:space="preserve">
+          <source>Connecting through an HTTP session might offer more security than connecting through the serial console over network.</source>
+          <target state="new">Connecting through an HTTP session might offer more security than connecting through the serial console over network.</target>
+        </trans-unit>
+        <trans-unit id="16b8d77e-b50f-459a-9ab6-dd65568746fe" xml:space="preserve">
+          <source>Although this is not the most secure method, it is acceptable on trusted networks.</source>
+          <target state="new">Although this is not the most secure method, it is acceptable on trusted networks.</target>
+        </trans-unit>
+        <trans-unit id="656a0b70-cfa4-4ca6-9501-323ce72ed772" xml:space="preserve">
+          <source>Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.</source>
+          <target state="new">Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.</target>
+        </trans-unit>
+        <trans-unit id="e2a20337-c509-45cd-b572-3955fe978a90" xml:space="preserve">
+          <source>The following table shows a summary of all the common management tasks and complex workflows that can be performed within the Windows PowerShell interface of your StorSimple device.For more information about each workflow, click the appropriate entry in the table.</source>
+          <target state="new">The following table shows a summary of all the common management tasks and complex workflows that can be performed within the Windows PowerShell interface of your StorSimple device.For more information about each workflow, click the appropriate entry in the table.</target>
+        </trans-unit>
+        <trans-unit id="7987b8e3-8b07-4c62-9d7f-e94dec55db02" xml:space="preserve">
+          <source>If you want to do this ...</source>
+          <target state="new">If you want to do this ...</target>
+        </trans-unit>
+        <trans-unit id="5c91d2e9-b41a-4a4d-bce8-007c765a31d1" xml:space="preserve">
+          <source>Use this procedure.</source>
+          <target state="new">Use this procedure.</target>
+        </trans-unit>
+        <trans-unit id="3d91fbf1-0a0c-45e1-85dd-cb9e99c80307" xml:space="preserve">
+          <source>Register your device</source>
+          <target state="new">Register your device</target>
+        </trans-unit>
+        <trans-unit id="a28f3134-7e4f-4f44-8137-1fae01084cdf" xml:space="preserve">
+          <source><bpt id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;linkText&gt;</bpt>Configure and register the device using Windows PowerShell for StorSimple<ept id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;/linkText&gt;</ept><bpt id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;title&gt;</bpt><ept id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;linkText&gt;</bpt>Configure and register the device using Windows PowerShell for StorSimple<ept id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;/linkText&gt;</ept><bpt id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;title&gt;</bpt><ept id="5eb0af61-96c9-4fa5-96a8-f8b94658bac1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5884c9b-a1c7-4caa-afc7-d93de043c7ef" xml:space="preserve">
+          <source>Configure web proxy&lt;/br&gt;View web proxy settings</source>
+          <target state="new">Configure web proxy&lt;/br&gt;View web proxy settings</target>
+        </trans-unit>
+        <trans-unit id="aab6d837-ce50-470d-82f7-59b5327a2f05" xml:space="preserve">
+          <source><bpt id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;linkText&gt;</bpt>Configure web proxy for your StorSimple device<ept id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;/linkText&gt;</ept><bpt id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;title&gt;</bpt><ept id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;linkText&gt;</bpt>Configure web proxy for your StorSimple device<ept id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;/linkText&gt;</ept><bpt id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;title&gt;</bpt><ept id="530c1ac4-32a5-46fa-8371-63a601f44a58">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dbb353e-a0f7-4c02-a161-2b8441343344" xml:space="preserve">
+          <source>Modify DATA 0 network interface settings on your device</source>
+          <target state="new">Modify DATA 0 network interface settings on your device</target>
+        </trans-unit>
+        <trans-unit id="3cb9d8d8-e876-495d-a23c-b73332748b85" xml:space="preserve">
+          <source><bpt id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;linkText&gt;</bpt>Modify DATA 0 network interface for your StorSimple device<ept id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;/linkText&gt;</ept><bpt id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;title&gt;</bpt><ept id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;linkText&gt;</bpt>Modify DATA 0 network interface for your StorSimple device<ept id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;/linkText&gt;</ept><bpt id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;title&gt;</bpt><ept id="887037b3-6101-4565-b391-6ac1ae9c4b03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="414fd136-5cdf-4cef-96a7-734d48f495d0" xml:space="preserve">
+          <source>Stop a controller &lt;/br&gt; Restart or shut down a controller &lt;/br&gt; Shut down a device&lt;/br&gt;Reset the device to factory default settings</source>
+          <target state="new">Stop a controller &lt;/br&gt; Restart or shut down a controller &lt;/br&gt; Shut down a device&lt;/br&gt;Reset the device to factory default settings</target>
+        </trans-unit>
+        <trans-unit id="46fa4702-be61-427b-88b3-224f110c1cef" xml:space="preserve">
+          <source><bpt id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;linkText&gt;</bpt>Manage device controllers<ept id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;/linkText&gt;</ept><bpt id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;title&gt;</bpt><ept id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;linkText&gt;</bpt>Manage device controllers<ept id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;/linkText&gt;</ept><bpt id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;title&gt;</bpt><ept id="7a67b9fb-85f6-4853-823e-bc9ece4d3cff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f93c6604-0029-43d4-b983-59d0573c474a" xml:space="preserve">
+          <source>Install maintenance mode updates and hotfixes</source>
+          <target state="new">Install maintenance mode updates and hotfixes</target>
+        </trans-unit>
+        <trans-unit id="d02580cc-f1b6-41ba-9ccf-c5b002ddd84b" xml:space="preserve">
+          <source><bpt id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;linkText&gt;</bpt>Update your device<ept id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;/linkText&gt;</ept><bpt id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;title&gt;</bpt><ept id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;linkText&gt;</bpt>Update your device<ept id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;/linkText&gt;</ept><bpt id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;title&gt;</bpt><ept id="f25dce11-3e8c-4023-82bb-44e83a2965de">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0de10e10-1a96-49a3-9130-2ca030bd9c03" xml:space="preserve">
+          <source>Enter maintenance mode &lt;/br&gt;Exit maintenance mode</source>
+          <target state="new">Enter maintenance mode &lt;/br&gt;Exit maintenance mode</target>
+        </trans-unit>
+        <trans-unit id="8f6dbfed-1ff0-4d8c-9caa-ed15fe8c4ca8" xml:space="preserve">
+          <source><bpt id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;linkText&gt;</bpt>StorSimple device modes<ept id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;/linkText&gt;</ept><bpt id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;title&gt;</bpt><ept id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;linkText&gt;</bpt>StorSimple device modes<ept id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;/linkText&gt;</ept><bpt id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;title&gt;</bpt><ept id="a7700b82-6b2c-4eaa-b8d8-6a768a967ec1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4777d723-b62b-45a3-a003-cce9c0ad2993" xml:space="preserve">
+          <source>Create a Support package&lt;/br&gt;Decrypt and edit a support package</source>
+          <target state="new">Create a Support package&lt;/br&gt;Decrypt and edit a support package</target>
+        </trans-unit>
+        <trans-unit id="825ce104-884d-4d92-9daa-2c874a5f5436" xml:space="preserve">
+          <source><bpt id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;linkText&gt;</bpt>Create and manage a Support package<ept id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;/linkText&gt;</ept><bpt id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;title&gt;</bpt><ept id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;linkText&gt;</bpt>Create and manage a Support package<ept id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;/linkText&gt;</ept><bpt id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;title&gt;</bpt><ept id="303ebb66-41f8-4bec-b023-1d40eec06843">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1be86e93-64ac-4c53-87da-13561da6a33d" xml:space="preserve">
+          <source>Start a Support session&lt;/br&gt;</source>
+          <target state="new">Start a Support session&lt;/br&gt;</target>
+        </trans-unit>
+        <trans-unit id="3e04fce0-b3ab-466b-a001-64042ada7a24" xml:space="preserve">
+          <source><bpt id="68575fdf-8672-4349-a427-5da35e362b84">&lt;linkText&gt;</bpt>Start a support session in Windows PowerShell for StorSimple<ept id="68575fdf-8672-4349-a427-5da35e362b84">&lt;/linkText&gt;</ept><bpt id="68575fdf-8672-4349-a427-5da35e362b84">&lt;title&gt;</bpt><ept id="68575fdf-8672-4349-a427-5da35e362b84">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="68575fdf-8672-4349-a427-5da35e362b84">&lt;linkText&gt;</bpt>Start a support session in Windows PowerShell for StorSimple<ept id="68575fdf-8672-4349-a427-5da35e362b84">&lt;/linkText&gt;</ept><bpt id="68575fdf-8672-4349-a427-5da35e362b84">&lt;title&gt;</bpt><ept id="68575fdf-8672-4349-a427-5da35e362b84">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68e297e5-a134-4aa9-a2ab-27d5f739d15a" xml:space="preserve">
+          <source>In Windows PowerShell for StorSimple, cmdlet Help is available.</source>
+          <target state="new">In Windows PowerShell for StorSimple, cmdlet Help is available.</target>
+        </trans-unit>
+        <trans-unit id="4f6f3f9f-8add-4181-aca4-9536f5149a55" xml:space="preserve">
+          <source>An online, up-to-date version of this Help is also available, which you can use to update the Help on your system.</source>
+          <target state="new">An online, up-to-date version of this Help is also available, which you can use to update the Help on your system.</target>
+        </trans-unit>
+        <trans-unit id="c9d88367-6fe3-4398-bf24-050a7bbb04b3" xml:space="preserve">
+          <source>Getting Help in this interface is similar to that in Windows PowerShell, and most of the Help-related cmdlets will work.</source>
+          <target state="new">Getting Help in this interface is similar to that in Windows PowerShell, and most of the Help-related cmdlets will work.</target>
+        </trans-unit>
+        <trans-unit id="4b10d7ec-d37a-46c9-b663-1bb622e3249e" xml:space="preserve">
+          <source>You can find Help for Windows PowerShell online in the TechNet Library: <bpt id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;linkText&gt;</bpt>Scripting with Windows PowerShell<ept id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;/linkText&gt;</ept><bpt id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;title&gt;</bpt><ept id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find Help for Windows PowerShell online in the TechNet Library: <bpt id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;linkText&gt;</bpt>Scripting with Windows PowerShell<ept id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;/linkText&gt;</ept><bpt id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;title&gt;</bpt><ept id="9e826ec5-3dfb-4f7d-aa62-54df66d04788">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3797c13-8a7d-446e-a0b5-83e25fee07b6" xml:space="preserve">
+          <source>The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help.</source>
+          <target state="new">The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help.</target>
+        </trans-unit>
+        <trans-unit id="a1e6f6e8-2e8d-4466-ae30-a08ae93f3c04" xml:space="preserve">
+          <source>To get Help for any cmdlet or function, use the following command: <bpt id="058be661-3065-45e7-8c89-2f451e5bf5b7">&lt;code&gt;</bpt>Get-Help &lt;cmdlet-name&gt;<ept id="058be661-3065-45e7-8c89-2f451e5bf5b7">&lt;/code&gt;</ept></source>
+          <target state="new">To get Help for any cmdlet or function, use the following command: <bpt id="058be661-3065-45e7-8c89-2f451e5bf5b7">&lt;code&gt;</bpt>Get-Help &lt;cmdlet-name&gt;<ept id="058be661-3065-45e7-8c89-2f451e5bf5b7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="adafc7cb-7628-4b5c-80f5-af77716a3e90" xml:space="preserve">
+          <source>To get online Help for any cmdlet, use the previous cmdlet with the <bpt id="e7ac612b-347b-43f0-b734-95720692a991">&lt;code&gt;</bpt>-Online<ept id="e7ac612b-347b-43f0-b734-95720692a991">&lt;/code&gt;</ept> parameter: <bpt id="4119c82a-c83d-4816-adf3-b89f24581f29">&lt;code&gt;</bpt>Get-Help &lt;cmdlet-name&gt; -Online<ept id="4119c82a-c83d-4816-adf3-b89f24581f29">&lt;/code&gt;</ept></source>
+          <target state="new">To get online Help for any cmdlet, use the previous cmdlet with the <bpt id="e7ac612b-347b-43f0-b734-95720692a991">&lt;code&gt;</bpt>-Online<ept id="e7ac612b-347b-43f0-b734-95720692a991">&lt;/code&gt;</ept> parameter: <bpt id="4119c82a-c83d-4816-adf3-b89f24581f29">&lt;code&gt;</bpt>Get-Help &lt;cmdlet-name&gt; -Online<ept id="4119c82a-c83d-4816-adf3-b89f24581f29">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4dcf273-b18f-492e-ad26-6949eccd8fda" xml:space="preserve">
+          <source>For full Help, you can use the –Full parameter, and for examples, use the <bpt id="057edcab-5f07-4cd7-bd8d-12914361d017">&lt;code&gt;</bpt>–Examples<ept id="057edcab-5f07-4cd7-bd8d-12914361d017">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">For full Help, you can use the –Full parameter, and for examples, use the <bpt id="057edcab-5f07-4cd7-bd8d-12914361d017">&lt;code&gt;</bpt>–Examples<ept id="057edcab-5f07-4cd7-bd8d-12914361d017">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="b227df6d-0b9d-4028-8e30-e41b0baca23e" xml:space="preserve">
+          <source>You can easily update the Help in the Windows PowerShell interface.</source>
+          <target state="new">You can easily update the Help in the Windows PowerShell interface.</target>
+        </trans-unit>
+        <trans-unit id="941eee87-52c5-46b2-9e27-f4e234b4941f" xml:space="preserve">
+          <source>Perform the following steps to update the Help on your system.</source>
+          <target state="new">Perform the following steps to update the Help on your system.</target>
+        </trans-unit>
+        <trans-unit id="9b92877d-b08f-4d9b-a452-c99acba2aeec" xml:space="preserve">
+          <source>Start Windows PowerShell with the <bpt id="be927044-477c-4fe2-93be-95e7a54da95b">&lt;strong&gt;</bpt>Run as administrator<ept id="be927044-477c-4fe2-93be-95e7a54da95b">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">Start Windows PowerShell with the <bpt id="be927044-477c-4fe2-93be-95e7a54da95b">&lt;strong&gt;</bpt>Run as administrator<ept id="be927044-477c-4fe2-93be-95e7a54da95b">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="bc10c5c3-0260-41a2-9dba-997293bc2f82" xml:space="preserve">
+          <source>At the command prompt, type:
+<bpt id="f3ccd2b6-a94f-414e-af23-595c465f9324">&lt;code&gt;</bpt>Update-Help<ept id="f3ccd2b6-a94f-414e-af23-595c465f9324">&lt;/code&gt;</ept></source>
+          <target state="new">At the command prompt, type:
+<bpt id="f3ccd2b6-a94f-414e-af23-595c465f9324">&lt;code&gt;</bpt>Update-Help<ept id="f3ccd2b6-a94f-414e-af23-595c465f9324">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ab9b3850-98da-4285-865c-62fe5b65d78e" xml:space="preserve">
+          <source>The updated Help files will be installed.</source>
+          <target state="new">The updated Help files will be installed.</target>
+        </trans-unit>
+        <trans-unit id="b81bc315-91a4-4090-8015-d699e8b1fc24" xml:space="preserve">
+          <source>After the Help files are installed, type: <bpt id="b96292f5-f778-4aae-8eb4-6937e46e010c">&lt;code&gt;</bpt>Get-Help Get-Command<ept id="b96292f5-f778-4aae-8eb4-6937e46e010c">&lt;/code&gt;</ept>.</source>
+          <target state="new">After the Help files are installed, type: <bpt id="b96292f5-f778-4aae-8eb4-6937e46e010c">&lt;code&gt;</bpt>Get-Help Get-Command<ept id="b96292f5-f778-4aae-8eb4-6937e46e010c">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90b0ceb9-1e2c-46d7-a02c-05e69496b0c0" xml:space="preserve">
+          <source>This will display a list of cmdlets for which Help is available.</source>
+          <target state="new">This will display a list of cmdlets for which Help is available.</target>
+        </trans-unit>
+        <trans-unit id="70432dcb-2a50-4b0d-a16e-2180b990a9a4" xml:space="preserve">
+          <source>To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the <bpt id="c26e5e25-cefd-4e18-a56a-eb9f4ce25107">&lt;code&gt;</bpt>Get-Command<ept id="c26e5e25-cefd-4e18-a56a-eb9f4ce25107">&lt;/code&gt;</ept> cmdlet.</source>
+          <target state="new">To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the <bpt id="c26e5e25-cefd-4e18-a56a-eb9f4ce25107">&lt;code&gt;</bpt>Get-Command<ept id="c26e5e25-cefd-4e18-a56a-eb9f4ce25107">&lt;/code&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="e9f254ca-8c62-4d0f-a4b7-1d0f0d00af1a" xml:space="preserve">
+          <source>If you experience any issues with your StorSimple device when performing one of the above workflows, refer to <bpt id="587913e4-254a-460e-8726-792c43356c13">&lt;linkText&gt;</bpt>Tools for troubleshooting StorSimple deployments<ept id="587913e4-254a-460e-8726-792c43356c13">&lt;/linkText&gt;</ept><bpt id="587913e4-254a-460e-8726-792c43356c13">&lt;title&gt;</bpt><ept id="587913e4-254a-460e-8726-792c43356c13">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you experience any issues with your StorSimple device when performing one of the above workflows, refer to <bpt id="587913e4-254a-460e-8726-792c43356c13">&lt;linkText&gt;</bpt>Tools for troubleshooting StorSimple deployments<ept id="587913e4-254a-460e-8726-792c43356c13">&lt;/linkText&gt;</ept><bpt id="587913e4-254a-460e-8726-792c43356c13">&lt;title&gt;</bpt><ept id="587913e4-254a-460e-8726-792c43356c13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

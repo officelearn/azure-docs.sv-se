@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1c95f433-650a-4ec8-b0d2-d249595cb3e9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1c95f433-650a-4ec8-b0d2-d249595cb3e9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fe293b37-f4e9-4f95-8347-a9a0ab42a576">
+        <trans-unit id="23775863-5059-429f-b835-daf690d3253b" xml:space="preserve">
+          <source>How to configure Azure Active Directory authentication for your App Services application</source>
+          <target state="new">How to configure Azure Active Directory authentication for your App Services application</target>
+        </trans-unit>
+        <trans-unit id="d4834f55-0239-472e-a0b3-0a954418e37d" xml:space="preserve">
+          <source>Learn how to configure Azure Active Directory authentication for your App Services application.</source>
+          <target state="new">Learn how to configure Azure Active Directory authentication for your App Services application.</target>
+        </trans-unit>
+        <trans-unit id="5e907193-cca1-4795-afc9-f29e697aa752" xml:space="preserve">
+          <source><bpt id="5f91e2c5-8936-4e19-bf5f-60f3f4550670">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="5f91e2c5-8936-4e19-bf5f-60f3f4550670">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5f91e2c5-8936-4e19-bf5f-60f3f4550670">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="5f91e2c5-8936-4e19-bf5f-60f3f4550670">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a9be6ae-c67e-45e6-90b5-da303806d9bc" xml:space="preserve">
+          <source>This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.</source>
+          <target state="new">This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="3b06193b-c047-443e-a63e-7166206058ab" xml:space="preserve">
+          <source>Log on to the [Preview Azure Management Portal], and navigate to your Mobile App.</source>
+          <target state="new">Log on to the [Preview Azure Management Portal], and navigate to your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="b21ba8cb-0045-4b83-b750-132a9936bd76" xml:space="preserve">
+          <source>Under <bpt id="a3ac3f40-bbc8-4fc7-99c9-298d62b0ff00">&lt;strong&gt;</bpt>Settings<ept id="a3ac3f40-bbc8-4fc7-99c9-298d62b0ff00">&lt;/strong&gt;</ept>, click <bpt id="38e80de7-a0c9-485e-b3e2-2f92ad90d197">&lt;strong&gt;</bpt>User authentication<ept id="38e80de7-a0c9-485e-b3e2-2f92ad90d197">&lt;/strong&gt;</ept>, and then click <bpt id="745dc540-bffa-4388-bcc5-390b135e6bb9">&lt;strong&gt;</bpt>Azure Active Directory<ept id="745dc540-bffa-4388-bcc5-390b135e6bb9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="a3ac3f40-bbc8-4fc7-99c9-298d62b0ff00">&lt;strong&gt;</bpt>Settings<ept id="a3ac3f40-bbc8-4fc7-99c9-298d62b0ff00">&lt;/strong&gt;</ept>, click <bpt id="38e80de7-a0c9-485e-b3e2-2f92ad90d197">&lt;strong&gt;</bpt>User authentication<ept id="38e80de7-a0c9-485e-b3e2-2f92ad90d197">&lt;/strong&gt;</ept>, and then click <bpt id="745dc540-bffa-4388-bcc5-390b135e6bb9">&lt;strong&gt;</bpt>Azure Active Directory<ept id="745dc540-bffa-4388-bcc5-390b135e6bb9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37a62769-9343-4e00-b848-957f3d1a5a00" xml:space="preserve">
+          <source>Copy the <bpt id="252de00d-988a-4af7-ac3d-ecef221f58e1">&lt;strong&gt;</bpt>App URL<ept id="252de00d-988a-4af7-ac3d-ecef221f58e1">&lt;/strong&gt;</ept> and the <bpt id="3297acf2-d90c-426d-8eab-62e85ed7e93c">&lt;strong&gt;</bpt>Reply URL<ept id="3297acf2-d90c-426d-8eab-62e85ed7e93c">&lt;/strong&gt;</ept> listed there.</source>
+          <target state="new">Copy the <bpt id="252de00d-988a-4af7-ac3d-ecef221f58e1">&lt;strong&gt;</bpt>App URL<ept id="252de00d-988a-4af7-ac3d-ecef221f58e1">&lt;/strong&gt;</ept> and the <bpt id="3297acf2-d90c-426d-8eab-62e85ed7e93c">&lt;strong&gt;</bpt>Reply URL<ept id="3297acf2-d90c-426d-8eab-62e85ed7e93c">&lt;/strong&gt;</ept> listed there.</target>
+        </trans-unit>
+        <trans-unit id="ee9ced4f-9f5f-4791-aa30-6d2571edd095" xml:space="preserve">
+          <source>You will use these later.</source>
+          <target state="new">You will use these later.</target>
+        </trans-unit>
+        <trans-unit id="5994f984-a6ba-451a-8547-af9702287eb1" xml:space="preserve">
+          <source>Make sure that the <bpt id="d941939f-1d8f-41bb-9ef0-4ec11326b03d">&lt;strong&gt;</bpt>App URL<ept id="d941939f-1d8f-41bb-9ef0-4ec11326b03d">&lt;/strong&gt;</ept> and <bpt id="3bbec403-b3b4-4dbb-9c24-00f9434d2c3d">&lt;strong&gt;</bpt>Reply URL<ept id="3bbec403-b3b4-4dbb-9c24-00f9434d2c3d">&lt;/strong&gt;</ept> are using the HTTPS scheme.</source>
+          <target state="new">Make sure that the <bpt id="d941939f-1d8f-41bb-9ef0-4ec11326b03d">&lt;strong&gt;</bpt>App URL<ept id="d941939f-1d8f-41bb-9ef0-4ec11326b03d">&lt;/strong&gt;</ept> and <bpt id="3bbec403-b3b4-4dbb-9c24-00f9434d2c3d">&lt;strong&gt;</bpt>Reply URL<ept id="3bbec403-b3b4-4dbb-9c24-00f9434d2c3d">&lt;/strong&gt;</ept> are using the HTTPS scheme.</target>
+        </trans-unit>
+        <trans-unit id="c39965e3-9d32-4e77-b772-e557967b514a" xml:space="preserve">
+          <source><bpt id="0916a993-c2c1-4581-920a-8159a372d40d">&lt;linkText&gt;</bpt><ept id="0916a993-c2c1-4581-920a-8159a372d40d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0916a993-c2c1-4581-920a-8159a372d40d">&lt;linkText&gt;</bpt><ept id="0916a993-c2c1-4581-920a-8159a372d40d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed63428-4631-4433-9643-d150c03415af" xml:space="preserve">
+          <source>Sign in to the [Azure Management Portal] and navigate to <bpt id="79bfa148-ce6e-4db1-bf3b-6c6140c4298c">&lt;strong&gt;</bpt>Active Directory<ept id="79bfa148-ce6e-4db1-bf3b-6c6140c4298c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Sign in to the [Azure Management Portal] and navigate to <bpt id="79bfa148-ce6e-4db1-bf3b-6c6140c4298c">&lt;strong&gt;</bpt>Active Directory<ept id="79bfa148-ce6e-4db1-bf3b-6c6140c4298c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da4b4874-3624-4e23-aed4-196540d56615" xml:space="preserve">
+          <source><bpt id="cb8298c5-0dd6-4029-ad7d-89db76afff9a">&lt;linkText&gt;</bpt><ept id="cb8298c5-0dd6-4029-ad7d-89db76afff9a">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="cb8298c5-0dd6-4029-ad7d-89db76afff9a">&lt;linkText&gt;</bpt><ept id="cb8298c5-0dd6-4029-ad7d-89db76afff9a">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d4bf64d1-99e3-4a9e-bfec-f3b4ae16ca07" xml:space="preserve">
+          <source>Select your directory, and then select the <bpt id="0d903d11-ac04-4b5c-b9c4-3faa639b0b50">&lt;strong&gt;</bpt>Applications<ept id="0d903d11-ac04-4b5c-b9c4-3faa639b0b50">&lt;/strong&gt;</ept> tab at the top.</source>
+          <target state="new">Select your directory, and then select the <bpt id="0d903d11-ac04-4b5c-b9c4-3faa639b0b50">&lt;strong&gt;</bpt>Applications<ept id="0d903d11-ac04-4b5c-b9c4-3faa639b0b50">&lt;/strong&gt;</ept> tab at the top.</target>
+        </trans-unit>
+        <trans-unit id="c984ad1c-eb29-415b-8941-11fbe8865697" xml:space="preserve">
+          <source>Click <bpt id="bcf3a100-24ac-4f78-9128-20e8eeb02a13">&lt;strong&gt;</bpt>ADD<ept id="bcf3a100-24ac-4f78-9128-20e8eeb02a13">&lt;/strong&gt;</ept> at the bottom to create a new app registration.</source>
+          <target state="new">Click <bpt id="bcf3a100-24ac-4f78-9128-20e8eeb02a13">&lt;strong&gt;</bpt>ADD<ept id="bcf3a100-24ac-4f78-9128-20e8eeb02a13">&lt;/strong&gt;</ept> at the bottom to create a new app registration.</target>
+        </trans-unit>
+        <trans-unit id="3f2dca7b-3237-4930-8975-03d8f70af388" xml:space="preserve">
+          <source>Click <bpt id="ffaf324f-4c1d-496b-90b9-7b31a3410adb">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="ffaf324f-4c1d-496b-90b9-7b31a3410adb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ffaf324f-4c1d-496b-90b9-7b31a3410adb">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="ffaf324f-4c1d-496b-90b9-7b31a3410adb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93b8e9b6-1554-4b9f-9daa-0053b4f88c91" xml:space="preserve">
+          <source>In the Add Application Wizard, enter a <bpt id="2b21cfb5-c214-473a-a179-874df2496d80">&lt;strong&gt;</bpt>Name<ept id="2b21cfb5-c214-473a-a179-874df2496d80">&lt;/strong&gt;</ept> for your application and click the  <bpt id="ba85e75b-404f-4812-a75c-7b3435275b10">&lt;strong&gt;</bpt>Web Application And/Or Web API<ept id="ba85e75b-404f-4812-a75c-7b3435275b10">&lt;/strong&gt;</ept> type.</source>
+          <target state="new">In the Add Application Wizard, enter a <bpt id="2b21cfb5-c214-473a-a179-874df2496d80">&lt;strong&gt;</bpt>Name<ept id="2b21cfb5-c214-473a-a179-874df2496d80">&lt;/strong&gt;</ept> for your application and click the  <bpt id="ba85e75b-404f-4812-a75c-7b3435275b10">&lt;strong&gt;</bpt>Web Application And/Or Web API<ept id="ba85e75b-404f-4812-a75c-7b3435275b10">&lt;/strong&gt;</ept> type.</target>
+        </trans-unit>
+        <trans-unit id="ffc04a6c-15c2-43a4-b4e4-807fe64e8e52" xml:space="preserve">
+          <source>Then click to continue.</source>
+          <target state="new">Then click to continue.</target>
+        </trans-unit>
+        <trans-unit id="1a24492c-2d78-4e82-8aaf-ae797a6314e7" xml:space="preserve">
+          <source>In the <bpt id="d07a261d-01fa-459f-a7dd-d852ff2eae01">&lt;strong&gt;</bpt>SIGN-ON URL<ept id="d07a261d-01fa-459f-a7dd-d852ff2eae01">&lt;/strong&gt;</ept> box, paste the App ID you copied from the Active Directory identity provider settings of your Mobile App.</source>
+          <target state="new">In the <bpt id="d07a261d-01fa-459f-a7dd-d852ff2eae01">&lt;strong&gt;</bpt>SIGN-ON URL<ept id="d07a261d-01fa-459f-a7dd-d852ff2eae01">&lt;/strong&gt;</ept> box, paste the App ID you copied from the Active Directory identity provider settings of your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="5f671433-b8dc-4c9a-89ef-0e2234ccbd6b" xml:space="preserve">
+          <source>Enter that same resource identifier in the <bpt id="d1a36cd1-ce68-4601-84ee-f10058724549">&lt;strong&gt;</bpt>App ID URI<ept id="d1a36cd1-ce68-4601-84ee-f10058724549">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">Enter that same resource identifier in the <bpt id="d1a36cd1-ce68-4601-84ee-f10058724549">&lt;strong&gt;</bpt>App ID URI<ept id="d1a36cd1-ce68-4601-84ee-f10058724549">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="91804d7a-79bf-4957-ac79-1aafecaa3702" xml:space="preserve">
+          <source>Then click to continue.</source>
+          <target state="new">Then click to continue.</target>
+        </trans-unit>
+        <trans-unit id="5840a675-ab95-4d8c-b83f-d4df3be6bd4f" xml:space="preserve">
+          <source>Once the application has been added, click the <bpt id="a835e7bc-511c-4fe8-8bd3-7d864e3a44e9">&lt;strong&gt;</bpt>Configure<ept id="a835e7bc-511c-4fe8-8bd3-7d864e3a44e9">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Once the application has been added, click the <bpt id="a835e7bc-511c-4fe8-8bd3-7d864e3a44e9">&lt;strong&gt;</bpt>Configure<ept id="a835e7bc-511c-4fe8-8bd3-7d864e3a44e9">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d14b1c94-f3f9-4da4-94e5-e612c870b811" xml:space="preserve">
+          <source>Edit the <bpt id="e777a287-9edc-462d-9e23-ed3a790f6f66">&lt;strong&gt;</bpt>Reply URL<ept id="e777a287-9edc-462d-9e23-ed3a790f6f66">&lt;/strong&gt;</ept> under <bpt id="93d5f8ad-c97a-4e6d-b090-6716d1918797">&lt;strong&gt;</bpt>Single Sign-on<ept id="93d5f8ad-c97a-4e6d-b090-6716d1918797">&lt;/strong&gt;</ept> to be the Mobile App Reply URL you copied earlier.</source>
+          <target state="new">Edit the <bpt id="e777a287-9edc-462d-9e23-ed3a790f6f66">&lt;strong&gt;</bpt>Reply URL<ept id="e777a287-9edc-462d-9e23-ed3a790f6f66">&lt;/strong&gt;</ept> under <bpt id="93d5f8ad-c97a-4e6d-b090-6716d1918797">&lt;strong&gt;</bpt>Single Sign-on<ept id="93d5f8ad-c97a-4e6d-b090-6716d1918797">&lt;/strong&gt;</ept> to be the Mobile App Reply URL you copied earlier.</target>
+        </trans-unit>
+        <trans-unit id="3be5c509-3cfc-40c1-b167-10e79347bc08" xml:space="preserve">
+          <source>It should be the Mobile App gateway appended with <bpt id="9c21ac8c-3a99-4699-b9d3-65c01a079eea">&lt;em&gt;</bpt>/signin-aad<ept id="9c21ac8c-3a99-4699-b9d3-65c01a079eea">&lt;/em&gt;</ept>.</source>
+          <target state="new">It should be the Mobile App gateway appended with <bpt id="9c21ac8c-3a99-4699-b9d3-65c01a079eea">&lt;em&gt;</bpt>/signin-aad<ept id="9c21ac8c-3a99-4699-b9d3-65c01a079eea">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bca624b5-85a4-47b3-8ae3-56cdee043043" xml:space="preserve">
+          <source>For example, <bpt id="eabdee08-00ba-4053-b1db-9c05edd96fce">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-aad<ept id="eabdee08-00ba-4053-b1db-9c05edd96fce">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="eabdee08-00ba-4053-b1db-9c05edd96fce">&lt;code&gt;</bpt>https://contosogateway.azurewebsites.net/signin-aad<ept id="eabdee08-00ba-4053-b1db-9c05edd96fce">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ca5fce2f-d4a8-4907-97c4-e8fd59913189" xml:space="preserve">
+          <source>Make sure that you are using the HTTPS scheme.</source>
+          <target state="new">Make sure that you are using the HTTPS scheme.</target>
+        </trans-unit>
+        <trans-unit id="4d13896f-b457-4bad-a4cc-1ecd7bf0b78d" xml:space="preserve">
+          <source><bpt id="96ceb677-1a1c-44c8-9846-ef8a9dc439eb">&lt;linkText&gt;</bpt><ept id="96ceb677-1a1c-44c8-9846-ef8a9dc439eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96ceb677-1a1c-44c8-9846-ef8a9dc439eb">&lt;linkText&gt;</bpt><ept id="96ceb677-1a1c-44c8-9846-ef8a9dc439eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ebecc33-ed11-4560-8f29-0866d4b3ba51" xml:space="preserve">
+          <source>Click <bpt id="562c4515-5895-48ba-b124-d6f9d5e37862">&lt;strong&gt;</bpt>Save<ept id="562c4515-5895-48ba-b124-d6f9d5e37862">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="562c4515-5895-48ba-b124-d6f9d5e37862">&lt;strong&gt;</bpt>Save<ept id="562c4515-5895-48ba-b124-d6f9d5e37862">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a7d4d05-3792-447f-8c09-e990ed8e4d40" xml:space="preserve">
+          <source>Then copy the <bpt id="35597982-d59e-4b69-84b6-11a5e5d45c87">&lt;strong&gt;</bpt>Client ID<ept id="35597982-d59e-4b69-84b6-11a5e5d45c87">&lt;/strong&gt;</ept> for the app.</source>
+          <target state="new">Then copy the <bpt id="35597982-d59e-4b69-84b6-11a5e5d45c87">&lt;strong&gt;</bpt>Client ID<ept id="35597982-d59e-4b69-84b6-11a5e5d45c87">&lt;/strong&gt;</ept> for the app.</target>
+        </trans-unit>
+        <trans-unit id="8b46c194-dbbc-44a8-bb8b-01ca43a28301" xml:space="preserve">
+          <source>Return to the preview management portal and the <bpt id="76a57a34-5c5b-4c34-92d9-096abc5ff38f">&lt;strong&gt;</bpt>Azure Active Directory<ept id="76a57a34-5c5b-4c34-92d9-096abc5ff38f">&lt;/strong&gt;</ept> settings blade for your Mobile App.</source>
+          <target state="new">Return to the preview management portal and the <bpt id="76a57a34-5c5b-4c34-92d9-096abc5ff38f">&lt;strong&gt;</bpt>Azure Active Directory<ept id="76a57a34-5c5b-4c34-92d9-096abc5ff38f">&lt;/strong&gt;</ept> settings blade for your Mobile App.</target>
+        </trans-unit>
+        <trans-unit id="810baea1-a2e3-4234-849d-1900b1596fd7" xml:space="preserve">
+          <source>Paste in the <bpt id="375caff7-0090-4cae-b036-faa9fd599877">&lt;strong&gt;</bpt>Client ID<ept id="375caff7-0090-4cae-b036-faa9fd599877">&lt;/strong&gt;</ept> setting for the Azure Active Directory identity provider.</source>
+          <target state="new">Paste in the <bpt id="375caff7-0090-4cae-b036-faa9fd599877">&lt;strong&gt;</bpt>Client ID<ept id="375caff7-0090-4cae-b036-faa9fd599877">&lt;/strong&gt;</ept> setting for the Azure Active Directory identity provider.</target>
+        </trans-unit>
+        <trans-unit id="a222bc92-42d6-4b51-9307-9f673021af1f" xml:space="preserve">
+          <source>In the <bpt id="53f2d825-b388-428e-ae01-b04e6fdf95de">&lt;strong&gt;</bpt>Allowed Tenants<ept id="53f2d825-b388-428e-ae01-b04e6fdf95de">&lt;/strong&gt;</ept> list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com).</source>
+          <target state="new">In the <bpt id="53f2d825-b388-428e-ae01-b04e6fdf95de">&lt;strong&gt;</bpt>Allowed Tenants<ept id="53f2d825-b388-428e-ae01-b04e6fdf95de">&lt;/strong&gt;</ept> list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com).</target>
+        </trans-unit>
+        <trans-unit id="ea887410-9743-4418-9dff-9964bef2b1fc" xml:space="preserve">
+          <source>You can find your default domain name by clicking the <bpt id="ff3e4ba9-aa97-4705-ba76-10fadee49ac2">&lt;strong&gt;</bpt>Domains<ept id="ff3e4ba9-aa97-4705-ba76-10fadee49ac2">&lt;/strong&gt;</ept> tab on your Azure Active Directory tenant.</source>
+          <target state="new">You can find your default domain name by clicking the <bpt id="ff3e4ba9-aa97-4705-ba76-10fadee49ac2">&lt;strong&gt;</bpt>Domains<ept id="ff3e4ba9-aa97-4705-ba76-10fadee49ac2">&lt;/strong&gt;</ept> tab on your Azure Active Directory tenant.</target>
+        </trans-unit>
+        <trans-unit id="b332dfa2-4fea-4450-8608-09adbd5654d1" xml:space="preserve">
+          <source>Add your domain name to the <bpt id="eea8513e-77ab-447b-8f87-86a33163333f">&lt;strong&gt;</bpt>Allowed Tenants<ept id="eea8513e-77ab-447b-8f87-86a33163333f">&lt;/strong&gt;</ept> list then click <bpt id="ffb18980-568f-4ece-bb55-11097e0da4ba">&lt;strong&gt;</bpt>Save<ept id="ffb18980-568f-4ece-bb55-11097e0da4ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add your domain name to the <bpt id="eea8513e-77ab-447b-8f87-86a33163333f">&lt;strong&gt;</bpt>Allowed Tenants<ept id="eea8513e-77ab-447b-8f87-86a33163333f">&lt;/strong&gt;</ept> list then click <bpt id="ffb18980-568f-4ece-bb55-11097e0da4ba">&lt;strong&gt;</bpt>Save<ept id="ffb18980-568f-4ece-bb55-11097e0da4ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4a07c7a-83a6-4709-8231-e145d5bc7760" xml:space="preserve">
+          <source>You are now ready to use Azure Active Directory for authentication in your app.</source>
+          <target state="new">You are now ready to use Azure Active Directory for authentication in your app.</target>
+        </trans-unit>
+        <trans-unit id="8f72b38d-5042-49c2-974a-fd429dc49852" xml:space="preserve">
+          <source><bpt id="4701ca13-d1b7-44f4-b7c4-60c0d8aa671d">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="4701ca13-d1b7-44f4-b7c4-60c0d8aa671d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="4701ca13-d1b7-44f4-b7c4-60c0d8aa671d">&lt;token href="../../includes/app-service-mobile-related-content-get-started-users.md"&gt;</bpt><ept id="4701ca13-d1b7-44f4-b7c4-60c0d8aa671d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92d5b4cb-c1e2-45d7-b51d-ce9f43ba72a4" xml:space="preserve">
+          <source>Authenticate users of your Mobile App with Azure Active Directory single sign-on: <bpt id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;linkText&gt;</bpt>iOS[ios-adal]<ept id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;/linkText&gt;</ept><bpt id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;title&gt;</bpt><ept id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;/title&gt;</ept></source>
+          <target state="new">Authenticate users of your Mobile App with Azure Active Directory single sign-on: <bpt id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;linkText&gt;</bpt>iOS[ios-adal]<ept id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;/linkText&gt;</ept><bpt id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;title&gt;</bpt><ept id="3d0309e5-d4a8-44f8-9b86-33282627b4b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2185eb63-9651-41ab-a4f8-365c9d2ecbfe" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/mobile-app-aad-settings.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/mobile-app-aad-settings.png</target>
+        </trans-unit>
+        <trans-unit id="efa87183-f627-488a-889e-5085a589c7a6" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-navigate-aad.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-navigate-aad.png</target>
+        </trans-unit>
+        <trans-unit id="01fc4a48-44a8-48d3-b10a-7f105463a99a" xml:space="preserve">
+          <source>./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-aad-app-configure.png</source>
+          <target state="new">./media/app-service-mobile-how-to-configure-active-directory-authentication-preview/app-service-aad-app-configure.png</target>
+        </trans-unit>
+        <trans-unit id="67e41d46-ec5e-4ff9-bcfe-4e384127b205" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="1c025185-d189-4bd3-a3c5-b19d041e1547" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="c5755f46-ed29-45cd-8d10-9eedabc106a9" xml:space="preserve">
+          <source>../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md</source>
+          <target state="new">../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md</target>
+        </trans-unit>
+      </group>
+      <group id="9ac98cc0-768a-416d-b2cf-161dd5ddaaba" />
+    </body>
+  </file>
+</xliff>

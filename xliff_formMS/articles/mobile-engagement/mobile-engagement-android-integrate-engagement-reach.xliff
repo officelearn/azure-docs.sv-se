@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20bc4096-2418-4b53-99a3-1821524bbc8d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20bc4096-2418-4b53-99a3-1821524bbc8d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a113f065-b839-48b7-9312-da711fc759bc">
+        <trans-unit id="7e9b5c5c-01b5-4dcd-930a-d0e5a7caeb7e" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="ca323706-c7f2-4e45-9c2f-9697752a32ca" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="2f28420d-4fc7-4749-a50c-4f23d2a239c2" xml:space="preserve">
+          <source>You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</source>
+          <target state="new">You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</target>
+        </trans-unit>
+        <trans-unit id="6ec14e36-42e2-490b-be13-0bbc694c32af" xml:space="preserve">
+          <source>The Reach SDK requires the <bpt id="992ebc37-97bb-4518-a86d-cb812d5b877c">&lt;strong&gt;</bpt>Android Support library (v4)<ept id="992ebc37-97bb-4518-a86d-cb812d5b877c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Reach SDK requires the <bpt id="992ebc37-97bb-4518-a86d-cb812d5b877c">&lt;strong&gt;</bpt>Android Support library (v4)<ept id="992ebc37-97bb-4518-a86d-cb812d5b877c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="882d9e47-0272-443a-9b82-244a4d5cc386" xml:space="preserve">
+          <source>The fastest way to add the library to your project in <bpt id="2fdb1f12-d871-46b7-82c8-8fa77ebf366c">&lt;strong&gt;</bpt>Eclipse<ept id="2fdb1f12-d871-46b7-82c8-8fa77ebf366c">&lt;/strong&gt;</ept> is <bpt id="61a5bc6d-d53a-4c1e-95e8-6705c8023264">&lt;code&gt;</bpt>Right click on your project -&gt; Android Tools -&gt; Add Support Library...<ept id="61a5bc6d-d53a-4c1e-95e8-6705c8023264">&lt;/code&gt;</ept>.</source>
+          <target state="new">The fastest way to add the library to your project in <bpt id="2fdb1f12-d871-46b7-82c8-8fa77ebf366c">&lt;strong&gt;</bpt>Eclipse<ept id="2fdb1f12-d871-46b7-82c8-8fa77ebf366c">&lt;/strong&gt;</ept> is <bpt id="61a5bc6d-d53a-4c1e-95e8-6705c8023264">&lt;code&gt;</bpt>Right click on your project -&gt; Android Tools -&gt; Add Support Library...<ept id="61a5bc6d-d53a-4c1e-95e8-6705c8023264">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6510dbf8-014a-4daf-9efa-3e2590a6a2d6" xml:space="preserve">
+          <source>If you don't use Eclipse, you can read the instructions [here].</source>
+          <target state="new">If you don't use Eclipse, you can read the instructions [here].</target>
+        </trans-unit>
+        <trans-unit id="6bfe7626-b1de-4074-a214-1c1229855622" xml:space="preserve">
+          <source>Copy Reach resource files from the SDK in your project :</source>
+          <target state="new">Copy Reach resource files from the SDK in your project :</target>
+        </trans-unit>
+        <trans-unit id="3384e77b-fb74-4d10-bf14-d3d8fe073bb2" xml:space="preserve">
+          <source>Copy the files from the <bpt id="ede7ac0c-dba2-49cd-a38d-f50782633b3f">&lt;code&gt;</bpt>res/layout<ept id="ede7ac0c-dba2-49cd-a38d-f50782633b3f">&lt;/code&gt;</ept> folder delivered with the SDK into the <bpt id="54fd7c2a-eb61-4556-9431-4f33b1a9b5a3">&lt;code&gt;</bpt>res/layout<ept id="54fd7c2a-eb61-4556-9431-4f33b1a9b5a3">&lt;/code&gt;</ept> folder of your application.</source>
+          <target state="new">Copy the files from the <bpt id="ede7ac0c-dba2-49cd-a38d-f50782633b3f">&lt;code&gt;</bpt>res/layout<ept id="ede7ac0c-dba2-49cd-a38d-f50782633b3f">&lt;/code&gt;</ept> folder delivered with the SDK into the <bpt id="54fd7c2a-eb61-4556-9431-4f33b1a9b5a3">&lt;code&gt;</bpt>res/layout<ept id="54fd7c2a-eb61-4556-9431-4f33b1a9b5a3">&lt;/code&gt;</ept> folder of your application.</target>
+        </trans-unit>
+        <trans-unit id="6866d88a-709e-4d5a-aee6-895108f45e21" xml:space="preserve">
+          <source>Copy the files from the <bpt id="91073158-d2fb-43ee-9c52-4cc69b096f26">&lt;code&gt;</bpt>res/drawable<ept id="91073158-d2fb-43ee-9c52-4cc69b096f26">&lt;/code&gt;</ept> folder delivered with the SDK into the <bpt id="fc23a92d-3c86-4134-b672-8e4992ba2d96">&lt;code&gt;</bpt>res/drawable<ept id="fc23a92d-3c86-4134-b672-8e4992ba2d96">&lt;/code&gt;</ept> folder of your application.</source>
+          <target state="new">Copy the files from the <bpt id="91073158-d2fb-43ee-9c52-4cc69b096f26">&lt;code&gt;</bpt>res/drawable<ept id="91073158-d2fb-43ee-9c52-4cc69b096f26">&lt;/code&gt;</ept> folder delivered with the SDK into the <bpt id="fc23a92d-3c86-4134-b672-8e4992ba2d96">&lt;code&gt;</bpt>res/drawable<ept id="fc23a92d-3c86-4134-b672-8e4992ba2d96">&lt;/code&gt;</ept> folder of your application.</target>
+        </trans-unit>
+        <trans-unit id="65e8f6e3-141a-496c-905a-552315453ee7" xml:space="preserve">
+          <source>Edit your <bpt id="1693af75-8396-4567-8f1b-7f7a9f1f60b1">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="1693af75-8396-4567-8f1b-7f7a9f1f60b1">&lt;/code&gt;</ept> file:</source>
+          <target state="new">Edit your <bpt id="1693af75-8396-4567-8f1b-7f7a9f1f60b1">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="1693af75-8396-4567-8f1b-7f7a9f1f60b1">&lt;/code&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="c6de1853-bf6e-4dc3-98e5-5f4d27c329ec" xml:space="preserve">
+          <source>Add the following section (between the <bpt id="5b167cce-6dbb-4d24-9b8b-36820f7d320b">&lt;code&gt;</bpt>&lt;application&gt;<ept id="5b167cce-6dbb-4d24-9b8b-36820f7d320b">&lt;/code&gt;</ept> and <bpt id="730cb003-a0d9-47d6-be65-ea8b6a063783">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="730cb003-a0d9-47d6-be65-ea8b6a063783">&lt;/code&gt;</ept> tags):</source>
+          <target state="new">Add the following section (between the <bpt id="5b167cce-6dbb-4d24-9b8b-36820f7d320b">&lt;code&gt;</bpt>&lt;application&gt;<ept id="5b167cce-6dbb-4d24-9b8b-36820f7d320b">&lt;/code&gt;</ept> and <bpt id="730cb003-a0d9-47d6-be65-ea8b6a063783">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="730cb003-a0d9-47d6-be65-ea8b6a063783">&lt;/code&gt;</ept> tags):</target>
+        </trans-unit>
+        <trans-unit id="10e2a128-9dc1-4fc3-9077-8feb842bc460" xml:space="preserve">
+          <source>You need this permission to replay system notifications that were not clicked at boot (otherwise they will be kept on disk but won't be displayed anymore, you really have to include this).</source>
+          <target state="new">You need this permission to replay system notifications that were not clicked at boot (otherwise they will be kept on disk but won't be displayed anymore, you really have to include this).</target>
+        </trans-unit>
+        <trans-unit id="67f31268-a5f5-4302-a160-69b26ba794cd" xml:space="preserve">
+          <source>Specify an icon used for notifications (both in app and system ones) by copying and editing the following section (between the <bpt id="dca4fb97-a8f9-40ff-8e3d-90a5c2552e2e">&lt;code&gt;</bpt>&lt;application&gt;<ept id="dca4fb97-a8f9-40ff-8e3d-90a5c2552e2e">&lt;/code&gt;</ept> and <bpt id="98cffd5c-7bd8-4200-9666-a0946fb63b9b">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="98cffd5c-7bd8-4200-9666-a0946fb63b9b">&lt;/code&gt;</ept> tags):</source>
+          <target state="new">Specify an icon used for notifications (both in app and system ones) by copying and editing the following section (between the <bpt id="dca4fb97-a8f9-40ff-8e3d-90a5c2552e2e">&lt;code&gt;</bpt>&lt;application&gt;<ept id="dca4fb97-a8f9-40ff-8e3d-90a5c2552e2e">&lt;/code&gt;</ept> and <bpt id="98cffd5c-7bd8-4200-9666-a0946fb63b9b">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="98cffd5c-7bd8-4200-9666-a0946fb63b9b">&lt;/code&gt;</ept> tags):</target>
+        </trans-unit>
+        <trans-unit id="16a375a2-4619-4795-bf47-daadc5805df5" xml:space="preserve">
+          <source>This section is <bpt id="191fac6f-ff69-41d7-8a06-d259dd41d499">&lt;strong&gt;</bpt>mandatory<ept id="191fac6f-ff69-41d7-8a06-d259dd41d499">&lt;/strong&gt;</ept> if you plan on using system notifications when creating Reach campaigns.</source>
+          <target state="new">This section is <bpt id="191fac6f-ff69-41d7-8a06-d259dd41d499">&lt;strong&gt;</bpt>mandatory<ept id="191fac6f-ff69-41d7-8a06-d259dd41d499">&lt;/strong&gt;</ept> if you plan on using system notifications when creating Reach campaigns.</target>
+        </trans-unit>
+        <trans-unit id="b059688d-ea1c-46d0-8065-98a3feafdaad" xml:space="preserve">
+          <source>Android prevents system notifications without icons from being shown.</source>
+          <target state="new">Android prevents system notifications without icons from being shown.</target>
+        </trans-unit>
+        <trans-unit id="9207c839-78b5-437a-ab64-310b9dad757c" xml:space="preserve">
+          <source>So if you omit this section, your end users will not be able to receive them.</source>
+          <target state="new">So if you omit this section, your end users will not be able to receive them.</target>
+        </trans-unit>
+        <trans-unit id="1f6b875a-f4da-4306-8017-0b35370c96db" xml:space="preserve">
+          <source>If you create campaigns with system notifications using big picture, you need to add the following permissions (after the <bpt id="3d4c4c30-5e3a-494b-bf9f-68c60aa29627">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="3d4c4c30-5e3a-494b-bf9f-68c60aa29627">&lt;/code&gt;</ept> tag) if missing:</source>
+          <target state="new">If you create campaigns with system notifications using big picture, you need to add the following permissions (after the <bpt id="3d4c4c30-5e3a-494b-bf9f-68c60aa29627">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="3d4c4c30-5e3a-494b-bf9f-68c60aa29627">&lt;/code&gt;</ept> tag) if missing:</target>
+        </trans-unit>
+        <trans-unit id="42ff4b51-f5e3-48e6-a039-400d11d11b4a" xml:space="preserve">
+          <source>On Android M and if your application targets Android API level 23 or greater, <bpt id="9e956aa4-36ec-43ef-b5e1-f74ca4325e54">&lt;code&gt;</bpt>WRITE_EXTERNAL_STORAGE<ept id="9e956aa4-36ec-43ef-b5e1-f74ca4325e54">&lt;/code&gt;</ept> permission requires user approval.</source>
+          <target state="new">On Android M and if your application targets Android API level 23 or greater, <bpt id="9e956aa4-36ec-43ef-b5e1-f74ca4325e54">&lt;code&gt;</bpt>WRITE_EXTERNAL_STORAGE<ept id="9e956aa4-36ec-43ef-b5e1-f74ca4325e54">&lt;/code&gt;</ept> permission requires user approval.</target>
+        </trans-unit>
+        <trans-unit id="cc82648e-6d9b-4ff4-acc2-89c18fb0f14d" xml:space="preserve">
+          <source>Please read <bpt id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;linkText&gt;</bpt>this section<ept id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;/linkText&gt;</ept><bpt id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;title&gt;</bpt><ept id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please read <bpt id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;linkText&gt;</bpt>this section<ept id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;/linkText&gt;</ept><bpt id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;title&gt;</bpt><ept id="0dee48d0-82fa-44b1-b02d-3b53a98d9370">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce6193b2-910d-47ba-9fd5-b21d65616d4f" xml:space="preserve">
+          <source>For system notifications you can also specify in the Reach campaign if the device should ring and/or vibrate. For it to work, you have to make sure you declared the following permission (after the <bpt id="0b0403d9-2ef6-4293-8547-0163a8d97136">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="0b0403d9-2ef6-4293-8547-0163a8d97136">&lt;/code&gt;</ept> tag):</source>
+          <target state="new">For system notifications you can also specify in the Reach campaign if the device should ring and/or vibrate. For it to work, you have to make sure you declared the following permission (after the <bpt id="0b0403d9-2ef6-4293-8547-0163a8d97136">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="0b0403d9-2ef6-4293-8547-0163a8d97136">&lt;/code&gt;</ept> tag):</target>
+        </trans-unit>
+        <trans-unit id="942c8958-ffa2-4fa1-93fd-a9829ba69e42" xml:space="preserve">
+          <source>Without this permission, Android prevents system notifications from being shown if you checked the ring or the vibrate option in the Reach Campaign manager.</source>
+          <target state="new">Without this permission, Android prevents system notifications from being shown if you checked the ring or the vibrate option in the Reach Campaign manager.</target>
+        </trans-unit>
+        <trans-unit id="4e1886f1-93e8-4320-8859-cee79006ce5d" xml:space="preserve">
+          <source>If you build your application using <bpt id="cf76b027-2c2b-4ead-b2bd-30bfcfdf5c63">&lt;strong&gt;</bpt>ProGuard<ept id="cf76b027-2c2b-4ead-b2bd-30bfcfdf5c63">&lt;/strong&gt;</ept> and have errors related to the Android Support library or the Engagement jar, add the following lines to your <bpt id="4b4d5eb2-5c1f-4ac4-b3f6-c28219ca1bd5">&lt;code&gt;</bpt>proguard.cfg<ept id="4b4d5eb2-5c1f-4ac4-b3f6-c28219ca1bd5">&lt;/code&gt;</ept> file:</source>
+          <target state="new">If you build your application using <bpt id="cf76b027-2c2b-4ead-b2bd-30bfcfdf5c63">&lt;strong&gt;</bpt>ProGuard<ept id="cf76b027-2c2b-4ead-b2bd-30bfcfdf5c63">&lt;/strong&gt;</ept> and have errors related to the Android Support library or the Engagement jar, add the following lines to your <bpt id="4b4d5eb2-5c1f-4ac4-b3f6-c28219ca1bd5">&lt;code&gt;</bpt>proguard.cfg<ept id="4b4d5eb2-5c1f-4ac4-b3f6-c28219ca1bd5">&lt;/code&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="e499ec33-9ad1-4bfc-a451-cbe0194cf3a8" xml:space="preserve">
+          <source>Now that you configured Reach module, you need to configure native push to be able to receive the campaigns on the device.</source>
+          <target state="new">Now that you configured Reach module, you need to configure native push to be able to receive the campaigns on the device.</target>
+        </trans-unit>
+        <trans-unit id="6cbbef38-4a11-4aa4-a5ff-57e7d7e43aa5" xml:space="preserve">
+          <source>We support two services on Android:</source>
+          <target state="new">We support two services on Android:</target>
+        </trans-unit>
+        <trans-unit id="d06ff0b2-04a4-49af-8446-53b1e96e7f4d" xml:space="preserve">
+          <source>Google Play devices: Use [Google Cloud Messaging] by following the <bpt id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;linkText&gt;</bpt>How to Integrate GCM with Engagement guide<ept id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;/linkText&gt;</ept><bpt id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;title&gt;</bpt><ept id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">Google Play devices: Use [Google Cloud Messaging] by following the <bpt id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;linkText&gt;</bpt>How to Integrate GCM with Engagement guide<ept id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;/linkText&gt;</ept><bpt id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;title&gt;</bpt><ept id="e0fbef9e-cfff-4370-8869-67ccee7cc043">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="76cfe64c-33ab-41da-984b-3dff497d2cc4" xml:space="preserve">
+          <source>Amazon devices: Use [Amazon Device Messaging] by following the <bpt id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;linkText&gt;</bpt>How to Integrate ADM with Engagement guide<ept id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;/linkText&gt;</ept><bpt id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;title&gt;</bpt><ept id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;/title&gt;</ept> guide.</source>
+          <target state="new">Amazon devices: Use [Amazon Device Messaging] by following the <bpt id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;linkText&gt;</bpt>How to Integrate ADM with Engagement guide<ept id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;/linkText&gt;</ept><bpt id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;title&gt;</bpt><ept id="5b4b10e8-7ab5-47f2-9264-8d782feb5e69">&lt;/title&gt;</ept> guide.</target>
+        </trans-unit>
+        <trans-unit id="d361f5e4-4900-4182-8558-e26ed93053e5" xml:space="preserve">
+          <source>If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development.</source>
+          <target state="new">If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development.</target>
+        </trans-unit>
+        <trans-unit id="09863f6b-cc8b-43e1-9819-4c65f0e8b95e" xml:space="preserve">
+          <source>But when submitting to Amazon, they may reject your application if they find GCM code.</source>
+          <target state="new">But when submitting to Amazon, they may reject your application if they find GCM code.</target>
+        </trans-unit>
+        <trans-unit id="cba1cc89-dda3-4a63-b39c-bb7a6791b20e" xml:space="preserve">
+          <source>You should use multiple APKs in that case.</source>
+          <target state="new">You should use multiple APKs in that case.</target>
+        </trans-unit>
+        <trans-unit id="efb6094c-b0da-447e-8318-f74846c07e8d" xml:space="preserve">
+          <source><bpt id="7370acf4-c016-4322-8ea9-58348ae7cb6f">&lt;strong&gt;</bpt>Your application is now ready to receive and display reach campaigns!<ept id="7370acf4-c016-4322-8ea9-58348ae7cb6f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7370acf4-c016-4322-8ea9-58348ae7cb6f">&lt;strong&gt;</bpt>Your application is now ready to receive and display reach campaigns!<ept id="7370acf4-c016-4322-8ea9-58348ae7cb6f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2386d7d5-27c7-4baa-9135-44a6af1d3857" xml:space="preserve">
+          <source>If you want your application to be able to receive Reach data pushes, you have to create a sub-class of <bpt id="38cb77f9-15ab-455f-bade-6aeca78e4735">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver<ept id="38cb77f9-15ab-455f-bade-6aeca78e4735">&lt;/code&gt;</ept> and reference it in the <bpt id="740c01a9-a4ce-4434-af80-ae5763a28dfa">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="740c01a9-a4ce-4434-af80-ae5763a28dfa">&lt;/code&gt;</ept> file (between the <bpt id="b4e446b7-3bf0-4dbe-b48d-fe64ce6cbcfa">&lt;code&gt;</bpt>&lt;application&gt;<ept id="b4e446b7-3bf0-4dbe-b48d-fe64ce6cbcfa">&lt;/code&gt;</ept> and/or <bpt id="550a73b8-e1c9-4aa5-a2dd-5367106e04ac">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="550a73b8-e1c9-4aa5-a2dd-5367106e04ac">&lt;/code&gt;</ept> tags):</source>
+          <target state="new">If you want your application to be able to receive Reach data pushes, you have to create a sub-class of <bpt id="38cb77f9-15ab-455f-bade-6aeca78e4735">&lt;code&gt;</bpt>com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver<ept id="38cb77f9-15ab-455f-bade-6aeca78e4735">&lt;/code&gt;</ept> and reference it in the <bpt id="740c01a9-a4ce-4434-af80-ae5763a28dfa">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="740c01a9-a4ce-4434-af80-ae5763a28dfa">&lt;/code&gt;</ept> file (between the <bpt id="b4e446b7-3bf0-4dbe-b48d-fe64ce6cbcfa">&lt;code&gt;</bpt>&lt;application&gt;<ept id="b4e446b7-3bf0-4dbe-b48d-fe64ce6cbcfa">&lt;/code&gt;</ept> and/or <bpt id="550a73b8-e1c9-4aa5-a2dd-5367106e04ac">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="550a73b8-e1c9-4aa5-a2dd-5367106e04ac">&lt;/code&gt;</ept> tags):</target>
+        </trans-unit>
+        <trans-unit id="e1c9fbf4-451b-43ca-9015-f33792dcb783" xml:space="preserve">
+          <source>Then you can override the <bpt id="e3c7935c-eb25-4496-aa50-f1c9781681bb">&lt;code&gt;</bpt>onDataPushStringReceived<ept id="e3c7935c-eb25-4496-aa50-f1c9781681bb">&lt;/code&gt;</ept> and <bpt id="3d912333-6ffa-4e24-ab2e-35e3591471c2">&lt;code&gt;</bpt>onDataPushBase64Received<ept id="3d912333-6ffa-4e24-ab2e-35e3591471c2">&lt;/code&gt;</ept> callbacks.</source>
+          <target state="new">Then you can override the <bpt id="e3c7935c-eb25-4496-aa50-f1c9781681bb">&lt;code&gt;</bpt>onDataPushStringReceived<ept id="e3c7935c-eb25-4496-aa50-f1c9781681bb">&lt;/code&gt;</ept> and <bpt id="3d912333-6ffa-4e24-ab2e-35e3591471c2">&lt;code&gt;</bpt>onDataPushBase64Received<ept id="3d912333-6ffa-4e24-ab2e-35e3591471c2">&lt;/code&gt;</ept> callbacks.</target>
+        </trans-unit>
+        <trans-unit id="ccd37bad-d094-4b24-b665-68eac64f9031" xml:space="preserve">
+          <source>Here is an example:</source>
+          <target state="new">Here is an example:</target>
+        </trans-unit>
+        <trans-unit id="9de06ef2-99dd-4889-ab2d-6c30ece95154" xml:space="preserve">
+          <source>The category parameter is optional when you create a Data Push campaign and allows you to filter data pushes.</source>
+          <target state="new">The category parameter is optional when you create a Data Push campaign and allows you to filter data pushes.</target>
+        </trans-unit>
+        <trans-unit id="b0bf21a9-9558-4bef-a4cc-8b062ccffba9" xml:space="preserve">
+          <source>This is useful if you have several broadcast receivers handling different types of data pushes, or if you want to push different kinds of <bpt id="4b65a82a-81ff-4149-b495-319d329f69ae">&lt;code&gt;</bpt>Base64<ept id="4b65a82a-81ff-4149-b495-319d329f69ae">&lt;/code&gt;</ept> data and want to identify their type before parsing them.</source>
+          <target state="new">This is useful if you have several broadcast receivers handling different types of data pushes, or if you want to push different kinds of <bpt id="4b65a82a-81ff-4149-b495-319d329f69ae">&lt;code&gt;</bpt>Base64<ept id="4b65a82a-81ff-4149-b495-319d329f69ae">&lt;/code&gt;</ept> data and want to identify their type before parsing them.</target>
+        </trans-unit>
+        <trans-unit id="033e3aa0-c14d-4397-8bf6-c59000cf00ea" xml:space="preserve">
+          <source>Here are some guidelines to properly handle the return parameter of <bpt id="44fd7c9d-861d-4c7b-af50-c4ab3bf3865d">&lt;code&gt;</bpt>onDataPushStringReceived<ept id="44fd7c9d-861d-4c7b-af50-c4ab3bf3865d">&lt;/code&gt;</ept> and <bpt id="82f37dc6-dbe6-414c-a5ed-dd587d7a4ed4">&lt;code&gt;</bpt>onDataPushBase64Received<ept id="82f37dc6-dbe6-414c-a5ed-dd587d7a4ed4">&lt;/code&gt;</ept>:</source>
+          <target state="new">Here are some guidelines to properly handle the return parameter of <bpt id="44fd7c9d-861d-4c7b-af50-c4ab3bf3865d">&lt;code&gt;</bpt>onDataPushStringReceived<ept id="44fd7c9d-861d-4c7b-af50-c4ab3bf3865d">&lt;/code&gt;</ept> and <bpt id="82f37dc6-dbe6-414c-a5ed-dd587d7a4ed4">&lt;code&gt;</bpt>onDataPushBase64Received<ept id="82f37dc6-dbe6-414c-a5ed-dd587d7a4ed4">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="22cd0e58-2e13-4415-9bfb-16a5a83e82db" xml:space="preserve">
+          <source>A broadcast receiver should return <bpt id="235028c4-ed59-41c0-83b4-ec1a77380669">&lt;code&gt;</bpt>null<ept id="235028c4-ed59-41c0-83b4-ec1a77380669">&lt;/code&gt;</ept> in the callback if it does not know how to handle a data push.</source>
+          <target state="new">A broadcast receiver should return <bpt id="235028c4-ed59-41c0-83b4-ec1a77380669">&lt;code&gt;</bpt>null<ept id="235028c4-ed59-41c0-83b4-ec1a77380669">&lt;/code&gt;</ept> in the callback if it does not know how to handle a data push.</target>
+        </trans-unit>
+        <trans-unit id="f6c45f73-874e-4238-8941-0e63830c9238" xml:space="preserve">
+          <source>You should use the category to determine whether your broadcast receiver should handle the data push or not.</source>
+          <target state="new">You should use the category to determine whether your broadcast receiver should handle the data push or not.</target>
+        </trans-unit>
+        <trans-unit id="8c96c67c-ea07-4090-8cd1-3d788039f86e" xml:space="preserve">
+          <source>One of the broadcast receiver should return <bpt id="4dc2d2a9-775d-4efe-850d-a15ec3f59fb0">&lt;code&gt;</bpt>true<ept id="4dc2d2a9-775d-4efe-850d-a15ec3f59fb0">&lt;/code&gt;</ept> in the callback if it accepts the data push.</source>
+          <target state="new">One of the broadcast receiver should return <bpt id="4dc2d2a9-775d-4efe-850d-a15ec3f59fb0">&lt;code&gt;</bpt>true<ept id="4dc2d2a9-775d-4efe-850d-a15ec3f59fb0">&lt;/code&gt;</ept> in the callback if it accepts the data push.</target>
+        </trans-unit>
+        <trans-unit id="1ba9062d-dddd-45f5-8761-e99ecd0c5e77" xml:space="preserve">
+          <source>One of the broadcast receiver should return <bpt id="44444351-7f13-413f-b5ef-b153446ec9a2">&lt;code&gt;</bpt>false<ept id="44444351-7f13-413f-b5ef-b153446ec9a2">&lt;/code&gt;</ept> in the callback if it recognizes the data push, but discards it for whatever reason.</source>
+          <target state="new">One of the broadcast receiver should return <bpt id="44444351-7f13-413f-b5ef-b153446ec9a2">&lt;code&gt;</bpt>false<ept id="44444351-7f13-413f-b5ef-b153446ec9a2">&lt;/code&gt;</ept> in the callback if it recognizes the data push, but discards it for whatever reason.</target>
+        </trans-unit>
+        <trans-unit id="d68bd6ed-e606-4678-914e-aaebff1b2945" xml:space="preserve">
+          <source>For example, return <bpt id="a9afce1b-4a4a-422b-b098-c67c717b7152">&lt;code&gt;</bpt>false<ept id="a9afce1b-4a4a-422b-b098-c67c717b7152">&lt;/code&gt;</ept> when the received data is invalid.</source>
+          <target state="new">For example, return <bpt id="a9afce1b-4a4a-422b-b098-c67c717b7152">&lt;code&gt;</bpt>false<ept id="a9afce1b-4a4a-422b-b098-c67c717b7152">&lt;/code&gt;</ept> when the received data is invalid.</target>
+        </trans-unit>
+        <trans-unit id="6c96b679-479b-402c-9dcb-3bda8235f8b4" xml:space="preserve">
+          <source>If one broadcast receiver returns <bpt id="95e8b141-7739-468c-a211-ec4981fa4e02">&lt;code&gt;</bpt>true<ept id="95e8b141-7739-468c-a211-ec4981fa4e02">&lt;/code&gt;</ept> while another one returns <bpt id="2e932210-0538-4567-a921-cf3acfcebd88">&lt;code&gt;</bpt>false<ept id="2e932210-0538-4567-a921-cf3acfcebd88">&lt;/code&gt;</ept> for the same data push, the behavior is undefined, you should never do that.</source>
+          <target state="new">If one broadcast receiver returns <bpt id="95e8b141-7739-468c-a211-ec4981fa4e02">&lt;code&gt;</bpt>true<ept id="95e8b141-7739-468c-a211-ec4981fa4e02">&lt;/code&gt;</ept> while another one returns <bpt id="2e932210-0538-4567-a921-cf3acfcebd88">&lt;code&gt;</bpt>false<ept id="2e932210-0538-4567-a921-cf3acfcebd88">&lt;/code&gt;</ept> for the same data push, the behavior is undefined, you should never do that.</target>
+        </trans-unit>
+        <trans-unit id="31f2dd5d-b6db-4f7b-b8d9-bf039be9859c" xml:space="preserve">
+          <source>The return type is used only for the Reach statistics:</source>
+          <target state="new">The return type is used only for the Reach statistics:</target>
+        </trans-unit>
+        <trans-unit id="1fef0a2b-7882-4e95-bf31-91094d899ae1" xml:space="preserve">
+          <source><bpt id="e4566e12-13d6-4fa7-a366-a3a8f9e08c96">&lt;code&gt;</bpt>Replied<ept id="e4566e12-13d6-4fa7-a366-a3a8f9e08c96">&lt;/code&gt;</ept> is incremented if one of the broadcast receivers returned either <bpt id="3a885973-df96-47e0-a7b6-7c55396ed105">&lt;code&gt;</bpt>true<ept id="3a885973-df96-47e0-a7b6-7c55396ed105">&lt;/code&gt;</ept> or <bpt id="fa6ab879-0bd9-4eed-9316-629d24917fc0">&lt;code&gt;</bpt>false<ept id="fa6ab879-0bd9-4eed-9316-629d24917fc0">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="e4566e12-13d6-4fa7-a366-a3a8f9e08c96">&lt;code&gt;</bpt>Replied<ept id="e4566e12-13d6-4fa7-a366-a3a8f9e08c96">&lt;/code&gt;</ept> is incremented if one of the broadcast receivers returned either <bpt id="3a885973-df96-47e0-a7b6-7c55396ed105">&lt;code&gt;</bpt>true<ept id="3a885973-df96-47e0-a7b6-7c55396ed105">&lt;/code&gt;</ept> or <bpt id="fa6ab879-0bd9-4eed-9316-629d24917fc0">&lt;code&gt;</bpt>false<ept id="fa6ab879-0bd9-4eed-9316-629d24917fc0">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40dc5afa-355a-4dd1-9b8b-1f255b5f5e15" xml:space="preserve">
+          <source><bpt id="002e7648-2be5-4bbc-b04e-7a6e3855a30d">&lt;code&gt;</bpt>Actioned<ept id="002e7648-2be5-4bbc-b04e-7a6e3855a30d">&lt;/code&gt;</ept> is incremented only if one of the broadcast receivers returned <bpt id="25e2f2fe-4e39-4868-b2b1-2565e405ac73">&lt;code&gt;</bpt>true<ept id="25e2f2fe-4e39-4868-b2b1-2565e405ac73">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="002e7648-2be5-4bbc-b04e-7a6e3855a30d">&lt;code&gt;</bpt>Actioned<ept id="002e7648-2be5-4bbc-b04e-7a6e3855a30d">&lt;/code&gt;</ept> is incremented only if one of the broadcast receivers returned <bpt id="25e2f2fe-4e39-4868-b2b1-2565e405ac73">&lt;code&gt;</bpt>true<ept id="25e2f2fe-4e39-4868-b2b1-2565e405ac73">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff99619e-c1b8-4192-ba8c-70f139e5287c" xml:space="preserve">
+          <source>To customize campaigns, you can modify the layouts provided in the Reach SDK.</source>
+          <target state="new">To customize campaigns, you can modify the layouts provided in the Reach SDK.</target>
+        </trans-unit>
+        <trans-unit id="c79e75f5-8e05-459c-99d9-93ccb0658b1d" xml:space="preserve">
+          <source>You should keep all the identifiers used in the layouts and keep the types of the views that use an identifier, especially for text views and image views.</source>
+          <target state="new">You should keep all the identifiers used in the layouts and keep the types of the views that use an identifier, especially for text views and image views.</target>
+        </trans-unit>
+        <trans-unit id="fd362d59-eb27-42f7-95c6-58a34292cbf5" xml:space="preserve">
+          <source>Some views are just used to hide or show areas so their type may be changed.</source>
+          <target state="new">Some views are just used to hide or show areas so their type may be changed.</target>
+        </trans-unit>
+        <trans-unit id="0d51ee91-2752-453a-ab8f-53547e32eba0" xml:space="preserve">
+          <source>Please check the source code if you intend to change the type of a view in the provided layouts.</source>
+          <target state="new">Please check the source code if you intend to change the type of a view in the provided layouts.</target>
+        </trans-unit>
+        <trans-unit id="5bc91b27-632a-4f4b-a61a-6264e4fa2500" xml:space="preserve">
+          <source>There are two types of notifications: system and in-app notifications which use different layout files.</source>
+          <target state="new">There are two types of notifications: system and in-app notifications which use different layout files.</target>
+        </trans-unit>
+        <trans-unit id="89b1561b-012e-4510-bfce-511a388a2893" xml:space="preserve">
+          <source>To customize system notifications you need to use the <bpt id="2e60b15e-a441-47d1-bbfd-fe67c4c94d03">&lt;strong&gt;</bpt>categories<ept id="2e60b15e-a441-47d1-bbfd-fe67c4c94d03">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To customize system notifications you need to use the <bpt id="2e60b15e-a441-47d1-bbfd-fe67c4c94d03">&lt;strong&gt;</bpt>categories<ept id="2e60b15e-a441-47d1-bbfd-fe67c4c94d03">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7330fa64-1ea0-410c-98b5-762ee0260876" xml:space="preserve">
+          <source>You can jump to <bpt id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;linkText&gt;</bpt>Categories<ept id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;/linkText&gt;</ept><bpt id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;title&gt;</bpt><ept id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can jump to <bpt id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;linkText&gt;</bpt>Categories<ept id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;/linkText&gt;</ept><bpt id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;title&gt;</bpt><ept id="466f2b3a-8bb1-4b11-8ad3-7c96eeff0045">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c663ac5-440f-4491-9de4-b6b520173af4" xml:space="preserve">
+          <source>By default, an in-app notification is a view that is dynamically added to the current activity user interface thanks to the Android method <bpt id="74adaa61-a45b-4124-b14d-167d01b7a52a">&lt;code&gt;</bpt>addContentView()<ept id="74adaa61-a45b-4124-b14d-167d01b7a52a">&lt;/code&gt;</ept>.</source>
+          <target state="new">By default, an in-app notification is a view that is dynamically added to the current activity user interface thanks to the Android method <bpt id="74adaa61-a45b-4124-b14d-167d01b7a52a">&lt;code&gt;</bpt>addContentView()<ept id="74adaa61-a45b-4124-b14d-167d01b7a52a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9702749-a113-4db6-8dbd-924bcbbc24ca" xml:space="preserve">
+          <source>This is called a notification overlay.</source>
+          <target state="new">This is called a notification overlay.</target>
+        </trans-unit>
+        <trans-unit id="ffa4bc41-6484-4948-98eb-285f79254da2" xml:space="preserve">
+          <source>Notification overlays are great for a fast integration because they do not require you to modify any layout in your application.</source>
+          <target state="new">Notification overlays are great for a fast integration because they do not require you to modify any layout in your application.</target>
+        </trans-unit>
+        <trans-unit id="7e1d7bde-f486-400c-9220-a6519df41a7d" xml:space="preserve">
+          <source>To modify the look of your notification overlays, you can simply modify the file <bpt id="2ab42c0b-5b52-4b10-b2bb-17e3dafb41d0">&lt;code&gt;</bpt>engagement_notification_area.xml<ept id="2ab42c0b-5b52-4b10-b2bb-17e3dafb41d0">&lt;/code&gt;</ept> to your needs.</source>
+          <target state="new">To modify the look of your notification overlays, you can simply modify the file <bpt id="2ab42c0b-5b52-4b10-b2bb-17e3dafb41d0">&lt;code&gt;</bpt>engagement_notification_area.xml<ept id="2ab42c0b-5b52-4b10-b2bb-17e3dafb41d0">&lt;/code&gt;</ept> to your needs.</target>
+        </trans-unit>
+        <trans-unit id="22dd5a8e-0d64-47e1-bc44-82f922b7afcb" xml:space="preserve">
+          <source>The file <bpt id="91c36764-e75e-4434-a226-c918503c502a">&lt;code&gt;</bpt>engagement_notification_overlay.xml<ept id="91c36764-e75e-4434-a226-c918503c502a">&lt;/code&gt;</ept> is the one that is used to create a notification overlay, it includes the file <bpt id="28e5fd4b-78f4-4974-9d44-0521eb26242b">&lt;code&gt;</bpt>engagement_notification_area.xml<ept id="28e5fd4b-78f4-4974-9d44-0521eb26242b">&lt;/code&gt;</ept>.</source>
+          <target state="new">The file <bpt id="91c36764-e75e-4434-a226-c918503c502a">&lt;code&gt;</bpt>engagement_notification_overlay.xml<ept id="91c36764-e75e-4434-a226-c918503c502a">&lt;/code&gt;</ept> is the one that is used to create a notification overlay, it includes the file <bpt id="28e5fd4b-78f4-4974-9d44-0521eb26242b">&lt;code&gt;</bpt>engagement_notification_area.xml<ept id="28e5fd4b-78f4-4974-9d44-0521eb26242b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82a0856e-37ef-41f8-a7b0-befa45b00b3a" xml:space="preserve">
+          <source>You can also customize it to suit your needs (such as for positioning the notification area within the overlay).</source>
+          <target state="new">You can also customize it to suit your needs (such as for positioning the notification area within the overlay).</target>
+        </trans-unit>
+        <trans-unit id="24c76512-a4d4-4e81-8ee1-c04822212c5c" xml:space="preserve">
+          <source>Overlays are great for a fast integration but can be inconvenient or have side effects in special cases.</source>
+          <target state="new">Overlays are great for a fast integration but can be inconvenient or have side effects in special cases.</target>
+        </trans-unit>
+        <trans-unit id="14e05e30-a726-4ef7-963f-618ec217f797" xml:space="preserve">
+          <source>The overlay system can be customized at an activity level, making it easy to prevent side effects for special activities.</source>
+          <target state="new">The overlay system can be customized at an activity level, making it easy to prevent side effects for special activities.</target>
+        </trans-unit>
+        <trans-unit id="cf9e6be6-8da1-4b3b-b4dd-27a76555a250" xml:space="preserve">
+          <source>You can decide to include our notification layout in your existing layout thanks to the Android <bpt id="d3e3ab67-4e02-4538-b389-dbab04c10e0f">&lt;strong&gt;</bpt>include<ept id="d3e3ab67-4e02-4538-b389-dbab04c10e0f">&lt;/strong&gt;</ept> statement.</source>
+          <target state="new">You can decide to include our notification layout in your existing layout thanks to the Android <bpt id="d3e3ab67-4e02-4538-b389-dbab04c10e0f">&lt;strong&gt;</bpt>include<ept id="d3e3ab67-4e02-4538-b389-dbab04c10e0f">&lt;/strong&gt;</ept> statement.</target>
+        </trans-unit>
+        <trans-unit id="3fd77ed6-3a88-4b24-9cde-0b774ba5dda7" xml:space="preserve">
+          <source>The following is an example of a modified <bpt id="8b0364ff-0518-4e23-b31d-6ebd3f1655f3">&lt;code&gt;</bpt>ListActivity<ept id="8b0364ff-0518-4e23-b31d-6ebd3f1655f3">&lt;/code&gt;</ept> layout containing just a <bpt id="612816aa-63d2-49c4-a85a-65a826e3772d">&lt;code&gt;</bpt>ListView<ept id="612816aa-63d2-49c4-a85a-65a826e3772d">&lt;/code&gt;</ept>.</source>
+          <target state="new">The following is an example of a modified <bpt id="8b0364ff-0518-4e23-b31d-6ebd3f1655f3">&lt;code&gt;</bpt>ListActivity<ept id="8b0364ff-0518-4e23-b31d-6ebd3f1655f3">&lt;/code&gt;</ept> layout containing just a <bpt id="612816aa-63d2-49c4-a85a-65a826e3772d">&lt;code&gt;</bpt>ListView<ept id="612816aa-63d2-49c4-a85a-65a826e3772d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="971b504b-29b1-466b-9c6c-e1ec7c4469f3" xml:space="preserve">
+          <source><bpt id="e1e06990-1199-4c23-9592-890693d43939">&lt;strong&gt;</bpt>Before Engagement integration :<ept id="e1e06990-1199-4c23-9592-890693d43939">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e1e06990-1199-4c23-9592-890693d43939">&lt;strong&gt;</bpt>Before Engagement integration :<ept id="e1e06990-1199-4c23-9592-890693d43939">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfc2571d-79cf-4c4c-a1e3-0ece476db3d8" xml:space="preserve">
+          <source><bpt id="6a9b8501-d023-41c5-b674-93ab46b4c32b">&lt;strong&gt;</bpt>After Engagement integration :<ept id="6a9b8501-d023-41c5-b674-93ab46b4c32b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6a9b8501-d023-41c5-b674-93ab46b4c32b">&lt;strong&gt;</bpt>After Engagement integration :<ept id="6a9b8501-d023-41c5-b674-93ab46b4c32b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="518710b9-e667-4d1e-a5a8-45d86d7e6eb2" xml:space="preserve">
+          <source>In this example we added a parent container since the original layout used a list view as the top level element.</source>
+          <target state="new">In this example we added a parent container since the original layout used a list view as the top level element.</target>
+        </trans-unit>
+        <trans-unit id="ded5482f-bce3-4d57-98cd-73d303366150" xml:space="preserve">
+          <source>We also added <bpt id="6915831b-6ab5-4679-88ee-2750b630cca6">&lt;code&gt;</bpt>android:layout_weight="1"<ept id="6915831b-6ab5-4679-88ee-2750b630cca6">&lt;/code&gt;</ept> to be able to add a view below a list view configured with <bpt id="a55bfeb6-349c-45ab-aa34-947fc0fe4b64">&lt;code&gt;</bpt>android:layout_height="fill_parent"<ept id="a55bfeb6-349c-45ab-aa34-947fc0fe4b64">&lt;/code&gt;</ept>.</source>
+          <target state="new">We also added <bpt id="6915831b-6ab5-4679-88ee-2750b630cca6">&lt;code&gt;</bpt>android:layout_weight="1"<ept id="6915831b-6ab5-4679-88ee-2750b630cca6">&lt;/code&gt;</ept> to be able to add a view below a list view configured with <bpt id="a55bfeb6-349c-45ab-aa34-947fc0fe4b64">&lt;code&gt;</bpt>android:layout_height="fill_parent"<ept id="a55bfeb6-349c-45ab-aa34-947fc0fe4b64">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ac839bc-c1dc-44c2-9733-179ca3d90c17" xml:space="preserve">
+          <source>The Engagement Reach SDK automatically detects that the notification layout is included in this activity and will not add an overlay for this activity.</source>
+          <target state="new">The Engagement Reach SDK automatically detects that the notification layout is included in this activity and will not add an overlay for this activity.</target>
+        </trans-unit>
+        <trans-unit id="7b142af4-5411-4a18-9a37-7c17d9797cc8" xml:space="preserve">
+          <source>If you use a ListActivity in your application, a visible Reach overlay will prevent you from reacting to clicked items in the list view anymore.</source>
+          <target state="new">If you use a ListActivity in your application, a visible Reach overlay will prevent you from reacting to clicked items in the list view anymore.</target>
+        </trans-unit>
+        <trans-unit id="1dd197ca-4b63-49a8-ac7f-fd082e2261e3" xml:space="preserve">
+          <source>This is a known issue.</source>
+          <target state="new">This is a known issue.</target>
+        </trans-unit>
+        <trans-unit id="46b0c038-6b16-4c2b-8f50-6d3f7b34843a" xml:space="preserve">
+          <source>To work around this problem we suggest you to embed the notification layout in your own list activity layout like in the previous sample.</source>
+          <target state="new">To work around this problem we suggest you to embed the notification layout in your own list activity layout like in the previous sample.</target>
+        </trans-unit>
+        <trans-unit id="37aeb7bc-44db-46d4-b30f-9eda5785a21f" xml:space="preserve">
+          <source>If you don't want the overlay to be added to your activity, and if you don't include the notification layout in your own layout, you can disable the overlay for this activity in the <bpt id="4d9e094b-283a-4108-a942-bf0bbac4f2be">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="4d9e094b-283a-4108-a942-bf0bbac4f2be">&lt;/code&gt;</ept> by adding a <bpt id="2089adac-940e-438d-96d6-013298e5d972">&lt;code&gt;</bpt>meta-data<ept id="2089adac-940e-438d-96d6-013298e5d972">&lt;/code&gt;</ept> section like in the following example:</source>
+          <target state="new">If you don't want the overlay to be added to your activity, and if you don't include the notification layout in your own layout, you can disable the overlay for this activity in the <bpt id="4d9e094b-283a-4108-a942-bf0bbac4f2be">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="4d9e094b-283a-4108-a942-bf0bbac4f2be">&lt;/code&gt;</ept> by adding a <bpt id="2089adac-940e-438d-96d6-013298e5d972">&lt;code&gt;</bpt>meta-data<ept id="2089adac-940e-438d-96d6-013298e5d972">&lt;/code&gt;</ept> section like in the following example:</target>
+        </trans-unit>
+        <trans-unit id="1aaa5a48-f4f5-47c9-afea-9b104240aff9" xml:space="preserve">
+          <source>When you modify the provided layouts, you modify the look of all your notifications.</source>
+          <target state="new">When you modify the provided layouts, you modify the look of all your notifications.</target>
+        </trans-unit>
+        <trans-unit id="d36e94c1-c4c2-4331-ad49-c8514368e3f3" xml:space="preserve">
+          <source>Categories allow you to define various targeted looks (possibly behaviors) for notifications.</source>
+          <target state="new">Categories allow you to define various targeted looks (possibly behaviors) for notifications.</target>
+        </trans-unit>
+        <trans-unit id="a8a9c08a-aa66-45cc-9778-03eff4c16446" xml:space="preserve">
+          <source>A category can be specified when you create a Reach campaign.</source>
+          <target state="new">A category can be specified when you create a Reach campaign.</target>
+        </trans-unit>
+        <trans-unit id="3457e45c-b063-4fab-8b5e-5941bb29d596" xml:space="preserve">
+          <source>Keep in mind that categories also let you customize announcements and polls, that is described later in this document.</source>
+          <target state="new">Keep in mind that categories also let you customize announcements and polls, that is described later in this document.</target>
+        </trans-unit>
+        <trans-unit id="b01f13c6-1545-4291-ae63-756b94e3a86b" xml:space="preserve">
+          <source>To register a category handler for your notifications, you need to add a call when the application is initialized.</source>
+          <target state="new">To register a category handler for your notifications, you need to add a call when the application is initialized.</target>
+        </trans-unit>
+        <trans-unit id="a16a919a-fa7d-4477-b305-3731baa68c70" xml:space="preserve">
+          <source>Please read the warning about the android:process attribute \&lt;android-sdk-engagement-process\&gt; in the How to Integrate Engagement on Android topic before proceeding.</source>
+          <target state="new">Please read the warning about the android:process attribute \&lt;android-sdk-engagement-process\&gt; in the How to Integrate Engagement on Android topic before proceeding.</target>
+        </trans-unit>
+        <trans-unit id="ef9fc85c-d27f-40a5-be5e-90504756a64d" xml:space="preserve">
+          <source>The following example assumes you acknowledged the previous warning and use a sub-class of <bpt id="254ab68c-01a1-4c4c-be35-97658d0ebf5b">&lt;code&gt;</bpt>EngagementApplication<ept id="254ab68c-01a1-4c4c-be35-97658d0ebf5b">&lt;/code&gt;</ept>:</source>
+          <target state="new">The following example assumes you acknowledged the previous warning and use a sub-class of <bpt id="254ab68c-01a1-4c4c-be35-97658d0ebf5b">&lt;code&gt;</bpt>EngagementApplication<ept id="254ab68c-01a1-4c4c-be35-97658d0ebf5b">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0ec607f6-8963-4099-b982-f8f90ec1b7fc" xml:space="preserve">
+          <source>The <bpt id="c22b254d-33f2-4798-b54f-9937271041ec">&lt;code&gt;</bpt>MyNotifier<ept id="c22b254d-33f2-4798-b54f-9937271041ec">&lt;/code&gt;</ept> object is the implementation of the notification category handler.</source>
+          <target state="new">The <bpt id="c22b254d-33f2-4798-b54f-9937271041ec">&lt;code&gt;</bpt>MyNotifier<ept id="c22b254d-33f2-4798-b54f-9937271041ec">&lt;/code&gt;</ept> object is the implementation of the notification category handler.</target>
+        </trans-unit>
+        <trans-unit id="89184918-951b-4ce9-8faf-635a6c3c51e7" xml:space="preserve">
+          <source>It is either an implementation of the <bpt id="0d425e89-50a0-4e1b-aa6a-9d2500de97b4">&lt;code&gt;</bpt>EngagementNotifier<ept id="0d425e89-50a0-4e1b-aa6a-9d2500de97b4">&lt;/code&gt;</ept> interface or a sub class of the default implementation: <bpt id="0e44dd1c-5a2e-4846-80a1-3f5a3176c23d">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="0e44dd1c-5a2e-4846-80a1-3f5a3176c23d">&lt;/code&gt;</ept>.</source>
+          <target state="new">It is either an implementation of the <bpt id="0d425e89-50a0-4e1b-aa6a-9d2500de97b4">&lt;code&gt;</bpt>EngagementNotifier<ept id="0d425e89-50a0-4e1b-aa6a-9d2500de97b4">&lt;/code&gt;</ept> interface or a sub class of the default implementation: <bpt id="0e44dd1c-5a2e-4846-80a1-3f5a3176c23d">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="0e44dd1c-5a2e-4846-80a1-3f5a3176c23d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4439ad27-db4d-45eb-b9a1-b7efcdefa2a7" xml:space="preserve">
+          <source>Note that the same notifier can handle several categories, you can register them like this:</source>
+          <target state="new">Note that the same notifier can handle several categories, you can register them like this:</target>
+        </trans-unit>
+        <trans-unit id="534cb6bb-25e1-47b5-9598-8ac26c810533" xml:space="preserve">
+          <source>To replace the default category implementation, you can register your implementation like in the following example:</source>
+          <target state="new">To replace the default category implementation, you can register your implementation like in the following example:</target>
+        </trans-unit>
+        <trans-unit id="cc3d777e-8f82-4123-a7fd-33f8d0b1ec5e" xml:space="preserve">
+          <source>The current category used in a handler is passed as a parameter in most methods you can override in <bpt id="7d4bc544-1d41-423e-8a81-ed9b696b7bc1">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="7d4bc544-1d41-423e-8a81-ed9b696b7bc1">&lt;/code&gt;</ept>.</source>
+          <target state="new">The current category used in a handler is passed as a parameter in most methods you can override in <bpt id="7d4bc544-1d41-423e-8a81-ed9b696b7bc1">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="7d4bc544-1d41-423e-8a81-ed9b696b7bc1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="01f7a116-f620-4bba-be50-4c17586e94b7" xml:space="preserve">
+          <source>It is passed either as a <bpt id="e8377842-6fae-4ec7-9ad1-e55e570ee45b">&lt;code&gt;</bpt>String<ept id="e8377842-6fae-4ec7-9ad1-e55e570ee45b">&lt;/code&gt;</ept> parameter or indirectly in a <bpt id="0221ab40-3a70-434c-9797-6d6281ef8771">&lt;code&gt;</bpt>EngagementReachContent<ept id="0221ab40-3a70-434c-9797-6d6281ef8771">&lt;/code&gt;</ept> object which has a <bpt id="3136a986-eb0e-41db-a67d-5e6ea91b0321">&lt;code&gt;</bpt>getCategory()<ept id="3136a986-eb0e-41db-a67d-5e6ea91b0321">&lt;/code&gt;</ept> method.</source>
+          <target state="new">It is passed either as a <bpt id="e8377842-6fae-4ec7-9ad1-e55e570ee45b">&lt;code&gt;</bpt>String<ept id="e8377842-6fae-4ec7-9ad1-e55e570ee45b">&lt;/code&gt;</ept> parameter or indirectly in a <bpt id="0221ab40-3a70-434c-9797-6d6281ef8771">&lt;code&gt;</bpt>EngagementReachContent<ept id="0221ab40-3a70-434c-9797-6d6281ef8771">&lt;/code&gt;</ept> object which has a <bpt id="3136a986-eb0e-41db-a67d-5e6ea91b0321">&lt;code&gt;</bpt>getCategory()<ept id="3136a986-eb0e-41db-a67d-5e6ea91b0321">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="34244279-b65d-4ce3-95f9-36133b71f1b2" xml:space="preserve">
+          <source>You can change most of the notification creation process by redefining methods on <bpt id="643671ab-c6b1-4d92-bbe5-175b16425637">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="643671ab-c6b1-4d92-bbe5-175b16425637">&lt;/code&gt;</ept>, for more advanced customization feel free to take a look at the technical documentation and at the source code.</source>
+          <target state="new">You can change most of the notification creation process by redefining methods on <bpt id="643671ab-c6b1-4d92-bbe5-175b16425637">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="643671ab-c6b1-4d92-bbe5-175b16425637">&lt;/code&gt;</ept>, for more advanced customization feel free to take a look at the technical documentation and at the source code.</target>
+        </trans-unit>
+        <trans-unit id="9633b5f7-64d4-400d-bfa2-9ce5fef11b11" xml:space="preserve">
+          <source>If you just want to use alternate layouts for a specific category, you can implement this as in the following example:</source>
+          <target state="new">If you just want to use alternate layouts for a specific category, you can implement this as in the following example:</target>
+        </trans-unit>
+        <trans-unit id="e5787c85-753f-461f-adbc-75f515d3b880" xml:space="preserve">
+          <source>**Example of <bpt id="19eb0fb3-38a7-4f74-940e-ab6050e790d4">&lt;code&gt;</bpt>my_notification_overlay.xml<ept id="19eb0fb3-38a7-4f74-940e-ab6050e790d4">&lt;/code&gt;</ept> :**</source>
+          <target state="new">**Example of <bpt id="19eb0fb3-38a7-4f74-940e-ab6050e790d4">&lt;code&gt;</bpt>my_notification_overlay.xml<ept id="19eb0fb3-38a7-4f74-940e-ab6050e790d4">&lt;/code&gt;</ept> :**</target>
+        </trans-unit>
+        <trans-unit id="544a192d-3cdd-4228-ac19-4c8731d7c3b3" xml:space="preserve">
+          <source>As you can see, the overlay view identifier is different than the standard one.</source>
+          <target state="new">As you can see, the overlay view identifier is different than the standard one.</target>
+        </trans-unit>
+        <trans-unit id="e6862705-e3ee-4b0a-8951-574d039ffb93" xml:space="preserve">
+          <source>It is important that each layout use a unique identifier for overlays.</source>
+          <target state="new">It is important that each layout use a unique identifier for overlays.</target>
+        </trans-unit>
+        <trans-unit id="b15601cf-5ba2-41db-881f-a6859e96c464" xml:space="preserve">
+          <source>**Example of <bpt id="09b501c3-591d-4923-8b9b-e318c37a04e5">&lt;code&gt;</bpt>my_notification_area.xml<ept id="09b501c3-591d-4923-8b9b-e318c37a04e5">&lt;/code&gt;</ept> :**</source>
+          <target state="new">**Example of <bpt id="09b501c3-591d-4923-8b9b-e318c37a04e5">&lt;code&gt;</bpt>my_notification_area.xml<ept id="09b501c3-591d-4923-8b9b-e318c37a04e5">&lt;/code&gt;</ept> :**</target>
+        </trans-unit>
+        <trans-unit id="366f6dcb-0e14-4744-8c20-946cdffdc3ed" xml:space="preserve">
+          <source>As you can see, the notification area view identifier is different than the standard one.</source>
+          <target state="new">As you can see, the notification area view identifier is different than the standard one.</target>
+        </trans-unit>
+        <trans-unit id="424a813d-3213-4500-a475-ed60cc23c6cc" xml:space="preserve">
+          <source>It is important that each layout uses a unique identifier for notification areas.</source>
+          <target state="new">It is important that each layout uses a unique identifier for notification areas.</target>
+        </trans-unit>
+        <trans-unit id="397d949f-677a-475f-97b2-0e761b3077f5" xml:space="preserve">
+          <source>This simple example of category makes application (or in-app) notifications displayed at the top of the screen.</source>
+          <target state="new">This simple example of category makes application (or in-app) notifications displayed at the top of the screen.</target>
+        </trans-unit>
+        <trans-unit id="2c21bc3c-70fa-4798-9258-3d70b8fa5f5f" xml:space="preserve">
+          <source>We did not change the standard identifiers used in the notification area itself.</source>
+          <target state="new">We did not change the standard identifiers used in the notification area itself.</target>
+        </trans-unit>
+        <trans-unit id="8b25e206-1638-469e-a9c9-a889de4d4e61" xml:space="preserve">
+          <source>If you want to change that, you have to redefine the <bpt id="a460e193-e1ed-45d4-b6e0-f84fef1dbbfc">&lt;code&gt;</bpt>EngagementDefaultNotifier.prepareInAppArea<ept id="a460e193-e1ed-45d4-b6e0-f84fef1dbbfc">&lt;/code&gt;</ept> method.</source>
+          <target state="new">If you want to change that, you have to redefine the <bpt id="a460e193-e1ed-45d4-b6e0-f84fef1dbbfc">&lt;code&gt;</bpt>EngagementDefaultNotifier.prepareInAppArea<ept id="a460e193-e1ed-45d4-b6e0-f84fef1dbbfc">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="5e70da8b-ebba-420d-8305-af9600eb6fb1" xml:space="preserve">
+          <source>It's recommended to look at the technical documentation and at the source code of <bpt id="3c6f9a79-bafa-4640-8024-2b3eb121087b">&lt;code&gt;</bpt>EngagementNotifier<ept id="3c6f9a79-bafa-4640-8024-2b3eb121087b">&lt;/code&gt;</ept> and <bpt id="11ff5d56-6374-4fc1-9a8f-1e2ec4bb188a">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="11ff5d56-6374-4fc1-9a8f-1e2ec4bb188a">&lt;/code&gt;</ept> if you want this level of advanced customization.</source>
+          <target state="new">It's recommended to look at the technical documentation and at the source code of <bpt id="3c6f9a79-bafa-4640-8024-2b3eb121087b">&lt;code&gt;</bpt>EngagementNotifier<ept id="3c6f9a79-bafa-4640-8024-2b3eb121087b">&lt;/code&gt;</ept> and <bpt id="11ff5d56-6374-4fc1-9a8f-1e2ec4bb188a">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="11ff5d56-6374-4fc1-9a8f-1e2ec4bb188a">&lt;/code&gt;</ept> if you want this level of advanced customization.</target>
+        </trans-unit>
+        <trans-unit id="b8d7e3b4-8500-4c72-9cae-b898f5ef806a" xml:space="preserve">
+          <source>By extending <bpt id="2625f108-d2e6-4974-8c7c-69ef884d99f6">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="2625f108-d2e6-4974-8c7c-69ef884d99f6">&lt;/code&gt;</ept>, you can override <bpt id="519caf93-50d0-4770-b759-1b4c0fd79fa9">&lt;code&gt;</bpt>onNotificationPrepared<ept id="519caf93-50d0-4770-b759-1b4c0fd79fa9">&lt;/code&gt;</ept> to alter the notification that was prepared by the default implementation.</source>
+          <target state="new">By extending <bpt id="2625f108-d2e6-4974-8c7c-69ef884d99f6">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="2625f108-d2e6-4974-8c7c-69ef884d99f6">&lt;/code&gt;</ept>, you can override <bpt id="519caf93-50d0-4770-b759-1b4c0fd79fa9">&lt;code&gt;</bpt>onNotificationPrepared<ept id="519caf93-50d0-4770-b759-1b4c0fd79fa9">&lt;/code&gt;</ept> to alter the notification that was prepared by the default implementation.</target>
+        </trans-unit>
+        <trans-unit id="a49738c6-a4df-4ff1-96c1-f449f03c0849" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="8b35f5fe-7e9b-4f92-b30d-c1e2fcaec69e" xml:space="preserve">
+          <source>This example makes a system notification for a content being displayed as an ongoing event when the "ongoing" category is used.</source>
+          <target state="new">This example makes a system notification for a content being displayed as an ongoing event when the "ongoing" category is used.</target>
+        </trans-unit>
+        <trans-unit id="a949a6ef-2375-4ffd-bd67-61f5eb1b8fea" xml:space="preserve">
+          <source>If you want to build the <bpt id="7b9ad1e5-b342-452d-bc18-7cd0c25e04de">&lt;code&gt;</bpt>Notification<ept id="7b9ad1e5-b342-452d-bc18-7cd0c25e04de">&lt;/code&gt;</ept> object from scratch, you can return <bpt id="4267c37f-617f-43b5-bc00-fffe4f4f9d9a">&lt;code&gt;</bpt>false<ept id="4267c37f-617f-43b5-bc00-fffe4f4f9d9a">&lt;/code&gt;</ept> to the method and call <bpt id="ae877cac-cbe0-40d3-99d7-e86ddae59cc8">&lt;code&gt;</bpt>notify<ept id="ae877cac-cbe0-40d3-99d7-e86ddae59cc8">&lt;/code&gt;</ept> yourself on the <bpt id="f041a980-8d7a-4405-a796-c40d2c11d3dd">&lt;code&gt;</bpt>NotificationManager<ept id="f041a980-8d7a-4405-a796-c40d2c11d3dd">&lt;/code&gt;</ept>.</source>
+          <target state="new">If you want to build the <bpt id="7b9ad1e5-b342-452d-bc18-7cd0c25e04de">&lt;code&gt;</bpt>Notification<ept id="7b9ad1e5-b342-452d-bc18-7cd0c25e04de">&lt;/code&gt;</ept> object from scratch, you can return <bpt id="4267c37f-617f-43b5-bc00-fffe4f4f9d9a">&lt;code&gt;</bpt>false<ept id="4267c37f-617f-43b5-bc00-fffe4f4f9d9a">&lt;/code&gt;</ept> to the method and call <bpt id="ae877cac-cbe0-40d3-99d7-e86ddae59cc8">&lt;code&gt;</bpt>notify<ept id="ae877cac-cbe0-40d3-99d7-e86ddae59cc8">&lt;/code&gt;</ept> yourself on the <bpt id="f041a980-8d7a-4405-a796-c40d2c11d3dd">&lt;code&gt;</bpt>NotificationManager<ept id="f041a980-8d7a-4405-a796-c40d2c11d3dd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3dca129-6a7a-4613-a28a-19f20949aa6a" xml:space="preserve">
+          <source>In that case it's important that you keep a <bpt id="f870c6ef-8132-4cd3-80a0-1a31714b7cbd">&lt;code&gt;</bpt>contentIntent<ept id="f870c6ef-8132-4cd3-80a0-1a31714b7cbd">&lt;/code&gt;</ept>, a <bpt id="8cd84630-0f05-4559-9151-fb9f88a886ec">&lt;code&gt;</bpt>deleteIntent<ept id="8cd84630-0f05-4559-9151-fb9f88a886ec">&lt;/code&gt;</ept> and the notification identifier used by <bpt id="4f53b69f-e6a0-49c6-846c-7065f60631fb">&lt;code&gt;</bpt>EngagementReachReceiver<ept id="4f53b69f-e6a0-49c6-846c-7065f60631fb">&lt;/code&gt;</ept>.</source>
+          <target state="new">In that case it's important that you keep a <bpt id="f870c6ef-8132-4cd3-80a0-1a31714b7cbd">&lt;code&gt;</bpt>contentIntent<ept id="f870c6ef-8132-4cd3-80a0-1a31714b7cbd">&lt;/code&gt;</ept>, a <bpt id="8cd84630-0f05-4559-9151-fb9f88a886ec">&lt;code&gt;</bpt>deleteIntent<ept id="8cd84630-0f05-4559-9151-fb9f88a886ec">&lt;/code&gt;</ept> and the notification identifier used by <bpt id="4f53b69f-e6a0-49c6-846c-7065f60631fb">&lt;code&gt;</bpt>EngagementReachReceiver<ept id="4f53b69f-e6a0-49c6-846c-7065f60631fb">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea8f8209-a85f-4f42-8bcd-81bea38333ad" xml:space="preserve">
+          <source>Here is a correct example of such an implementation:</source>
+          <target state="new">Here is a correct example of such an implementation:</target>
+        </trans-unit>
+        <trans-unit id="5580ae3f-a156-4402-b459-b14270aca1bd" xml:space="preserve">
+          <source>The management of the click on a notification only announcement can be customized by overriding <bpt id="40621d0e-5f4f-40b7-925e-a9912c352155">&lt;code&gt;</bpt>EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared<ept id="40621d0e-5f4f-40b7-925e-a9912c352155">&lt;/code&gt;</ept> to modify the prepared <bpt id="53d88464-1509-4560-ae83-5f9f59728050">&lt;code&gt;</bpt>Intent<ept id="53d88464-1509-4560-ae83-5f9f59728050">&lt;/code&gt;</ept>.</source>
+          <target state="new">The management of the click on a notification only announcement can be customized by overriding <bpt id="40621d0e-5f4f-40b7-925e-a9912c352155">&lt;code&gt;</bpt>EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared<ept id="40621d0e-5f4f-40b7-925e-a9912c352155">&lt;/code&gt;</ept> to modify the prepared <bpt id="53d88464-1509-4560-ae83-5f9f59728050">&lt;code&gt;</bpt>Intent<ept id="53d88464-1509-4560-ae83-5f9f59728050">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6321785b-aee8-4ec2-acff-c0186e588437" xml:space="preserve">
+          <source>Using this method allows you to tune the flags easily.</source>
+          <target state="new">Using this method allows you to tune the flags easily.</target>
+        </trans-unit>
+        <trans-unit id="329cfad1-4ad6-48c3-b8bd-1b19b2d323b6" xml:space="preserve">
+          <source>For example to add the <bpt id="b1e16ebc-0cbf-4097-b74f-1aa8680f8e49">&lt;code&gt;</bpt>SINGLE_TOP<ept id="b1e16ebc-0cbf-4097-b74f-1aa8680f8e49">&lt;/code&gt;</ept> flag:</source>
+          <target state="new">For example to add the <bpt id="b1e16ebc-0cbf-4097-b74f-1aa8680f8e49">&lt;code&gt;</bpt>SINGLE_TOP<ept id="b1e16ebc-0cbf-4097-b74f-1aa8680f8e49">&lt;/code&gt;</ept> flag:</target>
+        </trans-unit>
+        <trans-unit id="b26ca6f7-7b92-464f-b4bd-e0ea04a83edb" xml:space="preserve">
+          <source>For legacy Engagement users, please note that system notifications without action URL now launches the application if it was in background, so this method can be called with an announcement without action URL.</source>
+          <target state="new">For legacy Engagement users, please note that system notifications without action URL now launches the application if it was in background, so this method can be called with an announcement without action URL.</target>
+        </trans-unit>
+        <trans-unit id="ec4cd5ba-8e48-4cd5-a811-81f9029fa7c6" xml:space="preserve">
+          <source>You should consider that when customizing the intent.</source>
+          <target state="new">You should consider that when customizing the intent.</target>
+        </trans-unit>
+        <trans-unit id="d43950f2-cd3c-47ad-b4aa-6e11d11b8f1c" xml:space="preserve">
+          <source>You can also implement <bpt id="302e74d4-c6d7-49ca-8c19-d824e0c01e1f">&lt;code&gt;</bpt>EngagementNotifier.executeNotifAnnouncementAction<ept id="302e74d4-c6d7-49ca-8c19-d824e0c01e1f">&lt;/code&gt;</ept> from scratch.</source>
+          <target state="new">You can also implement <bpt id="302e74d4-c6d7-49ca-8c19-d824e0c01e1f">&lt;code&gt;</bpt>EngagementNotifier.executeNotifAnnouncementAction<ept id="302e74d4-c6d7-49ca-8c19-d824e0c01e1f">&lt;/code&gt;</ept> from scratch.</target>
+        </trans-unit>
+        <trans-unit id="8fc4ebe1-46e3-45d0-af3c-5231f74b6bfa" xml:space="preserve">
+          <source>When using the default category, some life cycle methods are called on the <bpt id="17d58c84-51f7-4e76-9252-37ed39332649">&lt;code&gt;</bpt>EngagementReachInteractiveContent<ept id="17d58c84-51f7-4e76-9252-37ed39332649">&lt;/code&gt;</ept> object to report statistics and update the campaign state:</source>
+          <target state="new">When using the default category, some life cycle methods are called on the <bpt id="17d58c84-51f7-4e76-9252-37ed39332649">&lt;code&gt;</bpt>EngagementReachInteractiveContent<ept id="17d58c84-51f7-4e76-9252-37ed39332649">&lt;/code&gt;</ept> object to report statistics and update the campaign state:</target>
+        </trans-unit>
+        <trans-unit id="6eab0521-e737-4bb8-91a4-f303f1684da7" xml:space="preserve">
+          <source>When the notification is displayed in application or put in the status bar, the <bpt id="3096d570-f423-4c1f-8ae5-5918142415d8">&lt;code&gt;</bpt>displayNotification<ept id="3096d570-f423-4c1f-8ae5-5918142415d8">&lt;/code&gt;</ept> method is called (which reports statistics) by <bpt id="338ab7a0-e96c-4b4c-9dcb-0425a27107c9">&lt;code&gt;</bpt>EngagementReachAgent<ept id="338ab7a0-e96c-4b4c-9dcb-0425a27107c9">&lt;/code&gt;</ept> if <bpt id="c45a6dfa-9dee-4d87-83be-c448686a871a">&lt;code&gt;</bpt>handleNotification<ept id="c45a6dfa-9dee-4d87-83be-c448686a871a">&lt;/code&gt;</ept> returns <bpt id="d1a3dcd4-986c-4122-8bb4-d234ef0b88f1">&lt;code&gt;</bpt>true<ept id="d1a3dcd4-986c-4122-8bb4-d234ef0b88f1">&lt;/code&gt;</ept>.</source>
+          <target state="new">When the notification is displayed in application or put in the status bar, the <bpt id="3096d570-f423-4c1f-8ae5-5918142415d8">&lt;code&gt;</bpt>displayNotification<ept id="3096d570-f423-4c1f-8ae5-5918142415d8">&lt;/code&gt;</ept> method is called (which reports statistics) by <bpt id="338ab7a0-e96c-4b4c-9dcb-0425a27107c9">&lt;code&gt;</bpt>EngagementReachAgent<ept id="338ab7a0-e96c-4b4c-9dcb-0425a27107c9">&lt;/code&gt;</ept> if <bpt id="c45a6dfa-9dee-4d87-83be-c448686a871a">&lt;code&gt;</bpt>handleNotification<ept id="c45a6dfa-9dee-4d87-83be-c448686a871a">&lt;/code&gt;</ept> returns <bpt id="d1a3dcd4-986c-4122-8bb4-d234ef0b88f1">&lt;code&gt;</bpt>true<ept id="d1a3dcd4-986c-4122-8bb4-d234ef0b88f1">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e36b9e67-9496-433e-aec0-bd025388c9c7" xml:space="preserve">
+          <source>If the notification is dismissed, the <bpt id="426fffe5-53f6-4a7f-a7fe-721a17df6d1d">&lt;code&gt;</bpt>exitNotification<ept id="426fffe5-53f6-4a7f-a7fe-721a17df6d1d">&lt;/code&gt;</ept> method is called, statistic is reported and next campaigns can now be processed.</source>
+          <target state="new">If the notification is dismissed, the <bpt id="426fffe5-53f6-4a7f-a7fe-721a17df6d1d">&lt;code&gt;</bpt>exitNotification<ept id="426fffe5-53f6-4a7f-a7fe-721a17df6d1d">&lt;/code&gt;</ept> method is called, statistic is reported and next campaigns can now be processed.</target>
+        </trans-unit>
+        <trans-unit id="8ab8d7a1-6d36-4b31-ba4a-529c6221d6d3" xml:space="preserve">
+          <source>If the notification is clicked, <bpt id="0e9e5711-4d24-40b9-83b8-a213aac8f0de">&lt;code&gt;</bpt>actionNotification<ept id="0e9e5711-4d24-40b9-83b8-a213aac8f0de">&lt;/code&gt;</ept> is called, statistic is reported and the associated intent is launched.</source>
+          <target state="new">If the notification is clicked, <bpt id="0e9e5711-4d24-40b9-83b8-a213aac8f0de">&lt;code&gt;</bpt>actionNotification<ept id="0e9e5711-4d24-40b9-83b8-a213aac8f0de">&lt;/code&gt;</ept> is called, statistic is reported and the associated intent is launched.</target>
+        </trans-unit>
+        <trans-unit id="066077c0-bf13-4146-b45f-0a54e5c2def1" xml:space="preserve">
+          <source>If your implementation of <bpt id="ded74475-06c0-4a4b-8256-83a1a8e3a21d">&lt;code&gt;</bpt>EngagementNotifier<ept id="ded74475-06c0-4a4b-8256-83a1a8e3a21d">&lt;/code&gt;</ept> bypasses the default behavior, you have to call these life cycle methods by yourself.</source>
+          <target state="new">If your implementation of <bpt id="ded74475-06c0-4a4b-8256-83a1a8e3a21d">&lt;code&gt;</bpt>EngagementNotifier<ept id="ded74475-06c0-4a4b-8256-83a1a8e3a21d">&lt;/code&gt;</ept> bypasses the default behavior, you have to call these life cycle methods by yourself.</target>
+        </trans-unit>
+        <trans-unit id="49d93456-12e1-45b0-9708-cb96bc2da97c" xml:space="preserve">
+          <source>The following examples illustrate some cases where the default behavior is bypassed:</source>
+          <target state="new">The following examples illustrate some cases where the default behavior is bypassed:</target>
+        </trans-unit>
+        <trans-unit id="a1bc30f1-12e1-429c-b7c5-70292ecbc6ba" xml:space="preserve">
+          <source>You don't extend <bpt id="1aab270d-c4da-4690-a291-d8789e30e341">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="1aab270d-c4da-4690-a291-d8789e30e341">&lt;/code&gt;</ept>, e.g. you implemented category handling from scratch.</source>
+          <target state="new">You don't extend <bpt id="1aab270d-c4da-4690-a291-d8789e30e341">&lt;code&gt;</bpt>EngagementDefaultNotifier<ept id="1aab270d-c4da-4690-a291-d8789e30e341">&lt;/code&gt;</ept>, e.g. you implemented category handling from scratch.</target>
+        </trans-unit>
+        <trans-unit id="cc953cf9-2196-442f-b095-b36444d12a47" xml:space="preserve">
+          <source>For system notifications, you overrode the <bpt id="0751091f-ef72-4625-a4b3-289a514f66df">&lt;code&gt;</bpt>onNotificationPrepared<ept id="0751091f-ef72-4625-a4b3-289a514f66df">&lt;/code&gt;</ept> and you modified <bpt id="909834cd-48fa-4b55-a22d-6f4f6af20706">&lt;code&gt;</bpt>contentIntent<ept id="909834cd-48fa-4b55-a22d-6f4f6af20706">&lt;/code&gt;</ept> or <bpt id="9cd26f9b-3dc4-41ef-8a62-6548dd9d5c51">&lt;code&gt;</bpt>deleteIntent<ept id="9cd26f9b-3dc4-41ef-8a62-6548dd9d5c51">&lt;/code&gt;</ept> in the <bpt id="bb268e32-ebc9-4356-8a9d-05337f269e06">&lt;code&gt;</bpt>Notification<ept id="bb268e32-ebc9-4356-8a9d-05337f269e06">&lt;/code&gt;</ept> object.</source>
+          <target state="new">For system notifications, you overrode the <bpt id="0751091f-ef72-4625-a4b3-289a514f66df">&lt;code&gt;</bpt>onNotificationPrepared<ept id="0751091f-ef72-4625-a4b3-289a514f66df">&lt;/code&gt;</ept> and you modified <bpt id="909834cd-48fa-4b55-a22d-6f4f6af20706">&lt;code&gt;</bpt>contentIntent<ept id="909834cd-48fa-4b55-a22d-6f4f6af20706">&lt;/code&gt;</ept> or <bpt id="9cd26f9b-3dc4-41ef-8a62-6548dd9d5c51">&lt;code&gt;</bpt>deleteIntent<ept id="9cd26f9b-3dc4-41ef-8a62-6548dd9d5c51">&lt;/code&gt;</ept> in the <bpt id="bb268e32-ebc9-4356-8a9d-05337f269e06">&lt;code&gt;</bpt>Notification<ept id="bb268e32-ebc9-4356-8a9d-05337f269e06">&lt;/code&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="7f2e1f91-2b24-424a-8fe9-798444605ae9" xml:space="preserve">
+          <source>For in-app notifications, you overrode <bpt id="3c38f8c0-957c-431e-9b55-f6da41ec9c4b">&lt;code&gt;</bpt>prepareInAppArea<ept id="3c38f8c0-957c-431e-9b55-f6da41ec9c4b">&lt;/code&gt;</ept>, be sure to map at least <bpt id="a955289d-60f3-473b-b596-645b1cb2a99e">&lt;code&gt;</bpt>actionNotification<ept id="a955289d-60f3-473b-b596-645b1cb2a99e">&lt;/code&gt;</ept> to one of your U.I controls.</source>
+          <target state="new">For in-app notifications, you overrode <bpt id="3c38f8c0-957c-431e-9b55-f6da41ec9c4b">&lt;code&gt;</bpt>prepareInAppArea<ept id="3c38f8c0-957c-431e-9b55-f6da41ec9c4b">&lt;/code&gt;</ept>, be sure to map at least <bpt id="a955289d-60f3-473b-b596-645b1cb2a99e">&lt;code&gt;</bpt>actionNotification<ept id="a955289d-60f3-473b-b596-645b1cb2a99e">&lt;/code&gt;</ept> to one of your U.I controls.</target>
+        </trans-unit>
+        <trans-unit id="345f10be-15d7-43b1-8ddf-cbd506003c0d" xml:space="preserve">
+          <source>If <bpt id="8e6578be-72f8-49e3-b8b9-b32f87c2b758">&lt;code&gt;</bpt>handleNotification<ept id="8e6578be-72f8-49e3-b8b9-b32f87c2b758">&lt;/code&gt;</ept> throws an exception, the content is deleted and <bpt id="bab17f4b-0c66-4fdc-a2de-cc7671fc94d8">&lt;code&gt;</bpt>dropContent<ept id="bab17f4b-0c66-4fdc-a2de-cc7671fc94d8">&lt;/code&gt;</ept> is called.</source>
+          <target state="new">If <bpt id="8e6578be-72f8-49e3-b8b9-b32f87c2b758">&lt;code&gt;</bpt>handleNotification<ept id="8e6578be-72f8-49e3-b8b9-b32f87c2b758">&lt;/code&gt;</ept> throws an exception, the content is deleted and <bpt id="bab17f4b-0c66-4fdc-a2de-cc7671fc94d8">&lt;code&gt;</bpt>dropContent<ept id="bab17f4b-0c66-4fdc-a2de-cc7671fc94d8">&lt;/code&gt;</ept> is called.</target>
+        </trans-unit>
+        <trans-unit id="bb432b33-4969-4752-8404-1c5e290bef06" xml:space="preserve">
+          <source>This is reported in statistics and next campaigns can now be processed.</source>
+          <target state="new">This is reported in statistics and next campaigns can now be processed.</target>
+        </trans-unit>
+        <trans-unit id="7013ecba-fa45-4510-b93c-d119681c093c" xml:space="preserve">
+          <source>You can modify the <bpt id="f27555a4-b7db-42dd-9a25-3babbf635431">&lt;code&gt;</bpt>engagement_text_announcement.xml<ept id="f27555a4-b7db-42dd-9a25-3babbf635431">&lt;/code&gt;</ept>, <bpt id="f957c547-6911-4179-b431-7749bc7125f5">&lt;code&gt;</bpt>engagement_web_announcement.xml<ept id="f957c547-6911-4179-b431-7749bc7125f5">&lt;/code&gt;</ept> and <bpt id="af1991a0-1092-4f8f-b2dd-9728c7703fdd">&lt;code&gt;</bpt>engagement_poll.xml<ept id="af1991a0-1092-4f8f-b2dd-9728c7703fdd">&lt;/code&gt;</ept> files to customize text announcements, web announcements and polls.</source>
+          <target state="new">You can modify the <bpt id="f27555a4-b7db-42dd-9a25-3babbf635431">&lt;code&gt;</bpt>engagement_text_announcement.xml<ept id="f27555a4-b7db-42dd-9a25-3babbf635431">&lt;/code&gt;</ept>, <bpt id="f957c547-6911-4179-b431-7749bc7125f5">&lt;code&gt;</bpt>engagement_web_announcement.xml<ept id="f957c547-6911-4179-b431-7749bc7125f5">&lt;/code&gt;</ept> and <bpt id="af1991a0-1092-4f8f-b2dd-9728c7703fdd">&lt;code&gt;</bpt>engagement_poll.xml<ept id="af1991a0-1092-4f8f-b2dd-9728c7703fdd">&lt;/code&gt;</ept> files to customize text announcements, web announcements and polls.</target>
+        </trans-unit>
+        <trans-unit id="8f9be739-d908-4a7e-a083-9ff5c9406147" xml:space="preserve">
+          <source>These files share two common layouts for the title area and the button area.</source>
+          <target state="new">These files share two common layouts for the title area and the button area.</target>
+        </trans-unit>
+        <trans-unit id="5f5c29ab-4b34-4ae7-9c43-2a4f72ebe117" xml:space="preserve">
+          <source>The layout for the title is <bpt id="86380ed7-e120-4620-8212-755f196e9848">&lt;code&gt;</bpt>engagement_content_title.xml<ept id="86380ed7-e120-4620-8212-755f196e9848">&lt;/code&gt;</ept> and uses the eponymous drawable file for the background.</source>
+          <target state="new">The layout for the title is <bpt id="86380ed7-e120-4620-8212-755f196e9848">&lt;code&gt;</bpt>engagement_content_title.xml<ept id="86380ed7-e120-4620-8212-755f196e9848">&lt;/code&gt;</ept> and uses the eponymous drawable file for the background.</target>
+        </trans-unit>
+        <trans-unit id="85649540-26cd-4e7f-bf99-8c2a04508a0c" xml:space="preserve">
+          <source>The layout for the action and exit buttons is <bpt id="b2cc5e13-92ee-4287-8e73-769213d242f9">&lt;code&gt;</bpt>engagement_button_bar.xml<ept id="b2cc5e13-92ee-4287-8e73-769213d242f9">&lt;/code&gt;</ept> and uses the eponymous drawable file for the background.</source>
+          <target state="new">The layout for the action and exit buttons is <bpt id="b2cc5e13-92ee-4287-8e73-769213d242f9">&lt;code&gt;</bpt>engagement_button_bar.xml<ept id="b2cc5e13-92ee-4287-8e73-769213d242f9">&lt;/code&gt;</ept> and uses the eponymous drawable file for the background.</target>
+        </trans-unit>
+        <trans-unit id="4accb0af-657c-47ac-ae7e-2c04926cae04" xml:space="preserve">
+          <source>In a poll, the question layout and their choices are dynamically inflated using several times the <bpt id="620a2719-3d5c-4005-bc0d-d2b8641314dc">&lt;code&gt;</bpt>engagement_question.xml<ept id="620a2719-3d5c-4005-bc0d-d2b8641314dc">&lt;/code&gt;</ept> layout file for the questions and the <bpt id="637086c2-b7cd-4014-a4b7-8b2246c06922">&lt;code&gt;</bpt>engagement_choice.xml<ept id="637086c2-b7cd-4014-a4b7-8b2246c06922">&lt;/code&gt;</ept> file for the choices.</source>
+          <target state="new">In a poll, the question layout and their choices are dynamically inflated using several times the <bpt id="620a2719-3d5c-4005-bc0d-d2b8641314dc">&lt;code&gt;</bpt>engagement_question.xml<ept id="620a2719-3d5c-4005-bc0d-d2b8641314dc">&lt;/code&gt;</ept> layout file for the questions and the <bpt id="637086c2-b7cd-4014-a4b7-8b2246c06922">&lt;code&gt;</bpt>engagement_choice.xml<ept id="637086c2-b7cd-4014-a4b7-8b2246c06922">&lt;/code&gt;</ept> file for the choices.</target>
+        </trans-unit>
+        <trans-unit id="591976be-08ef-4b10-8296-99184aa13368" xml:space="preserve">
+          <source>Like notifications, the campaign's category can be used to have alternate layouts for your announcements and polls.</source>
+          <target state="new">Like notifications, the campaign's category can be used to have alternate layouts for your announcements and polls.</target>
+        </trans-unit>
+        <trans-unit id="3d89b227-7d5f-4091-9bef-24bf4d7e9015" xml:space="preserve">
+          <source>For example, to create a category for a text announcement, you can extend <bpt id="b5c21d78-8d22-453e-9350-fbf2068d872e">&lt;code&gt;</bpt>EngagementTextAnnouncementActivity<ept id="b5c21d78-8d22-453e-9350-fbf2068d872e">&lt;/code&gt;</ept> and reference it the <bpt id="5cb89502-5209-468f-a331-ff5da5831dbb">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="5cb89502-5209-468f-a331-ff5da5831dbb">&lt;/code&gt;</ept> file:</source>
+          <target state="new">For example, to create a category for a text announcement, you can extend <bpt id="b5c21d78-8d22-453e-9350-fbf2068d872e">&lt;code&gt;</bpt>EngagementTextAnnouncementActivity<ept id="b5c21d78-8d22-453e-9350-fbf2068d872e">&lt;/code&gt;</ept> and reference it the <bpt id="5cb89502-5209-468f-a331-ff5da5831dbb">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="5cb89502-5209-468f-a331-ff5da5831dbb">&lt;/code&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="b4b485ce-7721-4b70-a804-3c8b39ef6e93" xml:space="preserve">
+          <source>Note that the category in the intent filter is used to make the difference with the default announcement activity.</source>
+          <target state="new">Note that the category in the intent filter is used to make the difference with the default announcement activity.</target>
+        </trans-unit>
+        <trans-unit id="20f436f6-c42a-4b58-a1f4-df2cf6085691" xml:space="preserve">
+          <source>The Reach SDK uses the intent system to resolve the right activity for a specific category and it falls back on the default category if the resolution failed.</source>
+          <target state="new">The Reach SDK uses the intent system to resolve the right activity for a specific category and it falls back on the default category if the resolution failed.</target>
+        </trans-unit>
+        <trans-unit id="603fea4b-da41-481e-8de9-8dcc7367f81e" xml:space="preserve">
+          <source>Then you have to implement <bpt id="caafdeea-4f1c-4b20-b92c-23cf38ab147b">&lt;code&gt;</bpt>MyCustomTextAnnouncementActivity<ept id="caafdeea-4f1c-4b20-b92c-23cf38ab147b">&lt;/code&gt;</ept>, if you just want to change the layout (but keep the same view identifiers), you just have to define the class like in the following example:</source>
+          <target state="new">Then you have to implement <bpt id="caafdeea-4f1c-4b20-b92c-23cf38ab147b">&lt;code&gt;</bpt>MyCustomTextAnnouncementActivity<ept id="caafdeea-4f1c-4b20-b92c-23cf38ab147b">&lt;/code&gt;</ept>, if you just want to change the layout (but keep the same view identifiers), you just have to define the class like in the following example:</target>
+        </trans-unit>
+        <trans-unit id="ba82d97a-2064-47ac-971a-8e1d7cf49ffe" xml:space="preserve">
+          <source>To replace the default category of text announcements, simply replace <bpt id="466e0041-50ef-4c7c-884d-741cd44a621b">&lt;code&gt;</bpt>android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"<ept id="466e0041-50ef-4c7c-884d-741cd44a621b">&lt;/code&gt;</ept> by your implementation.</source>
+          <target state="new">To replace the default category of text announcements, simply replace <bpt id="466e0041-50ef-4c7c-884d-741cd44a621b">&lt;code&gt;</bpt>android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"<ept id="466e0041-50ef-4c7c-884d-741cd44a621b">&lt;/code&gt;</ept> by your implementation.</target>
+        </trans-unit>
+        <trans-unit id="90aae0f8-94b2-49d3-af7f-8121f0a51d2d" xml:space="preserve">
+          <source>Web announcements and polls can be customized in a similar fashion.</source>
+          <target state="new">Web announcements and polls can be customized in a similar fashion.</target>
+        </trans-unit>
+        <trans-unit id="e402cb8f-f640-46b1-8910-c6ba1458bcd9" xml:space="preserve">
+          <source>For web announcements you can extend <bpt id="6323767e-0dfc-4c00-bb7d-8c32aaac1220">&lt;code&gt;</bpt>EngagementWebAnnouncementActivity<ept id="6323767e-0dfc-4c00-bb7d-8c32aaac1220">&lt;/code&gt;</ept> and declare your activity in the <bpt id="48fbc91a-47ae-484a-b1b3-02d5da2d1caf">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="48fbc91a-47ae-484a-b1b3-02d5da2d1caf">&lt;/code&gt;</ept> like in the following example:</source>
+          <target state="new">For web announcements you can extend <bpt id="6323767e-0dfc-4c00-bb7d-8c32aaac1220">&lt;code&gt;</bpt>EngagementWebAnnouncementActivity<ept id="6323767e-0dfc-4c00-bb7d-8c32aaac1220">&lt;/code&gt;</ept> and declare your activity in the <bpt id="48fbc91a-47ae-484a-b1b3-02d5da2d1caf">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="48fbc91a-47ae-484a-b1b3-02d5da2d1caf">&lt;/code&gt;</ept> like in the following example:</target>
+        </trans-unit>
+        <trans-unit id="deb9d91a-65f1-4967-affc-0e32d1d11bb0" xml:space="preserve">
+          <source>For polls you can extend <bpt id="6d2fff1a-3f0b-4634-92da-f59a97ee819d">&lt;code&gt;</bpt>EngagementPollActivity<ept id="6d2fff1a-3f0b-4634-92da-f59a97ee819d">&lt;/code&gt;</ept> and declare your in the <bpt id="fa86861e-cef2-4751-b2e3-6975897aa4eb">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="fa86861e-cef2-4751-b2e3-6975897aa4eb">&lt;/code&gt;</ept> like in the following example:</source>
+          <target state="new">For polls you can extend <bpt id="6d2fff1a-3f0b-4634-92da-f59a97ee819d">&lt;code&gt;</bpt>EngagementPollActivity<ept id="6d2fff1a-3f0b-4634-92da-f59a97ee819d">&lt;/code&gt;</ept> and declare your in the <bpt id="fa86861e-cef2-4751-b2e3-6975897aa4eb">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="fa86861e-cef2-4751-b2e3-6975897aa4eb">&lt;/code&gt;</ept> like in the following example:</target>
+        </trans-unit>
+        <trans-unit id="afdb76ca-85ba-4bdf-bb81-7bfae7e527e5" xml:space="preserve">
+          <source>You can implement categories for your announcement (and poll) activities without extending one of the <bpt id="61001958-93d2-421c-b913-83904512efc6">&lt;code&gt;</bpt>Engagement*Activity<ept id="61001958-93d2-421c-b913-83904512efc6">&lt;/code&gt;</ept> classes provided by the Reach SDK.</source>
+          <target state="new">You can implement categories for your announcement (and poll) activities without extending one of the <bpt id="61001958-93d2-421c-b913-83904512efc6">&lt;code&gt;</bpt>Engagement*Activity<ept id="61001958-93d2-421c-b913-83904512efc6">&lt;/code&gt;</ept> classes provided by the Reach SDK.</target>
+        </trans-unit>
+        <trans-unit id="3045f663-448e-4152-80f1-16f14ba67871" xml:space="preserve">
+          <source>This is useful for example if you want to define a layout that does not use the same views as the standard layouts.</source>
+          <target state="new">This is useful for example if you want to define a layout that does not use the same views as the standard layouts.</target>
+        </trans-unit>
+        <trans-unit id="85c55eaa-c9cb-41b9-bab2-d95b38b2b0b8" xml:space="preserve">
+          <source>Like for advanced notification customization, it is recommended to look at the source code of the standard implementation.</source>
+          <target state="new">Like for advanced notification customization, it is recommended to look at the source code of the standard implementation.</target>
+        </trans-unit>
+        <trans-unit id="c5b971b4-bbd0-43b6-abfa-cec5d1d325ce" xml:space="preserve">
+          <source>Here are some things to keep in mind: Reach will launch the activity with a specific intent (corresponding to the intent filter) plus an extra parameter which is the content identifier.</source>
+          <target state="new">Here are some things to keep in mind: Reach will launch the activity with a specific intent (corresponding to the intent filter) plus an extra parameter which is the content identifier.</target>
+        </trans-unit>
+        <trans-unit id="65704280-a0d4-486b-8bb1-f7dd7ea3b8a2" xml:space="preserve">
+          <source>To retrieve the content object which contain the fields you specified when creating the campaign on the web site you can do this:</source>
+          <target state="new">To retrieve the content object which contain the fields you specified when creating the campaign on the web site you can do this:</target>
+        </trans-unit>
+        <trans-unit id="da544af3-99aa-43b0-96d9-21da56dd9e3c" xml:space="preserve">
+          <source>For statistics, you should report the content is displayed in the <bpt id="644e1f47-522e-40ad-a75a-06a554e5a89f">&lt;code&gt;</bpt>onResume<ept id="644e1f47-522e-40ad-a75a-06a554e5a89f">&lt;/code&gt;</ept> event:</source>
+          <target state="new">For statistics, you should report the content is displayed in the <bpt id="644e1f47-522e-40ad-a75a-06a554e5a89f">&lt;code&gt;</bpt>onResume<ept id="644e1f47-522e-40ad-a75a-06a554e5a89f">&lt;/code&gt;</ept> event:</target>
+        </trans-unit>
+        <trans-unit id="08beaa8b-4789-4f94-8576-9457fdbd3240" xml:space="preserve">
+          <source>Then, don't forget to call either <bpt id="64f93579-5c82-4d15-8963-aadfebd39179">&lt;code&gt;</bpt>actionContent(this)<ept id="64f93579-5c82-4d15-8963-aadfebd39179">&lt;/code&gt;</ept> or <bpt id="51bb19a7-7fc1-4b79-b8d1-b3c69a20d7f9">&lt;code&gt;</bpt>exitContent(this)<ept id="51bb19a7-7fc1-4b79-b8d1-b3c69a20d7f9">&lt;/code&gt;</ept> on the content object before the activity goes into background.</source>
+          <target state="new">Then, don't forget to call either <bpt id="64f93579-5c82-4d15-8963-aadfebd39179">&lt;code&gt;</bpt>actionContent(this)<ept id="64f93579-5c82-4d15-8963-aadfebd39179">&lt;/code&gt;</ept> or <bpt id="51bb19a7-7fc1-4b79-b8d1-b3c69a20d7f9">&lt;code&gt;</bpt>exitContent(this)<ept id="51bb19a7-7fc1-4b79-b8d1-b3c69a20d7f9">&lt;/code&gt;</ept> on the content object before the activity goes into background.</target>
+        </trans-unit>
+        <trans-unit id="32587584-1226-4d4d-9fe0-fc8d7b4d9107" xml:space="preserve">
+          <source>If you don't call either <bpt id="2097b1b5-19e4-470b-994c-59f840f9f832">&lt;code&gt;</bpt>actionContent<ept id="2097b1b5-19e4-470b-994c-59f840f9f832">&lt;/code&gt;</ept> or <bpt id="1a178e95-3799-4213-a7c9-baddc4cf1abc">&lt;code&gt;</bpt>exitContent<ept id="1a178e95-3799-4213-a7c9-baddc4cf1abc">&lt;/code&gt;</ept>, statistics won't be sent (i.e. no analytics on the campaign) and more importantly, the next campaigns will not be notified until the application process is restarted.</source>
+          <target state="new">If you don't call either <bpt id="2097b1b5-19e4-470b-994c-59f840f9f832">&lt;code&gt;</bpt>actionContent<ept id="2097b1b5-19e4-470b-994c-59f840f9f832">&lt;/code&gt;</ept> or <bpt id="1a178e95-3799-4213-a7c9-baddc4cf1abc">&lt;code&gt;</bpt>exitContent<ept id="1a178e95-3799-4213-a7c9-baddc4cf1abc">&lt;/code&gt;</ept>, statistics won't be sent (i.e. no analytics on the campaign) and more importantly, the next campaigns will not be notified until the application process is restarted.</target>
+        </trans-unit>
+        <trans-unit id="b84aa96c-c79a-4c42-97e0-96363f07b1ca" xml:space="preserve">
+          <source>Orientation or other configuration changes can make the code tricky to determine whether the activity goes into background or not, the standard implementation makes sure the content is reported as exited if the user leaves the activity (either by pressing <bpt id="ae1c3acc-85f9-4732-a238-0a56dca9a41c">&lt;code&gt;</bpt>HOME<ept id="ae1c3acc-85f9-4732-a238-0a56dca9a41c">&lt;/code&gt;</ept> or <bpt id="f332fa96-8a03-42ed-a549-e57821cc5916">&lt;code&gt;</bpt>BACK<ept id="f332fa96-8a03-42ed-a549-e57821cc5916">&lt;/code&gt;</ept>) but not if the orientation changes.</source>
+          <target state="new">Orientation or other configuration changes can make the code tricky to determine whether the activity goes into background or not, the standard implementation makes sure the content is reported as exited if the user leaves the activity (either by pressing <bpt id="ae1c3acc-85f9-4732-a238-0a56dca9a41c">&lt;code&gt;</bpt>HOME<ept id="ae1c3acc-85f9-4732-a238-0a56dca9a41c">&lt;/code&gt;</ept> or <bpt id="f332fa96-8a03-42ed-a549-e57821cc5916">&lt;code&gt;</bpt>BACK<ept id="f332fa96-8a03-42ed-a549-e57821cc5916">&lt;/code&gt;</ept>) but not if the orientation changes.</target>
+        </trans-unit>
+        <trans-unit id="19a33a43-c7ca-42d3-903b-e9c9a45a4cca" xml:space="preserve">
+          <source>Here is the interesting part of the implementation:</source>
+          <target state="new">Here is the interesting part of the implementation:</target>
+        </trans-unit>
+        <trans-unit id="fa2cafa3-70bc-4871-a4a6-acb9ac8f5319" xml:space="preserve">
+          <source>As you can see, if you called <bpt id="364eb9be-47c4-490a-8dc5-40fbb376f538">&lt;code&gt;</bpt>actionContent(this)<ept id="364eb9be-47c4-490a-8dc5-40fbb376f538">&lt;/code&gt;</ept> then finished the activity, <bpt id="1eb9eb7e-0282-4871-9418-d5115ef6aedc">&lt;code&gt;</bpt>exitContent(this)<ept id="1eb9eb7e-0282-4871-9418-d5115ef6aedc">&lt;/code&gt;</ept> can be safely called without having any effect.</source>
+          <target state="new">As you can see, if you called <bpt id="364eb9be-47c4-490a-8dc5-40fbb376f538">&lt;code&gt;</bpt>actionContent(this)<ept id="364eb9be-47c4-490a-8dc5-40fbb376f538">&lt;/code&gt;</ept> then finished the activity, <bpt id="1eb9eb7e-0282-4871-9418-d5115ef6aedc">&lt;code&gt;</bpt>exitContent(this)<ept id="1eb9eb7e-0282-4871-9418-d5115ef6aedc">&lt;/code&gt;</ept> can be safely called without having any effect.</target>
+        </trans-unit>
+        <trans-unit id="49d72b69-0eb9-47be-9424-1d3177c7ef42" xml:space="preserve">
+          <source>Now please verify your integration by reading How to Test Engagement Integration on Android.</source>
+          <target state="new">Now please verify your integration by reading How to Test Engagement Integration on Android.</target>
+        </trans-unit>
+        <trans-unit id="4631d69d-db8a-4250-b45f-4e4be6076d05" xml:space="preserve">
+          <source>http://developer.android.com/tools/extras/support-library.html#Downloading</source>
+          <target state="new">http://developer.android.com/tools/extras/support-library.html#Downloading</target>
+        </trans-unit>
+        <trans-unit id="05a66f8d-9378-4ffa-bbf5-795b1b2fe7ac" xml:space="preserve">
+          <source>http://developer.android.com/guide/google/gcm/index.html</source>
+          <target state="new">http://developer.android.com/guide/google/gcm/index.html</target>
+        </trans-unit>
+        <trans-unit id="6d61b238-9993-44ef-8f1d-eb3f4c6e51ac" xml:space="preserve">
+          <source>https://developer.amazon.com/sdk/adm.html</source>
+          <target state="new">https://developer.amazon.com/sdk/adm.html</target>
+        </trans-unit>
+      </group>
+      <group id="a28350b2-3fdb-4cc0-9187-780ffab37c15" />
+    </body>
+  </file>
+</xliff>

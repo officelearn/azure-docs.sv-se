@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cb258c56-119d-4c0d-a600-2bd190aa4a19" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cb258c56-119d-4c0d-a600-2bd190aa4a19" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2bfebe57-f98a-4dcb-80ad-f4b510739d16">
+        <trans-unit id="69bed770-8693-4612-9d7b-689dfd9f1292" xml:space="preserve">
+          <source>How to scale a cloud service | Microsoft Azure</source>
+          <target state="new">How to scale a cloud service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="bc7e2ef3-a6ed-4654-8b96-bc8767e95623" xml:space="preserve">
+          <source>Learn how to scale a cloud service and linked resources in Azure.</source>
+          <target state="new">Learn how to scale a cloud service and linked resources in Azure.</target>
+        </trans-unit>
+        <trans-unit id="117798f7-af12-4b02-85e4-461cb6a4a456" xml:space="preserve">
+          <source>On the Scale page of the Azure Management Portal, you can manually scale your application or you can set parameters to automatically scale it.</source>
+          <target state="new">On the Scale page of the Azure Management Portal, you can manually scale your application or you can set parameters to automatically scale it.</target>
+        </trans-unit>
+        <trans-unit id="8b4c6404-45bc-4f75-9577-b8154d30d7ea" xml:space="preserve">
+          <source>You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines.</source>
+          <target state="new">You can scale applications that are running Web Roles, Worker Roles, or Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="f65066f1-76c2-4884-8bee-ab85eb9d81a7" xml:space="preserve">
+          <source>To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.</source>
+          <target state="new">To scale an application that is running instances of Web Roles or Worker Roles, you add or remove role instances to accommodate the work load.</target>
+        </trans-unit>
+        <trans-unit id="a36c8e44-222f-49c4-9531-d99c13680c3b" xml:space="preserve">
+          <source>When you scale an application up or down that is running Virtual Machines, new machines are not created or deleted, but are turned on or turned off from an availability set of previously created machines.</source>
+          <target state="new">When you scale an application up or down that is running Virtual Machines, new machines are not created or deleted, but are turned on or turned off from an availability set of previously created machines.</target>
+        </trans-unit>
+        <trans-unit id="6c27d9fe-fdba-4763-906e-cb6993ca07a1" xml:space="preserve">
+          <source>You can specify scaling based on average percentage of CPU usage or based on the number of messages in a queue.</source>
+          <target state="new">You can specify scaling based on average percentage of CPU usage or based on the number of messages in a queue.</target>
+        </trans-unit>
+        <trans-unit id="3c6e9550-165c-4383-acb7-39fbf2b94035" xml:space="preserve">
+          <source>You should consider the following information before you configure scaling for your application:</source>
+          <target state="new">You should consider the following information before you configure scaling for your application:</target>
+        </trans-unit>
+        <trans-unit id="6b1d1d31-3175-4751-b80d-9df5d7c058c0" xml:space="preserve">
+          <source>You must add Virtual Machines that you create to an availability set to scale an application that uses them.</source>
+          <target state="new">You must add Virtual Machines that you create to an availability set to scale an application that uses them.</target>
+        </trans-unit>
+        <trans-unit id="b062d71f-52e6-4481-afb8-03d250fca9ac" xml:space="preserve">
+          <source>The Virtual Machines that you add can be initially turned on or turned off, but they will be turned on in a scale-up action and turned off in a scale-down action.</source>
+          <target state="new">The Virtual Machines that you add can be initially turned on or turned off, but they will be turned on in a scale-up action and turned off in a scale-down action.</target>
+        </trans-unit>
+        <trans-unit id="2336c3c4-cf1a-4beb-a077-5834493fcd1b" xml:space="preserve">
+          <source>For more information about Virtual Machines and availability sets, see <bpt id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;/linkText&gt;</ept><bpt id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;title&gt;</bpt><ept id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Virtual Machines and availability sets, see <bpt id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;linkText&gt;</bpt>Manage the Availability of Virtual Machines<ept id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;/linkText&gt;</ept><bpt id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;title&gt;</bpt><ept id="c4780b5e-b97c-4ff2-9470-ca38c935e421">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d61bf686-047b-497b-87fb-fe386d2cd779" xml:space="preserve">
+          <source>Scaling is affected by core usage.</source>
+          <target state="new">Scaling is affected by core usage.</target>
+        </trans-unit>
+        <trans-unit id="10377313-448a-4b72-81d8-f4f613661d43" xml:space="preserve">
+          <source>Larger role instances or Virtual Machines use more cores.</source>
+          <target state="new">Larger role instances or Virtual Machines use more cores.</target>
+        </trans-unit>
+        <trans-unit id="10e152b4-b824-475c-8e08-0053b23652fc" xml:space="preserve">
+          <source>You can only scale an application within the limit of cores for your subscription.</source>
+          <target state="new">You can only scale an application within the limit of cores for your subscription.</target>
+        </trans-unit>
+        <trans-unit id="f79ff72f-892a-43e4-9702-02d0530987f5" xml:space="preserve">
+          <source>For example, if your subscription has a limit of twenty cores and you run an application with two medium sized Virtual Machines (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores.</source>
+          <target state="new">For example, if your subscription has a limit of twenty cores and you run an application with two medium sized Virtual Machines (a total of four cores), you can only scale up other cloud service deployments in your subscription by sixteen cores.</target>
+        </trans-unit>
+        <trans-unit id="28ff8265-33d5-4d2d-85c3-08c8c2d88393" xml:space="preserve">
+          <source>All Virtual Machines in an availability set that are used in scaling an application must be the same size.</source>
+          <target state="new">All Virtual Machines in an availability set that are used in scaling an application must be the same size.</target>
+        </trans-unit>
+        <trans-unit id="a987a2e9-631d-4d9a-9dcb-83fc32254c58" xml:space="preserve">
+          <source>For more information about core usage and machine sizes, see <bpt id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;/linkText&gt;</ept><bpt id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;title&gt;</bpt><ept id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about core usage and machine sizes, see <bpt id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;/linkText&gt;</ept><bpt id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;title&gt;</bpt><ept id="9b89880e-ed2d-4056-a318-9d9bec58633b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="80fad3e0-a81c-47b2-9b76-5c7179c697c8" xml:space="preserve">
+          <source>You must create a queue and associate it with a role or availability set before you can scale an application based on a message threshold.</source>
+          <target state="new">You must create a queue and associate it with a role or availability set before you can scale an application based on a message threshold.</target>
+        </trans-unit>
+        <trans-unit id="b95c3252-38ec-4e4e-a1c7-e7dd09eb0c3f" xml:space="preserve">
+          <source>For more information, see <bpt id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;linkText&gt;</bpt>How to use the Queue Storage Service<ept id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;/linkText&gt;</ept><bpt id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;title&gt;</bpt><ept id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;linkText&gt;</bpt>How to use the Queue Storage Service<ept id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;/linkText&gt;</ept><bpt id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;title&gt;</bpt><ept id="9434db03-a9d9-48b4-bb64-c6f8a95c2664">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdfb6424-b8e8-4680-89e6-3a5582eea7e4" xml:space="preserve">
+          <source>You can scale resources that are linked to your cloud service.</source>
+          <target state="new">You can scale resources that are linked to your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="1141ec19-66c8-4464-9847-5ab32ff93e1e" xml:space="preserve">
+          <source>For more information about linking resources, see <bpt id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;linkText&gt;</bpt>How to: Link a resource to a cloud service<ept id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;/linkText&gt;</ept><bpt id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;title&gt;</bpt><ept id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about linking resources, see <bpt id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;linkText&gt;</bpt>How to: Link a resource to a cloud service<ept id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;/linkText&gt;</ept><bpt id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;title&gt;</bpt><ept id="a2e6a50c-c436-4a4c-aa9f-cfb6735685be">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36621cd9-80e4-4564-bd58-49cccb9be731" xml:space="preserve">
+          <source>To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines.</source>
+          <target state="new">To enable high availability of your application, you should ensure that it is deployed with two or more role instances or Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="99fa1689-b3f4-4813-84db-24bb1dfebaf5" xml:space="preserve">
+          <source>For more information, see <bpt id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;/linkText&gt;</ept><bpt id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;title&gt;</bpt><ept id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;/linkText&gt;</ept><bpt id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;title&gt;</bpt><ept id="b70790ea-2d96-4fed-940c-8c3ac55a0faf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf6d0bf7-a4bf-41d4-a7c4-5729205421ad" xml:space="preserve">
+          <source>On the Scale page, you can manually increase or decrease the number of running instances in a cloud service.</source>
+          <target state="new">On the Scale page, you can manually increase or decrease the number of running instances in a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="0c9af3c4-8176-47e6-856f-84a008535fea" xml:space="preserve">
+          <source>In the <bpt id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;linkText&gt;</bpt>Management Portal<ept id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;/linkText&gt;</ept><bpt id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;title&gt;</bpt><ept id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;/title&gt;</ept>, click <bpt id="cdb0744c-10a4-4e00-a8be-ee2af0998c41">&lt;strong&gt;</bpt>Cloud Services<ept id="cdb0744c-10a4-4e00-a8be-ee2af0998c41">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</source>
+          <target state="new">In the <bpt id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;linkText&gt;</bpt>Management Portal<ept id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;/linkText&gt;</ept><bpt id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;title&gt;</bpt><ept id="55800772-c5ca-4d5c-a899-1843d2ed3471">&lt;/title&gt;</ept>, click <bpt id="cdb0744c-10a4-4e00-a8be-ee2af0998c41">&lt;strong&gt;</bpt>Cloud Services<ept id="cdb0744c-10a4-4e00-a8be-ee2af0998c41">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="f20d9ae0-7e97-4d46-adfd-bbd83735abef" xml:space="preserve">
+          <source>Click <bpt id="7491eb06-2108-46ce-95e9-1f44a6b4c890">&lt;strong&gt;</bpt>Scale<ept id="7491eb06-2108-46ce-95e9-1f44a6b4c890">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7491eb06-2108-46ce-95e9-1f44a6b4c890">&lt;strong&gt;</bpt>Scale<ept id="7491eb06-2108-46ce-95e9-1f44a6b4c890">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9911834a-94f3-429c-84ee-4e3174472af7" xml:space="preserve">
+          <source>Automatic scaling is disabled by default for all roles, which means that you can manually change the number of instances that are used by your application.</source>
+          <target state="new">Automatic scaling is disabled by default for all roles, which means that you can manually change the number of instances that are used by your application.</target>
+        </trans-unit>
+        <trans-unit id="d0e53daf-d4c9-436d-bfd2-d975729f80e8" xml:space="preserve">
+          <source><bpt id="aa5b67fc-93eb-4351-b3ba-405c346dc5f4">&lt;linkText&gt;</bpt>Scale page<ept id="aa5b67fc-93eb-4351-b3ba-405c346dc5f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa5b67fc-93eb-4351-b3ba-405c346dc5f4">&lt;linkText&gt;</bpt>Scale page<ept id="aa5b67fc-93eb-4351-b3ba-405c346dc5f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="183d7d32-0a1c-4ff3-bd51-ce99a13442b5" xml:space="preserve">
+          <source>Each role in the cloud service has a slider for changing the number of instances to use.</source>
+          <target state="new">Each role in the cloud service has a slider for changing the number of instances to use.</target>
+        </trans-unit>
+        <trans-unit id="ac66268a-cb0e-4600-b507-c1b0bcdf498d" xml:space="preserve">
+          <source>To add a role instance, drag the bar right.</source>
+          <target state="new">To add a role instance, drag the bar right.</target>
+        </trans-unit>
+        <trans-unit id="7da983a3-dc15-470f-a6a4-99ceb81f3656" xml:space="preserve">
+          <source>To remove an instance, drag the bar left.</source>
+          <target state="new">To remove an instance, drag the bar left.</target>
+        </trans-unit>
+        <trans-unit id="e2a06aa8-8ecc-4b32-8676-f194220f92ec" xml:space="preserve">
+          <source><bpt id="b72dae6c-a4ff-4fa4-bf84-879b79284562">&lt;linkText&gt;</bpt>Scale role<ept id="b72dae6c-a4ff-4fa4-bf84-879b79284562">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="b72dae6c-a4ff-4fa4-bf84-879b79284562">&lt;linkText&gt;</bpt>Scale role<ept id="b72dae6c-a4ff-4fa4-bf84-879b79284562">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e390fd7b-0a93-4737-823b-2824d37219fd" xml:space="preserve">
+          <source>You can only increase the number of instances that are used if the appropriate number of cores are available to support the instances.</source>
+          <target state="new">You can only increase the number of instances that are used if the appropriate number of cores are available to support the instances.</target>
+        </trans-unit>
+        <trans-unit id="4ba0863d-f595-4e3b-a9f5-4ffc05fce221" xml:space="preserve">
+          <source>The colors of the slider represent the used and available cores in your subscription:</source>
+          <target state="new">The colors of the slider represent the used and available cores in your subscription:</target>
+        </trans-unit>
+        <trans-unit id="9ffa5645-5878-4b44-88c1-a0fe3b318d04" xml:space="preserve">
+          <source>Blue represents the cores that are used by the selected role</source>
+          <target state="new">Blue represents the cores that are used by the selected role</target>
+        </trans-unit>
+        <trans-unit id="447e47f2-2dae-4077-9593-4ef3188675a1" xml:space="preserve">
+          <source>Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription</source>
+          <target state="new">Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription</target>
+        </trans-unit>
+        <trans-unit id="c2c91c53-f627-4a69-b25c-8be6504c6d4a" xml:space="preserve">
+          <source>Light grey represents the cores that are available to use for scaling</source>
+          <target state="new">Light grey represents the cores that are available to use for scaling</target>
+        </trans-unit>
+        <trans-unit id="d7aee7ec-b2f1-4820-9352-f3ef0de60d10" xml:space="preserve">
+          <source>Pink represents a change made that has not been saved</source>
+          <target state="new">Pink represents a change made that has not been saved</target>
+        </trans-unit>
+        <trans-unit id="c004b4bf-1b6e-4a9b-ab15-c7fdc8a297cc" xml:space="preserve">
+          <source>Click <bpt id="79002f86-3331-4e55-b578-3985f16c42c4">&lt;strong&gt;</bpt>Save<ept id="79002f86-3331-4e55-b578-3985f16c42c4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="79002f86-3331-4e55-b578-3985f16c42c4">&lt;strong&gt;</bpt>Save<ept id="79002f86-3331-4e55-b578-3985f16c42c4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b19597b6-937b-4b01-864d-fbf02dd0233b" xml:space="preserve">
+          <source>Role instances will be added or removed based on your selections.</source>
+          <target state="new">Role instances will be added or removed based on your selections.</target>
+        </trans-unit>
+        <trans-unit id="a67180ce-a9f8-4dd1-94a3-8298c06d0553" xml:space="preserve">
+          <source>On the Scale page, you can configure your cloud service to automatically increase or decrease the number of instances or Virtual Machines that are used by your application.</source>
+          <target state="new">On the Scale page, you can configure your cloud service to automatically increase or decrease the number of instances or Virtual Machines that are used by your application.</target>
+        </trans-unit>
+        <trans-unit id="ca512c4e-fd56-4ee4-ae42-bb71e9aac85a" xml:space="preserve">
+          <source>You can configure scaling based on the following parameters:</source>
+          <target state="new">You can configure scaling based on the following parameters:</target>
+        </trans-unit>
+        <trans-unit id="8888cefa-c94e-4ed7-b7b4-a18a787cd3bf" xml:space="preserve">
+          <source><bpt id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;linkText&gt;</bpt>Average CPU usage<ept id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;/linkText&gt;</ept><bpt id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;title&gt;</bpt><ept id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;/title&gt;</ept> - If the average percentage of CPU usage goes above or below specified thresholds, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.</source>
+          <target state="new"><bpt id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;linkText&gt;</bpt>Average CPU usage<ept id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;/linkText&gt;</ept><bpt id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;title&gt;</bpt><ept id="dc191c5d-b2b7-4095-8c4e-1f564760a95d">&lt;/title&gt;</ept> - If the average percentage of CPU usage goes above or below specified thresholds, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.</target>
+        </trans-unit>
+        <trans-unit id="c3af2f82-5bdc-492b-b058-41e9f781bfa9" xml:space="preserve">
+          <source><bpt id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;linkText&gt;</bpt>Queue messages<ept id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;/linkText&gt;</ept><bpt id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;title&gt;</bpt><ept id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;/title&gt;</ept> - If the number of messages in a queue goes above or below a specified threshold, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.</source>
+          <target state="new"><bpt id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;linkText&gt;</bpt>Queue messages<ept id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;/linkText&gt;</ept><bpt id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;title&gt;</bpt><ept id="ffae8712-f734-41a4-9126-b2dc123684b7">&lt;/title&gt;</ept> - If the number of messages in a queue goes above or below a specified threshold, role instances are created or deleted, or Virtual Machines are are turned on or turned off from an availability set.</target>
+        </trans-unit>
+        <trans-unit id="c039073b-1c39-4caa-89a5-9704b5eff5c2" xml:space="preserve">
+          <source>In the <bpt id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;linkText&gt;</bpt>Management Portal<ept id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;/linkText&gt;</ept><bpt id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;title&gt;</bpt><ept id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;/title&gt;</ept>, click <bpt id="7910f3eb-f6be-418b-a2ae-a0cee24cd533">&lt;strong&gt;</bpt>Cloud Services<ept id="7910f3eb-f6be-418b-a2ae-a0cee24cd533">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</source>
+          <target state="new">In the <bpt id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;linkText&gt;</bpt>Management Portal<ept id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;/linkText&gt;</ept><bpt id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;title&gt;</bpt><ept id="961ff806-d467-484b-ba9c-a2ea8c0a98e1">&lt;/title&gt;</ept>, click <bpt id="7910f3eb-f6be-418b-a2ae-a0cee24cd533">&lt;strong&gt;</bpt>Cloud Services<ept id="7910f3eb-f6be-418b-a2ae-a0cee24cd533">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="1d2dbbae-2213-45dc-ad89-937cb5e9659d" xml:space="preserve">
+          <source>Click <bpt id="b67182b1-acd7-4d4e-8219-fad4948badf5">&lt;strong&gt;</bpt>Scale<ept id="b67182b1-acd7-4d4e-8219-fad4948badf5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b67182b1-acd7-4d4e-8219-fad4948badf5">&lt;strong&gt;</bpt>Scale<ept id="b67182b1-acd7-4d4e-8219-fad4948badf5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94b5c04b-6959-48ef-b304-d7443ad5a1ea" xml:space="preserve">
+          <source>Scroll to the section for the role or availability set, and then click <bpt id="3a1a7536-c76f-484d-a979-c251bed84d05">&lt;strong&gt;</bpt>CPU<ept id="3a1a7536-c76f-484d-a979-c251bed84d05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the section for the role or availability set, and then click <bpt id="3a1a7536-c76f-484d-a979-c251bed84d05">&lt;strong&gt;</bpt>CPU<ept id="3a1a7536-c76f-484d-a979-c251bed84d05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f537306-b37f-4784-b1ab-b8ac035da1a1" xml:space="preserve">
+          <source>This enables automatic scaling of your application based on the average percentage of CPU resources that it uses.</source>
+          <target state="new">This enables automatic scaling of your application based on the average percentage of CPU resources that it uses.</target>
+        </trans-unit>
+        <trans-unit id="5b7b4a6a-4f83-49eb-b286-a6dbbc303224" xml:space="preserve">
+          <source><bpt id="0a2430c3-c5f6-40f3-82bd-2988211e0a3a">&lt;linkText&gt;</bpt>Autoscale on<ept id="0a2430c3-c5f6-40f3-82bd-2988211e0a3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a2430c3-c5f6-40f3-82bd-2988211e0a3a">&lt;linkText&gt;</bpt>Autoscale on<ept id="0a2430c3-c5f6-40f3-82bd-2988211e0a3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3acadb7-1ceb-403f-9e9e-dee64473cb87" xml:space="preserve">
+          <source>Each role or availability set has a slider for changing the number of instances that can be used.</source>
+          <target state="new">Each role or availability set has a slider for changing the number of instances that can be used.</target>
+        </trans-unit>
+        <trans-unit id="a07be138-6ee3-4577-9437-2fc0103e1c47" xml:space="preserve">
+          <source>To set the maximum number of instances that can be used, drag the bar on the right to the right.</source>
+          <target state="new">To set the maximum number of instances that can be used, drag the bar on the right to the right.</target>
+        </trans-unit>
+        <trans-unit id="e6366ec6-9738-4c38-90e6-9c89ed5b7571" xml:space="preserve">
+          <source>To set the minimum number of instances that can be used, drag the bar on the left to the left.</source>
+          <target state="new">To set the minimum number of instances that can be used, drag the bar on the left to the left.</target>
+        </trans-unit>
+        <trans-unit id="be6b2669-c8ff-4759-8b9b-0a263d6d32dc" xml:space="preserve">
+          <source><bpt id="aca90302-efcc-40ed-98a3-3ac23dcba627">&lt;strong&gt;</bpt>Note:<ept id="aca90302-efcc-40ed-98a3-3ac23dcba627">&lt;/strong&gt;</ept> On the Scale page, <bpt id="bb35579f-6883-43a3-a922-21c5b2e8fa3b">&lt;strong&gt;</bpt>Instance<ept id="bb35579f-6883-43a3-a922-21c5b2e8fa3b">&lt;/strong&gt;</ept> represents either a role instance or an instance of a Virtual Machine.</source>
+          <target state="new"><bpt id="aca90302-efcc-40ed-98a3-3ac23dcba627">&lt;strong&gt;</bpt>Note:<ept id="aca90302-efcc-40ed-98a3-3ac23dcba627">&lt;/strong&gt;</ept> On the Scale page, <bpt id="bb35579f-6883-43a3-a922-21c5b2e8fa3b">&lt;strong&gt;</bpt>Instance<ept id="bb35579f-6883-43a3-a922-21c5b2e8fa3b">&lt;/strong&gt;</ept> represents either a role instance or an instance of a Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="0f618d16-0156-4c29-a20d-483c7c0077e1" xml:space="preserve">
+          <source><bpt id="0cefc92f-0b56-4931-820a-b781de3dae3a">&lt;linkText&gt;</bpt>Instance range<ept id="0cefc92f-0b56-4931-820a-b781de3dae3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0cefc92f-0b56-4931-820a-b781de3dae3a">&lt;linkText&gt;</bpt>Instance range<ept id="0cefc92f-0b56-4931-820a-b781de3dae3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eeba37e1-ff47-4609-894b-3c91b6f0c445" xml:space="preserve">
+          <source>The maximum number of instances is limited by the cores that are available in the subscription.</source>
+          <target state="new">The maximum number of instances is limited by the cores that are available in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="3bcfd992-db55-44dc-b467-f001720f3775" xml:space="preserve">
+          <source>The colors of the slider represent the used and available cores in your subscription:</source>
+          <target state="new">The colors of the slider represent the used and available cores in your subscription:</target>
+        </trans-unit>
+        <trans-unit id="073bfec3-b748-4da7-bad7-db6a0a49e3ac" xml:space="preserve">
+          <source>Blue represents the maximum number of cores that the role can use.</source>
+          <target state="new">Blue represents the maximum number of cores that the role can use.</target>
+        </trans-unit>
+        <trans-unit id="8697cbf8-f512-4c60-b3b6-e493b35cb0ae" xml:space="preserve">
+          <source>Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription.</source>
+          <target state="new">Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="c2d9d0c9-96fd-4672-a27c-3e2519c74527" xml:space="preserve">
+          <source>When this value overlaps the cores used by the role, the color turns to dark blue.</source>
+          <target state="new">When this value overlaps the cores used by the role, the color turns to dark blue.</target>
+        </trans-unit>
+        <trans-unit id="9af6f454-fbe4-4e2c-98b9-214dd0d717b0" xml:space="preserve">
+          <source>Light grey represents the cores that are available to use for scaling.</source>
+          <target state="new">Light grey represents the cores that are available to use for scaling.</target>
+        </trans-unit>
+        <trans-unit id="2dbcb1e6-6c5d-46d6-8138-c0778193918b" xml:space="preserve">
+          <source>Pink represents a change has been made that has not been saved.</source>
+          <target state="new">Pink represents a change has been made that has not been saved.</target>
+        </trans-unit>
+        <trans-unit id="fa4189e5-2ad0-43c7-ab0d-7f156d6eedce" xml:space="preserve">
+          <source>A slider is used for specifying the range of average percentage of CPU usage.</source>
+          <target state="new">A slider is used for specifying the range of average percentage of CPU usage.</target>
+        </trans-unit>
+        <trans-unit id="98f96ce3-6c73-45d2-9ea3-7b2261aa2302" xml:space="preserve">
+          <source>When the average percentage of CPU usage goes above the maximum setting, more role instances are created or Virtual Machines are turned on.</source>
+          <target state="new">When the average percentage of CPU usage goes above the maximum setting, more role instances are created or Virtual Machines are turned on.</target>
+        </trans-unit>
+        <trans-unit id="35d18ed6-4fac-461a-8924-063a0e80bffe" xml:space="preserve">
+          <source>When the average percentage of CPU usage goes below the minimum setting, role instances are deleted or Virtual Machines are turned off.</source>
+          <target state="new">When the average percentage of CPU usage goes below the minimum setting, role instances are deleted or Virtual Machines are turned off.</target>
+        </trans-unit>
+        <trans-unit id="87fdc93f-8a37-48a9-9c07-cf1f47f337df" xml:space="preserve">
+          <source>To set the maximum average CPU percentage, drag the bar on the right to the right.</source>
+          <target state="new">To set the maximum average CPU percentage, drag the bar on the right to the right.</target>
+        </trans-unit>
+        <trans-unit id="241c31c3-0be0-49f2-ba23-e1fd8eb16e8c" xml:space="preserve">
+          <source>To set the minimum average CPU percentage, drag the bar on the left to the left.</source>
+          <target state="new">To set the minimum average CPU percentage, drag the bar on the left to the left.</target>
+        </trans-unit>
+        <trans-unit id="37008d1f-cef3-4775-b8f1-9b32e999fcdc" xml:space="preserve">
+          <source><bpt id="8bb685ca-c3d7-4a85-afe3-7091e1e22b9c">&lt;linkText&gt;</bpt>Target cpu<ept id="8bb685ca-c3d7-4a85-afe3-7091e1e22b9c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8bb685ca-c3d7-4a85-afe3-7091e1e22b9c">&lt;linkText&gt;</bpt>Target cpu<ept id="8bb685ca-c3d7-4a85-afe3-7091e1e22b9c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a0f8e4c-4766-47a6-a4bc-87a71c0b871a" xml:space="preserve">
+          <source>You can specify the number of instances to add or turn on each time your application is scaled up.</source>
+          <target state="new">You can specify the number of instances to add or turn on each time your application is scaled up.</target>
+        </trans-unit>
+        <trans-unit id="400dd824-b6d6-4e61-8cb1-6c7c53220303" xml:space="preserve">
+          <source>To increase the number of instances that are created or turned on when your application is scaled up, drag the bar right.</source>
+          <target state="new">To increase the number of instances that are created or turned on when your application is scaled up, drag the bar right.</target>
+        </trans-unit>
+        <trans-unit id="79bd5593-a4a2-4fb1-9efd-6159b7ab0493" xml:space="preserve">
+          <source>To decrease the number, drag the bar left.</source>
+          <target state="new">To decrease the number, drag the bar left.</target>
+        </trans-unit>
+        <trans-unit id="320c12be-48a6-46cb-8d3d-ac5cf452bc94" xml:space="preserve">
+          <source><bpt id="14340743-95f1-41bf-ab88-939726d16a0c">&lt;linkText&gt;</bpt>Scale cpu up<ept id="14340743-95f1-41bf-ab88-939726d16a0c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="14340743-95f1-41bf-ab88-939726d16a0c">&lt;linkText&gt;</bpt>Scale cpu up<ept id="14340743-95f1-41bf-ab88-939726d16a0c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2ab88e0-1d33-4d77-bc86-57dac792bf74" xml:space="preserve">
+          <source>Set the number of minutes to wait between the last scaling action and the next scale-up action.</source>
+          <target state="new">Set the number of minutes to wait between the last scaling action and the next scale-up action.</target>
+        </trans-unit>
+        <trans-unit id="97f1049d-0a23-439c-9dc4-06087627b423" xml:space="preserve">
+          <source>The last scaling action can be either scale-up or scale-down.</source>
+          <target state="new">The last scaling action can be either scale-up or scale-down.</target>
+        </trans-unit>
+        <trans-unit id="bf48cac9-2829-4ba4-b291-979e2a6afb22" xml:space="preserve">
+          <source><bpt id="f6329e2d-7e65-42c7-99fe-3436b0081dcb">&lt;linkText&gt;</bpt>Up time<ept id="f6329e2d-7e65-42c7-99fe-3436b0081dcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6329e2d-7e65-42c7-99fe-3436b0081dcb">&lt;linkText&gt;</bpt>Up time<ept id="f6329e2d-7e65-42c7-99fe-3436b0081dcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="564281a9-3bef-4ac7-97cd-514d584e0b89" xml:space="preserve">
+          <source>All instances are included when calculating the average percentage of CPU usage and the average is based on use over the previous hour.</source>
+          <target state="new">All instances are included when calculating the average percentage of CPU usage and the average is based on use over the previous hour.</target>
+        </trans-unit>
+        <trans-unit id="1b6fd882-fd82-4d70-bf32-1ddb5be9572c" xml:space="preserve">
+          <source>Depending on the number of instances that your application is using, it can take longer than the specified wait time for the scale action to occur if the wait time is set very low.</source>
+          <target state="new">Depending on the number of instances that your application is using, it can take longer than the specified wait time for the scale action to occur if the wait time is set very low.</target>
+        </trans-unit>
+        <trans-unit id="d61957de-611e-465f-b67d-ad48acd580ad" xml:space="preserve">
+          <source>The minimum time between scaling actions is five minutes.</source>
+          <target state="new">The minimum time between scaling actions is five minutes.</target>
+        </trans-unit>
+        <trans-unit id="eb86edb6-cffc-47ed-97d4-6c7a75e53422" xml:space="preserve">
+          <source>Scaling actions cannot occur if any of the instances are in a transitioning state.</source>
+          <target state="new">Scaling actions cannot occur if any of the instances are in a transitioning state.</target>
+        </trans-unit>
+        <trans-unit id="c8434b89-cdcf-48c1-91e0-71b67b693b57" xml:space="preserve">
+          <source>You can also specify the number of instances to delete or turn off when your application is scaled down.</source>
+          <target state="new">You can also specify the number of instances to delete or turn off when your application is scaled down.</target>
+        </trans-unit>
+        <trans-unit id="e370faf8-6d86-4a3d-87de-31d82af4c668" xml:space="preserve">
+          <source>To increase the number of instances that are deleted or turned off when your application is scaled down, drag the bar right.</source>
+          <target state="new">To increase the number of instances that are deleted or turned off when your application is scaled down, drag the bar right.</target>
+        </trans-unit>
+        <trans-unit id="b530d445-bfcd-402d-a570-7dfc7fc04582" xml:space="preserve">
+          <source>To decrease the number, drag the bar left.</source>
+          <target state="new">To decrease the number, drag the bar left.</target>
+        </trans-unit>
+        <trans-unit id="bfb52cbb-a1fd-406b-a816-9a95cedabb32" xml:space="preserve">
+          <source><bpt id="e26717b3-806e-4844-8be5-1d7a5f1f1d0b">&lt;linkText&gt;</bpt>Scale cpu down<ept id="e26717b3-806e-4844-8be5-1d7a5f1f1d0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e26717b3-806e-4844-8be5-1d7a5f1f1d0b">&lt;linkText&gt;</bpt>Scale cpu down<ept id="e26717b3-806e-4844-8be5-1d7a5f1f1d0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79bc203f-bdd6-4b4a-a5db-386f8ed26b50" xml:space="preserve">
+          <source>If your application can have sudden increases in CPU usage, you must make sure that you have a sufficient minimum number of instances to handle them.</source>
+          <target state="new">If your application can have sudden increases in CPU usage, you must make sure that you have a sufficient minimum number of instances to handle them.</target>
+        </trans-unit>
+        <trans-unit id="bc4153f8-434b-487b-9a03-12133a993325" xml:space="preserve">
+          <source>Set the number of minutes to wait between the last scaling action and the next scale-down action.</source>
+          <target state="new">Set the number of minutes to wait between the last scaling action and the next scale-down action.</target>
+        </trans-unit>
+        <trans-unit id="5952703f-6bed-4046-931b-8cfa6fdbd2fb" xml:space="preserve">
+          <source>The last scaling action can be either scale-up or scale-down.</source>
+          <target state="new">The last scaling action can be either scale-up or scale-down.</target>
+        </trans-unit>
+        <trans-unit id="28f45b47-fe22-4645-ab37-46eb9f08cbca" xml:space="preserve">
+          <source><bpt id="0f4877c7-9ea6-4f89-95ec-3e31d14a39db">&lt;linkText&gt;</bpt>Down time<ept id="0f4877c7-9ea6-4f89-95ec-3e31d14a39db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f4877c7-9ea6-4f89-95ec-3e31d14a39db">&lt;linkText&gt;</bpt>Down time<ept id="0f4877c7-9ea6-4f89-95ec-3e31d14a39db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e6a304d-6c91-49c0-81fa-f0abc0c94064" xml:space="preserve">
+          <source>Click <bpt id="a51cbbb5-b43e-4ae6-bfcb-181243af7c56">&lt;strong&gt;</bpt>Save<ept id="a51cbbb5-b43e-4ae6-bfcb-181243af7c56">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a51cbbb5-b43e-4ae6-bfcb-181243af7c56">&lt;strong&gt;</bpt>Save<ept id="a51cbbb5-b43e-4ae6-bfcb-181243af7c56">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39eeaa3a-7339-4f5d-b0ae-4a4620c67a6e" xml:space="preserve">
+          <source>The scaling action can take up to five minutes to finish.</source>
+          <target state="new">The scaling action can take up to five minutes to finish.</target>
+        </trans-unit>
+        <trans-unit id="16bfb8b5-9cd1-47df-921d-9e3fba16bc81" xml:space="preserve">
+          <source>In the <bpt id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;linkText&gt;</bpt>Management Portal<ept id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;/linkText&gt;</ept><bpt id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;title&gt;</bpt><ept id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;/title&gt;</ept>, click <bpt id="79cccb11-608e-4a2d-ab89-d41ab1de3018">&lt;strong&gt;</bpt>Cloud Services<ept id="79cccb11-608e-4a2d-ab89-d41ab1de3018">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</source>
+          <target state="new">In the <bpt id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;linkText&gt;</bpt>Management Portal<ept id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;/linkText&gt;</ept><bpt id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;title&gt;</bpt><ept id="6ecca105-b846-4066-a133-a5c3580a45a9">&lt;/title&gt;</ept>, click <bpt id="79cccb11-608e-4a2d-ab89-d41ab1de3018">&lt;strong&gt;</bpt>Cloud Services<ept id="79cccb11-608e-4a2d-ab89-d41ab1de3018">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="eba910e3-3a59-4eba-ad53-9bea7130bbdb" xml:space="preserve">
+          <source>Click <bpt id="c14d79fd-f90e-4492-a3b3-3be4c2bbef15">&lt;strong&gt;</bpt>Scale<ept id="c14d79fd-f90e-4492-a3b3-3be4c2bbef15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c14d79fd-f90e-4492-a3b3-3be4c2bbef15">&lt;strong&gt;</bpt>Scale<ept id="c14d79fd-f90e-4492-a3b3-3be4c2bbef15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="090f666e-af74-4f27-8ddb-f77294213f10" xml:space="preserve">
+          <source>Scroll to the section for the role or availability set, and then click <bpt id="51b1f3f3-32e3-4ab4-a62b-c03785778030">&lt;strong&gt;</bpt>Queue<ept id="51b1f3f3-32e3-4ab4-a62b-c03785778030">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the section for the role or availability set, and then click <bpt id="51b1f3f3-32e3-4ab4-a62b-c03785778030">&lt;strong&gt;</bpt>Queue<ept id="51b1f3f3-32e3-4ab4-a62b-c03785778030">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62666877-2a3c-4b86-8458-6839961deaf9" xml:space="preserve">
+          <source>This enables automatic scaling of your application based on a target number of queue messages.</source>
+          <target state="new">This enables automatic scaling of your application based on a target number of queue messages.</target>
+        </trans-unit>
+        <trans-unit id="7df485f4-0982-4287-948f-beb3b2189490" xml:space="preserve">
+          <source><bpt id="72367947-7add-477c-8fbf-4edcef3c7db2">&lt;linkText&gt;</bpt>Scale queue<ept id="72367947-7add-477c-8fbf-4edcef3c7db2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72367947-7add-477c-8fbf-4edcef3c7db2">&lt;linkText&gt;</bpt>Scale queue<ept id="72367947-7add-477c-8fbf-4edcef3c7db2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e4a8f20-3551-4eda-b4cc-b86e345f2787" xml:space="preserve">
+          <source>Each role or availability set in the cloud service has a slider for changing the number of instances that can be used.</source>
+          <target state="new">Each role or availability set in the cloud service has a slider for changing the number of instances that can be used.</target>
+        </trans-unit>
+        <trans-unit id="56556c58-658d-44db-8334-e4b8d6b3c907" xml:space="preserve">
+          <source>To set the maximum number of instances that can be used, drag the bar on the right to the right.</source>
+          <target state="new">To set the maximum number of instances that can be used, drag the bar on the right to the right.</target>
+        </trans-unit>
+        <trans-unit id="18777fa0-441d-4577-83a7-3e7a70ba8d81" xml:space="preserve">
+          <source>To set the minimum number of instances that can be used, drag the bar on the left to the left.</source>
+          <target state="new">To set the minimum number of instances that can be used, drag the bar on the left to the left.</target>
+        </trans-unit>
+        <trans-unit id="0ccbfcdb-5057-4887-a5fe-4eeb5c7318dc" xml:space="preserve">
+          <source><bpt id="8dc7f794-b8b2-4c1f-9c7b-e5b775197a19">&lt;linkText&gt;</bpt>Queue range<ept id="8dc7f794-b8b2-4c1f-9c7b-e5b775197a19">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8dc7f794-b8b2-4c1f-9c7b-e5b775197a19">&lt;linkText&gt;</bpt>Queue range<ept id="8dc7f794-b8b2-4c1f-9c7b-e5b775197a19">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e590923-5015-4e78-ac1f-2a9d0b89130a" xml:space="preserve">
+          <source><bpt id="61fda5f0-0fea-45b2-9b22-303a80be0047">&lt;strong&gt;</bpt>Note:<ept id="61fda5f0-0fea-45b2-9b22-303a80be0047">&lt;/strong&gt;</ept> On the Scale page, <bpt id="49aa9654-93e3-4d28-88f9-a856c0474515">&lt;strong&gt;</bpt>Instance<ept id="49aa9654-93e3-4d28-88f9-a856c0474515">&lt;/strong&gt;</ept> represents either a role instance or an instance of a Virtual Machine.</source>
+          <target state="new"><bpt id="61fda5f0-0fea-45b2-9b22-303a80be0047">&lt;strong&gt;</bpt>Note:<ept id="61fda5f0-0fea-45b2-9b22-303a80be0047">&lt;/strong&gt;</ept> On the Scale page, <bpt id="49aa9654-93e3-4d28-88f9-a856c0474515">&lt;strong&gt;</bpt>Instance<ept id="49aa9654-93e3-4d28-88f9-a856c0474515">&lt;/strong&gt;</ept> represents either a role instance or an instance of a Virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="3a91fb1b-2d7f-47be-a813-48d1dc7d981d" xml:space="preserve">
+          <source>The maximum number of instances is limited by the cores that are available in the subscription.</source>
+          <target state="new">The maximum number of instances is limited by the cores that are available in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="2a1ae32c-ad3f-42f9-8961-5fdf4e066e6c" xml:space="preserve">
+          <source>The colors of the slider represent the used and available cores in your subscription:</source>
+          <target state="new">The colors of the slider represent the used and available cores in your subscription:</target>
+        </trans-unit>
+        <trans-unit id="99e30309-5fae-4486-b13b-9c8b3d6c404c" xml:space="preserve">
+          <source>Blue represents the maximum number of cores that the role can use.</source>
+          <target state="new">Blue represents the maximum number of cores that the role can use.</target>
+        </trans-unit>
+        <trans-unit id="2c46aef0-3ded-4510-aa85-3177c9295500" xml:space="preserve">
+          <source>Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription.</source>
+          <target state="new">Dark grey represents the cores that are used by all roles and Virtual Machines in the subscription.</target>
+        </trans-unit>
+        <trans-unit id="c4189e0d-bddb-4b38-8fc4-a4fadd39a2dd" xml:space="preserve">
+          <source>When this value overlaps the cores used by the role, the color turns to dark blue.</source>
+          <target state="new">When this value overlaps the cores used by the role, the color turns to dark blue.</target>
+        </trans-unit>
+        <trans-unit id="4057897a-64b9-47fe-8db4-e9aaae4df606" xml:space="preserve">
+          <source>Light grey represents the cores that are available to use for scaling.</source>
+          <target state="new">Light grey represents the cores that are available to use for scaling.</target>
+        </trans-unit>
+        <trans-unit id="49b507a1-3027-4deb-955c-0b10fa397e5b" xml:space="preserve">
+          <source>Pink represents a change has been made that has not been saved.</source>
+          <target state="new">Pink represents a change has been made that has not been saved.</target>
+        </trans-unit>
+        <trans-unit id="f5ed9330-7350-43e4-b6b4-2a42acaa2cbf" xml:space="preserve">
+          <source>Select the storage account that is associated with the queue that you want to use.</source>
+          <target state="new">Select the storage account that is associated with the queue that you want to use.</target>
+        </trans-unit>
+        <trans-unit id="93da9d06-92ba-4edf-8f43-e35223b8cceb" xml:space="preserve">
+          <source><bpt id="bc0bf5a8-dde9-4722-ba27-0ddeec5b3485">&lt;linkText&gt;</bpt>Storage name<ept id="bc0bf5a8-dde9-4722-ba27-0ddeec5b3485">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="bc0bf5a8-dde9-4722-ba27-0ddeec5b3485">&lt;linkText&gt;</bpt>Storage name<ept id="bc0bf5a8-dde9-4722-ba27-0ddeec5b3485">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="78ea7bda-dbf3-4c87-814b-cfc2a54f3c3d" xml:space="preserve">
+          <source>Select the queue.</source>
+          <target state="new">Select the queue.</target>
+        </trans-unit>
+        <trans-unit id="1170e393-0245-492d-b048-42b68b9a5059" xml:space="preserve">
+          <source><bpt id="0382c592-f890-4a55-9a18-2457506ede1e">&lt;linkText&gt;</bpt>Queue name<ept id="0382c592-f890-4a55-9a18-2457506ede1e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0382c592-f890-4a55-9a18-2457506ede1e">&lt;linkText&gt;</bpt>Queue name<ept id="0382c592-f890-4a55-9a18-2457506ede1e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a1cbfad9-c612-4e93-91d5-b1df2e12f8ee" xml:space="preserve">
+          <source>Specify the number of messages that you expect each instance to support.</source>
+          <target state="new">Specify the number of messages that you expect each instance to support.</target>
+        </trans-unit>
+        <trans-unit id="40aa6aeb-0347-451a-8c8a-1ce1dc67afb6" xml:space="preserve">
+          <source>Instances will scale based on the total number of messages divided by the target number of messages per machine.</source>
+          <target state="new">Instances will scale based on the total number of messages divided by the target number of messages per machine.</target>
+        </trans-unit>
+        <trans-unit id="5988975a-a5e7-4bd2-bb56-2b5f079060a8" xml:space="preserve">
+          <source><bpt id="9ed8823c-034e-4eb4-b0bb-4db91a293130">&lt;linkText&gt;</bpt>Message number<ept id="9ed8823c-034e-4eb4-b0bb-4db91a293130">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ed8823c-034e-4eb4-b0bb-4db91a293130">&lt;linkText&gt;</bpt>Message number<ept id="9ed8823c-034e-4eb4-b0bb-4db91a293130">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e072c31-ca34-4587-82f0-fe3d094f91aa" xml:space="preserve">
+          <source>You can specify the number of instances to add or turn on each time your application is scaled up.</source>
+          <target state="new">You can specify the number of instances to add or turn on each time your application is scaled up.</target>
+        </trans-unit>
+        <trans-unit id="0f971c00-68f1-499e-81b1-84916adc2dac" xml:space="preserve">
+          <source>To increase the number of instances that are added or turned on when your application is scaled up, drag the bar right.</source>
+          <target state="new">To increase the number of instances that are added or turned on when your application is scaled up, drag the bar right.</target>
+        </trans-unit>
+        <trans-unit id="1407c7dd-047c-496b-b4e0-4e44c6d0e3a9" xml:space="preserve">
+          <source>To decrease the number, drag the bar left.</source>
+          <target state="new">To decrease the number, drag the bar left.</target>
+        </trans-unit>
+        <trans-unit id="7305479d-33e3-4c0c-81cd-8bd7ff849824" xml:space="preserve">
+          <source><bpt id="2bc8d29c-3c61-4bf4-97b4-25494d64847f">&lt;linkText&gt;</bpt>Scale cpu up<ept id="2bc8d29c-3c61-4bf4-97b4-25494d64847f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2bc8d29c-3c61-4bf4-97b4-25494d64847f">&lt;linkText&gt;</bpt>Scale cpu up<ept id="2bc8d29c-3c61-4bf4-97b4-25494d64847f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25988c49-a895-4785-b4a6-c537159d006f" xml:space="preserve">
+          <source>Set the number of minutes to wait between the last scaling action and the next scale-up action.</source>
+          <target state="new">Set the number of minutes to wait between the last scaling action and the next scale-up action.</target>
+        </trans-unit>
+        <trans-unit id="f36e9235-be3d-4e77-9502-4d427b20baf3" xml:space="preserve">
+          <source>The last scaling action can be either scale-up or scale-down.</source>
+          <target state="new">The last scaling action can be either scale-up or scale-down.</target>
+        </trans-unit>
+        <trans-unit id="f7ded381-19fb-445b-8559-f31f1962304b" xml:space="preserve">
+          <source><bpt id="e28e154e-93ee-4b37-ac36-da6b66555486">&lt;linkText&gt;</bpt>Up time<ept id="e28e154e-93ee-4b37-ac36-da6b66555486">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e28e154e-93ee-4b37-ac36-da6b66555486">&lt;linkText&gt;</bpt>Up time<ept id="e28e154e-93ee-4b37-ac36-da6b66555486">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32bcdec2-22da-4cc3-b398-9ffa9f5cb947" xml:space="preserve">
+          <source>The minimum time between scaling actions is five minutes.</source>
+          <target state="new">The minimum time between scaling actions is five minutes.</target>
+        </trans-unit>
+        <trans-unit id="f430f798-8038-4fab-9bf7-3449ac092cf4" xml:space="preserve">
+          <source>Scaling actions cannot occur if any of the instances are in a transitioning state.</source>
+          <target state="new">Scaling actions cannot occur if any of the instances are in a transitioning state.</target>
+        </trans-unit>
+        <trans-unit id="de005bed-d27e-43c9-bf68-e0b0647ec8a5" xml:space="preserve">
+          <source>You can also specify the number of instances to delete or not use when your application is scaled down.</source>
+          <target state="new">You can also specify the number of instances to delete or not use when your application is scaled down.</target>
+        </trans-unit>
+        <trans-unit id="1c0e6404-793c-4cc7-9d45-bf7b128a441f" xml:space="preserve">
+          <source>A slider is used to specify the scaling increment.</source>
+          <target state="new">A slider is used to specify the scaling increment.</target>
+        </trans-unit>
+        <trans-unit id="dabf08dc-1c39-490f-804f-531e908a6714" xml:space="preserve">
+          <source>To increase the number of instances that are deleted or not used when your application is scaled down, drag the bar right.</source>
+          <target state="new">To increase the number of instances that are deleted or not used when your application is scaled down, drag the bar right.</target>
+        </trans-unit>
+        <trans-unit id="30a1bdec-3c19-4d02-b6e0-b68b4d5a8cc0" xml:space="preserve">
+          <source>To decrease the number, drag the bar left.</source>
+          <target state="new">To decrease the number, drag the bar left.</target>
+        </trans-unit>
+        <trans-unit id="0c4e5c23-0e5e-419d-a2e2-c42070e3e608" xml:space="preserve">
+          <source><bpt id="72fccd2e-f954-4d4f-98e3-0a13eae9d1fc">&lt;linkText&gt;</bpt>Scale cpu down<ept id="72fccd2e-f954-4d4f-98e3-0a13eae9d1fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72fccd2e-f954-4d4f-98e3-0a13eae9d1fc">&lt;linkText&gt;</bpt>Scale cpu down<ept id="72fccd2e-f954-4d4f-98e3-0a13eae9d1fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="263c5c79-2a68-463d-b1ca-82ffa48a9f0d" xml:space="preserve">
+          <source>Set the number of minutes to wait between the last scaling action and the next scale-down action.</source>
+          <target state="new">Set the number of minutes to wait between the last scaling action and the next scale-down action.</target>
+        </trans-unit>
+        <trans-unit id="52a41999-c258-4330-83b9-d8cbf047e773" xml:space="preserve">
+          <source>The last scaling action can be either scale-up or scale-down.</source>
+          <target state="new">The last scaling action can be either scale-up or scale-down.</target>
+        </trans-unit>
+        <trans-unit id="4ae6132b-809a-4a47-8227-e39cedf355e0" xml:space="preserve">
+          <source><bpt id="8243322f-ae95-4e7f-b7bb-0730266a0962">&lt;linkText&gt;</bpt>Down time<ept id="8243322f-ae95-4e7f-b7bb-0730266a0962">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8243322f-ae95-4e7f-b7bb-0730266a0962">&lt;linkText&gt;</bpt>Down time<ept id="8243322f-ae95-4e7f-b7bb-0730266a0962">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5e726a5-65f4-4f3a-9053-ad9bbcca1bf7" xml:space="preserve">
+          <source>Click <bpt id="75cb271c-0dff-4e5b-bbb6-0c096186a5ca">&lt;strong&gt;</bpt>Save<ept id="75cb271c-0dff-4e5b-bbb6-0c096186a5ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="75cb271c-0dff-4e5b-bbb6-0c096186a5ca">&lt;strong&gt;</bpt>Save<ept id="75cb271c-0dff-4e5b-bbb6-0c096186a5ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c1d3031-999a-47b8-b675-ea96fc2136ea" xml:space="preserve">
+          <source>The scaling action can take up to five minutes to finish.</source>
+          <target state="new">The scaling action can take up to five minutes to finish.</target>
+        </trans-unit>
+        <trans-unit id="2ba20ca6-3369-42e1-bcc7-1aaa5862ae11" xml:space="preserve">
+          <source>Often when you scale a role, it's beneficial to scale the database that the application is using also.</source>
+          <target state="new">Often when you scale a role, it's beneficial to scale the database that the application is using also.</target>
+        </trans-unit>
+        <trans-unit id="0724c3d0-0801-4e7b-ae40-1d1078880d87" xml:space="preserve">
+          <source>If you link the database to the cloud service, you change the SQL Database edition and resize the database on the Scale page.</source>
+          <target state="new">If you link the database to the cloud service, you change the SQL Database edition and resize the database on the Scale page.</target>
+        </trans-unit>
+        <trans-unit id="94654f7c-78ac-4c10-b5e3-49195d6822bd" xml:space="preserve">
+          <source>In the <bpt id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;linkText&gt;</bpt>Management Portal<ept id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;/linkText&gt;</ept><bpt id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;title&gt;</bpt><ept id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;/title&gt;</ept>, click <bpt id="0deb4628-1493-48ec-9fa1-a93dbc622b82">&lt;strong&gt;</bpt>Cloud Services<ept id="0deb4628-1493-48ec-9fa1-a93dbc622b82">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</source>
+          <target state="new">In the <bpt id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;linkText&gt;</bpt>Management Portal<ept id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;/linkText&gt;</ept><bpt id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;title&gt;</bpt><ept id="7a9dc289-1cff-40c9-bc62-a5863ed3e504">&lt;/title&gt;</ept>, click <bpt id="0deb4628-1493-48ec-9fa1-a93dbc622b82">&lt;strong&gt;</bpt>Cloud Services<ept id="0deb4628-1493-48ec-9fa1-a93dbc622b82">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="ba383907-dea1-4155-879b-fee321d6c598" xml:space="preserve">
+          <source>Click <bpt id="28006686-033d-4121-8cbf-ddd917de329d">&lt;strong&gt;</bpt>Scale<ept id="28006686-033d-4121-8cbf-ddd917de329d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="28006686-033d-4121-8cbf-ddd917de329d">&lt;strong&gt;</bpt>Scale<ept id="28006686-033d-4121-8cbf-ddd917de329d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a1bbc9c4-db0e-4501-a27a-5f254f241127" xml:space="preserve">
+          <source>In the Linked Resources section, select the edition to use for the database.</source>
+          <target state="new">In the Linked Resources section, select the edition to use for the database.</target>
+        </trans-unit>
+        <trans-unit id="a567ba8b-3bde-4d6d-b544-d18449369865" xml:space="preserve">
+          <source><bpt id="44e8af71-9a01-4544-804d-3ec64ec3407e">&lt;linkText&gt;</bpt>Linked resources<ept id="44e8af71-9a01-4544-804d-3ec64ec3407e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44e8af71-9a01-4544-804d-3ec64ec3407e">&lt;linkText&gt;</bpt>Linked resources<ept id="44e8af71-9a01-4544-804d-3ec64ec3407e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c7246f8-a90b-469a-a9ee-6f661938a5d2" xml:space="preserve">
+          <source>Select the size of the database.</source>
+          <target state="new">Select the size of the database.</target>
+        </trans-unit>
+        <trans-unit id="25d8cb4b-f6df-4a04-a126-2ddd8fccb2fd" xml:space="preserve">
+          <source>Click <bpt id="e1570c4f-bd07-45dc-a570-b6b9e6ae4cc2">&lt;strong&gt;</bpt>Save<ept id="e1570c4f-bd07-45dc-a570-b6b9e6ae4cc2">&lt;/strong&gt;</ept> to update the linked resources.</source>
+          <target state="new">Click <bpt id="e1570c4f-bd07-45dc-a570-b6b9e6ae4cc2">&lt;strong&gt;</bpt>Save<ept id="e1570c4f-bd07-45dc-a570-b6b9e6ae4cc2">&lt;/strong&gt;</ept> to update the linked resources.</target>
+        </trans-unit>
+        <trans-unit id="2f57dd54-d550-4638-bdb7-a2ad613810e7" xml:space="preserve">
+          <source>You can schedule automatic scaling of your application by configuring schedules for different times.</source>
+          <target state="new">You can schedule automatic scaling of your application by configuring schedules for different times.</target>
+        </trans-unit>
+        <trans-unit id="daafea34-1361-471c-a969-8f01928601ef" xml:space="preserve">
+          <source>The following options are available to you for automatic scaling:</source>
+          <target state="new">The following options are available to you for automatic scaling:</target>
+        </trans-unit>
+        <trans-unit id="90f29a77-7378-48ec-be03-448693d3d6e9" xml:space="preserve">
+          <source><bpt id="80871b90-b964-4b51-9933-b275cf0c2b1f">&lt;strong&gt;</bpt>No schedule<ept id="80871b90-b964-4b51-9933-b275cf0c2b1f">&lt;/strong&gt;</ept> - This is the default option and enables your application to be automatically scaled the same way at all times.</source>
+          <target state="new"><bpt id="80871b90-b964-4b51-9933-b275cf0c2b1f">&lt;strong&gt;</bpt>No schedule<ept id="80871b90-b964-4b51-9933-b275cf0c2b1f">&lt;/strong&gt;</ept> - This is the default option and enables your application to be automatically scaled the same way at all times.</target>
+        </trans-unit>
+        <trans-unit id="a421df39-8d16-49c2-83e2-f17338ea9139" xml:space="preserve">
+          <source><bpt id="b9b124e1-5e36-4dc8-a9c7-5532cc8f6b53">&lt;strong&gt;</bpt>Day and night<ept id="b9b124e1-5e36-4dc8-a9c7-5532cc8f6b53">&lt;/strong&gt;</ept> - This option enables you to specify scaling for specific times of day and night.</source>
+          <target state="new"><bpt id="b9b124e1-5e36-4dc8-a9c7-5532cc8f6b53">&lt;strong&gt;</bpt>Day and night<ept id="b9b124e1-5e36-4dc8-a9c7-5532cc8f6b53">&lt;/strong&gt;</ept> - This option enables you to specify scaling for specific times of day and night.</target>
+        </trans-unit>
+        <trans-unit id="b8f923f4-92e3-49a9-bd66-faf361f840de" xml:space="preserve">
+          <source><bpt id="fd4434fa-3f4d-41d4-b8d0-1cea4e46c701">&lt;strong&gt;</bpt>Note:<ept id="fd4434fa-3f4d-41d4-b8d0-1cea4e46c701">&lt;/strong&gt;</ept> Schedules are currently not available for applications that use Virtual Machines.</source>
+          <target state="new"><bpt id="fd4434fa-3f4d-41d4-b8d0-1cea4e46c701">&lt;strong&gt;</bpt>Note:<ept id="fd4434fa-3f4d-41d4-b8d0-1cea4e46c701">&lt;/strong&gt;</ept> Schedules are currently not available for applications that use Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="2f07105a-b2b6-488e-87ef-db6e821d96dc" xml:space="preserve">
+          <source>In the <bpt id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;linkText&gt;</bpt>Management Portal<ept id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;/linkText&gt;</ept><bpt id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;title&gt;</bpt><ept id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;/title&gt;</ept>, click <bpt id="0726ccba-f8a6-4251-9e75-8ddb6e82ab24">&lt;strong&gt;</bpt>Cloud Services<ept id="0726ccba-f8a6-4251-9e75-8ddb6e82ab24">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</source>
+          <target state="new">In the <bpt id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;linkText&gt;</bpt>Management Portal<ept id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;/linkText&gt;</ept><bpt id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;title&gt;</bpt><ept id="ebbf3cdc-b6b5-4255-8edb-ea71edfb78b4">&lt;/title&gt;</ept>, click <bpt id="0726ccba-f8a6-4251-9e75-8ddb6e82ab24">&lt;strong&gt;</bpt>Cloud Services<ept id="0726ccba-f8a6-4251-9e75-8ddb6e82ab24">&lt;/strong&gt;</ept>, and then click the name of the cloud service to open the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="6b572765-773c-4fc2-928c-2613195c4f82" xml:space="preserve">
+          <source>Click <bpt id="b4a0c095-960b-4ddf-89ec-58a8b2505632">&lt;strong&gt;</bpt>Scale<ept id="b4a0c095-960b-4ddf-89ec-58a8b2505632">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b4a0c095-960b-4ddf-89ec-58a8b2505632">&lt;strong&gt;</bpt>Scale<ept id="b4a0c095-960b-4ddf-89ec-58a8b2505632">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c435096-1214-4ab3-a5d4-7ad870ae2eab" xml:space="preserve">
+          <source>On the Scale page, click <bpt id="7cc4553f-cd7b-4c15-8489-7671cdd033c7">&lt;strong&gt;</bpt>set up schedule times<ept id="7cc4553f-cd7b-4c15-8489-7671cdd033c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Scale page, click <bpt id="7cc4553f-cd7b-4c15-8489-7671cdd033c7">&lt;strong&gt;</bpt>set up schedule times<ept id="7cc4553f-cd7b-4c15-8489-7671cdd033c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bbb044b7-1b80-483f-b66c-585df9eb1c64" xml:space="preserve">
+          <source><bpt id="808d0d32-39e7-4671-a257-db864c839776">&lt;linkText&gt;</bpt>Schedule scaling<ept id="808d0d32-39e7-4671-a257-db864c839776">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="808d0d32-39e7-4671-a257-db864c839776">&lt;linkText&gt;</bpt>Schedule scaling<ept id="808d0d32-39e7-4671-a257-db864c839776">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e47eae3-7040-4c9b-a9d9-84d835b59586" xml:space="preserve">
+          <source>Select the type of scaling schedule that you want to set up.</source>
+          <target state="new">Select the type of scaling schedule that you want to set up.</target>
+        </trans-unit>
+        <trans-unit id="64aa1298-dbc8-4a6b-b265-7fe0b7feca12" xml:space="preserve">
+          <source>Specify the times that the day starts and ends and set the time zone.</source>
+          <target state="new">Specify the times that the day starts and ends and set the time zone.</target>
+        </trans-unit>
+        <trans-unit id="7c95d96c-80c2-4c2f-8988-4db49884491c" xml:space="preserve">
+          <source>For day and night scheduling, the times represent the start and end of the day with the remaining time representing night.</source>
+          <target state="new">For day and night scheduling, the times represent the start and end of the day with the remaining time representing night.</target>
+        </trans-unit>
+        <trans-unit id="575fc485-5bf3-470c-8cc7-2c3469f84102" xml:space="preserve">
+          <source>Click the check mark at the bottom of the page to save the schedules.</source>
+          <target state="new">Click the check mark at the bottom of the page to save the schedules.</target>
+        </trans-unit>
+        <trans-unit id="549d7624-a80d-4784-96c5-0e9c713e977e" xml:space="preserve">
+          <source>After you save the schedules, they will appear in the list.</source>
+          <target state="new">After you save the schedules, they will appear in the list.</target>
+        </trans-unit>
+        <trans-unit id="7c61b5ed-4edc-4275-bed8-b12e58686aba" xml:space="preserve">
+          <source>You can select the time schedule that you want to use and then modify your scale settings.</source>
+          <target state="new">You can select the time schedule that you want to use and then modify your scale settings.</target>
+        </trans-unit>
+        <trans-unit id="e3769d03-5b21-46a3-9e4f-9985f72fa6c3" xml:space="preserve">
+          <source>The scale settings will only apply during the schedule that you selected.</source>
+          <target state="new">The scale settings will only apply during the schedule that you selected.</target>
+        </trans-unit>
+        <trans-unit id="7d47b39b-18ca-4bcc-9f13-961e5a265b5b" xml:space="preserve">
+          <source>You can edit the schedules by clicking <bpt id="04d464f8-fe66-407e-a9b2-46fe76a1c36b">&lt;strong&gt;</bpt>set up schedule times<ept id="04d464f8-fe66-407e-a9b2-46fe76a1c36b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can edit the schedules by clicking <bpt id="04d464f8-fe66-407e-a9b2-46fe76a1c36b">&lt;strong&gt;</bpt>set up schedule times<ept id="04d464f8-fe66-407e-a9b2-46fe76a1c36b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aea098a1-6746-4bf7-9a85-0ee6fe3c7609" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ManualScaleRoles.png</target>
+        </trans-unit>
+        <trans-unit id="7452f277-5215-406a-a261-3b55aa32dea9" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_SliderRole.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_SliderRole.png</target>
+        </trans-unit>
+        <trans-unit id="3d1c72cc-0f9e-4c2d-857f-30bf1a5cde30" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_AutoscaleOn.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_AutoscaleOn.png</target>
+        </trans-unit>
+        <trans-unit id="6df6b9fb-9bdd-4761-941d-b0951365d4d9" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_InstanceRange.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_InstanceRange.png</target>
+        </trans-unit>
+        <trans-unit id="78864861-2f44-45bd-9302-5fd5dc5c9121" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_TargetCPURange.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_TargetCPURange.png</target>
+        </trans-unit>
+        <trans-unit id="f7572155-705a-4001-879e-8c1da8e70250" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ScaleUpBy.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ScaleUpBy.png</target>
+        </trans-unit>
+        <trans-unit id="9b560cf1-85a1-4add-b9d1-cb4b2e62e236" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ScaleUpWaitTime.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ScaleUpWaitTime.png</target>
+        </trans-unit>
+        <trans-unit id="41df5919-9bf8-4fc1-b116-b678344f6d7f" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ScaleDownBy.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ScaleDownBy.png</target>
+        </trans-unit>
+        <trans-unit id="60a654d1-f523-4109-a409-53e337baa613" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ScaleDownWaitTime.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ScaleDownWaitTime.png</target>
+        </trans-unit>
+        <trans-unit id="7886dd49-77a7-46a7-a276-46b9ca500028" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_QueueScale.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_QueueScale.png</target>
+        </trans-unit>
+        <trans-unit id="aac87cdd-ef40-44b4-a2e6-c8d5d4b99c3d" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_QueueRange.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_QueueRange.png</target>
+        </trans-unit>
+        <trans-unit id="b10713a6-38ea-4ceb-bba4-725b731c1860" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_StorageAccountName.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_StorageAccountName.png</target>
+        </trans-unit>
+        <trans-unit id="74eb8ee2-2c7a-46cc-8e7e-00bc73b3db29" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_QueueName.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_QueueName.png</target>
+        </trans-unit>
+        <trans-unit id="7bd7a3fc-0980-4d23-a96f-28e822fd1a4d" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_TargetMessageNumber.png</target>
+        </trans-unit>
+        <trans-unit id="c007b3f9-9829-4c18-bd4f-701f44512e59" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png</target>
+        </trans-unit>
+        <trans-unit id="baa8e37b-b5f8-4d9a-bf65-467de7103ba6" xml:space="preserve">
+          <source>./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png</source>
+          <target state="new">./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png</target>
+        </trans-unit>
+      </group>
+      <group id="d4f2fb70-d099-4e20-9f26-c4b66afbbeef" />
+    </body>
+  </file>
+</xliff>

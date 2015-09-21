@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0f2cf899-4419-4a33-9157-b1f03089e0ad" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0f2cf899-4419-4a33-9157-b1f03089e0ad" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b905a828-355c-4355-b444-5b1ed9671774">
+        <trans-unit id="2755540f-4680-41da-8908-63338612542f" xml:space="preserve">
+          <source>How to use Service Bus topics (PHP) | Microsoft Azure</source>
+          <target state="new">How to use Service Bus topics (PHP) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cb130336-0844-44a7-8714-93e6e81799f5" xml:space="preserve">
+          <source>Learn how to use Service Bus topics with PHP in Azure.</source>
+          <target state="new">Learn how to use Service Bus topics with PHP in Azure.</target>
+        </trans-unit>
+        <trans-unit id="2b44da63-0e36-4077-8ec0-bae5e1a455e3" xml:space="preserve">
+          <source>This guide shows you how to use Service Bus topics and subscriptions.</source>
+          <target state="new">This guide shows you how to use Service Bus topics and subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="46a2446e-080b-45af-a4df-d6edb9580560" xml:space="preserve">
+          <source>The samples are written in PHP and use the <bpt id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;linkText&gt;</bpt>Azure SDK for PHP<ept id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;/linkText&gt;</ept><bpt id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;title&gt;</bpt><ept id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in PHP and use the <bpt id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;linkText&gt;</bpt>Azure SDK for PHP<ept id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;/linkText&gt;</ept><bpt id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;title&gt;</bpt><ept id="834aa54f-3075-423c-b39b-2dd5c4a6b8a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4ad27c6-a9d7-488e-8ecf-064a02567087" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="38e9279f-b789-4772-a207-4646f2b5d233">&lt;strong&gt;</bpt>creating topics and subscriptions<ept id="38e9279f-b789-4772-a207-4646f2b5d233">&lt;/strong&gt;</ept>, <bpt id="ddc54bc8-fd69-4d47-97e1-f94247538d9a">&lt;strong&gt;</bpt>creating subscription filters<ept id="ddc54bc8-fd69-4d47-97e1-f94247538d9a">&lt;/strong&gt;</ept>, <bpt id="84ad3e87-5ed5-402d-a28e-45988ce48b20">&lt;strong&gt;</bpt>sending messages to a topic<ept id="84ad3e87-5ed5-402d-a28e-45988ce48b20">&lt;/strong&gt;</ept>, <bpt id="d7f17ccd-381d-4dca-8fa5-c363f0224227">&lt;strong&gt;</bpt>receiving messages from a subscription<ept id="d7f17ccd-381d-4dca-8fa5-c363f0224227">&lt;/strong&gt;</ept>, and <bpt id="6039332d-4a8c-40d8-a9d6-27c2116201be">&lt;strong&gt;</bpt>deleting topics and subscriptions<ept id="6039332d-4a8c-40d8-a9d6-27c2116201be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="38e9279f-b789-4772-a207-4646f2b5d233">&lt;strong&gt;</bpt>creating topics and subscriptions<ept id="38e9279f-b789-4772-a207-4646f2b5d233">&lt;/strong&gt;</ept>, <bpt id="ddc54bc8-fd69-4d47-97e1-f94247538d9a">&lt;strong&gt;</bpt>creating subscription filters<ept id="ddc54bc8-fd69-4d47-97e1-f94247538d9a">&lt;/strong&gt;</ept>, <bpt id="84ad3e87-5ed5-402d-a28e-45988ce48b20">&lt;strong&gt;</bpt>sending messages to a topic<ept id="84ad3e87-5ed5-402d-a28e-45988ce48b20">&lt;/strong&gt;</ept>, <bpt id="d7f17ccd-381d-4dca-8fa5-c363f0224227">&lt;strong&gt;</bpt>receiving messages from a subscription<ept id="d7f17ccd-381d-4dca-8fa5-c363f0224227">&lt;/strong&gt;</ept>, and <bpt id="6039332d-4a8c-40d8-a9d6-27c2116201be">&lt;strong&gt;</bpt>deleting topics and subscriptions<ept id="6039332d-4a8c-40d8-a9d6-27c2116201be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da66f452-0fdf-4667-86b3-264c245de0a1" xml:space="preserve">
+          <source><bpt id="8934455d-7b49-446e-830b-020c939e3655">&lt;token href="../../includes/howto-service-bus-topics.md"&gt;</bpt><ept id="8934455d-7b49-446e-830b-020c939e3655">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8934455d-7b49-446e-830b-020c939e3655">&lt;token href="../../includes/howto-service-bus-topics.md"&gt;</bpt><ept id="8934455d-7b49-446e-830b-020c939e3655">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="796705f1-6733-40e6-9343-d21f97b38374" xml:space="preserve">
+          <source>The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the <bpt id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;linkText&gt;</bpt>Azure SDK for PHP<ept id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;/linkText&gt;</ept><bpt id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;title&gt;</bpt><ept id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;/title&gt;</ept> from within your code.</source>
+          <target state="new">The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the <bpt id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;linkText&gt;</bpt>Azure SDK for PHP<ept id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;/linkText&gt;</ept><bpt id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;title&gt;</bpt><ept id="81ac9207-c308-4e89-b782-f77015abbdfd">&lt;/title&gt;</ept> from within your code.</target>
+        </trans-unit>
+        <trans-unit id="41c6710e-d97e-4d0d-b565-f3c81871ef76" xml:space="preserve">
+          <source>You can use any development tools to create your application, or Notepad.</source>
+          <target state="new">You can use any development tools to create your application, or Notepad.</target>
+        </trans-unit>
+        <trans-unit id="acbaaa47-28c7-46e0-bec0-00d2e8b04f11" xml:space="preserve">
+          <source>Your PHP installation must also have the <bpt id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;linkText&gt;</bpt>OpenSSL extension<ept id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;/linkText&gt;</ept><bpt id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;title&gt;</bpt><ept id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;/title&gt;</ept> installed and enabled.</source>
+          <target state="new">Your PHP installation must also have the <bpt id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;linkText&gt;</bpt>OpenSSL extension<ept id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;/linkText&gt;</ept><bpt id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;title&gt;</bpt><ept id="3301bf2a-770c-4fd1-8199-c50aea167732">&lt;/title&gt;</ept> installed and enabled.</target>
+        </trans-unit>
+        <trans-unit id="5613856e-4b2f-432f-8c92-bec52112cc50" xml:space="preserve">
+          <source>In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.</source>
+          <target state="new">In this guide, you will use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.</target>
+        </trans-unit>
+        <trans-unit id="32824a48-e802-43f5-b095-b9a236a0c6a3" xml:space="preserve">
+          <source><bpt id="9bd4fff1-7af5-4e5f-917b-459856902e28">&lt;token href="../../includes/get-client-libraries.md"&gt;</bpt><ept id="9bd4fff1-7af5-4e5f-917b-459856902e28">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9bd4fff1-7af5-4e5f-917b-459856902e28">&lt;token href="../../includes/get-client-libraries.md"&gt;</bpt><ept id="9bd4fff1-7af5-4e5f-917b-459856902e28">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3509b3d6-1d8e-4acf-9bd6-4a6a283ab8c3" xml:space="preserve">
+          <source>To use the Service Bus APIs:</source>
+          <target state="new">To use the Service Bus APIs:</target>
+        </trans-unit>
+        <trans-unit id="c1f4e9d2-a4e7-45fc-a868-2c07fc8ac93e" xml:space="preserve">
+          <source>Reference the autoloader file using the <bpt id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;linkText&gt;</bpt>require_once[require-once]<ept id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;/linkText&gt;</ept><bpt id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;title&gt;</bpt><ept id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;/title&gt;</ept> statement.</source>
+          <target state="new">Reference the autoloader file using the <bpt id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;linkText&gt;</bpt>require_once[require-once]<ept id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;/linkText&gt;</ept><bpt id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;title&gt;</bpt><ept id="1770a6c8-7da2-4f19-ab32-5aae6ad1d371">&lt;/title&gt;</ept> statement.</target>
+        </trans-unit>
+        <trans-unit id="c0049e89-8632-4687-98da-cf3414c7dec6" xml:space="preserve">
+          <source>Reference any classes you might use.</source>
+          <target state="new">Reference any classes you might use.</target>
+        </trans-unit>
+        <trans-unit id="c05d7da4-25f1-412d-bf6c-2dd8d3c4af32" xml:space="preserve">
+          <source>The following example shows how to include the autoloader file and reference the <bpt id="1305d6a0-c323-4858-8d50-6236ed15173d">&lt;strong&gt;</bpt>ServiceBusService<ept id="1305d6a0-c323-4858-8d50-6236ed15173d">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">The following example shows how to include the autoloader file and reference the <bpt id="1305d6a0-c323-4858-8d50-6236ed15173d">&lt;strong&gt;</bpt>ServiceBusService<ept id="1305d6a0-c323-4858-8d50-6236ed15173d">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="0d792a93-5ac0-49a7-a1c0-d871bfc30e28" xml:space="preserve">
+          <source>This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer.</source>
+          <target state="new">This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer.</target>
+        </trans-unit>
+        <trans-unit id="78d87d43-8539-48bd-9bb2-65ba7712fc80" xml:space="preserve">
+          <source>If you installed the libraries manually or as a PEAR package, you must reference the <bpt id="5e8a5bca-ba84-46d4-b72a-63de4b4aa7b4">&lt;strong&gt;</bpt>WindowsAzure.php<ept id="5e8a5bca-ba84-46d4-b72a-63de4b4aa7b4">&lt;/strong&gt;</ept> autoloader file.</source>
+          <target state="new">If you installed the libraries manually or as a PEAR package, you must reference the <bpt id="5e8a5bca-ba84-46d4-b72a-63de4b4aa7b4">&lt;strong&gt;</bpt>WindowsAzure.php<ept id="5e8a5bca-ba84-46d4-b72a-63de4b4aa7b4">&lt;/strong&gt;</ept> autoloader file.</target>
+        </trans-unit>
+        <trans-unit id="1fd34145-f784-4ef6-8265-61827261d4ea" xml:space="preserve">
+          <source>In the examples below, the <bpt id="ef9fe421-3d85-4580-9001-0e0d071f729d">&lt;code&gt;</bpt>require_once<ept id="ef9fe421-3d85-4580-9001-0e0d071f729d">&lt;/code&gt;</ept> statement will always be shown, but only the classes necessary for the example to execute are referenced.</source>
+          <target state="new">In the examples below, the <bpt id="ef9fe421-3d85-4580-9001-0e0d071f729d">&lt;code&gt;</bpt>require_once<ept id="ef9fe421-3d85-4580-9001-0e0d071f729d">&lt;/code&gt;</ept> statement will always be shown, but only the classes necessary for the example to execute are referenced.</target>
+        </trans-unit>
+        <trans-unit id="132076cb-ffb1-47a0-8578-3a61b76594d2" xml:space="preserve">
+          <source>To instantiate an Azure Service Bus client you must first have a valid connection string in this format:</source>
+          <target state="new">To instantiate an Azure Service Bus client you must first have a valid connection string in this format:</target>
+        </trans-unit>
+        <trans-unit id="d67b8e01-edda-42fc-b3fb-68a2c746af84" xml:space="preserve">
+          <source>Where <bpt id="878e23e7-913d-4eab-98e5-a7fc296630c1">&lt;strong&gt;</bpt>Endpoint<ept id="878e23e7-913d-4eab-98e5-a7fc296630c1">&lt;/strong&gt;</ept> is typically of the format <bpt id="6e9b8a1e-d85f-431d-9b47-a3c9f0417c95">&lt;code&gt;</bpt>https://[yourNamespace].servicebus.windows.net<ept id="6e9b8a1e-d85f-431d-9b47-a3c9f0417c95">&lt;/code&gt;</ept>.</source>
+          <target state="new">Where <bpt id="878e23e7-913d-4eab-98e5-a7fc296630c1">&lt;strong&gt;</bpt>Endpoint<ept id="878e23e7-913d-4eab-98e5-a7fc296630c1">&lt;/strong&gt;</ept> is typically of the format <bpt id="6e9b8a1e-d85f-431d-9b47-a3c9f0417c95">&lt;code&gt;</bpt>https://[yourNamespace].servicebus.windows.net<ept id="6e9b8a1e-d85f-431d-9b47-a3c9f0417c95">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="021e5558-f8c4-4f96-ba3f-9bb8e5705ed3" xml:space="preserve">
+          <source>To create any Azure service client you must use the <bpt id="7eda348c-c6aa-4579-b90c-559a2389593e">&lt;strong&gt;</bpt>ServicesBuilder<ept id="7eda348c-c6aa-4579-b90c-559a2389593e">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">To create any Azure service client you must use the <bpt id="7eda348c-c6aa-4579-b90c-559a2389593e">&lt;strong&gt;</bpt>ServicesBuilder<ept id="7eda348c-c6aa-4579-b90c-559a2389593e">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="7daae780-213c-493d-b071-3d4274b03fa5" xml:space="preserve">
+          <source>You can:</source>
+          <target state="new">You can:</target>
+        </trans-unit>
+        <trans-unit id="e4480515-fbc8-47b9-8709-d8329bb52d36" xml:space="preserve">
+          <source>Pass the connection string directly to it.</source>
+          <target state="new">Pass the connection string directly to it.</target>
+        </trans-unit>
+        <trans-unit id="144a66f3-0d62-4014-8469-db765af303a9" xml:space="preserve">
+          <source>Use the <bpt id="db00cde4-bcca-4ecd-b4d0-480a41f97a37">&lt;strong&gt;</bpt>CloudConfigurationManager (CCM)<ept id="db00cde4-bcca-4ecd-b4d0-480a41f97a37">&lt;/strong&gt;</ept> to check multiple external sources for the connection string:</source>
+          <target state="new">Use the <bpt id="db00cde4-bcca-4ecd-b4d0-480a41f97a37">&lt;strong&gt;</bpt>CloudConfigurationManager (CCM)<ept id="db00cde4-bcca-4ecd-b4d0-480a41f97a37">&lt;/strong&gt;</ept> to check multiple external sources for the connection string:</target>
+        </trans-unit>
+        <trans-unit id="bbc98479-7650-47d3-a5ee-4ffc9a1020f0" xml:space="preserve">
+          <source>By default it comes with support for one external source - environmental variables.</source>
+          <target state="new">By default it comes with support for one external source - environmental variables.</target>
+        </trans-unit>
+        <trans-unit id="433d6ae2-8682-456c-b964-c460c752cbbb" xml:space="preserve">
+          <source>You can add new sources by extending the <bpt id="81a1690d-b716-402d-86f4-9096b12ee855">&lt;strong&gt;</bpt>ConnectionStringSource<ept id="81a1690d-b716-402d-86f4-9096b12ee855">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">You can add new sources by extending the <bpt id="81a1690d-b716-402d-86f4-9096b12ee855">&lt;strong&gt;</bpt>ConnectionStringSource<ept id="81a1690d-b716-402d-86f4-9096b12ee855">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="69f5919b-fe0f-42a1-9ca0-3b8c6a5a4775" xml:space="preserve">
+          <source>For the examples outlined here, the connection string will be passed directly.</source>
+          <target state="new">For the examples outlined here, the connection string will be passed directly.</target>
+        </trans-unit>
+        <trans-unit id="e43396d0-f121-4219-ac37-3c790dbd2519" xml:space="preserve">
+          <source>Management operations for Service Bus topics can be performed via the <bpt id="eefd1bdc-64d2-464a-82bc-56e964e138df">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="eefd1bdc-64d2-464a-82bc-56e964e138df">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Management operations for Service Bus topics can be performed via the <bpt id="eefd1bdc-64d2-464a-82bc-56e964e138df">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="eefd1bdc-64d2-464a-82bc-56e964e138df">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="cf57c0d2-d098-4d45-85c6-d3aefacfc367" xml:space="preserve">
+          <source>A <bpt id="ff5176c1-f005-4d0b-be09-fead28f0ee05">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="ff5176c1-f005-4d0b-be09-fead28f0ee05">&lt;/strong&gt;</ept> object is constructed via the <bpt id="647a13d9-70a0-4dd5-aad4-eb06185cab2b">&lt;strong&gt;</bpt>ServicesBuilder::createServiceBusService<ept id="647a13d9-70a0-4dd5-aad4-eb06185cab2b">&lt;/strong&gt;</ept> factory method with an appropriate connection string that encapsulates the token permissions to manage it.</source>
+          <target state="new">A <bpt id="ff5176c1-f005-4d0b-be09-fead28f0ee05">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="ff5176c1-f005-4d0b-be09-fead28f0ee05">&lt;/strong&gt;</ept> object is constructed via the <bpt id="647a13d9-70a0-4dd5-aad4-eb06185cab2b">&lt;strong&gt;</bpt>ServicesBuilder::createServiceBusService<ept id="647a13d9-70a0-4dd5-aad4-eb06185cab2b">&lt;/strong&gt;</ept> factory method with an appropriate connection string that encapsulates the token permissions to manage it.</target>
+        </trans-unit>
+        <trans-unit id="ac5e7c75-34c1-4c26-887b-e737aabc6e5a" xml:space="preserve">
+          <source>The example below shows how to instantiate a <bpt id="b44da995-b812-4a30-a1ea-392dc1632bab">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="b44da995-b812-4a30-a1ea-392dc1632bab">&lt;/strong&gt;</ept> and call <bpt id="05a7b1c7-5422-4069-ba57-5b730aa1701a">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;createTopic<ept id="05a7b1c7-5422-4069-ba57-5b730aa1701a">&lt;/strong&gt;</ept> to create a topic named <bpt id="a55e4530-816a-478b-805a-039fd9900855">&lt;code&gt;</bpt>mytopic<ept id="a55e4530-816a-478b-805a-039fd9900855">&lt;/code&gt;</ept> within a <bpt id="ea17f86d-066e-4936-a1d7-f198cd65ecb2">&lt;code&gt;</bpt>MySBNamespace<ept id="ea17f86d-066e-4936-a1d7-f198cd65ecb2">&lt;/code&gt;</ept> service namespace:</source>
+          <target state="new">The example below shows how to instantiate a <bpt id="b44da995-b812-4a30-a1ea-392dc1632bab">&lt;strong&gt;</bpt>ServiceBusRestProxy<ept id="b44da995-b812-4a30-a1ea-392dc1632bab">&lt;/strong&gt;</ept> and call <bpt id="05a7b1c7-5422-4069-ba57-5b730aa1701a">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;createTopic<ept id="05a7b1c7-5422-4069-ba57-5b730aa1701a">&lt;/strong&gt;</ept> to create a topic named <bpt id="a55e4530-816a-478b-805a-039fd9900855">&lt;code&gt;</bpt>mytopic<ept id="a55e4530-816a-478b-805a-039fd9900855">&lt;/code&gt;</ept> within a <bpt id="ea17f86d-066e-4936-a1d7-f198cd65ecb2">&lt;code&gt;</bpt>MySBNamespace<ept id="ea17f86d-066e-4936-a1d7-f198cd65ecb2">&lt;/code&gt;</ept> service namespace:</target>
+        </trans-unit>
+        <trans-unit id="af861276-4840-484b-8266-6fd23f14a631" xml:space="preserve">
+          <source>You can use the <bpt id="45c3c2d3-7fac-472a-9ef4-a7dfff4a6204">&lt;code&gt;</bpt>listTopics<ept id="45c3c2d3-7fac-472a-9ef4-a7dfff4a6204">&lt;/code&gt;</ept> method on <bpt id="3e378519-2b03-4545-bcfc-d179a205e5ab">&lt;code&gt;</bpt>ServiceBusRestProxy<ept id="3e378519-2b03-4545-bcfc-d179a205e5ab">&lt;/code&gt;</ept> objects to check if a topic with a specified name already exists within a service namespace.</source>
+          <target state="new">You can use the <bpt id="45c3c2d3-7fac-472a-9ef4-a7dfff4a6204">&lt;code&gt;</bpt>listTopics<ept id="45c3c2d3-7fac-472a-9ef4-a7dfff4a6204">&lt;/code&gt;</ept> method on <bpt id="3e378519-2b03-4545-bcfc-d179a205e5ab">&lt;code&gt;</bpt>ServiceBusRestProxy<ept id="3e378519-2b03-4545-bcfc-d179a205e5ab">&lt;/code&gt;</ept> objects to check if a topic with a specified name already exists within a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="a400cd84-dafe-4958-beff-7e8703dd4786" xml:space="preserve">
+          <source>Topic subscriptions are also created with the <bpt id="89be9a07-5209-45c3-91a7-fcdea8d03ef3">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;createSubscription<ept id="89be9a07-5209-45c3-91a7-fcdea8d03ef3">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">Topic subscriptions are also created with the <bpt id="89be9a07-5209-45c3-91a7-fcdea8d03ef3">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;createSubscription<ept id="89be9a07-5209-45c3-91a7-fcdea8d03ef3">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="717bfa1e-567c-4ebc-84bf-ec77a0e851b0" xml:space="preserve">
+          <source>Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.</source>
+          <target state="new">Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.</target>
+        </trans-unit>
+        <trans-unit id="c9f2260f-76bc-490e-8cd5-5ae79fa41971" xml:space="preserve">
+          <source>The <bpt id="679000a1-121b-44db-b794-89983eb490f2">&lt;strong&gt;</bpt>MatchAll<ept id="679000a1-121b-44db-b794-89983eb490f2">&lt;/strong&gt;</ept> filter is the default filter that is used if no filter is specified when a new subscription is created.</source>
+          <target state="new">The <bpt id="679000a1-121b-44db-b794-89983eb490f2">&lt;strong&gt;</bpt>MatchAll<ept id="679000a1-121b-44db-b794-89983eb490f2">&lt;/strong&gt;</ept> filter is the default filter that is used if no filter is specified when a new subscription is created.</target>
+        </trans-unit>
+        <trans-unit id="2cb39ab7-099f-4001-b770-468adbbfe00d" xml:space="preserve">
+          <source>When the <bpt id="201d90bd-5a68-431c-b67d-97c3899bafc1">&lt;strong&gt;</bpt>MatchAll<ept id="201d90bd-5a68-431c-b67d-97c3899bafc1">&lt;/strong&gt;</ept> filter is used, all messages published to the topic are placed in the subscription's virtual queue.</source>
+          <target state="new">When the <bpt id="201d90bd-5a68-431c-b67d-97c3899bafc1">&lt;strong&gt;</bpt>MatchAll<ept id="201d90bd-5a68-431c-b67d-97c3899bafc1">&lt;/strong&gt;</ept> filter is used, all messages published to the topic are placed in the subscription's virtual queue.</target>
+        </trans-unit>
+        <trans-unit id="50a5d19e-d686-4077-aa6f-a015f474ed2d" xml:space="preserve">
+          <source>The following example creates a subscription named 'mysubscription' and uses the default <bpt id="0035c5c8-bcee-433b-b9f3-58d99754f606">&lt;strong&gt;</bpt>MatchAll<ept id="0035c5c8-bcee-433b-b9f3-58d99754f606">&lt;/strong&gt;</ept> filter.</source>
+          <target state="new">The following example creates a subscription named 'mysubscription' and uses the default <bpt id="0035c5c8-bcee-433b-b9f3-58d99754f606">&lt;strong&gt;</bpt>MatchAll<ept id="0035c5c8-bcee-433b-b9f3-58d99754f606">&lt;/strong&gt;</ept> filter.</target>
+        </trans-unit>
+        <trans-unit id="516696ee-31d7-4642-92ed-72a5bc8c2506" xml:space="preserve">
+          <source>You can also set up filters that enable you to specify which messages sent to a topic should show up within a specific topic subscription.</source>
+          <target state="new">You can also set up filters that enable you to specify which messages sent to a topic should show up within a specific topic subscription.</target>
+        </trans-unit>
+        <trans-unit id="f75a0cf2-75d9-48cc-bebf-44e0d2d50810" xml:space="preserve">
+          <source>The most flexible type of filter supported by subscriptions is the <bpt id="2a938220-4660-4df8-9985-c5beececa8d8">&lt;strong&gt;</bpt>SqlFilter<ept id="2a938220-4660-4df8-9985-c5beececa8d8">&lt;/strong&gt;</ept>, which implements a subset of SQL92.</source>
+          <target state="new">The most flexible type of filter supported by subscriptions is the <bpt id="2a938220-4660-4df8-9985-c5beececa8d8">&lt;strong&gt;</bpt>SqlFilter<ept id="2a938220-4660-4df8-9985-c5beececa8d8">&lt;/strong&gt;</ept>, which implements a subset of SQL92.</target>
+        </trans-unit>
+        <trans-unit id="ee3ed0b3-b7f7-4a48-9dce-ae6dc605f49a" xml:space="preserve">
+          <source>SQL filters operate on the properties of the messages that are published to the topic.</source>
+          <target state="new">SQL filters operate on the properties of the messages that are published to the topic.</target>
+        </trans-unit>
+        <trans-unit id="d56d14ff-ebca-4843-9926-205d435249a7" xml:space="preserve">
+          <source>For more information about SqlFilters, see <bpt id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;linkText&gt;</bpt>SqlFilter.SqlExpression Property[sqlfilter]<ept id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;/linkText&gt;</ept><bpt id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;title&gt;</bpt><ept id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about SqlFilters, see <bpt id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;linkText&gt;</bpt>SqlFilter.SqlExpression Property[sqlfilter]<ept id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;/linkText&gt;</ept><bpt id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;title&gt;</bpt><ept id="85ead164-fe22-4a2d-a3d4-8aeaaad0d5b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00de1955-1c6c-45e4-97f1-96f556c1aa59" xml:space="preserve">
+          <source>Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription.</source>
+          <target state="new">Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription.</target>
+        </trans-unit>
+        <trans-unit id="78b9b4e3-9d96-4910-afe2-9fdf6ca985e4" xml:space="preserve">
+          <source>In addition, each new subscription has a default <bpt id="d543c8d5-6845-4cd7-9edd-613fa3f7beb7">&lt;strong&gt;</bpt>Rule<ept id="d543c8d5-6845-4cd7-9edd-613fa3f7beb7">&lt;/strong&gt;</ept> object with a filter that adds all messages from the topic to the subscription.</source>
+          <target state="new">In addition, each new subscription has a default <bpt id="d543c8d5-6845-4cd7-9edd-613fa3f7beb7">&lt;strong&gt;</bpt>Rule<ept id="d543c8d5-6845-4cd7-9edd-613fa3f7beb7">&lt;/strong&gt;</ept> object with a filter that adds all messages from the topic to the subscription.</target>
+        </trans-unit>
+        <trans-unit id="da9ea2ff-4deb-44d1-926e-0335287399ce" xml:space="preserve">
+          <source>To receive only messages matching your filter, you must remove the default rule.</source>
+          <target state="new">To receive only messages matching your filter, you must remove the default rule.</target>
+        </trans-unit>
+        <trans-unit id="f43798ba-0fbf-4534-86a7-95719700ad0c" xml:space="preserve">
+          <source>You can remove the default rule by using the <bpt id="ac440173-a24c-4118-9322-d05b4b91afd5">&lt;code&gt;</bpt>ServiceBusRestProxy-&gt;deleteRule<ept id="ac440173-a24c-4118-9322-d05b4b91afd5">&lt;/code&gt;</ept> method.</source>
+          <target state="new">You can remove the default rule by using the <bpt id="ac440173-a24c-4118-9322-d05b4b91afd5">&lt;code&gt;</bpt>ServiceBusRestProxy-&gt;deleteRule<ept id="ac440173-a24c-4118-9322-d05b4b91afd5">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="869c6772-c3b6-4856-a84e-1ac131aa60ba" xml:space="preserve">
+          <source>The following example creates a subscription named <bpt id="17ccc9f3-96a3-47f3-bcf5-9cd5bf00f8a8">&lt;strong&gt;</bpt>HighMessages<ept id="17ccc9f3-96a3-47f3-bcf5-9cd5bf00f8a8">&lt;/strong&gt;</ept> with a <bpt id="9b8aa4fb-59d1-46bc-8175-8c9d3481741d">&lt;strong&gt;</bpt>SqlFilter<ept id="9b8aa4fb-59d1-46bc-8175-8c9d3481741d">&lt;/strong&gt;</ept> that only selects messages that have a custom <bpt id="a3916219-5753-42c5-a0d4-dc6de1629d6f">&lt;strong&gt;</bpt>MessageNumber<ept id="a3916219-5753-42c5-a0d4-dc6de1629d6f">&lt;/strong&gt;</ept> property greater than 3 (see <bpt id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;linkText&gt;</bpt>How to: Send messages to a topic<ept id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;/linkText&gt;</ept><bpt id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;title&gt;</bpt><ept id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;/title&gt;</ept> for information about adding custom properties to messages):</source>
+          <target state="new">The following example creates a subscription named <bpt id="17ccc9f3-96a3-47f3-bcf5-9cd5bf00f8a8">&lt;strong&gt;</bpt>HighMessages<ept id="17ccc9f3-96a3-47f3-bcf5-9cd5bf00f8a8">&lt;/strong&gt;</ept> with a <bpt id="9b8aa4fb-59d1-46bc-8175-8c9d3481741d">&lt;strong&gt;</bpt>SqlFilter<ept id="9b8aa4fb-59d1-46bc-8175-8c9d3481741d">&lt;/strong&gt;</ept> that only selects messages that have a custom <bpt id="a3916219-5753-42c5-a0d4-dc6de1629d6f">&lt;strong&gt;</bpt>MessageNumber<ept id="a3916219-5753-42c5-a0d4-dc6de1629d6f">&lt;/strong&gt;</ept> property greater than 3 (see <bpt id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;linkText&gt;</bpt>How to: Send messages to a topic<ept id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;/linkText&gt;</ept><bpt id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;title&gt;</bpt><ept id="0ef9450a-32dc-4f09-9b61-65c5c8ad60a3">&lt;/title&gt;</ept> for information about adding custom properties to messages):</target>
+        </trans-unit>
+        <trans-unit id="3291a032-8c04-4498-9bce-3561874d81ac" xml:space="preserve">
+          <source>Note that the code above requires the use of an additional namespace: <bpt id="b191eea7-adc5-4c01-87fc-96ef12a3967e">&lt;code&gt;</bpt>WindowsAzure\ServiceBus\Models\SubscriptionInfo<ept id="b191eea7-adc5-4c01-87fc-96ef12a3967e">&lt;/code&gt;</ept>.</source>
+          <target state="new">Note that the code above requires the use of an additional namespace: <bpt id="b191eea7-adc5-4c01-87fc-96ef12a3967e">&lt;code&gt;</bpt>WindowsAzure\ServiceBus\Models\SubscriptionInfo<ept id="b191eea7-adc5-4c01-87fc-96ef12a3967e">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d27f65e-c567-4dcd-95cb-f330855796b6" xml:space="preserve">
+          <source>Similarly, the following example creates a subscription named <bpt id="a8adb859-c6a7-42ce-8e1b-d82de9b5467b">&lt;strong&gt;</bpt>LowMessages<ept id="a8adb859-c6a7-42ce-8e1b-d82de9b5467b">&lt;/strong&gt;</ept> with a <bpt id="6885434a-52f7-48de-845d-3a217e1999c3">&lt;strong&gt;</bpt>SqlFilter<ept id="6885434a-52f7-48de-845d-3a217e1999c3">&lt;/strong&gt;</ept> that only selects messages that have a <bpt id="3a4ab525-82fe-4380-a537-991253dae4da">&lt;strong&gt;</bpt>MessageNumber<ept id="3a4ab525-82fe-4380-a537-991253dae4da">&lt;/strong&gt;</ept> property less than or equal to 3:</source>
+          <target state="new">Similarly, the following example creates a subscription named <bpt id="a8adb859-c6a7-42ce-8e1b-d82de9b5467b">&lt;strong&gt;</bpt>LowMessages<ept id="a8adb859-c6a7-42ce-8e1b-d82de9b5467b">&lt;/strong&gt;</ept> with a <bpt id="6885434a-52f7-48de-845d-3a217e1999c3">&lt;strong&gt;</bpt>SqlFilter<ept id="6885434a-52f7-48de-845d-3a217e1999c3">&lt;/strong&gt;</ept> that only selects messages that have a <bpt id="3a4ab525-82fe-4380-a537-991253dae4da">&lt;strong&gt;</bpt>MessageNumber<ept id="3a4ab525-82fe-4380-a537-991253dae4da">&lt;/strong&gt;</ept> property less than or equal to 3:</target>
+        </trans-unit>
+        <trans-unit id="db2f57e2-1967-44a6-a9c6-9b593984b29f" xml:space="preserve">
+          <source>Now, when a message is sent to the <bpt id="bf07011f-2593-4055-afb9-8f9433ab60a8">&lt;code&gt;</bpt>mytopic<ept id="bf07011f-2593-4055-afb9-8f9433ab60a8">&lt;/code&gt;</ept> topic, it is always delivered to receivers subscribed to the <bpt id="795dee79-1d6e-49c8-b653-4480bc4cd6b6">&lt;code&gt;</bpt>mysubscription<ept id="795dee79-1d6e-49c8-b653-4480bc4cd6b6">&lt;/code&gt;</ept> subscription, and selectively delivered to receivers subscribed to the <bpt id="f06bc930-f82f-474f-8384-e43af8593a94">&lt;code&gt;</bpt>HighMessages<ept id="f06bc930-f82f-474f-8384-e43af8593a94">&lt;/code&gt;</ept> and <bpt id="4e2ce2e9-35cf-4bb4-b5b9-4b1d5f9e6eb7">&lt;code&gt;</bpt>LowMessages<ept id="4e2ce2e9-35cf-4bb4-b5b9-4b1d5f9e6eb7">&lt;/code&gt;</ept> subscriptions (depending upon the message content).</source>
+          <target state="new">Now, when a message is sent to the <bpt id="bf07011f-2593-4055-afb9-8f9433ab60a8">&lt;code&gt;</bpt>mytopic<ept id="bf07011f-2593-4055-afb9-8f9433ab60a8">&lt;/code&gt;</ept> topic, it is always delivered to receivers subscribed to the <bpt id="795dee79-1d6e-49c8-b653-4480bc4cd6b6">&lt;code&gt;</bpt>mysubscription<ept id="795dee79-1d6e-49c8-b653-4480bc4cd6b6">&lt;/code&gt;</ept> subscription, and selectively delivered to receivers subscribed to the <bpt id="f06bc930-f82f-474f-8384-e43af8593a94">&lt;code&gt;</bpt>HighMessages<ept id="f06bc930-f82f-474f-8384-e43af8593a94">&lt;/code&gt;</ept> and <bpt id="4e2ce2e9-35cf-4bb4-b5b9-4b1d5f9e6eb7">&lt;code&gt;</bpt>LowMessages<ept id="4e2ce2e9-35cf-4bb4-b5b9-4b1d5f9e6eb7">&lt;/code&gt;</ept> subscriptions (depending upon the message content).</target>
+        </trans-unit>
+        <trans-unit id="e92809be-0640-42d7-90ba-5d40b925559f" xml:space="preserve">
+          <source>To send a message to a Service Bus topic, your application calls the <bpt id="815756b9-32e1-40ac-aa1b-6e919286b7ae">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;sendTopicMessage<ept id="815756b9-32e1-40ac-aa1b-6e919286b7ae">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To send a message to a Service Bus topic, your application calls the <bpt id="815756b9-32e1-40ac-aa1b-6e919286b7ae">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;sendTopicMessage<ept id="815756b9-32e1-40ac-aa1b-6e919286b7ae">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="8846adb9-bd9c-4e05-b362-150c23f8c557" xml:space="preserve">
+          <source>The following code shows how to send a message to the <bpt id="fb242676-6f3a-4910-bc77-92a45d89d361">&lt;code&gt;</bpt>mytopic<ept id="fb242676-6f3a-4910-bc77-92a45d89d361">&lt;/code&gt;</ept> topic previously created within the
+<bpt id="d5ce2ba4-e0b7-415e-98cf-71b7ce5fb9fe">&lt;code&gt;</bpt>MySBNamespace<ept id="d5ce2ba4-e0b7-415e-98cf-71b7ce5fb9fe">&lt;/code&gt;</ept> service namespace.</source>
+          <target state="new">The following code shows how to send a message to the <bpt id="fb242676-6f3a-4910-bc77-92a45d89d361">&lt;code&gt;</bpt>mytopic<ept id="fb242676-6f3a-4910-bc77-92a45d89d361">&lt;/code&gt;</ept> topic previously created within the
+<bpt id="d5ce2ba4-e0b7-415e-98cf-71b7ce5fb9fe">&lt;code&gt;</bpt>MySBNamespace<ept id="d5ce2ba4-e0b7-415e-98cf-71b7ce5fb9fe">&lt;/code&gt;</ept> service namespace.</target>
+        </trans-unit>
+        <trans-unit id="7ae1838b-5986-4585-9b94-06de12696fad" xml:space="preserve">
+          <source>Messages sent to Service Bus topics are instances of the <bpt id="a3fa2ace-01fc-4969-a445-cf30cc272669">&lt;strong&gt;</bpt>BrokeredMessage<ept id="a3fa2ace-01fc-4969-a445-cf30cc272669">&lt;/strong&gt;</ept> class.</source>
+          <target state="new">Messages sent to Service Bus topics are instances of the <bpt id="a3fa2ace-01fc-4969-a445-cf30cc272669">&lt;strong&gt;</bpt>BrokeredMessage<ept id="a3fa2ace-01fc-4969-a445-cf30cc272669">&lt;/strong&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="19437a37-b2b9-45b5-83c4-d47f34612603" xml:space="preserve">
+          <source><bpt id="cd6d9bfe-7e2a-4b7b-a021-31dd6c56369b">&lt;strong&gt;</bpt>BrokeredMessage<ept id="cd6d9bfe-7e2a-4b7b-a021-31dd6c56369b">&lt;/strong&gt;</ept> objects have a set of standard properties and methods (such as <bpt id="ea2a7111-dcc5-477a-8698-fa96113b885d">&lt;strong&gt;</bpt>getLabel<ept id="ea2a7111-dcc5-477a-8698-fa96113b885d">&lt;/strong&gt;</ept>, <bpt id="be477fa2-2590-4307-9e6a-a653da9bf2a2">&lt;strong&gt;</bpt>getTimeToLive<ept id="be477fa2-2590-4307-9e6a-a653da9bf2a2">&lt;/strong&gt;</ept>, <bpt id="b46a239e-7423-4a29-9d93-b0fe3f1df09f">&lt;strong&gt;</bpt>setLabel<ept id="b46a239e-7423-4a29-9d93-b0fe3f1df09f">&lt;/strong&gt;</ept>, and <bpt id="029fc451-714a-4348-bb30-281ba03e4051">&lt;strong&gt;</bpt>setTimeToLive<ept id="029fc451-714a-4348-bb30-281ba03e4051">&lt;/strong&gt;</ept>), as well as properties that can be used to hold custom application-specific properties.</source>
+          <target state="new"><bpt id="cd6d9bfe-7e2a-4b7b-a021-31dd6c56369b">&lt;strong&gt;</bpt>BrokeredMessage<ept id="cd6d9bfe-7e2a-4b7b-a021-31dd6c56369b">&lt;/strong&gt;</ept> objects have a set of standard properties and methods (such as <bpt id="ea2a7111-dcc5-477a-8698-fa96113b885d">&lt;strong&gt;</bpt>getLabel<ept id="ea2a7111-dcc5-477a-8698-fa96113b885d">&lt;/strong&gt;</ept>, <bpt id="be477fa2-2590-4307-9e6a-a653da9bf2a2">&lt;strong&gt;</bpt>getTimeToLive<ept id="be477fa2-2590-4307-9e6a-a653da9bf2a2">&lt;/strong&gt;</ept>, <bpt id="b46a239e-7423-4a29-9d93-b0fe3f1df09f">&lt;strong&gt;</bpt>setLabel<ept id="b46a239e-7423-4a29-9d93-b0fe3f1df09f">&lt;/strong&gt;</ept>, and <bpt id="029fc451-714a-4348-bb30-281ba03e4051">&lt;strong&gt;</bpt>setTimeToLive<ept id="029fc451-714a-4348-bb30-281ba03e4051">&lt;/strong&gt;</ept>), as well as properties that can be used to hold custom application-specific properties.</target>
+        </trans-unit>
+        <trans-unit id="06df77c9-498f-4c5e-a4c8-f40812bdf24c" xml:space="preserve">
+          <source>The following example shows how to send 5 test messages to the <bpt id="a3ff7e20-318a-4120-b7b0-3f0ba558c3b8">&lt;code&gt;</bpt>mytopic<ept id="a3ff7e20-318a-4120-b7b0-3f0ba558c3b8">&lt;/code&gt;</ept> topic previously created.</source>
+          <target state="new">The following example shows how to send 5 test messages to the <bpt id="a3ff7e20-318a-4120-b7b0-3f0ba558c3b8">&lt;code&gt;</bpt>mytopic<ept id="a3ff7e20-318a-4120-b7b0-3f0ba558c3b8">&lt;/code&gt;</ept> topic previously created.</target>
+        </trans-unit>
+        <trans-unit id="d7abab34-4242-4eed-a861-474be1b793cf" xml:space="preserve">
+          <source>The <bpt id="0d32ee52-1910-4800-89cf-13539dd6aa06">&lt;strong&gt;</bpt>setProperty<ept id="0d32ee52-1910-4800-89cf-13539dd6aa06">&lt;/strong&gt;</ept> method is used to add a custom property (<bpt id="0716ebe5-20ea-472b-830b-7a89c6cd92da">&lt;code&gt;</bpt>MessageNumber<ept id="0716ebe5-20ea-472b-830b-7a89c6cd92da">&lt;/code&gt;</ept>) to each message.</source>
+          <target state="new">The <bpt id="0d32ee52-1910-4800-89cf-13539dd6aa06">&lt;strong&gt;</bpt>setProperty<ept id="0d32ee52-1910-4800-89cf-13539dd6aa06">&lt;/strong&gt;</ept> method is used to add a custom property (<bpt id="0716ebe5-20ea-472b-830b-7a89c6cd92da">&lt;code&gt;</bpt>MessageNumber<ept id="0716ebe5-20ea-472b-830b-7a89c6cd92da">&lt;/code&gt;</ept>) to each message.</target>
+        </trans-unit>
+        <trans-unit id="7416681d-e3a1-4168-8342-2537ca4ce83d" xml:space="preserve">
+          <source>Note that the <bpt id="e705f41c-4ed6-4d10-91e4-dfdfa108d2bf">&lt;code&gt;</bpt>MessageNumber<ept id="e705f41c-4ed6-4d10-91e4-dfdfa108d2bf">&lt;/code&gt;</ept> property value varies on each message (you can use this value to determine which subscriptions receive it, as shown in the <bpt id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;linkText&gt;</bpt>How to: Create a Subscription<ept id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;/linkText&gt;</ept><bpt id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;title&gt;</bpt><ept id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;/title&gt;</ept> section):</source>
+          <target state="new">Note that the <bpt id="e705f41c-4ed6-4d10-91e4-dfdfa108d2bf">&lt;code&gt;</bpt>MessageNumber<ept id="e705f41c-4ed6-4d10-91e4-dfdfa108d2bf">&lt;/code&gt;</ept> property value varies on each message (you can use this value to determine which subscriptions receive it, as shown in the <bpt id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;linkText&gt;</bpt>How to: Create a Subscription<ept id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;/linkText&gt;</ept><bpt id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;title&gt;</bpt><ept id="a283754b-d11b-447d-b8a0-b3bb7af5d7db">&lt;/title&gt;</ept> section):</target>
+        </trans-unit>
+        <trans-unit id="988ca84b-2ef9-47c9-a2aa-d3d65adfdd67" xml:space="preserve">
+          <source>Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB).</source>
+          <target state="new">Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB).</target>
+        </trans-unit>
+        <trans-unit id="0f68ca1c-86fa-4bab-8cc5-321913283259" xml:space="preserve">
+          <source>There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue.</source>
+          <target state="new">There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue.</target>
+        </trans-unit>
+        <trans-unit id="91684290-00e4-402e-a07c-a80f8f497a12" xml:space="preserve">
+          <source>This upper limit on queue size is 5 GB.</source>
+          <target state="new">This upper limit on queue size is 5 GB.</target>
+        </trans-unit>
+        <trans-unit id="6f561c48-6a41-40f1-bfc6-e9f79f7c2590" xml:space="preserve">
+          <source>The best way to receive messages from a subscription is to use a <bpt id="fbb974b8-f9bb-428d-9f09-7751acdd69f2">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;receiveSubscriptionMessage<ept id="fbb974b8-f9bb-428d-9f09-7751acdd69f2">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">The best way to receive messages from a subscription is to use a <bpt id="fbb974b8-f9bb-428d-9f09-7751acdd69f2">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;receiveSubscriptionMessage<ept id="fbb974b8-f9bb-428d-9f09-7751acdd69f2">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="6982e2ec-b5f9-4ad5-844e-4c917b426bb4" xml:space="preserve">
+          <source>Received messages can work in two different modes: <bpt id="f4e668e7-7ff0-495d-b8b5-8e9599f71d7e">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="f4e668e7-7ff0-495d-b8b5-8e9599f71d7e">&lt;/strong&gt;</ept> (the default) and <bpt id="7b887274-32cd-45a5-be03-06ea9a035bc0">&lt;strong&gt;</bpt>PeekLock<ept id="7b887274-32cd-45a5-be03-06ea9a035bc0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Received messages can work in two different modes: <bpt id="f4e668e7-7ff0-495d-b8b5-8e9599f71d7e">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="f4e668e7-7ff0-495d-b8b5-8e9599f71d7e">&lt;/strong&gt;</ept> (the default) and <bpt id="7b887274-32cd-45a5-be03-06ea9a035bc0">&lt;strong&gt;</bpt>PeekLock<ept id="7b887274-32cd-45a5-be03-06ea9a035bc0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2a4dfac4-0f50-4114-acc8-c8869b9cd74b" xml:space="preserve">
+          <source>When using the <bpt id="0e522c3b-b365-4821-becd-89eb76cd21a3">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="0e522c3b-b365-4821-becd-89eb76cd21a3">&lt;/strong&gt;</ept> mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a subscription, it marks the message as being consumed and returns it to the application.</source>
+          <target state="new">When using the <bpt id="0e522c3b-b365-4821-becd-89eb76cd21a3">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="0e522c3b-b365-4821-becd-89eb76cd21a3">&lt;/strong&gt;</ept> mode, receive is a single-shot operation - that is, when Service Bus receives a read request for a message in a subscription, it marks the message as being consumed and returns it to the application.</target>
+        </trans-unit>
+        <trans-unit id="458bd118-4cc7-4504-b5b7-eb623dcee12a" xml:space="preserve">
+          <source><bpt id="68a02e95-e3ae-4ca0-b332-27c579f89f43">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="68a02e95-e3ae-4ca0-b332-27c579f89f43">&lt;/strong&gt;</ept> mode is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a failure.</source>
+          <target state="new"><bpt id="68a02e95-e3ae-4ca0-b332-27c579f89f43">&lt;strong&gt;</bpt>ReceiveAndDelete<ept id="68a02e95-e3ae-4ca0-b332-27c579f89f43">&lt;/strong&gt;</ept> mode is the simplest model and works best for scenarios in which an
+application can tolerate not processing a message in the event of a failure.</target>
+        </trans-unit>
+        <trans-unit id="eba8a57f-1050-44c9-8b17-363cf23fda3e" xml:space="preserve">
+          <source>To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it.</source>
+          <target state="new">To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it.</target>
+        </trans-unit>
+        <trans-unit id="80033b7e-2305-47b2-b165-9ee883f8d522" xml:space="preserve">
+          <source>Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.</source>
+          <target state="new">Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.</target>
+        </trans-unit>
+        <trans-unit id="d16530bd-2183-4a1b-b152-71ae37ec8bc8" xml:space="preserve">
+          <source>In <bpt id="9e0cb8f7-1ed3-446b-b2b7-20ffa73b47ac">&lt;strong&gt;</bpt>PeekLock<ept id="9e0cb8f7-1ed3-446b-b2b7-20ffa73b47ac">&lt;/strong&gt;</ept> mode, receiving a message becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages.</source>
+          <target state="new">In <bpt id="9e0cb8f7-1ed3-446b-b2b7-20ffa73b47ac">&lt;strong&gt;</bpt>PeekLock<ept id="9e0cb8f7-1ed3-446b-b2b7-20ffa73b47ac">&lt;/strong&gt;</ept> mode, receiving a message becomes a two stage operation, which makes it possible to support applications that cannot tolerate missing messages.</target>
+        </trans-unit>
+        <trans-unit id="8aa45fec-0fcc-4927-81ef-3c6ef6281687" xml:space="preserve">
+          <source>When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application.</source>
+          <target state="new">When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application.</target>
+        </trans-unit>
+        <trans-unit id="d7f9babd-ed07-4ac9-bbe5-3e3e7433d40c" xml:space="preserve">
+          <source>After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by passing the received message to <bpt id="559c2b6b-b16b-47d5-bd49-f995ef7ecd3c">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteMessage<ept id="559c2b6b-b16b-47d5-bd49-f995ef7ecd3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by passing the received message to <bpt id="559c2b6b-b16b-47d5-bd49-f995ef7ecd3c">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteMessage<ept id="559c2b6b-b16b-47d5-bd49-f995ef7ecd3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61581d7f-f071-41ad-b67e-18e1eb05aad9" xml:space="preserve">
+          <source>When Service Bus sees the <bpt id="6a347b57-eab0-4c80-89da-7e519ef448a8">&lt;strong&gt;</bpt>deleteMessage<ept id="6a347b57-eab0-4c80-89da-7e519ef448a8">&lt;/strong&gt;</ept> call, it will mark the message as being consumed and remove it from the queue.</source>
+          <target state="new">When Service Bus sees the <bpt id="6a347b57-eab0-4c80-89da-7e519ef448a8">&lt;strong&gt;</bpt>deleteMessage<ept id="6a347b57-eab0-4c80-89da-7e519ef448a8">&lt;/strong&gt;</ept> call, it will mark the message as being consumed and remove it from the queue.</target>
+        </trans-unit>
+        <trans-unit id="f6ec8c49-793f-4897-b225-51880273df54" xml:space="preserve">
+          <source>The following example shows how a message can be received and processed using <bpt id="1ec559e5-ad1d-4141-869a-4a227a06057a">&lt;strong&gt;</bpt>PeekLock<ept id="1ec559e5-ad1d-4141-869a-4a227a06057a">&lt;/strong&gt;</ept> mode (not the default mode).</source>
+          <target state="new">The following example shows how a message can be received and processed using <bpt id="1ec559e5-ad1d-4141-869a-4a227a06057a">&lt;strong&gt;</bpt>PeekLock<ept id="1ec559e5-ad1d-4141-869a-4a227a06057a">&lt;/strong&gt;</ept> mode (not the default mode).</target>
+        </trans-unit>
+        <trans-unit id="384bc675-135a-48bf-9f81-578b9ef04546" xml:space="preserve">
+          <source>Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message.</source>
+          <target state="new">Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message.</target>
+        </trans-unit>
+        <trans-unit id="e421643c-f0f6-4342-9a86-4b7f71de8b52" xml:space="preserve">
+          <source>If a receiver application is unable to process the message for some reason, then it can call the <bpt id="bdc66482-4d75-446f-8e04-6799707237f6">&lt;strong&gt;</bpt>unlockMessage<ept id="bdc66482-4d75-446f-8e04-6799707237f6">&lt;/strong&gt;</ept> method on the received message (instead of the <bpt id="578a9943-3f34-4308-b776-7cea6df59844">&lt;strong&gt;</bpt>deleteMessage<ept id="578a9943-3f34-4308-b776-7cea6df59844">&lt;/strong&gt;</ept> method).</source>
+          <target state="new">If a receiver application is unable to process the message for some reason, then it can call the <bpt id="bdc66482-4d75-446f-8e04-6799707237f6">&lt;strong&gt;</bpt>unlockMessage<ept id="bdc66482-4d75-446f-8e04-6799707237f6">&lt;/strong&gt;</ept> method on the received message (instead of the <bpt id="578a9943-3f34-4308-b776-7cea6df59844">&lt;strong&gt;</bpt>deleteMessage<ept id="578a9943-3f34-4308-b776-7cea6df59844">&lt;/strong&gt;</ept> method).</target>
+        </trans-unit>
+        <trans-unit id="b30046f5-3c32-4efa-8eb7-4af06943b8f7" xml:space="preserve">
+          <source>This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.</source>
+          <target state="new">This will cause Service Bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.</target>
+        </trans-unit>
+        <trans-unit id="41034d5e-1018-4dd9-9b68-5857c0d10046" xml:space="preserve">
+          <source>There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.</source>
+          <target state="new">There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.</target>
+        </trans-unit>
+        <trans-unit id="16aa027a-bc9f-4d3a-a7ee-7e3e9e76f0d3" xml:space="preserve">
+          <source>In the event that the application crashes after processing the message but before the <bpt id="5930b534-6ec4-4f33-a449-32f9caed8c65">&lt;strong&gt;</bpt>deleteMessage<ept id="5930b534-6ec4-4f33-a449-32f9caed8c65">&lt;/strong&gt;</ept> request is issued, then the message will be redelivered to the application when it restarts.</source>
+          <target state="new">In the event that the application crashes after processing the message but before the <bpt id="5930b534-6ec4-4f33-a449-32f9caed8c65">&lt;strong&gt;</bpt>deleteMessage<ept id="5930b534-6ec4-4f33-a449-32f9caed8c65">&lt;/strong&gt;</ept> request is issued, then the message will be redelivered to the application when it restarts.</target>
+        </trans-unit>
+        <trans-unit id="67e1750d-78e5-4329-9e29-df151b238a5a" xml:space="preserve">
+          <source>This is often called <bpt id="f2efb82b-410d-4877-a345-37b1ef82f591">&lt;strong&gt;</bpt>At Least Once Processing<ept id="f2efb82b-410d-4877-a345-37b1ef82f591">&lt;/strong&gt;</ept>; that is, each message is processed at least once but in certain situations the same message may be redelivered.</source>
+          <target state="new">This is often called <bpt id="f2efb82b-410d-4877-a345-37b1ef82f591">&lt;strong&gt;</bpt>At Least Once Processing<ept id="f2efb82b-410d-4877-a345-37b1ef82f591">&lt;/strong&gt;</ept>; that is, each message is processed at least once but in certain situations the same message may be redelivered.</target>
+        </trans-unit>
+        <trans-unit id="9b5fa7a8-72cb-472a-9cf1-0065759e092a" xml:space="preserve">
+          <source>If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to applications to handle duplicate message delivery.</source>
+          <target state="new">If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to applications to handle duplicate message delivery.</target>
+        </trans-unit>
+        <trans-unit id="dced36c9-c393-43bd-aa32-7f957091e17b" xml:space="preserve">
+          <source>This is often achieved using the <bpt id="ac39079f-2354-42c1-9607-2df5f2a87278">&lt;strong&gt;</bpt>getMessageId<ept id="ac39079f-2354-42c1-9607-2df5f2a87278">&lt;/strong&gt;</ept> method of the message, which remains constant across delivery attempts.</source>
+          <target state="new">This is often achieved using the <bpt id="ac39079f-2354-42c1-9607-2df5f2a87278">&lt;strong&gt;</bpt>getMessageId<ept id="ac39079f-2354-42c1-9607-2df5f2a87278">&lt;/strong&gt;</ept> method of the message, which remains constant across delivery attempts.</target>
+        </trans-unit>
+        <trans-unit id="15e2969f-e14c-4e21-b77e-9004b846a8f3" xml:space="preserve">
+          <source>To delete a topic or a subscription, use the <bpt id="df7b7173-aeda-41c1-9cc8-1e3636f37e35">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteTopic<ept id="df7b7173-aeda-41c1-9cc8-1e3636f37e35">&lt;/strong&gt;</ept> or the <bpt id="18ff0734-6d9d-48f2-9651-c28a308bb7e3">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteSubscripton<ept id="18ff0734-6d9d-48f2-9651-c28a308bb7e3">&lt;/strong&gt;</ept> methods, respectively.</source>
+          <target state="new">To delete a topic or a subscription, use the <bpt id="df7b7173-aeda-41c1-9cc8-1e3636f37e35">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteTopic<ept id="df7b7173-aeda-41c1-9cc8-1e3636f37e35">&lt;/strong&gt;</ept> or the <bpt id="18ff0734-6d9d-48f2-9651-c28a308bb7e3">&lt;strong&gt;</bpt>ServiceBusRestProxy-&gt;deleteSubscripton<ept id="18ff0734-6d9d-48f2-9651-c28a308bb7e3">&lt;/strong&gt;</ept> methods, respectively.</target>
+        </trans-unit>
+        <trans-unit id="d0a9b9a7-6fa2-46de-a7f0-fcdf39d056b3" xml:space="preserve">
+          <source>Note that deleting a topic also deletes any subscriptions that are registered with the topic.</source>
+          <target state="new">Note that deleting a topic also deletes any subscriptions that are registered with the topic.</target>
+        </trans-unit>
+        <trans-unit id="dceaddfe-9b4f-4795-b3f1-67707cc3c514" xml:space="preserve">
+          <source>The following example shows how to delete a topic (<bpt id="cf53f556-d4d8-4ace-ae16-ad95e9b841e8">&lt;code&gt;</bpt>mytopic<ept id="cf53f556-d4d8-4ace-ae16-ad95e9b841e8">&lt;/code&gt;</ept>) and its registered subscriptions.</source>
+          <target state="new">The following example shows how to delete a topic (<bpt id="cf53f556-d4d8-4ace-ae16-ad95e9b841e8">&lt;code&gt;</bpt>mytopic<ept id="cf53f556-d4d8-4ace-ae16-ad95e9b841e8">&lt;/code&gt;</ept>) and its registered subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="6d734885-3d86-4736-9944-ddd2a9dbff62" xml:space="preserve">
+          <source>By using the <bpt id="4a68e071-07a5-4f78-9e90-e491f3b901b9">&lt;strong&gt;</bpt>deleteSubscription<ept id="4a68e071-07a5-4f78-9e90-e491f3b901b9">&lt;/strong&gt;</ept> method, you can delete a subscription independently:</source>
+          <target state="new">By using the <bpt id="4a68e071-07a5-4f78-9e90-e491f3b901b9">&lt;strong&gt;</bpt>deleteSubscription<ept id="4a68e071-07a5-4f78-9e90-e491f3b901b9">&lt;/strong&gt;</ept> method, you can delete a subscription independently:</target>
+        </trans-unit>
+        <trans-unit id="7411e195-cf61-437f-8fc0-085bbfb14639" xml:space="preserve">
+          <source>Now that you've learned the basics of Service Bus queues, see the MSDN topic <bpt id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;/linkText&gt;</ept><bpt id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;title&gt;</bpt><ept id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Now that you've learned the basics of Service Bus queues, see the MSDN topic <bpt id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;/linkText&gt;</ept><bpt id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;title&gt;</bpt><ept id="a955ef3a-6d77-429a-867d-59cc644eeab2">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="2e918df1-da5b-4821-a350-390d434cd389" xml:space="preserve">
+          <source>#bkmk_WhatAreSvcBusTopics</source>
+          <target state="new">#bkmk_WhatAreSvcBusTopics</target>
+        </trans-unit>
+        <trans-unit id="81b934ea-abe8-4560-b0a4-309acca38c21" xml:space="preserve">
+          <source>#bkmk_CreateSvcNamespace</source>
+          <target state="new">#bkmk_CreateSvcNamespace</target>
+        </trans-unit>
+        <trans-unit id="7a717a68-69f5-4693-8326-e56cc74656d5" xml:space="preserve">
+          <source>#bkmk_ObtainDefaultMngmntCredentials</source>
+          <target state="new">#bkmk_ObtainDefaultMngmntCredentials</target>
+        </trans-unit>
+        <trans-unit id="761fad81-ce76-46c5-8ee9-0ab9b9e5b867" xml:space="preserve">
+          <source>#bkmk_ConfigYourApp</source>
+          <target state="new">#bkmk_ConfigYourApp</target>
+        </trans-unit>
+        <trans-unit id="ccfb5e55-bf1e-45b2-a9f5-feea42cc1bdb" xml:space="preserve">
+          <source>#bkmk_HowToCreateTopic</source>
+          <target state="new">#bkmk_HowToCreateTopic</target>
+        </trans-unit>
+        <trans-unit id="32ffbf76-08c4-4225-82a3-b4f58cd23900" xml:space="preserve">
+          <source>#bkmk_HowToCreateSubscrip</source>
+          <target state="new">#bkmk_HowToCreateSubscrip</target>
+        </trans-unit>
+        <trans-unit id="ca983888-337a-4add-aef4-3f80341abb84" xml:space="preserve">
+          <source>#bkmk_HowToSendMsgs</source>
+          <target state="new">#bkmk_HowToSendMsgs</target>
+        </trans-unit>
+        <trans-unit id="d92a080b-a40f-4cdb-b074-bf84278012e6" xml:space="preserve">
+          <source>#bkmk_HowToReceiveMsgs</source>
+          <target state="new">#bkmk_HowToReceiveMsgs</target>
+        </trans-unit>
+        <trans-unit id="57f79c4b-0bc8-4cac-85ff-93b9be8003b4" xml:space="preserve">
+          <source>#bkmk_HowToHandleAppCrash</source>
+          <target state="new">#bkmk_HowToHandleAppCrash</target>
+        </trans-unit>
+        <trans-unit id="d03f4c0a-2935-4a3f-b043-44661cf7d8d9" xml:space="preserve">
+          <source>#bkmk_HowToDeleteTopics</source>
+          <target state="new">#bkmk_HowToDeleteTopics</target>
+        </trans-unit>
+        <trans-unit id="98e25451-611b-493e-968d-158eba74aab0" xml:space="preserve">
+          <source>#bkmk_NextSteps</source>
+          <target state="new">#bkmk_NextSteps</target>
+        </trans-unit>
+        <trans-unit id="69ade731-674f-4785-9096-fc6084c64334" xml:space="preserve">
+          <source>../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg</source>
+          <target state="new">../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg</target>
+        </trans-unit>
+        <trans-unit id="bd508190-928a-418e-a68b-630fd1b79ada" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="84aa7847-f155-4f34-9254-187e5e60e168" xml:space="preserve">
+          <source>../../../DevCenter/dotNet/Media/sb-queues-03.png</source>
+          <target state="new">../../../DevCenter/dotNet/Media/sb-queues-03.png</target>
+        </trans-unit>
+        <trans-unit id="edba591f-6359-4cf4-a83d-a9c6579fdc4c" xml:space="preserve">
+          <source>../../../DevCenter/dotNet/Media/sb-queues-04.png</source>
+          <target state="new">../../../DevCenter/dotNet/Media/sb-queues-04.png</target>
+        </trans-unit>
+        <trans-unit id="1db4c984-cba6-4958-ac5e-bedef334109b" xml:space="preserve">
+          <source>../../../DevCenter/dotNet/Media/sb-queues-05.png</source>
+          <target state="new">../../../DevCenter/dotNet/Media/sb-queues-05.png</target>
+        </trans-unit>
+        <trans-unit id="1e2a06c5-beb0-4466-94b3-a3920460ddbf" xml:space="preserve">
+          <source>../../../DevCenter/dotNet/Media/sb-queues-06.png</source>
+          <target state="new">../../../DevCenter/dotNet/Media/sb-queues-06.png</target>
+        </trans-unit>
+        <trans-unit id="77189823-1cc9-45c8-9a73-7e0ca5e6291d" xml:space="preserve">
+          <source>../../../DevCenter/dotNet/Media/sb-queues-07.png</source>
+          <target state="new">../../../DevCenter/dotNet/Media/sb-queues-07.png</target>
+        </trans-unit>
+        <trans-unit id="44c033a4-5ddd-4258-b916-749305eb4c97" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/hh367516.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/hh367516.aspx</target>
+        </trans-unit>
+        <trans-unit id="6b81901d-7698-4c2c-a05b-088cf0c3bede" xml:space="preserve">
+          <source>../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg</source>
+          <target state="new">../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg</target>
+        </trans-unit>
+        <trans-unit id="f844b8b4-6c06-40d0-bc1c-f478b43e2b03" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx</target>
+        </trans-unit>
+        <trans-unit id="3788a3e6-e85f-4195-88c8-7e8104566160" xml:space="preserve">
+          <source>http://php.net/require_once</source>
+          <target state="new">http://php.net/require_once</target>
+        </trans-unit>
+      </group>
+      <group id="9f90c90d-1cf0-43d6-9d87-05e87d95b311" />
+    </body>
+  </file>
+</xliff>

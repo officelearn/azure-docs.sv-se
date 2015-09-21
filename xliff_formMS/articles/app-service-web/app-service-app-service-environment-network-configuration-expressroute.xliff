@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bdd6c8b7-4504-41dd-9425-413f42df8470" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bdd6c8b7-4504-41dd-9425-413f42df8470" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="35cba749-cacf-45db-bb25-7151c966a0e5">
+        <trans-unit id="6094f86b-71a6-4e07-a217-0188d43be5f2" xml:space="preserve">
+          <source>Network Configuration Details for Working with Express Route</source>
+          <target state="new">Network Configuration Details for Working with Express Route</target>
+        </trans-unit>
+        <trans-unit id="13d5eac0-0610-409b-ad57-e750223e4455" xml:space="preserve">
+          <source>Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit.</source>
+          <target state="new">Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit.</target>
+        </trans-unit>
+        <trans-unit id="575b719f-59b7-4594-82c6-15dc238c6391" xml:space="preserve">
+          <source>Customers can connect an <bpt id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;linkText&gt;</bpt>Azure ExpressRoute[expressroute]<ept id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;/linkText&gt;</ept><bpt id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;title&gt;</bpt><ept id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;/title&gt;</ept> circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.</source>
+          <target state="new">Customers can connect an <bpt id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;linkText&gt;</bpt>Azure ExpressRoute[expressroute]<ept id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;/linkText&gt;</ept><bpt id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;title&gt;</bpt><ept id="b7364792-17ee-4999-bf4a-5ecf6d9129f0">&lt;/title&gt;</ept> circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.</target>
+        </trans-unit>
+        <trans-unit id="c18f48c6-7295-4862-b9e7-12187e4b10be" xml:space="preserve">
+          <source>An App Service Environment can  be created in a subnet of this <bpt id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;linkText&gt;</bpt>virtual network[virtualnetwork]<ept id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;/linkText&gt;</ept><bpt id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;title&gt;</bpt><ept id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;/title&gt;</ept> infrastructure.</source>
+          <target state="new">An App Service Environment can  be created in a subnet of this <bpt id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;linkText&gt;</bpt>virtual network[virtualnetwork]<ept id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;/linkText&gt;</ept><bpt id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;title&gt;</bpt><ept id="fe434884-d640-439d-af0f-e2c98defb9cb">&lt;/title&gt;</ept> infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="e428436e-384a-4288-971c-1a2290f0d807" xml:space="preserve">
+          <source>Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.</source>
+          <target state="new">Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.</target>
+        </trans-unit>
+        <trans-unit id="c1752ba6-c79b-4a86-bb0b-812994cb5ede" xml:space="preserve">
+          <source>There are network connectivity requirements for App Service Environments that may not be initially met in a virtual network connected to an ExpressRoute.</source>
+          <target state="new">There are network connectivity requirements for App Service Environments that may not be initially met in a virtual network connected to an ExpressRoute.</target>
+        </trans-unit>
+        <trans-unit id="040b75e2-1dac-42d2-a75e-39711a89a9ce" xml:space="preserve">
+          <source>App Service Environments require all of the following in order to function properly:</source>
+          <target state="new">App Service Environments require all of the following in order to function properly:</target>
+        </trans-unit>
+        <trans-unit id="809a535d-d89d-4a8e-8ebc-9f3e7de3285c" xml:space="preserve">
+          <source>Outbound network connectivity to both Azure Storage and Sql DB resources located in the same region as the App Service Environment.</source>
+          <target state="new">Outbound network connectivity to both Azure Storage and Sql DB resources located in the same region as the App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="e597efc9-c517-4cb3-805d-0d0f2f46eccc" xml:space="preserve">
+          <source>This network path cannot travel through internal corporate proxies because doing so will likely change the effective NAT address of the outbound network traffic.</source>
+          <target state="new">This network path cannot travel through internal corporate proxies because doing so will likely change the effective NAT address of the outbound network traffic.</target>
+        </trans-unit>
+        <trans-unit id="74fa8d25-cb51-43f6-aab6-4fcc02d9d8aa" xml:space="preserve">
+          <source>Changing the NAT address of an App Service Environment's outbound network traffic directed at Azure Storage and Sql DB endpoints will cause connectivity failures.</source>
+          <target state="new">Changing the NAT address of an App Service Environment's outbound network traffic directed at Azure Storage and Sql DB endpoints will cause connectivity failures.</target>
+        </trans-unit>
+        <trans-unit id="e7785398-eb1e-414b-ae4b-5ae84241b422" xml:space="preserve">
+          <source>The DNS configuration for the virtual network must be capable of resolving endpoints within the following Azure controlled domains:  <bpt id="3febe9e3-6ebd-4f0d-8065-173e266e632c">&lt;em&gt;</bpt>*.file.core.windows.net<ept id="3febe9e3-6ebd-4f0d-8065-173e266e632c">&lt;/em&gt;</ept>, <bpt id="ba02c387-2ca3-4e75-9ad1-db130ea47400">&lt;em&gt;</bpt>*.blob.core.windows.net<ept id="ba02c387-2ca3-4e75-9ad1-db130ea47400">&lt;/em&gt;</ept>, <bpt id="0bfb7018-44bd-45cd-827e-247488e339bd">&lt;em&gt;</bpt>*.database.windows.net<ept id="0bfb7018-44bd-45cd-827e-247488e339bd">&lt;/em&gt;</ept>.</source>
+          <target state="new">The DNS configuration for the virtual network must be capable of resolving endpoints within the following Azure controlled domains:  <bpt id="3febe9e3-6ebd-4f0d-8065-173e266e632c">&lt;em&gt;</bpt>*.file.core.windows.net<ept id="3febe9e3-6ebd-4f0d-8065-173e266e632c">&lt;/em&gt;</ept>, <bpt id="ba02c387-2ca3-4e75-9ad1-db130ea47400">&lt;em&gt;</bpt>*.blob.core.windows.net<ept id="ba02c387-2ca3-4e75-9ad1-db130ea47400">&lt;/em&gt;</ept>, <bpt id="0bfb7018-44bd-45cd-827e-247488e339bd">&lt;em&gt;</bpt>*.database.windows.net<ept id="0bfb7018-44bd-45cd-827e-247488e339bd">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7fd819df-f2fd-47ed-8b0b-daf1b201f002" xml:space="preserve">
+          <source>DNS configuration for the virtual network must remain stable whenever App Service Environments are created, as well as during re-configurations and scaling changes to App Service Environments.</source>
+          <target state="new">DNS configuration for the virtual network must remain stable whenever App Service Environments are created, as well as during re-configurations and scaling changes to App Service Environments.</target>
+        </trans-unit>
+        <trans-unit id="05701246-99f1-448a-bdcd-396d87aa09a0" xml:space="preserve">
+          <source>Inbound network access to required ports for App Service Environments must be allowed as described in this <bpt id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;linkText&gt;</bpt>article[requiredports]<ept id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;/linkText&gt;</ept><bpt id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;title&gt;</bpt><ept id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Inbound network access to required ports for App Service Environments must be allowed as described in this <bpt id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;linkText&gt;</bpt>article[requiredports]<ept id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;/linkText&gt;</ept><bpt id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;title&gt;</bpt><ept id="7e8d349a-66d7-443a-9b29-7d9f4655ca7e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faea5079-1eac-4e44-8dd3-f19bd913eb9b" xml:space="preserve">
+          <source>The DNS requirement can be met by ensuring a valid DNS configuration for the virtual network.</source>
+          <target state="new">The DNS requirement can be met by ensuring a valid DNS configuration for the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="0113a35b-584c-4b1b-ba93-69b3dbe255db" xml:space="preserve">
+          <source>The inbound network access requirements can be met by configuring a <bpt id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;linkText&gt;</bpt>network security group[networksecuritygroups]<ept id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;/linkText&gt;</ept><bpt id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;title&gt;</bpt><ept id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;/title&gt;</ept> on the App Service Environment's subnet to allow the required access as described in this <bpt id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;linkText&gt;</bpt>article[requiredports]<ept id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;/linkText&gt;</ept><bpt id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;title&gt;</bpt><ept id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;/title&gt;</ept>.</source>
+          <target state="new">The inbound network access requirements can be met by configuring a <bpt id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;linkText&gt;</bpt>network security group[networksecuritygroups]<ept id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;/linkText&gt;</ept><bpt id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;title&gt;</bpt><ept id="4dc90957-85b1-492f-a1a5-2ec6c2111a55">&lt;/title&gt;</ept> on the App Service Environment's subnet to allow the required access as described in this <bpt id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;linkText&gt;</bpt>article[requiredports]<ept id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;/linkText&gt;</ept><bpt id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;title&gt;</bpt><ept id="a8568e61-3bb0-4852-97b8-45b59b541b4c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74897fc2-0550-438e-9891-37462f08a430" xml:space="preserve">
+          <source>By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity.</source>
+          <target state="new">By default, a newly created ExpressRoute circuit advertises a default route that allows outbound Internet connectivity.</target>
+        </trans-unit>
+        <trans-unit id="676d8cad-a020-477c-aa98-2f76c510a86e" xml:space="preserve">
+          <source>With this configuration an App Service Environment will be able to connect to other Azure endpoints.</source>
+          <target state="new">With this configuration an App Service Environment will be able to connect to other Azure endpoints.</target>
+        </trans-unit>
+        <trans-unit id="15546fab-f8a3-46ee-ac95-6b7c7bdb19f9" xml:space="preserve">
+          <source>However a common customer configuration is to define their own default route which forces outbound Internet traffic to instead flow on-premises through a customer's proxy/firewall infrastructure.</source>
+          <target state="new">However a common customer configuration is to define their own default route which forces outbound Internet traffic to instead flow on-premises through a customer's proxy/firewall infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="0e5a1c8c-4470-4837-b7d7-4dda75c55628" xml:space="preserve">
+          <source>This traffic flow invariably breaks App Service Environments because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints.</source>
+          <target state="new">This traffic flow invariably breaks App Service Environments because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints.</target>
+        </trans-unit>
+        <trans-unit id="2155c6e0-1b54-4a90-ade9-25b8f9df0331" xml:space="preserve">
+          <source>The solution is to define one (or more) user defined routes (UDRs) on the subnet that contains the App Service Environment.</source>
+          <target state="new">The solution is to define one (or more) user defined routes (UDRs) on the subnet that contains the App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="b0adc4bb-716f-445b-ac91-0c5675d115db" xml:space="preserve">
+          <source>A UDR defines subnet-specific routes that will be honored instead of the default route.</source>
+          <target state="new">A UDR defines subnet-specific routes that will be honored instead of the default route.</target>
+        </trans-unit>
+        <trans-unit id="561bcc34-8b20-4638-aea3-f608b080c06b" xml:space="preserve">
+          <source>Background information on user defined routes is available in this <bpt id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;linkText&gt;</bpt>overview[udroverview]<ept id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;/linkText&gt;</ept><bpt id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;title&gt;</bpt><ept id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;/title&gt;</ept>.</source>
+          <target state="new">Background information on user defined routes is available in this <bpt id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;linkText&gt;</bpt>overview[udroverview]<ept id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;/linkText&gt;</ept><bpt id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;title&gt;</bpt><ept id="e899c601-0d0f-49a4-a7f7-b64d52dab8bd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e021703-1de5-446a-ae0f-83147ce8f9fe" xml:space="preserve">
+          <source>Details on creating and configuring user defined routes is available in this <bpt id="9f704e9c-8f67-4426-b955-510323a86941">&lt;linkText&gt;</bpt>How To Guide[udrhowto]<ept id="9f704e9c-8f67-4426-b955-510323a86941">&lt;/linkText&gt;</ept><bpt id="9f704e9c-8f67-4426-b955-510323a86941">&lt;title&gt;</bpt><ept id="9f704e9c-8f67-4426-b955-510323a86941">&lt;/title&gt;</ept>.</source>
+          <target state="new">Details on creating and configuring user defined routes is available in this <bpt id="9f704e9c-8f67-4426-b955-510323a86941">&lt;linkText&gt;</bpt>How To Guide[udrhowto]<ept id="9f704e9c-8f67-4426-b955-510323a86941">&lt;/linkText&gt;</ept><bpt id="9f704e9c-8f67-4426-b955-510323a86941">&lt;title&gt;</bpt><ept id="9f704e9c-8f67-4426-b955-510323a86941">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cee83b5f-17f2-44d5-aeed-c5307ff36173" xml:space="preserve">
+          <source><bpt id="46596d71-0171-420b-88d5-e8845e9437d4">&lt;strong&gt;</bpt>Pre-requisites<ept id="46596d71-0171-420b-88d5-e8845e9437d4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="46596d71-0171-420b-88d5-e8845e9437d4">&lt;strong&gt;</bpt>Pre-requisites<ept id="46596d71-0171-420b-88d5-e8845e9437d4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="069b2214-ecd1-4f23-b5fa-8bb96a2d21a4" xml:space="preserve">
+          <source>Install the very latest Azure Powershell from the <bpt id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;linkText&gt;</bpt>Azure Downloads page[azuredownloads]<ept id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;/linkText&gt;</ept><bpt id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;title&gt;</bpt><ept id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;/title&gt;</ept> (dated June 2015 or later).</source>
+          <target state="new">Install the very latest Azure Powershell from the <bpt id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;linkText&gt;</bpt>Azure Downloads page[azuredownloads]<ept id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;/linkText&gt;</ept><bpt id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;title&gt;</bpt><ept id="1f02792c-d411-4883-aa97-62259105f1a3">&lt;/title&gt;</ept> (dated June 2015 or later).</target>
+        </trans-unit>
+        <trans-unit id="4c993961-7574-4485-a0bb-61ad6aa8ce1b" xml:space="preserve">
+          <source>Under "Command-line tools" there is an "Install" link under "Windows Powershell" that will install the latest Powershell cmdlets.</source>
+          <target state="new">Under "Command-line tools" there is an "Install" link under "Windows Powershell" that will install the latest Powershell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="c275d6da-58e4-4929-af40-7bba94164722" xml:space="preserve">
+          <source>It is recommended that a unique subnet is created for exclusive use by an App Service Environment.</source>
+          <target state="new">It is recommended that a unique subnet is created for exclusive use by an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="a53f5aa9-89be-461f-a745-c4fa8187c8c2" xml:space="preserve">
+          <source>This ensures that the UDRs applied to the subnet will only open outbound traffic for the App Service Environment.</source>
+          <target state="new">This ensures that the UDRs applied to the subnet will only open outbound traffic for the App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="0abe7649-9c1f-4fa6-8da6-ef1dfdfa5209" xml:space="preserve">
+          <source><bpt id="f9341927-3038-4e67-85f1-e53b3ae0eafb">&lt;strong&gt;</bpt>Important<ept id="f9341927-3038-4e67-85f1-e53b3ae0eafb">&lt;/strong&gt;</ept>:  do not deploy the App Service Environment until <bpt id="f543d0f6-bd9f-49a0-9be8-79cdd64379b5">&lt;strong&gt;</bpt>after<ept id="f543d0f6-bd9f-49a0-9be8-79cdd64379b5">&lt;/strong&gt;</ept> the following configuration steps are followed.</source>
+          <target state="new"><bpt id="f9341927-3038-4e67-85f1-e53b3ae0eafb">&lt;strong&gt;</bpt>Important<ept id="f9341927-3038-4e67-85f1-e53b3ae0eafb">&lt;/strong&gt;</ept>:  do not deploy the App Service Environment until <bpt id="f543d0f6-bd9f-49a0-9be8-79cdd64379b5">&lt;strong&gt;</bpt>after<ept id="f543d0f6-bd9f-49a0-9be8-79cdd64379b5">&lt;/strong&gt;</ept> the following configuration steps are followed.</target>
+        </trans-unit>
+        <trans-unit id="8490161d-5353-418d-928a-0189fb023878" xml:space="preserve">
+          <source>This ensures that outbound network connectivity is available before attempting to deploy an App Service Environment.</source>
+          <target state="new">This ensures that outbound network connectivity is available before attempting to deploy an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="622f8b8e-15b8-48fc-823b-cd12263b7ecb" xml:space="preserve">
+          <source><bpt id="80a2281d-97ec-4c97-bce2-f889ddab9bb7">&lt;strong&gt;</bpt>Step 1:  Create a named route table<ept id="80a2281d-97ec-4c97-bce2-f889ddab9bb7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="80a2281d-97ec-4c97-bce2-f889ddab9bb7">&lt;strong&gt;</bpt>Step 1:  Create a named route table<ept id="80a2281d-97ec-4c97-bce2-f889ddab9bb7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14c0a023-b954-48da-ad98-4f123ee85337" xml:space="preserve">
+          <source>The following snippet creates a route table called "DirectInternetRouteTable" in the West US Azure region:</source>
+          <target state="new">The following snippet creates a route table called "DirectInternetRouteTable" in the West US Azure region:</target>
+        </trans-unit>
+        <trans-unit id="8f2bb64c-75fb-4af5-be81-4a21d9c64bb3" xml:space="preserve">
+          <source><bpt id="e511bf74-2ac8-4fbc-b867-45fe9b790cbe">&lt;strong&gt;</bpt>Step 2:  Create one or more routes in the route table<ept id="e511bf74-2ac8-4fbc-b867-45fe9b790cbe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e511bf74-2ac8-4fbc-b867-45fe9b790cbe">&lt;strong&gt;</bpt>Step 2:  Create one or more routes in the route table<ept id="e511bf74-2ac8-4fbc-b867-45fe9b790cbe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bbfe67a-a9de-49b6-abd6-efeb7147746e" xml:space="preserve">
+          <source>You will need to add one or more routes to the route table in order to enable outbound Internet access.</source>
+          <target state="new">You will need to add one or more routes to the route table in order to enable outbound Internet access.</target>
+        </trans-unit>
+        <trans-unit id="91febe79-7495-4e6d-83d8-84c273089a01" xml:space="preserve">
+          <source>The example below adds enough routes to cover all possible Azure addresses used in the West US region.</source>
+          <target state="new">The example below adds enough routes to cover all possible Azure addresses used in the West US region.</target>
+        </trans-unit>
+        <trans-unit id="e9a1192f-34c1-4917-b943-4bfa7b31931c" xml:space="preserve">
+          <source>For a comprehensive and updated list of CIDR ranges in use by Azure, you can download an Xml file containing all of the ranges from the <bpt id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;linkText&gt;</bpt>Microsoft Download Center[downloadcenteraddressranges]<ept id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;/linkText&gt;</ept><bpt id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;title&gt;</bpt><ept id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;/title&gt;</ept> </source>
+          <target state="new">For a comprehensive and updated list of CIDR ranges in use by Azure, you can download an Xml file containing all of the ranges from the <bpt id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;linkText&gt;</bpt>Microsoft Download Center[downloadcenteraddressranges]<ept id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;/linkText&gt;</ept><bpt id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;title&gt;</bpt><ept id="7f7ff2dd-cb1a-4008-b528-52bc6b1dc4fa">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="f72ba94d-c3e9-4023-9ac1-46b09101453b" xml:space="preserve">
+          <source><bpt id="f14be01e-e7f9-4fee-b5a6-7e57897bb3fe">&lt;strong&gt;</bpt>Note:<ept id="f14be01e-e7f9-4fee-b5a6-7e57897bb3fe">&lt;/strong&gt;</ept>  at some point an abbreviated CIDR short-hand of 0.0.0.0/0 will be available for use in the <bpt id="d504dc77-e870-498d-9ca1-0eba9b3b1a5b">&lt;em&gt;</bpt>AddressPrefix<ept id="d504dc77-e870-498d-9ca1-0eba9b3b1a5b">&lt;/em&gt;</ept> parameter.</source>
+          <target state="new"><bpt id="f14be01e-e7f9-4fee-b5a6-7e57897bb3fe">&lt;strong&gt;</bpt>Note:<ept id="f14be01e-e7f9-4fee-b5a6-7e57897bb3fe">&lt;/strong&gt;</ept>  at some point an abbreviated CIDR short-hand of 0.0.0.0/0 will be available for use in the <bpt id="d504dc77-e870-498d-9ca1-0eba9b3b1a5b">&lt;em&gt;</bpt>AddressPrefix<ept id="d504dc77-e870-498d-9ca1-0eba9b3b1a5b">&lt;/em&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="41f45543-4fbb-45fd-9a51-1c23e839e16b" xml:space="preserve">
+          <source>This short hand equates to "all Internet addresses".</source>
+          <target state="new">This short hand equates to "all Internet addresses".</target>
+        </trans-unit>
+        <trans-unit id="2bc1d0ba-8935-4f69-99a7-0e683f513ebd" xml:space="preserve">
+          <source>For now developers will need to instead use a broad set of CIDR ranges sufficient to cover all possible Azure address ranges used in the region where the App Service Environment has been deployed.</source>
+          <target state="new">For now developers will need to instead use a broad set of CIDR ranges sufficient to cover all possible Azure address ranges used in the region where the App Service Environment has been deployed.</target>
+        </trans-unit>
+        <trans-unit id="eec51fdc-2d2d-4753-a5a1-0717193df34c" xml:space="preserve">
+          <source><bpt id="aff4211f-a5d8-4935-a252-7e778830ffe9">&lt;strong&gt;</bpt>Step 3:  Associate the route table to the subnet containing the App Service Environment<ept id="aff4211f-a5d8-4935-a252-7e778830ffe9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="aff4211f-a5d8-4935-a252-7e778830ffe9">&lt;strong&gt;</bpt>Step 3:  Associate the route table to the subnet containing the App Service Environment<ept id="aff4211f-a5d8-4935-a252-7e778830ffe9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ab746f9-0e7d-4689-a9fd-271451478dcc" xml:space="preserve">
+          <source>The last  configuration step is to associate the route table to the subnet where the App Service Environment will be deployed.</source>
+          <target state="new">The last  configuration step is to associate the route table to the subnet where the App Service Environment will be deployed.</target>
+        </trans-unit>
+        <trans-unit id="4894b813-2163-4c5d-9d06-711b3a2ae15d" xml:space="preserve">
+          <source>The following command associates the "DirectInternetRouteTable" to the "ASESubnet" that will eventually contain an App Service Environment.</source>
+          <target state="new">The following command associates the "DirectInternetRouteTable" to the "ASESubnet" that will eventually contain an App Service Environment.</target>
+        </trans-unit>
+        <trans-unit id="a88eb1cd-46c3-48c2-8f15-bf39b9fc65b2" xml:space="preserve">
+          <source><bpt id="561aa9bf-cc9d-4393-9409-2d454404be2b">&lt;strong&gt;</bpt>Step 4:  Final Steps<ept id="561aa9bf-cc9d-4393-9409-2d454404be2b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="561aa9bf-cc9d-4393-9409-2d454404be2b">&lt;strong&gt;</bpt>Step 4:  Final Steps<ept id="561aa9bf-cc9d-4393-9409-2d454404be2b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="baf6d457-0038-4231-bf61-2a68c3e4bb99" xml:space="preserve">
+          <source>Once the route table is bound to the subnet, it is recommended to first test and confirm the intended effect.</source>
+          <target state="new">Once the route table is bound to the subnet, it is recommended to first test and confirm the intended effect.</target>
+        </trans-unit>
+        <trans-unit id="7062a3ff-eaba-4a46-8dac-94c3c06e9466" xml:space="preserve">
+          <source>For example, deploy a virtual machine into the subnet and confirm that:</source>
+          <target state="new">For example, deploy a virtual machine into the subnet and confirm that:</target>
+        </trans-unit>
+        <trans-unit id="c8cec4f4-e523-4cd2-844c-a7498e8157d3" xml:space="preserve">
+          <source>Outbound traffic to Azure endpoints is not flowing down the ExpressRoute circuit.</source>
+          <target state="new">Outbound traffic to Azure endpoints is not flowing down the ExpressRoute circuit.</target>
+        </trans-unit>
+        <trans-unit id="7607e834-f679-424e-bb91-b0a936182469" xml:space="preserve">
+          <source>DNS lookups for Azure endpoints are resolving properly.</source>
+          <target state="new">DNS lookups for Azure endpoints are resolving properly.</target>
+        </trans-unit>
+        <trans-unit id="e58b80b8-c207-4944-b227-9ea23e1733bc" xml:space="preserve">
+          <source>Once the above steps are confirmed, you can proceed with creating an App Service Environment!</source>
+          <target state="new">Once the above steps are confirmed, you can proceed with creating an App Service Environment!</target>
+        </trans-unit>
+        <trans-unit id="9b09480f-bf97-49f3-a1e7-45c2ba0b7607" xml:space="preserve">
+          <source>To get started with App Service Environments, see <bpt id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;linkText&gt;</bpt>Introduction to App Service Environment[introtoappserviceenvironment]<ept id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;/linkText&gt;</ept><bpt id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;title&gt;</bpt><ept id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;/title&gt;</ept></source>
+          <target state="new">To get started with App Service Environments, see <bpt id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;linkText&gt;</bpt>Introduction to App Service Environment[introtoappserviceenvironment]<ept id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;/linkText&gt;</ept><bpt id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;title&gt;</bpt><ept id="b00fa360-14d9-4b05-a99d-737c24fac90e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56f8fede-ac06-4eb9-a595-7ca9d7aee098" xml:space="preserve">
+          <source>For more information about the Azure App Service platform, see <bpt id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;/linkText&gt;</ept><bpt id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;title&gt;</bpt><ept id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Azure App Service platform, see <bpt id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;linkText&gt;</bpt>Azure App Service[azureappservice]<ept id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;/linkText&gt;</ept><bpt id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;title&gt;</bpt><ept id="cf98e948-918f-4414-ad16-dbc33aef9492">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ae8072e-d3ec-4f0f-b441-f14764253614" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/virtual-network/</source>
+          <target state="new">http://azure.microsoft.com/services/virtual-network/</target>
+        </trans-unit>
+        <trans-unit id="d59b8739-6264-4159-9c22-a0dbbe13bd50" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/expressroute/</source>
+          <target state="new">http://azure.microsoft.com/services/expressroute/</target>
+        </trans-unit>
+        <trans-unit id="3c95acac-5936-44f4-b419-8c31a2311dab" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/</target>
+        </trans-unit>
+        <trans-unit id="32ea4a63-b014-4d61-ba14-7f57682fa46f" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</target>
+        </trans-unit>
+        <trans-unit id="ca41e8db-0aa5-4065-afd8-6b0a2b3e3391" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/</target>
+        </trans-unit>
+        <trans-unit id="de455c46-2f0c-4e60-bc51-836f3561e48f" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/</target>
+        </trans-unit>
+        <trans-unit id="b86fa126-0388-4356-88ea-981850e7dc4c" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/</target>
+        </trans-unit>
+        <trans-unit id="f66da94b-0a6c-477d-9e77-575a7f7721d5" xml:space="preserve">
+          <source>http://azure.microsoft.com/en-us/downloads/</source>
+          <target state="new">http://azure.microsoft.com/en-us/downloads/</target>
+        </trans-unit>
+        <trans-unit id="c858c947-b3f8-434a-b541-3e175e77365a" xml:space="preserve">
+          <source>http://www.microsoft.com/download/details.aspx?id=41653</source>
+          <target state="new">http://www.microsoft.com/download/details.aspx?id=41653</target>
+        </trans-unit>
+        <trans-unit id="46fe932a-5a1c-4c82-aa14-3103048e243d" xml:space="preserve">
+          <source>https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</source>
+          <target state="new">https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/</target>
+        </trans-unit>
+        <trans-unit id="060cfaf8-9302-4177-9416-1e97a9970b7e" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/</target>
+        </trans-unit>
+        <trans-unit id="261eddd2-2238-437f-9d88-f702878d452e" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/</target>
+        </trans-unit>
+      </group>
+      <group id="94420344-44ad-4f8a-8c31-3ef0691c9aac" />
+    </body>
+  </file>
+</xliff>

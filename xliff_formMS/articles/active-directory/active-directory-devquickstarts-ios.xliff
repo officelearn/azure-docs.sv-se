@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="43d81de0-c012-4ccb-97e6-8f33a1d5c278" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="43d81de0-c012-4ccb-97e6-8f33a1d5c278" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="afc77ac3-a7fd-41da-a8ca-f9c575a52424">
+        <trans-unit id="db70ba0c-6561-4a7d-a4b0-fa16bbc2d7cc" xml:space="preserve">
+          <source>Azure AD iOS Getting Started | Microsoft Azure</source>
+          <target state="new">Azure AD iOS Getting Started | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2524183e-102e-4099-82e9-fc44a3e7137d" xml:space="preserve">
+          <source>How to build an iOS application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</source>
+          <target state="new">How to build an iOS application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.</target>
+        </trans-unit>
+        <trans-unit id="b21c6947-85dc-4516-9c19-28035e9c8d8b" xml:space="preserve">
+          <source><bpt id="b5d0a7d2-e020-4a5b-a260-aaf72cd7c0d1">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="b5d0a7d2-e020-4a5b-a260-aaf72cd7c0d1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b5d0a7d2-e020-4a5b-a260-aaf72cd7c0d1">&lt;token href="../../includes/active-directory-devquickstarts-switcher.md"&gt;</bpt><ept id="b5d0a7d2-e020-4a5b-a260-aaf72cd7c0d1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4bfb0d3-dcdb-49bb-91ad-f6ff4b7692a8" xml:space="preserve">
+          <source><bpt id="04a0318e-6be4-42da-853e-6afb094346ab">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="04a0318e-6be4-42da-853e-6afb094346ab">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="04a0318e-6be4-42da-853e-6afb094346ab">&lt;token href="../../includes/active-directory-devguide.md"&gt;</bpt><ept id="04a0318e-6be4-42da-853e-6afb094346ab">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="381d708c-86b0-40e1-a2d0-8c551faf175e" xml:space="preserve">
+          <source>Azure AD provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources.</source>
+          <target state="new">Azure AD provides the Active Directory Authentication Library, or ADAL, for iOS clients that need to access protected resources.</target>
+        </trans-unit>
+        <trans-unit id="8a0a4628-1121-42ba-bc6e-2e19ab8660e6" xml:space="preserve">
+          <source>ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</source>
+          <target state="new">ADAL’s sole purpose in life is to make it easy for your app to get access tokens.</target>
+        </trans-unit>
+        <trans-unit id="ea573b08-89a7-4ebf-846c-19d9c66ca4f1" xml:space="preserve">
+          <source>To demonstrate just how easy it is, here we’ll build a Objective C To-Do List application that:</source>
+          <target state="new">To demonstrate just how easy it is, here we’ll build a Objective C To-Do List application that:</target>
+        </trans-unit>
+        <trans-unit id="2ca83d11-c5ef-4038-bec4-75cf6f461a5e" xml:space="preserve">
+          <source>Gets access tokens for calling the Azure AD Graph API using the <bpt id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;linkText&gt;</bpt>OAuth 2.0 authentication protocol<ept id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;/linkText&gt;</ept><bpt id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;title&gt;</bpt><ept id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;/title&gt;</ept>.</source>
+          <target state="new">Gets access tokens for calling the Azure AD Graph API using the <bpt id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;linkText&gt;</bpt>OAuth 2.0 authentication protocol<ept id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;/linkText&gt;</ept><bpt id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;title&gt;</bpt><ept id="5af16680-7cb2-48bb-8227-ee4e5c06c186">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9df2e5fe-0cd2-4cc6-a95d-24bf2f8df88e" xml:space="preserve">
+          <source>Searches a directory for users with a given alias.</source>
+          <target state="new">Searches a directory for users with a given alias.</target>
+        </trans-unit>
+        <trans-unit id="9dd052b4-32de-45a5-af79-c5da092cbd96" xml:space="preserve">
+          <source>To build the complete working application, you’ll need to:</source>
+          <target state="new">To build the complete working application, you’ll need to:</target>
+        </trans-unit>
+        <trans-unit id="53ba06b2-dff6-42cf-a702-e9cabcbe8f33" xml:space="preserve">
+          <source>Register your application with Azure AD.</source>
+          <target state="new">Register your application with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="bc86d269-6b8b-449b-ac13-1104dd4015d3" xml:space="preserve">
+          <source>Install &amp; Configure ADAL.</source>
+          <target state="new">Install &amp; Configure ADAL.</target>
+        </trans-unit>
+        <trans-unit id="17152adb-7055-4bb0-bacf-1d29ecd73625" xml:space="preserve">
+          <source>Use ADAL to get tokens from Azure AD.</source>
+          <target state="new">Use ADAL to get tokens from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="b0579d64-151f-4315-8d80-10a21014354b" xml:space="preserve">
+          <source>To get started, <bpt id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;linkText&gt;</bpt>download the app skeleton<ept id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;/linkText&gt;</ept><bpt id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;title&gt;</bpt><ept id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;/title&gt;</ept> or <bpt id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;linkText&gt;</bpt>download the completed sample<ept id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;/linkText&gt;</ept><bpt id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;title&gt;</bpt><ept id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started, <bpt id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;linkText&gt;</bpt>download the app skeleton<ept id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;/linkText&gt;</ept><bpt id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;title&gt;</bpt><ept id="853d9479-91fc-4dd9-9e5c-33d49491ed53">&lt;/title&gt;</ept> or <bpt id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;linkText&gt;</bpt>download the completed sample<ept id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;/linkText&gt;</ept><bpt id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;title&gt;</bpt><ept id="d14bc00e-7252-4ed5-8b6c-f7c62c4f2cc7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d2dc4c0-6b07-4d57-bbac-84e07983cc63" xml:space="preserve">
+          <source>You'll also need an Azure AD tenant in which you can create users and register an application.</source>
+          <target state="new">You'll also need an Azure AD tenant in which you can create users and register an application.</target>
+        </trans-unit>
+        <trans-unit id="8bd3378d-da7c-449b-9031-2768213bb22c" xml:space="preserve">
+          <source>If you don't already have a tenant, <bpt id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;linkText&gt;</bpt>learn how to get one<ept id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;/linkText&gt;</ept><bpt id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;title&gt;</bpt><ept id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have a tenant, <bpt id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;linkText&gt;</bpt>learn how to get one<ept id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;/linkText&gt;</ept><bpt id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;title&gt;</bpt><ept id="0cacb33d-b455-4615-a44f-b0a75f6dfa84">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23a67c31-e04e-4943-afdb-c3000ef6616e" xml:space="preserve">
+          <source>In order to securely launch your applications in certain SSO scenarios we require that you create a <bpt id="3c618456-7b4f-4a7f-8305-097fe85babe7">&lt;strong&gt;</bpt>Redirect URI<ept id="3c618456-7b4f-4a7f-8305-097fe85babe7">&lt;/strong&gt;</ept> in a particular format.</source>
+          <target state="new">In order to securely launch your applications in certain SSO scenarios we require that you create a <bpt id="3c618456-7b4f-4a7f-8305-097fe85babe7">&lt;strong&gt;</bpt>Redirect URI<ept id="3c618456-7b4f-4a7f-8305-097fe85babe7">&lt;/strong&gt;</ept> in a particular format.</target>
+        </trans-unit>
+        <trans-unit id="f63b8267-be3b-421c-8fc6-7fc256a7f1a1" xml:space="preserve">
+          <source>A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.</source>
+          <target state="new">A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.</target>
+        </trans-unit>
+        <trans-unit id="a418b36d-cbc0-4fcb-b3f2-646d19c7d9ab" xml:space="preserve">
+          <source>The iOS format for a Redirect URI is:</source>
+          <target state="new">The iOS format for a Redirect URI is:</target>
+        </trans-unit>
+        <trans-unit id="08ffecee-c0e4-40d3-8323-7f818d53e044" xml:space="preserve">
+          <source><bpt id="3f09892e-07c6-442a-9fdd-413042da8e47">&lt;strong&gt;</bpt>aap-scheme<ept id="3f09892e-07c6-442a-9fdd-413042da8e47">&lt;/strong&gt;</ept> - This is registered in your XCode project.</source>
+          <target state="new"><bpt id="3f09892e-07c6-442a-9fdd-413042da8e47">&lt;strong&gt;</bpt>aap-scheme<ept id="3f09892e-07c6-442a-9fdd-413042da8e47">&lt;/strong&gt;</ept> - This is registered in your XCode project.</target>
+        </trans-unit>
+        <trans-unit id="03c2654c-14bf-4877-9125-accb0345f62d" xml:space="preserve">
+          <source>It is how other applications can call you.</source>
+          <target state="new">It is how other applications can call you.</target>
+        </trans-unit>
+        <trans-unit id="66c103a2-02ff-47ea-ac0f-77afd94de0b3" xml:space="preserve">
+          <source>You can find this under Info.plist -&gt; URL types -&gt; URL Identifier.</source>
+          <target state="new">You can find this under Info.plist -&gt; URL types -&gt; URL Identifier.</target>
+        </trans-unit>
+        <trans-unit id="40884bd0-947a-4307-a8ae-19ad74030389" xml:space="preserve">
+          <source>You should create one if you don't already have one or more configured.</source>
+          <target state="new">You should create one if you don't already have one or more configured.</target>
+        </trans-unit>
+        <trans-unit id="677dad7b-2f82-4869-9c0d-f49e2030567b" xml:space="preserve">
+          <source><bpt id="877df20b-8959-423d-9b3b-fb4819dc9b3f">&lt;strong&gt;</bpt>bundle-id<ept id="877df20b-8959-423d-9b3b-fb4819dc9b3f">&lt;/strong&gt;</ept> - This is the Bundle Identifier found under "identity" un your project settings in XCode.</source>
+          <target state="new"><bpt id="877df20b-8959-423d-9b3b-fb4819dc9b3f">&lt;strong&gt;</bpt>bundle-id<ept id="877df20b-8959-423d-9b3b-fb4819dc9b3f">&lt;/strong&gt;</ept> - This is the Bundle Identifier found under "identity" un your project settings in XCode.</target>
+        </trans-unit>
+        <trans-unit id="992f8fdb-bdbd-498b-83d7-385fdc7b0852" xml:space="preserve">
+          <source>An example for this QuickStart code would be: <bpt id="9a93dac0-46cf-4b8a-9787-724bc82c45f6">&lt;strong&gt;</bpt>*msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart*<ept id="9a93dac0-46cf-4b8a-9787-724bc82c45f6">&lt;/strong&gt;</ept></source>
+          <target state="new">An example for this QuickStart code would be: <bpt id="9a93dac0-46cf-4b8a-9787-724bc82c45f6">&lt;strong&gt;</bpt>*msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart*<ept id="9a93dac0-46cf-4b8a-9787-724bc82c45f6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d27ae46d-9c62-44f7-b3e6-447039dda6dc" xml:space="preserve">
+          <source>To enable your app to get tokens, you'll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:</source>
+          <target state="new">To enable your app to get tokens, you'll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:</target>
+        </trans-unit>
+        <trans-unit id="d51bb520-99ba-4e48-b018-c346fe34848e" xml:space="preserve">
+          <source>Sign into the Azure Management Portal</source>
+          <target state="new">Sign into the Azure Management Portal</target>
+        </trans-unit>
+        <trans-unit id="fd1be20f-f519-4cf2-8ea2-c43a1cc60236" xml:space="preserve">
+          <source>In the left hand nav, click on <bpt id="cca4cd43-15ed-4058-bdde-c2ad33af4d73">&lt;strong&gt;</bpt>Active Directory<ept id="cca4cd43-15ed-4058-bdde-c2ad33af4d73">&lt;/strong&gt;</ept></source>
+          <target state="new">In the left hand nav, click on <bpt id="cca4cd43-15ed-4058-bdde-c2ad33af4d73">&lt;strong&gt;</bpt>Active Directory<ept id="cca4cd43-15ed-4058-bdde-c2ad33af4d73">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="685e5300-df98-4875-8d81-1edf66f55404" xml:space="preserve">
+          <source>Select a tenant in which to register the application.</source>
+          <target state="new">Select a tenant in which to register the application.</target>
+        </trans-unit>
+        <trans-unit id="3f177e73-efa7-479f-a0a3-69c81cdd7741" xml:space="preserve">
+          <source>Click the <bpt id="95a754bc-4d82-473b-a913-c734c32b39ae">&lt;strong&gt;</bpt>Applications<ept id="95a754bc-4d82-473b-a913-c734c32b39ae">&lt;/strong&gt;</ept> tab, and click <bpt id="26d242a3-bfba-442d-9409-6deb427be9ed">&lt;strong&gt;</bpt>Add<ept id="26d242a3-bfba-442d-9409-6deb427be9ed">&lt;/strong&gt;</ept> in the bottom drawer.</source>
+          <target state="new">Click the <bpt id="95a754bc-4d82-473b-a913-c734c32b39ae">&lt;strong&gt;</bpt>Applications<ept id="95a754bc-4d82-473b-a913-c734c32b39ae">&lt;/strong&gt;</ept> tab, and click <bpt id="26d242a3-bfba-442d-9409-6deb427be9ed">&lt;strong&gt;</bpt>Add<ept id="26d242a3-bfba-442d-9409-6deb427be9ed">&lt;/strong&gt;</ept> in the bottom drawer.</target>
+        </trans-unit>
+        <trans-unit id="87f0863c-21b5-40b4-8d55-86882121240c" xml:space="preserve">
+          <source>Follow the prompts and create a new <bpt id="a6836bb6-0423-4161-8133-247f26a7ecb7">&lt;strong&gt;</bpt>Native Client Application<ept id="a6836bb6-0423-4161-8133-247f26a7ecb7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Follow the prompts and create a new <bpt id="a6836bb6-0423-4161-8133-247f26a7ecb7">&lt;strong&gt;</bpt>Native Client Application<ept id="a6836bb6-0423-4161-8133-247f26a7ecb7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe8720ee-df8d-4076-9f67-9277eaa93345" xml:space="preserve">
+          <source>The <bpt id="8dd14735-b900-4ae0-918f-a70e97ece3e1">&lt;strong&gt;</bpt>Name<ept id="8dd14735-b900-4ae0-918f-a70e97ece3e1">&lt;/strong&gt;</ept> of the application will describe your application to end-users</source>
+          <target state="new">The <bpt id="8dd14735-b900-4ae0-918f-a70e97ece3e1">&lt;strong&gt;</bpt>Name<ept id="8dd14735-b900-4ae0-918f-a70e97ece3e1">&lt;/strong&gt;</ept> of the application will describe your application to end-users</target>
+        </trans-unit>
+        <trans-unit id="b553b5d2-6484-4f20-828e-5593f7926e5a" xml:space="preserve">
+          <source>The <bpt id="a4dd13df-d563-4bbb-916b-c34564eb2a17">&lt;strong&gt;</bpt>Redirect Uri<ept id="a4dd13df-d563-4bbb-916b-c34564eb2a17">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD will use to return token responses.</source>
+          <target state="new">The <bpt id="a4dd13df-d563-4bbb-916b-c34564eb2a17">&lt;strong&gt;</bpt>Redirect Uri<ept id="a4dd13df-d563-4bbb-916b-c34564eb2a17">&lt;/strong&gt;</ept> is a scheme and string combination that Azure AD will use to return token responses.</target>
+        </trans-unit>
+        <trans-unit id="4720b2cd-bb2e-4ae7-9be0-6282c96ca02c" xml:space="preserve">
+          <source>Enter a value specific to your application based on the information above.</source>
+          <target state="new">Enter a value specific to your application based on the information above.</target>
+        </trans-unit>
+        <trans-unit id="c5e25b52-6873-4ca2-b5a5-34285b6403d6" xml:space="preserve">
+          <source>Once you've completed registration, AAD will assign your app a unique client identifier.</source>
+          <target state="new">Once you've completed registration, AAD will assign your app a unique client identifier.</target>
+        </trans-unit>
+        <trans-unit id="6f4deb80-9493-4ce3-aba2-4097511e9ac9" xml:space="preserve">
+          <source>You'll need this value in the next sections, so copy it from the <bpt id="d04a302b-0428-40ef-bb76-e75c51d74eb3">&lt;strong&gt;</bpt>Configure<ept id="d04a302b-0428-40ef-bb76-e75c51d74eb3">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">You'll need this value in the next sections, so copy it from the <bpt id="d04a302b-0428-40ef-bb76-e75c51d74eb3">&lt;strong&gt;</bpt>Configure<ept id="d04a302b-0428-40ef-bb76-e75c51d74eb3">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="659a0f19-364e-45cc-8609-cc48065adec5" xml:space="preserve">
+          <source>Also in <bpt id="e5970ade-bfdc-4f69-8354-ea4a6d6bf03d">&lt;strong&gt;</bpt>Configure<ept id="e5970ade-bfdc-4f69-8354-ea4a6d6bf03d">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section.</source>
+          <target state="new">Also in <bpt id="e5970ade-bfdc-4f69-8354-ea4a6d6bf03d">&lt;strong&gt;</bpt>Configure<ept id="e5970ade-bfdc-4f69-8354-ea4a6d6bf03d">&lt;/strong&gt;</ept> tab, locate the "Permissions to Other Applications" section.</target>
+        </trans-unit>
+        <trans-unit id="8aa8af8f-1387-4230-ad44-5e2f9152f92e" xml:space="preserve">
+          <source>For the "Azure Active Directory" application, add the <bpt id="ea5d7d0f-0120-4a56-bad9-b1903518c6a6">&lt;strong&gt;</bpt>Access Your Organization's Directory<ept id="ea5d7d0f-0120-4a56-bad9-b1903518c6a6">&lt;/strong&gt;</ept> permission under <bpt id="f4786503-23f0-4ef0-9113-2896f639a862">&lt;strong&gt;</bpt>Delegated Permissions<ept id="f4786503-23f0-4ef0-9113-2896f639a862">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For the "Azure Active Directory" application, add the <bpt id="ea5d7d0f-0120-4a56-bad9-b1903518c6a6">&lt;strong&gt;</bpt>Access Your Organization's Directory<ept id="ea5d7d0f-0120-4a56-bad9-b1903518c6a6">&lt;/strong&gt;</ept> permission under <bpt id="f4786503-23f0-4ef0-9113-2896f639a862">&lt;strong&gt;</bpt>Delegated Permissions<ept id="f4786503-23f0-4ef0-9113-2896f639a862">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="080c2cf1-7ff9-41e1-860c-475bc3077a71" xml:space="preserve">
+          <source>This will enable your application to query the Graph API for users.</source>
+          <target state="new">This will enable your application to query the Graph API for users.</target>
+        </trans-unit>
+        <trans-unit id="8ad37e2c-976f-44bc-a9ed-16cc350c46d7" xml:space="preserve">
+          <source>Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.</source>
+          <target state="new">Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.</target>
+        </trans-unit>
+        <trans-unit id="31605f52-6a80-4293-b147-9bb526888be3" xml:space="preserve">
+          <source>In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.</source>
+          <target state="new">In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.</target>
+        </trans-unit>
+        <trans-unit id="78cacab8-2fbf-42e4-865b-1597f4f7b630" xml:space="preserve">
+          <source>Begin by adding ADAL to the DirectorySearcher project using Cocapods.</source>
+          <target state="new">Begin by adding ADAL to the DirectorySearcher project using Cocapods.</target>
+        </trans-unit>
+        <trans-unit id="06831d6f-8b4a-473b-aae4-0e8898941a07" xml:space="preserve">
+          <source>Add the following to this podfile:</source>
+          <target state="new">Add the following to this podfile:</target>
+        </trans-unit>
+        <trans-unit id="50dd8782-3861-4b76-adb2-ce7940f1f582" xml:space="preserve">
+          <source>Now load the podfile using cocoapods.</source>
+          <target state="new">Now load the podfile using cocoapods.</target>
+        </trans-unit>
+        <trans-unit id="6a266b4e-5862-4641-85ac-8e62380ba347" xml:space="preserve">
+          <source>This will create a new XCode Workspace you will load.</source>
+          <target state="new">This will create a new XCode Workspace you will load.</target>
+        </trans-unit>
+        <trans-unit id="b5294e7b-4a20-414a-9b54-66039ee9105a" xml:space="preserve">
+          <source>In the QuickStart project, open the plist file <bpt id="2c619dca-2328-4a21-bb9b-e5a2fad37611">&lt;code&gt;</bpt>settings.plist<ept id="2c619dca-2328-4a21-bb9b-e5a2fad37611">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the QuickStart project, open the plist file <bpt id="2c619dca-2328-4a21-bb9b-e5a2fad37611">&lt;code&gt;</bpt>settings.plist<ept id="2c619dca-2328-4a21-bb9b-e5a2fad37611">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52a75288-6361-4b0f-bbf4-c157381ec2e9" xml:space="preserve">
+          <source>Replace the values of the elements in the section to reflect the values you input into the Azure Portal.</source>
+          <target state="new">Replace the values of the elements in the section to reflect the values you input into the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="f5fd2d76-c4a0-48c9-ab00-e97cc775551e" xml:space="preserve">
+          <source>Your code will reference these values whenever it uses ADAL.</source>
+          <target state="new">Your code will reference these values whenever it uses ADAL.</target>
+        </trans-unit>
+        <trans-unit id="ecc3247d-df3a-48de-8c46-9edfaf579be5" xml:space="preserve">
+          <source>The <bpt id="85c481c9-852d-4ee9-ad17-ba396241476e">&lt;code&gt;</bpt>tenant<ept id="85c481c9-852d-4ee9-ad17-ba396241476e">&lt;/code&gt;</ept> is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com</source>
+          <target state="new">The <bpt id="85c481c9-852d-4ee9-ad17-ba396241476e">&lt;code&gt;</bpt>tenant<ept id="85c481c9-852d-4ee9-ad17-ba396241476e">&lt;/code&gt;</ept> is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com</target>
+        </trans-unit>
+        <trans-unit id="72da5e47-1efd-427b-b8a3-84357cb43e3a" xml:space="preserve">
+          <source>The <bpt id="df818ce3-cfe1-4360-9a7b-cffe4d332f90">&lt;code&gt;</bpt>clientId<ept id="df818ce3-cfe1-4360-9a7b-cffe4d332f90">&lt;/code&gt;</ept> is the clientId of your application you copied from the portal.</source>
+          <target state="new">The <bpt id="df818ce3-cfe1-4360-9a7b-cffe4d332f90">&lt;code&gt;</bpt>clientId<ept id="df818ce3-cfe1-4360-9a7b-cffe4d332f90">&lt;/code&gt;</ept> is the clientId of your application you copied from the portal.</target>
+        </trans-unit>
+        <trans-unit id="d7b2f07a-5320-4ab8-814f-87880dbeda0f" xml:space="preserve">
+          <source>The <bpt id="a550fe8f-50bb-408c-92bd-d917fa3b3a55">&lt;code&gt;</bpt>redirectUri<ept id="a550fe8f-50bb-408c-92bd-d917fa3b3a55">&lt;/code&gt;</ept> is the redirect url you registered in the portal.</source>
+          <target state="new">The <bpt id="a550fe8f-50bb-408c-92bd-d917fa3b3a55">&lt;code&gt;</bpt>redirectUri<ept id="a550fe8f-50bb-408c-92bd-d917fa3b3a55">&lt;/code&gt;</ept> is the redirect url you registered in the portal.</target>
+        </trans-unit>
+        <trans-unit id="d1fca955-848b-42ca-bcba-8afb3dd4fbe1" xml:space="preserve">
+          <source>The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock <bpt id="3ecdd878-749a-43e2-8d3f-c71ea473bbf8">&lt;code&gt;</bpt>+(void) getToken : <ept id="3ecdd878-749a-43e2-8d3f-c71ea473bbf8">&lt;/code&gt;</ept>, and ADAL does the rest.</source>
+          <target state="new">The basic principle behind ADAL is that whenever your app needs an access token, it simply calls a completionBlock <bpt id="3ecdd878-749a-43e2-8d3f-c71ea473bbf8">&lt;code&gt;</bpt>+(void) getToken : <ept id="3ecdd878-749a-43e2-8d3f-c71ea473bbf8">&lt;/code&gt;</ept>, and ADAL does the rest.</target>
+        </trans-unit>
+        <trans-unit id="39f2d322-8a4f-45ac-a234-b12db75d40bf" xml:space="preserve">
+          <source>In the <bpt id="4bb77270-0722-43a4-b599-a59dc50c19eb">&lt;code&gt;</bpt>QuickStart<ept id="4bb77270-0722-43a4-b599-a59dc50c19eb">&lt;/code&gt;</ept> project, open <bpt id="5379261b-edac-4425-8d78-032747d330df">&lt;code&gt;</bpt>GraphAPICaller.m<ept id="5379261b-edac-4425-8d78-032747d330df">&lt;/code&gt;</ept> and locate the `// TODO: getToken for generic Web API flows.</source>
+          <target state="new">In the <bpt id="4bb77270-0722-43a4-b599-a59dc50c19eb">&lt;code&gt;</bpt>QuickStart<ept id="4bb77270-0722-43a4-b599-a59dc50c19eb">&lt;/code&gt;</ept> project, open <bpt id="5379261b-edac-4425-8d78-032747d330df">&lt;code&gt;</bpt>GraphAPICaller.m<ept id="5379261b-edac-4425-8d78-032747d330df">&lt;/code&gt;</ept> and locate the `// TODO: getToken for generic Web API flows.</target>
+        </trans-unit>
+        <trans-unit id="9a9ce1fe-4658-4ccd-80f6-97eac833f849" xml:space="preserve">
+          <source>Returns a token with no additional parameters provided.` comment near the top.</source>
+          <target state="new">Returns a token with no additional parameters provided.` comment near the top.</target>
+        </trans-unit>
+        <trans-unit id="f0d18b4c-810c-477d-abdb-77c5d9c87ff0" xml:space="preserve">
+          <source>This is where you pass ADAL the coordinates through a CompletionBlock to communicate with Azure AD and tell it how to cache tokens.</source>
+          <target state="new">This is where you pass ADAL the coordinates through a CompletionBlock to communicate with Azure AD and tell it how to cache tokens.</target>
+        </trans-unit>
+        <trans-unit id="cc90fbbc-f4bc-4f52-be4a-783ce3742bcd" xml:space="preserve">
+          <source>Now we need to use this token to search for users in the graph.</source>
+          <target state="new">Now we need to use this token to search for users in the graph.</target>
+        </trans-unit>
+        <trans-unit id="70802c85-895d-482d-bbad-e52b5cfd6344" xml:space="preserve">
+          <source>Find the <bpt id="b261f721-cb85-4a24-9f0e-4dacf89abc7f">&lt;code&gt;</bpt>// TODO: implement SearchUsersList<ept id="b261f721-cb85-4a24-9f0e-4dacf89abc7f">&lt;/code&gt;</ept> commentThis method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.</source>
+          <target state="new">Find the <bpt id="b261f721-cb85-4a24-9f0e-4dacf89abc7f">&lt;code&gt;</bpt>// TODO: implement SearchUsersList<ept id="b261f721-cb85-4a24-9f0e-4dacf89abc7f">&lt;/code&gt;</ept> commentThis method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.</target>
+        </trans-unit>
+        <trans-unit id="b8cad3cf-34c3-4b40-a7fe-87e74e2a5a55" xml:space="preserve">
+          <source>But in order to query the Graph API, you need to include an access_token in the <bpt id="482a4dbc-e294-4817-8739-26d6e19aa95c">&lt;code&gt;</bpt>Authorization<ept id="482a4dbc-e294-4817-8739-26d6e19aa95c">&lt;/code&gt;</ept> header of the request - this is where ADAL comes in.</source>
+          <target state="new">But in order to query the Graph API, you need to include an access_token in the <bpt id="482a4dbc-e294-4817-8739-26d6e19aa95c">&lt;code&gt;</bpt>Authorization<ept id="482a4dbc-e294-4817-8739-26d6e19aa95c">&lt;/code&gt;</ept> header of the request - this is where ADAL comes in.</target>
+        </trans-unit>
+        <trans-unit id="2d0e2629-5368-470e-afec-dca95c86cecf" xml:space="preserve">
+          <source>When your app requests a token by calling <bpt id="7f439133-8993-4a0f-b2d9-d55eb0df6e36">&lt;code&gt;</bpt>getToken(...)<ept id="7f439133-8993-4a0f-b2d9-d55eb0df6e36">&lt;/code&gt;</ept>, ADAL will attempt to return a token without asking the user for credentials.</source>
+          <target state="new">When your app requests a token by calling <bpt id="7f439133-8993-4a0f-b2d9-d55eb0df6e36">&lt;code&gt;</bpt>getToken(...)<ept id="7f439133-8993-4a0f-b2d9-d55eb0df6e36">&lt;/code&gt;</ept>, ADAL will attempt to return a token without asking the user for credentials.</target>
+        </trans-unit>
+        <trans-unit id="82cf4762-7f5c-4f1b-84a4-c880cee5198f" xml:space="preserve">
+          <source>If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.</source>
+          <target state="new">If ADAL determines that the user needs to sign in to get a token, it will display a login dialog, collect the user's credentials, and return a token upon successful authentication.</target>
+        </trans-unit>
+        <trans-unit id="fe7c000b-5f16-4580-9207-e99c3733b6eb" xml:space="preserve">
+          <source>If ADAL is unable to return a token for any reason, it will throw an <bpt id="9f65b548-7e4b-48a3-b238-58b2ddf42e21">&lt;code&gt;</bpt>AdalException<ept id="9f65b548-7e4b-48a3-b238-58b2ddf42e21">&lt;/code&gt;</ept>.</source>
+          <target state="new">If ADAL is unable to return a token for any reason, it will throw an <bpt id="9f65b548-7e4b-48a3-b238-58b2ddf42e21">&lt;code&gt;</bpt>AdalException<ept id="9f65b548-7e4b-48a3-b238-58b2ddf42e21">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3d2a7fc-f3bc-422f-b141-04d44ae759fc" xml:space="preserve">
+          <source>Notice that the <bpt id="18eb8ac6-713a-4a8d-9120-3518244c9aca">&lt;code&gt;</bpt>AuthenticationResult<ept id="18eb8ac6-713a-4a8d-9120-3518244c9aca">&lt;/code&gt;</ept> object contains a <bpt id="581417d9-1a24-4d94-b8f5-dfac598071bc">&lt;code&gt;</bpt>tokenCacheStoreItem<ept id="581417d9-1a24-4d94-b8f5-dfac598071bc">&lt;/code&gt;</ept> object that can be used to collect information your app may need.</source>
+          <target state="new">Notice that the <bpt id="18eb8ac6-713a-4a8d-9120-3518244c9aca">&lt;code&gt;</bpt>AuthenticationResult<ept id="18eb8ac6-713a-4a8d-9120-3518244c9aca">&lt;/code&gt;</ept> object contains a <bpt id="581417d9-1a24-4d94-b8f5-dfac598071bc">&lt;code&gt;</bpt>tokenCacheStoreItem<ept id="581417d9-1a24-4d94-b8f5-dfac598071bc">&lt;/code&gt;</ept> object that can be used to collect information your app may need.</target>
+        </trans-unit>
+        <trans-unit id="7bf4428f-6266-4610-be31-5cff5f7ba1e4" xml:space="preserve">
+          <source>In the QuickStart, <bpt id="42474ec7-51bf-47ea-9842-bf809b391044">&lt;code&gt;</bpt>tokenCacheStoreItem<ept id="42474ec7-51bf-47ea-9842-bf809b391044">&lt;/code&gt;</ept> is used to determine if authenitcation has already occurred.</source>
+          <target state="new">In the QuickStart, <bpt id="42474ec7-51bf-47ea-9842-bf809b391044">&lt;code&gt;</bpt>tokenCacheStoreItem<ept id="42474ec7-51bf-47ea-9842-bf809b391044">&lt;/code&gt;</ept> is used to determine if authenitcation has already occurred.</target>
+        </trans-unit>
+        <trans-unit id="35a48540-d368-41e7-b96b-c5c53dc52916" xml:space="preserve">
+          <source>Congratulations!</source>
+          <target state="new">Congratulations!</target>
+        </trans-unit>
+        <trans-unit id="fc5eeebd-1a56-4de1-866a-c544071097f8" xml:space="preserve">
+          <source>You now have a working iOS application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.</source>
+          <target state="new">You now have a working iOS application that has the ability to authenticate users, securely call Web APIs using OAuth 2.0, and get basic information about the user.</target>
+        </trans-unit>
+        <trans-unit id="2e9b7154-7755-404e-9729-f4509df4bb15" xml:space="preserve">
+          <source>If you haven't already, now is the time to populate your tenant with some users.</source>
+          <target state="new">If you haven't already, now is the time to populate your tenant with some users.</target>
+        </trans-unit>
+        <trans-unit id="a79c79fa-ee0c-4212-8ec2-d0ea20b83001" xml:space="preserve">
+          <source>Run your QuickStart app, and sign in with one of those users.</source>
+          <target state="new">Run your QuickStart app, and sign in with one of those users.</target>
+        </trans-unit>
+        <trans-unit id="1a5607d8-32d6-49ed-95c5-5565847224aa" xml:space="preserve">
+          <source>Search for other users based on their UPN.</source>
+          <target state="new">Search for other users based on their UPN.</target>
+        </trans-unit>
+        <trans-unit id="e0f3ebc1-d815-405b-a26c-f25e9cbc58db" xml:space="preserve">
+          <source>Close the app, and re-run it.</source>
+          <target state="new">Close the app, and re-run it.</target>
+        </trans-unit>
+        <trans-unit id="43bdfd2a-2eeb-4f18-a0c0-6b01e76f283c" xml:space="preserve">
+          <source>Notice how the user's session remains intact.</source>
+          <target state="new">Notice how the user's session remains intact.</target>
+        </trans-unit>
+        <trans-unit id="be260160-cb7b-4036-aca0-24804e48cac9" xml:space="preserve">
+          <source>ADAL makes it easy to incorporate all of these common identity features into your application.</source>
+          <target state="new">ADAL makes it easy to incorporate all of these common identity features into your application.</target>
+        </trans-unit>
+        <trans-unit id="33121f57-5723-4ef8-b0cf-e7b10e68e56d" xml:space="preserve">
+          <source>It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.</source>
+          <target state="new">It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.</target>
+        </trans-unit>
+        <trans-unit id="b6cbe6ee-4ffe-4836-a16c-9da0ebabdf5c" xml:space="preserve">
+          <source>All you really need to know is a single API call, <bpt id="56aaaa2c-be6c-4b51-a343-b0353d1c7cdf">&lt;code&gt;</bpt>getToken<ept id="56aaaa2c-be6c-4b51-a343-b0353d1c7cdf">&lt;/code&gt;</ept>.</source>
+          <target state="new">All you really need to know is a single API call, <bpt id="56aaaa2c-be6c-4b51-a343-b0353d1c7cdf">&lt;code&gt;</bpt>getToken<ept id="56aaaa2c-be6c-4b51-a343-b0353d1c7cdf">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c5d1828-18e3-431f-ae70-0ed7fe1d6706" xml:space="preserve">
+          <source>For reference, the completed sample (without your configuration values) is provided <bpt id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;linkText&gt;</bpt>here<ept id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;/linkText&gt;</ept><bpt id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;title&gt;</bpt><ept id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For reference, the completed sample (without your configuration values) is provided <bpt id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;linkText&gt;</bpt>here<ept id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;/linkText&gt;</ept><bpt id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;title&gt;</bpt><ept id="9a6917c9-cb92-4d71-92ac-00994573c5f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21fcec7f-8b19-43e8-8a13-4e4619086029" xml:space="preserve">
+          <source>You can now move on to additional scenarios.</source>
+          <target state="new">You can now move on to additional scenarios.</target>
+        </trans-unit>
+        <trans-unit id="e037ae6c-44a6-4b7d-b802-49fe1e6a853f" xml:space="preserve">
+          <source>You may want to try:</source>
+          <target state="new">You may want to try:</target>
+        </trans-unit>
+        <trans-unit id="45256a19-be27-4e1b-a932-99c78ccc2bd7" xml:space="preserve">
+          <source><bpt id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;linkText&gt;</bpt>Secure a Node.JS Web API with Azure AD &gt;&gt;<ept id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;/linkText&gt;</ept><bpt id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;title&gt;</bpt><ept id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;linkText&gt;</bpt>Secure a Node.JS Web API with Azure AD &gt;&gt;<ept id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;/linkText&gt;</ept><bpt id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;title&gt;</bpt><ept id="59346888-fa7c-4458-bfe5-c5a13d27c1ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b6e69b2e-d8fc-4f60-adc2-c2cae728ee77" xml:space="preserve">
+          <source><bpt id="5316c466-a02e-4712-b567-d70ca6060eb2">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="5316c466-a02e-4712-b567-d70ca6060eb2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="5316c466-a02e-4712-b567-d70ca6060eb2">&lt;token href="../../includes/active-directory-devquickstarts-additional-resources.md"&gt;</bpt><ept id="5316c466-a02e-4712-b567-d70ca6060eb2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

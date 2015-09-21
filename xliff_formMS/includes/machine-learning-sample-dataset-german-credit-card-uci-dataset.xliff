@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="201bd7a3-7688-4161-9d30-1979047b733a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="201bd7a3-7688-4161-9d30-1979047b733a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c90af618-2853-4b58-9a16-651af668bf9e">
+        <trans-unit id="01d190bd-d364-406b-b36b-3a089d2df792" xml:space="preserve">
+          <source>The UCI Statlog (German Credit Card) dataset (&lt;a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)"&gt;Statlog+German+Credit+Data&lt;/a&gt;), using the german.data file.&lt;p&gt; &lt;/p&gt;The dataset classifies people, described by a set of attributes, as low or high credit risks.</source>
+          <target state="new">The UCI Statlog (German Credit Card) dataset (&lt;a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)"&gt;Statlog+German+Credit+Data&lt;/a&gt;), using the german.data file.&lt;p&gt; &lt;/p&gt;The dataset classifies people, described by a set of attributes, as low or high credit risks.</target>
+        </trans-unit>
+        <trans-unit id="2cd092e3-df07-4e22-8e63-e7ead53cac8b" xml:space="preserve">
+          <source>Each example represents a person.</source>
+          <target state="new">Each example represents a person.</target>
+        </trans-unit>
+        <trans-unit id="a7721d28-9182-43c3-84b8-b43df252bb1c" xml:space="preserve">
+          <source>There are 20 features, both numerical and categorical, and a binary label (the credit risk value).</source>
+          <target state="new">There are 20 features, both numerical and categorical, and a binary label (the credit risk value).</target>
+        </trans-unit>
+        <trans-unit id="90d21e77-a985-4892-ba58-f0dba00bb395" xml:space="preserve">
+          <source>High credit risk entries have label = 2, low credit risk entries have label = 1.</source>
+          <target state="new">High credit risk entries have label = 2, low credit risk entries have label = 1.</target>
+        </trans-unit>
+        <trans-unit id="822b907f-3084-4fca-8b4c-93db94a062aa" xml:space="preserve">
+          <source>The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.</source>
+          <target state="new">The cost of misclassifying a low risk example as high is 1, whereas the cost of misclassifying a high risk example as low is 5.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

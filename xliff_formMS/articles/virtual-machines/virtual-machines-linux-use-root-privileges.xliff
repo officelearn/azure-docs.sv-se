@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9bdaf62f-af90-411b-8d42-a3855a171719" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9bdaf62f-af90-411b-8d42-a3855a171719" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d79657f2-ea35-40f1-95e4-2063d3001e42">
+        <trans-unit id="b39bade9-22e6-420e-8480-9dc6359ba477" xml:space="preserve">
+          <source>Use root privileges on Linux virtual machines in Azure</source>
+          <target state="new">Use root privileges on Linux virtual machines in Azure</target>
+        </trans-unit>
+        <trans-unit id="563acb1f-e105-46b3-8cd5-e04c3c421148" xml:space="preserve">
+          <source>Learn how to use root privileges on a Linux virtual machine in Azure.</source>
+          <target state="new">Learn how to use root privileges on a Linux virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="dbdc5fa3-152d-46ab-aaf7-b2ae2b03ed49" xml:space="preserve">
+          <source>By default, the <bpt id="6d485f64-cf92-4f9d-a3ca-b632e1d6da1b">&lt;code&gt;</bpt>root<ept id="6d485f64-cf92-4f9d-a3ca-b632e1d6da1b">&lt;/code&gt;</ept> user is disabled on Linux virtual machines in Azure.</source>
+          <target state="new">By default, the <bpt id="6d485f64-cf92-4f9d-a3ca-b632e1d6da1b">&lt;code&gt;</bpt>root<ept id="6d485f64-cf92-4f9d-a3ca-b632e1d6da1b">&lt;/code&gt;</ept> user is disabled on Linux virtual machines in Azure.</target>
+        </trans-unit>
+        <trans-unit id="24db7b1d-2664-49db-a8e1-8aae3f52bb13" xml:space="preserve">
+          <source>Users can run commands with elevated privileges by using the <bpt id="67881217-f23a-4c0e-9d2c-8a53f862296b">&lt;code&gt;</bpt>sudo<ept id="67881217-f23a-4c0e-9d2c-8a53f862296b">&lt;/code&gt;</ept> command.</source>
+          <target state="new">Users can run commands with elevated privileges by using the <bpt id="67881217-f23a-4c0e-9d2c-8a53f862296b">&lt;code&gt;</bpt>sudo<ept id="67881217-f23a-4c0e-9d2c-8a53f862296b">&lt;/code&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="b44d7e34-d314-4500-a7d4-91e44fc41cc7" xml:space="preserve">
+          <source>However, the experience may vary depending on how the system was provisioned.</source>
+          <target state="new">However, the experience may vary depending on how the system was provisioned.</target>
+        </trans-unit>
+        <trans-unit id="e7da0493-51ad-4d96-9a6c-b1ab601ccd80" xml:space="preserve">
+          <source><bpt id="9622824f-668f-4c6a-91a2-6df95c49bf04">&lt;strong&gt;</bpt>SSH key and password OR password only<ept id="9622824f-668f-4c6a-91a2-6df95c49bf04">&lt;/strong&gt;</ept> - the virtual machine was provisioned with either a certificate (<bpt id="b703cbc8-9843-4eea-8919-ea4dfd7aea91">&lt;code&gt;</bpt>.CER<ept id="b703cbc8-9843-4eea-8919-ea4dfd7aea91">&lt;/code&gt;</ept> file) or SSH key as well as a password, or just a user name and password.</source>
+          <target state="new"><bpt id="9622824f-668f-4c6a-91a2-6df95c49bf04">&lt;strong&gt;</bpt>SSH key and password OR password only<ept id="9622824f-668f-4c6a-91a2-6df95c49bf04">&lt;/strong&gt;</ept> - the virtual machine was provisioned with either a certificate (<bpt id="b703cbc8-9843-4eea-8919-ea4dfd7aea91">&lt;code&gt;</bpt>.CER<ept id="b703cbc8-9843-4eea-8919-ea4dfd7aea91">&lt;/code&gt;</ept> file) or SSH key as well as a password, or just a user name and password.</target>
+        </trans-unit>
+        <trans-unit id="8a3a7bee-aea1-4752-83cf-c2800b6ad1f8" xml:space="preserve">
+          <source>In this case <bpt id="c0950a10-7571-44a7-a3d6-c0dc70a6580d">&lt;code&gt;</bpt>sudo<ept id="c0950a10-7571-44a7-a3d6-c0dc70a6580d">&lt;/code&gt;</ept> will prompt for the user's password before executing the command.</source>
+          <target state="new">In this case <bpt id="c0950a10-7571-44a7-a3d6-c0dc70a6580d">&lt;code&gt;</bpt>sudo<ept id="c0950a10-7571-44a7-a3d6-c0dc70a6580d">&lt;/code&gt;</ept> will prompt for the user's password before executing the command.</target>
+        </trans-unit>
+        <trans-unit id="908fbcdd-c209-41b1-b8f3-2e5cb96e5e66" xml:space="preserve">
+          <source><bpt id="c14a7522-9e59-40a3-ab0f-db77bc69c965">&lt;strong&gt;</bpt>SSH key only<ept id="c14a7522-9e59-40a3-ab0f-db77bc69c965">&lt;/strong&gt;</ept> - the virtual machine was provisioned with a certificate (<bpt id="7b7deb70-b722-405e-aaba-ce674c48496b">&lt;code&gt;</bpt>.cer<ept id="7b7deb70-b722-405e-aaba-ce674c48496b">&lt;/code&gt;</ept> or <bpt id="ef9093f7-fe5b-4241-b22e-d1e715519099">&lt;code&gt;</bpt>.pem<ept id="ef9093f7-fe5b-4241-b22e-d1e715519099">&lt;/code&gt;</ept> file) or SSH key, but no password.</source>
+          <target state="new"><bpt id="c14a7522-9e59-40a3-ab0f-db77bc69c965">&lt;strong&gt;</bpt>SSH key only<ept id="c14a7522-9e59-40a3-ab0f-db77bc69c965">&lt;/strong&gt;</ept> - the virtual machine was provisioned with a certificate (<bpt id="7b7deb70-b722-405e-aaba-ce674c48496b">&lt;code&gt;</bpt>.cer<ept id="7b7deb70-b722-405e-aaba-ce674c48496b">&lt;/code&gt;</ept> or <bpt id="ef9093f7-fe5b-4241-b22e-d1e715519099">&lt;code&gt;</bpt>.pem<ept id="ef9093f7-fe5b-4241-b22e-d1e715519099">&lt;/code&gt;</ept> file) or SSH key, but no password.</target>
+        </trans-unit>
+        <trans-unit id="953ba1dd-5460-4fc5-a826-b2c8a1126349" xml:space="preserve">
+          <source>In this case <bpt id="2dbe33e1-e4b0-4c18-912d-78908e0fbe1a">&lt;code&gt;</bpt>sudo<ept id="2dbe33e1-e4b0-4c18-912d-78908e0fbe1a">&lt;/code&gt;</ept> <bpt id="1e2250ec-51e8-431a-ad57-5259fc9b2fb4">&lt;strong&gt;</bpt>will not<ept id="1e2250ec-51e8-431a-ad57-5259fc9b2fb4">&lt;/strong&gt;</ept> prompt for the user's password before executing the command.</source>
+          <target state="new">In this case <bpt id="2dbe33e1-e4b0-4c18-912d-78908e0fbe1a">&lt;code&gt;</bpt>sudo<ept id="2dbe33e1-e4b0-4c18-912d-78908e0fbe1a">&lt;/code&gt;</ept> <bpt id="1e2250ec-51e8-431a-ad57-5259fc9b2fb4">&lt;strong&gt;</bpt>will not<ept id="1e2250ec-51e8-431a-ad57-5259fc9b2fb4">&lt;/strong&gt;</ept> prompt for the user's password before executing the command.</target>
+        </trans-unit>
+        <trans-unit id="f5ef248a-8626-4c6e-a719-e829012dd2d7" xml:space="preserve">
+          <source>Log into the Linux virtual machine using SSH key or password authentication, then run commands using <bpt id="c196a998-59c8-4b89-9252-6bab763a7aea">&lt;code&gt;</bpt>sudo<ept id="c196a998-59c8-4b89-9252-6bab763a7aea">&lt;/code&gt;</ept>, for example:</source>
+          <target state="new">Log into the Linux virtual machine using SSH key or password authentication, then run commands using <bpt id="c196a998-59c8-4b89-9252-6bab763a7aea">&lt;code&gt;</bpt>sudo<ept id="c196a998-59c8-4b89-9252-6bab763a7aea">&lt;/code&gt;</ept>, for example:</target>
+        </trans-unit>
+        <trans-unit id="6e1c5d42-59f2-458a-b542-ae95ab8a1734" xml:space="preserve">
+          <source>In this case the user will be prompted for a password.</source>
+          <target state="new">In this case the user will be prompted for a password.</target>
+        </trans-unit>
+        <trans-unit id="91888e69-ba93-4f63-94c1-a04c8a6abb8b" xml:space="preserve">
+          <source>After entering the password <bpt id="6397722d-73cf-4b59-868f-29c76ad4fe4e">&lt;code&gt;</bpt>sudo<ept id="6397722d-73cf-4b59-868f-29c76ad4fe4e">&lt;/code&gt;</ept> will run the command with <bpt id="423f229e-d103-4207-a707-c41ce20ccb75">&lt;code&gt;</bpt>root<ept id="423f229e-d103-4207-a707-c41ce20ccb75">&lt;/code&gt;</ept> privileges.</source>
+          <target state="new">After entering the password <bpt id="6397722d-73cf-4b59-868f-29c76ad4fe4e">&lt;code&gt;</bpt>sudo<ept id="6397722d-73cf-4b59-868f-29c76ad4fe4e">&lt;/code&gt;</ept> will run the command with <bpt id="423f229e-d103-4207-a707-c41ce20ccb75">&lt;code&gt;</bpt>root<ept id="423f229e-d103-4207-a707-c41ce20ccb75">&lt;/code&gt;</ept> privileges.</target>
+        </trans-unit>
+        <trans-unit id="c234054e-0e3d-45b4-8308-145cde009cd3" xml:space="preserve">
+          <source>You can also enable passwordless sudo by editing the <bpt id="3011dceb-34c9-4bd7-b4e9-cc2496355dfd">&lt;code&gt;</bpt>/etc/sudoers.d/waagent<ept id="3011dceb-34c9-4bd7-b4e9-cc2496355dfd">&lt;/code&gt;</ept> file, for example:</source>
+          <target state="new">You can also enable passwordless sudo by editing the <bpt id="3011dceb-34c9-4bd7-b4e9-cc2496355dfd">&lt;code&gt;</bpt>/etc/sudoers.d/waagent<ept id="3011dceb-34c9-4bd7-b4e9-cc2496355dfd">&lt;/code&gt;</ept> file, for example:</target>
+        </trans-unit>
+        <trans-unit id="6adc191e-d2ea-4fae-b55b-abb2b76f79a5" xml:space="preserve">
+          <source>This change will allow for passwordless sudo by the user "azureuser".</source>
+          <target state="new">This change will allow for passwordless sudo by the user "azureuser".</target>
+        </trans-unit>
+        <trans-unit id="ec8ee4c9-afed-4114-945d-ba2cae98eb29" xml:space="preserve">
+          <source>Log into the Linux virtual machine using SSH key authentication, then run commands using <bpt id="56b64c1d-c1fa-48e9-8462-969dd99893a5">&lt;code&gt;</bpt>sudo<ept id="56b64c1d-c1fa-48e9-8462-969dd99893a5">&lt;/code&gt;</ept>, for example:</source>
+          <target state="new">Log into the Linux virtual machine using SSH key authentication, then run commands using <bpt id="56b64c1d-c1fa-48e9-8462-969dd99893a5">&lt;code&gt;</bpt>sudo<ept id="56b64c1d-c1fa-48e9-8462-969dd99893a5">&lt;/code&gt;</ept>, for example:</target>
+        </trans-unit>
+        <trans-unit id="f2266fe3-2b2a-4b16-aa83-6dcb98bf3df1" xml:space="preserve">
+          <source>In this case the user will <bpt id="cc0c695e-be63-4150-8633-3249a031cfea">&lt;strong&gt;</bpt>not<ept id="cc0c695e-be63-4150-8633-3249a031cfea">&lt;/strong&gt;</ept> be prompted for a password. After pressing <bpt id="749a8062-45e7-4d94-b54d-0e12e21b3d4b">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="749a8062-45e7-4d94-b54d-0e12e21b3d4b">&lt;/code&gt;</ept>, <bpt id="09756b15-9b76-4952-87e9-2d5261d70dd6">&lt;code&gt;</bpt>sudo<ept id="09756b15-9b76-4952-87e9-2d5261d70dd6">&lt;/code&gt;</ept> will run the command with <bpt id="867f6fb2-2acc-4366-bfbf-6a166240cbdb">&lt;code&gt;</bpt>root<ept id="867f6fb2-2acc-4366-bfbf-6a166240cbdb">&lt;/code&gt;</ept> privileges.</source>
+          <target state="new">In this case the user will <bpt id="cc0c695e-be63-4150-8633-3249a031cfea">&lt;strong&gt;</bpt>not<ept id="cc0c695e-be63-4150-8633-3249a031cfea">&lt;/strong&gt;</ept> be prompted for a password. After pressing <bpt id="749a8062-45e7-4d94-b54d-0e12e21b3d4b">&lt;code&gt;</bpt>&lt;enter&gt;<ept id="749a8062-45e7-4d94-b54d-0e12e21b3d4b">&lt;/code&gt;</ept>, <bpt id="09756b15-9b76-4952-87e9-2d5261d70dd6">&lt;code&gt;</bpt>sudo<ept id="09756b15-9b76-4952-87e9-2d5261d70dd6">&lt;/code&gt;</ept> will run the command with <bpt id="867f6fb2-2acc-4366-bfbf-6a166240cbdb">&lt;code&gt;</bpt>root<ept id="867f6fb2-2acc-4366-bfbf-6a166240cbdb">&lt;/code&gt;</ept> privileges.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

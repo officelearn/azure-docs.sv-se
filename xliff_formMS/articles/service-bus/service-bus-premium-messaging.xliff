@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d52339f8-69ce-45f7-bedd-41787481fa46" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d52339f8-69ce-45f7-bedd-41787481fa46" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="794fb899-2c34-4118-8a1b-51fd97c4da4c">
+        <trans-unit id="5fb88534-b764-4c43-8bdc-cafe96b1f211" xml:space="preserve">
+          <source>Service Bus Premium and Standard Messaging tiers overview | Microsoft Azure</source>
+          <target state="new">Service Bus Premium and Standard Messaging tiers overview | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="a7395934-a4ff-4119-976b-573ebabdcf47" xml:space="preserve">
+          <source>Service Bus Premium and Standard Messaging</source>
+          <target state="new">Service Bus Premium and Standard Messaging</target>
+        </trans-unit>
+        <trans-unit id="22c5e684-8e5f-4e2f-9bde-f065447ade2a" xml:space="preserve">
+          <source>Service Bus brokered messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale.</source>
+          <target state="new">Service Bus brokered messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale.</target>
+        </trans-unit>
+        <trans-unit id="5215ab43-3588-4f43-ae8b-61d4f72713cf" xml:space="preserve">
+          <source>Service Bus brokered messaging is used as the communication backbone for many sophisticated cloud solutions.</source>
+          <target state="new">Service Bus brokered messaging is used as the communication backbone for many sophisticated cloud solutions.</target>
+        </trans-unit>
+        <trans-unit id="72f0bad3-ff8d-4690-96d0-44a2383ae060" xml:space="preserve">
+          <source>With the introduction of the <bpt id="449d674a-a4b8-4475-b0e6-b838132d05d2">&lt;em&gt;</bpt>Premium<ept id="449d674a-a4b8-4475-b0e6-b838132d05d2">&lt;/em&gt;</ept> tier of Service Bus messaging, we are addressing common customer requests around scale, performance, and availability for mission-critical applications.</source>
+          <target state="new">With the introduction of the <bpt id="449d674a-a4b8-4475-b0e6-b838132d05d2">&lt;em&gt;</bpt>Premium<ept id="449d674a-a4b8-4475-b0e6-b838132d05d2">&lt;/em&gt;</ept> tier of Service Bus messaging, we are addressing common customer requests around scale, performance, and availability for mission-critical applications.</target>
+        </trans-unit>
+        <trans-unit id="244fe22f-5a2b-42e7-81e9-14c910bd73de" xml:space="preserve">
+          <source>Although the feature sets are nearly identical, these two tiers of Azure Service Bus messaging are designed to serve different use cases.</source>
+          <target state="new">Although the feature sets are nearly identical, these two tiers of Azure Service Bus messaging are designed to serve different use cases.</target>
+        </trans-unit>
+        <trans-unit id="43945e8c-b289-4ca8-b417-b8963f618174" xml:space="preserve">
+          <source>Some high-level differences are highlighted in the table below.</source>
+          <target state="new">Some high-level differences are highlighted in the table below.</target>
+        </trans-unit>
+        <trans-unit id="3b5f3720-ebef-40c7-a810-43da79e7bfd3" xml:space="preserve">
+          <source>Premium</source>
+          <target state="new">Premium</target>
+        </trans-unit>
+        <trans-unit id="70ae82a5-6fc4-4d5d-a2e8-f54deda8af98" xml:space="preserve">
+          <source>Standard</source>
+          <target state="new">Standard</target>
+        </trans-unit>
+        <trans-unit id="36e22d44-da48-4d5a-85e1-2a4304c86792" xml:space="preserve">
+          <source>High throughput</source>
+          <target state="new">High throughput</target>
+        </trans-unit>
+        <trans-unit id="5fbb2dd9-3234-41ea-9339-aa150031f681" xml:space="preserve">
+          <source>Variable throughput</source>
+          <target state="new">Variable throughput</target>
+        </trans-unit>
+        <trans-unit id="f16c37a6-d6e9-4674-90b4-ff433dd88f5b" xml:space="preserve">
+          <source>Predictable performance</source>
+          <target state="new">Predictable performance</target>
+        </trans-unit>
+        <trans-unit id="de79057f-bc20-418b-a3c5-b9ee91a16c7b" xml:space="preserve">
+          <source>Variable latency</source>
+          <target state="new">Variable latency</target>
+        </trans-unit>
+        <trans-unit id="fee29537-3407-4ef3-b465-95b1f0b96d03" xml:space="preserve">
+          <source>Predictable pricing</source>
+          <target state="new">Predictable pricing</target>
+        </trans-unit>
+        <trans-unit id="fee4c534-0cc2-45e0-9795-0993e7e634e9" xml:space="preserve">
+          <source>Pay as you go variable pricing</source>
+          <target state="new">Pay as you go variable pricing</target>
+        </trans-unit>
+        <trans-unit id="3d388d17-bf99-4c8d-a1a4-daf1556adb5e" xml:space="preserve">
+          <source>Ability to scale up and down workload</source>
+          <target state="new">Ability to scale up and down workload</target>
+        </trans-unit>
+        <trans-unit id="300ff2cb-7fec-4bae-b8eb-531dba2d1612" xml:space="preserve">
+          <source>N/A</source>
+          <target state="new">N/A</target>
+        </trans-unit>
+        <trans-unit id="792f4484-380a-49cb-9217-1812185a4851" xml:space="preserve">
+          <source><bpt id="865087b0-6cbe-44ff-8d03-86e24265499d">&lt;strong&gt;</bpt>Azure Service Bus Premium Messaging<ept id="865087b0-6cbe-44ff-8d03-86e24265499d">&lt;/strong&gt;</ept> provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation.</source>
+          <target state="new"><bpt id="865087b0-6cbe-44ff-8d03-86e24265499d">&lt;strong&gt;</bpt>Azure Service Bus Premium Messaging<ept id="865087b0-6cbe-44ff-8d03-86e24265499d">&lt;/strong&gt;</ept> provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation.</target>
+        </trans-unit>
+        <trans-unit id="d47b58e8-8f2e-42e6-b291-903f778f7e57" xml:space="preserve">
+          <source>This resource container is called a <bpt id="ad351841-6ef6-468e-ac22-58fd5da64466">&lt;em&gt;</bpt>messaging unit<ept id="ad351841-6ef6-468e-ac22-58fd5da64466">&lt;/em&gt;</ept>.</source>
+          <target state="new">This resource container is called a <bpt id="ad351841-6ef6-468e-ac22-58fd5da64466">&lt;em&gt;</bpt>messaging unit<ept id="ad351841-6ef6-468e-ac22-58fd5da64466">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8c20a21-7de0-4719-991e-6003d042d4d1" xml:space="preserve">
+          <source>Each premium namespace is allocated at least one messaging unit.</source>
+          <target state="new">Each premium namespace is allocated at least one messaging unit.</target>
+        </trans-unit>
+        <trans-unit id="b1c8e308-5819-4d0b-b5be-2ca11d23b239" xml:space="preserve">
+          <source>You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace.</source>
+          <target state="new">You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace.</target>
+        </trans-unit>
+        <trans-unit id="2aff907e-76c7-4b27-a631-59679363e7a1" xml:space="preserve">
+          <source>A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges.</source>
+          <target state="new">A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges.</target>
+        </trans-unit>
+        <trans-unit id="d460d61b-8f67-4ba7-b6f4-88fc8024f543" xml:space="preserve">
+          <source>The result is predictable and repeatable performance for your Service Bus-based solution.</source>
+          <target state="new">The result is predictable and repeatable performance for your Service Bus-based solution.</target>
+        </trans-unit>
+        <trans-unit id="ac0db7ce-a96c-4f1c-bb04-6b206a90c1bf" xml:space="preserve">
+          <source>Not only is this performance more predictable and available, but it is also faster.</source>
+          <target state="new">Not only is this performance more predictable and available, but it is also faster.</target>
+        </trans-unit>
+        <trans-unit id="8dcd0b8c-604b-45b8-92ff-7199b0ae19a7" xml:space="preserve">
+          <source>Azure Service Bus Premium messaging builds on the storage engine introduced in <bpt id="e71bfcba-ab39-4625-9901-083307840aee">&lt;linkText&gt;</bpt>Azure Event Hubs<ept id="e71bfcba-ab39-4625-9901-083307840aee">&lt;/linkText&gt;</ept><bpt id="e71bfcba-ab39-4625-9901-083307840aee">&lt;title&gt;</bpt><ept id="e71bfcba-ab39-4625-9901-083307840aee">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure Service Bus Premium messaging builds on the storage engine introduced in <bpt id="e71bfcba-ab39-4625-9901-083307840aee">&lt;linkText&gt;</bpt>Azure Event Hubs<ept id="e71bfcba-ab39-4625-9901-083307840aee">&lt;/linkText&gt;</ept><bpt id="e71bfcba-ab39-4625-9901-083307840aee">&lt;title&gt;</bpt><ept id="e71bfcba-ab39-4625-9901-083307840aee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc35ff1f-7103-4b9e-9fe9-ebe87b47ce4c" xml:space="preserve">
+          <source>With Premium messaging, peak performance is much faster than the Standard tier.</source>
+          <target state="new">With Premium messaging, peak performance is much faster than the Standard tier.</target>
+        </trans-unit>
+        <trans-unit id="b4d595ae-fa6f-4a82-9a55-dbcd7966c123" xml:space="preserve">
+          <source>The following are a few differences between Premium and Standard messaging tiers.</source>
+          <target state="new">The following are a few differences between Premium and Standard messaging tiers.</target>
+        </trans-unit>
+        <trans-unit id="2c348fbf-92fb-41b5-93da-26cc717eaf01" xml:space="preserve">
+          <source>Partitioned entities are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging.</source>
+          <target state="new">Partitioned entities are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging.</target>
+        </trans-unit>
+        <trans-unit id="aac1f6f7-e25b-46c9-b628-56fa79c12649" xml:space="preserve">
+          <source>Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform.</source>
+          <target state="new">Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform.</target>
+        </trans-unit>
+        <trans-unit id="3eaaca2f-3456-4776-af55-cf4d57082c42" xml:space="preserve">
+          <source>As a result, partitioning is not necessary.</source>
+          <target state="new">As a result, partitioning is not necessary.</target>
+        </trans-unit>
+        <trans-unit id="aa0feb5a-c84a-4122-a61d-edf306a23cb2" xml:space="preserve">
+          <source>Additionally, the partition count has been changed from 16 partitions in Standard messaging to two partitions in Premium.</source>
+          <target state="new">Additionally, the partition count has been changed from 16 partitions in Standard messaging to two partitions in Premium.</target>
+        </trans-unit>
+        <trans-unit id="ffea30e2-241e-4283-bc59-857b68024f15" xml:space="preserve">
+          <source>Having 2 partitions ensures availability and is a more appropriate number for the Premium runtime environment.</source>
+          <target state="new">Having 2 partitions ensures availability and is a more appropriate number for the Premium runtime environment.</target>
+        </trans-unit>
+        <trans-unit id="26bf9031-1af9-4b2a-9e02-4e617c49a45d" xml:space="preserve">
+          <source>For more information, see <bpt id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;linkText&gt;</bpt>Partitioning Messaging Entities<ept id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;/linkText&gt;</ept><bpt id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;title&gt;</bpt><ept id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;linkText&gt;</bpt>Partitioning Messaging Entities<ept id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;/linkText&gt;</ept><bpt id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;title&gt;</bpt><ept id="7fc61976-7519-45b1-aca9-019fe1ffd331">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2342ac15-f109-4c60-8b08-e6b8b8c3946e" xml:space="preserve">
+          <source>Because it runs in a completely isolated runtime environment, there is no longer a need for express entities in Premium messaging.</source>
+          <target state="new">Because it runs in a completely isolated runtime environment, there is no longer a need for express entities in Premium messaging.</target>
+        </trans-unit>
+        <trans-unit id="35172ed3-d7a3-45dc-a2e0-99995ce02f1e" xml:space="preserve">
+          <source>Consequently, express entities are not supported in Premium namespaces.</source>
+          <target state="new">Consequently, express entities are not supported in Premium namespaces.</target>
+        </trans-unit>
+        <trans-unit id="fdd27b40-a293-4b3d-8df0-4793742ee86a" xml:space="preserve">
+          <source>For more information about the express feature, see the <bpt id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress<ept id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;/linkText&gt;</ept><bpt id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;title&gt;</bpt><ept id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;/title&gt;</ept> property.</source>
+          <target state="new">For more information about the express feature, see the <bpt id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;linkText&gt;</bpt>Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress<ept id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;/linkText&gt;</ept><bpt id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;title&gt;</bpt><ept id="57b94271-ae20-414b-8555-8d5b0ee93d7d">&lt;/title&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="35a27715-075e-4a94-9db1-e3f0df66b53e" xml:space="preserve">
+          <source>To learn more about Service Bus messaging, see the following topics.</source>
+          <target state="new">To learn more about Service Bus messaging, see the following topics.</target>
+        </trans-unit>
+        <trans-unit id="53c6d082-8847-4932-9716-e30a0596456a" xml:space="preserve">
+          <source><bpt id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;linkText&gt;</bpt>Introducing Azure Service Bus Premium messaging (blog post)<ept id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;/linkText&gt;</ept><bpt id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;title&gt;</bpt><ept id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;linkText&gt;</bpt>Introducing Azure Service Bus Premium messaging (blog post)<ept id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;/linkText&gt;</ept><bpt id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;title&gt;</bpt><ept id="d3c83a37-dfef-4b72-80f6-63120259a97f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18f2bf16-b591-4421-b552-6836c11df973" xml:space="preserve">
+          <source><bpt id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;linkText&gt;</bpt>Introducing Azure Service Bus Premium messaging (Channel9)<ept id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;/linkText&gt;</ept><bpt id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;title&gt;</bpt><ept id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;linkText&gt;</bpt>Introducing Azure Service Bus Premium messaging (Channel9)<ept id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;/linkText&gt;</ept><bpt id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;title&gt;</bpt><ept id="77ab914e-bf7a-4c9a-920f-21f366f7025a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed81e8a-21cf-47b7-a85d-8bc0913cf70a" xml:space="preserve">
+          <source><bpt id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;linkText&gt;</bpt>Service Bus messaging overview<ept id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;/linkText&gt;</ept><bpt id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;title&gt;</bpt><ept id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;linkText&gt;</bpt>Service Bus messaging overview<ept id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;/linkText&gt;</ept><bpt id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;title&gt;</bpt><ept id="e1aa4d2b-722e-4672-b489-1ad4a4623761">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="131276a8-3886-4a2a-99aa-359ab32d6321" xml:space="preserve">
+          <source><bpt id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;linkText&gt;</bpt>Azure Service Bus Architectural Overview<ept id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;/linkText&gt;</ept><bpt id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;title&gt;</bpt><ept id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;linkText&gt;</bpt>Azure Service Bus Architectural Overview<ept id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;/linkText&gt;</ept><bpt id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;title&gt;</bpt><ept id="c2e0c18d-612e-4937-af1f-c6906e09cffc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79d84edd-6b2d-431f-b65b-26db2bd198b0" xml:space="preserve">
+          <source><bpt id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;linkText&gt;</bpt>How to use Service Bus queues<ept id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;/linkText&gt;</ept><bpt id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;title&gt;</bpt><ept id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;linkText&gt;</bpt>How to use Service Bus queues<ept id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;/linkText&gt;</ept><bpt id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;title&gt;</bpt><ept id="418d4f3a-9d33-4497-b524-e9740612b7cf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

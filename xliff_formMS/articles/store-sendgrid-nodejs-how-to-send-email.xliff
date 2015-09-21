@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9dfa6546-493e-4488-97c9-7fbdd5e5c81b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9dfa6546-493e-4488-97c9-7fbdd5e5c81b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c6d1492e-d64f-425f-b280-0f7004ae9d1e">
+        <trans-unit id="edde17e9-4aed-423d-85a0-15a5b489d57d" xml:space="preserve">
+          <source>How to use the SendGrid email service (Node.js) | Microsoft Azure</source>
+          <target state="new">How to use the SendGrid email service (Node.js) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="5830a714-4cbd-4d67-ba6d-7ebdeebfffa6" xml:space="preserve">
+          <source>Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API.</source>
+          <target state="new">Learn how send email with the SendGrid email service on Azure. Code samples written using the Node.js API.</target>
+        </trans-unit>
+        <trans-unit id="45e5372e-3c83-489f-ab30-f23ab511f3f8" xml:space="preserve">
+          <source>This guide demonstrates how to perform common programming tasks with the
+SendGrid email service on Azure.</source>
+          <target state="new">This guide demonstrates how to perform common programming tasks with the
+SendGrid email service on Azure.</target>
+        </trans-unit>
+        <trans-unit id="91ea6c53-e5bd-4668-af12-e92974743869" xml:space="preserve">
+          <source>The samples are written using
+the Node.js API.</source>
+          <target state="new">The samples are written using
+the Node.js API.</target>
+        </trans-unit>
+        <trans-unit id="497da32b-d9b7-448a-a17f-1ff456253e83" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="587af079-8ba5-4b38-bd72-38cd4a868f93">&lt;strong&gt;</bpt>constructing email<ept id="587af079-8ba5-4b38-bd72-38cd4a868f93">&lt;/strong&gt;</ept>,
+<bpt id="d03d8647-a66c-40de-8a35-9a95161a4bb1">&lt;strong&gt;</bpt>sending email<ept id="d03d8647-a66c-40de-8a35-9a95161a4bb1">&lt;/strong&gt;</ept>, <bpt id="44346ed5-f7c9-4bbf-a861-4ecae67b1731">&lt;strong&gt;</bpt>adding attachments<ept id="44346ed5-f7c9-4bbf-a861-4ecae67b1731">&lt;/strong&gt;</ept>, <bpt id="fced368d-d00d-436f-b3d0-b8591a5d8fac">&lt;strong&gt;</bpt>using filters<ept id="fced368d-d00d-436f-b3d0-b8591a5d8fac">&lt;/strong&gt;</ept>, and
+<bpt id="5d5e6d4a-4994-4513-ad2a-c857e517572b">&lt;strong&gt;</bpt>updating properties<ept id="5d5e6d4a-4994-4513-ad2a-c857e517572b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="587af079-8ba5-4b38-bd72-38cd4a868f93">&lt;strong&gt;</bpt>constructing email<ept id="587af079-8ba5-4b38-bd72-38cd4a868f93">&lt;/strong&gt;</ept>,
+<bpt id="d03d8647-a66c-40de-8a35-9a95161a4bb1">&lt;strong&gt;</bpt>sending email<ept id="d03d8647-a66c-40de-8a35-9a95161a4bb1">&lt;/strong&gt;</ept>, <bpt id="44346ed5-f7c9-4bbf-a861-4ecae67b1731">&lt;strong&gt;</bpt>adding attachments<ept id="44346ed5-f7c9-4bbf-a861-4ecae67b1731">&lt;/strong&gt;</ept>, <bpt id="fced368d-d00d-436f-b3d0-b8591a5d8fac">&lt;strong&gt;</bpt>using filters<ept id="fced368d-d00d-436f-b3d0-b8591a5d8fac">&lt;/strong&gt;</ept>, and
+<bpt id="5d5e6d4a-4994-4513-ad2a-c857e517572b">&lt;strong&gt;</bpt>updating properties<ept id="5d5e6d4a-4994-4513-ad2a-c857e517572b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c21e703c-e1c3-410f-8326-8e48169dd8b6" xml:space="preserve">
+          <source>For more information on SendGrid and sending
+email, see the <bpt id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;linkText&gt;</bpt>Next Steps<ept id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;/linkText&gt;</ept><bpt id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;title&gt;</bpt><ept id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on SendGrid and sending
+email, see the <bpt id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;linkText&gt;</bpt>Next Steps<ept id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;/linkText&gt;</ept><bpt id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;title&gt;</bpt><ept id="df32a6e2-fafd-458c-8b94-4942bb39bb2b">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="e7c03c8c-6f28-4372-9de6-4110d14d5c69" xml:space="preserve">
+          <source>SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</source>
+          <target state="new">SendGrid is a [cloud-based email service] that provides reliable
+[transactional email delivery], scalability, and real-time analytics along with flexible APIs
+that make custom integration easy.</target>
+        </trans-unit>
+        <trans-unit id="e98d002b-5fc7-4ff7-9e4f-e24ab2224902" xml:space="preserve">
+          <source>Common SendGrid usage scenarios
+include:</source>
+          <target state="new">Common SendGrid usage scenarios
+include:</target>
+        </trans-unit>
+        <trans-unit id="536b16b6-9344-4005-85de-d0e30824ca78" xml:space="preserve">
+          <source>Automatically sending receipts to customers</source>
+          <target state="new">Automatically sending receipts to customers</target>
+        </trans-unit>
+        <trans-unit id="66b73b4a-6251-409c-8341-2eb21097bb3a" xml:space="preserve">
+          <source>Administering distribution lists for sending customers monthly
+e-fliers and special offers</source>
+          <target state="new">Administering distribution lists for sending customers monthly
+e-fliers and special offers</target>
+        </trans-unit>
+        <trans-unit id="79badc8e-2534-4ea2-b1fa-e50c017605c7" xml:space="preserve">
+          <source>Collecting real-time metrics for things like blocked e-mail, and
+customer responsiveness</source>
+          <target state="new">Collecting real-time metrics for things like blocked e-mail, and
+customer responsiveness</target>
+        </trans-unit>
+        <trans-unit id="3253b0b7-a525-4474-9d56-b1d6ef616028" xml:space="preserve">
+          <source>Generating reports to help identify trends</source>
+          <target state="new">Generating reports to help identify trends</target>
+        </trans-unit>
+        <trans-unit id="651e9437-fee7-477b-80c3-1b287e67c33d" xml:space="preserve">
+          <source>Forwarding customer inquiries</source>
+          <target state="new">Forwarding customer inquiries</target>
+        </trans-unit>
+        <trans-unit id="dbbb525c-5998-4caf-b2e0-287a04ca9fad" xml:space="preserve">
+          <source>Email notifications from your application</source>
+          <target state="new">Email notifications from your application</target>
+        </trans-unit>
+        <trans-unit id="78a7f1cf-cac0-4eac-ac52-d9a15e30dd5a" xml:space="preserve">
+          <source>For more information, see <bpt id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;/linkText&gt;</ept><bpt id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;title&gt;</bpt><ept id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;linkText&gt;</bpt>https://sendgrid.com<ept id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;/linkText&gt;</ept><bpt id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;title&gt;</bpt><ept id="f3878433-4ed9-4782-ad6c-c9044021284d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf725fdc-bac3-4b29-b9d1-0772ac2f4acb" xml:space="preserve">
+          <source><bpt id="73dc0361-e620-4333-a62b-f67e8bba1661">&lt;token href="../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="73dc0361-e620-4333-a62b-f67e8bba1661">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="73dc0361-e620-4333-a62b-f67e8bba1661">&lt;token href="../includes/sendgrid-sign-up.md"&gt;</bpt><ept id="73dc0361-e620-4333-a62b-f67e8bba1661">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="552fd2a1-0166-43b3-9d02-a4a392e064c6" xml:space="preserve">
+          <source>The SendGrid module for Node.js can be installed through the node
+package manager (npm) by using the following command:</source>
+          <target state="new">The SendGrid module for Node.js can be installed through the node
+package manager (npm) by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="69a9c5cc-ad29-43c0-9b25-63aa8e422cf0" xml:space="preserve">
+          <source>After installation, you can require the module in your application by
+using the following code:</source>
+          <target state="new">After installation, you can require the module in your application by
+using the following code:</target>
+        </trans-unit>
+        <trans-unit id="132ea650-d069-4cea-813a-fedcca2d6850" xml:space="preserve">
+          <source>The SendGrid module exports the <bpt id="54aab2b3-4ee7-42b9-a06e-b6fa79318987">&lt;strong&gt;</bpt>SendGrid<ept id="54aab2b3-4ee7-42b9-a06e-b6fa79318987">&lt;/strong&gt;</ept> and <bpt id="c74810f3-bc3a-47d9-9419-0befe7e4f2ad">&lt;strong&gt;</bpt>Email<ept id="c74810f3-bc3a-47d9-9419-0befe7e4f2ad">&lt;/strong&gt;</ept> functions.</source>
+          <target state="new">The SendGrid module exports the <bpt id="54aab2b3-4ee7-42b9-a06e-b6fa79318987">&lt;strong&gt;</bpt>SendGrid<ept id="54aab2b3-4ee7-42b9-a06e-b6fa79318987">&lt;/strong&gt;</ept> and <bpt id="c74810f3-bc3a-47d9-9419-0befe7e4f2ad">&lt;strong&gt;</bpt>Email<ept id="c74810f3-bc3a-47d9-9419-0befe7e4f2ad">&lt;/strong&gt;</ept> functions.</target>
+        </trans-unit>
+        <trans-unit id="a4674a47-37ab-4c34-85fc-c59ed8684a97" xml:space="preserve">
+          <source><bpt id="990c1882-9a6f-4ef3-8f3b-88a1b5caf4fb">&lt;strong&gt;</bpt>SendGrid<ept id="990c1882-9a6f-4ef3-8f3b-88a1b5caf4fb">&lt;/strong&gt;</ept> is responsible for sending email through Web API, 
+while <bpt id="6666d38c-62ec-4388-81b4-48ee4eaade34">&lt;strong&gt;</bpt>Email<ept id="6666d38c-62ec-4388-81b4-48ee4eaade34">&lt;/strong&gt;</ept> encapsulates an email message.</source>
+          <target state="new"><bpt id="990c1882-9a6f-4ef3-8f3b-88a1b5caf4fb">&lt;strong&gt;</bpt>SendGrid<ept id="990c1882-9a6f-4ef3-8f3b-88a1b5caf4fb">&lt;/strong&gt;</ept> is responsible for sending email through Web API, 
+while <bpt id="6666d38c-62ec-4388-81b4-48ee4eaade34">&lt;strong&gt;</bpt>Email<ept id="6666d38c-62ec-4388-81b4-48ee4eaade34">&lt;/strong&gt;</ept> encapsulates an email message.</target>
+        </trans-unit>
+        <trans-unit id="752351bc-7286-437b-abda-584bb2990655" xml:space="preserve">
+          <source>Creating an email message using the SendGrid module involves first
+creating an email message using the Email function, and then sending it
+using the SendGrid function.</source>
+          <target state="new">Creating an email message using the SendGrid module involves first
+creating an email message using the Email function, and then sending it
+using the SendGrid function.</target>
+        </trans-unit>
+        <trans-unit id="9e1bbb79-5d36-44da-b8ba-e4d3749dc3e3" xml:space="preserve">
+          <source>The following is an example of creating a
+new message using the Email function:</source>
+          <target state="new">The following is an example of creating a
+new message using the Email function:</target>
+        </trans-unit>
+        <trans-unit id="c25c5af5-2137-4110-a7bd-0b7f9d78a56f" xml:space="preserve">
+          <source>You can also specify an HTML message for clients that support it by
+setting the html property.</source>
+          <target state="new">You can also specify an HTML message for clients that support it by
+setting the html property.</target>
+        </trans-unit>
+        <trans-unit id="ecf10e2f-29c4-4d1c-9d38-a4138bbdba29" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="936cfdb7-e4af-4fdc-b009-87c416ce20d5" xml:space="preserve">
+          <source>Setting both the text and html properties provides graceful fallback to
+text content for clients that cannot support HTML messages.</source>
+          <target state="new">Setting both the text and html properties provides graceful fallback to
+text content for clients that cannot support HTML messages.</target>
+        </trans-unit>
+        <trans-unit id="3b3cabf5-3ce1-4c73-a9a4-002ba9b63503" xml:space="preserve">
+          <source>For more information on all properties supported by the Email function,
+see <bpt id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;/linkText&gt;</ept><bpt id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;title&gt;</bpt><ept id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on all properties supported by the Email function,
+see <bpt id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;/linkText&gt;</ept><bpt id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;title&gt;</bpt><ept id="cd3fd4cd-df82-4e26-96d2-00e1dc6f3b81">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="31e56a67-da33-4785-a29f-21c19dc985c5" xml:space="preserve">
+          <source>After creating an email message using the Email function, you can send
+it using the Web API provided by SendGrid.</source>
+          <target state="new">After creating an email message using the Email function, you can send
+it using the Web API provided by SendGrid.</target>
+        </trans-unit>
+        <trans-unit id="ee15e1d5-79ec-4a85-9039-f3b710287bc6" xml:space="preserve">
+          <source>While the above examples show passing in an email object and
+callback function, you can also directly invoke the send
+function by directly specifying email properties.</source>
+          <target state="new">While the above examples show passing in an email object and
+callback function, you can also directly invoke the send
+function by directly specifying email properties.</target>
+        </trans-unit>
+        <trans-unit id="276eab46-b663-4455-8573-249fa40d1f20" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="0aa5fdd6-53f3-4b2b-8cc8-16ad0526ade1" xml:space="preserve">
+          <source>`````
+sendgrid.send({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'</source>
+          <target state="new">`````
+sendgrid.send({
+    to: 'john@contoso.com',
+    from: 'anna@contoso.com',
+    subject: 'test mail',
+    text: 'This is a sample email message.'</target>
+        </trans-unit>
+        <trans-unit id="dfbcfb99-cff3-470d-8e40-3d52de07379b" xml:space="preserve">
+          <source>});
+`````</source>
+          <target state="new">});
+`````</target>
+        </trans-unit>
+        <trans-unit id="9e0ed4ab-08e6-4ec9-8702-a640e67d70c1" xml:space="preserve">
+          <source>Attachments can be added to a message by specifying the file name(s) and
+path(s) in the <bpt id="39583c33-0aca-4020-81a6-2a1d0771cb46">&lt;strong&gt;</bpt>files<ept id="39583c33-0aca-4020-81a6-2a1d0771cb46">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">Attachments can be added to a message by specifying the file name(s) and
+path(s) in the <bpt id="39583c33-0aca-4020-81a6-2a1d0771cb46">&lt;strong&gt;</bpt>files<ept id="39583c33-0aca-4020-81a6-2a1d0771cb46">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="0308e776-ee5d-4f35-9383-658772496734" xml:space="preserve">
+          <source>The following example demonstrates
+sending an attachment:</source>
+          <target state="new">The following example demonstrates
+sending an attachment:</target>
+        </trans-unit>
+        <trans-unit id="5eff604c-2fb1-41cd-b908-da0f13d1d058" xml:space="preserve">
+          <source>When using the <bpt id="10618a34-4745-42af-8d3f-e31716be160b">&lt;strong&gt;</bpt>files<ept id="10618a34-4745-42af-8d3f-e31716be160b">&lt;/strong&gt;</ept> property, the file must be accessible
+through <bpt id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;linkText&gt;</bpt>fs.readFile<ept id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;/linkText&gt;</ept><bpt id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;title&gt;</bpt><ept id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;/title&gt;</ept>.</source>
+          <target state="new">When using the <bpt id="10618a34-4745-42af-8d3f-e31716be160b">&lt;strong&gt;</bpt>files<ept id="10618a34-4745-42af-8d3f-e31716be160b">&lt;/strong&gt;</ept> property, the file must be accessible
+through <bpt id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;linkText&gt;</bpt>fs.readFile<ept id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;/linkText&gt;</ept><bpt id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;title&gt;</bpt><ept id="451262e7-d35b-4b60-b4c8-2ba1d996902d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66490b5b-e1eb-4d6b-8310-9dd4d0049ec1" xml:space="preserve">
+          <source>If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the <bpt id="6545fac9-e739-4c42-a360-ff5756d3c0db">&lt;strong&gt;</bpt>files<ept id="6545fac9-e739-4c42-a360-ff5756d3c0db">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">If the file you wish to attach is hosted in Azure Storage, such as in a Blob container, you must first copy the file to local storage or to an Azure drive before it can be sent as an attachment using the <bpt id="6545fac9-e739-4c42-a360-ff5756d3c0db">&lt;strong&gt;</bpt>files<ept id="6545fac9-e739-4c42-a360-ff5756d3c0db">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="a68af800-dcf3-43f6-9378-a2913795094f" xml:space="preserve">
+          <source>SendGrid provides additional email functionality through the use of
+filters.</source>
+          <target state="new">SendGrid provides additional email functionality through the use of
+filters.</target>
+        </trans-unit>
+        <trans-unit id="21aeced4-b201-4b9f-832e-9a73930bb1f4" xml:space="preserve">
+          <source>These are settings that can be added to an email message to
+enable specific functionality such as enabling click tracking, Google
+analytics, subscription tracking, and so on.</source>
+          <target state="new">These are settings that can be added to an email message to
+enable specific functionality such as enabling click tracking, Google
+analytics, subscription tracking, and so on.</target>
+        </trans-unit>
+        <trans-unit id="ccd17115-9b63-4de0-ae07-29e832fec175" xml:space="preserve">
+          <source>For a full list of filters,
+see <bpt id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;linkText&gt;</bpt>Filter Settings<ept id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;/linkText&gt;</ept><bpt id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;title&gt;</bpt><ept id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a full list of filters,
+see <bpt id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;linkText&gt;</bpt>Filter Settings<ept id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;/linkText&gt;</ept><bpt id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;title&gt;</bpt><ept id="7e5ecbb4-010b-427f-9f8a-2f29c47fa690">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c014ec36-5879-4ebb-8c76-443105d93735" xml:space="preserve">
+          <source>Filters can be applied to a message by using the <bpt id="7df79f28-e1b0-48aa-91f1-60c26b789d47">&lt;strong&gt;</bpt>filters<ept id="7df79f28-e1b0-48aa-91f1-60c26b789d47">&lt;/strong&gt;</ept> property.</source>
+          <target state="new">Filters can be applied to a message by using the <bpt id="7df79f28-e1b0-48aa-91f1-60c26b789d47">&lt;strong&gt;</bpt>filters<ept id="7df79f28-e1b0-48aa-91f1-60c26b789d47">&lt;/strong&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="8168cbd9-fad0-44af-a051-43bcf0a623f5" xml:space="preserve">
+          <source>Each filter is specified by a hash containing filter-specific settings.</source>
+          <target state="new">Each filter is specified by a hash containing filter-specific settings.</target>
+        </trans-unit>
+        <trans-unit id="561a983f-cbfe-4cd1-8546-fd522be433e1" xml:space="preserve">
+          <source>The following examples demonstrate the footer and click tracking filters:</source>
+          <target state="new">The following examples demonstrate the footer and click tracking filters:</target>
+        </trans-unit>
+        <trans-unit id="ac1c877b-f1af-4f6b-a01e-7eb1adabc9e0" xml:space="preserve">
+          <source>Some email properties can be overwritten using <bpt id="58448d00-9dfe-408d-b570-03506ee37573">&lt;strong&gt;</bpt>set*Property*<ept id="58448d00-9dfe-408d-b570-03506ee37573">&lt;/strong&gt;</ept> or
+appended using <bpt id="949bccb2-db25-4331-9198-2ce3ed771156">&lt;strong&gt;</bpt>add*Property*<ept id="949bccb2-db25-4331-9198-2ce3ed771156">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Some email properties can be overwritten using <bpt id="58448d00-9dfe-408d-b570-03506ee37573">&lt;strong&gt;</bpt>set*Property*<ept id="58448d00-9dfe-408d-b570-03506ee37573">&lt;/strong&gt;</ept> or
+appended using <bpt id="949bccb2-db25-4331-9198-2ce3ed771156">&lt;strong&gt;</bpt>add*Property*<ept id="949bccb2-db25-4331-9198-2ce3ed771156">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3db9d60-7993-47eb-99a4-0bce6fecbe64" xml:space="preserve">
+          <source>For example, you can add additional
+recipients by using</source>
+          <target state="new">For example, you can add additional
+recipients by using</target>
+        </trans-unit>
+        <trans-unit id="49df7777-ca30-4220-8831-af47e487017d" xml:space="preserve">
+          <source>or set a filter by using</source>
+          <target state="new">or set a filter by using</target>
+        </trans-unit>
+        <trans-unit id="21ebb3fe-c6d3-4bab-a9e0-eeea2134edca" xml:space="preserve">
+          <source>For more information, see <bpt id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;/linkText&gt;</ept><bpt id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;title&gt;</bpt><ept id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;/linkText&gt;</ept><bpt id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;title&gt;</bpt><ept id="44acd5b3-a91c-45d2-8068-e811039423a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85e25102-9aeb-4506-b0a7-c082ccc03b59" xml:space="preserve">
+          <source>SendGrid offers web-based APIs that you can use to leverage additional
+SendGrid functionality from your Azure application.</source>
+          <target state="new">SendGrid offers web-based APIs that you can use to leverage additional
+SendGrid functionality from your Azure application.</target>
+        </trans-unit>
+        <trans-unit id="77905535-da93-47d1-a93d-aa50c9d6cc0c" xml:space="preserve">
+          <source>For full
+details, see the <bpt id="1cdfd86d-1219-4213-b881-032536960f45">&lt;linkText&gt;</bpt>SendGrid API documentation<ept id="1cdfd86d-1219-4213-b881-032536960f45">&lt;/linkText&gt;</ept><bpt id="1cdfd86d-1219-4213-b881-032536960f45">&lt;title&gt;</bpt><ept id="1cdfd86d-1219-4213-b881-032536960f45">&lt;/title&gt;</ept>.</source>
+          <target state="new">For full
+details, see the <bpt id="1cdfd86d-1219-4213-b881-032536960f45">&lt;linkText&gt;</bpt>SendGrid API documentation<ept id="1cdfd86d-1219-4213-b881-032536960f45">&lt;/linkText&gt;</ept><bpt id="1cdfd86d-1219-4213-b881-032536960f45">&lt;title&gt;</bpt><ept id="1cdfd86d-1219-4213-b881-032536960f45">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb2f226f-6a25-487e-8518-430680ab0d1d" xml:space="preserve">
+          <source>Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</source>
+          <target state="new">Now that you've learned the basics of the SendGrid Email service, follow
+these links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="4340d4a7-3858-480a-adb8-9d9a2f569805" xml:space="preserve">
+          <source>SendGrid Node.js module repository: <bpt id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;/linkText&gt;</ept><bpt id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;title&gt;</bpt><ept id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;/title&gt;</ept></source>
+          <target state="new">SendGrid Node.js module repository: <bpt id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;linkText&gt;</bpt>sendgrid-nodejs<ept id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;/linkText&gt;</ept><bpt id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;title&gt;</bpt><ept id="00814a64-e6a5-430f-9e8a-88007c2dbec2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfeeafe2-4c96-4ea6-b3ee-4b7a80a65571" xml:space="preserve">
+          <source>SendGrid API documentation:
+&lt;https://sendgrid.com/docs&gt;</source>
+          <target state="new">SendGrid API documentation:
+&lt;https://sendgrid.com/docs&gt;</target>
+        </trans-unit>
+        <trans-unit id="6875a051-24e6-4030-96b5-c1d0b05cd8a6" xml:space="preserve">
+          <source>SendGrid special offer for Azure customers:
+<bpt id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;linkText&gt;</bpt>http://sendgrid.com/azure.html<ept id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;/linkText&gt;</ept><bpt id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;title&gt;</bpt><ept id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;/title&gt;</ept></source>
+          <target state="new">SendGrid special offer for Azure customers:
+<bpt id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;linkText&gt;</bpt>http://sendgrid.com/azure.html<ept id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;/linkText&gt;</ept><bpt id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;title&gt;</bpt><ept id="03279d87-654d-4041-8c48-d1dd42bf3918">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c99dc727-d8c9-4615-82c2-87cbe6867d12" xml:space="preserve">
+          <source>https://sendgrid.com/windowsazure.html</source>
+          <target state="new">https://sendgrid.com/windowsazure.html</target>
+        </trans-unit>
+        <trans-unit id="5a4a6134-edf2-436f-bc61-0c75cf1c9a10" xml:space="preserve">
+          <source>https://github.com/sendgrid/sendgrid-nodejs</source>
+          <target state="new">https://github.com/sendgrid/sendgrid-nodejs</target>
+        </trans-unit>
+        <trans-unit id="5d4f30ed-793d-42ec-b96b-55ea459cb0e1" xml:space="preserve">
+          <source>https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html</source>
+          <target state="new">https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html</target>
+        </trans-unit>
+        <trans-unit id="da44f70c-6395-40b3-b5e2-cc686eeb5b80" xml:space="preserve">
+          <source>https://sendgrid.com/docs</source>
+          <target state="new">https://sendgrid.com/docs</target>
+        </trans-unit>
+        <trans-unit id="e7fbc9b6-a663-47f7-a968-da80cec6aa35" xml:space="preserve">
+          <source>https://sendgrid.com/email-solutions</source>
+          <target state="new">https://sendgrid.com/email-solutions</target>
+        </trans-unit>
+        <trans-unit id="f7c30e86-1787-4c31-90cb-d352b6230cf5" xml:space="preserve">
+          <source>https://sendgrid.com/transactional-email</source>
+          <target state="new">https://sendgrid.com/transactional-email</target>
+        </trans-unit>
+      </group>
+      <group id="bc3d4e25-fe06-490e-8318-2ee0d28ad7f6" />
+    </body>
+  </file>
+</xliff>

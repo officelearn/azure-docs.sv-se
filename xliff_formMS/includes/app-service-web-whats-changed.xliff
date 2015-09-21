@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="17a75c5c-43f5-403c-a0c1-8cbce32961d0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="17a75c5c-43f5-403c-a0c1-8cbce32961d0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="731512cb-03db-4032-8ee8-ad49209e73df">
+        <trans-unit id="82c411c6-3a3a-424e-b5c5-8042048d24e2" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;/linkText&gt;</ept><bpt id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;title&gt;</bpt><ept id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;/linkText&gt;</ept><bpt id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;title&gt;</bpt><ept id="6d23fe24-3d21-4cbe-bee1-7b1d32e9c89b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1b7e225-7f15-4114-af77-7b99d9439342" xml:space="preserve">
+          <source>For a guide to the change of the Azure portal to the Azure preview portal see: <bpt id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;/linkText&gt;</ept><bpt id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;title&gt;</bpt><ept id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the Azure portal to the Azure preview portal see: <bpt id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;/linkText&gt;</ept><bpt id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;title&gt;</bpt><ept id="3de1be77-d4e6-4438-b73a-dcbc72122a55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

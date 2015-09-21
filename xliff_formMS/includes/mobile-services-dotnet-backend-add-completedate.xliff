@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e4d00ada-5362-42ab-8d3f-26c573a269fc" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e4d00ada-5362-42ab-8d3f-26c573a269fc" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ce1f5573-3d7e-4f9f-a769-964a88c55108">
+        <trans-unit id="0e94a276-166d-4105-9408-f278aaffdd20" xml:space="preserve">
+          <source>In this section we will modify the model of our database by adding a new timestamp field named <bpt id="7f75e6ef-dcae-423f-86c9-e113b0abf269">&lt;strong&gt;</bpt>CompleteDate<ept id="7f75e6ef-dcae-423f-86c9-e113b0abf269">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this section we will modify the model of our database by adding a new timestamp field named <bpt id="7f75e6ef-dcae-423f-86c9-e113b0abf269">&lt;strong&gt;</bpt>CompleteDate<ept id="7f75e6ef-dcae-423f-86c9-e113b0abf269">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43e17fde-82fb-4e2c-ba9d-4c24dfcfac6a" xml:space="preserve">
+          <source>This field will record the last time the todo item was completed.</source>
+          <target state="new">This field will record the last time the todo item was completed.</target>
+        </trans-unit>
+        <trans-unit id="917a0fa1-f839-4027-b6a9-9f23914512bb" xml:space="preserve">
+          <source>Entity Framework will update the database based on our model change using a default database initializer class derived from <bpt id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;linkText&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;/linkText&gt;</ept><bpt id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;title&gt;</bpt><ept id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">Entity Framework will update the database based on our model change using a default database initializer class derived from <bpt id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;linkText&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;/linkText&gt;</ept><bpt id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;title&gt;</bpt><ept id="2828455c-3074-4a92-ad47-686e7659a8ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9620f2cf-4cd4-4037-a62b-6ef66f7d4e61" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="70a64a3c-9bd5-48c9-bbe0-f0078e2f3727">&lt;strong&gt;</bpt>App_Start<ept id="70a64a3c-9bd5-48c9-bbe0-f0078e2f3727">&lt;/strong&gt;</ept> folder in the todolist service project.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="70a64a3c-9bd5-48c9-bbe0-f0078e2f3727">&lt;strong&gt;</bpt>App_Start<ept id="70a64a3c-9bd5-48c9-bbe0-f0078e2f3727">&lt;/strong&gt;</ept> folder in the todolist service project.</target>
+        </trans-unit>
+        <trans-unit id="e7621838-b4e2-4f31-92b9-17676299b487" xml:space="preserve">
+          <source>Open the WebApiConfig.cs file.</source>
+          <target state="new">Open the WebApiConfig.cs file.</target>
+        </trans-unit>
+        <trans-unit id="4bf2a78f-fbeb-4b6d-b69f-9d0674e967a7" xml:space="preserve">
+          <source>In the WebApiConfig.cs file, notice that your default database initializer class is derived from the <bpt id="04715ceb-3ab3-4a0d-8ea6-f6ff560cfa2c">&lt;code&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="04715ceb-3ab3-4a0d-8ea6-f6ff560cfa2c">&lt;/code&gt;</ept> class.</source>
+          <target state="new">In the WebApiConfig.cs file, notice that your default database initializer class is derived from the <bpt id="04715ceb-3ab3-4a0d-8ea6-f6ff560cfa2c">&lt;code&gt;</bpt>DropCreateDatabaseIfModelChanges<ept id="04715ceb-3ab3-4a0d-8ea6-f6ff560cfa2c">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="cabd286b-8803-4389-86ae-752bfd8e6320" xml:space="preserve">
+          <source>This means any change to the model will result in the table being dropped and recreated to accommodate the new model.</source>
+          <target state="new">This means any change to the model will result in the table being dropped and recreated to accommodate the new model.</target>
+        </trans-unit>
+        <trans-unit id="b38027b9-af5d-4d1f-b648-d6937733f3ed" xml:space="preserve">
+          <source>So the data in the table will be lost and the table will be re-seeded.</source>
+          <target state="new">So the data in the table will be lost and the table will be re-seeded.</target>
+        </trans-unit>
+        <trans-unit id="15f5f61a-116c-4c0e-9a3b-a6f4f6adbda2" xml:space="preserve">
+          <source>Modify the Seed method of the database initializer so that the seed data is as follows as save the WebApiConfig.cs file.</source>
+          <target state="new">Modify the Seed method of the database initializer so that the seed data is as follows as save the WebApiConfig.cs file.</target>
+        </trans-unit>
+        <trans-unit id="9d36d81b-2400-436f-a40c-e171606de4c0" xml:space="preserve">
+          <source>When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</source>
+          <target state="new">When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</target>
+        </trans-unit>
+        <trans-unit id="2059e26b-7e45-4156-abdf-ac7d4b116475" xml:space="preserve">
+          <source>To make this data model change and maintain existing data in the database, you must use Code First Migrations.</source>
+          <target state="new">To make this data model change and maintain existing data in the database, you must use Code First Migrations.</target>
+        </trans-unit>
+        <trans-unit id="d130a9dd-91ea-4ba9-981f-4c29691a4887" xml:space="preserve">
+          <source>For more information, see <bpt id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;/linkText&gt;</ept><bpt id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;title&gt;</bpt><ept id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;/linkText&gt;</ept><bpt id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;title&gt;</bpt><ept id="c2fd3917-bc80-4a0e-a516-41dfffde1999">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2eedce8a-46ec-492b-a775-b8afcf8cf353" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="005bff57-22d9-4053-b1cc-f29b05cd5592">&lt;strong&gt;</bpt>DataObjects<ept id="005bff57-22d9-4053-b1cc-f29b05cd5592">&lt;/strong&gt;</ept> folder in the todolist service project.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="005bff57-22d9-4053-b1cc-f29b05cd5592">&lt;strong&gt;</bpt>DataObjects<ept id="005bff57-22d9-4053-b1cc-f29b05cd5592">&lt;/strong&gt;</ept> folder in the todolist service project.</target>
+        </trans-unit>
+        <trans-unit id="743a30c8-cccb-4cd2-8872-160e270d96ca" xml:space="preserve">
+          <source>Open the TodoItem.cs file and update the TodoItem class to include the CompleteDate field as follows.</source>
+          <target state="new">Open the TodoItem.cs file and update the TodoItem class to include the CompleteDate field as follows.</target>
+        </trans-unit>
+        <trans-unit id="5b2cc056-7190-4e29-b549-83641c4586b1" xml:space="preserve">
+          <source>Then save the TodoItem.cs file.</source>
+          <target state="new">Then save the TodoItem.cs file.</target>
+        </trans-unit>
+        <trans-unit id="188ab904-c74a-434a-a2fe-6df2e1433841" xml:space="preserve">
+          <source>In Solution Explorer for Visual Studio, expand the <bpt id="0d64a4dd-6bde-44fa-bd64-1c178104397c">&lt;strong&gt;</bpt>Controllers<ept id="0d64a4dd-6bde-44fa-bd64-1c178104397c">&lt;/strong&gt;</ept> folder in the todolist service project.</source>
+          <target state="new">In Solution Explorer for Visual Studio, expand the <bpt id="0d64a4dd-6bde-44fa-bd64-1c178104397c">&lt;strong&gt;</bpt>Controllers<ept id="0d64a4dd-6bde-44fa-bd64-1c178104397c">&lt;/strong&gt;</ept> folder in the todolist service project.</target>
+        </trans-unit>
+        <trans-unit id="79e41b95-a39f-464c-ac2a-153699f0c513" xml:space="preserve">
+          <source>Open the TodoItemController.cs file and update the <bpt id="004c19f0-b818-46cd-8918-d64a761f203f">&lt;code&gt;</bpt>PatchTodoItem<ept id="004c19f0-b818-46cd-8918-d64a761f203f">&lt;/code&gt;</ept> method so that it will set the <bpt id="9f413657-8046-4de4-87ca-736ff7ab714e">&lt;strong&gt;</bpt>CompleteDate<ept id="9f413657-8046-4de4-87ca-736ff7ab714e">&lt;/strong&gt;</ept> when the <bpt id="300a8a1e-65d7-4f04-98a5-0fceff2150b0">&lt;strong&gt;</bpt>Complete<ept id="300a8a1e-65d7-4f04-98a5-0fceff2150b0">&lt;/strong&gt;</ept> property is changing from false to true.</source>
+          <target state="new">Open the TodoItemController.cs file and update the <bpt id="004c19f0-b818-46cd-8918-d64a761f203f">&lt;code&gt;</bpt>PatchTodoItem<ept id="004c19f0-b818-46cd-8918-d64a761f203f">&lt;/code&gt;</ept> method so that it will set the <bpt id="9f413657-8046-4de4-87ca-736ff7ab714e">&lt;strong&gt;</bpt>CompleteDate<ept id="9f413657-8046-4de4-87ca-736ff7ab714e">&lt;/strong&gt;</ept> when the <bpt id="300a8a1e-65d7-4f04-98a5-0fceff2150b0">&lt;strong&gt;</bpt>Complete<ept id="300a8a1e-65d7-4f04-98a5-0fceff2150b0">&lt;/strong&gt;</ept> property is changing from false to true.</target>
+        </trans-unit>
+        <trans-unit id="5e0531a0-68e9-4576-8be7-611b2e36242c" xml:space="preserve">
+          <source>Then save the TodoItemController.cs file.</source>
+          <target state="new">Then save the TodoItemController.cs file.</target>
+        </trans-unit>
+        <trans-unit id="35bb0f12-64e2-4512-8af3-fccbca8da3fb" xml:space="preserve">
+          <source>Rebuild the todolist .NET backend service project and verify that you have no build errors.</source>
+          <target state="new">Rebuild the todolist .NET backend service project and verify that you have no build errors.</target>
+        </trans-unit>
+        <trans-unit id="086de0b4-4474-42df-824e-731a196a60d7" xml:space="preserve">
+          <source>Next, you will update the client app to display the new <bpt id="c8277073-ff62-4056-baab-37018486fb1e">&lt;strong&gt;</bpt>CompleteDate<ept id="c8277073-ff62-4056-baab-37018486fb1e">&lt;/strong&gt;</ept> data.</source>
+          <target state="new">Next, you will update the client app to display the new <bpt id="c8277073-ff62-4056-baab-37018486fb1e">&lt;strong&gt;</bpt>CompleteDate<ept id="c8277073-ff62-4056-baab-37018486fb1e">&lt;/strong&gt;</ept> data.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

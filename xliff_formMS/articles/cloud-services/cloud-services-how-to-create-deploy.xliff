@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a6c9e91b-cc7a-44ab-b4c6-c941b24ecf3f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a6c9e91b-cc7a-44ab-b4c6-c941b24ecf3f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c0976754-3469-410c-a428-1b40c6e71757">
+        <trans-unit id="cc4fe2e7-23b5-45b9-a0ad-a26416dd4b01" xml:space="preserve">
+          <source>How to create and deploy a cloud service | Microsoft Azure</source>
+          <target state="new">How to create and deploy a cloud service | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="073792ff-1d5d-4085-9180-a259439fe9ce" xml:space="preserve">
+          <source>Learn how to create and deploy a cloud service using the Quick Create method in Azure.</source>
+          <target state="new">Learn how to create and deploy a cloud service using the Quick Create method in Azure.</target>
+        </trans-unit>
+        <trans-unit id="9299e53f-968d-4378-80db-4156bb7ade3a" xml:space="preserve">
+          <source>The Azure portal provides two ways for you to create and deploy a cloud service: <bpt id="66a9dc71-233d-4f71-8745-d3bc3bfe7223">&lt;strong&gt;</bpt>Quick Create<ept id="66a9dc71-233d-4f71-8745-d3bc3bfe7223">&lt;/strong&gt;</ept> and <bpt id="3badf4de-7b27-48b8-869c-60c9ee6379d2">&lt;strong&gt;</bpt>Custom Create<ept id="3badf4de-7b27-48b8-869c-60c9ee6379d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Azure portal provides two ways for you to create and deploy a cloud service: <bpt id="66a9dc71-233d-4f71-8745-d3bc3bfe7223">&lt;strong&gt;</bpt>Quick Create<ept id="66a9dc71-233d-4f71-8745-d3bc3bfe7223">&lt;/strong&gt;</ept> and <bpt id="3badf4de-7b27-48b8-869c-60c9ee6379d2">&lt;strong&gt;</bpt>Custom Create<ept id="3badf4de-7b27-48b8-869c-60c9ee6379d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdab6204-8d46-415b-aef1-850b74d27bc7" xml:space="preserve">
+          <source>This topic explains how to use the Quick Create method to create a new cloud service and then use <bpt id="83bd5a51-03f8-46af-8e16-0ae226422c27">&lt;strong&gt;</bpt>Upload<ept id="83bd5a51-03f8-46af-8e16-0ae226422c27">&lt;/strong&gt;</ept> to upload and deploy a cloud service package in Azure.</source>
+          <target state="new">This topic explains how to use the Quick Create method to create a new cloud service and then use <bpt id="83bd5a51-03f8-46af-8e16-0ae226422c27">&lt;strong&gt;</bpt>Upload<ept id="83bd5a51-03f8-46af-8e16-0ae226422c27">&lt;/strong&gt;</ept> to upload and deploy a cloud service package in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d249ce2f-163a-4d26-bbcb-f39e8d500d48" xml:space="preserve">
+          <source>When you use this method, the Azure portal makes available convenient links for completing all requirements as you go.</source>
+          <target state="new">When you use this method, the Azure portal makes available convenient links for completing all requirements as you go.</target>
+        </trans-unit>
+        <trans-unit id="2f1370c5-9479-474d-8625-c64f8415905f" xml:space="preserve">
+          <source>If you're ready to deploy your cloud service when you create it, you can do both at the same time using <bpt id="c2167b76-bb38-45f6-b4b1-e0046758b30f">&lt;strong&gt;</bpt>Custom Create<ept id="c2167b76-bb38-45f6-b4b1-e0046758b30f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you're ready to deploy your cloud service when you create it, you can do both at the same time using <bpt id="c2167b76-bb38-45f6-b4b1-e0046758b30f">&lt;strong&gt;</bpt>Custom Create<ept id="c2167b76-bb38-45f6-b4b1-e0046758b30f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f57d81be-b3f5-4084-a20a-83c614efa103" xml:space="preserve">
+          <source>If you plan to publish your cloud service from Visual Studio Online (VSO), use Quick Create, and then set up VSO publishing from <bpt id="c57fddcd-d4d4-4b84-b11f-a6077dd2b1f0">&lt;strong&gt;</bpt>Quick Start<ept id="c57fddcd-d4d4-4b84-b11f-a6077dd2b1f0">&lt;/strong&gt;</ept> or the dashboard.</source>
+          <target state="new">If you plan to publish your cloud service from Visual Studio Online (VSO), use Quick Create, and then set up VSO publishing from <bpt id="c57fddcd-d4d4-4b84-b11f-a6077dd2b1f0">&lt;strong&gt;</bpt>Quick Start<ept id="c57fddcd-d4d4-4b84-b11f-a6077dd2b1f0">&lt;/strong&gt;</ept> or the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="77d1b2be-7d9a-4df2-8973-6cbb2f36483e" xml:space="preserve">
+          <source>For more information, see <bpt id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;linkText&gt;</bpt>Continuous Delivery to Azure by Using Visual Studio Online[tfstutorialforcloudservice]<ept id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;/linkText&gt;</ept><bpt id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;title&gt;</bpt><ept id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;/title&gt;</ept>, or see help for the <bpt id="faea4eaa-6bdb-4853-8b95-e23852f199c2">&lt;strong&gt;</bpt>Quick Start<ept id="faea4eaa-6bdb-4853-8b95-e23852f199c2">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">For more information, see <bpt id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;linkText&gt;</bpt>Continuous Delivery to Azure by Using Visual Studio Online[tfstutorialforcloudservice]<ept id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;/linkText&gt;</ept><bpt id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;title&gt;</bpt><ept id="efe83660-b3da-4fdd-a1ba-68393805564e">&lt;/title&gt;</ept>, or see help for the <bpt id="faea4eaa-6bdb-4853-8b95-e23852f199c2">&lt;strong&gt;</bpt>Quick Start<ept id="faea4eaa-6bdb-4853-8b95-e23852f199c2">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="41a5a125-7736-4dd8-9b44-477ecd522966" xml:space="preserve">
+          <source>Three components are required in order to deploy an application as a cloud service in Azure:</source>
+          <target state="new">Three components are required in order to deploy an application as a cloud service in Azure:</target>
+        </trans-unit>
+        <trans-unit id="b3b23840-053e-420a-af8b-6664a7e3c0de" xml:space="preserve">
+          <source><bpt id="156f2b95-2ae7-4c94-8d97-24858a07e466">&lt;strong&gt;</bpt>Service Definition<ept id="156f2b95-2ae7-4c94-8d97-24858a07e466">&lt;/strong&gt;</ept>  
+The cloud service definition file (.csdef) defines the service model, including the number of roles.</source>
+          <target state="new"><bpt id="156f2b95-2ae7-4c94-8d97-24858a07e466">&lt;strong&gt;</bpt>Service Definition<ept id="156f2b95-2ae7-4c94-8d97-24858a07e466">&lt;/strong&gt;</ept>  
+The cloud service definition file (.csdef) defines the service model, including the number of roles.</target>
+        </trans-unit>
+        <trans-unit id="e9b4b374-38ba-4863-b930-3cdfbbec7be8" xml:space="preserve">
+          <source><bpt id="41140ee7-a582-4db1-9481-7649bfce6e7d">&lt;strong&gt;</bpt>Service Configuration<ept id="41140ee7-a582-4db1-9481-7649bfce6e7d">&lt;/strong&gt;</ept>  
+The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.</source>
+          <target state="new"><bpt id="41140ee7-a582-4db1-9481-7649bfce6e7d">&lt;strong&gt;</bpt>Service Configuration<ept id="41140ee7-a582-4db1-9481-7649bfce6e7d">&lt;/strong&gt;</ept>  
+The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.</target>
+        </trans-unit>
+        <trans-unit id="42ccaea8-49b6-4029-927b-0a08be1c397e" xml:space="preserve">
+          <source><bpt id="b119176c-57f3-464f-ba1e-246ac6debc74">&lt;strong&gt;</bpt>Service Package<ept id="b119176c-57f3-464f-ba1e-246ac6debc74">&lt;/strong&gt;</ept>  
+The service package (.cspkg) contains the application code and configurations and the service definition file.</source>
+          <target state="new"><bpt id="b119176c-57f3-464f-ba1e-246ac6debc74">&lt;strong&gt;</bpt>Service Package<ept id="b119176c-57f3-464f-ba1e-246ac6debc74">&lt;/strong&gt;</ept>  
+The service package (.cspkg) contains the application code and configurations and the service definition file.</target>
+        </trans-unit>
+        <trans-unit id="81286d5f-b5cb-4c61-9119-880f469181bf" xml:space="preserve">
+          <source>You can learn more about these and how to create a package <bpt id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;linkText&gt;</bpt>here<ept id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;/linkText&gt;</ept><bpt id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;title&gt;</bpt><ept id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn more about these and how to create a package <bpt id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;linkText&gt;</bpt>here<ept id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;/linkText&gt;</ept><bpt id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;title&gt;</bpt><ept id="95565cf9-7aba-4ec2-910f-83e4db0a8ac2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20a505ff-9462-49bb-ae8d-fe49482e7b15" xml:space="preserve">
+          <source>Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg).</source>
+          <target state="new">Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg).</target>
+        </trans-unit>
+        <trans-unit id="ff23a18a-2f07-4757-8a71-afbbf4ca3d3c" xml:space="preserve">
+          <source>The Azure SDK provides tools for preparing these required deployment files.</source>
+          <target state="new">The Azure SDK provides tools for preparing these required deployment files.</target>
+        </trans-unit>
+        <trans-unit id="4657cc43-3618-4cc4-8533-140c1a0757f7" xml:space="preserve">
+          <source>You can install the SDK from the <bpt id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;linkText&gt;</bpt>Azure Downloads<ept id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;/linkText&gt;</ept><bpt id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;title&gt;</bpt><ept id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;/title&gt;</ept> page, in the language in which you prefer to develop your application code.</source>
+          <target state="new">You can install the SDK from the <bpt id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;linkText&gt;</bpt>Azure Downloads<ept id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;/linkText&gt;</ept><bpt id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;title&gt;</bpt><ept id="0a74091b-447c-4a04-9519-e1ec674992a1">&lt;/title&gt;</ept> page, in the language in which you prefer to develop your application code.</target>
+        </trans-unit>
+        <trans-unit id="829bca10-cbaf-42c2-9876-5654ed4316de" xml:space="preserve">
+          <source>Three cloud service features require special configurations before you export a service package:</source>
+          <target state="new">Three cloud service features require special configurations before you export a service package:</target>
+        </trans-unit>
+        <trans-unit id="7f0b4df1-2ad4-4d60-80e4-2917e348fb82" xml:space="preserve">
+          <source>If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, configure your application for SSL.</source>
+          <target state="new">If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, configure your application for SSL.</target>
+        </trans-unit>
+        <trans-unit id="f4102cb1-34cf-4244-b56c-3323be1ed6fb" xml:space="preserve">
+          <source>For more information, see <bpt id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;linkText&gt;</bpt>How to Configure an SSL Certificate on an HTTPS Endpoint<ept id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;/linkText&gt;</ept><bpt id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;title&gt;</bpt><ept id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;linkText&gt;</bpt>How to Configure an SSL Certificate on an HTTPS Endpoint<ept id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;/linkText&gt;</ept><bpt id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;title&gt;</bpt><ept id="83fb95ad-16bb-4bbc-9ee9-27e70e2e1fcd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="42146430-5f7f-4640-9ee3-9e1d3d412f6b" xml:space="preserve">
+          <source>If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop.</source>
+          <target state="new">If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop.</target>
+        </trans-unit>
+        <trans-unit id="0d25f709-3f36-478d-83c9-4c9c60e473bf" xml:space="preserve">
+          <source>For more information about preparing the service definition file for remote access, see <bpt id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;linkText&gt;</bpt>Set Up a Remote Desktop Connection for a Role in Azure<ept id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;/linkText&gt;</ept><bpt id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;title&gt;</bpt><ept id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about preparing the service definition file for remote access, see <bpt id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;linkText&gt;</bpt>Set Up a Remote Desktop Connection for a Role in Azure<ept id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;/linkText&gt;</ept><bpt id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;title&gt;</bpt><ept id="8bc80329-a6fe-4d24-941f-c5513bfb1c23">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="439da515-3062-46b9-bdc9-ddede95b9880" xml:space="preserve">
+          <source>If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service.</source>
+          <target state="new">If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="2fdd6413-1a74-4835-a270-1b8c41b6e713" xml:space="preserve">
+          <source><bpt id="590c06f6-baae-4221-9628-28ba548a6917">&lt;em&gt;</bpt>Minimal monitoring<ept id="590c06f6-baae-4221-9628-28ba548a6917">&lt;/em&gt;</ept> (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines).</source>
+          <target state="new"><bpt id="590c06f6-baae-4221-9628-28ba548a6917">&lt;em&gt;</bpt>Minimal monitoring<ept id="590c06f6-baae-4221-9628-28ba548a6917">&lt;/em&gt;</ept> (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines).</target>
+        </trans-unit>
+        <trans-unit id="dd4aa557-a208-4048-80ec-1a8ba5598afc" xml:space="preserve">
+          <source>"Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing.</source>
+          <target state="new">"Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing.</target>
+        </trans-unit>
+        <trans-unit id="9f00155e-d68e-40c7-8e34-522ef5f60628" xml:space="preserve">
+          <source>To find out how to enable Azure Diagnostics, see <bpt id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;linkText&gt;</bpt>Enabling Diagnostics in Azure<ept id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;/linkText&gt;</ept><bpt id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;title&gt;</bpt><ept id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find out how to enable Azure Diagnostics, see <bpt id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;linkText&gt;</bpt>Enabling Diagnostics in Azure<ept id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;/linkText&gt;</ept><bpt id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;title&gt;</bpt><ept id="70055c7c-1cc5-49c4-8060-267194af142f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fef39b45-16e8-4f84-a86f-c84b9c7ba62e" xml:space="preserve">
+          <source>To create a cloud service with deployments of web roles or worker roles, you must create the service package.</source>
+          <target state="new">To create a cloud service with deployments of web roles or worker roles, you must create the service package.</target>
+        </trans-unit>
+        <trans-unit id="19578b04-2e2a-4d4e-8a3b-7a2d65a2b08e" xml:space="preserve">
+          <source>For more information about the files related to the package, see <bpt id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;linkText&gt;</bpt>Set Up a Cloud Service for Azure<ept id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;/linkText&gt;</ept><bpt id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;title&gt;</bpt><ept id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the files related to the package, see <bpt id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;linkText&gt;</bpt>Set Up a Cloud Service for Azure<ept id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;/linkText&gt;</ept><bpt id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;title&gt;</bpt><ept id="7ba55654-0c6b-47a1-b07b-9b9dbbf4c0b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8525cca6-e211-490b-ad3e-b9c8d2500741" xml:space="preserve">
+          <source>To create the package file, see <bpt id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;linkText&gt;</bpt>Package an Azure Application<ept id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;/linkText&gt;</ept><bpt id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;title&gt;</bpt><ept id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create the package file, see <bpt id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;linkText&gt;</bpt>Package an Azure Application<ept id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;/linkText&gt;</ept><bpt id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;title&gt;</bpt><ept id="c2dd2982-098b-42b7-9c2c-950f655331c6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5773466e-b504-4d8d-85fe-38e53717b260" xml:space="preserve">
+          <source>If you are using Visual Studio to develop your application, see <bpt id="58867f90-a333-4789-99c9-20bb969a440f">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="58867f90-a333-4789-99c9-20bb969a440f">&lt;/linkText&gt;</ept><bpt id="58867f90-a333-4789-99c9-20bb969a440f">&lt;title&gt;</bpt><ept id="58867f90-a333-4789-99c9-20bb969a440f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are using Visual Studio to develop your application, see <bpt id="58867f90-a333-4789-99c9-20bb969a440f">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="58867f90-a333-4789-99c9-20bb969a440f">&lt;/linkText&gt;</ept><bpt id="58867f90-a333-4789-99c9-20bb969a440f">&lt;title&gt;</bpt><ept id="58867f90-a333-4789-99c9-20bb969a440f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77ecca47-a27f-44b1-9917-5e762826155b" xml:space="preserve">
+          <source>If you haven't installed the Azure SDK, click <bpt id="9e548857-1df0-4835-8fb4-d9ef8439f305">&lt;strong&gt;</bpt>Install Azure SDK<ept id="9e548857-1df0-4835-8fb4-d9ef8439f305">&lt;/strong&gt;</ept> to open the <bpt id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;linkText&gt;</bpt>Azure Downloads page<ept id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;/linkText&gt;</ept><bpt id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;title&gt;</bpt><ept id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;/title&gt;</ept>, and then download the SDK for the language in which you prefer to develop your code.</source>
+          <target state="new">If you haven't installed the Azure SDK, click <bpt id="9e548857-1df0-4835-8fb4-d9ef8439f305">&lt;strong&gt;</bpt>Install Azure SDK<ept id="9e548857-1df0-4835-8fb4-d9ef8439f305">&lt;/strong&gt;</ept> to open the <bpt id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;linkText&gt;</bpt>Azure Downloads page<ept id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;/linkText&gt;</ept><bpt id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;title&gt;</bpt><ept id="53a8902f-acba-4339-bb4b-f0acdc0b53e0">&lt;/title&gt;</ept>, and then download the SDK for the language in which you prefer to develop your code.</target>
+        </trans-unit>
+        <trans-unit id="b8188bfd-43e8-4030-a903-2473c755d2da" xml:space="preserve">
+          <source>(You'll have an opportunity to do this later.)</source>
+          <target state="new">(You'll have an opportunity to do this later.)</target>
+        </trans-unit>
+        <trans-unit id="14a3b0dc-2785-40f8-90fc-35881e405d80" xml:space="preserve">
+          <source>If any role instances require a certificate, create the certificates.</source>
+          <target state="new">If any role instances require a certificate, create the certificates.</target>
+        </trans-unit>
+        <trans-unit id="1b2aaac1-35ff-4cfe-8b04-9e3896d851ab" xml:space="preserve">
+          <source>Cloud services require a .pfx file with a private key.</source>
+          <target state="new">Cloud services require a .pfx file with a private key.</target>
+        </trans-unit>
+        <trans-unit id="cf682616-348a-473b-8215-37d9597d1592" xml:space="preserve">
+          <source>You can upload the certificates to Azure as you create and deploy the cloud service.</source>
+          <target state="new">You can upload the certificates to Azure as you create and deploy the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="0f52e474-314b-4069-8759-5be77ed4de43" xml:space="preserve">
+          <source>For information about certificates, see <bpt id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;linkText&gt;</bpt>Manage Certificates<ept id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;/linkText&gt;</ept><bpt id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;title&gt;</bpt><ept id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about certificates, see <bpt id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;linkText&gt;</bpt>Manage Certificates<ept id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;/linkText&gt;</ept><bpt id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;title&gt;</bpt><ept id="53567642-8d31-4be4-a4fc-5d636d0f35ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a72eaf44-72af-4008-bbde-bb4fab95a6da" xml:space="preserve">
+          <source>If you plan to deploy the cloud service to an affinity group, create the affinity group.</source>
+          <target state="new">If you plan to deploy the cloud service to an affinity group, create the affinity group.</target>
+        </trans-unit>
+        <trans-unit id="ff434337-b6bb-419a-99bc-548e8f6b9e33" xml:space="preserve">
+          <source>You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region.</source>
+          <target state="new">You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region.</target>
+        </trans-unit>
+        <trans-unit id="c171fe8d-d870-489a-bef9-b1a10f9036ce" xml:space="preserve">
+          <source>You can create the affinity group in the <bpt id="34effed2-2952-47e5-ab06-c537e9d81184">&lt;strong&gt;</bpt>Networks<ept id="34effed2-2952-47e5-ab06-c537e9d81184">&lt;/strong&gt;</ept> area of the Management Portal, on the <bpt id="c96deac0-7b9c-4804-bf33-f8b37a2a769f">&lt;strong&gt;</bpt>Affinity Groups<ept id="c96deac0-7b9c-4804-bf33-f8b37a2a769f">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">You can create the affinity group in the <bpt id="34effed2-2952-47e5-ab06-c537e9d81184">&lt;strong&gt;</bpt>Networks<ept id="34effed2-2952-47e5-ab06-c537e9d81184">&lt;/strong&gt;</ept> area of the Management Portal, on the <bpt id="c96deac0-7b9c-4804-bf33-f8b37a2a769f">&lt;strong&gt;</bpt>Affinity Groups<ept id="c96deac0-7b9c-4804-bf33-f8b37a2a769f">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="86c97804-d8f5-44b7-8e5e-6301980ccdba" xml:space="preserve">
+          <source>For more information, see <bpt id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;linkText&gt;</bpt>Create an Affinity Group in the Management Portal<ept id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;/linkText&gt;</ept><bpt id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;title&gt;</bpt><ept id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;linkText&gt;</bpt>Create an Affinity Group in the Management Portal<ept id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;/linkText&gt;</ept><bpt id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;title&gt;</bpt><ept id="612c1bcc-ddd2-43a7-9071-28fe074b9942">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da473096-c743-4f94-a698-61573ef6a519" xml:space="preserve">
+          <source>In the <bpt id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;linkText&gt;</bpt>Management Portal<ept id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;/linkText&gt;</ept><bpt id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;title&gt;</bpt><ept id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;/title&gt;</ept>, click <bpt id="8d95598c-b20f-41f3-ba73-c8b3164f48c8">&lt;strong&gt;</bpt>New<ept id="8d95598c-b20f-41f3-ba73-c8b3164f48c8">&lt;/strong&gt;</ept>&gt;<bpt id="9e319134-834b-4156-b4c1-01dfc3378788">&lt;strong&gt;</bpt>Compute<ept id="9e319134-834b-4156-b4c1-01dfc3378788">&lt;/strong&gt;</ept>&gt;<bpt id="feeba00c-61ac-49e7-8f7a-5f172b1b33bf">&lt;strong&gt;</bpt>Cloud Service<ept id="feeba00c-61ac-49e7-8f7a-5f172b1b33bf">&lt;/strong&gt;</ept>&gt;<bpt id="3fd38fb1-36ae-4ca6-9e5a-685d72ddc5ab">&lt;strong&gt;</bpt>Quick Create<ept id="3fd38fb1-36ae-4ca6-9e5a-685d72ddc5ab">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;linkText&gt;</bpt>Management Portal<ept id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;/linkText&gt;</ept><bpt id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;title&gt;</bpt><ept id="9c60481c-34ec-4ee9-bef2-bad90b6d810d">&lt;/title&gt;</ept>, click <bpt id="8d95598c-b20f-41f3-ba73-c8b3164f48c8">&lt;strong&gt;</bpt>New<ept id="8d95598c-b20f-41f3-ba73-c8b3164f48c8">&lt;/strong&gt;</ept>&gt;<bpt id="9e319134-834b-4156-b4c1-01dfc3378788">&lt;strong&gt;</bpt>Compute<ept id="9e319134-834b-4156-b4c1-01dfc3378788">&lt;/strong&gt;</ept>&gt;<bpt id="feeba00c-61ac-49e7-8f7a-5f172b1b33bf">&lt;strong&gt;</bpt>Cloud Service<ept id="feeba00c-61ac-49e7-8f7a-5f172b1b33bf">&lt;/strong&gt;</ept>&gt;<bpt id="3fd38fb1-36ae-4ca6-9e5a-685d72ddc5ab">&lt;strong&gt;</bpt>Quick Create<ept id="3fd38fb1-36ae-4ca6-9e5a-685d72ddc5ab">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="058884d7-c17b-47c1-b29f-9a213ff594f1" xml:space="preserve">
+          <source><bpt id="d0b8bda6-bbee-45b5-8470-b6988bffca03">&lt;linkText&gt;</bpt>CloudServices_QuickCreate<ept id="d0b8bda6-bbee-45b5-8470-b6988bffca03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d0b8bda6-bbee-45b5-8470-b6988bffca03">&lt;linkText&gt;</bpt>CloudServices_QuickCreate<ept id="d0b8bda6-bbee-45b5-8470-b6988bffca03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5890282c-b5db-4921-88b1-af83e5423a3b" xml:space="preserve">
+          <source>In <bpt id="bd10af17-447e-408e-9ace-16cd6d0d9184">&lt;strong&gt;</bpt>URL<ept id="bd10af17-447e-408e-9ace-16cd6d0d9184">&lt;/strong&gt;</ept>, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments.</source>
+          <target state="new">In <bpt id="bd10af17-447e-408e-9ace-16cd6d0d9184">&lt;strong&gt;</bpt>URL<ept id="bd10af17-447e-408e-9ace-16cd6d0d9184">&lt;/strong&gt;</ept>, enter a subdomain name to use in the public URL for accessing your cloud service in production deployments.</target>
+        </trans-unit>
+        <trans-unit id="59424120-e5df-4f97-bc02-82d83a0d4bb6" xml:space="preserve">
+          <source>The URL format for production deployments is: http://<bpt id="135a8eb8-0edc-4a5d-b6b0-d4567e7f8975">&lt;em&gt;</bpt>myURL<ept id="135a8eb8-0edc-4a5d-b6b0-d4567e7f8975">&lt;/em&gt;</ept>.cloudapp.net.</source>
+          <target state="new">The URL format for production deployments is: http://<bpt id="135a8eb8-0edc-4a5d-b6b0-d4567e7f8975">&lt;em&gt;</bpt>myURL<ept id="135a8eb8-0edc-4a5d-b6b0-d4567e7f8975">&lt;/em&gt;</ept>.cloudapp.net.</target>
+        </trans-unit>
+        <trans-unit id="8cd0c7ed-2390-40c5-b870-f6f01c9f8fae" xml:space="preserve">
+          <source>In <bpt id="18d71987-3510-451e-a4c8-71627c1125eb">&lt;strong&gt;</bpt>Region or Affinity Group<ept id="18d71987-3510-451e-a4c8-71627c1125eb">&lt;/strong&gt;</ept>, select the geographic region or affinity group to deploy the cloud service to.</source>
+          <target state="new">In <bpt id="18d71987-3510-451e-a4c8-71627c1125eb">&lt;strong&gt;</bpt>Region or Affinity Group<ept id="18d71987-3510-451e-a4c8-71627c1125eb">&lt;/strong&gt;</ept>, select the geographic region or affinity group to deploy the cloud service to.</target>
+        </trans-unit>
+        <trans-unit id="353fc179-eafe-436a-8448-000856c74141" xml:space="preserve">
+          <source>Select an affinity group if you want to deploy your cloud service to the same location as other Azure services within a region.</source>
+          <target state="new">Select an affinity group if you want to deploy your cloud service to the same location as other Azure services within a region.</target>
+        </trans-unit>
+        <trans-unit id="e0c34dc7-a2e1-416e-8948-e386080188d0" xml:space="preserve">
+          <source>Click <bpt id="d4f868e3-d547-493b-93b1-3e4f072914d2">&lt;strong&gt;</bpt>Create Cloud Service<ept id="d4f868e3-d547-493b-93b1-3e4f072914d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d4f868e3-d547-493b-93b1-3e4f072914d2">&lt;strong&gt;</bpt>Create Cloud Service<ept id="d4f868e3-d547-493b-93b1-3e4f072914d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae117d8d-b19d-44c3-9349-98a4ea77397a" xml:space="preserve">
+          <source><bpt id="6f62d64b-2a9e-4181-97fd-139f5c4ce070">&lt;linkText&gt;</bpt>CloudServices_Region<ept id="6f62d64b-2a9e-4181-97fd-139f5c4ce070">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f62d64b-2a9e-4181-97fd-139f5c4ce070">&lt;linkText&gt;</bpt>CloudServices_Region<ept id="6f62d64b-2a9e-4181-97fd-139f5c4ce070">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82e2b1bb-b607-467e-99a9-5d08d8d9856e" xml:space="preserve">
+          <source>You can monitor the status of the process in the message area at the bottom of the window.</source>
+          <target state="new">You can monitor the status of the process in the message area at the bottom of the window.</target>
+        </trans-unit>
+        <trans-unit id="5871e14a-13a4-46bc-86cb-a194df10445e" xml:space="preserve">
+          <source>The <bpt id="cf99ef08-cac6-4ccb-a48e-dab526ec7691">&lt;strong&gt;</bpt>Cloud Services<ept id="cf99ef08-cac6-4ccb-a48e-dab526ec7691">&lt;/strong&gt;</ept> area opens, with the new cloud service displayed.</source>
+          <target state="new">The <bpt id="cf99ef08-cac6-4ccb-a48e-dab526ec7691">&lt;strong&gt;</bpt>Cloud Services<ept id="cf99ef08-cac6-4ccb-a48e-dab526ec7691">&lt;/strong&gt;</ept> area opens, with the new cloud service displayed.</target>
+        </trans-unit>
+        <trans-unit id="45ffabb4-7edc-412b-b015-531fd49eb253" xml:space="preserve">
+          <source>When the status changes to Created, cloud service creation has completed successfully.</source>
+          <target state="new">When the status changes to Created, cloud service creation has completed successfully.</target>
+        </trans-unit>
+        <trans-unit id="78e88e10-416b-486a-adf5-075462aa6f1f" xml:space="preserve">
+          <source><bpt id="912ad32b-12d7-4005-911d-17219bd7e585">&lt;linkText&gt;</bpt>CloudServices_CloudServicesPage<ept id="912ad32b-12d7-4005-911d-17219bd7e585">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="912ad32b-12d7-4005-911d-17219bd7e585">&lt;linkText&gt;</bpt>CloudServices_CloudServicesPage<ept id="912ad32b-12d7-4005-911d-17219bd7e585">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0553a0f0-cb0b-4955-8a88-2e378cd639a1" xml:space="preserve">
+          <source>In the <bpt id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;linkText&gt;</bpt>Management Portal<ept id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;/linkText&gt;</ept><bpt id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;title&gt;</bpt><ept id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;/title&gt;</ept>, click <bpt id="0cb0fd3b-7ffa-4fb0-9df8-1af4ef9da8f6">&lt;strong&gt;</bpt>Cloud Services<ept id="0cb0fd3b-7ffa-4fb0-9df8-1af4ef9da8f6">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="105ed390-b2c5-4436-baec-40cefea6adac">&lt;strong&gt;</bpt>Certificates<ept id="105ed390-b2c5-4436-baec-40cefea6adac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;linkText&gt;</bpt>Management Portal<ept id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;/linkText&gt;</ept><bpt id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;title&gt;</bpt><ept id="ef784af1-277e-4b51-87a2-e415aff899b6">&lt;/title&gt;</ept>, click <bpt id="0cb0fd3b-7ffa-4fb0-9df8-1af4ef9da8f6">&lt;strong&gt;</bpt>Cloud Services<ept id="0cb0fd3b-7ffa-4fb0-9df8-1af4ef9da8f6">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="105ed390-b2c5-4436-baec-40cefea6adac">&lt;strong&gt;</bpt>Certificates<ept id="105ed390-b2c5-4436-baec-40cefea6adac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c65177c-1bc3-4866-8a20-4d3e22a1b4c3" xml:space="preserve">
+          <source><bpt id="d88e17fa-5ea6-4e32-ab97-fc5e9ae54468">&lt;linkText&gt;</bpt>CloudServices_QuickCreate<ept id="d88e17fa-5ea6-4e32-ab97-fc5e9ae54468">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d88e17fa-5ea6-4e32-ab97-fc5e9ae54468">&lt;linkText&gt;</bpt>CloudServices_QuickCreate<ept id="d88e17fa-5ea6-4e32-ab97-fc5e9ae54468">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5eacb0ec-ca3c-409b-8b86-94e7995e9904" xml:space="preserve">
+          <source>Click either <bpt id="727a0507-1737-40df-8be2-d41a8a364d1f">&lt;strong&gt;</bpt>Upload a certificate<ept id="727a0507-1737-40df-8be2-d41a8a364d1f">&lt;/strong&gt;</ept> or <bpt id="42ed1ed0-dc8e-46bc-a806-93e6cab675d5">&lt;strong&gt;</bpt>Upload<ept id="42ed1ed0-dc8e-46bc-a806-93e6cab675d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click either <bpt id="727a0507-1737-40df-8be2-d41a8a364d1f">&lt;strong&gt;</bpt>Upload a certificate<ept id="727a0507-1737-40df-8be2-d41a8a364d1f">&lt;/strong&gt;</ept> or <bpt id="42ed1ed0-dc8e-46bc-a806-93e6cab675d5">&lt;strong&gt;</bpt>Upload<ept id="42ed1ed0-dc8e-46bc-a806-93e6cab675d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7950d5c-063c-483d-9482-65bb81963fdb" xml:space="preserve">
+          <source>In <bpt id="e0c0ddce-de05-4d5e-9c83-ea451186b689">&lt;strong&gt;</bpt>File<ept id="e0c0ddce-de05-4d5e-9c83-ea451186b689">&lt;/strong&gt;</ept>, use <bpt id="27703daf-a0b9-4bff-b203-25bcba44808c">&lt;strong&gt;</bpt>Browse<ept id="27703daf-a0b9-4bff-b203-25bcba44808c">&lt;/strong&gt;</ept> to select the certificate (.pfx file).</source>
+          <target state="new">In <bpt id="e0c0ddce-de05-4d5e-9c83-ea451186b689">&lt;strong&gt;</bpt>File<ept id="e0c0ddce-de05-4d5e-9c83-ea451186b689">&lt;/strong&gt;</ept>, use <bpt id="27703daf-a0b9-4bff-b203-25bcba44808c">&lt;strong&gt;</bpt>Browse<ept id="27703daf-a0b9-4bff-b203-25bcba44808c">&lt;/strong&gt;</ept> to select the certificate (.pfx file).</target>
+        </trans-unit>
+        <trans-unit id="7efebdad-8593-47d3-baf6-dc657ca8a6c3" xml:space="preserve">
+          <source>In <bpt id="00bc0672-5555-4d82-9d15-a78e8658a7c6">&lt;strong&gt;</bpt>Password<ept id="00bc0672-5555-4d82-9d15-a78e8658a7c6">&lt;/strong&gt;</ept>, enter the private key for the certificate.</source>
+          <target state="new">In <bpt id="00bc0672-5555-4d82-9d15-a78e8658a7c6">&lt;strong&gt;</bpt>Password<ept id="00bc0672-5555-4d82-9d15-a78e8658a7c6">&lt;/strong&gt;</ept>, enter the private key for the certificate.</target>
+        </trans-unit>
+        <trans-unit id="a646a137-25c6-4a52-a505-501f598a3d9f" xml:space="preserve">
+          <source>Click <bpt id="86b3d8a6-141b-45e7-8e3b-745eb547bd19">&lt;strong&gt;</bpt>OK<ept id="86b3d8a6-141b-45e7-8e3b-745eb547bd19">&lt;/strong&gt;</ept> (checkmark).</source>
+          <target state="new">Click <bpt id="86b3d8a6-141b-45e7-8e3b-745eb547bd19">&lt;strong&gt;</bpt>OK<ept id="86b3d8a6-141b-45e7-8e3b-745eb547bd19">&lt;/strong&gt;</ept> (checkmark).</target>
+        </trans-unit>
+        <trans-unit id="79b42030-ea22-4bbb-b3be-053f767b36c7" xml:space="preserve">
+          <source><bpt id="f0a687c0-fe00-4df1-ba26-35b63905a258">&lt;linkText&gt;</bpt>CloudServices_AddaCertificate<ept id="f0a687c0-fe00-4df1-ba26-35b63905a258">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0a687c0-fe00-4df1-ba26-35b63905a258">&lt;linkText&gt;</bpt>CloudServices_AddaCertificate<ept id="f0a687c0-fe00-4df1-ba26-35b63905a258">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5e3e452-206d-4877-a85b-f5118c07f01a" xml:space="preserve">
+          <source>You can watch the progress of the upload in the message area, shown below.</source>
+          <target state="new">You can watch the progress of the upload in the message area, shown below.</target>
+        </trans-unit>
+        <trans-unit id="2543f705-b51d-4738-b5c5-36c7376e5a30" xml:space="preserve">
+          <source>When the upload completes, the certificate is added to the table.</source>
+          <target state="new">When the upload completes, the certificate is added to the table.</target>
+        </trans-unit>
+        <trans-unit id="00cbab7c-da50-42f2-9ae9-8823d832a42b" xml:space="preserve">
+          <source>In the message area, click OK to close the message.</source>
+          <target state="new">In the message area, click OK to close the message.</target>
+        </trans-unit>
+        <trans-unit id="3855c3c6-ee6a-4506-93ee-8b3110c1ec29" xml:space="preserve">
+          <source><bpt id="c3e73334-d58e-46a3-acde-557f9c1073e8">&lt;linkText&gt;</bpt>CloudServices_CertificateProgress<ept id="c3e73334-d58e-46a3-acde-557f9c1073e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3e73334-d58e-46a3-acde-557f9c1073e8">&lt;linkText&gt;</bpt>CloudServices_CertificateProgress<ept id="c3e73334-d58e-46a3-acde-557f9c1073e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a443d49-714c-47c9-92b1-3c027fdba8c3" xml:space="preserve">
+          <source>In the <bpt id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;linkText&gt;</bpt>Management Portal<ept id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;/linkText&gt;</ept><bpt id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;title&gt;</bpt><ept id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;/title&gt;</ept>, click <bpt id="3e8406dd-c45b-4402-a368-56e95888872a">&lt;strong&gt;</bpt>Cloud Services<ept id="3e8406dd-c45b-4402-a368-56e95888872a">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="75b6b79a-855b-4a84-8db9-28af14a4cfac">&lt;strong&gt;</bpt>Dashboard<ept id="75b6b79a-855b-4a84-8db9-28af14a4cfac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;linkText&gt;</bpt>Management Portal<ept id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;/linkText&gt;</ept><bpt id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;title&gt;</bpt><ept id="1968cc8b-1b60-444a-b647-3b6886edaabf">&lt;/title&gt;</ept>, click <bpt id="3e8406dd-c45b-4402-a368-56e95888872a">&lt;strong&gt;</bpt>Cloud Services<ept id="3e8406dd-c45b-4402-a368-56e95888872a">&lt;/strong&gt;</ept>, click the name of the cloud service, and then click <bpt id="75b6b79a-855b-4a84-8db9-28af14a4cfac">&lt;strong&gt;</bpt>Dashboard<ept id="75b6b79a-855b-4a84-8db9-28af14a4cfac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="349396db-2371-48e6-bb25-9a7c9bc2dd7d" xml:space="preserve">
+          <source>The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment.</source>
+          <target state="new">The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment.</target>
+        </trans-unit>
+        <trans-unit id="ba8fadeb-9a77-4eba-92cc-ef9873c2792e" xml:space="preserve">
+          <source>For more information, see <bpt id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;linkText&gt;</bpt>Manage Deployments in Azure<ept id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;/linkText&gt;</ept><bpt id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;title&gt;</bpt><ept id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;linkText&gt;</bpt>Manage Deployments in Azure<ept id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;/linkText&gt;</ept><bpt id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;title&gt;</bpt><ept id="9b1d7df4-b393-4401-a5f7-4eaeb81c863e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eca0c7de-c023-442d-9abd-6ec6ee99f422" xml:space="preserve">
+          <source>Click either <bpt id="cf0da442-f42f-471e-bf1b-36288465752a">&lt;strong&gt;</bpt>Upload a new production deployment<ept id="cf0da442-f42f-471e-bf1b-36288465752a">&lt;/strong&gt;</ept> or <bpt id="d167fd3e-4dfd-4b34-9d80-182875ecce8a">&lt;strong&gt;</bpt>Upload<ept id="d167fd3e-4dfd-4b34-9d80-182875ecce8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click either <bpt id="cf0da442-f42f-471e-bf1b-36288465752a">&lt;strong&gt;</bpt>Upload a new production deployment<ept id="cf0da442-f42f-471e-bf1b-36288465752a">&lt;/strong&gt;</ept> or <bpt id="d167fd3e-4dfd-4b34-9d80-182875ecce8a">&lt;strong&gt;</bpt>Upload<ept id="d167fd3e-4dfd-4b34-9d80-182875ecce8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="beae0c93-dbe6-4865-943f-cc213652ecd3" xml:space="preserve">
+          <source>In <bpt id="41527299-dfe6-4fa3-9551-65d356f8cc4e">&lt;strong&gt;</bpt>Deployment label<ept id="41527299-dfe6-4fa3-9551-65d356f8cc4e">&lt;/strong&gt;</ept>, enter a name for the new deployment - for example, MyCloudServicev4.</source>
+          <target state="new">In <bpt id="41527299-dfe6-4fa3-9551-65d356f8cc4e">&lt;strong&gt;</bpt>Deployment label<ept id="41527299-dfe6-4fa3-9551-65d356f8cc4e">&lt;/strong&gt;</ept>, enter a name for the new deployment - for example, MyCloudServicev4.</target>
+        </trans-unit>
+        <trans-unit id="40bd476d-e517-4604-af44-e67800f8b5d4" xml:space="preserve">
+          <source>In <bpt id="8e8c6758-bfd8-4702-8f73-4cd69d56a28b">&lt;strong&gt;</bpt>Package<ept id="8e8c6758-bfd8-4702-8f73-4cd69d56a28b">&lt;/strong&gt;</ept>, use <bpt id="7340fede-16af-4fd1-bbca-af4e186483ac">&lt;strong&gt;</bpt>Browse<ept id="7340fede-16af-4fd1-bbca-af4e186483ac">&lt;/strong&gt;</ept> to select the service package file (.cspkg) to use.</source>
+          <target state="new">In <bpt id="8e8c6758-bfd8-4702-8f73-4cd69d56a28b">&lt;strong&gt;</bpt>Package<ept id="8e8c6758-bfd8-4702-8f73-4cd69d56a28b">&lt;/strong&gt;</ept>, use <bpt id="7340fede-16af-4fd1-bbca-af4e186483ac">&lt;strong&gt;</bpt>Browse<ept id="7340fede-16af-4fd1-bbca-af4e186483ac">&lt;/strong&gt;</ept> to select the service package file (.cspkg) to use.</target>
+        </trans-unit>
+        <trans-unit id="361eb5c9-79ca-4421-b573-d95e3b204cf9" xml:space="preserve">
+          <source>In <bpt id="791437cb-9584-458b-89eb-5a7d196775c7">&lt;strong&gt;</bpt>Configuration<ept id="791437cb-9584-458b-89eb-5a7d196775c7">&lt;/strong&gt;</ept>, use <bpt id="1c7f621e-e1eb-4e92-89bf-965a00c15c94">&lt;strong&gt;</bpt>Browse<ept id="1c7f621e-e1eb-4e92-89bf-965a00c15c94">&lt;/strong&gt;</ept> to select the service configure file (.cscfg) to use.</source>
+          <target state="new">In <bpt id="791437cb-9584-458b-89eb-5a7d196775c7">&lt;strong&gt;</bpt>Configuration<ept id="791437cb-9584-458b-89eb-5a7d196775c7">&lt;/strong&gt;</ept>, use <bpt id="1c7f621e-e1eb-4e92-89bf-965a00c15c94">&lt;strong&gt;</bpt>Browse<ept id="1c7f621e-e1eb-4e92-89bf-965a00c15c94">&lt;/strong&gt;</ept> to select the service configure file (.cscfg) to use.</target>
+        </trans-unit>
+        <trans-unit id="293de71a-df3f-42a0-afdf-1b7431211fea" xml:space="preserve">
+          <source>If the cloud service will include any roles with only one instance, select the <bpt id="76190ba0-e151-4aec-8396-515665c23469">&lt;strong&gt;</bpt>Deploy even if one or more roles contain a single instance<ept id="76190ba0-e151-4aec-8396-515665c23469">&lt;/strong&gt;</ept> check box to enable the deployment to proceed.</source>
+          <target state="new">If the cloud service will include any roles with only one instance, select the <bpt id="76190ba0-e151-4aec-8396-515665c23469">&lt;strong&gt;</bpt>Deploy even if one or more roles contain a single instance<ept id="76190ba0-e151-4aec-8396-515665c23469">&lt;/strong&gt;</ept> check box to enable the deployment to proceed.</target>
+        </trans-unit>
+        <trans-unit id="ad18137e-921c-4550-8463-0171203b0292" xml:space="preserve">
+          <source>Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances.</source>
+          <target state="new">Azure can only guarantee 99.95 percent access to the cloud service during maintenance and service updates if every role has at least two instances.</target>
+        </trans-unit>
+        <trans-unit id="0c1a3365-bae4-48f2-ace9-2c6354f45478" xml:space="preserve">
+          <source>If needed, you can add additional role instances on the <bpt id="6917af4c-269f-4563-9bf8-0465db988864">&lt;strong&gt;</bpt>Scale<ept id="6917af4c-269f-4563-9bf8-0465db988864">&lt;/strong&gt;</ept> page after you deploy the cloud service.</source>
+          <target state="new">If needed, you can add additional role instances on the <bpt id="6917af4c-269f-4563-9bf8-0465db988864">&lt;strong&gt;</bpt>Scale<ept id="6917af4c-269f-4563-9bf8-0465db988864">&lt;/strong&gt;</ept> page after you deploy the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="1fd6b3b2-6ea2-4b23-b389-5a0efed51d6c" xml:space="preserve">
+          <source>For more information, see <bpt id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;/linkText&gt;</ept><bpt id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;title&gt;</bpt><ept id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;linkText&gt;</bpt>Service Level Agreements<ept id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;/linkText&gt;</ept><bpt id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;title&gt;</bpt><ept id="a8a1868e-b854-482d-889f-5b82fcefa3b8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef7b7f6a-e908-400a-8fd4-e89e8ffecefd" xml:space="preserve">
+          <source>Click <bpt id="abbfdb61-31c4-4556-9eac-8fa8675bc613">&lt;strong&gt;</bpt>OK<ept id="abbfdb61-31c4-4556-9eac-8fa8675bc613">&lt;/strong&gt;</ept> (checkmark) to begin the cloud service deployment.</source>
+          <target state="new">Click <bpt id="abbfdb61-31c4-4556-9eac-8fa8675bc613">&lt;strong&gt;</bpt>OK<ept id="abbfdb61-31c4-4556-9eac-8fa8675bc613">&lt;/strong&gt;</ept> (checkmark) to begin the cloud service deployment.</target>
+        </trans-unit>
+        <trans-unit id="1b73a08c-1eb5-4071-ba59-b5d28ad646ea" xml:space="preserve">
+          <source><bpt id="7dc1f3b8-2869-4245-8624-7c2260778288">&lt;linkText&gt;</bpt>CloudServices_UploadaPackage<ept id="7dc1f3b8-2869-4245-8624-7c2260778288">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dc1f3b8-2869-4245-8624-7c2260778288">&lt;linkText&gt;</bpt>CloudServices_UploadaPackage<ept id="7dc1f3b8-2869-4245-8624-7c2260778288">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e4dad5c-e711-447d-8fdf-054e9fb60e65" xml:space="preserve">
+          <source>You can monitor the status of the deployment in the message area.</source>
+          <target state="new">You can monitor the status of the deployment in the message area.</target>
+        </trans-unit>
+        <trans-unit id="e20df117-49ef-4e9a-bbbf-6510ab66691b" xml:space="preserve">
+          <source>Click OK to hide the message.</source>
+          <target state="new">Click OK to hide the message.</target>
+        </trans-unit>
+        <trans-unit id="b9784d24-7523-4ece-a0a2-a0654c86ec7d" xml:space="preserve">
+          <source><bpt id="3720411b-b205-400f-8f15-b2da1b088338">&lt;linkText&gt;</bpt>CloudServices_UploadProgress<ept id="3720411b-b205-400f-8f15-b2da1b088338">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3720411b-b205-400f-8f15-b2da1b088338">&lt;linkText&gt;</bpt>CloudServices_UploadProgress<ept id="3720411b-b205-400f-8f15-b2da1b088338">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad5b6b28-e2e5-419b-a18c-6aef7ee56e53" xml:space="preserve">
+          <source>Click <bpt id="a124f430-33fc-4ced-86e2-34e15b6caf64">&lt;strong&gt;</bpt>Dashboard<ept id="a124f430-33fc-4ced-86e2-34e15b6caf64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a124f430-33fc-4ced-86e2-34e15b6caf64">&lt;strong&gt;</bpt>Dashboard<ept id="a124f430-33fc-4ced-86e2-34e15b6caf64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b2af3b4-83ef-479e-8ac9-eafc936c0aae" xml:space="preserve">
+          <source>The status should show that the service is <bpt id="75fce1a5-8a0c-40f2-b0f1-1e30cb986d9b">&lt;strong&gt;</bpt>Running<ept id="75fce1a5-8a0c-40f2-b0f1-1e30cb986d9b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The status should show that the service is <bpt id="75fce1a5-8a0c-40f2-b0f1-1e30cb986d9b">&lt;strong&gt;</bpt>Running<ept id="75fce1a5-8a0c-40f2-b0f1-1e30cb986d9b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fde891e-91bd-48de-b28f-148a10d9b983" xml:space="preserve">
+          <source>Under <bpt id="32906504-814d-450c-8984-6d90ce5a34cb">&lt;strong&gt;</bpt>quick glance<ept id="32906504-814d-450c-8984-6d90ce5a34cb">&lt;/strong&gt;</ept>, click the site URL to open your cloud service in a web browser.</source>
+          <target state="new">Under <bpt id="32906504-814d-450c-8984-6d90ce5a34cb">&lt;strong&gt;</bpt>quick glance<ept id="32906504-814d-450c-8984-6d90ce5a34cb">&lt;/strong&gt;</ept>, click the site URL to open your cloud service in a web browser.</target>
+        </trans-unit>
+        <trans-unit id="25d352df-107b-4d9e-ba42-c06f76574709" xml:space="preserve">
+          <source><bpt id="ec413407-7d45-4ff0-b240-3bc1291839ad">&lt;linkText&gt;</bpt>CloudServices_QuickGlance<ept id="ec413407-7d45-4ff0-b240-3bc1291839ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec413407-7d45-4ff0-b240-3bc1291839ad">&lt;linkText&gt;</bpt>CloudServices_QuickGlance<ept id="ec413407-7d45-4ff0-b240-3bc1291839ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45386767-d661-49b6-9d01-b12ccc23943f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=251796&amp;clcid=0x409</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=251796&amp;clcid=0x409</target>
+        </trans-unit>
+      </group>
+      <group id="80389f6b-0466-4eab-919e-ca2bc36336c2" />
+    </body>
+  </file>
+</xliff>

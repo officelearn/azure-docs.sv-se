@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c0e67e61-773d-4cb2-bafc-fccf47097bee" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c0e67e61-773d-4cb2-bafc-fccf47097bee" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="07222f79-1206-430e-b574-8957b9a5fc1d">
+        <trans-unit id="0916e41f-5009-42b0-811d-2c9e6954c92f" xml:space="preserve">
+          <source>App Model v2.0 | Microsoft Azure</source>
+          <target state="new">App Model v2.0 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="afc3699e-38c0-4f32-9fab-e4659b7241f9" xml:space="preserve">
+          <source>The types of apps and scenarios supported by the Azure AD App Model v2.0 Public Preview.</source>
+          <target state="new">The types of apps and scenarios supported by the Azure AD App Model v2.0 Public Preview.</target>
+        </trans-unit>
+        <trans-unit id="83c17bfe-a81f-4d1c-b253-3ea904396762" xml:space="preserve">
+          <source>The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols <bpt id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;/linkText&gt;</ept><bpt id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;title&gt;</bpt><ept id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;/title&gt;</ept> and/or <bpt id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;linkText&gt;</bpt>OpenID Connect<ept id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;/linkText&gt;</ept><bpt id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;title&gt;</bpt><ept id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">The v2.0 app model supports authentication for a variety of modern app architectures, all of which are based on the industry standard protocols <bpt id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;linkText&gt;</bpt>OAuth 2.0<ept id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;/linkText&gt;</ept><bpt id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;title&gt;</bpt><ept id="ab15c7cd-3112-44c8-a109-a1ad371c674e">&lt;/title&gt;</ept> and/or <bpt id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;linkText&gt;</bpt>OpenID Connect<ept id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;/linkText&gt;</ept><bpt id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;title&gt;</bpt><ept id="bf02bd35-a88a-4823-9450-7ee7dc93e0a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7500cbc4-d6de-45cd-b0e3-7e23b6d164f7" xml:space="preserve">
+          <source>This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.</source>
+          <target state="new">This doc briefly describes the types of apps you can build, independent of the language or platform you prefer.</target>
+        </trans-unit>
+        <trans-unit id="f0a3ce57-3ab2-4232-a689-87d033ef1d11" xml:space="preserve">
+          <source>It will help you understand the high level scenarios before you <bpt id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;linkText&gt;</bpt>jump right into the code<ept id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;/linkText&gt;</ept><bpt id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;title&gt;</bpt><ept id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;/title&gt;</ept>.</source>
+          <target state="new">It will help you understand the high level scenarios before you <bpt id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;linkText&gt;</bpt>jump right into the code<ept id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;/linkText&gt;</ept><bpt id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;title&gt;</bpt><ept id="3a0734dd-0f65-41a1-9874-cf3adb17e906">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="470bda38-c3d7-4b61-8f0c-9c242533d67d" xml:space="preserve">
+          <source>This information applies to the v2.0 app model public preview.</source>
+          <target state="new">This information applies to the v2.0 app model public preview.</target>
+        </trans-unit>
+        <trans-unit id="d5d63ffb-76fa-441b-8e9a-1795c7d6da05" xml:space="preserve">
+          <source>For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;/linkText&gt;</ept><bpt id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;title&gt;</bpt><ept id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;/linkText&gt;</ept><bpt id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;title&gt;</bpt><ept id="521aaacc-790c-49a3-b1b2-009f3e361426">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb5c28b4-1e4e-4bbd-8277-76abdf61cd33" xml:space="preserve">
+          <source>Every app that uses the v2.0 app model will need to be registered at <bpt id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;linkText&gt;</bpt>apps.dev.microsoft.com<ept id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;/linkText&gt;</ept><bpt id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;title&gt;</bpt><ept id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;/title&gt;</ept>.  The app registration process will collect &amp; assign a few values to your app:</source>
+          <target state="new">Every app that uses the v2.0 app model will need to be registered at <bpt id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;linkText&gt;</bpt>apps.dev.microsoft.com<ept id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;/linkText&gt;</ept><bpt id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;title&gt;</bpt><ept id="9d642916-ec04-4361-a6f5-7fe38c318e93">&lt;/title&gt;</ept>.  The app registration process will collect &amp; assign a few values to your app:</target>
+        </trans-unit>
+        <trans-unit id="19fbac29-dba7-4c67-826f-81d8b6c75239" xml:space="preserve">
+          <source>An <bpt id="83e55c42-ac97-432f-a65b-9a845fa961af">&lt;strong&gt;</bpt>Application Id<ept id="83e55c42-ac97-432f-a65b-9a845fa961af">&lt;/strong&gt;</ept> that uniquely identifies your app</source>
+          <target state="new">An <bpt id="83e55c42-ac97-432f-a65b-9a845fa961af">&lt;strong&gt;</bpt>Application Id<ept id="83e55c42-ac97-432f-a65b-9a845fa961af">&lt;/strong&gt;</ept> that uniquely identifies your app</target>
+        </trans-unit>
+        <trans-unit id="fcd36b5c-23ad-483d-bde0-8ad94d44e659" xml:space="preserve">
+          <source>A <bpt id="55736323-b67a-44d8-9087-be5d837c0644">&lt;strong&gt;</bpt>Redirect URI<ept id="55736323-b67a-44d8-9087-be5d837c0644">&lt;/strong&gt;</ept> that can be used to direct responses back to your app</source>
+          <target state="new">A <bpt id="55736323-b67a-44d8-9087-be5d837c0644">&lt;strong&gt;</bpt>Redirect URI<ept id="55736323-b67a-44d8-9087-be5d837c0644">&lt;/strong&gt;</ept> that can be used to direct responses back to your app</target>
+        </trans-unit>
+        <trans-unit id="39a4f111-b233-434e-863d-a66e6301c6f7" xml:space="preserve">
+          <source>A few other scenario-specific values.</source>
+          <target state="new">A few other scenario-specific values.</target>
+        </trans-unit>
+        <trans-unit id="9975cead-2e28-4b14-b99c-8482adaac260" xml:space="preserve">
+          <source>For more detail, learn how to <bpt id="2681255b-108a-43da-bf6b-34575d779916">&lt;linkText&gt;</bpt>register an app<ept id="2681255b-108a-43da-bf6b-34575d779916">&lt;/linkText&gt;</ept><bpt id="2681255b-108a-43da-bf6b-34575d779916">&lt;title&gt;</bpt><ept id="2681255b-108a-43da-bf6b-34575d779916">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detail, learn how to <bpt id="2681255b-108a-43da-bf6b-34575d779916">&lt;linkText&gt;</bpt>register an app<ept id="2681255b-108a-43da-bf6b-34575d779916">&lt;/linkText&gt;</ept><bpt id="2681255b-108a-43da-bf6b-34575d779916">&lt;title&gt;</bpt><ept id="2681255b-108a-43da-bf6b-34575d779916">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5605d761-a9d8-4cc1-99d8-abe3197626db" xml:space="preserve">
+          <source>Once registered, the app communicates with Azure AD my sending requests to the v2.0 endpoint:</source>
+          <target state="new">Once registered, the app communicates with Azure AD my sending requests to the v2.0 endpoint:</target>
+        </trans-unit>
+        <trans-unit id="a33bd461-6b87-42dd-9eaf-a415828395ea" xml:space="preserve">
+          <source>Every app's interaction with the v2.0 endpoint will follow a similar high level pattern:</source>
+          <target state="new">Every app's interaction with the v2.0 endpoint will follow a similar high level pattern:</target>
+        </trans-unit>
+        <trans-unit id="e4b3b1bf-4873-4609-844f-35224c855b5b" xml:space="preserve">
+          <source>The app directs the end-user to the v2.0 endpoint for sign-in.</source>
+          <target state="new">The app directs the end-user to the v2.0 endpoint for sign-in.</target>
+        </trans-unit>
+        <trans-unit id="e07d1ec7-3e91-4bbc-9164-4c9583303fb8" xml:space="preserve">
+          <source>The user authenticates, entering their username and password or otherwise.</source>
+          <target state="new">The user authenticates, entering their username and password or otherwise.</target>
+        </trans-unit>
+        <trans-unit id="b4b9a536-2ad6-41f6-afb1-0ca0efc4e7ed" xml:space="preserve">
+          <source>The user authorizes the app to act on their behalf, by granting permissions the app requests.</source>
+          <target state="new">The user authorizes the app to act on their behalf, by granting permissions the app requests.</target>
+        </trans-unit>
+        <trans-unit id="a7d4467a-53a7-47e5-b829-9052b4b2d367" xml:space="preserve">
+          <source>The app receives a security token of some sort from the v2.0 endpoint.</source>
+          <target state="new">The app receives a security token of some sort from the v2.0 endpoint.</target>
+        </trans-unit>
+        <trans-unit id="42ddf337-27c1-4a99-b34b-f34a57e7eca0" xml:space="preserve">
+          <source>The app uses the security token to access protected information, or a resource.</source>
+          <target state="new">The app uses the security token to access protected information, or a resource.</target>
+        </trans-unit>
+        <trans-unit id="0cab930f-fdd9-4e31-8f6f-d2793fc28435" xml:space="preserve">
+          <source>The resource server validates the security token to ensure access can be granted.</source>
+          <target state="new">The resource server validates the security token to ensure access can be granted.</target>
+        </trans-unit>
+        <trans-unit id="97c9e0e4-f525-4ef9-8dbf-95a09782e0f0" xml:space="preserve">
+          <source>The app refreshes the security token periodically.</source>
+          <target state="new">The app refreshes the security token periodically.</target>
+        </trans-unit>
+        <trans-unit id="74f85776-5535-4a6e-8e62-985134522252" xml:space="preserve">
+          <source>Each of these seven steps will differ slightly based on the type of app you're building, and we have open source libraries that take care of the details for you.</source>
+          <target state="new">Each of these seven steps will differ slightly based on the type of app you're building, and we have open source libraries that take care of the details for you.</target>
+        </trans-unit>
+        <trans-unit id="f1a10b62-70ad-4ca0-b0d7-146627a8832e" xml:space="preserve">
+          <source>You can learn more about <bpt id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;linkText&gt;</bpt>permissions, consent, and scopes<ept id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;/linkText&gt;</ept><bpt id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;title&gt;</bpt><ept id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;/title&gt;</ept>, or read on to explore some concrete examples.</source>
+          <target state="new">You can learn more about <bpt id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;linkText&gt;</bpt>permissions, consent, and scopes<ept id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;/linkText&gt;</ept><bpt id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;title&gt;</bpt><ept id="ec0e42b5-0087-46f2-abbf-fadc77848b04">&lt;/title&gt;</ept>, or read on to explore some concrete examples.</target>
+        </trans-unit>
+        <trans-unit id="0b65b8d3-05e5-44ca-8687-9309e4f128a6" xml:space="preserve">
+          <source>For web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, the v2.0 app model supports user sign-in using <bpt id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;linkText&gt;</bpt>OpenID Connect<ept id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;/linkText&gt;</ept><bpt id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;title&gt;</bpt><ept id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;/title&gt;</ept>.</source>
+          <target state="new">For web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, the v2.0 app model supports user sign-in using <bpt id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;linkText&gt;</bpt>OpenID Connect<ept id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;/linkText&gt;</ept><bpt id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;title&gt;</bpt><ept id="aafd4470-00d0-4aeb-8fb8-7778b506b0da">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aabb5d92-343b-4ba9-8438-0caaa4405ad7" xml:space="preserve">
+          <source>In OpenID Connect the web app receives an <bpt id="f232853a-814f-458c-8e57-f7831b2e7168">&lt;code&gt;</bpt>id_token<ept id="f232853a-814f-458c-8e57-f7831b2e7168">&lt;/code&gt;</ept>, a security token that verifies the user's identity and provides information about the user in the form of claims:</source>
+          <target state="new">In OpenID Connect the web app receives an <bpt id="f232853a-814f-458c-8e57-f7831b2e7168">&lt;code&gt;</bpt>id_token<ept id="f232853a-814f-458c-8e57-f7831b2e7168">&lt;/code&gt;</ept>, a security token that verifies the user's identity and provides information about the user in the form of claims:</target>
+        </trans-unit>
+        <trans-unit id="0a8c568e-06b1-4225-8c94-8f8fe6c08329" xml:space="preserve">
+          <source>You can learn about all of the types of tokens and claims available to an app in the <bpt id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;linkText&gt;</bpt>v2.0 token reference<ept id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;/linkText&gt;</ept><bpt id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;title&gt;</bpt><ept id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn about all of the types of tokens and claims available to an app in the <bpt id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;linkText&gt;</bpt>v2.0 token reference<ept id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;/linkText&gt;</ept><bpt id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;title&gt;</bpt><ept id="969f87fd-b8c9-40b3-874a-0d6962890518">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a583c15-c651-4015-abfa-2f4c0c13be9e" xml:space="preserve">
+          <source>In web server apps, the sign-in authentication flow takes these high level steps:</source>
+          <target state="new">In web server apps, the sign-in authentication flow takes these high level steps:</target>
+        </trans-unit>
+        <trans-unit id="581312c0-f8ae-49c1-b977-6656c761ea17" xml:space="preserve">
+          <source><bpt id="cce60281-efa2-4c65-a312-92a940ec0ca3">&lt;linkText&gt;</bpt>Web App Swimlanes Image<ept id="cce60281-efa2-4c65-a312-92a940ec0ca3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cce60281-efa2-4c65-a312-92a940ec0ca3">&lt;linkText&gt;</bpt>Web App Swimlanes Image<ept id="cce60281-efa2-4c65-a312-92a940ec0ca3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7155db0-d13b-45b2-9820-77a66328f08a" xml:space="preserve">
+          <source>The validation of the id_token using a public signing key received from the v2.0 endpoint is sufficient to ensure the user's identity, and set a session cookie that can be used to identify the user on subsequent page requests.</source>
+          <target state="new">The validation of the id_token using a public signing key received from the v2.0 endpoint is sufficient to ensure the user's identity, and set a session cookie that can be used to identify the user on subsequent page requests.</target>
+        </trans-unit>
+        <trans-unit id="b7459637-b938-4285-a33f-71d52b34f49e" xml:space="preserve">
+          <source>To see this scenario in action, try out one of the web app sign-in code samples in our <bpt id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;linkText&gt;</bpt>Getting Started<ept id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;/linkText&gt;</ept><bpt id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;title&gt;</bpt><ept id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;/title&gt;</ept> section.</source>
+          <target state="new">To see this scenario in action, try out one of the web app sign-in code samples in our <bpt id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;linkText&gt;</bpt>Getting Started<ept id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;/linkText&gt;</ept><bpt id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;title&gt;</bpt><ept id="fc984a63-ac95-482c-81f0-5c40ba9ab7d7">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="d6f8f514-ec1c-4c4c-9840-028875041895" xml:space="preserve">
+          <source>In addition to simple sign-in, a web server app might also need to access some other web service such as a REST API.  In this case the web server app can engage in a combined OpenID Connect &amp; OAuth 2.0 flow, using the <bpt id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;linkText&gt;</bpt>OAuth 2.0 Authorization Code flow<ept id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;/linkText&gt;</ept><bpt id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;title&gt;</bpt><ept id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;/title&gt;</ept>. This scenario is covered below in the <bpt id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;linkText&gt;</bpt>Web APIs section<ept id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;/linkText&gt;</ept><bpt id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;title&gt;</bpt><ept id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;/title&gt;</ept>, and in our <bpt id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;linkText&gt;</bpt>WebApp-WebAPI Getting Started topic<ept id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;/linkText&gt;</ept><bpt id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;title&gt;</bpt><ept id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">In addition to simple sign-in, a web server app might also need to access some other web service such as a REST API.  In this case the web server app can engage in a combined OpenID Connect &amp; OAuth 2.0 flow, using the <bpt id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;linkText&gt;</bpt>OAuth 2.0 Authorization Code flow<ept id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;/linkText&gt;</ept><bpt id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;title&gt;</bpt><ept id="d18c17f8-d362-4a1a-8f1a-948e424b46b3">&lt;/title&gt;</ept>. This scenario is covered below in the <bpt id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;linkText&gt;</bpt>Web APIs section<ept id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;/linkText&gt;</ept><bpt id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;title&gt;</bpt><ept id="398a2a8b-957f-400b-82cc-14cd647a588e">&lt;/title&gt;</ept>, and in our <bpt id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;linkText&gt;</bpt>WebApp-WebAPI Getting Started topic<ept id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;/linkText&gt;</ept><bpt id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;title&gt;</bpt><ept id="d15c2d87-f1f2-4dc0-ad28-6e69122ff6c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12bff1d1-262f-46e6-90fa-a85b5801a0e1" xml:space="preserve">
+          <source>You can use the v2.0 app model to secure web services as well, such as your app's RESTful Web API.</source>
+          <target state="new">You can use the v2.0 app model to secure web services as well, such as your app's RESTful Web API.</target>
+        </trans-unit>
+        <trans-unit id="d5198099-92e1-4597-875d-6932d824bee8" xml:space="preserve">
+          <source>Instead of id<bpt id="4d3ce554-40a6-44d1-897d-acc36ccef866">&lt;em&gt;</bpt>tokens and session cookies, Web APIs use OAuth 2.0 access<ept id="4d3ce554-40a6-44d1-897d-acc36ccef866">&lt;/em&gt;</ept>tokens to secure their data and authenticate incoming requests.</source>
+          <target state="new">Instead of id<bpt id="4d3ce554-40a6-44d1-897d-acc36ccef866">&lt;em&gt;</bpt>tokens and session cookies, Web APIs use OAuth 2.0 access<ept id="4d3ce554-40a6-44d1-897d-acc36ccef866">&lt;/em&gt;</ept>tokens to secure their data and authenticate incoming requests.</target>
+        </trans-unit>
+        <trans-unit id="48fc8159-c3c0-4a5c-9aed-c0393576f02f" xml:space="preserve">
+          <source>The caller of a Web API appends an access_token in the authorization header of an HTTP request:</source>
+          <target state="new">The caller of a Web API appends an access_token in the authorization header of an HTTP request:</target>
+        </trans-unit>
+        <trans-unit id="92e93201-b2e6-4ff9-a89a-b75f51d78e69" xml:space="preserve">
+          <source>The Web API can then use the access<bpt id="61c8eaae-96bd-48cb-b19f-ad0d3c305e2e">&lt;em&gt;</bpt>token to verify the API caller's identity and extract information about the caller from claims that are encoded in the access<ept id="61c8eaae-96bd-48cb-b19f-ad0d3c305e2e">&lt;/em&gt;</ept>token.</source>
+          <target state="new">The Web API can then use the access<bpt id="61c8eaae-96bd-48cb-b19f-ad0d3c305e2e">&lt;em&gt;</bpt>token to verify the API caller's identity and extract information about the caller from claims that are encoded in the access<ept id="61c8eaae-96bd-48cb-b19f-ad0d3c305e2e">&lt;/em&gt;</ept>token.</target>
+        </trans-unit>
+        <trans-unit id="1d7ec513-e5a3-4aee-91fa-842cb0558eb2" xml:space="preserve">
+          <source>You can learn about all of the types of tokens and claims available to an app in the <bpt id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;linkText&gt;</bpt>v2.0 token reference<ept id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;/linkText&gt;</ept><bpt id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;title&gt;</bpt><ept id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can learn about all of the types of tokens and claims available to an app in the <bpt id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;linkText&gt;</bpt>v2.0 token reference<ept id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;/linkText&gt;</ept><bpt id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;title&gt;</bpt><ept id="6653c483-15d2-41b8-bf44-aad179fb27ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74dd661d-5323-457f-bbe6-a0f720917832" xml:space="preserve">
+          <source>A Web API can give users the power to opt-in/opt-out of certain functionality or data by exposing permissions, otherwise known as <bpt id="7df879eb-630a-4533-91f6-316847651e2d">&lt;linkText&gt;</bpt>scopes<ept id="7df879eb-630a-4533-91f6-316847651e2d">&lt;/linkText&gt;</ept><bpt id="7df879eb-630a-4533-91f6-316847651e2d">&lt;title&gt;</bpt><ept id="7df879eb-630a-4533-91f6-316847651e2d">&lt;/title&gt;</ept>.</source>
+          <target state="new">A Web API can give users the power to opt-in/opt-out of certain functionality or data by exposing permissions, otherwise known as <bpt id="7df879eb-630a-4533-91f6-316847651e2d">&lt;linkText&gt;</bpt>scopes<ept id="7df879eb-630a-4533-91f6-316847651e2d">&lt;/linkText&gt;</ept><bpt id="7df879eb-630a-4533-91f6-316847651e2d">&lt;title&gt;</bpt><ept id="7df879eb-630a-4533-91f6-316847651e2d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ce59a27-52e0-4c2e-ab47-553659e9b647" xml:space="preserve">
+          <source>For a calling app to acquire permission to a scope, the user must consent to the scope during an flow.</source>
+          <target state="new">For a calling app to acquire permission to a scope, the user must consent to the scope during an flow.</target>
+        </trans-unit>
+        <trans-unit id="8b5b3568-a6e6-464c-a292-6af61803e890" xml:space="preserve">
+          <source>The v2.0 endpoint will take care of asking the user for permission, and recording those permissions in all access_tokens that the Web API receives.</source>
+          <target state="new">The v2.0 endpoint will take care of asking the user for permission, and recording those permissions in all access_tokens that the Web API receives.</target>
+        </trans-unit>
+        <trans-unit id="9497dad0-ad07-4636-b55a-ee7dddd5d13e" xml:space="preserve">
+          <source>All the Web API needs to worry about is validating the access_tokens it receives on each call and performing the proper authorization checks.</source>
+          <target state="new">All the Web API needs to worry about is validating the access_tokens it receives on each call and performing the proper authorization checks.</target>
+        </trans-unit>
+        <trans-unit id="29661a7f-65fc-45b1-884a-e0334eaf3a58" xml:space="preserve">
+          <source>A Web API can receive access_tokens from all types of apps, including web server apps, desktop and mobile apps, single page apps, server side daemons, and even other Web APIs.</source>
+          <target state="new">A Web API can receive access_tokens from all types of apps, including web server apps, desktop and mobile apps, single page apps, server side daemons, and even other Web APIs.</target>
+        </trans-unit>
+        <trans-unit id="1bdc5d0f-98ff-464e-bd4a-babd7a90a669" xml:space="preserve">
+          <source>As an example, let's look at the complete flow for a web server app that calls a Web API.</source>
+          <target state="new">As an example, let's look at the complete flow for a web server app that calls a Web API.</target>
+        </trans-unit>
+        <trans-unit id="808f157f-c261-4d6b-a6b4-c325e7f15491" xml:space="preserve">
+          <source><bpt id="a2d136f2-b540-4074-aae8-dbfc0055ca6d">&lt;linkText&gt;</bpt>Web App Web API Swimlanes Image<ept id="a2d136f2-b540-4074-aae8-dbfc0055ca6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2d136f2-b540-4074-aae8-dbfc0055ca6d">&lt;linkText&gt;</bpt>Web App Web API Swimlanes Image<ept id="a2d136f2-b540-4074-aae8-dbfc0055ca6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18bf6032-2b5f-414b-b4fe-bcb46c307340" xml:space="preserve">
+          <source>To learn more about authorization<bpt id="2ed92e85-c9d5-49a1-b244-0d4507d96cf0">&lt;em&gt;</bpt>codes, refresh<ept id="2ed92e85-c9d5-49a1-b244-0d4507d96cf0">&lt;/em&gt;</ept>tokens, and the detailed steps of getting access_tokens, read about the <bpt id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;linkText&gt;</bpt>OAuth 2.0 protocol<ept id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;/linkText&gt;</ept><bpt id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;title&gt;</bpt><ept id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about authorization<bpt id="2ed92e85-c9d5-49a1-b244-0d4507d96cf0">&lt;em&gt;</bpt>codes, refresh<ept id="2ed92e85-c9d5-49a1-b244-0d4507d96cf0">&lt;/em&gt;</ept>tokens, and the detailed steps of getting access_tokens, read about the <bpt id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;linkText&gt;</bpt>OAuth 2.0 protocol<ept id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;/linkText&gt;</ept><bpt id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;title&gt;</bpt><ept id="62c01dbc-5e70-40fe-aa49-77728109fee1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab65a3ae-85e3-406a-9474-c9472a0b045d" xml:space="preserve">
+          <source>To learn how to secure a Web API with the v2.0 app model and OAuth 2.0 access_tokens, check out the Web API code samples in our <bpt id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;linkText&gt;</bpt>Getting Started section<ept id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;/linkText&gt;</ept><bpt id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;title&gt;</bpt><ept id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to secure a Web API with the v2.0 app model and OAuth 2.0 access_tokens, check out the Web API code samples in our <bpt id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;linkText&gt;</bpt>Getting Started section<ept id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;/linkText&gt;</ept><bpt id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;title&gt;</bpt><ept id="98221614-dc4f-4c17-b0c2-4c7e67dfc463">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d6d76d5a-c222-4c41-a605-e96c88042e7f" xml:space="preserve">
+          <source>Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.</source>
+          <target state="new">Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.</target>
+        </trans-unit>
+        <trans-unit id="d033c0b8-0969-4d2f-8d59-1b7a888d267d" xml:space="preserve">
+          <source>These apps can add sign-in and authorization to backend services using the v2.0 model and the <bpt id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;linkText&gt;</bpt>OAuth 2.0 Authorization Code flow<ept id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;/linkText&gt;</ept><bpt id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;title&gt;</bpt><ept id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;/title&gt;</ept>.</source>
+          <target state="new">These apps can add sign-in and authorization to backend services using the v2.0 model and the <bpt id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;linkText&gt;</bpt>OAuth 2.0 Authorization Code flow<ept id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;/linkText&gt;</ept><bpt id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;title&gt;</bpt><ept id="9dfb6026-959e-4c9f-a5e2-335ce6ab8015">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="621146be-f533-4640-a47f-13016276370b" xml:space="preserve">
+          <source>In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign-in, which represents the app's permission to call backend services on behalf of the currently signed-in user.</source>
+          <target state="new">In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign-in, which represents the app's permission to call backend services on behalf of the currently signed-in user.</target>
+        </trans-unit>
+        <trans-unit id="43601880-57e1-4167-ba6b-2f21537531de" xml:space="preserve">
+          <source>The app can then exchange the authoriztion<bpt id="9b981971-5578-4ee1-977c-5d4dda9d68f1">&lt;em&gt;</bpt>code in the background for an OAuth 2.0 access<ept id="9b981971-5578-4ee1-977c-5d4dda9d68f1">&lt;/em&gt;</ept>token and a refresh_token.</source>
+          <target state="new">The app can then exchange the authoriztion<bpt id="9b981971-5578-4ee1-977c-5d4dda9d68f1">&lt;em&gt;</bpt>code in the background for an OAuth 2.0 access<ept id="9b981971-5578-4ee1-977c-5d4dda9d68f1">&lt;/em&gt;</ept>token and a refresh_token.</target>
+        </trans-unit>
+        <trans-unit id="b06e8217-a3b9-4627-ac0a-4221b81e41e1" xml:space="preserve">
+          <source>The app can use the access<bpt id="da469799-ee06-437a-82b8-1d10bba1ed29">&lt;em&gt;</bpt>token to authenticate to Web APIs in HTTP requests, and can use the refresh<ept id="da469799-ee06-437a-82b8-1d10bba1ed29">&lt;/em&gt;</ept>token to get new access_tokens when older ones expire.</source>
+          <target state="new">The app can use the access<bpt id="da469799-ee06-437a-82b8-1d10bba1ed29">&lt;em&gt;</bpt>token to authenticate to Web APIs in HTTP requests, and can use the refresh<ept id="da469799-ee06-437a-82b8-1d10bba1ed29">&lt;/em&gt;</ept>token to get new access_tokens when older ones expire.</target>
+        </trans-unit>
+        <trans-unit id="8a596371-f3c0-41f1-a20a-be43f4a57879" xml:space="preserve">
+          <source><bpt id="fc7c6a5a-ce6c-42b9-8c38-e1ef7eec431b">&lt;linkText&gt;</bpt>Native App Swimlanes Image<ept id="fc7c6a5a-ce6c-42b9-8c38-e1ef7eec431b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc7c6a5a-ce6c-42b9-8c38-e1ef7eec431b">&lt;linkText&gt;</bpt>Native App Swimlanes Image<ept id="fc7c6a5a-ce6c-42b9-8c38-e1ef7eec431b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad47e620-8d78-4024-916a-2d4226b6fd51" xml:space="preserve">
+          <source>These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.</source>
+          <target state="new">These types of apps are not currently supported by the v2.0 app model preview, but are on the roadmap to be supported in time for general availability.</target>
+        </trans-unit>
+        <trans-unit id="774b7ff4-714e-4783-8456-f3700520ee1f" xml:space="preserve">
+          <source>Additional limitations and restrictions for the v2.0 app model public preview are described in the <bpt id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;linkText&gt;</bpt>v2.0 preview limitations article<ept id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;/linkText&gt;</ept><bpt id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;title&gt;</bpt><ept id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;/title&gt;</ept>.</source>
+          <target state="new">Additional limitations and restrictions for the v2.0 app model public preview are described in the <bpt id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;linkText&gt;</bpt>v2.0 preview limitations article<ept id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;/linkText&gt;</ept><bpt id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;title&gt;</bpt><ept id="6d0993de-a6ad-4344-aff9-9957fba60f00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1558d018-58ba-4576-8b57-4a88db7ed386" xml:space="preserve">
+          <source>Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the <bpt id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;linkText&gt;</bpt>OAuth 2.0 Implicit Flow<ept id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;/linkText&gt;</ept><bpt id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;title&gt;</bpt><ept id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;/title&gt;</ept> - however, this flow is not yet available in the v2.0 app model.</source>
+          <target state="new">Many modern apps have a Single Page App front-end written primarily in javascript and often using a SPA frameworks such as AngularJS, Ember.js, Durandal, etc.  The generally available Azure AD service supports these apps using the <bpt id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;linkText&gt;</bpt>OAuth 2.0 Implicit Flow<ept id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;/linkText&gt;</ept><bpt id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;title&gt;</bpt><ept id="8fadf4c9-25af-4b9c-b6eb-9dd640969a36">&lt;/title&gt;</ept> - however, this flow is not yet available in the v2.0 app model.</target>
+        </trans-unit>
+        <trans-unit id="4842e7c0-8a92-4bda-b245-f0bee5eed657" xml:space="preserve">
+          <source>It will be in short order.</source>
+          <target state="new">It will be in short order.</target>
+        </trans-unit>
+        <trans-unit id="8f93e8f7-a62b-4650-91cc-656e859ca6c9" xml:space="preserve">
+          <source>If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the <bpt id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;linkText&gt;</bpt>web server app flow<ept id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;/linkText&gt;</ept><bpt id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;title&gt;</bpt><ept id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;/title&gt;</ept> described above.</source>
+          <target state="new">If you're anxious to get a SPA working with the v2.0 app model, you can implement authentication using the <bpt id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;linkText&gt;</bpt>web server app flow<ept id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;/linkText&gt;</ept><bpt id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;title&gt;</bpt><ept id="a37a4998-4a3c-489b-b525-dc2982a0e7a5">&lt;/title&gt;</ept> described above.</target>
+        </trans-unit>
+        <trans-unit id="45cac354-293b-49ff-9543-af939c0aca14" xml:space="preserve">
+          <source>But this is not the recommended approach, and documentation for this scenario will be limited.</source>
+          <target state="new">But this is not the recommended approach, and documentation for this scenario will be limited.</target>
+        </trans-unit>
+        <trans-unit id="6ca5e45b-50ce-4119-94c8-007932e7770a" xml:space="preserve">
+          <source>If you'd like to get a feel for the SPA scenario, you can check out the <bpt id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;linkText&gt;</bpt>generally available Azure AD SPA code sample<ept id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;/linkText&gt;</ept><bpt id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;title&gt;</bpt><ept id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you'd like to get a feel for the SPA scenario, you can check out the <bpt id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;linkText&gt;</bpt>generally available Azure AD SPA code sample<ept id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;/linkText&gt;</ept><bpt id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;title&gt;</bpt><ept id="d34fb042-5382-4dd2-8676-8701f4e533a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5a08568-593e-4e74-98cb-f25dd0449734" xml:space="preserve">
+          <source>Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.</source>
+          <target state="new">Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.</target>
+        </trans-unit>
+        <trans-unit id="afc5b85d-fd34-4901-b198-32fa70f0c7fe" xml:space="preserve">
+          <source>These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the <bpt id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;linkText&gt;</bpt>OAuth 2.0 client credentials flow<ept id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;/linkText&gt;</ept><bpt id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;title&gt;</bpt><ept id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;/title&gt;</ept>.</source>
+          <target state="new">These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the <bpt id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;linkText&gt;</bpt>OAuth 2.0 client credentials flow<ept id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;/linkText&gt;</ept><bpt id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;title&gt;</bpt><ept id="873861c9-081d-4e80-bfec-82d7f79132a5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b974831b-e895-48d3-9261-ce585814e480" xml:space="preserve">
+          <source>This flow is not currently supported by the v2.0 app model - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.</source>
+          <target state="new">This flow is not currently supported by the v2.0 app model - which is to say that apps can only get tokens after an interactive user sign-in flow has occurred.</target>
+        </trans-unit>
+        <trans-unit id="9479bf33-ca7b-4c42-b9b7-96790490364e" xml:space="preserve">
+          <source>The client credentials flow will be added in the near future.</source>
+          <target state="new">The client credentials flow will be added in the near future.</target>
+        </trans-unit>
+        <trans-unit id="3655d8b8-fdd8-448d-95fc-f83dd601c5a2" xml:space="preserve">
+          <source>If you would like to see the client credentials flow in the generally available Azure AD service, check out the <bpt id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;linkText&gt;</bpt>Daemon sample on GitHub<ept id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;/linkText&gt;</ept><bpt id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;title&gt;</bpt><ept id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to see the client credentials flow in the generally available Azure AD service, check out the <bpt id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;linkText&gt;</bpt>Daemon sample on GitHub<ept id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;/linkText&gt;</ept><bpt id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;title&gt;</bpt><ept id="d1874fa0-17f6-49e2-bece-ccdd4b645f2b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b88735f-8bfc-4004-8a52-fd63e3de2bd0" xml:space="preserve">
+          <source>Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 app model.</source>
+          <target state="new">Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 app model.</target>
+        </trans-unit>
+        <trans-unit id="35641016-1893-4ce4-9bd0-b5705a518c8a" xml:space="preserve">
+          <source>This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.</source>
+          <target state="new">This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.</target>
+        </trans-unit>
+        <trans-unit id="e87c7e2f-58c4-49b6-b553-82ba5e898ccb" xml:space="preserve">
+          <source>This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the <bpt id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;linkText&gt;</bpt>On-Behalf-Of Flow<ept id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;/linkText&gt;</ept><bpt id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;title&gt;</bpt><ept id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;/title&gt;</ept>.</source>
+          <target state="new">This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the <bpt id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;linkText&gt;</bpt>On-Behalf-Of Flow<ept id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;/linkText&gt;</ept><bpt id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;title&gt;</bpt><ept id="dc8cb1b1-e66e-4f8a-9d5e-583086d21640">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ddb0402-7f56-4227-b168-ec5df0419ccc" xml:space="preserve">
+          <source>However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.</source>
+          <target state="new">However, the On-Behalf-Of flow is not currently implemented in the v2.0 app model preview.</target>
+        </trans-unit>
+        <trans-unit id="7b89f9b7-cc2d-40b7-9938-da35849c30d1" xml:space="preserve">
+          <source>To see how this flow works in the generally available Azure AD service, check out the <bpt id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;linkText&gt;</bpt>On-Behalf-Of code sample on GitHub<ept id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;/linkText&gt;</ept><bpt id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;title&gt;</bpt><ept id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;/title&gt;</ept>.</source>
+          <target state="new">To see how this flow works in the generally available Azure AD service, check out the <bpt id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;linkText&gt;</bpt>On-Behalf-Of code sample on GitHub<ept id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;/linkText&gt;</ept><bpt id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;title&gt;</bpt><ept id="e61b1577-8d6e-49f4-bfb2-7dc01fd08a6f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

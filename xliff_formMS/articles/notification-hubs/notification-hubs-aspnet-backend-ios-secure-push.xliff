@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d2b9c17-7d59-43ed-ad6e-6e4ecde28255" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d2b9c17-7d59-43ed-ad6e-6e4ecde28255" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="66ff3432-94de-489d-9a64-f24ff6b4a075">
+        <trans-unit id="db4da130-760c-40dc-88db-f030c8367788" xml:space="preserve">
+          <source>Azure Notification Hubs Secure Push</source>
+          <target state="new">Azure Notification Hubs Secure Push</target>
+        </trans-unit>
+        <trans-unit id="40bfed4b-d9a3-4818-89ec-4edf6d0aff8e" xml:space="preserve">
+          <source>Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.</source>
+          <target state="new">Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.</target>
+        </trans-unit>
+        <trans-unit id="e105835d-2ea6-4e61-ac3a-caecc2607309" xml:space="preserve">
+          <source>Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.</source>
+          <target state="new">Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.</target>
+        </trans-unit>
+        <trans-unit id="d5e5daed-a04c-4d6a-aafe-1ffe83560cc2" xml:space="preserve">
+          <source>Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure.</source>
+          <target state="new">Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="9f69e2d5-6ffc-4f85-8fd3-b8aeb56335df" xml:space="preserve">
+          <source>This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.</source>
+          <target state="new">This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.</target>
+        </trans-unit>
+        <trans-unit id="c1452744-ace8-4ebc-97fd-d61816f80c7a" xml:space="preserve">
+          <source>At a high level, the flow is as follows:</source>
+          <target state="new">At a high level, the flow is as follows:</target>
+        </trans-unit>
+        <trans-unit id="8714de21-3cd3-4df0-9e20-47d9519d6a55" xml:space="preserve">
+          <source>The app back-end:</source>
+          <target state="new">The app back-end:</target>
+        </trans-unit>
+        <trans-unit id="dd5af02a-6ce9-41f5-be5d-fc7a76da2d35" xml:space="preserve">
+          <source>Stores secure payload in back-end database.</source>
+          <target state="new">Stores secure payload in back-end database.</target>
+        </trans-unit>
+        <trans-unit id="faee989c-6f5f-479a-a855-6c005b02b572" xml:space="preserve">
+          <source>Sends the ID of this notification to the device (no secure information is sent).</source>
+          <target state="new">Sends the ID of this notification to the device (no secure information is sent).</target>
+        </trans-unit>
+        <trans-unit id="e5cf8994-181d-4eab-84fb-0c1f4ccd1fce" xml:space="preserve">
+          <source>The app on the device, when receiving the notification:</source>
+          <target state="new">The app on the device, when receiving the notification:</target>
+        </trans-unit>
+        <trans-unit id="e77f596c-4579-4370-beb6-8cd506a3b94a" xml:space="preserve">
+          <source>The device contacts the back-end requesting the secure payload.</source>
+          <target state="new">The device contacts the back-end requesting the secure payload.</target>
+        </trans-unit>
+        <trans-unit id="74a359ad-d0e3-4042-8f90-cd523e2bb328" xml:space="preserve">
+          <source>The app can show the payload as a notification on the device.</source>
+          <target state="new">The app can show the payload as a notification on the device.</target>
+        </trans-unit>
+        <trans-unit id="60856390-1bad-4885-9b4b-e8aac97943fa" xml:space="preserve">
+          <source>It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in.</source>
+          <target state="new">It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in.</target>
+        </trans-unit>
+        <trans-unit id="4082f3e4-366a-4d41-9a22-d95d82661d17" xml:space="preserve">
+          <source>This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token.</source>
+          <target state="new">This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token.</target>
+        </trans-unit>
+        <trans-unit id="ad0d24d8-f538-4aa5-9537-6d176772356d" xml:space="preserve">
+          <source>If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app.</source>
+          <target state="new">If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app.</target>
+        </trans-unit>
+        <trans-unit id="3910c278-9500-4291-8cf7-b47ebd67b3ec" xml:space="preserve">
+          <source>The app then authenticates the user and shows the notification payload.</source>
+          <target state="new">The app then authenticates the user and shows the notification payload.</target>
+        </trans-unit>
+        <trans-unit id="b45d7c5d-d337-4ea1-bb11-677a364f4bdc" xml:space="preserve">
+          <source>This Secure Push tutorial shows how to send a push notification securely.</source>
+          <target state="new">This Secure Push tutorial shows how to send a push notification securely.</target>
+        </trans-unit>
+        <trans-unit id="de9ef416-5fce-47bf-8b26-d3f4497fee8d" xml:space="preserve">
+          <source>The tutorial builds on the <bpt id="4d129a1b-1c9b-4163-83ea-3f7e58a09746">&lt;strong&gt;</bpt>Notify Users<ept id="4d129a1b-1c9b-4163-83ea-3f7e58a09746">&lt;/strong&gt;</ept> tutorial, so you should complete the steps in that tutorial first.</source>
+          <target state="new">The tutorial builds on the <bpt id="4d129a1b-1c9b-4163-83ea-3f7e58a09746">&lt;strong&gt;</bpt>Notify Users<ept id="4d129a1b-1c9b-4163-83ea-3f7e58a09746">&lt;/strong&gt;</ept> tutorial, so you should complete the steps in that tutorial first.</target>
+        </trans-unit>
+        <trans-unit id="480b27ff-e731-42c6-b4a2-787bdfb86b71" xml:space="preserve">
+          <source>This tutorial assumes that you have created and configured your notification hub as described in <bpt id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;/linkText&gt;</ept><bpt id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;title&gt;</bpt><ept id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial assumes that you have created and configured your notification hub as described in <bpt id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;/linkText&gt;</ept><bpt id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;title&gt;</bpt><ept id="7f63e07b-e1c0-490d-b16e-f2376e005445">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bf5dc7ad-fb9b-4632-b452-832dd6ef1b24" xml:space="preserve">
+          <source><bpt id="a8ed17da-bf24-4bde-9120-b1be6ad1654a">&lt;token href="../../includes/notification-hubs-aspnet-backend-securepush.md"&gt;</bpt><ept id="a8ed17da-bf24-4bde-9120-b1be6ad1654a">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="a8ed17da-bf24-4bde-9120-b1be6ad1654a">&lt;token href="../../includes/notification-hubs-aspnet-backend-securepush.md"&gt;</bpt><ept id="a8ed17da-bf24-4bde-9120-b1be6ad1654a">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e902134-99c7-4a68-9222-36d773c9f73c" xml:space="preserve">
+          <source>Now that you modified your app back-end to send just the <bpt id="d44e7a40-9dcf-4292-a49e-f5183865fd4b">&lt;em&gt;</bpt>id<ept id="d44e7a40-9dcf-4292-a49e-f5183865fd4b">&lt;/em&gt;</ept> of a notification, you have to change your iOS app to handle that notification and call back your back-end to retrieve the secure message to be displayed.</source>
+          <target state="new">Now that you modified your app back-end to send just the <bpt id="d44e7a40-9dcf-4292-a49e-f5183865fd4b">&lt;em&gt;</bpt>id<ept id="d44e7a40-9dcf-4292-a49e-f5183865fd4b">&lt;/em&gt;</ept> of a notification, you have to change your iOS app to handle that notification and call back your back-end to retrieve the secure message to be displayed.</target>
+        </trans-unit>
+        <trans-unit id="96a5a7ea-5971-41a3-ad0c-b926e53a154d" xml:space="preserve">
+          <source>To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.</source>
+          <target state="new">To achieve this goal, we have to write the logic to retrieve the secure content from the app back-end.</target>
+        </trans-unit>
+        <trans-unit id="40978d50-99bc-424c-b766-63c463f2b5d3" xml:space="preserve">
+          <source>In <bpt id="520a1f33-1192-44c8-8ab7-e6086e235f5b">&lt;strong&gt;</bpt>AppDelegate.m<ept id="520a1f33-1192-44c8-8ab7-e6086e235f5b">&lt;/strong&gt;</ept>, make sure the app registers for silent notifications so it processes the notification id sent from the backend.</source>
+          <target state="new">In <bpt id="520a1f33-1192-44c8-8ab7-e6086e235f5b">&lt;strong&gt;</bpt>AppDelegate.m<ept id="520a1f33-1192-44c8-8ab7-e6086e235f5b">&lt;/strong&gt;</ept>, make sure the app registers for silent notifications so it processes the notification id sent from the backend.</target>
+        </trans-unit>
+        <trans-unit id="d2e3e7e2-eb75-44a9-afce-776f4b6cfbc0" xml:space="preserve">
+          <source>Add the <bpt id="6798dc65-c22f-4d76-b032-5ca7ea386fc5">&lt;strong&gt;</bpt>UIRemoteNotificationTypeNewsstandContentAvailability<ept id="6798dc65-c22f-4d76-b032-5ca7ea386fc5">&lt;/strong&gt;</ept> option in didFinishLaunchingWithOptions:</source>
+          <target state="new">Add the <bpt id="6798dc65-c22f-4d76-b032-5ca7ea386fc5">&lt;strong&gt;</bpt>UIRemoteNotificationTypeNewsstandContentAvailability<ept id="6798dc65-c22f-4d76-b032-5ca7ea386fc5">&lt;/strong&gt;</ept> option in didFinishLaunchingWithOptions:</target>
+        </trans-unit>
+        <trans-unit id="df77f0a7-54e7-4ab9-92da-63b11d44c728" xml:space="preserve">
+          <source>In your <bpt id="0c0ef499-7982-4403-8566-49419d2e22e4">&lt;strong&gt;</bpt>AppDelegate.m<ept id="0c0ef499-7982-4403-8566-49419d2e22e4">&lt;/strong&gt;</ept> add an implementation section at the top with the following declaration:</source>
+          <target state="new">In your <bpt id="0c0ef499-7982-4403-8566-49419d2e22e4">&lt;strong&gt;</bpt>AppDelegate.m<ept id="0c0ef499-7982-4403-8566-49419d2e22e4">&lt;/strong&gt;</ept> add an implementation section at the top with the following declaration:</target>
+        </trans-unit>
+        <trans-unit id="31132ccb-3f2c-4793-af8c-dca0f658411e" xml:space="preserve">
+          <source>Then add in the implementation section the following code, substituting the placeholder <bpt id="a8a72b17-8433-4dfe-9624-8af4fdb6b30e">&lt;code&gt;</bpt>{back-end endpoint}<ept id="a8a72b17-8433-4dfe-9624-8af4fdb6b30e">&lt;/code&gt;</ept> with the endpoint for your back-end obtained previously:</source>
+          <target state="new">Then add in the implementation section the following code, substituting the placeholder <bpt id="a8a72b17-8433-4dfe-9624-8af4fdb6b30e">&lt;code&gt;</bpt>{back-end endpoint}<ept id="a8a72b17-8433-4dfe-9624-8af4fdb6b30e">&lt;/code&gt;</ept> with the endpoint for your back-end obtained previously:</target>
+        </trans-unit>
+        <trans-unit id="cc074648-7728-490f-8cb5-15728ac61386" xml:space="preserve">
+          <source>Now we have to handle the incoming notification and use the method above to retrieve the content to display.</source>
+          <target state="new">Now we have to handle the incoming notification and use the method above to retrieve the content to display.</target>
+        </trans-unit>
+        <trans-unit id="29d9bed9-eb6d-4f24-afe8-3701d013f3fb" xml:space="preserve">
+          <source>First, we have to enable your iOS app to run in the background when receiving a push notification.</source>
+          <target state="new">First, we have to enable your iOS app to run in the background when receiving a push notification.</target>
+        </trans-unit>
+        <trans-unit id="51452dc2-c49e-4434-96c2-b9642e3c66e9" xml:space="preserve">
+          <source>In <bpt id="75f8f4af-b45b-4a7c-880f-44f744020d15">&lt;strong&gt;</bpt>XCode<ept id="75f8f4af-b45b-4a7c-880f-44f744020d15">&lt;/strong&gt;</ept>, select your app project on the left panel, then click your main app target in the <bpt id="49307b47-4316-46f5-b67a-bee2164d60bc">&lt;strong&gt;</bpt>Targets<ept id="49307b47-4316-46f5-b67a-bee2164d60bc">&lt;/strong&gt;</ept> section from the central pane.</source>
+          <target state="new">In <bpt id="75f8f4af-b45b-4a7c-880f-44f744020d15">&lt;strong&gt;</bpt>XCode<ept id="75f8f4af-b45b-4a7c-880f-44f744020d15">&lt;/strong&gt;</ept>, select your app project on the left panel, then click your main app target in the <bpt id="49307b47-4316-46f5-b67a-bee2164d60bc">&lt;strong&gt;</bpt>Targets<ept id="49307b47-4316-46f5-b67a-bee2164d60bc">&lt;/strong&gt;</ept> section from the central pane.</target>
+        </trans-unit>
+        <trans-unit id="bf37fa2f-60c8-4d84-a085-7283d8540b5a" xml:space="preserve">
+          <source>Then click your <bpt id="5e34a4c6-e2dc-42d5-b74f-e2eaff210531">&lt;strong&gt;</bpt>Capabilities<ept id="5e34a4c6-e2dc-42d5-b74f-e2eaff210531">&lt;/strong&gt;</ept> tab at the top of your central pane, and check the <bpt id="5e2f1fcc-1d93-4a03-aaf9-f1df3f368810">&lt;strong&gt;</bpt>Remote Notifications<ept id="5e2f1fcc-1d93-4a03-aaf9-f1df3f368810">&lt;/strong&gt;</ept> checkbox.</source>
+          <target state="new">Then click your <bpt id="5e34a4c6-e2dc-42d5-b74f-e2eaff210531">&lt;strong&gt;</bpt>Capabilities<ept id="5e34a4c6-e2dc-42d5-b74f-e2eaff210531">&lt;/strong&gt;</ept> tab at the top of your central pane, and check the <bpt id="5e2f1fcc-1d93-4a03-aaf9-f1df3f368810">&lt;strong&gt;</bpt>Remote Notifications<ept id="5e2f1fcc-1d93-4a03-aaf9-f1df3f368810">&lt;/strong&gt;</ept> checkbox.</target>
+        </trans-unit>
+        <trans-unit id="f07ee211-14af-48eb-8547-e4668ba62862" xml:space="preserve">
+          <source><bpt id="fbd6b1d8-e6ed-4aab-89a6-9f0c2730c4dc">&lt;linkText&gt;</bpt><ept id="fbd6b1d8-e6ed-4aab-89a6-9f0c2730c4dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbd6b1d8-e6ed-4aab-89a6-9f0c2730c4dc">&lt;linkText&gt;</bpt><ept id="fbd6b1d8-e6ed-4aab-89a6-9f0c2730c4dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2feee30e-664f-4407-beeb-5f6cfd43f105" xml:space="preserve">
+          <source>In <bpt id="e58c2783-09ac-43b7-8200-25c6ed42ca7e">&lt;strong&gt;</bpt>AppDelegate.m<ept id="e58c2783-09ac-43b7-8200-25c6ed42ca7e">&lt;/strong&gt;</ept> add the following method to handle push notifications:</source>
+          <target state="new">In <bpt id="e58c2783-09ac-43b7-8200-25c6ed42ca7e">&lt;strong&gt;</bpt>AppDelegate.m<ept id="e58c2783-09ac-43b7-8200-25c6ed42ca7e">&lt;/strong&gt;</ept> add the following method to handle push notifications:</target>
+        </trans-unit>
+        <trans-unit id="a53fb6f9-a955-4036-86db-e072a65e86c5" xml:space="preserve">
+          <source>Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end.</source>
+          <target state="new">Note that it is preferable to handle the cases of missing authentication header property or rejection by the back-end.</target>
+        </trans-unit>
+        <trans-unit id="6d022d97-9874-42f5-8b02-f7215013618e" xml:space="preserve">
+          <source>The specific handling of these cases depend mostly on your target user experience.</source>
+          <target state="new">The specific handling of these cases depend mostly on your target user experience.</target>
+        </trans-unit>
+        <trans-unit id="e92c3004-155f-42df-a95d-f165788fc2ab" xml:space="preserve">
+          <source>One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.</source>
+          <target state="new">One option is to display a notification with a generic prompt for the user to authenticate to retrieve the actual notification.</target>
+        </trans-unit>
+        <trans-unit id="d87bb540-003c-4720-9702-1827873b2296" xml:space="preserve">
+          <source>To run the application, do the following:</source>
+          <target state="new">To run the application, do the following:</target>
+        </trans-unit>
+        <trans-unit id="a51f8f19-9aa8-4aa0-9244-1fc729a272d4" xml:space="preserve">
+          <source>In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</source>
+          <target state="new">In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</target>
+        </trans-unit>
+        <trans-unit id="afc5a156-f184-4aa4-9e88-a83b61ebc3b3" xml:space="preserve">
+          <source>In the iOS app UI, enter a username and password.</source>
+          <target state="new">In the iOS app UI, enter a username and password.</target>
+        </trans-unit>
+        <trans-unit id="d191f0b0-2a3e-404b-9ce2-fc5347652655" xml:space="preserve">
+          <source>These can be any string, but they must be the same value.</source>
+          <target state="new">These can be any string, but they must be the same value.</target>
+        </trans-unit>
+        <trans-unit id="e3ad1ffe-5cdd-452d-af10-1e726bda780f" xml:space="preserve">
+          <source>In the iOS app UI, click <bpt id="530b2f29-7667-491b-9a72-3b0a8215c2de">&lt;strong&gt;</bpt>Log in<ept id="530b2f29-7667-491b-9a72-3b0a8215c2de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the iOS app UI, click <bpt id="530b2f29-7667-491b-9a72-3b0a8215c2de">&lt;strong&gt;</bpt>Log in<ept id="530b2f29-7667-491b-9a72-3b0a8215c2de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3916e21d-62b1-4fb0-8126-1f2b30c4c7cd" xml:space="preserve">
+          <source>Then click <bpt id="46a98fbd-9ef8-47b8-93f6-76c791ef913d">&lt;strong&gt;</bpt>Send push<ept id="46a98fbd-9ef8-47b8-93f6-76c791ef913d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="46a98fbd-9ef8-47b8-93f6-76c791ef913d">&lt;strong&gt;</bpt>Send push<ept id="46a98fbd-9ef8-47b8-93f6-76c791ef913d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f8137b4-66b6-4630-bb98-98ca8b3c964b" xml:space="preserve">
+          <source>You should see the secure notification being displayed in your notification center.</source>
+          <target state="new">You should see the secure notification being displayed in your notification center.</target>
+        </trans-unit>
+        <trans-unit id="3a714890-d545-4090-bad4-c48413a4b296" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png</target>
+        </trans-unit>
+      </group>
+      <group id="0313a22e-e600-4b05-894b-129d4c65a63e" />
+    </body>
+  </file>
+</xliff>

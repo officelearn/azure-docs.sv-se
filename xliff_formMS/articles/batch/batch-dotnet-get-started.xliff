@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4c26799-eeb1-4a77-808b-99cd72f87a89" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4c26799-eeb1-4a77-808b-99cd72f87a89" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2b546790-c700-4583-9a00-40e2022d45d6">
+        <trans-unit id="45da0463-d9d0-4bf4-84c8-e416efbabdaf" xml:space="preserve">
+          <source>Tutorial - Get started with the Azure Batch .NET Library | Microsoft Azure</source>
+          <target state="new">Tutorial - Get started with the Azure Batch .NET Library | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="93a56b1e-e953-4500-9f22-e3a477fbd7dd" xml:space="preserve">
+          <source>Learn basic concepts about Azure Batch and how to develop for the Batch service with a simple scenario</source>
+          <target state="new">Learn basic concepts about Azure Batch and how to develop for the Batch service with a simple scenario</target>
+        </trans-unit>
+        <trans-unit id="e0847936-1fef-4742-a0ae-fd12c6278139" xml:space="preserve">
+          <source>Start working with the Azure Batch .NET Library by creating a console application that sets up support files and a program that runs on several compute nodes in an Azure Batch pool.</source>
+          <target state="new">Start working with the Azure Batch .NET Library by creating a console application that sets up support files and a program that runs on several compute nodes in an Azure Batch pool.</target>
+        </trans-unit>
+        <trans-unit id="34071c14-58e3-43e8-b9a2-bd792e042b67" xml:space="preserve">
+          <source>The tasks that are created in this tutorial evaluate text in files uploaded to Azure Storage and return the words that most commonly appear in those files.</source>
+          <target state="new">The tasks that are created in this tutorial evaluate text in files uploaded to Azure Storage and return the words that most commonly appear in those files.</target>
+        </trans-unit>
+        <trans-unit id="c88baed0-ac92-4bee-a5d9-4a67de7fd881" xml:space="preserve">
+          <source>The samples are written in C# and use the <bpt id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;linkText&gt;</bpt>Azure Batch .NET Library<ept id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;/linkText&gt;</ept><bpt id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;title&gt;</bpt><ept id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;/title&gt;</ept>.</source>
+          <target state="new">The samples are written in C# and use the <bpt id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;linkText&gt;</bpt>Azure Batch .NET Library<ept id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;/linkText&gt;</ept><bpt id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;title&gt;</bpt><ept id="e3d8821c-be98-408a-af94-2ace5fb91932">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56577d91-d849-4332-8a31-00353fb4fdf6" xml:space="preserve">
+          <source>The accounts:</source>
+          <target state="new">The accounts:</target>
+        </trans-unit>
+        <trans-unit id="2ff1a6de-6d2b-4989-84e6-ab858c56f7a7" xml:space="preserve">
+          <source><bpt id="3a968a9f-3d18-4671-8d6a-61b89501469d">&lt;strong&gt;</bpt>Azure account<ept id="3a968a9f-3d18-4671-8d6a-61b89501469d">&lt;/strong&gt;</ept> - You can create a free trial account in just a couple of minutes.</source>
+          <target state="new"><bpt id="3a968a9f-3d18-4671-8d6a-61b89501469d">&lt;strong&gt;</bpt>Azure account<ept id="3a968a9f-3d18-4671-8d6a-61b89501469d">&lt;/strong&gt;</ept> - You can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="8b1f3218-b2fc-4da7-b8f5-3f5be232a004" xml:space="preserve">
+          <source>For details, see <bpt id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;/linkText&gt;</ept><bpt id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;title&gt;</bpt><ept id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;/linkText&gt;</ept><bpt id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;title&gt;</bpt><ept id="6de87aa9-19e2-4cdf-b4ad-4ac7f81a725d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf68ed14-cc27-4896-a5ca-3f98b4aec42f" xml:space="preserve">
+          <source><bpt id="d2c0ed2d-a6fc-454d-bc7d-e3153c1a829e">&lt;strong&gt;</bpt>Batch account<ept id="d2c0ed2d-a6fc-454d-bc7d-e3153c1a829e">&lt;/strong&gt;</ept> - See the <bpt id="f38cf54e-7aed-42e2-a0a2-58afb283322a">&lt;strong&gt;</bpt>Batch Account<ept id="f38cf54e-7aed-42e2-a0a2-58afb283322a">&lt;/strong&gt;</ept> section of <bpt id="30656b95-b347-4057-ad78-a722953d597f">&lt;linkText&gt;</bpt>Azure Batch technical overview<ept id="30656b95-b347-4057-ad78-a722953d597f">&lt;/linkText&gt;</ept><bpt id="30656b95-b347-4057-ad78-a722953d597f">&lt;title&gt;</bpt><ept id="30656b95-b347-4057-ad78-a722953d597f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d2c0ed2d-a6fc-454d-bc7d-e3153c1a829e">&lt;strong&gt;</bpt>Batch account<ept id="d2c0ed2d-a6fc-454d-bc7d-e3153c1a829e">&lt;/strong&gt;</ept> - See the <bpt id="f38cf54e-7aed-42e2-a0a2-58afb283322a">&lt;strong&gt;</bpt>Batch Account<ept id="f38cf54e-7aed-42e2-a0a2-58afb283322a">&lt;/strong&gt;</ept> section of <bpt id="30656b95-b347-4057-ad78-a722953d597f">&lt;linkText&gt;</bpt>Azure Batch technical overview<ept id="30656b95-b347-4057-ad78-a722953d597f">&lt;/linkText&gt;</ept><bpt id="30656b95-b347-4057-ad78-a722953d597f">&lt;title&gt;</bpt><ept id="30656b95-b347-4057-ad78-a722953d597f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a4e3363-fe1a-45cf-95f9-332e01433c77" xml:space="preserve">
+          <source><bpt id="370b673c-1334-4c3c-b7c1-b8be137d7eaf">&lt;strong&gt;</bpt>Storage account<ept id="370b673c-1334-4c3c-b7c1-b8be137d7eaf">&lt;/strong&gt;</ept> - See the <bpt id="729c890f-5cce-48fd-8f87-300bc952c8b0">&lt;strong&gt;</bpt>Create a storage account<ept id="729c890f-5cce-48fd-8f87-300bc952c8b0">&lt;/strong&gt;</ept> section of <bpt id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;linkText&gt;</bpt>About Azure storage accounts<ept id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;/linkText&gt;</ept><bpt id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;title&gt;</bpt><ept id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="370b673c-1334-4c3c-b7c1-b8be137d7eaf">&lt;strong&gt;</bpt>Storage account<ept id="370b673c-1334-4c3c-b7c1-b8be137d7eaf">&lt;/strong&gt;</ept> - See the <bpt id="729c890f-5cce-48fd-8f87-300bc952c8b0">&lt;strong&gt;</bpt>Create a storage account<ept id="729c890f-5cce-48fd-8f87-300bc952c8b0">&lt;/strong&gt;</ept> section of <bpt id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;linkText&gt;</bpt>About Azure storage accounts<ept id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;/linkText&gt;</ept><bpt id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;title&gt;</bpt><ept id="fec3635e-a566-4d6c-906d-ad830900337f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d02d3fd8-5345-462b-af08-adce1a158f78" xml:space="preserve">
+          <source>In this tutorial, you create a container in this account named <bpt id="d19a21b7-8c93-483e-96e4-eb7124b15823">&lt;strong&gt;</bpt>testcon1<ept id="d19a21b7-8c93-483e-96e4-eb7124b15823">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this tutorial, you create a container in this account named <bpt id="d19a21b7-8c93-483e-96e4-eb7124b15823">&lt;strong&gt;</bpt>testcon1<ept id="d19a21b7-8c93-483e-96e4-eb7124b15823">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0081c627-d5a4-4ecb-b74a-7aa028eb51d0" xml:space="preserve">
+          <source>A Visual Studio console application project:</source>
+          <target state="new">A Visual Studio console application project:</target>
+        </trans-unit>
+        <trans-unit id="7a6346b3-ab64-4a6a-9958-f4888747ba06" xml:space="preserve">
+          <source>Open Visual Studio, on the <bpt id="56c3b46d-6c4a-4836-aa9d-796a5c8feda9">&lt;strong&gt;</bpt>File<ept id="56c3b46d-6c4a-4836-aa9d-796a5c8feda9">&lt;/strong&gt;</ept> menu, click <bpt id="fec34cd4-ad0a-4dda-87ea-b41669c0f59d">&lt;strong&gt;</bpt>New<ept id="fec34cd4-ad0a-4dda-87ea-b41669c0f59d">&lt;/strong&gt;</ept>, and then click <bpt id="181c7480-95a1-41e0-9597-c5ea96af1627">&lt;strong&gt;</bpt>Project<ept id="181c7480-95a1-41e0-9597-c5ea96af1627">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Visual Studio, on the <bpt id="56c3b46d-6c4a-4836-aa9d-796a5c8feda9">&lt;strong&gt;</bpt>File<ept id="56c3b46d-6c4a-4836-aa9d-796a5c8feda9">&lt;/strong&gt;</ept> menu, click <bpt id="fec34cd4-ad0a-4dda-87ea-b41669c0f59d">&lt;strong&gt;</bpt>New<ept id="fec34cd4-ad0a-4dda-87ea-b41669c0f59d">&lt;/strong&gt;</ept>, and then click <bpt id="181c7480-95a1-41e0-9597-c5ea96af1627">&lt;strong&gt;</bpt>Project<ept id="181c7480-95a1-41e0-9597-c5ea96af1627">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69c76628-ed93-478c-861d-833abd173e94" xml:space="preserve">
+          <source>From <bpt id="371a2595-30e3-4fa0-bb96-44aa92b1d2b1">&lt;strong&gt;</bpt>Windows<ept id="371a2595-30e3-4fa0-bb96-44aa92b1d2b1">&lt;/strong&gt;</ept>, under <bpt id="f5bfb4ba-4cd5-4070-89ab-badd0b8df81d">&lt;strong&gt;</bpt>Visual C#<ept id="f5bfb4ba-4cd5-4070-89ab-badd0b8df81d">&lt;/strong&gt;</ept>, click <bpt id="caa7b9d4-5cdc-444d-bc15-e0f21e0366ba">&lt;strong&gt;</bpt>Console Application<ept id="caa7b9d4-5cdc-444d-bc15-e0f21e0366ba">&lt;/strong&gt;</ept>, name the project <bpt id="f2abe210-6389-4ac3-b62f-7b8b7c994f82">&lt;strong&gt;</bpt>GettingStarted<ept id="f2abe210-6389-4ac3-b62f-7b8b7c994f82">&lt;/strong&gt;</ept>, name the solution <bpt id="bc52fc3a-585d-4809-ba23-6ba2bad91279">&lt;strong&gt;</bpt>AzureBatch<ept id="bc52fc3a-585d-4809-ba23-6ba2bad91279">&lt;/strong&gt;</ept>, and then click <bpt id="7a9e3200-6108-4c83-b6c1-2132ac259d9d">&lt;strong&gt;</bpt>OK<ept id="7a9e3200-6108-4c83-b6c1-2132ac259d9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From <bpt id="371a2595-30e3-4fa0-bb96-44aa92b1d2b1">&lt;strong&gt;</bpt>Windows<ept id="371a2595-30e3-4fa0-bb96-44aa92b1d2b1">&lt;/strong&gt;</ept>, under <bpt id="f5bfb4ba-4cd5-4070-89ab-badd0b8df81d">&lt;strong&gt;</bpt>Visual C#<ept id="f5bfb4ba-4cd5-4070-89ab-badd0b8df81d">&lt;/strong&gt;</ept>, click <bpt id="caa7b9d4-5cdc-444d-bc15-e0f21e0366ba">&lt;strong&gt;</bpt>Console Application<ept id="caa7b9d4-5cdc-444d-bc15-e0f21e0366ba">&lt;/strong&gt;</ept>, name the project <bpt id="f2abe210-6389-4ac3-b62f-7b8b7c994f82">&lt;strong&gt;</bpt>GettingStarted<ept id="f2abe210-6389-4ac3-b62f-7b8b7c994f82">&lt;/strong&gt;</ept>, name the solution <bpt id="bc52fc3a-585d-4809-ba23-6ba2bad91279">&lt;strong&gt;</bpt>AzureBatch<ept id="bc52fc3a-585d-4809-ba23-6ba2bad91279">&lt;/strong&gt;</ept>, and then click <bpt id="7a9e3200-6108-4c83-b6c1-2132ac259d9d">&lt;strong&gt;</bpt>OK<ept id="7a9e3200-6108-4c83-b6c1-2132ac259d9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6da82dd0-575f-4d01-9a57-895cc53e0a2b" xml:space="preserve">
+          <source>The NuGet assemblies:</source>
+          <target state="new">The NuGet assemblies:</target>
+        </trans-unit>
+        <trans-unit id="50e3327e-8e06-46c2-85ea-7ec72cf20992" xml:space="preserve">
+          <source>After you create your project in Visual Studio, right-click the project in <bpt id="a90140e0-8935-477c-9671-eb85dc92d5e4">&lt;strong&gt;</bpt>Solution Explorer<ept id="a90140e0-8935-477c-9671-eb85dc92d5e4">&lt;/strong&gt;</ept> and choose <bpt id="92d0af43-4259-492c-b17c-e2ff3763148b">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="92d0af43-4259-492c-b17c-e2ff3763148b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you create your project in Visual Studio, right-click the project in <bpt id="a90140e0-8935-477c-9671-eb85dc92d5e4">&lt;strong&gt;</bpt>Solution Explorer<ept id="a90140e0-8935-477c-9671-eb85dc92d5e4">&lt;/strong&gt;</ept> and choose <bpt id="92d0af43-4259-492c-b17c-e2ff3763148b">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="92d0af43-4259-492c-b17c-e2ff3763148b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4b309c0-b437-4bf5-a238-331a9418558f" xml:space="preserve">
+          <source>Search online for <bpt id="f7d9c59e-8e89-4f42-80ce-b3878bf8d1ca">&lt;strong&gt;</bpt>Azure.Batch<ept id="f7d9c59e-8e89-4f42-80ce-b3878bf8d1ca">&lt;/strong&gt;</ept> and then click <bpt id="57138f13-594f-40aa-accf-c5eff7559d55">&lt;strong&gt;</bpt>Install<ept id="57138f13-594f-40aa-accf-c5eff7559d55">&lt;/strong&gt;</ept> to install the Microsoft Azure Batch package and dependencies.</source>
+          <target state="new">Search online for <bpt id="f7d9c59e-8e89-4f42-80ce-b3878bf8d1ca">&lt;strong&gt;</bpt>Azure.Batch<ept id="f7d9c59e-8e89-4f42-80ce-b3878bf8d1ca">&lt;/strong&gt;</ept> and then click <bpt id="57138f13-594f-40aa-accf-c5eff7559d55">&lt;strong&gt;</bpt>Install<ept id="57138f13-594f-40aa-accf-c5eff7559d55">&lt;/strong&gt;</ept> to install the Microsoft Azure Batch package and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="b78d89c7-ef3c-4bed-bdc8-c43ac6441a2e" xml:space="preserve">
+          <source>Search online for <bpt id="3525a242-61d2-46c2-b26d-4b5d4536add3">&lt;strong&gt;</bpt>WindowsAzure.Storage<ept id="3525a242-61d2-46c2-b26d-4b5d4536add3">&lt;/strong&gt;</ept> and then click <bpt id="f847ff3e-3af1-440f-a6f0-07079cef17dc">&lt;strong&gt;</bpt>Install<ept id="f847ff3e-3af1-440f-a6f0-07079cef17dc">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</source>
+          <target state="new">Search online for <bpt id="3525a242-61d2-46c2-b26d-4b5d4536add3">&lt;strong&gt;</bpt>WindowsAzure.Storage<ept id="3525a242-61d2-46c2-b26d-4b5d4536add3">&lt;/strong&gt;</ept> and then click <bpt id="f847ff3e-3af1-440f-a6f0-07079cef17dc">&lt;strong&gt;</bpt>Install<ept id="f847ff3e-3af1-440f-a6f0-07079cef17dc">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="2a585d2e-fab7-4879-9d4f-a4eaaf57c1c7" xml:space="preserve">
+          <source>This tutorial makes use of some of the core Batch concepts discussed in <bpt id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;linkText&gt;</bpt>API basics for Azure Batch<ept id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;/linkText&gt;</ept><bpt id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;title&gt;</bpt><ept id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;/title&gt;</ept>, highly recommended reading for those new to Batch.</source>
+          <target state="new">This tutorial makes use of some of the core Batch concepts discussed in <bpt id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;linkText&gt;</bpt>API basics for Azure Batch<ept id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;/linkText&gt;</ept><bpt id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;title&gt;</bpt><ept id="eace23db-e13b-4d4f-8369-20ba6fdb0d65">&lt;/title&gt;</ept>, highly recommended reading for those new to Batch.</target>
+        </trans-unit>
+        <trans-unit id="db51cfa1-5df7-486c-8c97-95d3e0e233d4" xml:space="preserve">
+          <source>To support the application, a container is created in Azure Storage, the text files are created, and then the text files and support files are uploaded to the container.</source>
+          <target state="new">To support the application, a container is created in Azure Storage, the text files are created, and then the text files and support files are uploaded to the container.</target>
+        </trans-unit>
+        <trans-unit id="4de41d5b-614c-4956-a398-3369bc0c7aaa" xml:space="preserve">
+          <source>Open the App.config file for the GettingStarted project, and then add the <bpt id="5e930aba-c507-4fa5-8548-5264f8de958b">&lt;em&gt;</bpt>&amp;lt;appSettings&amp;gt;<ept id="5e930aba-c507-4fa5-8548-5264f8de958b">&lt;/em&gt;</ept> element to <bpt id="be74fe69-8ffb-4f73-8a3a-0edf4f162319">&lt;em&gt;</bpt>&amp;lt;configuration&amp;gt;<ept id="be74fe69-8ffb-4f73-8a3a-0edf4f162319">&lt;/em&gt;</ept>.</source>
+          <target state="new">Open the App.config file for the GettingStarted project, and then add the <bpt id="5e930aba-c507-4fa5-8548-5264f8de958b">&lt;em&gt;</bpt>&amp;lt;appSettings&amp;gt;<ept id="5e930aba-c507-4fa5-8548-5264f8de958b">&lt;/em&gt;</ept> element to <bpt id="be74fe69-8ffb-4f73-8a3a-0edf4f162319">&lt;em&gt;</bpt>&amp;lt;configuration&amp;gt;<ept id="be74fe69-8ffb-4f73-8a3a-0edf4f162319">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ce14592-170d-44ea-bd7f-1f658e20b883" xml:space="preserve">
+          <source>Replace these values:</source>
+          <target state="new">Replace these values:</target>
+        </trans-unit>
+        <trans-unit id="fec36118-68f3-4c24-8a88-4e4c3dc82756" xml:space="preserve">
+          <source><bpt id="c20e986d-700f-46c1-b815-cb9286685d8a">&lt;strong&gt;</bpt>[account-name]<ept id="c20e986d-700f-46c1-b815-cb9286685d8a">&lt;/strong&gt;</ept> - The name of the storage account that you previously created.</source>
+          <target state="new"><bpt id="c20e986d-700f-46c1-b815-cb9286685d8a">&lt;strong&gt;</bpt>[account-name]<ept id="c20e986d-700f-46c1-b815-cb9286685d8a">&lt;/strong&gt;</ept> - The name of the storage account that you previously created.</target>
+        </trans-unit>
+        <trans-unit id="a9e85d21-d3e7-441d-a204-5c082bd36113" xml:space="preserve">
+          <source><bpt id="d0b67974-e237-42e2-b847-1e8c2e6f08ee">&lt;strong&gt;</bpt>[account-key]<ept id="d0b67974-e237-42e2-b847-1e8c2e6f08ee">&lt;/strong&gt;</ept> - The primary key of the storage account.</source>
+          <target state="new"><bpt id="d0b67974-e237-42e2-b847-1e8c2e6f08ee">&lt;strong&gt;</bpt>[account-key]<ept id="d0b67974-e237-42e2-b847-1e8c2e6f08ee">&lt;/strong&gt;</ept> - The primary key of the storage account.</target>
+        </trans-unit>
+        <trans-unit id="3af9dbaf-49c6-44be-9e43-c07d87296292" xml:space="preserve">
+          <source>You can find the primary key on the Storage page in the Azure portal.</source>
+          <target state="new">You can find the primary key on the Storage page in the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="9fced832-2d42-42b9-a1ff-fd5c147018ff" xml:space="preserve">
+          <source>Save the App.config file.</source>
+          <target state="new">Save the App.config file.</target>
+        </trans-unit>
+        <trans-unit id="86014a2f-98ea-4437-82c1-55de7040ec71" xml:space="preserve">
+          <source>To learn more about Azure Storage connection strings, see <bpt id="7d662306-bb72-4034-9b92-1136f8967179">&lt;linkText&gt;</bpt>Configure Azure Storage Connection Strings<ept id="7d662306-bb72-4034-9b92-1136f8967179">&lt;/linkText&gt;</ept><bpt id="7d662306-bb72-4034-9b92-1136f8967179">&lt;title&gt;</bpt><ept id="7d662306-bb72-4034-9b92-1136f8967179">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about Azure Storage connection strings, see <bpt id="7d662306-bb72-4034-9b92-1136f8967179">&lt;linkText&gt;</bpt>Configure Azure Storage Connection Strings<ept id="7d662306-bb72-4034-9b92-1136f8967179">&lt;/linkText&gt;</ept><bpt id="7d662306-bb72-4034-9b92-1136f8967179">&lt;title&gt;</bpt><ept id="7d662306-bb72-4034-9b92-1136f8967179">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8c57821-fde7-4c47-b392-e71b4c7eca39" xml:space="preserve">
+          <source>Add these using directives to the top of Program.cs in the GettingStarted project:</source>
+          <target state="new">Add these using directives to the top of Program.cs in the GettingStarted project:</target>
+        </trans-unit>
+        <trans-unit id="9cc39d26-1261-481a-8a45-7a3f5255c7d3" xml:space="preserve">
+          <source>Add <bpt id="ce559826-1ea8-4459-a514-36db536d3ea5">&lt;em&gt;</bpt>System.Configuration<ept id="ce559826-1ea8-4459-a514-36db536d3ea5">&lt;/em&gt;</ept> to <bpt id="71e6a07b-faef-4061-b540-92f47374701b">&lt;strong&gt;</bpt>References<ept id="71e6a07b-faef-4061-b540-92f47374701b">&lt;/strong&gt;</ept> in <bpt id="629345fd-1de2-490a-b253-ab7a7b60e5c5">&lt;strong&gt;</bpt>Solution Explorer<ept id="629345fd-1de2-490a-b253-ab7a7b60e5c5">&lt;/strong&gt;</ept> for the GettingStarted project</source>
+          <target state="new">Add <bpt id="ce559826-1ea8-4459-a514-36db536d3ea5">&lt;em&gt;</bpt>System.Configuration<ept id="ce559826-1ea8-4459-a514-36db536d3ea5">&lt;/em&gt;</ept> to <bpt id="71e6a07b-faef-4061-b540-92f47374701b">&lt;strong&gt;</bpt>References<ept id="71e6a07b-faef-4061-b540-92f47374701b">&lt;/strong&gt;</ept> in <bpt id="629345fd-1de2-490a-b253-ab7a7b60e5c5">&lt;strong&gt;</bpt>Solution Explorer<ept id="629345fd-1de2-490a-b253-ab7a7b60e5c5">&lt;/strong&gt;</ept> for the GettingStarted project</target>
+        </trans-unit>
+        <trans-unit id="431240e4-0b29-4350-a911-214b6ee8dbe7" xml:space="preserve">
+          <source>Add this method to the Program class that gets the storage connection string, creates the container, and sets permissions:</source>
+          <target state="new">Add this method to the Program class that gets the storage connection string, creates the container, and sets permissions:</target>
+        </trans-unit>
+        <trans-unit id="8b71ed2f-718d-4c3d-96fd-a30c30cc9f97" xml:space="preserve">
+          <source>Add this code to Main that calls the method that you just added:</source>
+          <target state="new">Add this code to Main that calls the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="9b1f4232-3eeb-4ad2-95a0-e67c5599f2da" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="c4a53ccb-b0d4-4ab8-be24-f2e422c51949" xml:space="preserve">
+          <source>In a production environment, it is recommended that you use a <bpt id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;linkText&gt;</bpt>shared access signature<ept id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;/linkText&gt;</ept><bpt id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;title&gt;</bpt><ept id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;/title&gt;</ept>.</source>
+          <target state="new">In a production environment, it is recommended that you use a <bpt id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;linkText&gt;</bpt>shared access signature<ept id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;/linkText&gt;</ept><bpt id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;title&gt;</bpt><ept id="06ac1e54-a253-4c3e-9c25-2aa08b00ea93">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b3b70db-f2ce-41ba-8ba3-7feeb6f84bd0" xml:space="preserve">
+          <source>To learn more about Blob storage, see <bpt id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;linkText&gt;</bpt>How to use Blob storage from .NET<ept id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;/linkText&gt;</ept><bpt id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;title&gt;</bpt><ept id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about Blob storage, see <bpt id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;linkText&gt;</bpt>How to use Blob storage from .NET<ept id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;/linkText&gt;</ept><bpt id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;title&gt;</bpt><ept id="3b3ba222-a8e9-4a2b-be18-3c5919fc43d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="64de76ed-2570-4625-adf0-e15e83d0144f" xml:space="preserve">
+          <source>In <bpt id="688bb1ff-363d-4116-ac09-86e52ca1bafa">&lt;strong&gt;</bpt>Solution Explorer<ept id="688bb1ff-363d-4116-ac09-86e52ca1bafa">&lt;/strong&gt;</ept>, create a new console application project named <bpt id="75793d82-af23-40d9-a14f-bd3ca149ca7f">&lt;strong&gt;</bpt>ProcessTaskData<ept id="75793d82-af23-40d9-a14f-bd3ca149ca7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="688bb1ff-363d-4116-ac09-86e52ca1bafa">&lt;strong&gt;</bpt>Solution Explorer<ept id="688bb1ff-363d-4116-ac09-86e52ca1bafa">&lt;/strong&gt;</ept>, create a new console application project named <bpt id="75793d82-af23-40d9-a14f-bd3ca149ca7f">&lt;strong&gt;</bpt>ProcessTaskData<ept id="75793d82-af23-40d9-a14f-bd3ca149ca7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="629662ad-a685-4145-8ab7-c7f2e6a32c5b" xml:space="preserve">
+          <source>After you create the project in Visual Studio, right-click the project in <bpt id="a3ff6dab-3958-419d-a46f-944d482a285c">&lt;strong&gt;</bpt>Solution Explorer<ept id="a3ff6dab-3958-419d-a46f-944d482a285c">&lt;/strong&gt;</ept> and choose <bpt id="6cb6f9ec-e970-4a47-8c58-11d392f5c44f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="6cb6f9ec-e970-4a47-8c58-11d392f5c44f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After you create the project in Visual Studio, right-click the project in <bpt id="a3ff6dab-3958-419d-a46f-944d482a285c">&lt;strong&gt;</bpt>Solution Explorer<ept id="a3ff6dab-3958-419d-a46f-944d482a285c">&lt;/strong&gt;</ept> and choose <bpt id="6cb6f9ec-e970-4a47-8c58-11d392f5c44f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="6cb6f9ec-e970-4a47-8c58-11d392f5c44f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c55d3c6d-fa86-43d3-9a0c-70e02b3ca4cc" xml:space="preserve">
+          <source>Search online for <bpt id="a5dc9985-3b12-4abc-b906-3e205e8dd072">&lt;strong&gt;</bpt>WindowsAzure.Storage<ept id="a5dc9985-3b12-4abc-b906-3e205e8dd072">&lt;/strong&gt;</ept> and then click <bpt id="921c78ac-f733-49d5-9ed1-72f6e50197cf">&lt;strong&gt;</bpt>Install<ept id="921c78ac-f733-49d5-9ed1-72f6e50197cf">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</source>
+          <target state="new">Search online for <bpt id="a5dc9985-3b12-4abc-b906-3e205e8dd072">&lt;strong&gt;</bpt>WindowsAzure.Storage<ept id="a5dc9985-3b12-4abc-b906-3e205e8dd072">&lt;/strong&gt;</ept> and then click <bpt id="921c78ac-f733-49d5-9ed1-72f6e50197cf">&lt;strong&gt;</bpt>Install<ept id="921c78ac-f733-49d5-9ed1-72f6e50197cf">&lt;/strong&gt;</ept> to install the Azure Storage package and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="d54b6490-547a-4e3a-a2c9-d3edbc867898" xml:space="preserve">
+          <source>Add the following using directive to the top of Program.cs:</source>
+          <target state="new">Add the following using directive to the top of Program.cs:</target>
+        </trans-unit>
+        <trans-unit id="bca322fd-d41a-4f92-9280-4a8fff396cee" xml:space="preserve">
+          <source>Add this code to Main that processes the text from the files:</source>
+          <target state="new">Add this code to Main that processes the text from the files:</target>
+        </trans-unit>
+        <trans-unit id="f6192cf6-ff74-4f4a-bf6e-8a608dedf75a" xml:space="preserve">
+          <source>Save and build the ProcessTaskData project.</source>
+          <target state="new">Save and build the ProcessTaskData project.</target>
+        </trans-unit>
+        <trans-unit id="9a7cccdf-296b-4805-8f08-4e16bc11ac32" xml:space="preserve">
+          <source>In the GettingStarted project, create a new text file named <bpt id="62aa19b6-ab64-4fb2-b8a7-61032c270f73">&lt;strong&gt;</bpt>taskdata1.txt<ept id="62aa19b6-ab64-4fb2-b8a7-61032c270f73">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</source>
+          <target state="new">In the GettingStarted project, create a new text file named <bpt id="62aa19b6-ab64-4fb2-b8a7-61032c270f73">&lt;strong&gt;</bpt>taskdata1.txt<ept id="62aa19b6-ab64-4fb2-b8a7-61032c270f73">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="b9200c0a-5ee3-4949-b48e-1f5cc4063427" xml:space="preserve">
+          <source>You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs.</source>
+          <target state="new">You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs.</target>
+        </trans-unit>
+        <trans-unit id="b69aabff-7825-47f6-90eb-1ec9a462838d" xml:space="preserve">
+          <source>From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server.</source>
+          <target state="new">From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="69efcee8-53d2-49f4-ad95-985d568df4e9" xml:space="preserve">
+          <source>Or, you can capture and use your own images to create customized virtual machines.</source>
+          <target state="new">Or, you can capture and use your own images to create customized virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="a4e03429-0b1e-4d7f-badf-86ac4ce25a74" xml:space="preserve">
+          <source>Create a new text file named <bpt id="cbf48950-6a6b-4430-ac33-ca644b9f47b4">&lt;strong&gt;</bpt>taskdata2.txt<ept id="cbf48950-6a6b-4430-ac33-ca644b9f47b4">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</source>
+          <target state="new">Create a new text file named <bpt id="cbf48950-6a6b-4430-ac33-ca644b9f47b4">&lt;strong&gt;</bpt>taskdata2.txt<ept id="cbf48950-6a6b-4430-ac33-ca644b9f47b4">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="06330ec9-22b5-420d-bda6-5ca968e9cfd6" xml:space="preserve">
+          <source>Quickly deploy and manage powerful applications and services with Azure Cloud Services.</source>
+          <target state="new">Quickly deploy and manage powerful applications and services with Azure Cloud Services.</target>
+        </trans-unit>
+        <trans-unit id="8a08d8f3-b86d-4db8-b2cf-649b1a37e775" xml:space="preserve">
+          <source>Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability.</source>
+          <target state="new">Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability.</target>
+        </trans-unit>
+        <trans-unit id="7264fe3a-f953-48cb-9537-52dd371120ce" xml:space="preserve">
+          <source>Your application is backed by an industry leading 99.95% monthly SLA.</source>
+          <target state="new">Your application is backed by an industry leading 99.95% monthly SLA.</target>
+        </trans-unit>
+        <trans-unit id="e12f8b1c-bf6f-42bd-9b5c-ab17ac9bf024" xml:space="preserve">
+          <source>You just focus on the application and not the infrastructure.</source>
+          <target state="new">You just focus on the application and not the infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="7f317ed7-6520-480a-ba05-66789ddf572b" xml:space="preserve">
+          <source>Create a new text file named <bpt id="5b40358c-c0b0-4613-a1b4-411f92a7f94c">&lt;strong&gt;</bpt>taskdata3.txt<ept id="5b40358c-c0b0-4613-a1b4-411f92a7f94c">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</source>
+          <target state="new">Create a new text file named <bpt id="5b40358c-c0b0-4613-a1b4-411f92a7f94c">&lt;strong&gt;</bpt>taskdata3.txt<ept id="5b40358c-c0b0-4613-a1b4-411f92a7f94c">&lt;/strong&gt;</ept>, copy the following text to it, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="11fab350-0466-4be1-bb4c-aabf7fcfb88b" xml:space="preserve">
+          <source>Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications.</source>
+          <target state="new">Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications.</target>
+        </trans-unit>
+        <trans-unit id="60020205-75ef-4336-aba1-a4392ff0ea7f" xml:space="preserve">
+          <source>Select from a range of frameworks and templates to create a web site in seconds.</source>
+          <target state="new">Select from a range of frameworks and templates to create a web site in seconds.</target>
+        </trans-unit>
+        <trans-unit id="a3ee06e9-5957-4f1b-8c21-7ade4945631b" xml:space="preserve">
+          <source>Use any tool or OS to develop your site with .NET, PHP, Node.js or Python.</source>
+          <target state="new">Use any tool or OS to develop your site with .NET, PHP, Node.js or Python.</target>
+        </trans-unit>
+        <trans-unit id="89a9077e-d3c5-481c-a388-ae493c298442" xml:space="preserve">
+          <source>Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team.</source>
+          <target state="new">Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team.</target>
+        </trans-unit>
+        <trans-unit id="c128d115-b949-40eb-8a80-bb2c99aad213" xml:space="preserve">
+          <source>Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.</source>
+          <target state="new">Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="1db6c661-16ab-43fd-a9ab-fc18a681d3a8" xml:space="preserve">
+          <source>Open the Program.cs file of the <bpt id="9067f45c-bcbc-4d2d-99b2-299aa810f624">&lt;strong&gt;</bpt>GettingStarted<ept id="9067f45c-bcbc-4d2d-99b2-299aa810f624">&lt;/strong&gt;</ept> project, and then add this method that uploads the files:</source>
+          <target state="new">Open the Program.cs file of the <bpt id="9067f45c-bcbc-4d2d-99b2-299aa810f624">&lt;strong&gt;</bpt>GettingStarted<ept id="9067f45c-bcbc-4d2d-99b2-299aa810f624">&lt;/strong&gt;</ept> project, and then add this method that uploads the files:</target>
+        </trans-unit>
+        <trans-unit id="c75803a2-37ca-4be5-8a18-e01418703681" xml:space="preserve">
+          <source>Add this code to Main that calls the method you just added:</source>
+          <target state="new">Add this code to Main that calls the method you just added:</target>
+        </trans-unit>
+        <trans-unit id="e37eeaa6-ad68-4127-8cf2-4366d747a8ad" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="fd9a1277-29a7-4f7b-9fe6-e422af72fb7b" xml:space="preserve">
+          <source>A pool of compute nodes is the first set of resources that you must create when you want to run tasks.</source>
+          <target state="new">A pool of compute nodes is the first set of resources that you must create when you want to run tasks.</target>
+        </trans-unit>
+        <trans-unit id="194b351f-7175-4ed2-8605-7ada8ad55167" xml:space="preserve">
+          <source>Add these using directives to the top of Program.cs in the GettingStarted project:</source>
+          <target state="new">Add these using directives to the top of Program.cs in the GettingStarted project:</target>
+        </trans-unit>
+        <trans-unit id="9f3f7f57-5826-4737-a891-4acfc5f3ab62" xml:space="preserve">
+          <source>Add this code to Main that sets up the credentials for making calls to the Azure Batch service:</source>
+          <target state="new">Add this code to Main that sets up the credentials for making calls to the Azure Batch service:</target>
+        </trans-unit>
+        <trans-unit id="91215b88-0835-4e1b-b88d-644f536503d8" xml:space="preserve">
+          <source>Replace these values:</source>
+          <target state="new">Replace these values:</target>
+        </trans-unit>
+        <trans-unit id="32829445-e228-428f-8c6d-c4c69ba1d3e6" xml:space="preserve">
+          <source><bpt id="41f19b7a-cc42-4928-95ee-583aa6223016">&lt;strong&gt;</bpt>[account-name]<ept id="41f19b7a-cc42-4928-95ee-583aa6223016">&lt;/strong&gt;</ept> with the name of the Batch account that you previously created.</source>
+          <target state="new"><bpt id="41f19b7a-cc42-4928-95ee-583aa6223016">&lt;strong&gt;</bpt>[account-name]<ept id="41f19b7a-cc42-4928-95ee-583aa6223016">&lt;/strong&gt;</ept> with the name of the Batch account that you previously created.</target>
+        </trans-unit>
+        <trans-unit id="cf32293a-69ca-4b1b-9cc2-6317d0713a85" xml:space="preserve">
+          <source><bpt id="41afd90a-fb0b-4f5c-8aec-8edbfac4373c">&lt;strong&gt;</bpt>[region]<ept id="41afd90a-fb0b-4f5c-8aec-8edbfac4373c">&lt;/strong&gt;</ept> with the region where your account is located.</source>
+          <target state="new"><bpt id="41afd90a-fb0b-4f5c-8aec-8edbfac4373c">&lt;strong&gt;</bpt>[region]<ept id="41afd90a-fb0b-4f5c-8aec-8edbfac4373c">&lt;/strong&gt;</ept> with the region where your account is located.</target>
+        </trans-unit>
+        <trans-unit id="66d1c23f-b81c-46eb-a1ee-935c2b7b1d96" xml:space="preserve">
+          <source>See <bpt id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;linkText&gt;</bpt>Azure Regions<ept id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;/linkText&gt;</ept><bpt id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;title&gt;</bpt><ept id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;/title&gt;</ept> to discover the available regions.</source>
+          <target state="new">See <bpt id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;linkText&gt;</bpt>Azure Regions<ept id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;/linkText&gt;</ept><bpt id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;title&gt;</bpt><ept id="c5e3ce7b-72d8-47ba-87fa-ed5b21b36e41">&lt;/title&gt;</ept> to discover the available regions.</target>
+        </trans-unit>
+        <trans-unit id="21c0dcde-b87d-43d4-ac42-26a0af80252f" xml:space="preserve">
+          <source><bpt id="8150fe0b-db76-4aa0-b6a2-3dd0c901766e">&lt;strong&gt;</bpt>[account-key]<ept id="8150fe0b-db76-4aa0-b6a2-3dd0c901766e">&lt;/strong&gt;</ept> with the primary key of the Batch account.</source>
+          <target state="new"><bpt id="8150fe0b-db76-4aa0-b6a2-3dd0c901766e">&lt;strong&gt;</bpt>[account-key]<ept id="8150fe0b-db76-4aa0-b6a2-3dd0c901766e">&lt;/strong&gt;</ept> with the primary key of the Batch account.</target>
+        </trans-unit>
+        <trans-unit id="3bc70157-7291-4df3-adc3-8b73eeddaf06" xml:space="preserve">
+          <source>Add this method to the Program class that creates the pool:</source>
+          <target state="new">Add this method to the Program class that creates the pool:</target>
+        </trans-unit>
+        <trans-unit id="730a8976-548c-4bbf-9477-a5265883e913" xml:space="preserve">
+          <source>Add this code to Main that calls the method you just added:</source>
+          <target state="new">Add this code to Main that calls the method you just added:</target>
+        </trans-unit>
+        <trans-unit id="8f126c38-7840-4224-af6f-bd06ec86a3cb" xml:space="preserve">
+          <source>Add this method to the Program class that lists the pools in the account.</source>
+          <target state="new">Add this method to the Program class that lists the pools in the account.</target>
+        </trans-unit>
+        <trans-unit id="28f61251-641d-4463-8184-28c7b48133c2" xml:space="preserve">
+          <source>This helps you verify that your pool was created:</source>
+          <target state="new">This helps you verify that your pool was created:</target>
+        </trans-unit>
+        <trans-unit id="c6250c46-70f9-444c-ae34-6d73e0e0a242" xml:space="preserve">
+          <source>Add this code to Main that calls the method you just added:</source>
+          <target state="new">Add this code to Main that calls the method you just added:</target>
+        </trans-unit>
+        <trans-unit id="53228386-1bf1-4d40-bdfe-1cccfa00735c" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="2e6ee5d3-f7e3-4376-88f0-92bbf892dbb4" xml:space="preserve">
+          <source>Create a job that is used to manage tasks that run in the pool.</source>
+          <target state="new">Create a job that is used to manage tasks that run in the pool.</target>
+        </trans-unit>
+        <trans-unit id="d0a54ce1-df30-47c4-af76-b30ea22cbccc" xml:space="preserve">
+          <source>All tasks must be associated with a job.</source>
+          <target state="new">All tasks must be associated with a job.</target>
+        </trans-unit>
+        <trans-unit id="452a65bb-2b35-4db7-ac3f-448d4a21f86c" xml:space="preserve">
+          <source>Add this method to the Program class that creates the job:</source>
+          <target state="new">Add this method to the Program class that creates the job:</target>
+        </trans-unit>
+        <trans-unit id="d23592d4-b8af-4949-88ae-a010851153f1" xml:space="preserve">
+          <source>Add this code to Main that calls the method you just added:</source>
+          <target state="new">Add this code to Main that calls the method you just added:</target>
+        </trans-unit>
+        <trans-unit id="e18ba746-d9a1-40a4-af79-ceeb745f7fb0" xml:space="preserve">
+          <source>Add this method to the Program class that lists the jobs in the account.</source>
+          <target state="new">Add this method to the Program class that lists the jobs in the account.</target>
+        </trans-unit>
+        <trans-unit id="0a8987d9-7f0e-40f8-b334-05de4e6a05e9" xml:space="preserve">
+          <source>This helps you verify that your job was created:</source>
+          <target state="new">This helps you verify that your job was created:</target>
+        </trans-unit>
+        <trans-unit id="a641f7bf-51fc-406b-a67f-97051076092b" xml:space="preserve">
+          <source>Add this code to Main that calls the method that you just added:</source>
+          <target state="new">Add this code to Main that calls the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="7cfbd6fe-14d5-4f75-9050-744a703efa3f" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="859150a0-459a-432e-aaa3-f906d61cd76b" xml:space="preserve">
+          <source>After the job is created, tasks can be added to it.</source>
+          <target state="new">After the job is created, tasks can be added to it.</target>
+        </trans-unit>
+        <trans-unit id="80ab62d8-3c08-4233-97e0-709bf24f6502" xml:space="preserve">
+          <source>Each task runs on a compute node and processes a text file.</source>
+          <target state="new">Each task runs on a compute node and processes a text file.</target>
+        </trans-unit>
+        <trans-unit id="c9d50f06-dbbf-4d5c-ab60-21547a0cec85" xml:space="preserve">
+          <source>For this tutorial, you add three tasks to the job.</source>
+          <target state="new">For this tutorial, you add three tasks to the job.</target>
+        </trans-unit>
+        <trans-unit id="b80252f9-08bb-498e-a1bf-3adfde59d511" xml:space="preserve">
+          <source>Add this method to the Program class that adds the three tasks to the job:</source>
+          <target state="new">Add this method to the Program class that adds the three tasks to the job:</target>
+        </trans-unit>
+        <trans-unit id="1bd38050-e7c5-478d-88bf-c97dd4645d39" xml:space="preserve">
+          <source><bpt id="6ee2f60f-76ea-4817-bd12-0b9a802610ab">&lt;strong&gt;</bpt>[account-name]<ept id="6ee2f60f-76ea-4817-bd12-0b9a802610ab">&lt;/strong&gt;</ept> needs to be replaced with the name of the storage account that you previously created.</source>
+          <target state="new"><bpt id="6ee2f60f-76ea-4817-bd12-0b9a802610ab">&lt;strong&gt;</bpt>[account-name]<ept id="6ee2f60f-76ea-4817-bd12-0b9a802610ab">&lt;/strong&gt;</ept> needs to be replaced with the name of the storage account that you previously created.</target>
+        </trans-unit>
+        <trans-unit id="d51b9bda-59c4-4524-aea6-c145af9c71a3" xml:space="preserve">
+          <source>In previous example, update all four instances of <bpt id="cac3ac99-2ed0-4906-acfc-99daea8c1e83">&lt;strong&gt;</bpt>[account-name]<ept id="cac3ac99-2ed0-4906-acfc-99daea8c1e83">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In previous example, update all four instances of <bpt id="cac3ac99-2ed0-4906-acfc-99daea8c1e83">&lt;strong&gt;</bpt>[account-name]<ept id="cac3ac99-2ed0-4906-acfc-99daea8c1e83">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cea483d6-9691-4dc3-abd7-6089b8ea37cf" xml:space="preserve">
+          <source>Add this code to Main that calls the method you just added:</source>
+          <target state="new">Add this code to Main that calls the method you just added:</target>
+        </trans-unit>
+        <trans-unit id="bf821ceb-133b-408a-bf5f-88bdecf0fbd6" xml:space="preserve">
+          <source>Add this method to the Program class that lists the tasks that are associated with the job:</source>
+          <target state="new">Add this method to the Program class that lists the tasks that are associated with the job:</target>
+        </trans-unit>
+        <trans-unit id="aa47e0e1-cb0e-44cb-841f-01a76ae2d255" xml:space="preserve">
+          <source>Add this code to Main to call the method that you just added:</source>
+          <target state="new">Add this code to Main to call the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="2b845b27-69e5-4e7c-9eb1-f91aff83bb21" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="9cc442d6-9463-4b6a-99f3-a1b8fe4a3660" xml:space="preserve">
+          <source>Because you are charged for resources in Azure, it's always a good idea to delete resources if you no longer need them.</source>
+          <target state="new">Because you are charged for resources in Azure, it's always a good idea to delete resources if you no longer need them.</target>
+        </trans-unit>
+        <trans-unit id="38994675-9158-4e26-9b70-ca534e95ad6c" xml:space="preserve">
+          <source>Add this method to the Program class that deletes the tasks:</source>
+          <target state="new">Add this method to the Program class that deletes the tasks:</target>
+        </trans-unit>
+        <trans-unit id="b20a37d2-604f-48b8-ab70-860dcc3040b5" xml:space="preserve">
+          <source>Add this code to Main that calls the method that you just added:</source>
+          <target state="new">Add this code to Main that calls the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="3de0e2ec-05c6-4f7e-b6c4-4502de2e5bcb" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="feea3a35-78fb-40f8-aa36-cf05e2039803" xml:space="preserve">
+          <source>Add this method to the Program class that deletes the job:</source>
+          <target state="new">Add this method to the Program class that deletes the job:</target>
+        </trans-unit>
+        <trans-unit id="a61c4c58-bbde-4be7-b38d-c2eb682ec8c0" xml:space="preserve">
+          <source>Add this code to Main that calls the method that you just added:</source>
+          <target state="new">Add this code to Main that calls the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="0d756ac0-83b2-4e3e-9893-1651b8638973" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="d284489c-4379-46bd-89c2-4971dc6b6503" xml:space="preserve">
+          <source>Add this method to the Program class that deletes the pool:</source>
+          <target state="new">Add this method to the Program class that deletes the pool:</target>
+        </trans-unit>
+        <trans-unit id="8d8a8956-87b5-42ca-b135-907f02783b72" xml:space="preserve">
+          <source>Add this code to Main that calls the method that you just added:</source>
+          <target state="new">Add this code to Main that calls the method that you just added:</target>
+        </trans-unit>
+        <trans-unit id="6b623dd9-6910-4eee-8040-46e93e62755c" xml:space="preserve">
+          <source>Save the Program.cs file.</source>
+          <target state="new">Save the Program.cs file.</target>
+        </trans-unit>
+        <trans-unit id="54394c0a-476b-4d30-8a28-344388a58551" xml:space="preserve">
+          <source>Start the GettingStarted project, and you should see this in the console window after the container is created:</source>
+          <target state="new">Start the GettingStarted project, and you should see this in the console window after the container is created:</target>
+        </trans-unit>
+        <trans-unit id="33a846f9-75f9-4556-8504-ade41d1a4d91" xml:space="preserve">
+          <source>Press Enter and the files are created and uploaded, you should now see a new line in the window:</source>
+          <target state="new">Press Enter and the files are created and uploaded, you should now see a new line in the window:</target>
+        </trans-unit>
+        <trans-unit id="ba8e0dff-a94e-4266-92c0-3ebf9b53fdf8" xml:space="preserve">
+          <source>Press Enter and the pool is created:</source>
+          <target state="new">Press Enter and the pool is created:</target>
+        </trans-unit>
+        <trans-unit id="5a55ebe9-7eb2-4a89-968f-126a658ffa4f" xml:space="preserve">
+          <source>Press Enter and you should see this listing of the new pool:</source>
+          <target state="new">Press Enter and you should see this listing of the new pool:</target>
+        </trans-unit>
+        <trans-unit id="cb258719-d4a6-4330-9d3a-54d5f4c6ddbf" xml:space="preserve">
+          <source>Press Enter and the job is created:</source>
+          <target state="new">Press Enter and the job is created:</target>
+        </trans-unit>
+        <trans-unit id="03b6d295-71a8-4cc8-b70c-7b24e1487500" xml:space="preserve">
+          <source>Press Enter and you should see this listing of the new job:</source>
+          <target state="new">Press Enter and you should see this listing of the new job:</target>
+        </trans-unit>
+        <trans-unit id="170d7b39-7857-4c8a-81e9-bfadc7e084fd" xml:space="preserve">
+          <source>Press Enter and the tasks are added to the job.</source>
+          <target state="new">Press Enter and the tasks are added to the job.</target>
+        </trans-unit>
+        <trans-unit id="cd1cb8b7-211f-44de-a9b2-f36114a3f314" xml:space="preserve">
+          <source>When the tasks are added, they automatically run:</source>
+          <target state="new">When the tasks are added, they automatically run:</target>
+        </trans-unit>
+        <trans-unit id="f2005afe-26cd-456d-b4f0-fac45f31c8fc" xml:space="preserve">
+          <source>Press Enter and you should see the list of tasks and their status:</source>
+          <target state="new">Press Enter and you should see the list of tasks and their status:</target>
+        </trans-unit>
+        <trans-unit id="2a43a573-d17d-4056-91ca-917803d871cf" xml:space="preserve">
+          <source>At this point you can go into the Azure portal to look at the resources that were created.</source>
+          <target state="new">At this point you can go into the Azure portal to look at the resources that were created.</target>
+        </trans-unit>
+        <trans-unit id="7915091a-7cc0-4f97-b1ec-306626b5de9c" xml:space="preserve">
+          <source>To delete the resources, press Enter until the program finishes.</source>
+          <target state="new">To delete the resources, press Enter until the program finishes.</target>
+        </trans-unit>
+        <trans-unit id="8d21ea66-e21f-4c84-80b6-ce6b1e486311" xml:space="preserve">
+          <source>Now that you've learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes.</source>
+          <target state="new">Now that you've learned the basics of running tasks, you can learn about how to automatically scale compute nodes when the demand for your application changes.</target>
+        </trans-unit>
+        <trans-unit id="b17ee80c-e56e-4788-85fd-8c6e93b1f7ba" xml:space="preserve">
+          <source>To do this, see <bpt id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;linkText&gt;</bpt>Automatically scale Compute Nodes in an Azure Batch Pool<ept id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;/linkText&gt;</ept><bpt id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;title&gt;</bpt><ept id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;/title&gt;</ept></source>
+          <target state="new">To do this, see <bpt id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;linkText&gt;</bpt>Automatically scale Compute Nodes in an Azure Batch Pool<ept id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;/linkText&gt;</ept><bpt id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;title&gt;</bpt><ept id="7374019f-2d6e-4bae-8dd2-0e83b80382fc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c47e8c5-c78d-4d4e-a098-1e9d74b46791" xml:space="preserve">
+          <source>Some applications produce large amounts of data that can be difficult to process.</source>
+          <target state="new">Some applications produce large amounts of data that can be difficult to process.</target>
+        </trans-unit>
+        <trans-unit id="c4ef6a2f-6e8d-4e74-8981-8af7e9815cd7" xml:space="preserve">
+          <source>One way to solve this is through <bpt id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;linkText&gt;</bpt>efficient list querying<ept id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;/linkText&gt;</ept><bpt id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;title&gt;</bpt><ept id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;/title&gt;</ept>.</source>
+          <target state="new">One way to solve this is through <bpt id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;linkText&gt;</bpt>efficient list querying<ept id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;/linkText&gt;</ept><bpt id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;title&gt;</bpt><ept id="8bc9aa15-9a33-460e-bc7b-90cec1ae3afb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

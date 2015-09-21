@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="159fffb4-a33a-49a3-b9d1-5ba941f63556" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="159fffb4-a33a-49a3-b9d1-5ba941f63556" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="81a0aa05-98f9-44b3-8bef-7590e7cd9eac">
+        <trans-unit id="e51c7379-8600-4ea3-a370-c2107e8e7674" xml:space="preserve">
+          <source>I use Mobile Services, how does App Service help?</source>
+          <target state="new">I use Mobile Services, how does App Service help?</target>
+        </trans-unit>
+        <trans-unit id="622d134f-638a-4180-b81a-9eb351e0893d" xml:space="preserve">
+          <source>Learn what advantages does App Service bring to your existing Mobile Services projects.</source>
+          <target state="new">Learn what advantages does App Service bring to your existing Mobile Services projects.</target>
+        </trans-unit>
+        <trans-unit id="3188b239-88b7-468c-a4f3-a96d32ccc0d2" xml:space="preserve">
+          <source>Your existing Mobile Service is safe and will remain supported.</source>
+          <target state="new">Your existing Mobile Service is safe and will remain supported.</target>
+        </trans-unit>
+        <trans-unit id="6c3df944-ebd2-4a09-8a31-7f3881066c73" xml:space="preserve">
+          <source>However there are number of advantages the <bpt id="9c3d688e-8f87-4f98-85e3-44218764e283">&lt;em&gt;</bpt>Azure App Service<ept id="9c3d688e-8f87-4f98-85e3-44218764e283">&lt;/em&gt;</ept> platform provides for your mobile app that are not available today with Mobile Services:</source>
+          <target state="new">However there are number of advantages the <bpt id="9c3d688e-8f87-4f98-85e3-44218764e283">&lt;em&gt;</bpt>Azure App Service<ept id="9c3d688e-8f87-4f98-85e3-44218764e283">&lt;/em&gt;</ept> platform provides for your mobile app that are not available today with Mobile Services:</target>
+        </trans-unit>
+        <trans-unit id="327aac47-24cd-4e57-ad9f-cf2f0552472a" xml:space="preserve">
+          <source>Simpler, easier and more cost effective offering for apps that include both web and mobile clients</source>
+          <target state="new">Simpler, easier and more cost effective offering for apps that include both web and mobile clients</target>
+        </trans-unit>
+        <trans-unit id="1be3d006-e4b1-473b-a2ec-6be5b96c58e3" xml:space="preserve">
+          <source>New host features including Web Jobs, custom CNames, better monitoring</source>
+          <target state="new">New host features including Web Jobs, custom CNames, better monitoring</target>
+        </trans-unit>
+        <trans-unit id="7c6a8afe-4ac4-4370-87a4-ea1b15d056cc" xml:space="preserve">
+          <source>Turnkey integration with Office 365, Dynamics CRM, Salesforce, and other vital SaaS APIs.</source>
+          <target state="new">Turnkey integration with Office 365, Dynamics CRM, Salesforce, and other vital SaaS APIs.</target>
+        </trans-unit>
+        <trans-unit id="3987127a-9527-4409-a1bd-4c9e2bee1313" xml:space="preserve">
+          <source>Support for Java and PHP backend code, in addition to Node.js and .NET</source>
+          <target state="new">Support for Java and PHP backend code, in addition to Node.js and .NET</target>
+        </trans-unit>
+        <trans-unit id="e23452de-5d36-49f4-b7d7-a7dce41fb859" xml:space="preserve">
+          <source>Turnkey integration with Traffic Manager</source>
+          <target state="new">Turnkey integration with Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="43b80dac-55d7-4c0b-b745-0f8e2dd2852d" xml:space="preserve">
+          <source>Connectivity to your on-premise resources and VPNs using VNet in addition to Hybrid Connections</source>
+          <target state="new">Connectivity to your on-premise resources and VPNs using VNet in addition to Hybrid Connections</target>
+        </trans-unit>
+        <trans-unit id="ea2d7a24-3d34-49ad-b27e-15f4433af6ba" xml:space="preserve">
+          <source>Monitoring and troubleshooting for your app using NewRelic or AppInsights, as well as alerts</source>
+          <target state="new">Monitoring and troubleshooting for your app using NewRelic or AppInsights, as well as alerts</target>
+        </trans-unit>
+        <trans-unit id="15c9bfa5-c2c4-42b1-b5b9-c46a1deaa771" xml:space="preserve">
+          <source>Richer spectrum of the underlying compute resources, e.g. VM sizes</source>
+          <target state="new">Richer spectrum of the underlying compute resources, e.g. VM sizes</target>
+        </trans-unit>
+        <trans-unit id="48753ec0-d7fb-4f8c-a127-767595c8433c" xml:space="preserve">
+          <source>Built-in auto scale, load balancing, and performance monitoring.</source>
+          <target state="new">Built-in auto scale, load balancing, and performance monitoring.</target>
+        </trans-unit>
+        <trans-unit id="abd9b14a-ec3a-4bee-834c-9c074c6a1139" xml:space="preserve">
+          <source>Built-in staging, backup, roll-back, and testing-in-production capabilities</source>
+          <target state="new">Built-in staging, backup, roll-back, and testing-in-production capabilities</target>
+        </trans-unit>
+        <trans-unit id="1c0d8208-86e8-4933-bb85-d0de0c6e2e56" xml:space="preserve">
+          <source>In <bpt id="c4f8f16a-6261-4744-8e1a-015249c82e84">&lt;em&gt;</bpt>Azure App Service<ept id="c4f8f16a-6261-4744-8e1a-015249c82e84">&lt;/em&gt;</ept> the <bpt id="a2c1736b-4a3e-4772-9594-5db0e79aff51">&lt;em&gt;</bpt>Mobile App<ept id="a2c1736b-4a3e-4772-9594-5db0e79aff51">&lt;/em&gt;</ept> backend code runs in the same container as Web App and API App.</source>
+          <target state="new">In <bpt id="c4f8f16a-6261-4744-8e1a-015249c82e84">&lt;em&gt;</bpt>Azure App Service<ept id="c4f8f16a-6261-4744-8e1a-015249c82e84">&lt;/em&gt;</ept> the <bpt id="a2c1736b-4a3e-4772-9594-5db0e79aff51">&lt;em&gt;</bpt>Mobile App<ept id="a2c1736b-4a3e-4772-9594-5db0e79aff51">&lt;/em&gt;</ept> backend code runs in the same container as Web App and API App.</target>
+        </trans-unit>
+        <trans-unit id="01ff2672-5abb-4ad8-9362-92dfc61ae388" xml:space="preserve">
+          <source>As such you can take advantage of all the features in this container, including some of those that are not currently present in Mobile Services:</source>
+          <target state="new">As such you can take advantage of all the features in this container, including some of those that are not currently present in Mobile Services:</target>
+        </trans-unit>
+        <trans-unit id="4b12bd85-9203-4112-8bce-026fc84b0b57" xml:space="preserve">
+          <source>Add continuously running backend logic via Web Jobs</source>
+          <target state="new">Add continuously running backend logic via Web Jobs</target>
+        </trans-unit>
+        <trans-unit id="f84c146e-db1b-4e06-b946-d4da532dbd9b" xml:space="preserve">
+          <source>Ensure your backend code is always running</source>
+          <target state="new">Ensure your backend code is always running</target>
+        </trans-unit>
+        <trans-unit id="24438bbf-72e7-42a0-b437-afc37ad7046e" xml:space="preserve">
+          <source>Use custom CNames to provide friendly and stable names to your mobile backend endpoints</source>
+          <target state="new">Use custom CNames to provide friendly and stable names to your mobile backend endpoints</target>
+        </trans-unit>
+        <trans-unit id="14f92d4d-4c91-4cbe-aab9-088c7d1cc1de" xml:space="preserve">
+          <source>Geo-scale your app with Traffic Manager</source>
+          <target state="new">Geo-scale your app with Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="85cf6d32-a402-41a3-b84a-1176185c9130" xml:space="preserve">
+          <source>Include any libraries and packages you want.</source>
+          <target state="new">Include any libraries and packages you want.</target>
+        </trans-unit>
+        <trans-unit id="e6759f01-164a-4b0e-b443-fc2bd5aec5eb" xml:space="preserve">
+          <source>On .NET, the assemblies you deploy are the assemblies that are used at runtime; there is never a conflict with versions in the hosting environment.</source>
+          <target state="new">On .NET, the assemblies you deploy are the assemblies that are used at runtime; there is never a conflict with versions in the hosting environment.</target>
+        </trans-unit>
+        <trans-unit id="f19708cf-fb20-4733-9234-b7e0e58a9a74" xml:space="preserve">
+          <source>(For .NET) Leverage any feature of ASP.NET, including MVC</source>
+          <target state="new">(For .NET) Leverage any feature of ASP.NET, including MVC</target>
+        </trans-unit>
+        <trans-unit id="f2192275-2a3d-48d0-9057-cdb434dda5e5" xml:space="preserve">
+          <source><bpt id="8696c8d5-c0c9-443a-8b88-9af024cd3dc0">&lt;em&gt;</bpt>Azure App Service<ept id="8696c8d5-c0c9-443a-8b88-9af024cd3dc0">&lt;/em&gt;</ept> makes it easy to connect your Mobile App to SaaS APIs including Office 365, Dynamics, Salesforce, SAP, and more.</source>
+          <target state="new"><bpt id="8696c8d5-c0c9-443a-8b88-9af024cd3dc0">&lt;em&gt;</bpt>Azure App Service<ept id="8696c8d5-c0c9-443a-8b88-9af024cd3dc0">&lt;/em&gt;</ept> makes it easy to connect your Mobile App to SaaS APIs including Office 365, Dynamics, Salesforce, SAP, and more.</target>
+        </trans-unit>
+        <trans-unit id="2fd6a0e3-2611-4388-b2f3-f6494638b616" xml:space="preserve">
+          <source><bpt id="382015dc-0a02-4285-813c-acba5a3b426b">&lt;em&gt;</bpt>Azure App Service<ept id="382015dc-0a02-4285-813c-acba5a3b426b">&lt;/em&gt;</ept> offers turn-key authentication on-behalf of the user and allows you to perform true Single Sign On accross all SaaS APIs you use by associating tokens for individual SaaS APIs with your primary identity</source>
+          <target state="new"><bpt id="382015dc-0a02-4285-813c-acba5a3b426b">&lt;em&gt;</bpt>Azure App Service<ept id="382015dc-0a02-4285-813c-acba5a3b426b">&lt;/em&gt;</ept> offers turn-key authentication on-behalf of the user and allows you to perform true Single Sign On accross all SaaS APIs you use by associating tokens for individual SaaS APIs with your primary identity</target>
+        </trans-unit>
+        <trans-unit id="ae8684bd-4201-4cbc-9d85-100add21fff0" xml:space="preserve">
+          <source>With Mobile Services today you can already use Hybrid Connections to access on-premise resources.</source>
+          <target state="new">With Mobile Services today you can already use Hybrid Connections to access on-premise resources.</target>
+        </trans-unit>
+        <trans-unit id="41180cfc-ff5e-4f2a-ad8b-1fe6459a48cb" xml:space="preserve">
+          <source>However there are situations where a VPN solution is preferred.</source>
+          <target state="new">However there are situations where a VPN solution is preferred.</target>
+        </trans-unit>
+        <trans-unit id="b5b79dc8-cd0d-4f7c-985f-db35ec290526" xml:space="preserve">
+          <source>With <bpt id="82364f8a-e74c-4f43-aea1-a98d8f95c5d5">&lt;em&gt;</bpt>Azure App Service<ept id="82364f8a-e74c-4f43-aea1-a98d8f95c5d5">&lt;/em&gt;</ept> you can use Azure VNet for your Mobile App backend code.</source>
+          <target state="new">With <bpt id="82364f8a-e74c-4f43-aea1-a98d8f95c5d5">&lt;em&gt;</bpt>Azure App Service<ept id="82364f8a-e74c-4f43-aea1-a98d8f95c5d5">&lt;/em&gt;</ept> you can use Azure VNet for your Mobile App backend code.</target>
+        </trans-unit>
+        <trans-unit id="2e260b71-a8cd-4682-83c2-36ba3899ae36" xml:space="preserve">
+          <source><bpt id="8d41c722-e48f-4261-bc29-c56d1d8fbade">&lt;em&gt;</bpt>Azure App Service<ept id="8d41c722-e48f-4261-bc29-c56d1d8fbade">&lt;/em&gt;</ept> offers broader and richer support for developer platforms including Java, PHP, and Python in addition to .NET and Node.js supported in Mobile Services.</source>
+          <target state="new"><bpt id="8d41c722-e48f-4261-bc29-c56d1d8fbade">&lt;em&gt;</bpt>Azure App Service<ept id="8d41c722-e48f-4261-bc29-c56d1d8fbade">&lt;/em&gt;</ept> offers broader and richer support for developer platforms including Java, PHP, and Python in addition to .NET and Node.js supported in Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="052b973a-eacb-4a3a-acc5-45cb34acecd1" xml:space="preserve">
+          <source>With Mobile Services, all instances of your backend code were running on Small VMs.</source>
+          <target state="new">With Mobile Services, all instances of your backend code were running on Small VMs.</target>
+        </trans-unit>
+        <trans-unit id="b698cf8f-8c4e-4060-91c6-fe5878aa27d4" xml:space="preserve">
+          <source><bpt id="3ffc947f-f83a-4b63-9221-a3e223d0e64b">&lt;em&gt;</bpt>Azure App Service<ept id="3ffc947f-f83a-4b63-9221-a3e223d0e64b">&lt;/em&gt;</ept> enables you to select the size of the VMs from a much richer set of options.</source>
+          <target state="new"><bpt id="3ffc947f-f83a-4b63-9221-a3e223d0e64b">&lt;em&gt;</bpt>Azure App Service<ept id="3ffc947f-f83a-4b63-9221-a3e223d0e64b">&lt;/em&gt;</ept> enables you to select the size of the VMs from a much richer set of options.</target>
+        </trans-unit>
+        <trans-unit id="8413fe49-a9c4-4511-8f28-456ef69dadbc" xml:space="preserve">
+          <source>You cna also  quickly scale up or out to handle any incoming customer load, based on various performance metrics.</source>
+          <target state="new">You cna also  quickly scale up or out to handle any incoming customer load, based on various performance metrics.</target>
+        </trans-unit>
+        <trans-unit id="f393f475-6c46-4d22-9845-9c9c95938d3f" xml:space="preserve">
+          <source>React to issues in real-time with monitoring and alerts to automatically notify you and your team.</source>
+          <target state="new">React to issues in real-time with monitoring and alerts to automatically notify you and your team.</target>
+        </trans-unit>
+        <trans-unit id="01ae80e0-223f-43e5-9701-d915df2fc6cb" xml:space="preserve">
+          <source>Integrate advanced app analytics and monitoring functionality from New Relic and AppInsights to get even richer insight into how your Mobile app is performing.</source>
+          <target state="new">Integrate advanced app analytics and monitoring functionality from New Relic and AppInsights to get even richer insight into how your Mobile app is performing.</target>
+        </trans-unit>
+        <trans-unit id="bba13beb-213f-4a7a-9e9f-c27b3febb272" xml:space="preserve">
+          <source>With <bpt id="2c65c04b-bfa8-440e-9f7b-dd6d45e0e9b4">&lt;em&gt;</bpt>Azure App Service<ept id="2c65c04b-bfa8-440e-9f7b-dd6d45e0e9b4">&lt;/em&gt;</ept> you can now programatically and via portal setup alerts based on variety of performance metrics</source>
+          <target state="new">With <bpt id="2c65c04b-bfa8-440e-9f7b-dd6d45e0e9b4">&lt;em&gt;</bpt>Azure App Service<ept id="2c65c04b-bfa8-440e-9f7b-dd6d45e0e9b4">&lt;/em&gt;</ept> you can now programatically and via portal setup alerts based on variety of performance metrics</target>
+        </trans-unit>
+        <trans-unit id="7cdb65ab-7c01-4423-99b0-fcd9324ce38a" xml:space="preserve">
+          <source>Automatically back up your backend and database.</source>
+          <target state="new">Automatically back up your backend and database.</target>
+        </trans-unit>
+        <trans-unit id="3bc34f25-7e0b-46ac-9a69-53ebc6253da9" xml:space="preserve">
+          <source>Your code and data is secure from disaster and easily restored, allowing you to run your business with confidence.</source>
+          <target state="new">Your code and data is secure from disaster and easily restored, allowing you to run your business with confidence.</target>
+        </trans-unit>
+        <trans-unit id="4e7f7c36-f927-4765-8702-3a48dd837d70" xml:space="preserve">
+          <source>With <bpt id="719d4bb6-143c-4377-b151-25ff2fc898ca">&lt;em&gt;</bpt>Azure App Service<ept id="719d4bb6-143c-4377-b151-25ff2fc898ca">&lt;/em&gt;</ept> you can now create multiple private testing and staging environments for your mobile apps.</source>
+          <target state="new">With <bpt id="719d4bb6-143c-4377-b151-25ff2fc898ca">&lt;em&gt;</bpt>Azure App Service<ept id="719d4bb6-143c-4377-b151-25ff2fc898ca">&lt;/em&gt;</ept> you can now create multiple private testing and staging environments for your mobile apps.</target>
+        </trans-unit>
+        <trans-unit id="c48fcfae-da98-4e7a-b66f-227c8de69a3d" xml:space="preserve">
+          <source>Use them to perform testing before you deploy.</source>
+          <target state="new">Use them to perform testing before you deploy.</target>
+        </trans-unit>
+        <trans-unit id="ce0a151b-12dc-4f24-8676-4df0967a4ff6" xml:space="preserve">
+          <source>Swap to production with no downtime.</source>
+          <target state="new">Swap to production with no downtime.</target>
+        </trans-unit>
+        <trans-unit id="550c5b2d-d8a8-4068-bd90-d3ce9913efeb" xml:space="preserve">
+          <source>Web apps are pre-loaded, ensuring the best customer experience.</source>
+          <target state="new">Web apps are pre-loaded, ensuring the best customer experience.</target>
+        </trans-unit>
+        <trans-unit id="129432fe-be62-4dc2-b9ef-e084638fb074" xml:space="preserve">
+          <source>By the time <bpt id="99aa5497-127b-4b98-94a4-be17f5b5580c">&lt;em&gt;</bpt>Azure App Service Mobile App<ept id="99aa5497-127b-4b98-94a4-be17f5b5580c">&lt;/em&gt;</ept> feature becomes Generally Available, we will provide seamless migration experience for your existing Mobile Services to App Service should you choose to migrate.</source>
+          <target state="new">By the time <bpt id="99aa5497-127b-4b98-94a4-be17f5b5580c">&lt;em&gt;</bpt>Azure App Service Mobile App<ept id="99aa5497-127b-4b98-94a4-be17f5b5580c">&lt;/em&gt;</ept> feature becomes Generally Available, we will provide seamless migration experience for your existing Mobile Services to App Service should you choose to migrate.</target>
+        </trans-unit>
+        <trans-unit id="93b036fb-c72e-4553-9f43-827d72e9dd35" xml:space="preserve">
+          <source>In the meantime, you can start exploring <bpt id="8a04e523-1a41-4f58-9ccf-a5edbcf820b6">&lt;em&gt;</bpt>App Service<ept id="8a04e523-1a41-4f58-9ccf-a5edbcf820b6">&lt;/em&gt;</ept> and take advantage of <bpt id="cbe1199e-8251-4307-9394-371b6767b895">&lt;em&gt;</bpt>App Service<ept id="cbe1199e-8251-4307-9394-371b6767b895">&lt;/em&gt;</ept> for your existing Mobile Service by following this <bpt id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;linkText&gt;</bpt>tutorial<ept id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;/linkText&gt;</ept><bpt id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;title&gt;</bpt><ept id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the meantime, you can start exploring <bpt id="8a04e523-1a41-4f58-9ccf-a5edbcf820b6">&lt;em&gt;</bpt>App Service<ept id="8a04e523-1a41-4f58-9ccf-a5edbcf820b6">&lt;/em&gt;</ept> and take advantage of <bpt id="cbe1199e-8251-4307-9394-371b6767b895">&lt;em&gt;</bpt>App Service<ept id="cbe1199e-8251-4307-9394-371b6767b895">&lt;/em&gt;</ept> for your existing Mobile Service by following this <bpt id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;linkText&gt;</bpt>tutorial<ept id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;/linkText&gt;</ept><bpt id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;title&gt;</bpt><ept id="fde14591-95d0-4c7c-86a2-95c23a36622b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

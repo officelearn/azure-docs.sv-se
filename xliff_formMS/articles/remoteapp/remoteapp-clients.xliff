@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ee200e37-dd5c-439d-847d-7065ae9f0e97" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ee200e37-dd5c-439d-847d-7065ae9f0e97" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4caf8824-129b-4ace-9b45-e446d0f4dedc">
+        <trans-unit id="ed03068a-9b83-4605-9821-5d4fd248c522" xml:space="preserve">
+          <source>&lt;properties
+    pageTitle="Accessing your apps"
+    description="Learn what clients are supported for Azure RemoteApp and how to access your apps."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties
+    pageTitle="Accessing your apps"
+    description="Learn what clients are supported for Azure RemoteApp and how to access your apps."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="f747424c-e2c2-4e72-a61b-f8f8165d8947" xml:space="preserve">
+          <source>&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/12/2015"
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="45d1ddee-d6ef-42dd-b8f6-287209bf72f4" xml:space="preserve">
+          <source>One of the beauties of Azure RemoteApp is that you can access apps from any of your devices.</source>
+          <target state="new">One of the beauties of Azure RemoteApp is that you can access apps from any of your devices.</target>
+        </trans-unit>
+        <trans-unit id="352d93d7-7a46-477f-ac58-3023bb2c0857" xml:space="preserve">
+          <source>Even better, you can start working on one device and then seamlessly transition to a second device and pick up right where you left off.</source>
+          <target state="new">Even better, you can start working on one device and then seamlessly transition to a second device and pick up right where you left off.</target>
+        </trans-unit>
+        <trans-unit id="4c2f7e91-5541-46c4-9e68-90a4fcb3dd63" xml:space="preserve">
+          <source>To get started you need to download the appropriate client for your device and sign in to the service.</source>
+          <target state="new">To get started you need to download the appropriate client for your device and sign in to the service.</target>
+        </trans-unit>
+        <trans-unit id="13dd26be-f0f2-459b-aad6-e4f23261bd22" xml:space="preserve">
+          <source>In this topic, we'll review the clients currently supported and how to download them before I show you how to sign in to RemoteApp from each of the clients.</source>
+          <target state="new">In this topic, we'll review the clients currently supported and how to download them before I show you how to sign in to RemoteApp from each of the clients.</target>
+        </trans-unit>
+        <trans-unit id="f925c7e7-d115-417e-b986-26a81491fae5" xml:space="preserve">
+          <source>You can access RemoteApp using the steps below if your device is running one of these operating systems:</source>
+          <target state="new">You can access RemoteApp using the steps below if your device is running one of these operating systems:</target>
+        </trans-unit>
+        <trans-unit id="563bb80f-f948-4e7c-8ed4-2805e73ccc0e" xml:space="preserve">
+          <source>Windows 10 preview</source>
+          <target state="new">Windows 10 preview</target>
+        </trans-unit>
+        <trans-unit id="7a655490-9974-4d27-afa0-cf4ef84606bd" xml:space="preserve">
+          <source>Windows 8.1</source>
+          <target state="new">Windows 8.1</target>
+        </trans-unit>
+        <trans-unit id="e83b35be-8114-4a8e-ba4d-648f0e0f633c" xml:space="preserve">
+          <source>Windows 8</source>
+          <target state="new">Windows 8</target>
+        </trans-unit>
+        <trans-unit id="e92b05d6-81a5-4184-be7c-dba54d744e17" xml:space="preserve">
+          <source>Windows 7 Service Pack 1</source>
+          <target state="new">Windows 7 Service Pack 1</target>
+        </trans-unit>
+        <trans-unit id="f665206f-6fd9-4805-b3a4-1f3760469cad" xml:space="preserve">
+          <source>Windows RT</source>
+          <target state="new">Windows RT</target>
+        </trans-unit>
+        <trans-unit id="5daa51be-2ae0-4c66-ba54-bc19343a88cc" xml:space="preserve">
+          <source>Windows Phone 8.1</source>
+          <target state="new">Windows Phone 8.1</target>
+        </trans-unit>
+        <trans-unit id="cd6ec4c4-8078-4fe7-b1eb-e2d69032b809" xml:space="preserve">
+          <source>iOS</source>
+          <target state="new">iOS</target>
+        </trans-unit>
+        <trans-unit id="020e8422-c341-4f86-9032-5c0ce28c4162" xml:space="preserve">
+          <source>Mac OS X</source>
+          <target state="new">Mac OS X</target>
+        </trans-unit>
+        <trans-unit id="5a7d6954-f834-471d-ab49-7b203b6dca31" xml:space="preserve">
+          <source>Android</source>
+          <target state="new">Android</target>
+        </trans-unit>
+        <trans-unit id="d58aaae3-be62-4419-a834-25e63852182c" xml:space="preserve">
+          <source>What about thin clients?</source>
+          <target state="new">What about thin clients?</target>
+        </trans-unit>
+        <trans-unit id="99aee97f-d200-4ef0-8cf4-1e636aa27bf6" xml:space="preserve">
+          <source>The following Windows Embedded thin clients are supported:</source>
+          <target state="new">The following Windows Embedded thin clients are supported:</target>
+        </trans-unit>
+        <trans-unit id="9c659f49-8bc4-439d-be18-8be9f5563867" xml:space="preserve">
+          <source>Windows Embedded Standard 7 with Service Pack 1</source>
+          <target state="new">Windows Embedded Standard 7 with Service Pack 1</target>
+        </trans-unit>
+        <trans-unit id="328faee2-c26f-4aba-8cd5-867d1af4f576" xml:space="preserve">
+          <source>Windows Embedded POSReady7</source>
+          <target state="new">Windows Embedded POSReady7</target>
+        </trans-unit>
+        <trans-unit id="5341361d-a28d-4f24-9164-9f1f715aa691" xml:space="preserve">
+          <source>Windows Embedded Thin PC</source>
+          <target state="new">Windows Embedded Thin PC</target>
+        </trans-unit>
+        <trans-unit id="bb639cde-d6a0-47af-97af-24be0fa447a1" xml:space="preserve">
+          <source>Windows Embedded 8.1 Industry</source>
+          <target state="new">Windows Embedded 8.1 Industry</target>
+        </trans-unit>
+        <trans-unit id="309d0f19-0ee0-49a1-88e3-b72d3683f187" xml:space="preserve">
+          <source>No matter what platform you are using, the client you need to access RemoteApp can be found on the <bpt id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;linkText&gt;</bpt>Remote Desktop client download<ept id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;/linkText&gt;</ept><bpt id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;title&gt;</bpt><ept id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;/title&gt;</ept> page.</source>
+          <target state="new">No matter what platform you are using, the client you need to access RemoteApp can be found on the <bpt id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;linkText&gt;</bpt>Remote Desktop client download<ept id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;/linkText&gt;</ept><bpt id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;title&gt;</bpt><ept id="4066aeb4-50fe-41ec-8efe-bb11bff46eee">&lt;/title&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="222bf9f5-d9da-4b52-92be-4085005bb277" xml:space="preserve">
+          <source>Clicking the different links will either directly start downloading the client or will send you to the client download page in the app store for that platform.</source>
+          <target state="new">Clicking the different links will either directly start downloading the client or will send you to the client download page in the app store for that platform.</target>
+        </trans-unit>
+        <trans-unit id="25368075-faa6-418c-a697-fcf0821b9c75" xml:space="preserve">
+          <source>Install the client by following the instructions on the screen.</source>
+          <target state="new">Install the client by following the instructions on the screen.</target>
+        </trans-unit>
+        <trans-unit id="0d32af99-9f5c-4042-9b1a-0ef75f0e2cec" xml:space="preserve">
+          <source>Once you have installed the client on your device and launched it, jump to the corresponding section below to learn how to sign in to RemoteApp from that client.</source>
+          <target state="new">Once you have installed the client on your device and launched it, jump to the corresponding section below to learn how to sign in to RemoteApp from that client.</target>
+        </trans-unit>
+        <trans-unit id="45c3c0b1-3dee-4c89-974e-b641d497735e" xml:space="preserve">
+          <source>Once you have installed the Microsoft Remote Desktop app from the Google Play store, you can find it in your app list under <bpt id="057aceca-a4e4-41a5-af40-d8c4a833c849">&lt;strong&gt;</bpt>Remote Desktop<ept id="057aceca-a4e4-41a5-af40-d8c4a833c849">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have installed the Microsoft Remote Desktop app from the Google Play store, you can find it in your app list under <bpt id="057aceca-a4e4-41a5-af40-d8c4a833c849">&lt;strong&gt;</bpt>Remote Desktop<ept id="057aceca-a4e4-41a5-af40-d8c4a833c849">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac8ffb24-005e-4d0e-aea8-dc9936aa7021" xml:space="preserve">
+          <source>Launching the app brings you to an empty Connection Center, unless you've already been using the app.</source>
+          <target state="new">Launching the app brings you to an empty Connection Center, unless you've already been using the app.</target>
+        </trans-unit>
+        <trans-unit id="c0fcc0b9-7e95-4591-9b4c-0617925501ab" xml:space="preserve">
+          <source>To get started with Azure RemoteApp, tap the add button <bpt id="ec28db5e-dcff-4c0d-86c7-d7064755f22f">&lt;strong&gt;</bpt>""+""<ept id="ec28db5e-dcff-4c0d-86c7-d7064755f22f">&lt;/strong&gt;</ept> and tap <bpt id="d0014386-df10-44a0-ae0e-d77ca1804cac">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="d0014386-df10-44a0-ae0e-d77ca1804cac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To get started with Azure RemoteApp, tap the add button <bpt id="ec28db5e-dcff-4c0d-86c7-d7064755f22f">&lt;strong&gt;</bpt>""+""<ept id="ec28db5e-dcff-4c0d-86c7-d7064755f22f">&lt;/strong&gt;</ept> and tap <bpt id="d0014386-df10-44a0-ae0e-d77ca1804cac">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="d0014386-df10-44a0-ae0e-d77ca1804cac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="300f4e89-d0ab-4fc1-be81-3ccde6d5deac" xml:space="preserve">
+          <source> <bpt id="b6eba090-d288-4204-92ba-1dd390570433">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="b6eba090-d288-4204-92ba-1dd390570433">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="b6eba090-d288-4204-92ba-1dd390570433">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="b6eba090-d288-4204-92ba-1dd390570433">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1332768a-971f-4188-8193-9c7e1b74191d" xml:space="preserve">
+          <source>You need to sign in with your email address to access the service.</source>
+          <target state="new">You need to sign in with your email address to access the service.</target>
+        </trans-unit>
+        <trans-unit id="ebfe1754-abcf-4998-8bf7-65877fefd6f0" xml:space="preserve">
+          <source>Tap <bpt id="068e4625-f79c-4b54-93d8-6d33e04f8f37">&lt;strong&gt;</bpt>Get started<ept id="068e4625-f79c-4b54-93d8-6d33e04f8f37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Tap <bpt id="068e4625-f79c-4b54-93d8-6d33e04f8f37">&lt;strong&gt;</bpt>Get started<ept id="068e4625-f79c-4b54-93d8-6d33e04f8f37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25408a1c-baeb-4296-9717-bac2150ae009" xml:space="preserve">
+          <source><bpt id="a4ace506-59aa-4b79-b073-d47f20ae4a6b">&lt;linkText&gt;</bpt>Sign in prompt<ept id="a4ace506-59aa-4b79-b073-d47f20ae4a6b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4ace506-59aa-4b79-b073-d47f20ae4a6b">&lt;linkText&gt;</bpt>Sign in prompt<ept id="a4ace506-59aa-4b79-b073-d47f20ae4a6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="899d7b65-f37e-4fea-a8b2-088e8b3b4414" xml:space="preserve">
+          <source>On the next page, type in your <bpt id="57dab29f-c1c9-466c-a68a-7a9d16e024fb">&lt;strong&gt;</bpt>email address<ept id="57dab29f-c1c9-466c-a68a-7a9d16e024fb">&lt;/strong&gt;</ept> and tap <bpt id="915ddc40-8bf3-4b5e-aa89-263b9d10929a">&lt;strong&gt;</bpt>Continue<ept id="915ddc40-8bf3-4b5e-aa89-263b9d10929a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the next page, type in your <bpt id="57dab29f-c1c9-466c-a68a-7a9d16e024fb">&lt;strong&gt;</bpt>email address<ept id="57dab29f-c1c9-466c-a68a-7a9d16e024fb">&lt;/strong&gt;</ept> and tap <bpt id="915ddc40-8bf3-4b5e-aa89-263b9d10929a">&lt;strong&gt;</bpt>Continue<ept id="915ddc40-8bf3-4b5e-aa89-263b9d10929a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="898cac8c-970c-4ca3-82c1-8cbb297c06cb" xml:space="preserve">
+          <source>This begins the sign-in process using Azure Active Directory.</source>
+          <target state="new">This begins the sign-in process using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="f490ed45-4c8c-4f16-99d1-5faf709eddcf" xml:space="preserve">
+          <source><bpt id="96abf914-f4a2-4ed3-8595-7c1ac6f8cf50">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="96abf914-f4a2-4ed3-8595-7c1ac6f8cf50">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96abf914-f4a2-4ed3-8595-7c1ac6f8cf50">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="96abf914-f4a2-4ed3-8595-7c1ac6f8cf50">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf5d0e0f-89d1-4146-9a46-0cc8da7e75de" xml:space="preserve">
+          <source>Follow the instructions on the screen to sign in with your Microsoft account (previously called "LiveID") or organization ID.</source>
+          <target state="new">Follow the instructions on the screen to sign in with your Microsoft account (previously called "LiveID") or organization ID.</target>
+        </trans-unit>
+        <trans-unit id="04aa4e1e-0212-4d1f-9307-6c497d236f21" xml:space="preserve">
+          <source>Once signed in, you may be presented with a page listing all the invitations you have received.</source>
+          <target state="new">Once signed in, you may be presented with a page listing all the invitations you have received.</target>
+        </trans-unit>
+        <trans-unit id="fb8805d5-7065-45ee-a56a-0f3af19552d1" xml:space="preserve">
+          <source>If you are, select the invitations you trust and tap <bpt id="124b91bd-ef48-4d6b-96c8-baecf1c79a34">&lt;strong&gt;</bpt>Done<ept id="124b91bd-ef48-4d6b-96c8-baecf1c79a34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are, select the invitations you trust and tap <bpt id="124b91bd-ef48-4d6b-96c8-baecf1c79a34">&lt;strong&gt;</bpt>Done<ept id="124b91bd-ef48-4d6b-96c8-baecf1c79a34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="170171a2-1714-415e-8cdf-394881b48651" xml:space="preserve">
+          <source><bpt id="b5211b89-07dd-4a5e-82d0-a1f4f51b488f">&lt;linkText&gt;</bpt>Invitations page<ept id="b5211b89-07dd-4a5e-82d0-a1f4f51b488f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b5211b89-07dd-4a5e-82d0-a1f4f51b488f">&lt;linkText&gt;</bpt>Invitations page<ept id="b5211b89-07dd-4a5e-82d0-a1f4f51b488f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e75e8e1-50de-4c26-a93e-cbed294d279a" xml:space="preserve">
+          <source>After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</source>
+          <target state="new">After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</target>
+        </trans-unit>
+        <trans-unit id="4311a338-7378-442a-8d1c-5b7a543c423a" xml:space="preserve">
+          <source>Tap one of the apps to start using it.</source>
+          <target state="new">Tap one of the apps to start using it.</target>
+        </trans-unit>
+        <trans-unit id="49b4133a-cb65-43e4-8d8e-17068855564a" xml:space="preserve">
+          <source><bpt id="6b63b8e3-ea38-4f77-80c9-1d6d61af16a1">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="6b63b8e3-ea38-4f77-80c9-1d6d61af16a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b63b8e3-ea38-4f77-80c9-1d6d61af16a1">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="6b63b8e3-ea38-4f77-80c9-1d6d61af16a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0246a063-c26f-437e-b4a0-9d3271e04574" xml:space="preserve">
+          <source>If you do not have an invitation yet, you can still try out the service.</source>
+          <target state="new">If you do not have an invitation yet, you can still try out the service.</target>
+        </trans-unit>
+        <trans-unit id="e7821e8b-9d7c-4701-a12a-764eef905202" xml:space="preserve">
+          <source>To do so, tap <bpt id="b03eb97c-8147-43c7-9c35-5a1173db2204">&lt;strong&gt;</bpt>Go to free trial<ept id="b03eb97c-8147-43c7-9c35-5a1173db2204">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">To do so, tap <bpt id="b03eb97c-8147-43c7-9c35-5a1173db2204">&lt;strong&gt;</bpt>Go to free trial<ept id="b03eb97c-8147-43c7-9c35-5a1173db2204">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="447ca470-c97d-4772-8c27-db4c0a0ad213" xml:space="preserve">
+          <source><bpt id="5115d3ad-e35c-4fb8-ab65-85e116201779">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="5115d3ad-e35c-4fb8-ab65-85e116201779">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5115d3ad-e35c-4fb8-ab65-85e116201779">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="5115d3ad-e35c-4fb8-ab65-85e116201779">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f91ab2f-e367-4a3d-8031-9a2a77049b9b" xml:space="preserve">
+          <source>This will give you access to a basic set of apps to get you started with RemoteApp.</source>
+          <target state="new">This will give you access to a basic set of apps to get you started with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="ab72b5b0-84ca-4331-aeba-7ede52a26789" xml:space="preserve">
+          <source><bpt id="d5fdf870-e1d7-436f-a492-a6b7333b7777">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="d5fdf870-e1d7-436f-a492-a6b7333b7777">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d5fdf870-e1d7-436f-a492-a6b7333b7777">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="d5fdf870-e1d7-436f-a492-a6b7333b7777">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d321992-955e-49c0-8696-45deb8a19d77" xml:space="preserve">
+          <source>Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under <bpt id="92858db9-cf3d-4a7f-bb86-6ebc4aa98aa7">&lt;strong&gt;</bpt>RD Client<ept id="92858db9-cf3d-4a7f-bb86-6ebc4aa98aa7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under <bpt id="92858db9-cf3d-4a7f-bb86-6ebc4aa98aa7">&lt;strong&gt;</bpt>RD Client<ept id="92858db9-cf3d-4a7f-bb86-6ebc4aa98aa7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0247dd88-5490-41b7-8327-b49aefc29bc4" xml:space="preserve">
+          <source>Launching the app brings you to an empty Connection Center, unless you've already been using the app.</source>
+          <target state="new">Launching the app brings you to an empty Connection Center, unless you've already been using the app.</target>
+        </trans-unit>
+        <trans-unit id="23dbe863-e3c2-4a9b-b3b6-609305f982e1" xml:space="preserve">
+          <source>To get started with Azure RemoteApp, tap the add button <bpt id="46ea2003-7dfe-4ace-a201-81845148de64">&lt;strong&gt;</bpt>""+""<ept id="46ea2003-7dfe-4ace-a201-81845148de64">&lt;/strong&gt;</ept> and tap <bpt id="da98dedc-4c85-410f-be16-2dd85cc8d53f">&lt;strong&gt;</bpt>Add Azure RemoteApp<ept id="da98dedc-4c85-410f-be16-2dd85cc8d53f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To get started with Azure RemoteApp, tap the add button <bpt id="46ea2003-7dfe-4ace-a201-81845148de64">&lt;strong&gt;</bpt>""+""<ept id="46ea2003-7dfe-4ace-a201-81845148de64">&lt;/strong&gt;</ept> and tap <bpt id="da98dedc-4c85-410f-be16-2dd85cc8d53f">&lt;strong&gt;</bpt>Add Azure RemoteApp<ept id="da98dedc-4c85-410f-be16-2dd85cc8d53f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30b59460-ea9f-48c4-a830-7e9f5c79f4b8" xml:space="preserve">
+          <source><bpt id="753225ca-2e6a-4ff2-becb-765e79a26ece">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="753225ca-2e6a-4ff2-becb-765e79a26ece">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="753225ca-2e6a-4ff2-becb-765e79a26ece">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="753225ca-2e6a-4ff2-becb-765e79a26ece">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8a7d590-2308-42a4-be08-3dc84ba32f12" xml:space="preserve">
+          <source>You need to sign in with your email address to access the service, to start that process, type in your <bpt id="ccc46a20-824d-4c36-a142-9f4f08f46f8a">&lt;strong&gt;</bpt>email address<ept id="ccc46a20-824d-4c36-a142-9f4f08f46f8a">&lt;/strong&gt;</ept> and tap <bpt id="e330c542-b3af-460a-821a-2b4d39fb564f">&lt;strong&gt;</bpt>Continue<ept id="e330c542-b3af-460a-821a-2b4d39fb564f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You need to sign in with your email address to access the service, to start that process, type in your <bpt id="ccc46a20-824d-4c36-a142-9f4f08f46f8a">&lt;strong&gt;</bpt>email address<ept id="ccc46a20-824d-4c36-a142-9f4f08f46f8a">&lt;/strong&gt;</ept> and tap <bpt id="e330c542-b3af-460a-821a-2b4d39fb564f">&lt;strong&gt;</bpt>Continue<ept id="e330c542-b3af-460a-821a-2b4d39fb564f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b046792a-c2cc-4697-aa31-dc1cb1d7e6a3" xml:space="preserve">
+          <source><bpt id="9522e243-72c2-41e8-8dd6-b39536968aa6">&lt;linkText&gt;</bpt>Sign in prompt<ept id="9522e243-72c2-41e8-8dd6-b39536968aa6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9522e243-72c2-41e8-8dd6-b39536968aa6">&lt;linkText&gt;</bpt>Sign in prompt<ept id="9522e243-72c2-41e8-8dd6-b39536968aa6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ea67704-a30e-478e-9e6b-92e1d356d643" xml:space="preserve">
+          <source>Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</source>
+          <target state="new">Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</target>
+        </trans-unit>
+        <trans-unit id="c77a66b7-47e6-4805-b898-25ef63760c16" xml:space="preserve">
+          <source>Once signed in, you may be presented with a page listing all the invitations you have received.</source>
+          <target state="new">Once signed in, you may be presented with a page listing all the invitations you have received.</target>
+        </trans-unit>
+        <trans-unit id="a6e98f90-2faf-4696-8677-ccdac9bc1ca3" xml:space="preserve">
+          <source>If you are, select the invitations you trust and tap <bpt id="4ea2d941-d427-4199-a895-af5ca0d889ca">&lt;strong&gt;</bpt>Done<ept id="4ea2d941-d427-4199-a895-af5ca0d889ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are, select the invitations you trust and tap <bpt id="4ea2d941-d427-4199-a895-af5ca0d889ca">&lt;strong&gt;</bpt>Done<ept id="4ea2d941-d427-4199-a895-af5ca0d889ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99d89c39-d694-4b22-a2a3-74583ab15cae" xml:space="preserve">
+          <source><bpt id="98e1f304-e204-4e01-9c67-17dbcbe6df8d">&lt;linkText&gt;</bpt>Invitations page<ept id="98e1f304-e204-4e01-9c67-17dbcbe6df8d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98e1f304-e204-4e01-9c67-17dbcbe6df8d">&lt;linkText&gt;</bpt>Invitations page<ept id="98e1f304-e204-4e01-9c67-17dbcbe6df8d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44eef6f3-8b28-42ac-a9c2-3f150d00b493" xml:space="preserve">
+          <source>After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</source>
+          <target state="new">After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</target>
+        </trans-unit>
+        <trans-unit id="d5d43f0c-0c84-4c6f-b60e-02f454034eba" xml:space="preserve">
+          <source>Tap one of the apps to launch it and start using it.</source>
+          <target state="new">Tap one of the apps to launch it and start using it.</target>
+        </trans-unit>
+        <trans-unit id="5b417ff5-7fca-45fe-9993-e72f21005718" xml:space="preserve">
+          <source><bpt id="f1d3a8f1-d39c-401f-a11c-270ee19c0406">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="f1d3a8f1-d39c-401f-a11c-270ee19c0406">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1d3a8f1-d39c-401f-a11c-270ee19c0406">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="f1d3a8f1-d39c-401f-a11c-270ee19c0406">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f351a7b-494e-46e9-84e4-0fddb74bcf4e" xml:space="preserve">
+          <source>If you do not have an invitation yet, you can still try out the service.</source>
+          <target state="new">If you do not have an invitation yet, you can still try out the service.</target>
+        </trans-unit>
+        <trans-unit id="71024379-04c9-4764-b8fe-eacb14ac617d" xml:space="preserve">
+          <source>To do so, tap <bpt id="5d152363-e2da-402a-9c24-74863611f949">&lt;strong&gt;</bpt>Go to free trial<ept id="5d152363-e2da-402a-9c24-74863611f949">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">To do so, tap <bpt id="5d152363-e2da-402a-9c24-74863611f949">&lt;strong&gt;</bpt>Go to free trial<ept id="5d152363-e2da-402a-9c24-74863611f949">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="28ef4e6a-529d-42c6-95f4-1072f2d59ae3" xml:space="preserve">
+          <source><bpt id="03f5b3ed-4d41-4246-8f16-aaa1b1da6ec0">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="03f5b3ed-4d41-4246-8f16-aaa1b1da6ec0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03f5b3ed-4d41-4246-8f16-aaa1b1da6ec0">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="03f5b3ed-4d41-4246-8f16-aaa1b1da6ec0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="403c9ee0-ba11-4ffe-a563-1705acb98b21" xml:space="preserve">
+          <source>This will give you access to a basic set of apps to get you started with RemoteApp.</source>
+          <target state="new">This will give you access to a basic set of apps to get you started with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="183b3fff-1ce3-4736-a4f4-0f539533414c" xml:space="preserve">
+          <source><bpt id="f09ecd97-ec9f-4b7f-b4d3-3f219e3f4e2b">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="f09ecd97-ec9f-4b7f-b4d3-3f219e3f4e2b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f09ecd97-ec9f-4b7f-b4d3-3f219e3f4e2b">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="f09ecd97-ec9f-4b7f-b4d3-3f219e3f4e2b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e403aa06-6db5-4b36-b191-10b67e784a3b" xml:space="preserve">
+          <source>Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under <bpt id="03e4fb93-6d05-48ec-821e-e73666c078d8">&lt;strong&gt;</bpt>Microsoft Remote Desktop<ept id="03e4fb93-6d05-48ec-821e-e73666c078d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have installed the Microsoft Remote Desktop app from the App store, you can find it in your app list under <bpt id="03e4fb93-6d05-48ec-821e-e73666c078d8">&lt;strong&gt;</bpt>Microsoft Remote Desktop<ept id="03e4fb93-6d05-48ec-821e-e73666c078d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="13d4dfad-c5a2-455b-9df2-656148e3085c" xml:space="preserve">
+          <source>Launching the app brings you to an empty Connection Center, unless you've already been using the app.</source>
+          <target state="new">Launching the app brings you to an empty Connection Center, unless you've already been using the app.</target>
+        </trans-unit>
+        <trans-unit id="e8311b38-e733-4a57-a414-4967b26376c5" xml:space="preserve">
+          <source>To get started with Azure RemoteApp, click the <bpt id="a9fa1ce9-af9b-453c-ad50-3512b14c9ffd">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="a9fa1ce9-af9b-453c-ad50-3512b14c9ffd">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To get started with Azure RemoteApp, click the <bpt id="a9fa1ce9-af9b-453c-ad50-3512b14c9ffd">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="a9fa1ce9-af9b-453c-ad50-3512b14c9ffd">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="98a1e79a-4c6b-4ea9-b788-7793019b7682" xml:space="preserve">
+          <source><bpt id="da1eea6b-cc59-4d35-812d-bcb9985c110b">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="da1eea6b-cc59-4d35-812d-bcb9985c110b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="da1eea6b-cc59-4d35-812d-bcb9985c110b">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="da1eea6b-cc59-4d35-812d-bcb9985c110b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6de50a53-bd98-4bfb-8426-4610e879b263" xml:space="preserve">
+          <source>You need to sign in with your email address to access the service, to start that process, tap <bpt id="f88e0a78-f005-40a7-bfd1-33fc405477b2">&lt;strong&gt;</bpt>Get Started<ept id="f88e0a78-f005-40a7-bfd1-33fc405477b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You need to sign in with your email address to access the service, to start that process, tap <bpt id="f88e0a78-f005-40a7-bfd1-33fc405477b2">&lt;strong&gt;</bpt>Get Started<ept id="f88e0a78-f005-40a7-bfd1-33fc405477b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="acf2b5c4-33f4-4b13-946e-09d4726412bd" xml:space="preserve">
+          <source><bpt id="382fc298-1a99-40f5-b7e0-999e595bd152">&lt;linkText&gt;</bpt>Sign in prompt<ept id="382fc298-1a99-40f5-b7e0-999e595bd152">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="382fc298-1a99-40f5-b7e0-999e595bd152">&lt;linkText&gt;</bpt>Sign in prompt<ept id="382fc298-1a99-40f5-b7e0-999e595bd152">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50e14bb8-5302-41a7-a048-2109512f58c5" xml:space="preserve">
+          <source>On the next page, type in your <bpt id="eb69240e-bfbc-42dd-afe7-8a780afe51a4">&lt;strong&gt;</bpt>email address<ept id="eb69240e-bfbc-42dd-afe7-8a780afe51a4">&lt;/strong&gt;</ept> and tap <bpt id="dcf4a179-f5d6-4747-bc0f-8bcea7b7fb73">&lt;strong&gt;</bpt>Continue<ept id="dcf4a179-f5d6-4747-bc0f-8bcea7b7fb73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the next page, type in your <bpt id="eb69240e-bfbc-42dd-afe7-8a780afe51a4">&lt;strong&gt;</bpt>email address<ept id="eb69240e-bfbc-42dd-afe7-8a780afe51a4">&lt;/strong&gt;</ept> and tap <bpt id="dcf4a179-f5d6-4747-bc0f-8bcea7b7fb73">&lt;strong&gt;</bpt>Continue<ept id="dcf4a179-f5d6-4747-bc0f-8bcea7b7fb73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2310414b-1e94-4deb-9322-e6c72eeb8bab" xml:space="preserve">
+          <source>This begins the sign in process using Azure Active Directory.</source>
+          <target state="new">This begins the sign in process using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="1ff59775-c513-4dfd-b49e-81b77d71f38d" xml:space="preserve">
+          <source><bpt id="a342195e-df04-47b0-8382-e546a0817e43">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="a342195e-df04-47b0-8382-e546a0817e43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a342195e-df04-47b0-8382-e546a0817e43">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="a342195e-df04-47b0-8382-e546a0817e43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19398051-39fe-4ee7-8a60-342b345241e8" xml:space="preserve">
+          <source>Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</source>
+          <target state="new">Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</target>
+        </trans-unit>
+        <trans-unit id="4f8d138b-1cf9-435e-b869-27e10f88d89e" xml:space="preserve">
+          <source>Once signed in, you may be presented with a page listing all the invitations you have received.</source>
+          <target state="new">Once signed in, you may be presented with a page listing all the invitations you have received.</target>
+        </trans-unit>
+        <trans-unit id="dc3a7487-6b69-41b8-9928-b809f2fcf195" xml:space="preserve">
+          <source>If you are, select the invitations you trust and close the dialog.</source>
+          <target state="new">If you are, select the invitations you trust and close the dialog.</target>
+        </trans-unit>
+        <trans-unit id="e1a24af1-5503-4e23-aa2e-e3f59f2369a2" xml:space="preserve">
+          <source><bpt id="18a51cb7-df28-4739-98d3-80a57ab13d93">&lt;linkText&gt;</bpt>Invitations page<ept id="18a51cb7-df28-4739-98d3-80a57ab13d93">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18a51cb7-df28-4739-98d3-80a57ab13d93">&lt;linkText&gt;</bpt>Invitations page<ept id="18a51cb7-df28-4739-98d3-80a57ab13d93">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1938fd84-becf-4730-b86b-fca481e7fa6d" xml:space="preserve">
+          <source>After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</source>
+          <target state="new">After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</target>
+        </trans-unit>
+        <trans-unit id="20430271-3812-451d-a7d7-bae09922e2f1" xml:space="preserve">
+          <source>Double-click one of the apps to launch it and start using it.</source>
+          <target state="new">Double-click one of the apps to launch it and start using it.</target>
+        </trans-unit>
+        <trans-unit id="a4e54fea-2293-4d50-b95b-31cc195a3fe1" xml:space="preserve">
+          <source><bpt id="f6a9d4c4-dbcd-48c6-9c2e-c92148f75e33">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="f6a9d4c4-dbcd-48c6-9c2e-c92148f75e33">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6a9d4c4-dbcd-48c6-9c2e-c92148f75e33">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="f6a9d4c4-dbcd-48c6-9c2e-c92148f75e33">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="719b8dd2-3a5d-4912-9208-9f0f6e0df24d" xml:space="preserve">
+          <source>If you do not have an invitation yet, you can still try out the service.</source>
+          <target state="new">If you do not have an invitation yet, you can still try out the service.</target>
+        </trans-unit>
+        <trans-unit id="9f7da291-d5c8-471b-bc64-d0bffe084214" xml:space="preserve">
+          <source>To do so, click <bpt id="b2173f7f-ec5b-47d4-bc40-cabab80827ce">&lt;strong&gt;</bpt>Go to free trial<ept id="b2173f7f-ec5b-47d4-bc40-cabab80827ce">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">To do so, click <bpt id="b2173f7f-ec5b-47d4-bc40-cabab80827ce">&lt;strong&gt;</bpt>Go to free trial<ept id="b2173f7f-ec5b-47d4-bc40-cabab80827ce">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="3373cf1b-d369-4418-972c-e561f4f2f8f4" xml:space="preserve">
+          <source><bpt id="4198e7e6-6f63-4d15-bc76-7b49c5e90fa9">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="4198e7e6-6f63-4d15-bc76-7b49c5e90fa9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4198e7e6-6f63-4d15-bc76-7b49c5e90fa9">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="4198e7e6-6f63-4d15-bc76-7b49c5e90fa9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be34be91-48aa-438f-b002-0ded407cc16f" xml:space="preserve">
+          <source>This will give you access to a basic set of apps to get you started with RemoteApp.</source>
+          <target state="new">This will give you access to a basic set of apps to get you started with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="540426f3-3208-452d-b9f4-7ed2ce52fa7d" xml:space="preserve">
+          <source><bpt id="1cd67233-e2a1-4d67-8199-218a9e05a861">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="1cd67233-e2a1-4d67-8199-218a9e05a861">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1cd67233-e2a1-4d67-8199-218a9e05a861">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="1cd67233-e2a1-4d67-8199-218a9e05a861">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe2f58c9-e11a-4f60-af5c-44b301f3ff6f" xml:space="preserve">
+          <source>The client launches automatically after it finishes installing, however when you need to access it again later it can be found in your app list under the name <bpt id="3594a63d-8b2f-4e3a-b09e-39e67cf9c381">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="3594a63d-8b2f-4e3a-b09e-39e67cf9c381">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The client launches automatically after it finishes installing, however when you need to access it again later it can be found in your app list under the name <bpt id="3594a63d-8b2f-4e3a-b09e-39e67cf9c381">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="3594a63d-8b2f-4e3a-b09e-39e67cf9c381">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc26380c-5e1b-4be0-9059-de3134e97959" xml:space="preserve">
+          <source>Ater launching the client, the first page you see welcomes you to Azure RemoteApp.</source>
+          <target state="new">Ater launching the client, the first page you see welcomes you to Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="98fe3e0d-354f-4e16-acca-1f23d63c2919" xml:space="preserve">
+          <source>To proceed, click on <bpt id="78759918-1e8c-4719-8850-c07d731af49a">&lt;strong&gt;</bpt>Get Started<ept id="78759918-1e8c-4719-8850-c07d731af49a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To proceed, click on <bpt id="78759918-1e8c-4719-8850-c07d731af49a">&lt;strong&gt;</bpt>Get Started<ept id="78759918-1e8c-4719-8850-c07d731af49a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="225c34da-58b9-4847-8022-91c2261db266" xml:space="preserve">
+          <source><bpt id="4a3b68bb-7b37-4aba-aacd-a1c15c52b784">&lt;linkText&gt;</bpt>Welcome page of the Azure RemoteApp client<ept id="4a3b68bb-7b37-4aba-aacd-a1c15c52b784">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a3b68bb-7b37-4aba-aacd-a1c15c52b784">&lt;linkText&gt;</bpt>Welcome page of the Azure RemoteApp client<ept id="4a3b68bb-7b37-4aba-aacd-a1c15c52b784">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18be5ee4-265d-46fb-8a42-4ef83108a777" xml:space="preserve">
+          <source>The next page starts the sign in process for Azure RemoteApp using Azure Active Directory.</source>
+          <target state="new">The next page starts the sign in process for Azure RemoteApp using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="2e809286-b3e5-409b-bb96-32f3c8eedeae" xml:space="preserve">
+          <source>This process should look familiar if you have used Microsoft services in the past.</source>
+          <target state="new">This process should look familiar if you have used Microsoft services in the past.</target>
+        </trans-unit>
+        <trans-unit id="d538d47a-ea67-47e5-a2d9-d80941439059" xml:space="preserve">
+          <source>Start by typing your <bpt id="37cdb3e0-4942-48d0-aa41-40a27070c28e">&lt;strong&gt;</bpt>email address<ept id="37cdb3e0-4942-48d0-aa41-40a27070c28e">&lt;/strong&gt;</ept> and click <bpt id="887d065e-6415-4562-b84b-71a6f851db73">&lt;strong&gt;</bpt>Continue<ept id="887d065e-6415-4562-b84b-71a6f851db73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Start by typing your <bpt id="37cdb3e0-4942-48d0-aa41-40a27070c28e">&lt;strong&gt;</bpt>email address<ept id="37cdb3e0-4942-48d0-aa41-40a27070c28e">&lt;/strong&gt;</ept> and click <bpt id="887d065e-6415-4562-b84b-71a6f851db73">&lt;strong&gt;</bpt>Continue<ept id="887d065e-6415-4562-b84b-71a6f851db73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ace1f4ba-ec78-4cb3-984c-9863d0cce8fd" xml:space="preserve">
+          <source><bpt id="cdcae3d6-ef9c-49ca-aa5b-57170f3bd072">&lt;linkText&gt;</bpt>First Azure Active Directory prompt<ept id="cdcae3d6-ef9c-49ca-aa5b-57170f3bd072">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cdcae3d6-ef9c-49ca-aa5b-57170f3bd072">&lt;linkText&gt;</bpt>First Azure Active Directory prompt<ept id="cdcae3d6-ef9c-49ca-aa5b-57170f3bd072">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2750a89d-f667-4136-ad61-6967d7cd4f77" xml:space="preserve">
+          <source>Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</source>
+          <target state="new">Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</target>
+        </trans-unit>
+        <trans-unit id="60cbe4cb-386b-4d15-a97f-876d5085788c" xml:space="preserve">
+          <source>Once signed in, you may be presented with a page listing all the invitations you have received.</source>
+          <target state="new">Once signed in, you may be presented with a page listing all the invitations you have received.</target>
+        </trans-unit>
+        <trans-unit id="a62a301a-c9b2-436a-9cd8-f9b1f2776ad1" xml:space="preserve">
+          <source>If you are, select the invitations you trust and click <bpt id="8346a4a9-fde9-4cf3-bc19-f71a9c8313fd">&lt;strong&gt;</bpt>Done<ept id="8346a4a9-fde9-4cf3-bc19-f71a9c8313fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are, select the invitations you trust and click <bpt id="8346a4a9-fde9-4cf3-bc19-f71a9c8313fd">&lt;strong&gt;</bpt>Done<ept id="8346a4a9-fde9-4cf3-bc19-f71a9c8313fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="78c9f5a8-8033-435d-bfe6-2a4d2f58c443" xml:space="preserve">
+          <source><bpt id="27cf9b19-d615-4d04-b66b-c886b5c939d5">&lt;linkText&gt;</bpt>Invitations page of the Azure RemoteApp client<ept id="27cf9b19-d615-4d04-b66b-c886b5c939d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27cf9b19-d615-4d04-b66b-c886b5c939d5">&lt;linkText&gt;</bpt>Invitations page of the Azure RemoteApp client<ept id="27cf9b19-d615-4d04-b66b-c886b5c939d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5d42366-16cd-4985-8716-6303f9ff3e1b" xml:space="preserve">
+          <source>After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</source>
+          <target state="new">After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</target>
+        </trans-unit>
+        <trans-unit id="69f549be-b4b2-4cb6-9c76-78c79b7757c2" xml:space="preserve">
+          <source>Double-click one of the apps to launch it and start using it.</source>
+          <target state="new">Double-click one of the apps to launch it and start using it.</target>
+        </trans-unit>
+        <trans-unit id="67c3c02d-56fd-443f-9993-872ce2204255" xml:space="preserve">
+          <source><bpt id="0470b2a1-9d09-40cf-b1e3-3a5d90f2f18d">&lt;linkText&gt;</bpt>Connection Center of the Azure RemoteApp client<ept id="0470b2a1-9d09-40cf-b1e3-3a5d90f2f18d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0470b2a1-9d09-40cf-b1e3-3a5d90f2f18d">&lt;linkText&gt;</bpt>Connection Center of the Azure RemoteApp client<ept id="0470b2a1-9d09-40cf-b1e3-3a5d90f2f18d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9301166f-2302-4c2a-866d-d47c85488ee0" xml:space="preserve">
+          <source>If no one has sent you an invitation yet, don't worry we've got you covered!</source>
+          <target state="new">If no one has sent you an invitation yet, don't worry we've got you covered!</target>
+        </trans-unit>
+        <trans-unit id="b281913c-38f5-4868-813d-8cb093e9e680" xml:space="preserve">
+          <source>You'll still have access to a demo collection so you can test out the service.</source>
+          <target state="new">You'll still have access to a demo collection so you can test out the service.</target>
+        </trans-unit>
+        <trans-unit id="028377d2-b2f3-4687-8816-f546b2376402" xml:space="preserve">
+          <source><bpt id="fe43ac54-8468-4dba-81ed-4c16dcad1a7a">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="fe43ac54-8468-4dba-81ed-4c16dcad1a7a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe43ac54-8468-4dba-81ed-4c16dcad1a7a">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="fe43ac54-8468-4dba-81ed-4c16dcad1a7a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2ee3c8d-42ed-4cf5-bfa1-ef7fdfc014f4" xml:space="preserve">
+          <source>Once you have installed the Microsoft Remote Desktop app from the Windows Phone 8.1 store, you can find it in your app list under <bpt id="047b0984-64d1-4f10-ba10-4d9a567356df">&lt;strong&gt;</bpt>Remote Desktop<ept id="047b0984-64d1-4f10-ba10-4d9a567356df">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once you have installed the Microsoft Remote Desktop app from the Windows Phone 8.1 store, you can find it in your app list under <bpt id="047b0984-64d1-4f10-ba10-4d9a567356df">&lt;strong&gt;</bpt>Remote Desktop<ept id="047b0984-64d1-4f10-ba10-4d9a567356df">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98da533a-cc99-486f-8bce-500c644ac327" xml:space="preserve">
+          <source>Launching the app brings you directly to an empty Connection Center, unless you've already been using the app.</source>
+          <target state="new">Launching the app brings you directly to an empty Connection Center, unless you've already been using the app.</target>
+        </trans-unit>
+        <trans-unit id="a6b20967-04d2-4d24-a293-30f894b31a03" xml:space="preserve">
+          <source>To get started with Azure RemoteApp, tap the add button <bpt id="542cf044-5611-4014-bae8-e00c661ed8cb">&lt;strong&gt;</bpt>""+""<ept id="542cf044-5611-4014-bae8-e00c661ed8cb">&lt;/strong&gt;</ept> at the bottom of the screen.</source>
+          <target state="new">To get started with Azure RemoteApp, tap the add button <bpt id="542cf044-5611-4014-bae8-e00c661ed8cb">&lt;strong&gt;</bpt>""+""<ept id="542cf044-5611-4014-bae8-e00c661ed8cb">&lt;/strong&gt;</ept> at the bottom of the screen.</target>
+        </trans-unit>
+        <trans-unit id="a94f1f84-791b-4aad-80da-b4fa102bfec0" xml:space="preserve">
+          <source><bpt id="94dd3197-e0e2-419e-a921-f70ab39e3220">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="94dd3197-e0e2-419e-a921-f70ab39e3220">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94dd3197-e0e2-419e-a921-f70ab39e3220">&lt;linkText&gt;</bpt>Empty Connection Center<ept id="94dd3197-e0e2-419e-a921-f70ab39e3220">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ffd159b-737d-4d04-b93a-662570064648" xml:space="preserve">
+          <source>Next, tap on <bpt id="47a33133-bd24-4c1d-bbf4-913b6f1f43e3">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="47a33133-bd24-4c1d-bbf4-913b6f1f43e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, tap on <bpt id="47a33133-bd24-4c1d-bbf4-913b6f1f43e3">&lt;strong&gt;</bpt>Azure RemoteApp<ept id="47a33133-bd24-4c1d-bbf4-913b6f1f43e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="63129fd3-bbe2-4861-b7e9-36d331a9479e" xml:space="preserve">
+          <source><bpt id="7f6659a4-1e63-4c9d-b1d2-fd3907f7593c">&lt;linkText&gt;</bpt>Add item page<ept id="7f6659a4-1e63-4c9d-b1d2-fd3907f7593c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f6659a4-1e63-4c9d-b1d2-fd3907f7593c">&lt;linkText&gt;</bpt>Add item page<ept id="7f6659a4-1e63-4c9d-b1d2-fd3907f7593c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4c70b99-acfd-47b5-b34b-7bfd8c0ed36d" xml:space="preserve">
+          <source>You need to sign in with your email address to access the service, to start that process, tap <bpt id="1280fff8-7fee-41e0-8084-2d132282cf31">&lt;strong&gt;</bpt>connect<ept id="1280fff8-7fee-41e0-8084-2d132282cf31">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You need to sign in with your email address to access the service, to start that process, tap <bpt id="1280fff8-7fee-41e0-8084-2d132282cf31">&lt;strong&gt;</bpt>connect<ept id="1280fff8-7fee-41e0-8084-2d132282cf31">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6925be7-8246-47b4-85a6-2874f2c6da5b" xml:space="preserve">
+          <source><bpt id="e7a023b5-fe3e-47b1-abd4-db2aabd3f7ef">&lt;linkText&gt;</bpt>Sign in prompt<ept id="e7a023b5-fe3e-47b1-abd4-db2aabd3f7ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7a023b5-fe3e-47b1-abd4-db2aabd3f7ef">&lt;linkText&gt;</bpt>Sign in prompt<ept id="e7a023b5-fe3e-47b1-abd4-db2aabd3f7ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ba811e8-1a55-4616-ad7b-0d353d41748a" xml:space="preserve">
+          <source>On the next page, type in your <bpt id="32904ed8-35db-4681-a01b-24e66a274057">&lt;strong&gt;</bpt>email address<ept id="32904ed8-35db-4681-a01b-24e66a274057">&lt;/strong&gt;</ept> and tap <bpt id="894fd032-0ae3-43ff-8b02-c1fb9ff70186">&lt;strong&gt;</bpt>Continue<ept id="894fd032-0ae3-43ff-8b02-c1fb9ff70186">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the next page, type in your <bpt id="32904ed8-35db-4681-a01b-24e66a274057">&lt;strong&gt;</bpt>email address<ept id="32904ed8-35db-4681-a01b-24e66a274057">&lt;/strong&gt;</ept> and tap <bpt id="894fd032-0ae3-43ff-8b02-c1fb9ff70186">&lt;strong&gt;</bpt>Continue<ept id="894fd032-0ae3-43ff-8b02-c1fb9ff70186">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40367177-16d9-490e-93f0-b109e3009e13" xml:space="preserve">
+          <source>This begins the sign in process using Azure Active Directory.</source>
+          <target state="new">This begins the sign in process using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="6bc7c0ad-28d8-41fa-b7bf-fa20fd3dd535" xml:space="preserve">
+          <source><bpt id="3277828d-20b9-49da-9444-373d8ac1bfd2">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="3277828d-20b9-49da-9444-373d8ac1bfd2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3277828d-20b9-49da-9444-373d8ac1bfd2">&lt;linkText&gt;</bpt>First Azure Active Directory page<ept id="3277828d-20b9-49da-9444-373d8ac1bfd2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd86e8fe-db14-4176-a9f2-2f5084b12015" xml:space="preserve">
+          <source>Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</source>
+          <target state="new">Follow the instructions on the screen to sign in with your Microsoft account (LiveID) or Organization ID.</target>
+        </trans-unit>
+        <trans-unit id="f09604ec-3baa-4402-884d-80685589ef7e" xml:space="preserve">
+          <source>Once signed in, you may be presented with a page listing all the invitations you have received.</source>
+          <target state="new">Once signed in, you may be presented with a page listing all the invitations you have received.</target>
+        </trans-unit>
+        <trans-unit id="1a37bf55-3275-4742-9457-367d3e65b30a" xml:space="preserve">
+          <source>If you are, select the invitations you trust and tap <bpt id="7d94b134-fa8c-4544-8026-ce40a35a3ac5">&lt;strong&gt;</bpt>save<ept id="7d94b134-fa8c-4544-8026-ce40a35a3ac5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are, select the invitations you trust and tap <bpt id="7d94b134-fa8c-4544-8026-ce40a35a3ac5">&lt;strong&gt;</bpt>save<ept id="7d94b134-fa8c-4544-8026-ce40a35a3ac5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0465a2f-8515-44b9-a682-ea6688dc8d91" xml:space="preserve">
+          <source><bpt id="bc238ca1-be6e-4c6d-a57f-f40b876128b6">&lt;linkText&gt;</bpt>Invitations page<ept id="bc238ca1-be6e-4c6d-a57f-f40b876128b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc238ca1-be6e-4c6d-a57f-f40b876128b6">&lt;linkText&gt;</bpt>Invitations page<ept id="bc238ca1-be6e-4c6d-a57f-f40b876128b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecfa431b-958d-4a1c-bcd1-9d37bb95968c" xml:space="preserve">
+          <source>After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</source>
+          <target state="new">After accepting your invitations, the list of apps you have access to will be downloaded to your device and made available in the Connection Center.</target>
+        </trans-unit>
+        <trans-unit id="952a5861-5f0d-4e6b-b603-f4f1fd7a6cd8" xml:space="preserve">
+          <source>Tap one of the apps to launch it and start using it.</source>
+          <target state="new">Tap one of the apps to launch it and start using it.</target>
+        </trans-unit>
+        <trans-unit id="c616c89f-ef17-40b6-bfdd-84efee000579" xml:space="preserve">
+          <source><bpt id="93e6f456-93e0-4999-bb3c-649b3a8803dc">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="93e6f456-93e0-4999-bb3c-649b3a8803dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93e6f456-93e0-4999-bb3c-649b3a8803dc">&lt;linkText&gt;</bpt>Connection Center with a feed<ept id="93e6f456-93e0-4999-bb3c-649b3a8803dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae030413-616b-4df3-8190-aef711bcb460" xml:space="preserve">
+          <source>If you do not have an invitation yet, you can still try out the service.</source>
+          <target state="new">If you do not have an invitation yet, you can still try out the service.</target>
+        </trans-unit>
+        <trans-unit id="b7269506-040c-44ea-b5ae-3e2a3122ac7c" xml:space="preserve">
+          <source>To do so, tap <bpt id="7f582947-3939-4d2f-ae03-2eb597ae3660">&lt;strong&gt;</bpt>yes<ept id="7f582947-3939-4d2f-ae03-2eb597ae3660">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">To do so, tap <bpt id="7f582947-3939-4d2f-ae03-2eb597ae3660">&lt;strong&gt;</bpt>yes<ept id="7f582947-3939-4d2f-ae03-2eb597ae3660">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="4dbff224-fa37-4d36-b24c-513c5e5c16d4" xml:space="preserve">
+          <source><bpt id="f1755618-6065-48ed-a651-225daf3824e1">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="f1755618-6065-48ed-a651-225daf3824e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1755618-6065-48ed-a651-225daf3824e1">&lt;linkText&gt;</bpt>Demo feed prompt<ept id="f1755618-6065-48ed-a651-225daf3824e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b29c5786-5603-41ad-9812-2c40f5543d20" xml:space="preserve">
+          <source>This will give you access to a basic set of apps to get you started with RemoteApp.</source>
+          <target state="new">This will give you access to a basic set of apps to get you started with RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="75f609d6-a624-4503-b99a-a140a3ec784a" xml:space="preserve">
+          <source><bpt id="48b75697-4b08-4c72-8ecf-b6021aa5effc">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="48b75697-4b08-4c72-8ecf-b6021aa5effc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48b75697-4b08-4c72-8ecf-b6021aa5effc">&lt;linkText&gt;</bpt>Demo feed for Azure RemoteApp<ept id="48b75697-4b08-4c72-8ecf-b6021aa5effc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

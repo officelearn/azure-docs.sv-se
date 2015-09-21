@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="458abaed-36c2-41ae-9357-3541429d93d4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="458abaed-36c2-41ae-9357-3541429d93d4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6c262c6a-e524-448c-af48-09957f871349">
+        <trans-unit id="36806216-4910-4de6-8295-ecf438eb046e" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Adobe EchoSign | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Adobe EchoSign | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6e68ff47-1ea8-48de-aafb-f20e7be0fc4f" xml:space="preserve">
+          <source>Learn how to use Adobe EchoSign with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Adobe EchoSign with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="6809696b-4e34-4235-8886-e79af3aa8504" xml:space="preserve">
+          <source>For feedback, click <bpt id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;linkText&gt;</bpt>here<ept id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;/linkText&gt;</ept><bpt id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;title&gt;</bpt><ept id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;linkText&gt;</bpt>here<ept id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;/linkText&gt;</ept><bpt id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;title&gt;</bpt><ept id="fd452418-a56a-4a36-bdff-d8547506c721">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18208a52-0715-449c-9ceb-7302580c873f" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Adobe EchoSign.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Adobe EchoSign.</target>
+        </trans-unit>
+        <trans-unit id="9fb3e95a-62bf-4533-bee0-214419f05b88" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="c3a969d7-0d90-46b5-aa6d-d1c03bd1c4e3" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="7fdc468c-cd9c-4aa4-bb3c-0b9d47ea6961" xml:space="preserve">
+          <source>An Adobe EchoSign single sign on enabled subscription</source>
+          <target state="new">An Adobe EchoSign single sign on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="a2f75585-32fa-41b0-90c0-f69a9e3e43db" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Adobe EchoSign will be able to single sign into the application at your Adobe EchoSign company site (service provider initiated sign on), or using the <bpt id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;/linkText&gt;</ept><bpt id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;title&gt;</bpt><ept id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Adobe EchoSign will be able to single sign into the application at your Adobe EchoSign company site (service provider initiated sign on), or using the <bpt id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;/linkText&gt;</ept><bpt id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;title&gt;</bpt><ept id="8ed15f36-b048-46ca-a1bb-907e7d47263c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e150c498-1515-4a77-9f06-15f44f28a1e3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="d0f713c7-bf7c-4eea-a570-006b94de96b7" xml:space="preserve">
+          <source>Enabling the application integration for Adobe EchoSign</source>
+          <target state="new">Enabling the application integration for Adobe EchoSign</target>
+        </trans-unit>
+        <trans-unit id="ed9c3ddb-bf50-4a53-9029-8ee6b195eb86" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="5c14f2c8-4661-426c-979b-f8611af26454" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="c17f5375-50f4-4563-8b16-4ad78b1b4a57" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="99e1539e-8c77-44c7-8379-01e2b58fad23" xml:space="preserve">
+          <source><bpt id="281f773d-86e0-4dc0-b376-3c92871b0b00">&lt;linkText&gt;</bpt>Scenario<ept id="281f773d-86e0-4dc0-b376-3c92871b0b00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="281f773d-86e0-4dc0-b376-3c92871b0b00">&lt;linkText&gt;</bpt>Scenario<ept id="281f773d-86e0-4dc0-b376-3c92871b0b00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3651209c-7b83-48a7-a5a9-523a890105e8" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Adobe EchoSign.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Adobe EchoSign.</target>
+        </trans-unit>
+        <trans-unit id="81423e51-d175-416b-aae2-6294243cc289" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="5bf7773d-3305-4406-a670-d7e6ed3db6a1">&lt;strong&gt;</bpt>Active Directory<ept id="5bf7773d-3305-4406-a670-d7e6ed3db6a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="5bf7773d-3305-4406-a670-d7e6ed3db6a1">&lt;strong&gt;</bpt>Active Directory<ept id="5bf7773d-3305-4406-a670-d7e6ed3db6a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46bd1a90-ee79-487a-8a0d-6aabed17d0a6" xml:space="preserve">
+          <source><bpt id="4c8dec5f-9afd-456b-858b-c91515f5c71a">&lt;linkText&gt;</bpt>Active Directory<ept id="4c8dec5f-9afd-456b-858b-c91515f5c71a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4c8dec5f-9afd-456b-858b-c91515f5c71a">&lt;linkText&gt;</bpt>Active Directory<ept id="4c8dec5f-9afd-456b-858b-c91515f5c71a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="815a853e-964d-4555-a77f-2dfab5c3e176" xml:space="preserve">
+          <source>From the <bpt id="4422382c-abeb-48ea-ad87-5c1fe8a836b2">&lt;strong&gt;</bpt>Directory<ept id="4422382c-abeb-48ea-ad87-5c1fe8a836b2">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="4422382c-abeb-48ea-ad87-5c1fe8a836b2">&lt;strong&gt;</bpt>Directory<ept id="4422382c-abeb-48ea-ad87-5c1fe8a836b2">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="c2840aea-332a-4a79-8359-ffa834cc5bad" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="e5950a32-6ecb-4425-a213-e6891c1ec263">&lt;strong&gt;</bpt>Applications<ept id="e5950a32-6ecb-4425-a213-e6891c1ec263">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="e5950a32-6ecb-4425-a213-e6891c1ec263">&lt;strong&gt;</bpt>Applications<ept id="e5950a32-6ecb-4425-a213-e6891c1ec263">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="b3255538-dbba-461a-9010-68a85dc6f8d4" xml:space="preserve">
+          <source><bpt id="fe8e0b08-349f-4f4c-a2ba-4d0223fb2d05">&lt;linkText&gt;</bpt>Applications<ept id="fe8e0b08-349f-4f4c-a2ba-4d0223fb2d05">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe8e0b08-349f-4f4c-a2ba-4d0223fb2d05">&lt;linkText&gt;</bpt>Applications<ept id="fe8e0b08-349f-4f4c-a2ba-4d0223fb2d05">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e277e08-6a21-4552-9c96-151a2456a8eb" xml:space="preserve">
+          <source>Click <bpt id="b0042176-e251-47a5-856a-160af6b67a02">&lt;strong&gt;</bpt>Add<ept id="b0042176-e251-47a5-856a-160af6b67a02">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="b0042176-e251-47a5-856a-160af6b67a02">&lt;strong&gt;</bpt>Add<ept id="b0042176-e251-47a5-856a-160af6b67a02">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="26c79163-fe00-4b38-bb5d-66672f769162" xml:space="preserve">
+          <source><bpt id="8045f0f1-0600-4b47-86ac-ad6670f61a63">&lt;linkText&gt;</bpt>Add application<ept id="8045f0f1-0600-4b47-86ac-ad6670f61a63">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8045f0f1-0600-4b47-86ac-ad6670f61a63">&lt;linkText&gt;</bpt>Add application<ept id="8045f0f1-0600-4b47-86ac-ad6670f61a63">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae875b1f-e1db-4752-a768-a9eed1ad2990" xml:space="preserve">
+          <source>On the <bpt id="54f16342-3048-40f0-89c4-eb6f433647ad">&lt;strong&gt;</bpt>What do you want to do<ept id="54f16342-3048-40f0-89c4-eb6f433647ad">&lt;/strong&gt;</ept> dialog, click <bpt id="105dd46f-3892-4678-a70b-b002b32a8ab1">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="105dd46f-3892-4678-a70b-b002b32a8ab1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="54f16342-3048-40f0-89c4-eb6f433647ad">&lt;strong&gt;</bpt>What do you want to do<ept id="54f16342-3048-40f0-89c4-eb6f433647ad">&lt;/strong&gt;</ept> dialog, click <bpt id="105dd46f-3892-4678-a70b-b002b32a8ab1">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="105dd46f-3892-4678-a70b-b002b32a8ab1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72da722e-a24e-4935-bad2-f6c6b28051cb" xml:space="preserve">
+          <source><bpt id="11a43ab7-623b-4bec-9cf2-81cb93def0da">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="11a43ab7-623b-4bec-9cf2-81cb93def0da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="11a43ab7-623b-4bec-9cf2-81cb93def0da">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="11a43ab7-623b-4bec-9cf2-81cb93def0da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b23057f-1bc4-4ea5-94e0-253312cf8e47" xml:space="preserve">
+          <source>In the <bpt id="db58b3ac-4468-4901-8833-51444cfb4529">&lt;strong&gt;</bpt>search box<ept id="db58b3ac-4468-4901-8833-51444cfb4529">&lt;/strong&gt;</ept>, type <bpt id="42be0102-94c4-4bdb-9618-794b35c068ee">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="42be0102-94c4-4bdb-9618-794b35c068ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="db58b3ac-4468-4901-8833-51444cfb4529">&lt;strong&gt;</bpt>search box<ept id="db58b3ac-4468-4901-8833-51444cfb4529">&lt;/strong&gt;</ept>, type <bpt id="42be0102-94c4-4bdb-9618-794b35c068ee">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="42be0102-94c4-4bdb-9618-794b35c068ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a175dac2-ff46-44e1-9599-36652271cd54" xml:space="preserve">
+          <source><bpt id="b5091176-2b00-4b18-a3e8-c48a6488c5d4">&lt;linkText&gt;</bpt>Application Gallery<ept id="b5091176-2b00-4b18-a3e8-c48a6488c5d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b5091176-2b00-4b18-a3e8-c48a6488c5d4">&lt;linkText&gt;</bpt>Application Gallery<ept id="b5091176-2b00-4b18-a3e8-c48a6488c5d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8f3dd60-050b-445f-90ef-f68da021bc6a" xml:space="preserve">
+          <source>In the results pane, select <bpt id="68fec18c-a5aa-4224-a5ea-b03ae5c12cf9">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="68fec18c-a5aa-4224-a5ea-b03ae5c12cf9">&lt;/strong&gt;</ept>, and then click <bpt id="03968840-8744-4221-932d-2f426d48ba21">&lt;strong&gt;</bpt>Complete<ept id="03968840-8744-4221-932d-2f426d48ba21">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="68fec18c-a5aa-4224-a5ea-b03ae5c12cf9">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="68fec18c-a5aa-4224-a5ea-b03ae5c12cf9">&lt;/strong&gt;</ept>, and then click <bpt id="03968840-8744-4221-932d-2f426d48ba21">&lt;strong&gt;</bpt>Complete<ept id="03968840-8744-4221-932d-2f426d48ba21">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="623b7979-f398-4ebe-9669-9d6f4b0ada11" xml:space="preserve">
+          <source><bpt id="b340f4ce-b0b8-4df0-a6da-23a8a60f37aa">&lt;linkText&gt;</bpt>Adobe EchoSign<ept id="b340f4ce-b0b8-4df0-a6da-23a8a60f37aa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b340f4ce-b0b8-4df0-a6da-23a8a60f37aa">&lt;linkText&gt;</bpt>Adobe EchoSign<ept id="b340f4ce-b0b8-4df0-a6da-23a8a60f37aa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05506e3e-3ce0-4c33-89a4-554235427b90" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Adobe EchoSign with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Adobe EchoSign with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="53df1793-de94-4fef-9e7f-8302d0f793df" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="d59f39c2-9cce-49df-8c4a-8bb1b0c3fa96" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;/linkText&gt;</ept><bpt id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;title&gt;</bpt><ept id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;/linkText&gt;</ept><bpt id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;title&gt;</bpt><ept id="7e383ba0-9553-4b82-a696-c9d61fc7f937">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c27d1883-d1f3-46bc-9471-6f72e441aa14" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="fc7f77c6-db47-4012-a028-bf8710daa850">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="fc7f77c6-db47-4012-a028-bf8710daa850">&lt;/strong&gt;</ept> application integration page, click <bpt id="f955ad7b-45d2-45d4-952e-e112de26236a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f955ad7b-45d2-45d4-952e-e112de26236a">&lt;/strong&gt;</ept> to open the <bpt id="4ae9bfce-797c-44db-8467-62e336ea5ce6">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="4ae9bfce-797c-44db-8467-62e336ea5ce6">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="fc7f77c6-db47-4012-a028-bf8710daa850">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="fc7f77c6-db47-4012-a028-bf8710daa850">&lt;/strong&gt;</ept> application integration page, click <bpt id="f955ad7b-45d2-45d4-952e-e112de26236a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="f955ad7b-45d2-45d4-952e-e112de26236a">&lt;/strong&gt;</ept> to open the <bpt id="4ae9bfce-797c-44db-8467-62e336ea5ce6">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="4ae9bfce-797c-44db-8467-62e336ea5ce6">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="1df4601f-2c1b-4132-acd5-bf7138d15340" xml:space="preserve">
+          <source><bpt id="ed2b90f0-2064-45b6-b253-6dbca8b8ea2c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="ed2b90f0-2064-45b6-b253-6dbca8b8ea2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ed2b90f0-2064-45b6-b253-6dbca8b8ea2c">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="ed2b90f0-2064-45b6-b253-6dbca8b8ea2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f908f08b-4c78-4b13-81ce-e04a09951d67" xml:space="preserve">
+          <source>On the <bpt id="7a60a231-8f3e-4280-b348-5d89daa2dba7">&lt;strong&gt;</bpt>How would you like users to sign on to Adobe EchoSign<ept id="7a60a231-8f3e-4280-b348-5d89daa2dba7">&lt;/strong&gt;</ept> page, select <bpt id="66ca8c30-6cee-420a-b612-7415b20b9051">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="66ca8c30-6cee-420a-b612-7415b20b9051">&lt;/strong&gt;</ept>, and then click <bpt id="96d3b42e-d647-4b49-b1a7-3bef604d7bcd">&lt;strong&gt;</bpt>Next<ept id="96d3b42e-d647-4b49-b1a7-3bef604d7bcd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7a60a231-8f3e-4280-b348-5d89daa2dba7">&lt;strong&gt;</bpt>How would you like users to sign on to Adobe EchoSign<ept id="7a60a231-8f3e-4280-b348-5d89daa2dba7">&lt;/strong&gt;</ept> page, select <bpt id="66ca8c30-6cee-420a-b612-7415b20b9051">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="66ca8c30-6cee-420a-b612-7415b20b9051">&lt;/strong&gt;</ept>, and then click <bpt id="96d3b42e-d647-4b49-b1a7-3bef604d7bcd">&lt;strong&gt;</bpt>Next<ept id="96d3b42e-d647-4b49-b1a7-3bef604d7bcd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35ad1f54-103a-4b69-88a0-84e7b14ba38d" xml:space="preserve">
+          <source><bpt id="b1a3d845-0e64-4e8c-8af2-9844c1e5d669">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b1a3d845-0e64-4e8c-8af2-9844c1e5d669">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1a3d845-0e64-4e8c-8af2-9844c1e5d669">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="b1a3d845-0e64-4e8c-8af2-9844c1e5d669">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="878fce4e-b4cb-49b7-8eda-62564c4aa67b" xml:space="preserve">
+          <source>On the <bpt id="a50fd95c-d7b7-42f1-bf57-7c761e681068">&lt;strong&gt;</bpt>Configure App URL<ept id="a50fd95c-d7b7-42f1-bf57-7c761e681068">&lt;/strong&gt;</ept> page, in the <bpt id="597103b9-102c-4b13-b652-caba556493f6">&lt;strong&gt;</bpt>Adobe EchoSign Sign On URL<ept id="597103b9-102c-4b13-b652-caba556493f6">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="126c68a3-a419-4569-bdca-1d91ce4c94c9">&lt;em&gt;</bpt>https://company.echosign.com/<ept id="126c68a3-a419-4569-bdca-1d91ce4c94c9">&lt;/em&gt;</ept>", and then click <bpt id="8cf1d19a-927f-4daf-a700-06c2c542e051">&lt;strong&gt;</bpt>Next<ept id="8cf1d19a-927f-4daf-a700-06c2c542e051">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="a50fd95c-d7b7-42f1-bf57-7c761e681068">&lt;strong&gt;</bpt>Configure App URL<ept id="a50fd95c-d7b7-42f1-bf57-7c761e681068">&lt;/strong&gt;</ept> page, in the <bpt id="597103b9-102c-4b13-b652-caba556493f6">&lt;strong&gt;</bpt>Adobe EchoSign Sign On URL<ept id="597103b9-102c-4b13-b652-caba556493f6">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="126c68a3-a419-4569-bdca-1d91ce4c94c9">&lt;em&gt;</bpt>https://company.echosign.com/<ept id="126c68a3-a419-4569-bdca-1d91ce4c94c9">&lt;/em&gt;</ept>", and then click <bpt id="8cf1d19a-927f-4daf-a700-06c2c542e051">&lt;strong&gt;</bpt>Next<ept id="8cf1d19a-927f-4daf-a700-06c2c542e051">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="292b8732-632f-4dfe-ba58-1c32bb6005bb" xml:space="preserve">
+          <source><bpt id="a74c9a45-94a9-4985-9a4d-031bd25589d1">&lt;linkText&gt;</bpt>Configure App URL<ept id="a74c9a45-94a9-4985-9a4d-031bd25589d1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a74c9a45-94a9-4985-9a4d-031bd25589d1">&lt;linkText&gt;</bpt>Configure App URL<ept id="a74c9a45-94a9-4985-9a4d-031bd25589d1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad6463d0-5c44-456a-8d8c-37cd53da5622" xml:space="preserve">
+          <source>On the <bpt id="11f8eaf8-3a32-4001-bbdf-2f5bbc8ad98b">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="11f8eaf8-3a32-4001-bbdf-2f5bbc8ad98b">&lt;/strong&gt;</ept> page, click <bpt id="8010c375-27f1-4536-9804-a8d34273fe86">&lt;strong&gt;</bpt>Download certificate<ept id="8010c375-27f1-4536-9804-a8d34273fe86">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="11f8eaf8-3a32-4001-bbdf-2f5bbc8ad98b">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="11f8eaf8-3a32-4001-bbdf-2f5bbc8ad98b">&lt;/strong&gt;</ept> page, click <bpt id="8010c375-27f1-4536-9804-a8d34273fe86">&lt;strong&gt;</bpt>Download certificate<ept id="8010c375-27f1-4536-9804-a8d34273fe86">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="61e79e19-ad72-49aa-a034-2b538f7c5395" xml:space="preserve">
+          <source><bpt id="953b44ae-0cc3-4a0e-ac5e-41ade4d9fe30">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="953b44ae-0cc3-4a0e-ac5e-41ade4d9fe30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="953b44ae-0cc3-4a0e-ac5e-41ade4d9fe30">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="953b44ae-0cc3-4a0e-ac5e-41ade4d9fe30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f755ab7-9ce6-4077-8f7b-87be5ffe7225" xml:space="preserve">
+          <source>In a different web browser window, log into your Adobe EchoSign company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your Adobe EchoSign company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="77c6a268-900d-4b24-ade4-9256ff143b2b" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="9316ba7b-6f78-4ca4-b652-b87320d4c847">&lt;strong&gt;</bpt>Account<ept id="9316ba7b-6f78-4ca4-b652-b87320d4c847">&lt;/strong&gt;</ept>, and then, in the navigation pane on the left die, click <bpt id="6565a420-f055-4c4d-8666-308a67f182f5">&lt;strong&gt;</bpt>SAML Settings<ept id="6565a420-f055-4c4d-8666-308a67f182f5">&lt;/strong&gt;</ept> under <bpt id="b200feb0-e1c1-4611-bc6a-2382379380bb">&lt;strong&gt;</bpt>Account Settings<ept id="b200feb0-e1c1-4611-bc6a-2382379380bb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="9316ba7b-6f78-4ca4-b652-b87320d4c847">&lt;strong&gt;</bpt>Account<ept id="9316ba7b-6f78-4ca4-b652-b87320d4c847">&lt;/strong&gt;</ept>, and then, in the navigation pane on the left die, click <bpt id="6565a420-f055-4c4d-8666-308a67f182f5">&lt;strong&gt;</bpt>SAML Settings<ept id="6565a420-f055-4c4d-8666-308a67f182f5">&lt;/strong&gt;</ept> under <bpt id="b200feb0-e1c1-4611-bc6a-2382379380bb">&lt;strong&gt;</bpt>Account Settings<ept id="b200feb0-e1c1-4611-bc6a-2382379380bb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3722a871-de5b-464c-8933-9f59dd406399" xml:space="preserve">
+          <source><bpt id="4b5caacf-802c-4258-9a8d-1b7f31e69c54">&lt;linkText&gt;</bpt>Account<ept id="4b5caacf-802c-4258-9a8d-1b7f31e69c54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b5caacf-802c-4258-9a8d-1b7f31e69c54">&lt;linkText&gt;</bpt>Account<ept id="4b5caacf-802c-4258-9a8d-1b7f31e69c54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ef2d192-04e7-4114-95c6-a13d3974ce37" xml:space="preserve">
+          <source>In the SAML Settings section, perform the following steps:</source>
+          <target state="new">In the SAML Settings section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="0d488e5d-5272-4e41-bf76-90f5e9957437" xml:space="preserve">
+          <source><bpt id="3aa532c9-0ecf-459b-90c1-4c05171da2cf">&lt;linkText&gt;</bpt>SAML Settings<ept id="3aa532c9-0ecf-459b-90c1-4c05171da2cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3aa532c9-0ecf-459b-90c1-4c05171da2cf">&lt;linkText&gt;</bpt>SAML Settings<ept id="3aa532c9-0ecf-459b-90c1-4c05171da2cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="807cc9ff-3f00-41b3-8db1-0f5a881428ad" xml:space="preserve">
+          <source>As <bpt id="33ff564b-47e0-428b-89b9-853abf5ddaa6">&lt;strong&gt;</bpt>SAML Mode<ept id="33ff564b-47e0-428b-89b9-853abf5ddaa6">&lt;/strong&gt;</ept>, select <bpt id="48fcff74-d844-4537-a3d6-46883f7b7e3b">&lt;strong&gt;</bpt>SAML Mandatory<ept id="48fcff74-d844-4537-a3d6-46883f7b7e3b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="33ff564b-47e0-428b-89b9-853abf5ddaa6">&lt;strong&gt;</bpt>SAML Mode<ept id="33ff564b-47e0-428b-89b9-853abf5ddaa6">&lt;/strong&gt;</ept>, select <bpt id="48fcff74-d844-4537-a3d6-46883f7b7e3b">&lt;strong&gt;</bpt>SAML Mandatory<ept id="48fcff74-d844-4537-a3d6-46883f7b7e3b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af78b89e-8531-44f0-a470-ab639e86951a" xml:space="preserve">
+          <source>Select <bpt id="3309377c-d845-4481-8910-944c0c79efbe">&lt;strong&gt;</bpt>Allow EchoSign Account Administrators to log in using their EchoSign Credentials<ept id="3309377c-d845-4481-8910-944c0c79efbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="3309377c-d845-4481-8910-944c0c79efbe">&lt;strong&gt;</bpt>Allow EchoSign Account Administrators to log in using their EchoSign Credentials<ept id="3309377c-d845-4481-8910-944c0c79efbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="456fdb67-f845-453c-afb1-6b300b502a80" xml:space="preserve">
+          <source>As <bpt id="1a39ca1b-03d9-44df-a850-6fe16bb70736">&lt;strong&gt;</bpt>User Creation<ept id="1a39ca1b-03d9-44df-a850-6fe16bb70736">&lt;/strong&gt;</ept>, select <bpt id="d5de9455-ab37-4151-94f7-31a5980daaf3">&lt;strong&gt;</bpt>Automatically add users authenticated through SAML<ept id="d5de9455-ab37-4151-94f7-31a5980daaf3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="1a39ca1b-03d9-44df-a850-6fe16bb70736">&lt;strong&gt;</bpt>User Creation<ept id="1a39ca1b-03d9-44df-a850-6fe16bb70736">&lt;/strong&gt;</ept>, select <bpt id="d5de9455-ab37-4151-94f7-31a5980daaf3">&lt;strong&gt;</bpt>Automatically add users authenticated through SAML<ept id="d5de9455-ab37-4151-94f7-31a5980daaf3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eac02d36-76af-4e9a-aa30-10d22a7e9793" xml:space="preserve">
+          <source>Move on, performing the following steps:</source>
+          <target state="new">Move on, performing the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c6d1157f-e830-4d61-9bc0-14545c20ee1a" xml:space="preserve">
+          <source><bpt id="9844ba4c-29df-40e7-8567-2477828e7cce">&lt;linkText&gt;</bpt>SAML Settings<ept id="9844ba4c-29df-40e7-8567-2477828e7cce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9844ba4c-29df-40e7-8567-2477828e7cce">&lt;linkText&gt;</bpt>SAML Settings<ept id="9844ba4c-29df-40e7-8567-2477828e7cce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8578eb40-1b9e-4b07-94e7-b2b269af8b8c" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="19938ce8-b1a5-4082-b90e-2f94f5a98642">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="19938ce8-b1a5-4082-b90e-2f94f5a98642">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="0a950cc1-a99f-4e3a-ad38-93a314aba99a">&lt;strong&gt;</bpt>Entity ID<ept id="0a950cc1-a99f-4e3a-ad38-93a314aba99a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="abe34f13-daf5-4526-9a4e-63020d9aa2c0">&lt;strong&gt;</bpt>IdP Entity ID<ept id="abe34f13-daf5-4526-9a4e-63020d9aa2c0">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="19938ce8-b1a5-4082-b90e-2f94f5a98642">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="19938ce8-b1a5-4082-b90e-2f94f5a98642">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="0a950cc1-a99f-4e3a-ad38-93a314aba99a">&lt;strong&gt;</bpt>Entity ID<ept id="0a950cc1-a99f-4e3a-ad38-93a314aba99a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="abe34f13-daf5-4526-9a4e-63020d9aa2c0">&lt;strong&gt;</bpt>IdP Entity ID<ept id="abe34f13-daf5-4526-9a4e-63020d9aa2c0">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="435b4c9c-773b-4362-a2df-cbe9b30997c8" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="11c7211e-10e4-4ad9-9488-58a544548b9c">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="11c7211e-10e4-4ad9-9488-58a544548b9c">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="a8a083a4-9424-4be4-aae8-9a8fb3874e0a">&lt;strong&gt;</bpt>Remote Login URL<ept id="a8a083a4-9424-4be4-aae8-9a8fb3874e0a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb56ebc5-e666-4eb5-aa25-65a88f77a568">&lt;strong&gt;</bpt>IdP Login URL<ept id="bb56ebc5-e666-4eb5-aa25-65a88f77a568">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="11c7211e-10e4-4ad9-9488-58a544548b9c">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="11c7211e-10e4-4ad9-9488-58a544548b9c">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="a8a083a4-9424-4be4-aae8-9a8fb3874e0a">&lt;strong&gt;</bpt>Remote Login URL<ept id="a8a083a4-9424-4be4-aae8-9a8fb3874e0a">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="bb56ebc5-e666-4eb5-aa25-65a88f77a568">&lt;strong&gt;</bpt>IdP Login URL<ept id="bb56ebc5-e666-4eb5-aa25-65a88f77a568">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="f7a01a88-3983-4592-a967-ebaa87d564e2" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="758d0d07-08f0-49ec-9969-b3b2dded93b8">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="758d0d07-08f0-49ec-9969-b3b2dded93b8">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="bc298233-c13f-4f1a-a297-ce05aa78bef5">&lt;strong&gt;</bpt>Remote Logout URL<ept id="bc298233-c13f-4f1a-a297-ce05aa78bef5">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="0045b065-e66b-4787-b00f-bdbe2371c1ad">&lt;strong&gt;</bpt>IdP Logout URL<ept id="0045b065-e66b-4787-b00f-bdbe2371c1ad">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="758d0d07-08f0-49ec-9969-b3b2dded93b8">&lt;strong&gt;</bpt>Configure single sign-on at Adobe EchoSign<ept id="758d0d07-08f0-49ec-9969-b3b2dded93b8">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="bc298233-c13f-4f1a-a297-ce05aa78bef5">&lt;strong&gt;</bpt>Remote Logout URL<ept id="bc298233-c13f-4f1a-a297-ce05aa78bef5">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="0045b065-e66b-4787-b00f-bdbe2371c1ad">&lt;strong&gt;</bpt>IdP Logout URL<ept id="0045b065-e66b-4787-b00f-bdbe2371c1ad">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="c0b5b703-3146-4dcb-b70f-4efe59626cd1" xml:space="preserve">
+          <source>Create a <bpt id="949d8dc7-b8e2-4d03-b269-b4099c965fe0">&lt;strong&gt;</bpt>base-64 encoded<ept id="949d8dc7-b8e2-4d03-b269-b4099c965fe0">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="949d8dc7-b8e2-4d03-b269-b4099c965fe0">&lt;strong&gt;</bpt>base-64 encoded<ept id="949d8dc7-b8e2-4d03-b269-b4099c965fe0">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="8b2a786e-cacc-435c-bc9f-e53f9f31e9e5" xml:space="preserve">
+          <source>For more details, see <bpt id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;/linkText&gt;</ept><bpt id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;title&gt;</bpt><ept id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;/linkText&gt;</ept><bpt id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;title&gt;</bpt><ept id="4c6a809f-6378-4988-8868-56b373c3ed8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c39b2ba3-e363-4bfa-95f4-342a16627789" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="d1d52f7e-4fbe-4364-be40-a46736185df7">&lt;strong&gt;</bpt>IdP Certificate<ept id="d1d52f7e-4fbe-4364-be40-a46736185df7">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="d1d52f7e-4fbe-4364-be40-a46736185df7">&lt;strong&gt;</bpt>IdP Certificate<ept id="d1d52f7e-4fbe-4364-be40-a46736185df7">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="ddbb2ce6-1a61-4724-ac8a-0314e33757bf" xml:space="preserve">
+          <source>Click <bpt id="f38f9475-e4a8-423c-b023-e217bbf1faf7">&lt;strong&gt;</bpt>Save Changes<ept id="f38f9475-e4a8-423c-b023-e217bbf1faf7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f38f9475-e4a8-423c-b023-e217bbf1faf7">&lt;strong&gt;</bpt>Save Changes<ept id="f38f9475-e4a8-423c-b023-e217bbf1faf7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6708d99f-da11-4a20-bc3c-5d13337f1e4d" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="2fbf36df-8416-46bb-aa5e-840b350ec9de">&lt;strong&gt;</bpt>Complete<ept id="2fbf36df-8416-46bb-aa5e-840b350ec9de">&lt;/strong&gt;</ept> to close the <bpt id="569fa43e-afa5-443d-961c-32620d1367f9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="569fa43e-afa5-443d-961c-32620d1367f9">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="2fbf36df-8416-46bb-aa5e-840b350ec9de">&lt;strong&gt;</bpt>Complete<ept id="2fbf36df-8416-46bb-aa5e-840b350ec9de">&lt;/strong&gt;</ept> to close the <bpt id="569fa43e-afa5-443d-961c-32620d1367f9">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="569fa43e-afa5-443d-961c-32620d1367f9">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="378cb86b-2d1a-4cb2-ba80-971e96216966" xml:space="preserve">
+          <source><bpt id="4d756bbc-dc1e-4232-9d8b-8fe60795e5b6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="4d756bbc-dc1e-4232-9d8b-8fe60795e5b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d756bbc-dc1e-4232-9d8b-8fe60795e5b6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="4d756bbc-dc1e-4232-9d8b-8fe60795e5b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c399a0f5-603e-42f7-b16e-bc9743af7a38" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Adobe EchoSign, they must be provisioned into Adobe EchoSign.</source>
+          <target state="new">In order to enable Azure AD users to log into Adobe EchoSign, they must be provisioned into Adobe EchoSign.</target>
+        </trans-unit>
+        <trans-unit id="e401ef0a-168f-4745-9998-f821c0a2d48b" xml:space="preserve">
+          <source>In the case of Adobe EchoSign, provisioning is a manual task.</source>
+          <target state="new">In the case of Adobe EchoSign, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="37fa2041-9425-4c44-9c78-be0a13ad4359" xml:space="preserve">
+          <source>Log in to your <bpt id="8cec24fc-8321-42ef-aeac-dba4aa762201">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="8cec24fc-8321-42ef-aeac-dba4aa762201">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="8cec24fc-8321-42ef-aeac-dba4aa762201">&lt;strong&gt;</bpt>Adobe EchoSign<ept id="8cec24fc-8321-42ef-aeac-dba4aa762201">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="c184943d-29bb-449a-9427-005d87387a06" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="ac76afed-86b6-40c5-abcf-d5ae5a7dc967">&lt;strong&gt;</bpt>Account<ept id="ac76afed-86b6-40c5-abcf-d5ae5a7dc967">&lt;/strong&gt;</ept>, and then, in the navigation pane on the left die, click <bpt id="13c6024a-8303-46bb-b347-06e650b5dede">&lt;strong&gt;</bpt>Users &amp; Groups<ept id="13c6024a-8303-46bb-b347-06e650b5dede">&lt;/strong&gt;</ept>, and then, click <bpt id="11f47851-1dfd-45b8-97b6-c8ac3987c639">&lt;strong&gt;</bpt>Create a new user<ept id="11f47851-1dfd-45b8-97b6-c8ac3987c639">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="ac76afed-86b6-40c5-abcf-d5ae5a7dc967">&lt;strong&gt;</bpt>Account<ept id="ac76afed-86b6-40c5-abcf-d5ae5a7dc967">&lt;/strong&gt;</ept>, and then, in the navigation pane on the left die, click <bpt id="13c6024a-8303-46bb-b347-06e650b5dede">&lt;strong&gt;</bpt>Users &amp; Groups<ept id="13c6024a-8303-46bb-b347-06e650b5dede">&lt;/strong&gt;</ept>, and then, click <bpt id="11f47851-1dfd-45b8-97b6-c8ac3987c639">&lt;strong&gt;</bpt>Create a new user<ept id="11f47851-1dfd-45b8-97b6-c8ac3987c639">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a817f225-e198-4f8e-8495-0046da5f0b0f" xml:space="preserve">
+          <source><bpt id="3a20c943-91a6-4bf1-8a02-7e7842868483">&lt;linkText&gt;</bpt>Account<ept id="3a20c943-91a6-4bf1-8a02-7e7842868483">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a20c943-91a6-4bf1-8a02-7e7842868483">&lt;linkText&gt;</bpt>Account<ept id="3a20c943-91a6-4bf1-8a02-7e7842868483">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2b25b4a-5677-4f2c-ac66-8c325637dd9f" xml:space="preserve">
+          <source>In the <bpt id="2c9ad2de-a556-4500-bbf9-9404cc3326ad">&lt;strong&gt;</bpt>Create New User<ept id="2c9ad2de-a556-4500-bbf9-9404cc3326ad">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="2c9ad2de-a556-4500-bbf9-9404cc3326ad">&lt;strong&gt;</bpt>Create New User<ept id="2c9ad2de-a556-4500-bbf9-9404cc3326ad">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="be6ee0c8-6e01-45cf-8325-699bcd5497e6" xml:space="preserve">
+          <source><bpt id="b768a7d0-b99f-4efa-940f-d3485d62141e">&lt;linkText&gt;</bpt>Create User<ept id="b768a7d0-b99f-4efa-940f-d3485d62141e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b768a7d0-b99f-4efa-940f-d3485d62141e">&lt;linkText&gt;</bpt>Create User<ept id="b768a7d0-b99f-4efa-940f-d3485d62141e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5a3081cd-b490-4b30-b150-a61e81cfe0ce" xml:space="preserve">
+          <source>Type the <bpt id="6fd3d55b-656f-47e2-8597-00ef650e5247">&lt;strong&gt;</bpt>Email Address<ept id="6fd3d55b-656f-47e2-8597-00ef650e5247">&lt;/strong&gt;</ept>, <bpt id="b6949294-6593-4585-ad18-ef68dcce3e1b">&lt;strong&gt;</bpt>First Name<ept id="b6949294-6593-4585-ad18-ef68dcce3e1b">&lt;/strong&gt;</ept> and <bpt id="23f2c6e6-cd1f-4b58-9a9e-c5f51a1764ac">&lt;strong&gt;</bpt>Last Name<ept id="23f2c6e6-cd1f-4b58-9a9e-c5f51a1764ac">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="6fd3d55b-656f-47e2-8597-00ef650e5247">&lt;strong&gt;</bpt>Email Address<ept id="6fd3d55b-656f-47e2-8597-00ef650e5247">&lt;/strong&gt;</ept>, <bpt id="b6949294-6593-4585-ad18-ef68dcce3e1b">&lt;strong&gt;</bpt>First Name<ept id="b6949294-6593-4585-ad18-ef68dcce3e1b">&lt;/strong&gt;</ept> and <bpt id="23f2c6e6-cd1f-4b58-9a9e-c5f51a1764ac">&lt;strong&gt;</bpt>Last Name<ept id="23f2c6e6-cd1f-4b58-9a9e-c5f51a1764ac">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="2d1de7db-5917-4a15-b4ca-c023c08d1940" xml:space="preserve">
+          <source>Click <bpt id="472d550a-06b1-465a-a4b7-38c1d93dd33f">&lt;strong&gt;</bpt>Create User<ept id="472d550a-06b1-465a-a4b7-38c1d93dd33f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="472d550a-06b1-465a-a4b7-38c1d93dd33f">&lt;strong&gt;</bpt>Create User<ept id="472d550a-06b1-465a-a4b7-38c1d93dd33f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fea4b66e-5070-496b-baeb-ce9d1317f95e" xml:space="preserve">
+          <source>The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active.</source>
+          <target state="new">The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active.</target>
+        </trans-unit>
+        <trans-unit id="4d38534c-7db9-4707-b313-a6fbc2a3a77c" xml:space="preserve">
+          <source>You can use any other Adobe EchoSign user account creation tools or APIs provided by Adobe EchoSign to provision AAD user accounts.</source>
+          <target state="new">You can use any other Adobe EchoSign user account creation tools or APIs provided by Adobe EchoSign to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="287850e5-cb0f-4c7c-a2bc-f91d881f0b27" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="df2536ec-919d-4c35-9e04-e6e0acdbd37a" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="9ab36696-3700-43a5-9685-29d9503713da" xml:space="preserve">
+          <source>On the <bpt id="f88d4e46-1d71-4cee-978c-ac25ab676f49">&lt;strong&gt;</bpt>Adobe EchoSign **application integration page, click **Assign users<ept id="f88d4e46-1d71-4cee-978c-ac25ab676f49">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f88d4e46-1d71-4cee-978c-ac25ab676f49">&lt;strong&gt;</bpt>Adobe EchoSign **application integration page, click **Assign users<ept id="f88d4e46-1d71-4cee-978c-ac25ab676f49">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea8022ff-e99b-4761-9f3e-b855d0365070" xml:space="preserve">
+          <source><bpt id="1fff71d7-2a52-4467-9898-4acc46340f9a">&lt;linkText&gt;</bpt>Assign Users<ept id="1fff71d7-2a52-4467-9898-4acc46340f9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fff71d7-2a52-4467-9898-4acc46340f9a">&lt;linkText&gt;</bpt>Assign Users<ept id="1fff71d7-2a52-4467-9898-4acc46340f9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d640f4f7-adcc-46f1-9d74-42fc0d47d6f9" xml:space="preserve">
+          <source>Select your test user, click <bpt id="08abf8c9-1603-426d-81c9-914ec115921c">&lt;strong&gt;</bpt>Assign<ept id="08abf8c9-1603-426d-81c9-914ec115921c">&lt;/strong&gt;</ept>, and then click <bpt id="f43364c2-b801-4262-a5af-d4fdf475ace1">&lt;strong&gt;</bpt>Yes<ept id="f43364c2-b801-4262-a5af-d4fdf475ace1">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="08abf8c9-1603-426d-81c9-914ec115921c">&lt;strong&gt;</bpt>Assign<ept id="08abf8c9-1603-426d-81c9-914ec115921c">&lt;/strong&gt;</ept>, and then click <bpt id="f43364c2-b801-4262-a5af-d4fdf475ace1">&lt;strong&gt;</bpt>Yes<ept id="f43364c2-b801-4262-a5af-d4fdf475ace1">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="1febb5fd-502c-4bc0-93e2-7f94a840f2f0" xml:space="preserve">
+          <source><bpt id="04d363f4-ca76-4160-9c3f-38f4a262f40c">&lt;linkText&gt;</bpt>Yes<ept id="04d363f4-ca76-4160-9c3f-38f4a262f40c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04d363f4-ca76-4160-9c3f-38f4a262f40c">&lt;linkText&gt;</bpt>Yes<ept id="04d363f4-ca76-4160-9c3f-38f4a262f40c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74e80f49-1e36-4455-8de9-67ea4c4ab89a" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="81790e46-8d50-48a9-99b4-352c426459da" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;/linkText&gt;</ept><bpt id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;title&gt;</bpt><ept id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;/linkText&gt;</ept><bpt id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;title&gt;</bpt><ept id="62004a9d-dd78-4ecf-a0b1-57b7ef7b605c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

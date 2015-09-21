@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="920e091e-c52e-4227-95a8-411ee83796d3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="920e091e-c52e-4227-95a8-411ee83796d3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e4240baa-1f55-4f53-b233-dd706834d8e1">
+        <trans-unit id="d8a56c35-4f08-4bc3-8df5-1529973e0d22" xml:space="preserve">
+          <source>Azure Mobile Engagement User Interface - Settings</source>
+          <target state="new">Azure Mobile Engagement User Interface - Settings</target>
+        </trans-unit>
+        <trans-unit id="a3b23177-456d-42e7-97a3-305c4dc18fa5" xml:space="preserve">
+          <source>Learn how to manage the global settings of your application using Azure Mobile Engagement</source>
+          <target state="new">Learn how to manage the global settings of your application using Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="8b42c60e-b167-431d-8e36-04b7f4adbf6e" xml:space="preserve">
+          <source>The Settings menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application.</source>
+          <target state="new">The Settings menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application.</target>
+        </trans-unit>
+        <trans-unit id="49c80aa7-e6a8-4ce9-933d-124b67ba21a8" xml:space="preserve">
+          <source>Settings include the following: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions.</source>
+          <target state="new">Settings include the following: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions.</target>
+        </trans-unit>
+        <trans-unit id="99abc248-3450-4809-bc23-7a13c708a9d8" xml:space="preserve">
+          <source>Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API.</source>
+          <target state="new">Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API.</target>
+        </trans-unit>
+        <trans-unit id="947abd5f-8404-4321-b973-49561e8fa98b" xml:space="preserve">
+          <source>The “Glossary” in “Concepts” includes the definitions of terms and abbreviations, such as the following: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.</source>
+          <target state="new">The “Glossary” in “Concepts” includes the definitions of terms and abbreviations, such as the following: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.</target>
+        </trans-unit>
+        <trans-unit id="a5fe932d-293a-4d7c-84f1-45fbfd1ac39c" xml:space="preserve">
+          <source><bpt id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;linkText&gt;</bpt>API Documentation - Device API[link 4]<ept id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;/linkText&gt;</ept><bpt id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;title&gt;</bpt><ept id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;/title&gt;</ept>, <bpt id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;linkText&gt;</bpt>Concepts - Glossary[link 6]<ept id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;/linkText&gt;</ept><bpt id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;title&gt;</bpt><ept id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;/title&gt;</ept>, <bpt id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;linkText&gt;</bpt>Troubleshooting Guide - Service[link 24]<ept id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;/linkText&gt;</ept><bpt id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;title&gt;</bpt><ept id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;linkText&gt;</bpt>API Documentation - Device API[link 4]<ept id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;/linkText&gt;</ept><bpt id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;title&gt;</bpt><ept id="364c525a-d46c-4a17-8f75-a7521890c76e">&lt;/title&gt;</ept>, <bpt id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;linkText&gt;</bpt>Concepts - Glossary[link 6]<ept id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;/linkText&gt;</ept><bpt id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;title&gt;</bpt><ept id="e9c1a2c5-5b75-402a-ae7d-ff43c15a3244">&lt;/title&gt;</ept>, <bpt id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;linkText&gt;</bpt>Troubleshooting Guide - Service[link 24]<ept id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;/linkText&gt;</ept><bpt id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;title&gt;</bpt><ept id="ce5dc95a-5698-4ed5-a26f-97a18e7672e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="085112f9-4998-4853-a6a1-7fa248efbff4" xml:space="preserve">
+          <source><bpt id="b354c4e1-85b6-4438-84e3-8540a362b3be">&lt;linkText&gt;</bpt>settings1<ept id="b354c4e1-85b6-4438-84e3-8540a362b3be">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b354c4e1-85b6-4438-84e3-8540a362b3be">&lt;linkText&gt;</bpt>settings1<ept id="b354c4e1-85b6-4438-84e3-8540a362b3be">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52ee79f7-d13f-4976-830d-338e6dfdfca1" xml:space="preserve">
+          <source>Allows you to change the name and Description of your application 
+View the owner of your application and your role Permissions.</source>
+          <target state="new">Allows you to change the name and Description of your application 
+View the owner of your application and your role Permissions.</target>
+        </trans-unit>
+        <trans-unit id="b84d3056-ee38-4742-83b4-52de5a66342a" xml:space="preserve">
+          <source>Analytics configuration: Allows you to view or change the day Weeks start on, the Retention time in day(s)</source>
+          <target state="new">Analytics configuration: Allows you to view or change the day Weeks start on, the Retention time in day(s)</target>
+        </trans-unit>
+        <trans-unit id="b0809174-9748-4bfe-8e3c-847e5b58e63a" xml:space="preserve">
+          <source>  <bpt id="05fdf6ed-2522-4820-899f-c5f42eb723ed">&lt;linkText&gt;</bpt>settings2<ept id="05fdf6ed-2522-4820-899f-c5f42eb723ed">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="05fdf6ed-2522-4820-899f-c5f42eb723ed">&lt;linkText&gt;</bpt>settings2<ept id="05fdf6ed-2522-4820-899f-c5f42eb723ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99af0ebd-b882-437e-aba9-855438dae8a4" xml:space="preserve">
+          <source>Allows you to select all projects you want your application to appear in.</source>
+          <target state="new">Allows you to select all projects you want your application to appear in.</target>
+        </trans-unit>
+        <trans-unit id="5feb7a03-fe09-4e7d-b565-00ed79ba2392" xml:space="preserve">
+          <source>You can also search for a project and view the name, description, owner and your role permissions of any project your application is part of.</source>
+          <target state="new">You can also search for a project and view the name, description, owner and your role permissions of any project your application is part of.</target>
+        </trans-unit>
+        <trans-unit id="bddc87f3-471e-4f12-bca0-dadb9df47136" xml:space="preserve">
+          <source><bpt id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;linkText&gt;</bpt>UI Documentation – Home[link 13]<ept id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;/linkText&gt;</ept><bpt id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;title&gt;</bpt><ept id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;linkText&gt;</bpt>UI Documentation – Home[link 13]<ept id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;/linkText&gt;</ept><bpt id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;title&gt;</bpt><ept id="266257df-f758-41e7-b8e9-7109427e0a8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ef372e5-e8f2-4b25-a7ac-d81334f1c6f8" xml:space="preserve">
+          <source><bpt id="ffedbd7b-30ac-48f9-bad9-3e399d817c9b">&lt;linkText&gt;</bpt>settings3<ept id="ffedbd7b-30ac-48f9-bad9-3e399d817c9b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffedbd7b-30ac-48f9-bad9-3e399d817c9b">&lt;linkText&gt;</bpt>settings3<ept id="ffedbd7b-30ac-48f9-bad9-3e399d817c9b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b143387-4970-4ac1-a863-648d5e3de4a0" xml:space="preserve">
+          <source>Allows you to register a new certificate or delete and existing certificate for use with native push.</source>
+          <target state="new">Allows you to register a new certificate or delete and existing certificate for use with native push.</target>
+        </trans-unit>
+        <trans-unit id="053997ad-9d36-4528-9f9f-4d784e184eed" xml:space="preserve">
+          <source>Native Push enables Azure Mobile Engagement to push to your application at any time, even when it is not running.</source>
+          <target state="new">Native Push enables Azure Mobile Engagement to push to your application at any time, even when it is not running.</target>
+        </trans-unit>
+        <trans-unit id="3d9b4897-19af-4834-ae97-4cc24f877822" xml:space="preserve">
+          <source>After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use the "notifier" parameter in the PUSH API.</source>
+          <target state="new">After providing credentials or certificates for at least one Native Push service, you can select "Any time" when creating Reach Campaigns, and also use the "notifier" parameter in the PUSH API.</target>
+        </trans-unit>
+        <trans-unit id="441a763c-5369-47e8-b3b6-f9f209ac6582" xml:space="preserve">
+          <source><bpt id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;linkText&gt;</bpt>API documentation - Reach API[link 4]<ept id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;/linkText&gt;</ept><bpt id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;title&gt;</bpt><ept id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;/title&gt;</ept>,<bpt id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;linkText&gt;</bpt>API documentation - Push API[link 4]<ept id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;/linkText&gt;</ept><bpt id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;title&gt;</bpt><ept id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;/title&gt;</ept>, <bpt id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;/linkText&gt;</ept><bpt id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;title&gt;</bpt><ept id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;linkText&gt;</bpt>API documentation - Reach API[link 4]<ept id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;/linkText&gt;</ept><bpt id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;title&gt;</bpt><ept id="c6b081f7-7ea6-4211-8660-e7f98775f11c">&lt;/title&gt;</ept>,<bpt id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;linkText&gt;</bpt>API documentation - Push API[link 4]<ept id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;/linkText&gt;</ept><bpt id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;title&gt;</bpt><ept id="2cfa11ef-4777-4c9b-a194-dbb28c37bd71">&lt;/title&gt;</ept>, <bpt id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;/linkText&gt;</ept><bpt id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;title&gt;</bpt><ept id="94638049-5ec0-4f08-94f0-7fdb96022d77">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb7b8f4b-17b3-49b4-80d7-6e63923ac5ff" xml:space="preserve">
+          <source>To enable Native Push using the Apple Push Notification Service you will need to register your certificate.</source>
+          <target state="new">To enable Native Push using the Apple Push Notification Service you will need to register your certificate.</target>
+        </trans-unit>
+        <trans-unit id="b8e4ef68-abbb-4099-a751-e5888f5e059a" xml:space="preserve">
+          <source>You will need to specify the type of certificate as either development (DEV) or production (PROD).</source>
+          <target state="new">You will need to specify the type of certificate as either development (DEV) or production (PROD).</target>
+        </trans-unit>
+        <trans-unit id="c048ebe0-91ad-4de0-a0b4-bff7f5f35f7b" xml:space="preserve">
+          <source>Then you will need upload your certificate and the password.</source>
+          <target state="new">Then you will need upload your certificate and the password.</target>
+        </trans-unit>
+        <trans-unit id="dad2f02a-3ab9-419f-880d-07404354b307" xml:space="preserve">
+          <source><bpt id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;linkText&gt;</bpt>SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications[link 5]<ept id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;/linkText&gt;</ept><bpt id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;title&gt;</bpt><ept id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;linkText&gt;</bpt>SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications[link 5]<ept id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;/linkText&gt;</ept><bpt id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;title&gt;</bpt><ept id="e9adf0a8-c004-4375-84f0-d2492bf9cd1f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e000b6d6-ae82-4530-8792-a0b73128e9f8" xml:space="preserve">
+          <source><bpt id="2212ca7d-0ff2-4d6b-b14a-8cc5b9000563">&lt;linkText&gt;</bpt>settings4<ept id="2212ca7d-0ff2-4d6b-b14a-8cc5b9000563">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2212ca7d-0ff2-4d6b-b14a-8cc5b9000563">&lt;linkText&gt;</bpt>settings4<ept id="2212ca7d-0ff2-4d6b-b14a-8cc5b9000563">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="905b8fea-2144-4b43-95c4-af89d9e41259" xml:space="preserve">
+          <source>To enable Native Push using Windows Notification Service, you must provide your application's credentials.</source>
+          <target state="new">To enable Native Push using Windows Notification Service, you must provide your application's credentials.</target>
+        </trans-unit>
+        <trans-unit id="bd617271-aef6-4ec4-a1bb-f26966d8aef6" xml:space="preserve">
+          <source>You will need your Package security identifier (SID) and your Secret key.</source>
+          <target state="new">You will need your Package security identifier (SID) and your Secret key.</target>
+        </trans-unit>
+        <trans-unit id="1fdc6325-7ad2-40f5-8bb2-940ce0f52381" xml:space="preserve">
+          <source><bpt id="54791434-1dca-4663-8dbf-1c911bc34905">&lt;linkText&gt;</bpt>settings5<ept id="54791434-1dca-4663-8dbf-1c911bc34905">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54791434-1dca-4663-8dbf-1c911bc34905">&lt;linkText&gt;</bpt>settings5<ept id="54791434-1dca-4663-8dbf-1c911bc34905">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1f37648-ba7a-4bde-8ad0-24a7ecd6c0f6" xml:space="preserve">
+          <source>To enable Native Push using GCM, you need to follow the instructions from Google.</source>
+          <target state="new">To enable Native Push using GCM, you need to follow the instructions from Google.</target>
+        </trans-unit>
+        <trans-unit id="4ce4a2ed-d16b-4843-bbee-34e71e8a00fa" xml:space="preserve">
+          <source>Then you must paste a server simple API key, configured without IP restrictions.</source>
+          <target state="new">Then you must paste a server simple API key, configured without IP restrictions.</target>
+        </trans-unit>
+        <trans-unit id="1ed080ee-1e79-469d-a3ff-cd6eba79845f" xml:space="preserve">
+          <source>Requires integration with the SDK for Android v1.12.0+.</source>
+          <target state="new">Requires integration with the SDK for Android v1.12.0+.</target>
+        </trans-unit>
+        <trans-unit id="768e4ee4-768a-4908-bfb6-69003befeadb" xml:space="preserve">
+          <source><bpt id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate GCM[link 5]<ept id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;/linkText&gt;</ept><bpt id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;title&gt;</bpt><ept id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;/title&gt;</ept>, <bpt id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;linkText&gt;</bpt>Google Developer - GCM Guide<ept id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;/linkText&gt;</ept><bpt id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;title&gt;</bpt><ept id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;/title&gt;</ept>, <bpt id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;linkText&gt;</bpt>Google Developer - GCM Documentation<ept id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;/linkText&gt;</ept><bpt id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;title&gt;</bpt><ept id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate GCM[link 5]<ept id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;/linkText&gt;</ept><bpt id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;title&gt;</bpt><ept id="c0be15ae-954d-4d04-af3a-52d62376b3d5">&lt;/title&gt;</ept>, <bpt id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;linkText&gt;</bpt>Google Developer - GCM Guide<ept id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;/linkText&gt;</ept><bpt id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;title&gt;</bpt><ept id="825ed785-38ca-44d7-ad61-c0c57036eb94">&lt;/title&gt;</ept>, <bpt id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;linkText&gt;</bpt>Google Developer - GCM Documentation<ept id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;/linkText&gt;</ept><bpt id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;title&gt;</bpt><ept id="7f251f30-8644-4d2f-91f1-9b61d3a0a914">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2680c7c5-48a0-4694-b9a1-833c250a0d63" xml:space="preserve">
+          <source>To enable Native Push using ADM, you must provide Amazon &lt;OAuth credentials&gt; consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).</source>
+          <target state="new">To enable Native Push using ADM, you must provide Amazon &lt;OAuth credentials&gt; consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).</target>
+        </trans-unit>
+        <trans-unit id="8a83d5c8-42a0-4921-8f1e-1cdfd0d38dea" xml:space="preserve">
+          <source><bpt id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate ADM[link 5]<ept id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;/linkText&gt;</ept><bpt id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;title&gt;</bpt><ept id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;/title&gt;</ept>, <bpt id="84705703-19bb-47a0-83aa-baf41472571e">&lt;linkText&gt;</bpt>Amazon Developer - ADM Documentation<ept id="84705703-19bb-47a0-83aa-baf41472571e">&lt;/linkText&gt;</ept><bpt id="84705703-19bb-47a0-83aa-baf41472571e">&lt;title&gt;</bpt><ept id="84705703-19bb-47a0-83aa-baf41472571e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate ADM[link 5]<ept id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;/linkText&gt;</ept><bpt id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;title&gt;</bpt><ept id="cd88f14f-5d7e-411e-9858-65b061cd9fef">&lt;/title&gt;</ept>, <bpt id="84705703-19bb-47a0-83aa-baf41472571e">&lt;linkText&gt;</bpt>Amazon Developer - ADM Documentation<ept id="84705703-19bb-47a0-83aa-baf41472571e">&lt;/linkText&gt;</ept><bpt id="84705703-19bb-47a0-83aa-baf41472571e">&lt;title&gt;</bpt><ept id="84705703-19bb-47a0-83aa-baf41472571e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5c98923-ff08-4b58-b084-ca0d256bc446" xml:space="preserve">
+          <source><bpt id="ee4c5264-2a61-4fef-8fa0-18476eb3000e">&lt;linkText&gt;</bpt>settings6<ept id="ee4c5264-2a61-4fef-8fa0-18476eb3000e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ee4c5264-2a61-4fef-8fa0-18476eb3000e">&lt;linkText&gt;</bpt>settings6<ept id="ee4c5264-2a61-4fef-8fa0-18476eb3000e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="395332c5-5ee4-42a9-b0c8-4f9eacc11284" xml:space="preserve">
+          <source>Shows the current push speed of your application and allows you to define the push speed of your application.</source>
+          <target state="new">Shows the current push speed of your application and allows you to define the push speed of your application.</target>
+        </trans-unit>
+        <trans-unit id="2746113a-a0e5-4a9d-944d-ccae10822b5f" xml:space="preserve">
+          <source>The push speed defines the maximum number of pushes per second that the Reach module will perform.</source>
+          <target state="new">The push speed defines the maximum number of pushes per second that the Reach module will perform.</target>
+        </trans-unit>
+        <trans-unit id="eb7eecf4-0e5f-486d-a3a3-2f41693472ae" xml:space="preserve">
+          <source>This can be helpful in situation where your own servers are overloaded by too many requests per second(/s) after a campaign activation.</source>
+          <target state="new">This can be helpful in situation where your own servers are overloaded by too many requests per second(/s) after a campaign activation.</target>
+        </trans-unit>
+        <trans-unit id="1ebe1578-b40b-4f4e-b4b3-122601052a86" xml:space="preserve">
+          <source>  <bpt id="2f998f80-0348-47d3-9266-e14c78305664">&lt;linkText&gt;</bpt>settings7<ept id="2f998f80-0348-47d3-9266-e14c78305664">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="2f998f80-0348-47d3-9266-e14c78305664">&lt;linkText&gt;</bpt>settings7<ept id="2f998f80-0348-47d3-9266-e14c78305664">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="267b92f3-6881-4aec-943a-589d65e739e3" xml:space="preserve">
+          <source>The tracking feature allows you to track the origins of the installations of your iOS and Android applications.</source>
+          <target state="new">The tracking feature allows you to track the origins of the installations of your iOS and Android applications.</target>
+        </trans-unit>
+        <trans-unit id="7f41d56d-f30e-462e-a1e5-eb719858beb3" xml:space="preserve">
+          <source>It lets you know where your users downloaded your application (i.e. from which application store) and which source brought them here (i.e. ad campaign, blog, web site, e-mail, SMS, etc.).</source>
+          <target state="new">It lets you know where your users downloaded your application (i.e. from which application store) and which source brought them here (i.e. ad campaign, blog, web site, e-mail, SMS, etc.).</target>
+        </trans-unit>
+        <trans-unit id="b6f4c528-cef1-46c1-943a-e5812ffbf3f4" xml:space="preserve">
+          <source>The Tracking feature of Azure Mobile Engagement must be integrated into your application from the SDK as a separate step.</source>
+          <target state="new">The Tracking feature of Azure Mobile Engagement must be integrated into your application from the SDK as a separate step.</target>
+        </trans-unit>
+        <trans-unit id="3d65f5c9-277b-4f7f-9560-e643ef0ae5d9" xml:space="preserve">
+          <source><bpt id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate[link 5]<ept id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;/linkText&gt;</ept><bpt id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;title&gt;</bpt><ept id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;/title&gt;</ept>, <bpt id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;linkText&gt;</bpt>SDK Documentation - iOS - How to Integrate[link 5]<ept id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;/linkText&gt;</ept><bpt id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;title&gt;</bpt><ept id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;linkText&gt;</bpt>SDK Documentation - Android - How to Integrate[link 5]<ept id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;/linkText&gt;</ept><bpt id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;title&gt;</bpt><ept id="3d1a7538-08ae-4833-a59a-597fe06f7701">&lt;/title&gt;</ept>, <bpt id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;linkText&gt;</bpt>SDK Documentation - iOS - How to Integrate[link 5]<ept id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;/linkText&gt;</ept><bpt id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;title&gt;</bpt><ept id="69dc409c-a1ef-4db4-99e8-bd3296c603a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e386d8b-b4da-4a4d-8fe2-0d5a125584c2" xml:space="preserve">
+          <source>Allow you to register all stores from which your application can be downloaded based on their names and their associated download URLs.</source>
+          <target state="new">Allow you to register all stores from which your application can be downloaded based on their names and their associated download URLs.</target>
+        </trans-unit>
+        <trans-unit id="6df05a28-d0c2-42d3-92de-de0c1154f0d6" xml:space="preserve">
+          <source>Doing this allows you to create locations to host tracking URLs.</source>
+          <target state="new">Doing this allows you to create locations to host tracking URLs.</target>
+        </trans-unit>
+        <trans-unit id="b298fa41-f0dc-472f-81e2-bf0d808a965a" xml:space="preserve">
+          <source>Stores can be created or deleted from this page.</source>
+          <target state="new">Stores can be created or deleted from this page.</target>
+        </trans-unit>
+        <trans-unit id="6f698535-3be6-4611-ab03-a80f0a89bf14" xml:space="preserve">
+          <source>Using the icon to create a new tracking URL takes you to the tracking URLs page covered below.</source>
+          <target state="new">Using the icon to create a new tracking URL takes you to the tracking URLs page covered below.</target>
+        </trans-unit>
+        <trans-unit id="03ce8bfd-23e9-4501-ac82-fd162b593ed5" xml:space="preserve">
+          <source>There are several ways of tracking where yours users download your app:</source>
+          <target state="new">There are several ways of tracking where yours users download your app:</target>
+        </trans-unit>
+        <trans-unit id="110a3d22-82e2-4d48-945d-14d6aa9752e3" xml:space="preserve">
+          <source>Use a third party Ad Server (Azure Mobile Engagement currently supports <bpt id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;linkText&gt;</bpt>SmartAd<ept id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;/linkText&gt;</ept><bpt id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;title&gt;</bpt><ept id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;/title&gt;</ept> and <bpt id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;linkText&gt;</bpt>Surikate<ept id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;/linkText&gt;</ept><bpt id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;title&gt;</bpt><ept id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use a third party Ad Server (Azure Mobile Engagement currently supports <bpt id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;linkText&gt;</bpt>SmartAd<ept id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;/linkText&gt;</ept><bpt id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;title&gt;</bpt><ept id="5ade0a73-4e6a-4906-b358-b900467af31b">&lt;/title&gt;</ept> and <bpt id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;linkText&gt;</bpt>Surikate<ept id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;/linkText&gt;</ept><bpt id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;title&gt;</bpt><ept id="9ca87dda-5d34-4c50-b2a3-288cc2336e2e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3bc9fa8-ae6b-4679-b35a-4640d99e9b5b" xml:space="preserve">
+          <source>Use a third party attribution service (Azure Mobile Engagement currently supports <bpt id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;linkText&gt;</bpt>Mobile App Tracking<ept id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;/linkText&gt;</ept><bpt id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;title&gt;</bpt><ept id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;/title&gt;</ept> and <bpt id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;linkText&gt;</bpt>Trademob<ept id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;/linkText&gt;</ept><bpt id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;title&gt;</bpt><ept id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;/title&gt;</ept> may also be supported in the near future.)</source>
+          <target state="new">Use a third party attribution service (Azure Mobile Engagement currently supports <bpt id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;linkText&gt;</bpt>Mobile App Tracking<ept id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;/linkText&gt;</ept><bpt id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;title&gt;</bpt><ept id="df9fa7d8-16d3-4495-9872-4019f7fd5904">&lt;/title&gt;</ept> and <bpt id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;linkText&gt;</bpt>Trademob<ept id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;/linkText&gt;</ept><bpt id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;title&gt;</bpt><ept id="5a399853-0baa-4a3b-b062-86f994f2ea62">&lt;/title&gt;</ept> may also be supported in the near future.)</target>
+        </trans-unit>
+        <trans-unit id="9cc6163a-3f74-4667-893f-1963cbf4111c" xml:space="preserve">
+          <source>Use a third party install referrer (Azure Mobile Engagement currently supports <bpt id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;linkText&gt;</bpt>Google Play Install Referrer<ept id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;/linkText&gt;</ept><bpt id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;title&gt;</bpt><ept id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;/title&gt;</ept> - Android Only).</source>
+          <target state="new">Use a third party install referrer (Azure Mobile Engagement currently supports <bpt id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;linkText&gt;</bpt>Google Play Install Referrer<ept id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;/linkText&gt;</ept><bpt id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;title&gt;</bpt><ept id="b739988c-1f6f-4fc4-912a-b528018fda5b">&lt;/title&gt;</ept> - Android Only).</target>
+        </trans-unit>
+        <trans-unit id="6d890e8c-ae5a-41dd-898b-2c7ce006c601" xml:space="preserve">
+          <source>Use manual reporting.</source>
+          <target state="new">Use manual reporting.</target>
+        </trans-unit>
+        <trans-unit id="2c6e1b14-b0ab-4c68-9882-b3e07d8ce107" xml:space="preserve">
+          <source><bpt id="a49d88aa-d435-4888-b4e8-6dc95b15faa5">&lt;linkText&gt;</bpt>settings8<ept id="a49d88aa-d435-4888-b4e8-6dc95b15faa5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a49d88aa-d435-4888-b4e8-6dc95b15faa5">&lt;linkText&gt;</bpt>settings8<ept id="a49d88aa-d435-4888-b4e8-6dc95b15faa5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d99b1776-afd4-48a6-bd7e-dbfb43f7799f" xml:space="preserve">
+          <source>Allow you to create New Ad Campaigns consisting of an Ad server name, a Campaign ID, and the Source where your application can be downloaded.</source>
+          <target state="new">Allow you to create New Ad Campaigns consisting of an Ad server name, a Campaign ID, and the Source where your application can be downloaded.</target>
+        </trans-unit>
+        <trans-unit id="908d7121-ed43-439c-b33c-32077133b6cc" xml:space="preserve">
+          <source>  <bpt id="fa199635-c66b-4d56-92ee-a3ad51347a90">&lt;linkText&gt;</bpt>settings9<ept id="fa199635-c66b-4d56-92ee-a3ad51347a90">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="fa199635-c66b-4d56-92ee-a3ad51347a90">&lt;linkText&gt;</bpt>settings9<ept id="fa199635-c66b-4d56-92ee-a3ad51347a90">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="588234d3-76f3-41b5-b9f2-c782b4340911" xml:space="preserve">
+          <source>Allows you to build tracking URLs to use as target URLs in your sources (ad campaign, blog, web site, e-mail, SMS, etc.)</source>
+          <target state="new">Allows you to build tracking URLs to use as target URLs in your sources (ad campaign, blog, web site, e-mail, SMS, etc.)</target>
+        </trans-unit>
+        <trans-unit id="13ef5e16-7a59-42aa-a482-847755079236" xml:space="preserve">
+          <source>which can redirect users to the stores where they can download your application.</source>
+          <target state="new">which can redirect users to the stores where they can download your application.</target>
+        </trans-unit>
+        <trans-unit id="6f1abe42-0030-4731-815a-eb6a7ce583f2" xml:space="preserve">
+          <source>Also allows you to display all the tracking URLs you have already created.</source>
+          <target state="new">Also allows you to display all the tracking URLs you have already created.</target>
+        </trans-unit>
+        <trans-unit id="94e4fe4b-62b1-4a4f-8dd9-8150ef9c82e4" xml:space="preserve">
+          <source>A tracking URL can be used as the action URL of an ad campaign or a Reach announcement to invite your users to download one of your apps from another app.</source>
+          <target state="new">A tracking URL can be used as the action URL of an ad campaign or a Reach announcement to invite your users to download one of your apps from another app.</target>
+        </trans-unit>
+        <trans-unit id="aefdf525-5605-48a2-a313-8d9ff55e12c5" xml:space="preserve">
+          <source>A tracking URL redirects to the download URL associated with the selected store, while allowing our tracking system to record the store from which the application is downloaded at installation time.</source>
+          <target state="new">A tracking URL redirects to the download URL associated with the selected store, while allowing our tracking system to record the store from which the application is downloaded at installation time.</target>
+        </trans-unit>
+        <trans-unit id="309c4860-f035-4715-9648-ea3ac67b0a42" xml:space="preserve">
+          <source>If a source is provided, our tracking system also records it, allowing you to distinguish between the various ad campaigns you create for your application.</source>
+          <target state="new">If a source is provided, our tracking system also records it, allowing you to distinguish between the various ad campaigns you create for your application.</target>
+        </trans-unit>
+        <trans-unit id="40722df5-e578-41c4-97f5-a09ee67cbb62" xml:space="preserve">
+          <source>Creating a New tracking URL requires you to specify a store and the source of either none, customer, or add server.</source>
+          <target state="new">Creating a New tracking URL requires you to specify a store and the source of either none, customer, or add server.</target>
+        </trans-unit>
+        <trans-unit id="e1ca53ac-e807-4eeb-9174-419b2e255448" xml:space="preserve">
+          <source>A source of None creates a default tracking URL.</source>
+          <target state="new">A source of None creates a default tracking URL.</target>
+        </trans-unit>
+        <trans-unit id="2e77ce28-4ae7-42f6-b8db-931432d6a49d" xml:space="preserve">
+          <source>A source of Custom allows you to specify a URL on an external server to download your application.</source>
+          <target state="new">A source of Custom allows you to specify a URL on an external server to download your application.</target>
+        </trans-unit>
+        <trans-unit id="5ffe9d0f-1318-4b92-acaa-7486c88600e7" xml:space="preserve">
+          <source>A source of Ad server creates a default tracking URL in a default named Ad server.</source>
+          <target state="new">A source of Ad server creates a default tracking URL in a default named Ad server.</target>
+        </trans-unit>
+        <trans-unit id="f52466b1-57ee-4e74-a0c9-7d44b259262f" xml:space="preserve">
+          <source><bpt id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;/linkText&gt;</ept><bpt id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;title&gt;</bpt><ept id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;/linkText&gt;</ept><bpt id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;title&gt;</bpt><ept id="e58b2429-ee8e-40ef-96b7-5c4d33243233">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="20d270f4-1238-4c86-a3e7-558be06fb860" xml:space="preserve">
+          <source>You can also build a tracking URL allowing users to download one of your applications from inside the content section of a new reach campaign.</source>
+          <target state="new">You can also build a tracking URL allowing users to download one of your applications from inside the content section of a new reach campaign.</target>
+        </trans-unit>
+        <trans-unit id="b3dce4d1-d877-46eb-873a-240822750c46" xml:space="preserve">
+          <source><bpt id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;linkText&gt;</bpt>UI Documentation - Reach - Push Content[link 29]<ept id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;/linkText&gt;</ept><bpt id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;title&gt;</bpt><ept id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;linkText&gt;</bpt>UI Documentation - Reach - Push Content[link 29]<ept id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;/linkText&gt;</ept><bpt id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;title&gt;</bpt><ept id="2fc8bf45-60b4-40ae-a6e1-1194e39efabe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93780af6-26df-4689-a96a-15c88d1d222d" xml:space="preserve">
+          <source><bpt id="6e20d3be-bb8f-48c1-92d9-df55f59abd51">&lt;linkText&gt;</bpt>settings10<ept id="6e20d3be-bb8f-48c1-92d9-df55f59abd51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e20d3be-bb8f-48c1-92d9-df55f59abd51">&lt;linkText&gt;</bpt>settings10<ept id="6e20d3be-bb8f-48c1-92d9-df55f59abd51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5087368-b31a-4860-8f9c-660712bc297a" xml:space="preserve">
+          <source>Allows you to register additional information associated to your application's users.</source>
+          <target state="new">Allows you to register additional information associated to your application's users.</target>
+        </trans-unit>
+        <trans-unit id="cd0add4a-a376-4116-9f5e-acbcac53ccda" xml:space="preserve">
+          <source>This information can be injected by your application (using the SDK) or by your backend (using the Device API).</source>
+          <target state="new">This information can be injected by your application (using the SDK) or by your backend (using the Device API).</target>
+        </trans-unit>
+        <trans-unit id="a20c8525-5237-490a-bd60-da2460faed0f" xml:space="preserve">
+          <source><bpt id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;linkText&gt;</bpt>API Documentation - Device API[link 4]<ept id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;/linkText&gt;</ept><bpt id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;title&gt;</bpt><ept id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;linkText&gt;</bpt>API Documentation - Device API[link 4]<ept id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;/linkText&gt;</ept><bpt id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;title&gt;</bpt><ept id="3a675408-531b-4bb3-a869-13ad0814d550">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5690a43a-4f48-4316-9285-2c71eebad3ac" xml:space="preserve">
+          <source>Registering application information tags allows you to segment your Reach campaigns by creating specific Reach audience criteria based on it.</source>
+          <target state="new">Registering application information tags allows you to segment your Reach campaigns by creating specific Reach audience criteria based on it.</target>
+        </trans-unit>
+        <trans-unit id="d301273c-777c-4600-8a6f-aed6288d7b83" xml:space="preserve">
+          <source>You can view the name and type of existing app info tags or add a new app info based on the name and type of String, Date, Integer, or Boolean.</source>
+          <target state="new">You can view the name and type of existing app info tags or add a new app info based on the name and type of String, Date, Integer, or Boolean.</target>
+        </trans-unit>
+        <trans-unit id="739eb1e3-9a0c-4777-bbf3-2c4c28221a28" xml:space="preserve">
+          <source><bpt id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;/linkText&gt;</ept><bpt id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;title&gt;</bpt><ept id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;/linkText&gt;</ept><bpt id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;title&gt;</bpt><ept id="bd844078-34ed-45bf-b6f4-a854e28e3106">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a6e68da-9f3f-46dc-8d2d-0318211c2f92" xml:space="preserve">
+          <source><bpt id="9dda49fd-1c2f-4174-a5b8-00676f820858">&lt;linkText&gt;</bpt>settings11<ept id="9dda49fd-1c2f-4174-a5b8-00676f820858">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9dda49fd-1c2f-4174-a5b8-00676f820858">&lt;linkText&gt;</bpt>settings11<ept id="9dda49fd-1c2f-4174-a5b8-00676f820858">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="954b7734-9097-4555-b770-2ff35acd17a1" xml:space="preserve">
+          <source>Push Quotas allow you to define the maximum number of times a device can be pushed to over a period.</source>
+          <target state="new">Push Quotas allow you to define the maximum number of times a device can be pushed to over a period.</target>
+        </trans-unit>
+        <trans-unit id="43da04b8-eb73-4c40-9a09-21eff5de76b1" xml:space="preserve">
+          <source>Push quotas are used only by Reach campaigns that have the "Apply push quotas" option enabled.</source>
+          <target state="new">Push quotas are used only by Reach campaigns that have the "Apply push quotas" option enabled.</target>
+        </trans-unit>
+        <trans-unit id="ca46df3e-4ea0-4aca-95da-6a0084327bf8" xml:space="preserve">
+          <source>Push quotas can be managed either by segment or by default.</source>
+          <target state="new">Push quotas can be managed either by segment or by default.</target>
+        </trans-unit>
+        <trans-unit id="e59f6333-c456-4dfd-92e8-bdd095e9e4fd" xml:space="preserve">
+          <source>Quotas can be set to only send a maximum number of pushes over a sliding period of the last hour, day, week, or month.</source>
+          <target state="new">Quotas can be set to only send a maximum number of pushes over a sliding period of the last hour, day, week, or month.</target>
+        </trans-unit>
+        <trans-unit id="20a9bab6-e2fe-45b5-b43e-81a7686599a9" xml:space="preserve">
+          <source><bpt id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;/linkText&gt;</ept><bpt id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;title&gt;</bpt><ept id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;/title&gt;</ept>,  <bpt id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;linkText&gt;</bpt>UI Documentation - Segments[link 18]<ept id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;/linkText&gt;</ept><bpt id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;title&gt;</bpt><ept id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;linkText&gt;</bpt>UI Documentation - Reach - New Push Campaign[link 27]<ept id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;/linkText&gt;</ept><bpt id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;title&gt;</bpt><ept id="9336ea65-9dbc-4256-891a-61fc33e02448">&lt;/title&gt;</ept>,  <bpt id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;linkText&gt;</bpt>UI Documentation - Segments[link 18]<ept id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;/linkText&gt;</ept><bpt id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;title&gt;</bpt><ept id="df8ec590-6797-4d34-a9fb-2c17f39c701b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d6cf598-dca7-496e-b80c-c07db56929fd" xml:space="preserve">
+          <source>Quota by default: This quota is applied to users that are not matched by any segment in the 'Quota by segment' section below.</source>
+          <target state="new">Quota by default: This quota is applied to users that are not matched by any segment in the 'Quota by segment' section below.</target>
+        </trans-unit>
+        <trans-unit id="9faeca49-3b15-4b5b-b8bb-ab0e17c08f0d" xml:space="preserve">
+          <source>By default, no quota is set.</source>
+          <target state="new">By default, no quota is set.</target>
+        </trans-unit>
+        <trans-unit id="a7dd99e9-a6a2-43fe-8374-98afe8acc6c2" xml:space="preserve">
+          <source>Quota by segment: As a quota must apply to a group of users, you need to create a segment to identify the users to apply a quota to.</source>
+          <target state="new">Quota by segment: As a quota must apply to a group of users, you need to create a segment to identify the users to apply a quota to.</target>
+        </trans-unit>
+        <trans-unit id="bd8f91ee-565f-48a7-ab84-726a97a1c4c4" xml:space="preserve">
+          <source>It could be a 'heavy users' segment defined by the number of sessions they make, or anything you deem interesting to define the user group.</source>
+          <target state="new">It could be a 'heavy users' segment defined by the number of sessions they make, or anything you deem interesting to define the user group.</target>
+        </trans-unit>
+        <trans-unit id="7f17ea9b-922a-4182-b5f6-b6b910dc763a" xml:space="preserve">
+          <source>If a device matches several segments with a defined quota, only the quota having the highest maximum number of pushes per hour is applied.</source>
+          <target state="new">If a device matches several segments with a defined quota, only the quota having the highest maximum number of pushes per hour is applied.</target>
+        </trans-unit>
+        <trans-unit id="5fd4f2d9-d076-4830-829e-6c9c6bcae6fa" xml:space="preserve">
+          <source><bpt id="e472646e-4be3-4507-b0cd-7031b8e1e22d">&lt;linkText&gt;</bpt>settings12<ept id="e472646e-4be3-4507-b0cd-7031b8e1e22d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e472646e-4be3-4507-b0cd-7031b8e1e22d">&lt;linkText&gt;</bpt>settings12<ept id="e472646e-4be3-4507-b0cd-7031b8e1e22d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3ca9b6c-64b8-443b-9a6d-abcdac4ef6ba" xml:space="preserve">
+          <source>Allows you to search and view the Email, Name, Organization, and Permission level of users of your application.</source>
+          <target state="new">Allows you to search and view the Email, Name, Organization, and Permission level of users of your application.</target>
+        </trans-unit>
+        <trans-unit id="d5018710-3c9c-437d-9c9e-bdb597fa8cfb" xml:space="preserve">
+          <source>The permissions concept is an addition to project role.</source>
+          <target state="new">The permissions concept is an addition to project role.</target>
+        </trans-unit>
+        <trans-unit id="66db87c5-ba04-45a5-9a2e-780bf6a9cab5" xml:space="preserve">
+          <source>It allows you to associate one set of permissions to a specific user who has access to your application.</source>
+          <target state="new">It allows you to associate one set of permissions to a specific user who has access to your application.</target>
+        </trans-unit>
+        <trans-unit id="a8e71276-97e2-48c9-b701-a8eafa96294d" xml:space="preserve">
+          <source>"Reach Campaign Creator" (a user that can create Reach campaigns) </source>
+          <target state="new">"Reach Campaign Creator" (a user that can create Reach campaigns) </target>
+        </trans-unit>
+        <trans-unit id="55cb7d07-8dca-4a69-9e7e-bd6e1578ee9e" xml:space="preserve">
+          <source>"Reach Campaign Manager" (a user that can create Reach campaigns and activate, suspend, finish, destroy them)</source>
+          <target state="new">"Reach Campaign Manager" (a user that can create Reach campaigns and activate, suspend, finish, destroy them)</target>
+        </trans-unit>
+        <trans-unit id="b662d82a-8b2c-4c5e-b048-a03c11e13191" xml:space="preserve">
+          <source>Note: When a user has both a project role and a set of permissions for a given application, the more permissive concept is used.</source>
+          <target state="new">Note: When a user has both a project role and a set of permissions for a given application, the more permissive concept is used.</target>
+        </trans-unit>
+        <trans-unit id="0aa6b353-710a-4e12-a93c-5d73e71484fd" xml:space="preserve">
+          <source>Hence, we suggest that when using permissions, you set the project role of your users to "Viewer" (the least permissive role) and add more permissive permissions at the application level.</source>
+          <target state="new">Hence, we suggest that when using permissions, you set the project role of your users to "Viewer" (the least permissive role) and add more permissive permissions at the application level.</target>
+        </trans-unit>
+        <trans-unit id="b3d9805d-25f6-48c0-8a07-5577ed977ec9" xml:space="preserve">
+          <source><bpt id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;linkText&gt;</bpt>UI Documentation - Home[link 13]<ept id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;/linkText&gt;</ept><bpt id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;title&gt;</bpt><ept id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;/title&gt;</ept>  </source>
+          <target state="new"><bpt id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;linkText&gt;</bpt>UI Documentation - Home[link 13]<ept id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;/linkText&gt;</ept><bpt id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;title&gt;</bpt><ept id="3642e7f5-58ec-47f8-942d-405620b62ef9">&lt;/title&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="c9707e16-456a-4c6a-af53-15b1e19f27d3" xml:space="preserve">
+          <source><bpt id="223d6140-9415-423c-8160-33113fa2639a">&lt;linkText&gt;</bpt>settings13<ept id="223d6140-9415-423c-8160-33113fa2639a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="223d6140-9415-423c-8160-33113fa2639a">&lt;linkText&gt;</bpt>settings13<ept id="223d6140-9415-423c-8160-33113fa2639a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1c1a87b-7453-48bd-b6a8-30e998100410" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-navigation/navigation1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-navigation/navigation1.png</target>
+        </trans-unit>
+        <trans-unit id="81145a9a-0c5d-4598-88c6-2d19e0f867c8" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home1.png</target>
+        </trans-unit>
+        <trans-unit id="eb01c0f0-0d14-4690-a744-228bfff1af62" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home2.png</target>
+        </trans-unit>
+        <trans-unit id="da08cbf4-b38a-499e-b061-ab8e29173101" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home3.png</target>
+        </trans-unit>
+        <trans-unit id="7dc9ad5e-a4d0-4c4b-9d35-83f9dcb976b3" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home4.png</target>
+        </trans-unit>
+        <trans-unit id="41d1525c-7cff-4ce2-8bd7-75ded90c45b6" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-home/home5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-home/home5.png</target>
+        </trans-unit>
+        <trans-unit id="ce195254-41b5-4b4c-8481-c625144eb9d5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount1.png</target>
+        </trans-unit>
+        <trans-unit id="f79a4eee-5595-4316-ad55-8d9f54593a52" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount2.png</target>
+        </trans-unit>
+        <trans-unit id="cb4b1931-c01d-4bae-89a1-b0245d7b472b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-my-account/myaccount3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-my-account/myaccount3.png</target>
+        </trans-unit>
+        <trans-unit id="d014bf48-d35f-4476-9e7f-d93765837c66" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics1.png</target>
+        </trans-unit>
+        <trans-unit id="49bb76f0-7b10-4d0b-9896-2c4f2529cd15" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics2.png</target>
+        </trans-unit>
+        <trans-unit id="3b052265-1daf-407d-a61d-3a287581cdc5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics3.png</target>
+        </trans-unit>
+        <trans-unit id="4622e5bd-d21b-49f5-8448-3c4c387c5457" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-analytics/analytics4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-analytics/analytics4.png</target>
+        </trans-unit>
+        <trans-unit id="58e04c64-0bc4-488e-9bab-92e12f52ffbd" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor1.png</target>
+        </trans-unit>
+        <trans-unit id="35240864-2dcc-436b-b4d2-9507c94dde8e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor2.png</target>
+        </trans-unit>
+        <trans-unit id="60cf277a-587f-465f-b8fd-35637a1b05a8" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor3.png</target>
+        </trans-unit>
+        <trans-unit id="4761075a-afb1-4053-8daf-5e5328311c3c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-monitor/monitor4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-monitor/monitor4.png</target>
+        </trans-unit>
+        <trans-unit id="a5aa3607-6d3e-4049-b382-b5240f6dfc6e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach/reach1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach/reach1.png</target>
+        </trans-unit>
+        <trans-unit id="5bfb0b33-7039-403c-b81c-e0bcc57f23f3" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach/reach2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach/reach2.png</target>
+        </trans-unit>
+        <trans-unit id="b8489d00-eab6-4e05-89ca-0d561fb7715f" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png</target>
+        </trans-unit>
+        <trans-unit id="46557eea-4382-4456-8db6-a0dd9b48becd" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png</target>
+        </trans-unit>
+        <trans-unit id="80e5448e-6f82-4c37-aee0-113267507492" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png</target>
+        </trans-unit>
+        <trans-unit id="52b5b019-ac57-4c13-89fa-5bf9b6feb8ea" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png</target>
+        </trans-unit>
+        <trans-unit id="5581e16c-2e28-4b7e-9037-4e81504fabd3" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png</target>
+        </trans-unit>
+        <trans-unit id="ae5d3bd6-069d-4dd3-a5cb-a8bd857516df" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png</target>
+        </trans-unit>
+        <trans-unit id="75bd5f94-0ed8-4404-8f28-68337b71ade1" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png</target>
+        </trans-unit>
+        <trans-unit id="85ce55dc-3250-410a-9092-b9aaaa35e297" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png</target>
+        </trans-unit>
+        <trans-unit id="a07d62d4-5e19-4ad8-988e-9b01a4671c5b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png</target>
+        </trans-unit>
+        <trans-unit id="8ec31c5e-58ac-4061-aef5-5fb96176e45d" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png</target>
+        </trans-unit>
+        <trans-unit id="08bc610d-41ea-47fc-8329-1c48f8a68173" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png</target>
+        </trans-unit>
+        <trans-unit id="4bc1c95a-6cab-4cf9-87ab-77703d8bfd9c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png</target>
+        </trans-unit>
+        <trans-unit id="9c01da97-7819-4100-905b-07e1be040e27" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png</target>
+        </trans-unit>
+        <trans-unit id="b003ad2c-f8d5-42cb-88a8-ba25a43bcd2b" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png</target>
+        </trans-unit>
+        <trans-unit id="33eccd42-598b-4b70-9de3-32410aabd20a" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-dashboard/dashboard1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-dashboard/dashboard1.png</target>
+        </trans-unit>
+        <trans-unit id="c8122a1f-12a0-4a5c-a36c-d68ede6b77f7" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments1.png</target>
+        </trans-unit>
+        <trans-unit id="63065367-9057-4a0e-b735-3eb8fcf8ff2e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments2.png</target>
+        </trans-unit>
+        <trans-unit id="471fc805-8243-41aa-bd1b-70401c991ef5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments3.png</target>
+        </trans-unit>
+        <trans-unit id="1b1915f3-aa49-4d55-bdc2-0d2363aa89a2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments4.png</target>
+        </trans-unit>
+        <trans-unit id="9642139e-ca94-4e4e-9ce4-450bc1c585f8" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments5.png</target>
+        </trans-unit>
+        <trans-unit id="534af0ec-75e6-4727-89a0-80289fb8d08c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments6.png</target>
+        </trans-unit>
+        <trans-unit id="e29ac17b-8b19-4cd2-9ac8-038f7bce50ae" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments7.png</target>
+        </trans-unit>
+        <trans-unit id="841a2258-c0c7-4e64-af30-526ed3d20868" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments8.png</target>
+        </trans-unit>
+        <trans-unit id="7a6e9f56-6192-42df-bdf7-c1b4e76e41f5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments9.png</target>
+        </trans-unit>
+        <trans-unit id="11370c7f-f055-416e-aec6-adbe35ea3859" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments10.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments10.png</target>
+        </trans-unit>
+        <trans-unit id="a57e47f5-4cbe-4db9-b430-57603db55dd5" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-segments/segments11.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-segments/segments11.png</target>
+        </trans-unit>
+        <trans-unit id="75094df2-2d5f-4b79-b28c-d6501ac9c001" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings1.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings1.png</target>
+        </trans-unit>
+        <trans-unit id="cf5653a5-97f5-40b5-8647-27795c18e4a7" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings2.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings2.png</target>
+        </trans-unit>
+        <trans-unit id="f540e92a-0343-4ba3-bad4-25ffdd116ab4" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings3.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings3.png</target>
+        </trans-unit>
+        <trans-unit id="1911517c-e61a-4938-b089-764840f9b8ed" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings4.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings4.png</target>
+        </trans-unit>
+        <trans-unit id="5f791220-0ba7-4f35-8d80-431a111bb72c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings5.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings5.png</target>
+        </trans-unit>
+        <trans-unit id="807ad065-0b0b-4ba1-a8a5-46c432ac6a6a" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings6.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings6.png</target>
+        </trans-unit>
+        <trans-unit id="3e3a35a0-fd5c-4882-81c2-2d0ca18d359e" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings7.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings7.png</target>
+        </trans-unit>
+        <trans-unit id="d271e9ce-37f7-4eec-96fa-73c51ec9b2fa" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings8.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings8.png</target>
+        </trans-unit>
+        <trans-unit id="6ae520f1-541a-4033-8314-7d4b77f2bf68" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings9.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings9.png</target>
+        </trans-unit>
+        <trans-unit id="e0cc9e24-95dc-4b01-bbfd-b63890628089" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings10.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings10.png</target>
+        </trans-unit>
+        <trans-unit id="7d5dc5b4-3a20-4795-9454-1a6ed3d30c9c" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings11.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings11.png</target>
+        </trans-unit>
+        <trans-unit id="b64360ae-6e7a-4318-80e8-83caed1c84b2" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings12.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings12.png</target>
+        </trans-unit>
+        <trans-unit id="a352807c-d052-46b1-a808-a65f07857a86" xml:space="preserve">
+          <source>./media/mobile-engagement-user-interface-settings/settings13.png</source>
+          <target state="new">./media/mobile-engagement-user-interface-settings/settings13.png</target>
+        </trans-unit>
+        <trans-unit id="10baa9dd-d5f2-469c-b860-b53e5c42b0fd" xml:space="preserve">
+          <source>mobile-engagement-user-interface.md</source>
+          <target state="new">mobile-engagement-user-interface.md</target>
+        </trans-unit>
+        <trans-unit id="8c736ebc-ec41-4c8c-873c-4ef801beb4be" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide.md</target>
+        </trans-unit>
+        <trans-unit id="7ac8de48-ea4d-4037-ac2f-4c35822e7903" xml:space="preserve">
+          <source>mobile-engagement-how-tos.md</source>
+          <target state="new">mobile-engagement-how-tos.md</target>
+        </trans-unit>
+        <trans-unit id="3dfca6a1-9331-4930-8ccd-a31c109c33fb" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525553</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525553</target>
+        </trans-unit>
+        <trans-unit id="d3bf3d52-25d2-4915-b335-d6215c2ef570" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=525554</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=525554</target>
+        </trans-unit>
+        <trans-unit id="91ff19b9-f6b0-4b62-bf6a-ea94494622d6" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=525555</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=525555</target>
+        </trans-unit>
+        <trans-unit id="7573114d-97ff-4d4f-b4ba-ebfe34ca6841" xml:space="preserve">
+          <source>https://account.windowsazure.com/PreviewFeatures</source>
+          <target state="new">https://account.windowsazure.com/PreviewFeatures</target>
+        </trans-unit>
+        <trans-unit id="d68f25bf-9700-4c70-a77d-a32b82f3c8e2" xml:space="preserve">
+          <source>https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</source>
+          <target state="new">https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement</target>
+        </trans-unit>
+        <trans-unit id="2ad68fba-f1a0-43ac-a563-70ce3a45dc1f" xml:space="preserve">
+          <source>http://azure.microsoft.com/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="5e092fe0-ae3c-48ad-b137-369f2aaac36b" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/services/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/documentation/services/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="9ce2f09f-81b3-44e0-9e49-0db06b47e1da" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/details/mobile-engagement/</source>
+          <target state="new">http://azure.microsoft.com/pricing/details/mobile-engagement/</target>
+        </trans-unit>
+        <trans-unit id="9ae81cdb-ae9a-43d8-9521-33095afb4d90" xml:space="preserve">
+          <source>mobile-engagement-user-interface-navigation.md</source>
+          <target state="new">mobile-engagement-user-interface-navigation.md</target>
+        </trans-unit>
+        <trans-unit id="c8f5ac3d-cb11-4ebb-b479-7e1ee2a38829" xml:space="preserve">
+          <source>mobile-engagement-user-interface-home.md</source>
+          <target state="new">mobile-engagement-user-interface-home.md</target>
+        </trans-unit>
+        <trans-unit id="d6e595d3-1d70-4d90-97bc-113806c0afc3" xml:space="preserve">
+          <source>mobile-engagement-user-interface-my-account.md</source>
+          <target state="new">mobile-engagement-user-interface-my-account.md</target>
+        </trans-unit>
+        <trans-unit id="f281fbd1-2cdb-46b2-a391-b57124597018" xml:space="preserve">
+          <source>mobile-engagement-user-interface-analytics.md</source>
+          <target state="new">mobile-engagement-user-interface-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="8850e76c-5082-4fa8-b508-9f742f4d8c9d" xml:space="preserve">
+          <source>mobile-engagement-user-interface-monitor.md</source>
+          <target state="new">mobile-engagement-user-interface-monitor.md</target>
+        </trans-unit>
+        <trans-unit id="3db7ec33-7b82-426b-a27c-ae5c8cc622dd" xml:space="preserve">
+          <source>mobile-engagement-user-interface-reach.md</source>
+          <target state="new">mobile-engagement-user-interface-reach.md</target>
+        </trans-unit>
+        <trans-unit id="e82d1202-887c-41fe-9f03-17a79ff89f14" xml:space="preserve">
+          <source>mobile-engagement-user-interface-segments.md</source>
+          <target state="new">mobile-engagement-user-interface-segments.md</target>
+        </trans-unit>
+        <trans-unit id="fb82be5d-c062-441d-a9c1-75872ca84697" xml:space="preserve">
+          <source>mobile-engagement-user-interface-dashboard.md</source>
+          <target state="new">mobile-engagement-user-interface-dashboard.md</target>
+        </trans-unit>
+        <trans-unit id="9f8f0425-43db-49cf-9356-1ce511872142" xml:space="preserve">
+          <source>mobile-engagement-user-interface-settings.md</source>
+          <target state="new">mobile-engagement-user-interface-settings.md</target>
+        </trans-unit>
+        <trans-unit id="ede64e1b-636b-4e66-9bec-08cb3d8ecbdc" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-analytics.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="0a727a68-82d5-4f96-a08a-0fb3dbc2c0a1" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-apis.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-apis.md</target>
+        </trans-unit>
+        <trans-unit id="f8d7f986-56be-4d6f-bfd5-d34810ed554e" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-push-reach.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-push-reach.md</target>
+        </trans-unit>
+        <trans-unit id="9b4413b4-95db-4382-93da-a0018a75c761" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-service.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-service.md</target>
+        </trans-unit>
+        <trans-unit id="c0453b20-a60e-4061-a20e-f821a41e8a81" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sdk.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sdk.md</target>
+        </trans-unit>
+        <trans-unit id="7d480a37-443f-4037-8435-2acbd91749b7" xml:space="preserve">
+          <source>mobile-engagement-troubleshooting-guide-sr-info.md</source>
+          <target state="new">mobile-engagement-troubleshooting-guide-sr-info.md</target>
+        </trans-unit>
+        <trans-unit id="a0ea6822-40c8-4c56-b798-e8bca1ae8814" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-first-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-first-push.md</target>
+        </trans-unit>
+        <trans-unit id="b98383a9-d80d-4fb8-9bd1-05cafde5115c" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-test-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-test-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="26799c41-d510-4e92-b12e-d388091f7d15" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-personalize-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-personalize-push.md</target>
+        </trans-unit>
+        <trans-unit id="100b6e11-8026-4008-ae21-865fdd443164" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-differentiate-push.md</source>
+          <target state="new">../mobile-engagement-how-tos-differentiate-push.md</target>
+        </trans-unit>
+        <trans-unit id="eb2170ae-008c-40c2-a351-7c28cac15ada" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-schedule-campaign.md</source>
+          <target state="new">../mobile-engagement-how-tos-schedule-campaign.md</target>
+        </trans-unit>
+        <trans-unit id="27c7952b-4dae-4f12-983d-690e6b4d54c9" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-text-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-text-view.md</target>
+        </trans-unit>
+        <trans-unit id="4f3ba5b4-7a39-4213-8399-295374c1d700" xml:space="preserve">
+          <source>../mobile-engagement-how-tos-web-view.md</source>
+          <target state="new">../mobile-engagement-how-tos-web-view.md</target>
+        </trans-unit>
+      </group>
+      <group id="4f712fec-a66b-4864-b8bf-db4cb30ce11a" />
+    </body>
+  </file>
+</xliff>

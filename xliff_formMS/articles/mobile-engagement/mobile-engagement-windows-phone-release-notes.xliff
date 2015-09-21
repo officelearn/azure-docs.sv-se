@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="311ed02a-e99a-4a1f-a43d-ad91d43bf126" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="311ed02a-e99a-4a1f-a43d-ad91d43bf126" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="effd3198-d403-454e-b7f8-cb1c0ef4ef71">
+        <trans-unit id="65dd96e4-37dd-41a9-b636-b9ddbd12eaf9" xml:space="preserve">
+          <source>Windows Phone Silverlight SDK Release Notes</source>
+          <target state="new">Windows Phone Silverlight SDK Release Notes</target>
+        </trans-unit>
+        <trans-unit id="66396049-e361-4434-a11b-437098cc4076" xml:space="preserve">
+          <source>Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes</source>
+          <target state="new">Azure Mobile Engagement - Windows Phone Silverlight SDK Release Notes</target>
+        </trans-unit>
+        <trans-unit id="1b77947d-cdfd-4131-8189-b760a27f6706" xml:space="preserve">
+          <source>Default notification icon updated.</source>
+          <target state="new">Default notification icon updated.</target>
+        </trans-unit>
+        <trans-unit id="1fa20503-1c0f-49c1-8eaa-329d1637e377" xml:space="preserve">
+          <source>Send back system notification action feedback when a notification is clicked.</source>
+          <target state="new">Send back system notification action feedback when a notification is clicked.</target>
+        </trans-unit>
+        <trans-unit id="8393938d-c557-4390-851e-50acd6d28c31" xml:space="preserve">
+          <source>Fixed a race condition on system notification.</source>
+          <target state="new">Fixed a race condition on system notification.</target>
+        </trans-unit>
+        <trans-unit id="70a75fe5-1fb2-4bf6-8b33-abf47e2b2a34" xml:space="preserve">
+          <source>Initial Release of Azure Mobile Engagement.</source>
+          <target state="new">Initial Release of Azure Mobile Engagement.</target>
+        </trans-unit>
+        <trans-unit id="ecdfe62d-83d7-4dd3-94fe-d8ec7929c6d2" xml:space="preserve">
+          <source>appId/sdkKey configuration is replaced by a connection string configuration.</source>
+          <target state="new">appId/sdkKey configuration is replaced by a connection string configuration.</target>
+        </trans-unit>
+        <trans-unit id="98ac9093-f7ff-4e9a-8bfb-76f168b189d0" xml:space="preserve">
+          <source>Security improvements.</source>
+          <target state="new">Security improvements.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

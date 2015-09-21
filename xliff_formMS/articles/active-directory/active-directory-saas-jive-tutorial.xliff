@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6f41fd5-b084-4720-a886-736fbce10ce1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6f41fd5-b084-4720-a886-736fbce10ce1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b1df2988-eaf1-45b2-bd7c-d492728b2819">
+        <trans-unit id="2a5db799-4d85-4fbc-8a61-a944b13ab157" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Jive | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Jive | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="80151ee3-9bc0-472b-adcc-a2fe14f17c7e" xml:space="preserve">
+          <source>Learn how to use Jive with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Jive with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="32f181c9-f131-4e34-a3b1-f2c79c8e6486" xml:space="preserve">
+          <source>For feedback, click <bpt id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;linkText&gt;</bpt>here<ept id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;/linkText&gt;</ept><bpt id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;title&gt;</bpt><ept id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;linkText&gt;</bpt>here<ept id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;/linkText&gt;</ept><bpt id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;title&gt;</bpt><ept id="32fd4f5e-fcb5-4ae5-8760-734835a1602c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="203affc0-6fe8-44fe-9732-72dea589a867" xml:space="preserve">
+          <source>For more information about this topic, see <bpt id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;linkText&gt;</bpt>Best Practices for Managing the Application access enhancements for Azure Active Directory<ept id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;/linkText&gt;</ept><bpt id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;title&gt;</bpt><ept id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about this topic, see <bpt id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;linkText&gt;</bpt>Best Practices for Managing the Application access enhancements for Azure Active Directory<ept id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;/linkText&gt;</ept><bpt id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;title&gt;</bpt><ept id="8a9c685b-7ab1-4d96-a9a6-184887f8f4af">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0175bad6-fefc-4b94-862f-44782cfc3fd6" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Jive.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Jive.</target>
+        </trans-unit>
+        <trans-unit id="6a463d93-25e9-409a-854f-a3378882cc45" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="25f195b7-f9ab-4028-9d1e-8feb1f80a232" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="91304a76-272d-43d2-80db-a0518613bda8" xml:space="preserve">
+          <source>A tenant in Jive</source>
+          <target state="new">A tenant in Jive</target>
+        </trans-unit>
+        <trans-unit id="47989444-f669-429a-a11f-9d14a51c70c5" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="b370ce62-fce4-4370-b8a3-39b61397a487" xml:space="preserve">
+          <source>Enabling the application integration for Jive</source>
+          <target state="new">Enabling the application integration for Jive</target>
+        </trans-unit>
+        <trans-unit id="b0008779-d015-436b-94e0-8f0f93e096ac" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="1215a12b-95d1-4f84-a89d-7431bbc8580e" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Jive.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Jive.</target>
+        </trans-unit>
+        <trans-unit id="73d482d6-01b7-4084-a491-b28edcf50f24" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="edbacbc2-625a-4d02-958a-050a88f31205">&lt;strong&gt;</bpt>Active Directory<ept id="edbacbc2-625a-4d02-958a-050a88f31205">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="edbacbc2-625a-4d02-958a-050a88f31205">&lt;strong&gt;</bpt>Active Directory<ept id="edbacbc2-625a-4d02-958a-050a88f31205">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bc82bb6-8837-4ad6-9419-4c805e3684c0" xml:space="preserve">
+          <source><bpt id="ab6ae329-04b2-4dae-9551-63f988136596">&lt;linkText&gt;</bpt>Active Directory<ept id="ab6ae329-04b2-4dae-9551-63f988136596">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab6ae329-04b2-4dae-9551-63f988136596">&lt;linkText&gt;</bpt>Active Directory<ept id="ab6ae329-04b2-4dae-9551-63f988136596">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f12066ac-66fa-435f-a956-a32840734cef" xml:space="preserve">
+          <source>From the <bpt id="0ce6bbe1-b528-428e-a786-26094a2f9178">&lt;strong&gt;</bpt>Directory<ept id="0ce6bbe1-b528-428e-a786-26094a2f9178">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="0ce6bbe1-b528-428e-a786-26094a2f9178">&lt;strong&gt;</bpt>Directory<ept id="0ce6bbe1-b528-428e-a786-26094a2f9178">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="674a3f6b-4bc7-461c-8c14-477f7e276d14" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="4996c8de-3b7e-4a7e-8efd-0610ffbf4278">&lt;strong&gt;</bpt>Applications<ept id="4996c8de-3b7e-4a7e-8efd-0610ffbf4278">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="4996c8de-3b7e-4a7e-8efd-0610ffbf4278">&lt;strong&gt;</bpt>Applications<ept id="4996c8de-3b7e-4a7e-8efd-0610ffbf4278">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="cbd42294-2635-4cc1-81b7-f79564b388e8" xml:space="preserve">
+          <source><bpt id="cf2a2470-6815-46aa-90a2-6a3335e0f3b0">&lt;linkText&gt;</bpt>Applications<ept id="cf2a2470-6815-46aa-90a2-6a3335e0f3b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf2a2470-6815-46aa-90a2-6a3335e0f3b0">&lt;linkText&gt;</bpt>Applications<ept id="cf2a2470-6815-46aa-90a2-6a3335e0f3b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e55ab7f-5c9c-4dc0-b77b-5ffdc8899c37" xml:space="preserve">
+          <source>To open the <bpt id="f3be28c4-c015-4bce-abf2-2dc5aecfed1f">&lt;strong&gt;</bpt>Application Gallery<ept id="f3be28c4-c015-4bce-abf2-2dc5aecfed1f">&lt;/strong&gt;</ept>, click <bpt id="c09d3420-7fbe-4eca-98c0-57e91bc1c91b">&lt;strong&gt;</bpt>Add An App<ept id="c09d3420-7fbe-4eca-98c0-57e91bc1c91b">&lt;/strong&gt;</ept>, and then click <bpt id="340f8822-f131-4c37-969c-340b3897b361">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="340f8822-f131-4c37-969c-340b3897b361">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To open the <bpt id="f3be28c4-c015-4bce-abf2-2dc5aecfed1f">&lt;strong&gt;</bpt>Application Gallery<ept id="f3be28c4-c015-4bce-abf2-2dc5aecfed1f">&lt;/strong&gt;</ept>, click <bpt id="c09d3420-7fbe-4eca-98c0-57e91bc1c91b">&lt;strong&gt;</bpt>Add An App<ept id="c09d3420-7fbe-4eca-98c0-57e91bc1c91b">&lt;/strong&gt;</ept>, and then click <bpt id="340f8822-f131-4c37-969c-340b3897b361">&lt;strong&gt;</bpt>Add an application for my organization to use<ept id="340f8822-f131-4c37-969c-340b3897b361">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da15ebc5-8981-487d-9b0e-d397949a2712" xml:space="preserve">
+          <source><bpt id="298208ab-0c8c-40f2-8889-9e872952b241">&lt;linkText&gt;</bpt>What do you want to do?<ept id="298208ab-0c8c-40f2-8889-9e872952b241">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="298208ab-0c8c-40f2-8889-9e872952b241">&lt;linkText&gt;</bpt>What do you want to do?<ept id="298208ab-0c8c-40f2-8889-9e872952b241">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e831ace-281e-41cc-9407-aa1ee1c6b976" xml:space="preserve">
+          <source>In the <bpt id="4d472ed7-3a24-4ba8-9c29-8988bdba3f2f">&lt;strong&gt;</bpt>search box<ept id="4d472ed7-3a24-4ba8-9c29-8988bdba3f2f">&lt;/strong&gt;</ept>, type <bpt id="0276ea07-138d-46db-9729-078fac5bf7cb">&lt;strong&gt;</bpt>Jive<ept id="0276ea07-138d-46db-9729-078fac5bf7cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4d472ed7-3a24-4ba8-9c29-8988bdba3f2f">&lt;strong&gt;</bpt>search box<ept id="4d472ed7-3a24-4ba8-9c29-8988bdba3f2f">&lt;/strong&gt;</ept>, type <bpt id="0276ea07-138d-46db-9729-078fac5bf7cb">&lt;strong&gt;</bpt>Jive<ept id="0276ea07-138d-46db-9729-078fac5bf7cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="382f9b79-e4dc-4190-8c2b-aae3abe6901d" xml:space="preserve">
+          <source><bpt id="efa63c38-e532-4a3a-82d4-9b7f8cd49e7d">&lt;linkText&gt;</bpt>Jive<ept id="efa63c38-e532-4a3a-82d4-9b7f8cd49e7d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="efa63c38-e532-4a3a-82d4-9b7f8cd49e7d">&lt;linkText&gt;</bpt>Jive<ept id="efa63c38-e532-4a3a-82d4-9b7f8cd49e7d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df969638-af15-455b-a8f6-99d5d5cbf7e9" xml:space="preserve">
+          <source>In the results pane, select <bpt id="44d25c23-62cc-4e2e-979c-70780020eab0">&lt;strong&gt;</bpt>Jive<ept id="44d25c23-62cc-4e2e-979c-70780020eab0">&lt;/strong&gt;</ept>, and then click <bpt id="fccec541-4489-4881-9a35-ba7d650e99e4">&lt;strong&gt;</bpt>Complete<ept id="fccec541-4489-4881-9a35-ba7d650e99e4">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="44d25c23-62cc-4e2e-979c-70780020eab0">&lt;strong&gt;</bpt>Jive<ept id="44d25c23-62cc-4e2e-979c-70780020eab0">&lt;/strong&gt;</ept>, and then click <bpt id="fccec541-4489-4881-9a35-ba7d650e99e4">&lt;strong&gt;</bpt>Complete<ept id="fccec541-4489-4881-9a35-ba7d650e99e4">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="7584f0fb-a23d-43d5-ad5f-abee7227711d" xml:space="preserve">
+          <source><bpt id="98da8263-4df6-49d0-a85c-e53672456ff2">&lt;linkText&gt;</bpt>Jive<ept id="98da8263-4df6-49d0-a85c-e53672456ff2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="98da8263-4df6-49d0-a85c-e53672456ff2">&lt;linkText&gt;</bpt>Jive<ept id="98da8263-4df6-49d0-a85c-e53672456ff2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa3f06ef-1f8a-423e-9982-8d3754d7ed7a" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.</source>
+          <target state="new">The objective of this section is to outline how to enable user provisioning of Active Directory user accounts to Jive.</target>
+        </trans-unit>
+        <trans-unit id="04fc0cdf-41a2-4373-a1d3-95de32a28e1e" xml:space="preserve">
+          <source>As part of this procedure, you are required to provide a user security token you need to request from Jive.com.</source>
+          <target state="new">As part of this procedure, you are required to provide a user security token you need to request from Jive.com.</target>
+        </trans-unit>
+        <trans-unit id="bc529bf8-b4b2-4812-bc11-2c584bda768d" xml:space="preserve">
+          <source>The following screenshot shows an example of the related dialog in Azure AD:</source>
+          <target state="new">The following screenshot shows an example of the related dialog in Azure AD:</target>
+        </trans-unit>
+        <trans-unit id="905533b4-0a03-4ef7-bcc8-02ce28eb5c22" xml:space="preserve">
+          <source><bpt id="8df4b6ca-bd5c-43b5-9c8e-be7ebbd2c0d8">&lt;linkText&gt;</bpt>Configure User Provisioning<ept id="8df4b6ca-bd5c-43b5-9c8e-be7ebbd2c0d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8df4b6ca-bd5c-43b5-9c8e-be7ebbd2c0d8">&lt;linkText&gt;</bpt>Configure User Provisioning<ept id="8df4b6ca-bd5c-43b5-9c8e-be7ebbd2c0d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="583d994f-21b0-40b5-8e95-d1cb50b7de27" xml:space="preserve">
+          <source>In the Azure Management Portal, on the <bpt id="0af39213-da9e-4d4d-b7e4-0c322e15237c">&lt;strong&gt;</bpt>Jive<ept id="0af39213-da9e-4d4d-b7e4-0c322e15237c">&lt;/strong&gt;</ept> application integration page, click <bpt id="9d2348f7-7926-49fe-9daa-c2f97b99f3c1">&lt;strong&gt;</bpt>Configure user provisioning<ept id="9d2348f7-7926-49fe-9daa-c2f97b99f3c1">&lt;/strong&gt;</ept> to open the <bpt id="5d60e432-fc27-4047-b450-0fb9c67ad009">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="5d60e432-fc27-4047-b450-0fb9c67ad009">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">In the Azure Management Portal, on the <bpt id="0af39213-da9e-4d4d-b7e4-0c322e15237c">&lt;strong&gt;</bpt>Jive<ept id="0af39213-da9e-4d4d-b7e4-0c322e15237c">&lt;/strong&gt;</ept> application integration page, click <bpt id="9d2348f7-7926-49fe-9daa-c2f97b99f3c1">&lt;strong&gt;</bpt>Configure user provisioning<ept id="9d2348f7-7926-49fe-9daa-c2f97b99f3c1">&lt;/strong&gt;</ept> to open the <bpt id="5d60e432-fc27-4047-b450-0fb9c67ad009">&lt;strong&gt;</bpt>Configure User Provisioning<ept id="5d60e432-fc27-4047-b450-0fb9c67ad009">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="c8fa8366-3b4f-403d-86cd-95f1c8eeef48" xml:space="preserve">
+          <source>On the <bpt id="bf7cca85-f18f-492e-96a1-8745fbce4840">&lt;strong&gt;</bpt>Enter your Jive credentials to enable automatic user provisioning<ept id="bf7cca85-f18f-492e-96a1-8745fbce4840">&lt;/strong&gt;</ept> page, provide the following configuration settings:</source>
+          <target state="new">On the <bpt id="bf7cca85-f18f-492e-96a1-8745fbce4840">&lt;strong&gt;</bpt>Enter your Jive credentials to enable automatic user provisioning<ept id="bf7cca85-f18f-492e-96a1-8745fbce4840">&lt;/strong&gt;</ept> page, provide the following configuration settings:</target>
+        </trans-unit>
+        <trans-unit id="89903bb8-34ee-4408-ba58-a997015fdd19" xml:space="preserve">
+          <source>In the <bpt id="82687ffb-be53-46d2-ad47-a3f55d126a81">&lt;strong&gt;</bpt>Jive Admin User Name<ept id="82687ffb-be53-46d2-ad47-a3f55d126a81">&lt;/strong&gt;</ept> textbox, type a Jive account name that has the <bpt id="bc7cc5dc-ff1c-4e28-9a21-14787a0295ea">&lt;strong&gt;</bpt>System Administrator<ept id="bc7cc5dc-ff1c-4e28-9a21-14787a0295ea">&lt;/strong&gt;</ept> profile in Jive.com assigned.</source>
+          <target state="new">In the <bpt id="82687ffb-be53-46d2-ad47-a3f55d126a81">&lt;strong&gt;</bpt>Jive Admin User Name<ept id="82687ffb-be53-46d2-ad47-a3f55d126a81">&lt;/strong&gt;</ept> textbox, type a Jive account name that has the <bpt id="bc7cc5dc-ff1c-4e28-9a21-14787a0295ea">&lt;strong&gt;</bpt>System Administrator<ept id="bc7cc5dc-ff1c-4e28-9a21-14787a0295ea">&lt;/strong&gt;</ept> profile in Jive.com assigned.</target>
+        </trans-unit>
+        <trans-unit id="2621052f-6888-4473-8e70-425c028c45ff" xml:space="preserve">
+          <source>In the <bpt id="6d751bc9-f95f-48cc-9462-7be2b1914aea">&lt;strong&gt;</bpt>Jive Admin Password<ept id="6d751bc9-f95f-48cc-9462-7be2b1914aea">&lt;/strong&gt;</ept> textbox, type the password for this account.</source>
+          <target state="new">In the <bpt id="6d751bc9-f95f-48cc-9462-7be2b1914aea">&lt;strong&gt;</bpt>Jive Admin Password<ept id="6d751bc9-f95f-48cc-9462-7be2b1914aea">&lt;/strong&gt;</ept> textbox, type the password for this account.</target>
+        </trans-unit>
+        <trans-unit id="152ca0d5-4706-4134-b138-db77ba68cd4d" xml:space="preserve">
+          <source>In the <bpt id="7125f671-3d2d-4147-8298-3a34aa739f0e">&lt;strong&gt;</bpt>Jive Tenant URL<ept id="7125f671-3d2d-4147-8298-3a34aa739f0e">&lt;/strong&gt;</ept> textbox, type the Jive tenant URL.</source>
+          <target state="new">In the <bpt id="7125f671-3d2d-4147-8298-3a34aa739f0e">&lt;strong&gt;</bpt>Jive Tenant URL<ept id="7125f671-3d2d-4147-8298-3a34aa739f0e">&lt;/strong&gt;</ept> textbox, type the Jive tenant URL.</target>
+        </trans-unit>
+        <trans-unit id="7a429f16-a274-48e7-8438-4661bd64d174" xml:space="preserve">
+          <source>The Jive tenant URL is URL that is used by your organization to log into Jive.  
+Typically, the URL has the following format: <bpt id="4a5ba585-f4a7-463a-a53e-00ec775e16e8">&lt;strong&gt;</bpt>www.\&lt;organization\&gt;.jive.com<ept id="4a5ba585-f4a7-463a-a53e-00ec775e16e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The Jive tenant URL is URL that is used by your organization to log into Jive.  
+Typically, the URL has the following format: <bpt id="4a5ba585-f4a7-463a-a53e-00ec775e16e8">&lt;strong&gt;</bpt>www.\&lt;organization\&gt;.jive.com<ept id="4a5ba585-f4a7-463a-a53e-00ec775e16e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9f9bcdd-6f70-438f-8f5f-46448b1d23db" xml:space="preserve">
+          <source>Click <bpt id="3fe47fb6-0893-43c1-bfcd-454f87b35a97">&lt;strong&gt;</bpt>validate<ept id="3fe47fb6-0893-43c1-bfcd-454f87b35a97">&lt;/strong&gt;</ept> to verify your configuration.</source>
+          <target state="new">Click <bpt id="3fe47fb6-0893-43c1-bfcd-454f87b35a97">&lt;strong&gt;</bpt>validate<ept id="3fe47fb6-0893-43c1-bfcd-454f87b35a97">&lt;/strong&gt;</ept> to verify your configuration.</target>
+        </trans-unit>
+        <trans-unit id="c9e93be5-ef55-490d-a74a-ab047525bcc4" xml:space="preserve">
+          <source>Click the <bpt id="b36fa40f-7fe3-4e33-ae02-6b711766bfb7">&lt;strong&gt;</bpt>Next<ept id="b36fa40f-7fe3-4e33-ae02-6b711766bfb7">&lt;/strong&gt;</ept> button to open the <bpt id="0114add8-628f-4544-8c94-804546292cd2">&lt;strong&gt;</bpt>Confirmation<ept id="0114add8-628f-4544-8c94-804546292cd2">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Click the <bpt id="b36fa40f-7fe3-4e33-ae02-6b711766bfb7">&lt;strong&gt;</bpt>Next<ept id="b36fa40f-7fe3-4e33-ae02-6b711766bfb7">&lt;/strong&gt;</ept> button to open the <bpt id="0114add8-628f-4544-8c94-804546292cd2">&lt;strong&gt;</bpt>Confirmation<ept id="0114add8-628f-4544-8c94-804546292cd2">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="bcc47b3b-f084-4337-9945-574f4991e0e6" xml:space="preserve">
+          <source>On the <bpt id="412d413f-298b-4ccc-879d-c1ab20b9a38f">&lt;strong&gt;</bpt>Confirmation<ept id="412d413f-298b-4ccc-879d-c1ab20b9a38f">&lt;/strong&gt;</ept> page, click the checkmark to save your configuration.</source>
+          <target state="new">On the <bpt id="412d413f-298b-4ccc-879d-c1ab20b9a38f">&lt;strong&gt;</bpt>Confirmation<ept id="412d413f-298b-4ccc-879d-c1ab20b9a38f">&lt;/strong&gt;</ept> page, click the checkmark to save your configuration.</target>
+        </trans-unit>
+        <trans-unit id="eef3fc85-ad67-480f-983d-01426c19beab" xml:space="preserve">
+          <source>You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Jive.com.</source>
+          <target state="new">You can now create a test account, wait for 10 minutes and verify that the account has been synchronized to Jive.com.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

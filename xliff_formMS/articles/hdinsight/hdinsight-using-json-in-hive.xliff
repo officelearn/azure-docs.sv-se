@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="80e5a06c-deb5-4af5-808c-9761ae0944a4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="80e5a06c-deb5-4af5-808c-9761ae0944a4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e0fa840c-634e-4780-8872-cad5d3470b47">
+        <trans-unit id="705b7034-2963-490b-9143-36b639dbb8a6" xml:space="preserve">
+          <source>Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure</source>
+          <target state="new">Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c3249091-eacf-4e4b-8b9c-fff0a9a49b0f" xml:space="preserve">
+          <source>Learn how to use JSON documents and analyze them using Hive in HDInsight.</source>
+          <target state="new">Learn how to use JSON documents and analyze them using Hive in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="a29f21de-4e28-40ce-b10e-01a0cdf36fe9" xml:space="preserve">
+          <source>Learn how to process and analyze JSON files using Hive in HDInsight.</source>
+          <target state="new">Learn how to process and analyze JSON files using Hive in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="2792b042-d733-41e4-a585-7e5de3c54d65" xml:space="preserve">
+          <source>The following JSON document will be used in the tutorial</source>
+          <target state="new">The following JSON document will be used in the tutorial</target>
+        </trans-unit>
+        <trans-unit id="d114e736-dd20-417b-b342-d7582d0b08ae" xml:space="preserve">
+          <source>The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/.</source>
+          <target state="new">The file can be found at wasb://processjson@hditutorialdata.blob.core.windows.net/.</target>
+        </trans-unit>
+        <trans-unit id="565b2f21-d0e0-497a-8da2-3ef0225f6efb" xml:space="preserve">
+          <source>For more information on using Azure Blob storage with HDInsight, see <bpt id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;linkText&gt;</bpt>Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight<ept id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;/linkText&gt;</ept><bpt id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;title&gt;</bpt><ept id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on using Azure Blob storage with HDInsight, see <bpt id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;linkText&gt;</bpt>Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight<ept id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;/linkText&gt;</ept><bpt id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;title&gt;</bpt><ept id="bfeba18b-c272-4345-bd18-56183917d9f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="118adc66-2c4a-43c2-843b-95d9aaa6dfa5" xml:space="preserve">
+          <source>You can copy the file to the default container of your cluster if you want.</source>
+          <target state="new">You can copy the file to the default container of your cluster if you want.</target>
+        </trans-unit>
+        <trans-unit id="cc534994-8939-4622-843d-af8430fa76c2" xml:space="preserve">
+          <source>In this tutorial, you will use the Hive console.</source>
+          <target state="new">In this tutorial, you will use the Hive console.</target>
+        </trans-unit>
+        <trans-unit id="201d8f43-77f5-4215-bff2-adbaf2e6749b" xml:space="preserve">
+          <source>For instructions of opening the Hive console, see <bpt id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight with Remote Desktop<ept id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;/linkText&gt;</ept><bpt id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;title&gt;</bpt><ept id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions of opening the Hive console, see <bpt id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;linkText&gt;</bpt>Use Hive with Hadoop on HDInsight with Remote Desktop<ept id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;/linkText&gt;</ept><bpt id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;title&gt;</bpt><ept id="faa5601f-8913-4b81-ad19-8ff1775dd525">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea0a7202-4368-4140-ba3d-643073190b36" xml:space="preserve">
+          <source>The methods listed in the next section require the JSON document in a single row.</source>
+          <target state="new">The methods listed in the next section require the JSON document in a single row.</target>
+        </trans-unit>
+        <trans-unit id="11c08dd9-8bf0-4e4c-97b1-66cef6561618" xml:space="preserve">
+          <source>So you must flatten the JSON document to a string.</source>
+          <target state="new">So you must flatten the JSON document to a string.</target>
+        </trans-unit>
+        <trans-unit id="f4955b3a-9552-47f0-bb32-2df894585389" xml:space="preserve">
+          <source>If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.</source>
+          <target state="new">If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.</target>
+        </trans-unit>
+        <trans-unit id="470827f4-b1f2-486e-8aa2-55c4c6ba98a7" xml:space="preserve">
+          <source>The raw JSON file is located at <bpt id="133a41be-e292-4ae9-bbd8-19c499a78c9c">&lt;strong&gt;</bpt>wasb://processjson@hditutorialdata.blob.core.windows.net/<ept id="133a41be-e292-4ae9-bbd8-19c499a78c9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The raw JSON file is located at <bpt id="133a41be-e292-4ae9-bbd8-19c499a78c9c">&lt;strong&gt;</bpt>wasb://processjson@hditutorialdata.blob.core.windows.net/<ept id="133a41be-e292-4ae9-bbd8-19c499a78c9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b2fd0df-9044-4241-bfb1-332488441ef5" xml:space="preserve">
+          <source>The <bpt id="cb5d1383-d9fd-43c9-8c5e-7fc18ca71dcf">&lt;em&gt;</bpt>StudentsRaw<ept id="cb5d1383-d9fd-43c9-8c5e-7fc18ca71dcf">&lt;/em&gt;</ept> Hive table points to the raw un-flattened JSON document.</source>
+          <target state="new">The <bpt id="cb5d1383-d9fd-43c9-8c5e-7fc18ca71dcf">&lt;em&gt;</bpt>StudentsRaw<ept id="cb5d1383-d9fd-43c9-8c5e-7fc18ca71dcf">&lt;/em&gt;</ept> Hive table points to the raw un-flattened JSON document.</target>
+        </trans-unit>
+        <trans-unit id="49b33159-62a7-4661-a890-7fad94127ce0" xml:space="preserve">
+          <source>The <bpt id="3057e4df-f530-4471-bee2-8ca219f1ebf0">&lt;em&gt;</bpt>StudentsOneLine<ept id="3057e4df-f530-4471-bee2-8ca219f1ebf0">&lt;/em&gt;</ept> Hive table will store the data in the HDInsight default file system under the <bpt id="b233ec96-0aad-4dc8-95ee-71a483bba37e">&lt;em&gt;</bpt>/json/students/<ept id="b233ec96-0aad-4dc8-95ee-71a483bba37e">&lt;/em&gt;</ept> path.</source>
+          <target state="new">The <bpt id="3057e4df-f530-4471-bee2-8ca219f1ebf0">&lt;em&gt;</bpt>StudentsOneLine<ept id="3057e4df-f530-4471-bee2-8ca219f1ebf0">&lt;/em&gt;</ept> Hive table will store the data in the HDInsight default file system under the <bpt id="b233ec96-0aad-4dc8-95ee-71a483bba37e">&lt;em&gt;</bpt>/json/students/<ept id="b233ec96-0aad-4dc8-95ee-71a483bba37e">&lt;/em&gt;</ept> path.</target>
+        </trans-unit>
+        <trans-unit id="0628dc98-b22c-4997-8c53-517713c51a77" xml:space="preserve">
+          <source>The INSERT statement populate the StudentOneLine table with the flattened JSON data.</source>
+          <target state="new">The INSERT statement populate the StudentOneLine table with the flattened JSON data.</target>
+        </trans-unit>
+        <trans-unit id="b993c741-9a3d-4658-88d7-25b93bd70c83" xml:space="preserve">
+          <source>The SELECT statement shall only return 1 row.</source>
+          <target state="new">The SELECT statement shall only return 1 row.</target>
+        </trans-unit>
+        <trans-unit id="31f80550-b413-46f8-8631-4cd8a3357040" xml:space="preserve">
+          <source>Here is the output of the SELECT statement:</source>
+          <target state="new">Here is the output of the SELECT statement:</target>
+        </trans-unit>
+        <trans-unit id="f749b6d6-da0d-41b0-b35d-44e591527711" xml:space="preserve">
+          <source><bpt id="c8712ea1-069f-4c8b-a0aa-c4330bfceefe">&lt;linkText&gt;</bpt>Flattening of the JSON document.<ept id="c8712ea1-069f-4c8b-a0aa-c4330bfceefe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8712ea1-069f-4c8b-a0aa-c4330bfceefe">&lt;linkText&gt;</bpt>Flattening of the JSON document.<ept id="c8712ea1-069f-4c8b-a0aa-c4330bfceefe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be253dae-0b63-452b-a94c-409d3d57cf70" xml:space="preserve">
+          <source>Hive provides three different mechanisms to run queries on JSON documents:</source>
+          <target state="new">Hive provides three different mechanisms to run queries on JSON documents:</target>
+        </trans-unit>
+        <trans-unit id="27b31940-999d-4552-a5b6-f39c62956d31" xml:space="preserve">
+          <source>use the GET\<bpt id="85dba4c6-fe51-4281-900b-84fe83e3067b">&lt;em&gt;</bpt>JSON\<ept id="85dba4c6-fe51-4281-900b-84fe83e3067b">&lt;/em&gt;</ept>OBJECT UDF (User Defined Function)</source>
+          <target state="new">use the GET\<bpt id="85dba4c6-fe51-4281-900b-84fe83e3067b">&lt;em&gt;</bpt>JSON\<ept id="85dba4c6-fe51-4281-900b-84fe83e3067b">&lt;/em&gt;</ept>OBJECT UDF (User Defined Function)</target>
+        </trans-unit>
+        <trans-unit id="bc94a564-390a-47bd-9665-89e480c23049" xml:space="preserve">
+          <source>use the JSON_TUPLE UDF</source>
+          <target state="new">use the JSON_TUPLE UDF</target>
+        </trans-unit>
+        <trans-unit id="27109019-a26a-4551-979f-cf440d15b985" xml:space="preserve">
+          <source>use custom SerDe</source>
+          <target state="new">use custom SerDe</target>
+        </trans-unit>
+        <trans-unit id="644a9f34-e8c0-4998-96ba-12cc96839f96" xml:space="preserve">
+          <source>write you own UDF using Python or other languages.</source>
+          <target state="new">write you own UDF using Python or other languages.</target>
+        </trans-unit>
+        <trans-unit id="22b2d118-bf71-4605-9e4f-146e700ead4d" xml:space="preserve">
+          <source>See <bpt id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;linkText&gt;</bpt>this article[hdinsight-python]<ept id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;/linkText&gt;</ept><bpt id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;title&gt;</bpt><ept id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;/title&gt;</ept> on running your own Python code with Hive.</source>
+          <target state="new">See <bpt id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;linkText&gt;</bpt>this article[hdinsight-python]<ept id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;/linkText&gt;</ept><bpt id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;title&gt;</bpt><ept id="38317b84-ab9a-49e0-8756-d5d73bd1d8cf">&lt;/title&gt;</ept> on running your own Python code with Hive.</target>
+        </trans-unit>
+        <trans-unit id="dfa93644-69f6-4e6a-b2f5-cae4e2c9a456" xml:space="preserve">
+          <source>Hive provides a built-in UDF called [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get<bpt id="b48f2242-8338-4b6f-aad5-9e4e3c9e2b8b">&lt;em&gt;</bpt>json<ept id="b48f2242-8338-4b6f-aad5-9e4e3c9e2b8b">&lt;/em&gt;</ept>object) which can perform JSON querying during run time.</source>
+          <target state="new">Hive provides a built-in UDF called [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get<bpt id="b48f2242-8338-4b6f-aad5-9e4e3c9e2b8b">&lt;em&gt;</bpt>json<ept id="b48f2242-8338-4b6f-aad5-9e4e3c9e2b8b">&lt;/em&gt;</ept>object) which can perform JSON querying during run time.</target>
+        </trans-unit>
+        <trans-unit id="00369b41-4c42-4b72-8698-93f96d2170ba" xml:space="preserve">
+          <source>This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed.</source>
+          <target state="new">This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed.</target>
+        </trans-unit>
+        <trans-unit id="a6385b63-e835-4931-81e5-f5fbc764e324" xml:space="preserve">
+          <source>Let’s look at an example to see how this UDF works.</source>
+          <target state="new">Let’s look at an example to see how this UDF works.</target>
+        </trans-unit>
+        <trans-unit id="7879402a-06e7-4fa0-a85f-ecd58cf9d115" xml:space="preserve">
+          <source>Get the first name and last name for each student</source>
+          <target state="new">Get the first name and last name for each student</target>
+        </trans-unit>
+        <trans-unit id="f11133ef-cd7d-433f-a223-ceb9352df73e" xml:space="preserve">
+          <source>Here is the output when running this query in console window.</source>
+          <target state="new">Here is the output when running this query in console window.</target>
+        </trans-unit>
+        <trans-unit id="d4df0f72-2257-4a34-a0e8-48054b58f4cc" xml:space="preserve">
+          <source><bpt id="b613afdc-fc16-4ce5-9ecf-aa3b0cdf8a9e">&lt;linkText&gt;</bpt>get_json_object UDF<ept id="b613afdc-fc16-4ce5-9ecf-aa3b0cdf8a9e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b613afdc-fc16-4ce5-9ecf-aa3b0cdf8a9e">&lt;linkText&gt;</bpt>get_json_object UDF<ept id="b613afdc-fc16-4ce5-9ecf-aa3b0cdf8a9e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4001af6-23be-441a-af1f-c7658639f20d" xml:space="preserve">
+          <source>There are a few limitations of the get-json_object UDF.</source>
+          <target state="new">There are a few limitations of the get-json_object UDF.</target>
+        </trans-unit>
+        <trans-unit id="d99b0c4b-0b3d-4306-aeb1-66aab046cb51" xml:space="preserve">
+          <source>Because each field in the query requires re-parsing the query, it affects the performance.</source>
+          <target state="new">Because each field in the query requires re-parsing the query, it affects the performance.</target>
+        </trans-unit>
+        <trans-unit id="63a937ad-00f6-4a40-901e-322705019e0c" xml:space="preserve">
+          <source>GET\<bpt id="e725e2eb-23c4-4c1c-af98-02c3758a90b0">&lt;em&gt;</bpt>JSON<ept id="e725e2eb-23c4-4c1c-af98-02c3758a90b0">&lt;/em&gt;</ept>OBJECT() returns the string representation of an array.</source>
+          <target state="new">GET\<bpt id="e725e2eb-23c4-4c1c-af98-02c3758a90b0">&lt;em&gt;</bpt>JSON<ept id="e725e2eb-23c4-4c1c-af98-02c3758a90b0">&lt;/em&gt;</ept>OBJECT() returns the string representation of an array.</target>
+        </trans-unit>
+        <trans-unit id="e7da98dc-cebc-4b22-bbbe-ce191b3de947" xml:space="preserve">
+          <source>To convert this to a Hive array, you will have to use regular expressions to replace the square brackets ‘[‘ and ‘]’ and then also call split to get the array.</source>
+          <target state="new">To convert this to a Hive array, you will have to use regular expressions to replace the square brackets ‘[‘ and ‘]’ and then also call split to get the array.</target>
+        </trans-unit>
+        <trans-unit id="081e73aa-8f23-4b88-bb60-359775ca2d97" xml:space="preserve">
+          <source>This is why the Hive wiki recommends using json_tuple.</source>
+          <target state="new">This is why the Hive wiki recommends using json_tuple.</target>
+        </trans-unit>
+        <trans-unit id="d91260e4-a666-44b8-a4b5-f54b1e81f210" xml:space="preserve">
+          <source>Another UDF provided by Hive is called [json<bpt id="f733eb6d-60d6-491e-937a-cdcecb69e8ab">&lt;em&gt;</bpt>tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json<ept id="f733eb6d-60d6-491e-937a-cdcecb69e8ab">&lt;/em&gt;</ept>tuple) which performs better than [get_ json <bpt id="1066a681-9b62-4eb0-b0b5-c77c577d0789">&lt;em&gt;</bpt>object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get<ept id="1066a681-9b62-4eb0-b0b5-c77c577d0789">&lt;/em&gt;</ept>json_object).</source>
+          <target state="new">Another UDF provided by Hive is called [json<bpt id="f733eb6d-60d6-491e-937a-cdcecb69e8ab">&lt;em&gt;</bpt>tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json<ept id="f733eb6d-60d6-491e-937a-cdcecb69e8ab">&lt;/em&gt;</ept>tuple) which performs better than [get_ json <bpt id="1066a681-9b62-4eb0-b0b5-c77c577d0789">&lt;em&gt;</bpt>object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get<ept id="1066a681-9b62-4eb0-b0b5-c77c577d0789">&lt;/em&gt;</ept>json_object).</target>
+        </trans-unit>
+        <trans-unit id="d815fdda-1fa8-441c-aea3-8601baff7a14" xml:space="preserve">
+          <source>This method takes a set of keys and a JSON string, and returns a tuple of values using one function.</source>
+          <target state="new">This method takes a set of keys and a JSON string, and returns a tuple of values using one function.</target>
+        </trans-unit>
+        <trans-unit id="27834fba-d14e-4fae-a9ac-50d2d764bb6e" xml:space="preserve">
+          <source>The following query returns the student id and the grade from the JSON document:</source>
+          <target state="new">The following query returns the student id and the grade from the JSON document:</target>
+        </trans-unit>
+        <trans-unit id="7da51a01-c4f6-4c5c-a8e2-8952b05418c3" xml:space="preserve">
+          <source>The output of this script in the Hive console:</source>
+          <target state="new">The output of this script in the Hive console:</target>
+        </trans-unit>
+        <trans-unit id="06e87b75-1c4b-48e6-a911-c74bee6030e5" xml:space="preserve">
+          <source><bpt id="a26f2d1d-f5ff-4c5f-8e2d-f34679458f10">&lt;linkText&gt;</bpt>json_tuple UDF<ept id="a26f2d1d-f5ff-4c5f-8e2d-f34679458f10">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a26f2d1d-f5ff-4c5f-8e2d-f34679458f10">&lt;linkText&gt;</bpt>json_tuple UDF<ept id="a26f2d1d-f5ff-4c5f-8e2d-f34679458f10">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="166e3fe1-ab29-4bc4-8a3f-53d903f9ca6d" xml:space="preserve">
+          <source>JSON\<bpt id="115f331c-1a1d-4ab4-a8ec-65c6c4c424f6">&lt;em&gt;</bpt>TUPLE uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive which allows json\<ept id="115f331c-1a1d-4ab4-a8ec-65c6c4c424f6">&lt;/em&gt;</ept>tuple to create a virtual table by applying the UDT function to each row of the original table.</source>
+          <target state="new">JSON\<bpt id="115f331c-1a1d-4ab4-a8ec-65c6c4c424f6">&lt;em&gt;</bpt>TUPLE uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive which allows json\<ept id="115f331c-1a1d-4ab4-a8ec-65c6c4c424f6">&lt;/em&gt;</ept>tuple to create a virtual table by applying the UDT function to each row of the original table.</target>
+        </trans-unit>
+        <trans-unit id="dd86e7e7-b91d-4247-a3ed-214bf3b5b2d5" xml:space="preserve">
+          <source>Complex JSONs become too unwieldy because of the repeated use of LATERAL VIEW.</source>
+          <target state="new">Complex JSONs become too unwieldy because of the repeated use of LATERAL VIEW.</target>
+        </trans-unit>
+        <trans-unit id="4cb3aadb-27a9-4a93-a283-c22f1488de1d" xml:space="preserve">
+          <source>Furthermore, JSON_TUPLE cannot handle nested JSONs.</source>
+          <target state="new">Furthermore, JSON_TUPLE cannot handle nested JSONs.</target>
+        </trans-unit>
+        <trans-unit id="f8904247-8620-493d-8e92-da2e69f67b1d" xml:space="preserve">
+          <source>SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents.</source>
+          <target state="new">SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents.</target>
+        </trans-unit>
+        <trans-unit id="f58393c8-beef-43cb-8f5a-dea337802cc1" xml:space="preserve">
+          <source>In this tutorial, you will use one of the more popular SerDe that has been developed by <bpt id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;linkText&gt;</bpt>rcongiu<ept id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;/linkText&gt;</ept><bpt id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;title&gt;</bpt><ept id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">In this tutorial, you will use one of the more popular SerDe that has been developed by <bpt id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;linkText&gt;</bpt>rcongiu<ept id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;/linkText&gt;</ept><bpt id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;title&gt;</bpt><ept id="31214df6-6b8d-4418-b87c-4f6aa40b30d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faf2fda9-abde-4259-b51b-4ccd1804d968" xml:space="preserve">
+          <source><bpt id="6cdc5f85-de9c-418a-81db-1dcf20a18cf2">&lt;strong&gt;</bpt>To use the custom SerDe:<ept id="6cdc5f85-de9c-418a-81db-1dcf20a18cf2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6cdc5f85-de9c-418a-81db-1dcf20a18cf2">&lt;strong&gt;</bpt>To use the custom SerDe:<ept id="6cdc5f85-de9c-418a-81db-1dcf20a18cf2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec0d0a63-ae2e-4425-b1e5-a1527d53c8ee" xml:space="preserve">
+          <source>Install <bpt id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;linkText&gt;</bpt>Java SE Development Kit 7u55 JDK 1.7.0_55<ept id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;/linkText&gt;</ept><bpt id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;title&gt;</bpt><ept id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;/title&gt;</ept>.</source>
+          <target state="new">Install <bpt id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;linkText&gt;</bpt>Java SE Development Kit 7u55 JDK 1.7.0_55<ept id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;/linkText&gt;</ept><bpt id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;title&gt;</bpt><ept id="f92aaf1a-c472-4a41-a827-0421c577bc81">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91f27bde-19d0-4bd1-9e37-489cc611633a" xml:space="preserve">
+          <source>Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight</source>
+          <target state="new">Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight</target>
+        </trans-unit>
+        <trans-unit id="970cab77-7e97-46aa-a43d-03d1cb99fd6f" xml:space="preserve">
+          <source>JDK 1.8 doesn't work with this SerDe.</source>
+          <target state="new">JDK 1.8 doesn't work with this SerDe.</target>
+        </trans-unit>
+        <trans-unit id="8ad34b05-9e4a-496d-a6d8-cad8eb6a26c2" xml:space="preserve">
+          <source>After the installation is completed, add a new user environment variable:</source>
+          <target state="new">After the installation is completed, add a new user environment variable:</target>
+        </trans-unit>
+        <trans-unit id="e677209c-d1ed-41c2-9530-5e09f983074e" xml:space="preserve">
+          <source>Open <bpt id="fe29624e-5a07-4722-8818-c1f19c7f4ec3">&lt;strong&gt;</bpt>View advanced system settings<ept id="fe29624e-5a07-4722-8818-c1f19c7f4ec3">&lt;/strong&gt;</ept> from the Windows screen.</source>
+          <target state="new">Open <bpt id="fe29624e-5a07-4722-8818-c1f19c7f4ec3">&lt;strong&gt;</bpt>View advanced system settings<ept id="fe29624e-5a07-4722-8818-c1f19c7f4ec3">&lt;/strong&gt;</ept> from the Windows screen.</target>
+        </trans-unit>
+        <trans-unit id="09374dbb-e228-47bf-96b7-c25b945e30c8" xml:space="preserve">
+          <source>Click <bpt id="58615dd1-65b1-4951-a3f7-882c21941e30">&lt;strong&gt;</bpt>Environment Variables<ept id="58615dd1-65b1-4951-a3f7-882c21941e30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="58615dd1-65b1-4951-a3f7-882c21941e30">&lt;strong&gt;</bpt>Environment Variables<ept id="58615dd1-65b1-4951-a3f7-882c21941e30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27c64741-7697-43e1-b64c-e8bb8ff7d615" xml:space="preserve">
+          <source>Add a new <bpt id="6ad31701-bb67-4269-8a14-8e8e1edc21ae">&lt;strong&gt;</bpt>JAVA_HOME<ept id="6ad31701-bb67-4269-8a14-8e8e1edc21ae">&lt;/strong&gt;</ept> environment variable is pointing to <bpt id="11f4619f-42bf-411d-b95b-9334a16be1d6">&lt;strong&gt;</bpt>C:\Program Files\Java\jdk1.7.0_55<ept id="11f4619f-42bf-411d-b95b-9334a16be1d6">&lt;/strong&gt;</ept> or wherever your JDK is installed.</source>
+          <target state="new">Add a new <bpt id="6ad31701-bb67-4269-8a14-8e8e1edc21ae">&lt;strong&gt;</bpt>JAVA_HOME<ept id="6ad31701-bb67-4269-8a14-8e8e1edc21ae">&lt;/strong&gt;</ept> environment variable is pointing to <bpt id="11f4619f-42bf-411d-b95b-9334a16be1d6">&lt;strong&gt;</bpt>C:\Program Files\Java\jdk1.7.0_55<ept id="11f4619f-42bf-411d-b95b-9334a16be1d6">&lt;/strong&gt;</ept> or wherever your JDK is installed.</target>
+        </trans-unit>
+        <trans-unit id="64a5f37e-47f2-4f3f-9bd6-7675e997d769" xml:space="preserve">
+          <source><bpt id="38c1095c-9422-4763-b77a-442237496129">&lt;linkText&gt;</bpt>Setting up correct config values for JDK<ept id="38c1095c-9422-4763-b77a-442237496129">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38c1095c-9422-4763-b77a-442237496129">&lt;linkText&gt;</bpt>Setting up correct config values for JDK<ept id="38c1095c-9422-4763-b77a-442237496129">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a90d79b6-589e-4563-96af-8fecdc10d963" xml:space="preserve">
+          <source>Install <bpt id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;linkText&gt;</bpt>Maven 3.3.1<ept id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;/linkText&gt;</ept><bpt id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;title&gt;</bpt><ept id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;/title&gt;</ept> </source>
+          <target state="new">Install <bpt id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;linkText&gt;</bpt>Maven 3.3.1<ept id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;/linkText&gt;</ept><bpt id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;title&gt;</bpt><ept id="269217eb-8f2f-4f2d-8ebe-1cc5ba95787f">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="a9c7add8-72f3-4242-8e5d-5e44531b4f37" xml:space="preserve">
+          <source>Add the bin folder to your path by going to Control Panel--&gt;Edit the System Variables for your account Environment variables.</source>
+          <target state="new">Add the bin folder to your path by going to Control Panel--&gt;Edit the System Variables for your account Environment variables.</target>
+        </trans-unit>
+        <trans-unit id="b9a5e3b7-593e-4a33-9035-21b2bcc90cd8" xml:space="preserve">
+          <source>The screenshot below shows you how to do this.</source>
+          <target state="new">The screenshot below shows you how to do this.</target>
+        </trans-unit>
+        <trans-unit id="331a3ba2-057b-4766-8b76-2cb927ba9410" xml:space="preserve">
+          <source><bpt id="3a8f10b6-0df1-4d1e-8ea2-91aa37cbca46">&lt;linkText&gt;</bpt>Setting up Maven<ept id="3a8f10b6-0df1-4d1e-8ea2-91aa37cbca46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a8f10b6-0df1-4d1e-8ea2-91aa37cbca46">&lt;linkText&gt;</bpt>Setting up Maven<ept id="3a8f10b6-0df1-4d1e-8ea2-91aa37cbca46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cfd5047-cacf-4d28-b3b7-38d81bd9b3fc" xml:space="preserve">
+          <source>Clone the project from <bpt id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;linkText&gt;</bpt>Hive-JSON-SerDe<ept id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;/linkText&gt;</ept><bpt id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;title&gt;</bpt><ept id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;/title&gt;</ept> github site.</source>
+          <target state="new">Clone the project from <bpt id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;linkText&gt;</bpt>Hive-JSON-SerDe<ept id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;/linkText&gt;</ept><bpt id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;title&gt;</bpt><ept id="68031b2c-81eb-4264-9358-8504efc074fd">&lt;/title&gt;</ept> github site.</target>
+        </trans-unit>
+        <trans-unit id="21e203b9-64bf-499f-bf1c-53954def4c59" xml:space="preserve">
+          <source>You can do this by clicking on the “Download Zip” button as shown in the screenshot below.</source>
+          <target state="new">You can do this by clicking on the “Download Zip” button as shown in the screenshot below.</target>
+        </trans-unit>
+        <trans-unit id="74b5d643-4507-4d90-896b-d956fec239b7" xml:space="preserve">
+          <source><bpt id="6bd37a1e-b9ff-4cea-95a6-042fe32be442">&lt;linkText&gt;</bpt>Cloning the project<ept id="6bd37a1e-b9ff-4cea-95a6-042fe32be442">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bd37a1e-b9ff-4cea-95a6-042fe32be442">&lt;linkText&gt;</bpt>Cloning the project<ept id="6bd37a1e-b9ff-4cea-95a6-042fe32be442">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0b46bf8-4f67-4a9e-9255-0795757b9580" xml:space="preserve">
+          <source>4: Go to the folder where you have downloaded this package and  type “mvn package”.</source>
+          <target state="new">4: Go to the folder where you have downloaded this package and  type “mvn package”.</target>
+        </trans-unit>
+        <trans-unit id="6751e50d-f980-40a9-92f9-b38de4d5338e" xml:space="preserve">
+          <source>This should create the necessary jar files that you can then copy over to the cluster.</source>
+          <target state="new">This should create the necessary jar files that you can then copy over to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="e66e2c9f-8826-45df-bd8c-55d947b6d0a1" xml:space="preserve">
+          <source>5: Go to the target folder under the root folder where you downloaded the package.</source>
+          <target state="new">5: Go to the target folder under the root folder where you downloaded the package.</target>
+        </trans-unit>
+        <trans-unit id="c3c3111f-2056-43a8-83be-e7ec712e11b9" xml:space="preserve">
+          <source>Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster.</source>
+          <target state="new">Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster.</target>
+        </trans-unit>
+        <trans-unit id="95b5f83c-555c-497e-837b-b8b0b34d8dc9" xml:space="preserve">
+          <source>I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.</source>
+          <target state="new">I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.</target>
+        </trans-unit>
+        <trans-unit id="4a8d585c-72a4-4564-ab72-b41c3c17aeb3" xml:space="preserve">
+          <source>6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”.</source>
+          <target state="new">6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”.</target>
+        </trans-unit>
+        <trans-unit id="3a43396d-a719-4217-946b-010fb73fa6e1" xml:space="preserve">
+          <source>Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown below:</source>
+          <target state="new">Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown below:</target>
+        </trans-unit>
+        <trans-unit id="8f03d5d6-7a3d-48e9-b8b8-4c47b8f1253a" xml:space="preserve">
+          <source>Now, you are ready to use the SerDe to run queries against the JSON document.</source>
+          <target state="new">Now, you are ready to use the SerDe to run queries against the JSON document.</target>
+        </trans-unit>
+        <trans-unit id="3b60272f-e938-4afb-9b53-2d70850848d5" xml:space="preserve">
+          <source>The following statement create a table with a defined schema</source>
+          <target state="new">The following statement create a table with a defined schema</target>
+        </trans-unit>
+        <trans-unit id="8ca693d7-73eb-4eb2-82d4-12d3eb56a9aa" xml:space="preserve">
+          <source>,
+      StudentClassCollection array&lt;struct&lt;
+          ClassId:string,
+          ClassParticipation:string,
+          ClassParticipationRank:string,
+          Score:int,
+          PerformedActivity:boolean</source>
+          <target state="new">,
+      StudentClassCollection array&lt;struct&lt;
+          ClassId:string,
+          ClassParticipation:string,
+          ClassParticipationRank:string,
+          Score:int,
+          PerformedActivity:boolean</target>
+        </trans-unit>
+        <trans-unit id="b1d7708d-b14f-4f32-9cde-5ee2076291d5" xml:space="preserve">
+          <source>To list the first name and last name of the student</source>
+          <target state="new">To list the first name and last name of the student</target>
+        </trans-unit>
+        <trans-unit id="a52c3018-e886-4d34-8c1f-e40c95d53869" xml:space="preserve">
+          <source>Here is the result from the Hive console.</source>
+          <target state="new">Here is the result from the Hive console.</target>
+        </trans-unit>
+        <trans-unit id="de170094-fd37-47f3-bad9-c9a89282f8a8" xml:space="preserve">
+          <source><bpt id="86dac89e-100b-4d37-84eb-3121e70002d7">&lt;linkText&gt;</bpt>SerDe Query 1<ept id="86dac89e-100b-4d37-84eb-3121e70002d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86dac89e-100b-4d37-84eb-3121e70002d7">&lt;linkText&gt;</bpt>SerDe Query 1<ept id="86dac89e-100b-4d37-84eb-3121e70002d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9df1b333-e7de-4709-b65d-9f84123c9f37" xml:space="preserve">
+          <source>To calculate the sum of scores of the JSON document</source>
+          <target state="new">To calculate the sum of scores of the JSON document</target>
+        </trans-unit>
+        <trans-unit id="ee84541d-dec2-422c-83ff-027ab274a555" xml:space="preserve">
+          <source>The query above uses <bpt id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;linkText&gt;</bpt>lateral view explode<ept id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;/linkText&gt;</ept><bpt id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;title&gt;</bpt><ept id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;/title&gt;</ept> UDF to expand the array of scores so that they can be summed.</source>
+          <target state="new">The query above uses <bpt id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;linkText&gt;</bpt>lateral view explode<ept id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;/linkText&gt;</ept><bpt id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;title&gt;</bpt><ept id="4bfd2589-add7-4eac-b18f-2b329f209320">&lt;/title&gt;</ept> UDF to expand the array of scores so that they can be summed.</target>
+        </trans-unit>
+        <trans-unit id="2cb853c5-d3a9-42e1-9ca7-02f6406c78c6" xml:space="preserve">
+          <source>Here is the output from the Hive console.</source>
+          <target state="new">Here is the output from the Hive console.</target>
+        </trans-unit>
+        <trans-unit id="57deaa8f-315e-4f98-8ae2-917cf210f1a8" xml:space="preserve">
+          <source><bpt id="a1990dd7-b57c-430c-b460-33a849af6c02">&lt;linkText&gt;</bpt>SerDe Query 2<ept id="a1990dd7-b57c-430c-b460-33a849af6c02">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1990dd7-b57c-430c-b460-33a849af6c02">&lt;linkText&gt;</bpt>SerDe Query 2<ept id="a1990dd7-b57c-430c-b460-33a849af6c02">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="560feeaa-ea08-44da-a4a1-96753e95f661" xml:space="preserve">
+          <source>To find which subjects a given student has scored more than 80 points
+    SELECT  
+      jt.StudentClassCollection.ClassId 
+    FROM json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score &gt; 80;</source>
+          <target state="new">To find which subjects a given student has scored more than 80 points
+    SELECT  
+      jt.StudentClassCollection.ClassId 
+    FROM json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score &gt; 80;</target>
+        </trans-unit>
+        <trans-unit id="5f4faf1a-6f1a-42b4-a33c-b7657b6fd40e" xml:space="preserve">
+          <source>The query above returns a Hive array unlike get\<bpt id="78361bb8-dca7-4e77-8189-2fb7429de8de">&lt;em&gt;</bpt>json\<ept id="78361bb8-dca7-4e77-8189-2fb7429de8de">&lt;/em&gt;</ept>object which returns a string.</source>
+          <target state="new">The query above returns a Hive array unlike get\<bpt id="78361bb8-dca7-4e77-8189-2fb7429de8de">&lt;em&gt;</bpt>json\<ept id="78361bb8-dca7-4e77-8189-2fb7429de8de">&lt;/em&gt;</ept>object which returns a string.</target>
+        </trans-unit>
+        <trans-unit id="7a87ae8d-57be-4e46-9bba-61aea6e40b20" xml:space="preserve">
+          <source><bpt id="d2a93ed9-5764-4d78-a1ed-7096ebe772b8">&lt;linkText&gt;</bpt>SerDe Query 3<ept id="d2a93ed9-5764-4d78-a1ed-7096ebe772b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2a93ed9-5764-4d78-a1ed-7096ebe772b8">&lt;linkText&gt;</bpt>SerDe Query 3<ept id="d2a93ed9-5764-4d78-a1ed-7096ebe772b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="443eaefb-7ff5-4faf-9b65-cf654a9170d5" xml:space="preserve">
+          <source>If you want to skil malformed JSON, then as explained in the <bpt id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;linkText&gt;</bpt>wiki page<ept id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;/linkText&gt;</ept><bpt id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;title&gt;</bpt><ept id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;/title&gt;</ept> of this SerDe you can achieve that by typing the code below:  </source>
+          <target state="new">If you want to skil malformed JSON, then as explained in the <bpt id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;linkText&gt;</bpt>wiki page<ept id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;/linkText&gt;</ept><bpt id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;title&gt;</bpt><ept id="be92a0c2-89df-481f-9ef7-3594e54f1d5c">&lt;/title&gt;</ept> of this SerDe you can achieve that by typing the code below:  </target>
+        </trans-unit>
+        <trans-unit id="e2f615dd-d166-4053-bc99-3b35040ddfc8" xml:space="preserve">
+          <source>In conclusion, the type of JSON operator in Hive that you choose depends on your scenario.</source>
+          <target state="new">In conclusion, the type of JSON operator in Hive that you choose depends on your scenario.</target>
+        </trans-unit>
+        <trans-unit id="d08c8292-1658-487d-b4f2-a3bf0ad26e00" xml:space="preserve">
+          <source>If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\<bpt id="b41d526d-3a99-437c-9027-b60e93913ee7">&lt;em&gt;</bpt>json\<ept id="b41d526d-3a99-437c-9027-b60e93913ee7">&lt;/em&gt;</ept>object.</source>
+          <target state="new">If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\<bpt id="b41d526d-3a99-437c-9027-b60e93913ee7">&lt;em&gt;</bpt>json\<ept id="b41d526d-3a99-437c-9027-b60e93913ee7">&lt;/em&gt;</ept>object.</target>
+        </trans-unit>
+        <trans-unit id="14376000-020a-4a2a-b250-06b4004f294e" xml:space="preserve">
+          <source>If you have more than one keys to look up on then you can use json_tuple.</source>
+          <target state="new">If you have more than one keys to look up on then you can use json_tuple.</target>
+        </trans-unit>
+        <trans-unit id="3598ed77-31f4-4bc0-ad3c-3cc411ab8d3c" xml:space="preserve">
+          <source>If you have a nested document, then you should use the JSON SerDe.</source>
+          <target state="new">If you have a nested document, then you should use the JSON SerDe.</target>
+        </trans-unit>
+        <trans-unit id="22f22b88-7414-45d1-829a-b53880c3e4fc" xml:space="preserve">
+          <source>For other related articles, see</source>
+          <target state="new">For other related articles, see</target>
+        </trans-unit>
+        <trans-unit id="a7e18ed5-50a5-4d4d-8195-9dd1c4cf080c" xml:space="preserve">
+          <source><bpt id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;linkText&gt;</bpt>Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file<ept id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;/linkText&gt;</ept><bpt id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;title&gt;</bpt><ept id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;linkText&gt;</bpt>Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file<ept id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;/linkText&gt;</ept><bpt id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;title&gt;</bpt><ept id="45c46b21-0cb3-4231-8691-04b104f9932f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e5bc6a3-d433-4449-a18d-d10c38fba2fc" xml:space="preserve">
+          <source><bpt id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive in HDInsight<ept id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;/linkText&gt;</ept><bpt id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;title&gt;</bpt><ept id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive in HDInsight<ept id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;/linkText&gt;</ept><bpt id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;title&gt;</bpt><ept id="bf96dd19-9e5f-4f6e-939d-68eff12f03a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38ffc302-0595-4003-a685-e2ac7c930df1" xml:space="preserve">
+          <source><bpt id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;/linkText&gt;</ept><bpt id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;title&gt;</bpt><ept id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;/linkText&gt;</ept><bpt id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;title&gt;</bpt><ept id="58802cd0-f2f4-4a98-8198-dcd7b953a25b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b6c8fd7-beab-4882-a7c8-90fd004fd507" xml:space="preserve">
+          <source><bpt id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;linkText&gt;</bpt>Run a Hadoop job using DocumentDB and HDInsight<ept id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;/linkText&gt;</ept><bpt id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;title&gt;</bpt><ept id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;linkText&gt;</bpt>Run a Hadoop job using DocumentDB and HDInsight<ept id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;/linkText&gt;</ept><bpt id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;title&gt;</bpt><ept id="6590ba48-dee6-4060-902f-3efed9d9b08b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37ad3fb0-30bb-4908-952c-c554ba0aeb39" xml:space="preserve">
+          <source>hdinsight-python.md</source>
+          <target state="new">hdinsight-python.md</target>
+        </trans-unit>
+        <trans-unit id="93341b1f-7d87-4d0d-9abb-81fc17c22eaf" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/flatten.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/flatten.png</target>
+        </trans-unit>
+        <trans-unit id="15c39204-2466-47ed-a4d3-eab3ef435bf9" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/getjsonobject.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/getjsonobject.png</target>
+        </trans-unit>
+        <trans-unit id="680b9632-a185-47e8-8dc3-c7126376beb7" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/jsontuple.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/jsontuple.png</target>
+        </trans-unit>
+        <trans-unit id="76af1de8-c526-4057-a14e-d2d356afa3be" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/jdk.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/jdk.png</target>
+        </trans-unit>
+        <trans-unit id="c9dfe8c8-35ab-4fbe-b0a7-7b6fbf6abca3" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/maven.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/maven.png</target>
+        </trans-unit>
+        <trans-unit id="5842c0d8-0d37-4d4b-b97f-c76bd24072cb" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/serde.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/serde.png</target>
+        </trans-unit>
+        <trans-unit id="ba7935e2-fbca-460b-af47-fd8187bd6607" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/addjar.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/addjar.png</target>
+        </trans-unit>
+        <trans-unit id="ce0990d3-6c16-41a0-8011-e7b0a4e79655" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/serde_query1.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/serde_query1.png</target>
+        </trans-unit>
+        <trans-unit id="000864aa-1660-49be-b391-6d893e7b8cc2" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/serde_query2.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/serde_query2.png</target>
+        </trans-unit>
+        <trans-unit id="2d8ad022-11a2-434c-98c5-89456a3c2913" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/serde_query3.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/serde_query3.png</target>
+        </trans-unit>
+        <trans-unit id="cc355d09-992a-414a-8d13-fd8bcedba440" xml:space="preserve">
+          <source>./media/hdinsight-using-json-in-hive/serde_result.png</source>
+          <target state="new">./media/hdinsight-using-json-in-hive/serde_result.png</target>
+        </trans-unit>
+      </group>
+      <group id="c1f31e90-a68f-4921-9933-e215b51183ca" />
+    </body>
+  </file>
+</xliff>

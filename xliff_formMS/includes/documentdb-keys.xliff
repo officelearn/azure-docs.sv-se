@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fb3b380e-56ad-4a04-9272-a3adb488b25f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fb3b380e-56ad-4a04-9272-a3adb488b25f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8ca968b8-c9dd-460f-8a07-9e5d7f445916">
+        <trans-unit id="13e17b3d-a039-4f63-a9b2-9faf94b13430" xml:space="preserve">
+          <source>       Now navigate to the Keys blade of your DocumentDB account as we will use these values in the web application we create next.</source>
+          <target state="new">       Now navigate to the Keys blade of your DocumentDB account as we will use these values in the web application we create next.</target>
+        </trans-unit>
+        <trans-unit id="5c55c8e5-88bb-4a71-a5e6-0f905d1b2aae" xml:space="preserve">
+          <source>       <bpt id="76c66d94-d28a-4fc8-ae2c-f278657411ad">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="76c66d94-d28a-4fc8-ae2c-f278657411ad">&lt;/linkText&gt;</ept></source>
+          <target state="new">       <bpt id="76c66d94-d28a-4fc8-ae2c-f278657411ad">&lt;linkText&gt;</bpt>Screen shot of the Azure Preview portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade<ept id="76c66d94-d28a-4fc8-ae2c-f278657411ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

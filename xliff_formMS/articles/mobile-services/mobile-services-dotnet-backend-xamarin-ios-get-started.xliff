@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7da7e195-a13d-4763-af05-d9f42f59a4b2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7da7e195-a13d-4763-af05-d9f42f59a4b2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fa320d50-1843-48dd-bc62-40b4fa2f70fe">
+        <trans-unit id="b0dd10b8-1787-405d-8827-35555d0e479d" xml:space="preserve">
+          <source>Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure</source>
+          <target state="new">Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ee91ccbb-3d98-4fe5-8820-6f71b0a26896" xml:space="preserve">
+          <source>Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development</source>
+          <target state="new">Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development</target>
+        </trans-unit>
+        <trans-unit id="a4d4786e-d72e-477f-a20d-d66134416517" xml:space="preserve">
+          <source><bpt id="8c75884c-aa67-4647-b1ca-24d9f963d1e0">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="8c75884c-aa67-4647-b1ca-24d9f963d1e0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8c75884c-aa67-4647-b1ca-24d9f963d1e0">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="8c75884c-aa67-4647-b1ca-24d9f963d1e0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4aa640d-aa50-41cd-b765-dcb556817735" xml:space="preserve">
+          <source>This tutorial shows you how to add a cloud-based backend service to a Xamarin iOS app using Azure Mobile Services.</source>
+          <target state="new">This tutorial shows you how to add a cloud-based backend service to a Xamarin iOS app using Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="c009499d-8b6a-433a-aabe-e604dc291fcd" xml:space="preserve">
+          <source>In this tutorial, you will create both a new mobile service and a simple <bpt id="97184483-92ef-43c6-888d-4d7159686a8d">&lt;em&gt;</bpt>To do list<ept id="97184483-92ef-43c6-888d-4d7159686a8d">&lt;/em&gt;</ept> app that stores app data in the new mobile service.</source>
+          <target state="new">In this tutorial, you will create both a new mobile service and a simple <bpt id="97184483-92ef-43c6-888d-4d7159686a8d">&lt;em&gt;</bpt>To do list<ept id="97184483-92ef-43c6-888d-4d7159686a8d">&lt;/em&gt;</ept> app that stores app data in the new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="65e6e158-523c-43d7-bed3-450f890f37ef" xml:space="preserve">
+          <source>The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service.</source>
+          <target state="new">The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="3afad6f2-8005-4747-8e7e-ed7caa0010aa" xml:space="preserve">
+          <source>To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.</source>
+          <target state="new">To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.</target>
+        </trans-unit>
+        <trans-unit id="fd49795c-9b3f-4e10-bea8-cf260522e4d7" xml:space="preserve">
+          <source>This topic shows you how to create a new mobile service project by using the Azure Management Portal.</source>
+          <target state="new">This topic shows you how to create a new mobile service project by using the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="72fba3b0-c7da-438d-a5d4-9314d1d8f73f" xml:space="preserve">
+          <source>By using Visual Studio 2013 Update 2, you can also add a new mobile service project to an existing Visual Studio solution.</source>
+          <target state="new">By using Visual Studio 2013 Update 2, you can also add a new mobile service project to an existing Visual Studio solution.</target>
+        </trans-unit>
+        <trans-unit id="4ff2cbda-70dd-4ff7-ac14-9f06e346170e" xml:space="preserve">
+          <source>For more information, see <bpt id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;linkText&gt;</bpt>Quickstart: Add a mobile service (.NET backend)<ept id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;/linkText&gt;</ept><bpt id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;title&gt;</bpt><ept id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;linkText&gt;</bpt>Quickstart: Add a mobile service (.NET backend)<ept id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;/linkText&gt;</ept><bpt id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;title&gt;</bpt><ept id="54f9604c-1be4-4dae-b487-7453cf929666">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05300629-850f-449e-8fa3-b1bed88fb4fa" xml:space="preserve">
+          <source>A screenshot from the completed app is below:</source>
+          <target state="new">A screenshot from the completed app is below:</target>
+        </trans-unit>
+        <trans-unit id="d80a8919-c0c2-48f0-b8e7-0e8c3f062fe1" xml:space="preserve">
+          <source><bpt id="7e5c4776-1ae6-4123-9054-7b86ff5af2ec">&lt;linkText&gt;</bpt><ept id="7e5c4776-1ae6-4123-9054-7b86ff5af2ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7e5c4776-1ae6-4123-9054-7b86ff5af2ec">&lt;linkText&gt;</bpt><ept id="7e5c4776-1ae6-4123-9054-7b86ff5af2ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="230ab3b6-64b0-426c-adef-2de5f39f36a1" xml:space="preserve">
+          <source>Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Xamarin iOS apps.</source>
+          <target state="new">Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Xamarin iOS apps.</target>
+        </trans-unit>
+        <trans-unit id="195e3309-27f1-4525-8753-15e282e41918" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="ba713a10-e064-45a6-b800-381feb03edfa" xml:space="preserve">
+          <source>If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends.</source>
+          <target state="new">If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends.</target>
+        </trans-unit>
+        <trans-unit id="9e24d683-b905-4f25-8151-88acf59fb74e" xml:space="preserve">
+          <source>For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="f42c8cb2-a465-4675-a10c-1ebc64c6466c">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="<ept id="f42c8cb2-a465-4675-a10c-1ebc64c6466c">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.&lt;br /&gt;This tutorial requires &lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank"&gt;Visual Studio Professional 2013&lt;/a&gt;.</source>
+          <target state="new">For details, see &lt;a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc<bpt id="f42c8cb2-a465-4675-a10c-1ebc64c6466c">&lt;em&gt;</bpt>id=A0E0E5C02&amp;amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="<ept id="f42c8cb2-a465-4675-a10c-1ebc64c6466c">&lt;/em&gt;</ept>blank"&gt;Azure Free Trial&lt;/a&gt;.&lt;br /&gt;This tutorial requires &lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank"&gt;Visual Studio Professional 2013&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="83637098-fa84-4e9f-b31a-16ee22876d74" xml:space="preserve">
+          <source>A free trial version is available.</source>
+          <target state="new">A free trial version is available.</target>
+        </trans-unit>
+        <trans-unit id="3a5a929e-d145-4a11-87d2-bac1a90c4f22" xml:space="preserve">
+          <source><bpt id="8b6263ca-cbb7-42d4-af2a-2076f92684b1">&lt;token href="../../includes/mobile-services-dotnet-backend-create-new-service.md"&gt;</bpt><ept id="8b6263ca-cbb7-42d4-af2a-2076f92684b1">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8b6263ca-cbb7-42d4-af2a-2076f92684b1">&lt;token href="../../includes/mobile-services-dotnet-backend-create-new-service.md"&gt;</bpt><ept id="8b6263ca-cbb7-42d4-af2a-2076f92684b1">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="697713bb-b03f-4b6c-a9d1-f8c23a82231a" xml:space="preserve">
+          <source>Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.</source>
+          <target state="new">Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="465a78a8-f5fd-4060-b522-20df347fb4fa" xml:space="preserve">
+          <source>In this section you will download a new Xamarin iOS app and a service project for your mobile service.</source>
+          <target state="new">In this section you will download a new Xamarin iOS app and a service project for your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2e86d73f-678f-4c5f-b67a-2c7b34689b08" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="68201753-8c9f-415d-b209-5dc484bad2ba">&lt;strong&gt;</bpt>Mobile Services<ept id="68201753-8c9f-415d-b209-5dc484bad2ba">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="68201753-8c9f-415d-b209-5dc484bad2ba">&lt;strong&gt;</bpt>Mobile Services<ept id="68201753-8c9f-415d-b209-5dc484bad2ba">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</target>
+        </trans-unit>
+        <trans-unit id="979664d3-561f-41bc-8c23-f932ee5b108c" xml:space="preserve">
+          <source>In the quickstart tab, click <bpt id="cfc3147b-b745-4b4e-86ce-39c7da455b9d">&lt;strong&gt;</bpt>Xamarin<ept id="cfc3147b-b745-4b4e-86ce-39c7da455b9d">&lt;/strong&gt;</ept> under <bpt id="5118f786-f1e1-4ff8-a528-86b6a2c82948">&lt;strong&gt;</bpt>Choose platform<ept id="5118f786-f1e1-4ff8-a528-86b6a2c82948">&lt;/strong&gt;</ept> and expand <bpt id="db70a603-2149-472f-a531-8573c97df5f1">&lt;strong&gt;</bpt>Create a new Xamarin app<ept id="db70a603-2149-472f-a531-8573c97df5f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the quickstart tab, click <bpt id="cfc3147b-b745-4b4e-86ce-39c7da455b9d">&lt;strong&gt;</bpt>Xamarin<ept id="cfc3147b-b745-4b4e-86ce-39c7da455b9d">&lt;/strong&gt;</ept> under <bpt id="5118f786-f1e1-4ff8-a528-86b6a2c82948">&lt;strong&gt;</bpt>Choose platform<ept id="5118f786-f1e1-4ff8-a528-86b6a2c82948">&lt;/strong&gt;</ept> and expand <bpt id="db70a603-2149-472f-a531-8573c97df5f1">&lt;strong&gt;</bpt>Create a new Xamarin app<ept id="db70a603-2149-472f-a531-8573c97df5f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bdc5809-e68d-456e-b650-abf0d8cb0b7b" xml:space="preserve">
+          <source><bpt id="fb50b884-77e0-466a-851c-ff63e3a9fcde">&lt;linkText&gt;</bpt><ept id="fb50b884-77e0-466a-851c-ff63e3a9fcde">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb50b884-77e0-466a-851c-ff63e3a9fcde">&lt;linkText&gt;</bpt><ept id="fb50b884-77e0-466a-851c-ff63e3a9fcde">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92a91f47-3b60-4e4c-b586-e0711516fec9" xml:space="preserve">
+          <source>This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.</source>
+          <target state="new">This displays the three easy steps to create a Xamarin iOS app connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="597626f1-ed1a-40e4-bc3f-f6764c6f0d6c" xml:space="preserve">
+          <source><bpt id="7ea5c949-f11b-4567-9631-d79b5a6bcb20">&lt;linkText&gt;</bpt><ept id="7ea5c949-f11b-4567-9631-d79b5a6bcb20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ea5c949-f11b-4567-9631-d79b5a6bcb20">&lt;linkText&gt;</bpt><ept id="7ea5c949-f11b-4567-9631-d79b5a6bcb20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed48a2a0-51dc-439e-9747-cb876780c859" xml:space="preserve">
+          <source>If you haven't already done so, download and install &lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank"&gt;Visual Studio Professional 2013&lt;/a&gt; on your local computer or virtual machine.</source>
+          <target state="new">If you haven't already done so, download and install &lt;a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank"&gt;Visual Studio Professional 2013&lt;/a&gt; on your local computer or virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8cd53f32-ea4d-4174-b28e-551d8218efad" xml:space="preserve">
+          <source>Download and install [Xcode] v4.4 or a later version and [Xamarin Studio].</source>
+          <target state="new">Download and install [Xcode] v4.4 or a later version and [Xamarin Studio].</target>
+        </trans-unit>
+        <trans-unit id="744d5a5f-931c-41c1-b585-85486fe24d66" xml:space="preserve">
+          <source>You can also use Xamarin for Visual Studio.</source>
+          <target state="new">You can also use Xamarin for Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="c387286d-ce00-4b3f-9f6a-80cefa60f25a" xml:space="preserve">
+          <source>Under <bpt id="a1bfa56f-848d-44a8-96c6-ac59f25f48bd">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="a1bfa56f-848d-44a8-96c6-ac59f25f48bd">&lt;/strong&gt;</ept>, select <bpt id="164a3b8b-724b-4f94-86ce-d530e309e17b">&lt;strong&gt;</bpt>iOS<ept id="164a3b8b-724b-4f94-86ce-d530e309e17b">&lt;/strong&gt;</ept> and click <bpt id="e34417aa-9fcc-404f-a80b-42cfb4051d5f">&lt;strong&gt;</bpt>Download<ept id="e34417aa-9fcc-404f-a80b-42cfb4051d5f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="a1bfa56f-848d-44a8-96c6-ac59f25f48bd">&lt;strong&gt;</bpt>Download and publish your service to the cloud<ept id="a1bfa56f-848d-44a8-96c6-ac59f25f48bd">&lt;/strong&gt;</ept>, select <bpt id="164a3b8b-724b-4f94-86ce-d530e309e17b">&lt;strong&gt;</bpt>iOS<ept id="164a3b8b-724b-4f94-86ce-d530e309e17b">&lt;/strong&gt;</ept> and click <bpt id="e34417aa-9fcc-404f-a80b-42cfb4051d5f">&lt;strong&gt;</bpt>Download<ept id="e34417aa-9fcc-404f-a80b-42cfb4051d5f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2308c6ee-d7fc-4ae8-9185-f46edb0477ca" xml:space="preserve">
+          <source>This downloads a solution contains projects for both the mobile service and for the sample <bpt id="8b1b3460-78db-4805-ad9e-360d23209b3c">&lt;em&gt;</bpt>To do list<ept id="8b1b3460-78db-4805-ad9e-360d23209b3c">&lt;/em&gt;</ept> application that is connected to your mobile service.</source>
+          <target state="new">This downloads a solution contains projects for both the mobile service and for the sample <bpt id="8b1b3460-78db-4805-ad9e-360d23209b3c">&lt;em&gt;</bpt>To do list<ept id="8b1b3460-78db-4805-ad9e-360d23209b3c">&lt;/em&gt;</ept> application that is connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="ae040fef-9eef-4a3d-87a5-254490a4dcd8" xml:space="preserve">
+          <source>Save the compressed project file to your local computer, and make a note of where you save it.</source>
+          <target state="new">Save the compressed project file to your local computer, and make a note of where you save it.</target>
+        </trans-unit>
+        <trans-unit id="4a2cce69-fb15-448f-85ea-245b585fcc79" xml:space="preserve">
+          <source>Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.</source>
+          <target state="new">Download your publish profile, save the downloaded file to your local computer, and make a note of where you save it.</target>
+        </trans-unit>
+        <trans-unit id="921b73bb-19ca-435b-8bf4-bbbf8cb5e77c" xml:space="preserve">
+          <source><bpt id="7b1a3311-d811-4fae-9acd-abcac8c3545d">&lt;token href="../../includes/mobile-services-dotnet-backend-test-local-service.md"&gt;</bpt><ept id="7b1a3311-d811-4fae-9acd-abcac8c3545d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7b1a3311-d811-4fae-9acd-abcac8c3545d">&lt;token href="../../includes/mobile-services-dotnet-backend-test-local-service.md"&gt;</bpt><ept id="7b1a3311-d811-4fae-9acd-abcac8c3545d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9e6705e-e7df-44a3-b1d8-58bb4508afc0" xml:space="preserve">
+          <source><bpt id="c696695a-a104-4b5e-8de7-bcdeb723953f">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="c696695a-a104-4b5e-8de7-bcdeb723953f">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c696695a-a104-4b5e-8de7-bcdeb723953f">&lt;token href="../../includes/mobile-services-dotnet-backend-publish-service.md"&gt;</bpt><ept id="c696695a-a104-4b5e-8de7-bcdeb723953f">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15849b5f-7ea0-49cd-ba13-f67d0ffc48a9" xml:space="preserve">
+          <source>The final stage of this tutorial is to build and run your new app.</source>
+          <target state="new">The final stage of this tutorial is to build and run your new app.</target>
+        </trans-unit>
+        <trans-unit id="054ceca6-f837-42e9-a1c1-bccb15644783" xml:space="preserve">
+          <source>Navigate to the client project within the mobile service solution, in either Visual Studio or Xamarin Studio.</source>
+          <target state="new">Navigate to the client project within the mobile service solution, in either Visual Studio or Xamarin Studio.</target>
+        </trans-unit>
+        <trans-unit id="748125f6-e88e-4e45-88f0-74138fd9d21e" xml:space="preserve">
+          <source><bpt id="420ec76e-6bfc-441e-9f6c-0a3ed11b1e77">&lt;linkText&gt;</bpt><ept id="420ec76e-6bfc-441e-9f6c-0a3ed11b1e77">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="420ec76e-6bfc-441e-9f6c-0a3ed11b1e77">&lt;linkText&gt;</bpt><ept id="420ec76e-6bfc-441e-9f6c-0a3ed11b1e77">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8e4ce20-c6fc-401f-90f8-a4f864fbdafa" xml:space="preserve">
+          <source><bpt id="50f68f02-f823-4ac3-abe3-38a030b26e00">&lt;linkText&gt;</bpt><ept id="50f68f02-f823-4ac3-abe3-38a030b26e00">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50f68f02-f823-4ac3-abe3-38a030b26e00">&lt;linkText&gt;</bpt><ept id="50f68f02-f823-4ac3-abe3-38a030b26e00">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed12b9c7-c768-4ec8-b985-e98c0ee9c03c" xml:space="preserve">
+          <source>Press the <bpt id="695990a2-63da-4650-8b8b-d6def7af3a0d">&lt;strong&gt;</bpt>Run<ept id="695990a2-63da-4650-8b8b-d6def7af3a0d">&lt;/strong&gt;</ept> button to build the client project and start the app in the iPhone emulator.</source>
+          <target state="new">Press the <bpt id="695990a2-63da-4650-8b8b-d6def7af3a0d">&lt;strong&gt;</bpt>Run<ept id="695990a2-63da-4650-8b8b-d6def7af3a0d">&lt;/strong&gt;</ept> button to build the client project and start the app in the iPhone emulator.</target>
+        </trans-unit>
+        <trans-unit id="2fd91d2e-a70d-41e8-b0b7-1f2ea7a1334f" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="d272992e-31bd-47b0-89b8-e637760f9700">&lt;em&gt;</bpt>Complete the tutorial<ept id="d272992e-31bd-47b0-89b8-e637760f9700">&lt;/em&gt;</ept> and then click the plus (<bpt id="8e1b1230-46b2-4de7-af60-45ed2ea6ccce">&lt;strong&gt;</bpt>+<ept id="8e1b1230-46b2-4de7-af60-45ed2ea6ccce">&lt;/strong&gt;</ept>) icon.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="d272992e-31bd-47b0-89b8-e637760f9700">&lt;em&gt;</bpt>Complete the tutorial<ept id="d272992e-31bd-47b0-89b8-e637760f9700">&lt;/em&gt;</ept> and then click the plus (<bpt id="8e1b1230-46b2-4de7-af60-45ed2ea6ccce">&lt;strong&gt;</bpt>+<ept id="8e1b1230-46b2-4de7-af60-45ed2ea6ccce">&lt;/strong&gt;</ept>) icon.</target>
+        </trans-unit>
+        <trans-unit id="421fdbc0-793e-4826-aeab-7ff6e0c430bc" xml:space="preserve">
+          <source><bpt id="826ddb1f-bb6e-4941-b5fe-13303b304f1d">&lt;linkText&gt;</bpt><ept id="826ddb1f-bb6e-4941-b5fe-13303b304f1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="826ddb1f-bb6e-4941-b5fe-13303b304f1d">&lt;linkText&gt;</bpt><ept id="826ddb1f-bb6e-4941-b5fe-13303b304f1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00619d09-582b-4eaf-b292-912355306bd3" xml:space="preserve">
+          <source>This sends a POST request to the new mobile service hosted in Azure.</source>
+          <target state="new">This sends a POST request to the new mobile service hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="a0bdc14f-7df8-4a67-b176-1ee959bc423e" xml:space="preserve">
+          <source>Data from the request is inserted into the TodoItem table.</source>
+          <target state="new">Data from the request is inserted into the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="77d6b602-c64d-4e12-a61e-ce2c82bdd421" xml:space="preserve">
+          <source>Items stored in the table are returned by the mobile service, and the data is displayed in the list.</source>
+          <target state="new">Items stored in the table are returned by the mobile service, and the data is displayed in the list.</target>
+        </trans-unit>
+        <trans-unit id="1183b6e3-ce40-48fe-9acd-192b40b54f5a" xml:space="preserve">
+          <source>You can review the code that accesses your mobile service to query and insert data in the QSTodoService.cs C# file.</source>
+          <target state="new">You can review the code that accesses your mobile service to query and insert data in the QSTodoService.cs C# file.</target>
+        </trans-unit>
+        <trans-unit id="8a3c5fcf-8cad-441b-aead-3651f025924b" xml:space="preserve">
+          <source>Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</source>
+          <target state="new">Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</target>
+        </trans-unit>
+        <trans-unit id="1fb1cda4-68aa-4331-b657-bae2c813a1a1" xml:space="preserve">
+          <source>[Get started with offline data sync]
+&lt;br/&gt;Learn how the quickstart uses offline data sync to make the app responsive and robust.</source>
+          <target state="new">[Get started with offline data sync]
+&lt;br/&gt;Learn how the quickstart uses offline data sync to make the app responsive and robust.</target>
+        </trans-unit>
+        <trans-unit id="f88955d7-9277-4ffc-ae26-c645b63b5b84" xml:space="preserve">
+          <source>[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</source>
+          <target state="new">[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</target>
+        </trans-unit>
+        <trans-unit id="6e3a7b79-581b-48ba-89da-a9ccf52a4774" xml:space="preserve">
+          <source>[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</source>
+          <target state="new">[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</target>
+        </trans-unit>
+        <trans-unit id="0751a1c1-598c-490f-8337-b936c8558e2d" xml:space="preserve">
+          <source>[Troubleshoot a Mobile Services .NET backend]
+&lt;br/&gt; Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend.</source>
+          <target state="new">[Troubleshoot a Mobile Services .NET backend]
+&lt;br/&gt; Learn how to diagnose and fix issues that can arise with a Mobile Services .NET backend.</target>
+        </trans-unit>
+        <trans-unit id="e07bab7a-c029-4cfd-ab0f-b423fedf1ec3" xml:space="preserve">
+          <source>#getting-started</source>
+          <target state="new">#getting-started</target>
+        </trans-unit>
+        <trans-unit id="7e89a2df-0f29-4acd-828c-89ef4fabd830" xml:space="preserve">
+          <source>#create-new-service</source>
+          <target state="new">#create-new-service</target>
+        </trans-unit>
+        <trans-unit id="d49db339-3df2-4a60-9154-ecc1fd3ac584" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="359d099b-d798-4046-8384-d57b06ba5ae4" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-completed-ios.png</target>
+        </trans-unit>
+        <trans-unit id="013405ab-f12d-42b3-bff0-0eaa569f3f0e" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-portal-quickstart-xamarin-ios.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-portal-quickstart-xamarin-ios.png</target>
+        </trans-unit>
+        <trans-unit id="0d763d96-7091-4c52-b84d-a40ec79d4c57" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-steps-xamarin-ios.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-steps-xamarin-ios.png</target>
+        </trans-unit>
+        <trans-unit id="81b15350-e033-4792-bc50-225386361972" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png</target>
+        </trans-unit>
+        <trans-unit id="e0749bb1-eb0f-49e0-96fc-abe108867080" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png</target>
+        </trans-unit>
+        <trans-unit id="aa4a5e9a-fe0d-4d03-bc34-25ec60138bbe" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-xamarin-ios-get-started/mobile-quickstart-startup-ios.png</target>
+        </trans-unit>
+        <trans-unit id="01f021af-28f3-4779-b4a4-ba4b0f246f10" xml:space="preserve">
+          <source>mobile-services-xamarin-ios-get-started-offline-data.md</source>
+          <target state="new">mobile-services-xamarin-ios-get-started-offline-data.md</target>
+        </trans-unit>
+        <trans-unit id="73faaa69-2251-4264-be88-b6e6efc96c06" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-xamarin-ios-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-xamarin-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="352e2d37-9f8f-4ed1-ab2b-379a9bb0a76a" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-xamarin-ios-get-started-push.md</source>
+          <target state="new">mobile-services-dotnet-backend-xamarin-ios-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="9161fead-d95a-4077-b60f-ead2b2d20147" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=257546</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=257546</target>
+        </trans-unit>
+        <trans-unit id="2c3df3ad-2603-4d37-a29d-8532b11d85bc" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=257545</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=257545</target>
+        </trans-unit>
+        <trans-unit id="70c0c110-1e49-401c-b6f6-4d317f65242f" xml:space="preserve">
+          <source>mobile-services-win8-javascript/</source>
+          <target state="new">mobile-services-win8-javascript/</target>
+        </trans-unit>
+        <trans-unit id="ec571d9a-191e-4827-ac38-101dee494b72" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="e06c2b5d-e94c-44c6-8b3f-8ad996cf1142" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="be3e4722-84b9-41fd-a441-14e597da063d" xml:space="preserve">
+          <source>../mobile-services-windows-store-dotnet-get-started-data-vs2012.md</source>
+          <target state="new">../mobile-services-windows-store-dotnet-get-started-data-vs2012.md</target>
+        </trans-unit>
+        <trans-unit id="50931662-38e0-4671-928a-8840bda51bee" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-how-to-troubleshoot.md</source>
+          <target state="new">mobile-services-dotnet-backend-how-to-troubleshoot.md</target>
+        </trans-unit>
+        <trans-unit id="0e4dec07-e792-4572-b5fa-869bf140c284" xml:space="preserve">
+          <source>http://xamarin.com/download</source>
+          <target state="new">http://xamarin.com/download</target>
+        </trans-unit>
+        <trans-unit id="85d0761d-976a-4c9f-9397-e78ba411b526" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/?LinkID=266532&amp;clcid=0x409</source>
+          <target state="new">https://go.microsoft.com/fwLink/?LinkID=266532&amp;clcid=0x409</target>
+        </trans-unit>
+        <trans-unit id="15f0e4a0-0b36-47ef-8db9-4a0ab02e0713" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/?LinkID=330242&amp;clcid=0x409</source>
+          <target state="new">https://go.microsoft.com/fwLink/?LinkID=330242&amp;clcid=0x409</target>
+        </trans-unit>
+      </group>
+      <group id="9497b5f0-638b-4ea6-b616-802abb9b3226" />
+    </body>
+  </file>
+</xliff>

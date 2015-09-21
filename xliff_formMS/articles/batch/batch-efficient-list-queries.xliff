@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e90279f5-b8d6-4ae7-ad5b-457db082d166" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e90279f5-b8d6-4ae7-ad5b-457db082d166" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="76720c43-e3b7-4e5c-b531-508cbbcc81c3">
+        <trans-unit id="bb6e9422-53a1-40f6-812c-15c98489e118" xml:space="preserve">
+          <source>Efficient list queries in Azure Batch | Microsoft Azure</source>
+          <target state="new">Efficient list queries in Azure Batch | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="7ab31aca-0c31-42ae-943c-dc7b5bc68077" xml:space="preserve">
+          <source>Learn to reduce the amount of data returned and increase performance when querying Azure Batch pools, jobs, tasks, compute nodes, and more.</source>
+          <target state="new">Learn to reduce the amount of data returned and increase performance when querying Azure Batch pools, jobs, tasks, compute nodes, and more.</target>
+        </trans-unit>
+        <trans-unit id="f265176d-fec1-483a-bde6-862a8ee5eaee" xml:space="preserve">
+          <source>Azure Batch is big compute, and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands.</source>
+          <target state="new">Azure Batch is big compute, and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands.</target>
+        </trans-unit>
+        <trans-unit id="ba7e2553-c025-4583-a362-0cdce00b8e76" xml:space="preserve">
+          <source>Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query.</source>
+          <target state="new">Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query.</target>
+        </trans-unit>
+        <trans-unit id="724d627f-d039-49bf-95e3-076ac49d4889" xml:space="preserve">
+          <source>Limiting the number of items and type of information returned for each will increase the speed of your queries and therefore the performance of your application.</source>
+          <target state="new">Limiting the number of items and type of information returned for each will increase the speed of your queries and therefore the performance of your application.</target>
+        </trans-unit>
+        <trans-unit id="b1ddf97b-3c17-4ddb-b21c-42055ba6bc79" xml:space="preserve">
+          <source>The following <bpt id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;linkText&gt;</bpt>Batch .NET<ept id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;/linkText&gt;</ept><bpt id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;title&gt;</bpt><ept id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;/title&gt;</ept> API methods are examples of operations that virtually every application using Azure Batch must perform, often frequently:</source>
+          <target state="new">The following <bpt id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;linkText&gt;</bpt>Batch .NET<ept id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;/linkText&gt;</ept><bpt id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;title&gt;</bpt><ept id="72d1b91e-e0d6-4b6d-851f-6f272ca25224">&lt;/title&gt;</ept> API methods are examples of operations that virtually every application using Azure Batch must perform, often frequently:</target>
+        </trans-unit>
+        <trans-unit id="49e5ba56-7235-4691-964c-82319a164273" xml:space="preserve">
+          <source><bpt id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;linkText&gt;</bpt>ListTasks<ept id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;/linkText&gt;</ept><bpt id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;title&gt;</bpt><ept id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;linkText&gt;</bpt>ListTasks<ept id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;/linkText&gt;</ept><bpt id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;title&gt;</bpt><ept id="b25c775e-c721-4622-baa0-bf005ddf6790">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50cd8495-399b-4d40-b662-b22183cd635a" xml:space="preserve">
+          <source><bpt id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;linkText&gt;</bpt>ListJobs<ept id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;/linkText&gt;</ept><bpt id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;title&gt;</bpt><ept id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;linkText&gt;</bpt>ListJobs<ept id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;/linkText&gt;</ept><bpt id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;title&gt;</bpt><ept id="6e019068-1691-434a-a3b0-a06ef82fc7c0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abe0e1c5-f166-4224-906d-ddcb1e902ed7" xml:space="preserve">
+          <source><bpt id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;linkText&gt;</bpt>ListPools<ept id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;/linkText&gt;</ept><bpt id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;title&gt;</bpt><ept id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;linkText&gt;</bpt>ListPools<ept id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;/linkText&gt;</ept><bpt id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;title&gt;</bpt><ept id="b85fed8b-b8b9-47ae-880a-9bfe1ec782d1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad4dc9b1-2d22-4dd0-bf95-07497e2a6e15" xml:space="preserve">
+          <source><bpt id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;linkText&gt;</bpt>ListComputeNodes<ept id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;/linkText&gt;</ept><bpt id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;title&gt;</bpt><ept id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;linkText&gt;</bpt>ListComputeNodes<ept id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;/linkText&gt;</ept><bpt id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;title&gt;</bpt><ept id="8f9b3674-2b83-460c-9dd6-5b2727f8c4a7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d54133e-5ecd-468e-b5bb-03c75cf8720d" xml:space="preserve">
+          <source>Monitoring is a common use case--determining the capacity and status of a pool requires that all compute nodes (VMs) in a pool be queried, for example.</source>
+          <target state="new">Monitoring is a common use case--determining the capacity and status of a pool requires that all compute nodes (VMs) in a pool be queried, for example.</target>
+        </trans-unit>
+        <trans-unit id="133d65e0-9504-4087-8a91-11d063d7aaf9" xml:space="preserve">
+          <source>Another example is to query a job's tasks to determine if any of those tasks are still queued.</source>
+          <target state="new">Another example is to query a job's tasks to determine if any of those tasks are still queued.</target>
+        </trans-unit>
+        <trans-unit id="52f8318f-99bc-4dcf-9c27-1dacdaf4824b" xml:space="preserve">
+          <source>In some cases, a rich set of data is required, but in others, only a count of the total number of items or a collection of items that are in a certain state is required.</source>
+          <target state="new">In some cases, a rich set of data is required, but in others, only a count of the total number of items or a collection of items that are in a certain state is required.</target>
+        </trans-unit>
+        <trans-unit id="6116eb91-1742-42ba-a3ea-a5a8f9a0123b" xml:space="preserve">
+          <source>It is important to note that both the number of items returned and the amount of data required to represent those items can be very large.</source>
+          <target state="new">It is important to note that both the number of items returned and the amount of data required to represent those items can be very large.</target>
+        </trans-unit>
+        <trans-unit id="fc393b8a-ee82-41be-a13a-58668e52fc70" xml:space="preserve">
+          <source>Simply querying for lots of items resulting in large responses can lead to a number of problems:</source>
+          <target state="new">Simply querying for lots of items resulting in large responses can lead to a number of problems:</target>
+        </trans-unit>
+        <trans-unit id="c3ad0a6b-192f-41e1-8278-8f30904edeb6" xml:space="preserve">
+          <source>Batch API response times can become too slow.</source>
+          <target state="new">Batch API response times can become too slow.</target>
+        </trans-unit>
+        <trans-unit id="52d24612-1616-4434-8d04-65c55c8a5f29" xml:space="preserve">
+          <source>The larger the number of items, the longer the query time required by the Batch service.</source>
+          <target state="new">The larger the number of items, the longer the query time required by the Batch service.</target>
+        </trans-unit>
+        <trans-unit id="686edf43-6281-479d-a505-33d5ee246dd9" xml:space="preserve">
+          <source>Large numbers of items have to be broken into chunks, and therefore the client library may need to make multiple API calls to the service to obtain all of the items for a single list.</source>
+          <target state="new">Large numbers of items have to be broken into chunks, and therefore the client library may need to make multiple API calls to the service to obtain all of the items for a single list.</target>
+        </trans-unit>
+        <trans-unit id="dcd7c313-7e61-4105-9398-d54bc4bb8c54" xml:space="preserve">
+          <source>API processing by the application calling Batch will take longer when there are more items to process.</source>
+          <target state="new">API processing by the application calling Batch will take longer when there are more items to process.</target>
+        </trans-unit>
+        <trans-unit id="9ec626b1-9e5f-4254-88ef-0247926a701e" xml:space="preserve">
+          <source>More memory will be consumed by the application calling Batch when there are more and/or larger items.</source>
+          <target state="new">More memory will be consumed by the application calling Batch when there are more and/or larger items.</target>
+        </trans-unit>
+        <trans-unit id="9db139c3-3934-4223-be35-327b528d21f6" xml:space="preserve">
+          <source>More and/or larger items will lead to increased network traffic.</source>
+          <target state="new">More and/or larger items will lead to increased network traffic.</target>
+        </trans-unit>
+        <trans-unit id="e6c385f1-e9fb-428a-8e95-b657e7e022cd" xml:space="preserve">
+          <source>This will take longer to transfer and, depending on application architecture, may result in increased network charges for data transferred outside of the region of the Batch account.</source>
+          <target state="new">This will take longer to transfer and, depending on application architecture, may result in increased network charges for data transferred outside of the region of the Batch account.</target>
+        </trans-unit>
+        <trans-unit id="ff8b881c-42ce-40ba-b87e-0abf445f8b40" xml:space="preserve">
+          <source>For all Batch APIs the following apply:</source>
+          <target state="new">For all Batch APIs the following apply:</target>
+        </trans-unit>
+        <trans-unit id="1facfca1-0e73-4929-b5af-85195ac12945" xml:space="preserve">
+          <source>Each property name is a string that maps to the property of the object</source>
+          <target state="new">Each property name is a string that maps to the property of the object</target>
+        </trans-unit>
+        <trans-unit id="ffd43ae8-7269-4dac-8521-f6f770b34b31" xml:space="preserve">
+          <source>All property names are case sensitive, but property values are case insensitive</source>
+          <target state="new">All property names are case sensitive, but property values are case insensitive</target>
+        </trans-unit>
+        <trans-unit id="e971ad6c-418e-493f-9401-76f9cbdb6783" xml:space="preserve">
+          <source>Property names and casing are as the elements appear in the Batch REST API</source>
+          <target state="new">Property names and casing are as the elements appear in the Batch REST API</target>
+        </trans-unit>
+        <trans-unit id="c0982363-caaa-41a9-9cbe-fbdd6b640a1c" xml:space="preserve">
+          <source>Date/time strings may be specified in one of two formats, and must be preceded with DateTime</source>
+          <target state="new">Date/time strings may be specified in one of two formats, and must be preceded with DateTime</target>
+        </trans-unit>
+        <trans-unit id="014d1b12-17af-48f4-a3f3-50c0b3eeca1d" xml:space="preserve">
+          <source>W3CDTF (e.g. <bpt id="9f71fc2b-dee6-4a24-beff-322c6d95b08e">&lt;em&gt;</bpt>creationTime gt DateTime'2011-05-08T08:49:37Z'<ept id="9f71fc2b-dee6-4a24-beff-322c6d95b08e">&lt;/em&gt;</ept>)</source>
+          <target state="new">W3CDTF (e.g. <bpt id="9f71fc2b-dee6-4a24-beff-322c6d95b08e">&lt;em&gt;</bpt>creationTime gt DateTime'2011-05-08T08:49:37Z'<ept id="9f71fc2b-dee6-4a24-beff-322c6d95b08e">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="6edb3673-76df-47a9-8daf-87397ad4790d" xml:space="preserve">
+          <source>RFC1123 (e.g. <bpt id="525a1247-1c7d-4e61-b528-bc03bf792316">&lt;em&gt;</bpt>creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'<ept id="525a1247-1c7d-4e61-b528-bc03bf792316">&lt;/em&gt;</ept>)</source>
+          <target state="new">RFC1123 (e.g. <bpt id="525a1247-1c7d-4e61-b528-bc03bf792316">&lt;em&gt;</bpt>creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'<ept id="525a1247-1c7d-4e61-b528-bc03bf792316">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="5d13192d-eb2d-4eca-86fa-681df03ec5b6" xml:space="preserve">
+          <source>Boolean strings are either "true" or "false"</source>
+          <target state="new">Boolean strings are either "true" or "false"</target>
+        </trans-unit>
+        <trans-unit id="42fd1b90-d757-473d-8b4c-d3aa12858b22" xml:space="preserve">
+          <source>Specifying an invalid property or operator will result in a "400 (Bad Request)" error</source>
+          <target state="new">Specifying an invalid property or operator will result in a "400 (Bad Request)" error</target>
+        </trans-unit>
+        <trans-unit id="4bccd118-83f7-4d38-9c89-5f70e69598d7" xml:space="preserve">
+          <source>The Batch .NET API provides the ability to reduce both the number of items returned in a list and the amount of information returned for each item by specifying the <bpt id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;linkText&gt;</bpt>DetailLevel<ept id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;/linkText&gt;</ept><bpt id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;title&gt;</bpt><ept id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;/title&gt;</ept> of a query.</source>
+          <target state="new">The Batch .NET API provides the ability to reduce both the number of items returned in a list and the amount of information returned for each item by specifying the <bpt id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;linkText&gt;</bpt>DetailLevel<ept id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;/linkText&gt;</ept><bpt id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;title&gt;</bpt><ept id="1f6e0a03-4acb-479f-86af-79a8d1e3b48b">&lt;/title&gt;</ept> of a query.</target>
+        </trans-unit>
+        <trans-unit id="9354a650-08c7-4112-ae8f-2b561a64def5" xml:space="preserve">
+          <source>DetailLevel is an abstract base class, and an <bpt id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;linkText&gt;</bpt>ODATADetailLevel<ept id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;/linkText&gt;</ept><bpt id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;title&gt;</bpt><ept id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;/title&gt;</ept> object actually needs to be created and passed as the parameter to appropriate methods.</source>
+          <target state="new">DetailLevel is an abstract base class, and an <bpt id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;linkText&gt;</bpt>ODATADetailLevel<ept id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;/linkText&gt;</ept><bpt id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;title&gt;</bpt><ept id="3d07b447-09d2-4161-ad13-9debd67bb992">&lt;/title&gt;</ept> object actually needs to be created and passed as the parameter to appropriate methods.</target>
+        </trans-unit>
+        <trans-unit id="f327ee24-8fcd-4f89-b67f-367d069ad595" xml:space="preserve">
+          <source>An ODataDetailLevel object has three public string properties that can be specified either in the constructor or set directly:</source>
+          <target state="new">An ODataDetailLevel object has three public string properties that can be specified either in the constructor or set directly:</target>
+        </trans-unit>
+        <trans-unit id="8ae8e66e-1ef5-481a-a61d-d2208d4dbcd0" xml:space="preserve">
+          <source><bpt id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;linkText&gt;</bpt>FilterClause<ept id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;/linkText&gt;</ept><bpt id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;title&gt;</bpt><ept id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;/title&gt;</ept> – filter and potentially reduce the number of returned items</source>
+          <target state="new"><bpt id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;linkText&gt;</bpt>FilterClause<ept id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;/linkText&gt;</ept><bpt id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;title&gt;</bpt><ept id="81efa6d9-d93f-42fa-be11-babce1ef7431">&lt;/title&gt;</ept> – filter and potentially reduce the number of returned items</target>
+        </trans-unit>
+        <trans-unit id="5bdb8da2-375f-472e-a149-f6ba1daa959f" xml:space="preserve">
+          <source><bpt id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;linkText&gt;</bpt>SelectClause<ept id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;/linkText&gt;</ept><bpt id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;title&gt;</bpt><ept id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;/title&gt;</ept> – specify a subset of property values to be returned for each item, reducing the item and response size</source>
+          <target state="new"><bpt id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;linkText&gt;</bpt>SelectClause<ept id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;/linkText&gt;</ept><bpt id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;title&gt;</bpt><ept id="6b810256-0f76-4d7e-9cac-b25d2de61ecb">&lt;/title&gt;</ept> – specify a subset of property values to be returned for each item, reducing the item and response size</target>
+        </trans-unit>
+        <trans-unit id="2c2168e6-7ce2-4aba-8ece-a5804c4d5299" xml:space="preserve">
+          <source><bpt id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;linkText&gt;</bpt>ExpandClause<ept id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;/linkText&gt;</ept><bpt id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;title&gt;</bpt><ept id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;/title&gt;</ept> – return all required data in one call as opposed to multiple calls</source>
+          <target state="new"><bpt id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;linkText&gt;</bpt>ExpandClause<ept id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;/linkText&gt;</ept><bpt id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;title&gt;</bpt><ept id="4fa57803-9964-40f6-b4d0-16e1e76ff852">&lt;/title&gt;</ept> – return all required data in one call as opposed to multiple calls</target>
+        </trans-unit>
+        <trans-unit id="3f8d93eb-da12-4886-936b-7d62c8373b08" xml:space="preserve">
+          <source>An instance of DetailLevel configured with Select and Expand clauses can also be passed to appropriate Get methods such as <bpt id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;linkText&gt;</bpt>PoolOperations.GetPool<ept id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;/linkText&gt;</ept><bpt id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;title&gt;</bpt><ept id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;/title&gt;</ept> to limit the amount of data returned.</source>
+          <target state="new">An instance of DetailLevel configured with Select and Expand clauses can also be passed to appropriate Get methods such as <bpt id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;linkText&gt;</bpt>PoolOperations.GetPool<ept id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;/linkText&gt;</ept><bpt id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;title&gt;</bpt><ept id="77307a38-b20f-48b6-928e-2a75e22c9ef3">&lt;/title&gt;</ept> to limit the amount of data returned.</target>
+        </trans-unit>
+        <trans-unit id="2aa2136f-5078-464b-b8aa-e77fb922113d" xml:space="preserve">
+          <source>The number of items returned can be reduced by a filter string.</source>
+          <target state="new">The number of items returned can be reduced by a filter string.</target>
+        </trans-unit>
+        <trans-unit id="8572afc2-ca86-47f2-8215-6cf186fdd6ff" xml:space="preserve">
+          <source>One or more property values with qualifiers can be specified to ensure only the items relevant to your query are returned.</source>
+          <target state="new">One or more property values with qualifiers can be specified to ensure only the items relevant to your query are returned.</target>
+        </trans-unit>
+        <trans-unit id="62045a1f-510b-4ea0-ac57-f48d284dbb8e" xml:space="preserve">
+          <source>For example, perhaps you wish to list only the running tasks for a job, or list only the compute nodes that are ready to run tasks.</source>
+          <target state="new">For example, perhaps you wish to list only the running tasks for a job, or list only the compute nodes that are ready to run tasks.</target>
+        </trans-unit>
+        <trans-unit id="1233e6a5-4336-46b7-a0cd-44f420873d0c" xml:space="preserve">
+          <source><bpt id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;linkText&gt;</bpt>FilterClause<ept id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;/linkText&gt;</ept><bpt id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;title&gt;</bpt><ept id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;/title&gt;</ept> is a string consisting of one or more expressions, with an expression consisting of a <bpt id="106cc85c-e377-41fa-b7fe-59a2873117c8">&lt;em&gt;</bpt>property name<ept id="106cc85c-e377-41fa-b7fe-59a2873117c8">&lt;/em&gt;</ept>, <bpt id="553b2102-b0c3-4736-8e76-e7347e17139b">&lt;em&gt;</bpt>operator<ept id="553b2102-b0c3-4736-8e76-e7347e17139b">&lt;/em&gt;</ept>, and <bpt id="49c3643e-ec23-44cc-ba9e-c901fd085036">&lt;em&gt;</bpt>value<ept id="49c3643e-ec23-44cc-ba9e-c901fd085036">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;linkText&gt;</bpt>FilterClause<ept id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;/linkText&gt;</ept><bpt id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;title&gt;</bpt><ept id="7bf7d320-709f-4c51-b8cf-bd7e5e8761a4">&lt;/title&gt;</ept> is a string consisting of one or more expressions, with an expression consisting of a <bpt id="106cc85c-e377-41fa-b7fe-59a2873117c8">&lt;em&gt;</bpt>property name<ept id="106cc85c-e377-41fa-b7fe-59a2873117c8">&lt;/em&gt;</ept>, <bpt id="553b2102-b0c3-4736-8e76-e7347e17139b">&lt;em&gt;</bpt>operator<ept id="553b2102-b0c3-4736-8e76-e7347e17139b">&lt;/em&gt;</ept>, and <bpt id="49c3643e-ec23-44cc-ba9e-c901fd085036">&lt;em&gt;</bpt>value<ept id="49c3643e-ec23-44cc-ba9e-c901fd085036">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf43d327-c8be-4f58-9c27-426a42502875" xml:space="preserve">
+          <source>The properties that can be specified are specific to each API call, as are the operators supported for each property.</source>
+          <target state="new">The properties that can be specified are specific to each API call, as are the operators supported for each property.</target>
+        </trans-unit>
+        <trans-unit id="4955953d-143a-47aa-b4a9-de9f2828ae15" xml:space="preserve">
+          <source>Multiple expressions can be combined using the logical operators <bpt id="8e6f4ce5-ea04-4f5b-b8b4-d5da9222c8f6">&lt;strong&gt;</bpt>and<ept id="8e6f4ce5-ea04-4f5b-b8b4-d5da9222c8f6">&lt;/strong&gt;</ept> and <bpt id="0293fded-9fe3-4cdd-9c45-7187311f7be9">&lt;strong&gt;</bpt>or<ept id="0293fded-9fe3-4cdd-9c45-7187311f7be9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Multiple expressions can be combined using the logical operators <bpt id="8e6f4ce5-ea04-4f5b-b8b4-d5da9222c8f6">&lt;strong&gt;</bpt>and<ept id="8e6f4ce5-ea04-4f5b-b8b4-d5da9222c8f6">&lt;/strong&gt;</ept> and <bpt id="0293fded-9fe3-4cdd-9c45-7187311f7be9">&lt;strong&gt;</bpt>or<ept id="0293fded-9fe3-4cdd-9c45-7187311f7be9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="610c833d-634e-4e88-8891-28abfb285b83" xml:space="preserve">
+          <source>For example, this filter string returns only running tasks whose <bpt id="780c4f95-22c4-486e-8cf7-ad409471760b">&lt;em&gt;</bpt>displayName<ept id="780c4f95-22c4-486e-8cf7-ad409471760b">&lt;/em&gt;</ept> starts with "MyTask":</source>
+          <target state="new">For example, this filter string returns only running tasks whose <bpt id="780c4f95-22c4-486e-8cf7-ad409471760b">&lt;em&gt;</bpt>displayName<ept id="780c4f95-22c4-486e-8cf7-ad409471760b">&lt;/em&gt;</ept> starts with "MyTask":</target>
+        </trans-unit>
+        <trans-unit id="fb30f5b1-f71f-44a5-b6ec-02ae3ea8b9cc" xml:space="preserve">
+          <source>Each Batch REST API article below contains a table specifying the supported properties and operations on those properties for the different list operations.</source>
+          <target state="new">Each Batch REST API article below contains a table specifying the supported properties and operations on those properties for the different list operations.</target>
+        </trans-unit>
+        <trans-unit id="efb32ed3-4107-4363-94c8-26a083c571bb" xml:space="preserve">
+          <source><bpt id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;linkText&gt;</bpt>List the pools in an account<ept id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;/linkText&gt;</ept><bpt id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;title&gt;</bpt><ept id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;linkText&gt;</bpt>List the pools in an account<ept id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;/linkText&gt;</ept><bpt id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;title&gt;</bpt><ept id="1ce5fecb-5e7a-417c-99c6-46207eab6886">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2d84c0b-d75e-4106-88b9-05fe5b615dd9" xml:space="preserve">
+          <source><bpt id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;linkText&gt;</bpt>List the compute nodes in a pool<ept id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;/linkText&gt;</ept><bpt id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;title&gt;</bpt><ept id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;linkText&gt;</bpt>List the compute nodes in a pool<ept id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;/linkText&gt;</ept><bpt id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;title&gt;</bpt><ept id="20b58209-dfa7-4349-a235-407ce4e19232">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bdac774-98f3-4af1-9697-6169fb5426e8" xml:space="preserve">
+          <source><bpt id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;linkText&gt;</bpt>List the jobs in an account<ept id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;/linkText&gt;</ept><bpt id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;title&gt;</bpt><ept id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;linkText&gt;</bpt>List the jobs in an account<ept id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;/linkText&gt;</ept><bpt id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;title&gt;</bpt><ept id="fc34bd3a-8da7-4258-ac70-3c8d5a0377c4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cd4c652-9917-498d-be7a-9c0170f2f17b" xml:space="preserve">
+          <source><bpt id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;linkText&gt;</bpt>List the status of the job preparation and job release tasks for a job<ept id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;/linkText&gt;</ept><bpt id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;title&gt;</bpt><ept id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;linkText&gt;</bpt>List the status of the job preparation and job release tasks for a job<ept id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;/linkText&gt;</ept><bpt id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;title&gt;</bpt><ept id="95535395-f7b7-4059-9dbd-cb612b1eba87">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77cbf645-a2de-4c95-b165-fafaeb13f81a" xml:space="preserve">
+          <source><bpt id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;linkText&gt;</bpt>List the job schedules in an account<ept id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;/linkText&gt;</ept><bpt id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;title&gt;</bpt><ept id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;linkText&gt;</bpt>List the job schedules in an account<ept id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;/linkText&gt;</ept><bpt id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;title&gt;</bpt><ept id="7cf0732f-c5f0-4544-9d11-cd0299918d69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d58eebf9-5cd3-4452-8760-5387a21cb514" xml:space="preserve">
+          <source><bpt id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;linkText&gt;</bpt>List the jobs associated with a job schedule<ept id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;/linkText&gt;</ept><bpt id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;title&gt;</bpt><ept id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;linkText&gt;</bpt>List the jobs associated with a job schedule<ept id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;/linkText&gt;</ept><bpt id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;title&gt;</bpt><ept id="1de7f59a-eb37-4d5e-9e43-666e85e62710">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61084f5d-5a59-498c-afd0-548affabc3b7" xml:space="preserve">
+          <source><bpt id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;linkText&gt;</bpt>List the tasks associated with a job<ept id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;/linkText&gt;</ept><bpt id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;title&gt;</bpt><ept id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;linkText&gt;</bpt>List the tasks associated with a job<ept id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;/linkText&gt;</ept><bpt id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;title&gt;</bpt><ept id="a6260eac-ccf0-4d14-83ff-49f23e524478">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d8c04d1-b8b0-40ef-9912-014872a58ad6" xml:space="preserve">
+          <source><bpt id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;linkText&gt;</bpt>List the files associated with a task<ept id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;/linkText&gt;</ept><bpt id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;title&gt;</bpt><ept id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;linkText&gt;</bpt>List the files associated with a task<ept id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;/linkText&gt;</ept><bpt id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;title&gt;</bpt><ept id="138a68bb-561a-443e-9092-9d26268b17fb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f5b7b57-71f2-4022-bcf9-89f61a9c9991" xml:space="preserve">
+          <source><bpt id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;linkText&gt;</bpt>List the certificates in an account<ept id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;/linkText&gt;</ept><bpt id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;title&gt;</bpt><ept id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;linkText&gt;</bpt>List the certificates in an account<ept id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;/linkText&gt;</ept><bpt id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;title&gt;</bpt><ept id="87734ca8-1180-4da4-8c46-4911987cbda5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="433cfacd-bbb8-4fed-b5a5-6ec8bf84a5e0" xml:space="preserve">
+          <source><bpt id="b6913001-e178-476a-a280-62da36526a7d">&lt;linkText&gt;</bpt>List the files on a node<ept id="b6913001-e178-476a-a280-62da36526a7d">&lt;/linkText&gt;</ept><bpt id="b6913001-e178-476a-a280-62da36526a7d">&lt;title&gt;</bpt><ept id="b6913001-e178-476a-a280-62da36526a7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b6913001-e178-476a-a280-62da36526a7d">&lt;linkText&gt;</bpt>List the files on a node<ept id="b6913001-e178-476a-a280-62da36526a7d">&lt;/linkText&gt;</ept><bpt id="b6913001-e178-476a-a280-62da36526a7d">&lt;title&gt;</bpt><ept id="b6913001-e178-476a-a280-62da36526a7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60135025-b2c1-4ba2-98c0-65bac4ce63b4" xml:space="preserve">
+          <source>When specifying properties in any of the three clause types, ensure that the property name and case matches that of their Batch REST API element counterparts.</source>
+          <target state="new">When specifying properties in any of the three clause types, ensure that the property name and case matches that of their Batch REST API element counterparts.</target>
+        </trans-unit>
+        <trans-unit id="4f90528b-7132-48ac-97fa-969d7bca9019" xml:space="preserve">
+          <source>For example, when working with the .NET <bpt id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;linkText&gt;</bpt>CloudTask<ept id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;/linkText&gt;</ept><bpt id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;title&gt;</bpt><ept id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;/title&gt;</ept>, you must specify <bpt id="a3a34937-7edf-4ec4-9088-e38d48ce975e">&lt;strong&gt;</bpt>state<ept id="a3a34937-7edf-4ec4-9088-e38d48ce975e">&lt;/strong&gt;</ept> instead of <bpt id="d6cd8f8e-79d7-4b8b-833a-8fb23f5f61a9">&lt;strong&gt;</bpt>State<ept id="d6cd8f8e-79d7-4b8b-833a-8fb23f5f61a9">&lt;/strong&gt;</ept> even though the .NET property is <bpt id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;linkText&gt;</bpt>CloudTask.State<ept id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;/linkText&gt;</ept><bpt id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;title&gt;</bpt><ept id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;/title&gt;</ept>.</source>
+          <target state="new">For example, when working with the .NET <bpt id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;linkText&gt;</bpt>CloudTask<ept id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;/linkText&gt;</ept><bpt id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;title&gt;</bpt><ept id="c2e5e2ff-7073-422a-9638-4136cc0e86f2">&lt;/title&gt;</ept>, you must specify <bpt id="a3a34937-7edf-4ec4-9088-e38d48ce975e">&lt;strong&gt;</bpt>state<ept id="a3a34937-7edf-4ec4-9088-e38d48ce975e">&lt;/strong&gt;</ept> instead of <bpt id="d6cd8f8e-79d7-4b8b-833a-8fb23f5f61a9">&lt;strong&gt;</bpt>State<ept id="d6cd8f8e-79d7-4b8b-833a-8fb23f5f61a9">&lt;/strong&gt;</ept> even though the .NET property is <bpt id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;linkText&gt;</bpt>CloudTask.State<ept id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;/linkText&gt;</ept><bpt id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;title&gt;</bpt><ept id="cb7855db-fcbd-4e83-8cec-f34e66b9c837">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5884ef39-e32e-478e-befa-ac17c63905af" xml:space="preserve">
+          <source>To verify proper name and case for the <bpt id="f40859f6-e9d1-46a2-838c-d0c5a55bdb89">&lt;strong&gt;</bpt>state<ept id="f40859f6-e9d1-46a2-838c-d0c5a55bdb89">&lt;/strong&gt;</ept> property, for example, you'd check the element name in <bpt id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;linkText&gt;</bpt>Get information about a task<ept id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;/linkText&gt;</ept><bpt id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;title&gt;</bpt><ept id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;/title&gt;</ept> in the Batch REST API documentation.</source>
+          <target state="new">To verify proper name and case for the <bpt id="f40859f6-e9d1-46a2-838c-d0c5a55bdb89">&lt;strong&gt;</bpt>state<ept id="f40859f6-e9d1-46a2-838c-d0c5a55bdb89">&lt;/strong&gt;</ept> property, for example, you'd check the element name in <bpt id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;linkText&gt;</bpt>Get information about a task<ept id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;/linkText&gt;</ept><bpt id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;title&gt;</bpt><ept id="f4a7fde1-fcea-4c36-928d-03e9aca1cce4">&lt;/title&gt;</ept> in the Batch REST API documentation.</target>
+        </trans-unit>
+        <trans-unit id="aea11fc6-0064-4156-a6c6-40248dca2c6e" xml:space="preserve">
+          <source>The property values that are returned for each item can be limited by using a select string.</source>
+          <target state="new">The property values that are returned for each item can be limited by using a select string.</target>
+        </trans-unit>
+        <trans-unit id="b0d6582a-a0b7-48a1-a47e-b4385d8c6f70" xml:space="preserve">
+          <source>A list of properties for an item can be specified, and then only those property values are returned.</source>
+          <target state="new">A list of properties for an item can be specified, and then only those property values are returned.</target>
+        </trans-unit>
+        <trans-unit id="17de1f7d-70c2-4af2-88d8-f5fb95be5673" xml:space="preserve">
+          <source>A <bpt id="de31218d-150e-42d8-b855-3736dedb6039">&lt;linkText&gt;</bpt>SelectClause<ept id="de31218d-150e-42d8-b855-3736dedb6039">&lt;/linkText&gt;</ept><bpt id="de31218d-150e-42d8-b855-3736dedb6039">&lt;title&gt;</bpt><ept id="de31218d-150e-42d8-b855-3736dedb6039">&lt;/title&gt;</ept> is a string consisting of a comma-separated list of property names.</source>
+          <target state="new">A <bpt id="de31218d-150e-42d8-b855-3736dedb6039">&lt;linkText&gt;</bpt>SelectClause<ept id="de31218d-150e-42d8-b855-3736dedb6039">&lt;/linkText&gt;</ept><bpt id="de31218d-150e-42d8-b855-3736dedb6039">&lt;title&gt;</bpt><ept id="de31218d-150e-42d8-b855-3736dedb6039">&lt;/title&gt;</ept> is a string consisting of a comma-separated list of property names.</target>
+        </trans-unit>
+        <trans-unit id="54e55507-c215-44e6-b8c8-43cb2df2fc6a" xml:space="preserve">
+          <source>Any combination of properties available for an item returned by a list operation may be specified.</source>
+          <target state="new">Any combination of properties available for an item returned by a list operation may be specified.</target>
+        </trans-unit>
+        <trans-unit id="3fd5cfa9-d82d-44b5-8ebb-d8ef2672ca08" xml:space="preserve">
+          <source>The number of API calls can be reduced with an expand clause.</source>
+          <target state="new">The number of API calls can be reduced with an expand clause.</target>
+        </trans-unit>
+        <trans-unit id="a2452a60-18d1-462d-9835-2f449f48b8c4" xml:space="preserve">
+          <source>More detailed information for each list item can be obtained with a single API call as opposed to first obtaining the list and then iterating over the list, making a call for each item in the list.</source>
+          <target state="new">More detailed information for each list item can be obtained with a single API call as opposed to first obtaining the list and then iterating over the list, making a call for each item in the list.</target>
+        </trans-unit>
+        <trans-unit id="23e9e57b-f5fd-45dd-8eed-cdd19b35c623" xml:space="preserve">
+          <source>An <bpt id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;linkText&gt;</bpt>ExpandClause<ept id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;/linkText&gt;</ept><bpt id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;title&gt;</bpt><ept id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;/title&gt;</ept> is similar to the select clause in that it controls whether certain data is returned in the results.</source>
+          <target state="new">An <bpt id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;linkText&gt;</bpt>ExpandClause<ept id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;/linkText&gt;</ept><bpt id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;title&gt;</bpt><ept id="a3ae5712-551e-4d90-92bf-5172365393e5">&lt;/title&gt;</ept> is similar to the select clause in that it controls whether certain data is returned in the results.</target>
+        </trans-unit>
+        <trans-unit id="a55b5dce-662f-4fc0-9210-1e61b631c9bb" xml:space="preserve">
+          <source>The expand clause is supported only for job list, task list, and pool list, and currently only supports statistics information.</source>
+          <target state="new">The expand clause is supported only for job list, task list, and pool list, and currently only supports statistics information.</target>
+        </trans-unit>
+        <trans-unit id="9bf6531d-f279-4071-bcc4-6945293567bf" xml:space="preserve">
+          <source>When all properties are required and no select clause has been specified, then the expand clause must be used to get statistics information.</source>
+          <target state="new">When all properties are required and no select clause has been specified, then the expand clause must be used to get statistics information.</target>
+        </trans-unit>
+        <trans-unit id="37b1a255-1382-4c83-8789-b3214d1506f7" xml:space="preserve">
+          <source>If a select clause is used to obtain a subset of properties, then "stats" can also be specified in the select clause and the expand clause may be left null.</source>
+          <target state="new">If a select clause is used to obtain a subset of properties, then "stats" can also be specified in the select clause and the expand clause may be left null.</target>
+        </trans-unit>
+        <trans-unit id="e4b81760-47e4-4c37-92be-cfcfa89d41ff" xml:space="preserve">
+          <source>Below you'll find a code snippet that uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools.</source>
+          <target state="new">Below you'll find a code snippet that uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools.</target>
+        </trans-unit>
+        <trans-unit id="5ca06cbd-53a5-4185-ab49-5581a2f9def4" xml:space="preserve">
+          <source>In this scenario, the Batch user has both test and production pools, with their test pool IDs prefixed with "test" and production pool IDs prefixed with "prod".</source>
+          <target state="new">In this scenario, the Batch user has both test and production pools, with their test pool IDs prefixed with "test" and production pool IDs prefixed with "prod".</target>
+        </trans-unit>
+        <trans-unit id="e70a2321-7230-4349-8f28-c4f114fe0e76" xml:space="preserve">
+          <source>In the snippet, <bpt id="3f2b2058-0c1b-457f-959b-1e6ac3b3c89c">&lt;em&gt;</bpt>myBatchClient<ept id="3f2b2058-0c1b-457f-959b-1e6ac3b3c89c">&lt;/em&gt;</ept> is a properly initialized instance of <bpt id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;linkText&gt;</bpt>BatchClient<ept id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;/linkText&gt;</ept><bpt id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;title&gt;</bpt><ept id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the snippet, <bpt id="3f2b2058-0c1b-457f-959b-1e6ac3b3c89c">&lt;em&gt;</bpt>myBatchClient<ept id="3f2b2058-0c1b-457f-959b-1e6ac3b3c89c">&lt;/em&gt;</ept> is a properly initialized instance of <bpt id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;linkText&gt;</bpt>BatchClient<ept id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;/linkText&gt;</ept><bpt id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;title&gt;</bpt><ept id="9bc0fec3-012d-40e6-9f4c-edb202add70a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30675514-7b55-421c-8b82-9dd35cf9c65d" xml:space="preserve">
+          <source>It is recommended that you <bpt id="5baf9752-58f4-4de4-93e4-051a84c23baf">&lt;em&gt;</bpt>always<ept id="5baf9752-58f4-4de4-93e4-051a84c23baf">&lt;/em&gt;</ept> use filter and select clauses for your list API calls to ensure maximum efficiency and the best performance for your application.</source>
+          <target state="new">It is recommended that you <bpt id="5baf9752-58f4-4de4-93e4-051a84c23baf">&lt;em&gt;</bpt>always<ept id="5baf9752-58f4-4de4-93e4-051a84c23baf">&lt;/em&gt;</ept> use filter and select clauses for your list API calls to ensure maximum efficiency and the best performance for your application.</target>
+        </trans-unit>
+        <trans-unit id="28d3a069-9ae8-48f6-8ea5-3e31df7b8d9a" xml:space="preserve">
+          <source>If you haven't already, be sure to check out the Batch API documentation relevant to your development scenario</source>
+          <target state="new">If you haven't already, be sure to check out the Batch API documentation relevant to your development scenario</target>
+        </trans-unit>
+        <trans-unit id="fec7be34-3f7c-4e9e-97a1-cc45fc8427cd" xml:space="preserve">
+          <source><bpt id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;linkText&gt;</bpt>Batch REST<ept id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;/linkText&gt;</ept><bpt id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;title&gt;</bpt><ept id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;linkText&gt;</bpt>Batch REST<ept id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;/linkText&gt;</ept><bpt id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;title&gt;</bpt><ept id="c326e686-6cc3-4779-8a5c-fc6ebd237a72">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d20c05b-372d-46a0-a841-b62cae5675fd" xml:space="preserve">
+          <source><bpt id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;linkText&gt;</bpt>Batch .NET<ept id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;/linkText&gt;</ept><bpt id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;title&gt;</bpt><ept id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;linkText&gt;</bpt>Batch .NET<ept id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;/linkText&gt;</ept><bpt id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;title&gt;</bpt><ept id="5232f252-af45-43b0-80e7-9258d9da7010">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2b7fedf-89fd-4855-ac76-40444bc2a8f0" xml:space="preserve">
+          <source>Grab the <bpt id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;linkText&gt;</bpt>Azure Batch samples<ept id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;/linkText&gt;</ept><bpt id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;title&gt;</bpt><ept id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;/title&gt;</ept> on GitHub and dig into the code</source>
+          <target state="new">Grab the <bpt id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;linkText&gt;</bpt>Azure Batch samples<ept id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;/linkText&gt;</ept><bpt id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;title&gt;</bpt><ept id="4537c690-253d-43c0-bbfb-a938a7970141">&lt;/title&gt;</ept> on GitHub and dig into the code</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

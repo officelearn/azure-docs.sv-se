@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b1bd5856-4dd3-4179-8cf1-ef6137a3d7ea" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b1bd5856-4dd3-4179-8cf1-ef6137a3d7ea" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1637bbd0-2bdf-4566-988d-d884b99f0b57">
+        <trans-unit id="06637429-1e95-418e-9d88-0343ffd48afc" xml:space="preserve">
+          <source>How to Use the Engagement API on Windows Universal</source>
+          <target state="new">How to Use the Engagement API on Windows Universal</target>
+        </trans-unit>
+        <trans-unit id="12911890-eae5-4bbf-949c-11c02648d7b2" xml:space="preserve">
+          <source>How to Use the Engagement API on Windows Universal</source>
+          <target state="new">How to Use the Engagement API on Windows Universal</target>
+        </trans-unit>
+        <trans-unit id="dc0a6ef2-154e-4ea7-b72e-6d91726b4b48" xml:space="preserve">
+          <source>This document is an add-on to the document <bpt id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;linkText&gt;</bpt>How to Integrate Engagement on Windows Universal<ept id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;/linkText&gt;</ept><bpt id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;title&gt;</bpt><ept id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;/title&gt;</ept>: it provides in depth details about how to use the Engagement API to report your application statistics.</source>
+          <target state="new">This document is an add-on to the document <bpt id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;linkText&gt;</bpt>How to Integrate Engagement on Windows Universal<ept id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;/linkText&gt;</ept><bpt id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;title&gt;</bpt><ept id="4f797c91-d8e6-4bca-ad31-92075d5e33b9">&lt;/title&gt;</ept>: it provides in depth details about how to use the Engagement API to report your application statistics.</target>
+        </trans-unit>
+        <trans-unit id="118d5c1c-06ba-4139-aca7-e7957e2494e5" xml:space="preserve">
+          <source>Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your <bpt id="e829ce13-7969-4475-adba-505b7c3769d1">&lt;code&gt;</bpt>Page<ept id="e829ce13-7969-4475-adba-505b7c3769d1">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="b9c57a1a-67b0-4b19-ad85-88c7d4ed33ea">&lt;code&gt;</bpt>EngagementPage<ept id="b9c57a1a-67b0-4b19-ad85-88c7d4ed33ea">&lt;/code&gt;</ept> class.</source>
+          <target state="new">Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your <bpt id="e829ce13-7969-4475-adba-505b7c3769d1">&lt;code&gt;</bpt>Page<ept id="e829ce13-7969-4475-adba-505b7c3769d1">&lt;/code&gt;</ept> sub-classes inherit from the <bpt id="b9c57a1a-67b0-4b19-ad85-88c7d4ed33ea">&lt;code&gt;</bpt>EngagementPage<ept id="b9c57a1a-67b0-4b19-ad85-88c7d4ed33ea">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="6ce1362d-87b4-4992-b1d1-6868236cf35b" xml:space="preserve">
+          <source>If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="57e81d3d-5aee-4a9b-9b4b-0d1bf42865ce">&lt;code&gt;</bpt>EngagementPage<ept id="57e81d3d-5aee-4a9b-9b4b-0d1bf42865ce">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</source>
+          <target state="new">If you want to do more, for example if you need to report application specific events, errors and jobs, or if you have to report your application's activities in a different way than the one implemented in the <bpt id="57e81d3d-5aee-4a9b-9b4b-0d1bf42865ce">&lt;code&gt;</bpt>EngagementPage<ept id="57e81d3d-5aee-4a9b-9b4b-0d1bf42865ce">&lt;/code&gt;</ept> classes, then you need to use the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="0f2fab4d-3c37-46b5-add7-25a146063584" xml:space="preserve">
+          <source>The Engagement API is provided by the <bpt id="08f42648-3d2e-4ab3-9f5e-7a967f57e3cc">&lt;code&gt;</bpt>EngagementAgent<ept id="08f42648-3d2e-4ab3-9f5e-7a967f57e3cc">&lt;/code&gt;</ept> class.</source>
+          <target state="new">The Engagement API is provided by the <bpt id="08f42648-3d2e-4ab3-9f5e-7a967f57e3cc">&lt;code&gt;</bpt>EngagementAgent<ept id="08f42648-3d2e-4ab3-9f5e-7a967f57e3cc">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="b57bf1d7-69d3-4faa-8198-782e855a80a5" xml:space="preserve">
+          <source>You can access to those methods through <bpt id="50d96c94-1167-49a4-a5eb-f2e395425c2b">&lt;code&gt;</bpt>EngagementAgent.Instance<ept id="50d96c94-1167-49a4-a5eb-f2e395425c2b">&lt;/code&gt;</ept>.</source>
+          <target state="new">You can access to those methods through <bpt id="50d96c94-1167-49a4-a5eb-f2e395425c2b">&lt;code&gt;</bpt>EngagementAgent.Instance<ept id="50d96c94-1167-49a4-a5eb-f2e395425c2b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95758665-0e13-4d6f-a313-0c9deb3417f9" xml:space="preserve">
+          <source>Even if the agent module has not been initialized, each call to the API is deferred, and will be executed again when the agent is available.</source>
+          <target state="new">Even if the agent module has not been initialized, each call to the API is deferred, and will be executed again when the agent is available.</target>
+        </trans-unit>
+        <trans-unit id="d7c04d71-001d-49da-9470-1b9c3cff2d89" xml:space="preserve">
+          <source>The following parts refine the common <bpt id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;/linkText&gt;</ept><bpt id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;title&gt;</bpt><ept id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;/title&gt;</ept> for the Windows Universal platform.</source>
+          <target state="new">The following parts refine the common <bpt id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;linkText&gt;</bpt>Mobile Engagement Concepts<ept id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;/linkText&gt;</ept><bpt id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;title&gt;</bpt><ept id="07f9e9eb-6c8a-4816-a89c-2380165b40bd">&lt;/title&gt;</ept> for the Windows Universal platform.</target>
+        </trans-unit>
+        <trans-unit id="6ad71d27-db9d-43d6-a93c-37450fb7d3a6" xml:space="preserve">
+          <source>An <bpt id="5366a124-68b8-423b-bb20-af69ed34e6d3">&lt;em&gt;</bpt>activity<ept id="5366a124-68b8-423b-bb20-af69ed34e6d3">&lt;/em&gt;</ept> is usually associated with one page of the application, that is to say the <bpt id="5b1bff6c-a36e-4a69-8373-648d79a1ad95">&lt;em&gt;</bpt>activity<ept id="5b1bff6c-a36e-4a69-8373-648d79a1ad95">&lt;/em&gt;</ept> starts when the page is displayed and stops when the page is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="f366d25c-8490-4ed4-becd-138cee2b6201">&lt;code&gt;</bpt>EngagementPage<ept id="f366d25c-8490-4ed4-becd-138cee2b6201">&lt;/code&gt;</ept> class.</source>
+          <target state="new">An <bpt id="5366a124-68b8-423b-bb20-af69ed34e6d3">&lt;em&gt;</bpt>activity<ept id="5366a124-68b8-423b-bb20-af69ed34e6d3">&lt;/em&gt;</ept> is usually associated with one page of the application, that is to say the <bpt id="5b1bff6c-a36e-4a69-8373-648d79a1ad95">&lt;em&gt;</bpt>activity<ept id="5b1bff6c-a36e-4a69-8373-648d79a1ad95">&lt;/em&gt;</ept> starts when the page is displayed and stops when the page is closed: this is the case when the Engagement SDK is integrated by using the <bpt id="f366d25c-8490-4ed4-becd-138cee2b6201">&lt;code&gt;</bpt>EngagementPage<ept id="f366d25c-8490-4ed4-becd-138cee2b6201">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="a72c7162-dcfe-417c-b474-42c6d8b30f71" xml:space="preserve">
+          <source>But <bpt id="46a1121d-fbb6-4f4a-8f13-b1da5df4ead9">&lt;em&gt;</bpt>activities<ept id="46a1121d-fbb6-4f4a-8f13-b1da5df4ead9">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</source>
+          <target state="new">But <bpt id="46a1121d-fbb6-4f4a-8f13-b1da5df4ead9">&lt;em&gt;</bpt>activities<ept id="46a1121d-fbb6-4f4a-8f13-b1da5df4ead9">&lt;/em&gt;</ept> can also be controlled manually by using the Engagement API.</target>
+        </trans-unit>
+        <trans-unit id="db659b94-479f-44e1-9585-a9b378c08ab6" xml:space="preserve">
+          <source>This allows to split a given page in several sub parts to get more details about the usage of this page (for example to known how often and how long dialogs are used inside this page).</source>
+          <target state="new">This allows to split a given page in several sub parts to get more details about the usage of this page (for example to known how often and how long dialogs are used inside this page).</target>
+        </trans-unit>
+        <trans-unit id="98d7f5f5-d31a-442e-aa99-3dda983da08d" xml:space="preserve">
+          <source>You need to call <bpt id="00ba35b1-876e-4f3b-96dd-e49070bb598a">&lt;code&gt;</bpt>StartActivity()<ept id="00ba35b1-876e-4f3b-96dd-e49070bb598a">&lt;/code&gt;</ept> each time the user activity changes.</source>
+          <target state="new">You need to call <bpt id="00ba35b1-876e-4f3b-96dd-e49070bb598a">&lt;code&gt;</bpt>StartActivity()<ept id="00ba35b1-876e-4f3b-96dd-e49070bb598a">&lt;/code&gt;</ept> each time the user activity changes.</target>
+        </trans-unit>
+        <trans-unit id="33ff915e-3b55-4368-a3ea-438ee5ee48d4" xml:space="preserve">
+          <source>The first call to this function starts a new user session.</source>
+          <target state="new">The first call to this function starts a new user session.</target>
+        </trans-unit>
+        <trans-unit id="957b9656-0d2c-4388-a92c-912c9fc23d94" xml:space="preserve">
+          <source>The SDK automatically call the EndActivity method when the application is closed.</source>
+          <target state="new">The SDK automatically call the EndActivity method when the application is closed.</target>
+        </trans-unit>
+        <trans-unit id="252ea040-36fc-42d0-ac15-54481b7c91f9" xml:space="preserve">
+          <source>Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.</source>
+          <target state="new">Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.</target>
+        </trans-unit>
+        <trans-unit id="79b0261a-c89b-4f98-93c1-18d1e79c8d09" xml:space="preserve">
+          <source>This ends the activity and the session.</source>
+          <target state="new">This ends the activity and the session.</target>
+        </trans-unit>
+        <trans-unit id="a85d6707-aff2-482c-abe1-1b1312d5eb86" xml:space="preserve">
+          <source>You should not call this method unless you really know what you're doing.</source>
+          <target state="new">You should not call this method unless you really know what you're doing.</target>
+        </trans-unit>
+        <trans-unit id="e88093a5-8947-446b-95db-591852d1e6d7" xml:space="preserve">
+          <source>You can use the job to track certains tasks over a period of time.</source>
+          <target state="new">You can use the job to track certains tasks over a period of time.</target>
+        </trans-unit>
+        <trans-unit id="df2d93c2-f3c1-4471-a24b-71978f860715" xml:space="preserve">
+          <source>As soon as a task tracked by a job has been terminated, you should call the EndJob method for this job, by supplying the job name.</source>
+          <target state="new">As soon as a task tracked by a job has been terminated, you should call the EndJob method for this job, by supplying the job name.</target>
+        </trans-unit>
+        <trans-unit id="23f59a88-f389-4638-8c49-0641e65cee95" xml:space="preserve">
+          <source>There is three types of events :</source>
+          <target state="new">There is three types of events :</target>
+        </trans-unit>
+        <trans-unit id="1dc117a5-d679-4ab1-bcd7-4ca82447a80a" xml:space="preserve">
+          <source>Standalone events</source>
+          <target state="new">Standalone events</target>
+        </trans-unit>
+        <trans-unit id="c2e98e4d-c789-4fe3-9e83-46a5e68841da" xml:space="preserve">
+          <source>Session events</source>
+          <target state="new">Session events</target>
+        </trans-unit>
+        <trans-unit id="fa76db0d-127f-4f92-bf67-01d54308ab56" xml:space="preserve">
+          <source>Job events</source>
+          <target state="new">Job events</target>
+        </trans-unit>
+        <trans-unit id="7a5c37d6-6b62-42b0-83c2-416fd5eb5e5a" xml:space="preserve">
+          <source>Standalone events can occur outside of the context of a session.</source>
+          <target state="new">Standalone events can occur outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="2fcd0283-dae5-43e2-9eea-ae40ff158cd1" xml:space="preserve">
+          <source>Session events are usually used to report the actions performed by a user during his session.</source>
+          <target state="new">Session events are usually used to report the actions performed by a user during his session.</target>
+        </trans-unit>
+        <trans-unit id="bbc374ff-2c83-414a-bd5a-a7fafbbacac6" xml:space="preserve">
+          <source><bpt id="2f8227ff-814f-416f-a2de-7b23300d51b5">&lt;strong&gt;</bpt>Without data :<ept id="2f8227ff-814f-416f-a2de-7b23300d51b5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2f8227ff-814f-416f-a2de-7b23300d51b5">&lt;strong&gt;</bpt>Without data :<ept id="2f8227ff-814f-416f-a2de-7b23300d51b5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="832538e3-2643-4079-bc2f-1817beb0f556" xml:space="preserve">
+          <source><bpt id="c9430ba8-d3b7-4617-8826-fb900612a302">&lt;strong&gt;</bpt>With data :<ept id="c9430ba8-d3b7-4617-8826-fb900612a302">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c9430ba8-d3b7-4617-8826-fb900612a302">&lt;strong&gt;</bpt>With data :<ept id="c9430ba8-d3b7-4617-8826-fb900612a302">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e2c7047-4ee9-45a2-b7d0-e4880c98b36b" xml:space="preserve">
+          <source>Job events are usually used to report the actions performed by a user during a Job.</source>
+          <target state="new">Job events are usually used to report the actions performed by a user during a Job.</target>
+        </trans-unit>
+        <trans-unit id="8b0567c5-153e-43f5-a385-1444c6d33f90" xml:space="preserve">
+          <source>There is three types of errors :</source>
+          <target state="new">There is three types of errors :</target>
+        </trans-unit>
+        <trans-unit id="ef2832fa-171a-4c20-b25b-e22169acccf2" xml:space="preserve">
+          <source>Standalone errors</source>
+          <target state="new">Standalone errors</target>
+        </trans-unit>
+        <trans-unit id="be7f8bea-01c9-4e4f-b80e-cab0e3864725" xml:space="preserve">
+          <source>Session errors</source>
+          <target state="new">Session errors</target>
+        </trans-unit>
+        <trans-unit id="36ab2bac-a530-4c98-a84d-86c3ee5ea42f" xml:space="preserve">
+          <source>Job errors</source>
+          <target state="new">Job errors</target>
+        </trans-unit>
+        <trans-unit id="027be026-9c97-42f8-afa7-734a00044c3a" xml:space="preserve">
+          <source>Contrary to session errors, standalone errors can occur outside of the context of a session.</source>
+          <target state="new">Contrary to session errors, standalone errors can occur outside of the context of a session.</target>
+        </trans-unit>
+        <trans-unit id="b0c577bf-d747-4672-a220-beecdd38e05a" xml:space="preserve">
+          <source>Session errors are usually used to report the errors impacting the user during his session.</source>
+          <target state="new">Session errors are usually used to report the errors impacting the user during his session.</target>
+        </trans-unit>
+        <trans-unit id="6e14cf96-9909-4917-b9b6-a6bff13064d7" xml:space="preserve">
+          <source>Errors can be related to a running job instead of being related to the current user session.</source>
+          <target state="new">Errors can be related to a running job instead of being related to the current user session.</target>
+        </trans-unit>
+        <trans-unit id="bee6a7f4-0f7f-4861-b75c-257cde40c8f0" xml:space="preserve">
+          <source>The agent provides two methods to deal with crashes.</source>
+          <target state="new">The agent provides two methods to deal with crashes.</target>
+        </trans-unit>
+        <trans-unit id="51ccb415-e30a-4a9c-86ad-27b111eb0bb2" xml:space="preserve">
+          <source>You can send an exception at any time by calling :</source>
+          <target state="new">You can send an exception at any time by calling :</target>
+        </trans-unit>
+        <trans-unit id="db5c0198-9d93-4869-b456-1afe92f7708d" xml:space="preserve">
+          <source>You can also use an optional parameter to terminate the engagement session at the same time than sending the crash.</source>
+          <target state="new">You can also use an optional parameter to terminate the engagement session at the same time than sending the crash.</target>
+        </trans-unit>
+        <trans-unit id="33bc237e-b155-432f-9a53-1c988b8f38a5" xml:space="preserve">
+          <source>To do so, call :</source>
+          <target state="new">To do so, call :</target>
+        </trans-unit>
+        <trans-unit id="5cf30e3d-335f-424a-8034-bc1fb38e7cbb" xml:space="preserve">
+          <source>If you do that, the session and jobs will be closed just after sending the crash.</source>
+          <target state="new">If you do that, the session and jobs will be closed just after sending the crash.</target>
+        </trans-unit>
+        <trans-unit id="b7b1c300-7214-4ad1-870e-e487ccbc7bf2" xml:space="preserve">
+          <source>Engagement also provides a method to send unhandled exceptions if you have <bpt id="a40d00bc-f8e9-4b39-ba9d-2789cac3424c">&lt;strong&gt;</bpt>DISABLED<ept id="a40d00bc-f8e9-4b39-ba9d-2789cac3424c">&lt;/strong&gt;</ept> Engagement automatic <bpt id="0340c281-4a96-4636-9b51-6a43a6ed3806">&lt;strong&gt;</bpt>crash<ept id="0340c281-4a96-4636-9b51-6a43a6ed3806">&lt;/strong&gt;</ept> reporting.</source>
+          <target state="new">Engagement also provides a method to send unhandled exceptions if you have <bpt id="a40d00bc-f8e9-4b39-ba9d-2789cac3424c">&lt;strong&gt;</bpt>DISABLED<ept id="a40d00bc-f8e9-4b39-ba9d-2789cac3424c">&lt;/strong&gt;</ept> Engagement automatic <bpt id="0340c281-4a96-4636-9b51-6a43a6ed3806">&lt;strong&gt;</bpt>crash<ept id="0340c281-4a96-4636-9b51-6a43a6ed3806">&lt;/strong&gt;</ept> reporting.</target>
+        </trans-unit>
+        <trans-unit id="190ca9be-af50-49a2-901d-de4ff46db782" xml:space="preserve">
+          <source>This is especially useful when used inside the application UnhandledException event handler.</source>
+          <target state="new">This is especially useful when used inside the application UnhandledException event handler.</target>
+        </trans-unit>
+        <trans-unit id="7157bf75-0759-466c-aa95-16129957fb9b" xml:space="preserve">
+          <source>This method will <bpt id="5ae56860-ab69-447a-88ca-2c46511b9192">&lt;strong&gt;</bpt>ALWAYS<ept id="5ae56860-ab69-447a-88ca-2c46511b9192">&lt;/strong&gt;</ept> terminate the engagement session and jobs after being called.</source>
+          <target state="new">This method will <bpt id="5ae56860-ab69-447a-88ca-2c46511b9192">&lt;strong&gt;</bpt>ALWAYS<ept id="5ae56860-ab69-447a-88ca-2c46511b9192">&lt;/strong&gt;</ept> terminate the engagement session and jobs after being called.</target>
+        </trans-unit>
+        <trans-unit id="edeba93e-846c-4201-9739-131c7f5fc29e" xml:space="preserve">
+          <source>You can use it to implement your own UnhandledExceptionEventArgs handler.</source>
+          <target state="new">You can use it to implement your own UnhandledExceptionEventArgs handler.</target>
+        </trans-unit>
+        <trans-unit id="88be2651-4719-4c66-a763-bab6e286e3aa" xml:space="preserve">
+          <source>For example, add the <bpt id="bdd07311-a3b2-4ce7-a0ea-4d2be6ac3304">&lt;code&gt;</bpt>Current_UnhandledException<ept id="bdd07311-a3b2-4ce7-a0ea-4d2be6ac3304">&lt;/code&gt;</ept> method of the <bpt id="a2a5d589-9108-4e4e-81f5-075ac6e1f092">&lt;code&gt;</bpt>App.xaml.cs<ept id="a2a5d589-9108-4e4e-81f5-075ac6e1f092">&lt;/code&gt;</ept> file :</source>
+          <target state="new">For example, add the <bpt id="bdd07311-a3b2-4ce7-a0ea-4d2be6ac3304">&lt;code&gt;</bpt>Current_UnhandledException<ept id="bdd07311-a3b2-4ce7-a0ea-4d2be6ac3304">&lt;/code&gt;</ept> method of the <bpt id="a2a5d589-9108-4e4e-81f5-075ac6e1f092">&lt;code&gt;</bpt>App.xaml.cs<ept id="a2a5d589-9108-4e4e-81f5-075ac6e1f092">&lt;/code&gt;</ept> file :</target>
+        </trans-unit>
+        <trans-unit id="4c492fc7-9e25-4b26-92ec-41fe05040e45" xml:space="preserve">
+          <source>In App.xaml.cs in "Public App(){}" add:</source>
+          <target state="new">In App.xaml.cs in "Public App(){}" add:</target>
+        </trans-unit>
+        <trans-unit id="7807ca02-a160-48dc-9238-75f18f5efe25" xml:space="preserve">
+          <source>You can get the engagement device id by calling this method.</source>
+          <target state="new">You can get the engagement device id by calling this method.</target>
+        </trans-unit>
+        <trans-unit id="2a7cda69-2280-4daa-acb4-bcb916ecf2c5" xml:space="preserve">
+          <source>Arbitrary data can be attached to an event, an error, an activity or a job.</source>
+          <target state="new">Arbitrary data can be attached to an event, an error, an activity or a job.</target>
+        </trans-unit>
+        <trans-unit id="db4a03b8-7fce-4707-9668-dc6a64c09def" xml:space="preserve">
+          <source>These data can be structured using a dictionary.</source>
+          <target state="new">These data can be structured using a dictionary.</target>
+        </trans-unit>
+        <trans-unit id="e24a850b-c3e1-42ab-9020-aac2bc2c385e" xml:space="preserve">
+          <source>Keys and values can be of any type.</source>
+          <target state="new">Keys and values can be of any type.</target>
+        </trans-unit>
+        <trans-unit id="83cae991-1366-4e41-8ada-070a78a5b3d0" xml:space="preserve">
+          <source>Extras data are serialized so if you want to insert your own type in extras you have to add a data contract for this type.</source>
+          <target state="new">Extras data are serialized so if you want to insert your own type in extras you have to add a data contract for this type.</target>
+        </trans-unit>
+        <trans-unit id="65309b96-a118-40a1-bc73-a35238d7c06d" xml:space="preserve">
+          <source>We create a new class "Person".</source>
+          <target state="new">We create a new class "Person".</target>
+        </trans-unit>
+        <trans-unit id="99d45f5f-2ce7-4543-8766-200a5f9364cd" xml:space="preserve">
+          <source>Then, we will add a <bpt id="b2529984-96b3-4a4d-aa39-2540f0e77bf9">&lt;code&gt;</bpt>Person<ept id="b2529984-96b3-4a4d-aa39-2540f0e77bf9">&lt;/code&gt;</ept> instance to an extra.</source>
+          <target state="new">Then, we will add a <bpt id="b2529984-96b3-4a4d-aa39-2540f0e77bf9">&lt;code&gt;</bpt>Person<ept id="b2529984-96b3-4a4d-aa39-2540f0e77bf9">&lt;/code&gt;</ept> instance to an extra.</target>
+        </trans-unit>
+        <trans-unit id="f88cd9ba-fb70-4f2c-85f3-39de013f83fb" xml:space="preserve">
+          <source>If you put other types of objects, make sure their ToString() method is implemented to return a human readable string.</source>
+          <target state="new">If you put other types of objects, make sure their ToString() method is implemented to return a human readable string.</target>
+        </trans-unit>
+        <trans-unit id="e863e32b-f706-4e2e-87f9-b45a153a8ba2" xml:space="preserve">
+          <source>Each key in the object must match the following regular expression:</source>
+          <target state="new">Each key in the object must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="263eeb85-c448-4821-a355-dbab3fdaaf88" xml:space="preserve">
+          <source><bpt id="5cdac8ca-656e-4e78-80e8-ea2a455c1572">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*$<ept id="5cdac8ca-656e-4e78-80e8-ea2a455c1572">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="5cdac8ca-656e-4e78-80e8-ea2a455c1572">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*$<ept id="5cdac8ca-656e-4e78-80e8-ea2a455c1572">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="071a1de1-b256-43bb-af04-56bae8044087" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="21b1ab3f-412c-49cd-8926-9b3bc789e1d1" xml:space="preserve">
+          <source>Extras are limited to <bpt id="7260960b-7d3a-4eea-86b9-03f345847f41">&lt;strong&gt;</bpt>1024<ept id="7260960b-7d3a-4eea-86b9-03f345847f41">&lt;/strong&gt;</ept> characters per call.</source>
+          <target state="new">Extras are limited to <bpt id="7260960b-7d3a-4eea-86b9-03f345847f41">&lt;strong&gt;</bpt>1024<ept id="7260960b-7d3a-4eea-86b9-03f345847f41">&lt;/strong&gt;</ept> characters per call.</target>
+        </trans-unit>
+        <trans-unit id="a559fd5c-cdb0-4078-ba54-75c6db3dc818" xml:space="preserve">
+          <source>You can manually report tracking information (or any other application specific information) using the SendAppInfo() function.</source>
+          <target state="new">You can manually report tracking information (or any other application specific information) using the SendAppInfo() function.</target>
+        </trans-unit>
+        <trans-unit id="d2d42db3-3568-434e-8231-df77577c498d" xml:space="preserve">
+          <source>Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device. Like event extras, use a Dictionary\&lt;object, object\&gt; to attach informations.</source>
+          <target state="new">Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device. Like event extras, use a Dictionary\&lt;object, object\&gt; to attach informations.</target>
+        </trans-unit>
+        <trans-unit id="3f316656-6cd1-4847-9a08-31994fb3da0d" xml:space="preserve">
+          <source>Each key in the object must match the following regular expression:</source>
+          <target state="new">Each key in the object must match the following regular expression:</target>
+        </trans-unit>
+        <trans-unit id="81b1e714-a6ad-4602-b3da-134e9208c9a5" xml:space="preserve">
+          <source><bpt id="1e9df1ad-c250-4400-afd2-20de8aba871b">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*$<ept id="1e9df1ad-c250-4400-afd2-20de8aba871b">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1e9df1ad-c250-4400-afd2-20de8aba871b">&lt;code&gt;</bpt>^[a-zA-Z][a-zA-Z_0-9]*$<ept id="1e9df1ad-c250-4400-afd2-20de8aba871b">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91d14f51-3dbc-447b-aa7e-06f01c07d30d" xml:space="preserve">
+          <source>It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</source>
+          <target state="new">It means that keys must start with at least one letter, followed by letters, digits or underscores (\_).</target>
+        </trans-unit>
+        <trans-unit id="bda6bc30-874d-4ecc-a0af-4382f5939304" xml:space="preserve">
+          <source>Application information are limited to <bpt id="82d1dbbc-af81-4480-9e10-653f05368c72">&lt;strong&gt;</bpt>1024<ept id="82d1dbbc-af81-4480-9e10-653f05368c72">&lt;/strong&gt;</ept> characters per call.</source>
+          <target state="new">Application information are limited to <bpt id="82d1dbbc-af81-4480-9e10-653f05368c72">&lt;strong&gt;</bpt>1024<ept id="82d1dbbc-af81-4480-9e10-653f05368c72">&lt;/strong&gt;</ept> characters per call.</target>
+        </trans-unit>
+        <trans-unit id="b697958d-5053-4010-8c35-0d7fdf06b540" xml:space="preserve">
+          <source>In the previous example, the JSON sent to the server is 44 characters long:</source>
+          <target state="new">In the previous example, the JSON sent to the server is 44 characters long:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

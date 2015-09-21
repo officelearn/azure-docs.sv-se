@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a4084762-f497-4fdd-8e90-9c4f7ee97dd9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a4084762-f497-4fdd-8e90-9c4f7ee97dd9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9bd1ef5e-467b-405a-830d-3fa4168874a0">
+        <trans-unit id="be25487b-7835-4588-9694-d8602a9fb617" xml:space="preserve">
+          <source>Adding resources to an Azure resource group</source>
+          <target state="new">Adding resources to an Azure resource group</target>
+        </trans-unit>
+        <trans-unit id="1b9a0d7c-acd7-4812-b040-92314e72b81a" xml:space="preserve">
+          <source>Learn how to add resources to an Azure Resource Group by using Visual Studio.</source>
+          <target state="new">Learn how to add resources to an Azure Resource Group by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="7d691417-6a9b-47ac-b3ac-a92cf2087764" xml:space="preserve">
+          <source>If you need to add more resources to a resource group, you can do this in the JSON Outline window in Visual Studio.</source>
+          <target state="new">If you need to add more resources to a resource group, you can do this in the JSON Outline window in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="24c2c63e-0493-4b7d-ad7e-67f058dba66e" xml:space="preserve">
+          <source>In Solution Explorer, choose the JSON file for the Azure resource group.</source>
+          <target state="new">In Solution Explorer, choose the JSON file for the Azure resource group.</target>
+        </trans-unit>
+        <trans-unit id="4577a577-a62a-4949-81d8-074f02997b92" xml:space="preserve">
+          <source>The JSON file appears in the editor, and the <bpt id="c56d19b3-8167-4f01-8253-af593cd7a8ee">&lt;strong&gt;</bpt>JSON Outline<ept id="c56d19b3-8167-4f01-8253-af593cd7a8ee">&lt;/strong&gt;</ept> window also appears next to the editor.</source>
+          <target state="new">The JSON file appears in the editor, and the <bpt id="c56d19b3-8167-4f01-8253-af593cd7a8ee">&lt;strong&gt;</bpt>JSON Outline<ept id="c56d19b3-8167-4f01-8253-af593cd7a8ee">&lt;/strong&gt;</ept> window also appears next to the editor.</target>
+        </trans-unit>
+        <trans-unit id="b2529e9d-3d42-47c4-baa9-8d3ae170d99c" xml:space="preserve">
+          <source>If you close the JSON Outline window, it won't automatically open again until you choose the Show Outline command on the context menu of a JSON template file (not a parameters file).</source>
+          <target state="new">If you close the JSON Outline window, it won't automatically open again until you choose the Show Outline command on the context menu of a JSON template file (not a parameters file).</target>
+        </trans-unit>
+        <trans-unit id="6ab7d61e-e98d-4d59-8b64-961a198aadeb" xml:space="preserve">
+          <source><bpt id="0f9a84a9-f415-4c62-a08c-96d0706fd0b3">&lt;linkText&gt;</bpt>JSON file for Azure resource group<ept id="0f9a84a9-f415-4c62-a08c-96d0706fd0b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f9a84a9-f415-4c62-a08c-96d0706fd0b3">&lt;linkText&gt;</bpt>JSON file for Azure resource group<ept id="0f9a84a9-f415-4c62-a08c-96d0706fd0b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46c0ad3c-ec8e-4e88-8a1b-8f3883013c3a" xml:space="preserve">
+          <source>In the <bpt id="af3652ec-eeca-4547-9e7e-efefc89fbc94">&lt;strong&gt;</bpt>JSON Outline<ept id="af3652ec-eeca-4547-9e7e-efefc89fbc94">&lt;/strong&gt;</ept> window, choose the <bpt id="2c4ce96c-aa4a-4fd0-b39d-9e4b65832eb9">&lt;strong&gt;</bpt>resources<ept id="2c4ce96c-aa4a-4fd0-b39d-9e4b65832eb9">&lt;/strong&gt;</ept> node, and then either choose the <bpt id="cf4ba654-deea-4a18-9297-29969a0177c2">&lt;strong&gt;</bpt>Add New Resource<ept id="cf4ba654-deea-4a18-9297-29969a0177c2">&lt;/strong&gt;</ept> command on the context menu, or choose the <bpt id="9352e69e-b998-4047-adf0-3ff6cca5b1bc">&lt;strong&gt;</bpt>Add Resource<ept id="9352e69e-b998-4047-adf0-3ff6cca5b1bc">&lt;/strong&gt;</ept> button at the top of the JSON Outline window.</source>
+          <target state="new">In the <bpt id="af3652ec-eeca-4547-9e7e-efefc89fbc94">&lt;strong&gt;</bpt>JSON Outline<ept id="af3652ec-eeca-4547-9e7e-efefc89fbc94">&lt;/strong&gt;</ept> window, choose the <bpt id="2c4ce96c-aa4a-4fd0-b39d-9e4b65832eb9">&lt;strong&gt;</bpt>resources<ept id="2c4ce96c-aa4a-4fd0-b39d-9e4b65832eb9">&lt;/strong&gt;</ept> node, and then either choose the <bpt id="cf4ba654-deea-4a18-9297-29969a0177c2">&lt;strong&gt;</bpt>Add New Resource<ept id="cf4ba654-deea-4a18-9297-29969a0177c2">&lt;/strong&gt;</ept> command on the context menu, or choose the <bpt id="9352e69e-b998-4047-adf0-3ff6cca5b1bc">&lt;strong&gt;</bpt>Add Resource<ept id="9352e69e-b998-4047-adf0-3ff6cca5b1bc">&lt;/strong&gt;</ept> button at the top of the JSON Outline window.</target>
+        </trans-unit>
+        <trans-unit id="9f05a39f-7fd3-46db-b16c-dd3fdfbacebf" xml:space="preserve">
+          <source><bpt id="e8a6937a-3ffd-4502-84ba-106e08d6c610">&lt;linkText&gt;</bpt>Adding a new resource to resource group<ept id="e8a6937a-3ffd-4502-84ba-106e08d6c610">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e8a6937a-3ffd-4502-84ba-106e08d6c610">&lt;linkText&gt;</bpt>Adding a new resource to resource group<ept id="e8a6937a-3ffd-4502-84ba-106e08d6c610">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b03c7fbd-3251-43a1-a8d5-02b76ae64df2" xml:space="preserve">
+          <source>In the list of resources in the <bpt id="17b3c6f1-d2cd-491b-a7c6-bfa2d6d2b5ef">&lt;strong&gt;</bpt>Add Resource<ept id="17b3c6f1-d2cd-491b-a7c6-bfa2d6d2b5ef">&lt;/strong&gt;</ept> dialog box, choose the resource you want to add, provide the information required by the resource, and then choose the <bpt id="a5441a41-e6ce-4725-9672-fe99d1d2ecb2">&lt;strong&gt;</bpt>Add<ept id="a5441a41-e6ce-4725-9672-fe99d1d2ecb2">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">In the list of resources in the <bpt id="17b3c6f1-d2cd-491b-a7c6-bfa2d6d2b5ef">&lt;strong&gt;</bpt>Add Resource<ept id="17b3c6f1-d2cd-491b-a7c6-bfa2d6d2b5ef">&lt;/strong&gt;</ept> dialog box, choose the resource you want to add, provide the information required by the resource, and then choose the <bpt id="a5441a41-e6ce-4725-9672-fe99d1d2ecb2">&lt;strong&gt;</bpt>Add<ept id="a5441a41-e6ce-4725-9672-fe99d1d2ecb2">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="8ba43b64-c1bd-4118-8b1e-d57bef3cdef7" xml:space="preserve">
+          <source>For example, if you add a storage account, you need to provide a base name for the parameters that will be created for you.</source>
+          <target state="new">For example, if you add a storage account, you need to provide a base name for the parameters that will be created for you.</target>
+        </trans-unit>
+        <trans-unit id="b0cfb5a9-1513-4a6e-931b-71712da6aa44" xml:space="preserve">
+          <source><bpt id="fc690661-0f2b-433a-9bc0-d89917bd2be9">&lt;linkText&gt;</bpt>Add Resource dialog box<ept id="fc690661-0f2b-433a-9bc0-d89917bd2be9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc690661-0f2b-433a-9bc0-d89917bd2be9">&lt;linkText&gt;</bpt>Add Resource dialog box<ept id="fc690661-0f2b-433a-9bc0-d89917bd2be9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f89b865-da29-4d3c-948a-fd13eeff5684" xml:space="preserve">
+          <source>The resource is added to the resources lists in the <bpt id="ba70dc4a-4ad4-46ec-a8fa-e5b32a7b9f44">&lt;strong&gt;</bpt>JSON Outline<ept id="ba70dc4a-4ad4-46ec-a8fa-e5b32a7b9f44">&lt;/strong&gt;</ept> window, and the new JSON representing the resource appears in the file.</source>
+          <target state="new">The resource is added to the resources lists in the <bpt id="ba70dc4a-4ad4-46ec-a8fa-e5b32a7b9f44">&lt;strong&gt;</bpt>JSON Outline<ept id="ba70dc4a-4ad4-46ec-a8fa-e5b32a7b9f44">&lt;/strong&gt;</ept> window, and the new JSON representing the resource appears in the file.</target>
+        </trans-unit>
+        <trans-unit id="13c99b29-d293-4305-b388-320cc6355416" xml:space="preserve">
+          <source>Related parameters and/or variables may also be added.</source>
+          <target state="new">Related parameters and/or variables may also be added.</target>
+        </trans-unit>
+        <trans-unit id="be3e2e1c-7edc-46fa-991e-23ead90be256" xml:space="preserve">
+          <source><bpt id="a022244a-2adb-42bd-897a-48cca5183370">&lt;linkText&gt;</bpt>Resource added to JSON file<ept id="a022244a-2adb-42bd-897a-48cca5183370">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a022244a-2adb-42bd-897a-48cca5183370">&lt;linkText&gt;</bpt>Resource added to JSON file<ept id="a022244a-2adb-42bd-897a-48cca5183370">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66f68682-b610-4f85-839d-f3c2b00038d0" xml:space="preserve">
+          <source>Deploy the new resource to the Azure resource group.</source>
+          <target state="new">Deploy the new resource to the Azure resource group.</target>
+        </trans-unit>
+        <trans-unit id="d9806c06-943e-4e23-a25d-50f80556cb3d" xml:space="preserve">
+          <source>On the context menu of the resource group project in Solution Explorer, choose <bpt id="bd48e546-6f54-4900-b628-bdc87b5265b0">&lt;strong&gt;</bpt>Deploy<ept id="bd48e546-6f54-4900-b628-bdc87b5265b0">&lt;/strong&gt;</ept> and then choose the name of the resource group.</source>
+          <target state="new">On the context menu of the resource group project in Solution Explorer, choose <bpt id="bd48e546-6f54-4900-b628-bdc87b5265b0">&lt;strong&gt;</bpt>Deploy<ept id="bd48e546-6f54-4900-b628-bdc87b5265b0">&lt;/strong&gt;</ept> and then choose the name of the resource group.</target>
+        </trans-unit>
+        <trans-unit id="ee115ac8-1fc7-41e9-93ac-e470cbe303d3" xml:space="preserve">
+          <source><bpt id="3f7511ad-a20d-4d4a-819d-4a05ccbdd33c">&lt;linkText&gt;</bpt>Azure resource group deployed<ept id="3f7511ad-a20d-4d4a-819d-4a05ccbdd33c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3f7511ad-a20d-4d4a-819d-4a05ccbdd33c">&lt;linkText&gt;</bpt>Azure resource group deployed<ept id="3f7511ad-a20d-4d4a-819d-4a05ccbdd33c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59b7deff-1bce-421b-be7e-05b94969cd0c" xml:space="preserve">
+          <source>The <bpt id="5ca35de3-a3f2-4d1d-87d9-92e0adba2d8b">&lt;strong&gt;</bpt>Deploy to Resource Group<ept id="5ca35de3-a3f2-4d1d-87d9-92e0adba2d8b">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="5ca35de3-a3f2-4d1d-87d9-92e0adba2d8b">&lt;strong&gt;</bpt>Deploy to Resource Group<ept id="5ca35de3-a3f2-4d1d-87d9-92e0adba2d8b">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="57feda40-15b2-4717-8f4b-ee94759d887a" xml:space="preserve">
+          <source>Choose the <bpt id="452c7e1d-9cc5-42ec-b62f-9b5987345b4b">&lt;strong&gt;</bpt>Deploy<ept id="452c7e1d-9cc5-42ec-b62f-9b5987345b4b">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Choose the <bpt id="452c7e1d-9cc5-42ec-b62f-9b5987345b4b">&lt;strong&gt;</bpt>Deploy<ept id="452c7e1d-9cc5-42ec-b62f-9b5987345b4b">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="96968601-ce88-4812-81aa-c3d7a2757176" xml:space="preserve">
+          <source>If any parameters need to be specified by you, the <bpt id="97086d5b-9a6d-4f33-8c58-aec804b6ef90">&lt;strong&gt;</bpt>Edit Parameters<ept id="97086d5b-9a6d-4f33-8c58-aec804b6ef90">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">If any parameters need to be specified by you, the <bpt id="97086d5b-9a6d-4f33-8c58-aec804b6ef90">&lt;strong&gt;</bpt>Edit Parameters<ept id="97086d5b-9a6d-4f33-8c58-aec804b6ef90">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="73dd7da8-d27e-4262-bb2e-03b69f8a85ab" xml:space="preserve">
+          <source>Enter any required values and then choose the <bpt id="dd6f7bcd-9fb0-41c0-af59-75d981b90ba5">&lt;strong&gt;</bpt>Save<ept id="dd6f7bcd-9fb0-41c0-af59-75d981b90ba5">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Enter any required values and then choose the <bpt id="dd6f7bcd-9fb0-41c0-af59-75d981b90ba5">&lt;strong&gt;</bpt>Save<ept id="dd6f7bcd-9fb0-41c0-af59-75d981b90ba5">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="359dd21e-06eb-47a0-8aa9-3039efd3d23b" xml:space="preserve">
+          <source>The new resource is deployed to your Azure resource group.</source>
+          <target state="new">The new resource is deployed to your Azure resource group.</target>
+        </trans-unit>
+        <trans-unit id="2889e432-e8e5-471b-acf2-1e5f93fa22fe" xml:space="preserve">
+          <source><bpt id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;linkText&gt;</bpt>Creating and Deploying Azure Resource Group Deployment Projects<ept id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;/linkText&gt;</ept><bpt id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;title&gt;</bpt><ept id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;linkText&gt;</bpt>Creating and Deploying Azure Resource Group Deployment Projects<ept id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;/linkText&gt;</ept><bpt id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;title&gt;</bpt><ept id="95d45f53-e323-4bc6-b46e-1d0fd72c59ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f67c3804-b6d0-4c62-acd3-4fee6bf9f5e3" xml:space="preserve">
+          <source><bpt id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;linkText&gt;</bpt>Azure Resource Manager Cmdlets<ept id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;/linkText&gt;</ept><bpt id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;title&gt;</bpt><ept id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;linkText&gt;</bpt>Azure Resource Manager Cmdlets<ept id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;/linkText&gt;</ept><bpt id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;title&gt;</bpt><ept id="474ffc5f-9943-4cb4-94ee-275cda3bce6d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77d06324-02ee-4517-89e8-aed910a87ad9" xml:space="preserve">
+          <source><bpt id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;linkText&gt;</bpt>Using Windows PowerShell with Azure Resource Manager<ept id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;/linkText&gt;</ept><bpt id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;title&gt;</bpt><ept id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;linkText&gt;</bpt>Using Windows PowerShell with Azure Resource Manager<ept id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;/linkText&gt;</ept><bpt id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;title&gt;</bpt><ept id="bb4d5128-3f13-4d38-b7de-7d27afef53a2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef5f6b14-11cc-46d0-8f9c-af3075c0f48b" xml:space="preserve">
+          <source><bpt id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;linkText&gt;</bpt>Channel9 Video: Azure Resource Manager<ept id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;/linkText&gt;</ept><bpt id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;title&gt;</bpt><ept id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;linkText&gt;</bpt>Channel9 Video: Azure Resource Manager<ept id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;/linkText&gt;</ept><bpt id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;title&gt;</bpt><ept id="429247ef-0f98-4b42-89ac-4a05a43ee68e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

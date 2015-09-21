@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cc880947-a860-4b32-b8dd-0b7706b84d4f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cc880947-a860-4b32-b8dd-0b7706b84d4f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f4add526-8777-4305-9433-f7f8b381f13f">
+        <trans-unit id="dc6d9428-a270-4365-bb63-0883164e499b" xml:space="preserve">
+          <source>The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine.</source>
+          <target state="new">The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="3bfa4a73-f104-46d3-84f2-f073c66399ef" xml:space="preserve">
+          <source>This makes it easy to debug your service code before you even publish it to Azure.</source>
+          <target state="new">This makes it easy to debug your service code before you even publish it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="6a820f77-b69d-4e59-a781-34f3a48ff819" xml:space="preserve">
+          <source>In this section, you will test your new app against the mobile service running locally.</source>
+          <target state="new">In this section, you will test your new app against the mobile service running locally.</target>
+        </trans-unit>
+        <trans-unit id="b3771d9a-3a19-406e-8a74-9478a4470669" xml:space="preserve">
+          <source>Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.</source>
+          <target state="new">Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="ba317cf3-359e-46e2-8dbe-c21522e067b2" xml:space="preserve">
+          <source>In the Solution Explorer in Visual Studio, right-click your service project, click <bpt id="08fd3499-e6b9-401f-8c9c-1bd0c4bf568e">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="08fd3499-e6b9-401f-8c9c-1bd0c4bf568e">&lt;/strong&gt;</ept>, and then press the <bpt id="198c0514-86ee-408c-80dd-f318a7e4ad2c">&lt;strong&gt;</bpt>F5<ept id="198c0514-86ee-408c-80dd-f318a7e4ad2c">&lt;/strong&gt;</ept> key to build the project and start the mobile service locally.</source>
+          <target state="new">In the Solution Explorer in Visual Studio, right-click your service project, click <bpt id="08fd3499-e6b9-401f-8c9c-1bd0c4bf568e">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="08fd3499-e6b9-401f-8c9c-1bd0c4bf568e">&lt;/strong&gt;</ept>, and then press the <bpt id="198c0514-86ee-408c-80dd-f318a7e4ad2c">&lt;strong&gt;</bpt>F5<ept id="198c0514-86ee-408c-80dd-f318a7e4ad2c">&lt;/strong&gt;</ept> key to build the project and start the mobile service locally.</target>
+        </trans-unit>
+        <trans-unit id="9eaad7ad-21d2-49b3-91bf-0e3c080fce31" xml:space="preserve">
+          <source><bpt id="e7c8bd13-c158-4395-b1bd-99dfed1a53fd">&lt;linkText&gt;</bpt><ept id="e7c8bd13-c158-4395-b1bd-99dfed1a53fd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7c8bd13-c158-4395-b1bd-99dfed1a53fd">&lt;linkText&gt;</bpt><ept id="e7c8bd13-c158-4395-b1bd-99dfed1a53fd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0266ae2-4685-405c-bc1c-aa83ffaae1fe" xml:space="preserve">
+          <source>A web page is displayed after the mobile service starts successfully.</source>
+          <target state="new">A web page is displayed after the mobile service starts successfully.</target>
+        </trans-unit>
+        <trans-unit id="06afa2a0-89f6-4220-a514-0be6cf9b6fac" xml:space="preserve">
+          <source>To test the store app, right-click your client app project, click <bpt id="bf88c806-6af1-43d2-9d79-6e6daf99a6db">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="bf88c806-6af1-43d2-9d79-6e6daf99a6db">&lt;/strong&gt;</ept>, and then press the <bpt id="ce31a254-f73e-40f6-b2fd-f247887ecb63">&lt;strong&gt;</bpt>F5<ept id="ce31a254-f73e-40f6-b2fd-f247887ecb63">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</source>
+          <target state="new">To test the store app, right-click your client app project, click <bpt id="bf88c806-6af1-43d2-9d79-6e6daf99a6db">&lt;strong&gt;</bpt>Set as StartUp Project<ept id="bf88c806-6af1-43d2-9d79-6e6daf99a6db">&lt;/strong&gt;</ept>, and then press the <bpt id="ce31a254-f73e-40f6-b2fd-f247887ecb63">&lt;strong&gt;</bpt>F5<ept id="ce31a254-f73e-40f6-b2fd-f247887ecb63">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</target>
+        </trans-unit>
+        <trans-unit id="29cd19ed-a84e-4c9b-8ef3-813dac6a343c" xml:space="preserve">
+          <source>This starts the app, which connects to the local mobile service instance.</source>
+          <target state="new">This starts the app, which connects to the local mobile service instance.</target>
+        </trans-unit>
+        <trans-unit id="e6ef0ffd-9e6f-486d-bf54-543b71d9ed91" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="df6f65a7-70a2-41a7-bdfc-0dc48c5d38c2">&lt;em&gt;</bpt>Complete the tutorial<ept id="df6f65a7-70a2-41a7-bdfc-0dc48c5d38c2">&lt;/em&gt;</ept>, in <bpt id="1dd1939b-c1dc-414e-8a64-e43013b0b629">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="1dd1939b-c1dc-414e-8a64-e43013b0b629">&lt;/strong&gt;</ept>, and then click <bpt id="86a2d8fc-6107-49ce-ba5f-9ca44a746f1b">&lt;strong&gt;</bpt>Save<ept id="86a2d8fc-6107-49ce-ba5f-9ca44a746f1b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="df6f65a7-70a2-41a7-bdfc-0dc48c5d38c2">&lt;em&gt;</bpt>Complete the tutorial<ept id="df6f65a7-70a2-41a7-bdfc-0dc48c5d38c2">&lt;/em&gt;</ept>, in <bpt id="1dd1939b-c1dc-414e-8a64-e43013b0b629">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="1dd1939b-c1dc-414e-8a64-e43013b0b629">&lt;/strong&gt;</ept>, and then click <bpt id="86a2d8fc-6107-49ce-ba5f-9ca44a746f1b">&lt;strong&gt;</bpt>Save<ept id="86a2d8fc-6107-49ce-ba5f-9ca44a746f1b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a76f4252-97e2-4ec4-977b-ea3f543f8a8b" xml:space="preserve">
+          <source>This sends a POST request to the local mobile service.</source>
+          <target state="new">This sends a POST request to the local mobile service.</target>
+        </trans-unit>
+        <trans-unit id="92a051ed-8e92-48ec-9bbd-3f7a40148641" xml:space="preserve">
+          <source>Data from the request is inserted into the TodoItem table.</source>
+          <target state="new">Data from the request is inserted into the TodoItem table.</target>
+        </trans-unit>
+        <trans-unit id="71ffdbb5-cfef-4b9d-926f-34f148b9f9e9" xml:space="preserve">
+          <source>Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.</source>
+          <target state="new">Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

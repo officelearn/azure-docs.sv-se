@@ -1,0 +1,1383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="19a7e350-375b-40da-8c90-166b5e0c725a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="19a7e350-375b-40da-8c90-166b5e0c725a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e58151fa-3e97-4488-a113-94f979911b17">
+        <trans-unit id="623caea5-40c6-4df0-afbb-de2781d7f445" xml:space="preserve">
+          <source>Microsoft Azure Security and Audit Log Management | Microsoft Azure</source>
+          <target state="new">Microsoft Azure Security and Audit Log Management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="99798921-810f-426d-a630-75eca4cb489c" xml:space="preserve">
+          <source>Article provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure.  It is intended for IT professionals and security analysts who deal with information asset management on a daily basis, including those responsible for their organization's security and compliance efforts.</source>
+          <target state="new">Article provides an introduction for generating, collecting, and analyzing security logs from services hosted on Azure.  It is intended for IT professionals and security analysts who deal with information asset management on a daily basis, including those responsible for their organization's security and compliance efforts.</target>
+        </trans-unit>
+        <trans-unit id="b4409e97-dacd-41db-bdd7-145933190306" xml:space="preserve">
+          <source>Azure enables customers to perform security event generation and collection from Azure Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) roles to central storage in their subscriptions.</source>
+          <target state="new">Azure enables customers to perform security event generation and collection from Azure Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) roles to central storage in their subscriptions.</target>
+        </trans-unit>
+        <trans-unit id="01c02681-a1ce-49ec-b47b-e8f23234e5a2" xml:space="preserve">
+          <source>Customers can then use <bpt id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;linkText&gt;</bpt>HDInsight<ept id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;/linkText&gt;</ept><bpt id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;title&gt;</bpt><ept id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;/title&gt;</ept> to aggregate and analyze the collected events.</source>
+          <target state="new">Customers can then use <bpt id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;linkText&gt;</bpt>HDInsight<ept id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;/linkText&gt;</ept><bpt id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;title&gt;</bpt><ept id="c4ecc49d-73a4-46bb-a727-e6c330ed4073">&lt;/title&gt;</ept> to aggregate and analyze the collected events.</target>
+        </trans-unit>
+        <trans-unit id="cf23dfef-9ccb-45fc-91ca-81a98964af39" xml:space="preserve">
+          <source>In addition, these collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring.</source>
+          <target state="new">In addition, these collected events can be exported to on-premises security information and event management (SIEM) systems for ongoing monitoring.</target>
+        </trans-unit>
+        <trans-unit id="d563b2bb-3eec-4bce-9c29-3aa936b71e2c" xml:space="preserve">
+          <source>The Azure security logging, analysis, and monitoring lifecycle includes:</source>
+          <target state="new">The Azure security logging, analysis, and monitoring lifecycle includes:</target>
+        </trans-unit>
+        <trans-unit id="e2a19d87-74b3-40a2-a620-164617e15d63" xml:space="preserve">
+          <source><bpt id="35c514c3-bac4-4f58-83b9-b7f879b30a65">&lt;strong&gt;</bpt>Generation<ept id="35c514c3-bac4-4f58-83b9-b7f879b30a65">&lt;/strong&gt;</ept>: Instrument applications and the infrastructure to raise events</source>
+          <target state="new"><bpt id="35c514c3-bac4-4f58-83b9-b7f879b30a65">&lt;strong&gt;</bpt>Generation<ept id="35c514c3-bac4-4f58-83b9-b7f879b30a65">&lt;/strong&gt;</ept>: Instrument applications and the infrastructure to raise events</target>
+        </trans-unit>
+        <trans-unit id="99630dcb-a462-497a-b41c-4c298ea11657" xml:space="preserve">
+          <source><bpt id="6c385f7c-67e4-4ae8-bba7-741fec42047f">&lt;strong&gt;</bpt>Collection<ept id="6c385f7c-67e4-4ae8-bba7-741fec42047f">&lt;/strong&gt;</ept>: Configure Azure to collect the various security logs in a storage account</source>
+          <target state="new"><bpt id="6c385f7c-67e4-4ae8-bba7-741fec42047f">&lt;strong&gt;</bpt>Collection<ept id="6c385f7c-67e4-4ae8-bba7-741fec42047f">&lt;/strong&gt;</ept>: Configure Azure to collect the various security logs in a storage account</target>
+        </trans-unit>
+        <trans-unit id="96acf171-efdc-4734-8006-ad4750a382a7" xml:space="preserve">
+          <source><bpt id="6cdb82fb-8f4e-4898-a344-0ed36c3f3533">&lt;strong&gt;</bpt>Analysis<ept id="6cdb82fb-8f4e-4898-a344-0ed36c3f3533">&lt;/strong&gt;</ept>: Use Azure tools such as HDInsight and on-premises SIEM systems to analyze the logs and generate security insights</source>
+          <target state="new"><bpt id="6cdb82fb-8f4e-4898-a344-0ed36c3f3533">&lt;strong&gt;</bpt>Analysis<ept id="6cdb82fb-8f4e-4898-a344-0ed36c3f3533">&lt;/strong&gt;</ept>: Use Azure tools such as HDInsight and on-premises SIEM systems to analyze the logs and generate security insights</target>
+        </trans-unit>
+        <trans-unit id="44ded4de-b435-4004-a68d-d83a02e57be1" xml:space="preserve">
+          <source><bpt id="ce8a7733-e01d-404a-a7ad-3a86e12e5c02">&lt;strong&gt;</bpt>Monitoring and reporting<ept id="ce8a7733-e01d-404a-a7ad-3a86e12e5c02">&lt;/strong&gt;</ept>: Azure offers centralized monitoring and analysis systems that provide continuous visibility and timely alerts</source>
+          <target state="new"><bpt id="ce8a7733-e01d-404a-a7ad-3a86e12e5c02">&lt;strong&gt;</bpt>Monitoring and reporting<ept id="ce8a7733-e01d-404a-a7ad-3a86e12e5c02">&lt;/strong&gt;</ept>: Azure offers centralized monitoring and analysis systems that provide continuous visibility and timely alerts</target>
+        </trans-unit>
+        <trans-unit id="8f3ad3f0-0c41-4db2-ba76-ef7f92dac0be" xml:space="preserve">
+          <source>This article focuses on the generation and collection phases of the lifecycle.</source>
+          <target state="new">This article focuses on the generation and collection phases of the lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="53920b64-a2d4-4fdf-a040-a97261d5ee05" xml:space="preserve">
+          <source>Security events are raised in the Windows Event Log for the <bpt id="79579743-2205-449b-a0d2-e2d6cd721f61">&lt;strong&gt;</bpt>System<ept id="79579743-2205-449b-a0d2-e2d6cd721f61">&lt;/strong&gt;</ept>, <bpt id="cc0e0a4b-6775-456a-b4ed-0800df983890">&lt;strong&gt;</bpt>Security<ept id="cc0e0a4b-6775-456a-b4ed-0800df983890">&lt;/strong&gt;</ept>, and <bpt id="021f947c-f9a1-4203-b8c7-4c41398748a0">&lt;strong&gt;</bpt>Application<ept id="021f947c-f9a1-4203-b8c7-4c41398748a0">&lt;/strong&gt;</ept> channels in virtual machines.</source>
+          <target state="new">Security events are raised in the Windows Event Log for the <bpt id="79579743-2205-449b-a0d2-e2d6cd721f61">&lt;strong&gt;</bpt>System<ept id="79579743-2205-449b-a0d2-e2d6cd721f61">&lt;/strong&gt;</ept>, <bpt id="cc0e0a4b-6775-456a-b4ed-0800df983890">&lt;strong&gt;</bpt>Security<ept id="cc0e0a4b-6775-456a-b4ed-0800df983890">&lt;/strong&gt;</ept>, and <bpt id="021f947c-f9a1-4203-b8c7-4c41398748a0">&lt;strong&gt;</bpt>Application<ept id="021f947c-f9a1-4203-b8c7-4c41398748a0">&lt;/strong&gt;</ept> channels in virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="bccd5e93-5cc3-4374-af3c-3b8177459837" xml:space="preserve">
+          <source>To ensure that events are logged without potential data loss, it is important to appropriately configure the size of the event log.</source>
+          <target state="new">To ensure that events are logged without potential data loss, it is important to appropriately configure the size of the event log.</target>
+        </trans-unit>
+        <trans-unit id="ece11a4c-1ca6-4098-b038-30ff4a7e16fa" xml:space="preserve">
+          <source>Base the size of the event log on the number of events that auditing policy settings generate and the event collection policies defined.</source>
+          <target state="new">Base the size of the event log on the number of events that auditing policy settings generate and the event collection policies defined.</target>
+        </trans-unit>
+        <trans-unit id="440277db-1b17-4fdb-a817-99e81855db1b" xml:space="preserve">
+          <source>For more information, see <bpt id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;linkText&gt;</bpt>Planning for security audit monitoring and management<ept id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;/linkText&gt;</ept><bpt id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;title&gt;</bpt><ept id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;linkText&gt;</bpt>Planning for security audit monitoring and management<ept id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;/linkText&gt;</ept><bpt id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;title&gt;</bpt><ept id="090cb489-df31-4393-a0d7-0f11dc254393">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ec39666-e010-4ddc-bb2f-ae45cef39f34" xml:space="preserve">
+          <source>When using Windows Event Forwarding (WEF) or Azure Diagnostics (explained in the <bpt id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;linkText&gt;</bpt>Log Collection<ept id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;/linkText&gt;</ept><bpt id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;title&gt;</bpt><ept id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;/title&gt;</ept> section) to pull logs from Cloud Services or virtual machines, consider the potential impact of system outages.</source>
+          <target state="new">When using Windows Event Forwarding (WEF) or Azure Diagnostics (explained in the <bpt id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;linkText&gt;</bpt>Log Collection<ept id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;/linkText&gt;</ept><bpt id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;title&gt;</bpt><ept id="9a4b81a0-d32b-4156-8b86-f1252a25c7f1">&lt;/title&gt;</ept> section) to pull logs from Cloud Services or virtual machines, consider the potential impact of system outages.</target>
+        </trans-unit>
+        <trans-unit id="3abc55e4-3459-4c4c-8f3c-e06a51c24ab9" xml:space="preserve">
+          <source>For example, if your WEF environment goes down for some time, you either need to make sure the log size is big enough to account for a longer time duration or be prepared for possible log data loss.</source>
+          <target state="new">For example, if your WEF environment goes down for some time, you either need to make sure the log size is big enough to account for a longer time duration or be prepared for possible log data loss.</target>
+        </trans-unit>
+        <trans-unit id="cf42dbfe-90ee-48b4-94be-82dc9cfca988" xml:space="preserve">
+          <source>For Cloud Services applications that are deployed in Azure and virtual machines created from the <bpt id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;linkText&gt;</bpt>Azure Virtual Machines Marketplace<ept id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;/linkText&gt;</ept><bpt id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;title&gt;</bpt><ept id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;/title&gt;</ept>, a set of operating system security events are enabled by default.</source>
+          <target state="new">For Cloud Services applications that are deployed in Azure and virtual machines created from the <bpt id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;linkText&gt;</bpt>Azure Virtual Machines Marketplace<ept id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;/linkText&gt;</ept><bpt id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;title&gt;</bpt><ept id="8745fdda-59c1-47b1-8b33-7b9c194cd427">&lt;/title&gt;</ept>, a set of operating system security events are enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="f9d6ad33-da57-4ab5-8527-bceb1dd9ecbf" xml:space="preserve">
+          <source>Customers can add, remove, or modify events to be audited by customizing the operating system audit policy.</source>
+          <target state="new">Customers can add, remove, or modify events to be audited by customizing the operating system audit policy.</target>
+        </trans-unit>
+        <trans-unit id="62274e6d-6c5e-496d-a1ac-e03a42b35bdd" xml:space="preserve">
+          <source>For more information, see <bpt id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;linkText&gt;</bpt>Security Policy Settings Reference<ept id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;/linkText&gt;</ept><bpt id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;title&gt;</bpt><ept id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;linkText&gt;</bpt>Security Policy Settings Reference<ept id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;/linkText&gt;</ept><bpt id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;title&gt;</bpt><ept id="3dc102cc-f4aa-416d-9bdd-7220b258a533">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39212e2d-81f8-49dc-ad05-5db510c1bee2" xml:space="preserve">
+          <source>You can use the following methods to generate additional logs from operating system (such as audit policy changes) and Windows components (such as IIS):</source>
+          <target state="new">You can use the following methods to generate additional logs from operating system (such as audit policy changes) and Windows components (such as IIS):</target>
+        </trans-unit>
+        <trans-unit id="39647bdc-3d52-4b41-9fdb-cceb2d6e6492" xml:space="preserve">
+          <source>Group Policy to roll out policy settings for virtual machines in Azure that are domain-joined</source>
+          <target state="new">Group Policy to roll out policy settings for virtual machines in Azure that are domain-joined</target>
+        </trans-unit>
+        <trans-unit id="ca3e9555-8ff1-4482-bb45-e6446eb6a77e" xml:space="preserve">
+          <source>Desired State Configuration (DSC) to push and manage policy settings.</source>
+          <target state="new">Desired State Configuration (DSC) to push and manage policy settings.</target>
+        </trans-unit>
+        <trans-unit id="6cf818ba-8764-4693-8975-3a7ddc26810d" xml:space="preserve">
+          <source>For more information, see <bpt id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;linkText&gt;</bpt>Azure PowerShell DSC<ept id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;/linkText&gt;</ept><bpt id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;title&gt;</bpt><ept id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;linkText&gt;</bpt>Azure PowerShell DSC<ept id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;/linkText&gt;</ept><bpt id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;title&gt;</bpt><ept id="6970dccf-fe8d-4200-afd4-17cbb61fbe7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28864d66-3f4e-45e3-813e-b721af955408" xml:space="preserve">
+          <source>Service Deployment role startup code to roll out settings for Cloud Services (PaaS scenario)</source>
+          <target state="new">Service Deployment role startup code to roll out settings for Cloud Services (PaaS scenario)</target>
+        </trans-unit>
+        <trans-unit id="27e7aa26-6df6-4fed-9409-1bcd28d0e3a3" xml:space="preserve">
+          <source>Configuring Azure role startup tasks enables code to run before a role starts.</source>
+          <target state="new">Configuring Azure role startup tasks enables code to run before a role starts.</target>
+        </trans-unit>
+        <trans-unit id="7b4541c8-cec0-4e64-92da-ad5563558d6f" xml:space="preserve">
+          <source>You can define a startup task for a role by adding the <bpt id="0919c4b0-d4e7-4f71-9cad-c4ac25dca352">&lt;strong&gt;</bpt>Startup<ept id="0919c4b0-d4e7-4f71-9cad-c4ac25dca352">&lt;/strong&gt;</ept> element to the definition of the role in the service definition file, as shown in the following example.</source>
+          <target state="new">You can define a startup task for a role by adding the <bpt id="0919c4b0-d4e7-4f71-9cad-c4ac25dca352">&lt;strong&gt;</bpt>Startup<ept id="0919c4b0-d4e7-4f71-9cad-c4ac25dca352">&lt;/strong&gt;</ept> element to the definition of the role in the service definition file, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="45d43af9-981f-42ec-a87a-3950d13fca4a" xml:space="preserve">
+          <source>For more information, see <bpt id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;linkText&gt;</bpt>Run Startup Tasks in Azure<ept id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;/linkText&gt;</ept><bpt id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;title&gt;</bpt><ept id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;linkText&gt;</bpt>Run Startup Tasks in Azure<ept id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;/linkText&gt;</ept><bpt id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;title&gt;</bpt><ept id="10d2882b-e71d-4cec-8b56-8d5970fa2307">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="75940d95-1c83-4908-8e32-561114f39a27" xml:space="preserve">
+          <source>The task file that is to be run as a Startup task (EnableLogOnAudit.cmd in the following example) needs to be included in your build package.</source>
+          <target state="new">The task file that is to be run as a Startup task (EnableLogOnAudit.cmd in the following example) needs to be included in your build package.</target>
+        </trans-unit>
+        <trans-unit id="91f43492-6943-4012-a4c3-349cf44cfc9f" xml:space="preserve">
+          <source>If you are using Visual Studio, add the file to your cloud project, right-click the file name, click <bpt id="d1deaf76-964a-42b3-afe4-25d511766c2d">&lt;strong&gt;</bpt>Properties<ept id="d1deaf76-964a-42b3-afe4-25d511766c2d">&lt;/strong&gt;</ept>, and then set <bpt id="c0cd9e82-7d93-41f3-a842-d898ddef29e2">&lt;strong&gt;</bpt>Copy to output Directory<ept id="c0cd9e82-7d93-41f3-a842-d898ddef29e2">&lt;/strong&gt;</ept> to <bpt id="3ea39818-acca-4d1e-a29e-908712e3c068">&lt;strong&gt;</bpt>Copy always<ept id="3ea39818-acca-4d1e-a29e-908712e3c068">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are using Visual Studio, add the file to your cloud project, right-click the file name, click <bpt id="d1deaf76-964a-42b3-afe4-25d511766c2d">&lt;strong&gt;</bpt>Properties<ept id="d1deaf76-964a-42b3-afe4-25d511766c2d">&lt;/strong&gt;</ept>, and then set <bpt id="c0cd9e82-7d93-41f3-a842-d898ddef29e2">&lt;strong&gt;</bpt>Copy to output Directory<ept id="c0cd9e82-7d93-41f3-a842-d898ddef29e2">&lt;/strong&gt;</ept> to <bpt id="3ea39818-acca-4d1e-a29e-908712e3c068">&lt;strong&gt;</bpt>Copy always<ept id="3ea39818-acca-4d1e-a29e-908712e3c068">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0f4262f9-de7d-43d7-801d-55e972e4c3b3" xml:space="preserve">
+          <source>Contents of EnableLogOnAudit.cmd:</source>
+          <target state="new">Contents of EnableLogOnAudit.cmd:</target>
+        </trans-unit>
+        <trans-unit id="bf843eb5-0dd6-4813-a304-2f20c2492f32" xml:space="preserve">
+          <source><bpt id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;linkText&gt;</bpt>Auditpol.exe<ept id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;/linkText&gt;</ept><bpt id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;title&gt;</bpt><ept id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;/title&gt;</ept> used in the previous example is a command-line tool included in Windows Server operating system that allows you to manage audit policy settings.</source>
+          <target state="new"><bpt id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;linkText&gt;</bpt>Auditpol.exe<ept id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;/linkText&gt;</ept><bpt id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;title&gt;</bpt><ept id="408d960e-4df7-4288-bd27-dee39aa0776d">&lt;/title&gt;</ept> used in the previous example is a command-line tool included in Windows Server operating system that allows you to manage audit policy settings.</target>
+        </trans-unit>
+        <trans-unit id="e58ab7c7-b8bf-45bb-ba6b-a28ce61d4228" xml:space="preserve">
+          <source>In addition to generating Windows event logs, various Windows operating system components can be configured to generate logs that are important for security analysis and monitoring.</source>
+          <target state="new">In addition to generating Windows event logs, various Windows operating system components can be configured to generate logs that are important for security analysis and monitoring.</target>
+        </trans-unit>
+        <trans-unit id="bca2cf5e-a0c8-4b70-8bfe-d388cf3ac0ad" xml:space="preserve">
+          <source>For example, Internet Information Services (IIS) logs and http.err logs are automatically generated for web roles, and they can be configured for collection.</source>
+          <target state="new">For example, Internet Information Services (IIS) logs and http.err logs are automatically generated for web roles, and they can be configured for collection.</target>
+        </trans-unit>
+        <trans-unit id="544a273f-0ddf-4d1a-84ba-eec51a72a71a" xml:space="preserve">
+          <source>These logs provide valuable information that can be used to identify unauthorized access or attacks against your web role.</source>
+          <target state="new">These logs provide valuable information that can be used to identify unauthorized access or attacks against your web role.</target>
+        </trans-unit>
+        <trans-unit id="8857558e-2ae5-4ca1-b55c-6b75e05d8a3f" xml:space="preserve">
+          <source>For more information, see <bpt id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;linkText&gt;</bpt>Configure Logging in IIS<ept id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;/linkText&gt;</ept><bpt id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;title&gt;</bpt><ept id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;/title&gt;</ept> and <bpt id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;linkText&gt;</bpt>Advanced Logging for IIS – Custom Logging<ept id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;/linkText&gt;</ept><bpt id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;title&gt;</bpt><ept id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;linkText&gt;</bpt>Configure Logging in IIS<ept id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;/linkText&gt;</ept><bpt id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;title&gt;</bpt><ept id="e49ca364-6aad-4311-8093-b0f104177dd2">&lt;/title&gt;</ept> and <bpt id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;linkText&gt;</bpt>Advanced Logging for IIS – Custom Logging<ept id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;/linkText&gt;</ept><bpt id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;title&gt;</bpt><ept id="6cd0b417-0e64-4943-817a-04651edf8772">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="683007d1-f7a1-4afd-8a8c-f948d4b0b226" xml:space="preserve">
+          <source>To change IIS logging in a web role, customers can add a startup task to the web role service definition file.</source>
+          <target state="new">To change IIS logging in a web role, customers can add a startup task to the web role service definition file.</target>
+        </trans-unit>
+        <trans-unit id="236c4194-bd79-45c2-b862-b79c637dd189" xml:space="preserve">
+          <source>The following example enables HTTP logging for a website named Contoso, and it specifies that IIS should log all requests for the Contoso website.</source>
+          <target state="new">The following example enables HTTP logging for a website named Contoso, and it specifies that IIS should log all requests for the Contoso website.</target>
+        </trans-unit>
+        <trans-unit id="b18663f1-1116-4261-af5f-0e2783f76cb9" xml:space="preserve">
+          <source>The task that updates the IIS configuration needs to be included within the service definition file of the web role.</source>
+          <target state="new">The task that updates the IIS configuration needs to be included within the service definition file of the web role.</target>
+        </trans-unit>
+        <trans-unit id="ba52eef7-55a0-4777-92b9-c07ad755baef" xml:space="preserve">
+          <source>The following changes to the service definition file runs a startup task that configures IIS logging by running a script called ConfigureIISLogging.cmd.</source>
+          <target state="new">The following changes to the service definition file runs a startup task that configures IIS logging by running a script called ConfigureIISLogging.cmd.</target>
+        </trans-unit>
+        <trans-unit id="2e730101-ab8d-4c8e-9ba3-8e0dd8bc43fa" xml:space="preserve">
+          <source>Contents of ConfigureIISLogging:cmd</source>
+          <target state="new">Contents of ConfigureIISLogging:cmd</target>
+        </trans-unit>
+        <trans-unit id="93c03aac-5eef-48d4-8096-5417869f4afa" xml:space="preserve">
+          <source>Collection of security events and logs from Cloud Services or virtual machines in Azure occurs through two primary methods:</source>
+          <target state="new">Collection of security events and logs from Cloud Services or virtual machines in Azure occurs through two primary methods:</target>
+        </trans-unit>
+        <trans-unit id="db402b1d-ec42-41b8-ab32-f5ce31810358" xml:space="preserve">
+          <source>Azure Diagnostics, collects events in a customer’s Azure storage account</source>
+          <target state="new">Azure Diagnostics, collects events in a customer’s Azure storage account</target>
+        </trans-unit>
+        <trans-unit id="0d769b89-0e9e-4bda-8d42-db8748e1d6e7" xml:space="preserve">
+          <source>Windows Event Forwarding (WEF), a technology in computers running Windows</source>
+          <target state="new">Windows Event Forwarding (WEF), a technology in computers running Windows</target>
+        </trans-unit>
+        <trans-unit id="83432574-faf2-4fea-950f-6865595ed893" xml:space="preserve">
+          <source>Some key differences between these two technologies are included in the table below.</source>
+          <target state="new">Some key differences between these two technologies are included in the table below.</target>
+        </trans-unit>
+        <trans-unit id="20250d90-4c0d-4bc3-9c90-97729a83b83a" xml:space="preserve">
+          <source>Based on your requirements and these key differences, the appropriate method needs to be chosen to implement log collection.</source>
+          <target state="new">Based on your requirements and these key differences, the appropriate method needs to be chosen to implement log collection.</target>
+        </trans-unit>
+        <trans-unit id="054f2af0-3750-45c7-925d-83585b34317e" xml:space="preserve">
+          <source>Azure Diagnostics</source>
+          <target state="new">Azure Diagnostics</target>
+        </trans-unit>
+        <trans-unit id="b413b04f-143e-48d8-b559-aa0c21346491" xml:space="preserve">
+          <source>Windows Event Forwarding</source>
+          <target state="new">Windows Event Forwarding</target>
+        </trans-unit>
+        <trans-unit id="68634b53-ae78-48ee-a1ab-0af29ce18a11" xml:space="preserve">
+          <source>Supports Azure Virtual Machines and Azure Cloud Services</source>
+          <target state="new">Supports Azure Virtual Machines and Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="8aa85015-84a3-496c-aaff-177baf80f261" xml:space="preserve">
+          <source>Supports domain-joined Azure Virtual Machines only</source>
+          <target state="new">Supports domain-joined Azure Virtual Machines only</target>
+        </trans-unit>
+        <trans-unit id="e62deecb-e700-4a14-9038-5be21168a32e" xml:space="preserve">
+          <source>Supports a variety of log formats, such as Windows event logs, <bpt id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;linkText&gt;</bpt>Event Tracing for Windows<ept id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;/linkText&gt;</ept><bpt id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;title&gt;</bpt><ept id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;/title&gt;</ept> (ETW) traces, and IIS logs.</source>
+          <target state="new">Supports a variety of log formats, such as Windows event logs, <bpt id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;linkText&gt;</bpt>Event Tracing for Windows<ept id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;/linkText&gt;</ept><bpt id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;title&gt;</bpt><ept id="e5e0c68c-db44-4ca1-b378-d55604b29457">&lt;/title&gt;</ept> (ETW) traces, and IIS logs.</target>
+        </trans-unit>
+        <trans-unit id="d710d575-4270-48c2-9943-322cdbbdef7f" xml:space="preserve">
+          <source>For more information, see <bpt id="c88337f3-1288-4f48-9420-659e16df8742">&lt;linkText&gt;</bpt>Azure Diagnostics supported data sources<ept id="c88337f3-1288-4f48-9420-659e16df8742">&lt;/linkText&gt;</ept><bpt id="c88337f3-1288-4f48-9420-659e16df8742">&lt;title&gt;</bpt><ept id="c88337f3-1288-4f48-9420-659e16df8742">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="c88337f3-1288-4f48-9420-659e16df8742">&lt;linkText&gt;</bpt>Azure Diagnostics supported data sources<ept id="c88337f3-1288-4f48-9420-659e16df8742">&lt;/linkText&gt;</ept><bpt id="c88337f3-1288-4f48-9420-659e16df8742">&lt;title&gt;</bpt><ept id="c88337f3-1288-4f48-9420-659e16df8742">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7261b118-83c9-4488-84a0-2b2ddf98b423" xml:space="preserve">
+          <source>Supports Windows event logs only</source>
+          <target state="new">Supports Windows event logs only</target>
+        </trans-unit>
+        <trans-unit id="7b3f2898-1ca6-469b-acdc-762c67380717" xml:space="preserve">
+          <source>Pushes collected data to Azure Storage</source>
+          <target state="new">Pushes collected data to Azure Storage</target>
+        </trans-unit>
+        <trans-unit id="54160aea-bd13-4e58-b191-a9ac9a9c4c0f" xml:space="preserve">
+          <source>Moves collected data to central collector servers</source>
+          <target state="new">Moves collected data to central collector servers</target>
+        </trans-unit>
+        <trans-unit id="cb3ce077-a7f8-475a-ad42-df65843e0191" xml:space="preserve">
+          <source>For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers.</source>
+          <target state="new">For domain-joined Azure Virtual Machines, you can configure WEF by using Group Policy settings in the same manner as for on-premises domain-joined computers.</target>
+        </trans-unit>
+        <trans-unit id="2655c2b7-2bba-407e-ad80-c7730330a8d5" xml:space="preserve">
+          <source>For more information, see <bpt id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;linkText&gt;</bpt>Hybrid Cloud<ept id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;/linkText&gt;</ept><bpt id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;title&gt;</bpt><ept id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;linkText&gt;</bpt>Hybrid Cloud<ept id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;/linkText&gt;</ept><bpt id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;title&gt;</bpt><ept id="7025ac69-2c7a-4e57-af6c-aea29dda6200">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4efedce9-7290-45f7-9d48-a22d6175b18f" xml:space="preserve">
+          <source>Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using <bpt id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;linkText&gt;</bpt>ExpressRoute<ept id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;/linkText&gt;</ept><bpt id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;title&gt;</bpt><ept id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;/title&gt;</ept> or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain.</source>
+          <target state="new">Using this approach, an organization could purchase an IaaS subscription, connect it to their corporate network by using <bpt id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;linkText&gt;</bpt>ExpressRoute<ept id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;/linkText&gt;</ept><bpt id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;title&gt;</bpt><ept id="508d2e2e-278c-43a9-856e-51743bd2b14d">&lt;/title&gt;</ept> or site-to-site VPN, and then join the virtual machines that you have in Azure to the corporate domain.</target>
+        </trans-unit>
+        <trans-unit id="ff498313-6d77-45ee-a275-9afd0806d951" xml:space="preserve">
+          <source>Afterwards, you can configure WEF from the domain-joined machines.</source>
+          <target state="new">Afterwards, you can configure WEF from the domain-joined machines.</target>
+        </trans-unit>
+        <trans-unit id="f9ef06c0-0869-409b-8c7e-0e0f7bb60dfb" xml:space="preserve">
+          <source>Event forwarding is broken into two parts: the source and the collector.</source>
+          <target state="new">Event forwarding is broken into two parts: the source and the collector.</target>
+        </trans-unit>
+        <trans-unit id="b668c50e-93a1-4c0e-8080-029098691311" xml:space="preserve">
+          <source>The source is the computer in which the security logs are generated.</source>
+          <target state="new">The source is the computer in which the security logs are generated.</target>
+        </trans-unit>
+        <trans-unit id="aab301d7-c3ae-4b3c-8fdf-6b3923c0a17a" xml:space="preserve">
+          <source>The collector is the centralized server that collects and consolidates the event logs.</source>
+          <target state="new">The collector is the centralized server that collects and consolidates the event logs.</target>
+        </trans-unit>
+        <trans-unit id="42702013-4276-403f-a90f-2ed2d56495b5" xml:space="preserve">
+          <source>IT administrators can subscribe to events so that they can receive and store events that are forwarded from remote computers (the event source).</source>
+          <target state="new">IT administrators can subscribe to events so that they can receive and store events that are forwarded from remote computers (the event source).</target>
+        </trans-unit>
+        <trans-unit id="32a5a08f-673d-430b-b109-65a0da5749a0" xml:space="preserve">
+          <source>For more information, see <bpt id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;linkText&gt;</bpt>Configure Computers to Forward and Collect Events<ept id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;/linkText&gt;</ept><bpt id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;title&gt;</bpt><ept id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;linkText&gt;</bpt>Configure Computers to Forward and Collect Events<ept id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;/linkText&gt;</ept><bpt id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;title&gt;</bpt><ept id="986e3c77-e946-4e1e-ba7c-200d2c0131a3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3057fe05-a1f4-45bb-8c6b-1a23cd8d4dc7" xml:space="preserve">
+          <source>Collected Windows events can be sent to on-premises analysis tools, such as a SIEM, for further analysis.</source>
+          <target state="new">Collected Windows events can be sent to on-premises analysis tools, such as a SIEM, for further analysis.</target>
+        </trans-unit>
+        <trans-unit id="2e5ee225-fd26-4734-a8f0-e9cdd0205f07" xml:space="preserve">
+          <source>Azure Diagnostics enables you to collect diagnostic data from a cloud service worker role or web role, or from virtual machines running in Azure.</source>
+          <target state="new">Azure Diagnostics enables you to collect diagnostic data from a cloud service worker role or web role, or from virtual machines running in Azure.</target>
+        </trans-unit>
+        <trans-unit id="7853166e-c549-4e6c-923b-765259420a5b" xml:space="preserve">
+          <source>It is a predefined guest agent extension that needs to be enabled and configured for data collection.</source>
+          <target state="new">It is a predefined guest agent extension that needs to be enabled and configured for data collection.</target>
+        </trans-unit>
+        <trans-unit id="5b399a50-e25a-4d53-8286-edebae271e39" xml:space="preserve">
+          <source>A customer's subscription can include pushing the data to Azure Storage.</source>
+          <target state="new">A customer's subscription can include pushing the data to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="d0062cc6-1d9e-4751-86e6-5896cb254bbd" xml:space="preserve">
+          <source>The data is encrypted in-transit (by using HTTPS).</source>
+          <target state="new">The data is encrypted in-transit (by using HTTPS).</target>
+        </trans-unit>
+        <trans-unit id="4eda0473-049f-4ab8-a0ea-bc2d7356f066" xml:space="preserve">
+          <source>The examples provided in this document are using Azure Diagnostics 1.2.</source>
+          <target state="new">The examples provided in this document are using Azure Diagnostics 1.2.</target>
+        </trans-unit>
+        <trans-unit id="36e280ce-c1e9-4ba5-bc40-58c59f69e0ce" xml:space="preserve">
+          <source>We recommend that you upgrade to version 1.2 or higher for security data collection.</source>
+          <target state="new">We recommend that you upgrade to version 1.2 or higher for security data collection.</target>
+        </trans-unit>
+        <trans-unit id="5f9295b3-a9ef-4388-8d27-c50993b8e9c5" xml:space="preserve">
+          <source>For more information, see <bpt id="51217420-3322-4a74-8f65-5d5408923451">&lt;linkText&gt;</bpt>Collect Logging Data by Using Azure Diagnostics<ept id="51217420-3322-4a74-8f65-5d5408923451">&lt;/linkText&gt;</ept><bpt id="51217420-3322-4a74-8f65-5d5408923451">&lt;title&gt;</bpt><ept id="51217420-3322-4a74-8f65-5d5408923451">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="51217420-3322-4a74-8f65-5d5408923451">&lt;linkText&gt;</bpt>Collect Logging Data by Using Azure Diagnostics<ept id="51217420-3322-4a74-8f65-5d5408923451">&lt;/linkText&gt;</ept><bpt id="51217420-3322-4a74-8f65-5d5408923451">&lt;title&gt;</bpt><ept id="51217420-3322-4a74-8f65-5d5408923451">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3575386-712b-4732-80bd-c01166a0f548" xml:space="preserve">
+          <source>The following diagram shows a high-level data flow for security data collection that uses Azure Diagnostics and further analysis and monitoring.</source>
+          <target state="new">The following diagram shows a high-level data flow for security data collection that uses Azure Diagnostics and further analysis and monitoring.</target>
+        </trans-unit>
+        <trans-unit id="146016d6-fb8e-41b0-9fb4-19fbabbd5744" xml:space="preserve">
+          <source><bpt id="4b1eb9e9-1377-48ec-9e45-59091aa38517">&lt;linkText&gt;</bpt><ept id="4b1eb9e9-1377-48ec-9e45-59091aa38517">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b1eb9e9-1377-48ec-9e45-59091aa38517">&lt;linkText&gt;</bpt><ept id="4b1eb9e9-1377-48ec-9e45-59091aa38517">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fe53b3c-dab9-4d59-8b92-08764bf937b5" xml:space="preserve">
+          <source>Azure Diagnostics moves logs from customer Cloud Services applications and <bpt id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;/linkText&gt;</ept><bpt id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;title&gt;</bpt><ept id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;/title&gt;</ept> to Azure Storage.</source>
+          <target state="new">Azure Diagnostics moves logs from customer Cloud Services applications and <bpt id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;linkText&gt;</bpt>Azure Virtual Machines<ept id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;/linkText&gt;</ept><bpt id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;title&gt;</bpt><ept id="78587bd6-ea36-4a18-b5a3-e9b9f7c7d21c">&lt;/title&gt;</ept> to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="fcc78da0-8f80-4b06-a3be-4497d8df5af5" xml:space="preserve">
+          <source>Based on a log format, some data is stored in Azure tables and some in blobs.</source>
+          <target state="new">Based on a log format, some data is stored in Azure tables and some in blobs.</target>
+        </trans-unit>
+        <trans-unit id="33d0bac4-21ea-49ad-b4fa-5e54d77cd561" xml:space="preserve">
+          <source>Data that is collected in <bpt id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;linkText&gt;</bpt>Azure Storage<ept id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;/linkText&gt;</ept><bpt id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;title&gt;</bpt><ept id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;/title&gt;</ept> can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.</source>
+          <target state="new">Data that is collected in <bpt id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;linkText&gt;</bpt>Azure Storage<ept id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;/linkText&gt;</ept><bpt id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;title&gt;</bpt><ept id="9e5fa633-7f37-4a64-9ee0-61713f2f6337">&lt;/title&gt;</ept> can be downloaded to on-premises SIEM systems by using Azure Storage client library for monitoring and analysis.</target>
+        </trans-unit>
+        <trans-unit id="38c3d51a-f4dd-4a95-810d-4c0f3547630d" xml:space="preserve">
+          <source>Additionally, HDInsight can be used for further analysis of the data in the cloud.</source>
+          <target state="new">Additionally, HDInsight can be used for further analysis of the data in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="461d642f-ed95-49c9-be96-5ada4aa9a775" xml:space="preserve">
+          <source>Following are some examples of security data collection that use Azure Diagnostics.</source>
+          <target state="new">Following are some examples of security data collection that use Azure Diagnostics.</target>
+        </trans-unit>
+        <trans-unit id="7701ddf4-deaf-44b6-8692-d97d8c5cd739" xml:space="preserve">
+          <source>The following examples use Azure Diagnostics 1.2 and Azure PowerShell cmdlets to enable security data collection from virtual machines.</source>
+          <target state="new">The following examples use Azure Diagnostics 1.2 and Azure PowerShell cmdlets to enable security data collection from virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="eca21a11-f56d-4458-b086-3aac2dab429c" xml:space="preserve">
+          <source>The data is collected from virtual machines on a scheduled interval (that is configurable) and pushed to Azure Storage within a customer’s subscription.</source>
+          <target state="new">The data is collected from virtual machines on a scheduled interval (that is configurable) and pushed to Azure Storage within a customer’s subscription.</target>
+        </trans-unit>
+        <trans-unit id="8221191b-e463-4118-bd0b-be0de362daab" xml:space="preserve">
+          <source>In this section, we will walk through two log collection scenarios using Azure Diagnostics:</source>
+          <target state="new">In this section, we will walk through two log collection scenarios using Azure Diagnostics:</target>
+        </trans-unit>
+        <trans-unit id="05060cb9-53d7-4692-91ae-bbceec706456" xml:space="preserve">
+          <source>Set up a new instance of a security log collection pipeline on a virtual machine.</source>
+          <target state="new">Set up a new instance of a security log collection pipeline on a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="d6ec448b-1696-469e-b21a-5ebe5f861100" xml:space="preserve">
+          <source>Update an existing security log collection pipeline with a new configuration on a virtual machine.</source>
+          <target state="new">Update an existing security log collection pipeline with a new configuration on a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="526fc2f8-3fa5-4c24-8869-761883ee547e" xml:space="preserve">
+          <source>In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect logon failure events (event IDs 4624 and 4625) from the virtual machines.</source>
+          <target state="new">In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect logon failure events (event IDs 4624 and 4625) from the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="c56f629a-7ee3-4ffa-9a2e-78e08d08662d" xml:space="preserve">
+          <source>You can implement the following steps from your development environment, or you can use a Remote Desktop session through Remote Desktop Protocol (RDP) to the node in the cloud.</source>
+          <target state="new">You can implement the following steps from your development environment, or you can use a Remote Desktop session through Remote Desktop Protocol (RDP) to the node in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="3c25b2ed-874d-4bb5-a6bf-59666d0650e2" xml:space="preserve">
+          <source>The Azure PowerShell SDK provides cmdlets to configure Azure Diagnostics on Azure Virtual Machines.</source>
+          <target state="new">The Azure PowerShell SDK provides cmdlets to configure Azure Diagnostics on Azure Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="7383ccb4-ecdd-4fdd-87c1-c0128f2c34b6" xml:space="preserve">
+          <source>The necessary cmdlets are available in Azure PowerShell version 0.8.7 or later.</source>
+          <target state="new">The necessary cmdlets are available in Azure PowerShell version 0.8.7 or later.</target>
+        </trans-unit>
+        <trans-unit id="cd471929-4cb9-4a4e-9409-1fe091ad5dff" xml:space="preserve">
+          <source>For more information, see <bpt id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;/linkText&gt;</ept><bpt id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;title&gt;</bpt><ept id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;/linkText&gt;</ept><bpt id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;title&gt;</bpt><ept id="9b014e22-812e-40ff-8fec-373319723ccb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4106f9ca-5caf-4c6c-bf78-da983a893856" xml:space="preserve">
+          <source>Prepare the configuration file based on the events you would like to collect.</source>
+          <target state="new">Prepare the configuration file based on the events you would like to collect.</target>
+        </trans-unit>
+        <trans-unit id="dd9f62f8-b58c-47db-901c-dad78abaefb5" xml:space="preserve">
+          <source>Following is an example of an Azure Diagnostics configuration file to collect Windows events from the <bpt id="5e756d9a-5dac-4237-a00b-c716318df054">&lt;strong&gt;</bpt>Security<ept id="5e756d9a-5dac-4237-a00b-c716318df054">&lt;/strong&gt;</ept> channel, with filters added to collect only logon success and failure events.</source>
+          <target state="new">Following is an example of an Azure Diagnostics configuration file to collect Windows events from the <bpt id="5e756d9a-5dac-4237-a00b-c716318df054">&lt;strong&gt;</bpt>Security<ept id="5e756d9a-5dac-4237-a00b-c716318df054">&lt;/strong&gt;</ept> channel, with filters added to collect only logon success and failure events.</target>
+        </trans-unit>
+        <trans-unit id="cf071401-b1c4-41f3-b1d6-4fdd54026c2b" xml:space="preserve">
+          <source>For more information, see <bpt id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;linkText&gt;</bpt>Azure Diagnostics 1.2 Configuration Schema<ept id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;/linkText&gt;</ept><bpt id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;title&gt;</bpt><ept id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;linkText&gt;</bpt>Azure Diagnostics 1.2 Configuration Schema<ept id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;/linkText&gt;</ept><bpt id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;title&gt;</bpt><ept id="97cbde9f-ade9-480e-93ca-901106dfea97">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e7cdb30-8a14-4f11-8839-1c75990b0d6c" xml:space="preserve">
+          <source>The storage account can be specified in the configuration file, or it can be specified as a parameter when you run the Azure PowerShell cmdlets to set up Azure Diagnostics.</source>
+          <target state="new">The storage account can be specified in the configuration file, or it can be specified as a parameter when you run the Azure PowerShell cmdlets to set up Azure Diagnostics.</target>
+        </trans-unit>
+        <trans-unit id="7b95f2b3-3da1-4787-8739-60d21734d96b" xml:space="preserve">
+          <source>When you save the previous contents as an XML file, set the encoding to <bpt id="ae376b7b-b279-4d84-ab2a-7095dc7da70e">&lt;strong&gt;</bpt>UTF-8<ept id="ae376b7b-b279-4d84-ab2a-7095dc7da70e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you save the previous contents as an XML file, set the encoding to <bpt id="ae376b7b-b279-4d84-ab2a-7095dc7da70e">&lt;strong&gt;</bpt>UTF-8<ept id="ae376b7b-b279-4d84-ab2a-7095dc7da70e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d7f3ef2-bc2a-41ea-987b-7663b5f01b85" xml:space="preserve">
+          <source>If you are using Notepad, you'll see the encoding option available in the "Save As" dialog box.</source>
+          <target state="new">If you are using Notepad, you'll see the encoding option available in the "Save As" dialog box.</target>
+        </trans-unit>
+        <trans-unit id="bf303e9f-79a9-4448-9237-4d047c3e896f" xml:space="preserve">
+          <source>The table below lists some key attributes to note in the configuration file.</source>
+          <target state="new">The table below lists some key attributes to note in the configuration file.</target>
+        </trans-unit>
+        <trans-unit id="e86996d0-18b0-45b0-86a9-aca84f96597a" xml:space="preserve">
+          <source>Attribute</source>
+          <target state="new">Attribute</target>
+        </trans-unit>
+        <trans-unit id="08254f6f-c026-4922-9b66-50df34b29e0b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="fa5474e3-3f9a-4b1a-b2d3-4b382c9df214" xml:space="preserve">
+          <source>overallQuotaInMB</source>
+          <target state="new">overallQuotaInMB</target>
+        </trans-unit>
+        <trans-unit id="b2ec1876-b513-47f6-a39a-c42d485db1a2" xml:space="preserve">
+          <source>The maximum amount of local disk space that can be consumed by Azure Diagnostics (value is configurable).</source>
+          <target state="new">The maximum amount of local disk space that can be consumed by Azure Diagnostics (value is configurable).</target>
+        </trans-unit>
+        <trans-unit id="965c0690-1389-47e4-a683-4dc17204808c" xml:space="preserve">
+          <source>scheduledTransferPeriod</source>
+          <target state="new">scheduledTransferPeriod</target>
+        </trans-unit>
+        <trans-unit id="d16c674c-a919-438c-932b-33e553cc74d5" xml:space="preserve">
+          <source>The interval between scheduled transfers to Azure Storage, rounded up to the nearest minute.</source>
+          <target state="new">The interval between scheduled transfers to Azure Storage, rounded up to the nearest minute.</target>
+        </trans-unit>
+        <trans-unit id="155a02a5-fb7e-4661-8eea-aec78fd7fb88" xml:space="preserve">
+          <source>Name</source>
+          <target state="new">Name</target>
+        </trans-unit>
+        <trans-unit id="da481452-a68a-4a9e-8c53-9878c39cdd2d" xml:space="preserve">
+          <source>In WindowsEventLog, this attibute is the XPath query that describes the Windows events to be collected.</source>
+          <target state="new">In WindowsEventLog, this attibute is the XPath query that describes the Windows events to be collected.</target>
+        </trans-unit>
+        <trans-unit id="227706e3-193d-40cb-b076-effe28ce1666" xml:space="preserve">
+          <source>You can filter the data collection by adding a filter such as Event ID, Provider Name, or Channel.</source>
+          <target state="new">You can filter the data collection by adding a filter such as Event ID, Provider Name, or Channel.</target>
+        </trans-unit>
+        <trans-unit id="15976028-9d03-4351-9ef0-b7e24fc3e0b6" xml:space="preserve">
+          <source>All Windows Event log data is moved to a table named <bpt id="5af3d476-0f10-42eb-be09-1e93caef10c0">&lt;strong&gt;</bpt>WADWindowsEventLogsTable<ept id="5af3d476-0f10-42eb-be09-1e93caef10c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">All Windows Event log data is moved to a table named <bpt id="5af3d476-0f10-42eb-be09-1e93caef10c0">&lt;strong&gt;</bpt>WADWindowsEventLogsTable<ept id="5af3d476-0f10-42eb-be09-1e93caef10c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a79f5cea-5848-44a3-8ca9-e21d7cc6a5b7" xml:space="preserve">
+          <source>Currently, Azure Diagnostics does not support renaming the table.</source>
+          <target state="new">Currently, Azure Diagnostics does not support renaming the table.</target>
+        </trans-unit>
+        <trans-unit id="83b0d3df-329a-4add-868d-f0953d7071cf" xml:space="preserve">
+          <source>Use the following procedure to validate that there is no error in the configuration XML file, and that it is compatible with the Azure Diagnostic schema:</source>
+          <target state="new">Use the following procedure to validate that there is no error in the configuration XML file, and that it is compatible with the Azure Diagnostic schema:</target>
+        </trans-unit>
+        <trans-unit id="977214d8-49f4-4c88-ada9-ed90ff37685d" xml:space="preserve">
+          <source>To download the schema file, run the following command, and then save the file.</source>
+          <target state="new">To download the schema file, run the following command, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="1e0c73dc-50a1-4a57-96ac-877810779466" xml:space="preserve">
+          <source>(Get-AzureServiceAvailableExtension  -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfigSchema.xsd'</source>
+          <target state="new">(Get-AzureServiceAvailableExtension  -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfigSchema.xsd'</target>
+        </trans-unit>
+        <trans-unit id="1a461ac0-e1a1-4674-9a14-152b6e83b793" xml:space="preserve">
+          <source>After you download the schema file, you can validate the configuration XML file against the schema.</source>
+          <target state="new">After you download the schema file, you can validate the configuration XML file against the schema.</target>
+        </trans-unit>
+        <trans-unit id="59842f20-b5ec-4924-b46a-22c1c340495b" xml:space="preserve">
+          <source>To validate the file by using Visual Studio:</source>
+          <target state="new">To validate the file by using Visual Studio:</target>
+        </trans-unit>
+        <trans-unit id="87b32290-949e-4ebe-87aa-ada0cf97dec3" xml:space="preserve">
+          <source>Open the XML file in Visual Studio</source>
+          <target state="new">Open the XML file in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="b956780b-7e3b-45c1-afe4-2bdec221db85" xml:space="preserve">
+          <source>Press F4 to open <bpt id="fcfd27e2-6cc0-49ad-af3a-203cb7bc5540">&lt;strong&gt;</bpt>Properties<ept id="fcfd27e2-6cc0-49ad-af3a-203cb7bc5540">&lt;/strong&gt;</ept></source>
+          <target state="new">Press F4 to open <bpt id="fcfd27e2-6cc0-49ad-af3a-203cb7bc5540">&lt;strong&gt;</bpt>Properties<ept id="fcfd27e2-6cc0-49ad-af3a-203cb7bc5540">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f52a61a-78b6-4805-b97e-53afc18af18a" xml:space="preserve">
+          <source>Click <bpt id="226334df-9868-4d8d-9757-3318fedd90d3">&lt;strong&gt;</bpt>Schema<ept id="226334df-9868-4d8d-9757-3318fedd90d3">&lt;/strong&gt;</ept>, click <bpt id="73be71f8-ab14-4a43-b70b-7f1be93835f1">&lt;strong&gt;</bpt>Add<ept id="73be71f8-ab14-4a43-b70b-7f1be93835f1">&lt;/strong&gt;</ept>, select the schema file that you downloaded (WadConfigSchema.XSD), and then click <bpt id="d1daf073-1d02-4b43-95fb-3c2840f6e244">&lt;strong&gt;</bpt>OK<ept id="d1daf073-1d02-4b43-95fb-3c2840f6e244">&lt;/strong&gt;</ept></source>
+          <target state="new">Click <bpt id="226334df-9868-4d8d-9757-3318fedd90d3">&lt;strong&gt;</bpt>Schema<ept id="226334df-9868-4d8d-9757-3318fedd90d3">&lt;/strong&gt;</ept>, click <bpt id="73be71f8-ab14-4a43-b70b-7f1be93835f1">&lt;strong&gt;</bpt>Add<ept id="73be71f8-ab14-4a43-b70b-7f1be93835f1">&lt;/strong&gt;</ept>, select the schema file that you downloaded (WadConfigSchema.XSD), and then click <bpt id="d1daf073-1d02-4b43-95fb-3c2840f6e244">&lt;strong&gt;</bpt>OK<ept id="d1daf073-1d02-4b43-95fb-3c2840f6e244">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5567bdb2-a152-4c63-8ec7-2f76bcef9035" xml:space="preserve">
+          <source>On the <bpt id="5bec079f-e35f-4512-82d7-1310dd566ac3">&lt;strong&gt;</bpt>View<ept id="5bec079f-e35f-4512-82d7-1310dd566ac3">&lt;/strong&gt;</ept> menu, click <bpt id="6e625a2f-2111-4d53-8087-7d44bab8fc84">&lt;strong&gt;</bpt>Error List<ept id="6e625a2f-2111-4d53-8087-7d44bab8fc84">&lt;/strong&gt;</ept> to see if there are any validation errors.</source>
+          <target state="new">On the <bpt id="5bec079f-e35f-4512-82d7-1310dd566ac3">&lt;strong&gt;</bpt>View<ept id="5bec079f-e35f-4512-82d7-1310dd566ac3">&lt;/strong&gt;</ept> menu, click <bpt id="6e625a2f-2111-4d53-8087-7d44bab8fc84">&lt;strong&gt;</bpt>Error List<ept id="6e625a2f-2111-4d53-8087-7d44bab8fc84">&lt;/strong&gt;</ept> to see if there are any validation errors.</target>
+        </trans-unit>
+        <trans-unit id="f74b8ac5-d35f-4d6d-9dfb-a721df3bc863" xml:space="preserve">
+          <source> Use the following steps to enable Azure Diagnostics and start the data collection:</source>
+          <target state="new"> Use the following steps to enable Azure Diagnostics and start the data collection:</target>
+        </trans-unit>
+        <trans-unit id="f37612cb-adbc-4435-94c9-474b53e5befb" xml:space="preserve">
+          <source>To open Azure PowerShell, type <bpt id="8283d2a8-366c-49cf-95d3-620866a181c2">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="8283d2a8-366c-49cf-95d3-620866a181c2">&lt;/strong&gt;</ept>, and press ENTER.</source>
+          <target state="new">To open Azure PowerShell, type <bpt id="8283d2a8-366c-49cf-95d3-620866a181c2">&lt;strong&gt;</bpt>Add-AzureAccount<ept id="8283d2a8-366c-49cf-95d3-620866a181c2">&lt;/strong&gt;</ept>, and press ENTER.</target>
+        </trans-unit>
+        <trans-unit id="d05d8a6d-69af-4708-b64e-71a35edc78c3" xml:space="preserve">
+          <source>Sign in with your Azure account.</source>
+          <target state="new">Sign in with your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="e2119705-c299-47e6-9667-3cbf2951372b" xml:space="preserve">
+          <source>Run the following PowerShell script.</source>
+          <target state="new">Run the following PowerShell script.</target>
+        </trans-unit>
+        <trans-unit id="62183dd4-8a5e-4a06-9efa-c5dddc89b1d5" xml:space="preserve">
+          <source>Make sure to update the storage<bpt id="cee743af-7090-42fb-b54a-bae8e9bd7aa6">&lt;em&gt;</bpt>name, key, config<ept id="cee743af-7090-42fb-b54a-bae8e9bd7aa6">&lt;/em&gt;</ept>path, service<bpt id="f828b582-d21c-4257-bb77-458f1c3ef750">&lt;em&gt;</bpt>name, and vm<ept id="f828b582-d21c-4257-bb77-458f1c3ef750">&lt;/em&gt;</ept>name.</source>
+          <target state="new">Make sure to update the storage<bpt id="cee743af-7090-42fb-b54a-bae8e9bd7aa6">&lt;em&gt;</bpt>name, key, config<ept id="cee743af-7090-42fb-b54a-bae8e9bd7aa6">&lt;/em&gt;</ept>path, service<bpt id="f828b582-d21c-4257-bb77-458f1c3ef750">&lt;em&gt;</bpt>name, and vm<ept id="f828b582-d21c-4257-bb77-458f1c3ef750">&lt;/em&gt;</ept>name.</target>
+        </trans-unit>
+        <trans-unit id="aab1653d-e679-4038-a65a-275726316a6f" xml:space="preserve">
+          <source>For demonstration purposes, we will create some logon events and verify that data is flowing to Azure Storage.</source>
+          <target state="new">For demonstration purposes, we will create some logon events and verify that data is flowing to Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="8fe7db9d-c215-4a83-a94d-0bae5d293d8b" xml:space="preserve">
+          <source>As shown previously in Step 2, the XML file is configured to collect Event ID 4624 (Logon Success) and Event ID 4625 (Logon Failure) from the <bpt id="ab1f1b22-0ac1-47e4-9994-24ae19db9601">&lt;strong&gt;</bpt>Security<ept id="ab1f1b22-0ac1-47e4-9994-24ae19db9601">&lt;/strong&gt;</ept> channel.</source>
+          <target state="new">As shown previously in Step 2, the XML file is configured to collect Event ID 4624 (Logon Success) and Event ID 4625 (Logon Failure) from the <bpt id="ab1f1b22-0ac1-47e4-9994-24ae19db9601">&lt;strong&gt;</bpt>Security<ept id="ab1f1b22-0ac1-47e4-9994-24ae19db9601">&lt;/strong&gt;</ept> channel.</target>
+        </trans-unit>
+        <trans-unit id="95114d75-c6df-4827-88f4-a26de605654b" xml:space="preserve">
+          <source> To generate these events:</source>
+          <target state="new"> To generate these events:</target>
+        </trans-unit>
+        <trans-unit id="8739bebc-b511-4736-ad16-34a8171c8391" xml:space="preserve">
+          <source>Open an RDP session to your virtual machine.</source>
+          <target state="new">Open an RDP session to your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="fe15e00b-f681-4053-a127-5f6d3825d216" xml:space="preserve">
+          <source>Enter incorrect credentials to generate some failed logon events (Event ID 4625).</source>
+          <target state="new">Enter incorrect credentials to generate some failed logon events (Event ID 4625).</target>
+        </trans-unit>
+        <trans-unit id="35c68c95-1897-4be2-9e64-9d8bb08c7ce5" xml:space="preserve">
+          <source>After a few failed logon attempts, enter the correct credentials to generate a successful logon event (EventID 4624).</source>
+          <target state="new">After a few failed logon attempts, enter the correct credentials to generate a successful logon event (EventID 4624).</target>
+        </trans-unit>
+        <trans-unit id="821d7c45-859d-45bb-84b0-55375924b301" xml:space="preserve">
+          <source>About five minutes after you complete the previous steps, data should start flowing to the customer storage account based on the configuration in the XML file.</source>
+          <target state="new">About five minutes after you complete the previous steps, data should start flowing to the customer storage account based on the configuration in the XML file.</target>
+        </trans-unit>
+        <trans-unit id="eb528da5-4c8a-4273-a11d-5d1524cccdcc" xml:space="preserve">
+          <source>There are many tools available to view data from Azure Storage.</source>
+          <target state="new">There are many tools available to view data from Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="78424a9a-b39e-4c93-8c94-dfddd5882cf6" xml:space="preserve">
+          <source>For more information, see:</source>
+          <target state="new">For more information, see:</target>
+        </trans-unit>
+        <trans-unit id="53fead11-9e17-4d34-ade6-ca24a05e4681" xml:space="preserve">
+          <source><bpt id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;linkText&gt;</bpt>Browsing Storage Resources with Server Explorer<ept id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;/linkText&gt;</ept><bpt id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;title&gt;</bpt><ept id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;linkText&gt;</bpt>Browsing Storage Resources with Server Explorer<ept id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;/linkText&gt;</ept><bpt id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;title&gt;</bpt><ept id="eebe0c4a-48f4-4102-b37c-231137ee88eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2c3d53b-d965-4f84-b49a-290e39b3e416" xml:space="preserve">
+          <source><bpt id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;linkText&gt;</bpt>Azure Storage Explorer 6 Preview 3 (August 2014)<ept id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;/linkText&gt;</ept><bpt id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;title&gt;</bpt><ept id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;linkText&gt;</bpt>Azure Storage Explorer 6 Preview 3 (August 2014)<ept id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;/linkText&gt;</ept><bpt id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;title&gt;</bpt><ept id="1d62b09e-76bb-41f0-9b88-7d26d00da1a1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="609508ba-0016-447a-a834-15ed083e5610" xml:space="preserve">
+          <source>To view your data:</source>
+          <target state="new">To view your data:</target>
+        </trans-unit>
+        <trans-unit id="d69a6303-a762-4556-9bab-1572c11d8602" xml:space="preserve">
+          <source>In Visual Studio (2013, 2012 and 2010 with SP1), click <bpt id="bb72f159-465a-4d8d-8d88-fa3b084f7b87">&lt;strong&gt;</bpt>View<ept id="bb72f159-465a-4d8d-8d88-fa3b084f7b87">&lt;/strong&gt;</ept>, and then click <bpt id="1e7873a9-a996-41e1-9a1e-3db5ed7478e6">&lt;strong&gt;</bpt>Server Explorer<ept id="1e7873a9-a996-41e1-9a1e-3db5ed7478e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio (2013, 2012 and 2010 with SP1), click <bpt id="bb72f159-465a-4d8d-8d88-fa3b084f7b87">&lt;strong&gt;</bpt>View<ept id="bb72f159-465a-4d8d-8d88-fa3b084f7b87">&lt;/strong&gt;</ept>, and then click <bpt id="1e7873a9-a996-41e1-9a1e-3db5ed7478e6">&lt;strong&gt;</bpt>Server Explorer<ept id="1e7873a9-a996-41e1-9a1e-3db5ed7478e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3842877a-7b45-41c9-8cf2-bcdf2c9e7e27" xml:space="preserve">
+          <source>Navigate to the storage account.</source>
+          <target state="new">Navigate to the storage account.</target>
+        </trans-unit>
+        <trans-unit id="3f160e90-b80f-4110-953b-c74b78be565a" xml:space="preserve">
+          <source>Click <bpt id="fe85c1ec-6fef-42ed-b3f3-33e593304d72">&lt;strong&gt;</bpt>Tables<ept id="fe85c1ec-6fef-42ed-b3f3-33e593304d72">&lt;/strong&gt;</ept> and then double-click the appropriate tables to view the security logs collected from the virtual machines.</source>
+          <target state="new">Click <bpt id="fe85c1ec-6fef-42ed-b3f3-33e593304d72">&lt;strong&gt;</bpt>Tables<ept id="fe85c1ec-6fef-42ed-b3f3-33e593304d72">&lt;/strong&gt;</ept> and then double-click the appropriate tables to view the security logs collected from the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="42a64f36-30db-4bd1-a6f8-67ca4dc3085b" xml:space="preserve">
+          <source><bpt id="fe3d6cf6-c211-497b-a177-44bcda776625">&lt;linkText&gt;</bpt><ept id="fe3d6cf6-c211-497b-a177-44bcda776625">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe3d6cf6-c211-497b-a177-44bcda776625">&lt;linkText&gt;</bpt><ept id="fe3d6cf6-c211-497b-a177-44bcda776625">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41890698-4678-4eaa-aff8-8ea1af0d128c" xml:space="preserve">
+          <source>Right-click the table named WADWindowsEventLogsTable, then click <bpt id="7347f4f3-e99c-4ff1-81d9-61bd358155d3">&lt;strong&gt;</bpt>View Data<ept id="7347f4f3-e99c-4ff1-81d9-61bd358155d3">&lt;/strong&gt;</ept> to open the table view as shown here:</source>
+          <target state="new">Right-click the table named WADWindowsEventLogsTable, then click <bpt id="7347f4f3-e99c-4ff1-81d9-61bd358155d3">&lt;strong&gt;</bpt>View Data<ept id="7347f4f3-e99c-4ff1-81d9-61bd358155d3">&lt;/strong&gt;</ept> to open the table view as shown here:</target>
+        </trans-unit>
+        <trans-unit id="bc3107a5-56d0-4d11-b3ef-d0717df6694e" xml:space="preserve">
+          <source><bpt id="9da3aa6f-f67f-4ffc-8a38-0150da95f532">&lt;linkText&gt;</bpt><ept id="9da3aa6f-f67f-4ffc-8a38-0150da95f532">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9da3aa6f-f67f-4ffc-8a38-0150da95f532">&lt;linkText&gt;</bpt><ept id="9da3aa6f-f67f-4ffc-8a38-0150da95f532">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dcf1f803-a83e-49d7-b184-0f75c92b0da4" xml:space="preserve">
+          <source>In the previous storage table, <bpt id="7d097366-c78f-42f2-9c1c-4b7567fd4d07">&lt;strong&gt;</bpt>PartitionKey<ept id="7d097366-c78f-42f2-9c1c-4b7567fd4d07">&lt;/strong&gt;</ept>, <bpt id="1a99b1c3-0b89-4417-aa52-df9c0fcfd76e">&lt;strong&gt;</bpt>RowKey<ept id="1a99b1c3-0b89-4417-aa52-df9c0fcfd76e">&lt;/strong&gt;</ept>, and <bpt id="0680c2d5-81f2-4cbc-a736-fbbb12ac6520">&lt;strong&gt;</bpt>Timestamp<ept id="0680c2d5-81f2-4cbc-a736-fbbb12ac6520">&lt;/strong&gt;</ept> are system properties.</source>
+          <target state="new">In the previous storage table, <bpt id="7d097366-c78f-42f2-9c1c-4b7567fd4d07">&lt;strong&gt;</bpt>PartitionKey<ept id="7d097366-c78f-42f2-9c1c-4b7567fd4d07">&lt;/strong&gt;</ept>, <bpt id="1a99b1c3-0b89-4417-aa52-df9c0fcfd76e">&lt;strong&gt;</bpt>RowKey<ept id="1a99b1c3-0b89-4417-aa52-df9c0fcfd76e">&lt;/strong&gt;</ept>, and <bpt id="0680c2d5-81f2-4cbc-a736-fbbb12ac6520">&lt;strong&gt;</bpt>Timestamp<ept id="0680c2d5-81f2-4cbc-a736-fbbb12ac6520">&lt;/strong&gt;</ept> are system properties.</target>
+        </trans-unit>
+        <trans-unit id="c799caf1-f9c2-4d68-a3ba-8de29afee56f" xml:space="preserve">
+          <source><bpt id="f3c6d630-566d-45e0-bff8-bfe56380d752">&lt;strong&gt;</bpt>PartitionKey<ept id="f3c6d630-566d-45e0-bff8-bfe56380d752">&lt;/strong&gt;</ept> is a time stamp in seconds, and it is a unique identifier for the partition within the table.</source>
+          <target state="new"><bpt id="f3c6d630-566d-45e0-bff8-bfe56380d752">&lt;strong&gt;</bpt>PartitionKey<ept id="f3c6d630-566d-45e0-bff8-bfe56380d752">&lt;/strong&gt;</ept> is a time stamp in seconds, and it is a unique identifier for the partition within the table.</target>
+        </trans-unit>
+        <trans-unit id="119cc68b-ef9b-4228-936a-8ff3b6c33b7f" xml:space="preserve">
+          <source><bpt id="1e7e98e3-98f2-49cd-9342-19e683d15138">&lt;strong&gt;</bpt>RowKey<ept id="1e7e98e3-98f2-49cd-9342-19e683d15138">&lt;/strong&gt;</ept> is a unique identifier for an entity within a partition.</source>
+          <target state="new"><bpt id="1e7e98e3-98f2-49cd-9342-19e683d15138">&lt;strong&gt;</bpt>RowKey<ept id="1e7e98e3-98f2-49cd-9342-19e683d15138">&lt;/strong&gt;</ept> is a unique identifier for an entity within a partition.</target>
+        </trans-unit>
+        <trans-unit id="73b4778c-0d74-4ca9-8dc7-32071c08ed1f" xml:space="preserve">
+          <source>Together, <bpt id="b1096a82-69d5-4fd7-807b-092fbb90a874">&lt;strong&gt;</bpt>PartitionKey<ept id="b1096a82-69d5-4fd7-807b-092fbb90a874">&lt;/strong&gt;</ept> and <bpt id="bc2e200d-0778-4251-b719-31b47740ab20">&lt;strong&gt;</bpt>RowKey<ept id="bc2e200d-0778-4251-b719-31b47740ab20">&lt;/strong&gt;</ept> uniquely identify every entity within a table.</source>
+          <target state="new">Together, <bpt id="b1096a82-69d5-4fd7-807b-092fbb90a874">&lt;strong&gt;</bpt>PartitionKey<ept id="b1096a82-69d5-4fd7-807b-092fbb90a874">&lt;/strong&gt;</ept> and <bpt id="bc2e200d-0778-4251-b719-31b47740ab20">&lt;strong&gt;</bpt>RowKey<ept id="bc2e200d-0778-4251-b719-31b47740ab20">&lt;/strong&gt;</ept> uniquely identify every entity within a table.</target>
+        </trans-unit>
+        <trans-unit id="f5269ff5-e815-45ef-a975-79ec2801064c" xml:space="preserve">
+          <source>Timestamp is a date/time value that is maintained on the server to track when an entity was last modified.</source>
+          <target state="new">Timestamp is a date/time value that is maintained on the server to track when an entity was last modified.</target>
+        </trans-unit>
+        <trans-unit id="652699c7-34cd-48f2-80a5-1ba4a37871ec" xml:space="preserve">
+          <source>The maximum row size in an Azure Storage table is limited to 1 MB.</source>
+          <target state="new">The maximum row size in an Azure Storage table is limited to 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="016bc312-277c-4c13-a362-283a3e7c455c" xml:space="preserve">
+          <source>A storage account can contain up to 200 TB of data from blobs, queues, and tables if the account was created after June 2012.</source>
+          <target state="new">A storage account can contain up to 200 TB of data from blobs, queues, and tables if the account was created after June 2012.</target>
+        </trans-unit>
+        <trans-unit id="9a4437b0-4bac-48f3-a20b-2782d35531fd" xml:space="preserve">
+          <source>Thus, your table size can grow up to 200 TB if blobs and queues do not take any storage space.</source>
+          <target state="new">Thus, your table size can grow up to 200 TB if blobs and queues do not take any storage space.</target>
+        </trans-unit>
+        <trans-unit id="8410dc08-2206-442d-8902-6e767bbe6707" xml:space="preserve">
+          <source>Accounts created before June 2012 have a limit of 100 TB.</source>
+          <target state="new">Accounts created before June 2012 have a limit of 100 TB.</target>
+        </trans-unit>
+        <trans-unit id="e8066587-e0cc-4736-a93e-bc9e7b4b53df" xml:space="preserve">
+          <source>Storage Explorer also gives you the option to edit table data.</source>
+          <target state="new">Storage Explorer also gives you the option to edit table data.</target>
+        </trans-unit>
+        <trans-unit id="7c63e6f4-273d-4073-b1dc-b1680eed5296" xml:space="preserve">
+          <source>Double-click a particular row in the Table view to open the Edit Entity window as shown here:</source>
+          <target state="new">Double-click a particular row in the Table view to open the Edit Entity window as shown here:</target>
+        </trans-unit>
+        <trans-unit id="3ecd93bf-0653-44ab-9395-0343ff1aadbf" xml:space="preserve">
+          <source><bpt id="87921480-6534-4601-a270-6043481ab726">&lt;linkText&gt;</bpt><ept id="87921480-6534-4601-a270-6043481ab726">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87921480-6534-4601-a270-6043481ab726">&lt;linkText&gt;</bpt><ept id="87921480-6534-4601-a270-6043481ab726">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25bdee3d-6626-4512-addd-3fbcdc6762b3" xml:space="preserve">
+          <source>In this section, we update an existing Azure Diagnostics security log collection pipeline on a virtual machine, and we detect Windows application event log errors.</source>
+          <target state="new">In this section, we update an existing Azure Diagnostics security log collection pipeline on a virtual machine, and we detect Windows application event log errors.</target>
+        </trans-unit>
+        <trans-unit id="95505c5f-963f-4d8a-a140-09b1d81ad98c" xml:space="preserve">
+          <source>The Azure Diagnostics file created in the previous example needs to be updated to include Windows application event log error types.</source>
+          <target state="new">The Azure Diagnostics file created in the previous example needs to be updated to include Windows application event log error types.</target>
+        </trans-unit>
+        <trans-unit id="51ba6f04-5e38-4c94-a1d3-89c3ad17ee2f" xml:space="preserve">
+          <source>Any existing Azure Diagnostics configuration settings need to be merged with the new configuration file.</source>
+          <target state="new">Any existing Azure Diagnostics configuration settings need to be merged with the new configuration file.</target>
+        </trans-unit>
+        <trans-unit id="40b90a44-48d5-4d61-9123-990d98b5c79f" xml:space="preserve">
+          <source>The settings defined in the new file will overwrite the existing configurations.</source>
+          <target state="new">The settings defined in the new file will overwrite the existing configurations.</target>
+        </trans-unit>
+        <trans-unit id="fc8d6626-6ed6-4de5-ad2c-024b085b6309" xml:space="preserve">
+          <source>To retrieve the existing configuration setting, you can use the <bpt id="1c123b9b-36cb-402e-936b-542cc5035c25">&lt;strong&gt;</bpt>Get-AzureVMDiagnosticsExtension<ept id="1c123b9b-36cb-402e-936b-542cc5035c25">&lt;/strong&gt;</ept> cmdlet.</source>
+          <target state="new">To retrieve the existing configuration setting, you can use the <bpt id="1c123b9b-36cb-402e-936b-542cc5035c25">&lt;strong&gt;</bpt>Get-AzureVMDiagnosticsExtension<ept id="1c123b9b-36cb-402e-936b-542cc5035c25">&lt;/strong&gt;</ept> cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="4ebfa294-541f-4de5-bc6e-65cf4aa20a7a" xml:space="preserve">
+          <source>The following is a sample Azure PowerShell script to retrieve the existing configuration:</source>
+          <target state="new">The following is a sample Azure PowerShell script to retrieve the existing configuration:</target>
+        </trans-unit>
+        <trans-unit id="97ec64ce-be9f-44cf-885f-715135f90113" xml:space="preserve">
+          <source>Validate the configuration file by using the same steps as shown earlier in <bpt id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;/linkText&gt;</ept><bpt id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;title&gt;</bpt><ept id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;/title&gt;</ept>.</source>
+          <target state="new">Validate the configuration file by using the same steps as shown earlier in <bpt id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;/linkText&gt;</ept><bpt id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;title&gt;</bpt><ept id="d0b0bae6-902a-4e2c-9117-579464a91031">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38af292e-3ba0-4245-8380-6a207ada70f3" xml:space="preserve">
+          <source>Use the <bpt id="64ae61a9-2d78-43f0-a2e9-1d9a02062cd8">&lt;strong&gt;</bpt>Set-AzureVMDiagnosticsExtension<ept id="64ae61a9-2d78-43f0-a2e9-1d9a02062cd8">&lt;/strong&gt;</ept> and <bpt id="d6ce15f7-ebbd-4b95-bec2-7472e026e7b1">&lt;strong&gt;</bpt>Update-AzureVM<ept id="d6ce15f7-ebbd-4b95-bec2-7472e026e7b1">&lt;/strong&gt;</ept> cmdlets to update the configuration as shown earlier in <bpt id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;linkText&gt;</bpt>Step 4: Configure Azure Diagnostics<ept id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;/linkText&gt;</ept><bpt id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;title&gt;</bpt><ept id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use the <bpt id="64ae61a9-2d78-43f0-a2e9-1d9a02062cd8">&lt;strong&gt;</bpt>Set-AzureVMDiagnosticsExtension<ept id="64ae61a9-2d78-43f0-a2e9-1d9a02062cd8">&lt;/strong&gt;</ept> and <bpt id="d6ce15f7-ebbd-4b95-bec2-7472e026e7b1">&lt;strong&gt;</bpt>Update-AzureVM<ept id="d6ce15f7-ebbd-4b95-bec2-7472e026e7b1">&lt;/strong&gt;</ept> cmdlets to update the configuration as shown earlier in <bpt id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;linkText&gt;</bpt>Step 4: Configure Azure Diagnostics<ept id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;/linkText&gt;</ept><bpt id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;title&gt;</bpt><ept id="56704abd-afea-409e-bdab-ca9cd41e363b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce30acfb-d957-4393-9f67-632da961c009" xml:space="preserve">
+          <source>Run the following command to verify that the configuration settings have been updated:</source>
+          <target state="new">Run the following command to verify that the configuration settings have been updated:</target>
+        </trans-unit>
+        <trans-unit id="3417da5d-4b5e-4f8a-80d0-185cb5856df6" xml:space="preserve">
+          <source>For this example, run the following command to generate an application event log of the type <bpt id="7ba8990f-8125-45f8-a3c3-85134e9203d5">&lt;strong&gt;</bpt>Error<ept id="7ba8990f-8125-45f8-a3c3-85134e9203d5">&lt;/strong&gt;</ept>:</source>
+          <target state="new">For this example, run the following command to generate an application event log of the type <bpt id="7ba8990f-8125-45f8-a3c3-85134e9203d5">&lt;strong&gt;</bpt>Error<ept id="7ba8990f-8125-45f8-a3c3-85134e9203d5">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="0b426106-3308-47de-a7a7-10e93a330616" xml:space="preserve">
+          <source><bpt id="7ef3fb04-be82-4426-b738-c97d0ced9ba8">&lt;linkText&gt;</bpt><ept id="7ef3fb04-be82-4426-b738-c97d0ced9ba8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ef3fb04-be82-4426-b738-c97d0ced9ba8">&lt;linkText&gt;</bpt><ept id="7ef3fb04-be82-4426-b738-c97d0ced9ba8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ee872a9-333e-45f5-a049-1f11a20f8513" xml:space="preserve">
+          <source>Open the Event viewer to verify that event is created.</source>
+          <target state="new">Open the Event viewer to verify that event is created.</target>
+        </trans-unit>
+        <trans-unit id="2bf0ab4f-decc-42b9-92a3-4667b131a916" xml:space="preserve">
+          <source><bpt id="a44dbd44-74d2-4e19-9a0c-97c5fae75d4d">&lt;linkText&gt;</bpt><ept id="a44dbd44-74d2-4e19-9a0c-97c5fae75d4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a44dbd44-74d2-4e19-9a0c-97c5fae75d4d">&lt;linkText&gt;</bpt><ept id="a44dbd44-74d2-4e19-9a0c-97c5fae75d4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3eb15daf-76cd-4437-9ea8-ef5ad13ecc24" xml:space="preserve">
+          <source>Open Server Explorer in Visual Studio to view the log data.</source>
+          <target state="new">Open Server Explorer in Visual Studio to view the log data.</target>
+        </trans-unit>
+        <trans-unit id="06b7e2ec-3b5b-4879-8d8e-6ce745471379" xml:space="preserve">
+          <source>You should see an <bpt id="ef8d54e7-1c8e-4243-adaf-8c3cf20c9852">&lt;strong&gt;</bpt>EventID 100<ept id="ef8d54e7-1c8e-4243-adaf-8c3cf20c9852">&lt;/strong&gt;</ept> created on <bpt id="8051c249-c4d1-4f3b-b25f-f0118ba59053">&lt;strong&gt;</bpt>ContosoDesktop<ept id="8051c249-c4d1-4f3b-b25f-f0118ba59053">&lt;/strong&gt;</ept> as shown here:</source>
+          <target state="new">You should see an <bpt id="ef8d54e7-1c8e-4243-adaf-8c3cf20c9852">&lt;strong&gt;</bpt>EventID 100<ept id="ef8d54e7-1c8e-4243-adaf-8c3cf20c9852">&lt;/strong&gt;</ept> created on <bpt id="8051c249-c4d1-4f3b-b25f-f0118ba59053">&lt;strong&gt;</bpt>ContosoDesktop<ept id="8051c249-c4d1-4f3b-b25f-f0118ba59053">&lt;/strong&gt;</ept> as shown here:</target>
+        </trans-unit>
+        <trans-unit id="ea85082a-5642-4877-840d-3a15177a9b7e" xml:space="preserve">
+          <source><bpt id="c9a44370-9fa2-4638-a48b-4c8e5c8bd57f">&lt;linkText&gt;</bpt><ept id="c9a44370-9fa2-4638-a48b-4c8e5c8bd57f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9a44370-9fa2-4638-a48b-4c8e5c8bd57f">&lt;linkText&gt;</bpt><ept id="c9a44370-9fa2-4638-a48b-4c8e5c8bd57f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16be3933-1dce-46cd-b51c-3ce5312a0f4d" xml:space="preserve">
+          <source>We will now use Azure Diagnostics to explore the same two log collection scenarios from Azure Cloud Services as in the previous Virtual Machines (IaaS) section:</source>
+          <target state="new">We will now use Azure Diagnostics to explore the same two log collection scenarios from Azure Cloud Services as in the previous Virtual Machines (IaaS) section:</target>
+        </trans-unit>
+        <trans-unit id="4ff0a224-baf2-47fc-91a7-7e7f777a1e27" xml:space="preserve">
+          <source>Set up a new instance of security log pipeline in a cloud service.</source>
+          <target state="new">Set up a new instance of security log pipeline in a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="e437a6f0-8951-4d04-9013-e56f3e5a2765" xml:space="preserve">
+          <source>Update an existing log collection pipeline with a new configuration in a cloud service.</source>
+          <target state="new">Update an existing log collection pipeline with a new configuration in a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="f847aed3-2dce-4593-8500-7a259d0e9cc8" xml:space="preserve">
+          <source>The step-by-step walkthrough in this section includes:</source>
+          <target state="new">The step-by-step walkthrough in this section includes:</target>
+        </trans-unit>
+        <trans-unit id="ee36f079-a4f4-43b6-9da8-c6fd9cc5979e" xml:space="preserve">
+          <source>Build a cloud service.</source>
+          <target state="new">Build a cloud service.</target>
+        </trans-unit>
+        <trans-unit id="37e2b642-e7e2-46fc-ae33-d9be61bd34df" xml:space="preserve">
+          <source>Configure the cloud service for security log collection by using Azure Diagnostics.</source>
+          <target state="new">Configure the cloud service for security log collection by using Azure Diagnostics.</target>
+        </trans-unit>
+        <trans-unit id="fa28aa73-aea1-4e3d-9b03-24029469afb9" xml:space="preserve">
+          <source>Illustrate the generation and collection of security events on the Cloud Service:</source>
+          <target state="new">Illustrate the generation and collection of security events on the Cloud Service:</target>
+        </trans-unit>
+        <trans-unit id="a621cce3-50bd-4708-bb20-c865938fc961" xml:space="preserve">
+          <source>Add an administrator to a local group with an elevation of privilege</source>
+          <target state="new">Add an administrator to a local group with an elevation of privilege</target>
+        </trans-unit>
+        <trans-unit id="91fa5616-3345-4d98-943d-1bef0c27a3ea" xml:space="preserve">
+          <source>New process creation</source>
+          <target state="new">New process creation</target>
+        </trans-unit>
+        <trans-unit id="75d4542e-9ab0-442b-9c59-48ae6cf3a2cf" xml:space="preserve">
+          <source>Update an existing log collection pipeline in a cloud service:</source>
+          <target state="new">Update an existing log collection pipeline in a cloud service:</target>
+        </trans-unit>
+        <trans-unit id="3655f2b3-7c55-4153-9e4f-72ff187f4bf7" xml:space="preserve">
+          <source>Enable auditing of host firewall events (as an example of network security events) by using Auditpol</source>
+          <target state="new">Enable auditing of host firewall events (as an example of network security events) by using Auditpol</target>
+        </trans-unit>
+        <trans-unit id="1e1542aa-b2ca-4686-90d7-44e9cba70b4d" xml:space="preserve">
+          <source>Configure firewall audit data to be collected, and show the collected events in the customer storage account</source>
+          <target state="new">Configure firewall audit data to be collected, and show the collected events in the customer storage account</target>
+        </trans-unit>
+        <trans-unit id="df85e9fe-d042-483c-b9f5-8e4af67c0ed6" xml:space="preserve">
+          <source>Show Windows security event distribution and spike detection.</source>
+          <target state="new">Show Windows security event distribution and spike detection.</target>
+        </trans-unit>
+        <trans-unit id="611b7f77-5301-4dbf-bfc2-1c7cb0d5c0db" xml:space="preserve">
+          <source>Configure the collection of IIS logs and verify the data.</source>
+          <target state="new">Configure the collection of IIS logs and verify the data.</target>
+        </trans-unit>
+        <trans-unit id="6b7e0ab7-305c-4db4-880e-3e8f898078c0" xml:space="preserve">
+          <source>All of the events and logs are collected into a customer storage account in Azure.</source>
+          <target state="new">All of the events and logs are collected into a customer storage account in Azure.</target>
+        </trans-unit>
+        <trans-unit id="b8cd8131-3742-46c9-b8c4-d1c5cfa71938" xml:space="preserve">
+          <source>The events can be viewed and exported by the customer to on-premises SIEM systems.</source>
+          <target state="new">The events can be viewed and exported by the customer to on-premises SIEM systems.</target>
+        </trans-unit>
+        <trans-unit id="5f7a9754-340d-43e1-bf6a-9f0cfbb2dc9e" xml:space="preserve">
+          <source>They can also be aggregated and analyzed by using HDInsight.</source>
+          <target state="new">They can also be aggregated and analyzed by using HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="2fd677bb-4ef2-429a-892b-66b0738eae8f" xml:space="preserve">
+          <source>In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect user addition to a local group, and new process creation events on a cloud service instance.</source>
+          <target state="new">In this example, we set up a new instance of a security log collection pipeline that uses Azure Diagnostics, and we detect user addition to a local group, and new process creation events on a cloud service instance.</target>
+        </trans-unit>
+        <trans-unit id="230f2d91-3d4e-46b5-b6b8-f90d73db1add" xml:space="preserve">
+          <source>On your development computer, launch Visual Studio 2013.</source>
+          <target state="new">On your development computer, launch Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="9b97eb6d-60de-4a14-a450-07dfd7cb6d0b" xml:space="preserve">
+          <source>Create a new cloud service project (our example uses ContosoWebRole).</source>
+          <target state="new">Create a new cloud service project (our example uses ContosoWebRole).</target>
+        </trans-unit>
+        <trans-unit id="194023a0-9013-441a-b6d1-904408de88df" xml:space="preserve">
+          <source>Select the <bpt id="ac536807-f70b-4d3f-8f87-94350dd5217c">&lt;strong&gt;</bpt>ASP.NET<ept id="ac536807-f70b-4d3f-8f87-94350dd5217c">&lt;/strong&gt;</ept> web role.</source>
+          <target state="new">Select the <bpt id="ac536807-f70b-4d3f-8f87-94350dd5217c">&lt;strong&gt;</bpt>ASP.NET<ept id="ac536807-f70b-4d3f-8f87-94350dd5217c">&lt;/strong&gt;</ept> web role.</target>
+        </trans-unit>
+        <trans-unit id="ee690807-b613-423b-b1e3-d38429e09f9c" xml:space="preserve">
+          <source>Select the <bpt id="1adad2cd-a80d-4c58-a0ab-e51fa7f22c83">&lt;strong&gt;</bpt>MVC<ept id="1adad2cd-a80d-4c58-a0ab-e51fa7f22c83">&lt;/strong&gt;</ept> project.</source>
+          <target state="new">Select the <bpt id="1adad2cd-a80d-4c58-a0ab-e51fa7f22c83">&lt;strong&gt;</bpt>MVC<ept id="1adad2cd-a80d-4c58-a0ab-e51fa7f22c83">&lt;/strong&gt;</ept> project.</target>
+        </trans-unit>
+        <trans-unit id="8981afc4-b5af-49be-b521-2380d8276177" xml:space="preserve">
+          <source>In Solution Explorer, click <bpt id="c5b7a4e3-8e85-4cf7-ac04-2f2371237bcf">&lt;strong&gt;</bpt>Roles<ept id="c5b7a4e3-8e85-4cf7-ac04-2f2371237bcf">&lt;/strong&gt;</ept>, then double-click the web role (WebRole1) to open the <bpt id="f101cfa7-7eba-4aa0-a594-3ae936fe4e03">&lt;strong&gt;</bpt>Properties<ept id="f101cfa7-7eba-4aa0-a594-3ae936fe4e03">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">In Solution Explorer, click <bpt id="c5b7a4e3-8e85-4cf7-ac04-2f2371237bcf">&lt;strong&gt;</bpt>Roles<ept id="c5b7a4e3-8e85-4cf7-ac04-2f2371237bcf">&lt;/strong&gt;</ept>, then double-click the web role (WebRole1) to open the <bpt id="f101cfa7-7eba-4aa0-a594-3ae936fe4e03">&lt;strong&gt;</bpt>Properties<ept id="f101cfa7-7eba-4aa0-a594-3ae936fe4e03">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="b0b932e2-b10a-48f6-bcc7-87ab1419a6eb" xml:space="preserve">
+          <source>On the <bpt id="85aece49-3cb7-4738-b73d-d88c39d3f59f">&lt;strong&gt;</bpt>Configuration<ept id="85aece49-3cb7-4738-b73d-d88c39d3f59f">&lt;/strong&gt;</ept> tab, clear the <bpt id="39abcaa3-a8be-49b7-b652-126fd75c170a">&lt;strong&gt;</bpt>Enable Diagnostics<ept id="39abcaa3-a8be-49b7-b652-126fd75c170a">&lt;/strong&gt;</ept> check box to disable the version of Azure Diagnostics that ships with Visual Studio 2013.</source>
+          <target state="new">On the <bpt id="85aece49-3cb7-4738-b73d-d88c39d3f59f">&lt;strong&gt;</bpt>Configuration<ept id="85aece49-3cb7-4738-b73d-d88c39d3f59f">&lt;/strong&gt;</ept> tab, clear the <bpt id="39abcaa3-a8be-49b7-b652-126fd75c170a">&lt;strong&gt;</bpt>Enable Diagnostics<ept id="39abcaa3-a8be-49b7-b652-126fd75c170a">&lt;/strong&gt;</ept> check box to disable the version of Azure Diagnostics that ships with Visual Studio 2013.</target>
+        </trans-unit>
+        <trans-unit id="0c7e3bf5-ec2d-4c7f-83af-5999a7e15768" xml:space="preserve">
+          <source><bpt id="2f354d56-20f1-4da1-98af-3d31155fa5ef">&lt;linkText&gt;</bpt><ept id="2f354d56-20f1-4da1-98af-3d31155fa5ef">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f354d56-20f1-4da1-98af-3d31155fa5ef">&lt;linkText&gt;</bpt><ept id="2f354d56-20f1-4da1-98af-3d31155fa5ef">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b8a17b8-7212-479e-b2d9-0138552e8705" xml:space="preserve">
+          <source>Build your solution to verify that you have no errors.</source>
+          <target state="new">Build your solution to verify that you have no errors.</target>
+        </trans-unit>
+        <trans-unit id="f475b32d-5a0e-4eed-8eed-c2c08bbbef0f" xml:space="preserve">
+          <source>Open the file WebRole1/Controllers/HomeController.cs.</source>
+          <target state="new">Open the file WebRole1/Controllers/HomeController.cs.</target>
+        </trans-unit>
+        <trans-unit id="6688f68a-0f29-45b2-a40c-39e837a7721a" xml:space="preserve">
+          <source>Add the following method to enable the sample application to log HTTP status code 500 as a sample IIS log event (this will be used in the IIS example later):</source>
+          <target state="new">Add the following method to enable the sample application to log HTTP status code 500 as a sample IIS log event (this will be used in the IIS example later):</target>
+        </trans-unit>
+        <trans-unit id="ebfc52eb-ecbc-4f5e-b116-daeeee2e2a89" xml:space="preserve">
+          <source>Right-click the name of the cloud service project, and click <bpt id="45d44038-768a-46fc-8216-151ac09f2d6d">&lt;strong&gt;</bpt>Publish<ept id="45d44038-768a-46fc-8216-151ac09f2d6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the name of the cloud service project, and click <bpt id="45d44038-768a-46fc-8216-151ac09f2d6d">&lt;strong&gt;</bpt>Publish<ept id="45d44038-768a-46fc-8216-151ac09f2d6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="249f1bbf-986e-40a3-92f8-de9176a97eec" xml:space="preserve">
+          <source>We will now prepare the Azure Diagnostics configuration file to add the events that can help detect the following situations:</source>
+          <target state="new">We will now prepare the Azure Diagnostics configuration file to add the events that can help detect the following situations:</target>
+        </trans-unit>
+        <trans-unit id="b1909744-5763-4295-a0f4-2de26d082804" xml:space="preserve">
+          <source>New user addition to a local group</source>
+          <target state="new">New user addition to a local group</target>
+        </trans-unit>
+        <trans-unit id="f1520101-cb99-485d-a4a2-c7b616abc2fd" xml:space="preserve">
+          <source>New process creation</source>
+          <target state="new">New process creation</target>
+        </trans-unit>
+        <trans-unit id="4e35a6ad-3ca3-4792-a35a-e99162a01aec" xml:space="preserve">
+          <source>Validate the configuration file by using the same steps as shown earlier in <bpt id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;/linkText&gt;</ept><bpt id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;title&gt;</bpt><ept id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">Validate the configuration file by using the same steps as shown earlier in <bpt id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;/linkText&gt;</ept><bpt id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;title&gt;</bpt><ept id="4acf9cc4-06ae-4a51-826c-96dd8bb788ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22de5b37-bf2b-4613-a880-a188aa1b74bf" xml:space="preserve">
+          <source>Run the following Azure PowerShell script to enable Azure Diagnostics (make sure to update the storage<bpt id="bc95ad56-4d67-477b-b727-67ba27b0e615">&lt;em&gt;</bpt>name, key, config<ept id="bc95ad56-4d67-477b-b727-67ba27b0e615">&lt;/em&gt;</ept>path, and service_name).</source>
+          <target state="new">Run the following Azure PowerShell script to enable Azure Diagnostics (make sure to update the storage<bpt id="bc95ad56-4d67-477b-b727-67ba27b0e615">&lt;em&gt;</bpt>name, key, config<ept id="bc95ad56-4d67-477b-b727-67ba27b0e615">&lt;/em&gt;</ept>path, and service_name).</target>
+        </trans-unit>
+        <trans-unit id="6e90b8e7-1bd9-4292-9cae-0b6a3af5d8f6" xml:space="preserve">
+          <source>To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</source>
+          <target state="new">To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="357671c5-76a3-42fb-84a8-5dcf46064d2e" xml:space="preserve">
+          <source>To generate events:</source>
+          <target state="new">To generate events:</target>
+        </trans-unit>
+        <trans-unit id="0b9f46b7-3186-4e56-9e49-745d165584f6" xml:space="preserve">
+          <source>To start a Remote Desktop session to your cloud service instance, in Visual Studio, open Server Explorer, right-click the role instance, and click Connect using Remote Desktop.</source>
+          <target state="new">To start a Remote Desktop session to your cloud service instance, in Visual Studio, open Server Explorer, right-click the role instance, and click Connect using Remote Desktop.</target>
+        </trans-unit>
+        <trans-unit id="ea426053-9ef5-47bb-8538-ae95ca67f994" xml:space="preserve">
+          <source>Open an elevated command prompt and run the following commands to create a local administrator account on the virtual machine:</source>
+          <target state="new">Open an elevated command prompt and run the following commands to create a local administrator account on the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="02a6b6c3-43c7-4e87-93eb-81373e79103f" xml:space="preserve">
+          <source>net user contosoadmin  &lt;enterpassword&gt; /add
+net localgroup administrators contosoadmin  /add</source>
+          <target state="new">net user contosoadmin  &lt;enterpassword&gt; /add
+net localgroup administrators contosoadmin  /add</target>
+        </trans-unit>
+        <trans-unit id="f72d67cb-d0f9-49ec-84af-be35b481482b" xml:space="preserve">
+          <source>Open Event Viewer, open the <bpt id="e854d4a6-5576-47ed-ac06-42fca72e3fb6">&lt;strong&gt;</bpt>Security<ept id="e854d4a6-5576-47ed-ac06-42fca72e3fb6">&lt;/strong&gt;</ept> channel, and notice that an Event 4732 has been created, as shown here:</source>
+          <target state="new">Open Event Viewer, open the <bpt id="e854d4a6-5576-47ed-ac06-42fca72e3fb6">&lt;strong&gt;</bpt>Security<ept id="e854d4a6-5576-47ed-ac06-42fca72e3fb6">&lt;/strong&gt;</ept> channel, and notice that an Event 4732 has been created, as shown here:</target>
+        </trans-unit>
+        <trans-unit id="66c186b5-ea0f-4863-ae96-fd42db097ad2" xml:space="preserve">
+          <source><bpt id="9b99a9e2-f61b-4b11-9d1d-2089a3144184">&lt;linkText&gt;</bpt><ept id="9b99a9e2-f61b-4b11-9d1d-2089a3144184">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b99a9e2-f61b-4b11-9d1d-2089a3144184">&lt;linkText&gt;</bpt><ept id="9b99a9e2-f61b-4b11-9d1d-2089a3144184">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de97c767-aff5-4e81-b2ed-7c7aa515b04d" xml:space="preserve">
+          <source>Wait about five minutes to allow the Azure Diagnostics agent to push events to the storage table.</source>
+          <target state="new">Wait about five minutes to allow the Azure Diagnostics agent to push events to the storage table.</target>
+        </trans-unit>
+        <trans-unit id="d3d10235-b748-4d87-8aff-203892ac27b8" xml:space="preserve">
+          <source><bpt id="f1153049-b640-4aae-bb7b-421d73f1c29e">&lt;linkText&gt;</bpt><ept id="f1153049-b640-4aae-bb7b-421d73f1c29e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1153049-b640-4aae-bb7b-421d73f1c29e">&lt;linkText&gt;</bpt><ept id="f1153049-b640-4aae-bb7b-421d73f1c29e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dffa2cd0-b37c-4dbf-b76e-92347d079e1a" xml:space="preserve">
+          <source>To validate the Process Creation event, open a Notepad.</source>
+          <target state="new">To validate the Process Creation event, open a Notepad.</target>
+        </trans-unit>
+        <trans-unit id="e91a4427-6596-414f-b81b-a7496ec3e90c" xml:space="preserve">
+          <source>As shown here, a Process Creation event was logged in the Security channel.</source>
+          <target state="new">As shown here, a Process Creation event was logged in the Security channel.</target>
+        </trans-unit>
+        <trans-unit id="a6d214f2-e835-4f51-b771-0831ab5d860e" xml:space="preserve">
+          <source><bpt id="c322338a-21b6-473d-b8c7-a3671ef7ae27">&lt;linkText&gt;</bpt><ept id="c322338a-21b6-473d-b8c7-a3671ef7ae27">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c322338a-21b6-473d-b8c7-a3671ef7ae27">&lt;linkText&gt;</bpt><ept id="c322338a-21b6-473d-b8c7-a3671ef7ae27">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b5f26af-c79e-40e8-b9c9-38e4aa5ebc27" xml:space="preserve">
+          <source>You can now view the same event in your storage account as shown here:</source>
+          <target state="new">You can now view the same event in your storage account as shown here:</target>
+        </trans-unit>
+        <trans-unit id="f8ac6ec2-784a-4e5c-a291-82f13f526e48" xml:space="preserve">
+          <source><bpt id="faf76d40-ab31-4bfb-a44b-f605663828d9">&lt;linkText&gt;</bpt><ept id="faf76d40-ab31-4bfb-a44b-f605663828d9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="faf76d40-ab31-4bfb-a44b-f605663828d9">&lt;linkText&gt;</bpt><ept id="faf76d40-ab31-4bfb-a44b-f605663828d9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4330ffef-f701-40ed-91c2-31f90406a212" xml:space="preserve">
+          <source>In this section, we update an existing Azure Diagnostics security log collection pipeline, and detect Windows Firewall Change Events in a Cloud Service instance.</source>
+          <target state="new">In this section, we update an existing Azure Diagnostics security log collection pipeline, and detect Windows Firewall Change Events in a Cloud Service instance.</target>
+        </trans-unit>
+        <trans-unit id="b4ae5273-3bf5-4a13-a2e0-d1af69b90105" xml:space="preserve">
+          <source>To detect firewall changes, we will update the existing configuration to include firewall change events.</source>
+          <target state="new">To detect firewall changes, we will update the existing configuration to include firewall change events.</target>
+        </trans-unit>
+        <trans-unit id="6cca9154-beb7-4e84-81a8-9cfe2150c1f9" xml:space="preserve">
+          <source>The new configuration settings will overwrite the existing configuration.</source>
+          <target state="new">The new configuration settings will overwrite the existing configuration.</target>
+        </trans-unit>
+        <trans-unit id="33291826-741d-4418-83f4-43b8309f8d6d" xml:space="preserve">
+          <source>Thus, it is important that any existing Azure Diagnostics configuration settings be merged with the new configuration file.</source>
+          <target state="new">Thus, it is important that any existing Azure Diagnostics configuration settings be merged with the new configuration file.</target>
+        </trans-unit>
+        <trans-unit id="902f08c9-7782-4c0b-ab8e-a21e5493fb4f" xml:space="preserve">
+          <source>To retrieve the existing configuration setting, you can use the <bpt id="63fedf26-b944-40e0-bf88-f0ebcb4e7663">&lt;strong&gt;</bpt>Get-AzureServiceDiagnosticsExtension<ept id="63fedf26-b944-40e0-bf88-f0ebcb4e7663">&lt;/strong&gt;</ept> cmdlet:</source>
+          <target state="new">To retrieve the existing configuration setting, you can use the <bpt id="63fedf26-b944-40e0-bf88-f0ebcb4e7663">&lt;strong&gt;</bpt>Get-AzureServiceDiagnosticsExtension<ept id="63fedf26-b944-40e0-bf88-f0ebcb4e7663">&lt;/strong&gt;</ept> cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="ce7da0ed-11f5-434d-b18c-7f460cd6ee2d" xml:space="preserve">
+          <source>Validate the XML contents by using the same validation process as described earlier in <bpt id="57d5f245-cf17-4fae-9281-904305135118">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="57d5f245-cf17-4fae-9281-904305135118">&lt;/linkText&gt;</ept><bpt id="57d5f245-cf17-4fae-9281-904305135118">&lt;title&gt;</bpt><ept id="57d5f245-cf17-4fae-9281-904305135118">&lt;/title&gt;</ept>.</source>
+          <target state="new">Validate the XML contents by using the same validation process as described earlier in <bpt id="57d5f245-cf17-4fae-9281-904305135118">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="57d5f245-cf17-4fae-9281-904305135118">&lt;/linkText&gt;</ept><bpt id="57d5f245-cf17-4fae-9281-904305135118">&lt;title&gt;</bpt><ept id="57d5f245-cf17-4fae-9281-904305135118">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ebc242e-1f94-496b-9aa4-01319426dc36" xml:space="preserve">
+          <source>Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage<bpt id="e351377f-620f-47a3-b5c5-08e6cf07fb78">&lt;em&gt;</bpt>name, key, config<ept id="e351377f-620f-47a3-b5c5-08e6cf07fb78">&lt;/em&gt;</ept>path, and service_name with your cloud service information).</source>
+          <target state="new">Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage<bpt id="e351377f-620f-47a3-b5c5-08e6cf07fb78">&lt;em&gt;</bpt>name, key, config<ept id="e351377f-620f-47a3-b5c5-08e6cf07fb78">&lt;/em&gt;</ept>path, and service_name with your cloud service information).</target>
+        </trans-unit>
+        <trans-unit id="f857cf55-612f-4108-84a8-9790df4b12a9" xml:space="preserve">
+          <source>To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</source>
+          <target state="new">To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="e8585bfe-0993-4ecf-82c7-b81b10ffd2db" xml:space="preserve">
+          <source>Open a Remote Desktop session to your cloud service instance.</source>
+          <target state="new">Open a Remote Desktop session to your cloud service instance.</target>
+        </trans-unit>
+        <trans-unit id="a9b41911-cdd1-4748-8e6a-acd86f3b7c82" xml:space="preserve">
+          <source>Open an elevated command prompt and run the following command:</source>
+          <target state="new">Open an elevated command prompt and run the following command:</target>
+        </trans-unit>
+        <trans-unit id="873cc1a3-88d7-4978-9acb-65580fc72123" xml:space="preserve">
+          <source>Open Windows Firewall, and click <bpt id="6db7bc80-0e3d-49d1-8445-95a26e1c0e4d">&lt;strong&gt;</bpt>Inbound Rules<ept id="6db7bc80-0e3d-49d1-8445-95a26e1c0e4d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open Windows Firewall, and click <bpt id="6db7bc80-0e3d-49d1-8445-95a26e1c0e4d">&lt;strong&gt;</bpt>Inbound Rules<ept id="6db7bc80-0e3d-49d1-8445-95a26e1c0e4d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6623b08e-36a7-47d6-8697-74edc6fcdbd8" xml:space="preserve">
+          <source>Click <bpt id="d07ed165-f4d6-4295-b7cf-5de42cce8f3c">&lt;strong&gt;</bpt>Add New Rule<ept id="d07ed165-f4d6-4295-b7cf-5de42cce8f3c">&lt;/strong&gt;</ept>, and then click <bpt id="1cd09488-357c-4ed7-b76b-b7398698ab22">&lt;strong&gt;</bpt>Port<ept id="1cd09488-357c-4ed7-b76b-b7398698ab22">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="d07ed165-f4d6-4295-b7cf-5de42cce8f3c">&lt;strong&gt;</bpt>Add New Rule<ept id="d07ed165-f4d6-4295-b7cf-5de42cce8f3c">&lt;/strong&gt;</ept>, and then click <bpt id="1cd09488-357c-4ed7-b76b-b7398698ab22">&lt;strong&gt;</bpt>Port<ept id="1cd09488-357c-4ed7-b76b-b7398698ab22">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6dbe32da-8c50-4f25-808c-a3af94277f02" xml:space="preserve">
+          <source>In the <bpt id="1cb83401-fbad-48db-86fe-a80c1abf89e9">&lt;strong&gt;</bpt>Local Ports<ept id="1cb83401-fbad-48db-86fe-a80c1abf89e9">&lt;/strong&gt;</ept> field, type <bpt id="2bfdf540-7939-4e3e-8d30-77650e5e873b">&lt;strong&gt;</bpt>5000<ept id="2bfdf540-7939-4e3e-8d30-77650e5e873b">&lt;/strong&gt;</ept>, and then click <bpt id="cf0d4655-7b68-48c3-a625-cafcc7beff3b">&lt;strong&gt;</bpt>Next<ept id="cf0d4655-7b68-48c3-a625-cafcc7beff3b">&lt;/strong&gt;</ept> three times.</source>
+          <target state="new">In the <bpt id="1cb83401-fbad-48db-86fe-a80c1abf89e9">&lt;strong&gt;</bpt>Local Ports<ept id="1cb83401-fbad-48db-86fe-a80c1abf89e9">&lt;/strong&gt;</ept> field, type <bpt id="2bfdf540-7939-4e3e-8d30-77650e5e873b">&lt;strong&gt;</bpt>5000<ept id="2bfdf540-7939-4e3e-8d30-77650e5e873b">&lt;/strong&gt;</ept>, and then click <bpt id="cf0d4655-7b68-48c3-a625-cafcc7beff3b">&lt;strong&gt;</bpt>Next<ept id="cf0d4655-7b68-48c3-a625-cafcc7beff3b">&lt;/strong&gt;</ept> three times.</target>
+        </trans-unit>
+        <trans-unit id="58f44cc2-64b8-4b3b-ae3c-db90bacf69f3" xml:space="preserve">
+          <source>In the <bpt id="aa51fcb7-001e-499e-9e27-06985678fa77">&lt;strong&gt;</bpt>Name<ept id="aa51fcb7-001e-499e-9e27-06985678fa77">&lt;/strong&gt;</ept> field, type <bpt id="9f91b77c-c560-4dec-83f8-34b49e966b7e">&lt;strong&gt;</bpt>Test5000<ept id="9f91b77c-c560-4dec-83f8-34b49e966b7e">&lt;/strong&gt;</ept>, and then click <bpt id="d11d7044-ea02-44f5-a1ff-2dcf5f33feda">&lt;strong&gt;</bpt>Finish<ept id="d11d7044-ea02-44f5-a1ff-2dcf5f33feda">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="aa51fcb7-001e-499e-9e27-06985678fa77">&lt;strong&gt;</bpt>Name<ept id="aa51fcb7-001e-499e-9e27-06985678fa77">&lt;/strong&gt;</ept> field, type <bpt id="9f91b77c-c560-4dec-83f8-34b49e966b7e">&lt;strong&gt;</bpt>Test5000<ept id="9f91b77c-c560-4dec-83f8-34b49e966b7e">&lt;/strong&gt;</ept>, and then click <bpt id="d11d7044-ea02-44f5-a1ff-2dcf5f33feda">&lt;strong&gt;</bpt>Finish<ept id="d11d7044-ea02-44f5-a1ff-2dcf5f33feda">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed52fbf6-9146-4a2a-9d09-39d205b77322" xml:space="preserve">
+          <source>Open Event Viewer, open the <bpt id="0549a290-0094-4ade-94a8-b8d7a3254f9e">&lt;strong&gt;</bpt>Security<ept id="0549a290-0094-4ade-94a8-b8d7a3254f9e">&lt;/strong&gt;</ept> channel, and notice that an Event ID 4946 has been created as shown here:</source>
+          <target state="new">Open Event Viewer, open the <bpt id="0549a290-0094-4ade-94a8-b8d7a3254f9e">&lt;strong&gt;</bpt>Security<ept id="0549a290-0094-4ade-94a8-b8d7a3254f9e">&lt;/strong&gt;</ept> channel, and notice that an Event ID 4946 has been created as shown here:</target>
+        </trans-unit>
+        <trans-unit id="ad3b2ff8-47de-4f3a-8b7c-610a034f11de" xml:space="preserve">
+          <source><bpt id="0ec5c651-5ec4-4528-a7fd-fbf7249ca027">&lt;linkText&gt;</bpt><ept id="0ec5c651-5ec4-4528-a7fd-fbf7249ca027">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0ec5c651-5ec4-4528-a7fd-fbf7249ca027">&lt;linkText&gt;</bpt><ept id="0ec5c651-5ec4-4528-a7fd-fbf7249ca027">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="890b707e-665d-47e6-a701-66a553b64848" xml:space="preserve">
+          <source>Wait about five minutes to allow the Azure Diagnostics agent to push the event data to the storage table.</source>
+          <target state="new">Wait about five minutes to allow the Azure Diagnostics agent to push the event data to the storage table.</target>
+        </trans-unit>
+        <trans-unit id="f81300f6-60cf-47f8-ad18-c69e3110033f" xml:space="preserve">
+          <source><bpt id="93eabba2-3ad1-4cec-892a-a187b6639d96">&lt;linkText&gt;</bpt><ept id="93eabba2-3ad1-4cec-892a-a187b6639d96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93eabba2-3ad1-4cec-892a-a187b6639d96">&lt;linkText&gt;</bpt><ept id="93eabba2-3ad1-4cec-892a-a187b6639d96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68e95f22-0198-4703-878d-07bad7f78c5b" xml:space="preserve">
+          <source>After the events are in the customer’s storage account, applications can use the storage client libraries to access and perform event aggregation.</source>
+          <target state="new">After the events are in the customer’s storage account, applications can use the storage client libraries to access and perform event aggregation.</target>
+        </trans-unit>
+        <trans-unit id="16146049-762e-4deb-80d8-eb5448e0894d" xml:space="preserve">
+          <source>For sample code to access table data, see <bpt id="83e2741c-086f-43a4-8848-8962ca282320">&lt;linkText&gt;</bpt>How to: Retrieve table data<ept id="83e2741c-086f-43a4-8848-8962ca282320">&lt;/linkText&gt;</ept><bpt id="83e2741c-086f-43a4-8848-8962ca282320">&lt;title&gt;</bpt><ept id="83e2741c-086f-43a4-8848-8962ca282320">&lt;/title&gt;</ept>.</source>
+          <target state="new">For sample code to access table data, see <bpt id="83e2741c-086f-43a4-8848-8962ca282320">&lt;linkText&gt;</bpt>How to: Retrieve table data<ept id="83e2741c-086f-43a4-8848-8962ca282320">&lt;/linkText&gt;</ept><bpt id="83e2741c-086f-43a4-8848-8962ca282320">&lt;title&gt;</bpt><ept id="83e2741c-086f-43a4-8848-8962ca282320">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f136fc4d-f0e3-46d0-88ba-6ed270afdc8a" xml:space="preserve">
+          <source>Following is an example of event aggregation.</source>
+          <target state="new">Following is an example of event aggregation.</target>
+        </trans-unit>
+        <trans-unit id="20b0be45-3eef-414f-b0e9-aa1bb7660448" xml:space="preserve">
+          <source>Any spikes in event distribution can be investigated further for anomalous activity.</source>
+          <target state="new">Any spikes in event distribution can be investigated further for anomalous activity.</target>
+        </trans-unit>
+        <trans-unit id="3fcbb5dd-e1dc-4342-8ee3-964f20827dc0" xml:space="preserve">
+          <source><bpt id="231e85b4-55d3-4793-90ce-0fca97b34d5b">&lt;linkText&gt;</bpt><ept id="231e85b4-55d3-4793-90ce-0fca97b34d5b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="231e85b4-55d3-4793-90ce-0fca97b34d5b">&lt;linkText&gt;</bpt><ept id="231e85b4-55d3-4793-90ce-0fca97b34d5b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1141e7af-5120-4ff0-ab7d-0ab39e9e4b25" xml:space="preserve">
+          <source>In this section, we collect IIS logs from your web role instance and move the logs to an Azure blob in the customer’s storage account.</source>
+          <target state="new">In this section, we collect IIS logs from your web role instance and move the logs to an Azure blob in the customer’s storage account.</target>
+        </trans-unit>
+        <trans-unit id="3088765e-afaf-4d94-8076-af500fb9114f" xml:space="preserve">
+          <source>In the previous Azure Diagnostics configuration, <bpt id="5a3bbf30-323c-4b30-b257-4a39977212f2">&lt;strong&gt;</bpt>containerName<ept id="5a3bbf30-323c-4b30-b257-4a39977212f2">&lt;/strong&gt;</ept> is the blob container name to which logs will be moved within customer’s storage account.</source>
+          <target state="new">In the previous Azure Diagnostics configuration, <bpt id="5a3bbf30-323c-4b30-b257-4a39977212f2">&lt;strong&gt;</bpt>containerName<ept id="5a3bbf30-323c-4b30-b257-4a39977212f2">&lt;/strong&gt;</ept> is the blob container name to which logs will be moved within customer’s storage account.</target>
+        </trans-unit>
+        <trans-unit id="b2aedbe6-52ad-4288-ae69-7f7a91dbc16d" xml:space="preserve">
+          <source>Validate the configuration file by using the same steps as shown earlier in <bpt id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;/linkText&gt;</ept><bpt id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;title&gt;</bpt><ept id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;/title&gt;</ept>.</source>
+          <target state="new">Validate the configuration file by using the same steps as shown earlier in <bpt id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;linkText&gt;</bpt>Step 3: Validate configuration XML file<ept id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;/linkText&gt;</ept><bpt id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;title&gt;</bpt><ept id="9e0069cf-c5ba-49d0-b27e-e021ea5ea422">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="905783b4-2c8e-442d-8b12-cb633abb87f2" xml:space="preserve">
+          <source>Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage<bpt id="0978e674-a149-4f3d-b809-7986bdbd8b7f">&lt;em&gt;</bpt>name, key, config<ept id="0978e674-a149-4f3d-b809-7986bdbd8b7f">&lt;/em&gt;</ept>path, and service_name with your cloud service information).</source>
+          <target state="new">Run the following Azure PowerShell script to update Azure Diagnostics to use the new configuration (make sure to update the storage<bpt id="0978e674-a149-4f3d-b809-7986bdbd8b7f">&lt;em&gt;</bpt>name, key, config<ept id="0978e674-a149-4f3d-b809-7986bdbd8b7f">&lt;/em&gt;</ept>path, and service_name with your cloud service information).</target>
+        </trans-unit>
+        <trans-unit id="3f80def6-adc7-4050-8f76-95d2255dee06" xml:space="preserve">
+          <source>To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</source>
+          <target state="new">To verify that your service has the latest diagnostic configuration, run the following Azure PowerShell command:</target>
+        </trans-unit>
+        <trans-unit id="8fb13f42-0bbd-48e0-bd83-837738d206f8" xml:space="preserve">
+          <source>Open a web browser and navigate to the cloud service web role (for example, http://contosowebrole.cloudapp.net/).</source>
+          <target state="new">Open a web browser and navigate to the cloud service web role (for example, http://contosowebrole.cloudapp.net/).</target>
+        </trans-unit>
+        <trans-unit id="a19ae842-a156-49ac-be3d-b1ad186b4567" xml:space="preserve">
+          <source>Navigate to the <bpt id="1e6a1057-d628-43ca-ba91-1728c8e30505">&lt;strong&gt;</bpt>About<ept id="1e6a1057-d628-43ca-ba91-1728c8e30505">&lt;/strong&gt;</ept> and <bpt id="c6fbddb8-c46f-48b7-9303-ccd15b19ff43">&lt;strong&gt;</bpt>Contact<ept id="c6fbddb8-c46f-48b7-9303-ccd15b19ff43">&lt;/strong&gt;</ept> pages to create some log events.</source>
+          <target state="new">Navigate to the <bpt id="1e6a1057-d628-43ca-ba91-1728c8e30505">&lt;strong&gt;</bpt>About<ept id="1e6a1057-d628-43ca-ba91-1728c8e30505">&lt;/strong&gt;</ept> and <bpt id="c6fbddb8-c46f-48b7-9303-ccd15b19ff43">&lt;strong&gt;</bpt>Contact<ept id="c6fbddb8-c46f-48b7-9303-ccd15b19ff43">&lt;/strong&gt;</ept> pages to create some log events.</target>
+        </trans-unit>
+        <trans-unit id="7b610ade-af6c-4b25-bcea-b852543f61ea" xml:space="preserve">
+          <source>Navigate to a page that generates a status code 500 (for example, http://contosowebrole.cloudapp.net/Home/StatusCode500).</source>
+          <target state="new">Navigate to a page that generates a status code 500 (for example, http://contosowebrole.cloudapp.net/Home/StatusCode500).</target>
+        </trans-unit>
+        <trans-unit id="94912a46-d466-46d4-87f3-b7c5babcf39b" xml:space="preserve">
+          <source>You should see an error such as the one that follows.</source>
+          <target state="new">You should see an error such as the one that follows.</target>
+        </trans-unit>
+        <trans-unit id="062c7ab2-39f9-4bf3-b63a-e0c8c249b3ab" xml:space="preserve">
+          <source>Remember that we added code for <bpt id="ff47ebaf-408b-435f-9e66-ada2be271595">&lt;strong&gt;</bpt>StatusCode500<ept id="ff47ebaf-408b-435f-9e66-ada2be271595">&lt;/strong&gt;</ept> in Step 1 of section titled Set up new instance of log collection pipeline on a cloud ServiceName.</source>
+          <target state="new">Remember that we added code for <bpt id="ff47ebaf-408b-435f-9e66-ada2be271595">&lt;strong&gt;</bpt>StatusCode500<ept id="ff47ebaf-408b-435f-9e66-ada2be271595">&lt;/strong&gt;</ept> in Step 1 of section titled Set up new instance of log collection pipeline on a cloud ServiceName.</target>
+        </trans-unit>
+        <trans-unit id="f37eb22b-964b-4c06-a1af-2a13ea714999" xml:space="preserve">
+          <source><bpt id="22ead9bd-09aa-4c97-b807-b803fe63c627">&lt;linkText&gt;</bpt><ept id="22ead9bd-09aa-4c97-b807-b803fe63c627">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22ead9bd-09aa-4c97-b807-b803fe63c627">&lt;linkText&gt;</bpt><ept id="22ead9bd-09aa-4c97-b807-b803fe63c627">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="756484fa-fd58-434d-b2d4-9b92d594585c" xml:space="preserve">
+          <source>Open a Remote Desktop session to your cloud service instance.</source>
+          <target state="new">Open a Remote Desktop session to your cloud service instance.</target>
+        </trans-unit>
+        <trans-unit id="5e506bb6-d788-4373-9c13-1e2d169350cd" xml:space="preserve">
+          <source>Open IIS Manager.</source>
+          <target state="new">Open IIS Manager.</target>
+        </trans-unit>
+        <trans-unit id="a4203959-eaf7-4fd5-84ae-0ec1ef414656" xml:space="preserve">
+          <source>IIS Logging is enabled by default and it is set to hourly generate files that contain all fields in W3C format.</source>
+          <target state="new">IIS Logging is enabled by default and it is set to hourly generate files that contain all fields in W3C format.</target>
+        </trans-unit>
+        <trans-unit id="37b803ef-7a18-455a-9556-2ef0d94754e7" xml:space="preserve">
+          <source>Click <bpt id="ba8457b0-60de-4950-ae9d-2e0f4648b928">&lt;strong&gt;</bpt>Browse<ept id="ba8457b0-60de-4950-ae9d-2e0f4648b928">&lt;/strong&gt;</ept>, and there will be at least one log file, as shown here:
+<bpt id="82ba5a66-7b79-4ac6-942a-0320630e3b06">&lt;linkText&gt;</bpt><ept id="82ba5a66-7b79-4ac6-942a-0320630e3b06">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click <bpt id="ba8457b0-60de-4950-ae9d-2e0f4648b928">&lt;strong&gt;</bpt>Browse<ept id="ba8457b0-60de-4950-ae9d-2e0f4648b928">&lt;/strong&gt;</ept>, and there will be at least one log file, as shown here:
+<bpt id="82ba5a66-7b79-4ac6-942a-0320630e3b06">&lt;linkText&gt;</bpt><ept id="82ba5a66-7b79-4ac6-942a-0320630e3b06">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e985c401-2699-4aaa-86a1-5866a2d634ab" xml:space="preserve">
+          <source>Wait for about five minutes for the Azure Diagnostics agent to push the log file to the blob container.</source>
+          <target state="new">Wait for about five minutes for the Azure Diagnostics agent to push the log file to the blob container.</target>
+        </trans-unit>
+        <trans-unit id="ca1233fa-2127-4170-9879-b4a227ac6e24" xml:space="preserve">
+          <source>To validate the data, open <bpt id="0c6bcb9c-d8be-45ce-aeff-d80a03657e47">&lt;strong&gt;</bpt>Server Explorer<ept id="0c6bcb9c-d8be-45ce-aeff-d80a03657e47">&lt;/strong&gt;</ept> &gt; <bpt id="224e495a-f7b5-4c30-80f7-8bf2f80f969a">&lt;strong&gt;</bpt>Storage<ept id="224e495a-f7b5-4c30-80f7-8bf2f80f969a">&lt;/strong&gt;</ept> &gt; <bpt id="62ebf6e1-25ca-4044-8a00-6155b7bde02e">&lt;strong&gt;</bpt>Storage Account<ept id="62ebf6e1-25ca-4044-8a00-6155b7bde02e">&lt;/strong&gt;</ept> &gt; <bpt id="180825f9-b29a-4537-816b-7364d7725e92">&lt;strong&gt;</bpt>Blobs<ept id="180825f9-b29a-4537-816b-7364d7725e92">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To validate the data, open <bpt id="0c6bcb9c-d8be-45ce-aeff-d80a03657e47">&lt;strong&gt;</bpt>Server Explorer<ept id="0c6bcb9c-d8be-45ce-aeff-d80a03657e47">&lt;/strong&gt;</ept> &gt; <bpt id="224e495a-f7b5-4c30-80f7-8bf2f80f969a">&lt;strong&gt;</bpt>Storage<ept id="224e495a-f7b5-4c30-80f7-8bf2f80f969a">&lt;/strong&gt;</ept> &gt; <bpt id="62ebf6e1-25ca-4044-8a00-6155b7bde02e">&lt;strong&gt;</bpt>Storage Account<ept id="62ebf6e1-25ca-4044-8a00-6155b7bde02e">&lt;/strong&gt;</ept> &gt; <bpt id="180825f9-b29a-4537-816b-7364d7725e92">&lt;strong&gt;</bpt>Blobs<ept id="180825f9-b29a-4537-816b-7364d7725e92">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60481170-a5f6-4d10-a834-a53df0305a23" xml:space="preserve">
+          <source>As shown here, the blob <bpt id="8317ade7-51c7-48c9-be90-04776d90a31e">&lt;strong&gt;</bpt>iislogs<ept id="8317ade7-51c7-48c9-be90-04776d90a31e">&lt;/strong&gt;</ept> is created:
+<bpt id="b8648ce2-378b-4bac-8462-ff425b2ac240">&lt;linkText&gt;</bpt><ept id="b8648ce2-378b-4bac-8462-ff425b2ac240">&lt;/linkText&gt;</ept></source>
+          <target state="new">As shown here, the blob <bpt id="8317ade7-51c7-48c9-be90-04776d90a31e">&lt;strong&gt;</bpt>iislogs<ept id="8317ade7-51c7-48c9-be90-04776d90a31e">&lt;/strong&gt;</ept> is created:
+<bpt id="b8648ce2-378b-4bac-8462-ff425b2ac240">&lt;linkText&gt;</bpt><ept id="b8648ce2-378b-4bac-8462-ff425b2ac240">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f34dadd-ec3b-4458-8166-5ab344e8d5de" xml:space="preserve">
+          <source>Right-click and select <bpt id="af0e07f4-d1e8-40ee-b746-9d89b3bf00c7">&lt;strong&gt;</bpt>View Blob Container<ept id="af0e07f4-d1e8-40ee-b746-9d89b3bf00c7">&lt;/strong&gt;</ept> to display the IIS log file stored in the blob:
+<bpt id="f158dc03-f04d-44e8-9db9-8cce239cea13">&lt;linkText&gt;</bpt><ept id="f158dc03-f04d-44e8-9db9-8cce239cea13">&lt;/linkText&gt;</ept></source>
+          <target state="new">Right-click and select <bpt id="af0e07f4-d1e8-40ee-b746-9d89b3bf00c7">&lt;strong&gt;</bpt>View Blob Container<ept id="af0e07f4-d1e8-40ee-b746-9d89b3bf00c7">&lt;/strong&gt;</ept> to display the IIS log file stored in the blob:
+<bpt id="f158dc03-f04d-44e8-9db9-8cce239cea13">&lt;linkText&gt;</bpt><ept id="f158dc03-f04d-44e8-9db9-8cce239cea13">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fb27612-6178-436d-a040-a0a2840c1537" xml:space="preserve">
+          <source>After the IIS events are in the customer’s storage account, applications that leverage HDInsight analysis can be used to perform event aggregation.</source>
+          <target state="new">After the IIS events are in the customer’s storage account, applications that leverage HDInsight analysis can be used to perform event aggregation.</target>
+        </trans-unit>
+        <trans-unit id="eb06aa73-3f9e-42c7-b701-fbdabb7b3e1f" xml:space="preserve">
+          <source>The following line chart is an example of an event aggregation task that shows HTTP Status Code 500:
+<bpt id="48136fb1-c702-40f9-85e3-d9cc247075b7">&lt;linkText&gt;</bpt><ept id="48136fb1-c702-40f9-85e3-d9cc247075b7">&lt;/linkText&gt;</ept></source>
+          <target state="new">The following line chart is an example of an event aggregation task that shows HTTP Status Code 500:
+<bpt id="48136fb1-c702-40f9-85e3-d9cc247075b7">&lt;linkText&gt;</bpt><ept id="48136fb1-c702-40f9-85e3-d9cc247075b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08a83536-7588-4545-b529-52ae286f7be8" xml:space="preserve">
+          <source>When you are collecting security logs, we recommend that you:</source>
+          <target state="new">When you are collecting security logs, we recommend that you:</target>
+        </trans-unit>
+        <trans-unit id="027d45d8-50ba-45d4-a123-58f363d58bea" xml:space="preserve">
+          <source>Collect your own service application-specific audit log events.</source>
+          <target state="new">Collect your own service application-specific audit log events.</target>
+        </trans-unit>
+        <trans-unit id="b442b0e0-7127-476d-83ae-76d9d203fe1c" xml:space="preserve">
+          <source>Configure only the data that you need for analysis and monitoring.</source>
+          <target state="new">Configure only the data that you need for analysis and monitoring.</target>
+        </trans-unit>
+        <trans-unit id="43cb2aa3-01ce-42b0-8dfb-c7e69689fb27" xml:space="preserve">
+          <source>Capturing too much data can make it harder to troubleshoot and can impact your service or storage costs.</source>
+          <target state="new">Capturing too much data can make it harder to troubleshoot and can impact your service or storage costs.</target>
+        </trans-unit>
+        <trans-unit id="32c692c8-34b5-4e91-826d-beea692cf8c1" xml:space="preserve">
+          <source>Merge existing Azure Diagnostics configuration settings with changes you make.</source>
+          <target state="new">Merge existing Azure Diagnostics configuration settings with changes you make.</target>
+        </trans-unit>
+        <trans-unit id="8cf264c9-455f-4596-ba5e-09b15bfaaf0f" xml:space="preserve">
+          <source>The new configuration file overwrites the existing configuration settings.</source>
+          <target state="new">The new configuration file overwrites the existing configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="fd0638d4-cfa8-4c3d-9654-b9ef305bf231" xml:space="preserve">
+          <source>Choose the <bpt id="d6b5c46c-0cba-49ac-b6da-4e9ee1d457a2">&lt;strong&gt;</bpt>Scheduled Transfer Period<ept id="d6b5c46c-0cba-49ac-b6da-4e9ee1d457a2">&lt;/strong&gt;</ept> interval wisely.</source>
+          <target state="new">Choose the <bpt id="d6b5c46c-0cba-49ac-b6da-4e9ee1d457a2">&lt;strong&gt;</bpt>Scheduled Transfer Period<ept id="d6b5c46c-0cba-49ac-b6da-4e9ee1d457a2">&lt;/strong&gt;</ept> interval wisely.</target>
+        </trans-unit>
+        <trans-unit id="aad3470c-9ef8-41ed-9dfd-511774894838" xml:space="preserve">
+          <source>Shorter transfer times will increase data relevance, but that can increase storage costs and processing overhead.</source>
+          <target state="new">Shorter transfer times will increase data relevance, but that can increase storage costs and processing overhead.</target>
+        </trans-unit>
+        <trans-unit id="6dc928e3-a450-4da0-825a-4e5b82c53702" xml:space="preserve">
+          <source>The other variable that will significantly impact the amount of data collected is the logging level.</source>
+          <target state="new">The other variable that will significantly impact the amount of data collected is the logging level.</target>
+        </trans-unit>
+        <trans-unit id="3171228e-c5e4-45fc-a580-fc4eec164083" xml:space="preserve">
+          <source>The following is an example of how to filter logs by logging level:</source>
+          <target state="new">The following is an example of how to filter logs by logging level:</target>
+        </trans-unit>
+        <trans-unit id="0c5f5e46-1742-4a4a-9779-e4ac9806cbe6" xml:space="preserve">
+          <source>The logging level is cumulative.</source>
+          <target state="new">The logging level is cumulative.</target>
+        </trans-unit>
+        <trans-unit id="565e1abb-6975-4854-9dcb-0bb55302267d" xml:space="preserve">
+          <source>If the filter is set to <bpt id="797220c8-1cb0-4bcd-840d-1a74b1a6e3f8">&lt;strong&gt;</bpt>Warning<ept id="797220c8-1cb0-4bcd-840d-1a74b1a6e3f8">&lt;/strong&gt;</ept>, then <bpt id="d5b52473-ded9-4b8b-9322-d687cfe41c88">&lt;strong&gt;</bpt>Error<ept id="d5b52473-ded9-4b8b-9322-d687cfe41c88">&lt;/strong&gt;</ept> and <bpt id="8ef4632b-cf63-4c88-9b12-ffdcae71faf8">&lt;strong&gt;</bpt>Critical<ept id="8ef4632b-cf63-4c88-9b12-ffdcae71faf8">&lt;/strong&gt;</ept> events will also be collected.</source>
+          <target state="new">If the filter is set to <bpt id="797220c8-1cb0-4bcd-840d-1a74b1a6e3f8">&lt;strong&gt;</bpt>Warning<ept id="797220c8-1cb0-4bcd-840d-1a74b1a6e3f8">&lt;/strong&gt;</ept>, then <bpt id="d5b52473-ded9-4b8b-9322-d687cfe41c88">&lt;strong&gt;</bpt>Error<ept id="d5b52473-ded9-4b8b-9322-d687cfe41c88">&lt;/strong&gt;</ept> and <bpt id="8ef4632b-cf63-4c88-9b12-ffdcae71faf8">&lt;strong&gt;</bpt>Critical<ept id="8ef4632b-cf63-4c88-9b12-ffdcae71faf8">&lt;/strong&gt;</ept> events will also be collected.</target>
+        </trans-unit>
+        <trans-unit id="124474f8-e408-4a59-b37c-5126d5e2fde0" xml:space="preserve">
+          <source>Periodically clear the diagnostic data from Azure Storage if it is no longer needed.</source>
+          <target state="new">Periodically clear the diagnostic data from Azure Storage if it is no longer needed.</target>
+        </trans-unit>
+        <trans-unit id="f07df759-51db-488d-aeb6-33b6bf4af46a" xml:space="preserve">
+          <source>To learn more about diagnostic data see <bpt id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;linkText&gt;</bpt>Store and View Diagnostic Data in Azure Storage<ept id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;/linkText&gt;</ept><bpt id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;title&gt;</bpt><ept id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about diagnostic data see <bpt id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;linkText&gt;</bpt>Store and View Diagnostic Data in Azure Storage<ept id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;/linkText&gt;</ept><bpt id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;title&gt;</bpt><ept id="9842b9bf-6aaf-4f45-897b-3f714dbb8fbf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0835bbba-7c71-4b9a-88bd-4f7fe94b5371" xml:space="preserve">
+          <source>The containers and tables that store diagnostic data are just like other containers and tables, you can delete blobs and entities from them in the same way you would for other data.</source>
+          <target state="new">The containers and tables that store diagnostic data are just like other containers and tables, you can delete blobs and entities from them in the same way you would for other data.</target>
+        </trans-unit>
+        <trans-unit id="231992df-d8a8-4c0d-b420-ae9a75444cea" xml:space="preserve">
+          <source>You can delete the diagnostic data programmatically via one of the storage client libraries or visually via a <bpt id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;linkText&gt;</bpt>storage explorer client<ept id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;/linkText&gt;</ept><bpt id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;title&gt;</bpt><ept id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can delete the diagnostic data programmatically via one of the storage client libraries or visually via a <bpt id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;linkText&gt;</bpt>storage explorer client<ept id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;/linkText&gt;</ept><bpt id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;title&gt;</bpt><ept id="68364d83-5545-490f-8acf-468509cdc2d8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="859e70f5-6b6c-440e-9e12-246baaa8a60a" xml:space="preserve">
+          <source>It is a best practice to store service data and security log data in separate storage accounts.</source>
+          <target state="new">It is a best practice to store service data and security log data in separate storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="25a9e468-a3d6-41e2-9411-e072f13bd03e" xml:space="preserve">
+          <source>This isolation ensures that saving security log data does not impact the storage performance for production service data.</source>
+          <target state="new">This isolation ensures that saving security log data does not impact the storage performance for production service data.</target>
+        </trans-unit>
+        <trans-unit id="de575e87-7e68-4cee-8b61-7ffbbe963e94" xml:space="preserve">
+          <source>Choose the log retention duration based on your organization’s compliance policy and data analysis and monitoring requirements.</source>
+          <target state="new">Choose the log retention duration based on your organization’s compliance policy and data analysis and monitoring requirements.</target>
+        </trans-unit>
+        <trans-unit id="3a1ed875-a606-4fa9-964c-185a86ec831f" xml:space="preserve">
+          <source>You can download blob data by using the Azure Storage Client Library, and then export it to your on-premises system for processing.</source>
+          <target state="new">You can download blob data by using the Azure Storage Client Library, and then export it to your on-premises system for processing.</target>
+        </trans-unit>
+        <trans-unit id="831b95eb-72d8-46da-b233-90f53dfcd85f" xml:space="preserve">
+          <source>For sample code to manage blob data, see <bpt id="32cb6703-b782-483a-a645-2619c98c6862">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="32cb6703-b782-483a-a645-2619c98c6862">&lt;/linkText&gt;</ept><bpt id="32cb6703-b782-483a-a645-2619c98c6862">&lt;title&gt;</bpt><ept id="32cb6703-b782-483a-a645-2619c98c6862">&lt;/title&gt;</ept>.</source>
+          <target state="new">For sample code to manage blob data, see <bpt id="32cb6703-b782-483a-a645-2619c98c6862">&lt;linkText&gt;</bpt>How to use Blob Storage from .NET<ept id="32cb6703-b782-483a-a645-2619c98c6862">&lt;/linkText&gt;</ept><bpt id="32cb6703-b782-483a-a645-2619c98c6862">&lt;title&gt;</bpt><ept id="32cb6703-b782-483a-a645-2619c98c6862">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58f2a7ee-2496-41bc-afa2-72d952c22925" xml:space="preserve">
+          <source>Similarly, you can download security data stored in Azure tables by using the Azure Storage Client Library.</source>
+          <target state="new">Similarly, you can download security data stored in Azure tables by using the Azure Storage Client Library.</target>
+        </trans-unit>
+        <trans-unit id="a568cd18-4f5d-40e4-95ea-47a7143221bb" xml:space="preserve">
+          <source>To learn more about accessing data that is stored in tables, see <bpt id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;/linkText&gt;</ept><bpt id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;title&gt;</bpt><ept id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about accessing data that is stored in tables, see <bpt id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;/linkText&gt;</ept><bpt id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;title&gt;</bpt><ept id="47233a11-db27-49a9-85e5-29dc48e66972">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61ecea8d-5750-4d49-9dce-4ad5b8fdfcfc" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) includes a set of security, usage, and audit log reports that provide visibility into the integrity and security of your Azure AD tenant.</source>
+          <target state="new">Azure Active Directory (Azure AD) includes a set of security, usage, and audit log reports that provide visibility into the integrity and security of your Azure AD tenant.</target>
+        </trans-unit>
+        <trans-unit id="e883ea03-eff5-4c55-b585-5648cf45b2b1" xml:space="preserve">
+          <source>For example, Azure AD has the capability to automatically analyze user activity and surface anomalous access, and then make it available through customer-visible reports.</source>
+          <target state="new">For example, Azure AD has the capability to automatically analyze user activity and surface anomalous access, and then make it available through customer-visible reports.</target>
+        </trans-unit>
+        <trans-unit id="d7d10700-9eee-4497-b877-c5794816de86" xml:space="preserve">
+          <source>These reports are available through the <bpt id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;/linkText&gt;</ept><bpt id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;title&gt;</bpt><ept id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;/title&gt;</ept> under <bpt id="d2f8fd49-fc87-4b84-9ba1-ff6509f50cc7">&lt;strong&gt;</bpt>Active Directory<ept id="d2f8fd49-fc87-4b84-9ba1-ff6509f50cc7">&lt;/strong&gt;</ept> &gt; <bpt id="d2fb20d2-60a4-4e4d-bb68-4769eb208e02">&lt;strong&gt;</bpt>Directory<ept id="d2fb20d2-60a4-4e4d-bb68-4769eb208e02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">These reports are available through the <bpt id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;/linkText&gt;</ept><bpt id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;title&gt;</bpt><ept id="8c570f7f-669b-4763-a548-7fd7a16ebc7c">&lt;/title&gt;</ept> under <bpt id="d2f8fd49-fc87-4b84-9ba1-ff6509f50cc7">&lt;strong&gt;</bpt>Active Directory<ept id="d2f8fd49-fc87-4b84-9ba1-ff6509f50cc7">&lt;/strong&gt;</ept> &gt; <bpt id="d2fb20d2-60a4-4e4d-bb68-4769eb208e02">&lt;strong&gt;</bpt>Directory<ept id="d2fb20d2-60a4-4e4d-bb68-4769eb208e02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70444254-1761-463b-ad17-60a533eab2ae" xml:space="preserve">
+          <source>Some of these reports are free, and others are offered as part of an Azure AD Premium edition.</source>
+          <target state="new">Some of these reports are free, and others are offered as part of an Azure AD Premium edition.</target>
+        </trans-unit>
+        <trans-unit id="d1af78b4-0306-4d2c-9e06-98a13993fd31" xml:space="preserve">
+          <source>For more information about Azure AD reports, see <bpt id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;/linkText&gt;</ept><bpt id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;title&gt;</bpt><ept id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure AD reports, see <bpt id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;/linkText&gt;</ept><bpt id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;title&gt;</bpt><ept id="dcec2840-eaf0-4803-825f-5bb48611e939">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b95f6f8-d39c-4709-85d0-9f6817119e91" xml:space="preserve">
+          <source>Logs for operations related to your Azure subscription resources are also available through the <bpt id="e2739d5b-c4b6-4ebc-a732-335f26649d98">&lt;strong&gt;</bpt>Operation Logs<ept id="e2739d5b-c4b6-4ebc-a732-335f26649d98">&lt;/strong&gt;</ept> feature in the management portal.</source>
+          <target state="new">Logs for operations related to your Azure subscription resources are also available through the <bpt id="e2739d5b-c4b6-4ebc-a732-335f26649d98">&lt;strong&gt;</bpt>Operation Logs<ept id="e2739d5b-c4b6-4ebc-a732-335f26649d98">&lt;/strong&gt;</ept> feature in the management portal.</target>
+        </trans-unit>
+        <trans-unit id="74453c3b-5128-4702-90f5-2bec07d11c66" xml:space="preserve">
+          <source>To view the <bpt id="d5727b71-1932-4354-b6ea-2e594e216aaf">&lt;strong&gt;</bpt>Operation Logs<ept id="d5727b71-1932-4354-b6ea-2e594e216aaf">&lt;/strong&gt;</ept>, open the <bpt id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;/linkText&gt;</ept><bpt id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;title&gt;</bpt><ept id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;/title&gt;</ept>, click <bpt id="a5d5880d-74c6-4813-88a4-86c06de37b8f">&lt;strong&gt;</bpt>Management Services<ept id="a5d5880d-74c6-4813-88a4-86c06de37b8f">&lt;/strong&gt;</ept>, and then click <bpt id="6ac76343-cf05-489b-8651-72cfbfa90b50">&lt;strong&gt;</bpt>Operation Logs<ept id="6ac76343-cf05-489b-8651-72cfbfa90b50">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To view the <bpt id="d5727b71-1932-4354-b6ea-2e594e216aaf">&lt;strong&gt;</bpt>Operation Logs<ept id="d5727b71-1932-4354-b6ea-2e594e216aaf">&lt;/strong&gt;</ept>, open the <bpt id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;/linkText&gt;</ept><bpt id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;title&gt;</bpt><ept id="0c9084c1-c2f3-4143-bca1-3726b7165ae5">&lt;/title&gt;</ept>, click <bpt id="a5d5880d-74c6-4813-88a4-86c06de37b8f">&lt;strong&gt;</bpt>Management Services<ept id="a5d5880d-74c6-4813-88a4-86c06de37b8f">&lt;/strong&gt;</ept>, and then click <bpt id="6ac76343-cf05-489b-8651-72cfbfa90b50">&lt;strong&gt;</bpt>Operation Logs<ept id="6ac76343-cf05-489b-8651-72cfbfa90b50">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d11c0681-950d-49e4-a358-f82307807f8a" xml:space="preserve">
+          <source>Data Source</source>
+          <target state="new">Data Source</target>
+        </trans-unit>
+        <trans-unit id="8e2119ef-ccdf-40ee-8752-f6cd5793517b" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="b3f9f341-c6f0-4304-a711-dad695ac2930" xml:space="preserve">
+          <source>IIS Logs</source>
+          <target state="new">IIS Logs</target>
+        </trans-unit>
+        <trans-unit id="5014d921-2796-4496-b82f-29c08de17d46" xml:space="preserve">
+          <source>Information about IIS websites</source>
+          <target state="new">Information about IIS websites</target>
+        </trans-unit>
+        <trans-unit id="bfd083c3-b5cf-4f0e-a008-8025f4716f2c" xml:space="preserve">
+          <source>Azure Diagnostic infrastructure logs</source>
+          <target state="new">Azure Diagnostic infrastructure logs</target>
+        </trans-unit>
+        <trans-unit id="01be2c7e-562d-4e47-a40f-64a8ce2bc149" xml:space="preserve">
+          <source>Information about Azure Diagnostics</source>
+          <target state="new">Information about Azure Diagnostics</target>
+        </trans-unit>
+        <trans-unit id="28dea7fd-4e54-44ec-b4ab-db92c59a4a24" xml:space="preserve">
+          <source>IIS Failed Request logs</source>
+          <target state="new">IIS Failed Request logs</target>
+        </trans-unit>
+        <trans-unit id="d9c55b3d-87b9-43e0-913c-107eef16c8ca" xml:space="preserve">
+          <source>Information about failed requests to an IIS website or application</source>
+          <target state="new">Information about failed requests to an IIS website or application</target>
+        </trans-unit>
+        <trans-unit id="03dc013d-0322-45cc-8f44-a1408b111433" xml:space="preserve">
+          <source>Windows Event logs</source>
+          <target state="new">Windows Event logs</target>
+        </trans-unit>
+        <trans-unit id="30b73d72-8ef2-46f9-9d69-bb09eafac674" xml:space="preserve">
+          <source>Information sent to the Windows event logging system</source>
+          <target state="new">Information sent to the Windows event logging system</target>
+        </trans-unit>
+        <trans-unit id="27ca6bc6-83c9-4414-bddc-e504653763d7" xml:space="preserve">
+          <source>Performance counters</source>
+          <target state="new">Performance counters</target>
+        </trans-unit>
+        <trans-unit id="404bc96f-afeb-4b57-84d7-59efecc636c6" xml:space="preserve">
+          <source>Operating system and custom performance counters</source>
+          <target state="new">Operating system and custom performance counters</target>
+        </trans-unit>
+        <trans-unit id="623a4c46-02b5-4bbd-ad98-a3103513721d" xml:space="preserve">
+          <source>Crash dumps</source>
+          <target state="new">Crash dumps</target>
+        </trans-unit>
+        <trans-unit id="9207668d-9b8c-4281-bcca-0f11649390ea" xml:space="preserve">
+          <source>Information about the state of the process in the event of an application crash</source>
+          <target state="new">Information about the state of the process in the event of an application crash</target>
+        </trans-unit>
+        <trans-unit id="b6405984-e3e9-45fe-8ff5-56da2cc3f0ff" xml:space="preserve">
+          <source>Custom error logs</source>
+          <target state="new">Custom error logs</target>
+        </trans-unit>
+        <trans-unit id="2e62c4ff-7cbc-4b95-9022-5c0fbae81fe1" xml:space="preserve">
+          <source>Logs created by your application or service</source>
+          <target state="new">Logs created by your application or service</target>
+        </trans-unit>
+        <trans-unit id="76543769-0192-4a74-8651-6dc88c4dbff2" xml:space="preserve">
+          <source>.NET EventSource</source>
+          <target state="new">.NET EventSource</target>
+        </trans-unit>
+        <trans-unit id="4887acf6-fe3b-4f16-a704-319f176480da" xml:space="preserve">
+          <source>Events generated by your code by using the .NET EventSource class</source>
+          <target state="new">Events generated by your code by using the .NET EventSource class</target>
+        </trans-unit>
+        <trans-unit id="31d3e999-246d-4526-b256-52f2a1d16419" xml:space="preserve">
+          <source>Manifest-based ETW</source>
+          <target state="new">Manifest-based ETW</target>
+        </trans-unit>
+        <trans-unit id="9586d29e-ce3a-416a-bd02-ebc601e34b8a" xml:space="preserve">
+          <source>Event Tracing for Windows events generated by any process</source>
+          <target state="new">Event Tracing for Windows events generated by any process</target>
+        </trans-unit>
+        <trans-unit id="74b5b6ac-a223-495d-837a-39e785636b5f" xml:space="preserve">
+          <source>The following resources provide general information about Microsoft Azure and related Microsoft services:</source>
+          <target state="new">The following resources provide general information about Microsoft Azure and related Microsoft services:</target>
+        </trans-unit>
+        <trans-unit id="0d0d8ba4-9b44-45d0-bfd0-11aed9e0b096" xml:space="preserve">
+          <source><bpt id="966d2172-a379-46d3-9402-f089433947d0">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="966d2172-a379-46d3-9402-f089433947d0">&lt;/linkText&gt;</ept><bpt id="966d2172-a379-46d3-9402-f089433947d0">&lt;title&gt;</bpt><ept id="966d2172-a379-46d3-9402-f089433947d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="966d2172-a379-46d3-9402-f089433947d0">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="966d2172-a379-46d3-9402-f089433947d0">&lt;/linkText&gt;</ept><bpt id="966d2172-a379-46d3-9402-f089433947d0">&lt;title&gt;</bpt><ept id="966d2172-a379-46d3-9402-f089433947d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6f3f05f1-80a9-4ed2-a43a-fc65a3c79069" xml:space="preserve">
+          <source>Information on how security and privacy are embedded into the development of Azure and how Azure meets a broad set of international and industry-specific compliance standards</source>
+          <target state="new">Information on how security and privacy are embedded into the development of Azure and how Azure meets a broad set of international and industry-specific compliance standards</target>
+        </trans-unit>
+        <trans-unit id="b192b9c8-bb69-46f3-84a5-9f1488827210" xml:space="preserve">
+          <source><bpt id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;linkText&gt;</bpt>Microsoft Azure home page<ept id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;/linkText&gt;</ept><bpt id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;title&gt;</bpt><ept id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;linkText&gt;</bpt>Microsoft Azure home page<ept id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;/linkText&gt;</ept><bpt id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;title&gt;</bpt><ept id="361fa661-3243-4fa0-9f04-f02cd23be168">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a286f1a3-26c1-4513-8fad-eacc610c71dd" xml:space="preserve">
+          <source>General information and links about Microsoft Azure</source>
+          <target state="new">General information and links about Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e6c86557-84d7-45e0-bc67-d07e4fff958e" xml:space="preserve">
+          <source><bpt id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;linkText&gt;</bpt>Microsoft Azure Documentation Center<ept id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;/linkText&gt;</ept><bpt id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;title&gt;</bpt><ept id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;linkText&gt;</bpt>Microsoft Azure Documentation Center<ept id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;/linkText&gt;</ept><bpt id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;title&gt;</bpt><ept id="523e9956-232f-4f41-bdbd-d6bdac17ca02">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="522a8fb9-9e2a-4710-8d98-3f61a97b52ff" xml:space="preserve">
+          <source>Guidance for Azure services and automation scripts</source>
+          <target state="new">Guidance for Azure services and automation scripts</target>
+        </trans-unit>
+        <trans-unit id="e144f12f-7f8e-4782-9be6-8f53db723ac6" xml:space="preserve">
+          <source><bpt id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;linkText&gt;</bpt>Microsoft Security Response Center (MSRC)<ept id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;/linkText&gt;</ept><bpt id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;title&gt;</bpt><ept id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;linkText&gt;</bpt>Microsoft Security Response Center (MSRC)<ept id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;/linkText&gt;</ept><bpt id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;title&gt;</bpt><ept id="ea3d0fe3-def5-479b-8433-e4be4a742d1a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2eba04bd-7f1a-4eef-95fa-28690386cf74" xml:space="preserve">
+          <source>The MSRC works with partners and security researchers around the world to help prevent security incidents and to advance Microsoft product security</source>
+          <target state="new">The MSRC works with partners and security researchers around the world to help prevent security incidents and to advance Microsoft product security</target>
+        </trans-unit>
+        <trans-unit id="a459d17f-179f-438d-8b6c-6a69fe296a80" xml:space="preserve">
+          <source><bpt id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;linkText&gt;</bpt>Microsoft Security Response Center email<ept id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;/linkText&gt;</ept><bpt id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;title&gt;</bpt><ept id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;linkText&gt;</bpt>Microsoft Security Response Center email<ept id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;/linkText&gt;</ept><bpt id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;title&gt;</bpt><ept id="6bb03be0-9ad3-48ab-acb4-ee5d1b9a8c25">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8542ae8a-f540-4b0c-adc9-203faf078124" xml:space="preserve">
+          <source>Email to report Microsoft security vulnerabilities, including Microsoft Azure</source>
+          <target state="new">Email to report Microsoft security vulnerabilities, including Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8a1c73ac-178e-4c58-9f06-b29a4301b2dc" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-security-data-collection-flow.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-security-data-collection-flow.png</target>
+        </trans-unit>
+        <trans-unit id="03538514-653b-43eb-a0bd-4abee38e93d5" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-storage-table-security-log.PNG</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-storage-table-security-log.PNG</target>
+        </trans-unit>
+        <trans-unit id="7c85389f-278a-4696-b62e-f6596179dd50" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-wad-windows-event-logs-table.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-wad-windows-event-logs-table.png</target>
+        </trans-unit>
+        <trans-unit id="2e9ba011-2adf-4031-9d4e-524aa3dcecd8" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-edit-entity.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-edit-entity.png</target>
+        </trans-unit>
+        <trans-unit id="e746fbf1-fcca-4708-b293-3100490f7515" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-app-event-log-cmd.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-app-event-log-cmd.png</target>
+        </trans-unit>
+        <trans-unit id="c441929c-8c24-472b-9971-17b56d8fb10a" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event-viewer.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event-viewer.png</target>
+        </trans-unit>
+        <trans-unit id="ad72b3c5-8718-4472-9323-e3b2cab0e7e2" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event-id100.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event-id100.png</target>
+        </trans-unit>
+        <trans-unit id="bca2fef4-20a6-4405-bc35-f999b825e03e" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-diagnostics.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-diagnostics.png</target>
+        </trans-unit>
+        <trans-unit id="c0493442-eaff-44cc-a9dd-10b3d1e2b980" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event4732.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event4732.png</target>
+        </trans-unit>
+        <trans-unit id="71994f2f-0a39-444e-976c-45f79c07eab2" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-step6.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-step6.png</target>
+        </trans-unit>
+        <trans-unit id="7c4e65f1-579b-4a86-b4d8-b7ea3f6f7afa" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-process-creation-event.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-process-creation-event.png</target>
+        </trans-unit>
+        <trans-unit id="15108c36-3e3c-4386-ab53-a10c17eb45ee" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-process-creation-event-storage.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-process-creation-event-storage.png</target>
+        </trans-unit>
+        <trans-unit id="8da3fe7c-a3db-4843-810e-3219c1fc7bac" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event4946.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event4946.png</target>
+        </trans-unit>
+        <trans-unit id="03233cdc-2dc0-4dbf-8939-412610c9ca9d" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event4946-storage.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event4946-storage.png</target>
+        </trans-unit>
+        <trans-unit id="9644ef28-9d24-4831-bc62-3a656c16028c" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-event-aggregation.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-event-aggregation.png</target>
+        </trans-unit>
+        <trans-unit id="cc4e5836-055f-4f12-912f-56e4fba89c9f" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-status-code500.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-status-code500.png</target>
+        </trans-unit>
+        <trans-unit id="a0452c09-23d5-474c-9425-b2051550b349" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-w3c-format.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-w3c-format.png</target>
+        </trans-unit>
+        <trans-unit id="135b904f-37d4-4403-85a3-e4ecbaf88855" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-blob-iis-logs.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-blob-iis-logs.png</target>
+        </trans-unit>
+        <trans-unit id="4afa43cf-f39b-48b9-bd1e-4a1ddb3a642a" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-view-blob-container.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-view-blob-container.png</target>
+        </trans-unit>
+        <trans-unit id="bd22ae7c-dcef-4d3d-917e-132bd9b6faa1" xml:space="preserve">
+          <source>./media/azure-security-audit-log-management/sec-hdinsight-analysis.png</source>
+          <target state="new">./media/azure-security-audit-log-management/sec-hdinsight-analysis.png</target>
+        </trans-unit>
+      </group>
+      <group id="fbfb52a7-5c79-4bb9-8de2-07c2a907c8b2" />
+    </body>
+  </file>
+</xliff>

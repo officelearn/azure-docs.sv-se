@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0809e943-6e53-4b16-94ef-337ace190f31" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0809e943-6e53-4b16-94ef-337ace190f31" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cbc56332-5413-41c1-8544-473ec216d739">
+        <trans-unit id="bac07853-bfd5-4cd8-90ac-4b3f52afe087" xml:space="preserve">
+          <source>Automating Azure virtual machine deployment with Chef</source>
+          <target state="new">Automating Azure virtual machine deployment with Chef</target>
+        </trans-unit>
+        <trans-unit id="cb6fa8db-ca22-408c-b233-8d4e5607f701" xml:space="preserve">
+          <source>Learn the art of Azure virtual machine automation with Chef</source>
+          <target state="new">Learn the art of Azure virtual machine automation with Chef</target>
+        </trans-unit>
+        <trans-unit id="bad1e4f1-b89c-4c1c-b5b6-0315a7c50db2" xml:space="preserve">
+          <source>Chef is a great tool for delivering automation and desired state configurations.</source>
+          <target state="new">Chef is a great tool for delivering automation and desired state configurations.</target>
+        </trans-unit>
+        <trans-unit id="dd0eb1f6-05ea-430e-860b-bb268497f179" xml:space="preserve">
+          <source>With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.</source>
+          <target state="new">With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.</target>
+        </trans-unit>
+        <trans-unit id="a5439341-d497-4158-832c-a0d87f5ff4ec" xml:space="preserve">
+          <source>In this article, I’ll show you how to set up your Chef environment to provision Azure virtual machines and walk you through creating a policy or “CookBook” and then deploying this cookbook to an Azure virtual machine.</source>
+          <target state="new">In this article, I’ll show you how to set up your Chef environment to provision Azure virtual machines and walk you through creating a policy or “CookBook” and then deploying this cookbook to an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="5f739bca-6204-44ce-83f6-b091f3fac517" xml:space="preserve">
+          <source>Let’s begin!</source>
+          <target state="new">Let’s begin!</target>
+        </trans-unit>
+        <trans-unit id="5d4dd173-d5e1-41de-8261-b86f9393880b" xml:space="preserve">
+          <source>Before you begin, I suggest you review the basic concepts of Chef.</source>
+          <target state="new">Before you begin, I suggest you review the basic concepts of Chef.</target>
+        </trans-unit>
+        <trans-unit id="a7eb0920-2160-4469-8f01-44b367a0ebe5" xml:space="preserve">
+          <source>There is great material &lt;a href="http://www.chef.io/chef" target="_blank"&gt;here&lt;/a&gt; and I recommend you have a quick read before you attempt this walkthrough.</source>
+          <target state="new">There is great material &lt;a href="http://www.chef.io/chef" target="_blank"&gt;here&lt;/a&gt; and I recommend you have a quick read before you attempt this walkthrough.</target>
+        </trans-unit>
+        <trans-unit id="14791e46-eab3-40bb-8982-6a6157dcd6ee" xml:space="preserve">
+          <source>I will however recap the basics before we get started.</source>
+          <target state="new">I will however recap the basics before we get started.</target>
+        </trans-unit>
+        <trans-unit id="e5322767-2a93-4650-b4c0-3ff774d113e4" xml:space="preserve">
+          <source>The following diagram depicts the high-level Chef architecture.</source>
+          <target state="new">The following diagram depicts the high-level Chef architecture.</target>
+        </trans-unit>
+        <trans-unit id="f5421795-bbb0-4916-8f02-c5aafa880b59" xml:space="preserve">
+          <source><bpt id="756227bc-1949-435c-b28c-34f2f75b832a">&lt;linkText&gt;</bpt><ept id="756227bc-1949-435c-b28c-34f2f75b832a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="756227bc-1949-435c-b28c-34f2f75b832a">&lt;linkText&gt;</bpt><ept id="756227bc-1949-435c-b28c-34f2f75b832a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6663d478-7b36-4fec-ae1f-1a6ee43fec61" xml:space="preserve">
+          <source>Chef has three main architectural components: Chef Server, Chef Client (node), and Chef Workstation.</source>
+          <target state="new">Chef has three main architectural components: Chef Server, Chef Client (node), and Chef Workstation.</target>
+        </trans-unit>
+        <trans-unit id="7ff48ded-7bd0-410b-bfbf-9d97ab9d54c1" xml:space="preserve">
+          <source>The Chef Server is our management point and there are two options for the Chef Server: a hosted solution or an on-premises solution.</source>
+          <target state="new">The Chef Server is our management point and there are two options for the Chef Server: a hosted solution or an on-premises solution.</target>
+        </trans-unit>
+        <trans-unit id="9841f5ca-b04f-4e04-a357-057fdc563e2d" xml:space="preserve">
+          <source>We will be using a hosted solution.</source>
+          <target state="new">We will be using a hosted solution.</target>
+        </trans-unit>
+        <trans-unit id="431a82ff-e4e4-4106-81d3-d3f66ae894f4" xml:space="preserve">
+          <source>The Chef Client (node) is the agent that sits on the servers you are managing.</source>
+          <target state="new">The Chef Client (node) is the agent that sits on the servers you are managing.</target>
+        </trans-unit>
+        <trans-unit id="b11328a0-5486-4978-8360-916d59dad036" xml:space="preserve">
+          <source>The Chef Workstation is our admin workstation where we create our policies and execute our management commands.</source>
+          <target state="new">The Chef Workstation is our admin workstation where we create our policies and execute our management commands.</target>
+        </trans-unit>
+        <trans-unit id="56975b47-4e09-448d-bb28-a4ede733e209" xml:space="preserve">
+          <source>We run the <bpt id="cffe447b-c304-4241-b266-30a30e1b1192">&lt;strong&gt;</bpt>knife<ept id="cffe447b-c304-4241-b266-30a30e1b1192">&lt;/strong&gt;</ept> command from the Chef Workstation to manage our infrastructure.</source>
+          <target state="new">We run the <bpt id="cffe447b-c304-4241-b266-30a30e1b1192">&lt;strong&gt;</bpt>knife<ept id="cffe447b-c304-4241-b266-30a30e1b1192">&lt;/strong&gt;</ept> command from the Chef Workstation to manage our infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="3ac9abb8-1be6-42b1-b822-8dc855657687" xml:space="preserve">
+          <source>There is also the concept of “Cookbooks” and “Recipes”.</source>
+          <target state="new">There is also the concept of “Cookbooks” and “Recipes”.</target>
+        </trans-unit>
+        <trans-unit id="3852aee5-8388-464c-8e15-f3324bc452c4" xml:space="preserve">
+          <source>These are effectively the policies we define and apply to our servers.</source>
+          <target state="new">These are effectively the policies we define and apply to our servers.</target>
+        </trans-unit>
+        <trans-unit id="dd365d49-c9ce-4084-9d31-eb33018b98a9" xml:space="preserve">
+          <source>First, lets prep the workstation.</source>
+          <target state="new">First, lets prep the workstation.</target>
+        </trans-unit>
+        <trans-unit id="8bc2671d-9a56-4404-a0eb-cf18ff2322d8" xml:space="preserve">
+          <source>I’m using a standard Windows workstation.</source>
+          <target state="new">I’m using a standard Windows workstation.</target>
+        </trans-unit>
+        <trans-unit id="c7519032-8bde-4158-8f4c-2d082bd1f80a" xml:space="preserve">
+          <source>We need to create a directory to store our config files and cookbooks.</source>
+          <target state="new">We need to create a directory to store our config files and cookbooks.</target>
+        </trans-unit>
+        <trans-unit id="cbdacf9f-7246-48a7-885d-350d25893f46" xml:space="preserve">
+          <source>First create a directory called C:\chef.</source>
+          <target state="new">First create a directory called C:\chef.</target>
+        </trans-unit>
+        <trans-unit id="e0ff92d3-9149-4460-87a8-557f7852cbfc" xml:space="preserve">
+          <source>Then create a second directory called c:\chef\cookbooks.</source>
+          <target state="new">Then create a second directory called c:\chef\cookbooks.</target>
+        </trans-unit>
+        <trans-unit id="a2a3daf8-4b34-44d2-87a4-b5ae55c4f97a" xml:space="preserve">
+          <source>We now need to download our Azure settings file so Chef can communicate with our Azure subscription.</source>
+          <target state="new">We now need to download our Azure settings file so Chef can communicate with our Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="0bd82bcb-56e9-483b-8c4b-7c61084e5d75" xml:space="preserve">
+          <source>Download your publish settings from <bpt id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;linkText&gt;</bpt>here<ept id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;/linkText&gt;</ept><bpt id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;title&gt;</bpt><ept id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download your publish settings from <bpt id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;linkText&gt;</bpt>here<ept id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;/linkText&gt;</ept><bpt id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;title&gt;</bpt><ept id="f45be37e-a042-4beb-a1d5-a993b889fafe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4213d257-6789-4b18-b6e6-6f807532c54a" xml:space="preserve">
+          <source>Save the publish settings file in C:\chef.</source>
+          <target state="new">Save the publish settings file in C:\chef.</target>
+        </trans-unit>
+        <trans-unit id="f1465169-10d7-4b62-abfc-c150716a0d82" xml:space="preserve">
+          <source>Sign up for a hosted Chef account <bpt id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;linkText&gt;</bpt>here<ept id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;/linkText&gt;</ept><bpt id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;title&gt;</bpt><ept id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign up for a hosted Chef account <bpt id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;linkText&gt;</bpt>here<ept id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;/linkText&gt;</ept><bpt id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;title&gt;</bpt><ept id="08de8f6e-d61d-4d45-beba-8c8ce535413e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="59391542-4962-4cc6-b5ed-8e588421c068" xml:space="preserve">
+          <source>During the signup process, you will be asked to create a new organization.</source>
+          <target state="new">During the signup process, you will be asked to create a new organization.</target>
+        </trans-unit>
+        <trans-unit id="ac10424e-4b04-4ee7-9919-9c33bd9c32b4" xml:space="preserve">
+          <source><bpt id="53275620-4c57-415e-90bc-ede59ed40b72">&lt;linkText&gt;</bpt><ept id="53275620-4c57-415e-90bc-ede59ed40b72">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="53275620-4c57-415e-90bc-ede59ed40b72">&lt;linkText&gt;</bpt><ept id="53275620-4c57-415e-90bc-ede59ed40b72">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8e42ae4-e257-4265-a695-566f150ce083" xml:space="preserve">
+          <source>Once your organization is created, download the starter kit.</source>
+          <target state="new">Once your organization is created, download the starter kit.</target>
+        </trans-unit>
+        <trans-unit id="ed5b18ef-f31c-4498-b9c5-519762c6e569" xml:space="preserve">
+          <source><bpt id="5c1de1ca-44ae-4fa8-8732-0c355197b885">&lt;linkText&gt;</bpt><ept id="5c1de1ca-44ae-4fa8-8732-0c355197b885">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c1de1ca-44ae-4fa8-8732-0c355197b885">&lt;linkText&gt;</bpt><ept id="5c1de1ca-44ae-4fa8-8732-0c355197b885">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8cc7f3c-a1c3-460b-b657-98eaeb766f16" xml:space="preserve">
+          <source>If you receive a prompt warning you that your keys will be reset, it’s ok to proceed as we have no existing infrastructure configured as yet.</source>
+          <target state="new">If you receive a prompt warning you that your keys will be reset, it’s ok to proceed as we have no existing infrastructure configured as yet.</target>
+        </trans-unit>
+        <trans-unit id="48f4f1a9-4c8e-4e6c-ba63-c0f281a256be" xml:space="preserve">
+          <source>This starter kit zip file contains your organization config files and keys.</source>
+          <target state="new">This starter kit zip file contains your organization config files and keys.</target>
+        </trans-unit>
+        <trans-unit id="5fedc1a7-4c91-46fa-970b-d6c59afa3888" xml:space="preserve">
+          <source>Extract the content of the chef-starter.zip to C:\chef.</source>
+          <target state="new">Extract the content of the chef-starter.zip to C:\chef.</target>
+        </trans-unit>
+        <trans-unit id="463f47a9-57e0-4bf0-8fa8-e86703529a7c" xml:space="preserve">
+          <source>Copy all files under chef-starter\chef-repo\.chef to your c:\chef directory.</source>
+          <target state="new">Copy all files under chef-starter\chef-repo\.chef to your c:\chef directory.</target>
+        </trans-unit>
+        <trans-unit id="5344a930-9a86-42c9-bf61-5b55ec41db28" xml:space="preserve">
+          <source>Your directory should now look something like the following example.</source>
+          <target state="new">Your directory should now look something like the following example.</target>
+        </trans-unit>
+        <trans-unit id="93c90516-ce57-404b-a576-fcfcbbb82d04" xml:space="preserve">
+          <source><bpt id="d23fcce2-844d-4822-8696-3cb0d1ffcf5d">&lt;linkText&gt;</bpt><ept id="d23fcce2-844d-4822-8696-3cb0d1ffcf5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d23fcce2-844d-4822-8696-3cb0d1ffcf5d">&lt;linkText&gt;</bpt><ept id="d23fcce2-844d-4822-8696-3cb0d1ffcf5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="08d92e49-3d4c-4d8a-abc0-b2e560db5dcb" xml:space="preserve">
+          <source>You should now have four files including the Azure publishing file in the root of c:\chef.</source>
+          <target state="new">You should now have four files including the Azure publishing file in the root of c:\chef.</target>
+        </trans-unit>
+        <trans-unit id="7b3b0c37-918a-4256-aa77-58b8530ecc67" xml:space="preserve">
+          <source>The PEM files contain your organization and admin private keys for communication while the knife.rb file contains your knife configuration.</source>
+          <target state="new">The PEM files contain your organization and admin private keys for communication while the knife.rb file contains your knife configuration.</target>
+        </trans-unit>
+        <trans-unit id="db5f968a-277e-46fa-a2ec-6076cd7a5b68" xml:space="preserve">
+          <source>We will need to edit the knife.rb file.</source>
+          <target state="new">We will need to edit the knife.rb file.</target>
+        </trans-unit>
+        <trans-unit id="e87c84df-024b-4f8b-b913-ac827e781b53" xml:space="preserve">
+          <source>Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as shown next.</source>
+          <target state="new">Open the file in your editor of choice and modify the “cookbook_path” by removing the /../ from the path so it appears as shown next.</target>
+        </trans-unit>
+        <trans-unit id="8c44e052-5da6-4f1f-b218-b2beaae6d007" xml:space="preserve">
+          <source>Also add the following line reflecting the name of your Azure publish settings file.</source>
+          <target state="new">Also add the following line reflecting the name of your Azure publish settings file.</target>
+        </trans-unit>
+        <trans-unit id="a3eaebc6-8861-4233-bbdc-7b34fa05c39a" xml:space="preserve">
+          <source>Your knife.rb file should now look similar to the following example.</source>
+          <target state="new">Your knife.rb file should now look similar to the following example.</target>
+        </trans-unit>
+        <trans-unit id="ff7e2395-b96f-4966-a4ac-2c0fab5cac24" xml:space="preserve">
+          <source><bpt id="e3a62794-ecf8-4b15-9098-c4e5c7e55f8f">&lt;linkText&gt;</bpt><ept id="e3a62794-ecf8-4b15-9098-c4e5c7e55f8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3a62794-ecf8-4b15-9098-c4e5c7e55f8f">&lt;linkText&gt;</bpt><ept id="e3a62794-ecf8-4b15-9098-c4e5c7e55f8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9bbd6d9-af6d-4e4d-9bda-291e8552475c" xml:space="preserve">
+          <source>These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.</source>
+          <target state="new">These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.</target>
+        </trans-unit>
+        <trans-unit id="e00b0d24-6c6a-498f-9957-2c605c7c1031" xml:space="preserve">
+          <source>Next <bpt id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;linkText&gt;</bpt>download and install<ept id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;/linkText&gt;</ept><bpt id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;title&gt;</bpt><ept id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;/title&gt;</ept> the ChefDK (Chef Development Kit) to set up your Chef Workstation.</source>
+          <target state="new">Next <bpt id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;linkText&gt;</bpt>download and install<ept id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;/linkText&gt;</ept><bpt id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;title&gt;</bpt><ept id="8ca1f511-c887-41a7-971b-90dc865a565c">&lt;/title&gt;</ept> the ChefDK (Chef Development Kit) to set up your Chef Workstation.</target>
+        </trans-unit>
+        <trans-unit id="f1172636-76e2-4ef7-b6f3-3754e52842d2" xml:space="preserve">
+          <source><bpt id="b279dde0-020b-42e2-be0d-afb990ff8b88">&lt;linkText&gt;</bpt><ept id="b279dde0-020b-42e2-be0d-afb990ff8b88">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b279dde0-020b-42e2-be0d-afb990ff8b88">&lt;linkText&gt;</bpt><ept id="b279dde0-020b-42e2-be0d-afb990ff8b88">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9460a3d-6a00-4660-bbdf-ca06d0237f48" xml:space="preserve">
+          <source>Install in the default location of c:\opscode.</source>
+          <target state="new">Install in the default location of c:\opscode.</target>
+        </trans-unit>
+        <trans-unit id="d189e52d-df8c-4826-a92f-315c270b0547" xml:space="preserve">
+          <source>This install will take around 10 minutes.</source>
+          <target state="new">This install will take around 10 minutes.</target>
+        </trans-unit>
+        <trans-unit id="5f88600b-c435-463c-bb1e-7b8a1ea8a3c1" xml:space="preserve">
+          <source>Confirm your PATH variable contains entries for C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin</source>
+          <target state="new">Confirm your PATH variable contains entries for C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin</target>
+        </trans-unit>
+        <trans-unit id="87ae5a1f-3958-4187-a8d6-cc0eb50b1e1e" xml:space="preserve">
+          <source>If they are not there, make sure you add these paths!</source>
+          <target state="new">If they are not there, make sure you add these paths!</target>
+        </trans-unit>
+        <trans-unit id="85d91f22-0921-4607-83aa-a2e2859d23e5" xml:space="preserve">
+          <source><bpt id="b994bbce-e478-42a2-9b80-91048f6579ff">&lt;em&gt;</bpt>NOTE THE ORDER OF THE PATH IS IMPORTANT!<ept id="b994bbce-e478-42a2-9b80-91048f6579ff">&lt;/em&gt;</ept> If your opscode paths are not in the correct order you will have issues.</source>
+          <target state="new"><bpt id="b994bbce-e478-42a2-9b80-91048f6579ff">&lt;em&gt;</bpt>NOTE THE ORDER OF THE PATH IS IMPORTANT!<ept id="b994bbce-e478-42a2-9b80-91048f6579ff">&lt;/em&gt;</ept> If your opscode paths are not in the correct order you will have issues.</target>
+        </trans-unit>
+        <trans-unit id="a4c64d3a-d5e1-4a4b-9c9b-71c1a02ec3cb" xml:space="preserve">
+          <source>Reboot your workstation before you continue.</source>
+          <target state="new">Reboot your workstation before you continue.</target>
+        </trans-unit>
+        <trans-unit id="0ca2eb55-6309-4de7-925f-80efb0580a0f" xml:space="preserve">
+          <source>Next, we will install the Knife Azure extension.</source>
+          <target state="new">Next, we will install the Knife Azure extension.</target>
+        </trans-unit>
+        <trans-unit id="663b9238-0515-4937-9061-462ced009c45" xml:space="preserve">
+          <source>This provides Knife with the “Azure Plugin”.</source>
+          <target state="new">This provides Knife with the “Azure Plugin”.</target>
+        </trans-unit>
+        <trans-unit id="1ec4a727-03f0-4e41-bfbf-69595fe8af1f" xml:space="preserve">
+          <source>Run the following command.</source>
+          <target state="new">Run the following command.</target>
+        </trans-unit>
+        <trans-unit id="2d758bd5-364d-453e-8a8d-38716bce4578" xml:space="preserve">
+          <source>The –pre argument ensures you are receiving the latest RC version of the Knife Azure Plugin which provides access to the latest set of APIs.</source>
+          <target state="new">The –pre argument ensures you are receiving the latest RC version of the Knife Azure Plugin which provides access to the latest set of APIs.</target>
+        </trans-unit>
+        <trans-unit id="00f21227-d848-4ca4-8417-50801bd67c1c" xml:space="preserve">
+          <source>It’s likely that a number of dependencies will also be installed at the same time.</source>
+          <target state="new">It’s likely that a number of dependencies will also be installed at the same time.</target>
+        </trans-unit>
+        <trans-unit id="3034ef3b-f5ba-494c-8708-38c8cb43a067" xml:space="preserve">
+          <source><bpt id="24b51e34-5015-4425-92d3-64a90129c0ea">&lt;linkText&gt;</bpt><ept id="24b51e34-5015-4425-92d3-64a90129c0ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24b51e34-5015-4425-92d3-64a90129c0ea">&lt;linkText&gt;</bpt><ept id="24b51e34-5015-4425-92d3-64a90129c0ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94264fa0-0296-4fd4-843d-696d14d393fe" xml:space="preserve">
+          <source>To ensure everything is configured correctly, run the following command.</source>
+          <target state="new">To ensure everything is configured correctly, run the following command.</target>
+        </trans-unit>
+        <trans-unit id="31e94026-2cd7-4da1-8abb-262cde5991e4" xml:space="preserve">
+          <source>If everything is configured correctly, you will see a list of available Azure images scroll through.</source>
+          <target state="new">If everything is configured correctly, you will see a list of available Azure images scroll through.</target>
+        </trans-unit>
+        <trans-unit id="79b61ace-0501-4374-bb20-2f4f35035deb" xml:space="preserve">
+          <source>Congratulations.</source>
+          <target state="new">Congratulations.</target>
+        </trans-unit>
+        <trans-unit id="2d622c33-736f-4b74-8a6a-7514e7a85a44" xml:space="preserve">
+          <source>The workstation is set up!</source>
+          <target state="new">The workstation is set up!</target>
+        </trans-unit>
+        <trans-unit id="7727bc11-d67c-48a5-a989-1a0769c5a898" xml:space="preserve">
+          <source>A Cookbook is used by Chef to define a set of commands that you wish to execute on your managed client.</source>
+          <target state="new">A Cookbook is used by Chef to define a set of commands that you wish to execute on your managed client.</target>
+        </trans-unit>
+        <trans-unit id="211f5388-ea80-44c1-9167-4c8542f446b9" xml:space="preserve">
+          <source>Creating a Cookbook is straightforward and we use the <bpt id="8ba6344c-906d-4f89-84c4-70b89a5708fc">&lt;strong&gt;</bpt>chef generate cookbook<ept id="8ba6344c-906d-4f89-84c4-70b89a5708fc">&lt;/strong&gt;</ept> command to generate our Cookbook template.</source>
+          <target state="new">Creating a Cookbook is straightforward and we use the <bpt id="8ba6344c-906d-4f89-84c4-70b89a5708fc">&lt;strong&gt;</bpt>chef generate cookbook<ept id="8ba6344c-906d-4f89-84c4-70b89a5708fc">&lt;/strong&gt;</ept> command to generate our Cookbook template.</target>
+        </trans-unit>
+        <trans-unit id="6e508d49-8603-4697-93bd-4a9057a4ab31" xml:space="preserve">
+          <source>I will be calling my Cookbook web server as I would like a policy that automatically deploys IIS.</source>
+          <target state="new">I will be calling my Cookbook web server as I would like a policy that automatically deploys IIS.</target>
+        </trans-unit>
+        <trans-unit id="f21aa1d8-8588-495b-a483-26cf748edfff" xml:space="preserve">
+          <source>Under your C:\Chef directory run the following command.</source>
+          <target state="new">Under your C:\Chef directory run the following command.</target>
+        </trans-unit>
+        <trans-unit id="aaf6b36d-a766-4d84-a779-e67fb636cab1" xml:space="preserve">
+          <source>This will generate a set of files under the directory C:\Chef\cookbooks\webserver.</source>
+          <target state="new">This will generate a set of files under the directory C:\Chef\cookbooks\webserver.</target>
+        </trans-unit>
+        <trans-unit id="11cb33a6-3650-4f18-9fc2-42fc779b7a6b" xml:space="preserve">
+          <source>We now need to define the set of commands we would like our Chef client to execute on our managed virtual machine.</source>
+          <target state="new">We now need to define the set of commands we would like our Chef client to execute on our managed virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7b07b5ba-4ef3-46cc-afd0-dfd13b0842ac" xml:space="preserve">
+          <source>The commands are stored in the file default.rb.</source>
+          <target state="new">The commands are stored in the file default.rb.</target>
+        </trans-unit>
+        <trans-unit id="6e130875-72fb-4fa6-bf40-5af5eb30c6bd" xml:space="preserve">
+          <source>In this file, I’ll be defining a set of commands that installs IIS, starts IIS and copies a template file to the wwwroot folder.</source>
+          <target state="new">In this file, I’ll be defining a set of commands that installs IIS, starts IIS and copies a template file to the wwwroot folder.</target>
+        </trans-unit>
+        <trans-unit id="29d40e1d-3528-467c-8284-c60db03e22c9" xml:space="preserve">
+          <source>Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.</source>
+          <target state="new">Modify the C:\chef\cookbooks\webserver\recipes\default.rb file and add the following lines.</target>
+        </trans-unit>
+        <trans-unit id="190afda1-530c-4dee-aae8-2cfe20098809" xml:space="preserve">
+          <source>Save the file once you are done.</source>
+          <target state="new">Save the file once you are done.</target>
+        </trans-unit>
+        <trans-unit id="ff372d45-04e3-4c17-979d-f5c8d93cbcf2" xml:space="preserve">
+          <source>As we mentioned previously, we need to generate a template file which will be used as our default.html page.</source>
+          <target state="new">As we mentioned previously, we need to generate a template file which will be used as our default.html page.</target>
+        </trans-unit>
+        <trans-unit id="0e572468-f598-4fe4-8c64-b2514c687958" xml:space="preserve">
+          <source>Run the following command to generate the template.</source>
+          <target state="new">Run the following command to generate the template.</target>
+        </trans-unit>
+        <trans-unit id="6a4e3163-0442-45fb-9141-6d73e5e36b23" xml:space="preserve">
+          <source>Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file.</source>
+          <target state="new">Now navigate to the C:\chef\cookbooks\webserver\templates\default\Default.htm.erb file.</target>
+        </trans-unit>
+        <trans-unit id="8bfdf3f4-3456-40f3-8275-dd1074cc6180" xml:space="preserve">
+          <source>Edit the file by adding some simple “Hello World” HTML code, and then save the file.</source>
+          <target state="new">Edit the file by adding some simple “Hello World” HTML code, and then save the file.</target>
+        </trans-unit>
+        <trans-unit id="49ec026a-b5e0-4c4e-99da-84f9f1d5f856" xml:space="preserve">
+          <source>In this step, we are taking a copy of the Cookbook that we have created on our local machine and uploading it to the Chef Hosted Server.</source>
+          <target state="new">In this step, we are taking a copy of the Cookbook that we have created on our local machine and uploading it to the Chef Hosted Server.</target>
+        </trans-unit>
+        <trans-unit id="8f88b7a3-e0d7-412e-9cf7-51c91800121e" xml:space="preserve">
+          <source>Once uploaded, the Cookbook will appear under the <bpt id="c133d225-e065-4f5f-8c92-97a1938f60d5">&lt;strong&gt;</bpt>Policy<ept id="c133d225-e065-4f5f-8c92-97a1938f60d5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Once uploaded, the Cookbook will appear under the <bpt id="c133d225-e065-4f5f-8c92-97a1938f60d5">&lt;strong&gt;</bpt>Policy<ept id="c133d225-e065-4f5f-8c92-97a1938f60d5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="aa7444a6-87ab-4f68-b5d6-6175bc5b0bba" xml:space="preserve">
+          <source><bpt id="72d264b6-6048-4316-8088-b6a0151bbe99">&lt;linkText&gt;</bpt><ept id="72d264b6-6048-4316-8088-b6a0151bbe99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72d264b6-6048-4316-8088-b6a0151bbe99">&lt;linkText&gt;</bpt><ept id="72d264b6-6048-4316-8088-b6a0151bbe99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34d0caed-c524-4684-9ce0-547e0077f212" xml:space="preserve">
+          <source>We will now deploy an Azure virtual machine and apply the “Webserver” Cookbook which will install our IIS web service and default web page.</source>
+          <target state="new">We will now deploy an Azure virtual machine and apply the “Webserver” Cookbook which will install our IIS web service and default web page.</target>
+        </trans-unit>
+        <trans-unit id="bda70425-62b5-48d2-9730-31399687e52f" xml:space="preserve">
+          <source>In order to do this, use the <bpt id="8496444c-048b-420b-aaaa-f8391d27a1ac">&lt;strong&gt;</bpt>knife azure server create<ept id="8496444c-048b-420b-aaaa-f8391d27a1ac">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">In order to do this, use the <bpt id="8496444c-048b-420b-aaaa-f8391d27a1ac">&lt;strong&gt;</bpt>knife azure server create<ept id="8496444c-048b-420b-aaaa-f8391d27a1ac">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="baec7c56-d3c9-4d46-80ad-ea6a984e063f" xml:space="preserve">
+          <source>Am example of the command appears next.</source>
+          <target state="new">Am example of the command appears next.</target>
+        </trans-unit>
+        <trans-unit id="6359a9d9-3dbb-43e9-9b88-df9b5779699d" xml:space="preserve">
+          <source>The parameters are self-explanatory.</source>
+          <target state="new">The parameters are self-explanatory.</target>
+        </trans-unit>
+        <trans-unit id="abd426d9-1691-40cd-b528-7814ce9ede53" xml:space="preserve">
+          <source>Substitute your particular variables and run.</source>
+          <target state="new">Substitute your particular variables and run.</target>
+        </trans-unit>
+        <trans-unit id="37ec5b98-61b4-48a2-ac4f-83fe85d786e6" xml:space="preserve">
+          <source>Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter.</source>
+          <target state="new">Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter.</target>
+        </trans-unit>
+        <trans-unit id="0b9a91c0-d25a-4b30-80f0-f6625f1c3928" xml:space="preserve">
+          <source>I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.</source>
+          <target state="new">I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.</target>
+        </trans-unit>
+        <trans-unit id="a0bb0786-bd34-403a-a5df-86c69be66d53" xml:space="preserve">
+          <source>Once you run the command, go to the Azure portal and you will see your machine begin to provision.</source>
+          <target state="new">Once you run the command, go to the Azure portal and you will see your machine begin to provision.</target>
+        </trans-unit>
+        <trans-unit id="27e9afd2-0d79-4f7a-9622-bfb1d7554c2a" xml:space="preserve">
+          <source><bpt id="f59ea28d-6d85-4a6e-8b3d-ee91e4f16ac8">&lt;linkText&gt;</bpt><ept id="f59ea28d-6d85-4a6e-8b3d-ee91e4f16ac8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f59ea28d-6d85-4a6e-8b3d-ee91e4f16ac8">&lt;linkText&gt;</bpt><ept id="f59ea28d-6d85-4a6e-8b3d-ee91e4f16ac8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86744c1a-0558-41a2-886d-988feb35048a" xml:space="preserve">
+          <source>The command prompt appears next.</source>
+          <target state="new">The command prompt appears next.</target>
+        </trans-unit>
+        <trans-unit id="76cae85a-07da-4ea4-aec7-dac15c3f78f4" xml:space="preserve">
+          <source><bpt id="51d279cf-5437-4b1c-9bc2-5735435276cc">&lt;linkText&gt;</bpt><ept id="51d279cf-5437-4b1c-9bc2-5735435276cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="51d279cf-5437-4b1c-9bc2-5735435276cc">&lt;linkText&gt;</bpt><ept id="51d279cf-5437-4b1c-9bc2-5735435276cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6aad6b43-c89f-4604-a586-c97c638b8d01" xml:space="preserve">
+          <source>Once the deployment is complete, we should be able to connect to the web service over port 80 as we had opened the port when we provisioned the virtual machine with the Knife Azure command.</source>
+          <target state="new">Once the deployment is complete, we should be able to connect to the web service over port 80 as we had opened the port when we provisioned the virtual machine with the Knife Azure command.</target>
+        </trans-unit>
+        <trans-unit id="3593a29e-6871-4e5e-ad95-aea2bab79cbd" xml:space="preserve">
+          <source>As this virtual machine is the only virtual machine in my cloud service, I’ll connect it with the cloud service url.</source>
+          <target state="new">As this virtual machine is the only virtual machine in my cloud service, I’ll connect it with the cloud service url.</target>
+        </trans-unit>
+        <trans-unit id="ecd42f74-ee70-4a94-bbc5-7c4f1091d845" xml:space="preserve">
+          <source><bpt id="b1cfe3bf-a61c-4411-8648-412cae5a6ba9">&lt;linkText&gt;</bpt><ept id="b1cfe3bf-a61c-4411-8648-412cae5a6ba9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1cfe3bf-a61c-4411-8648-412cae5a6ba9">&lt;linkText&gt;</bpt><ept id="b1cfe3bf-a61c-4411-8648-412cae5a6ba9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3aa5b7a-014e-4197-bf38-73e02ce79bdd" xml:space="preserve">
+          <source>As you can see, I got creative with my HTML code.</source>
+          <target state="new">As you can see, I got creative with my HTML code.</target>
+        </trans-unit>
+        <trans-unit id="4081d29d-8246-44da-a1d6-3f32297a3a4e" xml:space="preserve">
+          <source>Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.</source>
+          <target state="new">Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.</target>
+        </trans-unit>
+        <trans-unit id="1214ec70-d6c6-424a-8a33-c30ae80c6aae" xml:space="preserve">
+          <source>I hope this has been helpful!</source>
+          <target state="new">I hope this has been helpful!</target>
+        </trans-unit>
+        <trans-unit id="7d4b3116-deb0-49f8-8768-eff61e1b2f57" xml:space="preserve">
+          <source>Go  and start your infrastructure as code journey with Azure today!</source>
+          <target state="new">Go  and start your infrastructure as code journey with Azure today!</target>
+        </trans-unit>
+        <trans-unit id="66926991-1d85-4eaf-843b-acd9abdc7636" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/2.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/2.png</target>
+        </trans-unit>
+        <trans-unit id="b8f74819-15af-4c47-b1b5-fd75f69780a9" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/3.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/3.png</target>
+        </trans-unit>
+        <trans-unit id="0699128a-2d3d-49c2-8b61-e913d0ad3a01" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/4.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/4.png</target>
+        </trans-unit>
+        <trans-unit id="86ab8365-4258-4728-b266-b85a0958cfdb" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/5.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/5.png</target>
+        </trans-unit>
+        <trans-unit id="66e5c1a9-9afd-41bc-9b1e-29e5b6c48473" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/6.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/6.png</target>
+        </trans-unit>
+        <trans-unit id="45ca0d2c-7b3c-4ba2-8892-3433f851ce06" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/7.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/7.png</target>
+        </trans-unit>
+        <trans-unit id="1a34a06b-b95f-4c02-b006-5743920d3451" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/8.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/8.png</target>
+        </trans-unit>
+        <trans-unit id="6a0cfa3e-c81e-4871-84fe-51696dbff8ce" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/9.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/9.png</target>
+        </trans-unit>
+        <trans-unit id="035d7708-3852-4f73-b52d-30242d308507" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/10.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/10.png</target>
+        </trans-unit>
+        <trans-unit id="b518bcda-1597-414f-a3b3-3f07e64386b9" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/11.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/11.png</target>
+        </trans-unit>
+        <trans-unit id="399cebe9-de85-4508-b1f0-f1d33bdd0993" xml:space="preserve">
+          <source>./media/virtual-machines-automation-with-chef/13.png</source>
+          <target state="new">./media/virtual-machines-automation-with-chef/13.png</target>
+        </trans-unit>
+      </group>
+      <group id="6d93449d-be0b-4c4c-b155-5af2b01eb8c4" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="a60c01c4-66e5-4a7b-97c0-0f61ebb92a70" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="a60c01c4-66e5-4a7b-97c0-0f61ebb92a70" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8bf66ba9-5ad0-4a9a-a23d-f51d3d294d4d">
+        <trans-unit id="2f17b6b3-c43b-4cbf-8b8c-9eb9b201a7c0" xml:space="preserve">
+          <source>How to Use Azure Redis Cache</source>
+          <target state="new">How to Use Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="34516721-f50a-4767-99d9-86bb946180fc" xml:space="preserve">
+          <source>Learn how to improve the performance of your Azure applications with Azure Redis Cache</source>
+          <target state="new">Learn how to improve the performance of your Azure applications with Azure Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="c7a1cbb8-cc0c-4837-945d-0b80de7cc1e4" xml:space="preserve">
+          <source>This guide shows you how to get started using 
+<bpt id="8aa6fd0f-8343-44a7-86c8-593f38613da3">&lt;strong&gt;</bpt>Azure Redis Cache<ept id="8aa6fd0f-8343-44a7-86c8-593f38613da3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This guide shows you how to get started using 
+<bpt id="8aa6fd0f-8343-44a7-86c8-593f38613da3">&lt;strong&gt;</bpt>Azure Redis Cache<ept id="8aa6fd0f-8343-44a7-86c8-593f38613da3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ce49d25-c36e-4964-92c9-4ca604617b23" xml:space="preserve">
+          <source>The samples are written in C\# code and
+use the <bpt id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;linkText&gt;</bpt>StackExchange.Redis<ept id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;/linkText&gt;</ept><bpt id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;title&gt;</bpt><ept id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;/title&gt;</ept> client.</source>
+          <target state="new">The samples are written in C\# code and
+use the <bpt id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;linkText&gt;</bpt>StackExchange.Redis<ept id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;/linkText&gt;</ept><bpt id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;title&gt;</bpt><ept id="bc0d1dfa-ca5b-4c63-91a2-32acbea150d7">&lt;/title&gt;</ept> client.</target>
+        </trans-unit>
+        <trans-unit id="88de1847-9e58-4993-8b5e-b8c126dfedb1" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="8b1ff706-f833-47d1-a2a9-132d3fbb6550">&lt;strong&gt;</bpt>creating and configuring a cache<ept id="8b1ff706-f833-47d1-a2a9-132d3fbb6550">&lt;/strong&gt;</ept>, <bpt id="1a7972c1-981e-4699-ab00-e6d2361776cc">&lt;strong&gt;</bpt>configuring cache clients<ept id="1a7972c1-981e-4699-ab00-e6d2361776cc">&lt;/strong&gt;</ept>, <bpt id="108e3c0a-bf08-41cf-9d0c-bd3d395a3e20">&lt;strong&gt;</bpt>adding and removing objects from the cache<ept id="108e3c0a-bf08-41cf-9d0c-bd3d395a3e20">&lt;/strong&gt;</ept>, and <bpt id="5982c48d-665e-4c26-9849-a126d11d2a85">&lt;strong&gt;</bpt>storing ASP.NET session state in the cache<ept id="5982c48d-665e-4c26-9849-a126d11d2a85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="8b1ff706-f833-47d1-a2a9-132d3fbb6550">&lt;strong&gt;</bpt>creating and configuring a cache<ept id="8b1ff706-f833-47d1-a2a9-132d3fbb6550">&lt;/strong&gt;</ept>, <bpt id="1a7972c1-981e-4699-ab00-e6d2361776cc">&lt;strong&gt;</bpt>configuring cache clients<ept id="1a7972c1-981e-4699-ab00-e6d2361776cc">&lt;/strong&gt;</ept>, <bpt id="108e3c0a-bf08-41cf-9d0c-bd3d395a3e20">&lt;strong&gt;</bpt>adding and removing objects from the cache<ept id="108e3c0a-bf08-41cf-9d0c-bd3d395a3e20">&lt;/strong&gt;</ept>, and <bpt id="5982c48d-665e-4c26-9849-a126d11d2a85">&lt;strong&gt;</bpt>storing ASP.NET session state in the cache<ept id="5982c48d-665e-4c26-9849-a126d11d2a85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b44fdc31-c9ba-4e51-92be-aa083c4dcbee" xml:space="preserve">
+          <source>For more
+information on using Azure Redis Cache, refer to the <bpt id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;linkText&gt;</bpt>Next Steps<ept id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;/linkText&gt;</ept><bpt id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;title&gt;</bpt><ept id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more
+information on using Azure Redis Cache, refer to the <bpt id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;linkText&gt;</bpt>Next Steps<ept id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;/linkText&gt;</ept><bpt id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;title&gt;</bpt><ept id="9455efa1-2216-48ee-821b-2506d90d6c44">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="9b182eab-bf87-43a5-8264-853c70db9ee2" xml:space="preserve">
+          <source><bpt id="128e96a2-0261-4e08-b0b6-e5b87ca0e607">&lt;bookmark&gt;</bpt><ept id="128e96a2-0261-4e08-b0b6-e5b87ca0e607">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="128e96a2-0261-4e08-b0b6-e5b87ca0e607">&lt;bookmark&gt;</bpt><ept id="128e96a2-0261-4e08-b0b6-e5b87ca0e607">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fa9aa0f-5c03-4568-9140-f410600b2fe8" xml:space="preserve">
+          <source>Microsoft Azure Redis Cache is based on the popular open source Redis Cache.</source>
+          <target state="new">Microsoft Azure Redis Cache is based on the popular open source Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="43122fba-7579-4c27-b3ee-8aaa0765a892" xml:space="preserve">
+          <source>It gives you access to a secure, dedicated Redis cache, managed by Microsoft.</source>
+          <target state="new">It gives you access to a secure, dedicated Redis cache, managed by Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="eb8e89ae-00a9-490c-949d-890d1c7ded4f" xml:space="preserve">
+          <source>A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.</source>
+          <target state="new">A cache created using Azure Redis Cache is accessible from any application within Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="ffb7ac9f-2a45-47f6-a119-133322a5c833" xml:space="preserve">
+          <source>Microsoft Azure Redis Cache is available in two tiers:</source>
+          <target state="new">Microsoft Azure Redis Cache is available in two tiers:</target>
+        </trans-unit>
+        <trans-unit id="85191d6c-e6c8-457e-af3f-0516e11f5856" xml:space="preserve">
+          <source><bpt id="a557d866-7934-4a06-a210-a0859dfdd0ff">&lt;strong&gt;</bpt>Basic<ept id="a557d866-7934-4a06-a210-a0859dfdd0ff">&lt;/strong&gt;</ept> – Single node.</source>
+          <target state="new"><bpt id="a557d866-7934-4a06-a210-a0859dfdd0ff">&lt;strong&gt;</bpt>Basic<ept id="a557d866-7934-4a06-a210-a0859dfdd0ff">&lt;/strong&gt;</ept> – Single node.</target>
+        </trans-unit>
+        <trans-unit id="5762d2b3-b212-489e-af10-97ae54b5f6cf" xml:space="preserve">
+          <source>Multiple sizes up to 53 GB.</source>
+          <target state="new">Multiple sizes up to 53 GB.</target>
+        </trans-unit>
+        <trans-unit id="6dc8d33b-1c55-4bcb-9feb-0f3d69292067" xml:space="preserve">
+          <source><bpt id="09a008db-a0d6-4aac-b673-c8c0be04bc09">&lt;strong&gt;</bpt>Standard<ept id="09a008db-a0d6-4aac-b673-c8c0be04bc09">&lt;/strong&gt;</ept> – Two-node Primary/Replica.</source>
+          <target state="new"><bpt id="09a008db-a0d6-4aac-b673-c8c0be04bc09">&lt;strong&gt;</bpt>Standard<ept id="09a008db-a0d6-4aac-b673-c8c0be04bc09">&lt;/strong&gt;</ept> – Two-node Primary/Replica.</target>
+        </trans-unit>
+        <trans-unit id="d4381cf3-a0ac-4a10-8712-9fdddb20ee55" xml:space="preserve">
+          <source>Multiple sizes up to 53 GB. 99.9% SLA.</source>
+          <target state="new">Multiple sizes up to 53 GB. 99.9% SLA.</target>
+        </trans-unit>
+        <trans-unit id="d2fac687-e298-48cb-96e3-510e1be3b915" xml:space="preserve">
+          <source>Each tier differs in terms of features and pricing.</source>
+          <target state="new">Each tier differs in terms of features and pricing.</target>
+        </trans-unit>
+        <trans-unit id="82a65e02-d6d9-4f8e-bc7b-c8ac3df7cb86" xml:space="preserve">
+          <source>The features are covered later in this guide, and for more information on pricing, see <bpt id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;linkText&gt;</bpt>Cache Pricing Details<ept id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;/linkText&gt;</ept><bpt id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;title&gt;</bpt><ept id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;/title&gt;</ept>.</source>
+          <target state="new">The features are covered later in this guide, and for more information on pricing, see <bpt id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;linkText&gt;</bpt>Cache Pricing Details<ept id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;/linkText&gt;</ept><bpt id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;title&gt;</bpt><ept id="02f45f7a-0e27-4e20-ac51-1d4ef17afd35">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70613d34-3067-4d97-9cf2-70aa3d527251" xml:space="preserve">
+          <source>This guide provides an overview of getting started with Azure Redis Cache.</source>
+          <target state="new">This guide provides an overview of getting started with Azure Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="8e827d9e-aa2b-482d-8b16-5b94e7633218" xml:space="preserve">
+          <source>For more detailed information on these features that are beyond the scope of this getting started guide, see <bpt id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;linkText&gt;</bpt>Overview of Azure Redis Cache<ept id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;/linkText&gt;</ept><bpt id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;title&gt;</bpt><ept id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more detailed information on these features that are beyond the scope of this getting started guide, see <bpt id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;linkText&gt;</bpt>Overview of Azure Redis Cache<ept id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;/linkText&gt;</ept><bpt id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;title&gt;</bpt><ept id="5a17c497-ac1b-47bf-ae0c-e66df82d9712">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de4cc261-32c7-4a7a-bceb-f2e7c691d0d4" xml:space="preserve">
+          <source><bpt id="80fd0626-a12c-4eed-a744-7758fbd4b647">&lt;bookmark&gt;</bpt><ept id="80fd0626-a12c-4eed-a744-7758fbd4b647">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="80fd0626-a12c-4eed-a744-7758fbd4b647">&lt;bookmark&gt;</bpt><ept id="80fd0626-a12c-4eed-a744-7758fbd4b647">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c675ef3c-046b-4295-a629-1fba3a3708f6" xml:space="preserve">
+          <source>Getting started with Azure Redis Cache is easy.</source>
+          <target state="new">Getting started with Azure Redis Cache is easy.</target>
+        </trans-unit>
+        <trans-unit id="e4b382e9-8284-475e-af7c-bc230ce05915" xml:space="preserve">
+          <source>To get started, you provision and configure a cache.</source>
+          <target state="new">To get started, you provision and configure a cache.</target>
+        </trans-unit>
+        <trans-unit id="af16aa96-ac3a-41bb-96e2-41009cda351b" xml:space="preserve">
+          <source>Next, you configure the cache clients so they can access the cache.</source>
+          <target state="new">Next, you configure the cache clients so they can access the cache.</target>
+        </trans-unit>
+        <trans-unit id="b90962a7-57f8-406a-8cba-d94632d32578" xml:space="preserve">
+          <source>Once the cache clients are configured, you can begin working with them.</source>
+          <target state="new">Once the cache clients are configured, you can begin working with them.</target>
+        </trans-unit>
+        <trans-unit id="a2f572c1-8f69-4018-a404-af6ecc8f0d0f" xml:space="preserve">
+          <source><bpt id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;linkText&gt;</bpt>Create the cache<ept id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;/linkText&gt;</ept><bpt id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;title&gt;</bpt><ept id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;linkText&gt;</bpt>Create the cache<ept id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;/linkText&gt;</ept><bpt id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;title&gt;</bpt><ept id="d375a06c-de2a-4477-badd-c092188aaa82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca0fb74c-5294-4a16-a3cf-874c48534895" xml:space="preserve">
+          <source><bpt id="109dce20-505c-402a-8308-d13bbc131622">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="109dce20-505c-402a-8308-d13bbc131622">&lt;/linkText&gt;</ept><bpt id="109dce20-505c-402a-8308-d13bbc131622">&lt;title&gt;</bpt><ept id="109dce20-505c-402a-8308-d13bbc131622">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="109dce20-505c-402a-8308-d13bbc131622">&lt;linkText&gt;</bpt>Configure the cache clients<ept id="109dce20-505c-402a-8308-d13bbc131622">&lt;/linkText&gt;</ept><bpt id="109dce20-505c-402a-8308-d13bbc131622">&lt;title&gt;</bpt><ept id="109dce20-505c-402a-8308-d13bbc131622">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35a204a6-4179-441c-b3a8-1eef22e60883" xml:space="preserve">
+          <source><bpt id="3c091017-ab15-4658-aa76-2c402ecee56b">&lt;bookmark&gt;</bpt><ept id="3c091017-ab15-4658-aa76-2c402ecee56b">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="3c091017-ab15-4658-aa76-2c402ecee56b">&lt;bookmark&gt;</bpt><ept id="3c091017-ab15-4658-aa76-2c402ecee56b">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be8c3758-0c64-46f8-9310-ee5713e9f9e6" xml:space="preserve">
+          <source>To create a cache, first sign in to the <bpt id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;linkText&gt;</bpt>Azure preview portal<ept id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;/linkText&gt;</ept><bpt id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;title&gt;</bpt><ept id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;/title&gt;</ept>, and click <bpt id="c178fd2b-493b-4768-88a0-c436fd2a4d30">&lt;strong&gt;</bpt>New<ept id="c178fd2b-493b-4768-88a0-c436fd2a4d30">&lt;/strong&gt;</ept>, <bpt id="bb7ab615-91a7-4d32-bdc5-3a617f36197e">&lt;strong&gt;</bpt>Data + Storage<ept id="bb7ab615-91a7-4d32-bdc5-3a617f36197e">&lt;/strong&gt;</ept>, <bpt id="ac589b30-eddb-40c1-872c-f600bcbf5b55">&lt;strong&gt;</bpt>Redis Cache<ept id="ac589b30-eddb-40c1-872c-f600bcbf5b55">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create a cache, first sign in to the <bpt id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;linkText&gt;</bpt>Azure preview portal<ept id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;/linkText&gt;</ept><bpt id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;title&gt;</bpt><ept id="bfd9fedc-21fc-45f9-beee-36294f5f2773">&lt;/title&gt;</ept>, and click <bpt id="c178fd2b-493b-4768-88a0-c436fd2a4d30">&lt;strong&gt;</bpt>New<ept id="c178fd2b-493b-4768-88a0-c436fd2a4d30">&lt;/strong&gt;</ept>, <bpt id="bb7ab615-91a7-4d32-bdc5-3a617f36197e">&lt;strong&gt;</bpt>Data + Storage<ept id="bb7ab615-91a7-4d32-bdc5-3a617f36197e">&lt;/strong&gt;</ept>, <bpt id="ac589b30-eddb-40c1-872c-f600bcbf5b55">&lt;strong&gt;</bpt>Redis Cache<ept id="ac589b30-eddb-40c1-872c-f600bcbf5b55">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3d3f50d-81e5-4c50-a98d-34c19cbfffa2" xml:space="preserve">
+          <source><bpt id="e5ac7e1a-4f80-44fe-9eb2-4c6bdd96235b">&lt;linkText&gt;</bpt>New cache<ept id="e5ac7e1a-4f80-44fe-9eb2-4c6bdd96235b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5ac7e1a-4f80-44fe-9eb2-4c6bdd96235b">&lt;linkText&gt;</bpt>New cache<ept id="e5ac7e1a-4f80-44fe-9eb2-4c6bdd96235b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49355b6f-9705-4470-bca6-b9450a47d1db" xml:space="preserve">
+          <source>If you don't have an Azure account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an Azure account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="7b96ecc6-0623-462f-ba0b-931a88258842" xml:space="preserve">
+          <source>For details, see <bpt id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;/linkText&gt;</ept><bpt id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;title&gt;</bpt><ept id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;/linkText&gt;</ept><bpt id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;title&gt;</bpt><ept id="791b3638-a0c3-49a4-be4e-cfab25e9022e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2dd53a2b-66fc-478e-82e4-c82441e81b0a" xml:space="preserve">
+          <source>In the <bpt id="8267eec1-9701-40b6-b8ae-ad06a7f3a117">&lt;strong&gt;</bpt>New Redis Cache<ept id="8267eec1-9701-40b6-b8ae-ad06a7f3a117">&lt;/strong&gt;</ept> blade, specify the desired configuration for the cache.</source>
+          <target state="new">In the <bpt id="8267eec1-9701-40b6-b8ae-ad06a7f3a117">&lt;strong&gt;</bpt>New Redis Cache<ept id="8267eec1-9701-40b6-b8ae-ad06a7f3a117">&lt;/strong&gt;</ept> blade, specify the desired configuration for the cache.</target>
+        </trans-unit>
+        <trans-unit id="e19c7002-efb1-49fc-a4ad-06a0d514e682" xml:space="preserve">
+          <source><bpt id="383a4c82-003b-49f3-82e7-c2edd4c005fb">&lt;linkText&gt;</bpt>Create cache<ept id="383a4c82-003b-49f3-82e7-c2edd4c005fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="383a4c82-003b-49f3-82e7-c2edd4c005fb">&lt;linkText&gt;</bpt>Create cache<ept id="383a4c82-003b-49f3-82e7-c2edd4c005fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db532ddf-e0d0-44dd-9e43-40968b745841" xml:space="preserve">
+          <source>In <bpt id="5dc6668b-6d2e-40ce-ae0e-b1bfc1feedc6">&lt;strong&gt;</bpt>Dns name<ept id="5dc6668b-6d2e-40ce-ae0e-b1bfc1feedc6">&lt;/strong&gt;</ept>, enter a subdomain name to use for the cache endpoint.</source>
+          <target state="new">In <bpt id="5dc6668b-6d2e-40ce-ae0e-b1bfc1feedc6">&lt;strong&gt;</bpt>Dns name<ept id="5dc6668b-6d2e-40ce-ae0e-b1bfc1feedc6">&lt;/strong&gt;</ept>, enter a subdomain name to use for the cache endpoint.</target>
+        </trans-unit>
+        <trans-unit id="b8241b8e-7003-4c32-b3a2-c539760358a5" xml:space="preserve">
+          <source>The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.</source>
+          <target state="new">The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.</target>
+        </trans-unit>
+        <trans-unit id="7e902ac0-4081-4348-a7ea-8d9d39d5f392" xml:space="preserve">
+          <source>Use <bpt id="13d375ae-7327-4a74-86ba-3fc9aa4eeaf4">&lt;strong&gt;</bpt>Pricing Tier<ept id="13d375ae-7327-4a74-86ba-3fc9aa4eeaf4">&lt;/strong&gt;</ept> to select the desired cache size and features.</source>
+          <target state="new">Use <bpt id="13d375ae-7327-4a74-86ba-3fc9aa4eeaf4">&lt;strong&gt;</bpt>Pricing Tier<ept id="13d375ae-7327-4a74-86ba-3fc9aa4eeaf4">&lt;/strong&gt;</ept> to select the desired cache size and features.</target>
+        </trans-unit>
+        <trans-unit id="7442bca3-0eee-48b0-a681-21874ca4131b" xml:space="preserve">
+          <source><bpt id="da21544f-38dd-4a23-8724-983c2c087e2e">&lt;strong&gt;</bpt>Basic<ept id="da21544f-38dd-4a23-8724-983c2c087e2e">&lt;/strong&gt;</ept> caches have a single node with multiple sizes up to 53 GB.</source>
+          <target state="new"><bpt id="da21544f-38dd-4a23-8724-983c2c087e2e">&lt;strong&gt;</bpt>Basic<ept id="da21544f-38dd-4a23-8724-983c2c087e2e">&lt;/strong&gt;</ept> caches have a single node with multiple sizes up to 53 GB.</target>
+        </trans-unit>
+        <trans-unit id="b92b16f4-3de8-4d9a-b2e5-f1261725e30e" xml:space="preserve">
+          <source><bpt id="1a401d5b-0cd3-43ee-b268-dff80e359540">&lt;strong&gt;</bpt>Standard<ept id="1a401d5b-0cd3-43ee-b268-dff80e359540">&lt;/strong&gt;</ept> caches have a two node primary/replica configuration with a 99.9% SLA, and multiple sizes up to 53 GB.</source>
+          <target state="new"><bpt id="1a401d5b-0cd3-43ee-b268-dff80e359540">&lt;strong&gt;</bpt>Standard<ept id="1a401d5b-0cd3-43ee-b268-dff80e359540">&lt;/strong&gt;</ept> caches have a two node primary/replica configuration with a 99.9% SLA, and multiple sizes up to 53 GB.</target>
+        </trans-unit>
+        <trans-unit id="05eaffcb-827b-4c28-ae35-57a037fa453d" xml:space="preserve">
+          <source>In <bpt id="176e8589-71eb-4200-85a3-ed453b7ada51">&lt;strong&gt;</bpt>Resource group<ept id="176e8589-71eb-4200-85a3-ed453b7ada51">&lt;/strong&gt;</ept>, select or create a resource group for your cache.</source>
+          <target state="new">In <bpt id="176e8589-71eb-4200-85a3-ed453b7ada51">&lt;strong&gt;</bpt>Resource group<ept id="176e8589-71eb-4200-85a3-ed453b7ada51">&lt;/strong&gt;</ept>, select or create a resource group for your cache.</target>
+        </trans-unit>
+        <trans-unit id="fe69418a-316c-4524-baf8-89ab4968b919" xml:space="preserve">
+          <source>For more information, see <bpt id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;/linkText&gt;</ept><bpt id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;title&gt;</bpt><ept id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;linkText&gt;</bpt>Using Resource groups to manage your Azure resources<ept id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;/linkText&gt;</ept><bpt id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;title&gt;</bpt><ept id="d3ac6dbe-6d98-444a-8073-6fc87765e8d0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87132b71-bcb3-4db3-b56a-0cd7d4893dbb" xml:space="preserve">
+          <source>For <bpt id="8132ff0e-ee20-4c8c-a5b2-1dc9e05cab80">&lt;strong&gt;</bpt>Subscription<ept id="8132ff0e-ee20-4c8c-a5b2-1dc9e05cab80">&lt;/strong&gt;</ept>, select the Azure subscription that you want to use for the cache.</source>
+          <target state="new">For <bpt id="8132ff0e-ee20-4c8c-a5b2-1dc9e05cab80">&lt;strong&gt;</bpt>Subscription<ept id="8132ff0e-ee20-4c8c-a5b2-1dc9e05cab80">&lt;/strong&gt;</ept>, select the Azure subscription that you want to use for the cache.</target>
+        </trans-unit>
+        <trans-unit id="798e7a47-97e3-4852-acc4-8548e0cb950f" xml:space="preserve">
+          <source>If your account has only one subscription, it will be automatically selected and the <bpt id="4a6ac87b-20c1-4f3b-8e0c-3bf3b13af21a">&lt;strong&gt;</bpt>Subscription<ept id="4a6ac87b-20c1-4f3b-8e0c-3bf3b13af21a">&lt;/strong&gt;</ept> drop-down will not be displayed.</source>
+          <target state="new">If your account has only one subscription, it will be automatically selected and the <bpt id="4a6ac87b-20c1-4f3b-8e0c-3bf3b13af21a">&lt;strong&gt;</bpt>Subscription<ept id="4a6ac87b-20c1-4f3b-8e0c-3bf3b13af21a">&lt;/strong&gt;</ept> drop-down will not be displayed.</target>
+        </trans-unit>
+        <trans-unit id="f27e8c99-cde9-4e32-b83a-e28f6696a70e" xml:space="preserve">
+          <source>Use <bpt id="ac7d8b6e-9673-4394-a9e4-7a9e4daf0949">&lt;strong&gt;</bpt>Location<ept id="ac7d8b6e-9673-4394-a9e4-7a9e4daf0949">&lt;/strong&gt;</ept> to specify the geographic location in which your cache is hosted.</source>
+          <target state="new">Use <bpt id="ac7d8b6e-9673-4394-a9e4-7a9e4daf0949">&lt;strong&gt;</bpt>Location<ept id="ac7d8b6e-9673-4394-a9e4-7a9e4daf0949">&lt;/strong&gt;</ept> to specify the geographic location in which your cache is hosted.</target>
+        </trans-unit>
+        <trans-unit id="b849797a-0e04-4309-afb0-7f6b89826b70" xml:space="preserve">
+          <source>For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.</source>
+          <target state="new">For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.</target>
+        </trans-unit>
+        <trans-unit id="f93e09f6-18b5-462a-ac6f-272a21fbc7dc" xml:space="preserve">
+          <source>Once the new cache options are configured, click <bpt id="c4b98d70-9169-4db0-aa7d-0febab2212fc">&lt;strong&gt;</bpt>Create<ept id="c4b98d70-9169-4db0-aa7d-0febab2212fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the new cache options are configured, click <bpt id="c4b98d70-9169-4db0-aa7d-0febab2212fc">&lt;strong&gt;</bpt>Create<ept id="c4b98d70-9169-4db0-aa7d-0febab2212fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35cf2b06-4f41-4559-94f1-33a2b0e4068e" xml:space="preserve">
+          <source>It can take a few minutes for the cache to be created.</source>
+          <target state="new">It can take a few minutes for the cache to be created.</target>
+        </trans-unit>
+        <trans-unit id="011237b3-78bc-4aa6-802d-24bcda1c0396" xml:space="preserve">
+          <source>To check the status, you can monitor the progress on the startboard.</source>
+          <target state="new">To check the status, you can monitor the progress on the startboard.</target>
+        </trans-unit>
+        <trans-unit id="ddcfef55-3772-4bbc-b947-06ed25787ad4" xml:space="preserve">
+          <source>After the cache has been created, your new cache has a <bpt id="66aba7e5-4c4e-485a-86b5-3b821bc3d686">&lt;strong&gt;</bpt>Running<ept id="66aba7e5-4c4e-485a-86b5-3b821bc3d686">&lt;/strong&gt;</ept> status and is ready for use with default settings.</source>
+          <target state="new">After the cache has been created, your new cache has a <bpt id="66aba7e5-4c4e-485a-86b5-3b821bc3d686">&lt;strong&gt;</bpt>Running<ept id="66aba7e5-4c4e-485a-86b5-3b821bc3d686">&lt;/strong&gt;</ept> status and is ready for use with default settings.</target>
+        </trans-unit>
+        <trans-unit id="d14e00a4-cf3b-4d85-b76a-93e995ac3775" xml:space="preserve">
+          <source><bpt id="79c66730-bc11-4b22-8d7c-dcb83626548a">&lt;linkText&gt;</bpt>Cache created<ept id="79c66730-bc11-4b22-8d7c-dcb83626548a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79c66730-bc11-4b22-8d7c-dcb83626548a">&lt;linkText&gt;</bpt>Cache created<ept id="79c66730-bc11-4b22-8d7c-dcb83626548a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b23f271-0ab3-4ba7-b8c8-23a41580fbf5" xml:space="preserve">
+          <source>Once your cache is created, you can access it from the <bpt id="b2f11cae-c1b2-492b-b7db-cfa3f0ea0b72">&lt;strong&gt;</bpt>Browse<ept id="b2f11cae-c1b2-492b-b7db-cfa3f0ea0b72">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">Once your cache is created, you can access it from the <bpt id="b2f11cae-c1b2-492b-b7db-cfa3f0ea0b72">&lt;strong&gt;</bpt>Browse<ept id="b2f11cae-c1b2-492b-b7db-cfa3f0ea0b72">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="3ac5bbec-08c5-46bd-a580-fcdb98e8a611" xml:space="preserve">
+          <source><bpt id="ac7e995c-f072-48d3-9e92-4a553e31ee52">&lt;linkText&gt;</bpt>Browse blade<ept id="ac7e995c-f072-48d3-9e92-4a553e31ee52">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ac7e995c-f072-48d3-9e92-4a553e31ee52">&lt;linkText&gt;</bpt>Browse blade<ept id="ac7e995c-f072-48d3-9e92-4a553e31ee52">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0781d600-3541-4735-8c5d-9301ea622ad2" xml:space="preserve">
+          <source>Click <bpt id="8f1f6bc7-fa11-45dc-b365-fd80c13bfbc0">&lt;strong&gt;</bpt>Redis Caches<ept id="8f1f6bc7-fa11-45dc-b365-fd80c13bfbc0">&lt;/strong&gt;</ept> to view your caches.</source>
+          <target state="new">Click <bpt id="8f1f6bc7-fa11-45dc-b365-fd80c13bfbc0">&lt;strong&gt;</bpt>Redis Caches<ept id="8f1f6bc7-fa11-45dc-b365-fd80c13bfbc0">&lt;/strong&gt;</ept> to view your caches.</target>
+        </trans-unit>
+        <trans-unit id="4768a5dd-3a08-4c9d-af4e-b0a51c5b8138" xml:space="preserve">
+          <source><bpt id="d625cc1a-70c3-442c-b5ce-99e9ce9275e6">&lt;linkText&gt;</bpt>Caches<ept id="d625cc1a-70c3-442c-b5ce-99e9ce9275e6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d625cc1a-70c3-442c-b5ce-99e9ce9275e6">&lt;linkText&gt;</bpt>Caches<ept id="d625cc1a-70c3-442c-b5ce-99e9ce9275e6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce1ba79f-5c35-4081-b816-076e35d77b47" xml:space="preserve">
+          <source><bpt id="b189dd25-2f05-4498-86ea-7be7030ad243">&lt;bookmark&gt;</bpt><ept id="b189dd25-2f05-4498-86ea-7be7030ad243">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="b189dd25-2f05-4498-86ea-7be7030ad243">&lt;bookmark&gt;</bpt><ept id="b189dd25-2f05-4498-86ea-7be7030ad243">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c5e96dc-16ca-439a-afcf-db0249181cca" xml:space="preserve">
+          <source>A cache created using Azure Redis Cache is accessible from any Azure application.</source>
+          <target state="new">A cache created using Azure Redis Cache is accessible from any Azure application.</target>
+        </trans-unit>
+        <trans-unit id="125426b7-2e0c-41fa-82f6-7dcf6fd1b1ac" xml:space="preserve">
+          <source>.NET applications developed in Visual Studio can use the <bpt id="f3ff422f-bf5b-47af-979a-9dfb4683abfa">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="f3ff422f-bf5b-47af-979a-9dfb4683abfa">&lt;/strong&gt;</ept> cache client, which can be configured using a NuGet package that simplifies the configuration of cache client applications.</source>
+          <target state="new">.NET applications developed in Visual Studio can use the <bpt id="f3ff422f-bf5b-47af-979a-9dfb4683abfa">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="f3ff422f-bf5b-47af-979a-9dfb4683abfa">&lt;/strong&gt;</ept> cache client, which can be configured using a NuGet package that simplifies the configuration of cache client applications.</target>
+        </trans-unit>
+        <trans-unit id="3c4f004f-ad33-4067-b048-93a57ca12a52" xml:space="preserve">
+          <source>For more information, see the <bpt id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;linkText&gt;</bpt>StackExchange.Redis<ept id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;/linkText&gt;</ept><bpt id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;title&gt;</bpt><ept id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;/title&gt;</ept> github page and  the <bpt id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;linkText&gt;</bpt>StackExchange.Redis cache client documentation<ept id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;/linkText&gt;</ept><bpt id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;title&gt;</bpt><ept id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the <bpt id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;linkText&gt;</bpt>StackExchange.Redis<ept id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;/linkText&gt;</ept><bpt id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;title&gt;</bpt><ept id="c8997dd6-ad97-453b-9c3d-cfd1ba96f2cd">&lt;/title&gt;</ept> github page and  the <bpt id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;linkText&gt;</bpt>StackExchange.Redis cache client documentation<ept id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;/linkText&gt;</ept><bpt id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;title&gt;</bpt><ept id="20917c62-e51b-4aa4-a95a-e05004818db1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10127e4a-61f2-4d12-9344-c8fd3a290ef8" xml:space="preserve">
+          <source>To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in <bpt id="e2e98a6c-4c08-4862-99c6-0c589b832aba">&lt;strong&gt;</bpt>Solution Explorer<ept id="e2e98a6c-4c08-4862-99c6-0c589b832aba">&lt;/strong&gt;</ept> and choose <bpt id="5ec01a1e-a264-4522-84fe-1334b81236d5">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="5ec01a1e-a264-4522-84fe-1334b81236d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in <bpt id="e2e98a6c-4c08-4862-99c6-0c589b832aba">&lt;strong&gt;</bpt>Solution Explorer<ept id="e2e98a6c-4c08-4862-99c6-0c589b832aba">&lt;/strong&gt;</ept> and choose <bpt id="5ec01a1e-a264-4522-84fe-1334b81236d5">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="5ec01a1e-a264-4522-84fe-1334b81236d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68ffd054-3ce6-48f2-998f-11d0d6e053a0" xml:space="preserve">
+          <source><bpt id="8eee8392-df6c-42c2-b8b7-90dc33f78992">&lt;linkText&gt;</bpt>Manage NuGet packages<ept id="8eee8392-df6c-42c2-b8b7-90dc33f78992">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8eee8392-df6c-42c2-b8b7-90dc33f78992">&lt;linkText&gt;</bpt>Manage NuGet packages<ept id="8eee8392-df6c-42c2-b8b7-90dc33f78992">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5fa05b8c-98d5-43bb-8745-4d112b2acf60" xml:space="preserve">
+          <source>Type <bpt id="1eb5bc88-1ccc-4d2f-a211-99765db6a489">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="1eb5bc88-1ccc-4d2f-a211-99765db6a489">&lt;/strong&gt;</ept> or <bpt id="dcae6ed5-97b4-4b18-9fd5-91cd37d57db5">&lt;strong&gt;</bpt>StackExchange.Redis.StrongName<ept id="dcae6ed5-97b4-4b18-9fd5-91cd37d57db5">&lt;/strong&gt;</ept> into the <bpt id="2aae06df-9e3b-4c13-8666-b807d4e13812">&lt;strong&gt;</bpt>Search Online<ept id="2aae06df-9e3b-4c13-8666-b807d4e13812">&lt;/strong&gt;</ept> text box, select the desired version from the results, and click <bpt id="d4206582-98e0-4fc0-bba2-34248001ecd9">&lt;strong&gt;</bpt>Install<ept id="d4206582-98e0-4fc0-bba2-34248001ecd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="1eb5bc88-1ccc-4d2f-a211-99765db6a489">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="1eb5bc88-1ccc-4d2f-a211-99765db6a489">&lt;/strong&gt;</ept> or <bpt id="dcae6ed5-97b4-4b18-9fd5-91cd37d57db5">&lt;strong&gt;</bpt>StackExchange.Redis.StrongName<ept id="dcae6ed5-97b4-4b18-9fd5-91cd37d57db5">&lt;/strong&gt;</ept> into the <bpt id="2aae06df-9e3b-4c13-8666-b807d4e13812">&lt;strong&gt;</bpt>Search Online<ept id="2aae06df-9e3b-4c13-8666-b807d4e13812">&lt;/strong&gt;</ept> text box, select the desired version from the results, and click <bpt id="d4206582-98e0-4fc0-bba2-34248001ecd9">&lt;strong&gt;</bpt>Install<ept id="d4206582-98e0-4fc0-bba2-34248001ecd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98438367-ed4a-4a27-bec5-4474cf6db90f" xml:space="preserve">
+          <source>If you prefer to use a strong-named version of the <bpt id="4c3f4097-2f35-43f5-9498-267e4cf17bcd">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="4c3f4097-2f35-43f5-9498-267e4cf17bcd">&lt;/strong&gt;</ept> client library, choose <bpt id="fb3b6a45-6257-420d-8e2f-1cc9ecf408db">&lt;strong&gt;</bpt>StackExchange.Redis.StrongName<ept id="fb3b6a45-6257-420d-8e2f-1cc9ecf408db">&lt;/strong&gt;</ept>; otherwise choose <bpt id="f1ebd376-63ef-48ff-8e9f-65bcda60cc64">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="f1ebd376-63ef-48ff-8e9f-65bcda60cc64">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you prefer to use a strong-named version of the <bpt id="4c3f4097-2f35-43f5-9498-267e4cf17bcd">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="4c3f4097-2f35-43f5-9498-267e4cf17bcd">&lt;/strong&gt;</ept> client library, choose <bpt id="fb3b6a45-6257-420d-8e2f-1cc9ecf408db">&lt;strong&gt;</bpt>StackExchange.Redis.StrongName<ept id="fb3b6a45-6257-420d-8e2f-1cc9ecf408db">&lt;/strong&gt;</ept>; otherwise choose <bpt id="f1ebd376-63ef-48ff-8e9f-65bcda60cc64">&lt;strong&gt;</bpt>StackExchange.Redis<ept id="f1ebd376-63ef-48ff-8e9f-65bcda60cc64">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa822fa9-52b3-457c-b9f9-09fd4300d3ad" xml:space="preserve">
+          <source><bpt id="2c4ef586-8d63-4a43-955f-4cb8812c92c4">&lt;linkText&gt;</bpt>StackExchange.Redis NuGet package<ept id="2c4ef586-8d63-4a43-955f-4cb8812c92c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c4ef586-8d63-4a43-955f-4cb8812c92c4">&lt;linkText&gt;</bpt>StackExchange.Redis NuGet package<ept id="2c4ef586-8d63-4a43-955f-4cb8812c92c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa481599-b530-48b6-8425-ce372a28b445" xml:space="preserve">
+          <source>The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client.</source>
+          <target state="new">The NuGet package downloads and adds the required assembly references for your client application to access Azure Redis Cache with the StackExchange.Redis cache client.</target>
+        </trans-unit>
+        <trans-unit id="063db288-2791-41c0-8aee-b964d8c954c4" xml:space="preserve">
+          <source>Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.</source>
+          <target state="new">Once your client project is configured for caching, you can use the techniques described in the following sections for working with your cache.</target>
+        </trans-unit>
+        <trans-unit id="5a7d227b-c659-4b87-b938-df544fb261a5" xml:space="preserve">
+          <source><bpt id="e07d4fd3-789b-4e36-95ef-5beda12f4149">&lt;bookmark&gt;</bpt><ept id="e07d4fd3-789b-4e36-95ef-5beda12f4149">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="e07d4fd3-789b-4e36-95ef-5beda12f4149">&lt;bookmark&gt;</bpt><ept id="e07d4fd3-789b-4e36-95ef-5beda12f4149">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d2f1c3e-779f-4bdb-a343-24c387363aa2" xml:space="preserve">
+          <source>The steps in this section describe how to perform common tasks with Cache.</source>
+          <target state="new">The steps in this section describe how to perform common tasks with Cache.</target>
+        </trans-unit>
+        <trans-unit id="91b32e70-6040-483d-94c3-5bc54b7e4809" xml:space="preserve">
+          <source><bpt id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;linkText&gt;</bpt>Connect to the cache<ept id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;/linkText&gt;</ept><bpt id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;title&gt;</bpt><ept id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;linkText&gt;</bpt>Connect to the cache<ept id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;/linkText&gt;</ept><bpt id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;title&gt;</bpt><ept id="4887c230-07e8-4f94-9cc8-7f424f02be96">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2d274822-78a8-47f7-ae15-0bc1008a0a3f" xml:space="preserve">
+          <source><bpt id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;linkText&gt;</bpt>Add and retrieve objects from the cache<ept id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;/linkText&gt;</ept><bpt id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;title&gt;</bpt><ept id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;linkText&gt;</bpt>Add and retrieve objects from the cache<ept id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;/linkText&gt;</ept><bpt id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;title&gt;</bpt><ept id="fbc0f854-1cc2-4e6b-8898-fbd3987135a7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8357156-eeb6-443f-9d50-fbc0b86621fb" xml:space="preserve">
+          <source><bpt id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;linkText&gt;</bpt>Store ASP.NET session state in the cache<ept id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;/linkText&gt;</ept><bpt id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;title&gt;</bpt><ept id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;linkText&gt;</bpt>Store ASP.NET session state in the cache<ept id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;/linkText&gt;</ept><bpt id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;title&gt;</bpt><ept id="76035c94-b597-4a23-96ff-ba5a76b9887a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00e75ff2-35f0-4b85-bb92-e47b13ff6621" xml:space="preserve">
+          <source><bpt id="aab3cabe-5096-4471-9608-0e6833576adb">&lt;bookmark&gt;</bpt><ept id="aab3cabe-5096-4471-9608-0e6833576adb">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="aab3cabe-5096-4471-9608-0e6833576adb">&lt;bookmark&gt;</bpt><ept id="aab3cabe-5096-4471-9608-0e6833576adb">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b5aa9af-14f3-4fb9-a017-2ef56be61bd0" xml:space="preserve">
+          <source>In order to programmatically work with a cache, you need a reference to the cache.</source>
+          <target state="new">In order to programmatically work with a cache, you need a reference to the cache.</target>
+        </trans-unit>
+        <trans-unit id="8450f150-55d7-497f-aaba-30237206f2fa" xml:space="preserve">
+          <source>Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache:</source>
+          <target state="new">Add the following to the top of any file from which you want to use the StackExchange.Redis client to access an Azure Redis Cache:</target>
+        </trans-unit>
+        <trans-unit id="50e653ab-3cef-4c8c-8a95-1a8b4991fe46" xml:space="preserve">
+          <source>The StackExchange.Redis client requires .NET Framework 4 or higher.</source>
+          <target state="new">The StackExchange.Redis client requires .NET Framework 4 or higher.</target>
+        </trans-unit>
+        <trans-unit id="a06d01c1-7cae-4586-b7c4-cb78c86ccce8" xml:space="preserve">
+          <source>The connection to the Azure Redis Cache is managed by the <bpt id="a0a73eb1-a15e-47d1-bc50-9de635c89cf2">&lt;code&gt;</bpt>ConnectionMultiplexer<ept id="a0a73eb1-a15e-47d1-bc50-9de635c89cf2">&lt;/code&gt;</ept> class.</source>
+          <target state="new">The connection to the Azure Redis Cache is managed by the <bpt id="a0a73eb1-a15e-47d1-bc50-9de635c89cf2">&lt;code&gt;</bpt>ConnectionMultiplexer<ept id="a0a73eb1-a15e-47d1-bc50-9de635c89cf2">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="80154437-4f23-4a31-9955-de56d917da0d" xml:space="preserve">
+          <source>This class is designed to be shared and reused throughout your client application, and does not need to be created on a per operation basis.</source>
+          <target state="new">This class is designed to be shared and reused throughout your client application, and does not need to be created on a per operation basis.</target>
+        </trans-unit>
+        <trans-unit id="19d250c6-9727-4e8c-ace2-fa6dcd707502" xml:space="preserve">
+          <source>To connect to an Azure Redis Cache and be returned an instance of a connected <bpt id="9f33f6ed-b2b3-4c5a-a1ba-61f80687aecf">&lt;code&gt;</bpt>ConnectionMultiplexer<ept id="9f33f6ed-b2b3-4c5a-a1ba-61f80687aecf">&lt;/code&gt;</ept>, call the static <bpt id="1d29ea2f-fe01-42b0-9570-e51da7e3b176">&lt;code&gt;</bpt>Connect<ept id="1d29ea2f-fe01-42b0-9570-e51da7e3b176">&lt;/code&gt;</ept> method and pass in the cache endpoint and key like the following example.</source>
+          <target state="new">To connect to an Azure Redis Cache and be returned an instance of a connected <bpt id="9f33f6ed-b2b3-4c5a-a1ba-61f80687aecf">&lt;code&gt;</bpt>ConnectionMultiplexer<ept id="9f33f6ed-b2b3-4c5a-a1ba-61f80687aecf">&lt;/code&gt;</ept>, call the static <bpt id="1d29ea2f-fe01-42b0-9570-e51da7e3b176">&lt;code&gt;</bpt>Connect<ept id="1d29ea2f-fe01-42b0-9570-e51da7e3b176">&lt;/code&gt;</ept> method and pass in the cache endpoint and key like the following example.</target>
+        </trans-unit>
+        <trans-unit id="df70d501-9680-4bb1-9e8e-3193bbdf6d2f" xml:space="preserve">
+          <source>Use the Azure key generated from the preview portal as the password parameter.</source>
+          <target state="new">Use the Azure key generated from the preview portal as the password parameter.</target>
+        </trans-unit>
+        <trans-unit id="2109f54a-cf7a-4c8c-90df-198eaa6ea880" xml:space="preserve">
+          <source>Warning: Never store credentials in source code.</source>
+          <target state="new">Warning: Never store credentials in source code.</target>
+        </trans-unit>
+        <trans-unit id="81060f19-94fa-42b6-87f3-80cd6a60c64e" xml:space="preserve">
+          <source>To keep this sample simple, I’m showing them in the source code.</source>
+          <target state="new">To keep this sample simple, I’m showing them in the source code.</target>
+        </trans-unit>
+        <trans-unit id="9350bad3-3b01-4c89-8fe5-8a56235cb3ee" xml:space="preserve">
+          <source>See <bpt id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;linkText&gt;</bpt>How Application Strings and Connection Strings Work<ept id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;/linkText&gt;</ept><bpt id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;title&gt;</bpt><ept id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;/title&gt;</ept> for information on how to store credentials.</source>
+          <target state="new">See <bpt id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;linkText&gt;</bpt>How Application Strings and Connection Strings Work<ept id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;/linkText&gt;</ept><bpt id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;title&gt;</bpt><ept id="98e3020e-27fb-497e-b586-420f45fc1a8d">&lt;/title&gt;</ept> for information on how to store credentials.</target>
+        </trans-unit>
+        <trans-unit id="11934d49-7b79-4be4-b45b-8f4109475b9a" xml:space="preserve">
+          <source>If you don't want to use SSL, either set <bpt id="a404b500-89d2-4adf-966f-29c7d3254372">&lt;code&gt;</bpt>ssl=false<ept id="a404b500-89d2-4adf-966f-29c7d3254372">&lt;/code&gt;</ept> or omit the <bpt id="88c0020a-365d-4fbe-9edd-b5d09e0457f1">&lt;code&gt;</bpt>ssl<ept id="88c0020a-365d-4fbe-9edd-b5d09e0457f1">&lt;/code&gt;</ept> parameter.</source>
+          <target state="new">If you don't want to use SSL, either set <bpt id="a404b500-89d2-4adf-966f-29c7d3254372">&lt;code&gt;</bpt>ssl=false<ept id="a404b500-89d2-4adf-966f-29c7d3254372">&lt;/code&gt;</ept> or omit the <bpt id="88c0020a-365d-4fbe-9edd-b5d09e0457f1">&lt;code&gt;</bpt>ssl<ept id="88c0020a-365d-4fbe-9edd-b5d09e0457f1">&lt;/code&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="28f4efc4-85ee-4374-899e-f277367d5043" xml:space="preserve">
+          <source>The non-SSL port is disabled by default for new caches.</source>
+          <target state="new">The non-SSL port is disabled by default for new caches.</target>
+        </trans-unit>
+        <trans-unit id="a2826caf-6258-4325-97a4-c5b0f202d111" xml:space="preserve">
+          <source>For instructions on enabling the non-SSL port, see the Access Ports section in the <bpt id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;linkText&gt;</bpt>Configure a cache in Azure Redis Cache<ept id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;/linkText&gt;</ept><bpt id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;title&gt;</bpt><ept id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;/title&gt;</ept> topic.</source>
+          <target state="new">For instructions on enabling the non-SSL port, see the Access Ports section in the <bpt id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;linkText&gt;</bpt>Configure a cache in Azure Redis Cache<ept id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;/linkText&gt;</ept><bpt id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;title&gt;</bpt><ept id="4d5a1f6a-26f4-4977-bc0c-8e851112889b">&lt;/title&gt;</ept> topic.</target>
+        </trans-unit>
+        <trans-unit id="dcd4dd31-dfe3-4b56-8348-7bbd136e4e04" xml:space="preserve">
+          <source>For more information on advanced connection configuration options, see <bpt id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;linkText&gt;</bpt>StackExchange.Redis configuration model<ept id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;/linkText&gt;</ept><bpt id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;title&gt;</bpt><ept id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on advanced connection configuration options, see <bpt id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;linkText&gt;</bpt>StackExchange.Redis configuration model<ept id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;/linkText&gt;</ept><bpt id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;title&gt;</bpt><ept id="9e212aed-9454-49a7-9f3d-df904fa6c2f2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8010a6c8-2d7f-41b0-830d-aec8b48d4bb8" xml:space="preserve">
+          <source>The cache endpoint and keys can be obtained from the <bpt id="b851290a-38b7-4c80-aece-c46f295c8a61">&lt;strong&gt;</bpt>Redis Cache<ept id="b851290a-38b7-4c80-aece-c46f295c8a61">&lt;/strong&gt;</ept> blade for your cache instance.</source>
+          <target state="new">The cache endpoint and keys can be obtained from the <bpt id="b851290a-38b7-4c80-aece-c46f295c8a61">&lt;strong&gt;</bpt>Redis Cache<ept id="b851290a-38b7-4c80-aece-c46f295c8a61">&lt;/strong&gt;</ept> blade for your cache instance.</target>
+        </trans-unit>
+        <trans-unit id="696d8a8d-71b0-4a72-91c5-30920e069ca1" xml:space="preserve">
+          <source><bpt id="5bfc48a4-a17d-42fe-a645-8422814ecf5f">&lt;linkText&gt;</bpt>Cache properties<ept id="5bfc48a4-a17d-42fe-a645-8422814ecf5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bfc48a4-a17d-42fe-a645-8422814ecf5f">&lt;linkText&gt;</bpt>Cache properties<ept id="5bfc48a4-a17d-42fe-a645-8422814ecf5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04495ab1-8d21-439d-8034-92b0ad64b143" xml:space="preserve">
+          <source><bpt id="302d5f0f-44dc-40cb-8acc-ae6f191fe723">&lt;linkText&gt;</bpt>Manage keys<ept id="302d5f0f-44dc-40cb-8acc-ae6f191fe723">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="302d5f0f-44dc-40cb-8acc-ae6f191fe723">&lt;linkText&gt;</bpt>Manage keys<ept id="302d5f0f-44dc-40cb-8acc-ae6f191fe723">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ca787d8-f1e9-4504-838d-d5ba77700ca8" xml:space="preserve">
+          <source>Once the connection is established, return a reference to the redis cache database by calling the <bpt id="abae457c-e6da-447c-9d36-d39d50d7a8dd">&lt;code&gt;</bpt>ConnectionMultiplexer.GetDatabase<ept id="abae457c-e6da-447c-9d36-d39d50d7a8dd">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Once the connection is established, return a reference to the redis cache database by calling the <bpt id="abae457c-e6da-447c-9d36-d39d50d7a8dd">&lt;code&gt;</bpt>ConnectionMultiplexer.GetDatabase<ept id="abae457c-e6da-447c-9d36-d39d50d7a8dd">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="eae92c03-8b36-4ae3-abdf-081f7f4ec9ab" xml:space="preserve">
+          <source>The object returned from the <bpt id="563d2310-b6ef-417f-ac87-2efe608c25b6">&lt;code&gt;</bpt>GetDatabase<ept id="563d2310-b6ef-417f-ac87-2efe608c25b6">&lt;/code&gt;</ept> method is a lightweight pass-through object and does not need to be stored.</source>
+          <target state="new">The object returned from the <bpt id="563d2310-b6ef-417f-ac87-2efe608c25b6">&lt;code&gt;</bpt>GetDatabase<ept id="563d2310-b6ef-417f-ac87-2efe608c25b6">&lt;/code&gt;</ept> method is a lightweight pass-through object and does not need to be stored.</target>
+        </trans-unit>
+        <trans-unit id="0ad7aa65-67da-4b3a-a684-05713435d0a4" xml:space="preserve">
+          <source>Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's take a look at working with the cache.</source>
+          <target state="new">Now that you know how to connect to an Azure Redis Cache instance and return a reference to the cache database, let's take a look at working with the cache.</target>
+        </trans-unit>
+        <trans-unit id="536fe771-a949-43f1-8a15-0f95f329c89f" xml:space="preserve">
+          <source><bpt id="dde37bd8-3acd-4189-a823-c221f0162043">&lt;bookmark&gt;</bpt><ept id="dde37bd8-3acd-4189-a823-c221f0162043">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="dde37bd8-3acd-4189-a823-c221f0162043">&lt;bookmark&gt;</bpt><ept id="dde37bd8-3acd-4189-a823-c221f0162043">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3684274c-184a-4164-8b6d-25f8f00395ce" xml:space="preserve">
+          <source>Items can be stored in and retrieved from a cache by using the <bpt id="e1e8fe79-5048-420f-bf4d-4a4fa26e96c1">&lt;code&gt;</bpt>StringSet<ept id="e1e8fe79-5048-420f-bf4d-4a4fa26e96c1">&lt;/code&gt;</ept> and <bpt id="754d48cd-be16-4833-8dd9-0e5956685ea7">&lt;code&gt;</bpt>StringGet<ept id="754d48cd-be16-4833-8dd9-0e5956685ea7">&lt;/code&gt;</ept> methods.</source>
+          <target state="new">Items can be stored in and retrieved from a cache by using the <bpt id="e1e8fe79-5048-420f-bf4d-4a4fa26e96c1">&lt;code&gt;</bpt>StringSet<ept id="e1e8fe79-5048-420f-bf4d-4a4fa26e96c1">&lt;/code&gt;</ept> and <bpt id="754d48cd-be16-4833-8dd9-0e5956685ea7">&lt;code&gt;</bpt>StringGet<ept id="754d48cd-be16-4833-8dd9-0e5956685ea7">&lt;/code&gt;</ept> methods.</target>
+        </trans-unit>
+        <trans-unit id="f887a0bf-24a7-4250-b34d-3516db43fe04" xml:space="preserve">
+          <source>Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.</source>
+          <target state="new">Redis stores most data as Redis strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.</target>
+        </trans-unit>
+        <trans-unit id="c69e5339-49d9-40a7-b769-358dbb400ed8" xml:space="preserve">
+          <source>When calling <bpt id="0e241a8a-7ceb-4356-8697-88675671295f">&lt;code&gt;</bpt>StringGet<ept id="0e241a8a-7ceb-4356-8697-88675671295f">&lt;/code&gt;</ept>, if the object exists, it is returned, and if it does not, null is returned.</source>
+          <target state="new">When calling <bpt id="0e241a8a-7ceb-4356-8697-88675671295f">&lt;code&gt;</bpt>StringGet<ept id="0e241a8a-7ceb-4356-8697-88675671295f">&lt;/code&gt;</ept>, if the object exists, it is returned, and if it does not, null is returned.</target>
+        </trans-unit>
+        <trans-unit id="49d5e95d-35e3-4d40-ad02-86e53c61140a" xml:space="preserve">
+          <source>In this case you can retrieve the value from the desired data source and store it in the cache for subsequent use.</source>
+          <target state="new">In this case you can retrieve the value from the desired data source and store it in the cache for subsequent use.</target>
+        </trans-unit>
+        <trans-unit id="035fb8dd-b363-4d86-8b3d-37fca98673d5" xml:space="preserve">
+          <source>This is known as the cache-aside pattern.</source>
+          <target state="new">This is known as the cache-aside pattern.</target>
+        </trans-unit>
+        <trans-unit id="b52129c4-3fd9-413a-a8af-c91729dc562b" xml:space="preserve">
+          <source>Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized.</source>
+          <target state="new">Azure Redis Cache can cache .NET objects as well as primitive data types, but before a .NET object can be cached it must be serialized.</target>
+        </trans-unit>
+        <trans-unit id="ad7f6331-19fd-4e36-a37b-02afd89de4ba" xml:space="preserve">
+          <source>This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.</source>
+          <target state="new">This is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.</target>
+        </trans-unit>
+        <trans-unit id="0bf8d6f0-2524-4d41-86c0-468177a9267b" xml:space="preserve">
+          <source>For more information, see <bpt id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;linkText&gt;</bpt>Work with .NET objects in the cache<ept id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;/linkText&gt;</ept><bpt id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;title&gt;</bpt><ept id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;linkText&gt;</bpt>Work with .NET objects in the cache<ept id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;/linkText&gt;</ept><bpt id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;title&gt;</bpt><ept id="c7046b32-855a-4df6-a2c8-758c345f67b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3373466-324f-45d6-8a85-482eb7fdb433" xml:space="preserve">
+          <source><bpt id="0aaf0029-192b-47db-bbef-37aa8702ab61">&lt;bookmark&gt;</bpt><ept id="0aaf0029-192b-47db-bbef-37aa8702ab61">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="0aaf0029-192b-47db-bbef-37aa8702ab61">&lt;bookmark&gt;</bpt><ept id="0aaf0029-192b-47db-bbef-37aa8702ab61">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3334ee9-6f08-40c2-a6a8-7e3ce9042096" xml:space="preserve">
+          <source>To specify the expiration of an item in the cache, use the <bpt id="187d1bc3-b493-46a0-909e-985bfb81c007">&lt;code&gt;</bpt>TimeSpan<ept id="187d1bc3-b493-46a0-909e-985bfb81c007">&lt;/code&gt;</ept> parameter of <bpt id="a81c1182-a181-45fa-aa28-563be273dfbd">&lt;code&gt;</bpt>StringSet<ept id="a81c1182-a181-45fa-aa28-563be273dfbd">&lt;/code&gt;</ept>.</source>
+          <target state="new">To specify the expiration of an item in the cache, use the <bpt id="187d1bc3-b493-46a0-909e-985bfb81c007">&lt;code&gt;</bpt>TimeSpan<ept id="187d1bc3-b493-46a0-909e-985bfb81c007">&lt;/code&gt;</ept> parameter of <bpt id="a81c1182-a181-45fa-aa28-563be273dfbd">&lt;code&gt;</bpt>StringSet<ept id="a81c1182-a181-45fa-aa28-563be273dfbd">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ac348d0-4786-40cd-9066-d55a6db3c187" xml:space="preserve">
+          <source><bpt id="43da0899-a5c3-4926-8c68-132ae82a7f9d">&lt;bookmark&gt;</bpt><ept id="43da0899-a5c3-4926-8c68-132ae82a7f9d">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="43da0899-a5c3-4926-8c68-132ae82a7f9d">&lt;bookmark&gt;</bpt><ept id="43da0899-a5c3-4926-8c68-132ae82a7f9d">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea35f26c-da62-4d9a-8229-ac2d8e7d3a10" xml:space="preserve">
+          <source>Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database.</source>
+          <target state="new">Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="b84fb8d7-fd14-43db-a47e-ba11776e9e3f" xml:space="preserve">
+          <source>To use the caching session
+state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.</source>
+          <target state="new">To use the caching session
+state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="ad475430-b16d-42ce-a096-b34508777629" xml:space="preserve">
+          <source>To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, right-click the project in <bpt id="5c7c2338-e0da-4868-884d-82ec3dad8ed2">&lt;strong&gt;</bpt>Solution Explorer<ept id="5c7c2338-e0da-4868-884d-82ec3dad8ed2">&lt;/strong&gt;</ept> and choose <bpt id="f6e46f22-aea4-4ad7-a6f6-e74d89a9674c">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="f6e46f22-aea4-4ad7-a6f6-e74d89a9674c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To configure a client application in Visual Studio using the Redis Cache Session State NuGet package, right-click the project in <bpt id="5c7c2338-e0da-4868-884d-82ec3dad8ed2">&lt;strong&gt;</bpt>Solution Explorer<ept id="5c7c2338-e0da-4868-884d-82ec3dad8ed2">&lt;/strong&gt;</ept> and choose <bpt id="f6e46f22-aea4-4ad7-a6f6-e74d89a9674c">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="f6e46f22-aea4-4ad7-a6f6-e74d89a9674c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="51804e05-ef22-40f4-bf49-11d7f293f2ad" xml:space="preserve">
+          <source><bpt id="d56072c1-b8b9-48c3-8b53-eb76a05c75ea">&lt;linkText&gt;</bpt>Manage NuGet packages<ept id="d56072c1-b8b9-48c3-8b53-eb76a05c75ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d56072c1-b8b9-48c3-8b53-eb76a05c75ea">&lt;linkText&gt;</bpt>Manage NuGet packages<ept id="d56072c1-b8b9-48c3-8b53-eb76a05c75ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a06789c9-fe0f-41e9-981a-342cd1743847" xml:space="preserve">
+          <source>Type <bpt id="ba0fb6c3-a8fa-476a-a4da-873eef71d93b">&lt;strong&gt;</bpt>RedisSessionStateProvider<ept id="ba0fb6c3-a8fa-476a-a4da-873eef71d93b">&lt;/strong&gt;</ept> into the <bpt id="31c18895-6f4e-4db4-913b-4a77dc7baeda">&lt;strong&gt;</bpt>Search Online<ept id="31c18895-6f4e-4db4-913b-4a77dc7baeda">&lt;/strong&gt;</ept> text box, select it from the results, and click <bpt id="1096403c-2ccd-48e9-b7e5-92b90834b396">&lt;strong&gt;</bpt>Install<ept id="1096403c-2ccd-48e9-b7e5-92b90834b396">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="ba0fb6c3-a8fa-476a-a4da-873eef71d93b">&lt;strong&gt;</bpt>RedisSessionStateProvider<ept id="ba0fb6c3-a8fa-476a-a4da-873eef71d93b">&lt;/strong&gt;</ept> into the <bpt id="31c18895-6f4e-4db4-913b-4a77dc7baeda">&lt;strong&gt;</bpt>Search Online<ept id="31c18895-6f4e-4db4-913b-4a77dc7baeda">&lt;/strong&gt;</ept> text box, select it from the results, and click <bpt id="1096403c-2ccd-48e9-b7e5-92b90834b396">&lt;strong&gt;</bpt>Install<ept id="1096403c-2ccd-48e9-b7e5-92b90834b396">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd6982bd-ac7e-49ea-ba65-f6ef5f1af6b5" xml:space="preserve">
+          <source><bpt id="46baf2b9-3e7e-4147-92ce-8f39d0233759">&lt;linkText&gt;</bpt>Redis Cache Session State NuGet Package<ept id="46baf2b9-3e7e-4147-92ce-8f39d0233759">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="46baf2b9-3e7e-4147-92ce-8f39d0233759">&lt;linkText&gt;</bpt>Redis Cache Session State NuGet Package<ept id="46baf2b9-3e7e-4147-92ce-8f39d0233759">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0744328e-8b50-4cb5-a4ce-877874762695" xml:space="preserve">
+          <source>The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.</source>
+          <target state="new">The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.</target>
+        </trans-unit>
+        <trans-unit id="bef06849-04cf-4510-88ba-f14ade32d0db" xml:space="preserve">
+          <source>The commented section provides an example of the attributes and sample settings for them.</source>
+          <target state="new">The commented section provides an example of the attributes and sample settings for them.</target>
+        </trans-unit>
+        <trans-unit id="0dfb9b5f-947c-43bc-9ca1-9adc1708258a" xml:space="preserve">
+          <source>Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.</source>
+          <target state="new">Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.</target>
+        </trans-unit>
+        <trans-unit id="9fdc0ae7-bf83-4f42-836e-410af90af78c" xml:space="preserve">
+          <source>Be sure to comment out the standard <bpt id="d9582bdf-db3a-4221-b5c4-63ef29c02341">&lt;strong&gt;</bpt>InProc<ept id="d9582bdf-db3a-4221-b5c4-63ef29c02341">&lt;/strong&gt;</ept> session state provider.</source>
+          <target state="new">Be sure to comment out the standard <bpt id="d9582bdf-db3a-4221-b5c4-63ef29c02341">&lt;strong&gt;</bpt>InProc<ept id="d9582bdf-db3a-4221-b5c4-63ef29c02341">&lt;/strong&gt;</ept> session state provider.</target>
+        </trans-unit>
+        <trans-unit id="9e38fcbe-c864-4be0-b537-d201273b3d4d" xml:space="preserve">
+          <source>For more information about configuring these settings and using the Azure Redis Session State Provider, see <bpt id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;linkText&gt;</bpt>Azure Redis Session State Provider<ept id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;/linkText&gt;</ept><bpt id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;title&gt;</bpt><ept id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about configuring these settings and using the Azure Redis Session State Provider, see <bpt id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;linkText&gt;</bpt>Azure Redis Session State Provider<ept id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;/linkText&gt;</ept><bpt id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;title&gt;</bpt><ept id="feb394fa-7ca7-4fc8-8a76-d0eb08eb2ea1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a8e4063-c1d7-4009-9639-79ad58f066bf" xml:space="preserve">
+          <source><bpt id="6618b45d-8aee-4c6b-991b-c8ad77979498">&lt;bookmark&gt;</bpt><ept id="6618b45d-8aee-4c6b-991b-c8ad77979498">&lt;/bookmark&gt;</ept></source>
+          <target state="new"><bpt id="6618b45d-8aee-4c6b-991b-c8ad77979498">&lt;bookmark&gt;</bpt><ept id="6618b45d-8aee-4c6b-991b-c8ad77979498">&lt;/bookmark&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba4e98cf-dcc5-4ad0-86fa-250af3daaf68" xml:space="preserve">
+          <source>Now that you've learned the basics of Azure Redis Cache,
+follow these links to learn how to do more complex caching tasks.</source>
+          <target state="new">Now that you've learned the basics of Azure Redis Cache,
+follow these links to learn how to do more complex caching tasks.</target>
+        </trans-unit>
+        <trans-unit id="69fff2b2-cabb-43f1-9a60-8035b29a86c6" xml:space="preserve">
+          <source><bpt id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;/linkText&gt;</ept><bpt id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;title&gt;</bpt><ept id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;/title&gt;</ept> so you can [cache-how-to-monitor.md) the health of your cache.</source>
+          <target state="new"><bpt id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;linkText&gt;</bpt>Enable cache diagnostics<ept id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;/linkText&gt;</ept><bpt id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;title&gt;</bpt><ept id="b73b5192-7f02-408e-a1b8-67bb0accb0b4">&lt;/title&gt;</ept> so you can [cache-how-to-monitor.md) the health of your cache.</target>
+        </trans-unit>
+        <trans-unit id="7b8b0a84-39cf-4db2-bb8e-9b352b6e173b" xml:space="preserve">
+          <source>You can view the metrics in the preview portal and you can also <bpt id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;linkText&gt;</bpt>download and review<ept id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;/linkText&gt;</ept><bpt id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;title&gt;</bpt><ept id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;/title&gt;</ept> them using the tools of your choice.</source>
+          <target state="new">You can view the metrics in the preview portal and you can also <bpt id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;linkText&gt;</bpt>download and review<ept id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;/linkText&gt;</ept><bpt id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;title&gt;</bpt><ept id="8823f515-6b8b-47b1-8215-37ed8f3c1bbe">&lt;/title&gt;</ept> them using the tools of your choice.</target>
+        </trans-unit>
+        <trans-unit id="e820a54e-7f1b-4e0f-97e8-6b58375bd620" xml:space="preserve">
+          <source>Check out the <bpt id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;linkText&gt;</bpt>StackExchange.Redis cache client documentation<ept id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;/linkText&gt;</ept><bpt id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;title&gt;</bpt><ept id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;/title&gt;</ept>.</source>
+          <target state="new">Check out the <bpt id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;linkText&gt;</bpt>StackExchange.Redis cache client documentation<ept id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;/linkText&gt;</ept><bpt id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;title&gt;</bpt><ept id="ac5ba806-afca-4966-bf0f-7fd09210b4f5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b847ec22-5cf0-477d-9477-ba1c03aade69" xml:space="preserve">
+          <source>Azure Redis Cache can be accessed from many Redis clients and development languages.</source>
+          <target state="new">Azure Redis Cache can be accessed from many Redis clients and development languages.</target>
+        </trans-unit>
+        <trans-unit id="349ea850-a6e1-4b63-bd25-91bf6aef5e0c" xml:space="preserve">
+          <source>For more information, see <bpt id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;linkText&gt;</bpt>http://redis.io/clients<ept id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;/linkText&gt;</ept><bpt id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;title&gt;</bpt><ept id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;/title&gt;</ept> and <bpt id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;linkText&gt;</bpt>Develop in other languages for Azure Redis Cache<ept id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;/linkText&gt;</ept><bpt id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;title&gt;</bpt><ept id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;linkText&gt;</bpt>http://redis.io/clients<ept id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;/linkText&gt;</ept><bpt id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;title&gt;</bpt><ept id="dbd4dc3f-19e3-41ba-b90a-50e5074c9aef">&lt;/title&gt;</ept> and <bpt id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;linkText&gt;</bpt>Develop in other languages for Azure Redis Cache<ept id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;/linkText&gt;</ept><bpt id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;title&gt;</bpt><ept id="1f5383d1-32ab-4235-871f-2b23dd6ff9f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27873fb3-3fd2-4f6c-9aca-9019bd26a418" xml:space="preserve">
+          <source>Azure Redis Cache can also be used with services such as Redsmin.</source>
+          <target state="new">Azure Redis Cache can also be used with services such as Redsmin.</target>
+        </trans-unit>
+        <trans-unit id="6736407a-5374-4d17-8fbe-ca90b0322b33" xml:space="preserve">
+          <source>For more information, see  <bpt id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;linkText&gt;</bpt>How to retrieve an Azure Redis connection string and use it with Redsmin<ept id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;/linkText&gt;</ept><bpt id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;title&gt;</bpt><ept id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see  <bpt id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;linkText&gt;</bpt>How to retrieve an Azure Redis connection string and use it with Redsmin<ept id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;/linkText&gt;</ept><bpt id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;title&gt;</bpt><ept id="8ef34cfc-cd71-4eea-8afe-fd0bc07ee616">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08085899-cd53-4494-93e0-6ea680c8fef0" xml:space="preserve">
+          <source>See the <bpt id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;linkText&gt;</bpt>redis<ept id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;/linkText&gt;</ept><bpt id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;title&gt;</bpt><ept id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;/title&gt;</ept> documentation and read about <bpt id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;linkText&gt;</bpt>redis data types<ept id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;/linkText&gt;</ept><bpt id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;title&gt;</bpt><ept id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;/title&gt;</ept> and <bpt id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;linkText&gt;</bpt>a fifteen minute introduction to Redis data types<ept id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;/linkText&gt;</ept><bpt id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;title&gt;</bpt><ept id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the <bpt id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;linkText&gt;</bpt>redis<ept id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;/linkText&gt;</ept><bpt id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;title&gt;</bpt><ept id="5ce7a759-b91c-4121-8b0c-7269bde32f0c">&lt;/title&gt;</ept> documentation and read about <bpt id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;linkText&gt;</bpt>redis data types<ept id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;/linkText&gt;</ept><bpt id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;title&gt;</bpt><ept id="ad959980-7ce2-4d5c-ae8b-12c07ea6ccab">&lt;/title&gt;</ept> and <bpt id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;linkText&gt;</bpt>a fifteen minute introduction to Redis data types<ept id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;/linkText&gt;</ept><bpt id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;title&gt;</bpt><ept id="b18ebec4-5466-4ae3-acb1-2388b8b46217">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa1cb999-318f-48b2-a0f5-e63498ae2120" xml:space="preserve">
+          <source>See the MSDN Reference for <bpt id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;linkText&gt;</bpt>Azure Redis Cache<ept id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;/linkText&gt;</ept><bpt id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;title&gt;</bpt><ept id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the MSDN Reference for <bpt id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;linkText&gt;</bpt>Azure Redis Cache<ept id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;/linkText&gt;</ept><bpt id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;title&gt;</bpt><ept id="c9823965-0a66-474f-9feb-6043d6bb1b58">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5a1e7eb-1288-4182-885e-6d78df41fbb2" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="ac246e68-dd05-4807-844a-27de9110771f" xml:space="preserve">
+          <source>#video</source>
+          <target state="new">#video</target>
+        </trans-unit>
+        <trans-unit id="c509124e-e8b0-43e8-8cb8-8ae4c61afafa" xml:space="preserve">
+          <source>#what-is</source>
+          <target state="new">#what-is</target>
+        </trans-unit>
+        <trans-unit id="ae7c9f64-5da0-42bb-a4a9-c3926f6194d1" xml:space="preserve">
+          <source>#create-cache</source>
+          <target state="new">#create-cache</target>
+        </trans-unit>
+        <trans-unit id="23c694aa-ba81-4c39-99f3-0180c4dff36b" xml:space="preserve">
+          <source>#choosing-cache</source>
+          <target state="new">#choosing-cache</target>
+        </trans-unit>
+        <trans-unit id="b2d58bef-315d-45b6-9fb4-70bb6ebae0bb" xml:space="preserve">
+          <source>#prepare-vs</source>
+          <target state="new">#prepare-vs</target>
+        </trans-unit>
+        <trans-unit id="a752307e-933b-48ff-9798-94b0f37c7989" xml:space="preserve">
+          <source>#configure-app</source>
+          <target state="new">#configure-app</target>
+        </trans-unit>
+        <trans-unit id="a10b5bb5-b3a0-4dd0-9070-db865850cb36" xml:space="preserve">
+          <source>#getting-started-cache-service</source>
+          <target state="new">#getting-started-cache-service</target>
+        </trans-unit>
+        <trans-unit id="27d37351-61ae-440e-a58b-fccc73198927" xml:space="preserve">
+          <source>#create-cache</source>
+          <target state="new">#create-cache</target>
+        </trans-unit>
+        <trans-unit id="37abbab9-8b8e-4f82-b2ab-92b6bb28a45f" xml:space="preserve">
+          <source>#enable-caching</source>
+          <target state="new">#enable-caching</target>
+        </trans-unit>
+        <trans-unit id="06297f4a-7220-4da0-858c-a0cbcab3021e" xml:space="preserve">
+          <source>#NuGet</source>
+          <target state="new">#NuGet</target>
+        </trans-unit>
+        <trans-unit id="c8e04c2b-08d9-41ba-b647-0b7c1c1ab119" xml:space="preserve">
+          <source>#working-with-caches</source>
+          <target state="new">#working-with-caches</target>
+        </trans-unit>
+        <trans-unit id="5bf0fe9e-126f-4a00-b085-5d973ef94b21" xml:space="preserve">
+          <source>#connect-to-cache</source>
+          <target state="new">#connect-to-cache</target>
+        </trans-unit>
+        <trans-unit id="ef49b76b-8a56-4b6e-9145-3fbedb824f3b" xml:space="preserve">
+          <source>#add-object</source>
+          <target state="new">#add-object</target>
+        </trans-unit>
+        <trans-unit id="0d22145e-f03c-4bf8-be8e-5f42e7e49347" xml:space="preserve">
+          <source>#specify-expiration</source>
+          <target state="new">#specify-expiration</target>
+        </trans-unit>
+        <trans-unit id="b7aca838-d716-48c7-85f3-c26d48242949" xml:space="preserve">
+          <source>#store-session</source>
+          <target state="new">#store-session</target>
+        </trans-unit>
+        <trans-unit id="a010e4ed-49b0-4904-9a5e-6f0502be9f57" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png</target>
+        </trans-unit>
+        <trans-unit id="49ff5468-b630-422e-9cb1-e192e4545800" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png</target>
+        </trans-unit>
+        <trans-unit id="40018036-4f8c-4a5f-9eb4-d12e0e3e6080" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png</target>
+        </trans-unit>
+        <trans-unit id="6011aa3f-d648-4c30-8803-33e36a3da5bc" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-nuget-menu.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-nuget-menu.png</target>
+        </trans-unit>
+        <trans-unit id="4f6cbb2e-aded-4770-b089-f53819c739ae" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png</target>
+        </trans-unit>
+        <trans-unit id="10a03a98-47e2-46c2-9c84-eaa0f703d12b" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png</target>
+        </trans-unit>
+        <trans-unit id="0e2e3c65-6d68-4ab7-91ba-cd6a6d475da5" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png</target>
+        </trans-unit>
+        <trans-unit id="5c92d4ac-d870-4589-abdf-f99be7ee49ab" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png</target>
+        </trans-unit>
+        <trans-unit id="edd75068-eabf-4113-8487-7aca984c471c" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png</target>
+        </trans-unit>
+        <trans-unit id="7da456cf-259d-4f48-9a06-2875efc9bcf8" xml:space="preserve">
+          <source>./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png</source>
+          <target state="new">./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png</target>
+        </trans-unit>
+        <trans-unit id="020ce8cb-2481-4c31-8056-dfdea1f0302b" xml:space="preserve">
+          <source>http://redis.io/clients</source>
+          <target state="new">http://redis.io/clients</target>
+        </trans-unit>
+        <trans-unit id="6ca59557-e2d8-4d5a-98dc-ec87153155a6" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn690470.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn690470.aspx</target>
+        </trans-unit>
+        <trans-unit id="ae868fd3-5c9f-4aaa-bf8d-2ea42ac9c52d" xml:space="preserve">
+          <source>https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache</source>
+          <target state="new">https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache</target>
+        </trans-unit>
+        <trans-unit id="777e4878-3990-4cb8-8af8-cafe23db271f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=398249</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=398249</target>
+        </trans-unit>
+        <trans-unit id="6cf7ac03-41db-41b6-9146-df0e7494fff5" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg618003.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg618003.aspx</target>
+        </trans-unit>
+        <trans-unit id="fb3aa2a7-b225-484f-95d0-fffd9c62b40f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320835</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320835</target>
+        </trans-unit>
+        <trans-unit id="5db9b713-8ff0-4455-818a-2f889aaa3a12" xml:space="preserve">
+          <source>http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20</source>
+          <target state="new">http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20</target>
+        </trans-unit>
+        <trans-unit id="2a773297-7616-4c89-9017-332b162aaa9a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320837</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320837</target>
+        </trans-unit>
+        <trans-unit id="b71ae88f-e27c-413f-9041-31be3f89f755" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/gg278356.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/gg278356.aspx</target>
+        </trans-unit>
+        <trans-unit id="7202ca50-0b4d-433d-b5c2-12ba0d71d654" xml:space="preserve">
+          <source>http://blogs.msdn.com/b/windowsazure/</source>
+          <target state="new">http://blogs.msdn.com/b/windowsazure/</target>
+        </trans-unit>
+        <trans-unit id="9a493efa-6ff6-446e-9ba6-03d2d8ae8c5f" xml:space="preserve">
+          <source>http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching</source>
+          <target state="new">http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching</target>
+        </trans-unit>
+        <trans-unit id="58cdd43c-8d63-4852-a8ab-8b416c210049" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=164387</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=164387</target>
+        </trans-unit>
+        <trans-unit id="b5919540-1c9d-4f2a-af05-a6637ea8f053" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320167</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320167</target>
+        </trans-unit>
+        <trans-unit id="76d54363-6795-4168-a89d-c212d0cb5ecd" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=252658</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=252658</target>
+        </trans-unit>
+        <trans-unit id="c61ba12d-f4d6-45fa-8be8-ee96d29264e8" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/zd1ysf1y.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/zd1ysf1y.aspx</target>
+        </trans-unit>
+        <trans-unit id="c9aa06d2-7b95-4cb7-81c5-d074485b92f7" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/z852zf6b.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/z852zf6b.aspx</target>
+        </trans-unit>
+        <trans-unit id="5c5ca937-982c-4125-b757-6739e7937bd4" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn793612.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn793612.aspx</target>
+        </trans-unit>
+        <trans-unit id="a6ad3104-53b0-4e37-ac44-dc6e14dc28dc" xml:space="preserve">
+          <source>http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md</source>
+          <target state="new">http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md</target>
+        </trans-unit>
+        <trans-unit id="f8247262-c3c1-4f3d-8106-29cccc24c586" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn690521.aspx#Objects</source>
+          <target state="new">http://msdn.microsoft.com/library/dn690521.aspx#Objects</target>
+        </trans-unit>
+        <trans-unit id="30d80d7c-17f3-4a13-b53f-959b51bebfc2" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=240311</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=240311</target>
+        </trans-unit>
+        <trans-unit id="b1c0f620-0283-40f4-8344-75a9a0774343" xml:space="preserve">
+          <source>http://www.windowsazure.com/pricing/details/cache/</source>
+          <target state="new">http://www.windowsazure.com/pricing/details/cache/</target>
+        </trans-unit>
+        <trans-unit id="6cdda497-c4d3-4b32-83d1-85a099558f6b" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="56f6c700-876d-40f8-8f9a-c094b462722a" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320830</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320830</target>
+        </trans-unit>
+        <trans-unit id="7c09a854-69b8-4fb7-b63b-c5aeebda6b0e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=398247</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=398247</target>
+        </trans-unit>
+        <trans-unit id="3c5f1bc4-d9cb-4ce2-905f-8dab7ab7978f" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=317347</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=317347</target>
+        </trans-unit>
+        <trans-unit id="7a509437-c9bf-4218-93b9-04e64e1ab074" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=320840</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=320840</target>
+        </trans-unit>
+        <trans-unit id="e9d3d819-5a0e-4419-acf5-7442c4ed490e" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/resource-group-overview/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/resource-group-overview/</target>
+        </trans-unit>
+        <trans-unit id="f2aed352-6fb3-4f6a-a815-ca70f9deef28" xml:space="preserve">
+          <source>http://github.com/StackExchange/StackExchange.Redis</source>
+          <target state="new">http://github.com/StackExchange/StackExchange.Redis</target>
+        </trans-unit>
+        <trans-unit id="210287bb-b9e7-4a13-a3de-1a5f16dc9855" xml:space="preserve">
+          <source>http://github.com/StackExchange/StackExchange.Redis#documentation</source>
+          <target state="new">http://github.com/StackExchange/StackExchange.Redis#documentation</target>
+        </trans-unit>
+        <trans-unit id="c60937eb-a589-4e3c-a426-b95d731301a1" xml:space="preserve">
+          <source>http://redis.io/documentation</source>
+          <target state="new">http://redis.io/documentation</target>
+        </trans-unit>
+        <trans-unit id="77c6e0e9-84a6-4ab5-a8ae-e4cfe0d9b6a9" xml:space="preserve">
+          <source>http://redis.io/topics/data-types</source>
+          <target state="new">http://redis.io/topics/data-types</target>
+        </trans-unit>
+        <trans-unit id="008ff034-d31c-4e1b-91f8-5940d0b81681" xml:space="preserve">
+          <source>http://redis.io/topics/data-types-intro</source>
+          <target state="new">http://redis.io/topics/data-types-intro</target>
+        </trans-unit>
+        <trans-unit id="54ea53cd-648c-498e-8770-5b7741c762e5" xml:space="preserve">
+          <source>http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/</source>
+          <target state="new">http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/</target>
+        </trans-unit>
+        <trans-unit id="2797e965-14e5-4217-8905-e78e76c66b2e" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero</target>
+        </trans-unit>
+      </group>
+      <group id="ba8cecae-489b-464e-b54d-50d7e234d01e" />
+    </body>
+  </file>
+</xliff>

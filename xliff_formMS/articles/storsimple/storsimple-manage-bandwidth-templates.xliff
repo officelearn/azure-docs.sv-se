@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1c1f54d0-bf1b-4c63-b65e-a06a63a44ad8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1c1f54d0-bf1b-4c63-b65e-a06a63a44ad8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d31645d6-c6ef-471f-aab8-f9e88cd101f0">
+        <trans-unit id="e25d61a4-f887-47d4-af8a-331cec948349" xml:space="preserve">
+          <source>Manage your StorSimple bandwidth templates | Microsoft Azure</source>
+          <target state="new">Manage your StorSimple bandwidth templates | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1ddbfe30-62c6-4223-9324-f751f396595d" xml:space="preserve">
+          <source>Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption.</source>
+          <target state="new">Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption.</target>
+        </trans-unit>
+        <trans-unit id="4770e192-3682-492f-8fc2-7bb4e7c85a2d" xml:space="preserve">
+          <source>Bandwidth templates allow you to configure multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.</source>
+          <target state="new">Bandwidth templates allow you to configure multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="74fa2672-65d5-4cf3-bb50-fb3391f05df8" xml:space="preserve">
+          <source>You can also create, modify, delete, and save these schedules as templates.</source>
+          <target state="new">You can also create, modify, delete, and save these schedules as templates.</target>
+        </trans-unit>
+        <trans-unit id="707f6a0c-7cea-4a6c-ba4d-8f7d7f7e115d" xml:space="preserve">
+          <source>These bandwidth templates can then be applied across volume containers to control the bandwidth consumed by your StorSimple device when performing operations that involve the cloud.</source>
+          <target state="new">These bandwidth templates can then be applied across volume containers to control the bandwidth consumed by your StorSimple device when performing operations that involve the cloud.</target>
+        </trans-unit>
+        <trans-unit id="c367487a-6164-46b4-a13b-5b3a020024a6" xml:space="preserve">
+          <source>Depending on your bandwidth usage pattern, you can also choose from a list of default templates.</source>
+          <target state="new">Depending on your bandwidth usage pattern, you can also choose from a list of default templates.</target>
+        </trans-unit>
+        <trans-unit id="2c35f737-410f-4c53-83fb-7b8841a08f8d" xml:space="preserve">
+          <source>With bandwidth throttling schedules you can:</source>
+          <target state="new">With bandwidth throttling schedules you can:</target>
+        </trans-unit>
+        <trans-unit id="3e639d2b-47d6-4fa1-8f83-bc72ed4e051c" xml:space="preserve">
+          <source>Specify schedules that customize bandwidth usage depending on the workloads.</source>
+          <target state="new">Specify schedules that customize bandwidth usage depending on the workloads.</target>
+        </trans-unit>
+        <trans-unit id="98f5c625-3de9-46af-bcfd-74ce38de88a7" xml:space="preserve">
+          <source>Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.</source>
+          <target state="new">Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.</target>
+        </trans-unit>
+        <trans-unit id="b90b6eb2-3e34-412d-ab65-9692ec101e7b" xml:space="preserve">
+          <source>This feature is available only for StorSimple physical devices and not for virtual devices.</source>
+          <target state="new">This feature is available only for StorSimple physical devices and not for virtual devices.</target>
+        </trans-unit>
+        <trans-unit id="414b0cad-f089-4d95-81ee-4ab7c4224589" xml:space="preserve">
+          <source>All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:</source>
+          <target state="new">All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:</target>
+        </trans-unit>
+        <trans-unit id="716de103-1e33-4f2c-af3b-0ae1abf6b479" xml:space="preserve">
+          <source><bpt id="1762f901-0413-4f28-807f-a4952851264c">&lt;strong&gt;</bpt>Name<ept id="1762f901-0413-4f28-807f-a4952851264c">&lt;/strong&gt;</ept> – A unique name assigned to the bandwidth template when it was created.</source>
+          <target state="new"><bpt id="1762f901-0413-4f28-807f-a4952851264c">&lt;strong&gt;</bpt>Name<ept id="1762f901-0413-4f28-807f-a4952851264c">&lt;/strong&gt;</ept> – A unique name assigned to the bandwidth template when it was created.</target>
+        </trans-unit>
+        <trans-unit id="afb1a160-e0a1-4fdd-b422-ffe7b15aacf8" xml:space="preserve">
+          <source><bpt id="60010782-19b5-4874-bce8-0e9e1e4712ba">&lt;strong&gt;</bpt>Schedule<ept id="60010782-19b5-4874-bce8-0e9e1e4712ba">&lt;/strong&gt;</ept> – The number of schedules contained in a given bandwidth template.</source>
+          <target state="new"><bpt id="60010782-19b5-4874-bce8-0e9e1e4712ba">&lt;strong&gt;</bpt>Schedule<ept id="60010782-19b5-4874-bce8-0e9e1e4712ba">&lt;/strong&gt;</ept> – The number of schedules contained in a given bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="3c122726-5113-4d0b-bf68-6b317ddd0cbd" xml:space="preserve">
+          <source><bpt id="0f4a30b7-e5d6-4f6f-8ffa-d8c46f0f5bd7">&lt;strong&gt;</bpt>Used by<ept id="0f4a30b7-e5d6-4f6f-8ffa-d8c46f0f5bd7">&lt;/strong&gt;</ept> – The number of volumes using the bandwidth templates.</source>
+          <target state="new"><bpt id="0f4a30b7-e5d6-4f6f-8ffa-d8c46f0f5bd7">&lt;strong&gt;</bpt>Used by<ept id="0f4a30b7-e5d6-4f6f-8ffa-d8c46f0f5bd7">&lt;/strong&gt;</ept> – The number of volumes using the bandwidth templates.</target>
+        </trans-unit>
+        <trans-unit id="e44ebcae-4b2a-4336-a382-d38adee373ba" xml:space="preserve">
+          <source>You use the StorSimple Manager service <bpt id="4c56a1b1-f501-424b-89d9-360b702aad2f">&lt;strong&gt;</bpt>Configure<ept id="4c56a1b1-f501-424b-89d9-360b702aad2f">&lt;/strong&gt;</ept> page in the Management Portal to manage bandwidth templates.</source>
+          <target state="new">You use the StorSimple Manager service <bpt id="4c56a1b1-f501-424b-89d9-360b702aad2f">&lt;strong&gt;</bpt>Configure<ept id="4c56a1b1-f501-424b-89d9-360b702aad2f">&lt;/strong&gt;</ept> page in the Management Portal to manage bandwidth templates.</target>
+        </trans-unit>
+        <trans-unit id="f827b460-cf13-462d-8c38-9cb7ce903974" xml:space="preserve">
+          <source>The most common tasks related to bandwidth templates that can be performed on this page are:</source>
+          <target state="new">The most common tasks related to bandwidth templates that can be performed on this page are:</target>
+        </trans-unit>
+        <trans-unit id="a3088d55-b8f3-45a5-8ba8-5b93555c54e9" xml:space="preserve">
+          <source>Add a bandwidth template</source>
+          <target state="new">Add a bandwidth template</target>
+        </trans-unit>
+        <trans-unit id="4ee5c17a-0e3d-47d1-aa23-90da9c143f68" xml:space="preserve">
+          <source>Edit a bandwidth template</source>
+          <target state="new">Edit a bandwidth template</target>
+        </trans-unit>
+        <trans-unit id="eab47549-75da-4a02-9ba6-d809296d75d0" xml:space="preserve">
+          <source>Delete a bandwidth template</source>
+          <target state="new">Delete a bandwidth template</target>
+        </trans-unit>
+        <trans-unit id="8563cc96-4f12-4678-bd13-e079ab4d518e" xml:space="preserve">
+          <source>Use a default bandwidth template</source>
+          <target state="new">Use a default bandwidth template</target>
+        </trans-unit>
+        <trans-unit id="07cc3d62-5b55-4318-98e2-9256cd88558a" xml:space="preserve">
+          <source>Create an all-day bandwidth template that starts at a specified time</source>
+          <target state="new">Create an all-day bandwidth template that starts at a specified time</target>
+        </trans-unit>
+        <trans-unit id="81042e72-d8e2-455b-b387-5cc0b475631b" xml:space="preserve">
+          <source>You can also find additional information to help configure bandwidth templates in:</source>
+          <target state="new">You can also find additional information to help configure bandwidth templates in:</target>
+        </trans-unit>
+        <trans-unit id="e624059e-f578-4992-9cfb-da4747765659" xml:space="preserve">
+          <source>Questions and answers about bandwidth templates</source>
+          <target state="new">Questions and answers about bandwidth templates</target>
+        </trans-unit>
+        <trans-unit id="00dce838-ad19-426a-ba54-bc487868ffa8" xml:space="preserve">
+          <source>Best practices for bandwidth templates</source>
+          <target state="new">Best practices for bandwidth templates</target>
+        </trans-unit>
+        <trans-unit id="562f85c7-7a21-4767-b475-efa7d025c742" xml:space="preserve">
+          <source>Perform the following steps to create a new bandwidth template.</source>
+          <target state="new">Perform the following steps to create a new bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="dee6d15b-c089-4c41-a350-c667fbdc6d7e" xml:space="preserve">
+          <source>On the StorSimple Manager service <bpt id="22ca7c83-59c9-41bc-b220-688551da0ac6">&lt;strong&gt;</bpt>Configure<ept id="22ca7c83-59c9-41bc-b220-688551da0ac6">&lt;/strong&gt;</ept> page, click <bpt id="67623973-184e-484c-984e-c521ab021924">&lt;strong&gt;</bpt>add/edit bandwidth template<ept id="67623973-184e-484c-984e-c521ab021924">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the StorSimple Manager service <bpt id="22ca7c83-59c9-41bc-b220-688551da0ac6">&lt;strong&gt;</bpt>Configure<ept id="22ca7c83-59c9-41bc-b220-688551da0ac6">&lt;/strong&gt;</ept> page, click <bpt id="67623973-184e-484c-984e-c521ab021924">&lt;strong&gt;</bpt>add/edit bandwidth template<ept id="67623973-184e-484c-984e-c521ab021924">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a69d6d63-a043-47b2-bbef-3d6f3ce03383" xml:space="preserve">
+          <source>In the <bpt id="6444842e-a02c-43d2-bf1c-fbd8856980cc">&lt;strong&gt;</bpt>Add/Edit Bandwidth Template<ept id="6444842e-a02c-43d2-bf1c-fbd8856980cc">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="6444842e-a02c-43d2-bf1c-fbd8856980cc">&lt;strong&gt;</bpt>Add/Edit Bandwidth Template<ept id="6444842e-a02c-43d2-bf1c-fbd8856980cc">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="f9bbf9f4-a8ce-41e9-a117-e7320139bdce" xml:space="preserve">
+          <source>From the <bpt id="54bbae16-2601-4caf-a2fe-e082e3163f76">&lt;strong&gt;</bpt>Template<ept id="54bbae16-2601-4caf-a2fe-e082e3163f76">&lt;/strong&gt;</ept> drop-down list, select <bpt id="f9b7d90d-6cd9-48f6-90c3-82a186249b0a">&lt;strong&gt;</bpt>Create new<ept id="f9b7d90d-6cd9-48f6-90c3-82a186249b0a">&lt;/strong&gt;</ept> to add a new bandwidth template.</source>
+          <target state="new">From the <bpt id="54bbae16-2601-4caf-a2fe-e082e3163f76">&lt;strong&gt;</bpt>Template<ept id="54bbae16-2601-4caf-a2fe-e082e3163f76">&lt;/strong&gt;</ept> drop-down list, select <bpt id="f9b7d90d-6cd9-48f6-90c3-82a186249b0a">&lt;strong&gt;</bpt>Create new<ept id="f9b7d90d-6cd9-48f6-90c3-82a186249b0a">&lt;/strong&gt;</ept> to add a new bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="c8423990-ebb0-4fcb-a11c-12d7229fa973" xml:space="preserve">
+          <source>Specify a unique name for your bandwidth template.</source>
+          <target state="new">Specify a unique name for your bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="ac538be0-a88e-432a-9b62-a3f2ca29e473" xml:space="preserve">
+          <source>Define a <bpt id="0763305f-7b4f-4a78-8a3e-076d6072f2fd">&lt;strong&gt;</bpt>Bandwidth Schedule<ept id="0763305f-7b4f-4a78-8a3e-076d6072f2fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Define a <bpt id="0763305f-7b4f-4a78-8a3e-076d6072f2fd">&lt;strong&gt;</bpt>Bandwidth Schedule<ept id="0763305f-7b4f-4a78-8a3e-076d6072f2fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6528138c-b9d8-475d-ba21-563d77f87906" xml:space="preserve">
+          <source>To create a schedule:</source>
+          <target state="new">To create a schedule:</target>
+        </trans-unit>
+        <trans-unit id="9e3d30b0-8794-449c-9768-0e76ab014c80" xml:space="preserve">
+          <source>From the drop-down list, choose the days of the week the schedule is configured for.</source>
+          <target state="new">From the drop-down list, choose the days of the week the schedule is configured for.</target>
+        </trans-unit>
+        <trans-unit id="e68f7fe2-fa5f-4d9b-b441-fed50177c44d" xml:space="preserve">
+          <source>You can select multiple days by selecting the check boxes located before the respective days in the list.</source>
+          <target state="new">You can select multiple days by selecting the check boxes located before the respective days in the list.</target>
+        </trans-unit>
+        <trans-unit id="175557c0-a856-4444-8393-598a56752d43" xml:space="preserve">
+          <source>Select the <bpt id="94c256e6-edf1-4d47-b16c-5c21bb3db5a3">&lt;strong&gt;</bpt>All Day<ept id="94c256e6-edf1-4d47-b16c-5c21bb3db5a3">&lt;/strong&gt;</ept> option if the schedule is enforced for the entire day.</source>
+          <target state="new">Select the <bpt id="94c256e6-edf1-4d47-b16c-5c21bb3db5a3">&lt;strong&gt;</bpt>All Day<ept id="94c256e6-edf1-4d47-b16c-5c21bb3db5a3">&lt;/strong&gt;</ept> option if the schedule is enforced for the entire day.</target>
+        </trans-unit>
+        <trans-unit id="10fb38ab-4f8c-4a4f-a071-b24b3bef5104" xml:space="preserve">
+          <source>When this option is checked, you can no longer specify a <bpt id="f8f0e5ec-4ae6-4128-aaec-e2d744d9d9a2">&lt;strong&gt;</bpt>Start Time<ept id="f8f0e5ec-4ae6-4128-aaec-e2d744d9d9a2">&lt;/strong&gt;</ept> or an <bpt id="80512ef7-d911-4f3a-af50-178a863d717c">&lt;strong&gt;</bpt>End Time<ept id="80512ef7-d911-4f3a-af50-178a863d717c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When this option is checked, you can no longer specify a <bpt id="f8f0e5ec-4ae6-4128-aaec-e2d744d9d9a2">&lt;strong&gt;</bpt>Start Time<ept id="f8f0e5ec-4ae6-4128-aaec-e2d744d9d9a2">&lt;/strong&gt;</ept> or an <bpt id="80512ef7-d911-4f3a-af50-178a863d717c">&lt;strong&gt;</bpt>End Time<ept id="80512ef7-d911-4f3a-af50-178a863d717c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="148ce0f5-1c52-4ed0-8324-8413d49a8c60" xml:space="preserve">
+          <source>The schedule runs from 12:00 AM to 11:59 PM.</source>
+          <target state="new">The schedule runs from 12:00 AM to 11:59 PM.</target>
+        </trans-unit>
+        <trans-unit id="bdbb01dd-ed1f-4e95-8cf4-928a6a60529b" xml:space="preserve">
+          <source>From the drop-down list, select a <bpt id="f703b338-1c5e-49cb-9b8e-2ef47971df75">&lt;strong&gt;</bpt>Start Time<ept id="f703b338-1c5e-49cb-9b8e-2ef47971df75">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the drop-down list, select a <bpt id="f703b338-1c5e-49cb-9b8e-2ef47971df75">&lt;strong&gt;</bpt>Start Time<ept id="f703b338-1c5e-49cb-9b8e-2ef47971df75">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9283fdda-1d39-4fb5-98fe-fd5cc9496965" xml:space="preserve">
+          <source>This is when the schedule will begin.</source>
+          <target state="new">This is when the schedule will begin.</target>
+        </trans-unit>
+        <trans-unit id="2d023923-ec1f-4959-8463-00df42ecbd8b" xml:space="preserve">
+          <source>From the drop-down list, select an <bpt id="d11c139d-5d4c-4008-9652-2ed63f2fdeff">&lt;strong&gt;</bpt>End Time<ept id="d11c139d-5d4c-4008-9652-2ed63f2fdeff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the drop-down list, select an <bpt id="d11c139d-5d4c-4008-9652-2ed63f2fdeff">&lt;strong&gt;</bpt>End Time<ept id="d11c139d-5d4c-4008-9652-2ed63f2fdeff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8709406e-1180-4973-a4d2-217355d9dc51" xml:space="preserve">
+          <source>This is when the schedule will stop.</source>
+          <target state="new">This is when the schedule will stop.</target>
+        </trans-unit>
+        <trans-unit id="f50b14cb-8bc7-4368-a6b3-f0c6d369ff23" xml:space="preserve">
+          <source>Overlapping schedules are not allowed.</source>
+          <target state="new">Overlapping schedules are not allowed.</target>
+        </trans-unit>
+        <trans-unit id="30a414d6-eb91-4f8c-ace1-39fe2b0e47ca" xml:space="preserve">
+          <source>If the start and end times will result in an overlapping schedule, you will see an error message to that effect.</source>
+          <target state="new">If the start and end times will result in an overlapping schedule, you will see an error message to that effect.</target>
+        </trans-unit>
+        <trans-unit id="56de07be-a507-4bcf-b55b-8978c9125519" xml:space="preserve">
+          <source>Specify the <bpt id="6ea0c56f-c09b-4780-b302-401e4f970519">&lt;strong&gt;</bpt>Bandwidth Rate<ept id="6ea0c56f-c09b-4780-b302-401e4f970519">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify the <bpt id="6ea0c56f-c09b-4780-b302-401e4f970519">&lt;strong&gt;</bpt>Bandwidth Rate<ept id="6ea0c56f-c09b-4780-b302-401e4f970519">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c4c8f5e-8305-406c-9121-8d7d333ec538" xml:space="preserve">
+          <source>This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud.</source>
+          <target state="new">This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud.</target>
+        </trans-unit>
+        <trans-unit id="44918d67-dee7-4ed5-a203-a583cf9cfc7d" xml:space="preserve">
+          <source>Supply a number between 1 and 1,000 for this field.</source>
+          <target state="new">Supply a number between 1 and 1,000 for this field.</target>
+        </trans-unit>
+        <trans-unit id="2bbe6152-e0a8-4a93-879f-1b3b6c2183f4" xml:space="preserve">
+          <source>Click the check icon <bpt id="cdfb0f5d-d3eb-4722-b11a-1f76e772170a">&lt;linkText&gt;</bpt>Check icon<ept id="cdfb0f5d-d3eb-4722-b11a-1f76e772170a">&lt;/linkText&gt;</ept>.</source>
+          <target state="new">Click the check icon <bpt id="cdfb0f5d-d3eb-4722-b11a-1f76e772170a">&lt;linkText&gt;</bpt>Check icon<ept id="cdfb0f5d-d3eb-4722-b11a-1f76e772170a">&lt;/linkText&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36c16066-4070-4613-b52c-f8d4cce6e830" xml:space="preserve">
+          <source>The template that you have created will be added to the list of bandwidth templates on the service <bpt id="15cdf619-dc06-47f4-8b0f-8313a2927567">&lt;strong&gt;</bpt>Configure<ept id="15cdf619-dc06-47f4-8b0f-8313a2927567">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">The template that you have created will be added to the list of bandwidth templates on the service <bpt id="15cdf619-dc06-47f4-8b0f-8313a2927567">&lt;strong&gt;</bpt>Configure<ept id="15cdf619-dc06-47f4-8b0f-8313a2927567">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="41edb316-2219-4b8b-9bdf-074c0e64bb09" xml:space="preserve">
+          <source><bpt id="48b39a88-b13c-44c3-a488-ee58999644e9">&lt;linkText&gt;</bpt>Create new bandwidth template<ept id="48b39a88-b13c-44c3-a488-ee58999644e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="48b39a88-b13c-44c3-a488-ee58999644e9">&lt;linkText&gt;</bpt>Create new bandwidth template<ept id="48b39a88-b13c-44c3-a488-ee58999644e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c02b14b-755b-489e-9c1e-c4fd0a120bc5" xml:space="preserve">
+          <source>Click <bpt id="ccd66599-47ed-4117-bc9f-dc91d23e1bb0">&lt;strong&gt;</bpt>Save<ept id="ccd66599-47ed-4117-bc9f-dc91d23e1bb0">&lt;/strong&gt;</ept> at the bottom of the page and then click <bpt id="adaad5fc-fa66-499c-b1cb-b1a59f75c43d">&lt;strong&gt;</bpt>Yes<ept id="adaad5fc-fa66-499c-b1cb-b1a59f75c43d">&lt;/strong&gt;</ept> when prompted for confirmation.</source>
+          <target state="new">Click <bpt id="ccd66599-47ed-4117-bc9f-dc91d23e1bb0">&lt;strong&gt;</bpt>Save<ept id="ccd66599-47ed-4117-bc9f-dc91d23e1bb0">&lt;/strong&gt;</ept> at the bottom of the page and then click <bpt id="adaad5fc-fa66-499c-b1cb-b1a59f75c43d">&lt;strong&gt;</bpt>Yes<ept id="adaad5fc-fa66-499c-b1cb-b1a59f75c43d">&lt;/strong&gt;</ept> when prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="e5926e9d-b90e-4cac-8440-edb60c15c3cc" xml:space="preserve">
+          <source>This will save the configuration changes that you have made.</source>
+          <target state="new">This will save the configuration changes that you have made.</target>
+        </trans-unit>
+        <trans-unit id="4e9fee53-be19-4739-8204-719787613aae" xml:space="preserve">
+          <source>Perform the following steps to edit a bandwidth template.</source>
+          <target state="new">Perform the following steps to edit a bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="a7b4943b-1ea4-43b9-a401-0d7b276b2d79" xml:space="preserve">
+          <source>Click <bpt id="eef35490-213f-47f9-b025-f4da33443b6f">&lt;strong&gt;</bpt>add/edit bandwidth template<ept id="eef35490-213f-47f9-b025-f4da33443b6f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="eef35490-213f-47f9-b025-f4da33443b6f">&lt;strong&gt;</bpt>add/edit bandwidth template<ept id="eef35490-213f-47f9-b025-f4da33443b6f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe0631fa-c5a9-4b73-bfa4-49fb1b0a7050" xml:space="preserve">
+          <source>In the <bpt id="cc0c1241-76e6-4e0d-862b-786e958585c6">&lt;strong&gt;</bpt>Add/Edit Bandwidth Template<ept id="cc0c1241-76e6-4e0d-862b-786e958585c6">&lt;/strong&gt;</ept> dialog box:</source>
+          <target state="new">In the <bpt id="cc0c1241-76e6-4e0d-862b-786e958585c6">&lt;strong&gt;</bpt>Add/Edit Bandwidth Template<ept id="cc0c1241-76e6-4e0d-862b-786e958585c6">&lt;/strong&gt;</ept> dialog box:</target>
+        </trans-unit>
+        <trans-unit id="c2fd1200-e6c9-41fd-89cb-8c9d9f0a352f" xml:space="preserve">
+          <source>From the <bpt id="480aeb77-a900-457c-8ac6-2545de410b7a">&lt;strong&gt;</bpt>Template<ept id="480aeb77-a900-457c-8ac6-2545de410b7a">&lt;/strong&gt;</ept> drop-down list, choose an existing bandwidth template that you want to modify.</source>
+          <target state="new">From the <bpt id="480aeb77-a900-457c-8ac6-2545de410b7a">&lt;strong&gt;</bpt>Template<ept id="480aeb77-a900-457c-8ac6-2545de410b7a">&lt;/strong&gt;</ept> drop-down list, choose an existing bandwidth template that you want to modify.</target>
+        </trans-unit>
+        <trans-unit id="ba145022-a533-4843-8a26-413de298f607" xml:space="preserve">
+          <source>Complete your changes.</source>
+          <target state="new">Complete your changes.</target>
+        </trans-unit>
+        <trans-unit id="2273508a-6f80-4c6e-879e-00ab4adce776" xml:space="preserve">
+          <source>(You can modify any of the existing settings.)</source>
+          <target state="new">(You can modify any of the existing settings.)</target>
+        </trans-unit>
+        <trans-unit id="52205f90-b020-4147-8091-a4c9a22721e2" xml:space="preserve">
+          <source>Click the check icon <bpt id="e999f77c-f895-4d23-bc63-0db46d089cd9">&lt;linkText&gt;</bpt>Check icon<ept id="e999f77c-f895-4d23-bc63-0db46d089cd9">&lt;/linkText&gt;</ept>.</source>
+          <target state="new">Click the check icon <bpt id="e999f77c-f895-4d23-bc63-0db46d089cd9">&lt;linkText&gt;</bpt>Check icon<ept id="e999f77c-f895-4d23-bc63-0db46d089cd9">&lt;/linkText&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6016e236-82c0-41c3-9586-e126c9b856e5" xml:space="preserve">
+          <source>You will see the modified template in the list of bandwidth templates on the service Configure page.</source>
+          <target state="new">You will see the modified template in the list of bandwidth templates on the service Configure page.</target>
+        </trans-unit>
+        <trans-unit id="fd4927f0-11e6-4f82-8866-b4babc673fe8" xml:space="preserve">
+          <source>To save your changes, click <bpt id="04018501-1f52-4258-ad2e-71c193d7c20b">&lt;strong&gt;</bpt>Save<ept id="04018501-1f52-4258-ad2e-71c193d7c20b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">To save your changes, click <bpt id="04018501-1f52-4258-ad2e-71c193d7c20b">&lt;strong&gt;</bpt>Save<ept id="04018501-1f52-4258-ad2e-71c193d7c20b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="f41c8715-b8a2-4ae8-8806-e566a9373842" xml:space="preserve">
+          <source>Click <bpt id="f204c102-96a1-442d-95b2-87294340f742">&lt;strong&gt;</bpt>Yes<ept id="f204c102-96a1-442d-95b2-87294340f742">&lt;/strong&gt;</ept> when prompted for confirmation.</source>
+          <target state="new">Click <bpt id="f204c102-96a1-442d-95b2-87294340f742">&lt;strong&gt;</bpt>Yes<ept id="f204c102-96a1-442d-95b2-87294340f742">&lt;/strong&gt;</ept> when prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="c112b7a7-e614-418c-9671-af191924645c" xml:space="preserve">
+          <source>You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.</source>
+          <target state="new">You will not be allowed to save your changes if the edited schedule overlaps with an existing schedule in the bandwidth template that you are modifying.</target>
+        </trans-unit>
+        <trans-unit id="46b6d96a-142d-4858-a3ac-b5fd11ab22bf" xml:space="preserve">
+          <source>Perform the following steps to delete a bandwidth template.</source>
+          <target state="new">Perform the following steps to delete a bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="71a302af-8fce-4bf0-9c5b-ceba2933925c" xml:space="preserve">
+          <source>In the tabular list of the bandwidth templates for your service, select the template that you wish to delete.</source>
+          <target state="new">In the tabular list of the bandwidth templates for your service, select the template that you wish to delete.</target>
+        </trans-unit>
+        <trans-unit id="e802a6c6-0103-44d9-aa6c-817dde240cb4" xml:space="preserve">
+          <source>A delete icon (<bpt id="50a304a8-61f6-4adf-be84-4fc2316fb8bb">&lt;strong&gt;</bpt>x<ept id="50a304a8-61f6-4adf-be84-4fc2316fb8bb">&lt;/strong&gt;</ept>) will appear to the extreme right of the selected template.</source>
+          <target state="new">A delete icon (<bpt id="50a304a8-61f6-4adf-be84-4fc2316fb8bb">&lt;strong&gt;</bpt>x<ept id="50a304a8-61f6-4adf-be84-4fc2316fb8bb">&lt;/strong&gt;</ept>) will appear to the extreme right of the selected template.</target>
+        </trans-unit>
+        <trans-unit id="afff72a4-79b3-4405-9f5c-36399ff7cca3" xml:space="preserve">
+          <source>Click the <bpt id="57839d11-7681-4af8-875f-4a01df2bdbf2">&lt;strong&gt;</bpt>x<ept id="57839d11-7681-4af8-875f-4a01df2bdbf2">&lt;/strong&gt;</ept> icon to delete the template.</source>
+          <target state="new">Click the <bpt id="57839d11-7681-4af8-875f-4a01df2bdbf2">&lt;strong&gt;</bpt>x<ept id="57839d11-7681-4af8-875f-4a01df2bdbf2">&lt;/strong&gt;</ept> icon to delete the template.</target>
+        </trans-unit>
+        <trans-unit id="535c2548-b129-4279-9567-6a1f824a08be" xml:space="preserve">
+          <source>You will be prompted for confirmation.</source>
+          <target state="new">You will be prompted for confirmation.</target>
+        </trans-unit>
+        <trans-unit id="7df17508-5245-4e6f-a8aa-a48fabf7e872" xml:space="preserve">
+          <source>Click <bpt id="f8d20ed8-4eef-40da-82a9-57c7b940487d">&lt;strong&gt;</bpt>OK<ept id="f8d20ed8-4eef-40da-82a9-57c7b940487d">&lt;/strong&gt;</ept> to proceed.</source>
+          <target state="new">Click <bpt id="f8d20ed8-4eef-40da-82a9-57c7b940487d">&lt;strong&gt;</bpt>OK<ept id="f8d20ed8-4eef-40da-82a9-57c7b940487d">&lt;/strong&gt;</ept> to proceed.</target>
+        </trans-unit>
+        <trans-unit id="54738432-8a2c-48a5-a380-60af542243c7" xml:space="preserve">
+          <source>If the template is in use by any volume(s), you will not be allowed to delete it.</source>
+          <target state="new">If the template is in use by any volume(s), you will not be allowed to delete it.</target>
+        </trans-unit>
+        <trans-unit id="f53d83d5-ad89-45f1-a1ff-a79b3a2ab0f1" xml:space="preserve">
+          <source>You will see an error message indicating that the template is in use.</source>
+          <target state="new">You will see an error message indicating that the template is in use.</target>
+        </trans-unit>
+        <trans-unit id="838206b1-bb1b-4386-be2d-e1091fefdeec" xml:space="preserve">
+          <source>An error message dialog box will appear advising you that all the references to the template should be removed.</source>
+          <target state="new">An error message dialog box will appear advising you that all the references to the template should be removed.</target>
+        </trans-unit>
+        <trans-unit id="f4ebcb07-c8b4-48d3-83bd-5d27a164d0be" xml:space="preserve">
+          <source>You can delete all the references to the template by accessing the <bpt id="aca76f21-4250-4b93-96e7-fc31f4a67f4e">&lt;strong&gt;</bpt>Volume Containers<ept id="aca76f21-4250-4b93-96e7-fc31f4a67f4e">&lt;/strong&gt;</ept> page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting.</source>
+          <target state="new">You can delete all the references to the template by accessing the <bpt id="aca76f21-4250-4b93-96e7-fc31f4a67f4e">&lt;strong&gt;</bpt>Volume Containers<ept id="aca76f21-4250-4b93-96e7-fc31f4a67f4e">&lt;/strong&gt;</ept> page and modifying the volume containers that use this template so that they use another template or use a custom or unlimited bandwidth setting.</target>
+        </trans-unit>
+        <trans-unit id="7c99711c-e34b-475e-85d7-b6c8a798d4ab" xml:space="preserve">
+          <source>When all the references have been removed, you can delete the template.</source>
+          <target state="new">When all the references have been removed, you can delete the template.</target>
+        </trans-unit>
+        <trans-unit id="8efaf7cf-7a82-47d1-bf5b-dccaf99cba36" xml:space="preserve">
+          <source>A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud.</source>
+          <target state="new">A default bandwidth template is provided and is used by volume containers by default to enforce bandwidth controls when accessing the cloud.</target>
+        </trans-unit>
+        <trans-unit id="2028e65d-df0f-4e52-8762-7b57c5c6463b" xml:space="preserve">
+          <source>The default template also serves as a ready reference for users who create their own templates.</source>
+          <target state="new">The default template also serves as a ready reference for users who create their own templates.</target>
+        </trans-unit>
+        <trans-unit id="86e44500-ef8d-4c66-be96-9f85ccf7dec1" xml:space="preserve">
+          <source>The details of this default template are:</source>
+          <target state="new">The details of this default template are:</target>
+        </trans-unit>
+        <trans-unit id="e06dcf91-602f-4225-b17b-84e37dc64a92" xml:space="preserve">
+          <source><bpt id="e4f97ef6-cd0a-433d-8bb4-5087222a4c34">&lt;strong&gt;</bpt>Name<ept id="e4f97ef6-cd0a-433d-8bb4-5087222a4c34">&lt;/strong&gt;</ept> – Unlimited nights and weekends</source>
+          <target state="new"><bpt id="e4f97ef6-cd0a-433d-8bb4-5087222a4c34">&lt;strong&gt;</bpt>Name<ept id="e4f97ef6-cd0a-433d-8bb4-5087222a4c34">&lt;/strong&gt;</ept> – Unlimited nights and weekends</target>
+        </trans-unit>
+        <trans-unit id="3bfa48e5-51e1-47aa-9b84-d6c89d08601d" xml:space="preserve">
+          <source><bpt id="afb40acf-d8b7-4029-a951-a6ec4a02fdab">&lt;strong&gt;</bpt>Schedule<ept id="afb40acf-d8b7-4029-a951-a6ec4a02fdab">&lt;/strong&gt;</ept> – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time.</source>
+          <target state="new"><bpt id="afb40acf-d8b7-4029-a951-a6ec4a02fdab">&lt;strong&gt;</bpt>Schedule<ept id="afb40acf-d8b7-4029-a951-a6ec4a02fdab">&lt;/strong&gt;</ept> – A single schedule from Monday to Friday that applies a bandwidth rate of 1 Mbps between 8 AM and 5 PM device time.</target>
+        </trans-unit>
+        <trans-unit id="1792f417-b697-4a0a-887e-8f7bef64923b" xml:space="preserve">
+          <source>The bandwidth is set to Unlimited for the remainder of the week.</source>
+          <target state="new">The bandwidth is set to Unlimited for the remainder of the week.</target>
+        </trans-unit>
+        <trans-unit id="105a9d47-aa5a-4190-92bc-2459b815501c" xml:space="preserve">
+          <source>The default template can be edited.</source>
+          <target state="new">The default template can be edited.</target>
+        </trans-unit>
+        <trans-unit id="8c90e6d7-bd82-4b34-8919-233354e61960" xml:space="preserve">
+          <source>The usage of this template (including edited versions) is tracked.</source>
+          <target state="new">The usage of this template (including edited versions) is tracked.</target>
+        </trans-unit>
+        <trans-unit id="52957fa9-bd36-4cbd-bda8-1de315004f9f" xml:space="preserve">
+          <source>Follow this procedure to create a schedule that starts at a specified time and runs all day.</source>
+          <target state="new">Follow this procedure to create a schedule that starts at a specified time and runs all day.</target>
+        </trans-unit>
+        <trans-unit id="0dfabb8f-7f95-4247-adf2-1caf7a3d5107" xml:space="preserve">
+          <source>In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning.</source>
+          <target state="new">In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning.</target>
+        </trans-unit>
+        <trans-unit id="0c743323-c8b8-4465-93d1-1a7c08bf6f6a" xml:space="preserve">
+          <source>It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days.</source>
+          <target state="new">It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days.</target>
+        </trans-unit>
+        <trans-unit id="e77ff782-fc91-4401-853d-bbbdb889fac3" xml:space="preserve">
+          <source>If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).</source>
+          <target state="new">If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).</target>
+        </trans-unit>
+        <trans-unit id="5ecb262e-432b-4d40-b939-5bd3b6283bb8" xml:space="preserve">
+          <source>Create a schedule that starts at 9 AM in the morning and runs until midnight.</source>
+          <target state="new">Create a schedule that starts at 9 AM in the morning and runs until midnight.</target>
+        </trans-unit>
+        <trans-unit id="5819fdf5-ec2c-4389-967e-6ed75853e027" xml:space="preserve">
+          <source>Add another schedule.</source>
+          <target state="new">Add another schedule.</target>
+        </trans-unit>
+        <trans-unit id="f5006225-3f75-4d77-90cd-f64c877f75f1" xml:space="preserve">
+          <source>Configure the second schedule to run from midnight until 9 AM in the morning.</source>
+          <target state="new">Configure the second schedule to run from midnight until 9 AM in the morning.</target>
+        </trans-unit>
+        <trans-unit id="1cc713c3-1db6-4826-be9a-2be039d5c4ca" xml:space="preserve">
+          <source>Save the bandwidth template.</source>
+          <target state="new">Save the bandwidth template.</target>
+        </trans-unit>
+        <trans-unit id="190121b6-bd1e-49aa-8fe1-ca0c040c6990" xml:space="preserve">
+          <source>The composite schedule will then start at a time of your choosing and run all-day.</source>
+          <target state="new">The composite schedule will then start at a time of your choosing and run all-day.</target>
+        </trans-unit>
+        <trans-unit id="fde450b1-5d6e-4687-abed-c5420283f773" xml:space="preserve">
+          <source><bpt id="4174b219-1cca-409a-86a5-e91f4aeb01c1">&lt;strong&gt;</bpt>Q<ept id="4174b219-1cca-409a-86a5-e91f4aeb01c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4174b219-1cca-409a-86a5-e91f4aeb01c1">&lt;strong&gt;</bpt>Q<ept id="4174b219-1cca-409a-86a5-e91f4aeb01c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b7a7f17-e27b-4ee1-94fc-bc24adaa04e7" xml:space="preserve">
+          <source>What happens to bandwidth controls when you are in between the schedules?</source>
+          <target state="new">What happens to bandwidth controls when you are in between the schedules?</target>
+        </trans-unit>
+        <trans-unit id="d0276bdd-3446-4436-a2f7-ddd87fb32ef6" xml:space="preserve">
+          <source>(A schedule has ended and another one has not started yet.)</source>
+          <target state="new">(A schedule has ended and another one has not started yet.)</target>
+        </trans-unit>
+        <trans-unit id="05ec6111-c0ed-462d-955c-fc6b993aeaa9" xml:space="preserve">
+          <source><bpt id="1ce772c8-ccc4-42b4-b11b-3ff8128062da">&lt;strong&gt;</bpt>A<ept id="1ce772c8-ccc4-42b4-b11b-3ff8128062da">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="1ce772c8-ccc4-42b4-b11b-3ff8128062da">&lt;strong&gt;</bpt>A<ept id="1ce772c8-ccc4-42b4-b11b-3ff8128062da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2f43090-5bf7-4fb1-a0f2-6f181cc27c8c" xml:space="preserve">
+          <source>In such cases, no bandwidth controls will be employed.</source>
+          <target state="new">In such cases, no bandwidth controls will be employed.</target>
+        </trans-unit>
+        <trans-unit id="5419b829-1911-4235-b649-824926b3f248" xml:space="preserve">
+          <source>This means that the device can use unlimited bandwidth when tiering data to the cloud.</source>
+          <target state="new">This means that the device can use unlimited bandwidth when tiering data to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="9ec3bcf2-e04f-404d-9860-ded24e89bf64" xml:space="preserve">
+          <source><bpt id="f747d495-1a00-47ed-9e8b-c0ce43f28704">&lt;strong&gt;</bpt>Q<ept id="f747d495-1a00-47ed-9e8b-c0ce43f28704">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="f747d495-1a00-47ed-9e8b-c0ce43f28704">&lt;strong&gt;</bpt>Q<ept id="f747d495-1a00-47ed-9e8b-c0ce43f28704">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="432a8691-a226-4d69-b265-44769b2d2d1e" xml:space="preserve">
+          <source>Can you modify bandwidth templates on an offline device?</source>
+          <target state="new">Can you modify bandwidth templates on an offline device?</target>
+        </trans-unit>
+        <trans-unit id="b821b5bd-5697-4507-a32a-3dd80c8b4633" xml:space="preserve">
+          <source><bpt id="b4ad5f38-9b5b-43fe-a3ab-0f0df6b35a93">&lt;strong&gt;</bpt>A<ept id="b4ad5f38-9b5b-43fe-a3ab-0f0df6b35a93">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b4ad5f38-9b5b-43fe-a3ab-0f0df6b35a93">&lt;strong&gt;</bpt>A<ept id="b4ad5f38-9b5b-43fe-a3ab-0f0df6b35a93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdbee929-a489-4046-b71d-e8b27ae3cd98" xml:space="preserve">
+          <source>You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.</source>
+          <target state="new">You will not be able to modify bandwidth templates on volumes containers if the corresponding device is offline.</target>
+        </trans-unit>
+        <trans-unit id="6ed051ca-db1a-4e0a-8b57-28dc4f764038" xml:space="preserve">
+          <source><bpt id="05ca5696-6338-4574-b417-55f19a0cc515">&lt;strong&gt;</bpt>Q<ept id="05ca5696-6338-4574-b417-55f19a0cc515">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="05ca5696-6338-4574-b417-55f19a0cc515">&lt;strong&gt;</bpt>Q<ept id="05ca5696-6338-4574-b417-55f19a0cc515">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3aaaa238-c579-4ee6-aa27-c2d9b37e1748" xml:space="preserve">
+          <source>Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?</source>
+          <target state="new">Can you edit a bandwidth template associated with a volume container when the associated volumes are offline?</target>
+        </trans-unit>
+        <trans-unit id="afe47a26-b878-471f-9ec5-721e88528110" xml:space="preserve">
+          <source><bpt id="b33c6c57-0a82-4b58-b15e-52589b391948">&lt;strong&gt;</bpt>A<ept id="b33c6c57-0a82-4b58-b15e-52589b391948">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b33c6c57-0a82-4b58-b15e-52589b391948">&lt;strong&gt;</bpt>A<ept id="b33c6c57-0a82-4b58-b15e-52589b391948">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="40adf5f4-ce1b-40aa-bf51-119545a26832" xml:space="preserve">
+          <source>You can modify a bandwidth template associated with a volume container whose volumes are offline.</source>
+          <target state="new">You can modify a bandwidth template associated with a volume container whose volumes are offline.</target>
+        </trans-unit>
+        <trans-unit id="36a898f0-f470-46fb-aae1-26c7f8e6c197" xml:space="preserve">
+          <source>Note that when volumes are offline, no data will be tiered from the device to the cloud.</source>
+          <target state="new">Note that when volumes are offline, no data will be tiered from the device to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="80c46cbe-042f-49aa-98d0-20f3dfeac662" xml:space="preserve">
+          <source><bpt id="d147a717-e439-4c53-b455-b9d3f00a4818">&lt;strong&gt;</bpt>Q<ept id="d147a717-e439-4c53-b455-b9d3f00a4818">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="d147a717-e439-4c53-b455-b9d3f00a4818">&lt;strong&gt;</bpt>Q<ept id="d147a717-e439-4c53-b455-b9d3f00a4818">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d75f65b2-1fcc-4850-bdd0-f00dc9a66520" xml:space="preserve">
+          <source>Can you delete a default template?</source>
+          <target state="new">Can you delete a default template?</target>
+        </trans-unit>
+        <trans-unit id="65bea88f-2400-4a7a-b3d6-2deeefbb4729" xml:space="preserve">
+          <source><bpt id="d1e0ff59-9e60-480a-af6d-6b98222f0d53">&lt;strong&gt;</bpt>A<ept id="d1e0ff59-9e60-480a-af6d-6b98222f0d53">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="d1e0ff59-9e60-480a-af6d-6b98222f0d53">&lt;strong&gt;</bpt>A<ept id="d1e0ff59-9e60-480a-af6d-6b98222f0d53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed697ca4-4b98-4524-adb1-8588ce4afdba" xml:space="preserve">
+          <source>Although you can delete a default template, it is not a good idea to do so.</source>
+          <target state="new">Although you can delete a default template, it is not a good idea to do so.</target>
+        </trans-unit>
+        <trans-unit id="5e2f52a7-c290-4c91-aebc-b2accb8849ea" xml:space="preserve">
+          <source>The usage of a default template, including edited versions, is tracked.</source>
+          <target state="new">The usage of a default template, including edited versions, is tracked.</target>
+        </trans-unit>
+        <trans-unit id="06c9bc8a-da28-4cf4-be99-822e54d6f47c" xml:space="preserve">
+          <source>The tracking data is analyzed and over the course of time, is used to improve the default template.</source>
+          <target state="new">The tracking data is analyzed and over the course of time, is used to improve the default template.</target>
+        </trans-unit>
+        <trans-unit id="4452642a-2bcd-483e-89a7-20f5721cfaa4" xml:space="preserve">
+          <source><bpt id="c80ac1df-f2c8-4d2e-a1a8-a23cebf68101">&lt;strong&gt;</bpt>Q<ept id="c80ac1df-f2c8-4d2e-a1a8-a23cebf68101">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c80ac1df-f2c8-4d2e-a1a8-a23cebf68101">&lt;strong&gt;</bpt>Q<ept id="c80ac1df-f2c8-4d2e-a1a8-a23cebf68101">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49d7734a-bfd7-4ad9-ad5e-1d8e65529473" xml:space="preserve">
+          <source>How do you determine that your bandwidth templates need to be modified?</source>
+          <target state="new">How do you determine that your bandwidth templates need to be modified?</target>
+        </trans-unit>
+        <trans-unit id="39a305c8-e19c-4422-8a96-802218ffd82b" xml:space="preserve">
+          <source><bpt id="74263b48-c327-4bee-a2a7-ddbd534d927f">&lt;strong&gt;</bpt>A<ept id="74263b48-c327-4bee-a2a7-ddbd534d927f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="74263b48-c327-4bee-a2a7-ddbd534d927f">&lt;strong&gt;</bpt>A<ept id="74263b48-c327-4bee-a2a7-ddbd534d927f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26532990-88f2-4ccc-b4a8-5de8772f2336" xml:space="preserve">
+          <source>One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day.</source>
+          <target state="new">One of the signs that you need to modify the bandwidth templates is when you start seeing the network slow down or choke multiple times in a day.</target>
+        </trans-unit>
+        <trans-unit id="4618ef78-b2ca-4fa9-87df-054f736a19bf" xml:space="preserve">
+          <source>If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.</source>
+          <target state="new">If this happens, monitor the storage and usage network by looking at the I/O Performance and Network Throughput charts.</target>
+        </trans-unit>
+        <trans-unit id="90a36783-b6a6-4415-9cae-a72e9dba94db" xml:space="preserve">
+          <source>From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs.</source>
+          <target state="new">From the network throughput data, identify the time of day and the volume containers in which the network bottleneck occurs.</target>
+        </trans-unit>
+        <trans-unit id="987cc88d-0440-4369-90fc-971cb51355af" xml:space="preserve">
+          <source>If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.</source>
+          <target state="new">If this happens when data is being tiered to the cloud (get this information from I/O performance for all volume containers for device to cloud), then you will need to modify the bandwidth templates associated with your volume containers.</target>
+        </trans-unit>
+        <trans-unit id="0c785903-c270-43ce-be77-e3618c3a90a2" xml:space="preserve">
+          <source>After the modified templates are in use, you will need to monitor the network again for significant latencies.</source>
+          <target state="new">After the modified templates are in use, you will need to monitor the network again for significant latencies.</target>
+        </trans-unit>
+        <trans-unit id="2f9cfcd5-c02b-4b7d-ba1e-6f98048b5dd0" xml:space="preserve">
+          <source>If these still exist, then you will need to revisit your bandwidth templates.</source>
+          <target state="new">If these still exist, then you will need to revisit your bandwidth templates.</target>
+        </trans-unit>
+        <trans-unit id="cc270fa3-1ff8-4ce5-8902-c6dd5c885117" xml:space="preserve">
+          <source><bpt id="843b7fe9-74af-4b4c-8cd6-bda74a5f0df5">&lt;strong&gt;</bpt>Q<ept id="843b7fe9-74af-4b4c-8cd6-bda74a5f0df5">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="843b7fe9-74af-4b4c-8cd6-bda74a5f0df5">&lt;strong&gt;</bpt>Q<ept id="843b7fe9-74af-4b4c-8cd6-bda74a5f0df5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3c1e0c6-180d-4c57-93ab-897bc14e3315" xml:space="preserve">
+          <source>What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?</source>
+          <target state="new">What happens if multiple volume containers on my device have schedules that overlap but different limits apply to each?</target>
+        </trans-unit>
+        <trans-unit id="18d07fec-cabe-4893-b35c-1c1a2a254825" xml:space="preserve">
+          <source><bpt id="830f86c8-fc44-4cd0-9db7-bc3369acff1f">&lt;strong&gt;</bpt>A<ept id="830f86c8-fc44-4cd0-9db7-bc3369acff1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="830f86c8-fc44-4cd0-9db7-bc3369acff1f">&lt;strong&gt;</bpt>A<ept id="830f86c8-fc44-4cd0-9db7-bc3369acff1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d996e3a6-87e4-4eca-9ddc-84cc0305d316" xml:space="preserve">
+          <source>Let's assume that you have a device with 3 volume containers.</source>
+          <target state="new">Let's assume that you have a device with 3 volume containers.</target>
+        </trans-unit>
+        <trans-unit id="d47a19c8-4f2f-430e-8f71-ff6028c343f5" xml:space="preserve">
+          <source>The schedules associated with these containers completely overlap.</source>
+          <target state="new">The schedules associated with these containers completely overlap.</target>
+        </trans-unit>
+        <trans-unit id="f155b2d2-53ee-4ed0-92c9-1c3c545fc563" xml:space="preserve">
+          <source>For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively.</source>
+          <target state="new">For each of these containers, the bandwidth limits used are 5, 10, and 15 Mbps respectively.</target>
+        </trans-unit>
+        <trans-unit id="e79da850-bc29-4111-9713-fcc365880885" xml:space="preserve">
+          <source>When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.</source>
+          <target state="new">When I/Os are occurring on all of these containers at the same time, the minimum of the 3 bandwidth limits may be applied: in this case, 5 Mbps as these outgoing I/O requests share the same queue.</target>
+        </trans-unit>
+        <trans-unit id="786aaacc-95b8-4e0e-abc6-30e22f0ca159" xml:space="preserve">
+          <source>Follow these best practices for your StorSimple device:</source>
+          <target state="new">Follow these best practices for your StorSimple device:</target>
+        </trans-unit>
+        <trans-unit id="fd9812e1-9550-4a5f-ab8a-96f20574ce7a" xml:space="preserve">
+          <source>Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day.</source>
+          <target state="new">Configure bandwidth templates on your device to enable variable throttling of the network throughput by the device at different times of the day.</target>
+        </trans-unit>
+        <trans-unit id="eeecdc24-082e-420b-ba78-a66d7c15d61c" xml:space="preserve">
+          <source>These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.</source>
+          <target state="new">These bandwidth templates when used with backup schedules can effectively leverage additional network bandwidth for cloud operations during off-peak hours.</target>
+        </trans-unit>
+        <trans-unit id="8d3af48d-c52d-4b1d-95ba-2bbcc18bd0f0" xml:space="preserve">
+          <source>Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).</source>
+          <target state="new">Calculate the actual bandwidth required for a particular deployment based on the size of the deployment and the required recovery time objective (RTO).</target>
+        </trans-unit>
+        <trans-unit id="850b7678-a7d0-4d60-9a70-3311fb1ff296" xml:space="preserve">
+          <source>Read more about <bpt id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;linkText&gt;</bpt>StorSimple components<ept id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;/linkText&gt;</ept><bpt id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;title&gt;</bpt><ept id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read more about <bpt id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;linkText&gt;</bpt>StorSimple components<ept id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;/linkText&gt;</ept><bpt id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;title&gt;</bpt><ept id="d3aa67ab-2249-4b6f-92f3-105710d631c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

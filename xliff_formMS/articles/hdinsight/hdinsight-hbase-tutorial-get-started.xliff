@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6cb358a-ec7d-4f9c-abc3-70379f652fa7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6cb358a-ec7d-4f9c-abc3-70379f652fa7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f6c127d-255d-4618-aca2-ac3935c96681">
+        <trans-unit id="3c5abb6e-c8ea-45f1-a782-3ecd37d1d9b5" xml:space="preserve">
+          <source>HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure</source>
+          <target state="new">HBase tutorial: Get started with HBase in Hadoop | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c0398d14-8a99-4900-9d77-87d5939dd4cb" xml:space="preserve">
+          <source>Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.</source>
+          <target state="new">Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Create tables from the HBase shell and query them using Hive.</target>
+        </trans-unit>
+        <trans-unit id="3e5e05a1-bbe8-4727-9d3d-2da9d4d9110f" xml:space="preserve">
+          <source>Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive.</source>
+          <target state="new">Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive.</target>
+        </trans-unit>
+        <trans-unit id="742bd7bc-b1a6-4b06-adca-16c17ab41b4b" xml:space="preserve">
+          <source>For general HBase information, see <bpt id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;/linkText&gt;</ept><bpt id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;title&gt;</bpt><ept id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;/title&gt;</ept>.</source>
+          <target state="new">For general HBase information, see <bpt id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;/linkText&gt;</ept><bpt id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;title&gt;</bpt><ept id="653ce199-f38f-4f2a-a9e7-65176899f865">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faccd8ac-8772-4eae-a7ef-3aa8e58b4c9f" xml:space="preserve">
+          <source><bpt id="9f82ab50-6139-442e-a3ef-87a41f4c220c">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="9f82ab50-6139-442e-a3ef-87a41f4c220c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9f82ab50-6139-442e-a3ef-87a41f4c220c">&lt;token href="../../includes/hdinsight-azure-preview-portal.md"&gt;</bpt><ept id="9f82ab50-6139-442e-a3ef-87a41f4c220c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c7f242e-fb29-42a3-84dc-6bc53f8a00fc" xml:space="preserve">
+          <source><bpt id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;linkText&gt;</bpt>HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight<ept id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;/linkText&gt;</ept><bpt id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;title&gt;</bpt><ept id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;linkText&gt;</bpt>HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight<ept id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;/linkText&gt;</ept><bpt id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;title&gt;</bpt><ept id="1fa342d7-572d-44a2-b0f3-3db0dd70e365">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97ac98b3-364a-4973-8bb7-c24fce9081fd" xml:space="preserve">
+          <source>HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0).</source>
+          <target state="new">HBase (version 0.98.0) is only available for use with HDInsight 3.1 clusters on HDInsight (based on Apache Hadoop and YARN 2.4.0).</target>
+        </trans-unit>
+        <trans-unit id="f69d9563-36fb-4095-ba70-6b26080606d3" xml:space="preserve">
+          <source>For version information, see <bpt id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;linkText&gt;</bpt>What's new in the Hadoop cluster versions provided by HDInsight?[hdinsight-versions]<ept id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;/linkText&gt;</ept><bpt id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;title&gt;</bpt><ept id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;/title&gt;</ept></source>
+          <target state="new">For version information, see <bpt id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;linkText&gt;</bpt>What's new in the Hadoop cluster versions provided by HDInsight?[hdinsight-versions]<ept id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;/linkText&gt;</ept><bpt id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;title&gt;</bpt><ept id="9fc4ce04-949b-4742-8786-b64a0f2d474a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5e5512f-c94b-43a9-8fff-785a44e56e17" xml:space="preserve">
+          <source><bpt id="7d7a9b01-fdb4-473a-919b-0998623909dc">&lt;strong&gt;</bpt>Prerequisites<ept id="7d7a9b01-fdb4-473a-919b-0998623909dc">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7d7a9b01-fdb4-473a-919b-0998623909dc">&lt;strong&gt;</bpt>Prerequisites<ept id="7d7a9b01-fdb4-473a-919b-0998623909dc">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="858712b0-e8f0-4538-b777-71c7a3d41a55" xml:space="preserve">
+          <source>Before you begin this HBase tutorial, you must have the following:</source>
+          <target state="new">Before you begin this HBase tutorial, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="e39438ab-d447-4c9a-9aa6-5d41742e2907" xml:space="preserve">
+          <source><bpt id="71757651-0124-4406-b212-a48b3026b7a0">&lt;strong&gt;</bpt>A Microsoft Azure subscription<ept id="71757651-0124-4406-b212-a48b3026b7a0">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="71757651-0124-4406-b212-a48b3026b7a0">&lt;strong&gt;</bpt>A Microsoft Azure subscription<ept id="71757651-0124-4406-b212-a48b3026b7a0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e233cd8a-4867-4d7a-984e-dc833e894931" xml:space="preserve">
+          <source>See <bpt id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;/linkText&gt;</ept><bpt id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;title&gt;</bpt><ept id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;linkText&gt;</bpt>Get Azure free trial<ept id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;/linkText&gt;</ept><bpt id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;title&gt;</bpt><ept id="40839410-4108-4e89-80d2-22ec0d0c27e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a11e653-c286-4f45-a9de-a6e48540a7ee" xml:space="preserve">
+          <source><bpt id="bac8bc1e-f2e7-4e69-8d11-fa52e6ea505d">&lt;strong&gt;</bpt>A workstation<ept id="bac8bc1e-f2e7-4e69-8d11-fa52e6ea505d">&lt;/strong&gt;</ept> with Visual Studio 2013: For instructions, see <bpt id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;linkText&gt;</bpt>Install Visual Studio<ept id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;/linkText&gt;</ept><bpt id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;title&gt;</bpt><ept id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bac8bc1e-f2e7-4e69-8d11-fa52e6ea505d">&lt;strong&gt;</bpt>A workstation<ept id="bac8bc1e-f2e7-4e69-8d11-fa52e6ea505d">&lt;/strong&gt;</ept> with Visual Studio 2013: For instructions, see <bpt id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;linkText&gt;</bpt>Install Visual Studio<ept id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;/linkText&gt;</ept><bpt id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;title&gt;</bpt><ept id="96f04191-1505-4ad5-8079-3488b503a98e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8157048e-a2c4-49e4-b610-942944bf0153" xml:space="preserve">
+          <source><bpt id="29243e7f-720f-481e-8422-1d528d3de9e3">&lt;token href="../../includes/hdinsight-provisioning.md"&gt;</bpt><ept id="29243e7f-720f-481e-8422-1d528d3de9e3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="29243e7f-720f-481e-8422-1d528d3de9e3">&lt;token href="../../includes/hdinsight-provisioning.md"&gt;</bpt><ept id="29243e7f-720f-481e-8422-1d528d3de9e3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fa7df54-dd67-4458-9531-2f136b9ee8eb" xml:space="preserve">
+          <source><bpt id="8a223222-b2bc-4088-8cbf-4cf1c3d56b83">&lt;strong&gt;</bpt>To provision an HBase cluster by using the Azure portal<ept id="8a223222-b2bc-4088-8cbf-4cf1c3d56b83">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8a223222-b2bc-4088-8cbf-4cf1c3d56b83">&lt;strong&gt;</bpt>To provision an HBase cluster by using the Azure portal<ept id="8a223222-b2bc-4088-8cbf-4cf1c3d56b83">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="160e1860-9c50-4958-a477-4472c69812d1" xml:space="preserve">
+          <source>Sign in to the <bpt id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;linkText&gt;</bpt>Azure portal[azure-management-portal]<ept id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;/linkText&gt;</ept><bpt id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;title&gt;</bpt><ept id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Sign in to the <bpt id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;linkText&gt;</bpt>Azure portal[azure-management-portal]<ept id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;/linkText&gt;</ept><bpt id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;title&gt;</bpt><ept id="a8c5e036-079e-4c96-8542-45756f7ccb7b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5f2d25e-2796-4f78-b978-8c1ea6fe5448" xml:space="preserve">
+          <source>Click <bpt id="c9ac8285-1604-4c07-92ba-72e442201d74">&lt;strong&gt;</bpt>New<ept id="c9ac8285-1604-4c07-92ba-72e442201d74">&lt;/strong&gt;</ept> in the upper left corner, and then click <bpt id="ad96eb20-2939-489c-9ef3-2daa09d2ba24">&lt;strong&gt;</bpt>Data + Analytics<ept id="ad96eb20-2939-489c-9ef3-2daa09d2ba24">&lt;/strong&gt;</ept>, <bpt id="2d111302-ed2c-490a-a458-76d519b24912">&lt;strong&gt;</bpt>HDInsight<ept id="2d111302-ed2c-490a-a458-76d519b24912">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c9ac8285-1604-4c07-92ba-72e442201d74">&lt;strong&gt;</bpt>New<ept id="c9ac8285-1604-4c07-92ba-72e442201d74">&lt;/strong&gt;</ept> in the upper left corner, and then click <bpt id="ad96eb20-2939-489c-9ef3-2daa09d2ba24">&lt;strong&gt;</bpt>Data + Analytics<ept id="ad96eb20-2939-489c-9ef3-2daa09d2ba24">&lt;/strong&gt;</ept>, <bpt id="2d111302-ed2c-490a-a458-76d519b24912">&lt;strong&gt;</bpt>HDInsight<ept id="2d111302-ed2c-490a-a458-76d519b24912">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="516f2146-0130-434f-8f7b-eb9215ee6980" xml:space="preserve">
+          <source>Enter the following values:</source>
+          <target state="new">Enter the following values:</target>
+        </trans-unit>
+        <trans-unit id="73ce7123-ccf6-41b4-af1a-0942a79a25f8" xml:space="preserve">
+          <source><bpt id="8ca097c4-fa1f-40bc-915e-5cbb8720bdbe">&lt;strong&gt;</bpt>Cluster Name<ept id="8ca097c4-fa1f-40bc-915e-5cbb8720bdbe">&lt;/strong&gt;</ept> - enter a name to identify this cluster</source>
+          <target state="new"><bpt id="8ca097c4-fa1f-40bc-915e-5cbb8720bdbe">&lt;strong&gt;</bpt>Cluster Name<ept id="8ca097c4-fa1f-40bc-915e-5cbb8720bdbe">&lt;/strong&gt;</ept> - enter a name to identify this cluster</target>
+        </trans-unit>
+        <trans-unit id="ddfd4ea0-f552-438c-9846-55c6aff3f72d" xml:space="preserve">
+          <source><bpt id="bcdb8b84-8f59-4523-a0d6-5fdbc25a02ef">&lt;strong&gt;</bpt>Cluster Type<ept id="bcdb8b84-8f59-4523-a0d6-5fdbc25a02ef">&lt;/strong&gt;</ept> - HBase</source>
+          <target state="new"><bpt id="bcdb8b84-8f59-4523-a0d6-5fdbc25a02ef">&lt;strong&gt;</bpt>Cluster Type<ept id="bcdb8b84-8f59-4523-a0d6-5fdbc25a02ef">&lt;/strong&gt;</ept> - HBase</target>
+        </trans-unit>
+        <trans-unit id="fef9abcf-1e61-4e1d-a1a0-a36626664de6" xml:space="preserve">
+          <source><bpt id="517e1fcb-dc8c-4303-a41f-9a74067fae50">&lt;strong&gt;</bpt>Cluster Operating System<ept id="517e1fcb-dc8c-4303-a41f-9a74067fae50">&lt;/strong&gt;</ept> - the HDInsight HBase cluster currently only available on Windows operating system</source>
+          <target state="new"><bpt id="517e1fcb-dc8c-4303-a41f-9a74067fae50">&lt;strong&gt;</bpt>Cluster Operating System<ept id="517e1fcb-dc8c-4303-a41f-9a74067fae50">&lt;/strong&gt;</ept> - the HDInsight HBase cluster currently only available on Windows operating system</target>
+        </trans-unit>
+        <trans-unit id="c5264dc2-d660-478c-942b-82b79606e3ea" xml:space="preserve">
+          <source><bpt id="51daa581-56d5-4530-bcbf-5b4969837cc3">&lt;strong&gt;</bpt>Subscription<ept id="51daa581-56d5-4530-bcbf-5b4969837cc3">&lt;/strong&gt;</ept> - select your Azure subscription used for provisioning this cluster</source>
+          <target state="new"><bpt id="51daa581-56d5-4530-bcbf-5b4969837cc3">&lt;strong&gt;</bpt>Subscription<ept id="51daa581-56d5-4530-bcbf-5b4969837cc3">&lt;/strong&gt;</ept> - select your Azure subscription used for provisioning this cluster</target>
+        </trans-unit>
+        <trans-unit id="220671b3-58ae-4b7d-95b5-fc5d3d89caee" xml:space="preserve">
+          <source><bpt id="d4fcdf7b-79a7-456b-a6bc-41cadb9dfaf4">&lt;strong&gt;</bpt>Resource Group<ept id="d4fcdf7b-79a7-456b-a6bc-41cadb9dfaf4">&lt;/strong&gt;</ept> - add or select an Azure resource group.</source>
+          <target state="new"><bpt id="d4fcdf7b-79a7-456b-a6bc-41cadb9dfaf4">&lt;strong&gt;</bpt>Resource Group<ept id="d4fcdf7b-79a7-456b-a6bc-41cadb9dfaf4">&lt;/strong&gt;</ept> - add or select an Azure resource group.</target>
+        </trans-unit>
+        <trans-unit id="ea60105c-3e67-4a7c-b242-f0712abf153f" xml:space="preserve">
+          <source>For more information, see <bpt id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;/linkText&gt;</ept><bpt id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;title&gt;</bpt><ept id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;linkText&gt;</bpt>Azure Resource Manager Overview<ept id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;/linkText&gt;</ept><bpt id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;title&gt;</bpt><ept id="91ae2b11-ded3-4933-8605-217478bfd9b2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae73999-39a9-4258-a199-87cd1ce1b85b" xml:space="preserve">
+          <source><bpt id="3bba4449-e964-490d-a6a8-dee2c5a4d66d">&lt;strong&gt;</bpt>Configure the credentials<ept id="3bba4449-e964-490d-a6a8-dee2c5a4d66d">&lt;/strong&gt;</ept> - for Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user) and a Remote Desktop user</source>
+          <target state="new"><bpt id="3bba4449-e964-490d-a6a8-dee2c5a4d66d">&lt;strong&gt;</bpt>Configure the credentials<ept id="3bba4449-e964-490d-a6a8-dee2c5a4d66d">&lt;/strong&gt;</ept> - for Windows based cluster, you can create a cluster user (a.k.a HTTP user, HTTP web service user) and a Remote Desktop user</target>
+        </trans-unit>
+        <trans-unit id="dbfbe173-19eb-406a-b470-76bbb23ef71a" xml:space="preserve">
+          <source><bpt id="9835d3ee-cb43-4fb0-80bc-78c3e0dd4835">&lt;strong&gt;</bpt>Data Source<ept id="9835d3ee-cb43-4fb0-80bc-78c3e0dd4835">&lt;/strong&gt;</ept> - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster.</source>
+          <target state="new"><bpt id="9835d3ee-cb43-4fb0-80bc-78c3e0dd4835">&lt;strong&gt;</bpt>Data Source<ept id="9835d3ee-cb43-4fb0-80bc-78c3e0dd4835">&lt;/strong&gt;</ept> - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster.</target>
+        </trans-unit>
+        <trans-unit id="8bb0c691-a2e5-417d-b4f6-123c46d5e206" xml:space="preserve">
+          <source>This Azure Storage account must be in the same location as the HDInsight HBase cluster</source>
+          <target state="new">This Azure Storage account must be in the same location as the HDInsight HBase cluster</target>
+        </trans-unit>
+        <trans-unit id="883e7f24-78de-4441-8d84-f18f80dd5d34" xml:space="preserve">
+          <source><bpt id="48441fbf-c8c1-40ed-a28a-daffd734e122">&lt;strong&gt;</bpt>Note Pricing Tiers<ept id="48441fbf-c8c1-40ed-a28a-daffd734e122">&lt;/strong&gt;</ept> - select the number of region servers for the HBase cluster</source>
+          <target state="new"><bpt id="48441fbf-c8c1-40ed-a28a-daffd734e122">&lt;strong&gt;</bpt>Note Pricing Tiers<ept id="48441fbf-c8c1-40ed-a28a-daffd734e122">&lt;/strong&gt;</ept> - select the number of region servers for the HBase cluster</target>
+        </trans-unit>
+        <trans-unit id="3c0e1475-afb2-4764-9bc6-345ee91a930e" xml:space="preserve">
+          <source>For high availability of HBase services, you must provision a cluster that contains at least <bpt id="6deff240-e40b-4236-ba2f-d301ac5a1ccf">&lt;strong&gt;</bpt>three<ept id="6deff240-e40b-4236-ba2f-d301ac5a1ccf">&lt;/strong&gt;</ept> nodes.</source>
+          <target state="new">For high availability of HBase services, you must provision a cluster that contains at least <bpt id="6deff240-e40b-4236-ba2f-d301ac5a1ccf">&lt;strong&gt;</bpt>three<ept id="6deff240-e40b-4236-ba2f-d301ac5a1ccf">&lt;/strong&gt;</ept> nodes.</target>
+        </trans-unit>
+        <trans-unit id="32276952-ecc6-4f4d-92f7-15a42abb4e00" xml:space="preserve">
+          <source>This ensures that, if one node goes down, the HBase data regions are available on other nodes.</source>
+          <target state="new">This ensures that, if one node goes down, the HBase data regions are available on other nodes.</target>
+        </trans-unit>
+        <trans-unit id="77024d09-19c3-4a7c-8098-3ceee328b649" xml:space="preserve">
+          <source>If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.</source>
+          <target state="new">If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.</target>
+        </trans-unit>
+        <trans-unit id="5e8e4907-b567-4f15-99d2-c2030a588558" xml:space="preserve">
+          <source><bpt id="ddf48951-3bd3-460e-a000-4f7cc5f82801">&lt;strong&gt;</bpt>Optional Configuration<ept id="ddf48951-3bd3-460e-a000-4f7cc5f82801">&lt;/strong&gt;</ept> - select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.</source>
+          <target state="new"><bpt id="ddf48951-3bd3-460e-a000-4f7cc5f82801">&lt;strong&gt;</bpt>Optional Configuration<ept id="ddf48951-3bd3-460e-a000-4f7cc5f82801">&lt;/strong&gt;</ept> - select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="f620152c-0ec8-45e0-884a-088df5e6e619" xml:space="preserve">
+          <source>Click <bpt id="4a73409e-4a2a-48d1-a96c-996c6b3b0b38">&lt;strong&gt;</bpt>Create<ept id="4a73409e-4a2a-48d1-a96c-996c6b3b0b38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4a73409e-4a2a-48d1-a96c-996c6b3b0b38">&lt;strong&gt;</bpt>Create<ept id="4a73409e-4a2a-48d1-a96c-996c6b3b0b38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98112acf-0efd-46df-9fca-dbce64bf40f8" xml:space="preserve">
+          <source>After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container.</source>
+          <target state="new">After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container.</target>
+        </trans-unit>
+        <trans-unit id="36fb6f20-cb0a-46c6-9e2f-e02fb45a7a11" xml:space="preserve">
+          <source>The new cluster will pick up the HBase tables you created in the original cluster.</source>
+          <target state="new">The new cluster will pick up the HBase tables you created in the original cluster.</target>
+        </trans-unit>
+        <trans-unit id="88e8cd13-7e01-4547-b4d7-f7385195ac16" xml:space="preserve">
+          <source>Currently, there are two way to access HBase.</source>
+          <target state="new">Currently, there are two way to access HBase.</target>
+        </trans-unit>
+        <trans-unit id="36d55a80-9218-4d38-82e3-3b19c7300268" xml:space="preserve">
+          <source>This section covers using the HBase shell.</source>
+          <target state="new">This section covers using the HBase shell.</target>
+        </trans-unit>
+        <trans-unit id="cf5032ba-7804-43ca-a6ce-64316505bfe1" xml:space="preserve">
+          <source>The next section covers using the .NET SDK.</source>
+          <target state="new">The next section covers using the .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="71bc7f71-9c41-414d-a634-98db322fd934" xml:space="preserve">
+          <source>For most people, data appears in the tabular format:</source>
+          <target state="new">For most people, data appears in the tabular format:</target>
+        </trans-unit>
+        <trans-unit id="c1edf23a-8439-4aa2-a7a0-2bdb56d30834" xml:space="preserve">
+          <source><bpt id="4d006443-da6d-46b3-b657-65b757805cb8">&lt;linkText&gt;</bpt>hdinsight hbase tabular data<ept id="4d006443-da6d-46b3-b657-65b757805cb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4d006443-da6d-46b3-b657-65b757805cb8">&lt;linkText&gt;</bpt>hdinsight hbase tabular data<ept id="4d006443-da6d-46b3-b657-65b757805cb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e6d5291-3874-4998-a068-d1daa9e21e96" xml:space="preserve">
+          <source>In HBase which is an implementation of BigTable, the same data looks like:</source>
+          <target state="new">In HBase which is an implementation of BigTable, the same data looks like:</target>
+        </trans-unit>
+        <trans-unit id="8d5d0261-2e45-4ad5-91e7-a8603e69c69c" xml:space="preserve">
+          <source><bpt id="f0a72d8e-0193-4383-b224-eb7afcb7afb3">&lt;linkText&gt;</bpt>hdinsight hbase bigtable data<ept id="f0a72d8e-0193-4383-b224-eb7afcb7afb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0a72d8e-0193-4383-b224-eb7afcb7afb3">&lt;linkText&gt;</bpt>hdinsight hbase bigtable data<ept id="f0a72d8e-0193-4383-b224-eb7afcb7afb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b170d2e8-5e2a-4f86-a9f8-684353403462" xml:space="preserve">
+          <source>It'll make more sense after you finish the next procedure.</source>
+          <target state="new">It'll make more sense after you finish the next procedure.</target>
+        </trans-unit>
+        <trans-unit id="0980abca-32e6-458e-b8e0-33711bda3151" xml:space="preserve">
+          <source><bpt id="2ea649f7-2704-47b8-ba35-6a07c6f6358c">&lt;strong&gt;</bpt>To use the HBase shell<ept id="2ea649f7-2704-47b8-ba35-6a07c6f6358c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2ea649f7-2704-47b8-ba35-6a07c6f6358c">&lt;strong&gt;</bpt>To use the HBase shell<ept id="2ea649f7-2704-47b8-ba35-6a07c6f6358c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07f323d5-081c-4abb-9cde-4b833262b10b" xml:space="preserve">
+          <source>Use RDP to connect to your HBase cluster in HDInsight.</source>
+          <target state="new">Use RDP to connect to your HBase cluster in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="459ee1a0-7caf-4aa9-ac5c-f322621a4ab1" xml:space="preserve">
+          <source>For the RDP instructions, see <bpt id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight using the Azure Portal[hdinsight-manage-portal]<ept id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;/linkText&gt;</ept><bpt id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;title&gt;</bpt><ept id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the RDP instructions, see <bpt id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;linkText&gt;</bpt>Manage Hadoop clusters in HDInsight using the Azure Portal[hdinsight-manage-portal]<ept id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;/linkText&gt;</ept><bpt id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;title&gt;</bpt><ept id="3ddbf89d-573e-4821-9ad9-6a2602be3cab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfa7922e-a3c9-466d-aadf-117fa77701d5" xml:space="preserve">
+          <source>Within your RDP session, click the <bpt id="0be0183f-ccb7-4782-878a-419f307ce18f">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="0be0183f-ccb7-4782-878a-419f307ce18f">&lt;/strong&gt;</ept> shortcut located on the desktop.</source>
+          <target state="new">Within your RDP session, click the <bpt id="0be0183f-ccb7-4782-878a-419f307ce18f">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="0be0183f-ccb7-4782-878a-419f307ce18f">&lt;/strong&gt;</ept> shortcut located on the desktop.</target>
+        </trans-unit>
+        <trans-unit id="a9f85896-47b3-4cfd-b504-650327cfc6fd" xml:space="preserve">
+          <source>Open the HBase shell:</source>
+          <target state="new">Open the HBase shell:</target>
+        </trans-unit>
+        <trans-unit id="351f04ed-0b36-4944-a07a-f6efde4de870" xml:space="preserve">
+          <source>Create an HBase with two column families:</source>
+          <target state="new">Create an HBase with two column families:</target>
+        </trans-unit>
+        <trans-unit id="e6e0d30e-8d96-473b-b457-4d227ace029d" xml:space="preserve">
+          <source>Insert some data:</source>
+          <target state="new">Insert some data:</target>
+        </trans-unit>
+        <trans-unit id="b0b9f610-3032-4119-a65d-e442e6d0e250" xml:space="preserve">
+          <source><bpt id="0442e52c-d8f8-4415-8759-151e84180826">&lt;linkText&gt;</bpt>hdinsight hadoop hbase shell<ept id="0442e52c-d8f8-4415-8759-151e84180826">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0442e52c-d8f8-4415-8759-151e84180826">&lt;linkText&gt;</bpt>hdinsight hadoop hbase shell<ept id="0442e52c-d8f8-4415-8759-151e84180826">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4240ccfa-6d09-4d84-9337-108792f03c69" xml:space="preserve">
+          <source>Get a single row</source>
+          <target state="new">Get a single row</target>
+        </trans-unit>
+        <trans-unit id="90c34dad-9de9-4a3e-8988-8b2e710f2791" xml:space="preserve">
+          <source>You'll see the same results as using the scan command because there is only one row.</source>
+          <target state="new">You'll see the same results as using the scan command because there is only one row.</target>
+        </trans-unit>
+        <trans-unit id="65332675-c437-4269-a061-dd3952f9ed1a" xml:space="preserve">
+          <source>For more information about the Hbase table schema, see <bpt id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;linkText&gt;</bpt>Introduction to HBase Schema Design[hbase-schema]<ept id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;/linkText&gt;</ept><bpt id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;title&gt;</bpt><ept id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Hbase table schema, see <bpt id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;linkText&gt;</bpt>Introduction to HBase Schema Design[hbase-schema]<ept id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;/linkText&gt;</ept><bpt id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;title&gt;</bpt><ept id="57f260d7-c601-46a0-bbbf-9f2591a1c32f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a943bcc-546b-4066-bc9d-ca2db37fc974" xml:space="preserve">
+          <source>For more HBase commands, see <bpt id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;linkText&gt;</bpt>Apache HBase reference guide[hbase-quick-start]<ept id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;/linkText&gt;</ept><bpt id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;title&gt;</bpt><ept id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more HBase commands, see <bpt id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;linkText&gt;</bpt>Apache HBase reference guide[hbase-quick-start]<ept id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;/linkText&gt;</ept><bpt id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;title&gt;</bpt><ept id="53b6248a-ee55-4117-9c06-8a41bd57c2ed">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9765b5b9-dd5d-4e8b-88ac-9a1a1fdad8aa" xml:space="preserve">
+          <source>Exit the shell</source>
+          <target state="new">Exit the shell</target>
+        </trans-unit>
+        <trans-unit id="0c0297c0-4e46-4a3e-a20b-8ce5ab043f7b" xml:space="preserve">
+          <source><bpt id="7f7f24a0-c483-4bf3-909e-8b3a7273085b">&lt;strong&gt;</bpt>To bulk load data into the contacts HBase table<ept id="7f7f24a0-c483-4bf3-909e-8b3a7273085b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="7f7f24a0-c483-4bf3-909e-8b3a7273085b">&lt;strong&gt;</bpt>To bulk load data into the contacts HBase table<ept id="7f7f24a0-c483-4bf3-909e-8b3a7273085b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3874943f-3602-4234-b277-3be917aa469b" xml:space="preserve">
+          <source>HBase includes several methods of loading data into tables.</source>
+          <target state="new">HBase includes several methods of loading data into tables.</target>
+        </trans-unit>
+        <trans-unit id="d4cbf559-e259-4e75-add3-0e405b4283d6" xml:space="preserve">
+          <source>For more information, see <bpt id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;linkText&gt;</bpt>Bulk loading<ept id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;/linkText&gt;</ept><bpt id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;title&gt;</bpt><ept id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;linkText&gt;</bpt>Bulk loading<ept id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;/linkText&gt;</ept><bpt id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;title&gt;</bpt><ept id="0adfc7ef-cb9a-44be-942d-c67504974760">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05a89200-c350-4f5b-a013-4287ca1efb98" xml:space="preserve">
+          <source>A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt.</source>
+          <target state="new">A sample data file has been uploaded to a public blob container, wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt.</target>
+        </trans-unit>
+        <trans-unit id="51d82e03-28db-4caf-a592-18c54a28ee57" xml:space="preserve">
+          <source>The content of the data file is:</source>
+          <target state="new">The content of the data file is:</target>
+        </trans-unit>
+        <trans-unit id="463535b1-d4d1-488b-997c-5bc55bb02fe4" xml:space="preserve">
+          <source>You can create a text file and upload the file to your own storage account if you want.</source>
+          <target state="new">You can create a text file and upload the file to your own storage account if you want.</target>
+        </trans-unit>
+        <trans-unit id="cd1e4dcb-79e0-43f9-b103-360ce47caf59" xml:space="preserve">
+          <source>For the instructions, see <bpt id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;linkText&gt;</bpt>Upload data for Hadoop jobs in HDInsight[hdinsight-upload-data]<ept id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;/linkText&gt;</ept><bpt id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;title&gt;</bpt><ept id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the instructions, see <bpt id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;linkText&gt;</bpt>Upload data for Hadoop jobs in HDInsight[hdinsight-upload-data]<ept id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;/linkText&gt;</ept><bpt id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;title&gt;</bpt><ept id="d317bfb7-7ad4-4296-bfbc-9ed046cb0150">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7a9c72f-f613-4141-80ad-33fb78a146a2" xml:space="preserve">
+          <source>This procedure uses the Contacts HBase table you created in the last procedure.</source>
+          <target state="new">This procedure uses the Contacts HBase table you created in the last procedure.</target>
+        </trans-unit>
+        <trans-unit id="a044460c-40d0-4395-8826-870e4b3241d0" xml:space="preserve">
+          <source>Within your RDP session, click the <bpt id="272ebe86-9951-48e5-88fb-cbb8265b3e96">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="272ebe86-9951-48e5-88fb-cbb8265b3e96">&lt;/strong&gt;</ept> shortcut located on the desktop.</source>
+          <target state="new">Within your RDP session, click the <bpt id="272ebe86-9951-48e5-88fb-cbb8265b3e96">&lt;strong&gt;</bpt>Hadoop Command Line<ept id="272ebe86-9951-48e5-88fb-cbb8265b3e96">&lt;/strong&gt;</ept> shortcut located on the desktop.</target>
+        </trans-unit>
+        <trans-unit id="eaa72393-23b2-4590-9c45-b4ef6e635927" xml:space="preserve">
+          <source>Change directory:</source>
+          <target state="new">Change directory:</target>
+        </trans-unit>
+        <trans-unit id="0e8974f1-3c0d-4382-a276-2c5b8d1ad064" xml:space="preserve">
+          <source>Run the following command to transform the data file to StoreFiles and store at a relative path specified by Dimporttsv.bulk.output:</source>
+          <target state="new">Run the following command to transform the data file to StoreFiles and store at a relative path specified by Dimporttsv.bulk.output:</target>
+        </trans-unit>
+        <trans-unit id="7f7afa1b-4b9e-479b-99a6-be177f286b1f" xml:space="preserve">
+          <source>Run the following command to upload the data from /example/data/storeDataFileOutput to the HBase table:</source>
+          <target state="new">Run the following command to upload the data from /example/data/storeDataFileOutput to the HBase table:</target>
+        </trans-unit>
+        <trans-unit id="f897f77e-b63a-4ee1-aca4-1a3ac5608181" xml:space="preserve">
+          <source>You can open the HBase shell, and use the scan command to list the table content.</source>
+          <target state="new">You can open the HBase shell, and use the scan command to list the table content.</target>
+        </trans-unit>
+        <trans-unit id="8512b450-abee-4055-9be0-1332e0d82d30" xml:space="preserve">
+          <source>HBase in HDInsight ships with a Web UI for monitoring clusters.</source>
+          <target state="new">HBase in HDInsight ships with a Web UI for monitoring clusters.</target>
+        </trans-unit>
+        <trans-unit id="3703b9b7-42b4-4d42-bda3-6698eccca00f" xml:space="preserve">
+          <source>Using the Web UI, you can request statistics or information about regions.</source>
+          <target state="new">Using the Web UI, you can request statistics or information about regions.</target>
+        </trans-unit>
+        <trans-unit id="8cc1bba0-eb85-4d2e-9140-7093cca7ccea" xml:space="preserve">
+          <source>To open the Web UI, you must RDP into the cluster, and then click the HMaster Info Web UI shortcut on your desktop, or use the following URL in a web browser:</source>
+          <target state="new">To open the Web UI, you must RDP into the cluster, and then click the HMaster Info Web UI shortcut on your desktop, or use the following URL in a web browser:</target>
+        </trans-unit>
+        <trans-unit id="95f2b5f6-d85e-4ea9-95ec-c089150ca21b" xml:space="preserve">
+          <source>In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.</source>
+          <target state="new">In a high availability cluster, you'll find a link to the current active HBase master node that is hosting the Web UI.</target>
+        </trans-unit>
+        <trans-unit id="f22b8e49-1e0d-42aa-80e0-a0422edf5776" xml:space="preserve">
+          <source>You can query data in HBase tables by using Hive.</source>
+          <target state="new">You can query data in HBase tables by using Hive.</target>
+        </trans-unit>
+        <trans-unit id="fe8f7e03-7c0a-4156-bed0-335d95af1e44" xml:space="preserve">
+          <source>This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.</source>
+          <target state="new">This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.</target>
+        </trans-unit>
+        <trans-unit id="4cc35af7-504a-4b2e-be18-1ff4ebf1e957" xml:space="preserve">
+          <source><bpt id="d0869a7c-e85e-461e-8267-1ea6bba50553">&lt;strong&gt;</bpt>To open the cluster dashboard<ept id="d0869a7c-e85e-461e-8267-1ea6bba50553">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d0869a7c-e85e-461e-8267-1ea6bba50553">&lt;strong&gt;</bpt>To open the cluster dashboard<ept id="d0869a7c-e85e-461e-8267-1ea6bba50553">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11dc7060-1c7a-4135-b674-dd8190d0c857" xml:space="preserve">
+          <source>Browse to <bpt id="79392bf3-075a-4607-9ead-b7bf37b65ac9">&lt;strong&gt;</bpt>https://&lt;HDInsightClusterName&gt;.azurehdinsight.net/<ept id="79392bf3-075a-4607-9ead-b7bf37b65ac9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Browse to <bpt id="79392bf3-075a-4607-9ead-b7bf37b65ac9">&lt;strong&gt;</bpt>https://&lt;HDInsightClusterName&gt;.azurehdinsight.net/<ept id="79392bf3-075a-4607-9ead-b7bf37b65ac9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fcce182c-4aa7-4108-ab46-a1e810abcedb" xml:space="preserve">
+          <source>Enter the Hadoop user account user name and password.</source>
+          <target state="new">Enter the Hadoop user account user name and password.</target>
+        </trans-unit>
+        <trans-unit id="6f836952-95f0-47aa-a638-e25508e9303a" xml:space="preserve">
+          <source>The default user name is <bpt id="c5895a13-59bb-4c1b-846f-6ef686b2db75">&lt;strong&gt;</bpt>admin<ept id="c5895a13-59bb-4c1b-846f-6ef686b2db75">&lt;/strong&gt;</ept> and the password is what you entered during the provisioning process.</source>
+          <target state="new">The default user name is <bpt id="c5895a13-59bb-4c1b-846f-6ef686b2db75">&lt;strong&gt;</bpt>admin<ept id="c5895a13-59bb-4c1b-846f-6ef686b2db75">&lt;/strong&gt;</ept> and the password is what you entered during the provisioning process.</target>
+        </trans-unit>
+        <trans-unit id="db070547-2ee1-4b03-93da-0bde2a131441" xml:space="preserve">
+          <source>A new browser tab opens.</source>
+          <target state="new">A new browser tab opens.</target>
+        </trans-unit>
+        <trans-unit id="86032454-6a00-4e3c-891f-5a04be88d11a" xml:space="preserve">
+          <source>Click <bpt id="cfb3c071-8ecf-41ef-8fa0-f4d171f8cad0">&lt;strong&gt;</bpt>Hive Editor<ept id="cfb3c071-8ecf-41ef-8fa0-f4d171f8cad0">&lt;/strong&gt;</ept> at the top of the page.</source>
+          <target state="new">Click <bpt id="cfb3c071-8ecf-41ef-8fa0-f4d171f8cad0">&lt;strong&gt;</bpt>Hive Editor<ept id="cfb3c071-8ecf-41ef-8fa0-f4d171f8cad0">&lt;/strong&gt;</ept> at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="3f55b347-b2bd-4913-b6d4-0c00fc2dad1e" xml:space="preserve">
+          <source>The Hive Editor looks like this:</source>
+          <target state="new">The Hive Editor looks like this:</target>
+        </trans-unit>
+        <trans-unit id="1db89c34-1526-4d1d-ab78-e5efe65d5695" xml:space="preserve">
+          <source><bpt id="27d80d8f-ab23-4cb1-9c7b-62601630eca5">&lt;linkText&gt;</bpt>HDInsight cluster dashboard.<ept id="27d80d8f-ab23-4cb1-9c7b-62601630eca5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="27d80d8f-ab23-4cb1-9c7b-62601630eca5">&lt;linkText&gt;</bpt>HDInsight cluster dashboard.<ept id="27d80d8f-ab23-4cb1-9c7b-62601630eca5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="927f7597-31fa-4323-9e03-05d8ce20cc3e" xml:space="preserve">
+          <source><bpt id="028c65a0-b7e5-49a5-9545-7b8eee0fa9c0">&lt;strong&gt;</bpt>To run Hive queries<ept id="028c65a0-b7e5-49a5-9545-7b8eee0fa9c0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="028c65a0-b7e5-49a5-9545-7b8eee0fa9c0">&lt;strong&gt;</bpt>To run Hive queries<ept id="028c65a0-b7e5-49a5-9545-7b8eee0fa9c0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="224bcc81-160c-405f-827a-1405d8ec6da4" xml:space="preserve">
+          <source>Enter the following HiveQL script into Hive Editor and click <bpt id="dea27ef5-dd1f-4460-aa2d-aca8d933eb13">&lt;strong&gt;</bpt>Submit<ept id="dea27ef5-dd1f-4460-aa2d-aca8d933eb13">&lt;/strong&gt;</ept> to create a Hive Table that maps to the HBase table.</source>
+          <target state="new">Enter the following HiveQL script into Hive Editor and click <bpt id="dea27ef5-dd1f-4460-aa2d-aca8d933eb13">&lt;strong&gt;</bpt>Submit<ept id="dea27ef5-dd1f-4460-aa2d-aca8d933eb13">&lt;/strong&gt;</ept> to create a Hive Table that maps to the HBase table.</target>
+        </trans-unit>
+        <trans-unit id="e5930c44-53f6-47bf-8525-2b54c690d48c" xml:space="preserve">
+          <source>Make sure that you created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.</source>
+          <target state="new">Make sure that you created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.</target>
+        </trans-unit>
+        <trans-unit id="17ce55d5-45f2-4b7b-ac8e-84d4bd432d04" xml:space="preserve">
+          <source>Wait until the <bpt id="af1b108c-05a1-4478-9ce4-01fd81ebba50">&lt;strong&gt;</bpt>Status<ept id="af1b108c-05a1-4478-9ce4-01fd81ebba50">&lt;/strong&gt;</ept> updates to <bpt id="a28da0a0-24d3-49f1-9197-2c7899262c06">&lt;strong&gt;</bpt>Completed<ept id="a28da0a0-24d3-49f1-9197-2c7899262c06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Wait until the <bpt id="af1b108c-05a1-4478-9ce4-01fd81ebba50">&lt;strong&gt;</bpt>Status<ept id="af1b108c-05a1-4478-9ce4-01fd81ebba50">&lt;/strong&gt;</ept> updates to <bpt id="a28da0a0-24d3-49f1-9197-2c7899262c06">&lt;strong&gt;</bpt>Completed<ept id="a28da0a0-24d3-49f1-9197-2c7899262c06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02c33e06-fac3-4960-ab72-da81fcd2353c" xml:space="preserve">
+          <source>Enter the following HiveQL script into Hive Editor, and then click <bpt id="40b95ef1-750e-4329-99b0-cc9e41b17538">&lt;strong&gt;</bpt>Submit<ept id="40b95ef1-750e-4329-99b0-cc9e41b17538">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the following HiveQL script into Hive Editor, and then click <bpt id="40b95ef1-750e-4329-99b0-cc9e41b17538">&lt;strong&gt;</bpt>Submit<ept id="40b95ef1-750e-4329-99b0-cc9e41b17538">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9209affb-cfd4-4343-b3aa-dbc8aa49af06" xml:space="preserve">
+          <source>The Hive query queries the data in the HBase table:</source>
+          <target state="new">The Hive query queries the data in the HBase table:</target>
+        </trans-unit>
+        <trans-unit id="ca2239b1-8afd-48ac-9fb2-c185c88bc04f" xml:space="preserve">
+          <source>To retrieve the results of the Hive query, click the <bpt id="65c6ed64-81ca-4d0c-92c3-039d49e619b6">&lt;strong&gt;</bpt>View Details<ept id="65c6ed64-81ca-4d0c-92c3-039d49e619b6">&lt;/strong&gt;</ept> link in the <bpt id="52417074-081d-4b7d-a30d-fffcc22f80d0">&lt;strong&gt;</bpt>Job Session<ept id="52417074-081d-4b7d-a30d-fffcc22f80d0">&lt;/strong&gt;</ept> window when the job finishes running.</source>
+          <target state="new">To retrieve the results of the Hive query, click the <bpt id="65c6ed64-81ca-4d0c-92c3-039d49e619b6">&lt;strong&gt;</bpt>View Details<ept id="65c6ed64-81ca-4d0c-92c3-039d49e619b6">&lt;/strong&gt;</ept> link in the <bpt id="52417074-081d-4b7d-a30d-fffcc22f80d0">&lt;strong&gt;</bpt>Job Session<ept id="52417074-081d-4b7d-a30d-fffcc22f80d0">&lt;/strong&gt;</ept> window when the job finishes running.</target>
+        </trans-unit>
+        <trans-unit id="fd5168db-d158-4e4f-97ea-ae8c6303f3bf" xml:space="preserve">
+          <source>There will be only one job output file because you put one record into the HBase table.</source>
+          <target state="new">There will be only one job output file because you put one record into the HBase table.</target>
+        </trans-unit>
+        <trans-unit id="5120c51c-7544-45d1-a606-119716c95ccf" xml:space="preserve">
+          <source><bpt id="311f49c6-db48-4d91-9888-038b31fc44b5">&lt;strong&gt;</bpt>To browse the output file<ept id="311f49c6-db48-4d91-9888-038b31fc44b5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="311f49c6-db48-4d91-9888-038b31fc44b5">&lt;strong&gt;</bpt>To browse the output file<ept id="311f49c6-db48-4d91-9888-038b31fc44b5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="caf0b46f-59c4-40b1-b45a-1751f714ac75" xml:space="preserve">
+          <source>In the Query Console, click <bpt id="d671c077-5add-476f-81e2-7fe2f098f5ac">&lt;strong&gt;</bpt>File Browser<ept id="d671c077-5add-476f-81e2-7fe2f098f5ac">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Query Console, click <bpt id="d671c077-5add-476f-81e2-7fe2f098f5ac">&lt;strong&gt;</bpt>File Browser<ept id="d671c077-5add-476f-81e2-7fe2f098f5ac">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6b74365-a11e-4565-9682-c9cfbb25ee7a" xml:space="preserve">
+          <source>Click the Azure storage account that is used as the default file system for the HBase cluster.</source>
+          <target state="new">Click the Azure storage account that is used as the default file system for the HBase cluster.</target>
+        </trans-unit>
+        <trans-unit id="972c03fe-a53c-4ea9-ac5d-607da7d0ca9b" xml:space="preserve">
+          <source>Click the HBase cluster name.</source>
+          <target state="new">Click the HBase cluster name.</target>
+        </trans-unit>
+        <trans-unit id="a3fd9c48-83d4-4aa5-81d4-d8ffea148b52" xml:space="preserve">
+          <source>The default Azure storage account container uses the cluster name.</source>
+          <target state="new">The default Azure storage account container uses the cluster name.</target>
+        </trans-unit>
+        <trans-unit id="258ba3f2-466c-4608-ae6b-369a3c446541" xml:space="preserve">
+          <source>Click <bpt id="b719970b-e879-4764-9961-14fe4ff90364">&lt;strong&gt;</bpt>User<ept id="b719970b-e879-4764-9961-14fe4ff90364">&lt;/strong&gt;</ept>, and then click <bpt id="b16102f7-d368-420e-ae17-da8ac56e01f9">&lt;strong&gt;</bpt>Admin<ept id="b16102f7-d368-420e-ae17-da8ac56e01f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b719970b-e879-4764-9961-14fe4ff90364">&lt;strong&gt;</bpt>User<ept id="b719970b-e879-4764-9961-14fe4ff90364">&lt;/strong&gt;</ept>, and then click <bpt id="b16102f7-d368-420e-ae17-da8ac56e01f9">&lt;strong&gt;</bpt>Admin<ept id="b16102f7-d368-420e-ae17-da8ac56e01f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f70b4a43-c700-4a60-a743-de377d0bd185" xml:space="preserve">
+          <source>(This is the Hadoop user name.)</source>
+          <target state="new">(This is the Hadoop user name.)</target>
+        </trans-unit>
+        <trans-unit id="bc172168-4bb5-4669-bb0c-f89b77b96f78" xml:space="preserve">
+          <source>Click the job name with the <bpt id="0e1403b7-1f2f-4a10-9862-aa094023bd6c">&lt;strong&gt;</bpt>Last Modified<ept id="0e1403b7-1f2f-4a10-9862-aa094023bd6c">&lt;/strong&gt;</ept> time that matches the time when the SELECT Hive query ran.</source>
+          <target state="new">Click the job name with the <bpt id="0e1403b7-1f2f-4a10-9862-aa094023bd6c">&lt;strong&gt;</bpt>Last Modified<ept id="0e1403b7-1f2f-4a10-9862-aa094023bd6c">&lt;/strong&gt;</ept> time that matches the time when the SELECT Hive query ran.</target>
+        </trans-unit>
+        <trans-unit id="8764bbff-91c6-488b-9164-f1b73158cea6" xml:space="preserve">
+          <source>Click <bpt id="bc478ab9-13a9-480d-932f-996591d6fdc4">&lt;strong&gt;</bpt>stdout<ept id="bc478ab9-13a9-480d-932f-996591d6fdc4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bc478ab9-13a9-480d-932f-996591d6fdc4">&lt;strong&gt;</bpt>stdout<ept id="bc478ab9-13a9-480d-932f-996591d6fdc4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a0fad54-5b5e-4659-a5a0-01751520aa3b" xml:space="preserve">
+          <source>Save the file and open the file with Notepad.</source>
+          <target state="new">Save the file and open the file with Notepad.</target>
+        </trans-unit>
+        <trans-unit id="467e4e4c-ccc3-4206-88f1-b2bf2af31f2d" xml:space="preserve">
+          <source>There will be one output file.</source>
+          <target state="new">There will be one output file.</target>
+        </trans-unit>
+        <trans-unit id="8f6e6c45-ae7b-47a2-a378-ad7ce0523cb1" xml:space="preserve">
+          <source><bpt id="6b154f49-5617-47c4-b9dc-b3b680b3ef5e">&lt;linkText&gt;</bpt>HDInsight HBase Hive Editor File Browser<ept id="6b154f49-5617-47c4-b9dc-b3b680b3ef5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b154f49-5617-47c4-b9dc-b3b680b3ef5e">&lt;linkText&gt;</bpt>HDInsight HBase Hive Editor File Browser<ept id="6b154f49-5617-47c4-b9dc-b3b680b3ef5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12f65416-51b4-4d25-925a-ced674738b6e" xml:space="preserve">
+          <source>You must download the HBase REST API client library for .NET from GitHub and build the project so that you can use the HBase .NET SDK.</source>
+          <target state="new">You must download the HBase REST API client library for .NET from GitHub and build the project so that you can use the HBase .NET SDK.</target>
+        </trans-unit>
+        <trans-unit id="524f7758-bde4-4ebd-9606-e3245f4218c2" xml:space="preserve">
+          <source>The following procedure includes the instructions for this task.</source>
+          <target state="new">The following procedure includes the instructions for this task.</target>
+        </trans-unit>
+        <trans-unit id="d0221d5b-6f68-42cb-8d28-0b20f9193ca4" xml:space="preserve">
+          <source>Create a new C# Visual Studio Windows Desktop Console application.</source>
+          <target state="new">Create a new C# Visual Studio Windows Desktop Console application.</target>
+        </trans-unit>
+        <trans-unit id="fa4071e9-5c43-4356-bd1f-ea27a59e4ac1" xml:space="preserve">
+          <source>Open the NuGet Package Manager Console by clicking <bpt id="afae8cac-f893-4672-9074-5c85fb614af7">&lt;strong&gt;</bpt>Tools<ept id="afae8cac-f893-4672-9074-5c85fb614af7">&lt;/strong&gt;</ept> &gt; <bpt id="1af216f3-4eae-45c5-bfcb-c97b459c6e3f">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="1af216f3-4eae-45c5-bfcb-c97b459c6e3f">&lt;/strong&gt;</ept> &gt; <bpt id="6ef1d119-0d5c-47eb-ac08-558d591a4a2a">&lt;strong&gt;</bpt>Package Manager Console<ept id="6ef1d119-0d5c-47eb-ac08-558d591a4a2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the NuGet Package Manager Console by clicking <bpt id="afae8cac-f893-4672-9074-5c85fb614af7">&lt;strong&gt;</bpt>Tools<ept id="afae8cac-f893-4672-9074-5c85fb614af7">&lt;/strong&gt;</ept> &gt; <bpt id="1af216f3-4eae-45c5-bfcb-c97b459c6e3f">&lt;strong&gt;</bpt>NuGet Package Manager<ept id="1af216f3-4eae-45c5-bfcb-c97b459c6e3f">&lt;/strong&gt;</ept> &gt; <bpt id="6ef1d119-0d5c-47eb-ac08-558d591a4a2a">&lt;strong&gt;</bpt>Package Manager Console<ept id="6ef1d119-0d5c-47eb-ac08-558d591a4a2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="006aff1a-43d2-490d-a0f0-d6bbe381bc9f" xml:space="preserve">
+          <source>Run the following NuGet command in the console:</source>
+          <target state="new">Run the following NuGet command in the console:</target>
+        </trans-unit>
+        <trans-unit id="b17c6263-7f7e-46b4-bf7d-3b920f2eaa2e" xml:space="preserve">
+          <source>Add the following <bpt id="ef8fea0a-5f0e-4ae6-882d-d4cb0ff0d861">&lt;strong&gt;</bpt>using<ept id="ef8fea0a-5f0e-4ae6-882d-d4cb0ff0d861">&lt;/strong&gt;</ept> statements at the top of the file:</source>
+          <target state="new">Add the following <bpt id="ef8fea0a-5f0e-4ae6-882d-d4cb0ff0d861">&lt;strong&gt;</bpt>using<ept id="ef8fea0a-5f0e-4ae6-882d-d4cb0ff0d861">&lt;/strong&gt;</ept> statements at the top of the file:</target>
+        </trans-unit>
+        <trans-unit id="829e7bac-c7c8-47eb-b1cc-b883a60d89f5" xml:space="preserve">
+          <source>Replace the <bpt id="f9f59699-db27-4e85-88f8-c118081e3ca2">&lt;strong&gt;</bpt>Main<ept id="f9f59699-db27-4e85-88f8-c118081e3ca2">&lt;/strong&gt;</ept> function with the following:</source>
+          <target state="new">Replace the <bpt id="f9f59699-db27-4e85-88f8-c118081e3ca2">&lt;strong&gt;</bpt>Main<ept id="f9f59699-db27-4e85-88f8-c118081e3ca2">&lt;/strong&gt;</ept> function with the following:</target>
+        </trans-unit>
+        <trans-unit id="d6e3bc64-880f-475f-9130-ef0508501cd3" xml:space="preserve">
+          <source>Set the first three variables in the <bpt id="86278c27-9f4b-46ee-a2b8-17747f085cb6">&lt;strong&gt;</bpt>Main<ept id="86278c27-9f4b-46ee-a2b8-17747f085cb6">&lt;/strong&gt;</ept> function.</source>
+          <target state="new">Set the first three variables in the <bpt id="86278c27-9f4b-46ee-a2b8-17747f085cb6">&lt;strong&gt;</bpt>Main<ept id="86278c27-9f4b-46ee-a2b8-17747f085cb6">&lt;/strong&gt;</ept> function.</target>
+        </trans-unit>
+        <trans-unit id="a6037cb2-3a78-4208-ad0e-7eddfca4d020" xml:space="preserve">
+          <source>Press <bpt id="93a97dd4-fecd-4f29-81a4-bb24d2118a88">&lt;strong&gt;</bpt>F5<ept id="93a97dd4-fecd-4f29-81a4-bb24d2118a88">&lt;/strong&gt;</ept> to run the application.</source>
+          <target state="new">Press <bpt id="93a97dd4-fecd-4f29-81a4-bb24d2118a88">&lt;strong&gt;</bpt>F5<ept id="93a97dd4-fecd-4f29-81a4-bb24d2118a88">&lt;/strong&gt;</ept> to run the application.</target>
+        </trans-unit>
+        <trans-unit id="8739cdb7-f8b8-4121-889e-44891b2989ee" xml:space="preserve">
+          <source>In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell.</source>
+          <target state="new">In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell.</target>
+        </trans-unit>
+        <trans-unit id="b412484b-1631-4d2b-b5bc-8b4631afed61" xml:space="preserve">
+          <source>You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.</source>
+          <target state="new">You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.</target>
+        </trans-unit>
+        <trans-unit id="f4c7065f-0abd-48d5-b92a-c12a95b31a7b" xml:space="preserve">
+          <source>For more information, see:</source>
+          <target state="new">For more information, see:</target>
+        </trans-unit>
+        <trans-unit id="7210c5d2-c64c-42eb-805f-2a4e03384707" xml:space="preserve">
+          <source><bpt id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;/linkText&gt;</ept><bpt id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;title&gt;</bpt><ept id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;linkText&gt;</bpt>HDInsight HBase overview[hdinsight-hbase-overview]<ept id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;/linkText&gt;</ept><bpt id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;title&gt;</bpt><ept id="8a23a6f8-6e65-4c71-98b6-550896787aca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="113363bb-ee11-4642-bed7-1759dd3c3731" xml:space="preserve">
+          <source>HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.</source>
+          <target state="new">HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.</target>
+        </trans-unit>
+        <trans-unit id="664a2855-d25e-4d52-a9dc-f11f7db3ff13" xml:space="preserve">
+          <source><bpt id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network[hdinsight-hbase-provision-vnet]<ept id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;/linkText&gt;</ept><bpt id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;title&gt;</bpt><ept id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;linkText&gt;</bpt>Provision HBase clusters on Azure Virtual Network[hdinsight-hbase-provision-vnet]<ept id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;/linkText&gt;</ept><bpt id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;title&gt;</bpt><ept id="f6580018-dc3e-43fc-917a-f4222bf36611">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf3972de-1cc8-4e85-b3dc-7fc644e8a018" xml:space="preserve">
+          <source>With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.</source>
+          <target state="new">With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.</target>
+        </trans-unit>
+        <trans-unit id="efd462ac-ff11-42fc-a120-d30878d85f47" xml:space="preserve">
+          <source><bpt id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;/linkText&gt;</ept><bpt id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;title&gt;</bpt><ept id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;linkText&gt;</bpt>Configure HBase replication in HDInsight<ept id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;/linkText&gt;</ept><bpt id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;title&gt;</bpt><ept id="baf691ce-b920-4144-829a-d9aabe400d9c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2bd8dea-840c-4ba6-b722-4418be735f67" xml:space="preserve">
+          <source>Learn how to configure HBase replication across two Azure datacenters.</source>
+          <target state="new">Learn how to configure HBase replication across two Azure datacenters.</target>
+        </trans-unit>
+        <trans-unit id="d9fba734-5d57-4bd7-95a7-97725ffbdf69" xml:space="preserve">
+          <source><bpt id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;linkText&gt;</bpt>Analyze Twitter sentiment with HBase in HDInsight[hbase-twitter-sentiment]<ept id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;/linkText&gt;</ept><bpt id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;title&gt;</bpt><ept id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;linkText&gt;</bpt>Analyze Twitter sentiment with HBase in HDInsight[hbase-twitter-sentiment]<ept id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;/linkText&gt;</ept><bpt id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;title&gt;</bpt><ept id="2d516ea2-b609-4b7e-b535-5286e63b1b5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ddf23f43-db75-4e79-9e6c-c8c2a4f1dae7" xml:space="preserve">
+          <source>Learn how to do real-time <bpt id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;linkText&gt;</bpt>sentiment analysis<ept id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;/linkText&gt;</ept><bpt id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;title&gt;</bpt><ept id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;/title&gt;</ept> of big data by using HBase in a Hadoop cluster in HDInsight.</source>
+          <target state="new">Learn how to do real-time <bpt id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;linkText&gt;</bpt>sentiment analysis<ept id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;/linkText&gt;</ept><bpt id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;title&gt;</bpt><ept id="32029dab-56c7-4320-b6a5-cad6e6929b3f">&lt;/title&gt;</ept> of big data by using HBase in a Hadoop cluster in HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="3d015e81-698a-4af3-8c21-54c7d364a0e2" xml:space="preserve">
+          <source>hdinsight-administer-use-management-portal.md</source>
+          <target state="new">hdinsight-administer-use-management-portal.md</target>
+        </trans-unit>
+        <trans-unit id="6bbcc11e-1e19-46d2-9b1f-d8f30ef8db8b" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="acd51900-502e-4407-91c2-8a98b0824b7a" xml:space="preserve">
+          <source>http://hbase.apache.org/book.html#importtsv</source>
+          <target state="new">http://hbase.apache.org/book.html#importtsv</target>
+        </trans-unit>
+        <trans-unit id="82cfcef0-025d-4b45-bcc1-c9c77a5eff3f" xml:space="preserve">
+          <source>http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf</source>
+          <target state="new">http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf</target>
+        </trans-unit>
+        <trans-unit id="80176f87-1dfe-4460-9c75-68978d4904bf" xml:space="preserve">
+          <source>http://hbase.apache.org/book.html#quickstart</source>
+          <target state="new">http://hbase.apache.org/book.html#quickstart</target>
+        </trans-unit>
+        <trans-unit id="8923c72c-b13e-49fe-a916-1128de5a6f33" xml:space="preserve">
+          <source>hdinsight-hbase-overview.md</source>
+          <target state="new">hdinsight-hbase-overview.md</target>
+        </trans-unit>
+        <trans-unit id="c1317cf0-8652-4fd0-a4e1-79e808385843" xml:space="preserve">
+          <source>hdinsight-hbase-provision-vnet.md</source>
+          <target state="new">hdinsight-hbase-provision-vnet.md</target>
+        </trans-unit>
+        <trans-unit id="fca0d705-f0c0-4d0f-a7a4-2834db21d1ad" xml:space="preserve">
+          <source>hdinsight-component-versioning.md</source>
+          <target state="new">hdinsight-component-versioning.md</target>
+        </trans-unit>
+        <trans-unit id="6a52441a-b171-4604-b266-1486d7d53e5b" xml:space="preserve">
+          <source>hdinsight-hbase-analyze-twitter-sentiment.md</source>
+          <target state="new">hdinsight-hbase-analyze-twitter-sentiment.md</target>
+        </trans-unit>
+        <trans-unit id="6484d497-8c05-47ed-8145-979de51eb999" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/purchase-options/</source>
+          <target state="new">http://azure.microsoft.com/pricing/purchase-options/</target>
+        </trans-unit>
+        <trans-unit id="701b1cbb-9cba-410d-8661-d250ebf7440c" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/member-offers/</source>
+          <target state="new">http://azure.microsoft.com/pricing/member-offers/</target>
+        </trans-unit>
+        <trans-unit id="91338354-cb4f-466a-a29d-72807108bf95" xml:space="preserve">
+          <source>http://azure.microsoft.com/pricing/free-trial/</source>
+          <target state="new">http://azure.microsoft.com/pricing/free-trial/</target>
+        </trans-unit>
+        <trans-unit id="0a5df765-3e6a-4bfa-8345-4ab382923bb3" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="21ae6c06-4718-4e38-b051-89ec696cf271" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/storage-create-storage-account/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/storage-create-storage-account/</target>
+        </trans-unit>
+        <trans-unit id="b53f36d4-b043-4190-8e1c-bee1c9438e9d" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png</target>
+        </trans-unit>
+        <trans-unit id="c00690e1-2312-441e-8452-c5d5aacc90d4" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-hive-editor.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-hive-editor.png</target>
+        </trans-unit>
+        <trans-unit id="bf36091d-3943-49ab-ab4c-3d2cd089a7bb" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-file-browser.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-file-browser.png</target>
+        </trans-unit>
+        <trans-unit id="dd7c9385-86d3-4e7f-87f3-ec5a19dea04d" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png</target>
+        </trans-unit>
+        <trans-unit id="04724cbb-9d8e-47ed-b544-5c249062f92f" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png</target>
+        </trans-unit>
+        <trans-unit id="95cdca9b-5fe0-4ad1-8563-69ad031e3c2c" xml:space="preserve">
+          <source>./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png</source>
+          <target state="new">./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png</target>
+        </trans-unit>
+      </group>
+      <group id="82feffd9-37e4-4c4d-affa-8d5226d438dc" />
+    </body>
+  </file>
+</xliff>

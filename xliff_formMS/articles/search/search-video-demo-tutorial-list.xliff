@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b2f1b8a7-1aa5-41ca-9201-354b0e1b6a0d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b2f1b8a7-1aa5-41ca-9201-354b0e1b6a0d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ebe7f2bc-735a-445e-b8e8-082afdef2c07">
+        <trans-unit id="4dae98ea-c90d-475f-8631-f280613dda4c" xml:space="preserve">
+          <source>Videos, samples, and tutorials in Azure Search</source>
+          <target state="new">Videos, samples, and tutorials in Azure Search</target>
+        </trans-unit>
+        <trans-unit id="732e7321-805e-4dae-bad4-9db32814a68e" xml:space="preserve">
+          <source>Find all videos, samples, demos and tutorials created for Azure Search in one central list.</source>
+          <target state="new">Find all videos, samples, demos and tutorials created for Azure Search in one central list.</target>
+        </trans-unit>
+        <trans-unit id="31dbfde8-0166-4457-8238-0af80dbe849c" xml:space="preserve">
+          <source>Get up to speed faster with the following videos, demos, tutorials, and sample apps.</source>
+          <target state="new">Get up to speed faster with the following videos, demos, tutorials, and sample apps.</target>
+        </trans-unit>
+        <trans-unit id="eb8f80ae-6a88-40be-8771-5143300220a5" xml:space="preserve">
+          <source>[<bpt id="1de6214e-e829-4cfd-888d-af6d2a7edb70">&lt;strong&gt;</bpt>New York City (NYC) Jobs portal demo for Azure Search<ept id="1de6214e-e829-4cfd-888d-af6d2a7edb70">&lt;/strong&gt;</ept>](http://aka.ms/azjobsdemo) is an ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative.</source>
+          <target state="new">[<bpt id="1de6214e-e829-4cfd-888d-af6d2a7edb70">&lt;strong&gt;</bpt>New York City (NYC) Jobs portal demo for Azure Search<ept id="1de6214e-e829-4cfd-888d-af6d2a7edb70">&lt;/strong&gt;</ept>](http://aka.ms/azjobsdemo) is an ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative.</target>
+        </trans-unit>
+        <trans-unit id="63bddc35-69ce-465e-801d-e4196422a0bf" xml:space="preserve">
+          <source>[<bpt id="6e3eeb6e-5b64-416b-a1a4-746affadc3fe">&lt;strong&gt;</bpt>Try App Service + Azure Search<ept id="6e3eeb6e-5b64-416b-a1a4-746affadc3fe">&lt;/strong&gt;</ept>](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features.</source>
+          <target state="new">[<bpt id="6e3eeb6e-5b64-416b-a1a4-746affadc3fe">&lt;strong&gt;</bpt>Try App Service + Azure Search<ept id="6e3eeb6e-5b64-416b-a1a4-746affadc3fe">&lt;/strong&gt;</ept>](search-tryappservice.md) is a free one-hour session with Azure Search that includes data, a functional web application, and source code that you can modify online to test drive various search features.</target>
+        </trans-unit>
+        <trans-unit id="38848f36-6f93-49ed-b093-3388ec2fb3c8" xml:space="preserve">
+          <source>Link</source>
+          <target state="new">Link</target>
+        </trans-unit>
+        <trans-unit id="e4bc01dc-d28b-43b6-85be-29699109d5aa" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c8bebd81-745c-4e9b-8a33-1e280747f3b9" xml:space="preserve">
+          <source><bpt id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;linkText&gt;</bpt>Microsoft Virtual Academy: Adding Azure Search to your Websites and Apps<ept id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;/linkText&gt;</ept><bpt id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;title&gt;</bpt><ept id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;linkText&gt;</bpt>Microsoft Virtual Academy: Adding Azure Search to your Websites and Apps<ept id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;/linkText&gt;</ept><bpt id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;title&gt;</bpt><ept id="adadfbe8-9c6f-49ce-931a-3857b3f99800">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42e33d27-b541-459d-8435-1ebabeb79947" xml:space="preserve">
+          <source>7-part series on how to add Azure Search to an application, presented by Liam Cavanagh, Janusz Lembicz, and Bernardita Torres Garayar.</source>
+          <target state="new">7-part series on how to add Azure Search to an application, presented by Liam Cavanagh, Janusz Lembicz, and Bernardita Torres Garayar.</target>
+        </trans-unit>
+        <trans-unit id="6ee235fc-2ced-4370-8599-41e7c8bd983b" xml:space="preserve">
+          <source><bpt id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;linkText&gt;</bpt>Build 2015: Modern Data<ept id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;/linkText&gt;</ept><bpt id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;title&gt;</bpt><ept id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;linkText&gt;</bpt>Build 2015: Modern Data<ept id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;/linkText&gt;</ept><bpt id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;title&gt;</bpt><ept id="08611051-5afc-4d27-8b34-38a5d4d8ed8f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82871245-4fac-4da5-b676-75fc231778a1" xml:space="preserve">
+          <source>At 29 minutes into the session, learn how Azure Search fits in the modern data revolution, presented by Shawn Bice and Pablo Castro.</source>
+          <target state="new">At 29 minutes into the session, learn how Azure Search fits in the modern data revolution, presented by Shawn Bice and Pablo Castro.</target>
+        </trans-unit>
+        <trans-unit id="1eb73474-5047-4d22-8694-8f2583be1cbc" xml:space="preserve">
+          <source><bpt id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;linkText&gt;</bpt>Build 2015: Using Azure Search to Build Great Search Experiences in Mobile and WebApps<ept id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;/linkText&gt;</ept><bpt id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;title&gt;</bpt><ept id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;linkText&gt;</bpt>Build 2015: Using Azure Search to Build Great Search Experiences in Mobile and WebApps<ept id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;/linkText&gt;</ept><bpt id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;title&gt;</bpt><ept id="f7f69c83-419a-4bd7-aca5-6d897c808ce8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="027a0bb3-2ef6-4eb8-8e26-2d5f661ff34d" xml:space="preserve">
+          <source>Pablo Castro presents at Microsoft Build 2015.</source>
+          <target state="new">Pablo Castro presents at Microsoft Build 2015.</target>
+        </trans-unit>
+        <trans-unit id="0e19a410-cdc9-47ac-bf7a-4dcd484b65e1" xml:space="preserve">
+          <source><bpt id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;linkText&gt;</bpt>Ignite 2015: Adding Search Capabilities to Your Business Applications Using Microsoft Azure Search<ept id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;/linkText&gt;</ept><bpt id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;title&gt;</bpt><ept id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;linkText&gt;</bpt>Ignite 2015: Adding Search Capabilities to Your Business Applications Using Microsoft Azure Search<ept id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;/linkText&gt;</ept><bpt id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;title&gt;</bpt><ept id="7ea5689d-81b1-4dd5-94c2-9014d2814334">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="100c6dd4-64a2-4149-b1a2-2f9d0ecfa2c2" xml:space="preserve">
+          <source>Liam Cavanagh presents at Microsoft Ignite 2015.</source>
+          <target state="new">Liam Cavanagh presents at Microsoft Ignite 2015.</target>
+        </trans-unit>
+        <trans-unit id="21f55bfe-0216-4c58-a4d9-058037d4d9ad" xml:space="preserve">
+          <source><bpt id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;linkText&gt;</bpt>Powering real-time search at Microsoft<ept id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;/linkText&gt;</ept><bpt id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;title&gt;</bpt><ept id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;linkText&gt;</bpt>Powering real-time search at Microsoft<ept id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;/linkText&gt;</ept><bpt id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;title&gt;</bpt><ept id="2f6d31ca-e553-4dd2-9ec8-aabd2b2e1734">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2c9cbca-29e2-488c-a434-8f68e50acbbe" xml:space="preserve">
+          <source>Presentation at Elastic{ON} 2015 by Pablo Castro, 16 minutes, explaining how Azure Search and other groups at Microsoft use ElasticSearch.</source>
+          <target state="new">Presentation at Elastic{ON} 2015 by Pablo Castro, 16 minutes, explaining how Azure Search and other groups at Microsoft use ElasticSearch.</target>
+        </trans-unit>
+        <trans-unit id="ada8006b-aeae-484c-b81b-26bad8c0988e" xml:space="preserve">
+          <source><bpt id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;linkText&gt;</bpt>Azure Search General Availability and What's New<ept id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;/linkText&gt;</ept><bpt id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;title&gt;</bpt><ept id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;linkText&gt;</bpt>Azure Search General Availability and What's New<ept id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;/linkText&gt;</ept><bpt id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;title&gt;</bpt><ept id="3e49002d-9976-46a0-9c80-a70ba695f879">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c594d3f-4a66-42ba-b41a-88c714857699" xml:space="preserve">
+          <source>Video recording introducing new features in the generally available release of Azure Search, presented by Liam Cavanagh, 12 minutes.</source>
+          <target state="new">Video recording introducing new features in the generally available release of Azure Search, presented by Liam Cavanagh, 12 minutes.</target>
+        </trans-unit>
+        <trans-unit id="90dbc996-e60b-42b2-b627-29890970e3f1" xml:space="preserve">
+          <source><bpt id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;linkText&gt;</bpt>Deep Dive<ept id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;/linkText&gt;</ept><bpt id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;title&gt;</bpt><ept id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;linkText&gt;</bpt>Deep Dive<ept id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;/linkText&gt;</ept><bpt id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;title&gt;</bpt><ept id="52a63eb3-a201-4810-85d0-fd455cc3c175">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="490eec6c-7ba3-4d48-ae41-31a914e322da" xml:space="preserve">
+          <source>Presentation from TechEd Europe, delivered by Pablo Castro, 1 hour 15 minutes.</source>
+          <target state="new">Presentation from TechEd Europe, delivered by Pablo Castro, 1 hour 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="44b4bc0e-6867-4924-a997-323a6e2c4653" xml:space="preserve">
+          <source><bpt id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;linkText&gt;</bpt>An 8 minute overview<ept id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;/linkText&gt;</ept><bpt id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;title&gt;</bpt><ept id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;linkText&gt;</bpt>An 8 minute overview<ept id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;/linkText&gt;</ept><bpt id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;title&gt;</bpt><ept id="1a82a03e-db6f-485d-91c6-7835d7ba798a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eac82011-ce7a-48fd-8412-42a71a2d7110" xml:space="preserve">
+          <source>A short presentation from the Connect Visual Studio event, delivered by Liam Cavanagh, 8 minutes 58 seconds.</source>
+          <target state="new">A short presentation from the Connect Visual Studio event, delivered by Liam Cavanagh, 8 minutes 58 seconds.</target>
+        </trans-unit>
+        <trans-unit id="79efde94-3b03-4c5f-9240-0f6f699eda45" xml:space="preserve">
+          <source><bpt id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;linkText&gt;</bpt>Introduction to Azure Search<ept id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;/linkText&gt;</ept><bpt id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;title&gt;</bpt><ept id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;linkText&gt;</bpt>Introduction to Azure Search<ept id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;/linkText&gt;</ept><bpt id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;title&gt;</bpt><ept id="655c9f61-d964-4b08-bd98-9f6b29757251">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2957de8-e02a-426f-b927-0d2028649543" xml:space="preserve">
+          <source>Video recording that explains the architecture and capabilities of Azure Search, presented by Liam Cavanagh, 22 minutes.</source>
+          <target state="new">Video recording that explains the architecture and capabilities of Azure Search, presented by Liam Cavanagh, 22 minutes.</target>
+        </trans-unit>
+        <trans-unit id="9c471790-7b86-470c-ac1e-d444ccc65c01" xml:space="preserve">
+          <source><bpt id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;linkText&gt;</bpt>Cloud Cover: Episode 152 on Channel 9<ept id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;/linkText&gt;</ept><bpt id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;title&gt;</bpt><ept id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;linkText&gt;</bpt>Cloud Cover: Episode 152 on Channel 9<ept id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;/linkText&gt;</ept><bpt id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;title&gt;</bpt><ept id="84309106-eb78-4c40-99cc-47998d9e2335">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75c8602c-8dd2-48ac-964b-5b53b26d615b" xml:space="preserve">
+          <source>Video recording of a deeper discussion of features, issuing regular and geospatial queries via Fiddler, and understanding the results that come back, presented by Liam Cavanagh, 25 minutes.</source>
+          <target state="new">Video recording of a deeper discussion of features, issuing regular and geospatial queries via Fiddler, and understanding the results that come back, presented by Liam Cavanagh, 25 minutes.</target>
+        </trans-unit>
+        <trans-unit id="f48c6873-53c8-4d31-852c-a3f40677ed0c" xml:space="preserve">
+          <source><bpt id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;linkText&gt;</bpt>Data Exposed: Azure Search Suggestions<ept id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;/linkText&gt;</ept><bpt id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;title&gt;</bpt><ept id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;linkText&gt;</bpt>Data Exposed: Azure Search Suggestions<ept id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;/linkText&gt;</ept><bpt id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;title&gt;</bpt><ept id="a97847fc-fd07-4714-b3ce-a8b4256eeb6c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5969b2fd-3cc4-4ff1-a587-2cde02a1d3e7" xml:space="preserve">
+          <source>Video recording of suggestions (also known as type-ahead or autocomplete queries that appear as potential search terms as a user is typing a term), presented by Liam Cavanagh, 15 minutes.</source>
+          <target state="new">Video recording of suggestions (also known as type-ahead or autocomplete queries that appear as potential search terms as a user is typing a term), presented by Liam Cavanagh, 15 minutes.</target>
+        </trans-unit>
+        <trans-unit id="347cc4d8-3961-44ca-a984-76da22b932d0" xml:space="preserve">
+          <source>In Azure Search, fuzzy matching is implemented through suggestions.</source>
+          <target state="new">In Azure Search, fuzzy matching is implemented through suggestions.</target>
+        </trans-unit>
+        <trans-unit id="aefe2eed-9cb3-4a16-a1e8-51d81ad44886" xml:space="preserve">
+          <source><bpt id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;linkText&gt;</bpt>Data Exposed: GeoSpatial Data and Azure Search<ept id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;/linkText&gt;</ept><bpt id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;title&gt;</bpt><ept id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;linkText&gt;</bpt>Data Exposed: GeoSpatial Data and Azure Search<ept id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;/linkText&gt;</ept><bpt id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;title&gt;</bpt><ept id="f0980ee7-ee75-44e4-9cf0-3979e24f9903">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0a35164-669f-44d0-9af2-766366fa42e3" xml:space="preserve">
+          <source>Video recording on geospatial search scenarios, presented by Liam Cavanagh, 18 minutes.</source>
+          <target state="new">Video recording on geospatial search scenarios, presented by Liam Cavanagh, 18 minutes.</target>
+        </trans-unit>
+        <trans-unit id="230effc3-362a-41b5-8c09-7d2076bca173" xml:space="preserve">
+          <source><bpt id="059b01a8-9d57-423e-ac81-98125095c740">&lt;linkText&gt;</bpt>Data Exposed: SQL Server To Azure Search Synchronization<ept id="059b01a8-9d57-423e-ac81-98125095c740">&lt;/linkText&gt;</ept><bpt id="059b01a8-9d57-423e-ac81-98125095c740">&lt;title&gt;</bpt><ept id="059b01a8-9d57-423e-ac81-98125095c740">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="059b01a8-9d57-423e-ac81-98125095c740">&lt;linkText&gt;</bpt>Data Exposed: SQL Server To Azure Search Synchronization<ept id="059b01a8-9d57-423e-ac81-98125095c740">&lt;/linkText&gt;</ept><bpt id="059b01a8-9d57-423e-ac81-98125095c740">&lt;title&gt;</bpt><ept id="059b01a8-9d57-423e-ac81-98125095c740">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9bbbd562-f114-4dc6-86c6-58677cff5ed8" xml:space="preserve">
+          <source>Video recording on how to sync database transactions with Azure Search, presented by Liam Cavanagh, 16 minutes.</source>
+          <target state="new">Video recording on how to sync database transactions with Azure Search, presented by Liam Cavanagh, 16 minutes.</target>
+        </trans-unit>
+        <trans-unit id="f854563b-3489-4acd-8ea5-02ae4158e9a9" xml:space="preserve">
+          <source>Walkthrough</source>
+          <target state="new">Walkthrough</target>
+        </trans-unit>
+        <trans-unit id="8ad999be-d3dc-47df-b163-3f57d513b387" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="0a36257b-1d8b-4dad-a889-37f2581f7664" xml:space="preserve">
+          <source><bpt id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;linkText&gt;</bpt>How to use Azure Search with D3.js to Build Interactive Data Visualizations<ept id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;/linkText&gt;</ept><bpt id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;title&gt;</bpt><ept id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;linkText&gt;</bpt>How to use Azure Search with D3.js to Build Interactive Data Visualizations<ept id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;/linkText&gt;</ept><bpt id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;title&gt;</bpt><ept id="d454b7bd-46eb-4322-831a-eef2857e3a9b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="80143de7-ed0f-4650-9be4-98c41611b227" xml:space="preserve">
+          <source>Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.</source>
+          <target state="new">Blog post and sample code that demonstrates how to add visual search capabilities to your custom app.</target>
+        </trans-unit>
+        <trans-unit id="0933f8fa-90a9-4565-a7f3-ef84b348ad34" xml:space="preserve">
+          <source><bpt id="33a064cb-316d-4388-aa72-d05a073167be">&lt;linkText&gt;</bpt>Get started with Azure Search in .NET<ept id="33a064cb-316d-4388-aa72-d05a073167be">&lt;/linkText&gt;</ept><bpt id="33a064cb-316d-4388-aa72-d05a073167be">&lt;title&gt;</bpt><ept id="33a064cb-316d-4388-aa72-d05a073167be">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="33a064cb-316d-4388-aa72-d05a073167be">&lt;linkText&gt;</bpt>Get started with Azure Search in .NET<ept id="33a064cb-316d-4388-aa72-d05a073167be">&lt;/linkText&gt;</ept><bpt id="33a064cb-316d-4388-aa72-d05a073167be">&lt;title&gt;</bpt><ept id="33a064cb-316d-4388-aa72-d05a073167be">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="91284aae-8954-4b0f-80e8-97c3939e86d5" xml:space="preserve">
+          <source>Learn how to work with Azure Search in managed code.</source>
+          <target state="new">Learn how to work with Azure Search in managed code.</target>
+        </trans-unit>
+        <trans-unit id="a9827b95-c71e-4579-8bce-844b8424503a" xml:space="preserve">
+          <source><bpt id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;linkText&gt;</bpt>Get started with Azure Search in NodeJS<ept id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;/linkText&gt;</ept><bpt id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;title&gt;</bpt><ept id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;linkText&gt;</bpt>Get started with Azure Search in NodeJS<ept id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;/linkText&gt;</ept><bpt id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;title&gt;</bpt><ept id="73685217-6d9a-4967-9dec-d7d8c85165fd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b3d0a99f-c4e0-4cb3-9e7d-2cc115a7a501" xml:space="preserve">
+          <source>Learn how to work with Azure Search in NodeJS.</source>
+          <target state="new">Learn how to work with Azure Search in NodeJS.</target>
+        </trans-unit>
+        <trans-unit id="2b2741aa-4f99-4d9f-b635-26eb4c6147a3" xml:space="preserve">
+          <source><bpt id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;linkText&gt;</bpt>Get started with Azure Search in Java<ept id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;/linkText&gt;</ept><bpt id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;title&gt;</bpt><ept id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;linkText&gt;</bpt>Get started with Azure Search in Java<ept id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;/linkText&gt;</ept><bpt id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;title&gt;</bpt><ept id="f993fde1-3191-4851-8ddf-3449e148e665">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5bd91996-c4e1-4498-9d13-12aa31befeaa" xml:space="preserve">
+          <source>Tutorial for Java programmers using Eclipse and Apache Tomcat server to build and run a sample application that uses Azure Search.</source>
+          <target state="new">Tutorial for Java programmers using Eclipse and Apache Tomcat server to build and run a sample application that uses Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="e4f24c01-47a5-4596-94f7-0d147daa841a" xml:space="preserve">
+          <source><bpt id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;linkText&gt;</bpt>Azure Search scenarios and capabilities<ept id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;/linkText&gt;</ept><bpt id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;title&gt;</bpt><ept id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;linkText&gt;</bpt>Azure Search scenarios and capabilities<ept id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;/linkText&gt;</ept><bpt id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;title&gt;</bpt><ept id="bc741084-f959-438a-8a80-ab53479fff7a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f0faf4d-13f0-4f5f-80a0-ee3f75a516c3" xml:space="preserve">
+          <source>Blog post covering the primary scenarios enabled by the current functionality.</source>
+          <target state="new">Blog post covering the primary scenarios enabled by the current functionality.</target>
+        </trans-unit>
+        <trans-unit id="c4cd3fa3-3da1-4189-a80e-9f34935a457e" xml:space="preserve">
+          <source><bpt id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;/linkText&gt;</ept><bpt id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;title&gt;</bpt><ept id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;linkText&gt;</bpt>How to use Azure Search in .NET<ept id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;/linkText&gt;</ept><bpt id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;title&gt;</bpt><ept id="07846774-4d5a-4303-ad3f-fe96d7254177">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fbedc67-fcea-43b9-8a96-7f6db9c46351" xml:space="preserve">
+          <source>Configure and run a sample Visual Studio web application that integrates with Azure Search.</source>
+          <target state="new">Configure and run a sample Visual Studio web application that integrates with Azure Search.</target>
+        </trans-unit>
+        <trans-unit id="63da7b59-77db-40f7-b94f-4b996e38ef0f" xml:space="preserve">
+          <source><bpt id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;linkText&gt;</bpt>How to Add Suggestions to your Search Applications<ept id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;/linkText&gt;</ept><bpt id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;title&gt;</bpt><ept id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;linkText&gt;</bpt>How to Add Suggestions to your Search Applications<ept id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;/linkText&gt;</ept><bpt id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;title&gt;</bpt><ept id="06fe03af-0659-470c-a10e-23dd96ffc436">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c8a4e82-3e6a-48b1-9abe-5fe78942cec0" xml:space="preserve">
+          <source>Learn how to implement suggestions, commonly called auto complete.</source>
+          <target state="new">Learn how to implement suggestions, commonly called auto complete.</target>
+        </trans-unit>
+        <trans-unit id="44b8c2fc-f201-4dd0-8ce2-77fcc8ceac01" xml:space="preserve">
+          <source>This demo walks through a number of topics including creating an MVC4 applications that leverages Azure Search suggestions, use of the Twitter typeahead.js library to build out an effective autosuggest component in JavaScript, and using fuzzy suggestions to allow you to bring back suggestions even if the user misspells the word.</source>
+          <target state="new">This demo walks through a number of topics including creating an MVC4 applications that leverages Azure Search suggestions, use of the Twitter typeahead.js library to build out an effective autosuggest component in JavaScript, and using fuzzy suggestions to allow you to bring back suggestions even if the user misspells the word.</target>
+        </trans-unit>
+        <trans-unit id="8f724074-028c-46fe-9d20-3430d2122665" xml:space="preserve">
+          <source><bpt id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;linkText&gt;</bpt>TechNet Virtual Lab: Building a Microsoft Azure Search Application<ept id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;/linkText&gt;</ept><bpt id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;title&gt;</bpt><ept id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;linkText&gt;</bpt>TechNet Virtual Lab: Building a Microsoft Azure Search Application<ept id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;/linkText&gt;</ept><bpt id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;title&gt;</bpt><ept id="23660b1e-ae72-4ce7-8c18-085c059a538c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42c43366-1370-4ade-95cd-8b29bee04710" xml:space="preserve">
+          <source>Virtual lab that provides a development environment, tools, documentation, and data.</source>
+          <target state="new">Virtual lab that provides a development environment, tools, documentation, and data.</target>
+        </trans-unit>
+        <trans-unit id="86f99a88-9d48-4ff0-8aea-6fc0bc55323b" xml:space="preserve">
+          <source>You will need an Azure account, either a trial subscription or your personal Azure subscription, to complete the lab.</source>
+          <target state="new">You will need an Azure account, either a trial subscription or your personal Azure subscription, to complete the lab.</target>
+        </trans-unit>
+        <trans-unit id="2d7c1f40-c984-4898-84a2-29c00443e441" xml:space="preserve">
+          <source><bpt id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;linkText&gt;</bpt>Geospatial search app development using Azure Search<ept id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;/linkText&gt;</ept><bpt id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;title&gt;</bpt><ept id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;linkText&gt;</bpt>Geospatial search app development using Azure Search<ept id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;/linkText&gt;</ept><bpt id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;title&gt;</bpt><ept id="e742b751-3591-43c8-a2f2-524148f8139a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8a2e526-6a22-46df-93fb-1f7e5208a86f" xml:space="preserve">
+          <source>Use Bing maps and coordinates to support geospatial searches.</source>
+          <target state="new">Use Bing maps and coordinates to support geospatial searches.</target>
+        </trans-unit>
+        <trans-unit id="1da6e10a-9b05-4e8b-919a-b88ca85d1f59" xml:space="preserve">
+          <source><bpt id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;linkText&gt;</bpt>Synchronize SQL Server Data with Azure Search<ept id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;/linkText&gt;</ept><bpt id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;title&gt;</bpt><ept id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;linkText&gt;</bpt>Synchronize SQL Server Data with Azure Search<ept id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;/linkText&gt;</ept><bpt id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;title&gt;</bpt><ept id="7bb787ed-08de-41dd-ad54-e2ec3bb9ba5e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4349cd5-8d31-4f0e-a0e9-63b03705ca8c" xml:space="preserve">
+          <source>Blog post that explains how to load data from SQL Server relational databases to an Azure Search index.</source>
+          <target state="new">Blog post that explains how to load data from SQL Server relational databases to an Azure Search index.</target>
+        </trans-unit>
+        <trans-unit id="5930465b-499f-4ee2-849d-2d0c60643f03" xml:space="preserve">
+          <source><bpt id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;linkText&gt;</bpt>Scoring profiles tutorial<ept id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;/linkText&gt;</ept><bpt id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;title&gt;</bpt><ept id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;linkText&gt;</bpt>Scoring profiles tutorial<ept id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;/linkText&gt;</ept><bpt id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;title&gt;</bpt><ept id="b2b31e37-2de4-44e4-97a6-31f08d87b079">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae9ba6f2-35bf-4495-b36d-e313fef6056d" xml:space="preserve">
+          <source>Test-drive scoring profiles using a console app.</source>
+          <target state="new">Test-drive scoring profiles using a console app.</target>
+        </trans-unit>
+        <trans-unit id="a2fed3aa-eec7-4dc2-91b0-65587b3fd19d" xml:space="preserve">
+          <source><bpt id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;linkText&gt;</bpt>Azure Search Management REST API tutorial<ept id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;/linkText&gt;</ept><bpt id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;title&gt;</bpt><ept id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;linkText&gt;</bpt>Azure Search Management REST API tutorial<ept id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;/linkText&gt;</ept><bpt id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;title&gt;</bpt><ept id="f6a7fb8c-bf9f-4dc6-b3bd-f17318ed72a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="69bb6537-e6c5-4260-8056-df0d702ebc5b" xml:space="preserve">
+          <source>How to use the Management REST API to provision the service and manage admin or query api-keys.</source>
+          <target state="new">How to use the Management REST API to provision the service and manage admin or query api-keys.</target>
+        </trans-unit>
+        <trans-unit id="435403f8-74a5-499a-be46-a9dd38761844" xml:space="preserve">
+          <source>[<bpt id="25ac399c-0670-492d-964d-c7dd9e5dd904">&lt;strong&gt;</bpt>https://github.com/AzureSearch<ept id="25ac399c-0670-492d-964d-c7dd9e5dd904">&lt;/strong&gt;</ept>](https://github.com/AzureSearch) is a GitHub repository for Azure Search containing code samples created by the Azure Search development team.</source>
+          <target state="new">[<bpt id="25ac399c-0670-492d-964d-c7dd9e5dd904">&lt;strong&gt;</bpt>https://github.com/AzureSearch<ept id="25ac399c-0670-492d-964d-c7dd9e5dd904">&lt;/strong&gt;</ept>](https://github.com/AzureSearch) is a GitHub repository for Azure Search containing code samples created by the Azure Search development team.</target>
+        </trans-unit>
+        <trans-unit id="eab0a013-df97-43af-b0b2-0e698df01899" xml:space="preserve">
+          <source>You can browse the repository to see what it contains, or click links below to go directly to specific samples.</source>
+          <target state="new">You can browse the repository to see what it contains, or click links below to go directly to specific samples.</target>
+        </trans-unit>
+        <trans-unit id="d6f91b83-66a4-4707-a59a-ba134105b141" xml:space="preserve">
+          <source>[<bpt id="ea6f5f4e-ea3d-4d4c-9481-42a0aaeee144">&lt;strong&gt;</bpt>JavaIndexerDemo<ept id="ea6f5f4e-ea3d-4d4c-9481-42a0aaeee144">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)</source>
+          <target state="new">[<bpt id="ea6f5f4e-ea3d-4d4c-9481-42a0aaeee144">&lt;strong&gt;</bpt>JavaIndexerDemo<ept id="ea6f5f4e-ea3d-4d4c-9481-42a0aaeee144">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)</target>
+        </trans-unit>
+        <trans-unit id="f1e2bd5f-95d4-49d2-b4ae-bf020c86ea0a" xml:space="preserve">
+          <source>[<bpt id="4c89cee9-5474-4366-987c-64d924be0589">&lt;strong&gt;</bpt>NodeJSIndexerDemo<ept id="4c89cee9-5474-4366-987c-64d924be0589">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)</source>
+          <target state="new">[<bpt id="4c89cee9-5474-4366-987c-64d924be0589">&lt;strong&gt;</bpt>NodeJSIndexerDemo<ept id="4c89cee9-5474-4366-987c-64d924be0589">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)</target>
+        </trans-unit>
+        <trans-unit id="0fbec6c7-af80-4a80-8127-44aa06230912" xml:space="preserve">
+          <source>[<bpt id="8e46a8a0-0d7a-4c1e-ac0c-b5ee219aecbb">&lt;strong&gt;</bpt>.NET-2015-02-28-Sample<ept id="8e46a8a0-0d7a-4c1e-ac0c-b5ee219aecbb">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/.NET-2015-02-28-Sample) is an ASP.NET MVC 5 application that uses the .NET client library for search operations.</source>
+          <target state="new">[<bpt id="8e46a8a0-0d7a-4c1e-ac0c-b5ee219aecbb">&lt;strong&gt;</bpt>.NET-2015-02-28-Sample<ept id="8e46a8a0-0d7a-4c1e-ac0c-b5ee219aecbb">&lt;/strong&gt;</ept>](https://github.com/AzureSearch/.NET-2015-02-28-Sample) is an ASP.NET MVC 5 application that uses the .NET client library for search operations.</target>
+        </trans-unit>
+        <trans-unit id="430438e9-a1a2-4f1b-9283-64bfe71f5ce8" xml:space="preserve">
+          <source>A separate GitHub repo is used for [<bpt id="963b799b-c696-4f5f-83a1-6e602fa592f3">&lt;strong&gt;</bpt>AzureSearch-Microsoft Virtual Academy Training Materials<ept id="963b799b-c696-4f5f-83a1-6e602fa592f3">&lt;/strong&gt;</ept>](https://github.com/MicrosoftLearning/AzureSearch-MVA).</source>
+          <target state="new">A separate GitHub repo is used for [<bpt id="963b799b-c696-4f5f-83a1-6e602fa592f3">&lt;strong&gt;</bpt>AzureSearch-Microsoft Virtual Academy Training Materials<ept id="963b799b-c696-4f5f-83a1-6e602fa592f3">&lt;/strong&gt;</ept>](https://github.com/MicrosoftLearning/AzureSearch-MVA).</target>
+        </trans-unit>
+        <trans-unit id="c77a3e03-5b70-4022-b2ed-3af63156f81a" xml:space="preserve">
+          <source>It includes several samples used in the 7-part course.</source>
+          <target state="new">It includes several samples used in the 7-part course.</target>
+        </trans-unit>
+        <trans-unit id="ead39191-44b9-4b57-b4b3-a81cb019f338" xml:space="preserve">
+          <source>On CodePlex, you can find several samples published during the public preview that are still relevant in the current version.</source>
+          <target state="new">On CodePlex, you can find several samples published during the public preview that are still relevant in the current version.</target>
+        </trans-unit>
+        <trans-unit id="939ade53-c6c2-44e1-87b7-d5bb13b5b417" xml:space="preserve">
+          <source>[<bpt id="9fda7684-2b72-484a-ab0c-194e1e63fb5e">&lt;strong&gt;</bpt>Management REST API Demo<ept id="9fda7684-2b72-484a-ab0c-194e1e63fb5e">&lt;/strong&gt;</ept>](https://azuresearchmgmtapi.codeplex.com/) is a Windows console application that uses the Management REST API.</source>
+          <target state="new">[<bpt id="9fda7684-2b72-484a-ab0c-194e1e63fb5e">&lt;strong&gt;</bpt>Management REST API Demo<ept id="9fda7684-2b72-484a-ab0c-194e1e63fb5e">&lt;/strong&gt;</ept>](https://azuresearchmgmtapi.codeplex.com/) is a Windows console application that uses the Management REST API.</target>
+        </trans-unit>
+        <trans-unit id="f41569a1-257b-41e6-bd5c-a7f4ffdfb9e7" xml:space="preserve">
+          <source>[<bpt id="d7e91678-6b0e-42d2-9be8-d1e2347b9583">&lt;strong&gt;</bpt>AdventureWorks Demo<ept id="d7e91678-6b0e-42d2-9be8-d1e2347b9583">&lt;/strong&gt;</ept>](https://azuresearchadventureworksdemo.codeplex.com/) is an ASP.NET MVC 4 application.</source>
+          <target state="new">[<bpt id="d7e91678-6b0e-42d2-9be8-d1e2347b9583">&lt;strong&gt;</bpt>AdventureWorks Demo<ept id="d7e91678-6b0e-42d2-9be8-d1e2347b9583">&lt;/strong&gt;</ept>](https://azuresearchadventureworksdemo.codeplex.com/) is an ASP.NET MVC 4 application.</target>
+        </trans-unit>
+        <trans-unit id="eda91aed-07d8-444c-8d37-0a6c97f4f72b" xml:space="preserve">
+          <source>[<bpt id="3f8c6b00-aac9-4e9b-9b89-9337aa4038af">&lt;strong&gt;</bpt>Suggestions Demo<ept id="3f8c6b00-aac9-4e9b-9b89-9337aa4038af">&lt;/strong&gt;</ept>](https://azsearchsuggestions.codeplex.com/SourceControl/latest) is an ASP.NET MVC 4 application.</source>
+          <target state="new">[<bpt id="3f8c6b00-aac9-4e9b-9b89-9337aa4038af">&lt;strong&gt;</bpt>Suggestions Demo<ept id="3f8c6b00-aac9-4e9b-9b89-9337aa4038af">&lt;/strong&gt;</ept>](https://azsearchsuggestions.codeplex.com/SourceControl/latest) is an ASP.NET MVC 4 application.</target>
+        </trans-unit>
+        <trans-unit id="817f1c3a-9cb6-4e89-85a8-cc9134ef7deb" xml:space="preserve">
+          <source>[<bpt id="6d21c076-f1b1-436f-8eac-55e96eabb414">&lt;strong&gt;</bpt>GeoSearch sample<ept id="6d21c076-f1b1-436f-8eac-55e96eabb414">&lt;/strong&gt;</ept>](https://azuresearchgeospatial.codeplex.com/) is an ASP.NET MVC 4  application.</source>
+          <target state="new">[<bpt id="6d21c076-f1b1-436f-8eac-55e96eabb414">&lt;strong&gt;</bpt>GeoSearch sample<ept id="6d21c076-f1b1-436f-8eac-55e96eabb414">&lt;/strong&gt;</ept>](https://azuresearchgeospatial.codeplex.com/) is an ASP.NET MVC 4  application.</target>
+        </trans-unit>
+        <trans-unit id="36d001cf-4a78-4c25-86a8-5ef1258a051f" xml:space="preserve">
+          <source>[<bpt id="e902bad0-b927-4639-932c-f2b09b313170">&lt;strong&gt;</bpt>SQL Server to Azure Search Sync Sample<ept id="e902bad0-b927-4639-932c-f2b09b313170">&lt;/strong&gt;</ept>](http://sqlserver2azuresearch.codeplex.com/) is a Windows console application that loads a SQL Server rowset from an embedded local database.</source>
+          <target state="new">[<bpt id="e902bad0-b927-4639-932c-f2b09b313170">&lt;strong&gt;</bpt>SQL Server to Azure Search Sync Sample<ept id="e902bad0-b927-4639-932c-f2b09b313170">&lt;/strong&gt;</ept>](http://sqlserver2azuresearch.codeplex.com/) is a Windows console application that loads a SQL Server rowset from an embedded local database.</target>
+        </trans-unit>
+        <trans-unit id="073126fb-88ec-41ca-80dc-3b71a992a7f7" xml:space="preserve">
+          <source>[<bpt id="c10f95ac-473f-4e39-ba93-7080f583b864">&lt;strong&gt;</bpt>Scoring Profiles Demo<ept id="c10f95ac-473f-4e39-ba93-7080f583b864">&lt;/strong&gt;</ept>](https://azuresearchscoringprofiles.codeplex.com/) is a Windows console application that defines, executes, and updates a scoring profile for tuning search results.</source>
+          <target state="new">[<bpt id="c10f95ac-473f-4e39-ba93-7080f583b864">&lt;strong&gt;</bpt>Scoring Profiles Demo<ept id="c10f95ac-473f-4e39-ba93-7080f583b864">&lt;/strong&gt;</ept>](https://azuresearchscoringprofiles.codeplex.com/) is a Windows console application that defines, executes, and updates a scoring profile for tuning search results.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

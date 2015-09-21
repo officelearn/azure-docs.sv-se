@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="47b90ce7-f0d7-465b-a0cc-3294ccaf9370" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="47b90ce7-f0d7-465b-a0cc-3294ccaf9370" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c678a1d4-2233-46e4-ae1a-b913314b4fb9">
+        <trans-unit id="a190984e-c566-445d-b72f-815bb4a3d464" xml:space="preserve">
+          <source>Secure a web app in Azure App Service</source>
+          <target state="new">Secure a web app in Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="20822ad8-5592-4ba7-9d1c-19f50c378b43" xml:space="preserve">
+          <source>Learn how to secure an Azure web app.</source>
+          <target state="new">Learn how to secure an Azure web app.</target>
+        </trans-unit>
+        <trans-unit id="67bc7e3c-4b94-4e17-b2c8-71eb82026e3d" xml:space="preserve">
+          <source>One of the challenges of developing a web app is how to provide a safe and secure service for your customers.</source>
+          <target state="new">One of the challenges of developing a web app is how to provide a safe and secure service for your customers.</target>
+        </trans-unit>
+        <trans-unit id="0a13e65a-0e32-45f2-9ed9-adf8510fab86" xml:space="preserve">
+          <source>In this article, you will learn about features of <bpt id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;linkText&gt;</bpt>Azure App Service<ept id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;/linkText&gt;</ept><bpt id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;title&gt;</bpt><ept id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;/title&gt;</ept> that can secure your web app.</source>
+          <target state="new">In this article, you will learn about features of <bpt id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;linkText&gt;</bpt>Azure App Service<ept id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;/linkText&gt;</ept><bpt id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;title&gt;</bpt><ept id="549e40ab-c877-49e0-ae90-86ae2403db70">&lt;/title&gt;</ept> that can secure your web app.</target>
+        </trans-unit>
+        <trans-unit id="c65b3e2f-907a-4e7f-bd1c-febe6409faf7" xml:space="preserve">
+          <source>A full discussion of security considerations for web-based applications is beyond the scope of this document.</source>
+          <target state="new">A full discussion of security considerations for web-based applications is beyond the scope of this document.</target>
+        </trans-unit>
+        <trans-unit id="ea6ab113-372c-45de-8b03-21e43bb3d723" xml:space="preserve">
+          <source>As a starting point for further guidance on securing web applications, see the [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main<bpt id="9c31b070-823d-4772-8825-46a1c08a8cc4">&lt;em&gt;</bpt>Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP<ept id="9c31b070-823d-4772-8825-46a1c08a8cc4">&lt;/em&gt;</ept>Top<bpt id="66b63b96-e05c-4a2b-a793-2595c2a3301c">&lt;em&gt;</bpt>Ten<ept id="66b63b96-e05c-4a2b-a793-2595c2a3301c">&lt;/em&gt;</ept>Project), which lists the current top 10 critical web application security flaws, as determined by OWASP members.</source>
+          <target state="new">As a starting point for further guidance on securing web applications, see the [Open Web Application Security Project (OWASP)]( https://www.owasp.org/index.php/Main<bpt id="9c31b070-823d-4772-8825-46a1c08a8cc4">&lt;em&gt;</bpt>Page), specifically the [top 10 project.](https://www.owasp.org/index.php/Category:OWASP<ept id="9c31b070-823d-4772-8825-46a1c08a8cc4">&lt;/em&gt;</ept>Top<bpt id="66b63b96-e05c-4a2b-a793-2595c2a3301c">&lt;em&gt;</bpt>Ten<ept id="66b63b96-e05c-4a2b-a793-2595c2a3301c">&lt;/em&gt;</ept>Project), which lists the current top 10 critical web application security flaws, as determined by OWASP members.</target>
+        </trans-unit>
+        <trans-unit id="c717dc2e-9f03-4e0f-87a6-08316d1bdf6a" xml:space="preserve">
+          <source>If you use the <bpt id="4aa97581-a706-4d18-a887-02fae2358604">&lt;strong&gt;</bpt>*.azurewebsites.net<ept id="4aa97581-a706-4d18-a887-02fae2358604">&lt;/strong&gt;</ept> domain name created for your web app, you can immediately use HTTPS, as an SSL certificate is provided for all <bpt id="9330afac-ae2a-44d1-ad22-2cbea5f553ef">&lt;strong&gt;</bpt>*.azurewebsites.net<ept id="9330afac-ae2a-44d1-ad22-2cbea5f553ef">&lt;/strong&gt;</ept> domain names.</source>
+          <target state="new">If you use the <bpt id="4aa97581-a706-4d18-a887-02fae2358604">&lt;strong&gt;</bpt>*.azurewebsites.net<ept id="4aa97581-a706-4d18-a887-02fae2358604">&lt;/strong&gt;</ept> domain name created for your web app, you can immediately use HTTPS, as an SSL certificate is provided for all <bpt id="9330afac-ae2a-44d1-ad22-2cbea5f553ef">&lt;strong&gt;</bpt>*.azurewebsites.net<ept id="9330afac-ae2a-44d1-ad22-2cbea5f553ef">&lt;/strong&gt;</ept> domain names.</target>
+        </trans-unit>
+        <trans-unit id="c2157566-b6fb-4878-92e2-50f0cefcae70" xml:space="preserve">
+          <source>If your site uses a <bpt id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;linkText&gt;</bpt>custom domain name<ept id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;/linkText&gt;</ept><bpt id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;title&gt;</bpt><ept id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;/title&gt;</ept>, you can upload an SSL certificate to <bpt id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;linkText&gt;</bpt>enable HTTPS<ept id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;/linkText&gt;</ept><bpt id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;title&gt;</bpt><ept id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;/title&gt;</ept> for the custom domain.</source>
+          <target state="new">If your site uses a <bpt id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;linkText&gt;</bpt>custom domain name<ept id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;/linkText&gt;</ept><bpt id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;title&gt;</bpt><ept id="15cb79d0-497e-4a90-ad08-3a531a1f5d3f">&lt;/title&gt;</ept>, you can upload an SSL certificate to <bpt id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;linkText&gt;</bpt>enable HTTPS<ept id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;/linkText&gt;</ept><bpt id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;title&gt;</bpt><ept id="8e6215ee-36dd-475d-b8b8-00a709d618c2">&lt;/title&gt;</ept> for the custom domain.</target>
+        </trans-unit>
+        <trans-unit id="eacf571d-458f-4599-ace1-b0521ac50914" xml:space="preserve">
+          <source>When developing applications, performing management tasks, or automating tasks using utilities such as <bpt id="745d550d-8d6e-452b-a450-f442853626be">&lt;strong&gt;</bpt>Visual Studio<ept id="745d550d-8d6e-452b-a450-f442853626be">&lt;/strong&gt;</ept>, <bpt id="8db2e697-5280-4f2c-8bc2-d63d63aa01ab">&lt;strong&gt;</bpt>Web Matrix<ept id="8db2e697-5280-4f2c-8bc2-d63d63aa01ab">&lt;/strong&gt;</ept>, <bpt id="abcd3497-423c-496c-a53d-069a34fcb1a3">&lt;strong&gt;</bpt>Azure PowerShell<ept id="abcd3497-423c-496c-a53d-069a34fcb1a3">&lt;/strong&gt;</ept> or the <bpt id="f2ffc545-6757-4e7a-91c1-d37927e3523e">&lt;strong&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="f2ffc545-6757-4e7a-91c1-d37927e3523e">&lt;/strong&gt;</ept>, you can use either a <bpt id="8b684ce8-6fbc-495d-b2d6-5bbf687ac210">&lt;em&gt;</bpt>publish settings<ept id="8b684ce8-6fbc-495d-b2d6-5bbf687ac210">&lt;/em&gt;</ept> file or a <bpt id="3d5f4474-a5a0-4620-ae8f-38b5fdfa286a">&lt;em&gt;</bpt>publishing profile<ept id="3d5f4474-a5a0-4620-ae8f-38b5fdfa286a">&lt;/em&gt;</ept>.</source>
+          <target state="new">When developing applications, performing management tasks, or automating tasks using utilities such as <bpt id="745d550d-8d6e-452b-a450-f442853626be">&lt;strong&gt;</bpt>Visual Studio<ept id="745d550d-8d6e-452b-a450-f442853626be">&lt;/strong&gt;</ept>, <bpt id="8db2e697-5280-4f2c-8bc2-d63d63aa01ab">&lt;strong&gt;</bpt>Web Matrix<ept id="8db2e697-5280-4f2c-8bc2-d63d63aa01ab">&lt;/strong&gt;</ept>, <bpt id="abcd3497-423c-496c-a53d-069a34fcb1a3">&lt;strong&gt;</bpt>Azure PowerShell<ept id="abcd3497-423c-496c-a53d-069a34fcb1a3">&lt;/strong&gt;</ept> or the <bpt id="f2ffc545-6757-4e7a-91c1-d37927e3523e">&lt;strong&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="f2ffc545-6757-4e7a-91c1-d37927e3523e">&lt;/strong&gt;</ept>, you can use either a <bpt id="8b684ce8-6fbc-495d-b2d6-5bbf687ac210">&lt;em&gt;</bpt>publish settings<ept id="8b684ce8-6fbc-495d-b2d6-5bbf687ac210">&lt;/em&gt;</ept> file or a <bpt id="3d5f4474-a5a0-4620-ae8f-38b5fdfa286a">&lt;em&gt;</bpt>publishing profile<ept id="3d5f4474-a5a0-4620-ae8f-38b5fdfa286a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f4f45dd-55a6-4b37-a007-63e8c3eda3af" xml:space="preserve">
+          <source>Both authenticate you to Azure, and should be secured to prevent unauthorized access.</source>
+          <target state="new">Both authenticate you to Azure, and should be secured to prevent unauthorized access.</target>
+        </trans-unit>
+        <trans-unit id="5b9b5bb5-3f2b-4244-b698-2cb7f4b96b2a" xml:space="preserve">
+          <source>A <bpt id="2deb3d26-fc34-4357-9da6-d27d1da4b9d6">&lt;strong&gt;</bpt>publish settings<ept id="2deb3d26-fc34-4357-9da6-d27d1da4b9d6">&lt;/strong&gt;</ept> file contains</source>
+          <target state="new">A <bpt id="2deb3d26-fc34-4357-9da6-d27d1da4b9d6">&lt;strong&gt;</bpt>publish settings<ept id="2deb3d26-fc34-4357-9da6-d27d1da4b9d6">&lt;/strong&gt;</ept> file contains</target>
+        </trans-unit>
+        <trans-unit id="6189ceaf-72ec-4cbb-89af-85419097c292" xml:space="preserve">
+          <source>Your Azure subscription ID</source>
+          <target state="new">Your Azure subscription ID</target>
+        </trans-unit>
+        <trans-unit id="04031565-dea5-4906-b58f-cda25581ff3f" xml:space="preserve">
+          <source>A management certificate that allows you to perform management tasks for your subscription <bpt id="2d4725b4-f542-43d2-8906-43e1686e2055">&lt;em&gt;</bpt>without having to provide an account name or password<ept id="2d4725b4-f542-43d2-8906-43e1686e2055">&lt;/em&gt;</ept>.</source>
+          <target state="new">A management certificate that allows you to perform management tasks for your subscription <bpt id="2d4725b4-f542-43d2-8906-43e1686e2055">&lt;em&gt;</bpt>without having to provide an account name or password<ept id="2d4725b4-f542-43d2-8906-43e1686e2055">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b3a3363-69d7-4a17-b5d5-be4d1b21c052" xml:space="preserve">
+          <source>A <bpt id="86340947-c88c-4d85-a354-e67947ae62b9">&lt;strong&gt;</bpt>publishing profile<ept id="86340947-c88c-4d85-a354-e67947ae62b9">&lt;/strong&gt;</ept> file contains</source>
+          <target state="new">A <bpt id="86340947-c88c-4d85-a354-e67947ae62b9">&lt;strong&gt;</bpt>publishing profile<ept id="86340947-c88c-4d85-a354-e67947ae62b9">&lt;/strong&gt;</ept> file contains</target>
+        </trans-unit>
+        <trans-unit id="69f7e86d-bc7f-4b7e-a08c-4c1cbd10ee6e" xml:space="preserve">
+          <source>Information for publishing to your web app</source>
+          <target state="new">Information for publishing to your web app</target>
+        </trans-unit>
+        <trans-unit id="3b036db1-22c1-45ea-be83-22b9539dadc8" xml:space="preserve">
+          <source>If you use a utility that uses publish settings or publish profile, import the file containing the publish settings or profile into the utility and then <bpt id="3de680e2-c884-4942-961c-c41374388e24">&lt;strong&gt;</bpt>delete<ept id="3de680e2-c884-4942-961c-c41374388e24">&lt;/strong&gt;</ept> the file.</source>
+          <target state="new">If you use a utility that uses publish settings or publish profile, import the file containing the publish settings or profile into the utility and then <bpt id="3de680e2-c884-4942-961c-c41374388e24">&lt;strong&gt;</bpt>delete<ept id="3de680e2-c884-4942-961c-c41374388e24">&lt;/strong&gt;</ept> the file.</target>
+        </trans-unit>
+        <trans-unit id="bed04b72-20a9-42fa-b6ab-9a0855190445" xml:space="preserve">
+          <source>If you must keep the file, to share with others working on the project for example, store it in a secure location such as an <bpt id="4acb24cb-027a-42f4-92ca-41e2ba8d012d">&lt;strong&gt;</bpt>encrypted<ept id="4acb24cb-027a-42f4-92ca-41e2ba8d012d">&lt;/strong&gt;</ept> directory with restricted permissions.</source>
+          <target state="new">If you must keep the file, to share with others working on the project for example, store it in a secure location such as an <bpt id="4acb24cb-027a-42f4-92ca-41e2ba8d012d">&lt;strong&gt;</bpt>encrypted<ept id="4acb24cb-027a-42f4-92ca-41e2ba8d012d">&lt;/strong&gt;</ept> directory with restricted permissions.</target>
+        </trans-unit>
+        <trans-unit id="184b9138-2385-47e5-8b68-f66f9c3d5b12" xml:space="preserve">
+          <source>Additionally, you should make sure the imported credentials are secured.</source>
+          <target state="new">Additionally, you should make sure the imported credentials are secured.</target>
+        </trans-unit>
+        <trans-unit id="2dfe9129-5af2-4ab9-84e7-903fc9ab086d" xml:space="preserve">
+          <source>For example, <bpt id="cde54b4a-d592-46d4-98a2-931e96ec05a0">&lt;strong&gt;</bpt>Azure PowerShell<ept id="cde54b4a-d592-46d4-98a2-931e96ec05a0">&lt;/strong&gt;</ept> and the <bpt id="f41e59e7-022a-4eef-9647-d9eb51c378fa">&lt;strong&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="f41e59e7-022a-4eef-9647-d9eb51c378fa">&lt;/strong&gt;</ept> both store imported information in your <bpt id="f59069ec-a4d6-4a22-87fa-ad18ad704414">&lt;strong&gt;</bpt>home directory<ept id="f59069ec-a4d6-4a22-87fa-ad18ad704414">&lt;/strong&gt;</ept> (<bpt id="e2df36ca-ce60-4577-b1a9-f8573109af61">&lt;em&gt;</bpt>~<ept id="e2df36ca-ce60-4577-b1a9-f8573109af61">&lt;/em&gt;</ept> on Linux or OS X systems and <bpt id="9392f522-8a87-4a6e-ac05-f41ce8da3aa9">&lt;em&gt;</bpt>/users/yourusername<ept id="9392f522-8a87-4a6e-ac05-f41ce8da3aa9">&lt;/em&gt;</ept> on Windows systems.)</source>
+          <target state="new">For example, <bpt id="cde54b4a-d592-46d4-98a2-931e96ec05a0">&lt;strong&gt;</bpt>Azure PowerShell<ept id="cde54b4a-d592-46d4-98a2-931e96ec05a0">&lt;/strong&gt;</ept> and the <bpt id="f41e59e7-022a-4eef-9647-d9eb51c378fa">&lt;strong&gt;</bpt>Azure Command-Line Interface (Azure CLI)<ept id="f41e59e7-022a-4eef-9647-d9eb51c378fa">&lt;/strong&gt;</ept> both store imported information in your <bpt id="f59069ec-a4d6-4a22-87fa-ad18ad704414">&lt;strong&gt;</bpt>home directory<ept id="f59069ec-a4d6-4a22-87fa-ad18ad704414">&lt;/strong&gt;</ept> (<bpt id="e2df36ca-ce60-4577-b1a9-f8573109af61">&lt;em&gt;</bpt>~<ept id="e2df36ca-ce60-4577-b1a9-f8573109af61">&lt;/em&gt;</ept> on Linux or OS X systems and <bpt id="9392f522-8a87-4a6e-ac05-f41ce8da3aa9">&lt;em&gt;</bpt>/users/yourusername<ept id="9392f522-8a87-4a6e-ac05-f41ce8da3aa9">&lt;/em&gt;</ept> on Windows systems.)</target>
+        </trans-unit>
+        <trans-unit id="1030d0b5-92a7-4225-b3b3-9e22001d94c8" xml:space="preserve">
+          <source>For extra security, you may wish to <bpt id="f21eab4d-dbe2-4919-8ee5-8f02ea1e2219">&lt;strong&gt;</bpt>encrypt<ept id="f21eab4d-dbe2-4919-8ee5-8f02ea1e2219">&lt;/strong&gt;</ept> these locations using encryption tools available for your operating system.</source>
+          <target state="new">For extra security, you may wish to <bpt id="f21eab4d-dbe2-4919-8ee5-8f02ea1e2219">&lt;strong&gt;</bpt>encrypt<ept id="f21eab4d-dbe2-4919-8ee5-8f02ea1e2219">&lt;/strong&gt;</ept> these locations using encryption tools available for your operating system.</target>
+        </trans-unit>
+        <trans-unit id="15f017d7-0bc5-48b0-ae7a-a6f9c4c7bcb1" xml:space="preserve">
+          <source>It's common practice to store connection strings, authentication credentials, and other sensitive information in configuration files.</source>
+          <target state="new">It's common practice to store connection strings, authentication credentials, and other sensitive information in configuration files.</target>
+        </trans-unit>
+        <trans-unit id="f3c35a3d-b07c-43ef-b2c6-0c67ff19e76b" xml:space="preserve">
+          <source>Unfortunately, these files may be exposed on your website, or checked into a public repository, exposing this information.</source>
+          <target state="new">Unfortunately, these files may be exposed on your website, or checked into a public repository, exposing this information.</target>
+        </trans-unit>
+        <trans-unit id="00810b6e-7f37-4baa-851d-bf633e5dbadc" xml:space="preserve">
+          <source>Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as <bpt id="a72f2220-bc45-4697-bd85-c7c09737b456">&lt;strong&gt;</bpt>app settings<ept id="a72f2220-bc45-4697-bd85-c7c09737b456">&lt;/strong&gt;</ept> and <bpt id="6c54d2d7-80e6-4331-a9fa-00d278328193">&lt;strong&gt;</bpt>connection strings<ept id="6c54d2d7-80e6-4331-a9fa-00d278328193">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure App Service allows you to store configuration information as part of the Web Apps runtime environment as <bpt id="a72f2220-bc45-4697-bd85-c7c09737b456">&lt;strong&gt;</bpt>app settings<ept id="a72f2220-bc45-4697-bd85-c7c09737b456">&lt;/strong&gt;</ept> and <bpt id="6c54d2d7-80e6-4331-a9fa-00d278328193">&lt;strong&gt;</bpt>connection strings<ept id="6c54d2d7-80e6-4331-a9fa-00d278328193">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="960e5089-a5a9-4721-b526-e23ffb2d028c" xml:space="preserve">
+          <source>The values are exposed to your application at runtime through <bpt id="293c5d6a-520b-4472-8d4e-b12d02481953">&lt;em&gt;</bpt>environment variables<ept id="293c5d6a-520b-4472-8d4e-b12d02481953">&lt;/em&gt;</ept> for most programming languages.</source>
+          <target state="new">The values are exposed to your application at runtime through <bpt id="293c5d6a-520b-4472-8d4e-b12d02481953">&lt;em&gt;</bpt>environment variables<ept id="293c5d6a-520b-4472-8d4e-b12d02481953">&lt;/em&gt;</ept> for most programming languages.</target>
+        </trans-unit>
+        <trans-unit id="ce7e7f1b-9278-4574-a598-bcc89e25ad3d" xml:space="preserve">
+          <source>For .NET applications, these values are injected into your .NET configuration at runtime.</source>
+          <target state="new">For .NET applications, these values are injected into your .NET configuration at runtime.</target>
+        </trans-unit>
+        <trans-unit id="6c057718-b5ca-428b-b2eb-21c0f63fd5e0" xml:space="preserve">
+          <source><bpt id="290f83e5-af56-492d-b991-410c4ab43d09">&lt;strong&gt;</bpt>App settings<ept id="290f83e5-af56-492d-b991-410c4ab43d09">&lt;/strong&gt;</ept> and <bpt id="1ab94bc7-a281-4f90-b92a-680ea1d2ab4a">&lt;strong&gt;</bpt>connection strings<ept id="1ab94bc7-a281-4f90-b92a-680ea1d2ab4a">&lt;/strong&gt;</ept> are configurable using the <bpt id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;linkText&gt;</bpt>Azure preview portal<ept id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;/linkText&gt;</ept><bpt id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;title&gt;</bpt><ept id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;/title&gt;</ept> or utilities such as PowerShell or the Azure CLI.</source>
+          <target state="new"><bpt id="290f83e5-af56-492d-b991-410c4ab43d09">&lt;strong&gt;</bpt>App settings<ept id="290f83e5-af56-492d-b991-410c4ab43d09">&lt;/strong&gt;</ept> and <bpt id="1ab94bc7-a281-4f90-b92a-680ea1d2ab4a">&lt;strong&gt;</bpt>connection strings<ept id="1ab94bc7-a281-4f90-b92a-680ea1d2ab4a">&lt;/strong&gt;</ept> are configurable using the <bpt id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;linkText&gt;</bpt>Azure preview portal<ept id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;/linkText&gt;</ept><bpt id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;title&gt;</bpt><ept id="8aacc272-258f-45b9-9d56-c8a4a76763cc">&lt;/title&gt;</ept> or utilities such as PowerShell or the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="72b01a10-1f5d-4644-991f-55850d3ee8d2" xml:space="preserve">
+          <source>For more information on app settings and connection strings, see <bpt id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;linkText&gt;</bpt>Configuring web apps<ept id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;/linkText&gt;</ept><bpt id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;title&gt;</bpt><ept id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on app settings and connection strings, see <bpt id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;linkText&gt;</bpt>Configuring web apps<ept id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;/linkText&gt;</ept><bpt id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;title&gt;</bpt><ept id="70d62255-08fa-49a2-b605-e1e16fe8d995">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ad351087-bc8f-487d-b3a5-2e7e558b8859" xml:space="preserve">
+          <source>Azure provides secure FTP access access to the file system for your web app through <bpt id="fef2d8df-9c23-404a-b951-26f544432f7c">&lt;strong&gt;</bpt>FTPS<ept id="fef2d8df-9c23-404a-b951-26f544432f7c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Azure provides secure FTP access access to the file system for your web app through <bpt id="fef2d8df-9c23-404a-b951-26f544432f7c">&lt;strong&gt;</bpt>FTPS<ept id="fef2d8df-9c23-404a-b951-26f544432f7c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6938137-279b-4976-9c4a-bdc20529bc8b" xml:space="preserve">
+          <source>This allows you to securely access the application code on the web app as well as diagnostics logs.</source>
+          <target state="new">This allows you to securely access the application code on the web app as well as diagnostics logs.</target>
+        </trans-unit>
+        <trans-unit id="0be43e48-c2a6-4416-8801-f52248824a68" xml:space="preserve">
+          <source>The FTPS link for your web app can be found with the following steps:</source>
+          <target state="new">The FTPS link for your web app can be found with the following steps:</target>
+        </trans-unit>
+        <trans-unit id="cedc819d-fac9-42d7-b473-113013d3c2b7" xml:space="preserve">
+          <source>Open the <bpt id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;linkText&gt;</bpt>Azure preview portal<ept id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;/linkText&gt;</ept><bpt id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;title&gt;</bpt><ept id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;/title&gt;</ept>.</source>
+          <target state="new">Open the <bpt id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;linkText&gt;</bpt>Azure preview portal<ept id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;/linkText&gt;</ept><bpt id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;title&gt;</bpt><ept id="4d83c5ba-b5b2-44cd-8242-16536060ded4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8a536ffc-c704-48ce-8a85-313c303d9b09" xml:space="preserve">
+          <source>Select <bpt id="bac55fb0-9615-4056-9364-e0ae0da0d620">&lt;strong&gt;</bpt>Browse All<ept id="bac55fb0-9615-4056-9364-e0ae0da0d620">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="bac55fb0-9615-4056-9364-e0ae0da0d620">&lt;strong&gt;</bpt>Browse All<ept id="bac55fb0-9615-4056-9364-e0ae0da0d620">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bc2da52-c755-4728-a9e9-365ccd71958b" xml:space="preserve">
+          <source>From the <bpt id="c18af8be-c4d7-4013-be46-b69b7ffdf974">&lt;strong&gt;</bpt>Browse<ept id="c18af8be-c4d7-4013-be46-b69b7ffdf974">&lt;/strong&gt;</ept> blade, select <bpt id="30f3be2a-acdb-4032-920c-19afd7e6b3c8">&lt;strong&gt;</bpt>Web Apps<ept id="30f3be2a-acdb-4032-920c-19afd7e6b3c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="c18af8be-c4d7-4013-be46-b69b7ffdf974">&lt;strong&gt;</bpt>Browse<ept id="c18af8be-c4d7-4013-be46-b69b7ffdf974">&lt;/strong&gt;</ept> blade, select <bpt id="30f3be2a-acdb-4032-920c-19afd7e6b3c8">&lt;strong&gt;</bpt>Web Apps<ept id="30f3be2a-acdb-4032-920c-19afd7e6b3c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bed8e1f3-db08-4ed0-bcc6-96ae8f38d66f" xml:space="preserve">
+          <source>From the <bpt id="e90df932-b118-4cca-9f03-ea03c407478f">&lt;strong&gt;</bpt>Web Apps<ept id="e90df932-b118-4cca-9f03-ea03c407478f">&lt;/strong&gt;</ept> blade, Select the desired web app.</source>
+          <target state="new">From the <bpt id="e90df932-b118-4cca-9f03-ea03c407478f">&lt;strong&gt;</bpt>Web Apps<ept id="e90df932-b118-4cca-9f03-ea03c407478f">&lt;/strong&gt;</ept> blade, Select the desired web app.</target>
+        </trans-unit>
+        <trans-unit id="a6cb87a4-bc3d-45fd-b1d4-9e928c94cded" xml:space="preserve">
+          <source>From the web app's blade, select <bpt id="aee0c90a-b920-4e28-aeff-eb3a3d02972f">&lt;strong&gt;</bpt>All settings<ept id="aee0c90a-b920-4e28-aeff-eb3a3d02972f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the web app's blade, select <bpt id="aee0c90a-b920-4e28-aeff-eb3a3d02972f">&lt;strong&gt;</bpt>All settings<ept id="aee0c90a-b920-4e28-aeff-eb3a3d02972f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="161b2958-36e6-43d8-8ff0-64681cf523f0" xml:space="preserve">
+          <source>From the <bpt id="1ae16347-5d2c-4b93-b2be-ed3bfdb1de6b">&lt;strong&gt;</bpt>Settings<ept id="1ae16347-5d2c-4b93-b2be-ed3bfdb1de6b">&lt;/strong&gt;</ept> blade, select <bpt id="272b0078-74e8-4716-97d5-ebc155db94fc">&lt;strong&gt;</bpt>Properties<ept id="272b0078-74e8-4716-97d5-ebc155db94fc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the <bpt id="1ae16347-5d2c-4b93-b2be-ed3bfdb1de6b">&lt;strong&gt;</bpt>Settings<ept id="1ae16347-5d2c-4b93-b2be-ed3bfdb1de6b">&lt;/strong&gt;</ept> blade, select <bpt id="272b0078-74e8-4716-97d5-ebc155db94fc">&lt;strong&gt;</bpt>Properties<ept id="272b0078-74e8-4716-97d5-ebc155db94fc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ae254e7-bef0-401f-887c-de050cddb372" xml:space="preserve">
+          <source>The FTP and FTPS links are provided on the <bpt id="4150e4ea-b32d-49ee-b570-9f175115bb2a">&lt;strong&gt;</bpt>Settings<ept id="4150e4ea-b32d-49ee-b570-9f175115bb2a">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">The FTP and FTPS links are provided on the <bpt id="4150e4ea-b32d-49ee-b570-9f175115bb2a">&lt;strong&gt;</bpt>Settings<ept id="4150e4ea-b32d-49ee-b570-9f175115bb2a">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="54964289-0870-4cbe-b1cc-51c5028964aa" xml:space="preserve">
+          <source>For more information on FTPS, see [File Transfer Protocol](http://en.wikipedia.org/wiki/File<bpt id="e26bbc4f-b786-45f7-887a-5e476d386eae">&lt;em&gt;</bpt>Transfer<ept id="e26bbc4f-b786-45f7-887a-5e476d386eae">&lt;/em&gt;</ept>Protocol).</source>
+          <target state="new">For more information on FTPS, see [File Transfer Protocol](http://en.wikipedia.org/wiki/File<bpt id="e26bbc4f-b786-45f7-887a-5e476d386eae">&lt;em&gt;</bpt>Transfer<ept id="e26bbc4f-b786-45f7-887a-5e476d386eae">&lt;/em&gt;</ept>Protocol).</target>
+        </trans-unit>
+        <trans-unit id="a8de1663-3845-4339-9485-5e9a43b24293" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;linkText&gt;</bpt>Try App Service<ept id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;/linkText&gt;</ept><bpt id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;title&gt;</bpt><ept id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;linkText&gt;</bpt>Try App Service<ept id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;/linkText&gt;</ept><bpt id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;title&gt;</bpt><ept id="c5908737-c7b0-427e-9128-f2a2f2bf61dc">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="69b4ea83-9a2a-4dbf-9044-275596318c9d" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="1a4e5ed3-16c5-4657-a913-1b09a15d3863" xml:space="preserve">
+          <source>For more information on the security of the Azure platform, information on reporting a <bpt id="568afe02-b820-43dd-82b0-4d85a31c2a61">&lt;strong&gt;</bpt>security incident or abuse<ept id="568afe02-b820-43dd-82b0-4d85a31c2a61">&lt;/strong&gt;</ept>, or to inform Microsoft that you will be performing <bpt id="d67ac215-310c-4425-b868-901e82dbd787">&lt;strong&gt;</bpt>penetration testing<ept id="d67ac215-310c-4425-b868-901e82dbd787">&lt;/strong&gt;</ept> of your site, see the security section of the <bpt id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;/linkText&gt;</ept><bpt id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;title&gt;</bpt><ept id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the security of the Azure platform, information on reporting a <bpt id="568afe02-b820-43dd-82b0-4d85a31c2a61">&lt;strong&gt;</bpt>security incident or abuse<ept id="568afe02-b820-43dd-82b0-4d85a31c2a61">&lt;/strong&gt;</ept>, or to inform Microsoft that you will be performing <bpt id="d67ac215-310c-4425-b868-901e82dbd787">&lt;strong&gt;</bpt>penetration testing<ept id="d67ac215-310c-4425-b868-901e82dbd787">&lt;/strong&gt;</ept> of your site, see the security section of the <bpt id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;linkText&gt;</bpt>Microsoft Azure Trust Center<ept id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;/linkText&gt;</ept><bpt id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;title&gt;</bpt><ept id="899ce60c-2799-4d07-ae5e-5a1cd7565c49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef63733d-85c6-474a-b095-ba57a2025530" xml:space="preserve">
+          <source>For more information on <bpt id="642d0f36-c5c1-4ea8-8111-e8b98deb0e4d">&lt;strong&gt;</bpt>web.config<ept id="642d0f36-c5c1-4ea8-8111-e8b98deb0e4d">&lt;/strong&gt;</ept> or <bpt id="2324c65f-2c78-4db2-82b0-48165c3b2a8c">&lt;strong&gt;</bpt>applicationhost.config<ept id="2324c65f-2c78-4db2-82b0-48165c3b2a8c">&lt;/strong&gt;</ept> files in web apps, see <bpt id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;linkText&gt;</bpt>Configuration options unlocked in Azure App Service web apps<ept id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;/linkText&gt;</ept><bpt id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;title&gt;</bpt><ept id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on <bpt id="642d0f36-c5c1-4ea8-8111-e8b98deb0e4d">&lt;strong&gt;</bpt>web.config<ept id="642d0f36-c5c1-4ea8-8111-e8b98deb0e4d">&lt;/strong&gt;</ept> or <bpt id="2324c65f-2c78-4db2-82b0-48165c3b2a8c">&lt;strong&gt;</bpt>applicationhost.config<ept id="2324c65f-2c78-4db2-82b0-48165c3b2a8c">&lt;/strong&gt;</ept> files in web apps, see <bpt id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;linkText&gt;</bpt>Configuration options unlocked in Azure App Service web apps<ept id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;/linkText&gt;</ept><bpt id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;title&gt;</bpt><ept id="5ca8608f-0505-4af8-9ade-a113e52020ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffd47a6f-556e-4254-a617-aeb816e7633f" xml:space="preserve">
+          <source>For information on logging information for web apps, which may be useful in detecting attacks, see <bpt id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;linkText&gt;</bpt>Enable diagnostic logging<ept id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;/linkText&gt;</ept><bpt id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;title&gt;</bpt><ept id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on logging information for web apps, which may be useful in detecting attacks, see <bpt id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;linkText&gt;</bpt>Enable diagnostic logging<ept id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;/linkText&gt;</ept><bpt id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;title&gt;</bpt><ept id="5ab6eecc-9d2a-4a35-b268-5452955e2e1d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b3f7a33-b0cf-4d41-a3d8-ed92ffde4de5" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;/linkText&gt;</ept><bpt id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;title&gt;</bpt><ept id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;/linkText&gt;</ept><bpt id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;title&gt;</bpt><ept id="8bc4e807-b9b8-4dd3-bc67-ba4f7d7ba33b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44f0bff3-a70b-4353-99d1-92c08df25f6a" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;/linkText&gt;</ept><bpt id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;title&gt;</bpt><ept id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;/linkText&gt;</ept><bpt id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;title&gt;</bpt><ept id="1b8f8c88-b922-45ac-b98d-3ad3ca5bbee3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

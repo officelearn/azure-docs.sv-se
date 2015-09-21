@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84159393-4ae5-426a-9253-7123fa59c18e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84159393-4ae5-426a-9253-7123fa59c18e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4a145c65-0d0f-403d-8bf0-c5ad6be36606">
+        <trans-unit id="231f86ed-f8cf-4697-9631-ed2fd3f6d93f" xml:space="preserve">
+          <source>About disks and VHDs for virtual machines</source>
+          <target state="new">About disks and VHDs for virtual machines</target>
+        </trans-unit>
+        <trans-unit id="4eb395e8-8d79-451c-885a-145edca9eb5e" xml:space="preserve">
+          <source>Learn about the basics of disks and VHDs for virtual machines in Azure.</source>
+          <target state="new">Learn about the basics of disks and VHDs for virtual machines in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8a8a860c-6b83-4c67-b7a2-cab081e5095e" xml:space="preserve">
+          <source>All virtual machines in Azure are configured with at least two disks when you create the virtual machine – one is an operating system disk and the other is a temporary local disk, sometimes called a resource disk.</source>
+          <target state="new">All virtual machines in Azure are configured with at least two disks when you create the virtual machine – one is an operating system disk and the other is a temporary local disk, sometimes called a resource disk.</target>
+        </trans-unit>
+        <trans-unit id="4c7d4563-8467-4466-8d93-bc5edf8135c2" xml:space="preserve">
+          <source>The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account.</source>
+          <target state="new">The operating system disk is created from an image, and both the operating system disk and the image are actually virtual hard disks (VHDs) stored in an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="edd2e42b-128a-4a30-990d-f78f5b7af66e" xml:space="preserve">
+          <source>Virtual machines also can have data disks, and they are also stored as VHDs.</source>
+          <target state="new">Virtual machines also can have data disks, and they are also stored as VHDs.</target>
+        </trans-unit>
+        <trans-unit id="827817de-6ed9-4553-95c3-4e85f7d1a981" xml:space="preserve">
+          <source>Don’t store data on the temporary disk.</source>
+          <target state="new">Don’t store data on the temporary disk.</target>
+        </trans-unit>
+        <trans-unit id="6d5f9a33-83ca-403a-b353-03656b46284e" xml:space="preserve">
+          <source>It provides temporary storage for applications and processes and is intended to only store data such as page or swap files.</source>
+          <target state="new">It provides temporary storage for applications and processes and is intended to only store data such as page or swap files.</target>
+        </trans-unit>
+        <trans-unit id="890e49a5-5fb0-4c36-924e-3a89697a210a" xml:space="preserve">
+          <source>To remap this disk for a Windows virtual machine, see <bpt id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;linkText&gt;</bpt>Change the drive letter of the Windows temporary disk<ept id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;/linkText&gt;</ept><bpt id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;title&gt;</bpt><ept id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;/title&gt;</ept>.</source>
+          <target state="new">To remap this disk for a Windows virtual machine, see <bpt id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;linkText&gt;</bpt>Change the drive letter of the Windows temporary disk<ept id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;/linkText&gt;</ept><bpt id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;title&gt;</bpt><ept id="bdc51314-776d-4599-8369-8b07a44554f7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6e4a97c8-a62c-4c54-afb3-21d018041f2f" xml:space="preserve">
+          <source>Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data.</source>
+          <target state="new">Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data.</target>
+        </trans-unit>
+        <trans-unit id="f47d9b8d-ecab-44a8-90bb-c57b523a1a1c" xml:space="preserve">
+          <source>All Azure virtual machines have at least two disks – an operating system disk and a temporary disk.</source>
+          <target state="new">All Azure virtual machines have at least two disks – an operating system disk and a temporary disk.</target>
+        </trans-unit>
+        <trans-unit id="6d857d4a-6469-4893-ac04-a465fe983c74" xml:space="preserve">
+          <source>They also can have one or more data disks.</source>
+          <target state="new">They also can have one or more data disks.</target>
+        </trans-unit>
+        <trans-unit id="eec8e9a2-b076-4af5-b892-be448fc8e60f" xml:space="preserve">
+          <source>The <bpt id="67ed5cb8-7e8f-4434-b7b5-fb406a77b932">&lt;strong&gt;</bpt>operating system disk<ept id="67ed5cb8-7e8f-4434-b7b5-fb406a77b932">&lt;/strong&gt;</ept> - Every virtual machine has one attached operating system disk.</source>
+          <target state="new">The <bpt id="67ed5cb8-7e8f-4434-b7b5-fb406a77b932">&lt;strong&gt;</bpt>operating system disk<ept id="67ed5cb8-7e8f-4434-b7b5-fb406a77b932">&lt;/strong&gt;</ept> - Every virtual machine has one attached operating system disk.</target>
+        </trans-unit>
+        <trans-unit id="6450cb9e-0dec-4b40-ba65-4fce75494765" xml:space="preserve">
+          <source>It’s registered as a SATA drive and labeled as the C: drive.</source>
+          <target state="new">It’s registered as a SATA drive and labeled as the C: drive.</target>
+        </trans-unit>
+        <trans-unit id="a64f829f-7d50-4810-8a7d-4c0f15fcdf06" xml:space="preserve">
+          <source>This disk has a maximum capacity of 1023 gigabytes (GB).</source>
+          <target state="new">This disk has a maximum capacity of 1023 gigabytes (GB).</target>
+        </trans-unit>
+        <trans-unit id="46047bc6-d0b8-45f0-9ee9-28df60b68e3b" xml:space="preserve">
+          <source>When Azure creates an operating system disk, three copies of the disk are created for high durability.</source>
+          <target state="new">When Azure creates an operating system disk, three copies of the disk are created for high durability.</target>
+        </trans-unit>
+        <trans-unit id="c776af2c-6c4c-4b8d-8c52-771607a380f0" xml:space="preserve">
+          <source>Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.</source>
+          <target state="new">Additionally, if you configure the virtual machine for geo-replication, your VHD is also replicated to different sites more than 400 miles apart.</target>
+        </trans-unit>
+        <trans-unit id="738ed562-1d35-4994-a910-19ae6b0986a7" xml:space="preserve">
+          <source>The <bpt id="22f47f40-d1d9-4c69-a0f6-a68f7072d4b6">&lt;strong&gt;</bpt>temporary disk<ept id="22f47f40-d1d9-4c69-a0f6-a68f7072d4b6">&lt;/strong&gt;</ept> is automatically created for you.</source>
+          <target state="new">The <bpt id="22f47f40-d1d9-4c69-a0f6-a68f7072d4b6">&lt;strong&gt;</bpt>temporary disk<ept id="22f47f40-d1d9-4c69-a0f6-a68f7072d4b6">&lt;/strong&gt;</ept> is automatically created for you.</target>
+        </trans-unit>
+        <trans-unit id="65ea7a22-b59c-4681-bd32-80a8f01184ef" xml:space="preserve">
+          <source>On Windows virtual machines, this disk is labeled as the D: drive.</source>
+          <target state="new">On Windows virtual machines, this disk is labeled as the D: drive.</target>
+        </trans-unit>
+        <trans-unit id="f528fb7c-7af2-4b45-a85f-7b440e2c3d20" xml:space="preserve">
+          <source>On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.</source>
+          <target state="new">On Linux virtual machines, the disk is typically /dev/sdb and is formatted and mounted to /mnt/resource by the Azure Linux Agent.</target>
+        </trans-unit>
+        <trans-unit id="af327f8b-522f-4e9d-a77a-2a6b34c6102c" xml:space="preserve">
+          <source>A <bpt id="64348c58-1815-4b45-95d7-dba57cad11a8">&lt;strong&gt;</bpt>data disk<ept id="64348c58-1815-4b45-95d7-dba57cad11a8">&lt;/strong&gt;</ept> is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep.</source>
+          <target state="new">A <bpt id="64348c58-1815-4b45-95d7-dba57cad11a8">&lt;strong&gt;</bpt>data disk<ept id="64348c58-1815-4b45-95d7-dba57cad11a8">&lt;/strong&gt;</ept> is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep.</target>
+        </trans-unit>
+        <trans-unit id="cda1bfee-2be8-43c7-93dd-7492b34661ee" xml:space="preserve">
+          <source>Data disks are registered as SCSI drives and are labeled with a letter that you choose.</source>
+          <target state="new">Data disks are registered as SCSI drives and are labeled with a letter that you choose.</target>
+        </trans-unit>
+        <trans-unit id="7f0caa6e-9f65-4db5-939c-870e32821255" xml:space="preserve">
+          <source>Each data disk has a maximum capacity of 1023 GB.</source>
+          <target state="new">Each data disk has a maximum capacity of 1023 GB.</target>
+        </trans-unit>
+        <trans-unit id="2317b54f-6e93-49c3-9c4f-43f0b8ea5000" xml:space="preserve">
+          <source>The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.</source>
+          <target state="new">The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.</target>
+        </trans-unit>
+        <trans-unit id="7bfea13f-0c95-465f-9ca9-cccad162ddad" xml:space="preserve">
+          <source>For more details about virtual machines capacities, see <bpt id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;/linkText&gt;</ept><bpt id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;title&gt;</bpt><ept id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about virtual machines capacities, see <bpt id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;linkText&gt;</bpt>Sizes for virtual machines<ept id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;/linkText&gt;</ept><bpt id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;title&gt;</bpt><ept id="4e7fae36-c354-413a-9e38-64452562d9ea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6d87a6d-b086-4dbd-b7b5-923d553f2803" xml:space="preserve">
+          <source>Azure creates an operating system disk when you create a virtual machine from an image.</source>
+          <target state="new">Azure creates an operating system disk when you create a virtual machine from an image.</target>
+        </trans-unit>
+        <trans-unit id="ce9d3ff6-6a1c-40f7-abed-6e98c4b6a22e" xml:space="preserve">
+          <source>If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine.</source>
+          <target state="new">If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bc2c77d0-fb4e-48e2-aa14-ba73c3ca7471" xml:space="preserve">
+          <source>(You can use an image from Azure or a partner, or one you provide.)</source>
+          <target state="new">(You can use an image from Azure or a partner, or one you provide.)</target>
+        </trans-unit>
+        <trans-unit id="4ca601c2-7b0b-4d11-8572-5aaca896f761" xml:space="preserve">
+          <source>Otherwise, you add data disks after you create the virtual machine.</source>
+          <target state="new">Otherwise, you add data disks after you create the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="6821f184-bbb8-4f78-99f0-813f90b432fe" xml:space="preserve">
+          <source>You can add data disks to a virtual machine at any time, by ‘attaching’ the disk to the virtual machine.</source>
+          <target state="new">You can add data disks to a virtual machine at any time, by ‘attaching’ the disk to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c4e49155-22e4-44fb-ba11-1ba65abd1df0" xml:space="preserve">
+          <source>You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you.</source>
+          <target state="new">You can use a VHD that you’ve uploaded or copied to your storage account, or one that Azure creates for you.</target>
+        </trans-unit>
+        <trans-unit id="8f387def-f3d4-4e07-a27d-cbd4e18fe23c" xml:space="preserve">
+          <source>Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s attached to a virtual machine.</source>
+          <target state="new">Attaching a data disk associates the VHD file from your storage account with the virtual machine, by placing a ‘lease’ on the VHD so it can’t be deleted from storage while it’s attached to a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c88dbe6c-c8fc-4891-8bc8-6a58ca698021" xml:space="preserve">
+          <source>The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure.</source>
+          <target state="new">The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure.</target>
+        </trans-unit>
+        <trans-unit id="40b14035-cb9f-4328-a6a0-6fd9d905127a" xml:space="preserve">
+          <source>(Premium storage is available in certain regions.)</source>
+          <target state="new">(Premium storage is available in certain regions.)</target>
+        </trans-unit>
+        <trans-unit id="4d000695-09ee-475c-8034-3fe38225fceb" xml:space="preserve">
+          <source>For details about page blobs, see <bpt id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;linkText&gt;</bpt>Understanding block blobs and page blobs<ept id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;/linkText&gt;</ept><bpt id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;title&gt;</bpt><ept id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about page blobs, see <bpt id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;linkText&gt;</bpt>Understanding block blobs and page blobs<ept id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;/linkText&gt;</ept><bpt id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;title&gt;</bpt><ept id="0192c81b-38ce-4d81-b6e2-c8e864978651">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0398582b-86a3-448c-9143-e33779c115f6" xml:space="preserve">
+          <source>For details about premium storage, see <bpt id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;linkText&gt;</bpt>Premium storage: High-performance storage for Azure virtual machine workloads<ept id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;/linkText&gt;</ept><bpt id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;title&gt;</bpt><ept id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about premium storage, see <bpt id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;linkText&gt;</bpt>Premium storage: High-performance storage for Azure virtual machine workloads<ept id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;/linkText&gt;</ept><bpt id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;title&gt;</bpt><ept id="8ed2462c-b891-413a-86af-7fc465633b5a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8fa71e3c-8be4-4772-aceb-68aeed73dd8d" xml:space="preserve">
+          <source>Outside of Azure, virtual hard disks can use either a VHD or a VHDX format.</source>
+          <target state="new">Outside of Azure, virtual hard disks can use either a VHD or a VHDX format.</target>
+        </trans-unit>
+        <trans-unit id="6103a6e2-0872-4d80-af9b-3a87c3502dcd" xml:space="preserve">
+          <source>They can also be fixed, dynamically expanding, or differencing.</source>
+          <target state="new">They can also be fixed, dynamically expanding, or differencing.</target>
+        </trans-unit>
+        <trans-unit id="794b77b2-44b6-454b-bd0d-9fab040a3e0f" xml:space="preserve">
+          <source>Azure supports VHD format, fixed disks.</source>
+          <target state="new">Azure supports VHD format, fixed disks.</target>
+        </trans-unit>
+        <trans-unit id="ec97a7f1-7cda-4c09-8431-771124b3dbb2" xml:space="preserve">
+          <source>The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD.</source>
+          <target state="new">The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD.</target>
+        </trans-unit>
+        <trans-unit id="9820eb7c-d26b-4aa2-9ed2-4fc3e1290043" xml:space="preserve">
+          <source>Often, the fixed format wastes space because most disks have large unused ranges in them.</source>
+          <target state="new">Often, the fixed format wastes space because most disks have large unused ranges in them.</target>
+        </trans-unit>
+        <trans-unit id="362c55ed-1540-4def-bd30-f474fa6a6c3f" xml:space="preserve">
+          <source>However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time.</source>
+          <target state="new">However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time.</target>
+        </trans-unit>
+        <trans-unit id="e8e8b7db-d3df-4a52-bcfe-2a10398b3eb8" xml:space="preserve">
+          <source>For more details, see <bpt id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;linkText&gt;</bpt>Getting started with virtual hard disks<ept id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;/linkText&gt;</ept><bpt id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;title&gt;</bpt><ept id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;linkText&gt;</bpt>Getting started with virtual hard disks<ept id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;/linkText&gt;</ept><bpt id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;title&gt;</bpt><ept id="a0006232-1bfa-4744-af5b-c2034cd7a6c1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bceb91b7-d39f-4fb4-86cc-0fc36dec17e6" xml:space="preserve">
+          <source>All .vhd files in Azure that you want to use as a source to create disks or images are read-only.</source>
+          <target state="new">All .vhd files in Azure that you want to use as a source to create disks or images are read-only.</target>
+        </trans-unit>
+        <trans-unit id="5d3be399-0c66-4c33-845e-abadc88f5b89" xml:space="preserve">
+          <source>When you create a disk or image, Azure makes copies of the .vhd files.</source>
+          <target state="new">When you create a disk or image, Azure makes copies of the .vhd files.</target>
+        </trans-unit>
+        <trans-unit id="a8abd9cb-0773-4a67-8e3c-f6e34359a62c" xml:space="preserve">
+          <source>These copies can be read-only or read-and-write, depending on how you use the VHD.</source>
+          <target state="new">These copies can be read-only or read-and-write, depending on how you use the VHD.</target>
+        </trans-unit>
+        <trans-unit id="1f51c0e7-d82c-4665-8d6a-352af56a9608" xml:space="preserve">
+          <source>When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file.</source>
+          <target state="new">When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file.</target>
+        </trans-unit>
+        <trans-unit id="1b186e77-2399-4dc5-a074-17403fea01e5" xml:space="preserve">
+          <source>To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.</source>
+          <target state="new">To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.</target>
+        </trans-unit>
+        <trans-unit id="d381533f-44b6-45aa-b14a-2029a7867820" xml:space="preserve">
+          <source>Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image.</source>
+          <target state="new">Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image.</target>
+        </trans-unit>
+        <trans-unit id="4aeade32-8ccd-43a6-ac96-5b7b20477587" xml:space="preserve">
+          <source>To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks.</source>
+          <target state="new">To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks.</target>
+        </trans-unit>
+        <trans-unit id="3fe9b9f7-fbaa-4cd6-9630-456d584647b6" xml:space="preserve">
+          <source>However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order -- detach the disk from the virtual machine, delete the disk, and then delete the .vhd file.</source>
+          <target state="new">However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order -- detach the disk from the virtual machine, delete the disk, and then delete the .vhd file.</target>
+        </trans-unit>
+        <trans-unit id="5a8ae6c8-a153-4d84-9860-24c1221ed9f9" xml:space="preserve">
+          <source>If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.</source>
+          <target state="new">If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.</target>
+        </trans-unit>
+        <trans-unit id="eb5e7f6b-99b1-476a-8df1-0149a4d3565b" xml:space="preserve">
+          <source>Linux virtual machines:</source>
+          <target state="new">Linux virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="1dff0244-b9cc-4b24-be59-221fe956624e" xml:space="preserve">
+          <source><bpt id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;linkText&gt;</bpt>Attach a disk and prep it for use<ept id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;/linkText&gt;</ept><bpt id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;title&gt;</bpt><ept id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;linkText&gt;</bpt>Attach a disk and prep it for use<ept id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;/linkText&gt;</ept><bpt id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;title&gt;</bpt><ept id="36f34610-5098-48c9-b74a-c7c8f1708469">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5a67d2c-0db1-423f-b8c6-11d686d94dff" xml:space="preserve">
+          <source><bpt id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;linkText&gt;</bpt>Capture a Linux virtual machine<ept id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;/linkText&gt;</ept><bpt id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;title&gt;</bpt><ept id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;linkText&gt;</bpt>Capture a Linux virtual machine<ept id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;/linkText&gt;</ept><bpt id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;title&gt;</bpt><ept id="3970207b-1f8d-421b-a15c-69a502524c26">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2aff3f45-a114-471c-a6f6-571aaef385ab" xml:space="preserve">
+          <source><bpt id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;linkText&gt;</bpt>Detach a disk<ept id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;/linkText&gt;</ept><bpt id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;title&gt;</bpt><ept id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;linkText&gt;</bpt>Detach a disk<ept id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;/linkText&gt;</ept><bpt id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;title&gt;</bpt><ept id="35bfd88e-ee9f-4988-bb89-7d0e7e6e79e7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="193878bc-3ca4-4223-ad01-d7c868c29341" xml:space="preserve">
+          <source>Windows virtual machines:</source>
+          <target state="new">Windows virtual machines:</target>
+        </trans-unit>
+        <trans-unit id="f0a4ed3c-9994-46ed-a9bb-454c315e9ec2" xml:space="preserve">
+          <source><bpt id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;linkText&gt;</bpt>Attach a disks and prep it for use<ept id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;/linkText&gt;</ept><bpt id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;title&gt;</bpt><ept id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;linkText&gt;</bpt>Attach a disks and prep it for use<ept id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;/linkText&gt;</ept><bpt id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;title&gt;</bpt><ept id="ba7310fe-51d0-41c4-a988-d760e10a7822">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7146a9c9-37b1-47ff-8e11-a92373e58571" xml:space="preserve">
+          <source><bpt id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;linkText&gt;</bpt>Capture a Windows virtual machine<ept id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;/linkText&gt;</ept><bpt id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;title&gt;</bpt><ept id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;linkText&gt;</bpt>Capture a Windows virtual machine<ept id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;/linkText&gt;</ept><bpt id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;title&gt;</bpt><ept id="9d0471dc-b17c-4699-ac55-335bdc61143f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c62ac92-2203-40d1-ba3d-e68ece0ae2ae" xml:space="preserve">
+          <source><bpt id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;linkText&gt;</bpt>Detach a disk<ept id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;/linkText&gt;</ept><bpt id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;title&gt;</bpt><ept id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;linkText&gt;</bpt>Detach a disk<ept id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;/linkText&gt;</ept><bpt id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;title&gt;</bpt><ept id="950fe700-f752-4186-84ee-a6a6a632ddd1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

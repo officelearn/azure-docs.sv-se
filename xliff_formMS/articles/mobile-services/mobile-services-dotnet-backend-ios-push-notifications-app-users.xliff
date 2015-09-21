@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="12920a2e-5540-4df9-9ca7-057de4ffdfe6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="12920a2e-5540-4df9-9ca7-057de4ffdfe6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9dbd42fb-daa9-4c69-a038-bfd5c9fb28c5">
+        <trans-unit id="964a72d2-8108-4333-b951-558481e99baf" xml:space="preserve">
+          <source>Send Push Notifications to Authenticated Users (.NET Backend)</source>
+          <target state="new">Send Push Notifications to Authenticated Users (.NET Backend)</target>
+        </trans-unit>
+        <trans-unit id="8431803a-a4f2-4e10-aae7-0b7358d33bbc" xml:space="preserve">
+          <source>Learn how to send push notifications to specific</source>
+          <target state="new">Learn how to send push notifications to specific</target>
+        </trans-unit>
+        <trans-unit id="c307c40e-4d54-4443-adc9-2339f1a94828" xml:space="preserve">
+          <source><bpt id="52f4f3f6-1b5f-4d4e-ac49-9c49510f4958">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="52f4f3f6-1b5f-4d4e-ac49-9c49510f4958">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="52f4f3f6-1b5f-4d4e-ac49-9c49510f4958">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="52f4f3f6-1b5f-4d4e-ac49-9c49510f4958">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="486fd905-c8df-4f14-a1c0-617f8132608a" xml:space="preserve">
+          <source>In this topic, you learn how to send push notifications to an authenticated user on iOS.</source>
+          <target state="new">In this topic, you learn how to send push notifications to an authenticated user on iOS.</target>
+        </trans-unit>
+        <trans-unit id="c14d2311-7181-40bb-b3c1-30459d7f8516" xml:space="preserve">
+          <source>Before starting this tutorial, complete [Get started with authentication] and [Get started with push notifications] first.</source>
+          <target state="new">Before starting this tutorial, complete [Get started with authentication] and [Get started with push notifications] first.</target>
+        </trans-unit>
+        <trans-unit id="e13699ae-9cbe-4062-8293-78ea673ae5f9" xml:space="preserve">
+          <source>In this tutorial, you require users to authenticate first, register with the notification hub for push notifications, and update server scripts to send those notifications to only authenticated users.</source>
+          <target state="new">In this tutorial, you require users to authenticate first, register with the notification hub for push notifications, and update server scripts to send those notifications to only authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="efc29759-fffd-44cd-a7a7-74ef81a5e5e8" xml:space="preserve">
+          <source><bpt id="f6448329-aa33-47ce-8d4d-97593daa20ee">&lt;token href="../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md"&gt;</bpt><ept id="f6448329-aa33-47ce-8d4d-97593daa20ee">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f6448329-aa33-47ce-8d4d-97593daa20ee">&lt;token href="../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md"&gt;</bpt><ept id="f6448329-aa33-47ce-8d4d-97593daa20ee">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="319aade3-80d8-4f3b-a5d7-56270f5cc8c0" xml:space="preserve">
+          <source><bpt id="41492f84-7416-4f91-aca5-7592561dfa67">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-login.md"&gt;</bpt><ept id="41492f84-7416-4f91-aca5-7592561dfa67">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="41492f84-7416-4f91-aca5-7592561dfa67">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-login.md"&gt;</bpt><ept id="41492f84-7416-4f91-aca5-7592561dfa67">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="172b5c00-22f7-4dd4-af57-79623a254a7f" xml:space="preserve">
+          <source><bpt id="9b710298-ee73-48f7-89b7-333541e5d526">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-test-app.md"&gt;</bpt><ept id="9b710298-ee73-48f7-89b7-333541e5d526">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9b710298-ee73-48f7-89b7-333541e5d526">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-test-app.md"&gt;</bpt><ept id="9b710298-ee73-48f7-89b7-333541e5d526">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9069a9d4-d2f0-43e6-9cb9-3bb839b6455a" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="8e9697b8-3fbb-4168-8906-6d3d8e857482" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="7822d113-7199-4195-9d7b-8a2d8bc607ae" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="4ad34fd6-9863-4fce-9ff4-58b3d7d28587" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="5fb68b3a-83b1-4a3e-b8bd-4b5de2de7aa7" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-users.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="4add1431-b85d-4b3a-94d1-972cbf3ae4ad" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-push.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="f7364867-d39d-41b6-bd5f-a9b4e3512c36" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="2e70040c-ce5d-4d0a-9c38-4fe4c2b8a29e" xml:space="preserve">
+          <source>/develop/mobile/how-to-guides/work-with-net-client-library</source>
+          <target state="new">/develop/mobile/how-to-guides/work-with-net-client-library</target>
+        </trans-unit>
+      </group>
+      <group id="8d596f38-7f6f-48d4-9748-4545d81f83c2" />
+    </body>
+  </file>
+</xliff>

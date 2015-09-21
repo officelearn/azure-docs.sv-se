@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4d80f5ab-49bc-49be-9147-cac6a3b7a2b3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4d80f5ab-49bc-49be-9147-cac6a3b7a2b3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7f2da944-81f2-4659-bfd5-15c3d60d30d3">
+        <trans-unit id="a5d32a17-5326-42ab-b3ae-df0b6018c060" xml:space="preserve">
+          <source>The following steps show the process for creating a Dropbox app using the Dropbox.com site.</source>
+          <target state="new">The following steps show the process for creating a Dropbox app using the Dropbox.com site.</target>
+        </trans-unit>
+        <trans-unit id="8d63d0cc-f5e1-4ee5-9eb3-b41839f4f1b9" xml:space="preserve">
+          <source>As the Dropbox.com site may change without notice, you might see differences in UI from what is shown.</source>
+          <target state="new">As the Dropbox.com site may change without notice, you might see differences in UI from what is shown.</target>
+        </trans-unit>
+        <trans-unit id="d620f924-4157-4e2b-8ad4-d3874cabfddd" xml:space="preserve">
+          <source>Go to the <bpt id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;linkText&gt;</bpt>Dropbox developer portal<ept id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;/linkText&gt;</ept><bpt id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;title&gt;</bpt><ept id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;/title&gt;</ept>, click <bpt id="455e07cd-7f94-45b1-9edc-dcdd2e2f61d9">&lt;strong&gt;</bpt>App Console<ept id="455e07cd-7f94-45b1-9edc-dcdd2e2f61d9">&lt;/strong&gt;</ept>, and then click <bpt id="2102aa3c-d697-4546-8664-28c356bec788">&lt;strong&gt;</bpt>Create App<ept id="2102aa3c-d697-4546-8664-28c356bec788">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;linkText&gt;</bpt>Dropbox developer portal<ept id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;/linkText&gt;</ept><bpt id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;title&gt;</bpt><ept id="f02b0170-a2c1-456e-99fb-c2ea7da75758">&lt;/title&gt;</ept>, click <bpt id="455e07cd-7f94-45b1-9edc-dcdd2e2f61d9">&lt;strong&gt;</bpt>App Console<ept id="455e07cd-7f94-45b1-9edc-dcdd2e2f61d9">&lt;/strong&gt;</ept>, and then click <bpt id="2102aa3c-d697-4546-8664-28c356bec788">&lt;strong&gt;</bpt>Create App<ept id="2102aa3c-d697-4546-8664-28c356bec788">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8761c24-04f7-4ff2-ae80-74add1f5a827" xml:space="preserve">
+          <source><bpt id="88590e08-ed31-43b7-8421-e511d266ca0d">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="88590e08-ed31-43b7-8421-e511d266ca0d">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="88590e08-ed31-43b7-8421-e511d266ca0d">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="88590e08-ed31-43b7-8421-e511d266ca0d">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4874296d-4f75-4745-850d-90b866d779ad" xml:space="preserve">
+          <source>Choose <bpt id="d868fb31-936c-4455-aa7b-a5609c1ccc95">&lt;strong&gt;</bpt>Dropbox API app<ept id="d868fb31-936c-4455-aa7b-a5609c1ccc95">&lt;/strong&gt;</ept> and configure the other settings.</source>
+          <target state="new">Choose <bpt id="d868fb31-936c-4455-aa7b-a5609c1ccc95">&lt;strong&gt;</bpt>Dropbox API app<ept id="d868fb31-936c-4455-aa7b-a5609c1ccc95">&lt;/strong&gt;</ept> and configure the other settings.</target>
+        </trans-unit>
+        <trans-unit id="340ac8b9-53f7-4582-8f89-b57bc71946e0" xml:space="preserve">
+          <source>The file access options shown in the screenshot below will enable you to test access to your Dropbox account with a simple HTTP Get request if you have any files in your account.</source>
+          <target state="new">The file access options shown in the screenshot below will enable you to test access to your Dropbox account with a simple HTTP Get request if you have any files in your account.</target>
+        </trans-unit>
+        <trans-unit id="a821c46b-d39e-442f-a369-6d70794e8616" xml:space="preserve">
+          <source>The name of the Dropbox API app can be anything the Dropbox site will accept.</source>
+          <target state="new">The name of the Dropbox API app can be anything the Dropbox site will accept.</target>
+        </trans-unit>
+        <trans-unit id="1d204f8d-2b68-4ca1-a4f1-9f5fca9e8d1f" xml:space="preserve">
+          <source>Click <bpt id="30d6a38d-bf96-44dc-89e2-857dd529959f">&lt;strong&gt;</bpt>Create app<ept id="30d6a38d-bf96-44dc-89e2-857dd529959f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="30d6a38d-bf96-44dc-89e2-857dd529959f">&lt;strong&gt;</bpt>Create app<ept id="30d6a38d-bf96-44dc-89e2-857dd529959f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b1a965c9-7f8b-4095-9c41-f5744e36cbc9" xml:space="preserve">
+          <source><bpt id="919bf69c-6cc5-4e1d-a566-c7a4c64f865c">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="919bf69c-6cc5-4e1d-a566-c7a4c64f865c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="919bf69c-6cc5-4e1d-a566-c7a4c64f865c">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="919bf69c-6cc5-4e1d-a566-c7a4c64f865c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d6e35608-496e-4f1f-80b7-f1cab7f2464b" xml:space="preserve">
+          <source>The next page shows the App key and App secret settings (named Client ID and Client secret in Azure) that you'll use for configuring your Azure Dropbox connector.</source>
+          <target state="new">The next page shows the App key and App secret settings (named Client ID and Client secret in Azure) that you'll use for configuring your Azure Dropbox connector.</target>
+        </trans-unit>
+        <trans-unit id="e51cc35c-02ee-4683-ac4d-fc67047041ba" xml:space="preserve">
+          <source>This page also has a field where you can enter a Redirect URI, the value of which you'll get in the next section.</source>
+          <target state="new">This page also has a field where you can enter a Redirect URI, the value of which you'll get in the next section.</target>
+        </trans-unit>
+        <trans-unit id="d61e1f6c-6fae-45bf-a428-18c6bbd2589e" xml:space="preserve">
+          <source><bpt id="a1d6098c-0d6b-4816-9faa-37b204307618">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="a1d6098c-0d6b-4816-9faa-37b204307618">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1d6098c-0d6b-4816-9faa-37b204307618">&lt;linkText&gt;</bpt>Create Dropbox app<ept id="a1d6098c-0d6b-4816-9faa-37b204307618">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

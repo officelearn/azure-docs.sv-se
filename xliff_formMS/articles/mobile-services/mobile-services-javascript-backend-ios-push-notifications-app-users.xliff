@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8e2374f6-d4d5-4c49-bdef-b71898142700" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8e2374f6-d4d5-4c49-bdef-b71898142700" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="54d020fb-f605-4fe1-b3dc-dbd9b3e81699">
+        <trans-unit id="c4661b76-9499-46a6-b6ed-bf753b876b66" xml:space="preserve">
+          <source>Send Push Notifications to Authenticated Users</source>
+          <target state="new">Send Push Notifications to Authenticated Users</target>
+        </trans-unit>
+        <trans-unit id="e72d4dbb-9f78-4465-9d23-c6992f12a3a5" xml:space="preserve">
+          <source>Learn how to send push notifications to specific users</source>
+          <target state="new">Learn how to send push notifications to specific users</target>
+        </trans-unit>
+        <trans-unit id="bb7c9850-3d2f-47e8-9e26-5ec710b9a11a" xml:space="preserve">
+          <source><bpt id="644f64b5-1f82-4d19-b931-4602d3eaee88">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="644f64b5-1f82-4d19-b931-4602d3eaee88">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="644f64b5-1f82-4d19-b931-4602d3eaee88">&lt;token href="../../includes/mobile-services-selector-push-users.md"&gt;</bpt><ept id="644f64b5-1f82-4d19-b931-4602d3eaee88">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb093714-f72e-4387-a06b-28e4d69ee6dd" xml:space="preserve">
+          <source>In this topic, you learn how to send push notifications to an authenticated user on iOS.</source>
+          <target state="new">In this topic, you learn how to send push notifications to an authenticated user on iOS.</target>
+        </trans-unit>
+        <trans-unit id="623a86b3-4bac-4133-b957-4aee9689aa29" xml:space="preserve">
+          <source>Before starting this tutorial, complete [Get started with authentication] and [Get started with push notifications] first.</source>
+          <target state="new">Before starting this tutorial, complete [Get started with authentication] and [Get started with push notifications] first.</target>
+        </trans-unit>
+        <trans-unit id="7507a927-4462-4235-9e08-a97e6ad08d43" xml:space="preserve">
+          <source>In this tutorial, you require users to authenticate first, register with the notification hub for push notifications, and update server scripts to send those notifications to only authenticated users.</source>
+          <target state="new">In this tutorial, you require users to authenticate first, register with the notification hub for push notifications, and update server scripts to send those notifications to only authenticated users.</target>
+        </trans-unit>
+        <trans-unit id="b2fb1121-b33f-4751-bdbc-1768352ca702" xml:space="preserve">
+          <source><bpt id="38adb0ee-6f80-49a9-a64d-fa8bb5cf9fde">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="38adb0ee-6f80-49a9-a64d-fa8bb5cf9fde">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="38adb0ee-6f80-49a9-a64d-fa8bb5cf9fde">&lt;token href="../../includes/mobile-services-javascript-backend-push-notifications-app-users.md"&gt;</bpt><ept id="38adb0ee-6f80-49a9-a64d-fa8bb5cf9fde">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa303b07-5c38-4391-bd97-29472a945395" xml:space="preserve">
+          <source>Replace the <bpt id="c8f0f9ca-fe64-4615-a48a-70c2e392a5aa">&lt;code&gt;</bpt>insert<ept id="c8f0f9ca-fe64-4615-a48a-70c2e392a5aa">&lt;/code&gt;</ept> function with the following code, then click <bpt id="997921f0-f7d3-4552-9566-637daa26dacc">&lt;strong&gt;</bpt>Save<ept id="997921f0-f7d3-4552-9566-637daa26dacc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Replace the <bpt id="c8f0f9ca-fe64-4615-a48a-70c2e392a5aa">&lt;code&gt;</bpt>insert<ept id="c8f0f9ca-fe64-4615-a48a-70c2e392a5aa">&lt;/code&gt;</ept> function with the following code, then click <bpt id="997921f0-f7d3-4552-9566-637daa26dacc">&lt;strong&gt;</bpt>Save<ept id="997921f0-f7d3-4552-9566-637daa26dacc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="caf2ba19-2a82-4607-bbcf-9494b792ce53" xml:space="preserve">
+          <source>This insert script uses the user ID tag to send a push notification to all iOS app registrations from the logged-in user:</source>
+          <target state="new">This insert script uses the user ID tag to send a push notification to all iOS app registrations from the logged-in user:</target>
+        </trans-unit>
+        <trans-unit id="732a9d18-4291-4011-bb02-9a30387d0c45" xml:space="preserve">
+          <source><bpt id="f588ac0d-6fb0-4967-980f-76a0c26aa8ac">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-login.md"&gt;</bpt><ept id="f588ac0d-6fb0-4967-980f-76a0c26aa8ac">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f588ac0d-6fb0-4967-980f-76a0c26aa8ac">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-login.md"&gt;</bpt><ept id="f588ac0d-6fb0-4967-980f-76a0c26aa8ac">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="539063a7-ddb7-4d09-bc13-17acafa97916" xml:space="preserve">
+          <source><bpt id="ebe8d2e2-2da9-4598-9a37-6863cdab5d74">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-test-app.md"&gt;</bpt><ept id="ebe8d2e2-2da9-4598-9a37-6863cdab5d74">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="ebe8d2e2-2da9-4598-9a37-6863cdab5d74">&lt;token href="../../includes/mobile-services-ios-push-notifications-app-users-test-app.md"&gt;</bpt><ept id="ebe8d2e2-2da9-4598-9a37-6863cdab5d74">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de623061-1e56-4b71-99ea-d562e4572676" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="0d5dcbb2-a7ab-49d9-8825-1f4609f238d8" xml:space="preserve">
+          <source>#update-app</source>
+          <target state="new">#update-app</target>
+        </trans-unit>
+        <trans-unit id="39eca007-6259-4a8a-a55a-b32445be0192" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="fab44ba3-a5e3-406e-99b6-a9cdf42b5374" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="766adbb4-99af-40f3-9dca-b2e47a42ccae" xml:space="preserve">
+          <source>mobile-services-ios-get-started-users.md</source>
+          <target state="new">mobile-services-ios-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="b1198fdf-f2fe-448b-a647-041f82daccdc" xml:space="preserve">
+          <source>mobile-services-javascript-backend-ios-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-ios-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="8e39d77f-b89f-415f-afaa-922c13c15084" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="4fbbe407-a149-45ce-966d-b5382704378f" xml:space="preserve">
+          <source>mobile-services-ios-how-to-use-client-library.md</source>
+          <target state="new">mobile-services-ios-how-to-use-client-library.md</target>
+        </trans-unit>
+      </group>
+      <group id="c6f4bdc7-ea74-47fe-bf08-0d7dd4bca9a6" />
+    </body>
+  </file>
+</xliff>

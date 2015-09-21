@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5e6f0cdd-d812-4f91-a22e-ab6d9718e08c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5e6f0cdd-d812-4f91-a22e-ab6d9718e08c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="43383a67-3de1-4afe-9060-68ae29d8e2f4">
+        <trans-unit id="d6545968-7b98-48bd-9f2f-50e82548d4a3" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with ShiftPlanning | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with ShiftPlanning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4934af9c-b01b-4f4e-8009-56febedc316b" xml:space="preserve">
+          <source>Learn how to use ShiftPlanning with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use ShiftPlanning with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="8fafa05d-82de-414a-8edd-21694cd954f8" xml:space="preserve">
+          <source>For feedback, click <bpt id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;linkText&gt;</bpt>here<ept id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;/linkText&gt;</ept><bpt id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;title&gt;</bpt><ept id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;linkText&gt;</bpt>here<ept id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;/linkText&gt;</ept><bpt id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;title&gt;</bpt><ept id="f2240e13-2639-4880-9618-cef8e119a6f5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50519cb6-8d0b-45b0-a9c3-751900a2b6ca" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and ShiftPlanning.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and ShiftPlanning.</target>
+        </trans-unit>
+        <trans-unit id="aeddd032-a89a-48e3-8d2c-8a9f761c5175" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="d5c26f2d-2e4f-4477-b735-83c10fb8129f" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="2bcfba91-f4db-42d9-9b38-f7108263f212" xml:space="preserve">
+          <source>A ShiftPlanning single sign-on enabled subscription</source>
+          <target state="new">A ShiftPlanning single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="8c00d376-fd1e-4a8e-b7d0-cd49b1adc4b0" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to ShiftPlanning will be able to single sign into the application at your ShiftPlanning company site (service provider initiated sign on), or using the <bpt id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;/linkText&gt;</ept><bpt id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;title&gt;</bpt><ept id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to ShiftPlanning will be able to single sign into the application at your ShiftPlanning company site (service provider initiated sign on), or using the <bpt id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;/linkText&gt;</ept><bpt id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;title&gt;</bpt><ept id="18c7b867-84f1-4c11-b56a-bb1f5b1376b8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fde7f3c2-851c-4cda-8259-3ded6172d6e6" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="14407750-f63a-4acc-a0b9-f8c722cc0e7c" xml:space="preserve">
+          <source>Enabling the application integration for ShiftPlanning</source>
+          <target state="new">Enabling the application integration for ShiftPlanning</target>
+        </trans-unit>
+        <trans-unit id="9def5954-40af-40c9-b993-317041ac4bb3" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="ddf0722b-3254-4b27-bb8f-6edb178d45f9" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="0bae34cc-617e-4ecf-922d-1a63ce5bdedb" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="0a524dd1-a991-4496-b1f2-65906558a62b" xml:space="preserve">
+          <source><bpt id="774aa6dc-ada7-4aa7-8cc8-e9bfb24c1ea3">&lt;linkText&gt;</bpt>Scenario<ept id="774aa6dc-ada7-4aa7-8cc8-e9bfb24c1ea3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="774aa6dc-ada7-4aa7-8cc8-e9bfb24c1ea3">&lt;linkText&gt;</bpt>Scenario<ept id="774aa6dc-ada7-4aa7-8cc8-e9bfb24c1ea3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b46f37e5-808b-4bf2-a074-9306ebc352ea" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for ShiftPlanning.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for ShiftPlanning.</target>
+        </trans-unit>
+        <trans-unit id="4daa92f4-c52c-44a2-b3fb-335ffe00f1f1" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="3434eee3-e94f-451b-85fa-5dcac15e0dd9">&lt;strong&gt;</bpt>Active Directory<ept id="3434eee3-e94f-451b-85fa-5dcac15e0dd9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="3434eee3-e94f-451b-85fa-5dcac15e0dd9">&lt;strong&gt;</bpt>Active Directory<ept id="3434eee3-e94f-451b-85fa-5dcac15e0dd9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a85e73ce-d9e4-47a5-87e7-36f7f615a746" xml:space="preserve">
+          <source><bpt id="af35db90-ea5c-4f3f-a57b-65f5785a907a">&lt;linkText&gt;</bpt>Active Directory<ept id="af35db90-ea5c-4f3f-a57b-65f5785a907a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="af35db90-ea5c-4f3f-a57b-65f5785a907a">&lt;linkText&gt;</bpt>Active Directory<ept id="af35db90-ea5c-4f3f-a57b-65f5785a907a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f47a41f-e7a8-4901-a8b9-ff3d44d37a8d" xml:space="preserve">
+          <source>From the <bpt id="0faec667-9d85-41f8-bf51-ae5547f03955">&lt;strong&gt;</bpt>Directory<ept id="0faec667-9d85-41f8-bf51-ae5547f03955">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="0faec667-9d85-41f8-bf51-ae5547f03955">&lt;strong&gt;</bpt>Directory<ept id="0faec667-9d85-41f8-bf51-ae5547f03955">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="b5c56b5a-5ad4-49bd-bc4b-c6a855226145" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="242a4b11-d43e-42b0-a0da-a6ff8684b174">&lt;strong&gt;</bpt>Applications<ept id="242a4b11-d43e-42b0-a0da-a6ff8684b174">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="242a4b11-d43e-42b0-a0da-a6ff8684b174">&lt;strong&gt;</bpt>Applications<ept id="242a4b11-d43e-42b0-a0da-a6ff8684b174">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="c3d08132-c706-45a0-b9ce-460ec1c1a8a1" xml:space="preserve">
+          <source><bpt id="b106a62a-6d5e-4dfe-8ee9-674bbc951caa">&lt;linkText&gt;</bpt>Applications<ept id="b106a62a-6d5e-4dfe-8ee9-674bbc951caa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b106a62a-6d5e-4dfe-8ee9-674bbc951caa">&lt;linkText&gt;</bpt>Applications<ept id="b106a62a-6d5e-4dfe-8ee9-674bbc951caa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b6adfcf-8a8c-4633-90a1-c1728726520d" xml:space="preserve">
+          <source>Click <bpt id="de26044d-4c39-4408-add6-ef29d6d4884b">&lt;strong&gt;</bpt>Add<ept id="de26044d-4c39-4408-add6-ef29d6d4884b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="de26044d-4c39-4408-add6-ef29d6d4884b">&lt;strong&gt;</bpt>Add<ept id="de26044d-4c39-4408-add6-ef29d6d4884b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="cdaf1a5e-7832-4a01-82f0-cdf3f23d1bf4" xml:space="preserve">
+          <source><bpt id="cd0a639d-84da-40f5-835c-c41164ab2874">&lt;linkText&gt;</bpt>Add application<ept id="cd0a639d-84da-40f5-835c-c41164ab2874">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cd0a639d-84da-40f5-835c-c41164ab2874">&lt;linkText&gt;</bpt>Add application<ept id="cd0a639d-84da-40f5-835c-c41164ab2874">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6865a00c-4f30-4556-b459-094c935db1bd" xml:space="preserve">
+          <source>On the <bpt id="5d48395e-7229-4bbe-8b65-ddad22575171">&lt;strong&gt;</bpt>What do you want to do<ept id="5d48395e-7229-4bbe-8b65-ddad22575171">&lt;/strong&gt;</ept> dialog, click <bpt id="093634a9-e231-4b9a-adfd-0948396e7451">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="093634a9-e231-4b9a-adfd-0948396e7451">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5d48395e-7229-4bbe-8b65-ddad22575171">&lt;strong&gt;</bpt>What do you want to do<ept id="5d48395e-7229-4bbe-8b65-ddad22575171">&lt;/strong&gt;</ept> dialog, click <bpt id="093634a9-e231-4b9a-adfd-0948396e7451">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="093634a9-e231-4b9a-adfd-0948396e7451">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43c8f356-e0ed-43c4-9787-cc945997fdcb" xml:space="preserve">
+          <source><bpt id="31509380-d8a7-44cc-9d8d-e2df9fab2b7c">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="31509380-d8a7-44cc-9d8d-e2df9fab2b7c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="31509380-d8a7-44cc-9d8d-e2df9fab2b7c">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="31509380-d8a7-44cc-9d8d-e2df9fab2b7c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4b1cdf34-1e81-4ff7-98a1-7924a9d2afe8" xml:space="preserve">
+          <source>In the <bpt id="0a1b0be7-d390-4dbe-8bfc-9ca68fadf533">&lt;strong&gt;</bpt>search box<ept id="0a1b0be7-d390-4dbe-8bfc-9ca68fadf533">&lt;/strong&gt;</ept>, type <bpt id="521f8400-51b2-428f-93cd-436d6e3ae18a">&lt;strong&gt;</bpt>ShiftPlanning<ept id="521f8400-51b2-428f-93cd-436d6e3ae18a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="0a1b0be7-d390-4dbe-8bfc-9ca68fadf533">&lt;strong&gt;</bpt>search box<ept id="0a1b0be7-d390-4dbe-8bfc-9ca68fadf533">&lt;/strong&gt;</ept>, type <bpt id="521f8400-51b2-428f-93cd-436d6e3ae18a">&lt;strong&gt;</bpt>ShiftPlanning<ept id="521f8400-51b2-428f-93cd-436d6e3ae18a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48756e5e-4e69-40ba-9b94-898526d24b62" xml:space="preserve">
+          <source><bpt id="0351bf7b-25c0-4f48-9ec6-be003a612aac">&lt;linkText&gt;</bpt>Application Gallery<ept id="0351bf7b-25c0-4f48-9ec6-be003a612aac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0351bf7b-25c0-4f48-9ec6-be003a612aac">&lt;linkText&gt;</bpt>Application Gallery<ept id="0351bf7b-25c0-4f48-9ec6-be003a612aac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78d8007d-e90c-4f61-a7e4-729d163980cf" xml:space="preserve">
+          <source>In the results pane, select <bpt id="5171ac18-3381-4897-ae65-2c26dcb355ab">&lt;strong&gt;</bpt>ShiftPlanning<ept id="5171ac18-3381-4897-ae65-2c26dcb355ab">&lt;/strong&gt;</ept>, and then click <bpt id="cd80acd8-6023-4afe-b02f-34b23f266f3a">&lt;strong&gt;</bpt>Complete<ept id="cd80acd8-6023-4afe-b02f-34b23f266f3a">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="5171ac18-3381-4897-ae65-2c26dcb355ab">&lt;strong&gt;</bpt>ShiftPlanning<ept id="5171ac18-3381-4897-ae65-2c26dcb355ab">&lt;/strong&gt;</ept>, and then click <bpt id="cd80acd8-6023-4afe-b02f-34b23f266f3a">&lt;strong&gt;</bpt>Complete<ept id="cd80acd8-6023-4afe-b02f-34b23f266f3a">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="be9fbee3-8b49-4cce-af1f-b931caaeb501" xml:space="preserve">
+          <source><bpt id="67e9190e-c4b5-47cb-8408-619896a04aff">&lt;linkText&gt;</bpt>ShiftPlanning<ept id="67e9190e-c4b5-47cb-8408-619896a04aff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="67e9190e-c4b5-47cb-8408-619896a04aff">&lt;linkText&gt;</bpt>ShiftPlanning<ept id="67e9190e-c4b5-47cb-8408-619896a04aff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fcac3883-55ec-4881-a761-6054eaa16216" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to ShiftPlanning with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to ShiftPlanning with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="e7a1884a-f234-46e2-960c-b09e39a24c19" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="57d56384-315e-4dd0-8c1f-754c11d177df" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;/linkText&gt;</ept><bpt id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;title&gt;</bpt><ept id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;/title&gt;</ept></source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;/linkText&gt;</ept><bpt id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;title&gt;</bpt><ept id="add1b058-1f35-4d7a-ac0c-9f0b3ae646d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0e138313-55c2-4ca1-9ca0-9e902b0b18dd" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="df96b39b-332f-43ca-a9ab-6a08c1263ed1">&lt;strong&gt;</bpt>ShiftPlanning<ept id="df96b39b-332f-43ca-a9ab-6a08c1263ed1">&lt;/strong&gt;</ept> application integration page, click <bpt id="3fe64528-388b-491f-aaf3-2f0208f5468b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="3fe64528-388b-491f-aaf3-2f0208f5468b">&lt;/strong&gt;</ept> to open the <bpt id="3f02d5bd-15fb-4a39-a5d2-22fcc9631939">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="3f02d5bd-15fb-4a39-a5d2-22fcc9631939">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="df96b39b-332f-43ca-a9ab-6a08c1263ed1">&lt;strong&gt;</bpt>ShiftPlanning<ept id="df96b39b-332f-43ca-a9ab-6a08c1263ed1">&lt;/strong&gt;</ept> application integration page, click <bpt id="3fe64528-388b-491f-aaf3-2f0208f5468b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="3fe64528-388b-491f-aaf3-2f0208f5468b">&lt;/strong&gt;</ept> to open the <bpt id="3f02d5bd-15fb-4a39-a5d2-22fcc9631939">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="3f02d5bd-15fb-4a39-a5d2-22fcc9631939">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="60d54980-12dd-4268-b186-1fc301db8fc8" xml:space="preserve">
+          <source><bpt id="f4cca9b6-e76b-43da-8c87-422d01cb232b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f4cca9b6-e76b-43da-8c87-422d01cb232b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f4cca9b6-e76b-43da-8c87-422d01cb232b">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f4cca9b6-e76b-43da-8c87-422d01cb232b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b10a1a5d-2398-42b6-8623-5508b359fa52" xml:space="preserve">
+          <source>On the <bpt id="d48b19f5-6fc1-4732-8c85-207d1c58aeb4">&lt;strong&gt;</bpt>How would you like users to sign on to ShiftPlanning<ept id="d48b19f5-6fc1-4732-8c85-207d1c58aeb4">&lt;/strong&gt;</ept> page, select <bpt id="389a7ac5-864c-463d-a6af-473cfae11fa6">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="389a7ac5-864c-463d-a6af-473cfae11fa6">&lt;/strong&gt;</ept>, and then click <bpt id="09a0036e-6e27-4b42-9f3f-197c281ffd0e">&lt;strong&gt;</bpt>Next<ept id="09a0036e-6e27-4b42-9f3f-197c281ffd0e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="d48b19f5-6fc1-4732-8c85-207d1c58aeb4">&lt;strong&gt;</bpt>How would you like users to sign on to ShiftPlanning<ept id="d48b19f5-6fc1-4732-8c85-207d1c58aeb4">&lt;/strong&gt;</ept> page, select <bpt id="389a7ac5-864c-463d-a6af-473cfae11fa6">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="389a7ac5-864c-463d-a6af-473cfae11fa6">&lt;/strong&gt;</ept>, and then click <bpt id="09a0036e-6e27-4b42-9f3f-197c281ffd0e">&lt;strong&gt;</bpt>Next<ept id="09a0036e-6e27-4b42-9f3f-197c281ffd0e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b88c68f-4762-4e0d-9e6e-ab1ed1cf65c3" xml:space="preserve">
+          <source><bpt id="22560744-25c1-4f70-b9d3-6f7a227eccc8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="22560744-25c1-4f70-b9d3-6f7a227eccc8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22560744-25c1-4f70-b9d3-6f7a227eccc8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="22560744-25c1-4f70-b9d3-6f7a227eccc8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9bed56c-60c9-4519-82cd-b6c508fe8076" xml:space="preserve">
+          <source>On the <bpt id="8d868d4d-ff63-4178-8ce8-3aa330f7a905">&lt;strong&gt;</bpt>Configure App URL<ept id="8d868d4d-ff63-4178-8ce8-3aa330f7a905">&lt;/strong&gt;</ept> page, in the <bpt id="5e9a2661-b006-408c-a4ae-1739f3771f28">&lt;strong&gt;</bpt>ShiftPlanning Sign On URL<ept id="5e9a2661-b006-408c-a4ae-1739f3771f28">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="08a8b1df-f77a-47bd-9f1a-2f5e7df17dab">&lt;em&gt;</bpt>https://company.shiftplanning.com/includes/saml/<ept id="08a8b1df-f77a-47bd-9f1a-2f5e7df17dab">&lt;/em&gt;</ept>", and then click <bpt id="ab1edc9d-524e-40ec-a3c5-f68aecbfd0e8">&lt;strong&gt;</bpt>Next<ept id="ab1edc9d-524e-40ec-a3c5-f68aecbfd0e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8d868d4d-ff63-4178-8ce8-3aa330f7a905">&lt;strong&gt;</bpt>Configure App URL<ept id="8d868d4d-ff63-4178-8ce8-3aa330f7a905">&lt;/strong&gt;</ept> page, in the <bpt id="5e9a2661-b006-408c-a4ae-1739f3771f28">&lt;strong&gt;</bpt>ShiftPlanning Sign On URL<ept id="5e9a2661-b006-408c-a4ae-1739f3771f28">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="08a8b1df-f77a-47bd-9f1a-2f5e7df17dab">&lt;em&gt;</bpt>https://company.shiftplanning.com/includes/saml/<ept id="08a8b1df-f77a-47bd-9f1a-2f5e7df17dab">&lt;/em&gt;</ept>", and then click <bpt id="ab1edc9d-524e-40ec-a3c5-f68aecbfd0e8">&lt;strong&gt;</bpt>Next<ept id="ab1edc9d-524e-40ec-a3c5-f68aecbfd0e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69b322d4-6a94-4076-9eb7-7d71c778b2c1" xml:space="preserve">
+          <source><bpt id="b35fec57-e67d-4c20-a211-4996895781d3">&lt;linkText&gt;</bpt>Configure App URL<ept id="b35fec57-e67d-4c20-a211-4996895781d3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b35fec57-e67d-4c20-a211-4996895781d3">&lt;linkText&gt;</bpt>Configure App URL<ept id="b35fec57-e67d-4c20-a211-4996895781d3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19018b36-dfba-4495-b87c-8f11196b8e92" xml:space="preserve">
+          <source>On the <bpt id="40e68f42-f2d0-48fb-a100-45f3eb396ac3">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="40e68f42-f2d0-48fb-a100-45f3eb396ac3">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="8059a3d0-c073-4551-b4a5-0c65463d5ce6">&lt;strong&gt;</bpt>Download certificate<ept id="8059a3d0-c073-4551-b4a5-0c65463d5ce6">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="40e68f42-f2d0-48fb-a100-45f3eb396ac3">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="40e68f42-f2d0-48fb-a100-45f3eb396ac3">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="8059a3d0-c073-4551-b4a5-0c65463d5ce6">&lt;strong&gt;</bpt>Download certificate<ept id="8059a3d0-c073-4551-b4a5-0c65463d5ce6">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="935175c7-b4ac-4226-b91e-9c5d6ba93a72" xml:space="preserve">
+          <source><bpt id="f478e0a7-f06d-43a2-9000-fef5ab3c42d8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f478e0a7-f06d-43a2-9000-fef5ab3c42d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f478e0a7-f06d-43a2-9000-fef5ab3c42d8">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f478e0a7-f06d-43a2-9000-fef5ab3c42d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4aa564f3-9437-4498-97be-87104e48d8e6" xml:space="preserve">
+          <source>In a different web browser window, log into your <bpt id="bc427d9c-99e6-46e3-b6d2-c3bdc9f60b9d">&lt;strong&gt;</bpt>ShiftPlanning<ept id="bc427d9c-99e6-46e3-b6d2-c3bdc9f60b9d">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your <bpt id="bc427d9c-99e6-46e3-b6d2-c3bdc9f60b9d">&lt;strong&gt;</bpt>ShiftPlanning<ept id="bc427d9c-99e6-46e3-b6d2-c3bdc9f60b9d">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="4a3abfcc-5926-42e8-9cf1-802619afd3ce" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="8e51e6fb-b66d-4636-b0ec-8c71d11a3bae">&lt;strong&gt;</bpt>Admin<ept id="8e51e6fb-b66d-4636-b0ec-8c71d11a3bae">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="8e51e6fb-b66d-4636-b0ec-8c71d11a3bae">&lt;strong&gt;</bpt>Admin<ept id="8e51e6fb-b66d-4636-b0ec-8c71d11a3bae">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="683aef36-4203-4397-b149-38c82f2c6b5d" xml:space="preserve">
+          <source><bpt id="fa98d7e7-4f15-4b9c-854a-783d3c235b59">&lt;linkText&gt;</bpt>Admin<ept id="fa98d7e7-4f15-4b9c-854a-783d3c235b59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa98d7e7-4f15-4b9c-854a-783d3c235b59">&lt;linkText&gt;</bpt>Admin<ept id="fa98d7e7-4f15-4b9c-854a-783d3c235b59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="908a09f0-1060-49a1-ae77-a7f12ac732a8" xml:space="preserve">
+          <source>Under <bpt id="ed424564-7379-47a8-ba45-f82d470a35e6">&lt;strong&gt;</bpt>Integration<ept id="ed424564-7379-47a8-ba45-f82d470a35e6">&lt;/strong&gt;</ept>, click <bpt id="5af65a94-38e8-4040-9d3b-a46444cf4074">&lt;strong&gt;</bpt>Single Sign-On<ept id="5af65a94-38e8-4040-9d3b-a46444cf4074">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="ed424564-7379-47a8-ba45-f82d470a35e6">&lt;strong&gt;</bpt>Integration<ept id="ed424564-7379-47a8-ba45-f82d470a35e6">&lt;/strong&gt;</ept>, click <bpt id="5af65a94-38e8-4040-9d3b-a46444cf4074">&lt;strong&gt;</bpt>Single Sign-On<ept id="5af65a94-38e8-4040-9d3b-a46444cf4074">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7075bf3-b642-4cd5-8e54-332f74ef254a" xml:space="preserve">
+          <source><bpt id="86cf2e02-a699-48a5-abcb-32dd3f8b5ec8">&lt;linkText&gt;</bpt>Single Sign-On<ept id="86cf2e02-a699-48a5-abcb-32dd3f8b5ec8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="86cf2e02-a699-48a5-abcb-32dd3f8b5ec8">&lt;linkText&gt;</bpt>Single Sign-On<ept id="86cf2e02-a699-48a5-abcb-32dd3f8b5ec8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19fd14f0-fd1b-4957-905d-de40546c69e4" xml:space="preserve">
+          <source>In the <bpt id="796d5615-3740-4c7a-929e-34aa18b853b4">&lt;strong&gt;</bpt>Single Sign-On<ept id="796d5615-3740-4c7a-929e-34aa18b853b4">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="796d5615-3740-4c7a-929e-34aa18b853b4">&lt;strong&gt;</bpt>Single Sign-On<ept id="796d5615-3740-4c7a-929e-34aa18b853b4">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="18dacb40-843f-47a0-9676-e3893517f937" xml:space="preserve">
+          <source><bpt id="4653f197-459a-45d6-95d0-f80720f1d491">&lt;linkText&gt;</bpt>Single Sign-On<ept id="4653f197-459a-45d6-95d0-f80720f1d491">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4653f197-459a-45d6-95d0-f80720f1d491">&lt;linkText&gt;</bpt>Single Sign-On<ept id="4653f197-459a-45d6-95d0-f80720f1d491">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d22b9f64-7f33-41e2-9069-258e9b5f4412" xml:space="preserve">
+          <source>Select <bpt id="f0056ac7-2e87-4205-b5b8-47dc43b199d2">&lt;strong&gt;</bpt>SAML Enabled<ept id="f0056ac7-2e87-4205-b5b8-47dc43b199d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="f0056ac7-2e87-4205-b5b8-47dc43b199d2">&lt;strong&gt;</bpt>SAML Enabled<ept id="f0056ac7-2e87-4205-b5b8-47dc43b199d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36ed9e55-5558-403d-8eba-0f432183044e" xml:space="preserve">
+          <source>Select <bpt id="966a56c2-0919-46f4-aa00-bf1fca95595f">&lt;strong&gt;</bpt>Allow Password Login<ept id="966a56c2-0919-46f4-aa00-bf1fca95595f">&lt;/strong&gt;</ept></source>
+          <target state="new">Select <bpt id="966a56c2-0919-46f4-aa00-bf1fca95595f">&lt;strong&gt;</bpt>Allow Password Login<ept id="966a56c2-0919-46f4-aa00-bf1fca95595f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18d26884-82ef-42b7-a29a-e542c0a20596" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="205fff9b-dc34-4215-ab21-d1cac47efd41">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="205fff9b-dc34-4215-ab21-d1cac47efd41">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b803c1b3-dfd5-4ea5-a38a-b281b70ad526">&lt;strong&gt;</bpt>Remote Login URL<ept id="b803c1b3-dfd5-4ea5-a38a-b281b70ad526">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="08f78c9c-2af8-4acd-9463-34a4150bbc70">&lt;strong&gt;</bpt>SAML Issuer URL<ept id="08f78c9c-2af8-4acd-9463-34a4150bbc70">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="205fff9b-dc34-4215-ab21-d1cac47efd41">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="205fff9b-dc34-4215-ab21-d1cac47efd41">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="b803c1b3-dfd5-4ea5-a38a-b281b70ad526">&lt;strong&gt;</bpt>Remote Login URL<ept id="b803c1b3-dfd5-4ea5-a38a-b281b70ad526">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="08f78c9c-2af8-4acd-9463-34a4150bbc70">&lt;strong&gt;</bpt>SAML Issuer URL<ept id="08f78c9c-2af8-4acd-9463-34a4150bbc70">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="86029692-3321-4725-81b9-e0e1dd3245aa" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="cca67bd7-188f-4c9a-a986-cdf6e61ddafb">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="cca67bd7-188f-4c9a-a986-cdf6e61ddafb">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="4aec3928-fce9-407d-9b88-490b3719ed37">&lt;strong&gt;</bpt>Remote Logout URL<ept id="4aec3928-fce9-407d-9b88-490b3719ed37">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fee656f2-af2e-4205-a059-8e94cd5bf7a1">&lt;strong&gt;</bpt>Remote Logout URL<ept id="fee656f2-af2e-4205-a059-8e94cd5bf7a1">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="cca67bd7-188f-4c9a-a986-cdf6e61ddafb">&lt;strong&gt;</bpt>Configure single sign-on at ShiftPlanning<ept id="cca67bd7-188f-4c9a-a986-cdf6e61ddafb">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="4aec3928-fce9-407d-9b88-490b3719ed37">&lt;strong&gt;</bpt>Remote Logout URL<ept id="4aec3928-fce9-407d-9b88-490b3719ed37">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="fee656f2-af2e-4205-a059-8e94cd5bf7a1">&lt;strong&gt;</bpt>Remote Logout URL<ept id="fee656f2-af2e-4205-a059-8e94cd5bf7a1">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="2a7dcc8d-1023-49a9-863b-c5aa9de9b3f3" xml:space="preserve">
+          <source>Create a <bpt id="d8d49d22-6426-4975-b6d3-bac6fb174be8">&lt;strong&gt;</bpt>base-64 encoded<ept id="d8d49d22-6426-4975-b6d3-bac6fb174be8">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="d8d49d22-6426-4975-b6d3-bac6fb174be8">&lt;strong&gt;</bpt>base-64 encoded<ept id="d8d49d22-6426-4975-b6d3-bac6fb174be8">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="5574e89e-a172-4528-bcd3-ca207b31b710" xml:space="preserve">
+          <source>For more details, see <bpt id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;/linkText&gt;</ept><bpt id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;title&gt;</bpt><ept id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;/linkText&gt;</ept><bpt id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;title&gt;</bpt><ept id="5ccfc19d-85b7-4124-95d7-387a67636b34">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8cdfbe9-8974-4477-b8d9-743c2e902bed" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="6b7f9757-92ed-45ca-8e68-cfcb216cf276">&lt;strong&gt;</bpt>X.509 Certificate<ept id="6b7f9757-92ed-45ca-8e68-cfcb216cf276">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="6b7f9757-92ed-45ca-8e68-cfcb216cf276">&lt;strong&gt;</bpt>X.509 Certificate<ept id="6b7f9757-92ed-45ca-8e68-cfcb216cf276">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="f74c6400-06c3-402a-8930-2192d360249c" xml:space="preserve">
+          <source>Click <bpt id="06cc768d-69e7-4b92-aeee-b96562b4b38a">&lt;strong&gt;</bpt>Save Settings<ept id="06cc768d-69e7-4b92-aeee-b96562b4b38a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="06cc768d-69e7-4b92-aeee-b96562b4b38a">&lt;strong&gt;</bpt>Save Settings<ept id="06cc768d-69e7-4b92-aeee-b96562b4b38a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b2d6052-e35c-41fc-a4d1-54765b332c00" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="e9f63a32-fe40-4003-9fa7-41fda14c4352">&lt;strong&gt;</bpt>Complete<ept id="e9f63a32-fe40-4003-9fa7-41fda14c4352">&lt;/strong&gt;</ept> to close the <bpt id="7bd8f879-51fa-45b7-94b9-132315cf9579">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="7bd8f879-51fa-45b7-94b9-132315cf9579">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="e9f63a32-fe40-4003-9fa7-41fda14c4352">&lt;strong&gt;</bpt>Complete<ept id="e9f63a32-fe40-4003-9fa7-41fda14c4352">&lt;/strong&gt;</ept> to close the <bpt id="7bd8f879-51fa-45b7-94b9-132315cf9579">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="7bd8f879-51fa-45b7-94b9-132315cf9579">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="0f273852-c7a2-4583-9384-3670570c0064" xml:space="preserve">
+          <source><bpt id="d2c66265-95ba-4287-98e2-3e67b428cf5d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d2c66265-95ba-4287-98e2-3e67b428cf5d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2c66265-95ba-4287-98e2-3e67b428cf5d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="d2c66265-95ba-4287-98e2-3e67b428cf5d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f37967ad-1355-4dc6-9557-829b4146bda4" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into ShiftPlanning, they must be provisioned into ShiftPlanning.</source>
+          <target state="new">In order to enable Azure AD users to log into ShiftPlanning, they must be provisioned into ShiftPlanning.</target>
+        </trans-unit>
+        <trans-unit id="3bc2379b-f35b-45e9-852e-77f99784c6ca" xml:space="preserve">
+          <source>In the case of ShiftPlanning, provisioning is a manual task.</source>
+          <target state="new">In the case of ShiftPlanning, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="fa145f98-4a8a-4085-b868-7cff8c164c34" xml:space="preserve">
+          <source>Log in to your <bpt id="76049cc5-40f8-4652-8c74-c6e844db85b7">&lt;strong&gt;</bpt>ShiftPlanning<ept id="76049cc5-40f8-4652-8c74-c6e844db85b7">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Log in to your <bpt id="76049cc5-40f8-4652-8c74-c6e844db85b7">&lt;strong&gt;</bpt>ShiftPlanning<ept id="76049cc5-40f8-4652-8c74-c6e844db85b7">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="33b34e17-b27b-4867-b654-ec0446886cfe" xml:space="preserve">
+          <source>Click <bpt id="436a2fce-ddb0-4dbc-8aea-60f5195f7978">&lt;strong&gt;</bpt>Admin<ept id="436a2fce-ddb0-4dbc-8aea-60f5195f7978">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="436a2fce-ddb0-4dbc-8aea-60f5195f7978">&lt;strong&gt;</bpt>Admin<ept id="436a2fce-ddb0-4dbc-8aea-60f5195f7978">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4051ff7c-a395-4e75-b529-30d9d0414778" xml:space="preserve">
+          <source><bpt id="f16fabb7-5878-4952-bad4-9aa9fb82285b">&lt;linkText&gt;</bpt>Admin<ept id="f16fabb7-5878-4952-bad4-9aa9fb82285b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f16fabb7-5878-4952-bad4-9aa9fb82285b">&lt;linkText&gt;</bpt>Admin<ept id="f16fabb7-5878-4952-bad4-9aa9fb82285b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9751ae7b-8781-42e7-abd6-12737ec128ae" xml:space="preserve">
+          <source>Click <bpt id="0bbb9b94-43b6-4a59-be64-504609b1e2fd">&lt;strong&gt;</bpt>Staff<ept id="0bbb9b94-43b6-4a59-be64-504609b1e2fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0bbb9b94-43b6-4a59-be64-504609b1e2fd">&lt;strong&gt;</bpt>Staff<ept id="0bbb9b94-43b6-4a59-be64-504609b1e2fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47beb57c-1164-4a0d-8354-562824be170e" xml:space="preserve">
+          <source><bpt id="3744efe6-76f4-4f7e-80a5-715656369e6e">&lt;linkText&gt;</bpt>Staff<ept id="3744efe6-76f4-4f7e-80a5-715656369e6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3744efe6-76f4-4f7e-80a5-715656369e6e">&lt;linkText&gt;</bpt>Staff<ept id="3744efe6-76f4-4f7e-80a5-715656369e6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b82949b6-beb5-4c76-86e0-90470202a9f7" xml:space="preserve">
+          <source>Under <bpt id="25a780f2-a58d-4ebd-80f5-22bf65a4cc1b">&lt;strong&gt;</bpt>Actions<ept id="25a780f2-a58d-4ebd-80f5-22bf65a4cc1b">&lt;/strong&gt;</ept>, click <bpt id="76b00e62-e7be-4e52-8428-4fffc57e3545">&lt;strong&gt;</bpt>Add Employee<ept id="76b00e62-e7be-4e52-8428-4fffc57e3545">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="25a780f2-a58d-4ebd-80f5-22bf65a4cc1b">&lt;strong&gt;</bpt>Actions<ept id="25a780f2-a58d-4ebd-80f5-22bf65a4cc1b">&lt;/strong&gt;</ept>, click <bpt id="76b00e62-e7be-4e52-8428-4fffc57e3545">&lt;strong&gt;</bpt>Add Employee<ept id="76b00e62-e7be-4e52-8428-4fffc57e3545">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96d73ee0-f7c1-475d-9871-7d176748ce09" xml:space="preserve">
+          <source><bpt id="8c5f1f99-d718-428d-8d87-e3192a42d88e">&lt;linkText&gt;</bpt>Add Employees<ept id="8c5f1f99-d718-428d-8d87-e3192a42d88e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c5f1f99-d718-428d-8d87-e3192a42d88e">&lt;linkText&gt;</bpt>Add Employees<ept id="8c5f1f99-d718-428d-8d87-e3192a42d88e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49e91cbf-f248-4e6e-ae98-c1d26bf247c2" xml:space="preserve">
+          <source>In the <bpt id="7f38ef7b-657c-440e-ae1e-0909ef9447bc">&lt;strong&gt;</bpt>Add Employees<ept id="7f38ef7b-657c-440e-ae1e-0909ef9447bc">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="7f38ef7b-657c-440e-ae1e-0909ef9447bc">&lt;strong&gt;</bpt>Add Employees<ept id="7f38ef7b-657c-440e-ae1e-0909ef9447bc">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="8a5e8e45-82ab-4f40-8cb7-7cd2c31c52ed" xml:space="preserve">
+          <source><bpt id="517a5a59-19b7-4070-b91f-83249d87eadd">&lt;linkText&gt;</bpt>Save Employees<ept id="517a5a59-19b7-4070-b91f-83249d87eadd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="517a5a59-19b7-4070-b91f-83249d87eadd">&lt;linkText&gt;</bpt>Save Employees<ept id="517a5a59-19b7-4070-b91f-83249d87eadd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d38af61-15fa-432e-babf-eb9d38dd609e" xml:space="preserve">
+          <source>Type the <bpt id="2ceb36ee-b6a3-4801-a32f-72cebc892832">&lt;strong&gt;</bpt>First Name<ept id="2ceb36ee-b6a3-4801-a32f-72cebc892832">&lt;/strong&gt;</ept>, <bpt id="10d347f9-1b4d-441f-bbdb-c71476d02ff4">&lt;strong&gt;</bpt>Last Name<ept id="10d347f9-1b4d-441f-bbdb-c71476d02ff4">&lt;/strong&gt;</ept> and <bpt id="d1540fbc-8986-4a67-9d93-d878c393934d">&lt;strong&gt;</bpt>Email<ept id="d1540fbc-8986-4a67-9d93-d878c393934d">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the <bpt id="2ceb36ee-b6a3-4801-a32f-72cebc892832">&lt;strong&gt;</bpt>First Name<ept id="2ceb36ee-b6a3-4801-a32f-72cebc892832">&lt;/strong&gt;</ept>, <bpt id="10d347f9-1b4d-441f-bbdb-c71476d02ff4">&lt;strong&gt;</bpt>Last Name<ept id="10d347f9-1b4d-441f-bbdb-c71476d02ff4">&lt;/strong&gt;</ept> and <bpt id="d1540fbc-8986-4a67-9d93-d878c393934d">&lt;strong&gt;</bpt>Email<ept id="d1540fbc-8986-4a67-9d93-d878c393934d">&lt;/strong&gt;</ept> of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="8f628301-3764-4ab1-a00d-64e832360a0e" xml:space="preserve">
+          <source>Click <bpt id="b055b685-839f-4905-bda3-1e0a059d5b41">&lt;strong&gt;</bpt>Save Employees<ept id="b055b685-839f-4905-bda3-1e0a059d5b41">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b055b685-839f-4905-bda3-1e0a059d5b41">&lt;strong&gt;</bpt>Save Employees<ept id="b055b685-839f-4905-bda3-1e0a059d5b41">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52c3a2ab-91d3-43e4-b84d-bf0c0fc62e0b" xml:space="preserve">
+          <source>You can use any other ShiftPlanning user account creation tools or APIs provided by ShiftPlanning to provision AAD user accounts.</source>
+          <target state="new">You can use any other ShiftPlanning user account creation tools or APIs provided by ShiftPlanning to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="5c6a41a6-9426-4ad5-8d87-b87bed467ea0" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="9e5c24bb-d536-4e15-9089-a977fb9b9065" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="f103975e-f941-4d85-95a1-87d69b759187" xml:space="preserve">
+          <source>On the <bpt id="9c8e0466-917a-4ae3-a7c1-8feb1c4f14a9">&lt;strong&gt;</bpt>ShiftPlanning **application integration page, click **Assign users<ept id="9c8e0466-917a-4ae3-a7c1-8feb1c4f14a9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9c8e0466-917a-4ae3-a7c1-8feb1c4f14a9">&lt;strong&gt;</bpt>ShiftPlanning **application integration page, click **Assign users<ept id="9c8e0466-917a-4ae3-a7c1-8feb1c4f14a9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3054fd0e-0b40-46de-99d6-d3a73ea96a87" xml:space="preserve">
+          <source><bpt id="6411fdfe-0041-4254-97c9-6b0316f307a5">&lt;linkText&gt;</bpt>Assign Users<ept id="6411fdfe-0041-4254-97c9-6b0316f307a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6411fdfe-0041-4254-97c9-6b0316f307a5">&lt;linkText&gt;</bpt>Assign Users<ept id="6411fdfe-0041-4254-97c9-6b0316f307a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bdfd5f5-cb5a-4eff-8f80-0fb44b8e35d3" xml:space="preserve">
+          <source>Select your test user, click <bpt id="81ce7619-bfcd-4346-ac5b-574a32c4002f">&lt;strong&gt;</bpt>Assign<ept id="81ce7619-bfcd-4346-ac5b-574a32c4002f">&lt;/strong&gt;</ept>, and then click <bpt id="24a7048e-c65f-46e1-959a-0fc359506d9c">&lt;strong&gt;</bpt>Yes<ept id="24a7048e-c65f-46e1-959a-0fc359506d9c">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="81ce7619-bfcd-4346-ac5b-574a32c4002f">&lt;strong&gt;</bpt>Assign<ept id="81ce7619-bfcd-4346-ac5b-574a32c4002f">&lt;/strong&gt;</ept>, and then click <bpt id="24a7048e-c65f-46e1-959a-0fc359506d9c">&lt;strong&gt;</bpt>Yes<ept id="24a7048e-c65f-46e1-959a-0fc359506d9c">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="efd020b3-22e4-4130-ba39-d6607100cc4f" xml:space="preserve">
+          <source><bpt id="c030d695-54cc-45c6-a519-d3fbd817a3e1">&lt;linkText&gt;</bpt>Yes<ept id="c030d695-54cc-45c6-a519-d3fbd817a3e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c030d695-54cc-45c6-a519-d3fbd817a3e1">&lt;linkText&gt;</bpt>Yes<ept id="c030d695-54cc-45c6-a519-d3fbd817a3e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19a25292-4fff-4aa4-9ab9-536a64540e03" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="4993e52f-bb54-451d-89dc-d1b2d2174274" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;/linkText&gt;</ept><bpt id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;title&gt;</bpt><ept id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;/linkText&gt;</ept><bpt id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;title&gt;</bpt><ept id="e63ec8d6-b611-4a94-8b2c-9bed3dc66fe8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

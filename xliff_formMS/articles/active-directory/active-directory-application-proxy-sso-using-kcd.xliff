@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e86bc474-1d1d-455c-a7e7-cd02da133d87" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e86bc474-1d1d-455c-a7e7-cd02da133d87" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0ca7060f-4f37-46d7-9bd6-faafce4c3fee">
+        <trans-unit id="84fc33d5-e4d0-488e-85ae-9128e3e8d261" xml:space="preserve">
+          <source>SSO for On Prem IWA Apps Using KCD with Application Proxy</source>
+          <target state="new">SSO for On Prem IWA Apps Using KCD with Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="eed53074-d1b4-44e9-8be1-7ada8abc023d" xml:space="preserve">
+          <source>Covers how to get up and running with Azure AD Application Proxy.</source>
+          <target state="new">Covers how to get up and running with Azure AD Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="cbb7e23e-055e-4845-ad7d-5b81040a15a2" xml:space="preserve">
+          <source>You can enable Single Sign On (SSO) to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users and send and receive tokens on their behalf.</source>
+          <target state="new">You can enable Single Sign On (SSO) to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users and send and receive tokens on their behalf.</target>
+        </trans-unit>
+        <trans-unit id="341a1919-6142-44cb-b789-b899f9a81e57" xml:space="preserve">
+          <source>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="cf9b36c4-8578-423a-93e4-58d492962d17" xml:space="preserve">
+          <source>For more information, see <bpt id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;/linkText&gt;</ept><bpt id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;title&gt;</bpt><ept id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;/linkText&gt;</ept><bpt id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;title&gt;</bpt><ept id="4791d41c-60a9-4883-bd31-5f4714c4d61e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e14cc21-6df0-40d0-8974-51d2c19ec403" xml:space="preserve">
+          <source><bpt id="5a2e0e2e-faef-487a-827c-e3d426edadbe">&lt;linkText&gt;</bpt>Microsoft AAD authentication flow diagram<ept id="5a2e0e2e-faef-487a-827c-e3d426edadbe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a2e0e2e-faef-487a-827c-e3d426edadbe">&lt;linkText&gt;</bpt>Microsoft AAD authentication flow diagram<ept id="5a2e0e2e-faef-487a-827c-e3d426edadbe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cc01363-8ce1-41eb-8f2f-81a5cc1fcdd1" xml:space="preserve">
+          <source>This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.</source>
+          <target state="new">This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.</target>
+        </trans-unit>
+        <trans-unit id="f3ed84e2-0519-466d-abda-14bffb10e20b" xml:space="preserve">
+          <source>The general flow is:</source>
+          <target state="new">The general flow is:</target>
+        </trans-unit>
+        <trans-unit id="7e1788c8-e2a4-434f-bf71-4883679c1ea5" xml:space="preserve">
+          <source>The user enters the URL to access the on-prem application through Application Proxy.</source>
+          <target state="new">The user enters the URL to access the on-prem application through Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="122b527e-a6be-4d2f-8e37-3decd677afce" xml:space="preserve">
+          <source>Application Proxy redirects the request to Azure AD authentication services to preauthenticate.</source>
+          <target state="new">Application Proxy redirects the request to Azure AD authentication services to preauthenticate.</target>
+        </trans-unit>
+        <trans-unit id="81fda4a3-a60d-43eb-9002-71e812d4d23a" xml:space="preserve">
+          <source>At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication.</source>
+          <target state="new">At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication.</target>
+        </trans-unit>
+        <trans-unit id="3962785b-2494-44e5-8f96-4bc95d402bb9" xml:space="preserve">
+          <source>If the user is validated, Azure AD creates a token and sends it to the user.</source>
+          <target state="new">If the user is validated, Azure AD creates a token and sends it to the user.</target>
+        </trans-unit>
+        <trans-unit id="de081b10-6e51-4b2b-8374-521a03aa79ff" xml:space="preserve">
+          <source>The user passes the token to Application Proxy.</source>
+          <target state="new">The user passes the token to Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="c3ccf5fa-117f-4091-ba45-f3c74c4b2145" xml:space="preserve">
+          <source>Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.</source>
+          <target state="new">Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.</target>
+        </trans-unit>
+        <trans-unit id="4f584e05-7374-46e7-82f0-3c4cc9cfd526" xml:space="preserve">
+          <source>The Connector performs Kerberos Constrained Delegation (KCD) negotiation with the on-prem AD, impersonating the user to get a Kerberos token to the application.</source>
+          <target state="new">The Connector performs Kerberos Constrained Delegation (KCD) negotiation with the on-prem AD, impersonating the user to get a Kerberos token to the application.</target>
+        </trans-unit>
+        <trans-unit id="adb87b52-3f07-4104-90ed-2089151f4e9a" xml:space="preserve">
+          <source>Active Directory sends the Kerberos token for the application to the Connector.</source>
+          <target state="new">Active Directory sends the Kerberos token for the application to the Connector.</target>
+        </trans-unit>
+        <trans-unit id="863db1be-14ec-433c-914f-29a0486225b1" xml:space="preserve">
+          <source>The Connector sends the original request to the application server, using the Kerberos token it received from AD.</source>
+          <target state="new">The Connector sends the original request to the application server, using the Kerberos token it received from AD.</target>
+        </trans-unit>
+        <trans-unit id="a1699b7a-8b1c-42d9-b2da-0b53992e42f8" xml:space="preserve">
+          <source>The application sends the response to the Connector which is then returned to the Application Proxy service and finally to the user.</source>
+          <target state="new">The application sends the response to the Connector which is then returned to the Application Proxy service and finally to the user.</target>
+        </trans-unit>
+        <trans-unit id="6931bed4-61f4-4771-aa8e-cfc031c5c385" xml:space="preserve">
+          <source>Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication.</source>
+          <target state="new">Make sure that your apps, such as your SharePoint Web apps, are set to use Integrated Windows Authentication.</target>
+        </trans-unit>
+        <trans-unit id="2c4b638d-1373-49b7-b17f-36c997e64218" xml:space="preserve">
+          <source>For more information see <bpt id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;linkText&gt;</bpt>Enable Support for Kerberos Authentication<ept id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;/linkText&gt;</ept><bpt id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;title&gt;</bpt><ept id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;/title&gt;</ept>, or for SharePoint see <bpt id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;linkText&gt;</bpt>Plan for Kerberos authentication in SharePoint 2013<ept id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;/linkText&gt;</ept><bpt id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;title&gt;</bpt><ept id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information see <bpt id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;linkText&gt;</bpt>Enable Support for Kerberos Authentication<ept id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;/linkText&gt;</ept><bpt id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;title&gt;</bpt><ept id="f60b6af8-a822-4e80-b6da-8a54cc97e001">&lt;/title&gt;</ept>, or for SharePoint see <bpt id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;linkText&gt;</bpt>Plan for Kerberos authentication in SharePoint 2013<ept id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;/linkText&gt;</ept><bpt id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;title&gt;</bpt><ept id="ce953520-42c9-4ec4-a19b-43d7dcdf53e0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62408e67-cc07-47d9-adcc-1da34f5cf097" xml:space="preserve">
+          <source>Create Service Principal Names for your applications.</source>
+          <target state="new">Create Service Principal Names for your applications.</target>
+        </trans-unit>
+        <trans-unit id="2a13a4c2-62b8-4706-870a-9a007c089b39" xml:space="preserve">
+          <source>Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain.</source>
+          <target state="new">Make sure that the server running the Connector and the server running the app you are publishing are domain joined and part of the same domain.</target>
+        </trans-unit>
+        <trans-unit id="65466156-1350-4cb2-b543-796df906d448" xml:space="preserve">
+          <source>For more information on domain join, see <bpt id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;linkText&gt;</bpt>Join a Computer to a Domain<ept id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;/linkText&gt;</ept><bpt id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;title&gt;</bpt><ept id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on domain join, see <bpt id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;linkText&gt;</bpt>Join a Computer to a Domain<ept id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;/linkText&gt;</ept><bpt id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;title&gt;</bpt><ept id="aafd0d76-9feb-4e0b-a573-469261c9661b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="12f9539f-7cf9-4445-aa4a-38c3fec957d9" xml:space="preserve">
+          <source>The Active Directory configuration varies, depending on whether your Application Proxy Connector and the published server are in the same domain or not.</source>
+          <target state="new">The Active Directory configuration varies, depending on whether your Application Proxy Connector and the published server are in the same domain or not.</target>
+        </trans-unit>
+        <trans-unit id="a803ebd9-ec2a-4f28-b89a-a5cd10311716" xml:space="preserve">
+          <source>In Active Directory, go to <bpt id="49127113-2888-4f89-87b7-69fb6c63f183">&lt;strong&gt;</bpt>Tools<ept id="49127113-2888-4f89-87b7-69fb6c63f183">&lt;/strong&gt;</ept> &gt; <bpt id="40e3e283-8697-4524-832b-ea70d4af43a3">&lt;strong&gt;</bpt>Users and Computers<ept id="40e3e283-8697-4524-832b-ea70d4af43a3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Active Directory, go to <bpt id="49127113-2888-4f89-87b7-69fb6c63f183">&lt;strong&gt;</bpt>Tools<ept id="49127113-2888-4f89-87b7-69fb6c63f183">&lt;/strong&gt;</ept> &gt; <bpt id="40e3e283-8697-4524-832b-ea70d4af43a3">&lt;strong&gt;</bpt>Users and Computers<ept id="40e3e283-8697-4524-832b-ea70d4af43a3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="957132e3-c4c7-4532-b521-1b994adf3a81" xml:space="preserve">
+          <source>Select the server running the Connector.</source>
+          <target state="new">Select the server running the Connector.</target>
+        </trans-unit>
+        <trans-unit id="b5843f3b-6269-48d6-b396-c33e0658a1da" xml:space="preserve">
+          <source>Right click and select <bpt id="0cae9598-a719-400e-b24a-52171643ac0c">&lt;strong&gt;</bpt>Properties<ept id="0cae9598-a719-400e-b24a-52171643ac0c">&lt;/strong&gt;</ept> &gt; <bpt id="b6b9596b-6179-4d9a-8877-1a773315599b">&lt;strong&gt;</bpt>Delegation<ept id="b6b9596b-6179-4d9a-8877-1a773315599b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right click and select <bpt id="0cae9598-a719-400e-b24a-52171643ac0c">&lt;strong&gt;</bpt>Properties<ept id="0cae9598-a719-400e-b24a-52171643ac0c">&lt;/strong&gt;</ept> &gt; <bpt id="b6b9596b-6179-4d9a-8877-1a773315599b">&lt;strong&gt;</bpt>Delegation<ept id="b6b9596b-6179-4d9a-8877-1a773315599b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="790ce11c-0cf3-4764-a799-51f04184d830" xml:space="preserve">
+          <source>Select <bpt id="7f1bdc4f-02e4-4938-8910-dd6bcfea1c80">&lt;strong&gt;</bpt>Trust this computer for delegation to specified services only<ept id="7f1bdc4f-02e4-4938-8910-dd6bcfea1c80">&lt;/strong&gt;</ept> and under <bpt id="c5e11afa-d3c3-4461-9da6-607902362745">&lt;strong&gt;</bpt>Services to which this account can present delegated credentials<ept id="c5e11afa-d3c3-4461-9da6-607902362745">&lt;/strong&gt;</ept>, add the value for the Service Principal Name (SPN) identity of the application server.</source>
+          <target state="new">Select <bpt id="7f1bdc4f-02e4-4938-8910-dd6bcfea1c80">&lt;strong&gt;</bpt>Trust this computer for delegation to specified services only<ept id="7f1bdc4f-02e4-4938-8910-dd6bcfea1c80">&lt;/strong&gt;</ept> and under <bpt id="c5e11afa-d3c3-4461-9da6-607902362745">&lt;strong&gt;</bpt>Services to which this account can present delegated credentials<ept id="c5e11afa-d3c3-4461-9da6-607902362745">&lt;/strong&gt;</ept>, add the value for the Service Principal Name (SPN) identity of the application server.</target>
+        </trans-unit>
+        <trans-unit id="4d0c4c7c-ba6f-4119-bd3e-6c0feb3ddcd7" xml:space="preserve">
+          <source>This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.</source>
+          <target state="new">This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.</target>
+        </trans-unit>
+        <trans-unit id="8a5de22f-5f8d-4d56-b189-11812eb8e163" xml:space="preserve">
+          <source><bpt id="9dc516e8-7b3e-4194-ab25-51d27eb46de8">&lt;linkText&gt;</bpt>Connector-SVR Properties window screenshot<ept id="9dc516e8-7b3e-4194-ab25-51d27eb46de8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9dc516e8-7b3e-4194-ab25-51d27eb46de8">&lt;linkText&gt;</bpt>Connector-SVR Properties window screenshot<ept id="9dc516e8-7b3e-4194-ab25-51d27eb46de8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34c7928b-a09f-4848-b8fe-34fc48bbbe80" xml:space="preserve">
+          <source>For a list of prerequisites for working with KCD across domains, see <bpt id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;linkText&gt;</bpt>Kerberos Constrained Delegation across domains<ept id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;/linkText&gt;</ept><bpt id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;title&gt;</bpt><ept id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of prerequisites for working with KCD across domains, see <bpt id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;linkText&gt;</bpt>Kerberos Constrained Delegation across domains<ept id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;/linkText&gt;</ept><bpt id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;title&gt;</bpt><ept id="5154f951-6524-4f3d-9496-f29bebaa3ff1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2e020a6-c97e-47de-9e7d-9e9cfcc1159f" xml:space="preserve">
+          <source>In Windows 2012 R2, use the <bpt id="28f17bbd-5d97-430c-9fe1-413c394211e2">&lt;code&gt;</bpt>principalsallowedtodelegateto<ept id="28f17bbd-5d97-430c-9fe1-413c394211e2">&lt;/code&gt;</ept> property on the Connector server to enable the Application Proxy to delegate for the Connector server, where the published server is <bpt id="3e3366b9-7d38-43be-bf41-c92adc76524d">&lt;code&gt;</bpt>sharepointserviceaccount<ept id="3e3366b9-7d38-43be-bf41-c92adc76524d">&lt;/code&gt;</ept> and the delegating server is <bpt id="c1e879dc-b515-46ae-a8b8-2c2c02168198">&lt;code&gt;</bpt>connectormachineaccount<ept id="c1e879dc-b515-46ae-a8b8-2c2c02168198">&lt;/code&gt;</ept>.</source>
+          <target state="new">In Windows 2012 R2, use the <bpt id="28f17bbd-5d97-430c-9fe1-413c394211e2">&lt;code&gt;</bpt>principalsallowedtodelegateto<ept id="28f17bbd-5d97-430c-9fe1-413c394211e2">&lt;/code&gt;</ept> property on the Connector server to enable the Application Proxy to delegate for the Connector server, where the published server is <bpt id="3e3366b9-7d38-43be-bf41-c92adc76524d">&lt;code&gt;</bpt>sharepointserviceaccount<ept id="3e3366b9-7d38-43be-bf41-c92adc76524d">&lt;/code&gt;</ept> and the delegating server is <bpt id="c1e879dc-b515-46ae-a8b8-2c2c02168198">&lt;code&gt;</bpt>connectormachineaccount<ept id="c1e879dc-b515-46ae-a8b8-2c2c02168198">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c0cebd85-a9ac-4070-9b08-b01fe1b804e9" xml:space="preserve">
+          <source><bpt id="403e6546-4827-40da-9012-bebd41a98ead">&lt;code&gt;</bpt>sharepointserviceaccount<ept id="403e6546-4827-40da-9012-bebd41a98ead">&lt;/code&gt;</ept> can be the SPS machine account or a service account under which the SPS app pool is running.</source>
+          <target state="new"><bpt id="403e6546-4827-40da-9012-bebd41a98ead">&lt;code&gt;</bpt>sharepointserviceaccount<ept id="403e6546-4827-40da-9012-bebd41a98ead">&lt;/code&gt;</ept> can be the SPS machine account or a service account under which the SPS app pool is running.</target>
+        </trans-unit>
+        <trans-unit id="de550968-b758-4f2c-beba-d0a52c46e114" xml:space="preserve">
+          <source>Publish your application according to the instructions described in <bpt id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;/linkText&gt;</ept><bpt id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;title&gt;</bpt><ept id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Publish your application according to the instructions described in <bpt id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;linkText&gt;</bpt>Publish applications with Application Proxy<ept id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;/linkText&gt;</ept><bpt id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;title&gt;</bpt><ept id="9b140c52-db34-49a3-bb16-d1c7928e054a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17a0c345-a9c0-46d3-848f-b3eec1b67b99" xml:space="preserve">
+          <source>Make sure to select <bpt id="f309650f-39d0-42ce-bd0d-3378e85b949b">&lt;strong&gt;</bpt>Azure Active Directory<ept id="f309650f-39d0-42ce-bd0d-3378e85b949b">&lt;/strong&gt;</ept> as the <bpt id="75ba6424-6893-4310-b162-fd4c66a02a7f">&lt;strong&gt;</bpt>Preauthentication Method<ept id="75ba6424-6893-4310-b162-fd4c66a02a7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Make sure to select <bpt id="f309650f-39d0-42ce-bd0d-3378e85b949b">&lt;strong&gt;</bpt>Azure Active Directory<ept id="f309650f-39d0-42ce-bd0d-3378e85b949b">&lt;/strong&gt;</ept> as the <bpt id="75ba6424-6893-4310-b162-fd4c66a02a7f">&lt;strong&gt;</bpt>Preauthentication Method<ept id="75ba6424-6893-4310-b162-fd4c66a02a7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c0395df-9c41-4619-9b0c-d440bcca1fa4" xml:space="preserve">
+          <source>After your application appears in the list of applications, select it and click <bpt id="982f552d-2e98-42e5-a32a-324ca1d10d8a">&lt;strong&gt;</bpt>Configure<ept id="982f552d-2e98-42e5-a32a-324ca1d10d8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After your application appears in the list of applications, select it and click <bpt id="982f552d-2e98-42e5-a32a-324ca1d10d8a">&lt;strong&gt;</bpt>Configure<ept id="982f552d-2e98-42e5-a32a-324ca1d10d8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3b42aa8c-ae94-4bf4-b66c-3ba7f33aff16" xml:space="preserve">
+          <source>Under <bpt id="658a180a-1c8e-4372-9333-f2273d42395d">&lt;strong&gt;</bpt>Properties<ept id="658a180a-1c8e-4372-9333-f2273d42395d">&lt;/strong&gt;</ept>, set <bpt id="f674e3d7-8ac6-49ed-a6ba-aac1db361d69">&lt;strong&gt;</bpt>Internal Authentication Method<ept id="f674e3d7-8ac6-49ed-a6ba-aac1db361d69">&lt;/strong&gt;</ept> to <bpt id="696f22fd-8d4c-40ed-bc18-a59abd3964a1">&lt;strong&gt;</bpt>Integrated Windows Authentication<ept id="696f22fd-8d4c-40ed-bc18-a59abd3964a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="658a180a-1c8e-4372-9333-f2273d42395d">&lt;strong&gt;</bpt>Properties<ept id="658a180a-1c8e-4372-9333-f2273d42395d">&lt;/strong&gt;</ept>, set <bpt id="f674e3d7-8ac6-49ed-a6ba-aac1db361d69">&lt;strong&gt;</bpt>Internal Authentication Method<ept id="f674e3d7-8ac6-49ed-a6ba-aac1db361d69">&lt;/strong&gt;</ept> to <bpt id="696f22fd-8d4c-40ed-bc18-a59abd3964a1">&lt;strong&gt;</bpt>Integrated Windows Authentication<ept id="696f22fd-8d4c-40ed-bc18-a59abd3964a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f53bea2c-42a5-4abe-8789-0b6d83901672" xml:space="preserve">
+          <source><bpt id="a97e0198-6a2a-4f34-9b4d-dd0998bb097c">&lt;linkText&gt;</bpt>Advanced Application Configuration<ept id="a97e0198-6a2a-4f34-9b4d-dd0998bb097c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a97e0198-6a2a-4f34-9b4d-dd0998bb097c">&lt;linkText&gt;</bpt>Advanced Application Configuration<ept id="a97e0198-6a2a-4f34-9b4d-dd0998bb097c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71b2afe7-c517-4790-b24c-83f0b26e3b59" xml:space="preserve">
+          <source>Enter the <bpt id="9c102f5d-8913-4945-b22a-e18f63c9feaf">&lt;strong&gt;</bpt>Internal Application SPN<ept id="9c102f5d-8913-4945-b22a-e18f63c9feaf">&lt;/strong&gt;</ept> of the application server.</source>
+          <target state="new">Enter the <bpt id="9c102f5d-8913-4945-b22a-e18f63c9feaf">&lt;strong&gt;</bpt>Internal Application SPN<ept id="9c102f5d-8913-4945-b22a-e18f63c9feaf">&lt;/strong&gt;</ept> of the application server.</target>
+        </trans-unit>
+        <trans-unit id="7c33d746-997a-42bc-aba2-e2a5da168077" xml:space="preserve">
+          <source>In this example, the SPN for our published application is http/lob.contoso.com.</source>
+          <target state="new">In this example, the SPN for our published application is http/lob.contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="68fd6952-5bb8-4f81-ba80-1ddaa107f9a2" xml:space="preserve">
+          <source>The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work.</source>
+          <target state="new">The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work.</target>
+        </trans-unit>
+        <trans-unit id="c201493a-0852-4d93-9950-72fb0446ce30" xml:space="preserve">
+          <source>Make sure your Azure Active Directory is synchronized with your on-premises Active Directory.</source>
+          <target state="new">Make sure your Azure Active Directory is synchronized with your on-premises Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="7830bd32-6be8-4448-8613-db1c64756f0e" xml:space="preserve">
+          <source>Internal Authentication Method</source>
+          <target state="new">Internal Authentication Method</target>
+        </trans-unit>
+        <trans-unit id="16e73baa-f64a-44fd-b6c4-93c1840f01af" xml:space="preserve">
+          <source>If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. &lt;br&gt;&lt;br&gt; Select <bpt id="e66b3535-f2a1-4136-b4da-22cee4d38e6c">&lt;strong&gt;</bpt>Integrated Windows Authentication<ept id="e66b3535-f2a1-4136-b4da-22cee4d38e6c">&lt;/strong&gt;</ept> (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. &lt;br&gt;&lt;br&gt; Select <bpt id="f7f33387-7a8e-4a78-b17d-a1b8389e6a7e">&lt;strong&gt;</bpt>None<ept id="f7f33387-7a8e-4a78-b17d-a1b8389e6a7e">&lt;/strong&gt;</ept> if your application does not use IWA.</source>
+          <target state="new">If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. &lt;br&gt;&lt;br&gt; Select <bpt id="e66b3535-f2a1-4136-b4da-22cee4d38e6c">&lt;strong&gt;</bpt>Integrated Windows Authentication<ept id="e66b3535-f2a1-4136-b4da-22cee4d38e6c">&lt;/strong&gt;</ept> (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. &lt;br&gt;&lt;br&gt; Select <bpt id="f7f33387-7a8e-4a78-b17d-a1b8389e6a7e">&lt;strong&gt;</bpt>None<ept id="f7f33387-7a8e-4a78-b17d-a1b8389e6a7e">&lt;/strong&gt;</ept> if your application does not use IWA.</target>
+        </trans-unit>
+        <trans-unit id="a889a435-42fb-482b-9da5-2ec8da224f22" xml:space="preserve">
+          <source>Internal Application SPN</source>
+          <target state="new">Internal Application SPN</target>
+        </trans-unit>
+        <trans-unit id="44e94696-16b8-402b-9e2a-5e849f71f4aa" xml:space="preserve">
+          <source>This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD.</source>
+          <target state="new">This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="da0a75a4-e14f-4056-be44-78b12617d07a" xml:space="preserve">
+          <source>The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD.</source>
+          <target state="new">The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD.</target>
+        </trans-unit>
+        <trans-unit id="68a2bb8c-1d64-40b7-82e9-8d6630fe0c90" xml:space="preserve">
+          <source>./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png</source>
+          <target state="new">./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png</target>
+        </trans-unit>
+        <trans-unit id="067ff536-8959-4a17-af5f-acade4a036a6" xml:space="preserve">
+          <source>./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg</source>
+          <target state="new">./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="e1cab5dd-4bdd-43f2-adb4-d03a0743f0a0" />
+    </body>
+  </file>
+</xliff>

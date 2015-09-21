@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="90ec2b94-fdab-4970-ac02-7f74bd019528" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="90ec2b94-fdab-4970-ac02-7f74bd019528" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7e91a587-706d-40e9-bf92-a37a4d78a0a0">
+        <trans-unit id="fd33679c-5ae0-47fe-8d4d-c1b94d912e44" xml:space="preserve">
+          <source>Azure Backup in 10mins | Microsoft Azure</source>
+          <target state="new">Azure Backup in 10mins | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="90637fe6-0f92-4c90-a577-8d6ebb01222b" xml:space="preserve">
+          <source>Get started with Azure Backup in 10mins</source>
+          <target state="new">Get started with Azure Backup in 10mins</target>
+        </trans-unit>
+        <trans-unit id="07091842-30de-4031-b8d5-7c0aba3faa1a" xml:space="preserve">
+          <source>It is extremely easy to setup Azure Backup and the following how-to videos will help you get started.</source>
+          <target state="new">It is extremely easy to setup Azure Backup and the following how-to videos will help you get started.</target>
+        </trans-unit>
+        <trans-unit id="bd60fae2-91a8-4143-93b8-84405a0ba7ac" xml:space="preserve">
+          <source>If you don't have an Azure subscription, you can get started with a free trial offer which lets you access any Azure service.</source>
+          <target state="new">If you don't have an Azure subscription, you can get started with a free trial offer which lets you access any Azure service.</target>
+        </trans-unit>
+        <trans-unit id="440a449f-5ab3-43c7-b1f2-c238f52f942d" xml:space="preserve">
+          <source>Visit the following link <bpt id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;linkText&gt;</bpt>http://azure.microsoft.com/pricing/free-trial/<ept id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;/linkText&gt;</ept><bpt id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;title&gt;</bpt><ept id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;/title&gt;</ept> to learn more.</source>
+          <target state="new">Visit the following link <bpt id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;linkText&gt;</bpt>http://azure.microsoft.com/pricing/free-trial/<ept id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;/linkText&gt;</ept><bpt id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;title&gt;</bpt><ept id="b6df5fd4-4f5c-440d-b988-82e811a831da">&lt;/title&gt;</ept> to learn more.</target>
+        </trans-unit>
+        <trans-unit id="714b8997-2cbd-463f-b0d5-d6f047d5f07c" xml:space="preserve">
+          <source>You can skip this step you have an Azure subscription.</source>
+          <target state="new">You can skip this step you have an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="4544be3b-8ce1-44a3-80e1-44f6a532d691" xml:space="preserve">
+          <source>Go through the steps mentioned in the video  <bpt id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 1 of 3 - Set up a backup vault on Azure<ept id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;/linkText&gt;</ept><bpt id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;title&gt;</bpt><ept id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;/title&gt;</ept> to:</source>
+          <target state="new">Go through the steps mentioned in the video  <bpt id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 1 of 3 - Set up a backup vault on Azure<ept id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;/linkText&gt;</ept><bpt id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;title&gt;</bpt><ept id="f33d50b6-2ee9-4e55-a361-895dfab6b86c">&lt;/title&gt;</ept> to:</target>
+        </trans-unit>
+        <trans-unit id="72e04ffa-b8d4-40d7-849a-a57a1561164f" xml:space="preserve">
+          <source>Create a backup vault</source>
+          <target state="new">Create a backup vault</target>
+        </trans-unit>
+        <trans-unit id="2745cc12-cb5b-4bfc-b5b6-bb8582fd61ea" xml:space="preserve">
+          <source>Download the "vault credentials"</source>
+          <target state="new">Download the "vault credentials"</target>
+        </trans-unit>
+        <trans-unit id="dbcda963-fe09-4abe-99e3-a090d5191376" xml:space="preserve">
+          <source>Download the Azure Backup agent</source>
+          <target state="new">Download the Azure Backup agent</target>
+        </trans-unit>
+        <trans-unit id="a9e07146-da3f-432a-9659-90ec207bf104" xml:space="preserve">
+          <source>Go through the steps mentioned in the video <bpt id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 2 of 3 - Prepare your production server for Azure Backup<ept id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;/linkText&gt;</ept><bpt id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;title&gt;</bpt><ept id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;/title&gt;</ept> to:</source>
+          <target state="new">Go through the steps mentioned in the video <bpt id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 2 of 3 - Prepare your production server for Azure Backup<ept id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;/linkText&gt;</ept><bpt id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;title&gt;</bpt><ept id="7e3023fb-b84b-4eeb-ad53-492762a21ab3">&lt;/title&gt;</ept> to:</target>
+        </trans-unit>
+        <trans-unit id="24892a86-d0b5-433b-b470-fd48fc8a5b01" xml:space="preserve">
+          <source>Install the Azure Backup agent on your Windows Server/client or DPM server.</source>
+          <target state="new">Install the Azure Backup agent on your Windows Server/client or DPM server.</target>
+        </trans-unit>
+        <trans-unit id="1b0b1985-d5ed-4cd1-b35e-683ea49c1cda" xml:space="preserve">
+          <source>Register the machine against the backup vault</source>
+          <target state="new">Register the machine against the backup vault</target>
+        </trans-unit>
+        <trans-unit id="448c38fc-38f1-443c-82b3-b412db137f84" xml:space="preserve">
+          <source>Go through the steps mentioned in the video <bpt id="51897810-2396-44e2-8966-fdf40c499555">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 3 of 3 - Start backing up your production server<ept id="51897810-2396-44e2-8966-fdf40c499555">&lt;/linkText&gt;</ept><bpt id="51897810-2396-44e2-8966-fdf40c499555">&lt;title&gt;</bpt><ept id="51897810-2396-44e2-8966-fdf40c499555">&lt;/title&gt;</ept> to:</source>
+          <target state="new">Go through the steps mentioned in the video <bpt id="51897810-2396-44e2-8966-fdf40c499555">&lt;linkText&gt;</bpt>Getting Started with Azure Backup 3 of 3 - Start backing up your production server<ept id="51897810-2396-44e2-8966-fdf40c499555">&lt;/linkText&gt;</ept><bpt id="51897810-2396-44e2-8966-fdf40c499555">&lt;title&gt;</bpt><ept id="51897810-2396-44e2-8966-fdf40c499555">&lt;/title&gt;</ept> to:</target>
+        </trans-unit>
+        <trans-unit id="99aef61b-3147-41a3-b528-d9ae6fb49bae" xml:space="preserve">
+          <source>Backup data from a server</source>
+          <target state="new">Backup data from a server</target>
+        </trans-unit>
+        <trans-unit id="d835246f-6c69-4254-8d64-27a551f4d9cc" xml:space="preserve">
+          <source>Restore backed up data from Azure</source>
+          <target state="new">Restore backed up data from Azure</target>
+        </trans-unit>
+        <trans-unit id="13bb1e53-9685-4f6e-acf6-950664a96467" xml:space="preserve">
+          <source>To learn more about Azure Backup, see <bpt id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;linkText&gt;</bpt>Azure Backup Overview<ept id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;/linkText&gt;</ept><bpt id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;title&gt;</bpt><ept id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more about Azure Backup, see <bpt id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;linkText&gt;</bpt>Azure Backup Overview<ept id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;/linkText&gt;</ept><bpt id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;title&gt;</bpt><ept id="39a02b0b-5ead-4072-bb6f-df58969fdcd6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98ef88aa-2ce7-4e58-bdd4-fe2ceb0fd876" xml:space="preserve">
+          <source><bpt id="9feb179e-e397-4d07-9735-64b081df2002">&lt;linkText&gt;</bpt>Back up Windows Server<ept id="9feb179e-e397-4d07-9735-64b081df2002">&lt;/linkText&gt;</ept><bpt id="9feb179e-e397-4d07-9735-64b081df2002">&lt;title&gt;</bpt><ept id="9feb179e-e397-4d07-9735-64b081df2002">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9feb179e-e397-4d07-9735-64b081df2002">&lt;linkText&gt;</bpt>Back up Windows Server<ept id="9feb179e-e397-4d07-9735-64b081df2002">&lt;/linkText&gt;</ept><bpt id="9feb179e-e397-4d07-9735-64b081df2002">&lt;title&gt;</bpt><ept id="9feb179e-e397-4d07-9735-64b081df2002">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2f9c7f17-8cad-4d07-8c9a-f03a3e19951b" xml:space="preserve">
+          <source>Visit the <bpt id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;linkText&gt;</bpt>Azure Backup Forum<ept id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;/linkText&gt;</ept><bpt id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;title&gt;</bpt><ept id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;linkText&gt;</bpt>Azure Backup Forum<ept id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;/linkText&gt;</ept><bpt id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;title&gt;</bpt><ept id="024dced0-973d-444d-9c37-e82f64eb98ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

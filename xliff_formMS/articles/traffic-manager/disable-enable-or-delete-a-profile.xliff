@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5861bd52-9541-4532-8f5b-e7d6f35a9ab1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5861bd52-9541-4532-8f5b-e7d6f35a9ab1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="15c97474-73ad-4f95-a509-8c5fe7c084d0">
+        <trans-unit id="ef4ccb78-93b3-485f-981b-b6c0840edc6e" xml:space="preserve">
+          <source>Disable, enable, or delete a Traffic Manager profile | Microsoft Azure</source>
+          <target state="new">Disable, enable, or delete a Traffic Manager profile | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c925f842-8ad9-4229-a4a5-ddaac891a7ec" xml:space="preserve">
+          <source>This article will help you work with your Traffic Manager profiles.</source>
+          <target state="new">This article will help you work with your Traffic Manager profiles.</target>
+        </trans-unit>
+        <trans-unit id="2c223a65-2a4d-4d27-9cb1-6f85b96b4046" xml:space="preserve">
+          <source>You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints.</source>
+          <target state="new">You can disable an existing Traffic Manager profile so that it will not refer user requests to its configured endpoints.</target>
+        </trans-unit>
+        <trans-unit id="da322a0f-83f4-482f-8748-8db0872d7d0a" xml:space="preserve">
+          <source>When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface.</source>
+          <target state="new">When you disable a Traffic Manager profile, the profile itself and the information contained in the profile will remain intact and can be edited in the Traffic Manager interface.</target>
+        </trans-unit>
+        <trans-unit id="79f00612-6e6b-4327-ac7f-c6bd0c7e3ad9" xml:space="preserve">
+          <source>When you want to re-enable the profile, you can easily do so in the Management Portal and referrals will resume.</source>
+          <target state="new">When you want to re-enable the profile, you can easily do so in the Management Portal and referrals will resume.</target>
+        </trans-unit>
+        <trans-unit id="e74dd47c-6105-497a-9f74-dc1cf942c6ec" xml:space="preserve">
+          <source>When you create a Traffic Manager profile in the Management Portal, it’s automatically enabled.</source>
+          <target state="new">When you create a Traffic Manager profile in the Management Portal, it’s automatically enabled.</target>
+        </trans-unit>
+        <trans-unit id="ae7982fc-af7e-4f05-af48-b830318b1158" xml:space="preserve">
+          <source>Modify the DNS resource record on your Internet DNS server to use the appropriate record type and pointer to either another name or the IP address of a specific location on the Internet.</source>
+          <target state="new">Modify the DNS resource record on your Internet DNS server to use the appropriate record type and pointer to either another name or the IP address of a specific location on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="26c008c6-1dd9-46c2-8f7c-f00458996241" xml:space="preserve">
+          <source>In other words, change the DNS resource record on your Internet DNS server so that it no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</source>
+          <target state="new">In other words, change the DNS resource record on your Internet DNS server so that it no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="dd8a012d-afce-41de-b1ad-7d696f456ae1" xml:space="preserve">
+          <source>Traffic will stop being directed to the endpoints through the Traffic Manager profile settings.</source>
+          <target state="new">Traffic will stop being directed to the endpoints through the Traffic Manager profile settings.</target>
+        </trans-unit>
+        <trans-unit id="ac8a7b7c-8e3e-4467-82ec-730b1ac97623" xml:space="preserve">
+          <source>Select the profile that you want to disable.</source>
+          <target state="new">Select the profile that you want to disable.</target>
+        </trans-unit>
+        <trans-unit id="0e6b81c5-106c-4bb7-8774-8391e876b3ca" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</target>
+        </trans-unit>
+        <trans-unit id="b89bd386-dd1e-4e8f-8b5b-da9580241477" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="50d0cb21-6507-4efa-947d-261aa0e24be0" xml:space="preserve">
+          <source>After selecting the profile, click Disable at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click Disable at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="fa00cb35-ae24-4517-a18f-dc0cb029294e" xml:space="preserve">
+          <source>Select the profile that you want to enable.</source>
+          <target state="new">Select the profile that you want to enable.</target>
+        </trans-unit>
+        <trans-unit id="341818fe-bfc9-4522-b767-f6cbce359dbe" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by clicking the column next to the profile name.</target>
+        </trans-unit>
+        <trans-unit id="d68bffe5-bb42-46f6-9e16-6bee85c60f8a" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="0216c5b9-ccf5-4870-8d75-44b9c949e69b" xml:space="preserve">
+          <source>After selecting the profile, click Enable at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click Enable at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="e94ac6db-7f75-491c-a4e2-4811eb385f4d" xml:space="preserve">
+          <source>Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile.</source>
+          <target state="new">Modify the DNS resource record on your Internet DNS server to use the CNAME record type, which maps your company domain name to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="443f6cb0-2c50-4040-8153-778db45c93d3" xml:space="preserve">
+          <source>For more information, see <bpt id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;linkText&gt;</bpt>Point a Company Internet Domain to a Traffic Manager Domain<ept id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;/linkText&gt;</ept><bpt id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;title&gt;</bpt><ept id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;linkText&gt;</bpt>Point a Company Internet Domain to a Traffic Manager Domain<ept id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;/linkText&gt;</ept><bpt id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;title&gt;</bpt><ept id="522639dd-13d2-4d6f-b726-f75aaf05b1cc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52f108fb-6336-402b-8cb7-46ad2c148119" xml:space="preserve">
+          <source>Traffic will start being directed to the endpoints again.</source>
+          <target state="new">Traffic will start being directed to the endpoints again.</target>
+        </trans-unit>
+        <trans-unit id="3a3486e1-0e4e-4a9a-8601-d4f8d2434943" xml:space="preserve">
+          <source>Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</source>
+          <target state="new">Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="a70f74ef-cab9-4728-a2cb-2b06f2704da5" xml:space="preserve">
+          <source>Select the profile that you want to delete.</source>
+          <target state="new">Select the profile that you want to delete.</target>
+        </trans-unit>
+        <trans-unit id="b80535d6-1958-41ad-84d8-d16c1b708da1" xml:space="preserve">
+          <source>To select the profile, on the Traffic Manager page, highlight the profile by</source>
+          <target state="new">To select the profile, on the Traffic Manager page, highlight the profile by</target>
+        </trans-unit>
+        <trans-unit id="66293ec3-582a-47d6-87c2-db58029f3bbd" xml:space="preserve">
+          <source>clicking the column next to the profile.</source>
+          <target state="new">clicking the column next to the profile.</target>
+        </trans-unit>
+        <trans-unit id="99a1aba8-915b-4f9b-9310-8ccf285b0fe7" xml:space="preserve">
+          <source>Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</source>
+          <target state="new">Do not click the name of the profile or the arrow next to the name, as this will take you to the settings page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="d0b74a73-0ed2-4df0-89b0-41f11cd148f6" xml:space="preserve">
+          <source>After selecting the profile, click Delete at the bottom of the page.</source>
+          <target state="new">After selecting the profile, click Delete at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="d175a47d-043d-4653-818d-fe939df19563" xml:space="preserve">
+          <source><bpt id="84459401-be22-439c-b399-8fab8009ce74">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="84459401-be22-439c-b399-8fab8009ce74">&lt;/linkText&gt;</ept><bpt id="84459401-be22-439c-b399-8fab8009ce74">&lt;title&gt;</bpt><ept id="84459401-be22-439c-b399-8fab8009ce74">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84459401-be22-439c-b399-8fab8009ce74">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="84459401-be22-439c-b399-8fab8009ce74">&lt;/linkText&gt;</ept><bpt id="84459401-be22-439c-b399-8fab8009ce74">&lt;title&gt;</bpt><ept id="84459401-be22-439c-b399-8fab8009ce74">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a6591ce-382d-4a44-ac5e-375afa4e5c3b" xml:space="preserve">
+          <source><bpt id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;/linkText&gt;</ept><bpt id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;title&gt;</bpt><ept id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;/linkText&gt;</ept><bpt id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;title&gt;</bpt><ept id="e1f53bef-99d5-4432-a142-9248f3bfe8ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

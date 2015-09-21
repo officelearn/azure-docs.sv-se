@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7eb57ea7-cf8a-4f5c-a2dc-d7c8c032ab03" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7eb57ea7-cf8a-4f5c-a2dc-d7c8c032ab03" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4be2b286-4691-461c-a878-7fb58d777f51">
+        <trans-unit id="3504ef74-9d16-4998-80e7-d895f2380cd3" xml:space="preserve">
+          <source>Migrate an enterprise web app to Azure App Service</source>
+          <target state="new">Migrate an enterprise web app to Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="b4e26c17-fa09-4c72-a2f0-542ae15c6d99" xml:space="preserve">
+          <source>Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps</source>
+          <target state="new">Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps</target>
+        </trans-unit>
+        <trans-unit id="134f9658-5592-47a9-af60-520de4e084a7" xml:space="preserve">
+          <source>You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to <bpt id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;/linkText&gt;</ept><bpt id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;title&gt;</bpt><ept id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to <bpt id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;/linkText&gt;</ept><bpt id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;title&gt;</bpt><ept id="00a182b3-5ddf-46f1-9d7d-655265fe125e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edcda0a2-99f3-4b2d-a327-83617b276465" xml:space="preserve">
+          <source><bpt id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;linkText&gt;</bpt>Web Apps Migration Assistant<ept id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;/linkText&gt;</ept><bpt id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;title&gt;</bpt><ept id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;/title&gt;</ept> can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.</source>
+          <target state="new"><bpt id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;linkText&gt;</bpt>Web Apps Migration Assistant<ept id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;/linkText&gt;</ept><bpt id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;title&gt;</bpt><ept id="513329f2-c79e-4c62-9936-113a77aa2a37">&lt;/title&gt;</ept> can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.</target>
+        </trans-unit>
+        <trans-unit id="00247932-bfba-410c-88f9-07bd99294b49" xml:space="preserve">
+          <source>Windows Server 2003 will reach end of support on July 14th 2015.</source>
+          <target state="new">Windows Server 2003 will reach end of support on July 14th 2015.</target>
+        </trans-unit>
+        <trans-unit id="65ae2a40-4f2a-4f59-a180-b52b4689a6cd" xml:space="preserve">
+          <source>If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you.</source>
+          <target state="new">If you are currently hosting your websites on an IIS server that is Windows Server 2003, Web Apps is a low-risk, low-cost, and low-friction way to keep your websites online, and Web Apps Migration Assistant can help automate the migration process for you.</target>
+        </trans-unit>
+        <trans-unit id="582b339f-77fd-49ea-8cf0-cc8b2150cf76" xml:space="preserve">
+          <source>The Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure App Service Web Apps.</source>
+          <target state="new">The Migration Assistant creates a readiness report to identify any potential causes for concern or blocking issues which may prevent a successful migration from on-premises IIS to Azure App Service Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="9d207177-6219-4b1f-a8ca-664bc87e3061" xml:space="preserve">
+          <source>Some of the key items to be aware of are:</source>
+          <target state="new">Some of the key items to be aware of are:</target>
+        </trans-unit>
+        <trans-unit id="67070971-a366-41c5-91b9-2c156fc65b98" xml:space="preserve">
+          <source>Port Bindings – Web Apps only supports Port 80 for HTTP and Port 443 for HTTPS traffic.</source>
+          <target state="new">Port Bindings – Web Apps only supports Port 80 for HTTP and Port 443 for HTTPS traffic.</target>
+        </trans-unit>
+        <trans-unit id="61c69f4a-fa9a-4378-ad2c-35e78bb3a4ac" xml:space="preserve">
+          <source>Different port configurations will be ignored and traffic will be routed to 80 or 443.</source>
+          <target state="new">Different port configurations will be ignored and traffic will be routed to 80 or 443.</target>
+        </trans-unit>
+        <trans-unit id="fde69ed9-5219-45e8-a667-732ca22064dd" xml:space="preserve">
+          <source>Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application.</source>
+          <target state="new">Authentication – Web Apps supports Anonymous Authentication by default and Forms Authentication where specified by an application.</target>
+        </trans-unit>
+        <trans-unit id="30718b79-0450-4b60-8292-dc96e834e1b4" xml:space="preserve">
+          <source>Windows Authentication can be used by integrating with Azure Active Directory and ADFS only.</source>
+          <target state="new">Windows Authentication can be used by integrating with Azure Active Directory and ADFS only.</target>
+        </trans-unit>
+        <trans-unit id="2f0c8574-4dbf-4f08-8830-093efda6f9b9" xml:space="preserve">
+          <source>All other forms of authentication - for example, Basic Authentication - are not currently supported.</source>
+          <target state="new">All other forms of authentication - for example, Basic Authentication - are not currently supported.</target>
+        </trans-unit>
+        <trans-unit id="85a168f0-640a-4ed3-a08e-d91efc06e6c2" xml:space="preserve">
+          <source>Global Assembly Cache (GAC) – The GAC is not supported in Web Apps.</source>
+          <target state="new">Global Assembly Cache (GAC) – The GAC is not supported in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="a2fb196d-ae02-49ec-9aec-9d82f34c13d6" xml:space="preserve">
+          <source>If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps.</source>
+          <target state="new">If your application references assemblies which you usually deploy to the GAC, you will need to deploy to the application bin folder in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="085a10b4-1164-42a4-b4a6-532a250e820e" xml:space="preserve">
+          <source>IIS5 Compatibility Mode – This is not supported in Web Apps.</source>
+          <target state="new">IIS5 Compatibility Mode – This is not supported in Web Apps.</target>
+        </trans-unit>
+        <trans-unit id="ff5b3df8-f590-452d-b866-56c7b9b10eab" xml:space="preserve">
+          <source>Application Pools – In Web Apps, each site and its child applications run in the same application pool.</source>
+          <target state="new">Application Pools – In Web Apps, each site and its child applications run in the same application pool.</target>
+        </trans-unit>
+        <trans-unit id="582059db-c4c3-45d2-87a3-119698490a0c" xml:space="preserve">
+          <source>If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.</source>
+          <target state="new">If your site has multiple child applications utilizing multiple application pools, consolidate them to a single application pool with common settings or migrate each application to a separate web app.</target>
+        </trans-unit>
+        <trans-unit id="d4ec4118-5d24-4a91-a2f0-d247c4b844a7" xml:space="preserve">
+          <source>COM Components – Web Apps does not allow the registration of COM Components on the platform.</source>
+          <target state="new">COM Components – Web Apps does not allow the registration of COM Components on the platform.</target>
+        </trans-unit>
+        <trans-unit id="5419b45f-72de-4f22-9122-69d70807af1d" xml:space="preserve">
+          <source>If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.</source>
+          <target state="new">If your websites or applications make use of any COM Components, you must rewrite them in managed code and deploy them with the website or application.</target>
+        </trans-unit>
+        <trans-unit id="276fe499-305f-4a65-9b8b-deb672d12f0e" xml:space="preserve">
+          <source>ISAPI Filters – Web Apps can support the use of ISAPI Filters.</source>
+          <target state="new">ISAPI Filters – Web Apps can support the use of ISAPI Filters.</target>
+        </trans-unit>
+        <trans-unit id="9f756b4e-5308-49ce-bc9a-0754a469d41c" xml:space="preserve">
+          <source>You need to do the following:</source>
+          <target state="new">You need to do the following:</target>
+        </trans-unit>
+        <trans-unit id="f694df49-4598-4d9d-acc9-4fafb1be64f6" xml:space="preserve">
+          <source>deploy the DLLs with your web app </source>
+          <target state="new">deploy the DLLs with your web app </target>
+        </trans-unit>
+        <trans-unit id="37e489b0-089b-4993-a2dd-a71227fb577a" xml:space="preserve">
+          <source>register the DLLs using <bpt id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;linkText&gt;</bpt>Web.config<ept id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;/linkText&gt;</ept><bpt id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;title&gt;</bpt><ept id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;/title&gt;</ept></source>
+          <target state="new">register the DLLs using <bpt id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;linkText&gt;</bpt>Web.config<ept id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;/linkText&gt;</ept><bpt id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;title&gt;</bpt><ept id="071e015f-99cf-4a3c-913f-844974d650ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="845825e9-a2c2-4e7c-b400-b1e5f9d6d952" xml:space="preserve">
+          <source>place an applicationHost.xdt file in the site root with the content below:</source>
+          <target state="new">place an applicationHost.xdt file in the site root with the content below:</target>
+        </trans-unit>
+        <trans-unit id="978d4185-bb30-4446-8ebc-231627a127f9" xml:space="preserve">
+          <source>For more examples of how to use XML Document Transformations with your website, see <bpt id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;linkText&gt;</bpt>Transform your Microsoft Azure Web Site<ept id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;/linkText&gt;</ept><bpt id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;title&gt;</bpt><ept id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more examples of how to use XML Document Transformations with your website, see <bpt id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;linkText&gt;</bpt>Transform your Microsoft Azure Web Site<ept id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;/linkText&gt;</ept><bpt id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;title&gt;</bpt><ept id="49de125c-49f4-47a3-9c2a-5c85693e84ee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4fd1f2c8-43ad-4e6e-bdd5-197681b8fe92" xml:space="preserve">
+          <source>Other components like SharePoint, front page server extensions (FPSE), FTP, SSL certificates will not be migrated.</source>
+          <target state="new">Other components like SharePoint, front page server extensions (FPSE), FTP, SSL certificates will not be migrated.</target>
+        </trans-unit>
+        <trans-unit id="6b6da7c2-5a93-4315-b621-e63511b01cd2" xml:space="preserve">
+          <source>This section steps through an example to to migrate a few websites that use a SQL Server database and running on an on-premise Windows Server 2003 R2 (IIS 6.0) machine:</source>
+          <target state="new">This section steps through an example to to migrate a few websites that use a SQL Server database and running on an on-premise Windows Server 2003 R2 (IIS 6.0) machine:</target>
+        </trans-unit>
+        <trans-unit id="149b2e09-725b-473d-b191-ee51c4ae2a6b" xml:space="preserve">
+          <source>On the IIS server or your client machine navigate to <bpt id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;linkText&gt;</bpt>https://www.movemetothecloud.net/<ept id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;/linkText&gt;</ept><bpt id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;title&gt;</bpt><ept id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;/title&gt;</ept> </source>
+          <target state="new">On the IIS server or your client machine navigate to <bpt id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;linkText&gt;</bpt>https://www.movemetothecloud.net/<ept id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;/linkText&gt;</ept><bpt id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;title&gt;</bpt><ept id="480805fe-98ba-46da-b930-3dc6e0eb5542">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="ef25e142-8c76-4fd1-8719-392882d25bb6" xml:space="preserve">
+          <source><bpt id="88815ca7-44eb-4ff1-b286-aeae4c1dce5e">&lt;linkText&gt;</bpt><ept id="88815ca7-44eb-4ff1-b286-aeae4c1dce5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="88815ca7-44eb-4ff1-b286-aeae4c1dce5e">&lt;linkText&gt;</bpt><ept id="88815ca7-44eb-4ff1-b286-aeae4c1dce5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1588761e-0187-42a2-ab99-e60da8c9897d" xml:space="preserve">
+          <source>Install Web Apps Migration Assistant by clicking on the <bpt id="30d6d61c-6503-4945-a6b7-c6c07697a5e7">&lt;strong&gt;</bpt>Dedicated IIS Server<ept id="30d6d61c-6503-4945-a6b7-c6c07697a5e7">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Install Web Apps Migration Assistant by clicking on the <bpt id="30d6d61c-6503-4945-a6b7-c6c07697a5e7">&lt;strong&gt;</bpt>Dedicated IIS Server<ept id="30d6d61c-6503-4945-a6b7-c6c07697a5e7">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="e8ae51cf-f0d6-483b-8368-cbbf98134434" xml:space="preserve">
+          <source>More options will be options in the near future.</source>
+          <target state="new">More options will be options in the near future.</target>
+        </trans-unit>
+        <trans-unit id="f48499c3-9b33-42d9-8c87-2ff988e31358" xml:space="preserve">
+          <source>Click the <bpt id="bd227a12-349d-4c0b-b461-4068567c105e">&lt;strong&gt;</bpt>Install Tool<ept id="bd227a12-349d-4c0b-b461-4068567c105e">&lt;/strong&gt;</ept> button to install Web Apps Migration Assistant on your machine.</source>
+          <target state="new">Click the <bpt id="bd227a12-349d-4c0b-b461-4068567c105e">&lt;strong&gt;</bpt>Install Tool<ept id="bd227a12-349d-4c0b-b461-4068567c105e">&lt;/strong&gt;</ept> button to install Web Apps Migration Assistant on your machine.</target>
+        </trans-unit>
+        <trans-unit id="cd7e908e-dcab-4306-82d7-78ea862c27f4" xml:space="preserve">
+          <source><bpt id="1f94e112-7d07-4f2b-af3e-42b9da2a1629">&lt;linkText&gt;</bpt><ept id="1f94e112-7d07-4f2b-af3e-42b9da2a1629">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f94e112-7d07-4f2b-af3e-42b9da2a1629">&lt;linkText&gt;</bpt><ept id="1f94e112-7d07-4f2b-af3e-42b9da2a1629">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c2a0858-ff5a-4a53-94b0-8a4a0861d5f4" xml:space="preserve">
+          <source>You can also click <bpt id="e6d8b0f4-52d2-4a58-a981-048f867873a4">&lt;strong&gt;</bpt>Download for offline install<ept id="e6d8b0f4-52d2-4a58-a981-048f867873a4">&lt;/strong&gt;</ept> to download a ZIP file for installing on servers not connected to the interent.</source>
+          <target state="new">You can also click <bpt id="e6d8b0f4-52d2-4a58-a981-048f867873a4">&lt;strong&gt;</bpt>Download for offline install<ept id="e6d8b0f4-52d2-4a58-a981-048f867873a4">&lt;/strong&gt;</ept> to download a ZIP file for installing on servers not connected to the interent.</target>
+        </trans-unit>
+        <trans-unit id="90cb16fb-3687-4cc0-b3ad-c592e060af4a" xml:space="preserve">
+          <source>Or, you can click <bpt id="2832252d-cdd3-49c5-84b7-62ed89c52196">&lt;strong&gt;</bpt>Upload an existing migration readiness report<ept id="2832252d-cdd3-49c5-84b7-62ed89c52196">&lt;/strong&gt;</ept>, which is an advanced option to work with an existing migration readiness report that you previously generated (explained later).</source>
+          <target state="new">Or, you can click <bpt id="2832252d-cdd3-49c5-84b7-62ed89c52196">&lt;strong&gt;</bpt>Upload an existing migration readiness report<ept id="2832252d-cdd3-49c5-84b7-62ed89c52196">&lt;/strong&gt;</ept>, which is an advanced option to work with an existing migration readiness report that you previously generated (explained later).</target>
+        </trans-unit>
+        <trans-unit id="3aa4d52c-72ba-4c8e-96e4-ffca55d6f2f8" xml:space="preserve">
+          <source>In the <bpt id="f4cbc716-7e37-4aaa-8de4-4522bb7e6823">&lt;strong&gt;</bpt>Application Install<ept id="f4cbc716-7e37-4aaa-8de4-4522bb7e6823">&lt;/strong&gt;</ept> screen, click <bpt id="7cf0db2d-f23c-431a-b226-367b0d8eaa3e">&lt;strong&gt;</bpt>Install<ept id="7cf0db2d-f23c-431a-b226-367b0d8eaa3e">&lt;/strong&gt;</ept> to install on your machine.</source>
+          <target state="new">In the <bpt id="f4cbc716-7e37-4aaa-8de4-4522bb7e6823">&lt;strong&gt;</bpt>Application Install<ept id="f4cbc716-7e37-4aaa-8de4-4522bb7e6823">&lt;/strong&gt;</ept> screen, click <bpt id="7cf0db2d-f23c-431a-b226-367b0d8eaa3e">&lt;strong&gt;</bpt>Install<ept id="7cf0db2d-f23c-431a-b226-367b0d8eaa3e">&lt;/strong&gt;</ept> to install on your machine.</target>
+        </trans-unit>
+        <trans-unit id="1efe444a-ef1c-4d82-82ff-8e2aedd8b1f7" xml:space="preserve">
+          <source>It will also install corresponding dependencies like Web Deploy, DacFX, and IIS, if needed.</source>
+          <target state="new">It will also install corresponding dependencies like Web Deploy, DacFX, and IIS, if needed.</target>
+        </trans-unit>
+        <trans-unit id="074a6f09-cd58-455f-8d3e-17e7206e6ecd" xml:space="preserve">
+          <source><bpt id="002e1c2f-1d1a-41fe-9c55-71c00bfd9293">&lt;linkText&gt;</bpt><ept id="002e1c2f-1d1a-41fe-9c55-71c00bfd9293">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="002e1c2f-1d1a-41fe-9c55-71c00bfd9293">&lt;linkText&gt;</bpt><ept id="002e1c2f-1d1a-41fe-9c55-71c00bfd9293">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ed8d971-4b74-4806-8e08-bceceb8291e8" xml:space="preserve">
+          <source>Once installed, Web Apps Migration Assistant automatically starts.</source>
+          <target state="new">Once installed, Web Apps Migration Assistant automatically starts.</target>
+        </trans-unit>
+        <trans-unit id="5fb0eb39-ea7b-44b1-bd51-340ccf09a1ed" xml:space="preserve">
+          <source>Choose <bpt id="31bf8797-cd30-4a88-b97a-3f613a1bef03">&lt;strong&gt;</bpt>Migrate sites and databases from a remote server to Azure<ept id="31bf8797-cd30-4a88-b97a-3f613a1bef03">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="31bf8797-cd30-4a88-b97a-3f613a1bef03">&lt;strong&gt;</bpt>Migrate sites and databases from a remote server to Azure<ept id="31bf8797-cd30-4a88-b97a-3f613a1bef03">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f3e5ed6f-6a11-437b-a713-3373e259d049" xml:space="preserve">
+          <source>Enter the administrative credentials for the remote server and click <bpt id="e4709f7f-3f0c-4711-94f2-302c398e1438">&lt;strong&gt;</bpt>Continue<ept id="e4709f7f-3f0c-4711-94f2-302c398e1438">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the administrative credentials for the remote server and click <bpt id="e4709f7f-3f0c-4711-94f2-302c398e1438">&lt;strong&gt;</bpt>Continue<ept id="e4709f7f-3f0c-4711-94f2-302c398e1438">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1af90238-e529-46d6-b6bf-1536e7a709b2" xml:space="preserve">
+          <source><bpt id="dc379a33-44d7-4ad2-ae5d-7e49a74b7f76">&lt;linkText&gt;</bpt><ept id="dc379a33-44d7-4ad2-ae5d-7e49a74b7f76">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dc379a33-44d7-4ad2-ae5d-7e49a74b7f76">&lt;linkText&gt;</bpt><ept id="dc379a33-44d7-4ad2-ae5d-7e49a74b7f76">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="baacf7d6-de60-46e3-9291-038c5a6bf38c" xml:space="preserve">
+          <source>You can of course choose to migrate from the local server.</source>
+          <target state="new">You can of course choose to migrate from the local server.</target>
+        </trans-unit>
+        <trans-unit id="37529bee-70cd-4c3e-ae15-bc95ac6ccf4c" xml:space="preserve">
+          <source>The remote option is useful when you want to migrate websites from a production IIS server.</source>
+          <target state="new">The remote option is useful when you want to migrate websites from a production IIS server.</target>
+        </trans-unit>
+        <trans-unit id="04569fc0-1c77-43a4-b9c8-2146df41cfec" xml:space="preserve">
+          <source>At this point the migration tool will inspect the your IIS server's configuration, such as Sites, Applications, Application Pools, and dependencies to identify candidate websites for migration.</source>
+          <target state="new">At this point the migration tool will inspect the your IIS server's configuration, such as Sites, Applications, Application Pools, and dependencies to identify candidate websites for migration.</target>
+        </trans-unit>
+        <trans-unit id="cac65156-5b4f-4988-8486-18e874310b3f" xml:space="preserve">
+          <source>The screenshot below shows three websites – <bpt id="87997767-3f88-4ed1-a34d-4d696a3308af">&lt;strong&gt;</bpt>Default Web Site<ept id="87997767-3f88-4ed1-a34d-4d696a3308af">&lt;/strong&gt;</ept>, <bpt id="3a7875bf-440d-46c1-b482-50f54478ba28">&lt;strong&gt;</bpt>TimeTracker<ept id="3a7875bf-440d-46c1-b482-50f54478ba28">&lt;/strong&gt;</ept>, and <bpt id="710c271b-9c8d-4946-8160-01239bf546eb">&lt;strong&gt;</bpt>CommerceNet4<ept id="710c271b-9c8d-4946-8160-01239bf546eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The screenshot below shows three websites – <bpt id="87997767-3f88-4ed1-a34d-4d696a3308af">&lt;strong&gt;</bpt>Default Web Site<ept id="87997767-3f88-4ed1-a34d-4d696a3308af">&lt;/strong&gt;</ept>, <bpt id="3a7875bf-440d-46c1-b482-50f54478ba28">&lt;strong&gt;</bpt>TimeTracker<ept id="3a7875bf-440d-46c1-b482-50f54478ba28">&lt;/strong&gt;</ept>, and <bpt id="710c271b-9c8d-4946-8160-01239bf546eb">&lt;strong&gt;</bpt>CommerceNet4<ept id="710c271b-9c8d-4946-8160-01239bf546eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ac94e06-f93d-418f-9770-54a6f0661fae" xml:space="preserve">
+          <source>All of them have an associated database that we want to migrate.</source>
+          <target state="new">All of them have an associated database that we want to migrate.</target>
+        </trans-unit>
+        <trans-unit id="493e4c31-daf5-44d6-b69c-d67f1e48b360" xml:space="preserve">
+          <source>Select all of the sites you would like to assess and then click <bpt id="3f9670b9-9d93-4232-a3ef-6f6f1d4088bc">&lt;strong&gt;</bpt>Next<ept id="3f9670b9-9d93-4232-a3ef-6f6f1d4088bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select all of the sites you would like to assess and then click <bpt id="3f9670b9-9d93-4232-a3ef-6f6f1d4088bc">&lt;strong&gt;</bpt>Next<ept id="3f9670b9-9d93-4232-a3ef-6f6f1d4088bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f7263dc-cc1e-42f8-a5e3-72cdf1a63c2e" xml:space="preserve">
+          <source><bpt id="ec4202f2-1d9f-4477-88f9-5a402031a5d5">&lt;linkText&gt;</bpt><ept id="ec4202f2-1d9f-4477-88f9-5a402031a5d5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec4202f2-1d9f-4477-88f9-5a402031a5d5">&lt;linkText&gt;</bpt><ept id="ec4202f2-1d9f-4477-88f9-5a402031a5d5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8791b06d-17c6-4882-83e4-a797595d7cef" xml:space="preserve">
+          <source>Click <bpt id="10d82295-3b2e-404c-a82c-7ee4f3656dac">&lt;strong&gt;</bpt>Upload<ept id="10d82295-3b2e-404c-a82c-7ee4f3656dac">&lt;/strong&gt;</ept> to upload the readiness report.</source>
+          <target state="new">Click <bpt id="10d82295-3b2e-404c-a82c-7ee4f3656dac">&lt;strong&gt;</bpt>Upload<ept id="10d82295-3b2e-404c-a82c-7ee4f3656dac">&lt;/strong&gt;</ept> to upload the readiness report.</target>
+        </trans-unit>
+        <trans-unit id="755e905a-8d3a-4a43-bf0a-8ac8dff61824" xml:space="preserve">
+          <source>If you click <bpt id="914ee2f7-a25b-4067-bdb9-760301ffc423">&lt;strong&gt;</bpt>save file locally<ept id="914ee2f7-a25b-4067-bdb9-760301ffc423">&lt;/strong&gt;</ept>, you can run the migration tool again later and upload the saved readiness report as noted earlier.</source>
+          <target state="new">If you click <bpt id="914ee2f7-a25b-4067-bdb9-760301ffc423">&lt;strong&gt;</bpt>save file locally<ept id="914ee2f7-a25b-4067-bdb9-760301ffc423">&lt;/strong&gt;</ept>, you can run the migration tool again later and upload the saved readiness report as noted earlier.</target>
+        </trans-unit>
+        <trans-unit id="ed297c41-d237-4c72-bd69-ce390a2f233f" xml:space="preserve">
+          <source><bpt id="e0ff0171-6bae-41da-aa04-4c30f993f5f9">&lt;linkText&gt;</bpt><ept id="e0ff0171-6bae-41da-aa04-4c30f993f5f9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e0ff0171-6bae-41da-aa04-4c30f993f5f9">&lt;linkText&gt;</bpt><ept id="e0ff0171-6bae-41da-aa04-4c30f993f5f9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="729123d5-fe5c-495e-b831-7cf999a61ef2" xml:space="preserve">
+          <source>Once you upload the readiness report, Azure performs readiness analysis and shows you the results.</source>
+          <target state="new">Once you upload the readiness report, Azure performs readiness analysis and shows you the results.</target>
+        </trans-unit>
+        <trans-unit id="77c35391-192f-4562-9d38-fa38b6f1c9fa" xml:space="preserve">
+          <source>Read the assessment details for each website and make sure that you understand or have addressed all issues before you proceed.</source>
+          <target state="new">Read the assessment details for each website and make sure that you understand or have addressed all issues before you proceed.</target>
+        </trans-unit>
+        <trans-unit id="00fc136d-c227-4bc0-b13c-5f8f5c2dc9c4" xml:space="preserve">
+          <source><bpt id="166117a4-8714-409e-9d3b-df4f556daba8">&lt;linkText&gt;</bpt><ept id="166117a4-8714-409e-9d3b-df4f556daba8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="166117a4-8714-409e-9d3b-df4f556daba8">&lt;linkText&gt;</bpt><ept id="166117a4-8714-409e-9d3b-df4f556daba8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c57bc77d-df49-41d9-a60a-592ed691aa59" xml:space="preserve">
+          <source>Click <bpt id="70a90ff6-18c5-4fdc-aecd-27d7f3a8f53b">&lt;strong&gt;</bpt>Begin Migration<ept id="70a90ff6-18c5-4fdc-aecd-27d7f3a8f53b">&lt;/strong&gt;</ept> to start the migration.You will now be redirected to Azure to log into your account.</source>
+          <target state="new">Click <bpt id="70a90ff6-18c5-4fdc-aecd-27d7f3a8f53b">&lt;strong&gt;</bpt>Begin Migration<ept id="70a90ff6-18c5-4fdc-aecd-27d7f3a8f53b">&lt;/strong&gt;</ept> to start the migration.You will now be redirected to Azure to log into your account.</target>
+        </trans-unit>
+        <trans-unit id="86ef6ee7-3af2-46f9-b182-f441b67804b2" xml:space="preserve">
+          <source>It is important that you log in with an account that has an active Azure Subscription.</source>
+          <target state="new">It is important that you log in with an account that has an active Azure Subscription.</target>
+        </trans-unit>
+        <trans-unit id="937cf3dc-4a9c-4459-9ad3-611a8dbd99ee" xml:space="preserve">
+          <source>If you do not have an Azure account then you can sign up for a free trial here.</source>
+          <target state="new">If you do not have an Azure account then you can sign up for a free trial here.</target>
+        </trans-unit>
+        <trans-unit id="251b6091-8a36-41b2-9b03-f1a58bc1ba59" xml:space="preserve">
+          <source>Select the tenant account, Azure subscription and region to use for your migrated Azure web apps and databases, and then click <bpt id="29937cff-3162-4611-bbcb-468230319f0f">&lt;strong&gt;</bpt>Start Migration<ept id="29937cff-3162-4611-bbcb-468230319f0f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the tenant account, Azure subscription and region to use for your migrated Azure web apps and databases, and then click <bpt id="29937cff-3162-4611-bbcb-468230319f0f">&lt;strong&gt;</bpt>Start Migration<ept id="29937cff-3162-4611-bbcb-468230319f0f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87baa1a8-d411-4c77-b60b-d28e96dcb5ec" xml:space="preserve">
+          <source>You can select the websites to migrate later.</source>
+          <target state="new">You can select the websites to migrate later.</target>
+        </trans-unit>
+        <trans-unit id="d2191e2d-3852-4eab-a22c-4a81f72db059" xml:space="preserve">
+          <source><bpt id="b83dcd71-ca9a-4df3-929f-5470d319d8b5">&lt;linkText&gt;</bpt><ept id="b83dcd71-ca9a-4df3-929f-5470d319d8b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b83dcd71-ca9a-4df3-929f-5470d319d8b5">&lt;linkText&gt;</bpt><ept id="b83dcd71-ca9a-4df3-929f-5470d319d8b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a6854d75-3d80-4750-97d4-2ab2ad191b98" xml:space="preserve">
+          <source>On the next screen you can make changes to the default migration settings, such as:</source>
+          <target state="new">On the next screen you can make changes to the default migration settings, such as:</target>
+        </trans-unit>
+        <trans-unit id="3e08c395-cf1f-4fdb-9beb-560a45d6b3f4" xml:space="preserve">
+          <source>use an existing Azure SQL Database or create a new Azure SQL Database, and configure its credentials</source>
+          <target state="new">use an existing Azure SQL Database or create a new Azure SQL Database, and configure its credentials</target>
+        </trans-unit>
+        <trans-unit id="144447e0-224d-412a-8f2b-89a07ef732d5" xml:space="preserve">
+          <source>select the websites to migrate</source>
+          <target state="new">select the websites to migrate</target>
+        </trans-unit>
+        <trans-unit id="ce9f4642-36e9-42c9-bcef-73970fd5dd06" xml:space="preserve">
+          <source>define names for the Azure web apps and their linked SQL databases</source>
+          <target state="new">define names for the Azure web apps and their linked SQL databases</target>
+        </trans-unit>
+        <trans-unit id="bf6a6aa0-51ee-49b5-9d6e-32d97bf23bb2" xml:space="preserve">
+          <source>customize the global settings and site-level settings</source>
+          <target state="new">customize the global settings and site-level settings</target>
+        </trans-unit>
+        <trans-unit id="9d0e74c5-21ac-4df8-a204-c16f74595aae" xml:space="preserve">
+          <source>The screenshot below shows all the websites selected for migration with the default settings.</source>
+          <target state="new">The screenshot below shows all the websites selected for migration with the default settings.</target>
+        </trans-unit>
+        <trans-unit id="4af67f28-9e16-47c6-a3ad-6f462770ff19" xml:space="preserve">
+          <source><bpt id="f36d0481-6400-4c1e-bfa5-3c494de6a883">&lt;linkText&gt;</bpt><ept id="f36d0481-6400-4c1e-bfa5-3c494de6a883">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f36d0481-6400-4c1e-bfa5-3c494de6a883">&lt;linkText&gt;</bpt><ept id="f36d0481-6400-4c1e-bfa5-3c494de6a883">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e16ef960-c3f8-48fc-9911-30e6c6aa5b98" xml:space="preserve">
+          <source>the <bpt id="12e4adb7-dc7a-49ed-9d07-33bfca842ef5">&lt;strong&gt;</bpt>Enable Azure Active Directory<ept id="12e4adb7-dc7a-49ed-9d07-33bfca842ef5">&lt;/strong&gt;</ept> checkbox in custom settings integrates the Azure web app with <bpt id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;/linkText&gt;</ept><bpt id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;title&gt;</bpt><ept id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;/title&gt;</ept> (the <bpt id="19c5f2a6-9e9e-4733-8599-1d026d3bb562">&lt;strong&gt;</bpt>Default Directory<ept id="19c5f2a6-9e9e-4733-8599-1d026d3bb562">&lt;/strong&gt;</ept>).</source>
+          <target state="new">the <bpt id="12e4adb7-dc7a-49ed-9d07-33bfca842ef5">&lt;strong&gt;</bpt>Enable Azure Active Directory<ept id="12e4adb7-dc7a-49ed-9d07-33bfca842ef5">&lt;/strong&gt;</ept> checkbox in custom settings integrates the Azure web app with <bpt id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;/linkText&gt;</ept><bpt id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;title&gt;</bpt><ept id="93706d7e-1016-4080-ad7c-687e2bdf26c2">&lt;/title&gt;</ept> (the <bpt id="19c5f2a6-9e9e-4733-8599-1d026d3bb562">&lt;strong&gt;</bpt>Default Directory<ept id="19c5f2a6-9e9e-4733-8599-1d026d3bb562">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="e91eb233-0ab4-4358-9bd9-2b1f7f108dfe" xml:space="preserve">
+          <source>For more information on syncing Azure Active Directory with your on-premise Active Directory, see <bpt id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;linkText&gt;</bpt>Directory integration<ept id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;/linkText&gt;</ept><bpt id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;title&gt;</bpt><ept id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on syncing Azure Active Directory with your on-premise Active Directory, see <bpt id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;linkText&gt;</bpt>Directory integration<ept id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;/linkText&gt;</ept><bpt id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;title&gt;</bpt><ept id="e2353712-3bb7-43ae-aaaf-1402332085dc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="02fac2c1-655e-4f62-b870-0b3d187ee302" xml:space="preserve">
+          <source>Once you make all the desired changes, click <bpt id="58710b87-cb51-40ed-a1db-9b0e03672290">&lt;strong&gt;</bpt>Create<ept id="58710b87-cb51-40ed-a1db-9b0e03672290">&lt;/strong&gt;</ept> to start the migration process.</source>
+          <target state="new">Once you make all the desired changes, click <bpt id="58710b87-cb51-40ed-a1db-9b0e03672290">&lt;strong&gt;</bpt>Create<ept id="58710b87-cb51-40ed-a1db-9b0e03672290">&lt;/strong&gt;</ept> to start the migration process.</target>
+        </trans-unit>
+        <trans-unit id="bcad405e-c2a3-4c9c-8d7e-b3a8b687d820" xml:space="preserve">
+          <source>The migration tool will create the Azure SQL Database and Azure web app, and then publish the website content and databases.</source>
+          <target state="new">The migration tool will create the Azure SQL Database and Azure web app, and then publish the website content and databases.</target>
+        </trans-unit>
+        <trans-unit id="1f1fe995-cf3e-413b-82a0-28e07ac5c8ef" xml:space="preserve">
+          <source>The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure web apps.</source>
+          <target state="new">The migration progress is clearly shown in the migration tool, and you will see a summary screen at the end, which details the sites migrated, whether they were successful, links to the newly-created Azure web apps.</target>
+        </trans-unit>
+        <trans-unit id="a722ad4e-2484-4363-ba30-9fbb9704d031" xml:space="preserve">
+          <source>If any error occurs during migration, the migration tool will clearly indicate the failure and rollback the changes.</source>
+          <target state="new">If any error occurs during migration, the migration tool will clearly indicate the failure and rollback the changes.</target>
+        </trans-unit>
+        <trans-unit id="1265cf78-5ffb-4a5c-b224-7f95a365b1a1" xml:space="preserve">
+          <source>You will also be able to send the error report directly to the engineering team by clicking the <bpt id="7b1f9d65-472d-450c-84ca-0b9b6567c994">&lt;strong&gt;</bpt>Send Error Report<ept id="7b1f9d65-472d-450c-84ca-0b9b6567c994">&lt;/strong&gt;</ept> button, with the captured failure call stack and build message body.</source>
+          <target state="new">You will also be able to send the error report directly to the engineering team by clicking the <bpt id="7b1f9d65-472d-450c-84ca-0b9b6567c994">&lt;strong&gt;</bpt>Send Error Report<ept id="7b1f9d65-472d-450c-84ca-0b9b6567c994">&lt;/strong&gt;</ept> button, with the captured failure call stack and build message body.</target>
+        </trans-unit>
+        <trans-unit id="50bd93ea-87df-4d32-a775-f02b11b63cbc" xml:space="preserve">
+          <source><bpt id="a42e3df8-6590-4e66-a053-eb3ce2512546">&lt;linkText&gt;</bpt><ept id="a42e3df8-6590-4e66-a053-eb3ce2512546">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a42e3df8-6590-4e66-a053-eb3ce2512546">&lt;linkText&gt;</bpt><ept id="a42e3df8-6590-4e66-a053-eb3ce2512546">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4c2206d-b496-4f1f-ba51-ed472a954631" xml:space="preserve">
+          <source>If migrate succeeds without errors, you can also click the <bpt id="836203d2-307a-472c-97c1-762b09b149bd">&lt;strong&gt;</bpt>Give Feedback<ept id="836203d2-307a-472c-97c1-762b09b149bd">&lt;/strong&gt;</ept> button to provide any feedback directly.</source>
+          <target state="new">If migrate succeeds without errors, you can also click the <bpt id="836203d2-307a-472c-97c1-762b09b149bd">&lt;strong&gt;</bpt>Give Feedback<ept id="836203d2-307a-472c-97c1-762b09b149bd">&lt;/strong&gt;</ept> button to provide any feedback directly.</target>
+        </trans-unit>
+        <trans-unit id="a2b3179b-e127-4c6d-a752-f7550f7b8a7f" xml:space="preserve">
+          <source>Click the links to the Azure web apps and verify that the migration has succeeded.</source>
+          <target state="new">Click the links to the Azure web apps and verify that the migration has succeeded.</target>
+        </trans-unit>
+        <trans-unit id="fdef81bc-6361-49cd-b5ab-fc2071950e8c" xml:space="preserve">
+          <source>You can now manage the migrated web apps in Azure App Service.</source>
+          <target state="new">You can now manage the migrated web apps in Azure App Service.</target>
+        </trans-unit>
+        <trans-unit id="42b5c043-61c2-4f02-91a7-a654f5e779ac" xml:space="preserve">
+          <source>To do this, log into the <bpt id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;linkText&gt;</bpt>Azure Portal<ept id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;/linkText&gt;</ept><bpt id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;title&gt;</bpt><ept id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To do this, log into the <bpt id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;linkText&gt;</bpt>Azure Portal<ept id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;/linkText&gt;</ept><bpt id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;title&gt;</bpt><ept id="bbcafc0a-0bb3-4620-a317-d6b0777131cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fdba99c-35ce-4620-9702-71a3a843d510" xml:space="preserve">
+          <source>In the Azure Portal, open the Web Apps blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.</source>
+          <target state="new">In the Azure Portal, open the Web Apps blade to see your migrated websites (shown as web apps), then click on any one of them to start managing the web app, such as configuring continuous publishing, creating backups, autoscaling, and monitoring usage or performance.</target>
+        </trans-unit>
+        <trans-unit id="7b4689ce-2cd7-4388-b313-9bfcd734166d" xml:space="preserve">
+          <source><bpt id="b4fff7c9-065f-419e-8b3c-59fe3202cce3">&lt;linkText&gt;</bpt><ept id="b4fff7c9-065f-419e-8b3c-59fe3202cce3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b4fff7c9-065f-419e-8b3c-59fe3202cce3">&lt;linkText&gt;</bpt><ept id="b4fff7c9-065f-419e-8b3c-59fe3202cce3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6be1ac81-c8af-4f1c-886c-d332614a960d" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="460d327f-27b7-4175-a027-e131ed968606">&lt;linkText&gt;</bpt>Try App Service<ept id="460d327f-27b7-4175-a027-e131ed968606">&lt;/linkText&gt;</ept><bpt id="460d327f-27b7-4175-a027-e131ed968606">&lt;title&gt;</bpt><ept id="460d327f-27b7-4175-a027-e131ed968606">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="460d327f-27b7-4175-a027-e131ed968606">&lt;linkText&gt;</bpt>Try App Service<ept id="460d327f-27b7-4175-a027-e131ed968606">&lt;/linkText&gt;</ept><bpt id="460d327f-27b7-4175-a027-e131ed968606">&lt;title&gt;</bpt><ept id="460d327f-27b7-4175-a027-e131ed968606">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="a01d8ab2-3298-48f1-b9d9-406e9e12b62d" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="721223d7-7d5a-4490-811a-93abbe90e667" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;/linkText&gt;</ept><bpt id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;title&gt;</bpt><ept id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;/linkText&gt;</ept><bpt id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;title&gt;</bpt><ept id="ac377ec4-1642-44e5-9c29-710fdcd6d316">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a65dee25-a027-4c27-878d-c93acb415b48" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;/linkText&gt;</ept><bpt id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;title&gt;</bpt><ept id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;/linkText&gt;</ept><bpt id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;title&gt;</bpt><ept id="4a4478c3-2f05-41d1-89e7-56bc1f21118d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

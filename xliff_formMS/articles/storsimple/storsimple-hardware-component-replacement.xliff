@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="03dded10-ef8e-480a-a462-800f4789983d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="03dded10-ef8e-480a-a462-800f4789983d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2bbee42-8968-4419-8013-ef6499226ea6">
+        <trans-unit id="b35efaaf-eafd-48f3-8348-1d021820f63a" xml:space="preserve">
+          <source>StorSimple hardware component replacement | Microsoft Azure</source>
+          <target state="new">StorSimple hardware component replacement | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f918e1ef-c532-430c-b661-017b4bc60af4" xml:space="preserve">
+          <source>Describes how to safely replace the PCMs, battery, controller modules, EBOD controllers, disk drives, and chassis of a StorSimple device.</source>
+          <target state="new">Describes how to safely replace the PCMs, battery, controller modules, EBOD controllers, disk drives, and chassis of a StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="d4e5bf7c-20f7-4abc-9877-e8fb394127b3" xml:space="preserve">
+          <source>The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple device and the steps necessary to remove and replace them.</source>
+          <target state="new">The hardware component replacement tutorials describe the hardware components of your Microsoft Azure StorSimple device and the steps necessary to remove and replace them.</target>
+        </trans-unit>
+        <trans-unit id="d4329c0d-960a-4739-9600-841a5dfba27a" xml:space="preserve">
+          <source>This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.</source>
+          <target state="new">This article describes the safety icons, provides pointers to the detailed tutorials, and lists the components that are replaceable.</target>
+        </trans-unit>
+        <trans-unit id="d7bfb8cf-5915-4ea8-849b-262dd62f6e03" xml:space="preserve">
+          <source>Before attempting to remove or replace any StorSimple component, make sure that you review the <bpt id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;linkText&gt;</bpt>safety icon conventions<ept id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;/linkText&gt;</ept><bpt id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;title&gt;</bpt><ept id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;/title&gt;</ept> and other <bpt id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;linkText&gt;</bpt>safety precautions<ept id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;/linkText&gt;</ept><bpt id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;title&gt;</bpt><ept id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before attempting to remove or replace any StorSimple component, make sure that you review the <bpt id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;linkText&gt;</bpt>safety icon conventions<ept id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;/linkText&gt;</ept><bpt id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;title&gt;</bpt><ept id="c160c860-0c2e-4052-8be3-0fae6f76231c">&lt;/title&gt;</ept> and other <bpt id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;linkText&gt;</bpt>safety precautions<ept id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;/linkText&gt;</ept><bpt id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;title&gt;</bpt><ept id="08191f66-b8cd-4610-b7e1-bedf2f0ceae8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f83dba2-fc11-41bb-a14b-f7d66585020d" xml:space="preserve">
+          <source>The following table describes the safety icons used in these tutorials.</source>
+          <target state="new">The following table describes the safety icons used in these tutorials.</target>
+        </trans-unit>
+        <trans-unit id="ccdab8f0-2010-4707-a906-e91a53902174" xml:space="preserve">
+          <source>Pay close attention to these safety icons as you go through the steps to remove and replace device components.</source>
+          <target state="new">Pay close attention to these safety icons as you go through the steps to remove and replace device components.</target>
+        </trans-unit>
+        <trans-unit id="bb64d4e4-060f-4b9c-8d76-23196e1e673e" xml:space="preserve">
+          <source>Icon</source>
+          <target state="new">Icon</target>
+        </trans-unit>
+        <trans-unit id="406f8342-ebd4-445b-b3ff-b59fe2abd7e9" xml:space="preserve">
+          <source>Text</source>
+          <target state="new">Text</target>
+        </trans-unit>
+        <trans-unit id="2b01032a-8b32-419e-b24e-f4c477c0698a" xml:space="preserve">
+          <source>Additional information</source>
+          <target state="new">Additional information</target>
+        </trans-unit>
+        <trans-unit id="b52bc732-312d-4a47-ae8b-f76d2ac998a8" xml:space="preserve">
+          <source><bpt id="2732053a-17ca-4f34-8772-05e1151514a6">&lt;linkText&gt;</bpt>Warning icon<ept id="2732053a-17ca-4f34-8772-05e1151514a6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2732053a-17ca-4f34-8772-05e1151514a6">&lt;linkText&gt;</bpt>Warning icon<ept id="2732053a-17ca-4f34-8772-05e1151514a6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0db3c2ab-3792-4291-a8a7-88e6e6ae8b9e" xml:space="preserve">
+          <source><bpt id="81d34db0-0a5a-49f0-810d-1c1281c088eb">&lt;strong&gt;</bpt>DANGER!<ept id="81d34db0-0a5a-49f0-810d-1c1281c088eb">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="81d34db0-0a5a-49f0-810d-1c1281c088eb">&lt;strong&gt;</bpt>DANGER!<ept id="81d34db0-0a5a-49f0-810d-1c1281c088eb">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ff29b22-d90e-4cc6-8507-fcb3f4861115" xml:space="preserve">
+          <source>Indicates a hazardous situation that, if not avoided, will result in death or serious injury.</source>
+          <target state="new">Indicates a hazardous situation that, if not avoided, will result in death or serious injury.</target>
+        </trans-unit>
+        <trans-unit id="332d70cc-10ce-4b79-bd5a-6858e0dc3760" xml:space="preserve">
+          <source>This signal word is limited to the most extreme situations.</source>
+          <target state="new">This signal word is limited to the most extreme situations.</target>
+        </trans-unit>
+        <trans-unit id="ec630c0e-62bd-4ba7-885d-2e77a38309d8" xml:space="preserve">
+          <source><bpt id="24a933a4-dc0f-472b-a0fa-80bdbd8825f6">&lt;linkText&gt;</bpt>Warning icon<ept id="24a933a4-dc0f-472b-a0fa-80bdbd8825f6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24a933a4-dc0f-472b-a0fa-80bdbd8825f6">&lt;linkText&gt;</bpt>Warning icon<ept id="24a933a4-dc0f-472b-a0fa-80bdbd8825f6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dada4f39-5f4c-4da6-a861-a4332432d185" xml:space="preserve">
+          <source><bpt id="3e16e8a1-6c0f-4726-8247-6b48441e36f0">&lt;strong&gt;</bpt>WARNING!<ept id="3e16e8a1-6c0f-4726-8247-6b48441e36f0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3e16e8a1-6c0f-4726-8247-6b48441e36f0">&lt;strong&gt;</bpt>WARNING!<ept id="3e16e8a1-6c0f-4726-8247-6b48441e36f0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="50f1116b-103d-465c-961d-aa5003f3dea2" xml:space="preserve">
+          <source>Indicates a hazardous situation that, if not avoided, could result in death or serious injury.</source>
+          <target state="new">Indicates a hazardous situation that, if not avoided, could result in death or serious injury.</target>
+        </trans-unit>
+        <trans-unit id="5a1c65d7-f2db-49dd-85d9-fda811be5e03" xml:space="preserve">
+          <source><bpt id="9ac70f20-7ca2-40d3-8089-d9288f6c884b">&lt;linkText&gt;</bpt>Caution icon<ept id="9ac70f20-7ca2-40d3-8089-d9288f6c884b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ac70f20-7ca2-40d3-8089-d9288f6c884b">&lt;linkText&gt;</bpt>Caution icon<ept id="9ac70f20-7ca2-40d3-8089-d9288f6c884b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0385b10-8d47-40af-b4b1-3653193cb349" xml:space="preserve">
+          <source><bpt id="d69bdaca-5afa-430c-9543-78544e3ec22e">&lt;strong&gt;</bpt>CAUTION!<ept id="d69bdaca-5afa-430c-9543-78544e3ec22e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d69bdaca-5afa-430c-9543-78544e3ec22e">&lt;strong&gt;</bpt>CAUTION!<ept id="d69bdaca-5afa-430c-9543-78544e3ec22e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f2a2c58-00ce-44d9-ac65-2a912311922e" xml:space="preserve">
+          <source>Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.</source>
+          <target state="new">Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.</target>
+        </trans-unit>
+        <trans-unit id="54f28d36-a5fd-48f3-b61b-3f996d88e510" xml:space="preserve">
+          <source><bpt id="33c07826-7424-4823-8596-0ec1a0e19bca">&lt;linkText&gt;</bpt>Notice icon<ept id="33c07826-7424-4823-8596-0ec1a0e19bca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33c07826-7424-4823-8596-0ec1a0e19bca">&lt;linkText&gt;</bpt>Notice icon<ept id="33c07826-7424-4823-8596-0ec1a0e19bca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c89cde9-f8ba-4471-9988-c52112626fcf" xml:space="preserve">
+          <source><bpt id="c34ba483-a313-41c9-838c-87692db562b6">&lt;strong&gt;</bpt>NOTICE:<ept id="c34ba483-a313-41c9-838c-87692db562b6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c34ba483-a313-41c9-838c-87692db562b6">&lt;strong&gt;</bpt>NOTICE:<ept id="c34ba483-a313-41c9-838c-87692db562b6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c667d1a3-efbb-44af-9b70-0ab9cdac275b" xml:space="preserve">
+          <source>Indicates information considered important, but not hazard-related.</source>
+          <target state="new">Indicates information considered important, but not hazard-related.</target>
+        </trans-unit>
+        <trans-unit id="cc6d73b9-4d35-45b8-8d71-77133c9a576d" xml:space="preserve">
+          <source><bpt id="fda2ef32-d640-4242-ba47-7a665ac8d20c">&lt;linkText&gt;</bpt>Electrical shock icon<ept id="fda2ef32-d640-4242-ba47-7a665ac8d20c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fda2ef32-d640-4242-ba47-7a665ac8d20c">&lt;linkText&gt;</bpt>Electrical shock icon<ept id="fda2ef32-d640-4242-ba47-7a665ac8d20c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce76df95-754d-4ee4-aa61-842ec9cdd524" xml:space="preserve">
+          <source><bpt id="d70939fc-3e06-49e5-bba3-6959908442b4">&lt;strong&gt;</bpt>Electrical Shock Hazard<ept id="d70939fc-3e06-49e5-bba3-6959908442b4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d70939fc-3e06-49e5-bba3-6959908442b4">&lt;strong&gt;</bpt>Electrical Shock Hazard<ept id="d70939fc-3e06-49e5-bba3-6959908442b4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="019d1831-3f64-4ccb-8cf1-982e8b051cfe" xml:space="preserve">
+          <source>Indicates high voltage.</source>
+          <target state="new">Indicates high voltage.</target>
+        </trans-unit>
+        <trans-unit id="d9f84f40-43eb-4d3c-955b-4067e7294c81" xml:space="preserve">
+          <source><bpt id="6a83e3df-6657-46d9-8bf5-37984cdc7d0b">&lt;linkText&gt;</bpt>Heavy weight icon<ept id="6a83e3df-6657-46d9-8bf5-37984cdc7d0b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6a83e3df-6657-46d9-8bf5-37984cdc7d0b">&lt;linkText&gt;</bpt>Heavy weight icon<ept id="6a83e3df-6657-46d9-8bf5-37984cdc7d0b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41ff1298-699c-4936-a8c4-89d4851e2a83" xml:space="preserve">
+          <source><bpt id="07460fd7-d309-4e7a-ae66-dd097a51f54d">&lt;strong&gt;</bpt>Heavy Weight<ept id="07460fd7-d309-4e7a-ae66-dd097a51f54d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="07460fd7-d309-4e7a-ae66-dd097a51f54d">&lt;strong&gt;</bpt>Heavy Weight<ept id="07460fd7-d309-4e7a-ae66-dd097a51f54d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="101e4a43-554d-457e-a735-2008387661dc" xml:space="preserve">
+          <source><bpt id="861f62c8-10df-452d-a24a-1f07b8a60843">&lt;linkText&gt;</bpt>No user serviceable parts icon<ept id="861f62c8-10df-452d-a24a-1f07b8a60843">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="861f62c8-10df-452d-a24a-1f07b8a60843">&lt;linkText&gt;</bpt>No user serviceable parts icon<ept id="861f62c8-10df-452d-a24a-1f07b8a60843">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af1e20a7-f491-4975-8d26-06633d7deede" xml:space="preserve">
+          <source><bpt id="d69d3ed9-0c41-40d7-b16e-7a810d96f57a">&lt;strong&gt;</bpt>No User Serviceable Parts<ept id="d69d3ed9-0c41-40d7-b16e-7a810d96f57a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d69d3ed9-0c41-40d7-b16e-7a810d96f57a">&lt;strong&gt;</bpt>No User Serviceable Parts<ept id="d69d3ed9-0c41-40d7-b16e-7a810d96f57a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78761c6c-5536-43cc-9215-dabe91ba3bcb" xml:space="preserve">
+          <source>Do not access unless properly trained.</source>
+          <target state="new">Do not access unless properly trained.</target>
+        </trans-unit>
+        <trans-unit id="562b4405-e40d-424b-a8b5-7a5803ba2a16" xml:space="preserve">
+          <source><bpt id="23125bd4-6f56-4abd-b216-003759131278">&lt;linkText&gt;</bpt>Read instructions icon<ept id="23125bd4-6f56-4abd-b216-003759131278">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="23125bd4-6f56-4abd-b216-003759131278">&lt;linkText&gt;</bpt>Read instructions icon<ept id="23125bd4-6f56-4abd-b216-003759131278">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7849ba7-af80-416f-bb8e-c4add648054f" xml:space="preserve">
+          <source><bpt id="10300ed9-89ec-43af-8f9d-eda715a3612f">&lt;strong&gt;</bpt>Read All Instructions First<ept id="10300ed9-89ec-43af-8f9d-eda715a3612f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="10300ed9-89ec-43af-8f9d-eda715a3612f">&lt;strong&gt;</bpt>Read All Instructions First<ept id="10300ed9-89ec-43af-8f9d-eda715a3612f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55f7742e-89c5-4a5e-af44-50c5926b1eb6" xml:space="preserve">
+          <source><bpt id="791a0757-6968-4107-9970-d82f90a4137f">&lt;linkText&gt;</bpt>Tip hazard icon<ept id="791a0757-6968-4107-9970-d82f90a4137f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="791a0757-6968-4107-9970-d82f90a4137f">&lt;linkText&gt;</bpt>Tip hazard icon<ept id="791a0757-6968-4107-9970-d82f90a4137f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed73d2fa-2fc2-4f2f-b16a-141759d2677a" xml:space="preserve">
+          <source><bpt id="ffc7a435-1e08-4c70-ac6f-faa9e4901587">&lt;strong&gt;</bpt>Tip Hazard<ept id="ffc7a435-1e08-4c70-ac6f-faa9e4901587">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ffc7a435-1e08-4c70-ac6f-faa9e4901587">&lt;strong&gt;</bpt>Tip Hazard<ept id="ffc7a435-1e08-4c70-ac6f-faa9e4901587">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d8c6cc5-d5e6-4bdb-9be4-6da39fbced4b" xml:space="preserve">
+          <source>Familiarize yourself with the safety information about your device and safety icons used in this tutorial.</source>
+          <target state="new">Familiarize yourself with the safety information about your device and safety icons used in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="0dd62b75-daad-4053-8fbe-560747e49a00" xml:space="preserve">
+          <source>Go to <bpt id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;linkText&gt;</bpt>Safely install and operate your StorSimple device<ept id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;/linkText&gt;</ept><bpt id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;title&gt;</bpt><ept id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;/title&gt;</ept> for complete information.</source>
+          <target state="new">Go to <bpt id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;linkText&gt;</bpt>Safely install and operate your StorSimple device<ept id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;/linkText&gt;</ept><bpt id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;title&gt;</bpt><ept id="6370c69e-fe86-4888-a5ec-8d2a28274fd6">&lt;/title&gt;</ept> for complete information.</target>
+        </trans-unit>
+        <trans-unit id="f69d7fad-f074-43c1-97d1-6cadb009181a" xml:space="preserve">
+          <source>Be sure to review the <bpt id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;linkText&gt;</bpt>Safety precautions<ept id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;/linkText&gt;</ept><bpt id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;title&gt;</bpt><ept id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;/title&gt;</ept> before you handle your StorSimple device.</source>
+          <target state="new">Be sure to review the <bpt id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;linkText&gt;</bpt>Safety precautions<ept id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;/linkText&gt;</ept><bpt id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;title&gt;</bpt><ept id="123ed3bd-dcbe-48ea-9d54-a89255ae693a">&lt;/title&gt;</ept> before you handle your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="cba818e0-3273-4f79-a520-16b24a28bd00" xml:space="preserve">
+          <source>Before you attempt to replace a component, consider the following information.</source>
+          <target state="new">Before you attempt to replace a component, consider the following information.</target>
+        </trans-unit>
+        <trans-unit id="dae7585c-ee84-4a8d-8eca-77913cd78b09" xml:space="preserve">
+          <source><bpt id="a73ab8a0-d4b0-4f1c-8ccb-aebb9b944c83">&lt;linkText&gt;</bpt>Warning Icon<ept id="a73ab8a0-d4b0-4f1c-8ccb-aebb9b944c83">&lt;/linkText&gt;</ept> <bpt id="da064b18-897c-4381-8a4b-5b85aa550812">&lt;linkText&gt;</bpt>Electrical Shock Icon<ept id="da064b18-897c-4381-8a4b-5b85aa550812">&lt;/linkText&gt;</ept> <bpt id="79267857-2b50-4093-b3f8-a83b272066f7">&lt;strong&gt;</bpt>WARNING!<ept id="79267857-2b50-4093-b3f8-a83b272066f7">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="a73ab8a0-d4b0-4f1c-8ccb-aebb9b944c83">&lt;linkText&gt;</bpt>Warning Icon<ept id="a73ab8a0-d4b0-4f1c-8ccb-aebb9b944c83">&lt;/linkText&gt;</ept> <bpt id="da064b18-897c-4381-8a4b-5b85aa550812">&lt;linkText&gt;</bpt>Electrical Shock Icon<ept id="da064b18-897c-4381-8a4b-5b85aa550812">&lt;/linkText&gt;</ept> <bpt id="79267857-2b50-4093-b3f8-a83b272066f7">&lt;strong&gt;</bpt>WARNING!<ept id="79267857-2b50-4093-b3f8-a83b272066f7">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="6e3cf893-e7be-43fc-9069-e66140df63d6" xml:space="preserve">
+          <source>Ground yourself properly by using an electrostatic discharge or antistatic mat when handling modules and components of your StorSimple device.</source>
+          <target state="new">Ground yourself properly by using an electrostatic discharge or antistatic mat when handling modules and components of your StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="8ba27b31-6b0b-46f0-b42e-ebc1cb005c92" xml:space="preserve">
+          <source>Do not touch any circuitry.</source>
+          <target state="new">Do not touch any circuitry.</target>
+        </trans-unit>
+        <trans-unit id="2efd90f3-cce9-4e8c-8d3e-7aabdcf58727" xml:space="preserve">
+          <source>Use the supplied handles and guides while handling components that may have exposed circuitry.</source>
+          <target state="new">Use the supplied handles and guides while handling components that may have exposed circuitry.</target>
+        </trans-unit>
+        <trans-unit id="7f812726-52d5-44e3-b1ed-7c9a904cc049" xml:space="preserve">
+          <source><bpt id="8aa4ad93-121e-4254-a3db-dc19aaeaba66">&lt;linkText&gt;</bpt>Warning Icon<ept id="8aa4ad93-121e-4254-a3db-dc19aaeaba66">&lt;/linkText&gt;</ept> <bpt id="af7fd908-8264-4fe9-bcf0-40ccc2eb73dc">&lt;linkText&gt;</bpt>Notice Icon<ept id="af7fd908-8264-4fe9-bcf0-40ccc2eb73dc">&lt;/linkText&gt;</ept> <bpt id="ca0dfa55-cd5a-4769-b396-5ea9e1c2de76">&lt;strong&gt;</bpt>NOTICE:<ept id="ca0dfa55-cd5a-4769-b396-5ea9e1c2de76">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8aa4ad93-121e-4254-a3db-dc19aaeaba66">&lt;linkText&gt;</bpt>Warning Icon<ept id="8aa4ad93-121e-4254-a3db-dc19aaeaba66">&lt;/linkText&gt;</ept> <bpt id="af7fd908-8264-4fe9-bcf0-40ccc2eb73dc">&lt;linkText&gt;</bpt>Notice Icon<ept id="af7fd908-8264-4fe9-bcf0-40ccc2eb73dc">&lt;/linkText&gt;</ept> <bpt id="ca0dfa55-cd5a-4769-b396-5ea9e1c2de76">&lt;strong&gt;</bpt>NOTICE:<ept id="ca0dfa55-cd5a-4769-b396-5ea9e1c2de76">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d667863-9b53-4f4e-9236-c2a9d5f021fc" xml:space="preserve">
+          <source>When you replace a module, <bpt id="c1b6399d-5f29-4962-8eed-c04f652cb20c">&lt;strong&gt;</bpt>NEVER leave an empty bay in the rear of the enclosure<ept id="c1b6399d-5f29-4962-8eed-c04f652cb20c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you replace a module, <bpt id="c1b6399d-5f29-4962-8eed-c04f652cb20c">&lt;strong&gt;</bpt>NEVER leave an empty bay in the rear of the enclosure<ept id="c1b6399d-5f29-4962-8eed-c04f652cb20c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6174644-346e-4a1c-bd50-374428dd71f9" xml:space="preserve">
+          <source>Obtain a replacement or blank module before removing the problem part.</source>
+          <target state="new">Obtain a replacement or blank module before removing the problem part.</target>
+        </trans-unit>
+        <trans-unit id="9c1a2a7c-5e5c-4c1f-94c9-d60f6b9c0b22" xml:space="preserve">
+          <source>Your Microsoft Azure StorSimple device consists of several plug-in modules in the primary and/or EBOD enclosures.</source>
+          <target state="new">Your Microsoft Azure StorSimple device consists of several plug-in modules in the primary and/or EBOD enclosures.</target>
+        </trans-unit>
+        <trans-unit id="0e395e56-18c8-4078-a913-c8eb60a3b6ce" xml:space="preserve">
+          <source>The 8100 has a single primary enclosure, whereas the 8600 is a dual enclosure device with a primary enclosure and an EBOD enclosure.</source>
+          <target state="new">The 8100 has a single primary enclosure, whereas the 8600 is a dual enclosure device with a primary enclosure and an EBOD enclosure.</target>
+        </trans-unit>
+        <trans-unit id="ebe680a8-1174-43aa-8fdf-aabf7ffe5820" xml:space="preserve">
+          <source>The main hardware components in your device are summarized in the following tables.</source>
+          <target state="new">The main hardware components in your device are summarized in the following tables.</target>
+        </trans-unit>
+        <trans-unit id="5a7e194d-c755-424e-892d-fde66a112743" xml:space="preserve">
+          <source>Click the link in the <bpt id="4c20f258-04d6-4d10-975f-a205a2da5547">&lt;strong&gt;</bpt>Replacement procedure<ept id="4c20f258-04d6-4d10-975f-a205a2da5547">&lt;/strong&gt;</ept> column to go to the associated tutorial.</source>
+          <target state="new">Click the link in the <bpt id="4c20f258-04d6-4d10-975f-a205a2da5547">&lt;strong&gt;</bpt>Replacement procedure<ept id="4c20f258-04d6-4d10-975f-a205a2da5547">&lt;/strong&gt;</ept> column to go to the associated tutorial.</target>
+        </trans-unit>
+        <trans-unit id="062b7d26-1536-494d-b841-498ce761ca29" xml:space="preserve">
+          <source>Components</source>
+          <target state="new">Components</target>
+        </trans-unit>
+        <trans-unit id="d3de800b-42bf-4093-9bc8-729f2351cf6c" xml:space="preserve">
+          <source># Present</source>
+          <target state="new"># Present</target>
+        </trans-unit>
+        <trans-unit id="2b511f3d-6ffa-4993-bca9-23edf381362c" xml:space="preserve">
+          <source>Plug-in module?</source>
+          <target state="new">Plug-in module?</target>
+        </trans-unit>
+        <trans-unit id="c228d65a-973a-4f79-878f-6d21ac86c0d3" xml:space="preserve">
+          <source>Replacement procedure</source>
+          <target state="new">Replacement procedure</target>
+        </trans-unit>
+        <trans-unit id="7f03eed7-8ed5-434c-ac11-ef93295a6c80" xml:space="preserve">
+          <source>Chassis</source>
+          <target state="new">Chassis</target>
+        </trans-unit>
+        <trans-unit id="9f9f8122-041f-41cc-9766-1c85f4fad665" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="74b5f9ac-0b06-4c28-9c17-5f02adb0bfc0" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b5b9d323-0b14-44ae-b799-82a8c6a3ba8e" xml:space="preserve">
+          <source><bpt id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;linkText&gt;</bpt>Replace the chassis on your StorSimple device<ept id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;/linkText&gt;</ept><bpt id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;title&gt;</bpt><ept id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;linkText&gt;</bpt>Replace the chassis on your StorSimple device<ept id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;/linkText&gt;</ept><bpt id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;title&gt;</bpt><ept id="20b23409-3775-4aa9-a11b-be80d3fee8ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0537f68e-138a-44b0-9c01-cbab323424fa" xml:space="preserve">
+          <source>Primary controllers</source>
+          <target state="new">Primary controllers</target>
+        </trans-unit>
+        <trans-unit id="ed3f255f-82ea-4144-8dbc-8374c626305e" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="c293030a-0859-4b71-aeb4-a5af9b589171" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c3521cd6-9ebc-4a16-81e6-ad79c37d1814" xml:space="preserve">
+          <source><bpt id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;linkText&gt;</bpt>Replace a controller module on your StorSimple device<ept id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;/linkText&gt;</ept><bpt id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;title&gt;</bpt><ept id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;linkText&gt;</bpt>Replace a controller module on your StorSimple device<ept id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;/linkText&gt;</ept><bpt id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;title&gt;</bpt><ept id="b4f4da4d-7d8d-466c-b3b7-28fd3b94f970">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a641f25a-853f-4264-8072-26b001e69482" xml:space="preserve">
+          <source>764W Power and Cooling Modules (PCMs)</source>
+          <target state="new">764W Power and Cooling Modules (PCMs)</target>
+        </trans-unit>
+        <trans-unit id="692eff52-724d-4b60-bfb8-8e040a9db8ba" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="d85dc1c2-45ef-4854-973a-ba3ad2fda6b4" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="6af97318-f385-4148-8419-06675f5bd624" xml:space="preserve">
+          <source><bpt id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;linkText&gt;</bpt>Replace a Power and Cooling Module on your StorSimple device<ept id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;/linkText&gt;</ept><bpt id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;title&gt;</bpt><ept id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;linkText&gt;</bpt>Replace a Power and Cooling Module on your StorSimple device<ept id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;/linkText&gt;</ept><bpt id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;title&gt;</bpt><ept id="59ad1813-ffbb-4c2b-a903-d968f443bad9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="15be695d-ad15-4c11-aae3-274f0386c267" xml:space="preserve">
+          <source>Backup battery</source>
+          <target state="new">Backup battery</target>
+        </trans-unit>
+        <trans-unit id="579ba744-5b7a-4a7f-bd08-462ef98353f2" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="49537ff4-acd3-4958-b8f2-4314831ad980" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a8f20ba4-230e-4880-9f8d-27a9880132bc" xml:space="preserve">
+          <source><bpt id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;linkText&gt;</bpt>Replace the backup battery module on your StorSimple device<ept id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;/linkText&gt;</ept><bpt id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;title&gt;</bpt><ept id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;linkText&gt;</bpt>Replace the backup battery module on your StorSimple device<ept id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;/linkText&gt;</ept><bpt id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;title&gt;</bpt><ept id="0025bab6-f513-43ee-b714-0aef81604e28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46d360e8-1935-4efa-80cf-b813bf48ddb8" xml:space="preserve">
+          <source>Disk drives</source>
+          <target state="new">Disk drives</target>
+        </trans-unit>
+        <trans-unit id="85ba1eba-c771-4058-a3d1-dbe7477e1579" xml:space="preserve">
+          <source>12</source>
+          <target state="new">12</target>
+        </trans-unit>
+        <trans-unit id="ce5807cc-b4c9-4d56-9d54-d0e9c09dff07" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a08cca17-1adb-4779-af5c-04d6b49ea7e3" xml:space="preserve">
+          <source><bpt id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;linkText&gt;</bpt>Replace a disk drive on your StorSimple device<ept id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;/linkText&gt;</ept><bpt id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;title&gt;</bpt><ept id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;linkText&gt;</bpt>Replace a disk drive on your StorSimple device<ept id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;/linkText&gt;</ept><bpt id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;title&gt;</bpt><ept id="7bf83265-72f1-45b3-bacb-bd1a1e71dc4d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d2dc3bbb-7bdf-4ead-b6df-410e99ef1de6" xml:space="preserve">
+          <source><bpt id="c3db7fd8-3da8-4f2f-a110-0f4e94e817f7">&lt;strong&gt;</bpt>Table 1<ept id="c3db7fd8-3da8-4f2f-a110-0f4e94e817f7">&lt;/strong&gt;</ept> Hardware components in the primary enclosure</source>
+          <target state="new"><bpt id="c3db7fd8-3da8-4f2f-a110-0f4e94e817f7">&lt;strong&gt;</bpt>Table 1<ept id="c3db7fd8-3da8-4f2f-a110-0f4e94e817f7">&lt;/strong&gt;</ept> Hardware components in the primary enclosure</target>
+        </trans-unit>
+        <trans-unit id="1428bd58-9417-4336-9066-0180b014189b" xml:space="preserve">
+          <source>The primary enclosure and the EBOD enclosure differ in their I/O modules.</source>
+          <target state="new">The primary enclosure and the EBOD enclosure differ in their I/O modules.</target>
+        </trans-unit>
+        <trans-unit id="1edcb29b-3710-4a2b-a6d6-86f1be3b264e" xml:space="preserve">
+          <source>Additionally, the PCMs have different wattage.</source>
+          <target state="new">Additionally, the PCMs have different wattage.</target>
+        </trans-unit>
+        <trans-unit id="58c00cf0-20c2-40c2-9625-a5281f57e244" xml:space="preserve">
+          <source>The PCMs in the primary enclosure are 764 W, whereas those in the EBOD enclosure are 580 W. The PCMs in the primary enclosure also contain a backup battery module.</source>
+          <target state="new">The PCMs in the primary enclosure are 764 W, whereas those in the EBOD enclosure are 580 W. The PCMs in the primary enclosure also contain a backup battery module.</target>
+        </trans-unit>
+        <trans-unit id="ac6d7971-f763-4d31-84f9-3dcd08bcbf73" xml:space="preserve">
+          <source>Components</source>
+          <target state="new">Components</target>
+        </trans-unit>
+        <trans-unit id="7db52bf7-8fa2-4df2-99f0-ee6e8da81bef" xml:space="preserve">
+          <source># Present</source>
+          <target state="new"># Present</target>
+        </trans-unit>
+        <trans-unit id="33cd8134-cd2d-42c0-89d3-2b2b86877c79" xml:space="preserve">
+          <source>Plug-in module?</source>
+          <target state="new">Plug-in module?</target>
+        </trans-unit>
+        <trans-unit id="4eba875b-cd3c-4327-b597-dddc55df7c5d" xml:space="preserve">
+          <source>Replacement procedure</source>
+          <target state="new">Replacement procedure</target>
+        </trans-unit>
+        <trans-unit id="437d8cd5-2ecd-4b46-a27c-3b9fdf496774" xml:space="preserve">
+          <source>Chassis</source>
+          <target state="new">Chassis</target>
+        </trans-unit>
+        <trans-unit id="cd87c892-795a-4f87-85dc-bc9d493335fe" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="752de6b8-3c4a-4443-ba64-aa7ead64118a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a7cb389e-1cb7-4d58-b8f6-91bd20bb87ce" xml:space="preserve">
+          <source><bpt id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;linkText&gt;</bpt>Replace the chassis on your StorSimple device<ept id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;/linkText&gt;</ept><bpt id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;title&gt;</bpt><ept id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;linkText&gt;</bpt>Replace the chassis on your StorSimple device<ept id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;/linkText&gt;</ept><bpt id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;title&gt;</bpt><ept id="2b204203-f9e0-4504-a093-3ccab89ce418">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4c781f4-7706-4530-bf8c-e6cbf687088a" xml:space="preserve">
+          <source>EBOD controllers</source>
+          <target state="new">EBOD controllers</target>
+        </trans-unit>
+        <trans-unit id="ddca69d5-031e-4610-9ae3-05c2c5942634" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="9d947851-56f6-46ec-9f46-1c1b8691ee78" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="47c8acf9-bb22-4ff8-bc1e-1599a33d1dbc" xml:space="preserve">
+          <source><bpt id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;linkText&gt;</bpt>Replace an EBOD controller on your StorSimple device<ept id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;/linkText&gt;</ept><bpt id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;title&gt;</bpt><ept id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;linkText&gt;</bpt>Replace an EBOD controller on your StorSimple device<ept id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;/linkText&gt;</ept><bpt id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;title&gt;</bpt><ept id="18e93bb6-1d73-4c03-bd43-e9737d39cfc2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f551094-13b2-4238-b8d8-a168ee48caae" xml:space="preserve">
+          <source>580W Power and Cooling Modules (PCMs)</source>
+          <target state="new">580W Power and Cooling Modules (PCMs)</target>
+        </trans-unit>
+        <trans-unit id="8e561a8b-6285-4622-b242-43a7464c394d" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="b1f18581-e560-4475-8aaf-a3d4d48846b4" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="87e40108-f56e-4c6c-a850-a452457be8b4" xml:space="preserve">
+          <source><bpt id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;linkText&gt;</bpt>Replace a Power and Cooling Module on your StorSimple device<ept id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;/linkText&gt;</ept><bpt id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;title&gt;</bpt><ept id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;linkText&gt;</bpt>Replace a Power and Cooling Module on your StorSimple device<ept id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;/linkText&gt;</ept><bpt id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;title&gt;</bpt><ept id="1becdf0e-de33-4bce-bb27-374850c87958">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37ebe866-fcd1-4535-b668-2a22e9a95f20" xml:space="preserve">
+          <source>Disk drives</source>
+          <target state="new">Disk drives</target>
+        </trans-unit>
+        <trans-unit id="4cde824f-a5bc-4938-8afd-4c75c8d5ed60" xml:space="preserve">
+          <source>12</source>
+          <target state="new">12</target>
+        </trans-unit>
+        <trans-unit id="7888a250-cba9-4d2a-b1a7-86d512929a52" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9b691803-cde4-4f08-a5d9-8a874a7f93dc" xml:space="preserve">
+          <source><bpt id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;linkText&gt;</bpt>Replace a disk drive on your StorSimple device<ept id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;/linkText&gt;</ept><bpt id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;title&gt;</bpt><ept id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;linkText&gt;</bpt>Replace a disk drive on your StorSimple device<ept id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;/linkText&gt;</ept><bpt id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;title&gt;</bpt><ept id="49af40f5-3aad-4d2e-97a2-9e96a44f48d3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc9fb6da-03df-4112-bd4d-33c67d859384" xml:space="preserve">
+          <source><bpt id="2f8a91f2-d29f-4ff3-af20-4cbbf469743a">&lt;strong&gt;</bpt>Table 2<ept id="2f8a91f2-d29f-4ff3-af20-4cbbf469743a">&lt;/strong&gt;</ept> Hardware components in the EBOD enclosure</source>
+          <target state="new"><bpt id="2f8a91f2-d29f-4ff3-af20-4cbbf469743a">&lt;strong&gt;</bpt>Table 2<ept id="2f8a91f2-d29f-4ff3-af20-4cbbf469743a">&lt;/strong&gt;</ept> Hardware components in the EBOD enclosure</target>
+        </trans-unit>
+        <trans-unit id="712909f8-c287-4a6b-913e-5fa3639346c1" xml:space="preserve">
+          <source>The plug-in modules on the device are highlighted in the following front and rear diagrams.</source>
+          <target state="new">The plug-in modules on the device are highlighted in the following front and rear diagrams.</target>
+        </trans-unit>
+        <trans-unit id="1c5a2085-fdeb-4de7-a046-a90404663ddf" xml:space="preserve">
+          <source>You can use these diagrams to determine the location of the various plug-in modules if a replacement is required.</source>
+          <target state="new">You can use these diagrams to determine the location of the various plug-in modules if a replacement is required.</target>
+        </trans-unit>
+        <trans-unit id="5abc617c-0e03-41ff-9130-030740e9715d" xml:space="preserve">
+          <source>The front diagram shows the disk drives, and the rear diagrams of the EBOD enclosure and the primary enclosure show the plug-in modules.</source>
+          <target state="new">The front diagram shows the disk drives, and the rear diagrams of the EBOD enclosure and the primary enclosure show the plug-in modules.</target>
+        </trans-unit>
+        <trans-unit id="9e8c76cb-1ef4-42a1-a342-271d259b7598" xml:space="preserve">
+          <source><bpt id="04d64ef2-315d-48ea-acab-b79bf1438e1d">&lt;linkText&gt;</bpt>Frontplane of device with disk drives<ept id="04d64ef2-315d-48ea-acab-b79bf1438e1d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="04d64ef2-315d-48ea-acab-b79bf1438e1d">&lt;linkText&gt;</bpt>Frontplane of device with disk drives<ept id="04d64ef2-315d-48ea-acab-b79bf1438e1d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b18fa719-c3ac-4720-b344-147b7a27f531" xml:space="preserve">
+          <source><bpt id="8999feda-c400-4b4b-8ab7-332ec6f66c14">&lt;strong&gt;</bpt>Figure 1<ept id="8999feda-c400-4b4b-8ab7-332ec6f66c14">&lt;/strong&gt;</ept>  Front of the device</source>
+          <target state="new"><bpt id="8999feda-c400-4b4b-8ab7-332ec6f66c14">&lt;strong&gt;</bpt>Figure 1<ept id="8999feda-c400-4b4b-8ab7-332ec6f66c14">&lt;/strong&gt;</ept>  Front of the device</target>
+        </trans-unit>
+        <trans-unit id="e250a31d-4c1f-46ae-ba31-e2481a976c74" xml:space="preserve">
+          <source>Label</source>
+          <target state="new">Label</target>
+        </trans-unit>
+        <trans-unit id="76eb3dbe-45a8-4ca9-aa0a-570e658d992c" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="56e9cb50-e5d5-43ab-a616-707697bb0800" xml:space="preserve">
+          <source>0 - 11</source>
+          <target state="new">0 - 11</target>
+        </trans-unit>
+        <trans-unit id="7a7477f9-3716-405b-9080-ff3a4dbf6732" xml:space="preserve">
+          <source>Disks drives (total of 12)</source>
+          <target state="new">Disks drives (total of 12)</target>
+        </trans-unit>
+        <trans-unit id="c90c4e49-b439-47b1-8c6d-77df5cc64d3f" xml:space="preserve">
+          <source>Both the primary enclosure and the EBOD enclosure have drive carrier modules.</source>
+          <target state="new">Both the primary enclosure and the EBOD enclosure have drive carrier modules.</target>
+        </trans-unit>
+        <trans-unit id="8d130035-6db1-4863-a283-af573c909d4f" xml:space="preserve">
+          <source>The chassis houses twelve 3.5" disk drives arranged in a 3 by 4 format.</source>
+          <target state="new">The chassis houses twelve 3.5" disk drives arranged in a 3 by 4 format.</target>
+        </trans-unit>
+        <trans-unit id="a1081d07-3c44-4acb-9ce7-f6325cb7cd37" xml:space="preserve">
+          <source><bpt id="93131935-2521-4303-b398-300d7848636c">&lt;linkText&gt;</bpt>Backplane of device primary enclosure modules<ept id="93131935-2521-4303-b398-300d7848636c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93131935-2521-4303-b398-300d7848636c">&lt;linkText&gt;</bpt>Backplane of device primary enclosure modules<ept id="93131935-2521-4303-b398-300d7848636c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="163b7ca3-598b-461b-8b72-7f090e9a9dd4" xml:space="preserve">
+          <source><bpt id="d1993f8c-54d6-4ab6-8fb4-d1f2347f8e54">&lt;strong&gt;</bpt>Figure 2<ept id="d1993f8c-54d6-4ab6-8fb4-d1f2347f8e54">&lt;/strong&gt;</ept>  Back of the primary enclosure</source>
+          <target state="new"><bpt id="d1993f8c-54d6-4ab6-8fb4-d1f2347f8e54">&lt;strong&gt;</bpt>Figure 2<ept id="d1993f8c-54d6-4ab6-8fb4-d1f2347f8e54">&lt;/strong&gt;</ept>  Back of the primary enclosure</target>
+        </trans-unit>
+        <trans-unit id="5311176e-1edb-468e-9b79-7472b27a2094" xml:space="preserve">
+          <source>Label</source>
+          <target state="new">Label</target>
+        </trans-unit>
+        <trans-unit id="004e9d9c-6aff-4364-a23d-9b7405bc58b2" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="c737520b-4de5-4370-9f72-d88b01a561bc" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="8a81db1b-1d12-46ad-9c0f-24b0a2f16c6e" xml:space="preserve">
+          <source>PCM 0</source>
+          <target state="new">PCM 0</target>
+        </trans-unit>
+        <trans-unit id="85e7d66b-1793-43e9-becd-911b48baa6f9" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="77780aa1-35b5-449c-a84d-6ec589060a77" xml:space="preserve">
+          <source>PCM 1</source>
+          <target state="new">PCM 1</target>
+        </trans-unit>
+        <trans-unit id="6ee7ce92-8bf4-4c69-a9de-bedc45cc7932" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="9cc61dd7-c45d-495b-8b6e-6d7d3e4069e4" xml:space="preserve">
+          <source>Controller 0</source>
+          <target state="new">Controller 0</target>
+        </trans-unit>
+        <trans-unit id="4148fd00-95e4-4092-8bc9-331b0042e00d" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="f2b1dab7-8a5c-4162-abd2-3685ccd7d6cb" xml:space="preserve">
+          <source>Controller 1</source>
+          <target state="new">Controller 1</target>
+        </trans-unit>
+        <trans-unit id="16208614-b517-4188-ae7b-ef43e207f883" xml:space="preserve">
+          <source><bpt id="df251a6c-b53f-45ba-aedb-043e637588ed">&lt;linkText&gt;</bpt>Backplane of device EBOD enclosure plug-in modules<ept id="df251a6c-b53f-45ba-aedb-043e637588ed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df251a6c-b53f-45ba-aedb-043e637588ed">&lt;linkText&gt;</bpt>Backplane of device EBOD enclosure plug-in modules<ept id="df251a6c-b53f-45ba-aedb-043e637588ed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6eec2527-295e-4d1c-8130-d74b56eeeae6" xml:space="preserve">
+          <source><bpt id="ad033a12-ace9-4515-81f3-21776b8b1990">&lt;strong&gt;</bpt>Figure 3<ept id="ad033a12-ace9-4515-81f3-21776b8b1990">&lt;/strong&gt;</ept>  Back of the EBOD enclosure</source>
+          <target state="new"><bpt id="ad033a12-ace9-4515-81f3-21776b8b1990">&lt;strong&gt;</bpt>Figure 3<ept id="ad033a12-ace9-4515-81f3-21776b8b1990">&lt;/strong&gt;</ept>  Back of the EBOD enclosure</target>
+        </trans-unit>
+        <trans-unit id="e3f02ffa-9146-48c4-b24f-842cc88355d7" xml:space="preserve">
+          <source>Label</source>
+          <target state="new">Label</target>
+        </trans-unit>
+        <trans-unit id="b0ff9ce8-3258-41fa-b6ba-0b90acfde1f8" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="67736997-fafb-448f-89ae-e99b3b5ef18f" xml:space="preserve">
+          <source>1</source>
+          <target state="new">1</target>
+        </trans-unit>
+        <trans-unit id="2729b648-e31f-437f-b379-61da62d2a6f5" xml:space="preserve">
+          <source>PCM 0</source>
+          <target state="new">PCM 0</target>
+        </trans-unit>
+        <trans-unit id="1f1e8bd1-9d3a-41d7-8b19-6314b624bdd2" xml:space="preserve">
+          <source>2</source>
+          <target state="new">2</target>
+        </trans-unit>
+        <trans-unit id="c20b91d4-f931-410c-8b35-25a142cdc89c" xml:space="preserve">
+          <source>PCM 1</source>
+          <target state="new">PCM 1</target>
+        </trans-unit>
+        <trans-unit id="acf5e813-7a64-477a-ab02-74d728bc5e1d" xml:space="preserve">
+          <source>3</source>
+          <target state="new">3</target>
+        </trans-unit>
+        <trans-unit id="785b5c84-e209-48dc-9e07-c95f49d3fb23" xml:space="preserve">
+          <source>EBOD Controller 0</source>
+          <target state="new">EBOD Controller 0</target>
+        </trans-unit>
+        <trans-unit id="84259f6a-af8d-46ff-9ba3-422a676474e3" xml:space="preserve">
+          <source>4</source>
+          <target state="new">4</target>
+        </trans-unit>
+        <trans-unit id="10cf834e-4b35-4e79-980e-a26a4ee86bfd" xml:space="preserve">
+          <source>EBOD Controller 1</source>
+          <target state="new">EBOD Controller 1</target>
+        </trans-unit>
+        <trans-unit id="06b77813-e1ed-4870-81e6-d68e7a38555e" xml:space="preserve">
+          <source>The following field replaceable units (FRUs) are available for your StorSimple device:</source>
+          <target state="new">The following field replaceable units (FRUs) are available for your StorSimple device:</target>
+        </trans-unit>
+        <trans-unit id="26004fcc-b53d-4214-9ff2-29888f6be41f" xml:space="preserve">
+          <source>Chassis (including the integrated operations panel)</source>
+          <target state="new">Chassis (including the integrated operations panel)</target>
+        </trans-unit>
+        <trans-unit id="201d734b-d2b3-4d99-bf2e-bab53ec3a212" xml:space="preserve">
+          <source>764 W AC Power and Cooling Module</source>
+          <target state="new">764 W AC Power and Cooling Module</target>
+        </trans-unit>
+        <trans-unit id="6acba47d-a41f-466f-8ea3-46f905c4dad6" xml:space="preserve">
+          <source>580 W AC Power and Cooling Module</source>
+          <target state="new">580 W AC Power and Cooling Module</target>
+        </trans-unit>
+        <trans-unit id="137d90ca-ec39-4f99-9e2c-95a22687595b" xml:space="preserve">
+          <source>Hard disk drive with drive carrier module</source>
+          <target state="new">Hard disk drive with drive carrier module</target>
+        </trans-unit>
+        <trans-unit id="7c2b2bda-8b42-4969-9ef4-3725308b9f9b" xml:space="preserve">
+          <source>Controller module</source>
+          <target state="new">Controller module</target>
+        </trans-unit>
+        <trans-unit id="b5d9b547-6966-40e5-8c8a-d4fb24a0a315" xml:space="preserve">
+          <source>EBOD controller module</source>
+          <target state="new">EBOD controller module</target>
+        </trans-unit>
+        <trans-unit id="f6dcbd72-df3e-4e75-9066-7c82f885ad50" xml:space="preserve">
+          <source>Backup battery module</source>
+          <target state="new">Backup battery module</target>
+        </trans-unit>
+        <trans-unit id="a48a937b-1dbb-49f3-bbdf-434fcf7fc511" xml:space="preserve">
+          <source>Rack mounting rail kit</source>
+          <target state="new">Rack mounting rail kit</target>
+        </trans-unit>
+        <trans-unit id="5317e3df-ac85-4912-88cc-79df0d86b812" xml:space="preserve">
+          <source>Please <bpt id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;/linkText&gt;</ept><bpt id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;title&gt;</bpt><ept id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;/title&gt;</ept> to order any of these replacement units.</source>
+          <target state="new">Please <bpt id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;linkText&gt;</bpt>contact Microsoft Support<ept id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;/linkText&gt;</ept><bpt id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;title&gt;</bpt><ept id="a0aff790-e2af-49ac-8267-f0ec1b699818">&lt;/title&gt;</ept> to order any of these replacement units.</target>
+        </trans-unit>
+        <trans-unit id="80f30be9-fd20-4926-9006-120107bc90ef" xml:space="preserve">
+          <source>Review all <bpt id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;linkText&gt;</bpt>safety information<ept id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;/linkText&gt;</ept><bpt id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;title&gt;</bpt><ept id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;/title&gt;</ept> before you attempt to replace a StorSimple hardware component.</source>
+          <target state="new">Review all <bpt id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;linkText&gt;</bpt>safety information<ept id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;/linkText&gt;</ept><bpt id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;title&gt;</bpt><ept id="eea10375-0b2a-4083-9a59-92d8951fe168">&lt;/title&gt;</ept> before you attempt to replace a StorSimple hardware component.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

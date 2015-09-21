@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="97dbd718-ef42-40fd-aa62-e021dc13e725" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="97dbd718-ef42-40fd-aa62-e021dc13e725" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2ff231eb-9ff6-41c0-9598-7a2d2c541e8b">
+        <trans-unit id="876a0f0f-a7f8-45ee-a684-6a213cfdb4df" xml:space="preserve">
+          <source>Traffic Manager Monitoring</source>
+          <target state="new">Traffic Manager Monitoring</target>
+        </trans-unit>
+        <trans-unit id="e082d28f-7fa9-49dd-9890-4f5729062d8a" xml:space="preserve">
+          <source>This article will help undertstand and configure Traffic Manager monitoring</source>
+          <target state="new">This article will help undertstand and configure Traffic Manager monitoring</target>
+        </trans-unit>
+        <trans-unit id="92ca6627-2f9e-49f4-b5e1-2d30ed3e3a89" xml:space="preserve">
+          <source>Azure Traffic Manager monitors your endpoints, including cloud services and websites, to ensure they are available.</source>
+          <target state="new">Azure Traffic Manager monitors your endpoints, including cloud services and websites, to ensure they are available.</target>
+        </trans-unit>
+        <trans-unit id="abfaee2c-410d-4936-9df2-22508dad2b1a" xml:space="preserve">
+          <source>In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your Traffic Manager profile.</source>
+          <target state="new">In order for monitoring to work correctly, you must set it up the same way for every endpoint that you specify in your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="21563e78-f809-433a-a42c-9e479401a87f" xml:space="preserve">
+          <source>After you configure monitoring, Traffic Manager will display the status for your endpoints and profile in the Management Portal.</source>
+          <target state="new">After you configure monitoring, Traffic Manager will display the status for your endpoints and profile in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="1e2094a3-d50d-4c42-83f8-1f12280d617c" xml:space="preserve">
+          <source>You can configure monitoring settings in the Management Portal on the Configure page for your Traffic Manager profile.</source>
+          <target state="new">You can configure monitoring settings in the Management Portal on the Configure page for your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="3c5b9851-b9b2-427b-a77e-080665ab8664" xml:space="preserve">
+          <source>You can specify the following settings:</source>
+          <target state="new">You can specify the following settings:</target>
+        </trans-unit>
+        <trans-unit id="e92901a5-76b6-4980-9036-cdfb40282754" xml:space="preserve">
+          <source><bpt id="20ce7384-e08b-4c0f-8a43-287763f4e0c5">&lt;strong&gt;</bpt>Protocol<ept id="20ce7384-e08b-4c0f-8a43-287763f4e0c5">&lt;/strong&gt;</ept> – Choose HTTP or HTTPS.</source>
+          <target state="new"><bpt id="20ce7384-e08b-4c0f-8a43-287763f4e0c5">&lt;strong&gt;</bpt>Protocol<ept id="20ce7384-e08b-4c0f-8a43-287763f4e0c5">&lt;/strong&gt;</ept> – Choose HTTP or HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="be8787c8-4a66-49da-93cb-2775c8411d77" xml:space="preserve">
+          <source>It’s important to note that HTTPS monitoring does not verify whether your SSL certificate is valid, it only checks that certificate is present.</source>
+          <target state="new">It’s important to note that HTTPS monitoring does not verify whether your SSL certificate is valid, it only checks that certificate is present.</target>
+        </trans-unit>
+        <trans-unit id="fcc685c3-7fdb-4075-ab47-e5ece7cf0e7b" xml:space="preserve">
+          <source><bpt id="d7570565-710c-45ff-9e5f-bb5b95b32d9d">&lt;strong&gt;</bpt>Port<ept id="d7570565-710c-45ff-9e5f-bb5b95b32d9d">&lt;/strong&gt;</ept> – Choose the port used for the request.</source>
+          <target state="new"><bpt id="d7570565-710c-45ff-9e5f-bb5b95b32d9d">&lt;strong&gt;</bpt>Port<ept id="d7570565-710c-45ff-9e5f-bb5b95b32d9d">&lt;/strong&gt;</ept> – Choose the port used for the request.</target>
+        </trans-unit>
+        <trans-unit id="b4fd4b0b-f5b4-45a8-900d-24f09978b091" xml:space="preserve">
+          <source>Standard HTTP and HTTPS ports are among the choices.</source>
+          <target state="new">Standard HTTP and HTTPS ports are among the choices.</target>
+        </trans-unit>
+        <trans-unit id="a5e419ff-fab5-4600-97ce-4a03f258cecc" xml:space="preserve">
+          <source><bpt id="4d206156-8d6f-4b63-823d-027e4863fd72">&lt;strong&gt;</bpt>Relative path and file name<ept id="4d206156-8d6f-4b63-823d-027e4863fd72">&lt;/strong&gt;</ept> – Give the path and the name of the file that the monitoring system will attempt to access.</source>
+          <target state="new"><bpt id="4d206156-8d6f-4b63-823d-027e4863fd72">&lt;strong&gt;</bpt>Relative path and file name<ept id="4d206156-8d6f-4b63-823d-027e4863fd72">&lt;/strong&gt;</ept> – Give the path and the name of the file that the monitoring system will attempt to access.</target>
+        </trans-unit>
+        <trans-unit id="e2c3bba9-e4f0-4dad-8b92-3df18587a2a8" xml:space="preserve">
+          <source>Note that a forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).</source>
+          <target state="new">Note that a forward slash "/" is a valid entry for the relative path and implies that the file is in the root directory (default).</target>
+        </trans-unit>
+        <trans-unit id="cf2b4dd7-7337-405a-a5cd-cba40a6f2842" xml:space="preserve">
+          <source>Azure Traffic Manager displays profile and endpoint service health in the Management Portal.</source>
+          <target state="new">Azure Traffic Manager displays profile and endpoint service health in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="955ed2cb-cdd4-4f80-83fc-bcef45a76775" xml:space="preserve">
+          <source>The status column for both the profile and the endpoint displays the most recent monitor status.</source>
+          <target state="new">The status column for both the profile and the endpoint displays the most recent monitor status.</target>
+        </trans-unit>
+        <trans-unit id="3e67fe43-8816-45b7-99cc-a0640be6059b" xml:space="preserve">
+          <source>You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings.</source>
+          <target state="new">You can use this status to understand the health of your profiles according to your Traffic Manager monitoring settings.</target>
+        </trans-unit>
+        <trans-unit id="180887fb-e5ea-4313-8fb4-941105940728" xml:space="preserve">
+          <source>When your profile is healthy, DNS queries will be distributed to your services based on the traffic routing settings for the profile (Round Robin, Performance, or Failover).</source>
+          <target state="new">When your profile is healthy, DNS queries will be distributed to your services based on the traffic routing settings for the profile (Round Robin, Performance, or Failover).</target>
+        </trans-unit>
+        <trans-unit id="4070b491-08eb-4ed3-bf56-228e4112a476" xml:space="preserve">
+          <source>Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal.</source>
+          <target state="new">Once the Traffic Manager monitoring system detects a change in monitor status, it updates the status entry in the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="b0d7321e-038c-4a8f-bc07-433e8d40d3c0" xml:space="preserve">
+          <source>It can take up to five minutes for the state change to refresh.</source>
+          <target state="new">It can take up to five minutes for the state change to refresh.</target>
+        </trans-unit>
+        <trans-unit id="436746fe-664c-47d8-8040-dbc0113fa7c5" xml:space="preserve">
+          <source>The Endpoint Monitor status in the table below is the result of a combination of the endpoint health probe results and your profile and endpoint configurations.</source>
+          <target state="new">The Endpoint Monitor status in the table below is the result of a combination of the endpoint health probe results and your profile and endpoint configurations.</target>
+        </trans-unit>
+        <trans-unit id="7cf001d1-409d-4d9f-8e12-d0e794331484" xml:space="preserve">
+          <source>Profile status</source>
+          <target state="new">Profile status</target>
+        </trans-unit>
+        <trans-unit id="b33da772-b88a-419b-b407-fbcdc8b90c5e" xml:space="preserve">
+          <source>Endpoint status</source>
+          <target state="new">Endpoint status</target>
+        </trans-unit>
+        <trans-unit id="99c09134-a0fe-42f4-a957-e422a24c4988" xml:space="preserve">
+          <source>Endpoint Monitor status (API and Portal)</source>
+          <target state="new">Endpoint Monitor status (API and Portal)</target>
+        </trans-unit>
+        <trans-unit id="af992ebe-8d91-487c-8618-c71c7bb60337" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="9d4c56f8-f8b5-4486-bbe1-65824c049b4c" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="e2da5c9e-9847-4cb5-85c4-50ea74b681ea" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="ae0f7b65-3879-4b77-99c8-792da714fa30" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="new">Inactive</target>
+        </trans-unit>
+        <trans-unit id="3b8bcd6a-68fb-4469-aedf-e04b36c2c71f" xml:space="preserve">
+          <source>Disabled profiles are not monitored.</source>
+          <target state="new">Disabled profiles are not monitored.</target>
+        </trans-unit>
+        <trans-unit id="6c55a7fe-e2ca-48c6-9914-f4db12eb12d5" xml:space="preserve">
+          <source>However, the endpoint status within disabled profiles can still be managed.</source>
+          <target state="new">However, the endpoint status within disabled profiles can still be managed.</target>
+        </trans-unit>
+        <trans-unit id="7105102a-ea3e-4172-a410-8ceffdfaeae2" xml:space="preserve">
+          <source>&amp;lt;any&amp;gt;</source>
+          <target state="new">&amp;lt;any&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="097c097b-9d6e-4dc0-aae7-225d2c3be7c2" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="5561786e-e678-4046-b851-4158db6aa1a6" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="1c4dcc93-c69c-42ed-ae44-aaa7f6141b59" xml:space="preserve">
+          <source>Disabled profiles are not monitored.</source>
+          <target state="new">Disabled profiles are not monitored.</target>
+        </trans-unit>
+        <trans-unit id="f07ac1b9-93ce-467b-aae7-a2c9187b07a8" xml:space="preserve">
+          <source>However, the endpoint status within disabled profiles can still be managed.</source>
+          <target state="new">However, the endpoint status within disabled profiles can still be managed.</target>
+        </trans-unit>
+        <trans-unit id="ea73b57e-5d8e-4eea-aa4f-d7d731c36736" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="6be0dc01-1cfb-4215-a49a-704953c78ef2" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="243d7797-b630-42a3-9764-ff6b10bfdf43" xml:space="preserve">
+          <source>Online</source>
+          <target state="new">Online</target>
+        </trans-unit>
+        <trans-unit id="2bba6e9d-d936-44dd-95b2-d8cda15858c6" xml:space="preserve">
+          <source>Endpoint is monitored and is healthy.</source>
+          <target state="new">Endpoint is monitored and is healthy.</target>
+        </trans-unit>
+        <trans-unit id="dc94ada2-5fe3-4af8-a679-f3e9ebd72223" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="250bfa6e-d288-4117-8950-137a5f34a987" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="aaa15626-ef16-4a05-953b-56dee61cc344" xml:space="preserve">
+          <source>Degraded</source>
+          <target state="new">Degraded</target>
+        </trans-unit>
+        <trans-unit id="fec591e8-68c6-434c-8f47-f2f1e58e730f" xml:space="preserve">
+          <source>Endpoint is monitored and is unhealthy.</source>
+          <target state="new">Endpoint is monitored and is unhealthy.</target>
+        </trans-unit>
+        <trans-unit id="7018f695-fef6-4885-94af-df8e4233106b" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="fb4074e5-31c9-4a84-9cf8-5dc2382b0c8f" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="d0dd145c-9cb6-4a56-8d0b-c0cf57baf225" xml:space="preserve">
+          <source>CheckingEndpoint</source>
+          <target state="new">CheckingEndpoint</target>
+        </trans-unit>
+        <trans-unit id="79dcd2a6-c2f9-4843-9440-e92c8a35a8bc" xml:space="preserve">
+          <source>Endpoint is monitored but the results of the first probe have not yet been received.</source>
+          <target state="new">Endpoint is monitored but the results of the first probe have not yet been received.</target>
+        </trans-unit>
+        <trans-unit id="098388fe-2412-4ed7-8eee-b43ffadb2c8a" xml:space="preserve">
+          <source>This state is temporary when you’ve just added a new endpoint to the profile, or have just enabled an endpoint or profile.</source>
+          <target state="new">This state is temporary when you’ve just added a new endpoint to the profile, or have just enabled an endpoint or profile.</target>
+        </trans-unit>
+        <trans-unit id="c4063b16-e5a2-4d68-a5e6-fd16c95c99cb" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="b7e94eda-b308-43ca-a56b-fccb1fb858ad" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="7e52725e-ea48-4827-be67-bb730bc01238" xml:space="preserve">
+          <source>Stopped</source>
+          <target state="new">Stopped</target>
+        </trans-unit>
+        <trans-unit id="60a3f4fd-42eb-4a2e-93c7-310c88ea8cfc" xml:space="preserve">
+          <source>The underlying cloud service or website is not running.</source>
+          <target state="new">The underlying cloud service or website is not running.</target>
+        </trans-unit>
+        <trans-unit id="f3009fa8-1900-4eca-9c06-60be5ba220c1" xml:space="preserve">
+          <source>The Profile Monitor status in the table below is the result of the combination of the endpoint monitor status and your configured profile status.</source>
+          <target state="new">The Profile Monitor status in the table below is the result of the combination of the endpoint monitor status and your configured profile status.</target>
+        </trans-unit>
+        <trans-unit id="b8b65ac6-5a22-401a-ba6e-c662c2852653" xml:space="preserve">
+          <source>Profile status (as configured)</source>
+          <target state="new">Profile status (as configured)</target>
+        </trans-unit>
+        <trans-unit id="656659e2-f7a1-4c7b-ba8c-a872bdfa6a69" xml:space="preserve">
+          <source>Endpoint Monitor status</source>
+          <target state="new">Endpoint Monitor status</target>
+        </trans-unit>
+        <trans-unit id="c9c07a10-4032-4a00-b42b-b368ef0c06fa" xml:space="preserve">
+          <source>Profile Monitor status (API and Portal)</source>
+          <target state="new">Profile Monitor status (API and Portal)</target>
+        </trans-unit>
+        <trans-unit id="6da52523-6856-4db1-a0d3-81a7150fd5dc" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="ac9e4587-d854-420b-89f8-da82379b5600" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="d8745cef-50f7-400e-ba8a-2e835ac99669" xml:space="preserve">
+          <source>&amp;lt;any&amp;gt; or a profile with no defined endpoints.</source>
+          <target state="new">&amp;lt;any&amp;gt; or a profile with no defined endpoints.</target>
+        </trans-unit>
+        <trans-unit id="d344463a-1da8-4469-b167-282fdc5f18a5" xml:space="preserve">
+          <source>Disabled</source>
+          <target state="new">Disabled</target>
+        </trans-unit>
+        <trans-unit id="c6e2b404-236e-47c2-b746-89370ad7ea5a" xml:space="preserve">
+          <source>Endpoints are not monitored.</source>
+          <target state="new">Endpoints are not monitored.</target>
+        </trans-unit>
+        <trans-unit id="5d956f9c-e91d-40ff-a2ba-76040dbe213d" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="b208d488-e714-4c1c-9dc5-2cc6cb1c35d3" xml:space="preserve">
+          <source>The status of at least one endpoint is “Degraded”.</source>
+          <target state="new">The status of at least one endpoint is “Degraded”.</target>
+        </trans-unit>
+        <trans-unit id="cd168200-b9e5-484d-b182-c4dc444cb6e4" xml:space="preserve">
+          <source>Degraded</source>
+          <target state="new">Degraded</target>
+        </trans-unit>
+        <trans-unit id="ad49a9f1-ae5e-4ddd-b3ff-65f34782c9dc" xml:space="preserve">
+          <source>This is a flag that customer action is required.</source>
+          <target state="new">This is a flag that customer action is required.</target>
+        </trans-unit>
+        <trans-unit id="03a003d7-9419-4bbe-a8cd-1dc12c3d5c12" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="919c1234-103f-4fd2-91cb-7b3edc38daf0" xml:space="preserve">
+          <source>The status of at least one endpoint is “Online”.</source>
+          <target state="new">The status of at least one endpoint is “Online”.</target>
+        </trans-unit>
+        <trans-unit id="52c71498-6d3e-4398-9ce2-2c57d7724c1b" xml:space="preserve">
+          <source>No endpoints are “Degraded”.</source>
+          <target state="new">No endpoints are “Degraded”.</target>
+        </trans-unit>
+        <trans-unit id="d7b87215-e579-456d-87a4-434db24e1094" xml:space="preserve">
+          <source>Online</source>
+          <target state="new">Online</target>
+        </trans-unit>
+        <trans-unit id="59ce04e5-6ed4-4ba3-aca0-d854a9cf8512" xml:space="preserve">
+          <source>The service is accepting traffic and customer action is not required.</source>
+          <target state="new">The service is accepting traffic and customer action is not required.</target>
+        </trans-unit>
+        <trans-unit id="fb5b85a2-a56d-4918-a861-c1ca2a860bff" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="62d5162a-6214-42a7-b118-6f604724bd49" xml:space="preserve">
+          <source>The status of at least one endpoint is “CheckingEndpoint”.</source>
+          <target state="new">The status of at least one endpoint is “CheckingEndpoint”.</target>
+        </trans-unit>
+        <trans-unit id="258d0e4e-7841-4240-8492-6cfe3d17a2bb" xml:space="preserve">
+          <source>No endpoints are “Online” or “Degraded”.</source>
+          <target state="new">No endpoints are “Online” or “Degraded”.</target>
+        </trans-unit>
+        <trans-unit id="95c9f902-527c-489f-921c-c762216d807b" xml:space="preserve">
+          <source>CheckingEndpoints</source>
+          <target state="new">CheckingEndpoints</target>
+        </trans-unit>
+        <trans-unit id="a3a4d19c-f9ad-4a97-b113-db7fe62bf997" xml:space="preserve">
+          <source>Transition state.</source>
+          <target state="new">Transition state.</target>
+        </trans-unit>
+        <trans-unit id="03547932-60bf-469b-ac61-bc974ca75a02" xml:space="preserve">
+          <source>This typically occurs when a profile has just been enabled and the endpoint health is being probed.</source>
+          <target state="new">This typically occurs when a profile has just been enabled and the endpoint health is being probed.</target>
+        </trans-unit>
+        <trans-unit id="c145334f-016b-4411-9142-b7acf69ed932" xml:space="preserve">
+          <source>Enabled</source>
+          <target state="new">Enabled</target>
+        </trans-unit>
+        <trans-unit id="2c59fb04-5d20-4097-894e-f71ec72ec493" xml:space="preserve">
+          <source>The status of all endpoints defined in the profile is either “Disabled” or “Stopped”, or the profile has no defined endpoints.</source>
+          <target state="new">The status of all endpoints defined in the profile is either “Disabled” or “Stopped”, or the profile has no defined endpoints.</target>
+        </trans-unit>
+        <trans-unit id="947c60ef-1301-4c47-974b-3a96c6d72de5" xml:space="preserve">
+          <source>Inactive</source>
+          <target state="new">Inactive</target>
+        </trans-unit>
+        <trans-unit id="ca9cc7e7-0afd-4d7d-af56-0d87632d0f2b" xml:space="preserve">
+          <source>No endpoints are active, but the profile is still enabled.</source>
+          <target state="new">No endpoints are active, but the profile is still enabled.</target>
+        </trans-unit>
+        <trans-unit id="63ffef3b-c3c3-4683-94fa-aba64b6354d7" xml:space="preserve">
+          <source>An example timeline illustrating the monitoring process with a single cloud service is displayed is below.</source>
+          <target state="new">An example timeline illustrating the monitoring process with a single cloud service is displayed is below.</target>
+        </trans-unit>
+        <trans-unit id="64cc30bf-80a7-4c89-8515-b4d174e86ba9" xml:space="preserve">
+          <source>This scenario shows the following:</source>
+          <target state="new">This scenario shows the following:</target>
+        </trans-unit>
+        <trans-unit id="ca7ecab9-bd1f-42c1-952c-416b59cb3a69" xml:space="preserve">
+          <source>The cloud service is available and receiving traffic via this Traffic Manager profile ONLY.</source>
+          <target state="new">The cloud service is available and receiving traffic via this Traffic Manager profile ONLY.</target>
+        </trans-unit>
+        <trans-unit id="50497e3c-f141-476e-8bc0-002db08ce79a" xml:space="preserve">
+          <source>The cloud service becomes unavailable.</source>
+          <target state="new">The cloud service becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="5530155e-be9c-48fb-8802-d59a98fd24c5" xml:space="preserve">
+          <source>The cloud service remains unavailable for a time much longer than the DNS Time-to-Live (TTL).</source>
+          <target state="new">The cloud service remains unavailable for a time much longer than the DNS Time-to-Live (TTL).</target>
+        </trans-unit>
+        <trans-unit id="45ede1b0-e981-4c7a-a7f3-28d9b758dcc1" xml:space="preserve">
+          <source>The cloud service becomes available again.</source>
+          <target state="new">The cloud service becomes available again.</target>
+        </trans-unit>
+        <trans-unit id="089a214d-adc6-47d8-bb96-fb8abfcdf274" xml:space="preserve">
+          <source>The cloud service resumes receiving traffic via this Traffic Manager profile ONLY.</source>
+          <target state="new">The cloud service resumes receiving traffic via this Traffic Manager profile ONLY.</target>
+        </trans-unit>
+        <trans-unit id="df402f76-8fc2-49e2-babc-e0bd014e4e0e" xml:space="preserve">
+          <source><bpt id="9f2df0a1-c9a6-4925-bc34-960a1549a1c7">&lt;linkText&gt;</bpt>Traffic Manager Monitoring Sequence<ept id="9f2df0a1-c9a6-4925-bc34-960a1549a1c7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f2df0a1-c9a6-4925-bc34-960a1549a1c7">&lt;linkText&gt;</bpt>Traffic Manager Monitoring Sequence<ept id="9f2df0a1-c9a6-4925-bc34-960a1549a1c7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="890141e9-c860-4c3e-a335-760e87f3a2bf" xml:space="preserve">
+          <source><bpt id="6cb440b0-f594-4271-83b9-6f0f509488c9">&lt;strong&gt;</bpt>Figure 1<ept id="6cb440b0-f594-4271-83b9-6f0f509488c9">&lt;/strong&gt;</ept> – Monitoring sequence example.</source>
+          <target state="new"><bpt id="6cb440b0-f594-4271-83b9-6f0f509488c9">&lt;strong&gt;</bpt>Figure 1<ept id="6cb440b0-f594-4271-83b9-6f0f509488c9">&lt;/strong&gt;</ept> – Monitoring sequence example.</target>
+        </trans-unit>
+        <trans-unit id="cc7a36a0-8a79-4ed6-b83a-80d59a0ed77a" xml:space="preserve">
+          <source>The numbers in the diagram correspond to the numbered explanation below.</source>
+          <target state="new">The numbers in the diagram correspond to the numbered explanation below.</target>
+        </trans-unit>
+        <trans-unit id="4c8ba71a-c516-47cc-850a-5d5a9a211991" xml:space="preserve">
+          <source><bpt id="138aff04-f358-4034-9745-bcf53c20859c">&lt;strong&gt;</bpt>GET<ept id="138aff04-f358-4034-9745-bcf53c20859c">&lt;/strong&gt;</ept> – The Traffic Manager monitoring system performs a GET on the path and file you specified in the monitoring settings.</source>
+          <target state="new"><bpt id="138aff04-f358-4034-9745-bcf53c20859c">&lt;strong&gt;</bpt>GET<ept id="138aff04-f358-4034-9745-bcf53c20859c">&lt;/strong&gt;</ept> – The Traffic Manager monitoring system performs a GET on the path and file you specified in the monitoring settings.</target>
+        </trans-unit>
+        <trans-unit id="665948a1-d758-4246-a839-60a69dc675c4" xml:space="preserve">
+          <source><bpt id="dd5622f5-f22e-4b2e-a32d-35c1287440ca">&lt;strong&gt;</bpt>200 OK<ept id="dd5622f5-f22e-4b2e-a32d-35c1287440ca">&lt;/strong&gt;</ept> – The monitoring system expects an HTTP 200 OK message back within 10 seconds.</source>
+          <target state="new"><bpt id="dd5622f5-f22e-4b2e-a32d-35c1287440ca">&lt;strong&gt;</bpt>200 OK<ept id="dd5622f5-f22e-4b2e-a32d-35c1287440ca">&lt;/strong&gt;</ept> – The monitoring system expects an HTTP 200 OK message back within 10 seconds.</target>
+        </trans-unit>
+        <trans-unit id="7c036a2d-f8c9-42f0-b63b-b4ded1d37a74" xml:space="preserve">
+          <source>When it receives this response, it assumes that the cloud service is available.</source>
+          <target state="new">When it receives this response, it assumes that the cloud service is available.</target>
+        </trans-unit>
+        <trans-unit id="63cc123d-f072-4031-a343-326d9ed1c18a" xml:space="preserve">
+          <source>Traffic Manager only considers an endpoint to be Online if the return message is a 200 OK.</source>
+          <target state="new">Traffic Manager only considers an endpoint to be Online if the return message is a 200 OK.</target>
+        </trans-unit>
+        <trans-unit id="2fb426f5-5402-45c4-8991-f68c0bf76992" xml:space="preserve">
+          <source>If a non-200 response is received, it will assume the endpoint is not available and will count this as a failed check.</source>
+          <target state="new">If a non-200 response is received, it will assume the endpoint is not available and will count this as a failed check.</target>
+        </trans-unit>
+        <trans-unit id="a8193efd-ffe3-44ad-b17e-cd6cef0ac5fe" xml:space="preserve">
+          <source>More details about troubleshooting failed checks see <bpt id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;linkText&gt;</bpt>Troubleshooting degraded status on Azure Traffic Manager<ept id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;/linkText&gt;</ept><bpt id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;title&gt;</bpt><ept id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">More details about troubleshooting failed checks see <bpt id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;linkText&gt;</bpt>Troubleshooting degraded status on Azure Traffic Manager<ept id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;/linkText&gt;</ept><bpt id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;title&gt;</bpt><ept id="5ee782ef-b59e-46a5-958b-9a4d946ee6b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="479002cb-530e-4028-a5a6-6b03dede12c5" xml:space="preserve">
+          <source><bpt id="65a5f22f-eacb-4cbe-be28-9a94ee014b10">&lt;strong&gt;</bpt>30 seconds between checks<ept id="65a5f22f-eacb-4cbe-be28-9a94ee014b10">&lt;/strong&gt;</ept> – This check will be performed every 30 seconds.</source>
+          <target state="new"><bpt id="65a5f22f-eacb-4cbe-be28-9a94ee014b10">&lt;strong&gt;</bpt>30 seconds between checks<ept id="65a5f22f-eacb-4cbe-be28-9a94ee014b10">&lt;/strong&gt;</ept> – This check will be performed every 30 seconds.</target>
+        </trans-unit>
+        <trans-unit id="ed0e77dc-d743-4ae2-ad19-f1ed91b18d64" xml:space="preserve">
+          <source><bpt id="b914c3a9-54a7-4fa5-9251-6388d5da20c7">&lt;strong&gt;</bpt>Cloud service unavailable<ept id="b914c3a9-54a7-4fa5-9251-6388d5da20c7">&lt;/strong&gt;</ept> – The cloud service becomes unavailable.</source>
+          <target state="new"><bpt id="b914c3a9-54a7-4fa5-9251-6388d5da20c7">&lt;strong&gt;</bpt>Cloud service unavailable<ept id="b914c3a9-54a7-4fa5-9251-6388d5da20c7">&lt;/strong&gt;</ept> – The cloud service becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="506d5b71-f0af-4c58-9f7a-3a5ae16c427d" xml:space="preserve">
+          <source>Traffic Manager will not know until the next monitor check.</source>
+          <target state="new">Traffic Manager will not know until the next monitor check.</target>
+        </trans-unit>
+        <trans-unit id="b826a52b-c99f-4d10-a8f8-b3e3684441b0" xml:space="preserve">
+          <source><bpt id="974f4a76-c4e3-493d-80be-63f663bce44f">&lt;strong&gt;</bpt>Attempts to access monitoring file (4 tries)<ept id="974f4a76-c4e3-493d-80be-63f663bce44f">&lt;/strong&gt;</ept> – The monitoring system performs a GET, but does not receive a response in 10 seconds or less.</source>
+          <target state="new"><bpt id="974f4a76-c4e3-493d-80be-63f663bce44f">&lt;strong&gt;</bpt>Attempts to access monitoring file (4 tries)<ept id="974f4a76-c4e3-493d-80be-63f663bce44f">&lt;/strong&gt;</ept> – The monitoring system performs a GET, but does not receive a response in 10 seconds or less.</target>
+        </trans-unit>
+        <trans-unit id="3465588d-034d-4fb6-b6d2-af613cd82224" xml:space="preserve">
+          <source>It then performs three more tries at 30 second intervals.</source>
+          <target state="new">It then performs three more tries at 30 second intervals.</target>
+        </trans-unit>
+        <trans-unit id="e852854a-5c7f-47dc-a717-df05b60df495" xml:space="preserve">
+          <source>This means that at most, it takes approximately 1.5 minutes for the monitoring system to detect when a service becomes unavailable.</source>
+          <target state="new">This means that at most, it takes approximately 1.5 minutes for the monitoring system to detect when a service becomes unavailable.</target>
+        </trans-unit>
+        <trans-unit id="47a296a7-3591-4518-9c00-cc3287def3a7" xml:space="preserve">
+          <source>If one of the tries is successful, then the number of tries is reset.</source>
+          <target state="new">If one of the tries is successful, then the number of tries is reset.</target>
+        </trans-unit>
+        <trans-unit id="e6425d40-bb93-4540-8dc2-254b2b20ad47" xml:space="preserve">
+          <source>Although not shown in the diagram, if the 200 OK message(s) come back more than 10 seconds after the GET, the monitoring system will still count this as a failed check.</source>
+          <target state="new">Although not shown in the diagram, if the 200 OK message(s) come back more than 10 seconds after the GET, the monitoring system will still count this as a failed check.</target>
+        </trans-unit>
+        <trans-unit id="1fd0e862-3a01-48a2-a4e4-41be14cf56f9" xml:space="preserve">
+          <source><bpt id="7ef1de33-72b4-473a-876b-5ea83accee8d">&lt;strong&gt;</bpt>Marked degraded<ept id="7ef1de33-72b4-473a-876b-5ea83accee8d">&lt;/strong&gt;</ept> – After the fourth failure in a row, the monitoring system will mark the unavailable cloud service as Degraded.</source>
+          <target state="new"><bpt id="7ef1de33-72b4-473a-876b-5ea83accee8d">&lt;strong&gt;</bpt>Marked degraded<ept id="7ef1de33-72b4-473a-876b-5ea83accee8d">&lt;/strong&gt;</ept> – After the fourth failure in a row, the monitoring system will mark the unavailable cloud service as Degraded.</target>
+        </trans-unit>
+        <trans-unit id="13fcc771-a5b7-41c0-839e-e4d46c68aba2" xml:space="preserve">
+          <source><bpt id="301e3cd9-d84b-4169-91c1-fcb6476ad36e">&lt;strong&gt;</bpt>Traffic to cloud service decreases<ept id="301e3cd9-d84b-4169-91c1-fcb6476ad36e">&lt;/strong&gt;</ept> – Traffic may continue to flow to the unavailable cloud service.</source>
+          <target state="new"><bpt id="301e3cd9-d84b-4169-91c1-fcb6476ad36e">&lt;strong&gt;</bpt>Traffic to cloud service decreases<ept id="301e3cd9-d84b-4169-91c1-fcb6476ad36e">&lt;/strong&gt;</ept> – Traffic may continue to flow to the unavailable cloud service.</target>
+        </trans-unit>
+        <trans-unit id="cf0a254e-1a99-4e7b-9610-376054e5cd60" xml:space="preserve">
+          <source>Clients will experience failures because the service is unavailable.</source>
+          <target state="new">Clients will experience failures because the service is unavailable.</target>
+        </trans-unit>
+        <trans-unit id="81a4c04c-b48b-47f8-971e-1ce48519f8bf" xml:space="preserve">
+          <source>Clients and secondary DNS servers have cached the DNS record for the IP address of the unavailable cloud service.</source>
+          <target state="new">Clients and secondary DNS servers have cached the DNS record for the IP address of the unavailable cloud service.</target>
+        </trans-unit>
+        <trans-unit id="447ef5f5-7937-46df-a029-57398150fbdf" xml:space="preserve">
+          <source>They continue to resolve the DNS name of the company domain to the IP address of the service.</source>
+          <target state="new">They continue to resolve the DNS name of the company domain to the IP address of the service.</target>
+        </trans-unit>
+        <trans-unit id="bfa5e946-fbf6-44b3-bdd3-2ce438ac7558" xml:space="preserve">
+          <source>In addition, secondary DNS servers may still hand out the DNS information of the unavailable service.</source>
+          <target state="new">In addition, secondary DNS servers may still hand out the DNS information of the unavailable service.</target>
+        </trans-unit>
+        <trans-unit id="5baa8962-564b-4862-a0d3-4995cef8c080" xml:space="preserve">
+          <source>As clients and secondary DNS servers are updated, traffic to the IP address of the unavailable service will slow.</source>
+          <target state="new">As clients and secondary DNS servers are updated, traffic to the IP address of the unavailable service will slow.</target>
+        </trans-unit>
+        <trans-unit id="f650c23c-75c3-4997-92fb-b9c982911cf7" xml:space="preserve">
+          <source>The monitoring system continues to perform checks at 30 second intervals.</source>
+          <target state="new">The monitoring system continues to perform checks at 30 second intervals.</target>
+        </trans-unit>
+        <trans-unit id="7619e0c8-d16e-4ca2-89ea-8a39677a0071" xml:space="preserve">
+          <source>In this example, the service does not respond and remains unavailable.</source>
+          <target state="new">In this example, the service does not respond and remains unavailable.</target>
+        </trans-unit>
+        <trans-unit id="9456b5ca-a997-49df-844b-8c4f84c1e230" xml:space="preserve">
+          <source><bpt id="1a9821bb-2715-4c59-b228-ded556879a69">&lt;strong&gt;</bpt>Traffic to cloud service stops<ept id="1a9821bb-2715-4c59-b228-ded556879a69">&lt;/strong&gt;</ept> – By this time, most DNS servers and clients should be updated and traffic to the unavailable service stops.</source>
+          <target state="new"><bpt id="1a9821bb-2715-4c59-b228-ded556879a69">&lt;strong&gt;</bpt>Traffic to cloud service stops<ept id="1a9821bb-2715-4c59-b228-ded556879a69">&lt;/strong&gt;</ept> – By this time, most DNS servers and clients should be updated and traffic to the unavailable service stops.</target>
+        </trans-unit>
+        <trans-unit id="554b5542-36d2-4c57-b6ed-94618c678770" xml:space="preserve">
+          <source>The maximum amount time before traffic completely stops is dependent on the TTL time.</source>
+          <target state="new">The maximum amount time before traffic completely stops is dependent on the TTL time.</target>
+        </trans-unit>
+        <trans-unit id="77c3ca55-5dae-4ed9-aa0d-4fdca1a3c759" xml:space="preserve">
+          <source>The default DNS TTL is 300 seconds (5 minutes).</source>
+          <target state="new">The default DNS TTL is 300 seconds (5 minutes).</target>
+        </trans-unit>
+        <trans-unit id="b407b6fd-2761-4b6c-9028-6d7bf5fd96a8" xml:space="preserve">
+          <source>Using this value, clients stop using the service after 5 minutes.</source>
+          <target state="new">Using this value, clients stop using the service after 5 minutes.</target>
+        </trans-unit>
+        <trans-unit id="191cacf3-586c-4af3-b4fa-d89743f80852" xml:space="preserve">
+          <source>The monitoring system continues to perform checks at 30 second intervals and the cloud service does not respond.</source>
+          <target state="new">The monitoring system continues to perform checks at 30 second intervals and the cloud service does not respond.</target>
+        </trans-unit>
+        <trans-unit id="7113bf86-1193-4334-b1c7-75f17c8ee016" xml:space="preserve">
+          <source><bpt id="4c5eb0a7-f4e4-4ad3-8af0-50c9f3fef435">&lt;strong&gt;</bpt>Cloud service comes back online and receives traffic<ept id="4c5eb0a7-f4e4-4ad3-8af0-50c9f3fef435">&lt;/strong&gt;</ept> – The service becomes available, but Traffic Manager does not know until the monitoring system performs a check.</source>
+          <target state="new"><bpt id="4c5eb0a7-f4e4-4ad3-8af0-50c9f3fef435">&lt;strong&gt;</bpt>Cloud service comes back online and receives traffic<ept id="4c5eb0a7-f4e4-4ad3-8af0-50c9f3fef435">&lt;/strong&gt;</ept> – The service becomes available, but Traffic Manager does not know until the monitoring system performs a check.</target>
+        </trans-unit>
+        <trans-unit id="f454348c-9c18-48c3-a388-f3adb5b3bdba" xml:space="preserve">
+          <source><bpt id="791514ff-9afb-4bc8-8854-f42c930e497c">&lt;strong&gt;</bpt>Traffic to service resumes<ept id="791514ff-9afb-4bc8-8854-f42c930e497c">&lt;/strong&gt;</ept> - Traffic Manager sends a GET and receives a 200 OK in under 10 seconds.</source>
+          <target state="new"><bpt id="791514ff-9afb-4bc8-8854-f42c930e497c">&lt;strong&gt;</bpt>Traffic to service resumes<ept id="791514ff-9afb-4bc8-8854-f42c930e497c">&lt;/strong&gt;</ept> - Traffic Manager sends a GET and receives a 200 OK in under 10 seconds.</target>
+        </trans-unit>
+        <trans-unit id="004a7e8a-55ca-4537-bf8e-88cdbdf00fa0" xml:space="preserve">
+          <source>It then begins to hand out the cloud service’s DNS name to DNS servers as they request updates.</source>
+          <target state="new">It then begins to hand out the cloud service’s DNS name to DNS servers as they request updates.</target>
+        </trans-unit>
+        <trans-unit id="9cb4edd7-58b9-4bed-9c6c-7650afc1ea3f" xml:space="preserve">
+          <source>As a result, traffic starts to flow to the service once again.</source>
+          <target state="new">As a result, traffic starts to flow to the service once again.</target>
+        </trans-unit>
+        <trans-unit id="3abf385d-ab57-4378-a058-037894eea981" xml:space="preserve">
+          <source>The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting.</source>
+          <target state="new">The following table describes the behavior of Traffic Manager monitoring for child and parent profiles of a nested profile and the minChildEndpoints setting.</target>
+        </trans-unit>
+        <trans-unit id="198f8460-3989-401b-b548-33efb8910b26" xml:space="preserve">
+          <source>For more information, see <bpt id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;/linkText&gt;</ept><bpt id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;title&gt;</bpt><ept id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;/linkText&gt;</ept><bpt id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;title&gt;</bpt><ept id="db404b02-6420-47bf-b1d2-f6ba439b7767">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e63c2e28-63e3-4cfd-a879-ba2d1aec714b" xml:space="preserve">
+          <source>Child Profile Monitor status</source>
+          <target state="new">Child Profile Monitor status</target>
+        </trans-unit>
+        <trans-unit id="5ac191e1-7a96-4a48-98a4-408a3be0a435" xml:space="preserve">
+          <source>Parent Endpoint Monitor status</source>
+          <target state="new">Parent Endpoint Monitor status</target>
+        </trans-unit>
+        <trans-unit id="e5033196-268e-4c22-8cae-35e3108916bd" xml:space="preserve">
+          <source>Notes</source>
+          <target state="new">Notes</target>
+        </trans-unit>
+        <trans-unit id="98d0ab30-c485-4084-9c1e-cb6f23c7f689" xml:space="preserve">
+          <source>DisabledThis is due to the profile being disabled by you.</source>
+          <target state="new">DisabledThis is due to the profile being disabled by you.</target>
+        </trans-unit>
+        <trans-unit id="9971fff8-c28f-46bd-a461-c32099fd8e43" xml:space="preserve">
+          <source>Stopped</source>
+          <target state="new">Stopped</target>
+        </trans-unit>
+        <trans-unit id="e914a699-3853-4e92-bab6-c47f149e2305" xml:space="preserve">
+          <source>The parent endpoint state is Stopped, not Disabled.</source>
+          <target state="new">The parent endpoint state is Stopped, not Disabled.</target>
+        </trans-unit>
+        <trans-unit id="39f02605-a904-4b81-8fe9-b7661263bee6" xml:space="preserve">
+          <source>The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.</source>
+          <target state="new">The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.</target>
+        </trans-unit>
+        <trans-unit id="cb57a52d-32cf-4131-8bd9-56b35dde9147" xml:space="preserve">
+          <source>DegradedAt least one is child endpoint is in a Degraded state.</source>
+          <target state="new">DegradedAt least one is child endpoint is in a Degraded state.</target>
+        </trans-unit>
+        <trans-unit id="7453917a-fc41-4ea4-84e6-75be3049d4fa" xml:space="preserve">
+          <source>Online state, if the number of Online endpoints in the child profile is at least the value of minChildEndpoints.CheckingEndpoint state, if the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of minChildEndpoints.Otherwise, in the Degraded state.</source>
+          <target state="new">Online state, if the number of Online endpoints in the child profile is at least the value of minChildEndpoints.CheckingEndpoint state, if the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of minChildEndpoints.Otherwise, in the Degraded state.</target>
+        </trans-unit>
+        <trans-unit id="58269f51-5f3a-48e9-9da6-4e29b24c1996" xml:space="preserve">
+          <source>Traffic is routed to an endpoint of status CheckingEndpoint.If minChildEndpoints is set too high, the parent endpoint will always be degraded.</source>
+          <target state="new">Traffic is routed to an endpoint of status CheckingEndpoint.If minChildEndpoints is set too high, the parent endpoint will always be degraded.</target>
+        </trans-unit>
+        <trans-unit id="3eafd605-f85e-49cb-b769-4def95caf491" xml:space="preserve">
+          <source>OnlineAt least one child is an Online state and none are in the Degraded state.</source>
+          <target state="new">OnlineAt least one child is an Online state and none are in the Degraded state.</target>
+        </trans-unit>
+        <trans-unit id="b8da8f35-37b7-43cb-af94-0a19ba4de872" xml:space="preserve">
+          <source>Same as above.</source>
+          <target state="new">Same as above.</target>
+        </trans-unit>
+        <trans-unit id="7440e4b5-278b-411c-9a25-b1bb0b8d4ca9" xml:space="preserve">
+          <source>CheckingEndpointsAt least one is ‘CheckingEndpoint’; none are ‘Online’ or ‘Degraded’</source>
+          <target state="new">CheckingEndpointsAt least one is ‘CheckingEndpoint’; none are ‘Online’ or ‘Degraded’</target>
+        </trans-unit>
+        <trans-unit id="cd4fc921-bbce-496f-aedc-9c7f8e696ba1" xml:space="preserve">
+          <source>Same as above.</source>
+          <target state="new">Same as above.</target>
+        </trans-unit>
+        <trans-unit id="9472f0b4-6645-468a-ba5c-2ff04768af0c" xml:space="preserve">
+          <source>InactiveAll endpoints are either Disabled or Stopped, or this is a profile with no endpoints</source>
+          <target state="new">InactiveAll endpoints are either Disabled or Stopped, or this is a profile with no endpoints</target>
+        </trans-unit>
+        <trans-unit id="3b3f3ae0-ff55-432d-83e4-b2f986a5f42e" xml:space="preserve">
+          <source>Stopped</source>
+          <target state="new">Stopped</target>
+        </trans-unit>
+        <trans-unit id="02fcd9ec-aeab-4678-a793-1f552df1ea35" xml:space="preserve">
+          <source>Create a file with the same name on each endpoint you plan to include in your profile.</source>
+          <target state="new">Create a file with the same name on each endpoint you plan to include in your profile.</target>
+        </trans-unit>
+        <trans-unit id="6d4c3a6a-4af5-4866-be3b-71efc2eabcdd" xml:space="preserve">
+          <source>For each endpoint, use a web browser to test access to the file.</source>
+          <target state="new">For each endpoint, use a web browser to test access to the file.</target>
+        </trans-unit>
+        <trans-unit id="96099ade-ef61-4734-a2e4-a5750519eaa1" xml:space="preserve">
+          <source>The URL consists of the domain name of the specific endpoint (the cloud service or website), the path to the file, and the file name.</source>
+          <target state="new">The URL consists of the domain name of the specific endpoint (the cloud service or website), the path to the file, and the file name.</target>
+        </trans-unit>
+        <trans-unit id="8d7cb8ae-3482-4088-a1ba-b97e31b28396" xml:space="preserve">
+          <source>In the Management Portal, under <bpt id="c7bb6c57-afb2-4ccb-94a4-b4ec89c8c8b3">&lt;strong&gt;</bpt>Monitoring Settings<ept id="c7bb6c57-afb2-4ccb-94a4-b4ec89c8c8b3">&lt;/strong&gt;</ept>, in the <bpt id="65e0fb53-c2a3-4133-9bdb-8a7d69af64ff">&lt;strong&gt;</bpt>Relative Path and File Name<ept id="65e0fb53-c2a3-4133-9bdb-8a7d69af64ff">&lt;/strong&gt;</ept> field, specify the path and file name.</source>
+          <target state="new">In the Management Portal, under <bpt id="c7bb6c57-afb2-4ccb-94a4-b4ec89c8c8b3">&lt;strong&gt;</bpt>Monitoring Settings<ept id="c7bb6c57-afb2-4ccb-94a4-b4ec89c8c8b3">&lt;/strong&gt;</ept>, in the <bpt id="65e0fb53-c2a3-4133-9bdb-8a7d69af64ff">&lt;strong&gt;</bpt>Relative Path and File Name<ept id="65e0fb53-c2a3-4133-9bdb-8a7d69af64ff">&lt;/strong&gt;</ept> field, specify the path and file name.</target>
+        </trans-unit>
+        <trans-unit id="9499677e-2b97-40cf-b219-4ae848985cb4" xml:space="preserve">
+          <source>When you are finished making your configuration changes, click <bpt id="f884e102-d67f-4e98-95bf-feec8cf6651b">&lt;strong&gt;</bpt>Save<ept id="f884e102-d67f-4e98-95bf-feec8cf6651b">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">When you are finished making your configuration changes, click <bpt id="f884e102-d67f-4e98-95bf-feec8cf6651b">&lt;strong&gt;</bpt>Save<ept id="f884e102-d67f-4e98-95bf-feec8cf6651b">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="463867c9-9e50-4421-b1cb-4a5a1c5ac544" xml:space="preserve">
+          <source><bpt id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;/linkText&gt;</ept><bpt id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;title&gt;</bpt><ept id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;/linkText&gt;</ept><bpt id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;title&gt;</bpt><ept id="c7da372e-7716-4f0a-b116-5d5db5d1e73e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba658ed0-7c59-4065-9d12-eda5f9c0adb6" xml:space="preserve">
+          <source><bpt id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;/linkText&gt;</ept><bpt id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;title&gt;</bpt><ept id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;/linkText&gt;</ept><bpt id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;title&gt;</bpt><ept id="0805b3f6-a375-4278-93a4-a2f36e9f568a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="115c17b5-3250-4471-86af-7151ef31d303" xml:space="preserve">
+          <source><bpt id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;linkText&gt;</bpt>Cloud Services<ept id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;/linkText&gt;</ept><bpt id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;title&gt;</bpt><ept id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;linkText&gt;</bpt>Cloud Services<ept id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;/linkText&gt;</ept><bpt id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;title&gt;</bpt><ept id="9f24b38d-daeb-4cab-bfc1-d77131d38757">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3362ef99-473d-4f7d-a0ca-3e72f897ec8e" xml:space="preserve">
+          <source><bpt id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;linkText&gt;</bpt>Websites<ept id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;/linkText&gt;</ept><bpt id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;title&gt;</bpt><ept id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;linkText&gt;</bpt>Websites<ept id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;/linkText&gt;</ept><bpt id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;title&gt;</bpt><ept id="b3d1f882-5358-4ef4-a604-12a27ee3c15c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="58f323dd-35dd-4924-9539-94981e1c54fc" xml:space="preserve">
+          <source><bpt id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;linkText&gt;</bpt>Troubleshooting degraded status on Azure Traffic Manager<ept id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;/linkText&gt;</ept><bpt id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;title&gt;</bpt><ept id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;linkText&gt;</bpt>Troubleshooting degraded status on Azure Traffic Manager<ept id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;/linkText&gt;</ept><bpt id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;title&gt;</bpt><ept id="82395f13-83dd-4ba9-a00c-3433672c8cdd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

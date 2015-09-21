@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="247d7afe-2ba5-4e76-8d98-68900162316f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="247d7afe-2ba5-4e76-8d98-68900162316f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a3f16164-d297-4f82-859e-47e4e3f10c4a">
+        <trans-unit id="1629974d-5ecc-4a36-b226-df0ef113be3c" xml:space="preserve">
+          <source>Multi-Site Data Tier (Azure Architecture Patterns)</source>
+          <target state="new">Multi-Site Data Tier (Azure Architecture Patterns)</target>
+        </trans-unit>
+        <trans-unit id="896cbfc9-5683-4acc-8053-a552c827e6fc" xml:space="preserve">
+          <source>The Multi-Site Data Tier pattern is part of the Foundation area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The Multi-Site Data Tier pattern is part of the Foundation area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="2c249996-921a-4e08-8aca-9e3383b42de1" xml:space="preserve">
+          <source>The <bpt id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;/linkText&gt;</ept><bpt id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;title&gt;</bpt><ept id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</source>
+          <target state="new">The <bpt id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;linkText&gt;</bpt>Cloud Platform Integration Framework (CPIF)<ept id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;/linkText&gt;</ept><bpt id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;title&gt;</bpt><ept id="baa3ddec-1f7a-44aa-8742-8f0a9be1fafa">&lt;/title&gt;</ept> provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.</target>
+        </trans-unit>
+        <trans-unit id="d150ad88-da17-4e57-b7d6-80c979134a04" xml:space="preserve">
+          <source>CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</source>
+          <target state="new">CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server.</target>
+        </trans-unit>
+        <trans-unit id="3ff7e307-2e0a-4c13-8f84-1d084ad1ef5c" xml:space="preserve">
+          <source>The <bpt id="4025018a-ae0b-4478-bfb9-52939e1482d8">&lt;strong&gt;</bpt>Multi-Site Data Tier<ept id="4025018a-ae0b-4478-bfb9-52939e1482d8">&lt;/strong&gt;</ept> pattern is part of the <bpt id="e252709a-0e08-4b45-8639-a9a593230f69">&lt;strong&gt;</bpt>Foundation<ept id="e252709a-0e08-4b45-8639-a9a593230f69">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</source>
+          <target state="new">The <bpt id="4025018a-ae0b-4478-bfb9-52939e1482d8">&lt;strong&gt;</bpt>Multi-Site Data Tier<ept id="4025018a-ae0b-4478-bfb9-52939e1482d8">&lt;/strong&gt;</ept> pattern is part of the <bpt id="e252709a-0e08-4b45-8639-a9a593230f69">&lt;strong&gt;</bpt>Foundation<ept id="e252709a-0e08-4b45-8639-a9a593230f69">&lt;/strong&gt;</ept> area, which is described extensively in the CPIF Architecture document.</target>
+        </trans-unit>
+        <trans-unit id="65692082-cbaf-41e6-800c-7749e7369ff9" xml:space="preserve">
+          <source>The Multi-Site Data Tier design pattern details the Azure features and services required to deliver data tier services that can provide predictable performance and high availability across geographic boundaries.</source>
+          <target state="new">The Multi-Site Data Tier design pattern details the Azure features and services required to deliver data tier services that can provide predictable performance and high availability across geographic boundaries.</target>
+        </trans-unit>
+        <trans-unit id="7b936342-8445-4d18-8fa4-21d53373389d" xml:space="preserve">
+          <source>For the purposes of this design pattern a data tier is defined as a tier of service providing traditional data platform services in either an isolated manner or as part of a multi-tiered application.</source>
+          <target state="new">For the purposes of this design pattern a data tier is defined as a tier of service providing traditional data platform services in either an isolated manner or as part of a multi-tiered application.</target>
+        </trans-unit>
+        <trans-unit id="8a5b4c6c-0d68-4677-8480-f280c2e36ef9" xml:space="preserve">
+          <source>Within this pattern, load balancing of the data tier is provided both locally within the region and across regions.</source>
+          <target state="new">Within this pattern, load balancing of the data tier is provided both locally within the region and across regions.</target>
+        </trans-unit>
+        <trans-unit id="98b719f9-1342-47ea-99f5-50e53a244422" xml:space="preserve">
+          <source>Introduced with SQL Server 2012, AlwaysOn Availability Groups is a high-availability and disaster-recovery feature that is fully supported on Azure Infrastructure Services.</source>
+          <target state="new">Introduced with SQL Server 2012, AlwaysOn Availability Groups is a high-availability and disaster-recovery feature that is fully supported on Azure Infrastructure Services.</target>
+        </trans-unit>
+        <trans-unit id="5e4a4776-8712-4e1e-a7bd-37f23bfb78be" xml:space="preserve">
+          <source>Detailed information and the official support announcement for AlwaysOn Availability Groups on Windows Azure Infrastructure Service can be found in the article AlwaysOn Availability Groups.</source>
+          <target state="new">Detailed information and the official support announcement for AlwaysOn Availability Groups on Windows Azure Infrastructure Service can be found in the article AlwaysOn Availability Groups.</target>
+        </trans-unit>
+        <trans-unit id="7b96fb79-b943-4289-8033-9bd4f27627e1" xml:space="preserve">
+          <source>This document provides an architectural overview of a Multi-Site Data Tier in Azure utilizing SQL AlwaysOn Availability Groups.</source>
+          <target state="new">This document provides an architectural overview of a Multi-Site Data Tier in Azure utilizing SQL AlwaysOn Availability Groups.</target>
+        </trans-unit>
+        <trans-unit id="348ee1cd-1994-4c0b-bbb5-1d601ef1a1b8" xml:space="preserve">
+          <source>With an optional read-only secondary node in an additional Azure datacenter for additional functionality and disaster recovery.</source>
+          <target state="new">With an optional read-only secondary node in an additional Azure datacenter for additional functionality and disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="d171d01a-c3c0-4a2c-a859-21e20d9a0e3b" xml:space="preserve">
+          <source>Using SQL AlwaysOn in Azure provides a high-availability data tier that can be consumed by web or application tiers.</source>
+          <target state="new">Using SQL AlwaysOn in Azure provides a high-availability data tier that can be consumed by web or application tiers.</target>
+        </trans-unit>
+        <trans-unit id="41fe6c74-0f16-4cf4-a92f-eca7bfd2c5ab" xml:space="preserve">
+          <source>While this document focuses on architectural patterns and practices, full deployment guidance can be found in the official tutorials, which outline the configuration of AlwaysOn Availability Groups in Azure and the configuration of the AlwaysOn Availability Group Listener.</source>
+          <target state="new">While this document focuses on architectural patterns and practices, full deployment guidance can be found in the official tutorials, which outline the configuration of AlwaysOn Availability Groups in Azure and the configuration of the AlwaysOn Availability Group Listener.</target>
+        </trans-unit>
+        <trans-unit id="5afe0ccb-50f7-4d90-99a8-6450103bedb0" xml:space="preserve">
+          <source>This document describes a pattern for providing access to Microsoft SQL Server content over multiple geographies for the purposes of availability and redundancy.</source>
+          <target state="new">This document describes a pattern for providing access to Microsoft SQL Server content over multiple geographies for the purposes of availability and redundancy.</target>
+        </trans-unit>
+        <trans-unit id="81f942e8-7633-4d45-a308-b35bf99817c1" xml:space="preserve">
+          <source>Critical services are illustrated below without attention to the application or web tier that will access the data itself.</source>
+          <target state="new">Critical services are illustrated below without attention to the application or web tier that will access the data itself.</target>
+        </trans-unit>
+        <trans-unit id="72b7cd46-c174-41e4-9881-9a5d38ccfe1a" xml:space="preserve">
+          <source>The diagram below is a simple illustration of the relevant services and how they are used as part of this pattern.</source>
+          <target state="new">The diagram below is a simple illustration of the relevant services and how they are used as part of this pattern.</target>
+        </trans-unit>
+        <trans-unit id="6830fa6d-82ca-4924-ab09-f4c54a5c42a1" xml:space="preserve">
+          <source>Each of the main service areas are outlined in more detail following the diagram.</source>
+          <target state="new">Each of the main service areas are outlined in more detail following the diagram.</target>
+        </trans-unit>
+        <trans-unit id="64f23126-77b7-49f0-b25a-89b136ecd031" xml:space="preserve">
+          <source><bpt id="5f673a3e-d8fa-4110-aca7-c1890fa294b0">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="5f673a3e-d8fa-4110-aca7-c1890fa294b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5f673a3e-d8fa-4110-aca7-c1890fa294b0">&lt;linkText&gt;</bpt>Tags part on resource and resource group blades<ept id="5f673a3e-d8fa-4110-aca7-c1890fa294b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="357c09f8-0ae6-4211-8043-8a440ecd706f" xml:space="preserve">
+          <source><bpt id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;linkText&gt;</bpt>Load Balanced Data Tier (pdf)<ept id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;/linkText&gt;</ept><bpt id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;title&gt;</bpt><ept id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;linkText&gt;</bpt>Load Balanced Data Tier (pdf)<ept id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;/linkText&gt;</ept><bpt id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;title&gt;</bpt><ept id="a0819078-fdee-4304-96a3-dfcc6d8b9489">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dc03fae-8154-4319-b06c-dc9dfc11da13" xml:space="preserve">
+          <source><bpt id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;/linkText&gt;</ept><bpt id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;title&gt;</bpt><ept id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;linkText&gt;</bpt>CPIF Architecture<ept id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;/linkText&gt;</ept><bpt id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;title&gt;</bpt><ept id="83749c74-337b-4f7a-bb0a-4625f5b18190">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d5195b8f-4e00-4b50-966c-dd2f121063bd" xml:space="preserve">
+          <source><bpt id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;/linkText&gt;</ept><bpt id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;title&gt;</bpt><ept id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;linkText&gt;</bpt>Global Load Balanced Web Tier<ept id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;/linkText&gt;</ept><bpt id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;title&gt;</bpt><ept id="97e6c226-e719-48d1-bf52-6ffbda1cccc1">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="72d806ee-6b7b-4194-8319-59f28a75a1a2" xml:space="preserve">
+          <source><bpt id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;/linkText&gt;</ept><bpt id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;title&gt;</bpt><ept id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;linkText&gt;</bpt>Hybrid Networking<ept id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;/linkText&gt;</ept><bpt id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;title&gt;</bpt><ept id="243573fd-a191-4030-bc0b-e3796e53d4ed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f4298bb-85cd-4612-85a2-b25faaf89b4d" xml:space="preserve">
+          <source><bpt id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;/linkText&gt;</ept><bpt id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;title&gt;</bpt><ept id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;linkText&gt;</bpt>Azure Search Tier<ept id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;/linkText&gt;</ept><bpt id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;title&gt;</bpt><ept id="c7d8a540-5251-402c-ab2a-a21f22f21ecf">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e5b202f6-4516-4eda-81ed-8ddc2a396f56" xml:space="preserve">
+          <source><bpt id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;/linkText&gt;</ept><bpt id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;title&gt;</bpt><ept id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;linkText&gt;</bpt>Batch Processing Tier<ept id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;/linkText&gt;</ept><bpt id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;title&gt;</bpt><ept id="0a083937-7493-4f6d-a20e-be488d1158a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

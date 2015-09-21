@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="38a1c0d0-4ae4-4806-a197-c3fd5d29adc0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="38a1c0d0-4ae4-4806-a197-c3fd5d29adc0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2f4c363f-fe43-4a12-8d37-eb8c13a543cd">
+        <trans-unit id="316bc0ac-bb85-487b-bad7-6d05bfe613eb" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory Integration with Bamboo HR | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory Integration with Bamboo HR | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="845f09cc-67f6-482a-b290-c0efb7baa842" xml:space="preserve">
+          <source>Learn how to use Bamboo HR with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Bamboo HR with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="8dc7d4a7-2620-4270-a7ba-3cdc523d72ba" xml:space="preserve">
+          <source>For feedback, click <bpt id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;linkText&gt;</bpt>here<ept id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;/linkText&gt;</ept><bpt id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;title&gt;</bpt><ept id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;linkText&gt;</bpt>here<ept id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;/linkText&gt;</ept><bpt id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;title&gt;</bpt><ept id="0047c5ee-c2c6-46d1-9263-16124bdce3f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a7d3107-f90d-4aa7-8c35-eb2254413b44" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and BambooHR.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and BambooHR.</target>
+        </trans-unit>
+        <trans-unit id="17b649e8-c24b-4d1c-b2ac-335e1aa8dea1" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="5a167430-9b4d-4887-850f-d0ee7c211d1e" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="7bf15f09-1f12-47e6-8157-69036beb0ff1" xml:space="preserve">
+          <source>A BambooHR single sign-on enabled subscription</source>
+          <target state="new">A BambooHR single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="c1672af9-d79b-4cc0-a9ed-93caac28f326" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to BambooHR will be able to single sign into the application at your BambooHR company site (service provider initiated sign on), or using the <bpt id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;/linkText&gt;</ept><bpt id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;title&gt;</bpt><ept id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to BambooHR will be able to single sign into the application at your BambooHR company site (service provider initiated sign on), or using the <bpt id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;/linkText&gt;</ept><bpt id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;title&gt;</bpt><ept id="09dfc24b-d698-4fc3-8bad-0fb67c3ad18c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6dc8dbd7-a812-456c-8fb0-b2c6b6f1624e" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="6351087c-8c92-445a-9e56-74eb97f2c247" xml:space="preserve">
+          <source>Enabling the application integration for BambooHR</source>
+          <target state="new">Enabling the application integration for BambooHR</target>
+        </trans-unit>
+        <trans-unit id="fbf05c45-6fe7-48b8-b782-606daea16063" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="9ff7614b-4ba4-4b99-a07d-128dc3447499" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="100e57dc-cfd8-42e3-991f-2cb61fe17eab" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="2a0d2ab7-4451-4e7b-bd3f-ea19f6ab081c" xml:space="preserve">
+          <source><bpt id="9001c40f-3001-4da6-be22-8ea0b14cdcf1">&lt;linkText&gt;</bpt>Scenario<ept id="9001c40f-3001-4da6-be22-8ea0b14cdcf1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9001c40f-3001-4da6-be22-8ea0b14cdcf1">&lt;linkText&gt;</bpt>Scenario<ept id="9001c40f-3001-4da6-be22-8ea0b14cdcf1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2767cfbd-b621-4f21-be2b-2cd01a582157" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for BambooHR.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for BambooHR.</target>
+        </trans-unit>
+        <trans-unit id="ac5ea219-ef96-451a-a1d6-a93366bfd19e" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="eca62f62-6fca-42dd-a3f2-ef2314e0e924">&lt;strong&gt;</bpt>Active Directory<ept id="eca62f62-6fca-42dd-a3f2-ef2314e0e924">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="eca62f62-6fca-42dd-a3f2-ef2314e0e924">&lt;strong&gt;</bpt>Active Directory<ept id="eca62f62-6fca-42dd-a3f2-ef2314e0e924">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffbcf6ce-a686-467e-8d35-15cf49958152" xml:space="preserve">
+          <source><bpt id="8ba6e95c-6099-48d0-8519-70c8d82d74ea">&lt;linkText&gt;</bpt>Active Directory<ept id="8ba6e95c-6099-48d0-8519-70c8d82d74ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8ba6e95c-6099-48d0-8519-70c8d82d74ea">&lt;linkText&gt;</bpt>Active Directory<ept id="8ba6e95c-6099-48d0-8519-70c8d82d74ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47cbcf36-8dd3-4c53-b27b-ae1215c0ae33" xml:space="preserve">
+          <source>From the <bpt id="62d615e9-7ff4-4545-b1e9-1f153f0e6c66">&lt;strong&gt;</bpt>Directory<ept id="62d615e9-7ff4-4545-b1e9-1f153f0e6c66">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="62d615e9-7ff4-4545-b1e9-1f153f0e6c66">&lt;strong&gt;</bpt>Directory<ept id="62d615e9-7ff4-4545-b1e9-1f153f0e6c66">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="6e23fa0b-89c0-427a-80f5-431e288cf10c" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="e386dd86-8f11-43f6-b5cf-d96b69de8503">&lt;strong&gt;</bpt>Applications<ept id="e386dd86-8f11-43f6-b5cf-d96b69de8503">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="e386dd86-8f11-43f6-b5cf-d96b69de8503">&lt;strong&gt;</bpt>Applications<ept id="e386dd86-8f11-43f6-b5cf-d96b69de8503">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="27c305f1-7e69-4684-99ba-5bc8f70dfc14" xml:space="preserve">
+          <source><bpt id="5e354dcd-6c67-49a8-83af-45184697bc51">&lt;linkText&gt;</bpt>Applications<ept id="5e354dcd-6c67-49a8-83af-45184697bc51">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e354dcd-6c67-49a8-83af-45184697bc51">&lt;linkText&gt;</bpt>Applications<ept id="5e354dcd-6c67-49a8-83af-45184697bc51">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5151bea-3890-4b10-a3f7-a41e77720c91" xml:space="preserve">
+          <source>Click <bpt id="4b4c4af9-425e-47f1-a6dd-8a0f508f9f11">&lt;strong&gt;</bpt>Add<ept id="4b4c4af9-425e-47f1-a6dd-8a0f508f9f11">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="4b4c4af9-425e-47f1-a6dd-8a0f508f9f11">&lt;strong&gt;</bpt>Add<ept id="4b4c4af9-425e-47f1-a6dd-8a0f508f9f11">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="29e90172-a1ff-4650-b22a-432fed11daba" xml:space="preserve">
+          <source><bpt id="572c9006-855c-4311-9215-7fc829b1640a">&lt;linkText&gt;</bpt>Add application<ept id="572c9006-855c-4311-9215-7fc829b1640a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="572c9006-855c-4311-9215-7fc829b1640a">&lt;linkText&gt;</bpt>Add application<ept id="572c9006-855c-4311-9215-7fc829b1640a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28797748-71a0-446b-8e05-b71a91465e26" xml:space="preserve">
+          <source>On the <bpt id="57e826b4-b1d5-40ea-8c4a-6af8a81afe7a">&lt;strong&gt;</bpt>What do you want to do<ept id="57e826b4-b1d5-40ea-8c4a-6af8a81afe7a">&lt;/strong&gt;</ept> dialog, click <bpt id="ec33761d-73a6-454a-84da-04a6b969d97b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ec33761d-73a6-454a-84da-04a6b969d97b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="57e826b4-b1d5-40ea-8c4a-6af8a81afe7a">&lt;strong&gt;</bpt>What do you want to do<ept id="57e826b4-b1d5-40ea-8c4a-6af8a81afe7a">&lt;/strong&gt;</ept> dialog, click <bpt id="ec33761d-73a6-454a-84da-04a6b969d97b">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="ec33761d-73a6-454a-84da-04a6b969d97b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bb4aef9-8f59-46e3-bee4-3f3e6781856e" xml:space="preserve">
+          <source><bpt id="45d17fd2-ff11-498a-b72b-a80e95d66740">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="45d17fd2-ff11-498a-b72b-a80e95d66740">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="45d17fd2-ff11-498a-b72b-a80e95d66740">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="45d17fd2-ff11-498a-b72b-a80e95d66740">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f7e1ba5-cbc8-4839-bc1f-df84a9233198" xml:space="preserve">
+          <source>In the <bpt id="5ecc1457-278c-4085-ad17-8059ddce305c">&lt;strong&gt;</bpt>search box<ept id="5ecc1457-278c-4085-ad17-8059ddce305c">&lt;/strong&gt;</ept>, type <bpt id="f46fed51-1ed8-469d-86d4-a26766ebede5">&lt;strong&gt;</bpt>BambooHR<ept id="f46fed51-1ed8-469d-86d4-a26766ebede5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5ecc1457-278c-4085-ad17-8059ddce305c">&lt;strong&gt;</bpt>search box<ept id="5ecc1457-278c-4085-ad17-8059ddce305c">&lt;/strong&gt;</ept>, type <bpt id="f46fed51-1ed8-469d-86d4-a26766ebede5">&lt;strong&gt;</bpt>BambooHR<ept id="f46fed51-1ed8-469d-86d4-a26766ebede5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a118de1d-6b33-424d-9390-e541b1efef09" xml:space="preserve">
+          <source><bpt id="70576518-a05d-4ee1-99b0-09f25d848946">&lt;linkText&gt;</bpt>Application gallery<ept id="70576518-a05d-4ee1-99b0-09f25d848946">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70576518-a05d-4ee1-99b0-09f25d848946">&lt;linkText&gt;</bpt>Application gallery<ept id="70576518-a05d-4ee1-99b0-09f25d848946">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a77a36a-2d33-4fa1-ab62-7f045f4f1398" xml:space="preserve">
+          <source>In the results pane, select <bpt id="cba6d064-ab6f-4ca2-844e-831bb6fedb62">&lt;strong&gt;</bpt>BambooHR<ept id="cba6d064-ab6f-4ca2-844e-831bb6fedb62">&lt;/strong&gt;</ept>, and then click <bpt id="d036d518-4387-4c8e-b5b0-e2ecf1653403">&lt;strong&gt;</bpt>Complete<ept id="d036d518-4387-4c8e-b5b0-e2ecf1653403">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="cba6d064-ab6f-4ca2-844e-831bb6fedb62">&lt;strong&gt;</bpt>BambooHR<ept id="cba6d064-ab6f-4ca2-844e-831bb6fedb62">&lt;/strong&gt;</ept>, and then click <bpt id="d036d518-4387-4c8e-b5b0-e2ecf1653403">&lt;strong&gt;</bpt>Complete<ept id="d036d518-4387-4c8e-b5b0-e2ecf1653403">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="3d5bcb73-b4c7-4a3f-8f25-8dd41b4cf4bc" xml:space="preserve">
+          <source><bpt id="fac03d33-a0a4-486f-a013-b303072c804b">&lt;linkText&gt;</bpt>BambooHR<ept id="fac03d33-a0a4-486f-a013-b303072c804b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fac03d33-a0a4-486f-a013-b303072c804b">&lt;linkText&gt;</bpt>BambooHR<ept id="fac03d33-a0a4-486f-a013-b303072c804b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77d1d8e4-9dd2-4689-90ad-6e5a6b40973f" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to BambooHR with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to BambooHR with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="70e7c5e8-75c4-4be1-8f91-4d4fbec3147e" xml:space="preserve">
+          <source>As part of this procedure, you are required to create a base-64 encoded certificate file.</source>
+          <target state="new">As part of this procedure, you are required to create a base-64 encoded certificate file.</target>
+        </trans-unit>
+        <trans-unit id="2e45f7a1-0d01-4935-b62d-209e32432f14" xml:space="preserve">
+          <source>If you are not familiar with this procedure, see <bpt id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;/linkText&gt;</ept><bpt id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;title&gt;</bpt><ept id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are not familiar with this procedure, see <bpt id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;/linkText&gt;</ept><bpt id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;title&gt;</bpt><ept id="5accb8b7-baad-46ac-b08a-a314cb7d6849">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37b5ea94-c9b2-4422-b212-2bbc370f1f95" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="062ba37f-cf1c-43bc-839b-c0947b1842c8">&lt;strong&gt;</bpt>BambooHR<ept id="062ba37f-cf1c-43bc-839b-c0947b1842c8">&lt;/strong&gt;</ept> application integration page, click <bpt id="934c89cf-c659-43f8-b806-6c10e55d9d2b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="934c89cf-c659-43f8-b806-6c10e55d9d2b">&lt;/strong&gt;</ept> to open the <bpt id="58c768ba-5c41-46f2-8e28-9e0620511ea9">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="58c768ba-5c41-46f2-8e28-9e0620511ea9">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="062ba37f-cf1c-43bc-839b-c0947b1842c8">&lt;strong&gt;</bpt>BambooHR<ept id="062ba37f-cf1c-43bc-839b-c0947b1842c8">&lt;/strong&gt;</ept> application integration page, click <bpt id="934c89cf-c659-43f8-b806-6c10e55d9d2b">&lt;strong&gt;</bpt>Configure single sign-on<ept id="934c89cf-c659-43f8-b806-6c10e55d9d2b">&lt;/strong&gt;</ept> to open the <bpt id="58c768ba-5c41-46f2-8e28-9e0620511ea9">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="58c768ba-5c41-46f2-8e28-9e0620511ea9">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="77095dd7-b107-43e2-886c-9458c495ba1f" xml:space="preserve">
+          <source><bpt id="aa4168fd-353a-4605-8ad2-cc34226a0f30">&lt;linkText&gt;</bpt>Scenario<ept id="aa4168fd-353a-4605-8ad2-cc34226a0f30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aa4168fd-353a-4605-8ad2-cc34226a0f30">&lt;linkText&gt;</bpt>Scenario<ept id="aa4168fd-353a-4605-8ad2-cc34226a0f30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dbcbbf0-e4ec-424e-aaf9-0d8f5bf1565e" xml:space="preserve">
+          <source>On the <bpt id="8749395e-aa00-42e8-9861-c47e4402cab8">&lt;strong&gt;</bpt>How would you like users to sign on to BambooHR<ept id="8749395e-aa00-42e8-9861-c47e4402cab8">&lt;/strong&gt;</ept> page, select <bpt id="0079ef80-1ca6-42c2-b5db-dcf29305cecb">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0079ef80-1ca6-42c2-b5db-dcf29305cecb">&lt;/strong&gt;</ept>, and then click <bpt id="76d45625-4154-4fc8-9991-4473d4385b39">&lt;strong&gt;</bpt>Next<ept id="76d45625-4154-4fc8-9991-4473d4385b39">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="8749395e-aa00-42e8-9861-c47e4402cab8">&lt;strong&gt;</bpt>How would you like users to sign on to BambooHR<ept id="8749395e-aa00-42e8-9861-c47e4402cab8">&lt;/strong&gt;</ept> page, select <bpt id="0079ef80-1ca6-42c2-b5db-dcf29305cecb">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="0079ef80-1ca6-42c2-b5db-dcf29305cecb">&lt;/strong&gt;</ept>, and then click <bpt id="76d45625-4154-4fc8-9991-4473d4385b39">&lt;strong&gt;</bpt>Next<ept id="76d45625-4154-4fc8-9991-4473d4385b39">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24a91f5d-e9b0-47ac-90e8-9ad43665a49f" xml:space="preserve">
+          <source><bpt id="fb24e58d-6ffd-4e20-b798-3ac56c80a75e">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="fb24e58d-6ffd-4e20-b798-3ac56c80a75e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb24e58d-6ffd-4e20-b798-3ac56c80a75e">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="fb24e58d-6ffd-4e20-b798-3ac56c80a75e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb8c54bb-a1c5-45e0-b8b2-b3a237fa454d" xml:space="preserve">
+          <source>On the <bpt id="b55ff76c-4d31-4570-a3cb-7b5899bcd724">&lt;strong&gt;</bpt>Configure App URL<ept id="b55ff76c-4d31-4570-a3cb-7b5899bcd724">&lt;/strong&gt;</ept> page, in the <bpt id="782ccece-331d-4c39-85bd-6d02f1779fd7">&lt;strong&gt;</bpt>BambooHR Sign On URL<ept id="782ccece-331d-4c39-85bd-6d02f1779fd7">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your BambooHR application (e.g.: https://company.bamboohr.com), and then click <bpt id="d0dfe8ee-f9b4-4988-9556-d9ae0e1bedfd">&lt;strong&gt;</bpt>Next<ept id="d0dfe8ee-f9b4-4988-9556-d9ae0e1bedfd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b55ff76c-4d31-4570-a3cb-7b5899bcd724">&lt;strong&gt;</bpt>Configure App URL<ept id="b55ff76c-4d31-4570-a3cb-7b5899bcd724">&lt;/strong&gt;</ept> page, in the <bpt id="782ccece-331d-4c39-85bd-6d02f1779fd7">&lt;strong&gt;</bpt>BambooHR Sign On URL<ept id="782ccece-331d-4c39-85bd-6d02f1779fd7">&lt;/strong&gt;</ept> textbox, type your URL used by your users to sign on to your BambooHR application (e.g.: https://company.bamboohr.com), and then click <bpt id="d0dfe8ee-f9b4-4988-9556-d9ae0e1bedfd">&lt;strong&gt;</bpt>Next<ept id="d0dfe8ee-f9b4-4988-9556-d9ae0e1bedfd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e63760e7-c478-42d1-b265-f8c62e8d151e" xml:space="preserve">
+          <source><bpt id="08d521e5-e6a0-4dd6-a55a-1fd07ec03988">&lt;linkText&gt;</bpt>Configure app URL<ept id="08d521e5-e6a0-4dd6-a55a-1fd07ec03988">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08d521e5-e6a0-4dd6-a55a-1fd07ec03988">&lt;linkText&gt;</bpt>Configure app URL<ept id="08d521e5-e6a0-4dd6-a55a-1fd07ec03988">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d13e7b76-93ce-438f-acc1-5b2c6333f40a" xml:space="preserve">
+          <source>On the <bpt id="246c3727-7af4-4c0b-a83b-3627f54d4f59">&lt;strong&gt;</bpt>Configure single sign-on at BambooHR<ept id="246c3727-7af4-4c0b-a83b-3627f54d4f59">&lt;/strong&gt;</ept> page, click <bpt id="97aac0cf-71ae-446e-a3fd-b05f04403daa">&lt;strong&gt;</bpt>Download certificate<ept id="97aac0cf-71ae-446e-a3fd-b05f04403daa">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</source>
+          <target state="new">On the <bpt id="246c3727-7af4-4c0b-a83b-3627f54d4f59">&lt;strong&gt;</bpt>Configure single sign-on at BambooHR<ept id="246c3727-7af4-4c0b-a83b-3627f54d4f59">&lt;/strong&gt;</ept> page, click <bpt id="97aac0cf-71ae-446e-a3fd-b05f04403daa">&lt;strong&gt;</bpt>Download certificate<ept id="97aac0cf-71ae-446e-a3fd-b05f04403daa">&lt;/strong&gt;</ept>, and then save the certificate file on your computer.</target>
+        </trans-unit>
+        <trans-unit id="f59ad6cb-3da9-4a99-8d07-842ece04ff24" xml:space="preserve">
+          <source><bpt id="a6f633cb-b9d9-4847-a4c4-797c4609cf14">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a6f633cb-b9d9-4847-a4c4-797c4609cf14">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6f633cb-b9d9-4847-a4c4-797c4609cf14">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a6f633cb-b9d9-4847-a4c4-797c4609cf14">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38c38890-b5cd-4f73-a591-39865e0d1d28" xml:space="preserve">
+          <source>In a different web browser window, log into your BambooHR company site as an administrator.</source>
+          <target state="new">In a different web browser window, log into your BambooHR company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="51da78f3-4a43-47fd-8685-b134da6358de" xml:space="preserve">
+          <source>On the homepage, perform the following steps:</source>
+          <target state="new">On the homepage, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="46b97acf-2b2d-419e-92d3-a5956fa8bba3" xml:space="preserve">
+          <source><bpt id="3161ce32-d6ad-490f-9d05-5a9c992adadd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="3161ce32-d6ad-490f-9d05-5a9c992adadd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3161ce32-d6ad-490f-9d05-5a9c992adadd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="3161ce32-d6ad-490f-9d05-5a9c992adadd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="210fe5f7-6a1c-4905-b40c-b148f20ad8e1" xml:space="preserve">
+          <source>Click <bpt id="6b13fefc-bf12-4f94-8614-6b0670d66c7f">&lt;strong&gt;</bpt>Apps<ept id="6b13fefc-bf12-4f94-8614-6b0670d66c7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6b13fefc-bf12-4f94-8614-6b0670d66c7f">&lt;strong&gt;</bpt>Apps<ept id="6b13fefc-bf12-4f94-8614-6b0670d66c7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d174b3f3-7d44-4637-a289-2a8f14afcc23" xml:space="preserve">
+          <source>In the apps menu on the left, click <bpt id="673471f7-d96f-480c-8e0c-30508c878946">&lt;strong&gt;</bpt>Single Sign-On<ept id="673471f7-d96f-480c-8e0c-30508c878946">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the apps menu on the left, click <bpt id="673471f7-d96f-480c-8e0c-30508c878946">&lt;strong&gt;</bpt>Single Sign-On<ept id="673471f7-d96f-480c-8e0c-30508c878946">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b82af6ff-a017-481c-8c3b-3856e46b14a4" xml:space="preserve">
+          <source>Click <bpt id="7c1db2d6-8c1a-4a3d-b55b-4ccafb4370e3">&lt;strong&gt;</bpt>SAML Single Sign-On<ept id="7c1db2d6-8c1a-4a3d-b55b-4ccafb4370e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7c1db2d6-8c1a-4a3d-b55b-4ccafb4370e3">&lt;strong&gt;</bpt>SAML Single Sign-On<ept id="7c1db2d6-8c1a-4a3d-b55b-4ccafb4370e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c601e34-ecda-48e9-8eb2-cd411e62c284" xml:space="preserve">
+          <source>In the <bpt id="85f20709-4198-4be3-9631-a124cca726fb">&lt;strong&gt;</bpt>SAML Single Sign-On<ept id="85f20709-4198-4be3-9631-a124cca726fb">&lt;/strong&gt;</ept> section, perform the following steps:</source>
+          <target state="new">In the <bpt id="85f20709-4198-4be3-9631-a124cca726fb">&lt;strong&gt;</bpt>SAML Single Sign-On<ept id="85f20709-4198-4be3-9631-a124cca726fb">&lt;/strong&gt;</ept> section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="2a72cae9-b5fd-413b-a25f-60b91646a7e4" xml:space="preserve">
+          <source><bpt id="8cb07b39-8e9e-4198-8c17-5c9eaa1072b3">&lt;linkText&gt;</bpt>SAML Single Sign-On<ept id="8cb07b39-8e9e-4198-8c17-5c9eaa1072b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8cb07b39-8e9e-4198-8c17-5c9eaa1072b3">&lt;linkText&gt;</bpt>SAML Single Sign-On<ept id="8cb07b39-8e9e-4198-8c17-5c9eaa1072b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf2728d4-063c-450b-b046-267e4e6008a0" xml:space="preserve">
+          <source>In the Azure portal, on the <bpt id="8bd36564-6b3a-4cff-a388-f83e664873dd">&lt;strong&gt;</bpt>Configure single sign-on at BambooHR<ept id="8bd36564-6b3a-4cff-a388-f83e664873dd">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="4896e9a5-2b79-460e-b8f5-145e051dcf15">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="4896e9a5-2b79-460e-b8f5-145e051dcf15">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="10ce9fff-d17c-47bc-9e9c-1778bf69b05e">&lt;em&gt;</bpt>*SSO Login URL *<ept id="10ce9fff-d17c-47bc-9e9c-1778bf69b05e">&lt;/em&gt;</ept> textbox.</source>
+          <target state="new">In the Azure portal, on the <bpt id="8bd36564-6b3a-4cff-a388-f83e664873dd">&lt;strong&gt;</bpt>Configure single sign-on at BambooHR<ept id="8bd36564-6b3a-4cff-a388-f83e664873dd">&lt;/strong&gt;</ept> dialog page, copy the <bpt id="4896e9a5-2b79-460e-b8f5-145e051dcf15">&lt;strong&gt;</bpt>Single Sign-On Service URL<ept id="4896e9a5-2b79-460e-b8f5-145e051dcf15">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="10ce9fff-d17c-47bc-9e9c-1778bf69b05e">&lt;em&gt;</bpt>*SSO Login URL *<ept id="10ce9fff-d17c-47bc-9e9c-1778bf69b05e">&lt;/em&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="8704b5dd-fdac-4a3f-ae5c-ef00eea32c17" xml:space="preserve">
+          <source>Create a <bpt id="d5a46e6c-1e85-4744-b1a9-bd3b0f51ab9e">&lt;strong&gt;</bpt>base-64 encoded<ept id="d5a46e6c-1e85-4744-b1a9-bd3b0f51ab9e">&lt;/strong&gt;</ept> file from your downloaded certificate.</source>
+          <target state="new">Create a <bpt id="d5a46e6c-1e85-4744-b1a9-bd3b0f51ab9e">&lt;strong&gt;</bpt>base-64 encoded<ept id="d5a46e6c-1e85-4744-b1a9-bd3b0f51ab9e">&lt;/strong&gt;</ept> file from your downloaded certificate.</target>
+        </trans-unit>
+        <trans-unit id="1689a8a3-930c-4214-832a-f3d520375292" xml:space="preserve">
+          <source>For more details, see <bpt id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;/linkText&gt;</ept><bpt id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;title&gt;</bpt><ept id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;linkText&gt;</bpt>How to convert a binary certificate into a text file<ept id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;/linkText&gt;</ept><bpt id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;title&gt;</bpt><ept id="122a87ed-a204-494a-a319-6f550e47d7c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23ec5c6d-645f-482f-aba6-be7c0e4eab6f" xml:space="preserve">
+          <source>Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="c72d6370-9610-4936-bec3-ffda680b05d4">&lt;strong&gt;</bpt>X.509 Certificate<ept id="c72d6370-9610-4936-bec3-ffda680b05d4">&lt;/strong&gt;</ept> textbox</source>
+          <target state="new">Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the <bpt id="c72d6370-9610-4936-bec3-ffda680b05d4">&lt;strong&gt;</bpt>X.509 Certificate<ept id="c72d6370-9610-4936-bec3-ffda680b05d4">&lt;/strong&gt;</ept> textbox</target>
+        </trans-unit>
+        <trans-unit id="348c52b1-4558-4cc9-a65f-8456684fe893" xml:space="preserve">
+          <source>Click <bpt id="8018553c-e4d8-4f37-a235-90c86d47eb21">&lt;strong&gt;</bpt>Save<ept id="8018553c-e4d8-4f37-a235-90c86d47eb21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8018553c-e4d8-4f37-a235-90c86d47eb21">&lt;strong&gt;</bpt>Save<ept id="8018553c-e4d8-4f37-a235-90c86d47eb21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72c3353c-5b08-4288-b978-7726861b2022" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="750690fc-4f4f-483b-9998-07f80f5218a1">&lt;strong&gt;</bpt>Complete<ept id="750690fc-4f4f-483b-9998-07f80f5218a1">&lt;/strong&gt;</ept> to close the <bpt id="b50d7eea-d777-4237-9566-81e0ab6d15e6">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="b50d7eea-d777-4237-9566-81e0ab6d15e6">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="750690fc-4f4f-483b-9998-07f80f5218a1">&lt;strong&gt;</bpt>Complete<ept id="750690fc-4f4f-483b-9998-07f80f5218a1">&lt;/strong&gt;</ept> to close the <bpt id="b50d7eea-d777-4237-9566-81e0ab6d15e6">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="b50d7eea-d777-4237-9566-81e0ab6d15e6">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="311e8ba1-8d1e-4435-bb62-b51fd389e909" xml:space="preserve">
+          <source><bpt id="a120736a-96c4-4c40-879a-62f22d088797">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a120736a-96c4-4c40-879a-62f22d088797">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a120736a-96c4-4c40-879a-62f22d088797">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="a120736a-96c4-4c40-879a-62f22d088797">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="272bfca9-3488-4018-9028-8d40f51a05de" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into BambooHR, they must be provisioned into BambooHR.</source>
+          <target state="new">In order to enable Azure AD users to log into BambooHR, they must be provisioned into BambooHR.</target>
+        </trans-unit>
+        <trans-unit id="45f85d38-921e-4007-8b76-fe746b114d79" xml:space="preserve">
+          <source>In the case of BambooHR, provisioning is a manual task.</source>
+          <target state="new">In the case of BambooHR, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="dca502de-070e-47e8-90fa-c99f4c071654" xml:space="preserve">
+          <source>Log in to your <bpt id="61c4c4d3-d8b4-43ef-8512-9389b8232242">&lt;strong&gt;</bpt>BambooHR<ept id="61c4c4d3-d8b4-43ef-8512-9389b8232242">&lt;/strong&gt;</ept> site as administrator.</source>
+          <target state="new">Log in to your <bpt id="61c4c4d3-d8b4-43ef-8512-9389b8232242">&lt;strong&gt;</bpt>BambooHR<ept id="61c4c4d3-d8b4-43ef-8512-9389b8232242">&lt;/strong&gt;</ept> site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="973d768f-939a-4d34-827a-f2e75ed9a2af" xml:space="preserve">
+          <source>In the toolbar on the top, click <bpt id="41ba19b3-14b1-41b3-899a-606dec23bc6f">&lt;strong&gt;</bpt>Settings<ept id="41ba19b3-14b1-41b3-899a-606dec23bc6f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the toolbar on the top, click <bpt id="41ba19b3-14b1-41b3-899a-606dec23bc6f">&lt;strong&gt;</bpt>Settings<ept id="41ba19b3-14b1-41b3-899a-606dec23bc6f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecc5d04b-33b5-4c6f-b2e6-75addb397721" xml:space="preserve">
+          <source><bpt id="12e32b68-f5f7-4640-9ca3-ae7f874aa8df">&lt;linkText&gt;</bpt>Setting<ept id="12e32b68-f5f7-4640-9ca3-ae7f874aa8df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12e32b68-f5f7-4640-9ca3-ae7f874aa8df">&lt;linkText&gt;</bpt>Setting<ept id="12e32b68-f5f7-4640-9ca3-ae7f874aa8df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="770a30f3-2551-419f-8d7f-0eda24263007" xml:space="preserve">
+          <source>Click <bpt id="8492b800-5faf-44f5-a160-a50b8b8bc8c2">&lt;strong&gt;</bpt>Overview<ept id="8492b800-5faf-44f5-a160-a50b8b8bc8c2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8492b800-5faf-44f5-a160-a50b8b8bc8c2">&lt;strong&gt;</bpt>Overview<ept id="8492b800-5faf-44f5-a160-a50b8b8bc8c2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="224b8a73-3988-423c-8015-f82b92b84b3e" xml:space="preserve">
+          <source>In the left navigation pane, go to <bpt id="fdf52e26-ca64-4906-b194-b4727bbda3ff">&lt;strong&gt;</bpt>Security \&gt; Users<ept id="fdf52e26-ca64-4906-b194-b4727bbda3ff">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left navigation pane, go to <bpt id="fdf52e26-ca64-4906-b194-b4727bbda3ff">&lt;strong&gt;</bpt>Security \&gt; Users<ept id="fdf52e26-ca64-4906-b194-b4727bbda3ff">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62875657-e4b9-4afe-82c4-1c8d319a5af8" xml:space="preserve">
+          <source>Type the user name, password and email address of a valid AAD account you want to provision into the related textboxes.</source>
+          <target state="new">Type the user name, password and email address of a valid AAD account you want to provision into the related textboxes.</target>
+        </trans-unit>
+        <trans-unit id="014bc23f-21cc-44c4-b0a2-e4caf0eeb3c7" xml:space="preserve">
+          <source>Click <bpt id="4c8a54f6-ebd7-4fde-aa83-33b08d5fd3cc">&lt;strong&gt;</bpt>Save<ept id="4c8a54f6-ebd7-4fde-aa83-33b08d5fd3cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="4c8a54f6-ebd7-4fde-aa83-33b08d5fd3cc">&lt;strong&gt;</bpt>Save<ept id="4c8a54f6-ebd7-4fde-aa83-33b08d5fd3cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3433d250-e6e5-4191-aa35-eb2df20ea471" xml:space="preserve">
+          <source>You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts.</source>
+          <target state="new">You can use any other BambooHR user account creation tools or APIs provided by BambooHR to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="05e02563-641f-4720-b240-f4e3beefd241" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="1adf2b2a-9b07-4094-90eb-8311c8e7118d" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="9c1f0770-c092-40d3-bba6-eb1e37b4b897" xml:space="preserve">
+          <source>On the <bpt id="67d609bc-57a2-49a8-abaf-029eb5c8d3bd">&lt;strong&gt;</bpt>BambooHR **application integration page, click **Assign users<ept id="67d609bc-57a2-49a8-abaf-029eb5c8d3bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="67d609bc-57a2-49a8-abaf-029eb5c8d3bd">&lt;strong&gt;</bpt>BambooHR **application integration page, click **Assign users<ept id="67d609bc-57a2-49a8-abaf-029eb5c8d3bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0b2d0388-8081-4053-b328-11128703bcdf" xml:space="preserve">
+          <source><bpt id="08e541f8-0048-4952-82ae-a933a80c1cf3">&lt;linkText&gt;</bpt>Assign users<ept id="08e541f8-0048-4952-82ae-a933a80c1cf3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08e541f8-0048-4952-82ae-a933a80c1cf3">&lt;linkText&gt;</bpt>Assign users<ept id="08e541f8-0048-4952-82ae-a933a80c1cf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="166917fc-4c60-496b-b421-c78df8aef0d9" xml:space="preserve">
+          <source>Select your test user, click <bpt id="97628253-3ff1-4815-86df-81512bfa7bbf">&lt;strong&gt;</bpt>Assign<ept id="97628253-3ff1-4815-86df-81512bfa7bbf">&lt;/strong&gt;</ept>, and then click <bpt id="96f5cbbb-6696-43cd-8b4f-ce3977419f34">&lt;strong&gt;</bpt>Yes<ept id="96f5cbbb-6696-43cd-8b4f-ce3977419f34">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="97628253-3ff1-4815-86df-81512bfa7bbf">&lt;strong&gt;</bpt>Assign<ept id="97628253-3ff1-4815-86df-81512bfa7bbf">&lt;/strong&gt;</ept>, and then click <bpt id="96f5cbbb-6696-43cd-8b4f-ce3977419f34">&lt;strong&gt;</bpt>Yes<ept id="96f5cbbb-6696-43cd-8b4f-ce3977419f34">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="3427fbba-2473-4dfc-8132-cd061e248838" xml:space="preserve">
+          <source><bpt id="87e84d56-b7a0-4b72-bc33-ec48207363c0">&lt;linkText&gt;</bpt>Yes<ept id="87e84d56-b7a0-4b72-bc33-ec48207363c0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="87e84d56-b7a0-4b72-bc33-ec48207363c0">&lt;linkText&gt;</bpt>Yes<ept id="87e84d56-b7a0-4b72-bc33-ec48207363c0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f2d25b35-58e5-4657-ac88-d7440e0948c1" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="ac336460-8014-4b51-a56d-439deaa62369" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;/linkText&gt;</ept><bpt id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;title&gt;</bpt><ept id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;/linkText&gt;</ept><bpt id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;title&gt;</bpt><ept id="ccea3f70-662b-4217-a8ea-190fc8253c40">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84fb8472-3dda-46b5-a2f2-f07e0de033d1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84fb8472-3dda-46b5-a2f2-f07e0de033d1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bd250da0-c2b8-4aca-9a3f-6869b20c0d3f">
+        <trans-unit id="c3478817-386c-44d7-96fa-8872538c7e82" xml:space="preserve">
+          <source>Configure RBS for the StorSimple Adapter for SharePoint | Microsoft Azure</source>
+          <target state="new">Configure RBS for the StorSimple Adapter for SharePoint | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="25e1fe8a-aaf4-463c-9328-cc77a4fa15fc" xml:space="preserve">
+          <source>Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm.</source>
+          <target state="new">Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm.</target>
+        </trans-unit>
+        <trans-unit id="fba59f6f-974a-4dcf-9f33-bd5ffd7fc783" xml:space="preserve">
+          <source>When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group.</source>
+          <target state="new">When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group.</target>
+        </trans-unit>
+        <trans-unit id="276407ae-f3cb-4ae8-9940-5e5c1ce714ec" xml:space="preserve">
+          <source>Additionally, you must access the configuration page from a browser running on the same host as Central Administration.</source>
+          <target state="new">Additionally, you must access the configuration page from a browser running on the same host as Central Administration.</target>
+        </trans-unit>
+        <trans-unit id="4467a918-e282-4e28-b8a0-94efc2270d6f" xml:space="preserve">
+          <source>Open the SharePoint Central Administration page, and browse to <bpt id="0ed14977-a595-4d8b-b4dc-17bff41bef24">&lt;strong&gt;</bpt>System Settings<ept id="0ed14977-a595-4d8b-b4dc-17bff41bef24">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the SharePoint Central Administration page, and browse to <bpt id="0ed14977-a595-4d8b-b4dc-17bff41bef24">&lt;strong&gt;</bpt>System Settings<ept id="0ed14977-a595-4d8b-b4dc-17bff41bef24">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="183fb7fa-2d2a-4ec8-88b9-0fba7d9b90fa" xml:space="preserve">
+          <source>In the <bpt id="a07e28ef-75d3-47b4-b206-569e7370d020">&lt;strong&gt;</bpt>Azure StorSimple<ept id="a07e28ef-75d3-47b4-b206-569e7370d020">&lt;/strong&gt;</ept> section, click <bpt id="74776e6f-953b-4492-813b-dfb671019629">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="74776e6f-953b-4492-813b-dfb671019629">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="a07e28ef-75d3-47b4-b206-569e7370d020">&lt;strong&gt;</bpt>Azure StorSimple<ept id="a07e28ef-75d3-47b4-b206-569e7370d020">&lt;/strong&gt;</ept> section, click <bpt id="74776e6f-953b-4492-813b-dfb671019629">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="74776e6f-953b-4492-813b-dfb671019629">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f15cfa71-3221-4828-94b9-bb5e7e7dfa56" xml:space="preserve">
+          <source><bpt id="3c2b75ba-f329-499f-a8cb-a4681365554d">&lt;linkText&gt;</bpt>Configure the StorSimple Adapter<ept id="3c2b75ba-f329-499f-a8cb-a4681365554d">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="3c2b75ba-f329-499f-a8cb-a4681365554d">&lt;linkText&gt;</bpt>Configure the StorSimple Adapter<ept id="3c2b75ba-f329-499f-a8cb-a4681365554d">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e0478156-e72e-4a81-b1e8-ac6d0dfb0b51" xml:space="preserve">
+          <source>On the <bpt id="ef4833d6-3220-4548-91b4-cd4d36ec90a8">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="ef4833d6-3220-4548-91b4-cd4d36ec90a8">&lt;/strong&gt;</ept> page:</source>
+          <target state="new">On the <bpt id="ef4833d6-3220-4548-91b4-cd4d36ec90a8">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="ef4833d6-3220-4548-91b4-cd4d36ec90a8">&lt;/strong&gt;</ept> page:</target>
+        </trans-unit>
+        <trans-unit id="6eaa063a-7657-4999-a3aa-647303f11333" xml:space="preserve">
+          <source>Make sure that the <bpt id="5dc7c261-5285-4e85-b0a3-da033574f3b1">&lt;strong&gt;</bpt>Enable editing path<ept id="5dc7c261-5285-4e85-b0a3-da033574f3b1">&lt;/strong&gt;</ept> check box is selected.</source>
+          <target state="new">Make sure that the <bpt id="5dc7c261-5285-4e85-b0a3-da033574f3b1">&lt;strong&gt;</bpt>Enable editing path<ept id="5dc7c261-5285-4e85-b0a3-da033574f3b1">&lt;/strong&gt;</ept> check box is selected.</target>
+        </trans-unit>
+        <trans-unit id="5acef2f2-0e67-469b-84a5-ec7ca8938b1b" xml:space="preserve">
+          <source>In the text box, type the Universal Naming Convention (UNC) path of the BLOB store.</source>
+          <target state="new">In the text box, type the Universal Naming Convention (UNC) path of the BLOB store.</target>
+        </trans-unit>
+        <trans-unit id="2cd58d48-333d-432f-beb6-cc73fa212db7" xml:space="preserve">
+          <source>The BLOB store volume must be hosted on an iSCSI volume configured on the StorSimple device.</source>
+          <target state="new">The BLOB store volume must be hosted on an iSCSI volume configured on the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="c1892431-f732-4317-80f4-63c23883378d" xml:space="preserve">
+          <source>Click the <bpt id="a3eac3f6-49ae-45ca-996e-eb81f65eda75">&lt;strong&gt;</bpt>Enable<ept id="a3eac3f6-49ae-45ca-996e-eb81f65eda75">&lt;/strong&gt;</ept> button below each of the content databases that you want to configure for remote storage.</source>
+          <target state="new">Click the <bpt id="a3eac3f6-49ae-45ca-996e-eb81f65eda75">&lt;strong&gt;</bpt>Enable<ept id="a3eac3f6-49ae-45ca-996e-eb81f65eda75">&lt;/strong&gt;</ept> button below each of the content databases that you want to configure for remote storage.</target>
+        </trans-unit>
+        <trans-unit id="10be726e-b8a6-49ef-963e-d156f93fd714" xml:space="preserve">
+          <source>The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.</source>
+          <target state="new">The BLOB store must be shared and reachable by all web front-end (WFE) servers, and the user account that is configured for the SharePoint server farm must have access to the share.</target>
+        </trans-unit>
+        <trans-unit id="4e032966-92bd-400c-ae3e-fe70e9f610e5" xml:space="preserve">
+          <source>  <bpt id="2ab9ab43-51d1-4ac0-b858-81d885046e6b">&lt;linkText&gt;</bpt>Enable the RBS provider<ept id="2ab9ab43-51d1-4ac0-b858-81d885046e6b">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="2ab9ab43-51d1-4ac0-b858-81d885046e6b">&lt;linkText&gt;</bpt>Enable the RBS provider<ept id="2ab9ab43-51d1-4ac0-b858-81d885046e6b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="84a7b367-e234-421f-a554-2c21df81d7a0" xml:space="preserve">
+          <source>   When you enable or disable RBS, you will also see the following message.</source>
+          <target state="new">   When you enable or disable RBS, you will also see the following message.</target>
+        </trans-unit>
+        <trans-unit id="17dd1e69-ee37-4934-8fcc-f1695cc72653" xml:space="preserve">
+          <source>  <bpt id="697c185f-9146-4cc6-bf30-84f45cd6d1df">&lt;linkText&gt;</bpt>Configure StorSimple Adapter Enable Disable<ept id="697c185f-9146-4cc6-bf30-84f45cd6d1df">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="697c185f-9146-4cc6-bf30-84f45cd6d1df">&lt;linkText&gt;</bpt>Configure StorSimple Adapter Enable Disable<ept id="697c185f-9146-4cc6-bf30-84f45cd6d1df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="baa09948-0003-446f-85fb-dcde732ff0af" xml:space="preserve">
+          <source>Click the <bpt id="b2e6cd0f-8b96-4084-a3fd-b5a076ddf476">&lt;strong&gt;</bpt>Update<ept id="b2e6cd0f-8b96-4084-a3fd-b5a076ddf476">&lt;/strong&gt;</ept> button to apply the configuration.</source>
+          <target state="new">Click the <bpt id="b2e6cd0f-8b96-4084-a3fd-b5a076ddf476">&lt;strong&gt;</bpt>Update<ept id="b2e6cd0f-8b96-4084-a3fd-b5a076ddf476">&lt;/strong&gt;</ept> button to apply the configuration.</target>
+        </trans-unit>
+        <trans-unit id="b3025910-6aec-40dc-99b8-5d110411f1ab" xml:space="preserve">
+          <source>When you click the <bpt id="3d9e3953-b170-447a-8122-e74086f5eb24">&lt;strong&gt;</bpt>Update<ept id="3d9e3953-b170-447a-8122-e74086f5eb24">&lt;/strong&gt;</ept> button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled.</source>
+          <target state="new">When you click the <bpt id="3d9e3953-b170-447a-8122-e74086f5eb24">&lt;strong&gt;</bpt>Update<ept id="3d9e3953-b170-447a-8122-e74086f5eb24">&lt;/strong&gt;</ept> button, the RBS configuration status will be updated on all WFE servers, and the entire farm will be RBS-enabled.</target>
+        </trans-unit>
+        <trans-unit id="ce496942-1835-4bb3-b5cc-aef2bf32752f" xml:space="preserve">
+          <source>The following message appears.</source>
+          <target state="new">The following message appears.</target>
+        </trans-unit>
+        <trans-unit id="7f58a2d5-30fc-4529-b0da-d8090ebbb154" xml:space="preserve">
+          <source>   <bpt id="a7c40536-15cf-42f3-935d-6f39ec2d2bc8">&lt;linkText&gt;</bpt>Adapter configuration message<ept id="a7c40536-15cf-42f3-935d-6f39ec2d2bc8">&lt;/linkText&gt;</ept></source>
+          <target state="new">   <bpt id="a7c40536-15cf-42f3-935d-6f39ec2d2bc8">&lt;linkText&gt;</bpt>Adapter configuration message<ept id="a7c40536-15cf-42f3-935d-6f39ec2d2bc8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cea82aa-5111-4334-b826-a3cbb74a9838" xml:space="preserve">
+          <source>If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out.</source>
+          <target state="new">If you are configuring RBS for a SharePoint farm with a very large number of databases (greater than 200), the SharePoint Central Administration web page might time out.</target>
+        </trans-unit>
+        <trans-unit id="8581a873-0cb5-4f2f-8211-80554a92d762" xml:space="preserve">
+          <source>If that occurs, refresh the page.</source>
+          <target state="new">If that occurs, refresh the page.</target>
+        </trans-unit>
+        <trans-unit id="721f86dc-11df-4416-a2db-fbe64061d293" xml:space="preserve">
+          <source>This does not affect the configuration process.</source>
+          <target state="new">This does not affect the configuration process.</target>
+        </trans-unit>
+        <trans-unit id="2295a632-324c-423c-82c4-8b0a676d880e" xml:space="preserve">
+          <source>Verify the configuration:</source>
+          <target state="new">Verify the configuration:</target>
+        </trans-unit>
+        <trans-unit id="70865ba1-1def-4d38-b92f-dbfd0daaffde" xml:space="preserve">
+          <source>Log on to the SharePoint Central Administration website, and browse to the <bpt id="14284618-5a7a-42f5-8c14-ef87852cba6b">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="14284618-5a7a-42f5-8c14-ef87852cba6b">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Log on to the SharePoint Central Administration website, and browse to the <bpt id="14284618-5a7a-42f5-8c14-ef87852cba6b">&lt;strong&gt;</bpt>Configure StorSimple Adapter<ept id="14284618-5a7a-42f5-8c14-ef87852cba6b">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="2c66f115-f77a-4bf2-bad0-6b225162ce37" xml:space="preserve">
+          <source>Check the configuration details to make sure that they match the settings that you entered.</source>
+          <target state="new">Check the configuration details to make sure that they match the settings that you entered.</target>
+        </trans-unit>
+        <trans-unit id="11854f94-21ba-44cb-9ae6-018132e24f28" xml:space="preserve">
+          <source>Verify that RBS works correctly:</source>
+          <target state="new">Verify that RBS works correctly:</target>
+        </trans-unit>
+        <trans-unit id="c74466cf-29c1-4264-990f-48b2dba22a0c" xml:space="preserve">
+          <source>Upload a document to SharePoint.</source>
+          <target state="new">Upload a document to SharePoint.</target>
+        </trans-unit>
+        <trans-unit id="1d62d415-3064-4e2f-8515-4e9eb895b7f0" xml:space="preserve">
+          <source>Browse to the UNC path that you configured.</source>
+          <target state="new">Browse to the UNC path that you configured.</target>
+        </trans-unit>
+        <trans-unit id="ee07ba7a-1231-477e-be47-0253f309e693" xml:space="preserve">
+          <source>Make sure that the RBS directory structure was created and that it contains the uploaded object.</source>
+          <target state="new">Make sure that the RBS directory structure was created and that it contains the uploaded object.</target>
+        </trans-unit>
+        <trans-unit id="28ccc1de-cf2c-4890-a5fe-69c0d7ba6047" xml:space="preserve">
+          <source>(Optional) You can use the Microsoft RBS <bpt id="63c216b1-ad19-4c5e-a44c-a7b69ec2ec68">&lt;code&gt;</bpt>Migrate()<ept id="63c216b1-ad19-4c5e-a44c-a7b69ec2ec68">&lt;/code&gt;</ept> PowerShell cmdlet included with SharePoint to migrate existing BLOB content to the StorSimple device.</source>
+          <target state="new">(Optional) You can use the Microsoft RBS <bpt id="63c216b1-ad19-4c5e-a44c-a7b69ec2ec68">&lt;code&gt;</bpt>Migrate()<ept id="63c216b1-ad19-4c5e-a44c-a7b69ec2ec68">&lt;/code&gt;</ept> PowerShell cmdlet included with SharePoint to migrate existing BLOB content to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="204ea1d0-6a2e-43d9-b79d-b119250b7eec" xml:space="preserve">
+          <source>For more information, see <bpt id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;linkText&gt;</bpt>Migrate content into or out of RBS in SharePoint 2013[6]<ept id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;/linkText&gt;</ept><bpt id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;title&gt;</bpt><ept id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;/title&gt;</ept> or <bpt id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;linkText&gt;</bpt>Migrate content into or out of RBS (SharePoint Foundation 2010)[7]<ept id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;/linkText&gt;</ept><bpt id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;title&gt;</bpt><ept id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;linkText&gt;</bpt>Migrate content into or out of RBS in SharePoint 2013[6]<ept id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;/linkText&gt;</ept><bpt id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;title&gt;</bpt><ept id="a1e11f67-4712-4eb3-8b31-891e07c2e960">&lt;/title&gt;</ept> or <bpt id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;linkText&gt;</bpt>Migrate content into or out of RBS (SharePoint Foundation 2010)[7]<ept id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;/linkText&gt;</ept><bpt id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;title&gt;</bpt><ept id="1b91913b-06e0-4178-82aa-3c1e8ac9e343">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d50d08d1-5ba1-4959-9cf9-5e6f222535bc" xml:space="preserve">
+          <source>(Optional) On test installations, you can verify that the BLOBs were moved out of the content database as follows: </source>
+          <target state="new">(Optional) On test installations, you can verify that the BLOBs were moved out of the content database as follows: </target>
+        </trans-unit>
+        <trans-unit id="5c8a6112-0e76-44ea-a08a-a5e94b6370fe" xml:space="preserve">
+          <source>Start SQL Management Studio.</source>
+          <target state="new">Start SQL Management Studio.</target>
+        </trans-unit>
+        <trans-unit id="07606adf-0eb5-4b52-873e-7da7419bfe4f" xml:space="preserve">
+          <source>Run the ListBlobsInDB<bpt id="ddd876fc-6d8c-4a8b-9cdb-d5b6c4dcfe53">&lt;em&gt;</bpt>2010.sql or ListBlobsInDB<ept id="ddd876fc-6d8c-4a8b-9cdb-d5b6c4dcfe53">&lt;/em&gt;</ept>2013.sql query, as follows.</source>
+          <target state="new">Run the ListBlobsInDB<bpt id="ddd876fc-6d8c-4a8b-9cdb-d5b6c4dcfe53">&lt;em&gt;</bpt>2010.sql or ListBlobsInDB<ept id="ddd876fc-6d8c-4a8b-9cdb-d5b6c4dcfe53">&lt;/em&gt;</ept>2013.sql query, as follows.</target>
+        </trans-unit>
+        <trans-unit id="d2da9e28-b515-45a6-af0d-b86f6d69d915" xml:space="preserve">
+          <source><bpt id="ef5433fd-3849-4b4c-a5f4-87735a7af2ff">&lt;strong&gt;</bpt>ListBlobsInDB_2013.sql<ept id="ef5433fd-3849-4b4c-a5f4-87735a7af2ff">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ef5433fd-3849-4b4c-a5f4-87735a7af2ff">&lt;strong&gt;</bpt>ListBlobsInDB_2013.sql<ept id="ef5433fd-3849-4b4c-a5f4-87735a7af2ff">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32f15801-156d-4d45-bdce-7769b5ab7057" xml:space="preserve">
+          <source> USE WSS_Content
+ GO</source>
+          <target state="new"> USE WSS_Content
+ GO</target>
+        </trans-unit>
+        <trans-unit id="1c525593-0e28-4516-b3fb-eedf08910f53" xml:space="preserve">
+          <source> SELECT DocStreams.DocId,
+        LeafName AS Name,
+        Content,
+        AllDocs.Size AS OrigSizeOfContent,
+        LEN(CAST(Content AS VARBINARY(MAX))) AS SizeOfContentInDB,
+        DocStreams.RbsId,
+        TimeLastModified</source>
+          <target state="new"> SELECT DocStreams.DocId,
+        LeafName AS Name,
+        Content,
+        AllDocs.Size AS OrigSizeOfContent,
+        LEN(CAST(Content AS VARBINARY(MAX))) AS SizeOfContentInDB,
+        DocStreams.RbsId,
+        TimeLastModified</target>
+        </trans-unit>
+        <trans-unit id="f799e1e2-4a9c-40fb-85a1-9094f40d8431" xml:space="preserve">
+          <source> FROM DocStreams
+      INNER JOIN AllDocs ON DocStreams.DocId = AllDocs.Id
+ ORDER BY TimeLastModified DESC
+ GO</source>
+          <target state="new"> FROM DocStreams
+      INNER JOIN AllDocs ON DocStreams.DocId = AllDocs.Id
+ ORDER BY TimeLastModified DESC
+ GO</target>
+        </trans-unit>
+        <trans-unit id="9f0cff56-b4f6-46a8-84a1-b7c72293ab84" xml:space="preserve">
+          <source><bpt id="b8883d8c-8359-4d91-b9b9-10c408bfa765">&lt;strong&gt;</bpt>ListBlobsInDB_2010.sql<ept id="b8883d8c-8359-4d91-b9b9-10c408bfa765">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b8883d8c-8359-4d91-b9b9-10c408bfa765">&lt;strong&gt;</bpt>ListBlobsInDB_2010.sql<ept id="b8883d8c-8359-4d91-b9b9-10c408bfa765">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="871a705d-3ab8-4cc6-913b-a5a3346975cf" xml:space="preserve">
+          <source> USE WSS_Content
+ GO</source>
+          <target state="new"> USE WSS_Content
+ GO</target>
+        </trans-unit>
+        <trans-unit id="ed8cdeac-2b28-465f-95c8-54592f4b1149" xml:space="preserve">
+          <source> SELECT AllDocStreams.Id,
+        LeafName AS Name,
+        Content,
+        AllDocs.Size AS OrigSizeOfContent,
+        LEN(CAST(Content AS VARBINARY(MAX))) AS SizeOfContentInDB,
+        RbsId,
+        TimeLastModified
+ FROM AllDocStreams
+      INNER JOIN AllDocs ON AllDocStreams.Id = AllDocs.Id
+ ORDER BY TimeLastModified DESC
+ GO</source>
+          <target state="new"> SELECT AllDocStreams.Id,
+        LeafName AS Name,
+        Content,
+        AllDocs.Size AS OrigSizeOfContent,
+        LEN(CAST(Content AS VARBINARY(MAX))) AS SizeOfContentInDB,
+        RbsId,
+        TimeLastModified
+ FROM AllDocStreams
+      INNER JOIN AllDocs ON AllDocStreams.Id = AllDocs.Id
+ ORDER BY TimeLastModified DESC
+ GO</target>
+        </trans-unit>
+        <trans-unit id="e1a5a4ea-d568-45e0-9fb2-455f89088d4e" xml:space="preserve">
+          <source>If RBS was configured correctly, a NULL value should appear in the SizeOfContentInDB column for any object that was uploaded and successfully externalized with RBS.</source>
+          <target state="new">If RBS was configured correctly, a NULL value should appear in the SizeOfContentInDB column for any object that was uploaded and successfully externalized with RBS.</target>
+        </trans-unit>
+        <trans-unit id="6346e5c4-378a-4cc1-966e-897b220a763e" xml:space="preserve">
+          <source>(Optional) After you configure RBS and move all BLOB content to the StorSimple device, you can move the content database to the device.</source>
+          <target state="new">(Optional) After you configure RBS and move all BLOB content to the StorSimple device, you can move the content database to the device.</target>
+        </trans-unit>
+        <trans-unit id="10f236df-5b63-4c76-ad5f-08c94b182318" xml:space="preserve">
+          <source>If you choose to move the content database, we recommend that you configure the content database storage on the device as a primary volume.</source>
+          <target state="new">If you choose to move the content database, we recommend that you configure the content database storage on the device as a primary volume.</target>
+        </trans-unit>
+        <trans-unit id="5141db6a-c21e-4bc4-9d02-bbc8f71456ca" xml:space="preserve">
+          <source>Then, use established SQL Server best practices to migrate the content database to the StorSimple device.</source>
+          <target state="new">Then, use established SQL Server best practices to migrate the content database to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="813f6b85-4979-41c5-8e39-c8c835cf5d86" xml:space="preserve">
+          <source>Moving the content database to the device is only supported for the StorSimple 8000 series (it is not supported for the 5000 or 7000 series).</source>
+          <target state="new">Moving the content database to the device is only supported for the StorSimple 8000 series (it is not supported for the 5000 or 7000 series).</target>
+        </trans-unit>
+        <trans-unit id="87f5b37a-4a24-480f-96dc-45d18b90efd3" xml:space="preserve">
+          <source>If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container.</source>
+          <target state="new">If you store BLOBs and the content database in separate volumes on the StorSimple device, we recommend that you configure them in the same volume container.</target>
+        </trans-unit>
+        <trans-unit id="c2c7a830-0ce3-484b-9dd4-088044b567bc" xml:space="preserve">
+          <source>This ensures that they will be backed up together.</source>
+          <target state="new">This ensures that they will be backed up together.</target>
+        </trans-unit>
+        <trans-unit id="a4de14f7-8a0b-43f7-b79d-1be150f8231e" xml:space="preserve">
+          <source>If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device.</source>
+          <target state="new">If you have not enabled RBS, we do not recommend moving the content database to the StorSimple device.</target>
+        </trans-unit>
+        <trans-unit id="b7b24fb9-e87e-4245-b7f2-94518f6a655c" xml:space="preserve">
+          <source>This is an untested configuration.</source>
+          <target state="new">This is an untested configuration.</target>
+        </trans-unit>
+        <trans-unit id="3f7f1c4a-24ae-4f23-8e01-a038cf42cd4c" xml:space="preserve">
+          <source>Go to the next step: <bpt id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;linkText&gt;</bpt>Configure garbage collection<ept id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;/linkText&gt;</ept><bpt id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;title&gt;</bpt><ept id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Go to the next step: <bpt id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;linkText&gt;</bpt>Configure garbage collection<ept id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;/linkText&gt;</ept><bpt id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;title&gt;</bpt><ept id="7d4aade0-5fe2-4970-8736-e8b74fd6614f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b53b8b0-5660-4660-8489-f0fd79e78ea9" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/ff628254(v=office.15).aspx</source>
+          <target state="new">https://technet.microsoft.com/library/ff628254(v=office.15).aspx</target>
+        </trans-unit>
+        <trans-unit id="bdb47107-be5f-4251-b10b-51fea83fb84c" xml:space="preserve">
+          <source>https://technet.microsoft.com/library/ff628255(v=office.14).aspx</source>
+          <target state="new">https://technet.microsoft.com/library/ff628255(v=office.14).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="23644112-c7b5-453e-85c6-9078b563009d" />
+    </body>
+  </file>
+</xliff>

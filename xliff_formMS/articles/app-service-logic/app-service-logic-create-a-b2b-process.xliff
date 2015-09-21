@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2d60240a-3748-4d84-b904-2d933782aacb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2d60240a-3748-4d84-b904-2d933782aacb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1523d738-a357-4e11-9441-c1afb3df2bf8">
+        <trans-unit id="3dfeeefb-8094-4e72-8cb6-3842a9dce18f" xml:space="preserve">
+          <source>Creating a B2B process in Microsoft Azure App Service</source>
+          <target state="new">Creating a B2B process in Microsoft Azure App Service</target>
+        </trans-unit>
+        <trans-unit id="0d3382e7-0a3a-47ef-8b59-07ba32ad6b2a" xml:space="preserve">
+          <source>Overview to create a Business-to-Business Process</source>
+          <target state="new">Overview to create a Business-to-Business Process</target>
+        </trans-unit>
+        <trans-unit id="d5ea35f1-13a7-40ed-a8a7-0a501cf0b99d" xml:space="preserve">
+          <source>Contoso and Northwind are two business partners.</source>
+          <target state="new">Contoso and Northwind are two business partners.</target>
+        </trans-unit>
+        <trans-unit id="4cb32b62-af0f-4f12-8f39-ffad12780f21" xml:space="preserve">
+          <source>Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport such as AS2.</source>
+          <target state="new">Contoso (the retailer) sends purchase orders to Northwind (the supplier) over an industry level transport such as AS2.</target>
+        </trans-unit>
+        <trans-unit id="b065a83f-701d-44c5-a3d8-a5df5e42959a" xml:space="preserve">
+          <source>Northwind stores all incoming orders in its Cloud storage.</source>
+          <target state="new">Northwind stores all incoming orders in its Cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="cce4b783-9be2-4028-a8cf-12944d3b2a03" xml:space="preserve">
+          <source>The purchase orders are XML messages between these two partners.</source>
+          <target state="new">The purchase orders are XML messages between these two partners.</target>
+        </trans-unit>
+        <trans-unit id="b53479d8-b6ba-40a9-9779-b072bbe4b129" xml:space="preserve">
+          <source>Once the message is stored in Northwind's cloud storage then Northwind's internal processes handle the order from that point on.</source>
+          <target state="new">Once the message is stored in Northwind's cloud storage then Northwind's internal processes handle the order from that point on.</target>
+        </trans-unit>
+        <trans-unit id="0f9de332-890c-475e-87bb-ad9ca8a1fdef" xml:space="preserve">
+          <source>The objective of this tutorial is to establish how Northwind can establish a business process via which it can receive messages (purchase orders in XML) from its partner Contoso over AS2 and then persist it in its Cloud storage.</source>
+          <target state="new">The objective of this tutorial is to establish how Northwind can establish a business process via which it can receive messages (purchase orders in XML) from its partner Contoso over AS2 and then persist it in its Cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="6862162d-1c6d-418c-a6b1-a14df467fe44" xml:space="preserve">
+          <source>This tutorial helps showcase the following capabilities: </source>
+          <target state="new">This tutorial helps showcase the following capabilities: </target>
+        </trans-unit>
+        <trans-unit id="98e21849-16e6-4d1d-92d8-c09ed38ab67a" xml:space="preserve">
+          <source><bpt id="c97efbe2-533c-40e4-a0b5-b64af98945a4">&lt;strong&gt;</bpt>Message transportation<ept id="c97efbe2-533c-40e4-a0b5-b64af98945a4">&lt;/strong&gt;</ept>: The retailer and supplier can be on different platforms but they can still achieve communication between the two.</source>
+          <target state="new"><bpt id="c97efbe2-533c-40e4-a0b5-b64af98945a4">&lt;strong&gt;</bpt>Message transportation<ept id="c97efbe2-533c-40e4-a0b5-b64af98945a4">&lt;/strong&gt;</ept>: The retailer and supplier can be on different platforms but they can still achieve communication between the two.</target>
+        </trans-unit>
+        <trans-unit id="c30cfd73-0550-4afe-aaef-917883444539" xml:space="preserve">
+          <source>In this tutorial they are communicating over AS2 (Applicability Statement 2).</source>
+          <target state="new">In this tutorial they are communicating over AS2 (Applicability Statement 2).</target>
+        </trans-unit>
+        <trans-unit id="5b7f486c-7bd9-427d-931c-36ced4424ccb" xml:space="preserve">
+          <source>AS2 is a popular way to transport data between trading partners in business-to-business communications.</source>
+          <target state="new">AS2 is a popular way to transport data between trading partners in business-to-business communications.</target>
+        </trans-unit>
+        <trans-unit id="c88b760e-6d79-44af-9105-dcd1a990460e" xml:space="preserve">
+          <source><bpt id="d007fd57-8865-4d17-8e5c-019a303efa4f">&lt;strong&gt;</bpt>Data persistence<ept id="d007fd57-8865-4d17-8e5c-019a303efa4f">&lt;/strong&gt;</ept>: Once the message has been received over AS2 then Northwind wants to persist it before further processing.</source>
+          <target state="new"><bpt id="d007fd57-8865-4d17-8e5c-019a303efa4f">&lt;strong&gt;</bpt>Data persistence<ept id="d007fd57-8865-4d17-8e5c-019a303efa4f">&lt;/strong&gt;</ept>: Once the message has been received over AS2 then Northwind wants to persist it before further processing.</target>
+        </trans-unit>
+        <trans-unit id="8cb36d81-9b7a-4daf-a9b1-923a39cbf0ce" xml:space="preserve">
+          <source>It can use a connector to persist messages in its Cloud storage.</source>
+          <target state="new">It can use a connector to persist messages in its Cloud storage.</target>
+        </trans-unit>
+        <trans-unit id="4249ed51-17ee-49ca-9024-e9ba38102ebb" xml:space="preserve">
+          <source>In this tutorial Azure Blobs is being leveraged as the cloud storage for Northwind.</source>
+          <target state="new">In this tutorial Azure Blobs is being leveraged as the cloud storage for Northwind.</target>
+        </trans-unit>
+        <trans-unit id="4943241c-2be8-49f8-853a-65b9ae43fade" xml:space="preserve">
+          <source><bpt id="ea448dee-f182-455e-a056-aed706696764">&lt;strong&gt;</bpt>Creating a business process<ept id="ea448dee-f182-455e-a056-aed706696764">&lt;/strong&gt;</ept>: In a flow, multiple API apps can be stitched together to achieve a business outcome as demonstrated here.</source>
+          <target state="new"><bpt id="ea448dee-f182-455e-a056-aed706696764">&lt;strong&gt;</bpt>Creating a business process<ept id="ea448dee-f182-455e-a056-aed706696764">&lt;/strong&gt;</ept>: In a flow, multiple API apps can be stitched together to achieve a business outcome as demonstrated here.</target>
+        </trans-unit>
+        <trans-unit id="5a56c62e-8f5a-4803-ac53-3bdeced62268" xml:space="preserve">
+          <source>This tutorial assumes that you have a basic understanding of Azure App Services, know how to create API apps and stitch a flow together.</source>
+          <target state="new">This tutorial assumes that you have a basic understanding of Azure App Services, know how to create API apps and stitch a flow together.</target>
+        </trans-unit>
+        <trans-unit id="c75932df-a740-4eea-8dee-6ed674c4b985" xml:space="preserve">
+          <source><bpt id="02a86304-18a6-4616-bbf9-380953d5b275">&lt;strong&gt;</bpt>Create and configure the required API apps<ept id="02a86304-18a6-4616-bbf9-380953d5b275">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="02a86304-18a6-4616-bbf9-380953d5b275">&lt;strong&gt;</bpt>Create and configure the required API apps<ept id="02a86304-18a6-4616-bbf9-380953d5b275">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1c5437e6-4867-4ce9-92e0-c4b8d60119cd" xml:space="preserve">
+          <source>Create an instance of the <bpt id="e9cac5fe-5cff-4935-addb-405d78ed4c95">&lt;strong&gt;</bpt>Azure Storage Blob Connector<ept id="e9cac5fe-5cff-4935-addb-405d78ed4c95">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create an instance of the <bpt id="e9cac5fe-5cff-4935-addb-405d78ed4c95">&lt;strong&gt;</bpt>Azure Storage Blob Connector<ept id="e9cac5fe-5cff-4935-addb-405d78ed4c95">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6643c636-2b3a-49ef-a295-a7ac98f68241" xml:space="preserve">
+          <source>This requires the credentials to an Azure Storage account.</source>
+          <target state="new">This requires the credentials to an Azure Storage account.</target>
+        </trans-unit>
+        <trans-unit id="82307a0a-c2fd-480a-b471-927b0c10fae7" xml:space="preserve">
+          <source>Ensure that it is ready before you start creating this.</source>
+          <target state="new">Ensure that it is ready before you start creating this.</target>
+        </trans-unit>
+        <trans-unit id="552cf358-cd5d-4c83-96e0-fc8fe82eaec7" xml:space="preserve">
+          <source>Create an instance of the <bpt id="f8376b9c-6b08-40d0-be94-3da074aa6140">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="f8376b9c-6b08-40d0-be94-3da074aa6140">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create an instance of the <bpt id="f8376b9c-6b08-40d0-be94-3da074aa6140">&lt;strong&gt;</bpt>BizTalk Trading Partner Management<ept id="f8376b9c-6b08-40d0-be94-3da074aa6140">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23ddc8a6-ab35-48b3-aeeb-b3eafa5f14d4" xml:space="preserve">
+          <source>This requires a blank SQL Database to function.</source>
+          <target state="new">This requires a blank SQL Database to function.</target>
+        </trans-unit>
+        <trans-unit id="37ec3e8b-790a-4655-b19e-f767958a21c3" xml:space="preserve">
+          <source>Make sure that it is ready before you start creating this.</source>
+          <target state="new">Make sure that it is ready before you start creating this.</target>
+        </trans-unit>
+        <trans-unit id="839f8ccc-a291-4a1c-ae8b-c91628aa2b7d" xml:space="preserve">
+          <source>Create an instance of the <bpt id="744ed8ec-eb99-467d-8a57-ed8998d2dd7f">&lt;strong&gt;</bpt>AS2 Connector<ept id="744ed8ec-eb99-467d-8a57-ed8998d2dd7f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create an instance of the <bpt id="744ed8ec-eb99-467d-8a57-ed8998d2dd7f">&lt;strong&gt;</bpt>AS2 Connector<ept id="744ed8ec-eb99-467d-8a57-ed8998d2dd7f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bf5e4fb-afe3-422a-8e83-19913a083494" xml:space="preserve">
+          <source>This also requires a blank SQL Database to function.</source>
+          <target state="new">This also requires a blank SQL Database to function.</target>
+        </trans-unit>
+        <trans-unit id="52280d86-5818-45cf-964e-e26937569340" xml:space="preserve">
+          <source>Make sure that it is ready before you start creating this.</source>
+          <target state="new">Make sure that it is ready before you start creating this.</target>
+        </trans-unit>
+        <trans-unit id="29f78851-ca82-42da-ae7e-8abb6cb77a89" xml:space="preserve">
+          <source>Additionally, if you want to archive messages as part of AS2 processing, you may provide credentials to an Azure Blob during its creation.</source>
+          <target state="new">Additionally, if you want to archive messages as part of AS2 processing, you may provide credentials to an Azure Blob during its creation.</target>
+        </trans-unit>
+        <trans-unit id="6c79f8f9-a5f8-464d-a0bb-1b869321f7f3" xml:space="preserve">
+          <source>Configure the TPM (Trading Partner Management) service that is created:</source>
+          <target state="new">Configure the TPM (Trading Partner Management) service that is created:</target>
+        </trans-unit>
+        <trans-unit id="513ebf6f-5932-4ded-ad69-c804e7722fcd" xml:space="preserve">
+          <source>Browse to the instance of the TPM service created as part of the above steps.</source>
+          <target state="new">Browse to the instance of the TPM service created as part of the above steps.</target>
+        </trans-unit>
+        <trans-unit id="f4af951a-4683-4522-b753-9af6d2b150f4" xml:space="preserve">
+          <source>Use the <bpt id="ba1ac6a3-633f-4f06-a558-cc2e09c8deac">&lt;strong&gt;</bpt>Partners<ept id="ba1ac6a3-633f-4f06-a558-cc2e09c8deac">&lt;/strong&gt;</ept> option under <bpt id="d513344d-058f-4b46-bca0-3c7171fa8967">&lt;em&gt;</bpt>Components<ept id="d513344d-058f-4b46-bca0-3c7171fa8967">&lt;/em&gt;</ept> to <bpt id="2bbc55d1-b1e6-4b46-acb3-2cd484b9807e">&lt;strong&gt;</bpt>Add<ept id="2bbc55d1-b1e6-4b46-acb3-2cd484b9807e">&lt;/strong&gt;</ept> a new partner named <bpt id="9f9dcaf2-75ab-4ff4-bbd0-687f9b558606">&lt;strong&gt;</bpt>Contoso<ept id="9f9dcaf2-75ab-4ff4-bbd0-687f9b558606">&lt;/strong&gt;</ept> and in its profile add the required AS2 identity.</source>
+          <target state="new">Use the <bpt id="ba1ac6a3-633f-4f06-a558-cc2e09c8deac">&lt;strong&gt;</bpt>Partners<ept id="ba1ac6a3-633f-4f06-a558-cc2e09c8deac">&lt;/strong&gt;</ept> option under <bpt id="d513344d-058f-4b46-bca0-3c7171fa8967">&lt;em&gt;</bpt>Components<ept id="d513344d-058f-4b46-bca0-3c7171fa8967">&lt;/em&gt;</ept> to <bpt id="2bbc55d1-b1e6-4b46-acb3-2cd484b9807e">&lt;strong&gt;</bpt>Add<ept id="2bbc55d1-b1e6-4b46-acb3-2cd484b9807e">&lt;/strong&gt;</ept> a new partner named <bpt id="9f9dcaf2-75ab-4ff4-bbd0-687f9b558606">&lt;strong&gt;</bpt>Contoso<ept id="9f9dcaf2-75ab-4ff4-bbd0-687f9b558606">&lt;/strong&gt;</ept> and in its profile add the required AS2 identity.</target>
+        </trans-unit>
+        <trans-unit id="828bb9c0-d3aa-40b4-9626-574b406d359b" xml:space="preserve">
+          <source>Use the <bpt id="febbf58d-f8f4-4566-bb7f-92e1bfea14c2">&lt;strong&gt;</bpt>Partners<ept id="febbf58d-f8f4-4566-bb7f-92e1bfea14c2">&lt;/strong&gt;</ept> option under <bpt id="dd18f19c-94fb-46d8-940a-e1b8b4c7548d">&lt;em&gt;</bpt>Components<ept id="dd18f19c-94fb-46d8-940a-e1b8b4c7548d">&lt;/em&gt;</ept> to <bpt id="cb852c1b-1441-4ac5-9967-8ed6be3c4e1a">&lt;strong&gt;</bpt>Add<ept id="cb852c1b-1441-4ac5-9967-8ed6be3c4e1a">&lt;/strong&gt;</ept> a new partner named <bpt id="aee57ac0-ef14-4f23-95aa-71fde66ad085">&lt;strong&gt;</bpt>Northwind<ept id="aee57ac0-ef14-4f23-95aa-71fde66ad085">&lt;/strong&gt;</ept> and in its profile add the required AS2 identity.</source>
+          <target state="new">Use the <bpt id="febbf58d-f8f4-4566-bb7f-92e1bfea14c2">&lt;strong&gt;</bpt>Partners<ept id="febbf58d-f8f4-4566-bb7f-92e1bfea14c2">&lt;/strong&gt;</ept> option under <bpt id="dd18f19c-94fb-46d8-940a-e1b8b4c7548d">&lt;em&gt;</bpt>Components<ept id="dd18f19c-94fb-46d8-940a-e1b8b4c7548d">&lt;/em&gt;</ept> to <bpt id="cb852c1b-1441-4ac5-9967-8ed6be3c4e1a">&lt;strong&gt;</bpt>Add<ept id="cb852c1b-1441-4ac5-9967-8ed6be3c4e1a">&lt;/strong&gt;</ept> a new partner named <bpt id="aee57ac0-ef14-4f23-95aa-71fde66ad085">&lt;strong&gt;</bpt>Northwind<ept id="aee57ac0-ef14-4f23-95aa-71fde66ad085">&lt;/strong&gt;</ept> and in its profile add the required AS2 identity.</target>
+        </trans-unit>
+        <trans-unit id="41192d11-9f61-49f3-a608-d914e95c3af0" xml:space="preserve">
+          <source>Use the <bpt id="817bc272-8a1c-44ea-a258-d61ebec7f27b">&lt;strong&gt;</bpt>Agreements<ept id="817bc272-8a1c-44ea-a258-d61ebec7f27b">&lt;/strong&gt;</ept> option under <bpt id="f73c028f-6672-46d9-b2ef-730e03e6f8f1">&lt;em&gt;</bpt>Components<ept id="f73c028f-6672-46d9-b2ef-730e03e6f8f1">&lt;/em&gt;</ept> to <bpt id="5db3efb9-2f74-4a3a-8ba5-66fe503f7309">&lt;strong&gt;</bpt>Add<ept id="5db3efb9-2f74-4a3a-8ba5-66fe503f7309">&lt;/strong&gt;</ept> a new AS2 agreement between Northwind and Contoso.</source>
+          <target state="new">Use the <bpt id="817bc272-8a1c-44ea-a258-d61ebec7f27b">&lt;strong&gt;</bpt>Agreements<ept id="817bc272-8a1c-44ea-a258-d61ebec7f27b">&lt;/strong&gt;</ept> option under <bpt id="f73c028f-6672-46d9-b2ef-730e03e6f8f1">&lt;em&gt;</bpt>Components<ept id="f73c028f-6672-46d9-b2ef-730e03e6f8f1">&lt;/em&gt;</ept> to <bpt id="5db3efb9-2f74-4a3a-8ba5-66fe503f7309">&lt;strong&gt;</bpt>Add<ept id="5db3efb9-2f74-4a3a-8ba5-66fe503f7309">&lt;/strong&gt;</ept> a new AS2 agreement between Northwind and Contoso.</target>
+        </trans-unit>
+        <trans-unit id="cd088380-1e57-42f1-b052-814486487fda" xml:space="preserve">
+          <source>Northwind will be the hosted partner here, and Contoso will be the guest partner.</source>
+          <target state="new">Northwind will be the hosted partner here, and Contoso will be the guest partner.</target>
+        </trans-unit>
+        <trans-unit id="eee2b814-83c3-4e9f-829a-7603ae890ee9" xml:space="preserve">
+          <source>As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation.</source>
+          <target state="new">As appropriate configure signing, encryption, compression, and acknowledgements during this agreement creation.</target>
+        </trans-unit>
+        <trans-unit id="feeacf31-6b4a-47b3-a3af-7882faa2e382" xml:space="preserve">
+          <source>In case certificates need to be used, they can be uploaded via the <bpt id="62c02e3a-c809-4c2e-84d3-a642e428a057">&lt;strong&gt;</bpt>Certificates<ept id="62c02e3a-c809-4c2e-84d3-a642e428a057">&lt;/strong&gt;</ept> option when browsing the TPM service that is created.</source>
+          <target state="new">In case certificates need to be used, they can be uploaded via the <bpt id="62c02e3a-c809-4c2e-84d3-a642e428a057">&lt;strong&gt;</bpt>Certificates<ept id="62c02e3a-c809-4c2e-84d3-a642e428a057">&lt;/strong&gt;</ept> option when browsing the TPM service that is created.</target>
+        </trans-unit>
+        <trans-unit id="0dbcacfd-d7e3-44a8-9607-891fcbb4d0e0" xml:space="preserve">
+          <source>Create a new flow in which the first step is AS2.</source>
+          <target state="new">Create a new flow in which the first step is AS2.</target>
+        </trans-unit>
+        <trans-unit id="b28a8f67-2976-4a86-b67d-ce70576a658c" xml:space="preserve">
+          <source>Drag and drop the <bpt id="96339de0-bb9d-4a2f-bf92-6cf0b252fd89">&lt;strong&gt;</bpt>AS2 Connector<ept id="96339de0-bb9d-4a2f-bf92-6cf0b252fd89">&lt;/strong&gt;</ept> and choose the instance already created.</source>
+          <target state="new">Drag and drop the <bpt id="96339de0-bb9d-4a2f-bf92-6cf0b252fd89">&lt;strong&gt;</bpt>AS2 Connector<ept id="96339de0-bb9d-4a2f-bf92-6cf0b252fd89">&lt;/strong&gt;</ept> and choose the instance already created.</target>
+        </trans-unit>
+        <trans-unit id="72187f4a-5066-4fca-a8d1-c47a1bf5e5ce" xml:space="preserve">
+          <source>Choose trigger as the functionality</source>
+          <target state="new">Choose trigger as the functionality</target>
+        </trans-unit>
+        <trans-unit id="583b5fdf-104a-486d-b83f-6fcaaa4636a7" xml:space="preserve">
+          <source><bpt id="ab4a3e75-6e6a-4194-ab0f-efb820cf29dc">&lt;linkText&gt;</bpt><ept id="ab4a3e75-6e6a-4194-ab0f-efb820cf29dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ab4a3e75-6e6a-4194-ab0f-efb820cf29dc">&lt;linkText&gt;</bpt><ept id="ab4a3e75-6e6a-4194-ab0f-efb820cf29dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3cf1564-7913-487f-ad4c-18c1c3004f1f" xml:space="preserve">
+          <source>Next drag and drop <bpt id="0082c73e-0632-4a1a-aa95-a9232b956bd6">&lt;strong&gt;</bpt>Azure Storage Blob Connector<ept id="0082c73e-0632-4a1a-aa95-a9232b956bd6">&lt;/strong&gt;</ept> and choose the instance already created.</source>
+          <target state="new">Next drag and drop <bpt id="0082c73e-0632-4a1a-aa95-a9232b956bd6">&lt;strong&gt;</bpt>Azure Storage Blob Connector<ept id="0082c73e-0632-4a1a-aa95-a9232b956bd6">&lt;/strong&gt;</ept> and choose the instance already created.</target>
+        </trans-unit>
+        <trans-unit id="e33f6b34-aa91-4c47-8788-4402cdbfddb6" xml:space="preserve">
+          <source>Choose action as the functionality and within that select Upload Blob as the desired functionality.</source>
+          <target state="new">Choose action as the functionality and within that select Upload Blob as the desired functionality.</target>
+        </trans-unit>
+        <trans-unit id="4bbea943-c6b1-42be-8753-1a791544d69d" xml:space="preserve">
+          <source>Configure as appropriate</source>
+          <target state="new">Configure as appropriate</target>
+        </trans-unit>
+        <trans-unit id="565d5315-fc2d-42aa-88e9-5a695f2bdd5d" xml:space="preserve">
+          <source>Now create/deploy the flow</source>
+          <target state="new">Now create/deploy the flow</target>
+        </trans-unit>
+        <trans-unit id="6b2927bb-9323-4f5f-afad-b981e8ccdb4a" xml:space="preserve">
+          <source>It is time to test out the flow we have deployed.</source>
+          <target state="new">It is time to test out the flow we have deployed.</target>
+        </trans-unit>
+        <trans-unit id="6c68b8d6-59dc-4c44-903d-63533fc873cf" xml:space="preserve">
+          <source>Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that was created.</source>
+          <target state="new">Send XML messages wrapped in AS2 (as per the AS2 agreement created above) to the AS2 endpoint surfaced by the AS2Connector instance that was created.</target>
+        </trans-unit>
+        <trans-unit id="3d63eb1f-1557-4a85-8e3a-6a1777554ec0" xml:space="preserve">
+          <source>You may need to configure the authentication for the endpoint so that it is publicly accessible.</source>
+          <target state="new">You may need to configure the authentication for the endpoint so that it is publicly accessible.</target>
+        </trans-unit>
+        <trans-unit id="975506f7-91b7-43b6-bc40-21076af4d762" xml:space="preserve">
+          <source>Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed</source>
+          <target state="new">Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed</target>
+        </trans-unit>
+        <trans-unit id="1f66d4fc-0a5c-4ca5-bf3a-d3c159a8ed8d" xml:space="preserve">
+          <source>For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part.</source>
+          <target state="new">For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part.</target>
+        </trans-unit>
+        <trans-unit id="c4a68789-0d9c-447a-8500-aa5359281b60" xml:space="preserve">
+          <source>You can use the filters involved to restrict the view to the information that is desired.</source>
+          <target state="new">You can use the filters involved to restrict the view to the information that is desired.</target>
+        </trans-unit>
+        <trans-unit id="9a6d3a72-1606-49a6-aac8-bb03289976af" xml:space="preserve">
+          <source><bpt id="d3dc5301-a220-4a69-a023-4620ee7644e9">&lt;linkText&gt;</bpt><ept id="d3dc5301-a220-4a69-a023-4620ee7644e9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d3dc5301-a220-4a69-a023-4620ee7644e9">&lt;linkText&gt;</bpt><ept id="d3dc5301-a220-4a69-a023-4620ee7644e9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fa8c4c2-6a83-49c9-93a7-d4adf0a72389" xml:space="preserve">
+          <source>./media/app-service-logic-create-a-b2b-process/Flow.jpg</source>
+          <target state="new">./media/app-service-logic-create-a-b2b-process/Flow.jpg</target>
+        </trans-unit>
+        <trans-unit id="108a5bd1-cffb-4d51-a1a9-75385dea7262" xml:space="preserve">
+          <source>./media/app-service-logic-create-a-b2b-process/Tracking.jpg</source>
+          <target state="new">./media/app-service-logic-create-a-b2b-process/Tracking.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="026649bb-3def-4427-aa94-e5e166058592" />
+    </body>
+  </file>
+</xliff>

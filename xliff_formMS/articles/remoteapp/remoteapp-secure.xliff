@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e4bbb747-a2f1-40a3-bc9d-c95e94b9f63b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e4bbb747-a2f1-40a3-bc9d-c95e94b9f63b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b94e37db-2e15-4625-8a08-ed6f210811b9">
+        <trans-unit id="2045baa6-2ec1-4159-a0a5-f7f445cf439d" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="Secure apps and resources in Azure RemoteApp"
+    description="Learn how to lock down apps and resources in Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="Secure apps and resources in Azure RemoteApp"
+    description="Learn how to lock down apps and resources in Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="412d2ad9-aa30-4215-8e0e-b01e33754999" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="0203c28c-219f-4a3b-a405-c7fe70dda0d4" xml:space="preserve">
+          <source>Azure RemoteApp provides users access to centrally-managed Windows apps, which lets you control what your users can and can't do.</source>
+          <target state="new">Azure RemoteApp provides users access to centrally-managed Windows apps, which lets you control what your users can and can't do.</target>
+        </trans-unit>
+        <trans-unit id="1698c513-89b1-4216-a82b-179c813aa8df" xml:space="preserve">
+          <source>This is particularly useful when the user is connecting from an unmanaged device (like their personal Macbook) and you want to control the user access or experience.</source>
+          <target state="new">This is particularly useful when the user is connecting from an unmanaged device (like their personal Macbook) and you want to control the user access or experience.</target>
+        </trans-unit>
+        <trans-unit id="42e86007-6daf-40bc-88c9-77ae663f9406" xml:space="preserve">
+          <source>For example, if you are using Active Directory for user authentication and you want to prevent your users from copying data out of an app, you can configure a Remote Desktop Group Policy to block users from copying data.</source>
+          <target state="new">For example, if you are using Active Directory for user authentication and you want to prevent your users from copying data out of an app, you can configure a Remote Desktop Group Policy to block users from copying data.</target>
+        </trans-unit>
+        <trans-unit id="da916d8f-62e2-4ee9-bba7-61f518ee4f45" xml:space="preserve">
+          <source>Another example is if you want to block internet access for a particular app in your collection.</source>
+          <target state="new">Another example is if you want to block internet access for a particular app in your collection.</target>
+        </trans-unit>
+        <trans-unit id="5df57f6f-1472-44b6-af9c-9a8aa015133e" xml:space="preserve">
+          <source>You can create a Windows Firewall rule that blocks the access when you create the image for your collection.</source>
+          <target state="new">You can create a Windows Firewall rule that blocks the access when you create the image for your collection.</target>
+        </trans-unit>
+        <trans-unit id="67fe6697-962f-4dfe-87ef-cea080494306" xml:space="preserve">
+          <source>  Here are the key implementation options, which can be used individually or in tandem as needed:</source>
+          <target state="new">  Here are the key implementation options, which can be used individually or in tandem as needed:</target>
+        </trans-unit>
+        <trans-unit id="cc31204c-03b9-486b-b40f-d5b0ca65fc39" xml:space="preserve">
+          <source>If your RemoteApp collection is domain joined you can enforce any <bpt id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;linkText&gt;</bpt>Group Policy<ept id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;/linkText&gt;</ept><bpt id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;title&gt;</bpt><ept id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;/title&gt;</ept> (with the exception of the Idle and Disconnect timeout policies described <bpt id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;linkText&gt;</bpt>here<ept id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;/linkText&gt;</ept><bpt id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;title&gt;</bpt><ept id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;/title&gt;</ept>).</source>
+          <target state="new">If your RemoteApp collection is domain joined you can enforce any <bpt id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;linkText&gt;</bpt>Group Policy<ept id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;/linkText&gt;</ept><bpt id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;title&gt;</bpt><ept id="c648db69-d6f3-4059-860d-f9a27bff1147">&lt;/title&gt;</ept> (with the exception of the Idle and Disconnect timeout policies described <bpt id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;linkText&gt;</bpt>here<ept id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;/linkText&gt;</ept><bpt id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;title&gt;</bpt><ept id="8a076e5d-c30f-4ed3-9732-518ca963cc00">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="b3481c96-4775-448c-8ef5-c1f0439f03e7" xml:space="preserve">
+          <source>As an alternative to Group Policy (if your collection is not domain joined or you don't have the right privileges in AD), you can configure <bpt id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;linkText&gt;</bpt>Local Polices<ept id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;/linkText&gt;</ept><bpt id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;title&gt;</bpt><ept id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;/title&gt;</ept> into your template image.</source>
+          <target state="new">As an alternative to Group Policy (if your collection is not domain joined or you don't have the right privileges in AD), you can configure <bpt id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;linkText&gt;</bpt>Local Polices<ept id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;/linkText&gt;</ept><bpt id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;title&gt;</bpt><ept id="4256adb7-4d41-4847-a70a-07cf5e9a332c">&lt;/title&gt;</ept> into your template image.</target>
+        </trans-unit>
+        <trans-unit id="6e03571d-cc35-438a-ad9f-1faca64636d3" xml:space="preserve">
+          <source>Note that group polices trump local policies when there is a conflict.</source>
+          <target state="new">Note that group polices trump local policies when there is a conflict.</target>
+        </trans-unit>
+        <trans-unit id="80a9d34f-d3ba-4948-b196-eb31709a5015" xml:space="preserve">
+          <source>Some OS/app settings are not configurable via policy, but can be via registry key using the <bpt id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;linkText&gt;</bpt>RegEdit tool<ept id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;/linkText&gt;</ept><bpt id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;title&gt;</bpt><ept id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;/title&gt;</ept> while configuring your template image.</source>
+          <target state="new">Some OS/app settings are not configurable via policy, but can be via registry key using the <bpt id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;linkText&gt;</bpt>RegEdit tool<ept id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;/linkText&gt;</ept><bpt id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;title&gt;</bpt><ept id="e1890584-0e13-441b-86b9-3c5874c55f61">&lt;/title&gt;</ept> while configuring your template image.</target>
+        </trans-unit>
+        <trans-unit id="ba465ad9-151d-4d82-a805-c552eff7e35b" xml:space="preserve">
+          <source>You can use <bpt id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;linkText&gt;</bpt>Windows Firewall<ept id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;/linkText&gt;</ept><bpt id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;title&gt;</bpt><ept id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;/title&gt;</ept> to control network access to and from the machine where the app is running.</source>
+          <target state="new">You can use <bpt id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;linkText&gt;</bpt>Windows Firewall<ept id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;/linkText&gt;</ept><bpt id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;title&gt;</bpt><ept id="1dce59b7-c8ec-4578-a96c-d0a5da1a0b98">&lt;/title&gt;</ept> to control network access to and from the machine where the app is running.</target>
+        </trans-unit>
+        <trans-unit id="e5711385-479c-41b1-adf1-06ea8af9a292" xml:space="preserve">
+          <source>Just make sure you don't block the URLs and ports defined here.</source>
+          <target state="new">Just make sure you don't block the URLs and ports defined here.</target>
+        </trans-unit>
+        <trans-unit id="a2799b40-3b71-4a16-becd-57dd84443452" xml:space="preserve">
+          <source>You can use <bpt id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;linkText&gt;</bpt>AppLocker<ept id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;/linkText&gt;</ept><bpt id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;title&gt;</bpt><ept id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;/title&gt;</ept> to control which applications and files users can run.</source>
+          <target state="new">You can use <bpt id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;linkText&gt;</bpt>AppLocker<ept id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;/linkText&gt;</ept><bpt id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;title&gt;</bpt><ept id="5030a3fd-54d2-4efd-a750-84ac9ae5987e">&lt;/title&gt;</ept> to control which applications and files users can run.</target>
+        </trans-unit>
+        <trans-unit id="897a4dc9-506e-42a8-9d89-6e3fcd4fcc63" xml:space="preserve">
+          <source>For example, savvy users can figure out how to run applications that you did not publish but that are available in the image you used to create the collection - AppLocker can block this.</source>
+          <target state="new">For example, savvy users can figure out how to run applications that you did not publish but that are available in the image you used to create the collection - AppLocker can block this.</target>
+        </trans-unit>
+        <trans-unit id="14d2dffc-bc59-4a2c-b84e-40638018e919" xml:space="preserve">
+          <source>The following RDS policies are likely to be most useful: </source>
+          <target state="new">The following RDS policies are likely to be most useful: </target>
+        </trans-unit>
+        <trans-unit id="abaec26a-1449-4d62-b0ea-20d21b1952c7" xml:space="preserve">
+          <source><bpt id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;linkText&gt;</bpt>Device and Resource Redirection<ept id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;/linkText&gt;</ept><bpt id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;title&gt;</bpt><ept id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;linkText&gt;</bpt>Device and Resource Redirection<ept id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;/linkText&gt;</ept><bpt id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;title&gt;</bpt><ept id="162c448b-a1c5-4bc9-bb01-f538ec371fe5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="94fec620-57e3-4099-aa52-94b972d3c01a" xml:space="preserve">
+          <source><bpt id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;linkText&gt;</bpt>Printer Redirection<ept id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;/linkText&gt;</ept><bpt id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;title&gt;</bpt><ept id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;linkText&gt;</bpt>Printer Redirection<ept id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;/linkText&gt;</ept><bpt id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;title&gt;</bpt><ept id="d2bd6fc1-dd8f-48cd-9ca5-82461ad4cfcc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9cc1e9f3-17ff-4e76-a222-66c008418213" xml:space="preserve">
+          <source><bpt id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;linkText&gt;</bpt>Profiles<ept id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;/linkText&gt;</ept><bpt id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;title&gt;</bpt><ept id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;linkText&gt;</bpt>Profiles<ept id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;/linkText&gt;</ept><bpt id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;title&gt;</bpt><ept id="483b9ba1-9687-4205-afd1-116b6312f5e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fc95e08-dbdb-4372-9036-07003a1f5baa" xml:space="preserve">
+          <source>Note that configuring redirections via the RemoteApp PowerShell module (as seen <bpt id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;linkText&gt;</bpt>here<ept id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;/linkText&gt;</ept><bpt id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;title&gt;</bpt><ept id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;/title&gt;</ept>) relies on the client machine to enforce the policy, so if security is the primary objective you'll want to enforce the policy via the template image local policy or via group policy.</source>
+          <target state="new">Note that configuring redirections via the RemoteApp PowerShell module (as seen <bpt id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;linkText&gt;</bpt>here<ept id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;/linkText&gt;</ept><bpt id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;title&gt;</bpt><ept id="06c4bdcb-6485-4e80-8c5f-f96cce8e6c56">&lt;/title&gt;</ept>) relies on the client machine to enforce the policy, so if security is the primary objective you'll want to enforce the policy via the template image local policy or via group policy.</target>
+        </trans-unit>
+        <trans-unit id="7c2e343b-b421-4327-90aa-4aeb9d5fed58" xml:space="preserve">
+          <source><bpt id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;linkText&gt;</bpt>Windows Server 2012 R2 policies<ept id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;/linkText&gt;</ept><bpt id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;title&gt;</bpt><ept id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;linkText&gt;</bpt>Windows Server 2012 R2 policies<ept id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;/linkText&gt;</ept><bpt id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;title&gt;</bpt><ept id="ffd4ccba-3997-4cf7-b41e-a3cff371d1a2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="62ef64d1-1cd8-43c0-b305-02e6c1731268" xml:space="preserve">
+          <source><bpt id="08a87460-94db-481e-87f6-f344c71d042e">&lt;linkText&gt;</bpt>Office 2013 polices<ept id="08a87460-94db-481e-87f6-f344c71d042e">&lt;/linkText&gt;</ept><bpt id="08a87460-94db-481e-87f6-f344c71d042e">&lt;title&gt;</bpt><ept id="08a87460-94db-481e-87f6-f344c71d042e">&lt;/title&gt;</ept> (including <bpt id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;linkText&gt;</bpt>how to customize the Office toolbar<ept id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;/linkText&gt;</ept><bpt id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;title&gt;</bpt><ept id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;/title&gt;</ept>).</source>
+          <target state="new"><bpt id="08a87460-94db-481e-87f6-f344c71d042e">&lt;linkText&gt;</bpt>Office 2013 polices<ept id="08a87460-94db-481e-87f6-f344c71d042e">&lt;/linkText&gt;</ept><bpt id="08a87460-94db-481e-87f6-f344c71d042e">&lt;title&gt;</bpt><ept id="08a87460-94db-481e-87f6-f344c71d042e">&lt;/title&gt;</ept> (including <bpt id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;linkText&gt;</bpt>how to customize the Office toolbar<ept id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;/linkText&gt;</ept><bpt id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;title&gt;</bpt><ept id="c387cd14-ab31-4f87-8be3-1c8386eac600">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

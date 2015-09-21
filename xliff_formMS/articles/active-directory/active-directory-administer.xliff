@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b84bbd7e-383a-437e-9677-cd6bd2f303cd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b84bbd7e-383a-437e-9677-cd6bd2f303cd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c0bea2ae-1a43-4aac-a575-584b4a0a9d3e">
+        <trans-unit id="23d5ee49-685e-4f7f-995c-5aea32e38645" xml:space="preserve">
+          <source>Administer your Azure AD directory</source>
+          <target state="new">Administer your Azure AD directory</target>
+        </trans-unit>
+        <trans-unit id="4b1cd238-a0b3-4617-9656-6dfbaf2c6191" xml:space="preserve">
+          <source>A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory.</source>
+          <target state="new">A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="36ca9d86-f00b-42c6-a8be-8b228f04d034" xml:space="preserve">
+          <source>In the physical workplace, the word tenant can be defined as a group or company that occupies a building.</source>
+          <target state="new">In the physical workplace, the word tenant can be defined as a group or company that occupies a building.</target>
+        </trans-unit>
+        <trans-unit id="fc15052d-c30e-4d3a-800e-992d477c730d" xml:space="preserve">
+          <source>For instance, your organization may own office space in a building.</source>
+          <target state="new">For instance, your organization may own office space in a building.</target>
+        </trans-unit>
+        <trans-unit id="2284514a-e174-4f90-975f-f745335b650e" xml:space="preserve">
+          <source>This building may be on a street with several other organizations.</source>
+          <target state="new">This building may be on a street with several other organizations.</target>
+        </trans-unit>
+        <trans-unit id="658b74f9-0076-4052-bd29-8ecc97e98e0f" xml:space="preserve">
+          <source>Your organization would be considered a tenant of that building.</source>
+          <target state="new">Your organization would be considered a tenant of that building.</target>
+        </trans-unit>
+        <trans-unit id="67aeae01-4fe6-44d0-9554-dabea3d7dbf5" xml:space="preserve">
+          <source>This building is an asset of your organization and provides security and ensures that you can conduct business safely.</source>
+          <target state="new">This building is an asset of your organization and provides security and ensures that you can conduct business safely.</target>
+        </trans-unit>
+        <trans-unit id="a550a343-5158-4516-9100-f3f0fe883c89" xml:space="preserve">
+          <source>It also is separated from the other businesses on your street.</source>
+          <target state="new">It also is separated from the other businesses on your street.</target>
+        </trans-unit>
+        <trans-unit id="7a399aa6-5f1c-4c0c-848a-cc2bc7249a38" xml:space="preserve">
+          <source>This ensures that your organization and the assets therein are isolated from other organizations.</source>
+          <target state="new">This ensures that your organization and the assets therein are isolated from other organizations.</target>
+        </trans-unit>
+        <trans-unit id="482281f3-624f-456a-b7df-700cddef541a" xml:space="preserve">
+          <source>In the cloud-enabled workplace, a tenant can be defined as a client or organization that owns and manages a specific instance of that cloud service.</source>
+          <target state="new">In the cloud-enabled workplace, a tenant can be defined as a client or organization that owns and manages a specific instance of that cloud service.</target>
+        </trans-unit>
+        <trans-unit id="b843043c-33d1-4366-a159-af308e2baa46" xml:space="preserve">
+          <source>With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Azure Active Directory (Azure AD) that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365.</source>
+          <target state="new">With the identity platform provided by Microsoft Azure, a tenant is simply a dedicated instance of Azure Active Directory (Azure AD) that your organization receives and owns when it signs up for a Microsoft cloud service such as Azure or Office 365.</target>
+        </trans-unit>
+        <trans-unit id="295f5450-429b-4447-934f-957e6aa62270" xml:space="preserve">
+          <source>Each Azure AD directory is distinct and separate from other Azure AD directories.</source>
+          <target state="new">Each Azure AD directory is distinct and separate from other Azure AD directories.</target>
+        </trans-unit>
+        <trans-unit id="71e2f660-b0c2-4965-b0df-a34cb9d1eca5" xml:space="preserve">
+          <source>Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization.</source>
+          <target state="new">Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization.</target>
+        </trans-unit>
+        <trans-unit id="b1fa855f-3dea-4adb-b619-d653ef568769" xml:space="preserve">
+          <source>The Azure AD architecture isolates customer data and identity information from co-mingling.</source>
+          <target state="new">The Azure AD architecture isolates customer data and identity information from co-mingling.</target>
+        </trans-unit>
+        <trans-unit id="24301e06-c866-478a-a9ee-6851f15c3194" xml:space="preserve">
+          <source>This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.</source>
+          <target state="new">This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.</target>
+        </trans-unit>
+        <trans-unit id="e49f6498-dc4c-4ad3-bf0d-d2e2cb63bfeb" xml:space="preserve">
+          <source><bpt id="271260ed-46bf-4964-ac2f-8d9c0f9e04db">&lt;linkText&gt;</bpt><ept id="271260ed-46bf-4964-ac2f-8d9c0f9e04db">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="271260ed-46bf-4964-ac2f-8d9c0f9e04db">&lt;linkText&gt;</bpt><ept id="271260ed-46bf-4964-ac2f-8d9c0f9e04db">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72f7f3e9-ec20-4084-a9a0-9a2445fb0f35" xml:space="preserve">
+          <source>Azure AD provides the core directory and identity management capabilities behind most of Microsoft’s cloud services, including:</source>
+          <target state="new">Azure AD provides the core directory and identity management capabilities behind most of Microsoft’s cloud services, including:</target>
+        </trans-unit>
+        <trans-unit id="67024cc4-0e7f-4862-8d8f-c5673eb9a53c" xml:space="preserve">
+          <source>Azure</source>
+          <target state="new">Azure</target>
+        </trans-unit>
+        <trans-unit id="fea9a5a1-df8e-4c0a-a8f2-326ca330d5f7" xml:space="preserve">
+          <source>Microsoft Office 365</source>
+          <target state="new">Microsoft Office 365</target>
+        </trans-unit>
+        <trans-unit id="f22df35b-2b80-4e21-93cd-002e5a1159ff" xml:space="preserve">
+          <source>Microsoft Dynamics CRM Online</source>
+          <target state="new">Microsoft Dynamics CRM Online</target>
+        </trans-unit>
+        <trans-unit id="902f6adb-f2cb-4fab-b97f-17d4ee8820b4" xml:space="preserve">
+          <source>Microsoft Intune</source>
+          <target state="new">Microsoft Intune</target>
+        </trans-unit>
+        <trans-unit id="67744916-e1cf-4680-b5cb-8a561107c542" xml:space="preserve">
+          <source>You will get an Azure AD directory when you sign up for any of these Microsoft cloud services.</source>
+          <target state="new">You will get an Azure AD directory when you sign up for any of these Microsoft cloud services.</target>
+        </trans-unit>
+        <trans-unit id="a8bfdf46-c9a6-454e-a472-4a875b06c5d9" xml:space="preserve">
+          <source>You can create additional directories as needed.</source>
+          <target state="new">You can create additional directories as needed.</target>
+        </trans-unit>
+        <trans-unit id="5e2f3293-aa40-4a8f-a08a-09b027095254" xml:space="preserve">
+          <source>For example, you might maintain your first directory as a production directory and then create another directory for testing or staging.</source>
+          <target state="new">For example, you might maintain your first directory as a production directory and then create another directory for testing or staging.</target>
+        </trans-unit>
+        <trans-unit id="33d6ef5f-3fa7-4292-a594-ba3f000cab81" xml:space="preserve">
+          <source>After you sign up for your first service, we recommend that you use the same administrator account associated with your organization when you sign up for other Microsoft cloud services.</source>
+          <target state="new">After you sign up for your first service, we recommend that you use the same administrator account associated with your organization when you sign up for other Microsoft cloud services.</target>
+        </trans-unit>
+        <trans-unit id="6dc4f0f9-3194-47d6-8155-ce72ab8c9423" xml:space="preserve">
+          <source>The first time you sign up for a Microsoft cloud service, you are prompted to provide details about your organization and your organization’s Internet domain name registration.</source>
+          <target state="new">The first time you sign up for a Microsoft cloud service, you are prompted to provide details about your organization and your organization’s Internet domain name registration.</target>
+        </trans-unit>
+        <trans-unit id="56a156f2-9be6-4958-a028-47fcbbe3728b" xml:space="preserve">
+          <source>This information is then used to create a new Azure AD directory instance for your organization.</source>
+          <target state="new">This information is then used to create a new Azure AD directory instance for your organization.</target>
+        </trans-unit>
+        <trans-unit id="1bd0797d-fbb5-493f-a5c1-67a1322306f1" xml:space="preserve">
+          <source>That same directory is used to authenticate sign in attempts when you subscribe to multiple Microsoft cloud services.</source>
+          <target state="new">That same directory is used to authenticate sign in attempts when you subscribe to multiple Microsoft cloud services.</target>
+        </trans-unit>
+        <trans-unit id="60c032ff-70b0-4888-9c90-87117ca69200" xml:space="preserve">
+          <source>The additional services fully leverage any existing user accounts, policies, settings or on-premises directory integration you configure to help improve efficiency between your organization’s identity infrastructure on-premises and Azure AD.</source>
+          <target state="new">The additional services fully leverage any existing user accounts, policies, settings or on-premises directory integration you configure to help improve efficiency between your organization’s identity infrastructure on-premises and Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="69549ea8-d8db-4b89-80fc-97299d9d48cc" xml:space="preserve">
+          <source>For example, if you originally signed up for a Microsoft Intune subscription and completed the steps necessary to further integrate your on-premises Active Directory with your Azure AD directory by deploying directory synchronization and/or single sign-on servers, you can sign up for another Microsoft cloud service such as Office 365 which can also leverage the same directory integration benefits you now use with Microsoft Intune.</source>
+          <target state="new">For example, if you originally signed up for a Microsoft Intune subscription and completed the steps necessary to further integrate your on-premises Active Directory with your Azure AD directory by deploying directory synchronization and/or single sign-on servers, you can sign up for another Microsoft cloud service such as Office 365 which can also leverage the same directory integration benefits you now use with Microsoft Intune.</target>
+        </trans-unit>
+        <trans-unit id="34fcf7bf-54c9-430c-a8ce-bafcfdde8b55" xml:space="preserve">
+          <source>For more information about integrating your on-premises directory with Azure AD, see <bpt id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;linkText&gt;</bpt>Directory integration<ept id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;/linkText&gt;</ept><bpt id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;title&gt;</bpt><ept id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about integrating your on-premises directory with Azure AD, see <bpt id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;linkText&gt;</bpt>Directory integration<ept id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;/linkText&gt;</ept><bpt id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;title&gt;</bpt><ept id="f2f46b75-1e19-4457-b379-f68e050428d2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3dc42c00-2c50-4ecf-8ef1-a7a5a375c423" xml:space="preserve">
+          <source>You can associate a new Azure subscription with the same directory that authenticates sign in for an existing Office 365 or Microsoft Intune subscription.</source>
+          <target state="new">You can associate a new Azure subscription with the same directory that authenticates sign in for an existing Office 365 or Microsoft Intune subscription.</target>
+        </trans-unit>
+        <trans-unit id="da8267e0-2f2a-431f-9b10-d24e6240d3e4" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal using your work or school account.</source>
+          <target state="new">Sign in to the Azure Management Portal using your work or school account.</target>
+        </trans-unit>
+        <trans-unit id="6b5c4f7f-2d0c-4708-8402-ce2b13ad3a1f" xml:space="preserve">
+          <source>The Management Portal returns a message that it was unable to find any subscriptions for that account.</source>
+          <target state="new">The Management Portal returns a message that it was unable to find any subscriptions for that account.</target>
+        </trans-unit>
+        <trans-unit id="8e6bfa21-7fda-4f27-9a4d-7e59d988c0fa" xml:space="preserve">
+          <source>Select <bpt id="fa347132-6b4b-483a-97c2-69ddeedb4c87">&lt;strong&gt;</bpt>Sign Up For Azure<ept id="fa347132-6b4b-483a-97c2-69ddeedb4c87">&lt;/strong&gt;</ept>, and your directory will be available for administration within the portal.</source>
+          <target state="new">Select <bpt id="fa347132-6b4b-483a-97c2-69ddeedb4c87">&lt;strong&gt;</bpt>Sign Up For Azure<ept id="fa347132-6b4b-483a-97c2-69ddeedb4c87">&lt;/strong&gt;</ept>, and your directory will be available for administration within the portal.</target>
+        </trans-unit>
+        <trans-unit id="a7dc546d-d953-42d9-a681-cbe9bde27da5" xml:space="preserve">
+          <source>For more information, see <bpt id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;linkText&gt;</bpt>Manage the directory for your Office 365 subscription in Azure<ept id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;/linkText&gt;</ept><bpt id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;title&gt;</bpt><ept id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;linkText&gt;</bpt>Manage the directory for your Office 365 subscription in Azure<ept id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;/linkText&gt;</ept><bpt id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;title&gt;</bpt><ept id="823d42a4-ee60-4006-973d-ee1344213a92">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e111c98-2fdb-463c-b89f-0bd17cb1f7f5" xml:space="preserve">
+          <source>For a video about common usage questions for Azure AD, see <bpt id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;linkText&gt;</bpt>Azure Active Directory - Common Sign-up, sign-in and usage questions<ept id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;/linkText&gt;</ept><bpt id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;title&gt;</bpt><ept id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a video about common usage questions for Azure AD, see <bpt id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;linkText&gt;</bpt>Azure Active Directory - Common Sign-up, sign-in and usage questions<ept id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;/linkText&gt;</ept><bpt id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;title&gt;</bpt><ept id="ee9b53b7-21b1-495e-92c7-fa533f062eea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25a76c82-b89e-435a-8ba3-37964761150a" xml:space="preserve">
+          <source>If you don’t yet have a subscription to a Microsoft cloud service, use one of the links below to sign up.</source>
+          <target state="new">If you don’t yet have a subscription to a Microsoft cloud service, use one of the links below to sign up.</target>
+        </trans-unit>
+        <trans-unit id="aafaf49b-127c-42c0-a2f5-23784dbbb731" xml:space="preserve">
+          <source>The act of signing up for your first service will create an Azure AD directory automatically.</source>
+          <target state="new">The act of signing up for your first service will create an Azure AD directory automatically.</target>
+        </trans-unit>
+        <trans-unit id="7ab823f6-d37d-42c8-94d0-dfe4e6a5bfdc" xml:space="preserve">
+          <source><bpt id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;/linkText&gt;</ept><bpt id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;title&gt;</bpt><ept id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;/linkText&gt;</ept><bpt id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;title&gt;</bpt><ept id="0df2ad09-2be4-4e47-8a7f-2ea0eb962263">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9840c299-3daf-494f-9211-d431c427a4b9" xml:space="preserve">
+          <source><bpt id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;linkText&gt;</bpt>Office 365<ept id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;/linkText&gt;</ept><bpt id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;title&gt;</bpt><ept id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;linkText&gt;</bpt>Office 365<ept id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;/linkText&gt;</ept><bpt id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;title&gt;</bpt><ept id="f37c01c0-ca1b-48e5-96d4-8c1e4d8f9168">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87fbc756-5375-44e0-8baa-56634dcc513b" xml:space="preserve">
+          <source><bpt id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;linkText&gt;</bpt>Microsoft Intune<ept id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;/linkText&gt;</ept><bpt id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;title&gt;</bpt><ept id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;linkText&gt;</bpt>Microsoft Intune<ept id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;/linkText&gt;</ept><bpt id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;title&gt;</bpt><ept id="8cecc149-863b-47b0-8a26-02572cbf325e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52e1433d-f745-4b05-845d-fac9dbd9f713" xml:space="preserve">
+          <source>Today, a directory is automatically created when you sign up for Azure and your subscription is associated with that directory.</source>
+          <target state="new">Today, a directory is automatically created when you sign up for Azure and your subscription is associated with that directory.</target>
+        </trans-unit>
+        <trans-unit id="f6893ab0-c9ea-4da4-b58e-324921ea1b5e" xml:space="preserve">
+          <source>But if you originally signed up for Azure before October 2013, a directory was not automatically created.</source>
+          <target state="new">But if you originally signed up for Azure before October 2013, a directory was not automatically created.</target>
+        </trans-unit>
+        <trans-unit id="3acd87a0-906a-468b-add4-41cf761698a9" xml:space="preserve">
+          <source>In that case, Azure may have “backfilled” for your account by provisioning a Default directory for it.</source>
+          <target state="new">In that case, Azure may have “backfilled” for your account by provisioning a Default directory for it.</target>
+        </trans-unit>
+        <trans-unit id="b7295e6a-e1d8-487c-96a7-dc9dbf1036f1" xml:space="preserve">
+          <source>Your subscription was then associated with that Default directory.</source>
+          <target state="new">Your subscription was then associated with that Default directory.</target>
+        </trans-unit>
+        <trans-unit id="6df132b5-f177-45ac-b2ed-b048fbdef502" xml:space="preserve">
+          <source>Backfilling of directories was done in October 2013 as part of an overall improvement to the security model for Azure.</source>
+          <target state="new">Backfilling of directories was done in October 2013 as part of an overall improvement to the security model for Azure.</target>
+        </trans-unit>
+        <trans-unit id="ce355ca8-8499-431c-aa9b-132602cb2370" xml:space="preserve">
+          <source>It helps offer organizational identity features to all Azure customers and ensures that all Azure resources are accessed in the context of a user in directory.</source>
+          <target state="new">It helps offer organizational identity features to all Azure customers and ensures that all Azure resources are accessed in the context of a user in directory.</target>
+        </trans-unit>
+        <trans-unit id="6a02d04c-e36e-4bb9-90eb-73361a91af2b" xml:space="preserve">
+          <source>You cannot use Azure without a directory.</source>
+          <target state="new">You cannot use Azure without a directory.</target>
+        </trans-unit>
+        <trans-unit id="8ae22e57-ed41-4b79-a9b5-b36be00f4cb6" xml:space="preserve">
+          <source>To achieve that, any user who was signed up prior to July 7, 2013 but did not have a directory had to have one created.</source>
+          <target state="new">To achieve that, any user who was signed up prior to July 7, 2013 but did not have a directory had to have one created.</target>
+        </trans-unit>
+        <trans-unit id="5a98c7ac-0b68-4b87-88d5-d044088fd088" xml:space="preserve">
+          <source>If you had already created a directory, then your subscription was associated with that directory.</source>
+          <target state="new">If you had already created a directory, then your subscription was associated with that directory.</target>
+        </trans-unit>
+        <trans-unit id="d7541f5b-55be-4a57-9666-a17131841a20" xml:space="preserve">
+          <source>There are no costs for using Azure AD.</source>
+          <target state="new">There are no costs for using Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ad4e14eb-889f-44d0-9a32-1ca17d22c982" xml:space="preserve">
+          <source>The directory is a free resource.</source>
+          <target state="new">The directory is a free resource.</target>
+        </trans-unit>
+        <trans-unit id="196a32a0-935c-412a-98fe-5aad8e01d8e5" xml:space="preserve">
+          <source>There is an additional Azure Active Directory Premium tier that is licensed separately and provides additional features such as company branding and self-service password reset.</source>
+          <target state="new">There is an additional Azure Active Directory Premium tier that is licensed separately and provides additional features such as company branding and self-service password reset.</target>
+        </trans-unit>
+        <trans-unit id="acb66626-2f7c-45a9-a510-0cfc1edf059a" xml:space="preserve">
+          <source>To change the display name of your directory, click the directory in the portal and click <bpt id="5e63c677-7230-4c0b-9760-1d931f3df3d3">&lt;strong&gt;</bpt>Configure<ept id="5e63c677-7230-4c0b-9760-1d931f3df3d3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To change the display name of your directory, click the directory in the portal and click <bpt id="5e63c677-7230-4c0b-9760-1d931f3df3d3">&lt;strong&gt;</bpt>Configure<ept id="5e63c677-7230-4c0b-9760-1d931f3df3d3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5870f46f-b823-459c-9495-7877a53bacad" xml:space="preserve">
+          <source>As explained later in this topic, you can add a new directory or delete a directory that you no longer need.</source>
+          <target state="new">As explained later in this topic, you can add a new directory or delete a directory that you no longer need.</target>
+        </trans-unit>
+        <trans-unit id="dd33c1fa-3515-4a81-b220-be4bfe595d04" xml:space="preserve">
+          <source>To associate your subscription with a different directory, click the <bpt id="f959dfc0-a604-4e9f-87cf-b88397e87ab5">&lt;strong&gt;</bpt>Settings<ept id="f959dfc0-a604-4e9f-87cf-b88397e87ab5">&lt;/strong&gt;</ept> extension in the left navigation, and at the bottom of the <bpt id="f5d1b8bd-f72b-4552-9832-e979b3e45673">&lt;strong&gt;</bpt>Subscriptions<ept id="f5d1b8bd-f72b-4552-9832-e979b3e45673">&lt;/strong&gt;</ept> page, click <bpt id="e55b7722-5cd3-4a6c-864c-6c4e75b115f6">&lt;strong&gt;</bpt>Edit Directory<ept id="e55b7722-5cd3-4a6c-864c-6c4e75b115f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To associate your subscription with a different directory, click the <bpt id="f959dfc0-a604-4e9f-87cf-b88397e87ab5">&lt;strong&gt;</bpt>Settings<ept id="f959dfc0-a604-4e9f-87cf-b88397e87ab5">&lt;/strong&gt;</ept> extension in the left navigation, and at the bottom of the <bpt id="f5d1b8bd-f72b-4552-9832-e979b3e45673">&lt;strong&gt;</bpt>Subscriptions<ept id="f5d1b8bd-f72b-4552-9832-e979b3e45673">&lt;/strong&gt;</ept> page, click <bpt id="e55b7722-5cd3-4a6c-864c-6c4e75b115f6">&lt;strong&gt;</bpt>Edit Directory<ept id="e55b7722-5cd3-4a6c-864c-6c4e75b115f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26a8b9e5-d76a-4f3e-864d-5dc661fc8033" xml:space="preserve">
+          <source>You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.</source>
+          <target state="new">You can also create a custom domain using a DNS name that you have registered instead of the default *.onmicrosoft.com domain, which may be preferable with a service such as SharePoint Online.</target>
+        </trans-unit>
+        <trans-unit id="c67eb42c-dbab-45c3-8d53-1941bd7a37dc" xml:space="preserve">
+          <source>As an administrator of one or more Microsoft cloud service subscriptions, you can either use the Azure Management Portal, the Microsoft Intune account portal, or the Office 365 Admin Center to manage your organizations directory data.</source>
+          <target state="new">As an administrator of one or more Microsoft cloud service subscriptions, you can either use the Azure Management Portal, the Microsoft Intune account portal, or the Office 365 Admin Center to manage your organizations directory data.</target>
+        </trans-unit>
+        <trans-unit id="5b886e63-2860-4baa-8d5a-17b564cd74e9" xml:space="preserve">
+          <source>You can also download and run <bpt id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Module for Windows PowerShell<ept id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;/linkText&gt;</ept><bpt id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;title&gt;</bpt><ept id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;/title&gt;</ept> cmdlets to help you manage data stored in Azure AD.</source>
+          <target state="new">You can also download and run <bpt id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;linkText&gt;</bpt>Microsoft Azure Active Directory Module for Windows PowerShell<ept id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;/linkText&gt;</ept><bpt id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;title&gt;</bpt><ept id="3b04968e-b8f7-416e-98c8-c1d9d9c11bdd">&lt;/title&gt;</ept> cmdlets to help you manage data stored in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="078b0080-d23b-47c6-9a84-4eb8a9a720c2" xml:space="preserve">
+          <source>From either of these portals (or cmdlets), you can:</source>
+          <target state="new">From either of these portals (or cmdlets), you can:</target>
+        </trans-unit>
+        <trans-unit id="b19b5af2-8bb1-4e22-b332-ff9c77c5c2d8" xml:space="preserve">
+          <source>Create and manage user and group accounts</source>
+          <target state="new">Create and manage user and group accounts</target>
+        </trans-unit>
+        <trans-unit id="9f904ca0-65eb-442a-a2d2-b9c9868d4cfc" xml:space="preserve">
+          <source>Manage related cloud service(s) your organization subscribes to</source>
+          <target state="new">Manage related cloud service(s) your organization subscribes to</target>
+        </trans-unit>
+        <trans-unit id="1e3a7911-8bb9-43d6-88b9-64cea191c4f3" xml:space="preserve">
+          <source>Set up on-premises integration with your directory service</source>
+          <target state="new">Set up on-premises integration with your directory service</target>
+        </trans-unit>
+        <trans-unit id="f69e759b-c616-45bc-bb8b-3aec69935e56" xml:space="preserve">
+          <source>The Azure Management Portal, Office 365 Admin Center, Microsoft Intune account portal and the Azure AD cmdlets all read from and write to a single shared instance of Azure AD that is associated with your organization’s directory, as shown in the following illustration.</source>
+          <target state="new">The Azure Management Portal, Office 365 Admin Center, Microsoft Intune account portal and the Azure AD cmdlets all read from and write to a single shared instance of Azure AD that is associated with your organization’s directory, as shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="0027e91d-92cd-48ff-ab2c-c9417e24ca3b" xml:space="preserve">
+          <source>In this way, portals (or cmdlets) act as a front-end interface that pull in and/or modify your directory data.</source>
+          <target state="new">In this way, portals (or cmdlets) act as a front-end interface that pull in and/or modify your directory data.</target>
+        </trans-unit>
+        <trans-unit id="5369843c-0cc8-4318-8aa0-ae999b29b2cb" xml:space="preserve">
+          <source><bpt id="47a8e3ef-7871-4c06-b6be-c85d9a2c467c">&lt;linkText&gt;</bpt><ept id="47a8e3ef-7871-4c06-b6be-c85d9a2c467c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="47a8e3ef-7871-4c06-b6be-c85d9a2c467c">&lt;linkText&gt;</bpt><ept id="47a8e3ef-7871-4c06-b6be-c85d9a2c467c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e28a0448-c911-46ac-855f-610f65d579a5" xml:space="preserve">
+          <source>These account portals and the associated Azure AD PowerShell cmdlets used to manage users and groups are built on top of the Azure AD platform.</source>
+          <target state="new">These account portals and the associated Azure AD PowerShell cmdlets used to manage users and groups are built on top of the Azure AD platform.</target>
+        </trans-unit>
+        <trans-unit id="3922bd1a-244d-4e1a-aa03-7f963c4b3936" xml:space="preserve">
+          <source>When you make a change to your organizations data using any of the portals (or cmdlets) while signed in under the context of one of these services, the change will also be shown in the other portals the next time you sign-in under the context of that service because this data is shared across the Microsoft cloud services you are subscribed to.</source>
+          <target state="new">When you make a change to your organizations data using any of the portals (or cmdlets) while signed in under the context of one of these services, the change will also be shown in the other portals the next time you sign-in under the context of that service because this data is shared across the Microsoft cloud services you are subscribed to.</target>
+        </trans-unit>
+        <trans-unit id="c739d630-0169-47ae-937e-7d25e4f8cc53" xml:space="preserve">
+          <source>For example, if you used the Office 365 Admin Center to block a user from signing in, that action will block the user from signing in to any other service that your organization is currently subscribed to.</source>
+          <target state="new">For example, if you used the Office 365 Admin Center to block a user from signing in, that action will block the user from signing in to any other service that your organization is currently subscribed to.</target>
+        </trans-unit>
+        <trans-unit id="3d12a66b-32cb-4df4-a86c-5803b03f9a28" xml:space="preserve">
+          <source>If you were to pull up that same user’s account under the context of the Microsoft Intune account portal you will see that the user is blocked.</source>
+          <target state="new">If you were to pull up that same user’s account under the context of the Microsoft Intune account portal you will see that the user is blocked.</target>
+        </trans-unit>
+        <trans-unit id="9617b477-7321-4407-8c8c-dc5f660d4831" xml:space="preserve">
+          <source>You can add an Azure AD directory in the Azure Management Portal.</source>
+          <target state="new">You can add an Azure AD directory in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="5c9ad85d-0e72-4fcf-8b17-b561b8225549" xml:space="preserve">
+          <source>Select the <bpt id="9a562858-4c4d-45a8-b536-5b55ae1b1423">&lt;strong&gt;</bpt>Active Directory<ept id="9a562858-4c4d-45a8-b536-5b55ae1b1423">&lt;/strong&gt;</ept> extension on the left and click <bpt id="c1704f1b-a2a1-44fe-bd80-c47485988657">&lt;strong&gt;</bpt>Add<ept id="c1704f1b-a2a1-44fe-bd80-c47485988657">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="9a562858-4c4d-45a8-b536-5b55ae1b1423">&lt;strong&gt;</bpt>Active Directory<ept id="9a562858-4c4d-45a8-b536-5b55ae1b1423">&lt;/strong&gt;</ept> extension on the left and click <bpt id="c1704f1b-a2a1-44fe-bd80-c47485988657">&lt;strong&gt;</bpt>Add<ept id="c1704f1b-a2a1-44fe-bd80-c47485988657">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c64558e8-b7ca-4ec2-b3f0-1ef3c0121000" xml:space="preserve">
+          <source>You can manage each directory as a fully independent resource: each directory is a peer, fully-featured, and logically independent of other directories that you manage; there is no parent-child relationship between directories.</source>
+          <target state="new">You can manage each directory as a fully independent resource: each directory is a peer, fully-featured, and logically independent of other directories that you manage; there is no parent-child relationship between directories.</target>
+        </trans-unit>
+        <trans-unit id="9f0ddff9-3e34-4372-88c4-30019b9c17fc" xml:space="preserve">
+          <source>This independence between directories includes resource independence, administrative independence, and synchronization independence.</source>
+          <target state="new">This independence between directories includes resource independence, administrative independence, and synchronization independence.</target>
+        </trans-unit>
+        <trans-unit id="548ab888-e388-454c-a097-308c8c4671b6" xml:space="preserve">
+          <source><bpt id="4f3f5d18-d2aa-4f39-8da5-b44af0f228be">&lt;strong&gt;</bpt>Resource independence<ept id="4f3f5d18-d2aa-4f39-8da5-b44af0f228be">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4f3f5d18-d2aa-4f39-8da5-b44af0f228be">&lt;strong&gt;</bpt>Resource independence<ept id="4f3f5d18-d2aa-4f39-8da5-b44af0f228be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e48ec92-0c25-4bcf-8789-1f3f8a2caa05" xml:space="preserve">
+          <source>If you create or delete a resource in one directory, it has no impact on any resource in another directory, with the partial exception of external users, described below.</source>
+          <target state="new">If you create or delete a resource in one directory, it has no impact on any resource in another directory, with the partial exception of external users, described below.</target>
+        </trans-unit>
+        <trans-unit id="4efb8dfb-50fb-460e-8733-bdbe7aa0f5bf" xml:space="preserve">
+          <source>If you use a custom domain 'contoso.com' with one directory, it cannot be used with any other directory.</source>
+          <target state="new">If you use a custom domain 'contoso.com' with one directory, it cannot be used with any other directory.</target>
+        </trans-unit>
+        <trans-unit id="ca37e31f-1ded-4a87-b7d4-ca48425efeb8" xml:space="preserve">
+          <source><bpt id="16946997-8266-40ae-a974-12473c4452f1">&lt;strong&gt;</bpt>Administrative independence<ept id="16946997-8266-40ae-a974-12473c4452f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="16946997-8266-40ae-a974-12473c4452f1">&lt;strong&gt;</bpt>Administrative independence<ept id="16946997-8266-40ae-a974-12473c4452f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f3d6032-31d6-4fd8-a126-7871ee4d57a9" xml:space="preserve">
+          <source>If a non-administrative user of directory 'Contoso', creates a test directory 'Test' then:</source>
+          <target state="new">If a non-administrative user of directory 'Contoso', creates a test directory 'Test' then:</target>
+        </trans-unit>
+        <trans-unit id="70f1a27a-4f63-4aca-9c9b-84851b1d775c" xml:space="preserve">
+          <source>◦The directory sync tool, to synchronize data with a single AD forest.</source>
+          <target state="new">◦The directory sync tool, to synchronize data with a single AD forest.</target>
+        </trans-unit>
+        <trans-unit id="857e1ab6-9768-4528-8a6b-0666777c1f9d" xml:space="preserve">
+          <source>◦The administrators of directory 'Contoso' have no direct administrative privileges to directory 'Test' unless an administrator of 'Test' specifically grants them these privileges.</source>
+          <target state="new">◦The administrators of directory 'Contoso' have no direct administrative privileges to directory 'Test' unless an administrator of 'Test' specifically grants them these privileges.</target>
+        </trans-unit>
+        <trans-unit id="8489cec9-6681-4645-b4d7-18779f2e6252" xml:space="preserve">
+          <source>Administrators of 'Contoso' can control access to directory 'Test' by virtue of their control of the user account which created 'Test.'</source>
+          <target state="new">Administrators of 'Contoso' can control access to directory 'Test' by virtue of their control of the user account which created 'Test.'</target>
+        </trans-unit>
+        <trans-unit id="b2ef9dcc-9faa-4e2e-a731-4c4241f79d65" xml:space="preserve">
+          <source>And if you change (add or remove) an administrator role for a user in one directory, the change does not affect any administrator role that user may have in another directory.</source>
+          <target state="new">And if you change (add or remove) an administrator role for a user in one directory, the change does not affect any administrator role that user may have in another directory.</target>
+        </trans-unit>
+        <trans-unit id="b0c138e6-1b61-4f27-91fe-cc6742330789" xml:space="preserve">
+          <source><bpt id="e4651b38-8321-45dc-8288-f544b859dc15">&lt;strong&gt;</bpt>Synchronization independence<ept id="e4651b38-8321-45dc-8288-f544b859dc15">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="e4651b38-8321-45dc-8288-f544b859dc15">&lt;strong&gt;</bpt>Synchronization independence<ept id="e4651b38-8321-45dc-8288-f544b859dc15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7db67408-a07b-45f0-822b-a1bec3f42af9" xml:space="preserve">
+          <source>You can configure each Azure AD independently to get data synchronized from a single instance of either:</source>
+          <target state="new">You can configure each Azure AD independently to get data synchronized from a single instance of either:</target>
+        </trans-unit>
+        <trans-unit id="718e44e7-2bb8-4c29-bb04-89cebf255dc9" xml:space="preserve">
+          <source>The directory sync tool, to synchronize data with a single AD forest</source>
+          <target state="new">The directory sync tool, to synchronize data with a single AD forest</target>
+        </trans-unit>
+        <trans-unit id="8121810f-aae6-4162-9a42-31bbb9c19418" xml:space="preserve">
+          <source>The Azure Active Directory Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-AD data sources.</source>
+          <target state="new">The Azure Active Directory Connector for Forefront Identity Manager, to synchronize data with one or more on-premises forests, and/or non-AD data sources.</target>
+        </trans-unit>
+        <trans-unit id="abbbbd18-aa78-47b9-85c7-7243b305a3b2" xml:space="preserve">
+          <source>Also note that unlike other Azure resources, your directories are not child resources of an Azure subscription.</source>
+          <target state="new">Also note that unlike other Azure resources, your directories are not child resources of an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="70899fc5-4558-40ef-b693-a77ad41a4580" xml:space="preserve">
+          <source>So if you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure AD PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center.</source>
+          <target state="new">So if you cancel or allow your Azure subscription to expire, you can still access your directory data using Azure AD PowerShell, the Azure Graph API, or other interfaces such as the Office 365 Admin Center.</target>
+        </trans-unit>
+        <trans-unit id="3fd87319-9e13-4249-af01-d3cca87604a4" xml:space="preserve">
+          <source>You can also associate another subscription with the directory.</source>
+          <target state="new">You can also associate another subscription with the directory.</target>
+        </trans-unit>
+        <trans-unit id="abe6fea9-b3f2-4b86-8c6b-a9f636907aad" xml:space="preserve">
+          <source>A global administrator can delete an Azure AD directory from the portal.</source>
+          <target state="new">A global administrator can delete an Azure AD directory from the portal.</target>
+        </trans-unit>
+        <trans-unit id="d113f1c2-457f-4789-9589-e8d090bac12d" xml:space="preserve">
+          <source>When a directory is deleted, all resources contained in the directory are also deleted; so you should be sure you don’t need the directory before you delete it.</source>
+          <target state="new">When a directory is deleted, all resources contained in the directory are also deleted; so you should be sure you don’t need the directory before you delete it.</target>
+        </trans-unit>
+        <trans-unit id="4a721e3a-39bf-4b02-9614-4b3f4ed1e235" xml:space="preserve">
+          <source>If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory.</source>
+          <target state="new">If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory.</target>
+        </trans-unit>
+        <trans-unit id="a11e4dba-e76d-4c8a-ad67-2a733be915f3" xml:space="preserve">
+          <source>For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.</source>
+          <target state="new">For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.</target>
+        </trans-unit>
+        <trans-unit id="16097cdc-2870-4922-9d0d-599f3d76386e" xml:space="preserve">
+          <source>Azure AD requires that certain conditions are met to delete a directory.</source>
+          <target state="new">Azure AD requires that certain conditions are met to delete a directory.</target>
+        </trans-unit>
+        <trans-unit id="b527b6ab-c204-4c5d-8797-62dbf1795676" xml:space="preserve">
+          <source>This reduces risk that deletion of a directory would negatively impact users or applications, such as the ability of users to sign in to Office 365 or access resources in Azure.</source>
+          <target state="new">This reduces risk that deletion of a directory would negatively impact users or applications, such as the ability of users to sign in to Office 365 or access resources in Azure.</target>
+        </trans-unit>
+        <trans-unit id="a03ec06a-883a-4132-ad07-164036bc44a0" xml:space="preserve">
+          <source>For example, if a directory for a subscription became unintentionally deleted, then users could not access the Azure resources for that subscription.</source>
+          <target state="new">For example, if a directory for a subscription became unintentionally deleted, then users could not access the Azure resources for that subscription.</target>
+        </trans-unit>
+        <trans-unit id="b4e63b54-6e3f-4a52-8bd5-e235ca8c139a" xml:space="preserve">
+          <source>The following conditions are checked:</source>
+          <target state="new">The following conditions are checked:</target>
+        </trans-unit>
+        <trans-unit id="1f1d4aae-0bfb-4ef4-9c48-9540519ac3a6" xml:space="preserve">
+          <source>The only user in the directory is the global administrator who will delete the directory.</source>
+          <target state="new">The only user in the directory is the global administrator who will delete the directory.</target>
+        </trans-unit>
+        <trans-unit id="48b50500-5c49-4065-a605-cae9a9ca72a6" xml:space="preserve">
+          <source>Any other users must be deleted before the directory can be deleted.</source>
+          <target state="new">Any other users must be deleted before the directory can be deleted.</target>
+        </trans-unit>
+        <trans-unit id="fb305506-2dd9-4218-bdeb-ab570995ec15" xml:space="preserve">
+          <source>If users are synchronized from on-premises, then sync will need to be turned off, and the users must be deleted in the cloud directory by using the Management Portal or the Azure module for Windows PowerShell.</source>
+          <target state="new">If users are synchronized from on-premises, then sync will need to be turned off, and the users must be deleted in the cloud directory by using the Management Portal or the Azure module for Windows PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="629c2a46-c436-4e34-86d5-13e5db0d1f66" xml:space="preserve">
+          <source>There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.</source>
+          <target state="new">There is no requirement to delete groups or contacts, such as contacts added from the Office 365 Admin Center.</target>
+        </trans-unit>
+        <trans-unit id="068a27d8-bff4-4ee0-8a79-ec6bcaf7bc96" xml:space="preserve">
+          <source>There can be no applications in the directory.</source>
+          <target state="new">There can be no applications in the directory.</target>
+        </trans-unit>
+        <trans-unit id="702bf613-5fab-4f01-a81a-782c15a6bce7" xml:space="preserve">
+          <source>Any applications must be deleted before the directory can be deleted.</source>
+          <target state="new">Any applications must be deleted before the directory can be deleted.</target>
+        </trans-unit>
+        <trans-unit id="77df1b07-369c-4e40-9e26-43f25103fb37" xml:space="preserve">
+          <source>There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory.</source>
+          <target state="new">There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory.</target>
+        </trans-unit>
+        <trans-unit id="a9e4ec8e-c510-4d7b-ba7e-09006d10258f" xml:space="preserve">
+          <source>For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication.</source>
+          <target state="new">For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication.</target>
+        </trans-unit>
+        <trans-unit id="c253e063-7f11-4758-b3c7-85e434e988dd" xml:space="preserve">
+          <source>Similarly, you cannot delete a directory if another user has associated a subscription with it.</source>
+          <target state="new">Similarly, you cannot delete a directory if another user has associated a subscription with it.</target>
+        </trans-unit>
+        <trans-unit id="5c03f45d-fc2c-476d-9d3a-aaa0b87edea5" xml:space="preserve">
+          <source>To associate your subscription with a different directory, sign in to the Azure Management Portal and click <bpt id="38585c7e-72c3-49a5-84b5-0a30d78e0c6a">&lt;strong&gt;</bpt>Settings<ept id="38585c7e-72c3-49a5-84b5-0a30d78e0c6a">&lt;/strong&gt;</ept> in the left navigation.</source>
+          <target state="new">To associate your subscription with a different directory, sign in to the Azure Management Portal and click <bpt id="38585c7e-72c3-49a5-84b5-0a30d78e0c6a">&lt;strong&gt;</bpt>Settings<ept id="38585c7e-72c3-49a5-84b5-0a30d78e0c6a">&lt;/strong&gt;</ept> in the left navigation.</target>
+        </trans-unit>
+        <trans-unit id="cef06303-be08-4975-b451-5a3ad42b43e8" xml:space="preserve">
+          <source>Then on the bottom of the <bpt id="94224765-fb74-4733-95c2-a65980764832">&lt;strong&gt;</bpt>Subscriptions<ept id="94224765-fb74-4733-95c2-a65980764832">&lt;/strong&gt;</ept> page, click <bpt id="bf880bee-315f-4d7a-b2df-983579b49c86">&lt;strong&gt;</bpt>Edit Directory<ept id="bf880bee-315f-4d7a-b2df-983579b49c86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then on the bottom of the <bpt id="94224765-fb74-4733-95c2-a65980764832">&lt;strong&gt;</bpt>Subscriptions<ept id="94224765-fb74-4733-95c2-a65980764832">&lt;/strong&gt;</ept> page, click <bpt id="bf880bee-315f-4d7a-b2df-983579b49c86">&lt;strong&gt;</bpt>Edit Directory<ept id="bf880bee-315f-4d7a-b2df-983579b49c86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="760f4daa-ed64-4ad6-86a4-ce0b817f06ac" xml:space="preserve">
+          <source>For more information about Azure subscriptions, see <bpt id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;linkText&gt;</bpt>How Azure subscriptions are associated with Azure AD<ept id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;/linkText&gt;</ept><bpt id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;title&gt;</bpt><ept id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure subscriptions, see <bpt id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;linkText&gt;</bpt>How Azure subscriptions are associated with Azure AD<ept id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;/linkText&gt;</ept><bpt id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;title&gt;</bpt><ept id="5dd362d7-0e9b-49f1-a13c-5c3eb1364300">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bf2655c-96e4-4ffd-b842-f8f3f618e6da" xml:space="preserve">
+          <source>If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory.</source>
+          <target state="new">If the user is signed in with a work or school account, the user must not be attempting to delete his or her home directory.</target>
+        </trans-unit>
+        <trans-unit id="f7403c96-ba31-49e5-9f0f-4c9e164927af" xml:space="preserve">
+          <source>For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.</source>
+          <target state="new">For example, if the user is signed in as joe@contoso.onmicrosoft.com, that user cannot delete the directory that has contoso.onmicrosoft.com as its default domain.</target>
+        </trans-unit>
+        <trans-unit id="b39464cd-7d8a-4277-86b4-e361517f6eff" xml:space="preserve">
+          <source>No Multi-Factor Authentication providers can be linked to the directory.</source>
+          <target state="new">No Multi-Factor Authentication providers can be linked to the directory.</target>
+        </trans-unit>
+        <trans-unit id="e0c97300-be3c-4e0f-a452-c3c14e920d63" xml:space="preserve">
+          <source><bpt id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;linkText&gt;</bpt>Azure AD Forum<ept id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;/linkText&gt;</ept><bpt id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;title&gt;</bpt><ept id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;linkText&gt;</bpt>Azure AD Forum<ept id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;/linkText&gt;</ept><bpt id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;title&gt;</bpt><ept id="43a398dd-f3f0-42a0-b24e-0cb56df121b6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ef92e17-e531-49e4-96a5-e137dddd295b" xml:space="preserve">
+          <source><bpt id="98506421-90fa-41cc-9747-663136a0a60e">&lt;linkText&gt;</bpt>Azure Multi-Factor Authentication Forum<ept id="98506421-90fa-41cc-9747-663136a0a60e">&lt;/linkText&gt;</ept><bpt id="98506421-90fa-41cc-9747-663136a0a60e">&lt;title&gt;</bpt><ept id="98506421-90fa-41cc-9747-663136a0a60e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="98506421-90fa-41cc-9747-663136a0a60e">&lt;linkText&gt;</bpt>Azure Multi-Factor Authentication Forum<ept id="98506421-90fa-41cc-9747-663136a0a60e">&lt;/linkText&gt;</ept><bpt id="98506421-90fa-41cc-9747-663136a0a60e">&lt;title&gt;</bpt><ept id="98506421-90fa-41cc-9747-663136a0a60e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="291d5902-13c2-4f8c-824e-f6c7fbc3aeea" xml:space="preserve">
+          <source><bpt id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;linkText&gt;</bpt>Stackoverflow<ept id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;/linkText&gt;</ept><bpt id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;title&gt;</bpt><ept id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;linkText&gt;</bpt>Stackoverflow<ept id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;/linkText&gt;</ept><bpt id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;title&gt;</bpt><ept id="6c8c6d8a-fb3b-4049-b1ce-6c2fb13760c8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ac1ed31-13ba-4125-bc55-443bf262e238" xml:space="preserve">
+          <source><bpt id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;/linkText&gt;</ept><bpt id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;title&gt;</bpt><ept id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;/linkText&gt;</ept><bpt id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;title&gt;</bpt><ept id="cc8e8a56-c18b-45da-a69e-e389408a4b37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf42cc0e-30da-4730-bfca-b3289ce1ccc3" xml:space="preserve">
+          <source><bpt id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;linkText&gt;</bpt>Manage Azure AD using Windows PowerShell<ept id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;/linkText&gt;</ept><bpt id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;title&gt;</bpt><ept id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;linkText&gt;</bpt>Manage Azure AD using Windows PowerShell<ept id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;/linkText&gt;</ept><bpt id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;title&gt;</bpt><ept id="8360d831-46eb-4196-b8df-231ea971e87c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="908bddaa-d470-44c1-95cc-a84d7c64a2db" xml:space="preserve">
+          <source><bpt id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;linkText&gt;</bpt>Assigning administrator roles in Azure AD<ept id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;/linkText&gt;</ept><bpt id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;title&gt;</bpt><ept id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;linkText&gt;</bpt>Assigning administrator roles in Azure AD<ept id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;/linkText&gt;</ept><bpt id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;title&gt;</bpt><ept id="048daf25-a1f5-4a4d-9543-8b2456047ec5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43773a00-8808-456b-805c-4c42b6a2725d" xml:space="preserve">
+          <source>./media/active-directory-administer/aad_portals.png</source>
+          <target state="new">./media/active-directory-administer/aad_portals.png</target>
+        </trans-unit>
+        <trans-unit id="07dbeee5-2ee2-4471-ab2c-5716710de26a" xml:space="preserve">
+          <source>./media/active-directory-administer/azure_tenants.png</source>
+          <target state="new">./media/active-directory-administer/azure_tenants.png</target>
+        </trans-unit>
+      </group>
+      <group id="ec873307-2755-4a7c-96e0-ff7599be5777" />
+    </body>
+  </file>
+</xliff>

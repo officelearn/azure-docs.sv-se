@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9bd90179-8482-40cc-8677-e2fb1e994cdf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9bd90179-8482-40cc-8677-e2fb1e994cdf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8a0873d0-6697-40e5-9cdc-8d7dde20b340">
+        <trans-unit id="43b615bf-8450-4438-ad0c-76195591cd7d" xml:space="preserve">
+          <source>How to use Azure table storage with the WebJobs SDK</source>
+          <target state="new">How to use Azure table storage with the WebJobs SDK</target>
+        </trans-unit>
+        <trans-unit id="5de12f35-87c0-41a2-ab43-c1cdef3fc54a" xml:space="preserve">
+          <source>Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables.</source>
+          <target state="new">Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables.</target>
+        </trans-unit>
+        <trans-unit id="a2e48d7c-70bb-4c11-8d2f-0bdf683ebd4e" xml:space="preserve">
+          <source>This guide provides C# code samples that show how to read and write Azure storage tables by using <bpt id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;/linkText&gt;</ept><bpt id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;title&gt;</bpt><ept id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;/title&gt;</ept> version 1.x.</source>
+          <target state="new">This guide provides C# code samples that show how to read and write Azure storage tables by using <bpt id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;linkText&gt;</bpt>WebJobs SDK<ept id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;/linkText&gt;</ept><bpt id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;title&gt;</bpt><ept id="5aac5076-612d-449c-b23a-0947b0e76cba">&lt;/title&gt;</ept> version 1.x.</target>
+        </trans-unit>
+        <trans-unit id="de040be7-369f-407d-9bf8-67d3df39187e" xml:space="preserve">
+          <source>The guide assumes you know <bpt id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;/linkText&gt;</ept><bpt id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;title&gt;</bpt><ept id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;/title&gt;</ept>.</source>
+          <target state="new">The guide assumes you know <bpt id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;linkText&gt;</bpt>how to create a WebJob project in Visual Studio with connection strings that point to your storage account<ept id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;/linkText&gt;</ept><bpt id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;title&gt;</bpt><ept id="8394a998-737b-4ead-a9b0-9bfe548da670">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a71de649-e185-431d-9beb-b4b5b17b665c" xml:space="preserve">
+          <source>Some of the code snippets show the <bpt id="99592fd8-c163-45e2-9fbc-b1c3a5af3250">&lt;code&gt;</bpt>Table<ept id="99592fd8-c163-45e2-9fbc-b1c3a5af3250">&lt;/code&gt;</ept> attribute used in functions that are <bpt id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;linkText&gt;</bpt>called manually<ept id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;/linkText&gt;</ept><bpt id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;title&gt;</bpt><ept id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;/title&gt;</ept>, that is, not by using one of the trigger attributes.</source>
+          <target state="new">Some of the code snippets show the <bpt id="99592fd8-c163-45e2-9fbc-b1c3a5af3250">&lt;code&gt;</bpt>Table<ept id="99592fd8-c163-45e2-9fbc-b1c3a5af3250">&lt;/code&gt;</ept> attribute used in functions that are <bpt id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;linkText&gt;</bpt>called manually<ept id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;/linkText&gt;</ept><bpt id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;title&gt;</bpt><ept id="0f9ec516-1004-46c0-acdc-35ac0cb155e0">&lt;/title&gt;</ept>, that is, not by using one of the trigger attributes.</target>
+        </trans-unit>
+        <trans-unit id="36719fd4-97ec-46e5-baaf-ab0b85784457" xml:space="preserve">
+          <source>To add entities to a table, use the <bpt id="44718f79-09aa-4212-b3e6-14b876e9e145">&lt;code&gt;</bpt>Table<ept id="44718f79-09aa-4212-b3e6-14b876e9e145">&lt;/code&gt;</ept> attribute with an <bpt id="cf0fea1b-bf9d-4690-b227-cc7496643c63">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="cf0fea1b-bf9d-4690-b227-cc7496643c63">&lt;/code&gt;</ept> or <bpt id="4d7b7c93-e13d-429d-ae7d-39aa6d0baad4">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="4d7b7c93-e13d-429d-ae7d-39aa6d0baad4">&lt;/code&gt;</ept> parameter where <bpt id="3f4929b6-e563-4a8c-92f9-caa1e834fa8b">&lt;code&gt;</bpt>T<ept id="3f4929b6-e563-4a8c-92f9-caa1e834fa8b">&lt;/code&gt;</ept> specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. </source>
+          <target state="new">To add entities to a table, use the <bpt id="44718f79-09aa-4212-b3e6-14b876e9e145">&lt;code&gt;</bpt>Table<ept id="44718f79-09aa-4212-b3e6-14b876e9e145">&lt;/code&gt;</ept> attribute with an <bpt id="cf0fea1b-bf9d-4690-b227-cc7496643c63">&lt;code&gt;</bpt>ICollector&lt;T&gt;<ept id="cf0fea1b-bf9d-4690-b227-cc7496643c63">&lt;/code&gt;</ept> or <bpt id="4d7b7c93-e13d-429d-ae7d-39aa6d0baad4">&lt;code&gt;</bpt>IAsyncCollector&lt;T&gt;<ept id="4d7b7c93-e13d-429d-ae7d-39aa6d0baad4">&lt;/code&gt;</ept> parameter where <bpt id="3f4929b6-e563-4a8c-92f9-caa1e834fa8b">&lt;code&gt;</bpt>T<ept id="3f4929b6-e563-4a8c-92f9-caa1e834fa8b">&lt;/code&gt;</ept> specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table. </target>
+        </trans-unit>
+        <trans-unit id="041f0b94-b044-47ea-85da-acee967eccb4" xml:space="preserve">
+          <source>The following code sample adds <bpt id="99eb11e9-7411-4b34-8db5-84a5f0d581f9">&lt;code&gt;</bpt>Person<ept id="99eb11e9-7411-4b34-8db5-84a5f0d581f9">&lt;/code&gt;</ept> entities to a table named <bpt id="b4d4a953-bde3-4540-8b25-505e8742c1c8">&lt;em&gt;</bpt>Ingress<ept id="b4d4a953-bde3-4540-8b25-505e8742c1c8">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following code sample adds <bpt id="99eb11e9-7411-4b34-8db5-84a5f0d581f9">&lt;code&gt;</bpt>Person<ept id="99eb11e9-7411-4b34-8db5-84a5f0d581f9">&lt;/code&gt;</ept> entities to a table named <bpt id="b4d4a953-bde3-4540-8b25-505e8742c1c8">&lt;em&gt;</bpt>Ingress<ept id="b4d4a953-bde3-4540-8b25-505e8742c1c8">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05ee3625-fb27-47d2-bd9d-ff77a3ec5276" xml:space="preserve">
+          <source>Typically the type you use with <bpt id="1753fa54-122c-4b77-a292-661501620fd9">&lt;code&gt;</bpt>ICollector<ept id="1753fa54-122c-4b77-a292-661501620fd9">&lt;/code&gt;</ept> derives from <bpt id="9b423ea8-b51b-4815-9679-ff159933c854">&lt;code&gt;</bpt>TableEntity<ept id="9b423ea8-b51b-4815-9679-ff159933c854">&lt;/code&gt;</ept> or implements <bpt id="e6599676-b7cf-446b-a51b-fda8b4ad16b2">&lt;code&gt;</bpt>ITableEntity<ept id="e6599676-b7cf-446b-a51b-fda8b4ad16b2">&lt;/code&gt;</ept>, but it doesn't have to.</source>
+          <target state="new">Typically the type you use with <bpt id="1753fa54-122c-4b77-a292-661501620fd9">&lt;code&gt;</bpt>ICollector<ept id="1753fa54-122c-4b77-a292-661501620fd9">&lt;/code&gt;</ept> derives from <bpt id="9b423ea8-b51b-4815-9679-ff159933c854">&lt;code&gt;</bpt>TableEntity<ept id="9b423ea8-b51b-4815-9679-ff159933c854">&lt;/code&gt;</ept> or implements <bpt id="e6599676-b7cf-446b-a51b-fda8b4ad16b2">&lt;code&gt;</bpt>ITableEntity<ept id="e6599676-b7cf-446b-a51b-fda8b4ad16b2">&lt;/code&gt;</ept>, but it doesn't have to.</target>
+        </trans-unit>
+        <trans-unit id="601f5af3-424f-4b58-b564-df81a5da20b0" xml:space="preserve">
+          <source>Either of the following <bpt id="7026a6c0-e093-4bb3-90d7-4b69a8e64cdf">&lt;code&gt;</bpt>Person<ept id="7026a6c0-e093-4bb3-90d7-4b69a8e64cdf">&lt;/code&gt;</ept> classes work with the code shown in the preceding <bpt id="f2ef27ab-e194-4d4a-aca6-0f049047cd5c">&lt;code&gt;</bpt>Ingress<ept id="f2ef27ab-e194-4d4a-aca6-0f049047cd5c">&lt;/code&gt;</ept> method.</source>
+          <target state="new">Either of the following <bpt id="7026a6c0-e093-4bb3-90d7-4b69a8e64cdf">&lt;code&gt;</bpt>Person<ept id="7026a6c0-e093-4bb3-90d7-4b69a8e64cdf">&lt;/code&gt;</ept> classes work with the code shown in the preceding <bpt id="f2ef27ab-e194-4d4a-aca6-0f049047cd5c">&lt;code&gt;</bpt>Ingress<ept id="f2ef27ab-e194-4d4a-aca6-0f049047cd5c">&lt;/code&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="0b3cddcd-8fb1-4085-9a33-44c24f54c97a" xml:space="preserve">
+          <source>If you want to work directly with the Azure storage API, you can add a <bpt id="a64b5912-4286-4f54-a306-3d0f3ed4ef18">&lt;code&gt;</bpt>CloudStorageAccount<ept id="a64b5912-4286-4f54-a306-3d0f3ed4ef18">&lt;/code&gt;</ept> parameter to the method signature.</source>
+          <target state="new">If you want to work directly with the Azure storage API, you can add a <bpt id="a64b5912-4286-4f54-a306-3d0f3ed4ef18">&lt;code&gt;</bpt>CloudStorageAccount<ept id="a64b5912-4286-4f54-a306-3d0f3ed4ef18">&lt;/code&gt;</ept> parameter to the method signature.</target>
+        </trans-unit>
+        <trans-unit id="d5bfe612-25f2-4bf8-9a8e-1eeea2a20629" xml:space="preserve">
+          <source>Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data.</source>
+          <target state="new">Because data ingress functions often process large volumes of data, the WebJobs SDK dashboard provides real-time monitoring data.</target>
+        </trans-unit>
+        <trans-unit id="f9db33d6-3faf-496f-80ab-57079da5c74e" xml:space="preserve">
+          <source>The <bpt id="033e19c0-33f8-4d18-a112-5def6e5a39c1">&lt;strong&gt;</bpt>Invocation Log<ept id="033e19c0-33f8-4d18-a112-5def6e5a39c1">&lt;/strong&gt;</ept> section tells you if the function is still running.</source>
+          <target state="new">The <bpt id="033e19c0-33f8-4d18-a112-5def6e5a39c1">&lt;strong&gt;</bpt>Invocation Log<ept id="033e19c0-33f8-4d18-a112-5def6e5a39c1">&lt;/strong&gt;</ept> section tells you if the function is still running.</target>
+        </trans-unit>
+        <trans-unit id="9a30120f-678c-447e-9f1b-2cbb757da746" xml:space="preserve">
+          <source><bpt id="b593eb2f-2391-4c85-a128-2a52ef56cf4f">&lt;linkText&gt;</bpt>Ingress function running<ept id="b593eb2f-2391-4c85-a128-2a52ef56cf4f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b593eb2f-2391-4c85-a128-2a52ef56cf4f">&lt;linkText&gt;</bpt>Ingress function running<ept id="b593eb2f-2391-4c85-a128-2a52ef56cf4f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c9f81f9-c402-4116-8f7a-bdb53dcc52fb" xml:space="preserve">
+          <source>The <bpt id="d72889ed-cbd6-4cdb-a4f0-4ffc6f9f827a">&lt;strong&gt;</bpt>Invocation Details<ept id="d72889ed-cbd6-4cdb-a4f0-4ffc6f9f827a">&lt;/strong&gt;</ept> page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it.</source>
+          <target state="new">The <bpt id="d72889ed-cbd6-4cdb-a4f0-4ffc6f9f827a">&lt;strong&gt;</bpt>Invocation Details<ept id="d72889ed-cbd6-4cdb-a4f0-4ffc6f9f827a">&lt;/strong&gt;</ept> page reports the function's progress (number of entities written) while it's running and gives you an opportunity to abort it.</target>
+        </trans-unit>
+        <trans-unit id="0a38e477-7b76-4885-b5b0-37b2ccc35a14" xml:space="preserve">
+          <source><bpt id="90b16674-82a8-43d8-89d8-a9266f4a1474">&lt;linkText&gt;</bpt>Ingress function running<ept id="90b16674-82a8-43d8-89d8-a9266f4a1474">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="90b16674-82a8-43d8-89d8-a9266f4a1474">&lt;linkText&gt;</bpt>Ingress function running<ept id="90b16674-82a8-43d8-89d8-a9266f4a1474">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a1beeec-abdb-4046-95d5-76f00be9e888" xml:space="preserve">
+          <source>When the function finishes, the <bpt id="28323408-bffc-4dfb-969b-8295769a2321">&lt;strong&gt;</bpt>Invocation Details<ept id="28323408-bffc-4dfb-969b-8295769a2321">&lt;/strong&gt;</ept> page reports the number of rows written.</source>
+          <target state="new">When the function finishes, the <bpt id="28323408-bffc-4dfb-969b-8295769a2321">&lt;strong&gt;</bpt>Invocation Details<ept id="28323408-bffc-4dfb-969b-8295769a2321">&lt;/strong&gt;</ept> page reports the number of rows written.</target>
+        </trans-unit>
+        <trans-unit id="9bbd8c67-3081-4c10-8be8-7cf4149f3329" xml:space="preserve">
+          <source><bpt id="370b7351-86b6-42a5-9b06-3c7a3e84abe6">&lt;linkText&gt;</bpt>Ingress function finished<ept id="370b7351-86b6-42a5-9b06-3c7a3e84abe6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="370b7351-86b6-42a5-9b06-3c7a3e84abe6">&lt;linkText&gt;</bpt>Ingress function finished<ept id="370b7351-86b6-42a5-9b06-3c7a3e84abe6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0421682-6386-4f65-8cb5-1083e797309b" xml:space="preserve">
+          <source>To read a table, use the <bpt id="034e4403-8836-49aa-bbf5-2a5a7c1dc7b2">&lt;code&gt;</bpt>Table<ept id="034e4403-8836-49aa-bbf5-2a5a7c1dc7b2">&lt;/code&gt;</ept> attribute with an <bpt id="0ab8ed21-d6fe-450f-b685-7935546ddb5d">&lt;code&gt;</bpt>IQueryable&lt;T&gt;<ept id="0ab8ed21-d6fe-450f-b685-7935546ddb5d">&lt;/code&gt;</ept> parameter where type <bpt id="ab84ee9d-9e87-4fb9-80c9-7ebef64f5fb6">&lt;code&gt;</bpt>T<ept id="ab84ee9d-9e87-4fb9-80c9-7ebef64f5fb6">&lt;/code&gt;</ept> derives from <bpt id="499297c6-7d66-47b8-9848-c4b4471e00a3">&lt;code&gt;</bpt>TableEntity<ept id="499297c6-7d66-47b8-9848-c4b4471e00a3">&lt;/code&gt;</ept> or implements <bpt id="fc897329-4c8b-480e-bedf-bc6d1f1d3680">&lt;code&gt;</bpt>ITableEntity<ept id="fc897329-4c8b-480e-bedf-bc6d1f1d3680">&lt;/code&gt;</ept>.</source>
+          <target state="new">To read a table, use the <bpt id="034e4403-8836-49aa-bbf5-2a5a7c1dc7b2">&lt;code&gt;</bpt>Table<ept id="034e4403-8836-49aa-bbf5-2a5a7c1dc7b2">&lt;/code&gt;</ept> attribute with an <bpt id="0ab8ed21-d6fe-450f-b685-7935546ddb5d">&lt;code&gt;</bpt>IQueryable&lt;T&gt;<ept id="0ab8ed21-d6fe-450f-b685-7935546ddb5d">&lt;/code&gt;</ept> parameter where type <bpt id="ab84ee9d-9e87-4fb9-80c9-7ebef64f5fb6">&lt;code&gt;</bpt>T<ept id="ab84ee9d-9e87-4fb9-80c9-7ebef64f5fb6">&lt;/code&gt;</ept> derives from <bpt id="499297c6-7d66-47b8-9848-c4b4471e00a3">&lt;code&gt;</bpt>TableEntity<ept id="499297c6-7d66-47b8-9848-c4b4471e00a3">&lt;/code&gt;</ept> or implements <bpt id="fc897329-4c8b-480e-bedf-bc6d1f1d3680">&lt;code&gt;</bpt>ITableEntity<ept id="fc897329-4c8b-480e-bedf-bc6d1f1d3680">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae603fcb-bf5f-489c-80dc-b803276cbb63" xml:space="preserve">
+          <source>The following code sample reads and logs all rows from the <bpt id="78df87e6-ce65-4dda-a243-f08e77c53090">&lt;code&gt;</bpt>Ingress<ept id="78df87e6-ce65-4dda-a243-f08e77c53090">&lt;/code&gt;</ept> table:</source>
+          <target state="new">The following code sample reads and logs all rows from the <bpt id="78df87e6-ce65-4dda-a243-f08e77c53090">&lt;code&gt;</bpt>Ingress<ept id="78df87e6-ce65-4dda-a243-f08e77c53090">&lt;/code&gt;</ept> table:</target>
+        </trans-unit>
+        <trans-unit id="54cd8546-4179-443e-8ca5-b17cfefa81dd" xml:space="preserve">
+          <source>There is a <bpt id="381965fb-4997-491b-b6e5-2da75f3de1dc">&lt;code&gt;</bpt>Table<ept id="381965fb-4997-491b-b6e5-2da75f3de1dc">&lt;/code&gt;</ept> attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.</source>
+          <target state="new">There is a <bpt id="381965fb-4997-491b-b6e5-2da75f3de1dc">&lt;code&gt;</bpt>Table<ept id="381965fb-4997-491b-b6e5-2da75f3de1dc">&lt;/code&gt;</ept> attribute constructor with two additional parameters that let you specify the partition key and row key when you want to bind to a single table entity.</target>
+        </trans-unit>
+        <trans-unit id="7d45d486-67b6-42f9-92d3-86cd3d3b63ea" xml:space="preserve">
+          <source>The following code sample reads a table row for a <bpt id="f9db25f5-d23d-44d9-8545-211c458b87c5">&lt;code&gt;</bpt>Person<ept id="f9db25f5-d23d-44d9-8545-211c458b87c5">&lt;/code&gt;</ept> entity based on partition key and row key values received in a queue message:  </source>
+          <target state="new">The following code sample reads a table row for a <bpt id="f9db25f5-d23d-44d9-8545-211c458b87c5">&lt;code&gt;</bpt>Person<ept id="f9db25f5-d23d-44d9-8545-211c458b87c5">&lt;/code&gt;</ept> entity based on partition key and row key values received in a queue message:  </target>
+        </trans-unit>
+        <trans-unit id="c370b2f2-a9a3-4ec7-973a-bd725e8f2026" xml:space="preserve">
+          <source>The <bpt id="5ea855c6-9921-4a0e-ae82-5b8cc8380e37">&lt;code&gt;</bpt>Person<ept id="5ea855c6-9921-4a0e-ae82-5b8cc8380e37">&lt;/code&gt;</ept> class in this example does not have to implement <bpt id="df14eb31-b30b-4973-9e8c-7db51fd3bf0f">&lt;code&gt;</bpt>ITableEntity<ept id="df14eb31-b30b-4973-9e8c-7db51fd3bf0f">&lt;/code&gt;</ept>.</source>
+          <target state="new">The <bpt id="5ea855c6-9921-4a0e-ae82-5b8cc8380e37">&lt;code&gt;</bpt>Person<ept id="5ea855c6-9921-4a0e-ae82-5b8cc8380e37">&lt;/code&gt;</ept> class in this example does not have to implement <bpt id="df14eb31-b30b-4973-9e8c-7db51fd3bf0f">&lt;code&gt;</bpt>ITableEntity<ept id="df14eb31-b30b-4973-9e8c-7db51fd3bf0f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="483f13ff-7037-403e-8907-542d41ac4841" xml:space="preserve">
+          <source>You can also use the <bpt id="fcba8b97-7e0f-410a-8011-7a09f713c15c">&lt;code&gt;</bpt>Table<ept id="fcba8b97-7e0f-410a-8011-7a09f713c15c">&lt;/code&gt;</ept> attribute with a <bpt id="e53fdeeb-5e7e-4fd2-bd78-2bd0c5088091">&lt;code&gt;</bpt>CloudTable<ept id="e53fdeeb-5e7e-4fd2-bd78-2bd0c5088091">&lt;/code&gt;</ept> object for more flexibility in working with a table.</source>
+          <target state="new">You can also use the <bpt id="fcba8b97-7e0f-410a-8011-7a09f713c15c">&lt;code&gt;</bpt>Table<ept id="fcba8b97-7e0f-410a-8011-7a09f713c15c">&lt;/code&gt;</ept> attribute with a <bpt id="e53fdeeb-5e7e-4fd2-bd78-2bd0c5088091">&lt;code&gt;</bpt>CloudTable<ept id="e53fdeeb-5e7e-4fd2-bd78-2bd0c5088091">&lt;/code&gt;</ept> object for more flexibility in working with a table.</target>
+        </trans-unit>
+        <trans-unit id="f6a9bafd-e07c-42d0-a74f-def87d97690c" xml:space="preserve">
+          <source>The following code sample uses a <bpt id="9f44cbaf-7398-4e0f-ad0c-6d9bd6984649">&lt;code&gt;</bpt>CloudTable<ept id="9f44cbaf-7398-4e0f-ad0c-6d9bd6984649">&lt;/code&gt;</ept> object to add a single entity to the <bpt id="a54117af-b2e5-40f2-a968-c4581805dd5d">&lt;em&gt;</bpt>Ingress<ept id="a54117af-b2e5-40f2-a968-c4581805dd5d">&lt;/em&gt;</ept> table.</source>
+          <target state="new">The following code sample uses a <bpt id="9f44cbaf-7398-4e0f-ad0c-6d9bd6984649">&lt;code&gt;</bpt>CloudTable<ept id="9f44cbaf-7398-4e0f-ad0c-6d9bd6984649">&lt;/code&gt;</ept> object to add a single entity to the <bpt id="a54117af-b2e5-40f2-a968-c4581805dd5d">&lt;em&gt;</bpt>Ingress<ept id="a54117af-b2e5-40f2-a968-c4581805dd5d">&lt;/em&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="63cc3ef5-bc34-4379-b265-5b0581638a96" xml:space="preserve">
+          <source>For more information about how to use the <bpt id="3c2d80db-92d4-4bcc-969b-18ebb597743c">&lt;code&gt;</bpt>CloudTable<ept id="3c2d80db-92d4-4bcc-969b-18ebb597743c">&lt;/code&gt;</ept> object, see <bpt id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;/linkText&gt;</ept><bpt id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;title&gt;</bpt><ept id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to use the <bpt id="3c2d80db-92d4-4bcc-969b-18ebb597743c">&lt;code&gt;</bpt>CloudTable<ept id="3c2d80db-92d4-4bcc-969b-18ebb597743c">&lt;/code&gt;</ept> object, see <bpt id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;linkText&gt;</bpt>How to use Table Storage from .NET<ept id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;/linkText&gt;</ept><bpt id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;title&gt;</bpt><ept id="71b4de58-73cf-48f6-8bca-7d730e99dc41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="57324e27-b5ce-4e3b-9561-c27f26c8159d" xml:space="preserve">
+          <source>For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see <bpt id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;/linkText&gt;</ept><bpt id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;title&gt;</bpt><ept id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see <bpt id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;/linkText&gt;</ept><bpt id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;title&gt;</bpt><ept id="9b92e612-a33b-4b6c-81cd-9d9c4557f85d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff1aea3c-7e8b-437a-aae3-ac1bea4c59b8" xml:space="preserve">
+          <source>Topics covered in that article include the following:</source>
+          <target state="new">Topics covered in that article include the following:</target>
+        </trans-unit>
+        <trans-unit id="efa71c3f-014f-4448-bd7e-b3189915ea72" xml:space="preserve">
+          <source>Async functions</source>
+          <target state="new">Async functions</target>
+        </trans-unit>
+        <trans-unit id="15b46a38-766f-4840-90c1-328b2fec2f5c" xml:space="preserve">
+          <source>Multiple instances</source>
+          <target state="new">Multiple instances</target>
+        </trans-unit>
+        <trans-unit id="62ebd17c-06c2-41b9-9624-4d58f7c252b4" xml:space="preserve">
+          <source>Graceful shutdown</source>
+          <target state="new">Graceful shutdown</target>
+        </trans-unit>
+        <trans-unit id="cfe493fa-be6f-4a6e-9d53-22ee0eb64d36" xml:space="preserve">
+          <source>Use WebJobs SDK attributes in the body of a function</source>
+          <target state="new">Use WebJobs SDK attributes in the body of a function</target>
+        </trans-unit>
+        <trans-unit id="c62e3a26-54e4-44c2-aba7-b23cc8ccac75" xml:space="preserve">
+          <source>Set the SDK connection strings in code</source>
+          <target state="new">Set the SDK connection strings in code</target>
+        </trans-unit>
+        <trans-unit id="3c2229f1-aad5-45e5-bf3f-a1d6d6c21e3a" xml:space="preserve">
+          <source>Set values for WebJobs SDK constructor parameters in code</source>
+          <target state="new">Set values for WebJobs SDK constructor parameters in code</target>
+        </trans-unit>
+        <trans-unit id="f7ab131b-89ad-4ab6-b3d4-870a8717e0dc" xml:space="preserve">
+          <source>Trigger a function manually</source>
+          <target state="new">Trigger a function manually</target>
+        </trans-unit>
+        <trans-unit id="d7fd9285-400c-409c-aa55-a9dcc0e63931" xml:space="preserve">
+          <source>Write logs</source>
+          <target state="new">Write logs</target>
+        </trans-unit>
+        <trans-unit id="58759568-c6e0-47c0-aa6e-864d262b6de0" xml:space="preserve">
+          <source>This guide has provided code samples that show how to handle common scenarios for working with Azure tables.</source>
+          <target state="new">This guide has provided code samples that show how to handle common scenarios for working with Azure tables.</target>
+        </trans-unit>
+        <trans-unit id="be28010e-1ef0-46be-88b4-13182a6f5994" xml:space="preserve">
+          <source>For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;/linkText&gt;</ept><bpt id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;title&gt;</bpt><ept id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to use Azure WebJobs and the WebJobs SDK, see <bpt id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;linkText&gt;</bpt>Azure WebJobs Recommended Resources<ept id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;/linkText&gt;</ept><bpt id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;title&gt;</bpt><ept id="ba4023f4-a488-4069-90d0-75ffae97de4d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

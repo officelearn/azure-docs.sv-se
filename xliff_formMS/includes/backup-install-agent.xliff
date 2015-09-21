@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="26ea161c-0936-4c5c-bd0c-0fbd4396665c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="26ea161c-0936-4c5c-bd0c-0fbd4396665c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d1c78227-6211-45b6-8a7e-b292438405b9">
+        <trans-unit id="e45f0c7e-390f-427b-ac6c-c5175c359a27" xml:space="preserve">
+          <source>After creating the Azure Backup vault, an agent should be installed on each of your on-premises servers (Windows Server, Windows client or Data Protection Manager server) that enables back up of data and applications to Azure.</source>
+          <target state="new">After creating the Azure Backup vault, an agent should be installed on each of your on-premises servers (Windows Server, Windows client or Data Protection Manager server) that enables back up of data and applications to Azure.</target>
+        </trans-unit>
+        <trans-unit id="0e4050bf-64b3-4239-8f73-7e870b966932" xml:space="preserve">
+          <source>Sign in to the <bpt id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;linkText&gt;</bpt>Management Portal<ept id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;/linkText&gt;</ept><bpt id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;title&gt;</bpt><ept id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;/title&gt;</ept></source>
+          <target state="new">Sign in to the <bpt id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;linkText&gt;</bpt>Management Portal<ept id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;/linkText&gt;</ept><bpt id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;title&gt;</bpt><ept id="4aad6f8a-281d-423f-99c7-f901749f3659">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="441d716c-a939-4dbb-9e7c-28fd39d25f89" xml:space="preserve">
+          <source>Click <bpt id="f409a80b-97fb-48f6-a499-b2f851b58e7b">&lt;strong&gt;</bpt>Recovery Services<ept id="f409a80b-97fb-48f6-a499-b2f851b58e7b">&lt;/strong&gt;</ept>, then select the backup vault that you want to register with a server.</source>
+          <target state="new">Click <bpt id="f409a80b-97fb-48f6-a499-b2f851b58e7b">&lt;strong&gt;</bpt>Recovery Services<ept id="f409a80b-97fb-48f6-a499-b2f851b58e7b">&lt;/strong&gt;</ept>, then select the backup vault that you want to register with a server.</target>
+        </trans-unit>
+        <trans-unit id="4a1e346a-b53c-4b15-925e-51e0592182f0" xml:space="preserve">
+          <source>The Quick Start page for that backup vault appears.</source>
+          <target state="new">The Quick Start page for that backup vault appears.</target>
+        </trans-unit>
+        <trans-unit id="a9e5e361-dc5f-42ed-86a5-b567eba84b69" xml:space="preserve">
+          <source><bpt id="ccca949d-47f3-4d2b-96ee-57be40b8fb25">&lt;linkText&gt;</bpt>Quick start<ept id="ccca949d-47f3-4d2b-96ee-57be40b8fb25">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccca949d-47f3-4d2b-96ee-57be40b8fb25">&lt;linkText&gt;</bpt>Quick start<ept id="ccca949d-47f3-4d2b-96ee-57be40b8fb25">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86347e29-37d2-4fd7-b444-e857ee609d21" xml:space="preserve">
+          <source>On the Quick Start page, click the <bpt id="28664f13-2273-4f0b-a1d4-06295fa76bae">&lt;strong&gt;</bpt>For Windows Server or System Center Data Protection Manager or Windows client<ept id="28664f13-2273-4f0b-a1d4-06295fa76bae">&lt;/strong&gt;</ept> option under <bpt id="581ff911-238f-411d-8fe7-f34ccf665de8">&lt;strong&gt;</bpt>Download Agent<ept id="581ff911-238f-411d-8fe7-f34ccf665de8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Quick Start page, click the <bpt id="28664f13-2273-4f0b-a1d4-06295fa76bae">&lt;strong&gt;</bpt>For Windows Server or System Center Data Protection Manager or Windows client<ept id="28664f13-2273-4f0b-a1d4-06295fa76bae">&lt;/strong&gt;</ept> option under <bpt id="581ff911-238f-411d-8fe7-f34ccf665de8">&lt;strong&gt;</bpt>Download Agent<ept id="581ff911-238f-411d-8fe7-f34ccf665de8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e157364e-b965-4551-a2c9-811475bce1cc" xml:space="preserve">
+          <source>Click <bpt id="700b0042-3c9e-4cf5-8d4c-f82d1f252328">&lt;strong&gt;</bpt>Save<ept id="700b0042-3c9e-4cf5-8d4c-f82d1f252328">&lt;/strong&gt;</ept> to copy it to the local machine.</source>
+          <target state="new">Click <bpt id="700b0042-3c9e-4cf5-8d4c-f82d1f252328">&lt;strong&gt;</bpt>Save<ept id="700b0042-3c9e-4cf5-8d4c-f82d1f252328">&lt;/strong&gt;</ept> to copy it to the local machine.</target>
+        </trans-unit>
+        <trans-unit id="d1eeebe7-e90c-4699-aa99-10757d3f24b5" xml:space="preserve">
+          <source><bpt id="16574c80-befc-47c3-9130-dd12b849ccde">&lt;linkText&gt;</bpt>Save agent<ept id="16574c80-befc-47c3-9130-dd12b849ccde">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16574c80-befc-47c3-9130-dd12b849ccde">&lt;linkText&gt;</bpt>Save agent<ept id="16574c80-befc-47c3-9130-dd12b849ccde">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4af04379-6bba-462a-ad66-3581e415a226" xml:space="preserve">
+          <source>Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent.</source>
+          <target state="new">Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent.</target>
+        </trans-unit>
+        <trans-unit id="bab3ad3e-1ed7-4f46-ba71-7a366e4079cd" xml:space="preserve">
+          <source>Choose the installation folder and scratch folder required for the agent.</source>
+          <target state="new">Choose the installation folder and scratch folder required for the agent.</target>
+        </trans-unit>
+        <trans-unit id="5ba27b21-d011-4d2c-be6c-36e8ecfc5a8d" xml:space="preserve">
+          <source>The cache location specified must have free space which is at least 5% of the backup data.</source>
+          <target state="new">The cache location specified must have free space which is at least 5% of the backup data.</target>
+        </trans-unit>
+        <trans-unit id="98ffcd8a-4d9c-4895-a152-0952785b437c" xml:space="preserve">
+          <source>If you use a proxy server to connect to the internet, in the <bpt id="b17f5af8-285f-40e1-9ad2-051c25a9e411">&lt;strong&gt;</bpt>Proxy configuration<ept id="b17f5af8-285f-40e1-9ad2-051c25a9e411">&lt;/strong&gt;</ept> screen, enter the proxy server details.</source>
+          <target state="new">If you use a proxy server to connect to the internet, in the <bpt id="b17f5af8-285f-40e1-9ad2-051c25a9e411">&lt;strong&gt;</bpt>Proxy configuration<ept id="b17f5af8-285f-40e1-9ad2-051c25a9e411">&lt;/strong&gt;</ept> screen, enter the proxy server details.</target>
+        </trans-unit>
+        <trans-unit id="e7985676-fe94-4253-8ea8-a9ffeb4b4e47" xml:space="preserve">
+          <source>If you use an authenticated proxy, enter the user name and password details in this screen.</source>
+          <target state="new">If you use an authenticated proxy, enter the user name and password details in this screen.</target>
+        </trans-unit>
+        <trans-unit id="492e2d11-1165-4b3d-a696-a9aae764d6dc" xml:space="preserve">
+          <source>The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.</source>
+          <target state="new">The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.</target>
+        </trans-unit>
+        <trans-unit id="90949c74-4223-48cf-8c01-c1126b4fad05" xml:space="preserve">
+          <source>Once the agent is installed, click the <bpt id="a8e6a9a8-7f30-4ed0-9972-9ace99016b61">&lt;strong&gt;</bpt>Proceed to Registration<ept id="a8e6a9a8-7f30-4ed0-9972-9ace99016b61">&lt;/strong&gt;</ept> button to continue with the workflow.</source>
+          <target state="new">Once the agent is installed, click the <bpt id="a8e6a9a8-7f30-4ed0-9972-9ace99016b61">&lt;strong&gt;</bpt>Proceed to Registration<ept id="a8e6a9a8-7f30-4ed0-9972-9ace99016b61">&lt;/strong&gt;</ept> button to continue with the workflow.</target>
+        </trans-unit>
+        <trans-unit id="5f6be2a7-f397-4824-9d29-f904e4e65a8b" xml:space="preserve">
+          <source><bpt id="a27a737d-1479-4414-a753-94570937dfb3">&lt;linkText&gt;</bpt>Register<ept id="a27a737d-1479-4414-a753-94570937dfb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a27a737d-1479-4414-a753-94570937dfb3">&lt;linkText&gt;</bpt>Register<ept id="a27a737d-1479-4414-a753-94570937dfb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6e72ca6-e39c-42c4-8d95-b195893981f3" xml:space="preserve">
+          <source>In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.</source>
+          <target state="new">In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.</target>
+        </trans-unit>
+        <trans-unit id="780f75a8-cf55-4215-9eba-7f018b68cfb9" xml:space="preserve">
+          <source><bpt id="fd1ef400-d482-415e-b1a3-dfd70ccd217a">&lt;linkText&gt;</bpt>Vault credentials<ept id="fd1ef400-d482-415e-b1a3-dfd70ccd217a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd1ef400-d482-415e-b1a3-dfd70ccd217a">&lt;linkText&gt;</bpt>Vault credentials<ept id="fd1ef400-d482-415e-b1a3-dfd70ccd217a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="876d4fae-1078-44bb-b43b-e388f6c5a677" xml:space="preserve">
+          <source>The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal).</source>
+          <target state="new">The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal).</target>
+        </trans-unit>
+        <trans-unit id="7bbeb781-f664-442c-90e6-1c219381d925" xml:space="preserve">
+          <source>If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.</source>
+          <target state="new">If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.</target>
+        </trans-unit>
+        <trans-unit id="c76b1708-0d57-413f-9bb2-578e3b9b91f6" xml:space="preserve">
+          <source>Ensure that the vault credentials file is available in a location which can be accessed by the setup application.</source>
+          <target state="new">Ensure that the vault credentials file is available in a location which can be accessed by the setup application.</target>
+        </trans-unit>
+        <trans-unit id="8696b0fb-d610-4c43-9ffd-7d8ce9d2695b" xml:space="preserve">
+          <source>If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.</source>
+          <target state="new">If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.</target>
+        </trans-unit>
+        <trans-unit id="c34ac418-7db6-4a9c-bc13-fa8d7520c1eb" xml:space="preserve">
+          <source>If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service.</source>
+          <target state="new">If you encounter an invalid vault credential error (e.g “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service.</target>
+        </trans-unit>
+        <trans-unit id="50f07cae-502c-4686-a62a-36771a3d9273" xml:space="preserve">
+          <source>Retry the operation after downloading a new vault credential file from the portal.</source>
+          <target state="new">Retry the operation after downloading a new vault credential file from the portal.</target>
+        </trans-unit>
+        <trans-unit id="5d248d28-acd3-4280-b646-9007247c6cb8" xml:space="preserve">
+          <source>This error is typically seen if the user clicks on the <bpt id="896b60a3-1320-43ec-ba01-d0c45ebd2aa3">&lt;strong&gt;</bpt>Download vault credential<ept id="896b60a3-1320-43ec-ba01-d0c45ebd2aa3">&lt;/strong&gt;</ept> option in the Azure portal, in quick succession.</source>
+          <target state="new">This error is typically seen if the user clicks on the <bpt id="896b60a3-1320-43ec-ba01-d0c45ebd2aa3">&lt;strong&gt;</bpt>Download vault credential<ept id="896b60a3-1320-43ec-ba01-d0c45ebd2aa3">&lt;/strong&gt;</ept> option in the Azure portal, in quick succession.</target>
+        </trans-unit>
+        <trans-unit id="f3a2fed1-2e3d-4f26-9315-c249c560080c" xml:space="preserve">
+          <source>In this case, only the second vault credential file is valid.</source>
+          <target state="new">In this case, only the second vault credential file is valid.</target>
+        </trans-unit>
+        <trans-unit id="ac7949be-3ed9-442b-a959-c14cf96318cf" xml:space="preserve">
+          <source>In the <bpt id="215077c6-21ae-4331-9056-cabee8d7eac3">&lt;strong&gt;</bpt>Encryption setting<ept id="215077c6-21ae-4331-9056-cabee8d7eac3">&lt;/strong&gt;</ept> screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters).</source>
+          <target state="new">In the <bpt id="215077c6-21ae-4331-9056-cabee8d7eac3">&lt;strong&gt;</bpt>Encryption setting<ept id="215077c6-21ae-4331-9056-cabee8d7eac3">&lt;/strong&gt;</ept> screen, you can either generate a passphrase or provide a passphrase (minimum of 16 characters).</target>
+        </trans-unit>
+        <trans-unit id="8214eb7e-3279-4fc3-ac83-a716f26eb632" xml:space="preserve">
+          <source>Remember to save the passphrase in a secure location.</source>
+          <target state="new">Remember to save the passphrase in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="7b9b761b-ad23-4d91-8092-51ed67bc2b32" xml:space="preserve">
+          <source><bpt id="b72fd237-005a-49ee-b6d3-641d6322a5a2">&lt;linkText&gt;</bpt>Encryption<ept id="b72fd237-005a-49ee-b6d3-641d6322a5a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b72fd237-005a-49ee-b6d3-641d6322a5a2">&lt;linkText&gt;</bpt>Encryption<ept id="b72fd237-005a-49ee-b6d3-641d6322a5a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e670ed6d-465d-4767-b100-b2a11556cd77" xml:space="preserve">
+          <source>If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data.</source>
+          <target state="new">If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data.</target>
+        </trans-unit>
+        <trans-unit id="ccce57c0-8944-425c-8edf-545b1ea833ec" xml:space="preserve">
+          <source>The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user.</source>
+          <target state="new">The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user.</target>
+        </trans-unit>
+        <trans-unit id="4f7bb777-bb07-427e-aeb9-9a94e74a0e49" xml:space="preserve">
+          <source>Please save the file in a secure location as it is required during a recovery operation.</source>
+          <target state="new">Please save the file in a secure location as it is required during a recovery operation.</target>
+        </trans-unit>
+        <trans-unit id="c9a4de1b-135e-441b-a5d9-354534e81183" xml:space="preserve">
+          <source>Once you click the <bpt id="d6c0031d-54fc-4996-981b-3eb85218a714">&lt;strong&gt;</bpt>Finish<ept id="d6c0031d-54fc-4996-981b-3eb85218a714">&lt;/strong&gt;</ept> button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.</source>
+          <target state="new">Once you click the <bpt id="d6c0031d-54fc-4996-981b-3eb85218a714">&lt;strong&gt;</bpt>Finish<ept id="d6c0031d-54fc-4996-981b-3eb85218a714">&lt;/strong&gt;</ept> button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="d751b8b2-26dd-43a2-8825-5d9e5ba5c8d8" xml:space="preserve">
+          <source>When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the <bpt id="ad0bf8b8-71b4-4b31-825a-3ea0dac74d3c">&lt;strong&gt;</bpt>Change Properties<ept id="ad0bf8b8-71b4-4b31-825a-3ea0dac74d3c">&lt;/strong&gt;</ept> option in the Azure Backup mmc snap in.</source>
+          <target state="new">When using Microsoft Azure Backup standalone you can modify the settings specified during the registration workflow by clicking on the <bpt id="ad0bf8b8-71b4-4b31-825a-3ea0dac74d3c">&lt;strong&gt;</bpt>Change Properties<ept id="ad0bf8b8-71b4-4b31-825a-3ea0dac74d3c">&lt;/strong&gt;</ept> option in the Azure Backup mmc snap in.</target>
+        </trans-unit>
+        <trans-unit id="26a84bfa-f4df-4238-aeef-1a970326ffa8" xml:space="preserve">
+          <source><bpt id="d69c31f1-7f16-4d74-90e6-33f051e5406a">&lt;linkText&gt;</bpt>Change Properties<ept id="d69c31f1-7f16-4d74-90e6-33f051e5406a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d69c31f1-7f16-4d74-90e6-33f051e5406a">&lt;linkText&gt;</bpt>Change Properties<ept id="d69c31f1-7f16-4d74-90e6-33f051e5406a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14dace94-589c-4cc1-8333-9230c1bbd45a" xml:space="preserve">
+          <source>Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the <bpt id="e3b19a5b-f95a-426e-b890-bd3f2af86648">&lt;strong&gt;</bpt>Configure<ept id="e3b19a5b-f95a-426e-b890-bd3f2af86648">&lt;/strong&gt;</ept> option by selecting <bpt id="5188e2ea-95b6-471b-b330-61023320b494">&lt;strong&gt;</bpt>Online<ept id="5188e2ea-95b6-471b-b330-61023320b494">&lt;/strong&gt;</ept> under the <bpt id="aca8bf98-4f05-49ce-b322-53f97327090f">&lt;strong&gt;</bpt>Management<ept id="aca8bf98-4f05-49ce-b322-53f97327090f">&lt;/strong&gt;</ept> Tab.</source>
+          <target state="new">Alternatively, when using Data Protection Manager, you can modify the settings specified  during the registration workflow by clicking the <bpt id="e3b19a5b-f95a-426e-b890-bd3f2af86648">&lt;strong&gt;</bpt>Configure<ept id="e3b19a5b-f95a-426e-b890-bd3f2af86648">&lt;/strong&gt;</ept> option by selecting <bpt id="5188e2ea-95b6-471b-b330-61023320b494">&lt;strong&gt;</bpt>Online<ept id="5188e2ea-95b6-471b-b330-61023320b494">&lt;/strong&gt;</ept> under the <bpt id="aca8bf98-4f05-49ce-b322-53f97327090f">&lt;strong&gt;</bpt>Management<ept id="aca8bf98-4f05-49ce-b322-53f97327090f">&lt;/strong&gt;</ept> Tab.</target>
+        </trans-unit>
+        <trans-unit id="b498dd1b-cabd-4df6-bb3f-768e8525fbd3" xml:space="preserve">
+          <source><bpt id="26ac749e-6f12-448e-9ddb-681cdef6addf">&lt;linkText&gt;</bpt>Configure Azure Backup<ept id="26ac749e-6f12-448e-9ddb-681cdef6addf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="26ac749e-6f12-448e-9ddb-681cdef6addf">&lt;linkText&gt;</bpt>Configure Azure Backup<ept id="26ac749e-6f12-448e-9ddb-681cdef6addf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2f5c3be6-979b-493c-b44c-3267581e0587" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2f5c3be6-979b-493c-b44c-3267581e0587" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="78832fa0-d312-4821-aa22-744b94dc609e">
+        <trans-unit id="52dfbe30-9ca8-41c2-8c20-81d942d89ebf" xml:space="preserve">
+          <source>App Model v2.0 | Microsoft Azure</source>
+          <target state="new">App Model v2.0 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="883e7625-bcb3-4c05-8c49-257a18a669e8" xml:space="preserve">
+          <source>How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts.</source>
+          <target state="new">How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts.</target>
+        </trans-unit>
+        <trans-unit id="3e651b52-bd7d-422a-ad22-2db815fa0e1e" xml:space="preserve">
+          <source>The quick-start tutorial for iOS isn't quite ready... Check back soon &amp; look for updates from @AzureAD on Twitter.</source>
+          <target state="new">The quick-start tutorial for iOS isn't quite ready... Check back soon &amp; look for updates from @AzureAD on Twitter.</target>
+        </trans-unit>
+        <trans-unit id="bcf8a4fd-1618-457b-9a53-4af3fef8bfd1" xml:space="preserve">
+          <source>This information applies to the v2.0 app model public preview.</source>
+          <target state="new">This information applies to the v2.0 app model public preview.</target>
+        </trans-unit>
+        <trans-unit id="9c052bcb-163e-4696-8804-2edd5fa189f0" xml:space="preserve">
+          <source>For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;/linkText&gt;</ept><bpt id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;title&gt;</bpt><ept id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on how to integrate with the generally available Azure AD service, please refer to the <bpt id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;linkText&gt;</bpt>Azure Active Directory Developer Guide<ept id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;/linkText&gt;</ept><bpt id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;title&gt;</bpt><ept id="879015ce-574a-4530-9bc3-a73c923f43a1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

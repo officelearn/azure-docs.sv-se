@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cf8d1429-cbc8-467b-bc63-be852eece9a5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cf8d1429-cbc8-467b-bc63-be852eece9a5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="22fec664-4829-4761-bbe1-9a84ad9afbfd">
+        <trans-unit id="af4f1087-7f00-45f2-894c-a6a133c1db39" xml:space="preserve">
+          <source>Schedule recurring jobs in Azure Mobile Services</source>
+          <target state="new">Schedule recurring jobs in Azure Mobile Services</target>
+        </trans-unit>
+        <trans-unit id="2eeecaf3-319c-4a9f-9905-a5abaf0b7bd8" xml:space="preserve">
+          <source>Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app.</source>
+          <target state="new">Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app.</target>
+        </trans-unit>
+        <trans-unit id="a175564b-0789-4464-af71-fbf2ad7233ff" xml:space="preserve">
+          <source>This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.</source>
+          <target state="new">This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define.</target>
+        </trans-unit>
+        <trans-unit id="d6892d2c-955f-44f5-acf3-3cce479e13bf" xml:space="preserve">
+          <source>In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table.</source>
+          <target state="new">In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table.</target>
+        </trans-unit>
+        <trans-unit id="f91c7aad-73df-4757-817c-a03e4a8bcc27" xml:space="preserve">
+          <source>Some other periodic tasks that can be scheduled include:</source>
+          <target state="new">Some other periodic tasks that can be scheduled include:</target>
+        </trans-unit>
+        <trans-unit id="4cdbc55f-3add-4bea-9441-842617a5a8de" xml:space="preserve">
+          <source>Archiving old or duplicate data records.</source>
+          <target state="new">Archiving old or duplicate data records.</target>
+        </trans-unit>
+        <trans-unit id="ad03662e-137d-497c-9fed-88003a0d0258" xml:space="preserve">
+          <source>Requesting and storing external data, such as tweets, RSS entries, and location information.</source>
+          <target state="new">Requesting and storing external data, such as tweets, RSS entries, and location information.</target>
+        </trans-unit>
+        <trans-unit id="3719d18c-efe8-4d7a-a856-b961230e70b2" xml:space="preserve">
+          <source>Processing or resizing stored images.</source>
+          <target state="new">Processing or resizing stored images.</target>
+        </trans-unit>
+        <trans-unit id="798f61c6-32e3-4601-8c82-f3fe4e4b14dd" xml:space="preserve">
+          <source>This tutorial walks you through how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.</source>
+          <target state="new">This tutorial walks you through how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table.</target>
+        </trans-unit>
+        <trans-unit id="f9ca8491-4d4d-4f2a-9e5e-0d55b8d06273" xml:space="preserve">
+          <source>This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1.</source>
+          <target state="new">This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1.</target>
+        </trans-unit>
+        <trans-unit id="af71b624-434f-4672-a747-255801468339" xml:space="preserve">
+          <source>APIs.</source>
+          <target state="new">APIs.</target>
+        </trans-unit>
+        <trans-unit id="612620e2-6da0-45c7-af4f-b77274e5cd25" xml:space="preserve">
+          <source>You must download and install the LINQ to Twitter NuGet package to complete this tutorial.</source>
+          <target state="new">You must download and install the LINQ to Twitter NuGet package to complete this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="c822a1e6-2539-4fba-b74f-b05f4f3bab7a" xml:space="preserve">
+          <source>For more information, see the [LINQ to Twitter CodePlex project].</source>
+          <target state="new">For more information, see the [LINQ to Twitter CodePlex project].</target>
+        </trans-unit>
+        <trans-unit id="cfa67303-5a4f-49fb-8e2c-dad56c7e375d" xml:space="preserve">
+          <source><bpt id="037692d1-392d-4a41-ad60-73f013721c7e">&lt;token href="../../includes/mobile-services-register-twitter-access.md"&gt;</bpt><ept id="037692d1-392d-4a41-ad60-73f013721c7e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="037692d1-392d-4a41-ad60-73f013721c7e">&lt;token href="../../includes/mobile-services-register-twitter-access.md"&gt;</bpt><ept id="037692d1-392d-4a41-ad60-73f013721c7e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41f73e5c-1efd-497a-8542-06b2f162c3a4" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;7.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;7.</target>
+        </trans-unit>
+        <trans-unit id="6318d60e-9da6-4095-ae50-c657c3878379" xml:space="preserve">
+          <source>In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <bpt id="880992b4-bf7a-4ef4-9e3a-c1410332a772">&lt;code&gt;</bpt>MS_TwitterConsumerKey<ept id="880992b4-bf7a-4ef4-9e3a-c1410332a772">&lt;/code&gt;</ept> and <bpt id="ddf56553-e8fe-48e7-9941-af3ecba92210">&lt;code&gt;</bpt>MS_TwitterConsumerSecret<ept id="ddf56553-e8fe-48e7-9941-af3ecba92210">&lt;/code&gt;</ept> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</source>
+          <target state="new">In Solution Explorer in Visual Studio, open the web.config file for the mobile service project, locate the <bpt id="880992b4-bf7a-4ef4-9e3a-c1410332a772">&lt;code&gt;</bpt>MS_TwitterConsumerKey<ept id="880992b4-bf7a-4ef4-9e3a-c1410332a772">&lt;/code&gt;</ept> and <bpt id="ddf56553-e8fe-48e7-9941-af3ecba92210">&lt;code&gt;</bpt>MS_TwitterConsumerSecret<ept id="ddf56553-e8fe-48e7-9941-af3ecba92210">&lt;/code&gt;</ept> app settings and replace the values of these keys with Twitter consumer key and consumer secret values that you set in the portal.</target>
+        </trans-unit>
+        <trans-unit id="01b19f2b-66b5-4f78-aa24-0d9374986f43" xml:space="preserve">
+          <source>&amp;nbsp;&amp;nbsp;8.</source>
+          <target state="new">&amp;nbsp;&amp;nbsp;8.</target>
+        </trans-unit>
+        <trans-unit id="e0671a92-e8de-48b1-a494-c840a329e403" xml:space="preserve">
+          <source>In the same section, add the following new app settings, replacing the placeholders with the Twitter access token and access token secret values that you set as app settings in the portal:</source>
+          <target state="new">In the same section, add the following new app settings, replacing the placeholders with the Twitter access token and access token secret values that you set as app settings in the portal:</target>
+        </trans-unit>
+        <trans-unit id="3943c126-3279-4d43-939c-7c56e17b3428" xml:space="preserve">
+          <source>The mobile service uses these stored settings when it runs on the local computer, which lets you test the scheduled job before you publish it.</source>
+          <target state="new">The mobile service uses these stored settings when it runs on the local computer, which lets you test the scheduled job before you publish it.</target>
+        </trans-unit>
+        <trans-unit id="a957e122-44a5-4489-8716-468fbfc6ef6e" xml:space="preserve">
+          <source>When running in Azure, the mobile service instead uses values set in the portal and ignores these project settings.</source>
+          <target state="new">When running in Azure, the mobile service instead uses values set in the portal and ignores these project settings.</target>
+        </trans-unit>
+        <trans-unit id="685050ea-7f73-4bf2-8e84-76d8b7ea951c" xml:space="preserve">
+          <source>In <bpt id="d99bcc45-5082-4514-862b-3c4356c3a73d">&lt;strong&gt;</bpt>Solution Explorer<ept id="d99bcc45-5082-4514-862b-3c4356c3a73d">&lt;/strong&gt;</ept> in Visual Studio, right-click the project name, and then select <bpt id="e7f866ec-75c2-4c15-a6a8-88ee47681a5a">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e7f866ec-75c2-4c15-a6a8-88ee47681a5a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="d99bcc45-5082-4514-862b-3c4356c3a73d">&lt;strong&gt;</bpt>Solution Explorer<ept id="d99bcc45-5082-4514-862b-3c4356c3a73d">&lt;/strong&gt;</ept> in Visual Studio, right-click the project name, and then select <bpt id="e7f866ec-75c2-4c15-a6a8-88ee47681a5a">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e7f866ec-75c2-4c15-a6a8-88ee47681a5a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="173a6db0-5820-4a10-b1e8-541b9e3e7585" xml:space="preserve">
+          <source>In the left pane, select the <bpt id="41a1f473-9764-4f37-836e-3b344114ed88">&lt;strong&gt;</bpt>Online<ept id="41a1f473-9764-4f37-836e-3b344114ed88">&lt;/strong&gt;</ept> category, search for <bpt id="eaf44719-bbd4-4a4f-b814-6335a06813d8">&lt;code&gt;</bpt>linq2twitter<ept id="eaf44719-bbd4-4a4f-b814-6335a06813d8">&lt;/code&gt;</ept>, click <bpt id="409c745b-437f-4df8-a7b7-19cf93dd29e7">&lt;strong&gt;</bpt>Install<ept id="409c745b-437f-4df8-a7b7-19cf93dd29e7">&lt;/strong&gt;</ept> on the <bpt id="36f21abc-6210-4463-b0c6-7ad6a1b5db4f">&lt;strong&gt;</bpt>linqtotwitter<ept id="36f21abc-6210-4463-b0c6-7ad6a1b5db4f">&lt;/strong&gt;</ept> package, then read and accept the license agreements.</source>
+          <target state="new">In the left pane, select the <bpt id="41a1f473-9764-4f37-836e-3b344114ed88">&lt;strong&gt;</bpt>Online<ept id="41a1f473-9764-4f37-836e-3b344114ed88">&lt;/strong&gt;</ept> category, search for <bpt id="eaf44719-bbd4-4a4f-b814-6335a06813d8">&lt;code&gt;</bpt>linq2twitter<ept id="eaf44719-bbd4-4a4f-b814-6335a06813d8">&lt;/code&gt;</ept>, click <bpt id="409c745b-437f-4df8-a7b7-19cf93dd29e7">&lt;strong&gt;</bpt>Install<ept id="409c745b-437f-4df8-a7b7-19cf93dd29e7">&lt;/strong&gt;</ept> on the <bpt id="36f21abc-6210-4463-b0c6-7ad6a1b5db4f">&lt;strong&gt;</bpt>linqtotwitter<ept id="36f21abc-6210-4463-b0c6-7ad6a1b5db4f">&lt;/strong&gt;</ept> package, then read and accept the license agreements.</target>
+        </trans-unit>
+        <trans-unit id="82e9b8af-9b48-4bab-8f4e-d1a5ff00650e" xml:space="preserve">
+          <source><bpt id="535f99a3-86a2-416c-8676-3d037fc77b42">&lt;linkText&gt;</bpt><ept id="535f99a3-86a2-416c-8676-3d037fc77b42">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="535f99a3-86a2-416c-8676-3d037fc77b42">&lt;linkText&gt;</bpt><ept id="535f99a3-86a2-416c-8676-3d037fc77b42">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a31310a8-ef51-4380-9775-b0133d193b03" xml:space="preserve">
+          <source>This adds the Linq to Twitter library to your mobile service project.</source>
+          <target state="new">This adds the Linq to Twitter library to your mobile service project.</target>
+        </trans-unit>
+        <trans-unit id="0c83f6be-3078-40e5-8344-0255a9211885" xml:space="preserve">
+          <source>Next, you need to create a new table in which to store tweets.</source>
+          <target state="new">Next, you need to create a new table in which to store tweets.</target>
+        </trans-unit>
+        <trans-unit id="ae667e07-7c91-4674-a989-3b6fbf0ca267" xml:space="preserve">
+          <source>In the Solution Explorer in Visual Studio, right-click the DataObjects folder, expand <bpt id="53d07cc6-4032-45fc-84d9-e629434e26ea">&lt;strong&gt;</bpt>Add<ept id="53d07cc6-4032-45fc-84d9-e629434e26ea">&lt;/strong&gt;</ept>, click <bpt id="a76bdfd3-4a63-4cb9-855a-99728ef3ef47">&lt;strong&gt;</bpt>Class<ept id="a76bdfd3-4a63-4cb9-855a-99728ef3ef47">&lt;/strong&gt;</ept>,   type <bpt id="8fe57c84-07a5-4990-a7bc-b36a54260d78">&lt;code&gt;</bpt>Updates<ept id="8fe57c84-07a5-4990-a7bc-b36a54260d78">&lt;/code&gt;</ept> for <bpt id="50fcd3ef-e946-4bfa-a5e7-0a1719879804">&lt;strong&gt;</bpt>Name<ept id="50fcd3ef-e946-4bfa-a5e7-0a1719879804">&lt;/strong&gt;</ept>, then click <bpt id="b0696753-7150-4c20-8142-763ef9d5c4be">&lt;strong&gt;</bpt>Add<ept id="b0696753-7150-4c20-8142-763ef9d5c4be">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Solution Explorer in Visual Studio, right-click the DataObjects folder, expand <bpt id="53d07cc6-4032-45fc-84d9-e629434e26ea">&lt;strong&gt;</bpt>Add<ept id="53d07cc6-4032-45fc-84d9-e629434e26ea">&lt;/strong&gt;</ept>, click <bpt id="a76bdfd3-4a63-4cb9-855a-99728ef3ef47">&lt;strong&gt;</bpt>Class<ept id="a76bdfd3-4a63-4cb9-855a-99728ef3ef47">&lt;/strong&gt;</ept>,   type <bpt id="8fe57c84-07a5-4990-a7bc-b36a54260d78">&lt;code&gt;</bpt>Updates<ept id="8fe57c84-07a5-4990-a7bc-b36a54260d78">&lt;/code&gt;</ept> for <bpt id="50fcd3ef-e946-4bfa-a5e7-0a1719879804">&lt;strong&gt;</bpt>Name<ept id="50fcd3ef-e946-4bfa-a5e7-0a1719879804">&lt;/strong&gt;</ept>, then click <bpt id="b0696753-7150-4c20-8142-763ef9d5c4be">&lt;strong&gt;</bpt>Add<ept id="b0696753-7150-4c20-8142-763ef9d5c4be">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6feee486-4f72-41e5-afc0-d40a883b730b" xml:space="preserve">
+          <source>This creates a new project file for the Updates class.</source>
+          <target state="new">This creates a new project file for the Updates class.</target>
+        </trans-unit>
+        <trans-unit id="b1687c4c-fd43-4867-b3ea-a127aed96b10" xml:space="preserve">
+          <source>Right-click <bpt id="17a58d4c-c78e-44ed-b817-a9fe221abd67">&lt;strong&gt;</bpt>References<ept id="17a58d4c-c78e-44ed-b817-a9fe221abd67">&lt;/strong&gt;</ept> &gt; <bpt id="e580197a-0070-4d6f-86d9-fed1bda993e0">&lt;strong&gt;</bpt>Add Reference...<ept id="e580197a-0070-4d6f-86d9-fed1bda993e0">&lt;/strong&gt;</ept> &gt; <bpt id="fcc67416-aeaf-46bc-90a2-692eb6de47de">&lt;strong&gt;</bpt>Framework<ept id="fcc67416-aeaf-46bc-90a2-692eb6de47de">&lt;/strong&gt;</ept> under <bpt id="2ac00b5b-f769-41be-a332-2773afcacf1d">&lt;strong&gt;</bpt>Assemblies<ept id="2ac00b5b-f769-41be-a332-2773afcacf1d">&lt;/strong&gt;</ept>, then check <bpt id="a8094909-ee9f-4ae1-820d-1f62986c4ac4">&lt;strong&gt;</bpt>System.ComponentModel.DataAnnotations<ept id="a8094909-ee9f-4ae1-820d-1f62986c4ac4">&lt;/strong&gt;</ept> and click <bpt id="401fc287-8caf-4b08-9cfe-45394f428f85">&lt;strong&gt;</bpt>OK<ept id="401fc287-8caf-4b08-9cfe-45394f428f85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click <bpt id="17a58d4c-c78e-44ed-b817-a9fe221abd67">&lt;strong&gt;</bpt>References<ept id="17a58d4c-c78e-44ed-b817-a9fe221abd67">&lt;/strong&gt;</ept> &gt; <bpt id="e580197a-0070-4d6f-86d9-fed1bda993e0">&lt;strong&gt;</bpt>Add Reference...<ept id="e580197a-0070-4d6f-86d9-fed1bda993e0">&lt;/strong&gt;</ept> &gt; <bpt id="fcc67416-aeaf-46bc-90a2-692eb6de47de">&lt;strong&gt;</bpt>Framework<ept id="fcc67416-aeaf-46bc-90a2-692eb6de47de">&lt;/strong&gt;</ept> under <bpt id="2ac00b5b-f769-41be-a332-2773afcacf1d">&lt;strong&gt;</bpt>Assemblies<ept id="2ac00b5b-f769-41be-a332-2773afcacf1d">&lt;/strong&gt;</ept>, then check <bpt id="a8094909-ee9f-4ae1-820d-1f62986c4ac4">&lt;strong&gt;</bpt>System.ComponentModel.DataAnnotations<ept id="a8094909-ee9f-4ae1-820d-1f62986c4ac4">&lt;/strong&gt;</ept> and click <bpt id="401fc287-8caf-4b08-9cfe-45394f428f85">&lt;strong&gt;</bpt>OK<ept id="401fc287-8caf-4b08-9cfe-45394f428f85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c2051ae-fbe8-4227-b4d2-6c2ef11044bd" xml:space="preserve">
+          <source><bpt id="64ee1cbf-345d-4ae3-bdb6-fcaefcaa38b5">&lt;linkText&gt;</bpt><ept id="64ee1cbf-345d-4ae3-bdb6-fcaefcaa38b5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="64ee1cbf-345d-4ae3-bdb6-fcaefcaa38b5">&lt;linkText&gt;</bpt><ept id="64ee1cbf-345d-4ae3-bdb6-fcaefcaa38b5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40db6ed5-3499-45ea-bac0-ad9627c0a8bc" xml:space="preserve">
+          <source>This adds a new assembly reference.</source>
+          <target state="new">This adds a new assembly reference.</target>
+        </trans-unit>
+        <trans-unit id="cd14178f-bd03-44fa-a2f3-8644f8738a8d" xml:space="preserve">
+          <source>In this new class, add the following <bpt id="c54e07d4-bf91-434e-9860-9d04e3e3519f">&lt;strong&gt;</bpt>using<ept id="c54e07d4-bf91-434e-9860-9d04e3e3519f">&lt;/strong&gt;</ept> statements:</source>
+          <target state="new">In this new class, add the following <bpt id="c54e07d4-bf91-434e-9860-9d04e3e3519f">&lt;strong&gt;</bpt>using<ept id="c54e07d4-bf91-434e-9860-9d04e3e3519f">&lt;/strong&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="d59c4a49-634d-43bf-a0b8-ec67db12858c" xml:space="preserve">
+          <source>Replace the <bpt id="65b54c28-76b9-45ed-9d68-fa7bc31c9b3a">&lt;strong&gt;</bpt>Updates<ept id="65b54c28-76b9-45ed-9d68-fa7bc31c9b3a">&lt;/strong&gt;</ept> class definition with the following code:</source>
+          <target state="new">Replace the <bpt id="65b54c28-76b9-45ed-9d68-fa7bc31c9b3a">&lt;strong&gt;</bpt>Updates<ept id="65b54c28-76b9-45ed-9d68-fa7bc31c9b3a">&lt;/strong&gt;</ept> class definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="d004059e-4e8a-4a9f-9a87-26f0abe95345" xml:space="preserve">
+          <source>Expand the Models folder, open the data model context file (named <bpt id="f79db1a4-1b4b-4af2-a910-088c5b803555">&lt;em&gt;</bpt>service_name<ept id="f79db1a4-1b4b-4af2-a910-088c5b803555">&lt;/em&gt;</ept>Context.cs) and add the following property that returns a typed <bpt id="a69e0c50-e3fd-4507-80fc-ccabf3deb2c9">&lt;strong&gt;</bpt>DbSet<ept id="a69e0c50-e3fd-4507-80fc-ccabf3deb2c9">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Expand the Models folder, open the data model context file (named <bpt id="f79db1a4-1b4b-4af2-a910-088c5b803555">&lt;em&gt;</bpt>service_name<ept id="f79db1a4-1b4b-4af2-a910-088c5b803555">&lt;/em&gt;</ept>Context.cs) and add the following property that returns a typed <bpt id="a69e0c50-e3fd-4507-80fc-ccabf3deb2c9">&lt;strong&gt;</bpt>DbSet<ept id="a69e0c50-e3fd-4507-80fc-ccabf3deb2c9">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a0a1beb0-ccac-47ee-a126-45922133849d" xml:space="preserve">
+          <source>The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.</source>
+          <target state="new">The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.</target>
+        </trans-unit>
+        <trans-unit id="fdcba8af-44fe-4458-8e77-0f4e1dd86825" xml:space="preserve">
+          <source>When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</source>
+          <target state="new">When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition.</target>
+        </trans-unit>
+        <trans-unit id="e746bdf0-2ba9-4b0c-86a9-64a20a26e945" xml:space="preserve">
+          <source>To make this data model change and maintain existing data in the database, you must use Code First Migrations.</source>
+          <target state="new">To make this data model change and maintain existing data in the database, you must use Code First Migrations.</target>
+        </trans-unit>
+        <trans-unit id="574ab137-ed88-4d3e-9638-135e55a6fdc7" xml:space="preserve">
+          <source>The default initializer cannot be used against a SQL Database in Azure.</source>
+          <target state="new">The default initializer cannot be used against a SQL Database in Azure.</target>
+        </trans-unit>
+        <trans-unit id="70427043-fe5e-41f0-a2aa-be058d7296a7" xml:space="preserve">
+          <source>For more information, see <bpt id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;/linkText&gt;</ept><bpt id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;title&gt;</bpt><ept id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;linkText&gt;</bpt>How to Use Code First Migrations to Update the Data Model<ept id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;/linkText&gt;</ept><bpt id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;title&gt;</bpt><ept id="04990aa7-3345-4107-b344-aef00bb8079d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="887e7114-67ea-4bea-bf11-4295203a6f04" xml:space="preserve">
+          <source>Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.</source>
+          <target state="new">Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.</target>
+        </trans-unit>
+        <trans-unit id="ad40588a-bc34-4bb7-b5f1-21e3496d68c7" xml:space="preserve">
+          <source>Expand the ScheduledJobs folder and open the SampleJob.cs project file.</source>
+          <target state="new">Expand the ScheduledJobs folder and open the SampleJob.cs project file.</target>
+        </trans-unit>
+        <trans-unit id="fd658583-031e-4543-889e-6f27e40efeb8" xml:space="preserve">
+          <source>This class, which inherits from <bpt id="c1720576-c04d-4c44-8fad-66e2ab0d514a">&lt;strong&gt;</bpt>ScheduledJob<ept id="c1720576-c04d-4c44-8fad-66e2ab0d514a">&lt;/strong&gt;</ept>, represents a job that can be scheduled, in the Azure Management Portal, to run on a fixed schedule or on demand.</source>
+          <target state="new">This class, which inherits from <bpt id="c1720576-c04d-4c44-8fad-66e2ab0d514a">&lt;strong&gt;</bpt>ScheduledJob<ept id="c1720576-c04d-4c44-8fad-66e2ab0d514a">&lt;/strong&gt;</ept>, represents a job that can be scheduled, in the Azure Management Portal, to run on a fixed schedule or on demand.</target>
+        </trans-unit>
+        <trans-unit id="236fea68-ac9e-4769-bfc0-46b84d8d7ac8" xml:space="preserve">
+          <source>Replace the contents of SampleJob.cs with the following code:</source>
+          <target state="new">Replace the contents of SampleJob.cs with the following code:</target>
+        </trans-unit>
+        <trans-unit id="b9da75fe-04bc-4c1f-bdeb-1ebbe33db7e1" xml:space="preserve">
+          <source>In the above code, you must replace the strings <bpt id="bfb608b4-33fb-4ec7-9112-188e3832d5b6">&lt;em&gt;</bpt>todolistService<ept id="bfb608b4-33fb-4ec7-9112-188e3832d5b6">&lt;/em&gt;</ept> and <bpt id="cf6c0121-186d-43ab-bdef-6633f8be798d">&lt;em&gt;</bpt>todolistContext<ept id="cf6c0121-186d-43ab-bdef-6633f8be798d">&lt;/em&gt;</ept> with the namespace and DbContext of your downloaded project, which are <bpt id="9a5723fa-7fcd-4d81-9c7e-4725e0daa7c7">&lt;em&gt;</bpt>mobile&amp;#95;service&amp;#95;name<ept id="9a5723fa-7fcd-4d81-9c7e-4725e0daa7c7">&lt;/em&gt;</ept>Service and <bpt id="885b9dc6-8ff2-4024-a130-d700ff634921">&lt;em&gt;</bpt>mobile&amp;#95;service&amp;#95;name<ept id="885b9dc6-8ff2-4024-a130-d700ff634921">&lt;/em&gt;</ept>Context, respective.</source>
+          <target state="new">In the above code, you must replace the strings <bpt id="bfb608b4-33fb-4ec7-9112-188e3832d5b6">&lt;em&gt;</bpt>todolistService<ept id="bfb608b4-33fb-4ec7-9112-188e3832d5b6">&lt;/em&gt;</ept> and <bpt id="cf6c0121-186d-43ab-bdef-6633f8be798d">&lt;em&gt;</bpt>todolistContext<ept id="cf6c0121-186d-43ab-bdef-6633f8be798d">&lt;/em&gt;</ept> with the namespace and DbContext of your downloaded project, which are <bpt id="9a5723fa-7fcd-4d81-9c7e-4725e0daa7c7">&lt;em&gt;</bpt>mobile&amp;#95;service&amp;#95;name<ept id="9a5723fa-7fcd-4d81-9c7e-4725e0daa7c7">&lt;/em&gt;</ept>Service and <bpt id="885b9dc6-8ff2-4024-a130-d700ff634921">&lt;em&gt;</bpt>mobile&amp;#95;service&amp;#95;name<ept id="885b9dc6-8ff2-4024-a130-d700ff634921">&lt;/em&gt;</ept>Context, respective.</target>
+        </trans-unit>
+        <trans-unit id="472d39e1-cab5-4190-a85e-a037c79805b8" xml:space="preserve">
+          <source>In the above code, the <bpt id="3c11124e-93ec-475f-9447-06b5b6bef9ea">&lt;strong&gt;</bpt>ExecuteAsync<ept id="3c11124e-93ec-475f-9447-06b5b6bef9ea">&lt;/strong&gt;</ept> override method calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag <bpt id="e5586add-7040-402d-9c61-7f4981463cf6">&lt;code&gt;</bpt>#mobileservices<ept id="e5586add-7040-402d-9c61-7f4981463cf6">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the above code, the <bpt id="3c11124e-93ec-475f-9447-06b5b6bef9ea">&lt;strong&gt;</bpt>ExecuteAsync<ept id="3c11124e-93ec-475f-9447-06b5b6bef9ea">&lt;/strong&gt;</ept> override method calls the Twitter query API using stored credentials to request recent tweets that contain the hashtag <bpt id="e5586add-7040-402d-9c61-7f4981463cf6">&lt;code&gt;</bpt>#mobileservices<ept id="e5586add-7040-402d-9c61-7f4981463cf6">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="603d59f3-6c99-4e07-a9f4-2c47053b9fe0" xml:space="preserve">
+          <source>Duplicate tweets and replies are removed from the results before they are stored in the table.</source>
+          <target state="new">Duplicate tweets and replies are removed from the results before they are stored in the table.</target>
+        </trans-unit>
+        <trans-unit id="4135fec6-ed5f-4a45-8a79-967b64845e16" xml:space="preserve">
+          <source>Schedule jobs can be tested locally before being published to Azure and registered in the portal.</source>
+          <target state="new">Schedule jobs can be tested locally before being published to Azure and registered in the portal.</target>
+        </trans-unit>
+        <trans-unit id="a819eef3-c02f-4aae-86c6-e9523ccab074" xml:space="preserve">
+          <source>In Visual Studio, with the mobile service project set as the startup project, press F5.</source>
+          <target state="new">In Visual Studio, with the mobile service project set as the startup project, press F5.</target>
+        </trans-unit>
+        <trans-unit id="61f47e52-681b-4de0-a41b-46442576820b" xml:space="preserve">
+          <source>This starts the mobile service project and displays a new browser window with the welcome page.</source>
+          <target state="new">This starts the mobile service project and displays a new browser window with the welcome page.</target>
+        </trans-unit>
+        <trans-unit id="a74f1f65-1d9a-48b1-8655-047dc934b64a" xml:space="preserve">
+          <source>Click <bpt id="e9c3f184-4a1e-4c24-b122-81b172b86f78">&lt;strong&gt;</bpt>try it out<ept id="e9c3f184-4a1e-4c24-b122-81b172b86f78">&lt;/strong&gt;</ept>, then click <bpt id="3d24596d-bf0c-418a-899b-d696951457ed">&lt;strong&gt;</bpt>POST jobs/{jobName}<ept id="3d24596d-bf0c-418a-899b-d696951457ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="e9c3f184-4a1e-4c24-b122-81b172b86f78">&lt;strong&gt;</bpt>try it out<ept id="e9c3f184-4a1e-4c24-b122-81b172b86f78">&lt;/strong&gt;</ept>, then click <bpt id="3d24596d-bf0c-418a-899b-d696951457ed">&lt;strong&gt;</bpt>POST jobs/{jobName}<ept id="3d24596d-bf0c-418a-899b-d696951457ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25fce2ef-b3eb-4e07-a968-2537fb64ad54" xml:space="preserve">
+          <source><bpt id="580f58d0-c374-417c-9032-58107bb9bb9a">&lt;linkText&gt;</bpt><ept id="580f58d0-c374-417c-9032-58107bb9bb9a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="580f58d0-c374-417c-9032-58107bb9bb9a">&lt;linkText&gt;</bpt><ept id="580f58d0-c374-417c-9032-58107bb9bb9a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a1ab78e-cb7c-4bed-a282-29f8e6c51754" xml:space="preserve">
+          <source>Click <bpt id="b1bbbb72-8363-4949-bd46-13ca67b96d5a">&lt;strong&gt;</bpt>try this out<ept id="b1bbbb72-8363-4949-bd46-13ca67b96d5a">&lt;/strong&gt;</ept>, type <bpt id="427af9c3-f99c-44c1-8291-4f2025688267">&lt;code&gt;</bpt>Sample<ept id="427af9c3-f99c-44c1-8291-4f2025688267">&lt;/code&gt;</ept> as the <bpt id="fc77e000-50af-4b57-b37a-6020b84b0c01">&lt;strong&gt;</bpt>{jobName}<ept id="fc77e000-50af-4b57-b37a-6020b84b0c01">&lt;/strong&gt;</ept> parameter value, then click <bpt id="c2090c90-1aa6-4a73-82c6-face7c10db02">&lt;strong&gt;</bpt>Send<ept id="c2090c90-1aa6-4a73-82c6-face7c10db02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b1bbbb72-8363-4949-bd46-13ca67b96d5a">&lt;strong&gt;</bpt>try this out<ept id="b1bbbb72-8363-4949-bd46-13ca67b96d5a">&lt;/strong&gt;</ept>, type <bpt id="427af9c3-f99c-44c1-8291-4f2025688267">&lt;code&gt;</bpt>Sample<ept id="427af9c3-f99c-44c1-8291-4f2025688267">&lt;/code&gt;</ept> as the <bpt id="fc77e000-50af-4b57-b37a-6020b84b0c01">&lt;strong&gt;</bpt>{jobName}<ept id="fc77e000-50af-4b57-b37a-6020b84b0c01">&lt;/strong&gt;</ept> parameter value, then click <bpt id="c2090c90-1aa6-4a73-82c6-face7c10db02">&lt;strong&gt;</bpt>Send<ept id="c2090c90-1aa6-4a73-82c6-face7c10db02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c2a31636-c30d-41dc-88b3-c767f9423273" xml:space="preserve">
+          <source><bpt id="5bd25d75-c56b-47ff-b916-bfa7dd9e3128">&lt;linkText&gt;</bpt><ept id="5bd25d75-c56b-47ff-b916-bfa7dd9e3128">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bd25d75-c56b-47ff-b916-bfa7dd9e3128">&lt;linkText&gt;</bpt><ept id="5bd25d75-c56b-47ff-b916-bfa7dd9e3128">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d178622-ebba-4a86-8e02-c8a3af5882a6" xml:space="preserve">
+          <source>This sends a new POST request to the Sample job endpoint.</source>
+          <target state="new">This sends a new POST request to the Sample job endpoint.</target>
+        </trans-unit>
+        <trans-unit id="ecd6fd4e-df2a-4595-8bac-83c8285db5c7" xml:space="preserve">
+          <source>In the local service, the <bpt id="1603c90d-d07e-4995-bf0c-8121e1e373d0">&lt;strong&gt;</bpt>ExecuteAsync<ept id="1603c90d-d07e-4995-bf0c-8121e1e373d0">&lt;/strong&gt;</ept> method is started.</source>
+          <target state="new">In the local service, the <bpt id="1603c90d-d07e-4995-bf0c-8121e1e373d0">&lt;strong&gt;</bpt>ExecuteAsync<ept id="1603c90d-d07e-4995-bf0c-8121e1e373d0">&lt;/strong&gt;</ept> method is started.</target>
+        </trans-unit>
+        <trans-unit id="6430d350-fe8e-4802-853c-2fe1085e8509" xml:space="preserve">
+          <source>You can set a break point in this method to debug the code.</source>
+          <target state="new">You can set a break point in this method to debug the code.</target>
+        </trans-unit>
+        <trans-unit id="361e5c39-4b26-401a-9ccb-d393d56b94df" xml:space="preserve">
+          <source>In Server Explorer, expand <bpt id="d58f25e5-4555-4020-b5ab-14ec6fe15551">&lt;strong&gt;</bpt>Data Connections<ept id="d58f25e5-4555-4020-b5ab-14ec6fe15551">&lt;/strong&gt;</ept>, <bpt id="a9da79f3-974d-48a5-9a9b-853ba2917a0d">&lt;strong&gt;</bpt>MSTableConnectionString<ept id="a9da79f3-974d-48a5-9a9b-853ba2917a0d">&lt;/strong&gt;</ept>, and <bpt id="6b4b5051-618e-43b1-92a1-62829fae04af">&lt;strong&gt;</bpt>tables<ept id="6b4b5051-618e-43b1-92a1-62829fae04af">&lt;/strong&gt;</ept>; right-click <bpt id="b869f931-a780-40c9-b2eb-a3d5dd928312">&lt;strong&gt;</bpt>Updates<ept id="b869f931-a780-40c9-b2eb-a3d5dd928312">&lt;/strong&gt;</ept> and click <bpt id="2ea989aa-07b8-46e9-b476-442ea93b5c96">&lt;strong&gt;</bpt>Show Table Data<ept id="2ea989aa-07b8-46e9-b476-442ea93b5c96">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Server Explorer, expand <bpt id="d58f25e5-4555-4020-b5ab-14ec6fe15551">&lt;strong&gt;</bpt>Data Connections<ept id="d58f25e5-4555-4020-b5ab-14ec6fe15551">&lt;/strong&gt;</ept>, <bpt id="a9da79f3-974d-48a5-9a9b-853ba2917a0d">&lt;strong&gt;</bpt>MSTableConnectionString<ept id="a9da79f3-974d-48a5-9a9b-853ba2917a0d">&lt;/strong&gt;</ept>, and <bpt id="6b4b5051-618e-43b1-92a1-62829fae04af">&lt;strong&gt;</bpt>tables<ept id="6b4b5051-618e-43b1-92a1-62829fae04af">&lt;/strong&gt;</ept>; right-click <bpt id="b869f931-a780-40c9-b2eb-a3d5dd928312">&lt;strong&gt;</bpt>Updates<ept id="b869f931-a780-40c9-b2eb-a3d5dd928312">&lt;/strong&gt;</ept> and click <bpt id="2ea989aa-07b8-46e9-b476-442ea93b5c96">&lt;strong&gt;</bpt>Show Table Data<ept id="2ea989aa-07b8-46e9-b476-442ea93b5c96">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b06ea031-685f-46d2-b08f-0371781d5c63" xml:space="preserve">
+          <source>The new tweets are entered as rows in the data table.</source>
+          <target state="new">The new tweets are entered as rows in the data table.</target>
+        </trans-unit>
+        <trans-unit id="7a1a7447-d205-4182-ad0e-1785b1052e6c" xml:space="preserve">
+          <source>The job must be registered in the <bpt id="0ac105d3-be01-44fd-b364-e9d4b82ca128">&lt;strong&gt;</bpt>Scheduler<ept id="0ac105d3-be01-44fd-b364-e9d4b82ca128">&lt;/strong&gt;</ept> tab so that Mobile Services can run it on the schedule that you define.</source>
+          <target state="new">The job must be registered in the <bpt id="0ac105d3-be01-44fd-b364-e9d4b82ca128">&lt;strong&gt;</bpt>Scheduler<ept id="0ac105d3-be01-44fd-b364-e9d4b82ca128">&lt;/strong&gt;</ept> tab so that Mobile Services can run it on the schedule that you define.</target>
+        </trans-unit>
+        <trans-unit id="01e37346-4d23-4c23-b464-d8a885f20410" xml:space="preserve">
+          <source>Republish the mobile service project to Azure.</source>
+          <target state="new">Republish the mobile service project to Azure.</target>
+        </trans-unit>
+        <trans-unit id="a78e48e6-cac6-47eb-8598-9d3e33537b96" xml:space="preserve">
+          <source>In the [Azure Management Portal], click Mobile Services, and then click your app.</source>
+          <target state="new">In the [Azure Management Portal], click Mobile Services, and then click your app.</target>
+        </trans-unit>
+        <trans-unit id="409cb6c4-972f-47b2-a057-dab201a24ed2" xml:space="preserve">
+          <source>Click the <bpt id="9284a4b8-f3fb-44b9-a01e-b02ee559c37d">&lt;strong&gt;</bpt>Scheduler<ept id="9284a4b8-f3fb-44b9-a01e-b02ee559c37d">&lt;/strong&gt;</ept> tab, then click <bpt id="3cd27c36-cff7-475b-ad67-b819f9970747">&lt;strong&gt;</bpt>+Create<ept id="3cd27c36-cff7-475b-ad67-b819f9970747">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="9284a4b8-f3fb-44b9-a01e-b02ee559c37d">&lt;strong&gt;</bpt>Scheduler<ept id="9284a4b8-f3fb-44b9-a01e-b02ee559c37d">&lt;/strong&gt;</ept> tab, then click <bpt id="3cd27c36-cff7-475b-ad67-b819f9970747">&lt;strong&gt;</bpt>+Create<ept id="3cd27c36-cff7-475b-ad67-b819f9970747">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55aa36fe-f23a-49e5-9259-a9e2e8717ccf" xml:space="preserve">
+          <source>When you run your mobile service in &lt;em&gt;Free&lt;/em&gt; tier, you are only able to run one scheduled job at a time.</source>
+          <target state="new">When you run your mobile service in &lt;em&gt;Free&lt;/em&gt; tier, you are only able to run one scheduled job at a time.</target>
+        </trans-unit>
+        <trans-unit id="980fb059-17e3-4f76-b686-6275722c7298" xml:space="preserve">
+          <source>In paid tiers, you can run up to ten scheduled jobs at a time.</source>
+          <target state="new">In paid tiers, you can run up to ten scheduled jobs at a time.</target>
+        </trans-unit>
+        <trans-unit id="96ebb2f5-7552-41b8-9787-3a614fae31bb" xml:space="preserve">
+          <source>In the scheduler dialog, enter <bpt id="7f4b2a93-cbd0-4ac6-b53a-30b2b1155260">&lt;em&gt;</bpt>Sample<ept id="7f4b2a93-cbd0-4ac6-b53a-30b2b1155260">&lt;/em&gt;</ept> for the <bpt id="4cb58547-7870-419e-a033-96e552392f66">&lt;strong&gt;</bpt>Job Name<ept id="4cb58547-7870-419e-a033-96e552392f66">&lt;/strong&gt;</ept>, set the schedule interval and units, then click the check button.</source>
+          <target state="new">In the scheduler dialog, enter <bpt id="7f4b2a93-cbd0-4ac6-b53a-30b2b1155260">&lt;em&gt;</bpt>Sample<ept id="7f4b2a93-cbd0-4ac6-b53a-30b2b1155260">&lt;/em&gt;</ept> for the <bpt id="4cb58547-7870-419e-a033-96e552392f66">&lt;strong&gt;</bpt>Job Name<ept id="4cb58547-7870-419e-a033-96e552392f66">&lt;/strong&gt;</ept>, set the schedule interval and units, then click the check button.</target>
+        </trans-unit>
+        <trans-unit id="206fdb96-623d-4ddd-a934-f3ac1717b98f" xml:space="preserve">
+          <source><bpt id="0d661854-446d-4a24-8537-b09cee87bb58">&lt;linkText&gt;</bpt><ept id="0d661854-446d-4a24-8537-b09cee87bb58">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d661854-446d-4a24-8537-b09cee87bb58">&lt;linkText&gt;</bpt><ept id="0d661854-446d-4a24-8537-b09cee87bb58">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acf31df0-d090-4f78-a244-2e2879d885d8" xml:space="preserve">
+          <source>This creates a new job named <bpt id="8d90afc8-7db8-4bda-9707-3de827c8c692">&lt;strong&gt;</bpt>Sample<ept id="8d90afc8-7db8-4bda-9707-3de827c8c692">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This creates a new job named <bpt id="8d90afc8-7db8-4bda-9707-3de827c8c692">&lt;strong&gt;</bpt>Sample<ept id="8d90afc8-7db8-4bda-9707-3de827c8c692">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed349dfa-3f13-429d-ae5c-2ec5777276d2" xml:space="preserve">
+          <source>Click the new job you just created, then click <bpt id="e886f888-df9a-401a-bc14-43e3c7fb1cfd">&lt;strong&gt;</bpt>Run Once<ept id="e886f888-df9a-401a-bc14-43e3c7fb1cfd">&lt;/strong&gt;</ept> to test the script.</source>
+          <target state="new">Click the new job you just created, then click <bpt id="e886f888-df9a-401a-bc14-43e3c7fb1cfd">&lt;strong&gt;</bpt>Run Once<ept id="e886f888-df9a-401a-bc14-43e3c7fb1cfd">&lt;/strong&gt;</ept> to test the script.</target>
+        </trans-unit>
+        <trans-unit id="865d9c04-2f48-444c-8e63-1a2ac7d53793" xml:space="preserve">
+          <source>This executes the job while it remains disabled in the scheduler.</source>
+          <target state="new">This executes the job while it remains disabled in the scheduler.</target>
+        </trans-unit>
+        <trans-unit id="7d7ec101-c88e-4eca-ad5f-49d237e5e073" xml:space="preserve">
+          <source>From this page, you can enable the job and change its schedule at any time.</source>
+          <target state="new">From this page, you can enable the job and change its schedule at any time.</target>
+        </trans-unit>
+        <trans-unit id="1af504e6-69c5-42b7-8c57-dcc2bc47cdfa" xml:space="preserve">
+          <source>A POST request can still be used to start the scheduled job.</source>
+          <target state="new">A POST request can still be used to start the scheduled job.</target>
+        </trans-unit>
+        <trans-unit id="aa9f30c9-9e0d-49f4-bbf1-ae32403530d3" xml:space="preserve">
+          <source>However, the authorization defaults to user, which means that the request must include the application key in the header.</source>
+          <target state="new">However, the authorization defaults to user, which means that the request must include the application key in the header.</target>
+        </trans-unit>
+        <trans-unit id="b708010b-f239-48d3-8b12-98c90c431de3" xml:space="preserve">
+          <source>(Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.</source>
+          <target state="new">(Optional) In the [Azure Management Portal], click manage for the database associated with your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="21b0acb2-4a38-47df-a47d-7e245797fb72" xml:space="preserve">
+          <source><bpt id="651f27c2-351b-42bf-8f5f-39d7bce8726f">&lt;linkText&gt;</bpt><ept id="651f27c2-351b-42bf-8f5f-39d7bce8726f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="651f27c2-351b-42bf-8f5f-39d7bce8726f">&lt;linkText&gt;</bpt><ept id="651f27c2-351b-42bf-8f5f-39d7bce8726f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86931fa7-5c51-47dc-8b62-b1da2fabde69" xml:space="preserve">
+          <source>In the Management portal execute a query to view the changes made by the app.</source>
+          <target state="new">In the Management portal execute a query to view the changes made by the app.</target>
+        </trans-unit>
+        <trans-unit id="4d5b9bce-cff2-4697-a4f0-0075e6fbd3a3" xml:space="preserve">
+          <source>Your query will be similar to the following query but use your mobile service name as schema name instead of <bpt id="df5f7c48-6d2b-4839-a952-971e33b02e3d">&lt;code&gt;</bpt>todolist<ept id="df5f7c48-6d2b-4839-a952-971e33b02e3d">&lt;/code&gt;</ept>.</source>
+          <target state="new">Your query will be similar to the following query but use your mobile service name as schema name instead of <bpt id="df5f7c48-6d2b-4839-a952-971e33b02e3d">&lt;code&gt;</bpt>todolist<ept id="df5f7c48-6d2b-4839-a952-971e33b02e3d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9486ac3-fe6e-418b-afd4-e87a408e6da4" xml:space="preserve">
+          <source>Congratulations, you have successfully created a new scheduled job in your mobile service.</source>
+          <target state="new">Congratulations, you have successfully created a new scheduled job in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="a6e2abb7-76b8-4cff-a83f-915eba79d879" xml:space="preserve">
+          <source>This job will be executed as scheduled until you disable or modify it.</source>
+          <target state="new">This job will be executed as scheduled until you disable or modify it.</target>
+        </trans-unit>
+        <trans-unit id="142a8476-290e-4048-b6cc-99e86dd6c558" xml:space="preserve">
+          <source>#get-oauth-credentials</source>
+          <target state="new">#get-oauth-credentials</target>
+        </trans-unit>
+        <trans-unit id="f8b6ff2f-cba3-4138-9ec5-dd172c3193b6" xml:space="preserve">
+          <source>#install-linq2twitter</source>
+          <target state="new">#install-linq2twitter</target>
+        </trans-unit>
+        <trans-unit id="c1f2e757-ba68-4e0f-81c5-d2f0ec9233c4" xml:space="preserve">
+          <source>#create-table</source>
+          <target state="new">#create-table</target>
+        </trans-unit>
+        <trans-unit id="b4a03bf1-7638-4e94-9fbd-e6c95486dff5" xml:space="preserve">
+          <source>#add-job</source>
+          <target state="new">#add-job</target>
+        </trans-unit>
+        <trans-unit id="74f8e8ca-9cbd-4deb-8b75-0945c196b44b" xml:space="preserve">
+          <source>#run-job-locally</source>
+          <target state="new">#run-job-locally</target>
+        </trans-unit>
+        <trans-unit id="8fcdcfa2-8c8b-4ec7-92d6-ccd4b9c3f3aa" xml:space="preserve">
+          <source>#register-job</source>
+          <target state="new">#register-job</target>
+        </trans-unit>
+        <trans-unit id="02be69b7-8a4c-45dc-98e1-27721d991d99" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="47a4579f-66c6-421d-bea9-33ae4a1cbbaa" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png</target>
+        </trans-unit>
+        <trans-unit id="c49d8dcb-5249-4988-93bd-03b7b84d0d03" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-services-selection.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-services-selection.png</target>
+        </trans-unit>
+        <trans-unit id="e3b9660f-468c-4bcb-a5df-6c2115909b63" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-schedule-new-job-cli.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-schedule-new-job-cli.png</target>
+        </trans-unit>
+        <trans-unit id="a2ff4359-1f3d-4130-b777-894992cafa95" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/create-new-job.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/create-new-job.png</target>
+        </trans-unit>
+        <trans-unit id="1a9ffa5f-08a4-4658-96f3-649fb1e94e4c" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/sample-job-run-once.png</target>
+        </trans-unit>
+        <trans-unit id="d26a9708-b5fc-41d1-aab2-3d360e8bf720" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/manage-sql-azure-database.png</target>
+        </trans-unit>
+        <trans-unit id="658baca3-933a-4162-b556-ed3d7c78f1b0" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png</target>
+        </trans-unit>
+        <trans-unit id="323cf4a8-b181-45fe-9e02-29b12253c722" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png</target>
+        </trans-unit>
+        <trans-unit id="2e13cff7-073e-4961-be86-52bd81b4e10c" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png</target>
+        </trans-unit>
+        <trans-unit id="faf9a3bb-2693-4f8c-b93e-01b85d083497" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="bed040f2-94cd-456a-93da-3416fee9c7a9" xml:space="preserve">
+          <source>mobile-services-how-to-register-twitter-authentication.md</source>
+          <target state="new">mobile-services-how-to-register-twitter-authentication.md</target>
+        </trans-unit>
+        <trans-unit id="d5298fca-7822-457b-bc70-002ce98aa763" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=268300</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=268300</target>
+        </trans-unit>
+        <trans-unit id="8b31d34a-bd67-40e6-8d7c-752ae4df8173" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7</target>
+        </trans-unit>
+        <trans-unit id="c35a1515-e105-4527-ba5c-66db9a4a1c07" xml:space="preserve">
+          <source>http://linqtotwitter.codeplex.com/</source>
+          <target state="new">http://linqtotwitter.codeplex.com/</target>
+        </trans-unit>
+      </group>
+      <group id="deed2bea-956b-4473-a5f5-6fef4b25c23a" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ddaa31c0-80ce-4f2c-af46-ec26085c8cb5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ddaa31c0-80ce-4f2c-af46-ec26085c8cb5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fdfe89cf-5974-4504-8ef2-91a88464b8d3">
+        <trans-unit id="ef5159b8-055a-4e7d-9b46-94b123b380ec" xml:space="preserve">
+          <source>Optional: Configure a new storage account for the service</source>
+          <target state="new">Optional: Configure a new storage account for the service</target>
+        </trans-unit>
+        <trans-unit id="f7c30dbd-c644-4fa7-abd1-55955f663002" xml:space="preserve">
+          <source>Explains how to configure a storage account for the StorSimple service.</source>
+          <target state="new">Explains how to configure a storage account for the StorSimple service.</target>
+        </trans-unit>
+        <trans-unit id="7f8f0eb1-fdef-47ff-8077-c11825b1b96d" xml:space="preserve">
+          <source>On the StorSimple Manager service landing page, select your service and double-click it.</source>
+          <target state="new">On the StorSimple Manager service landing page, select your service and double-click it.</target>
+        </trans-unit>
+        <trans-unit id="4572cb47-6f48-404f-a27f-e4a5dc464ede" xml:space="preserve">
+          <source>This will take you to the <bpt id="c556e07d-bef1-4065-9dac-f3181dbc7cca">&lt;strong&gt;</bpt>Quick Start<ept id="c556e07d-bef1-4065-9dac-f3181dbc7cca">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">This will take you to the <bpt id="c556e07d-bef1-4065-9dac-f3181dbc7cca">&lt;strong&gt;</bpt>Quick Start<ept id="c556e07d-bef1-4065-9dac-f3181dbc7cca">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="46c50dc2-7e8e-4eb4-9626-f00ba0e851ca" xml:space="preserve">
+          <source>Select the <bpt id="fb91ca6a-fc6b-4896-b3fb-11a0a76aa446">&lt;strong&gt;</bpt>Configure<ept id="fb91ca6a-fc6b-4896-b3fb-11a0a76aa446">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Select the <bpt id="fb91ca6a-fc6b-4896-b3fb-11a0a76aa446">&lt;strong&gt;</bpt>Configure<ept id="fb91ca6a-fc6b-4896-b3fb-11a0a76aa446">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="cb983c7f-de1e-46a5-bdf4-6763c463387e" xml:space="preserve">
+          <source>Click <bpt id="0a179c96-ca0a-48ab-8e5c-d0cbefa2b950">&lt;strong&gt;</bpt>Add/edit storage account<ept id="0a179c96-ca0a-48ab-8e5c-d0cbefa2b950">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0a179c96-ca0a-48ab-8e5c-d0cbefa2b950">&lt;strong&gt;</bpt>Add/edit storage account<ept id="0a179c96-ca0a-48ab-8e5c-d0cbefa2b950">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b005b373-ea3c-45ab-aebc-da93769b7b4f" xml:space="preserve">
+          <source>In the <bpt id="0b245c68-0d41-4bbf-b232-d84eeaa6bad5">&lt;strong&gt;</bpt>Add/Edit Storage Account<ept id="0b245c68-0d41-4bbf-b232-d84eeaa6bad5">&lt;/strong&gt;</ept> dialog box, do the following:</source>
+          <target state="new">In the <bpt id="0b245c68-0d41-4bbf-b232-d84eeaa6bad5">&lt;strong&gt;</bpt>Add/Edit Storage Account<ept id="0b245c68-0d41-4bbf-b232-d84eeaa6bad5">&lt;/strong&gt;</ept> dialog box, do the following:</target>
+        </trans-unit>
+        <trans-unit id="4a2519fe-bc8e-4a0b-8996-80cf06426759" xml:space="preserve">
+          <source>Click <bpt id="10c4b859-665c-48af-9680-ca5603cb9e9f">&lt;strong&gt;</bpt>Add new<ept id="10c4b859-665c-48af-9680-ca5603cb9e9f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="10c4b859-665c-48af-9680-ca5603cb9e9f">&lt;strong&gt;</bpt>Add new<ept id="10c4b859-665c-48af-9680-ca5603cb9e9f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c6e9845-9b8b-408b-8067-2eda1f904c5c" xml:space="preserve">
+          <source>Provide a name for your storage account.</source>
+          <target state="new">Provide a name for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="60c5fd10-d855-42b9-8166-5919a26c11ef" xml:space="preserve">
+          <source>Supply the primary <bpt id="5f49f08e-d731-4fe6-b59b-bd948fe6209d">&lt;strong&gt;</bpt>Access Key<ept id="5f49f08e-d731-4fe6-b59b-bd948fe6209d">&lt;/strong&gt;</ept> for your Microsoft Azure storage account.</source>
+          <target state="new">Supply the primary <bpt id="5f49f08e-d731-4fe6-b59b-bd948fe6209d">&lt;strong&gt;</bpt>Access Key<ept id="5f49f08e-d731-4fe6-b59b-bd948fe6209d">&lt;/strong&gt;</ept> for your Microsoft Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="ead7069c-d8dd-4097-948e-ae153df78d97" xml:space="preserve">
+          <source>Select <bpt id="644d432c-583f-4bc0-b7f8-c9fbeeb25a1d">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="644d432c-583f-4bc0-b7f8-c9fbeeb25a1d">&lt;/strong&gt;</ept> to create a secure channel for network communication between your device and the cloud.</source>
+          <target state="new">Select <bpt id="644d432c-583f-4bc0-b7f8-c9fbeeb25a1d">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="644d432c-583f-4bc0-b7f8-c9fbeeb25a1d">&lt;/strong&gt;</ept> to create a secure channel for network communication between your device and the cloud.</target>
+        </trans-unit>
+        <trans-unit id="d76a9102-84f3-4bee-8a70-e2944f45ebee" xml:space="preserve">
+          <source>Clear the <bpt id="f4640136-967c-4bda-8ba0-421f69bfd498">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="f4640136-967c-4bda-8ba0-421f69bfd498">&lt;/strong&gt;</ept> check box only if you are operating within a private cloud.</source>
+          <target state="new">Clear the <bpt id="f4640136-967c-4bda-8ba0-421f69bfd498">&lt;strong&gt;</bpt>Enable SSL Mode<ept id="f4640136-967c-4bda-8ba0-421f69bfd498">&lt;/strong&gt;</ept> check box only if you are operating within a private cloud.</target>
+        </trans-unit>
+        <trans-unit id="bd62a481-8a3e-4fb3-805f-b808b88b1558" xml:space="preserve">
+          <source>Click the check icon <bpt id="7c028224-f891-45b5-9c43-e805bc6da687">&lt;linkText&gt;</bpt>check icon<ept id="7c028224-f891-45b5-9c43-e805bc6da687">&lt;/linkText&gt;</ept>.</source>
+          <target state="new">Click the check icon <bpt id="7c028224-f891-45b5-9c43-e805bc6da687">&lt;linkText&gt;</bpt>check icon<ept id="7c028224-f891-45b5-9c43-e805bc6da687">&lt;/linkText&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe7c16b6-b4ac-443c-8ee6-fece2d3d9792" xml:space="preserve">
+          <source>You will be notified after the storage account is successfully created.</source>
+          <target state="new">You will be notified after the storage account is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="f3839655-7619-4729-b368-eeb37bd1ea08" xml:space="preserve">
+          <source><bpt id="6b900943-2505-4fa3-af4f-b3dc8ab312b0">&lt;linkText&gt;</bpt>Add storage account<ept id="6b900943-2505-4fa3-af4f-b3dc8ab312b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b900943-2505-4fa3-af4f-b3dc8ab312b0">&lt;linkText&gt;</bpt>Add storage account<ept id="6b900943-2505-4fa3-af4f-b3dc8ab312b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ef2ca8a-a9d4-4b82-9c06-432097e9a45b" xml:space="preserve">
+          <source>The newly created storage account will be displayed on the <bpt id="13336a53-f65a-4e4f-aa59-8333e7bfc1b7">&lt;strong&gt;</bpt>Configure<ept id="13336a53-f65a-4e4f-aa59-8333e7bfc1b7">&lt;/strong&gt;</ept> page under <bpt id="d14131ec-3f59-44be-ae3f-fdba38a1a152">&lt;strong&gt;</bpt>Storage accounts<ept id="d14131ec-3f59-44be-ae3f-fdba38a1a152">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The newly created storage account will be displayed on the <bpt id="13336a53-f65a-4e4f-aa59-8333e7bfc1b7">&lt;strong&gt;</bpt>Configure<ept id="13336a53-f65a-4e4f-aa59-8333e7bfc1b7">&lt;/strong&gt;</ept> page under <bpt id="d14131ec-3f59-44be-ae3f-fdba38a1a152">&lt;strong&gt;</bpt>Storage accounts<ept id="d14131ec-3f59-44be-ae3f-fdba38a1a152">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b612d78-9dfb-4932-aa4e-a49c77334132" xml:space="preserve">
+          <source>Click <bpt id="97f75309-2664-4f36-a7d8-d44a0bb6c3fd">&lt;strong&gt;</bpt>Save<ept id="97f75309-2664-4f36-a7d8-d44a0bb6c3fd">&lt;/strong&gt;</ept> to save the newly created storage account.</source>
+          <target state="new">Click <bpt id="97f75309-2664-4f36-a7d8-d44a0bb6c3fd">&lt;strong&gt;</bpt>Save<ept id="97f75309-2664-4f36-a7d8-d44a0bb6c3fd">&lt;/strong&gt;</ept> to save the newly created storage account.</target>
+        </trans-unit>
+        <trans-unit id="30f1a2b8-ee6a-4f77-86a9-98a83da23314" xml:space="preserve">
+          <source>Click <bpt id="5c442182-1e34-44fa-a4e8-0368af37c865">&lt;strong&gt;</bpt>OK<ept id="5c442182-1e34-44fa-a4e8-0368af37c865">&lt;/strong&gt;</ept> when prompted for confirmation.</source>
+          <target state="new">Click <bpt id="5c442182-1e34-44fa-a4e8-0368af37c865">&lt;strong&gt;</bpt>OK<ept id="5c442182-1e34-44fa-a4e8-0368af37c865">&lt;/strong&gt;</ept> when prompted for confirmation.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

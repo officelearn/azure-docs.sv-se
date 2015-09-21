@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2e814298-97a2-4bc9-8d7b-ce308e167e22" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2e814298-97a2-4bc9-8d7b-ce308e167e22" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5a86778f-c7c8-43b4-a676-717536e30a9c" />
+    </body>
+  </file>
+</xliff>

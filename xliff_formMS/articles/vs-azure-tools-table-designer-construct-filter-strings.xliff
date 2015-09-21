@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="27af7361-ff47-42a2-89c7-d66ed26b5104" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="27af7361-ff47-42a2-89c7-d66ed26b5104" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4989aabb-65ec-42e0-a1e8-5f2651852e62">
+        <trans-unit id="33183a47-9ec9-43d7-a659-f0a41191c804" xml:space="preserve">
+          <source>Constructing filter strings for the table designer</source>
+          <target state="new">Constructing filter strings for the table designer</target>
+        </trans-unit>
+        <trans-unit id="f0827717-b61d-4d72-9227-f117ed063346" xml:space="preserve">
+          <source>Constructing filter strings for the table designer</source>
+          <target state="new">Constructing filter strings for the table designer</target>
+        </trans-unit>
+        <trans-unit id="df943d0f-2f0e-40da-a92a-90cd92581a98" xml:space="preserve">
+          <source>To filter data in an Azure table that is displayed in the Visual Studio <bpt id="03a374cc-e1a3-4742-b675-1d93dc49a95c">&lt;strong&gt;</bpt>Table Designer<ept id="03a374cc-e1a3-4742-b675-1d93dc49a95c">&lt;/strong&gt;</ept>, you construct a filter string and enter it into the filter field.</source>
+          <target state="new">To filter data in an Azure table that is displayed in the Visual Studio <bpt id="03a374cc-e1a3-4742-b675-1d93dc49a95c">&lt;strong&gt;</bpt>Table Designer<ept id="03a374cc-e1a3-4742-b675-1d93dc49a95c">&lt;/strong&gt;</ept>, you construct a filter string and enter it into the filter field.</target>
+        </trans-unit>
+        <trans-unit id="a900d6d2-b726-42bc-a528-664b860bdfb2" xml:space="preserve">
+          <source>The filter string syntax is defined by the WCF Data Services and is similar to a SQL WHERE clause, but is sent to the Table service via an HTTP request.</source>
+          <target state="new">The filter string syntax is defined by the WCF Data Services and is similar to a SQL WHERE clause, but is sent to the Table service via an HTTP request.</target>
+        </trans-unit>
+        <trans-unit id="3e98d334-3d23-420c-ba47-999aae7145b3" xml:space="preserve">
+          <source>The <bpt id="4fea342e-0e26-482b-85af-11e00f35c6a5">&lt;strong&gt;</bpt>Table Designer<ept id="4fea342e-0e26-482b-85af-11e00f35c6a5">&lt;/strong&gt;</ept> handles the proper encoding for you, so to filter on a desired property value, you need only enter the property name, comparison operator, criteria value, and optionally, Boolean operator in the filter field.</source>
+          <target state="new">The <bpt id="4fea342e-0e26-482b-85af-11e00f35c6a5">&lt;strong&gt;</bpt>Table Designer<ept id="4fea342e-0e26-482b-85af-11e00f35c6a5">&lt;/strong&gt;</ept> handles the proper encoding for you, so to filter on a desired property value, you need only enter the property name, comparison operator, criteria value, and optionally, Boolean operator in the filter field.</target>
+        </trans-unit>
+        <trans-unit id="79cecfb9-d4bb-41f6-917b-d893a1daf36e" xml:space="preserve">
+          <source>You do not need to include the $filter query option as you would if you were constructing a URL to query the table via the <bpt id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;linkText&gt;</bpt>Storage Services REST API Reference<ept id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;/linkText&gt;</ept><bpt id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;title&gt;</bpt><ept id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You do not need to include the $filter query option as you would if you were constructing a URL to query the table via the <bpt id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;linkText&gt;</bpt>Storage Services REST API Reference<ept id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;/linkText&gt;</ept><bpt id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;title&gt;</bpt><ept id="8c70cfb1-e686-42fe-8dc8-ac188686523b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3b29cfa-9d33-4a8f-8cae-d1e222abe415" xml:space="preserve">
+          <source>The WCF Data Services are based on the <bpt id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;linkText&gt;</bpt>Open Data Protocol<ept id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;/linkText&gt;</ept><bpt id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;title&gt;</bpt><ept id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;/title&gt;</ept> (OData).</source>
+          <target state="new">The WCF Data Services are based on the <bpt id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;linkText&gt;</bpt>Open Data Protocol<ept id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;/linkText&gt;</ept><bpt id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;title&gt;</bpt><ept id="508a41c6-e593-42be-abe8-274d8347e9c4">&lt;/title&gt;</ept> (OData).</target>
+        </trans-unit>
+        <trans-unit id="6c22dc2c-47cd-4812-b1a1-947d38567c53" xml:space="preserve">
+          <source>For details on the filter system query option (<bpt id="351f7117-5a3b-4eac-b501-f7ea2e086c67">&lt;strong&gt;</bpt>$filter<ept id="351f7117-5a3b-4eac-b501-f7ea2e086c67">&lt;/strong&gt;</ept>), see the <bpt id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;linkText&gt;</bpt>OData URI Conventions specification<ept id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;/linkText&gt;</ept><bpt id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;title&gt;</bpt><ept id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on the filter system query option (<bpt id="351f7117-5a3b-4eac-b501-f7ea2e086c67">&lt;strong&gt;</bpt>$filter<ept id="351f7117-5a3b-4eac-b501-f7ea2e086c67">&lt;/strong&gt;</ept>), see the <bpt id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;linkText&gt;</bpt>OData URI Conventions specification<ept id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;/linkText&gt;</ept><bpt id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;title&gt;</bpt><ept id="c4669734-a5f1-4158-8577-d85197fcda0c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fb754b60-9b3d-415a-81ec-959ccc0f087a" xml:space="preserve">
+          <source>The following logical operators are supported for all property types:</source>
+          <target state="new">The following logical operators are supported for all property types:</target>
+        </trans-unit>
+        <trans-unit id="abcb7d82-981c-449c-8743-5992d06c9059" xml:space="preserve">
+          <source>Logical operator</source>
+          <target state="new">Logical operator</target>
+        </trans-unit>
+        <trans-unit id="7cb6538d-a029-4124-bd14-9afd404b10b2" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="dc0375c1-efe2-4e02-9413-e59ad4ffbe14" xml:space="preserve">
+          <source>Example filter string</source>
+          <target state="new">Example filter string</target>
+        </trans-unit>
+        <trans-unit id="f0c2ad95-3e12-4f16-bcbf-a603700ebcb7" xml:space="preserve">
+          <source>eq</source>
+          <target state="new">eq</target>
+        </trans-unit>
+        <trans-unit id="ba97fb09-ebd3-4ee4-953c-bd4d2d4283c5" xml:space="preserve">
+          <source>Equal</source>
+          <target state="new">Equal</target>
+        </trans-unit>
+        <trans-unit id="4aa95651-bd97-4c63-9615-b9aec9f9adf4" xml:space="preserve">
+          <source>City eq 'Redmond'</source>
+          <target state="new">City eq 'Redmond'</target>
+        </trans-unit>
+        <trans-unit id="258858cd-c50a-4aa5-837b-e20b75df12f8" xml:space="preserve">
+          <source>gt</source>
+          <target state="new">gt</target>
+        </trans-unit>
+        <trans-unit id="dfb3e777-bff9-4fd7-a7ac-6fba8cefd47b" xml:space="preserve">
+          <source>Greater than</source>
+          <target state="new">Greater than</target>
+        </trans-unit>
+        <trans-unit id="77e34e36-fb0c-49f6-b6e6-8c069dcb822f" xml:space="preserve">
+          <source>Price gt 20</source>
+          <target state="new">Price gt 20</target>
+        </trans-unit>
+        <trans-unit id="1fe68a54-da23-4bfb-a36a-9770b0110ed3" xml:space="preserve">
+          <source>ge</source>
+          <target state="new">ge</target>
+        </trans-unit>
+        <trans-unit id="95814246-2a35-4f14-b78b-ce5657e6c461" xml:space="preserve">
+          <source>Greater than or equal to</source>
+          <target state="new">Greater than or equal to</target>
+        </trans-unit>
+        <trans-unit id="35b90392-1f11-4abb-bd14-b305e4ac71de" xml:space="preserve">
+          <source>Price ge 10</source>
+          <target state="new">Price ge 10</target>
+        </trans-unit>
+        <trans-unit id="d53034fc-f78b-497e-9497-d1701e71cccb" xml:space="preserve">
+          <source>lt</source>
+          <target state="new">lt</target>
+        </trans-unit>
+        <trans-unit id="70d6f9b3-1404-48ff-9230-b13fb5c6a8e2" xml:space="preserve">
+          <source>Less than</source>
+          <target state="new">Less than</target>
+        </trans-unit>
+        <trans-unit id="b8534d6d-7d13-4028-835b-6bdf952cbd1f" xml:space="preserve">
+          <source>Price lt 20</source>
+          <target state="new">Price lt 20</target>
+        </trans-unit>
+        <trans-unit id="3901b831-0f8c-42c8-806e-4ba51e0acbdf" xml:space="preserve">
+          <source>le</source>
+          <target state="new">le</target>
+        </trans-unit>
+        <trans-unit id="4e270235-6e83-41bf-8608-e8c5acde8b18" xml:space="preserve">
+          <source>Less than or equal</source>
+          <target state="new">Less than or equal</target>
+        </trans-unit>
+        <trans-unit id="a9077d43-a877-4b5e-bd55-064ea4f68a93" xml:space="preserve">
+          <source>Price le 100</source>
+          <target state="new">Price le 100</target>
+        </trans-unit>
+        <trans-unit id="b23f5ff0-d98b-4c43-ba9e-23333fd1f9d2" xml:space="preserve">
+          <source>ne</source>
+          <target state="new">ne</target>
+        </trans-unit>
+        <trans-unit id="fa6636e7-7263-4a73-a6c2-5fa23b05268b" xml:space="preserve">
+          <source>Not equal</source>
+          <target state="new">Not equal</target>
+        </trans-unit>
+        <trans-unit id="6635a65b-b8e0-4421-bb15-87abf5960179" xml:space="preserve">
+          <source>City ne 'London'</source>
+          <target state="new">City ne 'London'</target>
+        </trans-unit>
+        <trans-unit id="00575a25-e742-4025-bdb9-872572eb8966" xml:space="preserve">
+          <source>and</source>
+          <target state="new">and</target>
+        </trans-unit>
+        <trans-unit id="f93ac861-e1d1-4767-9ac8-0939b5c89ec0" xml:space="preserve">
+          <source>And</source>
+          <target state="new">And</target>
+        </trans-unit>
+        <trans-unit id="af5090d4-60c4-47eb-b674-c7ea36bbcae7" xml:space="preserve">
+          <source>Price le 200 and Price gt 3.5</source>
+          <target state="new">Price le 200 and Price gt 3.5</target>
+        </trans-unit>
+        <trans-unit id="0b428f99-a61b-476d-8e70-ca03aa94333e" xml:space="preserve">
+          <source>or</source>
+          <target state="new">or</target>
+        </trans-unit>
+        <trans-unit id="c311491d-0308-4ea2-9dcc-8f6c7ab82143" xml:space="preserve">
+          <source>Or</source>
+          <target state="new">Or</target>
+        </trans-unit>
+        <trans-unit id="788526e7-1ef9-4afc-8807-4d782a0d346f" xml:space="preserve">
+          <source>Price le 3.5 or Price gt 200</source>
+          <target state="new">Price le 3.5 or Price gt 200</target>
+        </trans-unit>
+        <trans-unit id="1a2bb9bc-d64d-4c7d-a058-050d53de9c66" xml:space="preserve">
+          <source>not</source>
+          <target state="new">not</target>
+        </trans-unit>
+        <trans-unit id="ed7966f8-08c0-4f41-990f-2bde8331801e" xml:space="preserve">
+          <source>Not</source>
+          <target state="new">Not</target>
+        </trans-unit>
+        <trans-unit id="67e6756e-e66a-4f76-91c7-c5458a87b287" xml:space="preserve">
+          <source>not isAvailable</source>
+          <target state="new">not isAvailable</target>
+        </trans-unit>
+        <trans-unit id="b44bdc2a-8f3e-46ac-9169-d2116cfdbadd" xml:space="preserve">
+          <source>When constructing a filter string, the following rules are important:</source>
+          <target state="new">When constructing a filter string, the following rules are important:</target>
+        </trans-unit>
+        <trans-unit id="01e18e20-cee7-4b40-b1ce-2d480d3f30c9" xml:space="preserve">
+          <source>Use the logical operators to compare a property to a value.</source>
+          <target state="new">Use the logical operators to compare a property to a value.</target>
+        </trans-unit>
+        <trans-unit id="f3d14d28-7420-4453-ab80-f48f81c37378" xml:space="preserve">
+          <source>Note that it is not possible to compare a property to a dynamic value; one side of the expression must be a constant.</source>
+          <target state="new">Note that it is not possible to compare a property to a dynamic value; one side of the expression must be a constant.</target>
+        </trans-unit>
+        <trans-unit id="67b9d37c-88f3-4a1e-b378-c0e470bb988a" xml:space="preserve">
+          <source>All parts of the filter string are case-sensitive.</source>
+          <target state="new">All parts of the filter string are case-sensitive.</target>
+        </trans-unit>
+        <trans-unit id="f2cc5a8b-9065-4bd3-baf8-21ed57cf2171" xml:space="preserve">
+          <source>The constant value must be of the same data type as the property in order for the filter to return valid results.</source>
+          <target state="new">The constant value must be of the same data type as the property in order for the filter to return valid results.</target>
+        </trans-unit>
+        <trans-unit id="3022f08b-cc3a-425e-8764-4163b12e0bb0" xml:space="preserve">
+          <source>For more information about supported property types, see <bpt id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;linkText&gt;</bpt>Understanding the Table Service Data Model<ept id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;/linkText&gt;</ept><bpt id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;title&gt;</bpt><ept id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about supported property types, see <bpt id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;linkText&gt;</bpt>Understanding the Table Service Data Model<ept id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;/linkText&gt;</ept><bpt id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;title&gt;</bpt><ept id="8c48f73b-e58a-49a3-ab87-f0eb9ea7ebbb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ff24d6c-a896-4b48-aeff-4b3748ff7e70" xml:space="preserve">
+          <source>When you filter on string properties, enclose the string constant in single quotation marks.</source>
+          <target state="new">When you filter on string properties, enclose the string constant in single quotation marks.</target>
+        </trans-unit>
+        <trans-unit id="cc67caae-7dba-4e6f-8c0f-c9a3361239fb" xml:space="preserve">
+          <source>The following example filters on the <bpt id="8f89dad4-0c6a-45bb-93ca-984fd9743fb2">&lt;strong&gt;</bpt>PartitionKey<ept id="8f89dad4-0c6a-45bb-93ca-984fd9743fb2">&lt;/strong&gt;</ept> and <bpt id="1673e08b-02d5-4ded-9714-8319eae8317a">&lt;strong&gt;</bpt>RowKey<ept id="1673e08b-02d5-4ded-9714-8319eae8317a">&lt;/strong&gt;</ept> properties; additional non-key properties could also be added to the filter string:</source>
+          <target state="new">The following example filters on the <bpt id="8f89dad4-0c6a-45bb-93ca-984fd9743fb2">&lt;strong&gt;</bpt>PartitionKey<ept id="8f89dad4-0c6a-45bb-93ca-984fd9743fb2">&lt;/strong&gt;</ept> and <bpt id="1673e08b-02d5-4ded-9714-8319eae8317a">&lt;strong&gt;</bpt>RowKey<ept id="1673e08b-02d5-4ded-9714-8319eae8317a">&lt;/strong&gt;</ept> properties; additional non-key properties could also be added to the filter string:</target>
+        </trans-unit>
+        <trans-unit id="0cb5705f-1428-48a3-8f53-96dcfc910eb3" xml:space="preserve">
+          <source>You can enclose each filter expression in parentheses, although it is not required:</source>
+          <target state="new">You can enclose each filter expression in parentheses, although it is not required:</target>
+        </trans-unit>
+        <trans-unit id="bc9b465d-c8cc-4a70-bb8d-93c25528c97a" xml:space="preserve">
+          <source>Note that the Table service does not support wildcard queries, and they are not supported in the Table Designer either.</source>
+          <target state="new">Note that the Table service does not support wildcard queries, and they are not supported in the Table Designer either.</target>
+        </trans-unit>
+        <trans-unit id="eed3a9cf-379d-49e0-b210-1d9df400d85c" xml:space="preserve">
+          <source>However, you can perform prefix matching by using comparison operators on the desired prefix.</source>
+          <target state="new">However, you can perform prefix matching by using comparison operators on the desired prefix.</target>
+        </trans-unit>
+        <trans-unit id="7942a0b2-05b8-41b7-b516-7a00dd7bd1e4" xml:space="preserve">
+          <source>The following example returns entities with a LastName property beginning with the letter 'A':</source>
+          <target state="new">The following example returns entities with a LastName property beginning with the letter 'A':</target>
+        </trans-unit>
+        <trans-unit id="68405a75-bb81-4688-8bc7-a0f3fea79340" xml:space="preserve">
+          <source>To filter on an integer or floating-point number, specify the number without quotation marks.</source>
+          <target state="new">To filter on an integer or floating-point number, specify the number without quotation marks.</target>
+        </trans-unit>
+        <trans-unit id="10a05bbb-249f-4d0e-b1a6-d6d2c672005a" xml:space="preserve">
+          <source>This example returns all entities with an Age property whose value is greater than 30:</source>
+          <target state="new">This example returns all entities with an Age property whose value is greater than 30:</target>
+        </trans-unit>
+        <trans-unit id="ff096fcb-16de-49e5-85e6-66c88af67ae9" xml:space="preserve">
+          <source>This example returns all entities with an AmountDue property whose value is less than or equal to 100.25:</source>
+          <target state="new">This example returns all entities with an AmountDue property whose value is less than or equal to 100.25:</target>
+        </trans-unit>
+        <trans-unit id="39db621a-ac20-4e7e-969a-7eda8341a1be" xml:space="preserve">
+          <source>To filter on a Boolean value, specify <bpt id="89b18075-3ff1-41a7-96af-ab99eb1908c7">&lt;strong&gt;</bpt>true<ept id="89b18075-3ff1-41a7-96af-ab99eb1908c7">&lt;/strong&gt;</ept> or <bpt id="bdc07a58-2c7d-4ea3-b49d-9013c781582e">&lt;strong&gt;</bpt>false<ept id="bdc07a58-2c7d-4ea3-b49d-9013c781582e">&lt;/strong&gt;</ept> without quotation marks.</source>
+          <target state="new">To filter on a Boolean value, specify <bpt id="89b18075-3ff1-41a7-96af-ab99eb1908c7">&lt;strong&gt;</bpt>true<ept id="89b18075-3ff1-41a7-96af-ab99eb1908c7">&lt;/strong&gt;</ept> or <bpt id="bdc07a58-2c7d-4ea3-b49d-9013c781582e">&lt;strong&gt;</bpt>false<ept id="bdc07a58-2c7d-4ea3-b49d-9013c781582e">&lt;/strong&gt;</ept> without quotation marks.</target>
+        </trans-unit>
+        <trans-unit id="fb43ea14-bd37-420f-aa1c-d97f01248976" xml:space="preserve">
+          <source>The following example returns all entities where the IsActive property is set to <bpt id="a6be7d9a-56f8-4c77-9108-031775046da2">&lt;strong&gt;</bpt>true<ept id="a6be7d9a-56f8-4c77-9108-031775046da2">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following example returns all entities where the IsActive property is set to <bpt id="a6be7d9a-56f8-4c77-9108-031775046da2">&lt;strong&gt;</bpt>true<ept id="a6be7d9a-56f8-4c77-9108-031775046da2">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="40d11bc9-6b10-4e03-b71e-5ab4ad0cf1e9" xml:space="preserve">
+          <source>You can also write this filter expression without the logical operator.</source>
+          <target state="new">You can also write this filter expression without the logical operator.</target>
+        </trans-unit>
+        <trans-unit id="d2092a8f-3f68-444e-a58d-ac6e7a8d149b" xml:space="preserve">
+          <source>In the following example, the Table service will also return all entities where IsActive is <bpt id="7c2e8707-1b77-42e0-8ee2-3f0b8f4c6b1b">&lt;strong&gt;</bpt>true<ept id="7c2e8707-1b77-42e0-8ee2-3f0b8f4c6b1b">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In the following example, the Table service will also return all entities where IsActive is <bpt id="7c2e8707-1b77-42e0-8ee2-3f0b8f4c6b1b">&lt;strong&gt;</bpt>true<ept id="7c2e8707-1b77-42e0-8ee2-3f0b8f4c6b1b">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6651295e-171a-48a7-afcf-99ea51f14ac6" xml:space="preserve">
+          <source>[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_3d6a191e-f389-447a-bbbb-ef8b163bc645');)</source>
+          <target state="new">[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_3d6a191e-f389-447a-bbbb-ef8b163bc645');)</target>
+        </trans-unit>
+        <trans-unit id="ade2f6ed-e395-452d-8a21-24426b8c06ec" xml:space="preserve">
+          <source>To return all entities where IsActive is false, you can use the not operator:</source>
+          <target state="new">To return all entities where IsActive is false, you can use the not operator:</target>
+        </trans-unit>
+        <trans-unit id="3d998ee0-af22-4ba9-9644-5133e0770b93" xml:space="preserve">
+          <source>To filter on a DateTime value, specify the <bpt id="8e792f0d-5c66-4076-aab9-04ef44644b13">&lt;strong&gt;</bpt>datetime<ept id="8e792f0d-5c66-4076-aab9-04ef44644b13">&lt;/strong&gt;</ept> keyword, followed by the date/time constant in single quotation marks.</source>
+          <target state="new">To filter on a DateTime value, specify the <bpt id="8e792f0d-5c66-4076-aab9-04ef44644b13">&lt;strong&gt;</bpt>datetime<ept id="8e792f0d-5c66-4076-aab9-04ef44644b13">&lt;/strong&gt;</ept> keyword, followed by the date/time constant in single quotation marks.</target>
+        </trans-unit>
+        <trans-unit id="da07b577-d2c8-41e3-8b18-03aecbc6a95c" xml:space="preserve">
+          <source>The date/time constant must be in combined UTC format, as described in <bpt id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;linkText&gt;</bpt>Formatting DateTime Property Values<ept id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;/linkText&gt;</ept><bpt id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;title&gt;</bpt><ept id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;/title&gt;</ept>.</source>
+          <target state="new">The date/time constant must be in combined UTC format, as described in <bpt id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;linkText&gt;</bpt>Formatting DateTime Property Values<ept id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;/linkText&gt;</ept><bpt id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;title&gt;</bpt><ept id="1a4c595f-a691-4dc0-b604-9f9092688689">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c87fc572-d017-4b6d-b779-ead1f63b8153" xml:space="preserve">
+          <source>The following example returns entities where the CustomerSince property is equal to July 10, 2008:</source>
+          <target state="new">The following example returns entities where the CustomerSince property is equal to July 10, 2008:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

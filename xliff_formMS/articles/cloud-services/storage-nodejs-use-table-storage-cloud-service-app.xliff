@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="018b1969-41c9-4942-a14c-84bc697fc26e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="018b1969-41c9-4942-a14c-84bc697fc26e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="efc8c8ef-594f-4454-b2b3-5a71be0ceffb">
+        <trans-unit id="e6aa27e4-01a5-431e-9c82-1685d17c8ec3" xml:space="preserve">
+          <source>Web app with table storage (Node.js) | Microsoft Azure</source>
+          <target state="new">Web app with table storage (Node.js) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="e184264d-1b66-4493-b1c0-e0c717609480" xml:space="preserve">
+          <source>A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.</source>
+          <target state="new">A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.</target>
+        </trans-unit>
+        <trans-unit id="807b2810-f294-4658-b469-55295132a038" xml:space="preserve">
+          <source>In this tutorial, you will extend the application created in the
+[Node.js Web Application using Express] tutorial by using the Microsoft
+Azure Client Libraries for Node.js to work with data management services.</source>
+          <target state="new">In this tutorial, you will extend the application created in the
+[Node.js Web Application using Express] tutorial by using the Microsoft
+Azure Client Libraries for Node.js to work with data management services.</target>
+        </trans-unit>
+        <trans-unit id="2a3cf578-de34-4ba8-af40-e60cdea210e4" xml:space="preserve">
+          <source>You
+will extend your application to create a web-based task-list application
+that you can deploy to Azure.</source>
+          <target state="new">You
+will extend your application to create a web-based task-list application
+that you can deploy to Azure.</target>
+        </trans-unit>
+        <trans-unit id="4ac1ef15-99f9-4b72-8d5d-46e23e4d856a" xml:space="preserve">
+          <source>The task list allows a user to
+retrieve tasks, add new tasks, and mark tasks as completed.</source>
+          <target state="new">The task list allows a user to
+retrieve tasks, add new tasks, and mark tasks as completed.</target>
+        </trans-unit>
+        <trans-unit id="eb4958f8-d097-4165-b48e-e7e9e2f835d3" xml:space="preserve">
+          <source>The task items are stored in Azure Storage.</source>
+          <target state="new">The task items are stored in Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="f1d96c95-bd85-4d0c-b136-72428c798117" xml:space="preserve">
+          <source>Azure
+Storage provides unstructured data storage that is fault-tolerant and
+highly available.</source>
+          <target state="new">Azure
+Storage provides unstructured data storage that is fault-tolerant and
+highly available.</target>
+        </trans-unit>
+        <trans-unit id="91f0d906-975d-4eed-a525-c143e097804f" xml:space="preserve">
+          <source>Azure Storage includes several data structures
+where you can store and access data, and you can leverage the storage
+services from the APIs included in the Azure SDK for Node.js or
+via REST APIs.</source>
+          <target state="new">Azure Storage includes several data structures
+where you can store and access data, and you can leverage the storage
+services from the APIs included in the Azure SDK for Node.js or
+via REST APIs.</target>
+        </trans-unit>
+        <trans-unit id="fb2f3fb8-84ea-4a47-82cb-f73dc1844112" xml:space="preserve">
+          <source>For more information, see [Storing and Accessing Data in Azure].</source>
+          <target state="new">For more information, see [Storing and Accessing Data in Azure].</target>
+        </trans-unit>
+        <trans-unit id="40c8deac-b4f6-4446-b2c2-8e0c2f45b4fa" xml:space="preserve">
+          <source>This tutorial assumes that you have completed the [Node.js Web
+Application] and <bpt id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;linkText&gt;</bpt>Node.js with Express[node.js web application using express]<ept id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;/linkText&gt;</ept><bpt id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;title&gt;</bpt><ept id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;/title&gt;</ept> tutorials.</source>
+          <target state="new">This tutorial assumes that you have completed the [Node.js Web
+Application] and <bpt id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;linkText&gt;</bpt>Node.js with Express[node.js web application using express]<ept id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;/linkText&gt;</ept><bpt id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;title&gt;</bpt><ept id="a22132b8-0535-461c-9ace-1efffb6e2022">&lt;/title&gt;</ept> tutorials.</target>
+        </trans-unit>
+        <trans-unit id="a8173b49-a814-40fe-94c6-21fd297632ea" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="8420936a-cadf-489f-906f-df7ca06824da" xml:space="preserve">
+          <source>How to work with the Jade template engine</source>
+          <target state="new">How to work with the Jade template engine</target>
+        </trans-unit>
+        <trans-unit id="4acde5ad-de49-4926-b713-04b5097fc646" xml:space="preserve">
+          <source>How to work with Azure Data Management services</source>
+          <target state="new">How to work with Azure Data Management services</target>
+        </trans-unit>
+        <trans-unit id="fa4eca9a-2c94-4568-ac2b-a96db67b6156" xml:space="preserve">
+          <source>A screenshot of the completed application is below:</source>
+          <target state="new">A screenshot of the completed application is below:</target>
+        </trans-unit>
+        <trans-unit id="f8ba22ea-f3d2-40dd-8c9e-9355fe7b0d01" xml:space="preserve">
+          <source><bpt id="73b3655c-06dd-4790-a7bd-cd50817622c9">&lt;linkText&gt;</bpt>The completed web page in internet explorer<ept id="73b3655c-06dd-4790-a7bd-cd50817622c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73b3655c-06dd-4790-a7bd-cd50817622c9">&lt;linkText&gt;</bpt>The completed web page in internet explorer<ept id="73b3655c-06dd-4790-a7bd-cd50817622c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="642b0b02-d45e-4f37-8516-1d999717347b" xml:space="preserve">
+          <source>To access Azure Storage, you need to pass in storage
+credentials.</source>
+          <target state="new">To access Azure Storage, you need to pass in storage
+credentials.</target>
+        </trans-unit>
+        <trans-unit id="2461416e-1ead-4688-950b-0724ef3569fc" xml:space="preserve">
+          <source>To do this, you utilize web.config application settings.</source>
+          <target state="new">To do this, you utilize web.config application settings.</target>
+        </trans-unit>
+        <trans-unit id="a71e28e5-077d-4cd1-9fd5-449650c8dec8" xml:space="preserve">
+          <source>Those settings will be passed as environment variables to Node, which
+are then read by the Azure SDK.</source>
+          <target state="new">Those settings will be passed as environment variables to Node, which
+are then read by the Azure SDK.</target>
+        </trans-unit>
+        <trans-unit id="b3d93e5c-d852-4ddd-9d10-09fa062fd531" xml:space="preserve">
+          <source>Storage credentials are only used when the application is
+deployed to Azure.</source>
+          <target state="new">Storage credentials are only used when the application is
+deployed to Azure.</target>
+        </trans-unit>
+        <trans-unit id="20c70c87-36c7-4b87-af85-cc8854385168" xml:space="preserve">
+          <source>When running in the emulator, the application
+will use the storage emulator.</source>
+          <target state="new">When running in the emulator, the application
+will use the storage emulator.</target>
+        </trans-unit>
+        <trans-unit id="0e7d2230-a176-414f-88a9-6532598b9de6" xml:space="preserve">
+          <source>Perform the following steps to retrieve the storage account credentials
+and add them to the web.config settings:</source>
+          <target state="new">Perform the following steps to retrieve the storage account credentials
+and add them to the web.config settings:</target>
+        </trans-unit>
+        <trans-unit id="32a74823-db96-40f4-9699-462ef7da4364" xml:space="preserve">
+          <source>If it is not already open, start the Azure PowerShell from the <bpt id="a1cd195c-bc8b-49dc-8308-bd2675b01381">&lt;strong&gt;</bpt>Start<ept id="a1cd195c-bc8b-49dc-8308-bd2675b01381">&lt;/strong&gt;</ept> menu by expanding <bpt id="79c9977b-4948-4208-b0bf-689bfd934c11">&lt;strong&gt;</bpt>All Programs, Azure<ept id="79c9977b-4948-4208-b0bf-689bfd934c11">&lt;/strong&gt;</ept>, right-click <bpt id="09c5ce7b-5a7e-46f3-9f6b-d565503237e5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="09c5ce7b-5a7e-46f3-9f6b-d565503237e5">&lt;/strong&gt;</ept>, and then select <bpt id="f74cba86-76d9-47db-8e31-ba5e134e8acf">&lt;strong&gt;</bpt>Run As Administrator<ept id="f74cba86-76d9-47db-8e31-ba5e134e8acf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If it is not already open, start the Azure PowerShell from the <bpt id="a1cd195c-bc8b-49dc-8308-bd2675b01381">&lt;strong&gt;</bpt>Start<ept id="a1cd195c-bc8b-49dc-8308-bd2675b01381">&lt;/strong&gt;</ept> menu by expanding <bpt id="79c9977b-4948-4208-b0bf-689bfd934c11">&lt;strong&gt;</bpt>All Programs, Azure<ept id="79c9977b-4948-4208-b0bf-689bfd934c11">&lt;/strong&gt;</ept>, right-click <bpt id="09c5ce7b-5a7e-46f3-9f6b-d565503237e5">&lt;strong&gt;</bpt>Azure PowerShell<ept id="09c5ce7b-5a7e-46f3-9f6b-d565503237e5">&lt;/strong&gt;</ept>, and then select <bpt id="f74cba86-76d9-47db-8e31-ba5e134e8acf">&lt;strong&gt;</bpt>Run As Administrator<ept id="f74cba86-76d9-47db-8e31-ba5e134e8acf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c827ec38-8a1d-4e07-9f1e-b33a75a86a68" xml:space="preserve">
+          <source>Change directories to the folder containing your application.</source>
+          <target state="new">Change directories to the folder containing your application.</target>
+        </trans-unit>
+        <trans-unit id="41c45184-42a8-478e-9c4f-0399d4f514ca" xml:space="preserve">
+          <source>For example, C:\\node\\tasklist\\WebRole1.</source>
+          <target state="new">For example, C:\\node\\tasklist\\WebRole1.</target>
+        </trans-unit>
+        <trans-unit id="cf0748f1-6ecf-48c4-9666-724c8885b2c3" xml:space="preserve">
+          <source>From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:</source>
+          <target state="new">From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:</target>
+        </trans-unit>
+        <trans-unit id="278e7375-04f6-44eb-8bca-6f177d794a8a" xml:space="preserve">
+          <source>This retrieves the list of storage accounts and account keys associated with your hosted service.</source>
+          <target state="new">This retrieves the list of storage accounts and account keys associated with your hosted service.</target>
+        </trans-unit>
+        <trans-unit id="b206d777-0915-4281-a1de-719504b79e8e" xml:space="preserve">
+          <source>Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</source>
+          <target state="new">Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.</target>
+        </trans-unit>
+        <trans-unit id="bb977caa-a20c-40ea-9025-adfe6badc5f0" xml:space="preserve">
+          <source>Open the <bpt id="411799ac-8cdb-4104-b11d-d26bcccbec15">&lt;strong&gt;</bpt>ServiceDefinition.csdef<ept id="411799ac-8cdb-4104-b11d-d26bcccbec15">&lt;/strong&gt;</ept> file containing the environment settings that are used when the application is deployed to Azure:</source>
+          <target state="new">Open the <bpt id="411799ac-8cdb-4104-b11d-d26bcccbec15">&lt;strong&gt;</bpt>ServiceDefinition.csdef<ept id="411799ac-8cdb-4104-b11d-d26bcccbec15">&lt;/strong&gt;</ept> file containing the environment settings that are used when the application is deployed to Azure:</target>
+        </trans-unit>
+        <trans-unit id="80e65c18-15c6-4065-8be5-50b33e2cf8b6" xml:space="preserve">
+          <source>Insert the following block under <bpt id="670ef627-e67a-4a8f-aa0f-36f2c592eb43">&lt;strong&gt;</bpt>Environment<ept id="670ef627-e67a-4a8f-aa0f-36f2c592eb43">&lt;/strong&gt;</ept> element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:</source>
+          <target state="new">Insert the following block under <bpt id="670ef627-e67a-4a8f-aa0f-36f2c592eb43">&lt;strong&gt;</bpt>Environment<ept id="670ef627-e67a-4a8f-aa0f-36f2c592eb43">&lt;/strong&gt;</ept> element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:</target>
+        </trans-unit>
+        <trans-unit id="04992e99-e365-4035-9f03-39a36771eff9" xml:space="preserve">
+          <source><bpt id="93406066-b632-4b0a-ac2b-47d68c1f23e0">&lt;linkText&gt;</bpt>The web.cloud.config file contents<ept id="93406066-b632-4b0a-ac2b-47d68c1f23e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93406066-b632-4b0a-ac2b-47d68c1f23e0">&lt;linkText&gt;</bpt>The web.cloud.config file contents<ept id="93406066-b632-4b0a-ac2b-47d68c1f23e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9f35fd2-7a50-427d-b2c7-d2af2e69e12a" xml:space="preserve">
+          <source>Save the file and close notepad.</source>
+          <target state="new">Save the file and close notepad.</target>
+        </trans-unit>
+        <trans-unit id="08ad9cd2-a249-4672-980f-1e096d6c1a21" xml:space="preserve">
+          <source>Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the <bpt id="3164d9ce-46e1-4304-accb-6dd5717d76cb">&lt;strong&gt;</bpt>package.json<ept id="3164d9ce-46e1-4304-accb-6dd5717d76cb">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the <bpt id="3164d9ce-46e1-4304-accb-6dd5717d76cb">&lt;strong&gt;</bpt>package.json<ept id="3164d9ce-46e1-4304-accb-6dd5717d76cb">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="4906aa43-47ff-4259-a3b3-2c3538b30f1f" xml:space="preserve">
+          <source>The output of this command should appear similar to the following:</source>
+          <target state="new">The output of this command should appear similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="5711ac99-f4c4-4e35-82d3-5616fb945c0d" xml:space="preserve">
+          <source>In this section you will extend the basic application created by the <bpt id="181f1cda-8836-448d-b317-1ff8d0452233">&lt;strong&gt;</bpt>express<ept id="181f1cda-8836-448d-b317-1ff8d0452233">&lt;/strong&gt;</ept> command by adding a <bpt id="94354d9d-f09d-4e90-8676-b3251922e77c">&lt;strong&gt;</bpt>task.js<ept id="94354d9d-f09d-4e90-8676-b3251922e77c">&lt;/strong&gt;</ept> file which contains the model for your tasks.</source>
+          <target state="new">In this section you will extend the basic application created by the <bpt id="181f1cda-8836-448d-b317-1ff8d0452233">&lt;strong&gt;</bpt>express<ept id="181f1cda-8836-448d-b317-1ff8d0452233">&lt;/strong&gt;</ept> command by adding a <bpt id="94354d9d-f09d-4e90-8676-b3251922e77c">&lt;strong&gt;</bpt>task.js<ept id="94354d9d-f09d-4e90-8676-b3251922e77c">&lt;/strong&gt;</ept> file which contains the model for your tasks.</target>
+        </trans-unit>
+        <trans-unit id="5d8b529b-324b-438a-83db-8f7e1dcd108d" xml:space="preserve">
+          <source>You will also modify the existing <bpt id="59c3f58c-d24d-4626-87ee-fbc82f6cf584">&lt;strong&gt;</bpt>app.js<ept id="59c3f58c-d24d-4626-87ee-fbc82f6cf584">&lt;/strong&gt;</ept> and create a new <bpt id="a2a4ae6a-ec72-4bc3-a941-d3138359ac87">&lt;strong&gt;</bpt>tasklist.js<ept id="a2a4ae6a-ec72-4bc3-a941-d3138359ac87">&lt;/strong&gt;</ept> file that uses the model.</source>
+          <target state="new">You will also modify the existing <bpt id="59c3f58c-d24d-4626-87ee-fbc82f6cf584">&lt;strong&gt;</bpt>app.js<ept id="59c3f58c-d24d-4626-87ee-fbc82f6cf584">&lt;/strong&gt;</ept> and create a new <bpt id="a2a4ae6a-ec72-4bc3-a941-d3138359ac87">&lt;strong&gt;</bpt>tasklist.js<ept id="a2a4ae6a-ec72-4bc3-a941-d3138359ac87">&lt;/strong&gt;</ept> file that uses the model.</target>
+        </trans-unit>
+        <trans-unit id="16c88e22-1531-4e6b-b197-37295a9e46ed" xml:space="preserve">
+          <source>In the <bpt id="dd421e21-d07c-4a35-95c2-840a05fff4d4">&lt;strong&gt;</bpt>WebRole1<ept id="dd421e21-d07c-4a35-95c2-840a05fff4d4">&lt;/strong&gt;</ept> directory, create a new directory named <bpt id="b202dcde-a4b9-4d00-9185-28e8f5a329c3">&lt;strong&gt;</bpt>models<ept id="b202dcde-a4b9-4d00-9185-28e8f5a329c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="dd421e21-d07c-4a35-95c2-840a05fff4d4">&lt;strong&gt;</bpt>WebRole1<ept id="dd421e21-d07c-4a35-95c2-840a05fff4d4">&lt;/strong&gt;</ept> directory, create a new directory named <bpt id="b202dcde-a4b9-4d00-9185-28e8f5a329c3">&lt;strong&gt;</bpt>models<ept id="b202dcde-a4b9-4d00-9185-28e8f5a329c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3c73630-ca52-42f9-8d32-07daa723aa16" xml:space="preserve">
+          <source>In the <bpt id="b6a537a0-cf03-40b1-b444-d105ceb86bb9">&lt;strong&gt;</bpt>models<ept id="b6a537a0-cf03-40b1-b444-d105ceb86bb9">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="6121c168-f52d-4b6a-8308-f56096d7602e">&lt;strong&gt;</bpt>task.js<ept id="6121c168-f52d-4b6a-8308-f56096d7602e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="b6a537a0-cf03-40b1-b444-d105ceb86bb9">&lt;strong&gt;</bpt>models<ept id="b6a537a0-cf03-40b1-b444-d105ceb86bb9">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="6121c168-f52d-4b6a-8308-f56096d7602e">&lt;strong&gt;</bpt>task.js<ept id="6121c168-f52d-4b6a-8308-f56096d7602e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f630dc6e-dfd5-410f-945f-47a439fbee7c" xml:space="preserve">
+          <source>This file will contain the model for the tasks created by your application.</source>
+          <target state="new">This file will contain the model for the tasks created by your application.</target>
+        </trans-unit>
+        <trans-unit id="76424955-8b5e-455d-9eae-3d04d5f2dc3d" xml:space="preserve">
+          <source>At the beginning of the <bpt id="5013b640-47ee-4746-a4cd-cfc3b3e719c6">&lt;strong&gt;</bpt>task.js<ept id="5013b640-47ee-4746-a4cd-cfc3b3e719c6">&lt;/strong&gt;</ept> file, add the following code to reference required libraries:</source>
+          <target state="new">At the beginning of the <bpt id="5013b640-47ee-4746-a4cd-cfc3b3e719c6">&lt;strong&gt;</bpt>task.js<ept id="5013b640-47ee-4746-a4cd-cfc3b3e719c6">&lt;/strong&gt;</ept> file, add the following code to reference required libraries:</target>
+        </trans-unit>
+        <trans-unit id="9b2502f6-2012-4cd0-9cc0-61cd3b6e4f9b" xml:space="preserve">
+          <source>Next, you will add code to define and export the Task object.</source>
+          <target state="new">Next, you will add code to define and export the Task object.</target>
+        </trans-unit>
+        <trans-unit id="bd38b7e4-41e3-44e6-8e93-296f669a4b82" xml:space="preserve">
+          <source>This object is responsible for connecting to the table.</source>
+          <target state="new">This object is responsible for connecting to the table.</target>
+        </trans-unit>
+        <trans-unit id="8f215ffb-9d62-458a-86b1-4c07d244a5cc" xml:space="preserve">
+          <source>Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:</source>
+          <target state="new">Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:</target>
+        </trans-unit>
+        <trans-unit id="bac42dda-182e-4388-b0a5-2667caba22d0" xml:space="preserve">
+          <source>Save and close the <bpt id="dcd67de4-fa7e-4a27-bb2d-f52d88e4d4a9">&lt;strong&gt;</bpt>task.js<ept id="dcd67de4-fa7e-4a27-bb2d-f52d88e4d4a9">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close the <bpt id="dcd67de4-fa7e-4a27-bb2d-f52d88e4d4a9">&lt;strong&gt;</bpt>task.js<ept id="dcd67de4-fa7e-4a27-bb2d-f52d88e4d4a9">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="4917c988-d06c-47f5-ab01-957d4254d3ce" xml:space="preserve">
+          <source>In the <bpt id="e58c10f2-623f-4766-9a43-26784d51e3ce">&lt;strong&gt;</bpt>WebRole1/routes<ept id="e58c10f2-623f-4766-9a43-26784d51e3ce">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="ebca20a6-e25c-4d48-8e30-6f76b9c4a79a">&lt;strong&gt;</bpt>tasklist.js<ept id="ebca20a6-e25c-4d48-8e30-6f76b9c4a79a">&lt;/strong&gt;</ept> and open it in a text editor.</source>
+          <target state="new">In the <bpt id="e58c10f2-623f-4766-9a43-26784d51e3ce">&lt;strong&gt;</bpt>WebRole1/routes<ept id="e58c10f2-623f-4766-9a43-26784d51e3ce">&lt;/strong&gt;</ept> directory, create a new file named <bpt id="ebca20a6-e25c-4d48-8e30-6f76b9c4a79a">&lt;strong&gt;</bpt>tasklist.js<ept id="ebca20a6-e25c-4d48-8e30-6f76b9c4a79a">&lt;/strong&gt;</ept> and open it in a text editor.</target>
+        </trans-unit>
+        <trans-unit id="ae437c9f-e29c-421a-bb14-e6afc0a3f14f" xml:space="preserve">
+          <source>Add the following code to <bpt id="412384cd-8158-4e45-a7e2-c7c2b93b1733">&lt;strong&gt;</bpt>tasklist.js<ept id="412384cd-8158-4e45-a7e2-c7c2b93b1733">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following code to <bpt id="412384cd-8158-4e45-a7e2-c7c2b93b1733">&lt;strong&gt;</bpt>tasklist.js<ept id="412384cd-8158-4e45-a7e2-c7c2b93b1733">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="93d39e6c-36d6-425d-b985-1fb9e1a666c4" xml:space="preserve">
+          <source>This loads the azure and async modules, which are used by <bpt id="ab8db4e2-80e5-40c0-818e-8c1ffdf2f30d">&lt;strong&gt;</bpt>tasklist.js<ept id="ab8db4e2-80e5-40c0-818e-8c1ffdf2f30d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This loads the azure and async modules, which are used by <bpt id="ab8db4e2-80e5-40c0-818e-8c1ffdf2f30d">&lt;strong&gt;</bpt>tasklist.js<ept id="ab8db4e2-80e5-40c0-818e-8c1ffdf2f30d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2d85a240-36fc-46aa-89c4-3095f1d86a73" xml:space="preserve">
+          <source>This also defines the <bpt id="e3b195dd-d7ab-435d-be45-ff24fe46d981">&lt;strong&gt;</bpt>TaskList<ept id="e3b195dd-d7ab-435d-be45-ff24fe46d981">&lt;/strong&gt;</ept> function, which is passed an instance of the <bpt id="37702660-7d49-49e2-bfea-40e652d795fc">&lt;strong&gt;</bpt>Task<ept id="37702660-7d49-49e2-bfea-40e652d795fc">&lt;/strong&gt;</ept> object we defined earlier:</source>
+          <target state="new">This also defines the <bpt id="e3b195dd-d7ab-435d-be45-ff24fe46d981">&lt;strong&gt;</bpt>TaskList<ept id="e3b195dd-d7ab-435d-be45-ff24fe46d981">&lt;/strong&gt;</ept> function, which is passed an instance of the <bpt id="37702660-7d49-49e2-bfea-40e652d795fc">&lt;strong&gt;</bpt>Task<ept id="37702660-7d49-49e2-bfea-40e652d795fc">&lt;/strong&gt;</ept> object we defined earlier:</target>
+        </trans-unit>
+        <trans-unit id="2990144e-0bfc-4513-878a-81e68d617ecb" xml:space="preserve">
+          <source>Continue adding to the <bpt id="4761fa7b-6eb1-4bc7-9440-8c077c1a60f1">&lt;strong&gt;</bpt>tasklist.js<ept id="4761fa7b-6eb1-4bc7-9440-8c077c1a60f1">&lt;/strong&gt;</ept> file by adding the methods used to <bpt id="0ae96e1e-f557-4dce-aafb-d76f3688aaa5">&lt;strong&gt;</bpt>showTasks<ept id="0ae96e1e-f557-4dce-aafb-d76f3688aaa5">&lt;/strong&gt;</ept>, <bpt id="6ec9403c-bca8-4039-9197-895fdf3b8218">&lt;strong&gt;</bpt>addTask<ept id="6ec9403c-bca8-4039-9197-895fdf3b8218">&lt;/strong&gt;</ept>, and <bpt id="75115873-286c-4b06-b834-7efa47712657">&lt;strong&gt;</bpt>completeTasks<ept id="75115873-286c-4b06-b834-7efa47712657">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Continue adding to the <bpt id="4761fa7b-6eb1-4bc7-9440-8c077c1a60f1">&lt;strong&gt;</bpt>tasklist.js<ept id="4761fa7b-6eb1-4bc7-9440-8c077c1a60f1">&lt;/strong&gt;</ept> file by adding the methods used to <bpt id="0ae96e1e-f557-4dce-aafb-d76f3688aaa5">&lt;strong&gt;</bpt>showTasks<ept id="0ae96e1e-f557-4dce-aafb-d76f3688aaa5">&lt;/strong&gt;</ept>, <bpt id="6ec9403c-bca8-4039-9197-895fdf3b8218">&lt;strong&gt;</bpt>addTask<ept id="6ec9403c-bca8-4039-9197-895fdf3b8218">&lt;/strong&gt;</ept>, and <bpt id="75115873-286c-4b06-b834-7efa47712657">&lt;strong&gt;</bpt>completeTasks<ept id="75115873-286c-4b06-b834-7efa47712657">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6988dba7-3b6d-4b39-9f17-40c47bf1b04a" xml:space="preserve">
+          <source>Save the <bpt id="20944100-805b-455c-a48a-5e202b0664aa">&lt;strong&gt;</bpt>tasklist.js<ept id="20944100-805b-455c-a48a-5e202b0664aa">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="20944100-805b-455c-a48a-5e202b0664aa">&lt;strong&gt;</bpt>tasklist.js<ept id="20944100-805b-455c-a48a-5e202b0664aa">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="704de20b-65a3-419c-8d70-bf381b11e999" xml:space="preserve">
+          <source>In the <bpt id="4dfe764a-0293-4873-bd59-30b4acdc3e16">&lt;strong&gt;</bpt>WebRole1<ept id="4dfe764a-0293-4873-bd59-30b4acdc3e16">&lt;/strong&gt;</ept> directory, open the <bpt id="1913c2e1-d205-48c8-bbbe-5d9be5ec9eff">&lt;strong&gt;</bpt>app.js<ept id="1913c2e1-d205-48c8-bbbe-5d9be5ec9eff">&lt;/strong&gt;</ept> file in a text editor.</source>
+          <target state="new">In the <bpt id="4dfe764a-0293-4873-bd59-30b4acdc3e16">&lt;strong&gt;</bpt>WebRole1<ept id="4dfe764a-0293-4873-bd59-30b4acdc3e16">&lt;/strong&gt;</ept> directory, open the <bpt id="1913c2e1-d205-48c8-bbbe-5d9be5ec9eff">&lt;strong&gt;</bpt>app.js<ept id="1913c2e1-d205-48c8-bbbe-5d9be5ec9eff">&lt;/strong&gt;</ept> file in a text editor.</target>
+        </trans-unit>
+        <trans-unit id="d6ee0408-8cb6-413e-9dbd-cc169efd3e4b" xml:space="preserve">
+          <source>At the beginning of the file, add the following to load the azure module and set the table name and partition key:</source>
+          <target state="new">At the beginning of the file, add the following to load the azure module and set the table name and partition key:</target>
+        </trans-unit>
+        <trans-unit id="6b4a6bb8-3223-41d2-8129-f6c9ebfaae7a" xml:space="preserve">
+          <source>In the app.js file, scroll down to where you see the following line:</source>
+          <target state="new">In the app.js file, scroll down to where you see the following line:</target>
+        </trans-unit>
+        <trans-unit id="772aef1b-d5eb-48b8-a978-e61e520b17d9" xml:space="preserve">
+          <source>Replace the above lines with the code shown below.</source>
+          <target state="new">Replace the above lines with the code shown below.</target>
+        </trans-unit>
+        <trans-unit id="7ea51a5d-8f93-41eb-9483-c5b399055139" xml:space="preserve">
+          <source>This will initialize an instance of &lt;strong&gt;Task&lt;/strong&gt; with a connection to your storage account.</source>
+          <target state="new">This will initialize an instance of &lt;strong&gt;Task&lt;/strong&gt; with a connection to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="cfe13c59-4172-4a2e-af9a-299678f6a7ed" xml:space="preserve">
+          <source>This is passed to the &lt;strong&gt;TaskList&lt;/strong&gt;, which will use it to communicate with the Table service:</source>
+          <target state="new">This is passed to the &lt;strong&gt;TaskList&lt;/strong&gt;, which will use it to communicate with the Table service:</target>
+        </trans-unit>
+        <trans-unit id="ebb080cb-de4f-4e08-8ee1-c2347cafbe14" xml:space="preserve">
+          <source>Save the <bpt id="6ab84bc7-74f8-42fc-8cb3-60e1f6c85c2c">&lt;strong&gt;</bpt>app.js<ept id="6ab84bc7-74f8-42fc-8cb3-60e1f6c85c2c">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="6ab84bc7-74f8-42fc-8cb3-60e1f6c85c2c">&lt;strong&gt;</bpt>app.js<ept id="6ab84bc7-74f8-42fc-8cb3-60e1f6c85c2c">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="63eec432-5c6a-4845-983a-0709ce302cdd" xml:space="preserve">
+          <source>Change directories to the <bpt id="f64586da-2aed-426c-9520-94936f846ec8">&lt;strong&gt;</bpt>views<ept id="f64586da-2aed-426c-9520-94936f846ec8">&lt;/strong&gt;</ept> directory and open the <bpt id="7bd8bb24-ba66-44cc-8889-dea4965613fe">&lt;strong&gt;</bpt>index.jade<ept id="7bd8bb24-ba66-44cc-8889-dea4965613fe">&lt;/strong&gt;</ept> file in a text editor.</source>
+          <target state="new">Change directories to the <bpt id="f64586da-2aed-426c-9520-94936f846ec8">&lt;strong&gt;</bpt>views<ept id="f64586da-2aed-426c-9520-94936f846ec8">&lt;/strong&gt;</ept> directory and open the <bpt id="7bd8bb24-ba66-44cc-8889-dea4965613fe">&lt;strong&gt;</bpt>index.jade<ept id="7bd8bb24-ba66-44cc-8889-dea4965613fe">&lt;/strong&gt;</ept> file in a text editor.</target>
+        </trans-unit>
+        <trans-unit id="1e056f13-6d9d-4201-aa63-e982e6a2574e" xml:space="preserve">
+          <source>Replace the contents of the <bpt id="dcd28f85-1cdd-44c3-918c-700323dba046">&lt;strong&gt;</bpt>index.jade<ept id="dcd28f85-1cdd-44c3-918c-700323dba046">&lt;/strong&gt;</ept> file with the code below.</source>
+          <target state="new">Replace the contents of the <bpt id="dcd28f85-1cdd-44c3-918c-700323dba046">&lt;strong&gt;</bpt>index.jade<ept id="dcd28f85-1cdd-44c3-918c-700323dba046">&lt;/strong&gt;</ept> file with the code below.</target>
+        </trans-unit>
+        <trans-unit id="3b05ba49-0cc2-418c-a0f5-3c1aa5585aa5" xml:space="preserve">
+          <source>This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</source>
+          <target state="new">This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.</target>
+        </trans-unit>
+        <trans-unit id="3c55b6af-8930-4d8f-98fb-2410343a41e2" xml:space="preserve">
+          <source>Save and close <bpt id="10380fb7-790e-4c6e-811f-3de1c8c06039">&lt;strong&gt;</bpt>index.jade<ept id="10380fb7-790e-4c6e-811f-3de1c8c06039">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save and close <bpt id="10380fb7-790e-4c6e-811f-3de1c8c06039">&lt;strong&gt;</bpt>index.jade<ept id="10380fb7-790e-4c6e-811f-3de1c8c06039">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="a9e4b9c1-b889-4e54-b2b9-ce5df9ac92e0" xml:space="preserve">
+          <source>The <bpt id="58c2420b-1832-46c5-b585-07f7f71df248">&lt;strong&gt;</bpt>layout.jade<ept id="58c2420b-1832-46c5-b585-07f7f71df248">&lt;/strong&gt;</ept> file in the <bpt id="f6bc7e6b-71d0-4723-aa83-f07a790864d5">&lt;strong&gt;</bpt>views<ept id="f6bc7e6b-71d0-4723-aa83-f07a790864d5">&lt;/strong&gt;</ept> directory is used as a global template for other <bpt id="a1cd1e7f-0fd4-497c-9e41-b4ebd2f179d4">&lt;strong&gt;</bpt>.jade<ept id="a1cd1e7f-0fd4-497c-9e41-b4ebd2f179d4">&lt;/strong&gt;</ept> files.</source>
+          <target state="new">The <bpt id="58c2420b-1832-46c5-b585-07f7f71df248">&lt;strong&gt;</bpt>layout.jade<ept id="58c2420b-1832-46c5-b585-07f7f71df248">&lt;/strong&gt;</ept> file in the <bpt id="f6bc7e6b-71d0-4723-aa83-f07a790864d5">&lt;strong&gt;</bpt>views<ept id="f6bc7e6b-71d0-4723-aa83-f07a790864d5">&lt;/strong&gt;</ept> directory is used as a global template for other <bpt id="a1cd1e7f-0fd4-497c-9e41-b4ebd2f179d4">&lt;strong&gt;</bpt>.jade<ept id="a1cd1e7f-0fd4-497c-9e41-b4ebd2f179d4">&lt;/strong&gt;</ept> files.</target>
+        </trans-unit>
+        <trans-unit id="39b3f6b4-fc98-4967-9e9e-58a27968612f" xml:space="preserve">
+          <source>In this step you will modify it to use <bpt id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;/linkText&gt;</ept><bpt id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;title&gt;</bpt><ept id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;/title&gt;</ept>, which is a toolkit that makes it easy to design a nice looking website.</source>
+          <target state="new">In this step you will modify it to use <bpt id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;/linkText&gt;</ept><bpt id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;title&gt;</bpt><ept id="6f2a15b5-c6bc-4c1d-9600-0f37d0dca511">&lt;/title&gt;</ept>, which is a toolkit that makes it easy to design a nice looking website.</target>
+        </trans-unit>
+        <trans-unit id="502fc9a2-ec75-48b9-bc71-9c0e9fc09552" xml:space="preserve">
+          <source>Download and extract the files for <bpt id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;/linkText&gt;</ept><bpt id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;title&gt;</bpt><ept id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;/title&gt;</ept>.</source>
+          <target state="new">Download and extract the files for <bpt id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;linkText&gt;</bpt>Twitter Bootstrap<ept id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;/linkText&gt;</ept><bpt id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;title&gt;</bpt><ept id="4c062ffb-0c10-44aa-b53e-86b850640371">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f1a00c8-99af-4518-a399-885179691f51" xml:space="preserve">
+          <source>Copy the <bpt id="f5094ffd-cada-42a1-9c43-d753fa827f1e">&lt;strong&gt;</bpt>bootstrap.min.css<ept id="f5094ffd-cada-42a1-9c43-d753fa827f1e">&lt;/strong&gt;</ept> file from the <bpt id="2af2568b-1dbb-4d73-9dd8-e59d680efb6d">&lt;strong&gt;</bpt>bootstrap\\dist\\css<ept id="2af2568b-1dbb-4d73-9dd8-e59d680efb6d">&lt;/strong&gt;</ept> folder to the <bpt id="90d2eb42-c8a4-42dd-8b21-faedb933e4d2">&lt;strong&gt;</bpt>public\\stylesheets<ept id="90d2eb42-c8a4-42dd-8b21-faedb933e4d2">&lt;/strong&gt;</ept> directory of your tasklist application.</source>
+          <target state="new">Copy the <bpt id="f5094ffd-cada-42a1-9c43-d753fa827f1e">&lt;strong&gt;</bpt>bootstrap.min.css<ept id="f5094ffd-cada-42a1-9c43-d753fa827f1e">&lt;/strong&gt;</ept> file from the <bpt id="2af2568b-1dbb-4d73-9dd8-e59d680efb6d">&lt;strong&gt;</bpt>bootstrap\\dist\\css<ept id="2af2568b-1dbb-4d73-9dd8-e59d680efb6d">&lt;/strong&gt;</ept> folder to the <bpt id="90d2eb42-c8a4-42dd-8b21-faedb933e4d2">&lt;strong&gt;</bpt>public\\stylesheets<ept id="90d2eb42-c8a4-42dd-8b21-faedb933e4d2">&lt;/strong&gt;</ept> directory of your tasklist application.</target>
+        </trans-unit>
+        <trans-unit id="df14e057-af19-4e90-beac-a05bd3ed16bc" xml:space="preserve">
+          <source>From the <bpt id="4d64952f-bf89-4c69-9c4a-2e59dad782ab">&lt;strong&gt;</bpt>views<ept id="4d64952f-bf89-4c69-9c4a-2e59dad782ab">&lt;/strong&gt;</ept> folder, open the <bpt id="821d1417-06ab-48b5-a066-52c3a418142e">&lt;strong&gt;</bpt>layout.jade<ept id="821d1417-06ab-48b5-a066-52c3a418142e">&lt;/strong&gt;</ept> in your text editor and replace the contents with the following:</source>
+          <target state="new">From the <bpt id="4d64952f-bf89-4c69-9c4a-2e59dad782ab">&lt;strong&gt;</bpt>views<ept id="4d64952f-bf89-4c69-9c4a-2e59dad782ab">&lt;/strong&gt;</ept> folder, open the <bpt id="821d1417-06ab-48b5-a066-52c3a418142e">&lt;strong&gt;</bpt>layout.jade<ept id="821d1417-06ab-48b5-a066-52c3a418142e">&lt;/strong&gt;</ept> in your text editor and replace the contents with the following:</target>
+        </trans-unit>
+        <trans-unit id="03626f05-a7a7-4c17-964f-3296a3868e08" xml:space="preserve">
+          <source>Save the <bpt id="8884e3c8-dde6-4452-8a03-50053e4b59a3">&lt;strong&gt;</bpt>layout.jade<ept id="8884e3c8-dde6-4452-8a03-50053e4b59a3">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Save the <bpt id="8884e3c8-dde6-4452-8a03-50053e4b59a3">&lt;strong&gt;</bpt>layout.jade<ept id="8884e3c8-dde6-4452-8a03-50053e4b59a3">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="32316aac-9e33-4584-a92c-b86208a381a3" xml:space="preserve">
+          <source>Use the following command to start the application in the emulator.</source>
+          <target state="new">Use the following command to start the application in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="e629689b-180b-4c2b-abd9-138f6651c322" xml:space="preserve">
+          <source>The browser will open and displays the following page:</source>
+          <target state="new">The browser will open and displays the following page:</target>
+        </trans-unit>
+        <trans-unit id="e0d747c7-581d-4072-8b72-c406f621f3b0" xml:space="preserve">
+          <source><bpt id="eccafed5-9f52-440f-a6bb-20ca75856e17">&lt;linkText&gt;</bpt>A web paged titled My Task List with a table containing tasks and fields to add a new task.<ept id="eccafed5-9f52-440f-a6bb-20ca75856e17">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eccafed5-9f52-440f-a6bb-20ca75856e17">&lt;linkText&gt;</bpt>A web paged titled My Task List with a table containing tasks and fields to add a new task.<ept id="eccafed5-9f52-440f-a6bb-20ca75856e17">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f05b34b-6b96-4316-87aa-ecd6ec109e8c" xml:space="preserve">
+          <source>Use the form to add items, or remove existing items by marking them as completed.</source>
+          <target state="new">Use the form to add items, or remove existing items by marking them as completed.</target>
+        </trans-unit>
+        <trans-unit id="331e0f12-041f-4de8-a6a2-52a794282442" xml:space="preserve">
+          <source>In the Windows PowerShell window, call the following cmdlet to redeploy your hosted service to Azure.</source>
+          <target state="new">In the Windows PowerShell window, call the following cmdlet to redeploy your hosted service to Azure.</target>
+        </trans-unit>
+        <trans-unit id="25460c09-8869-470a-9729-7124557df9b0" xml:space="preserve">
+          <source>Replace <bpt id="b82b06cb-6a7b-463a-b04c-57e5c360121a">&lt;strong&gt;</bpt>myuniquename<ept id="b82b06cb-6a7b-463a-b04c-57e5c360121a">&lt;/strong&gt;</ept> with a unique name for this application.</source>
+          <target state="new">Replace <bpt id="b82b06cb-6a7b-463a-b04c-57e5c360121a">&lt;strong&gt;</bpt>myuniquename<ept id="b82b06cb-6a7b-463a-b04c-57e5c360121a">&lt;/strong&gt;</ept> with a unique name for this application.</target>
+        </trans-unit>
+        <trans-unit id="e6a49dff-f6c5-4e0d-a864-9b042fb952be" xml:space="preserve">
+          <source>Replace <bpt id="5cba23b6-5cc9-4ee6-ba39-2f7fddafeedd">&lt;strong&gt;</bpt>datacentername<ept id="5cba23b6-5cc9-4ee6-ba39-2f7fddafeedd">&lt;/strong&gt;</ept> with the name of an Azure data center, such as <bpt id="072bd1a1-77c7-4843-a5a0-3c3c71497df7">&lt;strong&gt;</bpt>West US<ept id="072bd1a1-77c7-4843-a5a0-3c3c71497df7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Replace <bpt id="5cba23b6-5cc9-4ee6-ba39-2f7fddafeedd">&lt;strong&gt;</bpt>datacentername<ept id="5cba23b6-5cc9-4ee6-ba39-2f7fddafeedd">&lt;/strong&gt;</ept> with the name of an Azure data center, such as <bpt id="072bd1a1-77c7-4843-a5a0-3c3c71497df7">&lt;strong&gt;</bpt>West US<ept id="072bd1a1-77c7-4843-a5a0-3c3c71497df7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87d7c52f-c04a-4e24-801b-748cb634449e" xml:space="preserve">
+          <source>After the deployment is complete, you should see a response similar to the following:</source>
+          <target state="new">After the deployment is complete, you should see a response similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="19ea7a1d-5e03-447b-b1ff-3b044b30d27b" xml:space="preserve">
+          <source>As before, because you specified the <bpt id="37392411-3a37-425a-86f6-1ef5e62addaa">&lt;strong&gt;</bpt>-launch<ept id="37392411-3a37-425a-86f6-1ef5e62addaa">&lt;/strong&gt;</ept> option, the browser opens and displays your application running in Azure when publishing is completed.</source>
+          <target state="new">As before, because you specified the <bpt id="37392411-3a37-425a-86f6-1ef5e62addaa">&lt;strong&gt;</bpt>-launch<ept id="37392411-3a37-425a-86f6-1ef5e62addaa">&lt;/strong&gt;</ept> option, the browser opens and displays your application running in Azure when publishing is completed.</target>
+        </trans-unit>
+        <trans-unit id="4f3d8ba3-2019-443b-808b-f0533e5f6008" xml:space="preserve">
+          <source>![A browser window displaying the My Task List page.</source>
+          <target state="new">![A browser window displaying the My Task List page.</target>
+        </trans-unit>
+        <trans-unit id="55968cbd-340d-45d4-8813-8df153e7b869" xml:space="preserve">
+          <source>The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)</source>
+          <target state="new">The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)</target>
+        </trans-unit>
+        <trans-unit id="ea6e20fb-075c-4977-8e09-79d33f074a13" xml:space="preserve">
+          <source>After deploying your application, you may want to disable it so you can
+avoid costs or build and deploy other applications within the free trial
+time period.</source>
+          <target state="new">After deploying your application, you may want to disable it so you can
+avoid costs or build and deploy other applications within the free trial
+time period.</target>
+        </trans-unit>
+        <trans-unit id="361f62ba-3d98-49a8-af3c-9661f3c998f7" xml:space="preserve">
+          <source>Azure bills web role instances per hour of server time consumed.</source>
+          <target state="new">Azure bills web role instances per hour of server time consumed.</target>
+        </trans-unit>
+        <trans-unit id="47b7b32a-a108-4943-9c5e-e5462b3acfae" xml:space="preserve">
+          <source>Server time is consumed once your application is deployed, even if the
+instances are not running and are in the stopped state.</source>
+          <target state="new">Server time is consumed once your application is deployed, even if the
+instances are not running and are in the stopped state.</target>
+        </trans-unit>
+        <trans-unit id="ef6e7df4-a04c-439d-ada9-5fb495232ee6" xml:space="preserve">
+          <source>The following steps show you how to stop and delete your application.</source>
+          <target state="new">The following steps show you how to stop and delete your application.</target>
+        </trans-unit>
+        <trans-unit id="6110a05a-98ab-4e03-9796-caaa7200d212" xml:space="preserve">
+          <source>In the Windows PowerShell window, stop the service deployment
+created in the previous section with the following cmdlet:</source>
+          <target state="new">In the Windows PowerShell window, stop the service deployment
+created in the previous section with the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="0554f00e-62f5-4f45-a57a-7b21219614fc" xml:space="preserve">
+          <source>Stopping the service may take several minutes.</source>
+          <target state="new">Stopping the service may take several minutes.</target>
+        </trans-unit>
+        <trans-unit id="a1fe1377-bdd4-4253-82b4-d7d9448df325" xml:space="preserve">
+          <source>When the service is stopped, you receive a message indicating that it has stopped.</source>
+          <target state="new">When the service is stopped, you receive a message indicating that it has stopped.</target>
+        </trans-unit>
+        <trans-unit id="3ba03622-6e4f-487f-88b3-3a8de5ac2419" xml:space="preserve">
+          <source>To delete the service, call the following cmdlet:</source>
+          <target state="new">To delete the service, call the following cmdlet:</target>
+        </trans-unit>
+        <trans-unit id="e62fa746-4c69-433a-8997-2a937aea74ec" xml:space="preserve">
+          <source>When prompted, enter <bpt id="ddc230a6-4fb1-40de-97de-8c300eed8a8e">&lt;strong&gt;</bpt>Y<ept id="ddc230a6-4fb1-40de-97de-8c300eed8a8e">&lt;/strong&gt;</ept> to delete the service.</source>
+          <target state="new">When prompted, enter <bpt id="ddc230a6-4fb1-40de-97de-8c300eed8a8e">&lt;strong&gt;</bpt>Y<ept id="ddc230a6-4fb1-40de-97de-8c300eed8a8e">&lt;/strong&gt;</ept> to delete the service.</target>
+        </trans-unit>
+        <trans-unit id="775858d6-de3a-440c-b8a0-4a77f610d860" xml:space="preserve">
+          <source>Deleting the service may take several minutes.</source>
+          <target state="new">Deleting the service may take several minutes.</target>
+        </trans-unit>
+        <trans-unit id="e525c63c-77af-44c2-b8ee-28f2f79c0d9b" xml:space="preserve">
+          <source>After the service has been deleted you receive a message indicating that the service was deleted.</source>
+          <target state="new">After the service has been deleted you receive a message indicating that the service was deleted.</target>
+        </trans-unit>
+        <trans-unit id="30f48a0a-7ac0-46b9-ae3c-bb7c7555f396" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</source>
+          <target state="new">http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/</target>
+        </trans-unit>
+        <trans-unit id="ac0187d5-1170-422a-b5fd-bdc29ea393ad" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/gg433040.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/gg433040.aspx</target>
+        </trans-unit>
+        <trans-unit id="f8eb9421-791b-4331-822c-2d5d27178b91" xml:space="preserve">
+          <source>http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</source>
+          <target state="new">http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/</target>
+        </trans-unit>
+      </group>
+      <group id="cf755d42-0f15-4caa-9808-f6b95f67c9a0" />
+    </body>
+  </file>
+</xliff>

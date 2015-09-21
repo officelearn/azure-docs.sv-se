@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="26f4ac58-5dff-4dc5-a4b2-a24bd1c932bb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="26f4ac58-5dff-4dc5-a4b2-a24bd1c932bb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3bc60df-2dab-4bab-89e4-7f33e71b83d9">
+        <trans-unit id="52409826-5509-4528-aa1e-496484049b0c" xml:space="preserve">
+          <source>By default, APIs in a Mobile App backend can be invoked anonymously.</source>
+          <target state="new">By default, APIs in a Mobile App backend can be invoked anonymously.</target>
+        </trans-unit>
+        <trans-unit id="17ef2e5e-6567-442c-a052-1049ce9020dc" xml:space="preserve">
+          <source>Next, you need to restrict access to only authenticated clients.</source>
+          <target state="new">Next, you need to restrict access to only authenticated clients.</target>
+        </trans-unit>
+        <trans-unit id="f8d2ded8-aee3-4fd1-a1fe-f95685ab1b8b" xml:space="preserve">
+          <source>On your PC, open the server project in Visual Studio and navigate to <bpt id="49f27b28-ff5f-456f-936e-79c6c06cb7aa">&lt;strong&gt;</bpt>Controllers<ept id="49f27b28-ff5f-456f-936e-79c6c06cb7aa">&lt;/strong&gt;</ept> &gt; <bpt id="142bc579-cddf-4153-aa5a-799229953a78">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="142bc579-cddf-4153-aa5a-799229953a78">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your PC, open the server project in Visual Studio and navigate to <bpt id="49f27b28-ff5f-456f-936e-79c6c06cb7aa">&lt;strong&gt;</bpt>Controllers<ept id="49f27b28-ff5f-456f-936e-79c6c06cb7aa">&lt;/strong&gt;</ept> &gt; <bpt id="142bc579-cddf-4153-aa5a-799229953a78">&lt;strong&gt;</bpt>TodoItemController.cs<ept id="142bc579-cddf-4153-aa5a-799229953a78">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ce64454-5403-4959-a0d0-dc1ba90f2b3d" xml:space="preserve">
+          <source>Add the <bpt id="29a52222-06c1-4356-99f0-478678e97f19">&lt;code&gt;</bpt>[Authorize]<ept id="29a52222-06c1-4356-99f0-478678e97f19">&lt;/code&gt;</ept> attribute to the <bpt id="6aa8a7de-4b93-4d28-8c3b-86ce9116fe87">&lt;strong&gt;</bpt>TodoItemController<ept id="6aa8a7de-4b93-4d28-8c3b-86ce9116fe87">&lt;/strong&gt;</ept> class, as follows.</source>
+          <target state="new">Add the <bpt id="29a52222-06c1-4356-99f0-478678e97f19">&lt;code&gt;</bpt>[Authorize]<ept id="29a52222-06c1-4356-99f0-478678e97f19">&lt;/code&gt;</ept> attribute to the <bpt id="6aa8a7de-4b93-4d28-8c3b-86ce9116fe87">&lt;strong&gt;</bpt>TodoItemController<ept id="6aa8a7de-4b93-4d28-8c3b-86ce9116fe87">&lt;/strong&gt;</ept> class, as follows.</target>
+        </trans-unit>
+        <trans-unit id="d212fc29-bbcf-4c10-a4da-0ab87bfa669f" xml:space="preserve">
+          <source>This requires that all operations against the TodoItem table be made by an authenticated user.</source>
+          <target state="new">This requires that all operations against the TodoItem table be made by an authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="59fdbff1-4690-4e63-bb6c-63f37be51fbb" xml:space="preserve">
+          <source>To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class.</source>
+          <target state="new">To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class.</target>
+        </trans-unit>
+        <trans-unit id="fc8b3dae-044d-412f-a7c9-e04e596ee0aa" xml:space="preserve">
+          <source>This requires that all operations against the TodoItem table be made by an authenticated user.</source>
+          <target state="new">This requires that all operations against the TodoItem table be made by an authenticated user.</target>
+        </trans-unit>
+        <trans-unit id="5f12f77e-cfdc-460b-9628-6c10becfd54a" xml:space="preserve">
+          <source>To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class.</source>
+          <target state="new">To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class.</target>
+        </trans-unit>
+        <trans-unit id="a04938b7-c40b-45c0-be70-a247a618caea" xml:space="preserve">
+          <source>Republish your server project.</source>
+          <target state="new">Republish your server project.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

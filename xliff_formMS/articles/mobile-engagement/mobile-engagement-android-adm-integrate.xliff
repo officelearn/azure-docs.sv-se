@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="59cc70a8-3a95-4871-b19b-a447802183ba" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="59cc70a8-3a95-4871-b19b-a447802183ba" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bbda85f4-e7d3-437e-8847-dcd8d66be8a0">
+        <trans-unit id="d5b6cbb2-83c7-4eab-9d24-ab316b348846" xml:space="preserve">
+          <source>Azure Mobile Engagement Android SDK Integration</source>
+          <target state="new">Azure Mobile Engagement Android SDK Integration</target>
+        </trans-unit>
+        <trans-unit id="3350a387-396c-438e-8554-021d4071210e" xml:space="preserve">
+          <source>Latest updates and procedures for Android SDK for Azure Mobile Engagement</source>
+          <target state="new">Latest updates and procedures for Android SDK for Azure Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="d0479e15-398c-43be-b82b-c51cdb23bab6" xml:space="preserve">
+          <source>You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</source>
+          <target state="new">You must follow the integration procedure described in the How to Integrate Engagement on Android document before following this guide.</target>
+        </trans-unit>
+        <trans-unit id="7546774c-3676-4d97-9269-77e1f1f39fec" xml:space="preserve">
+          <source>This document is useful only if you integrated the Reach module for any time campaign support.</source>
+          <target state="new">This document is useful only if you integrated the Reach module for any time campaign support.</target>
+        </trans-unit>
+        <trans-unit id="d1fbb60c-5ccd-4adc-be1a-0ca5e333f00e" xml:space="preserve">
+          <source>To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.</source>
+          <target state="new">To integrate Reach campaigns in your application, please read first How to Integrate Engagement Reach on Android.</target>
+        </trans-unit>
+        <trans-unit id="ed6d12e8-d603-4fbc-a728-ac3b138fd971" xml:space="preserve">
+          <source>Integrating ADM allows your application to be pushed even when it's not running.</source>
+          <target state="new">Integrating ADM allows your application to be pushed even when it's not running.</target>
+        </trans-unit>
+        <trans-unit id="3102a308-04ff-4745-8eae-52581d54f715" xml:space="preserve">
+          <source>No campaign data is actually sent via ADM, it's just a background signal telling the application to fetch the Engagement push.</source>
+          <target state="new">No campaign data is actually sent via ADM, it's just a background signal telling the application to fetch the Engagement push.</target>
+        </trans-unit>
+        <trans-unit id="dc0ee9cf-cd76-42aa-bfb2-c4254fb13551" xml:space="preserve">
+          <source>If the application is not running while receiving an ADM push, it triggers a connection to the Engagement servers to fetch the push, the Engagement connection remains active for about a minute in case the user launches the application in the response to the push.</source>
+          <target state="new">If the application is not running while receiving an ADM push, it triggers a connection to the Engagement servers to fetch the push, the Engagement connection remains active for about a minute in case the user launches the application in the response to the push.</target>
+        </trans-unit>
+        <trans-unit id="566942c4-e8b9-444f-87e9-83a19ed40dfc" xml:space="preserve">
+          <source>Only Amazon Kindle devices running Android 4.0.3 or above are supported by Amazon Device Messaging; however, you can integrate this code safely on other devices.</source>
+          <target state="new">Only Amazon Kindle devices running Android 4.0.3 or above are supported by Amazon Device Messaging; however, you can integrate this code safely on other devices.</target>
+        </trans-unit>
+        <trans-unit id="5340ba47-f1ab-4674-86ea-24a8c8245713" xml:space="preserve">
+          <source>If the application cannot be woken up by ADM, the Engagement notification will be received the next time the application is launched.</source>
+          <target state="new">If the application cannot be woken up by ADM, the Engagement notification will be received the next time the application is launched.</target>
+        </trans-unit>
+        <trans-unit id="61443cb3-d8aa-4804-81ea-a7dbf5b8fd65" xml:space="preserve">
+          <source>If not already done, you must enable ADM on your Amazon account.</source>
+          <target state="new">If not already done, you must enable ADM on your Amazon account.</target>
+        </trans-unit>
+        <trans-unit id="b1f16417-8c92-4927-bc35-605d2d3ba200" xml:space="preserve">
+          <source>The procedure is detailed at: [&lt;https://developer.amazon.com/sdk/adm/credentials.html&gt;].</source>
+          <target state="new">The procedure is detailed at: [&lt;https://developer.amazon.com/sdk/adm/credentials.html&gt;].</target>
+        </trans-unit>
+        <trans-unit id="2cdba91f-8167-4d7f-96c0-846e3df68d3f" xml:space="preserve">
+          <source>Upon completing the procedure, you get:</source>
+          <target state="new">Upon completing the procedure, you get:</target>
+        </trans-unit>
+        <trans-unit id="416ef9be-7aaa-4d7b-a5ae-7af5eb8c80da" xml:space="preserve">
+          <source>OAuth credentials (a Client ID and a Client Secret) for Engagement to be able to push your devices.</source>
+          <target state="new">OAuth credentials (a Client ID and a Client Secret) for Engagement to be able to push your devices.</target>
+        </trans-unit>
+        <trans-unit id="66e07131-5423-4b0b-a966-7e15ee715e96" xml:space="preserve">
+          <source>An API Key that must be integrated into your application.</source>
+          <target state="new">An API Key that must be integrated into your application.</target>
+        </trans-unit>
+        <trans-unit id="93d648d9-1337-428f-842d-3f83023770da" xml:space="preserve">
+          <source>Each device must send a registration command to the ADM servers, otherwise they can't be reached.</source>
+          <target state="new">Each device must send a registration command to the ADM servers, otherwise they can't be reached.</target>
+        </trans-unit>
+        <trans-unit id="20192d94-4d93-4bda-8ccc-add064dc24ac" xml:space="preserve">
+          <source>If you already use the [ADM client library], and already have [integrated ADM] you can directly go to android-sdk-adm-receive.</source>
+          <target state="new">If you already use the [ADM client library], and already have [integrated ADM] you can directly go to android-sdk-adm-receive.</target>
+        </trans-unit>
+        <trans-unit id="6efbc56b-c25a-4ebe-a57b-8648a91a2d7e" xml:space="preserve">
+          <source>If you have not integrated ADM yet, Engagement has a simpler way to enable it in your application:</source>
+          <target state="new">If you have not integrated ADM yet, Engagement has a simpler way to enable it in your application:</target>
+        </trans-unit>
+        <trans-unit id="bfe1b5f8-4d08-444d-80bf-b629c52c0cbb" xml:space="preserve">
+          <source>Edit your <bpt id="61564e87-df75-40ee-b29a-cbb275c1131e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="61564e87-df75-40ee-b29a-cbb275c1131e">&lt;/code&gt;</ept> file:</source>
+          <target state="new">Edit your <bpt id="61564e87-df75-40ee-b29a-cbb275c1131e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="61564e87-df75-40ee-b29a-cbb275c1131e">&lt;/code&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="7dcb05e7-20b8-4cde-9981-55ad96ebfde6" xml:space="preserve">
+          <source>Add the Amazon namespace, the file should begin like this:</source>
+          <target state="new">Add the Amazon namespace, the file should begin like this:</target>
+        </trans-unit>
+        <trans-unit id="21979f39-e930-4e29-92ec-fdb21ba0b6d8" xml:space="preserve">
+          <source>Inside the <bpt id="576c5aab-97b2-4104-b7d9-05483b99aa51">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="576c5aab-97b2-4104-b7d9-05483b99aa51">&lt;/code&gt;</ept> tag, add this section:</source>
+          <target state="new">Inside the <bpt id="576c5aab-97b2-4104-b7d9-05483b99aa51">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="576c5aab-97b2-4104-b7d9-05483b99aa51">&lt;/code&gt;</ept> tag, add this section:</target>
+        </trans-unit>
+        <trans-unit id="a6707d5b-a517-4f50-9fba-8fa940f7d1f8" xml:space="preserve">
+          <source>After adding the amazon tag, you may have a build error if your Project Build Target is below Android 2.1.</source>
+          <target state="new">After adding the amazon tag, you may have a build error if your Project Build Target is below Android 2.1.</target>
+        </trans-unit>
+        <trans-unit id="aaa0e1c4-cf91-4477-8179-379c2d5ad86b" xml:space="preserve">
+          <source>You have to use an <bpt id="a95b8bdc-bd4d-44de-b1cf-3f2e2e07c6e7">&lt;strong&gt;</bpt>Android 2.1+<ept id="a95b8bdc-bd4d-44de-b1cf-3f2e2e07c6e7">&lt;/strong&gt;</ept> build target (don't worry, you can still have a <bpt id="43e534c0-6714-4bb1-91d1-0daf7943256e">&lt;code&gt;</bpt>minSdkVersion<ept id="43e534c0-6714-4bb1-91d1-0daf7943256e">&lt;/code&gt;</ept> set to 4).</source>
+          <target state="new">You have to use an <bpt id="a95b8bdc-bd4d-44de-b1cf-3f2e2e07c6e7">&lt;strong&gt;</bpt>Android 2.1+<ept id="a95b8bdc-bd4d-44de-b1cf-3f2e2e07c6e7">&lt;/strong&gt;</ept> build target (don't worry, you can still have a <bpt id="43e534c0-6714-4bb1-91d1-0daf7943256e">&lt;code&gt;</bpt>minSdkVersion<ept id="43e534c0-6714-4bb1-91d1-0daf7943256e">&lt;/code&gt;</ept> set to 4).</target>
+        </trans-unit>
+        <trans-unit id="5ff65fd7-e573-46a5-9907-d9edecb2c3d1" xml:space="preserve">
+          <source>Integrate the ADM API Key as an asset by following [this procedure].</source>
+          <target state="new">Integrate the ADM API Key as an asset by following [this procedure].</target>
+        </trans-unit>
+        <trans-unit id="08bfaf5c-4464-4215-97b6-fa35307b6d5e" xml:space="preserve">
+          <source>Then follow the instructions of the next sections.</source>
+          <target state="new">Then follow the instructions of the next sections.</target>
+        </trans-unit>
+        <trans-unit id="771d2b14-17dd-44a4-ab58-ee5da0581da8" xml:space="preserve">
+          <source>In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your <bpt id="7c6cc260-99d8-4c61-a64f-696675b4dc9e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7c6cc260-99d8-4c61-a64f-696675b4dc9e">&lt;/code&gt;</ept> file, inside the <bpt id="a6b89f37-58fc-46ef-81e9-64cc05517ab3">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="a6b89f37-58fc-46ef-81e9-64cc05517ab3">&lt;/code&gt;</ept> tag (even if you use ADM without Engagement):</source>
+          <target state="new">In order to communicate the registration id of the device to the Engagement Push service and receive its notifications, add the following to your <bpt id="7c6cc260-99d8-4c61-a64f-696675b4dc9e">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="7c6cc260-99d8-4c61-a64f-696675b4dc9e">&lt;/code&gt;</ept> file, inside the <bpt id="a6b89f37-58fc-46ef-81e9-64cc05517ab3">&lt;code&gt;</bpt>&lt;application/&gt;<ept id="a6b89f37-58fc-46ef-81e9-64cc05517ab3">&lt;/code&gt;</ept> tag (even if you use ADM without Engagement):</target>
+        </trans-unit>
+        <trans-unit id="0865922c-3e93-4f14-9f4d-3cfac0f0d82f" xml:space="preserve">
+          <source>Ensure you have the following permissions in your <bpt id="e2ea321f-eada-4ca0-a36d-00fc1a8cc762">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="e2ea321f-eada-4ca0-a36d-00fc1a8cc762">&lt;/code&gt;</ept> (before the <bpt id="2b6ca567-97f7-4dfe-9998-36dac8d7f77d">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="2b6ca567-97f7-4dfe-9998-36dac8d7f77d">&lt;/code&gt;</ept> tag).</source>
+          <target state="new">Ensure you have the following permissions in your <bpt id="e2ea321f-eada-4ca0-a36d-00fc1a8cc762">&lt;code&gt;</bpt>AndroidManifest.xml<ept id="e2ea321f-eada-4ca0-a36d-00fc1a8cc762">&lt;/code&gt;</ept> (before the <bpt id="2b6ca567-97f7-4dfe-9998-36dac8d7f77d">&lt;code&gt;</bpt>&lt;/application&gt;<ept id="2b6ca567-97f7-4dfe-9998-36dac8d7f77d">&lt;/code&gt;</ept> tag).</target>
+        </trans-unit>
+        <trans-unit id="d7867e50-7417-4cf8-a31b-77dc1fcf3824" xml:space="preserve">
+          <source>Submit your OAuth Credentials (Client ID and Client Secret) at $/\#application/YOUR\_APPID/native-push.</source>
+          <target state="new">Submit your OAuth Credentials (Client ID and Client Secret) at $/\#application/YOUR\_APPID/native-push.</target>
+        </trans-unit>
+        <trans-unit id="41f048f3-7e1f-463f-9b5e-6cf695877552" xml:space="preserve">
+          <source>You can now select "Any Time" when creating Reach announcements and polls.</source>
+          <target state="new">You can now select "Any Time" when creating Reach announcements and polls.</target>
+        </trans-unit>
+        <trans-unit id="28504750-d509-4a33-90b4-64eea39b4d5c" xml:space="preserve">
+          <source>https://developer.amazon.com/sdk/adm/credentials.html</source>
+          <target state="new">https://developer.amazon.com/sdk/adm/credentials.html</target>
+        </trans-unit>
+        <trans-unit id="ed9b8e7a-493c-4daa-b188-bd9dce49e37a" xml:space="preserve">
+          <source>https://developer.amazon.com/sdk/adm/setup.html</source>
+          <target state="new">https://developer.amazon.com/sdk/adm/setup.html</target>
+        </trans-unit>
+        <trans-unit id="9c995b5b-eb61-446f-8873-902fd61c437d" xml:space="preserve">
+          <source>https://developer.amazon.com/sdk/adm/integrating-app.html</source>
+          <target state="new">https://developer.amazon.com/sdk/adm/integrating-app.html</target>
+        </trans-unit>
+        <trans-unit id="dcfa0d4c-f31a-4db3-9d8f-019decf73e3c" xml:space="preserve">
+          <source>https://developer.amazon.com/sdk/adm/integrating-app.html#Asset</source>
+          <target state="new">https://developer.amazon.com/sdk/adm/integrating-app.html#Asset</target>
+        </trans-unit>
+      </group>
+      <group id="8f7bc652-b95e-45c3-bf00-b63114c0233a" />
+    </body>
+  </file>
+</xliff>

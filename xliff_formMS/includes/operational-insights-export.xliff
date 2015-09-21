@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1610c78f-63f6-4b20-9cc2-20993d68f790" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1610c78f-63f6-4b20-9cc2-20993d68f790" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="6ca9ec81-b2fd-4294-8265-bee69ebf51b5">
+        <trans-unit id="ee8f6c35-c3bc-4d40-969e-e87e94690a84" xml:space="preserve">
+          <source>You can export your search results to Excel by saving a .csv file so you can discover more insights and visualize the data any way you like.</source>
+          <target state="new">You can export your search results to Excel by saving a .csv file so you can discover more insights and visualize the data any way you like.</target>
+        </trans-unit>
+        <trans-unit id="32b4d661-3eac-4841-a21e-b8f14abb7498" xml:space="preserve">
+          <source>From any search result, click <bpt id="e40676ad-50dd-4c72-a8e3-a427d4c2dea7">&lt;strong&gt;</bpt>Export<ept id="e40676ad-50dd-4c72-a8e3-a427d4c2dea7">&lt;/strong&gt;</ept> at the bottom of the search page.</source>
+          <target state="new">From any search result, click <bpt id="e40676ad-50dd-4c72-a8e3-a427d4c2dea7">&lt;strong&gt;</bpt>Export<ept id="e40676ad-50dd-4c72-a8e3-a427d4c2dea7">&lt;/strong&gt;</ept> at the bottom of the search page.</target>
+        </trans-unit>
+        <trans-unit id="1da80f28-a807-4da0-9882-502b3d4045d2" xml:space="preserve">
+          <source><bpt id="78655b01-5ed6-4ae5-8d77-2f288823a5ca">&lt;linkText&gt;</bpt>export from search<ept id="78655b01-5ed6-4ae5-8d77-2f288823a5ca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="78655b01-5ed6-4ae5-8d77-2f288823a5ca">&lt;linkText&gt;</bpt>export from search<ept id="78655b01-5ed6-4ae5-8d77-2f288823a5ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4396dfbe-8fc4-4604-8938-1331ed406cfa" xml:space="preserve">
+          <source>In your browser, you are prompted to save the .csv file.</source>
+          <target state="new">In your browser, you are prompted to save the .csv file.</target>
+        </trans-unit>
+        <trans-unit id="c63f2081-b9d9-4c5a-945d-457effc8e5e8" xml:space="preserve">
+          <source>Either open or save the file.</source>
+          <target state="new">Either open or save the file.</target>
+        </trans-unit>
+        <trans-unit id="646f4e96-622a-4425-8132-3c2eb424dc2a" xml:space="preserve">
+          <source>Open the file in Excel or other application.</source>
+          <target state="new">Open the file in Excel or other application.</target>
+        </trans-unit>
+        <trans-unit id="aad5b10d-33b5-40cd-908a-487def65ef14" xml:space="preserve">
+          <source>Review and customize your data any way you want.</source>
+          <target state="new">Review and customize your data any way you want.</target>
+        </trans-unit>
+        <trans-unit id="e13ddf69-e703-4f8d-a431-cd5a3d343233" xml:space="preserve">
+          <source><bpt id="0c2097a7-c1e5-4ea3-a10f-36fdf51f6dcc">&lt;linkText&gt;</bpt>Excel results<ept id="0c2097a7-c1e5-4ea3-a10f-36fdf51f6dcc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c2097a7-c1e5-4ea3-a10f-36fdf51f6dcc">&lt;linkText&gt;</bpt>Excel results<ept id="0c2097a7-c1e5-4ea3-a10f-36fdf51f6dcc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

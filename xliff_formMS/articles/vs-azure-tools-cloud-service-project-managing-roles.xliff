@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6015246-336d-484b-b86e-4d63319e071f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6015246-336d-484b-b86e-4d63319e071f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9e19fda8-0acb-4b8e-9d2f-fe6d928935ab">
+        <trans-unit id="d27899b8-1e6d-49db-ba13-6a4447c8102e" xml:space="preserve">
+          <source>Managing roles in the Azure cloud services projects with Visual Studio</source>
+          <target state="new">Managing roles in the Azure cloud services projects with Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="2612f396-e07d-4df6-9704-0eb4b24bb35e" xml:space="preserve">
+          <source>Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio.</source>
+          <target state="new">Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="6b25df5f-0914-4beb-8157-c90367868cc2" xml:space="preserve">
+          <source>After you have created your Azure cloud service project, you can add new roles to it or remove existing roles from it.</source>
+          <target state="new">After you have created your Azure cloud service project, you can add new roles to it or remove existing roles from it.</target>
+        </trans-unit>
+        <trans-unit id="93f35c21-cc88-4bb9-86a1-ef0d81c9a1bb" xml:space="preserve">
+          <source>You can also import an existing project and convert it to a role.</source>
+          <target state="new">You can also import an existing project and convert it to a role.</target>
+        </trans-unit>
+        <trans-unit id="0786a0f3-8fde-4605-8909-1ffecda48879" xml:space="preserve">
+          <source>For example, you can import an ASP.NET web application and designate it as a web role.</source>
+          <target state="new">For example, you can import an ASP.NET web application and designate it as a web role.</target>
+        </trans-unit>
+        <trans-unit id="02f97780-8463-4394-81bf-99610682ed1a" xml:space="preserve">
+          <source><bpt id="a5f53ed5-905c-47c3-9bca-f1568cb39dac">&lt;strong&gt;</bpt>To add a role<ept id="a5f53ed5-905c-47c3-9bca-f1568cb39dac">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a5f53ed5-905c-47c3-9bca-f1568cb39dac">&lt;strong&gt;</bpt>To add a role<ept id="a5f53ed5-905c-47c3-9bca-f1568cb39dac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37cfa081-721f-4482-a586-4f5ee5fd1b4c" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for the <bpt id="967e9933-80a9-48da-98ef-fe61c52b5d83">&lt;strong&gt;</bpt>Roles<ept id="967e9933-80a9-48da-98ef-fe61c52b5d83">&lt;/strong&gt;</ept> node in your cloud service project and choose <bpt id="a4c40c3a-387f-4925-83ff-5bf67193f58d">&lt;strong&gt;</bpt>Add<ept id="a4c40c3a-387f-4925-83ff-5bf67193f58d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for the <bpt id="967e9933-80a9-48da-98ef-fe61c52b5d83">&lt;strong&gt;</bpt>Roles<ept id="967e9933-80a9-48da-98ef-fe61c52b5d83">&lt;/strong&gt;</ept> node in your cloud service project and choose <bpt id="a4c40c3a-387f-4925-83ff-5bf67193f58d">&lt;strong&gt;</bpt>Add<ept id="a4c40c3a-387f-4925-83ff-5bf67193f58d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cc8223e-674f-4b8f-9661-a35333acf6b5" xml:space="preserve">
+          <source>You can select an existing web role or worker role from the current solution or create a new web or worker role project.</source>
+          <target state="new">You can select an existing web role or worker role from the current solution or create a new web or worker role project.</target>
+        </trans-unit>
+        <trans-unit id="e6001830-74d4-4319-a26f-1f2b47306c2f" xml:space="preserve">
+          <source>Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.</source>
+          <target state="new">Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.</target>
+        </trans-unit>
+        <trans-unit id="715b34e9-4f49-4e4f-b8b2-d0b27a0a324c" xml:space="preserve">
+          <source><bpt id="6a0ccfff-4a7a-444f-83c4-1f8fe0e86cbf">&lt;strong&gt;</bpt>To remove a role association<ept id="6a0ccfff-4a7a-444f-83c4-1f8fe0e86cbf">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6a0ccfff-4a7a-444f-83c4-1f8fe0e86cbf">&lt;strong&gt;</bpt>To remove a role association<ept id="6a0ccfff-4a7a-444f-83c4-1f8fe0e86cbf">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="60c0aa46-2da2-4cd5-b850-9dca5be2ff98" xml:space="preserve">
+          <source>In the <bpt id="d226a9da-b8ef-45a5-a9b2-f5afa574575b">&lt;strong&gt;</bpt>Roles<ept id="d226a9da-b8ef-45a5-a9b2-f5afa574575b">&lt;/strong&gt;</ept> node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose <bpt id="2e6431f6-a071-4c64-bc12-80be416638d6">&lt;strong&gt;</bpt>Remove<ept id="2e6431f6-a071-4c64-bc12-80be416638d6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="d226a9da-b8ef-45a5-a9b2-f5afa574575b">&lt;strong&gt;</bpt>Roles<ept id="d226a9da-b8ef-45a5-a9b2-f5afa574575b">&lt;/strong&gt;</ept> node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose <bpt id="2e6431f6-a071-4c64-bc12-80be416638d6">&lt;strong&gt;</bpt>Remove<ept id="2e6431f6-a071-4c64-bc12-80be416638d6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0622270-2e80-4461-afd3-bd9e18843ad8" xml:space="preserve">
+          <source>If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added.</source>
+          <target state="new">If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added.</target>
+        </trans-unit>
+        <trans-unit id="86daa333-7ff9-4c98-b7dc-1b6e16c9d225" xml:space="preserve">
+          <source>No additional resources or references are added to the ServiceDefinition.csdef file or to the ServiceConfiguration.cscfg file.</source>
+          <target state="new">No additional resources or references are added to the ServiceDefinition.csdef file or to the ServiceConfiguration.cscfg file.</target>
+        </trans-unit>
+        <trans-unit id="abb4d0fe-5150-4060-ae08-bb54620e02dd" xml:space="preserve">
+          <source>If you want to add this information, you’ll have to manually add it back into these files.</source>
+          <target state="new">If you want to add this information, you’ll have to manually add it back into these files.</target>
+        </trans-unit>
+        <trans-unit id="d1289819-a5e9-42ec-b831-3d428cbeca60" xml:space="preserve">
+          <source>For example, you might remove a web service role and later you decide to add this role back into your solution. If you do this, an error will occur. To prevent this error, you have to add the &lt;LocalResources&gt; element shown in the following XML back into the ServiceDefinition.csdef file. Use the name of the web service role that you added back into the project as part of the name attribute for the <bpt id="c1ca134b-9559-44d6-a733-523ed2be65d7">&lt;strong&gt;</bpt>&lt;LocalStorage&gt;<ept id="c1ca134b-9559-44d6-a733-523ed2be65d7">&lt;/strong&gt;</ept> element. In this example the name of the web service role is WCFServiceWebRole1:</source>
+          <target state="new">For example, you might remove a web service role and later you decide to add this role back into your solution. If you do this, an error will occur. To prevent this error, you have to add the &lt;LocalResources&gt; element shown in the following XML back into the ServiceDefinition.csdef file. Use the name of the web service role that you added back into the project as part of the name attribute for the <bpt id="c1ca134b-9559-44d6-a733-523ed2be65d7">&lt;strong&gt;</bpt>&lt;LocalStorage&gt;<ept id="c1ca134b-9559-44d6-a733-523ed2be65d7">&lt;/strong&gt;</ept> element. In this example the name of the web service role is WCFServiceWebRole1:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

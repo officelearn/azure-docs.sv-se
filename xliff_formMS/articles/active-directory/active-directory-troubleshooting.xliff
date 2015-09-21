@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f2ab4fa4-ecbe-40be-9f9e-7e5f7237d5b4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f2ab4fa4-ecbe-40be-9f9e-7e5f7237d5b4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9a383401-cc4c-40d0-a1a1-84ed8e557172">
+        <trans-unit id="2f46e957-d656-4f8c-857a-df01ef9e23b5" xml:space="preserve">
+          <source>Troubleshooting: 'Active Directory' item is missing or not available | Microsoft Azure </source>
+          <target state="new">Troubleshooting: 'Active Directory' item is missing or not available | Microsoft Azure </target>
+        </trans-unit>
+        <trans-unit id="7c2d2d28-5ef2-48ab-b36b-9b1d123e8418" xml:space="preserve">
+          <source>What to do when Active Directory menu item doesn't appear in the Azure Management Portal.</source>
+          <target state="new">What to do when Active Directory menu item doesn't appear in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="65f98cd5-8e2d-468f-96b2-6f5bd6aefdfc" xml:space="preserve">
+          <source>Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Management Portal and click <bpt id="d1a47643-685b-49c9-a742-4822ae1793ff">&lt;strong&gt;</bpt>Active Directory<ept id="d1a47643-685b-49c9-a742-4822ae1793ff">&lt;/strong&gt;</ept>."</source>
+          <target state="new">Many of the instructions for using Azure Active Directory features and services begin with "Go to the Azure Management Portal and click <bpt id="d1a47643-685b-49c9-a742-4822ae1793ff">&lt;strong&gt;</bpt>Active Directory<ept id="d1a47643-685b-49c9-a742-4822ae1793ff">&lt;/strong&gt;</ept>."</target>
+        </trans-unit>
+        <trans-unit id="e4997a98-0945-4958-bb8b-db986dab7139" xml:space="preserve">
+          <source>But what do you do if the Active Directory extension or menu item does not appear or if it is marked <bpt id="24d88a57-9f23-4df7-94f4-f9678835ce5c">&lt;strong&gt;</bpt>Not Available<ept id="24d88a57-9f23-4df7-94f4-f9678835ce5c">&lt;/strong&gt;</ept>?</source>
+          <target state="new">But what do you do if the Active Directory extension or menu item does not appear or if it is marked <bpt id="24d88a57-9f23-4df7-94f4-f9678835ce5c">&lt;strong&gt;</bpt>Not Available<ept id="24d88a57-9f23-4df7-94f4-f9678835ce5c">&lt;/strong&gt;</ept>?</target>
+        </trans-unit>
+        <trans-unit id="74d6747c-f4e0-410d-9fdc-2f72b3dd66f3" xml:space="preserve">
+          <source>This topic is designed to help.</source>
+          <target state="new">This topic is designed to help.</target>
+        </trans-unit>
+        <trans-unit id="2e19d72f-977b-40d9-8145-fde51831dc60" xml:space="preserve">
+          <source>It describes the conditions under which <bpt id="40f389d9-6a3f-418e-8bcd-c5bfb8564564">&lt;strong&gt;</bpt>Active Directory<ept id="40f389d9-6a3f-418e-8bcd-c5bfb8564564">&lt;/strong&gt;</ept> does not appear or is unavailable and explains how to proceed.</source>
+          <target state="new">It describes the conditions under which <bpt id="40f389d9-6a3f-418e-8bcd-c5bfb8564564">&lt;strong&gt;</bpt>Active Directory<ept id="40f389d9-6a3f-418e-8bcd-c5bfb8564564">&lt;/strong&gt;</ept> does not appear or is unavailable and explains how to proceed.</target>
+        </trans-unit>
+        <trans-unit id="6fd44f94-a94c-4c22-aa6a-ecbe5f8cd48c" xml:space="preserve">
+          <source>Typically, an <bpt id="e32d462c-0673-47eb-97a4-1233121ee2ab">&lt;strong&gt;</bpt>Active Directory<ept id="e32d462c-0673-47eb-97a4-1233121ee2ab">&lt;/strong&gt;</ept> item appears in the left navigation menu.</source>
+          <target state="new">Typically, an <bpt id="e32d462c-0673-47eb-97a4-1233121ee2ab">&lt;strong&gt;</bpt>Active Directory<ept id="e32d462c-0673-47eb-97a4-1233121ee2ab">&lt;/strong&gt;</ept> item appears in the left navigation menu.</target>
+        </trans-unit>
+        <trans-unit id="f95ff353-1036-4981-9217-f8e8f0a447ef" xml:space="preserve">
+          <source>The instructions in Azure Active Directory procedures assume that this item is in your view.</source>
+          <target state="new">The instructions in Azure Active Directory procedures assume that this item is in your view.</target>
+        </trans-unit>
+        <trans-unit id="49965de2-73af-49d1-b14c-e8e4ebcc15ff" xml:space="preserve">
+          <source><bpt id="2f2a43cd-3c1f-4687-b3f8-fe273d3e236a">&lt;linkText&gt;</bpt>Screen shot: Active Directory in Azure<ept id="2f2a43cd-3c1f-4687-b3f8-fe273d3e236a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2f2a43cd-3c1f-4687-b3f8-fe273d3e236a">&lt;linkText&gt;</bpt>Screen shot: Active Directory in Azure<ept id="2f2a43cd-3c1f-4687-b3f8-fe273d3e236a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa18c327-441c-4d7c-a5a6-77e890490d36" xml:space="preserve">
+          <source>The Active Directory item appears in the left navigation menu when any of the following conditions is true.</source>
+          <target state="new">The Active Directory item appears in the left navigation menu when any of the following conditions is true.</target>
+        </trans-unit>
+        <trans-unit id="0e07083e-5440-425a-9dff-a66878f9f169" xml:space="preserve">
+          <source>Otherwise, the item does not appear.</source>
+          <target state="new">Otherwise, the item does not appear.</target>
+        </trans-unit>
+        <trans-unit id="5f7f6762-5151-41c9-b396-f765b92ce10d" xml:space="preserve">
+          <source>The current user signed on with a Microsoft account (formerly known as a Windows Live ID).</source>
+          <target state="new">The current user signed on with a Microsoft account (formerly known as a Windows Live ID).</target>
+        </trans-unit>
+        <trans-unit id="d1805903-0acd-4e1d-ab27-3138d8f0f4f0" xml:space="preserve">
+          <source>OR</source>
+          <target state="new">OR</target>
+        </trans-unit>
+        <trans-unit id="98ab4bdd-30e8-4b19-bff8-df966ace9818" xml:space="preserve">
+          <source>The Azure tenant has a directory and the current account is a directory administrator.</source>
+          <target state="new">The Azure tenant has a directory and the current account is a directory administrator.</target>
+        </trans-unit>
+        <trans-unit id="cb71fb9b-e02b-43d0-a8a0-fd1a4ec60303" xml:space="preserve">
+          <source>OR</source>
+          <target state="new">OR</target>
+        </trans-unit>
+        <trans-unit id="79c343ea-a1a0-49c2-ac9d-0bd1783d87b7" xml:space="preserve">
+          <source>The Azure tenant has at least one Azure AD Access Control (ACS) namespace.</source>
+          <target state="new">The Azure tenant has at least one Azure AD Access Control (ACS) namespace.</target>
+        </trans-unit>
+        <trans-unit id="037d1a7f-1a5c-4139-b57b-1099bf4ff6a0" xml:space="preserve">
+          <source>For more information, see <bpt id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;linkText&gt;</bpt>Access Control Namespace<ept id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;/linkText&gt;</ept><bpt id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;title&gt;</bpt><ept id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;linkText&gt;</bpt>Access Control Namespace<ept id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;/linkText&gt;</ept><bpt id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;title&gt;</bpt><ept id="92aece12-9eea-42f5-891c-e3079e1a6d0e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2dd1d7ff-aaff-4cdd-9642-7a6d09512f8a" xml:space="preserve">
+          <source>OR</source>
+          <target state="new">OR</target>
+        </trans-unit>
+        <trans-unit id="18392127-4927-490f-bd22-8bb945bae0c4" xml:space="preserve">
+          <source>The Azure tenant has at least one Azure Multi-Factor Authentication provider.</source>
+          <target state="new">The Azure tenant has at least one Azure Multi-Factor Authentication provider.</target>
+        </trans-unit>
+        <trans-unit id="8ebc797e-5292-44a0-ace2-4ad287021ac8" xml:space="preserve">
+          <source>For more information, see <bpt id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;linkText&gt;</bpt>Administering Azure Multi-Factor Authentication Providers<ept id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;/linkText&gt;</ept><bpt id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;title&gt;</bpt><ept id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;linkText&gt;</bpt>Administering Azure Multi-Factor Authentication Providers<ept id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;/linkText&gt;</ept><bpt id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;title&gt;</bpt><ept id="91f4d4e8-0030-462c-9638-88afe8226479">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de31acc1-9862-40a8-911b-cd7e762bdd58" xml:space="preserve">
+          <source>To create an Access Control namespace or a Multi-Factor Authentication provider, click <bpt id="9818da63-707e-4827-ae97-633a4c6d3df3">&lt;strong&gt;</bpt>+New<ept id="9818da63-707e-4827-ae97-633a4c6d3df3">&lt;/strong&gt;</ept> &gt; <bpt id="73d64318-b1e0-4b8f-87fb-455af8430c08">&lt;strong&gt;</bpt>App Services<ept id="73d64318-b1e0-4b8f-87fb-455af8430c08">&lt;/strong&gt;</ept> &gt; <bpt id="c2865dfb-9b73-4951-9514-0ba2906093bc">&lt;strong&gt;</bpt>Active Directory<ept id="c2865dfb-9b73-4951-9514-0ba2906093bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create an Access Control namespace or a Multi-Factor Authentication provider, click <bpt id="9818da63-707e-4827-ae97-633a4c6d3df3">&lt;strong&gt;</bpt>+New<ept id="9818da63-707e-4827-ae97-633a4c6d3df3">&lt;/strong&gt;</ept> &gt; <bpt id="73d64318-b1e0-4b8f-87fb-455af8430c08">&lt;strong&gt;</bpt>App Services<ept id="73d64318-b1e0-4b8f-87fb-455af8430c08">&lt;/strong&gt;</ept> &gt; <bpt id="c2865dfb-9b73-4951-9514-0ba2906093bc">&lt;strong&gt;</bpt>Active Directory<ept id="c2865dfb-9b73-4951-9514-0ba2906093bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9461ab71-989a-4950-8f0d-94f4c03b777c" xml:space="preserve">
+          <source>To get administrative rights to a directory, have an administrator assign an administrator role to your account.</source>
+          <target state="new">To get administrative rights to a directory, have an administrator assign an administrator role to your account.</target>
+        </trans-unit>
+        <trans-unit id="f35f6ed4-1480-48e9-b50a-bc27b66d0b45" xml:space="preserve">
+          <source>For details, see <bpt id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;linkText&gt;</bpt>Assigning administrator roles<ept id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;/linkText&gt;</ept><bpt id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;title&gt;</bpt><ept id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;linkText&gt;</bpt>Assigning administrator roles<ept id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;/linkText&gt;</ept><bpt id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;title&gt;</bpt><ept id="53201f15-e257-4216-b8a6-f8d1cf515ec0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cdb9e386-a3fe-4507-a3d1-9c9c0972ec79" xml:space="preserve">
+          <source>When you click <bpt id="13b96274-b8ff-4b4c-8b8e-ec7aab27c134">&lt;strong&gt;</bpt>+New<ept id="13b96274-b8ff-4b4c-8b8e-ec7aab27c134">&lt;/strong&gt;</ept> &gt; <bpt id="614dfbfc-52b8-4719-8847-a41426ba79b6">&lt;strong&gt;</bpt>App Services<ept id="614dfbfc-52b8-4719-8847-a41426ba79b6">&lt;/strong&gt;</ept>, an <bpt id="51fade35-c7e7-4ff9-89e2-3286a1a8f340">&lt;strong&gt;</bpt>Active Directory<ept id="51fade35-c7e7-4ff9-89e2-3286a1a8f340">&lt;/strong&gt;</ept> item appears.</source>
+          <target state="new">When you click <bpt id="13b96274-b8ff-4b4c-8b8e-ec7aab27c134">&lt;strong&gt;</bpt>+New<ept id="13b96274-b8ff-4b4c-8b8e-ec7aab27c134">&lt;/strong&gt;</ept> &gt; <bpt id="614dfbfc-52b8-4719-8847-a41426ba79b6">&lt;strong&gt;</bpt>App Services<ept id="614dfbfc-52b8-4719-8847-a41426ba79b6">&lt;/strong&gt;</ept>, an <bpt id="51fade35-c7e7-4ff9-89e2-3286a1a8f340">&lt;strong&gt;</bpt>Active Directory<ept id="51fade35-c7e7-4ff9-89e2-3286a1a8f340">&lt;/strong&gt;</ept> item appears.</target>
+        </trans-unit>
+        <trans-unit id="4bc4cac6-1317-4e0b-ae96-3777fff83698" xml:space="preserve">
+          <source>Specifically, the Active Directory item appears when any of the Active Directory features, such as Directory, Access Control, or Multi-Factor Auth Provider, are available to the current user.</source>
+          <target state="new">Specifically, the Active Directory item appears when any of the Active Directory features, such as Directory, Access Control, or Multi-Factor Auth Provider, are available to the current user.</target>
+        </trans-unit>
+        <trans-unit id="c63a1628-b6e1-49ff-8891-2a8211685aa4" xml:space="preserve">
+          <source>However, while the page is loading, the item is dimmed and is marked <bpt id="af6de4f3-8ab7-478a-b5b9-c6e7376a3af1">&lt;strong&gt;</bpt>Not Available<ept id="af6de4f3-8ab7-478a-b5b9-c6e7376a3af1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">However, while the page is loading, the item is dimmed and is marked <bpt id="af6de4f3-8ab7-478a-b5b9-c6e7376a3af1">&lt;strong&gt;</bpt>Not Available<ept id="af6de4f3-8ab7-478a-b5b9-c6e7376a3af1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9dc74bf1-b447-43e4-9281-dc00d63a9388" xml:space="preserve">
+          <source>This is a temporary state.</source>
+          <target state="new">This is a temporary state.</target>
+        </trans-unit>
+        <trans-unit id="72e170d0-f055-4bb0-8b80-4754a2a72d1b" xml:space="preserve">
+          <source>If you wait a few seconds, the item becomes available.</source>
+          <target state="new">If you wait a few seconds, the item becomes available.</target>
+        </trans-unit>
+        <trans-unit id="c45df272-2f81-46ce-ac27-536e9adc40ca" xml:space="preserve">
+          <source>If the delay is prolonged, refreshing the web page often resolves the problem.</source>
+          <target state="new">If the delay is prolonged, refreshing the web page often resolves the problem.</target>
+        </trans-unit>
+        <trans-unit id="f63101d5-afe3-400f-a1a3-76d69828bf1a" xml:space="preserve">
+          <source><bpt id="8c32397b-37fe-4a51-9a09-11a2d4ec946c">&lt;linkText&gt;</bpt>Screen shot: Active Directory is not available<ept id="8c32397b-37fe-4a51-9a09-11a2d4ec946c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8c32397b-37fe-4a51-9a09-11a2d4ec946c">&lt;linkText&gt;</bpt>Screen shot: Active Directory is not available<ept id="8c32397b-37fe-4a51-9a09-11a2d4ec946c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,933 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="36c2544b-d0d3-44e7-ae18-6aee3b40c847" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="36c2544b-d0d3-44e7-ae18-6aee3b40c847" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="37bd1204-b893-4774-9b1c-7aa3a2606605">
+        <trans-unit id="0f264926-49e0-442d-b831-0169ed1ecefd" xml:space="preserve">
+          <source>Managing and analyzing data in the cloud is just as important as it is anywhere else.</source>
+          <target state="new">Managing and analyzing data in the cloud is just as important as it is anywhere else.</target>
+        </trans-unit>
+        <trans-unit id="04f10ab0-fb86-4e49-9258-c6e94ca7ccb3" xml:space="preserve">
+          <source>To let you do this, Azure provides a range of technologies for working with relational and non-relational data.</source>
+          <target state="new">To let you do this, Azure provides a range of technologies for working with relational and non-relational data.</target>
+        </trans-unit>
+        <trans-unit id="6c391e0e-0e6e-4da5-8851-12dc22180cea" xml:space="preserve">
+          <source>This article introduces each of the options.</source>
+          <target state="new">This article introduces each of the options.</target>
+        </trans-unit>
+        <trans-unit id="76b5aafd-b30d-4b57-8e90-bb9c750af25a" xml:space="preserve">
+          <source><bpt id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;linkText&gt;</bpt>Blob Storage<ept id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;/linkText&gt;</ept><bpt id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;title&gt;</bpt><ept id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;linkText&gt;</bpt>Blob Storage<ept id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;/linkText&gt;</ept><bpt id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;title&gt;</bpt><ept id="36f290cb-b39d-424d-b00a-ad7f2b1667e6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="930a00d9-5791-4715-b114-d310991c743e" xml:space="preserve">
+          <source><bpt id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;linkText&gt;</bpt>Running a DBMS in a Virtual Machine<ept id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;/linkText&gt;</ept><bpt id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;title&gt;</bpt><ept id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;linkText&gt;</bpt>Running a DBMS in a Virtual Machine<ept id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;/linkText&gt;</ept><bpt id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;title&gt;</bpt><ept id="0b92634d-3c71-474d-a493-1854c7f03cce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34ee4733-2360-4ef3-8b22-8176c14fca6e" xml:space="preserve">
+          <source><bpt id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;linkText&gt;</bpt>SQL Database<ept id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;/linkText&gt;</ept><bpt id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;title&gt;</bpt><ept id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;linkText&gt;</bpt>SQL Database<ept id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;/linkText&gt;</ept><bpt id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;title&gt;</bpt><ept id="0df3828f-9e7c-4a81-b9ba-8c02a5b48fe1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3d4b3ea9-e7c4-4483-88fe-aada309599e9" xml:space="preserve">
+          <source><bpt id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;linkText&gt;</bpt>SQL Data Sync<ept id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;/linkText&gt;</ept><bpt id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;title&gt;</bpt><ept id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;linkText&gt;</bpt>SQL Data Sync<ept id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;/linkText&gt;</ept><bpt id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;title&gt;</bpt><ept id="3d0eee65-5183-4a42-a240-a57a9d28b763">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bc5222e1-a802-4a55-990e-392e05d5e544" xml:space="preserve">
+          <source><bpt id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;linkText&gt;</bpt>SQL Data Reporting using Virtual Machines<ept id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;/linkText&gt;</ept><bpt id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;title&gt;</bpt><ept id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;linkText&gt;</bpt>SQL Data Reporting using Virtual Machines<ept id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;/linkText&gt;</ept><bpt id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;title&gt;</bpt><ept id="e7e8bbc4-819f-4502-84c1-42298fd8307f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68c019ae-ddfc-4413-8332-37cece2e6004" xml:space="preserve">
+          <source><bpt id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;linkText&gt;</bpt>Table Storage<ept id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;/linkText&gt;</ept><bpt id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;title&gt;</bpt><ept id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;linkText&gt;</bpt>Table Storage<ept id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;/linkText&gt;</ept><bpt id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;title&gt;</bpt><ept id="70116bd0-0fce-4d4c-a1ac-857a6c22a66f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5803dac-d96f-4a72-8e43-ee68426d5cc4" xml:space="preserve">
+          <source><bpt id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;linkText&gt;</bpt>Hadoop<ept id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;/linkText&gt;</ept><bpt id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;title&gt;</bpt><ept id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;linkText&gt;</bpt>Hadoop<ept id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;/linkText&gt;</ept><bpt id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;title&gt;</bpt><ept id="a793bf51-58fd-4d89-9fdc-68ce63087573">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f805644-ef83-4c94-8094-14095dc8c94c" xml:space="preserve">
+          <source>The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information.</source>
+          <target state="new">The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information.</target>
+        </trans-unit>
+        <trans-unit id="5cbe422f-601c-429d-adc1-225f5c8c1103" xml:space="preserve">
+          <source>Yet even though they're simple, blobs are quite useful.</source>
+          <target state="new">Yet even though they're simple, blobs are quite useful.</target>
+        </trans-unit>
+        <trans-unit id="48930383-67cc-42da-b10f-00fa8395f74c" xml:space="preserve">
+          <source><bpt id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;linkText&gt;</bpt>Figure 1<ept id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;/linkText&gt;</ept><bpt id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;title&gt;</bpt><ept id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;/title&gt;</ept> illustrates the basics of Azure Blob Storage.</source>
+          <target state="new"><bpt id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;linkText&gt;</bpt>Figure 1<ept id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;/linkText&gt;</ept><bpt id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;title&gt;</bpt><ept id="df13769e-a9fc-4c1c-8c6f-f080a396dcc7">&lt;/title&gt;</ept> illustrates the basics of Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="e3d56505-846c-4d97-b0ef-56586b5f142a" xml:space="preserve">
+          <source><bpt id="7c7a6e56-46ab-4d58-b99d-d30532c0daab">&lt;bookmark&gt;</bpt><ept id="7c7a6e56-46ab-4d58-b99d-d30532c0daab">&lt;/bookmark&gt;</ept><bpt id="de6f7d63-c44a-4d4b-b0cc-af58caba86ca">&lt;linkText&gt;</bpt>Diagram of Blobs<ept id="de6f7d63-c44a-4d4b-b0cc-af58caba86ca">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c7a6e56-46ab-4d58-b99d-d30532c0daab">&lt;bookmark&gt;</bpt><ept id="7c7a6e56-46ab-4d58-b99d-d30532c0daab">&lt;/bookmark&gt;</ept><bpt id="de6f7d63-c44a-4d4b-b0cc-af58caba86ca">&lt;linkText&gt;</bpt>Diagram of Blobs<ept id="de6f7d63-c44a-4d4b-b0cc-af58caba86ca">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8861959-7146-4702-b998-31ed5874d7eb" xml:space="preserve">
+          <source><bpt id="adc347e0-197b-41cd-8292-3a5cb74128c2">&lt;strong&gt;</bpt>Figure 1: Azure Blob Storage stores binary data - blobs - in containers.<ept id="adc347e0-197b-41cd-8292-3a5cb74128c2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="adc347e0-197b-41cd-8292-3a5cb74128c2">&lt;strong&gt;</bpt>Figure 1: Azure Blob Storage stores binary data - blobs - in containers.<ept id="adc347e0-197b-41cd-8292-3a5cb74128c2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2afa514-6685-4b40-a510-7d1994deb162" xml:space="preserve">
+          <source>To use blobs, you first create an Azure <bpt id="c632ff58-2298-4521-8af6-563a168a8a03">&lt;em&gt;</bpt>storage account<ept id="c632ff58-2298-4521-8af6-563a168a8a03">&lt;/em&gt;</ept>.</source>
+          <target state="new">To use blobs, you first create an Azure <bpt id="c632ff58-2298-4521-8af6-563a168a8a03">&lt;em&gt;</bpt>storage account<ept id="c632ff58-2298-4521-8af6-563a168a8a03">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf3070c0-8002-4144-ba8b-352c776bba4f" xml:space="preserve">
+          <source>As part of this, you specify the Azure datacenter that will store the objects you create using this account.</source>
+          <target state="new">As part of this, you specify the Azure datacenter that will store the objects you create using this account.</target>
+        </trans-unit>
+        <trans-unit id="bdbf09a6-9f00-492a-89e6-3571b836c5d4" xml:space="preserve">
+          <source>Wherever it lives, each blob you create belongs to some container in your storage account.</source>
+          <target state="new">Wherever it lives, each blob you create belongs to some container in your storage account.</target>
+        </trans-unit>
+        <trans-unit id="0cf9d3da-d045-4127-97be-c4fb36843ec7" xml:space="preserve">
+          <source>To access a blob, an application provides a URL with the form:</source>
+          <target state="new">To access a blob, an application provides a URL with the form:</target>
+        </trans-unit>
+        <trans-unit id="bc79640a-e23c-43a7-87e9-8447b7787417" xml:space="preserve">
+          <source>http://&amp;lt;<bpt id="4a5b8b4c-bb50-4169-baf3-0ad9008d467e">&lt;em&gt;</bpt>StorageAccount<ept id="4a5b8b4c-bb50-4169-baf3-0ad9008d467e">&lt;/em&gt;</ept>&amp;gt;.blob.core.windows.net/&amp;lt;<bpt id="fbb53e60-3bde-4acd-ba64-0ce5539988aa">&lt;em&gt;</bpt>Container<ept id="fbb53e60-3bde-4acd-ba64-0ce5539988aa">&lt;/em&gt;</ept>&amp;gt;/&amp;lt;<bpt id="692ee697-d54e-44b0-8059-5804dad957ee">&lt;em&gt;</bpt>BlobName<ept id="692ee697-d54e-44b0-8059-5804dad957ee">&lt;/em&gt;</ept>&amp;gt;</source>
+          <target state="new">http://&amp;lt;<bpt id="4a5b8b4c-bb50-4169-baf3-0ad9008d467e">&lt;em&gt;</bpt>StorageAccount<ept id="4a5b8b4c-bb50-4169-baf3-0ad9008d467e">&lt;/em&gt;</ept>&amp;gt;.blob.core.windows.net/&amp;lt;<bpt id="fbb53e60-3bde-4acd-ba64-0ce5539988aa">&lt;em&gt;</bpt>Container<ept id="fbb53e60-3bde-4acd-ba64-0ce5539988aa">&lt;/em&gt;</ept>&amp;gt;/&amp;lt;<bpt id="692ee697-d54e-44b0-8059-5804dad957ee">&lt;em&gt;</bpt>BlobName<ept id="692ee697-d54e-44b0-8059-5804dad957ee">&lt;/em&gt;</ept>&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="2eb384d3-5c78-41f6-b178-90b50ed92a54" xml:space="preserve">
+          <source>&amp;lt;<bpt id="03d90de7-cbaa-4f1e-b83d-b2c8362bfa2d">&lt;em&gt;</bpt>StorageAccount<ept id="03d90de7-cbaa-4f1e-b83d-b2c8362bfa2d">&lt;/em&gt;</ept>&amp;gt; is a unique identifier assigned when a new storage account is created, while &amp;lt;<bpt id="611cbdc4-cce8-41cc-ad01-134461f5e11c">&lt;em&gt;</bpt>Container<ept id="611cbdc4-cce8-41cc-ad01-134461f5e11c">&lt;/em&gt;</ept>&amp;gt; and &amp;lt;<bpt id="faaf33a3-71f7-44a6-825a-43d5343db769">&lt;em&gt;</bpt>BlobName<ept id="faaf33a3-71f7-44a6-825a-43d5343db769">&lt;/em&gt;</ept>&amp;gt; are the names of a specific container and a blob within that container.</source>
+          <target state="new">&amp;lt;<bpt id="03d90de7-cbaa-4f1e-b83d-b2c8362bfa2d">&lt;em&gt;</bpt>StorageAccount<ept id="03d90de7-cbaa-4f1e-b83d-b2c8362bfa2d">&lt;/em&gt;</ept>&amp;gt; is a unique identifier assigned when a new storage account is created, while &amp;lt;<bpt id="611cbdc4-cce8-41cc-ad01-134461f5e11c">&lt;em&gt;</bpt>Container<ept id="611cbdc4-cce8-41cc-ad01-134461f5e11c">&lt;/em&gt;</ept>&amp;gt; and &amp;lt;<bpt id="faaf33a3-71f7-44a6-825a-43d5343db769">&lt;em&gt;</bpt>BlobName<ept id="faaf33a3-71f7-44a6-825a-43d5343db769">&lt;/em&gt;</ept>&amp;gt; are the names of a specific container and a blob within that container.</target>
+        </trans-unit>
+        <trans-unit id="444f88b6-ee57-483f-96cb-b28ec39716a6" xml:space="preserve">
+          <source>Azure provides two different kinds of blobs.</source>
+          <target state="new">Azure provides two different kinds of blobs.</target>
+        </trans-unit>
+        <trans-unit id="3369eb84-475d-41b1-95d7-b7a174668e3f" xml:space="preserve">
+          <source>The choices are:</source>
+          <target state="new">The choices are:</target>
+        </trans-unit>
+        <trans-unit id="dc99cd56-fe0c-4db2-a7a5-9230ca9df85d" xml:space="preserve">
+          <source><bpt id="c97f1ca7-901b-4b53-a90e-8fb563af5bdd">&lt;em&gt;</bpt>Block<ept id="c97f1ca7-901b-4b53-a90e-8fb563af5bdd">&lt;/em&gt;</ept> blobs, each of which can contain up to 200 gigabytes of data.</source>
+          <target state="new"><bpt id="c97f1ca7-901b-4b53-a90e-8fb563af5bdd">&lt;em&gt;</bpt>Block<ept id="c97f1ca7-901b-4b53-a90e-8fb563af5bdd">&lt;/em&gt;</ept> blobs, each of which can contain up to 200 gigabytes of data.</target>
+        </trans-unit>
+        <trans-unit id="c40b002d-8c14-440a-b52a-5aa0aa0e4e4a" xml:space="preserve">
+          <source>As its name suggests, a block blob is subdivided into some number of blocks.</source>
+          <target state="new">As its name suggests, a block blob is subdivided into some number of blocks.</target>
+        </trans-unit>
+        <trans-unit id="8ce087c9-14e3-43ac-b63e-669de5aa4b42" xml:space="preserve">
+          <source>If a failure occurs while transferring a block blob, retransmission can resume with the most recent block rather than sending the entire blob again.</source>
+          <target state="new">If a failure occurs while transferring a block blob, retransmission can resume with the most recent block rather than sending the entire blob again.</target>
+        </trans-unit>
+        <trans-unit id="8ca8513b-1859-4967-8290-30d0b553c6bd" xml:space="preserve">
+          <source>Block blobs are a quite general approach to storage, and they're the most commonly used blob type today.</source>
+          <target state="new">Block blobs are a quite general approach to storage, and they're the most commonly used blob type today.</target>
+        </trans-unit>
+        <trans-unit id="f4b1c518-5f7f-456b-bbae-5ab37c217c8e" xml:space="preserve">
+          <source><bpt id="13565578-0249-442b-81d9-e679756995b7">&lt;em&gt;</bpt>Page<ept id="13565578-0249-442b-81d9-e679756995b7">&lt;/em&gt;</ept> blobs, which can be as large at one terabyte each.</source>
+          <target state="new"><bpt id="13565578-0249-442b-81d9-e679756995b7">&lt;em&gt;</bpt>Page<ept id="13565578-0249-442b-81d9-e679756995b7">&lt;/em&gt;</ept> blobs, which can be as large at one terabyte each.</target>
+        </trans-unit>
+        <trans-unit id="3cdc1dba-11bb-4da0-8c6d-f6cbe6b6b4e6" xml:space="preserve">
+          <source>Page blobs are designed for random access, and so each one is divided into some number of pages.</source>
+          <target state="new">Page blobs are designed for random access, and so each one is divided into some number of pages.</target>
+        </trans-unit>
+        <trans-unit id="be88cf56-f91f-42c8-a30e-69ceec547df7" xml:space="preserve">
+          <source>An application is free to read and write individual pages at random in the blob.</source>
+          <target state="new">An application is free to read and write individual pages at random in the blob.</target>
+        </trans-unit>
+        <trans-unit id="3711a53c-b811-4269-bb6c-8d93d2756c34" xml:space="preserve">
+          <source>In Azure Virtual Machines, for example, VMs you create use page blobs as persistent storage for both OS disks and data disks.</source>
+          <target state="new">In Azure Virtual Machines, for example, VMs you create use page blobs as persistent storage for both OS disks and data disks.</target>
+        </trans-unit>
+        <trans-unit id="86f4df3e-dc90-4738-97c0-426b82374b40" xml:space="preserve">
+          <source>Whether you choose block blobs or page blobs, applications can access blob data in several different ways.</source>
+          <target state="new">Whether you choose block blobs or page blobs, applications can access blob data in several different ways.</target>
+        </trans-unit>
+        <trans-unit id="edf6e842-1194-4051-90a4-4213b0d31223" xml:space="preserve">
+          <source>The options include the following:</source>
+          <target state="new">The options include the following:</target>
+        </trans-unit>
+        <trans-unit id="fb4b21e3-df76-4174-8375-fb5451c07d5d" xml:space="preserve">
+          <source>Directly through a RESTful (i.e., HTTP-based) access protocol.</source>
+          <target state="new">Directly through a RESTful (i.e., HTTP-based) access protocol.</target>
+        </trans-unit>
+        <trans-unit id="5aadd193-b35c-4d95-a288-2138d5b26068" xml:space="preserve">
+          <source>Both Azure applications and external applications, including apps running on premises, can use this option.</source>
+          <target state="new">Both Azure applications and external applications, including apps running on premises, can use this option.</target>
+        </trans-unit>
+        <trans-unit id="bc1616e1-072a-491e-8315-ad7dafbd4825" xml:space="preserve">
+          <source>Using the Azure Storage Client library, which provides a more developer-friendly interface on top of the raw RESTful blob access protocol.</source>
+          <target state="new">Using the Azure Storage Client library, which provides a more developer-friendly interface on top of the raw RESTful blob access protocol.</target>
+        </trans-unit>
+        <trans-unit id="f662e61a-038c-4e11-a738-fb23cd2b2935" xml:space="preserve">
+          <source>Once again, both Azure applications and external applications can access blobs using this library.</source>
+          <target state="new">Once again, both Azure applications and external applications can access blobs using this library.</target>
+        </trans-unit>
+        <trans-unit id="8b18d856-7bfc-4cb2-8ee5-4ff93dbe0875" xml:space="preserve">
+          <source>Using Azure drives, an option that lets an Azure application treat a page blob as a local drive with an NTFS file system.</source>
+          <target state="new">Using Azure drives, an option that lets an Azure application treat a page blob as a local drive with an NTFS file system.</target>
+        </trans-unit>
+        <trans-unit id="b73e4b15-f7c3-422c-b9b7-fa479981e139" xml:space="preserve">
+          <source>To the application, the page blob looks like an ordinary Windows file system accessed using standard file I/O.</source>
+          <target state="new">To the application, the page blob looks like an ordinary Windows file system accessed using standard file I/O.</target>
+        </trans-unit>
+        <trans-unit id="bcae27c3-a0ad-4e7a-b8dc-f67e07164db7" xml:space="preserve">
+          <source>In fact, reads and writes are sent to the underlying page blob that implements the Azure Drive.</source>
+          <target state="new">In fact, reads and writes are sent to the underlying page blob that implements the Azure Drive.</target>
+        </trans-unit>
+        <trans-unit id="6b23bd06-d149-4102-bbf1-f6b8184d061b" xml:space="preserve">
+          <source>To guard against hardware failures and improve availability, every blob is replicated across three computers in an Azure datacenter.</source>
+          <target state="new">To guard against hardware failures and improve availability, every blob is replicated across three computers in an Azure datacenter.</target>
+        </trans-unit>
+        <trans-unit id="0ed21dda-0333-420d-872c-2ecc6e50d288" xml:space="preserve">
+          <source>Writing to a blob updates all three copies, so later reads won't see inconsistent results.</source>
+          <target state="new">Writing to a blob updates all three copies, so later reads won't see inconsistent results.</target>
+        </trans-unit>
+        <trans-unit id="2dcdcba8-4b26-4a1c-8495-12d5998fa561" xml:space="preserve">
+          <source>You can also specify that a blob's data should be copied to another Azure datacenter in the same geo but at least 500 miles away.</source>
+          <target state="new">You can also specify that a blob's data should be copied to another Azure datacenter in the same geo but at least 500 miles away.</target>
+        </trans-unit>
+        <trans-unit id="5ed40f58-c50d-4226-a5b0-3170ccb0983f" xml:space="preserve">
+          <source>This copying, called <bpt id="e079819e-28e2-44c6-91b7-de5e44f6ecdc">&lt;em&gt;</bpt>geo-replication<ept id="e079819e-28e2-44c6-91b7-de5e44f6ecdc">&lt;/em&gt;</ept>, happens within a few minutes of an update to the blob, and it's useful for disaster recovery.</source>
+          <target state="new">This copying, called <bpt id="e079819e-28e2-44c6-91b7-de5e44f6ecdc">&lt;em&gt;</bpt>geo-replication<ept id="e079819e-28e2-44c6-91b7-de5e44f6ecdc">&lt;/em&gt;</ept>, happens within a few minutes of an update to the blob, and it's useful for disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="df2a032d-ba5f-4044-8ef8-a40fd66996e6" xml:space="preserve">
+          <source>Data in blobs can also be made available via the Azure <bpt id="b7a27b87-2e40-4b1d-9735-4ba6b7137d90">&lt;em&gt;</bpt>Content Delivery Network (CDN)<ept id="b7a27b87-2e40-4b1d-9735-4ba6b7137d90">&lt;/em&gt;</ept>.</source>
+          <target state="new">Data in blobs can also be made available via the Azure <bpt id="b7a27b87-2e40-4b1d-9735-4ba6b7137d90">&lt;em&gt;</bpt>Content Delivery Network (CDN)<ept id="b7a27b87-2e40-4b1d-9735-4ba6b7137d90">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a261e46c-152a-464d-b5ea-cfa33f5dbf05" xml:space="preserve">
+          <source>By caching copies of blob data at dozens of servers around the world, the CDN can speed up access to information that's accessed repeatedly.</source>
+          <target state="new">By caching copies of blob data at dozens of servers around the world, the CDN can speed up access to information that's accessed repeatedly.</target>
+        </trans-unit>
+        <trans-unit id="272bac3d-cc5a-49a8-a1c2-a0546a142bd6" xml:space="preserve">
+          <source>Simple as they are, blobs are the right choice in many situations.</source>
+          <target state="new">Simple as they are, blobs are the right choice in many situations.</target>
+        </trans-unit>
+        <trans-unit id="ce69103c-d77a-4b48-95f3-582138fc2f07" xml:space="preserve">
+          <source>Storing and streaming video and audio are obvious examples, as are backups and other kinds of data archiving.</source>
+          <target state="new">Storing and streaming video and audio are obvious examples, as are backups and other kinds of data archiving.</target>
+        </trans-unit>
+        <trans-unit id="bea6360d-122c-4592-ab97-8324cf55bcee" xml:space="preserve">
+          <source>Developers can also use blobs to hold any kind of unstructured data they like.</source>
+          <target state="new">Developers can also use blobs to hold any kind of unstructured data they like.</target>
+        </trans-unit>
+        <trans-unit id="ab22db06-b2f7-4154-a1b7-f0fcff005d48" xml:space="preserve">
+          <source>Having a straightforward way to store and access binary data can be surprisingly useful.</source>
+          <target state="new">Having a straightforward way to store and access binary data can be surprisingly useful.</target>
+        </trans-unit>
+        <trans-unit id="041862c1-b0d6-4eb7-97de-ba5b464dab96" xml:space="preserve">
+          <source>Many applications today rely on some kind of database management system (DBMS).</source>
+          <target state="new">Many applications today rely on some kind of database management system (DBMS).</target>
+        </trans-unit>
+        <trans-unit id="743c848d-4ede-4318-a2b5-bc7c2494db14" xml:space="preserve">
+          <source>Relational systems such as SQL Server are the most frequently used choice, but non-relational approaches, commonly known as <bpt id="6ab0cefa-7749-4d7e-99e5-9e92885c670e">&lt;em&gt;</bpt>NoSQL<ept id="6ab0cefa-7749-4d7e-99e5-9e92885c670e">&lt;/em&gt;</ept> technologies, get more popular every day.</source>
+          <target state="new">Relational systems such as SQL Server are the most frequently used choice, but non-relational approaches, commonly known as <bpt id="6ab0cefa-7749-4d7e-99e5-9e92885c670e">&lt;em&gt;</bpt>NoSQL<ept id="6ab0cefa-7749-4d7e-99e5-9e92885c670e">&lt;/em&gt;</ept> technologies, get more popular every day.</target>
+        </trans-unit>
+        <trans-unit id="5c2b0b4c-1f56-4aac-9829-bb196e3b10b9" xml:space="preserve">
+          <source>To let cloud applications use these data management options, Azure Virtual Machines allows you to run a DBMS (relational or NoSQL) in a VM.</source>
+          <target state="new">To let cloud applications use these data management options, Azure Virtual Machines allows you to run a DBMS (relational or NoSQL) in a VM.</target>
+        </trans-unit>
+        <trans-unit id="2cf7d9b9-8473-4f04-a40f-3786bc4ef609" xml:space="preserve">
+          <source><bpt id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;linkText&gt;</bpt>Figure 2<ept id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;/linkText&gt;</ept><bpt id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;title&gt;</bpt><ept id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;/title&gt;</ept> shows how this looks with SQL Server.</source>
+          <target state="new"><bpt id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;linkText&gt;</bpt>Figure 2<ept id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;/linkText&gt;</ept><bpt id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;title&gt;</bpt><ept id="b4da7ed4-58f8-47f8-8343-14a76a729c6d">&lt;/title&gt;</ept> shows how this looks with SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="87240ab5-ff27-4e4c-8bc4-d79c764c0c62" xml:space="preserve">
+          <source><bpt id="06471873-ff4a-4b38-866c-fb6f1a43b79d">&lt;bookmark&gt;</bpt><ept id="06471873-ff4a-4b38-866c-fb6f1a43b79d">&lt;/bookmark&gt;</ept><bpt id="650c6ee9-24e0-4a71-85a4-2615d3e343ee">&lt;linkText&gt;</bpt>Diagram of SQL Server in a Virtual Machine<ept id="650c6ee9-24e0-4a71-85a4-2615d3e343ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06471873-ff4a-4b38-866c-fb6f1a43b79d">&lt;bookmark&gt;</bpt><ept id="06471873-ff4a-4b38-866c-fb6f1a43b79d">&lt;/bookmark&gt;</ept><bpt id="650c6ee9-24e0-4a71-85a4-2615d3e343ee">&lt;linkText&gt;</bpt>Diagram of SQL Server in a Virtual Machine<ept id="650c6ee9-24e0-4a71-85a4-2615d3e343ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca167937-1b16-4f5a-9999-a67b155432e2" xml:space="preserve">
+          <source><bpt id="e3510d48-064e-41b0-9597-17954b314737">&lt;strong&gt;</bpt>Figure 2: Azure Virtual Machines allows running a DBMS in a VM, with persistence provided by blobs.<ept id="e3510d48-064e-41b0-9597-17954b314737">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e3510d48-064e-41b0-9597-17954b314737">&lt;strong&gt;</bpt>Figure 2: Azure Virtual Machines allows running a DBMS in a VM, with persistence provided by blobs.<ept id="e3510d48-064e-41b0-9597-17954b314737">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1d1784e-e694-488d-9c10-41ad8ba4b221" xml:space="preserve">
+          <source>To both developers and database administrators, this scenario looks much like running the same software in their own datacenter.</source>
+          <target state="new">To both developers and database administrators, this scenario looks much like running the same software in their own datacenter.</target>
+        </trans-unit>
+        <trans-unit id="231aa250-894c-4087-991c-522f518ba5ee" xml:space="preserve">
+          <source>In the example shown here, for instance, nearly all of SQL Server's capabilities can be used, and you have full administrative access to the system.</source>
+          <target state="new">In the example shown here, for instance, nearly all of SQL Server's capabilities can be used, and you have full administrative access to the system.</target>
+        </trans-unit>
+        <trans-unit id="ac6642d7-a56b-4503-b323-d1403158f47b" xml:space="preserve">
+          <source>You also have the responsibility of managing the database server, of course, just as if it were running locally.</source>
+          <target state="new">You also have the responsibility of managing the database server, of course, just as if it were running locally.</target>
+        </trans-unit>
+        <trans-unit id="5cd2fb42-42b7-43f1-87c9-6bbee853c825" xml:space="preserve">
+          <source>As <bpt id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;linkText&gt;</bpt>Figure 2<ept id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;/linkText&gt;</ept><bpt id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;title&gt;</bpt><ept id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;/title&gt;</ept> shows, your databases appear to be stored on the local disk of the VM the server runs in.</source>
+          <target state="new">As <bpt id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;linkText&gt;</bpt>Figure 2<ept id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;/linkText&gt;</ept><bpt id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;title&gt;</bpt><ept id="e02c8629-937f-4143-a6aa-8c063f49806f">&lt;/title&gt;</ept> shows, your databases appear to be stored on the local disk of the VM the server runs in.</target>
+        </trans-unit>
+        <trans-unit id="1ca832f8-4e78-4558-b30a-5267a7fb77ed" xml:space="preserve">
+          <source>Under the covers, however, each of those disks is written to an Azure blob.</source>
+          <target state="new">Under the covers, however, each of those disks is written to an Azure blob.</target>
+        </trans-unit>
+        <trans-unit id="16d3e460-2e84-4220-9819-c26ac0351b4e" xml:space="preserve">
+          <source>(It's similar to using a SAN in your own datacenter, with a blob acting much like a LUN.)</source>
+          <target state="new">(It's similar to using a SAN in your own datacenter, with a blob acting much like a LUN.)</target>
+        </trans-unit>
+        <trans-unit id="f9f8fcd7-97dc-40ef-8278-fc0f33345aca" xml:space="preserve">
+          <source>As with any Azure blob, the data it contains is replicated three times within a datacenter and, if you request it, geo-replicated to another datacenter in the same region.</source>
+          <target state="new">As with any Azure blob, the data it contains is replicated three times within a datacenter and, if you request it, geo-replicated to another datacenter in the same region.</target>
+        </trans-unit>
+        <trans-unit id="a412f5b1-c23a-4d51-8a68-16a7e1d1d23c" xml:space="preserve">
+          <source>It's also possible to use options such as SQL Server database mirroring for improved reliability.</source>
+          <target state="new">It's also possible to use options such as SQL Server database mirroring for improved reliability.</target>
+        </trans-unit>
+        <trans-unit id="b3fd9a57-7053-4a7b-aebf-9cbb0dc19445" xml:space="preserve">
+          <source>Another way to use SQL Server in a VM is to create a hybrid application, where the data lives on Azure while the application logic runs on-premises.</source>
+          <target state="new">Another way to use SQL Server in a VM is to create a hybrid application, where the data lives on Azure while the application logic runs on-premises.</target>
+        </trans-unit>
+        <trans-unit id="f57c3868-9855-44dc-8e52-d8fbedba5449" xml:space="preserve">
+          <source>For example, this might make sense when applications running in multiple locations or on various mobile devices must share the same data.</source>
+          <target state="new">For example, this might make sense when applications running in multiple locations or on various mobile devices must share the same data.</target>
+        </trans-unit>
+        <trans-unit id="9c2031b3-feeb-42cc-9a09-efd64cbb2c40" xml:space="preserve">
+          <source>To make communication between the cloud database and on-premises logic simpler, an organization can use Azure Virtual Network to create a virtual private network (VPN) connection between an Azure datacenter and its own on-premises datacenter.</source>
+          <target state="new">To make communication between the cloud database and on-premises logic simpler, an organization can use Azure Virtual Network to create a virtual private network (VPN) connection between an Azure datacenter and its own on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="c71d4393-0b2c-43e0-85fe-2310e692d9c1" xml:space="preserve">
+          <source>For many people, running a DBMS in a VM is the first option that comes to mind for managing structured data in the cloud.</source>
+          <target state="new">For many people, running a DBMS in a VM is the first option that comes to mind for managing structured data in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="4a93a635-c3df-43ff-a9dc-cf6bc2a398cd" xml:space="preserve">
+          <source>It's not the only choice, though, nor is it always the best choice.</source>
+          <target state="new">It's not the only choice, though, nor is it always the best choice.</target>
+        </trans-unit>
+        <trans-unit id="a330d798-6a83-49d1-aa80-3a14ec9bc229" xml:space="preserve">
+          <source>In some cases, managing data using a Platform as a Service (PaaS) approach makes more sense.</source>
+          <target state="new">In some cases, managing data using a Platform as a Service (PaaS) approach makes more sense.</target>
+        </trans-unit>
+        <trans-unit id="93f29f49-36ed-49f8-8fdf-e0af9214001c" xml:space="preserve">
+          <source>Azure provides a PaaS technology called SQL Database that lets you do this for relational data.</source>
+          <target state="new">Azure provides a PaaS technology called SQL Database that lets you do this for relational data.</target>
+        </trans-unit>
+        <trans-unit id="b83fd155-986d-426c-aa9e-3b6675ef7323" xml:space="preserve">
+          <source><bpt id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;linkText&gt;</bpt>Figure 3<ept id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;/linkText&gt;</ept><bpt id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;title&gt;</bpt><ept id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;/title&gt;</ept> illustrates this option.</source>
+          <target state="new"><bpt id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;linkText&gt;</bpt>Figure 3<ept id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;/linkText&gt;</ept><bpt id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;title&gt;</bpt><ept id="824f23e5-7562-485a-9fdd-19cddcf2c38c">&lt;/title&gt;</ept> illustrates this option.</target>
+        </trans-unit>
+        <trans-unit id="3000f9d3-f37d-4e9e-9417-7525752d7026" xml:space="preserve">
+          <source><bpt id="4ae71906-ed5f-41ab-9a35-329b54138f04">&lt;bookmark&gt;</bpt><ept id="4ae71906-ed5f-41ab-9a35-329b54138f04">&lt;/bookmark&gt;</ept><bpt id="6f426da0-ac77-45a9-93dd-a1090a354191">&lt;linkText&gt;</bpt>Diagram of SQL Database<ept id="6f426da0-ac77-45a9-93dd-a1090a354191">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ae71906-ed5f-41ab-9a35-329b54138f04">&lt;bookmark&gt;</bpt><ept id="4ae71906-ed5f-41ab-9a35-329b54138f04">&lt;/bookmark&gt;</ept><bpt id="6f426da0-ac77-45a9-93dd-a1090a354191">&lt;linkText&gt;</bpt>Diagram of SQL Database<ept id="6f426da0-ac77-45a9-93dd-a1090a354191">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0baba05-03a6-4099-9eb1-a81408dc1d35" xml:space="preserve">
+          <source><bpt id="29a7e446-f1aa-4c78-a5a9-57c37c99af7e">&lt;strong&gt;</bpt>Figure 3: SQL Database provides a shared PaaS relational storage service.<ept id="29a7e446-f1aa-4c78-a5a9-57c37c99af7e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="29a7e446-f1aa-4c78-a5a9-57c37c99af7e">&lt;strong&gt;</bpt>Figure 3: SQL Database provides a shared PaaS relational storage service.<ept id="29a7e446-f1aa-4c78-a5a9-57c37c99af7e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="207aa8bc-8b63-45cd-8f4e-f4d01b0f526f" xml:space="preserve">
+          <source>SQL Database doesn't give each customer its own physical instance of SQL Server.</source>
+          <target state="new">SQL Database doesn't give each customer its own physical instance of SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="12fe2952-5824-40f3-9487-01d8b5a70876" xml:space="preserve">
+          <source>Instead, it provides a multi-tenant service, with a logical SQL Database server for each customer.</source>
+          <target state="new">Instead, it provides a multi-tenant service, with a logical SQL Database server for each customer.</target>
+        </trans-unit>
+        <trans-unit id="2aacd240-5783-4754-822d-beebe736b87b" xml:space="preserve">
+          <source>All customers share the compute and storage capacity that the service provides.</source>
+          <target state="new">All customers share the compute and storage capacity that the service provides.</target>
+        </trans-unit>
+        <trans-unit id="6c3269a2-ee6c-4e1f-9384-9c7ef3ea77e9" xml:space="preserve">
+          <source>And as with Blob Storage, all data in SQL Database is stored on three separate computers within an Azure datacenter, giving your databases built-in high availability (HA).</source>
+          <target state="new">And as with Blob Storage, all data in SQL Database is stored on three separate computers within an Azure datacenter, giving your databases built-in high availability (HA).</target>
+        </trans-unit>
+        <trans-unit id="862279e5-1ac0-4747-b059-a62a8b7c0314" xml:space="preserve">
+          <source>To an application, SQL Database looks much like SQL Server.</source>
+          <target state="new">To an application, SQL Database looks much like SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="edb9cc2a-e9c8-4ed0-9737-63a38762e1a1" xml:space="preserve">
+          <source>Applications can issue SQL queries against relational tables, use T-SQL stored procedures, and execute transactions across multiple tables.</source>
+          <target state="new">Applications can issue SQL queries against relational tables, use T-SQL stored procedures, and execute transactions across multiple tables.</target>
+        </trans-unit>
+        <trans-unit id="4ad49c3b-048c-47f4-bd0b-8194d419f487" xml:space="preserve">
+          <source>And because applications access SQL Database using the Tabular Data Stream (TDS) protocol, the same protocol used to access SQL Server, they can work with data using Entity Framework, ADO.NET, JDBC, and other familiar data access interfaces.</source>
+          <target state="new">And because applications access SQL Database using the Tabular Data Stream (TDS) protocol, the same protocol used to access SQL Server, they can work with data using Entity Framework, ADO.NET, JDBC, and other familiar data access interfaces.</target>
+        </trans-unit>
+        <trans-unit id="eab4246a-d465-40b9-bff4-d6ed4ca96a2f" xml:space="preserve">
+          <source>But because SQL Database is a cloud service running in Azure data centers, you don't need to manage any of the system's physical aspects, such as disk usage.</source>
+          <target state="new">But because SQL Database is a cloud service running in Azure data centers, you don't need to manage any of the system's physical aspects, such as disk usage.</target>
+        </trans-unit>
+        <trans-unit id="7e1d0c57-4811-4d6f-bf88-2751ba48b30f" xml:space="preserve">
+          <source>You also don't need to worry about updating software or handling other low-level administrative tasks.</source>
+          <target state="new">You also don't need to worry about updating software or handling other low-level administrative tasks.</target>
+        </trans-unit>
+        <trans-unit id="cf002f1a-e57a-4ca9-a24e-56cac6a7f872" xml:space="preserve">
+          <source>Each customer organization still controls its own databases, of course, including their schemas and user logins, but many of the mundane administrative tasks are done for you.</source>
+          <target state="new">Each customer organization still controls its own databases, of course, including their schemas and user logins, but many of the mundane administrative tasks are done for you.</target>
+        </trans-unit>
+        <trans-unit id="e235004e-91d1-491f-aa54-900609891480" xml:space="preserve">
+          <source>While SQL Database looks much like SQL Server to applications, it doesn't behave exactly the same as a DBMS running on a physical or virtual machine.</source>
+          <target state="new">While SQL Database looks much like SQL Server to applications, it doesn't behave exactly the same as a DBMS running on a physical or virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="741777f4-b734-4612-a5f2-fe9af06b5427" xml:space="preserve">
+          <source>Because it runs on shared hardware, its performance will vary with the load placed on that hardware by all of its customers.</source>
+          <target state="new">Because it runs on shared hardware, its performance will vary with the load placed on that hardware by all of its customers.</target>
+        </trans-unit>
+        <trans-unit id="f6ff9b9f-5730-401c-85fe-5ef20e1338dc" xml:space="preserve">
+          <source>This means that the performance of, say, a stored procedure in SQL Database might vary from one day to the next.</source>
+          <target state="new">This means that the performance of, say, a stored procedure in SQL Database might vary from one day to the next.</target>
+        </trans-unit>
+        <trans-unit id="70c1cd54-d875-4404-b44d-9bc06be55a62" xml:space="preserve">
+          <source>Today, SQL Database lets you create a database holding up to 150 gigabytes.</source>
+          <target state="new">Today, SQL Database lets you create a database holding up to 150 gigabytes.</target>
+        </trans-unit>
+        <trans-unit id="65980a45-4235-4266-8e0c-290c21269431" xml:space="preserve">
+          <source>If you need to work with larger databases, the service provides an option called <bpt id="2ddc02e5-3f96-46ac-bc54-b1602081ca75">&lt;em&gt;</bpt>Federation<ept id="2ddc02e5-3f96-46ac-bc54-b1602081ca75">&lt;/em&gt;</ept>.</source>
+          <target state="new">If you need to work with larger databases, the service provides an option called <bpt id="2ddc02e5-3f96-46ac-bc54-b1602081ca75">&lt;em&gt;</bpt>Federation<ept id="2ddc02e5-3f96-46ac-bc54-b1602081ca75">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="697b7f4c-62d4-425f-aa76-629674b20763" xml:space="preserve">
+          <source>To do this, a database administrator creates two or more <bpt id="c5e1fc76-bf94-4460-9634-25578768505d">&lt;em&gt;</bpt>federation members<ept id="c5e1fc76-bf94-4460-9634-25578768505d">&lt;/em&gt;</ept>, each of which is a separate database with its own schema.</source>
+          <target state="new">To do this, a database administrator creates two or more <bpt id="c5e1fc76-bf94-4460-9634-25578768505d">&lt;em&gt;</bpt>federation members<ept id="c5e1fc76-bf94-4460-9634-25578768505d">&lt;/em&gt;</ept>, each of which is a separate database with its own schema.</target>
+        </trans-unit>
+        <trans-unit id="7a32b4af-a7f9-4a87-99ed-4595d17fbd5a" xml:space="preserve">
+          <source>Data is spread across these members, something that's often referred to as <bpt id="7f20989c-42df-403a-9ff7-b3877be98da3">&lt;em&gt;</bpt>sharding<ept id="7f20989c-42df-403a-9ff7-b3877be98da3">&lt;/em&gt;</ept>, with each member assigned a unique <bpt id="54ae31a1-c2d8-4472-91ba-9ebd19fe0bb8">&lt;em&gt;</bpt>federation key<ept id="54ae31a1-c2d8-4472-91ba-9ebd19fe0bb8">&lt;/em&gt;</ept>.</source>
+          <target state="new">Data is spread across these members, something that's often referred to as <bpt id="7f20989c-42df-403a-9ff7-b3877be98da3">&lt;em&gt;</bpt>sharding<ept id="7f20989c-42df-403a-9ff7-b3877be98da3">&lt;/em&gt;</ept>, with each member assigned a unique <bpt id="54ae31a1-c2d8-4472-91ba-9ebd19fe0bb8">&lt;em&gt;</bpt>federation key<ept id="54ae31a1-c2d8-4472-91ba-9ebd19fe0bb8">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="03fb6276-1699-4355-9282-f99fc5b8b8e9" xml:space="preserve">
+          <source>An application issues SQL queries against this data by specifying the federation key that identifies the federation member the query should target.</source>
+          <target state="new">An application issues SQL queries against this data by specifying the federation key that identifies the federation member the query should target.</target>
+        </trans-unit>
+        <trans-unit id="974bdb9a-865c-4131-88e5-e97bcacc9301" xml:space="preserve">
+          <source>This allows using a traditional relational approach with large amounts of data.</source>
+          <target state="new">This allows using a traditional relational approach with large amounts of data.</target>
+        </trans-unit>
+        <trans-unit id="3f99c482-e337-4eea-8a27-14232d941607" xml:space="preserve">
+          <source>As always, there are trade-offs; neither queries nor transactions can span federation members, for instance.</source>
+          <target state="new">As always, there are trade-offs; neither queries nor transactions can span federation members, for instance.</target>
+        </trans-unit>
+        <trans-unit id="4ce4ae2a-d183-40fe-99a7-ce49ff105504" xml:space="preserve">
+          <source>But when a relational PaaS service is the best choice and these trade-offs are acceptable, using SQL Federation can be a good solution.</source>
+          <target state="new">But when a relational PaaS service is the best choice and these trade-offs are acceptable, using SQL Federation can be a good solution.</target>
+        </trans-unit>
+        <trans-unit id="e10a1028-d7c9-48f2-ab72-c0f251e6e537" xml:space="preserve">
+          <source>SQL Database can be used by applications running on Azure or elsewhere, such as in your on-premises datacenter.</source>
+          <target state="new">SQL Database can be used by applications running on Azure or elsewhere, such as in your on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="53292883-c696-43cb-b695-e370f7cbcdbb" xml:space="preserve">
+          <source>This makes it useful for cloud applications that need relational data, as well as on-premises applications that can benefit from storing data in the cloud.</source>
+          <target state="new">This makes it useful for cloud applications that need relational data, as well as on-premises applications that can benefit from storing data in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="76571061-9363-41e7-9047-8cfd682647a1" xml:space="preserve">
+          <source>A mobile application might rely on SQL Database to manage shared relational data, for instance, as might an inventory application that runs at multiple dealers around the world.</source>
+          <target state="new">A mobile application might rely on SQL Database to manage shared relational data, for instance, as might an inventory application that runs at multiple dealers around the world.</target>
+        </trans-unit>
+        <trans-unit id="e048fc04-fcc4-4e85-a56b-840a4a41fe67" xml:space="preserve">
+          <source>Thinking about SQL Database raises an obvious (and important) issue: When should you run SQL Server in a VM, and when is SQL Database a better choice?</source>
+          <target state="new">Thinking about SQL Database raises an obvious (and important) issue: When should you run SQL Server in a VM, and when is SQL Database a better choice?</target>
+        </trans-unit>
+        <trans-unit id="547b8384-495d-4993-8ee8-2519e33b3511" xml:space="preserve">
+          <source>As usual, there are trade-offs, and so which approach is better depends on your requirements.</source>
+          <target state="new">As usual, there are trade-offs, and so which approach is better depends on your requirements.</target>
+        </trans-unit>
+        <trans-unit id="5bb930bc-356e-4cf7-9b97-689fae05f771" xml:space="preserve">
+          <source>One simple way to think about it is to view SQL Database as being for new applications, while SQL Server in a VM is a better choice when you're moving an existing on-premises application to the cloud.</source>
+          <target state="new">One simple way to think about it is to view SQL Database as being for new applications, while SQL Server in a VM is a better choice when you're moving an existing on-premises application to the cloud.</target>
+        </trans-unit>
+        <trans-unit id="ef9cce09-79b3-4a26-86d5-2f59bfcb4b18" xml:space="preserve">
+          <source>It can also be useful to look at this decision in a more fine-grained way, however.</source>
+          <target state="new">It can also be useful to look at this decision in a more fine-grained way, however.</target>
+        </trans-unit>
+        <trans-unit id="ef8c148b-5200-48f0-b9cb-d1674aed6df0" xml:space="preserve">
+          <source>For example, SQL Database is easier to use, since there's minimal setup and administration.</source>
+          <target state="new">For example, SQL Database is easier to use, since there's minimal setup and administration.</target>
+        </trans-unit>
+        <trans-unit id="499dafdd-98e9-4dd5-a579-8e3a12a8ed54" xml:space="preserve">
+          <source>But running SQL Server in a VM can have more predictable performance - it's not a shared service - and it also supports larger non-federated databases than SQL Database.</source>
+          <target state="new">But running SQL Server in a VM can have more predictable performance - it's not a shared service - and it also supports larger non-federated databases than SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="6dc7c801-a62a-486c-94cd-ff4b66468767" xml:space="preserve">
+          <source>Still, SQL Database provides built-in replication of both data and processing, effectively giving you a high-availability DBMS with very little work.</source>
+          <target state="new">Still, SQL Database provides built-in replication of both data and processing, effectively giving you a high-availability DBMS with very little work.</target>
+        </trans-unit>
+        <trans-unit id="291e5251-2b0b-43a6-996a-7b3a23edc42f" xml:space="preserve">
+          <source>While SQL Server gives you more control and a somewhat broader set of options, SQL Database is simpler to set up and significantly less work to manage.</source>
+          <target state="new">While SQL Server gives you more control and a somewhat broader set of options, SQL Database is simpler to set up and significantly less work to manage.</target>
+        </trans-unit>
+        <trans-unit id="a5bf75d4-f809-4ccb-b068-3591c4deff98" xml:space="preserve">
+          <source>Finally, it's important to point out that SQL Database isn't the only PaaS data service available on Azure.</source>
+          <target state="new">Finally, it's important to point out that SQL Database isn't the only PaaS data service available on Azure.</target>
+        </trans-unit>
+        <trans-unit id="571698b0-c7d8-4fc7-8d4b-9979331a110b" xml:space="preserve">
+          <source>Microsoft partners provide other options as well.</source>
+          <target state="new">Microsoft partners provide other options as well.</target>
+        </trans-unit>
+        <trans-unit id="3d5955be-3472-424b-a94d-1f0ac2e38576" xml:space="preserve">
+          <source>For example, ClearDB offers a MySQL PaaS offering, while Cloudant sells a NoSQL option.</source>
+          <target state="new">For example, ClearDB offers a MySQL PaaS offering, while Cloudant sells a NoSQL option.</target>
+        </trans-unit>
+        <trans-unit id="d860f553-5a1b-44c2-a06e-0aeae73b0c6d" xml:space="preserve">
+          <source>PaaS data services are the right solution in many situations, and so this approach to data management is an important part of Azure.</source>
+          <target state="new">PaaS data services are the right solution in many situations, and so this approach to data management is an important part of Azure.</target>
+        </trans-unit>
+        <trans-unit id="111812f9-0367-42ff-8eff-41ac88705e85" xml:space="preserve">
+          <source>While SQL Database does maintain three copies of each database within a single Azure datacenter, it doesn't automatically replicate data between Azure datacenters.</source>
+          <target state="new">While SQL Database does maintain three copies of each database within a single Azure datacenter, it doesn't automatically replicate data between Azure datacenters.</target>
+        </trans-unit>
+        <trans-unit id="8aa4065c-5e10-4100-985b-1db9556628c4" xml:space="preserve">
+          <source>Instead, it provides SQL Data Sync, a service that you can use to do this.</source>
+          <target state="new">Instead, it provides SQL Data Sync, a service that you can use to do this.</target>
+        </trans-unit>
+        <trans-unit id="8908b73f-541b-4dde-bbdd-52f372899e6e" xml:space="preserve">
+          <source><bpt id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;linkText&gt;</bpt>Figure 4<ept id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;/linkText&gt;</ept><bpt id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;title&gt;</bpt><ept id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;/title&gt;</ept> shows how this looks.</source>
+          <target state="new"><bpt id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;linkText&gt;</bpt>Figure 4<ept id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;/linkText&gt;</ept><bpt id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;title&gt;</bpt><ept id="05b45a57-3364-43b5-ae72-376955b486e8">&lt;/title&gt;</ept> shows how this looks.</target>
+        </trans-unit>
+        <trans-unit id="50c9d755-0a4f-49e8-ba5d-146704750b98" xml:space="preserve">
+          <source><bpt id="2e44d28f-a1b8-43b5-b435-881c2b25e1cd">&lt;bookmark&gt;</bpt><ept id="2e44d28f-a1b8-43b5-b435-881c2b25e1cd">&lt;/bookmark&gt;</ept><bpt id="5da41381-f995-4fab-9500-35f32a826fc8">&lt;linkText&gt;</bpt>Diagram of SQL data sync<ept id="5da41381-f995-4fab-9500-35f32a826fc8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e44d28f-a1b8-43b5-b435-881c2b25e1cd">&lt;bookmark&gt;</bpt><ept id="2e44d28f-a1b8-43b5-b435-881c2b25e1cd">&lt;/bookmark&gt;</ept><bpt id="5da41381-f995-4fab-9500-35f32a826fc8">&lt;linkText&gt;</bpt>Diagram of SQL data sync<ept id="5da41381-f995-4fab-9500-35f32a826fc8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3691f005-ee07-4657-8815-7b3b27e839f9" xml:space="preserve">
+          <source><bpt id="71f05ca2-8397-47a8-838f-3a5ef14c1229">&lt;strong&gt;</bpt>Figure 4: SQL Data Sync synchronizes data in SQL Database with data in other Azure and on-premises datacenters.<ept id="71f05ca2-8397-47a8-838f-3a5ef14c1229">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="71f05ca2-8397-47a8-838f-3a5ef14c1229">&lt;strong&gt;</bpt>Figure 4: SQL Data Sync synchronizes data in SQL Database with data in other Azure and on-premises datacenters.<ept id="71f05ca2-8397-47a8-838f-3a5ef14c1229">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3a8db22-4beb-442a-a936-6ce808157891" xml:space="preserve">
+          <source>As the diagram shows, SQL Data Sync can synchronize data across different locations.</source>
+          <target state="new">As the diagram shows, SQL Data Sync can synchronize data across different locations.</target>
+        </trans-unit>
+        <trans-unit id="78035906-5533-4d36-bad1-5b52ca930083" xml:space="preserve">
+          <source>Suppose you're running an application in multiple Azure datacenters, for instance, with data stored in SQL Database.</source>
+          <target state="new">Suppose you're running an application in multiple Azure datacenters, for instance, with data stored in SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="199342a9-67a5-47ae-97bd-453fd4263f1f" xml:space="preserve">
+          <source>You can use SQL Data Sync to keep that data synchronized.</source>
+          <target state="new">You can use SQL Data Sync to keep that data synchronized.</target>
+        </trans-unit>
+        <trans-unit id="29b21753-e026-43f9-992b-66552a6f1165" xml:space="preserve">
+          <source>SQL Data Sync can also synchronize data between an Azure datacenter and an instance of SQL Server running in an on-premises datacenter.</source>
+          <target state="new">SQL Data Sync can also synchronize data between an Azure datacenter and an instance of SQL Server running in an on-premises datacenter.</target>
+        </trans-unit>
+        <trans-unit id="a19227c5-920e-4a3b-909b-45c31581b0bf" xml:space="preserve">
+          <source>This might be useful for maintaining both a local copy of data used by on-premises applications and a cloud copy used by applications running on Azure.</source>
+          <target state="new">This might be useful for maintaining both a local copy of data used by on-premises applications and a cloud copy used by applications running on Azure.</target>
+        </trans-unit>
+        <trans-unit id="7ead8df1-7215-4114-b966-5cecfa8cd1e6" xml:space="preserve">
+          <source>And although it's not shown in the figure, SQL Data Sync can also be used to synchronize data between SQL Database and SQL Server running in a VM on Azure or elsewhere.</source>
+          <target state="new">And although it's not shown in the figure, SQL Data Sync can also be used to synchronize data between SQL Database and SQL Server running in a VM on Azure or elsewhere.</target>
+        </trans-unit>
+        <trans-unit id="0b2ede4b-d246-4828-b09b-5fb14a2b0167" xml:space="preserve">
+          <source>Synchronization can be bi-directional, and you determine exactly what data is synchronized and how frequently it's done.</source>
+          <target state="new">Synchronization can be bi-directional, and you determine exactly what data is synchronized and how frequently it's done.</target>
+        </trans-unit>
+        <trans-unit id="21d4cd86-c1e4-4ceb-8d6a-ef80c01640df" xml:space="preserve">
+          <source>(Synchronization between databases isn't atomic, however - there's always at least some delay.)</source>
+          <target state="new">(Synchronization between databases isn't atomic, however - there's always at least some delay.)</target>
+        </trans-unit>
+        <trans-unit id="8a994029-5adf-4363-8b2e-041763ccc85c" xml:space="preserve">
+          <source>And however it's used, setting up synchronization with SQL Data Sync is entirely configuration-driven; there's no code to write.</source>
+          <target state="new">And however it's used, setting up synchronization with SQL Data Sync is entirely configuration-driven; there's no code to write.</target>
+        </trans-unit>
+        <trans-unit id="e68db896-69e3-4996-8033-bf4b5ada49d1" xml:space="preserve">
+          <source>Once a database contains data, somebody will probably want to create reports using that data.</source>
+          <target state="new">Once a database contains data, somebody will probably want to create reports using that data.</target>
+        </trans-unit>
+        <trans-unit id="c156ed55-c63f-404a-b49c-f95a7d4cd94d" xml:space="preserve">
+          <source>Azure can run SQL Server Reporting Services (SSRS) in Azure Virtual Machines, which is functionally equivalent to running SQL Server Reporting Services on-premises.</source>
+          <target state="new">Azure can run SQL Server Reporting Services (SSRS) in Azure Virtual Machines, which is functionally equivalent to running SQL Server Reporting Services on-premises.</target>
+        </trans-unit>
+        <trans-unit id="b2e0c89a-3988-4305-b937-75b77472b2bd" xml:space="preserve">
+          <source>Then you can use SSRS to run reports on data stored in an Azure SQL Database.</source>
+          <target state="new">Then you can use SSRS to run reports on data stored in an Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="da732ef8-83ff-48b7-a6cc-c65984a4f882" xml:space="preserve">
+          <source><bpt id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;linkText&gt;</bpt>Figure 5<ept id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;/linkText&gt;</ept><bpt id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;title&gt;</bpt><ept id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;/title&gt;</ept> shows how the process works.</source>
+          <target state="new"><bpt id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;linkText&gt;</bpt>Figure 5<ept id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;/linkText&gt;</ept><bpt id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;title&gt;</bpt><ept id="4066119e-3f3f-4aa3-94d5-eeddb96ce0a4">&lt;/title&gt;</ept> shows how the process works.</target>
+        </trans-unit>
+        <trans-unit id="de6b31f9-2fd8-4be2-a768-0706bb6d70fe" xml:space="preserve">
+          <source><bpt id="0336c48b-5eb7-4828-9df9-37bb1989404e">&lt;bookmark&gt;</bpt><ept id="0336c48b-5eb7-4828-9df9-37bb1989404e">&lt;/bookmark&gt;</ept><bpt id="a76dc1ad-9b74-48d8-a20b-77dbea678951">&lt;linkText&gt;</bpt>Diagram of SQL reporting<ept id="a76dc1ad-9b74-48d8-a20b-77dbea678951">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0336c48b-5eb7-4828-9df9-37bb1989404e">&lt;bookmark&gt;</bpt><ept id="0336c48b-5eb7-4828-9df9-37bb1989404e">&lt;/bookmark&gt;</ept><bpt id="a76dc1ad-9b74-48d8-a20b-77dbea678951">&lt;linkText&gt;</bpt>Diagram of SQL reporting<ept id="a76dc1ad-9b74-48d8-a20b-77dbea678951">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07b04958-364a-44f1-84fc-973e85e6b8c8" xml:space="preserve">
+          <source>**Figure 5: SQL Server Reporting Services running in an Azure Virtual Machines provides reporting services for data in SQL Database.</source>
+          <target state="new">**Figure 5: SQL Server Reporting Services running in an Azure Virtual Machines provides reporting services for data in SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="cba9ee6d-06cf-4dc9-a992-d157c8528822" xml:space="preserve">
+          <source>.**</source>
+          <target state="new">.**</target>
+        </trans-unit>
+        <trans-unit id="2e8acd43-f798-401f-b086-f0cf93e6f200" xml:space="preserve">
+          <source>Before a user can see a report, someone defines what that report should look like (step 1).</source>
+          <target state="new">Before a user can see a report, someone defines what that report should look like (step 1).</target>
+        </trans-unit>
+        <trans-unit id="9226eb2f-4304-465f-a8e7-58b625de10e1" xml:space="preserve">
+          <source>With SSRS on a VM, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio.</source>
+          <target state="new">With SSRS on a VM, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio.</target>
+        </trans-unit>
+        <trans-unit id="82430573-2c01-46bc-9261-2ca9ebf1a438" xml:space="preserve">
+          <source>As with SSRS, these report definitions are expressed in the Report Definition Language (RDL).</source>
+          <target state="new">As with SSRS, these report definitions are expressed in the Report Definition Language (RDL).</target>
+        </trans-unit>
+        <trans-unit id="96028a70-5ece-4c53-969b-8267774454e0" xml:space="preserve">
+          <source>After the RDL files for a report have been created, they are uploaded to a VM in the cloud (step 2).</source>
+          <target state="new">After the RDL files for a report have been created, they are uploaded to a VM in the cloud (step 2).</target>
+        </trans-unit>
+        <trans-unit id="4f0ddea1-21b9-4f75-8461-57d5ad9fceb9" xml:space="preserve">
+          <source>The report definition is now ready to use.</source>
+          <target state="new">The report definition is now ready to use.</target>
+        </trans-unit>
+        <trans-unit id="3c0e8ea9-761b-4694-b490-fbd6e0f59eac" xml:space="preserve">
+          <source>Next, a user of the application accesses the report (step 3).</source>
+          <target state="new">Next, a user of the application accesses the report (step 3).</target>
+        </trans-unit>
+        <trans-unit id="8ba6cfb3-2884-4c98-ac38-0a4926d61c70" xml:space="preserve">
+          <source>The application passes this request to the SSRS VM (step 4), which contacts SQL Database or other data sources to get the data it needs (step 5).</source>
+          <target state="new">The application passes this request to the SSRS VM (step 4), which contacts SQL Database or other data sources to get the data it needs (step 5).</target>
+        </trans-unit>
+        <trans-unit id="8633271d-a014-493d-9b3d-915d83ec6c4f" xml:space="preserve">
+          <source>SSRS uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).</source>
+          <target state="new">SSRS uses this data and the relevant RDL files to render the report (step 6), then returns the report to the application (step 7), which displays it to the user (step 8).</target>
+        </trans-unit>
+        <trans-unit id="727fa415-81e1-4d68-bda0-8aa9f9019e74" xml:space="preserve">
+          <source>Embedding a report in an application, the scenario shown here, isn't the only option.</source>
+          <target state="new">Embedding a report in an application, the scenario shown here, isn't the only option.</target>
+        </trans-unit>
+        <trans-unit id="3c712381-18ad-4874-bbca-d7cadf39f83f" xml:space="preserve">
+          <source>It's also possible to view reports in Report Manager on the VM, SharePoint on the VM, or in other ways.</source>
+          <target state="new">It's also possible to view reports in Report Manager on the VM, SharePoint on the VM, or in other ways.</target>
+        </trans-unit>
+        <trans-unit id="d859686b-c29c-4707-96a8-3270a935a15d" xml:space="preserve">
+          <source>Reports can also be combined, with one report containing a link to another.</source>
+          <target state="new">Reports can also be combined, with one report containing a link to another.</target>
+        </trans-unit>
+        <trans-unit id="00659b63-6291-4630-9707-5cf33c8e8643" xml:space="preserve">
+          <source>SSRS on an Azure VM gives you full functionality as a reporting solution in the cloud.</source>
+          <target state="new">SSRS on an Azure VM gives you full functionality as a reporting solution in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="6f1e220a-87b9-4397-afbd-241bc54055af" xml:space="preserve">
+          <source>Reports can use any data source supported by SSRS.</source>
+          <target state="new">Reports can use any data source supported by SSRS.</target>
+        </trans-unit>
+        <trans-unit id="da6df42d-07cb-4428-b061-a322fd26cbb2" xml:space="preserve">
+          <source>Applications and reports can include embedded code or assemblies to support custom behaviors.</source>
+          <target state="new">Applications and reports can include embedded code or assemblies to support custom behaviors.</target>
+        </trans-unit>
+        <trans-unit id="1602098c-6b19-4ade-802e-2bcabf9b4e1e" xml:space="preserve">
+          <source>Report execution and rendering are fast because report server content and engine run together on the same virtual server.</source>
+          <target state="new">Report execution and rendering are fast because report server content and engine run together on the same virtual server.</target>
+        </trans-unit>
+        <trans-unit id="b6a864e9-1a15-4993-bbe8-2cc35dcee335" xml:space="preserve">
+          <source>Relational data is useful in many situations, but it's not always the right choice.</source>
+          <target state="new">Relational data is useful in many situations, but it's not always the right choice.</target>
+        </trans-unit>
+        <trans-unit id="c0233e7d-e26c-4d4f-ab47-8553a3bc1483" xml:space="preserve">
+          <source>If your application needs fast, simple access to very large amounts of loosely structured data, for instance, a relational database might not work well.</source>
+          <target state="new">If your application needs fast, simple access to very large amounts of loosely structured data, for instance, a relational database might not work well.</target>
+        </trans-unit>
+        <trans-unit id="266603ce-4a06-4b27-a5e9-93d05a620efa" xml:space="preserve">
+          <source>A NoSQL technology is likely to be a better option.</source>
+          <target state="new">A NoSQL technology is likely to be a better option.</target>
+        </trans-unit>
+        <trans-unit id="4465c890-ce70-4a5b-a20a-5fb74c49f061" xml:space="preserve">
+          <source>Azure Table Storage is an example of this kind of NoSQL approach.</source>
+          <target state="new">Azure Table Storage is an example of this kind of NoSQL approach.</target>
+        </trans-unit>
+        <trans-unit id="d1494ae1-4356-4bb9-8f15-40774b804758" xml:space="preserve">
+          <source>Despite its name, Table Storage doesn't support standard relational tables.</source>
+          <target state="new">Despite its name, Table Storage doesn't support standard relational tables.</target>
+        </trans-unit>
+        <trans-unit id="c4457e0d-62ab-461e-8569-a865e62bf550" xml:space="preserve">
+          <source>Instead, it provides what's known as a <bpt id="b9602541-dbc1-47d0-8ff8-8477301f1d6c">&lt;em&gt;</bpt>key/value store<ept id="b9602541-dbc1-47d0-8ff8-8477301f1d6c">&lt;/em&gt;</ept>, associating a set of data with a particular key, then letting an application access that data by providing the key.</source>
+          <target state="new">Instead, it provides what's known as a <bpt id="b9602541-dbc1-47d0-8ff8-8477301f1d6c">&lt;em&gt;</bpt>key/value store<ept id="b9602541-dbc1-47d0-8ff8-8477301f1d6c">&lt;/em&gt;</ept>, associating a set of data with a particular key, then letting an application access that data by providing the key.</target>
+        </trans-unit>
+        <trans-unit id="18df6276-98ee-4c1b-9230-25ad43896867" xml:space="preserve">
+          <source><bpt id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;linkText&gt;</bpt>Figure 6<ept id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;/linkText&gt;</ept><bpt id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;title&gt;</bpt><ept id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;/title&gt;</ept> illustrates the basics.</source>
+          <target state="new"><bpt id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;linkText&gt;</bpt>Figure 6<ept id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;/linkText&gt;</ept><bpt id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;title&gt;</bpt><ept id="2793c5c8-22c7-4294-bd45-23c9b24aeacd">&lt;/title&gt;</ept> illustrates the basics.</target>
+        </trans-unit>
+        <trans-unit id="bac9f812-864a-4621-af70-b5f4435f829d" xml:space="preserve">
+          <source><bpt id="6bee9048-20a9-4d5a-831f-3b935e94ff9c">&lt;bookmark&gt;</bpt><ept id="6bee9048-20a9-4d5a-831f-3b935e94ff9c">&lt;/bookmark&gt;</ept><bpt id="cfa8714e-3b86-4d8b-9732-1f3b21e2ccfa">&lt;linkText&gt;</bpt>Diagram of table storage<ept id="cfa8714e-3b86-4d8b-9732-1f3b21e2ccfa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6bee9048-20a9-4d5a-831f-3b935e94ff9c">&lt;bookmark&gt;</bpt><ept id="6bee9048-20a9-4d5a-831f-3b935e94ff9c">&lt;/bookmark&gt;</ept><bpt id="cfa8714e-3b86-4d8b-9732-1f3b21e2ccfa">&lt;linkText&gt;</bpt>Diagram of table storage<ept id="cfa8714e-3b86-4d8b-9732-1f3b21e2ccfa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9265994b-05df-4577-ac01-e3e8c1803b6a" xml:space="preserve">
+          <source><bpt id="57e14e9d-c102-4f1f-88e4-7da12830cad6">&lt;strong&gt;</bpt>Figure 6: Azure Table Storage is a key/value store that provides fast, simple access to large amounts of data.<ept id="57e14e9d-c102-4f1f-88e4-7da12830cad6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="57e14e9d-c102-4f1f-88e4-7da12830cad6">&lt;strong&gt;</bpt>Figure 6: Azure Table Storage is a key/value store that provides fast, simple access to large amounts of data.<ept id="57e14e9d-c102-4f1f-88e4-7da12830cad6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="412dbd03-a162-4c18-9656-8d06342f94fc" xml:space="preserve">
+          <source>Like blobs, each table is associated with an Azure storage account.</source>
+          <target state="new">Like blobs, each table is associated with an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="20dffc7e-324a-47a6-9984-ce271237f811" xml:space="preserve">
+          <source>Tables are also named much like blobs, with a URL of the form</source>
+          <target state="new">Tables are also named much like blobs, with a URL of the form</target>
+        </trans-unit>
+        <trans-unit id="a7e61e50-8cb7-4317-9d2b-fbe514776269" xml:space="preserve">
+          <source>http://&amp;lt;<bpt id="b9dca671-34c5-4f8a-a281-e0affa164311">&lt;em&gt;</bpt>StorageAccount<ept id="b9dca671-34c5-4f8a-a281-e0affa164311">&lt;/em&gt;</ept>&amp;gt;.table.core.windows.net/&amp;lt;<bpt id="0e30dc8c-d0ad-4ab6-b0ef-130b7612dda0">&lt;em&gt;</bpt>TableName<ept id="0e30dc8c-d0ad-4ab6-b0ef-130b7612dda0">&lt;/em&gt;</ept>&amp;gt;</source>
+          <target state="new">http://&amp;lt;<bpt id="b9dca671-34c5-4f8a-a281-e0affa164311">&lt;em&gt;</bpt>StorageAccount<ept id="b9dca671-34c5-4f8a-a281-e0affa164311">&lt;/em&gt;</ept>&amp;gt;.table.core.windows.net/&amp;lt;<bpt id="0e30dc8c-d0ad-4ab6-b0ef-130b7612dda0">&lt;em&gt;</bpt>TableName<ept id="0e30dc8c-d0ad-4ab6-b0ef-130b7612dda0">&lt;/em&gt;</ept>&amp;gt;</target>
+        </trans-unit>
+        <trans-unit id="ff7b61c7-2c39-4448-90c0-1a10ae8d62fd" xml:space="preserve">
+          <source>As the figure shows, each table is divided into some number of partitions, each of which can be stored on a separate machine.</source>
+          <target state="new">As the figure shows, each table is divided into some number of partitions, each of which can be stored on a separate machine.</target>
+        </trans-unit>
+        <trans-unit id="292a1add-72d3-48da-8eed-a551f1d876f8" xml:space="preserve">
+          <source>(This is a form of sharding, as with SQL Federation.)</source>
+          <target state="new">(This is a form of sharding, as with SQL Federation.)</target>
+        </trans-unit>
+        <trans-unit id="a67b36a4-124c-47a5-90c8-6abdf7862347" xml:space="preserve">
+          <source>Both Azure applications and applications running elsewhere can access a table using either the RESTful OData protocol or the Azure Storage Client library.</source>
+          <target state="new">Both Azure applications and applications running elsewhere can access a table using either the RESTful OData protocol or the Azure Storage Client library.</target>
+        </trans-unit>
+        <trans-unit id="ca3e0034-cd1b-4d75-8b9b-5fbe6175ea6c" xml:space="preserve">
+          <source>Each partition in a table holds some number of <bpt id="e6497b23-e5a9-40ac-94b3-864e1256f61c">&lt;em&gt;</bpt>entities<ept id="e6497b23-e5a9-40ac-94b3-864e1256f61c">&lt;/em&gt;</ept>, each containing as many as 255 <bpt id="d5a690c8-5e13-427b-a181-c82899a9e366">&lt;em&gt;</bpt>properties<ept id="d5a690c8-5e13-427b-a181-c82899a9e366">&lt;/em&gt;</ept>.</source>
+          <target state="new">Each partition in a table holds some number of <bpt id="e6497b23-e5a9-40ac-94b3-864e1256f61c">&lt;em&gt;</bpt>entities<ept id="e6497b23-e5a9-40ac-94b3-864e1256f61c">&lt;/em&gt;</ept>, each containing as many as 255 <bpt id="d5a690c8-5e13-427b-a181-c82899a9e366">&lt;em&gt;</bpt>properties<ept id="d5a690c8-5e13-427b-a181-c82899a9e366">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="019183b3-7fb9-44b7-b64a-a206b4586755" xml:space="preserve">
+          <source>Every property has a name, a type (such as Binary, Bool, DateTime, Int, or String), and a value.</source>
+          <target state="new">Every property has a name, a type (such as Binary, Bool, DateTime, Int, or String), and a value.</target>
+        </trans-unit>
+        <trans-unit id="03945ad3-ea9f-4300-b97c-1088bb5abc18" xml:space="preserve">
+          <source>Unlike relational storage, these tables have no fixed schema, and so different entities in the same table can contain properties with different types.</source>
+          <target state="new">Unlike relational storage, these tables have no fixed schema, and so different entities in the same table can contain properties with different types.</target>
+        </trans-unit>
+        <trans-unit id="203e9955-7c43-4757-bcdc-a14c932cc257" xml:space="preserve">
+          <source>One entity might have just a String property containing a name, for example, while another entity in the same table has two Int properties containing a customer ID number and a credit rating.</source>
+          <target state="new">One entity might have just a String property containing a name, for example, while another entity in the same table has two Int properties containing a customer ID number and a credit rating.</target>
+        </trans-unit>
+        <trans-unit id="5b2cfb53-81e6-4316-b97f-2fe13bfd70e7" xml:space="preserve">
+          <source>To identify a particular entity within a table, an application provides that entity's key.</source>
+          <target state="new">To identify a particular entity within a table, an application provides that entity's key.</target>
+        </trans-unit>
+        <trans-unit id="f5112e24-ce75-4c21-84a1-6133da90d84d" xml:space="preserve">
+          <source>The key has two parts: a <bpt id="7ecf4f84-83b2-4337-934f-a5656baf6976">&lt;em&gt;</bpt>partition key<ept id="7ecf4f84-83b2-4337-934f-a5656baf6976">&lt;/em&gt;</ept> that identifies a specific partition and a <bpt id="0741182d-b068-4761-b141-bc9db18a65cb">&lt;em&gt;</bpt>row key<ept id="0741182d-b068-4761-b141-bc9db18a65cb">&lt;/em&gt;</ept> that identifies an entity within that partition.</source>
+          <target state="new">The key has two parts: a <bpt id="7ecf4f84-83b2-4337-934f-a5656baf6976">&lt;em&gt;</bpt>partition key<ept id="7ecf4f84-83b2-4337-934f-a5656baf6976">&lt;/em&gt;</ept> that identifies a specific partition and a <bpt id="0741182d-b068-4761-b141-bc9db18a65cb">&lt;em&gt;</bpt>row key<ept id="0741182d-b068-4761-b141-bc9db18a65cb">&lt;/em&gt;</ept> that identifies an entity within that partition.</target>
+        </trans-unit>
+        <trans-unit id="71968c5d-8af8-4e3f-b882-4c564bcec78f" xml:space="preserve">
+          <source>In <bpt id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;linkText&gt;</bpt>Figure 6<ept id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;/linkText&gt;</ept><bpt id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;title&gt;</bpt><ept id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;/title&gt;</ept>, for example, the client requests the entity with partition key A and row key 3, and Table Storage returns that entity, including all of the properties it contains.</source>
+          <target state="new">In <bpt id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;linkText&gt;</bpt>Figure 6<ept id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;/linkText&gt;</ept><bpt id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;title&gt;</bpt><ept id="e4c381f4-444f-4dd9-8f6f-4abfc9567a8b">&lt;/title&gt;</ept>, for example, the client requests the entity with partition key A and row key 3, and Table Storage returns that entity, including all of the properties it contains.</target>
+        </trans-unit>
+        <trans-unit id="7b1dfe80-f756-4972-ba8b-2b0cbaf96d09" xml:space="preserve">
+          <source>This structure lets tables be big - a single table can contain up to 100 terabytes of data - and it allows fast access to the data they contain.</source>
+          <target state="new">This structure lets tables be big - a single table can contain up to 100 terabytes of data - and it allows fast access to the data they contain.</target>
+        </trans-unit>
+        <trans-unit id="48d2dffe-1712-4d44-8496-b4d44e831c7f" xml:space="preserve">
+          <source>It also brings limitations, however.</source>
+          <target state="new">It also brings limitations, however.</target>
+        </trans-unit>
+        <trans-unit id="0e14f145-5e47-4c6f-bc23-bb4f0ce03e42" xml:space="preserve">
+          <source>For example, there's no support for transactional updates that span tables or even partitions in a single table.</source>
+          <target state="new">For example, there's no support for transactional updates that span tables or even partitions in a single table.</target>
+        </trans-unit>
+        <trans-unit id="154085af-244d-48c8-b236-856831d0f883" xml:space="preserve">
+          <source>A set of updates to a table can only be grouped into an atomic transaction if all of the entities involved are in the same partition.</source>
+          <target state="new">A set of updates to a table can only be grouped into an atomic transaction if all of the entities involved are in the same partition.</target>
+        </trans-unit>
+        <trans-unit id="2172232b-e0de-4e04-b316-aa419ae32d71" xml:space="preserve">
+          <source>There's also no way to query a table based on the value of its properties, nor is there support for joins across multiple tables.</source>
+          <target state="new">There's also no way to query a table based on the value of its properties, nor is there support for joins across multiple tables.</target>
+        </trans-unit>
+        <trans-unit id="49ba7196-b251-481c-ba6d-bdb7fee4f9e8" xml:space="preserve">
+          <source>And unlike relational databases, tables have no support for stored procedures.</source>
+          <target state="new">And unlike relational databases, tables have no support for stored procedures.</target>
+        </trans-unit>
+        <trans-unit id="a8f5dccc-c954-43b3-a87a-c976a8e33909" xml:space="preserve">
+          <source>Azure Table Storage is a good choice for applications that need fast, cheap access to large amounts of loosely structured data.</source>
+          <target state="new">Azure Table Storage is a good choice for applications that need fast, cheap access to large amounts of loosely structured data.</target>
+        </trans-unit>
+        <trans-unit id="97b9db17-3cfd-436b-859d-8a6398cf9b5b" xml:space="preserve">
+          <source>For example, an Internet application that stores profile information for lots of users might use tables.</source>
+          <target state="new">For example, an Internet application that stores profile information for lots of users might use tables.</target>
+        </trans-unit>
+        <trans-unit id="6031fba2-d268-4d23-807b-c29dc4343bcc" xml:space="preserve">
+          <source>Fast access is important in this situation, and the application probably doesn't need the full power of SQL.</source>
+          <target state="new">Fast access is important in this situation, and the application probably doesn't need the full power of SQL.</target>
+        </trans-unit>
+        <trans-unit id="888b0519-78e9-48bf-98c1-ed22362b959d" xml:space="preserve">
+          <source>Giving up this functionality to gain speed and size can sometimes make sense, and so Table Storage is just the right solution for some problems.</source>
+          <target state="new">Giving up this functionality to gain speed and size can sometimes make sense, and so Table Storage is just the right solution for some problems.</target>
+        </trans-unit>
+        <trans-unit id="cdcc25c4-939c-41c8-8b56-25fbc6dd1346" xml:space="preserve">
+          <source>Organizations have been building data warehouses for decades.</source>
+          <target state="new">Organizations have been building data warehouses for decades.</target>
+        </trans-unit>
+        <trans-unit id="042a73b3-5086-4e71-ba11-712fa976a48b" xml:space="preserve">
+          <source>These collections of information, most often stored in relational tables, let people work with and learn from data in many different ways.</source>
+          <target state="new">These collections of information, most often stored in relational tables, let people work with and learn from data in many different ways.</target>
+        </trans-unit>
+        <trans-unit id="3998e216-a4ca-4794-b5e2-a6ccd2544d36" xml:space="preserve">
+          <source>With SQL Server, for instance, it's common to use tools such as SQL Server Analysis Services to do this.</source>
+          <target state="new">With SQL Server, for instance, it's common to use tools such as SQL Server Analysis Services to do this.</target>
+        </trans-unit>
+        <trans-unit id="34c34f9b-9e3f-4615-a8d8-977af2a87cc4" xml:space="preserve">
+          <source>But suppose you want to do analysis on non-relational data.</source>
+          <target state="new">But suppose you want to do analysis on non-relational data.</target>
+        </trans-unit>
+        <trans-unit id="92aed8c2-f26a-4d7b-b21a-bfd5e6c2a037" xml:space="preserve">
+          <source>Your data might take many forms: information from sensors or RFID tags, log files in server farms, clickstream data produced by web applications, images from medical diagnostic devices, and more.</source>
+          <target state="new">Your data might take many forms: information from sensors or RFID tags, log files in server farms, clickstream data produced by web applications, images from medical diagnostic devices, and more.</target>
+        </trans-unit>
+        <trans-unit id="859cffb7-47dd-42f8-8103-68e5aae129c4" xml:space="preserve">
+          <source>This data might also be really big, too big to be used effectively with a traditional data warehouse.</source>
+          <target state="new">This data might also be really big, too big to be used effectively with a traditional data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="90f0d071-1bc4-4462-9548-ce5633bcf2b2" xml:space="preserve">
+          <source>Big data problems like this, rare just a few years ago, have now become quite common.</source>
+          <target state="new">Big data problems like this, rare just a few years ago, have now become quite common.</target>
+        </trans-unit>
+        <trans-unit id="0484890a-d41f-4fef-95c3-db14ca81a4f1" xml:space="preserve">
+          <source>To analyze this kind of big data, our industry has largely converged on a single solution: the open-source technology Hadoop.</source>
+          <target state="new">To analyze this kind of big data, our industry has largely converged on a single solution: the open-source technology Hadoop.</target>
+        </trans-unit>
+        <trans-unit id="6eabc327-3928-413b-a534-e75a904e2031" xml:space="preserve">
+          <source>Hadoop runs on a cluster of physical or virtual machines, spreading the data it works on across those machines and processing it in parallel.</source>
+          <target state="new">Hadoop runs on a cluster of physical or virtual machines, spreading the data it works on across those machines and processing it in parallel.</target>
+        </trans-unit>
+        <trans-unit id="3614b956-db94-48c6-93be-90d0c1051508" xml:space="preserve">
+          <source>The more machines Hadoop has to use, the faster it can complete whatever work it's doing.</source>
+          <target state="new">The more machines Hadoop has to use, the faster it can complete whatever work it's doing.</target>
+        </trans-unit>
+        <trans-unit id="fb2bb4d2-031a-4323-b0d2-9b21d0204ff7" xml:space="preserve">
+          <source>This kind of problem is a natural fit for the public cloud.</source>
+          <target state="new">This kind of problem is a natural fit for the public cloud.</target>
+        </trans-unit>
+        <trans-unit id="83d653ba-9b6b-4fa0-9025-5df6fcbef9fa" xml:space="preserve">
+          <source>Rather than maintaining an army of on-premises servers that might sit idle much of the time, running Hadoop in the cloud lets you create (and pay for) VMs only when you need them.</source>
+          <target state="new">Rather than maintaining an army of on-premises servers that might sit idle much of the time, running Hadoop in the cloud lets you create (and pay for) VMs only when you need them.</target>
+        </trans-unit>
+        <trans-unit id="185ab4ec-d0dc-4244-9911-08464fb91705" xml:space="preserve">
+          <source>Even better, more and more of the big data that you want to analyze with Hadoop is created in the cloud, saving you the trouble of moving it around.</source>
+          <target state="new">Even better, more and more of the big data that you want to analyze with Hadoop is created in the cloud, saving you the trouble of moving it around.</target>
+        </trans-unit>
+        <trans-unit id="e3f216b7-c8cf-4d9f-9681-eeb56a322157" xml:space="preserve">
+          <source>To help you exploit these synergies, Microsoft provides a Hadoop service on Azure.</source>
+          <target state="new">To help you exploit these synergies, Microsoft provides a Hadoop service on Azure.</target>
+        </trans-unit>
+        <trans-unit id="b7081edf-0970-4eb8-a6b5-25746f6dea81" xml:space="preserve">
+          <source><bpt id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;linkText&gt;</bpt>Figure 7<ept id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;/linkText&gt;</ept><bpt id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;title&gt;</bpt><ept id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;/title&gt;</ept> shows the most important components of this service.</source>
+          <target state="new"><bpt id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;linkText&gt;</bpt>Figure 7<ept id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;/linkText&gt;</ept><bpt id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;title&gt;</bpt><ept id="1e9aff58-0309-4769-88a2-c87bd6b20034">&lt;/title&gt;</ept> shows the most important components of this service.</target>
+        </trans-unit>
+        <trans-unit id="8a4d7060-5767-4688-b832-b00ef13ad168" xml:space="preserve">
+          <source><bpt id="16237a0e-5bf8-4889-85e1-abae20a2cd1e">&lt;bookmark&gt;</bpt><ept id="16237a0e-5bf8-4889-85e1-abae20a2cd1e">&lt;/bookmark&gt;</ept><bpt id="4e7b734d-dfb7-4908-9222-01097b5b0b01">&lt;linkText&gt;</bpt>Diagram of hadoop<ept id="4e7b734d-dfb7-4908-9222-01097b5b0b01">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="16237a0e-5bf8-4889-85e1-abae20a2cd1e">&lt;bookmark&gt;</bpt><ept id="16237a0e-5bf8-4889-85e1-abae20a2cd1e">&lt;/bookmark&gt;</ept><bpt id="4e7b734d-dfb7-4908-9222-01097b5b0b01">&lt;linkText&gt;</bpt>Diagram of hadoop<ept id="4e7b734d-dfb7-4908-9222-01097b5b0b01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56864019-7a89-400e-a87a-2d6778fd89f4" xml:space="preserve">
+          <source><bpt id="fb33cdea-2d86-4d7e-b4c0-e1247d10721c">&lt;strong&gt;</bpt>Figure 7: Hadoop on Azure runs MapReduce jobs that process data in parallel using multiple virtual machines.<ept id="fb33cdea-2d86-4d7e-b4c0-e1247d10721c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="fb33cdea-2d86-4d7e-b4c0-e1247d10721c">&lt;strong&gt;</bpt>Figure 7: Hadoop on Azure runs MapReduce jobs that process data in parallel using multiple virtual machines.<ept id="fb33cdea-2d86-4d7e-b4c0-e1247d10721c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bd6af768-9e8a-428e-9125-eaa34f796ff5" xml:space="preserve">
+          <source>To use Hadoop on Azure, you first ask this cloud platform to create a Hadoop cluster, specifying the number of VMs you need.</source>
+          <target state="new">To use Hadoop on Azure, you first ask this cloud platform to create a Hadoop cluster, specifying the number of VMs you need.</target>
+        </trans-unit>
+        <trans-unit id="9f44b3a8-9df9-4715-aa51-1d187218cdd1" xml:space="preserve">
+          <source>Setting up a Hadoop cluster yourself is a non-trivial task, and so letting Azure do it for you makes sense.</source>
+          <target state="new">Setting up a Hadoop cluster yourself is a non-trivial task, and so letting Azure do it for you makes sense.</target>
+        </trans-unit>
+        <trans-unit id="1fde7350-40b3-44c8-9c1a-aec28f9faf8a" xml:space="preserve">
+          <source>When you're done using the cluster, you shut it down.</source>
+          <target state="new">When you're done using the cluster, you shut it down.</target>
+        </trans-unit>
+        <trans-unit id="92f5fa0e-29c4-4ca6-b5ca-c3b157a0fb2c" xml:space="preserve">
+          <source>There's no need to pay for compute resources that you aren't using.</source>
+          <target state="new">There's no need to pay for compute resources that you aren't using.</target>
+        </trans-unit>
+        <trans-unit id="0c24d331-4fa7-4e56-b61f-f8bd034d0db7" xml:space="preserve">
+          <source>A Hadoop application, commonly called a <bpt id="03724236-f82d-4349-8ce7-473d91b61e44">&lt;em&gt;</bpt>job<ept id="03724236-f82d-4349-8ce7-473d91b61e44">&lt;/em&gt;</ept>, uses a programming model known as <bpt id="8e20bfc5-34c5-4a8f-8bf9-79e724897632">&lt;em&gt;</bpt>MapReduce<ept id="8e20bfc5-34c5-4a8f-8bf9-79e724897632">&lt;/em&gt;</ept>.</source>
+          <target state="new">A Hadoop application, commonly called a <bpt id="03724236-f82d-4349-8ce7-473d91b61e44">&lt;em&gt;</bpt>job<ept id="03724236-f82d-4349-8ce7-473d91b61e44">&lt;/em&gt;</ept>, uses a programming model known as <bpt id="8e20bfc5-34c5-4a8f-8bf9-79e724897632">&lt;em&gt;</bpt>MapReduce<ept id="8e20bfc5-34c5-4a8f-8bf9-79e724897632">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cdf1f3f-a1e8-424d-9396-48d0842d85d5" xml:space="preserve">
+          <source>As the figure shows, the logic for a MapReduce job runs simultaneously across many VMs.</source>
+          <target state="new">As the figure shows, the logic for a MapReduce job runs simultaneously across many VMs.</target>
+        </trans-unit>
+        <trans-unit id="7f2724ce-e124-40ff-9850-fb1bb7e433f7" xml:space="preserve">
+          <source>By processing data in parallel, Hadoop can analyze data much more rapidly than single-machine solutions.</source>
+          <target state="new">By processing data in parallel, Hadoop can analyze data much more rapidly than single-machine solutions.</target>
+        </trans-unit>
+        <trans-unit id="ef669053-e2a8-4c7c-81bb-801d405ac8ba" xml:space="preserve">
+          <source>On Azure, the data a MapReduce job works on is typically kept in blob storage.</source>
+          <target state="new">On Azure, the data a MapReduce job works on is typically kept in blob storage.</target>
+        </trans-unit>
+        <trans-unit id="b875ff57-fd67-4cc0-9d75-b0bcf7fcfb72" xml:space="preserve">
+          <source>In Hadoop, however, MapReduce jobs expect data to be stored in the <bpt id="0c6ba560-aaa4-4120-a175-4e622a372845">&lt;em&gt;</bpt>Hadoop Distributed File System (HDFS)<ept id="0c6ba560-aaa4-4120-a175-4e622a372845">&lt;/em&gt;</ept>.</source>
+          <target state="new">In Hadoop, however, MapReduce jobs expect data to be stored in the <bpt id="0c6ba560-aaa4-4120-a175-4e622a372845">&lt;em&gt;</bpt>Hadoop Distributed File System (HDFS)<ept id="0c6ba560-aaa4-4120-a175-4e622a372845">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="314dafbd-b8cd-4e8f-995b-652d139071ad" xml:space="preserve">
+          <source>HDFS is similar to Blob Storage in some ways; it replicates data across multiple physical servers, for example.</source>
+          <target state="new">HDFS is similar to Blob Storage in some ways; it replicates data across multiple physical servers, for example.</target>
+        </trans-unit>
+        <trans-unit id="9a22fb4d-5066-46dc-9742-e4ec0ef86d2d" xml:space="preserve">
+          <source>Rather than duplicate this functionality, Hadoop on Azure instead exposes Blob Storage through the HDFS API, as the figure shows.</source>
+          <target state="new">Rather than duplicate this functionality, Hadoop on Azure instead exposes Blob Storage through the HDFS API, as the figure shows.</target>
+        </trans-unit>
+        <trans-unit id="b62bcb46-450a-4278-bdb8-1d00dc591dda" xml:space="preserve">
+          <source>While the logic in a MapReduce job thinks it's accessing ordinary HDFS files, the job is in fact working with data streamed to it from blobs.</source>
+          <target state="new">While the logic in a MapReduce job thinks it's accessing ordinary HDFS files, the job is in fact working with data streamed to it from blobs.</target>
+        </trans-unit>
+        <trans-unit id="2a1608b0-2a2d-425b-b941-699b60a1f960" xml:space="preserve">
+          <source>And to support the case where multiple jobs are run over the same data, Hadoop on Azure also allow copying data from blobs into full HDFS running in the VMs.</source>
+          <target state="new">And to support the case where multiple jobs are run over the same data, Hadoop on Azure also allow copying data from blobs into full HDFS running in the VMs.</target>
+        </trans-unit>
+        <trans-unit id="8400907c-8450-49f6-949d-044a11a85e4d" xml:space="preserve">
+          <source>MapReduce jobs are commonly written in Java today, an approach that Hadoop on Azure supports.</source>
+          <target state="new">MapReduce jobs are commonly written in Java today, an approach that Hadoop on Azure supports.</target>
+        </trans-unit>
+        <trans-unit id="ac91f8aa-97fd-4fcd-84b6-2d99ed1bacf0" xml:space="preserve">
+          <source>Microsoft has also added support for creating MapReduce jobs in other languages, including C#, F#, and JavaScript.</source>
+          <target state="new">Microsoft has also added support for creating MapReduce jobs in other languages, including C#, F#, and JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="d9317af8-3488-40e1-9d9b-0c204aa3a6e1" xml:space="preserve">
+          <source>The goal is to make this big data technology more easily accessible to a larger group of developers.</source>
+          <target state="new">The goal is to make this big data technology more easily accessible to a larger group of developers.</target>
+        </trans-unit>
+        <trans-unit id="ef3dee9e-a530-4436-8e18-3a403e6d472c" xml:space="preserve">
+          <source>Along with HDFS and MapReduce, Hadoop includes other technologies that let people analyze data without writing a MapReduce job themselves.</source>
+          <target state="new">Along with HDFS and MapReduce, Hadoop includes other technologies that let people analyze data without writing a MapReduce job themselves.</target>
+        </trans-unit>
+        <trans-unit id="8d949dd5-1b90-4218-a661-7d0746256686" xml:space="preserve">
+          <source>For example, Pig is a high-level language designed for analyzing big data, while Hive offers a SQL-like language called HiveQL.</source>
+          <target state="new">For example, Pig is a high-level language designed for analyzing big data, while Hive offers a SQL-like language called HiveQL.</target>
+        </trans-unit>
+        <trans-unit id="2d7c83ee-b40a-4f69-ab0b-d4ce04faeff4" xml:space="preserve">
+          <source>Both Pig and Hive actually generate MapReduce jobs that process HDFS data, but they hide this complexity from their users.</source>
+          <target state="new">Both Pig and Hive actually generate MapReduce jobs that process HDFS data, but they hide this complexity from their users.</target>
+        </trans-unit>
+        <trans-unit id="f249b0da-0926-4081-8b69-35ed7fc3491b" xml:space="preserve">
+          <source>Both are provided with Hadoop on Azure.</source>
+          <target state="new">Both are provided with Hadoop on Azure.</target>
+        </trans-unit>
+        <trans-unit id="179d1e43-2c62-4953-9879-18912c05e516" xml:space="preserve">
+          <source>Microsoft also provides a HiveQL driver for Excel.</source>
+          <target state="new">Microsoft also provides a HiveQL driver for Excel.</target>
+        </trans-unit>
+        <trans-unit id="22d1e94a-bfc3-4e25-9759-ff3384408bba" xml:space="preserve">
+          <source>Using an Excel add-in, business analysts can create HiveQL queries (and thus MapReduce jobs) directly from Excel, then process and visualize the results using PowerPivot and other Excel tools.</source>
+          <target state="new">Using an Excel add-in, business analysts can create HiveQL queries (and thus MapReduce jobs) directly from Excel, then process and visualize the results using PowerPivot and other Excel tools.</target>
+        </trans-unit>
+        <trans-unit id="04c4dbf1-9851-423b-a985-715f52f6217c" xml:space="preserve">
+          <source>Hadoop on Azure includes other technologies as well, such as the machine learning libraries Mahout, the graph mining system Pegasus, and more.</source>
+          <target state="new">Hadoop on Azure includes other technologies as well, such as the machine learning libraries Mahout, the graph mining system Pegasus, and more.</target>
+        </trans-unit>
+        <trans-unit id="e65c15ee-e911-45f3-8075-5282a7809252" xml:space="preserve">
+          <source>Big data analysis is important, and so Hadoop is also important.</source>
+          <target state="new">Big data analysis is important, and so Hadoop is also important.</target>
+        </trans-unit>
+        <trans-unit id="a3874a09-bd8b-45e5-9357-3e4619572f84" xml:space="preserve">
+          <source>By providing Hadoop as a managed service on Azure, along with links to familiar tools such as Excel, Microsoft aims at making this technology accessible to a broader set of users.</source>
+          <target state="new">By providing Hadoop as a managed service on Azure, along with links to familiar tools such as Excel, Microsoft aims at making this technology accessible to a broader set of users.</target>
+        </trans-unit>
+        <trans-unit id="f12bf6cd-b5cc-41df-9921-a75f1501059a" xml:space="preserve">
+          <source>More broadly, data of all kinds is important.</source>
+          <target state="new">More broadly, data of all kinds is important.</target>
+        </trans-unit>
+        <trans-unit id="739f6be2-ef26-48e9-9672-671743092347" xml:space="preserve">
+          <source>This is why Azure includes a range of options for data management and business analytics.</source>
+          <target state="new">This is why Azure includes a range of options for data management and business analytics.</target>
+        </trans-unit>
+        <trans-unit id="62676ce7-1f18-490a-9812-05ced7605336" xml:space="preserve">
+          <source>Whatever application you're trying to create, it's likely that you'll find something in this cloud platform that will work for you.</source>
+          <target state="new">Whatever application you're trying to create, it's likely that you'll find something in this cloud platform that will work for you.</target>
+        </trans-unit>
+        <trans-unit id="68b90271-0d28-4361-88db-33032d99a1af" xml:space="preserve">
+          <source>./media/cloud-storage/Data_01_Blobs.png</source>
+          <target state="new">./media/cloud-storage/Data_01_Blobs.png</target>
+        </trans-unit>
+        <trans-unit id="354e4129-7a24-4417-9dc5-e0b35b1e7fb1" xml:space="preserve">
+          <source>./media/cloud-storage/Data_02_SQLSvrVM.png</source>
+          <target state="new">./media/cloud-storage/Data_02_SQLSvrVM.png</target>
+        </trans-unit>
+        <trans-unit id="7aecf308-3190-4498-94e3-95aefeb63f3b" xml:space="preserve">
+          <source>./media/cloud-storage/Data_03_SQLdb.png</source>
+          <target state="new">./media/cloud-storage/Data_03_SQLdb.png</target>
+        </trans-unit>
+        <trans-unit id="fc06584e-2054-416e-97d0-bea4fd266f46" xml:space="preserve">
+          <source>./media/cloud-storage/Data_04_SQLDataSync.png</source>
+          <target state="new">./media/cloud-storage/Data_04_SQLDataSync.png</target>
+        </trans-unit>
+        <trans-unit id="fc79c242-b930-4448-bc63-9c6485e8fdc6" xml:space="preserve">
+          <source>./media/cloud-storage/Data_05_SQLReporting.png</source>
+          <target state="new">./media/cloud-storage/Data_05_SQLReporting.png</target>
+        </trans-unit>
+        <trans-unit id="21c0f979-7c71-4815-ac44-7effeb4543ac" xml:space="preserve">
+          <source>./media/cloud-storage/Data_06_TblStorage.png</source>
+          <target state="new">./media/cloud-storage/Data_06_TblStorage.png</target>
+        </trans-unit>
+        <trans-unit id="c31a3180-b882-419c-bf66-539fc79257b6" xml:space="preserve">
+          <source>./media/cloud-storage/Data_07_Hadoop.png</source>
+          <target state="new">./media/cloud-storage/Data_07_Hadoop.png</target>
+        </trans-unit>
+      </group>
+      <group id="c4f8c92e-0882-4ed7-bde3-e3d3159eb3f6" />
+    </body>
+  </file>
+</xliff>

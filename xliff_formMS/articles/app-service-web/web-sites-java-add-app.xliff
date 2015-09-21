@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4fff6c05-fd03-4752-a9ab-ff11d12b5455" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4fff6c05-fd03-4752-a9ab-ff11d12b5455" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d30c6800-c685-402d-8338-4c8312f5b060">
+        <trans-unit id="9e740dcb-55c1-4c66-8f15-41f881349ef1" xml:space="preserve">
+          <source>Add a Java application to Azure App Service Web Apps</source>
+          <target state="new">Add a Java application to Azure App Service Web Apps</target>
+        </trans-unit>
+        <trans-unit id="63d4fc49-78f3-4ae5-bab4-8e83bd08e316" xml:space="preserve">
+          <source>This tutorial shows you how to add a page or application to your instance of Azure App Service Web Apps that is already configured to use Java.</source>
+          <target state="new">This tutorial shows you how to add a page or application to your instance of Azure App Service Web Apps that is already configured to use Java.</target>
+        </trans-unit>
+        <trans-unit id="c7322351-b951-4890-89eb-fd954f927e71" xml:space="preserve">
+          <source>Once you have initialized your Java web app in <bpt id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;linkText&gt;</bpt>Azure App Service<ept id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;/linkText&gt;</ept><bpt id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;title&gt;</bpt><ept id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;/title&gt;</ept> as documented at <bpt id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;linkText&gt;</bpt>Create a Java web app in Azure App Service<ept id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;/linkText&gt;</ept><bpt id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;title&gt;</bpt><ept id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;/title&gt;</ept>, you can upload your application by placing your WAR in the <bpt id="a8f62cfb-d8ef-48ef-b4c9-77d01ae03a7e">&lt;strong&gt;</bpt>webapps<ept id="a8f62cfb-d8ef-48ef-b4c9-77d01ae03a7e">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">Once you have initialized your Java web app in <bpt id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;linkText&gt;</bpt>Azure App Service<ept id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;/linkText&gt;</ept><bpt id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;title&gt;</bpt><ept id="0d7996ad-d051-4a9a-8ade-78149fcc5fe2">&lt;/title&gt;</ept> as documented at <bpt id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;linkText&gt;</bpt>Create a Java web app in Azure App Service<ept id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;/linkText&gt;</ept><bpt id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;title&gt;</bpt><ept id="3077a4db-6d57-4be8-bd90-fc485bd336a4">&lt;/title&gt;</ept>, you can upload your application by placing your WAR in the <bpt id="a8f62cfb-d8ef-48ef-b4c9-77d01ae03a7e">&lt;strong&gt;</bpt>webapps<ept id="a8f62cfb-d8ef-48ef-b4c9-77d01ae03a7e">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="71493605-6590-44d4-806c-9422a5ca5d8a" xml:space="preserve">
+          <source>The navigation path to the <bpt id="c8189039-bcbb-48cb-a7a4-0e28a0600888">&lt;strong&gt;</bpt>webapps<ept id="c8189039-bcbb-48cb-a7a4-0e28a0600888">&lt;/strong&gt;</ept> folder differs based on how you set up your Web Apps instance.</source>
+          <target state="new">The navigation path to the <bpt id="c8189039-bcbb-48cb-a7a4-0e28a0600888">&lt;strong&gt;</bpt>webapps<ept id="c8189039-bcbb-48cb-a7a4-0e28a0600888">&lt;/strong&gt;</ept> folder differs based on how you set up your Web Apps instance.</target>
+        </trans-unit>
+        <trans-unit id="58910ccf-4551-4d66-8177-deb13dd704a8" xml:space="preserve">
+          <source>If you set up your web app by using the Azure Marketplace, the path to the <bpt id="dd8acf9a-5a1a-45f1-ae67-1c02bd042dc0">&lt;strong&gt;</bpt>webapps<ept id="dd8acf9a-5a1a-45f1-ae67-1c02bd042dc0">&lt;/strong&gt;</ept> folder is in the form <bpt id="333378d0-7582-463f-8219-b0b85892dff4">&lt;strong&gt;</bpt>d:\home\site\wwwroot\bin\application\_server\webapps<ept id="333378d0-7582-463f-8219-b0b85892dff4">&lt;/strong&gt;</ept>, where <bpt id="19c16d55-5b06-4950-8cee-7ec938878e09">&lt;strong&gt;</bpt>application\_server<ept id="19c16d55-5b06-4950-8cee-7ec938878e09">&lt;/strong&gt;</ept> is the name of the application server in effect for your Web Apps instance.</source>
+          <target state="new">If you set up your web app by using the Azure Marketplace, the path to the <bpt id="dd8acf9a-5a1a-45f1-ae67-1c02bd042dc0">&lt;strong&gt;</bpt>webapps<ept id="dd8acf9a-5a1a-45f1-ae67-1c02bd042dc0">&lt;/strong&gt;</ept> folder is in the form <bpt id="333378d0-7582-463f-8219-b0b85892dff4">&lt;strong&gt;</bpt>d:\home\site\wwwroot\bin\application\_server\webapps<ept id="333378d0-7582-463f-8219-b0b85892dff4">&lt;/strong&gt;</ept>, where <bpt id="19c16d55-5b06-4950-8cee-7ec938878e09">&lt;strong&gt;</bpt>application\_server<ept id="19c16d55-5b06-4950-8cee-7ec938878e09">&lt;/strong&gt;</ept> is the name of the application server in effect for your Web Apps instance.</target>
+        </trans-unit>
+        <trans-unit id="39bfe91a-6093-40f2-b799-20583b3d81c1" xml:space="preserve">
+          <source>If you set up your web app by using the Azure configuration UI, the path to the <bpt id="12f5435f-6c65-458f-acf4-41ac075aa3ed">&lt;strong&gt;</bpt>webapps<ept id="12f5435f-6c65-458f-acf4-41ac075aa3ed">&lt;/strong&gt;</ept> folder is in the form <bpt id="1087503e-0fb5-4b84-aee2-4f88bcb588a2">&lt;strong&gt;</bpt>d:\home\site\wwwroot\webapps<ept id="1087503e-0fb5-4b84-aee2-4f88bcb588a2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you set up your web app by using the Azure configuration UI, the path to the <bpt id="12f5435f-6c65-458f-acf4-41ac075aa3ed">&lt;strong&gt;</bpt>webapps<ept id="12f5435f-6c65-458f-acf4-41ac075aa3ed">&lt;/strong&gt;</ept> folder is in the form <bpt id="1087503e-0fb5-4b84-aee2-4f88bcb588a2">&lt;strong&gt;</bpt>d:\home\site\wwwroot\webapps<ept id="1087503e-0fb5-4b84-aee2-4f88bcb588a2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a906a0d-7e45-4eec-b1bf-92428c077a0f" xml:space="preserve">
+          <source>Note that you can use source control to upload your application or web pages, including continuous integration scenarios.</source>
+          <target state="new">Note that you can use source control to upload your application or web pages, including continuous integration scenarios.</target>
+        </trans-unit>
+        <trans-unit id="4afbe369-50f5-45da-a211-1f053f6bb59b" xml:space="preserve">
+          <source>Instructions for using source control with your web app are available at <bpt id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;/linkText&gt;</ept><bpt id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;title&gt;</bpt><ept id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;/title&gt;</ept>.</source>
+          <target state="new">Instructions for using source control with your web app are available at <bpt id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;linkText&gt;</bpt>Continuous deployment using GIT in Azure App Service<ept id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;/linkText&gt;</ept><bpt id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;title&gt;</bpt><ept id="f4136b99-29b1-4bb9-8948-a19ea171cf56">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="427568dc-6827-43a3-91fb-dc2d0d57a7ff" xml:space="preserve">
+          <source>FTP is also an option for uploading your application or web pages.</source>
+          <target state="new">FTP is also an option for uploading your application or web pages.</target>
+        </trans-unit>
+        <trans-unit id="d479c32d-cd1f-44ec-9d07-d4ac408c5252" xml:space="preserve">
+          <source>Note for Tomcat web apps: Once you've uploaded your WAR file to the <bpt id="5a4ab8fe-cd2d-4884-b16b-877276ef772a">&lt;strong&gt;</bpt>webapps<ept id="5a4ab8fe-cd2d-4884-b16b-877276ef772a">&lt;/strong&gt;</ept> folder, the Tomcat application server will detect that you've added it and will automatically load it.</source>
+          <target state="new">Note for Tomcat web apps: Once you've uploaded your WAR file to the <bpt id="5a4ab8fe-cd2d-4884-b16b-877276ef772a">&lt;strong&gt;</bpt>webapps<ept id="5a4ab8fe-cd2d-4884-b16b-877276ef772a">&lt;/strong&gt;</ept> folder, the Tomcat application server will detect that you've added it and will automatically load it.</target>
+        </trans-unit>
+        <trans-unit id="6a94b3f3-ed55-4166-9ca4-b8eb56aedc8d" xml:space="preserve">
+          <source>Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used.</source>
+          <target state="new">Note that if you copy files (other than WAR files) to the ROOT directory, the application server will need to be restarted before those files are used.</target>
+        </trans-unit>
+        <trans-unit id="dba28e7e-ff3f-40c3-ab2c-78068b8cc002" xml:space="preserve">
+          <source>The autoload functionality for the Tomcat Java web apps running on Azure is based on a new WAR file being added, or new files or directories added to the <bpt id="042366a4-eab9-4366-a2b4-d3fff53eddf6">&lt;strong&gt;</bpt>webapps<ept id="042366a4-eab9-4366-a2b4-d3fff53eddf6">&lt;/strong&gt;</ept> folder.</source>
+          <target state="new">The autoload functionality for the Tomcat Java web apps running on Azure is based on a new WAR file being added, or new files or directories added to the <bpt id="042366a4-eab9-4366-a2b4-d3fff53eddf6">&lt;strong&gt;</bpt>webapps<ept id="042366a4-eab9-4366-a2b4-d3fff53eddf6">&lt;/strong&gt;</ept> folder.</target>
+        </trans-unit>
+        <trans-unit id="90744173-2a39-4b79-8f9f-360f12e0aee9" xml:space="preserve">
+          <source><bpt id="7dfee80c-7713-463e-9bbe-93e9713330f4">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="7dfee80c-7713-463e-9bbe-93e9713330f4">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7dfee80c-7713-463e-9bbe-93e9713330f4">&lt;token href="../../includes/app-service-web-whats-changed.md"&gt;</bpt><ept id="7dfee80c-7713-463e-9bbe-93e9713330f4">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43f9cd15-2618-4666-b663-bc3ae48bcfbc" xml:space="preserve">
+          <source><bpt id="45c8c5fc-7d9a-40c0-8847-d15683467543">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="45c8c5fc-7d9a-40c0-8847-d15683467543">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="45c8c5fc-7d9a-40c0-8847-d15683467543">&lt;token href="../../includes/app-service-web-try-app-service.md"&gt;</bpt><ept id="45c8c5fc-7d9a-40c0-8847-d15683467543">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ebbf1e0-a700-4c9d-b4c6-e0af6ad831b9" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=529714</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=529714</target>
+        </trans-unit>
+      </group>
+      <group id="486ccbf4-fef5-4e23-ab85-025d6e083f2b" />
+    </body>
+  </file>
+</xliff>

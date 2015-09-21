@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4ec56d2-7523-4780-ad15-441c85cf352b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4ec56d2-7523-4780-ad15-441c85cf352b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="57fc940f-336f-4d1b-add5-6acd13e3f2e8">
+        <trans-unit id="a6bbaa64-5b20-4147-a160-2c7490485203" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with Cornerstone OnDemand | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with Cornerstone OnDemand | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3f2a60c6-dfdc-4c93-922d-ca3fe34ee0c7" xml:space="preserve">
+          <source>Learn how to use Cornerstone OnDemand with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use Cornerstone OnDemand with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="561ee384-a024-4bcd-b58a-38ee50846f94" xml:space="preserve">
+          <source>For feedback, click <bpt id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;linkText&gt;</bpt>here<ept id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;/linkText&gt;</ept><bpt id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;title&gt;</bpt><ept id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;linkText&gt;</bpt>here<ept id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;/linkText&gt;</ept><bpt id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;title&gt;</bpt><ept id="c1699087-87a2-4b1d-a214-aacb5ad69eba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0159aef-854d-4f8f-b711-a6941c5a9570" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and Cornerstone OnDemand.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and Cornerstone OnDemand.</target>
+        </trans-unit>
+        <trans-unit id="2a13271f-37bd-4bce-b22d-c08951e7a8b7" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="c9759af2-0895-425b-a436-c66f89abbc2a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="47d3f3ce-adc0-403e-8a36-21871a6eaa43" xml:space="preserve">
+          <source>A Cornerstone OnDemand tenant</source>
+          <target state="new">A Cornerstone OnDemand tenant</target>
+        </trans-unit>
+        <trans-unit id="d5ea0532-f6be-4e10-aa0c-4f2b4f1d2137" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to Cornerstone OnDemand will be able to single sign into the application at your Cornerstone OnDemand company site (service provider initiated sign on), or using the <bpt id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;/linkText&gt;</ept><bpt id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;title&gt;</bpt><ept id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to Cornerstone OnDemand will be able to single sign into the application at your Cornerstone OnDemand company site (service provider initiated sign on), or using the <bpt id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;/linkText&gt;</ept><bpt id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;title&gt;</bpt><ept id="9bc53a38-d99a-4aa6-8da5-4177ba90863b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8be589b0-d8a9-42e6-9379-06cc86f3fbce" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="2ceb177e-d383-443d-8a8e-9bd054d544fe" xml:space="preserve">
+          <source>Enabling the application integration for Cornerstone OnDemand</source>
+          <target state="new">Enabling the application integration for Cornerstone OnDemand</target>
+        </trans-unit>
+        <trans-unit id="68acdb48-32b6-4582-a837-d4c13fd602ab" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="3b09f7b5-2a06-4752-941d-3c9b1c0c32e9" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="49738dbd-08b0-4047-92db-c171552300a6" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="2ed87b02-bb4b-4aae-8d36-da7adde836d3" xml:space="preserve">
+          <source><bpt id="b8041a34-7895-4655-9169-7f9cbe5c4c73">&lt;linkText&gt;</bpt>Scenario<ept id="b8041a34-7895-4655-9169-7f9cbe5c4c73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8041a34-7895-4655-9169-7f9cbe5c4c73">&lt;linkText&gt;</bpt>Scenario<ept id="b8041a34-7895-4655-9169-7f9cbe5c4c73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5cf41471-7f1c-413e-a54d-3fb5717e69dc" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for Cornerstone OnDemand.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for Cornerstone OnDemand.</target>
+        </trans-unit>
+        <trans-unit id="fd103656-5643-48cb-a5ed-bbedf87bc02c" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="b7739c8b-f1ec-4e9a-bca5-d9b99d8d8c4e">&lt;strong&gt;</bpt>Active Directory<ept id="b7739c8b-f1ec-4e9a-bca5-d9b99d8d8c4e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="b7739c8b-f1ec-4e9a-bca5-d9b99d8d8c4e">&lt;strong&gt;</bpt>Active Directory<ept id="b7739c8b-f1ec-4e9a-bca5-d9b99d8d8c4e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="100ed764-a60a-4f5d-986f-478668597109" xml:space="preserve">
+          <source><bpt id="c90be833-f3b5-4e04-ac0b-7b5ac6bc0ad2">&lt;linkText&gt;</bpt>Active Directory<ept id="c90be833-f3b5-4e04-ac0b-7b5ac6bc0ad2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c90be833-f3b5-4e04-ac0b-7b5ac6bc0ad2">&lt;linkText&gt;</bpt>Active Directory<ept id="c90be833-f3b5-4e04-ac0b-7b5ac6bc0ad2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ab04ad9-e675-4cc4-a2d9-4c7cab0f1d2e" xml:space="preserve">
+          <source>From the <bpt id="1f82bf40-408a-4a34-93dc-f8d8f71cefa0">&lt;strong&gt;</bpt>Directory<ept id="1f82bf40-408a-4a34-93dc-f8d8f71cefa0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="1f82bf40-408a-4a34-93dc-f8d8f71cefa0">&lt;strong&gt;</bpt>Directory<ept id="1f82bf40-408a-4a34-93dc-f8d8f71cefa0">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="ebaf9e04-1d02-4f75-ad17-412a96952564" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="1d36bb52-7ed5-4c17-b5b6-15c36357a4df">&lt;strong&gt;</bpt>Applications<ept id="1d36bb52-7ed5-4c17-b5b6-15c36357a4df">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="1d36bb52-7ed5-4c17-b5b6-15c36357a4df">&lt;strong&gt;</bpt>Applications<ept id="1d36bb52-7ed5-4c17-b5b6-15c36357a4df">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="bea50a27-891c-4e2b-ac3f-392132c9066c" xml:space="preserve">
+          <source><bpt id="7ea06e36-7298-42b0-b33b-2bc3ed79b330">&lt;linkText&gt;</bpt>Applications<ept id="7ea06e36-7298-42b0-b33b-2bc3ed79b330">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ea06e36-7298-42b0-b33b-2bc3ed79b330">&lt;linkText&gt;</bpt>Applications<ept id="7ea06e36-7298-42b0-b33b-2bc3ed79b330">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1866e122-5014-4ca9-91c9-57d767d29504" xml:space="preserve">
+          <source>Click <bpt id="7afeb258-dc1f-4ce9-948f-be849562ef7c">&lt;strong&gt;</bpt>Add<ept id="7afeb258-dc1f-4ce9-948f-be849562ef7c">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="7afeb258-dc1f-4ce9-948f-be849562ef7c">&lt;strong&gt;</bpt>Add<ept id="7afeb258-dc1f-4ce9-948f-be849562ef7c">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="7d7c8e51-b9c1-4e86-a682-cf909d2a0e44" xml:space="preserve">
+          <source><bpt id="1c6240b0-fe3b-4bc1-8256-1e21d2d41cdc">&lt;linkText&gt;</bpt>Add application<ept id="1c6240b0-fe3b-4bc1-8256-1e21d2d41cdc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c6240b0-fe3b-4bc1-8256-1e21d2d41cdc">&lt;linkText&gt;</bpt>Add application<ept id="1c6240b0-fe3b-4bc1-8256-1e21d2d41cdc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9ad2e6c-6581-4f02-aa12-24aa3c37ea1a" xml:space="preserve">
+          <source>On the <bpt id="696da521-8151-45e1-9874-1e3902f1deb4">&lt;strong&gt;</bpt>What do you want to do<ept id="696da521-8151-45e1-9874-1e3902f1deb4">&lt;/strong&gt;</ept> dialog, click <bpt id="33a78bca-6bdf-4bc4-98b9-29a9cf7352c0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="33a78bca-6bdf-4bc4-98b9-29a9cf7352c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="696da521-8151-45e1-9874-1e3902f1deb4">&lt;strong&gt;</bpt>What do you want to do<ept id="696da521-8151-45e1-9874-1e3902f1deb4">&lt;/strong&gt;</ept> dialog, click <bpt id="33a78bca-6bdf-4bc4-98b9-29a9cf7352c0">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="33a78bca-6bdf-4bc4-98b9-29a9cf7352c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eadf6d13-f9ab-4720-87c9-353fb52ba29e" xml:space="preserve">
+          <source><bpt id="c3a9eef5-a106-4fe1-b7e2-f2a34dbfcd20">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="c3a9eef5-a106-4fe1-b7e2-f2a34dbfcd20">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c3a9eef5-a106-4fe1-b7e2-f2a34dbfcd20">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="c3a9eef5-a106-4fe1-b7e2-f2a34dbfcd20">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7f05578-fe8b-4e6a-b0c1-fe0b93138c8b" xml:space="preserve">
+          <source>In the <bpt id="f2deb185-f332-4aa7-a617-90e5042539fd">&lt;strong&gt;</bpt>search box<ept id="f2deb185-f332-4aa7-a617-90e5042539fd">&lt;/strong&gt;</ept>, type <bpt id="7acd1ce4-618a-4170-bdc8-13d7641163bd">&lt;strong&gt;</bpt>cornerstone ondemand<ept id="7acd1ce4-618a-4170-bdc8-13d7641163bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f2deb185-f332-4aa7-a617-90e5042539fd">&lt;strong&gt;</bpt>search box<ept id="f2deb185-f332-4aa7-a617-90e5042539fd">&lt;/strong&gt;</ept>, type <bpt id="7acd1ce4-618a-4170-bdc8-13d7641163bd">&lt;strong&gt;</bpt>cornerstone ondemand<ept id="7acd1ce4-618a-4170-bdc8-13d7641163bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ddc8028-d42e-4533-b0a5-5bd48a13bb3d" xml:space="preserve">
+          <source><bpt id="e2fec301-943d-4dc5-a111-6b5ae39b4091">&lt;linkText&gt;</bpt>Application Gallery<ept id="e2fec301-943d-4dc5-a111-6b5ae39b4091">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e2fec301-943d-4dc5-a111-6b5ae39b4091">&lt;linkText&gt;</bpt>Application Gallery<ept id="e2fec301-943d-4dc5-a111-6b5ae39b4091">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78141773-c51e-431c-b0dc-c7f631d1e195" xml:space="preserve">
+          <source>In the results pane, select <bpt id="42f0c370-897c-4ac7-9bd6-1c684c5596ed">&lt;strong&gt;</bpt>Cornerstone OnDemand<ept id="42f0c370-897c-4ac7-9bd6-1c684c5596ed">&lt;/strong&gt;</ept>, and then click <bpt id="19e88c12-a5d4-45ef-9651-3c3dbfaaf076">&lt;strong&gt;</bpt>Complete<ept id="19e88c12-a5d4-45ef-9651-3c3dbfaaf076">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="42f0c370-897c-4ac7-9bd6-1c684c5596ed">&lt;strong&gt;</bpt>Cornerstone OnDemand<ept id="42f0c370-897c-4ac7-9bd6-1c684c5596ed">&lt;/strong&gt;</ept>, and then click <bpt id="19e88c12-a5d4-45ef-9651-3c3dbfaaf076">&lt;strong&gt;</bpt>Complete<ept id="19e88c12-a5d4-45ef-9651-3c3dbfaaf076">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="9b1aac92-5e2a-4407-aa77-32b735dec34a" xml:space="preserve">
+          <source><bpt id="8bce1db4-5c19-4d58-9452-951c43435a03">&lt;linkText&gt;</bpt>Cornerstone OnDemand<ept id="8bce1db4-5c19-4d58-9452-951c43435a03">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8bce1db4-5c19-4d58-9452-951c43435a03">&lt;linkText&gt;</bpt>Cornerstone OnDemand<ept id="8bce1db4-5c19-4d58-9452-951c43435a03">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdb184a4-b50e-4c3f-a0a7-5b95ba79c810" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to Cornerstone OnDemand with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to Cornerstone OnDemand with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="fb1eb67f-ea3c-40d5-b7f4-5f7114120894" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="533aad83-1e2e-4681-9832-4bd69d312ef6">&lt;strong&gt;</bpt>Cornerstone OnDemand<ept id="533aad83-1e2e-4681-9832-4bd69d312ef6">&lt;/strong&gt;</ept> application integration page, click <bpt id="382c6bb1-7e2a-472d-8b1e-0c67335a69d6">&lt;strong&gt;</bpt>Configure single sign-on<ept id="382c6bb1-7e2a-472d-8b1e-0c67335a69d6">&lt;/strong&gt;</ept> to open the <bpt id="517474a2-3634-4060-8ef6-58098e470a6d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="517474a2-3634-4060-8ef6-58098e470a6d">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="533aad83-1e2e-4681-9832-4bd69d312ef6">&lt;strong&gt;</bpt>Cornerstone OnDemand<ept id="533aad83-1e2e-4681-9832-4bd69d312ef6">&lt;/strong&gt;</ept> application integration page, click <bpt id="382c6bb1-7e2a-472d-8b1e-0c67335a69d6">&lt;strong&gt;</bpt>Configure single sign-on<ept id="382c6bb1-7e2a-472d-8b1e-0c67335a69d6">&lt;/strong&gt;</ept> to open the <bpt id="517474a2-3634-4060-8ef6-58098e470a6d">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="517474a2-3634-4060-8ef6-58098e470a6d">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="f83e9023-dceb-41cb-a109-ee0659998518" xml:space="preserve">
+          <source><bpt id="8006fefe-9957-4e0c-abdb-ad7c61d72419">&lt;linkText&gt;</bpt>Enable Single Sign-On<ept id="8006fefe-9957-4e0c-abdb-ad7c61d72419">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8006fefe-9957-4e0c-abdb-ad7c61d72419">&lt;linkText&gt;</bpt>Enable Single Sign-On<ept id="8006fefe-9957-4e0c-abdb-ad7c61d72419">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47380a0b-c6da-4986-9b56-5664ea3ea0fe" xml:space="preserve">
+          <source>On the <bpt id="416ce637-e431-46e8-ba55-1e35ea499f08">&lt;strong&gt;</bpt>How would you like users to sign on to Cornerstone OnDemand<ept id="416ce637-e431-46e8-ba55-1e35ea499f08">&lt;/strong&gt;</ept> page, select <bpt id="477bba37-8930-4eee-bc35-0fbd9ab68eef">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="477bba37-8930-4eee-bc35-0fbd9ab68eef">&lt;/strong&gt;</ept>, and then click <bpt id="b9cfdaac-5526-48db-86d3-29ad7d279b47">&lt;strong&gt;</bpt>Next<ept id="b9cfdaac-5526-48db-86d3-29ad7d279b47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="416ce637-e431-46e8-ba55-1e35ea499f08">&lt;strong&gt;</bpt>How would you like users to sign on to Cornerstone OnDemand<ept id="416ce637-e431-46e8-ba55-1e35ea499f08">&lt;/strong&gt;</ept> page, select <bpt id="477bba37-8930-4eee-bc35-0fbd9ab68eef">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="477bba37-8930-4eee-bc35-0fbd9ab68eef">&lt;/strong&gt;</ept>, and then click <bpt id="b9cfdaac-5526-48db-86d3-29ad7d279b47">&lt;strong&gt;</bpt>Next<ept id="b9cfdaac-5526-48db-86d3-29ad7d279b47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2806589d-838e-4162-9e8a-08c261881306" xml:space="preserve">
+          <source><bpt id="e46e7503-6b98-424d-9ebb-58656c44a0a2">&lt;linkText&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="e46e7503-6b98-424d-9ebb-58656c44a0a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e46e7503-6b98-424d-9ebb-58656c44a0a2">&lt;linkText&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="e46e7503-6b98-424d-9ebb-58656c44a0a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f6694f66-65a8-46c2-af57-978b13912cc3" xml:space="preserve">
+          <source>On the <bpt id="225c927c-4e37-4086-a536-7b2a45e7cdb6">&lt;strong&gt;</bpt>Configure App URL<ept id="225c927c-4e37-4086-a536-7b2a45e7cdb6">&lt;/strong&gt;</ept> page, in the <bpt id="8af50b7d-4ec7-4736-9448-959e255fbe8a">&lt;strong&gt;</bpt>Cornerstone OnDemand Sign In URL<ept id="8af50b7d-4ec7-4736-9448-959e255fbe8a">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="2d6100f1-4b33-4dce-bc2e-d4d3556d7c2c">&lt;em&gt;</bpt>http://company.csod.com<ept id="2d6100f1-4b33-4dce-bc2e-d4d3556d7c2c">&lt;/em&gt;</ept>", and then click <bpt id="246df61a-3d9b-4688-87eb-35b98202dc21">&lt;strong&gt;</bpt>Next<ept id="246df61a-3d9b-4688-87eb-35b98202dc21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="225c927c-4e37-4086-a536-7b2a45e7cdb6">&lt;strong&gt;</bpt>Configure App URL<ept id="225c927c-4e37-4086-a536-7b2a45e7cdb6">&lt;/strong&gt;</ept> page, in the <bpt id="8af50b7d-4ec7-4736-9448-959e255fbe8a">&lt;strong&gt;</bpt>Cornerstone OnDemand Sign In URL<ept id="8af50b7d-4ec7-4736-9448-959e255fbe8a">&lt;/strong&gt;</ept> textbox, type your URL using the following pattern "<bpt id="2d6100f1-4b33-4dce-bc2e-d4d3556d7c2c">&lt;em&gt;</bpt>http://company.csod.com<ept id="2d6100f1-4b33-4dce-bc2e-d4d3556d7c2c">&lt;/em&gt;</ept>", and then click <bpt id="246df61a-3d9b-4688-87eb-35b98202dc21">&lt;strong&gt;</bpt>Next<ept id="246df61a-3d9b-4688-87eb-35b98202dc21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35b9cdec-aaa5-4eeb-ae0e-88a2548da724" xml:space="preserve">
+          <source><bpt id="771587e6-ca0e-4797-b82c-7b973787231d">&lt;linkText&gt;</bpt>Configure App URL<ept id="771587e6-ca0e-4797-b82c-7b973787231d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="771587e6-ca0e-4797-b82c-7b973787231d">&lt;linkText&gt;</bpt>Configure App URL<ept id="771587e6-ca0e-4797-b82c-7b973787231d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e780be9-3c59-4c72-89a7-22272a900a5a" xml:space="preserve">
+          <source>On the <bpt id="acfaa556-656c-4772-b46e-b4523a9b2672">&lt;strong&gt;</bpt>Configure single sign-on at Cornerstone OnDemand<ept id="acfaa556-656c-4772-b46e-b4523a9b2672">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="d884b709-37bc-4912-bc98-52dab1ba41b5">&lt;strong&gt;</bpt>Download certificate<ept id="d884b709-37bc-4912-bc98-52dab1ba41b5">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</source>
+          <target state="new">On the <bpt id="acfaa556-656c-4772-b46e-b4523a9b2672">&lt;strong&gt;</bpt>Configure single sign-on at Cornerstone OnDemand<ept id="acfaa556-656c-4772-b46e-b4523a9b2672">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="d884b709-37bc-4912-bc98-52dab1ba41b5">&lt;strong&gt;</bpt>Download certificate<ept id="d884b709-37bc-4912-bc98-52dab1ba41b5">&lt;/strong&gt;</ept>, and then save the certificate file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="fc765e69-0e3c-4f0c-9408-4846900f3d04" xml:space="preserve">
+          <source><bpt id="25cbb085-bf62-4457-b753-55e275943cc6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="25cbb085-bf62-4457-b753-55e275943cc6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="25cbb085-bf62-4457-b753-55e275943cc6">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="25cbb085-bf62-4457-b753-55e275943cc6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6896bb1e-1995-41e5-b9b0-e205810bc181" xml:space="preserve">
+          <source>Send the following items to the Cornerstone OnDemand support team:</source>
+          <target state="new">Send the following items to the Cornerstone OnDemand support team:</target>
+        </trans-unit>
+        <trans-unit id="c41b96ae-acc7-4da6-89b5-ad646b5831fd" xml:space="preserve">
+          <source>The downloaded certificate</source>
+          <target state="new">The downloaded certificate</target>
+        </trans-unit>
+        <trans-unit id="37461896-7c96-45b6-b4e9-105e2185845f" xml:space="preserve">
+          <source>The <bpt id="30ae393b-873f-48cb-953e-2c8c78c0b948">&lt;strong&gt;</bpt>Remote Login URL<ept id="30ae393b-873f-48cb-953e-2c8c78c0b948">&lt;/strong&gt;</ept> value</source>
+          <target state="new">The <bpt id="30ae393b-873f-48cb-953e-2c8c78c0b948">&lt;strong&gt;</bpt>Remote Login URL<ept id="30ae393b-873f-48cb-953e-2c8c78c0b948">&lt;/strong&gt;</ept> value</target>
+        </trans-unit>
+        <trans-unit id="3b5b65be-244a-4241-9b58-636fc82f95d5" xml:space="preserve">
+          <source>The <bpt id="a644a2af-2c38-430f-9c71-b63663af4d32">&lt;strong&gt;</bpt>Remote Logout URL<ept id="a644a2af-2c38-430f-9c71-b63663af4d32">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">The <bpt id="a644a2af-2c38-430f-9c71-b63663af4d32">&lt;strong&gt;</bpt>Remote Logout URL<ept id="a644a2af-2c38-430f-9c71-b63663af4d32">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="ae7fee0d-8e6b-4c37-aaee-f376c94c4b95" xml:space="preserve">
+          <source>Single Sign-On needs to be configured by the Cornerstone OnDemand support team.</source>
+          <target state="new">Single Sign-On needs to be configured by the Cornerstone OnDemand support team.</target>
+        </trans-unit>
+        <trans-unit id="e00baf30-a2e0-4265-ad1d-2b9052154a6e" xml:space="preserve">
+          <source>You will get a notification from the support team when the configuration has been completed.</source>
+          <target state="new">You will get a notification from the support team when the configuration has been completed.</target>
+        </trans-unit>
+        <trans-unit id="c75f63b8-f9ba-4efd-bc2f-e9a2d33d1dc9" xml:space="preserve">
+          <source>Select the single sign-on configuration confirmation, and then click <bpt id="b034ae07-a950-438c-9aaa-7f71bda72d34">&lt;strong&gt;</bpt>Complete<ept id="b034ae07-a950-438c-9aaa-7f71bda72d34">&lt;/strong&gt;</ept> to close the <bpt id="1f2be1f4-5eeb-453b-b443-1b3454ab05d8">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1f2be1f4-5eeb-453b-b443-1b3454ab05d8">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">Select the single sign-on configuration confirmation, and then click <bpt id="b034ae07-a950-438c-9aaa-7f71bda72d34">&lt;strong&gt;</bpt>Complete<ept id="b034ae07-a950-438c-9aaa-7f71bda72d34">&lt;/strong&gt;</ept> to close the <bpt id="1f2be1f4-5eeb-453b-b443-1b3454ab05d8">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="1f2be1f4-5eeb-453b-b443-1b3454ab05d8">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="afc9b5c0-aa05-42c7-a262-f3635e286017" xml:space="preserve">
+          <source><bpt id="7096002d-0218-4312-b8c7-d7dc03cefc7e">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7096002d-0218-4312-b8c7-d7dc03cefc7e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7096002d-0218-4312-b8c7-d7dc03cefc7e">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="7096002d-0218-4312-b8c7-d7dc03cefc7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe66e981-a4ea-46da-a3a2-60ad77c3be7e" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand.</source>
+          <target state="new">In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand.</target>
+        </trans-unit>
+        <trans-unit id="8186bc2f-d6c1-474b-82df-ed2265c7e74a" xml:space="preserve">
+          <source>In the case of Cornerstone OnDemand, provisioning is a manual task.</source>
+          <target state="new">In the case of Cornerstone OnDemand, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="cbd44932-b8bf-408f-89e3-253d3119b410" xml:space="preserve">
+          <source>Send the information (e.g.: Name, Emial) about the Azure AD user you want to provision to the Cornerstone OnDemand support team.</source>
+          <target state="new">Send the information (e.g.: Name, Emial) about the Azure AD user you want to provision to the Cornerstone OnDemand support team.</target>
+        </trans-unit>
+        <trans-unit id="597c4d87-6f41-487c-9743-9b794ccb5a0e" xml:space="preserve">
+          <source>You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts.</source>
+          <target state="new">You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="5e4df660-2d6b-48e8-90e4-4d3d382cc047" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="b9475879-e09e-441d-8a4a-2c5d773463f7" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="75d054cf-3411-468b-8bcb-d88429794366" xml:space="preserve">
+          <source>On the <bpt id="14878829-2333-4b8a-b5e7-0f4002167b38">&lt;strong&gt;</bpt>Cornerstone OnDemand **application integration page, click **Assign users<ept id="14878829-2333-4b8a-b5e7-0f4002167b38">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="14878829-2333-4b8a-b5e7-0f4002167b38">&lt;strong&gt;</bpt>Cornerstone OnDemand **application integration page, click **Assign users<ept id="14878829-2333-4b8a-b5e7-0f4002167b38">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5718decd-0de0-4df3-a4c6-a55b4c689493" xml:space="preserve">
+          <source><bpt id="30452fe7-19ee-4f89-910f-64bbfb1f8a8f">&lt;linkText&gt;</bpt>Assign users<ept id="30452fe7-19ee-4f89-910f-64bbfb1f8a8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30452fe7-19ee-4f89-910f-64bbfb1f8a8f">&lt;linkText&gt;</bpt>Assign users<ept id="30452fe7-19ee-4f89-910f-64bbfb1f8a8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b69cdae1-e763-45dd-a23d-0a62174c2cc9" xml:space="preserve">
+          <source>Select your test user, click <bpt id="4ee59790-cd04-4354-a403-45ab3d3e97eb">&lt;strong&gt;</bpt>Assign<ept id="4ee59790-cd04-4354-a403-45ab3d3e97eb">&lt;/strong&gt;</ept>, and then click <bpt id="6b3db3f1-671e-40b9-9ed5-3bd3a6462429">&lt;strong&gt;</bpt>Yes<ept id="6b3db3f1-671e-40b9-9ed5-3bd3a6462429">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="4ee59790-cd04-4354-a403-45ab3d3e97eb">&lt;strong&gt;</bpt>Assign<ept id="4ee59790-cd04-4354-a403-45ab3d3e97eb">&lt;/strong&gt;</ept>, and then click <bpt id="6b3db3f1-671e-40b9-9ed5-3bd3a6462429">&lt;strong&gt;</bpt>Yes<ept id="6b3db3f1-671e-40b9-9ed5-3bd3a6462429">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="b9eafe67-9e62-4ffa-be30-489a4bcfeeb1" xml:space="preserve">
+          <source><bpt id="9f45b8ef-2230-4dfe-a316-674166df3127">&lt;linkText&gt;</bpt>Assign Users<ept id="9f45b8ef-2230-4dfe-a316-674166df3127">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f45b8ef-2230-4dfe-a316-674166df3127">&lt;linkText&gt;</bpt>Assign Users<ept id="9f45b8ef-2230-4dfe-a316-674166df3127">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="83b468f2-b4d7-4b52-852b-64ad210dff1f" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="2f95e2fe-531a-42be-bfa0-f5fef45fca2d" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="b934e293-7606-45f9-912e-6ad76691462e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b934e293-7606-45f9-912e-6ad76691462e">&lt;/linkText&gt;</ept><bpt id="b934e293-7606-45f9-912e-6ad76691462e">&lt;title&gt;</bpt><ept id="b934e293-7606-45f9-912e-6ad76691462e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="b934e293-7606-45f9-912e-6ad76691462e">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="b934e293-7606-45f9-912e-6ad76691462e">&lt;/linkText&gt;</ept><bpt id="b934e293-7606-45f9-912e-6ad76691462e">&lt;title&gt;</bpt><ept id="b934e293-7606-45f9-912e-6ad76691462e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

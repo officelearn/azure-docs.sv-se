@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="60222f98-8dff-45bf-aec9-cd57cb5e2a0c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="60222f98-8dff-45bf-aec9-cd57cb5e2a0c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3d4b133c-c245-473f-ac09-4e6f92c913d9">
+        <trans-unit id="590dec80-fed0-4c69-bba4-c685993f1a1b" xml:space="preserve">
+          <source>Logs, exceptions and custom diagnostics for ASP.NET in Application Insights</source>
+          <target state="new">Logs, exceptions and custom diagnostics for ASP.NET in Application Insights</target>
+        </trans-unit>
+        <trans-unit id="5c588da3-286b-4f90-8d65-35544fba1b96" xml:space="preserve">
+          <source>Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net.</source>
+          <target state="new">Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net.</target>
+        </trans-unit>
+        <trans-unit id="d7003a0c-3ba6-4af6-978b-014716657b26" xml:space="preserve">
+          <source><bpt id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;linkText&gt;</bpt>Application Insights[start]<ept id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;/linkText&gt;</ept><bpt id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;title&gt;</bpt><ept id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;/title&gt;</ept> includes a powerful <bpt id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;/linkText&gt;</ept><bpt id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;title&gt;</bpt><ept id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;/title&gt;</ept> tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application.</source>
+          <target state="new"><bpt id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;linkText&gt;</bpt>Application Insights[start]<ept id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;/linkText&gt;</ept><bpt id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;title&gt;</bpt><ept id="7f27efef-5852-4739-8d25-ad3f697ca77f">&lt;/title&gt;</ept> includes a powerful <bpt id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;/linkText&gt;</ept><bpt id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;title&gt;</bpt><ept id="076666e2-7083-4f5b-a840-a5d211c97ab7">&lt;/title&gt;</ept> tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application.</target>
+        </trans-unit>
+        <trans-unit id="4fa15df9-2679-4cb3-9da5-ef001f878b50" xml:space="preserve">
+          <source>Many events such as user page views are automatically sent by the SDK.</source>
+          <target state="new">Many events such as user page views are automatically sent by the SDK.</target>
+        </trans-unit>
+        <trans-unit id="d0cfe51f-f2d3-4de8-ad4c-e71a7d23f124" xml:space="preserve">
+          <source>You can also write code to send custom events, exception reports, and traces.</source>
+          <target state="new">You can also write code to send custom events, exception reports, and traces.</target>
+        </trans-unit>
+        <trans-unit id="9d1b20f3-bf07-4847-b450-6159a7c11f1b" xml:space="preserve">
+          <source>And if you already use a logging framework such as log4J, log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and include them in the search.</source>
+          <target state="new">And if you already use a logging framework such as log4J, log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and include them in the search.</target>
+        </trans-unit>
+        <trans-unit id="aaae0e7e-7226-4378-873d-42fd8435fa04" xml:space="preserve">
+          <source>This makes it easy to correlate log traces with user actions, exceptions and other events.</source>
+          <target state="new">This makes it easy to correlate log traces with user actions, exceptions and other events.</target>
+        </trans-unit>
+        <trans-unit id="6cc0f3a9-670e-4a7f-a5a3-5f722bc86c4e" xml:space="preserve">
+          <source>If you haven't yet <bpt id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;linkText&gt;</bpt>set up Application Insights for your project[start]<ept id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;/linkText&gt;</ept><bpt id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;title&gt;</bpt><ept id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;/title&gt;</ept>, do that now.</source>
+          <target state="new">If you haven't yet <bpt id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;linkText&gt;</bpt>set up Application Insights for your project[start]<ept id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;/linkText&gt;</ept><bpt id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;title&gt;</bpt><ept id="acd42510-a689-4a97-8a69-856b0d19cbbb">&lt;/title&gt;</ept>, do that now.</target>
+        </trans-unit>
+        <trans-unit id="335e1f01-24c7-4d36-9449-5805ea5cf511" xml:space="preserve">
+          <source>When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.</source>
+          <target state="new">When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.</target>
+        </trans-unit>
+        <trans-unit id="f7c2fd86-78e8-46b6-9696-927f405e2d1a" xml:space="preserve">
+          <source>Open Diagnostic Search to see the telemetry that the SDK automatically sends.</source>
+          <target state="new">Open Diagnostic Search to see the telemetry that the SDK automatically sends.</target>
+        </trans-unit>
+        <trans-unit id="9a931512-0ef8-4ef2-a208-a9c3fb99d36a" xml:space="preserve">
+          <source><bpt id="c1975a0e-0c7f-466c-b664-c43302f761c2">&lt;linkText&gt;</bpt><ept id="c1975a0e-0c7f-466c-b664-c43302f761c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c1975a0e-0c7f-466c-b664-c43302f761c2">&lt;linkText&gt;</bpt><ept id="c1975a0e-0c7f-466c-b664-c43302f761c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b35774d9-ad3a-4437-b7d8-2141b7a7c740" xml:space="preserve">
+          <source><bpt id="1ede2c9a-e1b0-43d8-9a55-e9d047103afc">&lt;linkText&gt;</bpt><ept id="1ede2c9a-e1b0-43d8-9a55-e9d047103afc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1ede2c9a-e1b0-43d8-9a55-e9d047103afc">&lt;linkText&gt;</bpt><ept id="1ede2c9a-e1b0-43d8-9a55-e9d047103afc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2dfb6a6e-fae7-4987-b8cb-a937dea84274" xml:space="preserve">
+          <source>The details vary from one application type to another.</source>
+          <target state="new">The details vary from one application type to another.</target>
+        </trans-unit>
+        <trans-unit id="66700ca8-5222-4887-a7cf-942bb66216ca" xml:space="preserve">
+          <source>You can click through any individual event to get more detail.</source>
+          <target state="new">You can click through any individual event to get more detail.</target>
+        </trans-unit>
+        <trans-unit id="50c4539e-5ff0-4ee7-927d-a1d0c79f952a" xml:space="preserve">
+          <source>Custom events show up both in <bpt id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;/linkText&gt;</ept><bpt id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;title&gt;</bpt><ept id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;/title&gt;</ept> and in <bpt id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;/linkText&gt;</ept><bpt id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;title&gt;</bpt><ept id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;/title&gt;</ept>.</source>
+          <target state="new">Custom events show up both in <bpt id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;linkText&gt;</bpt>Diagnostic Search[diagnostic]<ept id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;/linkText&gt;</ept><bpt id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;title&gt;</bpt><ept id="e16a75df-8292-46cb-9c40-76b5453c03ea">&lt;/title&gt;</ept> and in <bpt id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;linkText&gt;</bpt>Metric Explorer[metrics]<ept id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;/linkText&gt;</ept><bpt id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;title&gt;</bpt><ept id="02bb96a0-7ebe-4ca7-b9cb-898ddc9682ba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="33af4142-0873-4ffb-8054-372fc90deeb4" xml:space="preserve">
+          <source>You can send them from devices, web pages and server applications.</source>
+          <target state="new">You can send them from devices, web pages and server applications.</target>
+        </trans-unit>
+        <trans-unit id="dd5d2325-505d-4926-8eaf-00c211b2cccc" xml:space="preserve">
+          <source>They can be used both for diagnostic purposes and to <bpt id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;linkText&gt;</bpt>understand usage patterns[track]<ept id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;/linkText&gt;</ept><bpt id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;title&gt;</bpt><ept id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;/title&gt;</ept>.</source>
+          <target state="new">They can be used both for diagnostic purposes and to <bpt id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;linkText&gt;</bpt>understand usage patterns[track]<ept id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;/linkText&gt;</ept><bpt id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;title&gt;</bpt><ept id="3af4118e-7860-4e43-985c-e254d3b3370f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d81d4f09-d6ed-4fd0-866e-24be855f43eb" xml:space="preserve">
+          <source>A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.</source>
+          <target state="new">A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.</target>
+        </trans-unit>
+        <trans-unit id="f4477ec6-bd7c-40e7-a9fe-4c1baf905168" xml:space="preserve">
+          <source>JavaScript at client</source>
+          <target state="new">JavaScript at client</target>
+        </trans-unit>
+        <trans-unit id="104a9777-6792-4c5a-9163-b4ccfb23a70a" xml:space="preserve">
+          <source>C# at server</source>
+          <target state="new">C# at server</target>
+        </trans-unit>
+        <trans-unit id="384d48a5-8346-4197-8c6f-984ea70fe440" xml:space="preserve">
+          <source>VB at server</source>
+          <target state="new">VB at server</target>
+        </trans-unit>
+        <trans-unit id="a55e9f55-dba8-4ff9-91fd-0fc09b58edb8" xml:space="preserve">
+          <source>Open Diagnostic Search.</source>
+          <target state="new">Open Diagnostic Search.</target>
+        </trans-unit>
+        <trans-unit id="0f089400-7578-4e4a-823f-3769f7b171d7" xml:space="preserve">
+          <source>Select Custom Event and select a particular event name.</source>
+          <target state="new">Select Custom Event and select a particular event name.</target>
+        </trans-unit>
+        <trans-unit id="ed840f00-918d-489d-8280-268b83f21a6a" xml:space="preserve">
+          <source><bpt id="10376f25-f0db-43e7-98dc-331873137c62">&lt;linkText&gt;</bpt><ept id="10376f25-f0db-43e7-98dc-331873137c62">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="10376f25-f0db-43e7-98dc-331873137c62">&lt;linkText&gt;</bpt><ept id="10376f25-f0db-43e7-98dc-331873137c62">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="688ae6ef-9dca-479e-ac97-69d0c3ebce87" xml:space="preserve">
+          <source>Filter the data more by entering a search term on a property value.</source>
+          <target state="new">Filter the data more by entering a search term on a property value.</target>
+        </trans-unit>
+        <trans-unit id="fcfa5a2a-163a-49fb-a346-dacbc9a3c44f" xml:space="preserve">
+          <source><bpt id="3ab3c7fa-9920-4810-a8c9-9f8bc8d2e58c">&lt;linkText&gt;</bpt><ept id="3ab3c7fa-9920-4810-a8c9-9f8bc8d2e58c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ab3c7fa-9920-4810-a8c9-9f8bc8d2e58c">&lt;linkText&gt;</bpt><ept id="3ab3c7fa-9920-4810-a8c9-9f8bc8d2e58c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7c35032-ce96-4c19-8727-7df4fdfcd47e" xml:space="preserve">
+          <source>Drill into an individual event to see its detailed properties.</source>
+          <target state="new">Drill into an individual event to see its detailed properties.</target>
+        </trans-unit>
+        <trans-unit id="0522d6b4-663a-4e1a-80d3-917f6c09d07a" xml:space="preserve">
+          <source><bpt id="e992ff18-bb01-4db2-9bed-af24d5c82687">&lt;linkText&gt;</bpt><ept id="e992ff18-bb01-4db2-9bed-af24d5c82687">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e992ff18-bb01-4db2-9bed-af24d5c82687">&lt;linkText&gt;</bpt><ept id="e992ff18-bb01-4db2-9bed-af24d5c82687">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="74b7d22f-d834-4e45-9ca3-a890866ce8d2" xml:space="preserve">
+          <source>Page view telemetry is sent by the trackPageView() call in <bpt id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;linkText&gt;</bpt>the JavaScript snippet you insert in your web pages[usage]<ept id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;/linkText&gt;</ept><bpt id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;title&gt;</bpt><ept id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;/title&gt;</ept>.</source>
+          <target state="new">Page view telemetry is sent by the trackPageView() call in <bpt id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;linkText&gt;</bpt>the JavaScript snippet you insert in your web pages[usage]<ept id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;/linkText&gt;</ept><bpt id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;title&gt;</bpt><ept id="1d8aa883-7859-4e51-9fb2-6d990da45340">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="27bab609-0f2d-4e91-97ed-01a4888f00fa" xml:space="preserve">
+          <source>Its main purpose is to contribute to the counts of page views that you see on the overview page.</source>
+          <target state="new">Its main purpose is to contribute to the counts of page views that you see on the overview page.</target>
+        </trans-unit>
+        <trans-unit id="c33fa8c8-e098-42ff-aaef-a24dba772bff" xml:space="preserve">
+          <source>Usually it is called once in each HTML page, but you can insert more calls - for example, if you have a single-page app and you want to log a new page whenever the user gets more data.</source>
+          <target state="new">Usually it is called once in each HTML page, but you can insert more calls - for example, if you have a single-page app and you want to log a new page whenever the user gets more data.</target>
+        </trans-unit>
+        <trans-unit id="6a561ff6-feaa-4a9d-9dd3-563b8a71c115" xml:space="preserve">
+          <source>It's sometimes useful to attach properties that you can use as filters in diagnostic search:</source>
+          <target state="new">It's sometimes useful to attach properties that you can use as filters in diagnostic search:</target>
+        </trans-unit>
+        <trans-unit id="c3fac459-8cbe-4c74-aa78-2f28ce489d73" xml:space="preserve">
+          <source>Trace telemetry is code that you insert specifically to create diagnostic logs.</source>
+          <target state="new">Trace telemetry is code that you insert specifically to create diagnostic logs.</target>
+        </trans-unit>
+        <trans-unit id="f2860942-8c41-42ba-9c17-e1f1b715db52" xml:space="preserve">
+          <source>For example, you could insert calls like this:</source>
+          <target state="new">For example, you could insert calls like this:</target>
+        </trans-unit>
+        <trans-unit id="507e376e-5ad7-4b54-9431-5d3c70e0eaea" xml:space="preserve">
+          <source>You can also search logs generated with a logging framework - log4Net, NLog or System.Diagnostics.Trace.</source>
+          <target state="new">You can also search logs generated with a logging framework - log4Net, NLog or System.Diagnostics.Trace.</target>
+        </trans-unit>
+        <trans-unit id="da7bd0ca-cb76-464a-ae4f-af6d079dc582" xml:space="preserve">
+          <source>If you plan to use log4Net or NLog, install it in your project.</source>
+          <target state="new">If you plan to use log4Net or NLog, install it in your project.</target>
+        </trans-unit>
+        <trans-unit id="3e4c579a-5155-4495-88d7-453a8887f7e4" xml:space="preserve">
+          <source>In Solution Explorer, right-click your project and choose <bpt id="e04e74e6-6599-48aa-a1e6-5534ca64299f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e04e74e6-6599-48aa-a1e6-5534ca64299f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click your project and choose <bpt id="e04e74e6-6599-48aa-a1e6-5534ca64299f">&lt;strong&gt;</bpt>Manage NuGet Packages<ept id="e04e74e6-6599-48aa-a1e6-5534ca64299f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f28df5ec-8f1c-4230-a734-9f1bfe2aaf49" xml:space="preserve">
+          <source>Select Online &gt; All, select <bpt id="8cf54d38-a657-4e19-8e35-203695ce3715">&lt;strong&gt;</bpt>Include Prerelease<ept id="8cf54d38-a657-4e19-8e35-203695ce3715">&lt;/strong&gt;</ept> and search for "Microsoft.ApplicationInsights"</source>
+          <target state="new">Select Online &gt; All, select <bpt id="8cf54d38-a657-4e19-8e35-203695ce3715">&lt;strong&gt;</bpt>Include Prerelease<ept id="8cf54d38-a657-4e19-8e35-203695ce3715">&lt;/strong&gt;</ept> and search for "Microsoft.ApplicationInsights"</target>
+        </trans-unit>
+        <trans-unit id="b0a024c6-1d41-4294-aeef-a38930bcd0d9" xml:space="preserve">
+          <source><bpt id="6e91d52c-564c-4c27-bbca-c47ec0e14c7e">&lt;linkText&gt;</bpt>Get the prerelease version of the appropriate adapter<ept id="6e91d52c-564c-4c27-bbca-c47ec0e14c7e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e91d52c-564c-4c27-bbca-c47ec0e14c7e">&lt;linkText&gt;</bpt>Get the prerelease version of the appropriate adapter<ept id="6e91d52c-564c-4c27-bbca-c47ec0e14c7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17512220-899e-4e82-a1c0-14aaf0fc4980" xml:space="preserve">
+          <source>Select the appropriate package - one of:</source>
+          <target state="new">Select the appropriate package - one of:</target>
+        </trans-unit>
+        <trans-unit id="d9d4541b-4b47-4896-99cb-1f9b2a669474" xml:space="preserve">
+          <source>Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)</source>
+          <target state="new">Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)</target>
+        </trans-unit>
+        <trans-unit id="42a7b550-8e88-4de3-b01d-b667dcd52aca" xml:space="preserve">
+          <source>Microsoft.ApplicationInsights.NLogTarget</source>
+          <target state="new">Microsoft.ApplicationInsights.NLogTarget</target>
+        </trans-unit>
+        <trans-unit id="c930c066-1f68-4c9e-b560-d2e4eba01f30" xml:space="preserve">
+          <source>Microsoft.ApplicationInsights.Log4NetAppender</source>
+          <target state="new">Microsoft.ApplicationInsights.Log4NetAppender</target>
+        </trans-unit>
+        <trans-unit id="35220b07-14b2-4836-abb8-0d0561e31654" xml:space="preserve">
+          <source>The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.</source>
+          <target state="new">The NuGet package installs the necessary assemblies, and also modifies web.config or app.config.</target>
+        </trans-unit>
+        <trans-unit id="5fb3b89a-1926-4f9c-a641-4d5f54d29a75" xml:space="preserve">
+          <source>If you use System.Diagnostics.Trace, a typical call would be:</source>
+          <target state="new">If you use System.Diagnostics.Trace, a typical call would be:</target>
+        </trans-unit>
+        <trans-unit id="44a1ae20-58ba-4326-a58b-2ef76af4416f" xml:space="preserve">
+          <source>If you prefer log4net or NLog:</source>
+          <target state="new">If you prefer log4net or NLog:</target>
+        </trans-unit>
+        <trans-unit id="42a52a30-507f-499b-9122-990e053124f8" xml:space="preserve">
+          <source>Run your app in debug mode, or deploy it.</source>
+          <target state="new">Run your app in debug mode, or deploy it.</target>
+        </trans-unit>
+        <trans-unit id="bb2fc026-4be9-458b-b023-b7b069f4cfde" xml:space="preserve">
+          <source>You'll see the messages in Diagnostic Search when you select the Trace filter.</source>
+          <target state="new">You'll see the messages in Diagnostic Search when you select the Trace filter.</target>
+        </trans-unit>
+        <trans-unit id="10feda63-0228-41d5-9d3e-ed519023f8f5" xml:space="preserve">
+          <source>Getting exception reports in Application Insights provides a very powerful experience, especially since you can navigate between the failed requests and the exceptions, and read the exception stack.</source>
+          <target state="new">Getting exception reports in Application Insights provides a very powerful experience, especially since you can navigate between the failed requests and the exceptions, and read the exception stack.</target>
+        </trans-unit>
+        <trans-unit id="e2a6c33d-1c76-4977-b49b-7dc0160fab21" xml:space="preserve">
+          <source>In some cases, you need to <bpt id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;linkText&gt;</bpt>insert a few lines of code[exceptions]<ept id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;/linkText&gt;</ept><bpt id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;title&gt;</bpt><ept id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;/title&gt;</ept> to make sure your exceptions are being caught automatically.</source>
+          <target state="new">In some cases, you need to <bpt id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;linkText&gt;</bpt>insert a few lines of code[exceptions]<ept id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;/linkText&gt;</ept><bpt id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;title&gt;</bpt><ept id="fb9df37b-e434-44ba-a4d3-9d68b696e867">&lt;/title&gt;</ept> to make sure your exceptions are being caught automatically.</target>
+        </trans-unit>
+        <trans-unit id="abdfe661-df27-47e3-8ffa-89be76edae8a" xml:space="preserve">
+          <source>You can also write explicit code to send exception telemetry:</source>
+          <target state="new">You can also write explicit code to send exception telemetry:</target>
+        </trans-unit>
+        <trans-unit id="c96aec3f-64b1-43d2-ba7b-c34a2c3fee61" xml:space="preserve">
+          <source>JavaScript</source>
+          <target state="new">JavaScript</target>
+        </trans-unit>
+        <trans-unit id="7d4e2c8a-5a00-4af7-821a-d124279b7e46" xml:space="preserve">
+          <source>C#</source>
+          <target state="new">C#</target>
+        </trans-unit>
+        <trans-unit id="0464a38f-c3bf-4f6c-96a3-e7b8b18a8708" xml:space="preserve">
+          <source>VB</source>
+          <target state="new">VB</target>
+        </trans-unit>
+        <trans-unit id="5940950d-39c0-4d44-830c-5b3717e4e8b9" xml:space="preserve">
+          <source>The properties and measurements parameters are optional, but are useful for filtering and adding extra information.</source>
+          <target state="new">The properties and measurements parameters are optional, but are useful for filtering and adding extra information.</target>
+        </trans-unit>
+        <trans-unit id="0ac14fc2-7bad-44f3-b5d2-2c27a1b298d3" xml:space="preserve">
+          <source>For example, if you have an app that can run several games, you could find all the exception reports related to a particular game.</source>
+          <target state="new">For example, if you have an app that can run several games, you could find all the exception reports related to a particular game.</target>
+        </trans-unit>
+        <trans-unit id="1104260b-b85c-4504-9a2a-5e34f2dfba23" xml:space="preserve">
+          <source>You can add as many items as you like to each dictionary.</source>
+          <target state="new">You can add as many items as you like to each dictionary.</target>
+        </trans-unit>
+        <trans-unit id="f9c6b111-8f70-413a-a3b0-bc0d8f111bd2" xml:space="preserve">
+          <source>You'll see a summary of exceptions reported on the Overview blade, and you can click through to see more details.</source>
+          <target state="new">You'll see a summary of exceptions reported on the Overview blade, and you can click through to see more details.</target>
+        </trans-unit>
+        <trans-unit id="1884847f-c50f-40ba-9452-408305c0e4d8" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="ccc3b449-3578-4d9d-9d8b-c59b8c7e2908" xml:space="preserve">
+          <source><bpt id="9818d65a-944e-40d7-bb7d-ae235aabf7e4">&lt;linkText&gt;</bpt><ept id="9818d65a-944e-40d7-bb7d-ae235aabf7e4">&lt;/linkText&gt;</ept>[]</source>
+          <target state="new"><bpt id="9818d65a-944e-40d7-bb7d-ae235aabf7e4">&lt;linkText&gt;</bpt><ept id="9818d65a-944e-40d7-bb7d-ae235aabf7e4">&lt;/linkText&gt;</ept>[]</target>
+        </trans-unit>
+        <trans-unit id="3924cac9-9bbc-4fbc-9528-74de1275a531" xml:space="preserve">
+          <source>Click on any exception type to see specific occurrences:</source>
+          <target state="new">Click on any exception type to see specific occurrences:</target>
+        </trans-unit>
+        <trans-unit id="f667fc4a-cb32-4756-b273-c2ae72369a25" xml:space="preserve">
+          <source><bpt id="506283a9-8621-4f0d-a9fc-753cfb20f045">&lt;linkText&gt;</bpt><ept id="506283a9-8621-4f0d-a9fc-753cfb20f045">&lt;/linkText&gt;</ept>[]</source>
+          <target state="new"><bpt id="506283a9-8621-4f0d-a9fc-753cfb20f045">&lt;linkText&gt;</bpt><ept id="506283a9-8621-4f0d-a9fc-753cfb20f045">&lt;/linkText&gt;</ept>[]</target>
+        </trans-unit>
+        <trans-unit id="c8fbc7dd-dae8-4265-98ea-f9dc2544832e" xml:space="preserve">
+          <source>You can also open Diagnostic Search directly, filter on exceptions, and choose the exception type that you want to see.</source>
+          <target state="new">You can also open Diagnostic Search directly, filter on exceptions, and choose the exception type that you want to see.</target>
+        </trans-unit>
+        <trans-unit id="cd2dea2e-76e8-415f-bab3-f64e45a85e20" xml:space="preserve">
+          <source>Application Insights reports unhandled exceptions where it can, from devices, <bpt id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;linkText&gt;</bpt>web browsers[usage]<ept id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;/linkText&gt;</ept><bpt id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;title&gt;</bpt><ept id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;/title&gt;</ept>, or web servers, whether instrumented by <bpt id="5403c1df-7822-4972-b762-7dc27306394f">&lt;linkText&gt;</bpt>Status Monitor[redfield]<ept id="5403c1df-7822-4972-b762-7dc27306394f">&lt;/linkText&gt;</ept><bpt id="5403c1df-7822-4972-b762-7dc27306394f">&lt;title&gt;</bpt><ept id="5403c1df-7822-4972-b762-7dc27306394f">&lt;/title&gt;</ept> or <bpt id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;linkText&gt;</bpt>Application Insights SDK[greenbrown]<ept id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;/linkText&gt;</ept><bpt id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;title&gt;</bpt><ept id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Application Insights reports unhandled exceptions where it can, from devices, <bpt id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;linkText&gt;</bpt>web browsers[usage]<ept id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;/linkText&gt;</ept><bpt id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;title&gt;</bpt><ept id="e3c8d68a-2652-4ca0-8d2a-631fe225bffc">&lt;/title&gt;</ept>, or web servers, whether instrumented by <bpt id="5403c1df-7822-4972-b762-7dc27306394f">&lt;linkText&gt;</bpt>Status Monitor[redfield]<ept id="5403c1df-7822-4972-b762-7dc27306394f">&lt;/linkText&gt;</ept><bpt id="5403c1df-7822-4972-b762-7dc27306394f">&lt;title&gt;</bpt><ept id="5403c1df-7822-4972-b762-7dc27306394f">&lt;/title&gt;</ept> or <bpt id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;linkText&gt;</bpt>Application Insights SDK[greenbrown]<ept id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;/linkText&gt;</ept><bpt id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;title&gt;</bpt><ept id="a99ba348-5483-4d0f-8b1d-089b4b3ed80a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86409b25-04ef-469d-9763-d92a702c63a6" xml:space="preserve">
+          <source>However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.</source>
+          <target state="new">However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.</target>
+        </trans-unit>
+        <trans-unit id="d09cea7a-078d-4af5-b9e1-659e5ac04691" xml:space="preserve">
+          <source>To make sure you see all exceptions, you therefore have to write a small exception handler.</source>
+          <target state="new">To make sure you see all exceptions, you therefore have to write a small exception handler.</target>
+        </trans-unit>
+        <trans-unit id="27f8de1b-ef92-4bf2-b982-a4901a0d1318" xml:space="preserve">
+          <source>The best procedure varies with the technology.</source>
+          <target state="new">The best procedure varies with the technology.</target>
+        </trans-unit>
+        <trans-unit id="80ac277e-ed8b-4427-bd29-b9d57e9b8afb" xml:space="preserve">
+          <source>See <bpt id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;linkText&gt;</bpt>Exception telemetry for ASP.NET[exceptions]<ept id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;/linkText&gt;</ept><bpt id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;title&gt;</bpt><ept id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">See <bpt id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;linkText&gt;</bpt>Exception telemetry for ASP.NET[exceptions]<ept id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;/linkText&gt;</ept><bpt id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;title&gt;</bpt><ept id="9122b8fb-7b6b-4a93-b120-069412060dc8">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="16d6a27e-44cf-4b86-b509-69fc7ff929df" xml:space="preserve">
+          <source>When you read diagnostic logs, it's likely that your source code will have changed since the live code was deployed.</source>
+          <target state="new">When you read diagnostic logs, it's likely that your source code will have changed since the live code was deployed.</target>
+        </trans-unit>
+        <trans-unit id="478948ed-fc3a-4268-a9fc-692bbf19262f" xml:space="preserve">
+          <source>It's therefore useful to put build information, such as the URL of the current version, into a property along with each exception or trace.</source>
+          <target state="new">It's therefore useful to put build information, such as the URL of the current version, into a property along with each exception or trace.</target>
+        </trans-unit>
+        <trans-unit id="62750c04-00f2-43c6-a20e-0ed89b018afc" xml:space="preserve">
+          <source>Instead of adding the property separately to every exception call, you can set the information in the default context.</source>
+          <target state="new">Instead of adding the property separately to every exception call, you can set the information in the default context.</target>
+        </trans-unit>
+        <trans-unit id="e2eb99a0-4997-4ede-b9b9-e0e17a503d4a" xml:space="preserve">
+          <source>In the app initializer such as Global.asax.cs:</source>
+          <target state="new">In the app initializer such as Global.asax.cs:</target>
+        </trans-unit>
+        <trans-unit id="433e3b1b-b429-4c28-9fdb-e958bb2c67e9" xml:space="preserve">
+          <source>Request telemetry is sent automatically when you <bpt id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;linkText&gt;</bpt>install Status Monitor on your web server[redfield]<ept id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;/linkText&gt;</ept><bpt id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;title&gt;</bpt><ept id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;/title&gt;</ept>, or when you <bpt id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;linkText&gt;</bpt>add Application Insights to your web project[greenbrown]<ept id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;/linkText&gt;</ept><bpt id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;title&gt;</bpt><ept id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;/title&gt;</ept>.</source>
+          <target state="new">Request telemetry is sent automatically when you <bpt id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;linkText&gt;</bpt>install Status Monitor on your web server[redfield]<ept id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;/linkText&gt;</ept><bpt id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;title&gt;</bpt><ept id="9699bf7d-0b57-4be1-8a95-a207410dfe8c">&lt;/title&gt;</ept>, or when you <bpt id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;linkText&gt;</bpt>add Application Insights to your web project[greenbrown]<ept id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;/linkText&gt;</ept><bpt id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;title&gt;</bpt><ept id="2da9da3d-fb2f-455f-9125-043866204b70">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5ccb21c-9d79-486a-9c1e-825df0709b68" xml:space="preserve">
+          <source>It also feeds into the request and response time charts in Metric Explorer and on the Overview page.</source>
+          <target state="new">It also feeds into the request and response time charts in Metric Explorer and on the Overview page.</target>
+        </trans-unit>
+        <trans-unit id="f7131516-0a7b-443d-a3a8-873e0fc0263f" xml:space="preserve">
+          <source>If you want to send additional events, you can use the TrackRequest() API.</source>
+          <target state="new">If you want to send additional events, you can use the TrackRequest() API.</target>
+        </trans-unit>
+        <trans-unit id="bb0f5868-bfbe-4453-a3d6-810030ef3669" xml:space="preserve">
+          <source>Looks like you installed the logging adapter Nuget package without installing Application Insights.</source>
+          <target state="new">Looks like you installed the logging adapter Nuget package without installing Application Insights.</target>
+        </trans-unit>
+        <trans-unit id="2255e946-2425-4c5e-a2f9-5ee531f855d6" xml:space="preserve">
+          <source>In Solution Explorer, right-click <bpt id="33754a14-4197-47dd-8466-e2d55fec23af">&lt;code&gt;</bpt>ApplicationInsights.config<ept id="33754a14-4197-47dd-8466-e2d55fec23af">&lt;/code&gt;</ept> and choose <bpt id="98305900-6980-4d39-b3ce-3800ab9a58cb">&lt;strong&gt;</bpt>Update Application Insights<ept id="98305900-6980-4d39-b3ce-3800ab9a58cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click <bpt id="33754a14-4197-47dd-8466-e2d55fec23af">&lt;code&gt;</bpt>ApplicationInsights.config<ept id="33754a14-4197-47dd-8466-e2d55fec23af">&lt;/code&gt;</ept> and choose <bpt id="98305900-6980-4d39-b3ce-3800ab9a58cb">&lt;strong&gt;</bpt>Update Application Insights<ept id="98305900-6980-4d39-b3ce-3800ab9a58cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed414887-81d7-43a4-bf46-f9f481b67bf7" xml:space="preserve">
+          <source>You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.</source>
+          <target state="new">You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.</target>
+        </trans-unit>
+        <trans-unit id="dbb10ca4-5c91-4046-bb0e-763780e7eff1" xml:space="preserve">
+          <source>That should fix it.</source>
+          <target state="new">That should fix it.</target>
+        </trans-unit>
+        <trans-unit id="58c70c13-3a93-4770-9d4e-01a3974a7daf" xml:space="preserve">
+          <source>Up to 500 events per second from each application.</source>
+          <target state="new">Up to 500 events per second from each application.</target>
+        </trans-unit>
+        <trans-unit id="2c7b447c-013a-4fc3-93fe-77842a5f142c" xml:space="preserve">
+          <source>Events are retained for seven days.</source>
+          <target state="new">Events are retained for seven days.</target>
+        </trans-unit>
+        <trans-unit id="ae67eaa7-c446-45ab-aa93-860430ad2cd4" xml:space="preserve">
+          <source><bpt id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;linkText&gt;</bpt>Set up availability and responsiveness tests[availability]<ept id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;/linkText&gt;</ept><bpt id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;title&gt;</bpt><ept id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;linkText&gt;</bpt>Set up availability and responsiveness tests[availability]<ept id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;/linkText&gt;</ept><bpt id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;title&gt;</bpt><ept id="15ec64b3-db79-4638-8e41-2e15d5604553">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dc16b620-e9f4-4669-8985-29fa9ca55a44" xml:space="preserve">
+          <source><bpt id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;/linkText&gt;</ept><bpt id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;title&gt;</bpt><ept id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;/linkText&gt;</ept><bpt id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;title&gt;</bpt><ept id="a03a1789-f24d-4e99-ab36-1b5f5e93a8eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ab057ea-cd9b-4b63-991f-8b2f5c2a8820" xml:space="preserve">
+          <source>app-insights-monitor-web-app-availability.md</source>
+          <target state="new">app-insights-monitor-web-app-availability.md</target>
+        </trans-unit>
+        <trans-unit id="6f4c4b73-66d5-4e5a-a033-5ba2eb56416e" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="91fd7d97-7534-48d7-b2ca-f1794e756a9a" xml:space="preserve">
+          <source>app-insights-web-failures-exceptions.md</source>
+          <target state="new">app-insights-web-failures-exceptions.md</target>
+        </trans-unit>
+        <trans-unit id="6290c086-158b-41c2-991e-1d785ff56a17" xml:space="preserve">
+          <source>app-insights-start-monitoring-app-health-usage.md</source>
+          <target state="new">app-insights-start-monitoring-app-health-usage.md</target>
+        </trans-unit>
+        <trans-unit id="daa134e7-4a00-409d-934f-7364b6cfcd39" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="33008e50-6d8c-4675-8067-8024adcce3e2" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="c685d17d-48a1-4b5a-873d-00f312cdbdea" xml:space="preserve">
+          <source>app-insights-monitor-performance-live-website-now.md</source>
+          <target state="new">app-insights-monitor-performance-live-website-now.md</target>
+        </trans-unit>
+        <trans-unit id="f4d26436-0fbc-4a5d-b8c3-c9e6aac42857" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="ad20dd50-c5f4-4906-82a7-c05e64de089c" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="661abc34-5e67-451e-a907-d18a531cf9c6" xml:space="preserve">
+          <source>app-insights-web-track-usage.md</source>
+          <target state="new">app-insights-web-track-usage.md</target>
+        </trans-unit>
+      </group>
+      <group id="c0938fa8-6352-4c6b-98f5-9f4bdad20171" />
+    </body>
+  </file>
+</xliff>

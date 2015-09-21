@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f210208b-75a9-4f17-a7d5-8b16f609a68f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f210208b-75a9-4f17-a7d5-8b16f609a68f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="be45709c-f514-4cba-afdb-f3b60a2ca282">
+        <trans-unit id="678e1aad-2d3c-45c5-b68c-dba56d30922f" xml:space="preserve">
+          <source>Azure Automation data retention</source>
+          <target state="new">Azure Automation data retention</target>
+        </trans-unit>
+        <trans-unit id="c5626987-03bf-4013-b26e-5eab1651f4bf" xml:space="preserve">
+          <source>Describes the data retention policy for Azure Automation.</source>
+          <target state="new">Describes the data retention policy for Azure Automation.</target>
+        </trans-unit>
+        <trans-unit id="621fba3a-c82d-4ef7-a497-6ed07cf57eb4" xml:space="preserve">
+          <source>When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.</source>
+          <target state="new">When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.</target>
+        </trans-unit>
+        <trans-unit id="134e201e-c776-4341-b37a-34d427073f9f" xml:space="preserve">
+          <source>You can’t see or use the resource during this time.</source>
+          <target state="new">You can’t see or use the resource during this time.</target>
+        </trans-unit>
+        <trans-unit id="540817b6-92bb-4691-8430-eac7b709d82c" xml:space="preserve">
+          <source>This policy also applies to resources that belong to an automation account that is deleted.</source>
+          <target state="new">This policy also applies to resources that belong to an automation account that is deleted.</target>
+        </trans-unit>
+        <trans-unit id="ec24f4c4-ac50-4140-84c4-f41c7d0a0338" xml:space="preserve">
+          <source>Azure Automation automatically deletes and permanently removes jobs older than 90 days.</source>
+          <target state="new">Azure Automation automatically deletes and permanently removes jobs older than 90 days.</target>
+        </trans-unit>
+        <trans-unit id="da553b3b-46ed-477f-abc8-e762936c3c32" xml:space="preserve">
+          <source>The following table summarizes the retention policy for different resources.</source>
+          <target state="new">The following table summarizes the retention policy for different resources.</target>
+        </trans-unit>
+        <trans-unit id="2fd36b68-9df3-40f0-8701-33ead64b84d6" xml:space="preserve">
+          <source>Data</source>
+          <target state="new">Data</target>
+        </trans-unit>
+        <trans-unit id="7870833a-9af7-4a84-9438-1bddad22cda5" xml:space="preserve">
+          <source>Policy</source>
+          <target state="new">Policy</target>
+        </trans-unit>
+        <trans-unit id="4b40b117-e487-4c8a-b0c0-8580de06ff39" xml:space="preserve">
+          <source>Accounts</source>
+          <target state="new">Accounts</target>
+        </trans-unit>
+        <trans-unit id="450bc6f9-ceed-4ec1-9359-dee249872014" xml:space="preserve">
+          <source>Permanently removed 90 days after the account is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the account is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="11e30241-e230-4698-bf91-9a0a7b133134" xml:space="preserve">
+          <source>Assets</source>
+          <target state="new">Assets</target>
+        </trans-unit>
+        <trans-unit id="afb1966f-b812-4ce6-9e8e-d4fffb9c5167" xml:space="preserve">
+          <source>Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="6922bf0a-fa79-44ea-8ce9-5ac3431e7326" xml:space="preserve">
+          <source>Modules</source>
+          <target state="new">Modules</target>
+        </trans-unit>
+        <trans-unit id="af7c07b0-289b-40c7-a718-a3179e6835ee" xml:space="preserve">
+          <source>Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="7b960670-aa07-41ee-9a86-85fbdc7ed221" xml:space="preserve">
+          <source>Runbooks</source>
+          <target state="new">Runbooks</target>
+        </trans-unit>
+        <trans-unit id="674d5301-53d3-4d35-841f-0e5901248d02" xml:space="preserve">
+          <source>Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user.</source>
+          <target state="new">Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user.</target>
+        </trans-unit>
+        <trans-unit id="c652dc4d-4135-4be1-abc3-b146ff44f506" xml:space="preserve">
+          <source>Jobs</source>
+          <target state="new">Jobs</target>
+        </trans-unit>
+        <trans-unit id="3f9c082c-9c7d-4a1a-9549-5a4dbec60eb8" xml:space="preserve">
+          <source>Deleted and permanently removed 90 days after last being modified.</source>
+          <target state="new">Deleted and permanently removed 90 days after last being modified.</target>
+        </trans-unit>
+        <trans-unit id="b7704212-bd71-4f56-a773-ccb2125b95ca" xml:space="preserve">
+          <source>This could be after the job completes, is stopped, or is suspended.</source>
+          <target state="new">This could be after the job completes, is stopped, or is suspended.</target>
+        </trans-unit>
+        <trans-unit id="e189f3f0-dc69-4a3a-a9f3-07dbf2e81569" xml:space="preserve">
+          <source>The retention policy applies to all users and currently cannot be customized.</source>
+          <target state="new">The retention policy applies to all users and currently cannot be customized.</target>
+        </trans-unit>
+        <trans-unit id="275188a7-c3ce-4100-85bd-8dee03ab652d" xml:space="preserve">
+          <source><bpt id="d921e560-e574-444a-b0e2-0e036199b651">&lt;linkText&gt;</bpt>Backing up Azure Automation<ept id="d921e560-e574-444a-b0e2-0e036199b651">&lt;/linkText&gt;</ept><bpt id="d921e560-e574-444a-b0e2-0e036199b651">&lt;title&gt;</bpt><ept id="d921e560-e574-444a-b0e2-0e036199b651">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="d921e560-e574-444a-b0e2-0e036199b651">&lt;linkText&gt;</bpt>Backing up Azure Automation<ept id="d921e560-e574-444a-b0e2-0e036199b651">&lt;/linkText&gt;</ept><bpt id="d921e560-e574-444a-b0e2-0e036199b651">&lt;title&gt;</bpt><ept id="d921e560-e574-444a-b0e2-0e036199b651">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

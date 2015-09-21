@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="61cb5e36-3b9c-49f2-88ee-7b569135fdf9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="61cb5e36-3b9c-49f2-88ee-7b569135fdf9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="265913e7-e677-4fb6-b49f-7c9a8731871a">
+        <trans-unit id="2302d596-e474-4ad9-9330-69df418f82d4" xml:space="preserve">
+          <source>Get started configuring an internet facing load balancer using Azure Resource Manager | Microsoft Azure </source>
+          <target state="new">Get started configuring an internet facing load balancer using Azure Resource Manager | Microsoft Azure </target>
+        </trans-unit>
+        <trans-unit id="8fe30ea7-3e5d-4544-a288-d29748f164bd" xml:space="preserve">
+          <source>How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource.</source>
+          <target state="new">How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource.</target>
+        </trans-unit>
+        <trans-unit id="706f915f-aef0-453e-b4bb-41b9f65251bc" xml:space="preserve">
+          <source>The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell.</source>
+          <target state="new">The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="8b70841b-d1a7-47a2-97b3-a84a9c02a69f" xml:space="preserve">
+          <source>With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource.</source>
+          <target state="new">With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource.</target>
+        </trans-unit>
+        <trans-unit id="812576fd-2500-4664-8e89-a29759d253aa" xml:space="preserve">
+          <source>We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.</source>
+          <target state="new">We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.</target>
+        </trans-unit>
+        <trans-unit id="65555815-21c4-48e1-ba3d-d5d5d8477bac" xml:space="preserve">
+          <source>The following items need to be configured before creating a load balancer:</source>
+          <target state="new">The following items need to be configured before creating a load balancer:</target>
+        </trans-unit>
+        <trans-unit id="28281db8-9cf6-4656-add1-0649d054c21f" xml:space="preserve">
+          <source>Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance.</source>
+          <target state="new">Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance.</target>
+        </trans-unit>
+        <trans-unit id="f681f2be-7173-48c6-a988-6a894ee70529" xml:space="preserve">
+          <source>Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool.</source>
+          <target state="new">Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool.</target>
+        </trans-unit>
+        <trans-unit id="5a556f4a-33fc-4295-97d4-c3eccf958fd3" xml:space="preserve">
+          <source>Load balancing rules - source and local port configuration for the load balancer.</source>
+          <target state="new">Load balancing rules - source and local port configuration for the load balancer.</target>
+        </trans-unit>
+        <trans-unit id="8d3fa0e3-575b-4de2-a480-62c5f20f81bd" xml:space="preserve">
+          <source>Probes - configures the health status probe for the Virtual Machine instances.</source>
+          <target state="new">Probes - configures the health status probe for the Virtual Machine instances.</target>
+        </trans-unit>
+        <trans-unit id="ae832d13-fcf1-4ac2-89a1-b90ea0f20981" xml:space="preserve">
+          <source>Inbound NAT rules - configures the port rules to directly access one of the Virtual Machine instances.</source>
+          <target state="new">Inbound NAT rules - configures the port rules to directly access one of the Virtual Machine instances.</target>
+        </trans-unit>
+        <trans-unit id="140f66f8-c4e2-44bd-add2-a00ed3c83a28" xml:space="preserve">
+          <source>You can get more information about load balancer components with Azure resource manager at <bpt id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;linkText&gt;</bpt>Azure Resource Manager support for load balancer<ept id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;/linkText&gt;</ept><bpt id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;title&gt;</bpt><ept id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get more information about load balancer components with Azure resource manager at <bpt id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;linkText&gt;</bpt>Azure Resource Manager support for load balancer<ept id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;/linkText&gt;</ept><bpt id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;title&gt;</bpt><ept id="cf305bb2-ed9b-4e24-8a8e-b2a11408d6e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9193a995-6a2e-46f6-ba9d-7581ccf04b62" xml:space="preserve">
+          <source>The following steps will show how to configure a load balancer to be load balanced between 2 virtual machines.</source>
+          <target state="new">The following steps will show how to configure a load balancer to be load balanced between 2 virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="baef8c6e-5429-4163-a0a1-625b010fcd64" xml:space="preserve">
+          <source>Make sure you switch PowerShell mode to use the ARM cmdlets.</source>
+          <target state="new">Make sure you switch PowerShell mode to use the ARM cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="4ef56844-33d7-4ca2-b921-eba80d206b89" xml:space="preserve">
+          <source>More info is available at Using <bpt id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;linkText&gt;</bpt>Windows Powershell with Resource Manager<ept id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;/linkText&gt;</ept><bpt id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;title&gt;</bpt><ept id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;/title&gt;</ept>.</source>
+          <target state="new">More info is available at Using <bpt id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;linkText&gt;</bpt>Windows Powershell with Resource Manager<ept id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;/linkText&gt;</ept><bpt id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;title&gt;</bpt><ept id="fc4dfe3f-1ddd-4916-945a-c24bd0a8c709">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d36d2f87-f7da-498e-a5e0-ef97b6f11ebc" xml:space="preserve">
+          <source>Log in to your Azure account.</source>
+          <target state="new">Log in to your Azure account.</target>
+        </trans-unit>
+        <trans-unit id="47909db3-57a1-48d3-83bc-10860366708e" xml:space="preserve">
+          <source>You will be prompted to Authenticate with your credentials.</source>
+          <target state="new">You will be prompted to Authenticate with your credentials.</target>
+        </trans-unit>
+        <trans-unit id="4273d80d-61e3-4a63-8e84-0fb823ee79c8" xml:space="preserve">
+          <source>Choose which of your Azure subscriptions to use.</source>
+          <target state="new">Choose which of your Azure subscriptions to use.</target>
+        </trans-unit>
+        <trans-unit id="6c157b26-c99b-4aee-bfe6-97e4d02b6d9a" xml:space="preserve">
+          <source>To see a list of available subscriptions, use the ‘Get-AzureSubscription’ cmdlet.</source>
+          <target state="new">To see a list of available subscriptions, use the ‘Get-AzureSubscription’ cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="1f774a47-70cf-4bb9-9ae5-945f53432454" xml:space="preserve">
+          <source>Create a new resource group (skip this step if using an existing resource group)</source>
+          <target state="new">Create a new resource group (skip this step if using an existing resource group)</target>
+        </trans-unit>
+        <trans-unit id="72742949-d86d-4f86-a30f-2e7dc4e6aa23" xml:space="preserve">
+          <source>Azure Resource Manager requires that all resource groups specify a location.</source>
+          <target state="new">Azure Resource Manager requires that all resource groups specify a location.</target>
+        </trans-unit>
+        <trans-unit id="de9b13b1-2d49-4c40-8019-4d615aede38f" xml:space="preserve">
+          <source>This is used as the default location for resources in that resource group.</source>
+          <target state="new">This is used as the default location for resources in that resource group.</target>
+        </trans-unit>
+        <trans-unit id="b3dde16b-efde-4ec4-8b01-b1fc095079dc" xml:space="preserve">
+          <source>Make sure all commands to create a load balancer will use the same resource group.</source>
+          <target state="new">Make sure all commands to create a load balancer will use the same resource group.</target>
+        </trans-unit>
+        <trans-unit id="b234c602-ec40-4144-b30c-15d1110aa689" xml:space="preserve">
+          <source>In the example above we created a resource group called "NRP-RG" and location "West US".</source>
+          <target state="new">In the example above we created a resource group called "NRP-RG" and location "West US".</target>
+        </trans-unit>
+        <trans-unit id="8e9fe0a9-6db2-416b-8aa6-dff21baac19c" xml:space="preserve">
+          <source>Create a virtual network:</source>
+          <target state="new">Create a virtual network:</target>
+        </trans-unit>
+        <trans-unit id="6790fd74-3ee6-4a3b-89a0-4d436f73e70d" xml:space="preserve">
+          <source>Creates a subnet for the virtual network and assigns to $backendSubnet</source>
+          <target state="new">Creates a subnet for the virtual network and assigns to $backendSubnet</target>
+        </trans-unit>
+        <trans-unit id="409cdd72-ddbf-41de-b335-e2bac95a682a" xml:space="preserve">
+          <source>Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet.</source>
+          <target state="new">Creates the virtual network and adds the subnet lb-subnet-be to the virtual network NRPVNet.</target>
+        </trans-unit>
+        <trans-unit id="8dda3518-ee7b-43c6-a9c3-01cb9f00ad48" xml:space="preserve">
+          <source>Create a public IP address to be used by frontend IP pool:</source>
+          <target state="new">Create a public IP address to be used by frontend IP pool:</target>
+        </trans-unit>
+        <trans-unit id="4a469ab1-8c6f-4802-9094-a61db66eaa31" xml:space="preserve">
+          <source>Setting up a front end IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.</source>
+          <target state="new">Setting up a front end IP pool for the incoming load balancer network traffic and backend address pool to receive the load balanced traffic.</target>
+        </trans-unit>
+        <trans-unit id="89251107-d0d0-40de-9178-d401f2d87c81" xml:space="preserve">
+          <source>Using public IP variable ($publicIP), create the front end IP pool.</source>
+          <target state="new">Using public IP variable ($publicIP), create the front end IP pool.</target>
+        </trans-unit>
+        <trans-unit id="06d99794-a48c-4884-95ee-bc255ff53e18" xml:space="preserve">
+          <source>Set up a back end address pool used to receive incoming traffic from front end IP pool:</source>
+          <target state="new">Set up a back end address pool used to receive incoming traffic from front end IP pool:</target>
+        </trans-unit>
+        <trans-unit id="ebbb7932-6d92-4e75-ba51-d496f3ad5c80" xml:space="preserve">
+          <source>After creating the front end IP pool and the backend address pool, you will need to create the rules which will belong to the load balancer resource:</source>
+          <target state="new">After creating the front end IP pool and the backend address pool, you will need to create the rules which will belong to the load balancer resource:</target>
+        </trans-unit>
+        <trans-unit id="befbdb2e-0d75-4833-927a-027f3e19db4d" xml:space="preserve">
+          <source>The example above is creating the following items:</source>
+          <target state="new">The example above is creating the following items:</target>
+        </trans-unit>
+        <trans-unit id="ee4ea848-4757-4eeb-8b31-fd6781582ce3" xml:space="preserve">
+          <source>NAT rule which all incoming traffic to port 3441 will go to port 3389.</source>
+          <target state="new">NAT rule which all incoming traffic to port 3441 will go to port 3389.</target>
+        </trans-unit>
+        <trans-unit id="d494cb30-9f8b-46ae-bc79-fe1d0e320506" xml:space="preserve">
+          <source>a second NAT rule which all incoming traffic to port 3442 will go to port 3389.</source>
+          <target state="new">a second NAT rule which all incoming traffic to port 3442 will go to port 3389.</target>
+        </trans-unit>
+        <trans-unit id="ba18a90b-acf0-40fd-bcfc-b13240579a8a" xml:space="preserve">
+          <source>a load balancer rule which will load balance all incoming traffic on public port 80 to local port 80 in the back end address pool.</source>
+          <target state="new">a load balancer rule which will load balance all incoming traffic on public port 80 to local port 80 in the back end address pool.</target>
+        </trans-unit>
+        <trans-unit id="8da59c05-b646-4235-b498-4819f8470aba" xml:space="preserve">
+          <source>a probe rule which will check the health status for path "HealthProbe.aspx"</source>
+          <target state="new">a probe rule which will check the health status for path "HealthProbe.aspx"</target>
+        </trans-unit>
+        <trans-unit id="1d6e8e60-084d-42c3-a92e-2e69247f4e81" xml:space="preserve">
+          <source>Create the load balancer adding all objects (NAT rules, Load balancer rules, probe configurations) together:</source>
+          <target state="new">Create the load balancer adding all objects (NAT rules, Load balancer rules, probe configurations) together:</target>
+        </trans-unit>
+        <trans-unit id="4e597bbb-0904-4c0e-9ca4-1ef7da5c7ca7" xml:space="preserve">
+          <source>After creating the load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe.</source>
+          <target state="new">After creating the load balancer, you need define which network interfaces will be receiving the incoming load balanced network traffic, NAT rules and probe.</target>
+        </trans-unit>
+        <trans-unit id="ad6168ec-16a5-4fd6-b164-a922eaffe9c6" xml:space="preserve">
+          <source>The network interface in this case is configured individually and can be assigned to a virtual machine later on.</source>
+          <target state="new">The network interface in this case is configured individually and can be assigned to a virtual machine later on.</target>
+        </trans-unit>
+        <trans-unit id="b3654a83-ff51-4df1-bc3b-6a4192a3993c" xml:space="preserve">
+          <source>Get the resource virtual network and subnet to create network interfaces:</source>
+          <target state="new">Get the resource virtual network and subnet to create network interfaces:</target>
+        </trans-unit>
+        <trans-unit id="b45ffb1e-1dea-4f79-a8c0-23637d60929d" xml:space="preserve">
+          <source>In this step, we are creating a network interface which will belong to the load balancer back end pool and associate the first NAT rule for RDP for this network interface:</source>
+          <target state="new">In this step, we are creating a network interface which will belong to the load balancer back end pool and associate the first NAT rule for RDP for this network interface:</target>
+        </trans-unit>
+        <trans-unit id="f21caca1-ad5f-4139-9748-37b6cb8dc632" xml:space="preserve">
+          <source>Create a second network interface called LB-Nic2-BE:</source>
+          <target state="new">Create a second network interface called LB-Nic2-BE:</target>
+        </trans-unit>
+        <trans-unit id="05432934-a1cc-4224-8860-87e8eb571555" xml:space="preserve">
+          <source>In this step, we are creating a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP: </source>
+          <target state="new">In this step, we are creating a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP: </target>
+        </trans-unit>
+        <trans-unit id="34664a97-a8fc-426c-9519-11ff599003c6" xml:space="preserve">
+          <source>The end result will show the following:</source>
+          <target state="new">The end result will show the following:</target>
+        </trans-unit>
+        <trans-unit id="6a4958cf-2ef7-4702-965a-589d7a9b188e" xml:space="preserve">
+          <source>PS C:\&gt; $backendnic1</source>
+          <target state="new">PS C:\&gt; $backendnic1</target>
+        </trans-unit>
+        <trans-unit id="41cef584-20d0-4dd9-b6dd-8ad6191dd72a" xml:space="preserve">
+          <source>Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.</source>
+          <target state="new">Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.</target>
+        </trans-unit>
+        <trans-unit id="94aff15a-1cd1-47d8-9b0c-69d74e61e066" xml:space="preserve">
+          <source>You can find the step by step to create a virtual machine and assign to a NIC following the documentation <bpt id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;/linkText&gt;</ept><bpt id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;title&gt;</bpt><ept id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;/title&gt;</ept></source>
+          <target state="new">You can find the step by step to create a virtual machine and assign to a NIC following the documentation <bpt id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;linkText&gt;</bpt>Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell<ept id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;/linkText&gt;</ept><bpt id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;title&gt;</bpt><ept id="88a32c96-1601-4c72-b9a9-e856c7750efd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a8c15edd-9209-4ab3-b6d8-0c2d4b63795d" xml:space="preserve">
+          <source><bpt id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;/linkText&gt;</ept><bpt id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;title&gt;</bpt><ept id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;linkText&gt;</bpt>Configure a Load balancer distribution mode<ept id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;/linkText&gt;</ept><bpt id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;title&gt;</bpt><ept id="1ce442bc-bebd-4544-8fb8-b7d7bf9de6c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f40b8d71-33c4-4216-b176-b6c837a670f4" xml:space="preserve">
+          <source><bpt id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;/linkText&gt;</ept><bpt id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;title&gt;</bpt><ept id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;linkText&gt;</bpt>Configure idle TCP timeout settings for your load balancer<ept id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;/linkText&gt;</ept><bpt id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;title&gt;</bpt><ept id="200b1acc-fb9e-40be-918c-7d8c1f0a27ad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

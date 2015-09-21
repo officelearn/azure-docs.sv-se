@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5064a111-d79b-46dd-acbb-312ca80bcae4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5064a111-d79b-46dd-acbb-312ca80bcae4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ec214318-713d-4f20-93d9-ca9846ed9d16">
+        <trans-unit id="17182d3f-4735-4e97-8672-48d25c9cde44" xml:space="preserve">
+          <source>Azure WebJobs documentation resources</source>
+          <target state="new">Azure WebJobs documentation resources</target>
+        </trans-unit>
+        <trans-unit id="6c60be5a-f451-4802-9d64-31a8e5a99204" xml:space="preserve">
+          <source>Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK.</source>
+          <target state="new">Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK.</target>
+        </trans-unit>
+        <trans-unit id="a9716897-ef49-40c6-8c7d-b37799e0e32b" xml:space="preserve">
+          <source>This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK.</source>
+          <target state="new">This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK.</target>
+        </trans-unit>
+        <trans-unit id="b63772ad-4197-4d7f-bedb-eda99919c117" xml:space="preserve">
+          <source>Azure WebJobs provide an easy way to run scripts or programs as background processes on <bpt id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;/linkText&gt;</ept><bpt id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;title&gt;</bpt><ept id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure WebJobs provide an easy way to run scripts or programs as background processes on <bpt id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;linkText&gt;</bpt>App Service Web Apps<ept id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;/linkText&gt;</ept><bpt id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;title&gt;</bpt><ept id="53c9ec6e-f6af-4bd9-9c3b-e1afa21dd314">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9bf1b1c1-0bf9-4691-bfb4-5d5c5ad41b76" xml:space="preserve">
+          <source>You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar.</source>
+          <target state="new">You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar.</target>
+        </trans-unit>
+        <trans-unit id="fbcef4c4-62a7-44a6-b437-9986e1b6f123" xml:space="preserve">
+          <source>These programs run as WebJobs on a schedule (cron) or continuously.</source>
+          <target state="new">These programs run as WebJobs on a schedule (cron) or continuously.</target>
+        </trans-unit>
+        <trans-unit id="eb48e210-f6c2-46fc-bb65-1992a2428e26" xml:space="preserve">
+          <source>The WebJobs SDK makes it easier to use Azure Storage.</source>
+          <target state="new">The WebJobs SDK makes it easier to use Azure Storage.</target>
+        </trans-unit>
+        <trans-unit id="7502d82c-11c1-4b05-8386-456a321bdebd" xml:space="preserve">
+          <source>The WebJobs SDK has a binding and trigger system which works with Microsoft Azure Storage Blobs, Queues and Tables as well as Service Bus Queues.</source>
+          <target state="new">The WebJobs SDK has a binding and trigger system which works with Microsoft Azure Storage Blobs, Queues and Tables as well as Service Bus Queues.</target>
+        </trans-unit>
+        <trans-unit id="89b048de-e268-443e-b825-8b8c81fee374" xml:space="preserve">
+          <source>Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio.</source>
+          <target state="new">Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="0c8518a4-6e40-4e83-a220-946f92e3c62e" xml:space="preserve">
+          <source>You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them.</source>
+          <target state="new">You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them.</target>
+        </trans-unit>
+        <trans-unit id="70c8ff7e-0245-4cde-87c9-6a18243ec05c" xml:space="preserve">
+          <source>The WebJobs dashboard in the Azure portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs.</source>
+          <target state="new">The WebJobs dashboard in the Azure portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="ea96e08a-acbb-41e6-be82-5d730613d468" xml:space="preserve">
+          <source>The dashboard also displays function runtimes and logging output.</source>
+          <target state="new">The dashboard also displays function runtimes and logging output.</target>
+        </trans-unit>
+        <trans-unit id="3b2dbaa8-a006-4b4a-a9ba-eaed56f3256a" xml:space="preserve">
+          <source><bpt id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;linkText&gt;</bpt>Introduction to Azure WebJobs<ept id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;/linkText&gt;</ept><bpt id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;title&gt;</bpt><ept id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;linkText&gt;</bpt>Introduction to Azure WebJobs<ept id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;/linkText&gt;</ept><bpt id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;title&gt;</bpt><ept id="8bca801e-9ae6-4c42-b181-9b71915ec2b3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cad5733f-cb49-4e24-9922-7f1607372218" xml:space="preserve">
+          <source><bpt id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;linkText&gt;</bpt>Azure WebJobs are awesome and you should start using them right now!<ept id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;/linkText&gt;</ept><bpt id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;title&gt;</bpt><ept id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;/title&gt;</ept> (Blog post by Troy Hunt.)</source>
+          <target state="new"><bpt id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;linkText&gt;</bpt>Azure WebJobs are awesome and you should start using them right now!<ept id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;/linkText&gt;</ept><bpt id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;title&gt;</bpt><ept id="2e91b5a3-cfbd-49ac-9e12-401dc13c40d5">&lt;/title&gt;</ept> (Blog post by Troy Hunt.)</target>
+        </trans-unit>
+        <trans-unit id="45244d5d-fbf1-4aa1-98c0-14f273b31103" xml:space="preserve">
+          <source><bpt id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;linkText&gt;</bpt>Azure WebJobs Features<ept id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;/linkText&gt;</ept><bpt id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;title&gt;</bpt><ept id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;linkText&gt;</bpt>Azure WebJobs Features<ept id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;/linkText&gt;</ept><bpt id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;title&gt;</bpt><ept id="e63e12dc-9f43-48a5-89d3-c6a37e14f3c1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c4efc91-3cc1-4108-bc02-b46b558070fd" xml:space="preserve">
+          <source><bpt id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;linkText&gt;</bpt>What is the WebJobs SDK<ept id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;/linkText&gt;</ept><bpt id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;title&gt;</bpt><ept id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;linkText&gt;</bpt>What is the WebJobs SDK<ept id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;/linkText&gt;</ept><bpt id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;title&gt;</bpt><ept id="21dd3bbe-8c8c-4664-bc0f-cc267bc2b830">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b11d497f-398f-4b67-ad5f-65b57cf200cb" xml:space="preserve">
+          <source><bpt id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;linkText&gt;</bpt>Background Jobs Guidance by Microsoft Patterns and Practices<ept id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;/linkText&gt;</ept><bpt id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;title&gt;</bpt><ept id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;linkText&gt;</bpt>Background Jobs Guidance by Microsoft Patterns and Practices<ept id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;/linkText&gt;</ept><bpt id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;title&gt;</bpt><ept id="316fa1a3-6cca-415a-a4ae-10992354a478">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b1862044-305e-4aa3-87dc-28393d327d2f" xml:space="preserve">
+          <source><bpt id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;linkText&gt;</bpt>Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK<ept id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;/linkText&gt;</ept><bpt id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;title&gt;</bpt><ept id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;linkText&gt;</bpt>Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK<ept id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;/linkText&gt;</ept><bpt id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;title&gt;</bpt><ept id="355d1806-ed12-446a-aa61-632a9408cbb7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a00dda0-abc0-46e9-ba06-6261a6b87f7a" xml:space="preserve">
+          <source><bpt id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;linkText&gt;</bpt>Get Started with the Azure WebJobs SDK<ept id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;/linkText&gt;</ept><bpt id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;title&gt;</bpt><ept id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;linkText&gt;</bpt>Get Started with the Azure WebJobs SDK<ept id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;/linkText&gt;</ept><bpt id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;title&gt;</bpt><ept id="6cfbfd42-cd87-44f3-be32-4d043257e218">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9288a134-df43-4e37-bc0e-53573e6dba27" xml:space="preserve">
+          <source><bpt id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;/linkText&gt;</ept><bpt id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;title&gt;</bpt><ept id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;linkText&gt;</bpt>How to use Azure queue storage with the WebJobs SDK<ept id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;/linkText&gt;</ept><bpt id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;title&gt;</bpt><ept id="5d9602ea-e20c-4bbd-a2db-d4bccc0822ff">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71703934-fc0b-47e5-b521-6bf30c76d681" xml:space="preserve">
+          <source><bpt id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;/linkText&gt;</ept><bpt id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;title&gt;</bpt><ept id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;linkText&gt;</bpt>How to use Azure blob storage with the WebJobs SDK<ept id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;/linkText&gt;</ept><bpt id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;title&gt;</bpt><ept id="aac2ee07-d7d2-4cea-b28e-b84dac11da74">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9324e5aa-92d6-4976-ad8b-cdf08e8d1963" xml:space="preserve">
+          <source><bpt id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;linkText&gt;</bpt>How to use Azure table storage with the WebJobs SDK<ept id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;/linkText&gt;</ept><bpt id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;title&gt;</bpt><ept id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;linkText&gt;</bpt>How to use Azure table storage with the WebJobs SDK<ept id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;/linkText&gt;</ept><bpt id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;title&gt;</bpt><ept id="0fb7901d-895e-44da-8c43-89cbe2f4c8fe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3baf8033-39d9-4439-be4f-6446998eaf50" xml:space="preserve">
+          <source><bpt id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;linkText&gt;</bpt>How to use Azure Service Bus with the WebJobs SDK<ept id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;/linkText&gt;</ept><bpt id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;title&gt;</bpt><ept id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;linkText&gt;</bpt>How to use Azure Service Bus with the WebJobs SDK<ept id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;/linkText&gt;</ept><bpt id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;title&gt;</bpt><ept id="0679e47f-d8f8-4973-ae26-c9b247752014">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e842518-f894-4825-9ec6-83d35e543dee" xml:space="preserve">
+          <source><bpt id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;linkText&gt;</bpt>Azure WebJobs SDK Quick Reference (PDF download)<ept id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;/linkText&gt;</ept><bpt id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;title&gt;</bpt><ept id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;linkText&gt;</bpt>Azure WebJobs SDK Quick Reference (PDF download)<ept id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;/linkText&gt;</ept><bpt id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;title&gt;</bpt><ept id="5070236b-9e3f-4f1c-a0f2-1475867fbc80">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a297fefb-5eeb-4ad6-afdf-e32794cfc646" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="8ceb4783-3681-4ff8-855f-0dfbd5acedb0" xml:space="preserve">
+          <source>[WebJobs and the WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm<bpt id="b81f8496-e679-46ec-a941-880a82c46902">&lt;em&gt;</bpt>source=dlvr.it&amp;utm<ept id="b81f8496-e679-46ec-a941-880a82c46902">&lt;/em&gt;</ept>medium=twitter)</source>
+          <target state="new">[WebJobs and the WebJobs SDK](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm<bpt id="b81f8496-e679-46ec-a941-880a82c46902">&lt;em&gt;</bpt>source=dlvr.it&amp;utm<ept id="b81f8496-e679-46ec-a941-880a82c46902">&lt;/em&gt;</ept>medium=twitter)</target>
+        </trans-unit>
+        <trans-unit id="db207929-bbb4-4acd-a7e6-3684bfb17587" xml:space="preserve">
+          <source><bpt id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;/linkText&gt;</ept><bpt id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;title&gt;</bpt><ept id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;/linkText&gt;</ept><bpt id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;title&gt;</bpt><ept id="f81dc3d9-a008-4e9c-b1e9-43dd149c6c17">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="79cbd94c-f50e-4761-9d71-c06d52a29b6d" xml:space="preserve">
+          <source><bpt id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;linkText&gt;</bpt>Introducing WebJobs Tooling for Visual Studio<ept id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;/linkText&gt;</ept><bpt id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;title&gt;</bpt><ept id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;linkText&gt;</bpt>Introducing WebJobs Tooling for Visual Studio<ept id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;/linkText&gt;</ept><bpt id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;title&gt;</bpt><ept id="c9a41987-79e1-4594-8f90-9b0c860833dd">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="62a39245-9b6d-40c5-95a6-818e2e5266e3" xml:space="preserve">
+          <source><bpt id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;/linkText&gt;</ept><bpt id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;title&gt;</bpt><ept id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;/linkText&gt;</ept><bpt id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;title&gt;</bpt><ept id="2212ce19-aa68-4aee-b420-1f3bdfdbe3d9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aee9e90c-f6a2-4b29-a75c-94bbecb2619d" xml:space="preserve">
+          <source>See also the following sections on <bpt id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;linkText&gt;</bpt>Deploying WebJobs<ept id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;/linkText&gt;</ept><bpt id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;title&gt;</bpt><ept id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;/title&gt;</ept> and <bpt id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;linkText&gt;</bpt>Testing and debugging WebJobs<ept id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;/linkText&gt;</ept><bpt id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;title&gt;</bpt><ept id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;/title&gt;</ept>.</source>
+          <target state="new">See also the following sections on <bpt id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;linkText&gt;</bpt>Deploying WebJobs<ept id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;/linkText&gt;</ept><bpt id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;title&gt;</bpt><ept id="0ac95112-0530-4064-a0d8-a6147db066e5">&lt;/title&gt;</ept> and <bpt id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;linkText&gt;</bpt>Testing and debugging WebJobs<ept id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;/linkText&gt;</ept><bpt id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;title&gt;</bpt><ept id="5150e280-fe78-4f24-9488-9bbe21643637">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19e93cc0-deb9-4106-8115-e2b54a0426c5" xml:space="preserve">
+          <source><bpt id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs using Visual Studio<ept id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;/linkText&gt;</ept><bpt id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;title&gt;</bpt><ept id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;linkText&gt;</bpt>How to Deploy Azure WebJobs using Visual Studio<ept id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;/linkText&gt;</ept><bpt id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;title&gt;</bpt><ept id="aabdd391-e41c-4a5a-bdd0-bf622dc8ecbc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92e6576b-2517-473b-ac6f-b1c5ed2b2e2c" xml:space="preserve">
+          <source><bpt id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;linkText&gt;</bpt>How to deploy WebJobs using the Azure Management Portal<ept id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;/linkText&gt;</ept><bpt id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;title&gt;</bpt><ept id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;linkText&gt;</bpt>How to deploy WebJobs using the Azure Management Portal<ept id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;/linkText&gt;</ept><bpt id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;title&gt;</bpt><ept id="dbcbf795-6d17-46c6-afdf-33ede7994283">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c211e40-b208-4233-bc77-992b751bd59a" xml:space="preserve">
+          <source><bpt id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;linkText&gt;</bpt>Enabling Command-line or Continuous Delivery of Azure WebJobs<ept id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;/linkText&gt;</ept><bpt id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;title&gt;</bpt><ept id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;linkText&gt;</bpt>Enabling Command-line or Continuous Delivery of Azure WebJobs<ept id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;/linkText&gt;</ept><bpt id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;title&gt;</bpt><ept id="ca14cdaf-5ee1-456e-a85d-a6c802a4996f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ce986027-ff86-452a-841c-fb54a5200626" xml:space="preserve">
+          <source><bpt id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;linkText&gt;</bpt>Git deploying a .NET console app to Azure using WebJobs<ept id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;/linkText&gt;</ept><bpt id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;title&gt;</bpt><ept id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;linkText&gt;</bpt>Git deploying a .NET console app to Azure using WebJobs<ept id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;/linkText&gt;</ept><bpt id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;title&gt;</bpt><ept id="3d655665-86ac-4663-a83a-c57276b591cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccf6d231-95bd-43bb-bd5d-f25e33f03512" xml:space="preserve">
+          <source>[Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave<bpt id="f9b25a09-b5f5-403b-b71e-b6f819aa82de">&lt;em&gt;</bpt>crooks<ept id="f9b25a09-b5f5-403b-b71e-b6f819aa82de">&lt;/em&gt;</ept>dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)</source>
+          <target state="new">[Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave<bpt id="f9b25a09-b5f5-403b-b71e-b6f819aa82de">&lt;em&gt;</bpt>crooks<ept id="f9b25a09-b5f5-403b-b71e-b6f819aa82de">&lt;/em&gt;</ept>dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)</target>
+        </trans-unit>
+        <trans-unit id="74c47a5f-189d-46dd-ac2f-cb02d200c6b6" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="40b97339-6b5a-4af5-9de3-18c541984739" xml:space="preserve">
+          <source><bpt id="15454eea-0513-4253-b207-9de50daa74de">&lt;linkText&gt;</bpt>Introducing WebJobs Tooling for Visual Studio<ept id="15454eea-0513-4253-b207-9de50daa74de">&lt;/linkText&gt;</ept><bpt id="15454eea-0513-4253-b207-9de50daa74de">&lt;title&gt;</bpt><ept id="15454eea-0513-4253-b207-9de50daa74de">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="15454eea-0513-4253-b207-9de50daa74de">&lt;linkText&gt;</bpt>Introducing WebJobs Tooling for Visual Studio<ept id="15454eea-0513-4253-b207-9de50daa74de">&lt;/linkText&gt;</ept><bpt id="15454eea-0513-4253-b207-9de50daa74de">&lt;title&gt;</bpt><ept id="15454eea-0513-4253-b207-9de50daa74de">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="90e6a015-8cca-4a98-911b-0d38266c211b" xml:space="preserve">
+          <source><bpt id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;/linkText&gt;</ept><bpt id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;title&gt;</bpt><ept id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;/linkText&gt;</ept><bpt id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;title&gt;</bpt><ept id="3ce45a92-0f3b-40ad-bc00-16862a59135e">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="7342da49-ada5-44cd-82b5-c3560caf8d1e" xml:space="preserve">
+          <source><bpt id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;linkText&gt;</bpt>The Add Azure WebJob Dialog<ept id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;/linkText&gt;</ept><bpt id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;title&gt;</bpt><ept id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;linkText&gt;</bpt>The Add Azure WebJob Dialog<ept id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;/linkText&gt;</ept><bpt id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;title&gt;</bpt><ept id="038df169-f8ff-4942-a06f-2a983cebcb19">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7639831-9e22-42fe-930a-d31df4c688ed" xml:space="preserve">
+          <source><bpt id="989c2762-8784-4134-848e-92995ae0b28b">&lt;linkText&gt;</bpt>Create a Scheduled WebJob in the Azure Management Portal<ept id="989c2762-8784-4134-848e-92995ae0b28b">&lt;/linkText&gt;</ept><bpt id="989c2762-8784-4134-848e-92995ae0b28b">&lt;title&gt;</bpt><ept id="989c2762-8784-4134-848e-92995ae0b28b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="989c2762-8784-4134-848e-92995ae0b28b">&lt;linkText&gt;</bpt>Create a Scheduled WebJob in the Azure Management Portal<ept id="989c2762-8784-4134-848e-92995ae0b28b">&lt;/linkText&gt;</ept><bpt id="989c2762-8784-4134-848e-92995ae0b28b">&lt;title&gt;</bpt><ept id="989c2762-8784-4134-848e-92995ae0b28b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26df545f-674c-4901-ab5d-a6cdeb4e4ec8" xml:space="preserve">
+          <source><bpt id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;linkText&gt;</bpt>New Developer and Debugging Features for Azure WebJobs in Visual Studio<ept id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;/linkText&gt;</ept><bpt id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;title&gt;</bpt><ept id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;linkText&gt;</bpt>New Developer and Debugging Features for Azure WebJobs in Visual Studio<ept id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;/linkText&gt;</ept><bpt id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;title&gt;</bpt><ept id="22a4f122-9209-492e-88ff-1f38700eda0e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4a5c41b-85f1-48a6-a3ce-9f1b84a96fa1" xml:space="preserve">
+          <source><bpt id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;linkText&gt;</bpt>View the WebJobs Dashboard<ept id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;/linkText&gt;</ept><bpt id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;title&gt;</bpt><ept id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;linkText&gt;</bpt>View the WebJobs Dashboard<ept id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;/linkText&gt;</ept><bpt id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;title&gt;</bpt><ept id="86fee902-bfba-46d7-870f-f068d371e64b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7393c3e5-04f4-40c4-9a52-602ecf3eea45" xml:space="preserve">
+          <source><bpt id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;linkText&gt;</bpt>How to write logs using the WebJobs SDK and view them in the Dashboard<ept id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;/linkText&gt;</ept><bpt id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;title&gt;</bpt><ept id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;linkText&gt;</bpt>How to write logs using the WebJobs SDK and view them in the Dashboard<ept id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;/linkText&gt;</ept><bpt id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;title&gt;</bpt><ept id="99f2506d-d48d-4440-bc4b-e7c7dfd8d9c4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3437fbca-69fa-42ce-b7ba-0e6dc0e973f2" xml:space="preserve">
+          <source><bpt id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;linkText&gt;</bpt>Remote debugging WebJobs<ept id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;/linkText&gt;</ept><bpt id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;title&gt;</bpt><ept id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;linkText&gt;</bpt>Remote debugging WebJobs<ept id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;/linkText&gt;</ept><bpt id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;title&gt;</bpt><ept id="2a319426-94fd-42c3-9ac8-e8b543edcc10">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b93cd69-d93b-478c-b533-93e81156b8f8" xml:space="preserve">
+          <source><bpt id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;linkText&gt;</bpt>Who wrote that blob?<ept id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;/linkText&gt;</ept><bpt id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;title&gt;</bpt><ept id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;linkText&gt;</bpt>Who wrote that blob?<ept id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;/linkText&gt;</ept><bpt id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;title&gt;</bpt><ept id="3e45855d-ba08-45e8-b225-e568bf7a6e53">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="def82223-e917-4d54-a8e8-daa0fa5417f0" xml:space="preserve">
+          <source><bpt id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;linkText&gt;</bpt>Hosting interactive code in the Cloud<ept id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;/linkText&gt;</ept><bpt id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;title&gt;</bpt><ept id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;linkText&gt;</bpt>Hosting interactive code in the Cloud<ept id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;/linkText&gt;</ept><bpt id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;title&gt;</bpt><ept id="3e3084d6-52b7-475f-9752-d2c3389218e1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a8373a4-661a-42ce-8cb1-5caa1c597e0a" xml:space="preserve">
+          <source><bpt id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;linkText&gt;</bpt>Getting a dashboard for local development with the WebJobs SDK<ept id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;/linkText&gt;</ept><bpt id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;title&gt;</bpt><ept id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;linkText&gt;</bpt>Getting a dashboard for local development with the WebJobs SDK<ept id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;/linkText&gt;</ept><bpt id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;title&gt;</bpt><ept id="84a2791c-1d97-4fe6-9340-7271ede7ddf2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d70f970-4b0a-4539-a3ca-761165d07ac6" xml:space="preserve">
+          <source><bpt id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;linkText&gt;</bpt>Adding Trace to Azure WebJobs<ept id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;/linkText&gt;</ept><bpt id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;title&gt;</bpt><ept id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;linkText&gt;</bpt>Adding Trace to Azure WebJobs<ept id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;/linkText&gt;</ept><bpt id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;title&gt;</bpt><ept id="44b33fc5-c5de-4a63-966d-2a2692b644d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7765b3d1-5d83-44e9-8dd4-a412b577f6ce" xml:space="preserve">
+          <source><bpt id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;linkText&gt;</bpt>Monitor, diagnose, and troubleshoot Microsoft Azure Storage<ept id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;/linkText&gt;</ept><bpt id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;title&gt;</bpt><ept id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;linkText&gt;</bpt>Monitor, diagnose, and troubleshoot Microsoft Azure Storage<ept id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;/linkText&gt;</ept><bpt id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;title&gt;</bpt><ept id="6ee73da5-477e-4035-8db1-dcee263f4925">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd1f1bbf-f9bd-4ce9-a170-76ff57548aa4" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="ad880465-c456-4d49-8b4c-7a123a51cbfa" xml:space="preserve">
+          <source><bpt id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;/linkText&gt;</ept><bpt id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;title&gt;</bpt><ept id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;linkText&gt;</bpt>WebJobs Tooling and Remote Debugging<ept id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;/linkText&gt;</ept><bpt id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;title&gt;</bpt><ept id="5838b2e4-414e-446c-a4ba-5562ff89f285">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="22bd61c2-1a62-434d-8cdc-fd29d965cf01" xml:space="preserve">
+          <source><bpt id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;linkText&gt;</bpt>Scaling Your Web Application with Azure Websites<ept id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;/linkText&gt;</ept><bpt id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;title&gt;</bpt><ept id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;linkText&gt;</bpt>Scaling Your Web Application with Azure Websites<ept id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;/linkText&gt;</ept><bpt id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;title&gt;</bpt><ept id="c39a9083-8e52-4d02-b31b-697b905a2a1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ae13ba8-efab-4e50-a55d-f5a38437be1d" xml:space="preserve">
+          <source><bpt id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;linkText&gt;</bpt>Azure App Service: Architecting Massive-Scale Ready-For-Business Web Apps<ept id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;/linkText&gt;</ept><bpt id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;title&gt;</bpt><ept id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;linkText&gt;</bpt>Azure App Service: Architecting Massive-Scale Ready-For-Business Web Apps<ept id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;/linkText&gt;</ept><bpt id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;title&gt;</bpt><ept id="ec2b0773-948d-40bc-8b52-bd12b494dd42">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a967a2b0-d4f1-4fc4-846d-8f3375b41f80" xml:space="preserve">
+          <source>Covers scaling of web apps with WebJobs, including the WebJobs SDK.</source>
+          <target state="new">Covers scaling of web apps with WebJobs, including the WebJobs SDK.</target>
+        </trans-unit>
+        <trans-unit id="d650fa55-4e0a-4df6-88a7-ff2d129fe264" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="9423cc1e-fd0e-4abd-aa78-4875570ffdb3" xml:space="preserve">
+          <source><bpt id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;linkText&gt;</bpt>Scaling out WebJobs<ept id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;/linkText&gt;</ept><bpt id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;title&gt;</bpt><ept id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;linkText&gt;</bpt>Scaling out WebJobs<ept id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;/linkText&gt;</ept><bpt id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;title&gt;</bpt><ept id="3145a03c-8548-4e71-9cc0-09254323223f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="856c8dbb-3bdd-4379-a344-9b2c1780e6a5" xml:space="preserve">
+          <source><bpt id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;linkText&gt;</bpt>Azure WebJobs GA blog post by Magnus Mårtensson<ept id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;/linkText&gt;</ept><bpt id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;title&gt;</bpt><ept id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;linkText&gt;</bpt>Azure WebJobs GA blog post by Magnus Mårtensson<ept id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;/linkText&gt;</ept><bpt id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;title&gt;</bpt><ept id="e0922029-70e9-4453-9da1-8e9f2d9a4269">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccfa4af9-a7c4-4198-aa55-434f2ae0bb31" xml:space="preserve">
+          <source><bpt id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;linkText&gt;</bpt>WebJobs settings documentation in GitHub<ept id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;/linkText&gt;</ept><bpt id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;title&gt;</bpt><ept id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;linkText&gt;</bpt>WebJobs settings documentation in GitHub<ept id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;/linkText&gt;</ept><bpt id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;title&gt;</bpt><ept id="2c2fc65d-0528-4dae-84d2-43b150149152">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="50507e61-7683-4f3d-9704-151489004321" xml:space="preserve">
+          <source><bpt id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;linkText&gt;</bpt>Running Powershell Web Jobs on Azure App Service<ept id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;/linkText&gt;</ept><bpt id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;title&gt;</bpt><ept id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;linkText&gt;</bpt>Running Powershell Web Jobs on Azure App Service<ept id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;/linkText&gt;</ept><bpt id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;title&gt;</bpt><ept id="3e5dc607-8e9b-4cb2-9558-11f8565b8ffe">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6cfb1387-480b-4811-b753-76bd2154de0d" xml:space="preserve">
+          <source><bpt id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;linkText&gt;</bpt>Getting notified when your Azure triggered WebJobs completes<ept id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;/linkText&gt;</ept><bpt id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;title&gt;</bpt><ept id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;linkText&gt;</bpt>Getting notified when your Azure triggered WebJobs completes<ept id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;/linkText&gt;</ept><bpt id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;title&gt;</bpt><ept id="066ac230-abad-41b6-b759-99255acbdc9b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="04ec8278-9a48-4875-9692-5ceefd30216e" xml:space="preserve">
+          <source><bpt id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;linkText&gt;</bpt>Simple Web App Backup retention policy with WebJobs<ept id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;/linkText&gt;</ept><bpt id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;title&gt;</bpt><ept id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;linkText&gt;</bpt>Simple Web App Backup retention policy with WebJobs<ept id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;/linkText&gt;</ept><bpt id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;title&gt;</bpt><ept id="38dcfc64-6a86-4cc9-9d8c-25e0631fb84f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4265ab62-207e-4b14-8152-031fa68bf22c" xml:space="preserve">
+          <source><bpt id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;linkText&gt;</bpt>Azure Web Apps and Cloud Services Slow on First Request<ept id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;/linkText&gt;</ept><bpt id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;title&gt;</bpt><ept id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;linkText&gt;</bpt>Azure Web Apps and Cloud Services Slow on First Request<ept id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;/linkText&gt;</ept><bpt id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;title&gt;</bpt><ept id="21d6536c-71e5-4dec-9304-380c56eb87eb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="accc91ca-346b-4f70-9aa5-dabb58ef5e70" xml:space="preserve">
+          <source>Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard pricing tier.</source>
+          <target state="new">Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard pricing tier.</target>
+        </trans-unit>
+        <trans-unit id="c51992fb-012f-4143-9e33-6fb52440ec06" xml:space="preserve">
+          <source><bpt id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;linkText&gt;</bpt>WebJobs Graceful Shutdown<ept id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;/linkText&gt;</ept><bpt id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;title&gt;</bpt><ept id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;linkText&gt;</bpt>WebJobs Graceful Shutdown<ept id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;/linkText&gt;</ept><bpt id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;title&gt;</bpt><ept id="bc692612-90f6-49ed-b010-7f9915d53b5a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fdfa5bd9-399d-4db1-8a0e-6660f06ca097" xml:space="preserve">
+          <source>For WebJobs SDK graceful shutdown, see <bpt id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;linkText&gt;</bpt>Graceful shutdown<ept id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;/linkText&gt;</ept><bpt id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;title&gt;</bpt><ept id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;/title&gt;</ept>.)</source>
+          <target state="new">For WebJobs SDK graceful shutdown, see <bpt id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;linkText&gt;</bpt>Graceful shutdown<ept id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;/linkText&gt;</ept><bpt id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;title&gt;</bpt><ept id="b0e73d9c-02b7-49c6-bd54-ffb1f6b5b78f">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="6c6440a4-7106-4717-8828-35bc2faf68dd" xml:space="preserve">
+          <source><bpt id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;linkText&gt;</bpt>Automating Backups with Azure WebJobs &amp; AzCopy<ept id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;/linkText&gt;</ept><bpt id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;title&gt;</bpt><ept id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;linkText&gt;</bpt>Automating Backups with Azure WebJobs &amp; AzCopy<ept id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;/linkText&gt;</ept><bpt id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;title&gt;</bpt><ept id="fb2ade4d-36a8-431b-ba57-d18dbdfffe8d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fee37bd2-e860-46a7-8d1a-0579fa64e3be" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="8f3b2b3d-377d-48a8-8a28-8584ba0bb98c" xml:space="preserve">
+          <source><bpt id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;linkText&gt;</bpt>Azure WebJobs videos by Magnus Mårtensson<ept id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;/linkText&gt;</ept><bpt id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;title&gt;</bpt><ept id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;linkText&gt;</bpt>Azure WebJobs videos by Magnus Mårtensson<ept id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;/linkText&gt;</ept><bpt id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;title&gt;</bpt><ept id="e8c292ef-2491-4216-98d2-539f3664627d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7e0b73c3-4efd-49ed-aa16-cf1962b221d5" xml:space="preserve">
+          <source><bpt id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;/linkText&gt;</ept><bpt id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;title&gt;</bpt><ept id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;/linkText&gt;</ept><bpt id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;title&gt;</bpt><ept id="851fe044-f209-47ac-b5a0-25281af61fcc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b13efab-6cb5-481b-a81d-7fae7931995b" xml:space="preserve">
+          <source><bpt id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;linkText&gt;</bpt>WebJobs SDK source code<ept id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;/linkText&gt;</ept><bpt id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;title&gt;</bpt><ept id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;linkText&gt;</bpt>WebJobs SDK source code<ept id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;/linkText&gt;</ept><bpt id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;title&gt;</bpt><ept id="ce8ccfaa-2ddd-4ec2-a3ae-85e069ef10ef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dfcbc34a-7334-4755-8231-175ad4ce48c2" xml:space="preserve">
+          <source>[How does [BlobTrigger] work?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) </source>
+          <target state="new">[How does [BlobTrigger] work?](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) </target>
+        </trans-unit>
+        <trans-unit id="1c9a9c28-e0cb-4cb6-8828-8474dde2fcff" xml:space="preserve">
+          <source><bpt id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;linkText&gt;</bpt>Advanced bindings with the Azure Web Jobs SDK<ept id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;/linkText&gt;</ept><bpt id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;title&gt;</bpt><ept id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;linkText&gt;</bpt>Advanced bindings with the Azure Web Jobs SDK<ept id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;/linkText&gt;</ept><bpt id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;title&gt;</bpt><ept id="b6196590-2dc7-48bd-99d3-abc3faee6c28">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b677ca26-d7a6-44ab-bed2-4c46476de13e" xml:space="preserve">
+          <source><bpt id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;linkText&gt;</bpt>WebJob to upload FREB files to Azure Storage using the WebJobs SDK<ept id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;/linkText&gt;</ept><bpt id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;title&gt;</bpt><ept id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;linkText&gt;</bpt>WebJob to upload FREB files to Azure Storage using the WebJobs SDK<ept id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;/linkText&gt;</ept><bpt id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;title&gt;</bpt><ept id="65b3a8e4-3805-4011-ac72-d6810d771d43">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7d17dfd-81e4-4537-a6e3-4c24a5bfb26d" xml:space="preserve">
+          <source><bpt id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;linkText&gt;</bpt>Hosting Azure webjobs outside Azure, with the logging benefits from an Azure hosted webjob<ept id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;/linkText&gt;</ept><bpt id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;title&gt;</bpt><ept id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;linkText&gt;</bpt>Hosting Azure webjobs outside Azure, with the logging benefits from an Azure hosted webjob<ept id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;/linkText&gt;</ept><bpt id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;title&gt;</bpt><ept id="85309c82-ffbb-4c8a-93ab-69df3661cd3b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b9cef39-e228-42f1-a965-9b53d47442e2" xml:space="preserve">
+          <source><bpt id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;linkText&gt;</bpt>Building a Data Import Tool with Azure WebJobs<ept id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;/linkText&gt;</ept><bpt id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;title&gt;</bpt><ept id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;linkText&gt;</bpt>Building a Data Import Tool with Azure WebJobs<ept id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;/linkText&gt;</ept><bpt id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;title&gt;</bpt><ept id="d306b474-1e67-4b79-b946-22aae322adc6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b77d788b-7766-453d-a984-dabdab2e6a8b" xml:space="preserve">
+          <source>Videos</source>
+          <target state="new">Videos</target>
+        </trans-unit>
+        <trans-unit id="ffe972c2-ca8b-4e87-a113-b0aa34db7a7c" xml:space="preserve">
+          <source><bpt id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;/linkText&gt;</ept><bpt id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;title&gt;</bpt><ept id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;linkText&gt;</bpt>Azure WebJobs video series on Channel 9<ept id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;/linkText&gt;</ept><bpt id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;title&gt;</bpt><ept id="e630b464-71b3-4576-a422-45d90f2fbdb4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9660578a-7211-44f6-aa9d-1e51930dca2f" xml:space="preserve">
+          <source><bpt id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;linkText&gt;</bpt>Sample applications provided by the WebJobs team on GitHub<ept id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;/linkText&gt;</ept><bpt id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;title&gt;</bpt><ept id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;linkText&gt;</bpt>Sample applications provided by the WebJobs team on GitHub<ept id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;/linkText&gt;</ept><bpt id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;title&gt;</bpt><ept id="3504e56b-fec5-434c-9fb0-dfc0057384d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfbc8904-fbdf-4f4f-8832-148953332a09" xml:space="preserve">
+          <source><bpt id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;linkText&gt;</bpt>Simple Azure Web App with WebJobs Backend using the WebJobs SDK<ept id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;/linkText&gt;</ept><bpt id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;title&gt;</bpt><ept id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;linkText&gt;</bpt>Simple Azure Web App with WebJobs Backend using the WebJobs SDK<ept id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;/linkText&gt;</ept><bpt id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;title&gt;</bpt><ept id="4dcbbcf8-6db5-44ec-ba54-11edba982bb2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a924ebf-aa93-4b0e-9dfb-048063b7b246" xml:space="preserve">
+          <source><bpt id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;linkText&gt;</bpt>SiteMonitR<ept id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;/linkText&gt;</ept><bpt id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;title&gt;</bpt><ept id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;linkText&gt;</bpt>SiteMonitR<ept id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;/linkText&gt;</ept><bpt id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;title&gt;</bpt><ept id="afda3692-5faa-42ea-ada2-ca9c029402b9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff2e1df3-16c4-45e9-b039-6e480f9757a0" xml:space="preserve">
+          <source>Demonstrates use of scheduled and event-driven WebJobs.</source>
+          <target state="new">Demonstrates use of scheduled and event-driven WebJobs.</target>
+        </trans-unit>
+        <trans-unit id="78da3dd0-f117-422a-9bb5-d3d6adfd58b3" xml:space="preserve">
+          <source>See the blog post <bpt id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;linkText&gt;</bpt>Rebuilding the SiteMonitR using Azure WebJobs SDK<ept id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;/linkText&gt;</ept><bpt id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;title&gt;</bpt><ept id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the blog post <bpt id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;linkText&gt;</bpt>Rebuilding the SiteMonitR using Azure WebJobs SDK<ept id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;/linkText&gt;</ept><bpt id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;title&gt;</bpt><ept id="6dd1af7f-20b4-4ca8-b380-84cde2cbb910">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8c85efa-9d82-49be-bb01-bda10a974477" xml:space="preserve">
+          <source><bpt id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;linkText&gt;</bpt>Azure blog<ept id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;/linkText&gt;</ept><bpt id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;title&gt;</bpt><ept id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;linkText&gt;</bpt>Azure blog<ept id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;/linkText&gt;</ept><bpt id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;title&gt;</bpt><ept id="8a912f12-de9e-4746-83b4-059c5cb246e8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4ba752e4-956b-4cec-9c9b-a7aad6f9f169" xml:space="preserve">
+          <source><bpt id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;linkText&gt;</bpt>Amit Apple's blog<ept id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;/linkText&gt;</ept><bpt id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;title&gt;</bpt><ept id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;linkText&gt;</bpt>Amit Apple's blog<ept id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;/linkText&gt;</ept><bpt id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;title&gt;</bpt><ept id="d08f8e2d-1f86-4d3a-9d7d-16ea3bcf7898">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d7cc39be-8df7-4a83-bfae-6ebef469c3f7" xml:space="preserve">
+          <source>Focuses on WebJobs (not the SDK).</source>
+          <target state="new">Focuses on WebJobs (not the SDK).</target>
+        </trans-unit>
+        <trans-unit id="b351ec02-0e8a-4754-86b2-3bd1b60e9da8" xml:space="preserve">
+          <source><bpt id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;linkText&gt;</bpt>Magnus Mårtensson's blog<ept id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;/linkText&gt;</ept><bpt id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;title&gt;</bpt><ept id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;linkText&gt;</bpt>Magnus Mårtensson's blog<ept id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;/linkText&gt;</ept><bpt id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;title&gt;</bpt><ept id="4e8b81d6-aaf6-48d8-a4cb-e7364145d781">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18435199-d36e-4a48-8465-f887c891e374" xml:space="preserve">
+          <source><bpt id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;linkText&gt;</bpt>StackOverflow for WebJobs<ept id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;/linkText&gt;</ept><bpt id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;title&gt;</bpt><ept id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;linkText&gt;</bpt>StackOverflow for WebJobs<ept id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;/linkText&gt;</ept><bpt id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;title&gt;</bpt><ept id="cf1580f3-9c30-4cbb-a721-f5e1083dd33a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5af0f9bd-1955-42dc-bea6-07d88d136071" xml:space="preserve">
+          <source><bpt id="e69fad91-ed6b-4491-949b-175558611be5">&lt;linkText&gt;</bpt>StackOverflow for the WebJobs SDK<ept id="e69fad91-ed6b-4491-949b-175558611be5">&lt;/linkText&gt;</ept><bpt id="e69fad91-ed6b-4491-949b-175558611be5">&lt;title&gt;</bpt><ept id="e69fad91-ed6b-4491-949b-175558611be5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e69fad91-ed6b-4491-949b-175558611be5">&lt;linkText&gt;</bpt>StackOverflow for the WebJobs SDK<ept id="e69fad91-ed6b-4491-949b-175558611be5">&lt;/linkText&gt;</ept><bpt id="e69fad91-ed6b-4491-949b-175558611be5">&lt;title&gt;</bpt><ept id="e69fad91-ed6b-4491-949b-175558611be5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="193f4a28-9abc-4547-b6a8-5adb603f92ee" xml:space="preserve">
+          <source><bpt id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;linkText&gt;</bpt>Azure and ASP.NET forum<ept id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;/linkText&gt;</ept><bpt id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;title&gt;</bpt><ept id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;linkText&gt;</bpt>Azure and ASP.NET forum<ept id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;/linkText&gt;</ept><bpt id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;title&gt;</bpt><ept id="85894524-84ed-42be-9b9a-73bc0bf53446">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c219203-3fa4-4583-8abc-3ddd87d587e7" xml:space="preserve">
+          <source><bpt id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;linkText&gt;</bpt>Azure App Service Web Apps forum<ept id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;/linkText&gt;</ept><bpt id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;title&gt;</bpt><ept id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;linkText&gt;</bpt>Azure App Service Web Apps forum<ept id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;/linkText&gt;</ept><bpt id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;title&gt;</bpt><ept id="beaa3cca-f36b-4c27-a5f3-f46f34bece4c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb808906-b372-4a45-8090-1659bb2e5bb5" xml:space="preserve">
+          <source><bpt id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;linkText&gt;</bpt>Azure Web Apps User Voice site<ept id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;/linkText&gt;</ept><bpt id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;title&gt;</bpt><ept id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;linkText&gt;</bpt>Azure Web Apps User Voice site<ept id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;/linkText&gt;</ept><bpt id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;title&gt;</bpt><ept id="6e67607e-46c4-4d55-b30e-9f03837b56dd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="651d9672-870e-4bd1-8a7b-36f27b3a055c" xml:space="preserve">
+          <source><bpt id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;linkText&gt;</bpt>Twitter<ept id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;/linkText&gt;</ept><bpt id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;title&gt;</bpt><ept id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;linkText&gt;</bpt>Twitter<ept id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;/linkText&gt;</ept><bpt id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;title&gt;</bpt><ept id="63cc7c41-ffd7-45cf-b755-93bfbc32e75a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="949ee3fb-3dae-4aa9-b8eb-fabc80d19878" xml:space="preserve">
+          <source>Use the hashtag #AzureWebJobs.</source>
+          <target state="new">Use the hashtag #AzureWebJobs.</target>
+        </trans-unit>
+        <trans-unit id="acc1860c-f9bd-4c57-b0a5-59f09d7be50a" xml:space="preserve">
+          <source><bpt id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;linkText&gt;</bpt>Report a WebJobs bug or issue<ept id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;/linkText&gt;</ept><bpt id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;title&gt;</bpt><ept id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;linkText&gt;</bpt>Report a WebJobs bug or issue<ept id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;/linkText&gt;</ept><bpt id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;title&gt;</bpt><ept id="b64c02cc-0b7d-4982-bded-62f6832654dc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2492fa44-04e4-4e3d-b3fa-2fe3a8c10604" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;/linkText&gt;</ept><bpt id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;title&gt;</bpt><ept id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;/linkText&gt;</ept><bpt id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;title&gt;</bpt><ept id="1b4e872b-aaf0-4c35-8a2e-56864874bc4e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfd39fed-abc4-466f-b3b7-f6a339d61d60" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;/linkText&gt;</ept><bpt id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;title&gt;</bpt><ept id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;linkText&gt;</bpt>Reference for navigating the preview portal<ept id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;/linkText&gt;</ept><bpt id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;title&gt;</bpt><ept id="63b0bbdb-eaf8-480c-855d-cea2e0813709">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

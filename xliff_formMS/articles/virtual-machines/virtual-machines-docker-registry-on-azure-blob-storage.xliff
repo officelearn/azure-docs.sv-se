@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fcac9763-72f4-4e86-8528-978de59df5af" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fcac9763-72f4-4e86-8528-978de59df5af" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c9d76f57-04f4-48c3-9bd2-cc904c0f59fd">
+        <trans-unit id="5eaca17a-4a19-455f-a790-f3256576d0c2" xml:space="preserve">
+          <source>Deploying Your Own Private Docker Registry on Azure</source>
+          <target state="new">Deploying Your Own Private Docker Registry on Azure</target>
+        </trans-unit>
+        <trans-unit id="13926b66-2609-4be1-a490-c97cd3fe1d32" xml:space="preserve">
+          <source>Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service.</source>
+          <target state="new">Describes how you can use Docker Registry to host your container images on the Azure Blob Storage service.</target>
+        </trans-unit>
+        <trans-unit id="915dfc9f-fedf-449c-bf74-3eda2d5f8fc4" xml:space="preserve">
+          <source>This document describes what a Docker private registry is and shows how you can deploy a Docker Registry 2.0
+container image to a Docker private registry on Microsoft Azure using Azure Blob Storage.</source>
+          <target state="new">This document describes what a Docker private registry is and shows how you can deploy a Docker Registry 2.0
+container image to a Docker private registry on Microsoft Azure using Azure Blob Storage.</target>
+        </trans-unit>
+        <trans-unit id="29fb233a-3666-403c-9a9c-9620eac88a14" xml:space="preserve">
+          <source>This document assumes:</source>
+          <target state="new">This document assumes:</target>
+        </trans-unit>
+        <trans-unit id="afc7c26a-7aba-469b-858c-cba66946fc7f" xml:space="preserve">
+          <source>You know how to use Docker and have Docker images to store.</source>
+          <target state="new">You know how to use Docker and have Docker images to store.</target>
+        </trans-unit>
+        <trans-unit id="d10808a6-2631-4800-819b-ab13cbf3a9b5" xml:space="preserve">
+          <source>(You don't?</source>
+          <target state="new">(You don't?</target>
+        </trans-unit>
+        <trans-unit id="a536b4e8-783a-4738-9a6d-90525a4787a2" xml:space="preserve">
+          <source><bpt id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;linkText&gt;</bpt>Learn about Docker<ept id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;/linkText&gt;</ept><bpt id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;title&gt;</bpt><ept id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;/title&gt;</ept>)</source>
+          <target state="new"><bpt id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;linkText&gt;</bpt>Learn about Docker<ept id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;/linkText&gt;</ept><bpt id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;title&gt;</bpt><ept id="25748b1f-81d1-4bac-9c67-4b51b4738356">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="e0dceab6-91b3-466c-b945-85bf34afa5e4" xml:space="preserve">
+          <source>You have a server that has Docker engine installed.</source>
+          <target state="new">You have a server that has Docker engine installed.</target>
+        </trans-unit>
+        <trans-unit id="c5b971ef-8aa5-4822-9a99-12221c4527ac" xml:space="preserve">
+          <source>(You don't?</source>
+          <target state="new">(You don't?</target>
+        </trans-unit>
+        <trans-unit id="962522c3-d8ee-485e-8c32-83b3dacfa7e6" xml:space="preserve">
+          <source><bpt id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;linkText&gt;</bpt>Do it quickly on Azure.<ept id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;/linkText&gt;</ept><bpt id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;title&gt;</bpt><ept id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;/title&gt;</ept>)</source>
+          <target state="new"><bpt id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;linkText&gt;</bpt>Do it quickly on Azure.<ept id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;/linkText&gt;</ept><bpt id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;title&gt;</bpt><ept id="1ac522d4-d683-479e-b510-9b2e10ed9b5c">&lt;/title&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="95b6891b-cdb5-4f81-9455-880c2257d514" xml:space="preserve">
+          <source>In order to ship your containerized applications to the cloud,
+you construct a Docker container image and store it somewhere so that it can be
+used by yourself and by others.</source>
+          <target state="new">In order to ship your containerized applications to the cloud,
+you construct a Docker container image and store it somewhere so that it can be
+used by yourself and by others.</target>
+        </trans-unit>
+        <trans-unit id="48c145d9-8311-4a1d-91f8-530ade31a64b" xml:space="preserve">
+          <source>While creating a container image and shipping it to the cloud is easy,
+it is a challenge to store the generated image reliably.</source>
+          <target state="new">While creating a container image and shipping it to the cloud is easy,
+it is a challenge to store the generated image reliably.</target>
+        </trans-unit>
+        <trans-unit id="d7715982-2a41-495b-b946-dbe8447fc022" xml:space="preserve">
+          <source>For that reason,
+Docker offers a centralized service called <bpt id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;linkText&gt;</bpt>Docker Hub[docker-hub]<ept id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;/linkText&gt;</ept><bpt id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;title&gt;</bpt><ept id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;/title&gt;</ept> to store
+container images on the cloud and allows you to create containers
+anytime using those images.</source>
+          <target state="new">For that reason,
+Docker offers a centralized service called <bpt id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;linkText&gt;</bpt>Docker Hub[docker-hub]<ept id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;/linkText&gt;</ept><bpt id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;title&gt;</bpt><ept id="f80ae1de-2657-4cd4-aaa3-e8386f9fd066">&lt;/title&gt;</ept> to store
+container images on the cloud and allows you to create containers
+anytime using those images.</target>
+        </trans-unit>
+        <trans-unit id="b0a229fb-237d-499d-9501-e786420bf2a3" xml:space="preserve">
+          <source>Although the <bpt id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;linkText&gt;</bpt>Docker Hub[docker-hub]<ept id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;/linkText&gt;</ept><bpt id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;title&gt;</bpt><ept id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;/title&gt;</ept> is a paid service for storing
+your private application container images, Docker respects developers’ needs and
+provides an open-source toolset to store your images in your own private Docker
+registry behind a firewall or on-premises without hitting the public Internet.</source>
+          <target state="new">Although the <bpt id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;linkText&gt;</bpt>Docker Hub[docker-hub]<ept id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;/linkText&gt;</ept><bpt id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;title&gt;</bpt><ept id="d59cb307-9cd4-4801-be75-593c52f99768">&lt;/title&gt;</ept> is a paid service for storing
+your private application container images, Docker respects developers’ needs and
+provides an open-source toolset to store your images in your own private Docker
+registry behind a firewall or on-premises without hitting the public Internet.</target>
+        </trans-unit>
+        <trans-unit id="d6960e18-aa0a-4f99-b195-37dfd3241d75" xml:space="preserve">
+          <source>Because Azure Blob storage is easy to secure, you can quickly use it to create
+and use a private Docker registry in Azure that you control yourself.</source>
+          <target state="new">Because Azure Blob storage is easy to secure, you can quickly use it to create
+and use a private Docker registry in Azure that you control yourself.</target>
+        </trans-unit>
+        <trans-unit id="5200327f-1285-4d13-88a3-ee0b17c75a65" xml:space="preserve">
+          <source>By hosting your Docker Registry instance on Microsoft Azure and storing your
+images on Azure Blob Storage, you can have several benefits:</source>
+          <target state="new">By hosting your Docker Registry instance on Microsoft Azure and storing your
+images on Azure Blob Storage, you can have several benefits:</target>
+        </trans-unit>
+        <trans-unit id="5c94bef5-e410-4e95-97a8-76317ae32582" xml:space="preserve">
+          <source><bpt id="3619ea63-0c59-450a-b99a-aaa0965dee40">&lt;strong&gt;</bpt>Security:<ept id="3619ea63-0c59-450a-b99a-aaa0965dee40">&lt;/strong&gt;</ept> Your Docker images do not leave Azure datacenters, so they do
+  not cross the public Internet as they would if you were using Docker Hub.</source>
+          <target state="new"><bpt id="3619ea63-0c59-450a-b99a-aaa0965dee40">&lt;strong&gt;</bpt>Security:<ept id="3619ea63-0c59-450a-b99a-aaa0965dee40">&lt;/strong&gt;</ept> Your Docker images do not leave Azure datacenters, so they do
+  not cross the public Internet as they would if you were using Docker Hub.</target>
+        </trans-unit>
+        <trans-unit id="04d2965e-253b-49eb-b2c1-ba0c1efaf3d0" xml:space="preserve">
+          <source><bpt id="d10b6e63-ae20-4eba-8468-8ecfb44dce8f">&lt;strong&gt;</bpt>Performance:<ept id="d10b6e63-ae20-4eba-8468-8ecfb44dce8f">&lt;/strong&gt;</ept> Your Docker images are stored are stored within the same
+datacenter or region as your applications.</source>
+          <target state="new"><bpt id="d10b6e63-ae20-4eba-8468-8ecfb44dce8f">&lt;strong&gt;</bpt>Performance:<ept id="d10b6e63-ae20-4eba-8468-8ecfb44dce8f">&lt;/strong&gt;</ept> Your Docker images are stored are stored within the same
+datacenter or region as your applications.</target>
+        </trans-unit>
+        <trans-unit id="d202d94d-72cd-42e4-888e-af9326255a52" xml:space="preserve">
+          <source>This means the images will be
+pulled faster and more reliably compared to Docker Hub.</source>
+          <target state="new">This means the images will be
+pulled faster and more reliably compared to Docker Hub.</target>
+        </trans-unit>
+        <trans-unit id="cac9b7e3-5ad6-4380-ae90-bc797bc4c1d7" xml:space="preserve">
+          <source><bpt id="d8e1b694-d820-41a8-a9c6-f0aa4ed49779">&lt;strong&gt;</bpt>Reliability:<ept id="d8e1b694-d820-41a8-a9c6-f0aa4ed49779">&lt;/strong&gt;</ept> By using Microsoft Azure Blob Storage, you can make use
+of many storage properties like high availability, redundancy, premium
+storage (SSDs), and so on.</source>
+          <target state="new"><bpt id="d8e1b694-d820-41a8-a9c6-f0aa4ed49779">&lt;strong&gt;</bpt>Reliability:<ept id="d8e1b694-d820-41a8-a9c6-f0aa4ed49779">&lt;/strong&gt;</ept> By using Microsoft Azure Blob Storage, you can make use
+of many storage properties like high availability, redundancy, premium
+storage (SSDs), and so on.</target>
+        </trans-unit>
+        <trans-unit id="c69a56a8-c493-4ae3-a9f0-8dc43122e395" xml:space="preserve">
+          <source>(It's recommended to read the <bpt id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;linkText&gt;</bpt>Docker Registry 2.0 documentation[registry-docs]<ept id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;/linkText&gt;</ept><bpt id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;title&gt;</bpt><ept id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;/title&gt;</ept>
+before proceeding.)</source>
+          <target state="new">(It's recommended to read the <bpt id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;linkText&gt;</bpt>Docker Registry 2.0 documentation[registry-docs]<ept id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;/linkText&gt;</ept><bpt id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;title&gt;</bpt><ept id="dddb2d4c-76ab-4056-b7c3-102f477dacf8">&lt;/title&gt;</ept>
+before proceeding.)</target>
+        </trans-unit>
+        <trans-unit id="6c979777-36c8-40c8-ab5e-f199f2635189" xml:space="preserve">
+          <source>You can <bpt id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;linkText&gt;</bpt>configure[registry-config]<ept id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;/linkText&gt;</ept><bpt id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;title&gt;</bpt><ept id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;/title&gt;</ept> your Docker Registry in two different ways.</source>
+          <target state="new">You can <bpt id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;linkText&gt;</bpt>configure[registry-config]<ept id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;/linkText&gt;</ept><bpt id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;title&gt;</bpt><ept id="4c7844ba-0f61-447c-8a7a-da5cd5e22f98">&lt;/title&gt;</ept> your Docker Registry in two different ways.</target>
+        </trans-unit>
+        <trans-unit id="8f7bee92-4b74-4163-9808-520526b0c976" xml:space="preserve">
+          <source>You can:</source>
+          <target state="new">You can:</target>
+        </trans-unit>
+        <trans-unit id="0a3cbea8-ef31-493a-a924-aede314ea82b" xml:space="preserve">
+          <source>Use a <bpt id="9d8dc9cf-f641-49b3-8e82-1fd08ea6008f">&lt;code&gt;</bpt>config.yml<ept id="9d8dc9cf-f641-49b3-8e82-1fd08ea6008f">&lt;/code&gt;</ept> file.</source>
+          <target state="new">Use a <bpt id="9d8dc9cf-f641-49b3-8e82-1fd08ea6008f">&lt;code&gt;</bpt>config.yml<ept id="9d8dc9cf-f641-49b3-8e82-1fd08ea6008f">&lt;/code&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="8430e391-3c69-46f1-a56b-109c85f4bf48" xml:space="preserve">
+          <source>In this case you will need to create a
+separate Docker image on top of <bpt id="71dc72f5-1785-4d6c-8f47-9835e9aa68d1">&lt;code&gt;</bpt>registry<ept id="71dc72f5-1785-4d6c-8f47-9835e9aa68d1">&lt;/code&gt;</ept> image.</source>
+          <target state="new">In this case you will need to create a
+separate Docker image on top of <bpt id="71dc72f5-1785-4d6c-8f47-9835e9aa68d1">&lt;code&gt;</bpt>registry<ept id="71dc72f5-1785-4d6c-8f47-9835e9aa68d1">&lt;/code&gt;</ept> image.</target>
+        </trans-unit>
+        <trans-unit id="6db24836-d11a-43a2-9973-8babdbe77afd" xml:space="preserve">
+          <source>Override the default configuration file through environment variables:
+gets things done without creating and maintaining a separate Docker image.</source>
+          <target state="new">Override the default configuration file through environment variables:
+gets things done without creating and maintaining a separate Docker image.</target>
+        </trans-unit>
+        <trans-unit id="dadf2176-ecf8-4515-8efe-47b08666c50c" xml:space="preserve">
+          <source>For the sake of simplicity, this topic follows option 2, using
+the environment variables.</source>
+          <target state="new">For the sake of simplicity, this topic follows option 2, using
+the environment variables.</target>
+        </trans-unit>
+        <trans-unit id="c1ecd81d-034d-4747-b37b-3a347ed7f11d" xml:space="preserve">
+          <source>In order to run a Docker Registry instance which:</source>
+          <target state="new">In order to run a Docker Registry instance which:</target>
+        </trans-unit>
+        <trans-unit id="b32db6c5-03d7-4bcc-b4ab-b0f593473925" xml:space="preserve">
+          <source>uses your Azure Storage Account for storing the images</source>
+          <target state="new">uses your Azure Storage Account for storing the images</target>
+        </trans-unit>
+        <trans-unit id="8eb2df61-ef77-4997-a1d3-23d7e1bcbb39" xml:space="preserve">
+          <source>listens on the Virtual Machine's port 5000</source>
+          <target state="new">listens on the Virtual Machine's port 5000</target>
+        </trans-unit>
+        <trans-unit id="0346377f-ee9d-4bdf-8a68-a74144203e8f" xml:space="preserve">
+          <source>has no authentication configured (not recommended, see the note below)</source>
+          <target state="new">has no authentication configured (not recommended, see the note below)</target>
+        </trans-unit>
+        <trans-unit id="b9cd9146-7b52-4db3-8732-d738de10749c" xml:space="preserve">
+          <source>you need to run the following Docker command in your bash
+terminal (replace <bpt id="e507abba-a4f5-44a7-9428-4bd00c4f859e">&lt;code&gt;</bpt>&lt;storage-account&gt;<ept id="e507abba-a4f5-44a7-9428-4bd00c4f859e">&lt;/code&gt;</ept> and <bpt id="b654ef1a-c884-4e5a-990d-df4ff76daed9">&lt;code&gt;</bpt>&lt;storage-key&gt;<ept id="b654ef1a-c884-4e5a-990d-df4ff76daed9">&lt;/code&gt;</ept> 
+with your credentials):</source>
+          <target state="new">you need to run the following Docker command in your bash
+terminal (replace <bpt id="e507abba-a4f5-44a7-9428-4bd00c4f859e">&lt;code&gt;</bpt>&lt;storage-account&gt;<ept id="e507abba-a4f5-44a7-9428-4bd00c4f859e">&lt;/code&gt;</ept> and <bpt id="b654ef1a-c884-4e5a-990d-df4ff76daed9">&lt;code&gt;</bpt>&lt;storage-key&gt;<ept id="b654ef1a-c884-4e5a-990d-df4ff76daed9">&lt;/code&gt;</ept> 
+with your credentials):</target>
+        </trans-unit>
+        <trans-unit id="cdae8bc5-18ef-4645-90c9-19f51c9bfd95" xml:space="preserve">
+          <source>Once the command exits, you can see the container hosting
+your private Docker Registry instance by running the <bpt id="1ad85814-d12a-445c-9eb5-4474e8cd40e4">&lt;code&gt;</bpt>docker ps<ept id="1ad85814-d12a-445c-9eb5-4474e8cd40e4">&lt;/code&gt;</ept>
+command on your host:</source>
+          <target state="new">Once the command exits, you can see the container hosting
+your private Docker Registry instance by running the <bpt id="1ad85814-d12a-445c-9eb5-4474e8cd40e4">&lt;code&gt;</bpt>docker ps<ept id="1ad85814-d12a-445c-9eb5-4474e8cd40e4">&lt;/code&gt;</ept>
+command on your host:</target>
+        </trans-unit>
+        <trans-unit id="4c8e2368-9307-4e56-9c18-76993f8363ab" xml:space="preserve">
+          <source>Configuring security for the Docker Registry
+is not covered in this document and your registry will be accessible
+to anyone without authentication by default if you open up the port to
+the registry port on the Virtual Machine endpoint or load balancer if you
+use the deployment command above.</source>
+          <target state="new">Configuring security for the Docker Registry
+is not covered in this document and your registry will be accessible
+to anyone without authentication by default if you open up the port to
+the registry port on the Virtual Machine endpoint or load balancer if you
+use the deployment command above.</target>
+        </trans-unit>
+        <trans-unit id="599c3b43-9010-43f2-93db-53407c5e419c" xml:space="preserve">
+          <source>Please read the <bpt id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;linkText&gt;</bpt>Configuring Docker
+Registry[registry-config]<ept id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;/linkText&gt;</ept><bpt id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;title&gt;</bpt><ept id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;/title&gt;</ept> documentation to learn how to secure the
+registry instance and your images.</source>
+          <target state="new">Please read the <bpt id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;linkText&gt;</bpt>Configuring Docker
+Registry[registry-config]<ept id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;/linkText&gt;</ept><bpt id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;title&gt;</bpt><ept id="e2166764-2a96-4bf4-9a52-3b5248547b50">&lt;/title&gt;</ept> documentation to learn how to secure the
+registry instance and your images.</target>
+        </trans-unit>
+        <trans-unit id="56ba52c4-6314-44c0-843d-4c481830c430" xml:space="preserve">
+          <source>Once you have your registry set up, it's time to go use it some more.</source>
+          <target state="new">Once you have your registry set up, it's time to go use it some more.</target>
+        </trans-unit>
+        <trans-unit id="a4d5332e-1b69-4de6-9a12-c5e0ff4ba202" xml:space="preserve">
+          <source>Start with the docker [registry-docs].</source>
+          <target state="new">Start with the docker [registry-docs].</target>
+        </trans-unit>
+        <trans-unit id="a6b04826-4c66-4f12-8039-f2451168fb41" xml:space="preserve">
+          <source>https://hub.docker.com/</source>
+          <target state="new">https://hub.docker.com/</target>
+        </trans-unit>
+        <trans-unit id="eddb3175-399c-4397-b7f0-9c9fdc0b44a2" xml:space="preserve">
+          <source>https://github.com/docker/distribution</source>
+          <target state="new">https://github.com/docker/distribution</target>
+        </trans-unit>
+        <trans-unit id="7294bbe5-a2c8-4a12-b036-3c0aad0e41cd" xml:space="preserve">
+          <source>http://docs.docker.com/registry/</source>
+          <target state="new">http://docs.docker.com/registry/</target>
+        </trans-unit>
+        <trans-unit id="fe6ac879-3f3a-40c3-95e8-9f6ad93f7b75" xml:space="preserve">
+          <source>http://docs.docker.com/registry/configuration/</source>
+          <target state="new">http://docs.docker.com/registry/configuration/</target>
+        </trans-unit>
+      </group>
+      <group id="1e7c9fd1-bc40-49fe-a9a9-6291846bdb9b" />
+    </body>
+  </file>
+</xliff>

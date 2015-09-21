@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d28f41a7-eb1f-4315-8255-1c5e8559d92d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d28f41a7-eb1f-4315-8255-1c5e8559d92d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ab89e5e1-9924-468d-b1d2-50f945674265">
+        <trans-unit id="d482ea31-0a43-42e7-a606-8831b1fdc165" xml:space="preserve">
+          <source>How to interpret model results in Machine Learning | Microsoft Azure</source>
+          <target state="new">How to interpret model results in Machine Learning | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8a48911f-fadc-458d-b3f8-4693174ece59" xml:space="preserve">
+          <source>How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs.</source>
+          <target state="new">How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs.</target>
+        </trans-unit>
+        <trans-unit id="c40c9e47-d732-4c70-b207-2a2185455107" xml:space="preserve">
+          <source><bpt id="a9f67de7-2620-4095-9510-1605efb31cfa">&lt;strong&gt;</bpt>Understanding &amp; Visualizing 'Score Model' Output<ept id="a9f67de7-2620-4095-9510-1605efb31cfa">&lt;/strong&gt;</ept>
+This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained.</source>
+          <target state="new"><bpt id="a9f67de7-2620-4095-9510-1605efb31cfa">&lt;strong&gt;</bpt>Understanding &amp; Visualizing 'Score Model' Output<ept id="a9f67de7-2620-4095-9510-1605efb31cfa">&lt;/strong&gt;</ept>
+This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained.</target>
+        </trans-unit>
+        <trans-unit id="57f87c02-8604-42a3-b0e5-5f0f66259913" xml:space="preserve">
+          <source><bpt id="e94d5e8c-f334-4928-940e-46e44693a5a2">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="e94d5e8c-f334-4928-940e-46e44693a5a2">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="e94d5e8c-f334-4928-940e-46e44693a5a2">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="e94d5e8c-f334-4928-940e-46e44693a5a2">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="42407a7b-8616-4a4c-b893-dd3ed18e2c88" xml:space="preserve">
+          <source>There are four major kinds of machine learning models in Azure Machine Learning: </source>
+          <target state="new">There are four major kinds of machine learning models in Azure Machine Learning: </target>
+        </trans-unit>
+        <trans-unit id="9680cbae-3ad6-4328-8f33-9bf2afc32353" xml:space="preserve">
+          <source>classification</source>
+          <target state="new">classification</target>
+        </trans-unit>
+        <trans-unit id="9c83323a-c19c-4880-94b6-bf6cb185c0a8" xml:space="preserve">
+          <source>clustering</source>
+          <target state="new">clustering</target>
+        </trans-unit>
+        <trans-unit id="d4c0fafe-38ba-4880-a971-1acedc8ccad1" xml:space="preserve">
+          <source>regression</source>
+          <target state="new">regression</target>
+        </trans-unit>
+        <trans-unit id="a7c60b13-8af2-47fb-aa4d-f501659e6009" xml:space="preserve">
+          <source>recommender systems</source>
+          <target state="new">recommender systems</target>
+        </trans-unit>
+        <trans-unit id="95a7e5f7-3ea9-442e-acf0-b8b9fd5a1395" xml:space="preserve">
+          <source>The modules used do prediction on top of these modules, called "scoring" them, given some test data, are:</source>
+          <target state="new">The modules used do prediction on top of these modules, called "scoring" them, given some test data, are:</target>
+        </trans-unit>
+        <trans-unit id="6a2eece1-3352-452f-bc9c-79267b1f1e64" xml:space="preserve">
+          <source><bpt id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;/linkText&gt;</ept><bpt id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;title&gt;</bpt><ept id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;/title&gt;</ept> module for classification and regression, </source>
+          <target state="new"><bpt id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;/linkText&gt;</ept><bpt id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;title&gt;</bpt><ept id="32b5be4f-757f-4500-9cc0-ae4cdd0a51f7">&lt;/title&gt;</ept> module for classification and regression, </target>
+        </trans-unit>
+        <trans-unit id="750ac31c-d88b-4036-82c3-f304e2c82ab0" xml:space="preserve">
+          <source><bpt id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;linkText&gt;</bpt>Assign to Clusters[assign-to-clusters]<ept id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;/linkText&gt;</ept><bpt id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;title&gt;</bpt><ept id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;/title&gt;</ept> module for clustering </source>
+          <target state="new"><bpt id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;linkText&gt;</bpt>Assign to Clusters[assign-to-clusters]<ept id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;/linkText&gt;</ept><bpt id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;title&gt;</bpt><ept id="73d0af90-f3b5-43d2-84c8-a89d8e544c0d">&lt;/title&gt;</ept> module for clustering </target>
+        </trans-unit>
+        <trans-unit id="76521e90-05b5-4afa-9972-525eb1fcebf9" xml:space="preserve">
+          <source><bpt id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;/linkText&gt;</ept><bpt id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;title&gt;</bpt><ept id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;/title&gt;</ept> for recommendation systems </source>
+          <target state="new"><bpt id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;/linkText&gt;</ept><bpt id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;title&gt;</bpt><ept id="ee3a0bbb-8fee-4de3-8f5d-4bc81114f5cf">&lt;/title&gt;</ept> for recommendation systems </target>
+        </trans-unit>
+        <trans-unit id="cadd154a-f3c8-4252-a104-7744d86a5e78" xml:space="preserve">
+          <source>This document explains how to interpret prediction results for each of these modules.</source>
+          <target state="new">This document explains how to interpret prediction results for each of these modules.</target>
+        </trans-unit>
+        <trans-unit id="330427ce-70d5-457e-bc42-18b8f28d5c39" xml:space="preserve">
+          <source>For an overview of these kinds of models, see <bpt id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;linkText&gt;</bpt>How to choose parameters to optimize your algorithms in Azure Machine Learning<ept id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;/linkText&gt;</ept><bpt id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;title&gt;</bpt><ept id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an overview of these kinds of models, see <bpt id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;linkText&gt;</bpt>How to choose parameters to optimize your algorithms in Azure Machine Learning<ept id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;/linkText&gt;</ept><bpt id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;title&gt;</bpt><ept id="2f9e4b7c-3988-43e4-80a1-06bc1e449107">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84df04d6-cef8-41fa-981f-1ed78ad2d695" xml:space="preserve">
+          <source>This topic addresses prediction interpretation but not model evaluation.</source>
+          <target state="new">This topic addresses prediction interpretation but not model evaluation.</target>
+        </trans-unit>
+        <trans-unit id="202a4ecc-81dd-4891-a71f-366f59ab2f89" xml:space="preserve">
+          <source>For more information on how to evaluate your model, please refer to <bpt id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;linkText&gt;</bpt>How to evaluate model performance in Azure Machine Learning<ept id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;/linkText&gt;</ept><bpt id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;title&gt;</bpt><ept id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on how to evaluate your model, please refer to <bpt id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;linkText&gt;</bpt>How to evaluate model performance in Azure Machine Learning<ept id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;/linkText&gt;</ept><bpt id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;title&gt;</bpt><ept id="ff94d707-fd51-4976-bc7b-d7aaf829985f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ce9bf87-c9c7-4661-a531-d40d0c856f9b" xml:space="preserve">
+          <source>If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see <bpt id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;linkText&gt;</bpt>Create a simple experiment in Azure Machine Learning Studio<ept id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;/linkText&gt;</ept><bpt id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;title&gt;</bpt><ept id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;/title&gt;</ept> in the Azure Machine Learning Studio.</source>
+          <target state="new">If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see <bpt id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;linkText&gt;</bpt>Create a simple experiment in Azure Machine Learning Studio<ept id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;/linkText&gt;</ept><bpt id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;title&gt;</bpt><ept id="45fb6870-8b2f-44b5-85dd-d427d0561d99">&lt;/title&gt;</ept> in the Azure Machine Learning Studio.</target>
+        </trans-unit>
+        <trans-unit id="29b01b96-95c3-4f26-ae02-106b3af02af5" xml:space="preserve">
+          <source>There are two sub-categories of classification problems: </source>
+          <target state="new">There are two sub-categories of classification problems: </target>
+        </trans-unit>
+        <trans-unit id="f254029c-a34c-4d78-ad42-c40f3f452547" xml:space="preserve">
+          <source>problems with only two classes (two-class or binary classification) </source>
+          <target state="new">problems with only two classes (two-class or binary classification) </target>
+        </trans-unit>
+        <trans-unit id="7ec5c46f-1631-43e2-9f56-6dbe20ed3f92" xml:space="preserve">
+          <source>problems with more than two classes (multi-class classification) </source>
+          <target state="new">problems with more than two classes (multi-class classification) </target>
+        </trans-unit>
+        <trans-unit id="49c8a6aa-e1f0-46c3-8ea0-78e266188839" xml:space="preserve">
+          <source>Azure Machine Learning has different modules to deal with each of these types of classification.</source>
+          <target state="new">Azure Machine Learning has different modules to deal with each of these types of classification.</target>
+        </trans-unit>
+        <trans-unit id="0b3a7017-82c1-45aa-a0c6-0197e419574d" xml:space="preserve">
+          <source>But the ways to interpret their prediction results are very similar.</source>
+          <target state="new">But the ways to interpret their prediction results are very similar.</target>
+        </trans-unit>
+        <trans-unit id="fe4e4931-e3b4-43fd-bd64-e37ac0403f61" xml:space="preserve">
+          <source>We will talk about two-class classification problems first, and then address multi-class classification problems.</source>
+          <target state="new">We will talk about two-class classification problems first, and then address multi-class classification problems.</target>
+        </trans-unit>
+        <trans-unit id="2718cf5d-45a0-48a8-88f3-89b41f827ea2" xml:space="preserve">
+          <source><bpt id="ec382d40-6d99-4cd1-9688-eb750b433049">&lt;strong&gt;</bpt>Example experiment<ept id="ec382d40-6d99-4cd1-9688-eb750b433049">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ec382d40-6d99-4cd1-9688-eb750b433049">&lt;strong&gt;</bpt>Example experiment<ept id="ec382d40-6d99-4cd1-9688-eb750b433049">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="92ac5701-49a4-43fa-b8f3-07d733d52c81" xml:space="preserve">
+          <source>An example of two-class classification problem is the classification of Iris flowers: the task is to classify Iris flowers based on their features.</source>
+          <target state="new">An example of two-class classification problem is the classification of Iris flowers: the task is to classify Iris flowers based on their features.</target>
+        </trans-unit>
+        <trans-unit id="b1e0feed-09ac-46c5-9ee2-6ee17a5f2f86" xml:space="preserve">
+          <source>Note that the Iris dataset provided in Azure Machine Learning is a subset of the popular [Iris dataset](http://en.wikipedia.org/wiki/Iris<bpt id="4e4330b3-4eab-4ce4-a789-e91c584ba9ab">&lt;em&gt;</bpt>flower<ept id="4e4330b3-4eab-4ce4-a789-e91c584ba9ab">&lt;/em&gt;</ept>data_set) containing instances of only 2 flower species (classes 0 and 1).</source>
+          <target state="new">Note that the Iris dataset provided in Azure Machine Learning is a subset of the popular [Iris dataset](http://en.wikipedia.org/wiki/Iris<bpt id="4e4330b3-4eab-4ce4-a789-e91c584ba9ab">&lt;em&gt;</bpt>flower<ept id="4e4330b3-4eab-4ce4-a789-e91c584ba9ab">&lt;/em&gt;</ept>data_set) containing instances of only 2 flower species (classes 0 and 1).</target>
+        </trans-unit>
+        <trans-unit id="e0a9fa97-a433-4693-b1ef-c26373c153f0" xml:space="preserve">
+          <source>There are four features for each flower (sepal length, sepal width, petal length and petal width).</source>
+          <target state="new">There are four features for each flower (sepal length, sepal width, petal length and petal width).</target>
+        </trans-unit>
+        <trans-unit id="6f024839-511b-4618-918c-4f2a5b4d8554" xml:space="preserve">
+          <source><bpt id="07d5b956-3bec-4c0d-b380-30e8a7763e6e">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="07d5b956-3bec-4c0d-b380-30e8a7763e6e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07d5b956-3bec-4c0d-b380-30e8a7763e6e">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="07d5b956-3bec-4c0d-b380-30e8a7763e6e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0f197a5-8240-4d1a-8607-2adb92be1165" xml:space="preserve">
+          <source>Figure 1 Experiment of Iris Two-Class Classification Problem</source>
+          <target state="new">Figure 1 Experiment of Iris Two-Class Classification Problem</target>
+        </trans-unit>
+        <trans-unit id="9898188f-ae38-4b2c-8def-d8bd80983f91" xml:space="preserve">
+          <source>An experiment has been performed to solve this problem, as shown in Figure 1.</source>
+          <target state="new">An experiment has been performed to solve this problem, as shown in Figure 1.</target>
+        </trans-unit>
+        <trans-unit id="f836dd0d-d520-44c1-9e8f-ff7160287443" xml:space="preserve">
+          <source>A two-class boosted decision tree model has been trained and scored.</source>
+          <target state="new">A two-class boosted decision tree model has been trained and scored.</target>
+        </trans-unit>
+        <trans-unit id="5d7afdc3-3f7c-4e36-a696-cc9cc931b344" xml:space="preserve">
+          <source>Now we can visualize the prediction results from <bpt id="d6e34655-6229-426c-90e2-728d694b3283">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="d6e34655-6229-426c-90e2-728d694b3283">&lt;/linkText&gt;</ept><bpt id="d6e34655-6229-426c-90e2-728d694b3283">&lt;title&gt;</bpt><ept id="d6e34655-6229-426c-90e2-728d694b3283">&lt;/title&gt;</ept> module by clicking on the output port of <bpt id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;/linkText&gt;</ept><bpt id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;title&gt;</bpt><ept id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;/title&gt;</ept> module and then clicking on <bpt id="2675c7af-079d-48b0-b542-a21cecae17d0">&lt;strong&gt;</bpt>Visualize<ept id="2675c7af-079d-48b0-b542-a21cecae17d0">&lt;/strong&gt;</ept> in the appeared menu.</source>
+          <target state="new">Now we can visualize the prediction results from <bpt id="d6e34655-6229-426c-90e2-728d694b3283">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="d6e34655-6229-426c-90e2-728d694b3283">&lt;/linkText&gt;</ept><bpt id="d6e34655-6229-426c-90e2-728d694b3283">&lt;title&gt;</bpt><ept id="d6e34655-6229-426c-90e2-728d694b3283">&lt;/title&gt;</ept> module by clicking on the output port of <bpt id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;/linkText&gt;</ept><bpt id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;title&gt;</bpt><ept id="a830de12-0598-46fa-abf8-447ea24ff2f5">&lt;/title&gt;</ept> module and then clicking on <bpt id="2675c7af-079d-48b0-b542-a21cecae17d0">&lt;strong&gt;</bpt>Visualize<ept id="2675c7af-079d-48b0-b542-a21cecae17d0">&lt;/strong&gt;</ept> in the appeared menu.</target>
+        </trans-unit>
+        <trans-unit id="ca7b24be-9632-4774-a449-f098db4eed35" xml:space="preserve">
+          <source>This will bring up the scoring results as shown in Figure 2.</source>
+          <target state="new">This will bring up the scoring results as shown in Figure 2.</target>
+        </trans-unit>
+        <trans-unit id="0bdf0eb6-0c13-47bc-92b0-49e6394522d2" xml:space="preserve">
+          <source><bpt id="9e2499d5-d176-4b79-9467-d48626702ad4">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="9e2499d5-d176-4b79-9467-d48626702ad4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9e2499d5-d176-4b79-9467-d48626702ad4">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="9e2499d5-d176-4b79-9467-d48626702ad4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="949fa072-6838-408d-8843-477e8d171e7c" xml:space="preserve">
+          <source><bpt id="b1983065-f0fc-4b2c-b29c-b6bb80e729fa">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="b1983065-f0fc-4b2c-b29c-b6bb80e729fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b1983065-f0fc-4b2c-b29c-b6bb80e729fa">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="b1983065-f0fc-4b2c-b29c-b6bb80e729fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b92740b-66b1-4014-9c77-37d4a8c9965c" xml:space="preserve">
+          <source>Figure 2 Visualize Score Model Result in Two-Class Classification</source>
+          <target state="new">Figure 2 Visualize Score Model Result in Two-Class Classification</target>
+        </trans-unit>
+        <trans-unit id="20f9e177-e77c-47cc-be31-6b75e8ea9adf" xml:space="preserve">
+          <source><bpt id="677fb88a-80c0-419d-b8f6-ac68dd908c37">&lt;strong&gt;</bpt>Result interpretation<ept id="677fb88a-80c0-419d-b8f6-ac68dd908c37">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="677fb88a-80c0-419d-b8f6-ac68dd908c37">&lt;strong&gt;</bpt>Result interpretation<ept id="677fb88a-80c0-419d-b8f6-ac68dd908c37">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf635c24-a08b-4954-bf4a-b6ad6de01b5b" xml:space="preserve">
+          <source>There are six columns in the results table.</source>
+          <target state="new">There are six columns in the results table.</target>
+        </trans-unit>
+        <trans-unit id="2a83663d-77ca-4c5c-808c-65048f7c0dba" xml:space="preserve">
+          <source>The left four columns are the four features.</source>
+          <target state="new">The left four columns are the four features.</target>
+        </trans-unit>
+        <trans-unit id="3abe30df-e897-4c77-b60c-2e8a4f34dbea" xml:space="preserve">
+          <source>The right two columns, Scored Labels and Scored Probabilities are the prediction results.</source>
+          <target state="new">The right two columns, Scored Labels and Scored Probabilities are the prediction results.</target>
+        </trans-unit>
+        <trans-unit id="848ebcc1-d279-41a2-9b4b-93073d91bf8a" xml:space="preserve">
+          <source>The Scored Probabilities column shows the probability that a flower belongs to the positive class (class 1).</source>
+          <target state="new">The Scored Probabilities column shows the probability that a flower belongs to the positive class (class 1).</target>
+        </trans-unit>
+        <trans-unit id="b7735130-331d-4cb4-b4e8-477c24bd6937" xml:space="preserve">
+          <source>For example, the first number 0.028571 in the column means there is 0.028571 probability that the first flower belongs to class 1.</source>
+          <target state="new">For example, the first number 0.028571 in the column means there is 0.028571 probability that the first flower belongs to class 1.</target>
+        </trans-unit>
+        <trans-unit id="a1dd937a-afe0-453f-b474-90ca139d9370" xml:space="preserve">
+          <source>The Scored Labels column shows the predicted class for each flower.</source>
+          <target state="new">The Scored Labels column shows the predicted class for each flower.</target>
+        </trans-unit>
+        <trans-unit id="38175375-4b32-46d7-82e7-4e2ac425c06a" xml:space="preserve">
+          <source>This is based on the Scored Probabilities column.</source>
+          <target state="new">This is based on the Scored Probabilities column.</target>
+        </trans-unit>
+        <trans-unit id="8ea605f4-3b03-4e9d-9b7f-6b30bc9b46bc" xml:space="preserve">
+          <source>If the scored probability of a flower is larger than 0.5, it is predicted as class 1, otherwise, it is predicted as class 0.</source>
+          <target state="new">If the scored probability of a flower is larger than 0.5, it is predicted as class 1, otherwise, it is predicted as class 0.</target>
+        </trans-unit>
+        <trans-unit id="efcadcab-8876-4b6f-80aa-c81bdcf02e83" xml:space="preserve">
+          <source><bpt id="b914c063-ad7a-4923-99c9-d25a2a722a5e">&lt;strong&gt;</bpt>Web service publication<ept id="b914c063-ad7a-4923-99c9-d25a2a722a5e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b914c063-ad7a-4923-99c9-d25a2a722a5e">&lt;strong&gt;</bpt>Web service publication<ept id="b914c063-ad7a-4923-99c9-d25a2a722a5e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae3775cb-8cc3-444b-8071-6c0001c6ccda" xml:space="preserve">
+          <source>Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower.</source>
+          <target state="new">Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower.</target>
+        </trans-unit>
+        <trans-unit id="1c6ff508-29da-47d4-9b2d-2022efed8734" xml:space="preserve">
+          <source>For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see <bpt id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;linkText&gt;</bpt>Publish the Azure Machine Learning web service<ept id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;/linkText&gt;</ept><bpt id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;title&gt;</bpt><ept id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see <bpt id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;linkText&gt;</bpt>Publish the Azure Machine Learning web service<ept id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;/linkText&gt;</ept><bpt id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;title&gt;</bpt><ept id="6f0807b0-8a78-4217-9fa2-3716caef1abc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e85508d-69c7-4d51-a881-908ea06cf649" xml:space="preserve">
+          <source>Following this procedure provides you with a scoring experiment as shown in Figure 3.</source>
+          <target state="new">Following this procedure provides you with a scoring experiment as shown in Figure 3.</target>
+        </trans-unit>
+        <trans-unit id="c4cc1d52-b960-485c-96c8-bce2307b4f59" xml:space="preserve">
+          <source><bpt id="1d77661d-c78e-4d8a-851e-6a88fd01e7f2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="1d77661d-c78e-4d8a-851e-6a88fd01e7f2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1d77661d-c78e-4d8a-851e-6a88fd01e7f2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="1d77661d-c78e-4d8a-851e-6a88fd01e7f2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="18876a07-09ef-4edb-9763-f87bca91020f" xml:space="preserve">
+          <source>Figure 3 Scoring Experiment of Iris Two-Class Classification Problem</source>
+          <target state="new">Figure 3 Scoring Experiment of Iris Two-Class Classification Problem</target>
+        </trans-unit>
+        <trans-unit id="b63167c6-67cc-41c6-96fa-fe4cad33138a" xml:space="preserve">
+          <source>Now we need to set the input and output for the web service.</source>
+          <target state="new">Now we need to set the input and output for the web service.</target>
+        </trans-unit>
+        <trans-unit id="95998769-f1aa-42b0-8a22-b81788fc3bac" xml:space="preserve">
+          <source>Obviously, the input is the right input port of <bpt id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;/linkText&gt;</ept><bpt id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;title&gt;</bpt><ept id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;/title&gt;</ept>, which is the Iris flower features input.</source>
+          <target state="new">Obviously, the input is the right input port of <bpt id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;/linkText&gt;</ept><bpt id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;title&gt;</bpt><ept id="00dfd815-a1d2-4e2d-b416-15e91c2b1f86">&lt;/title&gt;</ept>, which is the Iris flower features input.</target>
+        </trans-unit>
+        <trans-unit id="49922ff2-1d27-492f-8d6a-fd372a7163e5" xml:space="preserve">
+          <source>The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both.</source>
+          <target state="new">The choice of the output depends on whether we are interested in the predicted class (scored label), the scored probability, or both.</target>
+        </trans-unit>
+        <trans-unit id="df389ddc-954e-4780-b2c2-8f391054fd8d" xml:space="preserve">
+          <source>Here,  it is assumed that we are interested in both.</source>
+          <target state="new">Here,  it is assumed that we are interested in both.</target>
+        </trans-unit>
+        <trans-unit id="25e052ab-2aa5-415b-9f87-33cad53a9d0d" xml:space="preserve">
+          <source>To select the desired output columns, we need to use a <bpt id="8302377a-2b29-4831-98de-38d558877da4">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="8302377a-2b29-4831-98de-38d558877da4">&lt;/linkText&gt;</ept><bpt id="8302377a-2b29-4831-98de-38d558877da4">&lt;title&gt;</bpt><ept id="8302377a-2b29-4831-98de-38d558877da4">&lt;/title&gt;</ept> module.</source>
+          <target state="new">To select the desired output columns, we need to use a <bpt id="8302377a-2b29-4831-98de-38d558877da4">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="8302377a-2b29-4831-98de-38d558877da4">&lt;/linkText&gt;</ept><bpt id="8302377a-2b29-4831-98de-38d558877da4">&lt;title&gt;</bpt><ept id="8302377a-2b29-4831-98de-38d558877da4">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="94137c07-3473-4b9e-8802-195dd9c79b28" xml:space="preserve">
+          <source>We click on <bpt id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;/linkText&gt;</ept><bpt id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;title&gt;</bpt><ept id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;/title&gt;</ept> module, click on <bpt id="77d68631-c213-4238-b05d-48084e447601">&lt;strong&gt;</bpt>Launch column selector<ept id="77d68631-c213-4238-b05d-48084e447601">&lt;/strong&gt;</ept> in the right panel, and select <bpt id="26bb379c-d11a-4a7b-bddc-b68eb804faa1">&lt;strong&gt;</bpt>Scored Labels<ept id="26bb379c-d11a-4a7b-bddc-b68eb804faa1">&lt;/strong&gt;</ept> and <bpt id="8dc5cead-aacc-474b-a113-095d918986e5">&lt;strong&gt;</bpt>Scored Probabilities<ept id="8dc5cead-aacc-474b-a113-095d918986e5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">We click on <bpt id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;/linkText&gt;</ept><bpt id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;title&gt;</bpt><ept id="d6ee2139-73e0-4c30-8b06-9fdba62a4e79">&lt;/title&gt;</ept> module, click on <bpt id="77d68631-c213-4238-b05d-48084e447601">&lt;strong&gt;</bpt>Launch column selector<ept id="77d68631-c213-4238-b05d-48084e447601">&lt;/strong&gt;</ept> in the right panel, and select <bpt id="26bb379c-d11a-4a7b-bddc-b68eb804faa1">&lt;strong&gt;</bpt>Scored Labels<ept id="26bb379c-d11a-4a7b-bddc-b68eb804faa1">&lt;/strong&gt;</ept> and <bpt id="8dc5cead-aacc-474b-a113-095d918986e5">&lt;strong&gt;</bpt>Scored Probabilities<ept id="8dc5cead-aacc-474b-a113-095d918986e5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17bf942d-0796-47c3-ac00-b5edd0dd0bc9" xml:space="preserve">
+          <source>After setting the output port of <bpt id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;/linkText&gt;</ept><bpt id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;title&gt;</bpt><ept id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;/title&gt;</ept> module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on <bpt id="34b2f5b1-67a0-4fb7-a821-c7e7768ebd96">&lt;strong&gt;</bpt>PUBLISH WEB SERVICE<ept id="34b2f5b1-67a0-4fb7-a821-c7e7768ebd96">&lt;/strong&gt;</ept> button at the bottom.</source>
+          <target state="new">After setting the output port of <bpt id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;/linkText&gt;</ept><bpt id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;title&gt;</bpt><ept id="6d200789-f60d-4d6a-8cdc-f70bea6b4feb">&lt;/title&gt;</ept> module and running it again, we should be ready to publish the scoring experiment as a web service by clicking on <bpt id="34b2f5b1-67a0-4fb7-a821-c7e7768ebd96">&lt;strong&gt;</bpt>PUBLISH WEB SERVICE<ept id="34b2f5b1-67a0-4fb7-a821-c7e7768ebd96">&lt;/strong&gt;</ept> button at the bottom.</target>
+        </trans-unit>
+        <trans-unit id="6ad04345-54a0-4efe-b5e5-b9f724874ba3" xml:space="preserve">
+          <source>The final experiment looks like Figure 4.</source>
+          <target state="new">The final experiment looks like Figure 4.</target>
+        </trans-unit>
+        <trans-unit id="78a2a807-7f24-46b8-bbb3-e7e7a3df4836" xml:space="preserve">
+          <source><bpt id="6ef90fe4-082d-486a-a0b8-c187050f42ee">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="6ef90fe4-082d-486a-a0b8-c187050f42ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ef90fe4-082d-486a-a0b8-c187050f42ee">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="6ef90fe4-082d-486a-a0b8-c187050f42ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb73cdb2-41da-45a8-9e9d-66df707459e8" xml:space="preserve">
+          <source>Figure 4 Final Scoring Experiment of Iris Two-Class Classification Problem</source>
+          <target state="new">Figure 4 Final Scoring Experiment of Iris Two-Class Classification Problem</target>
+        </trans-unit>
+        <trans-unit id="52f32209-d637-4c83-aa22-fc9c16625e33" xml:space="preserve">
+          <source>After running the web service, and entering some feature values of a test instance, the returned result returns two numbers.</source>
+          <target state="new">After running the web service, and entering some feature values of a test instance, the returned result returns two numbers.</target>
+        </trans-unit>
+        <trans-unit id="2ebd93cb-2158-4cf1-ba90-6e958701dd69" xml:space="preserve">
+          <source>The first number is the scored label, the second is the scored probability.</source>
+          <target state="new">The first number is the scored label, the second is the scored probability.</target>
+        </trans-unit>
+        <trans-unit id="93eaf08d-af68-4ef1-84a2-7a72db1367f2" xml:space="preserve">
+          <source>This flower is predicted as class 1 with 0.9655 probability.</source>
+          <target state="new">This flower is predicted as class 1 with 0.9655 probability.</target>
+        </trans-unit>
+        <trans-unit id="61850d1a-7666-4f40-b265-25c352b9da86" xml:space="preserve">
+          <source><bpt id="7a9d2e54-d8ff-4e8f-8455-1839e95dfbbf">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="7a9d2e54-d8ff-4e8f-8455-1839e95dfbbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7a9d2e54-d8ff-4e8f-8455-1839e95dfbbf">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="7a9d2e54-d8ff-4e8f-8455-1839e95dfbbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a2de8c7-f3c8-48f0-8e35-835d48f65a6c" xml:space="preserve">
+          <source><bpt id="49bd9460-c4e9-4ec3-833a-8eef522740d0">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="49bd9460-c4e9-4ec3-833a-8eef522740d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49bd9460-c4e9-4ec3-833a-8eef522740d0">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="49bd9460-c4e9-4ec3-833a-8eef522740d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47765784-4acf-4e6d-9eaa-77936ba316a4" xml:space="preserve">
+          <source>Figure 5 Web Service Result of Iris Two-Class Classification</source>
+          <target state="new">Figure 5 Web Service Result of Iris Two-Class Classification</target>
+        </trans-unit>
+        <trans-unit id="5f9399b9-13e4-4301-b497-b5d18d4bc4f0" xml:space="preserve">
+          <source><bpt id="007388d7-bb18-4e5e-b285-49fd1337d293">&lt;strong&gt;</bpt>Example experiment<ept id="007388d7-bb18-4e5e-b285-49fd1337d293">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="007388d7-bb18-4e5e-b285-49fd1337d293">&lt;strong&gt;</bpt>Example experiment<ept id="007388d7-bb18-4e5e-b285-49fd1337d293">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9ccf079-b75b-44fb-98d5-e1ac7fbd9a20" xml:space="preserve">
+          <source>In this experiment we will perform a letter recognition task as an example of multi-class classification.</source>
+          <target state="new">In this experiment we will perform a letter recognition task as an example of multi-class classification.</target>
+        </trans-unit>
+        <trans-unit id="349a2639-2dfa-496c-a8f0-a2bad529ad03" xml:space="preserve">
+          <source>The classifier will attempt to predict a certain letter (class), given some hand-written attribute values extracted from the hand-written images.</source>
+          <target state="new">The classifier will attempt to predict a certain letter (class), given some hand-written attribute values extracted from the hand-written images.</target>
+        </trans-unit>
+        <trans-unit id="5344bdf5-df36-48a3-a0c1-e69d6eae11c6" xml:space="preserve">
+          <source>In the training data, there are sixteen features extracted from hand-written letter images.</source>
+          <target state="new">In the training data, there are sixteen features extracted from hand-written letter images.</target>
+        </trans-unit>
+        <trans-unit id="b3fb9e6a-cb73-4d78-9619-bb439ab336c7" xml:space="preserve">
+          <source>The twenty-six letters form our twenty-six classes.</source>
+          <target state="new">The twenty-six letters form our twenty-six classes.</target>
+        </trans-unit>
+        <trans-unit id="9730458e-674e-4d4b-9672-26b85dba8e5e" xml:space="preserve">
+          <source>An experiment has been set up to train a multi-class classification model for letter recognition and predict on the same feature set on a test dataset, as shown in Figure 6.</source>
+          <target state="new">An experiment has been set up to train a multi-class classification model for letter recognition and predict on the same feature set on a test dataset, as shown in Figure 6.</target>
+        </trans-unit>
+        <trans-unit id="5f3e17a4-12aa-4b18-ae8a-8f5cafa690d6" xml:space="preserve">
+          <source><bpt id="0d5f67ba-a082-43bd-bc4a-3ca402db1d87">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0d5f67ba-a082-43bd-bc4a-3ca402db1d87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d5f67ba-a082-43bd-bc4a-3ca402db1d87">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0d5f67ba-a082-43bd-bc4a-3ca402db1d87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aaf37619-e80e-4dcb-b707-b05f5d229c69" xml:space="preserve">
+          <source><bpt id="15b5fc29-a37e-4798-a2cf-cf96c66a3e92">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="15b5fc29-a37e-4798-a2cf-cf96c66a3e92">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="15b5fc29-a37e-4798-a2cf-cf96c66a3e92">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="15b5fc29-a37e-4798-a2cf-cf96c66a3e92">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4c2237c-13b0-48b0-b384-e2635b444eb0" xml:space="preserve">
+          <source>Figure 6 Experiment of Letter Recognition Multi-Class Classification Problem</source>
+          <target state="new">Figure 6 Experiment of Letter Recognition Multi-Class Classification Problem</target>
+        </trans-unit>
+        <trans-unit id="fdd0d12b-ed2a-48a1-ba2e-b1566aef4614" xml:space="preserve">
+          <source>Visualizing the results from <bpt id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;/linkText&gt;</ept><bpt id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;title&gt;</bpt><ept id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;/title&gt;</ept> module by right/left clicking on the output port of <bpt id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;/linkText&gt;</ept><bpt id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;title&gt;</bpt><ept id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;/title&gt;</ept> module and then clicking <bpt id="cc06ce94-9ad2-413a-b24e-ba413c2079ec">&lt;strong&gt;</bpt>Visualize<ept id="cc06ce94-9ad2-413a-b24e-ba413c2079ec">&lt;/strong&gt;</ept>, you should see a window as in Figure 7.</source>
+          <target state="new">Visualizing the results from <bpt id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;/linkText&gt;</ept><bpt id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;title&gt;</bpt><ept id="430aa030-5ca0-4660-a29c-9c88fb02bbcd">&lt;/title&gt;</ept> module by right/left clicking on the output port of <bpt id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;/linkText&gt;</ept><bpt id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;title&gt;</bpt><ept id="5d6359bd-f82d-4072-8635-3e999f56faf1">&lt;/title&gt;</ept> module and then clicking <bpt id="cc06ce94-9ad2-413a-b24e-ba413c2079ec">&lt;strong&gt;</bpt>Visualize<ept id="cc06ce94-9ad2-413a-b24e-ba413c2079ec">&lt;/strong&gt;</ept>, you should see a window as in Figure 7.</target>
+        </trans-unit>
+        <trans-unit id="262017c0-3a6e-43b4-9331-1996ca0b5df2" xml:space="preserve">
+          <source><bpt id="f8ec2b33-d46a-4bdc-98cd-ccf2debb9531">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f8ec2b33-d46a-4bdc-98cd-ccf2debb9531">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8ec2b33-d46a-4bdc-98cd-ccf2debb9531">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f8ec2b33-d46a-4bdc-98cd-ccf2debb9531">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82488d41-34bd-4bea-956e-50a851422f58" xml:space="preserve">
+          <source>Figure 7 Visualize Score Model Result in Multi-Class Classification</source>
+          <target state="new">Figure 7 Visualize Score Model Result in Multi-Class Classification</target>
+        </trans-unit>
+        <trans-unit id="235597a6-8176-4972-a75e-494d6afbf5ca" xml:space="preserve">
+          <source><bpt id="5f6b7c97-d9b0-4acb-bfd3-3c0f1ae2549d">&lt;strong&gt;</bpt>Result interpretation<ept id="5f6b7c97-d9b0-4acb-bfd3-3c0f1ae2549d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5f6b7c97-d9b0-4acb-bfd3-3c0f1ae2549d">&lt;strong&gt;</bpt>Result interpretation<ept id="5f6b7c97-d9b0-4acb-bfd3-3c0f1ae2549d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71f34829-4515-4551-a1b9-c7c48d0253b8" xml:space="preserve">
+          <source>The left sixteen columns represent the feature values of the test set.</source>
+          <target state="new">The left sixteen columns represent the feature values of the test set.</target>
+        </trans-unit>
+        <trans-unit id="32c1c057-4c2d-44de-b8b5-cca419cac28d" xml:space="preserve">
+          <source>The columns with names Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case.</source>
+          <target state="new">The columns with names Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case.</target>
+        </trans-unit>
+        <trans-unit id="9f9d6755-fa2d-4656-b37e-b2bb31052ffd" xml:space="preserve">
+          <source>They show the probability that the corresponding entry falls into a certain class.</source>
+          <target state="new">They show the probability that the corresponding entry falls into a certain class.</target>
+        </trans-unit>
+        <trans-unit id="d99af5f8-77eb-46da-9c01-248091b632d3" xml:space="preserve">
+          <source>For example, for the first entry, there is 0.003571 probability that it is an “A”, 0.000451 probability that it is a “B”, so on and so forth.</source>
+          <target state="new">For example, for the first entry, there is 0.003571 probability that it is an “A”, 0.000451 probability that it is a “B”, so on and so forth.</target>
+        </trans-unit>
+        <trans-unit id="994dc2c2-4682-4289-b961-47d94649e7f5" xml:space="preserve">
+          <source>The last column Scored Labels is the same as Scored Labels in the two-class case.</source>
+          <target state="new">The last column Scored Labels is the same as Scored Labels in the two-class case.</target>
+        </trans-unit>
+        <trans-unit id="f7c83d42-cbc4-4139-bc38-5f036f01954a" xml:space="preserve">
+          <source>It selects the class with the largest scored probability as the predicted class of the corresponding entry.</source>
+          <target state="new">It selects the class with the largest scored probability as the predicted class of the corresponding entry.</target>
+        </trans-unit>
+        <trans-unit id="149b4942-2c23-4d99-8474-173a8f4d80f9" xml:space="preserve">
+          <source>For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).</source>
+          <target state="new">For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).</target>
+        </trans-unit>
+        <trans-unit id="fe5bf129-6570-43d5-803a-67143945c370" xml:space="preserve">
+          <source><bpt id="934ac0ad-3703-492b-9f6a-30200c62b72e">&lt;strong&gt;</bpt>Web service publication<ept id="934ac0ad-3703-492b-9f6a-30200c62b72e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="934ac0ad-3703-492b-9f6a-30200c62b72e">&lt;strong&gt;</bpt>Web service publication<ept id="934ac0ad-3703-492b-9f6a-30200c62b72e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afc71295-acb1-4098-a8f7-0fb40972ccbe" xml:space="preserve">
+          <source>This time, instead of using <bpt id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;/linkText&gt;</ept><bpt id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;title&gt;</bpt><ept id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;/title&gt;</ept> to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label.</source>
+          <target state="new">This time, instead of using <bpt id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;linkText&gt;</bpt>Project Columns[project-columns]<ept id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;/linkText&gt;</ept><bpt id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;title&gt;</bpt><ept id="be4120a0-34eb-4f6d-b159-3648cbb345a0">&lt;/title&gt;</ept> to select some columns as the output of our web service, we would like to get the scored label for each entry and the probability of the scored label.</target>
+        </trans-unit>
+        <trans-unit id="44fd6f94-309c-4887-8de7-51ce40622143" xml:space="preserve">
+          <source>The basic logic is to find the largest probability among all the scored probabilities.</source>
+          <target state="new">The basic logic is to find the largest probability among all the scored probabilities.</target>
+        </trans-unit>
+        <trans-unit id="b46c2a6c-0132-4dc7-98bd-56411f88e116" xml:space="preserve">
+          <source>To do this, we need to use <bpt id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;/linkText&gt;</ept><bpt id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;title&gt;</bpt><ept id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;/title&gt;</ept> module.</source>
+          <target state="new">To do this, we need to use <bpt id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;linkText&gt;</bpt>Execute R Script[execute-r-script]<ept id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;/linkText&gt;</ept><bpt id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;title&gt;</bpt><ept id="8a3c977d-46fc-4331-9808-4d9952cfa8c4">&lt;/title&gt;</ept> module.</target>
+        </trans-unit>
+        <trans-unit id="019d2f2e-158e-4a77-a79a-72f08745099f" xml:space="preserve">
+          <source>The R code is shown in Figure 8 and the experiment is as Figure 9.</source>
+          <target state="new">The R code is shown in Figure 8 and the experiment is as Figure 9.</target>
+        </trans-unit>
+        <trans-unit id="e662b7f2-44ce-4a51-a7f0-12e0186fce92" xml:space="preserve">
+          <source><bpt id="43babb00-0017-4ec5-bf9f-46ba6b39c650">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="43babb00-0017-4ec5-bf9f-46ba6b39c650">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43babb00-0017-4ec5-bf9f-46ba6b39c650">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="43babb00-0017-4ec5-bf9f-46ba6b39c650">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00988ab0-2d73-4129-b9bb-db5b13ccd6ae" xml:space="preserve">
+          <source>Figure 8 R code for extracting Scored Labels and the associated probabilities of the labels</source>
+          <target state="new">Figure 8 R code for extracting Scored Labels and the associated probabilities of the labels</target>
+        </trans-unit>
+        <trans-unit id="2492f33a-cf7d-4e1a-82cc-7bd7e0e14211" xml:space="preserve">
+          <source><bpt id="bc89afb9-150b-4d70-9957-782eb58b6855">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="bc89afb9-150b-4d70-9957-782eb58b6855">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bc89afb9-150b-4d70-9957-782eb58b6855">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="bc89afb9-150b-4d70-9957-782eb58b6855">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e688145-cc91-4e6b-b8b1-aac3138f5c9f" xml:space="preserve">
+          <source>Figure 9 Final Scoring Experiment of Letter Recognition Multiclass Classification Problem</source>
+          <target state="new">Figure 9 Final Scoring Experiment of Letter Recognition Multiclass Classification Problem</target>
+        </trans-unit>
+        <trans-unit id="0ce70759-3c0b-4153-8d05-b3ac0d68cf99" xml:space="preserve">
+          <source>After publishing and running the web service, and entering some input feature values, the returned result looks like Figure 10.</source>
+          <target state="new">After publishing and running the web service, and entering some input feature values, the returned result looks like Figure 10.</target>
+        </trans-unit>
+        <trans-unit id="2cacece7-ff82-4727-9e96-744d09dedf81" xml:space="preserve">
+          <source>This hand-written letter, with its extracted sixteen features, is predicted to be a “T” with 0.9715 probability.</source>
+          <target state="new">This hand-written letter, with its extracted sixteen features, is predicted to be a “T” with 0.9715 probability.</target>
+        </trans-unit>
+        <trans-unit id="d7548466-a3ca-4327-9cdc-e1622c3cdbf8" xml:space="preserve">
+          <source><bpt id="aaea43d7-58d2-4756-98b7-60cab0d3a93f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="aaea43d7-58d2-4756-98b7-60cab0d3a93f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aaea43d7-58d2-4756-98b7-60cab0d3a93f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="aaea43d7-58d2-4756-98b7-60cab0d3a93f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="72574f05-292e-446b-8a82-bc622c6d0074" xml:space="preserve">
+          <source><bpt id="4a4b8207-b8b8-4a9f-b21a-3f721480e6e1">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="4a4b8207-b8b8-4a9f-b21a-3f721480e6e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4a4b8207-b8b8-4a9f-b21a-3f721480e6e1">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="4a4b8207-b8b8-4a9f-b21a-3f721480e6e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1e1add20-bdf5-40e5-8c11-3aa3ffcc51ec" xml:space="preserve">
+          <source>Figure 10 Web Service Result of Iris Two-Class Classification</source>
+          <target state="new">Figure 10 Web Service Result of Iris Two-Class Classification</target>
+        </trans-unit>
+        <trans-unit id="75c8a2dc-e7dc-41ed-bbaa-c6a9ba57b2d7" xml:space="preserve">
+          <source>Regression problems are different from classification problems.</source>
+          <target state="new">Regression problems are different from classification problems.</target>
+        </trans-unit>
+        <trans-unit id="359c9fda-0c70-4827-9e93-d5d968ab90cd" xml:space="preserve">
+          <source>In a classification problem, we are trying to predict discrete classes, such as which class an Iris flower belongs to.</source>
+          <target state="new">In a classification problem, we are trying to predict discrete classes, such as which class an Iris flower belongs to.</target>
+        </trans-unit>
+        <trans-unit id="8ac0936c-ed27-441b-bd06-f93573b7837a" xml:space="preserve">
+          <source>But in a regression problem, we are trying to predict a continuous variable, such as the price of a car, as you can see in the following example.</source>
+          <target state="new">But in a regression problem, we are trying to predict a continuous variable, such as the price of a car, as you can see in the following example.</target>
+        </trans-unit>
+        <trans-unit id="a3d7d6f7-18da-4548-839e-e7c88654ad30" xml:space="preserve">
+          <source><bpt id="b28303cf-f904-43fc-90f9-5606faadcf3d">&lt;strong&gt;</bpt>Example experiment<ept id="b28303cf-f904-43fc-90f9-5606faadcf3d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b28303cf-f904-43fc-90f9-5606faadcf3d">&lt;strong&gt;</bpt>Example experiment<ept id="b28303cf-f904-43fc-90f9-5606faadcf3d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7c1ca4b-d599-45ad-a53d-fb3060ef5760" xml:space="preserve">
+          <source>We use automobile price prediction as our example for regression.</source>
+          <target state="new">We use automobile price prediction as our example for regression.</target>
+        </trans-unit>
+        <trans-unit id="90c4bbc2-d33c-46b7-a24f-52ea73e9309e" xml:space="preserve">
+          <source>We are trying to predict the price of a car based on its features including make, fuel type, body type, drive wheel, etc. The experiment is shown in Figure 11.</source>
+          <target state="new">We are trying to predict the price of a car based on its features including make, fuel type, body type, drive wheel, etc. The experiment is shown in Figure 11.</target>
+        </trans-unit>
+        <trans-unit id="b0c019fc-554f-49a3-9598-d758c59db5b0" xml:space="preserve">
+          <source><bpt id="f586c19c-3086-4e02-92be-b17c91a3007f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f586c19c-3086-4e02-92be-b17c91a3007f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f586c19c-3086-4e02-92be-b17c91a3007f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f586c19c-3086-4e02-92be-b17c91a3007f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="146788f9-2c0b-4c9d-be52-bdcd111b5234" xml:space="preserve">
+          <source>Figure 11 Experiment of Automobile Price Regression Problem</source>
+          <target state="new">Figure 11 Experiment of Automobile Price Regression Problem</target>
+        </trans-unit>
+        <trans-unit id="2f4f92c2-7571-424c-a324-685d37e89100" xml:space="preserve">
+          <source>Visualizing <bpt id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;/linkText&gt;</ept><bpt id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;title&gt;</bpt><ept id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;/title&gt;</ept> module, the result looks like Figure 12.</source>
+          <target state="new">Visualizing <bpt id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;linkText&gt;</bpt>Score Model[score-model]<ept id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;/linkText&gt;</ept><bpt id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;title&gt;</bpt><ept id="599c8ee3-cbc2-4d01-9a68-9f10942625a3">&lt;/title&gt;</ept> module, the result looks like Figure 12.</target>
+        </trans-unit>
+        <trans-unit id="c63b2896-e6d2-4bbd-b9d6-99ce47143c28" xml:space="preserve">
+          <source><bpt id="f572bb49-77c7-4f8c-a266-18708312fb7f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f572bb49-77c7-4f8c-a266-18708312fb7f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f572bb49-77c7-4f8c-a266-18708312fb7f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f572bb49-77c7-4f8c-a266-18708312fb7f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="129bf448-1728-4170-8f82-7f176b41c12f" xml:space="preserve">
+          <source>Figure 12 Visualize Scoring Result for Automobile Price Prediction Problem</source>
+          <target state="new">Figure 12 Visualize Scoring Result for Automobile Price Prediction Problem</target>
+        </trans-unit>
+        <trans-unit id="bd00168f-df67-4e8d-a295-ff1ca1e7dbb7" xml:space="preserve">
+          <source><bpt id="f13f0775-092e-4636-9f21-3b6506b17639">&lt;strong&gt;</bpt>Result interpretation<ept id="f13f0775-092e-4636-9f21-3b6506b17639">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f13f0775-092e-4636-9f21-3b6506b17639">&lt;strong&gt;</bpt>Result interpretation<ept id="f13f0775-092e-4636-9f21-3b6506b17639">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="046c90ae-c59f-479f-bb19-837008e30bd6" xml:space="preserve">
+          <source>In this scoring result, Scored Labels is the result column.</source>
+          <target state="new">In this scoring result, Scored Labels is the result column.</target>
+        </trans-unit>
+        <trans-unit id="0c007416-9abc-4313-8615-c7e9167d0e22" xml:space="preserve">
+          <source>The numbers are the predicted price for each car.</source>
+          <target state="new">The numbers are the predicted price for each car.</target>
+        </trans-unit>
+        <trans-unit id="af6e7970-0de1-4e30-a638-af34083769a2" xml:space="preserve">
+          <source><bpt id="177557ea-b5d8-4a41-bdd8-c4c2756c04d2">&lt;strong&gt;</bpt>Web service publication<ept id="177557ea-b5d8-4a41-bdd8-c4c2756c04d2">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="177557ea-b5d8-4a41-bdd8-c4c2756c04d2">&lt;strong&gt;</bpt>Web service publication<ept id="177557ea-b5d8-4a41-bdd8-c4c2756c04d2">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="54842293-1954-4383-8570-84c12ce10bc2" xml:space="preserve">
+          <source>We can publish the regression experiment into a web service and call it for automobile price prediction in the same way as in the two-class classification use case.</source>
+          <target state="new">We can publish the regression experiment into a web service and call it for automobile price prediction in the same way as in the two-class classification use case.</target>
+        </trans-unit>
+        <trans-unit id="760e0e9f-bb0c-4d3e-a439-98adec6c312d" xml:space="preserve">
+          <source><bpt id="ec7aafcf-533b-4b48-88fd-cb31f633cd75">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="ec7aafcf-533b-4b48-88fd-cb31f633cd75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec7aafcf-533b-4b48-88fd-cb31f633cd75">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="ec7aafcf-533b-4b48-88fd-cb31f633cd75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12e1522e-a7be-443e-9212-ef325c5e209b" xml:space="preserve">
+          <source>Figure 13 Scoring Experiment of Automobile Price Regression Problem</source>
+          <target state="new">Figure 13 Scoring Experiment of Automobile Price Regression Problem</target>
+        </trans-unit>
+        <trans-unit id="34a5d154-1e42-4194-b173-43da8fe9d83a" xml:space="preserve">
+          <source>Running the web service, the returned result looks like Figure 14.</source>
+          <target state="new">Running the web service, the returned result looks like Figure 14.</target>
+        </trans-unit>
+        <trans-unit id="6297b3fc-a957-4a2d-b1a3-156f0a3db9d9" xml:space="preserve">
+          <source>The predicted price for this car is 15085.52.</source>
+          <target state="new">The predicted price for this car is 15085.52.</target>
+        </trans-unit>
+        <trans-unit id="f0ad37fe-55d6-4418-b5df-677918943ae1" xml:space="preserve">
+          <source><bpt id="d2098252-b9a9-4e04-9599-19baa1751b8f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="d2098252-b9a9-4e04-9599-19baa1751b8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d2098252-b9a9-4e04-9599-19baa1751b8f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="d2098252-b9a9-4e04-9599-19baa1751b8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfe7800d-aa6f-435e-8444-67c068e98955" xml:space="preserve">
+          <source><bpt id="f67a2298-1ea1-4bcc-bb05-bb0737237dbb">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f67a2298-1ea1-4bcc-bb05-bb0737237dbb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f67a2298-1ea1-4bcc-bb05-bb0737237dbb">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="f67a2298-1ea1-4bcc-bb05-bb0737237dbb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49f451f2-9918-43ec-98d8-d20254dd886b" xml:space="preserve">
+          <source>Figure 14 Web Service Result of Automobile Price Regression Problem</source>
+          <target state="new">Figure 14 Web Service Result of Automobile Price Regression Problem</target>
+        </trans-unit>
+        <trans-unit id="e9bb1632-4cc7-4492-9ee6-608b18b385bd" xml:space="preserve">
+          <source><bpt id="0c111301-d15e-44b2-89ac-86af0f6d3168">&lt;strong&gt;</bpt>Example experiment<ept id="0c111301-d15e-44b2-89ac-86af0f6d3168">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0c111301-d15e-44b2-89ac-86af0f6d3168">&lt;strong&gt;</bpt>Example experiment<ept id="0c111301-d15e-44b2-89ac-86af0f6d3168">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96e6b998-4ebc-41d6-bef9-3f7e7a5b9e60" xml:space="preserve">
+          <source>Let’s use the Iris dataset again to build a clustering experiment.</source>
+          <target state="new">Let’s use the Iris dataset again to build a clustering experiment.</target>
+        </trans-unit>
+        <trans-unit id="0b9d6dcc-4c32-42f8-abba-2d3dd426f95c" xml:space="preserve">
+          <source>Here, we filter out the class labels in the dataset so that it only has features and can be used for clustering.</source>
+          <target state="new">Here, we filter out the class labels in the dataset so that it only has features and can be used for clustering.</target>
+        </trans-unit>
+        <trans-unit id="2014538a-a2a4-42b9-96d9-0a1b16a987ad" xml:space="preserve">
+          <source>In this Iris use case, let’s specify the number of clusters to be 2 during training process, which means we would like to cluster the flowers into two classes.</source>
+          <target state="new">In this Iris use case, let’s specify the number of clusters to be 2 during training process, which means we would like to cluster the flowers into two classes.</target>
+        </trans-unit>
+        <trans-unit id="1b15e361-8b5a-403e-8a3c-861523b8ac62" xml:space="preserve">
+          <source>The experiment is shown in Figure 15.</source>
+          <target state="new">The experiment is shown in Figure 15.</target>
+        </trans-unit>
+        <trans-unit id="2c9c427c-df7b-4dba-a1f6-a064f6c87037" xml:space="preserve">
+          <source><bpt id="6d25d624-5f56-4103-a714-62d4eb83e49f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="6d25d624-5f56-4103-a714-62d4eb83e49f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d25d624-5f56-4103-a714-62d4eb83e49f">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="6d25d624-5f56-4103-a714-62d4eb83e49f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="37a44a4f-03f2-45fe-a991-996d12fbf3d9" xml:space="preserve">
+          <source>Figure 15 Experiment of Iris Clustering Problem</source>
+          <target state="new">Figure 15 Experiment of Iris Clustering Problem</target>
+        </trans-unit>
+        <trans-unit id="0238aa83-265a-4a58-b520-77936e860582" xml:space="preserve">
+          <source>Clustering differs from classification in that the training dataset doesn’t have ground-truth labels by itself.</source>
+          <target state="new">Clustering differs from classification in that the training dataset doesn’t have ground-truth labels by itself.</target>
+        </trans-unit>
+        <trans-unit id="06f51667-896d-4298-b206-cee252760c89" xml:space="preserve">
+          <source>Rather, we are interested in how to group the training dataset instances into distinct clusters.</source>
+          <target state="new">Rather, we are interested in how to group the training dataset instances into distinct clusters.</target>
+        </trans-unit>
+        <trans-unit id="c2eb8e0b-1cb7-4e6a-980b-ec33d0207b8b" xml:space="preserve">
+          <source>During the training process, the model labels the entries by learning the differences between their features.</source>
+          <target state="new">During the training process, the model labels the entries by learning the differences between their features.</target>
+        </trans-unit>
+        <trans-unit id="e76e5f86-b46d-4684-a763-ef0ff709e17e" xml:space="preserve">
+          <source>After that, the trained model can be further used to classify future entries.</source>
+          <target state="new">After that, the trained model can be further used to classify future entries.</target>
+        </trans-unit>
+        <trans-unit id="00aed50a-a2d0-4bf9-8b11-0a6e473c133b" xml:space="preserve">
+          <source>There are two parts of the result we are interested in within a clustering problem.</source>
+          <target state="new">There are two parts of the result we are interested in within a clustering problem.</target>
+        </trans-unit>
+        <trans-unit id="bd8ee02c-2194-4b07-b5fe-96eb8bc41594" xml:space="preserve">
+          <source>The first part is how to label the training dataset, the second part is how to classify a new dataset with the trained model.</source>
+          <target state="new">The first part is how to label the training dataset, the second part is how to classify a new dataset with the trained model.</target>
+        </trans-unit>
+        <trans-unit id="322b62d2-6245-42cb-a87c-7bee3588bae3" xml:space="preserve">
+          <source>The first part of the result can be visualized by clicking on the left output port of <bpt id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;linkText&gt;</bpt>Train Clustering Model[train-clustering-model]<ept id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;/linkText&gt;</ept><bpt id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;title&gt;</bpt><ept id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;/title&gt;</ept> module and clicking on <bpt id="b5123b5f-885b-4f7b-89c7-516beecf4af9">&lt;strong&gt;</bpt>Visualize<ept id="b5123b5f-885b-4f7b-89c7-516beecf4af9">&lt;/strong&gt;</ept> afterwards.</source>
+          <target state="new">The first part of the result can be visualized by clicking on the left output port of <bpt id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;linkText&gt;</bpt>Train Clustering Model[train-clustering-model]<ept id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;/linkText&gt;</ept><bpt id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;title&gt;</bpt><ept id="493b5404-c595-4f08-b1bc-5436160f1afc">&lt;/title&gt;</ept> module and clicking on <bpt id="b5123b5f-885b-4f7b-89c7-516beecf4af9">&lt;strong&gt;</bpt>Visualize<ept id="b5123b5f-885b-4f7b-89c7-516beecf4af9">&lt;/strong&gt;</ept> afterwards.</target>
+        </trans-unit>
+        <trans-unit id="8856121f-2237-41e2-b57f-e21c2be745b2" xml:space="preserve">
+          <source>The visualization window is shown in Figure 16.</source>
+          <target state="new">The visualization window is shown in Figure 16.</target>
+        </trans-unit>
+        <trans-unit id="c64beeba-7650-4c38-9181-ed378830e997" xml:space="preserve">
+          <source><bpt id="de3248f7-1cf2-4b83-89ff-8e3e044e2217">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="de3248f7-1cf2-4b83-89ff-8e3e044e2217">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de3248f7-1cf2-4b83-89ff-8e3e044e2217">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="de3248f7-1cf2-4b83-89ff-8e3e044e2217">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="85b45374-24c7-4233-9216-89eb21c856eb" xml:space="preserve">
+          <source>Figure 16 Visualize Clustering Result for Training Dataset</source>
+          <target state="new">Figure 16 Visualize Clustering Result for Training Dataset</target>
+        </trans-unit>
+        <trans-unit id="668caf78-8757-471b-abf5-7c35c2cf8a2b" xml:space="preserve">
+          <source>The result of the second part, clustering new entries with the trained clustering model, is shown in Figure 17.</source>
+          <target state="new">The result of the second part, clustering new entries with the trained clustering model, is shown in Figure 17.</target>
+        </trans-unit>
+        <trans-unit id="4e8ef8ac-af13-4b21-ae64-acdf9c286b0e" xml:space="preserve">
+          <source><bpt id="969cb7af-53e9-4974-9bf6-81bd4520a4a5">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="969cb7af-53e9-4974-9bf6-81bd4520a4a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="969cb7af-53e9-4974-9bf6-81bd4520a4a5">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="969cb7af-53e9-4974-9bf6-81bd4520a4a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e3bb44a3-56e9-437e-8a97-0c4e5fd19925" xml:space="preserve">
+          <source>Figure 17 Visualize Clustering Result on New Dataset</source>
+          <target state="new">Figure 17 Visualize Clustering Result on New Dataset</target>
+        </trans-unit>
+        <trans-unit id="800ebeb5-51a9-442c-828c-262383d0fe33" xml:space="preserve">
+          <source><bpt id="4d07f498-c549-4535-83e4-1dcff0e3c277">&lt;strong&gt;</bpt>Result interpretation<ept id="4d07f498-c549-4535-83e4-1dcff0e3c277">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4d07f498-c549-4535-83e4-1dcff0e3c277">&lt;strong&gt;</bpt>Result interpretation<ept id="4d07f498-c549-4535-83e4-1dcff0e3c277">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1c4b201-e30f-45c9-99b2-8cb57ca5f6db" xml:space="preserve">
+          <source>Although the results of the two parts stem from different experiment stages, they look exactly the same and are interpreted in the same way.</source>
+          <target state="new">Although the results of the two parts stem from different experiment stages, they look exactly the same and are interpreted in the same way.</target>
+        </trans-unit>
+        <trans-unit id="35b9e7f3-aacf-411a-bd77-54d42cbf5044" xml:space="preserve">
+          <source>The first four columns are features.</source>
+          <target state="new">The first four columns are features.</target>
+        </trans-unit>
+        <trans-unit id="36198c57-38aa-47d0-82fd-5d0dbbcd3da0" xml:space="preserve">
+          <source>The last column Assignments is the prediction result.</source>
+          <target state="new">The last column Assignments is the prediction result.</target>
+        </trans-unit>
+        <trans-unit id="cbba88ee-caf7-4e50-b3fa-96a895f29644" xml:space="preserve">
+          <source>The entries assigned the same number are predicted to be in the same cluster, i.e. they share similarities in some way (we have used the default Euclidean distance metric in this experiment).</source>
+          <target state="new">The entries assigned the same number are predicted to be in the same cluster, i.e. they share similarities in some way (we have used the default Euclidean distance metric in this experiment).</target>
+        </trans-unit>
+        <trans-unit id="8e8e5d83-2110-4729-97eb-ade99f1b2c90" xml:space="preserve">
+          <source>Recall that we specified the number of clusters to be 2.</source>
+          <target state="new">Recall that we specified the number of clusters to be 2.</target>
+        </trans-unit>
+        <trans-unit id="31284775-2edb-4013-b60e-ce9783c73b8c" xml:space="preserve">
+          <source>So in the Assignments column, the entries are labeled either 0 or 1.</source>
+          <target state="new">So in the Assignments column, the entries are labeled either 0 or 1.</target>
+        </trans-unit>
+        <trans-unit id="d221648e-cd18-4d36-9a67-062364864fe1" xml:space="preserve">
+          <source><bpt id="e1c34da5-267b-492f-b51e-b4ee68cd93f4">&lt;strong&gt;</bpt>Web service publication<ept id="e1c34da5-267b-492f-b51e-b4ee68cd93f4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e1c34da5-267b-492f-b51e-b4ee68cd93f4">&lt;strong&gt;</bpt>Web service publication<ept id="e1c34da5-267b-492f-b51e-b4ee68cd93f4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03431a79-34a8-40eb-8f36-edea6577afb0" xml:space="preserve">
+          <source>We can publish the clustering experiment into a web service and call it for clustering predictions in the same way as in the two-class classification use case.</source>
+          <target state="new">We can publish the clustering experiment into a web service and call it for clustering predictions in the same way as in the two-class classification use case.</target>
+        </trans-unit>
+        <trans-unit id="55678d11-3aea-4065-ab35-54dda636bb73" xml:space="preserve">
+          <source><bpt id="07566c69-374f-4a10-9eda-9cf1497d9b3c">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="07566c69-374f-4a10-9eda-9cf1497d9b3c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07566c69-374f-4a10-9eda-9cf1497d9b3c">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="07566c69-374f-4a10-9eda-9cf1497d9b3c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2de8fe03-3473-48a6-a650-da7c1c99e697" xml:space="preserve">
+          <source>Figure 18 Scoring Experiment of Iris Clustering Problem</source>
+          <target state="new">Figure 18 Scoring Experiment of Iris Clustering Problem</target>
+        </trans-unit>
+        <trans-unit id="cf9dc061-40cb-4f1e-8eaf-7d33f63a305a" xml:space="preserve">
+          <source>After running the web service, the returned result looks like Figure 19.</source>
+          <target state="new">After running the web service, the returned result looks like Figure 19.</target>
+        </trans-unit>
+        <trans-unit id="750dd08d-868c-467f-b825-9da65211f52c" xml:space="preserve">
+          <source>This flower is predicted to be in cluster 0.</source>
+          <target state="new">This flower is predicted to be in cluster 0.</target>
+        </trans-unit>
+        <trans-unit id="ea2291aa-72b4-49bc-91fb-1b04f79d09c4" xml:space="preserve">
+          <source><bpt id="0f534be9-6447-47c3-b1af-639beda261a3">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0f534be9-6447-47c3-b1af-639beda261a3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f534be9-6447-47c3-b1af-639beda261a3">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0f534be9-6447-47c3-b1af-639beda261a3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff2a11ff-4c2a-417d-935c-1febe6af0cfc" xml:space="preserve">
+          <source><bpt id="3e0b22d7-fcf9-4a2b-8abb-88edca3254a2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="3e0b22d7-fcf9-4a2b-8abb-88edca3254a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3e0b22d7-fcf9-4a2b-8abb-88edca3254a2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="3e0b22d7-fcf9-4a2b-8abb-88edca3254a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5e8fd82-e932-4861-90ad-4a3a04ea1ec4" xml:space="preserve">
+          <source>Figure 19 Web Service Result of Iris Two-Class Classification</source>
+          <target state="new">Figure 19 Web Service Result of Iris Two-Class Classification</target>
+        </trans-unit>
+        <trans-unit id="d4fbc2a6-3878-4d08-ac42-b593e4ad3cc1" xml:space="preserve">
+          <source><bpt id="0106fd07-aa30-4a5b-9aa0-169411572306">&lt;strong&gt;</bpt>Example experiment<ept id="0106fd07-aa30-4a5b-9aa0-169411572306">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="0106fd07-aa30-4a5b-9aa0-169411572306">&lt;strong&gt;</bpt>Example experiment<ept id="0106fd07-aa30-4a5b-9aa0-169411572306">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6422b6f-2e95-476d-9dfa-a096ed79fa0a" xml:space="preserve">
+          <source>For recommender systems, we will use the restaurant recommendation problem as an example: to recommend restaurants for customers based on their rating history.</source>
+          <target state="new">For recommender systems, we will use the restaurant recommendation problem as an example: to recommend restaurants for customers based on their rating history.</target>
+        </trans-unit>
+        <trans-unit id="08b2e028-ea3d-41e6-bf1e-8ffee319afb8" xml:space="preserve">
+          <source>The input data consists of three parts:</source>
+          <target state="new">The input data consists of three parts:</target>
+        </trans-unit>
+        <trans-unit id="9a6ee3b1-d167-4150-9a49-cb00c7f3ba2d" xml:space="preserve">
+          <source>restaurant ratings from customers </source>
+          <target state="new">restaurant ratings from customers </target>
+        </trans-unit>
+        <trans-unit id="74927bf7-86dc-4057-bc9e-14ae449390b1" xml:space="preserve">
+          <source>customer feature data </source>
+          <target state="new">customer feature data </target>
+        </trans-unit>
+        <trans-unit id="69ca886f-c62b-42b6-9396-9ed4686201ff" xml:space="preserve">
+          <source>restaurant feature data </source>
+          <target state="new">restaurant feature data </target>
+        </trans-unit>
+        <trans-unit id="b625af33-9a0d-4ef1-a7ad-9e5aaec6d7f6" xml:space="preserve">
+          <source>There are several things we can do with Azure Machine Learning’s built-in <bpt id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;linkText&gt;</bpt>Train Matchbox Recommender[train-matchbox-recommender]<ept id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;/linkText&gt;</ept><bpt id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;title&gt;</bpt><ept id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;/title&gt;</ept> module: </source>
+          <target state="new">There are several things we can do with Azure Machine Learning’s built-in <bpt id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;linkText&gt;</bpt>Train Matchbox Recommender[train-matchbox-recommender]<ept id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;/linkText&gt;</ept><bpt id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;title&gt;</bpt><ept id="5d670d67-2686-4b30-8d94-a97df702e5ad">&lt;/title&gt;</ept> module: </target>
+        </trans-unit>
+        <trans-unit id="7f5e3ee0-5e5e-4ad7-ae5a-072bf69c11cb" xml:space="preserve">
+          <source>Predict ratings for a given user and item</source>
+          <target state="new">Predict ratings for a given user and item</target>
+        </trans-unit>
+        <trans-unit id="d0d024ae-a476-46b9-b5ad-663b81e88448" xml:space="preserve">
+          <source>Recommend items to a given user</source>
+          <target state="new">Recommend items to a given user</target>
+        </trans-unit>
+        <trans-unit id="64eb9445-1e87-406c-a57e-dd15ae9fce46" xml:space="preserve">
+          <source>Find users related to a given user</source>
+          <target state="new">Find users related to a given user</target>
+        </trans-unit>
+        <trans-unit id="c0e5dfae-77dd-4710-9f46-252c16452eb7" xml:space="preserve">
+          <source>Find items related to a given item</source>
+          <target state="new">Find items related to a given item</target>
+        </trans-unit>
+        <trans-unit id="5cd909c1-e6c8-4f52-8711-b75d7b973914" xml:space="preserve">
+          <source>We can choose what we want to do by selecting from the four options in the <bpt id="53513bbf-1914-415b-8597-7dfff5568b36">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="53513bbf-1914-415b-8597-7dfff5568b36">&lt;/strong&gt;</ept> menu on the right panel.</source>
+          <target state="new">We can choose what we want to do by selecting from the four options in the <bpt id="53513bbf-1914-415b-8597-7dfff5568b36">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="53513bbf-1914-415b-8597-7dfff5568b36">&lt;/strong&gt;</ept> menu on the right panel.</target>
+        </trans-unit>
+        <trans-unit id="b94a0046-948c-4212-94ba-1cbedcf3dc5b" xml:space="preserve">
+          <source>Here, we will walk through all of the four scenarios.</source>
+          <target state="new">Here, we will walk through all of the four scenarios.</target>
+        </trans-unit>
+        <trans-unit id="3085c6a9-f31c-4558-993a-db0a280491e3" xml:space="preserve">
+          <source>A typical Azure Machine Learning experiment for recommender system looks like Figure 20.</source>
+          <target state="new">A typical Azure Machine Learning experiment for recommender system looks like Figure 20.</target>
+        </trans-unit>
+        <trans-unit id="5e246f38-4bb1-4630-a45b-6d3bc9985d55" xml:space="preserve">
+          <source>For details on how to use those recommender system modules, please see help page for <bpt id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;linkText&gt;</bpt>Train Matchbox Recommender[train-matchbox-recommender]<ept id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;/linkText&gt;</ept><bpt id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;title&gt;</bpt><ept id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;/title&gt;</ept> and <bpt id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;/linkText&gt;</ept><bpt id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;title&gt;</bpt><ept id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on how to use those recommender system modules, please see help page for <bpt id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;linkText&gt;</bpt>Train Matchbox Recommender[train-matchbox-recommender]<ept id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;/linkText&gt;</ept><bpt id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;title&gt;</bpt><ept id="bb650549-78fa-4b65-8589-da89f7d81f4d">&lt;/title&gt;</ept> and <bpt id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;/linkText&gt;</ept><bpt id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;title&gt;</bpt><ept id="4b476959-f5fe-4bfb-8adb-382dc2ea9434">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f264eef4-7c5e-4b74-a9eb-d6a3bb9e6565" xml:space="preserve">
+          <source><bpt id="7454d61a-a52b-4f03-9868-484514ab781e">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="7454d61a-a52b-4f03-9868-484514ab781e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7454d61a-a52b-4f03-9868-484514ab781e">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="7454d61a-a52b-4f03-9868-484514ab781e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59b3d494-746c-4b47-afab-7662180080e9" xml:space="preserve">
+          <source><bpt id="a1d1ecb8-677c-4f36-a042-e5a1ec6a5c7a">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="a1d1ecb8-677c-4f36-a042-e5a1ec6a5c7a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a1d1ecb8-677c-4f36-a042-e5a1ec6a5c7a">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="a1d1ecb8-677c-4f36-a042-e5a1ec6a5c7a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3ad6e1a7-6d40-467a-ae3f-3c0f0fd587ce" xml:space="preserve">
+          <source>Figure 20 Recommender System Experiment</source>
+          <target state="new">Figure 20 Recommender System Experiment</target>
+        </trans-unit>
+        <trans-unit id="6019db40-1420-41d4-9bc0-c6a5a67797bb" xml:space="preserve">
+          <source><bpt id="23c92196-077f-4207-8d48-c76530582d77">&lt;strong&gt;</bpt>Result interpretation<ept id="23c92196-077f-4207-8d48-c76530582d77">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="23c92196-077f-4207-8d48-c76530582d77">&lt;strong&gt;</bpt>Result interpretation<ept id="23c92196-077f-4207-8d48-c76530582d77">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3064deb8-2a58-4aac-9b0d-0d210dc2e4d6" xml:space="preserve">
+          <source><bpt id="4a250100-9c4a-4f4a-99fb-510d70407cd9">&lt;em&gt;</bpt>Predict ratings for a given user and item<ept id="4a250100-9c4a-4f4a-99fb-510d70407cd9">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="4a250100-9c4a-4f4a-99fb-510d70407cd9">&lt;em&gt;</bpt>Predict ratings for a given user and item<ept id="4a250100-9c4a-4f4a-99fb-510d70407cd9">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14cebad0-4f58-41a4-b218-157c70762867" xml:space="preserve">
+          <source>By selecting Rating Prediction in the <bpt id="026431fb-a476-4b1f-9d95-0bfc44a7cf4c">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="026431fb-a476-4b1f-9d95-0bfc44a7cf4c">&lt;/strong&gt;</ept> menu, we ask the recommender system to predict the rating for a given user and item.</source>
+          <target state="new">By selecting Rating Prediction in the <bpt id="026431fb-a476-4b1f-9d95-0bfc44a7cf4c">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="026431fb-a476-4b1f-9d95-0bfc44a7cf4c">&lt;/strong&gt;</ept> menu, we ask the recommender system to predict the rating for a given user and item.</target>
+        </trans-unit>
+        <trans-unit id="fa7f46cd-9245-4882-9fab-fbc33b8583ee" xml:space="preserve">
+          <source>The visualization of the <bpt id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;/linkText&gt;</ept><bpt id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;title&gt;</bpt><ept id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;/title&gt;</ept> output looks like Figure 21.</source>
+          <target state="new">The visualization of the <bpt id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;/linkText&gt;</ept><bpt id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;title&gt;</bpt><ept id="402fe7ad-4d48-4e56-b5f6-65d4cf242f2b">&lt;/title&gt;</ept> output looks like Figure 21.</target>
+        </trans-unit>
+        <trans-unit id="c478c190-052d-4aa7-bfe1-bca3da9c071f" xml:space="preserve">
+          <source><bpt id="01c4d92f-e4e4-411b-b626-30716565e131">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="01c4d92f-e4e4-411b-b626-30716565e131">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01c4d92f-e4e4-411b-b626-30716565e131">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="01c4d92f-e4e4-411b-b626-30716565e131">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e896ef07-07fd-45e1-a18c-de7e7514704f" xml:space="preserve">
+          <source>Figure 21 Visualize Score Result of Recommender System - Rating Prediction</source>
+          <target state="new">Figure 21 Visualize Score Result of Recommender System - Rating Prediction</target>
+        </trans-unit>
+        <trans-unit id="b4785a6d-ecad-4f57-8c66-7630fb0c104d" xml:space="preserve">
+          <source>There are three columns.</source>
+          <target state="new">There are three columns.</target>
+        </trans-unit>
+        <trans-unit id="a6632037-4769-4dfa-9e10-b356932c4c95" xml:space="preserve">
+          <source>The first two columns are the user-item pairs provided by the input data.</source>
+          <target state="new">The first two columns are the user-item pairs provided by the input data.</target>
+        </trans-unit>
+        <trans-unit id="e809a057-c127-4c34-afed-1ad3513a0b1d" xml:space="preserve">
+          <source>The third column is the predicted rating of a user for a certain item.</source>
+          <target state="new">The third column is the predicted rating of a user for a certain item.</target>
+        </trans-unit>
+        <trans-unit id="7431131f-6fd2-4c9c-8707-401cd0455569" xml:space="preserve">
+          <source>For example, in the first row, customer U1048 is predicted to rate restaurant 135026 as 2.</source>
+          <target state="new">For example, in the first row, customer U1048 is predicted to rate restaurant 135026 as 2.</target>
+        </trans-unit>
+        <trans-unit id="ddb236dd-d6d7-4dfa-ab93-4b8e58300f8e" xml:space="preserve">
+          <source><bpt id="8f79a7b8-7ecc-4b08-8813-6d2c1812ef4a">&lt;em&gt;</bpt>Recommend items to a given user<ept id="8f79a7b8-7ecc-4b08-8813-6d2c1812ef4a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="8f79a7b8-7ecc-4b08-8813-6d2c1812ef4a">&lt;em&gt;</bpt>Recommend items to a given user<ept id="8f79a7b8-7ecc-4b08-8813-6d2c1812ef4a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f898d031-edd9-44b8-807b-2b6b45fae0f7" xml:space="preserve">
+          <source>By selecting <bpt id="cf469e44-69dd-494c-b9be-09aeaad0ed44">&lt;strong&gt;</bpt>Item Recommendation<ept id="cf469e44-69dd-494c-b9be-09aeaad0ed44">&lt;/strong&gt;</ept> in the <bpt id="e8adf329-4aa7-417a-bdc5-4093767f78c2">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="e8adf329-4aa7-417a-bdc5-4093767f78c2">&lt;/strong&gt;</ept> menu, we ask the recommender system to recommend items to a given user.</source>
+          <target state="new">By selecting <bpt id="cf469e44-69dd-494c-b9be-09aeaad0ed44">&lt;strong&gt;</bpt>Item Recommendation<ept id="cf469e44-69dd-494c-b9be-09aeaad0ed44">&lt;/strong&gt;</ept> in the <bpt id="e8adf329-4aa7-417a-bdc5-4093767f78c2">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="e8adf329-4aa7-417a-bdc5-4093767f78c2">&lt;/strong&gt;</ept> menu, we ask the recommender system to recommend items to a given user.</target>
+        </trans-unit>
+        <trans-unit id="9624a3a5-73b8-4664-9c8f-70dba465da8a" xml:space="preserve">
+          <source>There is one more parameter we need to choose in this scenario, Recommended item selection.</source>
+          <target state="new">There is one more parameter we need to choose in this scenario, Recommended item selection.</target>
+        </trans-unit>
+        <trans-unit id="c9ea73c8-2359-46fb-a9d4-f93d9bc93d42" xml:space="preserve">
+          <source>The option <bpt id="e62b284a-3ae8-41e8-9907-53be003709fe">&lt;strong&gt;</bpt>From Rated Items (for model evaluation)<ept id="e62b284a-3ae8-41e8-9907-53be003709fe">&lt;/strong&gt;</ept> is primarily for model evaluation during the training process.</source>
+          <target state="new">The option <bpt id="e62b284a-3ae8-41e8-9907-53be003709fe">&lt;strong&gt;</bpt>From Rated Items (for model evaluation)<ept id="e62b284a-3ae8-41e8-9907-53be003709fe">&lt;/strong&gt;</ept> is primarily for model evaluation during the training process.</target>
+        </trans-unit>
+        <trans-unit id="992b0b05-416b-4f54-9208-950e507b5501" xml:space="preserve">
+          <source>For this prediction stage, we will choose <bpt id="6b2bf3d8-dafb-48ac-8eee-92a81a6dd138">&lt;strong&gt;</bpt>From All Items<ept id="6b2bf3d8-dafb-48ac-8eee-92a81a6dd138">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For this prediction stage, we will choose <bpt id="6b2bf3d8-dafb-48ac-8eee-92a81a6dd138">&lt;strong&gt;</bpt>From All Items<ept id="6b2bf3d8-dafb-48ac-8eee-92a81a6dd138">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a62d54a3-398f-4e11-b58b-b49709a51758" xml:space="preserve">
+          <source>The visualization of the <bpt id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;/linkText&gt;</ept><bpt id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;title&gt;</bpt><ept id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;/title&gt;</ept> output looks like Figure 22.</source>
+          <target state="new">The visualization of the <bpt id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;/linkText&gt;</ept><bpt id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;title&gt;</bpt><ept id="36eb06b7-6e66-4e83-a831-7fa8c786a595">&lt;/title&gt;</ept> output looks like Figure 22.</target>
+        </trans-unit>
+        <trans-unit id="4fd3c142-3d48-48d8-8758-e3e89d5087ad" xml:space="preserve">
+          <source><bpt id="43c5db6c-5a1d-40fd-8fb6-edfab05c1704">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="43c5db6c-5a1d-40fd-8fb6-edfab05c1704">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43c5db6c-5a1d-40fd-8fb6-edfab05c1704">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="43c5db6c-5a1d-40fd-8fb6-edfab05c1704">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a7dcba2e-d819-4ade-8952-1ad240f2487e" xml:space="preserve">
+          <source>Figure 22 Visualize Score Result of Recommender System - Item Recommendation</source>
+          <target state="new">Figure 22 Visualize Score Result of Recommender System - Item Recommendation</target>
+        </trans-unit>
+        <trans-unit id="89073e6c-4613-4712-ba4c-4bcf289781f2" xml:space="preserve">
+          <source>There are six columns.</source>
+          <target state="new">There are six columns.</target>
+        </trans-unit>
+        <trans-unit id="bae443a9-96da-4fb7-a0d5-5c3ec547d34f" xml:space="preserve">
+          <source>The first column represents the given user IDs to recommend items for, provided by the input data.</source>
+          <target state="new">The first column represents the given user IDs to recommend items for, provided by the input data.</target>
+        </trans-unit>
+        <trans-unit id="c23aaa68-fa59-4efb-b40b-74c492956376" xml:space="preserve">
+          <source>The rest five columns represent the items recommended to the user, in a descending order in terms of relevance.</source>
+          <target state="new">The rest five columns represent the items recommended to the user, in a descending order in terms of relevance.</target>
+        </trans-unit>
+        <trans-unit id="fa3276f7-a2fe-4b6d-90da-5e80e53b6c98" xml:space="preserve">
+          <source>For example, in the first row, the most recommended restaurant for customer U1048 is 134986, followed by 135018 134975 135021 and 132862.</source>
+          <target state="new">For example, in the first row, the most recommended restaurant for customer U1048 is 134986, followed by 135018 134975 135021 and 132862.</target>
+        </trans-unit>
+        <trans-unit id="1c502fe9-c059-4fd8-8d90-70d3155512a3" xml:space="preserve">
+          <source><bpt id="d7b6ed17-30e6-4d03-9b6e-922e42a08b2a">&lt;em&gt;</bpt>Find users related to a given user<ept id="d7b6ed17-30e6-4d03-9b6e-922e42a08b2a">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="d7b6ed17-30e6-4d03-9b6e-922e42a08b2a">&lt;em&gt;</bpt>Find users related to a given user<ept id="d7b6ed17-30e6-4d03-9b6e-922e42a08b2a">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb9cad75-18ec-465f-9d60-0de689ba934e" xml:space="preserve">
+          <source>By selecting Related Users in the “Recommender prediction kind” menu, we ask the recommender system to find related users to a given user.</source>
+          <target state="new">By selecting Related Users in the “Recommender prediction kind” menu, we ask the recommender system to find related users to a given user.</target>
+        </trans-unit>
+        <trans-unit id="17a39680-c115-4c96-b201-1c0b27dde4f6" xml:space="preserve">
+          <source>Related users are the users who have similar preferences.</source>
+          <target state="new">Related users are the users who have similar preferences.</target>
+        </trans-unit>
+        <trans-unit id="3e646bc2-db13-4f9c-8985-8cfe8e0ff327" xml:space="preserve">
+          <source>There is one more parameter we need to choose in this scenario, Related user selection.</source>
+          <target state="new">There is one more parameter we need to choose in this scenario, Related user selection.</target>
+        </trans-unit>
+        <trans-unit id="8823a54e-0504-46cc-8ebe-4d781994e660" xml:space="preserve">
+          <source>The option “From Users That Rated Items (for model evaluation)” is primarily for model evaluation during the training process.</source>
+          <target state="new">The option “From Users That Rated Items (for model evaluation)” is primarily for model evaluation during the training process.</target>
+        </trans-unit>
+        <trans-unit id="f9c177df-3fb6-4b96-915f-56c6ed529414" xml:space="preserve">
+          <source>We choose “From All Users” for this prediction stage.</source>
+          <target state="new">We choose “From All Users” for this prediction stage.</target>
+        </trans-unit>
+        <trans-unit id="0d624f79-af32-435e-a7e8-a85c821c479e" xml:space="preserve">
+          <source>The visualization of the <bpt id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;/linkText&gt;</ept><bpt id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;title&gt;</bpt><ept id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;/title&gt;</ept> output looks like Figure 23.</source>
+          <target state="new">The visualization of the <bpt id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;/linkText&gt;</ept><bpt id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;title&gt;</bpt><ept id="fca98f00-d882-4923-bc7b-62ea01ae3fa3">&lt;/title&gt;</ept> output looks like Figure 23.</target>
+        </trans-unit>
+        <trans-unit id="5d7c9a7b-0737-44bf-964c-63b1199db6a4" xml:space="preserve">
+          <source><bpt id="66103a6b-42f4-4f00-8e8a-65283d61a170">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="66103a6b-42f4-4f00-8e8a-65283d61a170">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="66103a6b-42f4-4f00-8e8a-65283d61a170">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="66103a6b-42f4-4f00-8e8a-65283d61a170">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13c17dd5-4ba2-4bc4-8e47-d0a282a11dfc" xml:space="preserve">
+          <source>Figure 23 Visualize Score Result of Recommender System - Related Users</source>
+          <target state="new">Figure 23 Visualize Score Result of Recommender System - Related Users</target>
+        </trans-unit>
+        <trans-unit id="288e4dad-2b42-4343-b589-9e12e502dbd0" xml:space="preserve">
+          <source>There are six columns.</source>
+          <target state="new">There are six columns.</target>
+        </trans-unit>
+        <trans-unit id="e3494303-ec8d-463f-8675-bd3bc5d27261" xml:space="preserve">
+          <source>The first column are the given user IDs to find related users for, provided by input data.</source>
+          <target state="new">The first column are the given user IDs to find related users for, provided by input data.</target>
+        </trans-unit>
+        <trans-unit id="42955a1c-b389-4c2f-a979-6896b0d3787c" xml:space="preserve">
+          <source>The rest five columns store the predicted related users of the user, in a descending order in terms of relevance.</source>
+          <target state="new">The rest five columns store the predicted related users of the user, in a descending order in terms of relevance.</target>
+        </trans-unit>
+        <trans-unit id="28241fa5-f8b0-4ebf-944c-4a645e59f4ac" xml:space="preserve">
+          <source>For example, in the first row, the most relevant customer for customer U1048 is U1051, followed by U1066 U1044 U1017 and U1072.</source>
+          <target state="new">For example, in the first row, the most relevant customer for customer U1048 is U1051, followed by U1066 U1044 U1017 and U1072.</target>
+        </trans-unit>
+        <trans-unit id="62e9c3f9-fa37-4faf-9446-c07be9268c2b" xml:space="preserve">
+          <source><bpt id="463830aa-4a01-4339-8d26-67cd6a6dd712">&lt;strong&gt;</bpt>Find items related to a given item<ept id="463830aa-4a01-4339-8d26-67cd6a6dd712">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="463830aa-4a01-4339-8d26-67cd6a6dd712">&lt;strong&gt;</bpt>Find items related to a given item<ept id="463830aa-4a01-4339-8d26-67cd6a6dd712">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e01b4f64-90c2-4440-844d-0863800999df" xml:space="preserve">
+          <source>By selecting <bpt id="d3ab3252-9e16-4bed-9dd0-385172eb98b2">&lt;strong&gt;</bpt>Related Items<ept id="d3ab3252-9e16-4bed-9dd0-385172eb98b2">&lt;/strong&gt;</ept> in the <bpt id="6a3b9ecf-ea10-4317-a728-45860aed15f3">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="6a3b9ecf-ea10-4317-a728-45860aed15f3">&lt;/strong&gt;</ept> menu, we ask the recommender system to find related items to a given item.</source>
+          <target state="new">By selecting <bpt id="d3ab3252-9e16-4bed-9dd0-385172eb98b2">&lt;strong&gt;</bpt>Related Items<ept id="d3ab3252-9e16-4bed-9dd0-385172eb98b2">&lt;/strong&gt;</ept> in the <bpt id="6a3b9ecf-ea10-4317-a728-45860aed15f3">&lt;strong&gt;</bpt>Recommender prediction kind<ept id="6a3b9ecf-ea10-4317-a728-45860aed15f3">&lt;/strong&gt;</ept> menu, we ask the recommender system to find related items to a given item.</target>
+        </trans-unit>
+        <trans-unit id="1ea1875e-7d83-40c4-9dfc-627d521176db" xml:space="preserve">
+          <source>Related items are the items most likely to be liked by the same user.</source>
+          <target state="new">Related items are the items most likely to be liked by the same user.</target>
+        </trans-unit>
+        <trans-unit id="ebf2cb71-9fb7-4a8f-9679-8b5db5bf736c" xml:space="preserve">
+          <source>There is one more parameter we need to choose in this scenario, Related item selection.</source>
+          <target state="new">There is one more parameter we need to choose in this scenario, Related item selection.</target>
+        </trans-unit>
+        <trans-unit id="688fc54c-6541-463d-865e-f8cfdec32c24" xml:space="preserve">
+          <source>The option <bpt id="66dfea83-b1e6-4989-9379-9ce2eb517dce">&lt;strong&gt;</bpt>From Rated Items (for model evaluation)<ept id="66dfea83-b1e6-4989-9379-9ce2eb517dce">&lt;/strong&gt;</ept> is primarily for model evaluation during the training process.</source>
+          <target state="new">The option <bpt id="66dfea83-b1e6-4989-9379-9ce2eb517dce">&lt;strong&gt;</bpt>From Rated Items (for model evaluation)<ept id="66dfea83-b1e6-4989-9379-9ce2eb517dce">&lt;/strong&gt;</ept> is primarily for model evaluation during the training process.</target>
+        </trans-unit>
+        <trans-unit id="ce876fda-544f-4843-9989-0396a8745ae3" xml:space="preserve">
+          <source>We choose <bpt id="a84a0451-bb32-41ce-9c66-19738092716c">&lt;strong&gt;</bpt>From All Items<ept id="a84a0451-bb32-41ce-9c66-19738092716c">&lt;/strong&gt;</ept> for this prediction stage.</source>
+          <target state="new">We choose <bpt id="a84a0451-bb32-41ce-9c66-19738092716c">&lt;strong&gt;</bpt>From All Items<ept id="a84a0451-bb32-41ce-9c66-19738092716c">&lt;/strong&gt;</ept> for this prediction stage.</target>
+        </trans-unit>
+        <trans-unit id="6fec4dfa-24ff-4453-b0bb-9925345cf037" xml:space="preserve">
+          <source>The visualization of the <bpt id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;/linkText&gt;</ept><bpt id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;title&gt;</bpt><ept id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;/title&gt;</ept> output looks like Figure 24.</source>
+          <target state="new">The visualization of the <bpt id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;linkText&gt;</bpt>Score Matchbox Recommender[score-matchbox-recommender]<ept id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;/linkText&gt;</ept><bpt id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;title&gt;</bpt><ept id="18111473-5c12-4c76-bb64-4c5a2359df23">&lt;/title&gt;</ept> output looks like Figure 24.</target>
+        </trans-unit>
+        <trans-unit id="b66fc322-ef0f-46a1-9e17-26f487fa42b6" xml:space="preserve">
+          <source><bpt id="eae915bb-c190-4f37-94f9-748128c902c4">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="eae915bb-c190-4f37-94f9-748128c902c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eae915bb-c190-4f37-94f9-748128c902c4">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="eae915bb-c190-4f37-94f9-748128c902c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="16acc612-cc85-497d-ae1b-6f1c719df5d5" xml:space="preserve">
+          <source>Figure 24 Visualize Score Result of Recommender System - Related Items</source>
+          <target state="new">Figure 24 Visualize Score Result of Recommender System - Related Items</target>
+        </trans-unit>
+        <trans-unit id="d022519d-11ed-49c7-a454-50c33f77f331" xml:space="preserve">
+          <source>There are six columns.</source>
+          <target state="new">There are six columns.</target>
+        </trans-unit>
+        <trans-unit id="fbda96e7-0c98-4795-8ad3-078b5e681f12" xml:space="preserve">
+          <source>The first column represents the given item IDs to find related items for, provided by the input data.</source>
+          <target state="new">The first column represents the given item IDs to find related items for, provided by the input data.</target>
+        </trans-unit>
+        <trans-unit id="a42d2691-a7ca-488f-9eff-be8ebae61425" xml:space="preserve">
+          <source>The other five columns store the predicted related items of the item, in a descending order in terms of relevance.</source>
+          <target state="new">The other five columns store the predicted related items of the item, in a descending order in terms of relevance.</target>
+        </trans-unit>
+        <trans-unit id="a7a281db-d8df-4386-a792-e51db81d232d" xml:space="preserve">
+          <source>For example, in the first row, the most relevant item for item 135026 is 135074, followed by 135035 132875 135055 and 134992.</source>
+          <target state="new">For example, in the first row, the most relevant item for item 135026 is 135074, followed by 135035 132875 135055 and 134992.</target>
+        </trans-unit>
+        <trans-unit id="a6568d30-c9ee-4ccc-86c5-f987f066d2b3" xml:space="preserve">
+          <source>Web service publication</source>
+          <target state="new">Web service publication</target>
+        </trans-unit>
+        <trans-unit id="574057dd-cac8-4497-8379-44ae17687ce5" xml:space="preserve">
+          <source>The process of publishing these experiments as web services to get predictions is similar for each of the four scenarios.</source>
+          <target state="new">The process of publishing these experiments as web services to get predictions is similar for each of the four scenarios.</target>
+        </trans-unit>
+        <trans-unit id="4e25a4e8-9aae-42f9-a8a1-a14996aa4810" xml:space="preserve">
+          <source>Here we will take the second scenario, recommend items to a given user, as an example.</source>
+          <target state="new">Here we will take the second scenario, recommend items to a given user, as an example.</target>
+        </trans-unit>
+        <trans-unit id="87d5122b-a818-4893-8af7-4ec424cbcd85" xml:space="preserve">
+          <source>You can follow the same procedure with the other three.</source>
+          <target state="new">You can follow the same procedure with the other three.</target>
+        </trans-unit>
+        <trans-unit id="884089ce-0b2c-4d27-85e0-46efacecbeca" xml:space="preserve">
+          <source>Saving the trained recommender system as a trained model, filtering the input data to a single user ID column as requested, we can hook up the experiment as in Figure 25 and publish it as a web service.</source>
+          <target state="new">Saving the trained recommender system as a trained model, filtering the input data to a single user ID column as requested, we can hook up the experiment as in Figure 25 and publish it as a web service.</target>
+        </trans-unit>
+        <trans-unit id="ca10b70e-6317-4829-860a-a751f6761c6b" xml:space="preserve">
+          <source><bpt id="0f455ba0-75f0-4cf2-9d99-254c1f77cdeb">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0f455ba0-75f0-4cf2-9d99-254c1f77cdeb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0f455ba0-75f0-4cf2-9d99-254c1f77cdeb">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="0f455ba0-75f0-4cf2-9d99-254c1f77cdeb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1653748d-763e-446e-9176-128d6bb11116" xml:space="preserve">
+          <source>Figure 25 Scoring Experiment of Restaurant Recommendation Problem </source>
+          <target state="new">Figure 25 Scoring Experiment of Restaurant Recommendation Problem </target>
+        </trans-unit>
+        <trans-unit id="b64107dd-84dd-4de3-b184-11c54d8b2cf0" xml:space="preserve">
+          <source>Running the web service, the returned result looks like Figure 14.</source>
+          <target state="new">Running the web service, the returned result looks like Figure 14.</target>
+        </trans-unit>
+        <trans-unit id="ab0d1b06-0de9-4e25-a30d-3b89939624eb" xml:space="preserve">
+          <source>The five recommended restaurants for user U1048 are 134986, 135018, 134975, 135021 and 132862.</source>
+          <target state="new">The five recommended restaurants for user U1048 are 134986, 135018, 134975, 135021 and 132862.</target>
+        </trans-unit>
+        <trans-unit id="a3a94543-d401-4a83-a053-e5cbe01fcd64" xml:space="preserve">
+          <source><bpt id="e733a439-586f-4775-b523-aebc5ba6d5c2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="e733a439-586f-4775-b523-aebc5ba6d5c2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e733a439-586f-4775-b523-aebc5ba6d5c2">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="e733a439-586f-4775-b523-aebc5ba6d5c2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6178dd8-570d-4104-9c70-db9f1d629a1d" xml:space="preserve">
+          <source><bpt id="4763080f-5f3b-4d18-8de3-cfa804282ffe">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="4763080f-5f3b-4d18-8de3-cfa804282ffe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4763080f-5f3b-4d18-8de3-cfa804282ffe">&lt;linkText&gt;</bpt>screenshot_of_experiment<ept id="4763080f-5f3b-4d18-8de3-cfa804282ffe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b423975-092e-4b85-9401-ab64df0eb4fd" xml:space="preserve">
+          <source>Figure 26 Web Service Result of Restaurant Recommendation Problem</source>
+          <target state="new">Figure 26 Web Service Result of Restaurant Recommendation Problem</target>
+        </trans-unit>
+        <trans-unit id="b6def4da-49ab-43a9-9e27-f9391ef08a34" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/</target>
+        </trans-unit>
+        <trans-unit id="74ae9bbb-984d-4b23-9221-133bbd60cad8" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/</target>
+        </trans-unit>
+        <trans-unit id="3939543d-55ba-402d-a94f-02a1bb92a996" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/</target>
+        </trans-unit>
+        <trans-unit id="9c4defa7-107b-4bfe-a5fd-2b7fab1f356a" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/</target>
+        </trans-unit>
+        <trans-unit id="ee16cefd-88c7-4b77-aa41-d1186c72fcdf" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/</target>
+        </trans-unit>
+        <trans-unit id="8fb860c0-4d1a-4392-ba4c-d8e8fe9dacb9" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/</target>
+        </trans-unit>
+        <trans-unit id="9acc2a2e-42a3-4e91-930e-997705e68099" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/</target>
+        </trans-unit>
+      </group>
+      <group id="91b5fdf0-b53e-40f2-9d7b-b87bc16c680d" />
+    </body>
+  </file>
+</xliff>

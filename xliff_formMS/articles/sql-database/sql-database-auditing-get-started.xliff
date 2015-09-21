@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f6d83b8a-bf29-45c9-bf98-8fb2edf8f04b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f6d83b8a-bf29-45c9-bf98-8fb2edf8f04b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="d6ee5f48-77e1-48c7-82ec-a3bee49e772c">
+        <trans-unit id="20af985c-2c31-41d5-9ccd-b009a95f38b6" xml:space="preserve">
+          <source>Get started with SQL database auditing | Microsoft Azure</source>
+          <target state="new">Get started with SQL database auditing | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ed4519d7-b840-44b2-93bb-95d1eabdcfce" xml:space="preserve">
+          <source>Get started with SQL database auditing</source>
+          <target state="new">Get started with SQL database auditing</target>
+        </trans-unit>
+        <trans-unit id="430ff3ac-4d18-43a0-83c0-feb9a631e989" xml:space="preserve">
+          <source>&lt;p&gt; Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.</source>
+          <target state="new">&lt;p&gt; Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.</target>
+        </trans-unit>
+        <trans-unit id="e46807bf-df13-4ab4-92ba-3d96e0f07cf0" xml:space="preserve">
+          <source>Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.</source>
+          <target state="new">Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.</target>
+        </trans-unit>
+        <trans-unit id="063a6737-0c22-4cd0-83c7-25bac9e230b1" xml:space="preserve">
+          <source>Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance.</source>
+          <target state="new">Auditing tools enable and facilitate adherence to compliance standards but don't guarantee compliance.</target>
+        </trans-unit>
+        <trans-unit id="73720bf9-bda0-4d57-be30-f263113c0e47" xml:space="preserve">
+          <source>For more information about Azure programs that support standards compliance, see the &lt;a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank"&gt;Azure Trust Center&lt;/a&gt;.</source>
+          <target state="new">For more information about Azure programs that support standards compliance, see the &lt;a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank"&gt;Azure Trust Center&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="7ccdb30e-8600-427a-a821-e5ae0a76ab34" xml:space="preserve">
+          <source>[Azure SQL Database Auditing basics] </source>
+          <target state="new">[Azure SQL Database Auditing basics] </target>
+        </trans-unit>
+        <trans-unit id="8197e1aa-0573-4903-9d20-abb97e100e15" xml:space="preserve">
+          <source>[Set up auditing for your database]</source>
+          <target state="new">[Set up auditing for your database]</target>
+        </trans-unit>
+        <trans-unit id="7c07778c-c126-47fb-87d4-8e2c8e8ff09b" xml:space="preserve">
+          <source>[Analyze audit logs and reports]</source>
+          <target state="new">[Analyze audit logs and reports]</target>
+        </trans-unit>
+        <trans-unit id="08ce88b0-329d-44cb-98b9-407f48ce47d5" xml:space="preserve">
+          <source>The following sections describe the configuration of Auditing using the Azure Preview Portal.</source>
+          <target state="new">The following sections describe the configuration of Auditing using the Azure Preview Portal.</target>
+        </trans-unit>
+        <trans-unit id="feafc7a7-012a-496f-83ca-3f4225a20079" xml:space="preserve">
+          <source>You may also [Set up auditing for your database using the Classic Azure Portal].</source>
+          <target state="new">You may also [Set up auditing for your database using the Classic Azure Portal].</target>
+        </trans-unit>
+        <trans-unit id="82237c11-daa6-4f41-913c-a1597cb61a7a" xml:space="preserve">
+          <source>SQL Database auditing allows you to:</source>
+          <target state="new">SQL Database auditing allows you to:</target>
+        </trans-unit>
+        <trans-unit id="8fd4884e-3e33-4458-bbbd-c281b9b55f1d" xml:space="preserve">
+          <source><bpt id="b0427476-7888-4357-873b-3e43d1424a4e">&lt;strong&gt;</bpt>Retain<ept id="b0427476-7888-4357-873b-3e43d1424a4e">&lt;/strong&gt;</ept> an audit trail of selected events.</source>
+          <target state="new"><bpt id="b0427476-7888-4357-873b-3e43d1424a4e">&lt;strong&gt;</bpt>Retain<ept id="b0427476-7888-4357-873b-3e43d1424a4e">&lt;/strong&gt;</ept> an audit trail of selected events.</target>
+        </trans-unit>
+        <trans-unit id="67cff5d2-5c29-4442-8f01-fe7c27a31301" xml:space="preserve">
+          <source>You can define categories of database actions  to be audited.</source>
+          <target state="new">You can define categories of database actions  to be audited.</target>
+        </trans-unit>
+        <trans-unit id="45d9bb6d-ccaa-4c7c-ac55-e736adfc96c3" xml:space="preserve">
+          <source><bpt id="8bca25a2-f076-4c9c-bb7f-21e34ed4f0a5">&lt;strong&gt;</bpt>Report<ept id="8bca25a2-f076-4c9c-bb7f-21e34ed4f0a5">&lt;/strong&gt;</ept> on database activity.</source>
+          <target state="new"><bpt id="8bca25a2-f076-4c9c-bb7f-21e34ed4f0a5">&lt;strong&gt;</bpt>Report<ept id="8bca25a2-f076-4c9c-bb7f-21e34ed4f0a5">&lt;/strong&gt;</ept> on database activity.</target>
+        </trans-unit>
+        <trans-unit id="27f66c9b-59ca-463b-993d-90569b05dd54" xml:space="preserve">
+          <source>You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.</source>
+          <target state="new">You can use preconfigured reports and a dashboard to get started quickly with activity and event reporting.</target>
+        </trans-unit>
+        <trans-unit id="4b0cecb6-f97c-4f9c-be8c-5a4d4630f319" xml:space="preserve">
+          <source><bpt id="9cf540ed-1543-4cc0-81c2-6a99a742470b">&lt;strong&gt;</bpt>Analyze<ept id="9cf540ed-1543-4cc0-81c2-6a99a742470b">&lt;/strong&gt;</ept> reports.</source>
+          <target state="new"><bpt id="9cf540ed-1543-4cc0-81c2-6a99a742470b">&lt;strong&gt;</bpt>Analyze<ept id="9cf540ed-1543-4cc0-81c2-6a99a742470b">&lt;/strong&gt;</ept> reports.</target>
+        </trans-unit>
+        <trans-unit id="107c70eb-b391-40b9-b1c2-60c9861020fc" xml:space="preserve">
+          <source>You can find suspicious events, unusual activity, and trends.</source>
+          <target state="new">You can find suspicious events, unusual activity, and trends.</target>
+        </trans-unit>
+        <trans-unit id="f5e4a95d-474a-4074-ad1b-5f7412098a5a" xml:space="preserve">
+          <source>You can configure auditing for the following event categories:</source>
+          <target state="new">You can configure auditing for the following event categories:</target>
+        </trans-unit>
+        <trans-unit id="a8172762-b885-4fea-b7e0-c6ef29a8b7d3" xml:space="preserve">
+          <source><bpt id="80d1ae79-8c19-4dfe-8c4b-676c80137d5e">&lt;strong&gt;</bpt>Plain SQL<ept id="80d1ae79-8c19-4dfe-8c4b-676c80137d5e">&lt;/strong&gt;</ept> and <bpt id="1d734e1e-e248-452a-86e9-d26354886371">&lt;strong&gt;</bpt>Parameterized SQL<ept id="1d734e1e-e248-452a-86e9-d26354886371">&lt;/strong&gt;</ept> for which the collected audit logs are classified as  </source>
+          <target state="new"><bpt id="80d1ae79-8c19-4dfe-8c4b-676c80137d5e">&lt;strong&gt;</bpt>Plain SQL<ept id="80d1ae79-8c19-4dfe-8c4b-676c80137d5e">&lt;/strong&gt;</ept> and <bpt id="1d734e1e-e248-452a-86e9-d26354886371">&lt;strong&gt;</bpt>Parameterized SQL<ept id="1d734e1e-e248-452a-86e9-d26354886371">&lt;/strong&gt;</ept> for which the collected audit logs are classified as  </target>
+        </trans-unit>
+        <trans-unit id="3bd437e5-fc05-4087-8fa1-21aaec19b742" xml:space="preserve">
+          <source><bpt id="ff7b8812-6b16-434d-bb45-4737268b6c06">&lt;strong&gt;</bpt>Access to data<ept id="ff7b8812-6b16-434d-bb45-4737268b6c06">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ff7b8812-6b16-434d-bb45-4737268b6c06">&lt;strong&gt;</bpt>Access to data<ept id="ff7b8812-6b16-434d-bb45-4737268b6c06">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d9a3381-d6d5-4a87-a03d-157d803c3987" xml:space="preserve">
+          <source><bpt id="d795df57-1c9f-4bac-b527-3d9c96e89b35">&lt;strong&gt;</bpt>Schema changes (DDL)<ept id="d795df57-1c9f-4bac-b527-3d9c96e89b35">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d795df57-1c9f-4bac-b527-3d9c96e89b35">&lt;strong&gt;</bpt>Schema changes (DDL)<ept id="d795df57-1c9f-4bac-b527-3d9c96e89b35">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e9fb34a3-7300-4209-be5d-82d7988452f6" xml:space="preserve">
+          <source><bpt id="cfc631e6-1ed9-4e89-b0b7-1836cd3b2797">&lt;strong&gt;</bpt>Data changes (DML)<ept id="cfc631e6-1ed9-4e89-b0b7-1836cd3b2797">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cfc631e6-1ed9-4e89-b0b7-1836cd3b2797">&lt;strong&gt;</bpt>Data changes (DML)<ept id="cfc631e6-1ed9-4e89-b0b7-1836cd3b2797">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa931a97-19a0-4552-9010-dc2d50687fbc" xml:space="preserve">
+          <source><bpt id="a8575005-be86-4662-8bb5-04571d5f102c">&lt;strong&gt;</bpt>Accounts, roles, and permissions (DCL)<ept id="a8575005-be86-4662-8bb5-04571d5f102c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a8575005-be86-4662-8bb5-04571d5f102c">&lt;strong&gt;</bpt>Accounts, roles, and permissions (DCL)<ept id="a8575005-be86-4662-8bb5-04571d5f102c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f6c5a87-c69f-409d-9938-773bdcbbd90a" xml:space="preserve">
+          <source><bpt id="7b13947b-86f9-4d5b-9a37-5f27b77e72d8">&lt;strong&gt;</bpt>Stored Procedure<ept id="7b13947b-86f9-4d5b-9a37-5f27b77e72d8">&lt;/strong&gt;</ept>, <bpt id="9c517e7f-2318-46cd-9525-a026e005f50b">&lt;strong&gt;</bpt>Login<ept id="9c517e7f-2318-46cd-9525-a026e005f50b">&lt;/strong&gt;</ept> and, <bpt id="86ea87f6-ad42-43f2-a295-714113148d2a">&lt;strong&gt;</bpt>Transaction Management<ept id="86ea87f6-ad42-43f2-a295-714113148d2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="7b13947b-86f9-4d5b-9a37-5f27b77e72d8">&lt;strong&gt;</bpt>Stored Procedure<ept id="7b13947b-86f9-4d5b-9a37-5f27b77e72d8">&lt;/strong&gt;</ept>, <bpt id="9c517e7f-2318-46cd-9525-a026e005f50b">&lt;strong&gt;</bpt>Login<ept id="9c517e7f-2318-46cd-9525-a026e005f50b">&lt;/strong&gt;</ept> and, <bpt id="86ea87f6-ad42-43f2-a295-714113148d2a">&lt;strong&gt;</bpt>Transaction Management<ept id="86ea87f6-ad42-43f2-a295-714113148d2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8164a4d6-60ca-4e98-9c82-3ffa4e81b943" xml:space="preserve">
+          <source>For each Event Category, Auditing of <bpt id="f492127b-9b7f-4d0d-a465-7744f64ebcec">&lt;strong&gt;</bpt>Success<ept id="f492127b-9b7f-4d0d-a465-7744f64ebcec">&lt;/strong&gt;</ept> and <bpt id="5452a2f2-fec2-45c5-9c01-ca837a86e090">&lt;strong&gt;</bpt>Failure<ept id="5452a2f2-fec2-45c5-9c01-ca837a86e090">&lt;/strong&gt;</ept> operations are configured separately.</source>
+          <target state="new">For each Event Category, Auditing of <bpt id="f492127b-9b7f-4d0d-a465-7744f64ebcec">&lt;strong&gt;</bpt>Success<ept id="f492127b-9b7f-4d0d-a465-7744f64ebcec">&lt;/strong&gt;</ept> and <bpt id="5452a2f2-fec2-45c5-9c01-ca837a86e090">&lt;strong&gt;</bpt>Failure<ept id="5452a2f2-fec2-45c5-9c01-ca837a86e090">&lt;/strong&gt;</ept> operations are configured separately.</target>
+        </trans-unit>
+        <trans-unit id="6c24aa65-57fa-49c4-abde-b40a6b5738da" xml:space="preserve">
+          <source>For further details about the activities and events audited, see the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank"&gt;Audit Log Format Reference (doc file download)&lt;/a&gt;.</source>
+          <target state="new">For further details about the activities and events audited, see the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank"&gt;Audit Log Format Reference (doc file download)&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="59b3d77b-dcd1-4daf-bdbd-d8c436bec746" xml:space="preserve">
+          <source>Audit logs are stored in your Azure storage account.</source>
+          <target state="new">Audit logs are stored in your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="d1cd25ce-7311-46eb-bd34-70df064da3b8" xml:space="preserve">
+          <source>You can define an audit log retention period.</source>
+          <target state="new">You can define an audit log retention period.</target>
+        </trans-unit>
+        <trans-unit id="4333a69d-9b9c-40d7-8a06-7ffe69dd4df5" xml:space="preserve">
+          <source>An auditing policy can be defined for a specific database or as a default server policy.</source>
+          <target state="new">An auditing policy can be defined for a specific database or as a default server policy.</target>
+        </trans-unit>
+        <trans-unit id="8abb166e-f2ac-44c6-bf68-af48be242d5d" xml:space="preserve">
+          <source>A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.</source>
+          <target state="new">A default server auditing policy will apply to all databases on a server which do not have a specific overriding database auditing policy defined.</target>
+        </trans-unit>
+        <trans-unit id="35650094-2d5e-4cf0-bafa-f4334bf23fc6" xml:space="preserve">
+          <source>Before setting up audit auditing check if you are using a <bpt id="473a847e-3955-491c-843b-d77ee5588810">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="473a847e-3955-491c-843b-d77ee5588810">&lt;/linkText&gt;</ept><bpt id="473a847e-3955-491c-843b-d77ee5588810">&lt;title&gt;</bpt><ept id="473a847e-3955-491c-843b-d77ee5588810">&lt;/title&gt;</ept>.</source>
+          <target state="new">Before setting up audit auditing check if you are using a <bpt id="473a847e-3955-491c-843b-d77ee5588810">&lt;linkText&gt;</bpt>"Downlevel Client"<ept id="473a847e-3955-491c-843b-d77ee5588810">&lt;/linkText&gt;</ept><bpt id="473a847e-3955-491c-843b-d77ee5588810">&lt;title&gt;</bpt><ept id="473a847e-3955-491c-843b-d77ee5588810">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0d3f2ce1-c705-41b3-a203-bd30c2e5c98c" xml:space="preserve">
+          <source>Launch the &lt;a href="https://portal.azure.com" target="_blank"&gt;Azure Preview Portal&lt;/a&gt; at https://portal.azure.com.</source>
+          <target state="new">Launch the &lt;a href="https://portal.azure.com" target="_blank"&gt;Azure Preview Portal&lt;/a&gt; at https://portal.azure.com.</target>
+        </trans-unit>
+        <trans-unit id="60915d66-16e4-4ad6-9624-2567dc4f2c85" xml:space="preserve">
+          <source>Alternatively, you can also launch the &lt;a href= "https://manage.windowsazure.com/" target="_bank"&gt;Classic Azure Portal&lt;/a&gt; at https://manage.windowsazure.com/.</source>
+          <target state="new">Alternatively, you can also launch the &lt;a href= "https://manage.windowsazure.com/" target="_bank"&gt;Classic Azure Portal&lt;/a&gt; at https://manage.windowsazure.com/.</target>
+        </trans-unit>
+        <trans-unit id="6bf3ff74-ddd0-49d8-8e7d-46a6789d2b51" xml:space="preserve">
+          <source>Refer to details below.</source>
+          <target state="new">Refer to details below.</target>
+        </trans-unit>
+        <trans-unit id="4dc17b85-ad24-4fca-854a-fc32dacf56f0" xml:space="preserve">
+          <source>navigate to the configuration blade of the SQL Database / SQL Server you want to audit.</source>
+          <target state="new">navigate to the configuration blade of the SQL Database / SQL Server you want to audit.</target>
+        </trans-unit>
+        <trans-unit id="9a945b22-387f-4e49-a88d-1ebdc034c192" xml:space="preserve">
+          <source>Click the <bpt id="91a3e132-2424-4fd8-a75a-20c973fc32e2">&lt;strong&gt;</bpt>Settings<ept id="91a3e132-2424-4fd8-a75a-20c973fc32e2">&lt;/strong&gt;</ept> button on top and then, in the Setting blade, and select <bpt id="b444e72b-d3b6-40d8-859e-cef5a4696b04">&lt;strong&gt;</bpt>Auditing<ept id="b444e72b-d3b6-40d8-859e-cef5a4696b04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="91a3e132-2424-4fd8-a75a-20c973fc32e2">&lt;strong&gt;</bpt>Settings<ept id="91a3e132-2424-4fd8-a75a-20c973fc32e2">&lt;/strong&gt;</ept> button on top and then, in the Setting blade, and select <bpt id="b444e72b-d3b6-40d8-859e-cef5a4696b04">&lt;strong&gt;</bpt>Auditing<ept id="b444e72b-d3b6-40d8-859e-cef5a4696b04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68ff4dad-ea77-4fc5-81b0-9563df98cfe6" xml:space="preserve">
+          <source><bpt id="0c33f5d7-bcb5-4c2e-b75d-0da1a4d59122">&lt;linkText&gt;</bpt><ept id="0c33f5d7-bcb5-4c2e-b75d-0da1a4d59122">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0c33f5d7-bcb5-4c2e-b75d-0da1a4d59122">&lt;linkText&gt;</bpt><ept id="0c33f5d7-bcb5-4c2e-b75d-0da1a4d59122">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac299a7e-fec6-466e-a82f-5eb43ff25765" xml:space="preserve">
+          <source>In the auditing configuration blade, select STORAGE DETAILS to open the Audit Logs Storage Blade.</source>
+          <target state="new">In the auditing configuration blade, select STORAGE DETAILS to open the Audit Logs Storage Blade.</target>
+        </trans-unit>
+        <trans-unit id="4c662ef6-d2c5-4e77-8d5f-eaa58fdcd25a" xml:space="preserve">
+          <source>Select the Azure storage account where logs will be saved and, the retention period.</source>
+          <target state="new">Select the Azure storage account where logs will be saved and, the retention period.</target>
+        </trans-unit>
+        <trans-unit id="93acce38-0f8d-4989-b9b3-c97c7975724d" xml:space="preserve">
+          <source><bpt id="d58e8ce1-47b4-4ff3-8f27-ec5abcaab965">&lt;strong&gt;</bpt>Tip:<ept id="d58e8ce1-47b4-4ff3-8f27-ec5abcaab965">&lt;/strong&gt;</ept> Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.</source>
+          <target state="new"><bpt id="d58e8ce1-47b4-4ff3-8f27-ec5abcaab965">&lt;strong&gt;</bpt>Tip:<ept id="d58e8ce1-47b4-4ff3-8f27-ec5abcaab965">&lt;/strong&gt;</ept> Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.</target>
+        </trans-unit>
+        <trans-unit id="cca0e068-3421-4cfb-80d9-449671906f41" xml:space="preserve">
+          <source><bpt id="e135261f-7c30-4f6b-a4d2-3fd61432e4b7">&lt;linkText&gt;</bpt><ept id="e135261f-7c30-4f6b-a4d2-3fd61432e4b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e135261f-7c30-4f6b-a4d2-3fd61432e4b7">&lt;linkText&gt;</bpt><ept id="e135261f-7c30-4f6b-a4d2-3fd61432e4b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e0c02e2-571b-4f4b-aa69-169ab8f29b70" xml:space="preserve">
+          <source>Under <bpt id="297dc4e5-72d8-49b6-8397-62bf02b6ca90">&lt;strong&gt;</bpt>LOGGING BY EVENT<ept id="297dc4e5-72d8-49b6-8397-62bf02b6ca90">&lt;/strong&gt;</ept>, click <bpt id="0909e3a0-9ac4-48c6-85a4-5f5a871750df">&lt;strong&gt;</bpt>SUCCESS<ept id="0909e3a0-9ac4-48c6-85a4-5f5a871750df">&lt;/strong&gt;</ept> and <bpt id="61055101-420b-4f34-83e7-a998798c81eb">&lt;strong&gt;</bpt>FAILURE<ept id="61055101-420b-4f34-83e7-a998798c81eb">&lt;/strong&gt;</ept> to log all events, or choose individual event categories.</source>
+          <target state="new">Under <bpt id="297dc4e5-72d8-49b6-8397-62bf02b6ca90">&lt;strong&gt;</bpt>LOGGING BY EVENT<ept id="297dc4e5-72d8-49b6-8397-62bf02b6ca90">&lt;/strong&gt;</ept>, click <bpt id="0909e3a0-9ac4-48c6-85a4-5f5a871750df">&lt;strong&gt;</bpt>SUCCESS<ept id="0909e3a0-9ac4-48c6-85a4-5f5a871750df">&lt;/strong&gt;</ept> and <bpt id="61055101-420b-4f34-83e7-a998798c81eb">&lt;strong&gt;</bpt>FAILURE<ept id="61055101-420b-4f34-83e7-a998798c81eb">&lt;/strong&gt;</ept> to log all events, or choose individual event categories.</target>
+        </trans-unit>
+        <trans-unit id="24047482-10cd-4535-949b-2afe7c9445d9" xml:space="preserve">
+          <source>If you are configuring Auditing for a SQL Database, Click on <bpt id="526cb5f5-8de6-462d-9b78-04afc6432e68">&lt;strong&gt;</bpt>To enforce auditing click here ...<ept id="526cb5f5-8de6-462d-9b78-04afc6432e68">&lt;/strong&gt;</ept> and on <bpt id="e87ac191-4a1d-4d62-98a0-412d7a925006">&lt;strong&gt;</bpt>SECURITY ENABLED ACCESS<ept id="e87ac191-4a1d-4d62-98a0-412d7a925006">&lt;/strong&gt;</ept> select <bpt id="11df136c-8076-418a-8f0d-5af1bf341125">&lt;strong&gt;</bpt>REQUIRED<ept id="11df136c-8076-418a-8f0d-5af1bf341125">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are configuring Auditing for a SQL Database, Click on <bpt id="526cb5f5-8de6-462d-9b78-04afc6432e68">&lt;strong&gt;</bpt>To enforce auditing click here ...<ept id="526cb5f5-8de6-462d-9b78-04afc6432e68">&lt;/strong&gt;</ept> and on <bpt id="e87ac191-4a1d-4d62-98a0-412d7a925006">&lt;strong&gt;</bpt>SECURITY ENABLED ACCESS<ept id="e87ac191-4a1d-4d62-98a0-412d7a925006">&lt;/strong&gt;</ept> select <bpt id="11df136c-8076-418a-8f0d-5af1bf341125">&lt;strong&gt;</bpt>REQUIRED<ept id="11df136c-8076-418a-8f0d-5af1bf341125">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c8dfe6f-46e2-4df7-9fd3-c3c83b20ea5a" xml:space="preserve">
+          <source>If you are configuring Auditing for a SQL Server you have two options: (a) after step #6, navigate for each SQL database on the server and apply this step, or (2) <bpt id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;linkText&gt;</bpt>Modify Server FDQN in the connection string<ept id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;/linkText&gt;</ept><bpt id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;title&gt;</bpt><ept id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are configuring Auditing for a SQL Server you have two options: (a) after step #6, navigate for each SQL database on the server and apply this step, or (2) <bpt id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;linkText&gt;</bpt>Modify Server FDQN in the connection string<ept id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;/linkText&gt;</ept><bpt id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;title&gt;</bpt><ept id="6ac2ad2f-930c-4473-98f3-d2feaed4ca60">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be0f4ad7-4b0d-4637-a63f-ece06777384d" xml:space="preserve">
+          <source><bpt id="f43a5614-70dc-4eeb-a06e-d68b2487de8a">&lt;linkText&gt;</bpt><ept id="f43a5614-70dc-4eeb-a06e-d68b2487de8a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f43a5614-70dc-4eeb-a06e-d68b2487de8a">&lt;linkText&gt;</bpt><ept id="f43a5614-70dc-4eeb-a06e-d68b2487de8a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8be8f6d-320e-4637-b59d-5ed2b453a8ea" xml:space="preserve">
+          <source>Click <bpt id="7e48e8fa-4a56-44e1-9263-b95f02a61908">&lt;strong&gt;</bpt>OK<ept id="7e48e8fa-4a56-44e1-9263-b95f02a61908">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7e48e8fa-4a56-44e1-9263-b95f02a61908">&lt;strong&gt;</bpt>OK<ept id="7e48e8fa-4a56-44e1-9263-b95f02a61908">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f290e39-222e-4540-9172-48aee7bd9992" xml:space="preserve">
+          <source>Audit logs are aggregated in a collection of Store Tables with a <bpt id="a8db81cd-b342-4271-ad56-66fd351e5660">&lt;strong&gt;</bpt>SQLDBAuditLogs<ept id="a8db81cd-b342-4271-ad56-66fd351e5660">&lt;/strong&gt;</ept> prefix in the Azure storage account you chose during setup.</source>
+          <target state="new">Audit logs are aggregated in a collection of Store Tables with a <bpt id="a8db81cd-b342-4271-ad56-66fd351e5660">&lt;strong&gt;</bpt>SQLDBAuditLogs<ept id="a8db81cd-b342-4271-ad56-66fd351e5660">&lt;/strong&gt;</ept> prefix in the Azure storage account you chose during setup.</target>
+        </trans-unit>
+        <trans-unit id="1072e61d-c70b-4b37-adea-464044f9d343" xml:space="preserve">
+          <source>You can view log files using a tool such as &lt;a href="http://azurestorageexplorer.codeplex.com/" target="_blank"&gt;Azure Storage Explorer&lt;/a&gt;.</source>
+          <target state="new">You can view log files using a tool such as &lt;a href="http://azurestorageexplorer.codeplex.com/" target="_blank"&gt;Azure Storage Explorer&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="70adcd3f-5820-40f2-bb59-35bccb6b529e" xml:space="preserve">
+          <source>A preconfigured dashboard report template is available as a &lt;a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank"&gt;downloadable Excel spreadsheet&lt;/a&gt; to help you quickly analyze log data.</source>
+          <target state="new">A preconfigured dashboard report template is available as a &lt;a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank"&gt;downloadable Excel spreadsheet&lt;/a&gt; to help you quickly analyze log data.</target>
+        </trans-unit>
+        <trans-unit id="7b1836cd-4bb4-4870-85cb-d8d7a4b8379f" xml:space="preserve">
+          <source>To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download &lt;a href="http://www.microsoft.com/download/details.aspx?id=39379"&gt;here&lt;/a&gt;.</source>
+          <target state="new">To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can download &lt;a href="http://www.microsoft.com/download/details.aspx?id=39379"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="f4d4637c-1230-41ac-bb1b-88774f978e2f" xml:space="preserve">
+          <source>The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.</source>
+          <target state="new">The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="a611dd03-5f72-4c7e-9e05-fc22121ec625" xml:space="preserve">
+          <source>For more detailed instructions on working with the report template, read the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=506731"&gt;How To (doc download)&lt;/a&gt;.</source>
+          <target state="new">For more detailed instructions on working with the report template, read the &lt;a href="http://go.microsoft.com/fwlink/?LinkId=506731"&gt;How To (doc download)&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="72ec4586-7531-41f2-9248-d545b20a4475" xml:space="preserve">
+          <source><bpt id="36440738-3dc4-4945-a623-9d6f6ec562c9">&lt;linkText&gt;</bpt><ept id="36440738-3dc4-4945-a623-9d6f6ec562c9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36440738-3dc4-4945-a623-9d6f6ec562c9">&lt;linkText&gt;</bpt><ept id="36440738-3dc4-4945-a623-9d6f6ec562c9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="127d84a8-9920-4ef7-a203-9eef7b6f9ab3" xml:space="preserve">
+          <source>Launch the &lt;a href= "https://manage.windowsazure.com/" target="_bank"&gt;Classic Azure Portal&lt;/a&gt; at https://manage.windowsazure.com/.</source>
+          <target state="new">Launch the &lt;a href= "https://manage.windowsazure.com/" target="_bank"&gt;Classic Azure Portal&lt;/a&gt; at https://manage.windowsazure.com/.</target>
+        </trans-unit>
+        <trans-unit id="9e10f81c-820c-4273-8669-34685b9b38af" xml:space="preserve">
+          <source>Click the SQL Database / SQL Server you want to audit, and then click the <bpt id="48be2b2d-2a01-4340-a792-f816da9a0a54">&lt;strong&gt;</bpt>AUDITING &amp; SECURITY<ept id="48be2b2d-2a01-4340-a792-f816da9a0a54">&lt;/strong&gt;</ept> tab. </source>
+          <target state="new">Click the SQL Database / SQL Server you want to audit, and then click the <bpt id="48be2b2d-2a01-4340-a792-f816da9a0a54">&lt;strong&gt;</bpt>AUDITING &amp; SECURITY<ept id="48be2b2d-2a01-4340-a792-f816da9a0a54">&lt;/strong&gt;</ept> tab. </target>
+        </trans-unit>
+        <trans-unit id="747f8d1c-6909-4cdd-b52c-b9edcd852c79" xml:space="preserve">
+          <source>If you are configuring Auditing for a SQL Database, On <bpt id="1a4f0dce-86ab-4060-a954-64378ccd18d2">&lt;strong&gt;</bpt>SECURITY ENABLED ACCESS<ept id="1a4f0dce-86ab-4060-a954-64378ccd18d2">&lt;/strong&gt;</ept> select <bpt id="e11ae765-cd63-4f53-80d1-047601130147">&lt;strong&gt;</bpt>REQUIRED<ept id="e11ae765-cd63-4f53-80d1-047601130147">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you are configuring Auditing for a SQL Database, On <bpt id="1a4f0dce-86ab-4060-a954-64378ccd18d2">&lt;strong&gt;</bpt>SECURITY ENABLED ACCESS<ept id="1a4f0dce-86ab-4060-a954-64378ccd18d2">&lt;/strong&gt;</ept> select <bpt id="e11ae765-cd63-4f53-80d1-047601130147">&lt;strong&gt;</bpt>REQUIRED<ept id="e11ae765-cd63-4f53-80d1-047601130147">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f99f241d-68a5-4292-a5db-0a7fd805b6ed" xml:space="preserve">
+          <source>If you are configuring Auditing for a SQL Server you have two options: (a) after step #7, navigate for each SQL database on the server and apply this step, or (2) <bpt id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;linkText&gt;</bpt>Modify Server FDQN in the connection string<ept id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;/linkText&gt;</ept><bpt id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;title&gt;</bpt><ept id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you are configuring Auditing for a SQL Server you have two options: (a) after step #7, navigate for each SQL database on the server and apply this step, or (2) <bpt id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;linkText&gt;</bpt>Modify Server FDQN in the connection string<ept id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;/linkText&gt;</ept><bpt id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;title&gt;</bpt><ept id="14f97e5b-52e0-410e-85f5-8616dfdbb757">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="943fea0a-9a31-4aa7-ae84-d62947c316da" xml:space="preserve">
+          <source>At the auditing section click <bpt id="eda7571e-2409-424a-b725-e0d551b57abb">&lt;strong&gt;</bpt>ENABLED<ept id="eda7571e-2409-424a-b725-e0d551b57abb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the auditing section click <bpt id="eda7571e-2409-424a-b725-e0d551b57abb">&lt;strong&gt;</bpt>ENABLED<ept id="eda7571e-2409-424a-b725-e0d551b57abb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96646f70-6e7d-4f52-85ce-239280b68ce3" xml:space="preserve">
+          <source><bpt id="ccd1eb8f-b4d4-4762-abc3-dc64d2de20a9">&lt;linkText&gt;</bpt><ept id="ccd1eb8f-b4d4-4762-abc3-dc64d2de20a9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ccd1eb8f-b4d4-4762-abc3-dc64d2de20a9">&lt;linkText&gt;</bpt><ept id="ccd1eb8f-b4d4-4762-abc3-dc64d2de20a9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="65bed028-bb7c-4743-bc9c-8b2737439a65" xml:space="preserve">
+          <source>Edit the <bpt id="e53c25fe-ee0d-4a6f-9142-4a62ae63ce3d">&lt;strong&gt;</bpt>LOGGING BY EVENT<ept id="e53c25fe-ee0d-4a6f-9142-4a62ae63ce3d">&lt;/strong&gt;</ept> as needed.</source>
+          <target state="new">Edit the <bpt id="e53c25fe-ee0d-4a6f-9142-4a62ae63ce3d">&lt;strong&gt;</bpt>LOGGING BY EVENT<ept id="e53c25fe-ee0d-4a6f-9142-4a62ae63ce3d">&lt;/strong&gt;</ept> as needed.</target>
+        </trans-unit>
+        <trans-unit id="fe7aa8db-a0e3-4e89-900e-9b477325a2bb" xml:space="preserve">
+          <source><bpt id="2278a82a-d670-4a7d-a815-cfa35bddf1e5">&lt;linkText&gt;</bpt><ept id="2278a82a-d670-4a7d-a815-cfa35bddf1e5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2278a82a-d670-4a7d-a815-cfa35bddf1e5">&lt;linkText&gt;</bpt><ept id="2278a82a-d670-4a7d-a815-cfa35bddf1e5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b8730333-3f32-4e14-822f-ba88a6ecef7d" xml:space="preserve">
+          <source>Select a <bpt id="b440591e-b9cd-4349-90c7-61d303653cca">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="b440591e-b9cd-4349-90c7-61d303653cca">&lt;/strong&gt;</ept> and configure <bpt id="36dc96ce-3690-4765-82d3-205c758d95f8">&lt;strong&gt;</bpt>RETENTION<ept id="36dc96ce-3690-4765-82d3-205c758d95f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select a <bpt id="b440591e-b9cd-4349-90c7-61d303653cca">&lt;strong&gt;</bpt>STORAGE ACCOUNT<ept id="b440591e-b9cd-4349-90c7-61d303653cca">&lt;/strong&gt;</ept> and configure <bpt id="36dc96ce-3690-4765-82d3-205c758d95f8">&lt;strong&gt;</bpt>RETENTION<ept id="36dc96ce-3690-4765-82d3-205c758d95f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="26044681-df06-455b-bd42-7f84c9bf9ae9" xml:space="preserve">
+          <source><bpt id="6e05ef0e-8b2a-4c97-97ef-819eb986a755">&lt;linkText&gt;</bpt><ept id="6e05ef0e-8b2a-4c97-97ef-819eb986a755">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e05ef0e-8b2a-4c97-97ef-819eb986a755">&lt;linkText&gt;</bpt><ept id="6e05ef0e-8b2a-4c97-97ef-819eb986a755">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="736ec539-2242-47ba-b076-c362d8dc8806" xml:space="preserve">
+          <source>Click <bpt id="fe341703-0c1e-4845-bb9f-9cc6b2a7b9a4">&lt;strong&gt;</bpt>SAVE<ept id="fe341703-0c1e-4845-bb9f-9cc6b2a7b9a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="fe341703-0c1e-4845-bb9f-9cc6b2a7b9a4">&lt;strong&gt;</bpt>SAVE<ept id="fe341703-0c1e-4845-bb9f-9cc6b2a7b9a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d219e3d-d93f-48d9-9928-55c682c62686" xml:space="preserve">
+          <source>The description in this section refers to screen captures above.</source>
+          <target state="new">The description in this section refers to screen captures above.</target>
+        </trans-unit>
+        <trans-unit id="4bee84be-6959-4fc6-8a20-6327b71a43aa" xml:space="preserve">
+          <source>Either &lt;a href="https://portal.azure.com" target="<bpt id="1616b5af-4b3f-4fc6-bfc1-3fbb3e75e8ca">&lt;em&gt;</bpt>blank"&gt;Azure Preview Portal&lt;/a&gt; or &lt;a href= "https://manage.windowsazure.com/" target="<ept id="1616b5af-4b3f-4fc6-bfc1-3fbb3e75e8ca">&lt;/em&gt;</ept>bank"&gt;Classic Azure Portal&lt;/a&gt; may be used.</source>
+          <target state="new">Either &lt;a href="https://portal.azure.com" target="<bpt id="1616b5af-4b3f-4fc6-bfc1-3fbb3e75e8ca">&lt;em&gt;</bpt>blank"&gt;Azure Preview Portal&lt;/a&gt; or &lt;a href= "https://manage.windowsazure.com/" target="<ept id="1616b5af-4b3f-4fc6-bfc1-3fbb3e75e8ca">&lt;/em&gt;</ept>bank"&gt;Classic Azure Portal&lt;/a&gt; may be used.</target>
+        </trans-unit>
+        <trans-unit id="c9d12753-fb4a-497e-9d37-10f8ee9b5890" xml:space="preserve">
+          <source>In production you are likely to refresh your storage keys periodically.</source>
+          <target state="new">In production you are likely to refresh your storage keys periodically.</target>
+        </trans-unit>
+        <trans-unit id="1fa85230-3537-4ef1-9f08-2e1229f5cb45" xml:space="preserve">
+          <source>When refresh your keys you need to re-save the policy.</source>
+          <target state="new">When refresh your keys you need to re-save the policy.</target>
+        </trans-unit>
+        <trans-unit id="f749018d-198e-4cb0-867e-25bb52a68db0" xml:space="preserve">
+          <source>The process is as follows:.</source>
+          <target state="new">The process is as follows:.</target>
+        </trans-unit>
+        <trans-unit id="e980278e-8d7f-4bca-a171-9dfc443f25cf" xml:space="preserve">
+          <source>In the auditing configuration blade (described above in the set up auditing section) switch the <bpt id="9b331ed2-accc-45ab-ae20-f56b6573fac8">&lt;strong&gt;</bpt>Storage Access Key<ept id="9b331ed2-accc-45ab-ae20-f56b6573fac8">&lt;/strong&gt;</ept> from <bpt id="c605a0c6-b575-4c68-aa94-7643de1495a2">&lt;em&gt;</bpt>Primary<ept id="c605a0c6-b575-4c68-aa94-7643de1495a2">&lt;/em&gt;</ept> to <bpt id="0defa169-55f9-4cd8-804f-1fc3c3734ddd">&lt;em&gt;</bpt>Secondary<ept id="0defa169-55f9-4cd8-804f-1fc3c3734ddd">&lt;/em&gt;</ept> and <bpt id="3c997383-312d-4f64-9978-00a12a4f74ea">&lt;strong&gt;</bpt>SAVE<ept id="3c997383-312d-4f64-9978-00a12a4f74ea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the auditing configuration blade (described above in the set up auditing section) switch the <bpt id="9b331ed2-accc-45ab-ae20-f56b6573fac8">&lt;strong&gt;</bpt>Storage Access Key<ept id="9b331ed2-accc-45ab-ae20-f56b6573fac8">&lt;/strong&gt;</ept> from <bpt id="c605a0c6-b575-4c68-aa94-7643de1495a2">&lt;em&gt;</bpt>Primary<ept id="c605a0c6-b575-4c68-aa94-7643de1495a2">&lt;/em&gt;</ept> to <bpt id="0defa169-55f9-4cd8-804f-1fc3c3734ddd">&lt;em&gt;</bpt>Secondary<ept id="0defa169-55f9-4cd8-804f-1fc3c3734ddd">&lt;/em&gt;</ept> and <bpt id="3c997383-312d-4f64-9978-00a12a4f74ea">&lt;strong&gt;</bpt>SAVE<ept id="3c997383-312d-4f64-9978-00a12a4f74ea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e759b72b-ad38-4dc8-8592-86ae34e4790b" xml:space="preserve">
+          <source><bpt id="702ce5cb-d07b-4869-b0c1-02cacbba67cc">&lt;linkText&gt;</bpt><ept id="702ce5cb-d07b-4869-b0c1-02cacbba67cc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="702ce5cb-d07b-4869-b0c1-02cacbba67cc">&lt;linkText&gt;</bpt><ept id="702ce5cb-d07b-4869-b0c1-02cacbba67cc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ac50199-28a7-4aec-811d-d90941779aeb" xml:space="preserve">
+          <source>Go to the storage configuration blade and <bpt id="b33ecda4-3f80-4ea0-9b84-a31a3028ac49">&lt;strong&gt;</bpt>regenerate<ept id="b33ecda4-3f80-4ea0-9b84-a31a3028ac49">&lt;/strong&gt;</ept> the <bpt id="3861896f-f104-41bc-9805-12755af9b2a9">&lt;em&gt;</bpt>Primary Access Key<ept id="3861896f-f104-41bc-9805-12755af9b2a9">&lt;/em&gt;</ept>.</source>
+          <target state="new">Go to the storage configuration blade and <bpt id="b33ecda4-3f80-4ea0-9b84-a31a3028ac49">&lt;strong&gt;</bpt>regenerate<ept id="b33ecda4-3f80-4ea0-9b84-a31a3028ac49">&lt;/strong&gt;</ept> the <bpt id="3861896f-f104-41bc-9805-12755af9b2a9">&lt;em&gt;</bpt>Primary Access Key<ept id="3861896f-f104-41bc-9805-12755af9b2a9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39084a4f-5bdc-4dab-a930-1596edafa071" xml:space="preserve">
+          <source>Go back to the auditing configuration blade, switch the <bpt id="4f89cb4a-ac9f-48e4-a75e-e13abbc114e7">&lt;strong&gt;</bpt>Storage Access Key<ept id="4f89cb4a-ac9f-48e4-a75e-e13abbc114e7">&lt;/strong&gt;</ept> from <bpt id="6c95a955-6047-4e26-a0c6-3cb3f22b2a8b">&lt;em&gt;</bpt>Secondary<ept id="6c95a955-6047-4e26-a0c6-3cb3f22b2a8b">&lt;/em&gt;</ept> to <bpt id="6e62250f-8d55-4e8c-ac50-d3c698b21fbb">&lt;em&gt;</bpt>Primary<ept id="6e62250f-8d55-4e8c-ac50-d3c698b21fbb">&lt;/em&gt;</ept> and press <bpt id="811da9d7-bd7e-4796-b326-efbfb3601c93">&lt;strong&gt;</bpt>SAVE<ept id="811da9d7-bd7e-4796-b326-efbfb3601c93">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go back to the auditing configuration blade, switch the <bpt id="4f89cb4a-ac9f-48e4-a75e-e13abbc114e7">&lt;strong&gt;</bpt>Storage Access Key<ept id="4f89cb4a-ac9f-48e4-a75e-e13abbc114e7">&lt;/strong&gt;</ept> from <bpt id="6c95a955-6047-4e26-a0c6-3cb3f22b2a8b">&lt;em&gt;</bpt>Secondary<ept id="6c95a955-6047-4e26-a0c6-3cb3f22b2a8b">&lt;/em&gt;</ept> to <bpt id="6e62250f-8d55-4e8c-ac50-d3c698b21fbb">&lt;em&gt;</bpt>Primary<ept id="6e62250f-8d55-4e8c-ac50-d3c698b21fbb">&lt;/em&gt;</ept> and press <bpt id="811da9d7-bd7e-4796-b326-efbfb3601c93">&lt;strong&gt;</bpt>SAVE<ept id="811da9d7-bd7e-4796-b326-efbfb3601c93">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4007d210-3164-45d8-9183-66b8729501ed" xml:space="preserve">
+          <source>Go back to the storage UI and <bpt id="922580b3-12f2-40d2-9f5c-9adc15e93d63">&lt;strong&gt;</bpt>regenerate<ept id="922580b3-12f2-40d2-9f5c-9adc15e93d63">&lt;/strong&gt;</ept> the <bpt id="0c656463-8664-4b31-bc25-1ef6a6b6d7a3">&lt;em&gt;</bpt>Secondary Access Key<ept id="0c656463-8664-4b31-bc25-1ef6a6b6d7a3">&lt;/em&gt;</ept> (as preparation for the next keys refresh cycle.</source>
+          <target state="new">Go back to the storage UI and <bpt id="922580b3-12f2-40d2-9f5c-9adc15e93d63">&lt;strong&gt;</bpt>regenerate<ept id="922580b3-12f2-40d2-9f5c-9adc15e93d63">&lt;/strong&gt;</ept> the <bpt id="0c656463-8664-4b31-bc25-1ef6a6b6d7a3">&lt;em&gt;</bpt>Secondary Access Key<ept id="0c656463-8664-4b31-bc25-1ef6a6b6d7a3">&lt;/em&gt;</ept> (as preparation for the next keys refresh cycle.</target>
+        </trans-unit>
+        <trans-unit id="2ab0bf3b-77a2-4cf2-9bdb-801eabfe0f6a" xml:space="preserve">
+          <source>There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database.</source>
+          <target state="new">There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="d97150ae-956b-45e4-8d14-75adf381824a" xml:space="preserve">
+          <source>To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.</source>
+          <target state="new">To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.</target>
+        </trans-unit>
+        <trans-unit id="138ff1b0-3b76-4c67-bf30-a8b5a5f26b3b" xml:space="preserve">
+          <source>The  <bpt id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;/linkText&gt;</ept><bpt id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;title&gt;</bpt><ept id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;/title&gt;</ept> module is currently in preview.</source>
+          <target state="new">The  <bpt id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;linkText&gt;</bpt>Azure Resource Manager<ept id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;/linkText&gt;</ept><bpt id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;title&gt;</bpt><ept id="ad1308b6-9c4b-4e53-8812-d87a78d20948">&lt;/title&gt;</ept> module is currently in preview.</target>
+        </trans-unit>
+        <trans-unit id="11cc0228-136e-4464-93b2-08188fbae71a" xml:space="preserve">
+          <source>It might not provide the same management capabilities as the Azure module.</source>
+          <target state="new">It might not provide the same management capabilities as the Azure module.</target>
+        </trans-unit>
+        <trans-unit id="6adc0eb5-f7f2-4598-ab6c-d446f7f8d94f" xml:space="preserve">
+          <source>When you are in Azure Resource Manager mode, run <bpt id="36034754-82af-45cb-8de2-3fe1c1ec35ae">&lt;code&gt;</bpt>Get-Command *AzureSql*<ept id="36034754-82af-45cb-8de2-3fe1c1ec35ae">&lt;/code&gt;</ept> to list the available cmdlets.</source>
+          <target state="new">When you are in Azure Resource Manager mode, run <bpt id="36034754-82af-45cb-8de2-3fe1c1ec35ae">&lt;code&gt;</bpt>Get-Command *AzureSql*<ept id="36034754-82af-45cb-8de2-3fe1c1ec35ae">&lt;/code&gt;</ept> to list the available cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="cf756196-38cf-455c-a4a8-c9f9db3ce4c6" xml:space="preserve">
+          <source>#subheading-1</source>
+          <target state="new">#subheading-1</target>
+        </trans-unit>
+        <trans-unit id="4862d8b0-ec0a-449f-a14f-17c5a2fe8a91" xml:space="preserve">
+          <source>#subheading-2</source>
+          <target state="new">#subheading-2</target>
+        </trans-unit>
+        <trans-unit id="71a7908b-8306-4f97-87df-71131c5fa981" xml:space="preserve">
+          <source>#subheading-3</source>
+          <target state="new">#subheading-3</target>
+        </trans-unit>
+        <trans-unit id="3ba6f2a7-e928-4daa-8c04-a3864c172a16" xml:space="preserve">
+          <source>#subheading-4</source>
+          <target state="new">#subheading-4</target>
+        </trans-unit>
+        <trans-unit id="4d29d793-7ac0-41ce-bdc3-ded80cc2ae39" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png</target>
+        </trans-unit>
+        <trans-unit id="b0852521-07db-4e74-af6a-600bc4b66562" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png</target>
+        </trans-unit>
+        <trans-unit id="ad86c9aa-9489-4858-93cf-867d5f95b31c" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png</target>
+        </trans-unit>
+        <trans-unit id="6949ae40-3327-4051-b946-b05fbd5a385f" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png</target>
+        </trans-unit>
+        <trans-unit id="5b498e1c-d97b-4ab8-bdd6-54d34ce7837e" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png</target>
+        </trans-unit>
+        <trans-unit id="e7ee6048-7b0c-45d9-83d5-5127d06240c6" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-enable.png</target>
+        </trans-unit>
+        <trans-unit id="73d61688-b035-48a7-b813-8c437bacc387" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure.png</target>
+        </trans-unit>
+        <trans-unit id="a93ef75c-1c64-4536-af14-0a8f66e7cc8a" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-security-enabled-access.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-security-enabled-access.png</target>
+        </trans-unit>
+        <trans-unit id="a54998a4-5124-4017-b036-fd6993080eb0" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-storage-account.png</target>
+        </trans-unit>
+        <trans-unit id="9c676b1c-52a6-47c7-9b54-a178afc0d8c9" xml:space="preserve">
+          <source>./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure-storage.png</source>
+          <target state="new">./media/sql-database-auditing-get-started/sql-database-auditing-classic-portal-configure-storage.png</target>
+        </trans-unit>
+        <trans-unit id="52d6d5a9-3ed3-4b92-b208-a8a0a5d62ee0" xml:space="preserve">
+          <source>../virtual-machines-windows-tutorial.md</source>
+          <target state="new">../virtual-machines-windows-tutorial.md</target>
+        </trans-unit>
+        <trans-unit id="829b8fb2-249b-42a6-8553-bd82cabea211" xml:space="preserve">
+          <source>../web-sites-custom-domain-name.md</source>
+          <target state="new">../web-sites-custom-domain-name.md</target>
+        </trans-unit>
+        <trans-unit id="20706349-6a6c-4f6a-850e-acc72afddae9" xml:space="preserve">
+          <source>../storage-whatis-account.md</source>
+          <target state="new">../storage-whatis-account.md</target>
+        </trans-unit>
+      </group>
+      <group id="65a597ee-99f0-41e3-ad23-5aba4a0f8348" />
+    </body>
+  </file>
+</xliff>

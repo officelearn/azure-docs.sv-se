@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ec158445-ca26-4a1b-8941-ff6e8d649fc0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ec158445-ca26-4a1b-8941-ff6e8d649fc0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dd4f33c3-3eaa-4544-a9df-420bd0071370">
+        <trans-unit id="67160094-9ab8-416e-b1f1-2b54826d5664" xml:space="preserve">
+          <source>Configure and register your device</source>
+          <target state="new">Configure and register your device</target>
+        </trans-unit>
+        <trans-unit id="068b569d-fb20-4b38-ba53-64ce93f87aef" xml:space="preserve">
+          <source>Explains how to use Windows PowerShell for StorSimple to configure and register your device.</source>
+          <target state="new">Explains how to use Windows PowerShell for StorSimple to configure and register your device.</target>
+        </trans-unit>
+        <trans-unit id="06e9cf56-867d-4605-8c2b-2f8820be729f" xml:space="preserve">
+          <source>Access the Windows PowerShell interface on your StorSimple device serial console.</source>
+          <target state="new">Access the Windows PowerShell interface on your StorSimple device serial console.</target>
+        </trans-unit>
+        <trans-unit id="1872fe31-94ae-4366-ab41-83260bb84dcc" xml:space="preserve">
+          <source>See <bpt id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;/linkText&gt;</ept><bpt id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;title&gt;</bpt><ept id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">See <bpt id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;linkText&gt;</bpt>Use PuTTY to connect to the device serial console<ept id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;/linkText&gt;</ept><bpt id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;title&gt;</bpt><ept id="6ac376f5-cf13-4a26-bfa9-1ddfec00fc83">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="6b0ad5bf-ad55-40ae-85a3-93735633387a" xml:space="preserve">
+          <source><bpt id="09df102b-ca9c-4c4f-a193-3bb94ecc4be7">&lt;strong&gt;</bpt>Be sure to follow the procedure exactly or you will not be able to access the console.<ept id="09df102b-ca9c-4c4f-a193-3bb94ecc4be7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="09df102b-ca9c-4c4f-a193-3bb94ecc4be7">&lt;strong&gt;</bpt>Be sure to follow the procedure exactly or you will not be able to access the console.<ept id="09df102b-ca9c-4c4f-a193-3bb94ecc4be7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="770be575-6f69-45cb-b727-620019fee910" xml:space="preserve">
+          <source>In the session that opens up, press Enter one time to get a command prompt.</source>
+          <target state="new">In the session that opens up, press Enter one time to get a command prompt.</target>
+        </trans-unit>
+        <trans-unit id="b2a0ec02-e4c7-4160-8595-8166086c2803" xml:space="preserve">
+          <source>You will be prompted to choose the language that you would like to set for your device.</source>
+          <target state="new">You will be prompted to choose the language that you would like to set for your device.</target>
+        </trans-unit>
+        <trans-unit id="97b9c9fb-cdc4-4f45-b462-efb86d2be878" xml:space="preserve">
+          <source>Specify the language, and then press Enter.</source>
+          <target state="new">Specify the language, and then press Enter.</target>
+        </trans-unit>
+        <trans-unit id="b61420f2-621b-4ca5-9d14-cbd896a4a909" xml:space="preserve">
+          <source><bpt id="2a3574f3-0a96-4cae-a84d-cf371f4283b6">&lt;linkText&gt;</bpt>StorSimple configure and register device 1<ept id="2a3574f3-0a96-4cae-a84d-cf371f4283b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2a3574f3-0a96-4cae-a84d-cf371f4283b6">&lt;linkText&gt;</bpt>StorSimple configure and register device 1<ept id="2a3574f3-0a96-4cae-a84d-cf371f4283b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="613917ee-e1f9-4d90-8a86-9f7c859c34d1" xml:space="preserve">
+          <source>In the serial console menu that is presented, choose option 1 to log on with full access.</source>
+          <target state="new">In the serial console menu that is presented, choose option 1 to log on with full access.</target>
+        </trans-unit>
+        <trans-unit id="40157442-52b9-4749-9300-16a892e697b3" xml:space="preserve">
+          <source><bpt id="6e850eeb-2e1b-4031-bc90-a02c477a9947">&lt;linkText&gt;</bpt>StorSimple register device 2<ept id="6e850eeb-2e1b-4031-bc90-a02c477a9947">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e850eeb-2e1b-4031-bc90-a02c477a9947">&lt;linkText&gt;</bpt>StorSimple register device 2<ept id="6e850eeb-2e1b-4031-bc90-a02c477a9947">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e41c4154-af48-49bd-bd91-700fbf49133c" xml:space="preserve">
+          <source>Complete steps 5-12 to configure the minimum required network settings for your device.</source>
+          <target state="new">Complete steps 5-12 to configure the minimum required network settings for your device.</target>
+        </trans-unit>
+        <trans-unit id="b74fc20e-1903-45dd-8cd7-2a83611694f1" xml:space="preserve">
+          <source><bpt id="96dec513-1548-4096-b3fa-10c3a1de4968">&lt;strong&gt;</bpt>These configuration steps need to be performed on the active controller of the device.<ept id="96dec513-1548-4096-b3fa-10c3a1de4968">&lt;/strong&gt;</ept> The serial console menu indicates the controller state in the banner message.</source>
+          <target state="new"><bpt id="96dec513-1548-4096-b3fa-10c3a1de4968">&lt;strong&gt;</bpt>These configuration steps need to be performed on the active controller of the device.<ept id="96dec513-1548-4096-b3fa-10c3a1de4968">&lt;/strong&gt;</ept> The serial console menu indicates the controller state in the banner message.</target>
+        </trans-unit>
+        <trans-unit id="128248c2-4253-4d0a-bd13-3247a382fcb2" xml:space="preserve">
+          <source>If you are not connected to the active controller, disconnect and then connect to the active controller.</source>
+          <target state="new">If you are not connected to the active controller, disconnect and then connect to the active controller.</target>
+        </trans-unit>
+        <trans-unit id="136278fd-8e53-46b1-8dc3-b84e5525145d" xml:space="preserve">
+          <source>At the command prompt, type your password.</source>
+          <target state="new">At the command prompt, type your password.</target>
+        </trans-unit>
+        <trans-unit id="e70c6cf8-b1e1-4313-9356-b8fa8b40b99f" xml:space="preserve">
+          <source>The default device password is <bpt id="2cf2d3aa-6d33-451d-8987-ed5aa0bc63bd">&lt;strong&gt;</bpt>Password1<ept id="2cf2d3aa-6d33-451d-8987-ed5aa0bc63bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default device password is <bpt id="2cf2d3aa-6d33-451d-8987-ed5aa0bc63bd">&lt;strong&gt;</bpt>Password1<ept id="2cf2d3aa-6d33-451d-8987-ed5aa0bc63bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1cf9972-3b4b-4431-9a34-c4e7be104fd7" xml:space="preserve">
+          <source>Type the following command:</source>
+          <target state="new">Type the following command:</target>
+        </trans-unit>
+        <trans-unit id="2568a945-329e-4a6b-b343-03a101d06589" xml:space="preserve">
+          <source> <bpt id="486b9b8a-3b6a-487d-8ca8-9c9bf04e1808">&lt;code&gt;</bpt>Invoke-HcsSetupWizard<ept id="486b9b8a-3b6a-487d-8ca8-9c9bf04e1808">&lt;/code&gt;</ept> </source>
+          <target state="new"> <bpt id="486b9b8a-3b6a-487d-8ca8-9c9bf04e1808">&lt;code&gt;</bpt>Invoke-HcsSetupWizard<ept id="486b9b8a-3b6a-487d-8ca8-9c9bf04e1808">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="10700f67-173a-477e-95f4-937789bbc6ec" xml:space="preserve">
+          <source>A setup wizard will appear to help you configure the network settings for the device.</source>
+          <target state="new">A setup wizard will appear to help you configure the network settings for the device.</target>
+        </trans-unit>
+        <trans-unit id="4f199ea2-e366-408a-8386-2bf5b72d10bf" xml:space="preserve">
+          <source>Supply the the following information:</source>
+          <target state="new">Supply the the following information:</target>
+        </trans-unit>
+        <trans-unit id="26779ed3-52bb-4fa4-bec6-07f4db8d0d4b" xml:space="preserve">
+          <source>IP address for the DATA 0 network interface</source>
+          <target state="new">IP address for the DATA 0 network interface</target>
+        </trans-unit>
+        <trans-unit id="ab8af9dc-af0d-46f9-ab7a-26ef54cd23e7" xml:space="preserve">
+          <source>Subnet mask</source>
+          <target state="new">Subnet mask</target>
+        </trans-unit>
+        <trans-unit id="5311fc60-5e71-4358-a160-8eb5b0492c4b" xml:space="preserve">
+          <source>Gateway</source>
+          <target state="new">Gateway</target>
+        </trans-unit>
+        <trans-unit id="7ae0cfc2-67cf-4839-9140-dca00666e0bc" xml:space="preserve">
+          <source>IP address for Primary DNS server</source>
+          <target state="new">IP address for Primary DNS server</target>
+        </trans-unit>
+        <trans-unit id="630f7b94-d63a-4f2f-854e-576207622bc1" xml:space="preserve">
+          <source>IP address for Primary NTP server</source>
+          <target state="new">IP address for Primary NTP server</target>
+        </trans-unit>
+        <trans-unit id="2b03d15f-3275-4783-a776-0d2e0e9358d1" xml:space="preserve">
+          <source>You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied.</source>
+          <target state="new">You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied.</target>
+        </trans-unit>
+        <trans-unit id="1df97c64-fba9-4232-a5b8-9dc7fc22b926" xml:space="preserve">
+          <source>If you get a "The device is not ready."</source>
+          <target state="new">If you get a "The device is not ready."</target>
+        </trans-unit>
+        <trans-unit id="a5ce6689-dcbd-4b5f-b528-78484593bd4d" xml:space="preserve">
+          <source>error message, check the physical network connection on the DATA 0 network interface of your active controller.</source>
+          <target state="new">error message, check the physical network connection on the DATA 0 network interface of your active controller.</target>
+        </trans-unit>
+        <trans-unit id="b609d7e2-7b95-4716-85c9-a6a3bbc545b5" xml:space="preserve">
+          <source>(Optional) configure your web proxy server.</source>
+          <target state="new">(Optional) configure your web proxy server.</target>
+        </trans-unit>
+        <trans-unit id="7621c5e8-ebd2-4a43-883e-111551ae1458" xml:space="preserve">
+          <source>Although web proxy configuration is optional, <bpt id="d8dab6ed-5b06-47c4-8a57-35adfb5a1ace">&lt;strong&gt;</bpt>be aware that if you use a web proxy, you can only configure it here<ept id="d8dab6ed-5b06-47c4-8a57-35adfb5a1ace">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Although web proxy configuration is optional, <bpt id="d8dab6ed-5b06-47c4-8a57-35adfb5a1ace">&lt;strong&gt;</bpt>be aware that if you use a web proxy, you can only configure it here<ept id="d8dab6ed-5b06-47c4-8a57-35adfb5a1ace">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8353d7ce-6492-4f09-95d1-edddb1c34f9e" xml:space="preserve">
+          <source>For more information, go to <bpt id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;linkText&gt;</bpt>Configure web proxy for your device<ept id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;/linkText&gt;</ept><bpt id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;title&gt;</bpt><ept id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, go to <bpt id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;linkText&gt;</bpt>Configure web proxy for your device<ept id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;/linkText&gt;</ept><bpt id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;title&gt;</bpt><ept id="2d899384-2e6f-426e-aef7-938af4e29709">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc4e111d-4eaa-42c2-b8ce-9f98c2c58ecc" xml:space="preserve">
+          <source>If you run into any issues during this step, refer to troubleshooting guidance for <bpt id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;linkText&gt;</bpt>Errors during web proxy configuration<ept id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;/linkText&gt;</ept><bpt id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;title&gt;</bpt><ept id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you run into any issues during this step, refer to troubleshooting guidance for <bpt id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;linkText&gt;</bpt>Errors during web proxy configuration<ept id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;/linkText&gt;</ept><bpt id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;title&gt;</bpt><ept id="0ec3c035-3153-4413-9613-0db78c847b7a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="233e7e04-a93d-4b6b-a858-1382b71a7b45" xml:space="preserve">
+          <source>You can press Ctrl + C at any time to exit the setup wizard.</source>
+          <target state="new">You can press Ctrl + C at any time to exit the setup wizard.</target>
+        </trans-unit>
+        <trans-unit id="a06ba1e9-e8c2-41e1-9620-bf1a7623b631" xml:space="preserve">
+          <source>Any settings that you applied before you issued this command will be retained.</source>
+          <target state="new">Any settings that you applied before you issued this command will be retained.</target>
+        </trans-unit>
+        <trans-unit id="d3f36908-b05e-438f-9e9c-d57e161b0b4b" xml:space="preserve">
+          <source>For security reasons, the device administrator password expires after the first session, and you will need to change it for subsequent sessions.</source>
+          <target state="new">For security reasons, the device administrator password expires after the first session, and you will need to change it for subsequent sessions.</target>
+        </trans-unit>
+        <trans-unit id="5840b80d-4ee7-4f52-83af-f9de633d1249" xml:space="preserve">
+          <source>When prompted, provide a device administrator password.</source>
+          <target state="new">When prompted, provide a device administrator password.</target>
+        </trans-unit>
+        <trans-unit id="b9534a8b-5479-4717-b250-6fb137fa4f4a" xml:space="preserve">
+          <source>A valid device administrator password must be between 8 and 15 characters.</source>
+          <target state="new">A valid device administrator password must be between 8 and 15 characters.</target>
+        </trans-unit>
+        <trans-unit id="068ae23c-ffbf-4f54-b890-d64c1ec71477" xml:space="preserve">
+          <source>The password must contain a combination of lowercase characters, uppercase characters, numbers, and special characters.</source>
+          <target state="new">The password must contain a combination of lowercase characters, uppercase characters, numbers, and special characters.</target>
+        </trans-unit>
+        <trans-unit id="a06fb534-3e21-4702-9f54-a34cd2d7c727" xml:space="preserve">
+          <source>The StorSimple Snapshot Manager password is also set here.</source>
+          <target state="new">The StorSimple Snapshot Manager password is also set here.</target>
+        </trans-unit>
+        <trans-unit id="b256cf61-1e4e-434f-83f5-d0f177411167" xml:space="preserve">
+          <source>You use this password when you authenticate a device with your Windows host running StorSimple Snapshot Manager.</source>
+          <target state="new">You use this password when you authenticate a device with your Windows host running StorSimple Snapshot Manager.</target>
+        </trans-unit>
+        <trans-unit id="08bda82e-c888-4b97-8893-97b1d0548fa5" xml:space="preserve">
+          <source>When prompted, provide a 14 to 15 character password.</source>
+          <target state="new">When prompted, provide a 14 to 15 character password.</target>
+        </trans-unit>
+        <trans-unit id="61bfe6ec-1e46-445b-bf1a-0c308d2100bd" xml:space="preserve">
+          <source>The password must contain a combination of three of the following: lowercase, uppercase, numeric, and special characters.</source>
+          <target state="new">The password must contain a combination of three of the following: lowercase, uppercase, numeric, and special characters.</target>
+        </trans-unit>
+        <trans-unit id="d6985077-b542-4dbf-8d25-e517452cc117" xml:space="preserve">
+          <source><bpt id="07e7e424-11e2-4d2d-9248-76317ee4b84e">&lt;linkText&gt;</bpt>StorSimple register device 4<ept id="07e7e424-11e2-4d2d-9248-76317ee4b84e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="07e7e424-11e2-4d2d-9248-76317ee4b84e">&lt;linkText&gt;</bpt>StorSimple register device 4<ept id="07e7e424-11e2-4d2d-9248-76317ee4b84e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7043598f-faf5-4b9b-9b4a-3be88b424532" xml:space="preserve">
+          <source>You can reset the StorSimple Snapshot Manager password from the StorSimple Manager service interface.</source>
+          <target state="new">You can reset the StorSimple Snapshot Manager password from the StorSimple Manager service interface.</target>
+        </trans-unit>
+        <trans-unit id="ff0e6900-28d6-46f3-b61f-530ce7d8eb9b" xml:space="preserve">
+          <source>For detailed steps, go to <bpt id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;linkText&gt;</bpt>Change the StorSimple passwords using the StorSimple Manager serivce<ept id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;/linkText&gt;</ept><bpt id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;title&gt;</bpt><ept id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed steps, go to <bpt id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;linkText&gt;</bpt>Change the StorSimple passwords using the StorSimple Manager serivce<ept id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;/linkText&gt;</ept><bpt id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;title&gt;</bpt><ept id="9b7106d3-169e-425a-9a0c-7e0108e798e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ee0f57d-f5b5-45a2-b351-06e19d7844ba" xml:space="preserve">
+          <source>To troubleshoot any issues during this step, refer to troubleshooting guidance for <bpt id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;linkText&gt;</bpt>Errors related to passwords<ept id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;/linkText&gt;</ept><bpt id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;title&gt;</bpt><ept id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;/title&gt;</ept>.</source>
+          <target state="new">To troubleshoot any issues during this step, refer to troubleshooting guidance for <bpt id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;linkText&gt;</bpt>Errors related to passwords<ept id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;/linkText&gt;</ept><bpt id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;title&gt;</bpt><ept id="56030502-b155-4ed5-b79d-bad41f84c972">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d63aab3-a26b-47cc-9da6-0a3670b3995b" xml:space="preserve">
+          <source>The final step in the setup wizard registers your device with the StorSimple Manager service.</source>
+          <target state="new">The final step in the setup wizard registers your device with the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="81edd89f-5cd6-49a3-9e53-00a6ad0b894c" xml:space="preserve">
+          <source>For this, you will need the service registration key that you obtained in step 2.</source>
+          <target state="new">For this, you will need the service registration key that you obtained in step 2.</target>
+        </trans-unit>
+        <trans-unit id="5241e477-f239-409d-92c2-41512837339e" xml:space="preserve">
+          <source>After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.</source>
+          <target state="new">After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.</target>
+        </trans-unit>
+        <trans-unit id="359afebf-f7af-4ce8-8b0c-f8f7ab225dad" xml:space="preserve">
+          <source>To troubleshoot any possible device registration failures, refer to <bpt id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;linkText&gt;</bpt>Errors during device registration<ept id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;/linkText&gt;</ept><bpt id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;title&gt;</bpt><ept id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To troubleshoot any possible device registration failures, refer to <bpt id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;linkText&gt;</bpt>Errors during device registration<ept id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;/linkText&gt;</ept><bpt id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;title&gt;</bpt><ept id="6b95f280-8725-45d1-88ed-e9722a6c946a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bcc4c019-2cde-4f9d-bf91-4504f60e1324" xml:space="preserve">
+          <source>For detailed troubleshooting, you can also refer to <bpt id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;linkText&gt;</bpt>Step-by-step troubleshooting example<ept id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;/linkText&gt;</ept><bpt id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;title&gt;</bpt><ept id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed troubleshooting, you can also refer to <bpt id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;linkText&gt;</bpt>Step-by-step troubleshooting example<ept id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;/linkText&gt;</ept><bpt id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;title&gt;</bpt><ept id="b9a7ec03-e9eb-4299-9f69-746dae924954">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7a05e9d-f51b-43eb-b2ee-c6f919a04e50" xml:space="preserve">
+          <source>After the device is registered, a Service Data Encryption key will appear.</source>
+          <target state="new">After the device is registered, a Service Data Encryption key will appear.</target>
+        </trans-unit>
+        <trans-unit id="84a4b91e-be94-441b-a955-a877bf3eec5e" xml:space="preserve">
+          <source>Copy this key and save it in a safe location.</source>
+          <target state="new">Copy this key and save it in a safe location.</target>
+        </trans-unit>
+        <trans-unit id="47ab233c-44b3-4ca1-88e1-3a1d40fc826e" xml:space="preserve">
+          <source>This key will be required with the service registration key to register additional devices with the StorSimple Manager service.</source>
+          <target state="new">This key will be required with the service registration key to register additional devices with the StorSimple Manager service.</target>
+        </trans-unit>
+        <trans-unit id="b8e6651d-5eb2-45bc-982e-312e7992dc13" xml:space="preserve">
+          <source>Refer to <bpt id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;linkText&gt;</bpt>StorSimple security<ept id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;/linkText&gt;</ept><bpt id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;title&gt;</bpt><ept id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;/title&gt;</ept> for more information about this key.</source>
+          <target state="new">Refer to <bpt id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;linkText&gt;</bpt>StorSimple security<ept id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;/linkText&gt;</ept><bpt id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;title&gt;</bpt><ept id="da8487b4-6a7c-4df5-a714-8ac9537a72e3">&lt;/title&gt;</ept> for more information about this key.</target>
+        </trans-unit>
+        <trans-unit id="517cbd9e-7ea9-45ab-9d94-8f467c57cc3d" xml:space="preserve">
+          <source> <bpt id="2781bea5-1510-4ced-9441-25940595b110">&lt;linkText&gt;</bpt>StorSimple register device 6<ept id="2781bea5-1510-4ced-9441-25940595b110">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="2781bea5-1510-4ced-9441-25940595b110">&lt;linkText&gt;</bpt>StorSimple register device 6<ept id="2781bea5-1510-4ced-9441-25940595b110">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1a9fd3e-1bcf-48a5-9fe2-aad1abdf7ee5" xml:space="preserve">
+          <source>To copy the text from the serial console window, simply select the text.</source>
+          <target state="new">To copy the text from the serial console window, simply select the text.</target>
+        </trans-unit>
+        <trans-unit id="c8d0aa7f-bcb8-46af-a0f0-8f493d53a898" xml:space="preserve">
+          <source>You should then be able to paste it in the clipboard or any text editor.</source>
+          <target state="new">You should then be able to paste it in the clipboard or any text editor.</target>
+        </trans-unit>
+        <trans-unit id="f61acb5f-8156-4184-9e6a-d6670b2d7e43" xml:space="preserve">
+          <source>DO NOT use Ctrl + C to copy the service data encryption key.</source>
+          <target state="new">DO NOT use Ctrl + C to copy the service data encryption key.</target>
+        </trans-unit>
+        <trans-unit id="2bf9f481-3f4b-4eef-aa87-0a5e94748c13" xml:space="preserve">
+          <source>Using Ctrl + C will cause you to exit the setup wizard.</source>
+          <target state="new">Using Ctrl + C will cause you to exit the setup wizard.</target>
+        </trans-unit>
+        <trans-unit id="b85bbc86-716f-48b7-afe9-c75633a73c24" xml:space="preserve">
+          <source>As a result, the device administrator password and the StorSimple Snapshot Manager password will not be changed and the device will revert to the default passwords.</source>
+          <target state="new">As a result, the device administrator password and the StorSimple Snapshot Manager password will not be changed and the device will revert to the default passwords.</target>
+        </trans-unit>
+        <trans-unit id="2bfe0a90-e6f0-4f57-9f9f-99b41f19aadb" xml:space="preserve">
+          <source>Exit the serial console.</source>
+          <target state="new">Exit the serial console.</target>
+        </trans-unit>
+        <trans-unit id="7398ecb8-7fb0-4764-ae17-ef70956f539f" xml:space="preserve">
+          <source>Return to the Management Portal, and complete the following steps:</source>
+          <target state="new">Return to the Management Portal, and complete the following steps:</target>
+        </trans-unit>
+        <trans-unit id="7a927a1d-5f61-4061-95b8-462d5baacf0b" xml:space="preserve">
+          <source>Double-click your StorSimple Manager service to access the <bpt id="0cf0c326-c12a-499e-8ba4-c60eaf642f73">&lt;strong&gt;</bpt>Quick Start<ept id="0cf0c326-c12a-499e-8ba4-c60eaf642f73">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Double-click your StorSimple Manager service to access the <bpt id="0cf0c326-c12a-499e-8ba4-c60eaf642f73">&lt;strong&gt;</bpt>Quick Start<ept id="0cf0c326-c12a-499e-8ba4-c60eaf642f73">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="314a480a-411a-4b74-bf69-9665bd0a6f0d" xml:space="preserve">
+          <source>Click <bpt id="8b580e6c-f9d3-430b-aba6-8d48841cc95c">&lt;strong&gt;</bpt>View connected devices<ept id="8b580e6c-f9d3-430b-aba6-8d48841cc95c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8b580e6c-f9d3-430b-aba6-8d48841cc95c">&lt;strong&gt;</bpt>View connected devices<ept id="8b580e6c-f9d3-430b-aba6-8d48841cc95c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f65559c4-3755-474d-b5a9-37749b38cc51" xml:space="preserve">
+          <source>On the <bpt id="6b958ba5-5a0a-4f62-944d-9dbb3b079c12">&lt;strong&gt;</bpt>Devices<ept id="6b958ba5-5a0a-4f62-944d-9dbb3b079c12">&lt;/strong&gt;</ept> page, verify that the device has successfully connected to the service by looking up the status.</source>
+          <target state="new">On the <bpt id="6b958ba5-5a0a-4f62-944d-9dbb3b079c12">&lt;strong&gt;</bpt>Devices<ept id="6b958ba5-5a0a-4f62-944d-9dbb3b079c12">&lt;/strong&gt;</ept> page, verify that the device has successfully connected to the service by looking up the status.</target>
+        </trans-unit>
+        <trans-unit id="137ac05e-b7f8-407a-8c1b-8a950e039063" xml:space="preserve">
+          <source>The device status should be <bpt id="4355e7bc-3831-452b-8754-3f34b6923041">&lt;strong&gt;</bpt>Online<ept id="4355e7bc-3831-452b-8754-3f34b6923041">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The device status should be <bpt id="4355e7bc-3831-452b-8754-3f34b6923041">&lt;strong&gt;</bpt>Online<ept id="4355e7bc-3831-452b-8754-3f34b6923041">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b609bbc-4780-4f66-aa00-762f1266358f" xml:space="preserve">
+          <source>If the device status is <bpt id="1aeb8297-6e09-4fa3-a51f-48d557afb0f5">&lt;strong&gt;</bpt>Offline<ept id="1aeb8297-6e09-4fa3-a51f-48d557afb0f5">&lt;/strong&gt;</ept>, wait for a couple of minutes for the device to come online.</source>
+          <target state="new">If the device status is <bpt id="1aeb8297-6e09-4fa3-a51f-48d557afb0f5">&lt;strong&gt;</bpt>Offline<ept id="1aeb8297-6e09-4fa3-a51f-48d557afb0f5">&lt;/strong&gt;</ept>, wait for a couple of minutes for the device to come online.</target>
+        </trans-unit>
+        <trans-unit id="d69b1196-64f1-4251-a11a-b604ee5d4cb3" xml:space="preserve">
+          <source><bpt id="dff5766c-8c1f-48b0-9fbc-c545790c9bc8">&lt;linkText&gt;</bpt>StorSimple Devices page<ept id="dff5766c-8c1f-48b0-9fbc-c545790c9bc8">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="dff5766c-8c1f-48b0-9fbc-c545790c9bc8">&lt;linkText&gt;</bpt>StorSimple Devices page<ept id="dff5766c-8c1f-48b0-9fbc-c545790c9bc8">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="bd23be41-d02f-4464-84c4-e6d29b8420cf" xml:space="preserve">
+          <source>After the device is online, plug in the network cables that you had unplugged in the beginning of this step.</source>
+          <target state="new">After the device is online, plug in the network cables that you had unplugged in the beginning of this step.</target>
+        </trans-unit>
+        <trans-unit id="fd3518e6-92b3-4e8f-a9f5-e0789b6854b0" xml:space="preserve">
+          <source>After the device is successfully registered and doesn't come online, you can run the <bpt id="5dcc914f-9e57-4e10-83ba-36bdf868d4ee">&lt;code&gt;</bpt>Test-HcsmConnection -Verbose<ept id="5dcc914f-9e57-4e10-83ba-36bdf868d4ee">&lt;/code&gt;</ept> to ensure that the network connectivity is healthy.</source>
+          <target state="new">After the device is successfully registered and doesn't come online, you can run the <bpt id="5dcc914f-9e57-4e10-83ba-36bdf868d4ee">&lt;code&gt;</bpt>Test-HcsmConnection -Verbose<ept id="5dcc914f-9e57-4e10-83ba-36bdf868d4ee">&lt;/code&gt;</ept> to ensure that the network connectivity is healthy.</target>
+        </trans-unit>
+        <trans-unit id="3ca24cca-afcb-4e10-a4fd-99353f989259" xml:space="preserve">
+          <source>For the detailed usage of this cmdlet, go to <bpt id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;linkText&gt;</bpt>cmdlet reference for Test-HcsmConnection<ept id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;/linkText&gt;</ept><bpt id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;title&gt;</bpt><ept id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the detailed usage of this cmdlet, go to <bpt id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;linkText&gt;</bpt>cmdlet reference for Test-HcsmConnection<ept id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;/linkText&gt;</ept><bpt id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;title&gt;</bpt><ept id="e882df5e-4e9a-47ec-a57f-2c0685b94404">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

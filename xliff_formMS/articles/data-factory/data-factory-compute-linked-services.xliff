@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9a18b0f3-3e7d-4191-8daf-0a741c1c8ff5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9a18b0f3-3e7d-4191-8daf-0a741c1c8ff5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="dc6195a5-03a4-41c2-8f90-f106b6e6a53c">
+        <trans-unit id="d4b12403-e67b-458b-afd8-c07c92538926" xml:space="preserve">
+          <source>Compute Linked Services | Microsoft Azure</source>
+          <target state="new">Compute Linked Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4182614b-8fe5-441c-8e88-16c9a9ef01ef" xml:space="preserve">
+          <source>Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data.</source>
+          <target state="new">Learn about compute enviornments that you can use in Azure Data Factory pipelines to transform/process data.</target>
+        </trans-unit>
+        <trans-unit id="2cdee289-c9a0-4765-ab9d-abc3b8d79747" xml:space="preserve">
+          <source>This article explains different compute environments that you can use to process or transform data.</source>
+          <target state="new">This article explains different compute environments that you can use to process or transform data.</target>
+        </trans-unit>
+        <trans-unit id="6964830d-1f98-41d7-adfc-1209896630dd" xml:space="preserve">
+          <source>It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.</source>
+          <target state="new">It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.</target>
+        </trans-unit>
+        <trans-unit id="1790577a-ab33-4ea6-baa1-505137d597b3" xml:space="preserve">
+          <source>In this type of configuration, the computing environment is fully managed by the Azure Data Factory service.</source>
+          <target state="new">In this type of configuration, the computing environment is fully managed by the Azure Data Factory service.</target>
+        </trans-unit>
+        <trans-unit id="c9bbe3fd-8ca4-4a5f-8430-67a83e116e30" xml:space="preserve">
+          <source>It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed.</source>
+          <target state="new">It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed.</target>
+        </trans-unit>
+        <trans-unit id="a919dc7b-ae4c-47ff-abbb-c5de743e977a" xml:space="preserve">
+          <source>You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.</source>
+          <target state="new">You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.</target>
+        </trans-unit>
+        <trans-unit id="b5ea947d-49fe-4268-9285-5c4059c2835e" xml:space="preserve">
+          <source>The on-demand configuration is currently supported only for Azure HDInsight clusters.</source>
+          <target state="new">The on-demand configuration is currently supported only for Azure HDInsight clusters.</target>
+        </trans-unit>
+        <trans-unit id="54cf43dd-119e-4f93-b94b-8ed43462b10e" xml:space="preserve">
+          <source>The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data.</source>
+          <target state="new">The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data.</target>
+        </trans-unit>
+        <trans-unit id="f1c6b2cc-8b0c-4998-b852-9735ddcfad5b" xml:space="preserve">
+          <source>The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.</source>
+          <target state="new">The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.</target>
+        </trans-unit>
+        <trans-unit id="83ed6a84-f872-4267-a917-ca5c80203031" xml:space="preserve">
+          <source>Note the following <bpt id="44154cf7-e7bf-49ab-b966-b3bbeb7ead1d">&lt;strong&gt;</bpt>important<ept id="44154cf7-e7bf-49ab-b966-b3bbeb7ead1d">&lt;/strong&gt;</ept> points about on-demand HDInsight linked service: </source>
+          <target state="new">Note the following <bpt id="44154cf7-e7bf-49ab-b966-b3bbeb7ead1d">&lt;strong&gt;</bpt>important<ept id="44154cf7-e7bf-49ab-b966-b3bbeb7ead1d">&lt;/strong&gt;</ept> points about on-demand HDInsight linked service: </target>
+        </trans-unit>
+        <trans-unit id="04a66fee-ae95-4c88-8eda-b6444bea17e2" xml:space="preserve">
+          <source>You will not see the on-demand HDInsight cluster created in your Azure subscription; the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.</source>
+          <target state="new">You will not see the on-demand HDInsight cluster created in your Azure subscription; the Azure Data Factory service manages the on-demand HDInsight cluster on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="b23856ff-bf49-42c7-888a-aa41667846cb" xml:space="preserve">
+          <source>The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster.</source>
+          <target state="new">The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="f0071a70-e7b3-4e84-8e9a-7e39ba52a72f" xml:space="preserve">
+          <source>You can access these logs from the Azure Portal in the <bpt id="934f02ac-fd90-4122-80cc-85db0d7c9894">&lt;strong&gt;</bpt>Activity Run Details<ept id="934f02ac-fd90-4122-80cc-85db0d7c9894">&lt;/strong&gt;</ept> blade.</source>
+          <target state="new">You can access these logs from the Azure Portal in the <bpt id="934f02ac-fd90-4122-80cc-85db0d7c9894">&lt;strong&gt;</bpt>Activity Run Details<ept id="934f02ac-fd90-4122-80cc-85db0d7c9894">&lt;/strong&gt;</ept> blade.</target>
+        </trans-unit>
+        <trans-unit id="003932c6-7d4c-4225-b85c-1b645193400f" xml:space="preserve">
+          <source>See <bpt id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;linkText&gt;</bpt>Monitor and Manage Pipelines<ept id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;/linkText&gt;</ept><bpt id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;title&gt;</bpt><ept id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See <bpt id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;linkText&gt;</bpt>Monitor and Manage Pipelines<ept id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;/linkText&gt;</ept><bpt id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;title&gt;</bpt><ept id="11477179-6737-4ba4-968f-28b7f1139a3e">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="b9ef0ae0-ead4-4ea2-8b90-12adb7b92f7e" xml:space="preserve">
+          <source>You will be charged only for the time when the HDInsight cluster is up and running jobs.</source>
+          <target state="new">You will be charged only for the time when the HDInsight cluster is up and running jobs.</target>
+        </trans-unit>
+        <trans-unit id="c3f6c0e4-6e1a-4692-83c2-2fd141f972f2" xml:space="preserve">
+          <source>It typically takes more than <bpt id="5535e6b3-b7c4-4f3a-9f7d-8546c823362f">&lt;strong&gt;</bpt>15 minutes<ept id="5535e6b3-b7c4-4f3a-9f7d-8546c823362f">&lt;/strong&gt;</ept> to provision an Azure HDInsight cluster on demand.</source>
+          <target state="new">It typically takes more than <bpt id="5535e6b3-b7c4-4f3a-9f7d-8546c823362f">&lt;strong&gt;</bpt>15 minutes<ept id="5535e6b3-b7c4-4f3a-9f7d-8546c823362f">&lt;/strong&gt;</ept> to provision an Azure HDInsight cluster on demand.</target>
+        </trans-unit>
+        <trans-unit id="20c27b5b-a91c-4178-84a6-eba0e6a2e070" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="af5a3d61-850a-4ef5-aaf2-2322155241df" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="4f8487c9-554a-42ce-b64c-5adc475950d4" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="3c65e7b5-3b79-49b2-be03-f3a1d8762fe5" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="bfcc859f-4adb-4290-84ba-e46154200b08" xml:space="preserve">
+          <source>The type property should be set to <bpt id="00fccee0-fc34-4811-b6af-430fb7cde138">&lt;strong&gt;</bpt>HDInsightOnDemand<ept id="00fccee0-fc34-4811-b6af-430fb7cde138">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The type property should be set to <bpt id="00fccee0-fc34-4811-b6af-430fb7cde138">&lt;strong&gt;</bpt>HDInsightOnDemand<ept id="00fccee0-fc34-4811-b6af-430fb7cde138">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24128820-4efa-4a5b-957b-3c91e5760345" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e5ca7c33-156b-4de4-b3e0-d0151631a75c" xml:space="preserve">
+          <source>clusterSize</source>
+          <target state="new">clusterSize</target>
+        </trans-unit>
+        <trans-unit id="91d75bf6-b6e4-46b1-a80f-9afafa0453ca" xml:space="preserve">
+          <source>The size of the on-demand cluster.</source>
+          <target state="new">The size of the on-demand cluster.</target>
+        </trans-unit>
+        <trans-unit id="c0e61155-6c05-4ffe-9a9b-5cc82f656f45" xml:space="preserve">
+          <source>Specify how many nodes you want to be in this on-demand cluster.</source>
+          <target state="new">Specify how many nodes you want to be in this on-demand cluster.</target>
+        </trans-unit>
+        <trans-unit id="168dde52-0850-4f27-8966-ad43782bf239" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="3e67338d-e0e5-4cf0-9cd8-f3ff363075a3" xml:space="preserve">
+          <source>jobscontainer</source>
+          <target state="new">jobscontainer</target>
+        </trans-unit>
+        <trans-unit id="a7771ba5-8680-4fe1-9a23-b46ad75246e2" xml:space="preserve">
+          <source>The blob container that holds data used by pig/hive/package jobs and where the cluster logs will be stored.</source>
+          <target state="new">The blob container that holds data used by pig/hive/package jobs and where the cluster logs will be stored.</target>
+        </trans-unit>
+        <trans-unit id="1d039323-82ba-49b1-9978-a25ece75deb9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="bddf7162-b26f-4fc3-8fd5-10269503b924" xml:space="preserve">
+          <source>timetolive</source>
+          <target state="new">timetolive</target>
+        </trans-unit>
+        <trans-unit id="384e59d7-27fb-44cf-9c0a-81a0bb2045cb" xml:space="preserve">
+          <source>&lt;p&gt;The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.&lt;/p&gt;&lt;p&gt;For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.&lt;/p&gt;&lt;p&gt;Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.&lt;/p&gt;&lt;p&gt;If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.&lt;/p&gt;&lt;p&gt;Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;The allowed idle time for the on-demand HDInsight cluster. Specifies how long the on-demand HDInsight cluster will stay alive after completion of an activity run if there are no other active jobs in the cluster.&lt;/p&gt;&lt;p&gt;For example, if an activity run takes 6 minutes and timetolive is set to 5 minutes, the cluster stays alive for 5 minutes after the 6 minutes of processing the activity run. If another activity run is executed with the 6 minutes window, it is processed by the same cluster.&lt;/p&gt;&lt;p&gt;Creating an on-demand HDInsight cluster is an expensive operation (could take a while), so use this setting as needed to improve performance of a data factory by reusing an on-demand HDInsight cluster.&lt;/p&gt;&lt;p&gt;If you set timetolive value to 0, the cluster is deleted as soon as the activity run in processed. On the other hand, if you set a high value, the cluster may stay idle unnecessarily resulting in high costs. Therefore, it is important that you set the appropriate value based on your needs.&lt;/p&gt;&lt;p&gt;Multiple pipelines can share the same instance of the on-demand HDInsight cluster if the timetolive property value is appropriately set&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="8ae567f6-ebc2-4315-887b-7d194f92a43d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ff042105-cbb6-4f1b-bd20-0e3a820520be" xml:space="preserve">
+          <source>version</source>
+          <target state="new">version</target>
+        </trans-unit>
+        <trans-unit id="095065ec-6397-4dde-b8e2-b1ee72684693" xml:space="preserve">
+          <source>Version of the HDInsight cluster</source>
+          <target state="new">Version of the HDInsight cluster</target>
+        </trans-unit>
+        <trans-unit id="83a9f88f-a299-4e5e-8252-637c0869bdea" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b79d3b2c-e110-49a7-bd63-7ccfd2ba50a4" xml:space="preserve">
+          <source>linkedServiceName</source>
+          <target state="new">linkedServiceName</target>
+        </trans-unit>
+        <trans-unit id="fb1f9838-9b34-4ba4-9490-296fa44d01ff" xml:space="preserve">
+          <source>The blob store to be used by the on-demand cluster for storing and processing data.</source>
+          <target state="new">The blob store to be used by the on-demand cluster for storing and processing data.</target>
+        </trans-unit>
+        <trans-unit id="bf45a935-0eec-483d-aa06-bea7350e5f4f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d83e20c6-e918-4ea8-94bb-f8286781c3b6" xml:space="preserve">
+          <source>additionalLinkedServiceNames</source>
+          <target state="new">additionalLinkedServiceNames</target>
+        </trans-unit>
+        <trans-unit id="88b23fe5-5f01-46db-aa00-f494cda9f6cd" xml:space="preserve">
+          <source>Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.</source>
+          <target state="new">Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf.</target>
+        </trans-unit>
+        <trans-unit id="1d171b43-910a-4404-bee5-f0dfec699ed2" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="d0b17f53-ea38-457c-b5ee-10fc582e0b62" xml:space="preserve">
+          <source>You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.</source>
+          <target state="new">You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="c73a6d6d-c142-42fd-9b0f-438d8e2a3724" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="907659e6-f6a4-409b-8820-8f094a866903" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="71848e76-c0c6-41ea-8232-80bf305a9b2a" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="7ed7e3db-dba3-42bf-8798-d483ad552e91" xml:space="preserve">
+          <source>coreConfiguration</source>
+          <target state="new">coreConfiguration</target>
+        </trans-unit>
+        <trans-unit id="809ae87e-6167-4e59-b7f2-06ff9983cc88" xml:space="preserve">
+          <source>Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.</source>
+          <target state="new">Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.</target>
+        </trans-unit>
+        <trans-unit id="9b9a24dd-4225-4449-9ce6-e815cc3d2d32" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6542baa1-ef97-47d0-b59f-648e607da349" xml:space="preserve">
+          <source>hBaseConfiguration</source>
+          <target state="new">hBaseConfiguration</target>
+        </trans-unit>
+        <trans-unit id="f746f704-f09a-4a5c-bb71-500c40f314be" xml:space="preserve">
+          <source>Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="ca4453e3-7460-408a-beab-eeff665d3a35" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="9a9f1899-f474-44a7-80e0-0c585396468e" xml:space="preserve">
+          <source>hdfsConfiguration</source>
+          <target state="new">hdfsConfiguration</target>
+        </trans-unit>
+        <trans-unit id="07b57e6f-b819-435e-9696-6e63ac41d8c6" xml:space="preserve">
+          <source>Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="49f9d26b-1200-4630-99ab-e3dea01dfed5" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a77bc63c-0437-4618-a2ff-96761012eb2b" xml:space="preserve">
+          <source>hiveConfiguration</source>
+          <target state="new">hiveConfiguration</target>
+        </trans-unit>
+        <trans-unit id="ed63cd8f-2d6f-4439-b6ac-053f0d6fa1ef" xml:space="preserve">
+          <source>Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the hive configuration parameters (hive-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="aa7cf9d4-7038-4b16-8117-b33e18c455d0" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5f1bac23-a839-4c04-930e-8b96339e0d10" xml:space="preserve">
+          <source>mapReduceConfiguration</source>
+          <target state="new">mapReduceConfiguration</target>
+        </trans-unit>
+        <trans-unit id="b2d902ec-8823-4df5-8106-bdd7089b8e8e" xml:space="preserve">
+          <source>Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the MapReduce configuration parameters (mapred-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="09604d92-cadf-4116-8acc-2c82881b39ca" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="30076f22-a36a-42a0-9e6a-3ff6be5d6ff6" xml:space="preserve">
+          <source>oozieConfiguration</source>
+          <target state="new">oozieConfiguration</target>
+        </trans-unit>
+        <trans-unit id="9e94e66b-77e1-4098-baa3-91475b366dbd" xml:space="preserve">
+          <source>Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the Oozie configuration parameters (oozie-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="4c17abf7-3e49-4317-8acc-1502f5c27ea4" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="357ceb5a-35b9-438f-8fea-27683627ca40" xml:space="preserve">
+          <source>stormConfiguration</source>
+          <target state="new">stormConfiguration</target>
+        </trans-unit>
+        <trans-unit id="e0724a81-94cb-4c6d-bf04-6d77972d6e3c" xml:space="preserve">
+          <source>Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the Storm configuration parameters (storm-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="2b489457-b99f-4b41-be74-c73ec09f964a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="3dca8deb-743a-43a1-bac1-da73851ce0fc" xml:space="preserve">
+          <source>yarnConfiguration</source>
+          <target state="new">yarnConfiguration</target>
+        </trans-unit>
+        <trans-unit id="ae610da5-460d-4b90-b23a-570bba1954cb" xml:space="preserve">
+          <source>Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.</source>
+          <target state="new">Specifies the Yarn configuration parameters (yarn-site.xml) for the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="53bfd83e-ee69-43f0-a7b9-8055d1cb0f0f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="b0bf2478-e4c1-4801-acd3-338a3fde3e12" xml:space="preserve">
+          <source>In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory.</source>
+          <target state="new">In this type of configuration, users can register an already existing computing environment as a linked service in Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="fef816bf-4dc7-424e-a2e8-70996193fc79" xml:space="preserve">
+          <source>The computing environment is managed by the user and the Data Factory service uses it to execute the activities.</source>
+          <target state="new">The computing environment is managed by the user and the Data Factory service uses it to execute the activities.</target>
+        </trans-unit>
+        <trans-unit id="336f4d4b-bc38-426b-8435-004aeed7e230" xml:space="preserve">
+          <source>This type of configuration is supported for the following compute environments: </source>
+          <target state="new">This type of configuration is supported for the following compute environments: </target>
+        </trans-unit>
+        <trans-unit id="69445842-ff4b-4a35-8826-9644078d6a5e" xml:space="preserve">
+          <source>Azure HDInsight</source>
+          <target state="new">Azure HDInsight</target>
+        </trans-unit>
+        <trans-unit id="721bdabc-604a-4090-a2ea-08c38a6b4c71" xml:space="preserve">
+          <source>Azure Batch </source>
+          <target state="new">Azure Batch </target>
+        </trans-unit>
+        <trans-unit id="9ace2346-1326-4197-9e92-4516c93a36d7" xml:space="preserve">
+          <source>Azure Machine Learning.</source>
+          <target state="new">Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="80073e60-fb95-4c43-9dd6-c7b58403f4b1" xml:space="preserve">
+          <source>You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.</source>
+          <target state="new">You can create an Azure HDInsight linked service to register your own HDInsight cluster with Data Factory.</target>
+        </trans-unit>
+        <trans-unit id="76be667f-8634-45cb-a3b6-383d3aac70a6" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="6709efb5-97c3-46c1-a522-858eb336a405" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="92770349-f5ac-4132-b14a-6c5752b24f69" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="e5ed8840-c6a7-4d00-b55a-16cf4f0ce793" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="8b5fd46a-45c5-4fd0-b151-ca0f35b4b5a1" xml:space="preserve">
+          <source>The type property should be set to <bpt id="920d6c1d-35e7-4682-947f-e56cfd634cf7">&lt;strong&gt;</bpt>HDInsight<ept id="920d6c1d-35e7-4682-947f-e56cfd634cf7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The type property should be set to <bpt id="920d6c1d-35e7-4682-947f-e56cfd634cf7">&lt;strong&gt;</bpt>HDInsight<ept id="920d6c1d-35e7-4682-947f-e56cfd634cf7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7130ef53-e227-4f0a-9421-50329f498c30" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="1a98b667-7fb6-4b41-9cdb-f9f7e9ef148f" xml:space="preserve">
+          <source>clusterUri</source>
+          <target state="new">clusterUri</target>
+        </trans-unit>
+        <trans-unit id="2b4e5f83-95a3-45ed-9479-e2d99cefc5c4" xml:space="preserve">
+          <source>The URI of the HDInsight cluster.</source>
+          <target state="new">The URI of the HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="5e401b26-9379-4fb0-92db-dbaba3cd8e28" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="cf4cda0a-19fe-4aa4-a0f4-212b19f0cef8" xml:space="preserve">
+          <source>username</source>
+          <target state="new">username</target>
+        </trans-unit>
+        <trans-unit id="1cc48c9d-7deb-478e-9495-e278732e1641" xml:space="preserve">
+          <source>Specify the name of the user to be used to connect to an existing HDInsight cluster.</source>
+          <target state="new">Specify the name of the user to be used to connect to an existing HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="7e55b75c-f7ac-4120-83e0-d0a72d570077" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f46c06c9-5188-468a-86e0-87a65ee0b588" xml:space="preserve">
+          <source>password</source>
+          <target state="new">password</target>
+        </trans-unit>
+        <trans-unit id="aee02e11-1218-46fb-98af-86abe868ad7a" xml:space="preserve">
+          <source>Specify password for the user account.</source>
+          <target state="new">Specify password for the user account.</target>
+        </trans-unit>
+        <trans-unit id="86acb20a-d060-4f7c-8a38-c7b8be53f0d5" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9f6b5fb4-9676-4d0e-af84-b77264eca9dc" xml:space="preserve">
+          <source>location</source>
+          <target state="new">location</target>
+        </trans-unit>
+        <trans-unit id="c29a6c8a-d498-4230-9ff0-b5698b950595" xml:space="preserve">
+          <source>Specify the location of the HDInsight cluster (for example: WestUS).</source>
+          <target state="new">Specify the location of the HDInsight cluster (for example: WestUS).</target>
+        </trans-unit>
+        <trans-unit id="4fa30ace-ed42-4803-8482-68ec991c7c1d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="76c85437-a410-4b20-bb6c-b559bcc74c7c" xml:space="preserve">
+          <source>linkedServiceName</source>
+          <target state="new">linkedServiceName</target>
+        </trans-unit>
+        <trans-unit id="46dbf714-3926-49cf-8598-1de07f54850d" xml:space="preserve">
+          <source>Name of the linked service for the blob storage used by this HDInsight cluster.</source>
+          <target state="new">Name of the linked service for the blob storage used by this HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="b820ec38-dab3-40a5-ae21-db7aa27ed4db" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a96fc0c3-1cae-43cd-b31d-b8b0bd845d46" xml:space="preserve">
+          <source>You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory.</source>
+          <target state="new">You can create an Azure Batch linked service to register a Batch pool of virtual machines (VMs) to a data factory.</target>
+        </trans-unit>
+        <trans-unit id="3bb296db-230f-4eaf-86c5-20b638f8d094" xml:space="preserve">
+          <source>You can run .NET custom activities using either Azure Batch or Azure HDInsight.</source>
+          <target state="new">You can run .NET custom activities using either Azure Batch or Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="be32dbe6-380b-40c2-8293-67e034030466" xml:space="preserve">
+          <source>See following topics if you are new to Azure Batch service:</source>
+          <target state="new">See following topics if you are new to Azure Batch service:</target>
+        </trans-unit>
+        <trans-unit id="7b897ae5-5cb3-4f4c-8d04-7155009267df" xml:space="preserve">
+          <source><bpt id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;linkText&gt;</bpt>Azure Batch Technical Overview<ept id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;/linkText&gt;</ept><bpt id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;title&gt;</bpt><ept id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;/title&gt;</ept> for an overview of the Azure Batch service.</source>
+          <target state="new"><bpt id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;linkText&gt;</bpt>Azure Batch Technical Overview<ept id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;/linkText&gt;</ept><bpt id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;title&gt;</bpt><ept id="974f5cdc-6601-448a-b36b-dbf3bc79d532">&lt;/title&gt;</ept> for an overview of the Azure Batch service.</target>
+        </trans-unit>
+        <trans-unit id="dfcbf96a-dafb-431b-a9b2-6bc4240b3f73" xml:space="preserve">
+          <source><bpt id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;linkText&gt;</bpt>New-AzureBatchAccount<ept id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;/linkText&gt;</ept><bpt id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;title&gt;</bpt><ept id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;/title&gt;</ept> cmdlet to create an Azure Batch account (or) <bpt id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;/linkText&gt;</ept><bpt id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;title&gt;</bpt><ept id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;/title&gt;</ept> to create the Azure Batch account using Azure Management Portal.</source>
+          <target state="new"><bpt id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;linkText&gt;</bpt>New-AzureBatchAccount<ept id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;/linkText&gt;</ept><bpt id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;title&gt;</bpt><ept id="42a0ca27-1abb-4fe4-a934-fcfa1d7fd953">&lt;/title&gt;</ept> cmdlet to create an Azure Batch account (or) <bpt id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;/linkText&gt;</ept><bpt id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;title&gt;</bpt><ept id="6113b13f-a638-4933-924b-c7b47298d7e9">&lt;/title&gt;</ept> to create the Azure Batch account using Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="965c5db5-7219-4409-9171-cf35c2010e33" xml:space="preserve">
+          <source>See <bpt id="2876dc68-4658-4198-97ae-e068594b8910">&lt;linkText&gt;</bpt>Using PowerShell to manage Azure Batch Account<ept id="2876dc68-4658-4198-97ae-e068594b8910">&lt;/linkText&gt;</ept><bpt id="2876dc68-4658-4198-97ae-e068594b8910">&lt;title&gt;</bpt><ept id="2876dc68-4658-4198-97ae-e068594b8910">&lt;/title&gt;</ept> topic for detailed instructions on using the cmdlet.</source>
+          <target state="new">See <bpt id="2876dc68-4658-4198-97ae-e068594b8910">&lt;linkText&gt;</bpt>Using PowerShell to manage Azure Batch Account<ept id="2876dc68-4658-4198-97ae-e068594b8910">&lt;/linkText&gt;</ept><bpt id="2876dc68-4658-4198-97ae-e068594b8910">&lt;title&gt;</bpt><ept id="2876dc68-4658-4198-97ae-e068594b8910">&lt;/title&gt;</ept> topic for detailed instructions on using the cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="b0b66e69-5cf5-4f9d-a9b6-e5925648bc04" xml:space="preserve">
+          <source><bpt id="844a2938-7e76-4728-ba79-857401496141">&lt;linkText&gt;</bpt>New-AzureBatchPool<ept id="844a2938-7e76-4728-ba79-857401496141">&lt;/linkText&gt;</ept><bpt id="844a2938-7e76-4728-ba79-857401496141">&lt;title&gt;</bpt><ept id="844a2938-7e76-4728-ba79-857401496141">&lt;/title&gt;</ept> cmdlet to create an Azure Batch pool.</source>
+          <target state="new"><bpt id="844a2938-7e76-4728-ba79-857401496141">&lt;linkText&gt;</bpt>New-AzureBatchPool<ept id="844a2938-7e76-4728-ba79-857401496141">&lt;/linkText&gt;</ept><bpt id="844a2938-7e76-4728-ba79-857401496141">&lt;title&gt;</bpt><ept id="844a2938-7e76-4728-ba79-857401496141">&lt;/title&gt;</ept> cmdlet to create an Azure Batch pool.</target>
+        </trans-unit>
+        <trans-unit id="2590c27f-0e7f-4d97-b7f3-ea5b755b7a13" xml:space="preserve">
+          <source>Append "<bpt id="f7598f10-6558-4b37-80d1-86c6c9794477">&lt;strong&gt;</bpt>.&lt;region name<ept id="f7598f10-6558-4b37-80d1-86c6c9794477">&lt;/strong&gt;</ept>" to the name of your batch account for the <bpt id="ee5dd4d7-5781-4693-a193-e6d923ec04d9">&lt;strong&gt;</bpt>accountName<ept id="ee5dd4d7-5781-4693-a193-e6d923ec04d9">&lt;/strong&gt;</ept> property. Example: </source>
+          <target state="new">Append "<bpt id="f7598f10-6558-4b37-80d1-86c6c9794477">&lt;strong&gt;</bpt>.&lt;region name<ept id="f7598f10-6558-4b37-80d1-86c6c9794477">&lt;/strong&gt;</ept>" to the name of your batch account for the <bpt id="ee5dd4d7-5781-4693-a193-e6d923ec04d9">&lt;strong&gt;</bpt>accountName<ept id="ee5dd4d7-5781-4693-a193-e6d923ec04d9">&lt;/strong&gt;</ept> property. Example: </target>
+        </trans-unit>
+        <trans-unit id="b3878b6a-485f-47ca-b962-a041005b43c5" xml:space="preserve">
+          <source>Another option is to provide the batchUri endpoint as shown below.</source>
+          <target state="new">Another option is to provide the batchUri endpoint as shown below.</target>
+        </trans-unit>
+        <trans-unit id="4ded52fe-8bf1-447b-a647-ad56156e4d49" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="08578acb-6e1e-4b40-b2a5-6abe2d202c2a" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="3c7faf30-27ae-4d16-ba73-dec413a1a48a" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="0736c34b-29b2-41f0-a603-187f949306b9" xml:space="preserve">
+          <source>type</source>
+          <target state="new">type</target>
+        </trans-unit>
+        <trans-unit id="9baf2cd4-d211-4174-85a7-704805ba2f1e" xml:space="preserve">
+          <source>The type property should be set to <bpt id="39066435-e98c-42c5-9b88-49a61db9e447">&lt;strong&gt;</bpt>AzureBatch<ept id="39066435-e98c-42c5-9b88-49a61db9e447">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The type property should be set to <bpt id="39066435-e98c-42c5-9b88-49a61db9e447">&lt;strong&gt;</bpt>AzureBatch<ept id="39066435-e98c-42c5-9b88-49a61db9e447">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb52b8ba-a340-428e-8274-9747f638b2a0" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4abd6481-bec1-4703-9a9a-2381d9eeda63" xml:space="preserve">
+          <source>accountName</source>
+          <target state="new">accountName</target>
+        </trans-unit>
+        <trans-unit id="7ea3147b-5ead-47e3-8f27-5ca8887b8934" xml:space="preserve">
+          <source>Name of the Azure Batch account.</source>
+          <target state="new">Name of the Azure Batch account.</target>
+        </trans-unit>
+        <trans-unit id="1158b77f-3fad-4bf3-94ba-a94b030781cd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="62da8755-9e00-4a29-849a-38fd6296960b" xml:space="preserve">
+          <source>accessKey</source>
+          <target state="new">accessKey</target>
+        </trans-unit>
+        <trans-unit id="a6f0e933-8a5e-44dd-847f-36ebde903ed7" xml:space="preserve">
+          <source>Access key for the Azure Batch account.</source>
+          <target state="new">Access key for the Azure Batch account.</target>
+        </trans-unit>
+        <trans-unit id="cefabf50-d241-41af-a4a0-7d93522a95d8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ba9058bd-dfcd-43ac-aa3a-271e73ccd50e" xml:space="preserve">
+          <source>poolName</source>
+          <target state="new">poolName</target>
+        </trans-unit>
+        <trans-unit id="72216551-4e4f-4de9-a5f4-13fba40adb0b" xml:space="preserve">
+          <source>Name of the pool of virtual machines.</source>
+          <target state="new">Name of the pool of virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="268e4953-ad96-4429-823e-2216c3d57699" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="15baebab-f8a5-408c-9e1e-a915f34acf18" xml:space="preserve">
+          <source>linkedServiceName</source>
+          <target state="new">linkedServiceName</target>
+        </trans-unit>
+        <trans-unit id="dbe7db3b-fd1a-4ac0-a636-889179ff99c4" xml:space="preserve">
+          <source>Name of the Azure Storage linked service associated with this Azure Batch linked service.</source>
+          <target state="new">Name of the Azure Storage linked service associated with this Azure Batch linked service.</target>
+        </trans-unit>
+        <trans-unit id="e81cf024-e7d7-4952-b071-fc8100b9c960" xml:space="preserve">
+          <source>This linked service is used for staging files required to run the activity and storing the activity execution logs.</source>
+          <target state="new">This linked service is used for staging files required to run the activity and storing the activity execution logs.</target>
+        </trans-unit>
+        <trans-unit id="0879748b-8dbf-4141-a3d6-d0adbe6c4d53" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="daf4b6d0-4836-45a0-9278-975408496a23" xml:space="preserve">
+          <source>You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.</source>
+          <target state="new">You create an Azure Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.</target>
+        </trans-unit>
+        <trans-unit id="689bd44b-59ab-4aab-9c16-7b1400a5e081" xml:space="preserve">
+          <source>Property</source>
+          <target state="new">Property</target>
+        </trans-unit>
+        <trans-unit id="8abef592-f459-4e6c-a7dd-330ee8495646" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="609a79cc-af64-4736-818e-40265603532d" xml:space="preserve">
+          <source>Required</source>
+          <target state="new">Required</target>
+        </trans-unit>
+        <trans-unit id="377384e3-8fe4-4aef-a5c7-a4c35b9fb82f" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="29ca4bc8-bbc9-45a6-8baa-361287a48e65" xml:space="preserve">
+          <source>The type property should be set to: <bpt id="68adb929-a497-485d-9fad-0339dad8effc">&lt;strong&gt;</bpt>AzureML<ept id="68adb929-a497-485d-9fad-0339dad8effc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The type property should be set to: <bpt id="68adb929-a497-485d-9fad-0339dad8effc">&lt;strong&gt;</bpt>AzureML<ept id="68adb929-a497-485d-9fad-0339dad8effc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e45c7545-8212-440f-92f0-2f4f66a70824" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b1624f9d-e697-438f-bda5-a5aae5090cf9" xml:space="preserve">
+          <source>mlEndpoint</source>
+          <target state="new">mlEndpoint</target>
+        </trans-unit>
+        <trans-unit id="e2ee06ca-f4ed-43fb-9f0d-e59240b31c5f" xml:space="preserve">
+          <source>The batch scoring URL.</source>
+          <target state="new">The batch scoring URL.</target>
+        </trans-unit>
+        <trans-unit id="f8b6da81-e5b9-4e78-8bef-1bd72f838af3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ee8a19dd-9309-4791-b101-945a9df64fcc" xml:space="preserve">
+          <source>apiKey</source>
+          <target state="new">apiKey</target>
+        </trans-unit>
+        <trans-unit id="e077e9aa-8b75-4d66-9130-396869199721" xml:space="preserve">
+          <source>The published workspace model’s API.</source>
+          <target state="new">The published workspace model’s API.</target>
+        </trans-unit>
+        <trans-unit id="a6348f07-b715-41a3-b0a7-8d600e25f4b9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2ed8169d-c355-43cf-b5f1-ea03bc978713" xml:space="preserve">
+          <source>You create an Azure SQL linked service and use it with the <bpt id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;linkText&gt;</bpt>Stored Procedure Activity<ept id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;/linkText&gt;</ept><bpt id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;title&gt;</bpt><ept id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;/title&gt;</ept> to invoke a stored procedure from a Data Factory pipeline.</source>
+          <target state="new">You create an Azure SQL linked service and use it with the <bpt id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;linkText&gt;</bpt>Stored Procedure Activity<ept id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;/linkText&gt;</ept><bpt id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;title&gt;</bpt><ept id="907a1ba0-99b2-4f42-a702-17879fe0af5b">&lt;/title&gt;</ept> to invoke a stored procedure from a Data Factory pipeline.</target>
+        </trans-unit>
+        <trans-unit id="f918023c-0751-49ee-bb28-28141bbaa100" xml:space="preserve">
+          <source>See <bpt id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;linkText&gt;</bpt>Azure SQL Connector<ept id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;/linkText&gt;</ept><bpt id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;title&gt;</bpt><ept id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;/title&gt;</ept> article for details about this linked service.</source>
+          <target state="new">See <bpt id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;linkText&gt;</bpt>Azure SQL Connector<ept id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;/linkText&gt;</ept><bpt id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;title&gt;</bpt><ept id="8a7b142e-beae-482b-a703-21af2b7c1d7c">&lt;/title&gt;</ept> article for details about this linked service.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

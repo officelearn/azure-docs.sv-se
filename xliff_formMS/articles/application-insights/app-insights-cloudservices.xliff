@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d4c710a8-ee52-4bf9-8cca-0626a8efa669" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d4c710a8-ee52-4bf9-8cca-0626a8efa669" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8878ade4-fb31-411f-8c13-26a4cabc7c92">
+        <trans-unit id="539eb2c3-722a-4cfd-9d03-848af301b488" xml:space="preserve">
+          <source>Application Insights for Azure Cloud Services</source>
+          <target state="new">Application Insights for Azure Cloud Services</target>
+        </trans-unit>
+        <trans-unit id="34c68b91-bb6a-44bc-95fb-fab0447dd74f" xml:space="preserve">
+          <source>Monitor your web and worker roles effectively with Application Insights</source>
+          <target state="new">Monitor your web and worker roles effectively with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="880ec3d9-9600-41ad-8486-19e47d734bd3" xml:space="preserve">
+          <source><bpt id="8ad87e1f-9141-4f43-bbe4-ee252190e4ea">&lt;em&gt;</bpt>Application Insights is in preview<ept id="8ad87e1f-9141-4f43-bbe4-ee252190e4ea">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="8ad87e1f-9141-4f43-bbe4-ee252190e4ea">&lt;em&gt;</bpt>Application Insights is in preview<ept id="8ad87e1f-9141-4f43-bbe4-ee252190e4ea">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="db472be2-9521-486b-832a-e7652257841e" xml:space="preserve">
+          <source><bpt id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;linkText&gt;</bpt>Microsoft Azure Cloud service apps<ept id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;/linkText&gt;</ept><bpt id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;title&gt;</bpt><ept id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;/title&gt;</ept> can be monitored by <bpt id="01162c49-1540-49ef-b759-4874c3290224">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="01162c49-1540-49ef-b759-4874c3290224">&lt;/linkText&gt;</ept><bpt id="01162c49-1540-49ef-b759-4874c3290224">&lt;title&gt;</bpt><ept id="01162c49-1540-49ef-b759-4874c3290224">&lt;/title&gt;</ept> for availability, performance, failures and usage.</source>
+          <target state="new"><bpt id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;linkText&gt;</bpt>Microsoft Azure Cloud service apps<ept id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;/linkText&gt;</ept><bpt id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;title&gt;</bpt><ept id="979089ba-a6e0-4842-ad59-30c41e5dedd3">&lt;/title&gt;</ept> can be monitored by <bpt id="01162c49-1540-49ef-b759-4874c3290224">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="01162c49-1540-49ef-b759-4874c3290224">&lt;/linkText&gt;</ept><bpt id="01162c49-1540-49ef-b759-4874c3290224">&lt;title&gt;</bpt><ept id="01162c49-1540-49ef-b759-4874c3290224">&lt;/title&gt;</ept> for availability, performance, failures and usage.</target>
+        </trans-unit>
+        <trans-unit id="b935f49a-3521-4efc-91c1-7bda1596aff0" xml:space="preserve">
+          <source>With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.</source>
+          <target state="new">With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.</target>
+        </trans-unit>
+        <trans-unit id="017a5833-7e82-4883-94da-672158756a73" xml:space="preserve">
+          <source><bpt id="b19eac0a-c69b-412c-9fb2-8489ae939851">&lt;linkText&gt;</bpt>Example<ept id="b19eac0a-c69b-412c-9fb2-8489ae939851">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b19eac0a-c69b-412c-9fb2-8489ae939851">&lt;linkText&gt;</bpt>Example<ept id="b19eac0a-c69b-412c-9fb2-8489ae939851">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09dcfb84-0aaa-4359-817e-582c7323d5a4" xml:space="preserve">
+          <source>You'll need a subscription with <bpt id="036dfe5a-2961-4369-900a-786075ec694b">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="036dfe5a-2961-4369-900a-786075ec694b">&lt;/linkText&gt;</ept><bpt id="036dfe5a-2961-4369-900a-786075ec694b">&lt;title&gt;</bpt><ept id="036dfe5a-2961-4369-900a-786075ec694b">&lt;/title&gt;</ept>.</source>
+          <target state="new">You'll need a subscription with <bpt id="036dfe5a-2961-4369-900a-786075ec694b">&lt;linkText&gt;</bpt>Microsoft Azure<ept id="036dfe5a-2961-4369-900a-786075ec694b">&lt;/linkText&gt;</ept><bpt id="036dfe5a-2961-4369-900a-786075ec694b">&lt;title&gt;</bpt><ept id="036dfe5a-2961-4369-900a-786075ec694b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="894b2652-90a6-42bb-ac81-1419bb8986c3" xml:space="preserve">
+          <source>Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.</source>
+          <target state="new">Sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.</target>
+        </trans-unit>
+        <trans-unit id="e7d3744a-46ce-4e0e-8473-e94219a28b63" xml:space="preserve">
+          <source>Take a look at this <bpt id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;linkText&gt;</bpt>sample application<ept id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;/linkText&gt;</ept><bpt id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;title&gt;</bpt><ept id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;/title&gt;</ept> in which Application Insights is added to a cloud service with two worker roles hosted in Azure.</source>
+          <target state="new">Take a look at this <bpt id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;linkText&gt;</bpt>sample application<ept id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;/linkText&gt;</ept><bpt id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;title&gt;</bpt><ept id="766c5c2d-5658-445b-bce5-bebf32dba879">&lt;/title&gt;</ept> in which Application Insights is added to a cloud service with two worker roles hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="ca5f5167-5086-4fc6-82f0-6e7b2daa4d54" xml:space="preserve">
+          <source>What follows tells you how to adapt your own cloud service project in the same way.</source>
+          <target state="new">What follows tells you how to adapt your own cloud service project in the same way.</target>
+        </trans-unit>
+        <trans-unit id="55f1cb35-d586-4c5d-a486-20f6d6f3c379" xml:space="preserve">
+          <source>An Application Insights resource is where your telemetry data will be analyzed and displayed.</source>
+          <target state="new">An Application Insights resource is where your telemetry data will be analyzed and displayed.</target>
+        </trans-unit>
+        <trans-unit id="8f491198-9b27-43eb-94fc-0634e482352c" xml:space="preserve">
+          <source>In the <bpt id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;/linkText&gt;</ept><bpt id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;title&gt;</bpt><ept id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;/title&gt;</ept>, create a new Application Insights resource.</source>
+          <target state="new">In the <bpt id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;linkText&gt;</bpt>Azure portal[portal]<ept id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;/linkText&gt;</ept><bpt id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;title&gt;</bpt><ept id="621fbc05-e05f-4bf7-84f2-96efe210f52d">&lt;/title&gt;</ept>, create a new Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="656ef6a1-2999-47b7-adac-21dabc9dca9e" xml:space="preserve">
+          <source>For application type, choose ASP.NET app.</source>
+          <target state="new">For application type, choose ASP.NET app.</target>
+        </trans-unit>
+        <trans-unit id="92609fc7-95ba-4eda-ae6f-4c40848d8afe" xml:space="preserve">
+          <source><bpt id="89409d3a-6609-49b3-ac73-c7b2007e3604">&lt;linkText&gt;</bpt>Click New, Application Insights<ept id="89409d3a-6609-49b3-ac73-c7b2007e3604">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89409d3a-6609-49b3-ac73-c7b2007e3604">&lt;linkText&gt;</bpt>Click New, Application Insights<ept id="89409d3a-6609-49b3-ac73-c7b2007e3604">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99d581b2-50c2-46c6-bd43-b3f04d2f586d" xml:space="preserve">
+          <source>Take a copy of the Instrumentation Key.</source>
+          <target state="new">Take a copy of the Instrumentation Key.</target>
+        </trans-unit>
+        <trans-unit id="feb6726e-7c97-40d4-a241-cd871c1e6c1b" xml:space="preserve">
+          <source>You'll need this shortly to configure the SDK.</source>
+          <target state="new">You'll need this shortly to configure the SDK.</target>
+        </trans-unit>
+        <trans-unit id="c052ccc4-82cd-4d83-b097-2c701c3bc809" xml:space="preserve">
+          <source><bpt id="9049ace4-9253-4ca4-9bef-75a9aafab929">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="9049ace4-9253-4ca4-9bef-75a9aafab929">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9049ace4-9253-4ca4-9bef-75a9aafab929">&lt;linkText&gt;</bpt>Click Properties, select the key, and press ctrl+C<ept id="9049ace4-9253-4ca4-9bef-75a9aafab929">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ac344d97-4a14-4712-a0a4-671b8ffb4383" xml:space="preserve">
+          <source>It's usually best to create a separate resource for the data from each web and worker role.</source>
+          <target state="new">It's usually best to create a separate resource for the data from each web and worker role.</target>
+        </trans-unit>
+        <trans-unit id="eb635617-71fe-4bf5-b638-e512ea007fb2" xml:space="preserve">
+          <source>As an alternative, you could send data from all the roles to just one resource, but set a <bpt id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;linkText&gt;</bpt>default property[apidefaults]<ept id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;/linkText&gt;</ept><bpt id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;title&gt;</bpt><ept id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;/title&gt;</ept> so that you can filter or group the results from each role.</source>
+          <target state="new">As an alternative, you could send data from all the roles to just one resource, but set a <bpt id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;linkText&gt;</bpt>default property[apidefaults]<ept id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;/linkText&gt;</ept><bpt id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;title&gt;</bpt><ept id="491ef44d-cdb0-4e23-8279-7293f971876f">&lt;/title&gt;</ept> so that you can filter or group the results from each role.</target>
+        </trans-unit>
+        <trans-unit id="a7db197c-192d-4518-9047-ea96131499f8" xml:space="preserve">
+          <source>In Visual Studio, edit the NuGet packages of your cloud app project.</source>
+          <target state="new">In Visual Studio, edit the NuGet packages of your cloud app project.</target>
+        </trans-unit>
+        <trans-unit id="48db1583-d841-4115-af04-ddea3f183d42" xml:space="preserve">
+          <source><bpt id="55dd0bcb-bef7-4704-a1e5-3097697c68c3">&lt;linkText&gt;</bpt>Right-click the project and select Manage Nuget Packages<ept id="55dd0bcb-bef7-4704-a1e5-3097697c68c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55dd0bcb-bef7-4704-a1e5-3097697c68c3">&lt;linkText&gt;</bpt>Right-click the project and select Manage Nuget Packages<ept id="55dd0bcb-bef7-4704-a1e5-3097697c68c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71c6599b-95bd-4f33-bc2c-b6fb49413411" xml:space="preserve">
+          <source>Add the [Application Insights for Web] (http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package.</source>
+          <target state="new">Add the [Application Insights for Web] (http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="fcd32c6f-9e12-46ac-85c5-1d627e685fd9" xml:space="preserve">
+          <source>This version of the SDK includes modules that add server context such as role information.</source>
+          <target state="new">This version of the SDK includes modules that add server context such as role information.</target>
+        </trans-unit>
+        <trans-unit id="055f1296-4702-4214-844d-41d172294016" xml:space="preserve">
+          <source><bpt id="b6a6c6b7-c80e-4314-b1dc-49d2e49bb978">&lt;linkText&gt;</bpt>Search for "Application Insights"<ept id="b6a6c6b7-c80e-4314-b1dc-49d2e49bb978">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b6a6c6b7-c80e-4314-b1dc-49d2e49bb978">&lt;linkText&gt;</bpt>Search for "Application Insights"<ept id="b6a6c6b7-c80e-4314-b1dc-49d2e49bb978">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4572f008-a060-435a-8573-a3feee1dc4e3" xml:space="preserve">
+          <source>Configure the SDK to send data to the Application Insights resource.</source>
+          <target state="new">Configure the SDK to send data to the Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="a0820f6a-0fa8-42e2-aa80-be826b84025f" xml:space="preserve">
+          <source>Open <bpt id="3fad8eb7-0379-4aad-9697-664845b86842">&lt;code&gt;</bpt>ApplicationInsights.config<ept id="3fad8eb7-0379-4aad-9697-664845b86842">&lt;/code&gt;</ept> and insert this line:</source>
+          <target state="new">Open <bpt id="3fad8eb7-0379-4aad-9697-664845b86842">&lt;code&gt;</bpt>ApplicationInsights.config<ept id="3fad8eb7-0379-4aad-9697-664845b86842">&lt;/code&gt;</ept> and insert this line:</target>
+        </trans-unit>
+        <trans-unit id="32d206c8-e37c-4531-b53f-6ecbace0a24a" xml:space="preserve">
+          <source><bpt id="1d384db6-7a7e-45f8-92f8-83d5e130af3e">&lt;code&gt;</bpt>&lt;InstrumentationKey&gt;<ept id="1d384db6-7a7e-45f8-92f8-83d5e130af3e">&lt;/code&gt;</ept> <bpt id="cc057634-6a5d-4984-9cbb-25f19e0ee2fe">&lt;em&gt;</bpt>the instrumentation key you copied<ept id="cc057634-6a5d-4984-9cbb-25f19e0ee2fe">&lt;/em&gt;</ept> <bpt id="e003003b-3064-4ba3-8a40-d17a48373844">&lt;code&gt;</bpt>&lt;/InstrumentationKey&gt;<ept id="e003003b-3064-4ba3-8a40-d17a48373844">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="1d384db6-7a7e-45f8-92f8-83d5e130af3e">&lt;code&gt;</bpt>&lt;InstrumentationKey&gt;<ept id="1d384db6-7a7e-45f8-92f8-83d5e130af3e">&lt;/code&gt;</ept> <bpt id="cc057634-6a5d-4984-9cbb-25f19e0ee2fe">&lt;em&gt;</bpt>the instrumentation key you copied<ept id="cc057634-6a5d-4984-9cbb-25f19e0ee2fe">&lt;/em&gt;</ept> <bpt id="e003003b-3064-4ba3-8a40-d17a48373844">&lt;code&gt;</bpt>&lt;/InstrumentationKey&gt;<ept id="e003003b-3064-4ba3-8a40-d17a48373844">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8275a616-3363-45e0-b580-cd7efcec0fd5" xml:space="preserve">
+          <source>Use the instrumentation key you copied from the Application Insights resource.</source>
+          <target state="new">Use the instrumentation key you copied from the Application Insights resource.</target>
+        </trans-unit>
+        <trans-unit id="cfa34828-f578-4204-9106-2c7ad2522432" xml:space="preserve">
+          <source>Set the ApplicationInsights.config file to be copied always to the output directory.</source>
+          <target state="new">Set the ApplicationInsights.config file to be copied always to the output directory.</target>
+        </trans-unit>
+        <trans-unit id="130667cc-fb5c-4d35-acc7-0671d870a693" xml:space="preserve">
+          <source>This is only required for worker roles.</source>
+          <target state="new">This is only required for worker roles.</target>
+        </trans-unit>
+        <trans-unit id="e43a77b3-eb43-404a-9510-1d4102adb92a" xml:space="preserve">
+          <source>You can alternatively set the instrumentation key (iKey) in code.</source>
+          <target state="new">You can alternatively set the instrumentation key (iKey) in code.</target>
+        </trans-unit>
+        <trans-unit id="07fea077-dc5c-4df5-9e25-b8e6a4850cab" xml:space="preserve">
+          <source>This is useful, for example, if you want to use Azure Service Configuration (CSCFG) settings to manage the instrumentation keys for the respective environments.</source>
+          <target state="new">This is useful, for example, if you want to use Azure Service Configuration (CSCFG) settings to manage the instrumentation keys for the respective environments.</target>
+        </trans-unit>
+        <trans-unit id="949492ab-0fc4-4d90-91f4-a9f7a68f7451" xml:space="preserve">
+          <source>The <bpt id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;linkText&gt;</bpt>sample application<ept id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;/linkText&gt;</ept><bpt id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;title&gt;</bpt><ept id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;/title&gt;</ept> shows how you can set the iKey:</source>
+          <target state="new">The <bpt id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;linkText&gt;</bpt>sample application<ept id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;/linkText&gt;</ept><bpt id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;title&gt;</bpt><ept id="fcaa5248-b8b1-4c63-83d1-bdefc9edf61e">&lt;/title&gt;</ept> shows how you can set the iKey:</target>
+        </trans-unit>
+        <trans-unit id="df1a46ca-bb4c-4cce-a579-b8c106108ec3" xml:space="preserve">
+          <source><bpt id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;linkText&gt;</bpt>Web role<ept id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;/linkText&gt;</ept><bpt id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;title&gt;</bpt><ept id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;linkText&gt;</bpt>Web role<ept id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;/linkText&gt;</ept><bpt id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;title&gt;</bpt><ept id="5539cffc-9424-4fc2-a1ac-f8c13acc0feb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="78a07e8e-9bb7-4957-8498-75ab9eaeb41d" xml:space="preserve">
+          <source><bpt id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;linkText&gt;</bpt>Worker role<ept id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;/linkText&gt;</ept><bpt id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;title&gt;</bpt><ept id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;linkText&gt;</bpt>Worker role<ept id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;/linkText&gt;</ept><bpt id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;title&gt;</bpt><ept id="d332dbef-d04c-40e1-9041-bf66b70f893a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3d23041-cef5-4374-9088-372594a877e9" xml:space="preserve">
+          <source><bpt id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;linkText&gt;</bpt>For web pages<ept id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;/linkText&gt;</ept><bpt id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;title&gt;</bpt><ept id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;linkText&gt;</bpt>For web pages<ept id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;/linkText&gt;</ept><bpt id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;title&gt;</bpt><ept id="56eea18b-0049-4161-8398-a306e4c9c882">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41357ed9-d75f-4bd4-9cd3-2d251e397c8f" xml:space="preserve">
+          <source>In web roles, the requests module automatically collects data about HTTP requests.</source>
+          <target state="new">In web roles, the requests module automatically collects data about HTTP requests.</target>
+        </trans-unit>
+        <trans-unit id="0c5536fc-0b97-47f0-9778-d2494fe2a370" xml:space="preserve">
+          <source>See the <bpt id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;linkText&gt;</bpt>sample MVCWebRole<ept id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;/linkText&gt;</ept><bpt id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;title&gt;</bpt><ept id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;/title&gt;</ept> for examples of how you can override the default collection behavior.</source>
+          <target state="new">See the <bpt id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;linkText&gt;</bpt>sample MVCWebRole<ept id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;/linkText&gt;</ept><bpt id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;title&gt;</bpt><ept id="c730ea20-ae39-4b7e-a529-121d21f3fad7">&lt;/title&gt;</ept> for examples of how you can override the default collection behavior.</target>
+        </trans-unit>
+        <trans-unit id="2db2c14a-126e-4dfc-bec6-1f897f86371b" xml:space="preserve">
+          <source>You can capture the performance of calls to worker roles by tracking them in the same way as HTTP requests.</source>
+          <target state="new">You can capture the performance of calls to worker roles by tracking them in the same way as HTTP requests.</target>
+        </trans-unit>
+        <trans-unit id="23fe5292-69ed-45ce-b6dd-c09e7bf0c4ec" xml:space="preserve">
+          <source>In Application Insights, the Request telemetry type measures a unit of named server side work that can be timed and can independently succeed or fail.</source>
+          <target state="new">In Application Insights, the Request telemetry type measures a unit of named server side work that can be timed and can independently succeed or fail.</target>
+        </trans-unit>
+        <trans-unit id="fd967b36-f9b7-4d7d-a5f6-80fb0b3b824d" xml:space="preserve">
+          <source>While HTTP requests are captured automatically by the SDK, you can insert your own code to track requests to worker roles.</source>
+          <target state="new">While HTTP requests are captured automatically by the SDK, you can insert your own code to track requests to worker roles.</target>
+        </trans-unit>
+        <trans-unit id="f4d34fde-45b1-4556-a5cc-9cd4d3a0b245" xml:space="preserve">
+          <source>See the two sample worker roles instrumented to report requests: <bpt id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;linkText&gt;</bpt>WorkerRoleA<ept id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;/linkText&gt;</ept><bpt id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;title&gt;</bpt><ept id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;/title&gt;</ept> and <bpt id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;linkText&gt;</bpt>WorkerRoleB<ept id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;/linkText&gt;</ept><bpt id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;title&gt;</bpt><ept id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;/title&gt;</ept></source>
+          <target state="new">See the two sample worker roles instrumented to report requests: <bpt id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;linkText&gt;</bpt>WorkerRoleA<ept id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;/linkText&gt;</ept><bpt id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;title&gt;</bpt><ept id="d6c393f9-d3f1-4c95-aff6-a0f5b42a59d7">&lt;/title&gt;</ept> and <bpt id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;linkText&gt;</bpt>WorkerRoleB<ept id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;/linkText&gt;</ept><bpt id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;title&gt;</bpt><ept id="db030cf3-da34-4183-8c6d-aeff3efffb49">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8968908b-a726-4b74-8f7a-cd30b92cf9af" xml:space="preserve">
+          <source>Application Insights SDK can report calls that your app makes to external dependencies such as REST apis and SQL servers.</source>
+          <target state="new">Application Insights SDK can report calls that your app makes to external dependencies such as REST apis and SQL servers.</target>
+        </trans-unit>
+        <trans-unit id="a54e7398-b4b1-48f3-abd4-6c89f801892c" xml:space="preserve">
+          <source>This lets you see whether a particular dependency is causing slow responses or failures.</source>
+          <target state="new">This lets you see whether a particular dependency is causing slow responses or failures.</target>
+        </trans-unit>
+        <trans-unit id="5d22f73c-80d2-44af-b69e-a12e1b17dc92" xml:space="preserve">
+          <source>To track dependencies, you have to set up the web/worker role with the <bpt id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;linkText&gt;</bpt>Application Insights Agent<ept id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;/linkText&gt;</ept><bpt id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;title&gt;</bpt><ept id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;/title&gt;</ept> also known as "Status Monitor".</source>
+          <target state="new">To track dependencies, you have to set up the web/worker role with the <bpt id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;linkText&gt;</bpt>Application Insights Agent<ept id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;/linkText&gt;</ept><bpt id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;title&gt;</bpt><ept id="dde3fced-6aa6-43bc-a243-398aa54d514e">&lt;/title&gt;</ept> also known as "Status Monitor".</target>
+        </trans-unit>
+        <trans-unit id="e54ebc47-39db-4368-a9b8-5c99e194f230" xml:space="preserve">
+          <source>To use the Application Insights Agent with your web/worker roles:</source>
+          <target state="new">To use the Application Insights Agent with your web/worker roles:</target>
+        </trans-unit>
+        <trans-unit id="5a2ed4d7-41c5-47b5-95eb-38edce112137" xml:space="preserve">
+          <source>Add the <bpt id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;linkText&gt;</bpt>AppInsightsAgent<ept id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;/linkText&gt;</ept><bpt id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;title&gt;</bpt><ept id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;/title&gt;</ept> folder and the two files in it to your web/worker role projects.</source>
+          <target state="new">Add the <bpt id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;linkText&gt;</bpt>AppInsightsAgent<ept id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;/linkText&gt;</ept><bpt id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;title&gt;</bpt><ept id="c4cfe37b-9686-43ae-a5fd-d78c1b7fd754">&lt;/title&gt;</ept> folder and the two files in it to your web/worker role projects.</target>
+        </trans-unit>
+        <trans-unit id="75aafe14-3df8-49cb-9192-a5b5a6c81e75" xml:space="preserve">
+          <source>Be sure to set their build properties so that they are always copied into the output directory.</source>
+          <target state="new">Be sure to set their build properties so that they are always copied into the output directory.</target>
+        </trans-unit>
+        <trans-unit id="22304ce1-73a6-41d2-8b44-8def0db4910e" xml:space="preserve">
+          <source>These files install the agent.</source>
+          <target state="new">These files install the agent.</target>
+        </trans-unit>
+        <trans-unit id="3ccd4b95-8487-4c20-9ee7-dd541d6579ff" xml:space="preserve">
+          <source>Add the start up task to the CSDEF file as shown <bpt id="21a32e06-8599-4193-9adf-bde48891271e">&lt;linkText&gt;</bpt>here<ept id="21a32e06-8599-4193-9adf-bde48891271e">&lt;/linkText&gt;</ept><bpt id="21a32e06-8599-4193-9adf-bde48891271e">&lt;title&gt;</bpt><ept id="21a32e06-8599-4193-9adf-bde48891271e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Add the start up task to the CSDEF file as shown <bpt id="21a32e06-8599-4193-9adf-bde48891271e">&lt;linkText&gt;</bpt>here<ept id="21a32e06-8599-4193-9adf-bde48891271e">&lt;/linkText&gt;</ept><bpt id="21a32e06-8599-4193-9adf-bde48891271e">&lt;title&gt;</bpt><ept id="21a32e06-8599-4193-9adf-bde48891271e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c69c4d65-8803-4094-abec-aad9bf150068" xml:space="preserve">
+          <source>NOTE: <bpt id="d32fc0df-c4d7-4d64-99fb-358790742054">&lt;em&gt;</bpt>Worker roles<ept id="d32fc0df-c4d7-4d64-99fb-358790742054">&lt;/em&gt;</ept> require three environment variables as shown <bpt id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;linkText&gt;</bpt>here<ept id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;/linkText&gt;</ept><bpt id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;title&gt;</bpt><ept id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;/title&gt;</ept>.</source>
+          <target state="new">NOTE: <bpt id="d32fc0df-c4d7-4d64-99fb-358790742054">&lt;em&gt;</bpt>Worker roles<ept id="d32fc0df-c4d7-4d64-99fb-358790742054">&lt;/em&gt;</ept> require three environment variables as shown <bpt id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;linkText&gt;</bpt>here<ept id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;/linkText&gt;</ept><bpt id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;title&gt;</bpt><ept id="def9df2a-a875-45b4-8cb6-f20a2f2e2db1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0df58732-5533-47d4-a106-ab2e6fbc2d33" xml:space="preserve">
+          <source>This is not required for web roles.</source>
+          <target state="new">This is not required for web roles.</target>
+        </trans-unit>
+        <trans-unit id="4eb9a4af-ae44-45ed-b275-71f973407ae2" xml:space="preserve">
+          <source>Here's an example of what you see at the Application Insights portal:</source>
+          <target state="new">Here's an example of what you see at the Application Insights portal:</target>
+        </trans-unit>
+        <trans-unit id="e238c4c0-b292-446e-80a3-8edda4be91d7" xml:space="preserve">
+          <source>Rich diagnostics with automatically correlated requests and dependencies:</source>
+          <target state="new">Rich diagnostics with automatically correlated requests and dependencies:</target>
+        </trans-unit>
+        <trans-unit id="de70f4a7-8c32-4bb2-80c8-90685f9fa8ff" xml:space="preserve">
+          <source><bpt id="fd2d7cf0-28cd-40f8-9e84-a2aa4c33214e">&lt;linkText&gt;</bpt><ept id="fd2d7cf0-28cd-40f8-9e84-a2aa4c33214e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fd2d7cf0-28cd-40f8-9e84-a2aa4c33214e">&lt;linkText&gt;</bpt><ept id="fd2d7cf0-28cd-40f8-9e84-a2aa4c33214e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98ca0e44-dbb7-4d33-8801-05f5bee5136e" xml:space="preserve">
+          <source>Performance of the web role, with dependency information:</source>
+          <target state="new">Performance of the web role, with dependency information:</target>
+        </trans-unit>
+        <trans-unit id="863cb5d0-0141-418b-a27b-55cd4dadd9d9" xml:space="preserve">
+          <source><bpt id="6f71abeb-5e2a-4773-99b1-576e7a422756">&lt;linkText&gt;</bpt><ept id="6f71abeb-5e2a-4773-99b1-576e7a422756">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f71abeb-5e2a-4773-99b1-576e7a422756">&lt;linkText&gt;</bpt><ept id="6f71abeb-5e2a-4773-99b1-576e7a422756">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="511c4caa-2fcc-4a2b-8dca-8e4f87c600b3" xml:space="preserve">
+          <source>Here's a screenshot on the requests and dependency information for a worker role:</source>
+          <target state="new">Here's a screenshot on the requests and dependency information for a worker role:</target>
+        </trans-unit>
+        <trans-unit id="3369fe3d-3741-4a04-88cd-d529a23fc160" xml:space="preserve">
+          <source><bpt id="61ea0c87-4ab1-405f-905f-c3584a8e3f98">&lt;linkText&gt;</bpt><ept id="61ea0c87-4ab1-405f-905f-c3584a8e3f98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="61ea0c87-4ab1-405f-905f-c3584a8e3f98">&lt;linkText&gt;</bpt><ept id="61ea0c87-4ab1-405f-905f-c3584a8e3f98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d0acd3ba-773b-434a-9fdb-88034912bd81" xml:space="preserve">
+          <source>See <bpt id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;linkText&gt;</bpt>Monitoring Exceptions in Application Insights<ept id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;/linkText&gt;</ept><bpt id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;title&gt;</bpt><ept id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;/title&gt;</ept> for information on how you can collect unhandled exceptions from different web application types.</source>
+          <target state="new">See <bpt id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;linkText&gt;</bpt>Monitoring Exceptions in Application Insights<ept id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;/linkText&gt;</ept><bpt id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;title&gt;</bpt><ept id="09af7e27-66d7-42fb-a94b-d4f5f06b531b">&lt;/title&gt;</ept> for information on how you can collect unhandled exceptions from different web application types.</target>
+        </trans-unit>
+        <trans-unit id="67214328-37e1-40bf-b9b7-08e53f764b4c" xml:space="preserve">
+          <source>The sample web role has MVC5 and Web API 2 controllers.</source>
+          <target state="new">The sample web role has MVC5 and Web API 2 controllers.</target>
+        </trans-unit>
+        <trans-unit id="ba6b50e9-b7a6-4558-8922-e3899a43b1da" xml:space="preserve">
+          <source>The unhandled exceptions from the 2 are captured with the following:</source>
+          <target state="new">The unhandled exceptions from the 2 are captured with the following:</target>
+        </trans-unit>
+        <trans-unit id="d27882ad-361f-4be6-9a67-2606082a5872" xml:space="preserve">
+          <source><bpt id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;linkText&gt;</bpt>AiHandleErrorAttribute<ept id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;/linkText&gt;</ept><bpt id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;title&gt;</bpt><ept id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;/title&gt;</ept> set up <bpt id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;linkText&gt;</bpt>here<ept id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;/linkText&gt;</ept><bpt id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;title&gt;</bpt><ept id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;/title&gt;</ept> for MVC5 controllers</source>
+          <target state="new"><bpt id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;linkText&gt;</bpt>AiHandleErrorAttribute<ept id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;/linkText&gt;</ept><bpt id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;title&gt;</bpt><ept id="2c6a29f2-687a-4435-8093-6c69b21d70f5">&lt;/title&gt;</ept> set up <bpt id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;linkText&gt;</bpt>here<ept id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;/linkText&gt;</ept><bpt id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;title&gt;</bpt><ept id="b573fcd8-53ed-48df-878a-324459dc1182">&lt;/title&gt;</ept> for MVC5 controllers</target>
+        </trans-unit>
+        <trans-unit id="00f2fe77-2770-4ff7-b1a1-3a23c1256ea4" xml:space="preserve">
+          <source><bpt id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;linkText&gt;</bpt>AiWebApiExceptionLogger<ept id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;/linkText&gt;</ept><bpt id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;title&gt;</bpt><ept id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;/title&gt;</ept> set up <bpt id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;linkText&gt;</bpt>here<ept id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;/linkText&gt;</ept><bpt id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;title&gt;</bpt><ept id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;/title&gt;</ept> for Web API 2 controllers</source>
+          <target state="new"><bpt id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;linkText&gt;</bpt>AiWebApiExceptionLogger<ept id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;/linkText&gt;</ept><bpt id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;title&gt;</bpt><ept id="0c39bbed-7b69-4e27-b898-8c10f59c5c01">&lt;/title&gt;</ept> set up <bpt id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;linkText&gt;</bpt>here<ept id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;/linkText&gt;</ept><bpt id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;title&gt;</bpt><ept id="26da6da5-202c-4e1b-89ab-56233b691334">&lt;/title&gt;</ept> for Web API 2 controllers</target>
+        </trans-unit>
+        <trans-unit id="6f6c650c-da69-4834-b987-be6244decb28" xml:space="preserve">
+          <source>For worker roles: There are two ways to track exceptions.</source>
+          <target state="new">For worker roles: There are two ways to track exceptions.</target>
+        </trans-unit>
+        <trans-unit id="b4560b35-3848-457f-a7fb-5b8f7f422650" xml:space="preserve">
+          <source>TrackException(ex)</source>
+          <target state="new">TrackException(ex)</target>
+        </trans-unit>
+        <trans-unit id="4f3904a3-6d9b-437e-84ce-a55c64c6125f" xml:space="preserve">
+          <source>If you have added the Application Insights trace listener NuGet package, you can use System.Diagnostics.Trace to log exceptions.</source>
+          <target state="new">If you have added the Application Insights trace listener NuGet package, you can use System.Diagnostics.Trace to log exceptions.</target>
+        </trans-unit>
+        <trans-unit id="c8281a2f-433e-4050-9314-14c0caaa2910" xml:space="preserve">
+          <source><bpt id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;linkText&gt;</bpt>Code example.<ept id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;/linkText&gt;</ept><bpt id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;title&gt;</bpt><ept id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;linkText&gt;</bpt>Code example.<ept id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;/linkText&gt;</ept><bpt id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;title&gt;</bpt><ept id="56d34c8d-0f3e-4a38-b444-7f718e409df1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="923dcc79-4706-4ea2-8092-bb938c4d5ada" xml:space="preserve">
+          <source>The following counters are collected by default:</source>
+          <target state="new">The following counters are collected by default:</target>
+        </trans-unit>
+        <trans-unit id="5f22671f-473b-4dd2-b700-bff0d6c56d2f" xml:space="preserve">
+          <source>In addition, the following are also collected for web roles:</source>
+          <target state="new">In addition, the following are also collected for web roles:</target>
+        </trans-unit>
+        <trans-unit id="5a5a803e-0e96-41ca-a79c-b7f75b9c769a" xml:space="preserve">
+          <source>You can specify additional custom or other windows performance counters as shown <bpt id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;linkText&gt;</bpt>here<ept id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;/linkText&gt;</ept><bpt id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;title&gt;</bpt><ept id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;/title&gt;</ept></source>
+          <target state="new">You can specify additional custom or other windows performance counters as shown <bpt id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;linkText&gt;</bpt>here<ept id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;/linkText&gt;</ept><bpt id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;title&gt;</bpt><ept id="0e4b4a81-27cf-48f5-aec7-2e543465d51c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ed3f7af-814f-4c72-be11-eb42e0990c35" xml:space="preserve">
+          <source>  <bpt id="74172c48-ca4f-4405-9dc4-59e69f83cfee">&lt;linkText&gt;</bpt><ept id="74172c48-ca4f-4405-9dc4-59e69f83cfee">&lt;/linkText&gt;</ept></source>
+          <target state="new">  <bpt id="74172c48-ca4f-4405-9dc4-59e69f83cfee">&lt;linkText&gt;</bpt><ept id="74172c48-ca4f-4405-9dc4-59e69f83cfee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4b9af84-bc9a-4c83-a4de-db6a3553ea38" xml:space="preserve">
+          <source>It is a rich diagnostic experience, when you can see what led to a failed or high latency request.</source>
+          <target state="new">It is a rich diagnostic experience, when you can see what led to a failed or high latency request.</target>
+        </trans-unit>
+        <trans-unit id="a045a7e3-1712-4bc7-bb49-d9f857327aa0" xml:space="preserve">
+          <source>With web roles, the SDK automatically sets up correlation between related telemetry.</source>
+          <target state="new">With web roles, the SDK automatically sets up correlation between related telemetry.</target>
+        </trans-unit>
+        <trans-unit id="71544295-de29-45d0-8fd3-cc8895de37da" xml:space="preserve">
+          <source>For worker roles, you can use a custom telemetry initializer to set a common Operation.Id context attribute for all the telemetry to achieve this.</source>
+          <target state="new">For worker roles, you can use a custom telemetry initializer to set a common Operation.Id context attribute for all the telemetry to achieve this.</target>
+        </trans-unit>
+        <trans-unit id="0d40b0b0-ba51-4d9f-a704-bf5075aa5197" xml:space="preserve">
+          <source>This will allow you to see whether the latency/failure issue was caused due to a dependency or your code, at a glance!</source>
+          <target state="new">This will allow you to see whether the latency/failure issue was caused due to a dependency or your code, at a glance!</target>
+        </trans-unit>
+        <trans-unit id="27fa4cd8-2cbb-46bd-8f16-a43b48c26d41" xml:space="preserve">
+          <source>Here's how:</source>
+          <target state="new">Here's how:</target>
+        </trans-unit>
+        <trans-unit id="3e253f08-9d1f-4d30-a723-a597ada1e229" xml:space="preserve">
+          <source>Set the correlation Id into a CallContext as shown <bpt id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;linkText&gt;</bpt>here<ept id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;/linkText&gt;</ept><bpt id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;title&gt;</bpt><ept id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;/title&gt;</ept>.</source>
+          <target state="new">Set the correlation Id into a CallContext as shown <bpt id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;linkText&gt;</bpt>here<ept id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;/linkText&gt;</ept><bpt id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;title&gt;</bpt><ept id="6fa239f6-a99e-4b23-8cdb-1caf036f4c52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc5cd53a-60ec-4f15-8395-ef20672d9a37" xml:space="preserve">
+          <source>In this case, we are using the Request ID as the correlation id</source>
+          <target state="new">In this case, we are using the Request ID as the correlation id</target>
+        </trans-unit>
+        <trans-unit id="6832c3f4-b36c-4d76-b9e7-63a2ddda3e46" xml:space="preserve">
+          <source>Add a custom TelemetryInitializer implementation, that will set the Operation.Id to the correlationId set above.</source>
+          <target state="new">Add a custom TelemetryInitializer implementation, that will set the Operation.Id to the correlationId set above.</target>
+        </trans-unit>
+        <trans-unit id="9f59cb87-c91c-496f-8794-2f4e5b338617" xml:space="preserve">
+          <source>Shown here: <bpt id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;linkText&gt;</bpt>ItemCorrelationTelemetryInitializer<ept id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;/linkText&gt;</ept><bpt id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;title&gt;</bpt><ept id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;/title&gt;</ept></source>
+          <target state="new">Shown here: <bpt id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;linkText&gt;</bpt>ItemCorrelationTelemetryInitializer<ept id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;/linkText&gt;</ept><bpt id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;title&gt;</bpt><ept id="59068127-917b-450a-a21c-c91ce9ed3c31">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba846187-865b-424a-9b4a-c8b12e051d82" xml:space="preserve">
+          <source>Add the custom telemetry initializer.</source>
+          <target state="new">Add the custom telemetry initializer.</target>
+        </trans-unit>
+        <trans-unit id="ace3fc60-e3f8-4436-9706-c507020d00f8" xml:space="preserve">
+          <source>You could do that in the ApplicationInsights.config file, or in code as shown <bpt id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;linkText&gt;</bpt>here<ept id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;/linkText&gt;</ept><bpt id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;title&gt;</bpt><ept id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;/title&gt;</ept></source>
+          <target state="new">You could do that in the ApplicationInsights.config file, or in code as shown <bpt id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;linkText&gt;</bpt>here<ept id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;/linkText&gt;</ept><bpt id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;title&gt;</bpt><ept id="704f2a0f-2dbf-4625-ad91-6fcf92b3a23e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4a8a653-6c49-48df-8342-c71002ed695f" xml:space="preserve">
+          <source>That's it!</source>
+          <target state="new">That's it!</target>
+        </trans-unit>
+        <trans-unit id="8cf3f042-6ada-47ce-bb47-8797813d6a50" xml:space="preserve">
+          <source>The portal experience is already wired up to help you see all associated telemetry at a glance:</source>
+          <target state="new">The portal experience is already wired up to help you see all associated telemetry at a glance:</target>
+        </trans-unit>
+        <trans-unit id="53a90912-6304-404a-8e7f-8a7bb4c9cd9d" xml:space="preserve">
+          <source><bpt id="9967004b-c5eb-4837-bafe-9c747950d53b">&lt;linkText&gt;</bpt><ept id="9967004b-c5eb-4837-bafe-9c747950d53b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9967004b-c5eb-4837-bafe-9c747950d53b">&lt;linkText&gt;</bpt><ept id="9967004b-c5eb-4837-bafe-9c747950d53b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf54fb77-81d4-409b-a2f9-26c2876d4031" xml:space="preserve">
+          <source>Open the <bpt id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;/linkText&gt;</ept><bpt id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;title&gt;</bpt><ept id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;/title&gt;</ept> tile, to see individual events.</source>
+          <target state="new">Open the <bpt id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;/linkText&gt;</ept><bpt id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;title&gt;</bpt><ept id="bded75b7-873d-45d8-9ed5-9b61c3de1abe">&lt;/title&gt;</ept> tile, to see individual events.</target>
+        </trans-unit>
+        <trans-unit id="d06c06c4-94c0-4b9d-93fd-57266efca26d" xml:space="preserve">
+          <source>Use the application, opening different pages so that it generates some telemetry.</source>
+          <target state="new">Use the application, opening different pages so that it generates some telemetry.</target>
+        </trans-unit>
+        <trans-unit id="394befd9-62c6-49c7-8a6e-a9a628315b94" xml:space="preserve">
+          <source>Wait a few seconds and click Refresh.</source>
+          <target state="new">Wait a few seconds and click Refresh.</target>
+        </trans-unit>
+        <trans-unit id="13221c11-99fc-4a5a-aad4-54b06a15ebd7" xml:space="preserve">
+          <source>See <bpt id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;/linkText&gt;</ept><bpt id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;title&gt;</bpt><ept id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;linkText&gt;</bpt>Troubleshooting[qna]<ept id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;/linkText&gt;</ept><bpt id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;title&gt;</bpt><ept id="1f0b4bff-9ef5-427c-8e04-46b1c8c94c27">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c017b396-4fd4-4a9a-8be3-2838946b5485" xml:space="preserve">
+          <source>To get the full 360-degree view of your application, there are some more things you should do:</source>
+          <target state="new">To get the full 360-degree view of your application, there are some more things you should do:</target>
+        </trans-unit>
+        <trans-unit id="027d8786-c042-459f-abac-d4463ba8941f" xml:space="preserve">
+          <source><bpt id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;linkText&gt;</bpt>Add the JavaScript SDK to your web pages[client]<ept id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;/linkText&gt;</ept><bpt id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;title&gt;</bpt><ept id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;/title&gt;</ept> to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.</source>
+          <target state="new"><bpt id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;linkText&gt;</bpt>Add the JavaScript SDK to your web pages[client]<ept id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;/linkText&gt;</ept><bpt id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;title&gt;</bpt><ept id="d6562895-ac31-41d6-90ce-edf9690e0de9">&lt;/title&gt;</ept> to get browser-based telemetry such as page view counts, page load times, script exceptions, and to let you write custom telemetry in your page scripts.</target>
+        </trans-unit>
+        <trans-unit id="49ad0535-9695-480e-8b58-b4e89077f3bb" xml:space="preserve">
+          <source>Add dependency tracking to diagnose issues caused by databases or other components used by your app:</source>
+          <target state="new">Add dependency tracking to diagnose issues caused by databases or other components used by your app:</target>
+        </trans-unit>
+        <trans-unit id="23b52dad-2e81-4d2f-ba3d-7a09e5b146ac" xml:space="preserve">
+          <source><bpt id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;linkText&gt;</bpt>in your Azure Web App or VM[azure]<ept id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;/linkText&gt;</ept><bpt id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;title&gt;</bpt><ept id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;linkText&gt;</bpt>in your Azure Web App or VM[azure]<ept id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;/linkText&gt;</ept><bpt id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;title&gt;</bpt><ept id="84444ecc-f364-43fd-9678-55fe29dcfad9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1dd4575c-66aa-4d4f-a2ad-9359146f1c39" xml:space="preserve">
+          <source><bpt id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;linkText&gt;</bpt>in your on-premises IIS server[redfield]<ept id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;/linkText&gt;</ept><bpt id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;title&gt;</bpt><ept id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;linkText&gt;</bpt>in your on-premises IIS server[redfield]<ept id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;/linkText&gt;</ept><bpt id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;title&gt;</bpt><ept id="5bf72cd1-3416-4450-8f4d-3a0b97421755">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="44cab968-ec07-4b73-96ca-9b396a50f1b7" xml:space="preserve">
+          <source><bpt id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;linkText&gt;</bpt>Capture log traces[netlogs]<ept id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;/linkText&gt;</ept><bpt id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;title&gt;</bpt><ept id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;/title&gt;</ept> from your favorite logging framework</source>
+          <target state="new"><bpt id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;linkText&gt;</bpt>Capture log traces[netlogs]<ept id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;/linkText&gt;</ept><bpt id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;title&gt;</bpt><ept id="fd41c599-d635-4311-a13f-c276783b22a9">&lt;/title&gt;</ept> from your favorite logging framework</target>
+        </trans-unit>
+        <trans-unit id="7911e8ce-c208-424a-8dfd-76adf1927040" xml:space="preserve">
+          <source><bpt id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;linkText&gt;</bpt>Track custom events and metrics[api]<ept id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;/linkText&gt;</ept><bpt id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;title&gt;</bpt><ept id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;/title&gt;</ept> in client or server or both, to learn more about how your application is used.</source>
+          <target state="new"><bpt id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;linkText&gt;</bpt>Track custom events and metrics[api]<ept id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;/linkText&gt;</ept><bpt id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;title&gt;</bpt><ept id="2ed791f6-9d60-43fe-9213-6c6d397fd6b5">&lt;/title&gt;</ept> in client or server or both, to learn more about how your application is used.</target>
+        </trans-unit>
+        <trans-unit id="144a955c-88eb-4609-9ff3-686dee998429" xml:space="preserve">
+          <source><bpt id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;linkText&gt;</bpt>Set up web tests[availability]<ept id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;/linkText&gt;</ept><bpt id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;title&gt;</bpt><ept id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;/title&gt;</ept> to make sure your application stays live and responsive.</source>
+          <target state="new"><bpt id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;linkText&gt;</bpt>Set up web tests[availability]<ept id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;/linkText&gt;</ept><bpt id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;title&gt;</bpt><ept id="9998f056-7088-4d61-8331-0572439a0e8f">&lt;/title&gt;</ept> to make sure your application stays live and responsive.</target>
+        </trans-unit>
+        <trans-unit id="754558af-c556-4060-8f67-574b2a6629f9" xml:space="preserve">
+          <source><bpt id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;linkText&gt;</bpt>The example<ept id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;/linkText&gt;</ept><bpt id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;title&gt;</bpt><ept id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;/title&gt;</ept> monitors a service that has a web role and two worker roles.</source>
+          <target state="new"><bpt id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;linkText&gt;</bpt>The example<ept id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;/linkText&gt;</ept><bpt id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;title&gt;</bpt><ept id="d179add6-8be3-41b3-a6c7-b3cba61b998e">&lt;/title&gt;</ept> monitors a service that has a web role and two worker roles.</target>
+        </trans-unit>
+        <trans-unit id="d6ba2f88-2d82-4e5c-8059-5e320863474b" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="928f0e0a-f3e1-4df9-99e9-35d56fd88a9a" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md#default-properties</source>
+          <target state="new">app-insights-api-custom-events-metrics.md#default-properties</target>
+        </trans-unit>
+        <trans-unit id="77805062-ee8d-40ea-8fc2-fb043e234d39" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md#dynamic-ikey</source>
+          <target state="new">app-insights-api-custom-events-metrics.md#dynamic-ikey</target>
+        </trans-unit>
+        <trans-unit id="67af27da-ed0e-4c23-b739-50781ec47c3f" xml:space="preserve">
+          <source>app-insights-monitor-web-app-availability.md</source>
+          <target state="new">app-insights-monitor-web-app-availability.md</target>
+        </trans-unit>
+        <trans-unit id="6ff58497-69a3-4491-a2e4-64828cd63643" xml:space="preserve">
+          <source>app-insights-azure.md</source>
+          <target state="new">app-insights-azure.md</target>
+        </trans-unit>
+        <trans-unit id="303c28ac-1094-40d7-866c-f36178daab5d" xml:space="preserve">
+          <source>app-insights-javascript.md</source>
+          <target state="new">app-insights-javascript.md</target>
+        </trans-unit>
+        <trans-unit id="711b4e4b-0cc9-4657-a91f-fab75743b98d" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="f38682fa-d85f-46e9-894e-e86811117582" xml:space="preserve">
+          <source>app-insights-asp-net-trace-logs.md</source>
+          <target state="new">app-insights-asp-net-trace-logs.md</target>
+        </trans-unit>
+        <trans-unit id="cf09b6ed-43ea-41e0-b260-bf1bb48cc618" xml:space="preserve">
+          <source>app-insights-web-monitor-performance.md</source>
+          <target state="new">app-insights-web-monitor-performance.md</target>
+        </trans-unit>
+        <trans-unit id="dec6e4ea-0919-4e25-a4f2-1892eb6950ba" xml:space="preserve">
+          <source>http://portal.azure.com/</source>
+          <target state="new">http://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="2aa4cff7-088f-4e48-8298-bee990b9fa01" xml:space="preserve">
+          <source>app-insights-troubleshoot-faq.md</source>
+          <target state="new">app-insights-troubleshoot-faq.md</target>
+        </trans-unit>
+        <trans-unit id="363164ff-a25f-4a4a-aed4-754371aef637" xml:space="preserve">
+          <source>app-insights-monitor-performance-live-website-now.md</source>
+          <target state="new">app-insights-monitor-performance-live-website-now.md</target>
+        </trans-unit>
+        <trans-unit id="cc9b42f9-b8e7-4d1d-86a2-7fa10846c4cb" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="803f3b2f-d6f0-4a06-9976-afb27cca7bbe" />
+    </body>
+  </file>
+</xliff>

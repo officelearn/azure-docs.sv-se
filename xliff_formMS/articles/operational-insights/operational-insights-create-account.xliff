@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bfb4d14d-6fd7-4ff4-a6dd-13b312d2fbfb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bfb4d14d-6fd7-4ff4-a6dd-13b312d2fbfb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1871db8b-8fb2-4f80-ad1d-80138daaaf17">
+        <trans-unit id="044a5ec8-bdbb-41e1-8fd8-352f42072761" xml:space="preserve">
+          <source>Create an Operational Insights account and sign in</source>
+          <target state="new">Create an Operational Insights account and sign in</target>
+        </trans-unit>
+        <trans-unit id="032f27c1-c636-4535-9dad-e7cbfef0294c" xml:space="preserve">
+          <source>Learn about how to create an Operational Insights account and then sign in</source>
+          <target state="new">Learn about how to create an Operational Insights account and then sign in</target>
+        </trans-unit>
+        <trans-unit id="946b994b-acf6-4b89-9009-db09b2eea05a" xml:space="preserve">
+          <source><bpt id="8bd6b3f1-5b94-41e3-8640-d05450fb7d78">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="8bd6b3f1-5b94-41e3-8640-d05450fb7d78">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="8bd6b3f1-5b94-41e3-8640-d05450fb7d78">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="8bd6b3f1-5b94-41e3-8640-d05450fb7d78">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="418b4fe5-f763-4e3b-bd5d-8ba89763a5ff" xml:space="preserve">
+          <source>Use the following information to set up an account to use with Microsoft Azure Operational Insights, and sign in to Operational Insights.</source>
+          <target state="new">Use the following information to set up an account to use with Microsoft Azure Operational Insights, and sign in to Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="42aa4463-aa54-41be-8126-cc81ff12ec5b" xml:space="preserve">
+          <source>If you want to create an Organizational account, sign up at <bpt id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;linkText&gt;</bpt>Microsoft Account For Organizations<ept id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;/linkText&gt;</ept><bpt id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;title&gt;</bpt><ept id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;/title&gt;</ept> . Then, you need to grant access to your Organizational account for Operational Insights in <bpt id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;/linkText&gt;</ept><bpt id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;title&gt;</bpt><ept id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to create an Organizational account, sign up at <bpt id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;linkText&gt;</bpt>Microsoft Account For Organizations<ept id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;/linkText&gt;</ept><bpt id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;title&gt;</bpt><ept id="0dcb3799-4d18-4823-abbd-ef062590d1d2">&lt;/title&gt;</ept> . Then, you need to grant access to your Organizational account for Operational Insights in <bpt id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;/linkText&gt;</ept><bpt id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;title&gt;</bpt><ept id="0049eca6-dd40-48a1-9bae-64c1f35d93aa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c950c42e-1864-4b3d-885f-90d9f3940ca6" xml:space="preserve">
+          <source>If you want to get a Microsoft Account (previously called a “Windows Live ID”), sign up at <bpt id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;linkText&gt;</bpt>Sign Up – Microsoft Account<ept id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;/linkText&gt;</ept><bpt id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;title&gt;</bpt><ept id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want to get a Microsoft Account (previously called a “Windows Live ID”), sign up at <bpt id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;linkText&gt;</bpt>Sign Up – Microsoft Account<ept id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;/linkText&gt;</ept><bpt id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;title&gt;</bpt><ept id="e559330f-6f6c-476d-bb2c-31662a87cb9f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="993dce74-93a9-42ed-8478-04303655dd9a" xml:space="preserve">
+          <source>Access is automatically granted to Operational Insights with a Microsoft account.</source>
+          <target state="new">Access is automatically granted to Operational Insights with a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="75aa8368-af14-4625-9133-f74524285b13" xml:space="preserve">
+          <source>Go to <bpt id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;linkText&gt;</bpt>Microsoft Azure Operational Insights<ept id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;/linkText&gt;</ept><bpt id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;title&gt;</bpt><ept id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;/title&gt;</ept> and choose Sign in at the top of the page.</source>
+          <target state="new">Go to <bpt id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;linkText&gt;</bpt>Microsoft Azure Operational Insights<ept id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;/linkText&gt;</ept><bpt id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;title&gt;</bpt><ept id="575c57a1-d93a-4f99-be75-042c39cfaab4">&lt;/title&gt;</ept> and choose Sign in at the top of the page.</target>
+        </trans-unit>
+        <trans-unit id="042e76a9-8e16-48ff-9fe7-b1eec53ecb37" xml:space="preserve">
+          <source>Select <bpt id="87ce2e33-6372-4879-95d2-c8dddccd4e3d">&lt;strong&gt;</bpt>Microsoft account<ept id="87ce2e33-6372-4879-95d2-c8dddccd4e3d">&lt;/strong&gt;</ept> or <bpt id="0964ead5-dec5-40ac-a160-b3c736173984">&lt;strong&gt;</bpt>Organizational account<ept id="0964ead5-dec5-40ac-a160-b3c736173984">&lt;/strong&gt;</ept> and then <bpt id="f47258af-bb7d-47cf-9212-81b3a1d3ea16">&lt;strong&gt;</bpt>sign in<ept id="f47258af-bb7d-47cf-9212-81b3a1d3ea16">&lt;/strong&gt;</ept> with your credentials.</source>
+          <target state="new">Select <bpt id="87ce2e33-6372-4879-95d2-c8dddccd4e3d">&lt;strong&gt;</bpt>Microsoft account<ept id="87ce2e33-6372-4879-95d2-c8dddccd4e3d">&lt;/strong&gt;</ept> or <bpt id="0964ead5-dec5-40ac-a160-b3c736173984">&lt;strong&gt;</bpt>Organizational account<ept id="0964ead5-dec5-40ac-a160-b3c736173984">&lt;/strong&gt;</ept> and then <bpt id="f47258af-bb7d-47cf-9212-81b3a1d3ea16">&lt;strong&gt;</bpt>sign in<ept id="f47258af-bb7d-47cf-9212-81b3a1d3ea16">&lt;/strong&gt;</ept> with your credentials.</target>
+        </trans-unit>
+        <trans-unit id="b2244919-9262-4c07-a49c-11131dc2c027" xml:space="preserve">
+          <source>Create an Operational Insights account to associate with your sign-in information.</source>
+          <target state="new">Create an Operational Insights account to associate with your sign-in information.</target>
+        </trans-unit>
+        <trans-unit id="a009bbb5-e11a-4d96-8d10-b9b7f7356073" xml:space="preserve">
+          <source>To learn more about getting started with Operational Insights, see:</source>
+          <target state="new">To learn more about getting started with Operational Insights, see:</target>
+        </trans-unit>
+        <trans-unit id="4bae1a86-2c4d-4ea7-a320-51c3dfc38329" xml:space="preserve">
+          <source><bpt id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;linkText&gt;</bpt>Setup and configure your workspace<ept id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;/linkText&gt;</ept><bpt id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;title&gt;</bpt><ept id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;linkText&gt;</bpt>Setup and configure your workspace<ept id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;/linkText&gt;</ept><bpt id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;title&gt;</bpt><ept id="2060c8b4-9f66-4d3e-8dde-1f67ddfb7c27">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

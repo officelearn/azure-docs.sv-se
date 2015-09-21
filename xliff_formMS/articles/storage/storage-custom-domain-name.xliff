@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="922b0cab-cdee-4446-851b-144648d3e324" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="922b0cab-cdee-4446-851b-144648d3e324" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e3af658c-e650-4ee6-b280-2a73c47fbb5f">
+        <trans-unit id="70662381-c46b-439d-b81d-e81b8b9fe5ee" xml:space="preserve">
+          <source>Configure a domain name for blob data in a storage account | Microsoft Azure</source>
+          <target state="new">Configure a domain name for blob data in a storage account | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4be7f13b-0a74-4eea-a08b-bc83aebdd7a4" xml:space="preserve">
+          <source>Learn how to configure a custom domain for accessing blob data in an Azure storage account.</source>
+          <target state="new">Learn how to configure a custom domain for accessing blob data in an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="b27f27e6-c2b5-4240-b275-c19d586270ac" xml:space="preserve">
+          <source>You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for the Blob service is https://&lt;<bpt id="4e807d12-88df-4e34-92b7-d88a0f27f90f">&lt;em&gt;</bpt>mystorageaccount<ept id="4e807d12-88df-4e34-92b7-d88a0f27f90f">&lt;/em&gt;</ept>&gt;.blob.core.windows.net. If you map a custom domain and subdomain such as <bpt id="5ab692d1-b058-4ca9-8d83-a42f8fb0fbf7">&lt;strong&gt;</bpt>www.contoso.com<ept id="5ab692d1-b058-4ca9-8d83-a42f8fb0fbf7">&lt;/strong&gt;</ept> to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain. </source>
+          <target state="new">You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for the Blob service is https://&lt;<bpt id="4e807d12-88df-4e34-92b7-d88a0f27f90f">&lt;em&gt;</bpt>mystorageaccount<ept id="4e807d12-88df-4e34-92b7-d88a0f27f90f">&lt;/em&gt;</ept>&gt;.blob.core.windows.net. If you map a custom domain and subdomain such as <bpt id="5ab692d1-b058-4ca9-8d83-a42f8fb0fbf7">&lt;strong&gt;</bpt>www.contoso.com<ept id="5ab692d1-b058-4ca9-8d83-a42f8fb0fbf7">&lt;/strong&gt;</ept> to the blob endpoint for your storage account, then your users can also access blob data in your storage account using that domain. </target>
+        </trans-unit>
+        <trans-unit id="978c6d2c-4d88-4e10-86c7-a98a146c4cbf" xml:space="preserve">
+          <source>The procedures in this task apply to Azure storage accounts.</source>
+          <target state="new">The procedures in this task apply to Azure storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="89e0b86e-ed2b-4312-b8cc-b03b09b01f72" xml:space="preserve">
+          <source>For cloud services, see &lt;a href = "/develop/net/common-tasks/custom-dns/"&gt;Configuring a Custom Domain Name for an Azure Cloud Service&lt;/a&gt;; for Websites, see &lt;a href="/develop/net/common-tasks/custom-dns-web-site/"&gt;Configuring a Custom Domain Name for an Azure Website&lt;/a&gt;.</source>
+          <target state="new">For cloud services, see &lt;a href = "/develop/net/common-tasks/custom-dns/"&gt;Configuring a Custom Domain Name for an Azure Cloud Service&lt;/a&gt;; for Websites, see &lt;a href="/develop/net/common-tasks/custom-dns-web-site/"&gt;Configuring a Custom Domain Name for an Azure Website&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="87276241-928a-427b-9287-451d5d676d49" xml:space="preserve">
+          <source>There are two ways to point your custom domain to the blob endpoint for your storage account.</source>
+          <target state="new">There are two ways to point your custom domain to the blob endpoint for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="30bbb76b-2d09-4133-9ced-a260e87a5ea3" xml:space="preserve">
+          <source>The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint.</source>
+          <target state="new">The simplest way is to create a CNAME record mapping your custom domain and subdomain to the blob endpoint.</target>
+        </trans-unit>
+        <trans-unit id="d8913a3b-1ada-4e0c-a081-87c27a544d63" xml:space="preserve">
+          <source>A CNAME record is a DNS feature that maps a source domain to a destination domain.</source>
+          <target state="new">A CNAME record is a DNS feature that maps a source domain to a destination domain.</target>
+        </trans-unit>
+        <trans-unit id="49e5c131-8399-47c4-9282-5a4d5e25e49e" xml:space="preserve">
+          <source>In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required.</source>
+          <target state="new">In this case, the source domain is your custom domain and subdomain--note that the subdomain is always required.</target>
+        </trans-unit>
+        <trans-unit id="9d222077-e094-499a-b743-a438f70f29b1" xml:space="preserve">
+          <source>The destination domain is your Blob service endpoint.</source>
+          <target state="new">The destination domain is your Blob service endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3c4fc0eb-afb4-4ada-9eaf-479a14e4b143" xml:space="preserve">
+          <source>The process of mapping your custom domain to your blob endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal.</source>
+          <target state="new">The process of mapping your custom domain to your blob endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="dc8b869e-c0c4-4ab0-b833-8da78d85144e" xml:space="preserve">
+          <source>If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure <bpt id="84772003-0558-4836-9c4a-654b0eecbdcf">&lt;strong&gt;</bpt>asverify<ept id="84772003-0558-4836-9c4a-654b0eecbdcf">&lt;/strong&gt;</ept> subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.</source>
+          <target state="new">If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure <bpt id="84772003-0558-4836-9c4a-654b0eecbdcf">&lt;strong&gt;</bpt>asverify<ept id="84772003-0558-4836-9c4a-654b0eecbdcf">&lt;/strong&gt;</ept> subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.</target>
+        </trans-unit>
+        <trans-unit id="fb5ebec3-a689-4b67-83d4-08ba55c9e4e8" xml:space="preserve">
+          <source>The following table shows sample URLs for accessing blob data in a storage account named <bpt id="d027c2fb-234e-478b-a95f-4cc6e39cebf9">&lt;strong&gt;</bpt>mystorageaccount<ept id="d027c2fb-234e-478b-a95f-4cc6e39cebf9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The following table shows sample URLs for accessing blob data in a storage account named <bpt id="d027c2fb-234e-478b-a95f-4cc6e39cebf9">&lt;strong&gt;</bpt>mystorageaccount<ept id="d027c2fb-234e-478b-a95f-4cc6e39cebf9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8bc60e8-c0ce-4c5b-83d5-eb8a5f5cd265" xml:space="preserve">
+          <source>The custom domain registered for the storage account is <bpt id="b5affb33-dd47-4b2d-ade8-63167118968e">&lt;strong&gt;</bpt>www.contoso.com<ept id="b5affb33-dd47-4b2d-ade8-63167118968e">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The custom domain registered for the storage account is <bpt id="b5affb33-dd47-4b2d-ade8-63167118968e">&lt;strong&gt;</bpt>www.contoso.com<ept id="b5affb33-dd47-4b2d-ade8-63167118968e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="1d2542f8-4049-4c09-84f0-e87696b21982" xml:space="preserve">
+          <source>Resource Type</source>
+          <target state="new">Resource Type</target>
+        </trans-unit>
+        <trans-unit id="6c3b6894-16a4-4d6f-a2e9-5cad7f1c9f54" xml:space="preserve">
+          <source>URL Formats</source>
+          <target state="new">URL Formats</target>
+        </trans-unit>
+        <trans-unit id="d7f599f5-7b31-4c6d-b191-c429648d451a" xml:space="preserve">
+          <source>Storage account</source>
+          <target state="new">Storage account</target>
+        </trans-unit>
+        <trans-unit id="51ed79e0-f12e-41ff-be6c-72b6f7c0b645" xml:space="preserve">
+          <source><bpt id="15454287-e69a-4753-aed8-2a07784c83d8">&lt;strong&gt;</bpt>Default URL:<ept id="15454287-e69a-4753-aed8-2a07784c83d8">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net&lt;p&gt;<bpt id="d24132b9-60fc-470e-8fbe-2f276058f496">&lt;strong&gt;</bpt>Custom domain URL:<ept id="d24132b9-60fc-470e-8fbe-2f276058f496">&lt;/strong&gt;</ept> http://www.contoso.com&lt;/td&gt;</source>
+          <target state="new"><bpt id="15454287-e69a-4753-aed8-2a07784c83d8">&lt;strong&gt;</bpt>Default URL:<ept id="15454287-e69a-4753-aed8-2a07784c83d8">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net&lt;p&gt;<bpt id="d24132b9-60fc-470e-8fbe-2f276058f496">&lt;strong&gt;</bpt>Custom domain URL:<ept id="d24132b9-60fc-470e-8fbe-2f276058f496">&lt;/strong&gt;</ept> http://www.contoso.com&lt;/td&gt;</target>
+        </trans-unit>
+        <trans-unit id="cf20a879-c0e1-4030-8afa-84c5aba65d5b" xml:space="preserve">
+          <source>Blob</source>
+          <target state="new">Blob</target>
+        </trans-unit>
+        <trans-unit id="6e815f95-447e-4fb1-8c2d-67935bc993ab" xml:space="preserve">
+          <source><bpt id="6c4a32f8-81f1-41a9-83c9-57ece1ad97a6">&lt;strong&gt;</bpt>Default URL:<ept id="6c4a32f8-81f1-41a9-83c9-57ece1ad97a6">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob&lt;p&gt;<bpt id="f7c8ad8b-07b3-48c9-a449-22b1ddea7e8a">&lt;strong&gt;</bpt>Custom domain URL:<ept id="f7c8ad8b-07b3-48c9-a449-22b1ddea7e8a">&lt;/strong&gt;</ept> http://www.contoso.com/mycontainer/myblob</source>
+          <target state="new"><bpt id="6c4a32f8-81f1-41a9-83c9-57ece1ad97a6">&lt;strong&gt;</bpt>Default URL:<ept id="6c4a32f8-81f1-41a9-83c9-57ece1ad97a6">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob&lt;p&gt;<bpt id="f7c8ad8b-07b3-48c9-a449-22b1ddea7e8a">&lt;strong&gt;</bpt>Custom domain URL:<ept id="f7c8ad8b-07b3-48c9-a449-22b1ddea7e8a">&lt;/strong&gt;</ept> http://www.contoso.com/mycontainer/myblob</target>
+        </trans-unit>
+        <trans-unit id="9bafd89a-cadd-40a1-9a8e-68558135b557" xml:space="preserve">
+          <source>Root container</source>
+          <target state="new">Root container</target>
+        </trans-unit>
+        <trans-unit id="2d2fd448-df7c-48ac-ac37-d02ceb681ed4" xml:space="preserve">
+          <source><bpt id="cc9c5f7a-2b4c-4b4f-8167-50d735e5fa70">&lt;strong&gt;</bpt>Default URL:<ept id="cc9c5f7a-2b4c-4b4f-8167-50d735e5fa70">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob&lt;p&gt;<bpt id="34a8178d-a314-4434-8620-dda6c843bddf">&lt;strong&gt;</bpt>Custom domain URL:<ept id="34a8178d-a314-4434-8620-dda6c843bddf">&lt;/strong&gt;</ept> http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob</source>
+          <target state="new"><bpt id="cc9c5f7a-2b4c-4b4f-8167-50d735e5fa70">&lt;strong&gt;</bpt>Default URL:<ept id="cc9c5f7a-2b4c-4b4f-8167-50d735e5fa70">&lt;/strong&gt;</ept> http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob&lt;p&gt;<bpt id="34a8178d-a314-4434-8620-dda6c843bddf">&lt;strong&gt;</bpt>Custom domain URL:<ept id="34a8178d-a314-4434-8620-dda6c843bddf">&lt;/strong&gt;</ept> http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob</target>
+        </trans-unit>
+        <trans-unit id="1fd31060-3a3c-4584-a7a1-2dcd9f90eb82" xml:space="preserve">
+          <source>Use this procedure to register your custom domain if you do not have concerns about having the domain be briefly unavailable to users, or if your custom domain is not currently hosting an application.</source>
+          <target state="new">Use this procedure to register your custom domain if you do not have concerns about having the domain be briefly unavailable to users, or if your custom domain is not currently hosting an application.</target>
+        </trans-unit>
+        <trans-unit id="b57bcf5c-6cb5-4aeb-a2b7-f1a49d1ed281" xml:space="preserve">
+          <source>If your custom domain is currently supporting an application that cannot have any downtime, then use the procedure outlined in &lt;a href="#register-asverify"&gt;Register a custom domain for your storage account using the intermediary asverify subdomain&lt;/a&gt;.</source>
+          <target state="new">If your custom domain is currently supporting an application that cannot have any downtime, then use the procedure outlined in &lt;a href="#register-asverify"&gt;Register a custom domain for your storage account using the intermediary asverify subdomain&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="ad960c4f-3348-4125-8c2e-886e2cfd2dac" xml:space="preserve">
+          <source>To configure a custom domain name, you must create a new CNAME record with your domain registrar.</source>
+          <target state="new">To configure a custom domain name, you must create a new CNAME record with your domain registrar.</target>
+        </trans-unit>
+        <trans-unit id="13208f1f-c736-47ba-9240-28303b218147" xml:space="preserve">
+          <source>The CNAME record specifies an alias for a domain name; in this case it maps the address of your custom domain to the the Blob service endpoint for your storage account.</source>
+          <target state="new">The CNAME record specifies an alias for a domain name; in this case it maps the address of your custom domain to the the Blob service endpoint for your storage account.</target>
+        </trans-unit>
+        <trans-unit id="7696dac2-c295-4250-9c42-5052f2665d3f" xml:space="preserve">
+          <source>Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept
+is the same.</source>
+          <target state="new">Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept
+is the same.</target>
+        </trans-unit>
+        <trans-unit id="0ffde96d-58b4-4c3d-98c2-b94ed84997d5" xml:space="preserve">
+          <source>Note that many basic domain registration packages do not offer DNS configuration, so you may need to upgrade your domain registration package before you can create the CNAME record.</source>
+          <target state="new">Note that many basic domain registration packages do not offer DNS configuration, so you may need to upgrade your domain registration package before you can create the CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="fd035d29-baaf-4388-a5f3-aaa7ff9c4005" xml:space="preserve">
+          <source>In the Azure Management Portal, navigate to the <bpt id="caba0edb-a1cd-48f4-94cb-d877dd89c0a3">&lt;strong&gt;</bpt>Storage<ept id="caba0edb-a1cd-48f4-94cb-d877dd89c0a3">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the Azure Management Portal, navigate to the <bpt id="caba0edb-a1cd-48f4-94cb-d877dd89c0a3">&lt;strong&gt;</bpt>Storage<ept id="caba0edb-a1cd-48f4-94cb-d877dd89c0a3">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="7f128a9d-f94f-4b3f-9a8f-4556735a41dc" xml:space="preserve">
+          <source>In the <bpt id="e39631b7-c47c-4876-a3e5-c0e03b8ecee9">&lt;strong&gt;</bpt>Storage<ept id="e39631b7-c47c-4876-a3e5-c0e03b8ecee9">&lt;/strong&gt;</ept> tab, click the name of the storage account for which you want to map the custom domain.</source>
+          <target state="new">In the <bpt id="e39631b7-c47c-4876-a3e5-c0e03b8ecee9">&lt;strong&gt;</bpt>Storage<ept id="e39631b7-c47c-4876-a3e5-c0e03b8ecee9">&lt;/strong&gt;</ept> tab, click the name of the storage account for which you want to map the custom domain.</target>
+        </trans-unit>
+        <trans-unit id="dbd8a60b-9da9-4623-8459-1cc412ff1b2d" xml:space="preserve">
+          <source>Click the <bpt id="26ae496a-47d9-4b49-b975-2c07b04989e2">&lt;strong&gt;</bpt>Configure<ept id="26ae496a-47d9-4b49-b975-2c07b04989e2">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="26ae496a-47d9-4b49-b975-2c07b04989e2">&lt;strong&gt;</bpt>Configure<ept id="26ae496a-47d9-4b49-b975-2c07b04989e2">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="68f09504-8fa7-4cc7-9c12-8fdf88b7b349" xml:space="preserve">
+          <source>At the bottom of the screen click <bpt id="c4f777f0-9af3-4025-a1cd-4596b99f9b5d">&lt;strong&gt;</bpt>Manage Domain<ept id="c4f777f0-9af3-4025-a1cd-4596b99f9b5d">&lt;/strong&gt;</ept> to display the <bpt id="15d73888-ecd5-48c4-91de-b4b447656c9e">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="15d73888-ecd5-48c4-91de-b4b447656c9e">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">At the bottom of the screen click <bpt id="c4f777f0-9af3-4025-a1cd-4596b99f9b5d">&lt;strong&gt;</bpt>Manage Domain<ept id="c4f777f0-9af3-4025-a1cd-4596b99f9b5d">&lt;/strong&gt;</ept> to display the <bpt id="15d73888-ecd5-48c4-91de-b4b447656c9e">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="15d73888-ecd5-48c4-91de-b4b447656c9e">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="3bb49ccf-9271-401b-acb2-b6f3284598d8" xml:space="preserve">
+          <source>In the text at the top of the dialog, you'll see information on how to create the CNAME record.</source>
+          <target state="new">In the text at the top of the dialog, you'll see information on how to create the CNAME record.</target>
+        </trans-unit>
+        <trans-unit id="fe17be0e-efbd-4146-9016-1219aed1ec7b" xml:space="preserve">
+          <source>For this procedure, ignore the text that refers to the <bpt id="411af344-42a5-4753-bfe3-2711bf017c77">&lt;strong&gt;</bpt>asverify<ept id="411af344-42a5-4753-bfe3-2711bf017c77">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">For this procedure, ignore the text that refers to the <bpt id="411af344-42a5-4753-bfe3-2711bf017c77">&lt;strong&gt;</bpt>asverify<ept id="411af344-42a5-4753-bfe3-2711bf017c77">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="625fd451-a3ca-48d3-bc0b-d2a599be74e5" xml:space="preserve">
+          <source>Log on to your DNS registrar's website, and go to the page for
+managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website, and go to the page for
+managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="b5f6cc78-6acc-4e90-9b5d-0338d85b7010" xml:space="preserve">
+          <source>You might find this in a section such as <bpt id="85dfe6e9-a9d5-464a-9062-5fa917583f36">&lt;strong&gt;</bpt>Domain
+Name<ept id="85dfe6e9-a9d5-464a-9062-5fa917583f36">&lt;/strong&gt;</ept>, <bpt id="771c3d44-792c-4308-a269-97c4c9540e27">&lt;strong&gt;</bpt>DNS<ept id="771c3d44-792c-4308-a269-97c4c9540e27">&lt;/strong&gt;</ept>, or <bpt id="e9ebd26e-cad8-4ba9-aae9-c266dd91b7c5">&lt;strong&gt;</bpt>Name Server Management<ept id="e9ebd26e-cad8-4ba9-aae9-c266dd91b7c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You might find this in a section such as <bpt id="85dfe6e9-a9d5-464a-9062-5fa917583f36">&lt;strong&gt;</bpt>Domain
+Name<ept id="85dfe6e9-a9d5-464a-9062-5fa917583f36">&lt;/strong&gt;</ept>, <bpt id="771c3d44-792c-4308-a269-97c4c9540e27">&lt;strong&gt;</bpt>DNS<ept id="771c3d44-792c-4308-a269-97c4c9540e27">&lt;/strong&gt;</ept>, or <bpt id="e9ebd26e-cad8-4ba9-aae9-c266dd91b7c5">&lt;strong&gt;</bpt>Name Server Management<ept id="e9ebd26e-cad8-4ba9-aae9-c266dd91b7c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7475cf23-7ffa-4350-988d-f5b03f977e0f" xml:space="preserve">
+          <source>Find the section for managing CNAMEs.</source>
+          <target state="new">Find the section for managing CNAMEs.</target>
+        </trans-unit>
+        <trans-unit id="7a6d3b1e-5a5c-40c9-b8f5-b5c95130fe56" xml:space="preserve">
+          <source>You may have to go to an
+advanced settings page and look for the words <bpt id="faf9615e-5ede-495d-abee-c9a912f4bb8e">&lt;strong&gt;</bpt>CNAME<ept id="faf9615e-5ede-495d-abee-c9a912f4bb8e">&lt;/strong&gt;</ept>, <bpt id="baf42692-1e62-49ba-9245-18a02258a88b">&lt;strong&gt;</bpt>Alias<ept id="baf42692-1e62-49ba-9245-18a02258a88b">&lt;/strong&gt;</ept>,
+or <bpt id="47677fa6-11a8-4511-bdff-1441188baca7">&lt;strong&gt;</bpt>Subdomains<ept id="47677fa6-11a8-4511-bdff-1441188baca7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You may have to go to an
+advanced settings page and look for the words <bpt id="faf9615e-5ede-495d-abee-c9a912f4bb8e">&lt;strong&gt;</bpt>CNAME<ept id="faf9615e-5ede-495d-abee-c9a912f4bb8e">&lt;/strong&gt;</ept>, <bpt id="baf42692-1e62-49ba-9245-18a02258a88b">&lt;strong&gt;</bpt>Alias<ept id="baf42692-1e62-49ba-9245-18a02258a88b">&lt;/strong&gt;</ept>,
+or <bpt id="47677fa6-11a8-4511-bdff-1441188baca7">&lt;strong&gt;</bpt>Subdomains<ept id="47677fa6-11a8-4511-bdff-1441188baca7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="28f6f6bd-8ab2-4102-89ed-99aac48b6401" xml:space="preserve">
+          <source>Create a new CNAME record, and provide a subdomain alias, such as <bpt id="f2089245-d9e7-492a-9991-918e996b6289">&lt;strong&gt;</bpt>www<ept id="f2089245-d9e7-492a-9991-918e996b6289">&lt;/strong&gt;</ept> or <bpt id="f6f0ef15-2c54-48b3-a547-7c54da8e84a7">&lt;strong&gt;</bpt>photos<ept id="f6f0ef15-2c54-48b3-a547-7c54da8e84a7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a new CNAME record, and provide a subdomain alias, such as <bpt id="f2089245-d9e7-492a-9991-918e996b6289">&lt;strong&gt;</bpt>www<ept id="f2089245-d9e7-492a-9991-918e996b6289">&lt;/strong&gt;</ept> or <bpt id="f6f0ef15-2c54-48b3-a547-7c54da8e84a7">&lt;strong&gt;</bpt>photos<ept id="f6f0ef15-2c54-48b3-a547-7c54da8e84a7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4564587-b066-4e9f-aea5-e7e285cbaa72" xml:space="preserve">
+          <source>Then
+provide a host name, which is your Blob service endpoint, in the format <bpt id="e81999fb-98b8-4937-8738-72322ea52595">&lt;strong&gt;</bpt>mystorageaccount.blob.core.windows.net<ept id="e81999fb-98b8-4937-8738-72322ea52595">&lt;/strong&gt;</ept> (where <bpt id="d99d9d17-caf4-485f-afa8-d9da8857c3b3">&lt;strong&gt;</bpt>mystorageaccount<ept id="d99d9d17-caf4-485f-afa8-d9da8857c3b3">&lt;/strong&gt;</ept> is the name of your storage account).</source>
+          <target state="new">Then
+provide a host name, which is your Blob service endpoint, in the format <bpt id="e81999fb-98b8-4937-8738-72322ea52595">&lt;strong&gt;</bpt>mystorageaccount.blob.core.windows.net<ept id="e81999fb-98b8-4937-8738-72322ea52595">&lt;/strong&gt;</ept> (where <bpt id="d99d9d17-caf4-485f-afa8-d9da8857c3b3">&lt;strong&gt;</bpt>mystorageaccount<ept id="d99d9d17-caf4-485f-afa8-d9da8857c3b3">&lt;/strong&gt;</ept> is the name of your storage account).</target>
+        </trans-unit>
+        <trans-unit id="810a5549-6b57-4168-a557-6b81167788ac" xml:space="preserve">
+          <source>The host name to use is provided for you in the text of the <bpt id="e65197fa-225b-4950-a868-5580adfd6540">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="e65197fa-225b-4950-a868-5580adfd6540">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">The host name to use is provided for you in the text of the <bpt id="e65197fa-225b-4950-a868-5580adfd6540">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="e65197fa-225b-4950-a868-5580adfd6540">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="941ba72e-8ff2-49b9-8a40-2609e977a54d" xml:space="preserve">
+          <source>After you have created the CNAME record, return to the <bpt id="23586c5f-7873-4f87-beeb-28a4c685db39">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="23586c5f-7873-4f87-beeb-28a4c685db39">&lt;/strong&gt;</ept> dialog, and enter the name of your custom domain, including the subdomain, in the <bpt id="da4dae06-f3d8-4a9d-b161-594fa7b9c5d6">&lt;strong&gt;</bpt>Custom Domain Name<ept id="da4dae06-f3d8-4a9d-b161-594fa7b9c5d6">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">After you have created the CNAME record, return to the <bpt id="23586c5f-7873-4f87-beeb-28a4c685db39">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="23586c5f-7873-4f87-beeb-28a4c685db39">&lt;/strong&gt;</ept> dialog, and enter the name of your custom domain, including the subdomain, in the <bpt id="da4dae06-f3d8-4a9d-b161-594fa7b9c5d6">&lt;strong&gt;</bpt>Custom Domain Name<ept id="da4dae06-f3d8-4a9d-b161-594fa7b9c5d6">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="2a08d2ce-5e1d-45c2-af58-1fa5c0b0c7af" xml:space="preserve">
+          <source>For example, if your domain is <bpt id="7e8ab5c2-3670-4dc0-a551-b52474a630b3">&lt;strong&gt;</bpt>contoso.com<ept id="7e8ab5c2-3670-4dc0-a551-b52474a630b3">&lt;/strong&gt;</ept> and your subdomain is <bpt id="6ce54fe5-ea47-4d10-a70a-a099629a9475">&lt;strong&gt;</bpt>www<ept id="6ce54fe5-ea47-4d10-a70a-a099629a9475">&lt;/strong&gt;</ept>, enter <bpt id="55a9903b-a8eb-427f-91e2-c3e61eda38ea">&lt;strong&gt;</bpt>www.contoso.com<ept id="55a9903b-a8eb-427f-91e2-c3e61eda38ea">&lt;/strong&gt;</ept>; if your subdomain is <bpt id="3d7ecceb-1e5d-408e-a13c-77690761191c">&lt;strong&gt;</bpt>photos<ept id="3d7ecceb-1e5d-408e-a13c-77690761191c">&lt;/strong&gt;</ept>, enter <bpt id="c7c803c5-6a07-4a3d-a800-1fc342aa5b21">&lt;strong&gt;</bpt>photos.contoso.com<ept id="c7c803c5-6a07-4a3d-a800-1fc342aa5b21">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, if your domain is <bpt id="7e8ab5c2-3670-4dc0-a551-b52474a630b3">&lt;strong&gt;</bpt>contoso.com<ept id="7e8ab5c2-3670-4dc0-a551-b52474a630b3">&lt;/strong&gt;</ept> and your subdomain is <bpt id="6ce54fe5-ea47-4d10-a70a-a099629a9475">&lt;strong&gt;</bpt>www<ept id="6ce54fe5-ea47-4d10-a70a-a099629a9475">&lt;/strong&gt;</ept>, enter <bpt id="55a9903b-a8eb-427f-91e2-c3e61eda38ea">&lt;strong&gt;</bpt>www.contoso.com<ept id="55a9903b-a8eb-427f-91e2-c3e61eda38ea">&lt;/strong&gt;</ept>; if your subdomain is <bpt id="3d7ecceb-1e5d-408e-a13c-77690761191c">&lt;strong&gt;</bpt>photos<ept id="3d7ecceb-1e5d-408e-a13c-77690761191c">&lt;/strong&gt;</ept>, enter <bpt id="c7c803c5-6a07-4a3d-a800-1fc342aa5b21">&lt;strong&gt;</bpt>photos.contoso.com<ept id="c7c803c5-6a07-4a3d-a800-1fc342aa5b21">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="347eb6ce-f1f0-4937-bc30-f568d0c47e7e" xml:space="preserve">
+          <source>Note that the subdomain is required.</source>
+          <target state="new">Note that the subdomain is required.</target>
+        </trans-unit>
+        <trans-unit id="b7cabfd7-51a9-465e-ac1e-5ef83867741c" xml:space="preserve">
+          <source>Click the <bpt id="da0d487f-6a0b-4431-afd0-56efbe91011d">&lt;strong&gt;</bpt>Register<ept id="da0d487f-6a0b-4431-afd0-56efbe91011d">&lt;/strong&gt;</ept> button to register your custom domain.</source>
+          <target state="new">Click the <bpt id="da0d487f-6a0b-4431-afd0-56efbe91011d">&lt;strong&gt;</bpt>Register<ept id="da0d487f-6a0b-4431-afd0-56efbe91011d">&lt;/strong&gt;</ept> button to register your custom domain.</target>
+        </trans-unit>
+        <trans-unit id="d0984b3e-cb31-49ef-a7b8-13163f2398bf" xml:space="preserve">
+          <source>If the registration is successful, you will see the message <bpt id="c074c533-b27e-4d40-9ee8-7c985b2df54b">&lt;strong&gt;</bpt>Your custom domain is active<ept id="c074c533-b27e-4d40-9ee8-7c985b2df54b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the registration is successful, you will see the message <bpt id="c074c533-b27e-4d40-9ee8-7c985b2df54b">&lt;strong&gt;</bpt>Your custom domain is active<ept id="c074c533-b27e-4d40-9ee8-7c985b2df54b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72be549d-0191-4e0e-98d0-347b84c1bee6" xml:space="preserve">
+          <source>Users can now view blob data on your custom domain, so long as they have the appropriate permissions.</source>
+          <target state="new">Users can now view blob data on your custom domain, so long as they have the appropriate permissions.</target>
+        </trans-unit>
+        <trans-unit id="ef8eb612-eb98-4aaf-bfdb-b989458b2326" xml:space="preserve">
+          <source>Use this procedure to register your custom domain if your custom domain is currently supporting an application with an SLA that requires that there be no downtime.</source>
+          <target state="new">Use this procedure to register your custom domain if your custom domain is currently supporting an application with an SLA that requires that there be no downtime.</target>
+        </trans-unit>
+        <trans-unit id="d3361e12-6de2-4e7f-a508-4f37c5310ea0" xml:space="preserve">
+          <source>By creating a CNAME that points from asverify.&amp;lt;subdomain&amp;gt;.&amp;lt;customdomain&amp;gt; to asverify.&amp;lt;storageaccount&amp;gt;.blob.core.windows.net, you can pre-register your domain with Azure.</source>
+          <target state="new">By creating a CNAME that points from asverify.&amp;lt;subdomain&amp;gt;.&amp;lt;customdomain&amp;gt; to asverify.&amp;lt;storageaccount&amp;gt;.blob.core.windows.net, you can pre-register your domain with Azure.</target>
+        </trans-unit>
+        <trans-unit id="09890c06-6f4b-47ba-bc31-3266058267c0" xml:space="preserve">
+          <source>You can then create a second CNAME that points from &amp;lt;subdomain&amp;gt;.&amp;lt;customdomain&amp;gt; to &amp;lt;storageaccount&amp;gt;.blob.core.windows.net, at which point traffic to your custom domain will be directed to your blob endpoint.</source>
+          <target state="new">You can then create a second CNAME that points from &amp;lt;subdomain&amp;gt;.&amp;lt;customdomain&amp;gt; to &amp;lt;storageaccount&amp;gt;.blob.core.windows.net, at which point traffic to your custom domain will be directed to your blob endpoint.</target>
+        </trans-unit>
+        <trans-unit id="18299661-5092-40d5-a7fb-d561f4388261" xml:space="preserve">
+          <source>The asverify subdomain is a special subdomain recognized by Azure.</source>
+          <target state="new">The asverify subdomain is a special subdomain recognized by Azure.</target>
+        </trans-unit>
+        <trans-unit id="c8667894-4443-494a-b70e-0dd7e2291045" xml:space="preserve">
+          <source>By prepending <bpt id="8aadb0d5-304e-44b9-8d1e-bcbd0b36914b">&lt;strong&gt;</bpt>asverify<ept id="8aadb0d5-304e-44b9-8d1e-bcbd0b36914b">&lt;/strong&gt;</ept> to your own subdomain, you permit Azure to recognize your custom domain without modifying the DNS record for the domain.</source>
+          <target state="new">By prepending <bpt id="8aadb0d5-304e-44b9-8d1e-bcbd0b36914b">&lt;strong&gt;</bpt>asverify<ept id="8aadb0d5-304e-44b9-8d1e-bcbd0b36914b">&lt;/strong&gt;</ept> to your own subdomain, you permit Azure to recognize your custom domain without modifying the DNS record for the domain.</target>
+        </trans-unit>
+        <trans-unit id="5e941fab-4374-41a3-9ebb-b7ef52f36db5" xml:space="preserve">
+          <source>Once you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.</source>
+          <target state="new">Once you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.</target>
+        </trans-unit>
+        <trans-unit id="7884a34d-4eb0-4444-9731-cc82c54b38f9" xml:space="preserve">
+          <source>In the Azure Management Portal, navigate to the <bpt id="77bf2726-ab8f-49d2-8098-31fc26cee192">&lt;strong&gt;</bpt>Storage<ept id="77bf2726-ab8f-49d2-8098-31fc26cee192">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">In the Azure Management Portal, navigate to the <bpt id="77bf2726-ab8f-49d2-8098-31fc26cee192">&lt;strong&gt;</bpt>Storage<ept id="77bf2726-ab8f-49d2-8098-31fc26cee192">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f072817f-3d2d-4f98-9855-d1c4bc369421" xml:space="preserve">
+          <source>In the <bpt id="43643fa9-3789-456f-95e5-89149cde4e10">&lt;strong&gt;</bpt>Storage<ept id="43643fa9-3789-456f-95e5-89149cde4e10">&lt;/strong&gt;</ept> tab, click the name of the storage account for which you want to map the custom domain.</source>
+          <target state="new">In the <bpt id="43643fa9-3789-456f-95e5-89149cde4e10">&lt;strong&gt;</bpt>Storage<ept id="43643fa9-3789-456f-95e5-89149cde4e10">&lt;/strong&gt;</ept> tab, click the name of the storage account for which you want to map the custom domain.</target>
+        </trans-unit>
+        <trans-unit id="f07433a4-3dc0-4c6e-8408-89ba34f84efa" xml:space="preserve">
+          <source>Click the <bpt id="932d9cbf-6071-42a6-89aa-df77832ad2f9">&lt;strong&gt;</bpt>Configure<ept id="932d9cbf-6071-42a6-89aa-df77832ad2f9">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="932d9cbf-6071-42a6-89aa-df77832ad2f9">&lt;strong&gt;</bpt>Configure<ept id="932d9cbf-6071-42a6-89aa-df77832ad2f9">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="2cf8a06e-115f-4d47-b3ba-d7aa4b0ed166" xml:space="preserve">
+          <source>At the bottom of the screen click <bpt id="7555879e-a8e9-436d-87a8-1fd41dcb84d9">&lt;strong&gt;</bpt>Manage Domain<ept id="7555879e-a8e9-436d-87a8-1fd41dcb84d9">&lt;/strong&gt;</ept> to display the <bpt id="a6b0997e-2308-411c-8ffc-e053ec8016bb">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="a6b0997e-2308-411c-8ffc-e053ec8016bb">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">At the bottom of the screen click <bpt id="7555879e-a8e9-436d-87a8-1fd41dcb84d9">&lt;strong&gt;</bpt>Manage Domain<ept id="7555879e-a8e9-436d-87a8-1fd41dcb84d9">&lt;/strong&gt;</ept> to display the <bpt id="a6b0997e-2308-411c-8ffc-e053ec8016bb">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="a6b0997e-2308-411c-8ffc-e053ec8016bb">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="300d9053-3b07-4963-9784-638aae72ae04" xml:space="preserve">
+          <source>In the text at the top of the dialog, you'll see information on how to create the CNAME record using the <bpt id="d5fd6f62-bdac-4e6d-87b1-327f8e5b99de">&lt;strong&gt;</bpt>asverify<ept id="d5fd6f62-bdac-4e6d-87b1-327f8e5b99de">&lt;/strong&gt;</ept> subdomain.</source>
+          <target state="new">In the text at the top of the dialog, you'll see information on how to create the CNAME record using the <bpt id="d5fd6f62-bdac-4e6d-87b1-327f8e5b99de">&lt;strong&gt;</bpt>asverify<ept id="d5fd6f62-bdac-4e6d-87b1-327f8e5b99de">&lt;/strong&gt;</ept> subdomain.</target>
+        </trans-unit>
+        <trans-unit id="d42aa056-8bd9-443f-93d4-8b823ffa5e14" xml:space="preserve">
+          <source>Log on to your DNS registrar's website, and go to the page for
+managing DNS.</source>
+          <target state="new">Log on to your DNS registrar's website, and go to the page for
+managing DNS.</target>
+        </trans-unit>
+        <trans-unit id="1d4b6539-c9af-45c3-8b8a-c060c542fa11" xml:space="preserve">
+          <source>You might find this in a section such as <bpt id="e4722262-53ed-4a83-b43f-82e4024f07ea">&lt;strong&gt;</bpt>Domain
+Name<ept id="e4722262-53ed-4a83-b43f-82e4024f07ea">&lt;/strong&gt;</ept>, <bpt id="8ea4b7fa-cb28-43eb-8db6-b455d963c10c">&lt;strong&gt;</bpt>DNS<ept id="8ea4b7fa-cb28-43eb-8db6-b455d963c10c">&lt;/strong&gt;</ept>, or <bpt id="4c78d53d-6f53-4030-bd7c-2ae04184badd">&lt;strong&gt;</bpt>Name Server Management<ept id="4c78d53d-6f53-4030-bd7c-2ae04184badd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You might find this in a section such as <bpt id="e4722262-53ed-4a83-b43f-82e4024f07ea">&lt;strong&gt;</bpt>Domain
+Name<ept id="e4722262-53ed-4a83-b43f-82e4024f07ea">&lt;/strong&gt;</ept>, <bpt id="8ea4b7fa-cb28-43eb-8db6-b455d963c10c">&lt;strong&gt;</bpt>DNS<ept id="8ea4b7fa-cb28-43eb-8db6-b455d963c10c">&lt;/strong&gt;</ept>, or <bpt id="4c78d53d-6f53-4030-bd7c-2ae04184badd">&lt;strong&gt;</bpt>Name Server Management<ept id="4c78d53d-6f53-4030-bd7c-2ae04184badd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="886deacb-3073-406c-949f-f343935f47e4" xml:space="preserve">
+          <source>Find the section for managing CNAMEs.</source>
+          <target state="new">Find the section for managing CNAMEs.</target>
+        </trans-unit>
+        <trans-unit id="6cfff6d3-a425-43ca-9a02-5185aebab356" xml:space="preserve">
+          <source>You may have to go to an
+advanced settings page and look for the words <bpt id="011b26dd-11a0-45b0-9490-56bf6d9ff0c2">&lt;strong&gt;</bpt>CNAME<ept id="011b26dd-11a0-45b0-9490-56bf6d9ff0c2">&lt;/strong&gt;</ept>, <bpt id="b5a44563-4228-446f-97a9-84a988733810">&lt;strong&gt;</bpt>Alias<ept id="b5a44563-4228-446f-97a9-84a988733810">&lt;/strong&gt;</ept>,
+or <bpt id="7cf1804d-04e9-45ee-9c0d-3934ffe355eb">&lt;strong&gt;</bpt>Subdomains<ept id="7cf1804d-04e9-45ee-9c0d-3934ffe355eb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You may have to go to an
+advanced settings page and look for the words <bpt id="011b26dd-11a0-45b0-9490-56bf6d9ff0c2">&lt;strong&gt;</bpt>CNAME<ept id="011b26dd-11a0-45b0-9490-56bf6d9ff0c2">&lt;/strong&gt;</ept>, <bpt id="b5a44563-4228-446f-97a9-84a988733810">&lt;strong&gt;</bpt>Alias<ept id="b5a44563-4228-446f-97a9-84a988733810">&lt;/strong&gt;</ept>,
+or <bpt id="7cf1804d-04e9-45ee-9c0d-3934ffe355eb">&lt;strong&gt;</bpt>Subdomains<ept id="7cf1804d-04e9-45ee-9c0d-3934ffe355eb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6268affc-5574-4d80-a76e-7c1da2bc3b56" xml:space="preserve">
+          <source>Create a new CNAME record, and provide a subdomain alias that includes the asverify subdomain.</source>
+          <target state="new">Create a new CNAME record, and provide a subdomain alias that includes the asverify subdomain.</target>
+        </trans-unit>
+        <trans-unit id="d8f9febe-10de-4586-9f99-d44f32744877" xml:space="preserve">
+          <source>For example, the subdomain you specify will be in the format <bpt id="a6ba4be0-42ab-4e31-a8e6-8327631d4843">&lt;strong&gt;</bpt>asverify.www<ept id="a6ba4be0-42ab-4e31-a8e6-8327631d4843">&lt;/strong&gt;</ept> or <bpt id="edc615f4-b582-4bec-a108-3858c2255452">&lt;strong&gt;</bpt>asverify.photos<ept id="edc615f4-b582-4bec-a108-3858c2255452">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, the subdomain you specify will be in the format <bpt id="a6ba4be0-42ab-4e31-a8e6-8327631d4843">&lt;strong&gt;</bpt>asverify.www<ept id="a6ba4be0-42ab-4e31-a8e6-8327631d4843">&lt;/strong&gt;</ept> or <bpt id="edc615f4-b582-4bec-a108-3858c2255452">&lt;strong&gt;</bpt>asverify.photos<ept id="edc615f4-b582-4bec-a108-3858c2255452">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3d26c23-e1d0-4f1b-b9af-eda2c3d9ac98" xml:space="preserve">
+          <source>Then
+provide a host name, which is your Blob service endpoint, in the format <bpt id="3a38be48-dab6-43b2-b9b2-1e822fe4daca">&lt;strong&gt;</bpt>asverify.mystorageaccount.blob.core.windows.net<ept id="3a38be48-dab6-43b2-b9b2-1e822fe4daca">&lt;/strong&gt;</ept> (where <bpt id="0ec9759d-2f71-41b1-a812-fedd4f3b2d8b">&lt;strong&gt;</bpt>mystorageaccount<ept id="0ec9759d-2f71-41b1-a812-fedd4f3b2d8b">&lt;/strong&gt;</ept> is the name of your storage account).</source>
+          <target state="new">Then
+provide a host name, which is your Blob service endpoint, in the format <bpt id="3a38be48-dab6-43b2-b9b2-1e822fe4daca">&lt;strong&gt;</bpt>asverify.mystorageaccount.blob.core.windows.net<ept id="3a38be48-dab6-43b2-b9b2-1e822fe4daca">&lt;/strong&gt;</ept> (where <bpt id="0ec9759d-2f71-41b1-a812-fedd4f3b2d8b">&lt;strong&gt;</bpt>mystorageaccount<ept id="0ec9759d-2f71-41b1-a812-fedd4f3b2d8b">&lt;/strong&gt;</ept> is the name of your storage account).</target>
+        </trans-unit>
+        <trans-unit id="763f8283-55e7-4e8f-8560-b171a83d6597" xml:space="preserve">
+          <source>The host name to use is provided for you in the text of the <bpt id="ef1c138a-7f2a-4774-ba55-dbec416a3924">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="ef1c138a-7f2a-4774-ba55-dbec416a3924">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">The host name to use is provided for you in the text of the <bpt id="ef1c138a-7f2a-4774-ba55-dbec416a3924">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="ef1c138a-7f2a-4774-ba55-dbec416a3924">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="63ec491a-a44c-4205-9ffe-bf42c935f6ff" xml:space="preserve">
+          <source>After you have created the CNAME record, return to the <bpt id="f248d6a6-3932-4e23-bd47-7f26fc6aba5a">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="f248d6a6-3932-4e23-bd47-7f26fc6aba5a">&lt;/strong&gt;</ept> dialog, and enter the name of your custom domain in the <bpt id="36334e41-d8f5-4562-a24e-2b2f65dd67ae">&lt;strong&gt;</bpt>Custom Domain Name<ept id="36334e41-d8f5-4562-a24e-2b2f65dd67ae">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">After you have created the CNAME record, return to the <bpt id="f248d6a6-3932-4e23-bd47-7f26fc6aba5a">&lt;strong&gt;</bpt>Manage Custom Domain<ept id="f248d6a6-3932-4e23-bd47-7f26fc6aba5a">&lt;/strong&gt;</ept> dialog, and enter the name of your custom domain in the <bpt id="36334e41-d8f5-4562-a24e-2b2f65dd67ae">&lt;strong&gt;</bpt>Custom Domain Name<ept id="36334e41-d8f5-4562-a24e-2b2f65dd67ae">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="4750cfa1-e749-45b3-827f-9ca272916ab2" xml:space="preserve">
+          <source>For example, if your domain is <bpt id="a1a9cfd5-4d2c-4a8b-8e9c-ab2a151d5194">&lt;strong&gt;</bpt>contoso.com<ept id="a1a9cfd5-4d2c-4a8b-8e9c-ab2a151d5194">&lt;/strong&gt;</ept> and your subdomain is <bpt id="410a6d61-91fd-4028-8609-1c1de90cd4f9">&lt;strong&gt;</bpt>www<ept id="410a6d61-91fd-4028-8609-1c1de90cd4f9">&lt;/strong&gt;</ept>, enter <bpt id="354ecd39-ddd0-4811-9c34-66b79ea46a28">&lt;strong&gt;</bpt>www.contoso.com<ept id="354ecd39-ddd0-4811-9c34-66b79ea46a28">&lt;/strong&gt;</ept>; if your subdomain is <bpt id="c94b40d2-2267-4bc4-b2a8-656c3e939e56">&lt;strong&gt;</bpt>photos<ept id="c94b40d2-2267-4bc4-b2a8-656c3e939e56">&lt;/strong&gt;</ept>, enter <bpt id="24d39657-8e93-418d-bbd8-7c44abcaad33">&lt;strong&gt;</bpt>photos.contoso.com<ept id="24d39657-8e93-418d-bbd8-7c44abcaad33">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For example, if your domain is <bpt id="a1a9cfd5-4d2c-4a8b-8e9c-ab2a151d5194">&lt;strong&gt;</bpt>contoso.com<ept id="a1a9cfd5-4d2c-4a8b-8e9c-ab2a151d5194">&lt;/strong&gt;</ept> and your subdomain is <bpt id="410a6d61-91fd-4028-8609-1c1de90cd4f9">&lt;strong&gt;</bpt>www<ept id="410a6d61-91fd-4028-8609-1c1de90cd4f9">&lt;/strong&gt;</ept>, enter <bpt id="354ecd39-ddd0-4811-9c34-66b79ea46a28">&lt;strong&gt;</bpt>www.contoso.com<ept id="354ecd39-ddd0-4811-9c34-66b79ea46a28">&lt;/strong&gt;</ept>; if your subdomain is <bpt id="c94b40d2-2267-4bc4-b2a8-656c3e939e56">&lt;strong&gt;</bpt>photos<ept id="c94b40d2-2267-4bc4-b2a8-656c3e939e56">&lt;/strong&gt;</ept>, enter <bpt id="24d39657-8e93-418d-bbd8-7c44abcaad33">&lt;strong&gt;</bpt>photos.contoso.com<ept id="24d39657-8e93-418d-bbd8-7c44abcaad33">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4bb02044-3b8b-4179-ad11-ff3325d92855" xml:space="preserve">
+          <source>Note that the subdomain is required.</source>
+          <target state="new">Note that the subdomain is required.</target>
+        </trans-unit>
+        <trans-unit id="3b15e65a-c5ca-449a-9b87-95c4b224f09a" xml:space="preserve">
+          <source>Click the checkbox that says <bpt id="dbba3d06-6c3a-4658-b526-3b184427e38b">&lt;strong&gt;</bpt>Advanced: Use the 'asverify' subdomain to preregister my custom domain<ept id="dbba3d06-6c3a-4658-b526-3b184427e38b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the checkbox that says <bpt id="dbba3d06-6c3a-4658-b526-3b184427e38b">&lt;strong&gt;</bpt>Advanced: Use the 'asverify' subdomain to preregister my custom domain<ept id="dbba3d06-6c3a-4658-b526-3b184427e38b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dcd6c154-e8e3-4115-983a-ec53b2e244b9" xml:space="preserve">
+          <source>Click the <bpt id="b316a7f0-0c42-4efa-8c14-8a5faae7d902">&lt;strong&gt;</bpt>Register<ept id="b316a7f0-0c42-4efa-8c14-8a5faae7d902">&lt;/strong&gt;</ept> button to preregister your custom domain.</source>
+          <target state="new">Click the <bpt id="b316a7f0-0c42-4efa-8c14-8a5faae7d902">&lt;strong&gt;</bpt>Register<ept id="b316a7f0-0c42-4efa-8c14-8a5faae7d902">&lt;/strong&gt;</ept> button to preregister your custom domain.</target>
+        </trans-unit>
+        <trans-unit id="9221bca7-b496-4195-9f79-887664e595f9" xml:space="preserve">
+          <source>If the preregistration is successful, you will see the message <bpt id="d652b9a9-4131-4673-a324-b68204733111">&lt;strong&gt;</bpt>Your custom domain is active<ept id="d652b9a9-4131-4673-a324-b68204733111">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If the preregistration is successful, you will see the message <bpt id="d652b9a9-4131-4673-a324-b68204733111">&lt;strong&gt;</bpt>Your custom domain is active<ept id="d652b9a9-4131-4673-a324-b68204733111">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c17469a1-c37c-40fd-869e-c17fd8b3f020" xml:space="preserve">
+          <source>At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account.</source>
+          <target state="new">At this point, your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account.</target>
+        </trans-unit>
+        <trans-unit id="d0f10459-f34e-40e5-addd-de8daf03e49e" xml:space="preserve">
+          <source>To complete the process, return to your DNS registrar's website, and create another CNAME record that maps your subdomain to your Blob service endpoint.</source>
+          <target state="new">To complete the process, return to your DNS registrar's website, and create another CNAME record that maps your subdomain to your Blob service endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e413d8fd-bb8d-4f0d-bf64-85d78ece97f7" xml:space="preserve">
+          <source>For example, specify the subdomain as <bpt id="6c9b509d-75f2-45e7-bde3-09ce79c96eca">&lt;strong&gt;</bpt>www<ept id="6c9b509d-75f2-45e7-bde3-09ce79c96eca">&lt;/strong&gt;</ept> or <bpt id="5399b6c6-94eb-4cae-a09e-b366db16602d">&lt;strong&gt;</bpt>photos<ept id="5399b6c6-94eb-4cae-a09e-b366db16602d">&lt;/strong&gt;</ept>, and the hostname as <bpt id="cadae6e6-483f-463c-acc5-fd75f5c776df">&lt;strong&gt;</bpt>mystorageaccount.blob.core.windows.net<ept id="cadae6e6-483f-463c-acc5-fd75f5c776df">&lt;/strong&gt;</ept> (where <bpt id="7f26be7d-685a-4de8-81b4-960071108f78">&lt;strong&gt;</bpt>mystorageaccount<ept id="7f26be7d-685a-4de8-81b4-960071108f78">&lt;/strong&gt;</ept> is the name of your storage account).</source>
+          <target state="new">For example, specify the subdomain as <bpt id="6c9b509d-75f2-45e7-bde3-09ce79c96eca">&lt;strong&gt;</bpt>www<ept id="6c9b509d-75f2-45e7-bde3-09ce79c96eca">&lt;/strong&gt;</ept> or <bpt id="5399b6c6-94eb-4cae-a09e-b366db16602d">&lt;strong&gt;</bpt>photos<ept id="5399b6c6-94eb-4cae-a09e-b366db16602d">&lt;/strong&gt;</ept>, and the hostname as <bpt id="cadae6e6-483f-463c-acc5-fd75f5c776df">&lt;strong&gt;</bpt>mystorageaccount.blob.core.windows.net<ept id="cadae6e6-483f-463c-acc5-fd75f5c776df">&lt;/strong&gt;</ept> (where <bpt id="7f26be7d-685a-4de8-81b4-960071108f78">&lt;strong&gt;</bpt>mystorageaccount<ept id="7f26be7d-685a-4de8-81b4-960071108f78">&lt;/strong&gt;</ept> is the name of your storage account).</target>
+        </trans-unit>
+        <trans-unit id="88b566da-4c16-46e3-936e-8931df0409a8" xml:space="preserve">
+          <source>With this step, the registration of your custom domain is complete.</source>
+          <target state="new">With this step, the registration of your custom domain is complete.</target>
+        </trans-unit>
+        <trans-unit id="87851ac0-ce02-4613-972a-b99ee3efc4ec" xml:space="preserve">
+          <source>Finally, you can delete the CNAME record you created using <bpt id="9add28e7-037c-478f-a348-596c8ea6fc42">&lt;strong&gt;</bpt>asverify<ept id="9add28e7-037c-478f-a348-596c8ea6fc42">&lt;/strong&gt;</ept>, as it was necessary only as an intermediary step.</source>
+          <target state="new">Finally, you can delete the CNAME record you created using <bpt id="9add28e7-037c-478f-a348-596c8ea6fc42">&lt;strong&gt;</bpt>asverify<ept id="9add28e7-037c-478f-a348-596c8ea6fc42">&lt;/strong&gt;</ept>, as it was necessary only as an intermediary step.</target>
+        </trans-unit>
+        <trans-unit id="09d100f4-eef8-48f6-8c58-c655cf964653" xml:space="preserve">
+          <source>Users can now view blob data on your custom domain, so long as they have the appropriate permissions.</source>
+          <target state="new">Users can now view blob data on your custom domain, so long as they have the appropriate permissions.</target>
+        </trans-unit>
+        <trans-unit id="0ec43282-2bed-4da1-8a78-61b8e5626403" xml:space="preserve">
+          <source>To verify that your custom domain is indeed mapped to your Blob service endpoint, create a blob in a public container within your storage account.</source>
+          <target state="new">To verify that your custom domain is indeed mapped to your Blob service endpoint, create a blob in a public container within your storage account.</target>
+        </trans-unit>
+        <trans-unit id="e272d225-b059-4683-af0e-f99948fd6e02" xml:space="preserve">
+          <source>Then, in a web browser, use a URI in the following format to access the blob:</source>
+          <target state="new">Then, in a web browser, use a URI in the following format to access the blob:</target>
+        </trans-unit>
+        <trans-unit id="476d39d1-269f-417b-96f3-6b8d6e16217b" xml:space="preserve">
+          <source>http://&lt;<bpt id="f4012085-b29b-4cb3-b50e-3f8703e19f84">&lt;em&gt;</bpt>subdomain.customdomain<ept id="f4012085-b29b-4cb3-b50e-3f8703e19f84">&lt;/em&gt;</ept>&gt;/&lt;<bpt id="13129108-7393-4ccc-a0f4-c5484c35a504">&lt;em&gt;</bpt>mycontainer<ept id="13129108-7393-4ccc-a0f4-c5484c35a504">&lt;/em&gt;</ept>&gt;/&lt;<bpt id="aabe1f9d-2387-4dd4-9a23-eac5a5146595">&lt;em&gt;</bpt>myblob<ept id="aabe1f9d-2387-4dd4-9a23-eac5a5146595">&lt;/em&gt;</ept>&gt;</source>
+          <target state="new">http://&lt;<bpt id="f4012085-b29b-4cb3-b50e-3f8703e19f84">&lt;em&gt;</bpt>subdomain.customdomain<ept id="f4012085-b29b-4cb3-b50e-3f8703e19f84">&lt;/em&gt;</ept>&gt;/&lt;<bpt id="13129108-7393-4ccc-a0f4-c5484c35a504">&lt;em&gt;</bpt>mycontainer<ept id="13129108-7393-4ccc-a0f4-c5484c35a504">&lt;/em&gt;</ept>&gt;/&lt;<bpt id="aabe1f9d-2387-4dd4-9a23-eac5a5146595">&lt;em&gt;</bpt>myblob<ept id="aabe1f9d-2387-4dd4-9a23-eac5a5146595">&lt;/em&gt;</ept>&gt;</target>
+        </trans-unit>
+        <trans-unit id="06165048-28e0-4151-a295-e634a5d0c310" xml:space="preserve">
+          <source>For example, you might use the following URI to access a web form via a
+<bpt id="9b27da7b-dbe9-4278-a5f5-f6f65a62e32e">&lt;strong&gt;</bpt>photos.contoso.com<ept id="9b27da7b-dbe9-4278-a5f5-f6f65a62e32e">&lt;/strong&gt;</ept> custom subdomain that maps to a blob in your
+<bpt id="70dd26b1-3ed7-4d06-bf8d-28d1f9fbb5b6">&lt;strong&gt;</bpt>myforms<ept id="70dd26b1-3ed7-4d06-bf8d-28d1f9fbb5b6">&lt;/strong&gt;</ept> container:</source>
+          <target state="new">For example, you might use the following URI to access a web form via a
+<bpt id="9b27da7b-dbe9-4278-a5f5-f6f65a62e32e">&lt;strong&gt;</bpt>photos.contoso.com<ept id="9b27da7b-dbe9-4278-a5f5-f6f65a62e32e">&lt;/strong&gt;</ept> custom subdomain that maps to a blob in your
+<bpt id="70dd26b1-3ed7-4d06-bf8d-28d1f9fbb5b6">&lt;strong&gt;</bpt>myforms<ept id="70dd26b1-3ed7-4d06-bf8d-28d1f9fbb5b6">&lt;/strong&gt;</ept> container:</target>
+        </trans-unit>
+        <trans-unit id="f76974b0-9ba2-45f2-b07e-72e41557481f" xml:space="preserve">
+          <source>http://photos.contoso.com/myforms/applicationform.htm</source>
+          <target state="new">http://photos.contoso.com/myforms/applicationform.htm</target>
+        </trans-unit>
+        <trans-unit id="657fb86b-a546-4419-a167-84ba90f3814f" xml:space="preserve">
+          <source>&lt;a href="http://msdn.microsoft.com/library/azure/gg680307.aspx"&gt;How to Map CDN Content to a Custom Domain&lt;/a&gt;</source>
+          <target state="new">&lt;a href="http://msdn.microsoft.com/library/azure/gg680307.aspx"&gt;How to Map CDN Content to a Custom Domain&lt;/a&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

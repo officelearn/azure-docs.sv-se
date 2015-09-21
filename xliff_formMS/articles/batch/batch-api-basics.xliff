@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ebe55c0-647c-4e9f-afda-8d8efce46020" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ebe55c0-647c-4e9f-afda-8d8efce46020" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="be031fe0-5b75-4669-8452-1f4545c8220b">
+        <trans-unit id="a775c6a4-7169-4f15-aae6-41e9304e0928" xml:space="preserve">
+          <source>API basics for Azure Batch</source>
+          <target state="new">API basics for Azure Batch</target>
+        </trans-unit>
+        <trans-unit id="1755e4cf-52f0-4888-bacb-93ee1abef60b" xml:space="preserve">
+          <source>Concepts to introduce developers to the Azure Batch APIs and Batch service</source>
+          <target state="new">Concepts to introduce developers to the Azure Batch APIs and Batch service</target>
+        </trans-unit>
+        <trans-unit id="597cba7c-159b-4522-b2a9-bd15a30904a2" xml:space="preserve">
+          <source>The Azure Batch service provides a job scheduling framework for scalable and distributed computation.</source>
+          <target state="new">The Azure Batch service provides a job scheduling framework for scalable and distributed computation.</target>
+        </trans-unit>
+        <trans-unit id="924ac9c7-0f78-4e1b-a180-87ac77996fa9" xml:space="preserve">
+          <source>The Batch service maintains a set of virtual machines that are located across different clusters and data centers in Azure.</source>
+          <target state="new">The Batch service maintains a set of virtual machines that are located across different clusters and data centers in Azure.</target>
+        </trans-unit>
+        <trans-unit id="a35bf14d-135e-4e3e-a693-bdc3c507c50c" xml:space="preserve">
+          <source>The Batch service accomplishes distributed computation by running one or more programs either on-demand or scheduled to run at a specific time on a specified collection of these nodes.</source>
+          <target state="new">The Batch service accomplishes distributed computation by running one or more programs either on-demand or scheduled to run at a specific time on a specified collection of these nodes.</target>
+        </trans-unit>
+        <trans-unit id="9c0e940f-7666-4d8a-9a6b-3d8cb7651b00" xml:space="preserve">
+          <source>The Batch service manages these nodes to run your computation tasks according to the resource requirements, specifications, and constraints provided by you.</source>
+          <target state="new">The Batch service manages these nodes to run your computation tasks according to the resource requirements, specifications, and constraints provided by you.</target>
+        </trans-unit>
+        <trans-unit id="175beb73-73f6-4748-af3d-f40a80e8da5c" xml:space="preserve">
+          <source>By using the Batch service, you can eliminate the need to write code for queuing, scheduling, allocating, and managing compute resources.</source>
+          <target state="new">By using the Batch service, you can eliminate the need to write code for queuing, scheduling, allocating, and managing compute resources.</target>
+        </trans-unit>
+        <trans-unit id="86ba79b4-5c01-4103-8ac4-f970e3478169" xml:space="preserve">
+          <source>This enables you to focus on the specific application and not have to worry about the complexity of job scheduling and resource management in the underlying platform.</source>
+          <target state="new">This enables you to focus on the specific application and not have to worry about the complexity of job scheduling and resource management in the underlying platform.</target>
+        </trans-unit>
+        <trans-unit id="9066d989-738f-4fae-8c26-9e6e16a19366" xml:space="preserve">
+          <source>This also enables the Batch service to optimize the location of these jobs as well as their access to the data they need to process.</source>
+          <target state="new">This also enables the Batch service to optimize the location of these jobs as well as their access to the data they need to process.</target>
+        </trans-unit>
+        <trans-unit id="aff6f346-b549-4a68-966e-f512c17a61f0" xml:space="preserve">
+          <source>The following are some of the scenarios that you can enable by using the Batch service:</source>
+          <target state="new">The following are some of the scenarios that you can enable by using the Batch service:</target>
+        </trans-unit>
+        <trans-unit id="939aad70-2c1e-431d-996f-c5ef170739df" xml:space="preserve">
+          <source>Computationally intensive parallel processing</source>
+          <target state="new">Computationally intensive parallel processing</target>
+        </trans-unit>
+        <trans-unit id="317b070e-89aa-487f-a267-fbe19cc3bd58" xml:space="preserve">
+          <source>Daily cleanup of files</source>
+          <target state="new">Daily cleanup of files</target>
+        </trans-unit>
+        <trans-unit id="036c9cd3-d7f6-447f-8c49-0998cb90b14b" xml:space="preserve">
+          <source>Batch processing</source>
+          <target state="new">Batch processing</target>
+        </trans-unit>
+        <trans-unit id="cbdccb5b-3b5a-4a8c-8a92-0b5703b34a1f" xml:space="preserve">
+          <source>When you use the Batch service, you take advantage of the following resources:</source>
+          <target state="new">When you use the Batch service, you take advantage of the following resources:</target>
+        </trans-unit>
+        <trans-unit id="b10a5021-15b7-4083-9efd-6d39457aea6d" xml:space="preserve">
+          <source><bpt id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;linkText&gt;</bpt>Account<ept id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;/linkText&gt;</ept><bpt id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;title&gt;</bpt><ept id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;linkText&gt;</bpt>Account<ept id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;/linkText&gt;</ept><bpt id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;title&gt;</bpt><ept id="93bbfce0-6bac-4d2f-a6a1-c4a1cac26086">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="20a7fd25-ff79-4ac4-ac1d-51cc4fa82710" xml:space="preserve">
+          <source><bpt id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;linkText&gt;</bpt>Compute Node<ept id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;/linkText&gt;</ept><bpt id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;title&gt;</bpt><ept id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;linkText&gt;</bpt>Compute Node<ept id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;/linkText&gt;</ept><bpt id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;title&gt;</bpt><ept id="5b9cd034-9aa3-42a3-8832-3f19256b6503">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a038f27c-4129-4c64-afb1-4424ee242346" xml:space="preserve">
+          <source><bpt id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;linkText&gt;</bpt>Pool<ept id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;/linkText&gt;</ept><bpt id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;title&gt;</bpt><ept id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;linkText&gt;</bpt>Pool<ept id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;/linkText&gt;</ept><bpt id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;title&gt;</bpt><ept id="158a40ac-ff1f-4ab9-9786-9fece9868700">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c71fc259-6ced-41e6-a9a5-7c67822efc37" xml:space="preserve">
+          <source><bpt id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;linkText&gt;</bpt>Job<ept id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;/linkText&gt;</ept><bpt id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;title&gt;</bpt><ept id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;linkText&gt;</bpt>Job<ept id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;/linkText&gt;</ept><bpt id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;title&gt;</bpt><ept id="f8505835-efed-49ad-ab93-8406b1d64e2b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="df58caec-bd2b-4848-89c7-c3e17d635ba8" xml:space="preserve">
+          <source><bpt id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;linkText&gt;</bpt>Task<ept id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;/linkText&gt;</ept><bpt id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;title&gt;</bpt><ept id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;linkText&gt;</bpt>Task<ept id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;/linkText&gt;</ept><bpt id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;title&gt;</bpt><ept id="8b281a77-6e5e-4ccd-8c0d-3cd45b5e7592">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c1be6aa-084b-482a-af07-6706b1208723" xml:space="preserve">
+          <source><bpt id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;linkText&gt;</bpt>Start Task<ept id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;/linkText&gt;</ept><bpt id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;title&gt;</bpt><ept id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;linkText&gt;</bpt>Start Task<ept id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;/linkText&gt;</ept><bpt id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;title&gt;</bpt><ept id="9fc3ccd4-af45-45c2-8675-a857cd97eb09">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff520979-7433-431a-8280-89bb5476e782" xml:space="preserve">
+          <source><bpt id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;linkText&gt;</bpt>Job ManagerTask<ept id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;/linkText&gt;</ept><bpt id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;title&gt;</bpt><ept id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;linkText&gt;</bpt>Job ManagerTask<ept id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;/linkText&gt;</ept><bpt id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;title&gt;</bpt><ept id="5af479f9-2b12-4d73-96f6-c79c4b11a6f0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f769c24a-6d7a-4051-8e50-1cc16b4fe967" xml:space="preserve">
+          <source><bpt id="808f6318-707a-4376-b30b-07414dbe4115">&lt;linkText&gt;</bpt>JobSchedule<ept id="808f6318-707a-4376-b30b-07414dbe4115">&lt;/linkText&gt;</ept><bpt id="808f6318-707a-4376-b30b-07414dbe4115">&lt;title&gt;</bpt><ept id="808f6318-707a-4376-b30b-07414dbe4115">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="808f6318-707a-4376-b30b-07414dbe4115">&lt;linkText&gt;</bpt>JobSchedule<ept id="808f6318-707a-4376-b30b-07414dbe4115">&lt;/linkText&gt;</ept><bpt id="808f6318-707a-4376-b30b-07414dbe4115">&lt;title&gt;</bpt><ept id="808f6318-707a-4376-b30b-07414dbe4115">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f66b2c56-1b73-4b1b-86d1-a568a5189762" xml:space="preserve">
+          <source>A Batch account is a uniquely identified entity within the Batch service.</source>
+          <target state="new">A Batch account is a uniquely identified entity within the Batch service.</target>
+        </trans-unit>
+        <trans-unit id="c634c72b-4c2f-49db-af9e-436e0c44854b" xml:space="preserve">
+          <source>All processing is done through a Batch account.</source>
+          <target state="new">All processing is done through a Batch account.</target>
+        </trans-unit>
+        <trans-unit id="a513a1be-dacf-4008-ac42-3819f9aac279" xml:space="preserve">
+          <source>When you perform operations with the Batch service, you need the name of the account and the key for the account.</source>
+          <target state="new">When you perform operations with the Batch service, you need the name of the account and the key for the account.</target>
+        </trans-unit>
+        <trans-unit id="830c16a4-9be4-475a-979f-70d90408e100" xml:space="preserve">
+          <source>To create a batch account, refer to Batch account section of <bpt id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;linkText&gt;</bpt>Azure Batch overview<ept id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;/linkText&gt;</ept><bpt id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;title&gt;</bpt><ept id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To create a batch account, refer to Batch account section of <bpt id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;linkText&gt;</bpt>Azure Batch overview<ept id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;/linkText&gt;</ept><bpt id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;title&gt;</bpt><ept id="3ec94b13-5efe-4993-bf0c-5cc6eaf096a0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9364a170-c618-4b4c-95ca-a99ba8a81139" xml:space="preserve">
+          <source>A compute node (Node) is an Azure node that is dedicated to a specific workload for your application.</source>
+          <target state="new">A compute node (Node) is an Azure node that is dedicated to a specific workload for your application.</target>
+        </trans-unit>
+        <trans-unit id="5a34012f-b6d5-41bd-bef3-53f46d29077e" xml:space="preserve">
+          <source>The size of a Node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the Node.</source>
+          <target state="new">The size of a Node determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to the Node.</target>
+        </trans-unit>
+        <trans-unit id="853dc55b-6e1a-4375-9967-540aa5713a01" xml:space="preserve">
+          <source>A Node can be a small, large, or extralarge virtual machine as described in <bpt id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;/linkText&gt;</ept><bpt id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;title&gt;</bpt><ept id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">A Node can be a small, large, or extralarge virtual machine as described in <bpt id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;/linkText&gt;</ept><bpt id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;title&gt;</bpt><ept id="01223174-7e38-4388-8baa-6f2d311164cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a8a90d0a-6bff-4bf4-a12f-89b2b0a6e5c4" xml:space="preserve">
+          <source>The types of programs that a Node can run include executable files (.exe), command files (.cmd), batch files (.bat), and script files.</source>
+          <target state="new">The types of programs that a Node can run include executable files (.exe), command files (.cmd), batch files (.bat), and script files.</target>
+        </trans-unit>
+        <trans-unit id="14aa4ef3-2d82-4e8e-b392-d69b1f15a697" xml:space="preserve">
+          <source>A Node also has the following attributes:</source>
+          <target state="new">A Node also has the following attributes:</target>
+        </trans-unit>
+        <trans-unit id="a95ac02b-a79e-4326-a7c7-7de858ac5428" xml:space="preserve">
+          <source>File system folders that are both task-specific and shared.</source>
+          <target state="new">File system folders that are both task-specific and shared.</target>
+        </trans-unit>
+        <trans-unit id="921c6126-52d5-4d33-abeb-5f1ad8531c9d" xml:space="preserve">
+          <source>A folder structure and environment variables are created on each pool node.</source>
+          <target state="new">A folder structure and environment variables are created on each pool node.</target>
+        </trans-unit>
+        <trans-unit id="48488190-73e8-4687-aa15-31e82a21ed30" xml:space="preserve">
+          <source>The following folder structure is created with a “shared” folder for applications and data shared between tasks, plus a folder for each task.</source>
+          <target state="new">The following folder structure is created with a “shared” folder for applications and data shared between tasks, plus a folder for each task.</target>
+        </trans-unit>
+        <trans-unit id="50406d5e-3d5c-4fd2-a010-9ccdfca70826" xml:space="preserve">
+          <source> ─ %AZ_BATCH_NODE_ROOT_DIR%
+   ├─shared
+   ├─startup
+   └─&amp;lt;JOB_ID&amp;gt;
+     ├─&amp;lt;TASK_ID_1&amp;gt;
+     │ └─wd
+     └─&amp;lt;TASK_ID_2&amp;gt;
+       └─wd
+</source>
+          <target state="new"> ─ %AZ_BATCH_NODE_ROOT_DIR%
+   ├─shared
+   ├─startup
+   └─&amp;lt;JOB_ID&amp;gt;
+     ├─&amp;lt;TASK_ID_1&amp;gt;
+     │ └─wd
+     └─&amp;lt;TASK_ID_2&amp;gt;
+       └─wd
+</target>
+        </trans-unit>
+        <trans-unit id="0c21af8a-ae68-4a42-b98e-0eae74129301" xml:space="preserve">
+          <source>Stdout.txt and stderr.txt files that are written to a task-specific folder</source>
+          <target state="new">Stdout.txt and stderr.txt files that are written to a task-specific folder</target>
+        </trans-unit>
+        <trans-unit id="43533221-b0b6-426b-83b8-bb26eaabcb16" xml:space="preserve">
+          <source>Environment variables for processing</source>
+          <target state="new">Environment variables for processing</target>
+        </trans-unit>
+        <trans-unit id="d8ebcfd2-ca61-41e5-9a0c-6f1a6b91f43a" xml:space="preserve">
+          <source>Firewall settings that are configured to control access</source>
+          <target state="new">Firewall settings that are configured to control access</target>
+        </trans-unit>
+        <trans-unit id="c0dd4a6a-2ac9-46f1-905f-1e15f32e3af5" xml:space="preserve">
+          <source>Node Access</source>
+          <target state="new">Node Access</target>
+        </trans-unit>
+        <trans-unit id="cc45cdce-e5f6-4574-9051-089d22fda661" xml:space="preserve">
+          <source>If access to a node is required, for debugging for example, the RDP file can be obtained which can then be used to access the node via remote desktop.</source>
+          <target state="new">If access to a node is required, for debugging for example, the RDP file can be obtained which can then be used to access the node via remote desktop.</target>
+        </trans-unit>
+        <trans-unit id="e8d46792-0b09-4943-9d09-2d591c720b22" xml:space="preserve">
+          <source>A pool is a collection of Nodes on which your application runs.</source>
+          <target state="new">A pool is a collection of Nodes on which your application runs.</target>
+        </trans-unit>
+        <trans-unit id="e636c81a-899b-40e6-b432-eee02c6904bb" xml:space="preserve">
+          <source>The pool can be created by you, or the Batch service automatically creates the pool when you specify the work to be accomplished.</source>
+          <target state="new">The pool can be created by you, or the Batch service automatically creates the pool when you specify the work to be accomplished.</target>
+        </trans-unit>
+        <trans-unit id="e3b10a60-d2e7-4de2-bceb-795a00d031da" xml:space="preserve">
+          <source>You can create and manage a pool that meets the needs of your application.</source>
+          <target state="new">You can create and manage a pool that meets the needs of your application.</target>
+        </trans-unit>
+        <trans-unit id="4352da1d-e54d-44a4-ad30-4aab88474b19" xml:space="preserve">
+          <source>A pool can only be used by the Batch account in which it was created.</source>
+          <target state="new">A pool can only be used by the Batch account in which it was created.</target>
+        </trans-unit>
+        <trans-unit id="f9f1414a-6b75-4f82-819a-a11e75dadae7" xml:space="preserve">
+          <source>A Batch account can have more than one pool.</source>
+          <target state="new">A Batch account can have more than one pool.</target>
+        </trans-unit>
+        <trans-unit id="ffab3d29-9dad-4707-81f8-ca0451ca0e54" xml:space="preserve">
+          <source>Azure Batch pools build on top of the core Azure compute platform; Batch pools provide large-scale allocation, application &amp; data installation, data movement, health monitoring, and flexible scaling of nodes.</source>
+          <target state="new">Azure Batch pools build on top of the core Azure compute platform; Batch pools provide large-scale allocation, application &amp; data installation, data movement, health monitoring, and flexible scaling of nodes.</target>
+        </trans-unit>
+        <trans-unit id="eeebd372-a248-49df-be3c-dbf5a8bf77ad" xml:space="preserve">
+          <source>Every Node that is added to a pool is assigned a unique name and an associated IP address.</source>
+          <target state="new">Every Node that is added to a pool is assigned a unique name and an associated IP address.</target>
+        </trans-unit>
+        <trans-unit id="f01f073c-ecf4-48ce-bfe5-7c5b26c1f6f5" xml:space="preserve">
+          <source>When a Node is removed from a pool, it loses the changes that were made to the operating system, all of its local files, its name, and its IP address.</source>
+          <target state="new">When a Node is removed from a pool, it loses the changes that were made to the operating system, all of its local files, its name, and its IP address.</target>
+        </trans-unit>
+        <trans-unit id="938736a9-c2c6-4f7b-8868-b9a19a39e793" xml:space="preserve">
+          <source>When a Node leaves a pool, its lifetime is over.</source>
+          <target state="new">When a Node leaves a pool, its lifetime is over.</target>
+        </trans-unit>
+        <trans-unit id="228402e5-8987-4605-bcfa-021341812556" xml:space="preserve">
+          <source>You can configure a pool to allow communication between Nodes within it.</source>
+          <target state="new">You can configure a pool to allow communication between Nodes within it.</target>
+        </trans-unit>
+        <trans-unit id="a4dbf91b-86ec-49e8-8e45-bdaa4234f723" xml:space="preserve">
+          <source>If intra-pool communication is requested for a pool, the Batch service enables ports greater than 1100 on each Node in the pool.</source>
+          <target state="new">If intra-pool communication is requested for a pool, the Batch service enables ports greater than 1100 on each Node in the pool.</target>
+        </trans-unit>
+        <trans-unit id="bfdad114-ee6c-4235-9540-6337672ab002" xml:space="preserve">
+          <source>Each Node in the pool is configured to allow and restrict incoming connections to just this port range and only from other Nodes in the pool.</source>
+          <target state="new">Each Node in the pool is configured to allow and restrict incoming connections to just this port range and only from other Nodes in the pool.</target>
+        </trans-unit>
+        <trans-unit id="3113d08a-c03b-4044-b355-99d66730af0a" xml:space="preserve">
+          <source>If your application does not require communication between Nodes, the Batch service can potentially allocate a large number of Nodes across different clusters or data centers to the pool to enable more parallel processing.</source>
+          <target state="new">If your application does not require communication between Nodes, the Batch service can potentially allocate a large number of Nodes across different clusters or data centers to the pool to enable more parallel processing.</target>
+        </trans-unit>
+        <trans-unit id="897fe253-4530-424a-849f-a4d35ab79b7f" xml:space="preserve">
+          <source>When you create a pool, you can specify the following attributes:</source>
+          <target state="new">When you create a pool, you can specify the following attributes:</target>
+        </trans-unit>
+        <trans-unit id="9ab31dd0-e59f-403e-96db-dc6e2fc6d2b7" xml:space="preserve">
+          <source>The <bpt id="ea476dd0-a03b-4a11-81b7-1ae26a2ecd4b">&lt;strong&gt;</bpt>size of nodes<ept id="ea476dd0-a03b-4a11-81b7-1ae26a2ecd4b">&lt;/strong&gt;</ept> in the pool.</source>
+          <target state="new">The <bpt id="ea476dd0-a03b-4a11-81b7-1ae26a2ecd4b">&lt;strong&gt;</bpt>size of nodes<ept id="ea476dd0-a03b-4a11-81b7-1ae26a2ecd4b">&lt;/strong&gt;</ept> in the pool.</target>
+        </trans-unit>
+        <trans-unit id="67187be3-16b4-4679-a208-92ab4d16ba03" xml:space="preserve">
+          <source>The appropriate node size needs to be chosen, depending on the characteristics and requirements of the application or applications that are going to be used on the node.</source>
+          <target state="new">The appropriate node size needs to be chosen, depending on the characteristics and requirements of the application or applications that are going to be used on the node.</target>
+        </trans-unit>
+        <trans-unit id="17b1d870-fef8-4845-b7fe-f637f943afd3" xml:space="preserve">
+          <source>Normally the node size will be picked assuming one task will be run at once on the node; for example, whether the application is multi threaded and how much memory it requires will determine the most suitable and cost-effective node size.</source>
+          <target state="new">Normally the node size will be picked assuming one task will be run at once on the node; for example, whether the application is multi threaded and how much memory it requires will determine the most suitable and cost-effective node size.</target>
+        </trans-unit>
+        <trans-unit id="ad228fd8-0d80-4d27-afae-198800bd9f7c" xml:space="preserve">
+          <source>It is possible to have multiple tasks assigned and multiple application instances being run in parallel, in which case a larger node will usually be chosen – see below on “maximum tasks per node”.</source>
+          <target state="new">It is possible to have multiple tasks assigned and multiple application instances being run in parallel, in which case a larger node will usually be chosen – see below on “maximum tasks per node”.</target>
+        </trans-unit>
+        <trans-unit id="353627c2-4741-42c4-a606-8fe65cd0e64b" xml:space="preserve">
+          <source>All the nodes in a pool have to be the same size.</source>
+          <target state="new">All the nodes in a pool have to be the same size.</target>
+        </trans-unit>
+        <trans-unit id="6aed35aa-fed7-4c51-9042-0e272d1ac8be" xml:space="preserve">
+          <source>If different applications are to be run with different system requirements and/or with different load then separate pools should be created.</source>
+          <target state="new">If different applications are to be run with different system requirements and/or with different load then separate pools should be created.</target>
+        </trans-unit>
+        <trans-unit id="f21909af-20bd-4c58-b69e-dc235cb4d6ff" xml:space="preserve">
+          <source>All cloud service node sizes can be configured for a pool, except for A0.</source>
+          <target state="new">All cloud service node sizes can be configured for a pool, except for A0.</target>
+        </trans-unit>
+        <trans-unit id="3485ebe6-2406-4193-b7f2-287dc1dbeb66" xml:space="preserve">
+          <source>The operating system family and version that runs on the nodes.</source>
+          <target state="new">The operating system family and version that runs on the nodes.</target>
+        </trans-unit>
+        <trans-unit id="524ec19a-acfe-4f2f-9933-a2995161ef1f" xml:space="preserve">
+          <source>As with worker roles, the OS Family and OS Version can be configured.</source>
+          <target state="new">As with worker roles, the OS Family and OS Version can be configured.</target>
+        </trans-unit>
+        <trans-unit id="434ae326-0957-4d3f-b806-f92bf73fe11b" xml:space="preserve">
+          <source>The OS Family also determines which versions of .NET are installed with the OS.</source>
+          <target state="new">The OS Family also determines which versions of .NET are installed with the OS.</target>
+        </trans-unit>
+        <trans-unit id="b6adc740-288a-4252-bf0a-d83dacf5fee0" xml:space="preserve">
+          <source>As with worker roles, for the OS Version it is recommended that “*” be used so that the nodes are automatically upgraded and there is no work required to cater for new versions.</source>
+          <target state="new">As with worker roles, for the OS Version it is recommended that “*” be used so that the nodes are automatically upgraded and there is no work required to cater for new versions.</target>
+        </trans-unit>
+        <trans-unit id="a76cc79d-5021-4e94-9941-3bab352c277a" xml:space="preserve">
+          <source>The main use case for picking a specific OS version is to ensure application compatibility is maintained, by allowing backward compatibility testing to be performed before allowing the version to be updated.</source>
+          <target state="new">The main use case for picking a specific OS version is to ensure application compatibility is maintained, by allowing backward compatibility testing to be performed before allowing the version to be updated.</target>
+        </trans-unit>
+        <trans-unit id="bdd1ab61-3661-4d1a-ac0b-d76139cd685c" xml:space="preserve">
+          <source>Once validated, the OS version for the pool can be updated and the new OS image installed – any running task will be interrupted and re-queued.</source>
+          <target state="new">Once validated, the OS version for the pool can be updated and the new OS image installed – any running task will be interrupted and re-queued.</target>
+        </trans-unit>
+        <trans-unit id="36d1593c-cbc4-4088-a064-c61fe014d14d" xml:space="preserve">
+          <source>The target number of nodes that should be available for the pool.</source>
+          <target state="new">The target number of nodes that should be available for the pool.</target>
+        </trans-unit>
+        <trans-unit id="bcc0ea26-9963-49bc-8408-c354fc41f4d4" xml:space="preserve">
+          <source>The scaling policy for the pool.</source>
+          <target state="new">The scaling policy for the pool.</target>
+        </trans-unit>
+        <trans-unit id="4bce9c78-d811-49ab-b289-ce3f8998f621" xml:space="preserve">
+          <source>Besides number of nodes, you can also specify a auto-scaling formula for each pool.</source>
+          <target state="new">Besides number of nodes, you can also specify a auto-scaling formula for each pool.</target>
+        </trans-unit>
+        <trans-unit id="b31c378e-0f72-4c66-a1d9-e1269398f0c5" xml:space="preserve">
+          <source>Batch service will execute the formula to adjust number of node based on pool and workitem statistics.</source>
+          <target state="new">Batch service will execute the formula to adjust number of node based on pool and workitem statistics.</target>
+        </trans-unit>
+        <trans-unit id="c2e9c90f-959e-44f6-b5e2-26485f49e893" xml:space="preserve">
+          <source>Scheduling configuration</source>
+          <target state="new">Scheduling configuration</target>
+        </trans-unit>
+        <trans-unit id="e6426b41-0927-4af9-b10e-492be41d8278" xml:space="preserve">
+          <source>The default configuration is for one task to be run at any time on a pool node, but there are scenarios where it is beneficial to have more than one task be able to run at the same time on a node.</source>
+          <target state="new">The default configuration is for one task to be run at any time on a pool node, but there are scenarios where it is beneficial to have more than one task be able to run at the same time on a node.</target>
+        </trans-unit>
+        <trans-unit id="06f5f89f-81cb-4dbc-b893-4dab6e519bc1" xml:space="preserve">
+          <source>One example is to increase node utilization if an application has to wait for I/O; having more than one application execute will increase CPU utilization.</source>
+          <target state="new">One example is to increase node utilization if an application has to wait for I/O; having more than one application execute will increase CPU utilization.</target>
+        </trans-unit>
+        <trans-unit id="2056c96b-e366-4dcd-9b05-b00895a447a6" xml:space="preserve">
+          <source>Another example is to reduce the number of nodes in the pool; this could reduce the amount of data copies required for large reference data sets.</source>
+          <target state="new">Another example is to reduce the number of nodes in the pool; this could reduce the amount of data copies required for large reference data sets.</target>
+        </trans-unit>
+        <trans-unit id="e01a6821-bbbb-4dee-862b-d55a39144dda" xml:space="preserve">
+          <source>If an A1 would the correct size for the application, then an A4 could be chosen and the configuration set to run up to 8 tasks at once, each consuming a core.</source>
+          <target state="new">If an A1 would the correct size for the application, then an A4 could be chosen and the configuration set to run up to 8 tasks at once, each consuming a core.</target>
+        </trans-unit>
+        <trans-unit id="098cc886-4798-411f-b3c0-471616065fd0" xml:space="preserve">
+          <source>The “max tasks per node” configuration determines the maximum number of tasks that can be run in parallel.</source>
+          <target state="new">The “max tasks per node” configuration determines the maximum number of tasks that can be run in parallel.</target>
+        </trans-unit>
+        <trans-unit id="6ccc2515-4ea5-49b7-bc98-2d7db426c072" xml:space="preserve">
+          <source>A “fill policy” can also be specified which determines whether Batch fills nodes first or whether tasks are spread out over all the nodes.</source>
+          <target state="new">A “fill policy” can also be specified which determines whether Batch fills nodes first or whether tasks are spread out over all the nodes.</target>
+        </trans-unit>
+        <trans-unit id="bf6d52e6-b704-4e86-9f13-5c76ee5d72ff" xml:space="preserve">
+          <source>The communication status of the nodes in the pool.</source>
+          <target state="new">The communication status of the nodes in the pool.</target>
+        </trans-unit>
+        <trans-unit id="60ccf8d9-92a7-4872-83f5-a5d2381d62ed" xml:space="preserve">
+          <source>In a large proportion of scenarios tasks operate independently and do not need to communicate with other tasks, but there are some applications where tasks will communicate (e.g. applications using MPI).</source>
+          <target state="new">In a large proportion of scenarios tasks operate independently and do not need to communicate with other tasks, but there are some applications where tasks will communicate (e.g. applications using MPI).</target>
+        </trans-unit>
+        <trans-unit id="a94c279f-7dea-4e95-bf08-cee011c11e8a" xml:space="preserve">
+          <source>There is configuration that controls whether the nodes will be able to communicate, which is used to configure the underlying network infrastructure and impacts placement of the nodes.</source>
+          <target state="new">There is configuration that controls whether the nodes will be able to communicate, which is used to configure the underlying network infrastructure and impacts placement of the nodes.</target>
+        </trans-unit>
+        <trans-unit id="3522ddd7-59c3-4d9e-a4b9-bc9a3070a32a" xml:space="preserve">
+          <source>The start task for Nodes in the pool.</source>
+          <target state="new">The start task for Nodes in the pool.</target>
+        </trans-unit>
+        <trans-unit id="f3ac49c1-30dc-4d6a-b064-83881a0be4e3" xml:space="preserve">
+          <source>When you create a pool, you can specify the storage account with which the pool should be associated.</source>
+          <target state="new">When you create a pool, you can specify the storage account with which the pool should be associated.</target>
+        </trans-unit>
+        <trans-unit id="4585f31f-e672-4d76-a628-e69f9cb741e8" xml:space="preserve">
+          <source>The Batch service allocates Nodes from the data centers with better network connectivity and bandwidth capacity to the specified storage account.</source>
+          <target state="new">The Batch service allocates Nodes from the data centers with better network connectivity and bandwidth capacity to the specified storage account.</target>
+        </trans-unit>
+        <trans-unit id="73810bf3-b43e-47e5-a498-b1e3669d1bbb" xml:space="preserve">
+          <source>This enabled workloads to access data more effectively.</source>
+          <target state="new">This enabled workloads to access data more effectively.</target>
+        </trans-unit>
+        <trans-unit id="84270ef5-042d-46ee-9945-fd3e72e48017" xml:space="preserve">
+          <source>A job is a collection of tasks.</source>
+          <target state="new">A job is a collection of tasks.</target>
+        </trans-unit>
+        <trans-unit id="894e06d9-d5d1-4262-9abf-68dc1786b24e" xml:space="preserve">
+          <source>It also specifies how computation is performed on compute nodes in a pool.</source>
+          <target state="new">It also specifies how computation is performed on compute nodes in a pool.</target>
+        </trans-unit>
+        <trans-unit id="25b3094c-e69f-431d-9b5c-3625b9e11cee" xml:space="preserve">
+          <source>The job specifies the pool on which the work will be run.</source>
+          <target state="new">The job specifies the pool on which the work will be run.</target>
+        </trans-unit>
+        <trans-unit id="b5629b28-e9de-49f3-b69f-a556793bf66b" xml:space="preserve">
+          <source>The pool can be an existing, already created pool that is used by many jobs, but a pool can alternatively be created for each job associated with a job schedule or for all jobs associated with a job schedule.</source>
+          <target state="new">The pool can be an existing, already created pool that is used by many jobs, but a pool can alternatively be created for each job associated with a job schedule or for all jobs associated with a job schedule.</target>
+        </trans-unit>
+        <trans-unit id="f57da8e0-d47f-4cf7-b86d-d849af5db3be" xml:space="preserve">
+          <source>An optional priority can be specified.</source>
+          <target state="new">An optional priority can be specified.</target>
+        </trans-unit>
+        <trans-unit id="47b3443b-2b64-4383-8236-4b1028513994" xml:space="preserve">
+          <source>When a job is submitted with a higher-priority than other jobs still in progress, then the higher priority job tasks get inserted into the queue ahead of the lower priority job tasks.</source>
+          <target state="new">When a job is submitted with a higher-priority than other jobs still in progress, then the higher priority job tasks get inserted into the queue ahead of the lower priority job tasks.</target>
+        </trans-unit>
+        <trans-unit id="db83bb13-40d6-47e7-b9d7-66796487b2ab" xml:space="preserve">
+          <source>Lower-priority tasks that are already running will not be pre-empted.</source>
+          <target state="new">Lower-priority tasks that are already running will not be pre-empted.</target>
+        </trans-unit>
+        <trans-unit id="379e19b7-fbd3-4938-b5b0-a4f36406e1f8" xml:space="preserve">
+          <source>Constraints.</source>
+          <target state="new">Constraints.</target>
+        </trans-unit>
+        <trans-unit id="2bfbfead-6051-408a-8123-d88fc3336e03" xml:space="preserve">
+          <source>A maximum wallclock time can be set for the jobs.</source>
+          <target state="new">A maximum wallclock time can be set for the jobs.</target>
+        </trans-unit>
+        <trans-unit id="cde4477c-ebd5-41bd-ba2e-44ee7048cefc" xml:space="preserve">
+          <source>If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.</source>
+          <target state="new">If the jobs runs for longer than the maximum wallclock time specified, then the job and all associated tasks will be ended.</target>
+        </trans-unit>
+        <trans-unit id="af90b787-68fd-4331-9ddf-23108bcda339" xml:space="preserve">
+          <source>Azure Batch can detect tasks that fail and retry the tasks.</source>
+          <target state="new">Azure Batch can detect tasks that fail and retry the tasks.</target>
+        </trans-unit>
+        <trans-unit id="ad82743c-87a3-464a-9cc6-d808b8a58e6d" xml:space="preserve">
+          <source>The default maximum number of task retries can be specified as a constraint, including specifying that a task is always retried or never retried.</source>
+          <target state="new">The default maximum number of task retries can be specified as a constraint, including specifying that a task is always retried or never retried.</target>
+        </trans-unit>
+        <trans-unit id="a48b972d-f320-4768-8bcf-18d0ce0d3fd5" xml:space="preserve">
+          <source>Retrying a tasks means that the task is re-queued and will be run again.</source>
+          <target state="new">Retrying a tasks means that the task is re-queued and will be run again.</target>
+        </trans-unit>
+        <trans-unit id="cee84848-7999-4488-93d7-1ae6ea3579ea" xml:space="preserve">
+          <source>Tasks to be executed for the job can be added by the client to the job, but a Job Manager task can alternatively be specified.</source>
+          <target state="new">Tasks to be executed for the job can be added by the client to the job, but a Job Manager task can alternatively be specified.</target>
+        </trans-unit>
+        <trans-unit id="da01ed17-71c4-49fe-bad1-0099c0b91768" xml:space="preserve">
+          <source>A job manager task uses the Batch API and contains the code to create the required tasks for a job with the task being run on one of the pool nodes.</source>
+          <target state="new">A job manager task uses the Batch API and contains the code to create the required tasks for a job with the task being run on one of the pool nodes.</target>
+        </trans-unit>
+        <trans-unit id="b279159b-2aac-422d-8392-6c033721763d" xml:space="preserve">
+          <source>The job manager tasks is handled specifically by Batch – it is queued as soon as the job is created and is restarted if it fails for any reason.</source>
+          <target state="new">The job manager tasks is handled specifically by Batch – it is queued as soon as the job is created and is restarted if it fails for any reason.</target>
+        </trans-unit>
+        <trans-unit id="2135dfd8-9b36-4430-a830-21b6b090eb12" xml:space="preserve">
+          <source>A Job Manager is required for job created by job schedule as it is the only way to define the tasks before job is instantiated.</source>
+          <target state="new">A Job Manager is required for job created by job schedule as it is the only way to define the tasks before job is instantiated.</target>
+        </trans-unit>
+        <trans-unit id="dca1512b-06fc-49a7-bac5-52f62dbf80f3" xml:space="preserve">
+          <source>A task is a unit of computation that is associated with a job and runs on a Node.</source>
+          <target state="new">A task is a unit of computation that is associated with a job and runs on a Node.</target>
+        </trans-unit>
+        <trans-unit id="923bfe0a-82c1-42da-9d8c-db0c1e9e1358" xml:space="preserve">
+          <source>Tasks are assigned to a node for execution or are queued until a node becomes free.</source>
+          <target state="new">Tasks are assigned to a node for execution or are queued until a node becomes free.</target>
+        </trans-unit>
+        <trans-unit id="65484f43-548c-4401-9f2d-3547fbba5b20" xml:space="preserve">
+          <source>A task uses the following resources:</source>
+          <target state="new">A task uses the following resources:</target>
+        </trans-unit>
+        <trans-unit id="3d902ef4-cb28-4c4f-be2e-e8f4dc59c3df" xml:space="preserve">
+          <source>The program that was specified in the workitem.</source>
+          <target state="new">The program that was specified in the workitem.</target>
+        </trans-unit>
+        <trans-unit id="e93450ac-f827-4531-bae0-b03e9841edcf" xml:space="preserve">
+          <source>The resource files that contain the data to be processed.</source>
+          <target state="new">The resource files that contain the data to be processed.</target>
+        </trans-unit>
+        <trans-unit id="a3e56d7f-b37a-458f-bf2f-dbec9d247e91" xml:space="preserve">
+          <source>These files are automatically copied to the Node from blob storage.</source>
+          <target state="new">These files are automatically copied to the Node from blob storage.</target>
+        </trans-unit>
+        <trans-unit id="aed30587-f011-4607-ab18-a00da23d4fea" xml:space="preserve">
+          <source>For more information, see Files and directories.</source>
+          <target state="new">For more information, see Files and directories.</target>
+        </trans-unit>
+        <trans-unit id="e34287ed-2569-4db2-9065-bfae9e89f23a" xml:space="preserve">
+          <source>The environment settings that are needed by the program.</source>
+          <target state="new">The environment settings that are needed by the program.</target>
+        </trans-unit>
+        <trans-unit id="332f3f54-b324-4a2b-89d1-c715846e0f1b" xml:space="preserve">
+          <source>For more information, see Environment settings for tasks.</source>
+          <target state="new">For more information, see Environment settings for tasks.</target>
+        </trans-unit>
+        <trans-unit id="6231a2b4-1548-4379-8674-eeefb8fa4960" xml:space="preserve">
+          <source>The constraints in which the computation should occur.</source>
+          <target state="new">The constraints in which the computation should occur.</target>
+        </trans-unit>
+        <trans-unit id="c6835e8b-6cf4-4110-a9f8-1645e5f72997" xml:space="preserve">
+          <source>For example, the maximum time in which the task is allowed to run, the maximum number of times that a task should be tried again if it fails to run, and the maximum time that files in the working directory are retained.</source>
+          <target state="new">For example, the maximum time in which the task is allowed to run, the maximum number of times that a task should be tried again if it fails to run, and the maximum time that files in the working directory are retained.</target>
+        </trans-unit>
+        <trans-unit id="66d44792-7242-4871-9a3a-d8227ff9a617" xml:space="preserve">
+          <source>In addition to tasks that you can define to perform computation on a Node, you can use the following special tasks provided by the Batch service:</source>
+          <target state="new">In addition to tasks that you can define to perform computation on a Node, you can use the following special tasks provided by the Batch service:</target>
+        </trans-unit>
+        <trans-unit id="acd47313-2855-4936-bae0-a6ebc3bfd7db" xml:space="preserve">
+          <source><bpt id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;linkText&gt;</bpt>Start task<ept id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;/linkText&gt;</ept><bpt id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;title&gt;</bpt><ept id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;linkText&gt;</bpt>Start task<ept id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;/linkText&gt;</ept><bpt id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;title&gt;</bpt><ept id="54c454ba-b01d-40b2-bf5a-1142a6538bed">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8eb1d62f-043f-4239-942c-aa9eff66e112" xml:space="preserve">
+          <source><bpt id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;linkText&gt;</bpt>Job manager task<ept id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;/linkText&gt;</ept><bpt id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;title&gt;</bpt><ept id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;linkText&gt;</bpt>Job manager task<ept id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;/linkText&gt;</ept><bpt id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;title&gt;</bpt><ept id="b42737b6-69d1-4cb6-9628-640baf2da0a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="264f09b9-931c-4b67-9048-4a07b70d130a" xml:space="preserve">
+          <source>You can configure the operating system of nodes in a pool by associating a start task with the pool.</source>
+          <target state="new">You can configure the operating system of nodes in a pool by associating a start task with the pool.</target>
+        </trans-unit>
+        <trans-unit id="efeca247-48e5-4925-b414-443f90b4ce46" xml:space="preserve">
+          <source>Installing software and starting background processes are some of the actions that a start task can perform.</source>
+          <target state="new">Installing software and starting background processes are some of the actions that a start task can perform.</target>
+        </trans-unit>
+        <trans-unit id="80ec8f22-e8fb-4012-9457-7e32e929c4e3" xml:space="preserve">
+          <source>The start task runs every time a node starts for as long as it remains in the pool.</source>
+          <target state="new">The start task runs every time a node starts for as long as it remains in the pool.</target>
+        </trans-unit>
+        <trans-unit id="17f91a32-bb00-48aa-8c87-2ce621687c8e" xml:space="preserve">
+          <source>As with any Batch task a list of files in Azure storage can be specified in addition to a command line that is executed by Batch.</source>
+          <target state="new">As with any Batch task a list of files in Azure storage can be specified in addition to a command line that is executed by Batch.</target>
+        </trans-unit>
+        <trans-unit id="cb4ff536-4e84-458b-a4ba-bc6581946385" xml:space="preserve">
+          <source>Azure Batch will first copy the files from Azure Storage and then run the command line.</source>
+          <target state="new">Azure Batch will first copy the files from Azure Storage and then run the command line.</target>
+        </trans-unit>
+        <trans-unit id="4fcb0b4e-d81a-4179-9182-cb0b1525aa15" xml:space="preserve">
+          <source>For a pool start task, the file list usually contains the applications files or package, but it could also include reference data that will be used by all tasks running on the pool nodes.</source>
+          <target state="new">For a pool start task, the file list usually contains the applications files or package, but it could also include reference data that will be used by all tasks running on the pool nodes.</target>
+        </trans-unit>
+        <trans-unit id="a81b5365-a51f-4832-b4ac-92dd77aaa775" xml:space="preserve">
+          <source>The command line could perform any PowerShell script or robocopy, for example, to copy application files to the “shared” folder; it could also run an MSI.</source>
+          <target state="new">The command line could perform any PowerShell script or robocopy, for example, to copy application files to the “shared” folder; it could also run an MSI.</target>
+        </trans-unit>
+        <trans-unit id="b881bce4-15d4-41b8-9fc4-1a432b7785eb" xml:space="preserve">
+          <source>Normally it is desirable for Batch to wait for the start task to complete and then consider the node ready to be assigned tasks, but this is configurable.</source>
+          <target state="new">Normally it is desirable for Batch to wait for the start task to complete and then consider the node ready to be assigned tasks, but this is configurable.</target>
+        </trans-unit>
+        <trans-unit id="34f2324c-c968-4c1f-9f91-2a3d20dc9af0" xml:space="preserve">
+          <source>If a start task fails for a pool node, then the state of the node is updated to reflect the failure and the node will not be available for tasks to be assigned.</source>
+          <target state="new">If a start task fails for a pool node, then the state of the node is updated to reflect the failure and the node will not be available for tasks to be assigned.</target>
+        </trans-unit>
+        <trans-unit id="c5da78fa-8a87-4df6-8dec-d0dd9da91689" xml:space="preserve">
+          <source>A start task can fail if there is an issue copying the files specified for the start task or the start task process returns non-zero.</source>
+          <target state="new">A start task can fail if there is an issue copying the files specified for the start task or the start task process returns non-zero.</target>
+        </trans-unit>
+        <trans-unit id="47e00a77-5c5c-4a6e-bc42-9f49be56641c" xml:space="preserve">
+          <source>The fact that all the information necessary to configure the nodes and install the applications is declared means that increasing the number of nodes in a pool is as simple as specifying the new required number; Batch has all the information required to configure the nodes and get them ready to accept tasks.</source>
+          <target state="new">The fact that all the information necessary to configure the nodes and install the applications is declared means that increasing the number of nodes in a pool is as simple as specifying the new required number; Batch has all the information required to configure the nodes and get them ready to accept tasks.</target>
+        </trans-unit>
+        <trans-unit id="928355f8-f8f1-457b-933a-e89819f1f55a" xml:space="preserve">
+          <source>A start task is defined by adding an JSON section to the request body for the Add Pool operation.</source>
+          <target state="new">A start task is defined by adding an JSON section to the request body for the Add Pool operation.</target>
+        </trans-unit>
+        <trans-unit id="a3a4800d-ba47-4434-800c-d087aaa0a4ee" xml:space="preserve">
+          <source>The following example shows a basic definition of a start task:</source>
+          <target state="new">The following example shows a basic definition of a start task:</target>
+        </trans-unit>
+        <trans-unit id="5f9e1023-bc59-454e-96b2-69d12d07d698" xml:space="preserve">
+          <source>A C# interface looks like this:</source>
+          <target state="new">A C# interface looks like this:</target>
+        </trans-unit>
+        <trans-unit id="59194411-8063-41c5-8ccd-1d22e8d8db1f" xml:space="preserve">
+          <source>A job manager task is started before all other tasks.</source>
+          <target state="new">A job manager task is started before all other tasks.</target>
+        </trans-unit>
+        <trans-unit id="d338a447-21b8-4f1b-9c65-6367d25a9a16" xml:space="preserve">
+          <source>The job manager task provides the following benefits:</source>
+          <target state="new">The job manager task provides the following benefits:</target>
+        </trans-unit>
+        <trans-unit id="7c1443d5-9ac8-4bd2-ba19-d6d6c95b7c61" xml:space="preserve">
+          <source>It is automatically created by the Batch service when the job is created.</source>
+          <target state="new">It is automatically created by the Batch service when the job is created.</target>
+        </trans-unit>
+        <trans-unit id="672089e3-092c-46f8-9e93-fda28de9dc15" xml:space="preserve">
+          <source>It is scheduled before other tasks in the job.</source>
+          <target state="new">It is scheduled before other tasks in the job.</target>
+        </trans-unit>
+        <trans-unit id="82c09a37-00f7-413c-80cb-8b89aae6f70e" xml:space="preserve">
+          <source>Its associated Node is the last to be removed from a pool when the pool is being downsized.</source>
+          <target state="new">Its associated Node is the last to be removed from a pool when the pool is being downsized.</target>
+        </trans-unit>
+        <trans-unit id="bcac6148-6664-4129-9565-eb95a707f26f" xml:space="preserve">
+          <source>It is given the highest priority when it needs to be restarted.</source>
+          <target state="new">It is given the highest priority when it needs to be restarted.</target>
+        </trans-unit>
+        <trans-unit id="875cf629-f82d-4279-b7b3-837065265495" xml:space="preserve">
+          <source>If an idle Node is not available, the Batch service may terminate one of the running tasks in the pool to make room for it to run.</source>
+          <target state="new">If an idle Node is not available, the Batch service may terminate one of the running tasks in the pool to make room for it to run.</target>
+        </trans-unit>
+        <trans-unit id="53c684ce-4e90-48e9-a665-52d9cb1cb7e0" xml:space="preserve">
+          <source>Its termination can be tied to the termination of all tasks in the job.</source>
+          <target state="new">Its termination can be tied to the termination of all tasks in the job.</target>
+        </trans-unit>
+        <trans-unit id="95882b88-4ece-4fe4-9143-ff60fd128ccf" xml:space="preserve">
+          <source>A job manager task in a job does not have priority over tasks in other jobs.</source>
+          <target state="new">A job manager task in a job does not have priority over tasks in other jobs.</target>
+        </trans-unit>
+        <trans-unit id="dec55cb1-6d67-42dd-803b-1b86a8093ef9" xml:space="preserve">
+          <source>Across jobs, only job level priorities are observed.</source>
+          <target state="new">Across jobs, only job level priorities are observed.</target>
+        </trans-unit>
+        <trans-unit id="123ff7e8-964f-4fc4-ab2f-53761f2bdb76" xml:space="preserve">
+          <source>A job manager task is defined by adding an XML section to the request body for the Add Workitem operation.</source>
+          <target state="new">A job manager task is defined by adding an XML section to the request body for the Add Workitem operation.</target>
+        </trans-unit>
+        <trans-unit id="2b8c4167-b20b-4142-935b-195656b69e4e" xml:space="preserve">
+          <source>The following example shows a basic definition of a job manager task:</source>
+          <target state="new">The following example shows a basic definition of a job manager task:</target>
+        </trans-unit>
+        <trans-unit id="14bb6206-e89d-4644-94b8-ab77b97554b3" xml:space="preserve">
+          <source>Job schedule is a way to create multiple jobs with a schedule.</source>
+          <target state="new">Job schedule is a way to create multiple jobs with a schedule.</target>
+        </trans-unit>
+        <trans-unit id="9862df45-5029-4e26-ae5c-f9e55755045e" xml:space="preserve">
+          <source>When a job schedule is created, one job is created for each occurrence of the schedule.</source>
+          <target state="new">When a job schedule is created, one job is created for each occurrence of the schedule.</target>
+        </trans-unit>
+        <trans-unit id="237852da-6645-4412-a4a6-9a9a9400002d" xml:space="preserve">
+          <source>You need a Batch account to use the Batch service and you use multiple resources of the service to schedule computation.</source>
+          <target state="new">You need a Batch account to use the Batch service and you use multiple resources of the service to schedule computation.</target>
+        </trans-unit>
+        <trans-unit id="619344e2-2a88-4189-9fc5-31c51ba5b976" xml:space="preserve">
+          <source>You use the following basic workflow when you create a distributed computational scenario with the Batch service:</source>
+          <target state="new">You use the following basic workflow when you create a distributed computational scenario with the Batch service:</target>
+        </trans-unit>
+        <trans-unit id="a121720c-4f18-44f6-8c05-d2c2694d715d" xml:space="preserve">
+          <source>1.Upload the files that you want to use in your distributed computational scenario to an Azure storage account.</source>
+          <target state="new">1.Upload the files that you want to use in your distributed computational scenario to an Azure storage account.</target>
+        </trans-unit>
+        <trans-unit id="801f8010-a12e-40d1-85d3-4c83bcbeaa7c" xml:space="preserve">
+          <source>These files must be in the storage account so that the Batch service can access them.</source>
+          <target state="new">These files must be in the storage account so that the Batch service can access them.</target>
+        </trans-unit>
+        <trans-unit id="2bc336e2-04c5-4efa-97d2-87e7ed996bd7" xml:space="preserve">
+          <source>The Batch service loads them onto a Node when the task runs.</source>
+          <target state="new">The Batch service loads them onto a Node when the task runs.</target>
+        </trans-unit>
+        <trans-unit id="86f6409a-7451-47ba-9d6e-ad833e16c000" xml:space="preserve">
+          <source>2.Upload the dependent binary files to the storage account.</source>
+          <target state="new">2.Upload the dependent binary files to the storage account.</target>
+        </trans-unit>
+        <trans-unit id="789cfdf6-b9d7-4d7b-a510-832add50a36d" xml:space="preserve">
+          <source>The binary files include the program that is run by the task and the dependent assemblies.</source>
+          <target state="new">The binary files include the program that is run by the task and the dependent assemblies.</target>
+        </trans-unit>
+        <trans-unit id="a12e9675-ba76-4fc5-b308-3dd7aeea08dd" xml:space="preserve">
+          <source>These files must also be accessed from storage and are loaded onto the Node.</source>
+          <target state="new">These files must also be accessed from storage and are loaded onto the Node.</target>
+        </trans-unit>
+        <trans-unit id="5444f8e9-0fad-4d49-ba79-58c24e7dfeaf" xml:space="preserve">
+          <source>3.Create a pool of Nodes.</source>
+          <target state="new">3.Create a pool of Nodes.</target>
+        </trans-unit>
+        <trans-unit id="acad2b46-baa8-4ad7-8e3b-01e10a3f5e9c" xml:space="preserve">
+          <source>You can assign the size of the task virtual machine to use when the pool is created.</source>
+          <target state="new">You can assign the size of the task virtual machine to use when the pool is created.</target>
+        </trans-unit>
+        <trans-unit id="889cf91a-d5fe-4056-9ab6-538972ad4c9e" xml:space="preserve">
+          <source>When a task runs, it is assigned a Node from this pool.</source>
+          <target state="new">When a task runs, it is assigned a Node from this pool.</target>
+        </trans-unit>
+        <trans-unit id="4de706b0-ca55-4888-9fc6-327db4b67962" xml:space="preserve">
+          <source>4.Create a workitem.</source>
+          <target state="new">4.Create a workitem.</target>
+        </trans-unit>
+        <trans-unit id="46951a42-6b3e-4da9-a49a-e01a3dc666cc" xml:space="preserve">
+          <source>A job is automatically created when you create a workitem.</source>
+          <target state="new">A job is automatically created when you create a workitem.</target>
+        </trans-unit>
+        <trans-unit id="2948718c-7ce2-4077-8b09-d1b8428c35d2" xml:space="preserve">
+          <source>A workitem enables you to manage a job of tasks.</source>
+          <target state="new">A workitem enables you to manage a job of tasks.</target>
+        </trans-unit>
+        <trans-unit id="f5eb7b70-38c3-4c78-bbd6-da4b398a35a2" xml:space="preserve">
+          <source>5.Add tasks to the workitem.</source>
+          <target state="new">5.Add tasks to the workitem.</target>
+        </trans-unit>
+        <trans-unit id="f2fe092f-9b84-4915-84a8-2c71918c27ab" xml:space="preserve">
+          <source>Each task uses the program that you uploaded to process information from a file that you uploaded.</source>
+          <target state="new">Each task uses the program that you uploaded to process information from a file that you uploaded.</target>
+        </trans-unit>
+        <trans-unit id="e2c78f45-2638-492a-a8a6-e4c1fd5c9f5f" xml:space="preserve">
+          <source>6.Monitor the results of the output.</source>
+          <target state="new">6.Monitor the results of the output.</target>
+        </trans-unit>
+        <trans-unit id="388d537f-a063-45c6-a6b8-85b75ae42e9f" xml:space="preserve">
+          <source>Each task has a working directory under which it creates zero or more directories and files for storing the program that is run by a task, the data that is processed by a task, and the output of the processing performed by a task.</source>
+          <target state="new">Each task has a working directory under which it creates zero or more directories and files for storing the program that is run by a task, the data that is processed by a task, and the output of the processing performed by a task.</target>
+        </trans-unit>
+        <trans-unit id="faf93fef-fc6c-4bd5-ba43-77b5f9dec0b5" xml:space="preserve">
+          <source>These directories and files are then available for use by other tasks during the running of a job.</source>
+          <target state="new">These directories and files are then available for use by other tasks during the running of a job.</target>
+        </trans-unit>
+        <trans-unit id="cd46c0b9-8439-47ab-9376-3fdb104d0001" xml:space="preserve">
+          <source>All tasks, files, and directories on a Node are owned by a single user account.</source>
+          <target state="new">All tasks, files, and directories on a Node are owned by a single user account.</target>
+        </trans-unit>
+        <trans-unit id="135867f5-a1a9-4af1-9ede-0430f1c9564e" xml:space="preserve">
+          <source>The Batch service exposes a portion of the file system on a Node as the root directory.</source>
+          <target state="new">The Batch service exposes a portion of the file system on a Node as the root directory.</target>
+        </trans-unit>
+        <trans-unit id="5ef39327-7f6c-4c66-96b8-11ff3637d1d0" xml:space="preserve">
+          <source>The root directory of the Node is available to a task through the AZ\<bpt id="72771828-3a0e-40cf-aad5-3e6ab5f5c080">&lt;em&gt;</bpt>BATCH\<ept id="72771828-3a0e-40cf-aad5-3e6ab5f5c080">&lt;/em&gt;</ept>NODE\<bpt id="a38c64ec-8b6a-4af7-9eb1-0d3f4fe88310">&lt;em&gt;</bpt>ROOT\<ept id="a38c64ec-8b6a-4af7-9eb1-0d3f4fe88310">&lt;/em&gt;</ept>DIR environment variable.</source>
+          <target state="new">The root directory of the Node is available to a task through the AZ\<bpt id="72771828-3a0e-40cf-aad5-3e6ab5f5c080">&lt;em&gt;</bpt>BATCH\<ept id="72771828-3a0e-40cf-aad5-3e6ab5f5c080">&lt;/em&gt;</ept>NODE\<bpt id="a38c64ec-8b6a-4af7-9eb1-0d3f4fe88310">&lt;em&gt;</bpt>ROOT\<ept id="a38c64ec-8b6a-4af7-9eb1-0d3f4fe88310">&lt;/em&gt;</ept>DIR environment variable.</target>
+        </trans-unit>
+        <trans-unit id="7e0106f5-b677-4ef5-a7a2-d7ec7806e6bb" xml:space="preserve">
+          <source>For more information about using environment variables, see Environment settings for tasks.</source>
+          <target state="new">For more information about using environment variables, see Environment settings for tasks.</target>
+        </trans-unit>
+        <trans-unit id="08f40032-5b06-41e9-b3c8-87d0393825cb" xml:space="preserve">
+          <source>The root directory contains the following sub-directories:</source>
+          <target state="new">The root directory contains the following sub-directories:</target>
+        </trans-unit>
+        <trans-unit id="7dc8dd9b-abd2-44b0-b511-cb05f9b18c4e" xml:space="preserve">
+          <source><bpt id="78af5966-53eb-408e-8265-b4cf0b717348">&lt;strong&gt;</bpt>Tasks<ept id="78af5966-53eb-408e-8265-b4cf0b717348">&lt;/strong&gt;</ept> – This location is where all of the files are stored that belong to tasks that run on the Node.</source>
+          <target state="new"><bpt id="78af5966-53eb-408e-8265-b4cf0b717348">&lt;strong&gt;</bpt>Tasks<ept id="78af5966-53eb-408e-8265-b4cf0b717348">&lt;/strong&gt;</ept> – This location is where all of the files are stored that belong to tasks that run on the Node.</target>
+        </trans-unit>
+        <trans-unit id="34b58474-8bb1-4cac-b18d-66bae8a3cc1d" xml:space="preserve">
+          <source>For each task, the Batch service creates a working directory with the unique path in the form of %AZ\<bpt id="593ddc14-210f-4ad3-abd0-143e8882b844">&lt;em&gt;</bpt>BATCH\<ept id="593ddc14-210f-4ad3-abd0-143e8882b844">&lt;/em&gt;</ept>TASK\<bpt id="f53021b0-8e1c-4fd3-b9a7-a2cd4e54a1fa">&lt;em&gt;</bpt>ROOT\<ept id="f53021b0-8e1c-4fd3-b9a7-a2cd4e54a1fa">&lt;/em&gt;</ept>DIR%.</source>
+          <target state="new">For each task, the Batch service creates a working directory with the unique path in the form of %AZ\<bpt id="593ddc14-210f-4ad3-abd0-143e8882b844">&lt;em&gt;</bpt>BATCH\<ept id="593ddc14-210f-4ad3-abd0-143e8882b844">&lt;/em&gt;</ept>TASK\<bpt id="f53021b0-8e1c-4fd3-b9a7-a2cd4e54a1fa">&lt;em&gt;</bpt>ROOT\<ept id="f53021b0-8e1c-4fd3-b9a7-a2cd4e54a1fa">&lt;/em&gt;</ept>DIR%.</target>
+        </trans-unit>
+        <trans-unit id="fe68af7f-03a8-4bba-8772-1c543c432471" xml:space="preserve">
+          <source>This directory provides Read/Write access to the task.</source>
+          <target state="new">This directory provides Read/Write access to the task.</target>
+        </trans-unit>
+        <trans-unit id="15ac9a6d-59e7-4b7c-952b-554134af0301" xml:space="preserve">
+          <source>The task can create, read, update, and delete files under this directory, and this directory is retained based on the RetentionTime constraint specified for the task.</source>
+          <target state="new">The task can create, read, update, and delete files under this directory, and this directory is retained based on the RetentionTime constraint specified for the task.</target>
+        </trans-unit>
+        <trans-unit id="abda8f0e-15ce-4471-be2d-2faee944865f" xml:space="preserve">
+          <source><bpt id="c2583bd2-5dc4-4465-906e-34102964461e">&lt;strong&gt;</bpt>Shared<ept id="c2583bd2-5dc4-4465-906e-34102964461e">&lt;/strong&gt;</ept> – This location is a shared directory for all of the tasks under the account.</source>
+          <target state="new"><bpt id="c2583bd2-5dc4-4465-906e-34102964461e">&lt;strong&gt;</bpt>Shared<ept id="c2583bd2-5dc4-4465-906e-34102964461e">&lt;/strong&gt;</ept> – This location is a shared directory for all of the tasks under the account.</target>
+        </trans-unit>
+        <trans-unit id="4b5cf82b-698f-4a50-925f-f00b0f6c05c4" xml:space="preserve">
+          <source>On the Node, the shared directory is at %AZ\<bpt id="143856d1-0a51-4bd0-8292-e0cf3e15b8b9">&lt;em&gt;</bpt>BATCH\<ept id="143856d1-0a51-4bd0-8292-e0cf3e15b8b9">&lt;/em&gt;</ept>NODE\<bpt id="7a6efc44-d683-48a3-b735-db8e1df9ed90">&lt;em&gt;</bpt>SHARED\<ept id="7a6efc44-d683-48a3-b735-db8e1df9ed90">&lt;/em&gt;</ept>DIR%.</source>
+          <target state="new">On the Node, the shared directory is at %AZ\<bpt id="143856d1-0a51-4bd0-8292-e0cf3e15b8b9">&lt;em&gt;</bpt>BATCH\<ept id="143856d1-0a51-4bd0-8292-e0cf3e15b8b9">&lt;/em&gt;</ept>NODE\<bpt id="7a6efc44-d683-48a3-b735-db8e1df9ed90">&lt;em&gt;</bpt>SHARED\<ept id="7a6efc44-d683-48a3-b735-db8e1df9ed90">&lt;/em&gt;</ept>DIR%.</target>
+        </trans-unit>
+        <trans-unit id="6084ef55-17b9-4ec5-979d-3bb3dfd843e5" xml:space="preserve">
+          <source>This directory provides Read/Write access to the task.</source>
+          <target state="new">This directory provides Read/Write access to the task.</target>
+        </trans-unit>
+        <trans-unit id="78331a06-cbed-4df3-9cc5-d32be3ddb3ea" xml:space="preserve">
+          <source>The task can create, read, update, and delete files under this directory.</source>
+          <target state="new">The task can create, read, update, and delete files under this directory.</target>
+        </trans-unit>
+        <trans-unit id="dfcad3d6-0a55-444d-b1e6-17282fbf2bce" xml:space="preserve">
+          <source><bpt id="fc63744d-3558-4780-991f-ff16a21d2b23">&lt;strong&gt;</bpt>Start<ept id="fc63744d-3558-4780-991f-ff16a21d2b23">&lt;/strong&gt;</ept> – This location is used by a start task as its working directory.</source>
+          <target state="new"><bpt id="fc63744d-3558-4780-991f-ff16a21d2b23">&lt;strong&gt;</bpt>Start<ept id="fc63744d-3558-4780-991f-ff16a21d2b23">&lt;/strong&gt;</ept> – This location is used by a start task as its working directory.</target>
+        </trans-unit>
+        <trans-unit id="b5c15bbf-9e49-44da-aa09-2e756de42c9a" xml:space="preserve">
+          <source>All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory.</source>
+          <target state="new">All of the files that are downloaded by the Batch service to launch the start task are also stored under this directory.</target>
+        </trans-unit>
+        <trans-unit id="17175a94-e951-4679-a0a2-946a541f55ca" xml:space="preserve">
+          <source>On the Node, the start directory is at %AZ\<bpt id="f1beaa8a-1ee4-4933-9b91-c9817d87e2d8">&lt;em&gt;</bpt>BATCH\<ept id="f1beaa8a-1ee4-4933-9b91-c9817d87e2d8">&lt;/em&gt;</ept>NODE\<bpt id="c678ab83-0748-452e-bb5d-d8148a1b6b95">&lt;em&gt;</bpt>START\<ept id="c678ab83-0748-452e-bb5d-d8148a1b6b95">&lt;/em&gt;</ept>DIR%.</source>
+          <target state="new">On the Node, the start directory is at %AZ\<bpt id="f1beaa8a-1ee4-4933-9b91-c9817d87e2d8">&lt;em&gt;</bpt>BATCH\<ept id="f1beaa8a-1ee4-4933-9b91-c9817d87e2d8">&lt;/em&gt;</ept>NODE\<bpt id="c678ab83-0748-452e-bb5d-d8148a1b6b95">&lt;em&gt;</bpt>START\<ept id="c678ab83-0748-452e-bb5d-d8148a1b6b95">&lt;/em&gt;</ept>DIR%.</target>
+        </trans-unit>
+        <trans-unit id="b9bb2f82-38fc-4be2-8322-53559126d0f7" xml:space="preserve">
+          <source>The task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.</source>
+          <target state="new">The task can create, read, update, and delete files under this directory, and this directory can be used by start tasks to configure the operating system.</target>
+        </trans-unit>
+        <trans-unit id="9b343c69-c59c-4e24-9dd8-6ac0a64cac72" xml:space="preserve">
+          <source>When a Node is removed from the pool, all of the files that are stored on the Node are removed.</source>
+          <target state="new">When a Node is removed from the pool, all of the files that are stored on the Node are removed.</target>
+        </trans-unit>
+        <trans-unit id="9b03247f-fabe-4f93-9229-e171d551e5e5" xml:space="preserve">
+          <source>A fundamental design decision is when pools are created and how long nodes are kept available.</source>
+          <target state="new">A fundamental design decision is when pools are created and how long nodes are kept available.</target>
+        </trans-unit>
+        <trans-unit id="0bbe0de5-977f-411a-9258-be75d812c4a1" xml:space="preserve">
+          <source>At one extreme a pool could be created for each job when the job is submitted and the nodes removed as tasks finish execution.</source>
+          <target state="new">At one extreme a pool could be created for each job when the job is submitted and the nodes removed as tasks finish execution.</target>
+        </trans-unit>
+        <trans-unit id="a4baef45-1b64-4d36-8673-4b8f78ab9b3b" xml:space="preserve">
+          <source>This will maximize utilization as the nodes are only allocated when absolutely needed and shutdown as soon as they become idle.</source>
+          <target state="new">This will maximize utilization as the nodes are only allocated when absolutely needed and shutdown as soon as they become idle.</target>
+        </trans-unit>
+        <trans-unit id="2949e2b3-46ee-44a4-af88-3bb2c141e9c1" xml:space="preserve">
+          <source>It does mean that the job must wait for the nodes to be allocated, although it is important to note that tasks will be scheduled to nodes as soon as they are individually available, allocated and the start task has completed; i.e. Batch does NOT wait until all nodes in a pool are available as that would lead to poor utilization.</source>
+          <target state="new">It does mean that the job must wait for the nodes to be allocated, although it is important to note that tasks will be scheduled to nodes as soon as they are individually available, allocated and the start task has completed; i.e. Batch does NOT wait until all nodes in a pool are available as that would lead to poor utilization.</target>
+        </trans-unit>
+        <trans-unit id="5d7ce376-5146-45cd-95bd-67060012fb65" xml:space="preserve">
+          <source>If having jobs start executing immediately is the priority then a pool should be created and nodes available before the job is submitted.</source>
+          <target state="new">If having jobs start executing immediately is the priority then a pool should be created and nodes available before the job is submitted.</target>
+        </trans-unit>
+        <trans-unit id="98146e1f-498f-49e8-8f59-bdc6834f150b" xml:space="preserve">
+          <source>The tasks can start immediately, but nodes could be idle waiting for job tasks, depending on load.</source>
+          <target state="new">The tasks can start immediately, but nodes could be idle waiting for job tasks, depending on load.</target>
+        </trans-unit>
+        <trans-unit id="0bbc6212-f17f-438e-8929-f05c053dcc7f" xml:space="preserve">
+          <source>One common pattern for when there is a variable amount of ongoing load is to have a pool to which multiple jobs are submitted, but scale up or down the number of nodes according to load; this could be done reactively or pro-actively if load can be predicted.</source>
+          <target state="new">One common pattern for when there is a variable amount of ongoing load is to have a pool to which multiple jobs are submitted, but scale up or down the number of nodes according to load; this could be done reactively or pro-actively if load can be predicted.</target>
+        </trans-unit>
+        <trans-unit id="7a70a0e7-bac8-4145-a5c8-4eed22800313" xml:space="preserve">
+          <source>Your application can easily be automatically scaled up or down to accommodate the computation that you need.</source>
+          <target state="new">Your application can easily be automatically scaled up or down to accommodate the computation that you need.</target>
+        </trans-unit>
+        <trans-unit id="5a35a77a-79f7-4ac0-9875-755b0520a268" xml:space="preserve">
+          <source>You can dynamically adjust the number of Nodes in a pool according to current work load and resource usage statistics.</source>
+          <target state="new">You can dynamically adjust the number of Nodes in a pool according to current work load and resource usage statistics.</target>
+        </trans-unit>
+        <trans-unit id="f90dd3a2-fdd3-4b97-938b-a799f6889de6" xml:space="preserve">
+          <source>You can also optimize the overall cost of running your application by configuring it to be automatically scaled.</source>
+          <target state="new">You can also optimize the overall cost of running your application by configuring it to be automatically scaled.</target>
+        </trans-unit>
+        <trans-unit id="895d94be-145a-42d1-ae3e-ecc9ccfc89f7" xml:space="preserve">
+          <source>You can specify the scaling settings for a pool when it is created and you can update the configuration at any time.</source>
+          <target state="new">You can specify the scaling settings for a pool when it is created and you can update the configuration at any time.</target>
+        </trans-unit>
+        <trans-unit id="93b1dac3-2799-46da-a14d-a295299570eb" xml:space="preserve">
+          <source>For a decrease in the number of nodes, there could be tasks running on nodes which need to be considered.</source>
+          <target state="new">For a decrease in the number of nodes, there could be tasks running on nodes which need to be considered.</target>
+        </trans-unit>
+        <trans-unit id="d5d856e0-6e8b-454a-a6de-16612dc29060" xml:space="preserve">
+          <source>A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately or whether tasks are allowed to finish before the nodes are removed.</source>
+          <target state="new">A de-allocation policy is specified which determines whether running tasks are stopped to remove the node immediately or whether tasks are allowed to finish before the nodes are removed.</target>
+        </trans-unit>
+        <trans-unit id="8afccdf4-aee2-4036-8d7e-86c06cbe6f59" xml:space="preserve">
+          <source>Setting the target number of nodes down to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.</source>
+          <target state="new">Setting the target number of nodes down to zero at the end of a job, but allowing running tasks to finish, will maximize utilization.</target>
+        </trans-unit>
+        <trans-unit id="eba34a95-7a1c-42a4-b3b1-d33fe2c8078d" xml:space="preserve">
+          <source>You specify automatic scaling of an application by using a set of scaling formulas.</source>
+          <target state="new">You specify automatic scaling of an application by using a set of scaling formulas.</target>
+        </trans-unit>
+        <trans-unit id="0fa79296-23b9-43e6-a15a-102cd6cb3d46" xml:space="preserve">
+          <source>The formulas that can be used to determine the number of Nodes that are in the pool for the next scaling interval.</source>
+          <target state="new">The formulas that can be used to determine the number of Nodes that are in the pool for the next scaling interval.</target>
+        </trans-unit>
+        <trans-unit id="109cbbdb-9848-4035-8de5-2f3b007d64da" xml:space="preserve">
+          <source>For example, you need to submit a large number of tasks to be scheduled on a pool.</source>
+          <target state="new">For example, you need to submit a large number of tasks to be scheduled on a pool.</target>
+        </trans-unit>
+        <trans-unit id="0d6c68f6-cff3-416e-baf9-b91777ffd6ea" xml:space="preserve">
+          <source>You can assign a scaling formula to the pool that specifies the size of the pool based on the current number of pending tasks and the completion rate of the tasks.</source>
+          <target state="new">You can assign a scaling formula to the pool that specifies the size of the pool based on the current number of pending tasks and the completion rate of the tasks.</target>
+        </trans-unit>
+        <trans-unit id="345721fd-adef-4d86-a9b0-fb0b8861696e" xml:space="preserve">
+          <source>The Batch service periodically evaluates the formula and resizes the pool based on workload.</source>
+          <target state="new">The Batch service periodically evaluates the formula and resizes the pool based on workload.</target>
+        </trans-unit>
+        <trans-unit id="8c65b734-0839-4c9c-bfa9-1e767a2cc84f" xml:space="preserve">
+          <source>A formula can be based on the following metrics:</source>
+          <target state="new">A formula can be based on the following metrics:</target>
+        </trans-unit>
+        <trans-unit id="6f610556-6243-409f-8e0d-a5af901b3363" xml:space="preserve">
+          <source><bpt id="e4c71251-20f5-4d54-9125-7e027d2f9e53">&lt;strong&gt;</bpt>Time metrics<ept id="e4c71251-20f5-4d54-9125-7e027d2f9e53">&lt;/strong&gt;</ept> – Based on statistics collected every five minutes in the specified number of hours.</source>
+          <target state="new"><bpt id="e4c71251-20f5-4d54-9125-7e027d2f9e53">&lt;strong&gt;</bpt>Time metrics<ept id="e4c71251-20f5-4d54-9125-7e027d2f9e53">&lt;/strong&gt;</ept> – Based on statistics collected every five minutes in the specified number of hours.</target>
+        </trans-unit>
+        <trans-unit id="ec01a8e0-ce12-49cf-acf8-c0e65bf90867" xml:space="preserve">
+          <source><bpt id="63825496-98d9-41c1-ad26-861c06d58a75">&lt;strong&gt;</bpt>Resource metrics<ept id="63825496-98d9-41c1-ad26-861c06d58a75">&lt;/strong&gt;</ept> – Based on CPU usage, bandwidth usage, memory usage, and number of Nodes.</source>
+          <target state="new"><bpt id="63825496-98d9-41c1-ad26-861c06d58a75">&lt;strong&gt;</bpt>Resource metrics<ept id="63825496-98d9-41c1-ad26-861c06d58a75">&lt;/strong&gt;</ept> – Based on CPU usage, bandwidth usage, memory usage, and number of Nodes.</target>
+        </trans-unit>
+        <trans-unit id="6f5ab772-28a7-4ccd-91a1-66bb1160d532" xml:space="preserve">
+          <source><bpt id="1c53e1df-1b57-4c8e-a0c9-c2913b17b77a">&lt;strong&gt;</bpt>Task metrics<ept id="1c53e1df-1b57-4c8e-a0c9-c2913b17b77a">&lt;/strong&gt;</ept> – Based on the status of tasks, such as Active, Pending, and Completed.</source>
+          <target state="new"><bpt id="1c53e1df-1b57-4c8e-a0c9-c2913b17b77a">&lt;strong&gt;</bpt>Task metrics<ept id="1c53e1df-1b57-4c8e-a0c9-c2913b17b77a">&lt;/strong&gt;</ept> – Based on the status of tasks, such as Active, Pending, and Completed.</target>
+        </trans-unit>
+        <trans-unit id="00bf1a7c-d15f-41fb-bf09-e3999c0fda66" xml:space="preserve">
+          <source>For more information about automatically scaling an application, see Configure Autoscaling of Task Virtual Machines.</source>
+          <target state="new">For more information about automatically scaling an application, see Configure Autoscaling of Task Virtual Machines.</target>
+        </trans-unit>
+        <trans-unit id="02f7ecf2-4cc2-4407-ae39-76539e058402" xml:space="preserve">
+          <source>Delete nodes</source>
+          <target state="new">Delete nodes</target>
+        </trans-unit>
+        <trans-unit id="a3dfbcc5-5ed9-47aa-9743-76903d6288aa" xml:space="preserve">
+          <source>It is not often required, but it is possible to specify individual nodes to remove from a pool.</source>
+          <target state="new">It is not often required, but it is possible to specify individual nodes to remove from a pool.</target>
+        </trans-unit>
+        <trans-unit id="8fb22450-292f-46f4-bbed-3d27cd36fdd0" xml:space="preserve">
+          <source>If there’s a node that is suspected of being less reliable it could be removed, for example.</source>
+          <target state="new">If there’s a node that is suspected of being less reliable it could be removed, for example.</target>
+        </trans-unit>
+        <trans-unit id="f30975e6-b351-4bb7-bc27-2617bfc5f203" xml:space="preserve">
+          <source>You typically need to use certificates when you encrypt secret information.</source>
+          <target state="new">You typically need to use certificates when you encrypt secret information.</target>
+        </trans-unit>
+        <trans-unit id="7f2867e9-c19d-4d24-8dce-c5822a067676" xml:space="preserve">
+          <source>Certificates can be installed on Nodes.</source>
+          <target state="new">Certificates can be installed on Nodes.</target>
+        </trans-unit>
+        <trans-unit id="22eeb056-011e-445d-b2a5-72394cc49520" xml:space="preserve">
+          <source>The encrypted secrets are passed to tasks in command-line parameters or embedded in one of the resources and installed certificates can be used to decrypt them.</source>
+          <target state="new">The encrypted secrets are passed to tasks in command-line parameters or embedded in one of the resources and installed certificates can be used to decrypt them.</target>
+        </trans-unit>
+        <trans-unit id="8484bc1e-aba1-4d0a-8fa1-b45ec798c958" xml:space="preserve">
+          <source>An example of the secret information is the key for a storage account.</source>
+          <target state="new">An example of the secret information is the key for a storage account.</target>
+        </trans-unit>
+        <trans-unit id="c60bbab2-5b4e-412f-96bf-0f806ed4f8cd" xml:space="preserve">
+          <source>You use the Add Certificate operation to add a certificate to a Batch account.</source>
+          <target state="new">You use the Add Certificate operation to add a certificate to a Batch account.</target>
+        </trans-unit>
+        <trans-unit id="e488ec11-8dc4-4290-96bd-9319e0535bab" xml:space="preserve">
+          <source>You can then associate the certificate to a new or existing pool.</source>
+          <target state="new">You can then associate the certificate to a new or existing pool.</target>
+        </trans-unit>
+        <trans-unit id="e6934e09-a861-43e9-965a-69b43876a3e4" xml:space="preserve">
+          <source>When a certificate is associated with a pool, the Batch service installs the certificate on each Node in the pool.</source>
+          <target state="new">When a certificate is associated with a pool, the Batch service installs the certificate on each Node in the pool.</target>
+        </trans-unit>
+        <trans-unit id="1dda2441-f205-4162-ad10-3856971d9e8c" xml:space="preserve">
+          <source>The Batch service installs the appropriate certificates when the Node starts up, before it launches any tasks, which includes start tasks and job manager tasks.</source>
+          <target state="new">The Batch service installs the appropriate certificates when the Node starts up, before it launches any tasks, which includes start tasks and job manager tasks.</target>
+        </trans-unit>
+        <trans-unit id="73983dc3-e952-490f-8d8a-cc8d3966b91c" xml:space="preserve">
+          <source>When you create a workitem, you can assign a priority to it.</source>
+          <target state="new">When you create a workitem, you can assign a priority to it.</target>
+        </trans-unit>
+        <trans-unit id="8340c682-6b35-4f63-94c4-8f8c51649931" xml:space="preserve">
+          <source>Each job under the workitem is created with this priority.</source>
+          <target state="new">Each job under the workitem is created with this priority.</target>
+        </trans-unit>
+        <trans-unit id="b8122566-ab4c-4420-8f60-8bde41453473" xml:space="preserve">
+          <source>The Batch service uses the priority values of the job to determine the order of job scheduling within an account.</source>
+          <target state="new">The Batch service uses the priority values of the job to determine the order of job scheduling within an account.</target>
+        </trans-unit>
+        <trans-unit id="b94fe896-3e35-4dee-b056-341b9cbe6ebd" xml:space="preserve">
+          <source>The priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority.</source>
+          <target state="new">The priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority.</target>
+        </trans-unit>
+        <trans-unit id="80c8b255-d494-44d9-990b-4b811f9a127c" xml:space="preserve">
+          <source>You can update the priority of a job by using the UpdateJob operation.</source>
+          <target state="new">You can update the priority of a job by using the UpdateJob operation.</target>
+        </trans-unit>
+        <trans-unit id="3188bec7-7902-4abc-a570-0c8b303f7a4c" xml:space="preserve">
+          <source>Within the same account, higher priority jobs have scheduling precedence over lower priority jobs.</source>
+          <target state="new">Within the same account, higher priority jobs have scheduling precedence over lower priority jobs.</target>
+        </trans-unit>
+        <trans-unit id="0feffd6e-337c-468e-ab80-f2fc8fa76d70" xml:space="preserve">
+          <source>A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.</source>
+          <target state="new">A job with a higher priority value in one account does not have scheduling precedence over another job with a lower priority value in a different account.</target>
+        </trans-unit>
+        <trans-unit id="f65436f4-89df-49a1-b995-a4ebd6dbf546" xml:space="preserve">
+          <source>Job scheduling on different pools are independent.</source>
+          <target state="new">Job scheduling on different pools are independent.</target>
+        </trans-unit>
+        <trans-unit id="3868149e-98ce-47b8-8d80-772fdd208b6e" xml:space="preserve">
+          <source>Across different pools, it is not guaranteed that a higher priority job is scheduled first, if its associated pool is short of idle Nodes.</source>
+          <target state="new">Across different pools, it is not guaranteed that a higher priority job is scheduled first, if its associated pool is short of idle Nodes.</target>
+        </trans-unit>
+        <trans-unit id="4e5d52d4-7ded-4a12-9e48-30dd823e0ebf" xml:space="preserve">
+          <source>On the same pool, jobs with the same priority level have an equal chance of being scheduled.</source>
+          <target state="new">On the same pool, jobs with the same priority level have an equal chance of being scheduled.</target>
+        </trans-unit>
+        <trans-unit id="96826d82-4422-4caa-aadd-b3d2cd08c80d" xml:space="preserve">
+          <source>You can specify environment settings that can be used in the context of a task.</source>
+          <target state="new">You can specify environment settings that can be used in the context of a task.</target>
+        </trans-unit>
+        <trans-unit id="071ba95b-531e-44e8-8fed-9ec9676c4db5" xml:space="preserve">
+          <source>Environment settings for a start task and tasks running under a job are defined by adding an XML section to the request body of the Add Task or Update Task operations.</source>
+          <target state="new">Environment settings for a start task and tasks running under a job are defined by adding an XML section to the request body of the Add Task or Update Task operations.</target>
+        </trans-unit>
+        <trans-unit id="a3b948d0-d544-456e-b3ac-dc3ac9071a2f" xml:space="preserve">
+          <source>The following example shows the definition of an environment setting:</source>
+          <target state="new">The following example shows the definition of an environment setting:</target>
+        </trans-unit>
+        <trans-unit id="ed699095-7b77-4242-a9bd-8e68f6fc0a10" xml:space="preserve">
+          <source>For every task that is scheduled under a job, a specific set of environment variables are set by the Batch service.</source>
+          <target state="new">For every task that is scheduled under a job, a specific set of environment variables are set by the Batch service.</target>
+        </trans-unit>
+        <trans-unit id="4d3ff2e6-810a-4cc1-b218-82c351ad2560" xml:space="preserve">
+          <source>The following table lists the environment variables that are set by the Batch service for all tasks.</source>
+          <target state="new">The following table lists the environment variables that are set by the Batch service for all tasks.</target>
+        </trans-unit>
+        <trans-unit id="dd8c2e3f-b8ec-4384-8943-42eab947beba" xml:space="preserve">
+          <source>Environment Variable Name</source>
+          <target state="new">Environment Variable Name</target>
+        </trans-unit>
+        <trans-unit id="5613dd60-5272-4624-85e3-c9414e6661bd" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="9e47ef41-5af9-49b0-b9fb-1bcc2e6adacc" xml:space="preserve">
+          <source>AZ<bpt id="935b6774-d41f-438e-9686-54ec16036c6f">&lt;em&gt;</bpt>BATCH<ept id="935b6774-d41f-438e-9686-54ec16036c6f">&lt;/em&gt;</ept>ACCOUNT_NAME</source>
+          <target state="new">AZ<bpt id="935b6774-d41f-438e-9686-54ec16036c6f">&lt;em&gt;</bpt>BATCH<ept id="935b6774-d41f-438e-9686-54ec16036c6f">&lt;/em&gt;</ept>ACCOUNT_NAME</target>
+        </trans-unit>
+        <trans-unit id="01a74946-393d-4e56-9774-802768f89a64" xml:space="preserve">
+          <source>The name of the account to which the task belongs.</source>
+          <target state="new">The name of the account to which the task belongs.</target>
+        </trans-unit>
+        <trans-unit id="0e0bb2d3-c245-494f-ac43-b2f1360b9a60" xml:space="preserve">
+          <source>AZ<bpt id="91b9a54b-f185-4337-88a3-94e220234f3c">&lt;em&gt;</bpt>BATCH<ept id="91b9a54b-f185-4337-88a3-94e220234f3c">&lt;/em&gt;</ept>JOB_ID</source>
+          <target state="new">AZ<bpt id="91b9a54b-f185-4337-88a3-94e220234f3c">&lt;em&gt;</bpt>BATCH<ept id="91b9a54b-f185-4337-88a3-94e220234f3c">&lt;/em&gt;</ept>JOB_ID</target>
+        </trans-unit>
+        <trans-unit id="efdd22af-07a2-4748-ba55-9179bcd883f5" xml:space="preserve">
+          <source>The name of the job to which the task belongs.</source>
+          <target state="new">The name of the job to which the task belongs.</target>
+        </trans-unit>
+        <trans-unit id="0b7e9e7a-a30c-48ce-8155-7714082da4e6" xml:space="preserve">
+          <source>AZ<bpt id="dfcd7d4a-b403-42f3-a2b5-c2d38d1e9122">&lt;em&gt;</bpt>BATCH<ept id="dfcd7d4a-b403-42f3-a2b5-c2d38d1e9122">&lt;/em&gt;</ept>TASK_ID</source>
+          <target state="new">AZ<bpt id="dfcd7d4a-b403-42f3-a2b5-c2d38d1e9122">&lt;em&gt;</bpt>BATCH<ept id="dfcd7d4a-b403-42f3-a2b5-c2d38d1e9122">&lt;/em&gt;</ept>TASK_ID</target>
+        </trans-unit>
+        <trans-unit id="cff74db6-e293-44e9-b825-d0a3bdf4d5cb" xml:space="preserve">
+          <source>The name of the current task.</source>
+          <target state="new">The name of the current task.</target>
+        </trans-unit>
+        <trans-unit id="4c6b1fdc-99b0-45bc-b338-b4c854fdab37" xml:space="preserve">
+          <source>AZ<bpt id="e27c9e25-4c11-42dd-9c13-878233096233">&lt;em&gt;</bpt>BATCH<ept id="e27c9e25-4c11-42dd-9c13-878233096233">&lt;/em&gt;</ept>POOL_ID</source>
+          <target state="new">AZ<bpt id="e27c9e25-4c11-42dd-9c13-878233096233">&lt;em&gt;</bpt>BATCH<ept id="e27c9e25-4c11-42dd-9c13-878233096233">&lt;/em&gt;</ept>POOL_ID</target>
+        </trans-unit>
+        <trans-unit id="d452ea81-ba88-485d-836d-e52bf9700bb0" xml:space="preserve">
+          <source>The name of the pool on which the task is running.</source>
+          <target state="new">The name of the pool on which the task is running.</target>
+        </trans-unit>
+        <trans-unit id="38027e89-c814-4abf-8a3d-facad4940320" xml:space="preserve">
+          <source>AZ<bpt id="50cfb968-1d3f-4f9e-91c3-f841bbf896f0">&lt;em&gt;</bpt>BATCH<ept id="50cfb968-1d3f-4f9e-91c3-f841bbf896f0">&lt;/em&gt;</ept>NODE_ID</source>
+          <target state="new">AZ<bpt id="50cfb968-1d3f-4f9e-91c3-f841bbf896f0">&lt;em&gt;</bpt>BATCH<ept id="50cfb968-1d3f-4f9e-91c3-f841bbf896f0">&lt;/em&gt;</ept>NODE_ID</target>
+        </trans-unit>
+        <trans-unit id="5c52c076-660f-4318-b083-236d7e95a629" xml:space="preserve">
+          <source>The name of the Node on which the task is running.</source>
+          <target state="new">The name of the Node on which the task is running.</target>
+        </trans-unit>
+        <trans-unit id="16cca0b9-1552-45ef-bb3b-ac7b2324c2f6" xml:space="preserve">
+          <source>AZ<bpt id="4f88b57b-7277-4f4e-971b-b4af9ced528d">&lt;em&gt;</bpt>BATCH<ept id="4f88b57b-7277-4f4e-971b-b4af9ced528d">&lt;/em&gt;</ept>NODE<bpt id="2f1263a5-eb26-46ba-b8be-577e5538d056">&lt;em&gt;</bpt>ROOT<ept id="2f1263a5-eb26-46ba-b8be-577e5538d056">&lt;/em&gt;</ept>DIR</source>
+          <target state="new">AZ<bpt id="4f88b57b-7277-4f4e-971b-b4af9ced528d">&lt;em&gt;</bpt>BATCH<ept id="4f88b57b-7277-4f4e-971b-b4af9ced528d">&lt;/em&gt;</ept>NODE<bpt id="2f1263a5-eb26-46ba-b8be-577e5538d056">&lt;em&gt;</bpt>ROOT<ept id="2f1263a5-eb26-46ba-b8be-577e5538d056">&lt;/em&gt;</ept>DIR</target>
+        </trans-unit>
+        <trans-unit id="f57b5882-f57a-4d96-bd5b-8ceda336c588" xml:space="preserve">
+          <source>The full path of the root directory on the node.</source>
+          <target state="new">The full path of the root directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="0f0d1e90-9f4e-4cc3-b8f4-5438b56245b2" xml:space="preserve">
+          <source>AZ<bpt id="4bb733a7-9557-49d9-a701-51ae0c5799f4">&lt;em&gt;</bpt>BATCH<ept id="4bb733a7-9557-49d9-a701-51ae0c5799f4">&lt;/em&gt;</ept>NODE<bpt id="768c953c-41d2-4ea3-9011-85eb017000cb">&lt;em&gt;</bpt>SHARED<ept id="768c953c-41d2-4ea3-9011-85eb017000cb">&lt;/em&gt;</ept>DIR</source>
+          <target state="new">AZ<bpt id="4bb733a7-9557-49d9-a701-51ae0c5799f4">&lt;em&gt;</bpt>BATCH<ept id="4bb733a7-9557-49d9-a701-51ae0c5799f4">&lt;/em&gt;</ept>NODE<bpt id="768c953c-41d2-4ea3-9011-85eb017000cb">&lt;em&gt;</bpt>SHARED<ept id="768c953c-41d2-4ea3-9011-85eb017000cb">&lt;/em&gt;</ept>DIR</target>
+        </trans-unit>
+        <trans-unit id="98c81cf9-a24c-4b2e-8e54-3fa0db6e4338" xml:space="preserve">
+          <source>The full path of the shared directory on the node.</source>
+          <target state="new">The full path of the shared directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="b26e4b2b-2f09-44f1-9600-674a269e4873" xml:space="preserve">
+          <source>AZ<bpt id="08b4102a-3d34-47d3-a6dd-cc2c53b76065">&lt;em&gt;</bpt>BATCH<ept id="08b4102a-3d34-47d3-a6dd-cc2c53b76065">&lt;/em&gt;</ept>NODE<bpt id="b49a0814-74d4-4bb3-b832-efb94220eea2">&lt;em&gt;</bpt>STARTUP<ept id="b49a0814-74d4-4bb3-b832-efb94220eea2">&lt;/em&gt;</ept>DIR</source>
+          <target state="new">AZ<bpt id="08b4102a-3d34-47d3-a6dd-cc2c53b76065">&lt;em&gt;</bpt>BATCH<ept id="08b4102a-3d34-47d3-a6dd-cc2c53b76065">&lt;/em&gt;</ept>NODE<bpt id="b49a0814-74d4-4bb3-b832-efb94220eea2">&lt;em&gt;</bpt>STARTUP<ept id="b49a0814-74d4-4bb3-b832-efb94220eea2">&lt;/em&gt;</ept>DIR</target>
+        </trans-unit>
+        <trans-unit id="effc78e4-281f-4885-ba2d-4b7f498fdc7b" xml:space="preserve">
+          <source>The full path of the pool node startup task directory on the node.</source>
+          <target state="new">The full path of the pool node startup task directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="b4b0d1dd-82ed-4547-9a5c-7d14cdd1d0ff" xml:space="preserve">
+          <source>AZ<bpt id="c7d7d761-f1ca-451b-8449-0341113f544e">&lt;em&gt;</bpt>BATCH<ept id="c7d7d761-f1ca-451b-8449-0341113f544e">&lt;/em&gt;</ept>NODE<bpt id="4815b9bf-7021-4917-9bb9-e9d9890ec5a2">&lt;em&gt;</bpt>TASK<ept id="4815b9bf-7021-4917-9bb9-e9d9890ec5a2">&lt;/em&gt;</ept>DIR</source>
+          <target state="new">AZ<bpt id="c7d7d761-f1ca-451b-8449-0341113f544e">&lt;em&gt;</bpt>BATCH<ept id="c7d7d761-f1ca-451b-8449-0341113f544e">&lt;/em&gt;</ept>NODE<bpt id="4815b9bf-7021-4917-9bb9-e9d9890ec5a2">&lt;em&gt;</bpt>TASK<ept id="4815b9bf-7021-4917-9bb9-e9d9890ec5a2">&lt;/em&gt;</ept>DIR</target>
+        </trans-unit>
+        <trans-unit id="95e20700-1017-4e84-930a-aa76c0e93f77" xml:space="preserve">
+          <source>The full path of the task directory on the node.</source>
+          <target state="new">The full path of the task directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="22a01430-e53c-440f-a17a-817d1f8a3d4c" xml:space="preserve">
+          <source>AZ<bpt id="57368115-b249-4cb2-b236-7acff47df174">&lt;em&gt;</bpt>BATCH<ept id="57368115-b249-4cb2-b236-7acff47df174">&lt;/em&gt;</ept>NODE<bpt id="12e89cd8-a610-42d0-8454-0743a983094a">&lt;em&gt;</bpt>TASK<ept id="12e89cd8-a610-42d0-8454-0743a983094a">&lt;/em&gt;</ept>WORKING_DIR</source>
+          <target state="new">AZ<bpt id="57368115-b249-4cb2-b236-7acff47df174">&lt;em&gt;</bpt>BATCH<ept id="57368115-b249-4cb2-b236-7acff47df174">&lt;/em&gt;</ept>NODE<bpt id="12e89cd8-a610-42d0-8454-0743a983094a">&lt;em&gt;</bpt>TASK<ept id="12e89cd8-a610-42d0-8454-0743a983094a">&lt;/em&gt;</ept>WORKING_DIR</target>
+        </trans-unit>
+        <trans-unit id="1cc1b4a9-9476-4291-bc79-ac259d15fa31" xml:space="preserve">
+          <source>The full path of the task working directory on the node.</source>
+          <target state="new">The full path of the task working directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="2625422f-5224-44df-9f03-630e4e91cf2f" xml:space="preserve">
+          <source>AZ<bpt id="3251b85d-6e4f-488b-9699-c940604bcaa0">&lt;em&gt;</bpt>BATCH<ept id="3251b85d-6e4f-488b-9699-c940604bcaa0">&lt;/em&gt;</ept>NODE<bpt id="9a57a8ad-e048-4811-bcf1-ab9c2b313c71">&lt;em&gt;</bpt>JOB<ept id="9a57a8ad-e048-4811-bcf1-ab9c2b313c71">&lt;/em&gt;</ept>PREP_DIR</source>
+          <target state="new">AZ<bpt id="3251b85d-6e4f-488b-9699-c940604bcaa0">&lt;em&gt;</bpt>BATCH<ept id="3251b85d-6e4f-488b-9699-c940604bcaa0">&lt;/em&gt;</ept>NODE<bpt id="9a57a8ad-e048-4811-bcf1-ab9c2b313c71">&lt;em&gt;</bpt>JOB<ept id="9a57a8ad-e048-4811-bcf1-ab9c2b313c71">&lt;/em&gt;</ept>PREP_DIR</target>
+        </trans-unit>
+        <trans-unit id="102abf22-eaf3-47df-812c-b9dd821e2264" xml:space="preserve">
+          <source>The full path of the job preparation task directory on the node.</source>
+          <target state="new">The full path of the job preparation task directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="ff8e1411-8023-43b0-a5ab-c4e735321f18" xml:space="preserve">
+          <source>AZ<bpt id="e1e7167a-3151-49ca-a6f7-1c601da15db9">&lt;em&gt;</bpt>BATCH<ept id="e1e7167a-3151-49ca-a6f7-1c601da15db9">&lt;/em&gt;</ept>NODE<bpt id="63e69c2a-bba5-4d43-bd12-749b93fbbd48">&lt;em&gt;</bpt>JOB<ept id="63e69c2a-bba5-4d43-bd12-749b93fbbd48">&lt;/em&gt;</ept>PREP<bpt id="8efba795-5d3e-447a-8aea-00006657b687">&lt;em&gt;</bpt>WORKING<ept id="8efba795-5d3e-447a-8aea-00006657b687">&lt;/em&gt;</ept>DIR</source>
+          <target state="new">AZ<bpt id="e1e7167a-3151-49ca-a6f7-1c601da15db9">&lt;em&gt;</bpt>BATCH<ept id="e1e7167a-3151-49ca-a6f7-1c601da15db9">&lt;/em&gt;</ept>NODE<bpt id="63e69c2a-bba5-4d43-bd12-749b93fbbd48">&lt;em&gt;</bpt>JOB<ept id="63e69c2a-bba5-4d43-bd12-749b93fbbd48">&lt;/em&gt;</ept>PREP<bpt id="8efba795-5d3e-447a-8aea-00006657b687">&lt;em&gt;</bpt>WORKING<ept id="8efba795-5d3e-447a-8aea-00006657b687">&lt;/em&gt;</ept>DIR</target>
+        </trans-unit>
+        <trans-unit id="b474173e-ffa3-4f6b-a6c1-0ab5ed9dd9a0" xml:space="preserve">
+          <source>The full path of the job preparation task working directory on the node.</source>
+          <target state="new">The full path of the job preparation task working directory on the node.</target>
+        </trans-unit>
+        <trans-unit id="751ebf42-928e-4d71-8cc9-75e153269fe0" xml:space="preserve">
+          <source><bpt id="95e42b9c-209d-4533-baf2-3a64021dcbe8">&lt;strong&gt;</bpt>Note<ept id="95e42b9c-209d-4533-baf2-3a64021dcbe8">&lt;/strong&gt;</ept> </source>
+          <target state="new"><bpt id="95e42b9c-209d-4533-baf2-3a64021dcbe8">&lt;strong&gt;</bpt>Note<ept id="95e42b9c-209d-4533-baf2-3a64021dcbe8">&lt;/strong&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="43b05815-c2ef-4c2f-b244-0cccd5353d21" xml:space="preserve">
+          <source>You cannot overwrite these system-defined variables.</source>
+          <target state="new">You cannot overwrite these system-defined variables.</target>
+        </trans-unit>
+        <trans-unit id="c9d746b9-1b55-470b-957b-eac83f7c25c0" xml:space="preserve">
+          <source>You can retrieve the value of environment settings by using the Get Task operation.</source>
+          <target state="new">You can retrieve the value of environment settings by using the Get Task operation.</target>
+        </trans-unit>
+        <trans-unit id="9d83045d-d5d0-4b1a-8ae7-3c03af74456e" xml:space="preserve">
+          <source>Task failures fall into the following categories:</source>
+          <target state="new">Task failures fall into the following categories:</target>
+        </trans-unit>
+        <trans-unit id="7183fa77-41d8-40bb-9241-adaaf6b8ed5c" xml:space="preserve">
+          <source>Scheduling Failures:</source>
+          <target state="new">Scheduling Failures:</target>
+        </trans-unit>
+        <trans-unit id="af3859d0-1917-4fe6-9b29-45f95713abff" xml:space="preserve">
+          <source>If files are specified for the task, then the copy of one or more of the files could fail.</source>
+          <target state="new">If files are specified for the task, then the copy of one or more of the files could fail.</target>
+        </trans-unit>
+        <trans-unit id="f7be47c8-653d-4fad-a964-dfab0c1dd9c0" xml:space="preserve">
+          <source>This could be because the files have moved, the storage account is no longer available, etc.</source>
+          <target state="new">This could be because the files have moved, the storage account is no longer available, etc.</target>
+        </trans-unit>
+        <trans-unit id="64ed904a-52e0-4787-ac21-97a149cffd15" xml:space="preserve">
+          <source>A “scheduling error” is set for the task in this case.</source>
+          <target state="new">A “scheduling error” is set for the task in this case.</target>
+        </trans-unit>
+        <trans-unit id="3e7b1ef8-e04f-4333-bee8-5cdca3902aea" xml:space="preserve">
+          <source>Application Failures:</source>
+          <target state="new">Application Failures:</target>
+        </trans-unit>
+        <trans-unit id="39fef862-d72a-4dd5-8aac-24119d0c609d" xml:space="preserve">
+          <source>The task process specified by the command line can also fail.</source>
+          <target state="new">The task process specified by the command line can also fail.</target>
+        </trans-unit>
+        <trans-unit id="74915df5-378f-4971-a898-9fda80daad9d" xml:space="preserve">
+          <source>The process is deemed to have failed when a non-zero exit code is returned.</source>
+          <target state="new">The process is deemed to have failed when a non-zero exit code is returned.</target>
+        </trans-unit>
+        <trans-unit id="cfa32e85-5ad3-44f9-a035-a2e5137817cd" xml:space="preserve">
+          <source>For application failures it is possible to configure Batch to automatically retry the task up to a specified number of times.</source>
+          <target state="new">For application failures it is possible to configure Batch to automatically retry the task up to a specified number of times.</target>
+        </trans-unit>
+        <trans-unit id="d065d315-54bc-4882-a4ad-2cc69c30f1d7" xml:space="preserve">
+          <source>Constraint Failures:</source>
+          <target state="new">Constraint Failures:</target>
+        </trans-unit>
+        <trans-unit id="21bb2a88-4383-4150-8839-a42bf411aae7" xml:space="preserve">
+          <source>A constraint can be specified for the maximum amount of time a job or task can run for.</source>
+          <target state="new">A constraint can be specified for the maximum amount of time a job or task can run for.</target>
+        </trans-unit>
+        <trans-unit id="ba6cc71d-65f9-439a-a990-a42694591d56" xml:space="preserve">
+          <source>The can be useful to terminate a task that has hung.</source>
+          <target state="new">The can be useful to terminate a task that has hung.</target>
+        </trans-unit>
+        <trans-unit id="eb305d05-157e-43b6-943c-c9484c45c7f7" xml:space="preserve">
+          <source>When the maximum amount of time has been exceeded then the task is marked as completed but the exit code will marked as <bpt id="b2199eac-e08e-4222-a50f-1cd940c42038">&lt;code&gt;</bpt>0xC000013A<ept id="b2199eac-e08e-4222-a50f-1cd940c42038">&lt;/code&gt;</ept> and schedulingError field will be marked as <bpt id="3a773a91-15d2-4d42-972c-5162f77b3459">&lt;code&gt;</bpt>{ category:“ServerError”, code=“TaskEnded”}<ept id="3a773a91-15d2-4d42-972c-5162f77b3459">&lt;/code&gt;</ept>.</source>
+          <target state="new">When the maximum amount of time has been exceeded then the task is marked as completed but the exit code will marked as <bpt id="b2199eac-e08e-4222-a50f-1cd940c42038">&lt;code&gt;</bpt>0xC000013A<ept id="b2199eac-e08e-4222-a50f-1cd940c42038">&lt;/code&gt;</ept> and schedulingError field will be marked as <bpt id="3a773a91-15d2-4d42-972c-5162f77b3459">&lt;code&gt;</bpt>{ category:“ServerError”, code=“TaskEnded”}<ept id="3a773a91-15d2-4d42-972c-5162f77b3459">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd72b81b-3113-435b-bfb4-c3187ac3857c" xml:space="preserve">
+          <source>An application may produce diagnostics which can be used to troubleshoot issues.</source>
+          <target state="new">An application may produce diagnostics which can be used to troubleshoot issues.</target>
+        </trans-unit>
+        <trans-unit id="37369853-44c0-4215-8e99-2e2cdd6af486" xml:space="preserve">
+          <source>Often applications will write information to stdout and stderr files or output to custom files.</source>
+          <target state="new">Often applications will write information to stdout and stderr files or output to custom files.</target>
+        </trans-unit>
+        <trans-unit id="a56ec913-f196-4b82-9c7b-913bac44fa59" xml:space="preserve">
+          <source>In these cases an API is provided to get files, by specifying either the task or node.</source>
+          <target state="new">In these cases an API is provided to get files, by specifying either the task or node.</target>
+        </trans-unit>
+        <trans-unit id="3ce70304-1678-41cd-a700-435fd96db294" xml:space="preserve">
+          <source>It is also possible to login into pool nodes.</source>
+          <target state="new">It is also possible to login into pool nodes.</target>
+        </trans-unit>
+        <trans-unit id="95cbdcc1-8a95-4d6f-8723-0ec651ba108a" xml:space="preserve">
+          <source>An API returns the RDP file for a node, which can then be used to login to the node.</source>
+          <target state="new">An API returns the RDP file for a node, which can then be used to login to the node.</target>
+        </trans-unit>
+        <trans-unit id="e867c734-1580-404c-a81e-912e20f64f8e" xml:space="preserve">
+          <source>Tasks can fail or be interrupted for a few reasons.</source>
+          <target state="new">Tasks can fail or be interrupted for a few reasons.</target>
+        </trans-unit>
+        <trans-unit id="f2e6bbd3-13db-4e28-ad70-b512c3d82caa" xml:space="preserve">
+          <source>The task application itself may fail, the node on which the task is running gets rebooted, or the node is removed by a pool resize with the de-allocation policy set to remove the node immediately without waiting for the task to finish.</source>
+          <target state="new">The task application itself may fail, the node on which the task is running gets rebooted, or the node is removed by a pool resize with the de-allocation policy set to remove the node immediately without waiting for the task to finish.</target>
+        </trans-unit>
+        <trans-unit id="9f1d1c9b-f4b7-4349-b649-ece51ba64ac0" xml:space="preserve">
+          <source>In all cases the task can be automatically re-queued by Batch and execute on another node.</source>
+          <target state="new">In all cases the task can be automatically re-queued by Batch and execute on another node.</target>
+        </trans-unit>
+        <trans-unit id="f06af120-5a93-455e-a3af-f693804c5ee7" xml:space="preserve">
+          <source>It is also possible for an intermittent issue to cause a task to hang or take too long to execute.</source>
+          <target state="new">It is also possible for an intermittent issue to cause a task to hang or take too long to execute.</target>
+        </trans-unit>
+        <trans-unit id="53b1cc26-33d2-4a5e-93fd-d790d3b0ec3c" xml:space="preserve">
+          <source>The maximum execution time can be set for a task and if exceeded Batch will interrupt the task application.</source>
+          <target state="new">The maximum execution time can be set for a task and if exceeded Batch will interrupt the task application.</target>
+        </trans-unit>
+        <trans-unit id="724adc53-fed3-480d-9309-1a9133ce21e0" xml:space="preserve">
+          <source>Currently, automatic re-queuing is not possible for this case, but the case can be detected by the client which can submit a new task.</source>
+          <target state="new">Currently, automatic re-queuing is not possible for this case, but the case can be detected by the client which can submit a new task.</target>
+        </trans-unit>
+        <trans-unit id="bbb6c6ec-8725-4835-a144-87152ba43355" xml:space="preserve">
+          <source>Each node in a pool is given a unique name and the node on which a task runs included in the task meta-data.</source>
+          <target state="new">Each node in a pool is given a unique name and the node on which a task runs included in the task meta-data.</target>
+        </trans-unit>
+        <trans-unit id="cc96cba2-e8c3-4937-88f6-863dd88ae016" xml:space="preserve">
+          <source>In the case where there is a node that for some reason is causing tasks to fail, then this can be determined by the client and the suspect node deleted from the pool.</source>
+          <target state="new">In the case where there is a node that for some reason is causing tasks to fail, then this can be determined by the client and the suspect node deleted from the pool.</target>
+        </trans-unit>
+        <trans-unit id="7e824002-4472-4aa5-b520-76cd9d08de14" xml:space="preserve">
+          <source>If a task was running on the node that was deleted, then it will be automatically re-queued and executed on another node.</source>
+          <target state="new">If a task was running on the node that was deleted, then it will be automatically re-queued and executed on another node.</target>
+        </trans-unit>
+        <trans-unit id="a138f30a-1eba-461c-bfe4-0c6dcdb7ca74" xml:space="preserve">
+          <source>./media/batch-api-basics/batch-api-basics-01.png</source>
+          <target state="new">./media/batch-api-basics/batch-api-basics-01.png</target>
+        </trans-unit>
+        <trans-unit id="e96ac629-dee4-4eba-b3f6-60ca17feeea5" xml:space="preserve">
+          <source>batch-technical-overview.md</source>
+          <target state="new">batch-technical-overview.md</target>
+        </trans-unit>
+      </group>
+      <group id="36fdd33e-7f68-46ee-a18c-4cfa906e7939" />
+    </body>
+  </file>
+</xliff>

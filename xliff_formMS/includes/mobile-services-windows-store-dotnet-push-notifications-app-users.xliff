@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d3741e35-1d5a-41ea-9a19-308c8a9b4f27" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d3741e35-1d5a-41ea-9a19-308c8a9b4f27" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8cae7900-af2a-4bef-9b79-3242ef8bc2f4">
+        <trans-unit id="0d1631df-4b59-4945-9ec2-fc1e278f18a2" xml:space="preserve">
+          <source>Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted.</source>
+          <target state="new">Next, you need to change the way that push notifications are registered to make sure that the user is authenticated before registration is attempted.</target>
+        </trans-unit>
+        <trans-unit id="daceb75e-e22e-4493-bff6-223684e037f5" xml:space="preserve">
+          <source>The client app updates depend on the way in which you implemented push notifications.</source>
+          <target state="new">The client app updates depend on the way in which you implemented push notifications.</target>
+        </trans-unit>
+        <trans-unit id="2dc89281-2494-48fc-a219-2b0276e06a20" xml:space="preserve">
+          <source>In this method, the wizard generated a new push.register.cs file in your project.</source>
+          <target state="new">In this method, the wizard generated a new push.register.cs file in your project.</target>
+        </trans-unit>
+        <trans-unit id="cbbc44f8-6c59-460f-b589-fee90f2bb963" xml:space="preserve">
+          <source>In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the <bpt id="a86e30a3-0ff5-4565-a97a-73a5de32c450">&lt;strong&gt;</bpt>OnLaunched<ept id="a86e30a3-0ff5-4565-a97a-73a5de32c450">&lt;/strong&gt;</ept> event handler comment-out or delete the call to the <bpt id="626e1c4f-0202-4ef3-80a5-4a997636649a">&lt;strong&gt;</bpt>UploadChannel<ept id="626e1c4f-0202-4ef3-80a5-4a997636649a">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the <bpt id="a86e30a3-0ff5-4565-a97a-73a5de32c450">&lt;strong&gt;</bpt>OnLaunched<ept id="a86e30a3-0ff5-4565-a97a-73a5de32c450">&lt;/strong&gt;</ept> event handler comment-out or delete the call to the <bpt id="626e1c4f-0202-4ef3-80a5-4a997636649a">&lt;strong&gt;</bpt>UploadChannel<ept id="626e1c4f-0202-4ef3-80a5-4a997636649a">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="bed00fa2-f769-4c31-bec1-d509d67d16fe" xml:space="preserve">
+          <source>Open the push.register.cs project file and replace the <bpt id="0428d461-8cf1-4ce3-bf55-a5cde66c95a2">&lt;strong&gt;</bpt>UploadChannel<ept id="0428d461-8cf1-4ce3-bf55-a5cde66c95a2">&lt;/strong&gt;</ept> method, with the following code:</source>
+          <target state="new">Open the push.register.cs project file and replace the <bpt id="0428d461-8cf1-4ce3-bf55-a5cde66c95a2">&lt;strong&gt;</bpt>UploadChannel<ept id="0428d461-8cf1-4ce3-bf55-a5cde66c95a2">&lt;/strong&gt;</ept> method, with the following code:</target>
+        </trans-unit>
+        <trans-unit id="acd7f811-c90a-4830-9d09-e68b4f84f723" xml:space="preserve">
+          <source>This makes sure that registration is done using the same client instance that has the authenticated user credentials.</source>
+          <target state="new">This makes sure that registration is done using the same client instance that has the authenticated user credentials.</target>
+        </trans-unit>
+        <trans-unit id="71cedf38-40fa-44c8-91eb-e49f92aa4bae" xml:space="preserve">
+          <source>Otherwise, registration will fail with an Unauthorized (401) error.</source>
+          <target state="new">Otherwise, registration will fail with an Unauthorized (401) error.</target>
+        </trans-unit>
+        <trans-unit id="c6d27b83-3ee2-43d5-a7bf-514d2914584c" xml:space="preserve">
+          <source>Open the shared MainPage.cs project file, and replace the <bpt id="c6093eaf-7fb2-464c-9895-92f70ecd1085">&lt;strong&gt;</bpt>ButtonLogin_Click<ept id="c6093eaf-7fb2-464c-9895-92f70ecd1085">&lt;/strong&gt;</ept> handler with the following:</source>
+          <target state="new">Open the shared MainPage.cs project file, and replace the <bpt id="c6093eaf-7fb2-464c-9895-92f70ecd1085">&lt;strong&gt;</bpt>ButtonLogin_Click<ept id="c6093eaf-7fb2-464c-9895-92f70ecd1085">&lt;/strong&gt;</ept> handler with the following:</target>
+        </trans-unit>
+        <trans-unit id="364cbd79-aadb-4b7c-92d5-7fccbfcab305" xml:space="preserve">
+          <source>This makes sure that authentication occurs before push registration is attempted.</source>
+          <target state="new">This makes sure that authentication occurs before push registration is attempted.</target>
+        </trans-unit>
+        <trans-unit id="94bd1c78-0785-447f-a64a-b00c95e045f0" xml:space="preserve">
+          <source>In the previous code, replace the generated push class name (<bpt id="25de92db-f6bc-4b95-9479-ef7ce73086bf">&lt;code&gt;</bpt>todolistPush<ept id="25de92db-f6bc-4b95-9479-ef7ce73086bf">&lt;/code&gt;</ept>) with the name of class generated by the wizard, usually in the format &lt;code&gt;&lt;em&gt;mobile_service&lt;/em&gt;Push&lt;/code&gt;.</source>
+          <target state="new">In the previous code, replace the generated push class name (<bpt id="25de92db-f6bc-4b95-9479-ef7ce73086bf">&lt;code&gt;</bpt>todolistPush<ept id="25de92db-f6bc-4b95-9479-ef7ce73086bf">&lt;/code&gt;</ept>) with the name of class generated by the wizard, usually in the format &lt;code&gt;&lt;em&gt;mobile_service&lt;/em&gt;Push&lt;/code&gt;.</target>
+        </trans-unit>
+        <trans-unit id="2095f900-d02a-44b2-9db9-e00be9b5c988" xml:space="preserve">
+          <source>In this method, you added registration code from the tutorial directly to the app.xaml.cs project file.</source>
+          <target state="new">In this method, you added registration code from the tutorial directly to the app.xaml.cs project file.</target>
+        </trans-unit>
+        <trans-unit id="1bfc75a3-6896-4fef-94f6-1f5fddd0ed8b" xml:space="preserve">
+          <source>In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the <bpt id="03d909b3-9f92-4e0a-8a92-6b51e660878a">&lt;strong&gt;</bpt>OnLaunched<ept id="03d909b3-9f92-4e0a-8a92-6b51e660878a">&lt;/strong&gt;</ept> event handler comment-out or delete the call to <bpt id="2e704306-e2a0-40e4-90c8-8c70d30b8b34">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="2e704306-e2a0-40e4-90c8-8c70d30b8b34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio in Solution Explorer, open the app.xaml.cs project file and in the <bpt id="03d909b3-9f92-4e0a-8a92-6b51e660878a">&lt;strong&gt;</bpt>OnLaunched<ept id="03d909b3-9f92-4e0a-8a92-6b51e660878a">&lt;/strong&gt;</ept> event handler comment-out or delete the call to <bpt id="2e704306-e2a0-40e4-90c8-8c70d30b8b34">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="2e704306-e2a0-40e4-90c8-8c70d30b8b34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebfff459-150b-463f-b0c2-6ed47c671196" xml:space="preserve">
+          <source>Change the accessibility of the <bpt id="3a66c748-0742-48cc-b567-5dddfa8529d6">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="3a66c748-0742-48cc-b567-5dddfa8529d6">&lt;/strong&gt;</ept> method from <bpt id="0e0028a7-87c5-4471-a75e-9dd9caa3703b">&lt;code&gt;</bpt>private<ept id="0e0028a7-87c5-4471-a75e-9dd9caa3703b">&lt;/code&gt;</ept> to <bpt id="3eebf8ea-62ad-496d-82f6-c87e0bbea937">&lt;code&gt;</bpt>public<ept id="3eebf8ea-62ad-496d-82f6-c87e0bbea937">&lt;/code&gt;</ept> and add the <bpt id="1cce2913-91b4-4984-8d2d-5783ef5bcbf6">&lt;code&gt;</bpt>static<ept id="1cce2913-91b4-4984-8d2d-5783ef5bcbf6">&lt;/code&gt;</ept> modifier.</source>
+          <target state="new">Change the accessibility of the <bpt id="3a66c748-0742-48cc-b567-5dddfa8529d6">&lt;strong&gt;</bpt>InitNotificationsAsync<ept id="3a66c748-0742-48cc-b567-5dddfa8529d6">&lt;/strong&gt;</ept> method from <bpt id="0e0028a7-87c5-4471-a75e-9dd9caa3703b">&lt;code&gt;</bpt>private<ept id="0e0028a7-87c5-4471-a75e-9dd9caa3703b">&lt;/code&gt;</ept> to <bpt id="3eebf8ea-62ad-496d-82f6-c87e0bbea937">&lt;code&gt;</bpt>public<ept id="3eebf8ea-62ad-496d-82f6-c87e0bbea937">&lt;/code&gt;</ept> and add the <bpt id="1cce2913-91b4-4984-8d2d-5783ef5bcbf6">&lt;code&gt;</bpt>static<ept id="1cce2913-91b4-4984-8d2d-5783ef5bcbf6">&lt;/code&gt;</ept> modifier.</target>
+        </trans-unit>
+        <trans-unit id="e96e3625-a02a-48cf-89af-3a0b4353adc6" xml:space="preserve">
+          <source>Open the shared MainPage.cs project file, and replace the <bpt id="c3ce27f7-3a9b-40ab-9a97-753cd2d78a5c">&lt;strong&gt;</bpt>ButtonLogin_Click<ept id="c3ce27f7-3a9b-40ab-9a97-753cd2d78a5c">&lt;/strong&gt;</ept> handler with the following:</source>
+          <target state="new">Open the shared MainPage.cs project file, and replace the <bpt id="c3ce27f7-3a9b-40ab-9a97-753cd2d78a5c">&lt;strong&gt;</bpt>ButtonLogin_Click<ept id="c3ce27f7-3a9b-40ab-9a97-753cd2d78a5c">&lt;/strong&gt;</ept> handler with the following:</target>
+        </trans-unit>
+        <trans-unit id="8c0fb9a5-0bbc-4c00-987e-2ed3297c8c7a" xml:space="preserve">
+          <source>This makes sure that authentication occurs before push registration is attempted.</source>
+          <target state="new">This makes sure that authentication occurs before push registration is attempted.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

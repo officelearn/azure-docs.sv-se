@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="952cf238-bd3a-452b-85f4-5d017068f930" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="952cf238-bd3a-452b-85f4-5d017068f930" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3949794-09a1-48f0-aadf-fb8beb7b88e6">
+        <trans-unit id="b5b538c5-70d3-4342-a52d-97655e009bd0" xml:space="preserve">
+          <source>Store project code in source control | Microsoft Azure</source>
+          <target state="new">Store project code in source control | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="8d00e999-e72d-4b14-b328-742c307e247d" xml:space="preserve">
+          <source>Learn how to store your .NET backend project in and publish from a local Git repo on your computer.</source>
+          <target state="new">Learn how to store your .NET backend project in and publish from a local Git repo on your computer.</target>
+        </trans-unit>
+        <trans-unit id="cded6814-7f32-407d-a7f1-9f621b35bbf4" xml:space="preserve">
+          <source>This topic shows you how to use the source control provided by Azure Mobile Services to store your .NET backend service project.</source>
+          <target state="new">This topic shows you how to use the source control provided by Azure Mobile Services to store your .NET backend service project.</target>
+        </trans-unit>
+        <trans-unit id="a5faf329-fbdb-46fb-9f7e-01026bd76f56" xml:space="preserve">
+          <source>Your project can be published by simply uploading from your local Git repository to your production mobile service.</source>
+          <target state="new">Your project can be published by simply uploading from your local Git repository to your production mobile service.</target>
+        </trans-unit>
+        <trans-unit id="6e60ff42-85ad-4f87-a0d2-0a79976bd3b9" xml:space="preserve">
+          <source>To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.</source>
+          <target state="new">To complete this tutorial, you must have already created a mobile service by completing either the [Get started with Mobile Services] or the [Add Mobile Services to an existing app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="8daec10d-663d-40cb-be0a-5a748d429e47" xml:space="preserve">
+          <source><bpt id="c9fe9042-e5f9-4374-ac86-289b8b7c4875">&lt;token href="../../includes/mobile-services-enable-source-control.md"&gt;</bpt><ept id="c9fe9042-e5f9-4374-ac86-289b8b7c4875">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c9fe9042-e5f9-4374-ac86-289b8b7c4875">&lt;token href="../../includes/mobile-services-enable-source-control.md"&gt;</bpt><ept id="c9fe9042-e5f9-4374-ac86-289b8b7c4875">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dcff10f-1366-4e9f-b968-99f2b0d165b1" xml:space="preserve">
+          <source>Install Git on your local computer.</source>
+          <target state="new">Install Git on your local computer.</target>
+        </trans-unit>
+        <trans-unit id="1e55a559-9fa3-4d57-82aa-8cad3066a577" xml:space="preserve">
+          <source>The steps required to install Git vary between operating systems.</source>
+          <target state="new">The steps required to install Git vary between operating systems.</target>
+        </trans-unit>
+        <trans-unit id="fb9b68ba-e09c-4d42-93fe-3d0c96cf5db4" xml:space="preserve">
+          <source>See [Installing Git] for operating system specific distributions and installation guidance.</source>
+          <target state="new">See [Installing Git] for operating system specific distributions and installation guidance.</target>
+        </trans-unit>
+        <trans-unit id="eafa00ca-564d-4dd5-b722-5f7e3f9b72f4" xml:space="preserve">
+          <source>On some operating systems, both a command-line and GUI version of Git are available.</source>
+          <target state="new">On some operating systems, both a command-line and GUI version of Git are available.</target>
+        </trans-unit>
+        <trans-unit id="60245892-7a1d-422f-a7bb-f64e2d2dd0ba" xml:space="preserve">
+          <source>The instructions provided in this article use the command-line version.</source>
+          <target state="new">The instructions provided in this article use the command-line version.</target>
+        </trans-unit>
+        <trans-unit id="6ea47e10-3693-4891-b99d-909e6cc45c19" xml:space="preserve">
+          <source>Open a command-line, such as <bpt id="8babffe9-f764-4a28-942c-136c8dfc21b6">&lt;strong&gt;</bpt>GitBash<ept id="8babffe9-f764-4a28-942c-136c8dfc21b6">&lt;/strong&gt;</ept> (Windows) or <bpt id="a9a9f515-8287-4a43-a840-7f83bdb5b2be">&lt;strong&gt;</bpt>Bash<ept id="a9a9f515-8287-4a43-a840-7f83bdb5b2be">&lt;/strong&gt;</ept> (Unix Shell).</source>
+          <target state="new">Open a command-line, such as <bpt id="8babffe9-f764-4a28-942c-136c8dfc21b6">&lt;strong&gt;</bpt>GitBash<ept id="8babffe9-f764-4a28-942c-136c8dfc21b6">&lt;/strong&gt;</ept> (Windows) or <bpt id="a9a9f515-8287-4a43-a840-7f83bdb5b2be">&lt;strong&gt;</bpt>Bash<ept id="a9a9f515-8287-4a43-a840-7f83bdb5b2be">&lt;/strong&gt;</ept> (Unix Shell).</target>
+        </trans-unit>
+        <trans-unit id="66cf9022-1ae1-4f79-8af6-64402508699a" xml:space="preserve">
+          <source>On OS X systems you can access the command-line through the <bpt id="bfae4170-7eec-4fcf-81bc-0df548bb8da3">&lt;strong&gt;</bpt>Terminal<ept id="bfae4170-7eec-4fcf-81bc-0df548bb8da3">&lt;/strong&gt;</ept> application.</source>
+          <target state="new">On OS X systems you can access the command-line through the <bpt id="bfae4170-7eec-4fcf-81bc-0df548bb8da3">&lt;strong&gt;</bpt>Terminal<ept id="bfae4170-7eec-4fcf-81bc-0df548bb8da3">&lt;/strong&gt;</ept> application.</target>
+        </trans-unit>
+        <trans-unit id="8ba2dd58-a111-4a44-b33a-cd7ad27bd452" xml:space="preserve">
+          <source>From the command line, change to the directory where you will store your scripts.</source>
+          <target state="new">From the command line, change to the directory where you will store your scripts.</target>
+        </trans-unit>
+        <trans-unit id="b5c84d91-79aa-4b69-b0e8-442c63c41377" xml:space="preserve">
+          <source>For example, <bpt id="ad2940c5-be67-4825-9cd9-6a0c2613c673">&lt;code&gt;</bpt>cd SourceControl<ept id="ad2940c5-be67-4825-9cd9-6a0c2613c673">&lt;/code&gt;</ept>.</source>
+          <target state="new">For example, <bpt id="ad2940c5-be67-4825-9cd9-6a0c2613c673">&lt;code&gt;</bpt>cd SourceControl<ept id="ad2940c5-be67-4825-9cd9-6a0c2613c673">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae8352c8-d45e-46e0-b970-e41d53d2fb0f" xml:space="preserve">
+          <source>Use the following command to create a local copy of your new Git repository, replacing <bpt id="e75c70bf-fd70-40ab-8b1e-fec2dee2b386">&lt;code&gt;</bpt>&lt;your_git_URL&gt;<ept id="e75c70bf-fd70-40ab-8b1e-fec2dee2b386">&lt;/code&gt;</ept> with the URL of the Git repository for your mobile service:</source>
+          <target state="new">Use the following command to create a local copy of your new Git repository, replacing <bpt id="e75c70bf-fd70-40ab-8b1e-fec2dee2b386">&lt;code&gt;</bpt>&lt;your_git_URL&gt;<ept id="e75c70bf-fd70-40ab-8b1e-fec2dee2b386">&lt;/code&gt;</ept> with the URL of the Git repository for your mobile service:</target>
+        </trans-unit>
+        <trans-unit id="cea4e96b-a0a3-4a02-9d2a-1e8856fb4af7" xml:space="preserve">
+          <source>When prompted, type in the user name and password that you set when you enabled source control in your mobile service.</source>
+          <target state="new">When prompted, type in the user name and password that you set when you enabled source control in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="2d8819b9-8ab5-41b6-bb6a-9fa252faa272" xml:space="preserve">
+          <source>After successful authentication, you will see a series of responses like this:</source>
+          <target state="new">After successful authentication, you will see a series of responses like this:</target>
+        </trans-unit>
+        <trans-unit id="6a218463-2339-4a55-ade2-5999fdb81b1c" xml:space="preserve">
+          <source>Browse to the directory from which you ran the <bpt id="d4a082f6-3ca5-4605-a59f-5567b8144574">&lt;code&gt;</bpt>git clone<ept id="d4a082f6-3ca5-4605-a59f-5567b8144574">&lt;/code&gt;</ept> command, and notice that a new directory is created with the name of the mobile service.</source>
+          <target state="new">Browse to the directory from which you ran the <bpt id="d4a082f6-3ca5-4605-a59f-5567b8144574">&lt;code&gt;</bpt>git clone<ept id="d4a082f6-3ca5-4605-a59f-5567b8144574">&lt;/code&gt;</ept> command, and notice that a new directory is created with the name of the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="dd418123-7d87-4e60-98b3-dae8f441dbd2" xml:space="preserve">
+          <source>For a .NET backend mobile service, the git repository is initial empty.</source>
+          <target state="new">For a .NET backend mobile service, the git repository is initial empty.</target>
+        </trans-unit>
+        <trans-unit id="fc9d7de4-4030-4dd1-af8a-0379ec19690d" xml:space="preserve">
+          <source>Now that you have created your local repository, you can publish your .NET backend service project from this repository.</source>
+          <target state="new">Now that you have created your local repository, you can publish your .NET backend service project from this repository.</target>
+        </trans-unit>
+        <trans-unit id="59e58d9b-f343-49f6-accc-18eaab611f55" xml:space="preserve">
+          <source>Create a new .NET backend mobile service project in Visual Studio 2013, or move an existing project into your new local repository.</source>
+          <target state="new">Create a new .NET backend mobile service project in Visual Studio 2013, or move an existing project into your new local repository.</target>
+        </trans-unit>
+        <trans-unit id="e200defa-a173-4632-9d0a-a0c1e325eda0" xml:space="preserve">
+          <source>For a quick test, download and save the Mobile Services quickstart project to this folder.</source>
+          <target state="new">For a quick test, download and save the Mobile Services quickstart project to this folder.</target>
+        </trans-unit>
+        <trans-unit id="ce07f67f-7e11-4dc7-9278-0d9fb99d1ae6" xml:space="preserve">
+          <source>Remove any NuGet package folders, leaving the packages.config file.</source>
+          <target state="new">Remove any NuGet package folders, leaving the packages.config file.</target>
+        </trans-unit>
+        <trans-unit id="b1671ce2-83a0-4e95-9dd5-1c2e65f4c5ac" xml:space="preserve">
+          <source>Mobile Services will automatically restore your NuGet packages based on the packages.confign file.</source>
+          <target state="new">Mobile Services will automatically restore your NuGet packages based on the packages.confign file.</target>
+        </trans-unit>
+        <trans-unit id="be1f708d-1a0a-49ba-9d3e-7678b0368bf1" xml:space="preserve">
+          <source>You can also define a .gitignore file to prevent the package directories from being added.</source>
+          <target state="new">You can also define a .gitignore file to prevent the package directories from being added.</target>
+        </trans-unit>
+        <trans-unit id="b6dab01b-5841-441d-93c8-e672a4f733d7" xml:space="preserve">
+          <source>In the Git command prompt, type the following command to start tracking the new script file:</source>
+          <target state="new">In the Git command prompt, type the following command to start tracking the new script file:</target>
+        </trans-unit>
+        <trans-unit id="e9b47ac9-f9fd-449c-9356-c6a5350946c6" xml:space="preserve">
+          <source>Type the following command to commit changes:</source>
+          <target state="new">Type the following command to commit changes:</target>
+        </trans-unit>
+        <trans-unit id="69371e08-ebc0-4067-90b3-196f65ee54f6" xml:space="preserve">
+          <source>Type the following command to upload the changes to the remote repository, and supply your credentials:</source>
+          <target state="new">Type the following command to upload the changes to the remote repository, and supply your credentials:</target>
+        </trans-unit>
+        <trans-unit id="19e1536b-6da3-4d83-ae51-85a359c1198e" xml:space="preserve">
+          <source>You should see a series of commands that indicates that the project is deployed to Mobile Services, packages are added, and the service is restarted.</source>
+          <target state="new">You should see a series of commands that indicates that the project is deployed to Mobile Services, packages are added, and the service is restarted.</target>
+        </trans-unit>
+        <trans-unit id="b528d7ac-368c-40f5-a587-96c4a0ff6a26" xml:space="preserve">
+          <source>Browse to the URL of your .NET backend mobile service, and you should see the following:</source>
+          <target state="new">Browse to the URL of your .NET backend mobile service, and you should see the following:</target>
+        </trans-unit>
+        <trans-unit id="4034e982-497b-4dc8-b20c-2308623a31a3" xml:space="preserve">
+          <source><bpt id="199631d9-3096-47f1-8838-553b0d75060a">&lt;linkText&gt;</bpt>Mobile Services startup page<ept id="199631d9-3096-47f1-8838-553b0d75060a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="199631d9-3096-47f1-8838-553b0d75060a">&lt;linkText&gt;</bpt>Mobile Services startup page<ept id="199631d9-3096-47f1-8838-553b0d75060a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d92343bf-9b42-4a58-a23e-da84e3935eac" xml:space="preserve">
+          <source>Now, your mobile service project is maintained in source control, and you can publish service updates by simply pushing updates from your local repository.</source>
+          <target state="new">Now, your mobile service project is maintained in source control, and you can publish service updates by simply pushing updates from your local repository.</target>
+        </trans-unit>
+        <trans-unit id="07b62499-01d1-4822-811a-0a5d27787369" xml:space="preserve">
+          <source>For information about making data model changes in a .NET backend mobile service that uses a SQL Database, see [How to make data model changes to a .NET backend mobile service].</source>
+          <target state="new">For information about making data model changes in a .NET backend mobile service that uses a SQL Database, see [How to make data model changes to a .NET backend mobile service].</target>
+        </trans-unit>
+        <trans-unit id="15347f94-62b1-4beb-97dd-1066f7a3ccc2" xml:space="preserve">
+          <source>http://git-scm.com</source>
+          <target state="new">http://git-scm.com</target>
+        </trans-unit>
+        <trans-unit id="7efa7f0f-aabe-4f32-a857-df2508d51677" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643</target>
+        </trans-unit>
+        <trans-unit id="ef6f701e-b97b-4500-aa6d-a876acd5de0c" xml:space="preserve">
+          <source>http://git-scm.com/book/en/Getting-Started-Installing-Git</source>
+          <target state="new">http://git-scm.com/book/en/Getting-Started-Installing-Git</target>
+        </trans-unit>
+        <trans-unit id="c0320322-5232-40e3-86a8-f6090f4417c5" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="8ccb3879-9137-4e89-b38d-40c38e6da630" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-get-started-data.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="27944f1d-389e-4e3c-b1bd-9c056bf26c03" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="d89beaac-3518-4c30-9ad7-12aa5ed2620e" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-ios-call-custom-api.md</source>
+          <target state="new">mobile-services-dotnet-backend-ios-call-custom-api.md</target>
+        </trans-unit>
+        <trans-unit id="5cfa1bd2-90dd-4586-94ea-d1948de62190" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-how-to-use-code-first-migrations.md</source>
+          <target state="new">mobile-services-dotnet-backend-how-to-use-code-first-migrations.md</target>
+        </trans-unit>
+      </group>
+      <group id="c9383a82-2424-4640-9bf4-692d0026642e" />
+    </body>
+  </file>
+</xliff>

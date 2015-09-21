@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="52b3cbec-ccbd-4731-89df-82c2958979a0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="52b3cbec-ccbd-4731-89df-82c2958979a0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f426a84d-4189-4732-bd71-b9516ef1ac7a">
+        <trans-unit id="80082ae0-13e9-474d-bf1e-9e562570662e" xml:space="preserve">
+          <source>Manage registration and protection</source>
+          <target state="new">Manage registration and protection</target>
+        </trans-unit>
+        <trans-unit id="2cb2a6f3-c5f5-4e54-b87c-57052125516a" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.</target>
+        </trans-unit>
+        <trans-unit id="1aff9995-69de-4c76-b5f0-53c81d2fb568" xml:space="preserve">
+          <source>This article describes how to unregister servers from the Site Recovery vault and how to disable protection for virtual machines protected by Site Recovery.</source>
+          <target state="new">This article describes how to unregister servers from the Site Recovery vault and how to disable protection for virtual machines protected by Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="cc2655ee-0140-46f6-9469-787c92c5390f" xml:space="preserve">
+          <source>If you have any questions after reading this article post them on the <bpt id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;/linkText&gt;</ept><bpt id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;title&gt;</bpt><ept id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have any questions after reading this article post them on the <bpt id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;/linkText&gt;</ept><bpt id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;title&gt;</bpt><ept id="fe1edbd4-77f9-4d98-abe2-59eb0ad93baa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d1939b3-ffa2-4bb4-a796-aa114eb48853" xml:space="preserve">
+          <source>You unregister a VMM server from a vault by deleting the server on the <bpt id="55c1c9d3-020b-43f0-a926-bb611433f6df">&lt;strong&gt;</bpt>Servers<ept id="55c1c9d3-020b-43f0-a926-bb611433f6df">&lt;/strong&gt;</ept> tab in the Azure Site Recovery portal.</source>
+          <target state="new">You unregister a VMM server from a vault by deleting the server on the <bpt id="55c1c9d3-020b-43f0-a926-bb611433f6df">&lt;strong&gt;</bpt>Servers<ept id="55c1c9d3-020b-43f0-a926-bb611433f6df">&lt;/strong&gt;</ept> tab in the Azure Site Recovery portal.</target>
+        </trans-unit>
+        <trans-unit id="f7fe836c-8c5b-47da-9494-9c103c175d40" xml:space="preserve">
+          <source>Note that:</source>
+          <target state="new">Note that:</target>
+        </trans-unit>
+        <trans-unit id="df97e5b5-74cc-4852-ae4a-403bd5981026" xml:space="preserve">
+          <source><bpt id="4ba33a59-6fff-4f3d-bae2-9bc6b69e90b2">&lt;strong&gt;</bpt>Connected VMM server<ept id="4ba33a59-6fff-4f3d-bae2-9bc6b69e90b2">&lt;/strong&gt;</ept>: We recommend you unregister the VMM server when it's connected to Azure.</source>
+          <target state="new"><bpt id="4ba33a59-6fff-4f3d-bae2-9bc6b69e90b2">&lt;strong&gt;</bpt>Connected VMM server<ept id="4ba33a59-6fff-4f3d-bae2-9bc6b69e90b2">&lt;/strong&gt;</ept>: We recommend you unregister the VMM server when it's connected to Azure.</target>
+        </trans-unit>
+        <trans-unit id="0f62886a-e23b-4093-a842-2956e67aafaa" xml:space="preserve">
+          <source>This ensures that settings on the on-premise VMM server, and the VMM servers associated with it (VMM servers that contain clouds that are mapped to clouds on the server you want to delete) are cleaned up properly.</source>
+          <target state="new">This ensures that settings on the on-premise VMM server, and the VMM servers associated with it (VMM servers that contain clouds that are mapped to clouds on the server you want to delete) are cleaned up properly.</target>
+        </trans-unit>
+        <trans-unit id="094a6942-370c-4f5f-a883-544dc98b449b" xml:space="preserve">
+          <source>We recommend you only remove an unconnected server if there's a permanent issue with connectivity.</source>
+          <target state="new">We recommend you only remove an unconnected server if there's a permanent issue with connectivity.</target>
+        </trans-unit>
+        <trans-unit id="8086892b-b4fc-4f10-8840-0a4f2fa6b4d7" xml:space="preserve">
+          <source><bpt id="43b7e79d-8f9c-412b-999e-b42f55942cb0">&lt;strong&gt;</bpt>Unconnected VMM server<ept id="43b7e79d-8f9c-412b-999e-b42f55942cb0">&lt;/strong&gt;</ept>: If the VMM server isn’t connected when you delete it you’ll need to run a script manually to perform the cleanup.</source>
+          <target state="new"><bpt id="43b7e79d-8f9c-412b-999e-b42f55942cb0">&lt;strong&gt;</bpt>Unconnected VMM server<ept id="43b7e79d-8f9c-412b-999e-b42f55942cb0">&lt;/strong&gt;</ept>: If the VMM server isn’t connected when you delete it you’ll need to run a script manually to perform the cleanup.</target>
+        </trans-unit>
+        <trans-unit id="fb5e03e2-1bad-43a6-91f5-7d09d6536bfe" xml:space="preserve">
+          <source>The script is available in the <bpt id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;linkText&gt;</bpt>Microsoft gallery<ept id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;/linkText&gt;</ept><bpt id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;title&gt;</bpt><ept id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;/title&gt;</ept>.</source>
+          <target state="new">The script is available in the <bpt id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;linkText&gt;</bpt>Microsoft gallery<ept id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;/linkText&gt;</ept><bpt id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;title&gt;</bpt><ept id="d919b479-f187-42b4-bf77-d8ede6a22f96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f9288720-9a9e-4d4f-a4b1-1a51635b7dd0" xml:space="preserve">
+          <source>Note the VMM ID of the server in order to complete the manual cleanup process.</source>
+          <target state="new">Note the VMM ID of the server in order to complete the manual cleanup process.</target>
+        </trans-unit>
+        <trans-unit id="3217f57b-21ff-48bb-81dc-4efd9b02731d" xml:space="preserve">
+          <source><bpt id="9f3b0278-28da-4648-b10c-2e2f38e43467">&lt;strong&gt;</bpt>VMM server in cluster<ept id="9f3b0278-28da-4648-b10c-2e2f38e43467">&lt;/strong&gt;</ept>: If you need to unregister a VMM server that’s deployed in a cluster do the following:</source>
+          <target state="new"><bpt id="9f3b0278-28da-4648-b10c-2e2f38e43467">&lt;strong&gt;</bpt>VMM server in cluster<ept id="9f3b0278-28da-4648-b10c-2e2f38e43467">&lt;/strong&gt;</ept>: If you need to unregister a VMM server that’s deployed in a cluster do the following:</target>
+        </trans-unit>
+        <trans-unit id="78a66e7a-2724-4b33-957a-d6879e11737e" xml:space="preserve">
+          <source>If the server's connected, delete the connected VMM server on the <bpt id="3efcfe33-d15e-4fc9-96bf-d118e7929993">&lt;strong&gt;</bpt>Servers<ept id="3efcfe33-d15e-4fc9-96bf-d118e7929993">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">If the server's connected, delete the connected VMM server on the <bpt id="3efcfe33-d15e-4fc9-96bf-d118e7929993">&lt;strong&gt;</bpt>Servers<ept id="3efcfe33-d15e-4fc9-96bf-d118e7929993">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="837cf3cf-7cce-4361-a0b0-be64668360b9" xml:space="preserve">
+          <source>To uninstall the Provider on the server, log in on every cluster node and uninstall it from the Control Panel.</source>
+          <target state="new">To uninstall the Provider on the server, log in on every cluster node and uninstall it from the Control Panel.</target>
+        </trans-unit>
+        <trans-unit id="12cf41f7-1eb0-4802-a101-aff9ddf02eec" xml:space="preserve">
+          <source>Run the cleanup script referenced in the previous section on all passive nodes in the cluster to delete registration entries.</source>
+          <target state="new">Run the cleanup script referenced in the previous section on all passive nodes in the cluster to delete registration entries.</target>
+        </trans-unit>
+        <trans-unit id="f1ca99e0-f31e-449b-a96e-b18452268f81" xml:space="preserve">
+          <source>If the server isn't connected you'll need to run the cleanup script on all cluster nodes.</source>
+          <target state="new">If the server isn't connected you'll need to run the cleanup script on all cluster nodes.</target>
+        </trans-unit>
+        <trans-unit id="3388e4f2-1927-436f-8312-446eed54e1ad" xml:space="preserve">
+          <source>On the VMM server you want to remove:</source>
+          <target state="new">On the VMM server you want to remove:</target>
+        </trans-unit>
+        <trans-unit id="30c3ace7-e085-4224-af5c-369e4edd3b53" xml:space="preserve">
+          <source>Unregister the VMM server from the Azure portal.</source>
+          <target state="new">Unregister the VMM server from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="aa9fe8c3-661f-4119-917c-5d7653e05594" xml:space="preserve">
+          <source>On the VMM server, download the cleanup script.</source>
+          <target state="new">On the VMM server, download the cleanup script.</target>
+        </trans-unit>
+        <trans-unit id="05865c17-4a1a-44d4-ae69-200cd2844845" xml:space="preserve">
+          <source>Open PowerShell with the Run as Administrator option to change the execution policy for the default (LocalMachine) scope.</source>
+          <target state="new">Open PowerShell with the Run as Administrator option to change the execution policy for the default (LocalMachine) scope.</target>
+        </trans-unit>
+        <trans-unit id="4ee3a0aa-3387-4148-a89a-cdbe16d07b5e" xml:space="preserve">
+          <source>Follow the instructions in the script.</source>
+          <target state="new">Follow the instructions in the script.</target>
+        </trans-unit>
+        <trans-unit id="ccb5fe89-1e1e-4866-93f1-ac43a6f366fe" xml:space="preserve">
+          <source>On VMM servers that have clouds that are paired with clouds on the server you're removing:</source>
+          <target state="new">On VMM servers that have clouds that are paired with clouds on the server you're removing:</target>
+        </trans-unit>
+        <trans-unit id="517cd380-4e19-4990-b505-eb5764592fef" xml:space="preserve">
+          <source>Run the cleanup script and follow steps 2 to 4.</source>
+          <target state="new">Run the cleanup script and follow steps 2 to 4.</target>
+        </trans-unit>
+        <trans-unit id="d5955a95-e26f-40ca-a8fd-908bf6b1fb2b" xml:space="preserve">
+          <source>Specify the VMM ID for the VMM server that's been unregistered.</source>
+          <target state="new">Specify the VMM ID for the VMM server that's been unregistered.</target>
+        </trans-unit>
+        <trans-unit id="f287ac59-d1bc-4581-bab2-751a03517338" xml:space="preserve">
+          <source>This script will remove the registration information for the VMM Server and cloud pairing information.</source>
+          <target state="new">This script will remove the registration information for the VMM Server and cloud pairing information.</target>
+        </trans-unit>
+        <trans-unit id="57c5dc6f-0050-4bd7-af3e-33fbaf56b1a8" xml:space="preserve">
+          <source>When Azure Site Recovery is deployed to protect virtual machines located on a Hyper-V server in a Hyper-V site (with no VMM server) you can unregister a Hyper-V server from a vault as follows:</source>
+          <target state="new">When Azure Site Recovery is deployed to protect virtual machines located on a Hyper-V server in a Hyper-V site (with no VMM server) you can unregister a Hyper-V server from a vault as follows:</target>
+        </trans-unit>
+        <trans-unit id="f970f007-9aaf-49aa-b25e-70deb1259310" xml:space="preserve">
+          <source>Disable protection for virtual machines located on the Hyper-V server.</source>
+          <target state="new">Disable protection for virtual machines located on the Hyper-V server.</target>
+        </trans-unit>
+        <trans-unit id="07789af6-9fe7-42e8-9a3b-7125d6ec35be" xml:space="preserve">
+          <source>On the <bpt id="ed588e38-8008-4fb1-aa85-f0c65307fbec">&lt;strong&gt;</bpt>Servers<ept id="ed588e38-8008-4fb1-aa85-f0c65307fbec">&lt;/strong&gt;</ept> tab in the Azure Site Recovery portal, select the server &gt; Delete.</source>
+          <target state="new">On the <bpt id="ed588e38-8008-4fb1-aa85-f0c65307fbec">&lt;strong&gt;</bpt>Servers<ept id="ed588e38-8008-4fb1-aa85-f0c65307fbec">&lt;/strong&gt;</ept> tab in the Azure Site Recovery portal, select the server &gt; Delete.</target>
+        </trans-unit>
+        <trans-unit id="6295f882-459f-4d6f-af4c-38f9e4ae0987" xml:space="preserve">
+          <source>The server doesn’t have to be connected to Azure when you do this.</source>
+          <target state="new">The server doesn’t have to be connected to Azure when you do this.</target>
+        </trans-unit>
+        <trans-unit id="62ebb013-78a9-48e3-be83-3681f192059b" xml:space="preserve">
+          <source>Run the following script to clean up settings on the server and unregister it from the vault.</source>
+          <target state="new">Run the following script to clean up settings on the server and unregister it from the vault.</target>
+        </trans-unit>
+        <trans-unit id="bf0d3fcf-1288-48a8-9280-43a4fe62a639" xml:space="preserve">
+          <source>If you want to stop protecting a Hyper-V virtual machine you'll need to remove protection for it.</source>
+          <target state="new">If you want to stop protecting a Hyper-V virtual machine you'll need to remove protection for it.</target>
+        </trans-unit>
+        <trans-unit id="c9f480f7-5092-46c1-a8e4-fe2d1f83a887" xml:space="preserve">
+          <source>Depending on how you remove protection you might need to clean up the protection settings manually on the machine.</source>
+          <target state="new">Depending on how you remove protection you might need to clean up the protection settings manually on the machine.</target>
+        </trans-unit>
+        <trans-unit id="a2df2d78-8b3b-4a4b-80cf-7e0b37563861" xml:space="preserve">
+          <source>In the <bpt id="6cf36d6c-59fc-4bfb-b643-0a8d21daa015">&lt;strong&gt;</bpt>Virtual Machines<ept id="6cf36d6c-59fc-4bfb-b643-0a8d21daa015">&lt;/strong&gt;</ept> tab of the cloud properties, select the virtual machine &gt; <bpt id="e9a90049-abea-4818-8447-dfed3d9d2892">&lt;strong&gt;</bpt>Remove<ept id="e9a90049-abea-4818-8447-dfed3d9d2892">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6cf36d6c-59fc-4bfb-b643-0a8d21daa015">&lt;strong&gt;</bpt>Virtual Machines<ept id="6cf36d6c-59fc-4bfb-b643-0a8d21daa015">&lt;/strong&gt;</ept> tab of the cloud properties, select the virtual machine &gt; <bpt id="e9a90049-abea-4818-8447-dfed3d9d2892">&lt;strong&gt;</bpt>Remove<ept id="e9a90049-abea-4818-8447-dfed3d9d2892">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d5f0ed4-574c-4b91-9965-96d1d0072148" xml:space="preserve">
+          <source>On the <bpt id="adc1917f-ad73-4a27-90aa-eb4d9386afc5">&lt;strong&gt;</bpt>Confirm Removal of Virtual Machine<ept id="adc1917f-ad73-4a27-90aa-eb4d9386afc5">&lt;/strong&gt;</ept> page you have a couple of options:</source>
+          <target state="new">On the <bpt id="adc1917f-ad73-4a27-90aa-eb4d9386afc5">&lt;strong&gt;</bpt>Confirm Removal of Virtual Machine<ept id="adc1917f-ad73-4a27-90aa-eb4d9386afc5">&lt;/strong&gt;</ept> page you have a couple of options:</target>
+        </trans-unit>
+        <trans-unit id="c043c36a-189e-4492-9a79-751f37ef0476" xml:space="preserve">
+          <source><bpt id="367dd250-81db-49df-9757-3bbe70afde9d">&lt;strong&gt;</bpt>Disable protection<ept id="367dd250-81db-49df-9757-3bbe70afde9d">&lt;/strong&gt;</ept>—If you enable and save this option the virtual machine will no longer be protected by Site Recovery.</source>
+          <target state="new"><bpt id="367dd250-81db-49df-9757-3bbe70afde9d">&lt;strong&gt;</bpt>Disable protection<ept id="367dd250-81db-49df-9757-3bbe70afde9d">&lt;/strong&gt;</ept>—If you enable and save this option the virtual machine will no longer be protected by Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="836282d9-3868-484b-acd2-c463be33d8e1" xml:space="preserve">
+          <source>Protection settings for the virtual machine will be cleaned up automatically.</source>
+          <target state="new">Protection settings for the virtual machine will be cleaned up automatically.</target>
+        </trans-unit>
+        <trans-unit id="d651a3fc-09d9-472e-8bf1-d37b4b1226bc" xml:space="preserve">
+          <source><bpt id="b7015798-14c2-4bfd-a6fb-185d17e169a6">&lt;strong&gt;</bpt>Remove from the vault<ept id="b7015798-14c2-4bfd-a6fb-185d17e169a6">&lt;/strong&gt;</ept>—If you select this option the virtual machine will be removed only from the Site Recovery vault.</source>
+          <target state="new"><bpt id="b7015798-14c2-4bfd-a6fb-185d17e169a6">&lt;strong&gt;</bpt>Remove from the vault<ept id="b7015798-14c2-4bfd-a6fb-185d17e169a6">&lt;/strong&gt;</ept>—If you select this option the virtual machine will be removed only from the Site Recovery vault.</target>
+        </trans-unit>
+        <trans-unit id="7eda2b8f-dcef-4ec1-9692-0c055bddd716" xml:space="preserve">
+          <source>On-premises protection settings for the virtual machine won’t be affected.</source>
+          <target state="new">On-premises protection settings for the virtual machine won’t be affected.</target>
+        </trans-unit>
+        <trans-unit id="59e45daa-b699-47b2-aa46-65b485f2d764" xml:space="preserve">
+          <source>You'll need to clean up settings manually to remove protection settings and remove the virtual machine from the Azure subscription and remove protection settings you’ll need to clean them up manually using the instructions below.</source>
+          <target state="new">You'll need to clean up settings manually to remove protection settings and remove the virtual machine from the Azure subscription and remove protection settings you’ll need to clean them up manually using the instructions below.</target>
+        </trans-unit>
+        <trans-unit id="79d378ff-afdc-4c87-8683-81220bb39154" xml:space="preserve">
+          <source>If you select to delete the virtual machine and its hard disks they will be removed from the target location.</source>
+          <target state="new">If you select to delete the virtual machine and its hard disks they will be removed from the target location.</target>
+        </trans-unit>
+        <trans-unit id="6ad958cc-8556-4f27-9189-bf576a9fa1ff" xml:space="preserve">
+          <source>If you selected <bpt id="8965d929-f7df-4487-929c-c493f60df97f">&lt;strong&gt;</bpt>Stop managing the virtual machine<ept id="8965d929-f7df-4487-929c-c493f60df97f">&lt;/strong&gt;</ept>, manually clean up settings:</source>
+          <target state="new">If you selected <bpt id="8965d929-f7df-4487-929c-c493f60df97f">&lt;strong&gt;</bpt>Stop managing the virtual machine<ept id="8965d929-f7df-4487-929c-c493f60df97f">&lt;/strong&gt;</ept>, manually clean up settings:</target>
+        </trans-unit>
+        <trans-unit id="55c6f0d9-1bcf-447e-a5a6-981387c94f97" xml:space="preserve">
+          <source>On the primary server run this script from the VMM console to clean up the settings for the primary virtual machine.</source>
+          <target state="new">On the primary server run this script from the VMM console to clean up the settings for the primary virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7799b3d3-0bc5-46a7-9132-a6027dffd070" xml:space="preserve">
+          <source>In the VMM console click the PowerShell button to open the VMM PowerShell console.</source>
+          <target state="new">In the VMM console click the PowerShell button to open the VMM PowerShell console.</target>
+        </trans-unit>
+        <trans-unit id="af93d40a-f073-4381-9a54-53a5331bea47" xml:space="preserve">
+          <source>Replace SQLVM1 with the name of your virtual machine.</source>
+          <target state="new">Replace SQLVM1 with the name of your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="92e906d8-a7c2-434f-890d-f9e54f944458" xml:space="preserve">
+          <source>On the secondary VMM server run this script to clean up the settings for the secondary virtual machine:</source>
+          <target state="new">On the secondary VMM server run this script to clean up the settings for the secondary virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="47d1e189-fdc9-4000-9ee7-3676185b374a" xml:space="preserve">
+          <source>On the secondary VMM server, after you run the script refresh the virtual machines on the Hyper-V host server so that the secondary virtual machine gets re-detected in the VMM console.</source>
+          <target state="new">On the secondary VMM server, after you run the script refresh the virtual machines on the Hyper-V host server so that the secondary virtual machine gets re-detected in the VMM console.</target>
+        </trans-unit>
+        <trans-unit id="01bd4ac5-c2f5-4cb0-aad7-4b790afa7632" xml:space="preserve">
+          <source>The above steps will clear the replication settings only VMM server.</source>
+          <target state="new">The above steps will clear the replication settings only VMM server.</target>
+        </trans-unit>
+        <trans-unit id="8b29d8c7-1ae4-4b5c-8425-4d2891b4065f" xml:space="preserve">
+          <source>If you want to remove virtual machine replication for the virtual machine.</source>
+          <target state="new">If you want to remove virtual machine replication for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bae9d21a-04ad-40a2-be9e-883be77b1bab" xml:space="preserve">
+          <source>You’ll need to do the below steps on both the primary and secondary virtual machines.</source>
+          <target state="new">You’ll need to do the below steps on both the primary and secondary virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="74315aaf-4070-4d22-b800-0173efae2f09" xml:space="preserve">
+          <source>Run the below script to remove replication and replace SQLVM1 with the name of your virtual machine.</source>
+          <target state="new">Run the below script to remove replication and replace SQLVM1 with the name of your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7cb1cd88-03dc-4417-8ad5-928ba3c8120d" xml:space="preserve">
+          <source>On the source VMM server run this script to clean up the settings for the primary virtual machine:</source>
+          <target state="new">On the source VMM server run this script to clean up the settings for the primary virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="2c159035-be3c-4e32-8173-01f67be57f8f" xml:space="preserve">
+          <source>The above steps will clear the replication settings only VMM server.</source>
+          <target state="new">The above steps will clear the replication settings only VMM server.</target>
+        </trans-unit>
+        <trans-unit id="720bfcb4-440e-4636-96aa-29e9bb8f4c08" xml:space="preserve">
+          <source>Once you have removed the replication from VMM server ensure to remove replication for the virtual machine running on the Hyper-V host server with this script.</source>
+          <target state="new">Once you have removed the replication from VMM server ensure to remove replication for the virtual machine running on the Hyper-V host server with this script.</target>
+        </trans-unit>
+        <trans-unit id="1b1d88ce-fdf1-448c-9f71-e82ac3d148fd" xml:space="preserve">
+          <source>Replace SQLVM1 with the name of your virtual machine and host01.contoso.com with the name of the Hyper-V host server.</source>
+          <target state="new">Replace SQLVM1 with the name of your virtual machine and host01.contoso.com with the name of the Hyper-V host server.</target>
+        </trans-unit>
+        <trans-unit id="92954320-3895-4f3e-b4a8-ba7a66c7e098" xml:space="preserve">
+          <source>On the source Hyper-V host server, to remove replication for the virtual machine use this script.</source>
+          <target state="new">On the source Hyper-V host server, to remove replication for the virtual machine use this script.</target>
+        </trans-unit>
+        <trans-unit id="3759bd98-706a-4eda-9975-0da400bceedb" xml:space="preserve">
+          <source>Replace SQLVM1 with the name of your virtual machine.</source>
+          <target state="new">Replace SQLVM1 with the name of your virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="727d93b4-01b1-42e4-914a-77e1ae088daf" xml:space="preserve">
+          <source>If you want to stop protecting a VMware virtual machine or a physical server you'll need to remove protection for it.</source>
+          <target state="new">If you want to stop protecting a VMware virtual machine or a physical server you'll need to remove protection for it.</target>
+        </trans-unit>
+        <trans-unit id="906152e6-7696-463a-9baf-ac3fb18a776a" xml:space="preserve">
+          <source>Depending on how you remove protection you might need to clean up the protection settings manually on the machine.</source>
+          <target state="new">Depending on how you remove protection you might need to clean up the protection settings manually on the machine.</target>
+        </trans-unit>
+        <trans-unit id="d1b7c032-2427-490b-9b7e-da3db2d49fbc" xml:space="preserve">
+          <source>In the <bpt id="fc08a16a-8a71-48f6-be9a-b5306611f2a0">&lt;strong&gt;</bpt>Virtual Machines<ept id="fc08a16a-8a71-48f6-be9a-b5306611f2a0">&lt;/strong&gt;</ept> tab of the cloud properties, select the virtual machine &gt; <bpt id="744dd540-9097-4fc9-8f55-2b8436d18dfc">&lt;strong&gt;</bpt>Remove<ept id="744dd540-9097-4fc9-8f55-2b8436d18dfc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fc08a16a-8a71-48f6-be9a-b5306611f2a0">&lt;strong&gt;</bpt>Virtual Machines<ept id="fc08a16a-8a71-48f6-be9a-b5306611f2a0">&lt;/strong&gt;</ept> tab of the cloud properties, select the virtual machine &gt; <bpt id="744dd540-9097-4fc9-8f55-2b8436d18dfc">&lt;strong&gt;</bpt>Remove<ept id="744dd540-9097-4fc9-8f55-2b8436d18dfc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="55d85eac-fec5-45ef-a35f-19dc1b2adae7" xml:space="preserve">
+          <source>On the <bpt id="d3c9d2c9-7ecd-4b63-913f-d718a8799dae">&lt;strong&gt;</bpt>Remove Virtual Machine<ept id="d3c9d2c9-7ecd-4b63-913f-d718a8799dae">&lt;/strong&gt;</ept> select one of options:</source>
+          <target state="new">On the <bpt id="d3c9d2c9-7ecd-4b63-913f-d718a8799dae">&lt;strong&gt;</bpt>Remove Virtual Machine<ept id="d3c9d2c9-7ecd-4b63-913f-d718a8799dae">&lt;/strong&gt;</ept> select one of options:</target>
+        </trans-unit>
+        <trans-unit id="a21f91fd-6036-4a35-9e01-5b8a8e49a903" xml:space="preserve">
+          <source><bpt id="98cb1a07-4ad9-440c-8fee-e6fb1683a824">&lt;strong&gt;</bpt>Disable protection (use for recovery drill and volume resize)<ept id="98cb1a07-4ad9-440c-8fee-e6fb1683a824">&lt;/strong&gt;</ept>—You'll only see and enable this option if you've:</source>
+          <target state="new"><bpt id="98cb1a07-4ad9-440c-8fee-e6fb1683a824">&lt;strong&gt;</bpt>Disable protection (use for recovery drill and volume resize)<ept id="98cb1a07-4ad9-440c-8fee-e6fb1683a824">&lt;/strong&gt;</ept>—You'll only see and enable this option if you've:</target>
+        </trans-unit>
+        <trans-unit id="12ea24f9-a0c9-479a-ba5c-905218e1c614" xml:space="preserve">
+          <source><bpt id="019b89b1-43b5-43e8-8c82-97673bfa61e7">&lt;strong&gt;</bpt>Resized the virtual machine volume<ept id="019b89b1-43b5-43e8-8c82-97673bfa61e7">&lt;/strong&gt;</ept>—When you resize a volume the virtual machine goes into a critical state.</source>
+          <target state="new"><bpt id="019b89b1-43b5-43e8-8c82-97673bfa61e7">&lt;strong&gt;</bpt>Resized the virtual machine volume<ept id="019b89b1-43b5-43e8-8c82-97673bfa61e7">&lt;/strong&gt;</ept>—When you resize a volume the virtual machine goes into a critical state.</target>
+        </trans-unit>
+        <trans-unit id="1bc0b8c8-ca46-425f-a825-c5391c9724ca" xml:space="preserve">
+          <source>If this occurs select this option.</source>
+          <target state="new">If this occurs select this option.</target>
+        </trans-unit>
+        <trans-unit id="9fca6364-897f-45ee-aeca-67a09b5b3ef1" xml:space="preserve">
+          <source>It disables protection while retaining recovery points in Azure.</source>
+          <target state="new">It disables protection while retaining recovery points in Azure.</target>
+        </trans-unit>
+        <trans-unit id="6345a294-409f-48b7-b0ff-e8d2854fc2d1" xml:space="preserve">
+          <source>When you reenable protection for the machine the data for the resized volume will be transferred to Azure.</source>
+          <target state="new">When you reenable protection for the machine the data for the resized volume will be transferred to Azure.</target>
+        </trans-unit>
+        <trans-unit id="e8ed9723-3f0c-4675-913d-f815288918b3" xml:space="preserve">
+          <source><bpt id="46a9acbd-c9de-45eb-89ef-86d08ca3161f">&lt;strong&gt;</bpt>Run a failover<ept id="46a9acbd-c9de-45eb-89ef-86d08ca3161f">&lt;/strong&gt;</ept>—After you've tested your environment by running a failover from on-premises VMware virtual machines or physical servers to Azure, select this option to start protecting your on-premises virtual machines again.</source>
+          <target state="new"><bpt id="46a9acbd-c9de-45eb-89ef-86d08ca3161f">&lt;strong&gt;</bpt>Run a failover<ept id="46a9acbd-c9de-45eb-89ef-86d08ca3161f">&lt;/strong&gt;</ept>—After you've tested your environment by running a failover from on-premises VMware virtual machines or physical servers to Azure, select this option to start protecting your on-premises virtual machines again.</target>
+        </trans-unit>
+        <trans-unit id="06ac5ee4-5f0d-422a-826f-111e2c5737f6" xml:space="preserve">
+          <source>This option disables each virtual machine, and then you'll need to reenable protection for them.</source>
+          <target state="new">This option disables each virtual machine, and then you'll need to reenable protection for them.</target>
+        </trans-unit>
+        <trans-unit id="0e616afe-d68f-4548-87ca-9df8de14cf13" xml:space="preserve">
+          <source>Note that:</source>
+          <target state="new">Note that:</target>
+        </trans-unit>
+        <trans-unit id="e4697f1f-d59a-4fd4-b7b7-5f5bba01dfb9" xml:space="preserve">
+          <source>Disabling the virtual machine with this setting does not affect the replica virtual machine in Azure.</source>
+          <target state="new">Disabling the virtual machine with this setting does not affect the replica virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="339372cc-d506-4074-9357-05dd36f0663a" xml:space="preserve">
+          <source>You mustn't uninstall the Mobility service from the virtual machine.</source>
+          <target state="new">You mustn't uninstall the Mobility service from the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="11936883-1714-425d-a7b2-aca53072cca8" xml:space="preserve">
+          <source><bpt id="3986aaa5-b55e-4e21-9a6f-eee57423173d">&lt;strong&gt;</bpt>Disable protection<ept id="3986aaa5-b55e-4e21-9a6f-eee57423173d">&lt;/strong&gt;</ept>—If you enable and save this option the machine will no longer be protected by Site Recovery.</source>
+          <target state="new"><bpt id="3986aaa5-b55e-4e21-9a6f-eee57423173d">&lt;strong&gt;</bpt>Disable protection<ept id="3986aaa5-b55e-4e21-9a6f-eee57423173d">&lt;/strong&gt;</ept>—If you enable and save this option the machine will no longer be protected by Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="3be95cd8-0ddc-4bfa-b338-d8cfb94eb139" xml:space="preserve">
+          <source>Protection settings for the machine will be cleaned up automatically.</source>
+          <target state="new">Protection settings for the machine will be cleaned up automatically.</target>
+        </trans-unit>
+        <trans-unit id="3a6f912f-dca0-4105-b7bb-a8afd405e8f2" xml:space="preserve">
+          <source><bpt id="59105524-6c3e-4a28-8321-2d3e98fd8024">&lt;strong&gt;</bpt>Remove from the vault<ept id="59105524-6c3e-4a28-8321-2d3e98fd8024">&lt;/strong&gt;</ept>—If you select this option the machine will be removed only from the Site Recovery vault.</source>
+          <target state="new"><bpt id="59105524-6c3e-4a28-8321-2d3e98fd8024">&lt;strong&gt;</bpt>Remove from the vault<ept id="59105524-6c3e-4a28-8321-2d3e98fd8024">&lt;/strong&gt;</ept>—If you select this option the machine will be removed only from the Site Recovery vault.</target>
+        </trans-unit>
+        <trans-unit id="5dd1a92e-a150-44dd-9476-1a23651dce21" xml:space="preserve">
+          <source>On-premises protection settings for the machine won’t be affected.</source>
+          <target state="new">On-premises protection settings for the machine won’t be affected.</target>
+        </trans-unit>
+        <trans-unit id="0717f8ef-c8e1-49b2-8823-b541d09dd13e" xml:space="preserve">
+          <source>To remove settings on the machine and to remove the virtual machine from the Azure subscription and you’ll need to clean the settings up by uninstalling the Mobility service.</source>
+          <target state="new">To remove settings on the machine and to remove the virtual machine from the Azure subscription and you’ll need to clean the settings up by uninstalling the Mobility service.</target>
+        </trans-unit>
+        <trans-unit id="893b21e1-49e7-4ee0-9bdd-ad313fd9c4b5" xml:space="preserve">
+          <source><bpt id="ffb0c488-a7e1-4df1-9d0d-584ab91f9bf3">&lt;linkText&gt;</bpt>Remove options<ept id="ffb0c488-a7e1-4df1-9d0d-584ab91f9bf3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ffb0c488-a7e1-4df1-9d0d-584ab91f9bf3">&lt;linkText&gt;</bpt>Remove options<ept id="ffb0c488-a7e1-4df1-9d0d-584ab91f9bf3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

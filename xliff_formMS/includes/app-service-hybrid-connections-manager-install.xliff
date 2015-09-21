@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cd54f274-4196-4c3e-8e25-144f8f2ba0c0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cd54f274-4196-4c3e-8e25-144f8f2ba0c0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e2e087dc-4f9b-4c61-8dee-321e97b0e09d">
+        <trans-unit id="a6f626ac-9ee5-443f-a4b0-2f935357ad2e" xml:space="preserve">
+          <source>In the <bpt id="63115f9b-36d5-4e76-bda3-dc2ace5e9c12">&lt;strong&gt;</bpt>Hybrid connections<ept id="63115f9b-36d5-4e76-bda3-dc2ace5e9c12">&lt;/strong&gt;</ept> blade, click the hybrid connection you just created, then click <bpt id="e9eed35c-b8f8-4eb9-b6f4-16c15cc820b6">&lt;strong&gt;</bpt>Listener Setup<ept id="e9eed35c-b8f8-4eb9-b6f4-16c15cc820b6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="63115f9b-36d5-4e76-bda3-dc2ace5e9c12">&lt;strong&gt;</bpt>Hybrid connections<ept id="63115f9b-36d5-4e76-bda3-dc2ace5e9c12">&lt;/strong&gt;</ept> blade, click the hybrid connection you just created, then click <bpt id="e9eed35c-b8f8-4eb9-b6f4-16c15cc820b6">&lt;strong&gt;</bpt>Listener Setup<ept id="e9eed35c-b8f8-4eb9-b6f4-16c15cc820b6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5850603-82a7-448c-893b-fe77d6dfcc3d" xml:space="preserve">
+          <source><bpt id="8d5abfa2-43ac-46e6-8532-4e7722b6606c">&lt;linkText&gt;</bpt>Click Listener Setup<ept id="8d5abfa2-43ac-46e6-8532-4e7722b6606c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d5abfa2-43ac-46e6-8532-4e7722b6606c">&lt;linkText&gt;</bpt>Click Listener Setup<ept id="8d5abfa2-43ac-46e6-8532-4e7722b6606c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8def7668-9589-468b-bcb7-d3d8d46601e9" xml:space="preserve">
+          <source>The <bpt id="c729bb76-2cb4-482d-aa25-5c246863c23d">&lt;strong&gt;</bpt>Hybrid connection properties<ept id="c729bb76-2cb4-482d-aa25-5c246863c23d">&lt;/strong&gt;</ept> blade opens.</source>
+          <target state="new">The <bpt id="c729bb76-2cb4-482d-aa25-5c246863c23d">&lt;strong&gt;</bpt>Hybrid connection properties<ept id="c729bb76-2cb4-482d-aa25-5c246863c23d">&lt;/strong&gt;</ept> blade opens.</target>
+        </trans-unit>
+        <trans-unit id="4ae22c81-c9fb-4f6d-8790-52bf0dddecc5" xml:space="preserve">
+          <source>Under <bpt id="548ca898-31e6-495c-81c1-f7fa239cc1bb">&lt;strong&gt;</bpt>On-premises Hybrid Connection Manager<ept id="548ca898-31e6-495c-81c1-f7fa239cc1bb">&lt;/strong&gt;</ept>, choose <bpt id="2d9bc201-db25-44b2-bea7-4119c283a96c">&lt;strong&gt;</bpt>download and configure manually<ept id="2d9bc201-db25-44b2-bea7-4119c283a96c">&lt;/strong&gt;</ept>, save the downloaded the HybridConnectionManager.msi package, and copy the the gateway connection string.</source>
+          <target state="new">Under <bpt id="548ca898-31e6-495c-81c1-f7fa239cc1bb">&lt;strong&gt;</bpt>On-premises Hybrid Connection Manager<ept id="548ca898-31e6-495c-81c1-f7fa239cc1bb">&lt;/strong&gt;</ept>, choose <bpt id="2d9bc201-db25-44b2-bea7-4119c283a96c">&lt;strong&gt;</bpt>download and configure manually<ept id="2d9bc201-db25-44b2-bea7-4119c283a96c">&lt;/strong&gt;</ept>, save the downloaded the HybridConnectionManager.msi package, and copy the the gateway connection string.</target>
+        </trans-unit>
+        <trans-unit id="dc592100-4d3c-4b15-b871-2cd91e42bca6" xml:space="preserve">
+          <source><bpt id="c8b310c5-2796-488d-b865-dd2329e891d4">&lt;linkText&gt;</bpt>Click here to install<ept id="c8b310c5-2796-488d-b865-dd2329e891d4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c8b310c5-2796-488d-b865-dd2329e891d4">&lt;linkText&gt;</bpt>Click here to install<ept id="c8b310c5-2796-488d-b865-dd2329e891d4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e7a8190e-1cc8-42b4-8611-2f5781b30db2" xml:space="preserve">
+          <source>From an administrator command prompt, type the following command to start the installer:</source>
+          <target state="new">From an administrator command prompt, type the following command to start the installer:</target>
+        </trans-unit>
+        <trans-unit id="a8a5aba3-3416-4c0c-90e9-05861af31421" xml:space="preserve">
+          <source>After the installer runs, click <bpt id="b0f7c73c-f678-401a-9a58-c3ff67b7d604">&lt;strong&gt;</bpt>Not now<ept id="b0f7c73c-f678-401a-9a58-c3ff67b7d604">&lt;/strong&gt;</ept>, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click <bpt id="c3013030-064b-4763-be69-a24e651b36e1">&lt;strong&gt;</bpt>Yes<ept id="c3013030-064b-4763-be69-a24e651b36e1">&lt;/strong&gt;</ept> in the <bpt id="3879a288-ba96-4744-be42-ab5bdcffd798">&lt;strong&gt;</bpt>User Account Control<ept id="3879a288-ba96-4744-be42-ab5bdcffd798">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">After the installer runs, click <bpt id="b0f7c73c-f678-401a-9a58-c3ff67b7d604">&lt;strong&gt;</bpt>Not now<ept id="b0f7c73c-f678-401a-9a58-c3ff67b7d604">&lt;/strong&gt;</ept>, then browse to the %ProgramFiles%\Microsoft\HybridConnectionManager folder, run HCMConfigWizard.exe and click <bpt id="c3013030-064b-4763-be69-a24e651b36e1">&lt;strong&gt;</bpt>Yes<ept id="c3013030-064b-4763-be69-a24e651b36e1">&lt;/strong&gt;</ept> in the <bpt id="3879a288-ba96-4744-be42-ab5bdcffd798">&lt;strong&gt;</bpt>User Account Control<ept id="3879a288-ba96-4744-be42-ab5bdcffd798">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="12309c54-b557-4fca-9b01-95f31a5d26bb" xml:space="preserve">
+          <source>Paste the hybrid connection string that you copied earlier and click <bpt id="6a007c7d-d455-4e68-965a-f48d68f53d28">&lt;strong&gt;</bpt>OK<ept id="6a007c7d-d455-4e68-965a-f48d68f53d28">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Paste the hybrid connection string that you copied earlier and click <bpt id="6a007c7d-d455-4e68-965a-f48d68f53d28">&lt;strong&gt;</bpt>OK<ept id="6a007c7d-d455-4e68-965a-f48d68f53d28">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44ef14fb-c8ed-44a2-ba5f-c5caa609c347" xml:space="preserve">
+          <source><bpt id="449d6a4e-5b63-481b-8047-7409e0b9c417">&lt;linkText&gt;</bpt>Installing<ept id="449d6a4e-5b63-481b-8047-7409e0b9c417">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="449d6a4e-5b63-481b-8047-7409e0b9c417">&lt;linkText&gt;</bpt>Installing<ept id="449d6a4e-5b63-481b-8047-7409e0b9c417">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4485ac6a-2e9e-4f22-9ae3-6df4a2ad4cc3" xml:space="preserve">
+          <source>When the install completes, click <bpt id="562602e6-d511-45d8-95f5-f947a09b13ee">&lt;strong&gt;</bpt>Close<ept id="562602e6-d511-45d8-95f5-f947a09b13ee">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When the install completes, click <bpt id="562602e6-d511-45d8-95f5-f947a09b13ee">&lt;strong&gt;</bpt>Close<ept id="562602e6-d511-45d8-95f5-f947a09b13ee">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="746b50d9-86ab-4ad6-9aca-94d6f792ca32" xml:space="preserve">
+          <source><bpt id="be2cfedc-d38c-4b89-8294-309aaceb704d">&lt;linkText&gt;</bpt>Click Close<ept id="be2cfedc-d38c-4b89-8294-309aaceb704d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be2cfedc-d38c-4b89-8294-309aaceb704d">&lt;linkText&gt;</bpt>Click Close<ept id="be2cfedc-d38c-4b89-8294-309aaceb704d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ade6fcda-5432-46a6-9b2f-0a5e1f8bb39b" xml:space="preserve">
+          <source>On the <bpt id="807e839f-95c8-46b0-a116-3f77a2eba8b4">&lt;strong&gt;</bpt>Hybrid connections<ept id="807e839f-95c8-46b0-a116-3f77a2eba8b4">&lt;/strong&gt;</ept> blade, the <bpt id="ccce983d-3340-43d0-a066-746d1caa5268">&lt;strong&gt;</bpt>Status<ept id="ccce983d-3340-43d0-a066-746d1caa5268">&lt;/strong&gt;</ept> column now shows <bpt id="6ae2f4b3-8690-4bcc-844e-e3e4b1317072">&lt;strong&gt;</bpt>Connected<ept id="6ae2f4b3-8690-4bcc-844e-e3e4b1317072">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="807e839f-95c8-46b0-a116-3f77a2eba8b4">&lt;strong&gt;</bpt>Hybrid connections<ept id="807e839f-95c8-46b0-a116-3f77a2eba8b4">&lt;/strong&gt;</ept> blade, the <bpt id="ccce983d-3340-43d0-a066-746d1caa5268">&lt;strong&gt;</bpt>Status<ept id="ccce983d-3340-43d0-a066-746d1caa5268">&lt;/strong&gt;</ept> column now shows <bpt id="6ae2f4b3-8690-4bcc-844e-e3e4b1317072">&lt;strong&gt;</bpt>Connected<ept id="6ae2f4b3-8690-4bcc-844e-e3e4b1317072">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f87277d2-f181-46af-aa06-fc5b6d8f4871" xml:space="preserve">
+          <source><bpt id="545608d4-371e-48c6-87e1-08edbfe5050e">&lt;linkText&gt;</bpt>Connected Status<ept id="545608d4-371e-48c6-87e1-08edbfe5050e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="545608d4-371e-48c6-87e1-08edbfe5050e">&lt;linkText&gt;</bpt>Connected Status<ept id="545608d4-371e-48c6-87e1-08edbfe5050e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="42df3e84-3581-4c3e-8385-2d8c1d7b05de" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="42df3e84-3581-4c3e-8385-2d8c1d7b05de" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2e903b9e-952d-49a2-a0ef-75a9b41c4358">
+        <trans-unit id="b275ae92-c96c-4e15-b363-3794a332b2aa" xml:space="preserve">
+          <source>Learn about Throttling in BizTalk Services | Microsoft Azure</source>
+          <target state="new">Learn about Throttling in BizTalk Services | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="f9c148fc-dc18-4420-b257-c4e350d00411" xml:space="preserve">
+          <source>Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS</source>
+          <target state="new">Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS</target>
+        </trans-unit>
+        <trans-unit id="c8128182-7bb6-4fa1-a9a1-ff100153ca9b" xml:space="preserve">
+          <source>Azure BizTalk Services implements service throttling based on two conditions: memory usage and the number of simultaneous messages processing.</source>
+          <target state="new">Azure BizTalk Services implements service throttling based on two conditions: memory usage and the number of simultaneous messages processing.</target>
+        </trans-unit>
+        <trans-unit id="7cce9fde-8f93-4676-98ee-081d993f0c09" xml:space="preserve">
+          <source>This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.</source>
+          <target state="new">This topic lists the throttling thresholds and describes the Runtime behavior when a throttling condition occurs.</target>
+        </trans-unit>
+        <trans-unit id="7bbfc521-c496-49a4-a65c-5647af9fd882" xml:space="preserve">
+          <source>The following table lists the throttling source and thresholds:</source>
+          <target state="new">The following table lists the throttling source and thresholds:</target>
+        </trans-unit>
+        <trans-unit id="4715b3be-98a2-442c-acb9-18ea0a96daef" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="6c20cbbd-d972-41c7-8299-598b749e2f81" xml:space="preserve">
+          <source>Low Threshold</source>
+          <target state="new">Low Threshold</target>
+        </trans-unit>
+        <trans-unit id="23c0223c-9a5d-4c58-9993-86634e8d75e6" xml:space="preserve">
+          <source>High Threshold</source>
+          <target state="new">High Threshold</target>
+        </trans-unit>
+        <trans-unit id="005239d8-e3a0-4fe2-a6a8-d136152c1048" xml:space="preserve">
+          <source>Memory</source>
+          <target state="new">Memory</target>
+        </trans-unit>
+        <trans-unit id="72119803-9e57-4ad8-bd65-659c03508bba" xml:space="preserve">
+          <source>% of total system memory available/PageFileBytes. &lt;p&gt;&lt;p&gt;Total available PageFileBytes is approximately 2 times the RAM of the system.</source>
+          <target state="new">% of total system memory available/PageFileBytes. &lt;p&gt;&lt;p&gt;Total available PageFileBytes is approximately 2 times the RAM of the system.</target>
+        </trans-unit>
+        <trans-unit id="183573ae-e434-46f6-8903-3193698d88ef" xml:space="preserve">
+          <source>60%</source>
+          <target state="new">60%</target>
+        </trans-unit>
+        <trans-unit id="d2578c9a-ba15-47c0-b9ca-aa3fe5e94feb" xml:space="preserve">
+          <source>70%</source>
+          <target state="new">70%</target>
+        </trans-unit>
+        <trans-unit id="99d3f478-a5b2-4cf6-b337-b703d3c1b63f" xml:space="preserve">
+          <source>Message Processing</source>
+          <target state="new">Message Processing</target>
+        </trans-unit>
+        <trans-unit id="60107754-5c51-4389-ad55-8cc38f6fdac5" xml:space="preserve">
+          <source>Number of messages processing simultaneously</source>
+          <target state="new">Number of messages processing simultaneously</target>
+        </trans-unit>
+        <trans-unit id="b5150d4e-dac6-4947-b462-79f6d157116b" xml:space="preserve">
+          <source>40 * number of cores</source>
+          <target state="new">40 * number of cores</target>
+        </trans-unit>
+        <trans-unit id="85223015-5fae-4441-b3dc-5d95ec483809" xml:space="preserve">
+          <source>100 * number of cores</source>
+          <target state="new">100 * number of cores</target>
+        </trans-unit>
+        <trans-unit id="804a0d00-64db-43b2-8bfd-187a25e72ca1" xml:space="preserve">
+          <source>When a high threshold is reached, Azure BizTalk Services starts to throttle.</source>
+          <target state="new">When a high threshold is reached, Azure BizTalk Services starts to throttle.</target>
+        </trans-unit>
+        <trans-unit id="1e73f9c3-22b3-41ef-bd45-856ffc0cd22d" xml:space="preserve">
+          <source>Throttling stops when the low threshold is reached.</source>
+          <target state="new">Throttling stops when the low threshold is reached.</target>
+        </trans-unit>
+        <trans-unit id="744e565c-3299-42b7-9dfd-4d24dac60b54" xml:space="preserve">
+          <source>For example, your service is using 65% system memory.</source>
+          <target state="new">For example, your service is using 65% system memory.</target>
+        </trans-unit>
+        <trans-unit id="d9a84d29-c8c9-40c2-b283-b4ed366302aa" xml:space="preserve">
+          <source>In this situation, the service does not throttle.</source>
+          <target state="new">In this situation, the service does not throttle.</target>
+        </trans-unit>
+        <trans-unit id="2d26a880-97ab-4536-ba64-9b276e197786" xml:space="preserve">
+          <source>Your service starts using 70% system memory.</source>
+          <target state="new">Your service starts using 70% system memory.</target>
+        </trans-unit>
+        <trans-unit id="bfa7395e-d6d6-45e7-9c8d-088e72509309" xml:space="preserve">
+          <source>In this situation, the service throttles and continues to throttle until the service uses 60% (low threshold) system memory.</source>
+          <target state="new">In this situation, the service throttles and continues to throttle until the service uses 60% (low threshold) system memory.</target>
+        </trans-unit>
+        <trans-unit id="04536dde-2ee0-4d05-a828-2e9335e53d0c" xml:space="preserve">
+          <source>Azure BizTalk Services tracks the throttling status (normal state vs. throttled state) and the throttling duration.</source>
+          <target state="new">Azure BizTalk Services tracks the throttling status (normal state vs. throttled state) and the throttling duration.</target>
+        </trans-unit>
+        <trans-unit id="f6ea0801-4029-44f0-b71f-d6e1d0ea59f5" xml:space="preserve">
+          <source>When Azure BizTalk Services enters a throttling state, the following occurs:</source>
+          <target state="new">When Azure BizTalk Services enters a throttling state, the following occurs:</target>
+        </trans-unit>
+        <trans-unit id="f5aff9ec-4b43-466c-bee4-627f5fca8c15" xml:space="preserve">
+          <source>Throttling is per role instance.</source>
+          <target state="new">Throttling is per role instance.</target>
+        </trans-unit>
+        <trans-unit id="b5e4e560-9742-4c4c-b783-e4b560a2f444" xml:space="preserve">
+          <source>For example:&lt;br/&gt;
+RoleInstanceA is throttling.</source>
+          <target state="new">For example:&lt;br/&gt;
+RoleInstanceA is throttling.</target>
+        </trans-unit>
+        <trans-unit id="fe09c578-7d9d-4a4c-b1b1-b6265664a6d8" xml:space="preserve">
+          <source>RoleInstanceB is not throttling.</source>
+          <target state="new">RoleInstanceB is not throttling.</target>
+        </trans-unit>
+        <trans-unit id="9e29d9b1-4ea4-4b13-8779-dc15f4968f68" xml:space="preserve">
+          <source>In this situation, messages in RoleInstanceB are processed as expected.</source>
+          <target state="new">In this situation, messages in RoleInstanceB are processed as expected.</target>
+        </trans-unit>
+        <trans-unit id="20561980-8a36-4418-bd36-cafa50810377" xml:space="preserve">
+          <source>Messages in RoleInstanceA are discarded and fail with the following error:&lt;br/&gt;&lt;br/&gt;
+**Server is busy.</source>
+          <target state="new">Messages in RoleInstanceA are discarded and fail with the following error:&lt;br/&gt;&lt;br/&gt;
+**Server is busy.</target>
+        </trans-unit>
+        <trans-unit id="2b928c69-7faf-43a9-ae18-174ff7880976" xml:space="preserve">
+          <source>Please try again.**&lt;br/&gt;&lt;br/&gt;</source>
+          <target state="new">Please try again.**&lt;br/&gt;&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="c1d6bd47-69c0-4bc3-be00-78d503b85a99" xml:space="preserve">
+          <source>Any pull sources do not poll or download a message.</source>
+          <target state="new">Any pull sources do not poll or download a message.</target>
+        </trans-unit>
+        <trans-unit id="846240f5-0b37-4895-9f93-2ea79514ccc9" xml:space="preserve">
+          <source>For example:&lt;br/&gt;
+A pipeline pulls messages from an external FTP source.</source>
+          <target state="new">For example:&lt;br/&gt;
+A pipeline pulls messages from an external FTP source.</target>
+        </trans-unit>
+        <trans-unit id="8aff9315-0149-4597-9593-d68fb7d78276" xml:space="preserve">
+          <source>The role instance doing the pull gets into a throttling state.</source>
+          <target state="new">The role instance doing the pull gets into a throttling state.</target>
+        </trans-unit>
+        <trans-unit id="c8f67041-aebf-4ecd-8bb5-d9d61a634ee0" xml:space="preserve">
+          <source>In this situation, the pipeline stops downloading additional messages until the role instance stops throttling.</source>
+          <target state="new">In this situation, the pipeline stops downloading additional messages until the role instance stops throttling.</target>
+        </trans-unit>
+        <trans-unit id="297c9cfb-81b1-40b5-8c03-48b22f19877d" xml:space="preserve">
+          <source>A response is sent to the client so the client can resubmit the message.</source>
+          <target state="new">A response is sent to the client so the client can resubmit the message.</target>
+        </trans-unit>
+        <trans-unit id="a1b30d7c-63dd-4fc7-a684-dc302a9942e3" xml:space="preserve">
+          <source>You must wait until the throttling is resolved.</source>
+          <target state="new">You must wait until the throttling is resolved.</target>
+        </trans-unit>
+        <trans-unit id="db649f19-1b0d-4862-9003-211add250a65" xml:space="preserve">
+          <source>Specifically, you must wait until the low threshold is reached.</source>
+          <target state="new">Specifically, you must wait until the low threshold is reached.</target>
+        </trans-unit>
+        <trans-unit id="b7c18d2b-d581-4687-a3c8-a65a9f4b5d2a" xml:space="preserve">
+          <source>Throttling cannot be disabled.</source>
+          <target state="new">Throttling cannot be disabled.</target>
+        </trans-unit>
+        <trans-unit id="6aaeacd2-2c06-412f-b6d3-953f085acc36" xml:space="preserve">
+          <source>Throttling thresholds cannot be modified.</source>
+          <target state="new">Throttling thresholds cannot be modified.</target>
+        </trans-unit>
+        <trans-unit id="47320afd-143e-4fc3-a117-a37faf6e54c0" xml:space="preserve">
+          <source>Throttling is implemented system-wide.</source>
+          <target state="new">Throttling is implemented system-wide.</target>
+        </trans-unit>
+        <trans-unit id="1564b64f-73f3-401c-8f81-f14f7bd449a2" xml:space="preserve">
+          <source>The Azure SQL Database Server also has built-in throttling.</source>
+          <target state="new">The Azure SQL Database Server also has built-in throttling.</target>
+        </trans-unit>
+        <trans-unit id="ae0763e9-19dc-47aa-8699-41f63d0c0624" xml:space="preserve">
+          <source><bpt id="56160280-1d77-46ad-9da0-722c66e19633">&lt;linkText&gt;</bpt>Installing the Azure BizTalk Services SDK<ept id="56160280-1d77-46ad-9da0-722c66e19633">&lt;/linkText&gt;</ept><bpt id="56160280-1d77-46ad-9da0-722c66e19633">&lt;title&gt;</bpt><ept id="56160280-1d77-46ad-9da0-722c66e19633">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="56160280-1d77-46ad-9da0-722c66e19633">&lt;linkText&gt;</bpt>Installing the Azure BizTalk Services SDK<ept id="56160280-1d77-46ad-9da0-722c66e19633">&lt;/linkText&gt;</ept><bpt id="56160280-1d77-46ad-9da0-722c66e19633">&lt;title&gt;</bpt><ept id="56160280-1d77-46ad-9da0-722c66e19633">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b939858b-2772-43d3-b578-25252c3df99f" xml:space="preserve">
+          <source><bpt id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;linkText&gt;</bpt>Tutorials: Azure BizTalk Services<ept id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;/linkText&gt;</ept><bpt id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;title&gt;</bpt><ept id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;linkText&gt;</bpt>Tutorials: Azure BizTalk Services<ept id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;/linkText&gt;</ept><bpt id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;title&gt;</bpt><ept id="18a5119c-ed2f-4645-84e0-f80b6f5531b8">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="2c20f433-0a22-476b-8a7d-340b14088005" xml:space="preserve">
+          <source><bpt id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;/linkText&gt;</ept><bpt id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;title&gt;</bpt><ept id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;linkText&gt;</bpt>How do I Start Using the Azure BizTalk Services SDK<ept id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;/linkText&gt;</ept><bpt id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;title&gt;</bpt><ept id="a16b6ba2-2553-4bdd-a1f1-f0359ca93532">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="467252cd-41b9-4517-a1ab-61a4308eebb2" xml:space="preserve">
+          <source><bpt id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;linkText&gt;</bpt>Azure BizTalk Services<ept id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;/linkText&gt;</ept><bpt id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;title&gt;</bpt><ept id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;linkText&gt;</bpt>Azure BizTalk Services<ept id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;/linkText&gt;</ept><bpt id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;title&gt;</bpt><ept id="3c4d4e1c-1d57-4e9b-9308-14c1a974661c">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="f37ea0e0-ad5e-486a-8698-fac42dc1ddef" xml:space="preserve">
+          <source><bpt id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;/linkText&gt;</ept><bpt id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;title&gt;</bpt><ept id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;linkText&gt;</bpt>BizTalk Services: Developer, Basic, Standard and Premium Editions Chart<ept id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;/linkText&gt;</ept><bpt id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;title&gt;</bpt><ept id="7a6dbd57-fce4-4259-bf1e-a3ab1bafbe04">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="4bba6752-c048-444f-a9a8-bb57424e5a50" xml:space="preserve">
+          <source><bpt id="830e4248-0421-45a1-9254-f3288133aba2">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="830e4248-0421-45a1-9254-f3288133aba2">&lt;/linkText&gt;</ept><bpt id="830e4248-0421-45a1-9254-f3288133aba2">&lt;title&gt;</bpt><ept id="830e4248-0421-45a1-9254-f3288133aba2">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="830e4248-0421-45a1-9254-f3288133aba2">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Using Azure Management Portal<ept id="830e4248-0421-45a1-9254-f3288133aba2">&lt;/linkText&gt;</ept><bpt id="830e4248-0421-45a1-9254-f3288133aba2">&lt;title&gt;</bpt><ept id="830e4248-0421-45a1-9254-f3288133aba2">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="59bbbaa8-4fca-4b16-a487-8170289ad87f" xml:space="preserve">
+          <source><bpt id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Status Chart<ept id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;/linkText&gt;</ept><bpt id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;title&gt;</bpt><ept id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;linkText&gt;</bpt>BizTalk Services: Provisioning Status Chart<ept id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;/linkText&gt;</ept><bpt id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;title&gt;</bpt><ept id="465c1fea-c057-47dc-82aa-6fa8e977d416">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="453d8ab7-864e-43c4-ac6a-340b278ede9f" xml:space="preserve">
+          <source><bpt id="76343d10-a04b-4e64-a216-931839f042f0">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="76343d10-a04b-4e64-a216-931839f042f0">&lt;/linkText&gt;</ept><bpt id="76343d10-a04b-4e64-a216-931839f042f0">&lt;title&gt;</bpt><ept id="76343d10-a04b-4e64-a216-931839f042f0">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="76343d10-a04b-4e64-a216-931839f042f0">&lt;linkText&gt;</bpt>BizTalk Services: Dashboard, Monitor and Scale tabs<ept id="76343d10-a04b-4e64-a216-931839f042f0">&lt;/linkText&gt;</ept><bpt id="76343d10-a04b-4e64-a216-931839f042f0">&lt;title&gt;</bpt><ept id="76343d10-a04b-4e64-a216-931839f042f0">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="556ccd99-a9d2-476d-a5bb-3bb4762315c6" xml:space="preserve">
+          <source><bpt id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;/linkText&gt;</ept><bpt id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;title&gt;</bpt><ept id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;linkText&gt;</bpt>BizTalk Services: Backup and Restore<ept id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;/linkText&gt;</ept><bpt id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;title&gt;</bpt><ept id="4c91d8c0-5c46-48c2-8087-d5d900822d34">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+        <trans-unit id="b4e1e76b-0f46-4eb1-bc89-83a254b444a7" xml:space="preserve">
+          <source><bpt id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;/linkText&gt;</ept><bpt id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;title&gt;</bpt><ept id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;/title&gt;</ept>&lt;br/&gt;</source>
+          <target state="new"><bpt id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;linkText&gt;</bpt>BizTalk Services: Issuer Name and Issuer Key<ept id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;/linkText&gt;</ept><bpt id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;title&gt;</bpt><ept id="74e10091-5ff2-4df4-b162-6e4fa62b509a">&lt;/title&gt;</ept>&lt;br/&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="84d426c5-e116-4396-8f54-cb060c6f5be0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="84d426c5-e116-4396-8f54-cb060c6f5be0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f3f0bd2d-ae6d-46f1-8a32-d70c3f248056">
+        <trans-unit id="76d6e963-dea1-46bd-9146-eaa74f30a4d4" xml:space="preserve">
+          <source>Add push notifications to your Mobile Services app (Xamarin.iOS) - Mobile Services</source>
+          <target state="new">Add push notifications to your Mobile Services app (Xamarin.iOS) - Mobile Services</target>
+        </trans-unit>
+        <trans-unit id="e921aaa3-6f47-46fa-9793-cac71cabb21a" xml:space="preserve">
+          <source>Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services.</source>
+          <target state="new">Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="afb7ab63-5b7b-4b1b-b1e2-b93477562127" xml:space="preserve">
+          <source><bpt id="12083974-82a6-4010-a9f9-1d7c684cba62">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="12083974-82a6-4010-a9f9-1d7c684cba62">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="12083974-82a6-4010-a9f9-1d7c684cba62">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="12083974-82a6-4010-a9f9-1d7c684cba62">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9847729f-2476-4026-aa44-f65e471c47ff" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.iOS 8 app.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.iOS 8 app.</target>
+        </trans-unit>
+        <trans-unit id="c6a454fa-4064-459e-86e4-20f429f9a3d2" xml:space="preserve">
+          <source>In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with Mobile Services] project.</source>
+          <target state="new">In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with Mobile Services] project.</target>
+        </trans-unit>
+        <trans-unit id="fe9458e5-49c5-4cd9-8f82-65b81acafeb4" xml:space="preserve">
+          <source>When complete, your mobile service will send a push notification each time a record is inserted.</source>
+          <target state="new">When complete, your mobile service will send a push notification each time a record is inserted.</target>
+        </trans-unit>
+        <trans-unit id="551dd231-6df7-4707-bd9a-cd02382f4e41" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="dae44242-130a-49cb-8bdc-3a4609d3e66d" xml:space="preserve">
+          <source>An iOS 8 device (you cannot test push notifications in the iOS Simulator)</source>
+          <target state="new">An iOS 8 device (you cannot test push notifications in the iOS Simulator)</target>
+        </trans-unit>
+        <trans-unit id="981172fc-9935-43ee-ba7b-f19ec20dce87" xml:space="preserve">
+          <source>iOS Developer Program membership</source>
+          <target state="new">iOS Developer Program membership</target>
+        </trans-unit>
+        <trans-unit id="f2ee0b08-8e80-46e7-b511-0e6f490e4b04" xml:space="preserve">
+          <source>[Xamarin.iOS Studio]</source>
+          <target state="new">[Xamarin.iOS Studio]</target>
+        </trans-unit>
+        <trans-unit id="83046d37-1fa1-46d5-8cf2-e51634ebfee7" xml:space="preserve">
+          <source>[Azure Mobile Services Component]</source>
+          <target state="new">[Azure Mobile Services Component]</target>
+        </trans-unit>
+        <trans-unit id="9d051f4f-a358-441f-b363-f024e28e66a5" xml:space="preserve">
+          <source>Because of APNS requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</source>
+          <target state="new">Because of APNS requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="ca0b27bb-20a9-4da0-b061-be070224122a" xml:space="preserve">
+          <source>APNS uses certificates to authenticate your mobile service.</source>
+          <target state="new">APNS uses certificates to authenticate your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="c4ebfeb2-0ff1-4028-8762-ab6de13979c6" xml:space="preserve">
+          <source>Follow these instructions to create the necessary certificates and upload it to your Mobile Service.</source>
+          <target state="new">Follow these instructions to create the necessary certificates and upload it to your Mobile Service.</target>
+        </trans-unit>
+        <trans-unit id="af4886c3-2ed9-48a7-8e2a-8500e84849cf" xml:space="preserve">
+          <source>For the official APNS feature documentation, see [Apple Push Notification Service].</source>
+          <target state="new">For the official APNS feature documentation, see [Apple Push Notification Service].</target>
+        </trans-unit>
+        <trans-unit id="2873057b-370f-4a0b-b9b5-91199a62cbe6" xml:space="preserve">
+          <source>First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.</source>
+          <target state="new">First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.</target>
+        </trans-unit>
+        <trans-unit id="ccc552c5-b4d2-4403-a129-dc266a1b0392" xml:space="preserve">
+          <source>From Utilities, run the <bpt id="94d5e70c-afe1-4920-a982-0024e2b961b5">&lt;strong&gt;</bpt>Keychain Access tool<ept id="94d5e70c-afe1-4920-a982-0024e2b961b5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From Utilities, run the <bpt id="94d5e70c-afe1-4920-a982-0024e2b961b5">&lt;strong&gt;</bpt>Keychain Access tool<ept id="94d5e70c-afe1-4920-a982-0024e2b961b5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21cc23f2-07c0-4520-bd49-fc365227cb92" xml:space="preserve">
+          <source>Click <bpt id="7fdb023f-cda4-467f-a17d-ab1582c19e05">&lt;strong&gt;</bpt>Keychain Access<ept id="7fdb023f-cda4-467f-a17d-ab1582c19e05">&lt;/strong&gt;</ept>, expand <bpt id="ead2d341-6765-4562-8d1f-a14e21f1d882">&lt;strong&gt;</bpt>Certificate Assistant<ept id="ead2d341-6765-4562-8d1f-a14e21f1d882">&lt;/strong&gt;</ept>, then click <bpt id="90989d7f-a39f-4209-bea1-f0866e45673b">&lt;strong&gt;</bpt>Request a Certificate from a Certificate Authority...<ept id="90989d7f-a39f-4209-bea1-f0866e45673b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7fdb023f-cda4-467f-a17d-ab1582c19e05">&lt;strong&gt;</bpt>Keychain Access<ept id="7fdb023f-cda4-467f-a17d-ab1582c19e05">&lt;/strong&gt;</ept>, expand <bpt id="ead2d341-6765-4562-8d1f-a14e21f1d882">&lt;strong&gt;</bpt>Certificate Assistant<ept id="ead2d341-6765-4562-8d1f-a14e21f1d882">&lt;/strong&gt;</ept>, then click <bpt id="90989d7f-a39f-4209-bea1-f0866e45673b">&lt;strong&gt;</bpt>Request a Certificate from a Certificate Authority...<ept id="90989d7f-a39f-4209-bea1-f0866e45673b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6eb96343-ac17-4ef3-b4b4-e6344e711ef6" xml:space="preserve">
+          <source><bpt id="4e048d44-1172-43ed-9a17-97defa2275b2">&lt;linkText&gt;</bpt><ept id="4e048d44-1172-43ed-9a17-97defa2275b2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e048d44-1172-43ed-9a17-97defa2275b2">&lt;linkText&gt;</bpt><ept id="4e048d44-1172-43ed-9a17-97defa2275b2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abaa75a4-54fc-4e58-b37e-de4a2d1bcf20" xml:space="preserve">
+          <source>Enter your <bpt id="6c2b656f-3b75-4ad4-86b8-80f1d8e6f231">&lt;strong&gt;</bpt>User Email Address<ept id="6c2b656f-3b75-4ad4-86b8-80f1d8e6f231">&lt;/strong&gt;</ept>, type in a <bpt id="969bc61e-4980-40b0-8c53-9b5aa9164681">&lt;strong&gt;</bpt>Common Name<ept id="969bc61e-4980-40b0-8c53-9b5aa9164681">&lt;/strong&gt;</ept> value, make sure that <bpt id="cf816ff3-e061-4e23-8715-2f4e291a6dc8">&lt;strong&gt;</bpt>Saved to disk<ept id="cf816ff3-e061-4e23-8715-2f4e291a6dc8">&lt;/strong&gt;</ept> is selected, and then click <bpt id="ce7f84e9-e09f-4caa-a8a1-e59aaab98eba">&lt;strong&gt;</bpt>Continue<ept id="ce7f84e9-e09f-4caa-a8a1-e59aaab98eba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your <bpt id="6c2b656f-3b75-4ad4-86b8-80f1d8e6f231">&lt;strong&gt;</bpt>User Email Address<ept id="6c2b656f-3b75-4ad4-86b8-80f1d8e6f231">&lt;/strong&gt;</ept>, type in a <bpt id="969bc61e-4980-40b0-8c53-9b5aa9164681">&lt;strong&gt;</bpt>Common Name<ept id="969bc61e-4980-40b0-8c53-9b5aa9164681">&lt;/strong&gt;</ept> value, make sure that <bpt id="cf816ff3-e061-4e23-8715-2f4e291a6dc8">&lt;strong&gt;</bpt>Saved to disk<ept id="cf816ff3-e061-4e23-8715-2f4e291a6dc8">&lt;/strong&gt;</ept> is selected, and then click <bpt id="ce7f84e9-e09f-4caa-a8a1-e59aaab98eba">&lt;strong&gt;</bpt>Continue<ept id="ce7f84e9-e09f-4caa-a8a1-e59aaab98eba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d83f3903-ed53-4b7d-abd0-e49df2521234" xml:space="preserve">
+          <source><bpt id="0d4cbe86-6da6-4745-af6c-5727c4c073a2">&lt;linkText&gt;</bpt><ept id="0d4cbe86-6da6-4745-af6c-5727c4c073a2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d4cbe86-6da6-4745-af6c-5727c4c073a2">&lt;linkText&gt;</bpt><ept id="0d4cbe86-6da6-4745-af6c-5727c4c073a2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a005a2bf-5ac5-454f-a543-2321cd9a66ff" xml:space="preserve">
+          <source>Type a name for the Certificate Signing Request (CSR) file in <bpt id="2eed218b-b1ba-4f7f-88c4-96f530e417a1">&lt;strong&gt;</bpt>Save As<ept id="2eed218b-b1ba-4f7f-88c4-96f530e417a1">&lt;/strong&gt;</ept>, select the location in <bpt id="f29d328b-4f9b-41eb-b101-d09ce3481b98">&lt;strong&gt;</bpt>Where<ept id="f29d328b-4f9b-41eb-b101-d09ce3481b98">&lt;/strong&gt;</ept>, then click <bpt id="4c6081b5-f26c-4ef0-864e-c836fcdf9f6d">&lt;strong&gt;</bpt>Save<ept id="4c6081b5-f26c-4ef0-864e-c836fcdf9f6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for the Certificate Signing Request (CSR) file in <bpt id="2eed218b-b1ba-4f7f-88c4-96f530e417a1">&lt;strong&gt;</bpt>Save As<ept id="2eed218b-b1ba-4f7f-88c4-96f530e417a1">&lt;/strong&gt;</ept>, select the location in <bpt id="f29d328b-4f9b-41eb-b101-d09ce3481b98">&lt;strong&gt;</bpt>Where<ept id="f29d328b-4f9b-41eb-b101-d09ce3481b98">&lt;/strong&gt;</ept>, then click <bpt id="4c6081b5-f26c-4ef0-864e-c836fcdf9f6d">&lt;strong&gt;</bpt>Save<ept id="4c6081b5-f26c-4ef0-864e-c836fcdf9f6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="477e5b49-0014-4107-b77e-9962be1317d9" xml:space="preserve">
+          <source><bpt id="bbb14137-add0-4178-9e05-7ab42165432b">&lt;linkText&gt;</bpt><ept id="bbb14137-add0-4178-9e05-7ab42165432b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bbb14137-add0-4178-9e05-7ab42165432b">&lt;linkText&gt;</bpt><ept id="bbb14137-add0-4178-9e05-7ab42165432b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edef3256-4b03-4002-a4af-256d0724c02f" xml:space="preserve">
+          <source>Remember the location you chose.</source>
+          <target state="new">Remember the location you chose.</target>
+        </trans-unit>
+        <trans-unit id="f142b870-306f-4b4c-ba76-c64153a837aa" xml:space="preserve">
+          <source>Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.</source>
+          <target state="new">Next, you will register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.</target>
+        </trans-unit>
+        <trans-unit id="4b3dd509-0711-48b2-8f87-22979bd68eac" xml:space="preserve">
+          <source>To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications.</source>
+          <target state="new">To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and register for push notifications.</target>
+        </trans-unit>
+        <trans-unit id="d1c0cb7e-e900-4b99-ba05-33e0ecac208f" xml:space="preserve">
+          <source>If you have not already registered your app, navigate to the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank"&gt;iOS Provisioning Portal&lt;/a&gt; at the Apple Developer Center, log on with your Apple ID, click <bpt id="110abbab-cdcc-4ec7-95c2-f1756a7226a3">&lt;strong&gt;</bpt>Identifiers<ept id="110abbab-cdcc-4ec7-95c2-f1756a7226a3">&lt;/strong&gt;</ept>, then click <bpt id="19bfed4f-3d2d-488f-aa7d-273ffef22e5c">&lt;strong&gt;</bpt>App IDs<ept id="19bfed4f-3d2d-488f-aa7d-273ffef22e5c">&lt;/strong&gt;</ept>, and finally click on the <bpt id="a9cb48a0-ecad-474d-8950-46996dbe0269">&lt;strong&gt;</bpt>+<ept id="a9cb48a0-ecad-474d-8950-46996dbe0269">&lt;/strong&gt;</ept> sign to create an app ID for your app.</source>
+          <target state="new">If you have not already registered your app, navigate to the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank"&gt;iOS Provisioning Portal&lt;/a&gt; at the Apple Developer Center, log on with your Apple ID, click <bpt id="110abbab-cdcc-4ec7-95c2-f1756a7226a3">&lt;strong&gt;</bpt>Identifiers<ept id="110abbab-cdcc-4ec7-95c2-f1756a7226a3">&lt;/strong&gt;</ept>, then click <bpt id="19bfed4f-3d2d-488f-aa7d-273ffef22e5c">&lt;strong&gt;</bpt>App IDs<ept id="19bfed4f-3d2d-488f-aa7d-273ffef22e5c">&lt;/strong&gt;</ept>, and finally click on the <bpt id="a9cb48a0-ecad-474d-8950-46996dbe0269">&lt;strong&gt;</bpt>+<ept id="a9cb48a0-ecad-474d-8950-46996dbe0269">&lt;/strong&gt;</ept> sign to create an app ID for your app.</target>
+        </trans-unit>
+        <trans-unit id="2b2502cf-850a-4766-818b-ee754295eefe" xml:space="preserve">
+          <source><bpt id="95f9779f-289d-450b-b2c8-bf827531eeb0">&lt;linkText&gt;</bpt><ept id="95f9779f-289d-450b-b2c8-bf827531eeb0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95f9779f-289d-450b-b2c8-bf827531eeb0">&lt;linkText&gt;</bpt><ept id="95f9779f-289d-450b-b2c8-bf827531eeb0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e74ccac1-028b-45f0-b4e6-41ec557e9389" xml:space="preserve">
+          <source>Type a name for your app in <bpt id="527b898e-84e1-4f13-935e-2352145e3d33">&lt;strong&gt;</bpt>Description<ept id="527b898e-84e1-4f13-935e-2352145e3d33">&lt;/strong&gt;</ept>, enter and remember the unique <bpt id="ad6e38e8-8675-4e97-b8e6-04fdff969854">&lt;strong&gt;</bpt>Bundle Identifier<ept id="ad6e38e8-8675-4e97-b8e6-04fdff969854">&lt;/strong&gt;</ept>, check the "Push Notifications" option in the "App Services" section, and then click <bpt id="c5f4a226-f6db-4823-8bb0-5270b9d8e012">&lt;strong&gt;</bpt>Continue<ept id="c5f4a226-f6db-4823-8bb0-5270b9d8e012">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type a name for your app in <bpt id="527b898e-84e1-4f13-935e-2352145e3d33">&lt;strong&gt;</bpt>Description<ept id="527b898e-84e1-4f13-935e-2352145e3d33">&lt;/strong&gt;</ept>, enter and remember the unique <bpt id="ad6e38e8-8675-4e97-b8e6-04fdff969854">&lt;strong&gt;</bpt>Bundle Identifier<ept id="ad6e38e8-8675-4e97-b8e6-04fdff969854">&lt;/strong&gt;</ept>, check the "Push Notifications" option in the "App Services" section, and then click <bpt id="c5f4a226-f6db-4823-8bb0-5270b9d8e012">&lt;strong&gt;</bpt>Continue<ept id="c5f4a226-f6db-4823-8bb0-5270b9d8e012">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95199ec9-46df-4389-bad1-b18fea981ab6" xml:space="preserve">
+          <source>This example uses the ID <bpt id="7d7aceb1-7e15-4072-9ac7-42f804ae5edb">&lt;strong&gt;</bpt>MobileServices.Quickstart<ept id="7d7aceb1-7e15-4072-9ac7-42f804ae5edb">&lt;/strong&gt;</ept> but you may not reuse this same ID, as app IDs must be unique across all users.</source>
+          <target state="new">This example uses the ID <bpt id="7d7aceb1-7e15-4072-9ac7-42f804ae5edb">&lt;strong&gt;</bpt>MobileServices.Quickstart<ept id="7d7aceb1-7e15-4072-9ac7-42f804ae5edb">&lt;/strong&gt;</ept> but you may not reuse this same ID, as app IDs must be unique across all users.</target>
+        </trans-unit>
+        <trans-unit id="8370f83d-b616-4f04-8992-53da1daf73fa" xml:space="preserve">
+          <source>As such, it is recommended that you append your full name or initials after the app name.</source>
+          <target state="new">As such, it is recommended that you append your full name or initials after the app name.</target>
+        </trans-unit>
+        <trans-unit id="18cb129a-a402-4377-bcbc-a9760fa77ab0" xml:space="preserve">
+          <source><bpt id="c5f97800-2d77-439e-9e9d-10956032400b">&lt;linkText&gt;</bpt><ept id="c5f97800-2d77-439e-9e9d-10956032400b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c5f97800-2d77-439e-9e9d-10956032400b">&lt;linkText&gt;</bpt><ept id="c5f97800-2d77-439e-9e9d-10956032400b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ea44f02b-fa90-4226-8e53-4c1c1dff8cc4" xml:space="preserve">
+          <source>This generates your app ID and requests you to <bpt id="bc2b5e19-1fad-43db-b0b5-224a56014fbf">&lt;strong&gt;</bpt>Submit<ept id="bc2b5e19-1fad-43db-b0b5-224a56014fbf">&lt;/strong&gt;</ept> the information.</source>
+          <target state="new">This generates your app ID and requests you to <bpt id="bc2b5e19-1fad-43db-b0b5-224a56014fbf">&lt;strong&gt;</bpt>Submit<ept id="bc2b5e19-1fad-43db-b0b5-224a56014fbf">&lt;/strong&gt;</ept> the information.</target>
+        </trans-unit>
+        <trans-unit id="656f6dcf-fab5-4148-9d28-90ec95b83a35" xml:space="preserve">
+          <source>Click <bpt id="95b195f4-f554-42c0-803a-b210c8904565">&lt;strong&gt;</bpt>Submit<ept id="95b195f4-f554-42c0-803a-b210c8904565">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="95b195f4-f554-42c0-803a-b210c8904565">&lt;strong&gt;</bpt>Submit<ept id="95b195f4-f554-42c0-803a-b210c8904565">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73390eb2-18c0-4fe0-88ff-ef29a86030a6" xml:space="preserve">
+          <source><bpt id="d401bfbd-cf0a-4ef1-9517-ecfc4e90a842">&lt;linkText&gt;</bpt><ept id="d401bfbd-cf0a-4ef1-9517-ecfc4e90a842">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d401bfbd-cf0a-4ef1-9517-ecfc4e90a842">&lt;linkText&gt;</bpt><ept id="d401bfbd-cf0a-4ef1-9517-ecfc4e90a842">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="942720f1-5e76-45d7-91bf-a845ee379327" xml:space="preserve">
+          <source>Once you click <bpt id="a23b1512-219f-4bc2-86d2-8185a65e242c">&lt;strong&gt;</bpt>Submit<ept id="a23b1512-219f-4bc2-86d2-8185a65e242c">&lt;/strong&gt;</ept>, you will see the <bpt id="ac3e25bb-b776-4cce-a6e4-0c597051b09d">&lt;strong&gt;</bpt>Registration complete<ept id="ac3e25bb-b776-4cce-a6e4-0c597051b09d">&lt;/strong&gt;</ept> screen, as shown below.</source>
+          <target state="new">Once you click <bpt id="a23b1512-219f-4bc2-86d2-8185a65e242c">&lt;strong&gt;</bpt>Submit<ept id="a23b1512-219f-4bc2-86d2-8185a65e242c">&lt;/strong&gt;</ept>, you will see the <bpt id="ac3e25bb-b776-4cce-a6e4-0c597051b09d">&lt;strong&gt;</bpt>Registration complete<ept id="ac3e25bb-b776-4cce-a6e4-0c597051b09d">&lt;/strong&gt;</ept> screen, as shown below.</target>
+        </trans-unit>
+        <trans-unit id="9d731cd8-5d89-499c-ba57-bc9693e84903" xml:space="preserve">
+          <source>Click <bpt id="95b4352c-c321-4bd9-b200-037961340fec">&lt;strong&gt;</bpt>Done<ept id="95b4352c-c321-4bd9-b200-037961340fec">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="95b4352c-c321-4bd9-b200-037961340fec">&lt;strong&gt;</bpt>Done<ept id="95b4352c-c321-4bd9-b200-037961340fec">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a9e2848-4be8-431d-bbc2-48f66891ca2a" xml:space="preserve">
+          <source><bpt id="5273af73-3f7b-46ed-867a-f8431f7ab76b">&lt;linkText&gt;</bpt><ept id="5273af73-3f7b-46ed-867a-f8431f7ab76b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5273af73-3f7b-46ed-867a-f8431f7ab76b">&lt;linkText&gt;</bpt><ept id="5273af73-3f7b-46ed-867a-f8431f7ab76b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8271bb16-ba02-4767-8e63-b02f2e7a3ba6" xml:space="preserve">
+          <source>Locate the app ID that you just created, and click on its row.</source>
+          <target state="new">Locate the app ID that you just created, and click on its row.</target>
+        </trans-unit>
+        <trans-unit id="5a2233d4-a3e7-42ff-a07d-12dd871b0f42" xml:space="preserve">
+          <source><bpt id="96cd7627-e213-4b27-901d-fc266d525e69">&lt;linkText&gt;</bpt><ept id="96cd7627-e213-4b27-901d-fc266d525e69">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="96cd7627-e213-4b27-901d-fc266d525e69">&lt;linkText&gt;</bpt><ept id="96cd7627-e213-4b27-901d-fc266d525e69">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd6b0c43-4071-4888-b0fd-682eb2197912" xml:space="preserve">
+          <source>Clicking on the app ID will display details on the app and app ID.</source>
+          <target state="new">Clicking on the app ID will display details on the app and app ID.</target>
+        </trans-unit>
+        <trans-unit id="062dd5a5-e9af-444b-ac69-2c21601efc2d" xml:space="preserve">
+          <source>Click the <bpt id="b34b71b7-728d-4434-9ff5-0eb75c77dfe6">&lt;strong&gt;</bpt>Settings<ept id="b34b71b7-728d-4434-9ff5-0eb75c77dfe6">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="b34b71b7-728d-4434-9ff5-0eb75c77dfe6">&lt;strong&gt;</bpt>Settings<ept id="b34b71b7-728d-4434-9ff5-0eb75c77dfe6">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="025369bb-de76-4795-a7c4-12faad96a965" xml:space="preserve">
+          <source><bpt id="93359436-cb24-40d2-82c1-2ae94c863b07">&lt;linkText&gt;</bpt><ept id="93359436-cb24-40d2-82c1-2ae94c863b07">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="93359436-cb24-40d2-82c1-2ae94c863b07">&lt;linkText&gt;</bpt><ept id="93359436-cb24-40d2-82c1-2ae94c863b07">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4567c1dd-657d-4b35-9894-9aec878feea6" xml:space="preserve">
+          <source>Scroll to the bottom of the screen, and click the <bpt id="76308c51-7b2b-4eca-ba0f-d771d0d7c961">&lt;strong&gt;</bpt>Create Certificate...<ept id="76308c51-7b2b-4eca-ba0f-d771d0d7c961">&lt;/strong&gt;</ept> button under the section <bpt id="24ad5746-1ec5-43c2-8945-cae7ab28ee07">&lt;strong&gt;</bpt>Development Push SSL Certificate<ept id="24ad5746-1ec5-43c2-8945-cae7ab28ee07">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the bottom of the screen, and click the <bpt id="76308c51-7b2b-4eca-ba0f-d771d0d7c961">&lt;strong&gt;</bpt>Create Certificate...<ept id="76308c51-7b2b-4eca-ba0f-d771d0d7c961">&lt;/strong&gt;</ept> button under the section <bpt id="24ad5746-1ec5-43c2-8945-cae7ab28ee07">&lt;strong&gt;</bpt>Development Push SSL Certificate<ept id="24ad5746-1ec5-43c2-8945-cae7ab28ee07">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53e78877-3d8b-4381-af88-69ff44352a5a" xml:space="preserve">
+          <source><bpt id="cf22e600-d8a4-411b-8bbd-9c3eaec7959e">&lt;linkText&gt;</bpt><ept id="cf22e600-d8a4-411b-8bbd-9c3eaec7959e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf22e600-d8a4-411b-8bbd-9c3eaec7959e">&lt;linkText&gt;</bpt><ept id="cf22e600-d8a4-411b-8bbd-9c3eaec7959e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5d74a24-d4a6-4c31-878a-8b369f9b507d" xml:space="preserve">
+          <source>This displays the "Add iOS Certificate" assistant.</source>
+          <target state="new">This displays the "Add iOS Certificate" assistant.</target>
+        </trans-unit>
+        <trans-unit id="a634c194-75d6-4bbd-aedb-318b3ef491f6" xml:space="preserve">
+          <source>Note: This tutorial uses a development certificate.</source>
+          <target state="new">Note: This tutorial uses a development certificate.</target>
+        </trans-unit>
+        <trans-unit id="5379661a-70b3-47f1-b190-db0e9a1e62ad" xml:space="preserve">
+          <source>The same process is used when registering a production certificate.</source>
+          <target state="new">The same process is used when registering a production certificate.</target>
+        </trans-unit>
+        <trans-unit id="30b85253-42d5-400b-a310-77791ff65cfc" xml:space="preserve">
+          <source>Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</source>
+          <target state="new">Just make sure that you set the same certificate type when you upload the certificate to Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="a77c239d-5bbd-4438-baa0-a820bbc4357d" xml:space="preserve">
+          <source>Click <bpt id="6561fbcf-18d6-43f9-8ee6-54b0b4256705">&lt;strong&gt;</bpt>Choose File<ept id="6561fbcf-18d6-43f9-8ee6-54b0b4256705">&lt;/strong&gt;</ept>, browse to the location where you saved the CSR file earlier, then click <bpt id="4679ac5c-41d4-4c63-906f-4fbf5794b043">&lt;strong&gt;</bpt>Generate<ept id="4679ac5c-41d4-4c63-906f-4fbf5794b043">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6561fbcf-18d6-43f9-8ee6-54b0b4256705">&lt;strong&gt;</bpt>Choose File<ept id="6561fbcf-18d6-43f9-8ee6-54b0b4256705">&lt;/strong&gt;</ept>, browse to the location where you saved the CSR file earlier, then click <bpt id="4679ac5c-41d4-4c63-906f-4fbf5794b043">&lt;strong&gt;</bpt>Generate<ept id="4679ac5c-41d4-4c63-906f-4fbf5794b043">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22a78929-0588-4b43-9eb9-015817e6da6b" xml:space="preserve">
+          <source><bpt id="fb8d577c-b044-4505-aedd-dd7e7be9f063">&lt;linkText&gt;</bpt><ept id="fb8d577c-b044-4505-aedd-dd7e7be9f063">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb8d577c-b044-4505-aedd-dd7e7be9f063">&lt;linkText&gt;</bpt><ept id="fb8d577c-b044-4505-aedd-dd7e7be9f063">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2969c87-403d-44d8-88e4-5bcc1977972e" xml:space="preserve">
+          <source>After the certificate is created by the portal, click the <bpt id="b6e0e02f-1a05-4e2f-99ce-80091a7bdd28">&lt;strong&gt;</bpt>Download<ept id="b6e0e02f-1a05-4e2f-99ce-80091a7bdd28">&lt;/strong&gt;</ept> button, and click <bpt id="01aca8b7-ff72-4e8c-b578-8626b477f3e9">&lt;strong&gt;</bpt>Done<ept id="01aca8b7-ff72-4e8c-b578-8626b477f3e9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the certificate is created by the portal, click the <bpt id="b6e0e02f-1a05-4e2f-99ce-80091a7bdd28">&lt;strong&gt;</bpt>Download<ept id="b6e0e02f-1a05-4e2f-99ce-80091a7bdd28">&lt;/strong&gt;</ept> button, and click <bpt id="01aca8b7-ff72-4e8c-b578-8626b477f3e9">&lt;strong&gt;</bpt>Done<ept id="01aca8b7-ff72-4e8c-b578-8626b477f3e9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="228da12c-07c5-4206-92e4-e2228d77feba" xml:space="preserve">
+          <source><bpt id="5a1781e9-043d-4cf3-9eec-49d4df33b5b1">&lt;linkText&gt;</bpt><ept id="5a1781e9-043d-4cf3-9eec-49d4df33b5b1">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="5a1781e9-043d-4cf3-9eec-49d4df33b5b1">&lt;linkText&gt;</bpt><ept id="5a1781e9-043d-4cf3-9eec-49d4df33b5b1">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="9c01305f-2c51-4063-a796-df25a1703623" xml:space="preserve">
+          <source>This downloads the signing certificate and saves it to your computer in your Downloads folder.</source>
+          <target state="new">This downloads the signing certificate and saves it to your computer in your Downloads folder.</target>
+        </trans-unit>
+        <trans-unit id="c7455b54-bd34-41d9-8049-db6352c30e48" xml:space="preserve">
+          <source><bpt id="3aebb901-a935-47ed-acb3-6ea4df83fbdc">&lt;linkText&gt;</bpt><ept id="3aebb901-a935-47ed-acb3-6ea4df83fbdc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3aebb901-a935-47ed-acb3-6ea4df83fbdc">&lt;linkText&gt;</bpt><ept id="3aebb901-a935-47ed-acb3-6ea4df83fbdc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68d4d383-a807-453d-a160-f9ae199b13ad" xml:space="preserve">
+          <source>Note: By default, the downloaded file a development certificate is named &lt;strong&gt;aps_development.cer&lt;/strong&gt;.</source>
+          <target state="new">Note: By default, the downloaded file a development certificate is named &lt;strong&gt;aps_development.cer&lt;/strong&gt;.</target>
+        </trans-unit>
+        <trans-unit id="0c880dff-dc10-45bc-898d-6a56174f6c48" xml:space="preserve">
+          <source>Double-click the downloaded push certificate <bpt id="baa1fddf-7317-4757-99b4-ee3a19d19ecb">&lt;strong&gt;</bpt>aps_development.cer<ept id="baa1fddf-7317-4757-99b4-ee3a19d19ecb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Double-click the downloaded push certificate <bpt id="baa1fddf-7317-4757-99b4-ee3a19d19ecb">&lt;strong&gt;</bpt>aps_development.cer<ept id="baa1fddf-7317-4757-99b4-ee3a19d19ecb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f2ac2b0-8c3e-4203-87dc-98d4946ea019" xml:space="preserve">
+          <source>This installs the new certificate in the Keychain, as shown below:</source>
+          <target state="new">This installs the new certificate in the Keychain, as shown below:</target>
+        </trans-unit>
+        <trans-unit id="921fce0f-5bd1-4263-b8c6-fd213ce78c28" xml:space="preserve">
+          <source><bpt id="6cd02ed4-4831-49d5-aea2-6fe7ac19e66b">&lt;linkText&gt;</bpt><ept id="6cd02ed4-4831-49d5-aea2-6fe7ac19e66b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6cd02ed4-4831-49d5-aea2-6fe7ac19e66b">&lt;linkText&gt;</bpt><ept id="6cd02ed4-4831-49d5-aea2-6fe7ac19e66b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bdd169a-3668-41dc-8247-6887f681a0ac" xml:space="preserve">
+          <source>Note: The name in your certificate might be different, but it will be prefixed with &lt;strong&gt;Apple Development iOS Push Notification Services:&lt;/strong&gt;.</source>
+          <target state="new">Note: The name in your certificate might be different, but it will be prefixed with &lt;strong&gt;Apple Development iOS Push Notification Services:&lt;/strong&gt;.</target>
+        </trans-unit>
+        <trans-unit id="678cae26-c3a0-4935-8096-357076309c93" xml:space="preserve">
+          <source>Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.</source>
+          <target state="new">Later, you will use this certificate to generate a .p12 file and upload it to Mobile Services to enable authentication with APNS.</target>
+        </trans-unit>
+        <trans-unit id="23e1dd83-45a6-470b-962e-2b6f77bf1ab1" xml:space="preserve">
+          <source>Back in the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank"&gt;iOS Provisioning Portal&lt;/a&gt;, select <bpt id="3ba43de1-4430-4f2c-9439-97e6f0c583ce">&lt;strong&gt;</bpt>Provisioning Profiles<ept id="3ba43de1-4430-4f2c-9439-97e6f0c583ce">&lt;/strong&gt;</ept>, select <bpt id="f70ff8fe-dba9-4a39-afbb-a6255ba0bc0e">&lt;strong&gt;</bpt>All<ept id="f70ff8fe-dba9-4a39-afbb-a6255ba0bc0e">&lt;/strong&gt;</ept>, and then click the <bpt id="88ca91a2-8e86-49c5-bc36-7e16513f7c8d">&lt;strong&gt;</bpt>+<ept id="88ca91a2-8e86-49c5-bc36-7e16513f7c8d">&lt;/strong&gt;</ept> button to create a new profile.</source>
+          <target state="new">Back in the &lt;a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank"&gt;iOS Provisioning Portal&lt;/a&gt;, select <bpt id="3ba43de1-4430-4f2c-9439-97e6f0c583ce">&lt;strong&gt;</bpt>Provisioning Profiles<ept id="3ba43de1-4430-4f2c-9439-97e6f0c583ce">&lt;/strong&gt;</ept>, select <bpt id="f70ff8fe-dba9-4a39-afbb-a6255ba0bc0e">&lt;strong&gt;</bpt>All<ept id="f70ff8fe-dba9-4a39-afbb-a6255ba0bc0e">&lt;/strong&gt;</ept>, and then click the <bpt id="88ca91a2-8e86-49c5-bc36-7e16513f7c8d">&lt;strong&gt;</bpt>+<ept id="88ca91a2-8e86-49c5-bc36-7e16513f7c8d">&lt;/strong&gt;</ept> button to create a new profile.</target>
+        </trans-unit>
+        <trans-unit id="12f8b241-6e26-4557-b124-0351a0a8b819" xml:space="preserve">
+          <source>This launches the <bpt id="7f8675db-ac7d-486a-a9f1-1fd20855a1f9">&lt;strong&gt;</bpt>Add iOS Provisiong Profile<ept id="7f8675db-ac7d-486a-a9f1-1fd20855a1f9">&lt;/strong&gt;</ept> Wizard.</source>
+          <target state="new">This launches the <bpt id="7f8675db-ac7d-486a-a9f1-1fd20855a1f9">&lt;strong&gt;</bpt>Add iOS Provisiong Profile<ept id="7f8675db-ac7d-486a-a9f1-1fd20855a1f9">&lt;/strong&gt;</ept> Wizard.</target>
+        </trans-unit>
+        <trans-unit id="8169fd40-2704-45e8-a6d6-b58e22adeae6" xml:space="preserve">
+          <source><bpt id="fc1d8e7a-dd99-45ab-80f5-3c2ad5fddff6">&lt;linkText&gt;</bpt><ept id="fc1d8e7a-dd99-45ab-80f5-3c2ad5fddff6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fc1d8e7a-dd99-45ab-80f5-3c2ad5fddff6">&lt;linkText&gt;</bpt><ept id="fc1d8e7a-dd99-45ab-80f5-3c2ad5fddff6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33f268f4-662b-4964-9267-84e36df486c6" xml:space="preserve">
+          <source>Select <bpt id="e08e0dc3-a70a-4c52-98b9-dfdd937e5ff7">&lt;strong&gt;</bpt>iOS App Development<ept id="e08e0dc3-a70a-4c52-98b9-dfdd937e5ff7">&lt;/strong&gt;</ept> under <bpt id="048f958c-07d5-4666-9a73-4a8c5d0550c3">&lt;strong&gt;</bpt>Development<ept id="048f958c-07d5-4666-9a73-4a8c5d0550c3">&lt;/strong&gt;</ept> as the provisiong profile type, and click <bpt id="d37cbc0b-1401-47cc-8cb0-e24592a71ef4">&lt;strong&gt;</bpt>Continue<ept id="d37cbc0b-1401-47cc-8cb0-e24592a71ef4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="e08e0dc3-a70a-4c52-98b9-dfdd937e5ff7">&lt;strong&gt;</bpt>iOS App Development<ept id="e08e0dc3-a70a-4c52-98b9-dfdd937e5ff7">&lt;/strong&gt;</ept> under <bpt id="048f958c-07d5-4666-9a73-4a8c5d0550c3">&lt;strong&gt;</bpt>Development<ept id="048f958c-07d5-4666-9a73-4a8c5d0550c3">&lt;/strong&gt;</ept> as the provisiong profile type, and click <bpt id="d37cbc0b-1401-47cc-8cb0-e24592a71ef4">&lt;strong&gt;</bpt>Continue<ept id="d37cbc0b-1401-47cc-8cb0-e24592a71ef4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="582878fc-b70d-4423-9a1d-432997b6d38e" xml:space="preserve">
+          <source>Next, select the app ID for the Mobile Services Quickstart app from the <bpt id="c7982c0c-67ed-457c-8581-37a0c5d0bfad">&lt;strong&gt;</bpt>App ID<ept id="c7982c0c-67ed-457c-8581-37a0c5d0bfad">&lt;/strong&gt;</ept> drop-down list, and click <bpt id="9201cb21-df68-4635-b815-faf77da0e3c7">&lt;strong&gt;</bpt>Continue<ept id="9201cb21-df68-4635-b815-faf77da0e3c7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, select the app ID for the Mobile Services Quickstart app from the <bpt id="c7982c0c-67ed-457c-8581-37a0c5d0bfad">&lt;strong&gt;</bpt>App ID<ept id="c7982c0c-67ed-457c-8581-37a0c5d0bfad">&lt;/strong&gt;</ept> drop-down list, and click <bpt id="9201cb21-df68-4635-b815-faf77da0e3c7">&lt;strong&gt;</bpt>Continue<ept id="9201cb21-df68-4635-b815-faf77da0e3c7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7ba2a172-1056-4f4b-8645-7f2a12088ee6" xml:space="preserve">
+          <source><bpt id="06b76b10-bf7e-491c-a3a0-7fda982765c3">&lt;linkText&gt;</bpt><ept id="06b76b10-bf7e-491c-a3a0-7fda982765c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="06b76b10-bf7e-491c-a3a0-7fda982765c3">&lt;linkText&gt;</bpt><ept id="06b76b10-bf7e-491c-a3a0-7fda982765c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ccec0f8d-dbf9-4c7c-9510-8febbdf7d9db" xml:space="preserve">
+          <source>In the <bpt id="5fc272d0-8c2c-40d7-af69-94e8d7bfd5aa">&lt;strong&gt;</bpt>Select certificates<ept id="5fc272d0-8c2c-40d7-af69-94e8d7bfd5aa">&lt;/strong&gt;</ept> screen, select the certificate created earlier, and click <bpt id="445b5ebf-b6b9-4b59-8f28-595206414d2a">&lt;strong&gt;</bpt>Continue<ept id="445b5ebf-b6b9-4b59-8f28-595206414d2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5fc272d0-8c2c-40d7-af69-94e8d7bfd5aa">&lt;strong&gt;</bpt>Select certificates<ept id="5fc272d0-8c2c-40d7-af69-94e8d7bfd5aa">&lt;/strong&gt;</ept> screen, select the certificate created earlier, and click <bpt id="445b5ebf-b6b9-4b59-8f28-595206414d2a">&lt;strong&gt;</bpt>Continue<ept id="445b5ebf-b6b9-4b59-8f28-595206414d2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e4d188ff-243f-495a-bb4f-6eed05feddff" xml:space="preserve">
+          <source><bpt id="f550b7f1-f07d-46ce-9571-828d365ea72d">&lt;linkText&gt;</bpt><ept id="f550b7f1-f07d-46ce-9571-828d365ea72d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f550b7f1-f07d-46ce-9571-828d365ea72d">&lt;linkText&gt;</bpt><ept id="f550b7f1-f07d-46ce-9571-828d365ea72d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e6174013-03c7-4134-90c1-4da3e4b85239" xml:space="preserve">
+          <source>Next, select the <bpt id="f8030a25-426f-41fe-981d-c235c4de7cd2">&lt;strong&gt;</bpt>Devices<ept id="f8030a25-426f-41fe-981d-c235c4de7cd2">&lt;/strong&gt;</ept> to use for testing, and click <bpt id="3f8fd4f0-9509-4732-8500-db7fb3a7785f">&lt;strong&gt;</bpt>Continue<ept id="3f8fd4f0-9509-4732-8500-db7fb3a7785f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Next, select the <bpt id="f8030a25-426f-41fe-981d-c235c4de7cd2">&lt;strong&gt;</bpt>Devices<ept id="f8030a25-426f-41fe-981d-c235c4de7cd2">&lt;/strong&gt;</ept> to use for testing, and click <bpt id="3f8fd4f0-9509-4732-8500-db7fb3a7785f">&lt;strong&gt;</bpt>Continue<ept id="3f8fd4f0-9509-4732-8500-db7fb3a7785f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1ba95d1-5bdc-4d6b-a1c4-834707244a12" xml:space="preserve">
+          <source><bpt id="6e6e0fc6-2795-4bed-aa97-a93b6718bbd6">&lt;linkText&gt;</bpt><ept id="6e6e0fc6-2795-4bed-aa97-a93b6718bbd6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e6e0fc6-2795-4bed-aa97-a93b6718bbd6">&lt;linkText&gt;</bpt><ept id="6e6e0fc6-2795-4bed-aa97-a93b6718bbd6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="573e1d7e-471e-4e61-ba15-c3a10ee79a50" xml:space="preserve">
+          <source>Finally, pick a name for the profile in <bpt id="c171fba7-5177-4002-bc2c-6b2796a4458e">&lt;strong&gt;</bpt>Profile Name<ept id="c171fba7-5177-4002-bc2c-6b2796a4458e">&lt;/strong&gt;</ept>, click <bpt id="146a744e-72e8-4242-b6da-762ce3be8ac3">&lt;strong&gt;</bpt>Generate<ept id="146a744e-72e8-4242-b6da-762ce3be8ac3">&lt;/strong&gt;</ept>, and click <bpt id="43adec6c-193a-4674-af43-be74e0226239">&lt;strong&gt;</bpt>Done<ept id="43adec6c-193a-4674-af43-be74e0226239">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Finally, pick a name for the profile in <bpt id="c171fba7-5177-4002-bc2c-6b2796a4458e">&lt;strong&gt;</bpt>Profile Name<ept id="c171fba7-5177-4002-bc2c-6b2796a4458e">&lt;/strong&gt;</ept>, click <bpt id="146a744e-72e8-4242-b6da-762ce3be8ac3">&lt;strong&gt;</bpt>Generate<ept id="146a744e-72e8-4242-b6da-762ce3be8ac3">&lt;/strong&gt;</ept>, and click <bpt id="43adec6c-193a-4674-af43-be74e0226239">&lt;strong&gt;</bpt>Done<ept id="43adec6c-193a-4674-af43-be74e0226239">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8530a685-3a1a-472a-8e52-c4d54b8512fa" xml:space="preserve">
+          <source><bpt id="8cbe0dc5-e5bb-4648-b321-65c15c46403f">&lt;linkText&gt;</bpt><ept id="8cbe0dc5-e5bb-4648-b321-65c15c46403f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8cbe0dc5-e5bb-4648-b321-65c15c46403f">&lt;linkText&gt;</bpt><ept id="8cbe0dc5-e5bb-4648-b321-65c15c46403f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6794c04a-8b1d-4894-b5be-8e8ad194d0bc" xml:space="preserve">
+          <source>This creates a new provisioning profile.</source>
+          <target state="new">This creates a new provisioning profile.</target>
+        </trans-unit>
+        <trans-unit id="7394b8db-2988-4eac-97c9-1ff7aa1ccfae" xml:space="preserve">
+          <source><bpt id="217f9905-8df4-4ffb-8d1a-f4d3631c02a8">&lt;linkText&gt;</bpt><ept id="217f9905-8df4-4ffb-8d1a-f4d3631c02a8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="217f9905-8df4-4ffb-8d1a-f4d3631c02a8">&lt;linkText&gt;</bpt><ept id="217f9905-8df4-4ffb-8d1a-f4d3631c02a8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="417f0adb-070a-4682-bb30-29859c829277" xml:space="preserve">
+          <source>After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.</source>
+          <target state="new">After you have registered your app with APNS and configured your project, you must next configure your mobile service to integrate with APNS.</target>
+        </trans-unit>
+        <trans-unit id="58b0d680-3883-4bd0-816e-01363b60d730" xml:space="preserve">
+          <source>In Keychain Access, right-click the new certificate, click <bpt id="4c5a2b37-c3ed-4d8b-859a-b862740085e4">&lt;strong&gt;</bpt>Export<ept id="4c5a2b37-c3ed-4d8b-859a-b862740085e4">&lt;/strong&gt;</ept>, name your file, select the <bpt id="e35c772a-76f2-4b23-ac6e-f0e416c2b8b1">&lt;strong&gt;</bpt>.p12<ept id="e35c772a-76f2-4b23-ac6e-f0e416c2b8b1">&lt;/strong&gt;</ept> format, then click <bpt id="53530fbf-5027-4c14-b305-cbeae11141cb">&lt;strong&gt;</bpt>Save<ept id="53530fbf-5027-4c14-b305-cbeae11141cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Keychain Access, right-click the new certificate, click <bpt id="4c5a2b37-c3ed-4d8b-859a-b862740085e4">&lt;strong&gt;</bpt>Export<ept id="4c5a2b37-c3ed-4d8b-859a-b862740085e4">&lt;/strong&gt;</ept>, name your file, select the <bpt id="e35c772a-76f2-4b23-ac6e-f0e416c2b8b1">&lt;strong&gt;</bpt>.p12<ept id="e35c772a-76f2-4b23-ac6e-f0e416c2b8b1">&lt;/strong&gt;</ept> format, then click <bpt id="53530fbf-5027-4c14-b305-cbeae11141cb">&lt;strong&gt;</bpt>Save<ept id="53530fbf-5027-4c14-b305-cbeae11141cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ae5a3e0-a547-47ba-942c-1bd4cca7b66d" xml:space="preserve">
+          <source><bpt id="d7f2f351-80b1-44b3-bb6c-57f25e39ef7e">&lt;linkText&gt;</bpt><ept id="d7f2f351-80b1-44b3-bb6c-57f25e39ef7e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7f2f351-80b1-44b3-bb6c-57f25e39ef7e">&lt;linkText&gt;</bpt><ept id="d7f2f351-80b1-44b3-bb6c-57f25e39ef7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b274183-29f1-4348-a131-ab4920fa9021" xml:space="preserve">
+          <source>Make a note of the file name and location of the exported certificate.</source>
+          <target state="new">Make a note of the file name and location of the exported certificate.</target>
+        </trans-unit>
+        <trans-unit id="d4ddb0a7-fd2e-4164-a0cf-43c2d2c2c04f" xml:space="preserve">
+          <source>Log on to the [Azure Management Portal], click <bpt id="916fe959-ebdd-402f-b618-0f5d6b7a6c84">&lt;strong&gt;</bpt>Mobile Services<ept id="916fe959-ebdd-402f-b618-0f5d6b7a6c84">&lt;/strong&gt;</ept>, and then click your app.</source>
+          <target state="new">Log on to the [Azure Management Portal], click <bpt id="916fe959-ebdd-402f-b618-0f5d6b7a6c84">&lt;strong&gt;</bpt>Mobile Services<ept id="916fe959-ebdd-402f-b618-0f5d6b7a6c84">&lt;/strong&gt;</ept>, and then click your app.</target>
+        </trans-unit>
+        <trans-unit id="956d3ed4-4964-40bb-9381-177c3b8a6778" xml:space="preserve">
+          <source><bpt id="e9657c17-f968-4f7a-bcf8-dace217a0f33">&lt;linkText&gt;</bpt><ept id="e9657c17-f968-4f7a-bcf8-dace217a0f33">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e9657c17-f968-4f7a-bcf8-dace217a0f33">&lt;linkText&gt;</bpt><ept id="e9657c17-f968-4f7a-bcf8-dace217a0f33">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c8d3f4d-4e86-40b5-9c58-a4c75a735f60" xml:space="preserve">
+          <source>Click the <bpt id="47b07077-5440-4041-802f-3422974dd5a4">&lt;strong&gt;</bpt>Push<ept id="47b07077-5440-4041-802f-3422974dd5a4">&lt;/strong&gt;</ept> tab and click <bpt id="70e20453-0ec7-4497-b792-3a6421b3bb87">&lt;strong&gt;</bpt>Upload<ept id="70e20453-0ec7-4497-b792-3a6421b3bb87">&lt;/strong&gt;</ept> under <bpt id="88baf5d2-e19d-4195-8356-fedee05ec36a">&lt;strong&gt;</bpt>apple push notification settings<ept id="88baf5d2-e19d-4195-8356-fedee05ec36a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="47b07077-5440-4041-802f-3422974dd5a4">&lt;strong&gt;</bpt>Push<ept id="47b07077-5440-4041-802f-3422974dd5a4">&lt;/strong&gt;</ept> tab and click <bpt id="70e20453-0ec7-4497-b792-3a6421b3bb87">&lt;strong&gt;</bpt>Upload<ept id="70e20453-0ec7-4497-b792-3a6421b3bb87">&lt;/strong&gt;</ept> under <bpt id="88baf5d2-e19d-4195-8356-fedee05ec36a">&lt;strong&gt;</bpt>apple push notification settings<ept id="88baf5d2-e19d-4195-8356-fedee05ec36a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1562840f-22a6-406f-bdf3-b6c2d231072a" xml:space="preserve">
+          <source><bpt id="f1e3dc8e-0460-4a45-bf76-330ce252fc45">&lt;linkText&gt;</bpt><ept id="f1e3dc8e-0460-4a45-bf76-330ce252fc45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f1e3dc8e-0460-4a45-bf76-330ce252fc45">&lt;linkText&gt;</bpt><ept id="f1e3dc8e-0460-4a45-bf76-330ce252fc45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b55f3aa-27ca-4667-9228-520bbe2ff4b0" xml:space="preserve">
+          <source>This displays the Upload Certificate dialog.</source>
+          <target state="new">This displays the Upload Certificate dialog.</target>
+        </trans-unit>
+        <trans-unit id="0161c0ef-d1a6-4903-9697-cdbb147d9c61" xml:space="preserve">
+          <source>Click <bpt id="aa063ed6-9b67-4a4d-abd1-66c9eea15401">&lt;strong&gt;</bpt>File<ept id="aa063ed6-9b67-4a4d-abd1-66c9eea15401">&lt;/strong&gt;</ept>, select the exported certificate .p12 file, enter the <bpt id="2181fd65-62d1-4ac3-8a86-eb730fffa524">&lt;strong&gt;</bpt>Password<ept id="2181fd65-62d1-4ac3-8a86-eb730fffa524">&lt;/strong&gt;</ept>, make sure that the correct <bpt id="c9cb16d0-9275-4f11-b281-b5a1e403cabc">&lt;strong&gt;</bpt>Mode<ept id="c9cb16d0-9275-4f11-b281-b5a1e403cabc">&lt;/strong&gt;</ept> is selected, click the check icon, then click <bpt id="1468b1f7-7424-4894-a4c5-18f92becd7b4">&lt;strong&gt;</bpt>Save<ept id="1468b1f7-7424-4894-a4c5-18f92becd7b4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="aa063ed6-9b67-4a4d-abd1-66c9eea15401">&lt;strong&gt;</bpt>File<ept id="aa063ed6-9b67-4a4d-abd1-66c9eea15401">&lt;/strong&gt;</ept>, select the exported certificate .p12 file, enter the <bpt id="2181fd65-62d1-4ac3-8a86-eb730fffa524">&lt;strong&gt;</bpt>Password<ept id="2181fd65-62d1-4ac3-8a86-eb730fffa524">&lt;/strong&gt;</ept>, make sure that the correct <bpt id="c9cb16d0-9275-4f11-b281-b5a1e403cabc">&lt;strong&gt;</bpt>Mode<ept id="c9cb16d0-9275-4f11-b281-b5a1e403cabc">&lt;/strong&gt;</ept> is selected, click the check icon, then click <bpt id="1468b1f7-7424-4894-a4c5-18f92becd7b4">&lt;strong&gt;</bpt>Save<ept id="1468b1f7-7424-4894-a4c5-18f92becd7b4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04231990-03d1-492b-9a9c-d05cd9f607a2" xml:space="preserve">
+          <source><bpt id="2242f5fa-07b3-4494-95c1-6b37b14177fe">&lt;linkText&gt;</bpt><ept id="2242f5fa-07b3-4494-95c1-6b37b14177fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2242f5fa-07b3-4494-95c1-6b37b14177fe">&lt;linkText&gt;</bpt><ept id="2242f5fa-07b3-4494-95c1-6b37b14177fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9490716f-5a62-4911-b5b4-57e0fb712a95" xml:space="preserve">
+          <source>Your mobile service is now configured to work with APNS.</source>
+          <target state="new">Your mobile service is now configured to work with APNS.</target>
+        </trans-unit>
+        <trans-unit id="c4ff583d-5325-470a-833f-ce8294152758" xml:space="preserve">
+          <source>In Xamarin.Studio, open <bpt id="422abb64-a35a-4bc0-ba30-4287a4a15fb9">&lt;strong&gt;</bpt>Info.plist<ept id="422abb64-a35a-4bc0-ba30-4287a4a15fb9">&lt;/strong&gt;</ept>, and update the <bpt id="412797c2-6483-46cd-a799-b5a714317e96">&lt;strong&gt;</bpt>Bundle Identifier<ept id="412797c2-6483-46cd-a799-b5a714317e96">&lt;/strong&gt;</ept> with the ID you created earlier.</source>
+          <target state="new">In Xamarin.Studio, open <bpt id="422abb64-a35a-4bc0-ba30-4287a4a15fb9">&lt;strong&gt;</bpt>Info.plist<ept id="422abb64-a35a-4bc0-ba30-4287a4a15fb9">&lt;/strong&gt;</ept>, and update the <bpt id="412797c2-6483-46cd-a799-b5a714317e96">&lt;strong&gt;</bpt>Bundle Identifier<ept id="412797c2-6483-46cd-a799-b5a714317e96">&lt;/strong&gt;</ept> with the ID you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="20185f5f-b286-49e2-ad2e-99fb447da350" xml:space="preserve">
+          <source><bpt id="084ea58c-cd2d-4c16-8155-f9617ee29224">&lt;linkText&gt;</bpt><ept id="084ea58c-cd2d-4c16-8155-f9617ee29224">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="084ea58c-cd2d-4c16-8155-f9617ee29224">&lt;linkText&gt;</bpt><ept id="084ea58c-cd2d-4c16-8155-f9617ee29224">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a42d436f-9534-4def-95a7-18b14fa05602" xml:space="preserve">
+          <source>Scroll down to <bpt id="73c28206-6334-41dd-ba27-6bb83177af09">&lt;strong&gt;</bpt>Background Modes<ept id="73c28206-6334-41dd-ba27-6bb83177af09">&lt;/strong&gt;</ept> and check the <bpt id="2aadf0d0-c643-46e9-953c-6b00e6ffeae6">&lt;strong&gt;</bpt>Enable Background Modes<ept id="2aadf0d0-c643-46e9-953c-6b00e6ffeae6">&lt;/strong&gt;</ept> box and the <bpt id="489901ae-f71a-46b6-b0bf-ceec16894eba">&lt;strong&gt;</bpt>Remote notifications<ept id="489901ae-f71a-46b6-b0bf-ceec16894eba">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">Scroll down to <bpt id="73c28206-6334-41dd-ba27-6bb83177af09">&lt;strong&gt;</bpt>Background Modes<ept id="73c28206-6334-41dd-ba27-6bb83177af09">&lt;/strong&gt;</ept> and check the <bpt id="2aadf0d0-c643-46e9-953c-6b00e6ffeae6">&lt;strong&gt;</bpt>Enable Background Modes<ept id="2aadf0d0-c643-46e9-953c-6b00e6ffeae6">&lt;/strong&gt;</ept> box and the <bpt id="489901ae-f71a-46b6-b0bf-ceec16894eba">&lt;strong&gt;</bpt>Remote notifications<ept id="489901ae-f71a-46b6-b0bf-ceec16894eba">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="21456cd9-e327-483a-ac55-1b34e1a49ce8" xml:space="preserve">
+          <source><bpt id="e6d3e384-fa2e-427b-b3e9-5b4dee679c2e">&lt;linkText&gt;</bpt><ept id="e6d3e384-fa2e-427b-b3e9-5b4dee679c2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e6d3e384-fa2e-427b-b3e9-5b4dee679c2e">&lt;linkText&gt;</bpt><ept id="e6d3e384-fa2e-427b-b3e9-5b4dee679c2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87930d54-f453-4827-a557-cf142c58acfb" xml:space="preserve">
+          <source>Double click your project in the Solution Panel to open <bpt id="574d755c-e363-430e-8242-353a82220ed0">&lt;strong&gt;</bpt>Project Options<ept id="574d755c-e363-430e-8242-353a82220ed0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Double click your project in the Solution Panel to open <bpt id="574d755c-e363-430e-8242-353a82220ed0">&lt;strong&gt;</bpt>Project Options<ept id="574d755c-e363-430e-8242-353a82220ed0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="893ae597-af27-4e63-9b1d-505ac3b6ecd5" xml:space="preserve">
+          <source>Choose <bpt id="adbd361b-65d2-4019-a860-6e5efc8eab75">&lt;strong&gt;</bpt>iOS Bundle Signing<ept id="adbd361b-65d2-4019-a860-6e5efc8eab75">&lt;/strong&gt;</ept> under <bpt id="54ec5273-1cfa-487c-8e4e-9f1c0552ef70">&lt;strong&gt;</bpt>Build<ept id="54ec5273-1cfa-487c-8e4e-9f1c0552ef70">&lt;/strong&gt;</ept>, and select the corresponding <bpt id="0fa2074d-569a-47fd-a6fc-79dbebf802d3">&lt;strong&gt;</bpt>Identity<ept id="0fa2074d-569a-47fd-a6fc-79dbebf802d3">&lt;/strong&gt;</ept> and <bpt id="f92f68f7-1c0c-4f66-89ce-63a6171b83e7">&lt;strong&gt;</bpt>Provisioning profile<ept id="f92f68f7-1c0c-4f66-89ce-63a6171b83e7">&lt;/strong&gt;</ept> you had just set up for this project.</source>
+          <target state="new">Choose <bpt id="adbd361b-65d2-4019-a860-6e5efc8eab75">&lt;strong&gt;</bpt>iOS Bundle Signing<ept id="adbd361b-65d2-4019-a860-6e5efc8eab75">&lt;/strong&gt;</ept> under <bpt id="54ec5273-1cfa-487c-8e4e-9f1c0552ef70">&lt;strong&gt;</bpt>Build<ept id="54ec5273-1cfa-487c-8e4e-9f1c0552ef70">&lt;/strong&gt;</ept>, and select the corresponding <bpt id="0fa2074d-569a-47fd-a6fc-79dbebf802d3">&lt;strong&gt;</bpt>Identity<ept id="0fa2074d-569a-47fd-a6fc-79dbebf802d3">&lt;/strong&gt;</ept> and <bpt id="f92f68f7-1c0c-4f66-89ce-63a6171b83e7">&lt;strong&gt;</bpt>Provisioning profile<ept id="f92f68f7-1c0c-4f66-89ce-63a6171b83e7">&lt;/strong&gt;</ept> you had just set up for this project.</target>
+        </trans-unit>
+        <trans-unit id="f7675615-3831-4f40-a99a-52b4b9831db3" xml:space="preserve">
+          <source><bpt id="850d2e9c-4ae7-43fc-8001-5cb5c8b524b9">&lt;linkText&gt;</bpt><ept id="850d2e9c-4ae7-43fc-8001-5cb5c8b524b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="850d2e9c-4ae7-43fc-8001-5cb5c8b524b9">&lt;linkText&gt;</bpt><ept id="850d2e9c-4ae7-43fc-8001-5cb5c8b524b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c39fd468-0e83-48c8-9fa9-509538d07618" xml:space="preserve">
+          <source>This ensures that the Xamarin project uses the new profile for code signing.</source>
+          <target state="new">This ensures that the Xamarin project uses the new profile for code signing.</target>
+        </trans-unit>
+        <trans-unit id="e9c69aff-bd16-4a10-847a-b88e62437fbb" xml:space="preserve">
+          <source>For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].</source>
+          <target state="new">For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].</target>
+        </trans-unit>
+        <trans-unit id="20e131b6-129a-4117-983f-428dad2c4f4b" xml:space="preserve">
+          <source>In Xamarin.Studio, open the AppDelegate.cs file and add the following property:</source>
+          <target state="new">In Xamarin.Studio, open the AppDelegate.cs file and add the following property:</target>
+        </trans-unit>
+        <trans-unit id="09454265-34cc-446f-a908-4ce48a895cd4" xml:space="preserve">
+          <source>Open the <bpt id="23fe440d-3aa8-4b4b-8abe-abdf3d9b7e0b">&lt;strong&gt;</bpt>TodoItem<ept id="23fe440d-3aa8-4b4b-8abe-abdf3d9b7e0b">&lt;/strong&gt;</ept> class and add the following property:</source>
+          <target state="new">Open the <bpt id="23fe440d-3aa8-4b4b-8abe-abdf3d9b7e0b">&lt;strong&gt;</bpt>TodoItem<ept id="23fe440d-3aa8-4b4b-8abe-abdf3d9b7e0b">&lt;/strong&gt;</ept> class and add the following property:</target>
+        </trans-unit>
+        <trans-unit id="0587833c-7f9c-4b65-b48f-57c1f6758777" xml:space="preserve">
+          <source>In <bpt id="fbd8e058-5d49-48db-98e1-164f9dc8cffe">&lt;strong&gt;</bpt>QSTodoService<ept id="fbd8e058-5d49-48db-98e1-164f9dc8cffe">&lt;/strong&gt;</ept>, override the existing client declaration to be:</source>
+          <target state="new">In <bpt id="fbd8e058-5d49-48db-98e1-164f9dc8cffe">&lt;strong&gt;</bpt>QSTodoService<ept id="fbd8e058-5d49-48db-98e1-164f9dc8cffe">&lt;/strong&gt;</ept>, override the existing client declaration to be:</target>
+        </trans-unit>
+        <trans-unit id="04a31dda-d4e3-48f8-b288-073cc9ba2054" xml:space="preserve">
+          <source>Then add the following method so <bpt id="64958ba0-0f02-40ab-aa50-5fc11ec9c455">&lt;strong&gt;</bpt>AppDelegate<ept id="64958ba0-0f02-40ab-aa50-5fc11ec9c455">&lt;/strong&gt;</ept> can acquire the client later to register push notifications:</source>
+          <target state="new">Then add the following method so <bpt id="64958ba0-0f02-40ab-aa50-5fc11ec9c455">&lt;strong&gt;</bpt>AppDelegate<ept id="64958ba0-0f02-40ab-aa50-5fc11ec9c455">&lt;/strong&gt;</ept> can acquire the client later to register push notifications:</target>
+        </trans-unit>
+        <trans-unit id="d48bc0ce-bf4c-4db3-bded-0ac2c4ec8277" xml:space="preserve">
+          <source>In <bpt id="fa163435-2bea-4def-9afc-405c714a6041">&lt;strong&gt;</bpt>AppDelegate<ept id="fa163435-2bea-4def-9afc-405c714a6041">&lt;/strong&gt;</ept>, override the <bpt id="60d0e630-3400-4f8f-9a6e-bc1650b14f59">&lt;strong&gt;</bpt>FinishedLaunching<ept id="60d0e630-3400-4f8f-9a6e-bc1650b14f59">&lt;/strong&gt;</ept> event:</source>
+          <target state="new">In <bpt id="fa163435-2bea-4def-9afc-405c714a6041">&lt;strong&gt;</bpt>AppDelegate<ept id="fa163435-2bea-4def-9afc-405c714a6041">&lt;/strong&gt;</ept>, override the <bpt id="60d0e630-3400-4f8f-9a6e-bc1650b14f59">&lt;strong&gt;</bpt>FinishedLaunching<ept id="60d0e630-3400-4f8f-9a6e-bc1650b14f59">&lt;/strong&gt;</ept> event:</target>
+        </trans-unit>
+        <trans-unit id="a3a76616-19a6-4d1f-9177-faed315f0071" xml:space="preserve">
+          <source>In <bpt id="9e509bbc-31a0-42af-a905-8ae03aaf72f7">&lt;strong&gt;</bpt>AppDelegate<ept id="9e509bbc-31a0-42af-a905-8ae03aaf72f7">&lt;/strong&gt;</ept>, override the <bpt id="665d50a9-e662-4dc8-9b96-eea015f8ea79">&lt;strong&gt;</bpt>RegisteredForRemoteNotifications<ept id="665d50a9-e662-4dc8-9b96-eea015f8ea79">&lt;/strong&gt;</ept> event:</source>
+          <target state="new">In <bpt id="9e509bbc-31a0-42af-a905-8ae03aaf72f7">&lt;strong&gt;</bpt>AppDelegate<ept id="9e509bbc-31a0-42af-a905-8ae03aaf72f7">&lt;/strong&gt;</ept>, override the <bpt id="665d50a9-e662-4dc8-9b96-eea015f8ea79">&lt;strong&gt;</bpt>RegisteredForRemoteNotifications<ept id="665d50a9-e662-4dc8-9b96-eea015f8ea79">&lt;/strong&gt;</ept> event:</target>
+        </trans-unit>
+        <trans-unit id="d390061d-64dc-4889-8541-2dc29695164c" xml:space="preserve">
+          <source>In <bpt id="d6e90957-64e2-4aac-abf0-f44eee6ac302">&lt;strong&gt;</bpt>AppDelegate<ept id="d6e90957-64e2-4aac-abf0-f44eee6ac302">&lt;/strong&gt;</ept>, override the <bpt id="2984a492-3a64-4ea8-9692-6b83af2cd968">&lt;strong&gt;</bpt>ReceivedRemoteNotification<ept id="2984a492-3a64-4ea8-9692-6b83af2cd968">&lt;/strong&gt;</ept> event:</source>
+          <target state="new">In <bpt id="d6e90957-64e2-4aac-abf0-f44eee6ac302">&lt;strong&gt;</bpt>AppDelegate<ept id="d6e90957-64e2-4aac-abf0-f44eee6ac302">&lt;/strong&gt;</ept>, override the <bpt id="2984a492-3a64-4ea8-9692-6b83af2cd968">&lt;strong&gt;</bpt>ReceivedRemoteNotification<ept id="2984a492-3a64-4ea8-9692-6b83af2cd968">&lt;/strong&gt;</ept> event:</target>
+        </trans-unit>
+        <trans-unit id="e167e90c-e663-469e-9e73-01a134e94cea" xml:space="preserve">
+          <source>In <bpt id="fb212806-69f1-42d5-b1a1-479b1163c32f">&lt;strong&gt;</bpt>TodoListViewController<ept id="fb212806-69f1-42d5-b1a1-479b1163c32f">&lt;/strong&gt;</ept>, modify the <bpt id="d2d73b3e-2dcc-466b-be88-9afa32306140">&lt;strong&gt;</bpt>OnAdd<ept id="d2d73b3e-2dcc-466b-be88-9afa32306140">&lt;/strong&gt;</ept> action to get the device token stored in <bpt id="15fbdd56-13a4-4b21-8032-eaecedc00af4">&lt;strong&gt;</bpt>AppDelegeate<ept id="15fbdd56-13a4-4b21-8032-eaecedc00af4">&lt;/strong&gt;</ept>, and store it into the <bpt id="06b4d11d-4533-42fd-8969-b32fbfd9837a">&lt;strong&gt;</bpt>TodoItem<ept id="06b4d11d-4533-42fd-8969-b32fbfd9837a">&lt;/strong&gt;</ept> being added.</source>
+          <target state="new">In <bpt id="fb212806-69f1-42d5-b1a1-479b1163c32f">&lt;strong&gt;</bpt>TodoListViewController<ept id="fb212806-69f1-42d5-b1a1-479b1163c32f">&lt;/strong&gt;</ept>, modify the <bpt id="d2d73b3e-2dcc-466b-be88-9afa32306140">&lt;strong&gt;</bpt>OnAdd<ept id="d2d73b3e-2dcc-466b-be88-9afa32306140">&lt;/strong&gt;</ept> action to get the device token stored in <bpt id="15fbdd56-13a4-4b21-8032-eaecedc00af4">&lt;strong&gt;</bpt>AppDelegeate<ept id="15fbdd56-13a4-4b21-8032-eaecedc00af4">&lt;/strong&gt;</ept>, and store it into the <bpt id="06b4d11d-4533-42fd-8969-b32fbfd9837a">&lt;strong&gt;</bpt>TodoItem<ept id="06b4d11d-4533-42fd-8969-b32fbfd9837a">&lt;/strong&gt;</ept> being added.</target>
+        </trans-unit>
+        <trans-unit id="a3365113-63e8-4ae4-820c-610c329fb669" xml:space="preserve">
+          <source>Your app is now updated to support push notifications.</source>
+          <target state="new">Your app is now updated to support push notifications.</target>
+        </trans-unit>
+        <trans-unit id="02764c1a-7f68-406f-9ec5-d923ec8a4576" xml:space="preserve">
+          <source>In the Management Portal, click the <bpt id="300cb20d-0806-4c41-8d99-022824fcff09">&lt;strong&gt;</bpt>Data<ept id="300cb20d-0806-4c41-8d99-022824fcff09">&lt;/strong&gt;</ept> tab and then click the <bpt id="0b28c63c-b234-40b2-b0ac-4bedf8244782">&lt;strong&gt;</bpt>TodoItem<ept id="0b28c63c-b234-40b2-b0ac-4bedf8244782">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">In the Management Portal, click the <bpt id="300cb20d-0806-4c41-8d99-022824fcff09">&lt;strong&gt;</bpt>Data<ept id="300cb20d-0806-4c41-8d99-022824fcff09">&lt;/strong&gt;</ept> tab and then click the <bpt id="0b28c63c-b234-40b2-b0ac-4bedf8244782">&lt;strong&gt;</bpt>TodoItem<ept id="0b28c63c-b234-40b2-b0ac-4bedf8244782">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="c2ca6cb6-f7a9-45c8-b042-6425e0179e94" xml:space="preserve">
+          <source><bpt id="4ba12199-f474-4058-a130-0fe80aa6b70c">&lt;linkText&gt;</bpt><ept id="4ba12199-f474-4058-a130-0fe80aa6b70c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ba12199-f474-4058-a130-0fe80aa6b70c">&lt;linkText&gt;</bpt><ept id="4ba12199-f474-4058-a130-0fe80aa6b70c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c407fa7-813c-488d-83f9-58dcf32cd22c" xml:space="preserve">
+          <source>In <bpt id="34adb44a-8584-4912-8647-106fe0f5ff71">&lt;strong&gt;</bpt>todoitem<ept id="34adb44a-8584-4912-8647-106fe0f5ff71">&lt;/strong&gt;</ept>, click the <bpt id="47f053d7-f2c6-4216-b30f-b4a3f970ff1d">&lt;strong&gt;</bpt>Script<ept id="47f053d7-f2c6-4216-b30f-b4a3f970ff1d">&lt;/strong&gt;</ept> tab and select <bpt id="19ddc93e-a4b5-4ccc-9375-b9eda6ae2671">&lt;strong&gt;</bpt>Insert<ept id="19ddc93e-a4b5-4ccc-9375-b9eda6ae2671">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="34adb44a-8584-4912-8647-106fe0f5ff71">&lt;strong&gt;</bpt>todoitem<ept id="34adb44a-8584-4912-8647-106fe0f5ff71">&lt;/strong&gt;</ept>, click the <bpt id="47f053d7-f2c6-4216-b30f-b4a3f970ff1d">&lt;strong&gt;</bpt>Script<ept id="47f053d7-f2c6-4216-b30f-b4a3f970ff1d">&lt;/strong&gt;</ept> tab and select <bpt id="19ddc93e-a4b5-4ccc-9375-b9eda6ae2671">&lt;strong&gt;</bpt>Insert<ept id="19ddc93e-a4b5-4ccc-9375-b9eda6ae2671">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="08e70713-2adf-44d5-90ed-6718c6fbbdec" xml:space="preserve">
+          <source><bpt id="50902797-5dc4-447d-a3b9-8964e4989854">&lt;linkText&gt;</bpt><ept id="50902797-5dc4-447d-a3b9-8964e4989854">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50902797-5dc4-447d-a3b9-8964e4989854">&lt;linkText&gt;</bpt><ept id="50902797-5dc4-447d-a3b9-8964e4989854">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68c2b5e6-83a8-4ce3-a652-c55fd94dff63" xml:space="preserve">
+          <source>This displays the function that is invoked when an insert occurs in the <bpt id="7b844830-06f0-4094-979a-0dc08930d9c4">&lt;strong&gt;</bpt>TodoItem<ept id="7b844830-06f0-4094-979a-0dc08930d9c4">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">This displays the function that is invoked when an insert occurs in the <bpt id="7b844830-06f0-4094-979a-0dc08930d9c4">&lt;strong&gt;</bpt>TodoItem<ept id="7b844830-06f0-4094-979a-0dc08930d9c4">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="ea5af9da-f318-4439-a0f7-2c6b0316aad1" xml:space="preserve">
+          <source>Replace the insert function with the following code, and then click <bpt id="55b51864-25b3-48f3-a7a1-51ddac1dcf2f">&lt;strong&gt;</bpt>Save<ept id="55b51864-25b3-48f3-a7a1-51ddac1dcf2f">&lt;/strong&gt;</ept>:</source>
+          <target state="new">Replace the insert function with the following code, and then click <bpt id="55b51864-25b3-48f3-a7a1-51ddac1dcf2f">&lt;strong&gt;</bpt>Save<ept id="55b51864-25b3-48f3-a7a1-51ddac1dcf2f">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="6b92962a-a345-4d5f-8a83-b83bb44d1b4d" xml:space="preserve">
+          <source>This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.</source>
+          <target state="new">This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.</target>
+        </trans-unit>
+        <trans-unit id="30a422fc-9ff4-4276-9ac6-2b33aa0cc136" xml:space="preserve">
+          <source>This script delays sending the notification to give you time to close the app to receive a toast notification.</source>
+          <target state="new">This script delays sending the notification to give you time to close the app to receive a toast notification.</target>
+        </trans-unit>
+        <trans-unit id="8c3049a0-ec1a-44eb-bc75-b8b36bc81b3a" xml:space="preserve">
+          <source>Press the <bpt id="9d959129-df30-44cd-8488-4d60a4f12ecd">&lt;strong&gt;</bpt>Run<ept id="9d959129-df30-44cd-8488-4d60a4f12ecd">&lt;/strong&gt;</ept> button to build the project and start the app in an iOS capable device, then click <bpt id="974dfb66-20ef-4f3e-a66d-48f741527bae">&lt;strong&gt;</bpt>OK<ept id="974dfb66-20ef-4f3e-a66d-48f741527bae">&lt;/strong&gt;</ept> to accept push notifications</source>
+          <target state="new">Press the <bpt id="9d959129-df30-44cd-8488-4d60a4f12ecd">&lt;strong&gt;</bpt>Run<ept id="9d959129-df30-44cd-8488-4d60a4f12ecd">&lt;/strong&gt;</ept> button to build the project and start the app in an iOS capable device, then click <bpt id="974dfb66-20ef-4f3e-a66d-48f741527bae">&lt;strong&gt;</bpt>OK<ept id="974dfb66-20ef-4f3e-a66d-48f741527bae">&lt;/strong&gt;</ept> to accept push notifications</target>
+        </trans-unit>
+        <trans-unit id="19aba3fd-3bb6-4e2c-9adf-0a839d815b8a" xml:space="preserve">
+          <source><bpt id="77830234-c49a-476b-b4b9-6947a21fb829">&lt;linkText&gt;</bpt><ept id="77830234-c49a-476b-b4b9-6947a21fb829">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="77830234-c49a-476b-b4b9-6947a21fb829">&lt;linkText&gt;</bpt><ept id="77830234-c49a-476b-b4b9-6947a21fb829">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f54527ff-b026-411a-97bd-f3428a8bf8df" xml:space="preserve">
+          <source>You must explicitly accept push notifications from your app.</source>
+          <target state="new">You must explicitly accept push notifications from your app.</target>
+        </trans-unit>
+        <trans-unit id="1d4c474a-16bd-4e0a-8b8b-3d0f5988cdf2" xml:space="preserve">
+          <source>This request only occurs the first time that the app runs.</source>
+          <target state="new">This request only occurs the first time that the app runs.</target>
+        </trans-unit>
+        <trans-unit id="964bd7da-2280-461c-993a-66a3d8b9a27d" xml:space="preserve">
+          <source>In the app, type meaningful text, such as <bpt id="d3046145-9674-4988-88c9-b8691928b754">&lt;em&gt;</bpt>A new Mobile Services task<ept id="d3046145-9674-4988-88c9-b8691928b754">&lt;/em&gt;</ept> and then click the plus (<bpt id="5dcaa98b-706c-40ac-a53a-a48241901668">&lt;strong&gt;</bpt>+<ept id="5dcaa98b-706c-40ac-a53a-a48241901668">&lt;/strong&gt;</ept>) icon.</source>
+          <target state="new">In the app, type meaningful text, such as <bpt id="d3046145-9674-4988-88c9-b8691928b754">&lt;em&gt;</bpt>A new Mobile Services task<ept id="d3046145-9674-4988-88c9-b8691928b754">&lt;/em&gt;</ept> and then click the plus (<bpt id="5dcaa98b-706c-40ac-a53a-a48241901668">&lt;strong&gt;</bpt>+<ept id="5dcaa98b-706c-40ac-a53a-a48241901668">&lt;/strong&gt;</ept>) icon.</target>
+        </trans-unit>
+        <trans-unit id="370bf353-705b-494d-a7f2-a34e389f69ac" xml:space="preserve">
+          <source><bpt id="03e70fd8-c549-4c89-a242-79cd58961589">&lt;linkText&gt;</bpt><ept id="03e70fd8-c549-4c89-a242-79cd58961589">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="03e70fd8-c549-4c89-a242-79cd58961589">&lt;linkText&gt;</bpt><ept id="03e70fd8-c549-4c89-a242-79cd58961589">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2db0c77e-53b2-4408-8e25-ebdbb726cc94" xml:space="preserve">
+          <source>Verify that a notification is received, then click <bpt id="9f1ae40e-ac5c-4f6f-9a15-7fb8fdaa0d4a">&lt;strong&gt;</bpt>OK<ept id="9f1ae40e-ac5c-4f6f-9a15-7fb8fdaa0d4a">&lt;/strong&gt;</ept> to dismiss the notification.</source>
+          <target state="new">Verify that a notification is received, then click <bpt id="9f1ae40e-ac5c-4f6f-9a15-7fb8fdaa0d4a">&lt;strong&gt;</bpt>OK<ept id="9f1ae40e-ac5c-4f6f-9a15-7fb8fdaa0d4a">&lt;/strong&gt;</ept> to dismiss the notification.</target>
+        </trans-unit>
+        <trans-unit id="60c1fd7b-d0f0-4066-9b9f-054b44c487e1" xml:space="preserve">
+          <source><bpt id="1152ad3d-413c-425f-8b5e-ccdcc95a0adc">&lt;linkText&gt;</bpt><ept id="1152ad3d-413c-425f-8b5e-ccdcc95a0adc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1152ad3d-413c-425f-8b5e-ccdcc95a0adc">&lt;linkText&gt;</bpt><ept id="1152ad3d-413c-425f-8b5e-ccdcc95a0adc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="632b4564-f95e-4ac7-9458-93568f353caa" xml:space="preserve">
+          <source>Repeat step 2 and immediately close the app, then verify that the following toast is shown.</source>
+          <target state="new">Repeat step 2 and immediately close the app, then verify that the following toast is shown.</target>
+        </trans-unit>
+        <trans-unit id="26408fb2-5a7a-4b08-9d0f-9469fa298367" xml:space="preserve">
+          <source><bpt id="e7967fb5-c159-4738-a22e-16136fe6b09e">&lt;linkText&gt;</bpt><ept id="e7967fb5-c159-4738-a22e-16136fe6b09e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e7967fb5-c159-4738-a22e-16136fe6b09e">&lt;linkText&gt;</bpt><ept id="e7967fb5-c159-4738-a22e-16136fe6b09e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66fd411f-9ba2-4861-97b9-cfb2f937836d" xml:space="preserve">
+          <source>You have successfully completed this tutorial.</source>
+          <target state="new">You have successfully completed this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6e424df7-2a84-4ca8-a664-f234e9b63723" xml:space="preserve">
+          <source>#certificates</source>
+          <target state="new">#certificates</target>
+        </trans-unit>
+        <trans-unit id="da338701-e55b-4deb-a3ec-afc3d1904176" xml:space="preserve">
+          <source>#register</source>
+          <target state="new">#register</target>
+        </trans-unit>
+        <trans-unit id="cddcc388-7c1c-406f-b7ee-a19616781405" xml:space="preserve">
+          <source>#profile</source>
+          <target state="new">#profile</target>
+        </trans-unit>
+        <trans-unit id="80707013-16a3-4580-8c9c-394e56552776" xml:space="preserve">
+          <source>#configure-mobileServices</source>
+          <target state="new">#configure-mobileServices</target>
+        </trans-unit>
+        <trans-unit id="d3958165-6d72-4156-be2f-10e21aeaf5fc" xml:space="preserve">
+          <source>#configure-app</source>
+          <target state="new">#configure-app</target>
+        </trans-unit>
+        <trans-unit id="c4dc6c32-71b1-4015-be3c-0c27f96a8fb7" xml:space="preserve">
+          <source>#update-scripts</source>
+          <target state="new">#update-scripts</target>
+        </trans-unit>
+        <trans-unit id="2a6d22a5-734d-483f-b203-5419b00eea29" xml:space="preserve">
+          <source>#add-push</source>
+          <target state="new">#add-push</target>
+        </trans-unit>
+        <trans-unit id="a2af40c3-1991-40b0-9dc2-86e26658a33c" xml:space="preserve">
+          <source>#test</source>
+          <target state="new">#test</target>
+        </trans-unit>
+        <trans-unit id="ca677111-1ac2-4d14-a2d8-b3719364f2cf" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png</target>
+        </trans-unit>
+        <trans-unit id="1bddeaf3-d0ba-40a2-ac66-72d82a8ce2f6" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png</target>
+        </trans-unit>
+        <trans-unit id="40744d34-995e-40a7-be16-36cae05ad001" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png</target>
+        </trans-unit>
+        <trans-unit id="34a82fce-2a82-41f3-88e9-3c1f6c08a179" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step9.png</target>
+        </trans-unit>
+        <trans-unit id="196d8ba6-3ace-48c2-a4cc-35f9f132ed05" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step10.png</target>
+        </trans-unit>
+        <trans-unit id="e802c191-eed3-4868-8759-549fbb817ab7" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step17.png</target>
+        </trans-unit>
+        <trans-unit id="84102298-4c14-4fc3-8da5-de7e0a0f91a1" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-selection.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-selection.png</target>
+        </trans-unit>
+        <trans-unit id="3067db3b-b591-4071-8e8b-5a8596163acc" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-push-tab-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-push-tab-ios.png</target>
+        </trans-unit>
+        <trans-unit id="00a44f03-c413-4372-be48-2fe030e6412c" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-push-tab-ios-upload.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-push-tab-ios-upload.png</target>
+        </trans-unit>
+        <trans-unit id="2f9ca55c-621b-4db8-a624-2f86daf31703" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-portal-data-tables.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-portal-data-tables.png</target>
+        </trans-unit>
+        <trans-unit id="03cbe732-67ec-465a-9a96-0109d82df73a" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-insert-script-push2.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-insert-script-push2.png</target>
+        </trans-unit>
+        <trans-unit id="c190edd0-2bb1-42d4-a9af-9b469f1cd0ce" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png</target>
+        </trans-unit>
+        <trans-unit id="b04cee01-06a3-4b63-8189-38d720a013ae" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png</target>
+        </trans-unit>
+        <trans-unit id="ab8c5a58-8a49-40cb-933b-ee68d7a2ad3e" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png</target>
+        </trans-unit>
+        <trans-unit id="f8a824d6-d5e0-435a-8ebb-e352e1251916" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png</target>
+        </trans-unit>
+        <trans-unit id="ea9dd63a-a8a3-4816-ac07-cbd76f9ec31e" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step18.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step18.png</target>
+        </trans-unit>
+        <trans-unit id="6da1e7b6-94eb-4f84-8fbd-c2829b07cbd6" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-01.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-01.png</target>
+        </trans-unit>
+        <trans-unit id="307bcee4-c228-44e9-b6e8-a058874d0938" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-02.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-02.png</target>
+        </trans-unit>
+        <trans-unit id="37cad510-d250-4c68-9240-6efef0155969" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-03.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-03.png</target>
+        </trans-unit>
+        <trans-unit id="20563799-61ad-4a23-88ec-3c8c6843c564" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-04.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-04.png</target>
+        </trans-unit>
+        <trans-unit id="a65c1878-b01d-4225-97f2-f05fb049a334" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-05.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-05.png</target>
+        </trans-unit>
+        <trans-unit id="35b9e74d-6039-46c3-b219-80f69db41675" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-06.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-06.png</target>
+        </trans-unit>
+        <trans-unit id="1ba433cb-405a-43b7-91e6-d131800ef948" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-07.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-07.png</target>
+        </trans-unit>
+        <trans-unit id="0302de53-0525-4d4f-a00d-cb80c8ddca7a" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-08.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-08.png</target>
+        </trans-unit>
+        <trans-unit id="acaa2668-f594-450f-bf69-0763bc188df3" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-10.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-10.png</target>
+        </trans-unit>
+        <trans-unit id="fc414ed8-3946-4b81-a2ed-418c4729623b" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-11.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-11.png</target>
+        </trans-unit>
+        <trans-unit id="7f98be09-0884-4cda-9b86-6d1dc1faa1db" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-12.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-12.png</target>
+        </trans-unit>
+        <trans-unit id="c75a1f45-06c4-4090-822a-c5a563d2ef8d" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-13.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-13.png</target>
+        </trans-unit>
+        <trans-unit id="afddb32e-195b-4cb4-8b5a-8dca3ef7a894" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-14.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-14.png</target>
+        </trans-unit>
+        <trans-unit id="01e4c696-8077-48db-9f14-9091eab877e8" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-15.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-15.png</target>
+        </trans-unit>
+        <trans-unit id="07e04cdc-a170-4844-a1b9-7d1718a6f1a0" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-16.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-16.png</target>
+        </trans-unit>
+        <trans-unit id="2d16e15a-7f15-406c-9a50-6a1c674c7f6e" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-17.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-17.png</target>
+        </trans-unit>
+        <trans-unit id="4d245583-12c7-4842-b5b8-ccdc63797f14" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-20.png</target>
+        </trans-unit>
+        <trans-unit id="e32f377f-fbbc-4ed8-8a3f-c0120a580159" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-21.png</target>
+        </trans-unit>
+        <trans-unit id="08b97af4-a63d-4654-af2c-8966907d7f2e" xml:space="preserve">
+          <source>./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png</source>
+          <target state="new">./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-22.png</target>
+        </trans-unit>
+        <trans-unit id="0f819899-af8f-4510-abb0-84513c04c771" xml:space="preserve">
+          <source>http://xamarin.com/platform</source>
+          <target state="new">http://xamarin.com/platform</target>
+        </trans-unit>
+        <trans-unit id="b43004cb-20a5-4f60-845a-0da53f4567b5" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266532</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266532</target>
+        </trans-unit>
+        <trans-unit id="96151ca7-d0a0-46ba-9881-daf3faa1a7b3" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272456</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272456</target>
+        </trans-unit>
+        <trans-unit id="592d3c53-d62f-4ae2-b47d-7449bd41ed92" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266533</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266533</target>
+        </trans-unit>
+        <trans-unit id="37a5abd1-554e-45f2-987b-6b8f14f45ac3" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272584</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272584</target>
+        </trans-unit>
+        <trans-unit id="b1d82002-fd93-4e50-82ad-e2d6f2195ad8" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="ca75f6e6-864d-4658-a56a-b3aac83d7669" xml:space="preserve">
+          <source>http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/</source>
+          <target state="new">http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/</target>
+        </trans-unit>
+        <trans-unit id="9c65c547-cf95-4528-980a-f15ad383eed2" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="21a8a585-10b4-400d-b6b2-4c90151d0faf" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=272333</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=272333</target>
+        </trans-unit>
+        <trans-unit id="7a848ce3-f9a3-4390-919f-441028b16d39" xml:space="preserve">
+          <source>http://components.xamarin.com/view/azure-mobile-services/</source>
+          <target state="new">http://components.xamarin.com/view/azure-mobile-services/</target>
+        </trans-unit>
+        <trans-unit id="3b0745f0-bb98-4e07-bda9-ce78059fc37b" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/p/?LinkId=331303</source>
+          <target state="new">http://go.microsoft.com/fwlink/p/?LinkId=331303</target>
+        </trans-unit>
+        <trans-unit id="f9c644e5-107e-409f-90b3-cd677daf1109" xml:space="preserve">
+          <source>http://xamarin.com/download</source>
+          <target state="new">http://xamarin.com/download</target>
+        </trans-unit>
+      </group>
+      <group id="7f167a5e-1c1a-435a-a6f8-5f79ff0fd84e" />
+    </body>
+  </file>
+</xliff>

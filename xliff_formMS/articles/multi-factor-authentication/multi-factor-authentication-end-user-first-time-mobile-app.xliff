@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="91bb4ac4-5f55-43b5-b494-4d860fe4c270" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="91bb4ac4-5f55-43b5-b494-4d860fe4c270" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bbf8ed96-64b3-4c20-b912-43e3bc6d21c9">
+        <trans-unit id="f79c081c-48f7-4393-a560-ce5aa55811cf" xml:space="preserve">
+          <source>Use mobile app as your contact method with Azure MFA</source>
+          <target state="new">Use mobile app as your contact method with Azure MFA</target>
+        </trans-unit>
+        <trans-unit id="d04d9a9f-decf-45fd-9ad1-d268d7fe4377" xml:space="preserve">
+          <source>This page will show users how to use the mobile app as the primary contact method for Azure MFA.</source>
+          <target state="new">This page will show users how to use the mobile app as the primary contact method for Azure MFA.</target>
+        </trans-unit>
+        <trans-unit id="175a43fd-06d9-4362-a835-b7c68c6bde27" xml:space="preserve">
+          <source>If you want to use the mobile app as your primary contact method you can use this article.</source>
+          <target state="new">If you want to use the mobile app as your primary contact method you can use this article.</target>
+        </trans-unit>
+        <trans-unit id="f25fea77-e1eb-4539-aafd-20610fd71020" xml:space="preserve">
+          <source>It will walk you through setting up multi-factor authentication to use your mobile app as your primary contact method.</source>
+          <target state="new">It will walk you through setting up multi-factor authentication to use your mobile app as your primary contact method.</target>
+        </trans-unit>
+        <trans-unit id="ac3acec2-7f7e-41ca-898b-b306bbf28ddd" xml:space="preserve">
+          <source>The Azure Authenticator app is available for <bpt id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;linkText&gt;</bpt>Windows Phone<ept id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;/linkText&gt;</ept><bpt id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;title&gt;</bpt><ept id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;/title&gt;</ept>, <bpt id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;linkText&gt;</bpt>Android<ept id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;/linkText&gt;</ept><bpt id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;title&gt;</bpt><ept id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;/title&gt;</ept>, and <bpt id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;linkText&gt;</bpt>IOS<ept id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;/linkText&gt;</ept><bpt id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;title&gt;</bpt><ept id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Azure Authenticator app is available for <bpt id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;linkText&gt;</bpt>Windows Phone<ept id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;/linkText&gt;</ept><bpt id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;title&gt;</bpt><ept id="f912828e-fbc5-40fe-8c0e-9c97a55afb8e">&lt;/title&gt;</ept>, <bpt id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;linkText&gt;</bpt>Android<ept id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;/linkText&gt;</ept><bpt id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;title&gt;</bpt><ept id="d387189c-b2b9-447f-8678-373f6538cb3e">&lt;/title&gt;</ept>, and <bpt id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;linkText&gt;</bpt>IOS<ept id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;/linkText&gt;</ept><bpt id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;title&gt;</bpt><ept id="23e546ee-366b-43a8-8f69-1434aa62b53a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="95592d11-2646-48fe-9e6b-387b9bdddd00" xml:space="preserve">
+          <source>Select Mobile App from the drop-down.</source>
+          <target state="new">Select Mobile App from the drop-down.</target>
+        </trans-unit>
+        <trans-unit id="bddf978d-acaa-4405-a74e-d07b184dd22e" xml:space="preserve">
+          <source><bpt id="8f2f21a4-0d85-483a-829d-0976f85a237d">&lt;linkText&gt;</bpt>Setup<ept id="8f2f21a4-0d85-483a-829d-0976f85a237d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8f2f21a4-0d85-483a-829d-0976f85a237d">&lt;linkText&gt;</bpt>Setup<ept id="8f2f21a4-0d85-483a-829d-0976f85a237d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67a89e92-d82e-4876-80c2-95171dad7048" xml:space="preserve">
+          <source>Select either Notification or One-time password and click Set up.</source>
+          <target state="new">Select either Notification or One-time password and click Set up.</target>
+        </trans-unit>
+        <trans-unit id="852def6a-a9f7-4c68-a391-deb91aed55d4" xml:space="preserve">
+          <source>On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.</source>
+          <target state="new">On the phone that has the Azure Authenticator app installed, launch the app and click scan barcode.</target>
+        </trans-unit>
+        <trans-unit id="76c31f65-7319-41ce-b2d8-15176fa443c4" xml:space="preserve">
+          <source>To add an account that already has Azure MFA or a 3rd party account see <bpt id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;linkText&gt;</bpt>Adding an account manually<ept id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;/linkText&gt;</ept><bpt id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;title&gt;</bpt><ept id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">To add an account that already has Azure MFA or a 3rd party account see <bpt id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;linkText&gt;</bpt>Adding an account manually<ept id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;/linkText&gt;</ept><bpt id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;title&gt;</bpt><ept id="d265fbf4-1dab-428e-a5e3-7a8f960752e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21a22b99-09b8-4efd-a3ae-05d859bcefb8" xml:space="preserve">
+          <source><bpt id="1c8f51e2-c454-45f6-a770-1b00779241dc">&lt;linkText&gt;</bpt>Setup<ept id="1c8f51e2-c454-45f6-a770-1b00779241dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1c8f51e2-c454-45f6-a770-1b00779241dc">&lt;linkText&gt;</bpt>Setup<ept id="1c8f51e2-c454-45f6-a770-1b00779241dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3af6735-aff6-484d-9ef1-04c83ac14b31" xml:space="preserve">
+          <source>Scan the barcode picture that came up with the configure mobile app screen.</source>
+          <target state="new">Scan the barcode picture that came up with the configure mobile app screen.</target>
+        </trans-unit>
+        <trans-unit id="f8ef0cc8-6abf-43dc-a821-dbb42bb74393" xml:space="preserve">
+          <source>Click Done to close the barcode screen.</source>
+          <target state="new">Click Done to close the barcode screen.</target>
+        </trans-unit>
+        <trans-unit id="06098fc7-3a2f-49ca-a865-61e685562ab3" xml:space="preserve">
+          <source>If you cannot get the barcode to scan you can enter the information manually.</source>
+          <target state="new">If you cannot get the barcode to scan you can enter the information manually.</target>
+        </trans-unit>
+        <trans-unit id="0c35abaf-acc7-420f-b776-1083a30947e6" xml:space="preserve">
+          <source><bpt id="c21dc508-84f6-405b-b9e2-5c696784cf8b">&lt;linkText&gt;</bpt>Setup<ept id="c21dc508-84f6-405b-b9e2-5c696784cf8b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c21dc508-84f6-405b-b9e2-5c696784cf8b">&lt;linkText&gt;</bpt>Setup<ept id="c21dc508-84f6-405b-b9e2-5c696784cf8b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="30688535-26a9-4a05-9476-7b3ee5d0348e" xml:space="preserve">
+          <source>On the phone, it will begin to activate, once this has completed click Contact me.</source>
+          <target state="new">On the phone, it will begin to activate, once this has completed click Contact me.</target>
+        </trans-unit>
+        <trans-unit id="4ca39294-7722-4220-aa64-7552e102f86d" xml:space="preserve">
+          <source>This will send either a notification or a verification code to your phone.</source>
+          <target state="new">This will send either a notification or a verification code to your phone.</target>
+        </trans-unit>
+        <trans-unit id="97fd332b-3f20-4591-9d6a-08675c0ebb2d" xml:space="preserve">
+          <source>Click verify.</source>
+          <target state="new">Click verify.</target>
+        </trans-unit>
+        <trans-unit id="0b237acc-f314-43b0-9771-cd6e6c428e7e" xml:space="preserve">
+          <source><bpt id="0538cb5b-3ac9-4ae8-aae2-45044ead69ad">&lt;linkText&gt;</bpt>Setup<ept id="0538cb5b-3ac9-4ae8-aae2-45044ead69ad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0538cb5b-3ac9-4ae8-aae2-45044ead69ad">&lt;linkText&gt;</bpt>Setup<ept id="0538cb5b-3ac9-4ae8-aae2-45044ead69ad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5b67470-0064-4f60-abe7-358b3db7ad2f" xml:space="preserve">
+          <source>Click close.</source>
+          <target state="new">Click close.</target>
+        </trans-unit>
+        <trans-unit id="790d53ce-48b4-4ace-b844-5bd05a3639a9" xml:space="preserve">
+          <source>At this point, your verification should be successful.</source>
+          <target state="new">At this point, your verification should be successful.</target>
+        </trans-unit>
+        <trans-unit id="e7a69488-6ba1-47b0-8aa0-901da5b6194e" xml:space="preserve">
+          <source>Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.</source>
+          <target state="new">Now it is recommended that enter your mobile phone number in case you lose access to your mobile app.</target>
+        </trans-unit>
+        <trans-unit id="6a126f98-27cb-48e1-bfd6-30f90e5550b2" xml:space="preserve">
+          <source>Specify your country from the drop-down and enter your mobile phone number in the box next to country.</source>
+          <target state="new">Specify your country from the drop-down and enter your mobile phone number in the box next to country.</target>
+        </trans-unit>
+        <trans-unit id="c9c31978-3536-43cd-9ce7-aae7e784f6c3" xml:space="preserve">
+          <source>Click Next.</source>
+          <target state="new">Click Next.</target>
+        </trans-unit>
+        <trans-unit id="ae655f96-dbd2-4130-83a7-9647a0c2fe56" xml:space="preserve">
+          <source>At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older.</source>
+          <target state="new">At this point, you have setup your contact method and now it is time to setup app passwords for non-browser apps such as Outlook 2010 or older.</target>
+        </trans-unit>
+        <trans-unit id="7700ea2b-e2be-4094-9165-7fff153cd16c" xml:space="preserve">
+          <source>If you do not use these apps click <bpt id="55a5bdad-efd9-4623-aa92-4bbde795dc2e">&lt;strong&gt;</bpt>Done<ept id="55a5bdad-efd9-4623-aa92-4bbde795dc2e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you do not use these apps click <bpt id="55a5bdad-efd9-4623-aa92-4bbde795dc2e">&lt;strong&gt;</bpt>Done<ept id="55a5bdad-efd9-4623-aa92-4bbde795dc2e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43b06d93-7efd-44ca-b2ed-c72379cd1615" xml:space="preserve">
+          <source>Otherwise continue to the next step.</source>
+          <target state="new">Otherwise continue to the next step.</target>
+        </trans-unit>
+        <trans-unit id="cd81ed0b-d8ed-4692-afb8-6ec406a9226e" xml:space="preserve">
+          <source><bpt id="289512f3-aad3-47dc-bb65-bcf90f0cfa98">&lt;linkText&gt;</bpt>Setup<ept id="289512f3-aad3-47dc-bb65-bcf90f0cfa98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="289512f3-aad3-47dc-bb65-bcf90f0cfa98">&lt;linkText&gt;</bpt>Setup<ept id="289512f3-aad3-47dc-bb65-bcf90f0cfa98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1cd6ddfc-0344-4e24-9d45-782cd16a2ca0" xml:space="preserve">
+          <source>If you are using these apps then copy the app password provided and paste the password into your non-browser application.</source>
+          <target state="new">If you are using these apps then copy the app password provided and paste the password into your non-browser application.</target>
+        </trans-unit>
+        <trans-unit id="7864eb38-76b2-4b20-bf2c-34a9c186f7ae" xml:space="preserve">
+          <source>For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</source>
+          <target state="new">For steps on individual applications such as Outlook and Lync see How to change the password in your email to the app password and How to change the password in your application to the app password.</target>
+        </trans-unit>
+        <trans-unit id="4a2e7154-b3ab-47c3-94a0-bbb9e39bc0a5" xml:space="preserve">
+          <source>Click Done.</source>
+          <target state="new">Click Done.</target>
+        </trans-unit>
+        <trans-unit id="c17f7e30-127c-4900-aec0-fef4b44a946e" xml:space="preserve">
+          <source>If you want to add an account manually, select the enter account manually button.</source>
+          <target state="new">If you want to add an account manually, select the enter account manually button.</target>
+        </trans-unit>
+        <trans-unit id="1e5357b8-4aa4-42c3-b5a3-a5403604abc4" xml:space="preserve">
+          <source><bpt id="dada68c7-e78d-436d-a952-5f5e3dc4dadc">&lt;linkText&gt;</bpt>Setup<ept id="dada68c7-e78d-436d-a952-5f5e3dc4dadc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dada68c7-e78d-436d-a952-5f5e3dc4dadc">&lt;linkText&gt;</bpt>Setup<ept id="dada68c7-e78d-436d-a952-5f5e3dc4dadc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a5d62a8-d918-4cd5-9c78-f073ac4b4d98" xml:space="preserve">
+          <source>Now if you have an account that already has Azure MFA, enter the code and the url that is provided on the same page that shows you the barcode.</source>
+          <target state="new">Now if you have an account that already has Azure MFA, enter the code and the url that is provided on the same page that shows you the barcode.</target>
+        </trans-unit>
+        <trans-unit id="b4ec8fcf-267a-445b-9c60-f13059456058" xml:space="preserve">
+          <source>This goes in the code and url boxes on the mobile app.</source>
+          <target state="new">This goes in the code and url boxes on the mobile app.</target>
+        </trans-unit>
+        <trans-unit id="883d8b88-30da-45e1-856d-2ba30379036b" xml:space="preserve">
+          <source>This will begin the activation.</source>
+          <target state="new">This will begin the activation.</target>
+        </trans-unit>
+        <trans-unit id="72bbbbbb-b032-4001-aa1b-1ad1f37052db" xml:space="preserve">
+          <source><bpt id="8d37af0c-1929-41bc-8cf3-3d949d18b5b0">&lt;linkText&gt;</bpt>Setup<ept id="8d37af0c-1929-41bc-8cf3-3d949d18b5b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d37af0c-1929-41bc-8cf3-3d949d18b5b0">&lt;linkText&gt;</bpt>Setup<ept id="8d37af0c-1929-41bc-8cf3-3d949d18b5b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33a41386-c058-42e2-9926-96d79e4cd64f" xml:space="preserve">
+          <source>Once this has completed click Contact me.</source>
+          <target state="new">Once this has completed click Contact me.</target>
+        </trans-unit>
+        <trans-unit id="1333823c-a22e-46db-a555-49114a54d529" xml:space="preserve">
+          <source>This will send either a notification or a verification code to your phone.</source>
+          <target state="new">This will send either a notification or a verification code to your phone.</target>
+        </trans-unit>
+        <trans-unit id="38cedd8f-1463-4843-bc40-ccd386dc0f85" xml:space="preserve">
+          <source>Click verify.</source>
+          <target state="new">Click verify.</target>
+        </trans-unit>
+        <trans-unit id="db41c53d-a12c-4194-a109-cd4ac217fed6" xml:space="preserve">
+          <source>To finish, follow the steps above starting at number 6.</source>
+          <target state="new">To finish, follow the steps above starting at number 6.</target>
+        </trans-unit>
+        <trans-unit id="43d5d496-d0b8-4e11-8de4-fb0fb4b7252f" xml:space="preserve">
+          <source>If you are using a 3rd party account with the mobile app, enter the account name and the security key in the boxes provided and then activate the account.</source>
+          <target state="new">If you are using a 3rd party account with the mobile app, enter the account name and the security key in the boxes provided and then activate the account.</target>
+        </trans-unit>
+        <trans-unit id="b5b78d3a-6f9d-4f37-b2ee-c8fbc832919b" xml:space="preserve">
+          <source>Once you have done this and verified the account, follow the steps above starting at number 6.</source>
+          <target state="new">Once you have done this and verified the account, follow the steps above starting at number 6.</target>
+        </trans-unit>
+        <trans-unit id="311f1d9b-1716-48ec-b9a5-ef53002d77ec" xml:space="preserve">
+          <source><bpt id="b09b4579-1dff-4572-a16a-de3fac976f16">&lt;linkText&gt;</bpt>Setup<ept id="b09b4579-1dff-4572-a16a-de3fac976f16">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b09b4579-1dff-4572-a16a-de3fac976f16">&lt;linkText&gt;</bpt>Setup<ept id="b09b4579-1dff-4572-a16a-de3fac976f16">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="11bec9b3-d2d2-4302-875e-a53f28870a64" xml:space="preserve">
+          <source>If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.</source>
+          <target state="new">If you see "Add work account", this is for Workplace Join and not for multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="0b09f111-13ed-44da-aa75-576784d827ce" xml:space="preserve">
+          <source>You can disregard this.</source>
+          <target state="new">You can disregard this.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

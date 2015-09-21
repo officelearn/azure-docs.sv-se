@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6679208f-48c1-4629-b1a3-d7d71eadc17e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6679208f-48c1-4629-b1a3-d7d71eadc17e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a58565c9-96ef-462b-a9a3-2e4bbbd3a3f5">
+        <trans-unit id="e1eddb12-a1c7-49c5-a70e-c100e5cdb12d" xml:space="preserve">
+          <source>Get started with custom authentication | Microsoft Azure</source>
+          <target state="new">Get started with custom authentication | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="416e961c-e6dc-4934-a533-d23afec50201" xml:space="preserve">
+          <source>Learn how to authenticate users with a username and password.</source>
+          <target state="new">Learn how to authenticate users with a username and password.</target>
+        </trans-unit>
+        <trans-unit id="75207d26-007a-488c-b709-6bd173ca235d" xml:space="preserve">
+          <source>This topic shows you how to authenticate users in the Azure Mobile Services .NET backend by issuing your own Mobile Services authentication token.</source>
+          <target state="new">This topic shows you how to authenticate users in the Azure Mobile Services .NET backend by issuing your own Mobile Services authentication token.</target>
+        </trans-unit>
+        <trans-unit id="ebd8660b-f141-4bca-b6db-0eab9718df66" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the quickstart project using a custom username and password for your app.</source>
+          <target state="new">In this tutorial, you add authentication to the quickstart project using a custom username and password for your app.</target>
+        </trans-unit>
+        <trans-unit id="667e605c-070d-4b29-ab2f-4831220ef0ae" xml:space="preserve">
+          <source>This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials.</source>
+          <target state="new">This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials.</target>
+        </trans-unit>
+        <trans-unit id="46cb039e-9a17-4dc3-871a-f5bbb4d1825e" xml:space="preserve">
+          <source>Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory.</source>
+          <target state="new">Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="93f293f4-f942-4c55-a87d-6dd85263e896" xml:space="preserve">
+          <source>If this is your first experience with authentication in Mobile Services, please see the [Add authentication to your app] tutorial.</source>
+          <target state="new">If this is your first experience with authentication in Mobile Services, please see the [Add authentication to your app] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a7e9e776-f045-484a-afe5-24de9d30b3d7" xml:space="preserve">
+          <source>This tutorial is based on the Mobile Services quickstart.</source>
+          <target state="new">This tutorial is based on the Mobile Services quickstart.</target>
+        </trans-unit>
+        <trans-unit id="37ba358b-495c-40ee-8647-fb93ce40d9ac" xml:space="preserve">
+          <source>You must also first complete the tutorial [Get started with Mobile Services].</source>
+          <target state="new">You must also first complete the tutorial [Get started with Mobile Services].</target>
+        </trans-unit>
+        <trans-unit id="aa6af6ff-18e6-4f8e-b846-2f582b4529e2" xml:space="preserve">
+          <source>The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services.</source>
+          <target state="new">The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="25408149-fd66-4f55-8c35-d716628e6e7a" xml:space="preserve">
+          <source>This is not to be taken as security guidance.</source>
+          <target state="new">This is not to be taken as security guidance.</target>
+        </trans-unit>
+        <trans-unit id="8b801ed2-42bd-40a1-9a30-342d6ccd77bc" xml:space="preserve">
+          <source>In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.</source>
+          <target state="new">In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.</target>
+        </trans-unit>
+        <trans-unit id="a56dc16c-2a78-44f3-bcba-7187e89088ec" xml:space="preserve">
+          <source>Because you are using custom authentication and not relying on another identity provider, you will need to store your users' sign-in information.</source>
+          <target state="new">Because you are using custom authentication and not relying on another identity provider, you will need to store your users' sign-in information.</target>
+        </trans-unit>
+        <trans-unit id="224d2209-0cf5-4599-9d11-8384e264db53" xml:space="preserve">
+          <source>In this section, you will create a table for your accounts and set up the basic security mechanisms.</source>
+          <target state="new">In this section, you will create a table for your accounts and set up the basic security mechanisms.</target>
+        </trans-unit>
+        <trans-unit id="7252cc69-25e7-4f92-b75c-cfe11cff1352" xml:space="preserve">
+          <source>The accounts table will contain the usernames and the salted and hashed passwords, and you can also include additional user information if needed.</source>
+          <target state="new">The accounts table will contain the usernames and the salted and hashed passwords, and you can also include additional user information if needed.</target>
+        </trans-unit>
+        <trans-unit id="dce74393-fa1d-4971-a826-117918eb0d6d" xml:space="preserve">
+          <source>In the <bpt id="fe09ea8b-1ef3-4f1b-81b9-33e15ff1c0bd">&lt;strong&gt;</bpt>DataObjects<ept id="fe09ea8b-1ef3-4f1b-81b9-33e15ff1c0bd">&lt;/strong&gt;</ept> folder of your backend project, add a new entity called <bpt id="63d862a7-8cb7-4943-b1d1-7723089e7aed">&lt;code&gt;</bpt>Account<ept id="63d862a7-8cb7-4943-b1d1-7723089e7aed">&lt;/code&gt;</ept>.</source>
+          <target state="new">In the <bpt id="fe09ea8b-1ef3-4f1b-81b9-33e15ff1c0bd">&lt;strong&gt;</bpt>DataObjects<ept id="fe09ea8b-1ef3-4f1b-81b9-33e15ff1c0bd">&lt;/strong&gt;</ept> folder of your backend project, add a new entity called <bpt id="63d862a7-8cb7-4943-b1d1-7723089e7aed">&lt;code&gt;</bpt>Account<ept id="63d862a7-8cb7-4943-b1d1-7723089e7aed">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3f3a38c-0120-43e7-88bd-ca1df288dcf4" xml:space="preserve">
+          <source>Add the following <bpt id="447418c8-a909-47de-930c-f743f2b8e8fd">&lt;code&gt;</bpt>using<ept id="447418c8-a909-47de-930c-f743f2b8e8fd">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">Add the following <bpt id="447418c8-a909-47de-930c-f743f2b8e8fd">&lt;code&gt;</bpt>using<ept id="447418c8-a909-47de-930c-f743f2b8e8fd">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="1cd3d5f1-e4ee-4041-bd21-56be3f491868" xml:space="preserve">
+          <source>Replace the class definition with the following code:</source>
+          <target state="new">Replace the class definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="5f67e5d5-6757-4cd3-8869-4b74851580e8" xml:space="preserve">
+          <source>This represents a row in a new Account table, which contains the username, that user's salt, and the securly stored password.</source>
+          <target state="new">This represents a row in a new Account table, which contains the username, that user's salt, and the securly stored password.</target>
+        </trans-unit>
+        <trans-unit id="2d028a8c-e399-4c77-80ec-32082356f4fe" xml:space="preserve">
+          <source>Under the <bpt id="c096de95-50d0-45c0-93b8-b6b08a701155">&lt;strong&gt;</bpt>Models<ept id="c096de95-50d0-45c0-93b8-b6b08a701155">&lt;/strong&gt;</ept> folder, you will find a <bpt id="0305d279-3c12-49aa-bcc3-9fb859e4ef12">&lt;strong&gt;</bpt>DbContext<ept id="0305d279-3c12-49aa-bcc3-9fb859e4ef12">&lt;/strong&gt;</ept> derived class named after your mobile service.</source>
+          <target state="new">Under the <bpt id="c096de95-50d0-45c0-93b8-b6b08a701155">&lt;strong&gt;</bpt>Models<ept id="c096de95-50d0-45c0-93b8-b6b08a701155">&lt;/strong&gt;</ept> folder, you will find a <bpt id="0305d279-3c12-49aa-bcc3-9fb859e4ef12">&lt;strong&gt;</bpt>DbContext<ept id="0305d279-3c12-49aa-bcc3-9fb859e4ef12">&lt;/strong&gt;</ept> derived class named after your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="14fe1c2c-13b7-4874-9c2c-a6e302594b2d" xml:space="preserve">
+          <source>Open your context and add the accounts table to your data model by including the following:</source>
+          <target state="new">Open your context and add the accounts table to your data model by including the following:</target>
+        </trans-unit>
+        <trans-unit id="ce6028b1-1019-45b9-acba-25e5af01136b" xml:space="preserve">
+          <source>The code snippets in this tutorial use <bpt id="3f605d03-f343-4375-8924-c64c65a4abf6">&lt;code&gt;</bpt>todoContext<ept id="3f605d03-f343-4375-8924-c64c65a4abf6">&lt;/code&gt;</ept> as the context name.</source>
+          <target state="new">The code snippets in this tutorial use <bpt id="3f605d03-f343-4375-8924-c64c65a4abf6">&lt;code&gt;</bpt>todoContext<ept id="3f605d03-f343-4375-8924-c64c65a4abf6">&lt;/code&gt;</ept> as the context name.</target>
+        </trans-unit>
+        <trans-unit id="cc8302fa-0aea-4da5-b149-38f976a5a3a5" xml:space="preserve">
+          <source>You must update the code snippets for your project's context.</source>
+          <target state="new">You must update the code snippets for your project's context.</target>
+        </trans-unit>
+        <trans-unit id="d96ead25-3e5a-40a4-a258-b4b969b1d428" xml:space="preserve">
+          <source>&amp;nbsp;
+Next, you will set up the security functions for working with this data.</source>
+          <target state="new">&amp;nbsp;
+Next, you will set up the security functions for working with this data.</target>
+        </trans-unit>
+        <trans-unit id="7968f267-d46b-44ea-90f2-7d6658636066" xml:space="preserve">
+          <source>Create a class called <bpt id="66fe3feb-2d98-43eb-9ce6-56b39c89c694">&lt;code&gt;</bpt>CustomLoginProviderUtils<ept id="66fe3feb-2d98-43eb-9ce6-56b39c89c694">&lt;/code&gt;</ept> and add the following <bpt id="9cbedc46-a213-4a48-a74a-18b7a87562b2">&lt;code&gt;</bpt>using<ept id="9cbedc46-a213-4a48-a74a-18b7a87562b2">&lt;/code&gt;</ept> statement:</source>
+          <target state="new">Create a class called <bpt id="66fe3feb-2d98-43eb-9ce6-56b39c89c694">&lt;code&gt;</bpt>CustomLoginProviderUtils<ept id="66fe3feb-2d98-43eb-9ce6-56b39c89c694">&lt;/code&gt;</ept> and add the following <bpt id="9cbedc46-a213-4a48-a74a-18b7a87562b2">&lt;code&gt;</bpt>using<ept id="9cbedc46-a213-4a48-a74a-18b7a87562b2">&lt;/code&gt;</ept> statement:</target>
+        </trans-unit>
+        <trans-unit id="8831bec8-cbf2-486f-b2db-8d865ada032c" xml:space="preserve">
+          <source>Add the following code methods to the new class:</source>
+          <target state="new">Add the following code methods to the new class:</target>
+        </trans-unit>
+        <trans-unit id="2f2a5587-71d7-4a49-801d-5dc6a8a4bc85" xml:space="preserve">
+          <source>This lets you generate a new long salt, adds the ability to hash a salted password, and provides a secure way of comparing two hashes.</source>
+          <target state="new">This lets you generate a new long salt, adds the ability to hash a salted password, and provides a secure way of comparing two hashes.</target>
+        </trans-unit>
+        <trans-unit id="d6d70161-35b3-4097-b56c-47016ac36a4e" xml:space="preserve">
+          <source>At this point, you have everything you need to begin creating user accounts.</source>
+          <target state="new">At this point, you have everything you need to begin creating user accounts.</target>
+        </trans-unit>
+        <trans-unit id="b9fbf577-b232-4654-af81-4ed0a585c0c2" xml:space="preserve">
+          <source>In this section, you will set up a registration endpoint to handle new registration requests.</source>
+          <target state="new">In this section, you will set up a registration endpoint to handle new registration requests.</target>
+        </trans-unit>
+        <trans-unit id="2ee6e4e1-6f5c-4cf8-b255-fd13830e618c" xml:space="preserve">
+          <source>This is where you will enforce new username and password policies and ensure that the username is not taken.</source>
+          <target state="new">This is where you will enforce new username and password policies and ensure that the username is not taken.</target>
+        </trans-unit>
+        <trans-unit id="ff3839ca-93ce-474f-846d-9b303b8117a2" xml:space="preserve">
+          <source>Then you will safely store the user information in your database.</source>
+          <target state="new">Then you will safely store the user information in your database.</target>
+        </trans-unit>
+        <trans-unit id="87e0a5a5-727c-4eb1-b0ed-052a42946e62" xml:space="preserve">
+          <source>Create the following new class to represent an incoming registration attempt:</source>
+          <target state="new">Create the following new class to represent an incoming registration attempt:</target>
+        </trans-unit>
+        <trans-unit id="e2bac70d-4082-44e4-8805-e9a7f0bab08e" xml:space="preserve">
+          <source>If you need to collect and store other information during registration, you should do it here.</source>
+          <target state="new">If you need to collect and store other information during registration, you should do it here.</target>
+        </trans-unit>
+        <trans-unit id="df42f599-3891-4e20-a392-6ac482f72c5c" xml:space="preserve">
+          <source>In your mobile service backend project, right-click <bpt id="69ab62db-ee0c-4c4d-92a9-eb1c8a10bb99">&lt;strong&gt;</bpt>Controllers<ept id="69ab62db-ee0c-4c4d-92a9-eb1c8a10bb99">&lt;/strong&gt;</ept>, click <bpt id="6823b723-394b-4d49-ac63-07be7943a558">&lt;strong&gt;</bpt>Add<ept id="6823b723-394b-4d49-ac63-07be7943a558">&lt;/strong&gt;</ept> and <bpt id="a10b63f1-b804-4a27-ba69-f4d7442f7211">&lt;strong&gt;</bpt>Controller<ept id="a10b63f1-b804-4a27-ba69-f4d7442f7211">&lt;/strong&gt;</ept>, create a new <bpt id="30d3dd86-03b8-4d35-9f1b-d3fbd239786d">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services Custom Controller<ept id="30d3dd86-03b8-4d35-9f1b-d3fbd239786d">&lt;/strong&gt;</ept> named <bpt id="cefda22b-0236-4060-9303-1cbfc56a24a8">&lt;code&gt;</bpt>CustomRegistrationController<ept id="cefda22b-0236-4060-9303-1cbfc56a24a8">&lt;/code&gt;</ept>, then add the following <bpt id="5ef3ce4e-d9a8-4fce-adf7-4477a2e2dfb5">&lt;code&gt;</bpt>using<ept id="5ef3ce4e-d9a8-4fce-adf7-4477a2e2dfb5">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">In your mobile service backend project, right-click <bpt id="69ab62db-ee0c-4c4d-92a9-eb1c8a10bb99">&lt;strong&gt;</bpt>Controllers<ept id="69ab62db-ee0c-4c4d-92a9-eb1c8a10bb99">&lt;/strong&gt;</ept>, click <bpt id="6823b723-394b-4d49-ac63-07be7943a558">&lt;strong&gt;</bpt>Add<ept id="6823b723-394b-4d49-ac63-07be7943a558">&lt;/strong&gt;</ept> and <bpt id="a10b63f1-b804-4a27-ba69-f4d7442f7211">&lt;strong&gt;</bpt>Controller<ept id="a10b63f1-b804-4a27-ba69-f4d7442f7211">&lt;/strong&gt;</ept>, create a new <bpt id="30d3dd86-03b8-4d35-9f1b-d3fbd239786d">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services Custom Controller<ept id="30d3dd86-03b8-4d35-9f1b-d3fbd239786d">&lt;/strong&gt;</ept> named <bpt id="cefda22b-0236-4060-9303-1cbfc56a24a8">&lt;code&gt;</bpt>CustomRegistrationController<ept id="cefda22b-0236-4060-9303-1cbfc56a24a8">&lt;/code&gt;</ept>, then add the following <bpt id="5ef3ce4e-d9a8-4fce-adf7-4477a2e2dfb5">&lt;code&gt;</bpt>using<ept id="5ef3ce4e-d9a8-4fce-adf7-4477a2e2dfb5">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="91d446c8-6544-42f8-bc52-bf337e00f456" xml:space="preserve">
+          <source>In the above code, replace the placeholder with your project's namespace.</source>
+          <target state="new">In the above code, replace the placeholder with your project's namespace.</target>
+        </trans-unit>
+        <trans-unit id="77d86d2f-8469-4f89-a178-a98c06ef64aa" xml:space="preserve">
+          <source>Replace the class definition with the following code:</source>
+          <target state="new">Replace the class definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="e0f43b77-c60a-4d69-a6d2-43891fe381a4" xml:space="preserve">
+          <source>Remember to replace the <bpt id="9ae4a82a-198e-4450-8da6-9b95e9ab62b0">&lt;em&gt;</bpt>todoContext<ept id="9ae4a82a-198e-4450-8da6-9b95e9ab62b0">&lt;/em&gt;</ept> variable with the name of your project's <bpt id="c6a1db9b-3aee-4c16-b050-d0b11b2cd700">&lt;strong&gt;</bpt>DbContext<ept id="c6a1db9b-3aee-4c16-b050-d0b11b2cd700">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Remember to replace the <bpt id="9ae4a82a-198e-4450-8da6-9b95e9ab62b0">&lt;em&gt;</bpt>todoContext<ept id="9ae4a82a-198e-4450-8da6-9b95e9ab62b0">&lt;/em&gt;</ept> variable with the name of your project's <bpt id="c6a1db9b-3aee-4c16-b050-d0b11b2cd700">&lt;strong&gt;</bpt>DbContext<ept id="c6a1db9b-3aee-4c16-b050-d0b11b2cd700">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4186645f-088b-48eb-abbf-f78088e02fc3" xml:space="preserve">
+          <source>Note that this controller uses the following attribute to allow all traffic to this endpoint:</source>
+          <target state="new">Note that this controller uses the following attribute to allow all traffic to this endpoint:</target>
+        </trans-unit>
+        <trans-unit id="5d0b0682-ebe6-49f0-951e-113a01b6fb1f" xml:space="preserve">
+          <source>This registration endpoint can be accessed by any client via HTTP.</source>
+          <target state="new">This registration endpoint can be accessed by any client via HTTP.</target>
+        </trans-unit>
+        <trans-unit id="07dd0db8-18c4-40e5-a5ec-e72d5c7b262a" xml:space="preserve">
+          <source>Before you publish this service to a production environment, you should implement some sort of scheme to validate registrations, such as a SMS or email-based verification.</source>
+          <target state="new">Before you publish this service to a production environment, you should implement some sort of scheme to validate registrations, such as a SMS or email-based verification.</target>
+        </trans-unit>
+        <trans-unit id="29cf2239-800a-4c85-a628-a239f2365b4b" xml:space="preserve">
+          <source>This can help prevent a malicious user from creating fraudulent registrations.</source>
+          <target state="new">This can help prevent a malicious user from creating fraudulent registrations.</target>
+        </trans-unit>
+        <trans-unit id="f176bb84-3578-4fc9-b37b-ce7b4fd9ef01" xml:space="preserve">
+          <source>One of the fundamental constructs in the Mobile Services authentication pipeline is the <bpt id="1cdabf3d-b1d6-417b-b2e1-2d9d8e71d09c">&lt;strong&gt;</bpt>LoginProvider<ept id="1cdabf3d-b1d6-417b-b2e1-2d9d8e71d09c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">One of the fundamental constructs in the Mobile Services authentication pipeline is the <bpt id="1cdabf3d-b1d6-417b-b2e1-2d9d8e71d09c">&lt;strong&gt;</bpt>LoginProvider<ept id="1cdabf3d-b1d6-417b-b2e1-2d9d8e71d09c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b31cafd-b9f7-4ab3-ad10-eaf47ce0da02" xml:space="preserve">
+          <source>In this section, you will create your own <bpt id="2bd5022e-1702-4cc4-813d-f9b2505a2821">&lt;code&gt;</bpt>CustomLoginProvider<ept id="2bd5022e-1702-4cc4-813d-f9b2505a2821">&lt;/code&gt;</ept>.</source>
+          <target state="new">In this section, you will create your own <bpt id="2bd5022e-1702-4cc4-813d-f9b2505a2821">&lt;code&gt;</bpt>CustomLoginProvider<ept id="2bd5022e-1702-4cc4-813d-f9b2505a2821">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="863727e7-2b2b-493e-b809-5bb5c26cf893" xml:space="preserve">
+          <source>It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.</source>
+          <target state="new">It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.</target>
+        </trans-unit>
+        <trans-unit id="bb8d769a-722f-481c-a21e-3412d780616e" xml:space="preserve">
+          <source>If you use the visual studio 2013, you maybe need to install the <bpt id="1dc9d379-36af-4adc-826b-81f86a552734">&lt;code&gt;</bpt>WindowsAzure.MobileServices.Backend.Security<ept id="1dc9d379-36af-4adc-826b-81f86a552734">&lt;/code&gt;</ept> nuget package to add the references to <bpt id="1de3cc42-d1ea-4504-a8d2-2676f8955f46">&lt;code&gt;</bpt>LoginProvider<ept id="1de3cc42-d1ea-4504-a8d2-2676f8955f46">&lt;/code&gt;</ept> class.</source>
+          <target state="new">If you use the visual studio 2013, you maybe need to install the <bpt id="1dc9d379-36af-4adc-826b-81f86a552734">&lt;code&gt;</bpt>WindowsAzure.MobileServices.Backend.Security<ept id="1dc9d379-36af-4adc-826b-81f86a552734">&lt;/code&gt;</ept> nuget package to add the references to <bpt id="1de3cc42-d1ea-4504-a8d2-2676f8955f46">&lt;code&gt;</bpt>LoginProvider<ept id="1de3cc42-d1ea-4504-a8d2-2676f8955f46">&lt;/code&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="9892c3f7-7242-4277-b151-08ba3ac75367" xml:space="preserve">
+          <source>Create a new class, <bpt id="ab64ab36-999b-47b3-b038-1f6d4a1185b7">&lt;code&gt;</bpt>CustomLoginProvider<ept id="ab64ab36-999b-47b3-b038-1f6d4a1185b7">&lt;/code&gt;</ept>, which derives from <bpt id="1597c51c-303d-48bf-b1f1-9e487bdc070b">&lt;strong&gt;</bpt>LoginProvider<ept id="1597c51c-303d-48bf-b1f1-9e487bdc070b">&lt;/strong&gt;</ept>, and add the following <bpt id="0a570b3a-6bd3-4f94-a021-ee9cae905c2f">&lt;code&gt;</bpt>using<ept id="0a570b3a-6bd3-4f94-a021-ee9cae905c2f">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">Create a new class, <bpt id="ab64ab36-999b-47b3-b038-1f6d4a1185b7">&lt;code&gt;</bpt>CustomLoginProvider<ept id="ab64ab36-999b-47b3-b038-1f6d4a1185b7">&lt;/code&gt;</ept>, which derives from <bpt id="1597c51c-303d-48bf-b1f1-9e487bdc070b">&lt;strong&gt;</bpt>LoginProvider<ept id="1597c51c-303d-48bf-b1f1-9e487bdc070b">&lt;/strong&gt;</ept>, and add the following <bpt id="0a570b3a-6bd3-4f94-a021-ee9cae905c2f">&lt;code&gt;</bpt>using<ept id="0a570b3a-6bd3-4f94-a021-ee9cae905c2f">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="05f9423f-3e5c-4af0-aaa6-51aae70eec03" xml:space="preserve">
+          <source>replace the <bpt id="bf44b11c-7412-4be2-b181-34e84bdd9f81">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="bf44b11c-7412-4be2-b181-34e84bdd9f81">&lt;/strong&gt;</ept> class definition with the following code:</source>
+          <target state="new">replace the <bpt id="bf44b11c-7412-4be2-b181-34e84bdd9f81">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="bf44b11c-7412-4be2-b181-34e84bdd9f81">&lt;/strong&gt;</ept> class definition with the following code:</target>
+        </trans-unit>
+        <trans-unit id="b3883223-3731-47ec-866a-7ec69979dc72" xml:space="preserve">
+          <source>If you try to build the project now it will fail.</source>
+          <target state="new">If you try to build the project now it will fail.</target>
+        </trans-unit>
+        <trans-unit id="db221dbc-30a4-46f7-89f4-c22e7ddeb93f" xml:space="preserve">
+          <source><bpt id="0da83d5e-bbae-4e1c-8f77-129d342d252d">&lt;code&gt;</bpt>LoginProvider<ept id="0da83d5e-bbae-4e1c-8f77-129d342d252d">&lt;/code&gt;</ept> has three abstract methods that you need to implement, which you will do later.</source>
+          <target state="new"><bpt id="0da83d5e-bbae-4e1c-8f77-129d342d252d">&lt;code&gt;</bpt>LoginProvider<ept id="0da83d5e-bbae-4e1c-8f77-129d342d252d">&lt;/code&gt;</ept> has three abstract methods that you need to implement, which you will do later.</target>
+        </trans-unit>
+        <trans-unit id="0d94c728-4015-4230-b768-ae07d2ab66be" xml:space="preserve">
+          <source>Create a new class named <bpt id="2455f284-e316-47b7-a715-1eecefad071e">&lt;code&gt;</bpt>CustomLoginProviderCredentials<ept id="2455f284-e316-47b7-a715-1eecefad071e">&lt;/code&gt;</ept> in the same code file.</source>
+          <target state="new">Create a new class named <bpt id="2455f284-e316-47b7-a715-1eecefad071e">&lt;code&gt;</bpt>CustomLoginProviderCredentials<ept id="2455f284-e316-47b7-a715-1eecefad071e">&lt;/code&gt;</ept> in the same code file.</target>
+        </trans-unit>
+        <trans-unit id="e9aa1a2e-cc45-42e2-8eb6-5a236d676189" xml:space="preserve">
+          <source>This represents information about your user and will be made available to you on the backend via <bpt id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;linkText&gt;</bpt>GetIdentitiesAsync<ept id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;/linkText&gt;</ept><bpt id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;title&gt;</bpt><ept id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;/title&gt;</ept>.</source>
+          <target state="new">This represents information about your user and will be made available to you on the backend via <bpt id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;linkText&gt;</bpt>GetIdentitiesAsync<ept id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;/linkText&gt;</ept><bpt id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;title&gt;</bpt><ept id="c2dcaf84-7cc7-4a3b-87e2-f2948b8a6394">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bdc97d39-a776-4e3c-9900-98f5ceadc917" xml:space="preserve">
+          <source>If you are adding custom claims, make sure that they are captured in this object.</source>
+          <target state="new">If you are adding custom claims, make sure that they are captured in this object.</target>
+        </trans-unit>
+        <trans-unit id="2caed41c-66ba-4d73-a76e-d78613b1fcd7" xml:space="preserve">
+          <source>Add the following implementation of the abstract method <bpt id="9d6aefbc-80b7-4363-9e94-0f2981e0f936">&lt;code&gt;</bpt>ConfigureMiddleware<ept id="9d6aefbc-80b7-4363-9e94-0f2981e0f936">&lt;/code&gt;</ept> to <bpt id="7ea6de58-3d32-4d5e-a035-9f3f91cbd914">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="7ea6de58-3d32-4d5e-a035-9f3f91cbd914">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following implementation of the abstract method <bpt id="9d6aefbc-80b7-4363-9e94-0f2981e0f936">&lt;code&gt;</bpt>ConfigureMiddleware<ept id="9d6aefbc-80b7-4363-9e94-0f2981e0f936">&lt;/code&gt;</ept> to <bpt id="7ea6de58-3d32-4d5e-a035-9f3f91cbd914">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="7ea6de58-3d32-4d5e-a035-9f3f91cbd914">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ed0ae1f6-14a8-49ee-96a2-aaf991c8adf0" xml:space="preserve">
+          <source>This method is not implemented because <bpt id="b62a490a-472e-4174-af94-87b027fba481">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="b62a490a-472e-4174-af94-87b027fba481">&lt;/strong&gt;</ept> is not integrating with the authentication pipeline.</source>
+          <target state="new">This method is not implemented because <bpt id="b62a490a-472e-4174-af94-87b027fba481">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="b62a490a-472e-4174-af94-87b027fba481">&lt;/strong&gt;</ept> is not integrating with the authentication pipeline.</target>
+        </trans-unit>
+        <trans-unit id="4529ceee-58e8-44cb-9ed5-cb3b992b8161" xml:space="preserve">
+          <source>Add the following implementation of the abstract method <bpt id="0e2b8861-6694-44fa-9235-ad5f3538172a">&lt;code&gt;</bpt>ParseCredentials<ept id="0e2b8861-6694-44fa-9235-ad5f3538172a">&lt;/code&gt;</ept> to <bpt id="71450182-5db2-4544-bc71-4024112e6af4">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="71450182-5db2-4544-bc71-4024112e6af4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following implementation of the abstract method <bpt id="0e2b8861-6694-44fa-9235-ad5f3538172a">&lt;code&gt;</bpt>ParseCredentials<ept id="0e2b8861-6694-44fa-9235-ad5f3538172a">&lt;/code&gt;</ept> to <bpt id="71450182-5db2-4544-bc71-4024112e6af4">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="71450182-5db2-4544-bc71-4024112e6af4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c75d19f8-1561-45ec-a739-a2536a9c2e1b" xml:space="preserve">
+          <source>This method will allow the backend to deserialize user information from an incoming authentication token.</source>
+          <target state="new">This method will allow the backend to deserialize user information from an incoming authentication token.</target>
+        </trans-unit>
+        <trans-unit id="e180e885-7e09-49c9-8561-d4ca23bbb4d5" xml:space="preserve">
+          <source>Add the following implementation of the abstract method <bpt id="7686d23c-2b15-4eeb-bb21-0f63dcc6e791">&lt;code&gt;</bpt>CreateCredentials<ept id="7686d23c-2b15-4eeb-bb21-0f63dcc6e791">&lt;/code&gt;</ept> to <bpt id="58bd0ab4-b09a-4aa0-9761-c7a95d8813b2">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="58bd0ab4-b09a-4aa0-9761-c7a95d8813b2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Add the following implementation of the abstract method <bpt id="7686d23c-2b15-4eeb-bb21-0f63dcc6e791">&lt;code&gt;</bpt>CreateCredentials<ept id="7686d23c-2b15-4eeb-bb21-0f63dcc6e791">&lt;/code&gt;</ept> to <bpt id="58bd0ab4-b09a-4aa0-9761-c7a95d8813b2">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="58bd0ab4-b09a-4aa0-9761-c7a95d8813b2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2299c652-709a-4f3d-8ebc-85c866794670" xml:space="preserve">
+          <source>This method translates a [ClaimsIdentity] into a [ProviderCredentials] object that is used in the authentication token issuance phase.</source>
+          <target state="new">This method translates a [ClaimsIdentity] into a [ProviderCredentials] object that is used in the authentication token issuance phase.</target>
+        </trans-unit>
+        <trans-unit id="9e22f7af-ed73-4da0-b32e-88a4d5e93703" xml:space="preserve">
+          <source>You will again want to capture any additional claims in this method.</source>
+          <target state="new">You will again want to capture any additional claims in this method.</target>
+        </trans-unit>
+        <trans-unit id="23356a82-8dbf-4c3d-925c-a1e6e6a42a7a" xml:space="preserve">
+          <source>Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the <bpt id="51843794-a41c-4f12-b622-a7947e55f429">&lt;strong&gt;</bpt>ConfigOptions<ept id="51843794-a41c-4f12-b622-a7947e55f429">&lt;/strong&gt;</ept> is created:</source>
+          <target state="new">Open the WebApiConfig.cs project file in the App_Start folder and the following line of code after the <bpt id="51843794-a41c-4f12-b622-a7947e55f429">&lt;strong&gt;</bpt>ConfigOptions<ept id="51843794-a41c-4f12-b622-a7947e55f429">&lt;/strong&gt;</ept> is created:</target>
+        </trans-unit>
+        <trans-unit id="a7356606-fb7c-4e27-8273-688eba9603b5" xml:space="preserve">
+          <source>Next, you create an endpoint for your users to sign-in.</source>
+          <target state="new">Next, you create an endpoint for your users to sign-in.</target>
+        </trans-unit>
+        <trans-unit id="85a6398c-1f75-4709-a024-69984c26f888" xml:space="preserve">
+          <source>The username and password that you receive is checked against the database by first applying the user's salt, hashing the password, and making sure that the incoming value matches that of the database.</source>
+          <target state="new">The username and password that you receive is checked against the database by first applying the user's salt, hashing the password, and making sure that the incoming value matches that of the database.</target>
+        </trans-unit>
+        <trans-unit id="0316593e-2a3d-4594-8811-9e8c7cbae5cd" xml:space="preserve">
+          <source>If it does, then you can create a [ClaimsIdentity] and pass it to the <bpt id="22d5a3fc-d5b1-4123-94f1-ce5c7e4b823c">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="22d5a3fc-d5b1-4123-94f1-ce5c7e4b823c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If it does, then you can create a [ClaimsIdentity] and pass it to the <bpt id="22d5a3fc-d5b1-4123-94f1-ce5c7e4b823c">&lt;strong&gt;</bpt>CustomLoginProvider<ept id="22d5a3fc-d5b1-4123-94f1-ce5c7e4b823c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="672a81bf-a3f6-4229-8549-2db570a1e631" xml:space="preserve">
+          <source>The client app receives a user ID and an authentication token for further access to your mobile service.</source>
+          <target state="new">The client app receives a user ID and an authentication token for further access to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="4a2c3c8a-2e3e-469c-a493-4ebdf505cc2f" xml:space="preserve">
+          <source>In your mobile service backend project, create the following new <bpt id="13b3b4ea-fec5-4bf5-b395-ca52dc121d94">&lt;code&gt;</bpt>LoginRequest<ept id="13b3b4ea-fec5-4bf5-b395-ca52dc121d94">&lt;/code&gt;</ept> class:</source>
+          <target state="new">In your mobile service backend project, create the following new <bpt id="13b3b4ea-fec5-4bf5-b395-ca52dc121d94">&lt;code&gt;</bpt>LoginRequest<ept id="13b3b4ea-fec5-4bf5-b395-ca52dc121d94">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="afac50c8-2513-4cc1-9bed-7e9764f732c4" xml:space="preserve">
+          <source>This class represents an incoming sign-in attempt.</source>
+          <target state="new">This class represents an incoming sign-in attempt.</target>
+        </trans-unit>
+        <trans-unit id="2b8a036d-b2b3-4e2a-a319-e2ef57b52c7b" xml:space="preserve">
+          <source>Create the following new <bpt id="075978ed-99de-4302-adf2-262e9401ad75">&lt;code&gt;</bpt>CustomLoginResult<ept id="075978ed-99de-4302-adf2-262e9401ad75">&lt;/code&gt;</ept> class:</source>
+          <target state="new">Create the following new <bpt id="075978ed-99de-4302-adf2-262e9401ad75">&lt;code&gt;</bpt>CustomLoginResult<ept id="075978ed-99de-4302-adf2-262e9401ad75">&lt;/code&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="7358b16d-26e9-4a1c-a588-41cb08ddec48" xml:space="preserve">
+          <source>This class represents a successfully login with the user ID and the authentication token.</source>
+          <target state="new">This class represents a successfully login with the user ID and the authentication token.</target>
+        </trans-unit>
+        <trans-unit id="4f56b1e5-806b-4917-87a5-41eba45667f4" xml:space="preserve">
+          <source>Note that this class has the same shape as the MobileServiceUser class on the client, which makes it easier to hand the login response on a strongly-typed client.</source>
+          <target state="new">Note that this class has the same shape as the MobileServiceUser class on the client, which makes it easier to hand the login response on a strongly-typed client.</target>
+        </trans-unit>
+        <trans-unit id="4712ad66-a918-4455-b6e1-793673e38b7c" xml:space="preserve">
+          <source>Right-click <bpt id="e386c05b-0ca9-49d8-86f3-305757b8f81e">&lt;strong&gt;</bpt>Controllers<ept id="e386c05b-0ca9-49d8-86f3-305757b8f81e">&lt;/strong&gt;</ept>, click <bpt id="8bcee143-38e4-4014-892f-ebfc3247463c">&lt;strong&gt;</bpt>Add<ept id="8bcee143-38e4-4014-892f-ebfc3247463c">&lt;/strong&gt;</ept> and <bpt id="4a945c3a-7694-44f0-aace-c0801bbd8411">&lt;strong&gt;</bpt>Controller<ept id="4a945c3a-7694-44f0-aace-c0801bbd8411">&lt;/strong&gt;</ept>, create a new <bpt id="07325db5-949e-41a2-81b5-8c7b5114bdb2">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services Custom Controller<ept id="07325db5-949e-41a2-81b5-8c7b5114bdb2">&lt;/strong&gt;</ept> named <bpt id="b025944c-3f37-4f85-aec6-db89c776e897">&lt;code&gt;</bpt>CustomLoginController<ept id="b025944c-3f37-4f85-aec6-db89c776e897">&lt;/code&gt;</ept>, then add the following <bpt id="07d74d95-8e67-46a2-bb3a-f73bdff2decd">&lt;code&gt;</bpt>using<ept id="07d74d95-8e67-46a2-bb3a-f73bdff2decd">&lt;/code&gt;</ept> statements:</source>
+          <target state="new">Right-click <bpt id="e386c05b-0ca9-49d8-86f3-305757b8f81e">&lt;strong&gt;</bpt>Controllers<ept id="e386c05b-0ca9-49d8-86f3-305757b8f81e">&lt;/strong&gt;</ept>, click <bpt id="8bcee143-38e4-4014-892f-ebfc3247463c">&lt;strong&gt;</bpt>Add<ept id="8bcee143-38e4-4014-892f-ebfc3247463c">&lt;/strong&gt;</ept> and <bpt id="4a945c3a-7694-44f0-aace-c0801bbd8411">&lt;strong&gt;</bpt>Controller<ept id="4a945c3a-7694-44f0-aace-c0801bbd8411">&lt;/strong&gt;</ept>, create a new <bpt id="07325db5-949e-41a2-81b5-8c7b5114bdb2">&lt;strong&gt;</bpt>Microsoft Azure Mobile Services Custom Controller<ept id="07325db5-949e-41a2-81b5-8c7b5114bdb2">&lt;/strong&gt;</ept> named <bpt id="b025944c-3f37-4f85-aec6-db89c776e897">&lt;code&gt;</bpt>CustomLoginController<ept id="b025944c-3f37-4f85-aec6-db89c776e897">&lt;/code&gt;</ept>, then add the following <bpt id="07d74d95-8e67-46a2-bb3a-f73bdff2decd">&lt;code&gt;</bpt>using<ept id="07d74d95-8e67-46a2-bb3a-f73bdff2decd">&lt;/code&gt;</ept> statements:</target>
+        </trans-unit>
+        <trans-unit id="85c62e61-b5fc-4334-ace0-a0a5cd524915" xml:space="preserve">
+          <source>Replace the <bpt id="5c736ba0-2ee9-4278-acaa-d524a74568fd">&lt;strong&gt;</bpt>CustomLoginController<ept id="5c736ba0-2ee9-4278-acaa-d524a74568fd">&lt;/strong&gt;</ept> class definition with following code:</source>
+          <target state="new">Replace the <bpt id="5c736ba0-2ee9-4278-acaa-d524a74568fd">&lt;strong&gt;</bpt>CustomLoginController<ept id="5c736ba0-2ee9-4278-acaa-d524a74568fd">&lt;/strong&gt;</ept> class definition with following code:</target>
+        </trans-unit>
+        <trans-unit id="ffb84a7e-4b1c-4c8c-8ff4-980e674398a8" xml:space="preserve">
+          <source>Remember to replace the <bpt id="8e611292-716b-491d-88df-f68021f7c886">&lt;em&gt;</bpt>todoContext<ept id="8e611292-716b-491d-88df-f68021f7c886">&lt;/em&gt;</ept> variable with the name of your project's <bpt id="927d9d7e-d9c6-41a5-9402-89ec3fc3d759">&lt;strong&gt;</bpt>DbContext<ept id="927d9d7e-d9c6-41a5-9402-89ec3fc3d759">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Remember to replace the <bpt id="8e611292-716b-491d-88df-f68021f7c886">&lt;em&gt;</bpt>todoContext<ept id="8e611292-716b-491d-88df-f68021f7c886">&lt;/em&gt;</ept> variable with the name of your project's <bpt id="927d9d7e-d9c6-41a5-9402-89ec3fc3d759">&lt;strong&gt;</bpt>DbContext<ept id="927d9d7e-d9c6-41a5-9402-89ec3fc3d759">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a032ab31-23b8-4d49-bf1e-e6f3aea3f48c" xml:space="preserve">
+          <source>Note that this controller uses the following attribute to allow all traffic to this endpoint:</source>
+          <target state="new">Note that this controller uses the following attribute to allow all traffic to this endpoint:</target>
+        </trans-unit>
+        <trans-unit id="8e1d95c6-bcf6-4847-ac61-9743aff24177" xml:space="preserve">
+          <source>Your <bpt id="ff00fb0d-1236-4dbc-ad51-ff9feeb36157">&lt;code&gt;</bpt>CustomLoginController<ept id="ff00fb0d-1236-4dbc-ad51-ff9feeb36157">&lt;/code&gt;</ept> for production use should also contain a brute-force detection strategy.</source>
+          <target state="new">Your <bpt id="ff00fb0d-1236-4dbc-ad51-ff9feeb36157">&lt;code&gt;</bpt>CustomLoginController<ept id="ff00fb0d-1236-4dbc-ad51-ff9feeb36157">&lt;/code&gt;</ept> for production use should also contain a brute-force detection strategy.</target>
+        </trans-unit>
+        <trans-unit id="17444d73-a579-492d-840c-f29ca910af8d" xml:space="preserve">
+          <source>Otherwise your sign-in solution may be vulnerable to attack.</source>
+          <target state="new">Otherwise your sign-in solution may be vulnerable to attack.</target>
+        </trans-unit>
+        <trans-unit id="ad254314-2922-4487-a34e-91115b6e63b4" xml:space="preserve">
+          <source><bpt id="89a588f1-fc07-4763-9343-69543196a2e8">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="89a588f1-fc07-4763-9343-69543196a2e8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="89a588f1-fc07-4763-9343-69543196a2e8">&lt;token href="../../includes/mobile-services-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="89a588f1-fc07-4763-9343-69543196a2e8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="311b1b48-3ef4-42ea-8f91-1489bc3b6f54" xml:space="preserve">
+          <source>In your client app, you must develop a custom sign-in screen which takes usernames and passwords and sends them as a JSON payload to your registration and sign-in endpoints.</source>
+          <target state="new">In your client app, you must develop a custom sign-in screen which takes usernames and passwords and sends them as a JSON payload to your registration and sign-in endpoints.</target>
+        </trans-unit>
+        <trans-unit id="b9bf0227-7b9f-4c76-aa42-a3456553356d" xml:space="preserve">
+          <source>To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.</source>
+          <target state="new">To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.</target>
+        </trans-unit>
+        <trans-unit id="673dcc78-1ec4-4224-a8ec-4344c772074e" xml:space="preserve">
+          <source>In Visual Studio, right-click the mobile service project, then click <bpt id="9163603b-1991-4b9b-bf03-64404b61cb9b">&lt;strong&gt;</bpt>Debug<ept id="9163603b-1991-4b9b-bf03-64404b61cb9b">&lt;/strong&gt;</ept> and <bpt id="44145303-93cf-4236-bae2-e07f1c124898">&lt;strong&gt;</bpt>Start New Instance<ept id="44145303-93cf-4236-bae2-e07f1c124898">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Visual Studio, right-click the mobile service project, then click <bpt id="9163603b-1991-4b9b-bf03-64404b61cb9b">&lt;strong&gt;</bpt>Debug<ept id="9163603b-1991-4b9b-bf03-64404b61cb9b">&lt;/strong&gt;</ept> and <bpt id="44145303-93cf-4236-bae2-e07f1c124898">&lt;strong&gt;</bpt>Start New Instance<ept id="44145303-93cf-4236-bae2-e07f1c124898">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="412eb9b1-fd50-4e9b-ab47-076cc3f71443" xml:space="preserve">
+          <source>This starts a new debugging instance of your mobile service backend project.</source>
+          <target state="new">This starts a new debugging instance of your mobile service backend project.</target>
+        </trans-unit>
+        <trans-unit id="c217e70d-2544-45cb-9f9c-c0fe493fa491" xml:space="preserve">
+          <source>After the service starts successfully, you will see a start page that says <bpt id="9f76f337-a7ed-4822-892c-f40597f49230">&lt;strong&gt;</bpt>This mobile service is up and running<ept id="9f76f337-a7ed-4822-892c-f40597f49230">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the service starts successfully, you will see a start page that says <bpt id="9f76f337-a7ed-4822-892c-f40597f49230">&lt;strong&gt;</bpt>This mobile service is up and running<ept id="9f76f337-a7ed-4822-892c-f40597f49230">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6f84975-5c05-418b-a796-1ea889216917" xml:space="preserve">
+          <source>On the service start page, click <bpt id="6adaa913-5f63-404c-b9f0-1a228c2e5734">&lt;strong&gt;</bpt>Try it out<ept id="6adaa913-5f63-404c-b9f0-1a228c2e5734">&lt;/strong&gt;</ept>, then type the password that you set for the <bpt id="232cdba9-3497-4115-b682-e2be00d1937c">&lt;strong&gt;</bpt>MS_ApplicationKey<ept id="232cdba9-3497-4115-b682-e2be00d1937c">&lt;/strong&gt;</ept> app setting in the web.config file with a blank username into the authentication dialog.</source>
+          <target state="new">On the service start page, click <bpt id="6adaa913-5f63-404c-b9f0-1a228c2e5734">&lt;strong&gt;</bpt>Try it out<ept id="6adaa913-5f63-404c-b9f0-1a228c2e5734">&lt;/strong&gt;</ept>, then type the password that you set for the <bpt id="232cdba9-3497-4115-b682-e2be00d1937c">&lt;strong&gt;</bpt>MS_ApplicationKey<ept id="232cdba9-3497-4115-b682-e2be00d1937c">&lt;/strong&gt;</ept> app setting in the web.config file with a blank username into the authentication dialog.</target>
+        </trans-unit>
+        <trans-unit id="25b75558-7f4f-4c7f-ac48-fa2ba5bbb695" xml:space="preserve">
+          <source>In the help page, click the <bpt id="fee91cc2-4736-435d-b97e-52256ddff32b">&lt;strong&gt;</bpt>CustomRegistration<ept id="fee91cc2-4736-435d-b97e-52256ddff32b">&lt;/strong&gt;</ept> endpoint, then click <bpt id="c235bb1d-ebb4-44c3-99f6-be564dd93b62">&lt;strong&gt;</bpt>Try this out<ept id="c235bb1d-ebb4-44c3-99f6-be564dd93b62">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the help page, click the <bpt id="fee91cc2-4736-435d-b97e-52256ddff32b">&lt;strong&gt;</bpt>CustomRegistration<ept id="fee91cc2-4736-435d-b97e-52256ddff32b">&lt;/strong&gt;</ept> endpoint, then click <bpt id="c235bb1d-ebb4-44c3-99f6-be564dd93b62">&lt;strong&gt;</bpt>Try this out<ept id="c235bb1d-ebb4-44c3-99f6-be564dd93b62">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e959d34c-38c8-4784-9f0b-d811bbb2ff11" xml:space="preserve">
+          <source><bpt id="5fca8d3e-13c3-44b5-8991-6be2918e4752">&lt;linkText&gt;</bpt><ept id="5fca8d3e-13c3-44b5-8991-6be2918e4752">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5fca8d3e-13c3-44b5-8991-6be2918e4752">&lt;linkText&gt;</bpt><ept id="5fca8d3e-13c3-44b5-8991-6be2918e4752">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a49355a0-47da-4a71-9e8a-3fe0b8d331b2" xml:space="preserve">
+          <source>In the body, replace the sample strings with a username and password, which meet the criteria you specified before, then click <bpt id="7c1db156-b867-4e68-9de2-ea7a5c2c8ade">&lt;strong&gt;</bpt>Send<ept id="7c1db156-b867-4e68-9de2-ea7a5c2c8ade">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the body, replace the sample strings with a username and password, which meet the criteria you specified before, then click <bpt id="7c1db156-b867-4e68-9de2-ea7a5c2c8ade">&lt;strong&gt;</bpt>Send<ept id="7c1db156-b867-4e68-9de2-ea7a5c2c8ade">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="594143a8-7f9e-4f07-9a05-f34c3b8a7c62" xml:space="preserve">
+          <source><bpt id="fdb67927-518f-48cd-a65a-27ffbc43efb3">&lt;linkText&gt;</bpt><ept id="fdb67927-518f-48cd-a65a-27ffbc43efb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fdb67927-518f-48cd-a65a-27ffbc43efb3">&lt;linkText&gt;</bpt><ept id="fdb67927-518f-48cd-a65a-27ffbc43efb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5521903-c184-4b32-b5aa-40dc78e82390" xml:space="preserve">
+          <source>The response should be <bpt id="0e0e9240-c15e-42e5-a3c8-6270745262c0">&lt;strong&gt;</bpt>201/Created<ept id="0e0e9240-c15e-42e5-a3c8-6270745262c0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The response should be <bpt id="0e0e9240-c15e-42e5-a3c8-6270745262c0">&lt;strong&gt;</bpt>201/Created<ept id="0e0e9240-c15e-42e5-a3c8-6270745262c0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7371ec78-c1ab-474b-9de5-b412c88c08ed" xml:space="preserve">
+          <source>Click the browser's back button and repeat steps 2 and 3 for the <bpt id="677ac708-d524-44b0-95ee-fb9b62b5a0e4">&lt;strong&gt;</bpt>CustomLogin<ept id="677ac708-d524-44b0-95ee-fb9b62b5a0e4">&lt;/strong&gt;</ept> endpoint, using the same username and password that you registered in the previous step.</source>
+          <target state="new">Click the browser's back button and repeat steps 2 and 3 for the <bpt id="677ac708-d524-44b0-95ee-fb9b62b5a0e4">&lt;strong&gt;</bpt>CustomLogin<ept id="677ac708-d524-44b0-95ee-fb9b62b5a0e4">&lt;/strong&gt;</ept> endpoint, using the same username and password that you registered in the previous step.</target>
+        </trans-unit>
+        <trans-unit id="2c9a695a-92be-4a03-b01a-a0659f646490" xml:space="preserve">
+          <source><bpt id="d340c19f-95a2-4bd3-a477-981eed16e96d">&lt;linkText&gt;</bpt><ept id="d340c19f-95a2-4bd3-a477-981eed16e96d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d340c19f-95a2-4bd3-a477-981eed16e96d">&lt;linkText&gt;</bpt><ept id="d340c19f-95a2-4bd3-a477-981eed16e96d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d7a42467-557d-493f-8097-20b64767b63b" xml:space="preserve">
+          <source>You should receive response message with a body that contains a <bpt id="b600bfa2-044e-435c-a5b9-c7d261b555f3">&lt;strong&gt;</bpt>user<ept id="b600bfa2-044e-435c-a5b9-c7d261b555f3">&lt;/strong&gt;</ept> JSON object that has both the <bpt id="69031b22-2d97-4ffe-869f-6556bfd9075a">&lt;em&gt;</bpt>userId<ept id="69031b22-2d97-4ffe-869f-6556bfd9075a">&lt;/em&gt;</ept> and an <bpt id="32e57cc9-f4d7-4fcf-9bbb-89c11406123e">&lt;em&gt;</bpt>authenticationToken<ept id="32e57cc9-f4d7-4fcf-9bbb-89c11406123e">&lt;/em&gt;</ept>, which is the Mobile Services authentication token generated by your custom authentication.</source>
+          <target state="new">You should receive response message with a body that contains a <bpt id="b600bfa2-044e-435c-a5b9-c7d261b555f3">&lt;strong&gt;</bpt>user<ept id="b600bfa2-044e-435c-a5b9-c7d261b555f3">&lt;/strong&gt;</ept> JSON object that has both the <bpt id="69031b22-2d97-4ffe-869f-6556bfd9075a">&lt;em&gt;</bpt>userId<ept id="69031b22-2d97-4ffe-869f-6556bfd9075a">&lt;/em&gt;</ept> and an <bpt id="32e57cc9-f4d7-4fcf-9bbb-89c11406123e">&lt;em&gt;</bpt>authenticationToken<ept id="32e57cc9-f4d7-4fcf-9bbb-89c11406123e">&lt;/em&gt;</ept>, which is the Mobile Services authentication token generated by your custom authentication.</target>
+        </trans-unit>
+        <trans-unit id="b1ed75d2-ac34-42ab-b502-8d3e7a789741" xml:space="preserve">
+          <source>This token is sufficient to grant the client app access to the TodoItem endpoint.</source>
+          <target state="new">This token is sufficient to grant the client app access to the TodoItem endpoint.</target>
+        </trans-unit>
+        <trans-unit id="298fe775-c3c3-43a0-925d-0edde09dd9c5" xml:space="preserve">
+          <source>Make a copy of the <bpt id="27920d95-f001-443c-b9cd-b7c19f69da9c">&lt;em&gt;</bpt>authenticationToken<ept id="27920d95-f001-443c-b9cd-b7c19f69da9c">&lt;/em&gt;</ept> value.</source>
+          <target state="new">Make a copy of the <bpt id="27920d95-f001-443c-b9cd-b7c19f69da9c">&lt;em&gt;</bpt>authenticationToken<ept id="27920d95-f001-443c-b9cd-b7c19f69da9c">&lt;/em&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="534d4df4-985e-44d6-90f2-e8aa194e62c4" xml:space="preserve">
+          <source>You will use this to access the restricted TodoItem endpoint.</source>
+          <target state="new">You will use this to access the restricted TodoItem endpoint.</target>
+        </trans-unit>
+        <trans-unit id="92894e6e-0851-4832-81bc-435218bf6787" xml:space="preserve">
+          <source>Click the browser's back button, then in the API documentation page, click <bpt id="c24857ef-d898-4a7a-ae07-fc2fd1f52431">&lt;strong&gt;</bpt>GetTables<ept id="c24857ef-d898-4a7a-ae07-fc2fd1f52431">&lt;/strong&gt;</ept>, click <bpt id="0e73c9cc-8ecf-470b-acb6-1877327b0e8c">&lt;strong&gt;</bpt>Try this out<ept id="0e73c9cc-8ecf-470b-acb6-1877327b0e8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the browser's back button, then in the API documentation page, click <bpt id="c24857ef-d898-4a7a-ae07-fc2fd1f52431">&lt;strong&gt;</bpt>GetTables<ept id="c24857ef-d898-4a7a-ae07-fc2fd1f52431">&lt;/strong&gt;</ept>, click <bpt id="0e73c9cc-8ecf-470b-acb6-1877327b0e8c">&lt;strong&gt;</bpt>Try this out<ept id="0e73c9cc-8ecf-470b-acb6-1877327b0e8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1224568a-aa5e-4adb-9162-a510605a3c8c" xml:space="preserve">
+          <source>In the GET request dialog, click the plus sign next to <bpt id="a33b2246-a1c6-416d-89f8-d267cf62a4e7">&lt;strong&gt;</bpt>Headers<ept id="a33b2246-a1c6-416d-89f8-d267cf62a4e7">&lt;/strong&gt;</ept>, type the value <bpt id="cdd5e047-0dc9-4d6a-8bdc-464df4e0b483">&lt;code&gt;</bpt>X-ZUMO-AUTH<ept id="cdd5e047-0dc9-4d6a-8bdc-464df4e0b483">&lt;/code&gt;</ept> in the left box, paste the copied <bpt id="2b2694c5-c877-45b4-a240-99222fb90b75">&lt;em&gt;</bpt>authenticationToken<ept id="2b2694c5-c877-45b4-a240-99222fb90b75">&lt;/em&gt;</ept> value in the right box, then click <bpt id="b8773e45-d940-43a8-acfa-d026957a0696">&lt;strong&gt;</bpt>Send<ept id="b8773e45-d940-43a8-acfa-d026957a0696">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the GET request dialog, click the plus sign next to <bpt id="a33b2246-a1c6-416d-89f8-d267cf62a4e7">&lt;strong&gt;</bpt>Headers<ept id="a33b2246-a1c6-416d-89f8-d267cf62a4e7">&lt;/strong&gt;</ept>, type the value <bpt id="cdd5e047-0dc9-4d6a-8bdc-464df4e0b483">&lt;code&gt;</bpt>X-ZUMO-AUTH<ept id="cdd5e047-0dc9-4d6a-8bdc-464df4e0b483">&lt;/code&gt;</ept> in the left box, paste the copied <bpt id="2b2694c5-c877-45b4-a240-99222fb90b75">&lt;em&gt;</bpt>authenticationToken<ept id="2b2694c5-c877-45b4-a240-99222fb90b75">&lt;/em&gt;</ept> value in the right box, then click <bpt id="b8773e45-d940-43a8-acfa-d026957a0696">&lt;strong&gt;</bpt>Send<ept id="b8773e45-d940-43a8-acfa-d026957a0696">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1a1b3ff-3676-4607-b067-78281d127b56" xml:space="preserve">
+          <source><bpt id="304010f7-91d4-4015-864b-5d17180383f0">&lt;linkText&gt;</bpt><ept id="304010f7-91d4-4015-864b-5d17180383f0">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="304010f7-91d4-4015-864b-5d17180383f0">&lt;linkText&gt;</bpt><ept id="304010f7-91d4-4015-864b-5d17180383f0">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="50f779e7-edd2-496b-9aea-2e39d8d90f53" xml:space="preserve">
+          <source>The mobile service should grant access to the endpoint and return a <bpt id="07e5c65e-450e-4a14-8b6f-d86141d9bf5f">&lt;strong&gt;</bpt>200/OK<ept id="07e5c65e-450e-4a14-8b6f-d86141d9bf5f">&lt;/strong&gt;</ept> status along with a list of TodoItems in the table.</source>
+          <target state="new">The mobile service should grant access to the endpoint and return a <bpt id="07e5c65e-450e-4a14-8b6f-d86141d9bf5f">&lt;strong&gt;</bpt>200/OK<ept id="07e5c65e-450e-4a14-8b6f-d86141d9bf5f">&lt;/strong&gt;</ept> status along with a list of TodoItems in the table.</target>
+        </trans-unit>
+        <trans-unit id="16d72d81-26c5-429f-981b-ef7d0d1ace9d" xml:space="preserve">
+          <source><bpt id="c602ad17-cd4c-4315-81eb-fed930ad53ea">&lt;linkText&gt;</bpt><ept id="c602ad17-cd4c-4315-81eb-fed930ad53ea">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="c602ad17-cd4c-4315-81eb-fed930ad53ea">&lt;linkText&gt;</bpt><ept id="c602ad17-cd4c-4315-81eb-fed930ad53ea">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="2cb815c6-8640-4a6b-b182-eebef70135a6" xml:space="preserve">
+          <source>If you choose to also publish this mobile service project to Azure for testing, remember that your sign-in and authentication providers will be vulnerable to attack.</source>
+          <target state="new">If you choose to also publish this mobile service project to Azure for testing, remember that your sign-in and authentication providers will be vulnerable to attack.</target>
+        </trans-unit>
+        <trans-unit id="c62893f9-e1f8-4580-a776-5bf09501f42a" xml:space="preserve">
+          <source>Make sure that they are either hardened appropriately or that the test data being protected is not important to you.</source>
+          <target state="new">Make sure that they are either hardened appropriately or that the test data being protected is not important to you.</target>
+        </trans-unit>
+        <trans-unit id="aa9c2e3a-67d1-4d60-8c3e-3657dd9dc881" xml:space="preserve">
+          <source>Take great caution before using a custom authentication scheme to secure a production service.</source>
+          <target state="new">Take great caution before using a custom authentication scheme to secure a production service.</target>
+        </trans-unit>
+        <trans-unit id="0b49085a-636b-465d-9cad-30f4d22aeaab" xml:space="preserve">
+          <source>This section describes the steps needed to access the custom authentication endpoints from the client to obtain the authentication token needed to access the mobile service.</source>
+          <target state="new">This section describes the steps needed to access the custom authentication endpoints from the client to obtain the authentication token needed to access the mobile service.</target>
+        </trans-unit>
+        <trans-unit id="b7ba7984-649b-4226-aab8-da7f7147970e" xml:space="preserve">
+          <source>Because the specific client code you need depends on your client, the guidance provided here is platform agnostic.</source>
+          <target state="new">Because the specific client code you need depends on your client, the guidance provided here is platform agnostic.</target>
+        </trans-unit>
+        <trans-unit id="afb1f1e8-607b-4c83-b640-45c265cbe0e0" xml:space="preserve">
+          <source>The Mobile Services client libraries communicate with the service over HTTPS.</source>
+          <target state="new">The Mobile Services client libraries communicate with the service over HTTPS.</target>
+        </trans-unit>
+        <trans-unit id="e32633bd-9309-4f06-bc3c-d567f30cef7c" xml:space="preserve">
+          <source>Because this solution requires you to send passwords as plaintext, you must make sure that you use HTTPS when you call these endpoint using direct REST requests.</source>
+          <target state="new">Because this solution requires you to send passwords as plaintext, you must make sure that you use HTTPS when you call these endpoint using direct REST requests.</target>
+        </trans-unit>
+        <trans-unit id="9578ffdc-b867-4e5e-b045-4cf84b367afa" xml:space="preserve">
+          <source>Create the required UI elements in your client app to allow users to enter a username and password.</source>
+          <target state="new">Create the required UI elements in your client app to allow users to enter a username and password.</target>
+        </trans-unit>
+        <trans-unit id="2ee4ab4b-2e39-4b86-be3f-3cbe5f2b41c8" xml:space="preserve">
+          <source>Use the appropriate <bpt id="9968e982-fd24-4bdb-b364-4a1034043fd4">&lt;strong&gt;</bpt>invokeApi<ept id="9968e982-fd24-4bdb-b364-4a1034043fd4">&lt;/strong&gt;</ept> method on the <bpt id="d598ea8f-bd3c-4c6d-97c6-771446eecdcb">&lt;strong&gt;</bpt>MobileServiceClient<ept id="d598ea8f-bd3c-4c6d-97c6-771446eecdcb">&lt;/strong&gt;</ept> in the client library to call the <bpt id="2551476b-c689-4a14-a2f0-c0eca940e3c3">&lt;strong&gt;</bpt>CustomRegistration<ept id="2551476b-c689-4a14-a2f0-c0eca940e3c3">&lt;/strong&gt;</ept> endpoint, passing the runtime-supplied username and password in the message body.</source>
+          <target state="new">Use the appropriate <bpt id="9968e982-fd24-4bdb-b364-4a1034043fd4">&lt;strong&gt;</bpt>invokeApi<ept id="9968e982-fd24-4bdb-b364-4a1034043fd4">&lt;/strong&gt;</ept> method on the <bpt id="d598ea8f-bd3c-4c6d-97c6-771446eecdcb">&lt;strong&gt;</bpt>MobileServiceClient<ept id="d598ea8f-bd3c-4c6d-97c6-771446eecdcb">&lt;/strong&gt;</ept> in the client library to call the <bpt id="2551476b-c689-4a14-a2f0-c0eca940e3c3">&lt;strong&gt;</bpt>CustomRegistration<ept id="2551476b-c689-4a14-a2f0-c0eca940e3c3">&lt;/strong&gt;</ept> endpoint, passing the runtime-supplied username and password in the message body.</target>
+        </trans-unit>
+        <trans-unit id="de426c16-741a-4720-a800-e3c6d4f4ac26" xml:space="preserve">
+          <source>You only need to call the <bpt id="c3000bb1-be99-4984-af49-6075f3273613">&lt;strong&gt;</bpt>CustomRegistration<ept id="c3000bb1-be99-4984-af49-6075f3273613">&lt;/strong&gt;</ept> endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table.</source>
+          <target state="new">You only need to call the <bpt id="c3000bb1-be99-4984-af49-6075f3273613">&lt;strong&gt;</bpt>CustomRegistration<ept id="c3000bb1-be99-4984-af49-6075f3273613">&lt;/strong&gt;</ept> endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table.</target>
+        </trans-unit>
+        <trans-unit id="b198e1f3-01f4-49c6-a440-1fd9d1d1044b" xml:space="preserve">
+          <source>For examples of how to call a custom API on the various supported client platforms, see the article <bpt id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services – client SDKs<ept id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;/linkText&gt;</ept><bpt id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;title&gt;</bpt><ept id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For examples of how to call a custom API on the various supported client platforms, see the article <bpt id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;linkText&gt;</bpt>Custom API in Azure Mobile Services – client SDKs<ept id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;/linkText&gt;</ept><bpt id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;title&gt;</bpt><ept id="76d7df5e-88b5-4d1b-9de9-03dcfa4487f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c9df114-cfe9-43a2-97f2-d3c2ae35031b" xml:space="preserve">
+          <source>Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion.</source>
+          <target state="new">Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion.</target>
+        </trans-unit>
+        <trans-unit id="03261ff0-7752-417c-8674-3581bd9114c6" xml:space="preserve">
+          <source>For a public registration endpoint, you should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts.</source>
+          <target state="new">For a public registration endpoint, you should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts.</target>
+        </trans-unit>
+        <trans-unit id="80053f65-d06c-467b-b045-2b69f4a4c750" xml:space="preserve">
+          <source>You can use Twilio to send SMS messages from Mobile services.</source>
+          <target state="new">You can use Twilio to send SMS messages from Mobile services.</target>
+        </trans-unit>
+        <trans-unit id="5160b426-cec7-4310-87d7-4f3747faf52d" xml:space="preserve">
+          <source>For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto<bpt id="9c582e60-12a1-4e52-826c-60727eae9c92">&lt;em&gt;</bpt>send<ept id="9c582e60-12a1-4e52-826c-60727eae9c92">&lt;/em&gt;</ept>sms).</source>
+          <target state="new">For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto<bpt id="9c582e60-12a1-4e52-826c-60727eae9c92">&lt;em&gt;</bpt>send<ept id="9c582e60-12a1-4e52-826c-60727eae9c92">&lt;/em&gt;</ept>sms).</target>
+        </trans-unit>
+        <trans-unit id="58f22eb2-e0aa-4670-b995-4eb5c836e194" xml:space="preserve">
+          <source>You can also use SendGrid to send emails from Mobile Services.</source>
+          <target state="new">You can also use SendGrid to send emails from Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="9656a8b8-bf33-40eb-a567-62c76f18c1a6" xml:space="preserve">
+          <source>For more inforation, see <bpt id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;linkText&gt;</bpt>Send email from Mobile Services with SendGrid<ept id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;/linkText&gt;</ept><bpt id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;title&gt;</bpt><ept id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more inforation, see <bpt id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;linkText&gt;</bpt>Send email from Mobile Services with SendGrid<ept id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;/linkText&gt;</ept><bpt id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;title&gt;</bpt><ept id="28f1ebf8-db15-4958-922a-4b80de5247c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="af45405b-0253-4bdb-833e-4d44b0ffa71f" xml:space="preserve">
+          <source>Use the appropriate <bpt id="f7734180-73e1-461c-8a5d-90316b132b61">&lt;strong&gt;</bpt>invokeApi<ept id="f7734180-73e1-461c-8a5d-90316b132b61">&lt;/strong&gt;</ept> method again, this time to call the <bpt id="b7bfc910-d6a2-4659-8feb-49a6dd7f8bdf">&lt;strong&gt;</bpt>CustomLogin<ept id="b7bfc910-d6a2-4659-8feb-49a6dd7f8bdf">&lt;/strong&gt;</ept> endpoint, passing the runtime-supplied username and password in the message body.</source>
+          <target state="new">Use the appropriate <bpt id="f7734180-73e1-461c-8a5d-90316b132b61">&lt;strong&gt;</bpt>invokeApi<ept id="f7734180-73e1-461c-8a5d-90316b132b61">&lt;/strong&gt;</ept> method again, this time to call the <bpt id="b7bfc910-d6a2-4659-8feb-49a6dd7f8bdf">&lt;strong&gt;</bpt>CustomLogin<ept id="b7bfc910-d6a2-4659-8feb-49a6dd7f8bdf">&lt;/strong&gt;</ept> endpoint, passing the runtime-supplied username and password in the message body.</target>
+        </trans-unit>
+        <trans-unit id="dfd8a26e-a086-4ba1-b2de-29b4578316ed" xml:space="preserve">
+          <source>This time, you must capture the <bpt id="8b558d65-d4ed-48c1-8caf-3e26ac2c7ec6">&lt;em&gt;</bpt>userId<ept id="8b558d65-d4ed-48c1-8caf-3e26ac2c7ec6">&lt;/em&gt;</ept> and <bpt id="a330a7fb-ab92-4e80-a849-142227ef98ad">&lt;em&gt;</bpt>authenticationToken<ept id="a330a7fb-ab92-4e80-a849-142227ef98ad">&lt;/em&gt;</ept> values returned in the response object after a successful login.</source>
+          <target state="new">This time, you must capture the <bpt id="8b558d65-d4ed-48c1-8caf-3e26ac2c7ec6">&lt;em&gt;</bpt>userId<ept id="8b558d65-d4ed-48c1-8caf-3e26ac2c7ec6">&lt;/em&gt;</ept> and <bpt id="a330a7fb-ab92-4e80-a849-142227ef98ad">&lt;em&gt;</bpt>authenticationToken<ept id="a330a7fb-ab92-4e80-a849-142227ef98ad">&lt;/em&gt;</ept> values returned in the response object after a successful login.</target>
+        </trans-unit>
+        <trans-unit id="d683d6d1-a607-42d5-85ae-e7d4669e8809" xml:space="preserve">
+          <source>Use the returned <bpt id="9d40f825-2728-4e97-9f6d-3cd36d0a11d8">&lt;em&gt;</bpt>userId<ept id="9d40f825-2728-4e97-9f6d-3cd36d0a11d8">&lt;/em&gt;</ept> and <bpt id="eedfd2f6-e6d8-4aa6-90d4-a2644ed7a6b4">&lt;em&gt;</bpt>authenticationToken<ept id="eedfd2f6-e6d8-4aa6-90d4-a2644ed7a6b4">&lt;/em&gt;</ept> values to create a new <bpt id="8a66a72c-9443-4117-8b7f-3381777e189b">&lt;strong&gt;</bpt>MobileServiceUser<ept id="8a66a72c-9443-4117-8b7f-3381777e189b">&lt;/strong&gt;</ept> object and set it as the current user for your <bpt id="faeba1aa-8d15-4408-9bd0-6f850ca1c22d">&lt;strong&gt;</bpt>MobileServiceClient<ept id="faeba1aa-8d15-4408-9bd0-6f850ca1c22d">&lt;/strong&gt;</ept> instance, as shown in the topic <bpt id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;linkText&gt;</bpt>Add authentication to existing app<ept id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;/linkText&gt;</ept><bpt id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;title&gt;</bpt><ept id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;/title&gt;</ept>.</source>
+          <target state="new">Use the returned <bpt id="9d40f825-2728-4e97-9f6d-3cd36d0a11d8">&lt;em&gt;</bpt>userId<ept id="9d40f825-2728-4e97-9f6d-3cd36d0a11d8">&lt;/em&gt;</ept> and <bpt id="eedfd2f6-e6d8-4aa6-90d4-a2644ed7a6b4">&lt;em&gt;</bpt>authenticationToken<ept id="eedfd2f6-e6d8-4aa6-90d4-a2644ed7a6b4">&lt;/em&gt;</ept> values to create a new <bpt id="8a66a72c-9443-4117-8b7f-3381777e189b">&lt;strong&gt;</bpt>MobileServiceUser<ept id="8a66a72c-9443-4117-8b7f-3381777e189b">&lt;/strong&gt;</ept> object and set it as the current user for your <bpt id="faeba1aa-8d15-4408-9bd0-6f850ca1c22d">&lt;strong&gt;</bpt>MobileServiceClient<ept id="faeba1aa-8d15-4408-9bd0-6f850ca1c22d">&lt;/strong&gt;</ept> instance, as shown in the topic <bpt id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;linkText&gt;</bpt>Add authentication to existing app<ept id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;/linkText&gt;</ept><bpt id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;title&gt;</bpt><ept id="b37856aa-10ea-4a2a-920e-e9e0419f9121">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ee1497d2-1a1d-480f-a23c-97a8d6efa909" xml:space="preserve">
+          <source>Because the CustomLogin result is the same shape as the <bpt id="707294a6-35df-4f36-b40b-e95b48fbb141">&lt;strong&gt;</bpt>MobileServiceUser<ept id="707294a6-35df-4f36-b40b-e95b48fbb141">&lt;/strong&gt;</ept> object, you should be able to make a direct cast of the result.</source>
+          <target state="new">Because the CustomLogin result is the same shape as the <bpt id="707294a6-35df-4f36-b40b-e95b48fbb141">&lt;strong&gt;</bpt>MobileServiceUser<ept id="707294a6-35df-4f36-b40b-e95b48fbb141">&lt;/strong&gt;</ept> object, you should be able to make a direct cast of the result.</target>
+        </trans-unit>
+        <trans-unit id="4b89c42b-8bb7-4a60-8502-804716de42c7" xml:space="preserve">
+          <source>This completes this tutorial.</source>
+          <target state="new">This completes this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="11451287-76e3-4bab-a15a-da50b434a3b0" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png</target>
+        </trans-unit>
+        <trans-unit id="384bc518-d63f-49eb-b470-6dc20d30fc24" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png</target>
+        </trans-unit>
+        <trans-unit id="ba2b1985-b944-42d2-9058-cf56faf855dc" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png</target>
+        </trans-unit>
+        <trans-unit id="fb95bcb4-5cbe-4c1e-8547-01853f05f85c" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png</target>
+        </trans-unit>
+        <trans-unit id="24d76962-7fc5-4d42-b4c6-6319c34f145d" xml:space="preserve">
+          <source>./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-login-result.png</source>
+          <target state="new">./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-login-result.png</target>
+        </trans-unit>
+        <trans-unit id="dca2273d-fe43-4538-8298-2e2f8e090d8b" xml:space="preserve">
+          <source>../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md</source>
+          <target state="new">../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="c9251f0c-3e91-4d38-a420-7e85b8f18e68" xml:space="preserve">
+          <source>mobile-services-dotnet-backend-windows-store-dotnet-get-started.md</source>
+          <target state="new">mobile-services-dotnet-backend-windows-store-dotnet-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="6c981cab-2c69-42f1-9f1d-c994535334b0" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx</target>
+        </trans-unit>
+        <trans-unit id="98a2153b-92c4-4c88-88f2-84ba4a94f9d9" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="2c205f78-5069-4aa4-ac89-1c7cd345d1e2" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="93320ab6-d7d6-42a4-8171-545c2df4d670" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="93320ab6-d7d6-42a4-8171-545c2df4d670" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="c349ebfb-2349-44ce-b1ae-7623c7e18373">
+        <trans-unit id="eb27e1c5-42c2-43b3-8904-1ec4017eb425" xml:space="preserve">
+          <source>Add Authentication on iOS with Azure Mobile Apps</source>
+          <target state="new">Add Authentication on iOS with Azure Mobile Apps</target>
+        </trans-unit>
+        <trans-unit id="99ede6b0-9a9e-43fd-9e8f-a36cfbebc041" xml:space="preserve">
+          <source>Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.</source>
+          <target state="new">Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="7c0b531b-2316-4519-a55b-e080c902f9fa" xml:space="preserve">
+          <source><bpt id="df9144d3-334b-4fcb-adbe-fcfd56f0ac8c">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="df9144d3-334b-4fcb-adbe-fcfd56f0ac8c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="df9144d3-334b-4fcb-adbe-fcfd56f0ac8c">&lt;token href="../../includes/app-service-mobile-note-mobile-services-preview.md"&gt;</bpt><ept id="df9144d3-334b-4fcb-adbe-fcfd56f0ac8c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="02b91fd5-22ec-4e72-b71c-063e01725a09" xml:space="preserve">
+          <source>In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider.</source>
+          <target state="new">In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider.</target>
+        </trans-unit>
+        <trans-unit id="1407678e-1e1f-4cfd-8580-8e7301178559" xml:space="preserve">
+          <source>This tutorial is based on the [iOS quick start] tutorial, which you must complete first.</source>
+          <target state="new">This tutorial is based on the [iOS quick start] tutorial, which you must complete first.</target>
+        </trans-unit>
+        <trans-unit id="7898ff45-21d0-4bea-aa1a-ba1f84544bb7" xml:space="preserve">
+          <source>If you do not use the downloaded quick start server project, you must add the authentication extension package to your project.</source>
+          <target state="new">If you do not use the downloaded quick start server project, you must add the authentication extension package to your project.</target>
+        </trans-unit>
+        <trans-unit id="1720f6ca-9a61-4a86-8d2d-6f7eb086d3cb" xml:space="preserve">
+          <source>For more information about server extension packages, see <bpt id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;/linkText&gt;</ept><bpt id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;title&gt;</bpt><ept id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about server extension packages, see <bpt id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;linkText&gt;</bpt>Work with the .NET backend server SDK for Azure Mobile Apps<ept id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;/linkText&gt;</ept><bpt id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;title&gt;</bpt><ept id="9c91887e-0b82-49b1-8154-321f87b8b68f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e8f6519-0a1f-4fe9-abca-ac8f7a6421bc" xml:space="preserve">
+          <source><bpt id="a246a87e-1d0f-4bf3-bf2b-cc7d7830c641">&lt;token href="../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md"&gt;</bpt><ept id="a246a87e-1d0f-4bf3-bf2b-cc7d7830c641">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="a246a87e-1d0f-4bf3-bf2b-cc7d7830c641">&lt;token href="../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md"&gt;</bpt><ept id="a246a87e-1d0f-4bf3-bf2b-cc7d7830c641">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="d70e1895-6187-414d-93d7-b1031bad582f" xml:space="preserve">
+          <source><bpt id="50ac3c6f-0010-4082-86bb-8367eb0f945c">&lt;token href="../../includes/app-service-mobile-register-authentication.md"&gt;</bpt><ept id="50ac3c6f-0010-4082-86bb-8367eb0f945c">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="50ac3c6f-0010-4082-86bb-8367eb0f945c">&lt;token href="../../includes/app-service-mobile-register-authentication.md"&gt;</bpt><ept id="50ac3c6f-0010-4082-86bb-8367eb0f945c">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4b7c471-6b6b-4954-badd-0ea933ff6c48" xml:space="preserve">
+          <source><bpt id="c5ef7447-f3dd-48ee-b844-30f8395153ea">&lt;token href="../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="c5ef7447-f3dd-48ee-b844-30f8395153ea">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c5ef7447-f3dd-48ee-b844-30f8395153ea">&lt;token href="../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md"&gt;</bpt><ept id="c5ef7447-f3dd-48ee-b844-30f8395153ea">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c47217fa-8058-4a37-92f1-1e9ece6b581b" xml:space="preserve">
+          <source>In Xcode, press <bpt id="a57d4306-080c-4b3f-ace4-cc08f499de88">&lt;strong&gt;</bpt>Run<ept id="a57d4306-080c-4b3f-ace4-cc08f499de88">&lt;/strong&gt;</ept> to  start the app.</source>
+          <target state="new">In Xcode, press <bpt id="a57d4306-080c-4b3f-ace4-cc08f499de88">&lt;strong&gt;</bpt>Run<ept id="a57d4306-080c-4b3f-ace4-cc08f499de88">&lt;/strong&gt;</ept> to  start the app.</target>
+        </trans-unit>
+        <trans-unit id="7a79f78d-6eae-4bf0-83ae-2a8e028c86cf" xml:space="preserve">
+          <source>An exception will be raised because the app attempts to access the backend as an unauthenticated user, but <bpt id="37957a26-52c7-46cb-af42-ed49fdd2bef8">&lt;em&gt;</bpt>TodoItem<ept id="37957a26-52c7-46cb-af42-ed49fdd2bef8">&lt;/em&gt;</ept> table now requires authentication.</source>
+          <target state="new">An exception will be raised because the app attempts to access the backend as an unauthenticated user, but <bpt id="37957a26-52c7-46cb-af42-ed49fdd2bef8">&lt;em&gt;</bpt>TodoItem<ept id="37957a26-52c7-46cb-af42-ed49fdd2bef8">&lt;/em&gt;</ept> table now requires authentication.</target>
+        </trans-unit>
+        <trans-unit id="4cf3d1af-c07a-43a7-b7d0-f5fe925c840a" xml:space="preserve">
+          <source><bpt id="f899feb8-263c-4148-a04f-6e5c7a8bd046">&lt;token href="../../includes/app-service-mobile-ios-authenticate-app.md"&gt;</bpt><ept id="f899feb8-263c-4148-a04f-6e5c7a8bd046">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f899feb8-263c-4148-a04f-6e5c7a8bd046">&lt;token href="../../includes/app-service-mobile-ios-authenticate-app.md"&gt;</bpt><ept id="f899feb8-263c-4148-a04f-6e5c7a8bd046">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f404222a-e981-40e9-bdfa-eca28361be06" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-ios-get-started-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-ios-get-started-preview.md</target>
+        </trans-unit>
+        <trans-unit id="303edbb3-2efe-413a-840a-30b531bfc248" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+      </group>
+      <group id="feaca776-9784-454c-afcb-d9763a1aa58e" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eb59de58-ce56-44d7-a21e-e946e8284cab" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eb59de58-ce56-44d7-a21e-e946e8284cab" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="02334d48-84d0-474b-a7e6-c4edc84ee79a">
+        <trans-unit id="2f41f083-662b-4af5-b6f7-74e99f23ebe1" xml:space="preserve">
+          <source>Connect Excel to Hadoop with Power Query | Microsoft Azure</source>
+          <target state="new">Connect Excel to Hadoop with Power Query | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="246c6b40-1215-4af6-aa08-fe1d71586f06" xml:space="preserve">
+          <source>Learn how to take advantage of business intelligence components and use Power Query for Excel to access data stored in Hadoop on HDInsight.</source>
+          <target state="new">Learn how to take advantage of business intelligence components and use Power Query for Excel to access data stored in Hadoop on HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="fbb16686-efe8-4d16-8126-c124efa9435a" xml:space="preserve">
+          <source>One key feature of the Microsoft big-data solution is the integration of Microsoft business intelligence (BI) components with Hadoop clusters in Azure HDInsight.</source>
+          <target state="new">One key feature of the Microsoft big-data solution is the integration of Microsoft business intelligence (BI) components with Hadoop clusters in Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="8791b198-603d-4f91-9699-2638d5e3e50c" xml:space="preserve">
+          <source>A primary example of this integration is the ability to connect Excel to the Azure Storage account that contains the data associated with your Hadoop cluster by using the Microsoft Power Query for Excel add-in.</source>
+          <target state="new">A primary example of this integration is the ability to connect Excel to the Azure Storage account that contains the data associated with your Hadoop cluster by using the Microsoft Power Query for Excel add-in.</target>
+        </trans-unit>
+        <trans-unit id="de0f110a-d739-40b8-a0b7-54f8b802c6f5" xml:space="preserve">
+          <source>This article walks you through how to set up and use Power Query to query data associated with a Hadoop cluster managed with HDInsight.</source>
+          <target state="new">This article walks you through how to set up and use Power Query to query data associated with a Hadoop cluster managed with HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="0eeb7aa9-9b2b-4292-9e49-e07ab5bfa09c" xml:space="preserve">
+          <source>While the steps in this article can be used with either a Linux or Windows-based HDInsight cluster, Windows is required for the client workstation.</source>
+          <target state="new">While the steps in this article can be used with either a Linux or Windows-based HDInsight cluster, Windows is required for the client workstation.</target>
+        </trans-unit>
+        <trans-unit id="3942fe5c-086a-4cf2-b818-db0081edf55e" xml:space="preserve">
+          <source>Before you begin this article, you must have the following:</source>
+          <target state="new">Before you begin this article, you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="2b499ef6-907f-4cde-8763-cb7bb1c1af36" xml:space="preserve">
+          <source><bpt id="3462cd8f-cdaa-4e46-90cc-fc545a26756d">&lt;strong&gt;</bpt>An HDInsight cluster<ept id="3462cd8f-cdaa-4e46-90cc-fc545a26756d">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="3462cd8f-cdaa-4e46-90cc-fc545a26756d">&lt;strong&gt;</bpt>An HDInsight cluster<ept id="3462cd8f-cdaa-4e46-90cc-fc545a26756d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecee4a37-f2bc-4eb8-832d-ea1813597711" xml:space="preserve">
+          <source>To configure one, see <bpt id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;/linkText&gt;</ept><bpt id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;title&gt;</bpt><ept id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To configure one, see <bpt id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;linkText&gt;</bpt>Get started with Azure HDInsight[hdinsight-get-started]<ept id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;/linkText&gt;</ept><bpt id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;title&gt;</bpt><ept id="4fed6c73-de99-4986-b8b8-00ff14bc17cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf225b67-afd7-49aa-9336-342348e1fa35" xml:space="preserve">
+          <source><bpt id="aa3ec238-0958-476c-b8da-9a3781899b44">&lt;strong&gt;</bpt>A workstation<ept id="aa3ec238-0958-476c-b8da-9a3781899b44">&lt;/strong&gt;</ept> that is running Windows 7, Windows Server 2008 R2, or a later operating system.</source>
+          <target state="new"><bpt id="aa3ec238-0958-476c-b8da-9a3781899b44">&lt;strong&gt;</bpt>A workstation<ept id="aa3ec238-0958-476c-b8da-9a3781899b44">&lt;/strong&gt;</ept> that is running Windows 7, Windows Server 2008 R2, or a later operating system.</target>
+        </trans-unit>
+        <trans-unit id="55f0c2f0-7850-403b-9437-d0c77fbb79af" xml:space="preserve">
+          <source><bpt id="c5dc2d8d-0261-40aa-aa29-b21ce8ada41e">&lt;strong&gt;</bpt>Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus<ept id="c5dc2d8d-0261-40aa-aa29-b21ce8ada41e">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="c5dc2d8d-0261-40aa-aa29-b21ce8ada41e">&lt;strong&gt;</bpt>Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, or Office 2010 Professional Plus<ept id="c5dc2d8d-0261-40aa-aa29-b21ce8ada41e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f5b7e777-ef7c-4d5c-b631-58549f958322" xml:space="preserve">
+          <source>Power Query can be used to import data from a variety of sources into Microsoft Excel, where it can power BI tools like PowerPivot and Power View.</source>
+          <target state="new">Power Query can be used to import data from a variety of sources into Microsoft Excel, where it can power BI tools like PowerPivot and Power View.</target>
+        </trans-unit>
+        <trans-unit id="6e098312-8c17-4fc6-bf55-cba313d651e5" xml:space="preserve">
+          <source>In particular, Power Query can import data that has been output or that has been generated by a Hadoop job running on an HDInsight cluster.</source>
+          <target state="new">In particular, Power Query can import data that has been output or that has been generated by a Hadoop job running on an HDInsight cluster.</target>
+        </trans-unit>
+        <trans-unit id="d155cd1d-5f8f-4a2c-b336-255c2c52b460" xml:space="preserve">
+          <source>Download Microsoft Power Query for Excel from the <bpt id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;linkText&gt;</bpt>Microsoft Download Center[powerquery-download]<ept id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;/linkText&gt;</ept><bpt id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;title&gt;</bpt><ept id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;/title&gt;</ept> and install it.</source>
+          <target state="new">Download Microsoft Power Query for Excel from the <bpt id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;linkText&gt;</bpt>Microsoft Download Center[powerquery-download]<ept id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;/linkText&gt;</ept><bpt id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;title&gt;</bpt><ept id="f6b4749d-ad26-4429-bad3-7ffe1c2c8f68">&lt;/title&gt;</ept> and install it.</target>
+        </trans-unit>
+        <trans-unit id="fe565d49-3551-48c1-a0af-9b999586ca13" xml:space="preserve">
+          <source>The Power Query add-in for Excel makes it easy to import data from your HDInsight cluster into Excel, where BI tools such as PowerPivot and Power Map can be used to inspect, analyze, and present the data.</source>
+          <target state="new">The Power Query add-in for Excel makes it easy to import data from your HDInsight cluster into Excel, where BI tools such as PowerPivot and Power Map can be used to inspect, analyze, and present the data.</target>
+        </trans-unit>
+        <trans-unit id="7610994c-1ad6-4384-bc8c-ffb84f831b4f" xml:space="preserve">
+          <source><bpt id="cee34b2c-73e0-4d29-83d6-074b8a65cd08">&lt;strong&gt;</bpt>To import data from an HDInsight cluster<ept id="cee34b2c-73e0-4d29-83d6-074b8a65cd08">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cee34b2c-73e0-4d29-83d6-074b8a65cd08">&lt;strong&gt;</bpt>To import data from an HDInsight cluster<ept id="cee34b2c-73e0-4d29-83d6-074b8a65cd08">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3401d795-98fb-488a-ac7f-42f83eb77486" xml:space="preserve">
+          <source>Open Excel.</source>
+          <target state="new">Open Excel.</target>
+        </trans-unit>
+        <trans-unit id="93d9c92e-8c43-49e9-9984-80446e0451ad" xml:space="preserve">
+          <source>Create a new blank workbook.</source>
+          <target state="new">Create a new blank workbook.</target>
+        </trans-unit>
+        <trans-unit id="5bb763a4-e7de-4860-8a7c-bf7faa015800" xml:space="preserve">
+          <source>Click the <bpt id="2de704b6-d237-4299-9cde-f99f694e371c">&lt;strong&gt;</bpt>Power Query<ept id="2de704b6-d237-4299-9cde-f99f694e371c">&lt;/strong&gt;</ept> menu, click <bpt id="98a82705-9077-4569-8000-59d2c914283f">&lt;strong&gt;</bpt>From Other Sources<ept id="98a82705-9077-4569-8000-59d2c914283f">&lt;/strong&gt;</ept>, and then click <bpt id="262276f0-5b6f-46a8-ac0e-fe2a6cfdc8b8">&lt;strong&gt;</bpt>From Azure HDInsight<ept id="262276f0-5b6f-46a8-ac0e-fe2a6cfdc8b8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="2de704b6-d237-4299-9cde-f99f694e371c">&lt;strong&gt;</bpt>Power Query<ept id="2de704b6-d237-4299-9cde-f99f694e371c">&lt;/strong&gt;</ept> menu, click <bpt id="98a82705-9077-4569-8000-59d2c914283f">&lt;strong&gt;</bpt>From Other Sources<ept id="98a82705-9077-4569-8000-59d2c914283f">&lt;/strong&gt;</ept>, and then click <bpt id="262276f0-5b6f-46a8-ac0e-fe2a6cfdc8b8">&lt;strong&gt;</bpt>From Azure HDInsight<ept id="262276f0-5b6f-46a8-ac0e-fe2a6cfdc8b8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f95383d-f236-4fc8-aea7-799b85622039" xml:space="preserve">
+          <source><bpt id="bbbdb794-8f21-4dd7-a2ed-beaf71fd3b81">&lt;linkText&gt;</bpt>HDI.PowerQuery.SelectHdiSource<ept id="bbbdb794-8f21-4dd7-a2ed-beaf71fd3b81">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bbbdb794-8f21-4dd7-a2ed-beaf71fd3b81">&lt;linkText&gt;</bpt>HDI.PowerQuery.SelectHdiSource<ept id="bbbdb794-8f21-4dd7-a2ed-beaf71fd3b81">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d0f749d-2ff3-4f24-8c8d-6f9b83805246" xml:space="preserve">
+          <source>Note: If you don't see the <bpt id="8a9e97f6-4ed5-44a6-84b6-e198e7d7a148">&lt;strong&gt;</bpt>Power Query<ept id="8a9e97f6-4ed5-44a6-84b6-e198e7d7a148">&lt;/strong&gt;</ept> menu, go to <bpt id="10cfb6cb-cf77-4119-8864-1c6f5372bad1">&lt;strong&gt;</bpt>File<ept id="10cfb6cb-cf77-4119-8864-1c6f5372bad1">&lt;/strong&gt;</ept> &gt; <bpt id="eac0f421-08e4-4227-b728-5893962e3029">&lt;strong&gt;</bpt>Options<ept id="eac0f421-08e4-4227-b728-5893962e3029">&lt;/strong&gt;</ept> &gt; <bpt id="d5913913-eec2-459d-8f2e-156f7c51e266">&lt;strong&gt;</bpt>Add-Ins<ept id="d5913913-eec2-459d-8f2e-156f7c51e266">&lt;/strong&gt;</ept>, and select <bpt id="62e7bf1e-b219-4516-8baf-23db09b49477">&lt;strong&gt;</bpt>COM Add-ins<ept id="62e7bf1e-b219-4516-8baf-23db09b49477">&lt;/strong&gt;</ept> from the drop-down <bpt id="c8bc6097-d268-4895-95ab-b6ae2a4af5ba">&lt;strong&gt;</bpt>Manage<ept id="c8bc6097-d268-4895-95ab-b6ae2a4af5ba">&lt;/strong&gt;</ept> box at the bottom of the page.</source>
+          <target state="new">Note: If you don't see the <bpt id="8a9e97f6-4ed5-44a6-84b6-e198e7d7a148">&lt;strong&gt;</bpt>Power Query<ept id="8a9e97f6-4ed5-44a6-84b6-e198e7d7a148">&lt;/strong&gt;</ept> menu, go to <bpt id="10cfb6cb-cf77-4119-8864-1c6f5372bad1">&lt;strong&gt;</bpt>File<ept id="10cfb6cb-cf77-4119-8864-1c6f5372bad1">&lt;/strong&gt;</ept> &gt; <bpt id="eac0f421-08e4-4227-b728-5893962e3029">&lt;strong&gt;</bpt>Options<ept id="eac0f421-08e4-4227-b728-5893962e3029">&lt;/strong&gt;</ept> &gt; <bpt id="d5913913-eec2-459d-8f2e-156f7c51e266">&lt;strong&gt;</bpt>Add-Ins<ept id="d5913913-eec2-459d-8f2e-156f7c51e266">&lt;/strong&gt;</ept>, and select <bpt id="62e7bf1e-b219-4516-8baf-23db09b49477">&lt;strong&gt;</bpt>COM Add-ins<ept id="62e7bf1e-b219-4516-8baf-23db09b49477">&lt;/strong&gt;</ept> from the drop-down <bpt id="c8bc6097-d268-4895-95ab-b6ae2a4af5ba">&lt;strong&gt;</bpt>Manage<ept id="c8bc6097-d268-4895-95ab-b6ae2a4af5ba">&lt;/strong&gt;</ept> box at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="79cc708d-e5c7-400b-bb52-c08612506c58" xml:space="preserve">
+          <source>Select the <bpt id="476c76b0-58fe-4323-8338-2fae9f7c3033">&lt;strong&gt;</bpt>Go...<ept id="476c76b0-58fe-4323-8338-2fae9f7c3033">&lt;/strong&gt;</ept> button and verify that the box for the Power Query for Excel add-in has been checked.</source>
+          <target state="new">Select the <bpt id="476c76b0-58fe-4323-8338-2fae9f7c3033">&lt;strong&gt;</bpt>Go...<ept id="476c76b0-58fe-4323-8338-2fae9f7c3033">&lt;/strong&gt;</ept> button and verify that the box for the Power Query for Excel add-in has been checked.</target>
+        </trans-unit>
+        <trans-unit id="2f96b31f-f213-41f3-9d70-dd8160e9ef94" xml:space="preserve">
+          <source>For <bpt id="a31b1498-5977-48ab-84d4-7b91130be311">&lt;strong&gt;</bpt>Account Name<ept id="a31b1498-5977-48ab-84d4-7b91130be311">&lt;/strong&gt;</ept>, enter the name of the Azure Blob storage account associated with your cluster, and then click <bpt id="232a0754-6f15-4daa-b4d7-f752a2cb529f">&lt;strong&gt;</bpt>OK<ept id="232a0754-6f15-4daa-b4d7-f752a2cb529f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="a31b1498-5977-48ab-84d4-7b91130be311">&lt;strong&gt;</bpt>Account Name<ept id="a31b1498-5977-48ab-84d4-7b91130be311">&lt;/strong&gt;</ept>, enter the name of the Azure Blob storage account associated with your cluster, and then click <bpt id="232a0754-6f15-4daa-b4d7-f752a2cb529f">&lt;strong&gt;</bpt>OK<ept id="232a0754-6f15-4daa-b4d7-f752a2cb529f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47cfb8bf-53bd-4771-b573-879a87bfb079" xml:space="preserve">
+          <source>For <bpt id="9bd1bbc7-6561-4ea7-ba46-de4c1c703374">&lt;strong&gt;</bpt>Account Key<ept id="9bd1bbc7-6561-4ea7-ba46-de4c1c703374">&lt;/strong&gt;</ept>, enter the key for the Blob storage account, and then click <bpt id="aad4af38-95f9-48c8-891d-e6bd65f8ce2d">&lt;strong&gt;</bpt>Save<ept id="aad4af38-95f9-48c8-891d-e6bd65f8ce2d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For <bpt id="9bd1bbc7-6561-4ea7-ba46-de4c1c703374">&lt;strong&gt;</bpt>Account Key<ept id="9bd1bbc7-6561-4ea7-ba46-de4c1c703374">&lt;/strong&gt;</ept>, enter the key for the Blob storage account, and then click <bpt id="aad4af38-95f9-48c8-891d-e6bd65f8ce2d">&lt;strong&gt;</bpt>Save<ept id="aad4af38-95f9-48c8-891d-e6bd65f8ce2d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5dd09337-41ce-4eae-8d16-22a1b67aeb5e" xml:space="preserve">
+          <source>(You need to do this only the first time you access this store.)</source>
+          <target state="new">(You need to do this only the first time you access this store.)</target>
+        </trans-unit>
+        <trans-unit id="05c76936-2d45-4811-b642-4857081bc15a" xml:space="preserve">
+          <source>In the <bpt id="e83367b8-de63-424d-815b-5068a3cba4b9">&lt;strong&gt;</bpt>Navigator<ept id="e83367b8-de63-424d-815b-5068a3cba4b9">&lt;/strong&gt;</ept> pane on the left of the Query Editor, double-click the Blob storage container name.</source>
+          <target state="new">In the <bpt id="e83367b8-de63-424d-815b-5068a3cba4b9">&lt;strong&gt;</bpt>Navigator<ept id="e83367b8-de63-424d-815b-5068a3cba4b9">&lt;/strong&gt;</ept> pane on the left of the Query Editor, double-click the Blob storage container name.</target>
+        </trans-unit>
+        <trans-unit id="8de06dea-8db3-4cea-b48a-73a60c32cc19" xml:space="preserve">
+          <source>By default, the container name is the same name as the cluster name.</source>
+          <target state="new">By default, the container name is the same name as the cluster name.</target>
+        </trans-unit>
+        <trans-unit id="c5233f90-f3ee-412b-89bb-b2b2e9b7fa1d" xml:space="preserve">
+          <source>Locate <bpt id="920afffd-cdd6-4ba5-aa40-fddaa7ec6cae">&lt;strong&gt;</bpt>HiveSampleData.txt<ept id="920afffd-cdd6-4ba5-aa40-fddaa7ec6cae">&lt;/strong&gt;</ept> in the <bpt id="5b92610e-3a99-4502-9e3d-9fd812e21937">&lt;strong&gt;</bpt>Name<ept id="5b92610e-3a99-4502-9e3d-9fd812e21937">&lt;/strong&gt;</ept> column (the folder path is <bpt id="90911844-ae46-4803-8adf-c4e3afd8b3e4">&lt;strong&gt;</bpt>../hive/warehouse/hivesampletable/<ept id="90911844-ae46-4803-8adf-c4e3afd8b3e4">&lt;/strong&gt;</ept>), and then click <bpt id="a61a598a-2a11-4e53-b326-eaf95f37fcf1">&lt;strong&gt;</bpt>Binary<ept id="a61a598a-2a11-4e53-b326-eaf95f37fcf1">&lt;/strong&gt;</ept> on the left of HiveSampleData.txt.</source>
+          <target state="new">Locate <bpt id="920afffd-cdd6-4ba5-aa40-fddaa7ec6cae">&lt;strong&gt;</bpt>HiveSampleData.txt<ept id="920afffd-cdd6-4ba5-aa40-fddaa7ec6cae">&lt;/strong&gt;</ept> in the <bpt id="5b92610e-3a99-4502-9e3d-9fd812e21937">&lt;strong&gt;</bpt>Name<ept id="5b92610e-3a99-4502-9e3d-9fd812e21937">&lt;/strong&gt;</ept> column (the folder path is <bpt id="90911844-ae46-4803-8adf-c4e3afd8b3e4">&lt;strong&gt;</bpt>../hive/warehouse/hivesampletable/<ept id="90911844-ae46-4803-8adf-c4e3afd8b3e4">&lt;/strong&gt;</ept>), and then click <bpt id="a61a598a-2a11-4e53-b326-eaf95f37fcf1">&lt;strong&gt;</bpt>Binary<ept id="a61a598a-2a11-4e53-b326-eaf95f37fcf1">&lt;/strong&gt;</ept> on the left of HiveSampleData.txt.</target>
+        </trans-unit>
+        <trans-unit id="4a68d90f-8c5f-4ed3-8443-eb4f3f1b8459" xml:space="preserve">
+          <source><bpt id="99cd2846-363e-4f3e-9e23-cbea27bdc9fa">&lt;linkText&gt;</bpt>HDI.PowerQuery.ImportData<ept id="99cd2846-363e-4f3e-9e23-cbea27bdc9fa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99cd2846-363e-4f3e-9e23-cbea27bdc9fa">&lt;linkText&gt;</bpt>HDI.PowerQuery.ImportData<ept id="99cd2846-363e-4f3e-9e23-cbea27bdc9fa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ea2989b-f5e2-4c48-8887-d3aeaad1a286" xml:space="preserve">
+          <source>If you want, you can rename the column names. When you are ready, click <bpt id="34dc4fbc-4495-4f95-b75f-605ef4377a9d">&lt;strong&gt;</bpt>Apply &amp; Close<ept id="34dc4fbc-4495-4f95-b75f-605ef4377a9d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want, you can rename the column names. When you are ready, click <bpt id="34dc4fbc-4495-4f95-b75f-605ef4377a9d">&lt;strong&gt;</bpt>Apply &amp; Close<ept id="34dc4fbc-4495-4f95-b75f-605ef4377a9d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db5a7fc5-ad5d-4570-9539-4b25fce46508" xml:space="preserve">
+          <source><bpt id="2d5e9b9e-9e8b-4754-8208-a8685cf11f98">&lt;linkText&gt;</bpt>HDI.PowerQuery.ImportedTable<ept id="2d5e9b9e-9e8b-4754-8208-a8685cf11f98">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2d5e9b9e-9e8b-4754-8208-a8685cf11f98">&lt;linkText&gt;</bpt>HDI.PowerQuery.ImportedTable<ept id="2d5e9b9e-9e8b-4754-8208-a8685cf11f98">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43c67be3-e263-4550-a7ab-27761b5a548f" xml:space="preserve">
+          <source>In this article, you learned how to use Power Query to retrieve data from HDInsight into Excel.</source>
+          <target state="new">In this article, you learned how to use Power Query to retrieve data from HDInsight into Excel.</target>
+        </trans-unit>
+        <trans-unit id="62e8dbfa-91bd-49e8-a288-b84613f981c1" xml:space="preserve">
+          <source>Similarly, you can retrieve data from HDInsight into Azure SQL Database.</source>
+          <target state="new">Similarly, you can retrieve data from HDInsight into Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="485b278f-74f7-46e7-86b7-d398b55589f8" xml:space="preserve">
+          <source>It is also possible to upload data into HDInsight.</source>
+          <target state="new">It is also possible to upload data into HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="b7f9fdc8-838f-42a4-b41f-38ecbc8fd222" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="d0f2f20a-617d-4876-91b4-906d2ca74a4a" xml:space="preserve">
+          <source><bpt id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;/linkText&gt;</ept><bpt id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;title&gt;</bpt><ept id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;linkText&gt;</bpt>Connect Excel to HDInsight with the Microsoft Hive ODBC Driver[hdinsight-odbc]<ept id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;/linkText&gt;</ept><bpt id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;title&gt;</bpt><ept id="5b691f20-4a24-4934-9f8b-73e038db5412">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6af50cd8-870f-4deb-82ec-8767004fbf9a" xml:space="preserve">
+          <source><bpt id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;linkText&gt;</bpt>Upload Data to HDInsight[hdinsight-upload-data]<ept id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;/linkText&gt;</ept><bpt id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;title&gt;</bpt><ept id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;linkText&gt;</bpt>Upload Data to HDInsight[hdinsight-upload-data]<ept id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;/linkText&gt;</ept><bpt id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;title&gt;</bpt><ept id="d74a12a5-2ec7-4f3c-bd82-87a233378684">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51fdfce5-1d16-4afa-ba65-ea6f4e3ac2df" xml:space="preserve">
+          <source>hdinsight-connect-excel-hive-ODBC-driver.md</source>
+          <target state="new">hdinsight-connect-excel-hive-ODBC-driver.md</target>
+        </trans-unit>
+        <trans-unit id="96c219a7-b9ef-4bee-83e2-8a1eb286226c" xml:space="preserve">
+          <source>../hdinsight-get-started.md</source>
+          <target state="new">../hdinsight-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="14d55e23-1a13-4b3e-abf0-54d17b4dc27b" xml:space="preserve">
+          <source>hdinsight-upload-data.md</source>
+          <target state="new">hdinsight-upload-data.md</target>
+        </trans-unit>
+        <trans-unit id="6b5b560f-cf02-4f71-8a56-75819fa47529" xml:space="preserve">
+          <source>./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png</source>
+          <target state="new">./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png</target>
+        </trans-unit>
+        <trans-unit id="a6bf63d1-3203-4556-9026-63ff3595a720" xml:space="preserve">
+          <source>./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png</source>
+          <target state="new">./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png</target>
+        </trans-unit>
+        <trans-unit id="cc6915a3-5be3-44e3-a015-d1a229d03828" xml:space="preserve">
+          <source>./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG</source>
+          <target state="new">./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG</target>
+        </trans-unit>
+        <trans-unit id="acf38275-c67c-49c4-8973-cc4839ee373c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=286689</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=286689</target>
+        </trans-unit>
+      </group>
+      <group id="499ed04b-07a2-4072-a20e-c405a3329a68" />
+    </body>
+  </file>
+</xliff>

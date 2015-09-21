@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6c439f3f-599d-47e0-b4b5-30768824f053" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6c439f3f-599d-47e0-b4b5-30768824f053" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="19cf9fab-1b51-4b2d-bf4d-9d8a70d8b65c">
+        <trans-unit id="1ccc9aa6-8af5-4034-b1cf-ad15960170d8" xml:space="preserve">
+          <source>Before you can use Azure PowerShell with Resource Manager, you will need to have right Windows PowerShell and Azure PowerShell versions.</source>
+          <target state="new">Before you can use Azure PowerShell with Resource Manager, you will need to have right Windows PowerShell and Azure PowerShell versions.</target>
+        </trans-unit>
+        <trans-unit id="06760766-362a-4892-a931-3d7d6330bdfa" xml:space="preserve">
+          <source>Verify you have Windows PowerShell version 3.0 or 4.0.</source>
+          <target state="new">Verify you have Windows PowerShell version 3.0 or 4.0.</target>
+        </trans-unit>
+        <trans-unit id="6d1dd356-71aa-4af0-a886-55da4d3f5d56" xml:space="preserve">
+          <source>To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.</source>
+          <target state="new">To find the version of Windows PowerShell, type this command at a Windows PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="e17d0593-b32d-4ba9-bc92-e18b4fbe5cc9" xml:space="preserve">
+          <source>You will receive the following type of information:</source>
+          <target state="new">You will receive the following type of information:</target>
+        </trans-unit>
+        <trans-unit id="bb48ae35-9873-450d-be8a-433720a0b995" xml:space="preserve">
+          <source>Verify that the value of <bpt id="dc0f8125-b641-4e34-aca0-037d4eb4af51">&lt;strong&gt;</bpt>PSVersion<ept id="dc0f8125-b641-4e34-aca0-037d4eb4af51">&lt;/strong&gt;</ept> is 3.0 or 4.0.</source>
+          <target state="new">Verify that the value of <bpt id="dc0f8125-b641-4e34-aca0-037d4eb4af51">&lt;strong&gt;</bpt>PSVersion<ept id="dc0f8125-b641-4e34-aca0-037d4eb4af51">&lt;/strong&gt;</ept> is 3.0 or 4.0.</target>
+        </trans-unit>
+        <trans-unit id="4ca7e96d-ccb0-47cb-a727-7a6d9fbefd42" xml:space="preserve">
+          <source>If not, see <bpt id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;linkText&gt;</bpt>Windows Management Framework 3.0<ept id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;/linkText&gt;</ept><bpt id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;title&gt;</bpt><ept id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;/title&gt;</ept> or <bpt id="a417a104-07e8-4656-98f9-655fbec60456">&lt;linkText&gt;</bpt>Windows Management Framework 4.0<ept id="a417a104-07e8-4656-98f9-655fbec60456">&lt;/linkText&gt;</ept><bpt id="a417a104-07e8-4656-98f9-655fbec60456">&lt;title&gt;</bpt><ept id="a417a104-07e8-4656-98f9-655fbec60456">&lt;/title&gt;</ept>.</source>
+          <target state="new">If not, see <bpt id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;linkText&gt;</bpt>Windows Management Framework 3.0<ept id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;/linkText&gt;</ept><bpt id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;title&gt;</bpt><ept id="05fc073c-6dac-438c-8eee-5cb8247ea299">&lt;/title&gt;</ept> or <bpt id="a417a104-07e8-4656-98f9-655fbec60456">&lt;linkText&gt;</bpt>Windows Management Framework 4.0<ept id="a417a104-07e8-4656-98f9-655fbec60456">&lt;/linkText&gt;</ept><bpt id="a417a104-07e8-4656-98f9-655fbec60456">&lt;title&gt;</bpt><ept id="a417a104-07e8-4656-98f9-655fbec60456">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="17e4a97f-c6ce-4910-902a-b474f121de39" xml:space="preserve">
+          <source>You must also have Azure PowerShell version 0.9.0 or later.</source>
+          <target state="new">You must also have Azure PowerShell version 0.9.0 or later.</target>
+        </trans-unit>
+        <trans-unit id="99264c79-b264-4abc-b8b9-d56f74cef2b8" xml:space="preserve">
+          <source>If you have not installed and configured Azure PowerShell, click <bpt id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;linkText&gt;</bpt>here<ept id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;/linkText&gt;</ept><bpt id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;title&gt;</bpt><ept id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;/title&gt;</ept> for instructions.</source>
+          <target state="new">If you have not installed and configured Azure PowerShell, click <bpt id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;linkText&gt;</bpt>here<ept id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;/linkText&gt;</ept><bpt id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;title&gt;</bpt><ept id="889d706d-9537-42c6-9ca8-3ad245b5d3ab">&lt;/title&gt;</ept> for instructions.</target>
+        </trans-unit>
+        <trans-unit id="58b6f2db-fd80-4f1c-b4be-fc57f8ed8281" xml:space="preserve">
+          <source>You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.</source>
+          <target state="new">You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.</target>
+        </trans-unit>
+        <trans-unit id="cc01ffad-b0b9-4d0b-bf02-e55b7e386242" xml:space="preserve">
+          <source>You will receive the following type of information:</source>
+          <target state="new">You will receive the following type of information:</target>
+        </trans-unit>
+        <trans-unit id="74af3185-5e94-48e5-bc1c-0287149ef61c" xml:space="preserve">
+          <source>If you do not have 0.9.0 or later, you must remove Azure PowerShell using the Programs and Features Control Panel and then install the latest version.</source>
+          <target state="new">If you do not have 0.9.0 or later, you must remove Azure PowerShell using the Programs and Features Control Panel and then install the latest version.</target>
+        </trans-unit>
+        <trans-unit id="7240a3ec-2be5-40ac-9166-26727d08a8b1" xml:space="preserve">
+          <source>See <bpt id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;/linkText&gt;</ept><bpt id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;title&gt;</bpt><ept id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;linkText&gt;</bpt>How to Install and Configure Azure PowerShell<ept id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;/linkText&gt;</ept><bpt id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;title&gt;</bpt><ept id="97c95a80-c297-4539-85b3-b5fe8da6f277">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="a24c4b20-c99e-4d3b-8428-af4271c228b6" xml:space="preserve">
+          <source>If you don't already have an Azure subscription, you can activate your <bpt id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;/linkText&gt;</ept><bpt id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;title&gt;</bpt><ept id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;/title&gt;</ept> or sign up for a <bpt id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;linkText&gt;</bpt>free trial<ept id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;/linkText&gt;</ept><bpt id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;title&gt;</bpt><ept id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you don't already have an Azure subscription, you can activate your <bpt id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;linkText&gt;</bpt>MSDN subscriber benefits<ept id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;/linkText&gt;</ept><bpt id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;title&gt;</bpt><ept id="3cd52825-c48e-46b7-85a3-4a827fea3fea">&lt;/title&gt;</ept> or sign up for a <bpt id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;linkText&gt;</bpt>free trial<ept id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;/linkText&gt;</ept><bpt id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;title&gt;</bpt><ept id="55880f5d-7d6f-47c3-ae1f-d8935b58e3df">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77487e78-5976-4d21-add2-933cd1f9cd8a" xml:space="preserve">
+          <source>Open an Azure PowerShell command prompt and log on to Azure with this command.</source>
+          <target state="new">Open an Azure PowerShell command prompt and log on to Azure with this command.</target>
+        </trans-unit>
+        <trans-unit id="7ddda4f6-1b6a-414b-b69d-326e0bf54a11" xml:space="preserve">
+          <source>If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.</source>
+          <target state="new">If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.</target>
+        </trans-unit>
+        <trans-unit id="73ba350b-fa77-4a67-8654-08855b041463" xml:space="preserve">
+          <source>You will receive the following type of information:</source>
+          <target state="new">You will receive the following type of information:</target>
+        </trans-unit>
+        <trans-unit id="b8f38422-30c1-4d9c-b0f5-88688cc70e04" xml:space="preserve">
+          <source>You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the &lt; and &gt; characters, with the correct name.</source>
+          <target state="new">You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the &lt; and &gt; characters, with the correct name.</target>
+        </trans-unit>
+        <trans-unit id="2b3a3533-46d9-4467-a345-c592bde0478a" xml:space="preserve">
+          <source>For more information about Azure subscriptions and accounts, see <bpt id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;linkText&gt;</bpt>How to: Connect to your subscription<ept id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;/linkText&gt;</ept><bpt id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;title&gt;</bpt><ept id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about Azure subscriptions and accounts, see <bpt id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;linkText&gt;</bpt>How to: Connect to your subscription<ept id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;/linkText&gt;</ept><bpt id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;title&gt;</bpt><ept id="8c48ee22-964a-4fb7-9b94-421a704f1bee">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d3c13672-2dde-4c24-a453-a1fe6cb2df39" xml:space="preserve">
+          <source>In order to use the Azure Resource Manager module you will need to switch from the default set of Azure commands to the Azure Resource Manager set of commands.</source>
+          <target state="new">In order to use the Azure Resource Manager module you will need to switch from the default set of Azure commands to the Azure Resource Manager set of commands.</target>
+        </trans-unit>
+        <trans-unit id="b097457e-1a20-45ea-91a6-8bdef36a52c3" xml:space="preserve">
+          <source>Run this command.</source>
+          <target state="new">Run this command.</target>
+        </trans-unit>
+        <trans-unit id="d99ffd4a-44c1-45c3-b36e-a27322b8c2cc" xml:space="preserve">
+          <source>You can switch back to the default set of commands with the <bpt id="7193e567-1788-4476-8dd3-b825c6b1f58e">&lt;strong&gt;</bpt>Switch-AzureMode AzureServiceManagement<ept id="7193e567-1788-4476-8dd3-b825c6b1f58e">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">You can switch back to the default set of commands with the <bpt id="7193e567-1788-4476-8dd3-b825c6b1f58e">&lt;strong&gt;</bpt>Switch-AzureMode AzureServiceManagement<ept id="7193e567-1788-4476-8dd3-b825c6b1f58e">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

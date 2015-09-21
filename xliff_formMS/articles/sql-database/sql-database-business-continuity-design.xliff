@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1366e6f8-ec11-48c6-9ddc-88ba74a88e0c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1366e6f8-ec11-48c6-9ddc-88ba74a88e0c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5e758551-1a6a-4338-8730-ba295924b998">
+        <trans-unit id="b35187d9-2996-4467-8b6e-9ffb71760bfa" xml:space="preserve">
+          <source>SQL Database Design for Business Continuity</source>
+          <target state="new">SQL Database Design for Business Continuity</target>
+        </trans-unit>
+        <trans-unit id="6c7e13a6-ac08-4027-b22e-39ca2aba0c69" xml:space="preserve">
+          <source>Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB.</source>
+          <target state="new">Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB.</target>
+        </trans-unit>
+        <trans-unit id="d654c4c9-60cf-4bea-9cdb-211f5381157e" xml:space="preserve">
+          <source>Designing your application for business continuity requires you to answer the following questions:</source>
+          <target state="new">Designing your application for business continuity requires you to answer the following questions:</target>
+        </trans-unit>
+        <trans-unit id="dfd2183e-a20b-47f3-b393-db041a623fc7" xml:space="preserve">
+          <source>Which business continuity feature is appropriate for protecting my application from outages?</source>
+          <target state="new">Which business continuity feature is appropriate for protecting my application from outages?</target>
+        </trans-unit>
+        <trans-unit id="0288b612-6b34-4021-8876-e55b203f3846" xml:space="preserve">
+          <source>What level of redundancy and replication topology do I use?</source>
+          <target state="new">What level of redundancy and replication topology do I use?</target>
+        </trans-unit>
+        <trans-unit id="1bbacedb-6077-4bfe-8863-ac02705908b0" xml:space="preserve">
+          <source>SQL Database provides a built-in basic protection of every database by default.</source>
+          <target state="new">SQL Database provides a built-in basic protection of every database by default.</target>
+        </trans-unit>
+        <trans-unit id="ef46ee93-e7b4-4b92-9ccf-d6137645d2a5" xml:space="preserve">
+          <source>It is done by storing the database backups in the geo-redundant Azure storage (GRS).</source>
+          <target state="new">It is done by storing the database backups in the geo-redundant Azure storage (GRS).</target>
+        </trans-unit>
+        <trans-unit id="332bb2a6-759c-4b45-99e6-24c8daacf0df" xml:space="preserve">
+          <source>If you choose this method, no special configuration or additional resource allocation is necessary.</source>
+          <target state="new">If you choose this method, no special configuration or additional resource allocation is necessary.</target>
+        </trans-unit>
+        <trans-unit id="e868cab4-ad3c-4df6-8877-3ef36f95fcb8" xml:space="preserve">
+          <source>With these backups, you can recover your database in any region using the Geo-Restore command.</source>
+          <target state="new">With these backups, you can recover your database in any region using the Geo-Restore command.</target>
+        </trans-unit>
+        <trans-unit id="af14d095-0fb5-44ac-9259-d8a8fa0c86db" xml:space="preserve">
+          <source>Use <bpt id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;linkText&gt;</bpt>Recover from an outage<ept id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;/linkText&gt;</ept><bpt id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;title&gt;</bpt><ept id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;/title&gt;</ept> section for the details of using geo-restore to recover your application.</source>
+          <target state="new">Use <bpt id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;linkText&gt;</bpt>Recover from an outage<ept id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;/linkText&gt;</ept><bpt id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;title&gt;</bpt><ept id="c340ac83-60c8-42d1-8203-0fa3bbb7654b">&lt;/title&gt;</ept> section for the details of using geo-restore to recover your application.</target>
+        </trans-unit>
+        <trans-unit id="23258d38-0c48-4606-9d72-3847adf4a6f3" xml:space="preserve">
+          <source>You should use the built-in protection if your application meets the following criteria:</source>
+          <target state="new">You should use the built-in protection if your application meets the following criteria:</target>
+        </trans-unit>
+        <trans-unit id="446dfb91-a61c-4c66-be7a-2840c04251a4" xml:space="preserve">
+          <source>It is not considered mission critical.</source>
+          <target state="new">It is not considered mission critical.</target>
+        </trans-unit>
+        <trans-unit id="385ec675-46e0-41a9-afb3-429c99728554" xml:space="preserve">
+          <source>It doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.</source>
+          <target state="new">It doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.</target>
+        </trans-unit>
+        <trans-unit id="c9e8aad9-fba8-4fa1-9bd2-80a370856570" xml:space="preserve">
+          <source>The rate of data change is low (e.g. transactions per hour).</source>
+          <target state="new">The rate of data change is low (e.g. transactions per hour).</target>
+        </trans-unit>
+        <trans-unit id="cdfcecf9-85eb-471e-8b4d-381a830318b5" xml:space="preserve">
+          <source>The RPO of 1 hour will not result in a massive data loss.</source>
+          <target state="new">The RPO of 1 hour will not result in a massive data loss.</target>
+        </trans-unit>
+        <trans-unit id="8eded1bd-0719-4ff5-b8c1-97bec59a7d45" xml:space="preserve">
+          <source>The application is cost sensitive and cannot justify the additional cost of Geo-Replication </source>
+          <target state="new">The application is cost sensitive and cannot justify the additional cost of Geo-Replication </target>
+        </trans-unit>
+        <trans-unit id="9b8bbc6d-57fd-4ca7-85b5-baa27d139794" xml:space="preserve">
+          <source>Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage.</source>
+          <target state="new">Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage.</target>
+        </trans-unit>
+        <trans-unit id="ba91f50a-360e-4192-81cf-e5eaa0f09a75" xml:space="preserve">
+          <source>The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority.</source>
+          <target state="new">The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority.</target>
+        </trans-unit>
+        <trans-unit id="6eb7af98-c6f3-4391-9190-676b02e9b4ba" xml:space="preserve">
+          <source>Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time.</source>
+          <target state="new">Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time.</target>
+        </trans-unit>
+        <trans-unit id="9b3b6dc9-d746-476e-a92e-0ce31d86bd2e" xml:space="preserve">
+          <source>Geo-Replication creates a replica database (secondary) in a different region from your primary.</source>
+          <target state="new">Geo-Replication creates a replica database (secondary) in a different region from your primary.</target>
+        </trans-unit>
+        <trans-unit id="1b163a4a-3c31-4cb8-bda0-14ba34df1229" xml:space="preserve">
+          <source>It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery.</source>
+          <target state="new">It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery.</target>
+        </trans-unit>
+        <trans-unit id="f5a2ffeb-ab74-41a9-adbc-61a535539e6d" xml:space="preserve">
+          <source>Refer to <bpt id="80f056e8-c593-4851-b9db-7946a808e693">&lt;linkText&gt;</bpt>Recover from an outage<ept id="80f056e8-c593-4851-b9db-7946a808e693">&lt;/linkText&gt;</ept><bpt id="80f056e8-c593-4851-b9db-7946a808e693">&lt;title&gt;</bpt><ept id="80f056e8-c593-4851-b9db-7946a808e693">&lt;/title&gt;</ept> section for using failover to recover your application.</source>
+          <target state="new">Refer to <bpt id="80f056e8-c593-4851-b9db-7946a808e693">&lt;linkText&gt;</bpt>Recover from an outage<ept id="80f056e8-c593-4851-b9db-7946a808e693">&lt;/linkText&gt;</ept><bpt id="80f056e8-c593-4851-b9db-7946a808e693">&lt;title&gt;</bpt><ept id="80f056e8-c593-4851-b9db-7946a808e693">&lt;/title&gt;</ept> section for using failover to recover your application.</target>
+        </trans-unit>
+        <trans-unit id="da6c42ab-32fe-45ce-96c1-fb333e50d347" xml:space="preserve">
+          <source>You should use the Geo-Replication if your application meets the following criteria:</source>
+          <target state="new">You should use the Geo-Replication if your application meets the following criteria:</target>
+        </trans-unit>
+        <trans-unit id="2d32e756-3247-441d-a7fb-470836194d66" xml:space="preserve">
+          <source>It is mission critical.</source>
+          <target state="new">It is mission critical.</target>
+        </trans-unit>
+        <trans-unit id="dacc6f7e-d529-42d3-8dc5-e5169c151706" xml:space="preserve">
+          <source>It has a binding SLA with aggressive RPO and RTO.</source>
+          <target state="new">It has a binding SLA with aggressive RPO and RTO.</target>
+        </trans-unit>
+        <trans-unit id="c71bd7b4-a6b2-4ee8-af8b-03f70b2a21ca" xml:space="preserve">
+          <source>Loss of data and availability will result in financial liability.</source>
+          <target state="new">Loss of data and availability will result in financial liability.</target>
+        </trans-unit>
+        <trans-unit id="4e10f40a-1829-43d4-8265-0afc6f82fadb" xml:space="preserve">
+          <source>The rate of data change is high (e.g. transactions per minute or seconds).</source>
+          <target state="new">The rate of data change is high (e.g. transactions per minute or seconds).</target>
+        </trans-unit>
+        <trans-unit id="be8b958d-e510-4284-83f1-fcf5a20fafc7" xml:space="preserve">
+          <source>The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.</source>
+          <target state="new">The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.</target>
+        </trans-unit>
+        <trans-unit id="e3300eb2-a0ab-4522-a077-2b28b825ce20" xml:space="preserve">
+          <source>The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.</source>
+          <target state="new">The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.</target>
+        </trans-unit>
+        <trans-unit id="3afee86a-06d6-4f35-8f24-e722041c3ee4" xml:space="preserve">
+          <source>If your application uses Basic tier database(s) Geo-Repliation is not supported</source>
+          <target state="new">If your application uses Basic tier database(s) Geo-Repliation is not supported</target>
+        </trans-unit>
+        <trans-unit id="0b2a2dfc-16d7-4413-a331-aa3bcc9486d0" xml:space="preserve">
+          <source>Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication.</source>
+          <target state="new">Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication.</target>
+        </trans-unit>
+        <trans-unit id="22b29f40-b5f8-4af1-be3e-ca6da4e08629" xml:space="preserve">
+          <source>Premium databases on the other hand can choose either option.</source>
+          <target state="new">Premium databases on the other hand can choose either option.</target>
+        </trans-unit>
+        <trans-unit id="82adfaa5-bc1a-451c-80b2-3cb46cf0702c" xml:space="preserve">
+          <source>Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages.</source>
+          <target state="new">Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages.</target>
+        </trans-unit>
+        <trans-unit id="af56c361-a609-420a-be1f-34a4e24fa14a" xml:space="preserve">
+          <source>With Standard Geo-Replication you can only use the DR paired region for the recovery and do have the ability to create more than one secondary.</source>
+          <target state="new">With Standard Geo-Replication you can only use the DR paired region for the recovery and do have the ability to create more than one secondary.</target>
+        </trans-unit>
+        <trans-unit id="e1b0b182-87e8-4460-b294-72202ef69bc3" xml:space="preserve">
+          <source>This latter feature is critical for the application upgrade scenario.</source>
+          <target state="new">This latter feature is critical for the application upgrade scenario.</target>
+        </trans-unit>
+        <trans-unit id="0d36f5d6-26e1-4c8f-85e5-8aab5400e5c8" xml:space="preserve">
+          <source>So if this scenario is critical for your application you should enable Active Geo-Replication instead.</source>
+          <target state="new">So if this scenario is critical for your application you should enable Active Geo-Replication instead.</target>
+        </trans-unit>
+        <trans-unit id="2edd4c7a-5f37-4df8-b6d0-8707ea3aa966" xml:space="preserve">
+          <source>Please refer to <bpt id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;linkText&gt;</bpt>Upgrade application without downtime<ept id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;/linkText&gt;</ept><bpt id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;title&gt;</bpt><ept id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;/title&gt;</ept> for additional details.</source>
+          <target state="new">Please refer to <bpt id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;linkText&gt;</bpt>Upgrade application without downtime<ept id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;/linkText&gt;</ept><bpt id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;title&gt;</bpt><ept id="4bbb7cc8-6175-42d4-8bfc-377d07897cc2">&lt;/title&gt;</ept> for additional details.</target>
+        </trans-unit>
+        <trans-unit id="c43eb80f-f122-4330-b5bf-ec07cb872e0b" xml:space="preserve">
+          <source>Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads.</source>
+          <target state="new">Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads.</target>
+        </trans-unit>
+        <trans-unit id="a2a5cbc6-8e11-4c84-b5d6-4c0f699ddf64" xml:space="preserve">
+          <source>You can enable Geo-Replicatiom using Azure Portal or by calling REST API or PowerShell command.</source>
+          <target state="new">You can enable Geo-Replicatiom using Azure Portal or by calling REST API or PowerShell command.</target>
+        </trans-unit>
+        <trans-unit id="300d1b59-958b-428b-a1f6-bffcaac4b24a" xml:space="preserve">
+          <source>Log in to the <bpt id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;linkText&gt;</bpt>Azure Portal<ept id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;/linkText&gt;</ept><bpt id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;title&gt;</bpt><ept id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;/title&gt;</ept></source>
+          <target state="new">Log in to the <bpt id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;linkText&gt;</bpt>Azure Portal<ept id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;/linkText&gt;</ept><bpt id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;title&gt;</bpt><ept id="fd4b5c68-47b3-4cb3-895e-b38a6f111d7f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f5fbfba2-6698-4c3c-b7e5-3c5050c69d66" xml:space="preserve">
+          <source>On the left side of the screen select <bpt id="e8d25496-adff-4c11-86bb-e3aeadf42188">&lt;strong&gt;</bpt>BROWSE<ept id="e8d25496-adff-4c11-86bb-e3aeadf42188">&lt;/strong&gt;</ept> and then select <bpt id="6c514bc2-3c50-4732-899b-81ac3d29f7b6">&lt;strong&gt;</bpt>SQL Databases<ept id="6c514bc2-3c50-4732-899b-81ac3d29f7b6">&lt;/strong&gt;</ept></source>
+          <target state="new">On the left side of the screen select <bpt id="e8d25496-adff-4c11-86bb-e3aeadf42188">&lt;strong&gt;</bpt>BROWSE<ept id="e8d25496-adff-4c11-86bb-e3aeadf42188">&lt;/strong&gt;</ept> and then select <bpt id="6c514bc2-3c50-4732-899b-81ac3d29f7b6">&lt;strong&gt;</bpt>SQL Databases<ept id="6c514bc2-3c50-4732-899b-81ac3d29f7b6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6ef7e357-492c-43ca-998c-bdcce914c0e2" xml:space="preserve">
+          <source>Navigate to your database blade, select the <bpt id="5b995bfa-31c6-48ca-b271-a2d5103fbd54">&lt;strong&gt;</bpt>Geo Replication map<ept id="5b995bfa-31c6-48ca-b271-a2d5103fbd54">&lt;/strong&gt;</ept> and click <bpt id="eb5f6051-c108-42fa-bc17-c0b6bb3476b0">&lt;strong&gt;</bpt>Configure Geo-Replication<ept id="eb5f6051-c108-42fa-bc17-c0b6bb3476b0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to your database blade, select the <bpt id="5b995bfa-31c6-48ca-b271-a2d5103fbd54">&lt;strong&gt;</bpt>Geo Replication map<ept id="5b995bfa-31c6-48ca-b271-a2d5103fbd54">&lt;/strong&gt;</ept> and click <bpt id="eb5f6051-c108-42fa-bc17-c0b6bb3476b0">&lt;strong&gt;</bpt>Configure Geo-Replication<ept id="eb5f6051-c108-42fa-bc17-c0b6bb3476b0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9bd367f-5f32-4868-8322-713e0aad7256" xml:space="preserve">
+          <source>Navigate to Geo-Replication blade.</source>
+          <target state="new">Navigate to Geo-Replication blade.</target>
+        </trans-unit>
+        <trans-unit id="03d56225-d41d-4215-ab73-a0414a6cad72" xml:space="preserve">
+          <source>Select the target region.</source>
+          <target state="new">Select the target region.</target>
+        </trans-unit>
+        <trans-unit id="bcd2091f-a965-403e-9a76-7c7cd10be20b" xml:space="preserve">
+          <source>Navigate to the Create Secondary blade.</source>
+          <target state="new">Navigate to the Create Secondary blade.</target>
+        </trans-unit>
+        <trans-unit id="a2a96a00-c86b-41c2-8bbe-f67bf9a5ef81" xml:space="preserve">
+          <source>Select an existing server in the target region or create a new one.</source>
+          <target state="new">Select an existing server in the target region or create a new one.</target>
+        </trans-unit>
+        <trans-unit id="2bf3f9cd-ffdf-4796-ac0f-e09a9f6b884b" xml:space="preserve">
+          <source>Select the secondary type (<bpt id="6bf4c6f5-afbc-4f4c-a93f-bb63ddacffa3">&lt;em&gt;</bpt>Readable<ept id="6bf4c6f5-afbc-4f4c-a93f-bb63ddacffa3">&lt;/em&gt;</ept> or <bpt id="0160d6cc-8bef-4f8e-8989-dd001e8b4576">&lt;em&gt;</bpt>Non-readable<ept id="0160d6cc-8bef-4f8e-8989-dd001e8b4576">&lt;/em&gt;</ept>)</source>
+          <target state="new">Select the secondary type (<bpt id="6bf4c6f5-afbc-4f4c-a93f-bb63ddacffa3">&lt;em&gt;</bpt>Readable<ept id="6bf4c6f5-afbc-4f4c-a93f-bb63ddacffa3">&lt;/em&gt;</ept> or <bpt id="0160d6cc-8bef-4f8e-8989-dd001e8b4576">&lt;em&gt;</bpt>Non-readable<ept id="0160d6cc-8bef-4f8e-8989-dd001e8b4576">&lt;/em&gt;</ept>)</target>
+        </trans-unit>
+        <trans-unit id="502c4196-981d-4785-a6a7-712e02c1fd0f" xml:space="preserve">
+          <source>Click <bpt id="b62f0000-0721-4c99-90bd-afe0148a4c8f">&lt;strong&gt;</bpt>Create<ept id="b62f0000-0721-4c99-90bd-afe0148a4c8f">&lt;/strong&gt;</ept> to complete the configuration</source>
+          <target state="new">Click <bpt id="b62f0000-0721-4c99-90bd-afe0148a4c8f">&lt;strong&gt;</bpt>Create<ept id="b62f0000-0721-4c99-90bd-afe0148a4c8f">&lt;/strong&gt;</ept> to complete the configuration</target>
+        </trans-unit>
+        <trans-unit id="765150a9-d61d-4635-8250-5ac92069b172" xml:space="preserve">
+          <source>The DR paired region on the Geo-Replication blade will be marked as <bpt id="a312d254-9320-4d2f-9d38-32b8b06c64d5">&lt;em&gt;</bpt>recommended<ept id="a312d254-9320-4d2f-9d38-32b8b06c64d5">&lt;/em&gt;</ept>.</source>
+          <target state="new">The DR paired region on the Geo-Replication blade will be marked as <bpt id="a312d254-9320-4d2f-9d38-32b8b06c64d5">&lt;em&gt;</bpt>recommended<ept id="a312d254-9320-4d2f-9d38-32b8b06c64d5">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d64818b1-c43c-45e5-81fe-44322a9c6632" xml:space="preserve">
+          <source>If you use a Premium tier database you can choose a different region.</source>
+          <target state="new">If you use a Premium tier database you can choose a different region.</target>
+        </trans-unit>
+        <trans-unit id="f5c32c8d-bb66-4749-bafa-248eb9c8cb45" xml:space="preserve">
+          <source>If you are using a Standard database you cannot change it.</source>
+          <target state="new">If you are using a Standard database you cannot change it.</target>
+        </trans-unit>
+        <trans-unit id="b5cf901e-bf5f-40ff-b30a-02c01b6f8f35" xml:space="preserve">
+          <source>The Premium database will  have a choice of the secondary type (<bpt id="0cf07894-66f9-4751-b404-f412fa3976a9">&lt;em&gt;</bpt>Readable<ept id="0cf07894-66f9-4751-b404-f412fa3976a9">&lt;/em&gt;</ept> or <bpt id="a880a83b-7b49-419c-9074-76ca42ff2b1e">&lt;em&gt;</bpt>Non-readable<ept id="a880a83b-7b49-419c-9074-76ca42ff2b1e">&lt;/em&gt;</ept>).</source>
+          <target state="new">The Premium database will  have a choice of the secondary type (<bpt id="0cf07894-66f9-4751-b404-f412fa3976a9">&lt;em&gt;</bpt>Readable<ept id="0cf07894-66f9-4751-b404-f412fa3976a9">&lt;/em&gt;</ept> or <bpt id="a880a83b-7b49-419c-9074-76ca42ff2b1e">&lt;em&gt;</bpt>Non-readable<ept id="a880a83b-7b49-419c-9074-76ca42ff2b1e">&lt;/em&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="7f013bba-28d5-4162-97e3-822d37625f47" xml:space="preserve">
+          <source>Standard database can only select a <bpt id="f8d156fc-d94c-4899-8bb1-4171207e1f82">&lt;em&gt;</bpt>Non-readable<ept id="f8d156fc-d94c-4899-8bb1-4171207e1f82">&lt;/em&gt;</ept> secondary.</source>
+          <target state="new">Standard database can only select a <bpt id="f8d156fc-d94c-4899-8bb1-4171207e1f82">&lt;em&gt;</bpt>Non-readable<ept id="f8d156fc-d94c-4899-8bb1-4171207e1f82">&lt;/em&gt;</ept> secondary.</target>
+        </trans-unit>
+        <trans-unit id="fa544e02-5028-4f70-9eb8-ca23936f95f4" xml:space="preserve">
+          <source>Use the <bpt id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseCopy<ept id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;/linkText&gt;</ept><bpt id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;title&gt;</bpt><ept id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;/title&gt;</ept> PowerShell cmdlet to automate Geo-Replication configuration.</source>
+          <target state="new">Use the <bpt id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;linkText&gt;</bpt>Start-AzureSqlDatabaseCopy<ept id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;/linkText&gt;</ept><bpt id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;title&gt;</bpt><ept id="6bee6139-6976-4b10-beef-23a52fac8a2f">&lt;/title&gt;</ept> PowerShell cmdlet to automate Geo-Replication configuration.</target>
+        </trans-unit>
+        <trans-unit id="4eefe7b6-e744-4944-b4fa-383ed2facb41" xml:space="preserve">
+          <source>To create Geo-Replication with a non-readable secondary for a Premium or Standard database:</source>
+          <target state="new">To create Geo-Replication with a non-readable secondary for a Premium or Standard database:</target>
+        </trans-unit>
+        <trans-unit id="cfc8a53e-6c67-49a2-8c8b-38aef3abed9f" xml:space="preserve">
+          <source>This command is asynchronous.</source>
+          <target state="new">This command is asynchronous.</target>
+        </trans-unit>
+        <trans-unit id="8d3061dd-f23a-4861-aa38-6b4b84a05d3a" xml:space="preserve">
+          <source>After it returns use the <bpt id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;linkText&gt;</bpt>Get-AzureSqlDatabaseCopy<ept id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;/linkText&gt;</ept><bpt id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;title&gt;</bpt><ept id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;/title&gt;</ept> cmdlet to check the status of this operation.</source>
+          <target state="new">After it returns use the <bpt id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;linkText&gt;</bpt>Get-AzureSqlDatabaseCopy<ept id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;/linkText&gt;</ept><bpt id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;title&gt;</bpt><ept id="9eccc4d7-784b-4cc2-ab94-b0f3794714fc">&lt;/title&gt;</ept> cmdlet to check the status of this operation.</target>
+        </trans-unit>
+        <trans-unit id="5d246906-0b45-4ea6-ad0b-dfa95343b69c" xml:space="preserve">
+          <source>The ReplicationState field of the returned object will have the value CATCH_UP when the operation is completed.</source>
+          <target state="new">The ReplicationState field of the returned object will have the value CATCH_UP when the operation is completed.</target>
+        </trans-unit>
+        <trans-unit id="8f38eab5-aa64-4bb9-ae89-b272d85cb959" xml:space="preserve">
+          <source>Use <bpt id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;linkText&gt;</bpt>Start Database Copy<ept id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;/linkText&gt;</ept><bpt id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;title&gt;</bpt><ept id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;/title&gt;</ept> API to programmatically create a Geo-Replication configuration.</source>
+          <target state="new">Use <bpt id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;linkText&gt;</bpt>Start Database Copy<ept id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;/linkText&gt;</ept><bpt id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;title&gt;</bpt><ept id="95ae1d74-6703-418a-bd63-a922c32fb147">&lt;/title&gt;</ept> API to programmatically create a Geo-Replication configuration.</target>
+        </trans-unit>
+        <trans-unit id="70ebd3dd-8449-4c5f-b12d-cad2d67a6136" xml:space="preserve">
+          <source>This API is asynchronous.</source>
+          <target state="new">This API is asynchronous.</target>
+        </trans-unit>
+        <trans-unit id="575e0734-2c1c-46f0-987c-128719d2d4fd" xml:space="preserve">
+          <source>After it returns use the <bpt id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;linkText&gt;</bpt>Get Database Copy<ept id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;/linkText&gt;</ept><bpt id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;title&gt;</bpt><ept id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;/title&gt;</ept> API check the status of this operation.</source>
+          <target state="new">After it returns use the <bpt id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;linkText&gt;</bpt>Get Database Copy<ept id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;/linkText&gt;</ept><bpt id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;title&gt;</bpt><ept id="6437f68c-cd5e-43a6-a827-cd55ba10dae6">&lt;/title&gt;</ept> API check the status of this operation.</target>
+        </trans-unit>
+        <trans-unit id="e15f9f07-cc86-42a9-ba71-2bf54fd61af7" xml:space="preserve">
+          <source>The ReplicationState field of the response body will have the value CATCH_UP when the operation is completed.</source>
+          <target state="new">The ReplicationState field of the response body will have the value CATCH_UP when the operation is completed.</target>
+        </trans-unit>
+        <trans-unit id="574ccb81-b8f8-4fcb-bb15-c1f9d29883d8" xml:space="preserve">
+          <source>When designing your application for business continuity you should consider several configuration options.</source>
+          <target state="new">When designing your application for business continuity you should consider several configuration options.</target>
+        </trans-unit>
+        <trans-unit id="db104725-c19e-4ef5-8f49-988a703432f7" xml:space="preserve">
+          <source>The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage.</source>
+          <target state="new">The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage.</target>
+        </trans-unit>
+        <trans-unit id="6ac29a53-4e64-4d6c-8049-a5899796be4a" xml:space="preserve">
+          <source>Please refer to <bpt id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;linkText&gt;</bpt>Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication<ept id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;/linkText&gt;</ept><bpt id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;title&gt;</bpt><ept id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;/title&gt;</ept> for guidance.</source>
+          <target state="new">Please refer to <bpt id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;linkText&gt;</bpt>Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication<ept id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;/linkText&gt;</ept><bpt id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;title&gt;</bpt><ept id="a62c0af4-fab3-4e31-b76e-9cb0010b2d55">&lt;/title&gt;</ept> for guidance.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

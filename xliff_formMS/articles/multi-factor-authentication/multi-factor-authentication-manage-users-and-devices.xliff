@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0212f511-b9db-4585-868b-544a5eca9368" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0212f511-b9db-4585-868b-544a5eca9368" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="13c7e10a-a4aa-48c6-83c8-9b8692ea1d24">
+        <trans-unit id="7f286308-7a5b-410b-b681-17b1c39b3063" xml:space="preserve">
+          <source>Azure Multi-Factor Authentication Reports</source>
+          <target state="new">Azure Multi-Factor Authentication Reports</target>
+        </trans-unit>
+        <trans-unit id="1e90961b-1aa9-4842-82d0-93b688efa429" xml:space="preserve">
+          <source>This describes how to change user settings such as forcing the users to do the proof-up process again.</source>
+          <target state="new">This describes how to change user settings such as forcing the users to do the proof-up process again.</target>
+        </trans-unit>
+        <trans-unit id="909754cc-71ef-45d9-91c3-da0cd6228fd7" xml:space="preserve">
+          <source>As an administrator, you can manage the following user and device settings.</source>
+          <target state="new">As an administrator, you can manage the following user and device settings.</target>
+        </trans-unit>
+        <trans-unit id="ff574cf5-77da-4fe8-87f8-e7889a5e247f" xml:space="preserve">
+          <source><bpt id="07e718d0-c096-40a3-8350-9317a1719201">&lt;linkText&gt;</bpt>Require selected users to provide contact methods again<ept id="07e718d0-c096-40a3-8350-9317a1719201">&lt;/linkText&gt;</ept><bpt id="07e718d0-c096-40a3-8350-9317a1719201">&lt;title&gt;</bpt><ept id="07e718d0-c096-40a3-8350-9317a1719201">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="07e718d0-c096-40a3-8350-9317a1719201">&lt;linkText&gt;</bpt>Require selected users to provide contact methods again<ept id="07e718d0-c096-40a3-8350-9317a1719201">&lt;/linkText&gt;</ept><bpt id="07e718d0-c096-40a3-8350-9317a1719201">&lt;title&gt;</bpt><ept id="07e718d0-c096-40a3-8350-9317a1719201">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="599769a2-f2dc-4559-9f85-a9eb572d2fbb" xml:space="preserve">
+          <source><bpt id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;linkText&gt;</bpt>Delete users existing app passwords<ept id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;/linkText&gt;</ept><bpt id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;title&gt;</bpt><ept id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;linkText&gt;</bpt>Delete users existing app passwords<ept id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;/linkText&gt;</ept><bpt id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;title&gt;</bpt><ept id="037338ab-d185-4f2e-b28b-52aeceb28c1c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12ccbabd-97c7-4fb0-86bd-e81b3f99699f" xml:space="preserve">
+          <source><bpt id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;linkText&gt;</bpt>Restore MFA on all suspended devices for a user (Public Preview)<ept id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;/linkText&gt;</ept><bpt id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;title&gt;</bpt><ept id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;linkText&gt;</bpt>Restore MFA on all suspended devices for a user (Public Preview)<ept id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;/linkText&gt;</ept><bpt id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;title&gt;</bpt><ept id="764bdf07-fb60-4d2b-9173-516d63b2a06c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d70dd28-ea14-4651-a3c4-e1f57add6af3" xml:space="preserve">
+          <source>This is helpful if a computer or device is lost or stolen or you need to remove a users access.</source>
+          <target state="new">This is helpful if a computer or device is lost or stolen or you need to remove a users access.</target>
+        </trans-unit>
+        <trans-unit id="73436834-a706-4076-8e28-a0329b4069f7" xml:space="preserve">
+          <source>This setting will forces the user to complete the registration process again when he or she signs in.</source>
+          <target state="new">This setting will forces the user to complete the registration process again when he or she signs in.</target>
+        </trans-unit>
+        <trans-unit id="d1b79056-e24a-44eb-ace3-6360002c66a3" xml:space="preserve">
+          <source>Be aware that non-browser apps will continue to work if the user has app passwords for them.</source>
+          <target state="new">Be aware that non-browser apps will continue to work if the user has app passwords for them.</target>
+        </trans-unit>
+        <trans-unit id="c748ec63-eb3e-471d-a3d8-6349deb87a2a" xml:space="preserve">
+          <source>You can delete the users app passwords by also selecting <bpt id="0eff8b2f-6dc9-4f11-a36f-c0ff5d4d5399">&lt;strong&gt;</bpt>Delete all existing app passwords generated by the selected users<ept id="0eff8b2f-6dc9-4f11-a36f-c0ff5d4d5399">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can delete the users app passwords by also selecting <bpt id="0eff8b2f-6dc9-4f11-a36f-c0ff5d4d5399">&lt;strong&gt;</bpt>Delete all existing app passwords generated by the selected users<ept id="0eff8b2f-6dc9-4f11-a36f-c0ff5d4d5399">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0f6e188-82cc-46b3-ba5b-3b51884a19dc" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you want to require to provide their contact method again.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="a67892fd-f95a-44fb-8999-29d25185f20b">&lt;strong&gt;</bpt>Manage user settings<ept id="a67892fd-f95a-44fb-8999-29d25185f20b">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in <bpt id="97d6f84a-283c-4133-9cb3-eaaa197ab558">&lt;strong&gt;</bpt>require selected users to provide contact methods again<ept id="97d6f84a-283c-4133-9cb3-eaaa197ab558">&lt;/strong&gt;</ept>.&lt;/li&gt;</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you want to require to provide their contact method again.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="a67892fd-f95a-44fb-8999-29d25185f20b">&lt;strong&gt;</bpt>Manage user settings<ept id="a67892fd-f95a-44fb-8999-29d25185f20b">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in <bpt id="97d6f84a-283c-4133-9cb3-eaaa197ab558">&lt;strong&gt;</bpt>require selected users to provide contact methods again<ept id="97d6f84a-283c-4133-9cb3-eaaa197ab558">&lt;/strong&gt;</ept>.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="2b5b0e05-ab20-4154-953b-272a3f8186d2" xml:space="preserve">
+          <source><bpt id="43431356-cc9d-46a9-89c5-00ad2c34f32d">&lt;linkText&gt;</bpt>Provide contact methods<ept id="43431356-cc9d-46a9-89c5-00ad2c34f32d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43431356-cc9d-46a9-89c5-00ad2c34f32d">&lt;linkText&gt;</bpt>Provide contact methods<ept id="43431356-cc9d-46a9-89c5-00ad2c34f32d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9567b344-73ff-4564-b19d-1a3b9dfd0152" xml:space="preserve">
+          <source>&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close&lt;/li&gt;</source>
+          <target state="new">&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="7c9d9f43-4c63-4078-8b40-ef9193edca64" xml:space="preserve">
+          <source>This deletes all of the app passwords that a user has created.</source>
+          <target state="new">This deletes all of the app passwords that a user has created.</target>
+        </trans-unit>
+        <trans-unit id="49571403-9e56-47bf-b68d-ec06d4727088" xml:space="preserve">
+          <source>Non-browser apps that were associated with these app passwords will cease to work until a new app password is created.</source>
+          <target state="new">Non-browser apps that were associated with these app passwords will cease to work until a new app password is created.</target>
+        </trans-unit>
+        <trans-unit id="93bce4b7-c796-4cea-b227-2d6826a83bd9" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you wish to delete app passwords for.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="72f908ef-7c85-4608-9dad-1b12f63578e6">&lt;strong&gt;</bpt>Manage user settings<ept id="72f908ef-7c85-4608-9dad-1b12f63578e6">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in <bpt id="d0d7f11e-eccb-49c1-bbdd-0bb0dfb247a3">&lt;strong&gt;</bpt>delete all existing app passwords generated by the selected users<ept id="d0d7f11e-eccb-49c1-bbdd-0bb0dfb247a3">&lt;/strong&gt;</ept>.&lt;/li&gt;
+<bpt id="7f77965c-d9ae-406c-9b1d-a342c8e58766">&lt;linkText&gt;</bpt>Delete app passwords<ept id="7f77965c-d9ae-406c-9b1d-a342c8e58766">&lt;/linkText&gt;</ept>
+&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close.&lt;/li&gt;</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you wish to delete app passwords for.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="72f908ef-7c85-4608-9dad-1b12f63578e6">&lt;strong&gt;</bpt>Manage user settings<ept id="72f908ef-7c85-4608-9dad-1b12f63578e6">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in <bpt id="d0d7f11e-eccb-49c1-bbdd-0bb0dfb247a3">&lt;strong&gt;</bpt>delete all existing app passwords generated by the selected users<ept id="d0d7f11e-eccb-49c1-bbdd-0bb0dfb247a3">&lt;/strong&gt;</ept>.&lt;/li&gt;
+<bpt id="7f77965c-d9ae-406c-9b1d-a342c8e58766">&lt;linkText&gt;</bpt>Delete app passwords<ept id="7f77965c-d9ae-406c-9b1d-a342c8e58766">&lt;/linkText&gt;</ept>
+&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close.&lt;/li&gt;</target>
+        </trans-unit>
+        <trans-unit id="f2dec515-01ef-4a15-91aa-5df3e5cc131e" xml:space="preserve">
+          <source>Administrators have the ability to reset Multi-Factor Authentication on their devices and browsers.</source>
+          <target state="new">Administrators have the ability to reset Multi-Factor Authentication on their devices and browsers.</target>
+        </trans-unit>
+        <trans-unit id="46e2579a-1cb4-4c81-ae18-37737a555b34" xml:space="preserve">
+          <source>This is done by restoring Multi-Factor Authentication for a user’s devices and browsers.</source>
+          <target state="new">This is done by restoring Multi-Factor Authentication for a user’s devices and browsers.</target>
+        </trans-unit>
+        <trans-unit id="e753af51-9590-4a37-9162-752bca3a9f4c" xml:space="preserve">
+          <source>When doing this, this will remove the suspension from all of the user’s devices and browsers.</source>
+          <target state="new">When doing this, this will remove the suspension from all of the user’s devices and browsers.</target>
+        </trans-unit>
+        <trans-unit id="d89b8a61-2d9c-42e9-b77e-601941314677" xml:space="preserve">
+          <source>&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you wish to restore mfa on.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="1588597c-39f0-403c-a5ad-c0ebf16feb2c">&lt;strong&gt;</bpt>Manage user settings<ept id="1588597c-39f0-403c-a5ad-c0ebf16feb2c">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in restore Multi-Factor Authentication on all suspended devices.&lt;/li&gt;
+<bpt id="d2896726-9636-4135-bba5-8de01de43460">&lt;linkText&gt;</bpt>Delete app passwords<ept id="d2896726-9636-4135-bba5-8de01de43460">&lt;/linkText&gt;</ept>
+&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close.&lt;/li&gt;</source>
+          <target state="new">&lt;ol&gt;
+&lt;li&gt;Sign-in to the Azure Management Portal.&lt;/li&gt;
+&lt;li&gt;On the left, click Active Directory.&lt;/li&gt;
+&lt;li&gt;Under, Directory click on the directory for the user you wish to restore mfa on.&lt;/li&gt;
+&lt;li&gt;At the top, click Users.&lt;/li&gt;
+&lt;li&gt;At the bottom of the page, click Manage Multi-Factor Auth. This will open the multi-factor authentication page.
+&lt;li&gt;Find the user that you wish to manage and place a check in the box located next to the name. You may need to change the view at the top.&lt;/li&gt;
+&lt;li&gt;This will bring up the <bpt id="1588597c-39f0-403c-a5ad-c0ebf16feb2c">&lt;strong&gt;</bpt>Manage user settings<ept id="1588597c-39f0-403c-a5ad-c0ebf16feb2c">&lt;/strong&gt;</ept> link on the right. Click it.&lt;/li&gt; 
+&lt;li&gt;Place a check in restore Multi-Factor Authentication on all suspended devices.&lt;/li&gt;
+<bpt id="d2896726-9636-4135-bba5-8de01de43460">&lt;linkText&gt;</bpt>Delete app passwords<ept id="d2896726-9636-4135-bba5-8de01de43460">&lt;/linkText&gt;</ept>
+&lt;li&gt;Click save.&lt;/li&gt;
+&lt;li&gt;Click close.&lt;/li&gt;</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

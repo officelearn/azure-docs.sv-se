@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4c49307f-f806-4096-a289-11440d426b04" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4c49307f-f806-4096-a289-11440d426b04" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f95c1123-f71a-4242-b243-1c0e18b26925">
+        <trans-unit id="bd037f09-9610-430b-851b-a16854c0b591" xml:space="preserve">
+          <source>Use Hive with Hadoop for website log analysis| Microsoft Azure</source>
+          <target state="new">Use Hive with Hadoop for website log analysis| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="d51c0dd1-a2b3-46ad-9fa3-6f8b9f2910cb" xml:space="preserve">
+          <source>Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data.</source>
+          <target state="new">Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data.</target>
+        </trans-unit>
+        <trans-unit id="119466bb-635a-437d-b19d-5a81c7c34add" xml:space="preserve">
+          <source>Learn how to use HiveQL with HDInsight to analyze logs from a website.</source>
+          <target state="new">Learn how to use HiveQL with HDInsight to analyze logs from a website.</target>
+        </trans-unit>
+        <trans-unit id="420f5985-9479-4186-8f76-474db444817b" xml:space="preserve">
+          <source>Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.</source>
+          <target state="new">Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.</target>
+        </trans-unit>
+        <trans-unit id="a2b0d3e1-29f1-41cc-b928-e3e8343d67a6" xml:space="preserve">
+          <source>In this sample, you will use an HDInsight cluster to analyze website log files to get insight into the frequency of visits to the website from external websites in a day.</source>
+          <target state="new">In this sample, you will use an HDInsight cluster to analyze website log files to get insight into the frequency of visits to the website from external websites in a day.</target>
+        </trans-unit>
+        <trans-unit id="e85792dd-cbc9-43d7-900a-81769093b9e9" xml:space="preserve">
+          <source>You'll also generate a summary of website errors that the users experience.</source>
+          <target state="new">You'll also generate a summary of website errors that the users experience.</target>
+        </trans-unit>
+        <trans-unit id="b9d2eca2-08f2-4fb7-b534-66ef424e8f35" xml:space="preserve">
+          <source>You will learn how to:</source>
+          <target state="new">You will learn how to:</target>
+        </trans-unit>
+        <trans-unit id="8a50dca0-5c4a-410e-bcac-2fc7519e793b" xml:space="preserve">
+          <source>Connect to a Azure Blob storage, which contains website log files.</source>
+          <target state="new">Connect to a Azure Blob storage, which contains website log files.</target>
+        </trans-unit>
+        <trans-unit id="9fe7105e-dfaa-4b85-92be-053e76e5a9c1" xml:space="preserve">
+          <source>Create HIVE tables to query those logs.</source>
+          <target state="new">Create HIVE tables to query those logs.</target>
+        </trans-unit>
+        <trans-unit id="2b819428-1f21-4b90-b203-53f7fa3e326e" xml:space="preserve">
+          <source>Create HIVE queries to analyze the data.</source>
+          <target state="new">Create HIVE queries to analyze the data.</target>
+        </trans-unit>
+        <trans-unit id="233ff711-9189-4d92-9f5c-26cc693d644f" xml:space="preserve">
+          <source>Use Microsoft Excel to connect to HDInsight (by using open database connectivity (ODBC) to retrieve the analyzed data.</source>
+          <target state="new">Use Microsoft Excel to connect to HDInsight (by using open database connectivity (ODBC) to retrieve the analyzed data.</target>
+        </trans-unit>
+        <trans-unit id="ca3e50a0-5b5e-4378-b1ca-37bbc65a0a8e" xml:space="preserve">
+          <source><bpt id="340210c5-a71d-4022-8a93-7e189be1d4b0">&lt;linkText&gt;</bpt>HDI.Samples.Website.Log.Analysis<ept id="340210c5-a71d-4022-8a93-7e189be1d4b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="340210c5-a71d-4022-8a93-7e189be1d4b0">&lt;linkText&gt;</bpt>HDI.Samples.Website.Log.Analysis<ept id="340210c5-a71d-4022-8a93-7e189be1d4b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fe4c2cf3-e501-4fbd-9b91-f56ed10aec5f" xml:space="preserve">
+          <source>You must have provisioned a Hadoop cluster on Azure HDInsight.</source>
+          <target state="new">You must have provisioned a Hadoop cluster on Azure HDInsight.</target>
+        </trans-unit>
+        <trans-unit id="d9f54069-d2f7-4416-aae1-f8da896d02ce" xml:space="preserve">
+          <source>For instructions, see <bpt id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;linkText&gt;</bpt>Provision HDInsight Clusters[hdinsight-provision]<ept id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;/linkText&gt;</ept><bpt id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;title&gt;</bpt><ept id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;linkText&gt;</bpt>Provision HDInsight Clusters[hdinsight-provision]<ept id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;/linkText&gt;</ept><bpt id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;title&gt;</bpt><ept id="205d590d-9ce1-46b9-951d-5b01f4d76190">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66f9cb2a-a7a4-402f-9ea3-eb37cea813fc" xml:space="preserve">
+          <source>You must have Microsoft Excel 2013 or Excel 2010 installed.</source>
+          <target state="new">You must have Microsoft Excel 2013 or Excel 2010 installed.</target>
+        </trans-unit>
+        <trans-unit id="2af6ddf0-2e79-4d3c-b8c2-d0a49c92bb9b" xml:space="preserve">
+          <source>You must have <bpt id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;linkText&gt;</bpt>Microsoft Hive ODBC Driver<ept id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;/linkText&gt;</ept><bpt id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;title&gt;</bpt><ept id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;/title&gt;</ept> to import data from Hive into Excel.</source>
+          <target state="new">You must have <bpt id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;linkText&gt;</bpt>Microsoft Hive ODBC Driver<ept id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;/linkText&gt;</ept><bpt id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;title&gt;</bpt><ept id="c0fa97e8-e1fd-4aaa-b316-38a1869eacb4">&lt;/title&gt;</ept> to import data from Hive into Excel.</target>
+        </trans-unit>
+        <trans-unit id="e382c130-a201-4589-aa32-7f288f406d2f" xml:space="preserve">
+          <source>From the <bpt id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;/linkText&gt;</ept><bpt id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;title&gt;</bpt><ept id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;/title&gt;</ept>, from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.</source>
+          <target state="new">From the <bpt id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;linkText&gt;</bpt>Azure Preview Portal<ept id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;/linkText&gt;</ept><bpt id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;title&gt;</bpt><ept id="e75f8832-9533-4a65-accc-c8e0834bd8df">&lt;/title&gt;</ept>, from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.</target>
+        </trans-unit>
+        <trans-unit id="1de9ed2d-62dd-4e11-a224-ce8675548b4e" xml:space="preserve">
+          <source>From the cluster blade, under <bpt id="1517f247-cacb-4090-a653-3f25ee611c71">&lt;strong&gt;</bpt>Quick Links<ept id="1517f247-cacb-4090-a653-3f25ee611c71">&lt;/strong&gt;</ept>, click <bpt id="53b5b4c0-6b68-441d-b547-de9f4b089f60">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="53b5b4c0-6b68-441d-b547-de9f4b089f60">&lt;/strong&gt;</ept>, and then from the <bpt id="622dfc18-fb2a-4a4b-bda4-e1d72a98ca46">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="622dfc18-fb2a-4a4b-bda4-e1d72a98ca46">&lt;/strong&gt;</ept> blade, click <bpt id="d4a640bf-9638-444d-8873-48d128931a69">&lt;strong&gt;</bpt>HDInsight Cluster Dashboard<ept id="d4a640bf-9638-444d-8873-48d128931a69">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the cluster blade, under <bpt id="1517f247-cacb-4090-a653-3f25ee611c71">&lt;strong&gt;</bpt>Quick Links<ept id="1517f247-cacb-4090-a653-3f25ee611c71">&lt;/strong&gt;</ept>, click <bpt id="53b5b4c0-6b68-441d-b547-de9f4b089f60">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="53b5b4c0-6b68-441d-b547-de9f4b089f60">&lt;/strong&gt;</ept>, and then from the <bpt id="622dfc18-fb2a-4a4b-bda4-e1d72a98ca46">&lt;strong&gt;</bpt>Cluster Dashboard<ept id="622dfc18-fb2a-4a4b-bda4-e1d72a98ca46">&lt;/strong&gt;</ept> blade, click <bpt id="d4a640bf-9638-444d-8873-48d128931a69">&lt;strong&gt;</bpt>HDInsight Cluster Dashboard<ept id="d4a640bf-9638-444d-8873-48d128931a69">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67a5bf9a-c8e2-498f-8dc7-79c4fccff7d8" xml:space="preserve">
+          <source>Alternatively, you can directly open the dashboard by using the following URL:</source>
+          <target state="new">Alternatively, you can directly open the dashboard by using the following URL:</target>
+        </trans-unit>
+        <trans-unit id="385e5b94-2027-4b1c-9194-f7d124434f56" xml:space="preserve">
+          <source>When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.</source>
+          <target state="new">When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.</target>
+        </trans-unit>
+        <trans-unit id="35a1c0bf-4591-4450-983d-81a5f9836b68" xml:space="preserve">
+          <source>From the web page that opens, click the <bpt id="3913fbd4-3f1d-48aa-808c-f1c5277ec012">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="3913fbd4-3f1d-48aa-808c-f1c5277ec012">&lt;/strong&gt;</ept> tab, and then under the <bpt id="8e24aa2f-b69c-4178-a3d5-080192df4196">&lt;strong&gt;</bpt>Samples<ept id="8e24aa2f-b69c-4178-a3d5-080192df4196">&lt;/strong&gt;</ept> category, click the <bpt id="53b0f971-da43-47d0-873a-dd1891099207">&lt;strong&gt;</bpt>Website Log Analysis<ept id="53b0f971-da43-47d0-873a-dd1891099207">&lt;/strong&gt;</ept> sample.</source>
+          <target state="new">From the web page that opens, click the <bpt id="3913fbd4-3f1d-48aa-808c-f1c5277ec012">&lt;strong&gt;</bpt>Getting Started Gallery<ept id="3913fbd4-3f1d-48aa-808c-f1c5277ec012">&lt;/strong&gt;</ept> tab, and then under the <bpt id="8e24aa2f-b69c-4178-a3d5-080192df4196">&lt;strong&gt;</bpt>Samples<ept id="8e24aa2f-b69c-4178-a3d5-080192df4196">&lt;/strong&gt;</ept> category, click the <bpt id="53b0f971-da43-47d0-873a-dd1891099207">&lt;strong&gt;</bpt>Website Log Analysis<ept id="53b0f971-da43-47d0-873a-dd1891099207">&lt;/strong&gt;</ept> sample.</target>
+        </trans-unit>
+        <trans-unit id="bd08cddf-7230-44f5-9f3b-6df95eee750d" xml:space="preserve">
+          <source>Follow the instructions provided on the web page to finish the sample.</source>
+          <target state="new">Follow the instructions provided on the web page to finish the sample.</target>
+        </trans-unit>
+        <trans-unit id="b5ea4234-0761-4edf-a43b-f19e788d4bd6" xml:space="preserve">
+          <source>Try the following sample: <bpt id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;linkText&gt;</bpt>Analyzing sensor data using Hive with HDInsight<ept id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;/linkText&gt;</ept><bpt id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;title&gt;</bpt><ept id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;/title&gt;</ept>.</source>
+          <target state="new">Try the following sample: <bpt id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;linkText&gt;</bpt>Analyzing sensor data using Hive with HDInsight<ept id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;/linkText&gt;</ept><bpt id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;title&gt;</bpt><ept id="579bc37b-5d73-4c14-aa1b-f283b3f78a16">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd24a0f9-4938-4e1e-afbc-35ffa4d4aa26" xml:space="preserve">
+          <source>hdinsight-provision-clusters.md</source>
+          <target state="new">hdinsight-provision-clusters.md</target>
+        </trans-unit>
+        <trans-unit id="9a91bf48-64e1-4f57-93f7-f15ed9500e3c" xml:space="preserve">
+          <source>../hdinsight-use-hive-sensor-data-analysis.md</source>
+          <target state="new">../hdinsight-use-hive-sensor-data-analysis.md</target>
+        </trans-unit>
+        <trans-unit id="8ece5ae3-dc78-43af-99db-6c631afa1031" xml:space="preserve">
+          <source>./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png</source>
+          <target state="new">./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png</target>
+        </trans-unit>
+      </group>
+      <group id="dee5e287-6549-4ae6-970f-46b7ab4acf08" />
+    </body>
+  </file>
+</xliff>

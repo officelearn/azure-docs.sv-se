@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8f1ac263-a840-46ee-a9e1-08fca4ae4be3" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8f1ac263-a840-46ee-a9e1-08fca4ae4be3" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7bd35a91-8f7a-41ba-8169-1dcccc2ff644">
+        <trans-unit id="9b71d079-14bc-4911-b5a7-331956f1a230" xml:space="preserve">
+          <source>Site Recovery network mapping</source>
+          <target state="new">Site Recovery network mapping</target>
+        </trans-unit>
+        <trans-unit id="9863f3a3-4f82-4d3f-a4e6-e928bca4106a" xml:space="preserve">
+          <source>Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</source>
+          <target state="new">Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers located on on-premises to Azure or to a secondary on-premises site.</target>
+        </trans-unit>
+        <trans-unit id="f19eec08-f975-47ac-88cb-dcf529f6b3db" xml:space="preserve">
+          <source>Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</source>
+          <target state="new">Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers.</target>
+        </trans-unit>
+        <trans-unit id="3c7803d5-fcc2-4ffe-ba82-27da79cea852" xml:space="preserve">
+          <source>Read about possible deployment scenarios in the <bpt id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;/linkText&gt;</ept><bpt id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;title&gt;</bpt><ept id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;/title&gt;</ept>.</source>
+          <target state="new">Read about possible deployment scenarios in the <bpt id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;/linkText&gt;</ept><bpt id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;title&gt;</bpt><ept id="aaf8bca3-28a4-4921-b700-87c94e90a138">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e0569198-f655-42a2-9894-b70648ea6c6a" xml:space="preserve">
+          <source>Network mapping is an important element when you deploy VMM and Site Recovery.</source>
+          <target state="new">Network mapping is an important element when you deploy VMM and Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="8fee8a5f-749b-46e2-9d4e-ddd767633c26" xml:space="preserve">
+          <source>It optimally places replicated virtual machines on target Hyper-V host servers, and ensures your replicated virtual machines are connected to appropriate networks after failover.</source>
+          <target state="new">It optimally places replicated virtual machines on target Hyper-V host servers, and ensures your replicated virtual machines are connected to appropriate networks after failover.</target>
+        </trans-unit>
+        <trans-unit id="6da44d39-3046-4f1c-8880-c735e9c11356" xml:space="preserve">
+          <source>This article describes network mapping and provides a couple of examples to help you understand how network mapping works.</source>
+          <target state="new">This article describes network mapping and provides a couple of examples to help you understand how network mapping works.</target>
+        </trans-unit>
+        <trans-unit id="d3262604-8975-4c87-9f25-ba782dd6ca7b" xml:space="preserve">
+          <source>Post any questions on the <bpt id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;/linkText&gt;</ept><bpt id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;title&gt;</bpt><ept id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Post any questions on the <bpt id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;/linkText&gt;</ept><bpt id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;title&gt;</bpt><ept id="00136794-99fb-48a1-a053-16ddbd0a502f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46f276d8-0880-410a-9b58-3dc4921c6fa2" xml:space="preserve">
+          <source>The way in which you set up network mapping depends on your Site Recovery deployment scenario.</source>
+          <target state="new">The way in which you set up network mapping depends on your Site Recovery deployment scenario.</target>
+        </trans-unit>
+        <trans-unit id="ac75eea0-2ba3-478f-a625-177b2b3ae36c" xml:space="preserve">
+          <source><bpt id="25d40650-67d1-45b3-8629-180ef92f9ba8">&lt;strong&gt;</bpt>On-premises to on-premises VMM servers<ept id="25d40650-67d1-45b3-8629-180ef92f9ba8">&lt;/strong&gt;</ept>—Network mapping maps between VM networks on a source VMM server and VM networks on a target VMM server to do the following:</source>
+          <target state="new"><bpt id="25d40650-67d1-45b3-8629-180ef92f9ba8">&lt;strong&gt;</bpt>On-premises to on-premises VMM servers<ept id="25d40650-67d1-45b3-8629-180ef92f9ba8">&lt;/strong&gt;</ept>—Network mapping maps between VM networks on a source VMM server and VM networks on a target VMM server to do the following:</target>
+        </trans-unit>
+        <trans-unit id="1a8606b8-0845-4d93-8fc2-a86674ea10ab" xml:space="preserve">
+          <source><bpt id="710a6921-2bc4-490d-81e2-0ccceef73bb4">&lt;strong&gt;</bpt>Connect virtual machines after failover<ept id="710a6921-2bc4-490d-81e2-0ccceef73bb4">&lt;/strong&gt;</ept>—Ensures that virtual machines will be connected to appropriate networks after failover.</source>
+          <target state="new"><bpt id="710a6921-2bc4-490d-81e2-0ccceef73bb4">&lt;strong&gt;</bpt>Connect virtual machines after failover<ept id="710a6921-2bc4-490d-81e2-0ccceef73bb4">&lt;/strong&gt;</ept>—Ensures that virtual machines will be connected to appropriate networks after failover.</target>
+        </trans-unit>
+        <trans-unit id="02cbda36-1316-4e82-a96e-c3cab18cef9a" xml:space="preserve">
+          <source>The replica virtual machine will be connected to the target network that is mapped to the source network.</source>
+          <target state="new">The replica virtual machine will be connected to the target network that is mapped to the source network.</target>
+        </trans-unit>
+        <trans-unit id="d563aab5-1a31-42fa-be23-a3984f6a9a87" xml:space="preserve">
+          <source><bpt id="7d5144bf-edb1-44ef-81a7-6b16cf45e069">&lt;strong&gt;</bpt>Place replica virtual machines on host servers<ept id="7d5144bf-edb1-44ef-81a7-6b16cf45e069">&lt;/strong&gt;</ept>—Optimally place replica virtual machines on Hyper-V host servers.</source>
+          <target state="new"><bpt id="7d5144bf-edb1-44ef-81a7-6b16cf45e069">&lt;strong&gt;</bpt>Place replica virtual machines on host servers<ept id="7d5144bf-edb1-44ef-81a7-6b16cf45e069">&lt;/strong&gt;</ept>—Optimally place replica virtual machines on Hyper-V host servers.</target>
+        </trans-unit>
+        <trans-unit id="c92939a4-ff77-4581-a8a1-127c0b97cdd5" xml:space="preserve">
+          <source>Replica virtual machines will be placed on hosts that can access the mapped VM networks.</source>
+          <target state="new">Replica virtual machines will be placed on hosts that can access the mapped VM networks.</target>
+        </trans-unit>
+        <trans-unit id="c549d1c7-7b8b-456e-8963-54a3561b5bb1" xml:space="preserve">
+          <source><bpt id="11662350-3693-44be-b33c-173fdff6ca3b">&lt;strong&gt;</bpt>No network mapping<ept id="11662350-3693-44be-b33c-173fdff6ca3b">&lt;/strong&gt;</ept>—Uf you don’t configure network mapping replicated virtual machines won’t be connected to any VM networks after failover.</source>
+          <target state="new"><bpt id="11662350-3693-44be-b33c-173fdff6ca3b">&lt;strong&gt;</bpt>No network mapping<ept id="11662350-3693-44be-b33c-173fdff6ca3b">&lt;/strong&gt;</ept>—Uf you don’t configure network mapping replicated virtual machines won’t be connected to any VM networks after failover.</target>
+        </trans-unit>
+        <trans-unit id="c089cfaf-1847-4324-9ad2-65572175fa9a" xml:space="preserve">
+          <source><bpt id="da7565af-8d3f-4bdf-8d61-eeef3adc7d06">&lt;strong&gt;</bpt>On-premises VMM server to Azure<ept id="da7565af-8d3f-4bdf-8d61-eeef3adc7d06">&lt;/strong&gt;</ept>—Network mapping maps between VM networks on the source VMM server and target Azure networks to do the following:</source>
+          <target state="new"><bpt id="da7565af-8d3f-4bdf-8d61-eeef3adc7d06">&lt;strong&gt;</bpt>On-premises VMM server to Azure<ept id="da7565af-8d3f-4bdf-8d61-eeef3adc7d06">&lt;/strong&gt;</ept>—Network mapping maps between VM networks on the source VMM server and target Azure networks to do the following:</target>
+        </trans-unit>
+        <trans-unit id="ecfdc9af-7f69-4cdd-9178-9dd9c06d2e9d" xml:space="preserve">
+          <source><bpt id="e7e944a5-2c32-45e6-b002-e0d0a556f07c">&lt;strong&gt;</bpt>Connect virtual machines after failover<ept id="e7e944a5-2c32-45e6-b002-e0d0a556f07c">&lt;/strong&gt;</ept>—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.</source>
+          <target state="new"><bpt id="e7e944a5-2c32-45e6-b002-e0d0a556f07c">&lt;strong&gt;</bpt>Connect virtual machines after failover<ept id="e7e944a5-2c32-45e6-b002-e0d0a556f07c">&lt;/strong&gt;</ept>—All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.</target>
+        </trans-unit>
+        <trans-unit id="dff4dce0-01dd-4ea9-9a73-8401ab417c87" xml:space="preserve">
+          <source><bpt id="33a8ff39-3839-4e3e-ad5d-70d1e25af2f4">&lt;strong&gt;</bpt>Network gateway<ept id="33a8ff39-3839-4e3e-ad5d-70d1e25af2f4">&lt;/strong&gt;</ept>—If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.</source>
+          <target state="new"><bpt id="33a8ff39-3839-4e3e-ad5d-70d1e25af2f4">&lt;strong&gt;</bpt>Network gateway<ept id="33a8ff39-3839-4e3e-ad5d-70d1e25af2f4">&lt;/strong&gt;</ept>—If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="85c4f576-f12e-4c64-9903-1b41592662ce" xml:space="preserve">
+          <source><bpt id="0ddc344a-e974-41cc-a61c-44d2f6c01e86">&lt;strong&gt;</bpt>No network mapping<ept id="0ddc344a-e974-41cc-a61c-44d2f6c01e86">&lt;/strong&gt;</ept>—If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.</source>
+          <target state="new"><bpt id="0ddc344a-e974-41cc-a61c-44d2f6c01e86">&lt;strong&gt;</bpt>No network mapping<ept id="0ddc344a-e974-41cc-a61c-44d2f6c01e86">&lt;/strong&gt;</ept>—If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.</target>
+        </trans-unit>
+        <trans-unit id="3aa2250f-106c-4fe1-a4b0-76418328de8b" xml:space="preserve">
+          <source>VMM logical network provides an abstract view of the physical network infrastructure.</source>
+          <target state="new">VMM logical network provides an abstract view of the physical network infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="7ec482ec-1626-4b90-8380-ef21fa4b331a" xml:space="preserve">
+          <source>VM networks provide a network interface so that virtual machines can connect to logical networks.</source>
+          <target state="new">VM networks provide a network interface so that virtual machines can connect to logical networks.</target>
+        </trans-unit>
+        <trans-unit id="012602f3-e0eb-4505-a4de-f711d8c2ef1e" xml:space="preserve">
+          <source>A logical network needs at least one VM network.</source>
+          <target state="new">A logical network needs at least one VM network.</target>
+        </trans-unit>
+        <trans-unit id="7d0f1fdf-7a89-4704-bd12-6f782a39c99e" xml:space="preserve">
+          <source>When you place a virtual machine in a cloud for protection it must be connected to a VM networks that links to a logical network associated with the cloud.</source>
+          <target state="new">When you place a virtual machine in a cloud for protection it must be connected to a VM networks that links to a logical network associated with the cloud.</target>
+        </trans-unit>
+        <trans-unit id="9eb4a853-0b70-419a-ad76-35ca792a767a" xml:space="preserve">
+          <source>Learn more at:</source>
+          <target state="new">Learn more at:</target>
+        </trans-unit>
+        <trans-unit id="91062281-2788-4ef0-bb43-fc5fac550eaf" xml:space="preserve">
+          <source><bpt id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;linkText&gt;</bpt>Logical Networks (Part 1)<ept id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;/linkText&gt;</ept><bpt id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;title&gt;</bpt><ept id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;linkText&gt;</bpt>Logical Networks (Part 1)<ept id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;/linkText&gt;</ept><bpt id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;title&gt;</bpt><ept id="e96feb62-6b66-46ad-95af-cb6671e3370e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86bc5680-f048-48bd-8c5b-916112c375d6" xml:space="preserve">
+          <source><bpt id="2195480e-c54c-4154-a498-099effd72598">&lt;linkText&gt;</bpt>Virtual Networking in VMM 2012 SP1<ept id="2195480e-c54c-4154-a498-099effd72598">&lt;/linkText&gt;</ept><bpt id="2195480e-c54c-4154-a498-099effd72598">&lt;title&gt;</bpt><ept id="2195480e-c54c-4154-a498-099effd72598">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2195480e-c54c-4154-a498-099effd72598">&lt;linkText&gt;</bpt>Virtual Networking in VMM 2012 SP1<ept id="2195480e-c54c-4154-a498-099effd72598">&lt;/linkText&gt;</ept><bpt id="2195480e-c54c-4154-a498-099effd72598">&lt;title&gt;</bpt><ept id="2195480e-c54c-4154-a498-099effd72598">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5104adf7-b181-4305-b779-f98592beb749" xml:space="preserve">
+          <source>Network mapping can be configured between VM networks on two VMM servers, or on a single VMM server if two sites are managed by the same server.</source>
+          <target state="new">Network mapping can be configured between VM networks on two VMM servers, or on a single VMM server if two sites are managed by the same server.</target>
+        </trans-unit>
+        <trans-unit id="78386e75-5f71-411c-83a4-e0420cbdf6dd" xml:space="preserve">
+          <source>When mapping is configured correctly and replication is enabled, a virtual machine at the primary location will be connected to a network, and its replica at the target location will be connected to its mapped network.</source>
+          <target state="new">When mapping is configured correctly and replication is enabled, a virtual machine at the primary location will be connected to a network, and its replica at the target location will be connected to its mapped network.</target>
+        </trans-unit>
+        <trans-unit id="b34551e6-af93-4bdf-8374-4128e97ce81b" xml:space="preserve">
+          <source>If networks have been set up correctly in VMM, when you select a target VM network during network mapping, the VMM source clouds that use the source VM network will be displayed, along with the available target VM networks on the target clouds that are used for protection.</source>
+          <target state="new">If networks have been set up correctly in VMM, when you select a target VM network during network mapping, the VMM source clouds that use the source VM network will be displayed, along with the available target VM networks on the target clouds that are used for protection.</target>
+        </trans-unit>
+        <trans-unit id="453da311-57ab-44d8-83c3-d23d66941a7f" xml:space="preserve">
+          <source>Here’s an example to illustrate this mechanism.</source>
+          <target state="new">Here’s an example to illustrate this mechanism.</target>
+        </trans-unit>
+        <trans-unit id="a6b901f1-9672-49f3-a892-22c6ab629f4a" xml:space="preserve">
+          <source>Let’s take an organization with two locations in New York and Chicago.</source>
+          <target state="new">Let’s take an organization with two locations in New York and Chicago.</target>
+        </trans-unit>
+        <trans-unit id="48a238f0-74f1-4afb-a1c4-5e631836d7ae" xml:space="preserve">
+          <source><bpt id="a1f488bd-7a07-4289-9517-191ebc668313">&lt;strong&gt;</bpt>Location<ept id="a1f488bd-7a07-4289-9517-191ebc668313">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a1f488bd-7a07-4289-9517-191ebc668313">&lt;strong&gt;</bpt>Location<ept id="a1f488bd-7a07-4289-9517-191ebc668313">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="395b4509-1fea-4572-b728-4b66583f665d" xml:space="preserve">
+          <source><bpt id="3c325cc8-e803-4cdc-a5a0-c27a98b39e70">&lt;strong&gt;</bpt>VMM server<ept id="3c325cc8-e803-4cdc-a5a0-c27a98b39e70">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3c325cc8-e803-4cdc-a5a0-c27a98b39e70">&lt;strong&gt;</bpt>VMM server<ept id="3c325cc8-e803-4cdc-a5a0-c27a98b39e70">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="007a49b1-d733-4b56-bb47-6fa70d8b73ca" xml:space="preserve">
+          <source><bpt id="9cbca0eb-48c0-4633-b610-f0801a30d099">&lt;strong&gt;</bpt>VM networks<ept id="9cbca0eb-48c0-4633-b610-f0801a30d099">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9cbca0eb-48c0-4633-b610-f0801a30d099">&lt;strong&gt;</bpt>VM networks<ept id="9cbca0eb-48c0-4633-b610-f0801a30d099">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7c5dc6f5-1944-4d03-8d07-3e4c59d6a6ca" xml:space="preserve">
+          <source><bpt id="d8a1bcb1-a05c-4444-89e0-8c991fae20b5">&lt;strong&gt;</bpt>Mapped to<ept id="d8a1bcb1-a05c-4444-89e0-8c991fae20b5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="d8a1bcb1-a05c-4444-89e0-8c991fae20b5">&lt;strong&gt;</bpt>Mapped to<ept id="d8a1bcb1-a05c-4444-89e0-8c991fae20b5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee42a7e4-b39d-4673-a9e0-dbb830b63556" xml:space="preserve">
+          <source>New York</source>
+          <target state="new">New York</target>
+        </trans-unit>
+        <trans-unit id="678e0826-a733-429f-977b-92bd71fad583" xml:space="preserve">
+          <source>VMM-NewYork</source>
+          <target state="new">VMM-NewYork</target>
+        </trans-unit>
+        <trans-unit id="db67de5d-d36e-462d-8605-203043654719" xml:space="preserve">
+          <source>VMNetwork1-NewYork</source>
+          <target state="new">VMNetwork1-NewYork</target>
+        </trans-unit>
+        <trans-unit id="4b2e5f6a-62a3-4ce4-ab8f-cb1a36d71ed4" xml:space="preserve">
+          <source>Mapped to VMNetwork1-Chicago</source>
+          <target state="new">Mapped to VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="19aeecef-071f-4c1c-8f76-5719ccf79578" xml:space="preserve">
+          <source>VMNetwork2-NewYork</source>
+          <target state="new">VMNetwork2-NewYork</target>
+        </trans-unit>
+        <trans-unit id="67d0e063-d6a1-4bf2-a31f-e751f5af4b74" xml:space="preserve">
+          <source>Not mapped</source>
+          <target state="new">Not mapped</target>
+        </trans-unit>
+        <trans-unit id="64ba32ed-0c97-4158-b175-7d0a1c5c9095" xml:space="preserve">
+          <source>Chicago</source>
+          <target state="new">Chicago</target>
+        </trans-unit>
+        <trans-unit id="f399cea6-a781-40ab-883c-19ee867ac9c0" xml:space="preserve">
+          <source>VMM-Chicago</source>
+          <target state="new">VMM-Chicago</target>
+        </trans-unit>
+        <trans-unit id="2606c1ff-82d7-448d-b5c2-310d5f8e2658" xml:space="preserve">
+          <source>VMNetwork1-Chicago</source>
+          <target state="new">VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="26c16ce2-0853-45d7-adbf-3a95f983faba" xml:space="preserve">
+          <source>Mapped to VMNetwork1-NewYork</source>
+          <target state="new">Mapped to VMNetwork1-NewYork</target>
+        </trans-unit>
+        <trans-unit id="dd85e66d-0aef-40cd-a23f-e5bc30784fec" xml:space="preserve">
+          <source>VMNetwork1-Chicago</source>
+          <target state="new">VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="3f29236b-8bd5-414a-9dea-2089eb4d8c3f" xml:space="preserve">
+          <source>Not mapped</source>
+          <target state="new">Not mapped</target>
+        </trans-unit>
+        <trans-unit id="e6614aa7-ea34-4f0b-9eaa-c6c2c07a8cf6" xml:space="preserve">
+          <source>With this example:</source>
+          <target state="new">With this example:</target>
+        </trans-unit>
+        <trans-unit id="e44ba4e7-2294-4b53-a76a-c27fd938f7cd" xml:space="preserve">
+          <source>When a replica virtual machine is created for any virtual machine that is connected to VMNetwork1-NewYork, it will be connected to VMNetwork1-Chicago.</source>
+          <target state="new">When a replica virtual machine is created for any virtual machine that is connected to VMNetwork1-NewYork, it will be connected to VMNetwork1-Chicago.</target>
+        </trans-unit>
+        <trans-unit id="c11ba052-4135-4acc-9c9e-8ff1e819af5b" xml:space="preserve">
+          <source>When a replica virtual machine is created for VMNetwork2-NewYork or VMNetwork2-Chicago, it will not be connected to any network.</source>
+          <target state="new">When a replica virtual machine is created for VMNetwork2-NewYork or VMNetwork2-Chicago, it will not be connected to any network.</target>
+        </trans-unit>
+        <trans-unit id="678315d2-2ffb-47e0-96d5-ccbb16b539b8" xml:space="preserve">
+          <source>Here's how VMM clouds are set up in our example organization, and the logical netowrks associated with the clouds.</source>
+          <target state="new">Here's how VMM clouds are set up in our example organization, and the logical netowrks associated with the clouds.</target>
+        </trans-unit>
+        <trans-unit id="56ba0c04-26f4-4cb8-90b6-23bf1968b6c9" xml:space="preserve">
+          <source><bpt id="39ac6a26-36df-47f6-bdac-f9690f4cc073">&lt;strong&gt;</bpt>Protected cloud<ept id="39ac6a26-36df-47f6-bdac-f9690f4cc073">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="39ac6a26-36df-47f6-bdac-f9690f4cc073">&lt;strong&gt;</bpt>Protected cloud<ept id="39ac6a26-36df-47f6-bdac-f9690f4cc073">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf8b34b1-bec2-47b3-96f1-5e092e6d26bc" xml:space="preserve">
+          <source><bpt id="14bd8c4a-bdcd-4dd7-93a6-a9b20d1d1339">&lt;strong&gt;</bpt>Protecting cloud<ept id="14bd8c4a-bdcd-4dd7-93a6-a9b20d1d1339">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="14bd8c4a-bdcd-4dd7-93a6-a9b20d1d1339">&lt;strong&gt;</bpt>Protecting cloud<ept id="14bd8c4a-bdcd-4dd7-93a6-a9b20d1d1339">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf2c205f-3c78-4e5e-b841-fd5ebf84f323" xml:space="preserve">
+          <source><bpt id="73d600ee-e0ed-46b9-9244-b835fad3db8b">&lt;strong&gt;</bpt>Logical network (New York)<ept id="73d600ee-e0ed-46b9-9244-b835fad3db8b">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="73d600ee-e0ed-46b9-9244-b835fad3db8b">&lt;strong&gt;</bpt>Logical network (New York)<ept id="73d600ee-e0ed-46b9-9244-b835fad3db8b">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7bec9663-09b9-4064-b642-598fd73458ca" xml:space="preserve">
+          <source>GoldCloud1</source>
+          <target state="new">GoldCloud1</target>
+        </trans-unit>
+        <trans-unit id="ac723ef8-d2eb-4ede-b1f5-15e8e1072132" xml:space="preserve">
+          <source>GoldCloud2</source>
+          <target state="new">GoldCloud2</target>
+        </trans-unit>
+        <trans-unit id="67f94b01-f5a4-426c-9051-9f416f5397ca" xml:space="preserve">
+          <source>SilverCloud1</source>
+          <target state="new">SilverCloud1</target>
+        </trans-unit>
+        <trans-unit id="a2211008-4e43-4885-97ed-e2f779258450" xml:space="preserve">
+          <source>SilverCloud2</source>
+          <target state="new">SilverCloud2</target>
+        </trans-unit>
+        <trans-unit id="636eff66-35d9-4de7-82be-e43acbbc7b7b" xml:space="preserve">
+          <source>GoldCloud2</source>
+          <target state="new">GoldCloud2</target>
+        </trans-unit>
+        <trans-unit id="f0eff1db-c0ca-4bd0-a757-8a6f854bb376" xml:space="preserve">
+          <source>&lt;p&gt;NA&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;NA&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="dfb44e56-562f-4b9d-8c6e-c2808d49480b" xml:space="preserve">
+          <source>&lt;p&gt;LogicalNetwork1-NewYork&lt;/p&gt;&lt;p&gt;LogicalNetwork1-Chicago&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;LogicalNetwork1-NewYork&lt;/p&gt;&lt;p&gt;LogicalNetwork1-Chicago&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="846af577-dc5e-46f8-95a8-1468312ccd3c" xml:space="preserve">
+          <source>SilverCloud2</source>
+          <target state="new">SilverCloud2</target>
+        </trans-unit>
+        <trans-unit id="99974285-9de4-4d7c-9c30-5467bd97203d" xml:space="preserve">
+          <source>&lt;p&gt;NA&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;NA&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="218b51d2-7a12-4d11-a2ce-d220892b6028" xml:space="preserve">
+          <source>&lt;p&gt;LogicalNetwork1-NewYork&lt;/p&gt;&lt;p&gt;LogicalNetwork1-Chicago&lt;/p&gt;</source>
+          <target state="new">&lt;p&gt;LogicalNetwork1-NewYork&lt;/p&gt;&lt;p&gt;LogicalNetwork1-Chicago&lt;/p&gt;</target>
+        </trans-unit>
+        <trans-unit id="d0e0c4f2-56d9-4529-b9b8-b7a13221b6be" xml:space="preserve">
+          <source><bpt id="85df791c-1388-4a51-986d-4449eb90b529">&lt;strong&gt;</bpt>Location<ept id="85df791c-1388-4a51-986d-4449eb90b529">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="85df791c-1388-4a51-986d-4449eb90b529">&lt;strong&gt;</bpt>Location<ept id="85df791c-1388-4a51-986d-4449eb90b529">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01dcb115-a786-479d-8daa-7372dd5b2cdf" xml:space="preserve">
+          <source><bpt id="ed384d3d-4895-4c6e-bb82-d83baed3ed28">&lt;strong&gt;</bpt>Logical network<ept id="ed384d3d-4895-4c6e-bb82-d83baed3ed28">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="ed384d3d-4895-4c6e-bb82-d83baed3ed28">&lt;strong&gt;</bpt>Logical network<ept id="ed384d3d-4895-4c6e-bb82-d83baed3ed28">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b821411f-7a36-470d-a1dc-cc27485dce79" xml:space="preserve">
+          <source><bpt id="93eb3fa4-db22-467d-8082-4778a717dd08">&lt;strong&gt;</bpt>Associated VM network<ept id="93eb3fa4-db22-467d-8082-4778a717dd08">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="93eb3fa4-db22-467d-8082-4778a717dd08">&lt;strong&gt;</bpt>Associated VM network<ept id="93eb3fa4-db22-467d-8082-4778a717dd08">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9e86129-d264-4d0e-b607-649065980e48" xml:space="preserve">
+          <source>New York</source>
+          <target state="new">New York</target>
+        </trans-unit>
+        <trans-unit id="994c5a35-e09a-4ccb-905f-a1fabb06cb5e" xml:space="preserve">
+          <source>LogicalNetwork1-NewYork</source>
+          <target state="new">LogicalNetwork1-NewYork</target>
+        </trans-unit>
+        <trans-unit id="a12fd70e-9a04-4ba1-becf-1406fbf9a9e7" xml:space="preserve">
+          <source>VMNetwork1-NewYork</source>
+          <target state="new">VMNetwork1-NewYork</target>
+        </trans-unit>
+        <trans-unit id="aeda4ee6-158d-4022-b667-e9b609f835bb" xml:space="preserve">
+          <source>Chicago</source>
+          <target state="new">Chicago</target>
+        </trans-unit>
+        <trans-unit id="8cbf41eb-5ba7-4798-b3aa-b7a3ab5209cd" xml:space="preserve">
+          <source>LogicalNetwork1-Chicago</source>
+          <target state="new">LogicalNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="48c99b0e-1f48-4e67-985f-80510704aac0" xml:space="preserve">
+          <source>VMNetwork1-Chicago</source>
+          <target state="new">VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="44777291-5e24-49d3-b08d-82cef03c794d" xml:space="preserve">
+          <source>LogicalNetwork2Chicago</source>
+          <target state="new">LogicalNetwork2Chicago</target>
+        </trans-unit>
+        <trans-unit id="0ac66e0c-c206-4a7c-be53-12d8e0bfee25" xml:space="preserve">
+          <source>VMNetwork2-Chicago</source>
+          <target state="new">VMNetwork2-Chicago</target>
+        </trans-unit>
+        <trans-unit id="a65dc3ce-09b9-4c58-88e4-495537e2c75c" xml:space="preserve">
+          <source>Based on these settings, when you select the target VM network, the following table shows the choices that will be available.</source>
+          <target state="new">Based on these settings, when you select the target VM network, the following table shows the choices that will be available.</target>
+        </trans-unit>
+        <trans-unit id="61ccf7cc-46a4-4a9b-a83a-fa5a4d233e6c" xml:space="preserve">
+          <source><bpt id="53344538-8d90-4e3d-a57a-6a5f22c2ba18">&lt;strong&gt;</bpt>Select<ept id="53344538-8d90-4e3d-a57a-6a5f22c2ba18">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="53344538-8d90-4e3d-a57a-6a5f22c2ba18">&lt;strong&gt;</bpt>Select<ept id="53344538-8d90-4e3d-a57a-6a5f22c2ba18">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acb5dee6-be4c-42ec-aaee-3cde0c760c72" xml:space="preserve">
+          <source><bpt id="10b2a922-24ab-489d-8720-dd149072370f">&lt;strong&gt;</bpt>Protected cloud<ept id="10b2a922-24ab-489d-8720-dd149072370f">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="10b2a922-24ab-489d-8720-dd149072370f">&lt;strong&gt;</bpt>Protected cloud<ept id="10b2a922-24ab-489d-8720-dd149072370f">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d728363-2947-4559-9782-5c5d7fe48eb5" xml:space="preserve">
+          <source><bpt id="a2ddabdb-1586-4142-a2eb-b8a18a13e5b5">&lt;strong&gt;</bpt>Protecting cloud<ept id="a2ddabdb-1586-4142-a2eb-b8a18a13e5b5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a2ddabdb-1586-4142-a2eb-b8a18a13e5b5">&lt;strong&gt;</bpt>Protecting cloud<ept id="a2ddabdb-1586-4142-a2eb-b8a18a13e5b5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="46a7e9b3-853b-4c51-8543-a96ef08e2330" xml:space="preserve">
+          <source><bpt id="dad94703-a78b-4e37-835b-e7d4d4cca83e">&lt;strong&gt;</bpt>Target network available<ept id="dad94703-a78b-4e37-835b-e7d4d4cca83e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dad94703-a78b-4e37-835b-e7d4d4cca83e">&lt;strong&gt;</bpt>Target network available<ept id="dad94703-a78b-4e37-835b-e7d4d4cca83e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67e46088-03a8-4f69-9eef-a1ddd6585f43" xml:space="preserve">
+          <source>VMNetwork1-Chicago</source>
+          <target state="new">VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="2ded42e8-246d-420b-abd7-0c9de2b266a1" xml:space="preserve">
+          <source>SilverCloud1</source>
+          <target state="new">SilverCloud1</target>
+        </trans-unit>
+        <trans-unit id="6dc459d6-6c70-41e5-838f-021be05984f9" xml:space="preserve">
+          <source>SilverCloud2</source>
+          <target state="new">SilverCloud2</target>
+        </trans-unit>
+        <trans-unit id="fe751f5f-cbb5-4e70-931e-0ccbad29dc39" xml:space="preserve">
+          <source>Available</source>
+          <target state="new">Available</target>
+        </trans-unit>
+        <trans-unit id="27638f4b-4624-4087-b5ac-c3e35764b6ca" xml:space="preserve">
+          <source>GoldCloud1</source>
+          <target state="new">GoldCloud1</target>
+        </trans-unit>
+        <trans-unit id="f1e1fa97-0ad6-453a-b7f9-60196271baaa" xml:space="preserve">
+          <source>GoldCloud2</source>
+          <target state="new">GoldCloud2</target>
+        </trans-unit>
+        <trans-unit id="cd5089ab-853e-4c68-8b88-e773cfc14302" xml:space="preserve">
+          <source>Available</source>
+          <target state="new">Available</target>
+        </trans-unit>
+        <trans-unit id="767f9a04-1cdc-45cc-86ac-1558aae0606f" xml:space="preserve">
+          <source>VMNetwork2-Chicago</source>
+          <target state="new">VMNetwork2-Chicago</target>
+        </trans-unit>
+        <trans-unit id="2caf3aa7-95c3-415c-b5a6-d5c7b7f6eb58" xml:space="preserve">
+          <source>SilverCloud1</source>
+          <target state="new">SilverCloud1</target>
+        </trans-unit>
+        <trans-unit id="40544b61-3471-4160-81d2-47f205b9e23b" xml:space="preserve">
+          <source>SilverCloud2</source>
+          <target state="new">SilverCloud2</target>
+        </trans-unit>
+        <trans-unit id="94753f4a-575b-4184-8212-fb0bde1b4f15" xml:space="preserve">
+          <source>Not available</source>
+          <target state="new">Not available</target>
+        </trans-unit>
+        <trans-unit id="bfcf7686-8b97-486c-81f6-f9e11e6dff6c" xml:space="preserve">
+          <source>GoldCloud1</source>
+          <target state="new">GoldCloud1</target>
+        </trans-unit>
+        <trans-unit id="b64e5a7c-34e6-47d1-9c33-64f30c166bbe" xml:space="preserve">
+          <source>GoldCloud2</source>
+          <target state="new">GoldCloud2</target>
+        </trans-unit>
+        <trans-unit id="f35bde4f-43e5-4ef3-976e-3b7ebc3c6a59" xml:space="preserve">
+          <source>Available</source>
+          <target state="new">Available</target>
+        </trans-unit>
+        <trans-unit id="21f7d341-47f3-4a54-82a1-418a1abddf74" xml:space="preserve">
+          <source>If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover.</source>
+          <target state="new">If the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover.</target>
+        </trans-unit>
+        <trans-unit id="76dfb4f5-5226-447b-a3a9-8b85dc77f8ed" xml:space="preserve">
+          <source>If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.</source>
+          <target state="new">If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.</target>
+        </trans-unit>
+        <trans-unit id="c34152cd-2218-46df-a8ac-64e5ec0f0bd9" xml:space="preserve">
+          <source>To see what happens in the case of failback (reverse replication), let’s assume that VMNetwork1-NewYork is mapped to VMNetwork1-Chicago, with the following settings.</source>
+          <target state="new">To see what happens in the case of failback (reverse replication), let’s assume that VMNetwork1-NewYork is mapped to VMNetwork1-Chicago, with the following settings.</target>
+        </trans-unit>
+        <trans-unit id="b8f585d6-0118-4951-89cf-8a7f9af596f4" xml:space="preserve">
+          <source><bpt id="15125a7f-b49a-48c1-9dc5-db57c5d3b0ce">&lt;strong&gt;</bpt>Virtual machine<ept id="15125a7f-b49a-48c1-9dc5-db57c5d3b0ce">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="15125a7f-b49a-48c1-9dc5-db57c5d3b0ce">&lt;strong&gt;</bpt>Virtual machine<ept id="15125a7f-b49a-48c1-9dc5-db57c5d3b0ce">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96b7847c-3326-4887-8a80-d6e92ed3aca7" xml:space="preserve">
+          <source><bpt id="862f5649-b8a7-4f04-8add-c75c26607313">&lt;strong&gt;</bpt>Connected to VM network<ept id="862f5649-b8a7-4f04-8add-c75c26607313">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="862f5649-b8a7-4f04-8add-c75c26607313">&lt;strong&gt;</bpt>Connected to VM network<ept id="862f5649-b8a7-4f04-8add-c75c26607313">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51ef04f1-c2b8-49ee-900e-47d4c618b25c" xml:space="preserve">
+          <source>VM1</source>
+          <target state="new">VM1</target>
+        </trans-unit>
+        <trans-unit id="84964578-ce08-417c-a3fa-3e19b1cb029d" xml:space="preserve">
+          <source>VMNetwork1-Network</source>
+          <target state="new">VMNetwork1-Network</target>
+        </trans-unit>
+        <trans-unit id="b8e7144c-b4cd-4034-9d27-7bdf79db0843" xml:space="preserve">
+          <source>VM2 (replica of VM1)</source>
+          <target state="new">VM2 (replica of VM1)</target>
+        </trans-unit>
+        <trans-unit id="1f5072df-8625-4516-8a36-112f89ee5caa" xml:space="preserve">
+          <source>VMNetwork1-Chicago</source>
+          <target state="new">VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="67fbb5ac-23f8-4da3-b45b-a6837ebc5f99" xml:space="preserve">
+          <source>With these settings let's review what happens in a couple of possible scenarios.</source>
+          <target state="new">With these settings let's review what happens in a couple of possible scenarios.</target>
+        </trans-unit>
+        <trans-unit id="d28d159a-195d-4885-9de0-38ec288bdc78" xml:space="preserve">
+          <source><bpt id="4948c2b0-d143-4ae1-a32c-645f0aa409d1">&lt;strong&gt;</bpt>Scenario<ept id="4948c2b0-d143-4ae1-a32c-645f0aa409d1">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="4948c2b0-d143-4ae1-a32c-645f0aa409d1">&lt;strong&gt;</bpt>Scenario<ept id="4948c2b0-d143-4ae1-a32c-645f0aa409d1">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="77209984-3af2-40be-a64a-c54dea4b7344" xml:space="preserve">
+          <source><bpt id="8cf76414-ac2d-4d5d-8b99-3a5bb8b7b2da">&lt;strong&gt;</bpt>Outcome<ept id="8cf76414-ac2d-4d5d-8b99-3a5bb8b7b2da">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8cf76414-ac2d-4d5d-8b99-3a5bb8b7b2da">&lt;strong&gt;</bpt>Outcome<ept id="8cf76414-ac2d-4d5d-8b99-3a5bb8b7b2da">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c8c42aea-7a13-40e9-b7a9-b59f14f0fe4f" xml:space="preserve">
+          <source>No change in the network properties of VM-2 after failover</source>
+          <target state="new">No change in the network properties of VM-2 after failover</target>
+        </trans-unit>
+        <trans-unit id="26b20722-9860-4c5d-ae33-82c05fcd3069" xml:space="preserve">
+          <source>VM-1 remains connected to the source network.</source>
+          <target state="new">VM-1 remains connected to the source network.</target>
+        </trans-unit>
+        <trans-unit id="3857254a-d84b-4e8f-a646-7ffe8aed35ec" xml:space="preserve">
+          <source>Network properties of VM-2 are changed after failover and is disconnected</source>
+          <target state="new">Network properties of VM-2 are changed after failover and is disconnected</target>
+        </trans-unit>
+        <trans-unit id="6246e1ba-c170-42bd-a658-778d0ad6ecc0" xml:space="preserve">
+          <source>VM-1 is disconnected</source>
+          <target state="new">VM-1 is disconnected</target>
+        </trans-unit>
+        <trans-unit id="694e772a-9a2a-421a-bbc3-051032f0911c" xml:space="preserve">
+          <source>Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Chicago</source>
+          <target state="new">Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Chicago</target>
+        </trans-unit>
+        <trans-unit id="13ddacb5-0d27-4264-9c6e-15ec4ec14583" xml:space="preserve">
+          <source>If VMNetwork2-Chicago isn’t mapped, VM-1 will be disconnected</source>
+          <target state="new">If VMNetwork2-Chicago isn’t mapped, VM-1 will be disconnected</target>
+        </trans-unit>
+        <trans-unit id="a87d66ef-6fb2-42b0-8f8b-198d6e37e01f" xml:space="preserve">
+          <source>Network mapping of VMNetwork1-Chicago is changed</source>
+          <target state="new">Network mapping of VMNetwork1-Chicago is changed</target>
+        </trans-unit>
+        <trans-unit id="ef917888-c7b7-4550-984a-6174d2674f87" xml:space="preserve">
+          <source>VM-1 will be connected to the network now mapped to VMNetwork1-Chicago</source>
+          <target state="new">VM-1 will be connected to the network now mapped to VMNetwork1-Chicago</target>
+        </trans-unit>
+        <trans-unit id="e6d5566e-a854-4d7a-8e12-e372428e0017" xml:space="preserve">
+          <source>Now that you have a better understanding of network mapping start reading the <bpt id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;linkText&gt;</bpt>best practices<ept id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;/linkText&gt;</ept><bpt id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;title&gt;</bpt><ept id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;/title&gt;</ept> to prepare for deployment.</source>
+          <target state="new">Now that you have a better understanding of network mapping start reading the <bpt id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;linkText&gt;</bpt>best practices<ept id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;/linkText&gt;</ept><bpt id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;title&gt;</bpt><ept id="287a6bc1-f81f-4dc8-9efe-0fb41645fb68">&lt;/title&gt;</ept> to prepare for deployment.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

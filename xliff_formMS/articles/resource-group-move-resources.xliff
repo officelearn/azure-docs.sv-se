@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2a6d67ad-311c-42a1-8774-932792263553" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2a6d67ad-311c-42a1-8774-932792263553" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eb20b6e3-e8b7-4f38-971c-45593521f842">
+        <trans-unit id="45db9926-0986-4800-b1d5-13ffa3b5143d" xml:space="preserve">
+          <source>Move Resources to New Resource Group</source>
+          <target state="new">Move Resources to New Resource Group</target>
+        </trans-unit>
+        <trans-unit id="d7c3624c-f553-4597-99b7-2763d0217a5c" xml:space="preserve">
+          <source>Use Azure PowerShell or REST API to move resources to a new resource group for Azure Resource Manager.</source>
+          <target state="new">Use Azure PowerShell or REST API to move resources to a new resource group for Azure Resource Manager.</target>
+        </trans-unit>
+        <trans-unit id="6d8f34de-14df-495c-9a8c-59c0b9bad668" xml:space="preserve">
+          <source>This topic shows how to move resources from one resource group to another resource group.</source>
+          <target state="new">This topic shows how to move resources from one resource group to another resource group.</target>
+        </trans-unit>
+        <trans-unit id="2fdaf098-2a48-4bf2-8bad-dbe8fa7fcbf5" xml:space="preserve">
+          <source>You can also move resources to a new subscription.</source>
+          <target state="new">You can also move resources to a new subscription.</target>
+        </trans-unit>
+        <trans-unit id="96c9c897-0276-4e74-aa8a-d1e0ed0fff7d" xml:space="preserve">
+          <source>You may need to move resources when you decide that:</source>
+          <target state="new">You may need to move resources when you decide that:</target>
+        </trans-unit>
+        <trans-unit id="31e1dbf0-9efa-4ee6-a55c-f71638964e8f" xml:space="preserve">
+          <source>For billing purposes, a resource needs to live in a different subscription.</source>
+          <target state="new">For billing purposes, a resource needs to live in a different subscription.</target>
+        </trans-unit>
+        <trans-unit id="d90a2853-088c-4c62-a6f1-2259bcc6d291" xml:space="preserve">
+          <source>A resource no longer shares the same lifecycle as the resources it was previously grouped with.</source>
+          <target state="new">A resource no longer shares the same lifecycle as the resources it was previously grouped with.</target>
+        </trans-unit>
+        <trans-unit id="0538c06f-7e2a-47f2-9845-48a00e739c62" xml:space="preserve">
+          <source>You want to move it to a new resource group so you can manage that resource separately from the other resources.</source>
+          <target state="new">You want to move it to a new resource group so you can manage that resource separately from the other resources.</target>
+        </trans-unit>
+        <trans-unit id="456bcfd1-ee8b-4cac-8f03-26eaf836403e" xml:space="preserve">
+          <source>A resource now shares the same lifecycle as other resources in a different resource group.</source>
+          <target state="new">A resource now shares the same lifecycle as other resources in a different resource group.</target>
+        </trans-unit>
+        <trans-unit id="2add5c5d-01a3-4588-ba55-f67879ca0859" xml:space="preserve">
+          <source>You want to move it to the resource group with the other resources so you can manage them together.</source>
+          <target state="new">You want to move it to the resource group with the other resources so you can manage them together.</target>
+        </trans-unit>
+        <trans-unit id="cd1694b1-86a6-45f1-a5db-996045a20a9c" xml:space="preserve">
+          <source>There are some important considerations when moving a resource:</source>
+          <target state="new">There are some important considerations when moving a resource:</target>
+        </trans-unit>
+        <trans-unit id="bb69c769-9e91-42a9-b335-bd612b6e55ef" xml:space="preserve">
+          <source>You cannot change the location of the resource.</source>
+          <target state="new">You cannot change the location of the resource.</target>
+        </trans-unit>
+        <trans-unit id="cba2d1df-f1f5-4b1f-8663-873a2c55539e" xml:space="preserve">
+          <source>Moving a resource only moves it to a new resource group.</source>
+          <target state="new">Moving a resource only moves it to a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="49e876c8-13ef-4399-b147-8a783a4e1292" xml:space="preserve">
+          <source>The new resource group may have a different location, but that does 
+not change the location of the resource.</source>
+          <target state="new">The new resource group may have a different location, but that does 
+not change the location of the resource.</target>
+        </trans-unit>
+        <trans-unit id="01376812-0c06-4fd7-bd22-47ae4a1f46a8" xml:space="preserve">
+          <source>The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.</source>
+          <target state="new">The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.</target>
+        </trans-unit>
+        <trans-unit id="e3921c6c-108d-4561-9b60-9fbe5c834a60" xml:space="preserve">
+          <source>If you are using Azure PowerShell, make sure you are using the latest version.</source>
+          <target state="new">If you are using Azure PowerShell, make sure you are using the latest version.</target>
+        </trans-unit>
+        <trans-unit id="db766b7a-abe4-49f8-b319-3137b1046ad8" xml:space="preserve">
+          <source>The <bpt id="12ab72c4-7a47-4496-8092-a8a7a44673ec">&lt;strong&gt;</bpt>Move-AzureResource<ept id="12ab72c4-7a47-4496-8092-a8a7a44673ec">&lt;/strong&gt;</ept> command is updated frequently.</source>
+          <target state="new">The <bpt id="12ab72c4-7a47-4496-8092-a8a7a44673ec">&lt;strong&gt;</bpt>Move-AzureResource<ept id="12ab72c4-7a47-4496-8092-a8a7a44673ec">&lt;/strong&gt;</ept> command is updated frequently.</target>
+        </trans-unit>
+        <trans-unit id="0f9b3aa8-3fbf-48a3-9f3c-43b0010a8474" xml:space="preserve">
+          <source>To update your version, run the Microsoft Web Platform Installer and check if a 
+new version is available.</source>
+          <target state="new">To update your version, run the Microsoft Web Platform Installer and check if a 
+new version is available.</target>
+        </trans-unit>
+        <trans-unit id="a318f13b-bdf2-4685-9971-cb0b96c49a15" xml:space="preserve">
+          <source>For more information, see <bpt id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;/linkText&gt;</ept><bpt id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;title&gt;</bpt><ept id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell<ept id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;/linkText&gt;</ept><bpt id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;title&gt;</bpt><ept id="e9a32389-3668-47c1-b4aa-71ce0c3ac9e3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c8f647ab-d448-4cf6-9540-e9bf597fe5ee" xml:space="preserve">
+          <source>The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.</source>
+          <target state="new">The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.</target>
+        </trans-unit>
+        <trans-unit id="018222d8-700c-4fb7-a3c7-aa5ccc2b4af2" xml:space="preserve">
+          <source>Not all services currently support the ability to move resources.</source>
+          <target state="new">Not all services currently support the ability to move resources.</target>
+        </trans-unit>
+        <trans-unit id="6d1e676e-f912-4321-b870-498d97b2c9f8" xml:space="preserve">
+          <source>For now, the services that support moving to both a new resource group and subscription are:</source>
+          <target state="new">For now, the services that support moving to both a new resource group and subscription are:</target>
+        </trans-unit>
+        <trans-unit id="822c7c92-3915-4578-b5bb-306e8ba0b4c3" xml:space="preserve">
+          <source>API Management</source>
+          <target state="new">API Management</target>
+        </trans-unit>
+        <trans-unit id="79f4e03a-9c55-44ff-8823-54a3ca2ab09d" xml:space="preserve">
+          <source>Azure Search</source>
+          <target state="new">Azure Search</target>
+        </trans-unit>
+        <trans-unit id="165fd0f1-6c82-4e8d-9575-a9020d1900fc" xml:space="preserve">
+          <source>Data Factory</source>
+          <target state="new">Data Factory</target>
+        </trans-unit>
+        <trans-unit id="0c3ff030-ea3c-4b2e-b3fe-097dba2861d2" xml:space="preserve">
+          <source>Key Vault</source>
+          <target state="new">Key Vault</target>
+        </trans-unit>
+        <trans-unit id="93c0b221-d5a8-4fd2-9ac2-60ed52e01234" xml:space="preserve">
+          <source>Mobile Engagement</source>
+          <target state="new">Mobile Engagement</target>
+        </trans-unit>
+        <trans-unit id="22453d38-aefd-4be7-9557-032cab3d9e3b" xml:space="preserve">
+          <source>Operational Insights</source>
+          <target state="new">Operational Insights</target>
+        </trans-unit>
+        <trans-unit id="fd0e7a74-8c72-4199-b467-c2625c249189" xml:space="preserve">
+          <source>Redis Cache</source>
+          <target state="new">Redis Cache</target>
+        </trans-unit>
+        <trans-unit id="b11a7d84-448c-48d9-a89f-3d63de1b356a" xml:space="preserve">
+          <source>Azure Web Apps (some <bpt id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;linkText&gt;</bpt>limitations<ept id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;/linkText&gt;</ept><bpt id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;title&gt;</bpt><ept id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;/title&gt;</ept> apply)</source>
+          <target state="new">Azure Web Apps (some <bpt id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;linkText&gt;</bpt>limitations<ept id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;/linkText&gt;</ept><bpt id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;title&gt;</bpt><ept id="f40263b4-65af-4d05-a5b4-069a91a71ce8">&lt;/title&gt;</ept> apply)</target>
+        </trans-unit>
+        <trans-unit id="4b3e549d-9494-48ea-b27f-e1ff156cc719" xml:space="preserve">
+          <source>The services that support moving to a new resource group but not a new subscription are:</source>
+          <target state="new">The services that support moving to a new resource group but not a new subscription are:</target>
+        </trans-unit>
+        <trans-unit id="36c77a68-00a1-42c8-87f4-885623145586" xml:space="preserve">
+          <source>Compute (classic)</source>
+          <target state="new">Compute (classic)</target>
+        </trans-unit>
+        <trans-unit id="aa499152-4fb1-4a09-9f35-2bc219e61c59" xml:space="preserve">
+          <source>Storage (classic)</source>
+          <target state="new">Storage (classic)</target>
+        </trans-unit>
+        <trans-unit id="562689a2-e8a8-4af8-aea4-05702d1b87e3" xml:space="preserve">
+          <source>The services that currently do not support moving a resource are:</source>
+          <target state="new">The services that currently do not support moving a resource are:</target>
+        </trans-unit>
+        <trans-unit id="595dd704-fd29-44aa-99d5-3e3ea2a8c777" xml:space="preserve">
+          <source>Virtual Networks</source>
+          <target state="new">Virtual Networks</target>
+        </trans-unit>
+        <trans-unit id="f774160d-8c2d-478f-8165-c98f2c84fedb" xml:space="preserve">
+          <source>When working with web apps, you cannot move only an App Service plan.</source>
+          <target state="new">When working with web apps, you cannot move only an App Service plan.</target>
+        </trans-unit>
+        <trans-unit id="fa02e5f2-a589-4511-a7e0-e49502e89f38" xml:space="preserve">
+          <source>To move web apps, your options are:</source>
+          <target state="new">To move web apps, your options are:</target>
+        </trans-unit>
+        <trans-unit id="42db8f96-48cc-4de7-9b01-71b9dc1d6ef2" xml:space="preserve">
+          <source>Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.</source>
+          <target state="new">Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.</target>
+        </trans-unit>
+        <trans-unit id="ba84c70a-a091-4aa4-bc76-5fd2649f5263" xml:space="preserve">
+          <source>Move the web apps to a different resource group, but keep the App Service plan in the original resource group.</source>
+          <target state="new">Move the web apps to a different resource group, but keep the App Service plan in the original resource group.</target>
+        </trans-unit>
+        <trans-unit id="5c4af878-3161-486d-bc6d-e25cf2a3c469" xml:space="preserve">
+          <source>To move existing resources to another resource group or subscription, use the <bpt id="0b33d29f-5d7e-4910-a279-c432d65ef738">&lt;strong&gt;</bpt>Move-AzureResource<ept id="0b33d29f-5d7e-4910-a279-c432d65ef738">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">To move existing resources to another resource group or subscription, use the <bpt id="0b33d29f-5d7e-4910-a279-c432d65ef738">&lt;strong&gt;</bpt>Move-AzureResource<ept id="0b33d29f-5d7e-4910-a279-c432d65ef738">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="2dffc2b4-01db-46df-9742-17895a78e83a" xml:space="preserve">
+          <source>The first example shows how to move one resource to a new resource group.</source>
+          <target state="new">The first example shows how to move one resource to a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="c8f43323-e14e-4114-b39b-09fb87dd04f6" xml:space="preserve">
+          <source>The second example shows how to move multiple resources to a new resource group.</source>
+          <target state="new">The second example shows how to move multiple resources to a new resource group.</target>
+        </trans-unit>
+        <trans-unit id="d5fb4ca3-a4b5-4981-8f1b-ff9a8b0d55d6" xml:space="preserve">
+          <source>To move to a new subscription, include a value for the <bpt id="7d4e1f3e-02d4-47ad-858a-c00cb68cc87a">&lt;strong&gt;</bpt>DestinationSubscriptionId<ept id="7d4e1f3e-02d4-47ad-858a-c00cb68cc87a">&lt;/strong&gt;</ept> parameter.</source>
+          <target state="new">To move to a new subscription, include a value for the <bpt id="7d4e1f3e-02d4-47ad-858a-c00cb68cc87a">&lt;strong&gt;</bpt>DestinationSubscriptionId<ept id="7d4e1f3e-02d4-47ad-858a-c00cb68cc87a">&lt;/strong&gt;</ept> parameter.</target>
+        </trans-unit>
+        <trans-unit id="b84f5653-d8d0-434c-b6c4-80b298e09951" xml:space="preserve">
+          <source>To move existing resources to another resource group or subscription, run:</source>
+          <target state="new">To move existing resources to another resource group or subscription, run:</target>
+        </trans-unit>
+        <trans-unit id="55e48a0e-e0e6-415b-9c75-6cd72a15783c" xml:space="preserve">
+          <source>Replace <bpt id="a9abfeb7-b77b-4b54-8d23-fb8808baffe2">&lt;strong&gt;</bpt>{source-subscription-id}<ept id="a9abfeb7-b77b-4b54-8d23-fb8808baffe2">&lt;/strong&gt;</ept> and <bpt id="1c9843e9-0996-47f0-b5bc-638b8607abfd">&lt;strong&gt;</bpt>{source-resource-group-name}<ept id="1c9843e9-0996-47f0-b5bc-638b8607abfd">&lt;/strong&gt;</ept> with the subscription and resource group that currently contain the resources you wish to move.</source>
+          <target state="new">Replace <bpt id="a9abfeb7-b77b-4b54-8d23-fb8808baffe2">&lt;strong&gt;</bpt>{source-subscription-id}<ept id="a9abfeb7-b77b-4b54-8d23-fb8808baffe2">&lt;/strong&gt;</ept> and <bpt id="1c9843e9-0996-47f0-b5bc-638b8607abfd">&lt;strong&gt;</bpt>{source-resource-group-name}<ept id="1c9843e9-0996-47f0-b5bc-638b8607abfd">&lt;/strong&gt;</ept> with the subscription and resource group that currently contain the resources you wish to move.</target>
+        </trans-unit>
+        <trans-unit id="6aba7afa-fb26-4624-802d-26e7f6e9d11f" xml:space="preserve">
+          <source>Use <bpt id="a9828468-aac0-4722-b716-c2660967da63">&lt;strong&gt;</bpt>2015-01-01<ept id="a9828468-aac0-4722-b716-c2660967da63">&lt;/strong&gt;</ept> for {api-version}.</source>
+          <target state="new">Use <bpt id="a9828468-aac0-4722-b716-c2660967da63">&lt;strong&gt;</bpt>2015-01-01<ept id="a9828468-aac0-4722-b716-c2660967da63">&lt;/strong&gt;</ept> for {api-version}.</target>
+        </trans-unit>
+        <trans-unit id="460d938b-1525-4084-9e95-f110803a3632" xml:space="preserve">
+          <source>In the request, include a JSON object that defines the target resource group and the resources you wish to move.</source>
+          <target state="new">In the request, include a JSON object that defines the target resource group and the resources you wish to move.</target>
+        </trans-unit>
+        <trans-unit id="485ec3d1-88f2-42c0-9bf4-4d4e4819f231" xml:space="preserve">
+          <source><bpt id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;linkText&gt;</bpt>Using Azure PowerShell with Resource Manager<ept id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;/linkText&gt;</ept><bpt id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;title&gt;</bpt><ept id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;linkText&gt;</bpt>Using Azure PowerShell with Resource Manager<ept id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;/linkText&gt;</ept><bpt id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;title&gt;</bpt><ept id="5b0ff73a-3ea4-4806-83de-c75e0d03e4d5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="910b0910-f1a9-4bd6-883c-63cfee90c1dc" xml:space="preserve">
+          <source><bpt id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;linkText&gt;</bpt>Using the Azure CLI with Resource Manager<ept id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;/linkText&gt;</ept><bpt id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;title&gt;</bpt><ept id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;linkText&gt;</bpt>Using the Azure CLI with Resource Manager<ept id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;/linkText&gt;</ept><bpt id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;title&gt;</bpt><ept id="b02db982-f740-4f68-a289-152c06f8b13d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81bb5b8f-ca91-489b-bca3-7469171aac52" xml:space="preserve">
+          <source><bpt id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;linkText&gt;</bpt>Using the Azure Portal to manage resources<ept id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;/linkText&gt;</ept><bpt id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;title&gt;</bpt><ept id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;linkText&gt;</bpt>Using the Azure Portal to manage resources<ept id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;/linkText&gt;</ept><bpt id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;title&gt;</bpt><ept id="e46c8633-033c-424a-a459-d6ac2698df6e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0426b1a1-7708-45e0-aa2a-9c301bae3ad2" xml:space="preserve">
+          <source><bpt id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;linkText&gt;</bpt>Using tags to organize your resources<ept id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;/linkText&gt;</ept><bpt id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;title&gt;</bpt><ept id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;linkText&gt;</bpt>Using tags to organize your resources<ept id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;/linkText&gt;</ept><bpt id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;title&gt;</bpt><ept id="23309cfa-e093-4f12-923e-a85e366d0fb1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

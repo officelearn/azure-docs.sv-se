@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="eb3ccc96-131f-4912-9f4a-001673272d86" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="eb3ccc96-131f-4912-9f4a-001673272d86" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e5ca6c4f-edd3-4deb-a349-5603985b5b11">
+        <trans-unit id="4c6a6444-a09c-4620-ae4c-d1ee50974fe7" xml:space="preserve">
+          <source>Set up endpoints on a virtual machine in Azure</source>
+          <target state="new">Set up endpoints on a virtual machine in Azure</target>
+        </trans-unit>
+        <trans-unit id="f5b1305e-e438-4253-930b-0f3709da16b8" xml:space="preserve">
+          <source>Learn to set up endpoints in the portal to allow communication with a virtual machine in Azure.</source>
+          <target state="new">Learn to set up endpoints in the portal to allow communication with a virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="63b179e0-1a8a-491b-ba61-051def9febc4" xml:space="preserve">
+          <source>All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network.</source>
+          <target state="new">All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network.</target>
+        </trans-unit>
+        <trans-unit id="9df76a2f-dbd5-4c00-bdb9-76bcfbcd9f76" xml:space="preserve">
+          <source>However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.</source>
+          <target state="new">However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8c6b78de-3239-4147-a914-c647982439a3" xml:space="preserve">
+          <source>When you create a virtual machine in the Azure portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created.</source>
+          <target state="new">When you create a virtual machine in the Azure portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created.</target>
+        </trans-unit>
+        <trans-unit id="fa4e36bd-b0bd-4a1c-b633-2d3f64dc3bea" xml:space="preserve">
+          <source>You can configure additional endpoints while creating the virtual machine or afterwards as needed.</source>
+          <target state="new">You can configure additional endpoints while creating the virtual machine or afterwards as needed.</target>
+        </trans-unit>
+        <trans-unit id="333fb7d3-78e0-49f6-a940-da373e5dc8d6" xml:space="preserve">
+          <source><bpt id="bb3440fe-05b3-48ae-ad18-70eed93dbcd3">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="bb3440fe-05b3-48ae-ad18-70eed93dbcd3">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="bb3440fe-05b3-48ae-ad18-70eed93dbcd3">&lt;token href="../../includes/service-management-pointer-to-resource-manager.md"&gt;</bpt><ept id="bb3440fe-05b3-48ae-ad18-70eed93dbcd3">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6547418b-cdbf-423c-8a21-d733bf72956d" xml:space="preserve">
+          <source><bpt id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;linkText&gt;</bpt>About network security groups<ept id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;/linkText&gt;</ept><bpt id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;title&gt;</bpt><ept id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;linkText&gt;</bpt>About network security groups<ept id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;/linkText&gt;</ept><bpt id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;title&gt;</bpt><ept id="0b3aaa21-ebe6-41bc-9073-39cb0a9dcb12">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8ffe2ad3-d06a-4e99-9599-5eb301a07ac6" xml:space="preserve">
+          <source>Each endpoint has a public port and a private port:</source>
+          <target state="new">Each endpoint has a public port and a private port:</target>
+        </trans-unit>
+        <trans-unit id="d1efd810-e157-4d38-a026-89fbd661dd0f" xml:space="preserve">
+          <source>The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.</source>
+          <target state="new">The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="a4c054bd-a28d-467c-b5b4-9a7b91d96ea8" xml:space="preserve">
+          <source>The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.</source>
+          <target state="new">The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8f7b48dc-defb-491a-85ba-491c76c273bb" xml:space="preserve">
+          <source>Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the portal.</source>
+          <target state="new">Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the portal.</target>
+        </trans-unit>
+        <trans-unit id="083e2d73-8525-491d-847c-cb9713f4a00d" xml:space="preserve">
+          <source>For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports.</source>
+          <target state="new">For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports.</target>
+        </trans-unit>
+        <trans-unit id="60da1647-22f1-41b7-bab7-e8b464fcb38e" xml:space="preserve">
+          <source>To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.</source>
+          <target state="new">To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.</target>
+        </trans-unit>
+        <trans-unit id="566e4298-1aec-4f70-830d-f17e845fba7e" xml:space="preserve">
+          <source>After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address.</source>
+          <target state="new">After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address.</target>
+        </trans-unit>
+        <trans-unit id="4699a22d-ea91-42fc-bd1c-33a7138ec65c" xml:space="preserve">
+          <source>However, if the virtual machine is in an Azure virtual network, you should use network security groups instead.</source>
+          <target state="new">However, if the virtual machine is in an Azure virtual network, you should use network security groups instead.</target>
+        </trans-unit>
+        <trans-unit id="1da58f7f-8c56-4d62-bd74-f0e701af53e5" xml:space="preserve">
+          <source>For details, see <bpt id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;linkText&gt;</bpt>About network security groups<ept id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;/linkText&gt;</ept><bpt id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;title&gt;</bpt><ept id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;linkText&gt;</bpt>About network security groups<ept id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;/linkText&gt;</ept><bpt id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;title&gt;</bpt><ept id="dce67f63-2370-434b-b8e2-438d0d73c650">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c0d454f-8258-44d2-b905-ecd1c7ec416d" xml:space="preserve">
+          <source>: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting.</source>
+          <target state="new">: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting.</target>
+        </trans-unit>
+        <trans-unit id="000844f9-f2ab-4346-a146-afa9f1fadef7" xml:space="preserve">
+          <source>For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine.</source>
+          <target state="new">For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="9285f290-9602-4488-9930-4bc9aff9ed89" xml:space="preserve">
+          <source>When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.</source>
+          <target state="new">When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.</target>
+        </trans-unit>
+        <trans-unit id="d6bffcfd-a2f9-404f-897b-1d2fa6bc77fe" xml:space="preserve">
+          <source>If you haven't already done so, sign in to the <bpt id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;linkText&gt;</bpt>portal<ept id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;/linkText&gt;</ept><bpt id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;title&gt;</bpt><ept id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't already done so, sign in to the <bpt id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;linkText&gt;</bpt>portal<ept id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;/linkText&gt;</ept><bpt id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;title&gt;</bpt><ept id="903a2b52-bc26-481d-93ec-25d3cff542ef">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef836645-5733-4b48-acc1-e75c7630d5e9" xml:space="preserve">
+          <source>Click <bpt id="e13961b9-89c0-4cbc-82e0-9ad6526493cb">&lt;strong&gt;</bpt>Virtual Machines<ept id="e13961b9-89c0-4cbc-82e0-9ad6526493cb">&lt;/strong&gt;</ept>, and then click the name of the virtual machine that you want to configure.</source>
+          <target state="new">Click <bpt id="e13961b9-89c0-4cbc-82e0-9ad6526493cb">&lt;strong&gt;</bpt>Virtual Machines<ept id="e13961b9-89c0-4cbc-82e0-9ad6526493cb">&lt;/strong&gt;</ept>, and then click the name of the virtual machine that you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="f4367c54-0834-45a1-86a4-828d019b921a" xml:space="preserve">
+          <source>Click <bpt id="ed370f15-c9ff-4460-9fb9-add672fcb3ed">&lt;strong&gt;</bpt>Endpoints<ept id="ed370f15-c9ff-4460-9fb9-add672fcb3ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ed370f15-c9ff-4460-9fb9-add672fcb3ed">&lt;strong&gt;</bpt>Endpoints<ept id="ed370f15-c9ff-4460-9fb9-add672fcb3ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5867b06-8cc4-4e8a-9896-255e65741467" xml:space="preserve">
+          <source>The <bpt id="8eda5415-612a-4eed-810a-50887134f4ce">&lt;strong&gt;</bpt>Endpoints<ept id="8eda5415-612a-4eed-810a-50887134f4ce">&lt;/strong&gt;</ept> page lists all the current endpoints for the virtual machine.</source>
+          <target state="new">The <bpt id="8eda5415-612a-4eed-810a-50887134f4ce">&lt;strong&gt;</bpt>Endpoints<ept id="8eda5415-612a-4eed-810a-50887134f4ce">&lt;/strong&gt;</ept> page lists all the current endpoints for the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="442cb044-bbc7-4356-b83e-c63ffa5c39d1" xml:space="preserve">
+          <source><bpt id="e1f016e1-de1a-4236-86f2-fd705b4ac07d">&lt;linkText&gt;</bpt>Endpoints<ept id="e1f016e1-de1a-4236-86f2-fd705b4ac07d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e1f016e1-de1a-4236-86f2-fd705b4ac07d">&lt;linkText&gt;</bpt>Endpoints<ept id="e1f016e1-de1a-4236-86f2-fd705b4ac07d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c449794f-b676-4f2b-8fa6-db46cd53eaf0" xml:space="preserve">
+          <source>In the taskbar, click <bpt id="e06beee3-bbcc-4b7e-b49e-4a8b70d91a37">&lt;strong&gt;</bpt>Add<ept id="e06beee3-bbcc-4b7e-b49e-4a8b70d91a37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the taskbar, click <bpt id="e06beee3-bbcc-4b7e-b49e-4a8b70d91a37">&lt;strong&gt;</bpt>Add<ept id="e06beee3-bbcc-4b7e-b49e-4a8b70d91a37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92ba1cf9-5a6f-4487-8cfb-15485bb27624" xml:space="preserve">
+          <source>On the <bpt id="de61093e-a30e-4841-9a70-131b52776a51">&lt;strong&gt;</bpt>Add an endpoint to a virtual machine<ept id="de61093e-a30e-4841-9a70-131b52776a51">&lt;/strong&gt;</ept> page, choose the type of endpoint.</source>
+          <target state="new">On the <bpt id="de61093e-a30e-4841-9a70-131b52776a51">&lt;strong&gt;</bpt>Add an endpoint to a virtual machine<ept id="de61093e-a30e-4841-9a70-131b52776a51">&lt;/strong&gt;</ept> page, choose the type of endpoint.</target>
+        </trans-unit>
+        <trans-unit id="8a6d5193-81a3-44bd-97a3-4895af74ca2a" xml:space="preserve">
+          <source>If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose <bpt id="339e8c7f-78da-4973-8e84-7d2392e7d4cd">&lt;strong&gt;</bpt>Add a stand-alone endpoint<ept id="339e8c7f-78da-4973-8e84-7d2392e7d4cd">&lt;/strong&gt;</ept>, then click the left arrow.</source>
+          <target state="new">If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose <bpt id="339e8c7f-78da-4973-8e84-7d2392e7d4cd">&lt;strong&gt;</bpt>Add a stand-alone endpoint<ept id="339e8c7f-78da-4973-8e84-7d2392e7d4cd">&lt;/strong&gt;</ept>, then click the left arrow.</target>
+        </trans-unit>
+        <trans-unit id="5b7b3bd2-fb80-4ddb-b0dc-86f69c9bfe64" xml:space="preserve">
+          <source>Otherwise, choose <bpt id="85d50f85-dfe6-427d-88f8-c6cdb90a7745">&lt;strong&gt;</bpt>Add an endpoint to an existing load-balanced set<ept id="85d50f85-dfe6-427d-88f8-c6cdb90a7745">&lt;/strong&gt;</ept>, select the name of the load-balanced set, then click the left arrow.</source>
+          <target state="new">Otherwise, choose <bpt id="85d50f85-dfe6-427d-88f8-c6cdb90a7745">&lt;strong&gt;</bpt>Add an endpoint to an existing load-balanced set<ept id="85d50f85-dfe6-427d-88f8-c6cdb90a7745">&lt;/strong&gt;</ept>, select the name of the load-balanced set, then click the left arrow.</target>
+        </trans-unit>
+        <trans-unit id="ea3fe90b-e8fc-4e0a-a740-3615af75c82c" xml:space="preserve">
+          <source>On the <bpt id="5e247215-e588-4912-8365-1dbd841683d1">&lt;strong&gt;</bpt>Specify the details of the endpoint<ept id="5e247215-e588-4912-8365-1dbd841683d1">&lt;/strong&gt;</ept> page, type a name for the endpoint, then click the check mark to create the endpoint.</source>
+          <target state="new">On the <bpt id="5e247215-e588-4912-8365-1dbd841683d1">&lt;strong&gt;</bpt>Specify the details of the endpoint<ept id="5e247215-e588-4912-8365-1dbd841683d1">&lt;/strong&gt;</ept> page, type a name for the endpoint, then click the check mark to create the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4b79eed0-9411-4d34-b8a5-0f10947aaf74" xml:space="preserve">
+          <source>On the <bpt id="5d6b14fc-a0dd-452e-ab38-6bba70ffb877">&lt;strong&gt;</bpt>Specify the details of the endpoint<ept id="5d6b14fc-a0dd-452e-ab38-6bba70ffb877">&lt;/strong&gt;</ept> page, type a name for the endpoint in <bpt id="070e7080-beca-4b3c-9abe-e09e28f64bf5">&lt;strong&gt;</bpt>Name<ept id="070e7080-beca-4b3c-9abe-e09e28f64bf5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5d6b14fc-a0dd-452e-ab38-6bba70ffb877">&lt;strong&gt;</bpt>Specify the details of the endpoint<ept id="5d6b14fc-a0dd-452e-ab38-6bba70ffb877">&lt;/strong&gt;</ept> page, type a name for the endpoint in <bpt id="070e7080-beca-4b3c-9abe-e09e28f64bf5">&lt;strong&gt;</bpt>Name<ept id="070e7080-beca-4b3c-9abe-e09e28f64bf5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="761daffe-8009-469e-a83b-44aa17ddc5e8" xml:space="preserve">
+          <source>You can also choose a network protocol name from the list, which will fill in initial values for the <bpt id="fd6c06bc-3753-4c0d-bb72-d9aaa8ca775a">&lt;strong&gt;</bpt>Protocol<ept id="fd6c06bc-3753-4c0d-bb72-d9aaa8ca775a">&lt;/strong&gt;</ept>, <bpt id="21581591-a1cc-4906-9902-79d09f66b243">&lt;strong&gt;</bpt>Public Port<ept id="21581591-a1cc-4906-9902-79d09f66b243">&lt;/strong&gt;</ept>, and <bpt id="f78e3036-f2aa-4dd1-8b5a-92f1bfbb87ef">&lt;strong&gt;</bpt>Private Port<ept id="f78e3036-f2aa-4dd1-8b5a-92f1bfbb87ef">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can also choose a network protocol name from the list, which will fill in initial values for the <bpt id="fd6c06bc-3753-4c0d-bb72-d9aaa8ca775a">&lt;strong&gt;</bpt>Protocol<ept id="fd6c06bc-3753-4c0d-bb72-d9aaa8ca775a">&lt;/strong&gt;</ept>, <bpt id="21581591-a1cc-4906-9902-79d09f66b243">&lt;strong&gt;</bpt>Public Port<ept id="21581591-a1cc-4906-9902-79d09f66b243">&lt;/strong&gt;</ept>, and <bpt id="f78e3036-f2aa-4dd1-8b5a-92f1bfbb87ef">&lt;strong&gt;</bpt>Private Port<ept id="f78e3036-f2aa-4dd1-8b5a-92f1bfbb87ef">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="53e6dbc9-3c63-47d4-8169-8271afca126b" xml:space="preserve">
+          <source>For a customized endpoint, in <bpt id="01a3bccc-1ac4-434c-a82c-edce3896fc50">&lt;strong&gt;</bpt>Protocol<ept id="01a3bccc-1ac4-434c-a82c-edce3896fc50">&lt;/strong&gt;</ept>, choose either <bpt id="75413b24-0aed-4647-906a-cebc61f7d9da">&lt;strong&gt;</bpt>TCP<ept id="75413b24-0aed-4647-906a-cebc61f7d9da">&lt;/strong&gt;</ept> or <bpt id="0fb887a0-f357-49e2-b4f4-ad1600330f0d">&lt;strong&gt;</bpt>UDP<ept id="0fb887a0-f357-49e2-b4f4-ad1600330f0d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For a customized endpoint, in <bpt id="01a3bccc-1ac4-434c-a82c-edce3896fc50">&lt;strong&gt;</bpt>Protocol<ept id="01a3bccc-1ac4-434c-a82c-edce3896fc50">&lt;/strong&gt;</ept>, choose either <bpt id="75413b24-0aed-4647-906a-cebc61f7d9da">&lt;strong&gt;</bpt>TCP<ept id="75413b24-0aed-4647-906a-cebc61f7d9da">&lt;/strong&gt;</ept> or <bpt id="0fb887a0-f357-49e2-b4f4-ad1600330f0d">&lt;strong&gt;</bpt>UDP<ept id="0fb887a0-f357-49e2-b4f4-ad1600330f0d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7de11ae2-cc7b-47a2-84a5-6cfe534ec82f" xml:space="preserve">
+          <source>For customized ports, in <bpt id="0239f49d-744b-4748-8b2e-8571d9ead4c0">&lt;strong&gt;</bpt>Public Port<ept id="0239f49d-744b-4748-8b2e-8571d9ead4c0">&lt;/strong&gt;</ept>, type the port number for the incoming traffic from the Internet.</source>
+          <target state="new">For customized ports, in <bpt id="0239f49d-744b-4748-8b2e-8571d9ead4c0">&lt;strong&gt;</bpt>Public Port<ept id="0239f49d-744b-4748-8b2e-8571d9ead4c0">&lt;/strong&gt;</ept>, type the port number for the incoming traffic from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="521abecc-500a-4cf1-a649-de517a009523" xml:space="preserve">
+          <source>In <bpt id="613bdbc3-79bf-46bb-84c3-fb85375bba34">&lt;strong&gt;</bpt>Private Port<ept id="613bdbc3-79bf-46bb-84c3-fb85375bba34">&lt;/strong&gt;</ept>, type the port number on which the virtual machine is listening.</source>
+          <target state="new">In <bpt id="613bdbc3-79bf-46bb-84c3-fb85375bba34">&lt;strong&gt;</bpt>Private Port<ept id="613bdbc3-79bf-46bb-84c3-fb85375bba34">&lt;/strong&gt;</ept>, type the port number on which the virtual machine is listening.</target>
+        </trans-unit>
+        <trans-unit id="a581fb8d-215c-40f7-b50c-202b1440d387" xml:space="preserve">
+          <source>These port numbers can be different.</source>
+          <target state="new">These port numbers can be different.</target>
+        </trans-unit>
+        <trans-unit id="055cca1d-c6c9-406d-b388-9196d08f49ed" xml:space="preserve">
+          <source>Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.</source>
+          <target state="new">Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.</target>
+        </trans-unit>
+        <trans-unit id="ed987efc-1795-45ea-8f9c-9c7d924e5109" xml:space="preserve">
+          <source>If this endpoint will be the first one in a load-balanced set, click <bpt id="80849bd3-6e29-4372-b320-39837de963ad">&lt;strong&gt;</bpt>Create a load-balanced set<ept id="80849bd3-6e29-4372-b320-39837de963ad">&lt;/strong&gt;</ept>, and then click the right arrow.</source>
+          <target state="new">If this endpoint will be the first one in a load-balanced set, click <bpt id="80849bd3-6e29-4372-b320-39837de963ad">&lt;strong&gt;</bpt>Create a load-balanced set<ept id="80849bd3-6e29-4372-b320-39837de963ad">&lt;/strong&gt;</ept>, and then click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="249fa2b0-f981-4e6c-9cf1-fb5d7fece97d" xml:space="preserve">
+          <source>On the <bpt id="685bc0ee-d935-44a8-9468-a4f4df0c33e5">&lt;strong&gt;</bpt>Configure the load-balanced set<ept id="685bc0ee-d935-44a8-9468-a4f4df0c33e5">&lt;/strong&gt;</ept> page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent.</source>
+          <target state="new">On the <bpt id="685bc0ee-d935-44a8-9468-a4f4df0c33e5">&lt;strong&gt;</bpt>Configure the load-balanced set<ept id="685bc0ee-d935-44a8-9468-a4f4df0c33e5">&lt;/strong&gt;</ept> page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent.</target>
+        </trans-unit>
+        <trans-unit id="b7ec8337-371f-419c-bd02-4437f8223257" xml:space="preserve">
+          <source>The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability.</source>
+          <target state="new">The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability.</target>
+        </trans-unit>
+        <trans-unit id="9171eb0b-9a87-4766-94c0-0b78c1620b51" xml:space="preserve">
+          <source>The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe.</source>
+          <target state="new">The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe.</target>
+        </trans-unit>
+        <trans-unit id="5e9f0cfa-0d46-4ce1-8bad-f4b1be4a0b61" xml:space="preserve">
+          <source>Click the right arrow.</source>
+          <target state="new">Click the right arrow.</target>
+        </trans-unit>
+        <trans-unit id="d2a717b3-5dbd-4805-a791-a3b0463a7d30" xml:space="preserve">
+          <source>Click the check mark to create the endpoint.</source>
+          <target state="new">Click the check mark to create the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="7d0145e2-7f1b-4e9a-95d7-2f0657811c93" xml:space="preserve">
+          <source>The new endpoint will be listed on the <bpt id="776432c0-1ad0-4a3e-b480-6a1e63bb24f3">&lt;strong&gt;</bpt>Endpoints<ept id="776432c0-1ad0-4a3e-b480-6a1e63bb24f3">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">The new endpoint will be listed on the <bpt id="776432c0-1ad0-4a3e-b480-6a1e63bb24f3">&lt;strong&gt;</bpt>Endpoints<ept id="776432c0-1ad0-4a3e-b480-6a1e63bb24f3">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="2a4ea8dc-a6a2-4c80-9d6d-79e0d18c76cc" xml:space="preserve">
+          <source><bpt id="1f163754-9ce5-44d3-9ab7-45b67c1f84df">&lt;linkText&gt;</bpt>Endpoint creation successful<ept id="1f163754-9ce5-44d3-9ab7-45b67c1f84df">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1f163754-9ce5-44d3-9ab7-45b67c1f84df">&lt;linkText&gt;</bpt>Endpoint creation successful<ept id="1f163754-9ce5-44d3-9ab7-45b67c1f84df">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="81a9b0a7-576b-4616-9ec0-10bc6d523b4b" xml:space="preserve">
+          <source>To use an Azure PowerShell cmdlet to set this up, see <bpt id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;/linkText&gt;</ept><bpt id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;title&gt;</bpt><ept id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use an Azure PowerShell cmdlet to set this up, see <bpt id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;linkText&gt;</bpt>Add-AzureEndpoint<ept id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;/linkText&gt;</ept><bpt id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;title&gt;</bpt><ept id="f9f10d71-cc85-41ee-97ac-130bfcc5a61e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a1f31c5-8f3d-4c74-9825-9ca1ae57ee32" xml:space="preserve">
+          <source>To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address.</source>
+          <target state="new">To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address.</target>
+        </trans-unit>
+        <trans-unit id="e864e1bd-3bfe-46bd-9460-1a65b2a92ab2" xml:space="preserve">
+          <source>Follow these steps to add, modify, or remove an ACL on an endpoint.</source>
+          <target state="new">Follow these steps to add, modify, or remove an ACL on an endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4ea22cfc-7b53-4651-b321-f62bb51c9350" xml:space="preserve">
+          <source>If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.</source>
+          <target state="new">If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.</target>
+        </trans-unit>
+        <trans-unit id="73042448-8251-481c-818c-d0f2e9f7e36d" xml:space="preserve">
+          <source>If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs.</source>
+          <target state="new">If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs.</target>
+        </trans-unit>
+        <trans-unit id="1c8ac054-8e69-4d17-9d82-c1477d95888b" xml:space="preserve">
+          <source>For details, see <bpt id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;linkText&gt;</bpt>About network security groups<ept id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;/linkText&gt;</ept><bpt id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;title&gt;</bpt><ept id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;linkText&gt;</bpt>About network security groups<ept id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;/linkText&gt;</ept><bpt id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;title&gt;</bpt><ept id="139db693-ed01-4d6b-945e-5f1aa83a9b0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0ef871e3-ee67-41f7-b6bf-421589ef209a" xml:space="preserve">
+          <source>If you haven't already done so, sign in to the <bpt id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;linkText&gt;</bpt>portal<ept id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;/linkText&gt;</ept><bpt id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;title&gt;</bpt><ept id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you haven't already done so, sign in to the <bpt id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;linkText&gt;</bpt>portal<ept id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;/linkText&gt;</ept><bpt id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;title&gt;</bpt><ept id="e84e255e-15f7-4f2c-bcc3-14e74ed037e2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="20d9c98e-8477-4c9c-8358-bfb979dd6b1d" xml:space="preserve">
+          <source>Click <bpt id="accb1654-429e-438c-b76b-8c0aee402728">&lt;strong&gt;</bpt>Virtual Machines<ept id="accb1654-429e-438c-b76b-8c0aee402728">&lt;/strong&gt;</ept>, and then click the name of the virtual machine that you want to configure.</source>
+          <target state="new">Click <bpt id="accb1654-429e-438c-b76b-8c0aee402728">&lt;strong&gt;</bpt>Virtual Machines<ept id="accb1654-429e-438c-b76b-8c0aee402728">&lt;/strong&gt;</ept>, and then click the name of the virtual machine that you want to configure.</target>
+        </trans-unit>
+        <trans-unit id="f5d7880e-ee48-49af-bd50-86f97acfa0c4" xml:space="preserve">
+          <source>Click <bpt id="b2023394-2672-4dc8-a5c2-4a3834bcc0e8">&lt;strong&gt;</bpt>Endpoints<ept id="b2023394-2672-4dc8-a5c2-4a3834bcc0e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b2023394-2672-4dc8-a5c2-4a3834bcc0e8">&lt;strong&gt;</bpt>Endpoints<ept id="b2023394-2672-4dc8-a5c2-4a3834bcc0e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e019673-e8a9-4f37-a0d0-f500cfd81785" xml:space="preserve">
+          <source>From the list, select the appropriate endpoint.</source>
+          <target state="new">From the list, select the appropriate endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4a07f42c-31b4-4f8a-bb73-51c2f9dd57b5" xml:space="preserve">
+          <source><bpt id="9f9a86e6-a9ed-4bb4-8d67-059d84e5548a">&lt;linkText&gt;</bpt>ACL list<ept id="9f9a86e6-a9ed-4bb4-8d67-059d84e5548a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9f9a86e6-a9ed-4bb4-8d67-059d84e5548a">&lt;linkText&gt;</bpt>ACL list<ept id="9f9a86e6-a9ed-4bb4-8d67-059d84e5548a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc9fe28e-0244-4cf8-8a2b-c26458768fc6" xml:space="preserve">
+          <source>In the taskbar, click <bpt id="7b1dc224-c6ac-483e-9795-eaa3082205d4">&lt;strong&gt;</bpt>Manage ACL<ept id="7b1dc224-c6ac-483e-9795-eaa3082205d4">&lt;/strong&gt;</ept> to open the <bpt id="d1959f56-1fdc-47b2-97ad-1c1f43483e86">&lt;strong&gt;</bpt>Specify ACL details<ept id="d1959f56-1fdc-47b2-97ad-1c1f43483e86">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">In the taskbar, click <bpt id="7b1dc224-c6ac-483e-9795-eaa3082205d4">&lt;strong&gt;</bpt>Manage ACL<ept id="7b1dc224-c6ac-483e-9795-eaa3082205d4">&lt;/strong&gt;</ept> to open the <bpt id="d1959f56-1fdc-47b2-97ad-1c1f43483e86">&lt;strong&gt;</bpt>Specify ACL details<ept id="d1959f56-1fdc-47b2-97ad-1c1f43483e86">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="4b65e8fe-8954-405e-849f-67fa969e765f" xml:space="preserve">
+          <source><bpt id="9acac69c-e8f1-46aa-9d89-565d4463b884">&lt;linkText&gt;</bpt>Specify ACL details<ept id="9acac69c-e8f1-46aa-9d89-565d4463b884">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9acac69c-e8f1-46aa-9d89-565d4463b884">&lt;linkText&gt;</bpt>Specify ACL details<ept id="9acac69c-e8f1-46aa-9d89-565d4463b884">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a2a30f44-a2c9-45a6-a7c3-b4579e9a572d" xml:space="preserve">
+          <source>Use rows in the list to add, delete, or edit rules for an ACL and change their order.</source>
+          <target state="new">Use rows in the list to add, delete, or edit rules for an ACL and change their order.</target>
+        </trans-unit>
+        <trans-unit id="4c3816ba-48ac-4423-98b7-361edbb6a6c7" xml:space="preserve">
+          <source>The <bpt id="ef965293-2421-4c14-aab5-04b1f5104a16">&lt;strong&gt;</bpt>Remote Subnet<ept id="ef965293-2421-4c14-aab5-04b1f5104a16">&lt;/strong&gt;</ept> value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address.</source>
+          <target state="new">The <bpt id="ef965293-2421-4c14-aab5-04b1f5104a16">&lt;strong&gt;</bpt>Remote Subnet<ept id="ef965293-2421-4c14-aab5-04b1f5104a16">&lt;/strong&gt;</ept> value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address.</target>
+        </trans-unit>
+        <trans-unit id="d1337ab9-404c-4547-bf73-c7ef81682c28" xml:space="preserve">
+          <source>Be sure to specify the IP address range in CIDR format, also known as address prefix format.</source>
+          <target state="new">Be sure to specify the IP address range in CIDR format, also known as address prefix format.</target>
+        </trans-unit>
+        <trans-unit id="8ac3321a-fd18-4470-8ec7-7f7618f4093c" xml:space="preserve">
+          <source>An example is 131.107.0.0/16.</source>
+          <target state="new">An example is 131.107.0.0/16.</target>
+        </trans-unit>
+        <trans-unit id="ba135e1f-b293-4022-96b8-8e59e092cd32" xml:space="preserve">
+          <source>You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.</source>
+          <target state="new">You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.</target>
+        </trans-unit>
+        <trans-unit id="fb3df914-e12a-4344-a6ed-0f109fc41119" xml:space="preserve">
+          <source>The rules are evaluated in order starting with the first rule and ending with the last rule.</source>
+          <target state="new">The rules are evaluated in order starting with the first rule and ending with the last rule.</target>
+        </trans-unit>
+        <trans-unit id="3f6eb2d7-6d18-493f-be93-ab88b0e8b906" xml:space="preserve">
+          <source>This means that rules should be ordered from least restrictive to most restrictive.</source>
+          <target state="new">This means that rules should be ordered from least restrictive to most restrictive.</target>
+        </trans-unit>
+        <trans-unit id="8412501c-2643-4fea-a75c-532553fe4432" xml:space="preserve">
+          <source>For examples and more information, see <bpt id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;linkText&gt;</bpt>What is a Network Access Control List?<ept id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;/linkText&gt;</ept><bpt id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;title&gt;</bpt><ept id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;/title&gt;</ept>.</source>
+          <target state="new">For examples and more information, see <bpt id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;linkText&gt;</bpt>What is a Network Access Control List?<ept id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;/linkText&gt;</ept><bpt id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;title&gt;</bpt><ept id="39bfc52f-174e-4864-998b-8a8ebfa23039">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cc1645fb-0aa5-478b-a404-a1a9588e7183" xml:space="preserve">
+          <source>To use an Azure PowerShell cmdlet to set this up, see <bpt id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;linkText&gt;</bpt>Managing access control lists (ACLs) for endpoints by using PowerShell<ept id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;/linkText&gt;</ept><bpt id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;title&gt;</bpt><ept id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;/title&gt;</ept>.</source>
+          <target state="new">To use an Azure PowerShell cmdlet to set this up, see <bpt id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;linkText&gt;</bpt>Managing access control lists (ACLs) for endpoints by using PowerShell<ept id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;/linkText&gt;</ept><bpt id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;title&gt;</bpt><ept id="a9adc101-4dc3-4101-8cbf-8415d42d265e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2065efcb-4582-4b33-9e63-6bdf78713ef2" xml:space="preserve">
+          <source><bpt id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;linkText&gt;</bpt>Load balancing for Azure infrastructure services<ept id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;/linkText&gt;</ept><bpt id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;title&gt;</bpt><ept id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;linkText&gt;</bpt>Load balancing for Azure infrastructure services<ept id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;/linkText&gt;</ept><bpt id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;title&gt;</bpt><ept id="351e491f-5c4d-48a5-be1f-65afcb4b6402">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

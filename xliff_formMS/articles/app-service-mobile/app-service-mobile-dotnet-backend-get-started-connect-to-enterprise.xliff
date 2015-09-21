@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="0ba576c1-09b2-4601-8c2f-618e7e4432af" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="0ba576c1-09b2-4601-8c2f-618e7e4432af" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="705794c3-86cf-46a2-882e-a9cfb9936d0a">
+        <trans-unit id="10aafbb3-f40f-4b9a-b72e-cce2a860352c" xml:space="preserve">
+          <source>Connect a Mobile App to an enterprise SaaS | Microsoft Azure</source>
+          <target state="new">Connect a Mobile App to an enterprise SaaS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ac47d25c-d2dd-4eae-b47d-b8e7292c1cee" xml:space="preserve">
+          <source>Learn how to make calls to enterprise resources such as SharePoint Online</source>
+          <target state="new">Learn how to make calls to enterprise resources such as SharePoint Online</target>
+        </trans-unit>
+        <trans-unit id="4cc1940c-02bb-4238-b78b-eaa4da4c780a" xml:space="preserve">
+          <source>In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution.</source>
+          <target state="new">In this tutorial, you will connect your mobile app to an enterprise software-as-a-service (SaaS) solution.</target>
+        </trans-unit>
+        <trans-unit id="1f717aca-6124-42b9-a672-246c46214cb9" xml:space="preserve">
+          <source>You will update the app from the [Authenticate your app with Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.</source>
+          <target state="new">You will update the app from the [Authenticate your app with Azure Active Directory Authentication Library Single Sign-On] to create a Microsoft Word document in SharePoint Online whenever a new TodoItem is added.</target>
+        </trans-unit>
+        <trans-unit id="d634fd83-3758-42e7-ba04-12b2f204a86e" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="5bc69e0c-2a83-4054-9615-6086d3c1d659" xml:space="preserve">
+          <source>Visual Studio 2013 running on Windows 8.1</source>
+          <target state="new">Visual Studio 2013 running on Windows 8.1</target>
+        </trans-unit>
+        <trans-unit id="473d8849-bca7-48ee-8875-5f88a9da5352" xml:space="preserve">
+          <source>An active [SharePoint Online] subscription</source>
+          <target state="new">An active [SharePoint Online] subscription</target>
+        </trans-unit>
+        <trans-unit id="acb97449-3d45-473f-b0b1-1f31ea7e9ecb" xml:space="preserve">
+          <source>Completion of the [Authenticate your app with Active Directory Authentication Library Single Sign-On] tutorial.</source>
+          <target state="new">Completion of the [Authenticate your app with Active Directory Authentication Library Single Sign-On] tutorial.</target>
+        </trans-unit>
+        <trans-unit id="63c2ccef-9fd3-44d5-98c4-37f6c9076021" xml:space="preserve">
+          <source>You should use the tenant provided by your SharePoint subscription.</source>
+          <target state="new">You should use the tenant provided by your SharePoint subscription.</target>
+        </trans-unit>
+        <trans-unit id="f3763154-da6a-4888-9e08-f5d64b9a980a" xml:space="preserve">
+          <source>By default, the token you receive from AAD has limited permissions.</source>
+          <target state="new">By default, the token you receive from AAD has limited permissions.</target>
+        </trans-unit>
+        <trans-unit id="37eb44b7-e8fd-43b3-ab5b-580c43afa1fb" xml:space="preserve">
+          <source>In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.</source>
+          <target state="new">In order to access a third-party resource or SaaS application such as SharePoint Online, you must explicitly allow it.</target>
+        </trans-unit>
+        <trans-unit id="26490c5e-d856-4477-95ce-d703393ab610" xml:space="preserve">
+          <source>In the <bpt id="3fa5aad0-d4ad-4991-9802-e5025d1c11a4">&lt;strong&gt;</bpt>Active Directory<ept id="3fa5aad0-d4ad-4991-9802-e5025d1c11a4">&lt;/strong&gt;</ept> Section of the [Azure Management Portal], select your tenant.</source>
+          <target state="new">In the <bpt id="3fa5aad0-d4ad-4991-9802-e5025d1c11a4">&lt;strong&gt;</bpt>Active Directory<ept id="3fa5aad0-d4ad-4991-9802-e5025d1c11a4">&lt;/strong&gt;</ept> Section of the [Azure Management Portal], select your tenant.</target>
+        </trans-unit>
+        <trans-unit id="2db78069-934f-4047-920a-6ccb03e07c8c" xml:space="preserve">
+          <source>Navigate to the web application that you created for the App Service.</source>
+          <target state="new">Navigate to the web application that you created for the App Service.</target>
+        </trans-unit>
+        <trans-unit id="bbba817a-c444-43c9-9b39-4b907a3ae427" xml:space="preserve">
+          <source>In the <bpt id="799dc83f-cda2-484b-8723-0da180098b14">&lt;strong&gt;</bpt>Configure<ept id="799dc83f-cda2-484b-8723-0da180098b14">&lt;/strong&gt;</ept> tab, scroll the page down to the permissions to other applications section.</source>
+          <target state="new">In the <bpt id="799dc83f-cda2-484b-8723-0da180098b14">&lt;strong&gt;</bpt>Configure<ept id="799dc83f-cda2-484b-8723-0da180098b14">&lt;/strong&gt;</ept> tab, scroll the page down to the permissions to other applications section.</target>
+        </trans-unit>
+        <trans-unit id="8491b195-3056-4fc6-9620-070992dfa49d" xml:space="preserve">
+          <source>Select <bpt id="cec9d951-20a5-4f01-8dff-1fbdcd9f0384">&lt;strong&gt;</bpt>Office 365 SharePoint Online<ept id="cec9d951-20a5-4f01-8dff-1fbdcd9f0384">&lt;/strong&gt;</ept> and grant the <bpt id="7cab044c-9211-4314-b7f6-1a4bdf6120ce">&lt;strong&gt;</bpt>Edit or delete users' files<ept id="7cab044c-9211-4314-b7f6-1a4bdf6120ce">&lt;/strong&gt;</ept> delegated permission.</source>
+          <target state="new">Select <bpt id="cec9d951-20a5-4f01-8dff-1fbdcd9f0384">&lt;strong&gt;</bpt>Office 365 SharePoint Online<ept id="cec9d951-20a5-4f01-8dff-1fbdcd9f0384">&lt;/strong&gt;</ept> and grant the <bpt id="7cab044c-9211-4314-b7f6-1a4bdf6120ce">&lt;strong&gt;</bpt>Edit or delete users' files<ept id="7cab044c-9211-4314-b7f6-1a4bdf6120ce">&lt;/strong&gt;</ept> delegated permission.</target>
+        </trans-unit>
+        <trans-unit id="7e140b41-d1da-4e45-8826-ad73bfb96268" xml:space="preserve">
+          <source>Then click <bpt id="4e0e4cf3-1d0a-4a41-af4f-7bf59bf8f383">&lt;strong&gt;</bpt>Save<ept id="4e0e4cf3-1d0a-4a41-af4f-7bf59bf8f383">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="4e0e4cf3-1d0a-4a41-af4f-7bf59bf8f383">&lt;strong&gt;</bpt>Save<ept id="4e0e4cf3-1d0a-4a41-af4f-7bf59bf8f383">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07aa8463-fbed-406b-849d-6358014482e9" xml:space="preserve">
+          <source><bpt id="fbdbbf01-852b-4f57-80d6-0a01c636f00d">&lt;linkText&gt;</bpt><ept id="fbdbbf01-852b-4f57-80d6-0a01c636f00d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fbdbbf01-852b-4f57-80d6-0a01c636f00d">&lt;linkText&gt;</bpt><ept id="fbdbbf01-852b-4f57-80d6-0a01c636f00d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="10fc1488-77a9-4c4b-9bd5-66686ce27ca5" xml:space="preserve">
+          <source>You have now configured Azure AD to issue a SharePoint access token to the App Service.</source>
+          <target state="new">You have now configured Azure AD to issue a SharePoint access token to the App Service.</target>
+        </trans-unit>
+        <trans-unit id="bde578d1-53c3-4043-9def-e29dedb07c9f" xml:space="preserve">
+          <source>In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to.</source>
+          <target state="new">In order to make a call to SharePoint, you need to specify the endpoints that the mobile app needs to talk to.</target>
+        </trans-unit>
+        <trans-unit id="ae440fe9-07d1-41e4-8cd8-234de4bd3caa" xml:space="preserve">
+          <source>You also need to be able to prove the identity of your app service.</source>
+          <target state="new">You also need to be able to prove the identity of your app service.</target>
+        </trans-unit>
+        <trans-unit id="e3534ba5-1822-497d-848b-5da075f970cb" xml:space="preserve">
+          <source>This is accomplished using a Client ID and Client Secret pair.</source>
+          <target state="new">This is accomplished using a Client ID and Client Secret pair.</target>
+        </trans-unit>
+        <trans-unit id="82cb6293-b8b6-45cb-8594-de200f5d3d70" xml:space="preserve">
+          <source>You have already obtained and stored the Client ID for the app service during the AAD login setup.</source>
+          <target state="new">You have already obtained and stored the Client ID for the app service during the AAD login setup.</target>
+        </trans-unit>
+        <trans-unit id="f4dff33e-5ee7-4306-8e7f-3a1b748bffb7" xml:space="preserve">
+          <source>Because these are sensitive credentials, you should'nt store them as plaintext in our code.</source>
+          <target state="new">Because these are sensitive credentials, you should'nt store them as plaintext in our code.</target>
+        </trans-unit>
+        <trans-unit id="4c7f616a-5f1d-410a-90b7-aeab34014c26" xml:space="preserve">
+          <source>Instead, you'll set these values as Application Settings for our Mobile App Code site.</source>
+          <target state="new">Instead, you'll set these values as Application Settings for our Mobile App Code site.</target>
+        </trans-unit>
+        <trans-unit id="52f02f42-1aaa-4860-9006-9c381af072d2" xml:space="preserve">
+          <source>Return to the AAD Applications tab for your tenant, and select the web application for your app service.</source>
+          <target state="new">Return to the AAD Applications tab for your tenant, and select the web application for your app service.</target>
+        </trans-unit>
+        <trans-unit id="641d24e7-e438-45da-928f-7621d04c12a3" xml:space="preserve">
+          <source>Under Configure, scroll down to Keys.</source>
+          <target state="new">Under Configure, scroll down to Keys.</target>
+        </trans-unit>
+        <trans-unit id="c7f10cf0-1f28-414a-9f4d-5fab5bf49e86" xml:space="preserve">
+          <source>You'll obtain a Client Secret by generating a new key.</source>
+          <target state="new">You'll obtain a Client Secret by generating a new key.</target>
+        </trans-unit>
+        <trans-unit id="df326eea-af20-4a66-bd26-0a158cead95d" xml:space="preserve">
+          <source>Note once you create a key and leave the page, there is no way to get it out of the portal again.</source>
+          <target state="new">Note once you create a key and leave the page, there is no way to get it out of the portal again.</target>
+        </trans-unit>
+        <trans-unit id="c3657909-e20e-46c0-80fc-b05587a7427f" xml:space="preserve">
+          <source>Upon creation you must copy and save this value in a secure location.</source>
+          <target state="new">Upon creation you must copy and save this value in a secure location.</target>
+        </trans-unit>
+        <trans-unit id="09e68809-5188-4be1-81e0-505c4f58789a" xml:space="preserve">
+          <source>Select a duration for your key, then click save, and copy out the resulting value.</source>
+          <target state="new">Select a duration for your key, then click save, and copy out the resulting value.</target>
+        </trans-unit>
+        <trans-unit id="845c50e3-12e1-40e3-85fd-cd288827f5c3" xml:space="preserve">
+          <source>In the Mobile App Code section of the Management Portal, navigate to the Configure tab, and scroll down to App Settings.</source>
+          <target state="new">In the Mobile App Code section of the Management Portal, navigate to the Configure tab, and scroll down to App Settings.</target>
+        </trans-unit>
+        <trans-unit id="c6895495-aede-4f32-9d58-7caa3f1f9e5f" xml:space="preserve">
+          <source>Here you can provide a key-value pair to help you reference the necessary credentials.</source>
+          <target state="new">Here you can provide a key-value pair to help you reference the necessary credentials.</target>
+        </trans-unit>
+        <trans-unit id="f0b0aced-f841-40fb-8f11-03f4d0bdca7a" xml:space="preserve">
+          <source>Set SP_Authority to be the authority endpoint for your AAD tenant.</source>
+          <target state="new">Set SP_Authority to be the authority endpoint for your AAD tenant.</target>
+        </trans-unit>
+        <trans-unit id="f5e39b28-d4a1-4d00-a77e-012aa65c7cb4" xml:space="preserve">
+          <source>This should be the same as the authority value used for your client app.</source>
+          <target state="new">This should be the same as the authority value used for your client app.</target>
+        </trans-unit>
+        <trans-unit id="d4a30d64-0f65-4cf3-bc5a-3fcc2eaca58c" xml:space="preserve">
+          <source>It'll be of the form <bpt id="f736d312-efaa-4961-82dd-660588d8f403">&lt;code&gt;</bpt>https://login.windows.net/contoso.onmicrosoft.com<ept id="f736d312-efaa-4961-82dd-660588d8f403">&lt;/code&gt;</ept></source>
+          <target state="new">It'll be of the form <bpt id="f736d312-efaa-4961-82dd-660588d8f403">&lt;code&gt;</bpt>https://login.windows.net/contoso.onmicrosoft.com<ept id="f736d312-efaa-4961-82dd-660588d8f403">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6486950a-8cce-4953-9828-c334232fd65d" xml:space="preserve">
+          <source>Set SP_ClientSecret to be the client secret value you obtained earlier.</source>
+          <target state="new">Set SP_ClientSecret to be the client secret value you obtained earlier.</target>
+        </trans-unit>
+        <trans-unit id="e79feb1d-a930-4c5d-a1d0-babbc457753e" xml:space="preserve">
+          <source>Set SP_SharePointURL to be the URL for your SharePoint site.</source>
+          <target state="new">Set SP_SharePointURL to be the URL for your SharePoint site.</target>
+        </trans-unit>
+        <trans-unit id="39f11cd5-484c-4a5f-a96f-d118a60e76f1" xml:space="preserve">
+          <source>It should be of the form <bpt id="aa621ba2-943f-4a2d-827d-7fad594a3900">&lt;code&gt;</bpt>https://contoso-my.sharepoint.com<ept id="aa621ba2-943f-4a2d-827d-7fad594a3900">&lt;/code&gt;</ept></source>
+          <target state="new">It should be of the form <bpt id="aa621ba2-943f-4a2d-827d-7fad594a3900">&lt;code&gt;</bpt>https://contoso-my.sharepoint.com<ept id="aa621ba2-943f-4a2d-827d-7fad594a3900">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1fa37f2e-2eb7-4747-a9ed-8d65992e08e7" xml:space="preserve">
+          <source>You'll be able to obtain these values again in your code using ApiServices.Settings.</source>
+          <target state="new">You'll be able to obtain these values again in your code using ApiServices.Settings.</target>
+        </trans-unit>
+        <trans-unit id="b7f37cc8-723b-433c-a8c5-ecc353c1c4a3" xml:space="preserve">
+          <source>In order to access SharePoint, you need a special access token with SharePoint as the target audience.</source>
+          <target state="new">In order to access SharePoint, you need a special access token with SharePoint as the target audience.</target>
+        </trans-unit>
+        <trans-unit id="4aa5985c-c15c-4b8b-b650-3ec97690128d" xml:space="preserve">
+          <source>To get this token, you'll need to call back into Azure AD with the identity of the App Service and the token that was issued for the user.</source>
+          <target state="new">To get this token, you'll need to call back into Azure AD with the identity of the App Service and the token that was issued for the user.</target>
+        </trans-unit>
+        <trans-unit id="b80ad92d-ce6a-4b60-9b9e-77a669ae3fcd" xml:space="preserve">
+          <source>Open your Mobile App Code project in Visual Studio.</source>
+          <target state="new">Open your Mobile App Code project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="65f633c6-7c78-4768-8a84-af8325dafe79" xml:space="preserve">
+          <source><bpt id="f63c69ed-8d37-4562-8afc-29281bb55caa">&lt;token href="../../includes/app-service-mobile-dotnet-adal-install-nuget.md"&gt;</bpt><ept id="f63c69ed-8d37-4562-8afc-29281bb55caa">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="f63c69ed-8d37-4562-8afc-29281bb55caa">&lt;token href="../../includes/app-service-mobile-dotnet-adal-install-nuget.md"&gt;</bpt><ept id="f63c69ed-8d37-4562-8afc-29281bb55caa">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="12c418a1-bc67-47a4-a5ff-e31f5421f521" xml:space="preserve">
+          <source>In the NuGet Package manager, click <bpt id="da4f7a31-ddd1-42dc-b3e3-cc92e8dc468e">&lt;strong&gt;</bpt>Online<ept id="da4f7a31-ddd1-42dc-b3e3-cc92e8dc468e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the NuGet Package manager, click <bpt id="da4f7a31-ddd1-42dc-b3e3-cc92e8dc468e">&lt;strong&gt;</bpt>Online<ept id="da4f7a31-ddd1-42dc-b3e3-cc92e8dc468e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86c10653-7d75-43e8-907f-e56dbc10c8a7" xml:space="preserve">
+          <source>Enter <bpt id="7af09b40-eae8-4df8-bc45-9d14c4d6f17c">&lt;strong&gt;</bpt>Microsoft.Azure.Mobile.Server.AppService<ept id="7af09b40-eae8-4df8-bc45-9d14c4d6f17c">&lt;/strong&gt;</ept> as a search term.</source>
+          <target state="new">Enter <bpt id="7af09b40-eae8-4df8-bc45-9d14c4d6f17c">&lt;strong&gt;</bpt>Microsoft.Azure.Mobile.Server.AppService<ept id="7af09b40-eae8-4df8-bc45-9d14c4d6f17c">&lt;/strong&gt;</ept> as a search term.</target>
+        </trans-unit>
+        <trans-unit id="ad007d03-719e-4462-98c0-fb76e398cd42" xml:space="preserve">
+          <source>Then click <bpt id="76be5ba0-b8f6-4675-9695-bae7b1edb691">&lt;strong&gt;</bpt>Install<ept id="76be5ba0-b8f6-4675-9695-bae7b1edb691">&lt;/strong&gt;</ept> to install the [Mobile Apps .NET Backend App Service Extension] package.</source>
+          <target state="new">Then click <bpt id="76be5ba0-b8f6-4675-9695-bae7b1edb691">&lt;strong&gt;</bpt>Install<ept id="76be5ba0-b8f6-4675-9695-bae7b1edb691">&lt;/strong&gt;</ept> to install the [Mobile Apps .NET Backend App Service Extension] package.</target>
+        </trans-unit>
+        <trans-unit id="6bd94582-5d70-438d-b02e-8c75a064b392" xml:space="preserve">
+          <source>This package provides extension methods for working with information about the currently logged-in user.</source>
+          <target state="new">This package provides extension methods for working with information about the currently logged-in user.</target>
+        </trans-unit>
+        <trans-unit id="8fcb19d9-cac6-4c7a-afc5-2caa23ee1db4" xml:space="preserve">
+          <source>In your Mobile App Code project, create a new class called SharePointUploadContext.</source>
+          <target state="new">In your Mobile App Code project, create a new class called SharePointUploadContext.</target>
+        </trans-unit>
+        <trans-unit id="46b19b22-91b9-4283-85c6-c022e64998ba" xml:space="preserve">
+          <source>Add a <bpt id="15c7b4e6-838b-41bc-889e-acfb2b083ebb">&lt;code&gt;</bpt>using Microsoft.Azure.Mobile.Server.AppService;<ept id="15c7b4e6-838b-41bc-889e-acfb2b083ebb">&lt;/code&gt;</ept> statement to the file.</source>
+          <target state="new">Add a <bpt id="15c7b4e6-838b-41bc-889e-acfb2b083ebb">&lt;code&gt;</bpt>using Microsoft.Azure.Mobile.Server.AppService;<ept id="15c7b4e6-838b-41bc-889e-acfb2b083ebb">&lt;/code&gt;</ept> statement to the file.</target>
+        </trans-unit>
+        <trans-unit id="1521c128-2baf-4e2d-87f5-bfab0544ca37" xml:space="preserve">
+          <source>Then, add the following to the class:</source>
+          <target state="new">Then, add the following to the class:</target>
+        </trans-unit>
+        <trans-unit id="dc80974e-327a-4ad9-bb77-8b0e6c4bb6bc" xml:space="preserve">
+          <source>Now create a method to add the file to the user's document library:</source>
+          <target state="new">Now create a method to add the file to the user's document library:</target>
+        </trans-unit>
+        <trans-unit id="3f9dc331-e4bf-4693-a3cd-c8b2707ad3b6" xml:space="preserve">
+          <source>To create a Word document, you'll use the OpenXML NuGet package.</source>
+          <target state="new">To create a Word document, you'll use the OpenXML NuGet package.</target>
+        </trans-unit>
+        <trans-unit id="40e52a99-b817-4c7d-8b5a-c08d4452548e" xml:space="preserve">
+          <source>Install this package by opening the NuGet Manager and searching for DocumentFormat.OpenXml.</source>
+          <target state="new">Install this package by opening the NuGet Manager and searching for DocumentFormat.OpenXml.</target>
+        </trans-unit>
+        <trans-unit id="4edcb0dd-4ec7-4696-a4f8-c1e3e27990e2" xml:space="preserve">
+          <source>Add the following code to TodoItemController.</source>
+          <target state="new">Add the following code to TodoItemController.</target>
+        </trans-unit>
+        <trans-unit id="c7826cfa-5b09-4cf8-bda9-7d745401795c" xml:space="preserve">
+          <source>This creates a Word document based on a TodoItem.</source>
+          <target state="new">This creates a Word document based on a TodoItem.</target>
+        </trans-unit>
+        <trans-unit id="416fe856-0194-4f50-bc70-4d5c610252d4" xml:space="preserve">
+          <source>The text of the document will be the name of the item.</source>
+          <target state="new">The text of the document will be the name of the item.</target>
+        </trans-unit>
+        <trans-unit id="1b969503-acc5-4acd-b016-adb95df0818a" xml:space="preserve">
+          <source>Replace PostTodoItem with the following:</source>
+          <target state="new">Replace PostTodoItem with the following:</target>
+        </trans-unit>
+        <trans-unit id="35635190-67aa-43e6-a166-f84bb6d9a87f" xml:space="preserve">
+          <source>Publish the changes to the backend, and then run your client application.</source>
+          <target state="new">Publish the changes to the backend, and then run your client application.</target>
+        </trans-unit>
+        <trans-unit id="8eacd15f-c88d-447b-929c-580ba1dc2792" xml:space="preserve">
+          <source>Log in when prompted, and insert a new TodoItem.</source>
+          <target state="new">Log in when prompted, and insert a new TodoItem.</target>
+        </trans-unit>
+        <trans-unit id="87781fb5-59b8-441a-b98f-a23ab8846130" xml:space="preserve">
+          <source>Navigate to your SharePoint site and log in with the same user.</source>
+          <target state="new">Navigate to your SharePoint site and log in with the same user.</target>
+        </trans-unit>
+        <trans-unit id="781fd41c-62d6-4ba0-8731-be96dd6ebb01" xml:space="preserve">
+          <source>Select the OneDrive tab.</source>
+          <target state="new">Select the OneDrive tab.</target>
+        </trans-unit>
+        <trans-unit id="e2acfc5f-30d4-4dc5-841d-dc2cb94f3221" xml:space="preserve">
+          <source>Under the Documents Folder, you should see a Word document with a GUID title.</source>
+          <target state="new">Under the Documents Folder, you should see a Word document with a GUID title.</target>
+        </trans-unit>
+        <trans-unit id="08c82fdc-b9f4-4ebd-9281-af2d1805a3c3" xml:space="preserve">
+          <source>When you open it, you should find the text for your TodoItem.</source>
+          <target state="new">When you open it, you should find the text for your TodoItem.</target>
+        </trans-unit>
+        <trans-unit id="f6670843-dc7d-4e2e-a9b0-a87dc7164c9a" xml:space="preserve">
+          <source>./media/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise/aad-sharepoint-permissions.png</source>
+          <target state="new">./media/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise/aad-sharepoint-permissions.png</target>
+        </trans-unit>
+        <trans-unit id="ac9f9812-2e0d-44aa-b53c-6362bb944f46" xml:space="preserve">
+          <source>https://portal.azure.com/</source>
+          <target state="new">https://portal.azure.com/</target>
+        </trans-unit>
+        <trans-unit id="e26942e1-3434-4503-a9be-96610e7d6718" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+        <trans-unit id="f6ecd031-db3e-4295-931e-7c9e31b9e1d6" xml:space="preserve">
+          <source>http://office.microsoft.com/en-us/sharepoint/</source>
+          <target state="new">http://office.microsoft.com/en-us/sharepoint/</target>
+        </trans-unit>
+        <trans-unit id="341f26a6-a26c-449c-8efa-163754067fca" xml:space="preserve">
+          <source>app-service-mobile-dotnet-backend-ios-aad-sso-preview.md</source>
+          <target state="new">app-service-mobile-dotnet-backend-ios-aad-sso-preview.md</target>
+        </trans-unit>
+        <trans-unit id="60bc20f1-861e-48f1-afe9-1fcf622dba86" xml:space="preserve">
+          <source>http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/</source>
+          <target state="new">http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/</target>
+        </trans-unit>
+      </group>
+      <group id="87bfa38c-3971-474b-98a8-56e30b5131de" />
+    </body>
+  </file>
+</xliff>

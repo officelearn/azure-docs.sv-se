@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f6aa3b19-d580-49e7-abdc-4b8b020dc41a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f6aa3b19-d580-49e7-abdc-4b8b020dc41a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f761be56-00c0-4eff-b63d-e8647088fd4d">
+        <trans-unit id="12a3b7fa-68a9-434a-8d8d-26447a26bc92" xml:space="preserve">
+          <source>Learn how to manage AzureML web services using API Management | Microsoft Azure</source>
+          <target state="new">Learn how to manage AzureML web services using API Management | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6db76792-9a5b-4b08-aaa3-edfd4fe8958f" xml:space="preserve">
+          <source>A guide showing how to manage AzureML web services using API Management.</source>
+          <target state="new">A guide showing how to manage AzureML web services using API Management.</target>
+        </trans-unit>
+        <trans-unit id="a3ad8ebc-991f-4314-a97c-4eb90457c516" xml:space="preserve">
+          <source>This guide shows you how to quickly get started using API Management to manage your AzureML web services.</source>
+          <target state="new">This guide shows you how to quickly get started using API Management to manage your AzureML web services.</target>
+        </trans-unit>
+        <trans-unit id="ef354425-3a44-4f94-ae12-29c9f8893bc3" xml:space="preserve">
+          <source>Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.</source>
+          <target state="new">Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.</target>
+        </trans-unit>
+        <trans-unit id="5817024f-98bf-4308-a050-e6d6c5b6f4f9" xml:space="preserve">
+          <source>Click <bpt id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;linkText&gt;</bpt>here<ept id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;/linkText&gt;</ept><bpt id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;title&gt;</bpt><ept id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;/title&gt;</ept> for details on Azure API Management.</source>
+          <target state="new">Click <bpt id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;linkText&gt;</bpt>here<ept id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;/linkText&gt;</ept><bpt id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;title&gt;</bpt><ept id="fa2fb926-5a7d-41f1-b1e4-b6e1303803f0">&lt;/title&gt;</ept> for details on Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="9fac5ec1-ba36-4812-ac81-03ad14745ffa" xml:space="preserve">
+          <source>Click <bpt id="2459f729-a615-4877-927a-adfc2b015a47">&lt;linkText&gt;</bpt>here<ept id="2459f729-a615-4877-927a-adfc2b015a47">&lt;/linkText&gt;</ept><bpt id="2459f729-a615-4877-927a-adfc2b015a47">&lt;title&gt;</bpt><ept id="2459f729-a615-4877-927a-adfc2b015a47">&lt;/title&gt;</ept> for a guide on how to get started with Azure API Management.</source>
+          <target state="new">Click <bpt id="2459f729-a615-4877-927a-adfc2b015a47">&lt;linkText&gt;</bpt>here<ept id="2459f729-a615-4877-927a-adfc2b015a47">&lt;/linkText&gt;</ept><bpt id="2459f729-a615-4877-927a-adfc2b015a47">&lt;title&gt;</bpt><ept id="2459f729-a615-4877-927a-adfc2b015a47">&lt;/title&gt;</ept> for a guide on how to get started with Azure API Management.</target>
+        </trans-unit>
+        <trans-unit id="54c1cb42-d533-4847-85a8-c8daf9bd4923" xml:space="preserve">
+          <source>This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.</source>
+          <target state="new">This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.</target>
+        </trans-unit>
+        <trans-unit id="fa109fa7-6384-438a-a4e5-f059b410e258" xml:space="preserve">
+          <source>AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions.</source>
+          <target state="new">AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions.</target>
+        </trans-unit>
+        <trans-unit id="c0c3f4b1-1c47-4494-a4a5-b35957c0c2e8" xml:space="preserve">
+          <source>Click <bpt id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;linkText&gt;</bpt>here<ept id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;/linkText&gt;</ept><bpt id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;title&gt;</bpt><ept id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;/title&gt;</ept> for details on AzureML.</source>
+          <target state="new">Click <bpt id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;linkText&gt;</bpt>here<ept id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;/linkText&gt;</ept><bpt id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;title&gt;</bpt><ept id="8897a8c7-315e-4e0e-a30a-02cec1facc1b">&lt;/title&gt;</ept> for details on AzureML.</target>
+        </trans-unit>
+        <trans-unit id="c4abb3ba-7741-4991-a204-e460fc45f9f8" xml:space="preserve">
+          <source>To complete this guide, you need:</source>
+          <target state="new">To complete this guide, you need:</target>
+        </trans-unit>
+        <trans-unit id="cf078368-cff3-4265-8891-e854ce52c636" xml:space="preserve">
+          <source>An Azure account.</source>
+          <target state="new">An Azure account.</target>
+        </trans-unit>
+        <trans-unit id="b8a7f7dd-04ac-45d3-b352-2b59bc33437c" xml:space="preserve">
+          <source>If you don’t have an Azure account, click <bpt id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;linkText&gt;</bpt>here<ept id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;/linkText&gt;</ept><bpt id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;title&gt;</bpt><ept id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;/title&gt;</ept> for details on how to create a free trial account.</source>
+          <target state="new">If you don’t have an Azure account, click <bpt id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;linkText&gt;</bpt>here<ept id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;/linkText&gt;</ept><bpt id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;title&gt;</bpt><ept id="196dfda4-5891-4a7a-b77e-079ed7dda9d1">&lt;/title&gt;</ept> for details on how to create a free trial account.</target>
+        </trans-unit>
+        <trans-unit id="253edd78-baed-431e-b045-511ffd3c310c" xml:space="preserve">
+          <source>An AzureML account.</source>
+          <target state="new">An AzureML account.</target>
+        </trans-unit>
+        <trans-unit id="84562429-be80-4775-9e1e-54cea93f5611" xml:space="preserve">
+          <source>If you don’t have an AzureML account, click <bpt id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;linkText&gt;</bpt>here<ept id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;/linkText&gt;</ept><bpt id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;title&gt;</bpt><ept id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;/title&gt;</ept> for details on how to create a free trial account.</source>
+          <target state="new">If you don’t have an AzureML account, click <bpt id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;linkText&gt;</bpt>here<ept id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;/linkText&gt;</ept><bpt id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;title&gt;</bpt><ept id="5a62861d-96a2-4f34-a4ec-dcfebe5966e0">&lt;/title&gt;</ept> for details on how to create a free trial account.</target>
+        </trans-unit>
+        <trans-unit id="deea9e56-2359-4a00-b8d2-3795ca173f8c" xml:space="preserve">
+          <source>The workspace, service, and api_key for an AzureML experiment published as a web service.</source>
+          <target state="new">The workspace, service, and api_key for an AzureML experiment published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="286e6098-8a95-4b0a-8055-d9da791f9977" xml:space="preserve">
+          <source>Click <bpt id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;linkText&gt;</bpt>here<ept id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;/linkText&gt;</ept><bpt id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;title&gt;</bpt><ept id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;/title&gt;</ept> for details on how to create an AzureML experiment.</source>
+          <target state="new">Click <bpt id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;linkText&gt;</bpt>here<ept id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;/linkText&gt;</ept><bpt id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;title&gt;</bpt><ept id="79a1f012-5fac-4e17-9938-371f6d936b95">&lt;/title&gt;</ept> for details on how to create an AzureML experiment.</target>
+        </trans-unit>
+        <trans-unit id="0d0c1570-e6e9-451f-8ce5-e327771108aa" xml:space="preserve">
+          <source>Click <bpt id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;linkText&gt;</bpt>here<ept id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;/linkText&gt;</ept><bpt id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;title&gt;</bpt><ept id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;/title&gt;</ept> for details on how to publish an AzureML experiment as a web service.</source>
+          <target state="new">Click <bpt id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;linkText&gt;</bpt>here<ept id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;/linkText&gt;</ept><bpt id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;title&gt;</bpt><ept id="d030cba6-9b6b-4925-8ec5-b5a1cafdb81f">&lt;/title&gt;</ept> for details on how to publish an AzureML experiment as a web service.</target>
+        </trans-unit>
+        <trans-unit id="029ab7b6-6f9e-4b97-a4c6-b6f144ca1ba7" xml:space="preserve">
+          <source>Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and publish it as a web service.</source>
+          <target state="new">Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and publish it as a web service.</target>
+        </trans-unit>
+        <trans-unit id="d3f31d97-66ce-4c5c-b47e-d69027b97b78" xml:space="preserve">
+          <source>Below are the steps for using API Management to manage your AzureML web service.</source>
+          <target state="new">Below are the steps for using API Management to manage your AzureML web service.</target>
+        </trans-unit>
+        <trans-unit id="c8662925-31d1-4bc7-bf52-f2ace29afb11" xml:space="preserve">
+          <source>First create a service instance.</source>
+          <target state="new">First create a service instance.</target>
+        </trans-unit>
+        <trans-unit id="3e25bce7-55b9-4b2a-891b-a1e0bbf98393" xml:space="preserve">
+          <source>Log in to the <bpt id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;linkText&gt;</bpt>Management Portal<ept id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;/linkText&gt;</ept><bpt id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;title&gt;</bpt><ept id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;/title&gt;</ept> and click <bpt id="f31371ab-3f74-4cda-b671-2b2f0da89347">&lt;strong&gt;</bpt>New<ept id="f31371ab-3f74-4cda-b671-2b2f0da89347">&lt;/strong&gt;</ept> &gt; <bpt id="5d356845-d3e4-4efe-861c-993eb8e1619d">&lt;strong&gt;</bpt>App Services<ept id="5d356845-d3e4-4efe-861c-993eb8e1619d">&lt;/strong&gt;</ept> &gt; <bpt id="3971e618-efd7-4c18-8e13-3440a4aaf214">&lt;strong&gt;</bpt>API Management<ept id="3971e618-efd7-4c18-8e13-3440a4aaf214">&lt;/strong&gt;</ept> &gt; <bpt id="be5b2576-fe6d-45f1-9511-21675adc8e06">&lt;strong&gt;</bpt>Create<ept id="be5b2576-fe6d-45f1-9511-21675adc8e06">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log in to the <bpt id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;linkText&gt;</bpt>Management Portal<ept id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;/linkText&gt;</ept><bpt id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;title&gt;</bpt><ept id="e217bab8-5861-4852-9678-c5d7fb0f2683">&lt;/title&gt;</ept> and click <bpt id="f31371ab-3f74-4cda-b671-2b2f0da89347">&lt;strong&gt;</bpt>New<ept id="f31371ab-3f74-4cda-b671-2b2f0da89347">&lt;/strong&gt;</ept> &gt; <bpt id="5d356845-d3e4-4efe-861c-993eb8e1619d">&lt;strong&gt;</bpt>App Services<ept id="5d356845-d3e4-4efe-861c-993eb8e1619d">&lt;/strong&gt;</ept> &gt; <bpt id="3971e618-efd7-4c18-8e13-3440a4aaf214">&lt;strong&gt;</bpt>API Management<ept id="3971e618-efd7-4c18-8e13-3440a4aaf214">&lt;/strong&gt;</ept> &gt; <bpt id="be5b2576-fe6d-45f1-9511-21675adc8e06">&lt;strong&gt;</bpt>Create<ept id="be5b2576-fe6d-45f1-9511-21675adc8e06">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2b77b746-90d7-4302-8faa-3e095622ca2c" xml:space="preserve">
+          <source><bpt id="267aa80f-a481-4258-9a55-17e65545e159">&lt;linkText&gt;</bpt>create-instance<ept id="267aa80f-a481-4258-9a55-17e65545e159">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="267aa80f-a481-4258-9a55-17e65545e159">&lt;linkText&gt;</bpt>create-instance<ept id="267aa80f-a481-4258-9a55-17e65545e159">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d7f4acb-deab-41ef-b553-7758621a245d" xml:space="preserve">
+          <source>Specify a unique <bpt id="82f98f6a-5cb0-4486-8c00-ce2d9b2ef96f">&lt;strong&gt;</bpt>URL<ept id="82f98f6a-5cb0-4486-8c00-ce2d9b2ef96f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a unique <bpt id="82f98f6a-5cb0-4486-8c00-ce2d9b2ef96f">&lt;strong&gt;</bpt>URL<ept id="82f98f6a-5cb0-4486-8c00-ce2d9b2ef96f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e9de58da-3c2b-4e6a-af2e-7e0e0bad1bda" xml:space="preserve">
+          <source>This guide uses <bpt id="47542f83-a44a-4a8c-a253-9a2c01a98773">&lt;strong&gt;</bpt>demoazureml<ept id="47542f83-a44a-4a8c-a253-9a2c01a98773">&lt;/strong&gt;</ept> – you will need to choose something different.</source>
+          <target state="new">This guide uses <bpt id="47542f83-a44a-4a8c-a253-9a2c01a98773">&lt;strong&gt;</bpt>demoazureml<ept id="47542f83-a44a-4a8c-a253-9a2c01a98773">&lt;/strong&gt;</ept> – you will need to choose something different.</target>
+        </trans-unit>
+        <trans-unit id="0e0ac501-a980-4cf3-9763-89a0ec751050" xml:space="preserve">
+          <source>Choose the desired <bpt id="780e4c23-f14d-4d56-85a9-be46939fc5d3">&lt;strong&gt;</bpt>Subscription<ept id="780e4c23-f14d-4d56-85a9-be46939fc5d3">&lt;/strong&gt;</ept> and <bpt id="44fb2746-0da5-4446-8419-ac28ca2c9617">&lt;strong&gt;</bpt>Region<ept id="44fb2746-0da5-4446-8419-ac28ca2c9617">&lt;/strong&gt;</ept> for your service instance.</source>
+          <target state="new">Choose the desired <bpt id="780e4c23-f14d-4d56-85a9-be46939fc5d3">&lt;strong&gt;</bpt>Subscription<ept id="780e4c23-f14d-4d56-85a9-be46939fc5d3">&lt;/strong&gt;</ept> and <bpt id="44fb2746-0da5-4446-8419-ac28ca2c9617">&lt;strong&gt;</bpt>Region<ept id="44fb2746-0da5-4446-8419-ac28ca2c9617">&lt;/strong&gt;</ept> for your service instance.</target>
+        </trans-unit>
+        <trans-unit id="75cc6dda-0b34-497c-8f86-273b1d19c2d8" xml:space="preserve">
+          <source>After making your selections, click the next button.</source>
+          <target state="new">After making your selections, click the next button.</target>
+        </trans-unit>
+        <trans-unit id="c88d4643-0f27-4ff0-9b4b-c4980eb6975c" xml:space="preserve">
+          <source><bpt id="99f66d8f-c88b-4c46-9c40-19397baea4c4">&lt;linkText&gt;</bpt>create-service-1<ept id="99f66d8f-c88b-4c46-9c40-19397baea4c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99f66d8f-c88b-4c46-9c40-19397baea4c4">&lt;linkText&gt;</bpt>create-service-1<ept id="99f66d8f-c88b-4c46-9c40-19397baea4c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a518ee9f-2a6c-4c49-bb50-cbb9ea7dd283" xml:space="preserve">
+          <source>Specify a value for the <bpt id="7dce02c3-168f-4605-84f0-4fa3ee1bae4f">&lt;strong&gt;</bpt>Organization Name<ept id="7dce02c3-168f-4605-84f0-4fa3ee1bae4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify a value for the <bpt id="7dce02c3-168f-4605-84f0-4fa3ee1bae4f">&lt;strong&gt;</bpt>Organization Name<ept id="7dce02c3-168f-4605-84f0-4fa3ee1bae4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ff20580-ca49-4574-81a5-bcd71db86e77" xml:space="preserve">
+          <source>This guide uses <bpt id="0a61dc79-d7ce-4e6c-aa25-5e060a37f5c4">&lt;strong&gt;</bpt>demoazureml<ept id="0a61dc79-d7ce-4e6c-aa25-5e060a37f5c4">&lt;/strong&gt;</ept> – you will need to choose something different.</source>
+          <target state="new">This guide uses <bpt id="0a61dc79-d7ce-4e6c-aa25-5e060a37f5c4">&lt;strong&gt;</bpt>demoazureml<ept id="0a61dc79-d7ce-4e6c-aa25-5e060a37f5c4">&lt;/strong&gt;</ept> – you will need to choose something different.</target>
+        </trans-unit>
+        <trans-unit id="dcc94451-8e29-4268-bdfb-1ff26becec9c" xml:space="preserve">
+          <source>Enter your email address in the <bpt id="b63d8c90-7472-4618-9a64-46bb03b56f7a">&lt;strong&gt;</bpt>administrator e-mail<ept id="b63d8c90-7472-4618-9a64-46bb03b56f7a">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Enter your email address in the <bpt id="b63d8c90-7472-4618-9a64-46bb03b56f7a">&lt;strong&gt;</bpt>administrator e-mail<ept id="b63d8c90-7472-4618-9a64-46bb03b56f7a">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="1ec3427e-f300-431b-a1d7-f7ac19ccdf5e" xml:space="preserve">
+          <source>This email address is used for notifications from the API Management system.</source>
+          <target state="new">This email address is used for notifications from the API Management system.</target>
+        </trans-unit>
+        <trans-unit id="a0885f8f-0e72-448e-b3f3-1da73f8c0180" xml:space="preserve">
+          <source><bpt id="5c042fa0-62b8-4547-b862-a09f2cac4948">&lt;linkText&gt;</bpt>create-service-2<ept id="5c042fa0-62b8-4547-b862-a09f2cac4948">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5c042fa0-62b8-4547-b862-a09f2cac4948">&lt;linkText&gt;</bpt>create-service-2<ept id="5c042fa0-62b8-4547-b862-a09f2cac4948">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4d3e6b09-7ccc-47d4-9b13-2c33ea1e1898" xml:space="preserve">
+          <source>Click the check box to create your service instance.</source>
+          <target state="new">Click the check box to create your service instance.</target>
+        </trans-unit>
+        <trans-unit id="17db0e7e-1d09-49cb-be3b-fa17c32e6d4d" xml:space="preserve">
+          <source><bpt id="cc78d0c3-f1cf-48e5-8db7-a0fc31230f7f">&lt;em&gt;</bpt>It takes up to thirty minutes for a new service to be created<ept id="cc78d0c3-f1cf-48e5-8db7-a0fc31230f7f">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="cc78d0c3-f1cf-48e5-8db7-a0fc31230f7f">&lt;em&gt;</bpt>It takes up to thirty minutes for a new service to be created<ept id="cc78d0c3-f1cf-48e5-8db7-a0fc31230f7f">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6a6ff03-75a1-4f08-afea-de1a50bbc111" xml:space="preserve">
+          <source>Once the service instance is created, the next step is to create the API.</source>
+          <target state="new">Once the service instance is created, the next step is to create the API.</target>
+        </trans-unit>
+        <trans-unit id="430604cd-658a-4e5c-8423-86586b4e4ac4" xml:space="preserve">
+          <source>An API consists of a set of operations that can be invoked from a client application.</source>
+          <target state="new">An API consists of a set of operations that can be invoked from a client application.</target>
+        </trans-unit>
+        <trans-unit id="a91581bf-39b5-4584-b323-90fbb1336444" xml:space="preserve">
+          <source>API operations are proxied to existing web services.</source>
+          <target state="new">API operations are proxied to existing web services.</target>
+        </trans-unit>
+        <trans-unit id="e86c6ddf-c933-42ae-93e0-348228cd4535" xml:space="preserve">
+          <source>This guide creates APIs that proxy to the existing AzureML RRS and BES web services.</source>
+          <target state="new">This guide creates APIs that proxy to the existing AzureML RRS and BES web services.</target>
+        </trans-unit>
+        <trans-unit id="a5c75fec-e5e4-4f54-b9fd-4270c3f6339a" xml:space="preserve">
+          <source>APIs are created and configured from the API publisher portal, which is accessed through the Azure management portal.</source>
+          <target state="new">APIs are created and configured from the API publisher portal, which is accessed through the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="f75e1b4b-983c-477f-84be-4d271f351849" xml:space="preserve">
+          <source>To reach the publisher portal, select your service instance.</source>
+          <target state="new">To reach the publisher portal, select your service instance.</target>
+        </trans-unit>
+        <trans-unit id="f30db79f-e12c-4ca3-85fa-d2e812eafc80" xml:space="preserve">
+          <source><bpt id="32707d0f-ba77-4ec9-bf70-8c4df2bd63eb">&lt;linkText&gt;</bpt>select-service-instance<ept id="32707d0f-ba77-4ec9-bf70-8c4df2bd63eb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="32707d0f-ba77-4ec9-bf70-8c4df2bd63eb">&lt;linkText&gt;</bpt>select-service-instance<ept id="32707d0f-ba77-4ec9-bf70-8c4df2bd63eb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c7c63be-2ce1-4d44-ba56-edf3ea48f45e" xml:space="preserve">
+          <source>Click <bpt id="9e251707-7281-45d4-9e09-9acd809e00fd">&lt;strong&gt;</bpt>Manage<ept id="9e251707-7281-45d4-9e09-9acd809e00fd">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">Click <bpt id="9e251707-7281-45d4-9e09-9acd809e00fd">&lt;strong&gt;</bpt>Manage<ept id="9e251707-7281-45d4-9e09-9acd809e00fd">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="d156160e-a9a8-48cb-aafa-983278ccd8b9" xml:space="preserve">
+          <source><bpt id="be86a6e7-e36b-4b57-95ee-d41bbf56bf89">&lt;linkText&gt;</bpt>manage-service<ept id="be86a6e7-e36b-4b57-95ee-d41bbf56bf89">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be86a6e7-e36b-4b57-95ee-d41bbf56bf89">&lt;linkText&gt;</bpt>manage-service<ept id="be86a6e7-e36b-4b57-95ee-d41bbf56bf89">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ffaeb5e-96b7-47c4-9526-4ae5dedc3f96" xml:space="preserve">
+          <source>Click <bpt id="1a7cbdb8-783f-4106-ab03-cdba35766687">&lt;strong&gt;</bpt>APIs<ept id="1a7cbdb8-783f-4106-ab03-cdba35766687">&lt;/strong&gt;</ept> from the <bpt id="28112244-fd9b-4252-a022-b461b5d267c1">&lt;strong&gt;</bpt>API Management<ept id="28112244-fd9b-4252-a022-b461b5d267c1">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="39b1d390-20a1-4625-b39b-b678f816540c">&lt;strong&gt;</bpt>Add API<ept id="39b1d390-20a1-4625-b39b-b678f816540c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1a7cbdb8-783f-4106-ab03-cdba35766687">&lt;strong&gt;</bpt>APIs<ept id="1a7cbdb8-783f-4106-ab03-cdba35766687">&lt;/strong&gt;</ept> from the <bpt id="28112244-fd9b-4252-a022-b461b5d267c1">&lt;strong&gt;</bpt>API Management<ept id="28112244-fd9b-4252-a022-b461b5d267c1">&lt;/strong&gt;</ept> menu on the left, and then click <bpt id="39b1d390-20a1-4625-b39b-b678f816540c">&lt;strong&gt;</bpt>Add API<ept id="39b1d390-20a1-4625-b39b-b678f816540c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="998150f3-9b85-43c4-b379-a107017a23d6" xml:space="preserve">
+          <source><bpt id="30045150-56fe-44e0-8661-36469b6e05a5">&lt;linkText&gt;</bpt>api-management-menu<ept id="30045150-56fe-44e0-8661-36469b6e05a5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="30045150-56fe-44e0-8661-36469b6e05a5">&lt;linkText&gt;</bpt>api-management-menu<ept id="30045150-56fe-44e0-8661-36469b6e05a5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae228448-3958-4236-8640-4c8fa2580644" xml:space="preserve">
+          <source>Type <bpt id="b130ff66-4205-4993-8823-5804fb14741a">&lt;strong&gt;</bpt>AzureML Demo API<ept id="b130ff66-4205-4993-8823-5804fb14741a">&lt;/strong&gt;</ept> as the <bpt id="b4dd54f1-3f90-49dc-b706-a0554a3f2122">&lt;strong&gt;</bpt>Web API name<ept id="b4dd54f1-3f90-49dc-b706-a0554a3f2122">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="b130ff66-4205-4993-8823-5804fb14741a">&lt;strong&gt;</bpt>AzureML Demo API<ept id="b130ff66-4205-4993-8823-5804fb14741a">&lt;/strong&gt;</ept> as the <bpt id="b4dd54f1-3f90-49dc-b706-a0554a3f2122">&lt;strong&gt;</bpt>Web API name<ept id="b4dd54f1-3f90-49dc-b706-a0554a3f2122">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44428f2d-9930-4767-9c42-c53a6fa6a85a" xml:space="preserve">
+          <source>Type <bpt id="0b62d7e4-27da-4a34-adc2-cd5662fb4eeb">&lt;strong&gt;</bpt>https://ussouthcentral.services.azureml.net<ept id="0b62d7e4-27da-4a34-adc2-cd5662fb4eeb">&lt;/strong&gt;</ept> as the <bpt id="61d6ac2a-c68b-44de-abab-fdd22099e818">&lt;strong&gt;</bpt>Web service URL<ept id="61d6ac2a-c68b-44de-abab-fdd22099e818">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="0b62d7e4-27da-4a34-adc2-cd5662fb4eeb">&lt;strong&gt;</bpt>https://ussouthcentral.services.azureml.net<ept id="0b62d7e4-27da-4a34-adc2-cd5662fb4eeb">&lt;/strong&gt;</ept> as the <bpt id="61d6ac2a-c68b-44de-abab-fdd22099e818">&lt;strong&gt;</bpt>Web service URL<ept id="61d6ac2a-c68b-44de-abab-fdd22099e818">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e26b2110-1136-4f35-b227-81cb8481374f" xml:space="preserve">
+          <source>Type <bpt id="8ceadc9c-62f0-4da7-8a37-b56dce513bd1">&lt;strong&gt;</bpt>azureml-demo<ept id="8ceadc9c-62f0-4da7-8a37-b56dce513bd1">&lt;/strong&gt;</ept> as the <bpt id="9c44ace4-8218-4c7d-b175-e09610c20487">&lt;strong&gt;</bpt>Web API URL suffix<ept id="9c44ace4-8218-4c7d-b175-e09610c20487">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="8ceadc9c-62f0-4da7-8a37-b56dce513bd1">&lt;strong&gt;</bpt>azureml-demo<ept id="8ceadc9c-62f0-4da7-8a37-b56dce513bd1">&lt;/strong&gt;</ept> as the <bpt id="9c44ace4-8218-4c7d-b175-e09610c20487">&lt;strong&gt;</bpt>Web API URL suffix<ept id="9c44ace4-8218-4c7d-b175-e09610c20487">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe31c8a9-5f75-4246-8f03-3b22f69c1899" xml:space="preserve">
+          <source>Check <bpt id="a28738fa-872b-4208-8ab2-f760bf332f3f">&lt;strong&gt;</bpt>HTTPS<ept id="a28738fa-872b-4208-8ab2-f760bf332f3f">&lt;/strong&gt;</ept> as the <bpt id="9106f411-a05b-4080-9195-bab20182dead">&lt;strong&gt;</bpt>Web API URL<ept id="9106f411-a05b-4080-9195-bab20182dead">&lt;/strong&gt;</ept> scheme.</source>
+          <target state="new">Check <bpt id="a28738fa-872b-4208-8ab2-f760bf332f3f">&lt;strong&gt;</bpt>HTTPS<ept id="a28738fa-872b-4208-8ab2-f760bf332f3f">&lt;/strong&gt;</ept> as the <bpt id="9106f411-a05b-4080-9195-bab20182dead">&lt;strong&gt;</bpt>Web API URL<ept id="9106f411-a05b-4080-9195-bab20182dead">&lt;/strong&gt;</ept> scheme.</target>
+        </trans-unit>
+        <trans-unit id="34061ee5-99bb-4a31-a3a7-8a54b4dff032" xml:space="preserve">
+          <source>Select <bpt id="445aaf15-009c-4bba-9ec2-b619e6544ba7">&lt;strong&gt;</bpt>Starter<ept id="445aaf15-009c-4bba-9ec2-b619e6544ba7">&lt;/strong&gt;</ept> as <bpt id="40b8f753-12c4-43fa-b813-abf6374d5ca6">&lt;strong&gt;</bpt>Products<ept id="40b8f753-12c4-43fa-b813-abf6374d5ca6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="445aaf15-009c-4bba-9ec2-b619e6544ba7">&lt;strong&gt;</bpt>Starter<ept id="445aaf15-009c-4bba-9ec2-b619e6544ba7">&lt;/strong&gt;</ept> as <bpt id="40b8f753-12c4-43fa-b813-abf6374d5ca6">&lt;strong&gt;</bpt>Products<ept id="40b8f753-12c4-43fa-b813-abf6374d5ca6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b28ca983-ff37-48d3-9b6c-27e6e37946b9" xml:space="preserve">
+          <source>When finished, click <bpt id="91f0bbad-0375-4bc9-8d63-bf3375d54f8e">&lt;strong&gt;</bpt>Save<ept id="91f0bbad-0375-4bc9-8d63-bf3375d54f8e">&lt;/strong&gt;</ept> to create the API.</source>
+          <target state="new">When finished, click <bpt id="91f0bbad-0375-4bc9-8d63-bf3375d54f8e">&lt;strong&gt;</bpt>Save<ept id="91f0bbad-0375-4bc9-8d63-bf3375d54f8e">&lt;/strong&gt;</ept> to create the API.</target>
+        </trans-unit>
+        <trans-unit id="ec9a2b12-5d81-4d4e-af74-00d834620b95" xml:space="preserve">
+          <source><bpt id="c2f15f0c-6a88-4e9b-a9f8-79367590963d">&lt;linkText&gt;</bpt>add-new-api<ept id="c2f15f0c-6a88-4e9b-a9f8-79367590963d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c2f15f0c-6a88-4e9b-a9f8-79367590963d">&lt;linkText&gt;</bpt>add-new-api<ept id="c2f15f0c-6a88-4e9b-a9f8-79367590963d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae49c0a4-5770-43c0-b97b-6a2d7f73d0b3" xml:space="preserve">
+          <source>Click <bpt id="ab8d6776-0738-4487-a7a2-f0758d24f988">&lt;strong&gt;</bpt>Add operation<ept id="ab8d6776-0738-4487-a7a2-f0758d24f988">&lt;/strong&gt;</ept> to add operations to this API.</source>
+          <target state="new">Click <bpt id="ab8d6776-0738-4487-a7a2-f0758d24f988">&lt;strong&gt;</bpt>Add operation<ept id="ab8d6776-0738-4487-a7a2-f0758d24f988">&lt;/strong&gt;</ept> to add operations to this API.</target>
+        </trans-unit>
+        <trans-unit id="98d4c30c-e409-404f-9951-9c37f7425701" xml:space="preserve">
+          <source><bpt id="42c3fe8e-04ba-4248-b74c-27d3d573a7a0">&lt;linkText&gt;</bpt>add-operation<ept id="42c3fe8e-04ba-4248-b74c-27d3d573a7a0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="42c3fe8e-04ba-4248-b74c-27d3d573a7a0">&lt;linkText&gt;</bpt>add-operation<ept id="42c3fe8e-04ba-4248-b74c-27d3d573a7a0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="123d4dcf-553a-4c16-9fdc-c58bfd861f52" xml:space="preserve">
+          <source>The <bpt id="c7724fdc-1b12-4027-9659-617194aa6b68">&lt;strong&gt;</bpt>New operation<ept id="c7724fdc-1b12-4027-9659-617194aa6b68">&lt;/strong&gt;</ept> window will be displayed and the <bpt id="cba015a5-6ed0-4b19-a64f-886fb880350e">&lt;strong&gt;</bpt>Signature<ept id="cba015a5-6ed0-4b19-a64f-886fb880350e">&lt;/strong&gt;</ept> tab will be selected by default.</source>
+          <target state="new">The <bpt id="c7724fdc-1b12-4027-9659-617194aa6b68">&lt;strong&gt;</bpt>New operation<ept id="c7724fdc-1b12-4027-9659-617194aa6b68">&lt;/strong&gt;</ept> window will be displayed and the <bpt id="cba015a5-6ed0-4b19-a64f-886fb880350e">&lt;strong&gt;</bpt>Signature<ept id="cba015a5-6ed0-4b19-a64f-886fb880350e">&lt;/strong&gt;</ept> tab will be selected by default.</target>
+        </trans-unit>
+        <trans-unit id="dbdf8ab2-1a9d-4b49-9284-10fc1c2a5c0a" xml:space="preserve">
+          <source>First create an operation for the AzureML RRS service. Select <bpt id="10e71775-e8f8-4514-8de9-efbe672ded26">&lt;strong&gt;</bpt>POST<ept id="10e71775-e8f8-4514-8de9-efbe672ded26">&lt;/strong&gt;</ept> as the <bpt id="e88dc783-b226-4f08-99b4-9fa38037ce99">&lt;strong&gt;</bpt>HTTP verb<ept id="e88dc783-b226-4f08-99b4-9fa38037ce99">&lt;/strong&gt;</ept>. Type <bpt id="c3e49655-fbca-4cf4-ac64-26edcdc75f2b">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&amp;details={details}<ept id="c3e49655-fbca-4cf4-ac64-26edcdc75f2b">&lt;/strong&gt;</ept> as the <bpt id="5220552e-c600-4404-9fca-36e3dd3a3230">&lt;strong&gt;</bpt>URL template<ept id="5220552e-c600-4404-9fca-36e3dd3a3230">&lt;/strong&gt;</ept>. Type <bpt id="dbc72d42-4e03-4cdd-b91a-e9ade97bb825">&lt;strong&gt;</bpt>RRS Execute<ept id="dbc72d42-4e03-4cdd-b91a-e9ade97bb825">&lt;/strong&gt;</ept> as the <bpt id="375a7719-6255-4463-844f-ac9f23effd3c">&lt;strong&gt;</bpt>Display name<ept id="375a7719-6255-4463-844f-ac9f23effd3c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">First create an operation for the AzureML RRS service. Select <bpt id="10e71775-e8f8-4514-8de9-efbe672ded26">&lt;strong&gt;</bpt>POST<ept id="10e71775-e8f8-4514-8de9-efbe672ded26">&lt;/strong&gt;</ept> as the <bpt id="e88dc783-b226-4f08-99b4-9fa38037ce99">&lt;strong&gt;</bpt>HTTP verb<ept id="e88dc783-b226-4f08-99b4-9fa38037ce99">&lt;/strong&gt;</ept>. Type <bpt id="c3e49655-fbca-4cf4-ac64-26edcdc75f2b">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&amp;details={details}<ept id="c3e49655-fbca-4cf4-ac64-26edcdc75f2b">&lt;/strong&gt;</ept> as the <bpt id="5220552e-c600-4404-9fca-36e3dd3a3230">&lt;strong&gt;</bpt>URL template<ept id="5220552e-c600-4404-9fca-36e3dd3a3230">&lt;/strong&gt;</ept>. Type <bpt id="dbc72d42-4e03-4cdd-b91a-e9ade97bb825">&lt;strong&gt;</bpt>RRS Execute<ept id="dbc72d42-4e03-4cdd-b91a-e9ade97bb825">&lt;/strong&gt;</ept> as the <bpt id="375a7719-6255-4463-844f-ac9f23effd3c">&lt;strong&gt;</bpt>Display name<ept id="375a7719-6255-4463-844f-ac9f23effd3c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb63dfa4-ef73-407d-9058-00271128b9ad" xml:space="preserve">
+          <source><bpt id="43ff0d1c-325b-46c3-8205-ab52fcfa52b8">&lt;linkText&gt;</bpt>add-rrs-operation-signature<ept id="43ff0d1c-325b-46c3-8205-ab52fcfa52b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="43ff0d1c-325b-46c3-8205-ab52fcfa52b8">&lt;linkText&gt;</bpt>add-rrs-operation-signature<ept id="43ff0d1c-325b-46c3-8205-ab52fcfa52b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="232fbc3c-e93e-4e88-98d7-acf5c6bf9da6" xml:space="preserve">
+          <source>Click <bpt id="9c88de2c-ac01-4de8-8f9e-3626c6a448fc">&lt;strong&gt;</bpt>Responses<ept id="9c88de2c-ac01-4de8-8f9e-3626c6a448fc">&lt;/strong&gt;</ept> &gt; <bpt id="84fd8c58-b5dc-493d-96a9-37aa1f32b52c">&lt;strong&gt;</bpt>ADD<ept id="84fd8c58-b5dc-493d-96a9-37aa1f32b52c">&lt;/strong&gt;</ept> on the left and select <bpt id="d1adb5f7-c912-4d59-9d2b-1db9eb309bea">&lt;strong&gt;</bpt>200 OK<ept id="d1adb5f7-c912-4d59-9d2b-1db9eb309bea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9c88de2c-ac01-4de8-8f9e-3626c6a448fc">&lt;strong&gt;</bpt>Responses<ept id="9c88de2c-ac01-4de8-8f9e-3626c6a448fc">&lt;/strong&gt;</ept> &gt; <bpt id="84fd8c58-b5dc-493d-96a9-37aa1f32b52c">&lt;strong&gt;</bpt>ADD<ept id="84fd8c58-b5dc-493d-96a9-37aa1f32b52c">&lt;/strong&gt;</ept> on the left and select <bpt id="d1adb5f7-c912-4d59-9d2b-1db9eb309bea">&lt;strong&gt;</bpt>200 OK<ept id="d1adb5f7-c912-4d59-9d2b-1db9eb309bea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b5f8e232-4b7f-4df9-9de8-f37ec7a393df" xml:space="preserve">
+          <source>Click <bpt id="2a91700a-c268-495f-b4e9-55d471df3cd6">&lt;strong&gt;</bpt>Save<ept id="2a91700a-c268-495f-b4e9-55d471df3cd6">&lt;/strong&gt;</ept> to save this operation.</source>
+          <target state="new">Click <bpt id="2a91700a-c268-495f-b4e9-55d471df3cd6">&lt;strong&gt;</bpt>Save<ept id="2a91700a-c268-495f-b4e9-55d471df3cd6">&lt;/strong&gt;</ept> to save this operation.</target>
+        </trans-unit>
+        <trans-unit id="9386bb60-0a6b-4eee-ba53-380f923b80be" xml:space="preserve">
+          <source><bpt id="5b1a92c7-e7e6-45d6-bc11-cc449bdc6448">&lt;linkText&gt;</bpt>add-rrs-operation-response<ept id="5b1a92c7-e7e6-45d6-bc11-cc449bdc6448">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5b1a92c7-e7e6-45d6-bc11-cc449bdc6448">&lt;linkText&gt;</bpt>add-rrs-operation-response<ept id="5b1a92c7-e7e6-45d6-bc11-cc449bdc6448">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf56fbf8-e77a-400d-9f20-892e302c8d09" xml:space="preserve">
+          <source>Screenshots are not included for the BES operations as they are very similar to those for adding the RRS operation.</source>
+          <target state="new">Screenshots are not included for the BES operations as they are very similar to those for adding the RRS operation.</target>
+        </trans-unit>
+        <trans-unit id="4cb1de05-2464-45a3-8772-a665cb5a8e34" xml:space="preserve">
+          <source>Click <bpt id="66c84704-c684-46a0-af04-1e315696103c">&lt;strong&gt;</bpt>add operation<ept id="66c84704-c684-46a0-af04-1e315696103c">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</source>
+          <target state="new">Click <bpt id="66c84704-c684-46a0-af04-1e315696103c">&lt;strong&gt;</bpt>add operation<ept id="66c84704-c684-46a0-af04-1e315696103c">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</target>
+        </trans-unit>
+        <trans-unit id="7e46cb0f-d8e5-4e3e-86d3-1b24ca3a44a6" xml:space="preserve">
+          <source>Select <bpt id="edf61f46-0f5b-4f9a-890e-e29d6ed9d807">&lt;strong&gt;</bpt>POST<ept id="edf61f46-0f5b-4f9a-890e-e29d6ed9d807">&lt;/strong&gt;</ept> for the <bpt id="145980a0-c99e-460d-8e9f-6dbe4e2da034">&lt;strong&gt;</bpt>HTTP verb<ept id="145980a0-c99e-460d-8e9f-6dbe4e2da034">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="edf61f46-0f5b-4f9a-890e-e29d6ed9d807">&lt;strong&gt;</bpt>POST<ept id="edf61f46-0f5b-4f9a-890e-e29d6ed9d807">&lt;/strong&gt;</ept> for the <bpt id="145980a0-c99e-460d-8e9f-6dbe4e2da034">&lt;strong&gt;</bpt>HTTP verb<ept id="145980a0-c99e-460d-8e9f-6dbe4e2da034">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43eb3da2-efde-43e4-9c4c-5380d95dd582" xml:space="preserve">
+          <source>Type <bpt id="f4c8b83f-14b9-49dd-b989-93ba010a74c8">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}<ept id="f4c8b83f-14b9-49dd-b989-93ba010a74c8">&lt;/strong&gt;</ept> for the <bpt id="7a029df3-8062-4e29-8bb7-f43a063050f3">&lt;strong&gt;</bpt>URL template<ept id="7a029df3-8062-4e29-8bb7-f43a063050f3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="f4c8b83f-14b9-49dd-b989-93ba010a74c8">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}<ept id="f4c8b83f-14b9-49dd-b989-93ba010a74c8">&lt;/strong&gt;</ept> for the <bpt id="7a029df3-8062-4e29-8bb7-f43a063050f3">&lt;strong&gt;</bpt>URL template<ept id="7a029df3-8062-4e29-8bb7-f43a063050f3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37e731fc-5927-4294-9573-e1508a3befef" xml:space="preserve">
+          <source>Type <bpt id="ca6a0d0d-f727-485d-bbf3-a1766cdd0613">&lt;strong&gt;</bpt>BES Submit<ept id="ca6a0d0d-f727-485d-bbf3-a1766cdd0613">&lt;/strong&gt;</ept> for the <bpt id="87c8cce0-9e3d-4459-bedc-25802063f02d">&lt;strong&gt;</bpt>Display name<ept id="87c8cce0-9e3d-4459-bedc-25802063f02d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="ca6a0d0d-f727-485d-bbf3-a1766cdd0613">&lt;strong&gt;</bpt>BES Submit<ept id="ca6a0d0d-f727-485d-bbf3-a1766cdd0613">&lt;/strong&gt;</ept> for the <bpt id="87c8cce0-9e3d-4459-bedc-25802063f02d">&lt;strong&gt;</bpt>Display name<ept id="87c8cce0-9e3d-4459-bedc-25802063f02d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e235befc-6837-419e-b6d5-113144bdbb7f" xml:space="preserve">
+          <source>Click <bpt id="9d86911d-3ee4-4960-b874-80d9e3b76ae7">&lt;strong&gt;</bpt>Responses<ept id="9d86911d-3ee4-4960-b874-80d9e3b76ae7">&lt;/strong&gt;</ept> &gt; <bpt id="5dbf8a7d-7248-4ff2-a65d-23416b62520a">&lt;strong&gt;</bpt>ADD<ept id="5dbf8a7d-7248-4ff2-a65d-23416b62520a">&lt;/strong&gt;</ept> on the left and select <bpt id="79937221-16fa-45c8-babc-1ae7dd967de8">&lt;strong&gt;</bpt>200 OK<ept id="79937221-16fa-45c8-babc-1ae7dd967de8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="9d86911d-3ee4-4960-b874-80d9e3b76ae7">&lt;strong&gt;</bpt>Responses<ept id="9d86911d-3ee4-4960-b874-80d9e3b76ae7">&lt;/strong&gt;</ept> &gt; <bpt id="5dbf8a7d-7248-4ff2-a65d-23416b62520a">&lt;strong&gt;</bpt>ADD<ept id="5dbf8a7d-7248-4ff2-a65d-23416b62520a">&lt;/strong&gt;</ept> on the left and select <bpt id="79937221-16fa-45c8-babc-1ae7dd967de8">&lt;strong&gt;</bpt>200 OK<ept id="79937221-16fa-45c8-babc-1ae7dd967de8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e92e35e-78f4-4476-b93d-1230c28c9e77" xml:space="preserve">
+          <source>Click <bpt id="f34aaadf-de59-45e3-b8c7-a54620492853">&lt;strong&gt;</bpt>Save<ept id="f34aaadf-de59-45e3-b8c7-a54620492853">&lt;/strong&gt;</ept> to save this operation.</source>
+          <target state="new">Click <bpt id="f34aaadf-de59-45e3-b8c7-a54620492853">&lt;strong&gt;</bpt>Save<ept id="f34aaadf-de59-45e3-b8c7-a54620492853">&lt;/strong&gt;</ept> to save this operation.</target>
+        </trans-unit>
+        <trans-unit id="a5ad7b53-ed5d-42e0-95df-4218abf54f09" xml:space="preserve">
+          <source>Click <bpt id="6bad9e61-f703-4bda-b9d4-87241cc7a277">&lt;strong&gt;</bpt>add operation<ept id="6bad9e61-f703-4bda-b9d4-87241cc7a277">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</source>
+          <target state="new">Click <bpt id="6bad9e61-f703-4bda-b9d4-87241cc7a277">&lt;strong&gt;</bpt>add operation<ept id="6bad9e61-f703-4bda-b9d4-87241cc7a277">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</target>
+        </trans-unit>
+        <trans-unit id="0d6ad08e-44f1-4707-9149-d40f2d46d043" xml:space="preserve">
+          <source>Select <bpt id="47911331-c567-44d2-88a1-5c1058675e9d">&lt;strong&gt;</bpt>POST<ept id="47911331-c567-44d2-88a1-5c1058675e9d">&lt;/strong&gt;</ept> for the <bpt id="bd621bed-aba2-4e61-9251-bf8febeba662">&lt;strong&gt;</bpt>HTTP verb<ept id="bd621bed-aba2-4e61-9251-bf8febeba662">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="47911331-c567-44d2-88a1-5c1058675e9d">&lt;strong&gt;</bpt>POST<ept id="47911331-c567-44d2-88a1-5c1058675e9d">&lt;/strong&gt;</ept> for the <bpt id="bd621bed-aba2-4e61-9251-bf8febeba662">&lt;strong&gt;</bpt>HTTP verb<ept id="bd621bed-aba2-4e61-9251-bf8febeba662">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6000fd5-4cb3-4fa1-aa15-4c8519c590d8" xml:space="preserve">
+          <source>Type <bpt id="a1cf2308-aeb1-4492-b0b5-036ff743113f">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}<ept id="a1cf2308-aeb1-4492-b0b5-036ff743113f">&lt;/strong&gt;</ept> for the <bpt id="89f1f1ba-087f-4287-a967-9fcbef36d59c">&lt;strong&gt;</bpt>URL template<ept id="89f1f1ba-087f-4287-a967-9fcbef36d59c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="a1cf2308-aeb1-4492-b0b5-036ff743113f">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}<ept id="a1cf2308-aeb1-4492-b0b5-036ff743113f">&lt;/strong&gt;</ept> for the <bpt id="89f1f1ba-087f-4287-a967-9fcbef36d59c">&lt;strong&gt;</bpt>URL template<ept id="89f1f1ba-087f-4287-a967-9fcbef36d59c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c392d7f-d701-44ee-8467-0eac5381316e" xml:space="preserve">
+          <source>Type <bpt id="700d91ef-80c7-4fce-b43a-0dacd237949c">&lt;strong&gt;</bpt>BES Start<ept id="700d91ef-80c7-4fce-b43a-0dacd237949c">&lt;/strong&gt;</ept> for the <bpt id="0b4b514a-36f5-4c01-827a-37d53bcbb64e">&lt;strong&gt;</bpt>Display name<ept id="0b4b514a-36f5-4c01-827a-37d53bcbb64e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="700d91ef-80c7-4fce-b43a-0dacd237949c">&lt;strong&gt;</bpt>BES Start<ept id="700d91ef-80c7-4fce-b43a-0dacd237949c">&lt;/strong&gt;</ept> for the <bpt id="0b4b514a-36f5-4c01-827a-37d53bcbb64e">&lt;strong&gt;</bpt>Display name<ept id="0b4b514a-36f5-4c01-827a-37d53bcbb64e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccf8312a-99d8-4505-8123-169770bf5dfd" xml:space="preserve">
+          <source>Click <bpt id="0f7a116f-6770-412d-81eb-d37c707a1e4c">&lt;strong&gt;</bpt>Responses<ept id="0f7a116f-6770-412d-81eb-d37c707a1e4c">&lt;/strong&gt;</ept> &gt; <bpt id="d94c7dfa-47ea-4131-914d-add98c4872f6">&lt;strong&gt;</bpt>ADD<ept id="d94c7dfa-47ea-4131-914d-add98c4872f6">&lt;/strong&gt;</ept> on the left and select <bpt id="91af2539-6212-47ff-a59d-c3b4d14395fd">&lt;strong&gt;</bpt>200 OK<ept id="91af2539-6212-47ff-a59d-c3b4d14395fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="0f7a116f-6770-412d-81eb-d37c707a1e4c">&lt;strong&gt;</bpt>Responses<ept id="0f7a116f-6770-412d-81eb-d37c707a1e4c">&lt;/strong&gt;</ept> &gt; <bpt id="d94c7dfa-47ea-4131-914d-add98c4872f6">&lt;strong&gt;</bpt>ADD<ept id="d94c7dfa-47ea-4131-914d-add98c4872f6">&lt;/strong&gt;</ept> on the left and select <bpt id="91af2539-6212-47ff-a59d-c3b4d14395fd">&lt;strong&gt;</bpt>200 OK<ept id="91af2539-6212-47ff-a59d-c3b4d14395fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="be5b7df2-e723-4437-959b-df8c1acba56c" xml:space="preserve">
+          <source>Click <bpt id="55010c82-682a-47b2-82bb-1ded48e1f231">&lt;strong&gt;</bpt>Save<ept id="55010c82-682a-47b2-82bb-1ded48e1f231">&lt;/strong&gt;</ept> to save this operation.</source>
+          <target state="new">Click <bpt id="55010c82-682a-47b2-82bb-1ded48e1f231">&lt;strong&gt;</bpt>Save<ept id="55010c82-682a-47b2-82bb-1ded48e1f231">&lt;/strong&gt;</ept> to save this operation.</target>
+        </trans-unit>
+        <trans-unit id="fe1531d8-625c-4243-b387-747c9afd726b" xml:space="preserve">
+          <source>Click <bpt id="53260e1e-754d-4dfd-8269-394a0c5c96b8">&lt;strong&gt;</bpt>add operation<ept id="53260e1e-754d-4dfd-8269-394a0c5c96b8">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</source>
+          <target state="new">Click <bpt id="53260e1e-754d-4dfd-8269-394a0c5c96b8">&lt;strong&gt;</bpt>add operation<ept id="53260e1e-754d-4dfd-8269-394a0c5c96b8">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</target>
+        </trans-unit>
+        <trans-unit id="4756e627-7b3a-466d-a9f7-02434045d5a2" xml:space="preserve">
+          <source>Select <bpt id="06e23b73-16df-4182-9421-6e9c520927f5">&lt;strong&gt;</bpt>GET<ept id="06e23b73-16df-4182-9421-6e9c520927f5">&lt;/strong&gt;</ept> for the <bpt id="c1829f33-bdbd-41e7-92e8-2616df896d67">&lt;strong&gt;</bpt>HTTP verb<ept id="c1829f33-bdbd-41e7-92e8-2616df896d67">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="06e23b73-16df-4182-9421-6e9c520927f5">&lt;strong&gt;</bpt>GET<ept id="06e23b73-16df-4182-9421-6e9c520927f5">&lt;/strong&gt;</ept> for the <bpt id="c1829f33-bdbd-41e7-92e8-2616df896d67">&lt;strong&gt;</bpt>HTTP verb<ept id="c1829f33-bdbd-41e7-92e8-2616df896d67">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e53054af-d2e6-48c1-b3cd-b8c2cd0dc343" xml:space="preserve">
+          <source>Type <bpt id="330def5f-e324-4dae-a345-1ae418e0772a">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}<ept id="330def5f-e324-4dae-a345-1ae418e0772a">&lt;/strong&gt;</ept> for the <bpt id="ed11d6a5-378e-403f-a2b2-82360e71ff23">&lt;strong&gt;</bpt>URL template<ept id="ed11d6a5-378e-403f-a2b2-82360e71ff23">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="330def5f-e324-4dae-a345-1ae418e0772a">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}<ept id="330def5f-e324-4dae-a345-1ae418e0772a">&lt;/strong&gt;</ept> for the <bpt id="ed11d6a5-378e-403f-a2b2-82360e71ff23">&lt;strong&gt;</bpt>URL template<ept id="ed11d6a5-378e-403f-a2b2-82360e71ff23">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3719ff7-f946-4edd-8809-5f140cf5986a" xml:space="preserve">
+          <source>Type <bpt id="e4372375-fc7c-4a4c-9fac-f4b4bb2ebef2">&lt;strong&gt;</bpt>BES Status<ept id="e4372375-fc7c-4a4c-9fac-f4b4bb2ebef2">&lt;/strong&gt;</ept> for the <bpt id="0c24032e-9624-4c14-a56e-7e1692ce00f5">&lt;strong&gt;</bpt>Display name<ept id="0c24032e-9624-4c14-a56e-7e1692ce00f5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="e4372375-fc7c-4a4c-9fac-f4b4bb2ebef2">&lt;strong&gt;</bpt>BES Status<ept id="e4372375-fc7c-4a4c-9fac-f4b4bb2ebef2">&lt;/strong&gt;</ept> for the <bpt id="0c24032e-9624-4c14-a56e-7e1692ce00f5">&lt;strong&gt;</bpt>Display name<ept id="0c24032e-9624-4c14-a56e-7e1692ce00f5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e7e1b30-9c97-4468-85c9-faeea8719d3c" xml:space="preserve">
+          <source>Click <bpt id="da814557-d5f6-41d6-b38b-9e54490759e9">&lt;strong&gt;</bpt>Responses<ept id="da814557-d5f6-41d6-b38b-9e54490759e9">&lt;/strong&gt;</ept> &gt; <bpt id="f8e96c7a-8eb1-492f-ace7-d6fcba71bef8">&lt;strong&gt;</bpt>ADD<ept id="f8e96c7a-8eb1-492f-ace7-d6fcba71bef8">&lt;/strong&gt;</ept> on the left and select <bpt id="c7869ac6-9a05-435e-b985-3ab9218b7921">&lt;strong&gt;</bpt>200 OK<ept id="c7869ac6-9a05-435e-b985-3ab9218b7921">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="da814557-d5f6-41d6-b38b-9e54490759e9">&lt;strong&gt;</bpt>Responses<ept id="da814557-d5f6-41d6-b38b-9e54490759e9">&lt;/strong&gt;</ept> &gt; <bpt id="f8e96c7a-8eb1-492f-ace7-d6fcba71bef8">&lt;strong&gt;</bpt>ADD<ept id="f8e96c7a-8eb1-492f-ace7-d6fcba71bef8">&lt;/strong&gt;</ept> on the left and select <bpt id="c7869ac6-9a05-435e-b985-3ab9218b7921">&lt;strong&gt;</bpt>200 OK<ept id="c7869ac6-9a05-435e-b985-3ab9218b7921">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a9fc6c12-0187-4669-b425-6099e4d0593e" xml:space="preserve">
+          <source>Click <bpt id="130397b9-74fc-4c26-99f8-2cc4e3a17ef5">&lt;strong&gt;</bpt>Save<ept id="130397b9-74fc-4c26-99f8-2cc4e3a17ef5">&lt;/strong&gt;</ept> to save this operation.</source>
+          <target state="new">Click <bpt id="130397b9-74fc-4c26-99f8-2cc4e3a17ef5">&lt;strong&gt;</bpt>Save<ept id="130397b9-74fc-4c26-99f8-2cc4e3a17ef5">&lt;/strong&gt;</ept> to save this operation.</target>
+        </trans-unit>
+        <trans-unit id="00d195bb-fcf2-4a4b-a8e1-1809d35ec950" xml:space="preserve">
+          <source>Click <bpt id="3310ebef-b95a-4798-86c4-3238f85586cb">&lt;strong&gt;</bpt>add operation<ept id="3310ebef-b95a-4798-86c4-3238f85586cb">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</source>
+          <target state="new">Click <bpt id="3310ebef-b95a-4798-86c4-3238f85586cb">&lt;strong&gt;</bpt>add operation<ept id="3310ebef-b95a-4798-86c4-3238f85586cb">&lt;/strong&gt;</ept> to add the AzureML BES operation to the API.</target>
+        </trans-unit>
+        <trans-unit id="85c24735-2f6b-4dc7-917f-a266f6d8de6a" xml:space="preserve">
+          <source>Select <bpt id="c036db0c-2327-468b-8765-60b8b1448f7e">&lt;strong&gt;</bpt>DELETE<ept id="c036db0c-2327-468b-8765-60b8b1448f7e">&lt;/strong&gt;</ept> for the <bpt id="6789775f-d41e-4aae-a750-174afb360e34">&lt;strong&gt;</bpt>HTTP verb<ept id="6789775f-d41e-4aae-a750-174afb360e34">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select <bpt id="c036db0c-2327-468b-8765-60b8b1448f7e">&lt;strong&gt;</bpt>DELETE<ept id="c036db0c-2327-468b-8765-60b8b1448f7e">&lt;/strong&gt;</ept> for the <bpt id="6789775f-d41e-4aae-a750-174afb360e34">&lt;strong&gt;</bpt>HTTP verb<ept id="6789775f-d41e-4aae-a750-174afb360e34">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd1012ec-7949-4719-a8ce-e976bd69abbd" xml:space="preserve">
+          <source>Type <bpt id="fc8eaa92-e6bd-48d5-96f3-fac6509f560a">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}<ept id="fc8eaa92-e6bd-48d5-96f3-fac6509f560a">&lt;/strong&gt;</ept> for the <bpt id="51ecd350-ed9a-4a16-87e5-92b0d231b87e">&lt;strong&gt;</bpt>URL template<ept id="51ecd350-ed9a-4a16-87e5-92b0d231b87e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="fc8eaa92-e6bd-48d5-96f3-fac6509f560a">&lt;strong&gt;</bpt>/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}<ept id="fc8eaa92-e6bd-48d5-96f3-fac6509f560a">&lt;/strong&gt;</ept> for the <bpt id="51ecd350-ed9a-4a16-87e5-92b0d231b87e">&lt;strong&gt;</bpt>URL template<ept id="51ecd350-ed9a-4a16-87e5-92b0d231b87e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d771e7c4-cf95-4c3f-a48c-98dee7e8768a" xml:space="preserve">
+          <source>Type <bpt id="65611472-98ac-467f-9ec5-6d0e8d9e37c0">&lt;strong&gt;</bpt>BES Delete<ept id="65611472-98ac-467f-9ec5-6d0e8d9e37c0">&lt;/strong&gt;</ept> for the <bpt id="86b108a6-391c-4133-9e61-bbf52c4ff2b7">&lt;strong&gt;</bpt>Display name<ept id="86b108a6-391c-4133-9e61-bbf52c4ff2b7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="65611472-98ac-467f-9ec5-6d0e8d9e37c0">&lt;strong&gt;</bpt>BES Delete<ept id="65611472-98ac-467f-9ec5-6d0e8d9e37c0">&lt;/strong&gt;</ept> for the <bpt id="86b108a6-391c-4133-9e61-bbf52c4ff2b7">&lt;strong&gt;</bpt>Display name<ept id="86b108a6-391c-4133-9e61-bbf52c4ff2b7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef69efe5-2323-4519-9300-de7fd584c43b" xml:space="preserve">
+          <source>Click <bpt id="85166009-cb3b-46bb-90b0-08717719e6ec">&lt;strong&gt;</bpt>Responses<ept id="85166009-cb3b-46bb-90b0-08717719e6ec">&lt;/strong&gt;</ept> &gt; <bpt id="861c6a14-3afe-4f1a-8aef-e4ddb049e537">&lt;strong&gt;</bpt>ADD<ept id="861c6a14-3afe-4f1a-8aef-e4ddb049e537">&lt;/strong&gt;</ept> on the left and select <bpt id="8860e79a-e111-4357-8780-68679f713ae6">&lt;strong&gt;</bpt>200 OK<ept id="8860e79a-e111-4357-8780-68679f713ae6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="85166009-cb3b-46bb-90b0-08717719e6ec">&lt;strong&gt;</bpt>Responses<ept id="85166009-cb3b-46bb-90b0-08717719e6ec">&lt;/strong&gt;</ept> &gt; <bpt id="861c6a14-3afe-4f1a-8aef-e4ddb049e537">&lt;strong&gt;</bpt>ADD<ept id="861c6a14-3afe-4f1a-8aef-e4ddb049e537">&lt;/strong&gt;</ept> on the left and select <bpt id="8860e79a-e111-4357-8780-68679f713ae6">&lt;strong&gt;</bpt>200 OK<ept id="8860e79a-e111-4357-8780-68679f713ae6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="824465ca-3d35-4e7e-8031-a76b13ddfcd5" xml:space="preserve">
+          <source>Click <bpt id="bd8d2e56-b81f-4c98-9f71-f5d050f434bc">&lt;strong&gt;</bpt>Save<ept id="bd8d2e56-b81f-4c98-9f71-f5d050f434bc">&lt;/strong&gt;</ept> to save this operation.</source>
+          <target state="new">Click <bpt id="bd8d2e56-b81f-4c98-9f71-f5d050f434bc">&lt;strong&gt;</bpt>Save<ept id="bd8d2e56-b81f-4c98-9f71-f5d050f434bc">&lt;/strong&gt;</ept> to save this operation.</target>
+        </trans-unit>
+        <trans-unit id="a37ef54b-c335-47ec-a16d-0bfbdba0ce48" xml:space="preserve">
+          <source>Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API.</source>
+          <target state="new">Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API.</target>
+        </trans-unit>
+        <trans-unit id="8f83b090-54d8-4cd4-ae24-a7bfc5176df7" xml:space="preserve">
+          <source>In this guide step you will call the <bpt id="34a4004c-a472-435e-9834-e449b28f5c63">&lt;strong&gt;</bpt>RRS Execute<ept id="34a4004c-a472-435e-9834-e449b28f5c63">&lt;/strong&gt;</ept> method that was added to the <bpt id="fafdea73-2e2a-432a-8264-238b50f889c6">&lt;strong&gt;</bpt>AzureML Demo API<ept id="fafdea73-2e2a-432a-8264-238b50f889c6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In this guide step you will call the <bpt id="34a4004c-a472-435e-9834-e449b28f5c63">&lt;strong&gt;</bpt>RRS Execute<ept id="34a4004c-a472-435e-9834-e449b28f5c63">&lt;/strong&gt;</ept> method that was added to the <bpt id="fafdea73-2e2a-432a-8264-238b50f889c6">&lt;strong&gt;</bpt>AzureML Demo API<ept id="fafdea73-2e2a-432a-8264-238b50f889c6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="270aeeda-729e-4881-aea3-0cd31ce79a9c" xml:space="preserve">
+          <source>Click <bpt id="e152422f-3333-433d-8870-5c5d42665b96">&lt;strong&gt;</bpt>Developer portal<ept id="e152422f-3333-433d-8870-5c5d42665b96">&lt;/strong&gt;</ept> from the menu at the top right of the Management portal.</source>
+          <target state="new">Click <bpt id="e152422f-3333-433d-8870-5c5d42665b96">&lt;strong&gt;</bpt>Developer portal<ept id="e152422f-3333-433d-8870-5c5d42665b96">&lt;/strong&gt;</ept> from the menu at the top right of the Management portal.</target>
+        </trans-unit>
+        <trans-unit id="f8710b2d-5743-452b-be83-c6c2a6e0c9fb" xml:space="preserve">
+          <source><bpt id="44ea488e-3758-4777-aa59-eca435a5b73c">&lt;linkText&gt;</bpt>developer-portal<ept id="44ea488e-3758-4777-aa59-eca435a5b73c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="44ea488e-3758-4777-aa59-eca435a5b73c">&lt;linkText&gt;</bpt>developer-portal<ept id="44ea488e-3758-4777-aa59-eca435a5b73c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cfe86673-b483-4402-9b7a-57b330e8ee6a" xml:space="preserve">
+          <source>Click <bpt id="de836e91-26e3-4331-bcb2-8deb08fbdf69">&lt;strong&gt;</bpt>APIs<ept id="de836e91-26e3-4331-bcb2-8deb08fbdf69">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="ad70f1f3-7b7e-4ef8-aaa0-c978780be0f1">&lt;strong&gt;</bpt>AzureML Demo API<ept id="ad70f1f3-7b7e-4ef8-aaa0-c978780be0f1">&lt;/strong&gt;</ept> to see the operations available.</source>
+          <target state="new">Click <bpt id="de836e91-26e3-4331-bcb2-8deb08fbdf69">&lt;strong&gt;</bpt>APIs<ept id="de836e91-26e3-4331-bcb2-8deb08fbdf69">&lt;/strong&gt;</ept> from the top menu, and then click <bpt id="ad70f1f3-7b7e-4ef8-aaa0-c978780be0f1">&lt;strong&gt;</bpt>AzureML Demo API<ept id="ad70f1f3-7b7e-4ef8-aaa0-c978780be0f1">&lt;/strong&gt;</ept> to see the operations available.</target>
+        </trans-unit>
+        <trans-unit id="a604433e-d99e-498b-a3cf-74597c6eea07" xml:space="preserve">
+          <source><bpt id="064534cf-fa14-4259-9ef2-3382722be497">&lt;linkText&gt;</bpt>demoazureml-api<ept id="064534cf-fa14-4259-9ef2-3382722be497">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="064534cf-fa14-4259-9ef2-3382722be497">&lt;linkText&gt;</bpt>demoazureml-api<ept id="064534cf-fa14-4259-9ef2-3382722be497">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d9cb1ce-626d-4ad6-8ebf-8734a611bb4f" xml:space="preserve">
+          <source>Select <bpt id="364ba0c5-a765-4c78-a922-84868a98fb8f">&lt;strong&gt;</bpt>RRS Execute<ept id="364ba0c5-a765-4c78-a922-84868a98fb8f">&lt;/strong&gt;</ept> for the operation.</source>
+          <target state="new">Select <bpt id="364ba0c5-a765-4c78-a922-84868a98fb8f">&lt;strong&gt;</bpt>RRS Execute<ept id="364ba0c5-a765-4c78-a922-84868a98fb8f">&lt;/strong&gt;</ept> for the operation.</target>
+        </trans-unit>
+        <trans-unit id="ece8c749-e712-4fb0-b040-73ade04c2420" xml:space="preserve">
+          <source>Click <bpt id="01e2b5d4-6b59-4b59-b924-1cafb8f5fc85">&lt;strong&gt;</bpt>Try It<ept id="01e2b5d4-6b59-4b59-b924-1cafb8f5fc85">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="01e2b5d4-6b59-4b59-b924-1cafb8f5fc85">&lt;strong&gt;</bpt>Try It<ept id="01e2b5d4-6b59-4b59-b924-1cafb8f5fc85">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9c471f66-5f6d-46e6-a701-5638cd467fd3" xml:space="preserve">
+          <source><bpt id="e83b5137-1eeb-4344-83a1-61a4f6fd7cb8">&lt;linkText&gt;</bpt>try-it<ept id="e83b5137-1eeb-4344-83a1-61a4f6fd7cb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e83b5137-1eeb-4344-83a1-61a4f6fd7cb8">&lt;linkText&gt;</bpt>try-it<ept id="e83b5137-1eeb-4344-83a1-61a4f6fd7cb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cb29d6aa-3de9-466b-94e3-526272846abd" xml:space="preserve">
+          <source>For Request parameters, type your <bpt id="7ee61f69-a183-48ec-8abb-99d22a3669c0">&lt;strong&gt;</bpt>workspace<ept id="7ee61f69-a183-48ec-8abb-99d22a3669c0">&lt;/strong&gt;</ept>,  <bpt id="216691b7-fd78-4c64-9238-ef07777d8878">&lt;strong&gt;</bpt>service<ept id="216691b7-fd78-4c64-9238-ef07777d8878">&lt;/strong&gt;</ept>, <bpt id="88ec80a3-ddbb-4946-af0b-a1027f99d4a1">&lt;strong&gt;</bpt>2.0<ept id="88ec80a3-ddbb-4946-af0b-a1027f99d4a1">&lt;/strong&gt;</ept> for the <bpt id="393df491-26ae-48c2-93e3-744c9cc589d3">&lt;strong&gt;</bpt>apiversion<ept id="393df491-26ae-48c2-93e3-744c9cc589d3">&lt;/strong&gt;</ept>, and  <bpt id="b5d36619-d3b7-438d-8333-c719ce5e3242">&lt;strong&gt;</bpt>true<ept id="b5d36619-d3b7-438d-8333-c719ce5e3242">&lt;/strong&gt;</ept> for the <bpt id="a20993c1-b681-4d87-8f84-5fa5897392ba">&lt;strong&gt;</bpt>details<ept id="a20993c1-b681-4d87-8f84-5fa5897392ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For Request parameters, type your <bpt id="7ee61f69-a183-48ec-8abb-99d22a3669c0">&lt;strong&gt;</bpt>workspace<ept id="7ee61f69-a183-48ec-8abb-99d22a3669c0">&lt;/strong&gt;</ept>,  <bpt id="216691b7-fd78-4c64-9238-ef07777d8878">&lt;strong&gt;</bpt>service<ept id="216691b7-fd78-4c64-9238-ef07777d8878">&lt;/strong&gt;</ept>, <bpt id="88ec80a3-ddbb-4946-af0b-a1027f99d4a1">&lt;strong&gt;</bpt>2.0<ept id="88ec80a3-ddbb-4946-af0b-a1027f99d4a1">&lt;/strong&gt;</ept> for the <bpt id="393df491-26ae-48c2-93e3-744c9cc589d3">&lt;strong&gt;</bpt>apiversion<ept id="393df491-26ae-48c2-93e3-744c9cc589d3">&lt;/strong&gt;</ept>, and  <bpt id="b5d36619-d3b7-438d-8333-c719ce5e3242">&lt;strong&gt;</bpt>true<ept id="b5d36619-d3b7-438d-8333-c719ce5e3242">&lt;/strong&gt;</ept> for the <bpt id="a20993c1-b681-4d87-8f84-5fa5897392ba">&lt;strong&gt;</bpt>details<ept id="a20993c1-b681-4d87-8f84-5fa5897392ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04277843-d30e-429a-b5cf-b1794460a011" xml:space="preserve">
+          <source>You can find your <bpt id="913341ea-d4b5-420f-ade4-8708f51b2c61">&lt;strong&gt;</bpt>workspace<ept id="913341ea-d4b5-420f-ade4-8708f51b2c61">&lt;/strong&gt;</ept> and <bpt id="aee864e3-64ea-45b0-8d55-a1cc046344e4">&lt;strong&gt;</bpt>service<ept id="aee864e3-64ea-45b0-8d55-a1cc046344e4">&lt;/strong&gt;</ept> in the AzureML web service dashboard (see <bpt id="c44c0734-5b4e-461d-bf46-13fcd4a16968">&lt;strong&gt;</bpt>Test the web service<ept id="c44c0734-5b4e-461d-bf46-13fcd4a16968">&lt;/strong&gt;</ept> in Appendix A).</source>
+          <target state="new">You can find your <bpt id="913341ea-d4b5-420f-ade4-8708f51b2c61">&lt;strong&gt;</bpt>workspace<ept id="913341ea-d4b5-420f-ade4-8708f51b2c61">&lt;/strong&gt;</ept> and <bpt id="aee864e3-64ea-45b0-8d55-a1cc046344e4">&lt;strong&gt;</bpt>service<ept id="aee864e3-64ea-45b0-8d55-a1cc046344e4">&lt;/strong&gt;</ept> in the AzureML web service dashboard (see <bpt id="c44c0734-5b4e-461d-bf46-13fcd4a16968">&lt;strong&gt;</bpt>Test the web service<ept id="c44c0734-5b4e-461d-bf46-13fcd4a16968">&lt;/strong&gt;</ept> in Appendix A).</target>
+        </trans-unit>
+        <trans-unit id="31058459-f78f-4794-ad83-579192f1fe45" xml:space="preserve">
+          <source>For Request headers, click <bpt id="11fb89a5-fa30-4398-9b7f-7dedbb0ea90d">&lt;strong&gt;</bpt>Add header<ept id="11fb89a5-fa30-4398-9b7f-7dedbb0ea90d">&lt;/strong&gt;</ept> and type <bpt id="79ecccf4-b1da-4ecb-b97a-926dad7c996a">&lt;strong&gt;</bpt>Content-Type<ept id="79ecccf4-b1da-4ecb-b97a-926dad7c996a">&lt;/strong&gt;</ept> and <bpt id="37b5e92f-a188-40ac-9f7a-371ca00e6023">&lt;strong&gt;</bpt>application/json<ept id="37b5e92f-a188-40ac-9f7a-371ca00e6023">&lt;/strong&gt;</ept>, then click <bpt id="afd15b80-0463-4749-b622-245eaf9c2aa8">&lt;strong&gt;</bpt>Add header<ept id="afd15b80-0463-4749-b622-245eaf9c2aa8">&lt;/strong&gt;</ept> and type <bpt id="14240560-07fb-444b-ba00-712159018d61">&lt;strong&gt;</bpt>Authorization<ept id="14240560-07fb-444b-ba00-712159018d61">&lt;/strong&gt;</ept> and <bpt id="58db40fc-3f2e-49a4-9c0c-eab1e0d17dc4">&lt;strong&gt;</bpt>Bearer &lt;YOUR AZUREML SERVICE API-KEY&gt;<ept id="58db40fc-3f2e-49a4-9c0c-eab1e0d17dc4">&lt;/strong&gt;</ept>. You can find your <bpt id="c035af67-e7fd-49cb-ad04-72bdffa7cb2b">&lt;strong&gt;</bpt>api key<ept id="c035af67-e7fd-49cb-ad04-72bdffa7cb2b">&lt;/strong&gt;</ept> in the AzureML web service dashboard (see <bpt id="236b7fef-9e93-4469-aae1-a2fb8cb91105">&lt;strong&gt;</bpt>Test the web service<ept id="236b7fef-9e93-4469-aae1-a2fb8cb91105">&lt;/strong&gt;</ept> in Appendix A).</source>
+          <target state="new">For Request headers, click <bpt id="11fb89a5-fa30-4398-9b7f-7dedbb0ea90d">&lt;strong&gt;</bpt>Add header<ept id="11fb89a5-fa30-4398-9b7f-7dedbb0ea90d">&lt;/strong&gt;</ept> and type <bpt id="79ecccf4-b1da-4ecb-b97a-926dad7c996a">&lt;strong&gt;</bpt>Content-Type<ept id="79ecccf4-b1da-4ecb-b97a-926dad7c996a">&lt;/strong&gt;</ept> and <bpt id="37b5e92f-a188-40ac-9f7a-371ca00e6023">&lt;strong&gt;</bpt>application/json<ept id="37b5e92f-a188-40ac-9f7a-371ca00e6023">&lt;/strong&gt;</ept>, then click <bpt id="afd15b80-0463-4749-b622-245eaf9c2aa8">&lt;strong&gt;</bpt>Add header<ept id="afd15b80-0463-4749-b622-245eaf9c2aa8">&lt;/strong&gt;</ept> and type <bpt id="14240560-07fb-444b-ba00-712159018d61">&lt;strong&gt;</bpt>Authorization<ept id="14240560-07fb-444b-ba00-712159018d61">&lt;/strong&gt;</ept> and <bpt id="58db40fc-3f2e-49a4-9c0c-eab1e0d17dc4">&lt;strong&gt;</bpt>Bearer &lt;YOUR AZUREML SERVICE API-KEY&gt;<ept id="58db40fc-3f2e-49a4-9c0c-eab1e0d17dc4">&lt;/strong&gt;</ept>. You can find your <bpt id="c035af67-e7fd-49cb-ad04-72bdffa7cb2b">&lt;strong&gt;</bpt>api key<ept id="c035af67-e7fd-49cb-ad04-72bdffa7cb2b">&lt;/strong&gt;</ept> in the AzureML web service dashboard (see <bpt id="236b7fef-9e93-4469-aae1-a2fb8cb91105">&lt;strong&gt;</bpt>Test the web service<ept id="236b7fef-9e93-4469-aae1-a2fb8cb91105">&lt;/strong&gt;</ept> in Appendix A).</target>
+        </trans-unit>
+        <trans-unit id="ac59699e-f752-4e0f-81f5-bb02b46b3256" xml:space="preserve">
+          <source>Type <bpt id="a64a7105-9e6e-40c1-9499-65c452cd6189">&lt;strong&gt;</bpt>{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}<ept id="a64a7105-9e6e-40c1-9499-65c452cd6189">&lt;/strong&gt;</ept> for the request body.</source>
+          <target state="new">Type <bpt id="a64a7105-9e6e-40c1-9499-65c452cd6189">&lt;strong&gt;</bpt>{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}<ept id="a64a7105-9e6e-40c1-9499-65c452cd6189">&lt;/strong&gt;</ept> for the request body.</target>
+        </trans-unit>
+        <trans-unit id="0bc63a31-582e-4f88-be2d-0e8e79ec030b" xml:space="preserve">
+          <source><bpt id="853e431b-60d7-4360-a654-78d9c93e5c28">&lt;linkText&gt;</bpt>azureml-demo-api<ept id="853e431b-60d7-4360-a654-78d9c93e5c28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="853e431b-60d7-4360-a654-78d9c93e5c28">&lt;linkText&gt;</bpt>azureml-demo-api<ept id="853e431b-60d7-4360-a654-78d9c93e5c28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be6fed38-4a60-44c8-9f8b-09f91052b4fb" xml:space="preserve">
+          <source>Click <bpt id="5ac1da47-3eea-46d6-86f9-5b614050607b">&lt;strong&gt;</bpt>Send<ept id="5ac1da47-3eea-46d6-86f9-5b614050607b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5ac1da47-3eea-46d6-86f9-5b614050607b">&lt;strong&gt;</bpt>Send<ept id="5ac1da47-3eea-46d6-86f9-5b614050607b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="318be67e-7a39-421c-88c7-e5285c7d7cad" xml:space="preserve">
+          <source><bpt id="8826864a-f807-4b99-95e1-0747c3a55431">&lt;linkText&gt;</bpt>send<ept id="8826864a-f807-4b99-95e1-0747c3a55431">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8826864a-f807-4b99-95e1-0747c3a55431">&lt;linkText&gt;</bpt>send<ept id="8826864a-f807-4b99-95e1-0747c3a55431">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="786ae362-5330-49fb-9954-ce7b2fe65271" xml:space="preserve">
+          <source>After an operation is invoked, the developer portal displays the <bpt id="d0c63bd2-07c2-4646-ac24-98e4d3595bea">&lt;strong&gt;</bpt>Requested URL<ept id="d0c63bd2-07c2-4646-ac24-98e4d3595bea">&lt;/strong&gt;</ept> from the back-end service, the <bpt id="65a7ff34-d3e1-4002-b13f-060d1295875d">&lt;strong&gt;</bpt>Response status<ept id="65a7ff34-d3e1-4002-b13f-060d1295875d">&lt;/strong&gt;</ept>, the <bpt id="7382677b-4de9-4fdc-adc8-d9d785048748">&lt;strong&gt;</bpt>Response headers<ept id="7382677b-4de9-4fdc-adc8-d9d785048748">&lt;/strong&gt;</ept>, and any <bpt id="52ea6947-4902-49aa-abbf-6627760318cc">&lt;strong&gt;</bpt>Response content<ept id="52ea6947-4902-49aa-abbf-6627760318cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After an operation is invoked, the developer portal displays the <bpt id="d0c63bd2-07c2-4646-ac24-98e4d3595bea">&lt;strong&gt;</bpt>Requested URL<ept id="d0c63bd2-07c2-4646-ac24-98e4d3595bea">&lt;/strong&gt;</ept> from the back-end service, the <bpt id="65a7ff34-d3e1-4002-b13f-060d1295875d">&lt;strong&gt;</bpt>Response status<ept id="65a7ff34-d3e1-4002-b13f-060d1295875d">&lt;/strong&gt;</ept>, the <bpt id="7382677b-4de9-4fdc-adc8-d9d785048748">&lt;strong&gt;</bpt>Response headers<ept id="7382677b-4de9-4fdc-adc8-d9d785048748">&lt;/strong&gt;</ept>, and any <bpt id="52ea6947-4902-49aa-abbf-6627760318cc">&lt;strong&gt;</bpt>Response content<ept id="52ea6947-4902-49aa-abbf-6627760318cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ccb05ef1-68de-4c0b-959d-15d3ebea63a2" xml:space="preserve">
+          <source><bpt id="2337f893-8bfd-49a1-bcb6-819037a9d53a">&lt;linkText&gt;</bpt>response-status<ept id="2337f893-8bfd-49a1-bcb6-819037a9d53a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2337f893-8bfd-49a1-bcb6-819037a9d53a">&lt;linkText&gt;</bpt>response-status<ept id="2337f893-8bfd-49a1-bcb6-819037a9d53a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f8c1f4f-aa75-46af-8f3a-a92a7ea1f565" xml:space="preserve">
+          <source>Below are the steps for creating a simple AzureML experiment and publishing it as a web service.</source>
+          <target state="new">Below are the steps for creating a simple AzureML experiment and publishing it as a web service.</target>
+        </trans-unit>
+        <trans-unit id="b3914bb1-e49f-4e43-af76-d7bddd9f2bec" xml:space="preserve">
+          <source>The web service takes as input a column of arbitrary text and returns a set of features represented as integers.</source>
+          <target state="new">The web service takes as input a column of arbitrary text and returns a set of features represented as integers.</target>
+        </trans-unit>
+        <trans-unit id="c2acdc3c-4fa5-4025-a149-91323da6cb20" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="252a436c-76d0-4cc1-9ad5-2a9dbcf91dd2" xml:space="preserve">
+          <source>Text</source>
+          <target state="new">Text</target>
+        </trans-unit>
+        <trans-unit id="b5b041a4-d941-4591-943d-c5cba7f80db6" xml:space="preserve">
+          <source>Hashed Text</source>
+          <target state="new">Hashed Text</target>
+        </trans-unit>
+        <trans-unit id="6ffced32-7332-4356-85a0-cf9db1daeb8e" xml:space="preserve">
+          <source>This is a good day</source>
+          <target state="new">This is a good day</target>
+        </trans-unit>
+        <trans-unit id="3cf28c85-0de2-46d0-89c1-7ef5ff45614e" xml:space="preserve">
+          <source>1 1 2 2 0 2 0 1</source>
+          <target state="new">1 1 2 2 0 2 0 1</target>
+        </trans-unit>
+        <trans-unit id="dc924135-c01c-4b45-a1da-967c7db3c1b5" xml:space="preserve">
+          <source>First, using a browser of your choice, navigate to: <bpt id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;linkText&gt;</bpt>https://studio.azureml.net/<ept id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;/linkText&gt;</ept><bpt id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;title&gt;</bpt><ept id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;/title&gt;</ept> and enter your credentials to log in.</source>
+          <target state="new">First, using a browser of your choice, navigate to: <bpt id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;linkText&gt;</bpt>https://studio.azureml.net/<ept id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;/linkText&gt;</ept><bpt id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;title&gt;</bpt><ept id="0949a833-c1b2-4301-899f-4a0c03ea6d0b">&lt;/title&gt;</ept> and enter your credentials to log in.</target>
+        </trans-unit>
+        <trans-unit id="cbb536f7-31b6-46c2-ac23-ba512d135588" xml:space="preserve">
+          <source>Next, create a new blank experiment.</source>
+          <target state="new">Next, create a new blank experiment.</target>
+        </trans-unit>
+        <trans-unit id="0d45fdce-6e72-4b9e-8894-deac33bb4add" xml:space="preserve">
+          <source><bpt id="ec70a92f-e1f3-46a1-9247-115818487c73">&lt;linkText&gt;</bpt>search-experiment-templates<ept id="ec70a92f-e1f3-46a1-9247-115818487c73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec70a92f-e1f3-46a1-9247-115818487c73">&lt;linkText&gt;</bpt>search-experiment-templates<ept id="ec70a92f-e1f3-46a1-9247-115818487c73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4db1f213-4e21-4806-9976-ad28b006a3e3" xml:space="preserve">
+          <source>Rename it to <bpt id="4ca390c9-05d6-410b-a579-103bb69a69ca">&lt;strong&gt;</bpt>SimpleFeatureHashingExperiment<ept id="4ca390c9-05d6-410b-a579-103bb69a69ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Rename it to <bpt id="4ca390c9-05d6-410b-a579-103bb69a69ca">&lt;strong&gt;</bpt>SimpleFeatureHashingExperiment<ept id="4ca390c9-05d6-410b-a579-103bb69a69ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="696d5363-47e2-4b94-a215-01885246d65c" xml:space="preserve">
+          <source>Expand <bpt id="51239d26-fcc3-4a64-8582-61c09b631cd2">&lt;strong&gt;</bpt>Saved Datasets<ept id="51239d26-fcc3-4a64-8582-61c09b631cd2">&lt;/strong&gt;</ept> and drag <bpt id="1adebae0-3966-45b1-a25d-66a710ff9b81">&lt;strong&gt;</bpt>Book Reviews from Amazon<ept id="1adebae0-3966-45b1-a25d-66a710ff9b81">&lt;/strong&gt;</ept> onto your experiment.</source>
+          <target state="new">Expand <bpt id="51239d26-fcc3-4a64-8582-61c09b631cd2">&lt;strong&gt;</bpt>Saved Datasets<ept id="51239d26-fcc3-4a64-8582-61c09b631cd2">&lt;/strong&gt;</ept> and drag <bpt id="1adebae0-3966-45b1-a25d-66a710ff9b81">&lt;strong&gt;</bpt>Book Reviews from Amazon<ept id="1adebae0-3966-45b1-a25d-66a710ff9b81">&lt;/strong&gt;</ept> onto your experiment.</target>
+        </trans-unit>
+        <trans-unit id="88e31126-7d2c-47ab-b4d3-278304a1180c" xml:space="preserve">
+          <source><bpt id="1fefc277-4ac0-47dd-b1be-e7c0f07d0ef8">&lt;linkText&gt;</bpt>simple-feature-hashing-experiment<ept id="1fefc277-4ac0-47dd-b1be-e7c0f07d0ef8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fefc277-4ac0-47dd-b1be-e7c0f07d0ef8">&lt;linkText&gt;</bpt>simple-feature-hashing-experiment<ept id="1fefc277-4ac0-47dd-b1be-e7c0f07d0ef8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c914e23-0ecb-4186-8e68-7f029ed9b2a8" xml:space="preserve">
+          <source>Expand <bpt id="ba9cfe9e-ca0e-4cb0-97a9-6657e6ee874b">&lt;strong&gt;</bpt>Data Transformation<ept id="ba9cfe9e-ca0e-4cb0-97a9-6657e6ee874b">&lt;/strong&gt;</ept> and <bpt id="3dda9133-bc6c-4992-8850-4fea6bfcae69">&lt;strong&gt;</bpt>Manipulation<ept id="3dda9133-bc6c-4992-8850-4fea6bfcae69">&lt;/strong&gt;</ept> and drag <bpt id="746e0425-8bb9-46d9-b5ad-9f0246ceeb52">&lt;strong&gt;</bpt>Project Columns<ept id="746e0425-8bb9-46d9-b5ad-9f0246ceeb52">&lt;/strong&gt;</ept> onto your experiment.</source>
+          <target state="new">Expand <bpt id="ba9cfe9e-ca0e-4cb0-97a9-6657e6ee874b">&lt;strong&gt;</bpt>Data Transformation<ept id="ba9cfe9e-ca0e-4cb0-97a9-6657e6ee874b">&lt;/strong&gt;</ept> and <bpt id="3dda9133-bc6c-4992-8850-4fea6bfcae69">&lt;strong&gt;</bpt>Manipulation<ept id="3dda9133-bc6c-4992-8850-4fea6bfcae69">&lt;/strong&gt;</ept> and drag <bpt id="746e0425-8bb9-46d9-b5ad-9f0246ceeb52">&lt;strong&gt;</bpt>Project Columns<ept id="746e0425-8bb9-46d9-b5ad-9f0246ceeb52">&lt;/strong&gt;</ept> onto your experiment.</target>
+        </trans-unit>
+        <trans-unit id="71f47135-4825-4de3-926f-695d6abbf518" xml:space="preserve">
+          <source>Connect <bpt id="568956fa-9ec6-4da0-9292-5c8b58990d9b">&lt;strong&gt;</bpt>Book Reviews from Amazon<ept id="568956fa-9ec6-4da0-9292-5c8b58990d9b">&lt;/strong&gt;</ept> to <bpt id="117f1daa-1058-4373-8ac4-6509f3245d62">&lt;strong&gt;</bpt>Project Columns<ept id="117f1daa-1058-4373-8ac4-6509f3245d62">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Connect <bpt id="568956fa-9ec6-4da0-9292-5c8b58990d9b">&lt;strong&gt;</bpt>Book Reviews from Amazon<ept id="568956fa-9ec6-4da0-9292-5c8b58990d9b">&lt;/strong&gt;</ept> to <bpt id="117f1daa-1058-4373-8ac4-6509f3245d62">&lt;strong&gt;</bpt>Project Columns<ept id="117f1daa-1058-4373-8ac4-6509f3245d62">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ad4668a-024e-417e-9197-8d36379176b3" xml:space="preserve">
+          <source><bpt id="33145b3c-fde6-4d89-92f3-6a897407986c">&lt;linkText&gt;</bpt>project-columns<ept id="33145b3c-fde6-4d89-92f3-6a897407986c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33145b3c-fde6-4d89-92f3-6a897407986c">&lt;linkText&gt;</bpt>project-columns<ept id="33145b3c-fde6-4d89-92f3-6a897407986c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ba786ed-1d4a-4d64-b605-560d5dc2d81e" xml:space="preserve">
+          <source>Click <bpt id="f8d3b9f4-3280-4f81-9e61-b0be55d5f7ba">&lt;strong&gt;</bpt>Project Columns<ept id="f8d3b9f4-3280-4f81-9e61-b0be55d5f7ba">&lt;/strong&gt;</ept> and then click <bpt id="fbb9918a-ea7d-4c75-b723-bb8800045645">&lt;strong&gt;</bpt>Launch column selector<ept id="fbb9918a-ea7d-4c75-b723-bb8800045645">&lt;/strong&gt;</ept> and select <bpt id="b8fbb8c2-25c1-4c37-8b78-8165da2c5841">&lt;strong&gt;</bpt>Col2<ept id="b8fbb8c2-25c1-4c37-8b78-8165da2c5841">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="f8d3b9f4-3280-4f81-9e61-b0be55d5f7ba">&lt;strong&gt;</bpt>Project Columns<ept id="f8d3b9f4-3280-4f81-9e61-b0be55d5f7ba">&lt;/strong&gt;</ept> and then click <bpt id="fbb9918a-ea7d-4c75-b723-bb8800045645">&lt;strong&gt;</bpt>Launch column selector<ept id="fbb9918a-ea7d-4c75-b723-bb8800045645">&lt;/strong&gt;</ept> and select <bpt id="b8fbb8c2-25c1-4c37-8b78-8165da2c5841">&lt;strong&gt;</bpt>Col2<ept id="b8fbb8c2-25c1-4c37-8b78-8165da2c5841">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d98459ac-725d-41d7-9e01-5b5e7e0a9279" xml:space="preserve">
+          <source>Click the checkmark to apply these changes.</source>
+          <target state="new">Click the checkmark to apply these changes.</target>
+        </trans-unit>
+        <trans-unit id="f1b9dcb3-e95a-4ce9-988d-d86d8bb6dbac" xml:space="preserve">
+          <source><bpt id="6ecfce1a-a293-44df-8f97-ae1c6266b34c">&lt;linkText&gt;</bpt>select-columns<ept id="6ecfce1a-a293-44df-8f97-ae1c6266b34c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6ecfce1a-a293-44df-8f97-ae1c6266b34c">&lt;linkText&gt;</bpt>select-columns<ept id="6ecfce1a-a293-44df-8f97-ae1c6266b34c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a56382c-cebc-4c54-9b3e-ab8c8e211c46" xml:space="preserve">
+          <source>Expand <bpt id="5b857101-bc89-4274-9e9a-63200ff37e53">&lt;strong&gt;</bpt>Text Analytics<ept id="5b857101-bc89-4274-9e9a-63200ff37e53">&lt;/strong&gt;</ept> and drag <bpt id="3c422ca0-689c-4a31-8fde-fee2c01a47e2">&lt;strong&gt;</bpt>Feature Hashing<ept id="3c422ca0-689c-4a31-8fde-fee2c01a47e2">&lt;/strong&gt;</ept> onto the experiment.</source>
+          <target state="new">Expand <bpt id="5b857101-bc89-4274-9e9a-63200ff37e53">&lt;strong&gt;</bpt>Text Analytics<ept id="5b857101-bc89-4274-9e9a-63200ff37e53">&lt;/strong&gt;</ept> and drag <bpt id="3c422ca0-689c-4a31-8fde-fee2c01a47e2">&lt;strong&gt;</bpt>Feature Hashing<ept id="3c422ca0-689c-4a31-8fde-fee2c01a47e2">&lt;/strong&gt;</ept> onto the experiment.</target>
+        </trans-unit>
+        <trans-unit id="bdb3cd60-af9c-431d-8be2-6c88be772af6" xml:space="preserve">
+          <source>Connect <bpt id="42b1d51a-9c66-4dae-a2ef-d71f89d50d45">&lt;strong&gt;</bpt>Project Columns<ept id="42b1d51a-9c66-4dae-a2ef-d71f89d50d45">&lt;/strong&gt;</ept> to <bpt id="4a40fa22-0086-4e67-952a-e109b09ae7f7">&lt;strong&gt;</bpt>Feature Hashing<ept id="4a40fa22-0086-4e67-952a-e109b09ae7f7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Connect <bpt id="42b1d51a-9c66-4dae-a2ef-d71f89d50d45">&lt;strong&gt;</bpt>Project Columns<ept id="42b1d51a-9c66-4dae-a2ef-d71f89d50d45">&lt;/strong&gt;</ept> to <bpt id="4a40fa22-0086-4e67-952a-e109b09ae7f7">&lt;strong&gt;</bpt>Feature Hashing<ept id="4a40fa22-0086-4e67-952a-e109b09ae7f7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da48143a-3b9f-4279-bf0a-31a7a18a7260" xml:space="preserve">
+          <source><bpt id="e3615c42-0648-4510-8990-647e196c8ff1">&lt;linkText&gt;</bpt>connect-project-columns<ept id="e3615c42-0648-4510-8990-647e196c8ff1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3615c42-0648-4510-8990-647e196c8ff1">&lt;linkText&gt;</bpt>connect-project-columns<ept id="e3615c42-0648-4510-8990-647e196c8ff1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4a67b34-f88e-4875-ac47-c622ca3bff3e" xml:space="preserve">
+          <source>Type <bpt id="b62236df-ae14-4070-8dca-3d8fa34fa591">&lt;strong&gt;</bpt>3<ept id="b62236df-ae14-4070-8dca-3d8fa34fa591">&lt;/strong&gt;</ept> for the <bpt id="5f8b8e30-a3f5-4c5b-b03e-5bcc44861056">&lt;strong&gt;</bpt>Hashing bitsize<ept id="5f8b8e30-a3f5-4c5b-b03e-5bcc44861056">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="b62236df-ae14-4070-8dca-3d8fa34fa591">&lt;strong&gt;</bpt>3<ept id="b62236df-ae14-4070-8dca-3d8fa34fa591">&lt;/strong&gt;</ept> for the <bpt id="5f8b8e30-a3f5-4c5b-b03e-5bcc44861056">&lt;strong&gt;</bpt>Hashing bitsize<ept id="5f8b8e30-a3f5-4c5b-b03e-5bcc44861056">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ecedf85a-a934-45bf-84be-0aa899e2cdb7" xml:space="preserve">
+          <source>This will create 8 (23) columns.</source>
+          <target state="new">This will create 8 (23) columns.</target>
+        </trans-unit>
+        <trans-unit id="31beaab5-400d-490e-a4af-11a3a562ca2b" xml:space="preserve">
+          <source><bpt id="2929532d-64ac-44c0-bade-0bbae8ec2be0">&lt;linkText&gt;</bpt>hashing-bitsize<ept id="2929532d-64ac-44c0-bade-0bbae8ec2be0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2929532d-64ac-44c0-bade-0bbae8ec2be0">&lt;linkText&gt;</bpt>hashing-bitsize<ept id="2929532d-64ac-44c0-bade-0bbae8ec2be0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d621ba0-200d-44ef-b58a-54263542c208" xml:space="preserve">
+          <source>At this point, you may want to click <bpt id="a77ee549-86a5-4c1c-92b6-58dae02a9ef4">&lt;strong&gt;</bpt>Run<ept id="a77ee549-86a5-4c1c-92b6-58dae02a9ef4">&lt;/strong&gt;</ept> to test the experiment.</source>
+          <target state="new">At this point, you may want to click <bpt id="a77ee549-86a5-4c1c-92b6-58dae02a9ef4">&lt;strong&gt;</bpt>Run<ept id="a77ee549-86a5-4c1c-92b6-58dae02a9ef4">&lt;/strong&gt;</ept> to test the experiment.</target>
+        </trans-unit>
+        <trans-unit id="c9e1ed0f-eaa1-4e80-b926-b037fb932a8c" xml:space="preserve">
+          <source><bpt id="dae79482-2a9c-4441-bf5d-4b0fb8c1454f">&lt;linkText&gt;</bpt>run<ept id="dae79482-2a9c-4441-bf5d-4b0fb8c1454f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dae79482-2a9c-4441-bf5d-4b0fb8c1454f">&lt;linkText&gt;</bpt>run<ept id="dae79482-2a9c-4441-bf5d-4b0fb8c1454f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae05aeab-bca2-4bf1-8741-e819636f1614" xml:space="preserve">
+          <source>Now create a web service.</source>
+          <target state="new">Now create a web service.</target>
+        </trans-unit>
+        <trans-unit id="a51f8bc3-bb0d-4ff5-b1bc-d4c02895ff3f" xml:space="preserve">
+          <source>Expand <bpt id="2aec6892-dc53-40b5-be63-1a66082b195c">&lt;strong&gt;</bpt>Web Service<ept id="2aec6892-dc53-40b5-be63-1a66082b195c">&lt;/strong&gt;</ept> and drag <bpt id="88472a14-6f6c-48bd-ba8c-cee59c11b1df">&lt;strong&gt;</bpt>Input<ept id="88472a14-6f6c-48bd-ba8c-cee59c11b1df">&lt;/strong&gt;</ept> onto your experiment.</source>
+          <target state="new">Expand <bpt id="2aec6892-dc53-40b5-be63-1a66082b195c">&lt;strong&gt;</bpt>Web Service<ept id="2aec6892-dc53-40b5-be63-1a66082b195c">&lt;/strong&gt;</ept> and drag <bpt id="88472a14-6f6c-48bd-ba8c-cee59c11b1df">&lt;strong&gt;</bpt>Input<ept id="88472a14-6f6c-48bd-ba8c-cee59c11b1df">&lt;/strong&gt;</ept> onto your experiment.</target>
+        </trans-unit>
+        <trans-unit id="e7f3fbc5-9b51-4f5e-9c33-e7db4d1e600d" xml:space="preserve">
+          <source>Connect <bpt id="1cac3224-b43b-43a9-b28c-643a2dac2b39">&lt;strong&gt;</bpt>Input<ept id="1cac3224-b43b-43a9-b28c-643a2dac2b39">&lt;/strong&gt;</ept> to <bpt id="fe6f00b9-6225-4c93-b363-3bd9d7a9bec2">&lt;strong&gt;</bpt>Feature Hashing<ept id="fe6f00b9-6225-4c93-b363-3bd9d7a9bec2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Connect <bpt id="1cac3224-b43b-43a9-b28c-643a2dac2b39">&lt;strong&gt;</bpt>Input<ept id="1cac3224-b43b-43a9-b28c-643a2dac2b39">&lt;/strong&gt;</ept> to <bpt id="fe6f00b9-6225-4c93-b363-3bd9d7a9bec2">&lt;strong&gt;</bpt>Feature Hashing<ept id="fe6f00b9-6225-4c93-b363-3bd9d7a9bec2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7ef6a6b-b09a-4e9a-9a3f-30afd633d076" xml:space="preserve">
+          <source>Also drag <bpt id="4909e634-401c-4d6c-acf2-a84ecccd140a">&lt;strong&gt;</bpt>output<ept id="4909e634-401c-4d6c-acf2-a84ecccd140a">&lt;/strong&gt;</ept> onto your experiment.</source>
+          <target state="new">Also drag <bpt id="4909e634-401c-4d6c-acf2-a84ecccd140a">&lt;strong&gt;</bpt>output<ept id="4909e634-401c-4d6c-acf2-a84ecccd140a">&lt;/strong&gt;</ept> onto your experiment.</target>
+        </trans-unit>
+        <trans-unit id="2c13007d-7eb1-44c6-81ee-38065fe0322a" xml:space="preserve">
+          <source>Connect <bpt id="6477a880-8823-49c7-8ccd-80e0f70e8f34">&lt;strong&gt;</bpt>Output<ept id="6477a880-8823-49c7-8ccd-80e0f70e8f34">&lt;/strong&gt;</ept> to <bpt id="217e5dad-2f95-4c9f-bfcd-adfb34c28ca7">&lt;strong&gt;</bpt>Feature Hashing<ept id="217e5dad-2f95-4c9f-bfcd-adfb34c28ca7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Connect <bpt id="6477a880-8823-49c7-8ccd-80e0f70e8f34">&lt;strong&gt;</bpt>Output<ept id="6477a880-8823-49c7-8ccd-80e0f70e8f34">&lt;/strong&gt;</ept> to <bpt id="217e5dad-2f95-4c9f-bfcd-adfb34c28ca7">&lt;strong&gt;</bpt>Feature Hashing<ept id="217e5dad-2f95-4c9f-bfcd-adfb34c28ca7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3324d28f-a74a-471d-ab4f-b13bf5caa422" xml:space="preserve">
+          <source><bpt id="2c91fe9b-9e69-4b63-acb9-07c59ba533e8">&lt;linkText&gt;</bpt>output-to-feature-hashing<ept id="2c91fe9b-9e69-4b63-acb9-07c59ba533e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2c91fe9b-9e69-4b63-acb9-07c59ba533e8">&lt;linkText&gt;</bpt>output-to-feature-hashing<ept id="2c91fe9b-9e69-4b63-acb9-07c59ba533e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2c1d5100-56c4-4dcf-8ec1-440704886973" xml:space="preserve">
+          <source>Click <bpt id="842d844c-1ba6-4718-9b7b-849d8a46e327">&lt;strong&gt;</bpt>Publish web service<ept id="842d844c-1ba6-4718-9b7b-849d8a46e327">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="842d844c-1ba6-4718-9b7b-849d8a46e327">&lt;strong&gt;</bpt>Publish web service<ept id="842d844c-1ba6-4718-9b7b-849d8a46e327">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f01ca87-2896-41ef-bded-44e2b8024ae3" xml:space="preserve">
+          <source><bpt id="f78c366e-d313-4a63-ab9d-0b91bc6f5693">&lt;linkText&gt;</bpt>publish-web-service<ept id="f78c366e-d313-4a63-ab9d-0b91bc6f5693">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f78c366e-d313-4a63-ab9d-0b91bc6f5693">&lt;linkText&gt;</bpt>publish-web-service<ept id="f78c366e-d313-4a63-ab9d-0b91bc6f5693">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="75140688-58e6-4418-8f2d-fdd994d08e78" xml:space="preserve">
+          <source>Click <bpt id="d1bc9818-32a0-4dd8-a47d-144cae298cb3">&lt;strong&gt;</bpt>Yes<ept id="d1bc9818-32a0-4dd8-a47d-144cae298cb3">&lt;/strong&gt;</ept> to publish the experiment.</source>
+          <target state="new">Click <bpt id="d1bc9818-32a0-4dd8-a47d-144cae298cb3">&lt;strong&gt;</bpt>Yes<ept id="d1bc9818-32a0-4dd8-a47d-144cae298cb3">&lt;/strong&gt;</ept> to publish the experiment.</target>
+        </trans-unit>
+        <trans-unit id="7763d45d-0298-4082-9279-8fbb3eb021e3" xml:space="preserve">
+          <source><bpt id="3abc4e82-a68b-4153-92bf-7283a0159139">&lt;linkText&gt;</bpt>yes-to-publish<ept id="3abc4e82-a68b-4153-92bf-7283a0159139">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3abc4e82-a68b-4153-92bf-7283a0159139">&lt;linkText&gt;</bpt>yes-to-publish<ept id="3abc4e82-a68b-4153-92bf-7283a0159139">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a7274a5-0d08-41a3-b5fb-c477148a34d9" xml:space="preserve">
+          <source>An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints.</source>
+          <target state="new">An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints.</target>
+        </trans-unit>
+        <trans-unit id="d1ce1a05-9332-45c6-9797-27313a522132" xml:space="preserve">
+          <source>RSS is for synchronous execution.</source>
+          <target state="new">RSS is for synchronous execution.</target>
+        </trans-unit>
+        <trans-unit id="e438aded-f3bf-4f82-a0ab-831eac25afcb" xml:space="preserve">
+          <source>BES is for asynchronous job execution.</source>
+          <target state="new">BES is for asynchronous job execution.</target>
+        </trans-unit>
+        <trans-unit id="14c7f5dc-1134-4e53-a9b0-fb85fe4912f7" xml:space="preserve">
+          <source>To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: <bpt id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;linkText&gt;</bpt>How to install Python<ept id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;/linkText&gt;</ept><bpt id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;title&gt;</bpt><ept id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;/title&gt;</ept>).</source>
+          <target state="new">To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: <bpt id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;linkText&gt;</bpt>How to install Python<ept id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;/linkText&gt;</ept><bpt id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;title&gt;</bpt><ept id="135be13b-8f70-4d6b-a3d6-c4e45e5fa279">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="1b51f3b1-c6f3-4c17-b0dd-228dc5bd2345" xml:space="preserve">
+          <source>You will also need the <bpt id="eab7cefb-0245-452b-9fee-723076613e43">&lt;strong&gt;</bpt>workspace<ept id="eab7cefb-0245-452b-9fee-723076613e43">&lt;/strong&gt;</ept>, <bpt id="d9a4375b-509a-49bc-8822-bd10b0752d32">&lt;strong&gt;</bpt>service<ept id="d9a4375b-509a-49bc-8822-bd10b0752d32">&lt;/strong&gt;</ept>, and <bpt id="9ed13e72-0983-4181-829d-4af3d04024ed">&lt;strong&gt;</bpt>api_key<ept id="9ed13e72-0983-4181-829d-4af3d04024ed">&lt;/strong&gt;</ept> of your experiment for the sample source below.</source>
+          <target state="new">You will also need the <bpt id="eab7cefb-0245-452b-9fee-723076613e43">&lt;strong&gt;</bpt>workspace<ept id="eab7cefb-0245-452b-9fee-723076613e43">&lt;/strong&gt;</ept>, <bpt id="d9a4375b-509a-49bc-8822-bd10b0752d32">&lt;strong&gt;</bpt>service<ept id="d9a4375b-509a-49bc-8822-bd10b0752d32">&lt;/strong&gt;</ept>, and <bpt id="9ed13e72-0983-4181-829d-4af3d04024ed">&lt;strong&gt;</bpt>api_key<ept id="9ed13e72-0983-4181-829d-4af3d04024ed">&lt;/strong&gt;</ept> of your experiment for the sample source below.</target>
+        </trans-unit>
+        <trans-unit id="b5a7959f-6bef-4498-b468-802272724711" xml:space="preserve">
+          <source>You can find the workspace and service by clicking either <bpt id="d06eea2d-25e6-4ac2-8994-e3932b5644f3">&lt;strong&gt;</bpt>Request/Response<ept id="d06eea2d-25e6-4ac2-8994-e3932b5644f3">&lt;/strong&gt;</ept> or <bpt id="54c35dd8-06a0-4f0b-abbb-19ce44e514c1">&lt;strong&gt;</bpt>Batch Execution<ept id="54c35dd8-06a0-4f0b-abbb-19ce44e514c1">&lt;/strong&gt;</ept> for your experiment in the web service dashboard.</source>
+          <target state="new">You can find the workspace and service by clicking either <bpt id="d06eea2d-25e6-4ac2-8994-e3932b5644f3">&lt;strong&gt;</bpt>Request/Response<ept id="d06eea2d-25e6-4ac2-8994-e3932b5644f3">&lt;/strong&gt;</ept> or <bpt id="54c35dd8-06a0-4f0b-abbb-19ce44e514c1">&lt;strong&gt;</bpt>Batch Execution<ept id="54c35dd8-06a0-4f0b-abbb-19ce44e514c1">&lt;/strong&gt;</ept> for your experiment in the web service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="50168dc1-3622-4e1b-8440-bc93a38fbfd3" xml:space="preserve">
+          <source><bpt id="d4571ae0-60eb-4a68-85d8-354d391d1b99">&lt;linkText&gt;</bpt>find-workspace-and-service<ept id="d4571ae0-60eb-4a68-85d8-354d391d1b99">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d4571ae0-60eb-4a68-85d8-354d391d1b99">&lt;linkText&gt;</bpt>find-workspace-and-service<ept id="d4571ae0-60eb-4a68-85d8-354d391d1b99">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdeb0f53-ae2b-4915-bdde-ce2d0714acc4" xml:space="preserve">
+          <source>You can find the <bpt id="3beff7c9-7479-4874-971c-57186fc30b54">&lt;strong&gt;</bpt>api_key<ept id="3beff7c9-7479-4874-971c-57186fc30b54">&lt;/strong&gt;</ept> by clicking your experiment in the web service dashboard.</source>
+          <target state="new">You can find the <bpt id="3beff7c9-7479-4874-971c-57186fc30b54">&lt;strong&gt;</bpt>api_key<ept id="3beff7c9-7479-4874-971c-57186fc30b54">&lt;/strong&gt;</ept> by clicking your experiment in the web service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="b92744f3-754d-4d53-9ed6-74cab38c6da9" xml:space="preserve">
+          <source><bpt id="f056aebd-6e4f-4b59-9245-83fb9ccf99fb">&lt;linkText&gt;</bpt>find-api-key<ept id="f056aebd-6e4f-4b59-9245-83fb9ccf99fb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f056aebd-6e4f-4b59-9245-83fb9ccf99fb">&lt;linkText&gt;</bpt>find-api-key<ept id="f056aebd-6e4f-4b59-9245-83fb9ccf99fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7442305e-d99b-43b1-a3d0-e3cd33f01aac" xml:space="preserve">
+          <source>An easy way to test the RRS endpoint is to click <bpt id="2ec1d5d6-0308-4aae-b802-0d51beb9b3dc">&lt;strong&gt;</bpt>Test<ept id="2ec1d5d6-0308-4aae-b802-0d51beb9b3dc">&lt;/strong&gt;</ept> on the web service dashboard.</source>
+          <target state="new">An easy way to test the RRS endpoint is to click <bpt id="2ec1d5d6-0308-4aae-b802-0d51beb9b3dc">&lt;strong&gt;</bpt>Test<ept id="2ec1d5d6-0308-4aae-b802-0d51beb9b3dc">&lt;/strong&gt;</ept> on the web service dashboard.</target>
+        </trans-unit>
+        <trans-unit id="0322b55b-bdea-4da0-ab80-3e125e690590" xml:space="preserve">
+          <source><bpt id="489c11e5-cf67-49f8-b40b-2c31ae8c2163">&lt;linkText&gt;</bpt>test<ept id="489c11e5-cf67-49f8-b40b-2c31ae8c2163">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="489c11e5-cf67-49f8-b40b-2c31ae8c2163">&lt;linkText&gt;</bpt>test<ept id="489c11e5-cf67-49f8-b40b-2c31ae8c2163">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="56713519-e45e-4d2a-8f75-55555deba111" xml:space="preserve">
+          <source>Type <bpt id="0efa832c-c7c9-410c-9806-29667e0a56e5">&lt;strong&gt;</bpt>This is a good day<ept id="0efa832c-c7c9-410c-9806-29667e0a56e5">&lt;/strong&gt;</ept> for <bpt id="c227e1d2-89a3-4152-9f7f-596b0c287c30">&lt;strong&gt;</bpt>col2<ept id="c227e1d2-89a3-4152-9f7f-596b0c287c30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Type <bpt id="0efa832c-c7c9-410c-9806-29667e0a56e5">&lt;strong&gt;</bpt>This is a good day<ept id="0efa832c-c7c9-410c-9806-29667e0a56e5">&lt;/strong&gt;</ept> for <bpt id="c227e1d2-89a3-4152-9f7f-596b0c287c30">&lt;strong&gt;</bpt>col2<ept id="c227e1d2-89a3-4152-9f7f-596b0c287c30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0c7406c4-bc72-4be1-9a96-ae27f24a532a" xml:space="preserve">
+          <source>Click the checkmark.</source>
+          <target state="new">Click the checkmark.</target>
+        </trans-unit>
+        <trans-unit id="a83b1d63-5516-4f82-9332-681233ea7489" xml:space="preserve">
+          <source><bpt id="3a783a10-4da0-48a1-b0bb-b6e0ee2c739d">&lt;linkText&gt;</bpt>enter-data<ept id="3a783a10-4da0-48a1-b0bb-b6e0ee2c739d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a783a10-4da0-48a1-b0bb-b6e0ee2c739d">&lt;linkText&gt;</bpt>enter-data<ept id="3a783a10-4da0-48a1-b0bb-b6e0ee2c739d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19adedff-8159-49d5-8ac9-8e3854ec132a" xml:space="preserve">
+          <source>You will see something like</source>
+          <target state="new">You will see something like</target>
+        </trans-unit>
+        <trans-unit id="e5d858b5-ffc7-41ad-83c8-ba63fcaca196" xml:space="preserve">
+          <source><bpt id="6f1d1ced-7142-4a07-94bc-6abaac2a4e1a">&lt;linkText&gt;</bpt>sample-output<ept id="6f1d1ced-7142-4a07-94bc-6abaac2a4e1a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f1d1ced-7142-4a07-94bc-6abaac2a4e1a">&lt;linkText&gt;</bpt>sample-output<ept id="6f1d1ced-7142-4a07-94bc-6abaac2a4e1a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4f85fb8-2c44-41e5-825b-334e20343b03" xml:space="preserve">
+          <source>Another way to test your RRS is from your client code.</source>
+          <target state="new">Another way to test your RRS is from your client code.</target>
+        </trans-unit>
+        <trans-unit id="61ec63e4-d1ed-45da-b804-367d18bc81d7" xml:space="preserve">
+          <source>If you click <bpt id="deeb2ccc-ac29-4f52-90e4-41d0199f5c2c">&lt;strong&gt;</bpt>Request/response<ept id="deeb2ccc-ac29-4f52-90e4-41d0199f5c2c">&lt;/strong&gt;</ept> on the dashboard and scroll to the bottom, you will see sample code for C#, Python, and R. You will also see the syntax of the RRS request, including the request URI, headers, and body.</source>
+          <target state="new">If you click <bpt id="deeb2ccc-ac29-4f52-90e4-41d0199f5c2c">&lt;strong&gt;</bpt>Request/response<ept id="deeb2ccc-ac29-4f52-90e4-41d0199f5c2c">&lt;/strong&gt;</ept> on the dashboard and scroll to the bottom, you will see sample code for C#, Python, and R. You will also see the syntax of the RRS request, including the request URI, headers, and body.</target>
+        </trans-unit>
+        <trans-unit id="2439ef09-a3af-4d8a-8918-101467e903c4" xml:space="preserve">
+          <source>This guide shows a working Python example.</source>
+          <target state="new">This guide shows a working Python example.</target>
+        </trans-unit>
+        <trans-unit id="94d46aa1-2df3-4e6a-9010-259598a2fc63" xml:space="preserve">
+          <source>You will need to modify it with the <bpt id="631ab9f5-19d6-47c8-b330-3cf2988904d3">&lt;strong&gt;</bpt>workspace<ept id="631ab9f5-19d6-47c8-b330-3cf2988904d3">&lt;/strong&gt;</ept>, <bpt id="c54dee44-9a56-4d63-b067-e04602a12d6c">&lt;strong&gt;</bpt>service<ept id="c54dee44-9a56-4d63-b067-e04602a12d6c">&lt;/strong&gt;</ept>, and <bpt id="d4b79630-d7c5-4d26-b5ea-b99dfcbf49a4">&lt;strong&gt;</bpt>api_key<ept id="d4b79630-d7c5-4d26-b5ea-b99dfcbf49a4">&lt;/strong&gt;</ept> of your experiment.</source>
+          <target state="new">You will need to modify it with the <bpt id="631ab9f5-19d6-47c8-b330-3cf2988904d3">&lt;strong&gt;</bpt>workspace<ept id="631ab9f5-19d6-47c8-b330-3cf2988904d3">&lt;/strong&gt;</ept>, <bpt id="c54dee44-9a56-4d63-b067-e04602a12d6c">&lt;strong&gt;</bpt>service<ept id="c54dee44-9a56-4d63-b067-e04602a12d6c">&lt;/strong&gt;</ept>, and <bpt id="d4b79630-d7c5-4d26-b5ea-b99dfcbf49a4">&lt;strong&gt;</bpt>api_key<ept id="d4b79630-d7c5-4d26-b5ea-b99dfcbf49a4">&lt;/strong&gt;</ept> of your experiment.</target>
+        </trans-unit>
+        <trans-unit id="fc4e4740-323a-4aea-8edc-ea23c89f7d71" xml:space="preserve">
+          <source>Click <bpt id="b70a8a29-2005-4f79-a449-2d8bfe91f1de">&lt;strong&gt;</bpt>Batch execution<ept id="b70a8a29-2005-4f79-a449-2d8bfe91f1de">&lt;/strong&gt;</ept> on the dashboard and scroll to the bottom.</source>
+          <target state="new">Click <bpt id="b70a8a29-2005-4f79-a449-2d8bfe91f1de">&lt;strong&gt;</bpt>Batch execution<ept id="b70a8a29-2005-4f79-a449-2d8bfe91f1de">&lt;/strong&gt;</ept> on the dashboard and scroll to the bottom.</target>
+        </trans-unit>
+        <trans-unit id="600a543a-6022-4526-88ff-d79c057bc543" xml:space="preserve">
+          <source>You will see sample code for C#, Python, and R. You will also see the syntax of the BES requests to submit a job, start a job, get the status or results of a job, and delete a job.</source>
+          <target state="new">You will see sample code for C#, Python, and R. You will also see the syntax of the BES requests to submit a job, start a job, get the status or results of a job, and delete a job.</target>
+        </trans-unit>
+        <trans-unit id="18717864-64fd-4cc1-b49e-01b3e16ad972" xml:space="preserve">
+          <source>This guide shows a working Python example.</source>
+          <target state="new">This guide shows a working Python example.</target>
+        </trans-unit>
+        <trans-unit id="a017cc66-9453-49f6-b3c0-43062933f6bd" xml:space="preserve">
+          <source>You need to modify it with the <bpt id="d9e144b5-f65b-480b-88d1-97b2ce0e4f90">&lt;strong&gt;</bpt>workspace<ept id="d9e144b5-f65b-480b-88d1-97b2ce0e4f90">&lt;/strong&gt;</ept>, <bpt id="ff0fb605-fc3a-4417-b753-3ff469a7e465">&lt;strong&gt;</bpt>service<ept id="ff0fb605-fc3a-4417-b753-3ff469a7e465">&lt;/strong&gt;</ept>, and <bpt id="d0a1a394-4c2d-4dec-9776-461b84f8aae4">&lt;strong&gt;</bpt>api_key<ept id="d0a1a394-4c2d-4dec-9776-461b84f8aae4">&lt;/strong&gt;</ept> of your experiment.</source>
+          <target state="new">You need to modify it with the <bpt id="d9e144b5-f65b-480b-88d1-97b2ce0e4f90">&lt;strong&gt;</bpt>workspace<ept id="d9e144b5-f65b-480b-88d1-97b2ce0e4f90">&lt;/strong&gt;</ept>, <bpt id="ff0fb605-fc3a-4417-b753-3ff469a7e465">&lt;strong&gt;</bpt>service<ept id="ff0fb605-fc3a-4417-b753-3ff469a7e465">&lt;/strong&gt;</ept>, and <bpt id="d0a1a394-4c2d-4dec-9776-461b84f8aae4">&lt;strong&gt;</bpt>api_key<ept id="d0a1a394-4c2d-4dec-9776-461b84f8aae4">&lt;/strong&gt;</ept> of your experiment.</target>
+        </trans-unit>
+        <trans-unit id="05e24723-5d32-4a94-bc1b-298ba88ecef5" xml:space="preserve">
+          <source>Additionally, you need to modify the <bpt id="395c402b-edb0-49e2-8407-5832bc280810">&lt;strong&gt;</bpt>storage account name<ept id="395c402b-edb0-49e2-8407-5832bc280810">&lt;/strong&gt;</ept>, <bpt id="48f794a5-2b0b-4940-ac11-806dd0ad7306">&lt;strong&gt;</bpt>storage account key<ept id="48f794a5-2b0b-4940-ac11-806dd0ad7306">&lt;/strong&gt;</ept>, and <bpt id="b9e818f9-8e11-4202-9eeb-a63cea999d4f">&lt;strong&gt;</bpt>storage container name<ept id="b9e818f9-8e11-4202-9eeb-a63cea999d4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Additionally, you need to modify the <bpt id="395c402b-edb0-49e2-8407-5832bc280810">&lt;strong&gt;</bpt>storage account name<ept id="395c402b-edb0-49e2-8407-5832bc280810">&lt;/strong&gt;</ept>, <bpt id="48f794a5-2b0b-4940-ac11-806dd0ad7306">&lt;strong&gt;</bpt>storage account key<ept id="48f794a5-2b0b-4940-ac11-806dd0ad7306">&lt;/strong&gt;</ept>, and <bpt id="b9e818f9-8e11-4202-9eeb-a63cea999d4f">&lt;strong&gt;</bpt>storage container name<ept id="b9e818f9-8e11-4202-9eeb-a63cea999d4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fae9c47e-0473-4cac-9742-89c55fdf8569" xml:space="preserve">
+          <source>Lastly, you will need to modify the location of the <bpt id="c30f8c8c-c488-4e5e-9d33-4c54951ec8d6">&lt;strong&gt;</bpt>input file<ept id="c30f8c8c-c488-4e5e-9d33-4c54951ec8d6">&lt;/strong&gt;</ept> and the location of the <bpt id="22b436ae-77a7-4c7a-8c57-6cfc78c19fc7">&lt;strong&gt;</bpt>output file<ept id="22b436ae-77a7-4c7a-8c57-6cfc78c19fc7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Lastly, you will need to modify the location of the <bpt id="c30f8c8c-c488-4e5e-9d33-4c54951ec8d6">&lt;strong&gt;</bpt>input file<ept id="c30f8c8c-c488-4e5e-9d33-4c54951ec8d6">&lt;/strong&gt;</ept> and the location of the <bpt id="22b436ae-77a7-4c7a-8c57-6cfc78c19fc7">&lt;strong&gt;</bpt>output file<ept id="22b436ae-77a7-4c7a-8c57-6cfc78c19fc7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

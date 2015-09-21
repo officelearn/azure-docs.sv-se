@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="39eb786f-df9b-423b-84d1-63335a1554f6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="39eb786f-df9b-423b-84d1-63335a1554f6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="60772b48-92d2-45f2-a4d0-60b2b2b6e402">
+        <trans-unit id="43ef2653-909e-4997-9b41-711f058948d6" xml:space="preserve">
+          <source>Testing Traffic Manager Settings | Microsoft Azure</source>
+          <target state="new">Testing Traffic Manager Settings | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="668950d5-491b-44c3-aec4-9c1bd32bfb17" xml:space="preserve">
+          <source>This article will help you test Traffic Manager settings</source>
+          <target state="new">This article will help you test Traffic Manager settings</target>
+        </trans-unit>
+        <trans-unit id="670093ba-cf7c-438f-97a5-2c67f0c55eb9" xml:space="preserve">
+          <source>The best way to test your Traffic Manager settings is to set up a number of clients and then bring the endpoints, consisting of cloud services and websites, in your profile down one at a time.</source>
+          <target state="new">The best way to test your Traffic Manager settings is to set up a number of clients and then bring the endpoints, consisting of cloud services and websites, in your profile down one at a time.</target>
+        </trans-unit>
+        <trans-unit id="e0b1064c-d303-400e-94eb-3a6d535c78f8" xml:space="preserve">
+          <source>The following tips will help you test your Traffic Manager profile.</source>
+          <target state="new">The following tips will help you test your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="50c57b99-e593-4829-8b7f-c164e51c4f94" xml:space="preserve">
+          <source><bpt id="d358e1d7-ef84-4fb5-9040-b975223816fe">&lt;strong&gt;</bpt>Set the DNS TTL very low<ept id="d358e1d7-ef84-4fb5-9040-b975223816fe">&lt;/strong&gt;</ept> so that changes will propagate quickly - 30 seconds, for example.</source>
+          <target state="new"><bpt id="d358e1d7-ef84-4fb5-9040-b975223816fe">&lt;strong&gt;</bpt>Set the DNS TTL very low<ept id="d358e1d7-ef84-4fb5-9040-b975223816fe">&lt;/strong&gt;</ept> so that changes will propagate quickly - 30 seconds, for example.</target>
+        </trans-unit>
+        <trans-unit id="a2786d4d-40a3-4779-a2e4-d4722d59d290" xml:space="preserve">
+          <source><bpt id="085cf5ce-4a20-4900-ae79-720215d63a62">&lt;strong&gt;</bpt>Know the IP addresses of your Azure cloud services and websites<ept id="085cf5ce-4a20-4900-ae79-720215d63a62">&lt;/strong&gt;</ept> in the profile you are testing.</source>
+          <target state="new"><bpt id="085cf5ce-4a20-4900-ae79-720215d63a62">&lt;strong&gt;</bpt>Know the IP addresses of your Azure cloud services and websites<ept id="085cf5ce-4a20-4900-ae79-720215d63a62">&lt;/strong&gt;</ept> in the profile you are testing.</target>
+        </trans-unit>
+        <trans-unit id="f941b11d-1db2-4e3a-a4d8-caa345b005a7" xml:space="preserve">
+          <source><bpt id="bcea7c3a-c2f1-4158-901c-a7a86f79fd1b">&lt;strong&gt;</bpt>Use tools that let you resolve a DNS name to an IP address<ept id="bcea7c3a-c2f1-4158-901c-a7a86f79fd1b">&lt;/strong&gt;</ept> and display that address.</source>
+          <target state="new"><bpt id="bcea7c3a-c2f1-4158-901c-a7a86f79fd1b">&lt;strong&gt;</bpt>Use tools that let you resolve a DNS name to an IP address<ept id="bcea7c3a-c2f1-4158-901c-a7a86f79fd1b">&lt;/strong&gt;</ept> and display that address.</target>
+        </trans-unit>
+        <trans-unit id="c8c4f39d-7c8b-47fb-9a55-9affc34b1de6" xml:space="preserve">
+          <source>You are checking to see that your company domain name resolves to IP addresses of the endpoints in your profile.</source>
+          <target state="new">You are checking to see that your company domain name resolves to IP addresses of the endpoints in your profile.</target>
+        </trans-unit>
+        <trans-unit id="974dbb4c-42bd-43c0-b2ca-daeb19f438af" xml:space="preserve">
+          <source>They should resolve in a manner consistent with the traffic routing method of your Traffic Manager profile.</source>
+          <target state="new">They should resolve in a manner consistent with the traffic routing method of your Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="da68a4a1-f940-4423-86df-0a34e50a5fb5" xml:space="preserve">
+          <source>If you are on a computer running Windows, you can use the Nslookup.exe tool from a command or Windows PowerShell prompt.</source>
+          <target state="new">If you are on a computer running Windows, you can use the Nslookup.exe tool from a command or Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="9f54cb0e-1c2b-4150-890c-8fcf1b0597ad" xml:space="preserve">
+          <source>Other publicly available tools that allow you to "dig" an IP address are also readily available on the Internet.</source>
+          <target state="new">Other publicly available tools that allow you to "dig" an IP address are also readily available on the Internet.</target>
+        </trans-unit>
+        <trans-unit id="23975098-656e-499e-bcec-8962cb7a3146" xml:space="preserve">
+          <source>Open a command or Windows PowerShell prompt as an administrator.</source>
+          <target state="new">Open a command or Windows PowerShell prompt as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="74df63d1-253c-4df0-8e36-857768bc2c38" xml:space="preserve">
+          <source>Type <bpt id="f2fbe68f-920d-46a4-b9f0-8795c1861fd1">&lt;code&gt;</bpt>ipconfig /flushdns<ept id="f2fbe68f-920d-46a4-b9f0-8795c1861fd1">&lt;/code&gt;</ept> to flush the DNS resolver cache.</source>
+          <target state="new">Type <bpt id="f2fbe68f-920d-46a4-b9f0-8795c1861fd1">&lt;code&gt;</bpt>ipconfig /flushdns<ept id="f2fbe68f-920d-46a4-b9f0-8795c1861fd1">&lt;/code&gt;</ept> to flush the DNS resolver cache.</target>
+        </trans-unit>
+        <trans-unit id="99638abb-505d-41b4-a421-d4dbe552d1ba" xml:space="preserve">
+          <source>Type <bpt id="96f0665e-a8ae-4c7f-ad7f-de1116e4edfc">&lt;code&gt;</bpt>nslookup &lt;your Traffic Manager domain name&gt;<ept id="96f0665e-a8ae-4c7f-ad7f-de1116e4edfc">&lt;/code&gt;</ept>. For example, the following command checks the domain name with the prefix <bpt id="70076dfd-4e32-4669-906b-3916bda5c496">&lt;em&gt;</bpt>myapp.contoso<ept id="70076dfd-4e32-4669-906b-3916bda5c496">&lt;/em&gt;</ept>:
+nslookup myapp.contoso.trafficmanager.net
+A typical result will show the following:</source>
+          <target state="new">Type <bpt id="96f0665e-a8ae-4c7f-ad7f-de1116e4edfc">&lt;code&gt;</bpt>nslookup &lt;your Traffic Manager domain name&gt;<ept id="96f0665e-a8ae-4c7f-ad7f-de1116e4edfc">&lt;/code&gt;</ept>. For example, the following command checks the domain name with the prefix <bpt id="70076dfd-4e32-4669-906b-3916bda5c496">&lt;em&gt;</bpt>myapp.contoso<ept id="70076dfd-4e32-4669-906b-3916bda5c496">&lt;/em&gt;</ept>:
+nslookup myapp.contoso.trafficmanager.net
+A typical result will show the following:</target>
+        </trans-unit>
+        <trans-unit id="82cedeb4-a84c-4174-8f1b-e5587a589f21" xml:space="preserve">
+          <source>The DNS name and IP address of the DNS server being accessed to resolve this Traffic Manager domain name.</source>
+          <target state="new">The DNS name and IP address of the DNS server being accessed to resolve this Traffic Manager domain name.</target>
+        </trans-unit>
+        <trans-unit id="bfeba0df-e8ea-4da4-8e4c-6c2cb092adb6" xml:space="preserve">
+          <source>The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address to which the Traffic Manager domain resolves.</source>
+          <target state="new">The Traffic Manager domain name you typed on the command line after "nslookup" and the IP address to which the Traffic Manager domain resolves.</target>
+        </trans-unit>
+        <trans-unit id="79fdc73e-4c53-48fa-84aa-dada772b2480" xml:space="preserve">
+          <source>The second IP address is the important one to check.</source>
+          <target state="new">The second IP address is the important one to check.</target>
+        </trans-unit>
+        <trans-unit id="582b2fd8-87ea-4f0e-b177-2a917cd2f311" xml:space="preserve">
+          <source>It should match a public virtual IP (VIP) address for one of the cloud services or websites in the Traffic Manager profile you are testing.</source>
+          <target state="new">It should match a public virtual IP (VIP) address for one of the cloud services or websites in the Traffic Manager profile you are testing.</target>
+        </trans-unit>
+        <trans-unit id="9a138b25-7915-4dfd-94a0-7d86704ea6d0" xml:space="preserve">
+          <source>Leave all endpoints up.</source>
+          <target state="new">Leave all endpoints up.</target>
+        </trans-unit>
+        <trans-unit id="4ad205ad-5261-485a-9634-37fc94ea03b0" xml:space="preserve">
+          <source>Use a single client.</source>
+          <target state="new">Use a single client.</target>
+        </trans-unit>
+        <trans-unit id="16667ec9-1e6d-42ee-8a77-b2bc2d26c730" xml:space="preserve">
+          <source>Request DNS resolution for your company domain name using the Nslookup.exe tool or a similar utility.</source>
+          <target state="new">Request DNS resolution for your company domain name using the Nslookup.exe tool or a similar utility.</target>
+        </trans-unit>
+        <trans-unit id="397245f2-1ad7-46dc-a366-6f4d603c0b70" xml:space="preserve">
+          <source>Ensure that the resolved IP address your obtain is for your primary endpoint</source>
+          <target state="new">Ensure that the resolved IP address your obtain is for your primary endpoint</target>
+        </trans-unit>
+        <trans-unit id="19007f54-b3e6-489a-b184-29b640b52969" xml:space="preserve">
+          <source>Bring your primary endpoint down or remove the monitoring file so that Traffic Manager thinks it’s down.</source>
+          <target state="new">Bring your primary endpoint down or remove the monitoring file so that Traffic Manager thinks it’s down.</target>
+        </trans-unit>
+        <trans-unit id="9b433493-665a-4442-aef8-d8959ff6a5c6" xml:space="preserve">
+          <source>Wait for the DNS Time-to-Live (TTL) of the Traffic Manager profile plus an additional 2 minutes.</source>
+          <target state="new">Wait for the DNS Time-to-Live (TTL) of the Traffic Manager profile plus an additional 2 minutes.</target>
+        </trans-unit>
+        <trans-unit id="1b7ada91-2930-4021-ade1-6de9a99001c8" xml:space="preserve">
+          <source>For example, if your DNS TTL is 300 seconds (5 minutes), you must wait for 7 minutes.</source>
+          <target state="new">For example, if your DNS TTL is 300 seconds (5 minutes), you must wait for 7 minutes.</target>
+        </trans-unit>
+        <trans-unit id="4c679ec1-b7a7-4a27-9874-9700706d711f" xml:space="preserve">
+          <source>Flush your DNS client cache and request DNS resolution.</source>
+          <target state="new">Flush your DNS client cache and request DNS resolution.</target>
+        </trans-unit>
+        <trans-unit id="3ea7c125-4d66-4c28-bb15-1c9cee4eeb91" xml:space="preserve">
+          <source>In Windows, you can flush your DNS cache with the ipconfig /flushdns command issued at a command or Windows PowerShell prompt.</source>
+          <target state="new">In Windows, you can flush your DNS cache with the ipconfig /flushdns command issued at a command or Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="9e4653f8-2b4f-462b-8e0c-995d43cdad11" xml:space="preserve">
+          <source>Ensure that the IP address you obtain is for your secondary endpoint.</source>
+          <target state="new">Ensure that the IP address you obtain is for your secondary endpoint.</target>
+        </trans-unit>
+        <trans-unit id="c8903771-ee1f-4e26-8bb9-2f3422cae275" xml:space="preserve">
+          <source>Repeat the process, bringing down the secondary endpoint and then the tertiary and so on.</source>
+          <target state="new">Repeat the process, bringing down the secondary endpoint and then the tertiary and so on.</target>
+        </trans-unit>
+        <trans-unit id="6f3c521e-eaad-47b1-8c14-0a4c6fa6b3e8" xml:space="preserve">
+          <source>Each time, be sure that the DNS resolution returns the IP address of the next endpoint in the list.</source>
+          <target state="new">Each time, be sure that the DNS resolution returns the IP address of the next endpoint in the list.</target>
+        </trans-unit>
+        <trans-unit id="64b287ce-f017-4e2e-94d8-6f7d8676c3cf" xml:space="preserve">
+          <source>When all endpoints are down, you should obtain the IP address of the primary endpoint again.</source>
+          <target state="new">When all endpoints are down, you should obtain the IP address of the primary endpoint again.</target>
+        </trans-unit>
+        <trans-unit id="46f192a8-e219-4188-a174-e865d99656a8" xml:space="preserve">
+          <source>Leave all endpoints up.</source>
+          <target state="new">Leave all endpoints up.</target>
+        </trans-unit>
+        <trans-unit id="8dbd9772-3caf-4ee9-8c1d-496a3ce2d87a" xml:space="preserve">
+          <source>Use a single client.</source>
+          <target state="new">Use a single client.</target>
+        </trans-unit>
+        <trans-unit id="fbcff2ba-c8cc-41b0-af93-b7d4e787d370" xml:space="preserve">
+          <source>Request DNS resolution for your company domain using the Nslookup.exe tool or a similar utility.</source>
+          <target state="new">Request DNS resolution for your company domain using the Nslookup.exe tool or a similar utility.</target>
+        </trans-unit>
+        <trans-unit id="c6e85a99-40d3-4920-a7c5-2cfcf822067a" xml:space="preserve">
+          <source>Ensure that the IP address you obtain is one of those in your list.</source>
+          <target state="new">Ensure that the IP address you obtain is one of those in your list.</target>
+        </trans-unit>
+        <trans-unit id="410cf06f-8994-4407-9f4e-f8fb2eb686ff" xml:space="preserve">
+          <source>Flush your DNS client cache and repeat steps 3 and 4 over and over.</source>
+          <target state="new">Flush your DNS client cache and repeat steps 3 and 4 over and over.</target>
+        </trans-unit>
+        <trans-unit id="90346c4f-1a78-445e-abcd-1b54e212009f" xml:space="preserve">
+          <source>You should see different IP addresses returned for each of your endpoints.</source>
+          <target state="new">You should see different IP addresses returned for each of your endpoints.</target>
+        </trans-unit>
+        <trans-unit id="be71bb7f-37d3-4741-b7ee-bef0b1731d5b" xml:space="preserve">
+          <source>Then, the process will repeat.</source>
+          <target state="new">Then, the process will repeat.</target>
+        </trans-unit>
+        <trans-unit id="3e95cd8e-84f8-458b-9197-2f973e97a41d" xml:space="preserve">
+          <source>To effectively test a performance traffic routing method, you must have clients located in different parts of the world.</source>
+          <target state="new">To effectively test a performance traffic routing method, you must have clients located in different parts of the world.</target>
+        </trans-unit>
+        <trans-unit id="7bd36d54-c6fd-4ed2-83eb-66c95a38f33f" xml:space="preserve">
+          <source>You could create clients in Azure that will attempt to call your services via your company domain name.</source>
+          <target state="new">You could create clients in Azure that will attempt to call your services via your company domain name.</target>
+        </trans-unit>
+        <trans-unit id="d51c6b0f-9c75-4766-9de6-3ff1969eea5d" xml:space="preserve">
+          <source>Alternatively, if your corporation is global, you can remotely log into clients in other parts of the world and test from those clients.</source>
+          <target state="new">Alternatively, if your corporation is global, you can remotely log into clients in other parts of the world and test from those clients.</target>
+        </trans-unit>
+        <trans-unit id="47cd9375-0234-429d-bb94-22e91995cfaa" xml:space="preserve">
+          <source>There are free web-based DNS lookup and dig services available.</source>
+          <target state="new">There are free web-based DNS lookup and dig services available.</target>
+        </trans-unit>
+        <trans-unit id="bcdf3df9-6ce1-4998-828f-395ae07f8e63" xml:space="preserve">
+          <source>Some of these give you the ability to check DNS name resolution from various locations.</source>
+          <target state="new">Some of these give you the ability to check DNS name resolution from various locations.</target>
+        </trans-unit>
+        <trans-unit id="3ce11923-f5f0-4cd0-a7bd-4dec8e0649a9" xml:space="preserve">
+          <source>Do a search on “DNS lookup” for examples.</source>
+          <target state="new">Do a search on “DNS lookup” for examples.</target>
+        </trans-unit>
+        <trans-unit id="9e61027b-8af9-4e82-a12c-e98352d6abc5" xml:space="preserve">
+          <source>Another option is to use a third-party solution like Gomez or Keynote to confirm that your profiles are distributing traffic as expected.</source>
+          <target state="new">Another option is to use a third-party solution like Gomez or Keynote to confirm that your profiles are distributing traffic as expected.</target>
+        </trans-unit>
+        <trans-unit id="47703cd7-72c8-4f53-b4d1-a1797ab7c46c" xml:space="preserve">
+          <source><bpt id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;/linkText&gt;</ept><bpt id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;title&gt;</bpt><ept id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;linkText&gt;</bpt>About Traffic Manager traffic routing Methods<ept id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;/linkText&gt;</ept><bpt id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;title&gt;</bpt><ept id="c9fb7dab-0dd0-41c9-a2f7-ee80bf0cc2bf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="24d055c6-a2db-4cf5-a3bb-21cead5bf49d" xml:space="preserve">
+          <source><bpt id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;/linkText&gt;</ept><bpt id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;title&gt;</bpt><ept id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;linkText&gt;</bpt>Traffic Manager - Disable, enable or delete a profile<ept id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;/linkText&gt;</ept><bpt id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;title&gt;</bpt><ept id="1746ff16-43b8-4936-a9ee-3f6669f30fc9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="affb0cb1-1126-4e37-ba33-9c6271ebf3c5" xml:space="preserve">
+          <source><bpt id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;/linkText&gt;</ept><bpt id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;title&gt;</bpt><ept id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;linkText&gt;</bpt>Traffic Manager - Disable or enable an endpoint<ept id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;/linkText&gt;</ept><bpt id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;title&gt;</bpt><ept id="faa4ccd4-8a2f-4a6d-9f8a-500a2016a8b1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4f04f911-b1e5-40fe-84e7-e525274e2e0c" xml:space="preserve">
+          <source><bpt id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;/linkText&gt;</ept><bpt id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;title&gt;</bpt><ept id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;/linkText&gt;</ept><bpt id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;title&gt;</bpt><ept id="39533ff5-23fe-4d6a-bb71-b8c43c6e1f13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d4b0481b-3d43-413e-87ba-39f630224ae8" xml:space="preserve">
+          <source><bpt id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;linkText&gt;</bpt>Cloud Services<ept id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;/linkText&gt;</ept><bpt id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;title&gt;</bpt><ept id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;linkText&gt;</bpt>Cloud Services<ept id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;/linkText&gt;</ept><bpt id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;title&gt;</bpt><ept id="992a625a-8e6c-4e12-abfd-6f9acb285160">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8b684c9a-a411-4a6b-8734-89993713eed0" xml:space="preserve">
+          <source><bpt id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;linkText&gt;</bpt>Websites<ept id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;/linkText&gt;</ept><bpt id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;title&gt;</bpt><ept id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;linkText&gt;</bpt>Websites<ept id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;/linkText&gt;</ept><bpt id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;title&gt;</bpt><ept id="9f0b4f93-73d3-4ff7-a874-ccfb23813365">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="263ce624-f3d6-4049-8741-3d6b21430631" xml:space="preserve">
+          <source><bpt id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;linkText&gt;</bpt>Operations for Traffic Manager (REST API Reference)<ept id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;/linkText&gt;</ept><bpt id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;title&gt;</bpt><ept id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;linkText&gt;</bpt>Operations for Traffic Manager (REST API Reference)<ept id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;/linkText&gt;</ept><bpt id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;title&gt;</bpt><ept id="6eeb2af0-67f2-42fe-9465-604e3090ad74">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

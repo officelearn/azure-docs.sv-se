@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3adc60ce-40ae-4bce-a9b2-aa5a8af0aecd" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3adc60ce-40ae-4bce-a9b2-aa5a8af0aecd" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="44374fa2-bbb2-4cda-aad8-8b3b6554e2f0">
+        <trans-unit id="1b3db240-05ef-475e-aa52-e876500aefc0" xml:space="preserve">
+          <source>Monitor dependencies, exceptions and execution times in Java web apps</source>
+          <target state="new">Monitor dependencies, exceptions and execution times in Java web apps</target>
+        </trans-unit>
+        <trans-unit id="17354f96-58d3-458f-a583-2733609d1520" xml:space="preserve">
+          <source>Extended monitoring of your Java website with Application Insights</source>
+          <target state="new">Extended monitoring of your Java website with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="50fab4c6-6d4b-4bb2-ac74-b04b1d607e79" xml:space="preserve">
+          <source><bpt id="fe2a0d40-f799-4322-ba74-3c13a8286ccc">&lt;em&gt;</bpt>Application Insights is in Preview.<ept id="fe2a0d40-f799-4322-ba74-3c13a8286ccc">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="fe2a0d40-f799-4322-ba74-3c13a8286ccc">&lt;em&gt;</bpt>Application Insights is in Preview.<ept id="fe2a0d40-f799-4322-ba74-3c13a8286ccc">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d82e60a-7d4b-489d-b404-da8da9b5dfac" xml:space="preserve">
+          <source>If you have <bpt id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;linkText&gt;</bpt>instrumented your Java web app with Application Insights[java]<ept id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;/linkText&gt;</ept><bpt id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;title&gt;</bpt><ept id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;/title&gt;</ept>, you can use the Java Agent to get deeper insights, without any code changes:</source>
+          <target state="new">If you have <bpt id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;linkText&gt;</bpt>instrumented your Java web app with Application Insights[java]<ept id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;/linkText&gt;</ept><bpt id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;title&gt;</bpt><ept id="d42c9ad1-312a-4a30-9ae7-ffe6179a0edb">&lt;/title&gt;</ept>, you can use the Java Agent to get deeper insights, without any code changes:</target>
+        </trans-unit>
+        <trans-unit id="dec11e08-c204-4409-b2c1-beae1a5d5458" xml:space="preserve">
+          <source><bpt id="d554b7f6-928d-4fce-95e8-96ba4b442885">&lt;strong&gt;</bpt>Remote dependencies:<ept id="d554b7f6-928d-4fce-95e8-96ba4b442885">&lt;/strong&gt;</ept> Data about calls that your application makes through a <bpt id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;linkText&gt;</bpt>JDBC<ept id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;/linkText&gt;</ept><bpt id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;title&gt;</bpt><ept id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;/title&gt;</ept> driver, such as MySQL, SQL Server, PostgreSQL, or SQLite.</source>
+          <target state="new"><bpt id="d554b7f6-928d-4fce-95e8-96ba4b442885">&lt;strong&gt;</bpt>Remote dependencies:<ept id="d554b7f6-928d-4fce-95e8-96ba4b442885">&lt;/strong&gt;</ept> Data about calls that your application makes through a <bpt id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;linkText&gt;</bpt>JDBC<ept id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;/linkText&gt;</ept><bpt id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;title&gt;</bpt><ept id="94ac5275-793a-4e80-92cb-a54dca205143">&lt;/title&gt;</ept> driver, such as MySQL, SQL Server, PostgreSQL, or SQLite.</target>
+        </trans-unit>
+        <trans-unit id="2388bb5f-bb7b-4626-aa90-f191632c6d89" xml:space="preserve">
+          <source><bpt id="0e253747-77c9-4343-b8ad-23d3da30ebae">&lt;strong&gt;</bpt>Caught exceptions:<ept id="0e253747-77c9-4343-b8ad-23d3da30ebae">&lt;/strong&gt;</ept> Data about exceptions that are handled by your code.</source>
+          <target state="new"><bpt id="0e253747-77c9-4343-b8ad-23d3da30ebae">&lt;strong&gt;</bpt>Caught exceptions:<ept id="0e253747-77c9-4343-b8ad-23d3da30ebae">&lt;/strong&gt;</ept> Data about exceptions that are handled by your code.</target>
+        </trans-unit>
+        <trans-unit id="ab71c233-52c2-4c13-a11d-545f2444bb24" xml:space="preserve">
+          <source><bpt id="2bc151bd-2109-4f1d-a8d2-0f3950fa9ab9">&lt;strong&gt;</bpt>Method execution time:<ept id="2bc151bd-2109-4f1d-a8d2-0f3950fa9ab9">&lt;/strong&gt;</ept> Data about the time it takes to execute specific methods.</source>
+          <target state="new"><bpt id="2bc151bd-2109-4f1d-a8d2-0f3950fa9ab9">&lt;strong&gt;</bpt>Method execution time:<ept id="2bc151bd-2109-4f1d-a8d2-0f3950fa9ab9">&lt;/strong&gt;</ept> Data about the time it takes to execute specific methods.</target>
+        </trans-unit>
+        <trans-unit id="4871c30b-4ede-4f28-81c9-2d29cc4b4fcd" xml:space="preserve">
+          <source>To use the Java agent, you install it on your server.</source>
+          <target state="new">To use the Java agent, you install it on your server.</target>
+        </trans-unit>
+        <trans-unit id="d4f76bc6-02b3-433e-80ed-91e95eb224e2" xml:space="preserve">
+          <source>Your web apps must be instrumented with the <bpt id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;linkText&gt;</bpt>Application Insights Java SDK[java]<ept id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;/linkText&gt;</ept><bpt id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;title&gt;</bpt><ept id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;/title&gt;</ept>.</source>
+          <target state="new">Your web apps must be instrumented with the <bpt id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;linkText&gt;</bpt>Application Insights Java SDK[java]<ept id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;/linkText&gt;</ept><bpt id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;title&gt;</bpt><ept id="2f09819f-e83b-40b9-a1fc-9a04fb891023">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="69c17b54-78cf-4744-82f1-22e929a6c696" xml:space="preserve">
+          <source>On the machine running your Java server, <bpt id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;linkText&gt;</bpt>download the agent<ept id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;/linkText&gt;</ept><bpt id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;title&gt;</bpt><ept id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;/title&gt;</ept>.</source>
+          <target state="new">On the machine running your Java server, <bpt id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;linkText&gt;</bpt>download the agent<ept id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;/linkText&gt;</ept><bpt id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;title&gt;</bpt><ept id="c77745db-acdc-4aef-a232-830f3b9301b1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43ec0de4-6bf5-4726-9f1e-43aa217f1c9c" xml:space="preserve">
+          <source>Edit the application server startup script, and add the following JVM:</source>
+          <target state="new">Edit the application server startup script, and add the following JVM:</target>
+        </trans-unit>
+        <trans-unit id="46f4261d-f7a8-4b24-8673-f06cea6279df" xml:space="preserve">
+          <source><bpt id="e89a6f4c-3dbb-4fd2-8ca4-2a3f07da8d94">&lt;code&gt;</bpt>javaagent:<ept id="e89a6f4c-3dbb-4fd2-8ca4-2a3f07da8d94">&lt;/code&gt;</ept><bpt id="6a3dbca3-df4b-49bc-b3f8-7d7b86f53e2e">&lt;em&gt;</bpt>full path to the agent JAR file<ept id="6a3dbca3-df4b-49bc-b3f8-7d7b86f53e2e">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="e89a6f4c-3dbb-4fd2-8ca4-2a3f07da8d94">&lt;code&gt;</bpt>javaagent:<ept id="e89a6f4c-3dbb-4fd2-8ca4-2a3f07da8d94">&lt;/code&gt;</ept><bpt id="6a3dbca3-df4b-49bc-b3f8-7d7b86f53e2e">&lt;em&gt;</bpt>full path to the agent JAR file<ept id="6a3dbca3-df4b-49bc-b3f8-7d7b86f53e2e">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf9d65ee-8a8f-4e93-92a1-49cb719f1f8b" xml:space="preserve">
+          <source>For example, in Tomcat on a Linux machine:</source>
+          <target state="new">For example, in Tomcat on a Linux machine:</target>
+        </trans-unit>
+        <trans-unit id="0374c7ba-7b3d-4a70-87d1-d90e40441b95" xml:space="preserve">
+          <source><bpt id="54bde493-6886-4922-80d4-c91a6bd12582">&lt;code&gt;</bpt>export JAVA_OPTS="$JAVA_OPTS -javaagent:&lt;full path to agent JAR file&gt;"<ept id="54bde493-6886-4922-80d4-c91a6bd12582">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="54bde493-6886-4922-80d4-c91a6bd12582">&lt;code&gt;</bpt>export JAVA_OPTS="$JAVA_OPTS -javaagent:&lt;full path to agent JAR file&gt;"<ept id="54bde493-6886-4922-80d4-c91a6bd12582">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="529b727e-4829-4725-a278-2a2b65f4d962" xml:space="preserve">
+          <source>Restart your application server.</source>
+          <target state="new">Restart your application server.</target>
+        </trans-unit>
+        <trans-unit id="e5571859-3528-4815-8b7d-13c134973a5d" xml:space="preserve">
+          <source>Create a file named <bpt id="b8f4f7e3-b77d-4e13-8250-7db1286a04b7">&lt;code&gt;</bpt>AI-Agent.xml<ept id="b8f4f7e3-b77d-4e13-8250-7db1286a04b7">&lt;/code&gt;</ept> and place it in the same folder as the agent JAR file.</source>
+          <target state="new">Create a file named <bpt id="b8f4f7e3-b77d-4e13-8250-7db1286a04b7">&lt;code&gt;</bpt>AI-Agent.xml<ept id="b8f4f7e3-b77d-4e13-8250-7db1286a04b7">&lt;/code&gt;</ept> and place it in the same folder as the agent JAR file.</target>
+        </trans-unit>
+        <trans-unit id="e2316b0b-48f2-48cb-8f0e-dac0d9993e36" xml:space="preserve">
+          <source>Set the content of the xml file.</source>
+          <target state="new">Set the content of the xml file.</target>
+        </trans-unit>
+        <trans-unit id="f5595b40-bc28-458b-b56e-80eea642f647" xml:space="preserve">
+          <source>Edit the following example to include or omit the features you want.</source>
+          <target state="new">Edit the following example to include or omit the features you want.</target>
+        </trans-unit>
+        <trans-unit id="8ad00520-33ff-439e-81ca-da137ff05b2f" xml:space="preserve">
+          <source>You have to enable reports exception and method timing for individual methods.</source>
+          <target state="new">You have to enable reports exception and method timing for individual methods.</target>
+        </trans-unit>
+        <trans-unit id="a3720966-3502-4f35-9ce4-e1be4530d03f" xml:space="preserve">
+          <source>By default, <bpt id="b74466b2-30ea-473a-a71e-bf8e54b18404">&lt;code&gt;</bpt>reportExecutionTime<ept id="b74466b2-30ea-473a-a71e-bf8e54b18404">&lt;/code&gt;</ept> is true, <bpt id="e93d73e7-e5e0-4726-b89d-34c035bdab70">&lt;code&gt;</bpt>reportCaughtExceptions<ept id="e93d73e7-e5e0-4726-b89d-34c035bdab70">&lt;/code&gt;</ept> is false.</source>
+          <target state="new">By default, <bpt id="b74466b2-30ea-473a-a71e-bf8e54b18404">&lt;code&gt;</bpt>reportExecutionTime<ept id="b74466b2-30ea-473a-a71e-bf8e54b18404">&lt;/code&gt;</ept> is true, <bpt id="e93d73e7-e5e0-4726-b89d-34c035bdab70">&lt;code&gt;</bpt>reportCaughtExceptions<ept id="e93d73e7-e5e0-4726-b89d-34c035bdab70">&lt;/code&gt;</ept> is false.</target>
+        </trans-unit>
+        <trans-unit id="d0b132a6-5186-49f7-ae44-e75a9e89106d" xml:space="preserve">
+          <source>In the Application Insights resource, aggregated remote dependency and method exection times will appear <bpt id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;linkText&gt;</bpt>under the Performance tile[metrics]<ept id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;/linkText&gt;</ept><bpt id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;title&gt;</bpt><ept id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the Application Insights resource, aggregated remote dependency and method exection times will appear <bpt id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;linkText&gt;</bpt>under the Performance tile[metrics]<ept id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;/linkText&gt;</ept><bpt id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;title&gt;</bpt><ept id="92e0689e-50d0-428d-bf1d-b0c73c08162c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="58a3f6b4-66e5-49d3-9e54-a134d20601f5" xml:space="preserve">
+          <source>To search for individual instances of dependency, exception and method reports, open <bpt id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;/linkText&gt;</ept><bpt id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;title&gt;</bpt><ept id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;/title&gt;</ept>.</source>
+          <target state="new">To search for individual instances of dependency, exception and method reports, open <bpt id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;/linkText&gt;</ept><bpt id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;title&gt;</bpt><ept id="cfb93359-e191-4854-9162-fdacb630f92a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d954f900-99d8-4a79-b200-cf61331bc84f" xml:space="preserve">
+          <source><bpt id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;linkText&gt;</bpt>Diagnosing dependency issues - learn more<ept id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;/linkText&gt;</ept><bpt id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;title&gt;</bpt><ept id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;linkText&gt;</bpt>Diagnosing dependency issues - learn more<ept id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;/linkText&gt;</ept><bpt id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;title&gt;</bpt><ept id="f239062a-4031-4f3a-bd2d-b1f283bd4dcb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e654008-3553-423c-b4ff-5cb9177e76bb" xml:space="preserve">
+          <source><bpt id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;linkText&gt;</bpt>Troubleshooting Java<ept id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;/linkText&gt;</ept><bpt id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;title&gt;</bpt><ept id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;linkText&gt;</bpt>Troubleshooting Java<ept id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;/linkText&gt;</ept><bpt id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;title&gt;</bpt><ept id="6ddac5d5-81bb-4d93-b254-626377392d73">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b02b29b5-714b-4559-a1e3-6a37c2a2646c" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="1e0f88c6-7335-462f-b5c5-6f414b1e25ca" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md#track-exception</source>
+          <target state="new">app-insights-api-custom-events-metrics.md#track-exception</target>
+        </trans-unit>
+        <trans-unit id="13a0c6d1-8a35-4d9f-ae92-0322b2416532" xml:space="preserve">
+          <source>app-insights-monitor-web-app-availability.md</source>
+          <target state="new">app-insights-monitor-web-app-availability.md</target>
+        </trans-unit>
+        <trans-unit id="d63ada1d-442a-4c1a-8a3f-4ddd09cd334a" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="445c99c4-9617-4679-89a3-03731f950951" xml:space="preserve">
+          <source>app-insights-java-eclipse.md</source>
+          <target state="new">app-insights-java-eclipse.md</target>
+        </trans-unit>
+        <trans-unit id="c059b2b4-6050-474c-92e3-64eda1dbba28" xml:space="preserve">
+          <source>app-insights-java-get-started.md</source>
+          <target state="new">app-insights-java-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="fe146958-a4cf-4ee5-bb45-cb4670976da7" xml:space="preserve">
+          <source>app-insights-java-trace-logs.md</source>
+          <target state="new">app-insights-java-trace-logs.md</target>
+        </trans-unit>
+        <trans-unit id="ac66ba25-1d32-41cf-8242-72f507f0c9f5" xml:space="preserve">
+          <source>app-insights-metrics-explorer.md</source>
+          <target state="new">app-insights-metrics-explorer.md</target>
+        </trans-unit>
+        <trans-unit id="da65690b-f10c-499d-b533-e350921e2c3c" xml:space="preserve">
+          <source>app-insights-web-track-usage.md</source>
+          <target state="new">app-insights-web-track-usage.md</target>
+        </trans-unit>
+      </group>
+      <group id="c5c9a51d-c3f3-48e4-955c-ed2a840da77b" />
+    </body>
+  </file>
+</xliff>

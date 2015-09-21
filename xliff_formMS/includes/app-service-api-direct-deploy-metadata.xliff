@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ae06b03-67f4-4490-bbd7-d0ca4210450f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ae06b03-67f4-4490-bbd7-d0ca4210450f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="11e48600-3515-43fb-b1f8-c02ee2fb7b46">
+        <trans-unit id="4128d892-e709-418c-bfaf-ab11ce0587b3" xml:space="preserve">
+          <source>This section provides additional information about API app metadata that you can customize.</source>
+          <target state="new">This section provides additional information about API app metadata that you can customize.</target>
+        </trans-unit>
+        <trans-unit id="4d99d271-9f93-457b-ac79-1161c8201331" xml:space="preserve">
+          <source>Most of the properties in the <bpt id="316957ad-79c3-4511-ad37-36d0355f0795">&lt;em&gt;</bpt>apiapp.json<ept id="316957ad-79c3-4511-ad37-36d0355f0795">&lt;/em&gt;</ept> file, and the files in the <bpt id="794c7526-5bfa-49d5-880a-333e8b7bdd31">&lt;em&gt;</bpt>Metadata<ept id="794c7526-5bfa-49d5-880a-333e8b7bdd31">&lt;/em&gt;</ept> folder, affect the way an API app package is presented in the Azure Marketplace.</source>
+          <target state="new">Most of the properties in the <bpt id="316957ad-79c3-4511-ad37-36d0355f0795">&lt;em&gt;</bpt>apiapp.json<ept id="316957ad-79c3-4511-ad37-36d0355f0795">&lt;/em&gt;</ept> file, and the files in the <bpt id="794c7526-5bfa-49d5-880a-333e8b7bdd31">&lt;em&gt;</bpt>Metadata<ept id="794c7526-5bfa-49d5-880a-333e8b7bdd31">&lt;/em&gt;</ept> folder, affect the way an API app package is presented in the Azure Marketplace.</target>
+        </trans-unit>
+        <trans-unit id="642bd670-246e-4cad-97d2-4ae97d2ec123" xml:space="preserve">
+          <source>The following sections explain which properties and files affect API apps when you deploy your code to an API app in your Azure subscription.</source>
+          <target state="new">The following sections explain which properties and files affect API apps when you deploy your code to an API app in your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="35994df1-51af-4825-984e-0ef6f7293071" xml:space="preserve">
+          <source>The <bpt id="e0383f98-b593-431a-a8ac-776cc970a2d9">&lt;code&gt;</bpt>id<ept id="e0383f98-b593-431a-a8ac-776cc970a2d9">&lt;/code&gt;</ept> property determines the name of the API app.</source>
+          <target state="new">The <bpt id="e0383f98-b593-431a-a8ac-776cc970a2d9">&lt;code&gt;</bpt>id<ept id="e0383f98-b593-431a-a8ac-776cc970a2d9">&lt;/code&gt;</ept> property determines the name of the API app.</target>
+        </trans-unit>
+        <trans-unit id="7bf3f351-516d-46b9-970e-a886e8e67c81" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="30018038-c52b-4927-8cf0-28f69a37786a" xml:space="preserve">
+          <source><bpt id="4e24e821-5b16-431c-8a4d-cbaf6f30b122">&lt;linkText&gt;</bpt><ept id="4e24e821-5b16-431c-8a4d-cbaf6f30b122">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4e24e821-5b16-431c-8a4d-cbaf6f30b122">&lt;linkText&gt;</bpt><ept id="4e24e821-5b16-431c-8a4d-cbaf6f30b122">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7122cde-7226-453b-bbe5-1a103ba52279" xml:space="preserve">
+          <source>Set the <bpt id="ac195b50-4355-497a-b78f-6c8e22a04442">&lt;code&gt;</bpt>namespace<ept id="ac195b50-4355-497a-b78f-6c8e22a04442">&lt;/code&gt;</ept> property to the domain of your Azure Active Directory tenant.</source>
+          <target state="new">Set the <bpt id="ac195b50-4355-497a-b78f-6c8e22a04442">&lt;code&gt;</bpt>namespace<ept id="ac195b50-4355-497a-b78f-6c8e22a04442">&lt;/code&gt;</ept> property to the domain of your Azure Active Directory tenant.</target>
+        </trans-unit>
+        <trans-unit id="ffe1f6cc-7c98-4246-ad94-9737699820ba" xml:space="preserve">
+          <source>To find your domain, open your browser to the <bpt id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;linkText&gt;</bpt>Azure classic portal<ept id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;/linkText&gt;</ept><bpt id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;title&gt;</bpt><ept id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;/title&gt;</ept>, browse <bpt id="1ee5f53b-5564-48a0-bbd3-2595a8feb38c">&lt;strong&gt;</bpt>Active Directory<ept id="1ee5f53b-5564-48a0-bbd3-2595a8feb38c">&lt;/strong&gt;</ept>, and select the <bpt id="710db9df-e9f5-486d-8642-05863b306fde">&lt;strong&gt;</bpt>Domains<ept id="710db9df-e9f5-486d-8642-05863b306fde">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To find your domain, open your browser to the <bpt id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;linkText&gt;</bpt>Azure classic portal<ept id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;/linkText&gt;</ept><bpt id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;title&gt;</bpt><ept id="6c53a19c-6bc1-4bab-9bba-ea5d89767526">&lt;/title&gt;</ept>, browse <bpt id="1ee5f53b-5564-48a0-bbd3-2595a8feb38c">&lt;strong&gt;</bpt>Active Directory<ept id="1ee5f53b-5564-48a0-bbd3-2595a8feb38c">&lt;/strong&gt;</ept>, and select the <bpt id="710db9df-e9f5-486d-8642-05863b306fde">&lt;strong&gt;</bpt>Domains<ept id="710db9df-e9f5-486d-8642-05863b306fde">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="9eb058e9-fb5a-458c-9e39-be9e1fa48445" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="b757ae6c-1f77-42d6-a179-46211321f6a1" xml:space="preserve">
+          <source>If the API app can return a dynamic <bpt id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;linkText&gt;</bpt>Swagger<ept id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;/linkText&gt;</ept><bpt id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;title&gt;</bpt><ept id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;/title&gt;</ept> API definition, store the relative URL for a GET request that returns the API definition JSON in the <bpt id="49a0d6b7-17d2-444c-8046-218323bb30b8">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="49a0d6b7-17d2-444c-8046-218323bb30b8">&lt;/code&gt;</ept> property.</source>
+          <target state="new">If the API app can return a dynamic <bpt id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;linkText&gt;</bpt>Swagger<ept id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;/linkText&gt;</ept><bpt id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;title&gt;</bpt><ept id="d60e22aa-0022-4b57-9b06-3ae815109734">&lt;/title&gt;</ept> API definition, store the relative URL for a GET request that returns the API definition JSON in the <bpt id="49a0d6b7-17d2-444c-8046-218323bb30b8">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="49a0d6b7-17d2-444c-8046-218323bb30b8">&lt;/code&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="aa85a90e-603a-4714-9099-ac5720d87488" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="6a7b17f2-aae1-435c-a53e-69597122bcc9" xml:space="preserve">
+          <source><bpt id="088d0789-a560-4d00-ac9a-86598bf5c8b3">&lt;strong&gt;</bpt>Note:<ept id="088d0789-a560-4d00-ac9a-86598bf5c8b3">&lt;/strong&gt;</ept> If you are using Swashbuckle to generate a Swagger API definition, HTTP method overloads in your Web API controllers result in duplicate operation ids.</source>
+          <target state="new"><bpt id="088d0789-a560-4d00-ac9a-86598bf5c8b3">&lt;strong&gt;</bpt>Note:<ept id="088d0789-a560-4d00-ac9a-86598bf5c8b3">&lt;/strong&gt;</ept> If you are using Swashbuckle to generate a Swagger API definition, HTTP method overloads in your Web API controllers result in duplicate operation ids.</target>
+        </trans-unit>
+        <trans-unit id="8c4342d9-6c67-4454-b37a-3aed276adf8b" xml:space="preserve">
+          <source>For more information, see <bpt id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;linkText&gt;</bpt>Customize Swashbuckle-generated operation identifiers<ept id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;/linkText&gt;</ept><bpt id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;title&gt;</bpt><ept id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;linkText&gt;</bpt>Customize Swashbuckle-generated operation identifiers<ept id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;/linkText&gt;</ept><bpt id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;title&gt;</bpt><ept id="54318634-4728-4ef0-86cc-3415cabe52b7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b8412f80-fd9b-41a7-8210-4194fa6c8bfc" xml:space="preserve">
+          <source>To provide a static <bpt id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;linkText&gt;</bpt>Swagger<ept id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;/linkText&gt;</ept><bpt id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;title&gt;</bpt><ept id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;/title&gt;</ept> 2.0 API definition file, store the file in the <bpt id="f6ab401e-6d7e-4c68-b198-163338045f9e">&lt;em&gt;</bpt>Metadata<ept id="f6ab401e-6d7e-4c68-b198-163338045f9e">&lt;/em&gt;</ept> folder and name the file <bpt id="e20d26d4-404c-4832-b32e-6b741188c340">&lt;em&gt;</bpt>apiDefinition.swagger.json<ept id="e20d26d4-404c-4832-b32e-6b741188c340">&lt;/em&gt;</ept></source>
+          <target state="new">To provide a static <bpt id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;linkText&gt;</bpt>Swagger<ept id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;/linkText&gt;</ept><bpt id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;title&gt;</bpt><ept id="630145a7-f673-4bc4-9ec0-f08ce066bb6e">&lt;/title&gt;</ept> 2.0 API definition file, store the file in the <bpt id="f6ab401e-6d7e-4c68-b198-163338045f9e">&lt;em&gt;</bpt>Metadata<ept id="f6ab401e-6d7e-4c68-b198-163338045f9e">&lt;/em&gt;</ept> folder and name the file <bpt id="e20d26d4-404c-4832-b32e-6b741188c340">&lt;em&gt;</bpt>apiDefinition.swagger.json<ept id="e20d26d4-404c-4832-b32e-6b741188c340">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4252ce91-33fa-461a-82b0-eb94c5c3c93e" xml:space="preserve">
+          <source><bpt id="c9d2f97b-a9ad-415b-9bf4-aaf1c8bb728d">&lt;linkText&gt;</bpt><ept id="c9d2f97b-a9ad-415b-9bf4-aaf1c8bb728d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c9d2f97b-a9ad-415b-9bf4-aaf1c8bb728d">&lt;linkText&gt;</bpt><ept id="c9d2f97b-a9ad-415b-9bf4-aaf1c8bb728d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1917bf8d-b920-4f35-9f5e-501430bdb32f" xml:space="preserve">
+          <source>Leave <bpt id="00dcbd8d-2cbb-48bb-b9d6-ac9db2f6ade8">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="00dcbd8d-2cbb-48bb-b9d6-ac9db2f6ade8">&lt;/code&gt;</ept> out of the <bpt id="1fe87ec1-f673-4707-bd6d-3e5e4ed241eb">&lt;em&gt;</bpt>apiapp.json<ept id="1fe87ec1-f673-4707-bd6d-3e5e4ed241eb">&lt;/em&gt;</ept> file or set its value to null.</source>
+          <target state="new">Leave <bpt id="00dcbd8d-2cbb-48bb-b9d6-ac9db2f6ade8">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="00dcbd8d-2cbb-48bb-b9d6-ac9db2f6ade8">&lt;/code&gt;</ept> out of the <bpt id="1fe87ec1-f673-4707-bd6d-3e5e4ed241eb">&lt;em&gt;</bpt>apiapp.json<ept id="1fe87ec1-f673-4707-bd6d-3e5e4ed241eb">&lt;/em&gt;</ept> file or set its value to null.</target>
+        </trans-unit>
+        <trans-unit id="c3974629-b771-4f07-b7ce-95c783dbc96e" xml:space="preserve">
+          <source>If you include both an <bpt id="768085d6-9657-4db7-8727-da9343005898">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="768085d6-9657-4db7-8727-da9343005898">&lt;/code&gt;</ept> URL and an <bpt id="0fa812bc-2046-4ba1-a496-5ffb293df802">&lt;em&gt;</bpt>apiDefinition.swagger.json<ept id="0fa812bc-2046-4ba1-a496-5ffb293df802">&lt;/em&gt;</ept> file, the URL will take precedence and the file will be ignored.</source>
+          <target state="new">If you include both an <bpt id="768085d6-9657-4db7-8727-da9343005898">&lt;code&gt;</bpt>endpoints.apiDefinition<ept id="768085d6-9657-4db7-8727-da9343005898">&lt;/code&gt;</ept> URL and an <bpt id="0fa812bc-2046-4ba1-a496-5ffb293df802">&lt;em&gt;</bpt>apiDefinition.swagger.json<ept id="0fa812bc-2046-4ba1-a496-5ffb293df802">&lt;/em&gt;</ept> file, the URL will take precedence and the file will be ignored.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="07416c75-37b8-4972-b929-b3e385ae9284" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="07416c75-37b8-4972-b929-b3e385ae9284" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4bf1f352-b9a1-4984-b2c8-f45a7ba7912e">
+        <trans-unit id="4b424288-7dee-4a2f-ab4b-154a1ada687a" xml:space="preserve">
+          <source>Create and upload a Linux VHD in Azure</source>
+          <target state="new">Create and upload a Linux VHD in Azure</target>
+        </trans-unit>
+        <trans-unit id="3dc7fb8b-c566-4edc-9a64-110c13806186" xml:space="preserve">
+          <source>Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.</source>
+          <target state="new">Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.</target>
+        </trans-unit>
+        <trans-unit id="9e1c257a-613f-4f0d-a214-a257cf34bf4e" xml:space="preserve">
+          <source><bpt id="dacc395e-1751-480e-b266-bdf9e421cba3">&lt;strong&gt;</bpt>Important<ept id="dacc395e-1751-480e-b266-bdf9e421cba3">&lt;/strong&gt;</ept>: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the <bpt id="adda7128-e602-427c-831c-d19cb35f461e">&lt;linkText&gt;</bpt>endorsed distributions<ept id="adda7128-e602-427c-831c-d19cb35f461e">&lt;/linkText&gt;</ept><bpt id="adda7128-e602-427c-831c-d19cb35f461e">&lt;title&gt;</bpt><ept id="adda7128-e602-427c-831c-d19cb35f461e">&lt;/title&gt;</ept> is used.</source>
+          <target state="new"><bpt id="dacc395e-1751-480e-b266-bdf9e421cba3">&lt;strong&gt;</bpt>Important<ept id="dacc395e-1751-480e-b266-bdf9e421cba3">&lt;/strong&gt;</ept>: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the <bpt id="adda7128-e602-427c-831c-d19cb35f461e">&lt;linkText&gt;</bpt>endorsed distributions<ept id="adda7128-e602-427c-831c-d19cb35f461e">&lt;/linkText&gt;</ept><bpt id="adda7128-e602-427c-831c-d19cb35f461e">&lt;title&gt;</bpt><ept id="adda7128-e602-427c-831c-d19cb35f461e">&lt;/title&gt;</ept> is used.</target>
+        </trans-unit>
+        <trans-unit id="4bcef336-0285-4e75-af2d-09053e1dc8da" xml:space="preserve">
+          <source>All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.</source>
+          <target state="new">All Linux distributions that are provided in the Azure image gallery are endorsed distributions with the required configuration.</target>
+        </trans-unit>
+        <trans-unit id="a451b210-2f58-4bcd-8ada-933c5ac44fe7" xml:space="preserve">
+          <source><bpt id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;linkText&gt;</bpt>Linux on Azure - Endorsed Distributions<ept id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;/linkText&gt;</ept><bpt id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;title&gt;</bpt><ept id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;linkText&gt;</bpt>Linux on Azure - Endorsed Distributions<ept id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;/linkText&gt;</ept><bpt id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;title&gt;</bpt><ept id="e4ffb5cd-4839-4ab2-99e2-f8166be92c02">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b6994e0-eccf-4daf-ad6d-d4554eb7650a" xml:space="preserve">
+          <source><bpt id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;linkText&gt;</bpt>Support for Linux images in Microsoft Azure<ept id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;/linkText&gt;</ept><bpt id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;title&gt;</bpt><ept id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;linkText&gt;</bpt>Support for Linux images in Microsoft Azure<ept id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;/linkText&gt;</ept><bpt id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;title&gt;</bpt><ept id="cd8cc31a-5fdd-4f04-97e0-08b98def0e9b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b60b4c6c-c197-4e9e-a9ce-792a8447f493" xml:space="preserve">
+          <source>All distributions running on Azure will need to meet a number of prerequisites to have a chance to properly run on the platform.</source>
+          <target state="new">All distributions running on Azure will need to meet a number of prerequisites to have a chance to properly run on the platform.</target>
+        </trans-unit>
+        <trans-unit id="0754b21f-251c-4901-942b-d2d8eb71ea28" xml:space="preserve">
+          <source>This article is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your Linux system to ensure that it properly runs on the platform.</source>
+          <target state="new">This article is by no means comprehensive as every distribution is different; and it is quite possible that even if you meet all the criteria below you will still need to significantly tweak your Linux system to ensure that it properly runs on the platform.</target>
+        </trans-unit>
+        <trans-unit id="4eadc5c5-007d-4437-8ba7-237f9d0b670c" xml:space="preserve">
+          <source>It is for this reason that we recommend that you start with one of our <bpt id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;linkText&gt;</bpt>Linux on Azure Endorsed Distributions<ept id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;/linkText&gt;</ept><bpt id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;title&gt;</bpt><ept id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;/title&gt;</ept> when possible.</source>
+          <target state="new">It is for this reason that we recommend that you start with one of our <bpt id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;linkText&gt;</bpt>Linux on Azure Endorsed Distributions<ept id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;/linkText&gt;</ept><bpt id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;title&gt;</bpt><ept id="184499fc-536b-4fbd-8456-83d65aad6644">&lt;/title&gt;</ept> when possible.</target>
+        </trans-unit>
+        <trans-unit id="6ee49f4a-c334-485c-ae68-23ce2841ee01" xml:space="preserve">
+          <source>The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:</source>
+          <target state="new">The following articles will guide you through how to prepare the various endorsed Linux distributions that are supported on Azure:</target>
+        </trans-unit>
+        <trans-unit id="25a1cd27-6f44-401a-bd9b-8bce75b78c90" xml:space="preserve">
+          <source><bpt id="bbd0212f-e0b8-4f36-8004-b15a032531f5">&lt;strong&gt;</bpt>[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)<ept id="bbd0212f-e0b8-4f36-8004-b15a032531f5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bbd0212f-e0b8-4f36-8004-b15a032531f5">&lt;strong&gt;</bpt>[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)<ept id="bbd0212f-e0b8-4f36-8004-b15a032531f5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2b78bd50-d8c4-4f41-a90d-b02f369cf755" xml:space="preserve">
+          <source><bpt id="5b2cbc07-13e7-4b7c-ae0b-1c9991bd9124">&lt;strong&gt;</bpt>[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)<ept id="5b2cbc07-13e7-4b7c-ae0b-1c9991bd9124">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="5b2cbc07-13e7-4b7c-ae0b-1c9991bd9124">&lt;strong&gt;</bpt>[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)<ept id="5b2cbc07-13e7-4b7c-ae0b-1c9991bd9124">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b838accc-61a9-43c9-af3d-6f0fbaa18849" xml:space="preserve">
+          <source><bpt id="91ed325c-3637-4dd0-a377-46567bceb667">&lt;strong&gt;</bpt>[SLES &amp; openSUSE](../virtual-machines-linux-create-upload-vhd-suse)<ept id="91ed325c-3637-4dd0-a377-46567bceb667">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="91ed325c-3637-4dd0-a377-46567bceb667">&lt;strong&gt;</bpt>[SLES &amp; openSUSE](../virtual-machines-linux-create-upload-vhd-suse)<ept id="91ed325c-3637-4dd0-a377-46567bceb667">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="19b1a212-8579-46e5-8279-85f0b3144785" xml:space="preserve">
+          <source><bpt id="3b87bbfa-d8e1-408e-bad6-fa7caf3485fe">&lt;strong&gt;</bpt>[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)<ept id="3b87bbfa-d8e1-408e-bad6-fa7caf3485fe">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3b87bbfa-d8e1-408e-bad6-fa7caf3485fe">&lt;strong&gt;</bpt>[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)<ept id="3b87bbfa-d8e1-408e-bad6-fa7caf3485fe">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71a2f819-733a-44c1-93ee-6523e00bb097" xml:space="preserve">
+          <source>The rest of this article will focus on general guidance for running your Linux distribution on Azure.</source>
+          <target state="new">The rest of this article will focus on general guidance for running your Linux distribution on Azure.</target>
+        </trans-unit>
+        <trans-unit id="67425dbe-d09a-49fa-80c2-b7dc546bb100" xml:space="preserve">
+          <source>The newer VHDX format is not supported in Azure.</source>
+          <target state="new">The newer VHDX format is not supported in Azure.</target>
+        </trans-unit>
+        <trans-unit id="7e06621b-24c5-4882-83b4-715b4f143399" xml:space="preserve">
+          <source>You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.</source>
+          <target state="new">You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="0525c893-105e-4d61-919e-d9ed0d7ba4e2" xml:space="preserve">
+          <source>When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations).</source>
+          <target state="new">When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations).</target>
+        </trans-unit>
+        <trans-unit id="85720d9a-8344-481c-8252-35ca1c0344ff" xml:space="preserve">
+          <source>This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</source>
+          <target state="new">This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="574b70b0-1975-45c5-b61c-cdbb11adeaf3" xml:space="preserve">
+          <source>LVM or <bpt id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;linkText&gt;</bpt>RAID<ept id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;/linkText&gt;</ept><bpt id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;title&gt;</bpt><ept id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;/title&gt;</ept> may be used on data disks if preferred.</source>
+          <target state="new">LVM or <bpt id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;linkText&gt;</bpt>RAID<ept id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;/linkText&gt;</ept><bpt id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;title&gt;</bpt><ept id="79e0c713-67ba-49b6-97e3-1a6f7302ed2f">&lt;/title&gt;</ept> may be used on data disks if preferred.</target>
+        </trans-unit>
+        <trans-unit id="0a9a57aa-299b-42eb-9298-db30aadb12c7" xml:space="preserve">
+          <source>NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37.</source>
+          <target state="new">NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37.</target>
+        </trans-unit>
+        <trans-unit id="ec987d73-e072-4c17-96a9-20e2eee173c0" xml:space="preserve">
+          <source>This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel.</source>
+          <target state="new">This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel.</target>
+        </trans-unit>
+        <trans-unit id="f2bae54a-29c5-446d-8369-3497e4d2d5c1" xml:space="preserve">
+          <source>Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel.</source>
+          <target state="new">Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel.</target>
+        </trans-unit>
+        <trans-unit id="d725823a-df5c-4a69-9729-285c40508906" xml:space="preserve">
+          <source>Do not configure a swap partition on the OS disk.</source>
+          <target state="new">Do not configure a swap partition on the OS disk.</target>
+        </trans-unit>
+        <trans-unit id="13c322f0-3fe4-49c7-89fd-633d68c2b8bd" xml:space="preserve">
+          <source>The Linux agent can be configured to create a swap file on the temporary resource disk.</source>
+          <target state="new">The Linux agent can be configured to create a swap file on the temporary resource disk.</target>
+        </trans-unit>
+        <trans-unit id="67047b54-0912-4270-8335-bbffecbf56b2" xml:space="preserve">
+          <source>More information about this can be found in the steps below.</source>
+          <target state="new">More information about this can be found in the steps below.</target>
+        </trans-unit>
+        <trans-unit id="b2a0c5b5-0270-4a03-813d-4ce6f00a0ac0" xml:space="preserve">
+          <source>All of the VHDs must have sizes that are multiples of 1 MB.</source>
+          <target state="new">All of the VHDs must have sizes that are multiples of 1 MB.</target>
+        </trans-unit>
+        <trans-unit id="3f151895-ad7c-4ef8-8142-d20a86acf183" xml:space="preserve">
+          <source>In some cases, Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running an a Hyper-V environment.</source>
+          <target state="new">In some cases, Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs) unless it detects that it is running an a Hyper-V environment.</target>
+        </trans-unit>
+        <trans-unit id="3b240224-9e4e-412f-a437-9f4b7f4c569c" xml:space="preserve">
+          <source>When using a different virtualization system (i.e. Virtualbox, KVM, etc.)</source>
+          <target state="new">When using a different virtualization system (i.e. Virtualbox, KVM, etc.)</target>
+        </trans-unit>
+        <trans-unit id="95f7b3f6-cfd0-4606-959f-22b8d22d02c2" xml:space="preserve">
+          <source>to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the <bpt id="9ab8a3f9-7da4-499e-90df-71395f31cd6e">&lt;code&gt;</bpt>hv_vmbus<ept id="9ab8a3f9-7da4-499e-90df-71395f31cd6e">&lt;/code&gt;</ept> and <bpt id="9d11b99d-0fd3-4294-84d5-d3eab7b87bd5">&lt;code&gt;</bpt>hv_storvsc<ept id="9d11b99d-0fd3-4294-84d5-d3eab7b87bd5">&lt;/code&gt;</ept> kernel modules are available on the initial ramdisk.</source>
+          <target state="new">to prepare your Linux image, you may need to rebuild the initrd to ensure that at least the <bpt id="9ab8a3f9-7da4-499e-90df-71395f31cd6e">&lt;code&gt;</bpt>hv_vmbus<ept id="9ab8a3f9-7da4-499e-90df-71395f31cd6e">&lt;/code&gt;</ept> and <bpt id="9d11b99d-0fd3-4294-84d5-d3eab7b87bd5">&lt;code&gt;</bpt>hv_storvsc<ept id="9d11b99d-0fd3-4294-84d5-d3eab7b87bd5">&lt;/code&gt;</ept> kernel modules are available on the initial ramdisk.</target>
+        </trans-unit>
+        <trans-unit id="6ba1fafe-b477-441c-b539-51bb2cdf69f8" xml:space="preserve">
+          <source>This is a known issue at least on systems based on the upstream Red Hat distribution.</source>
+          <target state="new">This is a known issue at least on systems based on the upstream Red Hat distribution.</target>
+        </trans-unit>
+        <trans-unit id="2f126d65-b445-44e7-8273-0f687b8480d7" xml:space="preserve">
+          <source>The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution.</source>
+          <target state="new">The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution.</target>
+        </trans-unit>
+        <trans-unit id="d9481c32-2382-40e8-a077-0f2f12f336cd" xml:space="preserve">
+          <source>Please consult your distribution's documentation or support for the proper procedure.</source>
+          <target state="new">Please consult your distribution's documentation or support for the proper procedure.</target>
+        </trans-unit>
+        <trans-unit id="65f3ea65-8bc2-4b6c-8855-13209f6f55c4" xml:space="preserve">
+          <source>Here is one example for how to rebuild the initrd using the <bpt id="c93daae2-022e-4440-9506-d11feab269d3">&lt;code&gt;</bpt>mkinitrd<ept id="c93daae2-022e-4440-9506-d11feab269d3">&lt;/code&gt;</ept> utility:</source>
+          <target state="new">Here is one example for how to rebuild the initrd using the <bpt id="c93daae2-022e-4440-9506-d11feab269d3">&lt;code&gt;</bpt>mkinitrd<ept id="c93daae2-022e-4440-9506-d11feab269d3">&lt;/code&gt;</ept> utility:</target>
+        </trans-unit>
+        <trans-unit id="0a98c77d-c474-450d-9bc7-f51e933f9414" xml:space="preserve">
+          <source>First, back up the existing initrd image:</source>
+          <target state="new">First, back up the existing initrd image:</target>
+        </trans-unit>
+        <trans-unit id="e0e23800-91d7-491e-8625-0e2d37fcc9f9" xml:space="preserve">
+          <source>Next, rebuild the initrd with the <bpt id="17caa671-33f3-45db-ad70-f2a651684328">&lt;code&gt;</bpt>hv_vmbus<ept id="17caa671-33f3-45db-ad70-f2a651684328">&lt;/code&gt;</ept> and <bpt id="5eb72785-6193-4d06-81bb-5cbfb5c409d9">&lt;code&gt;</bpt>hv_storvsc<ept id="5eb72785-6193-4d06-81bb-5cbfb5c409d9">&lt;/code&gt;</ept> kernel modules:</source>
+          <target state="new">Next, rebuild the initrd with the <bpt id="17caa671-33f3-45db-ad70-f2a651684328">&lt;code&gt;</bpt>hv_vmbus<ept id="17caa671-33f3-45db-ad70-f2a651684328">&lt;/code&gt;</ept> and <bpt id="5eb72785-6193-4d06-81bb-5cbfb5c409d9">&lt;code&gt;</bpt>hv_storvsc<ept id="5eb72785-6193-4d06-81bb-5cbfb5c409d9">&lt;/code&gt;</ept> kernel modules:</target>
+        </trans-unit>
+        <trans-unit id="96f2a0f6-bb9b-4f9a-a037-877155d37f3c" xml:space="preserve">
+          <source>VHD images on Azure must have a virtual size aligned to 1MB.</source>
+          <target state="new">VHD images on Azure must have a virtual size aligned to 1MB.</target>
+        </trans-unit>
+        <trans-unit id="ab6ccb71-a74d-48d1-8b3e-a5f93f1240a0" xml:space="preserve">
+          <source>Typically, VHDs created using Hyper-V should already be aligned correctly.</source>
+          <target state="new">Typically, VHDs created using Hyper-V should already be aligned correctly.</target>
+        </trans-unit>
+        <trans-unit id="8bbd0b19-8f5b-4f23-b4d3-0adcdffe7742" xml:space="preserve">
+          <source>If the VHD is not aligned correctly then you may receive an error message similar to the following when you attempt to create an <bpt id="c511e91d-bd51-4d99-a497-2ed166da2569">&lt;em&gt;</bpt>image<ept id="c511e91d-bd51-4d99-a497-2ed166da2569">&lt;/em&gt;</ept> from your VHD:</source>
+          <target state="new">If the VHD is not aligned correctly then you may receive an error message similar to the following when you attempt to create an <bpt id="c511e91d-bd51-4d99-a497-2ed166da2569">&lt;em&gt;</bpt>image<ept id="c511e91d-bd51-4d99-a497-2ed166da2569">&lt;/em&gt;</ept> from your VHD:</target>
+        </trans-unit>
+        <trans-unit id="12b26832-e116-43f4-b434-d43150d3873f" xml:space="preserve">
+          <source>To remedy this you can resize the VM using either the Hyper-V Manager console or the <bpt id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;linkText&gt;</bpt>Resize-VHD<ept id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;/linkText&gt;</ept><bpt id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;title&gt;</bpt><ept id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;/title&gt;</ept> Powershell cmdlet.</source>
+          <target state="new">To remedy this you can resize the VM using either the Hyper-V Manager console or the <bpt id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;linkText&gt;</bpt>Resize-VHD<ept id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;/linkText&gt;</ept><bpt id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;title&gt;</bpt><ept id="b15501f6-4a6f-40f3-ba2d-1e112851a8a1">&lt;/title&gt;</ept> Powershell cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="0b8d7f29-4b34-44a3-9e2e-ecedef961424" xml:space="preserve">
+          <source>If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:</source>
+          <target state="new">If you are not running in a Windows environment then it is recommended to use qemu-img to convert (if needed) and resize the VHD:</target>
+        </trans-unit>
+        <trans-unit id="166e3d6d-53a9-4990-8ec9-0c7bb4189882" xml:space="preserve">
+          <source>Resizing the VHD directly using tools such as <bpt id="b21ac780-23af-447c-a573-20600613ca01">&lt;code&gt;</bpt>qemu-img<ept id="b21ac780-23af-447c-a573-20600613ca01">&lt;/code&gt;</ept> or <bpt id="2f91fb2c-ddd0-41dd-96b1-7e77f62a8839">&lt;code&gt;</bpt>vbox-manage<ept id="2f91fb2c-ddd0-41dd-96b1-7e77f62a8839">&lt;/code&gt;</ept> may result in an unbootable VHD.</source>
+          <target state="new">Resizing the VHD directly using tools such as <bpt id="b21ac780-23af-447c-a573-20600613ca01">&lt;code&gt;</bpt>qemu-img<ept id="b21ac780-23af-447c-a573-20600613ca01">&lt;/code&gt;</ept> or <bpt id="2f91fb2c-ddd0-41dd-96b1-7e77f62a8839">&lt;code&gt;</bpt>vbox-manage<ept id="2f91fb2c-ddd0-41dd-96b1-7e77f62a8839">&lt;/code&gt;</ept> may result in an unbootable VHD.</target>
+        </trans-unit>
+        <trans-unit id="c672f4ca-4342-49a5-bb79-08226368e76f" xml:space="preserve">
+          <source>So it is recommended to first convert the VHD to a RAW disk image.</source>
+          <target state="new">So it is recommended to first convert the VHD to a RAW disk image.</target>
+        </trans-unit>
+        <trans-unit id="fd08e81c-1e47-499b-9aed-c773eaef6e3b" xml:space="preserve">
+          <source>If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:</source>
+          <target state="new">If the VM image was already created as RAW disk image (the default for some Hypervisors such as KVM) then you may skip this step:</target>
+        </trans-unit>
+        <trans-unit id="973e1eef-b09b-4f7f-833a-9b8e0c839bf9" xml:space="preserve">
+          <source>Calculate the required size of the disk image to ensure that the virtual size is aligned to 1MB.</source>
+          <target state="new">Calculate the required size of the disk image to ensure that the virtual size is aligned to 1MB.</target>
+        </trans-unit>
+        <trans-unit id="4ee04aa2-fb12-43b9-8425-d8245466ac8d" xml:space="preserve">
+          <source>The following bash shell script can assist with this.</source>
+          <target state="new">The following bash shell script can assist with this.</target>
+        </trans-unit>
+        <trans-unit id="aeb9c179-3b8e-4915-b736-f65b3008be02" xml:space="preserve">
+          <source>The script uses "<bpt id="d81fbadf-8545-4ef7-ad1e-99b4cb7cb91f">&lt;code&gt;</bpt>qemu-img info<ept id="d81fbadf-8545-4ef7-ad1e-99b4cb7cb91f">&lt;/code&gt;</ept>" to determine the virtual size of the disk image and then calculates the size to the next 1MB:</source>
+          <target state="new">The script uses "<bpt id="d81fbadf-8545-4ef7-ad1e-99b4cb7cb91f">&lt;code&gt;</bpt>qemu-img info<ept id="d81fbadf-8545-4ef7-ad1e-99b4cb7cb91f">&lt;/code&gt;</ept>" to determine the virtual size of the disk image and then calculates the size to the next 1MB:</target>
+        </trans-unit>
+        <trans-unit id="c673372d-37f6-421a-8e83-d132e0c672d5" xml:space="preserve">
+          <source>Resize the raw disk using $rounded_size as set in the above script:</source>
+          <target state="new">Resize the raw disk using $rounded_size as set in the above script:</target>
+        </trans-unit>
+        <trans-unit id="e900cab2-95bd-4ac2-9853-06dc278740e8" xml:space="preserve">
+          <source>Now, convert the RAW disk back to a fixed-size VHD:</source>
+          <target state="new">Now, convert the RAW disk back to a fixed-size VHD:</target>
+        </trans-unit>
+        <trans-unit id="fb6f3fce-b42f-4918-abbf-26ae49208fba" xml:space="preserve">
+          <source>The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel.</source>
+          <target state="new">The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel.</target>
+        </trans-unit>
+        <trans-unit id="fd42c9de-09c3-408b-9a95-db197277c0dc" xml:space="preserve">
+          <source>Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.</source>
+          <target state="new">Many distributions that include a recent Linux kernel version (i.e. 3.x) will have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.</target>
+        </trans-unit>
+        <trans-unit id="470f9ab2-7288-4bb5-af04-87e774a1e507" xml:space="preserve">
+          <source>These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an <bpt id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;linkText&gt;</bpt>endorsed distribution<ept id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;/linkText&gt;</ept><bpt id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;title&gt;</bpt><ept id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;/title&gt;</ept> that will include these fixes and updates.</source>
+          <target state="new">These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible it is recommended to run an <bpt id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;linkText&gt;</bpt>endorsed distribution<ept id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;/linkText&gt;</ept><bpt id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;title&gt;</bpt><ept id="01f81b79-23dc-41a9-a73e-2479ea338026">&lt;/title&gt;</ept> that will include these fixes and updates.</target>
+        </trans-unit>
+        <trans-unit id="57b18a29-ee01-4b1f-8ed8-cf88c5f573ea" xml:space="preserve">
+          <source>If you are running a variant of Red Hat Enterprise Linux versions <bpt id="b7de8336-6d7b-488b-b373-73b20569b28c">&lt;strong&gt;</bpt>6.0-6.3<ept id="b7de8336-6d7b-488b-b373-73b20569b28c">&lt;/strong&gt;</ept>, then you will need to install the latest LIS drivers for Hyper-V. The drivers can be found <bpt id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;linkText&gt;</bpt>at this location<ept id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;/linkText&gt;</ept><bpt id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;title&gt;</bpt><ept id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;/title&gt;</ept>. As of RHEL <bpt id="8aca1f45-8c1f-4a22-8b7e-38fabcabf885">&lt;strong&gt;</bpt>6.4+<ept id="8aca1f45-8c1f-4a22-8b7e-38fabcabf885">&lt;/strong&gt;</ept> (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed to run those systems on Azure.</source>
+          <target state="new">If you are running a variant of Red Hat Enterprise Linux versions <bpt id="b7de8336-6d7b-488b-b373-73b20569b28c">&lt;strong&gt;</bpt>6.0-6.3<ept id="b7de8336-6d7b-488b-b373-73b20569b28c">&lt;/strong&gt;</ept>, then you will need to install the latest LIS drivers for Hyper-V. The drivers can be found <bpt id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;linkText&gt;</bpt>at this location<ept id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;/linkText&gt;</ept><bpt id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;title&gt;</bpt><ept id="8f66b637-81b0-4e12-a02f-f2bc7637ac8e">&lt;/title&gt;</ept>. As of RHEL <bpt id="8aca1f45-8c1f-4a22-8b7e-38fabcabf885">&lt;strong&gt;</bpt>6.4+<ept id="8aca1f45-8c1f-4a22-8b7e-38fabcabf885">&lt;/strong&gt;</ept> (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed to run those systems on Azure.</target>
+        </trans-unit>
+        <trans-unit id="d8161ad2-2a1e-430f-95f8-929ac059fba5" xml:space="preserve">
+          <source>If a custom kernel is required, it is recommended to use a more recent kernel version (i.e. <bpt id="cab51c1f-5a64-4ce3-9eec-9b4f386c244e">&lt;strong&gt;</bpt>3.8+<ept id="cab51c1f-5a64-4ce3-9eec-9b4f386c244e">&lt;/strong&gt;</ept>).</source>
+          <target state="new">If a custom kernel is required, it is recommended to use a more recent kernel version (i.e. <bpt id="cab51c1f-5a64-4ce3-9eec-9b4f386c244e">&lt;strong&gt;</bpt>3.8+<ept id="cab51c1f-5a64-4ce3-9eec-9b4f386c244e">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="525da194-8376-4d19-9af1-c955a0b4c9dd" xml:space="preserve">
+          <source>For those distributions or vendors who maintain their own kernel, some effort will be required to regularly backport the LIS drivers from the upstream kernel to your custom kernel.</source>
+          <target state="new">For those distributions or vendors who maintain their own kernel, some effort will be required to regularly backport the LIS drivers from the upstream kernel to your custom kernel.</target>
+        </trans-unit>
+        <trans-unit id="81653c52-d9ff-4f31-a240-06d4de860315" xml:space="preserve">
+          <source>Even if you are already running a relatively recent kernel version, it is highly recommended to keep track of any upstream fixes in the LIS drivers and backport those as needed.</source>
+          <target state="new">Even if you are already running a relatively recent kernel version, it is highly recommended to keep track of any upstream fixes in the LIS drivers and backport those as needed.</target>
+        </trans-unit>
+        <trans-unit id="a400ce0e-1826-4307-b9be-3fa0fa24d98a" xml:space="preserve">
+          <source>The location of the LIS driver source files is available in the <bpt id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;linkText&gt;</bpt>MAINTAINERS<ept id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;/linkText&gt;</ept><bpt id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;title&gt;</bpt><ept id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;/title&gt;</ept> file in the Linux kernel source tree:</source>
+          <target state="new">The location of the LIS driver source files is available in the <bpt id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;linkText&gt;</bpt>MAINTAINERS<ept id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;/linkText&gt;</ept><bpt id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;title&gt;</bpt><ept id="4591c3bc-f02e-4978-aa4e-5c2ec5618078">&lt;/title&gt;</ept> file in the Linux kernel source tree:</target>
+        </trans-unit>
+        <trans-unit id="fa310586-2fa9-49b2-8451-88d337b3ea6f" xml:space="preserve">
+          <source>At a very minimum, the absence of the following patches have been known to cause problems on Azure and so these must be included in the kernel.</source>
+          <target state="new">At a very minimum, the absence of the following patches have been known to cause problems on Azure and so these must be included in the kernel.</target>
+        </trans-unit>
+        <trans-unit id="93a79b0e-123d-43b6-b83f-3c35e2bcd2bb" xml:space="preserve">
+          <source>This list is by no means exhaustive or complete for all distributions:</source>
+          <target state="new">This list is by no means exhaustive or complete for all distributions:</target>
+        </trans-unit>
+        <trans-unit id="dd86834e-eef7-4735-bc59-378da763e8ea" xml:space="preserve">
+          <source>[ata<bpt id="51cd3663-92b2-4c29-923a-13792ae2733f">&lt;em&gt;</bpt>piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata<ept id="51cd3663-92b2-4c29-923a-13792ae2733f">&lt;/em&gt;</ept>piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)</source>
+          <target state="new">[ata<bpt id="51cd3663-92b2-4c29-923a-13792ae2733f">&lt;em&gt;</bpt>piix: defer disks to the Hyper-V drivers by default](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata<ept id="51cd3663-92b2-4c29-923a-13792ae2733f">&lt;/em&gt;</ept>piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)</target>
+        </trans-unit>
+        <trans-unit id="cbb745c4-1821-4e89-9276-fda39da52d17" xml:space="preserve">
+          <source><bpt id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;linkText&gt;</bpt>storvsc: Account for in-transit packets in the RESET path<ept id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;/linkText&gt;</ept><bpt id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;title&gt;</bpt><ept id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;linkText&gt;</bpt>storvsc: Account for in-transit packets in the RESET path<ept id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;/linkText&gt;</ept><bpt id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;title&gt;</bpt><ept id="642a3ddb-16c5-45d3-a9c1-c138b15e9541">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d5ed17a-cf67-401d-966f-557b6d2b08ad" xml:space="preserve">
+          <source>[storvsc: avoid usage of WRITE<bpt id="88672eca-e87d-4ea8-8606-deddb0f4e2f6">&lt;em&gt;</bpt>SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc<ept id="88672eca-e87d-4ea8-8606-deddb0f4e2f6">&lt;/em&gt;</ept>drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)</source>
+          <target state="new">[storvsc: avoid usage of WRITE<bpt id="88672eca-e87d-4ea8-8606-deddb0f4e2f6">&lt;em&gt;</bpt>SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc<ept id="88672eca-e87d-4ea8-8606-deddb0f4e2f6">&lt;/em&gt;</ept>drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)</target>
+        </trans-unit>
+        <trans-unit id="9cc76f08-2504-4f01-aa52-a89eaeeed384" xml:space="preserve">
+          <source><bpt id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;linkText&gt;</bpt>storvsc: Disable WRITE SAME for RAID and virtual host adapter drivers<ept id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;/linkText&gt;</ept><bpt id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;title&gt;</bpt><ept id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;linkText&gt;</bpt>storvsc: Disable WRITE SAME for RAID and virtual host adapter drivers<ept id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;/linkText&gt;</ept><bpt id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;title&gt;</bpt><ept id="d46d046f-33df-475f-84b8-dbdabfb74d3e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eef1d4f1-e4ca-4b54-80ec-e7f1c01bccd9" xml:space="preserve">
+          <source><bpt id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;linkText&gt;</bpt>storvsc: NULL pointer dereference fix<ept id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;/linkText&gt;</ept><bpt id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;title&gt;</bpt><ept id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;linkText&gt;</bpt>storvsc: NULL pointer dereference fix<ept id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;/linkText&gt;</ept><bpt id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;title&gt;</bpt><ept id="a4eca5e1-5ff5-4e47-bf6e-fb4331deca6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="33519208-e4ca-499f-b9fc-c4e8402f11e7" xml:space="preserve">
+          <source><bpt id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;linkText&gt;</bpt>storvsc: ring buffer failures may result in I/O freeze<ept id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;/linkText&gt;</ept><bpt id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;title&gt;</bpt><ept id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;linkText&gt;</bpt>storvsc: ring buffer failures may result in I/O freeze<ept id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;/linkText&gt;</ept><bpt id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;title&gt;</bpt><ept id="ac8ff9b8-ae9c-4608-bffc-ee2bbcdd8b77">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd454736-a17c-4287-94fe-7f27fd3902ba" xml:space="preserve">
+          <source>The <bpt id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;linkText&gt;</bpt>Azure Linux Agent<ept id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;/linkText&gt;</ept><bpt id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;title&gt;</bpt><ept id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;/title&gt;</ept> (waagent) is required to properly provision a Linux virtual machine in Azure.</source>
+          <target state="new">The <bpt id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;linkText&gt;</bpt>Azure Linux Agent<ept id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;/linkText&gt;</ept><bpt id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;title&gt;</bpt><ept id="221dabff-218c-4921-b8cc-edd391f203ca">&lt;/title&gt;</ept> (waagent) is required to properly provision a Linux virtual machine in Azure.</target>
+        </trans-unit>
+        <trans-unit id="e4579487-8c15-4358-8f6a-5455a2a0be66" xml:space="preserve">
+          <source>You can get the latest version, file issues or submit pull requests at the <bpt id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;linkText&gt;</bpt>Linux Agent GitHub repo<ept id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;/linkText&gt;</ept><bpt id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;title&gt;</bpt><ept id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get the latest version, file issues or submit pull requests at the <bpt id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;linkText&gt;</bpt>Linux Agent GitHub repo<ept id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;/linkText&gt;</ept><bpt id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;title&gt;</bpt><ept id="aa3c4d01-55eb-4752-a232-271702ee761e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3af62978-3e97-4af9-a454-82290b682875" xml:space="preserve">
+          <source>The Linux agent is released under the Apache 2.0 license.</source>
+          <target state="new">The Linux agent is released under the Apache 2.0 license.</target>
+        </trans-unit>
+        <trans-unit id="13ccc150-07b9-44a2-9900-da56b50f4b13" xml:space="preserve">
+          <source>Many distributions already provide RPM or deb packages for the agent, and so in some cases this can be installed and updated with little effort.</source>
+          <target state="new">Many distributions already provide RPM or deb packages for the agent, and so in some cases this can be installed and updated with little effort.</target>
+        </trans-unit>
+        <trans-unit id="a54d3a25-2527-41cf-9d9f-864a8054a324" xml:space="preserve">
+          <source>The Azure Linux Agent requires Python v2.6+.</source>
+          <target state="new">The Azure Linux Agent requires Python v2.6+.</target>
+        </trans-unit>
+        <trans-unit id="cf2bdfe9-3c94-4764-b4af-ca861c151a06" xml:space="preserve">
+          <source>The agent also requires the python-pyasn1 module.</source>
+          <target state="new">The agent also requires the python-pyasn1 module.</target>
+        </trans-unit>
+        <trans-unit id="75cf1fa4-4fcd-4e2e-9b5c-771fa0d2f999" xml:space="preserve">
+          <source>Most distributions provide this as a separate package that can be installed.</source>
+          <target state="new">Most distributions provide this as a separate package that can be installed.</target>
+        </trans-unit>
+        <trans-unit id="eee0f82d-20ee-4a99-b0ac-5c7a2178edfb" xml:space="preserve">
+          <source>In some cases the Azure Linux Agent may not be compatible with NetworkManager.</source>
+          <target state="new">In some cases the Azure Linux Agent may not be compatible with NetworkManager.</target>
+        </trans-unit>
+        <trans-unit id="36da978c-11dc-46f4-b2d0-13069baa5c2e" xml:space="preserve">
+          <source>Many of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package, and thus will uninstall NetworkManager when you install the Linux agent package.</source>
+          <target state="new">Many of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package, and thus will uninstall NetworkManager when you install the Linux agent package.</target>
+        </trans-unit>
+        <trans-unit id="de95e325-74e8-4505-84f9-6f59b440c090" xml:space="preserve">
+          <source>Modify the kernel boot line in GRUB or GRUB2 to include the following parameters.</source>
+          <target state="new">Modify the kernel boot line in GRUB or GRUB2 to include the following parameters.</target>
+        </trans-unit>
+        <trans-unit id="eca10b50-1334-4a7c-bda3-a33549ca2a1b" xml:space="preserve">
+          <source>This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:</source>
+          <target state="new">This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues:</target>
+        </trans-unit>
+        <trans-unit id="16cb73d8-db06-4649-adf2-4680fdfb5413" xml:space="preserve">
+          <source>This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</source>
+          <target state="new">This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.</target>
+        </trans-unit>
+        <trans-unit id="31a52902-eb04-44bf-a8d3-e38e63b5a0c8" xml:space="preserve">
+          <source>In addition to the above, it is recommended to <bpt id="c75ae8d9-1a36-43fe-8e84-d14efa4cb820">&lt;em&gt;</bpt>remove<ept id="c75ae8d9-1a36-43fe-8e84-d14efa4cb820">&lt;/em&gt;</ept> the following parameters if they exist:</source>
+          <target state="new">In addition to the above, it is recommended to <bpt id="c75ae8d9-1a36-43fe-8e84-d14efa4cb820">&lt;em&gt;</bpt>remove<ept id="c75ae8d9-1a36-43fe-8e84-d14efa4cb820">&lt;/em&gt;</ept> the following parameters if they exist:</target>
+        </trans-unit>
+        <trans-unit id="8926ae9e-b557-4eb2-a539-a1b68a4b16b5" xml:space="preserve">
+          <source>Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</source>
+          <target state="new">Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.</target>
+        </trans-unit>
+        <trans-unit id="8aa297f2-6d71-4a33-9185-f0b2bd655ebc" xml:space="preserve">
+          <source>The <bpt id="fe59b996-7e5e-4c1c-bc48-9918432b66ea">&lt;code&gt;</bpt>crashkernel<ept id="fe59b996-7e5e-4c1c-bc48-9918432b66ea">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.</source>
+          <target state="new">The <bpt id="fe59b996-7e5e-4c1c-bc48-9918432b66ea">&lt;code&gt;</bpt>crashkernel<ept id="fe59b996-7e5e-4c1c-bc48-9918432b66ea">&lt;/code&gt;</ept> option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.</target>
+        </trans-unit>
+        <trans-unit id="5198b19f-4636-4b01-b1cc-6c940751bdf6" xml:space="preserve">
+          <source>Installing the Azure Linux Agent</source>
+          <target state="new">Installing the Azure Linux Agent</target>
+        </trans-unit>
+        <trans-unit id="fc025849-ad20-4c21-8a26-51e9d72d1645" xml:space="preserve">
+          <source>The Azure Linux Agent is required for provisioning a Linux image on Azure.</source>
+          <target state="new">The Azure Linux Agent is required for provisioning a Linux image on Azure.</target>
+        </trans-unit>
+        <trans-unit id="4fe2d5a8-f3c6-43c1-bc54-88ea3a076e4c" xml:space="preserve">
+          <source>Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').</source>
+          <target state="new">Many distributions provide the agent as an RPM or Deb package (the package is typically called 'WALinuxAgent' or 'walinuxagent').</target>
+        </trans-unit>
+        <trans-unit id="c17849f9-3d0e-4990-be82-8b958b1aafb8" xml:space="preserve">
+          <source>The agent can also be installed manually by following the steps in the <bpt id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;linkText&gt;</bpt>Linux Agent Guide<ept id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;/linkText&gt;</ept><bpt id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;title&gt;</bpt><ept id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;/title&gt;</ept>.</source>
+          <target state="new">The agent can also be installed manually by following the steps in the <bpt id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;linkText&gt;</bpt>Linux Agent Guide<ept id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;/linkText&gt;</ept><bpt id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;title&gt;</bpt><ept id="cf9ad7c6-0508-488f-801b-ad675559bed1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dd6d0d1-e9f7-4f82-8640-e57a91d7807b" xml:space="preserve">
+          <source>Ensure that the SSH server is installed and configured to start at boot time.</source>
+          <target state="new">Ensure that the SSH server is installed and configured to start at boot time.</target>
+        </trans-unit>
+        <trans-unit id="de13aa3d-badf-494e-bc6e-c8f393e269cd" xml:space="preserve">
+          <source>This is usually the default.</source>
+          <target state="new">This is usually the default.</target>
+        </trans-unit>
+        <trans-unit id="29bdd71b-47db-4294-8014-86b1e09a6809" xml:space="preserve">
+          <source>Do not create swap space on the OS disk</source>
+          <target state="new">Do not create swap space on the OS disk</target>
+        </trans-unit>
+        <trans-unit id="8a0f3d2a-f568-454e-912f-b3244cd81803" xml:space="preserve">
+          <source>The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.</source>
+          <target state="new">The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure.</target>
+        </trans-unit>
+        <trans-unit id="6844041f-b11a-4670-8520-94dd20aeeabe" xml:space="preserve">
+          <source>Note that the local resource disk is a <bpt id="7488ebda-f819-4e53-869b-df105c945a3f">&lt;em&gt;</bpt>temporary<ept id="7488ebda-f819-4e53-869b-df105c945a3f">&lt;/em&gt;</ept> disk, and might be emptied when the VM is deprovisioned.</source>
+          <target state="new">Note that the local resource disk is a <bpt id="7488ebda-f819-4e53-869b-df105c945a3f">&lt;em&gt;</bpt>temporary<ept id="7488ebda-f819-4e53-869b-df105c945a3f">&lt;/em&gt;</ept> disk, and might be emptied when the VM is deprovisioned.</target>
+        </trans-unit>
+        <trans-unit id="00377df4-a2b6-4708-87e7-b8771b1db4ad" xml:space="preserve">
+          <source>After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</source>
+          <target state="new">After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:</target>
+        </trans-unit>
+        <trans-unit id="29b5f534-9f6b-4339-9a89-65e7b558159a" xml:space="preserve">
+          <source>In "/etc/sudoers", you must remove or comment out the following lines, if they exist:</source>
+          <target state="new">In "/etc/sudoers", you must remove or comment out the following lines, if they exist:</target>
+        </trans-unit>
+        <trans-unit id="609481a1-8308-478c-ac8b-cd88a6d22068" xml:space="preserve">
+          <source>As a final step, run the following commands to deprovision the virtual machine:</source>
+          <target state="new">As a final step, run the following commands to deprovision the virtual machine:</target>
+        </trans-unit>
+        <trans-unit id="fc6752ba-b4ce-4529-822b-fccc162a4c3d" xml:space="preserve">
+          <source>You will then need to shut down the virtual machine and upload the VHD to Azure.</source>
+          <target state="new">You will then need to shut down the virtual machine and upload the VHD to Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d5584973-8ef0-497d-80a9-d563b2b95335" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d5584973-8ef0-497d-80a9-d563b2b95335" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a7f1ef33-491d-407a-8dcd-09230cf3504d">
+        <trans-unit id="edaba62c-fb56-49e0-83c7-7224ed9323b7" xml:space="preserve">
+          <source>Set up a new device with Azure AD through the first-run experience| Microsoft Azure</source>
+          <target state="new">Set up a new device with Azure AD through the first-run experience| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4f59b423-4f68-4c66-be9f-fbb5544e9c58" xml:space="preserve">
+          <source>A topic that explains how users can set up Azure AD Join during their first run experience.</source>
+          <target state="new">A topic that explains how users can set up Azure AD Join during their first run experience.</target>
+        </trans-unit>
+        <trans-unit id="5f3c80d3-2506-43a9-ab81-f6f2e37fb221" xml:space="preserve">
+          <source>The current methods of authentication with passwords alone are not sufficient to keep users safe.</source>
+          <target state="new">The current methods of authentication with passwords alone are not sufficient to keep users safe.</target>
+        </trans-unit>
+        <trans-unit id="8fb6a405-8825-4bd5-a8fc-ad5a7420672a" xml:space="preserve">
+          <source>Users reuse and forget passwords.</source>
+          <target state="new">Users reuse and forget passwords.</target>
+        </trans-unit>
+        <trans-unit id="de26b86f-0b43-4adf-849f-4d98255359fc" xml:space="preserve">
+          <source>Passwords are breachable, phishable, prone to cracks, and guessable.</source>
+          <target state="new">Passwords are breachable, phishable, prone to cracks, and guessable.</target>
+        </trans-unit>
+        <trans-unit id="063e50da-258e-4e58-99e2-b8df5d918cb2" xml:space="preserve">
+          <source>They also get difficult to remember and prone to attacks like “pass the hash”.</source>
+          <target state="new">They also get difficult to remember and prone to attacks like “pass the hash”.</target>
+        </trans-unit>
+        <trans-unit id="f7cea1c4-4f12-46ba-a65c-9137e7812ade" xml:space="preserve">
+          <source>Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords.</source>
+          <target state="new">Microsoft Passport is a new private/public key or certificate-based authentication approach for organizations and consumers that goes beyond passwords.</target>
+        </trans-unit>
+        <trans-unit id="58573436-9e6a-4d46-a9c4-41bfe8158737" xml:space="preserve">
+          <source>This form of authentication relies on these key pair credentials that can replace passwords and be resistant to breaches, thefts and phishing Microsoft Passport lets users authenticate to a Microsoft account, an Active Directory account, a Microsoft Azure Active Directory (AD) account, or non-Microsoft service that supports Fast ID Online (FIDO) authentication.</source>
+          <target state="new">This form of authentication relies on these key pair credentials that can replace passwords and be resistant to breaches, thefts and phishing Microsoft Passport lets users authenticate to a Microsoft account, an Active Directory account, a Microsoft Azure Active Directory (AD) account, or non-Microsoft service that supports Fast ID Online (FIDO) authentication.</target>
+        </trans-unit>
+        <trans-unit id="e662e628-ac1b-4280-b859-b8533cdeef20" xml:space="preserve">
+          <source>After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device and the user sets a gesture, which can be Windows Hello or a PIN.</source>
+          <target state="new">After an initial two-step verification during Microsoft Passport enrollment, a Microsoft Passport is set up on the user's device and the user sets a gesture, which can be Windows Hello or a PIN.</target>
+        </trans-unit>
+        <trans-unit id="a2924478-bc10-49ec-8985-9c8e8b44c965" xml:space="preserve">
+          <source>The user provides the gesture to verify identity; Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.</source>
+          <target state="new">The user provides the gesture to verify identity; Windows then uses Microsoft Passport to authenticate users and help them to access protected resources and services.</target>
+        </trans-unit>
+        <trans-unit id="6acb02c3-8163-4778-a88b-ca192a4a0153" xml:space="preserve">
+          <source>The private key is made available solely through a “user gesture” like a PIN, biometrics, remote device like a smart card that the user used to sign in to the device and this information is linked to a certificate or an asymmetrical key pair.</source>
+          <target state="new">The private key is made available solely through a “user gesture” like a PIN, biometrics, remote device like a smart card that the user used to sign in to the device and this information is linked to a certificate or an asymmetrical key pair.</target>
+        </trans-unit>
+        <trans-unit id="050d0e04-fa44-4126-ad18-a0bcc45c47ef" xml:space="preserve">
+          <source>This private-key is hardware attested if device has a Trusted Platform Module (TPM) chip.</source>
+          <target state="new">This private-key is hardware attested if device has a Trusted Platform Module (TPM) chip.</target>
+        </trans-unit>
+        <trans-unit id="ec249d46-4269-455a-93fa-d463bfb4c817" xml:space="preserve">
+          <source>The private key never leaves the device.</source>
+          <target state="new">The private key never leaves the device.</target>
+        </trans-unit>
+        <trans-unit id="acfa926f-2fb7-4c27-bd9b-668e0aba4a4f" xml:space="preserve">
+          <source>The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises).</source>
+          <target state="new">The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises).</target>
+        </trans-unit>
+        <trans-unit id="12254229-0357-4b61-baaa-3a60c81bc024" xml:space="preserve">
+          <source>The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides sign-in information through One Time Password (OTP), Phonefactor or a different notification mechanism.</source>
+          <target state="new">The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides sign-in information through One Time Password (OTP), Phonefactor or a different notification mechanism.</target>
+        </trans-unit>
+        <trans-unit id="20151bfc-208d-4854-af6d-bc25a79c57b4" xml:space="preserve">
+          <source>By enabling Microsoft Passport, enterprises can make their resources even more secure by:</source>
+          <target state="new">By enabling Microsoft Passport, enterprises can make their resources even more secure by:</target>
+        </trans-unit>
+        <trans-unit id="035b1080-9df1-4ce3-89c2-ed1b2e47e2b8" xml:space="preserve">
+          <source>Setting up Microsoft Passport with a hardware-preferred option, which means that keys will be generated on TPM 1.2 or TPM 2.0 when available and by software when TPM is not available.</source>
+          <target state="new">Setting up Microsoft Passport with a hardware-preferred option, which means that keys will be generated on TPM 1.2 or TPM 2.0 when available and by software when TPM is not available.</target>
+        </trans-unit>
+        <trans-unit id="e054555e-a33f-48bf-89be-e79da0d1a898" xml:space="preserve">
+          <source>Defining the complexity and length of the PIN, and whether Hello usage is enabled in your organization</source>
+          <target state="new">Defining the complexity and length of the PIN, and whether Hello usage is enabled in your organization</target>
+        </trans-unit>
+        <trans-unit id="09d08de6-8ce2-4b3e-ac81-3748409a70ef" xml:space="preserve">
+          <source>Configuring Microsoft Passport to support smart card-like scenarios using certificate-based trust.</source>
+          <target state="new">Configuring Microsoft Passport to support smart card-like scenarios using certificate-based trust.</target>
+        </trans-unit>
+        <trans-unit id="b4271b21-087b-407d-90e0-dddf57c77e6f" xml:space="preserve">
+          <source>Keys are generated on the hardware.</source>
+          <target state="new">Keys are generated on the hardware.</target>
+        </trans-unit>
+        <trans-unit id="e94d8a39-4a3b-4cf4-b66b-925c6fc4b391" xml:space="preserve">
+          <source>A lot of machines have a built-in trusted platform module (TPM) chip that secures the hardware by integrating cryptographic keys into devices.</source>
+          <target state="new">A lot of machines have a built-in trusted platform module (TPM) chip that secures the hardware by integrating cryptographic keys into devices.</target>
+        </trans-unit>
+        <trans-unit id="8dbe9956-18cf-43c1-bd01-3b3daa52ee0e" xml:space="preserve">
+          <source>The TPM 1.2 or TPM 2.0 is used to generate keys or certificates that will be keyed out of the keys generated.</source>
+          <target state="new">The TPM 1.2 or TPM 2.0 is used to generate keys or certificates that will be keyed out of the keys generated.</target>
+        </trans-unit>
+        <trans-unit id="9b91a354-29ad-42fc-955d-4c8e8fa5d062" xml:space="preserve">
+          <source>These hardware-bound keys are attested by the TPM and enterprises can </source>
+          <target state="new">These hardware-bound keys are attested by the TPM and enterprises can </target>
+        </trans-unit>
+        <trans-unit id="10e92591-1ed8-49bc-83fe-ddc8d788165d" xml:space="preserve">
+          <source>Single unlock gesture will unlock the device and this gesture will be allowed to get access to multiple resources if the device is domain-joined or Azure AD Joined.</source>
+          <target state="new">Single unlock gesture will unlock the device and this gesture will be allowed to get access to multiple resources if the device is domain-joined or Azure AD Joined.</target>
+        </trans-unit>
+        <trans-unit id="f4a4a3ab-4580-4f20-8e07-c7e7010c3c44" xml:space="preserve">
+          <source>Microsoft Passport Authentication Lifecycle
+<bpt id="17b90c65-7d10-4edd-9d0f-1a3439d91ed8">&lt;linkText&gt;</bpt><ept id="17b90c65-7d10-4edd-9d0f-1a3439d91ed8">&lt;/linkText&gt;</ept>
+The above diagram illustrates the private-public key pair and the validation by the identity provider.</source>
+          <target state="new">Microsoft Passport Authentication Lifecycle
+<bpt id="17b90c65-7d10-4edd-9d0f-1a3439d91ed8">&lt;linkText&gt;</bpt><ept id="17b90c65-7d10-4edd-9d0f-1a3439d91ed8">&lt;/linkText&gt;</ept>
+The above diagram illustrates the private-public key pair and the validation by the identity provider.</target>
+        </trans-unit>
+        <trans-unit id="e0be5f55-2737-4cb8-aa78-18d8d30a699b" xml:space="preserve">
+          <source>Each of these steps are explained in detail below:</source>
+          <target state="new">Each of these steps are explained in detail below:</target>
+        </trans-unit>
+        <trans-unit id="4fa20adc-f5a8-4a78-b224-914c9ff83a6a" xml:space="preserve">
+          <source>User proves his/her identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to the Identity Provider (IDP) like Azure Active Directory or Active Directory.</source>
+          <target state="new">User proves his/her identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to the Identity Provider (IDP) like Azure Active Directory or Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="6fd427aa-8e66-4a5f-a5bb-aabcc97a6bd3" xml:space="preserve">
+          <source>device then creates the keys, attests the key, takes the public portion of this key, attach it with station statements, signs in and sends it to IDP to register this key.</source>
+          <target state="new">device then creates the keys, attests the key, takes the public portion of this key, attach it with station statements, signs in and sends it to IDP to register this key.</target>
+        </trans-unit>
+        <trans-unit id="eca210e5-c50b-405d-8aa0-0c40c1bc2b4a" xml:space="preserve">
+          <source>As soon as the public portion of the key is registered in the IDP, it challenges the device to sign with the private portion of the key.</source>
+          <target state="new">As soon as the public portion of the key is registered in the IDP, it challenges the device to sign with the private portion of the key.</target>
+        </trans-unit>
+        <trans-unit id="bdb44b5b-1101-4f68-b6a7-500214706140" xml:space="preserve">
+          <source>The IDP then validates and issues the authentication token that lets the user access protected resources.</source>
+          <target state="new">The IDP then validates and issues the authentication token that lets the user access protected resources.</target>
+        </trans-unit>
+        <trans-unit id="0a7e92dc-f3ae-44a0-903c-42a20ddb871e" xml:space="preserve">
+          <source>As soon as the public portion of the key is registered in the IDP, it challenges the device for the challenge to sign with the private portion of the key.</source>
+          <target state="new">As soon as the public portion of the key is registered in the IDP, it challenges the device for the challenge to sign with the private portion of the key.</target>
+        </trans-unit>
+        <trans-unit id="a094571e-ae2f-4a3d-8e1b-524ebd2f6a15" xml:space="preserve">
+          <source>IDP then validates and issues the authentication token that lets the user and device access protected resources.</source>
+          <target state="new">IDP then validates and issues the authentication token that lets the user and device access protected resources.</target>
+        </trans-unit>
+        <trans-unit id="acb58470-0296-4667-8629-41e570e06cff" xml:space="preserve">
+          <source>IDPs can write cross-platform apps or use browser support via JS/Webcrypto APIs) to create and use Microsoft Passport credentials for their users.</source>
+          <target state="new">IDPs can write cross-platform apps or use browser support via JS/Webcrypto APIs) to create and use Microsoft Passport credentials for their users.</target>
+        </trans-unit>
+        <trans-unit id="33d00514-5b00-4e59-bbba-e6bb16b970e1" xml:space="preserve">
+          <source>Azure Subscription</source>
+          <target state="new">Azure Subscription</target>
+        </trans-unit>
+        <trans-unit id="9880a8a0-7b86-4024-a970-70db3eb24a17" xml:space="preserve">
+          <source>Computer must run Windows 10 Professional or Enterprise SKU</source>
+          <target state="new">Computer must run Windows 10 Professional or Enterprise SKU</target>
+        </trans-unit>
+        <trans-unit id="996ec4c5-a0d5-4fac-b2f5-8e8fbc9867f7" xml:space="preserve">
+          <source><bpt id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;/linkText&gt;</ept><bpt id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;title&gt;</bpt><ept id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;linkText&gt;</bpt>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join<ept id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;/linkText&gt;</ept><bpt id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;title&gt;</bpt><ept id="4d02e455-a662-4096-ba81-b53f22a0ddd3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="32ad8a69-2ffe-4090-b859-d3226ec4db40" xml:space="preserve">
+          <source><bpt id="83945ece-b51b-413b-be16-b685ec78283b">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="83945ece-b51b-413b-be16-b685ec78283b">&lt;/linkText&gt;</ept><bpt id="83945ece-b51b-413b-be16-b685ec78283b">&lt;title&gt;</bpt><ept id="83945ece-b51b-413b-be16-b685ec78283b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="83945ece-b51b-413b-be16-b685ec78283b">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="83945ece-b51b-413b-be16-b685ec78283b">&lt;/linkText&gt;</ept><bpt id="83945ece-b51b-413b-be16-b685ec78283b">&lt;title&gt;</bpt><ept id="83945ece-b51b-413b-be16-b685ec78283b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="fe76e60f-397f-459b-97e3-c986cc5c496f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="fe76e60f-397f-459b-97e3-c986cc5c496f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a876cf97-d98d-4fcf-b7e4-e7c40fcae316">
+        <trans-unit id="3767bd35-6aca-49d7-af45-e0a51d4426b4" xml:space="preserve">
+          <source>SharePoint Server 2013 farm Phase 5 | Microsoft Azure</source>
+          <target state="new">SharePoint Server 2013 farm Phase 5 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ab03e654-a395-4fcf-84b5-71545b3bcf5f" xml:space="preserve">
+          <source>Create an availability group and add your SharePoint databases to it in Phase 5 of the SharePoint Server 2013 farm in Azure.</source>
+          <target state="new">Create an availability group and add your SharePoint databases to it in Phase 5 of the SharePoint Server 2013 farm in Azure.</target>
+        </trans-unit>
+        <trans-unit id="09d7fd6a-7482-417b-ae2f-f9e70678780a" xml:space="preserve">
+          <source>In this final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create a new AlwaysOn availability group and add the databases of the SharePoint farm.</source>
+          <target state="new">In this final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create a new AlwaysOn availability group and add the databases of the SharePoint farm.</target>
+        </trans-unit>
+        <trans-unit id="722f3eaa-21f8-420c-aa67-aeb3481d3c1c" xml:space="preserve">
+          <source>See <bpt id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;linkText&gt;</bpt>Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure<ept id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;/linkText&gt;</ept><bpt id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;title&gt;</bpt><ept id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;/title&gt;</ept> for all of the phases.</source>
+          <target state="new">See <bpt id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;linkText&gt;</bpt>Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure<ept id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;/linkText&gt;</ept><bpt id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;title&gt;</bpt><ept id="44d06f96-ee1d-4539-9282-65dc287e1b7c">&lt;/title&gt;</ept> for all of the phases.</target>
+        </trans-unit>
+        <trans-unit id="9d9702fe-0e3c-4f60-8d2c-1a42370279b8" xml:space="preserve">
+          <source>SharePoint creates several databases as part of the initial configuration.</source>
+          <target state="new">SharePoint creates several databases as part of the initial configuration.</target>
+        </trans-unit>
+        <trans-unit id="b060af48-fc6a-47a3-adff-ed1c1426993c" xml:space="preserve">
+          <source>Those databases must be prepared with these steps:</source>
+          <target state="new">Those databases must be prepared with these steps:</target>
+        </trans-unit>
+        <trans-unit id="79fe3ec5-db72-4cff-ad86-4338c20949c6" xml:space="preserve">
+          <source>Take a full backup and a transaction log backup of the database on the primary machine.</source>
+          <target state="new">Take a full backup and a transaction log backup of the database on the primary machine.</target>
+        </trans-unit>
+        <trans-unit id="16c1024a-9407-4843-bd7e-0dbb16fde9f6" xml:space="preserve">
+          <source>Restore the full and log backups on the backup machine.</source>
+          <target state="new">Restore the full and log backups on the backup machine.</target>
+        </trans-unit>
+        <trans-unit id="435d8094-fbcd-4e5c-8167-1844a0744a09" xml:space="preserve">
+          <source>Once the databases have been both backed up and restored, they can be added to the availability group.</source>
+          <target state="new">Once the databases have been both backed up and restored, they can be added to the availability group.</target>
+        </trans-unit>
+        <trans-unit id="15bc7df8-3512-4b5c-bc00-806a6f43b69d" xml:space="preserve">
+          <source>SQL Server allows only databases that have been backed up (at least once), and restored on another machine, to be in the group.</source>
+          <target state="new">SQL Server allows only databases that have been backed up (at least once), and restored on another machine, to be in the group.</target>
+        </trans-unit>
+        <trans-unit id="79699b1f-9c84-4149-af76-2f5b0d5c8db9" xml:space="preserve">
+          <source>To enable backup and restore, make sure that the backup files (.bak) are accessible from the secondary SQL Server VM.</source>
+          <target state="new">To enable backup and restore, make sure that the backup files (.bak) are accessible from the secondary SQL Server VM.</target>
+        </trans-unit>
+        <trans-unit id="11753370-459b-49ee-a581-467227af15ac" xml:space="preserve">
+          <source>Use the following procedure:</source>
+          <target state="new">Use the following procedure:</target>
+        </trans-unit>
+        <trans-unit id="69747427-29f7-469d-8e23-b6ce68869d99" xml:space="preserve">
+          <source>Log on to the primary SQL Server host as <bpt id="2a025255-d608-46b4-b066-8031bf214bbe">&lt;strong&gt;</bpt>[domain]\sp_farm_db<ept id="2a025255-d608-46b4-b066-8031bf214bbe">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log on to the primary SQL Server host as <bpt id="2a025255-d608-46b4-b066-8031bf214bbe">&lt;strong&gt;</bpt>[domain]\sp_farm_db<ept id="2a025255-d608-46b4-b066-8031bf214bbe">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6963df38-8622-448d-baf5-f793672e1bcf" xml:space="preserve">
+          <source>Navigate to the F:\ disk.</source>
+          <target state="new">Navigate to the F:\ disk.</target>
+        </trans-unit>
+        <trans-unit id="4ab094ef-093c-4c8c-952e-60d4de822077" xml:space="preserve">
+          <source>Right-click the <bpt id="2ef590ce-cafc-4fb3-bcda-ce4cff034f4d">&lt;strong&gt;</bpt>Backup<ept id="2ef590ce-cafc-4fb3-bcda-ce4cff034f4d">&lt;/strong&gt;</ept> folder, click <bpt id="026ae707-8469-459d-8593-079cf0e1972b">&lt;strong&gt;</bpt>Share with<ept id="026ae707-8469-459d-8593-079cf0e1972b">&lt;/strong&gt;</ept>, and then click <bpt id="a02c1d68-5efd-4d20-9289-75a537dea0f9">&lt;strong&gt;</bpt>specific people<ept id="a02c1d68-5efd-4d20-9289-75a537dea0f9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click the <bpt id="2ef590ce-cafc-4fb3-bcda-ce4cff034f4d">&lt;strong&gt;</bpt>Backup<ept id="2ef590ce-cafc-4fb3-bcda-ce4cff034f4d">&lt;/strong&gt;</ept> folder, click <bpt id="026ae707-8469-459d-8593-079cf0e1972b">&lt;strong&gt;</bpt>Share with<ept id="026ae707-8469-459d-8593-079cf0e1972b">&lt;/strong&gt;</ept>, and then click <bpt id="a02c1d68-5efd-4d20-9289-75a537dea0f9">&lt;strong&gt;</bpt>specific people<ept id="a02c1d68-5efd-4d20-9289-75a537dea0f9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3acea7a4-5e07-4147-b98e-f47acf0f4f1c" xml:space="preserve">
+          <source>In the <bpt id="c346f839-5cfb-4c13-9165-7e5e9eabb230">&lt;strong&gt;</bpt>File sharing<ept id="c346f839-5cfb-4c13-9165-7e5e9eabb230">&lt;/strong&gt;</ept> dialog, type <bpt id="78a1d5b0-77ba-4511-aeda-4d6f0fdf296b">&lt;strong&gt;</bpt>[domain]\sqlservice<ept id="78a1d5b0-77ba-4511-aeda-4d6f0fdf296b">&lt;/strong&gt;</ept>, and then click <bpt id="c17e71ac-9911-4fb2-9f34-db4e77eb5fa9">&lt;strong&gt;</bpt>Add<ept id="c17e71ac-9911-4fb2-9f34-db4e77eb5fa9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="c346f839-5cfb-4c13-9165-7e5e9eabb230">&lt;strong&gt;</bpt>File sharing<ept id="c346f839-5cfb-4c13-9165-7e5e9eabb230">&lt;/strong&gt;</ept> dialog, type <bpt id="78a1d5b0-77ba-4511-aeda-4d6f0fdf296b">&lt;strong&gt;</bpt>[domain]\sqlservice<ept id="78a1d5b0-77ba-4511-aeda-4d6f0fdf296b">&lt;/strong&gt;</ept>, and then click <bpt id="c17e71ac-9911-4fb2-9f34-db4e77eb5fa9">&lt;strong&gt;</bpt>Add<ept id="c17e71ac-9911-4fb2-9f34-db4e77eb5fa9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3bc53fde-0ab9-4488-99e4-bfbd56e0cbf1" xml:space="preserve">
+          <source>Click the <bpt id="d25e4b86-0cb1-4e61-8da1-c95021a75a47">&lt;strong&gt;</bpt>Permission Level<ept id="d25e4b86-0cb1-4e61-8da1-c95021a75a47">&lt;/strong&gt;</ept> column for the <bpt id="da0de73d-1a83-4d8e-876e-85a45f293bcd">&lt;strong&gt;</bpt>sqlservice<ept id="da0de73d-1a83-4d8e-876e-85a45f293bcd">&lt;/strong&gt;</ept> account name, and then click <bpt id="b66e2d63-cea1-481b-bd44-31777589a16d">&lt;strong&gt;</bpt>Read/Write<ept id="b66e2d63-cea1-481b-bd44-31777589a16d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="d25e4b86-0cb1-4e61-8da1-c95021a75a47">&lt;strong&gt;</bpt>Permission Level<ept id="d25e4b86-0cb1-4e61-8da1-c95021a75a47">&lt;/strong&gt;</ept> column for the <bpt id="da0de73d-1a83-4d8e-876e-85a45f293bcd">&lt;strong&gt;</bpt>sqlservice<ept id="da0de73d-1a83-4d8e-876e-85a45f293bcd">&lt;/strong&gt;</ept> account name, and then click <bpt id="b66e2d63-cea1-481b-bd44-31777589a16d">&lt;strong&gt;</bpt>Read/Write<ept id="b66e2d63-cea1-481b-bd44-31777589a16d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0220d3a-ec44-4301-b557-90ec0bac02ae" xml:space="preserve">
+          <source>Click <bpt id="3b6c8dc3-0376-445e-afd0-3dfc217379e2">&lt;strong&gt;</bpt>Share<ept id="3b6c8dc3-0376-445e-afd0-3dfc217379e2">&lt;/strong&gt;</ept>, and then click <bpt id="c02be603-79e5-4b69-b667-dade0be8f431">&lt;strong&gt;</bpt>Done<ept id="c02be603-79e5-4b69-b667-dade0be8f431">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="3b6c8dc3-0376-445e-afd0-3dfc217379e2">&lt;strong&gt;</bpt>Share<ept id="3b6c8dc3-0376-445e-afd0-3dfc217379e2">&lt;/strong&gt;</ept>, and then click <bpt id="c02be603-79e5-4b69-b667-dade0be8f431">&lt;strong&gt;</bpt>Done<ept id="c02be603-79e5-4b69-b667-dade0be8f431">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0856123b-f42c-4a77-9e21-0b51717bdbc4" xml:space="preserve">
+          <source>Perform the above procedure on the secondary SQL Server host, except give the sqlservice account <bpt id="399f704d-440c-47d9-aca6-7a145ae5a0d1">&lt;strong&gt;</bpt>Read<ept id="399f704d-440c-47d9-aca6-7a145ae5a0d1">&lt;/strong&gt;</ept> permission for the F:\Backup folder in step 5.</source>
+          <target state="new">Perform the above procedure on the secondary SQL Server host, except give the sqlservice account <bpt id="399f704d-440c-47d9-aca6-7a145ae5a0d1">&lt;strong&gt;</bpt>Read<ept id="399f704d-440c-47d9-aca6-7a145ae5a0d1">&lt;/strong&gt;</ept> permission for the F:\Backup folder in step 5.</target>
+        </trans-unit>
+        <trans-unit id="28e03eb5-89bf-4f78-af2e-590903572f0b" xml:space="preserve">
+          <source>The following procedures must be repeated for every database that needs to be added to the availability group.</source>
+          <target state="new">The following procedures must be repeated for every database that needs to be added to the availability group.</target>
+        </trans-unit>
+        <trans-unit id="ed83adbf-7ef3-4eaa-92a9-12c16701c088" xml:space="preserve">
+          <source>Some SharePoint 2013 databases do not support SQL Server AlwaysOn Availability Groups.</source>
+          <target state="new">Some SharePoint 2013 databases do not support SQL Server AlwaysOn Availability Groups.</target>
+        </trans-unit>
+        <trans-unit id="c201c602-f486-4cf6-8696-47ccaade42b9" xml:space="preserve">
+          <source>For more information, see <bpt id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;linkText&gt;</bpt>Supported high availability and disaster recovery options for SharePoint databases<ept id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;/linkText&gt;</ept><bpt id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;title&gt;</bpt><ept id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;linkText&gt;</bpt>Supported high availability and disaster recovery options for SharePoint databases<ept id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;/linkText&gt;</ept><bpt id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;title&gt;</bpt><ept id="95a002c1-f9aa-4c97-8866-6563c9a6e8cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f05f684-8821-4cf5-abac-b90632d974d5" xml:space="preserve">
+          <source>Use these steps to back up a database:</source>
+          <target state="new">Use these steps to back up a database:</target>
+        </trans-unit>
+        <trans-unit id="190005c2-ceef-4cab-84f5-f77bb26c9916" xml:space="preserve">
+          <source>From the Start screen of the primary SQL Server computer, type <bpt id="a835e9a2-7a81-4533-9fcc-709a14eea0d1">&lt;strong&gt;</bpt>SQL Studio<ept id="a835e9a2-7a81-4533-9fcc-709a14eea0d1">&lt;/strong&gt;</ept>, and then click <bpt id="b36de632-1f65-426a-a6c6-af5702e77f05">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="b36de632-1f65-426a-a6c6-af5702e77f05">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen of the primary SQL Server computer, type <bpt id="a835e9a2-7a81-4533-9fcc-709a14eea0d1">&lt;strong&gt;</bpt>SQL Studio<ept id="a835e9a2-7a81-4533-9fcc-709a14eea0d1">&lt;/strong&gt;</ept>, and then click <bpt id="b36de632-1f65-426a-a6c6-af5702e77f05">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="b36de632-1f65-426a-a6c6-af5702e77f05">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edd1a806-0fb2-4b0e-a2d8-2ff2283a286d" xml:space="preserve">
+          <source>Click <bpt id="41367d04-22a3-48e2-bb89-d5a683c53caa">&lt;strong&gt;</bpt>Connect<ept id="41367d04-22a3-48e2-bb89-d5a683c53caa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="41367d04-22a3-48e2-bb89-d5a683c53caa">&lt;strong&gt;</bpt>Connect<ept id="41367d04-22a3-48e2-bb89-d5a683c53caa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="05a2e4c8-16ba-4b6f-a3a3-fdd7766eb264" xml:space="preserve">
+          <source>In the left pane, expand the <bpt id="17711336-1dcf-43fd-b070-a8fdec840466">&lt;strong&gt;</bpt>Databases<ept id="17711336-1dcf-43fd-b070-a8fdec840466">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">In the left pane, expand the <bpt id="17711336-1dcf-43fd-b070-a8fdec840466">&lt;strong&gt;</bpt>Databases<ept id="17711336-1dcf-43fd-b070-a8fdec840466">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="828a88ba-6093-44b8-aeef-775940b2ecf9" xml:space="preserve">
+          <source>Right-click a database to back up, point to <bpt id="f8d32643-d98d-4d85-803d-06a2d54448f8">&lt;strong&gt;</bpt>Tasks<ept id="f8d32643-d98d-4d85-803d-06a2d54448f8">&lt;/strong&gt;</ept>, and then click <bpt id="5bcca866-a62c-4f00-9892-23f4518a6700">&lt;strong&gt;</bpt>Back up<ept id="5bcca866-a62c-4f00-9892-23f4518a6700">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click a database to back up, point to <bpt id="f8d32643-d98d-4d85-803d-06a2d54448f8">&lt;strong&gt;</bpt>Tasks<ept id="f8d32643-d98d-4d85-803d-06a2d54448f8">&lt;/strong&gt;</ept>, and then click <bpt id="5bcca866-a62c-4f00-9892-23f4518a6700">&lt;strong&gt;</bpt>Back up<ept id="5bcca866-a62c-4f00-9892-23f4518a6700">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="368963c3-0f3e-44f6-91bc-7bb39da5ed33" xml:space="preserve">
+          <source>In the <bpt id="13715583-08d5-4437-ab72-1c3fe72fa8ea">&lt;strong&gt;</bpt>Destination<ept id="13715583-08d5-4437-ab72-1c3fe72fa8ea">&lt;/strong&gt;</ept> section, click <bpt id="8f3460ce-cfd1-4803-8f9c-261248cb0611">&lt;strong&gt;</bpt>Remove<ept id="8f3460ce-cfd1-4803-8f9c-261248cb0611">&lt;/strong&gt;</ept> to remove the default file path for the backup file.</source>
+          <target state="new">In the <bpt id="13715583-08d5-4437-ab72-1c3fe72fa8ea">&lt;strong&gt;</bpt>Destination<ept id="13715583-08d5-4437-ab72-1c3fe72fa8ea">&lt;/strong&gt;</ept> section, click <bpt id="8f3460ce-cfd1-4803-8f9c-261248cb0611">&lt;strong&gt;</bpt>Remove<ept id="8f3460ce-cfd1-4803-8f9c-261248cb0611">&lt;/strong&gt;</ept> to remove the default file path for the backup file.</target>
+        </trans-unit>
+        <trans-unit id="8b9cb5a0-ca86-4b48-8d75-960c72a23229" xml:space="preserve">
+          <source>Click <bpt id="a4f44874-ac40-418f-b0bb-e44a65aca7fd">&lt;strong&gt;</bpt>Add<ept id="a4f44874-ac40-418f-b0bb-e44a65aca7fd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a4f44874-ac40-418f-b0bb-e44a65aca7fd">&lt;strong&gt;</bpt>Add<ept id="a4f44874-ac40-418f-b0bb-e44a65aca7fd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fe197359-c61c-46f2-a81a-b179548ce4b4" xml:space="preserve">
+          <source>In <bpt id="bae860a9-a4dc-4e6d-b3db-59a5e04ef70a">&lt;strong&gt;</bpt>File name<ept id="bae860a9-a4dc-4e6d-b3db-59a5e04ef70a">&lt;/strong&gt;</ept>, type <bpt id="a3733217-c3a4-4763-8709-06ced4c424f0">&lt;strong&gt;</bpt>\\[machineName]\backup\[databaseName].bak<ept id="a3733217-c3a4-4763-8709-06ced4c424f0">&lt;/strong&gt;</ept>, where machineName is the name of the primary SQL Server computer and databaseName is the name of the database.</source>
+          <target state="new">In <bpt id="bae860a9-a4dc-4e6d-b3db-59a5e04ef70a">&lt;strong&gt;</bpt>File name<ept id="bae860a9-a4dc-4e6d-b3db-59a5e04ef70a">&lt;/strong&gt;</ept>, type <bpt id="a3733217-c3a4-4763-8709-06ced4c424f0">&lt;strong&gt;</bpt>\\[machineName]\backup\[databaseName].bak<ept id="a3733217-c3a4-4763-8709-06ced4c424f0">&lt;/strong&gt;</ept>, where machineName is the name of the primary SQL Server computer and databaseName is the name of the database.</target>
+        </trans-unit>
+        <trans-unit id="02350ec0-e08d-42d9-9c30-868c6594c773" xml:space="preserve">
+          <source>Click <bpt id="3373a0ce-a787-41a0-b10b-4b98d9f316fb">&lt;strong&gt;</bpt>OK<ept id="3373a0ce-a787-41a0-b10b-4b98d9f316fb">&lt;/strong&gt;</ept>, and then click <bpt id="18e5ce35-aeb6-42d9-85e1-1dbd0dba130a">&lt;strong&gt;</bpt>OK<ept id="18e5ce35-aeb6-42d9-85e1-1dbd0dba130a">&lt;/strong&gt;</ept> again after the message about the successful backup.</source>
+          <target state="new">Click <bpt id="3373a0ce-a787-41a0-b10b-4b98d9f316fb">&lt;strong&gt;</bpt>OK<ept id="3373a0ce-a787-41a0-b10b-4b98d9f316fb">&lt;/strong&gt;</ept>, and then click <bpt id="18e5ce35-aeb6-42d9-85e1-1dbd0dba130a">&lt;strong&gt;</bpt>OK<ept id="18e5ce35-aeb6-42d9-85e1-1dbd0dba130a">&lt;/strong&gt;</ept> again after the message about the successful backup.</target>
+        </trans-unit>
+        <trans-unit id="7c45224d-d191-4158-b2e4-92e8b58cb840" xml:space="preserve">
+          <source>In the left pane, right-click <bpt id="4ba0c14e-39c3-433b-a344-4ec7d6255e18">&lt;strong&gt;</bpt>[databaseName]<ept id="4ba0c14e-39c3-433b-a344-4ec7d6255e18">&lt;/strong&gt;</ept>, point to <bpt id="35a7cd45-54ba-4359-ba84-8325db732faa">&lt;strong&gt;</bpt>Tasks<ept id="35a7cd45-54ba-4359-ba84-8325db732faa">&lt;/strong&gt;</ept>, and then click <bpt id="423a03ca-8e89-4b67-a57f-0041966bd2de">&lt;strong&gt;</bpt>Back Up<ept id="423a03ca-8e89-4b67-a57f-0041966bd2de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, right-click <bpt id="4ba0c14e-39c3-433b-a344-4ec7d6255e18">&lt;strong&gt;</bpt>[databaseName]<ept id="4ba0c14e-39c3-433b-a344-4ec7d6255e18">&lt;/strong&gt;</ept>, point to <bpt id="35a7cd45-54ba-4359-ba84-8325db732faa">&lt;strong&gt;</bpt>Tasks<ept id="35a7cd45-54ba-4359-ba84-8325db732faa">&lt;/strong&gt;</ept>, and then click <bpt id="423a03ca-8e89-4b67-a57f-0041966bd2de">&lt;strong&gt;</bpt>Back Up<ept id="423a03ca-8e89-4b67-a57f-0041966bd2de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ffd5adfb-c77a-4643-9de3-a33cc6f0984b" xml:space="preserve">
+          <source>In <bpt id="9bd569be-0b65-4406-9425-aa7edef058f6">&lt;strong&gt;</bpt>Backup type<ept id="9bd569be-0b65-4406-9425-aa7edef058f6">&lt;/strong&gt;</ept>, select <bpt id="7297e60f-ee04-400a-8dfb-607baa380255">&lt;strong&gt;</bpt>Transaction Log<ept id="7297e60f-ee04-400a-8dfb-607baa380255">&lt;/strong&gt;</ept>, and then click <bpt id="0aae8b8f-bd58-4f18-894c-8f184a5e41aa">&lt;strong&gt;</bpt>OK<ept id="0aae8b8f-bd58-4f18-894c-8f184a5e41aa">&lt;/strong&gt;</ept> twice.</source>
+          <target state="new">In <bpt id="9bd569be-0b65-4406-9425-aa7edef058f6">&lt;strong&gt;</bpt>Backup type<ept id="9bd569be-0b65-4406-9425-aa7edef058f6">&lt;/strong&gt;</ept>, select <bpt id="7297e60f-ee04-400a-8dfb-607baa380255">&lt;strong&gt;</bpt>Transaction Log<ept id="7297e60f-ee04-400a-8dfb-607baa380255">&lt;/strong&gt;</ept>, and then click <bpt id="0aae8b8f-bd58-4f18-894c-8f184a5e41aa">&lt;strong&gt;</bpt>OK<ept id="0aae8b8f-bd58-4f18-894c-8f184a5e41aa">&lt;/strong&gt;</ept> twice.</target>
+        </trans-unit>
+        <trans-unit id="ac04938a-d0f1-42e2-9956-39f5f7294f93" xml:space="preserve">
+          <source>Keep this Remote Desktop session open.</source>
+          <target state="new">Keep this Remote Desktop session open.</target>
+        </trans-unit>
+        <trans-unit id="bf425996-8864-4cae-9fd3-baddf4a34240" xml:space="preserve">
+          <source>Use these steps to restore a database:</source>
+          <target state="new">Use these steps to restore a database:</target>
+        </trans-unit>
+        <trans-unit id="46b74a88-6ecb-425c-ae91-8c69b7968943" xml:space="preserve">
+          <source>Log on to the secondary SQL Server computer as <bpt id="7184ee04-a4c5-4064-82e4-fe9062e84fc3">&lt;strong&gt;</bpt>[domainName]\sp_farm_db<ept id="7184ee04-a4c5-4064-82e4-fe9062e84fc3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Log on to the secondary SQL Server computer as <bpt id="7184ee04-a4c5-4064-82e4-fe9062e84fc3">&lt;strong&gt;</bpt>[domainName]\sp_farm_db<ept id="7184ee04-a4c5-4064-82e4-fe9062e84fc3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6937716a-7652-41a6-b8d8-014fa3d90b09" xml:space="preserve">
+          <source>From the Start screen, type <bpt id="a0ffeea3-6115-494a-b22f-b25b967f3fba">&lt;strong&gt;</bpt>SQL Studio<ept id="a0ffeea3-6115-494a-b22f-b25b967f3fba">&lt;/strong&gt;</ept>, and then click <bpt id="310716a9-d46d-4f07-9f4a-6ccd539d2105">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="310716a9-d46d-4f07-9f4a-6ccd539d2105">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen, type <bpt id="a0ffeea3-6115-494a-b22f-b25b967f3fba">&lt;strong&gt;</bpt>SQL Studio<ept id="a0ffeea3-6115-494a-b22f-b25b967f3fba">&lt;/strong&gt;</ept>, and then click <bpt id="310716a9-d46d-4f07-9f4a-6ccd539d2105">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="310716a9-d46d-4f07-9f4a-6ccd539d2105">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="22d0368d-33d5-4381-8b90-ada4f24ea093" xml:space="preserve">
+          <source>Click <bpt id="af1e309f-8232-4e54-93e2-ad054f18eb62">&lt;strong&gt;</bpt>Connect<ept id="af1e309f-8232-4e54-93e2-ad054f18eb62">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="af1e309f-8232-4e54-93e2-ad054f18eb62">&lt;strong&gt;</bpt>Connect<ept id="af1e309f-8232-4e54-93e2-ad054f18eb62">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0cbaa4cb-6da2-403c-aa1f-2725c3f6f4cd" xml:space="preserve">
+          <source>In the left pane, right-click <bpt id="07a14193-c671-4372-b542-0715a4855be0">&lt;strong&gt;</bpt>Databases<ept id="07a14193-c671-4372-b542-0715a4855be0">&lt;/strong&gt;</ept>, and then click <bpt id="99bd599f-1ce2-4d47-926a-499ebf0b8d70">&lt;strong&gt;</bpt>Restore Database<ept id="99bd599f-1ce2-4d47-926a-499ebf0b8d70">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, right-click <bpt id="07a14193-c671-4372-b542-0715a4855be0">&lt;strong&gt;</bpt>Databases<ept id="07a14193-c671-4372-b542-0715a4855be0">&lt;/strong&gt;</ept>, and then click <bpt id="99bd599f-1ce2-4d47-926a-499ebf0b8d70">&lt;strong&gt;</bpt>Restore Database<ept id="99bd599f-1ce2-4d47-926a-499ebf0b8d70">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a01278d-7966-4d83-8e12-228208e52aad" xml:space="preserve">
+          <source>In the <bpt id="975f2cbe-b229-469b-b225-581cf41bd4ce">&lt;strong&gt;</bpt>Source<ept id="975f2cbe-b229-469b-b225-581cf41bd4ce">&lt;/strong&gt;</ept> section, select <bpt id="9702dbe3-5b5c-49da-b272-d6536e13e4ab">&lt;strong&gt;</bpt>Device<ept id="9702dbe3-5b5c-49da-b272-d6536e13e4ab">&lt;/strong&gt;</ept>, and then click the ellipsis (…)</source>
+          <target state="new">In the <bpt id="975f2cbe-b229-469b-b225-581cf41bd4ce">&lt;strong&gt;</bpt>Source<ept id="975f2cbe-b229-469b-b225-581cf41bd4ce">&lt;/strong&gt;</ept> section, select <bpt id="9702dbe3-5b5c-49da-b272-d6536e13e4ab">&lt;strong&gt;</bpt>Device<ept id="9702dbe3-5b5c-49da-b272-d6536e13e4ab">&lt;/strong&gt;</ept>, and then click the ellipsis (…)</target>
+        </trans-unit>
+        <trans-unit id="a903d042-8a0d-48ed-824b-e3a4b477c66b" xml:space="preserve">
+          <source>button.</source>
+          <target state="new">button.</target>
+        </trans-unit>
+        <trans-unit id="353a0256-53f4-43be-a59c-f2ac86d5e9d8" xml:space="preserve">
+          <source>In <bpt id="379c504e-1439-431b-be37-01351507cbe5">&lt;strong&gt;</bpt>Select backup devices<ept id="379c504e-1439-431b-be37-01351507cbe5">&lt;/strong&gt;</ept>, click <bpt id="6139fe4e-6ec5-4f13-bb07-f05c821409ad">&lt;strong&gt;</bpt>Add<ept id="6139fe4e-6ec5-4f13-bb07-f05c821409ad">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="379c504e-1439-431b-be37-01351507cbe5">&lt;strong&gt;</bpt>Select backup devices<ept id="379c504e-1439-431b-be37-01351507cbe5">&lt;/strong&gt;</ept>, click <bpt id="6139fe4e-6ec5-4f13-bb07-f05c821409ad">&lt;strong&gt;</bpt>Add<ept id="6139fe4e-6ec5-4f13-bb07-f05c821409ad">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e0b47d0-371d-40b8-8de9-b98cb0ac4c39" xml:space="preserve">
+          <source>In <bpt id="78a781a8-6bc4-448f-b370-c47e9af3f0c3">&lt;strong&gt;</bpt>Backup file location<ept id="78a781a8-6bc4-448f-b370-c47e9af3f0c3">&lt;/strong&gt;</ept>, type <bpt id="8f7de1d0-452d-4ffa-aa43-6ece13538fbf">&lt;strong&gt;</bpt>\\[machineName]\backup<ept id="8f7de1d0-452d-4ffa-aa43-6ece13538fbf">&lt;/strong&gt;</ept>, press Enter, select <bpt id="d30ec047-496a-4ffc-b1a9-6367a8d0ebd1">&lt;strong&gt;</bpt>[databaseName].bak<ept id="d30ec047-496a-4ffc-b1a9-6367a8d0ebd1">&lt;/strong&gt;</ept>, and then click <bpt id="3e88d508-ceb2-4a43-8762-1fc2c193e68d">&lt;strong&gt;</bpt>OK<ept id="3e88d508-ceb2-4a43-8762-1fc2c193e68d">&lt;/strong&gt;</ept> twice.</source>
+          <target state="new">In <bpt id="78a781a8-6bc4-448f-b370-c47e9af3f0c3">&lt;strong&gt;</bpt>Backup file location<ept id="78a781a8-6bc4-448f-b370-c47e9af3f0c3">&lt;/strong&gt;</ept>, type <bpt id="8f7de1d0-452d-4ffa-aa43-6ece13538fbf">&lt;strong&gt;</bpt>\\[machineName]\backup<ept id="8f7de1d0-452d-4ffa-aa43-6ece13538fbf">&lt;/strong&gt;</ept>, press Enter, select <bpt id="d30ec047-496a-4ffc-b1a9-6367a8d0ebd1">&lt;strong&gt;</bpt>[databaseName].bak<ept id="d30ec047-496a-4ffc-b1a9-6367a8d0ebd1">&lt;/strong&gt;</ept>, and then click <bpt id="3e88d508-ceb2-4a43-8762-1fc2c193e68d">&lt;strong&gt;</bpt>OK<ept id="3e88d508-ceb2-4a43-8762-1fc2c193e68d">&lt;/strong&gt;</ept> twice.</target>
+        </trans-unit>
+        <trans-unit id="bc6b9595-e90b-43f2-815a-8b3853202f1e" xml:space="preserve">
+          <source>You should now see the full backup and the log backup in the <bpt id="a1fd5db7-9f6d-4bba-a9a6-1a37309b2c9b">&lt;strong&gt;</bpt>Backup sets to restore<ept id="a1fd5db7-9f6d-4bba-a9a6-1a37309b2c9b">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">You should now see the full backup and the log backup in the <bpt id="a1fd5db7-9f6d-4bba-a9a6-1a37309b2c9b">&lt;strong&gt;</bpt>Backup sets to restore<ept id="a1fd5db7-9f6d-4bba-a9a6-1a37309b2c9b">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="e1439a09-dd8b-41c9-bbfe-dfe0bcd12a0e" xml:space="preserve">
+          <source>Under <bpt id="40fae839-fbe8-47e8-9912-29800e33e3ee">&lt;strong&gt;</bpt>Select a page<ept id="40fae839-fbe8-47e8-9912-29800e33e3ee">&lt;/strong&gt;</ept>, click <bpt id="0d39560c-af80-4beb-8a18-fa643aab3272">&lt;strong&gt;</bpt>Options<ept id="0d39560c-af80-4beb-8a18-fa643aab3272">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="40fae839-fbe8-47e8-9912-29800e33e3ee">&lt;strong&gt;</bpt>Select a page<ept id="40fae839-fbe8-47e8-9912-29800e33e3ee">&lt;/strong&gt;</ept>, click <bpt id="0d39560c-af80-4beb-8a18-fa643aab3272">&lt;strong&gt;</bpt>Options<ept id="0d39560c-af80-4beb-8a18-fa643aab3272">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="314468a9-d44f-4d17-bf90-4a488ef8891d" xml:space="preserve">
+          <source>In the <bpt id="40ab8934-e5fb-4d74-9944-4516addd9381">&lt;strong&gt;</bpt>Restore options<ept id="40ab8934-e5fb-4d74-9944-4516addd9381">&lt;/strong&gt;</ept> section, in <bpt id="d55a29b2-69ba-4fc0-92e0-f8fb6d0962ef">&lt;strong&gt;</bpt>Recovery state<ept id="d55a29b2-69ba-4fc0-92e0-f8fb6d0962ef">&lt;/strong&gt;</ept>, select <bpt id="729be3e8-f8d9-4afe-ae90-9c2edc516459">&lt;strong&gt;</bpt>RESTORE WITH NORECOVERY<ept id="729be3e8-f8d9-4afe-ae90-9c2edc516459">&lt;/strong&gt;</ept>, and then click <bpt id="ee509349-7ed3-40d6-bbc5-46b7be80ca6c">&lt;strong&gt;</bpt>OK<ept id="ee509349-7ed3-40d6-bbc5-46b7be80ca6c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="40ab8934-e5fb-4d74-9944-4516addd9381">&lt;strong&gt;</bpt>Restore options<ept id="40ab8934-e5fb-4d74-9944-4516addd9381">&lt;/strong&gt;</ept> section, in <bpt id="d55a29b2-69ba-4fc0-92e0-f8fb6d0962ef">&lt;strong&gt;</bpt>Recovery state<ept id="d55a29b2-69ba-4fc0-92e0-f8fb6d0962ef">&lt;/strong&gt;</ept>, select <bpt id="729be3e8-f8d9-4afe-ae90-9c2edc516459">&lt;strong&gt;</bpt>RESTORE WITH NORECOVERY<ept id="729be3e8-f8d9-4afe-ae90-9c2edc516459">&lt;/strong&gt;</ept>, and then click <bpt id="ee509349-7ed3-40d6-bbc5-46b7be80ca6c">&lt;strong&gt;</bpt>OK<ept id="ee509349-7ed3-40d6-bbc5-46b7be80ca6c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c784da6b-35f0-444e-a8c3-2b2bb81b264d" xml:space="preserve">
+          <source>Click <bpt id="161ea158-77db-4e49-958a-396b372e945a">&lt;strong&gt;</bpt>OK<ept id="161ea158-77db-4e49-958a-396b372e945a">&lt;/strong&gt;</ept> when prompted.</source>
+          <target state="new">Click <bpt id="161ea158-77db-4e49-958a-396b372e945a">&lt;strong&gt;</bpt>OK<ept id="161ea158-77db-4e49-958a-396b372e945a">&lt;/strong&gt;</ept> when prompted.</target>
+        </trans-unit>
+        <trans-unit id="1817d3f8-674a-4e1b-a0c9-beadab93d16a" xml:space="preserve">
+          <source>After at least one database is prepared (using the backup and restore method), you create an availability group.</source>
+          <target state="new">After at least one database is prepared (using the backup and restore method), you create an availability group.</target>
+        </trans-unit>
+        <trans-unit id="6c521829-d035-4be1-a3e4-fc87ad007514" xml:space="preserve">
+          <source>Return to the Remote Desktop session for the primary SQL Server computer.</source>
+          <target state="new">Return to the Remote Desktop session for the primary SQL Server computer.</target>
+        </trans-unit>
+        <trans-unit id="f7d39909-a3fb-4b03-b8b3-1a78c03e3d55" xml:space="preserve">
+          <source>In <bpt id="313c16ca-a4f8-4fba-80cc-2f345e2ed7c7">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="313c16ca-a4f8-4fba-80cc-2f345e2ed7c7">&lt;/strong&gt;</ept>, in the left pane, right-click <bpt id="38140be1-f508-4b04-8501-1e491314a0c9">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="38140be1-f508-4b04-8501-1e491314a0c9">&lt;/strong&gt;</ept>, and then click <bpt id="84519d12-cf60-4d0a-ab02-ae630095eadb">&lt;strong&gt;</bpt>New Availability Group Wizard<ept id="84519d12-cf60-4d0a-ab02-ae630095eadb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="313c16ca-a4f8-4fba-80cc-2f345e2ed7c7">&lt;strong&gt;</bpt>SQL Server Management Studio<ept id="313c16ca-a4f8-4fba-80cc-2f345e2ed7c7">&lt;/strong&gt;</ept>, in the left pane, right-click <bpt id="38140be1-f508-4b04-8501-1e491314a0c9">&lt;strong&gt;</bpt>AlwaysOn High Availability<ept id="38140be1-f508-4b04-8501-1e491314a0c9">&lt;/strong&gt;</ept>, and then click <bpt id="84519d12-cf60-4d0a-ab02-ae630095eadb">&lt;strong&gt;</bpt>New Availability Group Wizard<ept id="84519d12-cf60-4d0a-ab02-ae630095eadb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f45b709e-3b3e-4327-9267-2e7924f94585" xml:space="preserve">
+          <source>On the <bpt id="9af38ec3-9853-43d0-8008-442362b32e68">&lt;strong&gt;</bpt>Introduction<ept id="9af38ec3-9853-43d0-8008-442362b32e68">&lt;/strong&gt;</ept> page, click <bpt id="9ef7fcb5-653b-4bb5-ad77-f5f3f9e8bd6c">&lt;strong&gt;</bpt>Next<ept id="9ef7fcb5-653b-4bb5-ad77-f5f3f9e8bd6c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9af38ec3-9853-43d0-8008-442362b32e68">&lt;strong&gt;</bpt>Introduction<ept id="9af38ec3-9853-43d0-8008-442362b32e68">&lt;/strong&gt;</ept> page, click <bpt id="9ef7fcb5-653b-4bb5-ad77-f5f3f9e8bd6c">&lt;strong&gt;</bpt>Next<ept id="9ef7fcb5-653b-4bb5-ad77-f5f3f9e8bd6c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6c129536-92f0-4c19-bd2e-60653810505f" xml:space="preserve">
+          <source>On the <bpt id="18a58b47-f451-404e-a2cd-d50df70917e4">&lt;strong&gt;</bpt>Specify Availability Group Name<ept id="18a58b47-f451-404e-a2cd-d50df70917e4">&lt;/strong&gt;</ept> page, type the name of your availability group in <bpt id="2ee7edd2-8122-4191-af40-c75fe29acdbe">&lt;strong&gt;</bpt>Availability group name<ept id="2ee7edd2-8122-4191-af40-c75fe29acdbe">&lt;/strong&gt;</ept> (example: AG1), and then click <bpt id="4c1f3bcb-2084-482b-a0d7-3cbbcc198e72">&lt;strong&gt;</bpt>Next<ept id="4c1f3bcb-2084-482b-a0d7-3cbbcc198e72">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="18a58b47-f451-404e-a2cd-d50df70917e4">&lt;strong&gt;</bpt>Specify Availability Group Name<ept id="18a58b47-f451-404e-a2cd-d50df70917e4">&lt;/strong&gt;</ept> page, type the name of your availability group in <bpt id="2ee7edd2-8122-4191-af40-c75fe29acdbe">&lt;strong&gt;</bpt>Availability group name<ept id="2ee7edd2-8122-4191-af40-c75fe29acdbe">&lt;/strong&gt;</ept> (example: AG1), and then click <bpt id="4c1f3bcb-2084-482b-a0d7-3cbbcc198e72">&lt;strong&gt;</bpt>Next<ept id="4c1f3bcb-2084-482b-a0d7-3cbbcc198e72">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8de145da-72d3-4e96-af4f-68a7fdf4e108" xml:space="preserve">
+          <source>On the <bpt id="7f559a3c-55dc-4b47-91d3-185826eefe96">&lt;strong&gt;</bpt>Select Databases<ept id="7f559a3c-55dc-4b47-91d3-185826eefe96">&lt;/strong&gt;</ept> page, select the databases for the SharePoint farm that were backed up, and then click <bpt id="7ac8d4d7-fb3c-475d-8cd4-aaa7d13cc990">&lt;strong&gt;</bpt>Next<ept id="7ac8d4d7-fb3c-475d-8cd4-aaa7d13cc990">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7f559a3c-55dc-4b47-91d3-185826eefe96">&lt;strong&gt;</bpt>Select Databases<ept id="7f559a3c-55dc-4b47-91d3-185826eefe96">&lt;/strong&gt;</ept> page, select the databases for the SharePoint farm that were backed up, and then click <bpt id="7ac8d4d7-fb3c-475d-8cd4-aaa7d13cc990">&lt;strong&gt;</bpt>Next<ept id="7ac8d4d7-fb3c-475d-8cd4-aaa7d13cc990">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="286ca3c1-b479-4cb4-9ed6-3b6ac90fa4b3" xml:space="preserve">
+          <source>These databases meet the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.</source>
+          <target state="new">These databases meet the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.</target>
+        </trans-unit>
+        <trans-unit id="8a720a00-8a75-459b-a23f-ee3b29397e63" xml:space="preserve">
+          <source>On the <bpt id="c97d8ad8-8ec6-4a11-90e4-cde32e92d519">&lt;strong&gt;</bpt>Specify Replicas<ept id="c97d8ad8-8ec6-4a11-90e4-cde32e92d519">&lt;/strong&gt;</ept> page, click <bpt id="566c0654-aa82-4872-a372-547c0cc70189">&lt;strong&gt;</bpt>Add Replica<ept id="566c0654-aa82-4872-a372-547c0cc70189">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="c97d8ad8-8ec6-4a11-90e4-cde32e92d519">&lt;strong&gt;</bpt>Specify Replicas<ept id="c97d8ad8-8ec6-4a11-90e4-cde32e92d519">&lt;/strong&gt;</ept> page, click <bpt id="566c0654-aa82-4872-a372-547c0cc70189">&lt;strong&gt;</bpt>Add Replica<ept id="566c0654-aa82-4872-a372-547c0cc70189">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36ae033f-745d-452d-a573-be7cc77de802" xml:space="preserve">
+          <source>In <bpt id="805eec36-757d-4edc-b3ea-1dffcb784198">&lt;strong&gt;</bpt>Connect to Server<ept id="805eec36-757d-4edc-b3ea-1dffcb784198">&lt;/strong&gt;</ept>, type the name of the secondary SQL Server computer, and then click <bpt id="cfb21a23-c1f9-403d-a811-9bdcbf286c6d">&lt;strong&gt;</bpt>Connect<ept id="cfb21a23-c1f9-403d-a811-9bdcbf286c6d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In <bpt id="805eec36-757d-4edc-b3ea-1dffcb784198">&lt;strong&gt;</bpt>Connect to Server<ept id="805eec36-757d-4edc-b3ea-1dffcb784198">&lt;/strong&gt;</ept>, type the name of the secondary SQL Server computer, and then click <bpt id="cfb21a23-c1f9-403d-a811-9bdcbf286c6d">&lt;strong&gt;</bpt>Connect<ept id="cfb21a23-c1f9-403d-a811-9bdcbf286c6d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb38d51a-4ad3-4c71-b2e0-a8325b84e7c4" xml:space="preserve">
+          <source>On the <bpt id="49db027f-d952-4737-a9d2-0d6b9fa65c20">&lt;strong&gt;</bpt>Specify Replicas<ept id="49db027f-d952-4737-a9d2-0d6b9fa65c20">&lt;/strong&gt;</ept> page, the secondary SQL Server host is listed in <bpt id="91adef36-0915-42c4-843e-0a4f9fe28f24">&lt;strong&gt;</bpt>Availability Replicas<ept id="91adef36-0915-42c4-843e-0a4f9fe28f24">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="49db027f-d952-4737-a9d2-0d6b9fa65c20">&lt;strong&gt;</bpt>Specify Replicas<ept id="49db027f-d952-4737-a9d2-0d6b9fa65c20">&lt;/strong&gt;</ept> page, the secondary SQL Server host is listed in <bpt id="91adef36-0915-42c4-843e-0a4f9fe28f24">&lt;strong&gt;</bpt>Availability Replicas<ept id="91adef36-0915-42c4-843e-0a4f9fe28f24">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35b1429d-faf7-4177-9af8-0792585646b2" xml:space="preserve">
+          <source>For both instances, set the following option values:</source>
+          <target state="new">For both instances, set the following option values:</target>
+        </trans-unit>
+        <trans-unit id="96fadba6-1ee2-4e79-b7fa-bae0bf899dcb" xml:space="preserve">
+          <source>Initial role</source>
+          <target state="new">Initial role</target>
+        </trans-unit>
+        <trans-unit id="650630cf-dd5f-4f2c-8c56-1f3eefd3ce9c" xml:space="preserve">
+          <source>Option</source>
+          <target state="new">Option</target>
+        </trans-unit>
+        <trans-unit id="58cc2c74-31b5-48bc-968f-5468e935a0c9" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="31067e75-066a-4223-962f-d8c9665b3907" xml:space="preserve">
+          <source>Primary</source>
+          <target state="new">Primary</target>
+        </trans-unit>
+        <trans-unit id="907da121-2c71-44ba-9a32-6061eae5399d" xml:space="preserve">
+          <source>Automatic Failover (Up to 2)</source>
+          <target state="new">Automatic Failover (Up to 2)</target>
+        </trans-unit>
+        <trans-unit id="2b34e32e-00c1-4d3b-a8c1-be04068e6404" xml:space="preserve">
+          <source>Selected</source>
+          <target state="new">Selected</target>
+        </trans-unit>
+        <trans-unit id="335b3cdc-486d-4fa7-b55d-872b5bb8f20b" xml:space="preserve">
+          <source>Secondary</source>
+          <target state="new">Secondary</target>
+        </trans-unit>
+        <trans-unit id="e6af3235-5f04-4891-aac6-562fe0d7a13e" xml:space="preserve">
+          <source>Automatic Failover (Up to 2)</source>
+          <target state="new">Automatic Failover (Up to 2)</target>
+        </trans-unit>
+        <trans-unit id="f6a08068-eaaf-42dd-afde-d787349e6436" xml:space="preserve">
+          <source>Selected</source>
+          <target state="new">Selected</target>
+        </trans-unit>
+        <trans-unit id="8d7ee013-bec1-4cd9-bca3-7288e984a26c" xml:space="preserve">
+          <source>Primary</source>
+          <target state="new">Primary</target>
+        </trans-unit>
+        <trans-unit id="294db80b-d203-4eeb-b49f-b95cf7f76e6b" xml:space="preserve">
+          <source>Synchronous Commit (Up to 3)</source>
+          <target state="new">Synchronous Commit (Up to 3)</target>
+        </trans-unit>
+        <trans-unit id="bc5c35b0-320a-426b-8574-720434b569f0" xml:space="preserve">
+          <source>Selected</source>
+          <target state="new">Selected</target>
+        </trans-unit>
+        <trans-unit id="3f0148b0-b968-44ae-aaf3-82656c51fc5c" xml:space="preserve">
+          <source>Secondary</source>
+          <target state="new">Secondary</target>
+        </trans-unit>
+        <trans-unit id="e4bbbc61-fab1-4c8e-95b7-6bed7f88132f" xml:space="preserve">
+          <source>Synchronous Commit (Up to 3)</source>
+          <target state="new">Synchronous Commit (Up to 3)</target>
+        </trans-unit>
+        <trans-unit id="40c1bb39-f6da-480c-b285-3e691b12d240" xml:space="preserve">
+          <source>Selected</source>
+          <target state="new">Selected</target>
+        </trans-unit>
+        <trans-unit id="8a10a7d7-764c-44c5-a80f-7bef8a20381c" xml:space="preserve">
+          <source>Primary</source>
+          <target state="new">Primary</target>
+        </trans-unit>
+        <trans-unit id="e0cfef95-17c0-494c-b23e-b0d52543c37f" xml:space="preserve">
+          <source>Readable Secondary</source>
+          <target state="new">Readable Secondary</target>
+        </trans-unit>
+        <trans-unit id="c0a3ab9d-8a6c-4cd1-98ef-fc85e4307d11" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="4b571ce7-0531-4c77-809f-f299bacf8469" xml:space="preserve">
+          <source>Secondary</source>
+          <target state="new">Secondary</target>
+        </trans-unit>
+        <trans-unit id="f172723f-e2a4-4c7b-88d8-12c2e60394f0" xml:space="preserve">
+          <source>Readable Secondary</source>
+          <target state="new">Readable Secondary</target>
+        </trans-unit>
+        <trans-unit id="e522bdb2-dd27-4001-a16f-e889d709eb3e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="90b97ae0-8cfb-40e9-9209-8c3cdebda6a3" xml:space="preserve">
+          <source>Click <bpt id="69b461ff-648b-456d-bf22-1dcf94b1dfa1">&lt;strong&gt;</bpt>Next<ept id="69b461ff-648b-456d-bf22-1dcf94b1dfa1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="69b461ff-648b-456d-bf22-1dcf94b1dfa1">&lt;strong&gt;</bpt>Next<ept id="69b461ff-648b-456d-bf22-1dcf94b1dfa1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6917a3a-d98e-44dd-a6de-6777777152c5" xml:space="preserve">
+          <source>On the <bpt id="5fee7f23-310a-4871-a15a-abbfd28f77aa">&lt;strong&gt;</bpt>Select Initial Data Synchronization<ept id="5fee7f23-310a-4871-a15a-abbfd28f77aa">&lt;/strong&gt;</ept> page, click <bpt id="8affca78-6e34-4fc2-9a21-da9c6474abcf">&lt;strong&gt;</bpt>Join only<ept id="8affca78-6e34-4fc2-9a21-da9c6474abcf">&lt;/strong&gt;</ept>, and then click <bpt id="8204f089-bc30-438e-8251-886f35090ea9">&lt;strong&gt;</bpt>Next<ept id="8204f089-bc30-438e-8251-886f35090ea9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5fee7f23-310a-4871-a15a-abbfd28f77aa">&lt;strong&gt;</bpt>Select Initial Data Synchronization<ept id="5fee7f23-310a-4871-a15a-abbfd28f77aa">&lt;/strong&gt;</ept> page, click <bpt id="8affca78-6e34-4fc2-9a21-da9c6474abcf">&lt;strong&gt;</bpt>Join only<ept id="8affca78-6e34-4fc2-9a21-da9c6474abcf">&lt;/strong&gt;</ept>, and then click <bpt id="8204f089-bc30-438e-8251-886f35090ea9">&lt;strong&gt;</bpt>Next<ept id="8204f089-bc30-438e-8251-886f35090ea9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72e7f31e-f00c-4684-9411-a4d2149b71ed" xml:space="preserve">
+          <source>Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup.</source>
+          <target state="new">Data synchronization is executed manually by taking the full and transaction backups on the primary server, and restoring it on the backup.</target>
+        </trans-unit>
+        <trans-unit id="56338cce-b159-4bfd-ae0a-a42facdeca22" xml:space="preserve">
+          <source>You can instead choose to select <bpt id="78306537-54f5-4a97-a0d6-32b721f357c5">&lt;strong&gt;</bpt>Full<ept id="78306537-54f5-4a97-a0d6-32b721f357c5">&lt;/strong&gt;</ept> to let the New Availability Group Wizard perform data synchronization for you.</source>
+          <target state="new">You can instead choose to select <bpt id="78306537-54f5-4a97-a0d6-32b721f357c5">&lt;strong&gt;</bpt>Full<ept id="78306537-54f5-4a97-a0d6-32b721f357c5">&lt;/strong&gt;</ept> to let the New Availability Group Wizard perform data synchronization for you.</target>
+        </trans-unit>
+        <trans-unit id="703083ee-dd98-4279-acf7-55c05d5d220a" xml:space="preserve">
+          <source>However, we don't recommend synchronization for large databases that are found in some enterprises.</source>
+          <target state="new">However, we don't recommend synchronization for large databases that are found in some enterprises.</target>
+        </trans-unit>
+        <trans-unit id="1399754f-244a-4a69-83f2-eec0f47af00a" xml:space="preserve">
+          <source>On the <bpt id="27fe36a0-abc4-4c89-9835-a718998ff74b">&lt;strong&gt;</bpt>Validation<ept id="27fe36a0-abc4-4c89-9835-a718998ff74b">&lt;/strong&gt;</ept> page, click <bpt id="0640f81c-62f5-4786-a0e2-9ed10d9fe908">&lt;strong&gt;</bpt>Next<ept id="0640f81c-62f5-4786-a0e2-9ed10d9fe908">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="27fe36a0-abc4-4c89-9835-a718998ff74b">&lt;strong&gt;</bpt>Validation<ept id="27fe36a0-abc4-4c89-9835-a718998ff74b">&lt;/strong&gt;</ept> page, click <bpt id="0640f81c-62f5-4786-a0e2-9ed10d9fe908">&lt;strong&gt;</bpt>Next<ept id="0640f81c-62f5-4786-a0e2-9ed10d9fe908">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d7ce56a-c8db-4eef-888e-09bbedd07b8a" xml:space="preserve">
+          <source>There is a warning for a missing listener configuration because an availability group listener is not configured.</source>
+          <target state="new">There is a warning for a missing listener configuration because an availability group listener is not configured.</target>
+        </trans-unit>
+        <trans-unit id="4f2624c1-9b30-4739-949a-d1f16e120d66" xml:space="preserve">
+          <source>On the <bpt id="4c9f56d3-f898-44b9-9a95-a4f7fdce93bf">&lt;strong&gt;</bpt>Summary<ept id="4c9f56d3-f898-44b9-9a95-a4f7fdce93bf">&lt;/strong&gt;</ept> page, click <bpt id="8317ab8c-f014-4904-b3bd-c7565d91b8d8">&lt;strong&gt;</bpt>Finish<ept id="8317ab8c-f014-4904-b3bd-c7565d91b8d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4c9f56d3-f898-44b9-9a95-a4f7fdce93bf">&lt;strong&gt;</bpt>Summary<ept id="4c9f56d3-f898-44b9-9a95-a4f7fdce93bf">&lt;/strong&gt;</ept> page, click <bpt id="8317ab8c-f014-4904-b3bd-c7565d91b8d8">&lt;strong&gt;</bpt>Finish<ept id="8317ab8c-f014-4904-b3bd-c7565d91b8d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d70bfa11-b571-4e16-b43c-fc50a158bebf" xml:space="preserve">
+          <source>Once the wizard is finished, inspect the <bpt id="55dccf2f-a356-41a5-a6d3-15ca98b95afa">&lt;strong&gt;</bpt>Results<ept id="55dccf2f-a356-41a5-a6d3-15ca98b95afa">&lt;/strong&gt;</ept> page to verify that the availability group is successfully created.</source>
+          <target state="new">Once the wizard is finished, inspect the <bpt id="55dccf2f-a356-41a5-a6d3-15ca98b95afa">&lt;strong&gt;</bpt>Results<ept id="55dccf2f-a356-41a5-a6d3-15ca98b95afa">&lt;/strong&gt;</ept> page to verify that the availability group is successfully created.</target>
+        </trans-unit>
+        <trans-unit id="571e7a65-246b-4b0e-b5f3-831f8394dfac" xml:space="preserve">
+          <source>If so, click <bpt id="2803efc4-a117-4b17-80de-8b3200ffdc5e">&lt;strong&gt;</bpt>Close<ept id="2803efc4-a117-4b17-80de-8b3200ffdc5e">&lt;/strong&gt;</ept> to exit the wizard.</source>
+          <target state="new">If so, click <bpt id="2803efc4-a117-4b17-80de-8b3200ffdc5e">&lt;strong&gt;</bpt>Close<ept id="2803efc4-a117-4b17-80de-8b3200ffdc5e">&lt;/strong&gt;</ept> to exit the wizard.</target>
+        </trans-unit>
+        <trans-unit id="b74d5c52-bb51-41b3-a01d-9db7d61fb725" xml:space="preserve">
+          <source>From the Start screen, type <bpt id="394cf744-0b69-4760-8c52-d0d6ff47fd51">&lt;strong&gt;</bpt>Failover<ept id="394cf744-0b69-4760-8c52-d0d6ff47fd51">&lt;/strong&gt;</ept>, and then click <bpt id="16b99f13-c8bb-4149-a89b-3647bf32d05a">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="16b99f13-c8bb-4149-a89b-3647bf32d05a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">From the Start screen, type <bpt id="394cf744-0b69-4760-8c52-d0d6ff47fd51">&lt;strong&gt;</bpt>Failover<ept id="394cf744-0b69-4760-8c52-d0d6ff47fd51">&lt;/strong&gt;</ept>, and then click <bpt id="16b99f13-c8bb-4149-a89b-3647bf32d05a">&lt;strong&gt;</bpt>Failover Cluster Manager<ept id="16b99f13-c8bb-4149-a89b-3647bf32d05a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6f788933-96bb-477a-bf3b-8803cda8e621" xml:space="preserve">
+          <source>In the left pane, open the name of your cluster, and then click <bpt id="cfc50a44-5b04-4cf1-adcc-0ce16cc4182a">&lt;strong&gt;</bpt>Roles<ept id="cfc50a44-5b04-4cf1-adcc-0ce16cc4182a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane, open the name of your cluster, and then click <bpt id="cfc50a44-5b04-4cf1-adcc-0ce16cc4182a">&lt;strong&gt;</bpt>Roles<ept id="cfc50a44-5b04-4cf1-adcc-0ce16cc4182a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc429100-c354-42da-9f15-7353317b5e3d" xml:space="preserve">
+          <source>A new role with the name of your availability group should be present.</source>
+          <target state="new">A new role with the name of your availability group should be present.</target>
+        </trans-unit>
+        <trans-unit id="022630b0-6cc9-4de1-a79e-377f973f956e" xml:space="preserve">
+          <source>You have successfully configured a SQL Server AlwaysOn availability group for your SharePoint databases.</source>
+          <target state="new">You have successfully configured a SQL Server AlwaysOn availability group for your SharePoint databases.</target>
+        </trans-unit>
+        <trans-unit id="3f3caa1c-6d49-4849-9304-594dd91465ad" xml:space="preserve">
+          <source>You can optionally create a listener configuration for the AlwaysOn availability group.</source>
+          <target state="new">You can optionally create a listener configuration for the AlwaysOn availability group.</target>
+        </trans-unit>
+        <trans-unit id="8dbc6ac5-3cb5-4be2-9e77-5a8ece5cd30f" xml:space="preserve">
+          <source>For the steps, see <bpt id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;linkText&gt;</bpt>Tutorial: Listener configuration for AlwaysOn Availability Groups<ept id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;/linkText&gt;</ept><bpt id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;title&gt;</bpt><ept id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the steps, see <bpt id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;linkText&gt;</bpt>Tutorial: Listener configuration for AlwaysOn Availability Groups<ept id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;/linkText&gt;</ept><bpt id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;title&gt;</bpt><ept id="a2129563-3ec2-4a52-88dd-99e4d7365e66">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e5e35278-2680-49ba-851b-8335b3bdad70" xml:space="preserve">
+          <source>You should create only a single listener and configure it to use a virtual IP address of an internal load-balancing instance.</source>
+          <target state="new">You should create only a single listener and configure it to use a virtual IP address of an internal load-balancing instance.</target>
+        </trans-unit>
+        <trans-unit id="49344d6c-679a-4736-b01a-7f60cc62bf0a" xml:space="preserve">
+          <source>Once the listener is created, you need to configure all the SharePoint virtual machines to use the listener, instead of the name of the first SQL Server computer in the cluster.</source>
+          <target state="new">Once the listener is created, you need to configure all the SharePoint virtual machines to use the listener, instead of the name of the first SQL Server computer in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="b93bce32-57d1-4b81-aad4-5c76abf64058" xml:space="preserve">
+          <source>Rather than using names, configure the SharePoint virtual machines to use a SQL alias.</source>
+          <target state="new">Rather than using names, configure the SharePoint virtual machines to use a SQL alias.</target>
+        </trans-unit>
+        <trans-unit id="4d9d7d29-0ebb-45e4-9246-284472fa276b" xml:space="preserve">
+          <source>For details and steps, see <bpt id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;linkText&gt;</bpt>SQL alias for SharePoint<ept id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;/linkText&gt;</ept><bpt id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;title&gt;</bpt><ept id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details and steps, see <bpt id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;linkText&gt;</bpt>SQL alias for SharePoint<ept id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;/linkText&gt;</ept><bpt id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;title&gt;</bpt><ept id="77020a73-b090-4c47-9da3-91e6003ad4a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="94e68e4e-613e-4f65-8d07-21af755bb00a" xml:space="preserve">
+          <source>For additional information about SharePoint with SQL Server AlwaysOn Availability Groups, see <bpt id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;linkText&gt;</bpt>Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013<ept id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;/linkText&gt;</ept><bpt id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;title&gt;</bpt><ept id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional information about SharePoint with SQL Server AlwaysOn Availability Groups, see <bpt id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;linkText&gt;</bpt>Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013<ept id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;/linkText&gt;</ept><bpt id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;title&gt;</bpt><ept id="466718b5-581c-4b4b-aebd-c35e7928f6a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="101600fd-5628-43b0-a25a-b4111fa57d38" xml:space="preserve">
+          <source><bpt id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;linkText&gt;</bpt>Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure<ept id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;/linkText&gt;</ept><bpt id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;title&gt;</bpt><ept id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;linkText&gt;</bpt>Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure<ept id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;/linkText&gt;</ept><bpt id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;title&gt;</bpt><ept id="ef3fe471-c453-44fa-aeca-1cf75d35de08">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc6ab280-b958-42a9-973a-24e68132968e" xml:space="preserve">
+          <source><bpt id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;/linkText&gt;</ept><bpt id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;title&gt;</bpt><ept id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;linkText&gt;</bpt>SharePoint farms hosted in Azure infrastructure services<ept id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;/linkText&gt;</ept><bpt id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;title&gt;</bpt><ept id="a0ddcb42-e494-449c-880a-331097cadddd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="678e103d-abaf-406e-837c-e2112dbdc1bd" xml:space="preserve">
+          <source><bpt id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;/linkText&gt;</ept><bpt id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;title&gt;</bpt><ept id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;linkText&gt;</bpt>SharePoint with SQL Server AlwaysOn infographic<ept id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;/linkText&gt;</ept><bpt id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;title&gt;</bpt><ept id="0d597030-12ba-44fd-af73-8cfa024a004c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e51cf370-dfa3-432e-bd32-6e21c68ae1ac" xml:space="preserve">
+          <source><bpt id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;/linkText&gt;</ept><bpt id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;title&gt;</bpt><ept id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;linkText&gt;</bpt>Microsoft Azure architectures for SharePoint 2013<ept id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;/linkText&gt;</ept><bpt id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;title&gt;</bpt><ept id="559beb10-64b6-4039-a3a2-a6e62b929b7d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="82014afd-327e-4b58-ba23-c8326f8349dd" xml:space="preserve">
+          <source><bpt id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;/linkText&gt;</ept><bpt id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;title&gt;</bpt><ept id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;/linkText&gt;</ept><bpt id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;title&gt;</bpt><ept id="ba228814-40ef-4065-8a5f-51abc291bb7c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6486e39b-06b1-44bf-a32d-216aef716a55" xml:space="preserve">
+          <source><bpt id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: High-availability line of business application<ept id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;/linkText&gt;</ept><bpt id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;title&gt;</bpt><ept id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: High-availability line of business application<ept id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;/linkText&gt;</ept><bpt id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;title&gt;</bpt><ept id="ae880972-b4f2-4c1b-896d-f97ff577d0c7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

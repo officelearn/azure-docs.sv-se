@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="037d6ac9-11ab-4dd8-a700-aa53d15eafb7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="037d6ac9-11ab-4dd8-a700-aa53d15eafb7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0e317046-30dd-4591-a70f-0beefd772445">
+        <trans-unit id="02f133b0-abf8-4034-813f-002f2aa16484" xml:space="preserve">
+          <source> Traffic Manager - traffic routing methods | Microsoft Azure</source>
+          <target state="new"> Traffic Manager - traffic routing methods | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="feb48cd8-496f-45a4-8e8d-970948ca3b81" xml:space="preserve">
+          <source>This articles will help you understand the different traffic routing methods used by Traffic Manager</source>
+          <target state="new">This articles will help you understand the different traffic routing methods used by Traffic Manager</target>
+        </trans-unit>
+        <trans-unit id="7127d78e-9ec4-40c0-a1de-70e1980b7e83" xml:space="preserve">
+          <source>There are three traffic routing methods available in Traffic Manager.</source>
+          <target state="new">There are three traffic routing methods available in Traffic Manager.</target>
+        </trans-unit>
+        <trans-unit id="70b865f5-2876-4964-887b-03b77c35b231" xml:space="preserve">
+          <source>Each Traffic Manager profile can use only one traffic routing method at a time, although you can select a different traffic routing method for your profile at any time.</source>
+          <target state="new">Each Traffic Manager profile can use only one traffic routing method at a time, although you can select a different traffic routing method for your profile at any time.</target>
+        </trans-unit>
+        <trans-unit id="c9dbf2ca-6279-4259-b3c3-863f4bac6964" xml:space="preserve">
+          <source>It’s important to note that all traffic routing methods include endpoint monitoring.</source>
+          <target state="new">It’s important to note that all traffic routing methods include endpoint monitoring.</target>
+        </trans-unit>
+        <trans-unit id="5f9502a3-483b-48c3-9e6c-0749557c2310" xml:space="preserve">
+          <source>After you configure your Traffic Manager profile to specify the traffic routing method that best fits your requirements, configure your monitoring settings.</source>
+          <target state="new">After you configure your Traffic Manager profile to specify the traffic routing method that best fits your requirements, configure your monitoring settings.</target>
+        </trans-unit>
+        <trans-unit id="677e6c0c-005e-410f-8bc9-bb2bbd491a82" xml:space="preserve">
+          <source>When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable.</source>
+          <target state="new">When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable.</target>
+        </trans-unit>
+        <trans-unit id="fcb64407-a863-4e7e-8876-effa7103e4e9" xml:space="preserve">
+          <source>For information about Traffic Manager monitoring, see <bpt id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;linkText&gt;</bpt>About Traffic Manager Monitoring<ept id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;/linkText&gt;</ept><bpt id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;title&gt;</bpt><ept id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about Traffic Manager monitoring, see <bpt id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;linkText&gt;</bpt>About Traffic Manager Monitoring<ept id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;/linkText&gt;</ept><bpt id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;title&gt;</bpt><ept id="082c47d2-1a11-4965-af35-dda27ea3f0de">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11bae9e1-8c7e-4e4f-bb17-d82c3d9ea2e3" xml:space="preserve">
+          <source>The three Traffic Manager traffic routing methods are:</source>
+          <target state="new">The three Traffic Manager traffic routing methods are:</target>
+        </trans-unit>
+        <trans-unit id="ce1d6924-8039-456e-b585-708d74f6b27b" xml:space="preserve">
+          <source><bpt id="49aefbc3-fb58-4968-b357-9844f4cd864e">&lt;strong&gt;</bpt>Failover<ept id="49aefbc3-fb58-4968-b357-9844f4cd864e">&lt;/strong&gt;</ept>: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Management Portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable.</source>
+          <target state="new"><bpt id="49aefbc3-fb58-4968-b357-9844f4cd864e">&lt;strong&gt;</bpt>Failover<ept id="49aefbc3-fb58-4968-b357-9844f4cd864e">&lt;/strong&gt;</ept>: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Management Portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable.</target>
+        </trans-unit>
+        <trans-unit id="d0463395-5c96-4459-b8a9-b6a532e3745c" xml:space="preserve">
+          <source>For more information, see <bpt id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;linkText&gt;</bpt>Failover traffic routing method<ept id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;/linkText&gt;</ept><bpt id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;title&gt;</bpt><ept id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;linkText&gt;</bpt>Failover traffic routing method<ept id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;/linkText&gt;</ept><bpt id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;title&gt;</bpt><ept id="1b7e8940-b66b-4ca5-9450-533ad271ebb1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="46af81c0-78c7-4e6a-90c5-f6885893f695" xml:space="preserve">
+          <source><bpt id="1293ebec-afa8-454f-9700-59129226fd26">&lt;strong&gt;</bpt>Round Robin<ept id="1293ebec-afa8-454f-9700-59129226fd26">&lt;/strong&gt;</ept>: Select Round Robin when you want to distribute load across a set of endpoints in the same datacenter or across different datacenters.</source>
+          <target state="new"><bpt id="1293ebec-afa8-454f-9700-59129226fd26">&lt;strong&gt;</bpt>Round Robin<ept id="1293ebec-afa8-454f-9700-59129226fd26">&lt;/strong&gt;</ept>: Select Round Robin when you want to distribute load across a set of endpoints in the same datacenter or across different datacenters.</target>
+        </trans-unit>
+        <trans-unit id="e49ae519-ecef-4d58-adac-870944b7ff1d" xml:space="preserve">
+          <source>For more information, see <bpt id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;linkText&gt;</bpt>Round Robin traffic routing method<ept id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;/linkText&gt;</ept><bpt id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;title&gt;</bpt><ept id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;linkText&gt;</bpt>Round Robin traffic routing method<ept id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;/linkText&gt;</ept><bpt id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;title&gt;</bpt><ept id="748db09b-f8d2-4932-a8b2-4d7128b0af51">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="697596d4-6dd3-48d5-91a7-b337ef677ebe" xml:space="preserve">
+          <source><bpt id="24cff425-0183-476e-aff6-349817ed4b7d">&lt;strong&gt;</bpt>Performance<ept id="24cff425-0183-476e-aff6-349817ed4b7d">&lt;/strong&gt;</ept>: Select Performance when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.</source>
+          <target state="new"><bpt id="24cff425-0183-476e-aff6-349817ed4b7d">&lt;strong&gt;</bpt>Performance<ept id="24cff425-0183-476e-aff6-349817ed4b7d">&lt;/strong&gt;</ept>: Select Performance when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.</target>
+        </trans-unit>
+        <trans-unit id="e381c4c4-e46c-4a53-8bd4-e5c97ca6b478" xml:space="preserve">
+          <source>For more information, see <bpt id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;linkText&gt;</bpt>Performance traffic routing method<ept id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;/linkText&gt;</ept><bpt id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;title&gt;</bpt><ept id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;linkText&gt;</bpt>Performance traffic routing method<ept id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;/linkText&gt;</ept><bpt id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;title&gt;</bpt><ept id="fdd0fcd5-6588-4d8f-9234-29796093b4fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a3c74cd3-b002-450b-a46c-ccef7f1e4b87" xml:space="preserve">
+          <source>Note that Azure Websites already provides failover and round-robin traffic routing method functionality for websites within a datacenter, regardless of the website mode.</source>
+          <target state="new">Note that Azure Websites already provides failover and round-robin traffic routing method functionality for websites within a datacenter, regardless of the website mode.</target>
+        </trans-unit>
+        <trans-unit id="9777cbea-ef19-4436-af24-1fe2f379d3b1" xml:space="preserve">
+          <source>Traffic Manager allows you to specify failover and round-robin traffic routing for websites in different datacenters.</source>
+          <target state="new">Traffic Manager allows you to specify failover and round-robin traffic routing for websites in different datacenters.</target>
+        </trans-unit>
+        <trans-unit id="a5bd99ce-6086-46bf-99ba-844b40d45583" xml:space="preserve">
+          <source>The DNS Time-to-Live (TTL) informs DNS clients and resolvers on DNS servers how long to cache the resolved names.</source>
+          <target state="new">The DNS Time-to-Live (TTL) informs DNS clients and resolvers on DNS servers how long to cache the resolved names.</target>
+        </trans-unit>
+        <trans-unit id="60881914-117f-4b48-b57e-09465c385a96" xml:space="preserve">
+          <source>Clients will continue to use a given endpoint when resolving its domain name until the local DNS cache entry for the name expires.</source>
+          <target state="new">Clients will continue to use a given endpoint when resolving its domain name until the local DNS cache entry for the name expires.</target>
+        </trans-unit>
+        <trans-unit id="4e408f82-a8df-4dbd-8936-bba2cd7e3584" xml:space="preserve">
+          <source>Often an organization wants to provide reliability for its services.</source>
+          <target state="new">Often an organization wants to provide reliability for its services.</target>
+        </trans-unit>
+        <trans-unit id="acd28551-12d9-4e86-9e93-9a6ed8bce18a" xml:space="preserve">
+          <source>It does this by providing backup services in case their primary service goes down.</source>
+          <target state="new">It does this by providing backup services in case their primary service goes down.</target>
+        </trans-unit>
+        <trans-unit id="064255ae-3a75-4fcd-b2da-41b94c3e591a" xml:space="preserve">
+          <source>A common pattern for service failover is to provide a set of identical endpoints and send traffic to a primary service, with a list of one or more backups.</source>
+          <target state="new">A common pattern for service failover is to provide a set of identical endpoints and send traffic to a primary service, with a list of one or more backups.</target>
+        </trans-unit>
+        <trans-unit id="73a613c8-80ab-477f-918c-a869f9fd4947" xml:space="preserve">
+          <source>If the primary service is not available, requesting clients are referred to the next in order.</source>
+          <target state="new">If the primary service is not available, requesting clients are referred to the next in order.</target>
+        </trans-unit>
+        <trans-unit id="3ea756ef-8062-40a8-82ef-a941be123006" xml:space="preserve">
+          <source>If both the first and second services in the list are not available, the traffic goes to the third and so on.</source>
+          <target state="new">If both the first and second services in the list are not available, the traffic goes to the third and so on.</target>
+        </trans-unit>
+        <trans-unit id="f739ef47-2c9f-4f06-a039-8da9e37b0a96" xml:space="preserve">
+          <source>When configuring the Failover traffic routing method, the order of the selected endpoints is important.</source>
+          <target state="new">When configuring the Failover traffic routing method, the order of the selected endpoints is important.</target>
+        </trans-unit>
+        <trans-unit id="24aaae33-e043-4d4a-8597-a52897272349" xml:space="preserve">
+          <source>Using the Management Portal, you can configure the failover order on the Configuration page for the profile.</source>
+          <target state="new">Using the Management Portal, you can configure the failover order on the Configuration page for the profile.</target>
+        </trans-unit>
+        <trans-unit id="8e090715-616c-4ff9-9a9a-c4c8520de200" xml:space="preserve">
+          <source>Figure 1 shows an example of the Failover traffic routing method for a set of endpoints.</source>
+          <target state="new">Figure 1 shows an example of the Failover traffic routing method for a set of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="b36a385d-c0be-4c07-bbeb-34725cc05a31" xml:space="preserve">
+          <source><bpt id="3a7ddbcc-2471-4a24-bcc0-6bac5185ef46">&lt;linkText&gt;</bpt>Traffic Manager Failover load balancing<ept id="3a7ddbcc-2471-4a24-bcc0-6bac5185ef46">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3a7ddbcc-2471-4a24-bcc0-6bac5185ef46">&lt;linkText&gt;</bpt>Traffic Manager Failover load balancing<ept id="3a7ddbcc-2471-4a24-bcc0-6bac5185ef46">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c81cfa1-ac94-4b75-a5ad-c9aed31f8762" xml:space="preserve">
+          <source><bpt id="946a3d22-80a4-4e0a-b2fe-1b9168f1b361">&lt;strong&gt;</bpt>Figure 1<ept id="946a3d22-80a4-4e0a-b2fe-1b9168f1b361">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="946a3d22-80a4-4e0a-b2fe-1b9168f1b361">&lt;strong&gt;</bpt>Figure 1<ept id="946a3d22-80a4-4e0a-b2fe-1b9168f1b361">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c7a88f9f-3d58-4497-a78a-945be741588f" xml:space="preserve">
+          <source>The following numbered steps correspond to the numbers in Figure 1.</source>
+          <target state="new">The following numbered steps correspond to the numbers in Figure 1.</target>
+        </trans-unit>
+        <trans-unit id="22b3318f-6656-4a67-a731-393bb83feb4c" xml:space="preserve">
+          <source>Traffic Manager receives an incoming request from a client through DNS and locates the profile.</source>
+          <target state="new">Traffic Manager receives an incoming request from a client through DNS and locates the profile.</target>
+        </trans-unit>
+        <trans-unit id="b53a606a-c656-4f9e-91f9-ee2c47089054" xml:space="preserve">
+          <source>The profile contains an ordered list of endpoints.</source>
+          <target state="new">The profile contains an ordered list of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="8d8ebe3d-6b0c-4417-9e95-ff7fa9b63cf6" xml:space="preserve">
+          <source>Traffic Manager checks which endpoint is first in the list.</source>
+          <target state="new">Traffic Manager checks which endpoint is first in the list.</target>
+        </trans-unit>
+        <trans-unit id="b2325ca0-2b75-40ce-8acb-f0a14d93bc24" xml:space="preserve">
+          <source>If the endpoint is online (based on the ongoing endpoint monitoring), it will specify that endpoint’s DNS name in the DNS response to the client.</source>
+          <target state="new">If the endpoint is online (based on the ongoing endpoint monitoring), it will specify that endpoint’s DNS name in the DNS response to the client.</target>
+        </trans-unit>
+        <trans-unit id="02d16662-9b94-4fd5-860e-237be1bf1970" xml:space="preserve">
+          <source>If the endpoint is offline, Traffic Manager determines the next online endpoint in the list.</source>
+          <target state="new">If the endpoint is offline, Traffic Manager determines the next online endpoint in the list.</target>
+        </trans-unit>
+        <trans-unit id="96738ba9-5db9-4b67-8280-51a05353c244" xml:space="preserve">
+          <source>In this example CS-A is offline (unavailable), but CS-B is online (available).</source>
+          <target state="new">In this example CS-A is offline (unavailable), but CS-B is online (available).</target>
+        </trans-unit>
+        <trans-unit id="f942df62-e9f5-4e46-aefd-ced58cf1db5d" xml:space="preserve">
+          <source>Traffic Manager returns CS-B’s domain name to the client's DNS server, which resolves the domain name to an IP address and sends it to the client.</source>
+          <target state="new">Traffic Manager returns CS-B’s domain name to the client's DNS server, which resolves the domain name to an IP address and sends it to the client.</target>
+        </trans-unit>
+        <trans-unit id="0d2b44ee-92ed-49b3-a943-f8d67bd53ac5" xml:space="preserve">
+          <source>The client initiates traffic to CS-B.</source>
+          <target state="new">The client initiates traffic to CS-B.</target>
+        </trans-unit>
+        <trans-unit id="5c6d2f18-ee99-431e-89b5-e2c7123fd9a1" xml:space="preserve">
+          <source>A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion.</source>
+          <target state="new">A common traffic routing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion.</target>
+        </trans-unit>
+        <trans-unit id="1a62a599-f5ed-48a6-a57a-8dae6c35e746" xml:space="preserve">
+          <source>The Round Robin method splits up traffic across various endpoints.</source>
+          <target state="new">The Round Robin method splits up traffic across various endpoints.</target>
+        </trans-unit>
+        <trans-unit id="65b7488d-6532-4583-b4c5-201eadd90e17" xml:space="preserve">
+          <source>It selects a healthy endpoint at random and will not send traffic to services that are detected as being down.</source>
+          <target state="new">It selects a healthy endpoint at random and will not send traffic to services that are detected as being down.</target>
+        </trans-unit>
+        <trans-unit id="e7bb0183-94ab-492d-a5fd-90e88cf20e17" xml:space="preserve">
+          <source>For more information, see <bpt id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;linkText&gt;</bpt>Traffic Manager Monitoring<ept id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;/linkText&gt;</ept><bpt id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;title&gt;</bpt><ept id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;linkText&gt;</bpt>Traffic Manager Monitoring<ept id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;/linkText&gt;</ept><bpt id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;title&gt;</bpt><ept id="48ede184-e2ea-4699-88b3-3752f60df47e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb50977c-2ad1-47af-9436-5f4fd1019e71" xml:space="preserve">
+          <source>Figure 2 shows an example of the Round Robin traffic routing method for a set of endpoints.</source>
+          <target state="new">Figure 2 shows an example of the Round Robin traffic routing method for a set of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="ec0873eb-a88b-4786-a521-5872bf20cacb" xml:space="preserve">
+          <source><bpt id="cb42ecc0-d82b-4ee4-bbd1-0cb205b78eb8">&lt;linkText&gt;</bpt>Traffic Manager Round Robin load balancing<ept id="cb42ecc0-d82b-4ee4-bbd1-0cb205b78eb8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cb42ecc0-d82b-4ee4-bbd1-0cb205b78eb8">&lt;linkText&gt;</bpt>Traffic Manager Round Robin load balancing<ept id="cb42ecc0-d82b-4ee4-bbd1-0cb205b78eb8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a306d2b8-1b6b-4b03-a980-1350b5ec430c" xml:space="preserve">
+          <source><bpt id="dce80190-cbbc-4b45-bd46-a8342606d90a">&lt;strong&gt;</bpt>Figure 2<ept id="dce80190-cbbc-4b45-bd46-a8342606d90a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="dce80190-cbbc-4b45-bd46-a8342606d90a">&lt;strong&gt;</bpt>Figure 2<ept id="dce80190-cbbc-4b45-bd46-a8342606d90a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e36470bb-d3ac-4256-b3a5-47a380fb9752" xml:space="preserve">
+          <source>The following numbered steps correspond to the numbers in Figure 2.</source>
+          <target state="new">The following numbered steps correspond to the numbers in Figure 2.</target>
+        </trans-unit>
+        <trans-unit id="8ec28be3-2a02-4be0-8fa1-bf68e6b69f9d" xml:space="preserve">
+          <source>Traffic Manager receives an incoming request from a client and locates the profile.</source>
+          <target state="new">Traffic Manager receives an incoming request from a client and locates the profile.</target>
+        </trans-unit>
+        <trans-unit id="df9f0d8d-4349-405c-b39e-2d368386c661" xml:space="preserve">
+          <source>The profile contains a list of endpoints.</source>
+          <target state="new">The profile contains a list of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="af1dd9de-3f57-4d0a-87ff-5e95fb2b17a6" xml:space="preserve">
+          <source>Traffic Manager selects an endpoint from this list at random, excluding any offline (unavailable) endpoints determined by Traffic Manager endpoint monitoring.</source>
+          <target state="new">Traffic Manager selects an endpoint from this list at random, excluding any offline (unavailable) endpoints determined by Traffic Manager endpoint monitoring.</target>
+        </trans-unit>
+        <trans-unit id="f34fce75-fc8f-4c6a-a00d-29a270641666" xml:space="preserve">
+          <source>In this example, this is endpoint CS-B.</source>
+          <target state="new">In this example, this is endpoint CS-B.</target>
+        </trans-unit>
+        <trans-unit id="53e4e6c5-14dd-41ee-9ce0-bb11978c08d9" xml:space="preserve">
+          <source>The Traffic Manager returns CS-B's domain name to the client's DNS server.</source>
+          <target state="new">The Traffic Manager returns CS-B's domain name to the client's DNS server.</target>
+        </trans-unit>
+        <trans-unit id="b3d1002f-e13f-4c04-846a-9be9d95bf06b" xml:space="preserve">
+          <source>The client's DNS server resolves this domain name to an IP address and sends it to the client.</source>
+          <target state="new">The client's DNS server resolves this domain name to an IP address and sends it to the client.</target>
+        </trans-unit>
+        <trans-unit id="a48cca01-64ac-4579-9d0f-f3abb430da0a" xml:space="preserve">
+          <source>The client initiates traffic to CS-B.</source>
+          <target state="new">The client initiates traffic to CS-B.</target>
+        </trans-unit>
+        <trans-unit id="fc09cdec-ae1c-499e-a659-75b854e7692b" xml:space="preserve">
+          <source>Round Robin traffic routing also supports weighted distribution of network traffic.</source>
+          <target state="new">Round Robin traffic routing also supports weighted distribution of network traffic.</target>
+        </trans-unit>
+        <trans-unit id="46252143-9246-47c4-a3c6-5e408db19296" xml:space="preserve">
+          <source>Figure 3 shows an example of the weighted Round Robin traffic routing method for a set of endpoints.</source>
+          <target state="new">Figure 3 shows an example of the weighted Round Robin traffic routing method for a set of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="bf74ff28-b82b-48b8-97b2-869bd2ecab2b" xml:space="preserve">
+          <source><bpt id="472e4fcf-5c1c-4fd1-b6f5-c21d4fc2ec15">&lt;linkText&gt;</bpt>Round Robin Weighted Load Balancing<ept id="472e4fcf-5c1c-4fd1-b6f5-c21d4fc2ec15">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="472e4fcf-5c1c-4fd1-b6f5-c21d4fc2ec15">&lt;linkText&gt;</bpt>Round Robin Weighted Load Balancing<ept id="472e4fcf-5c1c-4fd1-b6f5-c21d4fc2ec15">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8394db5c-ff2c-4090-b2f6-2b6d796a8a0c" xml:space="preserve">
+          <source><bpt id="a94bb7cc-1839-4bb3-80af-18d8a36f4dc4">&lt;strong&gt;</bpt>Figure 3<ept id="a94bb7cc-1839-4bb3-80af-18d8a36f4dc4">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a94bb7cc-1839-4bb3-80af-18d8a36f4dc4">&lt;strong&gt;</bpt>Figure 3<ept id="a94bb7cc-1839-4bb3-80af-18d8a36f4dc4">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7f9f67b7-2eca-4565-8d94-7c68aacb1613" xml:space="preserve">
+          <source>Round Robin weighted traffic routing allows you to distribute load to various endpoints based on an assigned weight value of each endpoint.</source>
+          <target state="new">Round Robin weighted traffic routing allows you to distribute load to various endpoints based on an assigned weight value of each endpoint.</target>
+        </trans-unit>
+        <trans-unit id="26f60666-0e25-4a62-855b-0c8e46123425" xml:space="preserve">
+          <source>The higher the weight, the more frequently an endpoint will be returned.</source>
+          <target state="new">The higher the weight, the more frequently an endpoint will be returned.</target>
+        </trans-unit>
+        <trans-unit id="530f636c-613b-49fb-a6e1-a43169e1756b" xml:space="preserve">
+          <source>Scenarios where this method can be useful include:</source>
+          <target state="new">Scenarios where this method can be useful include:</target>
+        </trans-unit>
+        <trans-unit id="b2df2fbd-f5f7-46b5-8154-8b84622933dc" xml:space="preserve">
+          <source>Gradual application upgrade: Allocate a percentage of traffic to route to a new endpoint, and gradually increase the traffic over time to 100%.</source>
+          <target state="new">Gradual application upgrade: Allocate a percentage of traffic to route to a new endpoint, and gradually increase the traffic over time to 100%.</target>
+        </trans-unit>
+        <trans-unit id="62d98e0a-408a-43db-86cc-3fd005293b4a" xml:space="preserve">
+          <source>Application migration to Azure: Create a profile with both Azure and external endpoints, and specify the weight of traffic that is routed to each endpoint.</source>
+          <target state="new">Application migration to Azure: Create a profile with both Azure and external endpoints, and specify the weight of traffic that is routed to each endpoint.</target>
+        </trans-unit>
+        <trans-unit id="3551befb-036c-4d9f-8f53-0c1fbed3edb9" xml:space="preserve">
+          <source>Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile.</source>
+          <target state="new">Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile.</target>
+        </trans-unit>
+        <trans-unit id="0f03f900-9c3a-4172-8bde-4acc07a117ec" xml:space="preserve">
+          <source>When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.</source>
+          <target state="new">When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.</target>
+        </trans-unit>
+        <trans-unit id="e6eb030f-c996-4e77-975d-49e52807ac1f" xml:space="preserve">
+          <source>At this time, you cannot use the Management Portal to configure weighted traffic routing.</source>
+          <target state="new">At this time, you cannot use the Management Portal to configure weighted traffic routing.</target>
+        </trans-unit>
+        <trans-unit id="5185aa42-02e4-4550-9015-fd1538ea233f" xml:space="preserve">
+          <source>Azure provides programmatic access to this method using the associated Service Management REST API and Azure PowerShell cmdlets.</source>
+          <target state="new">Azure provides programmatic access to this method using the associated Service Management REST API and Azure PowerShell cmdlets.</target>
+        </trans-unit>
+        <trans-unit id="ee66c4cd-0522-476c-bb2e-068bbe2e7b66" xml:space="preserve">
+          <source>For information about using the REST APIs, see <bpt id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;/linkText&gt;</ept><bpt id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;title&gt;</bpt><ept id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using the REST APIs, see <bpt id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;/linkText&gt;</ept><bpt id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;title&gt;</bpt><ept id="c357ad59-be6e-4fe5-a352-e7bbedac561a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e265953b-a6d8-4b58-9121-d57b6f0e8bae" xml:space="preserve">
+          <source>For information about using the Azure PowerShell cmdlets, see <bpt id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;/linkText&gt;</ept><bpt id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;title&gt;</bpt><ept id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using the Azure PowerShell cmdlets, see <bpt id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;/linkText&gt;</ept><bpt id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;title&gt;</bpt><ept id="28141786-4a42-4b0e-94c1-0aafa1b5a43f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="532d611c-5996-4996-b7f2-2361c04af604" xml:space="preserve">
+          <source>For an example configuration, see <bpt id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;linkText&gt;</bpt>Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell<ept id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;/linkText&gt;</ept><bpt id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;title&gt;</bpt><ept id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;/title&gt;</ept> in the Azure blog.</source>
+          <target state="new">For an example configuration, see <bpt id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;linkText&gt;</bpt>Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell<ept id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;/linkText&gt;</ept><bpt id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;title&gt;</bpt><ept id="c0caf2e7-2568-466a-9d32-2e3c1b8efc40">&lt;/title&gt;</ept> in the Azure blog.</target>
+        </trans-unit>
+        <trans-unit id="00b6934c-8c1c-4d4f-a6ff-ac733ee56df1" xml:space="preserve">
+          <source>To test the profile from a single client and observe the equal or weighted round robin behavior, verify that the DNS name is resolved to the different IP addresses of the endpoints according to the equal or weighted values in the profile.</source>
+          <target state="new">To test the profile from a single client and observe the equal or weighted round robin behavior, verify that the DNS name is resolved to the different IP addresses of the endpoints according to the equal or weighted values in the profile.</target>
+        </trans-unit>
+        <trans-unit id="ecc5a086-cd77-481e-9779-a9bab74053d5" xml:space="preserve">
+          <source>When testing, you must either disable client-side DNS caching or clear the DNS cache between each attempt to ensure that a new DNS name query gets sent.</source>
+          <target state="new">When testing, you must either disable client-side DNS caching or clear the DNS cache between each attempt to ensure that a new DNS name query gets sent.</target>
+        </trans-unit>
+        <trans-unit id="d1eaa76b-f951-4a26-8a8e-8c8968224fd0" xml:space="preserve">
+          <source>In order to traffic route endpoints that are located in different datacenters across the globe, you can direct incoming traffic to the closest endpoint in terms of the lowest latency between the requesting client and the endpoint.</source>
+          <target state="new">In order to traffic route endpoints that are located in different datacenters across the globe, you can direct incoming traffic to the closest endpoint in terms of the lowest latency between the requesting client and the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="8aa23029-de32-4207-b4fa-b8a22339ca8c" xml:space="preserve">
+          <source>Usually, the “closest” endpoint directly corresponds to the shortest geographic distance.</source>
+          <target state="new">Usually, the “closest” endpoint directly corresponds to the shortest geographic distance.</target>
+        </trans-unit>
+        <trans-unit id="500bbca5-83bd-4400-a456-3a21286aad54" xml:space="preserve">
+          <source>The Performance traffic routing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load.</source>
+          <target state="new">The Performance traffic routing method will allow you to distribute based on location and latency, but cannot take into account real-time changes in network configuration or load.</target>
+        </trans-unit>
+        <trans-unit id="6f60d9b0-dcab-40df-9ca0-528ec982438d" xml:space="preserve">
+          <source>The Performance traffic routing method locates the requesting client and refers it to the closest endpoint.</source>
+          <target state="new">The Performance traffic routing method locates the requesting client and refers it to the closest endpoint.</target>
+        </trans-unit>
+        <trans-unit id="05829050-a2ae-4449-a305-26c02e843d19" xml:space="preserve">
+          <source>“Closeness” is determined by an Internet Latency Table showing the round trip time between various IP addresses and each Azure datacenter.</source>
+          <target state="new">“Closeness” is determined by an Internet Latency Table showing the round trip time between various IP addresses and each Azure datacenter.</target>
+        </trans-unit>
+        <trans-unit id="07bd3833-ffec-4ae5-833c-5732b30a0f3a" xml:space="preserve">
+          <source>This table is updated at periodic intervals and is not meant to be a real time reflection of performance across the Internet.</source>
+          <target state="new">This table is updated at periodic intervals and is not meant to be a real time reflection of performance across the Internet.</target>
+        </trans-unit>
+        <trans-unit id="53a5925a-3a3b-4806-9fb8-5b37da377754" xml:space="preserve">
+          <source>It does not take into account the load on a given service, although Traffic Manager monitors your endpoints based on the method you choose and will not include them in DNS query responses if they are unavailable.</source>
+          <target state="new">It does not take into account the load on a given service, although Traffic Manager monitors your endpoints based on the method you choose and will not include them in DNS query responses if they are unavailable.</target>
+        </trans-unit>
+        <trans-unit id="2c0a416f-11c2-4981-bc44-fb8f20b7fdd7" xml:space="preserve">
+          <source>In other words, Performance traffic routing also incorporates the Failover traffic routing method.</source>
+          <target state="new">In other words, Performance traffic routing also incorporates the Failover traffic routing method.</target>
+        </trans-unit>
+        <trans-unit id="1af35b99-cc80-4b22-8143-5a63cf76fe3b" xml:space="preserve">
+          <source>Figure 4 shows an example of the Performance traffic routing method for a set of endpoints.</source>
+          <target state="new">Figure 4 shows an example of the Performance traffic routing method for a set of endpoints.</target>
+        </trans-unit>
+        <trans-unit id="277a36af-9e56-47a8-96be-1dae7d1a0be7" xml:space="preserve">
+          <source><bpt id="0e096044-b452-4ffe-a706-f9bfb1045dfe">&lt;linkText&gt;</bpt>Traffic Manager Performance load balancing<ept id="0e096044-b452-4ffe-a706-f9bfb1045dfe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e096044-b452-4ffe-a706-f9bfb1045dfe">&lt;linkText&gt;</bpt>Traffic Manager Performance load balancing<ept id="0e096044-b452-4ffe-a706-f9bfb1045dfe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7667d412-3a76-4691-a9d9-b61394e7d63f" xml:space="preserve">
+          <source><bpt id="cf3bd081-3b16-4599-bc6c-e7546d3619f5">&lt;strong&gt;</bpt>Figure 4<ept id="cf3bd081-3b16-4599-bc6c-e7546d3619f5">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cf3bd081-3b16-4599-bc6c-e7546d3619f5">&lt;strong&gt;</bpt>Figure 4<ept id="cf3bd081-3b16-4599-bc6c-e7546d3619f5">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0b4e127a-0d84-4fe1-908f-6b0991528a01" xml:space="preserve">
+          <source>The following numbered steps correspond to the numbers in Figure 4.</source>
+          <target state="new">The following numbered steps correspond to the numbers in Figure 4.</target>
+        </trans-unit>
+        <trans-unit id="cefb65d0-ff20-405d-a213-de8fc29f04f2" xml:space="preserve">
+          <source>Traffic Manager builds the Internet Latency Table periodically.</source>
+          <target state="new">Traffic Manager builds the Internet Latency Table periodically.</target>
+        </trans-unit>
+        <trans-unit id="ea6fd8e6-1f8b-4c90-b998-37949eca3478" xml:space="preserve">
+          <source>The Traffic Manager infrastructure runs tests to determine the round trip times between different points in the world and the Azure datacenters that host endpoints.</source>
+          <target state="new">The Traffic Manager infrastructure runs tests to determine the round trip times between different points in the world and the Azure datacenters that host endpoints.</target>
+        </trans-unit>
+        <trans-unit id="f82a7d36-2b94-4023-a531-85aafd5e9fd9" xml:space="preserve">
+          <source>Traffic Manager receives an incoming request from a client through its local DNS server and locates the profile.</source>
+          <target state="new">Traffic Manager receives an incoming request from a client through its local DNS server and locates the profile.</target>
+        </trans-unit>
+        <trans-unit id="e3afbf3d-d936-465e-9d1a-e573106ee9cc" xml:space="preserve">
+          <source>Traffic Manager locates the row in the Internet Latency Table for the IP address of the incoming DNS request.</source>
+          <target state="new">Traffic Manager locates the row in the Internet Latency Table for the IP address of the incoming DNS request.</target>
+        </trans-unit>
+        <trans-unit id="3783a950-b952-43be-a156-b8307ed26d3b" xml:space="preserve">
+          <source>Because the user's local DNS server is performing an iterative DNS query to find the authoritative DNS server for the Traffic Manager profile name, the DNS query is sent from the IP address of the client's local DNS server.</source>
+          <target state="new">Because the user's local DNS server is performing an iterative DNS query to find the authoritative DNS server for the Traffic Manager profile name, the DNS query is sent from the IP address of the client's local DNS server.</target>
+        </trans-unit>
+        <trans-unit id="f7da7035-22a7-44f5-80f3-9a4b2c2c9745" xml:space="preserve">
+          <source>Traffic Manager locates the datacenter with the shortest time for the datacenters that host the endpoints defined in the profile.</source>
+          <target state="new">Traffic Manager locates the datacenter with the shortest time for the datacenters that host the endpoints defined in the profile.</target>
+        </trans-unit>
+        <trans-unit id="796dc2ab-5e5f-471d-b360-28c293174924" xml:space="preserve">
+          <source>In this example, that is CS-B.</source>
+          <target state="new">In this example, that is CS-B.</target>
+        </trans-unit>
+        <trans-unit id="83b2d412-118f-492d-8d1f-2c4ee418351a" xml:space="preserve">
+          <source>Traffic Manager returns CS-B’s domain name to the client's local DNS server, which resolves the domain name to an IP address and sends it to the client.</source>
+          <target state="new">Traffic Manager returns CS-B’s domain name to the client's local DNS server, which resolves the domain name to an IP address and sends it to the client.</target>
+        </trans-unit>
+        <trans-unit id="c1c69402-6693-43b6-add9-902b4832c8d8" xml:space="preserve">
+          <source>The client initiates traffic to CS-B.</source>
+          <target state="new">The client initiates traffic to CS-B.</target>
+        </trans-unit>
+        <trans-unit id="8cc2c0f8-ea31-44fc-a08b-55826460c34a" xml:space="preserve">
+          <source><bpt id="916a65bf-a368-4252-8b64-8e09e1b99231">&lt;strong&gt;</bpt>Points to note:<ept id="916a65bf-a368-4252-8b64-8e09e1b99231">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="916a65bf-a368-4252-8b64-8e09e1b99231">&lt;strong&gt;</bpt>Points to note:<ept id="916a65bf-a368-4252-8b64-8e09e1b99231">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3c1dbc0-773c-4d5a-a273-12e94dcd86ed" xml:space="preserve">
+          <source>If your profile contains multiple endpoints in the same datacenter, then traffic directed to that datacenter is distributed evenly across the endpoints that are available and healthy according to endpoint monitoring.</source>
+          <target state="new">If your profile contains multiple endpoints in the same datacenter, then traffic directed to that datacenter is distributed evenly across the endpoints that are available and healthy according to endpoint monitoring.</target>
+        </trans-unit>
+        <trans-unit id="68df8b7a-6302-44dd-b6d9-61fb276ef66c" xml:space="preserve">
+          <source>If all endpoints in a given datacenter are not available (according to endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, not to the next-closest endpoint(s).</source>
+          <target state="new">If all endpoints in a given datacenter are not available (according to endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, not to the next-closest endpoint(s).</target>
+        </trans-unit>
+        <trans-unit id="672e6811-e095-4cf5-b60e-7e8f88cfed0e" xml:space="preserve">
+          <source>This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.</source>
+          <target state="new">This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.</target>
+        </trans-unit>
+        <trans-unit id="c6fad85c-4372-446d-8a99-8e0854cbfe46" xml:space="preserve">
+          <source>When the Internet Latency Table is updated, you may notice a difference in traffic patterns and load on your endpoints.</source>
+          <target state="new">When the Internet Latency Table is updated, you may notice a difference in traffic patterns and load on your endpoints.</target>
+        </trans-unit>
+        <trans-unit id="68e225c7-a264-4cb4-9777-2bf4bc6060ca" xml:space="preserve">
+          <source>These changes should be minimal.</source>
+          <target state="new">These changes should be minimal.</target>
+        </trans-unit>
+        <trans-unit id="ce3b7592-7906-42c3-a9c3-a76e17668eb5" xml:space="preserve">
+          <source>When using the Performance traffic routing method with external endpoints, you will need to specify the location of those endpoints.</source>
+          <target state="new">When using the Performance traffic routing method with external endpoints, you will need to specify the location of those endpoints.</target>
+        </trans-unit>
+        <trans-unit id="5446e394-4ca2-4320-8049-8bb832f6916e" xml:space="preserve">
+          <source>Choose the Azure region closest to your deployment.</source>
+          <target state="new">Choose the Azure region closest to your deployment.</target>
+        </trans-unit>
+        <trans-unit id="a7df93b3-e9e2-4b94-921f-db555dd16c14" xml:space="preserve">
+          <source>For more information, see <bpt id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;linkText&gt;</bpt>Manage Endpoints in Traffic Manager<ept id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;/linkText&gt;</ept><bpt id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;title&gt;</bpt><ept id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;linkText&gt;</bpt>Manage Endpoints in Traffic Manager<ept id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;/linkText&gt;</ept><bpt id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;title&gt;</bpt><ept id="4de352d8-7a13-41a3-9745-5453df1224fe">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1285aa4-c4b8-4ccf-bf27-d02247364073" xml:space="preserve">
+          <source>If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see <bpt id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;linkText&gt;</bpt>Traffic Manager figures in MSDN documentation<ept id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;/linkText&gt;</ept><bpt id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;title&gt;</bpt><ept id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you want the figures in this topic as PowerPoint sides for your own presentation on Traffic Manager or to modify for your own purposes, see <bpt id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;linkText&gt;</bpt>Traffic Manager figures in MSDN documentation<ept id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;/linkText&gt;</ept><bpt id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;title&gt;</bpt><ept id="78fbf77d-5c42-4cb4-8f39-1cc8fb2b435d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b2ef12a-2c5d-4b49-a02d-1325f2ba9d37" xml:space="preserve">
+          <source><bpt id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;/linkText&gt;</ept><bpt id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;title&gt;</bpt><ept id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;linkText&gt;</bpt>What is Traffic Manager?<ept id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;/linkText&gt;</ept><bpt id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;title&gt;</bpt><ept id="dd060983-b730-4bd4-9dd6-55b7b64369eb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55a684fc-7a32-444d-a5bd-e2d6e1c8c94b" xml:space="preserve">
+          <source><bpt id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;linkText&gt;</bpt>About Traffic Manager Monitoring<ept id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;/linkText&gt;</ept><bpt id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;title&gt;</bpt><ept id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;linkText&gt;</bpt>About Traffic Manager Monitoring<ept id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;/linkText&gt;</ept><bpt id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;title&gt;</bpt><ept id="d92793f4-f21e-4535-882d-cf8ade77b4bb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d3a859a6-1dfb-4d00-a4ca-5a04ccdae24e" xml:space="preserve">
+          <source><bpt id="5a300010-2b36-4296-827a-77e599179921">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="5a300010-2b36-4296-827a-77e599179921">&lt;/linkText&gt;</ept><bpt id="5a300010-2b36-4296-827a-77e599179921">&lt;title&gt;</bpt><ept id="5a300010-2b36-4296-827a-77e599179921">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5a300010-2b36-4296-827a-77e599179921">&lt;linkText&gt;</bpt>Operations on Traffic Manager (REST API Reference)<ept id="5a300010-2b36-4296-827a-77e599179921">&lt;/linkText&gt;</ept><bpt id="5a300010-2b36-4296-827a-77e599179921">&lt;title&gt;</bpt><ept id="5a300010-2b36-4296-827a-77e599179921">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ba8de16b-6ea3-4e74-a25e-1eeee5e90149" xml:space="preserve">
+          <source><bpt id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;linkText&gt;</bpt>Cloud Services<ept id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;/linkText&gt;</ept><bpt id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;title&gt;</bpt><ept id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;linkText&gt;</bpt>Cloud Services<ept id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;/linkText&gt;</ept><bpt id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;title&gt;</bpt><ept id="44f06992-8547-45eb-979f-738ce5c091ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f3d8ea1-c862-40f6-be2f-b4c15ca99df4" xml:space="preserve">
+          <source><bpt id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;linkText&gt;</bpt>Websites<ept id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;/linkText&gt;</ept><bpt id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;title&gt;</bpt><ept id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;linkText&gt;</bpt>Websites<ept id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;/linkText&gt;</ept><bpt id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;title&gt;</bpt><ept id="446a7aa2-4e52-4ca8-a689-bc782be937a8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fed9a00-1bef-4cf5-ae08-218e0325af4a" xml:space="preserve">
+          <source><bpt id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;/linkText&gt;</ept><bpt id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;title&gt;</bpt><ept id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;linkText&gt;</bpt>Azure Traffic Manager Cmdlets<ept id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;/linkText&gt;</ept><bpt id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;title&gt;</bpt><ept id="efd796b7-7af6-4546-9b0c-450832af8470">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

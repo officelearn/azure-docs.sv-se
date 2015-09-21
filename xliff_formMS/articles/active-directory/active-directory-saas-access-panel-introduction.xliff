@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="338a54de-1abd-4008-bb80-af4e58c9c377" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="338a54de-1abd-4008-bb80-af4e58c9c377" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="45947b25-f840-4e81-94ea-6afa7f0fea63">
+        <trans-unit id="031b84a0-6a96-432d-82e6-12c5675b837a" xml:space="preserve">
+          <source>Introduction to the Access Panel</source>
+          <target state="new">Introduction to the Access Panel</target>
+        </trans-unit>
+        <trans-unit id="74e1210d-e0b7-418f-b5a4-f04ffd9bbc77" xml:space="preserve">
+          <source>Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you.</source>
+          <target state="new">Learn how to use the various flavors of the Access Panel (Web browser, Android app, iPhone and iPad app) to access the SaaS apps that are assigned to you.</target>
+        </trans-unit>
+        <trans-unit id="6ced1dfd-3535-444f-8f74-6001dbba0adb" xml:space="preserve">
+          <source>The Access Panel is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with Azure Active Directory editions, you can also utilize self-service group management capabilities through the Access Panel. &lt;br&gt;
+The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription. </source>
+          <target state="new">The Access Panel is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with Azure Active Directory editions, you can also utilize self-service group management capabilities through the Access Panel. &lt;br&gt;
+The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription. </target>
+        </trans-unit>
+        <trans-unit id="c770bd37-9d02-4a72-9cc8-b815a309f046" xml:space="preserve">
+          <source><bpt id="ffcbae8b-f72f-43fa-9c79-d9a30ab3e079">&lt;linkText&gt;</bpt>Access Panel<ept id="ffcbae8b-f72f-43fa-9c79-d9a30ab3e079">&lt;/linkText&gt;</ept> </source>
+          <target state="new"><bpt id="ffcbae8b-f72f-43fa-9c79-d9a30ab3e079">&lt;linkText&gt;</bpt>Access Panel<ept id="ffcbae8b-f72f-43fa-9c79-d9a30ab3e079">&lt;/linkText&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="e3949afa-a99a-4895-8300-3e22f7143964" xml:space="preserve">
+          <source>The Access Panel allows users to edit some of their profile settings, including the ability to:</source>
+          <target state="new">The Access Panel allows users to edit some of their profile settings, including the ability to:</target>
+        </trans-unit>
+        <trans-unit id="8d1bd16f-104c-4ec3-9ae8-b882c6942d10" xml:space="preserve">
+          <source>Change the password associated with your organizational account</source>
+          <target state="new">Change the password associated with your organizational account</target>
+        </trans-unit>
+        <trans-unit id="4c57e38a-11e3-4117-a45d-fd5045b3ad68" xml:space="preserve">
+          <source>Edit password reset settings</source>
+          <target state="new">Edit password reset settings</target>
+        </trans-unit>
+        <trans-unit id="2c1e3422-7a0e-4475-bbfa-8a81b8d2cbea" xml:space="preserve">
+          <source>Edit multi-factor authentication-related contact &amp; preference settings (for those accounts that have been required to use it by an administrator)</source>
+          <target state="new">Edit multi-factor authentication-related contact &amp; preference settings (for those accounts that have been required to use it by an administrator)</target>
+        </trans-unit>
+        <trans-unit id="eff46839-b4a6-4295-9279-03029614d645" xml:space="preserve">
+          <source>View account details, such as your User ID, alternate email, mobile and office phone numbers</source>
+          <target state="new">View account details, such as your User ID, alternate email, mobile and office phone numbers</target>
+        </trans-unit>
+        <trans-unit id="d44906a6-65c2-4230-a4de-8fe02dffc08f" xml:space="preserve">
+          <source>View and launch cloud-based applications to which you have been granted access by the Azure AD administrator.</source>
+          <target state="new">View and launch cloud-based applications to which you have been granted access by the Azure AD administrator.</target>
+        </trans-unit>
+        <trans-unit id="7d8e409a-500f-4d1c-b7f7-9d91321059db" xml:space="preserve">
+          <source>For more information about the Access Panel from the end users’ perspective, see <bpt id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;linkText&gt;</bpt>Using the Access Panel<ept id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;/linkText&gt;</ept><bpt id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;title&gt;</bpt><ept id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Access Panel from the end users’ perspective, see <bpt id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;linkText&gt;</bpt>Using the Access Panel<ept id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;/linkText&gt;</ept><bpt id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;title&gt;</bpt><ept id="c658f798-c87e-47fc-be1c-7d6e3b1465c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87c156d2-12f0-4883-9ccf-a307e243c3c4" xml:space="preserve">
+          <source>Self-manage groups.</source>
+          <target state="new">Self-manage groups.</target>
+        </trans-unit>
+        <trans-unit id="64311b85-5ee6-4efd-a8fe-113e435b7724" xml:space="preserve">
+          <source>More specifically, you can create and manage security groups and request security group memberships in Azure AD.</source>
+          <target state="new">More specifically, you can create and manage security groups and request security group memberships in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="65a7511e-382b-4351-b60e-7bf5987a99cb" xml:space="preserve">
+          <source>For more information, see <bpt id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;linkText&gt;</bpt>Self-service group management for users in Azure AD<ept id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;/linkText&gt;</ept><bpt id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;title&gt;</bpt><ept id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;/title&gt;</ept> and <bpt id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;linkText&gt;</bpt>Manage your groups<ept id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;/linkText&gt;</ept><bpt id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;title&gt;</bpt><ept id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;linkText&gt;</bpt>Self-service group management for users in Azure AD<ept id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;/linkText&gt;</ept><bpt id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;title&gt;</bpt><ept id="7e2b6c67-63a6-4cfc-bea3-64d9e7d1f4d5">&lt;/title&gt;</ept> and <bpt id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;linkText&gt;</bpt>Manage your groups<ept id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;/linkText&gt;</ept><bpt id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;title&gt;</bpt><ept id="9897e492-ef32-4491-bc7e-479088fde4ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="037ad9df-fc16-440b-b673-06751586f282" xml:space="preserve">
+          <source>Users access the Access Panel by visiting the following URL in a web browser: &lt;br&gt; 
+<bpt id="9b7f0ac8-b290-4f97-aefc-720d77c41946">&lt;strong&gt;</bpt>http://myapps.microsoft.com<ept id="9b7f0ac8-b290-4f97-aefc-720d77c41946">&lt;/strong&gt;</ept></source>
+          <target state="new">Users access the Access Panel by visiting the following URL in a web browser: &lt;br&gt; 
+<bpt id="9b7f0ac8-b290-4f97-aefc-720d77c41946">&lt;strong&gt;</bpt>http://myapps.microsoft.com<ept id="9b7f0ac8-b290-4f97-aefc-720d77c41946">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7d6e1c3c-e88d-41dd-a05a-1f14831f220c" xml:space="preserve">
+          <source>If you have custom branding configured for your sign-in page, you can load this branding by default by appending your organization’s domain to the end of the URL: &lt;br&gt; 
+<bpt id="06d2b8ab-1976-4d58-89ba-3e8fcaf6de06">&lt;strong&gt;</bpt>http://myapps.microsoft.com/contosobuild.com<ept id="06d2b8ab-1976-4d58-89ba-3e8fcaf6de06">&lt;/strong&gt;</ept></source>
+          <target state="new">If you have custom branding configured for your sign-in page, you can load this branding by default by appending your organization’s domain to the end of the URL: &lt;br&gt; 
+<bpt id="06d2b8ab-1976-4d58-89ba-3e8fcaf6de06">&lt;strong&gt;</bpt>http://myapps.microsoft.com/contosobuild.com<ept id="06d2b8ab-1976-4d58-89ba-3e8fcaf6de06">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67b3688b-8faf-4a95-8ced-a179d1fd55c5" xml:space="preserve">
+          <source>In this case, any active or verified domain name that has been configured under the Domains tab of your directory in the Azure management portal may be used, as illustrated in the screenshot below.</source>
+          <target state="new">In this case, any active or verified domain name that has been configured under the Domains tab of your directory in the Azure management portal may be used, as illustrated in the screenshot below.</target>
+        </trans-unit>
+        <trans-unit id="c1d9be72-ada5-4479-8bb2-cb080b185740" xml:space="preserve">
+          <source><bpt id="d465cbab-c770-4abf-b0fa-1476c51197ca">&lt;linkText&gt;</bpt>Wingtip toys<ept id="d465cbab-c770-4abf-b0fa-1476c51197ca">&lt;/linkText&gt;</ept>  </source>
+          <target state="new"><bpt id="d465cbab-c770-4abf-b0fa-1476c51197ca">&lt;linkText&gt;</bpt>Wingtip toys<ept id="d465cbab-c770-4abf-b0fa-1476c51197ca">&lt;/linkText&gt;</ept>  </target>
+        </trans-unit>
+        <trans-unit id="00341390-8a20-465d-9e72-dc2d95829dbb" xml:space="preserve">
+          <source>This URL must be distributed to all users who will be signing into applications integrated with Azure AD.</source>
+          <target state="new">This URL must be distributed to all users who will be signing into applications integrated with Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="4dc8f16b-9d24-4f23-afda-4174fe04c4f7" xml:space="preserve">
+          <source>In order to reach the Access Panel, a user must be authenticated using an organizational account in Azure AD. &lt;br&gt;
+A user can be authenticated to Azure AD directly. &lt;br&gt;
+Alternatively, if an organization has configured federation using ADFS or other technologies, users can be authenticated by Windows Server Active Directory.</source>
+          <target state="new">In order to reach the Access Panel, a user must be authenticated using an organizational account in Azure AD. &lt;br&gt;
+A user can be authenticated to Azure AD directly. &lt;br&gt;
+Alternatively, if an organization has configured federation using ADFS or other technologies, users can be authenticated by Windows Server Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="b0697875-08c4-44a7-8c9d-fdfdcf4d82b9" xml:space="preserve">
+          <source>If a user has a subscription for Azure or Office 365 and has been using the Azure Management Portal or an Office 365 application, then they will be presented the list of applications without needing to sign in again.</source>
+          <target state="new">If a user has a subscription for Azure or Office 365 and has been using the Azure Management Portal or an Office 365 application, then they will be presented the list of applications without needing to sign in again.</target>
+        </trans-unit>
+        <trans-unit id="c59633ec-6fd9-449a-91ef-fff6fa2fea42" xml:space="preserve">
+          <source>Users who are not authenticated will be prompted to sign in using the username and password for their account in Azure AD.</source>
+          <target state="new">Users who are not authenticated will be prompted to sign in using the username and password for their account in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="ed3c524b-9463-466d-8c13-f1477bc50580" xml:space="preserve">
+          <source>If the organization has configured federation, then typing the username is sufficient.</source>
+          <target state="new">If the organization has configured federation, then typing the username is sufficient.</target>
+        </trans-unit>
+        <trans-unit id="500fc390-db8d-4aa3-8f84-a793cae9fb38" xml:space="preserve">
+          <source>Once authenticated, users will be able to interact with the applications that have been integrated with the directory by the administrator.</source>
+          <target state="new">Once authenticated, users will be able to interact with the applications that have been integrated with the directory by the administrator.</target>
+        </trans-unit>
+        <trans-unit id="6977dc51-3e98-4991-b2a6-7de4ef560267" xml:space="preserve">
+          <source>To learn how to integrate applications with Azure AD, see <bpt id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;/linkText&gt;</ept><bpt id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;title&gt;</bpt><ept id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn how to integrate applications with Azure AD, see <bpt id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;linkText&gt;</bpt>What is application access and single sign-on with Azure Active Directory?<ept id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;/linkText&gt;</ept><bpt id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;title&gt;</bpt><ept id="dfa57c35-86c5-4f48-9d3b-0065d5c86148">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f4c755c2-b8b1-4bb4-96ba-9ad3afe63090" xml:space="preserve">
+          <source>At a minimum, the Access Panel requires a browser with support for JavaScript and CSS enabled.</source>
+          <target state="new">At a minimum, the Access Panel requires a browser with support for JavaScript and CSS enabled.</target>
+        </trans-unit>
+        <trans-unit id="a8bc83a0-5a43-4273-a28a-7563eebf1e10" xml:space="preserve">
+          <source>In order for the user to be signed on to applications using Password-based SSO, the Access Panel extension must be installed in the user’s browser.</source>
+          <target state="new">In order for the user to be signed on to applications using Password-based SSO, the Access Panel extension must be installed in the user’s browser.</target>
+        </trans-unit>
+        <trans-unit id="e0418718-325a-4f9d-b491-71bbdaedb4f2" xml:space="preserve">
+          <source>This Access Panel extension is downloaded automatically when a user selects an application that is configured for Password-based SSO.</source>
+          <target state="new">This Access Panel extension is downloaded automatically when a user selects an application that is configured for Password-based SSO.</target>
+        </trans-unit>
+        <trans-unit id="77a1ee69-4464-48cf-b61a-1fa6f20a9195" xml:space="preserve">
+          <source>At the present time, the Access Panel Extension is available for Internet Explorer 8 and later, Chrome, and Firefox browsers.</source>
+          <target state="new">At the present time, the Access Panel Extension is available for Internet Explorer 8 and later, Chrome, and Firefox browsers.</target>
+        </trans-unit>
+        <trans-unit id="fe3f8f9d-659b-4cf4-97aa-5079dcd812ab" xml:space="preserve">
+          <source>To be able to sign into Password-based SSO applications on iOS and Android devices, users should install My Apps mobile app published by the Azure Active Directory team.</source>
+          <target state="new">To be able to sign into Password-based SSO applications on iOS and Android devices, users should install My Apps mobile app published by the Azure Active Directory team.</target>
+        </trans-unit>
+        <trans-unit id="f4fcd572-0567-47ec-a5a1-bdcb8a64bc66" xml:space="preserve">
+          <source>My Apps for Android is supported on any Android device running Android version 4.1 and up, and is available today in the <bpt id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;linkText&gt;</bpt>Google Play store<ept id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;/linkText&gt;</ept><bpt id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;title&gt;</bpt><ept id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;/title&gt;</ept>.</source>
+          <target state="new">My Apps for Android is supported on any Android device running Android version 4.1 and up, and is available today in the <bpt id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;linkText&gt;</bpt>Google Play store<ept id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;/linkText&gt;</ept><bpt id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;title&gt;</bpt><ept id="e6fcf07a-87b9-4bc4-8625-fb5820981f98">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70271a0e-d238-4a93-8f99-54aff4953f54" xml:space="preserve">
+          <source><bpt id="52e2ea2e-9148-4275-b645-ffb0e612daff">&lt;linkText&gt;</bpt>My apps<ept id="52e2ea2e-9148-4275-b645-ffb0e612daff">&lt;/linkText&gt;</ept>   </source>
+          <target state="new"><bpt id="52e2ea2e-9148-4275-b645-ffb0e612daff">&lt;linkText&gt;</bpt>My apps<ept id="52e2ea2e-9148-4275-b645-ffb0e612daff">&lt;/linkText&gt;</ept>   </target>
+        </trans-unit>
+        <trans-unit id="8625ad79-28e6-4fd3-be55-98fb651f493b" xml:space="preserve">
+          <source>My Apps for iOS is supported on any iPhone or iPad running iOS version 7 and up, and is available today in the Apple App Store.</source>
+          <target state="new">My Apps for iOS is supported on any iPhone or iPad running iOS version 7 and up, and is available today in the Apple App Store.</target>
+        </trans-unit>
+        <trans-unit id="35674799-ffcf-43df-a848-bf4189ae2dbc" xml:space="preserve">
+          <source><bpt id="25b561b9-c80b-4e27-8868-ff6880602821">&lt;linkText&gt;</bpt>Applications profile<ept id="25b561b9-c80b-4e27-8868-ff6880602821">&lt;/linkText&gt;</ept>    </source>
+          <target state="new"><bpt id="25b561b9-c80b-4e27-8868-ff6880602821">&lt;linkText&gt;</bpt>Applications profile<ept id="25b561b9-c80b-4e27-8868-ff6880602821">&lt;/linkText&gt;</ept>    </target>
+        </trans-unit>
+        <trans-unit id="19a4ca05-40fb-4a32-b6d0-784900446ecb" xml:space="preserve">
+          <source>Applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and over 70 others), can be signed into on virtually any web browser on any device without requiring a plugin or mobile app.</source>
+          <target state="new">Applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and over 70 others), can be signed into on virtually any web browser on any device without requiring a plugin or mobile app.</target>
+        </trans-unit>
+        <trans-unit id="2c6d68ed-ceba-417d-94e1-730c5f815218" xml:space="preserve">
+          <source>The rest of the access panel experience at <bpt id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;/linkText&gt;</ept><bpt id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;title&gt;</bpt><ept id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;/title&gt;</ept> also does not require the My Apps mobile app to be used on a mobile device.</source>
+          <target state="new">The rest of the access panel experience at <bpt id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;linkText&gt;</bpt>https://myapps.microsoft.com<ept id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;/linkText&gt;</ept><bpt id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;title&gt;</bpt><ept id="55178cf9-c1e2-46aa-b389-8767a11e391e">&lt;/title&gt;</ept> also does not require the My Apps mobile app to be used on a mobile device.</target>
+        </trans-unit>
+        <trans-unit id="757a14f8-2650-4a2f-8e3e-dab96b1faea7" xml:space="preserve">
+          <source>If you are an Azure administrator and you are signed into the Azure Management Portal using an account in the directory, you will be automatically signed into the Access Panel as your current administrator account.</source>
+          <target state="new">If you are an Azure administrator and you are signed into the Azure Management Portal using an account in the directory, you will be automatically signed into the Access Panel as your current administrator account.</target>
+        </trans-unit>
+        <trans-unit id="df5e36ab-0f06-4089-95f7-b8ce443cc592" xml:space="preserve">
+          <source>In this case, you can see all applications that have been assigned to this account.</source>
+          <target state="new">In this case, you can see all applications that have been assigned to this account.</target>
+        </trans-unit>
+        <trans-unit id="e9ace358-9988-471d-8cb3-1f6feb87d714" xml:space="preserve">
+          <source><bpt id="3dc7c13b-6bcf-4c7b-ab3b-94da23908a7d">&lt;strong&gt;</bpt>To test as a different user account:<ept id="3dc7c13b-6bcf-4c7b-ab3b-94da23908a7d">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3dc7c13b-6bcf-4c7b-ab3b-94da23908a7d">&lt;strong&gt;</bpt>To test as a different user account:<ept id="3dc7c13b-6bcf-4c7b-ab3b-94da23908a7d">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52ff3003-1362-4128-82a6-5f4d60ae5bcd" xml:space="preserve">
+          <source>Click the user menu in the upper-right corner of the Azure portal or the Access Panel, and select “<bpt id="6752d638-0931-46b0-8f9d-a474593e5e2c">&lt;strong&gt;</bpt>Sign Out<ept id="6752d638-0931-46b0-8f9d-a474593e5e2c">&lt;/strong&gt;</ept>”.</source>
+          <target state="new">Click the user menu in the upper-right corner of the Azure portal or the Access Panel, and select “<bpt id="6752d638-0931-46b0-8f9d-a474593e5e2c">&lt;strong&gt;</bpt>Sign Out<ept id="6752d638-0931-46b0-8f9d-a474593e5e2c">&lt;/strong&gt;</ept>”.</target>
+        </trans-unit>
+        <trans-unit id="3053113b-a55e-4593-864a-f0057995dd34" xml:space="preserve">
+          <source>This will sign you out of Azure AD.</source>
+          <target state="new">This will sign you out of Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="6562a0cb-bc3c-4349-abf2-308e7bd3fbed" xml:space="preserve">
+          <source>Go to the Access Panel at <bpt id="420180d6-97c2-4324-8e06-852f2eff0935">&lt;strong&gt;</bpt>http://myapps.microsoft.com<ept id="420180d6-97c2-4324-8e06-852f2eff0935">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the Access Panel at <bpt id="420180d6-97c2-4324-8e06-852f2eff0935">&lt;strong&gt;</bpt>http://myapps.microsoft.com<ept id="420180d6-97c2-4324-8e06-852f2eff0935">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="604c1cad-b05f-4995-bbbf-024159e70527" xml:space="preserve">
+          <source>In the sign in page, enter the username and password for the account in your directory that you want to test.</source>
+          <target state="new">In the sign in page, enter the username and password for the account in your directory that you want to test.</target>
+        </trans-unit>
+        <trans-unit id="338b81c8-65dd-4e6b-ad26-783cb3179cab" xml:space="preserve">
+          <source>There are several types of applications that can appear on the Access Panel.</source>
+          <target state="new">There are several types of applications that can appear on the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="785ca509-f3c5-4215-b190-4dd3b52a8745" xml:space="preserve">
+          <source>If an organization is using Office 365 applications and the user is licensed for them, then the Office 365 applications will appear on the user’s Access Panel.</source>
+          <target state="new">If an organization is using Office 365 applications and the user is licensed for them, then the Office 365 applications will appear on the user’s Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="c46e2320-890d-452e-ab07-fb4d1fdde8a5" xml:space="preserve">
+          <source>When a user clicks on an application tile for an Office 365 application, they are redirected to that application and automatically signed in.</source>
+          <target state="new">When a user clicks on an application tile for an Office 365 application, they are redirected to that application and automatically signed in.</target>
+        </trans-unit>
+        <trans-unit id="38370652-4679-42ca-9560-35f097e3f153" xml:space="preserve">
+          <source>These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="3b4d60c7-d59a-4dad-8cb1-635e10d685a9">&lt;em&gt;</bpt>Azure AD Single Sign-On<ept id="3b4d60c7-d59a-4dad-8cb1-635e10d685a9">&lt;/em&gt;</ept>”.</source>
+          <target state="new">These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="3b4d60c7-d59a-4dad-8cb1-635e10d685a9">&lt;em&gt;</bpt>Azure AD Single Sign-On<ept id="3b4d60c7-d59a-4dad-8cb1-635e10d685a9">&lt;/em&gt;</ept>”.</target>
+        </trans-unit>
+        <trans-unit id="acfb5308-cdd3-4a47-9e5c-e3a733d51e6c" xml:space="preserve">
+          <source>A user will only see these applications if they have been explicitly granted access to the application by the administrator.</source>
+          <target state="new">A user will only see these applications if they have been explicitly granted access to the application by the administrator.</target>
+        </trans-unit>
+        <trans-unit id="28a51794-11b1-4e2c-b4f4-be876ba6be07" xml:space="preserve">
+          <source>When a user clicks on an application tile for one of these applications, they are redirected to that application and automatically signed in.</source>
+          <target state="new">When a user clicks on an application tile for one of these applications, they are redirected to that application and automatically signed in.</target>
+        </trans-unit>
+        <trans-unit id="1ac0b9ca-8deb-4428-80c0-301384e5a8e1" xml:space="preserve">
+          <source>These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="59e7bd34-96f5-415e-90c6-56270f6591a4">&lt;em&gt;</bpt>Password-based Single Sign-On<ept id="59e7bd34-96f5-415e-90c6-56270f6591a4">&lt;/em&gt;</ept>”. &lt;br&gt; 
+All users in the directory will see all applications that have been configured in this mode.</source>
+          <target state="new">These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="59e7bd34-96f5-415e-90c6-56270f6591a4">&lt;em&gt;</bpt>Password-based Single Sign-On<ept id="59e7bd34-96f5-415e-90c6-56270f6591a4">&lt;/em&gt;</ept>”. &lt;br&gt; 
+All users in the directory will see all applications that have been configured in this mode.</target>
+        </trans-unit>
+        <trans-unit id="84dab7f5-7636-41d2-a1a3-e5ff87ae6fb0" xml:space="preserve">
+          <source>The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser.</source>
+          <target state="new">The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser.</target>
+        </trans-unit>
+        <trans-unit id="53e40c6b-96e4-4128-865b-41c86fe0b671" xml:space="preserve">
+          <source>When they are returned to the Access Panel and click on the application tile again, they will be prompted for a username and password for the application.</source>
+          <target state="new">When they are returned to the Access Panel and click on the application tile again, they will be prompted for a username and password for the application.</target>
+        </trans-unit>
+        <trans-unit id="70b07985-6348-45b4-8b68-f0f4b3893807" xml:space="preserve">
+          <source>Once the username and password are entered, these credentials will be securely stored in Azure AD and linked to their account in Azure AD, and the Access Panel will automate signing the user in to the application using those credentials.</source>
+          <target state="new">Once the username and password are entered, these credentials will be securely stored in Azure AD and linked to their account in Azure AD, and the Access Panel will automate signing the user in to the application using those credentials.</target>
+        </trans-unit>
+        <trans-unit id="18ea76c8-23f6-42ce-9f35-5bd0ec3a4dfa" xml:space="preserve">
+          <source>The next time a user clicks on the application tile, they will be automatically signed into the application without needing to enter the credentials again and without needing to install the Password SSO plugin again.</source>
+          <target state="new">The next time a user clicks on the application tile, they will be automatically signed into the application without needing to enter the credentials again and without needing to install the Password SSO plugin again.</target>
+        </trans-unit>
+        <trans-unit id="d52645a0-e1e3-4ae4-9bf2-cd9e71853148" xml:space="preserve">
+          <source>If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD.</source>
+          <target state="new">If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="20b61a65-5174-458b-ae1e-24632cca7ff2" xml:space="preserve">
+          <source>To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.</source>
+          <target state="new">To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.</target>
+        </trans-unit>
+        <trans-unit id="2cb438e1-8a0f-41b3-92ff-d6a87cfce23f" xml:space="preserve">
+          <source>These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="f81db855-4116-4fba-9a17-2d61e393cb5c">&lt;em&gt;</bpt>Password-based Single Sign-On<ept id="f81db855-4116-4fba-9a17-2d61e393cb5c">&lt;/em&gt;</ept>” as well as the identity provisioning.</source>
+          <target state="new">These are applications that the administrator has added in the Active Directory section of the Azure Management Portal with the single sign-on mode set to “<bpt id="f81db855-4116-4fba-9a17-2d61e393cb5c">&lt;em&gt;</bpt>Password-based Single Sign-On<ept id="f81db855-4116-4fba-9a17-2d61e393cb5c">&lt;/em&gt;</ept>” as well as the identity provisioning.</target>
+        </trans-unit>
+        <trans-unit id="d6ce1ace-e48c-4fd6-bff0-63f94a4c02fb" xml:space="preserve">
+          <source>The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser.</source>
+          <target state="new">The first time a user clicks on an application tile for one of these applications, they will be prompted to install the Password SSO plugin for Internet Explorer or Chrome, which may require a restarting of their web browser.</target>
+        </trans-unit>
+        <trans-unit id="525dc6e6-89e7-4278-97d3-332fe403ec4a" xml:space="preserve">
+          <source>When they are returned to the Access Panel and click on the application tile again, they will be automatically signed in to the application.</source>
+          <target state="new">When they are returned to the Access Panel and click on the application tile again, they will be automatically signed in to the application.</target>
+        </trans-unit>
+        <trans-unit id="8bf338fe-6e43-4373-88dc-3de9cd02accf" xml:space="preserve">
+          <source>Some applications may require that a user change their password on first sign in.</source>
+          <target state="new">Some applications may require that a user change their password on first sign in.</target>
+        </trans-unit>
+        <trans-unit id="5a7f5654-d6ab-4b04-88c3-abd40e4daac6" xml:space="preserve">
+          <source>If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD.</source>
+          <target state="new">If a user’s credentials have changed in the target third-party application, then the user must also update their credentials which are stored in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="f20dfba0-f685-43cb-b453-123035b3fc98" xml:space="preserve">
+          <source>To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.</source>
+          <target state="new">To update credentials, a user must select the icon in the lower-right of the application tile, and select “update credentials” to re-enter the username and password for that application.</target>
+        </trans-unit>
+        <trans-unit id="5e480526-3b4a-40a2-b22d-beefe60b1e70" xml:space="preserve">
+          <source>When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”.</source>
+          <target state="new">When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”.</target>
+        </trans-unit>
+        <trans-unit id="79d31e53-1f8f-4fcb-b7f4-1b93e30db23a" xml:space="preserve">
+          <source>This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.</source>
+          <target state="new">This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.</target>
+        </trans-unit>
+        <trans-unit id="d6a2b341-fc8f-4512-97a0-d4b95c6d14ff" xml:space="preserve">
+          <source>For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel.</source>
+          <target state="new">For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel.</target>
+        </trans-unit>
+        <trans-unit id="7dd7fbbc-800a-4e7d-ab06-ad82353245a8" xml:space="preserve">
+          <source>When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.</source>
+          <target state="new">When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.</target>
+        </trans-unit>
+        <trans-unit id="b3a7b625-ac11-40e4-a86a-8b69ea51b0e9" xml:space="preserve">
+          <source><bpt id="87f41b74-2962-4016-bb80-f1f9dc72ebbc">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="87f41b74-2962-4016-bb80-f1f9dc72ebbc">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="87f41b74-2962-4016-bb80-f1f9dc72ebbc">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="87f41b74-2962-4016-bb80-f1f9dc72ebbc">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="417cead4-6ef1-4109-ad4d-760a5b76a833" xml:space="preserve">
+          <source>./media/active-directory-saas-access-panel-introduction/ic767166.png</source>
+          <target state="new">./media/active-directory-saas-access-panel-introduction/ic767166.png</target>
+        </trans-unit>
+        <trans-unit id="dd6893bf-3f56-4b6f-b782-dc3227dbf5ed" xml:space="preserve">
+          <source>./media/active-directory-saas-access-panel-introduction/ic767167.png</source>
+          <target state="new">./media/active-directory-saas-access-panel-introduction/ic767167.png</target>
+        </trans-unit>
+        <trans-unit id="4a62398a-633a-42d2-888a-5333be07ef4c" xml:space="preserve">
+          <source>./media/active-directory-saas-access-panel-introduction/ic767168.png</source>
+          <target state="new">./media/active-directory-saas-access-panel-introduction/ic767168.png</target>
+        </trans-unit>
+        <trans-unit id="4d2437c5-a1f0-4c9d-97cd-064f98b83afb" xml:space="preserve">
+          <source>./media/active-directory-saas-access-panel-introduction/ic767169.png</source>
+          <target state="new">./media/active-directory-saas-access-panel-introduction/ic767169.png</target>
+        </trans-unit>
+      </group>
+      <group id="18551c69-358b-4d36-bedd-b894bda595d1" />
+    </body>
+  </file>
+</xliff>

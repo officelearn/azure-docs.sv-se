@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7143f0b0-e9fb-4189-b955-dac2ddfb0e73" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7143f0b0-e9fb-4189-b955-dac2ddfb0e73" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="14260e8c-475d-44ec-bc9b-4738ecbd8f69">
+        <trans-unit id="1a8997a4-9627-43fb-bc34-b06c339588f8" xml:space="preserve">
+          <source>Cloud App Discovery Security and Privacy Considerations</source>
+          <target state="new">Cloud App Discovery Security and Privacy Considerations</target>
+        </trans-unit>
+        <trans-unit id="7b5665b7-5906-46c1-a372-c289e01f45df" xml:space="preserve">
+          <source>This topic describes the security and privacy considerations related to Cloud App Discovery.</source>
+          <target state="new">This topic describes the security and privacy considerations related to Cloud App Discovery.</target>
+        </trans-unit>
+        <trans-unit id="e444843b-0dbc-4b37-8baa-5749ba5e884f" xml:space="preserve">
+          <source>Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization. &lt;br&gt;
+We recognize that when you entrust your data to others, that trust requires rigorous security engineering investments and expertise to back it.
+Microsoft adheres to strict compliance and security guidelines from secure software development lifecycle practices to operating a service. &lt;br&gt;
+Securing and protecting data is a top priority at Microsoft.</source>
+          <target state="new">Microsoft is committed to protecting your privacy and securing your data, while delivering software and services that help you manage the security of your organization. &lt;br&gt;
+We recognize that when you entrust your data to others, that trust requires rigorous security engineering investments and expertise to back it.
+Microsoft adheres to strict compliance and security guidelines from secure software development lifecycle practices to operating a service. &lt;br&gt;
+Securing and protecting data is a top priority at Microsoft.</target>
+        </trans-unit>
+        <trans-unit id="d46e7996-ed9f-4aa6-ad3f-ffa83a0ce5c2" xml:space="preserve">
+          <source>This topic explains how data is collected, processed, and secured within Azure Active Directory Cloud App Discovery</source>
+          <target state="new">This topic explains how data is collected, processed, and secured within Azure Active Directory Cloud App Discovery</target>
+        </trans-unit>
+        <trans-unit id="8ba1ae3c-0c18-491e-a6b2-f5e30b80eff8" xml:space="preserve">
+          <source>Cloud App Discovery is a feature of Azure AD and is hosted in Microsoft Azure. &lt;br&gt;
+The Cloud App Discovery endpoint agent is used to collect application discovery data from IT managed machines. &lt;br&gt;
+The collected data is sent securely over an encrypted channel to the Azure AD Cloud App Discovery service. &lt;br&gt;
+The Cloud App Discovery data for an organization is then visible in the Azure portal. &lt;br&gt;</source>
+          <target state="new">Cloud App Discovery is a feature of Azure AD and is hosted in Microsoft Azure. &lt;br&gt;
+The Cloud App Discovery endpoint agent is used to collect application discovery data from IT managed machines. &lt;br&gt;
+The collected data is sent securely over an encrypted channel to the Azure AD Cloud App Discovery service. &lt;br&gt;
+The Cloud App Discovery data for an organization is then visible in the Azure portal. &lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="800f9e98-e674-496d-99b8-7f0b7690cfaa" xml:space="preserve">
+          <source>&lt;center&gt;<bpt id="e238c68d-488b-47c5-8525-91ec0a1d0773">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="e238c68d-488b-47c5-8525-91ec0a1d0773">&lt;/linkText&gt;</ept> &lt;/center&gt; &lt;br&gt;</source>
+          <target state="new">&lt;center&gt;<bpt id="e238c68d-488b-47c5-8525-91ec0a1d0773">&lt;linkText&gt;</bpt>How Cloud App Discovery Works<ept id="e238c68d-488b-47c5-8525-91ec0a1d0773">&lt;/linkText&gt;</ept> &lt;/center&gt; &lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="563df8be-c06d-4327-8558-01c4d6b8a2eb" xml:space="preserve">
+          <source>The following sections follow the flow of information and describe how it is secured as it moves from your organization to the Cloud App Discovery service and ultimately to the Cloud App Discovery portal.</source>
+          <target state="new">The following sections follow the flow of information and describe how it is secured as it moves from your organization to the Cloud App Discovery service and ultimately to the Cloud App Discovery portal.</target>
+        </trans-unit>
+        <trans-unit id="488b97d8-7f3a-4aac-8d4b-fc9fa8a6c202" xml:space="preserve">
+          <source>In order to use Azure Active Directory’s Cloud App discovery feature to get insights into the applications used by employees in your organization, you need to first deploy the Azure AD Cloud App Discovery endpoint agent to machines in your organization.</source>
+          <target state="new">In order to use Azure Active Directory’s Cloud App discovery feature to get insights into the applications used by employees in your organization, you need to first deploy the Azure AD Cloud App Discovery endpoint agent to machines in your organization.</target>
+        </trans-unit>
+        <trans-unit id="4f5ceb90-7fb4-42b8-9b25-75c4df296445" xml:space="preserve">
+          <source>Administrators of the Azure Active Directory tenant (or their delegate) can download the agent installation package from the Azure portal.</source>
+          <target state="new">Administrators of the Azure Active Directory tenant (or their delegate) can download the agent installation package from the Azure portal.</target>
+        </trans-unit>
+        <trans-unit id="4ccd0327-d311-483c-9fef-c59f110bf257" xml:space="preserve">
+          <source>The agent can either be manually installed or installed across multiple machines in the organization using SCCM or Group Policy.</source>
+          <target state="new">The agent can either be manually installed or installed across multiple machines in the organization using SCCM or Group Policy.</target>
+        </trans-unit>
+        <trans-unit id="b3f7ee5b-6282-4cc8-a415-edda161498e7" xml:space="preserve">
+          <source>For further instructions on deployment options, see <bpt id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;linkText&gt;</bpt>Cloud App Discovery Group Policy Deployment Guide<ept id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;/linkText&gt;</ept><bpt id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;title&gt;</bpt><ept id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;/title&gt;</ept>.
+&lt;br&gt;</source>
+          <target state="new">For further instructions on deployment options, see <bpt id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;linkText&gt;</bpt>Cloud App Discovery Group Policy Deployment Guide<ept id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;/linkText&gt;</ept><bpt id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;title&gt;</bpt><ept id="fb2de2a7-3d80-49c3-aa5d-c76c09b7054c">&lt;/title&gt;</ept>.
+&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="577d6855-5d9f-46b1-9325-343173d79487" xml:space="preserve">
+          <source>The information outlined in the list below is collected by the agent when a connection is made to a Web application. The information is only collected for those applications that the administrator has configured for discovery. &lt;br&gt;
+You can edit the list of cloud apps that the agent monitors through the Cloud App Discovery blade in the Microsoft <bpt id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;linkText&gt;</bpt>Azure portal<ept id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;/linkText&gt;</ept><bpt id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;title&gt;</bpt><ept id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;/title&gt;</ept>, under <bpt id="aeb74a59-515b-4f04-bdea-e10e996bc09b">&lt;strong&gt;</bpt>Settings<ept id="aeb74a59-515b-4f04-bdea-e10e996bc09b">&lt;/strong&gt;</ept>-&gt;<bpt id="ea6be1c3-a5e0-465c-8f1b-08fd3723df37">&lt;strong&gt;</bpt>Data Collection<ept id="ea6be1c3-a5e0-465c-8f1b-08fd3723df37">&lt;/strong&gt;</ept>-&gt;<bpt id="8b9bb68d-825a-4ca6-b417-466f926a9827">&lt;strong&gt;</bpt>App Collection list<ept id="8b9bb68d-825a-4ca6-b417-466f926a9827">&lt;/strong&gt;</ept>. For more details, see <bpt id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;/linkText&gt;</ept><bpt id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;title&gt;</bpt><ept id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;/title&gt;</ept>
+&lt;br&gt;
+<bpt id="2013c28c-c4f2-47b3-8754-bf426b29ead8">&lt;strong&gt;</bpt>Information Category<ept id="2013c28c-c4f2-47b3-8754-bf426b29ead8">&lt;/strong&gt;</ept>: User information &lt;br&gt;
+<bpt id="96a83dd6-aca8-4dd3-98c0-65291b064295">&lt;strong&gt;</bpt>Description<ept id="96a83dd6-aca8-4dd3-98c0-65291b064295">&lt;/strong&gt;</ept>: &lt;br&gt;
+The Windows user name of the process that made a request to the target Web application (e.g.: DOMAIN\username) as well as the Windows Security Identifier (SID) of the user.</source>
+          <target state="new">The information outlined in the list below is collected by the agent when a connection is made to a Web application. The information is only collected for those applications that the administrator has configured for discovery. &lt;br&gt;
+You can edit the list of cloud apps that the agent monitors through the Cloud App Discovery blade in the Microsoft <bpt id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;linkText&gt;</bpt>Azure portal<ept id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;/linkText&gt;</ept><bpt id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;title&gt;</bpt><ept id="9c859ad8-fd6a-4435-a452-e8760e893777">&lt;/title&gt;</ept>, under <bpt id="aeb74a59-515b-4f04-bdea-e10e996bc09b">&lt;strong&gt;</bpt>Settings<ept id="aeb74a59-515b-4f04-bdea-e10e996bc09b">&lt;/strong&gt;</ept>-&gt;<bpt id="ea6be1c3-a5e0-465c-8f1b-08fd3723df37">&lt;strong&gt;</bpt>Data Collection<ept id="ea6be1c3-a5e0-465c-8f1b-08fd3723df37">&lt;/strong&gt;</ept>-&gt;<bpt id="8b9bb68d-825a-4ca6-b417-466f926a9827">&lt;strong&gt;</bpt>App Collection list<ept id="8b9bb68d-825a-4ca6-b417-466f926a9827">&lt;/strong&gt;</ept>. For more details, see <bpt id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;/linkText&gt;</ept><bpt id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;title&gt;</bpt><ept id="3ef3c0de-348a-4272-8aa5-7e04e94fb338">&lt;/title&gt;</ept>
+&lt;br&gt;
+<bpt id="2013c28c-c4f2-47b3-8754-bf426b29ead8">&lt;strong&gt;</bpt>Information Category<ept id="2013c28c-c4f2-47b3-8754-bf426b29ead8">&lt;/strong&gt;</ept>: User information &lt;br&gt;
+<bpt id="96a83dd6-aca8-4dd3-98c0-65291b064295">&lt;strong&gt;</bpt>Description<ept id="96a83dd6-aca8-4dd3-98c0-65291b064295">&lt;/strong&gt;</ept>: &lt;br&gt;
+The Windows user name of the process that made a request to the target Web application (e.g.: DOMAIN\username) as well as the Windows Security Identifier (SID) of the user.</target>
+        </trans-unit>
+        <trans-unit id="881b6e49-deb2-44aa-a60a-2f686146df94" xml:space="preserve">
+          <source><bpt id="3de7aa98-13e5-4db2-b8ae-a60fa2efa1b3">&lt;strong&gt;</bpt>Information Category<ept id="3de7aa98-13e5-4db2-b8ae-a60fa2efa1b3">&lt;/strong&gt;</ept>: Process information &lt;br&gt;
+<bpt id="8c2dfd6d-a4e3-4187-b0c6-1db47f54f049">&lt;strong&gt;</bpt>Description<ept id="8c2dfd6d-a4e3-4187-b0c6-1db47f54f049">&lt;/strong&gt;</ept>: &lt;br&gt;
+The name of the process that made the request to the target Web application (e.g.: “iexplore.exe”)</source>
+          <target state="new"><bpt id="3de7aa98-13e5-4db2-b8ae-a60fa2efa1b3">&lt;strong&gt;</bpt>Information Category<ept id="3de7aa98-13e5-4db2-b8ae-a60fa2efa1b3">&lt;/strong&gt;</ept>: Process information &lt;br&gt;
+<bpt id="8c2dfd6d-a4e3-4187-b0c6-1db47f54f049">&lt;strong&gt;</bpt>Description<ept id="8c2dfd6d-a4e3-4187-b0c6-1db47f54f049">&lt;/strong&gt;</ept>: &lt;br&gt;
+The name of the process that made the request to the target Web application (e.g.: “iexplore.exe”)</target>
+        </trans-unit>
+        <trans-unit id="6a03be0a-68f6-4a87-84db-45de9f9bf7fb" xml:space="preserve">
+          <source><bpt id="84b3493e-a0e7-4b58-9d7e-258bca15e2a1">&lt;strong&gt;</bpt>Information Category<ept id="84b3493e-a0e7-4b58-9d7e-258bca15e2a1">&lt;/strong&gt;</ept>: Machine information &lt;br&gt;
+<bpt id="a861aa7a-ae31-4a64-a8d4-e88bc37063c3">&lt;strong&gt;</bpt>Description<ept id="a861aa7a-ae31-4a64-a8d4-e88bc37063c3">&lt;/strong&gt;</ept>: &lt;br&gt;
+The machine NetBIOS name on which the agent is installed.</source>
+          <target state="new"><bpt id="84b3493e-a0e7-4b58-9d7e-258bca15e2a1">&lt;strong&gt;</bpt>Information Category<ept id="84b3493e-a0e7-4b58-9d7e-258bca15e2a1">&lt;/strong&gt;</ept>: Machine information &lt;br&gt;
+<bpt id="a861aa7a-ae31-4a64-a8d4-e88bc37063c3">&lt;strong&gt;</bpt>Description<ept id="a861aa7a-ae31-4a64-a8d4-e88bc37063c3">&lt;/strong&gt;</ept>: &lt;br&gt;
+The machine NetBIOS name on which the agent is installed.</target>
+        </trans-unit>
+        <trans-unit id="dc2f9529-5dcd-4394-8048-e4b418e1202f" xml:space="preserve">
+          <source><bpt id="276eee1b-8baf-4697-a879-7fd2dd88c630">&lt;strong&gt;</bpt>Information Category<ept id="276eee1b-8baf-4697-a879-7fd2dd88c630">&lt;/strong&gt;</ept>: App traffic information &lt;br&gt;
+<bpt id="52384e9e-c8d9-4ac1-897b-d4017ac5ee3f">&lt;strong&gt;</bpt>Description<ept id="52384e9e-c8d9-4ac1-897b-d4017ac5ee3f">&lt;/strong&gt;</ept>: &lt;br&gt;</source>
+          <target state="new"><bpt id="276eee1b-8baf-4697-a879-7fd2dd88c630">&lt;strong&gt;</bpt>Information Category<ept id="276eee1b-8baf-4697-a879-7fd2dd88c630">&lt;/strong&gt;</ept>: App traffic information &lt;br&gt;
+<bpt id="52384e9e-c8d9-4ac1-897b-d4017ac5ee3f">&lt;strong&gt;</bpt>Description<ept id="52384e9e-c8d9-4ac1-897b-d4017ac5ee3f">&lt;/strong&gt;</ept>: &lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="847e3452-de97-481c-acb7-88949e81e891" xml:space="preserve">
+          <source>The following connection information:</source>
+          <target state="new">The following connection information:</target>
+        </trans-unit>
+        <trans-unit id="56d2a3f9-3f32-4bea-ad45-6b8fd24e0e3d" xml:space="preserve">
+          <source>The source (local computer) and destination IP addresses and port numbers</source>
+          <target state="new">The source (local computer) and destination IP addresses and port numbers</target>
+        </trans-unit>
+        <trans-unit id="238e043f-639d-494f-995f-ba6a1611e3b7" xml:space="preserve">
+          <source>The public IP address of the organization through which the request goes out.</source>
+          <target state="new">The public IP address of the organization through which the request goes out.</target>
+        </trans-unit>
+        <trans-unit id="6fed809b-3ffa-4efd-ab53-46e4311692ad" xml:space="preserve">
+          <source>The time of the request</source>
+          <target state="new">The time of the request</target>
+        </trans-unit>
+        <trans-unit id="0a85520e-7f25-40a1-8cf2-933aeadb12d8" xml:space="preserve">
+          <source>The volume of traffic sent and received</source>
+          <target state="new">The volume of traffic sent and received</target>
+        </trans-unit>
+        <trans-unit id="1db14891-a97e-4c7f-a5f5-d31c2a14a314" xml:space="preserve">
+          <source>The IP version (4 or 6)</source>
+          <target state="new">The IP version (4 or 6)</target>
+        </trans-unit>
+        <trans-unit id="6e53ba8a-be39-415b-9b3e-36a9e5962610" xml:space="preserve">
+          <source>For TLS connections only: The target host name from either the Server Name Indication extension or the server certificate.</source>
+          <target state="new">For TLS connections only: The target host name from either the Server Name Indication extension or the server certificate.</target>
+        </trans-unit>
+        <trans-unit id="03ab287a-8c2b-4c10-96f1-f6e360318956" xml:space="preserve">
+          <source>The following HTTP information:</source>
+          <target state="new">The following HTTP information:</target>
+        </trans-unit>
+        <trans-unit id="848cbba7-f30a-4d4b-a8f8-bf69583b6910" xml:space="preserve">
+          <source>Method (GET, POST, etc.)</source>
+          <target state="new">Method (GET, POST, etc.)</target>
+        </trans-unit>
+        <trans-unit id="644133c1-a10f-4c94-ae7c-f15549acfd25" xml:space="preserve">
+          <source>Protocol (HTTP/1.1, etc.)</source>
+          <target state="new">Protocol (HTTP/1.1, etc.)</target>
+        </trans-unit>
+        <trans-unit id="7eb32f6a-d042-49c6-9d59-d8f63a15204f" xml:space="preserve">
+          <source>User agent string</source>
+          <target state="new">User agent string</target>
+        </trans-unit>
+        <trans-unit id="1b3fb0c9-109f-47b9-99ca-8e60a794ab34" xml:space="preserve">
+          <source>Hostname</source>
+          <target state="new">Hostname</target>
+        </trans-unit>
+        <trans-unit id="2d49a269-caaa-4e70-b51d-35cc7a577891" xml:space="preserve">
+          <source>Target URI (excluding query string)</source>
+          <target state="new">Target URI (excluding query string)</target>
+        </trans-unit>
+        <trans-unit id="abbd04d7-75a3-4279-94cc-067718a1439b" xml:space="preserve">
+          <source>Content type information</source>
+          <target state="new">Content type information</target>
+        </trans-unit>
+        <trans-unit id="365c31ce-980d-4524-8b38-d35988aa9f4b" xml:space="preserve">
+          <source>Referrer URL information (excluding query string)</source>
+          <target state="new">Referrer URL information (excluding query string)</target>
+        </trans-unit>
+        <trans-unit id="610ed8c5-efd5-4d0b-9379-899a537a78c3" xml:space="preserve">
+          <source>The HTTP information above is collected for all non-encrypted connections.</source>
+          <target state="new">The HTTP information above is collected for all non-encrypted connections.</target>
+        </trans-unit>
+        <trans-unit id="8467a053-bb14-47f6-9768-9a300df2aa43" xml:space="preserve">
+          <source>For TLS connections, this information is only captured when the ‘Deep Inspection’ setting is turned on in the portal.</source>
+          <target state="new">For TLS connections, this information is only captured when the ‘Deep Inspection’ setting is turned on in the portal.</target>
+        </trans-unit>
+        <trans-unit id="cffa277d-9a25-4d64-afc8-b9749ca7c1d3" xml:space="preserve">
+          <source>The setting is ‘ON’ by default.</source>
+          <target state="new">The setting is ‘ON’ by default.</target>
+        </trans-unit>
+        <trans-unit id="790b8179-a73c-4105-9d33-172041bb5a52" xml:space="preserve">
+          <source>For more details, see below, and <bpt id="65df9211-0142-491c-abd7-dc23d679a643">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="65df9211-0142-491c-abd7-dc23d679a643">&lt;/linkText&gt;</ept><bpt id="65df9211-0142-491c-abd7-dc23d679a643">&lt;title&gt;</bpt><ept id="65df9211-0142-491c-abd7-dc23d679a643">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see below, and <bpt id="65df9211-0142-491c-abd7-dc23d679a643">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="65df9211-0142-491c-abd7-dc23d679a643">&lt;/linkText&gt;</ept><bpt id="65df9211-0142-491c-abd7-dc23d679a643">&lt;title&gt;</bpt><ept id="65df9211-0142-491c-abd7-dc23d679a643">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8213e23-2540-44bd-a74a-d02805db4a37" xml:space="preserve">
+          <source>&lt;br&gt;&lt;br&gt;</source>
+          <target state="new">&lt;br&gt;&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="38d3ccc7-d97a-431e-a9d7-8234c031be0f" xml:space="preserve">
+          <source>The agent installation includes two components:</source>
+          <target state="new">The agent installation includes two components:</target>
+        </trans-unit>
+        <trans-unit id="64ed9058-d0aa-4362-a325-27c602d62f3a" xml:space="preserve">
+          <source>A user-mode component</source>
+          <target state="new">A user-mode component</target>
+        </trans-unit>
+        <trans-unit id="41a79572-6582-47c6-91e1-a96558a785bc" xml:space="preserve">
+          <source>A kernel-mode driver component (Windows Filtering Platform driver)</source>
+          <target state="new">A kernel-mode driver component (Windows Filtering Platform driver)</target>
+        </trans-unit>
+        <trans-unit id="f24ef414-2860-4a2b-804f-a00faa25b72e" xml:space="preserve">
+          <source>When the agent is first installed it stores a machine-specific trusted certificate on the machine which it then uses to establish a secure connection with the Cloud App Discovery service. &lt;br&gt;
+The agent periodically retrieves policy configuration from the Cloud App Discovery service over this secure connection. &lt;br&gt;
+The policy includes information about which cloud applications to monitor and whether auto-updating should be enabled, among other things.</source>
+          <target state="new">When the agent is first installed it stores a machine-specific trusted certificate on the machine which it then uses to establish a secure connection with the Cloud App Discovery service. &lt;br&gt;
+The agent periodically retrieves policy configuration from the Cloud App Discovery service over this secure connection. &lt;br&gt;
+The policy includes information about which cloud applications to monitor and whether auto-updating should be enabled, among other things.</target>
+        </trans-unit>
+        <trans-unit id="eb1bf875-6690-4c79-9d18-4fb48b006737" xml:space="preserve">
+          <source>As Web traffic is sent and received on the machine from Internet Explorer and Chrome, the Cloud App Discovery agent analyzes the traffic and extracts the relevant metadata (see the <bpt id="d27b9e3f-ff39-4030-9198-30718f27ea9e">&lt;strong&gt;</bpt>Data collected by the agent<ept id="d27b9e3f-ff39-4030-9198-30718f27ea9e">&lt;/strong&gt;</ept> section above). &lt;br&gt;
+Every minute, the agent uploads the collected metadata to the Cloud App Discovery service over an encrypted channel.</source>
+          <target state="new">As Web traffic is sent and received on the machine from Internet Explorer and Chrome, the Cloud App Discovery agent analyzes the traffic and extracts the relevant metadata (see the <bpt id="d27b9e3f-ff39-4030-9198-30718f27ea9e">&lt;strong&gt;</bpt>Data collected by the agent<ept id="d27b9e3f-ff39-4030-9198-30718f27ea9e">&lt;/strong&gt;</ept> section above). &lt;br&gt;
+Every minute, the agent uploads the collected metadata to the Cloud App Discovery service over an encrypted channel.</target>
+        </trans-unit>
+        <trans-unit id="f2676dcd-65e5-4327-9c18-222e1b098e5e" xml:space="preserve">
+          <source>The driver component intercepts the encrypted traffic and inserts itself into the encrypted stream.</source>
+          <target state="new">The driver component intercepts the encrypted traffic and inserts itself into the encrypted stream.</target>
+        </trans-unit>
+        <trans-unit id="8cee3a80-c7e1-43f4-8094-7247cf291386" xml:space="preserve">
+          <source>More details in the <bpt id="612cef89-c06f-45c4-badc-58c1df65a48a">&lt;strong&gt;</bpt>Intercepting data from encrypted connections (Deep inspection)<ept id="612cef89-c06f-45c4-badc-58c1df65a48a">&lt;/strong&gt;</ept> section below.</source>
+          <target state="new">More details in the <bpt id="612cef89-c06f-45c4-badc-58c1df65a48a">&lt;strong&gt;</bpt>Intercepting data from encrypted connections (Deep inspection)<ept id="612cef89-c06f-45c4-badc-58c1df65a48a">&lt;/strong&gt;</ept> section below.</target>
+        </trans-unit>
+        <trans-unit id="8d6d49e4-5fe5-43a2-990e-5bb593eecce9" xml:space="preserve">
+          <source>Our goal is to provide administrators the tools to set the balance between detailed optics into application usage and user privacy as appropriate for their organization.</source>
+          <target state="new">Our goal is to provide administrators the tools to set the balance between detailed optics into application usage and user privacy as appropriate for their organization.</target>
+        </trans-unit>
+        <trans-unit id="2b6e6bdd-3ee0-4d85-9f41-e527b978ca15" xml:space="preserve">
+          <source>To that end, we provide the following knobs in the settings page in the Portal:</source>
+          <target state="new">To that end, we provide the following knobs in the settings page in the Portal:</target>
+        </trans-unit>
+        <trans-unit id="dbb2c263-7707-44a1-88e5-68b2cdd73ac8" xml:space="preserve">
+          <source><bpt id="cba6cf3a-faaf-4690-aacf-b8ad562885c0">&lt;strong&gt;</bpt>Data Collection<ept id="cba6cf3a-faaf-4690-aacf-b8ad562885c0">&lt;/strong&gt;</ept>: Administrators can choose to specify which applications or application categories they want to get discovery data on.</source>
+          <target state="new"><bpt id="cba6cf3a-faaf-4690-aacf-b8ad562885c0">&lt;strong&gt;</bpt>Data Collection<ept id="cba6cf3a-faaf-4690-aacf-b8ad562885c0">&lt;/strong&gt;</ept>: Administrators can choose to specify which applications or application categories they want to get discovery data on.</target>
+        </trans-unit>
+        <trans-unit id="ce329afe-a76e-4fd0-bb82-c73b48e929cf" xml:space="preserve">
+          <source><bpt id="725844fa-8db2-4827-b83f-9ca1bb5db6be">&lt;strong&gt;</bpt>Deep Inspection<ept id="725844fa-8db2-4827-b83f-9ca1bb5db6be">&lt;/strong&gt;</ept>: Administrators can chose to specify if the agent collects HTTP traffic for SSL/TLS connections (aka <bpt id="b8abcb98-eee2-4205-83fa-2b731ae41f68">&lt;strong&gt;</bpt>'Deep Inspection'<ept id="b8abcb98-eee2-4205-83fa-2b731ae41f68">&lt;/strong&gt;</ept>).</source>
+          <target state="new"><bpt id="725844fa-8db2-4827-b83f-9ca1bb5db6be">&lt;strong&gt;</bpt>Deep Inspection<ept id="725844fa-8db2-4827-b83f-9ca1bb5db6be">&lt;/strong&gt;</ept>: Administrators can chose to specify if the agent collects HTTP traffic for SSL/TLS connections (aka <bpt id="b8abcb98-eee2-4205-83fa-2b731ae41f68">&lt;strong&gt;</bpt>'Deep Inspection'<ept id="b8abcb98-eee2-4205-83fa-2b731ae41f68">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="d35d2202-f65a-4dda-b43a-d42f6ab784aa" xml:space="preserve">
+          <source>More on this in the next section.</source>
+          <target state="new">More on this in the next section.</target>
+        </trans-unit>
+        <trans-unit id="39278941-80a6-4314-bfe7-2aa540511bee" xml:space="preserve">
+          <source><bpt id="4a3880e9-e4c3-4a8e-8b10-327426e22e90">&lt;strong&gt;</bpt>Consent Options<ept id="4a3880e9-e4c3-4a8e-8b10-327426e22e90">&lt;/strong&gt;</ept>: Administrators can use the Cloud App Discovery portal to choose whether to notify users of the data collection by the agent, and whether to require user consent before the agent starts collecting user data.</source>
+          <target state="new"><bpt id="4a3880e9-e4c3-4a8e-8b10-327426e22e90">&lt;strong&gt;</bpt>Consent Options<ept id="4a3880e9-e4c3-4a8e-8b10-327426e22e90">&lt;/strong&gt;</ept>: Administrators can use the Cloud App Discovery portal to choose whether to notify users of the data collection by the agent, and whether to require user consent before the agent starts collecting user data.</target>
+        </trans-unit>
+        <trans-unit id="85461db4-ffd1-434b-809a-9a27aa2350e2" xml:space="preserve">
+          <source>The Cloud App Discovery endpoint agent only collects the information described in the <bpt id="80334d95-4740-4f19-8a43-897e02bb7593">&lt;strong&gt;</bpt>Data collected by the agent<ept id="80334d95-4740-4f19-8a43-897e02bb7593">&lt;/strong&gt;</ept> section above.</source>
+          <target state="new">The Cloud App Discovery endpoint agent only collects the information described in the <bpt id="80334d95-4740-4f19-8a43-897e02bb7593">&lt;strong&gt;</bpt>Data collected by the agent<ept id="80334d95-4740-4f19-8a43-897e02bb7593">&lt;/strong&gt;</ept> section above.</target>
+        </trans-unit>
+        <trans-unit id="51ce0cc9-a1c9-48cf-967b-05b49318e362" xml:space="preserve">
+          <source>As we mentioned earlier, administrators can configure the agent to monitor data from encrypted connections ('deep inspection').</source>
+          <target state="new">As we mentioned earlier, administrators can configure the agent to monitor data from encrypted connections ('deep inspection').</target>
+        </trans-unit>
+        <trans-unit id="d169257a-d6a1-4596-a769-578f06cd6628" xml:space="preserve">
+          <source>TLS (<bpt id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;linkText&gt;</bpt>Transport Layer Security<ept id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;/linkText&gt;</ept><bpt id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;title&gt;</bpt><ept id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;/title&gt;</ept>) is one of the most common protocols in use on the Internet today.</source>
+          <target state="new">TLS (<bpt id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;linkText&gt;</bpt>Transport Layer Security<ept id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;/linkText&gt;</ept><bpt id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;title&gt;</bpt><ept id="a872264d-4a2c-4b13-8abd-0b709aa7c706">&lt;/title&gt;</ept>) is one of the most common protocols in use on the Internet today.</target>
+        </trans-unit>
+        <trans-unit id="6fb3b023-ea59-4e5e-ba2f-fa47b89abb98" xml:space="preserve">
+          <source>By encrypting communication with TLS, a client can establish a secure and private communication channel with a web server; TLS provides essential protection for passing authentication credentials and prevent the disclosure of sensitive information.</source>
+          <target state="new">By encrypting communication with TLS, a client can establish a secure and private communication channel with a web server; TLS provides essential protection for passing authentication credentials and prevent the disclosure of sensitive information.</target>
+        </trans-unit>
+        <trans-unit id="75b51e2e-59fd-4d84-9358-7b868d69bb6d" xml:space="preserve">
+          <source>While the end-to-end secure encrypted channel provided by TLS enables important security and privacy protection, the protocol is often abused for malicious or nefarious purposes.</source>
+          <target state="new">While the end-to-end secure encrypted channel provided by TLS enables important security and privacy protection, the protocol is often abused for malicious or nefarious purposes.</target>
+        </trans-unit>
+        <trans-unit id="7115c24e-4d15-434b-aed2-e6bae259d6fe" xml:space="preserve">
+          <source>So much so, in fact, that TLS is often referred to as the “universal firewall-bypass protocol”.</source>
+          <target state="new">So much so, in fact, that TLS is often referred to as the “universal firewall-bypass protocol”.</target>
+        </trans-unit>
+        <trans-unit id="b65bcdfb-c6b3-45be-88ae-6fd2c8b665a8" xml:space="preserve">
+          <source>The root of the problem is that most firewalls are unable to inspect TLS communication because the application-layer data is encrypted with SSL.</source>
+          <target state="new">The root of the problem is that most firewalls are unable to inspect TLS communication because the application-layer data is encrypted with SSL.</target>
+        </trans-unit>
+        <trans-unit id="efc77afa-6351-4aa0-965c-73bd24af33aa" xml:space="preserve">
+          <source>Knowing this, attackers frequently leverage TLS to deliver malicious payloads to a user confident that even the most intelligent application-layer firewalls are completely blind to TLS and must simply relay TLS communication between hosts.</source>
+          <target state="new">Knowing this, attackers frequently leverage TLS to deliver malicious payloads to a user confident that even the most intelligent application-layer firewalls are completely blind to TLS and must simply relay TLS communication between hosts.</target>
+        </trans-unit>
+        <trans-unit id="e1ed444f-7fef-425e-8069-ffa082a9a228" xml:space="preserve">
+          <source>End users frequently leverage TLS to bypass access controls enforced by their corporate firewalls and proxy servers, using it to connect to public proxies and for tunneling non-TLS protocols through the firewall that might otherwise be blocked by policy.</source>
+          <target state="new">End users frequently leverage TLS to bypass access controls enforced by their corporate firewalls and proxy servers, using it to connect to public proxies and for tunneling non-TLS protocols through the firewall that might otherwise be blocked by policy.</target>
+        </trans-unit>
+        <trans-unit id="8360c4a7-2815-451d-b152-67d9cd07ef56" xml:space="preserve">
+          <source>Deep inspection allows the Cloud App Discovery agent to act as a trusted man-in-the-middle.</source>
+          <target state="new">Deep inspection allows the Cloud App Discovery agent to act as a trusted man-in-the-middle.</target>
+        </trans-unit>
+        <trans-unit id="c378eea9-e16a-4ea3-b683-0dd3c4d05b27" xml:space="preserve">
+          <source>When a client request is made to access an HTTPS protected resource, the Endpoint Agent driver intercepts the connection and establishes a new connection to the destination server to retrieves its SSL certificate on behalf of the client.</source>
+          <target state="new">When a client request is made to access an HTTPS protected resource, the Endpoint Agent driver intercepts the connection and establishes a new connection to the destination server to retrieves its SSL certificate on behalf of the client.</target>
+        </trans-unit>
+        <trans-unit id="13c84574-1a6c-41db-bd37-e708b838032e" xml:space="preserve">
+          <source>The agent then verifies that the certificate can be trusted (by checking that it was not revoked, and performing other certificate checks), and if these pass, the Endpoint Agent then copies the information from the server certificate and creates its own server certificate -- known as an interception certificate -- using that information.</source>
+          <target state="new">The agent then verifies that the certificate can be trusted (by checking that it was not revoked, and performing other certificate checks), and if these pass, the Endpoint Agent then copies the information from the server certificate and creates its own server certificate -- known as an interception certificate -- using that information.</target>
+        </trans-unit>
+        <trans-unit id="ef28142a-3048-4703-919d-bad328de5850" xml:space="preserve">
+          <source>The interception certificate is signed on-the-fly by the endpoint agent with a root certificate, which is installed in the Windows trusted certificate store.</source>
+          <target state="new">The interception certificate is signed on-the-fly by the endpoint agent with a root certificate, which is installed in the Windows trusted certificate store.</target>
+        </trans-unit>
+        <trans-unit id="41edca39-385b-4e31-a272-ebac684685a5" xml:space="preserve">
+          <source>This self-signed root certificate is marked non-exportable and is ACL’d to administrators.</source>
+          <target state="new">This self-signed root certificate is marked non-exportable and is ACL’d to administrators.</target>
+        </trans-unit>
+        <trans-unit id="f45a4c53-2a99-4b54-a9e4-8a485fb11ea9" xml:space="preserve">
+          <source>It is intended to never leave the machine on which it was created.</source>
+          <target state="new">It is intended to never leave the machine on which it was created.</target>
+        </trans-unit>
+        <trans-unit id="1fced250-71cc-47c4-b57e-f9b35c32fbb5" xml:space="preserve">
+          <source>When the end-user’s client application receives the interception certificate, it will trust it because it can successfully validate the certificate chain all the way to the root certificate.</source>
+          <target state="new">When the end-user’s client application receives the interception certificate, it will trust it because it can successfully validate the certificate chain all the way to the root certificate.</target>
+        </trans-unit>
+        <trans-unit id="4631e5c9-d55c-41f2-8cb6-e7d003f6ed84" xml:space="preserve">
+          <source>This process is mostly transparent from an end-user’s point of view with a few caveats as described below.</source>
+          <target state="new">This process is mostly transparent from an end-user’s point of view with a few caveats as described below.</target>
+        </trans-unit>
+        <trans-unit id="e6435a80-41e1-4979-99d0-9828122da2f0" xml:space="preserve">
+          <source>By enabling deep inspection, the Cloud App Discovery Endpoint Agent can decrypt and inspect TLS encrypted communications, allowing the service to reduce noise and provide insights about the usage of the encrypted cloud apps.</source>
+          <target state="new">By enabling deep inspection, the Cloud App Discovery Endpoint Agent can decrypt and inspect TLS encrypted communications, allowing the service to reduce noise and provide insights about the usage of the encrypted cloud apps.</target>
+        </trans-unit>
+        <trans-unit id="8c7efc3e-3b5f-4a68-bc17-fa7581f3b67e" xml:space="preserve">
+          <source>Before turning on deep inspection, it is strongly suggested that you communicate your intentions to your legal and HR departments and obtain their consent.</source>
+          <target state="new">Before turning on deep inspection, it is strongly suggested that you communicate your intentions to your legal and HR departments and obtain their consent.</target>
+        </trans-unit>
+        <trans-unit id="5fae8ae3-41bf-4b8e-9b21-9fd13b763655" xml:space="preserve">
+          <source>Inspecting end user’s private encrypted communications can be a sensitive subject, for obvious reasons.</source>
+          <target state="new">Inspecting end user’s private encrypted communications can be a sensitive subject, for obvious reasons.</target>
+        </trans-unit>
+        <trans-unit id="81fc00bb-64ab-4a1b-b868-e57318ae574b" xml:space="preserve">
+          <source>Before a production roll-out of deep inspection, make certain that your corporate security and acceptable use policies have been updated to indicate that encrypted communication will be inspected.</source>
+          <target state="new">Before a production roll-out of deep inspection, make certain that your corporate security and acceptable use policies have been updated to indicate that encrypted communication will be inspected.</target>
+        </trans-unit>
+        <trans-unit id="4dc452ed-1ddc-4afd-990a-59e218dc278a" xml:space="preserve">
+          <source>User notification and exemption of sites deemed sensitive (e.g. banking and medical sites) may also be necessary if you configure Cloud App Discovery to monitor them.</source>
+          <target state="new">User notification and exemption of sites deemed sensitive (e.g. banking and medical sites) may also be necessary if you configure Cloud App Discovery to monitor them.</target>
+        </trans-unit>
+        <trans-unit id="93392d80-6aae-4053-8aa8-5f34ac1de29b" xml:space="preserve">
+          <source>As mentioned above, administrators can use the Cloud App Discovery portal to choose whether to notify users of the data collection by the agent, and whether to require user consent before the agent starts collecting user data.</source>
+          <target state="new">As mentioned above, administrators can use the Cloud App Discovery portal to choose whether to notify users of the data collection by the agent, and whether to require user consent before the agent starts collecting user data.</target>
+        </trans-unit>
+        <trans-unit id="6e138cc3-e0a3-46c0-bd4f-8c508ff031a4" xml:space="preserve">
+          <source>There are a few cases where TLS interception may impact the end user experience:</source>
+          <target state="new">There are a few cases where TLS interception may impact the end user experience:</target>
+        </trans-unit>
+        <trans-unit id="fbdbae1c-9b8d-47e1-8a13-dbbe3b9cb096" xml:space="preserve">
+          <source>Extended Validation (EV) certificates render the address bar of the web browser green to act as a visual clue that you are visiting a trusted web site.</source>
+          <target state="new">Extended Validation (EV) certificates render the address bar of the web browser green to act as a visual clue that you are visiting a trusted web site.</target>
+        </trans-unit>
+        <trans-unit id="0c6b0d76-6e4d-49f0-9ceb-82252ebe31e7" xml:space="preserve">
+          <source>TLS inspection cannot duplicate EV in the certificate it issues to the client, so web sites that use EV certificates will work normally but the address bar will not display green.</source>
+          <target state="new">TLS inspection cannot duplicate EV in the certificate it issues to the client, so web sites that use EV certificates will work normally but the address bar will not display green.</target>
+        </trans-unit>
+        <trans-unit id="eaadb0a2-048d-4acb-9577-978d93902a51" xml:space="preserve">
+          <source>Public key pinning (also known as certificate pinning) are designed to help protect users from man-in-the-middle attacks and rogue certificate authorities.</source>
+          <target state="new">Public key pinning (also known as certificate pinning) are designed to help protect users from man-in-the-middle attacks and rogue certificate authorities.</target>
+        </trans-unit>
+        <trans-unit id="bc15210d-a08b-4199-bd62-8e8ac37f4da4" xml:space="preserve">
+          <source>When the root certificate for a pinned site does not match one of the known good CA's, the browser rejects the connection with an error.</source>
+          <target state="new">When the root certificate for a pinned site does not match one of the known good CA's, the browser rejects the connection with an error.</target>
+        </trans-unit>
+        <trans-unit id="a0842a21-b98e-4e96-80b7-68b2415c0231" xml:space="preserve">
+          <source>Since TLS interception is, in fact, a man-in-the-middle, these connections will fail.</source>
+          <target state="new">Since TLS interception is, in fact, a man-in-the-middle, these connections will fail.</target>
+        </trans-unit>
+        <trans-unit id="e333143f-2acb-4c74-9ea6-daace5c7bdb5" xml:space="preserve">
+          <source>If users click the lock icon in the browser address bar browser to inspect the site information, they will not see a chain ending in the certificate authority used to sign the website certificate, but instead a certificate chain ending with the Windows trusted certificate store.</source>
+          <target state="new">If users click the lock icon in the browser address bar browser to inspect the site information, they will not see a chain ending in the certificate authority used to sign the website certificate, but instead a certificate chain ending with the Windows trusted certificate store.</target>
+        </trans-unit>
+        <trans-unit id="04271d6d-16ac-413b-998f-8709268f28db" xml:space="preserve">
+          <source>To reduce the occurrences of these issues, we keep track of cloud services and client applications known to use extended validation or public key pinning and instruct the Endpoint Agent to avoid intercepting impacted connections.</source>
+          <target state="new">To reduce the occurrences of these issues, we keep track of cloud services and client applications known to use extended validation or public key pinning and instruct the Endpoint Agent to avoid intercepting impacted connections.</target>
+        </trans-unit>
+        <trans-unit id="a9a7cdf8-fa43-45d8-a02e-9f2a67d5b381" xml:space="preserve">
+          <source>Even in these cases, however, you will still receive reports of the use of these cloud apps and the volume of data being transferred, but since they are not deep inspected, no details about how the apps were used will be available.</source>
+          <target state="new">Even in these cases, however, you will still receive reports of the use of these cloud apps and the volume of data being transferred, but since they are not deep inspected, no details about how the apps were used will be available.</target>
+        </trans-unit>
+        <trans-unit id="f7a62c4d-ebb3-425b-b836-101887a918fc" xml:space="preserve">
+          <source>Once metadata has been collected by the agent, it is cached on the machine for up to one minute or until the cached data reaches a size of 5MB.</source>
+          <target state="new">Once metadata has been collected by the agent, it is cached on the machine for up to one minute or until the cached data reaches a size of 5MB.</target>
+        </trans-unit>
+        <trans-unit id="e89c286b-398f-46a3-9c96-40b8ab6671a5" xml:space="preserve">
+          <source>It is then compressed and sent over a secure connection to the Cloud App Discovery service.</source>
+          <target state="new">It is then compressed and sent over a secure connection to the Cloud App Discovery service.</target>
+        </trans-unit>
+        <trans-unit id="06fc56e0-6d23-4d82-a30f-2a0bcca96b96" xml:space="preserve">
+          <source>If the agent is unable to communicate with the Cloud App Discovery service for any reason, the collected metadata is stored in a local file cache that can only be accessed by privileged users on the machine (such as the Administrators group). &lt;br&gt;
+The agent automatically attempts to resend the cached metadata until it has successfully been received by the Cloud App Discovery service.</source>
+          <target state="new">If the agent is unable to communicate with the Cloud App Discovery service for any reason, the collected metadata is stored in a local file cache that can only be accessed by privileged users on the machine (such as the Administrators group). &lt;br&gt;
+The agent automatically attempts to resend the cached metadata until it has successfully been received by the Cloud App Discovery service.</target>
+        </trans-unit>
+        <trans-unit id="30a00f04-e190-4321-9a2d-a0b2395116b7" xml:space="preserve">
+          <source>The agents authenticate to the Cloud App Discovery service using the machine specific client authentication certificate referenced above and forwards data over an encrypted channel. &lt;br&gt;
+The Cloud App Discovery service’s analytics pipeline processes metadata for each customer separately by logically partitioning it through all stages of the analytics pipeline.
+The analyzed metadata drives the various reports in the portal.</source>
+          <target state="new">The agents authenticate to the Cloud App Discovery service using the machine specific client authentication certificate referenced above and forwards data over an encrypted channel. &lt;br&gt;
+The Cloud App Discovery service’s analytics pipeline processes metadata for each customer separately by logically partitioning it through all stages of the analytics pipeline.
+The analyzed metadata drives the various reports in the portal.</target>
+        </trans-unit>
+        <trans-unit id="dcc5d2bb-55ca-4f40-be15-d0efd5f0e560" xml:space="preserve">
+          <source>The unprocessed metadata and the analyzed metadata are stored for up to 180 days.</source>
+          <target state="new">The unprocessed metadata and the analyzed metadata are stored for up to 180 days.</target>
+        </trans-unit>
+        <trans-unit id="84707709-dad1-4e75-a7ef-74cce0a9e7d1" xml:space="preserve">
+          <source>In addition, customers can choose to capture the analyzed metadata in an Azure blob storage account of their choosing.</source>
+          <target state="new">In addition, customers can choose to capture the analyzed metadata in an Azure blob storage account of their choosing.</target>
+        </trans-unit>
+        <trans-unit id="f12e3906-9d3b-41f5-96e5-3ff4c5b210f7" xml:space="preserve">
+          <source>This is useful for offline analysis of metadata as well as longer retention of the data.</source>
+          <target state="new">This is useful for offline analysis of metadata as well as longer retention of the data.</target>
+        </trans-unit>
+        <trans-unit id="fbb5588e-e843-4c2c-bac8-8c5342241c5a" xml:space="preserve">
+          <source>In an effort to keep the metadata collected secure, by default only global administrators of the tenant have access to the Cloud App Discovery feature in the Azure portal. &lt;br&gt;
+However, administrators can choose to delegate this access to other users or groups.</source>
+          <target state="new">In an effort to keep the metadata collected secure, by default only global administrators of the tenant have access to the Cloud App Discovery feature in the Azure portal. &lt;br&gt;
+However, administrators can choose to delegate this access to other users or groups.</target>
+        </trans-unit>
+        <trans-unit id="14fcad98-f852-415d-ab3f-fc8b095f3bb8" xml:space="preserve">
+          <source>For more details, see <bpt id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;/linkText&gt;</ept><bpt id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;title&gt;</bpt><ept id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;/title&gt;</ept></source>
+          <target state="new">For more details, see <bpt id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;linkText&gt;</bpt>Getting Started With Cloud App Discovery<ept id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;/linkText&gt;</ept><bpt id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;title&gt;</bpt><ept id="6983c93d-3429-4fd1-8e3e-08f47a6cf942">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9003e04f-ada0-444b-b6d0-b7192c9423f0" xml:space="preserve">
+          <source>&lt;br&gt;
+Any user accessing the data in the portal, must be licensed with an Azure AD Premium license.</source>
+          <target state="new">&lt;br&gt;
+Any user accessing the data in the portal, must be licensed with an Azure AD Premium license.</target>
+        </trans-unit>
+        <trans-unit id="23842178-f7c6-4ed8-905e-c3526f21bde7" xml:space="preserve">
+          <source><bpt id="38b015d2-0c83-44be-b626-be45904948fa">&lt;strong&gt;</bpt>Additional Resources<ept id="38b015d2-0c83-44be-b626-be45904948fa">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="38b015d2-0c83-44be-b626-be45904948fa">&lt;strong&gt;</bpt>Additional Resources<ept id="38b015d2-0c83-44be-b626-be45904948fa">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f9cefc9-4566-40bb-817d-a2147a045026" xml:space="preserve">
+          <source><bpt id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;/linkText&gt;</ept><bpt id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;title&gt;</bpt><ept id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;linkText&gt;</bpt>How can I discover unsanctioned cloud apps that are used within my organization<ept id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;/linkText&gt;</ept><bpt id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;title&gt;</bpt><ept id="3e9fdfd6-3bbb-4d0c-98e8-b0c94144202d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="af711c4d-9d08-451e-bb52-f5197653e27e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="af711c4d-9d08-451e-bb52-f5197653e27e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8e302a8e-018a-4b73-89a2-6bd72ac9999c">
+        <trans-unit id="0596e90c-1eb7-43c0-b66f-31debe2fb97d" xml:space="preserve">
+          <source>In Visual Studio, open the MainPage.xaml file in your quickstart project, locate the <bpt id="d63d3252-b176-4522-bbde-00286f1dfff4">&lt;strong&gt;</bpt>Button<ept id="d63d3252-b176-4522-bbde-00286f1dfff4">&lt;/strong&gt;</ept> element named <bpt id="97c81b64-e77e-4837-a80d-c73ce9989ced">&lt;code&gt;</bpt>ButtonRefresh<ept id="97c81b64-e77e-4837-a80d-c73ce9989ced">&lt;/code&gt;</ept>, and replace it with the following XAML code: </source>
+          <target state="new">In Visual Studio, open the MainPage.xaml file in your quickstart project, locate the <bpt id="d63d3252-b176-4522-bbde-00286f1dfff4">&lt;strong&gt;</bpt>Button<ept id="d63d3252-b176-4522-bbde-00286f1dfff4">&lt;/strong&gt;</ept> element named <bpt id="97c81b64-e77e-4837-a80d-c73ce9989ced">&lt;code&gt;</bpt>ButtonRefresh<ept id="97c81b64-e77e-4837-a80d-c73ce9989ced">&lt;/code&gt;</ept>, and replace it with the following XAML code: </target>
+        </trans-unit>
+        <trans-unit id="a84f6119-0fc8-4c95-9aeb-d328661c4552" xml:space="preserve">
+          <source>This adds a new button to the page.</source>
+          <target state="new">This adds a new button to the page.</target>
+        </trans-unit>
+        <trans-unit id="9ad765db-be66-4ecd-83d6-43d115739af1" xml:space="preserve">
+          <source>Open the MainPage.xaml.cs code file, and add the following class definition code:</source>
+          <target state="new">Open the MainPage.xaml.cs code file, and add the following class definition code:</target>
+        </trans-unit>
+        <trans-unit id="b261aa4a-e976-4aa7-b337-bf428f4cdde9" xml:space="preserve">
+          <source>This class is used to hold the row count value returned by the custom API.</source>
+          <target state="new">This class is used to hold the row count value returned by the custom API.</target>
+        </trans-unit>
+        <trans-unit id="30251f94-fc8d-4f77-a315-caa9470b6b0c" xml:space="preserve">
+          <source>Locate the <bpt id="23b406e1-e144-47cb-b9da-9c4c9b30f658">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="23b406e1-e144-47cb-b9da-9c4c9b30f658">&lt;/strong&gt;</ept> method in the <bpt id="057c1b03-78af-4109-ad09-81b7cebc54fc">&lt;strong&gt;</bpt>MainPage<ept id="057c1b03-78af-4109-ad09-81b7cebc54fc">&lt;/strong&gt;</ept> class, and make sure that the <bpt id="765ec659-65cd-4bc7-9989-4981ab344fb3">&lt;code&gt;</bpt>query<ept id="765ec659-65cd-4bc7-9989-4981ab344fb3">&lt;/code&gt;</ept> is defined by using the following <bpt id="80a794f9-4388-4ef6-a187-0749644dcb18">&lt;strong&gt;</bpt>Where<ept id="80a794f9-4388-4ef6-a187-0749644dcb18">&lt;/strong&gt;</ept> method:</source>
+          <target state="new">Locate the <bpt id="23b406e1-e144-47cb-b9da-9c4c9b30f658">&lt;strong&gt;</bpt>RefreshTodoItems<ept id="23b406e1-e144-47cb-b9da-9c4c9b30f658">&lt;/strong&gt;</ept> method in the <bpt id="057c1b03-78af-4109-ad09-81b7cebc54fc">&lt;strong&gt;</bpt>MainPage<ept id="057c1b03-78af-4109-ad09-81b7cebc54fc">&lt;/strong&gt;</ept> class, and make sure that the <bpt id="765ec659-65cd-4bc7-9989-4981ab344fb3">&lt;code&gt;</bpt>query<ept id="765ec659-65cd-4bc7-9989-4981ab344fb3">&lt;/code&gt;</ept> is defined by using the following <bpt id="80a794f9-4388-4ef6-a187-0749644dcb18">&lt;strong&gt;</bpt>Where<ept id="80a794f9-4388-4ef6-a187-0749644dcb18">&lt;/strong&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="372c4ab4-f9d9-44d9-a1d1-8ee6f3b53eca" xml:space="preserve">
+          <source>This filters the items so that completed items are not returned by the query.</source>
+          <target state="new">This filters the items so that completed items are not returned by the query.</target>
+        </trans-unit>
+        <trans-unit id="f7374dc5-a426-4811-b01f-c3530c4f128d" xml:space="preserve">
+          <source>In the <bpt id="3dcde1ff-7c9d-4d42-845a-886d1f54f89c">&lt;strong&gt;</bpt>MainPage<ept id="3dcde1ff-7c9d-4d42-845a-886d1f54f89c">&lt;/strong&gt;</ept> class, add the following method:</source>
+          <target state="new">In the <bpt id="3dcde1ff-7c9d-4d42-845a-886d1f54f89c">&lt;strong&gt;</bpt>MainPage<ept id="3dcde1ff-7c9d-4d42-845a-886d1f54f89c">&lt;/strong&gt;</ept> class, add the following method:</target>
+        </trans-unit>
+        <trans-unit id="5128f1e5-34e3-4cf4-88c3-237bfa6bfa28" xml:space="preserve">
+          <source>This method handles the <bpt id="0731f16a-a154-4979-96fe-f3ffbfbdde7f">&lt;strong&gt;</bpt>Click<ept id="0731f16a-a154-4979-96fe-f3ffbfbdde7f">&lt;/strong&gt;</ept> event for the new button.</source>
+          <target state="new">This method handles the <bpt id="0731f16a-a154-4979-96fe-f3ffbfbdde7f">&lt;strong&gt;</bpt>Click<ept id="0731f16a-a154-4979-96fe-f3ffbfbdde7f">&lt;/strong&gt;</ept> event for the new button.</target>
+        </trans-unit>
+        <trans-unit id="6e2ace88-8e9a-4050-86dc-fb85348e62b7" xml:space="preserve">
+          <source>The <bpt id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;linkText&gt;</bpt>InvokeApiAsync<ept id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;/linkText&gt;</ept><bpt id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;title&gt;</bpt><ept id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;/title&gt;</ept> method is called on the client, which sends a POST request to the new custom API.</source>
+          <target state="new">The <bpt id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;linkText&gt;</bpt>InvokeApiAsync<ept id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;/linkText&gt;</ept><bpt id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;title&gt;</bpt><ept id="070e155d-0695-46ba-8edf-86e0fc615f3f">&lt;/title&gt;</ept> method is called on the client, which sends a POST request to the new custom API.</target>
+        </trans-unit>
+        <trans-unit id="738c8f0e-63c7-4b85-8672-cf377c4bed28" xml:space="preserve">
+          <source>The result returned by the custom API is displayed in a message dialog, as are any errors.</source>
+          <target state="new">The result returned by the custom API is displayed in a message dialog, as are any errors.</target>
+        </trans-unit>
+        <trans-unit id="5964c4dd-e46e-4e44-bb27-1994ae5fcfc3" xml:space="preserve">
+          <source>In Visual Studio, press the <bpt id="2c091e29-fdb3-4a63-954a-cf8a68862a25">&lt;strong&gt;</bpt>F5<ept id="2c091e29-fdb3-4a63-954a-cf8a68862a25">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</source>
+          <target state="new">In Visual Studio, press the <bpt id="2c091e29-fdb3-4a63-954a-cf8a68862a25">&lt;strong&gt;</bpt>F5<ept id="2c091e29-fdb3-4a63-954a-cf8a68862a25">&lt;/strong&gt;</ept> key to rebuild the project and start the app.</target>
+        </trans-unit>
+        <trans-unit id="18e2cb38-0b14-4e19-be49-7347c3ff2348" xml:space="preserve">
+          <source>In the app, type some text in <bpt id="1511dbb9-8198-49ca-b7f6-b5195dbabad9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="1511dbb9-8198-49ca-b7f6-b5195dbabad9">&lt;/strong&gt;</ept>, then click <bpt id="495179fe-c2a5-4a3e-9adf-57f4cef64126">&lt;strong&gt;</bpt>Save<ept id="495179fe-c2a5-4a3e-9adf-57f4cef64126">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the app, type some text in <bpt id="1511dbb9-8198-49ca-b7f6-b5195dbabad9">&lt;strong&gt;</bpt>Insert a TodoItem<ept id="1511dbb9-8198-49ca-b7f6-b5195dbabad9">&lt;/strong&gt;</ept>, then click <bpt id="495179fe-c2a5-4a3e-9adf-57f4cef64126">&lt;strong&gt;</bpt>Save<ept id="495179fe-c2a5-4a3e-9adf-57f4cef64126">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b7c42aa9-0a89-45fd-bbb8-e1067d94b33a" xml:space="preserve">
+          <source>Repeat the previous step until you have added several todo items to the list.</source>
+          <target state="new">Repeat the previous step until you have added several todo items to the list.</target>
+        </trans-unit>
+        <trans-unit id="5451102d-b7e0-4efa-9622-cb30fdda697c" xml:space="preserve">
+          <source>Click the <bpt id="26592125-c99a-4d27-b720-e68e8d1a4c1a">&lt;strong&gt;</bpt>Complete All<ept id="26592125-c99a-4d27-b720-e68e8d1a4c1a">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Click the <bpt id="26592125-c99a-4d27-b720-e68e8d1a4c1a">&lt;strong&gt;</bpt>Complete All<ept id="26592125-c99a-4d27-b720-e68e8d1a4c1a">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="7df0e19d-0863-4ce0-9f38-f7ce098b993a" xml:space="preserve">
+          <source><bpt id="affe446a-5bcf-4ff0-b788-629d1ad1014c">&lt;linkText&gt;</bpt><ept id="affe446a-5bcf-4ff0-b788-629d1ad1014c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="affe446a-5bcf-4ff0-b788-629d1ad1014c">&lt;linkText&gt;</bpt><ept id="affe446a-5bcf-4ff0-b788-629d1ad1014c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4943cbb-03e9-4de6-aa98-96956268edf9" xml:space="preserve">
+          <source>A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.</source>
+          <target state="new">A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

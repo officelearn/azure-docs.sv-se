@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ea9a2c46-6741-404f-96ea-c9c5388ec751" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ea9a2c46-6741-404f-96ea-c9c5388ec751" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="06775b79-ba89-469a-a295-cc883e1f9b57">
+        <trans-unit id="5829ba98-e91e-4232-a79b-0b843138da40" xml:space="preserve">
+          <source>Update servers with System Updates</source>
+          <target state="new">Update servers with System Updates</target>
+        </trans-unit>
+        <trans-unit id="62aba044-a09e-4464-85df-2c9d08a5a940" xml:space="preserve">
+          <source>Learn how you can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure</source>
+          <target state="new">Learn how you can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure</target>
+        </trans-unit>
+        <trans-unit id="0cc7405b-eabc-4ab1-8c64-77e204124049" xml:space="preserve">
+          <source><bpt id="35615a3c-a169-4481-9f54-84623c7fd950">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="35615a3c-a169-4481-9f54-84623c7fd950">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="35615a3c-a169-4481-9f54-84623c7fd950">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="35615a3c-a169-4481-9f54-84623c7fd950">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="999bebc5-a198-4959-9a1b-15892cbd2b9a" xml:space="preserve">
+          <source>You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure.</source>
+          <target state="new">You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="986d779d-bce5-4ef8-84f8-a490f164cedb" xml:space="preserve">
+          <source>You install the solution to update the Operations Manager agent and base configuration module for Operational Insights.</source>
+          <target state="new">You install the solution to update the Operations Manager agent and base configuration module for Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="e948a407-52bd-4bec-ae71-ae5593c267f5" xml:space="preserve">
+          <source>Update information is read on the monitored servers and then update data is sent to the Operational Insights service in the cloud for processing.</source>
+          <target state="new">Update information is read on the monitored servers and then update data is sent to the Operational Insights service in the cloud for processing.</target>
+        </trans-unit>
+        <trans-unit id="a54891e5-ce88-40b9-ab74-27c426e32767" xml:space="preserve">
+          <source>Logic is applied to the update data and the cloud service records the data.</source>
+          <target state="new">Logic is applied to the update data and the cloud service records the data.</target>
+        </trans-unit>
+        <trans-unit id="9eb0d435-6547-434d-9b5f-6ff746713471" xml:space="preserve">
+          <source>If missing updates are found, they are shown on the <bpt id="e551fcd5-ac84-4677-bc0f-573a14bf49ad">&lt;strong&gt;</bpt>Updates<ept id="e551fcd5-ac84-4677-bc0f-573a14bf49ad">&lt;/strong&gt;</ept> dashboard.</source>
+          <target state="new">If missing updates are found, they are shown on the <bpt id="e551fcd5-ac84-4677-bc0f-573a14bf49ad">&lt;strong&gt;</bpt>Updates<ept id="e551fcd5-ac84-4677-bc0f-573a14bf49ad">&lt;/strong&gt;</ept> dashboard.</target>
+        </trans-unit>
+        <trans-unit id="6931124f-74a2-4383-963d-febf0d4968bf" xml:space="preserve">
+          <source>You can use the <bpt id="9eeca22f-f9f1-4faa-8f45-7208d31ff49c">&lt;strong&gt;</bpt>Updates<ept id="9eeca22f-f9f1-4faa-8f45-7208d31ff49c">&lt;/strong&gt;</ept> dashboard to work with missing updates and develop a plan to apply them to the servers that need them.</source>
+          <target state="new">You can use the <bpt id="9eeca22f-f9f1-4faa-8f45-7208d31ff49c">&lt;strong&gt;</bpt>Updates<ept id="9eeca22f-f9f1-4faa-8f45-7208d31ff49c">&lt;/strong&gt;</ept> dashboard to work with missing updates and develop a plan to apply them to the servers that need them.</target>
+        </trans-unit>
+        <trans-unit id="8edbbc34-f0bf-4b54-95c9-23878a166d9c" xml:space="preserve">
+          <source>Before you can use system updates in Microsoft Azure Operational Insights, you must have the solution installed.</source>
+          <target state="new">Before you can use system updates in Microsoft Azure Operational Insights, you must have the solution installed.</target>
+        </trans-unit>
+        <trans-unit id="77a41b99-3eef-4323-befe-0220e91a06ae" xml:space="preserve">
+          <source>To read more about installing solutions, see <bpt id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;linkText&gt;</bpt>Use the Solutions Gallery to add or remove solutions<ept id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;/linkText&gt;</ept><bpt id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;title&gt;</bpt><ept id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;/title&gt;</ept>.</source>
+          <target state="new">To read more about installing solutions, see <bpt id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;linkText&gt;</bpt>Use the Solutions Gallery to add or remove solutions<ept id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;/linkText&gt;</ept><bpt id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;title&gt;</bpt><ept id="a88cd3b2-da14-4d02-bc0e-34234f60bb1c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="493545d0-9296-4d7e-a9f3-4eb38d037ca9" xml:space="preserve">
+          <source>After it is installed, you can view the updates that are missing from your monitored servers by using the <bpt id="88359d19-d27a-4427-a05e-b2c9766200d7">&lt;strong&gt;</bpt>System Update Assessment<ept id="88359d19-d27a-4427-a05e-b2c9766200d7">&lt;/strong&gt;</ept> tile on the <bpt id="dc877321-5c02-4db4-96ff-435a215ff732">&lt;strong&gt;</bpt>Overview<ept id="dc877321-5c02-4db4-96ff-435a215ff732">&lt;/strong&gt;</ept> page in Operational Insights.</source>
+          <target state="new">After it is installed, you can view the updates that are missing from your monitored servers by using the <bpt id="88359d19-d27a-4427-a05e-b2c9766200d7">&lt;strong&gt;</bpt>System Update Assessment<ept id="88359d19-d27a-4427-a05e-b2c9766200d7">&lt;/strong&gt;</ept> tile on the <bpt id="dc877321-5c02-4db4-96ff-435a215ff732">&lt;strong&gt;</bpt>Overview<ept id="dc877321-5c02-4db4-96ff-435a215ff732">&lt;/strong&gt;</ept> page in Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="b4b92d7f-3363-40b0-9f54-14d7fac6c846" xml:space="preserve">
+          <source>On the <bpt id="c5f8d9c5-2845-4069-840a-bbae5ecba186">&lt;strong&gt;</bpt>Overview<ept id="c5f8d9c5-2845-4069-840a-bbae5ecba186">&lt;/strong&gt;</ept> page, click the <bpt id="dbf5473a-d3d8-4ddd-870f-a37b89c2d6f8">&lt;strong&gt;</bpt>System Update Assessment<ept id="dbf5473a-d3d8-4ddd-870f-a37b89c2d6f8">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">On the <bpt id="c5f8d9c5-2845-4069-840a-bbae5ecba186">&lt;strong&gt;</bpt>Overview<ept id="c5f8d9c5-2845-4069-840a-bbae5ecba186">&lt;/strong&gt;</ept> page, click the <bpt id="dbf5473a-d3d8-4ddd-870f-a37b89c2d6f8">&lt;strong&gt;</bpt>System Update Assessment<ept id="dbf5473a-d3d8-4ddd-870f-a37b89c2d6f8">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="aa516a74-16bb-4cf6-8fa6-82ff9c0b17d9" xml:space="preserve">
+          <source><bpt id="f4f060f9-273b-4aaa-8c0a-6f8d47d3b267">&lt;linkText&gt;</bpt>image of the Overview page<ept id="f4f060f9-273b-4aaa-8c0a-6f8d47d3b267">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f4f060f9-273b-4aaa-8c0a-6f8d47d3b267">&lt;linkText&gt;</bpt>image of the Overview page<ept id="f4f060f9-273b-4aaa-8c0a-6f8d47d3b267">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9768519-6130-4a9d-a6a9-5be6ad559740" xml:space="preserve">
+          <source>On the <bpt id="d3da6c7f-2938-432b-a6bb-66aee8dffc0a">&lt;strong&gt;</bpt>Updates<ept id="d3da6c7f-2938-432b-a6bb-66aee8dffc0a">&lt;/strong&gt;</ept> dashboard, view the update categories.</source>
+          <target state="new">On the <bpt id="d3da6c7f-2938-432b-a6bb-66aee8dffc0a">&lt;strong&gt;</bpt>Updates<ept id="d3da6c7f-2938-432b-a6bb-66aee8dffc0a">&lt;/strong&gt;</ept> dashboard, view the update categories.</target>
+        </trans-unit>
+        <trans-unit id="88f1ccf7-6074-4c25-a13c-89f904dc3dcd" xml:space="preserve">
+          <source><bpt id="6e88f5aa-15aa-428f-960a-de8106f6d2ea">&lt;linkText&gt;</bpt>image of the Updates page<ept id="6e88f5aa-15aa-428f-960a-de8106f6d2ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6e88f5aa-15aa-428f-960a-de8106f6d2ea">&lt;linkText&gt;</bpt>image of the Updates page<ept id="6e88f5aa-15aa-428f-960a-de8106f6d2ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d44f4f77-8329-4212-ab4b-5bb689a63401" xml:space="preserve">
+          <source>Scroll to the right of the page to view the <bpt id="44cddf12-38e6-4cc3-8909-b0a8896c7f9e">&lt;strong&gt;</bpt>Type of Updates Missing<ept id="44cddf12-38e6-4cc3-8909-b0a8896c7f9e">&lt;/strong&gt;</ept> blade and then click <bpt id="737aa5c9-c635-4951-a61a-41ef8dc82e5b">&lt;strong&gt;</bpt>Security Updates<ept id="737aa5c9-c635-4951-a61a-41ef8dc82e5b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the right of the page to view the <bpt id="44cddf12-38e6-4cc3-8909-b0a8896c7f9e">&lt;strong&gt;</bpt>Type of Updates Missing<ept id="44cddf12-38e6-4cc3-8909-b0a8896c7f9e">&lt;/strong&gt;</ept> blade and then click <bpt id="737aa5c9-c635-4951-a61a-41ef8dc82e5b">&lt;strong&gt;</bpt>Security Updates<ept id="737aa5c9-c635-4951-a61a-41ef8dc82e5b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d48c6a5-e406-4dec-8690-42c5b6fac936" xml:space="preserve">
+          <source><bpt id="99e43494-f812-46f6-8d03-483f96ed93af">&lt;linkText&gt;</bpt>image of the Updates page<ept id="99e43494-f812-46f6-8d03-483f96ed93af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="99e43494-f812-46f6-8d03-483f96ed93af">&lt;linkText&gt;</bpt>image of the Updates page<ept id="99e43494-f812-46f6-8d03-483f96ed93af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="297dbd3a-28f9-4d6d-b9c6-933e819f809b" xml:space="preserve">
+          <source>On the Search page, a list of security updates that were found missing from servers in your infrastructure is shown.</source>
+          <target state="new">On the Search page, a list of security updates that were found missing from servers in your infrastructure is shown.</target>
+        </trans-unit>
+        <trans-unit id="a71f2d8a-1abe-45f3-8483-48b0e945ac7e" xml:space="preserve">
+          <source>Click a Knowledge Base article ID (KBID)  to view more information about the update that is missing.</source>
+          <target state="new">Click a Knowledge Base article ID (KBID)  to view more information about the update that is missing.</target>
+        </trans-unit>
+        <trans-unit id="3e017879-7fa2-46f0-bb07-bcfd1857fb21" xml:space="preserve">
+          <source>In this example, <bpt id="ac270308-ea4f-47a2-8277-a4f69cc4f298">&lt;em&gt;</bpt>KBID 3032323<ept id="ac270308-ea4f-47a2-8277-a4f69cc4f298">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this example, <bpt id="ac270308-ea4f-47a2-8277-a4f69cc4f298">&lt;em&gt;</bpt>KBID 3032323<ept id="ac270308-ea4f-47a2-8277-a4f69cc4f298">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="248ff16f-193e-4e25-a143-da40f6e25b18" xml:space="preserve">
+          <source><bpt id="18717901-c32d-4578-88b4-04799795f761">&lt;linkText&gt;</bpt>image of the Updates page<ept id="18717901-c32d-4578-88b4-04799795f761">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="18717901-c32d-4578-88b4-04799795f761">&lt;linkText&gt;</bpt>image of the Updates page<ept id="18717901-c32d-4578-88b4-04799795f761">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="86829dee-ddd7-4d02-9773-bea5465e0246" xml:space="preserve">
+          <source>Your web browser opens the Knowledge Base article that describes the update.</source>
+          <target state="new">Your web browser opens the Knowledge Base article that describes the update.</target>
+        </trans-unit>
+        <trans-unit id="27ee7d81-ac42-4c6c-aad5-8c55ffb93ada" xml:space="preserve">
+          <source><bpt id="399f0b9f-3dcb-4abb-891e-d0f8c6d174c3">&lt;linkText&gt;</bpt>image of the Updates page<ept id="399f0b9f-3dcb-4abb-891e-d0f8c6d174c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="399f0b9f-3dcb-4abb-891e-d0f8c6d174c3">&lt;linkText&gt;</bpt>image of the Updates page<ept id="399f0b9f-3dcb-4abb-891e-d0f8c6d174c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cf4e372c-c2f6-4da6-9dc7-ceea925ee2b6" xml:space="preserve">
+          <source>Using the using the information you've found, you can create a plan to apply missing updates.</source>
+          <target state="new">Using the using the information you've found, you can create a plan to apply missing updates.</target>
+        </trans-unit>
+        <trans-unit id="4b71804b-070a-4a71-8506-d50fa686b667" xml:space="preserve">
+          <source><bpt id="e0d42241-124f-4a1b-abb9-eb75df289640">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="e0d42241-124f-4a1b-abb9-eb75df289640">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="e0d42241-124f-4a1b-abb9-eb75df289640">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="e0d42241-124f-4a1b-abb9-eb75df289640">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

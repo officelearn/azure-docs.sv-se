@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3b3c2bf6-52e1-41d5-809e-97db5c04ab2f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3b3c2bf6-52e1-41d5-809e-97db5c04ab2f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="985b5ee9-6e3a-46a7-8bf5-f7b3f2d8e08b">
+        <trans-unit id="f3c8d7ab-09f8-434d-8778-62e3f5b57ff7" xml:space="preserve">
+          <source>Line of business application Phase 2 | Microsoft Azure</source>
+          <target state="new">Line of business application Phase 2 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cfa1cb3d-0ad4-42a8-aaff-fd052112142b" xml:space="preserve">
+          <source>Create and configure the two Active Directory replica domain controllers in Phase 2 of the line of business application in Azure.</source>
+          <target state="new">Create and configure the two Active Directory replica domain controllers in Phase 2 of the line of business application in Azure.</target>
+        </trans-unit>
+        <trans-unit id="42972c8c-9c3f-4338-95ad-28c081d7ac88" xml:space="preserve">
+          <source>In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure two replica domain controllers in the Azure Virtual Network so that client web requests for web resources can be authenticated locally within the Azure virtual network, rather than sending that authentication traffic across the connection to your on-premises network.</source>
+          <target state="new">In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure two replica domain controllers in the Azure Virtual Network so that client web requests for web resources can be authenticated locally within the Azure virtual network, rather than sending that authentication traffic across the connection to your on-premises network.</target>
+        </trans-unit>
+        <trans-unit id="9bdff52a-ee20-48e3-b514-256b5d53a2cd" xml:space="preserve">
+          <source>You must complete this phase before moving on to <bpt id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;linkText&gt;</bpt>Phase 3<ept id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;/linkText&gt;</ept><bpt id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;title&gt;</bpt><ept id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must complete this phase before moving on to <bpt id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;linkText&gt;</bpt>Phase 3<ept id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;/linkText&gt;</ept><bpt id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;title&gt;</bpt><ept id="62dd6963-7ad6-47d1-a7e4-35340202afba">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77be7ac7-9462-4523-aba5-950126d21335" xml:space="preserve">
+          <source>See <bpt id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;linkText&gt;</bpt>Deploy a High-Availability Line of Business Application in Azure<ept id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;/linkText&gt;</ept><bpt id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;title&gt;</bpt><ept id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;/title&gt;</ept> for all of the phases.</source>
+          <target state="new">See <bpt id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;linkText&gt;</bpt>Deploy a High-Availability Line of Business Application in Azure<ept id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;/linkText&gt;</ept><bpt id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;title&gt;</bpt><ept id="2023d82e-58f7-4fa9-bc0a-9ab0038cea86">&lt;/title&gt;</ept> for all of the phases.</target>
+        </trans-unit>
+        <trans-unit id="80543b85-de1b-42fb-aa62-9316c2be9a67" xml:space="preserve">
+          <source>First, you need to fill out the <bpt id="d4339a1a-0539-4021-aa19-b7266dc3ec4c">&lt;strong&gt;</bpt>Virtual machine name<ept id="d4339a1a-0539-4021-aa19-b7266dc3ec4c">&lt;/strong&gt;</ept> column of Table M and modify virtual machine sizes as needed in the <bpt id="1f6f6335-a2c2-4383-a093-d246d46f7293">&lt;strong&gt;</bpt>Minimum size<ept id="1f6f6335-a2c2-4383-a093-d246d46f7293">&lt;/strong&gt;</ept> column.</source>
+          <target state="new">First, you need to fill out the <bpt id="d4339a1a-0539-4021-aa19-b7266dc3ec4c">&lt;strong&gt;</bpt>Virtual machine name<ept id="d4339a1a-0539-4021-aa19-b7266dc3ec4c">&lt;/strong&gt;</ept> column of Table M and modify virtual machine sizes as needed in the <bpt id="1f6f6335-a2c2-4383-a093-d246d46f7293">&lt;strong&gt;</bpt>Minimum size<ept id="1f6f6335-a2c2-4383-a093-d246d46f7293">&lt;/strong&gt;</ept> column.</target>
+        </trans-unit>
+        <trans-unit id="102be407-1859-4afe-b0ad-01870af59605" xml:space="preserve">
+          <source>Item</source>
+          <target state="new">Item</target>
+        </trans-unit>
+        <trans-unit id="771b9a87-cc3d-4a49-8811-44cf8d50fcfb" xml:space="preserve">
+          <source>Virtual machine name</source>
+          <target state="new">Virtual machine name</target>
+        </trans-unit>
+        <trans-unit id="49be3381-bd30-4698-8cbf-5d375e630bf1" xml:space="preserve">
+          <source>Gallery image</source>
+          <target state="new">Gallery image</target>
+        </trans-unit>
+        <trans-unit id="0ddb1487-7231-476d-a747-d66b1db81e07" xml:space="preserve">
+          <source>Minimum size</source>
+          <target state="new">Minimum size</target>
+        </trans-unit>
+        <trans-unit id="d2709e56-cddb-449c-ac8e-830eca024f29" xml:space="preserve">
+          <source>| <bpt id="13a6c266-ed30-4240-87f3-01024792d274">&lt;strong&gt;</bpt>__________<ept id="13a6c266-ed30-4240-87f3-01024792d274">&lt;/strong&gt;</ept> (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | Standard_D1</source>
+          <target state="new">| <bpt id="13a6c266-ed30-4240-87f3-01024792d274">&lt;strong&gt;</bpt>__________<ept id="13a6c266-ed30-4240-87f3-01024792d274">&lt;/strong&gt;</ept> (first domain controller, example DC1) | Windows Server 2012 R2 Datacenter | Standard_D1</target>
+        </trans-unit>
+        <trans-unit id="ec369182-d84f-48c2-b09c-ab4b023e6b46" xml:space="preserve">
+          <source>| <bpt id="b32820ab-6b34-468a-a295-691adf4a8b30">&lt;strong&gt;</bpt>__________<ept id="b32820ab-6b34-468a-a295-691adf4a8b30">&lt;/strong&gt;</ept> (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D1</source>
+          <target state="new">| <bpt id="b32820ab-6b34-468a-a295-691adf4a8b30">&lt;strong&gt;</bpt>__________<ept id="b32820ab-6b34-468a-a295-691adf4a8b30">&lt;/strong&gt;</ept> (second domain controller, example DC2) | Windows Server 2012 R2 Datacenter | Standard_D1</target>
+        </trans-unit>
+        <trans-unit id="87c035cf-833c-4d79-8ca1-e6ae7f8d4239" xml:space="preserve">
+          <source>| <bpt id="07a5a9cf-90cc-434f-9c92-71ab45e6d6b2">&lt;strong&gt;</bpt>__________<ept id="07a5a9cf-90cc-434f-9c92-71ab45e6d6b2">&lt;/strong&gt;</ept> (primary database server, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |   Standard_DS4</source>
+          <target state="new">| <bpt id="07a5a9cf-90cc-434f-9c92-71ab45e6d6b2">&lt;strong&gt;</bpt>__________<ept id="07a5a9cf-90cc-434f-9c92-71ab45e6d6b2">&lt;/strong&gt;</ept> (primary database server, example SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |   Standard_DS4</target>
+        </trans-unit>
+        <trans-unit id="b4c08fbb-7e31-4d07-9b74-8d0c826ebe71" xml:space="preserve">
+          <source>| <bpt id="1dfa3d72-9f9d-40b6-bbdb-02272ea42476">&lt;strong&gt;</bpt>__________<ept id="1dfa3d72-9f9d-40b6-bbdb-02272ea42476">&lt;/strong&gt;</ept> (secondary database server, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |     Standard_DS4</source>
+          <target state="new">| <bpt id="1dfa3d72-9f9d-40b6-bbdb-02272ea42476">&lt;strong&gt;</bpt>__________<ept id="1dfa3d72-9f9d-40b6-bbdb-02272ea42476">&lt;/strong&gt;</ept> (secondary database server, example SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 |     Standard_DS4</target>
+        </trans-unit>
+        <trans-unit id="dca76b3f-dd7a-4558-bf94-a17a644a3be2" xml:space="preserve">
+          <source>| <bpt id="03d99888-9425-49bd-8888-7d027c6cb5f6">&lt;strong&gt;</bpt>__________<ept id="03d99888-9425-49bd-8888-7d027c6cb5f6">&lt;/strong&gt;</ept> (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1</source>
+          <target state="new">| <bpt id="03d99888-9425-49bd-8888-7d027c6cb5f6">&lt;strong&gt;</bpt>__________<ept id="03d99888-9425-49bd-8888-7d027c6cb5f6">&lt;/strong&gt;</ept> (majority node witness for the cluster, example MN1) | Windows Server 2012 R2 Datacenter | Standard_D1</target>
+        </trans-unit>
+        <trans-unit id="356e211d-9610-4bb1-a5f3-ab2c38b89c4a" xml:space="preserve">
+          <source>| <bpt id="3290c212-1b4b-4869-8c5d-5959824b6355">&lt;strong&gt;</bpt>__________<ept id="3290c212-1b4b-4869-8c5d-5959824b6355">&lt;/strong&gt;</ept> (first web server, example WEB1) | Windows Server 2012 R2 Datacenter | Standard_D3</source>
+          <target state="new">| <bpt id="3290c212-1b4b-4869-8c5d-5959824b6355">&lt;strong&gt;</bpt>__________<ept id="3290c212-1b4b-4869-8c5d-5959824b6355">&lt;/strong&gt;</ept> (first web server, example WEB1) | Windows Server 2012 R2 Datacenter | Standard_D3</target>
+        </trans-unit>
+        <trans-unit id="deaee38f-208b-4e16-8ee6-e28cd0f2b027" xml:space="preserve">
+          <source>| <bpt id="2c40cbbf-4ad7-42c3-a4fb-8b36afc87607">&lt;strong&gt;</bpt>__________<ept id="2c40cbbf-4ad7-42c3-a4fb-8b36afc87607">&lt;/strong&gt;</ept> (second web server, example WEB2) | Windows Server 2012 R2 Datacenter | Standard_D3</source>
+          <target state="new">| <bpt id="2c40cbbf-4ad7-42c3-a4fb-8b36afc87607">&lt;strong&gt;</bpt>__________<ept id="2c40cbbf-4ad7-42c3-a4fb-8b36afc87607">&lt;/strong&gt;</ept> (second web server, example WEB2) | Windows Server 2012 R2 Datacenter | Standard_D3</target>
+        </trans-unit>
+        <trans-unit id="785f9016-4c41-49f7-931a-aa3169f5c59f" xml:space="preserve">
+          <source><bpt id="6915dc9b-81e0-4e79-8aa9-11d415ec549a">&lt;strong&gt;</bpt>Table M – Virtual machines for the high-availability line of business application in Azure<ept id="6915dc9b-81e0-4e79-8aa9-11d415ec549a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6915dc9b-81e0-4e79-8aa9-11d415ec549a">&lt;strong&gt;</bpt>Table M – Virtual machines for the high-availability line of business application in Azure<ept id="6915dc9b-81e0-4e79-8aa9-11d415ec549a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec278621-b290-46ae-9d4b-ed32693e152c" xml:space="preserve">
+          <source>For the complete list of virtual machine sizes, see <bpt id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;/linkText&gt;</ept><bpt id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;title&gt;</bpt><ept id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the complete list of virtual machine sizes, see <bpt id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;linkText&gt;</bpt>Virtual Machine and Cloud Service Sizes for Azure<ept id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;/linkText&gt;</ept><bpt id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;title&gt;</bpt><ept id="dadf7b61-321f-4831-b924-ea8b0d240e13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09eba036-ff5d-4a93-8382-278a3bee8bd3" xml:space="preserve">
+          <source>Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the &lt; and &gt; characters. Note that this PowerShell command set uses values from the following:</source>
+          <target state="new">Use the following block of Azure PowerShell commands to create the virtual machines for the two domain controllers. Specify the values for the variables, removing the &lt; and &gt; characters. Note that this PowerShell command set uses values from the following:</target>
+        </trans-unit>
+        <trans-unit id="c690ba79-3840-4d33-8fb2-609586be895b" xml:space="preserve">
+          <source>Table M, for your virtual machines</source>
+          <target state="new">Table M, for your virtual machines</target>
+        </trans-unit>
+        <trans-unit id="28188bb7-2b10-4725-b70e-754eeec847cf" xml:space="preserve">
+          <source>Table V, for your virtual network settings</source>
+          <target state="new">Table V, for your virtual network settings</target>
+        </trans-unit>
+        <trans-unit id="21756aca-43e1-4f90-b456-fe3f26ced462" xml:space="preserve">
+          <source>Table S, for your subnet</source>
+          <target state="new">Table S, for your subnet</target>
+        </trans-unit>
+        <trans-unit id="e2df33ed-652a-4da8-bee9-2e366f12ed10" xml:space="preserve">
+          <source>Table ST, for your storage accounts</source>
+          <target state="new">Table ST, for your storage accounts</target>
+        </trans-unit>
+        <trans-unit id="f2ca6271-77cd-4277-9548-a9ed56270dbd" xml:space="preserve">
+          <source>Table A, for your availability sets</source>
+          <target state="new">Table A, for your availability sets</target>
+        </trans-unit>
+        <trans-unit id="770b9d60-d4d8-437e-8bf7-ae95e1598929" xml:space="preserve">
+          <source>Recall that you defined Tables V, S, ST, and A in <bpt id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;/linkText&gt;</ept><bpt id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;title&gt;</bpt><ept id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;/title&gt;</ept>.</source>
+          <target state="new">Recall that you defined Tables V, S, ST, and A in <bpt id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;linkText&gt;</bpt>Phase 1: Configure Azure<ept id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;/linkText&gt;</ept><bpt id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;title&gt;</bpt><ept id="137582ab-0aad-4f4a-a2d0-380c2dfc6a91">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd4cb253-63d9-4d4d-8c78-866566a3c0ed" xml:space="preserve">
+          <source>When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</source>
+          <target state="new">When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="91689869-7e75-4e0e-8fa0-db969437da20" xml:space="preserve">
+          <source>Use the remote desktop client of your choice and create a remote desktop connection to the first domain controller virtual machine.</source>
+          <target state="new">Use the remote desktop client of your choice and create a remote desktop connection to the first domain controller virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="e310b265-74ac-4bda-b143-ea6252a0027f" xml:space="preserve">
+          <source>Use its intranet DNS or computer name and the credentials of the local administrator account.</source>
+          <target state="new">Use its intranet DNS or computer name and the credentials of the local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="37e9570a-56e6-4b29-abc2-3de235934392" xml:space="preserve">
+          <source>Next, you need to add the extra data disk to the first domain controller.</source>
+          <target state="new">Next, you need to add the extra data disk to the first domain controller.</target>
+        </trans-unit>
+        <trans-unit id="7771a673-afa6-431d-9ead-16e231d3f7e0" xml:space="preserve">
+          <source>In the left pane of Server Manager, click <bpt id="f3b0b9b4-2e2c-4454-a107-c9b3fafb9959">&lt;strong&gt;</bpt>File and Storage Services<ept id="f3b0b9b4-2e2c-4454-a107-c9b3fafb9959">&lt;/strong&gt;</ept>, and then click <bpt id="6dc9fb6b-664d-4e21-a35e-fa3830e849d1">&lt;strong&gt;</bpt>Disks<ept id="6dc9fb6b-664d-4e21-a35e-fa3830e849d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of Server Manager, click <bpt id="f3b0b9b4-2e2c-4454-a107-c9b3fafb9959">&lt;strong&gt;</bpt>File and Storage Services<ept id="f3b0b9b4-2e2c-4454-a107-c9b3fafb9959">&lt;/strong&gt;</ept>, and then click <bpt id="6dc9fb6b-664d-4e21-a35e-fa3830e849d1">&lt;strong&gt;</bpt>Disks<ept id="6dc9fb6b-664d-4e21-a35e-fa3830e849d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6bfaeb9f-dbbb-48a5-9477-9a5c64075534" xml:space="preserve">
+          <source>In the contents pane, in the <bpt id="f8752dcb-2555-4e80-a82e-47e4f470f3d7">&lt;strong&gt;</bpt>Disks<ept id="f8752dcb-2555-4e80-a82e-47e4f470f3d7">&lt;/strong&gt;</ept> group, click disk <bpt id="46d524f6-db42-42bf-8c67-7e4d804c68b1">&lt;strong&gt;</bpt>2<ept id="46d524f6-db42-42bf-8c67-7e4d804c68b1">&lt;/strong&gt;</ept> (with the <bpt id="f9d4e25a-ca77-4313-99b8-fbe7f357ab30">&lt;strong&gt;</bpt>Partition<ept id="f9d4e25a-ca77-4313-99b8-fbe7f357ab30">&lt;/strong&gt;</ept> set to <bpt id="3747d92e-3602-4c27-8fac-a99183d1ed03">&lt;strong&gt;</bpt>Unknown<ept id="3747d92e-3602-4c27-8fac-a99183d1ed03">&lt;/strong&gt;</ept>).</source>
+          <target state="new">In the contents pane, in the <bpt id="f8752dcb-2555-4e80-a82e-47e4f470f3d7">&lt;strong&gt;</bpt>Disks<ept id="f8752dcb-2555-4e80-a82e-47e4f470f3d7">&lt;/strong&gt;</ept> group, click disk <bpt id="46d524f6-db42-42bf-8c67-7e4d804c68b1">&lt;strong&gt;</bpt>2<ept id="46d524f6-db42-42bf-8c67-7e4d804c68b1">&lt;/strong&gt;</ept> (with the <bpt id="f9d4e25a-ca77-4313-99b8-fbe7f357ab30">&lt;strong&gt;</bpt>Partition<ept id="f9d4e25a-ca77-4313-99b8-fbe7f357ab30">&lt;/strong&gt;</ept> set to <bpt id="3747d92e-3602-4c27-8fac-a99183d1ed03">&lt;strong&gt;</bpt>Unknown<ept id="3747d92e-3602-4c27-8fac-a99183d1ed03">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="520410d7-2adc-4eed-a2a3-67c83c11416e" xml:space="preserve">
+          <source>Click <bpt id="034f2240-1306-4617-b5cb-b876655ee2b5">&lt;strong&gt;</bpt>Tasks<ept id="034f2240-1306-4617-b5cb-b876655ee2b5">&lt;/strong&gt;</ept>, and then click <bpt id="9da65fa7-a55e-4ebb-919a-9a173bbdb425">&lt;strong&gt;</bpt>New Volume<ept id="9da65fa7-a55e-4ebb-919a-9a173bbdb425">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="034f2240-1306-4617-b5cb-b876655ee2b5">&lt;strong&gt;</bpt>Tasks<ept id="034f2240-1306-4617-b5cb-b876655ee2b5">&lt;/strong&gt;</ept>, and then click <bpt id="9da65fa7-a55e-4ebb-919a-9a173bbdb425">&lt;strong&gt;</bpt>New Volume<ept id="9da65fa7-a55e-4ebb-919a-9a173bbdb425">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9484b03b-7158-4c01-b064-998f05d836de" xml:space="preserve">
+          <source>On the Before you begin page of the New Volume Wizard, click <bpt id="4e19e7a4-37b3-4396-89b6-ea67b5c88d8c">&lt;strong&gt;</bpt>Next<ept id="4e19e7a4-37b3-4396-89b6-ea67b5c88d8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page of the New Volume Wizard, click <bpt id="4e19e7a4-37b3-4396-89b6-ea67b5c88d8c">&lt;strong&gt;</bpt>Next<ept id="4e19e7a4-37b3-4396-89b6-ea67b5c88d8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="de9bcc58-e5f6-4b17-8ca5-c28bce627cf8" xml:space="preserve">
+          <source>On the Select the server and disk page, click <bpt id="49d576d2-7c56-49c5-a52b-36d2f65df81f">&lt;strong&gt;</bpt>Disk 2<ept id="49d576d2-7c56-49c5-a52b-36d2f65df81f">&lt;/strong&gt;</ept>, and then click <bpt id="b0bc1703-d903-4e5b-ac6e-e20175ee74ce">&lt;strong&gt;</bpt>Next<ept id="b0bc1703-d903-4e5b-ac6e-e20175ee74ce">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select the server and disk page, click <bpt id="49d576d2-7c56-49c5-a52b-36d2f65df81f">&lt;strong&gt;</bpt>Disk 2<ept id="49d576d2-7c56-49c5-a52b-36d2f65df81f">&lt;/strong&gt;</ept>, and then click <bpt id="b0bc1703-d903-4e5b-ac6e-e20175ee74ce">&lt;strong&gt;</bpt>Next<ept id="b0bc1703-d903-4e5b-ac6e-e20175ee74ce">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f50a55d2-081f-4544-b28c-cdeb20e611c0" xml:space="preserve">
+          <source>When prompted, click OK.</source>
+          <target state="new">When prompted, click OK.</target>
+        </trans-unit>
+        <trans-unit id="444efc87-7148-4179-8552-5f53ba01e707" xml:space="preserve">
+          <source>On the Specify the size of the volume page, click <bpt id="a88bc417-6e3c-4925-a890-f56da7e9dc8c">&lt;strong&gt;</bpt>Next<ept id="a88bc417-6e3c-4925-a890-f56da7e9dc8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Specify the size of the volume page, click <bpt id="a88bc417-6e3c-4925-a890-f56da7e9dc8c">&lt;strong&gt;</bpt>Next<ept id="a88bc417-6e3c-4925-a890-f56da7e9dc8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f2781074-cdda-4ae8-ad72-7ae72c307e02" xml:space="preserve">
+          <source>On the Assign to a drive letter or folder page, click <bpt id="7fc8ada7-fc8b-4505-b803-f649def71578">&lt;strong&gt;</bpt>Next<ept id="7fc8ada7-fc8b-4505-b803-f649def71578">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Assign to a drive letter or folder page, click <bpt id="7fc8ada7-fc8b-4505-b803-f649def71578">&lt;strong&gt;</bpt>Next<ept id="7fc8ada7-fc8b-4505-b803-f649def71578">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfefa1e7-0686-41ca-8f6b-2eeebeca0346" xml:space="preserve">
+          <source>On the Select file system settings page, click <bpt id="3df89967-7817-4d77-b64f-174d27862be3">&lt;strong&gt;</bpt>Next<ept id="3df89967-7817-4d77-b64f-174d27862be3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select file system settings page, click <bpt id="3df89967-7817-4d77-b64f-174d27862be3">&lt;strong&gt;</bpt>Next<ept id="3df89967-7817-4d77-b64f-174d27862be3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56f13d2a-b030-443b-8a1d-db394473e0e0" xml:space="preserve">
+          <source>On the Confirm selections page, click <bpt id="ff2e5c38-538a-4543-8028-0576547fb7f6">&lt;strong&gt;</bpt>Create<ept id="ff2e5c38-538a-4543-8028-0576547fb7f6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Confirm selections page, click <bpt id="ff2e5c38-538a-4543-8028-0576547fb7f6">&lt;strong&gt;</bpt>Create<ept id="ff2e5c38-538a-4543-8028-0576547fb7f6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a8f8f8c-81fe-4eab-ab1e-4986accd068e" xml:space="preserve">
+          <source>When complete, click <bpt id="a50dcafa-276c-4515-9419-8393566c924a">&lt;strong&gt;</bpt>Close<ept id="a50dcafa-276c-4515-9419-8393566c924a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When complete, click <bpt id="a50dcafa-276c-4515-9419-8393566c924a">&lt;strong&gt;</bpt>Close<ept id="a50dcafa-276c-4515-9419-8393566c924a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d649a73e-1652-4651-96f2-f58027c1c3f7" xml:space="preserve">
+          <source>Next, test the first domain controller's connectivity to locations on your organization network.</source>
+          <target state="new">Next, test the first domain controller's connectivity to locations on your organization network.</target>
+        </trans-unit>
+        <trans-unit id="4256b6f9-3976-44fd-90be-e1ab1352d435" xml:space="preserve">
+          <source>From the desktop, open a Windows PowerShell prompt.</source>
+          <target state="new">From the desktop, open a Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="1ba7d131-32be-4159-b951-95d6e8aa2d4c" xml:space="preserve">
+          <source>Use the <bpt id="07246d9f-ffa9-409e-89e0-63c86556cb34">&lt;strong&gt;</bpt>ping<ept id="07246d9f-ffa9-409e-89e0-63c86556cb34">&lt;/strong&gt;</ept> command to ping names and IP addresses of resources on your organization network.</source>
+          <target state="new">Use the <bpt id="07246d9f-ffa9-409e-89e0-63c86556cb34">&lt;strong&gt;</bpt>ping<ept id="07246d9f-ffa9-409e-89e0-63c86556cb34">&lt;/strong&gt;</ept> command to ping names and IP addresses of resources on your organization network.</target>
+        </trans-unit>
+        <trans-unit id="e515c526-b9df-45d5-814b-ed3b98769458" xml:space="preserve">
+          <source>This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with on-premises DNS servers) and that packets can be sent to and from the cross-premises virtual network.</source>
+          <target state="new">This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with on-premises DNS servers) and that packets can be sent to and from the cross-premises virtual network.</target>
+        </trans-unit>
+        <trans-unit id="5fcb98ec-b70c-42d2-942b-0b78007fa963" xml:space="preserve">
+          <source>If this basic test fails, contact your IT department to troubleshoot the DNS name resolution and packet delivery issues.</source>
+          <target state="new">If this basic test fails, contact your IT department to troubleshoot the DNS name resolution and packet delivery issues.</target>
+        </trans-unit>
+        <trans-unit id="f0cbe834-045b-4a7e-9609-b07369bc700c" xml:space="preserve">
+          <source>Next, from the Windows PowerShell command prompt on the first domain controller, run the following commands:</source>
+          <target state="new">Next, from the Windows PowerShell command prompt on the first domain controller, run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="803be5cb-c7b7-492f-b0e5-18c574f9ff7b" xml:space="preserve">
+          <source>You will be prompted to supply the credentials of a domain administrator account.</source>
+          <target state="new">You will be prompted to supply the credentials of a domain administrator account.</target>
+        </trans-unit>
+        <trans-unit id="8a895337-b87f-4e5b-a6cd-e0a01f568d62" xml:space="preserve">
+          <source>The computer will restart.</source>
+          <target state="new">The computer will restart.</target>
+        </trans-unit>
+        <trans-unit id="97ebf34f-1374-4155-8ea5-0ceb5ca51867" xml:space="preserve">
+          <source>Use the remote desktop client of your choice and create a remote desktop connection to the second domain controller virtual machine.</source>
+          <target state="new">Use the remote desktop client of your choice and create a remote desktop connection to the second domain controller virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="12992305-6286-44a6-8854-27db26a587f6" xml:space="preserve">
+          <source>Use its intranet DNS or computer name and the credentials of the local administrator account.</source>
+          <target state="new">Use its intranet DNS or computer name and the credentials of the local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="7bb60218-d75d-4b1a-9eed-d8e3f25bc100" xml:space="preserve">
+          <source>Next, you need to add the extra data disk to the second domain controller.</source>
+          <target state="new">Next, you need to add the extra data disk to the second domain controller.</target>
+        </trans-unit>
+        <trans-unit id="e7f06825-6a4a-4c39-90f1-941e3463f532" xml:space="preserve">
+          <source>See the <bpt id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;linkText&gt;</bpt>To initialize an empty disk procedure<ept id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;/linkText&gt;</ept><bpt id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;title&gt;</bpt><ept id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;/title&gt;</ept>.</source>
+          <target state="new">See the <bpt id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;linkText&gt;</bpt>To initialize an empty disk procedure<ept id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;/linkText&gt;</ept><bpt id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;title&gt;</bpt><ept id="eeacfd3f-d130-4825-8b17-9f612f7c55fa">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6802e920-780c-4ba2-85f3-cdff3ae5e952" xml:space="preserve">
+          <source>Next, from the Windows PowerShell prompt on the second domain controller, run the following commands:</source>
+          <target state="new">Next, from the Windows PowerShell prompt on the second domain controller, run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="e4664d2f-e0a8-4aa4-a192-9f457cd17ee5" xml:space="preserve">
+          <source>You will be prompted to supply the credentials of a domain administrator account.</source>
+          <target state="new">You will be prompted to supply the credentials of a domain administrator account.</target>
+        </trans-unit>
+        <trans-unit id="18c14a4a-a7ef-414e-a9c1-8eb7b1b0400d" xml:space="preserve">
+          <source>The computer will restart.</source>
+          <target state="new">The computer will restart.</target>
+        </trans-unit>
+        <trans-unit id="22524b0e-784f-4cb5-ac33-ed886a51e59c" xml:space="preserve">
+          <source>Next, you need to update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers.</source>
+          <target state="new">Next, you need to update the DNS servers for your virtual network so that Azure assigns virtual machines the IP addresses of the two new domain controllers to use as their DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="c020c643-bb81-4069-9a9c-dcef0707c404" xml:space="preserve">
+          <source>Note that this procedure uses values from Table V (for your virtual network settings) and Table M (for your virtual machines).</source>
+          <target state="new">Note that this procedure uses values from Table V (for your virtual network settings) and Table M (for your virtual machines).</target>
+        </trans-unit>
+        <trans-unit id="aad15809-1fea-4036-ae02-939d92b89b58" xml:space="preserve">
+          <source>In the left pane of the <bpt id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;/linkText&gt;</ept><bpt id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;title&gt;</bpt><ept id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;/title&gt;</ept>, click <bpt id="de949875-188a-4980-88c6-d48481369e25">&lt;strong&gt;</bpt>Browse all &gt; Virtual networks<ept id="de949875-188a-4980-88c6-d48481369e25">&lt;/strong&gt;</ept>, and then click the name of your virtual network (Table V – Item 1 – Value column).</source>
+          <target state="new">In the left pane of the <bpt id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;/linkText&gt;</ept><bpt id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;title&gt;</bpt><ept id="573cff9c-bc33-4cdc-ac04-bcaaf2307ae7">&lt;/title&gt;</ept>, click <bpt id="de949875-188a-4980-88c6-d48481369e25">&lt;strong&gt;</bpt>Browse all &gt; Virtual networks<ept id="de949875-188a-4980-88c6-d48481369e25">&lt;/strong&gt;</ept>, and then click the name of your virtual network (Table V – Item 1 – Value column).</target>
+        </trans-unit>
+        <trans-unit id="afb056a2-b958-40ee-90e8-e02341327037" xml:space="preserve">
+          <source>On the pane for your virtual network, click <bpt id="357d05bb-9925-4668-8e9c-bd8cdd007bd6">&lt;strong&gt;</bpt>All settings<ept id="357d05bb-9925-4668-8e9c-bd8cdd007bd6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the pane for your virtual network, click <bpt id="357d05bb-9925-4668-8e9c-bd8cdd007bd6">&lt;strong&gt;</bpt>All settings<ept id="357d05bb-9925-4668-8e9c-bd8cdd007bd6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98b43674-fe77-4c0d-a7d8-4d4705773a4e" xml:space="preserve">
+          <source>On the <bpt id="4ad49902-05df-4fff-9380-41324818c177">&lt;strong&gt;</bpt>Settings<ept id="4ad49902-05df-4fff-9380-41324818c177">&lt;/strong&gt;</ept> pane, click <bpt id="f0af13b6-db05-436f-8192-eca741f76aa2">&lt;strong&gt;</bpt>DNS servers<ept id="f0af13b6-db05-436f-8192-eca741f76aa2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="4ad49902-05df-4fff-9380-41324818c177">&lt;strong&gt;</bpt>Settings<ept id="4ad49902-05df-4fff-9380-41324818c177">&lt;/strong&gt;</ept> pane, click <bpt id="f0af13b6-db05-436f-8192-eca741f76aa2">&lt;strong&gt;</bpt>DNS servers<ept id="f0af13b6-db05-436f-8192-eca741f76aa2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba37ae8c-0a48-4200-84fb-66aa75e3a850" xml:space="preserve">
+          <source>On the <bpt id="b528b869-d135-4436-aee6-068cc82f4851">&lt;strong&gt;</bpt>DNS servers<ept id="b528b869-d135-4436-aee6-068cc82f4851">&lt;/strong&gt;</ept> pane, type the following:</source>
+          <target state="new">On the <bpt id="b528b869-d135-4436-aee6-068cc82f4851">&lt;strong&gt;</bpt>DNS servers<ept id="b528b869-d135-4436-aee6-068cc82f4851">&lt;/strong&gt;</ept> pane, type the following:</target>
+        </trans-unit>
+        <trans-unit id="bfec06a1-781a-4686-a09c-82644d9847f1" xml:space="preserve">
+          <source>For <bpt id="dfc230f8-9d34-4480-9679-ea7a5508bf0c">&lt;strong&gt;</bpt>Primary DNS server<ept id="dfc230f8-9d34-4480-9679-ea7a5508bf0c">&lt;/strong&gt;</ept>: Table V – Item 6 – Value column</source>
+          <target state="new">For <bpt id="dfc230f8-9d34-4480-9679-ea7a5508bf0c">&lt;strong&gt;</bpt>Primary DNS server<ept id="dfc230f8-9d34-4480-9679-ea7a5508bf0c">&lt;/strong&gt;</ept>: Table V – Item 6 – Value column</target>
+        </trans-unit>
+        <trans-unit id="5818a7ff-0aaa-421a-aa06-87fda640b2e3" xml:space="preserve">
+          <source>For <bpt id="816b0c4b-de2b-4298-a639-aa434e53375a">&lt;strong&gt;</bpt>Secondary DNS server<ept id="816b0c4b-de2b-4298-a639-aa434e53375a">&lt;/strong&gt;</ept>: Table V – Item 7 – Value column</source>
+          <target state="new">For <bpt id="816b0c4b-de2b-4298-a639-aa434e53375a">&lt;strong&gt;</bpt>Secondary DNS server<ept id="816b0c4b-de2b-4298-a639-aa434e53375a">&lt;/strong&gt;</ept>: Table V – Item 7 – Value column</target>
+        </trans-unit>
+        <trans-unit id="53b3afe2-309e-4512-87c2-8fd03a190421" xml:space="preserve">
+          <source>In the left pane of the Azure Preview portal, click <bpt id="1c8bee7e-e9bd-4e3e-a89a-b4ac155937d5">&lt;strong&gt;</bpt>Browse all &gt; Virtual machines<ept id="1c8bee7e-e9bd-4e3e-a89a-b4ac155937d5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left pane of the Azure Preview portal, click <bpt id="1c8bee7e-e9bd-4e3e-a89a-b4ac155937d5">&lt;strong&gt;</bpt>Browse all &gt; Virtual machines<ept id="1c8bee7e-e9bd-4e3e-a89a-b4ac155937d5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7479d70a-9b5a-4b7b-a176-75e94ef0ed62" xml:space="preserve">
+          <source>In the <bpt id="0ba01593-312b-4b02-9e4d-baa3dd90febd">&lt;strong&gt;</bpt>Virtual machines pane<ept id="0ba01593-312b-4b02-9e4d-baa3dd90febd">&lt;/strong&gt;</ept>, click the name of your first domain controller (Table M – Item 1 - Virtual machine name column).</source>
+          <target state="new">In the <bpt id="0ba01593-312b-4b02-9e4d-baa3dd90febd">&lt;strong&gt;</bpt>Virtual machines pane<ept id="0ba01593-312b-4b02-9e4d-baa3dd90febd">&lt;/strong&gt;</ept>, click the name of your first domain controller (Table M – Item 1 - Virtual machine name column).</target>
+        </trans-unit>
+        <trans-unit id="cfe9eac6-2585-40dd-829a-6add478e0d09" xml:space="preserve">
+          <source>On the pane for the virtual machine, click <bpt id="92086b8d-8873-4374-8f4d-2632da14a806">&lt;strong&gt;</bpt>Restart<ept id="92086b8d-8873-4374-8f4d-2632da14a806">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the pane for the virtual machine, click <bpt id="92086b8d-8873-4374-8f4d-2632da14a806">&lt;strong&gt;</bpt>Restart<ept id="92086b8d-8873-4374-8f4d-2632da14a806">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8289a637-3866-4875-af15-eaa65d0542a1" xml:space="preserve">
+          <source>When the first domain controller is started, click the name of your second domain controller on the <bpt id="2e9c7e59-1ccd-492e-aecb-b23fbaae1c98">&lt;strong&gt;</bpt>Virtual machines<ept id="2e9c7e59-1ccd-492e-aecb-b23fbaae1c98">&lt;/strong&gt;</ept> pane (Table M – Item 2 - Virtual machine name column).</source>
+          <target state="new">When the first domain controller is started, click the name of your second domain controller on the <bpt id="2e9c7e59-1ccd-492e-aecb-b23fbaae1c98">&lt;strong&gt;</bpt>Virtual machines<ept id="2e9c7e59-1ccd-492e-aecb-b23fbaae1c98">&lt;/strong&gt;</ept> pane (Table M – Item 2 - Virtual machine name column).</target>
+        </trans-unit>
+        <trans-unit id="d9c003eb-5493-44cc-9424-ef51770e2d6c" xml:space="preserve">
+          <source>On the pane for the virtual machine, click <bpt id="81613f42-a00c-491b-954b-7ea5084ec3db">&lt;strong&gt;</bpt>Restart<ept id="81613f42-a00c-491b-954b-7ea5084ec3db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the pane for the virtual machine, click <bpt id="81613f42-a00c-491b-954b-7ea5084ec3db">&lt;strong&gt;</bpt>Restart<ept id="81613f42-a00c-491b-954b-7ea5084ec3db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2afe87ce-884c-4935-bd9e-d7b023a49711" xml:space="preserve">
+          <source>Wait until the second domain controller is started.</source>
+          <target state="new">Wait until the second domain controller is started.</target>
+        </trans-unit>
+        <trans-unit id="17c967e7-94ea-48de-aa65-609cdf310201" xml:space="preserve">
+          <source>Note that we restart the two domain controllers so that they are not configured with the on-premises DNS servers as DNS servers.</source>
+          <target state="new">Note that we restart the two domain controllers so that they are not configured with the on-premises DNS servers as DNS servers.</target>
+        </trans-unit>
+        <trans-unit id="9740b496-ca14-4c04-ab2e-bdb0142bb108" xml:space="preserve">
+          <source>Because they are both DNS servers themselves, they were automatically configured with the on-premises DNS servers as DNS forwarders when they were promoted to domain controllers.</source>
+          <target state="new">Because they are both DNS servers themselves, they were automatically configured with the on-premises DNS servers as DNS forwarders when they were promoted to domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="b8b8257b-d15f-4f5a-ba0f-b1ae5c519eed" xml:space="preserve">
+          <source>Next, we need to create an Active Directory replication site to ensure that servers in the Azure virtual network use the local domain controllers.</source>
+          <target state="new">Next, we need to create an Active Directory replication site to ensure that servers in the Azure virtual network use the local domain controllers.</target>
+        </trans-unit>
+        <trans-unit id="0faf907c-d4e2-4240-8d7d-4af566cd92ae" xml:space="preserve">
+          <source>Log on to the primary domain controller with a domain administrator account and run the following commands from an administrator-level Windows PowerShell prompt:</source>
+          <target state="new">Log on to the primary domain controller with a domain administrator account and run the following commands from an administrator-level Windows PowerShell prompt:</target>
+        </trans-unit>
+        <trans-unit id="4eb4754f-7401-4d12-af09-3f2b236aba5f" xml:space="preserve">
+          <source>Next, add a user account to manage the SQL Server virtual machines.</source>
+          <target state="new">Next, add a user account to manage the SQL Server virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="57fe5bef-72c2-4170-838d-1822a17daa5f" xml:space="preserve">
+          <source>This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.</source>
+          <target state="new">This diagram shows the configuration resulting from the successful completion of this phase, with placeholder computer names.</target>
+        </trans-unit>
+        <trans-unit id="3bd3ff90-fe6a-41bc-9cab-8d98d2774f4d" xml:space="preserve">
+          <source><bpt id="54c275e6-8d73-424a-a54d-f787a5904d87">&lt;linkText&gt;</bpt><ept id="54c275e6-8d73-424a-a54d-f787a5904d87">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54c275e6-8d73-424a-a54d-f787a5904d87">&lt;linkText&gt;</bpt><ept id="54c275e6-8d73-424a-a54d-f787a5904d87">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e59251a-9520-4428-8dde-af2c0a37f737" xml:space="preserve">
+          <source>To continue with the configuration of this workload, go to <bpt id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;/linkText&gt;</ept><bpt id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;title&gt;</bpt><ept id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;/title&gt;</ept>.</source>
+          <target state="new">To continue with the configuration of this workload, go to <bpt id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;linkText&gt;</bpt>Phase 3: Configure SQL Server infrastructure<ept id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;/linkText&gt;</ept><bpt id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;title&gt;</bpt><ept id="2b0a8a54-c7c3-4fb1-bbac-6f4e35bbc8c4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3d1cb476-f53c-4ecd-8382-05d06fed69e7" xml:space="preserve">
+          <source><bpt id="310c4307-a4da-4922-8613-96fe097e025b">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="310c4307-a4da-4922-8613-96fe097e025b">&lt;/linkText&gt;</ept><bpt id="310c4307-a4da-4922-8613-96fe097e025b">&lt;title&gt;</bpt><ept id="310c4307-a4da-4922-8613-96fe097e025b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="310c4307-a4da-4922-8613-96fe097e025b">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="310c4307-a4da-4922-8613-96fe097e025b">&lt;/linkText&gt;</ept><bpt id="310c4307-a4da-4922-8613-96fe097e025b">&lt;title&gt;</bpt><ept id="310c4307-a4da-4922-8613-96fe097e025b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c687279-74c6-486f-999b-e1a741e68156" xml:space="preserve">
+          <source><bpt id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;/linkText&gt;</ept><bpt id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;title&gt;</bpt><ept id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;/linkText&gt;</ept><bpt id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;title&gt;</bpt><ept id="b18cfdba-5d06-4056-a3b9-95494330225d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="35678828-9501-4bc7-be30-b8553f8372dd" xml:space="preserve">
+          <source><bpt id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;/linkText&gt;</ept><bpt id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;title&gt;</bpt><ept id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;/linkText&gt;</ept><bpt id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;title&gt;</bpt><ept id="959bd054-d85b-4b33-873e-cb82ae56ee43">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="655a24f2-82e4-4f89-aa02-68b7b603d2a0" xml:space="preserve">
+          <source><bpt id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;/linkText&gt;</ept><bpt id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;title&gt;</bpt><ept id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;/linkText&gt;</ept><bpt id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;title&gt;</bpt><ept id="f7971785-9546-4d1e-a4db-59e71bdeb48e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49578fba-6568-44fc-98c5-18fea5dfab34" xml:space="preserve">
+          <source><bpt id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;/linkText&gt;</ept><bpt id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;title&gt;</bpt><ept id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;/linkText&gt;</ept><bpt id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;title&gt;</bpt><ept id="7ac43bf1-5daa-4ae3-b066-c6e0807dec53">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3fe4562d-ba69-492f-b9be-ea51078db980" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3fe4562d-ba69-492f-b9be-ea51078db980" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cd93d295-c8d3-411e-aab3-305640fe87b3">
+        <trans-unit id="4758cd67-68ee-4b5d-98b8-f596ff0cdf77" xml:space="preserve">
+          <source>Create or edit users in Azure AD</source>
+          <target state="new">Create or edit users in Azure AD</target>
+        </trans-unit>
+        <trans-unit id="7e1e2644-6394-4144-a56d-34a997165476" xml:space="preserve">
+          <source>A topic that explains how to create or edit user accounts in Azure AD.</source>
+          <target state="new">A topic that explains how to create or edit user accounts in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="220c44f2-f594-4606-beb3-dabf5fb0c088" xml:space="preserve">
+          <source>You have to create an account for every user who will access a Microsoft cloud service.</source>
+          <target state="new">You have to create an account for every user who will access a Microsoft cloud service.</target>
+        </trans-unit>
+        <trans-unit id="ecbfc398-424a-4d20-b959-7482faa29538" xml:space="preserve">
+          <source>You can also change user accounts or delete them when they’re no longer needed.</source>
+          <target state="new">You can also change user accounts or delete them when they’re no longer needed.</target>
+        </trans-unit>
+        <trans-unit id="5f7a861c-6f8f-4d18-9083-babbc2345cac" xml:space="preserve">
+          <source>By default, users do not have administrator permissions, but you can optionally assign them.</source>
+          <target state="new">By default, users do not have administrator permissions, but you can optionally assign them.</target>
+        </trans-unit>
+        <trans-unit id="0a963174-9e2b-4d4d-92de-f60b1b84b05a" xml:space="preserve">
+          <source>Click <bpt id="68323587-c6a5-4d6b-ba22-86a8ac2be8fb">&lt;strong&gt;</bpt>Active Directory<ept id="68323587-c6a5-4d6b-ba22-86a8ac2be8fb">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</source>
+          <target state="new">Click <bpt id="68323587-c6a5-4d6b-ba22-86a8ac2be8fb">&lt;strong&gt;</bpt>Active Directory<ept id="68323587-c6a5-4d6b-ba22-86a8ac2be8fb">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="e8d8b74b-592b-4ee5-bdba-3fbb4b7df9b8" xml:space="preserve">
+          <source>On the <bpt id="f05cc4bd-4f17-4038-a23b-0a8296fcd14a">&lt;strong&gt;</bpt>Users<ept id="f05cc4bd-4f17-4038-a23b-0a8296fcd14a">&lt;/strong&gt;</ept> page, click <bpt id="90313776-957c-432e-9bda-4d1d221682ca">&lt;strong&gt;</bpt>Add User<ept id="90313776-957c-432e-9bda-4d1d221682ca">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f05cc4bd-4f17-4038-a23b-0a8296fcd14a">&lt;strong&gt;</bpt>Users<ept id="f05cc4bd-4f17-4038-a23b-0a8296fcd14a">&lt;/strong&gt;</ept> page, click <bpt id="90313776-957c-432e-9bda-4d1d221682ca">&lt;strong&gt;</bpt>Add User<ept id="90313776-957c-432e-9bda-4d1d221682ca">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bb8f2267-afe6-4b5c-b4c2-265d23541a95" xml:space="preserve">
+          <source>On the <bpt id="58654f2c-3e09-4884-89ff-16918d8dd999">&lt;strong&gt;</bpt>Tell us about this user<ept id="58654f2c-3e09-4884-89ff-16918d8dd999">&lt;/strong&gt;</ept> page, for <bpt id="554523d2-afd5-49dd-a327-203145e22c93">&lt;strong&gt;</bpt>Type of User<ept id="554523d2-afd5-49dd-a327-203145e22c93">&lt;/strong&gt;</ept>, select either:</source>
+          <target state="new">On the <bpt id="58654f2c-3e09-4884-89ff-16918d8dd999">&lt;strong&gt;</bpt>Tell us about this user<ept id="58654f2c-3e09-4884-89ff-16918d8dd999">&lt;/strong&gt;</ept> page, for <bpt id="554523d2-afd5-49dd-a327-203145e22c93">&lt;strong&gt;</bpt>Type of User<ept id="554523d2-afd5-49dd-a327-203145e22c93">&lt;/strong&gt;</ept>, select either:</target>
+        </trans-unit>
+        <trans-unit id="06212c53-8a86-45d5-9339-29c61f8dcc05" xml:space="preserve">
+          <source><bpt id="01d8c254-ec71-426a-a465-1cdae1ff003d">&lt;strong&gt;</bpt>New user in your organization<ept id="01d8c254-ec71-426a-a465-1cdae1ff003d">&lt;/strong&gt;</ept> – Indicates that you want a new user account to be created and managed within your directory.</source>
+          <target state="new"><bpt id="01d8c254-ec71-426a-a465-1cdae1ff003d">&lt;strong&gt;</bpt>New user in your organization<ept id="01d8c254-ec71-426a-a465-1cdae1ff003d">&lt;/strong&gt;</ept> – Indicates that you want a new user account to be created and managed within your directory.</target>
+        </trans-unit>
+        <trans-unit id="ee829eb7-7ca6-4ff2-ad23-4f94eb2f141d" xml:space="preserve">
+          <source><bpt id="275e7195-c3d4-427e-8d12-cf23cac84f11">&lt;strong&gt;</bpt>User with an existing Microsoft account<ept id="275e7195-c3d4-427e-8d12-cf23cac84f11">&lt;/strong&gt;</ept> – Indicates that you want to add an existing Microsoft account to your directory in order to collaborate on Azure resources with a co-administrator who accesses Azure with a Microsoft account.</source>
+          <target state="new"><bpt id="275e7195-c3d4-427e-8d12-cf23cac84f11">&lt;strong&gt;</bpt>User with an existing Microsoft account<ept id="275e7195-c3d4-427e-8d12-cf23cac84f11">&lt;/strong&gt;</ept> – Indicates that you want to add an existing Microsoft account to your directory in order to collaborate on Azure resources with a co-administrator who accesses Azure with a Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="ca482321-e680-41f9-ac49-9d42e963bffc" xml:space="preserve">
+          <source><bpt id="92dff0ce-b4df-4ea3-9493-028191c6c660">&lt;strong&gt;</bpt>User in another Azure AD directory<ept id="92dff0ce-b4df-4ea3-9493-028191c6c660">&lt;/strong&gt;</ept> – Indicates that you want to add a user account to your directory that is sourced from another Azure AD directory.</source>
+          <target state="new"><bpt id="92dff0ce-b4df-4ea3-9493-028191c6c660">&lt;strong&gt;</bpt>User in another Azure AD directory<ept id="92dff0ce-b4df-4ea3-9493-028191c6c660">&lt;/strong&gt;</ept> – Indicates that you want to add a user account to your directory that is sourced from another Azure AD directory.</target>
+        </trans-unit>
+        <trans-unit id="c3d261af-1d8e-4f64-aff5-1b718be8a32d" xml:space="preserve">
+          <source>You need to be a member of the other directory to select a user in it.</source>
+          <target state="new">You need to be a member of the other directory to select a user in it.</target>
+        </trans-unit>
+        <trans-unit id="9c70d10c-55cf-439c-8ab8-f0faf7fe6f8b" xml:space="preserve">
+          <source>Depending on the option you selected, type either a user name, or Microsoft account name that this user will sign in with.</source>
+          <target state="new">Depending on the option you selected, type either a user name, or Microsoft account name that this user will sign in with.</target>
+        </trans-unit>
+        <trans-unit id="0c802117-deed-404b-b336-adbed58e5ee4" xml:space="preserve">
+          <source>On the user <bpt id="309b58e1-9775-44a9-9867-796285e27fc3">&lt;strong&gt;</bpt>Profile<ept id="309b58e1-9775-44a9-9867-796285e27fc3">&lt;/strong&gt;</ept> page, provide a user’s first and last name, a user friendly name, and a user role from the Roles drop-down menu.</source>
+          <target state="new">On the user <bpt id="309b58e1-9775-44a9-9867-796285e27fc3">&lt;strong&gt;</bpt>Profile<ept id="309b58e1-9775-44a9-9867-796285e27fc3">&lt;/strong&gt;</ept> page, provide a user’s first and last name, a user friendly name, and a user role from the Roles drop-down menu.</target>
+        </trans-unit>
+        <trans-unit id="b6279762-6d97-4e24-8ba0-e6f77c156f31" xml:space="preserve">
+          <source>For more information about user and administrator roles, see <bpt id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;linkText&gt;</bpt>Assigning administrator roles in Azure AD<ept id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;/linkText&gt;</ept><bpt id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;title&gt;</bpt><ept id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about user and administrator roles, see <bpt id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;linkText&gt;</bpt>Assigning administrator roles in Azure AD<ept id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;/linkText&gt;</ept><bpt id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;title&gt;</bpt><ept id="f1d606f7-8019-4a2d-861f-7c833e29eb88">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e20512e9-dadd-48a4-b177-80b4a784fbd4" xml:space="preserve">
+          <source>Specify whether to <bpt id="67daca83-597a-4e8c-9108-d85da0a5b893">&lt;strong&gt;</bpt>Enable Multi-Factor Authentication<ept id="67daca83-597a-4e8c-9108-d85da0a5b893">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Specify whether to <bpt id="67daca83-597a-4e8c-9108-d85da0a5b893">&lt;strong&gt;</bpt>Enable Multi-Factor Authentication<ept id="67daca83-597a-4e8c-9108-d85da0a5b893">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67b4e455-bc87-4db3-ba3b-965a355949c5" xml:space="preserve">
+          <source>On the <bpt id="efe2ae3d-a3fc-446a-b905-6bf083a3c124">&lt;strong&gt;</bpt>Get temporary password<ept id="efe2ae3d-a3fc-446a-b905-6bf083a3c124">&lt;/strong&gt;</ept> page, click <bpt id="13a130de-62df-4917-b95a-1a593455c6c5">&lt;strong&gt;</bpt>Create<ept id="13a130de-62df-4917-b95a-1a593455c6c5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="efe2ae3d-a3fc-446a-b905-6bf083a3c124">&lt;strong&gt;</bpt>Get temporary password<ept id="efe2ae3d-a3fc-446a-b905-6bf083a3c124">&lt;/strong&gt;</ept> page, click <bpt id="13a130de-62df-4917-b95a-1a593455c6c5">&lt;strong&gt;</bpt>Create<ept id="13a130de-62df-4917-b95a-1a593455c6c5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e5d5eb2-8d89-4600-b5f4-8da839c258b2" xml:space="preserve">
+          <source>If your organization uses more than one domain, you should know about the following issues when you create a user account:</source>
+          <target state="new">If your organization uses more than one domain, you should know about the following issues when you create a user account:</target>
+        </trans-unit>
+        <trans-unit id="9f3257f1-ec8d-45f2-b58b-b619a79c477e" xml:space="preserve">
+          <source>You can create user accounts with the same user principal name (UPN) across domains if you first create, for example, geoffgrisso@contoso.onmicrosoft.com followed by geoffgrisso@contoso.com.</source>
+          <target state="new">You can create user accounts with the same user principal name (UPN) across domains if you first create, for example, geoffgrisso@contoso.onmicrosoft.com followed by geoffgrisso@contoso.com.</target>
+        </trans-unit>
+        <trans-unit id="84e4c900-e358-48d3-ae91-601d25a1d1ae" xml:space="preserve">
+          <source>You cannot create geoffgrisso@contoso.com followed by geoffgrisso@contoso.onmicrosoft.com.</source>
+          <target state="new">You cannot create geoffgrisso@contoso.com followed by geoffgrisso@contoso.onmicrosoft.com.</target>
+        </trans-unit>
+        <trans-unit id="61299ee0-b387-4ab2-a988-6d1506644acc" xml:space="preserve">
+          <source>If the user that you are trying to edit is synchronized with your on-premises Active Directory service, an error message appears, and you will be unable to edit the user using this procedure.</source>
+          <target state="new">If the user that you are trying to edit is synchronized with your on-premises Active Directory service, an error message appears, and you will be unable to edit the user using this procedure.</target>
+        </trans-unit>
+        <trans-unit id="91ca1d01-7533-4ee1-9c01-168bb254e23f" xml:space="preserve">
+          <source>To edit the user, use your local Active Directory management tools.</source>
+          <target state="new">To edit the user, use your local Active Directory management tools.</target>
+        </trans-unit>
+        <trans-unit id="3c6f3fc9-5e52-40fa-93bc-518539926f7a" xml:space="preserve">
+          <source>To edit a user in the Azure Management Portal:</source>
+          <target state="new">To edit a user in the Azure Management Portal:</target>
+        </trans-unit>
+        <trans-unit id="37dabbc0-ecb6-433e-9013-522b21ba627b" xml:space="preserve">
+          <source>Click <bpt id="aa8debb7-49ac-4b0f-be92-cb227ac2051e">&lt;strong&gt;</bpt>Active Directory<ept id="aa8debb7-49ac-4b0f-be92-cb227ac2051e">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</source>
+          <target state="new">Click <bpt id="aa8debb7-49ac-4b0f-be92-cb227ac2051e">&lt;strong&gt;</bpt>Active Directory<ept id="aa8debb7-49ac-4b0f-be92-cb227ac2051e">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="d47d4623-d0b7-42c4-a316-db075b87061a" xml:space="preserve">
+          <source>On the <bpt id="f4a1ad48-71d2-4c3a-8333-cd90bd771779">&lt;strong&gt;</bpt>Users<ept id="f4a1ad48-71d2-4c3a-8333-cd90bd771779">&lt;/strong&gt;</ept> page, click on the display name of the user you want to edit.</source>
+          <target state="new">On the <bpt id="f4a1ad48-71d2-4c3a-8333-cd90bd771779">&lt;strong&gt;</bpt>Users<ept id="f4a1ad48-71d2-4c3a-8333-cd90bd771779">&lt;/strong&gt;</ept> page, click on the display name of the user you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="6abec60b-964b-4aea-b636-84d2c103e81b" xml:space="preserve">
+          <source>Complete your changes, and then click <bpt id="cb5b0862-c3ff-4ce3-bfc5-88c1e1f96ad0">&lt;strong&gt;</bpt>Save<ept id="cb5b0862-c3ff-4ce3-bfc5-88c1e1f96ad0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Complete your changes, and then click <bpt id="cb5b0862-c3ff-4ce3-bfc5-88c1e1f96ad0">&lt;strong&gt;</bpt>Save<ept id="cb5b0862-c3ff-4ce3-bfc5-88c1e1f96ad0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24093a4f-5c54-4d04-9714-e3abbd819d2a" xml:space="preserve">
+          <source>Click <bpt id="305940e8-9759-4269-98f9-0b59f30116bd">&lt;strong&gt;</bpt>Active Directory<ept id="305940e8-9759-4269-98f9-0b59f30116bd">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</source>
+          <target state="new">Click <bpt id="305940e8-9759-4269-98f9-0b59f30116bd">&lt;strong&gt;</bpt>Active Directory<ept id="305940e8-9759-4269-98f9-0b59f30116bd">&lt;/strong&gt;</ept>, and then click on the name of your organization’s directory.</target>
+        </trans-unit>
+        <trans-unit id="f2589cb6-e664-43e8-8d5b-6b53313a4fd1" xml:space="preserve">
+          <source>On the <bpt id="aac2683a-0ab6-46a9-800b-b7fcf4639d02">&lt;strong&gt;</bpt>Users<ept id="aac2683a-0ab6-46a9-800b-b7fcf4639d02">&lt;/strong&gt;</ept> page, click on the display name of the user you want to edit.</source>
+          <target state="new">On the <bpt id="aac2683a-0ab6-46a9-800b-b7fcf4639d02">&lt;strong&gt;</bpt>Users<ept id="aac2683a-0ab6-46a9-800b-b7fcf4639d02">&lt;/strong&gt;</ept> page, click on the display name of the user you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="c2f6b532-f523-4736-9736-944b61da2f98" xml:space="preserve">
+          <source>At the bottom of the portal, click <bpt id="0909dd17-1eb8-4bdb-88dc-4189a7f28b4a">&lt;strong&gt;</bpt>Reset Password<ept id="0909dd17-1eb8-4bdb-88dc-4189a7f28b4a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">At the bottom of the portal, click <bpt id="0909dd17-1eb8-4bdb-88dc-4189a7f28b4a">&lt;strong&gt;</bpt>Reset Password<ept id="0909dd17-1eb8-4bdb-88dc-4189a7f28b4a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74e1838c-1cbd-421c-a085-a2344dfcd3ca" xml:space="preserve">
+          <source>In the reset password dialog, click <bpt id="99a27383-7e68-4796-97db-8d29bca78d45">&lt;strong&gt;</bpt>reset<ept id="99a27383-7e68-4796-97db-8d29bca78d45">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the reset password dialog, click <bpt id="99a27383-7e68-4796-97db-8d29bca78d45">&lt;strong&gt;</bpt>reset<ept id="99a27383-7e68-4796-97db-8d29bca78d45">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ac9d897-dcb1-459e-ad26-ebff064bc7f2" xml:space="preserve">
+          <source>Click the check mark to confirm that the password was reset.</source>
+          <target state="new">Click the check mark to confirm that the password was reset.</target>
+        </trans-unit>
+        <trans-unit id="7bd784eb-1faf-478b-bcf6-f46c527f1ebd" xml:space="preserve">
+          <source>In Azure AD you can also add users to an Azure AD directory from another Azure AD directory or a user with a Microsoft Account.</source>
+          <target state="new">In Azure AD you can also add users to an Azure AD directory from another Azure AD directory or a user with a Microsoft Account.</target>
+        </trans-unit>
+        <trans-unit id="8cfce381-1772-4a52-979e-8e7fe809f067" xml:space="preserve">
+          <source>A user can be a member of up to 20 different directories.</source>
+          <target state="new">A user can be a member of up to 20 different directories.</target>
+        </trans-unit>
+        <trans-unit id="43a5ca5f-c5db-4ec8-8a3b-8dee8001f862" xml:space="preserve">
+          <source>Users who are added from another directory are external users.</source>
+          <target state="new">Users who are added from another directory are external users.</target>
+        </trans-unit>
+        <trans-unit id="5804090b-b565-47b8-8661-a89ccc19e776" xml:space="preserve">
+          <source>External users can collaborate with users who already exist in a directory, such as in a test environment, without requiring them to sign in with new accounts and credentials.</source>
+          <target state="new">External users can collaborate with users who already exist in a directory, such as in a test environment, without requiring them to sign in with new accounts and credentials.</target>
+        </trans-unit>
+        <trans-unit id="75bcd3df-8a36-4c44-9039-9ceb8e32650d" xml:space="preserve">
+          <source>External users are authenticated by their home directory when they sign in, and that authentication works for all  other directories that they are a member of.</source>
+          <target state="new">External users are authenticated by their home directory when they sign in, and that authentication works for all  other directories that they are a member of.</target>
+        </trans-unit>
+        <trans-unit id="15ed89fb-711a-4925-ab6d-eb1d44d172f7" xml:space="preserve">
+          <source>To create an external user, create a user in the portal and for <bpt id="a3fc3eae-4c19-41ea-afcd-ca382c659672">&lt;strong&gt;</bpt>Type of User<ept id="a3fc3eae-4c19-41ea-afcd-ca382c659672">&lt;/strong&gt;</ept>, select <bpt id="be1f2f36-7d94-426e-9cd2-9825ebff4927">&lt;strong&gt;</bpt>User in another Azure AD directory<ept id="be1f2f36-7d94-426e-9cd2-9825ebff4927">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create an external user, create a user in the portal and for <bpt id="a3fc3eae-4c19-41ea-afcd-ca382c659672">&lt;strong&gt;</bpt>Type of User<ept id="a3fc3eae-4c19-41ea-afcd-ca382c659672">&lt;/strong&gt;</ept>, select <bpt id="be1f2f36-7d94-426e-9cd2-9825ebff4927">&lt;strong&gt;</bpt>User in another Azure AD directory<ept id="be1f2f36-7d94-426e-9cd2-9825ebff4927">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fab5405d-426f-4d2d-ab81-228637fd95a2" xml:space="preserve">
+          <source>When you add a user from one directory into a new directory, that user is an external user in the new directory.</source>
+          <target state="new">When you add a user from one directory into a new directory, that user is an external user in the new directory.</target>
+        </trans-unit>
+        <trans-unit id="32dc1f44-4b3e-430f-8db9-30bb773890f9" xml:space="preserve">
+          <source>Initially, the display name and user name are copied from the user's "home directory" and stamped onto the external user in the other directory.</source>
+          <target state="new">Initially, the display name and user name are copied from the user's "home directory" and stamped onto the external user in the other directory.</target>
+        </trans-unit>
+        <trans-unit id="b74b9855-5f7d-44c1-8bce-cfdd0eea2588" xml:space="preserve">
+          <source>From then on, those and other properties of the external user object are entirely independent: if you make a change to the user in the home directory, such as changing the user's name, adding a job title, etc. those changes are not propagated to the external user account in the other directory.</source>
+          <target state="new">From then on, those and other properties of the external user object are entirely independent: if you make a change to the user in the home directory, such as changing the user's name, adding a job title, etc. those changes are not propagated to the external user account in the other directory.</target>
+        </trans-unit>
+        <trans-unit id="c3dc94f9-ee0b-4fe7-9ed2-f7d7d5dead23" xml:space="preserve">
+          <source>The only linkage between the two objects is that the user always authenticates against the home directory or with their Microsoft Account.</source>
+          <target state="new">The only linkage between the two objects is that the user always authenticates against the home directory or with their Microsoft Account.</target>
+        </trans-unit>
+        <trans-unit id="2edb065c-67db-4c2b-be37-71638048ffe5" xml:space="preserve">
+          <source>That's why you don't see an option to reset the password or enable multi-factor authentication for an external user account: currently the authentication policy of the home directory or Microsoft Account is the only one that's evaluated when the user signs in.</source>
+          <target state="new">That's why you don't see an option to reset the password or enable multi-factor authentication for an external user account: currently the authentication policy of the home directory or Microsoft Account is the only one that's evaluated when the user signs in.</target>
+        </trans-unit>
+        <trans-unit id="81d8098d-9038-4da2-a100-5455a76b29fb" xml:space="preserve">
+          <source>You can still disable the external user in the directory and this will block access to your directory.</source>
+          <target state="new">You can still disable the external user in the directory and this will block access to your directory.</target>
+        </trans-unit>
+        <trans-unit id="1065e591-847a-4257-a4f8-5742a405d84a" xml:space="preserve">
+          <source>If a user is deleted in their home directory or they cancel their Microsoft Account, the external user still exists in the directory.</source>
+          <target state="new">If a user is deleted in their home directory or they cancel their Microsoft Account, the external user still exists in the directory.</target>
+        </trans-unit>
+        <trans-unit id="b45466f3-77c4-4eb6-9e90-3585292cb915" xml:space="preserve">
+          <source>However, the user can't access resources in the directory since the user can't authenticate to their home directory or Microsoft Account anymore.</source>
+          <target state="new">However, the user can't access resources in the directory since the user can't authenticate to their home directory or Microsoft Account anymore.</target>
+        </trans-unit>
+        <trans-unit id="1494c2c6-64c3-40a6-bdf1-2fd6293e7f8e" xml:space="preserve">
+          <source>A user who is an administrator of multiple directories can manage each of those directories in the Azure management portal.</source>
+          <target state="new">A user who is an administrator of multiple directories can manage each of those directories in the Azure management portal.</target>
+        </trans-unit>
+        <trans-unit id="b5b30001-5525-4f2d-a787-1375f2448574" xml:space="preserve">
+          <source>However, other applications such as Office 365 do not currently provide experiences to assign and access services as an external user in another directory.</source>
+          <target state="new">However, other applications such as Office 365 do not currently provide experiences to assign and access services as an external user in another directory.</target>
+        </trans-unit>
+        <trans-unit id="4f9e1cac-d9b7-4f4b-8635-f843bbbf9dec" xml:space="preserve">
+          <source>Going forward, we will provide guidance to developers how their apps can work with users who are members of multiple directories.</source>
+          <target state="new">Going forward, we will provide guidance to developers how their apps can work with users who are members of multiple directories.</target>
+        </trans-unit>
+        <trans-unit id="115d5450-7359-4fe1-9150-85276e15286a" xml:space="preserve">
+          <source>There are currently limitations in that an administrator can only grant consent to a multi-tenant application in their home directory, and can only be provisioned for SaaS apps and SSO via the Access Panel in their home directory.</source>
+          <target state="new">There are currently limitations in that an administrator can only grant consent to a multi-tenant application in their home directory, and can only be provisioned for SaaS apps and SSO via the Access Panel in their home directory.</target>
+        </trans-unit>
+        <trans-unit id="5504e59e-9790-4bac-9361-c3fa463568ca" xml:space="preserve">
+          <source>Microsoft account users have the same limitations in that they cannot currently grant consent to a multi-tenant application, or use the Access Panel.</source>
+          <target state="new">Microsoft account users have the same limitations in that they cannot currently grant consent to a multi-tenant application, or use the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="5545a240-a098-48ea-a147-f5c3a0891314" xml:space="preserve">
+          <source>A <bpt id="d9ac0a62-5120-4aa6-a8db-3067aadb41bb">&lt;strong&gt;</bpt>guest<ept id="d9ac0a62-5120-4aa6-a8db-3067aadb41bb">&lt;/strong&gt;</ept> is a user in your directory that has a User Type set to "Guest".</source>
+          <target state="new">A <bpt id="d9ac0a62-5120-4aa6-a8db-3067aadb41bb">&lt;strong&gt;</bpt>guest<ept id="d9ac0a62-5120-4aa6-a8db-3067aadb41bb">&lt;/strong&gt;</ept> is a user in your directory that has a User Type set to "Guest".</target>
+        </trans-unit>
+        <trans-unit id="fad6c57b-7ea6-4fcc-bad8-963fd6e0d1f3" xml:space="preserve">
+          <source>Regular users have a User Type of "Member" to indicate that they are a member of your directory.</source>
+          <target state="new">Regular users have a User Type of "Member" to indicate that they are a member of your directory.</target>
+        </trans-unit>
+        <trans-unit id="df89edc1-62da-41f8-917a-a5bbd7ed7a10" xml:space="preserve">
+          <source>Guests are created when you share a resource with someone external to your directory, for example, when you add a Microsoft Account to your Azure subscription or share a document in SharePoint with an external user.</source>
+          <target state="new">Guests are created when you share a resource with someone external to your directory, for example, when you add a Microsoft Account to your Azure subscription or share a document in SharePoint with an external user.</target>
+        </trans-unit>
+        <trans-unit id="4f175978-8745-42aa-830d-f7620f673add" xml:space="preserve">
+          <source>Guests have a limited set of rights in the directory.</source>
+          <target state="new">Guests have a limited set of rights in the directory.</target>
+        </trans-unit>
+        <trans-unit id="03239c27-2288-49e1-af42-96cdedc158ec" xml:space="preserve">
+          <source>These rights limit the ability for Guests to discover information about other users in the directory while still being able to interact with the users and groups associated with the resources they are working on.</source>
+          <target state="new">These rights limit the ability for Guests to discover information about other users in the directory while still being able to interact with the users and groups associated with the resources they are working on.</target>
+        </trans-unit>
+        <trans-unit id="a972751b-6ece-4fd5-afa4-1b7f1582da5b" xml:space="preserve">
+          <source>For example, a Guest assigned to an Azure subscription will be able to see other users and groups associated with the Azure subscription.</source>
+          <target state="new">For example, a Guest assigned to an Azure subscription will be able to see other users and groups associated with the Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="b1a8a412-8727-481b-ae2a-cd24fdf7d499" xml:space="preserve">
+          <source>They can also locate other users in the directory who should be given access to the subscription provided they know the full email address of the user.</source>
+          <target state="new">They can also locate other users in the directory who should be given access to the subscription provided they know the full email address of the user.</target>
+        </trans-unit>
+        <trans-unit id="933a1b09-c31f-48a5-914b-e5c6755b8b35" xml:space="preserve">
+          <source>A Guest is only able to see a limited set of properties of other users.</source>
+          <target state="new">A Guest is only able to see a limited set of properties of other users.</target>
+        </trans-unit>
+        <trans-unit id="a26a8073-8ed3-4777-9408-9f1546bb73da" xml:space="preserve">
+          <source>These properties are limited to display name, email address, user principal name (UPN) and thumbnail photo.</source>
+          <target state="new">These properties are limited to display name, email address, user principal name (UPN) and thumbnail photo.</target>
+        </trans-unit>
+        <trans-unit id="f818920c-fce1-4a39-b10b-d3ab72da498f" xml:space="preserve">
+          <source>The <bpt id="ec24e0c7-7a50-45f6-b96f-6afdbb13b21b">&lt;strong&gt;</bpt>Configure<ept id="ec24e0c7-7a50-45f6-b96f-6afdbb13b21b">&lt;/strong&gt;</ept> tab of a directory includes options to control access for external users.</source>
+          <target state="new">The <bpt id="ec24e0c7-7a50-45f6-b96f-6afdbb13b21b">&lt;strong&gt;</bpt>Configure<ept id="ec24e0c7-7a50-45f6-b96f-6afdbb13b21b">&lt;/strong&gt;</ept> tab of a directory includes options to control access for external users.</target>
+        </trans-unit>
+        <trans-unit id="44f4bbfe-f0c1-4020-b78d-1ec97b76298a" xml:space="preserve">
+          <source>These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator.</source>
+          <target state="new">These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator.</target>
+        </trans-unit>
+        <trans-unit id="27cd4afe-1242-4dca-857b-02ffef567d07" xml:space="preserve">
+          <source>To open the <bpt id="fa40426d-3ab8-484f-8b4d-433446cfe242">&lt;strong&gt;</bpt>Configure<ept id="fa40426d-3ab8-484f-8b4d-433446cfe242">&lt;/strong&gt;</ept> tab in the Azure portal, click <bpt id="30feffee-ce50-4fff-b5af-b660fddef46a">&lt;strong&gt;</bpt>Active Directory<ept id="30feffee-ce50-4fff-b5af-b660fddef46a">&lt;/strong&gt;</ept>, and then click the name of the directory.</source>
+          <target state="new">To open the <bpt id="fa40426d-3ab8-484f-8b4d-433446cfe242">&lt;strong&gt;</bpt>Configure<ept id="fa40426d-3ab8-484f-8b4d-433446cfe242">&lt;/strong&gt;</ept> tab in the Azure portal, click <bpt id="30feffee-ce50-4fff-b5af-b660fddef46a">&lt;strong&gt;</bpt>Active Directory<ept id="30feffee-ce50-4fff-b5af-b660fddef46a">&lt;/strong&gt;</ept>, and then click the name of the directory.</target>
+        </trans-unit>
+        <trans-unit id="7a131a24-f988-4ad7-bea6-7984ee17c4ce" xml:space="preserve">
+          <source><bpt id="b0d2df2a-d24c-4160-8ba5-50e73237bb2a">&lt;linkText&gt;</bpt><ept id="b0d2df2a-d24c-4160-8ba5-50e73237bb2a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0d2df2a-d24c-4160-8ba5-50e73237bb2a">&lt;linkText&gt;</bpt><ept id="b0d2df2a-d24c-4160-8ba5-50e73237bb2a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b4b87438-92b5-4afd-9887-d911cb1bb31f" xml:space="preserve">
+          <source>Then you can edit the options to control access for external users.</source>
+          <target state="new">Then you can edit the options to control access for external users.</target>
+        </trans-unit>
+        <trans-unit id="fb8d4a50-fc72-4bb7-b15c-6201ab2eb8f2" xml:space="preserve">
+          <source><bpt id="d9db84d0-1c37-4898-8739-51d7630647b9">&lt;linkText&gt;</bpt><ept id="d9db84d0-1c37-4898-8739-51d7630647b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d9db84d0-1c37-4898-8739-51d7630647b9">&lt;linkText&gt;</bpt><ept id="d9db84d0-1c37-4898-8739-51d7630647b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="063d0442-9243-411c-b273-cb9ee7090428" xml:space="preserve">
+          <source>By default, guests cannot enumerate the contents of the directory, so they do not see any users or groups in the <bpt id="28d6f0a3-fb5a-469e-bc18-87c7787ada15">&lt;strong&gt;</bpt>Member List<ept id="28d6f0a3-fb5a-469e-bc18-87c7787ada15">&lt;/strong&gt;</ept>.</source>
+          <target state="new">By default, guests cannot enumerate the contents of the directory, so they do not see any users or groups in the <bpt id="28d6f0a3-fb5a-469e-bc18-87c7787ada15">&lt;strong&gt;</bpt>Member List<ept id="28d6f0a3-fb5a-469e-bc18-87c7787ada15">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6f24bad-a0b8-4136-bbd0-e2ff5678c6a8" xml:space="preserve">
+          <source>They can search for a user by typing the user's full email address, and then grant access.</source>
+          <target state="new">They can search for a user by typing the user's full email address, and then grant access.</target>
+        </trans-unit>
+        <trans-unit id="10e269eb-4d11-467d-b8ea-195bbb06fabf" xml:space="preserve">
+          <source>The set of default restrictions for guests are:</source>
+          <target state="new">The set of default restrictions for guests are:</target>
+        </trans-unit>
+        <trans-unit id="97955ad7-b152-4b84-a7df-b73c5e339e1b" xml:space="preserve">
+          <source>They cannot enumerate users and groups in the directory.</source>
+          <target state="new">They cannot enumerate users and groups in the directory.</target>
+        </trans-unit>
+        <trans-unit id="b82e573f-bd6b-4cf2-a4d1-3f756105ae0d" xml:space="preserve">
+          <source>They can see limited details of a user if they know the user's email address.</source>
+          <target state="new">They can see limited details of a user if they know the user's email address.</target>
+        </trans-unit>
+        <trans-unit id="7528d9f9-8b71-4e14-8b53-9434c3370dc7" xml:space="preserve">
+          <source>They can see limited details of a group when they know the group name.</source>
+          <target state="new">They can see limited details of a group when they know the group name.</target>
+        </trans-unit>
+        <trans-unit id="4cbf1417-e3cc-4ade-b9cd-a7fc3e424683" xml:space="preserve">
+          <source>The ability for guests to see limited details of a user or group allows them to invite other people and see some details of people with whom they are collaborating.</source>
+          <target state="new">The ability for guests to see limited details of a user or group allows them to invite other people and see some details of people with whom they are collaborating.</target>
+        </trans-unit>
+        <trans-unit id="23055404-9d0c-4a69-b628-77fd0674f837" xml:space="preserve">
+          <source><bpt id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;linkText&gt;</bpt>Administering Azure AD<ept id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;/linkText&gt;</ept><bpt id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;title&gt;</bpt><ept id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;linkText&gt;</bpt>Administering Azure AD<ept id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;/linkText&gt;</ept><bpt id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;title&gt;</bpt><ept id="86bd1467-50c8-43f8-b280-a0ab11eb1b47">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a599bc0a-a9c5-4ed5-85bf-56e56da7aa55" xml:space="preserve">
+          <source><bpt id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;linkText&gt;</bpt>Manage passwords in Azure AD<ept id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;/linkText&gt;</ept><bpt id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;title&gt;</bpt><ept id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;linkText&gt;</bpt>Manage passwords in Azure AD<ept id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;/linkText&gt;</ept><bpt id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;title&gt;</bpt><ept id="804c5503-fe4e-45ff-8aaa-cc5cd89e5b90">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d0d5176-ae6a-4e34-b06d-51e663c73974" xml:space="preserve">
+          <source><bpt id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;linkText&gt;</bpt>Manage groups in Azure AD<ept id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;/linkText&gt;</ept><bpt id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;title&gt;</bpt><ept id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;linkText&gt;</bpt>Manage groups in Azure AD<ept id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;/linkText&gt;</ept><bpt id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;title&gt;</bpt><ept id="48353666-4bf2-4a94-9ba3-0903eae9758a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8afb84c9-af13-4176-98d3-d055a9a83f40" xml:space="preserve">
+          <source>./media/active-directory-create-users/RBACDirConfigTab.png</source>
+          <target state="new">./media/active-directory-create-users/RBACDirConfigTab.png</target>
+        </trans-unit>
+        <trans-unit id="853db0d7-e482-43fe-a162-d8823c334623" xml:space="preserve">
+          <source>./media/active-directory-create-users/RBACGuestAccessControls.png</source>
+          <target state="new">./media/active-directory-create-users/RBACGuestAccessControls.png</target>
+        </trans-unit>
+      </group>
+      <group id="56ca84cb-25fb-4ca5-ae2b-e9eb35312fc9" />
+    </body>
+  </file>
+</xliff>

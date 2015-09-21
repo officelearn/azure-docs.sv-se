@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8e5b355a-b882-47ad-9b11-2aa7049f9415" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8e5b355a-b882-47ad-9b11-2aa7049f9415" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fec146f5-9fde-462f-bc9e-2c380f264204">
+        <trans-unit id="ac4cbab7-aa60-43b4-a16c-bb2f0b596a95" xml:space="preserve">
+          <source>Media Services REST API overview | Microsoft Azure</source>
+          <target state="new">Media Services REST API overview | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2dfc397d-697d-4b4d-82f9-e8a018245530" xml:space="preserve">
+          <source>Media Services REST API overview</source>
+          <target state="new">Media Services REST API overview</target>
+        </trans-unit>
+        <trans-unit id="da9a2078-fbfd-405c-8bdb-98f9f8a3ab69" xml:space="preserve">
+          <source><bpt id="c5a892c1-3221-45c1-ad75-39732b743d25">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="c5a892c1-3221-45c1-ad75-39732b743d25">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c5a892c1-3221-45c1-ad75-39732b743d25">&lt;token href="../../includes/media-services-selector-setup.md"&gt;</bpt><ept id="c5a892c1-3221-45c1-ad75-39732b743d25">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b160bee-9967-49da-b690-df910d401a2e" xml:space="preserve">
+          <source>Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub.</source>
+          <target state="new">Microsoft Azure Media Services is a service that accepts OData-based HTTP requests and can respond back in verbose JSON or atom+pub.</target>
+        </trans-unit>
+        <trans-unit id="66aa1d20-3dad-473e-aba6-e6b3b1ad9195" xml:space="preserve">
+          <source>Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used.</source>
+          <target state="new">Because Media Services conforms to Azure design guidelines, there is a set of required HTTP headers that each client must use when connecting to Media Services, as well as a set of optional headers that can be used.</target>
+        </trans-unit>
+        <trans-unit id="2887525b-4c4e-4913-9c5f-d353df199936" xml:space="preserve">
+          <source>The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.</source>
+          <target state="new">The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.</target>
+        </trans-unit>
+        <trans-unit id="28338928-55c0-4241-b498-2341895f6f02" xml:space="preserve">
+          <source>For every call you make into Media Services, there is a set of required headers you must include in your request and also a set of optional headers you may want to include.</source>
+          <target state="new">For every call you make into Media Services, there is a set of required headers you must include in your request and also a set of optional headers you may want to include.</target>
+        </trans-unit>
+        <trans-unit id="600fe007-6807-4378-a52c-30d293d19c4b" xml:space="preserve">
+          <source>The following table lists the required headers:</source>
+          <target state="new">The following table lists the required headers:</target>
+        </trans-unit>
+        <trans-unit id="13551fb2-436b-4ea5-844d-04df8d9d3c3b" xml:space="preserve">
+          <source>Header</source>
+          <target state="new">Header</target>
+        </trans-unit>
+        <trans-unit id="9bd28402-44cc-4dc4-af60-cf23802851df" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="77e36601-0def-4421-96b2-22984ea1604f" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="25690b20-c860-4338-8dcc-6288ffaa370c" xml:space="preserve">
+          <source>Authorization</source>
+          <target state="new">Authorization</target>
+        </trans-unit>
+        <trans-unit id="affb07f2-5d8f-41d3-8d4a-7967caf100e6" xml:space="preserve">
+          <source>Bearer</source>
+          <target state="new">Bearer</target>
+        </trans-unit>
+        <trans-unit id="5165cce9-9c2c-475f-ad03-95d1ec4ba0bd" xml:space="preserve">
+          <source>Bearer is the only accepted authorization mechanism.</source>
+          <target state="new">Bearer is the only accepted authorization mechanism.</target>
+        </trans-unit>
+        <trans-unit id="b0336e5e-af0a-4271-a0e5-3d98b017009d" xml:space="preserve">
+          <source>The value must also include the access token provided by ACS.</source>
+          <target state="new">The value must also include the access token provided by ACS.</target>
+        </trans-unit>
+        <trans-unit id="53ca1564-1307-43a5-8129-c5e5d76cde73" xml:space="preserve">
+          <source>x-ms-version</source>
+          <target state="new">x-ms-version</target>
+        </trans-unit>
+        <trans-unit id="35f6146c-a21b-4bd9-9f6c-7273f3dcea5d" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="29ac3edb-88bb-49d7-9993-d6cda657399c" xml:space="preserve">
+          <source>2.11</source>
+          <target state="new">2.11</target>
+        </trans-unit>
+        <trans-unit id="6abf9027-d709-4e6b-b8f6-96288f9ddcc1" xml:space="preserve">
+          <source>DataServiceVersion</source>
+          <target state="new">DataServiceVersion</target>
+        </trans-unit>
+        <trans-unit id="4b0ff98e-7144-4041-a27b-5764adbcbf57" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="3f32cc75-af7a-49ed-b908-b3765419a437" xml:space="preserve">
+          <source>3.0</source>
+          <target state="new">3.0</target>
+        </trans-unit>
+        <trans-unit id="c4995271-8201-448a-a30b-f5ed89af30a0" xml:space="preserve">
+          <source>MaxDataServiceVersion</source>
+          <target state="new">MaxDataServiceVersion</target>
+        </trans-unit>
+        <trans-unit id="0e7a4bff-3cd9-4f58-83f5-f07022630100" xml:space="preserve">
+          <source>Decimal</source>
+          <target state="new">Decimal</target>
+        </trans-unit>
+        <trans-unit id="0ce63294-e4b5-4aa5-b7d3-148b2d567960" xml:space="preserve">
+          <source>3.0</source>
+          <target state="new">3.0</target>
+        </trans-unit>
+        <trans-unit id="4410c9de-807e-48a6-87d5-4595218eaab7" xml:space="preserve">
+          <source>Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.</source>
+          <target state="new">Because Media Services uses OData to expose its underlying asset metadata repository through REST APIs, the DataServiceVersion and MaxDataServiceVersion headers should be included in any request; however, if they are not, then currently Media Services assumes the DataServiceVersion value in use is 3.0.</target>
+        </trans-unit>
+        <trans-unit id="fef5fc8a-8aca-4874-b597-222d9c9bf98c" xml:space="preserve">
+          <source>The following is a set of optional headers:</source>
+          <target state="new">The following is a set of optional headers:</target>
+        </trans-unit>
+        <trans-unit id="7fa68c9f-ef13-4c53-976d-8b10c4242310" xml:space="preserve">
+          <source>Header</source>
+          <target state="new">Header</target>
+        </trans-unit>
+        <trans-unit id="f822de9a-3af6-4ac4-b74f-fd23c854e2ae" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="3c99ca8a-26e2-4c0d-8d16-72f77dc48d71" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="10923f52-385e-4cda-b90e-4d552a04b444" xml:space="preserve">
+          <source>Date</source>
+          <target state="new">Date</target>
+        </trans-unit>
+        <trans-unit id="0dd89ffd-aef5-45d9-9ac3-bc2499f88d4c" xml:space="preserve">
+          <source>RFC 1123 date</source>
+          <target state="new">RFC 1123 date</target>
+        </trans-unit>
+        <trans-unit id="136f6b47-6093-4ae1-a4fa-d6be8d44a193" xml:space="preserve">
+          <source>Timestamp of the request</source>
+          <target state="new">Timestamp of the request</target>
+        </trans-unit>
+        <trans-unit id="9ca948be-0473-44b4-90d3-d0ed75c2ac91" xml:space="preserve">
+          <source>Accept</source>
+          <target state="new">Accept</target>
+        </trans-unit>
+        <trans-unit id="5a0c93a4-fea8-43b2-a304-ad663c5cb17b" xml:space="preserve">
+          <source>Content type</source>
+          <target state="new">Content type</target>
+        </trans-unit>
+        <trans-unit id="ddfaae4a-4a56-4b57-9e9f-181fb9391e04" xml:space="preserve">
+          <source>The requested content type for the response such as the following:&lt;p&gt; -application/json;odata=verbose&lt;p&gt; - application/atom+xml&lt;p&gt; Responses may have a different content type, such as a blob fetch, where a successful response will contain the blob stream as the payload.</source>
+          <target state="new">The requested content type for the response such as the following:&lt;p&gt; -application/json;odata=verbose&lt;p&gt; - application/atom+xml&lt;p&gt; Responses may have a different content type, such as a blob fetch, where a successful response will contain the blob stream as the payload.</target>
+        </trans-unit>
+        <trans-unit id="2c7c831c-06be-4866-92e3-898d9e9830fe" xml:space="preserve">
+          <source>Accept-Encoding</source>
+          <target state="new">Accept-Encoding</target>
+        </trans-unit>
+        <trans-unit id="fbd28c7d-c294-455c-b2b1-952f1307c567" xml:space="preserve">
+          <source>Gzip, deflate</source>
+          <target state="new">Gzip, deflate</target>
+        </trans-unit>
+        <trans-unit id="dbb40cc8-c71b-4cf8-b83d-24d5af07fa41" xml:space="preserve">
+          <source>GZIP and DEFLATE encoding, when applicable.</source>
+          <target state="new">GZIP and DEFLATE encoding, when applicable.</target>
+        </trans-unit>
+        <trans-unit id="910cfe8c-1671-460d-a43b-764b5aa091f0" xml:space="preserve">
+          <source>Note: For large resources, Media Services may ignore this header and return noncompressed data.</source>
+          <target state="new">Note: For large resources, Media Services may ignore this header and return noncompressed data.</target>
+        </trans-unit>
+        <trans-unit id="84b34f57-8dd9-429f-b1f5-87fe0ccc4af9" xml:space="preserve">
+          <source>Accept-Language</source>
+          <target state="new">Accept-Language</target>
+        </trans-unit>
+        <trans-unit id="8c52a26e-120b-4b55-97ab-058a4edb8254" xml:space="preserve">
+          <source>"en", "es", and so on.</source>
+          <target state="new">"en", "es", and so on.</target>
+        </trans-unit>
+        <trans-unit id="7d714d4e-35ac-4d24-a303-456b25d22478" xml:space="preserve">
+          <source>Specifies the preferred language for the response.</source>
+          <target state="new">Specifies the preferred language for the response.</target>
+        </trans-unit>
+        <trans-unit id="2162783e-a777-454f-84e1-44595b3c3c9c" xml:space="preserve">
+          <source>Accept-Charset</source>
+          <target state="new">Accept-Charset</target>
+        </trans-unit>
+        <trans-unit id="21abcbe9-cad6-4144-8ad7-49c4dc6507a8" xml:space="preserve">
+          <source>Charset type like “UTF-8”</source>
+          <target state="new">Charset type like “UTF-8”</target>
+        </trans-unit>
+        <trans-unit id="fa75fb19-5bbe-45e8-b04f-3207da7a5a64" xml:space="preserve">
+          <source>Default is UTF-8.</source>
+          <target state="new">Default is UTF-8.</target>
+        </trans-unit>
+        <trans-unit id="17bac1f9-e60a-446e-9f7a-29276bf01fee" xml:space="preserve">
+          <source>X-HTTP-Method</source>
+          <target state="new">X-HTTP-Method</target>
+        </trans-unit>
+        <trans-unit id="e2ade47a-7068-4c6b-9350-a6a57911a44f" xml:space="preserve">
+          <source>HTTP Method</source>
+          <target state="new">HTTP Method</target>
+        </trans-unit>
+        <trans-unit id="a006422b-218f-43bf-99c6-a0fb9cff93a7" xml:space="preserve">
+          <source>Allows clients or firewalls that do not support HTTP methods like PUT or DELETE to use these methods, tunneled via a GET call.</source>
+          <target state="new">Allows clients or firewalls that do not support HTTP methods like PUT or DELETE to use these methods, tunneled via a GET call.</target>
+        </trans-unit>
+        <trans-unit id="4af1b159-3c4d-452c-a8ef-398e3bf37594" xml:space="preserve">
+          <source>Content-Type</source>
+          <target state="new">Content-Type</target>
+        </trans-unit>
+        <trans-unit id="36a8b987-dfff-46d1-bc5e-a5b281e639c9" xml:space="preserve">
+          <source>Content type</source>
+          <target state="new">Content type</target>
+        </trans-unit>
+        <trans-unit id="bb4435d0-936b-40dd-a765-1c514db5f127" xml:space="preserve">
+          <source>Content type of the request body in PUT or POST requests.</source>
+          <target state="new">Content type of the request body in PUT or POST requests.</target>
+        </trans-unit>
+        <trans-unit id="56ad3852-57b0-4849-82df-edd46a31bece" xml:space="preserve">
+          <source>client-request-id</source>
+          <target state="new">client-request-id</target>
+        </trans-unit>
+        <trans-unit id="a462b98d-463e-4a66-a287-5742838fbdb5" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="a21636cf-b68c-422d-a8be-a23d2e5b47a9" xml:space="preserve">
+          <source>A caller-defined value that identifies the given request. If specified, this value will be included in the response message as a way to map the request. &lt;p&gt;&lt;p&gt;<bpt id="c59484c8-08e7-43e0-a5a6-00056e90c6e8">&lt;strong&gt;</bpt>Important<ept id="c59484c8-08e7-43e0-a5a6-00056e90c6e8">&lt;/strong&gt;</ept>&lt;p&gt;Values should be capped at 2096b (2k).</source>
+          <target state="new">A caller-defined value that identifies the given request. If specified, this value will be included in the response message as a way to map the request. &lt;p&gt;&lt;p&gt;<bpt id="c59484c8-08e7-43e0-a5a6-00056e90c6e8">&lt;strong&gt;</bpt>Important<ept id="c59484c8-08e7-43e0-a5a6-00056e90c6e8">&lt;/strong&gt;</ept>&lt;p&gt;Values should be capped at 2096b (2k).</target>
+        </trans-unit>
+        <trans-unit id="471478a7-a252-4583-8096-1f2e0eea0f07" xml:space="preserve">
+          <source>The following is a set of headers that may be returned to you depending on the resource you were requesting and the action you intended to perform.</source>
+          <target state="new">The following is a set of headers that may be returned to you depending on the resource you were requesting and the action you intended to perform.</target>
+        </trans-unit>
+        <trans-unit id="cb974b39-6ae8-4e17-a57e-debb6c1d416e" xml:space="preserve">
+          <source>Header</source>
+          <target state="new">Header</target>
+        </trans-unit>
+        <trans-unit id="e0c18182-4748-47ab-8c89-e8523cff40f7" xml:space="preserve">
+          <source>Type</source>
+          <target state="new">Type</target>
+        </trans-unit>
+        <trans-unit id="ed500f66-64e8-40e6-9fad-66a83119efef" xml:space="preserve">
+          <source>Value</source>
+          <target state="new">Value</target>
+        </trans-unit>
+        <trans-unit id="486681c2-dd70-442a-bf1d-fa08f1e96cc7" xml:space="preserve">
+          <source>request-id</source>
+          <target state="new">request-id</target>
+        </trans-unit>
+        <trans-unit id="4bbd3967-d878-4158-9651-ef4a94062671" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="0643f604-5af4-4fd8-83ea-366867968250" xml:space="preserve">
+          <source>A unique identifier for the current operation, service generated.</source>
+          <target state="new">A unique identifier for the current operation, service generated.</target>
+        </trans-unit>
+        <trans-unit id="51310096-b607-4664-a23d-81caf90b26b3" xml:space="preserve">
+          <source>client-request-id</source>
+          <target state="new">client-request-id</target>
+        </trans-unit>
+        <trans-unit id="fe046521-468f-4a6e-a2ac-bb8b2fd19f82" xml:space="preserve">
+          <source>String</source>
+          <target state="new">String</target>
+        </trans-unit>
+        <trans-unit id="e78f3e42-e2fe-4377-baab-bda5d0a26a66" xml:space="preserve">
+          <source>An identifier specified by the caller in the original request, if present.</source>
+          <target state="new">An identifier specified by the caller in the original request, if present.</target>
+        </trans-unit>
+        <trans-unit id="736ece3a-33ff-4535-9949-6f7534a89dd3" xml:space="preserve">
+          <source>Date</source>
+          <target state="new">Date</target>
+        </trans-unit>
+        <trans-unit id="aa0dbdf6-622a-44fc-918e-3cf5a2cc93de" xml:space="preserve">
+          <source>RFC 1123 date</source>
+          <target state="new">RFC 1123 date</target>
+        </trans-unit>
+        <trans-unit id="44798a43-4117-40c4-ac2c-facd78ff27ae" xml:space="preserve">
+          <source>The date that the request was processed.</source>
+          <target state="new">The date that the request was processed.</target>
+        </trans-unit>
+        <trans-unit id="29cca5fa-e15a-40f0-8fab-40baed9f86d1" xml:space="preserve">
+          <source>Content-Type</source>
+          <target state="new">Content-Type</target>
+        </trans-unit>
+        <trans-unit id="aa990017-5f80-4327-8f81-f1c037dbbb8f" xml:space="preserve">
+          <source>Varies</source>
+          <target state="new">Varies</target>
+        </trans-unit>
+        <trans-unit id="af4d5fe4-1f48-4b1f-b8b3-e7b3848f6b0b" xml:space="preserve">
+          <source>The content type of the response body.</source>
+          <target state="new">The content type of the response body.</target>
+        </trans-unit>
+        <trans-unit id="748ac9ef-3880-463b-bd50-202874c64169" xml:space="preserve">
+          <source>Content-Encoding</source>
+          <target state="new">Content-Encoding</target>
+        </trans-unit>
+        <trans-unit id="9743795e-b986-4a9a-a446-ed174622066c" xml:space="preserve">
+          <source>Varies</source>
+          <target state="new">Varies</target>
+        </trans-unit>
+        <trans-unit id="bec0f9dc-5c34-49f9-bb04-c2f6d31562fd" xml:space="preserve">
+          <source>Gzip or deflate, as appropriate.</source>
+          <target state="new">Gzip or deflate, as appropriate.</target>
+        </trans-unit>
+        <trans-unit id="2078c04b-2049-4138-acb1-03a44daada8e" xml:space="preserve">
+          <source>The following is a complete list of HTTP verbs that can be used when making HTTP requests:</source>
+          <target state="new">The following is a complete list of HTTP verbs that can be used when making HTTP requests:</target>
+        </trans-unit>
+        <trans-unit id="bd1976a0-c1ef-4c84-a4e2-cdf1c98b082f" xml:space="preserve">
+          <source>Verb</source>
+          <target state="new">Verb</target>
+        </trans-unit>
+        <trans-unit id="4a76f294-3599-4904-8aa2-3cecccc33a43" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="f560acad-ab28-42f8-bfef-e70f5f453a9b" xml:space="preserve">
+          <source>GET</source>
+          <target state="new">GET</target>
+        </trans-unit>
+        <trans-unit id="5d34411c-dec9-46e2-82ae-5aa8e919feb1" xml:space="preserve">
+          <source>Returns the current value of an object.</source>
+          <target state="new">Returns the current value of an object.</target>
+        </trans-unit>
+        <trans-unit id="a47af91b-0627-4f1d-8e0e-2920fa595c2b" xml:space="preserve">
+          <source>POST</source>
+          <target state="new">POST</target>
+        </trans-unit>
+        <trans-unit id="6dadc6b7-b771-49fb-9b42-d79a5accbc6e" xml:space="preserve">
+          <source>Creates an object based on the data provided, or submits a command.</source>
+          <target state="new">Creates an object based on the data provided, or submits a command.</target>
+        </trans-unit>
+        <trans-unit id="43d86502-e827-4c55-bd9d-d56a5f40c0ec" xml:space="preserve">
+          <source>PUT</source>
+          <target state="new">PUT</target>
+        </trans-unit>
+        <trans-unit id="35f44f12-5db1-4e22-b1ee-6838c9ed7325" xml:space="preserve">
+          <source>Replaces an object, or creates a named object (when applicable).</source>
+          <target state="new">Replaces an object, or creates a named object (when applicable).</target>
+        </trans-unit>
+        <trans-unit id="6a22c544-13db-4981-acda-ad35d0af3a67" xml:space="preserve">
+          <source>DELETE</source>
+          <target state="new">DELETE</target>
+        </trans-unit>
+        <trans-unit id="973bd1d4-5399-4248-a581-9ab0c371ffc9" xml:space="preserve">
+          <source>Deletes an object.</source>
+          <target state="new">Deletes an object.</target>
+        </trans-unit>
+        <trans-unit id="f8ffdd67-9cd8-408b-ad34-f964f2ce5caa" xml:space="preserve">
+          <source>MERGE</source>
+          <target state="new">MERGE</target>
+        </trans-unit>
+        <trans-unit id="9a00906b-73ea-48c5-9e2b-896f4d60ae57" xml:space="preserve">
+          <source>Updates an existing object with named property changes.</source>
+          <target state="new">Updates an existing object with named property changes.</target>
+        </trans-unit>
+        <trans-unit id="0f90e5de-770b-47a8-a85d-34844f2b879d" xml:space="preserve">
+          <source>HEAD</source>
+          <target state="new">HEAD</target>
+        </trans-unit>
+        <trans-unit id="f06e0cbf-0c6a-4e8c-9bbc-e651d098c150" xml:space="preserve">
+          <source>Returns metadata of an object for a GET response.</source>
+          <target state="new">Returns metadata of an object for a GET response.</target>
+        </trans-unit>
+        <trans-unit id="93d449fb-3336-433f-a366-2dc56d2e628c" xml:space="preserve">
+          <source>To make Media Services entities more discoverable, the $metadata operation can be used.</source>
+          <target state="new">To make Media Services entities more discoverable, the $metadata operation can be used.</target>
+        </trans-unit>
+        <trans-unit id="be0a4c79-5ef6-43d9-922b-4596459634e5" xml:space="preserve">
+          <source>It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on.</source>
+          <target state="new">It allows you to retrieve all valid entity types, entity properties, associations, functions, actions, and so on.</target>
+        </trans-unit>
+        <trans-unit id="ad47d381-6672-4a41-bbac-f42f2a64fca8" xml:space="preserve">
+          <source>The following example shows how to construct the URI: https://media.windows.net/API/$metadata.</source>
+          <target state="new">The following example shows how to construct the URI: https://media.windows.net/API/$metadata.</target>
+        </trans-unit>
+        <trans-unit id="12cc6f21-fd00-403d-870d-084a2ddd284f" xml:space="preserve">
+          <source>You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.</source>
+          <target state="new">You should append "?api-version=2.x" to the end of the URI if you want to view the metadata in a browser, or do not include the x-ms-version header in your request.</target>
+        </trans-unit>
+        <trans-unit id="0d8b71f3-dbfe-4503-be9e-8b9681685fa7" xml:space="preserve">
+          <source>http://manage.windowsazure.com/</source>
+          <target state="new">http://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="aa33e7b2-2e4d-48af-ba25-1cc613d7d152" />
+    </body>
+  </file>
+</xliff>

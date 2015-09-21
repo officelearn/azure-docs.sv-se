@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d8cf5b30-bf0f-4366-ba32-55a453cf8076" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d8cf5b30-bf0f-4366-ba32-55a453cf8076" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8c96ead5-b9c1-40ed-b2fc-aa3f31927233">
+        <trans-unit id="d13bb5b7-ff7a-4aa0-a665-06793467c554" xml:space="preserve">
+          <source>Delete a StorSimple volume container</source>
+          <target state="new">Delete a StorSimple volume container</target>
+        </trans-unit>
+        <trans-unit id="658aa982-5fc4-42ae-8821-cb2985415d65" xml:space="preserve">
+          <source>Explains how you can use the StorSimple Manager service volume containers page to delete a volume container.</source>
+          <target state="new">Explains how you can use the StorSimple Manager service volume containers page to delete a volume container.</target>
+        </trans-unit>
+        <trans-unit id="88819a27-116a-4362-bb2e-f15a316e510c" xml:space="preserve">
+          <source>On the <bpt id="876e1e5a-80c6-454d-afc0-87181a255d7e">&lt;strong&gt;</bpt>Devices<ept id="876e1e5a-80c6-454d-afc0-87181a255d7e">&lt;/strong&gt;</ept> page, select the device, double-click it, and then click the <bpt id="fe218529-11f5-41dd-ac51-0fec343fa9d5">&lt;strong&gt;</bpt>Volume containers<ept id="fe218529-11f5-41dd-ac51-0fec343fa9d5">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">On the <bpt id="876e1e5a-80c6-454d-afc0-87181a255d7e">&lt;strong&gt;</bpt>Devices<ept id="876e1e5a-80c6-454d-afc0-87181a255d7e">&lt;/strong&gt;</ept> page, select the device, double-click it, and then click the <bpt id="fe218529-11f5-41dd-ac51-0fec343fa9d5">&lt;strong&gt;</bpt>Volume containers<ept id="fe218529-11f5-41dd-ac51-0fec343fa9d5">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="e3520852-a91f-4413-ad00-5d5c3543dc53" xml:space="preserve">
+          <source>Select the volume container you want to delete.</source>
+          <target state="new">Select the volume container you want to delete.</target>
+        </trans-unit>
+        <trans-unit id="74038e16-dfbd-471b-86f4-329df7fb8acf" xml:space="preserve">
+          <source>If a volume container has no associated volumes, then it can be deleted.</source>
+          <target state="new">If a volume container has no associated volumes, then it can be deleted.</target>
+        </trans-unit>
+        <trans-unit id="7d95882d-a0b5-4d07-8174-5a74ef56b259" xml:space="preserve">
+          <source>Click <bpt id="d3685839-c1ca-4bfd-ad2d-993de483eea7">&lt;strong&gt;</bpt>Delete<ept id="d3685839-c1ca-4bfd-ad2d-993de483eea7">&lt;/strong&gt;</ept> at the bottom of the page to delete this container.</source>
+          <target state="new">Click <bpt id="d3685839-c1ca-4bfd-ad2d-993de483eea7">&lt;strong&gt;</bpt>Delete<ept id="d3685839-c1ca-4bfd-ad2d-993de483eea7">&lt;/strong&gt;</ept> at the bottom of the page to delete this container.</target>
+        </trans-unit>
+        <trans-unit id="b8a1e7c1-76be-400b-afcd-7600faed4dbf" xml:space="preserve">
+          <source>When prompted for confirmation, click <bpt id="50b632db-5ef3-4e15-a8a2-46abe4e1f54f">&lt;strong&gt;</bpt>Yes<ept id="50b632db-5ef3-4e15-a8a2-46abe4e1f54f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted for confirmation, click <bpt id="50b632db-5ef3-4e15-a8a2-46abe4e1f54f">&lt;strong&gt;</bpt>Yes<ept id="50b632db-5ef3-4e15-a8a2-46abe4e1f54f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="61af0a62-d69f-46c3-91cb-e04520a25124" xml:space="preserve">
+          <source>This will delete the volume container.</source>
+          <target state="new">This will delete the volume container.</target>
+        </trans-unit>
+        <trans-unit id="b86e99cf-50c2-47cf-8abb-d3dfb55ee39c" xml:space="preserve">
+          <source>If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in <bpt id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;linkText&gt;</bpt>Take a volume offline<ept id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;/linkText&gt;</ept><bpt id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;title&gt;</bpt><ept id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;/title&gt;</ept>.</source>
+          <target state="new">If the volume container has associated volumes, you will first need to take those volumes offline by following the steps in <bpt id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;linkText&gt;</bpt>Take a volume offline<ept id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;/linkText&gt;</ept><bpt id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;title&gt;</bpt><ept id="291ccc2d-b57f-4fa1-9a9f-ae50cc0f5f49">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3f439d9-bcad-49c1-959a-5f77dd99a516" xml:space="preserve">
+          <source>After the volumes are offline, you can delete them.</source>
+          <target state="new">After the volumes are offline, you can delete them.</target>
+        </trans-unit>
+        <trans-unit id="018e899a-60a6-41e7-bf56-59264b791225" xml:space="preserve">
+          <source>When the volume container has no associated volumes, delete the volume container as described above.</source>
+          <target state="new">When the volume container has no associated volumes, delete the volume container as described above.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

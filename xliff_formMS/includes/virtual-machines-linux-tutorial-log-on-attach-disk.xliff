@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b415d85c-f061-4361-831c-c885d536684e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b415d85c-f061-4361-831c-c885d536684e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="ad332d28-8e98-4952-af45-351938a798c6">
+        <trans-unit id="74b8b58d-e312-431c-b6d7-99f3f39a72b0" xml:space="preserve">
+          <source>To manage the settings of the virtual machine and the applications that run on the machine, you can use an SSH client.</source>
+          <target state="new">To manage the settings of the virtual machine and the applications that run on the machine, you can use an SSH client.</target>
+        </trans-unit>
+        <trans-unit id="0342ba4b-3d7f-47b9-b16f-3a50a9b120c4" xml:space="preserve">
+          <source>To do this, you must install an SSH client on your computer that you want to use to access the virtual machine.</source>
+          <target state="new">To do this, you must install an SSH client on your computer that you want to use to access the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="167fa508-bfd2-43a6-bef0-2df9d28950b5" xml:space="preserve">
+          <source>There are many SSH client programs that you can choose from.</source>
+          <target state="new">There are many SSH client programs that you can choose from.</target>
+        </trans-unit>
+        <trans-unit id="c843933e-0692-4bfb-a23f-662daee88b35" xml:space="preserve">
+          <source>The following are possible choices:</source>
+          <target state="new">The following are possible choices:</target>
+        </trans-unit>
+        <trans-unit id="a7e1200a-336b-403e-ab22-9472fab69d57" xml:space="preserve">
+          <source>If you are using a computer that is running a Windows operating system, you might want to use an SSH client such as PuTTY.</source>
+          <target state="new">If you are using a computer that is running a Windows operating system, you might want to use an SSH client such as PuTTY.</target>
+        </trans-unit>
+        <trans-unit id="eafe73cc-eb52-4058-bafe-736bd14b9baa" xml:space="preserve">
+          <source>For more information, see <bpt id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;linkText&gt;</bpt>PuTTY Download<ept id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;/linkText&gt;</ept><bpt id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;title&gt;</bpt><ept id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;linkText&gt;</bpt>PuTTY Download<ept id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;/linkText&gt;</ept><bpt id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;title&gt;</bpt><ept id="783a0030-a354-4588-8bb3-5645ced75dea">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8cd2106e-71d7-439b-97df-a495c3d90c95" xml:space="preserve">
+          <source>If you are using a computer that is running a Linux operating system, you might want to use an SSH client such as OpenSSH.</source>
+          <target state="new">If you are using a computer that is running a Linux operating system, you might want to use an SSH client such as OpenSSH.</target>
+        </trans-unit>
+        <trans-unit id="34744d6e-7f55-4f1e-b457-3f112f5c1fa2" xml:space="preserve">
+          <source>For more information, see <bpt id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;linkText&gt;</bpt>OpenSSH<ept id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;/linkText&gt;</ept><bpt id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;title&gt;</bpt><ept id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;linkText&gt;</bpt>OpenSSH<ept id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;/linkText&gt;</ept><bpt id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;title&gt;</bpt><ept id="77c77f1f-e258-455d-97cb-11a4a0059b52">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3074abb6-dae1-4b60-a6d3-f924d0037fc0" xml:space="preserve">
+          <source>This tutorial shows you how to use the PuTTY program to access the virtual machine.</source>
+          <target state="new">This tutorial shows you how to use the PuTTY program to access the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="53fb376f-3fb0-44ca-a17a-475869550b64" xml:space="preserve">
+          <source>Find the <bpt id="165fbc34-0984-4793-acba-eed86b4d39f4">&lt;strong&gt;</bpt>Host Name<ept id="165fbc34-0984-4793-acba-eed86b4d39f4">&lt;/strong&gt;</ept> and <bpt id="7995c4b9-deee-4f02-9d1e-989d08184f34">&lt;strong&gt;</bpt>Port information<ept id="7995c4b9-deee-4f02-9d1e-989d08184f34">&lt;/strong&gt;</ept> from the Management Portal.</source>
+          <target state="new">Find the <bpt id="165fbc34-0984-4793-acba-eed86b4d39f4">&lt;strong&gt;</bpt>Host Name<ept id="165fbc34-0984-4793-acba-eed86b4d39f4">&lt;/strong&gt;</ept> and <bpt id="7995c4b9-deee-4f02-9d1e-989d08184f34">&lt;strong&gt;</bpt>Port information<ept id="7995c4b9-deee-4f02-9d1e-989d08184f34">&lt;/strong&gt;</ept> from the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="8d7eba54-4ad8-4dba-8dd2-9543b6dd1497" xml:space="preserve">
+          <source>You can find the information that you need from the dashboard of the virtual machine.</source>
+          <target state="new">You can find the information that you need from the dashboard of the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c9dee6c9-3099-4d7d-9a53-1e91fce5df4e" xml:space="preserve">
+          <source>Click the virtual machine name and look for the <bpt id="e15d2c82-e127-4170-8a08-68aada82d9a2">&lt;strong&gt;</bpt>SSH Details<ept id="e15d2c82-e127-4170-8a08-68aada82d9a2">&lt;/strong&gt;</ept> in the <bpt id="48bfffc7-920b-4105-872f-02e64736ed21">&lt;strong&gt;</bpt>Quick Glance<ept id="48bfffc7-920b-4105-872f-02e64736ed21">&lt;/strong&gt;</ept> section of the dashboard.</source>
+          <target state="new">Click the virtual machine name and look for the <bpt id="e15d2c82-e127-4170-8a08-68aada82d9a2">&lt;strong&gt;</bpt>SSH Details<ept id="e15d2c82-e127-4170-8a08-68aada82d9a2">&lt;/strong&gt;</ept> in the <bpt id="48bfffc7-920b-4105-872f-02e64736ed21">&lt;strong&gt;</bpt>Quick Glance<ept id="48bfffc7-920b-4105-872f-02e64736ed21">&lt;/strong&gt;</ept> section of the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="358b8efe-b514-49ff-afee-e81ab3730f88" xml:space="preserve">
+          <source><bpt id="70a880c1-f69e-491b-9567-bec8f43af146">&lt;linkText&gt;</bpt>Find SSH details<ept id="70a880c1-f69e-491b-9567-bec8f43af146">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="70a880c1-f69e-491b-9567-bec8f43af146">&lt;linkText&gt;</bpt>Find SSH details<ept id="70a880c1-f69e-491b-9567-bec8f43af146">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="251968a1-8807-4525-b07c-38622a04907a" xml:space="preserve">
+          <source>Open the PuTTY program.</source>
+          <target state="new">Open the PuTTY program.</target>
+        </trans-unit>
+        <trans-unit id="1c8b5528-b05c-40ed-a9a6-ca8467c9a061" xml:space="preserve">
+          <source>Enter the <bpt id="52acf03e-75c1-4a08-936e-3317ff551f14">&lt;strong&gt;</bpt>Host Name<ept id="52acf03e-75c1-4a08-936e-3317ff551f14">&lt;/strong&gt;</ept> and the <bpt id="4b1716de-d595-4cda-872a-78467de27a48">&lt;strong&gt;</bpt>Port information<ept id="4b1716de-d595-4cda-872a-78467de27a48">&lt;/strong&gt;</ept> that you collected from the dashboard, and then click <bpt id="d8a9d1ce-4215-435e-b3e7-c0b8ad756004">&lt;strong&gt;</bpt>Open<ept id="d8a9d1ce-4215-435e-b3e7-c0b8ad756004">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the <bpt id="52acf03e-75c1-4a08-936e-3317ff551f14">&lt;strong&gt;</bpt>Host Name<ept id="52acf03e-75c1-4a08-936e-3317ff551f14">&lt;/strong&gt;</ept> and the <bpt id="4b1716de-d595-4cda-872a-78467de27a48">&lt;strong&gt;</bpt>Port information<ept id="4b1716de-d595-4cda-872a-78467de27a48">&lt;/strong&gt;</ept> that you collected from the dashboard, and then click <bpt id="d8a9d1ce-4215-435e-b3e7-c0b8ad756004">&lt;strong&gt;</bpt>Open<ept id="d8a9d1ce-4215-435e-b3e7-c0b8ad756004">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74e4087f-4913-4783-9b69-a5988d836130" xml:space="preserve">
+          <source><bpt id="1158381e-da59-4a93-8181-f09dc91df416">&lt;linkText&gt;</bpt>Enter the host name and port information<ept id="1158381e-da59-4a93-8181-f09dc91df416">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1158381e-da59-4a93-8181-f09dc91df416">&lt;linkText&gt;</bpt>Enter the host name and port information<ept id="1158381e-da59-4a93-8181-f09dc91df416">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="67f90a78-6a4c-4424-ab2c-cac727c575f3" xml:space="preserve">
+          <source>Log on to the virtual machine using the NewUser1 account that was added when you created the virtual machine.</source>
+          <target state="new">Log on to the virtual machine using the NewUser1 account that was added when you created the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="567de417-08f6-4bb9-9459-0a81b5c3c450" xml:space="preserve">
+          <source><bpt id="b8dc8eb9-be40-4a91-9aca-745059e03834">&lt;linkText&gt;</bpt>Log on to the new virtual machine<ept id="b8dc8eb9-be40-4a91-9aca-745059e03834">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b8dc8eb9-be40-4a91-9aca-745059e03834">&lt;linkText&gt;</bpt>Log on to the new virtual machine<ept id="b8dc8eb9-be40-4a91-9aca-745059e03834">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9d6c4ad-1675-443b-b6eb-2129c5051dcb" xml:space="preserve">
+          <source>You can now work with the virtual machine just as you would with any other server.</source>
+          <target state="new">You can now work with the virtual machine just as you would with any other server.</target>
+        </trans-unit>
+        <trans-unit id="94be9611-b799-4d76-9c9e-5661da9ceefc" xml:space="preserve">
+          <source>Your application may need to store data.</source>
+          <target state="new">Your application may need to store data.</target>
+        </trans-unit>
+        <trans-unit id="f98c58c6-c431-4fad-a5c8-8a275665b690" xml:space="preserve">
+          <source>To set this up, you attach a data disk to the virtual machine that you previously created.</source>
+          <target state="new">To set this up, you attach a data disk to the virtual machine that you previously created.</target>
+        </trans-unit>
+        <trans-unit id="c1819176-9951-4087-a5a2-1862224245f6" xml:space="preserve">
+          <source>The easiest way to do this is to attach an empty data disk to the machine.</source>
+          <target state="new">The easiest way to do this is to attach an empty data disk to the machine.</target>
+        </trans-unit>
+        <trans-unit id="87cc95dc-7e54-4dda-a139-cd14c6059f33" xml:space="preserve">
+          <source>On Linux, the Resource Disk is typically managed by the Azure Linux Agent and automatically mounted to <bpt id="7d654f08-099d-4070-8128-604eeac72410">&lt;strong&gt;</bpt>/mnt/resource<ept id="7d654f08-099d-4070-8128-604eeac72410">&lt;/strong&gt;</ept> (or <bpt id="6f5946e4-1411-4c8c-bcfc-5fd4a1f41c5e">&lt;strong&gt;</bpt>/mnt<ept id="6f5946e4-1411-4c8c-bcfc-5fd4a1f41c5e">&lt;/strong&gt;</ept> on Ubuntu images).</source>
+          <target state="new">On Linux, the Resource Disk is typically managed by the Azure Linux Agent and automatically mounted to <bpt id="7d654f08-099d-4070-8128-604eeac72410">&lt;strong&gt;</bpt>/mnt/resource<ept id="7d654f08-099d-4070-8128-604eeac72410">&lt;/strong&gt;</ept> (or <bpt id="6f5946e4-1411-4c8c-bcfc-5fd4a1f41c5e">&lt;strong&gt;</bpt>/mnt<ept id="6f5946e4-1411-4c8c-bcfc-5fd4a1f41c5e">&lt;/strong&gt;</ept> on Ubuntu images).</target>
+        </trans-unit>
+        <trans-unit id="de65518e-a8eb-4bef-b5da-ff72594fdbe3" xml:space="preserve">
+          <source>On the other hand, on Linux the data disk might be named by the kernel as <bpt id="f908fb57-6e14-4547-9ead-80cf8e2ccf4e">&lt;code&gt;</bpt>/dev/sdc<ept id="f908fb57-6e14-4547-9ead-80cf8e2ccf4e">&lt;/code&gt;</ept>, and users will need to partition, format and mount that resource.</source>
+          <target state="new">On the other hand, on Linux the data disk might be named by the kernel as <bpt id="f908fb57-6e14-4547-9ead-80cf8e2ccf4e">&lt;code&gt;</bpt>/dev/sdc<ept id="f908fb57-6e14-4547-9ead-80cf8e2ccf4e">&lt;/code&gt;</ept>, and users will need to partition, format and mount that resource.</target>
+        </trans-unit>
+        <trans-unit id="9df62d78-3e28-4aaa-84b7-49d6e6b26dc2" xml:space="preserve">
+          <source>Please see the <bpt id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;linkText&gt;</bpt>Azure Linux Agent User Guide<ept id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;/linkText&gt;</ept><bpt id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;title&gt;</bpt><ept id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Please see the <bpt id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;linkText&gt;</bpt>Azure Linux Agent User Guide<ept id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;/linkText&gt;</ept><bpt id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;title&gt;</bpt><ept id="83cd8e92-ff82-43a3-be4e-18fc55760992">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="f0cb17bb-32da-4aee-b56c-b0f54902f0cf" xml:space="preserve">
+          <source>Don’t store data on the resource disk.</source>
+          <target state="new">Don’t store data on the resource disk.</target>
+        </trans-unit>
+        <trans-unit id="49fba5da-1482-4671-ba75-c83bd6147c01" xml:space="preserve">
+          <source>This disk provides temporary storage for applications and processes and is used to store data that you don’t need to keep, such as swap files.</source>
+          <target state="new">This disk provides temporary storage for applications and processes and is used to store data that you don’t need to keep, such as swap files.</target>
+        </trans-unit>
+        <trans-unit id="3f7e7fbf-a350-4feb-b84d-c1fff43baa59" xml:space="preserve">
+          <source>Data disks reside Azure Storage as .vhd files in page blobs and provide storage redundancy to protect your data.</source>
+          <target state="new">Data disks reside Azure Storage as .vhd files in page blobs and provide storage redundancy to protect your data.</target>
+        </trans-unit>
+        <trans-unit id="6d3810fc-35b9-469d-b41c-d0e0e3115c36" xml:space="preserve">
+          <source>For details, see <bpt id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;linkText&gt;</bpt>About Disks and Images in Azure<ept id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;/linkText&gt;</ept><bpt id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;title&gt;</bpt><ept id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;linkText&gt;</bpt>About Disks and Images in Azure<ept id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;/linkText&gt;</ept><bpt id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;title&gt;</bpt><ept id="d85f92f3-68a3-4285-af59-c26572bfdf41">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="56120b17-a91a-44cd-b544-014d0b0db254" xml:space="preserve">
+          <source>If you have not already done so, sign in to the Azure Management Portal.</source>
+          <target state="new">If you have not already done so, sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="9d512433-181b-44de-a3be-8e6a1e6525a0" xml:space="preserve">
+          <source>Click <bpt id="23d410c0-f1fa-488d-a477-47d4eb28e4fe">&lt;strong&gt;</bpt>Virtual Machines<ept id="23d410c0-f1fa-488d-a477-47d4eb28e4fe">&lt;/strong&gt;</ept>, and then select the <bpt id="6f0288be-bcb4-4474-b961-5dbd00d20c05">&lt;strong&gt;</bpt>MyTestVM1<ept id="6f0288be-bcb4-4474-b961-5dbd00d20c05">&lt;/strong&gt;</ept> virtual machine that you previously created.</source>
+          <target state="new">Click <bpt id="23d410c0-f1fa-488d-a477-47d4eb28e4fe">&lt;strong&gt;</bpt>Virtual Machines<ept id="23d410c0-f1fa-488d-a477-47d4eb28e4fe">&lt;/strong&gt;</ept>, and then select the <bpt id="6f0288be-bcb4-4474-b961-5dbd00d20c05">&lt;strong&gt;</bpt>MyTestVM1<ept id="6f0288be-bcb4-4474-b961-5dbd00d20c05">&lt;/strong&gt;</ept> virtual machine that you previously created.</target>
+        </trans-unit>
+        <trans-unit id="935b701d-6b4f-4b62-8e01-f9ac119505ae" xml:space="preserve">
+          <source>On the command bar, click <bpt id="de7071f1-b84b-4631-843b-5e2a753d5f17">&lt;strong&gt;</bpt>Attach<ept id="de7071f1-b84b-4631-843b-5e2a753d5f17">&lt;/strong&gt;</ept>, and then click <bpt id="a23efa25-56b5-44cd-9cc1-e297e091c91c">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="a23efa25-56b5-44cd-9cc1-e297e091c91c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the command bar, click <bpt id="de7071f1-b84b-4631-843b-5e2a753d5f17">&lt;strong&gt;</bpt>Attach<ept id="de7071f1-b84b-4631-843b-5e2a753d5f17">&lt;/strong&gt;</ept>, and then click <bpt id="a23efa25-56b5-44cd-9cc1-e297e091c91c">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="a23efa25-56b5-44cd-9cc1-e297e091c91c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="783041cf-81a7-4e44-8ac5-545f9c1cbfe6" xml:space="preserve">
+          <source>The <bpt id="0b78902d-c2ba-4ff7-a05a-5e27e002befa">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="0b78902d-c2ba-4ff7-a05a-5e27e002befa">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="0b78902d-c2ba-4ff7-a05a-5e27e002befa">&lt;strong&gt;</bpt>Attach Empty Disk<ept id="0b78902d-c2ba-4ff7-a05a-5e27e002befa">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="1eb4b8b4-8a1b-447b-a1ac-08d5c84de21b" xml:space="preserve">
+          <source><bpt id="9b304449-04c5-4b6f-b23d-30b4a3c2090b">&lt;linkText&gt;</bpt>Define disk details<ept id="9b304449-04c5-4b6f-b23d-30b4a3c2090b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9b304449-04c5-4b6f-b23d-30b4a3c2090b">&lt;linkText&gt;</bpt>Define disk details<ept id="9b304449-04c5-4b6f-b23d-30b4a3c2090b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3a4b7a58-e24b-4359-a59e-de195a0cccc5" xml:space="preserve">
+          <source>The <bpt id="29a1c773-3235-4e13-9427-3591b9489a0a">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="29a1c773-3235-4e13-9427-3591b9489a0a">&lt;/strong&gt;</ept>, <bpt id="1723d71b-448b-4a69-9fdc-1d67891fdc6e">&lt;strong&gt;</bpt>Storage Location<ept id="1723d71b-448b-4a69-9fdc-1d67891fdc6e">&lt;/strong&gt;</ept>, and <bpt id="75f04072-3065-47b2-8996-b43b17ff0ac2">&lt;strong&gt;</bpt>File Name<ept id="75f04072-3065-47b2-8996-b43b17ff0ac2">&lt;/strong&gt;</ept> are already defined for you.</source>
+          <target state="new">The <bpt id="29a1c773-3235-4e13-9427-3591b9489a0a">&lt;strong&gt;</bpt>Virtual Machine Name<ept id="29a1c773-3235-4e13-9427-3591b9489a0a">&lt;/strong&gt;</ept>, <bpt id="1723d71b-448b-4a69-9fdc-1d67891fdc6e">&lt;strong&gt;</bpt>Storage Location<ept id="1723d71b-448b-4a69-9fdc-1d67891fdc6e">&lt;/strong&gt;</ept>, and <bpt id="75f04072-3065-47b2-8996-b43b17ff0ac2">&lt;strong&gt;</bpt>File Name<ept id="75f04072-3065-47b2-8996-b43b17ff0ac2">&lt;/strong&gt;</ept> are already defined for you.</target>
+        </trans-unit>
+        <trans-unit id="6a76d602-79ad-44de-8aee-066459d697e1" xml:space="preserve">
+          <source>All you have to do is enter the size that you want for the disk.</source>
+          <target state="new">All you have to do is enter the size that you want for the disk.</target>
+        </trans-unit>
+        <trans-unit id="2bc04e6b-b782-4a88-9e43-68da73c135b9" xml:space="preserve">
+          <source>Type <bpt id="99269b30-2b4a-401d-b585-2c355c993443">&lt;strong&gt;</bpt>5<ept id="99269b30-2b4a-401d-b585-2c355c993443">&lt;/strong&gt;</ept> in the <bpt id="e5413a07-7f8c-4a0b-b519-5ceed42a3d23">&lt;strong&gt;</bpt>Size<ept id="e5413a07-7f8c-4a0b-b519-5ceed42a3d23">&lt;/strong&gt;</ept> field.</source>
+          <target state="new">Type <bpt id="99269b30-2b4a-401d-b585-2c355c993443">&lt;strong&gt;</bpt>5<ept id="99269b30-2b4a-401d-b585-2c355c993443">&lt;/strong&gt;</ept> in the <bpt id="e5413a07-7f8c-4a0b-b519-5ceed42a3d23">&lt;strong&gt;</bpt>Size<ept id="e5413a07-7f8c-4a0b-b519-5ceed42a3d23">&lt;/strong&gt;</ept> field.</target>
+        </trans-unit>
+        <trans-unit id="67725ef6-4b7a-44b8-811e-dbd080fddf21" xml:space="preserve">
+          <source><bpt id="65b4a816-fe91-4d05-80f5-c1572a8418ca">&lt;strong&gt;</bpt>Note:<ept id="65b4a816-fe91-4d05-80f5-c1572a8418ca">&lt;/strong&gt;</ept> All disks are created from a VHD file in Azure storage.</source>
+          <target state="new"><bpt id="65b4a816-fe91-4d05-80f5-c1572a8418ca">&lt;strong&gt;</bpt>Note:<ept id="65b4a816-fe91-4d05-80f5-c1572a8418ca">&lt;/strong&gt;</ept> All disks are created from a VHD file in Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="6c612551-b18a-47cd-b13e-fb8b9a4530da" xml:space="preserve">
+          <source>You can provide a name for the VHD file that is added to storage, but the name of the disk is automatically generated.</source>
+          <target state="new">You can provide a name for the VHD file that is added to storage, but the name of the disk is automatically generated.</target>
+        </trans-unit>
+        <trans-unit id="a9b9fe4c-3fd2-4651-b13f-61bd6cc3b97e" xml:space="preserve">
+          <source>Click the check mark to attach the data disk to the virtual machine.</source>
+          <target state="new">Click the check mark to attach the data disk to the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="4ddea718-631a-4d92-bbd0-97c1aee0f404" xml:space="preserve">
+          <source>You can verify that the data disk is successfully attached to the virtual machine by looking at the dashboard.</source>
+          <target state="new">You can verify that the data disk is successfully attached to the virtual machine by looking at the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="5c8384a4-f27e-4376-beeb-993a72fba081" xml:space="preserve">
+          <source>Click the name of the virtual machine to display the dashboard.</source>
+          <target state="new">Click the name of the virtual machine to display the dashboard.</target>
+        </trans-unit>
+        <trans-unit id="5400f326-1ad9-4bd0-b769-5055a18f2934" xml:space="preserve">
+          <source>The number of disks is now 2 for the virtual machine and the disk that you attached is listed in the <bpt id="080f24d4-5310-43a3-8982-ab4c03a98165">&lt;strong&gt;</bpt>Disks<ept id="080f24d4-5310-43a3-8982-ab4c03a98165">&lt;/strong&gt;</ept> table.</source>
+          <target state="new">The number of disks is now 2 for the virtual machine and the disk that you attached is listed in the <bpt id="080f24d4-5310-43a3-8982-ab4c03a98165">&lt;strong&gt;</bpt>Disks<ept id="080f24d4-5310-43a3-8982-ab4c03a98165">&lt;/strong&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="73189b9a-29b3-47cb-b4ff-019c336eb124" xml:space="preserve">
+          <source><bpt id="9a83ae58-cf21-43e8-a774-9f9cf5432464">&lt;linkText&gt;</bpt>Attach disk success<ept id="9a83ae58-cf21-43e8-a774-9f9cf5432464">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a83ae58-cf21-43e8-a774-9f9cf5432464">&lt;linkText&gt;</bpt>Attach disk success<ept id="9a83ae58-cf21-43e8-a774-9f9cf5432464">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97ae7426-2eaa-4b43-aeec-d1e4e7995370" xml:space="preserve">
+          <source>The data disk that you just attached to the virtual machine is offline and not initialized after you add it.</source>
+          <target state="new">The data disk that you just attached to the virtual machine is offline and not initialized after you add it.</target>
+        </trans-unit>
+        <trans-unit id="84614953-bed5-4707-b827-bdfe5a9bbcb2" xml:space="preserve">
+          <source>You must log on to the machine and initialize the disk to use it for storing data.</source>
+          <target state="new">You must log on to the machine and initialize the disk to use it for storing data.</target>
+        </trans-unit>
+        <trans-unit id="28b4f863-050d-4d88-9fbc-d8f96907e15c" xml:space="preserve">
+          <source>Connect to the virtual machine by using the steps listed above in <bpt id="ee8c8ad0-d32b-4fec-9a2a-87bfabec367d">&lt;strong&gt;</bpt>How to log on to the virtual machine after you create it<ept id="ee8c8ad0-d32b-4fec-9a2a-87bfabec367d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Connect to the virtual machine by using the steps listed above in <bpt id="ee8c8ad0-d32b-4fec-9a2a-87bfabec367d">&lt;strong&gt;</bpt>How to log on to the virtual machine after you create it<ept id="ee8c8ad0-d32b-4fec-9a2a-87bfabec367d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aaf0efe1-7ded-4095-a5b4-3433029d7d41" xml:space="preserve">
+          <source>In the SSH window, type the following command, and then enter the account password:</source>
+          <target state="new">In the SSH window, type the following command, and then enter the account password:</target>
+        </trans-unit>
+        <trans-unit id="c5b2a1af-d11a-4f1f-ab8d-4eec54b7ef3a" xml:space="preserve">
+          <source><bpt id="4f4483e6-125e-461e-aa63-b94324988189">&lt;code&gt;</bpt>sudo grep SCSI /var/log/messages<ept id="4f4483e6-125e-461e-aa63-b94324988189">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="4f4483e6-125e-461e-aa63-b94324988189">&lt;code&gt;</bpt>sudo grep SCSI /var/log/messages<ept id="4f4483e6-125e-461e-aa63-b94324988189">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bde6fc2f-2e64-46af-880d-cbd07d834ad8" xml:space="preserve">
+          <source>You can find the identifier of the last data disk that was added in the messages that are displayed.</source>
+          <target state="new">You can find the identifier of the last data disk that was added in the messages that are displayed.</target>
+        </trans-unit>
+        <trans-unit id="025b2e9e-ea6f-4620-bc78-d6dee836e874" xml:space="preserve">
+          <source><bpt id="ec13693e-74c3-4e19-9efb-5daa94a136b0">&lt;linkText&gt;</bpt>Identify disk<ept id="ec13693e-74c3-4e19-9efb-5daa94a136b0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec13693e-74c3-4e19-9efb-5daa94a136b0">&lt;linkText&gt;</bpt>Identify disk<ept id="ec13693e-74c3-4e19-9efb-5daa94a136b0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff489e28-e401-4ed8-8cad-2a3e5b7d36c7" xml:space="preserve">
+          <source>In the SSH window, type the following command to create a new device, and then enter the account password:</source>
+          <target state="new">In the SSH window, type the following command to create a new device, and then enter the account password:</target>
+        </trans-unit>
+        <trans-unit id="d8552209-cd6b-401a-a9d5-0dfd43416e10" xml:space="preserve">
+          <source><bpt id="96b807b6-78d0-4ed6-8988-1962e1976902">&lt;code&gt;</bpt>sudo fdisk /dev/sdc<ept id="96b807b6-78d0-4ed6-8988-1962e1976902">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="96b807b6-78d0-4ed6-8988-1962e1976902">&lt;code&gt;</bpt>sudo fdisk /dev/sdc<ept id="96b807b6-78d0-4ed6-8988-1962e1976902">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0dd642e0-6e76-4b2a-bca6-391e70ba6958" xml:space="preserve">
+          <source>In this example you may need to use <bpt id="4888bea0-d686-405d-80f8-11df7ac59bf8">&lt;code&gt;</bpt>sudo -i<ept id="4888bea0-d686-405d-80f8-11df7ac59bf8">&lt;/code&gt;</ept> on some distributions if /sbin or /usr/sbin are not in your <bpt id="a298c554-aa20-4505-b61d-a82ebebf52cf">&lt;code&gt;</bpt>$PATH<ept id="a298c554-aa20-4505-b61d-a82ebebf52cf">&lt;/code&gt;</ept>.</source>
+          <target state="new">In this example you may need to use <bpt id="4888bea0-d686-405d-80f8-11df7ac59bf8">&lt;code&gt;</bpt>sudo -i<ept id="4888bea0-d686-405d-80f8-11df7ac59bf8">&lt;/code&gt;</ept> on some distributions if /sbin or /usr/sbin are not in your <bpt id="a298c554-aa20-4505-b61d-a82ebebf52cf">&lt;code&gt;</bpt>$PATH<ept id="a298c554-aa20-4505-b61d-a82ebebf52cf">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dde36c1d-90cf-40e3-87af-dfe6f90a6cc6" xml:space="preserve">
+          <source>Type <bpt id="0d535612-447f-4dfe-8977-81139fe3b708">&lt;strong&gt;</bpt>n<ept id="0d535612-447f-4dfe-8977-81139fe3b708">&lt;/strong&gt;</ept> to create a new partition.</source>
+          <target state="new">Type <bpt id="0d535612-447f-4dfe-8977-81139fe3b708">&lt;strong&gt;</bpt>n<ept id="0d535612-447f-4dfe-8977-81139fe3b708">&lt;/strong&gt;</ept> to create a new partition.</target>
+        </trans-unit>
+        <trans-unit id="382ddab8-c05f-48e6-a86d-d60ca42eada7" xml:space="preserve">
+          <source><bpt id="590ac64a-3114-48e1-a6d0-1ff5ccd78e96">&lt;linkText&gt;</bpt>Create new device<ept id="590ac64a-3114-48e1-a6d0-1ff5ccd78e96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="590ac64a-3114-48e1-a6d0-1ff5ccd78e96">&lt;linkText&gt;</bpt>Create new device<ept id="590ac64a-3114-48e1-a6d0-1ff5ccd78e96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec098000-ce12-4ac2-b3ed-a1baa97a7d77" xml:space="preserve">
+          <source>Type <bpt id="cd46cbda-a22c-41cf-8dca-6dabaab3e2fe">&lt;strong&gt;</bpt>p<ept id="cd46cbda-a22c-41cf-8dca-6dabaab3e2fe">&lt;/strong&gt;</ept> to make the partition the primary partition, type <bpt id="76caec78-26d4-4587-869e-c63c83a2963b">&lt;strong&gt;</bpt>1<ept id="76caec78-26d4-4587-869e-c63c83a2963b">&lt;/strong&gt;</ept> to make it the first partition, and then type enter to accept the default value for the cylinder.</source>
+          <target state="new">Type <bpt id="cd46cbda-a22c-41cf-8dca-6dabaab3e2fe">&lt;strong&gt;</bpt>p<ept id="cd46cbda-a22c-41cf-8dca-6dabaab3e2fe">&lt;/strong&gt;</ept> to make the partition the primary partition, type <bpt id="76caec78-26d4-4587-869e-c63c83a2963b">&lt;strong&gt;</bpt>1<ept id="76caec78-26d4-4587-869e-c63c83a2963b">&lt;/strong&gt;</ept> to make it the first partition, and then type enter to accept the default value for the cylinder.</target>
+        </trans-unit>
+        <trans-unit id="4b2294f0-4382-46c4-a5fa-32ba1689d400" xml:space="preserve">
+          <source><bpt id="f101e08b-292c-498d-b03c-56313184894c">&lt;linkText&gt;</bpt>Create partition<ept id="f101e08b-292c-498d-b03c-56313184894c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f101e08b-292c-498d-b03c-56313184894c">&lt;linkText&gt;</bpt>Create partition<ept id="f101e08b-292c-498d-b03c-56313184894c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4bb35608-8bed-4664-a7b9-803f758b4b4c" xml:space="preserve">
+          <source>Type <bpt id="859f2c61-3ca8-4ff3-ba08-d0d929f47915">&lt;strong&gt;</bpt>p<ept id="859f2c61-3ca8-4ff3-ba08-d0d929f47915">&lt;/strong&gt;</ept> to see the details about the disk that is being partitioned.</source>
+          <target state="new">Type <bpt id="859f2c61-3ca8-4ff3-ba08-d0d929f47915">&lt;strong&gt;</bpt>p<ept id="859f2c61-3ca8-4ff3-ba08-d0d929f47915">&lt;/strong&gt;</ept> to see the details about the disk that is being partitioned.</target>
+        </trans-unit>
+        <trans-unit id="8a987caa-e26f-4aa6-91e2-f163557a1bbd" xml:space="preserve">
+          <source><bpt id="5e161b20-17db-4d2d-a327-da350780d6c3">&lt;linkText&gt;</bpt>List disk information<ept id="5e161b20-17db-4d2d-a327-da350780d6c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5e161b20-17db-4d2d-a327-da350780d6c3">&lt;linkText&gt;</bpt>List disk information<ept id="5e161b20-17db-4d2d-a327-da350780d6c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb653787-a736-47f5-b0ee-e46f27de416b" xml:space="preserve">
+          <source>Type <bpt id="1b47e65d-6bef-428b-b3c4-b9c256deca14">&lt;strong&gt;</bpt>w<ept id="1b47e65d-6bef-428b-b3c4-b9c256deca14">&lt;/strong&gt;</ept> to write the settings for the disk.</source>
+          <target state="new">Type <bpt id="1b47e65d-6bef-428b-b3c4-b9c256deca14">&lt;strong&gt;</bpt>w<ept id="1b47e65d-6bef-428b-b3c4-b9c256deca14">&lt;/strong&gt;</ept> to write the settings for the disk.</target>
+        </trans-unit>
+        <trans-unit id="1b5ea9ee-1681-4a70-b67f-26274b741af3" xml:space="preserve">
+          <source><bpt id="d7b01ace-8fa3-432c-9ef2-bfd6b2b466c3">&lt;linkText&gt;</bpt>Write the disk changes<ept id="d7b01ace-8fa3-432c-9ef2-bfd6b2b466c3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d7b01ace-8fa3-432c-9ef2-bfd6b2b466c3">&lt;linkText&gt;</bpt>Write the disk changes<ept id="d7b01ace-8fa3-432c-9ef2-bfd6b2b466c3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b88ce23-d0e4-45d6-a2b0-8852c46ea05d" xml:space="preserve">
+          <source>You must create the file system on the new partition.</source>
+          <target state="new">You must create the file system on the new partition.</target>
+        </trans-unit>
+        <trans-unit id="286b152c-d7e1-40ae-80b0-b72fbae0b731" xml:space="preserve">
+          <source>As an example, type the following command to create the file system, and then enter the account password:</source>
+          <target state="new">As an example, type the following command to create the file system, and then enter the account password:</target>
+        </trans-unit>
+        <trans-unit id="17d0f1ae-5ad5-4a68-96bf-ce7df4b47d59" xml:space="preserve">
+          <source><bpt id="64b25b04-5afa-4dec-8352-26acdc265010">&lt;code&gt;</bpt>sudo mkfs -t ext4 /dev/sdc1<ept id="64b25b04-5afa-4dec-8352-26acdc265010">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="64b25b04-5afa-4dec-8352-26acdc265010">&lt;code&gt;</bpt>sudo mkfs -t ext4 /dev/sdc1<ept id="64b25b04-5afa-4dec-8352-26acdc265010">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2ed780cb-1d04-4814-9989-682bcd884051" xml:space="preserve">
+          <source><bpt id="4ea62bdf-bd27-4779-9503-f8bfbd51d064">&lt;linkText&gt;</bpt>Create file system<ept id="4ea62bdf-bd27-4779-9503-f8bfbd51d064">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4ea62bdf-bd27-4779-9503-f8bfbd51d064">&lt;linkText&gt;</bpt>Create file system<ept id="4ea62bdf-bd27-4779-9503-f8bfbd51d064">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="711a759d-1e9b-4e92-ae10-a7f81f01a34e" xml:space="preserve">
+          <source>Note that SUSE Linux Enterprise 11 systems provide only read-only access for ext4 file systems.</source>
+          <target state="new">Note that SUSE Linux Enterprise 11 systems provide only read-only access for ext4 file systems.</target>
+        </trans-unit>
+        <trans-unit id="5ad220ee-4c1b-44f1-80ec-1f40f2190f73" xml:space="preserve">
+          <source>For these systems, we recommended formatting the new file system as ext3 rather than ext4.</source>
+          <target state="new">For these systems, we recommended formatting the new file system as ext3 rather than ext4.</target>
+        </trans-unit>
+        <trans-unit id="c5bd6619-6a5b-4a86-bb1b-54a23a01c71b" xml:space="preserve">
+          <source>Create a directory to mount the new file system.</source>
+          <target state="new">Create a directory to mount the new file system.</target>
+        </trans-unit>
+        <trans-unit id="307aec7d-3233-4890-9e5d-309575410271" xml:space="preserve">
+          <source>As an example, type the following command, and then type the account password:</source>
+          <target state="new">As an example, type the following command, and then type the account password:</target>
+        </trans-unit>
+        <trans-unit id="75fb46a1-b3f0-4bcf-b1ee-98ab7f06e073" xml:space="preserve">
+          <source><bpt id="25303ddf-4488-4639-adfd-34c3eb1ad4f7">&lt;code&gt;</bpt>sudo mkdir /datadrive<ept id="25303ddf-4488-4639-adfd-34c3eb1ad4f7">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="25303ddf-4488-4639-adfd-34c3eb1ad4f7">&lt;code&gt;</bpt>sudo mkdir /datadrive<ept id="25303ddf-4488-4639-adfd-34c3eb1ad4f7">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2126cd5c-c9c6-47e8-80d9-e50c28f2fb67" xml:space="preserve">
+          <source>Type the following command to mount the drive:</source>
+          <target state="new">Type the following command to mount the drive:</target>
+        </trans-unit>
+        <trans-unit id="317f57fa-6467-435b-868f-db0e91287638" xml:space="preserve">
+          <source><bpt id="78295e58-d127-4f30-afdf-d63d2be4c216">&lt;code&gt;</bpt>sudo mount /dev/sdc1 /datadrive<ept id="78295e58-d127-4f30-afdf-d63d2be4c216">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="78295e58-d127-4f30-afdf-d63d2be4c216">&lt;code&gt;</bpt>sudo mount /dev/sdc1 /datadrive<ept id="78295e58-d127-4f30-afdf-d63d2be4c216">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="38a91b98-2246-4e83-8d8b-9e95df1ea67e" xml:space="preserve">
+          <source>The data disk is now ready to use as <bpt id="8dd5f9fd-9768-49a2-934f-b8d5ad279a76">&lt;strong&gt;</bpt>/datadrive<ept id="8dd5f9fd-9768-49a2-934f-b8d5ad279a76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The data disk is now ready to use as <bpt id="8dd5f9fd-9768-49a2-934f-b8d5ad279a76">&lt;strong&gt;</bpt>/datadrive<ept id="8dd5f9fd-9768-49a2-934f-b8d5ad279a76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e99f0cd7-5738-42b5-b08a-ca3064e0d2b4" xml:space="preserve">
+          <source>Add the new drive to /etc/fstab:</source>
+          <target state="new">Add the new drive to /etc/fstab:</target>
+        </trans-unit>
+        <trans-unit id="a38caf85-3007-49a9-982e-a4c2c27922b9" xml:space="preserve">
+          <source>To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file.</source>
+          <target state="new">To ensure the drive is re-mounted automatically after a reboot it must be added to the /etc/fstab file.</target>
+        </trans-unit>
+        <trans-unit id="e4a52277-6a45-44a8-9d6b-ffa4e500c55c" xml:space="preserve">
+          <source>In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1).</source>
+          <target state="new">In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1).</target>
+        </trans-unit>
+        <trans-unit id="a48c3b80-bfcb-4942-b4a7-56f453d803e6" xml:space="preserve">
+          <source>To find the UUID of the new drive you can use the <bpt id="bb7e6611-fa62-43b9-8004-3acdf3036b6d">&lt;strong&gt;</bpt>blkid<ept id="bb7e6611-fa62-43b9-8004-3acdf3036b6d">&lt;/strong&gt;</ept> utility:</source>
+          <target state="new">To find the UUID of the new drive you can use the <bpt id="bb7e6611-fa62-43b9-8004-3acdf3036b6d">&lt;strong&gt;</bpt>blkid<ept id="bb7e6611-fa62-43b9-8004-3acdf3036b6d">&lt;/strong&gt;</ept> utility:</target>
+        </trans-unit>
+        <trans-unit id="7805aa2b-4f8b-41ff-8af3-71053d5bc732" xml:space="preserve">
+          <source>The output will look similar to the following:</source>
+          <target state="new">The output will look similar to the following:</target>
+        </trans-unit>
+        <trans-unit id="117581a9-73b1-4893-8055-8f23a018ac30" xml:space="preserve">
+          <source>blkid may not require sudo access in all cases, however, it may be easier to run with <bpt id="c3337e07-ec91-46de-a351-d6f55d88965a">&lt;code&gt;</bpt>sudo -i<ept id="c3337e07-ec91-46de-a351-d6f55d88965a">&lt;/code&gt;</ept> on some distributions if /sbin or /usr/sbin are not in your <bpt id="38da14c6-bf4d-4e4a-bfe2-7246cb1786d8">&lt;code&gt;</bpt>$PATH<ept id="38da14c6-bf4d-4e4a-bfe2-7246cb1786d8">&lt;/code&gt;</ept>.</source>
+          <target state="new">blkid may not require sudo access in all cases, however, it may be easier to run with <bpt id="c3337e07-ec91-46de-a351-d6f55d88965a">&lt;code&gt;</bpt>sudo -i<ept id="c3337e07-ec91-46de-a351-d6f55d88965a">&lt;/code&gt;</ept> on some distributions if /sbin or /usr/sbin are not in your <bpt id="38da14c6-bf4d-4e4a-bfe2-7246cb1786d8">&lt;code&gt;</bpt>$PATH<ept id="38da14c6-bf4d-4e4a-bfe2-7246cb1786d8">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1d41d547-64aa-4478-8a26-f6e637c81ca5" xml:space="preserve">
+          <source><bpt id="f2459b2f-10cd-4f1f-8603-f747f3b62e0f">&lt;strong&gt;</bpt>Caution:<ept id="f2459b2f-10cd-4f1f-8603-f747f3b62e0f">&lt;/strong&gt;</ept> Improperly editing the /etc/fstab file could result in an unbootable system.</source>
+          <target state="new"><bpt id="f2459b2f-10cd-4f1f-8603-f747f3b62e0f">&lt;strong&gt;</bpt>Caution:<ept id="f2459b2f-10cd-4f1f-8603-f747f3b62e0f">&lt;/strong&gt;</ept> Improperly editing the /etc/fstab file could result in an unbootable system.</target>
+        </trans-unit>
+        <trans-unit id="c57f5525-7276-45b8-936e-76957381a85f" xml:space="preserve">
+          <source>If unsure, please refer to the distribution's documentation for information on how to properly edit this file.</source>
+          <target state="new">If unsure, please refer to the distribution's documentation for information on how to properly edit this file.</target>
+        </trans-unit>
+        <trans-unit id="782adcb3-a22e-4ba2-80e8-5c617695d331" xml:space="preserve">
+          <source>It is also recommended that a backup of the /etc/fstab file is created before editing.</source>
+          <target state="new">It is also recommended that a backup of the /etc/fstab file is created before editing.</target>
+        </trans-unit>
+        <trans-unit id="f938cc65-d8a0-433d-91d1-0a57a6c8c96b" xml:space="preserve">
+          <source>Using a text editor, enter the information about the new file system at the end of the /etc/fstab file.</source>
+          <target state="new">Using a text editor, enter the information about the new file system at the end of the /etc/fstab file.</target>
+        </trans-unit>
+        <trans-unit id="f34ad340-4604-4b7b-a9cf-1b479f338637" xml:space="preserve">
+          <source>In this example we will use the UUID value for the new <bpt id="67099f20-d5a8-4735-84b1-03358257bb13">&lt;strong&gt;</bpt>/dev/sdc1<ept id="67099f20-d5a8-4735-84b1-03358257bb13">&lt;/strong&gt;</ept> device that was created in the previous steps, and the mountpoint <bpt id="86428626-e0ab-4bc1-8eb0-ff013bb556b3">&lt;strong&gt;</bpt>/datadrive<ept id="86428626-e0ab-4bc1-8eb0-ff013bb556b3">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In this example we will use the UUID value for the new <bpt id="67099f20-d5a8-4735-84b1-03358257bb13">&lt;strong&gt;</bpt>/dev/sdc1<ept id="67099f20-d5a8-4735-84b1-03358257bb13">&lt;/strong&gt;</ept> device that was created in the previous steps, and the mountpoint <bpt id="86428626-e0ab-4bc1-8eb0-ff013bb556b3">&lt;strong&gt;</bpt>/datadrive<ept id="86428626-e0ab-4bc1-8eb0-ff013bb556b3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="5ae1aa6e-8240-424f-81dd-4893ff3989f9" xml:space="preserve">
+          <source>Or, on systems based on SUSE Linux you may need to use a slightly different format:</source>
+          <target state="new">Or, on systems based on SUSE Linux you may need to use a slightly different format:</target>
+        </trans-unit>
+        <trans-unit id="f806f31c-bc8c-4956-b544-9885ba5faeab" xml:space="preserve">
+          <source>If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.</source>
+          <target state="new">If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.</target>
+        </trans-unit>
+        <trans-unit id="a363d75c-d043-4dd7-84b0-6325e46b1a8a" xml:space="preserve">
+          <source>You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point <bpt id="267a1bd4-487f-44fa-8fda-88423757294e">&lt;code&gt;</bpt>/datadrive<ept id="267a1bd4-487f-44fa-8fda-88423757294e">&lt;/code&gt;</ept> created in the earlier steps: </source>
+          <target state="new">You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point <bpt id="267a1bd4-487f-44fa-8fda-88423757294e">&lt;code&gt;</bpt>/datadrive<ept id="267a1bd4-487f-44fa-8fda-88423757294e">&lt;/code&gt;</ept> created in the earlier steps: </target>
+        </trans-unit>
+        <trans-unit id="cc011534-94c0-47f0-b6df-92e68f7a531b" xml:space="preserve">
+          <source>If the second command produces an error, check the /etc/fstab file for correct syntax.</source>
+          <target state="new">If the second command produces an error, check the /etc/fstab file for correct syntax.</target>
+        </trans-unit>
+        <trans-unit id="b2acdf4e-4695-4347-a7a8-36901abb2702" xml:space="preserve">
+          <source>Subsequently removing a data disk without editing fstab could cause the VM to fail to boot.</source>
+          <target state="new">Subsequently removing a data disk without editing fstab could cause the VM to fail to boot.</target>
+        </trans-unit>
+        <trans-unit id="21ccdc27-62ba-44ff-b037-d1fee13c1b59" xml:space="preserve">
+          <source>If this is a common occurrence, then most distributions provide either the <bpt id="53315124-7057-41d9-b3c0-35f478cc99a2">&lt;code&gt;</bpt>nofail<ept id="53315124-7057-41d9-b3c0-35f478cc99a2">&lt;/code&gt;</ept> and/or <bpt id="1550ed47-c48f-4305-a8df-099c87839b3c">&lt;code&gt;</bpt>nobootwait<ept id="1550ed47-c48f-4305-a8df-099c87839b3c">&lt;/code&gt;</ept> fstab options that will allow a system to boot even if the disk is not present.</source>
+          <target state="new">If this is a common occurrence, then most distributions provide either the <bpt id="53315124-7057-41d9-b3c0-35f478cc99a2">&lt;code&gt;</bpt>nofail<ept id="53315124-7057-41d9-b3c0-35f478cc99a2">&lt;/code&gt;</ept> and/or <bpt id="1550ed47-c48f-4305-a8df-099c87839b3c">&lt;code&gt;</bpt>nobootwait<ept id="1550ed47-c48f-4305-a8df-099c87839b3c">&lt;/code&gt;</ept> fstab options that will allow a system to boot even if the disk is not present.</target>
+        </trans-unit>
+        <trans-unit id="ae78303e-2059-4d1e-8e50-2cf3065306bb" xml:space="preserve">
+          <source>Please consult your distribution's documentation for more information on these parameters.</source>
+          <target state="new">Please consult your distribution's documentation for more information on these parameters.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

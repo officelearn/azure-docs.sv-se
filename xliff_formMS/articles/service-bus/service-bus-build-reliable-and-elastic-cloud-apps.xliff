@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1296cd72-b824-4f31-8675-4a7b53b679e6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1296cd72-b824-4f31-8675-4a7b53b679e6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="619ad652-df20-4e5e-9adc-cba57eac8320">
+        <trans-unit id="7824c438-d6e8-4144-9481-1a25d2ec0ce9" xml:space="preserve">
+          <source>Build Reliable and Elastic Cloud Apps with Messaging</source>
+          <target state="new">Build Reliable and Elastic Cloud Apps with Messaging</target>
+        </trans-unit>
+        <trans-unit id="aa7fad93-15e7-407d-b56b-cf49cc832f85" xml:space="preserve">
+          <source>Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure.</source>
+          <target state="new">Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="d60ecfac-f66c-4eaf-b854-29aa5f2ad091" xml:space="preserve">
+          <source>Dynamic demand is a reality for today's applications.</source>
+          <target state="new">Dynamic demand is a reality for today's applications.</target>
+        </trans-unit>
+        <trans-unit id="018ab618-0738-4612-8fca-a881a68a1109" xml:space="preserve">
+          <source>From seasonal and variable demand to unexpected social media trends, modern applications must deal gracefully with spikes in load that can be both uncertain or expected.</source>
+          <target state="new">From seasonal and variable demand to unexpected social media trends, modern applications must deal gracefully with spikes in load that can be both uncertain or expected.</target>
+        </trans-unit>
+        <trans-unit id="d5578f3c-d1cf-42c2-b1d2-638fceddfbdf" xml:space="preserve">
+          <source>The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.</source>
+          <target state="new">The Platform as a Service (PaaS) nature of Azure Service Bus enables you to create applications that scale easily and that can recover from spikes or momentary outages of components.</target>
+        </trans-unit>
+        <trans-unit id="2c6086c4-064a-4c3c-bfad-0e1f1bea2a59" xml:space="preserve">
+          <source><bpt id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;linkText&gt;</bpt>Build a .NET multi-tier application using Service Bus Queues<ept id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;/linkText&gt;</ept><bpt id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;title&gt;</bpt><ept id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;linkText&gt;</bpt>Build a .NET multi-tier application using Service Bus Queues<ept id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;/linkText&gt;</ept><bpt id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;title&gt;</bpt><ept id="e0ffbbbd-d811-403a-beb2-134925aaadb7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f1808d8f-cd98-4eac-84ec-23aa9e59a7fb" xml:space="preserve">
+          <source><bpt id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;linkText&gt;</bpt>Microsoft Azure Service Bus fundamentals<ept id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;/linkText&gt;</ept><bpt id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;title&gt;</bpt><ept id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;linkText&gt;</bpt>Microsoft Azure Service Bus fundamentals<ept id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;/linkText&gt;</ept><bpt id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;title&gt;</bpt><ept id="ea28169f-9924-44c5-bdd6-b2137528f23c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ae72d385-dbf1-40df-9ada-9aca19004007" xml:space="preserve">
+          <source><bpt id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;linkText&gt;</bpt>Queue-based load leveling pattern<ept id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;/linkText&gt;</ept><bpt id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;title&gt;</bpt><ept id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;linkText&gt;</bpt>Queue-based load leveling pattern<ept id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;/linkText&gt;</ept><bpt id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;title&gt;</bpt><ept id="cb2cd4b4-3065-4838-9bba-459fdcbb9f8e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="aa7c9002-7d6a-4360-ba01-34179ba0aac1" xml:space="preserve">
+          <source><bpt id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;linkText&gt;</bpt>Competing consumers<ept id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;/linkText&gt;</ept><bpt id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;title&gt;</bpt><ept id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;linkText&gt;</bpt>Competing consumers<ept id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;/linkText&gt;</ept><bpt id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;title&gt;</bpt><ept id="17369511-aeb6-4900-9fcd-c4b283c7052b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9010de20-e0bd-4c84-a3ae-a362f3d41774" xml:space="preserve">
+          <source>[Transportation Solution Provider Screens Commercial Vehicles - Xerox](http://www.microsoft.com/casestudies/Case<bpt id="b83a8601-a834-4df9-9b52-20eb9ade33d3">&lt;em&gt;</bpt>Study<ept id="b83a8601-a834-4df9-9b52-20eb9ade33d3">&lt;/em&gt;</ept>Detail.aspx?CaseStudyID=710000000945)</source>
+          <target state="new">[Transportation Solution Provider Screens Commercial Vehicles - Xerox](http://www.microsoft.com/casestudies/Case<bpt id="b83a8601-a834-4df9-9b52-20eb9ade33d3">&lt;em&gt;</bpt>Study<ept id="b83a8601-a834-4df9-9b52-20eb9ade33d3">&lt;/em&gt;</ept>Detail.aspx?CaseStudyID=710000000945)</target>
+        </trans-unit>
+        <trans-unit id="9b8c2a86-0852-485c-8a1c-42a76d89b058" xml:space="preserve">
+          <source><bpt id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;linkText&gt;</bpt>How to use Service Bus queues<ept id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;/linkText&gt;</ept><bpt id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;title&gt;</bpt><ept id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;linkText&gt;</bpt>How to use Service Bus queues<ept id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;/linkText&gt;</ept><bpt id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;title&gt;</bpt><ept id="6dd4ecc2-ced6-4165-b009-d5942990033c">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="16afabae-d518-4bdb-a338-3b905c6bb102" xml:space="preserve">
+          <source><bpt id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;linkText&gt;</bpt>Deadlettering in Service Bus Brokered Messaging (October 21 2011 blog post)<ept id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;/linkText&gt;</ept><bpt id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;title&gt;</bpt><ept id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;linkText&gt;</bpt>Deadlettering in Service Bus Brokered Messaging (October 21 2011 blog post)<ept id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;/linkText&gt;</ept><bpt id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;title&gt;</bpt><ept id="9fe0586c-9c41-409d-8af7-aee09124d9d7">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="b46d3a02-1ddb-4f09-96b8-19b01634be44" xml:space="preserve">
+          <source><bpt id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;linkText&gt;</bpt>Best practices for insulating Service Bus applications against Service Bus outages and disasters<ept id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;/linkText&gt;</ept><bpt id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;title&gt;</bpt><ept id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;linkText&gt;</bpt>Best practices for insulating Service Bus applications against Service Bus outages and disasters<ept id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;/linkText&gt;</ept><bpt id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;title&gt;</bpt><ept id="7fb14cdb-7fd2-4c98-8d68-670ac5e2b178">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7a7a520e-d74b-4aee-aec5-b9a82b37da66" xml:space="preserve">
+          <source><bpt id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;linkText&gt;</bpt>Brokered Messaging: Request Response sample<ept id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;/linkText&gt;</ept><bpt id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;title&gt;</bpt><ept id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;linkText&gt;</bpt>Brokered Messaging: Request Response sample<ept id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;/linkText&gt;</ept><bpt id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;title&gt;</bpt><ept id="e7515090-e10f-45cc-b733-82cd3afd4864">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="772168dc-cfc2-4226-8883-7ad94690ae55" xml:space="preserve">
+          <source><bpt id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;linkText&gt;</bpt>Multi-Tier application with Azure Service Bus<ept id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;/linkText&gt;</ept><bpt id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;title&gt;</bpt><ept id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;linkText&gt;</bpt>Multi-Tier application with Azure Service Bus<ept id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;/linkText&gt;</ept><bpt id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;title&gt;</bpt><ept id="12c51787-3344-495b-baf8-76cdeae0cacf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="891b7e74-c701-4262-ab93-586416230494" xml:space="preserve">
+          <source><bpt id="13680242-6efd-467c-b78c-9415a231ff82">&lt;linkText&gt;</bpt>Azure Queues and Azure Service Bus Queues - compared and contrasted<ept id="13680242-6efd-467c-b78c-9415a231ff82">&lt;/linkText&gt;</ept><bpt id="13680242-6efd-467c-b78c-9415a231ff82">&lt;title&gt;</bpt><ept id="13680242-6efd-467c-b78c-9415a231ff82">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="13680242-6efd-467c-b78c-9415a231ff82">&lt;linkText&gt;</bpt>Azure Queues and Azure Service Bus Queues - compared and contrasted<ept id="13680242-6efd-467c-b78c-9415a231ff82">&lt;/linkText&gt;</ept><bpt id="13680242-6efd-467c-b78c-9415a231ff82">&lt;title&gt;</bpt><ept id="13680242-6efd-467c-b78c-9415a231ff82">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="01a0b7ef-dcc5-4788-8a40-cf92164f27d0" xml:space="preserve">
+          <source><bpt id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;linkText&gt;</bpt>Service Bus REST API Reference<ept id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;/linkText&gt;</ept><bpt id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;title&gt;</bpt><ept id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;linkText&gt;</bpt>Service Bus REST API Reference<ept id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;/linkText&gt;</ept><bpt id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;title&gt;</bpt><ept id="16f39a9a-d52a-4d7c-ac34-1c700bc1d089">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff184288-d06c-427f-b8e6-235429aba1fb" xml:space="preserve">
+          <source><bpt id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;linkText&gt;</bpt>Cloud Services<ept id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;/linkText&gt;</ept><bpt id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;title&gt;</bpt><ept id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;linkText&gt;</bpt>Cloud Services<ept id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;/linkText&gt;</ept><bpt id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;title&gt;</bpt><ept id="aa7128b3-835e-4aee-9595-81af75d53364">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c0e4dab0-1788-4603-92ed-513c3b199d13" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c0e4dab0-1788-4603-92ed-513c3b199d13" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f9b393b6-fc98-4dbc-b7c1-4fff41727dfb">
+        <trans-unit id="eee38e6b-8cfb-40ca-b33e-c7482fc59a48" xml:space="preserve">
+          <source>Create table as select (CTAS) in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Create table as select (CTAS) in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ce0ae535-5222-4a39-a13c-bd9b644bf812" xml:space="preserve">
+          <source>Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="483b1c2a-d8ca-4461-b1b8-948db461901c" xml:space="preserve">
+          <source>Create table as select or CTAS is one of the most important T-SQL features available.</source>
+          <target state="new">Create table as select or CTAS is one of the most important T-SQL features available.</target>
+        </trans-unit>
+        <trans-unit id="cafbcdb9-f741-41f2-8540-5d4368430c93" xml:space="preserve">
+          <source>It is a fully parallelized operation that creates a new table based on the output of a Select statement.</source>
+          <target state="new">It is a fully parallelized operation that creates a new table based on the output of a Select statement.</target>
+        </trans-unit>
+        <trans-unit id="ff6da9fa-794c-4d83-a104-d4e8ff435d3f" xml:space="preserve">
+          <source>You can consider it to be a supercharged version of SELECT..INTO if you would like.</source>
+          <target state="new">You can consider it to be a supercharged version of SELECT..INTO if you would like.</target>
+        </trans-unit>
+        <trans-unit id="a7bf0079-6c7d-4251-82d0-324c3b1ead60" xml:space="preserve">
+          <source>CTAS can also be used to work around a number of the unsupported features listed above.</source>
+          <target state="new">CTAS can also be used to work around a number of the unsupported features listed above.</target>
+        </trans-unit>
+        <trans-unit id="634234cc-e645-4dbe-a8cd-13c14a306b63" xml:space="preserve">
+          <source>This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse.</source>
+          <target state="new">This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="6ba77dbc-af3f-4997-9df7-be0edd1cbb9a" xml:space="preserve">
+          <source>This is as a result of its fully parallelized design.</source>
+          <target state="new">This is as a result of its fully parallelized design.</target>
+        </trans-unit>
+        <trans-unit id="1005981c-0d18-434a-ad28-771dde95da10" xml:space="preserve">
+          <source>Try to think "CTAS first".</source>
+          <target state="new">Try to think "CTAS first".</target>
+        </trans-unit>
+        <trans-unit id="4dc04dd2-09af-497f-9dcd-59f53045649a" xml:space="preserve">
+          <source>If you think you can solve a problem using CTAS then that is generally the best way to approach it - even if you are writing more data as a result.</source>
+          <target state="new">If you think you can solve a problem using CTAS then that is generally the best way to approach it - even if you are writing more data as a result.</target>
+        </trans-unit>
+        <trans-unit id="4bf0b056-71b8-41c3-bb6a-baf5b3c727d3" xml:space="preserve">
+          <source>Scenarios that can be worked around with CTAS include:</source>
+          <target state="new">Scenarios that can be worked around with CTAS include:</target>
+        </trans-unit>
+        <trans-unit id="16685fe1-b0d7-449b-a9da-b5a624e720c9" xml:space="preserve">
+          <source>SELECT..INTO</source>
+          <target state="new">SELECT..INTO</target>
+        </trans-unit>
+        <trans-unit id="bccb8c58-cafe-47d0-86ef-930bc5cf0653" xml:space="preserve">
+          <source>ANSI JOINS on UPDATEs </source>
+          <target state="new">ANSI JOINS on UPDATEs </target>
+        </trans-unit>
+        <trans-unit id="11663c95-0528-4d11-a975-18277bdeef1b" xml:space="preserve">
+          <source>ANSI JOINs on DELETEs</source>
+          <target state="new">ANSI JOINs on DELETEs</target>
+        </trans-unit>
+        <trans-unit id="5a84c68c-6e43-4fbf-871f-b730874fbf71" xml:space="preserve">
+          <source>MERGE statement</source>
+          <target state="new">MERGE statement</target>
+        </trans-unit>
+        <trans-unit id="0b29563a-3623-4c22-82b3-cd7c3661d1cb" xml:space="preserve">
+          <source>This document also includes some best practices for when coding with CTAS.</source>
+          <target state="new">This document also includes some best practices for when coding with CTAS.</target>
+        </trans-unit>
+        <trans-unit id="299b9247-0568-4957-91ec-f033e68d5491" xml:space="preserve">
+          <source>You may find SELECT..INTO appears in a number of places in your solution.</source>
+          <target state="new">You may find SELECT..INTO appears in a number of places in your solution.</target>
+        </trans-unit>
+        <trans-unit id="2b188c50-aaa4-44cf-b825-b32fd8210196" xml:space="preserve">
+          <source>An SELECT..INTO example is below:</source>
+          <target state="new">An SELECT..INTO example is below:</target>
+        </trans-unit>
+        <trans-unit id="5becda26-71d8-4c11-9c62-1a4b01adcce9" xml:space="preserve">
+          <source>To convert this to CTAS is quite straight-forward:</source>
+          <target state="new">To convert this to CTAS is quite straight-forward:</target>
+        </trans-unit>
+        <trans-unit id="59317731-9e71-4ad9-b937-bc68f0a32c2a" xml:space="preserve">
+          <source>Using CTAS means you can also specify a data distribution preference and optional index the table as well.</source>
+          <target state="new">Using CTAS means you can also specify a data distribution preference and optional index the table as well.</target>
+        </trans-unit>
+        <trans-unit id="f7e1460b-03be-4439-b047-db5fe6a9644c" xml:space="preserve">
+          <source>You may find you have a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE.</source>
+          <target state="new">You may find you have a complex update that joins more than two tables together using ANSI joining syntax to perform the UPDATE or DELETE.</target>
+        </trans-unit>
+        <trans-unit id="244dc850-8047-4c99-b5d8-95f7401b3d40" xml:space="preserve">
+          <source>Imagine you had to update this table:</source>
+          <target state="new">Imagine you had to update this table:</target>
+        </trans-unit>
+        <trans-unit id="75e5efa5-f866-4c33-a0af-00cec5f19521" xml:space="preserve">
+          <source>The original query might have looked something like this:</source>
+          <target state="new">The original query might have looked something like this:</target>
+        </trans-unit>
+        <trans-unit id="c7f9a883-35cf-4eb2-a180-42aa1c2feace" xml:space="preserve">
+          <source>As SQL Data Warehouse does not support ANSI joins you cannot copy this code over without changing it slightly.</source>
+          <target state="new">As SQL Data Warehouse does not support ANSI joins you cannot copy this code over without changing it slightly.</target>
+        </trans-unit>
+        <trans-unit id="2480bf53-d61b-4aae-b74e-836c45c5031a" xml:space="preserve">
+          <source>You can use a combination of a CTAS and an implicit join to replace this code:</source>
+          <target state="new">You can use a combination of a CTAS and an implicit join to replace this code:</target>
+        </trans-unit>
+        <trans-unit id="68cf369d-2bfe-4fb5-8501-5f631899965f" xml:space="preserve">
+          <source>Sometimes the best approach for deleting data is to use CTAS.</source>
+          <target state="new">Sometimes the best approach for deleting data is to use CTAS.</target>
+        </trans-unit>
+        <trans-unit id="077ee852-e498-49d7-a2f5-d327581f3ba9" xml:space="preserve">
+          <source>Rather than deleting the data simply select the data you want to keep.</source>
+          <target state="new">Rather than deleting the data simply select the data you want to keep.</target>
+        </trans-unit>
+        <trans-unit id="251e731e-7fdb-4b07-bd2b-8587bf4fea67" xml:space="preserve">
+          <source>This especially true for DELETE statements that use ansi joining syntax as this is not supported on SQL Data Warehouse.</source>
+          <target state="new">This especially true for DELETE statements that use ansi joining syntax as this is not supported on SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="f866edf6-af30-47c6-a47d-a2ecd512ad6c" xml:space="preserve">
+          <source>An example of a converted DELETE statement is available below:</source>
+          <target state="new">An example of a converted DELETE statement is available below:</target>
+        </trans-unit>
+        <trans-unit id="2c042c4f-63bd-46e7-bb8b-5acd455b5bda" xml:space="preserve">
+          <source>Merge statements can be replaced, at least in part, by using CTAS.</source>
+          <target state="new">Merge statements can be replaced, at least in part, by using CTAS.</target>
+        </trans-unit>
+        <trans-unit id="cb419e5f-4469-4711-9afc-e59f93c45313" xml:space="preserve">
+          <source>You can consolidate the <bpt id="53d9c94e-dddb-4386-a9d8-c6232842bd10">&lt;code&gt;</bpt>INSERT<ept id="53d9c94e-dddb-4386-a9d8-c6232842bd10">&lt;/code&gt;</ept> and the <bpt id="34a46a22-7716-4c54-b2a0-0e0a2d6bae79">&lt;code&gt;</bpt>UPDATE<ept id="34a46a22-7716-4c54-b2a0-0e0a2d6bae79">&lt;/code&gt;</ept> into a single statement.</source>
+          <target state="new">You can consolidate the <bpt id="53d9c94e-dddb-4386-a9d8-c6232842bd10">&lt;code&gt;</bpt>INSERT<ept id="53d9c94e-dddb-4386-a9d8-c6232842bd10">&lt;/code&gt;</ept> and the <bpt id="34a46a22-7716-4c54-b2a0-0e0a2d6bae79">&lt;code&gt;</bpt>UPDATE<ept id="34a46a22-7716-4c54-b2a0-0e0a2d6bae79">&lt;/code&gt;</ept> into a single statement.</target>
+        </trans-unit>
+        <trans-unit id="7529e36a-bd4f-4209-981c-fd5b27c0bd15" xml:space="preserve">
+          <source>Any deleted records would need to be closed off in a second statement.</source>
+          <target state="new">Any deleted records would need to be closed off in a second statement.</target>
+        </trans-unit>
+        <trans-unit id="6c0bf450-328c-447c-b621-0f77af7a298e" xml:space="preserve">
+          <source>An example of an <bpt id="7a67ef34-cc77-4db2-8246-527cdea32f04">&lt;code&gt;</bpt>UPSERT<ept id="7a67ef34-cc77-4db2-8246-527cdea32f04">&lt;/code&gt;</ept> is available below:</source>
+          <target state="new">An example of an <bpt id="7a67ef34-cc77-4db2-8246-527cdea32f04">&lt;code&gt;</bpt>UPSERT<ept id="7a67ef34-cc77-4db2-8246-527cdea32f04">&lt;/code&gt;</ept> is available below:</target>
+        </trans-unit>
+        <trans-unit id="3b4382d1-7c2d-40d3-a926-e48a686efcda" xml:space="preserve">
+          <source>When migrating code you might find you run across this type of coding pattern:</source>
+          <target state="new">When migrating code you might find you run across this type of coding pattern:</target>
+        </trans-unit>
+        <trans-unit id="247dfaf4-adff-47d2-93f9-18f0a82eadc3" xml:space="preserve">
+          <source>Instinctively you might think you should migrate this code to a CTAS and you would be correct.</source>
+          <target state="new">Instinctively you might think you should migrate this code to a CTAS and you would be correct.</target>
+        </trans-unit>
+        <trans-unit id="39951219-98d9-41fc-b3a0-1c4e78357a04" xml:space="preserve">
+          <source>However, their is a hidden issue here.</source>
+          <target state="new">However, their is a hidden issue here.</target>
+        </trans-unit>
+        <trans-unit id="5a26b307-61d2-45bb-8385-095c5f80f6a8" xml:space="preserve">
+          <source>The following code does NOT yield the same result:</source>
+          <target state="new">The following code does NOT yield the same result:</target>
+        </trans-unit>
+        <trans-unit id="6a4c6a00-fcba-486f-ba3d-f271b043f85d" xml:space="preserve">
+          <source>Notice that the column "result" carries forward the data type and nullability values of the expression.</source>
+          <target state="new">Notice that the column "result" carries forward the data type and nullability values of the expression.</target>
+        </trans-unit>
+        <trans-unit id="e5425158-cde3-4172-8ff5-0e602998a0c0" xml:space="preserve">
+          <source>This can lead to subtle variances in values if you aren't careful.</source>
+          <target state="new">This can lead to subtle variances in values if you aren't careful.</target>
+        </trans-unit>
+        <trans-unit id="fc4ae332-49ee-4a35-8867-02b184a74367" xml:space="preserve">
+          <source>Try the following as an example:</source>
+          <target state="new">Try the following as an example:</target>
+        </trans-unit>
+        <trans-unit id="838de283-2f21-4c02-bbff-5d7810d651b0" xml:space="preserve">
+          <source>The value stored for result is different.</source>
+          <target state="new">The value stored for result is different.</target>
+        </trans-unit>
+        <trans-unit id="09c604de-cf46-48f8-8273-327b49c3c5e8" xml:space="preserve">
+          <source>As the persisted value in the result column is used in other expressions the error becomes even more significant.</source>
+          <target state="new">As the persisted value in the result column is used in other expressions the error becomes even more significant.</target>
+        </trans-unit>
+        <trans-unit id="33124cc9-8356-4696-942c-c526faa94f1d" xml:space="preserve">
+          <source><bpt id="3308be36-af98-42b2-be13-58fc5a6ed9de">&lt;linkText&gt;</bpt><ept id="3308be36-af98-42b2-be13-58fc5a6ed9de">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3308be36-af98-42b2-be13-58fc5a6ed9de">&lt;linkText&gt;</bpt><ept id="3308be36-af98-42b2-be13-58fc5a6ed9de">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6ae39e4-6e92-4a02-acdc-5286890b94a5" xml:space="preserve">
+          <source>This is particularly important for data migrations.</source>
+          <target state="new">This is particularly important for data migrations.</target>
+        </trans-unit>
+        <trans-unit id="ac57efd8-f53c-4838-ad70-37d126bd782e" xml:space="preserve">
+          <source>Even though the second query is arguably more accurate there is a problem.</source>
+          <target state="new">Even though the second query is arguably more accurate there is a problem.</target>
+        </trans-unit>
+        <trans-unit id="fa78217e-2882-4bb3-afa7-65863cad9007" xml:space="preserve">
+          <source>The data would be different compared to the source system and that leads to questions of integrity in the migration.</source>
+          <target state="new">The data would be different compared to the source system and that leads to questions of integrity in the migration.</target>
+        </trans-unit>
+        <trans-unit id="191b959d-0a10-4252-8981-c27899978b2b" xml:space="preserve">
+          <source>This is one of those rare cases where the "wrong" answer is actually the right one!</source>
+          <target state="new">This is one of those rare cases where the "wrong" answer is actually the right one!</target>
+        </trans-unit>
+        <trans-unit id="fe901cc1-c935-4db8-9f9e-734c09d5c67e" xml:space="preserve">
+          <source>The reason we see this disparity between the two results is down to implicit type casting.</source>
+          <target state="new">The reason we see this disparity between the two results is down to implicit type casting.</target>
+        </trans-unit>
+        <trans-unit id="557288c3-d76c-463c-b3d5-0b9374a8ac64" xml:space="preserve">
+          <source>In the first example the table defines the column definition.</source>
+          <target state="new">In the first example the table defines the column definition.</target>
+        </trans-unit>
+        <trans-unit id="72ce87c7-1a9b-4eaf-a2a5-86db8744b948" xml:space="preserve">
+          <source>When the row is inserted an implicit type conversion occurs.</source>
+          <target state="new">When the row is inserted an implicit type conversion occurs.</target>
+        </trans-unit>
+        <trans-unit id="a73019bb-b3f0-4462-9a6d-ac38f46acb22" xml:space="preserve">
+          <source>In the second example there is no implicit type conversion as the expression defines data type of the column.</source>
+          <target state="new">In the second example there is no implicit type conversion as the expression defines data type of the column.</target>
+        </trans-unit>
+        <trans-unit id="841c86e1-659d-4357-b1a1-d3c6bdfecb51" xml:space="preserve">
+          <source>Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not.</source>
+          <target state="new">Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not.</target>
+        </trans-unit>
+        <trans-unit id="ab14d92f-debc-45ba-bc65-376fb41d9767" xml:space="preserve">
+          <source>When the table was created in the first example column nullability was explicitly defined.</source>
+          <target state="new">When the table was created in the first example column nullability was explicitly defined.</target>
+        </trans-unit>
+        <trans-unit id="a2a7bdb5-bfb4-492f-836f-594a942c856c" xml:space="preserve">
+          <source>In the second example it was just left to the expression and by default this would result in a NULL definition.</source>
+          <target state="new">In the second example it was just left to the expression and by default this would result in a NULL definition.</target>
+        </trans-unit>
+        <trans-unit id="6841199f-29a6-4a99-8d09-65f0e279b114" xml:space="preserve">
+          <source>To resolve these issues you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement.</source>
+          <target state="new">To resolve these issues you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement.</target>
+        </trans-unit>
+        <trans-unit id="7cdce877-ac7a-45e3-960a-f226864fd41c" xml:space="preserve">
+          <source>You cannot set these properties in the create table part.</source>
+          <target state="new">You cannot set these properties in the create table part.</target>
+        </trans-unit>
+        <trans-unit id="2a821ed2-3021-42b4-8f35-e457d80e5a40" xml:space="preserve">
+          <source>The example below demonstrates how to fix the code:</source>
+          <target state="new">The example below demonstrates how to fix the code:</target>
+        </trans-unit>
+        <trans-unit id="5ee11960-8cce-49a6-b26b-51f8d3204f25" xml:space="preserve">
+          <source>Note the following:</source>
+          <target state="new">Note the following:</target>
+        </trans-unit>
+        <trans-unit id="a1d972e0-7d1d-411d-bebf-d7df1997bd86" xml:space="preserve">
+          <source>CAST or CONVERT could have been used</source>
+          <target state="new">CAST or CONVERT could have been used</target>
+        </trans-unit>
+        <trans-unit id="d9148591-4f98-4be1-a980-d8280abc7298" xml:space="preserve">
+          <source>ISNULL is used to force NULLability not COALESCE</source>
+          <target state="new">ISNULL is used to force NULLability not COALESCE</target>
+        </trans-unit>
+        <trans-unit id="d4332d6a-dccd-4c9d-873e-1ed2211cd8a0" xml:space="preserve">
+          <source>ISNULL is the outermost function</source>
+          <target state="new">ISNULL is the outermost function</target>
+        </trans-unit>
+        <trans-unit id="79712ff8-6625-4500-9c00-992f9b5a70cd" xml:space="preserve">
+          <source>The second part of the ISNULL is a constant i.e. 0</source>
+          <target state="new">The second part of the ISNULL is a constant i.e. 0</target>
+        </trans-unit>
+        <trans-unit id="65fed847-e803-4abd-9428-d895c627b25d" xml:space="preserve">
+          <source>For the nullability to be correctly set it is vital to use ISNULL and not COALESCE.</source>
+          <target state="new">For the nullability to be correctly set it is vital to use ISNULL and not COALESCE.</target>
+        </trans-unit>
+        <trans-unit id="69aa71e7-9bb2-4b5a-b862-d76189fbbdbf" xml:space="preserve">
+          <source>COALESCE is not a deterministic function and so the result of the expression will always be NULLable.</source>
+          <target state="new">COALESCE is not a deterministic function and so the result of the expression will always be NULLable.</target>
+        </trans-unit>
+        <trans-unit id="66432d04-a364-4d9d-b771-222543b993e2" xml:space="preserve">
+          <source>ISNULL is different.</source>
+          <target state="new">ISNULL is different.</target>
+        </trans-unit>
+        <trans-unit id="3737da9b-0f75-43e9-a8db-d9a36400cae9" xml:space="preserve">
+          <source>It is deterministic.</source>
+          <target state="new">It is deterministic.</target>
+        </trans-unit>
+        <trans-unit id="cf664e79-002b-4e4d-8a81-80a2f93ba67b" xml:space="preserve">
+          <source>Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL.</source>
+          <target state="new">Therefore when the second part of the ISNULL function is a constant or a literal then the resulting value will be NOT NULL.</target>
+        </trans-unit>
+        <trans-unit id="ac817b05-5ac3-4482-b350-38a958140465" xml:space="preserve">
+          <source>This tip is not just useful for ensuring the integrity of your calculations.</source>
+          <target state="new">This tip is not just useful for ensuring the integrity of your calculations.</target>
+        </trans-unit>
+        <trans-unit id="ac663721-6c3a-47bc-b5b8-e53f9c355bf0" xml:space="preserve">
+          <source>It is also important for table partition switching.</source>
+          <target state="new">It is also important for table partition switching.</target>
+        </trans-unit>
+        <trans-unit id="b3b2ef1a-ea84-4bf9-a487-585121f2399f" xml:space="preserve">
+          <source>Imagine you have this table defined as your fact:</source>
+          <target state="new">Imagine you have this table defined as your fact:</target>
+        </trans-unit>
+        <trans-unit id="37be6e1e-16bc-406c-b082-f38f74bd2733" xml:space="preserve">
+          <source>However, the value field is a calculated expression it is not part of the source data.</source>
+          <target state="new">However, the value field is a calculated expression it is not part of the source data.</target>
+        </trans-unit>
+        <trans-unit id="acf3691c-a501-496b-8faa-fcf3bfb4b0c0" xml:space="preserve">
+          <source>To create your partitioned dataset you might want to do this:</source>
+          <target state="new">To create your partitioned dataset you might want to do this:</target>
+        </trans-unit>
+        <trans-unit id="6b4cc442-b05f-414a-9deb-e506825394e7" xml:space="preserve">
+          <source>The query would run perfectly fine.</source>
+          <target state="new">The query would run perfectly fine.</target>
+        </trans-unit>
+        <trans-unit id="e63843c7-297c-48f7-90de-cd4b63f9fb86" xml:space="preserve">
+          <source>The problem comes when you try to perform the partition switch.</source>
+          <target state="new">The problem comes when you try to perform the partition switch.</target>
+        </trans-unit>
+        <trans-unit id="e2756e38-9500-43f1-a7e7-260b62a31c9c" xml:space="preserve">
+          <source>The table definitions do not match.</source>
+          <target state="new">The table definitions do not match.</target>
+        </trans-unit>
+        <trans-unit id="d77029e5-ab77-452c-8aa2-1438a4bfb1b9" xml:space="preserve">
+          <source>To make the table definitions match the CTAS needs to be modified.</source>
+          <target state="new">To make the table definitions match the CTAS needs to be modified.</target>
+        </trans-unit>
+        <trans-unit id="d47e76f0-ca0e-41c1-bcef-addf6f267f5f" xml:space="preserve">
+          <source>You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice.</source>
+          <target state="new">You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice.</target>
+        </trans-unit>
+        <trans-unit id="ee0f6d4d-7001-436c-86cf-99e5243127a4" xml:space="preserve">
+          <source>It helps to maintain integrity in your calculations and also ensures that partition switching is possible.</source>
+          <target state="new">It helps to maintain integrity in your calculations and also ensures that partition switching is possible.</target>
+        </trans-unit>
+        <trans-unit id="d79bbb80-fdcd-4258-a840-feb69bb2a4a3" xml:space="preserve">
+          <source>Please refer to MSDN for more information on using <bpt id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;linkText&gt;</bpt>CTAS<ept id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;/linkText&gt;</ept><bpt id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;title&gt;</bpt><ept id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Please refer to MSDN for more information on using <bpt id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;linkText&gt;</bpt>CTAS<ept id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;/linkText&gt;</ept><bpt id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;title&gt;</bpt><ept id="d62d0a7f-f6a1-483b-b190-42146b66ba8e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="92ddbd41-4f6a-4ef6-8781-b8fc674cab0a" xml:space="preserve">
+          <source>It is one of the most important statements in Azure SQL Data Warehouse.</source>
+          <target state="new">It is one of the most important statements in Azure SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="f155b93b-3a0b-4964-a932-76f9ecfbde22" xml:space="preserve">
+          <source>Make sure you thoroughly understand it.</source>
+          <target state="new">Make sure you thoroughly understand it.</target>
+        </trans-unit>
+        <trans-unit id="24866809-c44b-4f99-945b-e885972d4e58" xml:space="preserve">
+          <source>For more development tips, see <bpt id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;linkText&gt;</bpt>development overview<ept id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;/linkText&gt;</ept><bpt id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;title&gt;</bpt><ept id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;linkText&gt;</bpt>development overview<ept id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;/linkText&gt;</ept><bpt id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;title&gt;</bpt><ept id="e78400bc-b7fb-4033-bd8a-3ecf3dc716ae">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ad894cb-4a71-4b2c-a00d-18f25aeff3a8" xml:space="preserve">
+          <source>media/sql-data-warehouse-develop-ctas/ctas-results.png</source>
+          <target state="new">media/sql-data-warehouse-develop-ctas/ctas-results.png</target>
+        </trans-unit>
+        <trans-unit id="cfe510cf-2608-4fda-a9a5-18d210728678" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="57d89cdc-28f8-4476-a0d5-3b2177fa0fc3" xml:space="preserve">
+          <source>https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx</source>
+          <target state="new">https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="6977e972-755e-4e93-820a-c7f4ee4145e5" />
+    </body>
+  </file>
+</xliff>

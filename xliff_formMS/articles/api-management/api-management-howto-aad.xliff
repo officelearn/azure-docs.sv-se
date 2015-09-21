@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c9d6e59e-81ec-44d3-9524-33728fe5d65f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c9d6e59e-81ec-44d3-9524-33728fe5d65f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9148f317-040d-4ef8-88b4-7f800aaf966b">
+        <trans-unit id="b90382ff-c808-4cb0-8c39-6faa4fa8320a" xml:space="preserve">
+          <source>How to authorize developer accounts using Azure Active Directory in Azure API Management</source>
+          <target state="new">How to authorize developer accounts using Azure Active Directory in Azure API Management</target>
+        </trans-unit>
+        <trans-unit id="1ddfcdf6-433f-41a8-b787-a0a872ba62c7" xml:space="preserve">
+          <source>Learn how to authorize users using Azure Active Directory in API Management.</source>
+          <target state="new">Learn how to authorize users using Azure Active Directory in API Management.</target>
+        </trans-unit>
+        <trans-unit id="7906cbb9-868b-4f1e-97b4-5a3b0a4885d4" xml:space="preserve">
+          <source>This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories.</source>
+          <target state="new">This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories.</target>
+        </trans-unit>
+        <trans-unit id="afdb73ef-9674-4ec0-9125-7ee7d895e1af" xml:space="preserve">
+          <source>This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.</source>
+          <target state="new">This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="3bf9a8e2-5559-4da3-ad9c-dcc9eb8ac1cc" xml:space="preserve">
+          <source>To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.</source>
+          <target state="new">To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.</target>
+        </trans-unit>
+        <trans-unit id="fd122f34-86d2-4e0f-8de6-06cb8baaf17c" xml:space="preserve">
+          <source>To get started, click <bpt id="1446fdfe-9688-43fb-abdb-43ffd3a25919">&lt;strong&gt;</bpt>Manage<ept id="1446fdfe-9688-43fb-abdb-43ffd3a25919">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</source>
+          <target state="new">To get started, click <bpt id="1446fdfe-9688-43fb-abdb-43ffd3a25919">&lt;strong&gt;</bpt>Manage<ept id="1446fdfe-9688-43fb-abdb-43ffd3a25919">&lt;/strong&gt;</ept> in the Azure Portal for your API Management service.</target>
+        </trans-unit>
+        <trans-unit id="a1aae29f-bb75-4f23-94d0-76cde66649e4" xml:space="preserve">
+          <source>This takes you to the API Management publisher portal.</source>
+          <target state="new">This takes you to the API Management publisher portal.</target>
+        </trans-unit>
+        <trans-unit id="9b42f7b2-8fac-492f-9104-b3714eb7ec86" xml:space="preserve">
+          <source><bpt id="193771f5-9d67-472c-acd5-cdc37b159892">&lt;linkText&gt;</bpt>Publisher portal<ept id="193771f5-9d67-472c-acd5-cdc37b159892">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="193771f5-9d67-472c-acd5-cdc37b159892">&lt;linkText&gt;</bpt>Publisher portal<ept id="193771f5-9d67-472c-acd5-cdc37b159892">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="07accd0b-9061-4615-816a-d2bf926e9c26" xml:space="preserve">
+          <source>If you have not yet created an API Management service instance, see <bpt id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;/linkText&gt;</ept><bpt id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;title&gt;</bpt><ept id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;/title&gt;</ept> in the <bpt id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;/linkText&gt;</ept><bpt id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;title&gt;</bpt><ept id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">If you have not yet created an API Management service instance, see <bpt id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;linkText&gt;</bpt>Create an API Management service instance<ept id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;/linkText&gt;</ept><bpt id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;title&gt;</bpt><ept id="6e8b5c58-94ac-4e23-89e1-71f99b517d18">&lt;/title&gt;</ept> in the <bpt id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;linkText&gt;</bpt>Get started with Azure API Management<ept id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;/linkText&gt;</ept><bpt id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;title&gt;</bpt><ept id="e72c423f-c4ec-42c8-9924-fcd691c6c84a">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="731d7cfe-afd6-43ed-93a5-3f300357d1b2" xml:space="preserve">
+          <source>Click <bpt id="adfc15f7-82a6-42dd-8cd6-7ea1c47fc1e8">&lt;strong&gt;</bpt>Security<ept id="adfc15f7-82a6-42dd-8cd6-7ea1c47fc1e8">&lt;/strong&gt;</ept> from the <bpt id="56c2086b-7c12-4ae1-9f00-fe944851e429">&lt;strong&gt;</bpt>API Management<ept id="56c2086b-7c12-4ae1-9f00-fe944851e429">&lt;/strong&gt;</ept> menu on the left and click <bpt id="94cad31a-9332-4552-9ef7-b3f5076d45de">&lt;strong&gt;</bpt>External Identities<ept id="94cad31a-9332-4552-9ef7-b3f5076d45de">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="adfc15f7-82a6-42dd-8cd6-7ea1c47fc1e8">&lt;strong&gt;</bpt>Security<ept id="adfc15f7-82a6-42dd-8cd6-7ea1c47fc1e8">&lt;/strong&gt;</ept> from the <bpt id="56c2086b-7c12-4ae1-9f00-fe944851e429">&lt;strong&gt;</bpt>API Management<ept id="56c2086b-7c12-4ae1-9f00-fe944851e429">&lt;/strong&gt;</ept> menu on the left and click <bpt id="94cad31a-9332-4552-9ef7-b3f5076d45de">&lt;strong&gt;</bpt>External Identities<ept id="94cad31a-9332-4552-9ef7-b3f5076d45de">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a503f2cb-dd04-46d6-9945-192dd56a92d1" xml:space="preserve">
+          <source><bpt id="ce94e6b6-f404-4678-9da3-0c8fce7a16bf">&lt;linkText&gt;</bpt>External Identities<ept id="ce94e6b6-f404-4678-9da3-0c8fce7a16bf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ce94e6b6-f404-4678-9da3-0c8fce7a16bf">&lt;linkText&gt;</bpt>External Identities<ept id="ce94e6b6-f404-4678-9da3-0c8fce7a16bf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="14a0d441-b0cb-4672-97f3-d9ee99c3065f" xml:space="preserve">
+          <source>Click <bpt id="ee567d8a-e3f1-492f-80ef-e089e518e1d2">&lt;strong&gt;</bpt>Azure Active Directory<ept id="ee567d8a-e3f1-492f-80ef-e089e518e1d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="ee567d8a-e3f1-492f-80ef-e089e518e1d2">&lt;strong&gt;</bpt>Azure Active Directory<ept id="ee567d8a-e3f1-492f-80ef-e089e518e1d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2074fb98-77ee-4ea3-8705-aa97837d83bb" xml:space="preserve">
+          <source>Make a note of the <bpt id="70f40784-d5aa-423e-a92a-cf5dfc5a4438">&lt;strong&gt;</bpt>Redirect URL<ept id="70f40784-d5aa-423e-a92a-cf5dfc5a4438">&lt;/strong&gt;</ept> and switch over to your Azure Active Directory in the Azure Portal.</source>
+          <target state="new">Make a note of the <bpt id="70f40784-d5aa-423e-a92a-cf5dfc5a4438">&lt;strong&gt;</bpt>Redirect URL<ept id="70f40784-d5aa-423e-a92a-cf5dfc5a4438">&lt;/strong&gt;</ept> and switch over to your Azure Active Directory in the Azure Portal.</target>
+        </trans-unit>
+        <trans-unit id="95e1afd1-9623-4b03-9390-d91314df48d9" xml:space="preserve">
+          <source><bpt id="e58c8b4d-9981-434b-90dc-9801f5c763b8">&lt;linkText&gt;</bpt>External Identities<ept id="e58c8b4d-9981-434b-90dc-9801f5c763b8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e58c8b4d-9981-434b-90dc-9801f5c763b8">&lt;linkText&gt;</bpt>External Identities<ept id="e58c8b4d-9981-434b-90dc-9801f5c763b8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fa266f7-2b44-46d6-8af8-933b57233678" xml:space="preserve">
+          <source>Click the <bpt id="19831f9f-e056-46d5-9e2a-ff13ac594bec">&lt;strong&gt;</bpt>Add<ept id="19831f9f-e056-46d5-9e2a-ff13ac594bec">&lt;/strong&gt;</ept> button to create a new Azure Active Directory application, and choose <bpt id="4c518adb-feea-4494-b83d-2b431a39a2cf">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="4c518adb-feea-4494-b83d-2b431a39a2cf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="19831f9f-e056-46d5-9e2a-ff13ac594bec">&lt;strong&gt;</bpt>Add<ept id="19831f9f-e056-46d5-9e2a-ff13ac594bec">&lt;/strong&gt;</ept> button to create a new Azure Active Directory application, and choose <bpt id="4c518adb-feea-4494-b83d-2b431a39a2cf">&lt;strong&gt;</bpt>Add an application my organization is developing<ept id="4c518adb-feea-4494-b83d-2b431a39a2cf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e88e1b6d-c93a-455d-8d1f-237acc690b4a" xml:space="preserve">
+          <source><bpt id="59d73f5d-882e-4927-8870-f35ccb7ec148">&lt;linkText&gt;</bpt>Add new Azure Active Directory application<ept id="59d73f5d-882e-4927-8870-f35ccb7ec148">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="59d73f5d-882e-4927-8870-f35ccb7ec148">&lt;linkText&gt;</bpt>Add new Azure Active Directory application<ept id="59d73f5d-882e-4927-8870-f35ccb7ec148">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="977606a8-2cbe-4f97-b491-3934501071a5" xml:space="preserve">
+          <source>Enter a name for the application, select <bpt id="52653dba-309e-4176-829b-e4e14e2323fa">&lt;strong&gt;</bpt>Web application and/or Web API<ept id="52653dba-309e-4176-829b-e4e14e2323fa">&lt;/strong&gt;</ept>, and click the next button.</source>
+          <target state="new">Enter a name for the application, select <bpt id="52653dba-309e-4176-829b-e4e14e2323fa">&lt;strong&gt;</bpt>Web application and/or Web API<ept id="52653dba-309e-4176-829b-e4e14e2323fa">&lt;/strong&gt;</ept>, and click the next button.</target>
+        </trans-unit>
+        <trans-unit id="3e49d57a-a454-4463-80fa-9fde1a196de7" xml:space="preserve">
+          <source><bpt id="09b4c0c6-087e-4897-9bb9-b4222eb9a001">&lt;linkText&gt;</bpt>New Azure Active Directory application<ept id="09b4c0c6-087e-4897-9bb9-b4222eb9a001">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="09b4c0c6-087e-4897-9bb9-b4222eb9a001">&lt;linkText&gt;</bpt>New Azure Active Directory application<ept id="09b4c0c6-087e-4897-9bb9-b4222eb9a001">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b9c294b0-a65b-4e54-975d-150543551c6b" xml:space="preserve">
+          <source>For <bpt id="03c2fb71-0fd8-4dd6-9d66-95792403fe17">&lt;strong&gt;</bpt>Sign-on URL<ept id="03c2fb71-0fd8-4dd6-9d66-95792403fe17">&lt;/strong&gt;</ept>, copy the <bpt id="4a0dbc0b-fdc7-4a35-97c6-583fa5d44fb7">&lt;strong&gt;</bpt>Redirect URL<ept id="4a0dbc0b-fdc7-4a35-97c6-583fa5d44fb7">&lt;/strong&gt;</ept> from the <bpt id="0a932f48-1c37-4069-9fdd-7b1ab3d6d3c8">&lt;strong&gt;</bpt>Azure Active Directory<ept id="0a932f48-1c37-4069-9fdd-7b1ab3d6d3c8">&lt;/strong&gt;</ept> section of the <bpt id="454b0efa-96a4-467d-b21c-94fe3b695797">&lt;strong&gt;</bpt>External Identities<ept id="454b0efa-96a4-467d-b21c-94fe3b695797">&lt;/strong&gt;</ept> tab in the publisher portal and remove the <bpt id="e545567b-968c-4dc0-b7bb-e8986a6764cc">&lt;strong&gt;</bpt>-aad<ept id="e545567b-968c-4dc0-b7bb-e8986a6764cc">&lt;/strong&gt;</ept> suffix from the end of the URL.</source>
+          <target state="new">For <bpt id="03c2fb71-0fd8-4dd6-9d66-95792403fe17">&lt;strong&gt;</bpt>Sign-on URL<ept id="03c2fb71-0fd8-4dd6-9d66-95792403fe17">&lt;/strong&gt;</ept>, copy the <bpt id="4a0dbc0b-fdc7-4a35-97c6-583fa5d44fb7">&lt;strong&gt;</bpt>Redirect URL<ept id="4a0dbc0b-fdc7-4a35-97c6-583fa5d44fb7">&lt;/strong&gt;</ept> from the <bpt id="0a932f48-1c37-4069-9fdd-7b1ab3d6d3c8">&lt;strong&gt;</bpt>Azure Active Directory<ept id="0a932f48-1c37-4069-9fdd-7b1ab3d6d3c8">&lt;/strong&gt;</ept> section of the <bpt id="454b0efa-96a4-467d-b21c-94fe3b695797">&lt;strong&gt;</bpt>External Identities<ept id="454b0efa-96a4-467d-b21c-94fe3b695797">&lt;/strong&gt;</ept> tab in the publisher portal and remove the <bpt id="e545567b-968c-4dc0-b7bb-e8986a6764cc">&lt;strong&gt;</bpt>-aad<ept id="e545567b-968c-4dc0-b7bb-e8986a6764cc">&lt;/strong&gt;</ept> suffix from the end of the URL.</target>
+        </trans-unit>
+        <trans-unit id="45795a77-9387-4a7b-948f-3bb29975e484" xml:space="preserve">
+          <source>In this example, the <bpt id="dad3bbae-f83f-4ff8-bf9d-81fb54193533">&lt;strong&gt;</bpt>Sign-on URL<ept id="dad3bbae-f83f-4ff8-bf9d-81fb54193533">&lt;/strong&gt;</ept> is <bpt id="acbf1b87-0a81-468b-a560-4846bf755ced">&lt;code&gt;</bpt>https://aad03.portal.current.int-azure-api.net/signin<ept id="acbf1b87-0a81-468b-a560-4846bf755ced">&lt;/code&gt;</ept>.</source>
+          <target state="new">In this example, the <bpt id="dad3bbae-f83f-4ff8-bf9d-81fb54193533">&lt;strong&gt;</bpt>Sign-on URL<ept id="dad3bbae-f83f-4ff8-bf9d-81fb54193533">&lt;/strong&gt;</ept> is <bpt id="acbf1b87-0a81-468b-a560-4846bf755ced">&lt;code&gt;</bpt>https://aad03.portal.current.int-azure-api.net/signin<ept id="acbf1b87-0a81-468b-a560-4846bf755ced">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="475d437d-cdbe-4fb4-bb32-cda3b73eed7c" xml:space="preserve">
+          <source>For the <bpt id="30e23e4a-5008-4abd-99fe-0db7aecaca81">&lt;strong&gt;</bpt>App ID URL<ept id="30e23e4a-5008-4abd-99fe-0db7aecaca81">&lt;/strong&gt;</ept>, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it.</source>
+          <target state="new">For the <bpt id="30e23e4a-5008-4abd-99fe-0db7aecaca81">&lt;strong&gt;</bpt>App ID URL<ept id="30e23e4a-5008-4abd-99fe-0db7aecaca81">&lt;/strong&gt;</ept>, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it.</target>
+        </trans-unit>
+        <trans-unit id="c08321b3-ac54-4db4-b80d-9fcb653c4f35" xml:space="preserve">
+          <source>In this example the default domain of <bpt id="3e73ea0f-fce2-4fa9-b14a-2f714e1ac77e">&lt;strong&gt;</bpt>https://contoso5api.onmicrosoft.com<ept id="3e73ea0f-fce2-4fa9-b14a-2f714e1ac77e">&lt;/strong&gt;</ept> is used with the suffix of <bpt id="89f073eb-82fc-40ea-9179-f18e7aca5c59">&lt;strong&gt;</bpt>/api<ept id="89f073eb-82fc-40ea-9179-f18e7aca5c59">&lt;/strong&gt;</ept> specified.</source>
+          <target state="new">In this example the default domain of <bpt id="3e73ea0f-fce2-4fa9-b14a-2f714e1ac77e">&lt;strong&gt;</bpt>https://contoso5api.onmicrosoft.com<ept id="3e73ea0f-fce2-4fa9-b14a-2f714e1ac77e">&lt;/strong&gt;</ept> is used with the suffix of <bpt id="89f073eb-82fc-40ea-9179-f18e7aca5c59">&lt;strong&gt;</bpt>/api<ept id="89f073eb-82fc-40ea-9179-f18e7aca5c59">&lt;/strong&gt;</ept> specified.</target>
+        </trans-unit>
+        <trans-unit id="052c785e-d339-44b6-b90f-c1b8c15c329b" xml:space="preserve">
+          <source><bpt id="6b3284b8-b821-4f50-ab59-fa28160700d7">&lt;linkText&gt;</bpt>New Azure Active Directory application properties<ept id="6b3284b8-b821-4f50-ab59-fa28160700d7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6b3284b8-b821-4f50-ab59-fa28160700d7">&lt;linkText&gt;</bpt>New Azure Active Directory application properties<ept id="6b3284b8-b821-4f50-ab59-fa28160700d7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f29877b8-2c33-40aa-8606-9099fe8b172c" xml:space="preserve">
+          <source>Click the check button to save and create the new application, and switch  to the <bpt id="693e595a-6833-434a-abe4-a491eb29edf7">&lt;strong&gt;</bpt>Configure<ept id="693e595a-6833-434a-abe4-a491eb29edf7">&lt;/strong&gt;</ept> tab to configure the new application.</source>
+          <target state="new">Click the check button to save and create the new application, and switch  to the <bpt id="693e595a-6833-434a-abe4-a491eb29edf7">&lt;strong&gt;</bpt>Configure<ept id="693e595a-6833-434a-abe4-a491eb29edf7">&lt;/strong&gt;</ept> tab to configure the new application.</target>
+        </trans-unit>
+        <trans-unit id="298e5f37-abeb-49b1-9c16-99241a9a772f" xml:space="preserve">
+          <source><bpt id="72145ff9-72fe-407a-bff4-02a55a407977">&lt;linkText&gt;</bpt>New Azure Active Directory application created<ept id="72145ff9-72fe-407a-bff4-02a55a407977">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="72145ff9-72fe-407a-bff4-02a55a407977">&lt;linkText&gt;</bpt>New Azure Active Directory application created<ept id="72145ff9-72fe-407a-bff4-02a55a407977">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ed30e42c-02c7-4141-b6ae-c77fd49897b5" xml:space="preserve">
+          <source>If multiple Azure Active Directories are going to be used for this application, click <bpt id="54ae1615-c573-4bac-8e85-7d4c5690ce52">&lt;strong&gt;</bpt>Yes<ept id="54ae1615-c573-4bac-8e85-7d4c5690ce52">&lt;/strong&gt;</ept> for <bpt id="9540c5c9-4bb8-4a36-8d67-2c422a00ecb1">&lt;strong&gt;</bpt>Application is multi-tenant<ept id="9540c5c9-4bb8-4a36-8d67-2c422a00ecb1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If multiple Azure Active Directories are going to be used for this application, click <bpt id="54ae1615-c573-4bac-8e85-7d4c5690ce52">&lt;strong&gt;</bpt>Yes<ept id="54ae1615-c573-4bac-8e85-7d4c5690ce52">&lt;/strong&gt;</ept> for <bpt id="9540c5c9-4bb8-4a36-8d67-2c422a00ecb1">&lt;strong&gt;</bpt>Application is multi-tenant<ept id="9540c5c9-4bb8-4a36-8d67-2c422a00ecb1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dccdb931-897e-45c7-843c-23405bee8060" xml:space="preserve">
+          <source>The default is <bpt id="a9c2a4ea-69a4-43d9-a3d0-08b9e7cabd3f">&lt;strong&gt;</bpt>No<ept id="a9c2a4ea-69a4-43d9-a3d0-08b9e7cabd3f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The default is <bpt id="a9c2a4ea-69a4-43d9-a3d0-08b9e7cabd3f">&lt;strong&gt;</bpt>No<ept id="a9c2a4ea-69a4-43d9-a3d0-08b9e7cabd3f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fac94897-77c2-4953-a9ba-1890c0689133" xml:space="preserve">
+          <source><bpt id="7ff2d69d-7588-4e06-aba5-85d8df1f7388">&lt;linkText&gt;</bpt>Application is multi-tenant<ept id="7ff2d69d-7588-4e06-aba5-85d8df1f7388">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ff2d69d-7588-4e06-aba5-85d8df1f7388">&lt;linkText&gt;</bpt>Application is multi-tenant<ept id="7ff2d69d-7588-4e06-aba5-85d8df1f7388">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb8a9f03-6d1e-4c9c-9c05-0e73e22984b1" xml:space="preserve">
+          <source>Copy the <bpt id="20a298f0-aa09-4b92-8f3a-2a86f7ded1a2">&lt;strong&gt;</bpt>Redirect URL<ept id="20a298f0-aa09-4b92-8f3a-2a86f7ded1a2">&lt;/strong&gt;</ept> from the <bpt id="6c05cccd-a8ed-4940-9345-6131bc4264d2">&lt;strong&gt;</bpt>Azure Active Directory<ept id="6c05cccd-a8ed-4940-9345-6131bc4264d2">&lt;/strong&gt;</ept> section of the <bpt id="db97867f-3325-41b7-8907-6486c36f864f">&lt;strong&gt;</bpt>External Identities<ept id="db97867f-3325-41b7-8907-6486c36f864f">&lt;/strong&gt;</ept> tab in the publisher portal and paste it into the <bpt id="3228a464-92ae-48f3-adf2-4285a31954ed">&lt;strong&gt;</bpt>Reply URL<ept id="3228a464-92ae-48f3-adf2-4285a31954ed">&lt;/strong&gt;</ept> text box.</source>
+          <target state="new">Copy the <bpt id="20a298f0-aa09-4b92-8f3a-2a86f7ded1a2">&lt;strong&gt;</bpt>Redirect URL<ept id="20a298f0-aa09-4b92-8f3a-2a86f7ded1a2">&lt;/strong&gt;</ept> from the <bpt id="6c05cccd-a8ed-4940-9345-6131bc4264d2">&lt;strong&gt;</bpt>Azure Active Directory<ept id="6c05cccd-a8ed-4940-9345-6131bc4264d2">&lt;/strong&gt;</ept> section of the <bpt id="db97867f-3325-41b7-8907-6486c36f864f">&lt;strong&gt;</bpt>External Identities<ept id="db97867f-3325-41b7-8907-6486c36f864f">&lt;/strong&gt;</ept> tab in the publisher portal and paste it into the <bpt id="3228a464-92ae-48f3-adf2-4285a31954ed">&lt;strong&gt;</bpt>Reply URL<ept id="3228a464-92ae-48f3-adf2-4285a31954ed">&lt;/strong&gt;</ept> text box.</target>
+        </trans-unit>
+        <trans-unit id="84b35b2a-fc32-4377-a8ad-c79cd5bf1548" xml:space="preserve">
+          <source><bpt id="874c6a68-7feb-45ef-8879-6314e41c8ebd">&lt;linkText&gt;</bpt>Reply URL<ept id="874c6a68-7feb-45ef-8879-6314e41c8ebd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="874c6a68-7feb-45ef-8879-6314e41c8ebd">&lt;linkText&gt;</bpt>Reply URL<ept id="874c6a68-7feb-45ef-8879-6314e41c8ebd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c9342652-311d-46a5-94e5-f27b61cc0e57" xml:space="preserve">
+          <source>Scroll to the bottom of the configure tab, select the <bpt id="7a09751f-7116-4884-bb7d-0ea8dc6079e1">&lt;strong&gt;</bpt>Application Permissions<ept id="7a09751f-7116-4884-bb7d-0ea8dc6079e1">&lt;/strong&gt;</ept> drop-down, and check <bpt id="33f8a34c-f898-419e-8e96-57132363aad9">&lt;strong&gt;</bpt>Read directory data<ept id="33f8a34c-f898-419e-8e96-57132363aad9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll to the bottom of the configure tab, select the <bpt id="7a09751f-7116-4884-bb7d-0ea8dc6079e1">&lt;strong&gt;</bpt>Application Permissions<ept id="7a09751f-7116-4884-bb7d-0ea8dc6079e1">&lt;/strong&gt;</ept> drop-down, and check <bpt id="33f8a34c-f898-419e-8e96-57132363aad9">&lt;strong&gt;</bpt>Read directory data<ept id="33f8a34c-f898-419e-8e96-57132363aad9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="897a27f1-358d-451f-aa56-0423f8153458" xml:space="preserve">
+          <source><bpt id="36392105-84f5-41c2-8a60-10c3c889af3a">&lt;linkText&gt;</bpt>Application Permissions<ept id="36392105-84f5-41c2-8a60-10c3c889af3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36392105-84f5-41c2-8a60-10c3c889af3a">&lt;linkText&gt;</bpt>Application Permissions<ept id="36392105-84f5-41c2-8a60-10c3c889af3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc237e80-c8de-4443-a0d9-5f6478da0262" xml:space="preserve">
+          <source>Select the <bpt id="4d6825fb-460d-4e10-bb71-9b6a4b2e5385">&lt;strong&gt;</bpt>Delegate Permissions<ept id="4d6825fb-460d-4e10-bb71-9b6a4b2e5385">&lt;/strong&gt;</ept> drop-down, and check <bpt id="1252915d-ccde-4783-b272-8102bbb4a1da">&lt;strong&gt;</bpt>Enable sign-on and read users' profiles<ept id="1252915d-ccde-4783-b272-8102bbb4a1da">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the <bpt id="4d6825fb-460d-4e10-bb71-9b6a4b2e5385">&lt;strong&gt;</bpt>Delegate Permissions<ept id="4d6825fb-460d-4e10-bb71-9b6a4b2e5385">&lt;/strong&gt;</ept> drop-down, and check <bpt id="1252915d-ccde-4783-b272-8102bbb4a1da">&lt;strong&gt;</bpt>Enable sign-on and read users' profiles<ept id="1252915d-ccde-4783-b272-8102bbb4a1da">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="faa545ef-42ae-4d01-9ea3-85d5ea84d4b7" xml:space="preserve">
+          <source><bpt id="17428e73-9b1f-487b-8247-5e0c98ad85d0">&lt;linkText&gt;</bpt>Delegated Permissions<ept id="17428e73-9b1f-487b-8247-5e0c98ad85d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="17428e73-9b1f-487b-8247-5e0c98ad85d0">&lt;linkText&gt;</bpt>Delegated Permissions<ept id="17428e73-9b1f-487b-8247-5e0c98ad85d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="48a53aa4-e619-46b4-a67c-ee6b9bb3ca36" xml:space="preserve">
+          <source>For more information about application and delegated permissions, see <bpt id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;linkText&gt;</bpt>Accessing the Graph API<ept id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;/linkText&gt;</ept><bpt id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;title&gt;</bpt><ept id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about application and delegated permissions, see <bpt id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;linkText&gt;</bpt>Accessing the Graph API<ept id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;/linkText&gt;</ept><bpt id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;title&gt;</bpt><ept id="45f7d4f7-4d41-41e9-9693-f02a36164d05">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3acafdd0-f2ac-45f2-be91-4cf267a3565e" xml:space="preserve">
+          <source>Copy the <bpt id="dd9cc1d1-4e8b-40d3-8b89-62b71edd3205">&lt;strong&gt;</bpt>Client Id<ept id="dd9cc1d1-4e8b-40d3-8b89-62b71edd3205">&lt;/strong&gt;</ept> to the clipboard.</source>
+          <target state="new">Copy the <bpt id="dd9cc1d1-4e8b-40d3-8b89-62b71edd3205">&lt;strong&gt;</bpt>Client Id<ept id="dd9cc1d1-4e8b-40d3-8b89-62b71edd3205">&lt;/strong&gt;</ept> to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="9e0b3b63-2667-48a5-9f35-242a64b9e9c5" xml:space="preserve">
+          <source><bpt id="4b83e7fc-c801-44e1-b0c5-df2eca7a9da5">&lt;linkText&gt;</bpt>Client Id<ept id="4b83e7fc-c801-44e1-b0c5-df2eca7a9da5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4b83e7fc-c801-44e1-b0c5-df2eca7a9da5">&lt;linkText&gt;</bpt>Client Id<ept id="4b83e7fc-c801-44e1-b0c5-df2eca7a9da5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52c8616f-8215-49f8-93af-22268b5b5f1f" xml:space="preserve">
+          <source>Switch back to the publisher portal and paste in the <bpt id="ecbe162c-8176-4fc7-827d-74f193f106d7">&lt;strong&gt;</bpt>Client Id<ept id="ecbe162c-8176-4fc7-827d-74f193f106d7">&lt;/strong&gt;</ept> copied from the Azure Active Directory application configuration.</source>
+          <target state="new">Switch back to the publisher portal and paste in the <bpt id="ecbe162c-8176-4fc7-827d-74f193f106d7">&lt;strong&gt;</bpt>Client Id<ept id="ecbe162c-8176-4fc7-827d-74f193f106d7">&lt;/strong&gt;</ept> copied from the Azure Active Directory application configuration.</target>
+        </trans-unit>
+        <trans-unit id="3406bd58-bb6e-44c4-970e-8e61efa0897e" xml:space="preserve">
+          <source><bpt id="21395d5e-8f0e-4551-a0d6-447d8304fcb9">&lt;linkText&gt;</bpt>Client Id<ept id="21395d5e-8f0e-4551-a0d6-447d8304fcb9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="21395d5e-8f0e-4551-a0d6-447d8304fcb9">&lt;linkText&gt;</bpt>Client Id<ept id="21395d5e-8f0e-4551-a0d6-447d8304fcb9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="636d57b3-6032-495f-ac17-17060a3af767" xml:space="preserve">
+          <source>Switch back to the Azure Active Directory configuration, and click the <bpt id="a93c274a-39f4-4011-9ee2-c401dbe3a143">&lt;strong&gt;</bpt>Select duration<ept id="a93c274a-39f4-4011-9ee2-c401dbe3a143">&lt;/strong&gt;</ept> drop-down in the <bpt id="c05bace8-21f9-44d9-8652-f2c672b36227">&lt;strong&gt;</bpt>Keys<ept id="c05bace8-21f9-44d9-8652-f2c672b36227">&lt;/strong&gt;</ept> section and specify an interval.</source>
+          <target state="new">Switch back to the Azure Active Directory configuration, and click the <bpt id="a93c274a-39f4-4011-9ee2-c401dbe3a143">&lt;strong&gt;</bpt>Select duration<ept id="a93c274a-39f4-4011-9ee2-c401dbe3a143">&lt;/strong&gt;</ept> drop-down in the <bpt id="c05bace8-21f9-44d9-8652-f2c672b36227">&lt;strong&gt;</bpt>Keys<ept id="c05bace8-21f9-44d9-8652-f2c672b36227">&lt;/strong&gt;</ept> section and specify an interval.</target>
+        </trans-unit>
+        <trans-unit id="ede3485e-8ba7-4f38-8770-99c5b19b6077" xml:space="preserve">
+          <source>In this example <bpt id="e98a1725-1274-429f-a734-6c5cd256980f">&lt;strong&gt;</bpt>1 year<ept id="e98a1725-1274-429f-a734-6c5cd256980f">&lt;/strong&gt;</ept> is used.</source>
+          <target state="new">In this example <bpt id="e98a1725-1274-429f-a734-6c5cd256980f">&lt;strong&gt;</bpt>1 year<ept id="e98a1725-1274-429f-a734-6c5cd256980f">&lt;/strong&gt;</ept> is used.</target>
+        </trans-unit>
+        <trans-unit id="b269f8d4-e932-422e-9e68-7391f5981691" xml:space="preserve">
+          <source><bpt id="f2573878-7044-4f43-a3a9-41a66c04b6d0">&lt;linkText&gt;</bpt>Key<ept id="f2573878-7044-4f43-a3a9-41a66c04b6d0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2573878-7044-4f43-a3a9-41a66c04b6d0">&lt;linkText&gt;</bpt>Key<ept id="f2573878-7044-4f43-a3a9-41a66c04b6d0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="088ec78a-a59d-488d-b8bb-6790af2a2d24" xml:space="preserve">
+          <source>Click <bpt id="b14972dd-8eb7-4447-b6c6-b971acd2b611">&lt;strong&gt;</bpt>Save<ept id="b14972dd-8eb7-4447-b6c6-b971acd2b611">&lt;/strong&gt;</ept> to save the configuration and display the key.</source>
+          <target state="new">Click <bpt id="b14972dd-8eb7-4447-b6c6-b971acd2b611">&lt;strong&gt;</bpt>Save<ept id="b14972dd-8eb7-4447-b6c6-b971acd2b611">&lt;/strong&gt;</ept> to save the configuration and display the key.</target>
+        </trans-unit>
+        <trans-unit id="eb27ea55-cf7d-4687-be0f-244f04d6d44e" xml:space="preserve">
+          <source>Copy the key to the clipboard.</source>
+          <target state="new">Copy the key to the clipboard.</target>
+        </trans-unit>
+        <trans-unit id="e616808b-2153-4445-87a4-52db78ae9329" xml:space="preserve">
+          <source>Make a note of this key.</source>
+          <target state="new">Make a note of this key.</target>
+        </trans-unit>
+        <trans-unit id="952a7708-afb0-4b9e-b163-045d0a7b017b" xml:space="preserve">
+          <source>Once you close the Azure Active Directory configuration window, the key cannot be displayed again.</source>
+          <target state="new">Once you close the Azure Active Directory configuration window, the key cannot be displayed again.</target>
+        </trans-unit>
+        <trans-unit id="1bc5ba6a-d608-4722-929c-7237577512f1" xml:space="preserve">
+          <source><bpt id="dd94a9af-e979-41a9-9145-67cec6f91a3a">&lt;linkText&gt;</bpt>Key<ept id="dd94a9af-e979-41a9-9145-67cec6f91a3a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dd94a9af-e979-41a9-9145-67cec6f91a3a">&lt;linkText&gt;</bpt>Key<ept id="dd94a9af-e979-41a9-9145-67cec6f91a3a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8bab6027-9b16-4fe1-b416-88390e6eb594" xml:space="preserve">
+          <source>Switch back to the publisher portal and paste the key into the <bpt id="c8470070-a304-4309-9760-57aed19d80cd">&lt;strong&gt;</bpt>Client Secret<ept id="c8470070-a304-4309-9760-57aed19d80cd">&lt;/strong&gt;</ept> text box.</source>
+          <target state="new">Switch back to the publisher portal and paste the key into the <bpt id="c8470070-a304-4309-9760-57aed19d80cd">&lt;strong&gt;</bpt>Client Secret<ept id="c8470070-a304-4309-9760-57aed19d80cd">&lt;/strong&gt;</ept> text box.</target>
+        </trans-unit>
+        <trans-unit id="f54d7889-3e64-416e-9972-332329f8ac5a" xml:space="preserve">
+          <source><bpt id="0735561c-4411-43f9-b966-5432e37b633f">&lt;linkText&gt;</bpt>Client Secret<ept id="0735561c-4411-43f9-b966-5432e37b633f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0735561c-4411-43f9-b966-5432e37b633f">&lt;linkText&gt;</bpt>Client Secret<ept id="0735561c-4411-43f9-b966-5432e37b633f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="87c65624-e865-4efe-b1af-2241d8236505" xml:space="preserve">
+          <source><bpt id="16d945f2-a655-4a20-a8b7-a48393ea46c9">&lt;strong&gt;</bpt>Allowed Tenants<ept id="16d945f2-a655-4a20-a8b7-a48393ea46c9">&lt;/strong&gt;</ept> specifies which directories have access to the APIs of the API Management service instance.</source>
+          <target state="new"><bpt id="16d945f2-a655-4a20-a8b7-a48393ea46c9">&lt;strong&gt;</bpt>Allowed Tenants<ept id="16d945f2-a655-4a20-a8b7-a48393ea46c9">&lt;/strong&gt;</ept> specifies which directories have access to the APIs of the API Management service instance.</target>
+        </trans-unit>
+        <trans-unit id="43216b8b-1cf2-4433-8aed-fdb1ea6e5c90" xml:space="preserve">
+          <source>Specify the domains of the Azure Active Directory instances to which you want to grant access.</source>
+          <target state="new">Specify the domains of the Azure Active Directory instances to which you want to grant access.</target>
+        </trans-unit>
+        <trans-unit id="dd3fda83-cd5b-4edd-9677-a43ef16b4e66" xml:space="preserve">
+          <source>You can separate multiple domains with newlines, spaces, or commas.</source>
+          <target state="new">You can separate multiple domains with newlines, spaces, or commas.</target>
+        </trans-unit>
+        <trans-unit id="0e9555fd-8ceb-4415-af6e-27f4b78ea83c" xml:space="preserve">
+          <source><bpt id="79d0ac92-6780-49fd-ba69-094a4ca90b83">&lt;linkText&gt;</bpt>Allowed tenants<ept id="79d0ac92-6780-49fd-ba69-094a4ca90b83">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79d0ac92-6780-49fd-ba69-094a4ca90b83">&lt;linkText&gt;</bpt>Allowed tenants<ept id="79d0ac92-6780-49fd-ba69-094a4ca90b83">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8332e5cc-78a6-4d4b-ab80-ca34a7409b86" xml:space="preserve">
+          <source>Multiple domains can be specified in the <bpt id="cb44dd8f-e623-4e81-bf59-f299959c832c">&lt;strong&gt;</bpt>Allowed Tenants<ept id="cb44dd8f-e623-4e81-bf59-f299959c832c">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Multiple domains can be specified in the <bpt id="cb44dd8f-e623-4e81-bf59-f299959c832c">&lt;strong&gt;</bpt>Allowed Tenants<ept id="cb44dd8f-e623-4e81-bf59-f299959c832c">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="0e8d2b4f-886c-496d-9269-b159647f19a5" xml:space="preserve">
+          <source>Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data.</source>
+          <target state="new">Before any user can log in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data.</target>
+        </trans-unit>
+        <trans-unit id="f2700aa1-8978-4d4f-9ea7-f9acc7191c06" xml:space="preserve">
+          <source>To grant permission, a global administrator must log in to the application and click <bpt id="77edc77d-2570-4a9c-a166-c137c4488d9e">&lt;strong&gt;</bpt>Accept<ept id="77edc77d-2570-4a9c-a166-c137c4488d9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To grant permission, a global administrator must log in to the application and click <bpt id="77edc77d-2570-4a9c-a166-c137c4488d9e">&lt;strong&gt;</bpt>Accept<ept id="77edc77d-2570-4a9c-a166-c137c4488d9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5e6be482-612b-480f-8073-f73f7ff9d29b" xml:space="preserve">
+          <source>In the following example <bpt id="686f1391-7430-49e6-a20a-61d55c355c93">&lt;code&gt;</bpt>miaoaad.onmicrosoft.com<ept id="686f1391-7430-49e6-a20a-61d55c355c93">&lt;/code&gt;</ept> has been added to <bpt id="e35e1958-becc-4174-a24c-cd1118d79b4b">&lt;strong&gt;</bpt>Allowed Tenants<ept id="e35e1958-becc-4174-a24c-cd1118d79b4b">&lt;/strong&gt;</ept> and a global administrator from that domain is logging in for the first time.</source>
+          <target state="new">In the following example <bpt id="686f1391-7430-49e6-a20a-61d55c355c93">&lt;code&gt;</bpt>miaoaad.onmicrosoft.com<ept id="686f1391-7430-49e6-a20a-61d55c355c93">&lt;/code&gt;</ept> has been added to <bpt id="e35e1958-becc-4174-a24c-cd1118d79b4b">&lt;strong&gt;</bpt>Allowed Tenants<ept id="e35e1958-becc-4174-a24c-cd1118d79b4b">&lt;/strong&gt;</ept> and a global administrator from that domain is logging in for the first time.</target>
+        </trans-unit>
+        <trans-unit id="bd488f2d-8bcf-45f5-8b20-c4608239a2f9" xml:space="preserve">
+          <source><bpt id="a90ffa42-542c-4db4-a671-f01b5fc528ff">&lt;linkText&gt;</bpt>Permissions<ept id="a90ffa42-542c-4db4-a671-f01b5fc528ff">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a90ffa42-542c-4db4-a671-f01b5fc528ff">&lt;linkText&gt;</bpt>Permissions<ept id="a90ffa42-542c-4db4-a671-f01b5fc528ff">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f8a85f18-6ed0-4903-a74e-27cc849fcdc2" xml:space="preserve">
+          <source>If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.</source>
+          <target state="new">If a non-global administrator tries to log in before permissions are granted by a global administrator, the login attempt fails and an error screen is displayed.</target>
+        </trans-unit>
+        <trans-unit id="1c490a9a-e521-4d36-8855-002451454824" xml:space="preserve">
+          <source>Once the desired configuration is specified, click <bpt id="1e456303-3736-4566-a6c7-778487dafee3">&lt;strong&gt;</bpt>Save<ept id="1e456303-3736-4566-a6c7-778487dafee3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Once the desired configuration is specified, click <bpt id="1e456303-3736-4566-a6c7-778487dafee3">&lt;strong&gt;</bpt>Save<ept id="1e456303-3736-4566-a6c7-778487dafee3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ebf187e3-9ad5-43d9-b501-72a9691d79b0" xml:space="preserve">
+          <source><bpt id="6d475b5b-5894-46de-bc75-ce26ace22fe0">&lt;linkText&gt;</bpt>Save<ept id="6d475b5b-5894-46de-bc75-ce26ace22fe0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d475b5b-5894-46de-bc75-ce26ace22fe0">&lt;linkText&gt;</bpt>Save<ept id="6d475b5b-5894-46de-bc75-ce26ace22fe0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0107e77c-9405-4695-b909-6169b8768d27" xml:space="preserve">
+          <source>Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in <bpt id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;linkText&gt;</bpt>Log in to the Developer portal using an Azure Active Directory account<ept id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;/linkText&gt;</ept><bpt id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;title&gt;</bpt><ept id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in <bpt id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;linkText&gt;</bpt>Log in to the Developer portal using an Azure Active Directory account<ept id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;/linkText&gt;</ept><bpt id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;title&gt;</bpt><ept id="30d660e1-30aa-4fbf-8593-3b5fb512985a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14fcdfea-570b-4aed-b7f6-30f43c155865" xml:space="preserve">
+          <source>After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.</source>
+          <target state="new">After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.</target>
+        </trans-unit>
+        <trans-unit id="a46e79d5-59b6-41f0-81d6-b69817860c8b" xml:space="preserve">
+          <source>In order to configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section.</source>
+          <target state="new">In order to configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section.</target>
+        </trans-unit>
+        <trans-unit id="9a659e08-8d76-440c-9c8a-bc11a45d9980" xml:space="preserve">
+          <source>External Azure Active Directory groups are added from the <bpt id="779e7023-229a-43f2-96ef-13c451f9b056">&lt;strong&gt;</bpt>Visibility<ept id="779e7023-229a-43f2-96ef-13c451f9b056">&lt;/strong&gt;</ept> tab of the product for which you wish to grant access to the group.</source>
+          <target state="new">External Azure Active Directory groups are added from the <bpt id="779e7023-229a-43f2-96ef-13c451f9b056">&lt;strong&gt;</bpt>Visibility<ept id="779e7023-229a-43f2-96ef-13c451f9b056">&lt;/strong&gt;</ept> tab of the product for which you wish to grant access to the group.</target>
+        </trans-unit>
+        <trans-unit id="349193ee-b9c3-44be-b3cd-c1d95029b552" xml:space="preserve">
+          <source>Click <bpt id="7822f4b0-7782-4767-b969-b20fe3e80834">&lt;strong&gt;</bpt>Products<ept id="7822f4b0-7782-4767-b969-b20fe3e80834">&lt;/strong&gt;</ept>, and then click the name of the desired product.</source>
+          <target state="new">Click <bpt id="7822f4b0-7782-4767-b969-b20fe3e80834">&lt;strong&gt;</bpt>Products<ept id="7822f4b0-7782-4767-b969-b20fe3e80834">&lt;/strong&gt;</ept>, and then click the name of the desired product.</target>
+        </trans-unit>
+        <trans-unit id="569380d8-11fd-4f06-b4ed-d0bf760c2a0e" xml:space="preserve">
+          <source><bpt id="94bc917b-ea36-4ee4-97fc-f6dc3848e68b">&lt;linkText&gt;</bpt>Configure product<ept id="94bc917b-ea36-4ee4-97fc-f6dc3848e68b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="94bc917b-ea36-4ee4-97fc-f6dc3848e68b">&lt;linkText&gt;</bpt>Configure product<ept id="94bc917b-ea36-4ee4-97fc-f6dc3848e68b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1374ae04-cb19-4d2d-b904-c6c40c7878e6" xml:space="preserve">
+          <source>Switch to the <bpt id="a46e2a31-0d62-4029-b933-dda42628ea8e">&lt;strong&gt;</bpt>Visibility<ept id="a46e2a31-0d62-4029-b933-dda42628ea8e">&lt;/strong&gt;</ept> tab, and click <bpt id="973b9401-1134-4dc2-8a72-947338f6363a">&lt;strong&gt;</bpt>Add Groups from Azure Active Directory<ept id="973b9401-1134-4dc2-8a72-947338f6363a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Switch to the <bpt id="a46e2a31-0d62-4029-b933-dda42628ea8e">&lt;strong&gt;</bpt>Visibility<ept id="a46e2a31-0d62-4029-b933-dda42628ea8e">&lt;/strong&gt;</ept> tab, and click <bpt id="973b9401-1134-4dc2-8a72-947338f6363a">&lt;strong&gt;</bpt>Add Groups from Azure Active Directory<ept id="973b9401-1134-4dc2-8a72-947338f6363a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3e3ca97-79fc-465b-9494-8e2cdd0832de" xml:space="preserve">
+          <source><bpt id="084733d6-6830-4816-8ae6-47d974cddcec">&lt;linkText&gt;</bpt>Add groups<ept id="084733d6-6830-4816-8ae6-47d974cddcec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="084733d6-6830-4816-8ae6-47d974cddcec">&lt;linkText&gt;</bpt>Add groups<ept id="084733d6-6830-4816-8ae6-47d974cddcec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="71de81eb-902b-4ab4-9656-1ce881650724" xml:space="preserve">
+          <source>Select the <bpt id="f7ee40e6-f7ee-4722-a375-8fedbb5d0799">&lt;strong&gt;</bpt>Azure Active Directory Tenant<ept id="f7ee40e6-f7ee-4722-a375-8fedbb5d0799">&lt;/strong&gt;</ept> from the drop-down list, and then type the name of the desired group in the <bpt id="c069932a-9716-4631-8604-5ea083254b79">&lt;strong&gt;</bpt>Groups<ept id="c069932a-9716-4631-8604-5ea083254b79">&lt;/strong&gt;</ept> to be added text box.</source>
+          <target state="new">Select the <bpt id="f7ee40e6-f7ee-4722-a375-8fedbb5d0799">&lt;strong&gt;</bpt>Azure Active Directory Tenant<ept id="f7ee40e6-f7ee-4722-a375-8fedbb5d0799">&lt;/strong&gt;</ept> from the drop-down list, and then type the name of the desired group in the <bpt id="c069932a-9716-4631-8604-5ea083254b79">&lt;strong&gt;</bpt>Groups<ept id="c069932a-9716-4631-8604-5ea083254b79">&lt;/strong&gt;</ept> to be added text box.</target>
+        </trans-unit>
+        <trans-unit id="2b2c4d92-01f5-4d31-b74d-8e4511929c34" xml:space="preserve">
+          <source><bpt id="95333c67-53b7-4cd7-8d7b-c137c8f85287">&lt;linkText&gt;</bpt>Select group<ept id="95333c67-53b7-4cd7-8d7b-c137c8f85287">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95333c67-53b7-4cd7-8d7b-c137c8f85287">&lt;linkText&gt;</bpt>Select group<ept id="95333c67-53b7-4cd7-8d7b-c137c8f85287">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="472ab6bd-502e-4207-bcf5-a7670f916d3e" xml:space="preserve">
+          <source>This group name can be found in the <bpt id="5a7cbb72-9bad-42fc-8755-af9d8bc00c0f">&lt;strong&gt;</bpt>Groups<ept id="5a7cbb72-9bad-42fc-8755-af9d8bc00c0f">&lt;/strong&gt;</ept> list for your Azure Active Directory, as shown in the following example.</source>
+          <target state="new">This group name can be found in the <bpt id="5a7cbb72-9bad-42fc-8755-af9d8bc00c0f">&lt;strong&gt;</bpt>Groups<ept id="5a7cbb72-9bad-42fc-8755-af9d8bc00c0f">&lt;/strong&gt;</ept> list for your Azure Active Directory, as shown in the following example.</target>
+        </trans-unit>
+        <trans-unit id="32a56d9b-6422-44cb-9188-b1a95514decd" xml:space="preserve">
+          <source><bpt id="a54670ef-de4b-4589-aa7f-dd0eb7b2ea6d">&lt;linkText&gt;</bpt>Azure Active Directory Groups List<ept id="a54670ef-de4b-4589-aa7f-dd0eb7b2ea6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a54670ef-de4b-4589-aa7f-dd0eb7b2ea6d">&lt;linkText&gt;</bpt>Azure Active Directory Groups List<ept id="a54670ef-de4b-4589-aa7f-dd0eb7b2ea6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b8a120e-5575-496d-89e5-c6c85a780830" xml:space="preserve">
+          <source>Click <bpt id="071418c1-6b67-46a5-a2cd-303f40d8c965">&lt;strong&gt;</bpt>Add<ept id="071418c1-6b67-46a5-a2cd-303f40d8c965">&lt;/strong&gt;</ept> to validate the group name and add the group.</source>
+          <target state="new">Click <bpt id="071418c1-6b67-46a5-a2cd-303f40d8c965">&lt;strong&gt;</bpt>Add<ept id="071418c1-6b67-46a5-a2cd-303f40d8c965">&lt;/strong&gt;</ept> to validate the group name and add the group.</target>
+        </trans-unit>
+        <trans-unit id="b2511e06-7ceb-4cb9-8670-5b0bb9f9577f" xml:space="preserve">
+          <source>In this example the <bpt id="0a98c93c-cddf-4273-a56f-d4dc454061ed">&lt;strong&gt;</bpt>Contoso 5 Developers<ept id="0a98c93c-cddf-4273-a56f-d4dc454061ed">&lt;/strong&gt;</ept> external group is added.</source>
+          <target state="new">In this example the <bpt id="0a98c93c-cddf-4273-a56f-d4dc454061ed">&lt;strong&gt;</bpt>Contoso 5 Developers<ept id="0a98c93c-cddf-4273-a56f-d4dc454061ed">&lt;/strong&gt;</ept> external group is added.</target>
+        </trans-unit>
+        <trans-unit id="8911cb27-b70e-49ce-87e3-76e95bfc486e" xml:space="preserve">
+          <source><bpt id="b22d849d-d94e-4bdd-bd5f-2abe160995c5">&lt;linkText&gt;</bpt>Group added<ept id="b22d849d-d94e-4bdd-bd5f-2abe160995c5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b22d849d-d94e-4bdd-bd5f-2abe160995c5">&lt;linkText&gt;</bpt>Group added<ept id="b22d849d-d94e-4bdd-bd5f-2abe160995c5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="457be1cb-9ab3-444c-a9d4-0fafc87b569b" xml:space="preserve">
+          <source>Click <bpt id="f5614868-e669-42f4-82de-61a063a7a6a8">&lt;strong&gt;</bpt>Save<ept id="f5614868-e669-42f4-82de-61a063a7a6a8">&lt;/strong&gt;</ept> to save the new group selection.</source>
+          <target state="new">Click <bpt id="f5614868-e669-42f4-82de-61a063a7a6a8">&lt;strong&gt;</bpt>Save<ept id="f5614868-e669-42f4-82de-61a063a7a6a8">&lt;/strong&gt;</ept> to save the new group selection.</target>
+        </trans-unit>
+        <trans-unit id="3db9de46-0a2e-4e6f-9efa-e482e3926fef" xml:space="preserve">
+          <source>Once an Azure Azure Active Directory group has been configured from one product, it is available to be checked on the <bpt id="b0a435a7-4c99-458e-8f47-363dde26dbf1">&lt;strong&gt;</bpt>Visibility<ept id="b0a435a7-4c99-458e-8f47-363dde26dbf1">&lt;/strong&gt;</ept> tab for the other products in the API Management service instance.</source>
+          <target state="new">Once an Azure Azure Active Directory group has been configured from one product, it is available to be checked on the <bpt id="b0a435a7-4c99-458e-8f47-363dde26dbf1">&lt;strong&gt;</bpt>Visibility<ept id="b0a435a7-4c99-458e-8f47-363dde26dbf1">&lt;/strong&gt;</ept> tab for the other products in the API Management service instance.</target>
+        </trans-unit>
+        <trans-unit id="931018ad-b97c-4a98-b260-8dac20bd1440" xml:space="preserve">
+          <source>To review and configure the properties for external groups once they have been added, click on the name of the group from the <bpt id="dd3cbd39-e7ac-4484-a468-52ebf7c85c17">&lt;strong&gt;</bpt>Groups<ept id="dd3cbd39-e7ac-4484-a468-52ebf7c85c17">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">To review and configure the properties for external groups once they have been added, click on the name of the group from the <bpt id="dd3cbd39-e7ac-4484-a468-52ebf7c85c17">&lt;strong&gt;</bpt>Groups<ept id="dd3cbd39-e7ac-4484-a468-52ebf7c85c17">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="e08ecdf5-4e91-4d97-a0d6-98afde10ee4c" xml:space="preserve">
+          <source><bpt id="b2bd0224-fd6f-4fc6-95b5-01c22718a70d">&lt;linkText&gt;</bpt>Manage groups<ept id="b2bd0224-fd6f-4fc6-95b5-01c22718a70d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b2bd0224-fd6f-4fc6-95b5-01c22718a70d">&lt;linkText&gt;</bpt>Manage groups<ept id="b2bd0224-fd6f-4fc6-95b5-01c22718a70d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a5930f9-de9c-4832-9bd0-e544ae8c046a" xml:space="preserve">
+          <source>From here you can edit the <bpt id="5643e879-4d38-4ce3-b22d-3ee490accea7">&lt;strong&gt;</bpt>Name<ept id="5643e879-4d38-4ce3-b22d-3ee490accea7">&lt;/strong&gt;</ept> and the <bpt id="b13f1bdd-e545-4ea2-9ffb-576805a396e8">&lt;strong&gt;</bpt>Description<ept id="b13f1bdd-e545-4ea2-9ffb-576805a396e8">&lt;/strong&gt;</ept> of the group.</source>
+          <target state="new">From here you can edit the <bpt id="5643e879-4d38-4ce3-b22d-3ee490accea7">&lt;strong&gt;</bpt>Name<ept id="5643e879-4d38-4ce3-b22d-3ee490accea7">&lt;/strong&gt;</ept> and the <bpt id="b13f1bdd-e545-4ea2-9ffb-576805a396e8">&lt;strong&gt;</bpt>Description<ept id="b13f1bdd-e545-4ea2-9ffb-576805a396e8">&lt;/strong&gt;</ept> of the group.</target>
+        </trans-unit>
+        <trans-unit id="196a80aa-8d9a-42de-8f3c-37fb3d1d9a72" xml:space="preserve">
+          <source><bpt id="a9c0ae19-3e37-4139-84af-a5871c2ad156">&lt;linkText&gt;</bpt>Edit group<ept id="a9c0ae19-3e37-4139-84af-a5871c2ad156">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a9c0ae19-3e37-4139-84af-a5871c2ad156">&lt;linkText&gt;</bpt>Edit group<ept id="a9c0ae19-3e37-4139-84af-a5871c2ad156">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0242116b-b310-4923-bc7a-c1f94907975b" xml:space="preserve">
+          <source>Users from the configured Azure Active Directory can log into the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.</source>
+          <target state="new">Users from the configured Azure Active Directory can log into the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.</target>
+        </trans-unit>
+        <trans-unit id="8b7c7e28-2aa0-424c-9255-2227dedd0fe7" xml:space="preserve">
+          <source>To log into the Developer portal using an Azure Active Directory account configured in the previous sections, open a new browser window using the <bpt id="cbebde10-215c-4258-a673-d19fc852ea18">&lt;strong&gt;</bpt>Sign-on URL<ept id="cbebde10-215c-4258-a673-d19fc852ea18">&lt;/strong&gt;</ept> from the Active Directory application configuration, and click <bpt id="5f1be7cd-3917-4e4b-90b6-f39f75b57629">&lt;strong&gt;</bpt>Azure Active Directory<ept id="5f1be7cd-3917-4e4b-90b6-f39f75b57629">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To log into the Developer portal using an Azure Active Directory account configured in the previous sections, open a new browser window using the <bpt id="cbebde10-215c-4258-a673-d19fc852ea18">&lt;strong&gt;</bpt>Sign-on URL<ept id="cbebde10-215c-4258-a673-d19fc852ea18">&lt;/strong&gt;</ept> from the Active Directory application configuration, and click <bpt id="5f1be7cd-3917-4e4b-90b6-f39f75b57629">&lt;strong&gt;</bpt>Azure Active Directory<ept id="5f1be7cd-3917-4e4b-90b6-f39f75b57629">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ea40257-6fcf-4b7a-acbd-2f51ae7f1496" xml:space="preserve">
+          <source><bpt id="b009765d-fe9f-4bed-879c-2c6389ba6130">&lt;linkText&gt;</bpt>Developer Portal<ept id="b009765d-fe9f-4bed-879c-2c6389ba6130">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b009765d-fe9f-4bed-879c-2c6389ba6130">&lt;linkText&gt;</bpt>Developer Portal<ept id="b009765d-fe9f-4bed-879c-2c6389ba6130">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06aaf351-8050-4b1c-843a-ac338ebf48ca" xml:space="preserve">
+          <source>Enter the credentials of one of the users in your Azure Active Directory, and click <bpt id="9c7a8efb-2138-48ba-836a-3c4ada650d29">&lt;strong&gt;</bpt>Sign in<ept id="9c7a8efb-2138-48ba-836a-3c4ada650d29">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter the credentials of one of the users in your Azure Active Directory, and click <bpt id="9c7a8efb-2138-48ba-836a-3c4ada650d29">&lt;strong&gt;</bpt>Sign in<ept id="9c7a8efb-2138-48ba-836a-3c4ada650d29">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2aa27e8-1e48-4353-b6b0-f5d784c09926" xml:space="preserve">
+          <source><bpt id="bb8263fa-10b4-4e02-a5a3-cf876414c143">&lt;linkText&gt;</bpt>Sign in<ept id="bb8263fa-10b4-4e02-a5a3-cf876414c143">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bb8263fa-10b4-4e02-a5a3-cf876414c143">&lt;linkText&gt;</bpt>Sign in<ept id="bb8263fa-10b4-4e02-a5a3-cf876414c143">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b573a7bb-542a-4549-93dd-a8d24f7f2d7c" xml:space="preserve">
+          <source>You may be prompted with a registration form if any additional information is required.</source>
+          <target state="new">You may be prompted with a registration form if any additional information is required.</target>
+        </trans-unit>
+        <trans-unit id="44ade62d-bba4-435f-b01b-7ead4f96e2ac" xml:space="preserve">
+          <source>Complete the registration form and click <bpt id="f823e787-bfdb-4905-a6a6-3f783a57e39b">&lt;strong&gt;</bpt>Sign up<ept id="f823e787-bfdb-4905-a6a6-3f783a57e39b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Complete the registration form and click <bpt id="f823e787-bfdb-4905-a6a6-3f783a57e39b">&lt;strong&gt;</bpt>Sign up<ept id="f823e787-bfdb-4905-a6a6-3f783a57e39b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1ce2982c-74d7-4df0-9220-5ecdbaa16bfb" xml:space="preserve">
+          <source><bpt id="f8e8a419-dead-43c1-a8f4-760f7a01986a">&lt;linkText&gt;</bpt>Registration<ept id="f8e8a419-dead-43c1-a8f4-760f7a01986a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f8e8a419-dead-43c1-a8f4-760f7a01986a">&lt;linkText&gt;</bpt>Registration<ept id="f8e8a419-dead-43c1-a8f4-760f7a01986a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61e218a3-7fc0-49e0-9fc4-8180c03add0e" xml:space="preserve">
+          <source>Your user is now logged into the developer portal for your API Management service instance.</source>
+          <target state="new">Your user is now logged into the developer portal for your API Management service instance.</target>
+        </trans-unit>
+        <trans-unit id="35436f25-792b-4ddc-b0a5-2fe72114df19" xml:space="preserve">
+          <source><bpt id="052b4ccd-36da-40c9-8819-1508d9ba581f">&lt;linkText&gt;</bpt>Registration Complete<ept id="052b4ccd-36da-40c9-8819-1508d9ba581f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="052b4ccd-36da-40c9-8819-1508d9ba581f">&lt;linkText&gt;</bpt>Registration Complete<ept id="052b4ccd-36da-40c9-8819-1508d9ba581f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e77e0ebf-0c0e-4030-b3c2-1b48e3de5b1b" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-management-console.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-management-console.png</target>
+        </trans-unit>
+        <trans-unit id="212c4508-effb-42b6-a46c-6c3dc77998fa" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-security-external-identities.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-security-external-identities.png</target>
+        </trans-unit>
+        <trans-unit id="8ee5dd98-8292-4b7d-ac41-0c0a9fbf1fde" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-security-aad-new.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-security-aad-new.png</target>
+        </trans-unit>
+        <trans-unit id="3e8eba4f-e26c-4fb7-ab7b-a982cffbee05" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-new-aad-application-menu.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-new-aad-application-menu.png</target>
+        </trans-unit>
+        <trans-unit id="dff09277-0fc3-480d-9896-9f070125d5ac" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-new-aad-application-1.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-new-aad-application-1.png</target>
+        </trans-unit>
+        <trans-unit id="19107ae4-7264-44f5-8689-a9bbd12fefc4" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-new-aad-application-2.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-new-aad-application-2.png</target>
+        </trans-unit>
+        <trans-unit id="b92107a0-12c2-486f-ae46-016a02b436f5" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-new-aad-app-created.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-new-aad-app-created.png</target>
+        </trans-unit>
+        <trans-unit id="ba44b169-6ade-4f73-b646-713f3376b9b6" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-app-permissions.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-app-permissions.png</target>
+        </trans-unit>
+        <trans-unit id="470efb45-d9f3-4cab-9b9f-a02b680fa51a" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-app-client-id.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-app-client-id.png</target>
+        </trans-unit>
+        <trans-unit id="f8eded1e-8bce-41e3-97f5-e31ee0977800" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-client-id.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-client-id.png</target>
+        </trans-unit>
+        <trans-unit id="ee6dde04-53ce-4ceb-9ffa-5ce1d4274df8" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-key-before-save.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-key-before-save.png</target>
+        </trans-unit>
+        <trans-unit id="5a109a7f-bef5-466e-81e7-7429ba294c68" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-key-after-save.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-key-after-save.png</target>
+        </trans-unit>
+        <trans-unit id="ea36fb8b-e912-4e1b-888f-7bcb3020ff1d" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-client-secret.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-client-secret.png</target>
+        </trans-unit>
+        <trans-unit id="f6c900fc-29ad-4e63-b3ad-9f79dc73e6fe" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-client-allowed-tenants.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-client-allowed-tenants.png</target>
+        </trans-unit>
+        <trans-unit id="548b7871-5ca6-4bbd-b28c-bd182f25fdd2" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-client-allowed-tenants-save.png</target>
+        </trans-unit>
+        <trans-unit id="5dd81194-c48b-4965-b635-99a75898fbbb" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-delegated-permissions.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-delegated-permissions.png</target>
+        </trans-unit>
+        <trans-unit id="3535a7e4-a4e1-4baf-aba0-413312994dc3" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-dev-portal-signin.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-dev-portal-signin.png</target>
+        </trans-unit>
+        <trans-unit id="77921a33-8427-40e3-a956-eb412f2d9286" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-signin.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-signin.png</target>
+        </trans-unit>
+        <trans-unit id="65010cc6-db0c-46ad-acb9-0204b5074a0b" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-complete-registration.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-complete-registration.png</target>
+        </trans-unit>
+        <trans-unit id="ebca0abe-e5f8-4a99-beb7-7a467a3ab0c3" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-registration-complete.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-registration-complete.png</target>
+        </trans-unit>
+        <trans-unit id="6639dcf0-355a-4603-8adb-4cfbf02207a2" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png</target>
+        </trans-unit>
+        <trans-unit id="25de7e68-c168-4644-a92d-ea912f1c43ab" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-reply-url.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-reply-url.png</target>
+        </trans-unit>
+        <trans-unit id="261b84d2-c478-48f4-8fea-68c085c53ce7" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-permissions-form.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-permissions-form.png</target>
+        </trans-unit>
+        <trans-unit id="f8fd6546-e5f4-4d83-abaa-e22e61828789" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-configure-product.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-configure-product.png</target>
+        </trans-unit>
+        <trans-unit id="acb6b81b-1078-42b4-bb24-67649e5b22f1" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-add-groups.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-add-groups.png</target>
+        </trans-unit>
+        <trans-unit id="271a07db-092e-4acd-a1a0-e53c4ff2f8ab" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-select-group.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-select-group.png</target>
+        </trans-unit>
+        <trans-unit id="86e64259-0734-4483-bcc5-9c04e0bd10f4" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-groups-list.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-groups-list.png</target>
+        </trans-unit>
+        <trans-unit id="d4023623-c522-4af4-bd39-e3b4bf7116ad" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-aad-group-added.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-aad-group-added.png</target>
+        </trans-unit>
+        <trans-unit id="a9bad2ab-fca6-40d1-b840-acc4e50e8645" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-groups.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-groups.png</target>
+        </trans-unit>
+        <trans-unit id="28235e21-4e14-49a3-b17b-7495f9752724" xml:space="preserve">
+          <source>./media/api-management-howto-aad/api-management-edit-group.png</source>
+          <target state="new">./media/api-management-howto-aad/api-management-edit-group.png</target>
+        </trans-unit>
+        <trans-unit id="1ba28667-2592-4a7d-882b-f5c61bb51b0d" xml:space="preserve">
+          <source>api-management-howto-add-operations.md</source>
+          <target state="new">api-management-howto-add-operations.md</target>
+        </trans-unit>
+        <trans-unit id="f1bd2c58-1cce-4cd7-ab3b-70d0cca4b8fe" xml:space="preserve">
+          <source>api-management-howto-add-products.md</source>
+          <target state="new">api-management-howto-add-products.md</target>
+        </trans-unit>
+        <trans-unit id="909d0df3-1042-4944-aee0-d3c016c214d1" xml:space="preserve">
+          <source>api-management-monitoring.md</source>
+          <target state="new">api-management-monitoring.md</target>
+        </trans-unit>
+        <trans-unit id="64a26024-4c18-4181-8a4a-488d98e15406" xml:space="preserve">
+          <source>api-management-howto-add-products.md#add-apis</source>
+          <target state="new">api-management-howto-add-products.md#add-apis</target>
+        </trans-unit>
+        <trans-unit id="c93b8a5d-291c-4161-b270-adfafd5253fb" xml:space="preserve">
+          <source>api-management-howto-add-products.md#publish-product</source>
+          <target state="new">api-management-howto-add-products.md#publish-product</target>
+        </trans-unit>
+        <trans-unit id="71e8c061-2e2d-4beb-a371-1cd897a3dceb" xml:space="preserve">
+          <source>api-management-get-started.md</source>
+          <target state="new">api-management-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="1a324e3f-83f6-491f-ab90-2143c9ef6750" xml:space="preserve">
+          <source>api-management-get-started-advanced.md</source>
+          <target state="new">api-management-get-started-advanced.md</target>
+        </trans-unit>
+        <trans-unit id="03fc0493-4a7d-4a95-9fb0-c69cb85fee75" xml:space="preserve">
+          <source>api-management-policy-reference.md</source>
+          <target state="new">api-management-policy-reference.md</target>
+        </trans-unit>
+        <trans-unit id="1fe6c447-db65-43ff-9437-9b37d017c601" xml:space="preserve">
+          <source>api-management-policy-reference.md#caching-policies</source>
+          <target state="new">api-management-policy-reference.md#caching-policies</target>
+        </trans-unit>
+        <trans-unit id="e26bcd7a-af07-46bc-9b8c-73c1510273e0" xml:space="preserve">
+          <source>api-management-get-started.md#create-service-instance</source>
+          <target state="new">api-management-get-started.md#create-service-instance</target>
+        </trans-unit>
+        <trans-unit id="1fa19cb9-9f70-4b38-a237-5792b4f98554" xml:space="preserve">
+          <source>http://oauth.net/2/</source>
+          <target state="new">http://oauth.net/2/</target>
+        </trans-unit>
+        <trans-unit id="6d923b46-cdef-4d45-9d4b-e7d58a64edf4" xml:space="preserve">
+          <source>https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet</source>
+          <target state="new">https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet</target>
+        </trans-unit>
+        <trans-unit id="1747fb9a-07fb-4972-b08c-bbc91c09fde2" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph</source>
+          <target state="new">http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph</target>
+        </trans-unit>
+        <trans-unit id="6ef441e6-05fe-4bc7-ae50-241000d48f7a" xml:space="preserve">
+          <source>#prerequisites</source>
+          <target state="new">#prerequisites</target>
+        </trans-unit>
+        <trans-unit id="1fd815c4-227d-46bb-a007-d3ee00428afd" xml:space="preserve">
+          <source>#step1</source>
+          <target state="new">#step1</target>
+        </trans-unit>
+        <trans-unit id="9e436d48-1f7e-4cd8-9418-5038d8b58d53" xml:space="preserve">
+          <source>#step2</source>
+          <target state="new">#step2</target>
+        </trans-unit>
+        <trans-unit id="c2e37057-e09b-4a07-8007-d11a23d05bd8" xml:space="preserve">
+          <source>#step3</source>
+          <target state="new">#step3</target>
+        </trans-unit>
+        <trans-unit id="f72177bc-96c9-4190-ad6b-9433b6a65207" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="be8eefff-94de-40eb-a76b-b6926948f0c0" xml:space="preserve">
+          <source>#Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account</source>
+          <target state="new">#Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account</target>
+        </trans-unit>
+      </group>
+      <group id="52ca186c-f8c1-45b4-8385-319a77796724" />
+    </body>
+  </file>
+</xliff>

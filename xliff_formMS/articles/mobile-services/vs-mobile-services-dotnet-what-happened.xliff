@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="febc20b1-5664-4ecd-93e8-22554bcc45d7" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="febc20b1-5664-4ecd-93e8-22554bcc45d7" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="136092a3-84a8-4686-9a61-a16c1ba77af3">
+        <trans-unit id="6c4bb5a2-9d47-4e48-be63-a454c489242b" xml:space="preserve">
+          <source>Describes what happened in your Azure Mobile Services .NET project in Visual Studio</source>
+          <target state="new">Describes what happened in your Azure Mobile Services .NET project in Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="5909097f-d1c0-4fd6-8584-aacc459344d0" xml:space="preserve">
+          <source>The Azure Mobile Services NuGet package was added to your project.</source>
+          <target state="new">The Azure Mobile Services NuGet package was added to your project.</target>
+        </trans-unit>
+        <trans-unit id="d7c052ee-08da-4079-b2d6-d35ba7279cd6" xml:space="preserve">
+          <source>As a result, the following .NET references were added to your project:</source>
+          <target state="new">As a result, the following .NET references were added to your project:</target>
+        </trans-unit>
+        <trans-unit id="55a69337-94f4-4d50-b12a-951674f841e4" xml:space="preserve">
+          <source><bpt id="e2a50272-ea27-4d06-9eae-9f132cc3175e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Mobile<ept id="e2a50272-ea27-4d06-9eae-9f132cc3175e">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e2a50272-ea27-4d06-9eae-9f132cc3175e">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Mobile<ept id="e2a50272-ea27-4d06-9eae-9f132cc3175e">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57f26e80-f788-4317-a8d6-24f9d8052a16" xml:space="preserve">
+          <source><bpt id="589eb566-8990-41ad-af56-6ede0f3984f1">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Mobile.Ext<ept id="589eb566-8990-41ad-af56-6ede0f3984f1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="589eb566-8990-41ad-af56-6ede0f3984f1">&lt;code&gt;</bpt>Microsoft.WindowsAzure.Mobile.Ext<ept id="589eb566-8990-41ad-af56-6ede0f3984f1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c51e7515-22fb-470b-9dce-3930c95f4f6d" xml:space="preserve">
+          <source><bpt id="e6bd3cec-06f9-4429-a517-48c088866ed0">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="e6bd3cec-06f9-4429-a517-48c088866ed0">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="e6bd3cec-06f9-4429-a517-48c088866ed0">&lt;code&gt;</bpt>Newtonsoft.Json<ept id="e6bd3cec-06f9-4429-a517-48c088866ed0">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a292f632-b643-423d-a592-cd6dbd20a327" xml:space="preserve">
+          <source><bpt id="349a1483-25dc-4af7-bed0-c8a31590681a">&lt;code&gt;</bpt>System.Net.Http.Extensions<ept id="349a1483-25dc-4af7-bed0-c8a31590681a">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="349a1483-25dc-4af7-bed0-c8a31590681a">&lt;code&gt;</bpt>System.Net.Http.Extensions<ept id="349a1483-25dc-4af7-bed0-c8a31590681a">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ebf5a637-5b29-4e1c-8c9c-138411375402" xml:space="preserve">
+          <source><bpt id="de1ea02e-3b28-4fa5-beda-8d4a733dcaeb">&lt;code&gt;</bpt>System.Net.Http.Primitives<ept id="de1ea02e-3b28-4fa5-beda-8d4a733dcaeb">&lt;/code&gt;</ept> </source>
+          <target state="new"><bpt id="de1ea02e-3b28-4fa5-beda-8d4a733dcaeb">&lt;code&gt;</bpt>System.Net.Http.Primitives<ept id="de1ea02e-3b28-4fa5-beda-8d4a733dcaeb">&lt;/code&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="4d27445c-020b-4afd-a1bf-ca7a5434a070" xml:space="preserve">
+          <source>In your App.xaml.cs file, a <bpt id="83faf9fc-1a8b-4077-ab0f-7ae10c061fb6">&lt;strong&gt;</bpt>MobileServiceClient<ept id="83faf9fc-1a8b-4077-ab0f-7ae10c061fb6">&lt;/strong&gt;</ept> object was created with the selected mobile service’s application URL and application key.</source>
+          <target state="new">In your App.xaml.cs file, a <bpt id="83faf9fc-1a8b-4077-ab0f-7ae10c061fb6">&lt;strong&gt;</bpt>MobileServiceClient<ept id="83faf9fc-1a8b-4077-ab0f-7ae10c061fb6">&lt;/strong&gt;</ept> object was created with the selected mobile service’s application URL and application key.</target>
+        </trans-unit>
+        <trans-unit id="d95746df-e679-4fcf-9b77-a5e53613ae65" xml:space="preserve">
+          <source>If a .NET mobile service is created in the Connected Service Provider, then a mobile services project is created and added to the solution.</source>
+          <target state="new">If a .NET mobile service is created in the Connected Service Provider, then a mobile services project is created and added to the solution.</target>
+        </trans-unit>
+        <trans-unit id="98bfe1fb-c469-4199-9cc7-0480dc73ffc9" xml:space="preserve">
+          <source><bpt id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;/linkText&gt;</ept><bpt id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;title&gt;</bpt><ept id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;linkText&gt;</bpt>Learn more about mobile services<ept id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;/linkText&gt;</ept><bpt id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;title&gt;</bpt><ept id="b1e70034-0471-4a82-a5b2-60edf2b8e731">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

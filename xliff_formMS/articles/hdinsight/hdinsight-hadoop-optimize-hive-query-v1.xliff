@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b63ba541-bba2-4c53-bed7-c8fa0564f912" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b63ba541-bba2-4c53-bed7-c8fa0564f912" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a4fd36ba-01cc-436c-881e-6a939edf7d39">
+        <trans-unit id="b3c1c51f-bd68-41e6-b8df-4be7f80fffcd" xml:space="preserve">
+          <source>Optimize your Hive queries for faster execution in HDInsight | Microsoft Azure</source>
+          <target state="new">Optimize your Hive queries for faster execution in HDInsight | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="2f9bb2fc-b43f-4973-9adc-abe81d2ef8be" xml:space="preserve">
+          <source>Learn how to optimize your Hive queries in HDInsight</source>
+          <target state="new">Learn how to optimize your Hive queries in HDInsight</target>
+        </trans-unit>
+        <trans-unit id="af7c7263-b182-4344-b3c4-47406dd9b6d4" xml:space="preserve">
+          <source>By default, Hadoop clusters are not optimized for performance.</source>
+          <target state="new">By default, Hadoop clusters are not optimized for performance.</target>
+        </trans-unit>
+        <trans-unit id="bd826be2-9001-4bac-bd86-b8c8a2c964f9" xml:space="preserve">
+          <source>This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.</source>
+          <target state="new">This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.</target>
+        </trans-unit>
+        <trans-unit id="d29c582f-d6a7-4ec1-a56d-8f2c0770c878" xml:space="preserve">
+          <source><bpt id="9cb484bb-0ce0-44c8-badf-8cee0337e8ab">&lt;token href="../../includes/hdinsight-azure-portal.md"&gt;</bpt><ept id="9cb484bb-0ce0-44c8-badf-8cee0337e8ab">&lt;/token&gt;</ept> </source>
+          <target state="new"><bpt id="9cb484bb-0ce0-44c8-badf-8cee0337e8ab">&lt;token href="../../includes/hdinsight-azure-portal.md"&gt;</bpt><ept id="9cb484bb-0ce0-44c8-badf-8cee0337e8ab">&lt;/token&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="591d0a02-f9d1-4781-b218-e86cdc3e3aab" xml:space="preserve">
+          <source><bpt id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;linkText&gt;</bpt>Optimize Hive queries for Hadoop in HDInsight<ept id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;/linkText&gt;</ept><bpt id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;title&gt;</bpt><ept id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;linkText&gt;</bpt>Optimize Hive queries for Hadoop in HDInsight<ept id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;/linkText&gt;</ept><bpt id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;title&gt;</bpt><ept id="2bb17e66-89a3-4777-8045-7c9115d50d57">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ce836d6a-183a-4f02-a1cb-9e55b99105b2" xml:space="preserve">
+          <source>Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel.</source>
+          <target state="new">Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel.</target>
+        </trans-unit>
+        <trans-unit id="0480cdaa-3ef3-4a20-aed8-3853cbf27c0e" xml:space="preserve">
+          <source>There are two ways you can increase scale out in HDInsight:</source>
+          <target state="new">There are two ways you can increase scale out in HDInsight:</target>
+        </trans-unit>
+        <trans-unit id="62baae34-96d6-4dfe-8bd6-6e62f0769821" xml:space="preserve">
+          <source>At the provision time, you can specify the number of worker nodes using the Azure portal, Azure PowerShell or Cross-platform command line interface.</source>
+          <target state="new">At the provision time, you can specify the number of worker nodes using the Azure portal, Azure PowerShell or Cross-platform command line interface.</target>
+        </trans-unit>
+        <trans-unit id="817f2bdd-bd78-480a-9b90-b6178d9c79d1" xml:space="preserve">
+          <source>For more information, see <bpt id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;/linkText&gt;</ept><bpt id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;title&gt;</bpt><ept id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;linkText&gt;</bpt>Provision HDInsight clusters<ept id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;/linkText&gt;</ept><bpt id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;title&gt;</bpt><ept id="b7343e14-dac7-401f-ad50-0d38a2ce402a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f773f51-89a5-4ffe-92b2-c2fdd637fb53" xml:space="preserve">
+          <source>The following screen show the worker node configuration on the Azure portal:</source>
+          <target state="new">The following screen show the worker node configuration on the Azure portal:</target>
+        </trans-unit>
+        <trans-unit id="0d86b236-d563-465b-a31f-9ed8705b9c4b" xml:space="preserve">
+          <source><bpt id="12383a0e-02bb-478a-a98e-3923b84984c1">&lt;linkText&gt;</bpt>scaleout_1<ept id="12383a0e-02bb-478a-a98e-3923b84984c1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="12383a0e-02bb-478a-a98e-3923b84984c1">&lt;linkText&gt;</bpt>scaleout_1<ept id="12383a0e-02bb-478a-a98e-3923b84984c1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40d8991f-2656-48ab-b5f1-f3df87c4a9dc" xml:space="preserve">
+          <source>At the run time, you can also scale out a cluster without recreating one.</source>
+          <target state="new">At the run time, you can also scale out a cluster without recreating one.</target>
+        </trans-unit>
+        <trans-unit id="890c06b0-fddd-42f4-99ad-613e8661d4bc" xml:space="preserve">
+          <source>This is shown below.</source>
+          <target state="new">This is shown below.</target>
+        </trans-unit>
+        <trans-unit id="58cec855-66e8-46d5-ae86-0de2c65c5417" xml:space="preserve">
+          <source><bpt id="24b3f1f8-dd8e-49cf-a53b-b9d51aa6d57e">&lt;linkText&gt;</bpt>scaleout_1<ept id="24b3f1f8-dd8e-49cf-a53b-b9d51aa6d57e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="24b3f1f8-dd8e-49cf-a53b-b9d51aa6d57e">&lt;linkText&gt;</bpt>scaleout_1<ept id="24b3f1f8-dd8e-49cf-a53b-b9d51aa6d57e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da171f3e-63b1-4f91-a465-11e848671a22" xml:space="preserve">
+          <source>For more details on the different virtual machines supported by HDInsight, see <bpt id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;linkText&gt;</bpt>HDInsight pricing<ept id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;/linkText&gt;</ept><bpt id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;title&gt;</bpt><ept id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details on the different virtual machines supported by HDInsight, see <bpt id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;linkText&gt;</bpt>HDInsight pricing<ept id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;/linkText&gt;</ept><bpt id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;title&gt;</bpt><ept id="39b2b41a-d5a8-422f-b3ff-572fa55ee945">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aecd082a-fba3-496a-9528-a08b8f2a9e67" xml:space="preserve">
+          <source><bpt id="0e23534d-6666-466d-bc70-191896222a2b">&lt;linkText&gt;</bpt>Apache Tez<ept id="0e23534d-6666-466d-bc70-191896222a2b">&lt;/linkText&gt;</ept><bpt id="0e23534d-6666-466d-bc70-191896222a2b">&lt;title&gt;</bpt><ept id="0e23534d-6666-466d-bc70-191896222a2b">&lt;/title&gt;</ept> is an alternative execution engine to the MapReduce engine:</source>
+          <target state="new"><bpt id="0e23534d-6666-466d-bc70-191896222a2b">&lt;linkText&gt;</bpt>Apache Tez<ept id="0e23534d-6666-466d-bc70-191896222a2b">&lt;/linkText&gt;</ept><bpt id="0e23534d-6666-466d-bc70-191896222a2b">&lt;title&gt;</bpt><ept id="0e23534d-6666-466d-bc70-191896222a2b">&lt;/title&gt;</ept> is an alternative execution engine to the MapReduce engine:</target>
+        </trans-unit>
+        <trans-unit id="4cbfdbf5-4447-46b7-bea8-ccc3e64c473d" xml:space="preserve">
+          <source><bpt id="df8a80e5-e38b-40a5-9026-0174d5711f95">&lt;linkText&gt;</bpt>tez_1<ept id="df8a80e5-e38b-40a5-9026-0174d5711f95">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="df8a80e5-e38b-40a5-9026-0174d5711f95">&lt;linkText&gt;</bpt>tez_1<ept id="df8a80e5-e38b-40a5-9026-0174d5711f95">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0d00901d-7a94-43e3-a505-99704a4be6a6" xml:space="preserve">
+          <source>Tez is faster because:</source>
+          <target state="new">Tez is faster because:</target>
+        </trans-unit>
+        <trans-unit id="dcfeee5b-444d-4290-967f-00119f3307b2" xml:space="preserve">
+          <source>Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine, the DAG that is expressed requires each set of mappers to be followed by one set of reducers.</source>
+          <target state="new">Execute Directed Acyclic Graph (DAG) as a single job in the MapReduce engine, the DAG that is expressed requires each set of mappers to be followed by one set of reducers.</target>
+        </trans-unit>
+        <trans-unit id="a9dd4cf3-1629-426a-971c-e44455d20fac" xml:space="preserve">
+          <source>This causes multiple MapReduce jobs to be spun off for each Hive query.</source>
+          <target state="new">This causes multiple MapReduce jobs to be spun off for each Hive query.</target>
+        </trans-unit>
+        <trans-unit id="b4a137f5-4477-4051-b1b2-e6be9e8021b5" xml:space="preserve">
+          <source>Tez does not have such constraint and can process complex DAG as one job thus minimizing job startup overhead.</source>
+          <target state="new">Tez does not have such constraint and can process complex DAG as one job thus minimizing job startup overhead.</target>
+        </trans-unit>
+        <trans-unit id="fc2bd70b-b4c0-437c-abfd-98db09b19aeb" xml:space="preserve">
+          <source><bpt id="7149f320-90a0-486d-b41d-adaeae6e0518">&lt;strong&gt;</bpt>Avoids unnecessary writes<ept id="7149f320-90a0-486d-b41d-adaeae6e0518">&lt;/strong&gt;</ept> Due to multiple jobs being spun for the same Hive query in the MapReduce engine, the output of each job is written to HDFS for intermediate data.</source>
+          <target state="new"><bpt id="7149f320-90a0-486d-b41d-adaeae6e0518">&lt;strong&gt;</bpt>Avoids unnecessary writes<ept id="7149f320-90a0-486d-b41d-adaeae6e0518">&lt;/strong&gt;</ept> Due to multiple jobs being spun for the same Hive query in the MapReduce engine, the output of each job is written to HDFS for intermediate data.</target>
+        </trans-unit>
+        <trans-unit id="04dd2f48-0435-4fdc-aa62-febbb94d3d5d" xml:space="preserve">
+          <source>Since Tez minimizes number of jobs for each Hive query it is able to avoid unnecessary write.</source>
+          <target state="new">Since Tez minimizes number of jobs for each Hive query it is able to avoid unnecessary write.</target>
+        </trans-unit>
+        <trans-unit id="4bc6053c-cb43-4e87-9894-29bcfc92441e" xml:space="preserve">
+          <source><bpt id="c557b2ef-4644-43b4-9906-00cc80e6cd1e">&lt;strong&gt;</bpt>Minimizes start-up delays<ept id="c557b2ef-4644-43b4-9906-00cc80e6cd1e">&lt;/strong&gt;</ept> Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.</source>
+          <target state="new"><bpt id="c557b2ef-4644-43b4-9906-00cc80e6cd1e">&lt;strong&gt;</bpt>Minimizes start-up delays<ept id="c557b2ef-4644-43b4-9906-00cc80e6cd1e">&lt;/strong&gt;</ept> Tez is better able to minimize start-up delay by reducing the number of mappers it needs to start and also improving optimization throughout.</target>
+        </trans-unit>
+        <trans-unit id="5a31648f-c7a1-4aa3-b4d0-5e20aaf470aa" xml:space="preserve">
+          <source><bpt id="25f1e640-30e5-4d64-b54e-1f3b3b17f324">&lt;strong&gt;</bpt>Reuses containers<ept id="25f1e640-30e5-4d64-b54e-1f3b3b17f324">&lt;/strong&gt;</ept> Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.</source>
+          <target state="new"><bpt id="25f1e640-30e5-4d64-b54e-1f3b3b17f324">&lt;strong&gt;</bpt>Reuses containers<ept id="25f1e640-30e5-4d64-b54e-1f3b3b17f324">&lt;/strong&gt;</ept> Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.</target>
+        </trans-unit>
+        <trans-unit id="0f777668-86f8-4035-8762-39d64b27ae66" xml:space="preserve">
+          <source><bpt id="47d3d8b8-fae7-49b2-ac68-2cb0fa074194">&lt;strong&gt;</bpt>Continuous optimization techniques<ept id="47d3d8b8-fae7-49b2-ac68-2cb0fa074194">&lt;/strong&gt;</ept> Traditionally optimization was done during compilation phase.</source>
+          <target state="new"><bpt id="47d3d8b8-fae7-49b2-ac68-2cb0fa074194">&lt;strong&gt;</bpt>Continuous optimization techniques<ept id="47d3d8b8-fae7-49b2-ac68-2cb0fa074194">&lt;/strong&gt;</ept> Traditionally optimization was done during compilation phase.</target>
+        </trans-unit>
+        <trans-unit id="6071b087-aaeb-4955-812a-cba8eb2e2cc5" xml:space="preserve">
+          <source>However more information about the inputs is available that allow for better optimization during runtime.</source>
+          <target state="new">However more information about the inputs is available that allow for better optimization during runtime.</target>
+        </trans-unit>
+        <trans-unit id="08764dc5-98b3-407c-9bfe-b5bfaa9d2816" xml:space="preserve">
+          <source>Tez uses continous optimization techniques that allows it to optimize the plan further into the runtime phase.</source>
+          <target state="new">Tez uses continous optimization techniques that allows it to optimize the plan further into the runtime phase.</target>
+        </trans-unit>
+        <trans-unit id="e3232950-4024-45f9-b945-7bc6927b6d7a" xml:space="preserve">
+          <source>For more details on these concepts, click <bpt id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;linkText&gt;</bpt>here<ept id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;/linkText&gt;</ept><bpt id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;title&gt;</bpt><ept id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;/title&gt;</ept></source>
+          <target state="new">For more details on these concepts, click <bpt id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;linkText&gt;</bpt>here<ept id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;/linkText&gt;</ept><bpt id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;title&gt;</bpt><ept id="c159b5e7-d62c-41ec-a8ac-8f6d84041859">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c1ef007-59a3-4b6b-9c8c-63aa5fe8754d" xml:space="preserve">
+          <source>You can make any Hive query Tez enabled by prefixing the query with the setting below:</source>
+          <target state="new">You can make any Hive query Tez enabled by prefixing the query with the setting below:</target>
+        </trans-unit>
+        <trans-unit id="421f8e74-6390-4e3e-851c-f0b9ae9b74f9" xml:space="preserve">
+          <source>Tez must be enabled at the provision time.</source>
+          <target state="new">Tez must be enabled at the provision time.</target>
+        </trans-unit>
+        <trans-unit id="436bc3c4-9ee2-4539-b32b-32c85a145307" xml:space="preserve">
+          <source>The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:</source>
+          <target state="new">The following is a sample Azure PowerShell script for provisioning a Hadoop cluster with Tez enabled:</target>
+        </trans-unit>
+        <trans-unit id="dbf7eda3-b5f4-422f-aa49-1065cb25a484" xml:space="preserve">
+          <source>I/O operation is the major performance bottleneck for running Hive queries.</source>
+          <target state="new">I/O operation is the major performance bottleneck for running Hive queries.</target>
+        </trans-unit>
+        <trans-unit id="13600e62-7757-49ed-8d8a-dda6a901ea84" xml:space="preserve">
+          <source>The performance can be improved if the amount of data that needs to be read can be reduced.</source>
+          <target state="new">The performance can be improved if the amount of data that needs to be read can be reduced.</target>
+        </trans-unit>
+        <trans-unit id="c229d135-aaca-4690-867b-b97a6bad292d" xml:space="preserve">
+          <source>By default, Hive queries scan entire Hive tables.</source>
+          <target state="new">By default, Hive queries scan entire Hive tables.</target>
+        </trans-unit>
+        <trans-unit id="7ac2b9cb-8493-465e-9565-9e46f5e12616" xml:space="preserve">
+          <source>This is great for queries like table scans, however for queries that only need to scan a small amount of data (e.g. queries with filtering), this creates unnecessary overhead.</source>
+          <target state="new">This is great for queries like table scans, however for queries that only need to scan a small amount of data (e.g. queries with filtering), this creates unnecessary overhead.</target>
+        </trans-unit>
+        <trans-unit id="5ab4177d-4bf6-4cc9-bbf2-56d494d8c0eb" xml:space="preserve">
+          <source>Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.</source>
+          <target state="new">Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.</target>
+        </trans-unit>
+        <trans-unit id="d9d2e108-a357-4aed-8cb2-f66353ea6445" xml:space="preserve">
+          <source>Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user.</source>
+          <target state="new">Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user.</target>
+        </trans-unit>
+        <trans-unit id="50257a83-73df-44f8-afb7-63a52bd5ab06" xml:space="preserve">
+          <source>The following diagram illustrates partitioning a Hive table by the column <bpt id="ad542f67-c633-48d3-ae73-2d0ec1ad29a0">&lt;em&gt;</bpt>Year<ept id="ad542f67-c633-48d3-ae73-2d0ec1ad29a0">&lt;/em&gt;</ept>.</source>
+          <target state="new">The following diagram illustrates partitioning a Hive table by the column <bpt id="ad542f67-c633-48d3-ae73-2d0ec1ad29a0">&lt;em&gt;</bpt>Year<ept id="ad542f67-c633-48d3-ae73-2d0ec1ad29a0">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c09b90a-6352-4ce1-99d1-4610cd06af29" xml:space="preserve">
+          <source>A new directory is created for each year.</source>
+          <target state="new">A new directory is created for each year.</target>
+        </trans-unit>
+        <trans-unit id="2aa9eac2-df25-43e9-b79d-8b7672deef3e" xml:space="preserve">
+          <source><bpt id="838aaf9e-8565-47a4-9489-655cdaa3fe2e">&lt;linkText&gt;</bpt>partitioning<ept id="838aaf9e-8565-47a4-9489-655cdaa3fe2e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="838aaf9e-8565-47a4-9489-655cdaa3fe2e">&lt;linkText&gt;</bpt>partitioning<ept id="838aaf9e-8565-47a4-9489-655cdaa3fe2e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c3765a74-93e5-49b0-b9e5-20929df1a09f" xml:space="preserve">
+          <source>Some partitioning considerations:</source>
+          <target state="new">Some partitioning considerations:</target>
+        </trans-unit>
+        <trans-unit id="c56a3ebb-3a93-49d1-836e-faff3e4ce72c" xml:space="preserve">
+          <source><bpt id="7798d8c7-a3c8-4fcb-bb14-964e29201350">&lt;strong&gt;</bpt>Do not under-partition<ept id="7798d8c7-a3c8-4fcb-bb14-964e29201350">&lt;/strong&gt;</ept> - Partitioning on columns with only a few values can cause very few partitions.</source>
+          <target state="new"><bpt id="7798d8c7-a3c8-4fcb-bb14-964e29201350">&lt;strong&gt;</bpt>Do not under-partition<ept id="7798d8c7-a3c8-4fcb-bb14-964e29201350">&lt;/strong&gt;</ept> - Partitioning on columns with only a few values can cause very few partitions.</target>
+        </trans-unit>
+        <trans-unit id="da7386fa-a615-4c9f-af79-439aaaf96ee6" xml:space="preserve">
+          <source>For example, partitioning on gender will only create two partitions to be created (male and female), thus only reduce the latency by a maximum of half.</source>
+          <target state="new">For example, partitioning on gender will only create two partitions to be created (male and female), thus only reduce the latency by a maximum of half.</target>
+        </trans-unit>
+        <trans-unit id="c786520f-1400-47fa-8819-5fba4544a0fe" xml:space="preserve">
+          <source><bpt id="6509db7a-f66b-4120-8605-c2f87634dc31">&lt;strong&gt;</bpt>Do not over-partition<ept id="6509db7a-f66b-4120-8605-c2f87634dc31">&lt;/strong&gt;</ept> - On the other extreme, creating a partition on a column with a unique value (e.g. userid) will cause multiple partitions causing a lot of stress on the cluster namenode as it will have to handle the large amount of directories.</source>
+          <target state="new"><bpt id="6509db7a-f66b-4120-8605-c2f87634dc31">&lt;strong&gt;</bpt>Do not over-partition<ept id="6509db7a-f66b-4120-8605-c2f87634dc31">&lt;/strong&gt;</ept> - On the other extreme, creating a partition on a column with a unique value (e.g. userid) will cause multiple partitions causing a lot of stress on the cluster namenode as it will have to handle the large amount of directories.</target>
+        </trans-unit>
+        <trans-unit id="1bc94634-187e-4daf-bf3b-1afff14fd118" xml:space="preserve">
+          <source><bpt id="09acb66d-c453-4f56-8fb5-dbbe2e84dbbf">&lt;strong&gt;</bpt>Avoid data skew<ept id="09acb66d-c453-4f56-8fb5-dbbe2e84dbbf">&lt;/strong&gt;</ept> - Choose your partitioning key wisely so that all partitions are even size.</source>
+          <target state="new"><bpt id="09acb66d-c453-4f56-8fb5-dbbe2e84dbbf">&lt;strong&gt;</bpt>Avoid data skew<ept id="09acb66d-c453-4f56-8fb5-dbbe2e84dbbf">&lt;/strong&gt;</ept> - Choose your partitioning key wisely so that all partitions are even size.</target>
+        </trans-unit>
+        <trans-unit id="51fc5448-bd9d-4bb6-b0b3-b26d3e12614c" xml:space="preserve">
+          <source>An example is partitioning on <bpt id="61d94333-bd73-49dd-b828-41916a844066">&lt;em&gt;</bpt>State<ept id="61d94333-bd73-49dd-b828-41916a844066">&lt;/em&gt;</ept> may cause the number of records under California to be almost 30x that of Vermont due to the difference in population.</source>
+          <target state="new">An example is partitioning on <bpt id="61d94333-bd73-49dd-b828-41916a844066">&lt;em&gt;</bpt>State<ept id="61d94333-bd73-49dd-b828-41916a844066">&lt;/em&gt;</ept> may cause the number of records under California to be almost 30x that of Vermont due to the difference in population.</target>
+        </trans-unit>
+        <trans-unit id="96d36cb0-4797-48ff-a37d-ac62c2cdde06" xml:space="preserve">
+          <source>To create a partition table, use the <bpt id="1651cd08-2a86-4088-86c4-9c012be0d9ef">&lt;em&gt;</bpt>Partitioned By<ept id="1651cd08-2a86-4088-86c4-9c012be0d9ef">&lt;/em&gt;</ept> clause:</source>
+          <target state="new">To create a partition table, use the <bpt id="1651cd08-2a86-4088-86c4-9c012be0d9ef">&lt;em&gt;</bpt>Partitioned By<ept id="1651cd08-2a86-4088-86c4-9c012be0d9ef">&lt;/em&gt;</ept> clause:</target>
+        </trans-unit>
+        <trans-unit id="a3d33120-1255-4158-9e87-d89cd32d870a" xml:space="preserve">
+          <source>Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.</source>
+          <target state="new">Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.</target>
+        </trans-unit>
+        <trans-unit id="ee938910-d0bf-42b1-bf61-b83ab08ce273" xml:space="preserve">
+          <source><bpt id="d86c6d07-136e-480f-a8e3-2cabbe7d7f98">&lt;strong&gt;</bpt>Static partitioning<ept id="d86c6d07-136e-480f-a8e3-2cabbe7d7f98">&lt;/strong&gt;</ept> means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location.</source>
+          <target state="new"><bpt id="d86c6d07-136e-480f-a8e3-2cabbe7d7f98">&lt;strong&gt;</bpt>Static partitioning<ept id="d86c6d07-136e-480f-a8e3-2cabbe7d7f98">&lt;/strong&gt;</ept> means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location.</target>
+        </trans-unit>
+        <trans-unit id="58b1de18-2b9a-44ef-86f9-dd7f0f21e59e" xml:space="preserve">
+          <source>This is shown in the code snippet below.</source>
+          <target state="new">This is shown in the code snippet below.</target>
+        </trans-unit>
+        <trans-unit id="38d9e182-99a4-4273-b44a-0397769b44a1" xml:space="preserve">
+          <source><bpt id="d689d7d2-700f-4752-bc4a-8c907d01d945">&lt;strong&gt;</bpt>Dynamic partitioning<ept id="d689d7d2-700f-4752-bc4a-8c907d01d945">&lt;/strong&gt;</ept> means that you want Hive to create partitions automatically for you.</source>
+          <target state="new"><bpt id="d689d7d2-700f-4752-bc4a-8c907d01d945">&lt;strong&gt;</bpt>Dynamic partitioning<ept id="d689d7d2-700f-4752-bc4a-8c907d01d945">&lt;/strong&gt;</ept> means that you want Hive to create partitions automatically for you.</target>
+        </trans-unit>
+        <trans-unit id="43aa1ba0-6db8-4736-b1a5-6f9e1c11cd27" xml:space="preserve">
+          <source>Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:</source>
+          <target state="new">Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:</target>
+        </trans-unit>
+        <trans-unit id="445963f0-52d3-434d-95c3-ab1989724864" xml:space="preserve">
+          <source>For more details, see <bpt id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;linkText&gt;</bpt>Partitioned Tables<ept id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;/linkText&gt;</ept><bpt id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;title&gt;</bpt><ept id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see <bpt id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;linkText&gt;</bpt>Partitioned Tables<ept id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;/linkText&gt;</ept><bpt id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;title&gt;</bpt><ept id="923ac7aa-d2e9-49d8-952e-c52c1e671e3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67592d69-63fb-48c4-a45b-d7b15ab9cff3" xml:space="preserve">
+          <source>Hive supports different file formats.</source>
+          <target state="new">Hive supports different file formats.</target>
+        </trans-unit>
+        <trans-unit id="5bd7f349-aacf-4083-9f9f-c4dc04decf0e" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="bdb79189-4438-4aeb-832f-f2483fe38778" xml:space="preserve">
+          <source><bpt id="7269b7d8-6fe0-434c-864e-a3d78f0836e6">&lt;strong&gt;</bpt>Text<ept id="7269b7d8-6fe0-434c-864e-a3d78f0836e6">&lt;/strong&gt;</ept>: this is the default file format and works with most scenarios</source>
+          <target state="new"><bpt id="7269b7d8-6fe0-434c-864e-a3d78f0836e6">&lt;strong&gt;</bpt>Text<ept id="7269b7d8-6fe0-434c-864e-a3d78f0836e6">&lt;/strong&gt;</ept>: this is the default file format and works with most scenarios</target>
+        </trans-unit>
+        <trans-unit id="8ccb8126-050a-4a97-b51d-f28b5492ad10" xml:space="preserve">
+          <source><bpt id="e39c4b3c-7ee2-41d1-bb24-4ce14b481e57">&lt;strong&gt;</bpt>Avro<ept id="e39c4b3c-7ee2-41d1-bb24-4ce14b481e57">&lt;/strong&gt;</ept>: works well for interoperability scenarios</source>
+          <target state="new"><bpt id="e39c4b3c-7ee2-41d1-bb24-4ce14b481e57">&lt;strong&gt;</bpt>Avro<ept id="e39c4b3c-7ee2-41d1-bb24-4ce14b481e57">&lt;/strong&gt;</ept>: works well for interoperability scenarios</target>
+        </trans-unit>
+        <trans-unit id="0dd25d6e-1974-44f1-a2ee-e5647b469f9a" xml:space="preserve">
+          <source><bpt id="bfea82f5-1749-445f-a3d1-5385c21ef3ab">&lt;strong&gt;</bpt>ORC/Parquet<ept id="bfea82f5-1749-445f-a3d1-5385c21ef3ab">&lt;/strong&gt;</ept>: best suited for performance</source>
+          <target state="new"><bpt id="bfea82f5-1749-445f-a3d1-5385c21ef3ab">&lt;strong&gt;</bpt>ORC/Parquet<ept id="bfea82f5-1749-445f-a3d1-5385c21ef3ab">&lt;/strong&gt;</ept>: best suited for performance</target>
+        </trans-unit>
+        <trans-unit id="1bf105cc-929f-47b7-b6dd-42ec1c289fad" xml:space="preserve">
+          <source>ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data.</source>
+          <target state="new">ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data.</target>
+        </trans-unit>
+        <trans-unit id="e774d7a4-9a51-4387-8456-97c5d71a97ce" xml:space="preserve">
+          <source>Compared to other formats, ORC has the following advantages:</source>
+          <target state="new">Compared to other formats, ORC has the following advantages:</target>
+        </trans-unit>
+        <trans-unit id="0a4e640f-e480-440d-aa78-3a8cbe932b94" xml:space="preserve">
+          <source>support for complex types including DateTime and complex and semi-structured types</source>
+          <target state="new">support for complex types including DateTime and complex and semi-structured types</target>
+        </trans-unit>
+        <trans-unit id="f40d019c-0f9b-4d9e-b210-83ecd7a482bc" xml:space="preserve">
+          <source>up to 70% compression</source>
+          <target state="new">up to 70% compression</target>
+        </trans-unit>
+        <trans-unit id="b4087474-b9f5-4e3c-b4f3-ee0de3982436" xml:space="preserve">
+          <source>indexes every 10,000 rows which allow skipping rows</source>
+          <target state="new">indexes every 10,000 rows which allow skipping rows</target>
+        </trans-unit>
+        <trans-unit id="63d3b574-c069-4101-aa36-fe47292c678d" xml:space="preserve">
+          <source>a significant drop in run-time execution</source>
+          <target state="new">a significant drop in run-time execution</target>
+        </trans-unit>
+        <trans-unit id="92114c0a-0ad4-45ae-90f6-e4883745b5db" xml:space="preserve">
+          <source>To enable ORC format, you first create a table with the clause <bpt id="76fa1ec0-be52-4357-971d-9fbc7f46ac43">&lt;em&gt;</bpt>Stored as ORC<ept id="76fa1ec0-be52-4357-971d-9fbc7f46ac43">&lt;/em&gt;</ept>:</source>
+          <target state="new">To enable ORC format, you first create a table with the clause <bpt id="76fa1ec0-be52-4357-971d-9fbc7f46ac43">&lt;em&gt;</bpt>Stored as ORC<ept id="76fa1ec0-be52-4357-971d-9fbc7f46ac43">&lt;/em&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="f27c2bb1-3f36-4d37-b9c4-a7f43f3cd133" xml:space="preserve">
+          <source>Next, you insert data to the ORC table from the staging table.</source>
+          <target state="new">Next, you insert data to the ORC table from the staging table.</target>
+        </trans-unit>
+        <trans-unit id="f2ec97ee-6f38-43ff-980f-3bb4c75d0d55" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="14c61dc8-890c-4a75-b881-f557e67335c6" xml:space="preserve">
+          <source>You can read more on the ORC format <bpt id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;linkText&gt;</bpt>here<ept id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;/linkText&gt;</ept><bpt id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;title&gt;</bpt><ept id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can read more on the ORC format <bpt id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;linkText&gt;</bpt>here<ept id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;/linkText&gt;</ept><bpt id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;title&gt;</bpt><ept id="bbace46d-ad9b-4d6f-8572-4c282c5200a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e79ee84c-1c65-47fe-8e6c-38629777286a" xml:space="preserve">
+          <source>Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time.</source>
+          <target state="new">Vectorization allows Hive to process a batch of 1024 rows together instead of processing one row at a time.</target>
+        </trans-unit>
+        <trans-unit id="c1e23be9-f558-4b64-b520-8a9f8dc28e5f" xml:space="preserve">
+          <source>This means that simple operations are done faster because less internal code needs to run.</source>
+          <target state="new">This means that simple operations are done faster because less internal code needs to run.</target>
+        </trans-unit>
+        <trans-unit id="420cebd5-ace0-4844-b466-dcd8ac5ddeeb" xml:space="preserve">
+          <source>To enable vectorization prefix your Hive query with the following setting:</source>
+          <target state="new">To enable vectorization prefix your Hive query with the following setting:</target>
+        </trans-unit>
+        <trans-unit id="d685e83e-f59e-4597-b9a4-3a437b35597a" xml:space="preserve">
+          <source>For more information, see <bpt id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;linkText&gt;</bpt>Vectorized query execution<ept id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;/linkText&gt;</ept><bpt id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;title&gt;</bpt><ept id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;linkText&gt;</bpt>Vectorized query execution<ept id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;/linkText&gt;</ept><bpt id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;title&gt;</bpt><ept id="f044547b-7c92-422a-8426-c5d8b57bde93">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f7adee45-b017-490c-bc09-0e66fd15f446" xml:space="preserve">
+          <source>There are more optimization methods that you can consider, for example:</source>
+          <target state="new">There are more optimization methods that you can consider, for example:</target>
+        </trans-unit>
+        <trans-unit id="87c945fe-4d86-4e6e-b2c6-a7f82a1c4f5d" xml:space="preserve">
+          <source><bpt id="ed3b2a74-aa89-4dfd-8396-800f010425aa">&lt;strong&gt;</bpt>Hive bucketing:<ept id="ed3b2a74-aa89-4dfd-8396-800f010425aa">&lt;/strong&gt;</ept> a technique that allows to cluster or segment large sets of data to optimize query performance.</source>
+          <target state="new"><bpt id="ed3b2a74-aa89-4dfd-8396-800f010425aa">&lt;strong&gt;</bpt>Hive bucketing:<ept id="ed3b2a74-aa89-4dfd-8396-800f010425aa">&lt;/strong&gt;</ept> a technique that allows to cluster or segment large sets of data to optimize query performance.</target>
+        </trans-unit>
+        <trans-unit id="d5051ab7-0654-4ed3-ae0b-3efb0ca1216c" xml:space="preserve">
+          <source><bpt id="e7122c75-1585-4fbc-9a11-e95072de2edc">&lt;strong&gt;</bpt>Join optimization:<ept id="e7122c75-1585-4fbc-9a11-e95072de2edc">&lt;/strong&gt;</ept> optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints.</source>
+          <target state="new"><bpt id="e7122c75-1585-4fbc-9a11-e95072de2edc">&lt;strong&gt;</bpt>Join optimization:<ept id="e7122c75-1585-4fbc-9a11-e95072de2edc">&lt;/strong&gt;</ept> optimization of Hive's query execution planning to improve the efficiency of joins and reduce the need for user hints.</target>
+        </trans-unit>
+        <trans-unit id="57227948-752b-48a3-924f-be21fa80b35b" xml:space="preserve">
+          <source>For more information, see <bpt id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;linkText&gt;</bpt>Join optimization<ept id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;/linkText&gt;</ept><bpt id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;title&gt;</bpt><ept id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;linkText&gt;</bpt>Join optimization<ept id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;/linkText&gt;</ept><bpt id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;title&gt;</bpt><ept id="ffa3a312-183d-417b-8850-3a7bf65dad13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99db8d3e-ab34-4952-9436-43686b02dd6a" xml:space="preserve">
+          <source><bpt id="bbe7b475-f8e6-42c9-b92c-7420b1bec47c">&lt;strong&gt;</bpt>increase Reducers<ept id="bbe7b475-f8e6-42c9-b92c-7420b1bec47c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="bbe7b475-f8e6-42c9-b92c-7420b1bec47c">&lt;strong&gt;</bpt>increase Reducers<ept id="bbe7b475-f8e6-42c9-b92c-7420b1bec47c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fddae325-df59-4ea8-98f1-bb3761125025" xml:space="preserve">
+          <source>In this article, you have learned several common Hive query optimization methods.</source>
+          <target state="new">In this article, you have learned several common Hive query optimization methods.</target>
+        </trans-unit>
+        <trans-unit id="2f8a499c-60c1-4f6e-9acd-0f9869ac8145" xml:space="preserve">
+          <source>To learn more, see the following articles:</source>
+          <target state="new">To learn more, see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="4179994b-2fad-47e0-a98f-6ecfe5cdbeb2" xml:space="preserve">
+          <source><bpt id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;linkText&gt;</bpt>Use Apache Hive in HDInsight<ept id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;/linkText&gt;</ept><bpt id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;title&gt;</bpt><ept id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;linkText&gt;</bpt>Use Apache Hive in HDInsight<ept id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;/linkText&gt;</ept><bpt id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;title&gt;</bpt><ept id="75d317f6-1c8f-441e-98e8-527906fce9f4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9193a0d4-6c82-45b3-84d6-9d806bf1ca90" xml:space="preserve">
+          <source><bpt id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive in HDInsight<ept id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;/linkText&gt;</ept><bpt id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;title&gt;</bpt><ept id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;linkText&gt;</bpt>Analyze flight delay data by using Hive in HDInsight<ept id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;/linkText&gt;</ept><bpt id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;title&gt;</bpt><ept id="cc6ee75c-51f4-4c13-8b25-7cade4afa3e5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7799ae01-8b6f-4950-81ae-fece83e393d0" xml:space="preserve">
+          <source><bpt id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;/linkText&gt;</ept><bpt id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;title&gt;</bpt><ept id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;linkText&gt;</bpt>Analyze Twitter data using Hive in HDInsight<ept id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;/linkText&gt;</ept><bpt id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;title&gt;</bpt><ept id="b010f0ce-98b2-4cc7-8382-8a6a5b10bd03">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fcd8ac0-3598-4577-bbc5-a4718752dc69" xml:space="preserve">
+          <source><bpt id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;linkText&gt;</bpt>Analyze sensor data using the Hive Query Console on Hadoop in HDInsight<ept id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;/linkText&gt;</ept><bpt id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;title&gt;</bpt><ept id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;linkText&gt;</bpt>Analyze sensor data using the Hive Query Console on Hadoop in HDInsight<ept id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;/linkText&gt;</ept><bpt id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;title&gt;</bpt><ept id="a91a026c-0d53-4262-92d0-114f9bb53ef7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8f8a0d8f-c71e-4177-8c69-303449b84f46" xml:space="preserve">
+          <source><bpt id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;linkText&gt;</bpt>Use Hive with HDInsight to analyze logs from websites<ept id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;/linkText&gt;</ept><bpt id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;title&gt;</bpt><ept id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;linkText&gt;</bpt>Use Hive with HDInsight to analyze logs from websites<ept id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;/linkText&gt;</ept><bpt id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;title&gt;</bpt><ept id="325d3b41-8dca-48dc-bfcd-a660cc048229">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43df9b86-d404-4404-89bd-2d5e9b311bd7" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png</source>
+          <target state="new">./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png</target>
+        </trans-unit>
+        <trans-unit id="b29e1bac-c9c0-4e68-bd66-09b723e5475e" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png</source>
+          <target state="new">./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png</target>
+        </trans-unit>
+        <trans-unit id="005c1d95-192c-49c4-8940-062d8567cfb7" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png</source>
+          <target state="new">./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png</target>
+        </trans-unit>
+        <trans-unit id="e8fc29ce-502e-444d-b09f-d579c43b2a2a" xml:space="preserve">
+          <source>./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png</source>
+          <target state="new">./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png</target>
+        </trans-unit>
+      </group>
+      <group id="f2a8bd62-495c-4ae8-8578-9ef42ef00ec3" />
+    </body>
+  </file>
+</xliff>

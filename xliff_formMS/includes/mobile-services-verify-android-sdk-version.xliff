@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="4e03f688-1000-43d3-804f-961ae11913d6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="4e03f688-1000-43d3-804f-961ae11913d6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="77f9e2c9-7ccf-4dec-9128-cb47b29de921">
+        <trans-unit id="bea3f3ad-dd6f-4919-b3bb-3bea32cc2c4a" xml:space="preserve">
+          <source>Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code.</source>
+          <target state="new">Because of ongoing development, the Android SDK version installed in Android Studio might not match the version in the code.</target>
+        </trans-unit>
+        <trans-unit id="128a81c2-bcc3-45c3-9865-6fb1d132e60a" xml:space="preserve">
+          <source>The Android SDK referenced in this tutorial is version 21, the latest at the time of writing.</source>
+          <target state="new">The Android SDK referenced in this tutorial is version 21, the latest at the time of writing.</target>
+        </trans-unit>
+        <trans-unit id="b38d7f11-363d-4122-9d11-a75278437cb3" xml:space="preserve">
+          <source>The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.</source>
+          <target state="new">The version number may increase as new releases of the SDK appear, and we recomend using the latest version available.</target>
+        </trans-unit>
+        <trans-unit id="7c7a059c-3f7e-439b-8d4e-36a87242ca3d" xml:space="preserve">
+          <source>Two symptoms of version mismatch are:</source>
+          <target state="new">Two symptoms of version mismatch are:</target>
+        </trans-unit>
+        <trans-unit id="c43d946e-000d-4c5f-9b62-02ac98970c4f" xml:space="preserve">
+          <source>When you Build or Rebuild the project, you may get Gradle error messages like "<bpt id="ffdf2b75-c1ae-45d0-86e3-4b6a91fee96b">&lt;strong&gt;</bpt>failed to find target Google Inc.:Google APIs:n<ept id="ffdf2b75-c1ae-45d0-86e3-4b6a91fee96b">&lt;/strong&gt;</ept>".</source>
+          <target state="new">When you Build or Rebuild the project, you may get Gradle error messages like "<bpt id="ffdf2b75-c1ae-45d0-86e3-4b6a91fee96b">&lt;strong&gt;</bpt>failed to find target Google Inc.:Google APIs:n<ept id="ffdf2b75-c1ae-45d0-86e3-4b6a91fee96b">&lt;/strong&gt;</ept>".</target>
+        </trans-unit>
+        <trans-unit id="3393212b-4af8-4052-8b64-5f1df2b5f714" xml:space="preserve">
+          <source>Standard Android objects in code that should resolve based on <bpt id="133564bc-d267-441d-8788-ae9838503aaf">&lt;code&gt;</bpt>import<ept id="133564bc-d267-441d-8788-ae9838503aaf">&lt;/code&gt;</ept> statements may be generating error messages.</source>
+          <target state="new">Standard Android objects in code that should resolve based on <bpt id="133564bc-d267-441d-8788-ae9838503aaf">&lt;code&gt;</bpt>import<ept id="133564bc-d267-441d-8788-ae9838503aaf">&lt;/code&gt;</ept> statements may be generating error messages.</target>
+        </trans-unit>
+        <trans-unit id="4c652f41-d5cf-4592-9570-a760f99117a0" xml:space="preserve">
+          <source>If either of these appear, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project.</source>
+          <target state="new">If either of these appear, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project.</target>
+        </trans-unit>
+        <trans-unit id="57f03586-f465-4e2d-8fbd-17f4bd547379" xml:space="preserve">
+          <source>To verify the version, make the following changes:</source>
+          <target state="new">To verify the version, make the following changes:</target>
+        </trans-unit>
+        <trans-unit id="5ce27d55-342b-4029-9392-e3379cfa77fa" xml:space="preserve">
+          <source>In Android Studio, click <bpt id="c73d9e2f-b300-4dad-b444-6989db9b2a4d">&lt;strong&gt;</bpt>Tools<ept id="c73d9e2f-b300-4dad-b444-6989db9b2a4d">&lt;/strong&gt;</ept> =&gt; <bpt id="25d87b98-440d-43aa-a7d0-df3adcf0bcbc">&lt;strong&gt;</bpt>Android<ept id="25d87b98-440d-43aa-a7d0-df3adcf0bcbc">&lt;/strong&gt;</ept> =&gt; <bpt id="284d56c8-1269-452c-9907-1577ea7f081e">&lt;strong&gt;</bpt>SDK Manager<ept id="284d56c8-1269-452c-9907-1577ea7f081e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Android Studio, click <bpt id="c73d9e2f-b300-4dad-b444-6989db9b2a4d">&lt;strong&gt;</bpt>Tools<ept id="c73d9e2f-b300-4dad-b444-6989db9b2a4d">&lt;/strong&gt;</ept> =&gt; <bpt id="25d87b98-440d-43aa-a7d0-df3adcf0bcbc">&lt;strong&gt;</bpt>Android<ept id="25d87b98-440d-43aa-a7d0-df3adcf0bcbc">&lt;/strong&gt;</ept> =&gt; <bpt id="284d56c8-1269-452c-9907-1577ea7f081e">&lt;strong&gt;</bpt>SDK Manager<ept id="284d56c8-1269-452c-9907-1577ea7f081e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c890af3-835c-44aa-ab4c-e1a04580b226" xml:space="preserve">
+          <source>If you have not installed the latest version of the SDK Platform, then click to install it.</source>
+          <target state="new">If you have not installed the latest version of the SDK Platform, then click to install it.</target>
+        </trans-unit>
+        <trans-unit id="955defbb-85d1-4695-9934-c5a437d064ed" xml:space="preserve">
+          <source>Make a note of the version number.</source>
+          <target state="new">Make a note of the version number.</target>
+        </trans-unit>
+        <trans-unit id="17dc6f73-74a5-4a5f-bfb8-a5480c4b5bf8" xml:space="preserve">
+          <source>In the Project Explorer tab, under <bpt id="5d8beb9c-e737-477a-b7b7-05bca6c6bee5">&lt;strong&gt;</bpt>Gradle Scripts<ept id="5d8beb9c-e737-477a-b7b7-05bca6c6bee5">&lt;/strong&gt;</ept>, open the file <bpt id="3759fcac-60d3-4c66-8744-f719f54a2551">&lt;strong&gt;</bpt>build.gradle (modeule: app)<ept id="3759fcac-60d3-4c66-8744-f719f54a2551">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Project Explorer tab, under <bpt id="5d8beb9c-e737-477a-b7b7-05bca6c6bee5">&lt;strong&gt;</bpt>Gradle Scripts<ept id="5d8beb9c-e737-477a-b7b7-05bca6c6bee5">&lt;/strong&gt;</ept>, open the file <bpt id="3759fcac-60d3-4c66-8744-f719f54a2551">&lt;strong&gt;</bpt>build.gradle (modeule: app)<ept id="3759fcac-60d3-4c66-8744-f719f54a2551">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2143dcdf-ca98-4d73-812f-a21db4b81130" xml:space="preserve">
+          <source>Ensure that the <bpt id="306dbbbf-1279-46f6-9d1a-1120b546731a">&lt;strong&gt;</bpt>compileSdkVersion<ept id="306dbbbf-1279-46f6-9d1a-1120b546731a">&lt;/strong&gt;</ept> and <bpt id="bdbf3382-2243-4034-9c16-1f9ef9a7e080">&lt;strong&gt;</bpt>buildToolsVersion<ept id="bdbf3382-2243-4034-9c16-1f9ef9a7e080">&lt;/strong&gt;</ept> are set to the latest  SDK version installed.</source>
+          <target state="new">Ensure that the <bpt id="306dbbbf-1279-46f6-9d1a-1120b546731a">&lt;strong&gt;</bpt>compileSdkVersion<ept id="306dbbbf-1279-46f6-9d1a-1120b546731a">&lt;/strong&gt;</ept> and <bpt id="bdbf3382-2243-4034-9c16-1f9ef9a7e080">&lt;strong&gt;</bpt>buildToolsVersion<ept id="bdbf3382-2243-4034-9c16-1f9ef9a7e080">&lt;/strong&gt;</ept> are set to the latest  SDK version installed.</target>
+        </trans-unit>
+        <trans-unit id="373df704-682b-4d5a-9a3d-0d4b96ec6b7b" xml:space="preserve">
+          <source>The tags might look like this:</source>
+          <target state="new">The tags might look like this:</target>
+        </trans-unit>
+        <trans-unit id="6642830b-5bbf-42a1-828d-d534b146f1ee" xml:space="preserve">
+          <source>In the Android Studio Project Explorer right-click the project node, choose <bpt id="d816e6ea-8631-4d29-a64a-d7e7d86e72dc">&lt;strong&gt;</bpt>Properties<ept id="d816e6ea-8631-4d29-a64a-d7e7d86e72dc">&lt;/strong&gt;</ept>, and in the left column choose <bpt id="1e541bcb-8605-47b6-9b01-ea8a0190275d">&lt;strong&gt;</bpt>Android<ept id="1e541bcb-8605-47b6-9b01-ea8a0190275d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Android Studio Project Explorer right-click the project node, choose <bpt id="d816e6ea-8631-4d29-a64a-d7e7d86e72dc">&lt;strong&gt;</bpt>Properties<ept id="d816e6ea-8631-4d29-a64a-d7e7d86e72dc">&lt;/strong&gt;</ept>, and in the left column choose <bpt id="1e541bcb-8605-47b6-9b01-ea8a0190275d">&lt;strong&gt;</bpt>Android<ept id="1e541bcb-8605-47b6-9b01-ea8a0190275d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eed09577-9708-4066-b0bd-ccccba470513" xml:space="preserve">
+          <source>Ensure that the <bpt id="efe3c243-7172-432b-834d-d9710e03921e">&lt;strong&gt;</bpt>Project Build Target<ept id="efe3c243-7172-432b-834d-d9710e03921e">&lt;/strong&gt;</ept> is set to the same SDK version as the <bpt id="fb9f79e2-e965-4fb9-af70-9c13903625bd">&lt;strong&gt;</bpt>targetSdkVersion<ept id="fb9f79e2-e965-4fb9-af70-9c13903625bd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Ensure that the <bpt id="efe3c243-7172-432b-834d-d9710e03921e">&lt;strong&gt;</bpt>Project Build Target<ept id="efe3c243-7172-432b-834d-d9710e03921e">&lt;/strong&gt;</ept> is set to the same SDK version as the <bpt id="fb9f79e2-e965-4fb9-af70-9c13903625bd">&lt;strong&gt;</bpt>targetSdkVersion<ept id="fb9f79e2-e965-4fb9-af70-9c13903625bd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f812c47-68e0-4025-8330-e2e668c79de9" xml:space="preserve">
+          <source>In Android Studio, the manifest file is no longer used to specify the target SDK and minimum SDK version, unlike the case with Eclipse.</source>
+          <target state="new">In Android Studio, the manifest file is no longer used to specify the target SDK and minimum SDK version, unlike the case with Eclipse.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

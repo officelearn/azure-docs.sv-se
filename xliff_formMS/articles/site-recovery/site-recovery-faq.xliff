@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="818451b2-9571-4ec9-9bfd-e86cdad39526" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="818451b2-9571-4ec9-9bfd-e86cdad39526" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="21b9255e-e27c-4d37-a8c4-d8e4419f8dbd">
+        <trans-unit id="7290b941-39ec-4aae-81cd-a84a36167f6b" xml:space="preserve">
+          <source>Azure Site Recovery: Frequently asked questions</source>
+          <target state="new">Azure Site Recovery: Frequently asked questions</target>
+        </trans-unit>
+        <trans-unit id="639bbff3-35b6-44c9-b2a3-46d02143c33c" xml:space="preserve">
+          <source>This article discusses popular questions about using Azure Site Recovery.</source>
+          <target state="new">This article discusses popular questions about using Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="ad4f97b5-7216-49bd-acce-2497fe4f64a3" xml:space="preserve">
+          <source>This article includes frequently asked questions about Azure Site Recovery.</source>
+          <target state="new">This article includes frequently asked questions about Azure Site Recovery.</target>
+        </trans-unit>
+        <trans-unit id="154140b7-7d77-4892-b444-50d80661f44c" xml:space="preserve">
+          <source>For an introduction to Site Recovery and related deployment scenarios, read the <bpt id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;/linkText&gt;</ept><bpt id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;title&gt;</bpt><ept id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For an introduction to Site Recovery and related deployment scenarios, read the <bpt id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;linkText&gt;</bpt>Site Recovery Overview<ept id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;/linkText&gt;</ept><bpt id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;title&gt;</bpt><ept id="aa87c7a5-d578-4672-8eee-f97cda1e8c2f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="195d129d-f23d-49f2-aeb1-b0a6ed555789" xml:space="preserve">
+          <source>If you have other questions after reading this article, you can post them on the <bpt id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;/linkText&gt;</ept><bpt id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;title&gt;</bpt><ept id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you have other questions after reading this article, you can post them on the <bpt id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;linkText&gt;</bpt>Azure Recovery Services Forum<ept id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;/linkText&gt;</ept><bpt id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;title&gt;</bpt><ept id="642b5399-190f-4fab-9a1d-0910ed136d8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76b58c38-ca01-4bd8-ac4b-3a551cb2f72e" xml:space="preserve">
+          <source>Yes, ASR is secure.</source>
+          <target state="new">Yes, ASR is secure.</target>
+        </trans-unit>
+        <trans-unit id="1a4ac852-df02-433f-926e-11f76ef4a11d" xml:space="preserve">
+          <source>It neither intercepts your application data nor has any information about what is running inside your virtual machines.</source>
+          <target state="new">It neither intercepts your application data nor has any information about what is running inside your virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="f3222267-b359-44f0-93de-e55e68ae99b4" xml:space="preserve">
+          <source>No Internet connectivity is needed, either from the Hyper-V hosts or the virtual machines.</source>
+          <target state="new">No Internet connectivity is needed, either from the Hyper-V hosts or the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="d156ce24-e4d6-4dcb-981a-c13e524b10df" xml:space="preserve">
+          <source>Since replication is between your own enterprise and service provider sites, no application data is sent to Azure.</source>
+          <target state="new">Since replication is between your own enterprise and service provider sites, no application data is sent to Azure.</target>
+        </trans-unit>
+        <trans-unit id="34031147-7cab-4e31-a1f2-99bd9f5cdfce" xml:space="preserve">
+          <source>Only metadata, such as VM or cloud names, that is needed to orchestrate failover, is sent to Azure.</source>
+          <target state="new">Only metadata, such as VM or cloud names, that is needed to orchestrate failover, is sent to Azure.</target>
+        </trans-unit>
+        <trans-unit id="ff576458-ab16-4f56-80cd-912bccd9d437" xml:space="preserve">
+          <source>ASR does not have the ability to intercept your application data, and that data always remains on-premises.</source>
+          <target state="new">ASR does not have the ability to intercept your application data, and that data always remains on-premises.</target>
+        </trans-unit>
+        <trans-unit id="31f728ce-7517-4875-8bcf-05397f99967c" xml:space="preserve">
+          <source>ASR is ISO 27001:2005-certified, and is in the process of completing its HIPAA, DPA, and FedRAMP JAB assessments.</source>
+          <target state="new">ASR is ISO 27001:2005-certified, and is in the process of completing its HIPAA, DPA, and FedRAMP JAB assessments.</target>
+        </trans-unit>
+        <trans-unit id="5c6fb47c-7711-498f-bb30-a849ec5945a0" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="3ca9ad34-07e4-4141-9ddf-f1db40da1e1c" xml:space="preserve">
+          <source>When you create a Site Recovery vault in a region of your choice, we ensure that all metadata that we need to enable and orchestrate your disaster recovery setup remains within that region's geographic boundary.</source>
+          <target state="new">When you create a Site Recovery vault in a region of your choice, we ensure that all metadata that we need to enable and orchestrate your disaster recovery setup remains within that region's geographic boundary.</target>
+        </trans-unit>
+        <trans-unit id="24af87f5-f486-45c2-9641-f978a3448d70" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="f386129c-9dc2-40b3-b136-70b5aad03622" xml:space="preserve">
+          <source>ASR workflows can be automated using Rest API, PowerShell, or Azure SDK.</source>
+          <target state="new">ASR workflows can be automated using Rest API, PowerShell, or Azure SDK.</target>
+        </trans-unit>
+        <trans-unit id="8906175a-759d-47d2-a44a-6b450bb91f2d" xml:space="preserve">
+          <source>You can find more details in the blog post titled <bpt id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;linkText&gt;</bpt>Introducing PowerShell support for Azure Site Recovery<ept id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;/linkText&gt;</ept><bpt id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;title&gt;</bpt><ept id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can find more details in the blog post titled <bpt id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;linkText&gt;</bpt>Introducing PowerShell support for Azure Site Recovery<ept id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;/linkText&gt;</ept><bpt id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;title&gt;</bpt><ept id="8711d710-8a37-45d4-8dc1-8133dbc8b573">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b3183c7e-a9db-44fc-a773-621b876960db" xml:space="preserve">
+          <source>Between on-premises to Azure &amp; between on-premises replication supports encryption in transit for <bpt id="75b366b3-6555-460a-b401-2bc6ec679507">&lt;em&gt;</bpt>Hyper-V &amp; VMM protection scenarios<ept id="75b366b3-6555-460a-b401-2bc6ec679507">&lt;/em&gt;</ept>. <bpt id="b0cabeeb-86cc-4dcc-b252-431007688d9a">&lt;em&gt;</bpt>Hyper-V &amp; VMM protection<ept id="b0cabeeb-86cc-4dcc-b252-431007688d9a">&lt;/em&gt;</ept> to Azure supports encryption at rest as well. Refer <bpt id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;linkText&gt;</bpt>this article<ept id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;/linkText&gt;</ept><bpt id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;title&gt;</bpt><ept id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Between on-premises to Azure &amp; between on-premises replication supports encryption in transit for <bpt id="75b366b3-6555-460a-b401-2bc6ec679507">&lt;em&gt;</bpt>Hyper-V &amp; VMM protection scenarios<ept id="75b366b3-6555-460a-b401-2bc6ec679507">&lt;/em&gt;</ept>. <bpt id="b0cabeeb-86cc-4dcc-b252-431007688d9a">&lt;em&gt;</bpt>Hyper-V &amp; VMM protection<ept id="b0cabeeb-86cc-4dcc-b252-431007688d9a">&lt;/em&gt;</ept> to Azure supports encryption at rest as well. Refer <bpt id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;linkText&gt;</bpt>this article<ept id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;/linkText&gt;</ept><bpt id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;title&gt;</bpt><ept id="1a5a0187-fd4c-40f3-929a-d65f4ecc5dce">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="451b444c-4359-48ae-94bf-c80d8ce7ffb1" xml:space="preserve">
+          <source><bpt id="114182d6-fc04-4c4f-bc35-69cd017e3ec3">&lt;strong&gt;</bpt>Hyper-V &amp; VMM scenarios<ept id="114182d6-fc04-4c4f-bc35-69cd017e3ec3">&lt;/strong&gt;</ept>: No, Hyper-V virtual machine replication using Host based replication can only be configured for 30 secs, 5 mins and 15 mins</source>
+          <target state="new"><bpt id="114182d6-fc04-4c4f-bc35-69cd017e3ec3">&lt;strong&gt;</bpt>Hyper-V &amp; VMM scenarios<ept id="114182d6-fc04-4c4f-bc35-69cd017e3ec3">&lt;/strong&gt;</ept>: No, Hyper-V virtual machine replication using Host based replication can only be configured for 30 secs, 5 mins and 15 mins</target>
+        </trans-unit>
+        <trans-unit id="cc6b70f6-2265-4158-9902-7f0b65be251d" xml:space="preserve">
+          <source><bpt id="69f31036-7ba4-4492-9a39-f1257221dfc0">&lt;strong&gt;</bpt>VMware/Physical scenario<ept id="69f31036-7ba4-4492-9a39-f1257221dfc0">&lt;/strong&gt;</ept>: This isn't applicable for in-guest based replication because technology uses continuous data protection.</source>
+          <target state="new"><bpt id="69f31036-7ba4-4492-9a39-f1257221dfc0">&lt;strong&gt;</bpt>VMware/Physical scenario<ept id="69f31036-7ba4-4492-9a39-f1257221dfc0">&lt;/strong&gt;</ept>: This isn't applicable for in-guest based replication because technology uses continuous data protection.</target>
+        </trans-unit>
+        <trans-unit id="5dbb38c1-ea1e-4ad7-b18e-e16b6d14d5ec" xml:space="preserve">
+          <source>This isn't supported.</source>
+          <target state="new">This isn't supported.</target>
+        </trans-unit>
+        <trans-unit id="e61383a8-ba9b-4e5a-bc10-080873cd7b27" xml:space="preserve">
+          <source>Send us your feedback through <bpt id="0e03598e-c459-41af-bead-d203ce784325">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Exclude disk from replication<ept id="0e03598e-c459-41af-bead-d203ce784325">&lt;/linkText&gt;</ept><bpt id="0e03598e-c459-41af-bead-d203ce784325">&lt;title&gt;</bpt><ept id="0e03598e-c459-41af-bead-d203ce784325">&lt;/title&gt;</ept>.</source>
+          <target state="new">Send us your feedback through <bpt id="0e03598e-c459-41af-bead-d203ce784325">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Exclude disk from replication<ept id="0e03598e-c459-41af-bead-d203ce784325">&lt;/linkText&gt;</ept><bpt id="0e03598e-c459-41af-bead-d203ce784325">&lt;title&gt;</bpt><ept id="0e03598e-c459-41af-bead-d203ce784325">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="302c62ef-41df-4d38-b79b-e4a763776943" xml:space="preserve">
+          <source><bpt id="181a4586-3332-441c-aef7-c16110266662">&lt;em&gt;</bpt>Hyper-V &amp; VMM scenarios<ept id="181a4586-3332-441c-aef7-c16110266662">&lt;/em&gt;</ept> supports dynamic disks. <bpt id="6b591bee-2b5b-48b2-8ffe-76da8cfdf5b4">&lt;em&gt;</bpt>VMware virtual machine or Physical machine scenarios<ept id="6b591bee-2b5b-48b2-8ffe-76da8cfdf5b4">&lt;/em&gt;</ept> doesn't support dynamic disk. Send us your feedback through <bpt id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum<ept id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;/linkText&gt;</ept><bpt id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;title&gt;</bpt><ept id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="181a4586-3332-441c-aef7-c16110266662">&lt;em&gt;</bpt>Hyper-V &amp; VMM scenarios<ept id="181a4586-3332-441c-aef7-c16110266662">&lt;/em&gt;</ept> supports dynamic disks. <bpt id="6b591bee-2b5b-48b2-8ffe-76da8cfdf5b4">&lt;em&gt;</bpt>VMware virtual machine or Physical machine scenarios<ept id="6b591bee-2b5b-48b2-8ffe-76da8cfdf5b4">&lt;/em&gt;</ept> doesn't support dynamic disk. Send us your feedback through <bpt id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum<ept id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;/linkText&gt;</ept><bpt id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;title&gt;</bpt><ept id="c24621cc-83af-49c4-9e34-d451e6048695">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7a7403b0-f01c-4ae5-a719-7482b016b437" xml:space="preserve">
+          <source><bpt id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;linkText&gt;</bpt>Standard Geo-redundant storage<ept id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;/linkText&gt;</ept><bpt id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;title&gt;</bpt><ept id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;/title&gt;</ept> is supported.</source>
+          <target state="new"><bpt id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;linkText&gt;</bpt>Standard Geo-redundant storage<ept id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;/linkText&gt;</ept><bpt id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;title&gt;</bpt><ept id="5ed9b6d3-c982-4d93-abe1-c20de0562e47">&lt;/title&gt;</ept> is supported.</target>
+        </trans-unit>
+        <trans-unit id="7dc74770-324d-42b4-a802-0b4abb9a22d3" xml:space="preserve">
+          <source>[Premium Storage Account]((../storage/storage-premium-storage-preview-portal/) is supported only for <bpt id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;linkText&gt;</bpt>VMware virtual machine or Physical machine scenarios<ept id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;/linkText&gt;</ept><bpt id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;title&gt;</bpt><ept id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;/title&gt;</ept>.</source>
+          <target state="new">[Premium Storage Account]((../storage/storage-premium-storage-preview-portal/) is supported only for <bpt id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;linkText&gt;</bpt>VMware virtual machine or Physical machine scenarios<ept id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;/linkText&gt;</ept><bpt id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;title&gt;</bpt><ept id="9438c546-acbc-4b4c-a731-3077b8a8014a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="04bb01d9-0099-4c80-9438-47bffead62a0" xml:space="preserve">
+          <source>Support for Standard locally redundant storage is in backlogs, send us your feedback through <bpt id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;linkText&gt;</bpt>Support for locally redundant storage support<ept id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;/linkText&gt;</ept><bpt id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;title&gt;</bpt><ept id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;/title&gt;</ept>.</source>
+          <target state="new">Support for Standard locally redundant storage is in backlogs, send us your feedback through <bpt id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;linkText&gt;</bpt>Support for locally redundant storage support<ept id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;/linkText&gt;</ept><bpt id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;title&gt;</bpt><ept id="a8813cac-ef72-4df3-969e-a13337c19a4d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ec38c10b-b998-4a89-ad61-d6128f2ad04a" xml:space="preserve">
+          <source>This isn't supported.</source>
+          <target state="new">This isn't supported.</target>
+        </trans-unit>
+        <trans-unit id="d7949bdf-cadd-4750-9458-ee2b9100ddca" xml:space="preserve">
+          <source>Send us your feedback through <bpt id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Support for extending replication<ept id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;/linkText&gt;</ept><bpt id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;title&gt;</bpt><ept id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;/title&gt;</ept>.</source>
+          <target state="new">Send us your feedback through <bpt id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Support for extending replication<ept id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;/linkText&gt;</ept><bpt id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;title&gt;</bpt><ept id="35846b06-ee4a-4f44-a734-2b845537ea4f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf829cdc-767f-498f-bc44-22b84bdeabbf" xml:space="preserve">
+          <source>This isn't supported.</source>
+          <target state="new">This isn't supported.</target>
+        </trans-unit>
+        <trans-unit id="28b914c6-57f4-4eac-b772-032cbfdfc74d" xml:space="preserve">
+          <source>Send us your feedback through <bpt id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Support for offline replication<ept id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;/linkText&gt;</ept><bpt id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;title&gt;</bpt><ept id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;/title&gt;</ept>.</source>
+          <target state="new">Send us your feedback through <bpt id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;linkText&gt;</bpt>Azure Site Recovery Feedback Forum - Support for offline replication<ept id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;/linkText&gt;</ept><bpt id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;title&gt;</bpt><ept id="d0d8d4c3-9fc9-4f12-ae65-93503f7d835c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3855a5b-aeaa-4cf3-a102-150a7b05b445" xml:space="preserve">
+          <source>Windows Server 2012 and Windows Server 2012 R2 can be used when you choose Hyper-V Replica to enable replication and protection between Hyper-V Sites.</source>
+          <target state="new">Windows Server 2012 and Windows Server 2012 R2 can be used when you choose Hyper-V Replica to enable replication and protection between Hyper-V Sites.</target>
+        </trans-unit>
+        <trans-unit id="a5c4a1a1-25b9-4b05-84db-29bd2ff627e0" xml:space="preserve">
+          <source>The most current list of supported guest operating systems is available in the topic titled <bpt id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;linkText&gt;</bpt>About Virtual Machines and Guest Operating Systems<ept id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;/linkText&gt;</ept><bpt id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;title&gt;</bpt><ept id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;/title&gt;</ept>.</source>
+          <target state="new">The most current list of supported guest operating systems is available in the topic titled <bpt id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;linkText&gt;</bpt>About Virtual Machines and Guest Operating Systems<ept id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;/linkText&gt;</ept><bpt id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;title&gt;</bpt><ept id="eea45509-f762-47f6-90a3-1debd4e6303b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7b45d29b-9c80-4f7d-9508-692ba3b4a57f" xml:space="preserve">
+          <source>You can't configure Hyper-V runing on a client operating system to replicate virtual machines to Azure.</source>
+          <target state="new">You can't configure Hyper-V runing on a client operating system to replicate virtual machines to Azure.</target>
+        </trans-unit>
+        <trans-unit id="4de6260a-ac70-48b5-80a1-4ec64e940bd3" xml:space="preserve">
+          <source>Hyper-V Replica is only supported on server operating systems.</source>
+          <target state="new">Hyper-V Replica is only supported on server operating systems.</target>
+        </trans-unit>
+        <trans-unit id="d97b792c-4315-4329-82c2-755b3a4b4280" xml:space="preserve">
+          <source>You can replicate your physical client computers to Azure using <bpt id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;linkText&gt;</bpt>this article<ept id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;/linkText&gt;</ept><bpt id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;title&gt;</bpt><ept id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can replicate your physical client computers to Azure using <bpt id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;linkText&gt;</bpt>this article<ept id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;/linkText&gt;</ept><bpt id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;title&gt;</bpt><ept id="cd99681e-13ec-4482-8f6a-d4398b2f4342">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bc056a2a-a254-4c76-9d9c-25d328e71a98" xml:space="preserve">
+          <source>Yes, ASR supports replication of generation 2 virtual machines on Hyper-V to Azure.</source>
+          <target state="new">Yes, ASR supports replication of generation 2 virtual machines on Hyper-V to Azure.</target>
+        </trans-unit>
+        <trans-unit id="55a846d6-a1e5-401d-9a2c-43a737593f03" xml:space="preserve">
+          <source>ASR converts from generation 2 to generation 1 during failover.</source>
+          <target state="new">ASR converts from generation 2 to generation 1 during failover.</target>
+        </trans-unit>
+        <trans-unit id="170e7aa6-6ea4-4ea6-85d8-06e8abb7387d" xml:space="preserve">
+          <source>At failback the machine is converted back to generation 1.</source>
+          <target state="new">At failback the machine is converted back to generation 1.</target>
+        </trans-unit>
+        <trans-unit id="0337c396-7bbc-409a-8f76-a6093da251cd" xml:space="preserve">
+          <source><bpt id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;linkText&gt;</bpt>Read more<ept id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;/linkText&gt;</ept><bpt id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;title&gt;</bpt><ept id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;/title&gt;</ept> for further information.</source>
+          <target state="new"><bpt id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;linkText&gt;</bpt>Read more<ept id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;/linkText&gt;</ept><bpt id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;title&gt;</bpt><ept id="f975e4a5-27c8-4795-adae-cb905f098964">&lt;/title&gt;</ept> for further information.</target>
+        </trans-unit>
+        <trans-unit id="4c73d1dd-a6a0-446a-ba0e-4142e5823797" xml:space="preserve">
+          <source>Yes, ASR supports both dedicated and shared infrastructure models.</source>
+          <target state="new">Yes, ASR supports both dedicated and shared infrastructure models.</target>
+        </trans-unit>
+        <trans-unit id="b8cd45b1-dcfe-47ea-9cd7-a5c0363a0d31" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="c010e036-8378-43dd-99e8-a77aa662e5c3" xml:space="preserve">
+          <source>In fact, your tenants do not need access to the ASR portal.</source>
+          <target state="new">In fact, your tenants do not need access to the ASR portal.</target>
+        </trans-unit>
+        <trans-unit id="6bd1e553-46fd-4d61-ad5d-f7908b902a47" xml:space="preserve">
+          <source>Only the service provider administrator performs actions on the ASR portal in Azure.</source>
+          <target state="new">Only the service provider administrator performs actions on the ASR portal in Azure.</target>
+        </trans-unit>
+        <trans-unit id="5abf4f11-6f39-4913-ad91-fd5c5a5e32be" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="9dee275e-138a-4a30-beab-bdd2da272aba" xml:space="preserve">
+          <source>Microsoft Azure's billing relationship remains directly with the service provider.</source>
+          <target state="new">Microsoft Azure's billing relationship remains directly with the service provider.</target>
+        </trans-unit>
+        <trans-unit id="c4868ec7-9128-476f-9e03-46da50c65795" xml:space="preserve">
+          <source>Service providers are responsible for generating specific bills for their tenants.</source>
+          <target state="new">Service providers are responsible for generating specific bills for their tenants.</target>
+        </trans-unit>
+        <trans-unit id="896a5762-9846-410f-9727-1aa5c8513ea4" xml:space="preserve">
+          <source>When using a service provider-owned site for DR, application data never goes to Azure.</source>
+          <target state="new">When using a service provider-owned site for DR, application data never goes to Azure.</target>
+        </trans-unit>
+        <trans-unit id="b2fb52bf-6ded-4548-8ea0-91b71542fbb8" xml:space="preserve">
+          <source>Data is encrypted and replicated directly between the service provider sites.</source>
+          <target state="new">Data is encrypted and replicated directly between the service provider sites.</target>
+        </trans-unit>
+        <trans-unit id="ba5f9644-4406-4766-87bf-3650b59b1f2c" xml:space="preserve">
+          <source>When using Azure as a DR Site, application data is sent to Azure – Data at-rest and in-transit remains encrypted.</source>
+          <target state="new">When using Azure as a DR Site, application data is sent to Azure – Data at-rest and in-transit remains encrypted.</target>
+        </trans-unit>
+        <trans-unit id="b0ee6cde-e4ff-4dca-ae9c-48490f5b8597" xml:space="preserve">
+          <source>You can also use VPN, ExpressRoute, or Public Internet to establish connectivity to Azure.</source>
+          <target state="new">You can also use VPN, ExpressRoute, or Public Internet to establish connectivity to Azure.</target>
+        </trans-unit>
+        <trans-unit id="a5f7ce3c-3deb-411c-8db8-d0e48f05ce10" xml:space="preserve">
+          <source>No, ASR is designed as a first-class, public cloud DRaaS solution.</source>
+          <target state="new">No, ASR is designed as a first-class, public cloud DRaaS solution.</target>
+        </trans-unit>
+        <trans-unit id="e3a939ac-9bed-4689-a289-90601e9ffb38" xml:space="preserve">
+          <source>Data is replicated to a geo-redundant Azure storage account in your own subscription.</source>
+          <target state="new">Data is replicated to a geo-redundant Azure storage account in your own subscription.</target>
+        </trans-unit>
+        <trans-unit id="9ba6fdfc-72c9-416f-b210-397fe872c487" xml:space="preserve">
+          <source>When you perform a DR drill or an actual failover, ASR automatically creates virtual machines in your subscription.</source>
+          <target state="new">When you perform a DR drill or an actual failover, ASR automatically creates virtual machines in your subscription.</target>
+        </trans-unit>
+        <trans-unit id="30a7abf6-ca84-4cff-9f42-c1bf1c4e5563" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="ce9004d2-f0fd-4575-9397-83c2642e7116" xml:space="preserve">
+          <source>We support Azure Pack, Cloud Platform System, and System Center based Hyper 2012 and higher deployments.</source>
+          <target state="new">We support Azure Pack, Cloud Platform System, and System Center based Hyper 2012 and higher deployments.</target>
+        </trans-unit>
+        <trans-unit id="0e74405b-f0cf-4293-bfaa-d689ac92ac08" xml:space="preserve">
+          <source>To learn more about the ASR and Azure Pack integration, see <bpt id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;linkText&gt;</bpt>Configure protection for virtual machines<ept id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;/linkText&gt;</ept><bpt id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;title&gt;</bpt><ept id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;/title&gt;</ept>.</source>
+          <target state="new">To learn more about the ASR and Azure Pack integration, see <bpt id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;linkText&gt;</bpt>Configure protection for virtual machines<ept id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;/linkText&gt;</ept><bpt id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;title&gt;</bpt><ept id="28a06547-2b12-442c-93a1-6ffc9b6244b0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3fba56d7-7dbd-45f2-96d0-f7e6da876546" xml:space="preserve">
+          <source>Yes, single SCVMM deployments is supported for either scenarios – DR between service provider sites and DR between a service provider site and Azure.</source>
+          <target state="new">Yes, single SCVMM deployments is supported for either scenarios – DR between service provider sites and DR between a service provider site and Azure.</target>
+        </trans-unit>
+        <trans-unit id="be748ab6-653a-439c-9972-cf6068cf2574" xml:space="preserve">
+          <source>Single Azure Pack deployment is also supported when you enable DR between service provider sites, however, ASR Runbook integration is not available for this topology.</source>
+          <target state="new">Single Azure Pack deployment is also supported when you enable DR between service provider sites, however, ASR Runbook integration is not available for this topology.</target>
+        </trans-unit>
+        <trans-unit id="cd87f5e3-edfe-44da-bb81-c965c65f0ec2" xml:space="preserve">
+          <source>No, it is not mandatory; ASR works over the public Internet as well.</source>
+          <target state="new">No, it is not mandatory; ASR works over the public Internet as well.</target>
+        </trans-unit>
+        <trans-unit id="75c423f1-bc02-4aaa-8f30-9fed9f43a5a0" xml:space="preserve">
+          <source>However, if you have configured site-to-site VPN, you will be able to access the failed over virtual machines in the same manner as before.</source>
+          <target state="new">However, if you have configured site-to-site VPN, you will be able to access the failed over virtual machines in the same manner as before.</target>
+        </trans-unit>
+        <trans-unit id="4c718a94-cc8d-4909-87db-811b320b24ac" xml:space="preserve">
+          <source>For more information about networking considerations when enabling Disaster Recovery to Azure, see the <bpt id="80481731-928b-4b23-b695-51467f0a1000">&lt;linkText&gt;</bpt>Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site blog<ept id="80481731-928b-4b23-b695-51467f0a1000">&lt;/linkText&gt;</ept><bpt id="80481731-928b-4b23-b695-51467f0a1000">&lt;title&gt;</bpt><ept id="80481731-928b-4b23-b695-51467f0a1000">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about networking considerations when enabling Disaster Recovery to Azure, see the <bpt id="80481731-928b-4b23-b695-51467f0a1000">&lt;linkText&gt;</bpt>Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site blog<ept id="80481731-928b-4b23-b695-51467f0a1000">&lt;/linkText&gt;</ept><bpt id="80481731-928b-4b23-b695-51467f0a1000">&lt;title&gt;</bpt><ept id="80481731-928b-4b23-b695-51467f0a1000">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c02389c8-cb41-4576-a597-f79f9249860c" xml:space="preserve">
+          <source>In steady state, we replicate changes to Geo-Redundant Azure Storage and you don’t need to pay any Azure IaaS virtual machine charges (a significant advantage).</source>
+          <target state="new">In steady state, we replicate changes to Geo-Redundant Azure Storage and you don’t need to pay any Azure IaaS virtual machine charges (a significant advantage).</target>
+        </trans-unit>
+        <trans-unit id="c664382d-b6c3-401f-ad26-80a65dd715dd" xml:space="preserve">
+          <source>When you perform a failover to Azure, ASR automatically creates Azure IaaS virtual machines, after which you are billed for the compute resources that you consume in Azure.</source>
+          <target state="new">When you perform a failover to Azure, ASR automatically creates Azure IaaS virtual machines, after which you are billed for the compute resources that you consume in Azure.</target>
+        </trans-unit>
+        <trans-unit id="8fd5c0fe-15df-4bcb-9032-174d702a4de5" xml:space="preserve">
+          <source>Yes, you can use ASR to protect virtual machines running on the Hyper-V hosts that are not managed by SCVMM.</source>
+          <target state="new">Yes, you can use ASR to protect virtual machines running on the Hyper-V hosts that are not managed by SCVMM.</target>
+        </trans-unit>
+        <trans-unit id="d47cc7b5-25b0-48a9-9ad9-2f0b684a07c6" xml:space="preserve">
+          <source>When you use ASR to manage the disaster recovery needs of all your branch offices, you get a unified view of all your branch office workloads in one central location.</source>
+          <target state="new">When you use ASR to manage the disaster recovery needs of all your branch offices, you get a unified view of all your branch office workloads in one central location.</target>
+        </trans-unit>
+        <trans-unit id="ef2485d1-8988-4492-9a07-7c46768a8444" xml:space="preserve">
+          <source>You also achieve one-click failover and disaster recovery administration of all branches from your head office, without ever going to the branch.</source>
+          <target state="new">You also achieve one-click failover and disaster recovery administration of all branches from your head office, without ever going to the branch.</target>
+        </trans-unit>
+        <trans-unit id="e653bee0-4d57-43cf-99ae-3bf28b17940f" xml:space="preserve">
+          <source>Currently, networking mapping and encryption-at-rest are not supported for branch office disaster recovery.</source>
+          <target state="new">Currently, networking mapping and encryption-at-rest are not supported for branch office disaster recovery.</target>
+        </trans-unit>
+        <trans-unit id="33bdd5d2-bec8-467c-af1b-a47060e34135" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="aa184f03-4761-4451-91d4-797e9ec86e5a" xml:space="preserve">
+          <source>Support remains the same as it does in our enterprise scenario.</source>
+          <target state="new">Support remains the same as it does in our enterprise scenario.</target>
+        </trans-unit>
+        <trans-unit id="03b23ba5-d90b-4577-b81e-173777bccf23" xml:space="preserve">
+          <source>You don't need an agent on the virtual machines.</source>
+          <target state="new">You don't need an agent on the virtual machines.</target>
+        </trans-unit>
+        <trans-unit id="3cda71e6-d401-407a-9d8f-4ead750553e5" xml:space="preserve">
+          <source>You need to install the Site Recovery Provider and the Recovery Services Agent on each Hyper-V server running virtual machines you want to protect.</source>
+          <target state="new">You need to install the Site Recovery Provider and the Recovery Services Agent on each Hyper-V server running virtual machines you want to protect.</target>
+        </trans-unit>
+        <trans-unit id="5e238d97-be87-4d4f-ab55-67e6beba009c" xml:space="preserve">
+          <source>These two components are installed with a single Provider file that can be downloaded during Site Recovery deployment.</source>
+          <target state="new">These two components are installed with a single Provider file that can be downloaded during Site Recovery deployment.</target>
+        </trans-unit>
+        <trans-unit id="1f153a75-ca24-4866-8d9f-17d8828fe0b4" xml:space="preserve">
+          <source>No specific setting is required.</source>
+          <target state="new">No specific setting is required.</target>
+        </trans-unit>
+        <trans-unit id="942dc088-28fb-400f-8ffc-b00d9c4a5b2b" xml:space="preserve">
+          <source>The Provider components on the server communicate over an HTTPS connection to Azure and use the default internet setting on the Hyper-V host server unless otherwise specified.</source>
+          <target state="new">The Provider components on the server communicate over an HTTPS connection to Azure and use the default internet setting on the Hyper-V host server unless otherwise specified.</target>
+        </trans-unit>
+        <trans-unit id="a7462c60-c1c7-41e2-a792-8ca7db4f6c4a" xml:space="preserve">
+          <source>No the server doesn't need to be in a domain</source>
+          <target state="new">No the server doesn't need to be in a domain</target>
+        </trans-unit>
+        <trans-unit id="6e30ea72-755d-42ef-913f-89ff70404bfa" xml:space="preserve">
+          <source>Windows Server 2012 and Windows Server 2012 R2 can be used when using ASR and Hyper-V replication between a Hyper-V sites and Azure.</source>
+          <target state="new">Windows Server 2012 and Windows Server 2012 R2 can be used when using ASR and Hyper-V replication between a Hyper-V sites and Azure.</target>
+        </trans-unit>
+        <trans-unit id="4673caca-4293-4367-9c53-94980676d3b7" xml:space="preserve">
+          <source>The most current list of supported guest operating systems is available in the article titled <bpt id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;linkText&gt;</bpt>About Virtual Machines and Guest Operating Systems<ept id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;/linkText&gt;</ept><bpt id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;title&gt;</bpt><ept id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;/title&gt;</ept>.</source>
+          <target state="new">The most current list of supported guest operating systems is available in the article titled <bpt id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;linkText&gt;</bpt>About Virtual Machines and Guest Operating Systems<ept id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;/linkText&gt;</ept><bpt id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;title&gt;</bpt><ept id="6d7ce8dc-cd2d-420d-9b4e-1c828d28720d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c9b6a9c-438a-409d-96d4-9a0e410a273a" xml:space="preserve">
+          <source>No, this type of chained replication isn't supported</source>
+          <target state="new">No, this type of chained replication isn't supported</target>
+        </trans-unit>
+        <trans-unit id="ad383d93-3bae-425e-af45-29394f2cbbc7" xml:space="preserve">
+          <source>No.</source>
+          <target state="new">No.</target>
+        </trans-unit>
+        <trans-unit id="2a8192e3-276c-4214-bf56-20b4fc1baf40" xml:space="preserve">
+          <source>While configuring protection between VMM clouds in ASR specify the authentication type.</source>
+          <target state="new">While configuring protection between VMM clouds in ASR specify the authentication type.</target>
+        </trans-unit>
+        <trans-unit id="55e3991e-040f-400d-948b-af561b062c4b" xml:space="preserve">
+          <source>Select HTTPS unless you have a working Kerberos environment configured.</source>
+          <target state="new">Select HTTPS unless you have a working Kerberos environment configured.</target>
+        </trans-unit>
+        <trans-unit id="9bf0b7b6-7540-4439-a6e8-deb70e117a0b" xml:space="preserve">
+          <source>Azure Site Recovery will automatically configure certificates for HTTPS authentication.</source>
+          <target state="new">Azure Site Recovery will automatically configure certificates for HTTPS authentication.</target>
+        </trans-unit>
+        <trans-unit id="a5ebb4a9-ba58-4bfc-8f9e-607408b0f662" xml:space="preserve">
+          <source>No manual configuration is required.</source>
+          <target state="new">No manual configuration is required.</target>
+        </trans-unit>
+        <trans-unit id="9f7cdc9f-7ad4-40d0-8d82-c485656c9bc7" xml:space="preserve">
+          <source>If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers.</source>
+          <target state="new">If you do select Kerberos, a Kerberos ticket will be used for mutual authentication of the host servers.</target>
+        </trans-unit>
+        <trans-unit id="327f61dc-c9f0-4a14-a40a-67b636a69d74" xml:space="preserve">
+          <source>By default, port 8083 (for Kerberos) and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers.</source>
+          <target state="new">By default, port 8083 (for Kerberos) and 8084 (for certificates) will be opened in the Windows Firewall on the Hyper-V host servers.</target>
+        </trans-unit>
+        <trans-unit id="947efb0d-6435-4720-9e64-1b800cb9eeaf" xml:space="preserve">
+          <source>Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.</source>
+          <target state="new">Note that this setting is only relevant for Hyper-V host servers running on Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="51c73983-81f6-434d-8d9b-47da8e2a36f7" xml:space="preserve">
+          <source>No problem.</source>
+          <target state="new">No problem.</target>
+        </trans-unit>
+        <trans-unit id="412110e4-d202-4e96-8cb9-27864c1bb35b" xml:space="preserve">
+          <source>ASR supports the scenario where replication may already be set up, in which case, you can leverage ASR for virtual machine-centric disaster recovery orchestration, configuration of disaster recovery networking, application-aware recovery plans, disaster recovery drills, and your compliance and audit reporting requirements.</source>
+          <target state="new">ASR supports the scenario where replication may already be set up, in which case, you can leverage ASR for virtual machine-centric disaster recovery orchestration, configuration of disaster recovery networking, application-aware recovery plans, disaster recovery drills, and your compliance and audit reporting requirements.</target>
+        </trans-unit>
+        <trans-unit id="a466d4d7-83bb-4de9-8de1-9b31d3b47230" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="6e92fe10-0485-4a27-8a7c-cfc04228d3d3" xml:space="preserve">
+          <source>We need the SAN array to be brought under management by VMM using an array-specific SMI-S provider.</source>
+          <target state="new">We need the SAN array to be brought under management by VMM using an array-specific SMI-S provider.</target>
+        </trans-unit>
+        <trans-unit id="f322d4b1-df37-4b2b-82a5-fb1b3af6035b" xml:space="preserve">
+          <source>We support single VMM HA deployments based on the array type, though the recommended configuration is to use separate VMM servers to manage the sites.</source>
+          <target state="new">We support single VMM HA deployments based on the array type, though the recommended configuration is to use separate VMM servers to manage the sites.</target>
+        </trans-unit>
+        <trans-unit id="7dee2a2c-1561-45e7-9e0f-be8130267d80" xml:space="preserve">
+          <source>NetApp, EMC and HP have enabled support for Azure Site Recovery SAN replication with updates to their SMI-S providers.</source>
+          <target state="new">NetApp, EMC and HP have enabled support for Azure Site Recovery SAN replication with updates to their SMI-S providers.</target>
+        </trans-unit>
+        <trans-unit id="97d23190-0f68-4bb6-95be-4a9fbc9d4ced" xml:space="preserve">
+          <source>For more details see below links.</source>
+          <target state="new">For more details see below links.</target>
+        </trans-unit>
+        <trans-unit id="15aabdb5-4dda-4e77-9c18-15223d51cf07" xml:space="preserve">
+          <source><bpt id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;linkText&gt;</bpt>NetApp Clustered Data ONTAP 8.2<ept id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;/linkText&gt;</ept><bpt id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;title&gt;</bpt><ept id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;linkText&gt;</bpt>NetApp Clustered Data ONTAP 8.2<ept id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;/linkText&gt;</ept><bpt id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;title&gt;</bpt><ept id="e1cb6a53-e858-49cd-b8e4-b968404a3f52">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf1c639e-923c-4e64-8ae3-a1c8cc9e8fed" xml:space="preserve">
+          <source><bpt id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;linkText&gt;</bpt>EMC VMAX series<ept id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;/linkText&gt;</ept><bpt id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;title&gt;</bpt><ept id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;/title&gt;</ept>    </source>
+          <target state="new"><bpt id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;linkText&gt;</bpt>EMC VMAX series<ept id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;/linkText&gt;</ept><bpt id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;title&gt;</bpt><ept id="2333ad22-8e63-4317-b84a-f78a04cb8c39">&lt;/title&gt;</ept>    </target>
+        </trans-unit>
+        <trans-unit id="6a24852c-484c-4984-890b-3dc35615357f" xml:space="preserve">
+          <source><bpt id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;linkText&gt;</bpt>HP 3PAR<ept id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;/linkText&gt;</ept><bpt id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;title&gt;</bpt><ept id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;linkText&gt;</bpt>HP 3PAR<ept id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;/linkText&gt;</ept><bpt id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;title&gt;</bpt><ept id="e05aa059-0af5-4fb2-8a30-f2d403cce2c5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="695448ba-1b74-46de-b47f-7dc92018523a" xml:space="preserve">
+          <source>We work with existing replication set up by your storage administrator, which means that the storage administrator does not need to make any changes on their arrays.</source>
+          <target state="new">We work with existing replication set up by your storage administrator, which means that the storage administrator does not need to make any changes on their arrays.</target>
+        </trans-unit>
+        <trans-unit id="ca34ab17-65da-4b60-9801-208d322b6eab" xml:space="preserve">
+          <source>However, organizations that want to automate their storage management through SCVMM can also provision storage using ASR and VMM.</source>
+          <target state="new">However, organizations that want to automate their storage management through SCVMM can also provision storage using ASR and VMM.</target>
+        </trans-unit>
+        <trans-unit id="c58c9472-35cf-4916-9aba-473b0894d5ec" xml:space="preserve">
+          <source>Yes, yes, and yes!</source>
+          <target state="new">Yes, yes, and yes!</target>
+        </trans-unit>
+        <trans-unit id="2f6a8d6e-03a2-49d9-8cff-77a279eb40d2" xml:space="preserve">
+          <source>When using (SAN) array-based replication to enable replication and protection between Hyper-V Sites, all you need is the ASR DR Provider to be installed on the SCVMM Server(s).</source>
+          <target state="new">When using (SAN) array-based replication to enable replication and protection between Hyper-V Sites, all you need is the ASR DR Provider to be installed on the SCVMM Server(s).</target>
+        </trans-unit>
+        <trans-unit id="612156d6-e4ee-4ae5-a00b-972f28ad7c85" xml:space="preserve">
+          <source>Remember that this is also the <bpt id="a45f4c28-694b-401c-a16f-173062283223">&lt;em&gt;</bpt>only<ept id="a45f4c28-694b-401c-a16f-173062283223">&lt;/em&gt;</ept> host that needs connectivity to the Internet.</source>
+          <target state="new">Remember that this is also the <bpt id="a45f4c28-694b-401c-a16f-173062283223">&lt;em&gt;</bpt>only<ept id="a45f4c28-694b-401c-a16f-173062283223">&lt;/em&gt;</ept> host that needs connectivity to the Internet.</target>
+        </trans-unit>
+        <trans-unit id="afe0d11e-8685-4b61-91b1-c52566e071d3" xml:space="preserve">
+          <source>Your arrays also need to be discovered by SCVMM using an updated SMI-S provider that is made available by your respective storage vendors.</source>
+          <target state="new">Your arrays also need to be discovered by SCVMM using an updated SMI-S provider that is made available by your respective storage vendors.</target>
+        </trans-unit>
+        <trans-unit id="6290928c-b6ad-40ef-9605-84f3a682a92b" xml:space="preserve">
+          <source>Yes, you can replicate a physical server using ASR and run it as VM in Azure in the event that your on-premises server goes down.</source>
+          <target state="new">Yes, you can replicate a physical server using ASR and run it as VM in Azure in the event that your on-premises server goes down.</target>
+        </trans-unit>
+        <trans-unit id="bf644423-9371-4075-9f10-bae05469af44" xml:space="preserve">
+          <source>Failback to an on-premises physical server isn't currently supported.</source>
+          <target state="new">Failback to an on-premises physical server isn't currently supported.</target>
+        </trans-unit>
+        <trans-unit id="3dd09635-9850-4ce3-84be-5310abfd59b3" xml:space="preserve">
+          <source>You can fail back to a virtual machine running on Hyper-V or VMware.</source>
+          <target state="new">You can fail back to a virtual machine running on Hyper-V or VMware.</target>
+        </trans-unit>
+        <trans-unit id="0a83573e-cbca-4630-90ab-d06b81606068" xml:space="preserve">
+          <source>While Azure is designed for service resilience, we like to plan for the worst.</source>
+          <target state="new">While Azure is designed for service resilience, we like to plan for the worst.</target>
+        </trans-unit>
+        <trans-unit id="fb5a97a3-1e54-4c0c-9e29-187e2713014f" xml:space="preserve">
+          <source>ASR is already engineered for failover to a secondary Azure datacenter in accordance with the Azure SLA.</source>
+          <target state="new">ASR is already engineered for failover to a secondary Azure datacenter in accordance with the Azure SLA.</target>
+        </trans-unit>
+        <trans-unit id="c9b0fbe9-d99a-4c3d-969d-8bab7ad37719" xml:space="preserve">
+          <source>We also ensure that even when this happens, your metadata and ASR Vault remain within the same geographic region in which you chose to your vault.</source>
+          <target state="new">We also ensure that even when this happens, your metadata and ASR Vault remain within the same geographic region in which you chose to your vault.</target>
+        </trans-unit>
+        <trans-unit id="e0490e2e-492a-47c4-8b2d-23a2d7ba3ca8" xml:space="preserve">
+          <source>You can use the ASR portal to perform an unplanned failover with a single click.</source>
+          <target state="new">You can use the ASR portal to perform an unplanned failover with a single click.</target>
+        </trans-unit>
+        <trans-unit id="a6e69cf2-2d55-4918-acc8-01784a100c15" xml:space="preserve">
+          <source>No connectivity from your primary datacenter is needed to perform the failover.</source>
+          <target state="new">No connectivity from your primary datacenter is needed to perform the failover.</target>
+        </trans-unit>
+        <trans-unit id="99e839f9-8b85-4580-97a1-00e63b6512f8" xml:space="preserve">
+          <source>It's likely that applications that need to be running in your secondary datacenter after a failover will need some form of Internet connectivity.</source>
+          <target state="new">It's likely that applications that need to be running in your secondary datacenter after a failover will need some form of Internet connectivity.</target>
+        </trans-unit>
+        <trans-unit id="436e955b-54b2-43fa-89bc-760789772794" xml:space="preserve">
+          <source>ASR assumes that even though the primary site and ISP may be impacted during a disaster, the secondary site’s SCVMM server is still connected to ASR.</source>
+          <target state="new">ASR assumes that even though the primary site and ISP may be impacted during a disaster, the secondary site’s SCVMM server is still connected to ASR.</target>
+        </trans-unit>
+        <trans-unit id="75255067-09fe-48a6-839f-fedffa37c331" xml:space="preserve">
+          <source>Yes.</source>
+          <target state="new">Yes.</target>
+        </trans-unit>
+        <trans-unit id="176abb31-2995-41af-ae24-33b115d978c7" xml:space="preserve">
+          <source>Failing back from Azure back to your on-premises site is simple using the one-click process through the ASR portal.</source>
+          <target state="new">Failing back from Azure back to your on-premises site is simple using the one-click process through the ASR portal.</target>
+        </trans-unit>
+        <trans-unit id="75a86a54-9891-48ec-8dd1-f18e518d1e7d" xml:space="preserve">
+          <source>There's no automatic failover option.</source>
+          <target state="new">There's no automatic failover option.</target>
+        </trans-unit>
+        <trans-unit id="9c01972a-dd9b-400c-8506-e40ef285f0bd" xml:space="preserve">
+          <source>You can either hit a single button in the portal to trigger a failover, or you can use <bpt id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;linkText&gt;</bpt>Site Recovery PowerShell<ept id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;/linkText&gt;</ept><bpt id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;title&gt;</bpt><ept id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;/title&gt;</ept> to trigger a failover.</source>
+          <target state="new">You can either hit a single button in the portal to trigger a failover, or you can use <bpt id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;linkText&gt;</bpt>Site Recovery PowerShell<ept id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;/linkText&gt;</ept><bpt id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;title&gt;</bpt><ept id="00dbca84-1d08-434f-bcea-622ff23fafb4">&lt;/title&gt;</ept> to trigger a failover.</target>
+        </trans-unit>
+        <trans-unit id="db359e52-47f5-4b59-81f1-3b64f70a3025" xml:space="preserve">
+          <source>You use on-premises Orchestrator or Operations Manager to witness a virtual machine failure and then decide to trigger the failover using the SDK.</source>
+          <target state="new">You use on-premises Orchestrator or Operations Manager to witness a virtual machine failure and then decide to trigger the failover using the SDK.</target>
+        </trans-unit>
+        <trans-unit id="50e50bfa-5c92-478b-b68e-b003cc5dfb08" xml:space="preserve">
+          <source>This makes it an automatic process.</source>
+          <target state="new">This makes it an automatic process.</target>
+        </trans-unit>
+        <trans-unit id="2dc06e60-bfaf-49e5-a68f-b3656d7d41da" xml:space="preserve">
+          <source>You can subscribe to email alerts directly from the ASR service to be notified about any issues that need attention.</source>
+          <target state="new">You can subscribe to email alerts directly from the ASR service to be notified about any issues that need attention.</target>
+        </trans-unit>
+        <trans-unit id="6512ab34-9018-40eb-870d-231251319695" xml:space="preserve">
+          <source>You can also monitor ongoing replication health using SCOM.</source>
+          <target state="new">You can also monitor ongoing replication health using SCOM.</target>
+        </trans-unit>
+        <trans-unit id="b4898ba3-7a85-4f5d-ba98-446670e138fe" xml:space="preserve">
+          <source>To start deploying ASR:</source>
+          <target state="new">To start deploying ASR:</target>
+        </trans-unit>
+        <trans-unit id="86e15360-3411-47f3-94b4-5d83da4cdd91" xml:space="preserve">
+          <source><bpt id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;linkText&gt;</bpt>Set up protection between an on-premises VMM site and Azure<ept id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;/linkText&gt;</ept><bpt id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;title&gt;</bpt><ept id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;linkText&gt;</bpt>Set up protection between an on-premises VMM site and Azure<ept id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;/linkText&gt;</ept><bpt id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;title&gt;</bpt><ept id="b82de17b-e776-409e-9fb8-32e93cca985a">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="287078c2-d63f-4dd0-90dd-031fbfef7118" xml:space="preserve">
+          <source><bpt id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;linkText&gt;</bpt>Set up protection between an on-premises Hyper-V site and Azure<ept id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;/linkText&gt;</ept><bpt id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;title&gt;</bpt><ept id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;linkText&gt;</bpt>Set up protection between an on-premises Hyper-V site and Azure<ept id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;/linkText&gt;</ept><bpt id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;title&gt;</bpt><ept id="13f4eb9e-93d7-4d7b-8295-9dbe2816a485">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="5eb8ec9b-a212-4e89-8c58-a9f99b96ff97" xml:space="preserve">
+          <source><bpt id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites<ept id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;/linkText&gt;</ept><bpt id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;title&gt;</bpt><ept id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites<ept id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;/linkText&gt;</ept><bpt id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;title&gt;</bpt><ept id="c32ba243-931b-4d87-843d-3a70b4791e4c">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="af9c4125-96b6-4044-a978-718108c0881e" xml:space="preserve">
+          <source><bpt id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites with SAN<ept id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;/linkText&gt;</ept><bpt id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;title&gt;</bpt><ept id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;linkText&gt;</bpt>Set up protection between two on-premises VMM sites with SAN<ept id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;/linkText&gt;</ept><bpt id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;title&gt;</bpt><ept id="517dcdcb-14dd-419a-9a0a-bff0298d0dd9">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+        <trans-unit id="68640387-376e-4ebc-a50e-6783a1448b8d" xml:space="preserve">
+          <source><bpt id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;linkText&gt;</bpt>Set up protection with a single VMM server<ept id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;/linkText&gt;</ept><bpt id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;title&gt;</bpt><ept id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;/title&gt;</ept> </source>
+          <target state="new"><bpt id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;linkText&gt;</bpt>Set up protection with a single VMM server<ept id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;/linkText&gt;</ept><bpt id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;title&gt;</bpt><ept id="5fdec656-1e29-4f8a-970d-a9431a0d0397">&lt;/title&gt;</ept> </target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

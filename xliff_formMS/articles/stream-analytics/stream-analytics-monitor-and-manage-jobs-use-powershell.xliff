@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f48b7a9f-381b-4be3-8d41-39c0912f394d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f48b7a9f-381b-4be3-8d41-39c0912f394d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="abfc48f3-f268-4f79-84ae-20ebefb6ead5">
+        <trans-unit id="d2985b4c-95aa-4149-b0a1-e81e14ebabe1" xml:space="preserve">
+          <source>Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Azure</source>
+          <target state="new">Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="b78d8e4e-c414-4c15-bf9c-996badbf629a" xml:space="preserve">
+          <source>Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs.</source>
+          <target state="new">Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs.</target>
+        </trans-unit>
+        <trans-unit id="542c25e5-4577-427e-a159-bde209034920" xml:space="preserve">
+          <source>Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets that execute basic Stream Analytics tasks.</source>
+          <target state="new">Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets that execute basic Stream Analytics tasks.</target>
+        </trans-unit>
+        <trans-unit id="4d785dbd-a37e-4ef4-bfbd-d1dbbab9e834" xml:space="preserve">
+          <source>Install and configure Azure PowerShell.</source>
+          <target state="new">Install and configure Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="2c39403c-02c6-4ba0-9764-7d29809fb668" xml:space="preserve">
+          <source>Follow the instructions in <bpt id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell[powershell-install]<ept id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;/linkText&gt;</ept><bpt id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;title&gt;</bpt><ept id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;/title&gt;</ept> to install Azure PowerShell.</source>
+          <target state="new">Follow the instructions in <bpt id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;linkText&gt;</bpt>How to install and configure Azure PowerShell[powershell-install]<ept id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;/linkText&gt;</ept><bpt id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;title&gt;</bpt><ept id="513b914b-5150-47f4-9896-a67c91ad7302">&lt;/title&gt;</ept> to install Azure PowerShell.</target>
+        </trans-unit>
+        <trans-unit id="859e132b-b733-40aa-8c66-84723863812e" xml:space="preserve">
+          <source>To connect to your Azure subscription by using the Azure Active Directory method:</source>
+          <target state="new">To connect to your Azure subscription by using the Azure Active Directory method:</target>
+        </trans-unit>
+        <trans-unit id="ee06d567-d4cc-43f0-b887-40153a9657cc" xml:space="preserve">
+          <source>To select your Azure subscription with the Azure Stream Analytics service enabled use the method:</source>
+          <target state="new">To select your Azure subscription with the Azure Stream Analytics service enabled use the method:</target>
+        </trans-unit>
+        <trans-unit id="eb176ac3-0298-468a-9c66-cbb86d5910ea" xml:space="preserve">
+          <source>Configure the Azure mode.</source>
+          <target state="new">Configure the Azure mode.</target>
+        </trans-unit>
+        <trans-unit id="096b83e0-5764-4f8c-aa62-46538583be4e" xml:space="preserve">
+          <source>After installing Azure PowerShell, run the <bpt id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;linkText&gt;</bpt>Switch-AzureMode[msdn-switch-azuremode]<ept id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;/linkText&gt;</ept><bpt id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;title&gt;</bpt><ept id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;/title&gt;</ept> cmdlet to set the appropriate Azure mode to access Stream Analytics cmdlets:</source>
+          <target state="new">After installing Azure PowerShell, run the <bpt id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;linkText&gt;</bpt>Switch-AzureMode[msdn-switch-azuremode]<ept id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;/linkText&gt;</ept><bpt id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;title&gt;</bpt><ept id="f0da6673-eb9a-463a-a51c-8c9f2c0877b1">&lt;/title&gt;</ept> cmdlet to set the appropriate Azure mode to access Stream Analytics cmdlets:</target>
+        </trans-unit>
+        <trans-unit id="7379cff9-ba79-488d-95f8-b16f829f8b2e" xml:space="preserve">
+          <source>Stream Analytics jobs created programmatically do not have monitoring enabled by default.</source>
+          <target state="new">Stream Analytics jobs created programmatically do not have monitoring enabled by default.</target>
+        </trans-unit>
+        <trans-unit id="f0a47026-3bbf-420b-a6ce-c9339d83034e" xml:space="preserve">
+          <source>You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at <bpt id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;linkText&gt;</bpt>Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically<ept id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;/linkText&gt;</ept><bpt id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;title&gt;</bpt><ept id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;/title&gt;</ept></source>
+          <target state="new">You can manually enable monitoring in the Azure Portal by navigating to the job’s Monitor page and clicking the Enable button or you can do this programmatically by following the steps located at <bpt id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;linkText&gt;</bpt>Azure Stream Analytics - Monitor Stream Analytics Jobs Programatically<ept id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;/linkText&gt;</ept><bpt id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;title&gt;</bpt><ept id="bd1f70dd-b92c-47c0-b375-8f059774a762">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d9fa71c0-0a44-495d-9e81-95079c7e751f" xml:space="preserve">
+          <source>The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs.</source>
+          <target state="new">The following Azure PowerShell cmdlets can be used to monitor and manage Azure Stream Analytics jobs.</target>
+        </trans-unit>
+        <trans-unit id="891fb8eb-05bc-4efb-bb38-cee1673b9478" xml:space="preserve">
+          <source>Lists all Stream Analytics jobs defined in the Azure subscription or specified resource group, or gets job information about a specific job within a resource group.</source>
+          <target state="new">Lists all Stream Analytics jobs defined in the Azure subscription or specified resource group, or gets job information about a specific job within a resource group.</target>
+        </trans-unit>
+        <trans-unit id="4af81c49-4fa9-4827-ad73-c304c8d9342e" xml:space="preserve">
+          <source><bpt id="80dc294e-bd3a-4820-a14e-4be002f07f71">&lt;strong&gt;</bpt>Example 1<ept id="80dc294e-bd3a-4820-a14e-4be002f07f71">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="80dc294e-bd3a-4820-a14e-4be002f07f71">&lt;strong&gt;</bpt>Example 1<ept id="80dc294e-bd3a-4820-a14e-4be002f07f71">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7be47cc6-cada-45a9-a8a7-0c9e79ee2957" xml:space="preserve">
+          <source>This PowerShell command returns information about all the Stream Analytics jobs in the Azure subscription.</source>
+          <target state="new">This PowerShell command returns information about all the Stream Analytics jobs in the Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="9c95501e-f932-4732-aeb3-2774cbc6af8e" xml:space="preserve">
+          <source><bpt id="2d6dc61c-34e2-4bc4-a994-fc8b3aa3b96a">&lt;strong&gt;</bpt>Example 2<ept id="2d6dc61c-34e2-4bc4-a994-fc8b3aa3b96a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="2d6dc61c-34e2-4bc4-a994-fc8b3aa3b96a">&lt;strong&gt;</bpt>Example 2<ept id="2d6dc61c-34e2-4bc4-a994-fc8b3aa3b96a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c1c68f31-a3f5-475c-9f5a-2eaf5fb4b7e6" xml:space="preserve">
+          <source><bpt id="df58239d-3702-4529-a0e5-085c1d75daea">&lt;strong&gt;</bpt>Example 3<ept id="df58239d-3702-4529-a0e5-085c1d75daea">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="df58239d-3702-4529-a0e5-085c1d75daea">&lt;strong&gt;</bpt>Example 3<ept id="df58239d-3702-4529-a0e5-085c1d75daea">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ca665f24-6c07-476c-b55c-e4ac069714fd" xml:space="preserve">
+          <source>Lists all of the inputs that are defined in a specified Stream Analytics job, or gets information about a specific input.</source>
+          <target state="new">Lists all of the inputs that are defined in a specified Stream Analytics job, or gets information about a specific input.</target>
+        </trans-unit>
+        <trans-unit id="fccff329-22aa-429d-a407-59fee1766554" xml:space="preserve">
+          <source><bpt id="40141057-c384-4eb4-b87d-d77244d35bd3">&lt;strong&gt;</bpt>Example 1<ept id="40141057-c384-4eb4-b87d-d77244d35bd3">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="40141057-c384-4eb4-b87d-d77244d35bd3">&lt;strong&gt;</bpt>Example 1<ept id="40141057-c384-4eb4-b87d-d77244d35bd3">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c81fbfb7-cae6-428e-a76f-7d1ce06e8e85" xml:space="preserve">
+          <source>This PowerShell command returns information about all the inputs defined in the job StreamingJob.</source>
+          <target state="new">This PowerShell command returns information about all the inputs defined in the job StreamingJob.</target>
+        </trans-unit>
+        <trans-unit id="f7b06115-2b81-4f77-89c4-8fcf667f2022" xml:space="preserve">
+          <source><bpt id="90839958-2ee2-4191-8032-9e8458bebb09">&lt;strong&gt;</bpt>Example 2<ept id="90839958-2ee2-4191-8032-9e8458bebb09">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="90839958-2ee2-4191-8032-9e8458bebb09">&lt;strong&gt;</bpt>Example 2<ept id="90839958-2ee2-4191-8032-9e8458bebb09">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="455274c2-a362-4456-a92b-f6a47af699f9" xml:space="preserve">
+          <source>Lists all of the outputs that are defined in a specified Stream Analytics job, or gets information about a specific output.</source>
+          <target state="new">Lists all of the outputs that are defined in a specified Stream Analytics job, or gets information about a specific output.</target>
+        </trans-unit>
+        <trans-unit id="98e0f4dd-74bd-4287-9ccc-b2aa6f4d5338" xml:space="preserve">
+          <source><bpt id="9fa09d79-aa5a-4848-a379-b6057b6514e9">&lt;strong&gt;</bpt>Example 1<ept id="9fa09d79-aa5a-4848-a379-b6057b6514e9">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9fa09d79-aa5a-4848-a379-b6057b6514e9">&lt;strong&gt;</bpt>Example 1<ept id="9fa09d79-aa5a-4848-a379-b6057b6514e9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28ca4b5e-1e6e-4bef-b94a-ef34ae6df409" xml:space="preserve">
+          <source><bpt id="9c5a5a23-359d-49f4-b1b9-5888e69988e0">&lt;strong&gt;</bpt>Example 2<ept id="9c5a5a23-359d-49f4-b1b9-5888e69988e0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="9c5a5a23-359d-49f4-b1b9-5888e69988e0">&lt;strong&gt;</bpt>Example 2<ept id="9c5a5a23-359d-49f4-b1b9-5888e69988e0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="252eec79-3d1d-4aa5-a597-891d5a1a2e42" xml:space="preserve">
+          <source>Gets information about the quota of streaming units in a specified region.</source>
+          <target state="new">Gets information about the quota of streaming units in a specified region.</target>
+        </trans-unit>
+        <trans-unit id="3ab4769a-2f97-4e52-acbc-14fb46c87d2b" xml:space="preserve">
+          <source><bpt id="8128950f-69dc-49c4-8957-9a6aeba9b17a">&lt;strong&gt;</bpt>Example 1<ept id="8128950f-69dc-49c4-8957-9a6aeba9b17a">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="8128950f-69dc-49c4-8957-9a6aeba9b17a">&lt;strong&gt;</bpt>Example 1<ept id="8128950f-69dc-49c4-8957-9a6aeba9b17a">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a53f643c-5e6f-47ef-ad3f-614e053055b7" xml:space="preserve">
+          <source>Gets information about a specific transformation defined in a Stream Analytics job.</source>
+          <target state="new">Gets information about a specific transformation defined in a Stream Analytics job.</target>
+        </trans-unit>
+        <trans-unit id="f7f2a45f-9025-4a28-bb02-07cd21fd8343" xml:space="preserve">
+          <source><bpt id="a69176c1-6ce4-4bd2-970e-f70366fe3717">&lt;strong&gt;</bpt>Example 1<ept id="a69176c1-6ce4-4bd2-970e-f70366fe3717">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a69176c1-6ce4-4bd2-970e-f70366fe3717">&lt;strong&gt;</bpt>Example 1<ept id="a69176c1-6ce4-4bd2-970e-f70366fe3717">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0bc474b4-a4e0-470a-aa96-8c193e05fe4e" xml:space="preserve">
+          <source>Creates a new input within a Stream Analytics job, or updates an existing specified input.</source>
+          <target state="new">Creates a new input within a Stream Analytics job, or updates an existing specified input.</target>
+        </trans-unit>
+        <trans-unit id="b1ce2ce7-e807-4560-b0c8-bd885929a5ea" xml:space="preserve">
+          <source>The name of the input can be specified in the .json file or on the command line.</source>
+          <target state="new">The name of the input can be specified in the .json file or on the command line.</target>
+        </trans-unit>
+        <trans-unit id="368ed863-342e-4c01-bb57-0086f8f638ee" xml:space="preserve">
+          <source>If both are specified, the name on the command line must be the same as the one in the file.</source>
+          <target state="new">If both are specified, the name on the command line must be the same as the one in the file.</target>
+        </trans-unit>
+        <trans-unit id="ab5184d0-18dc-47b1-840a-cc7363718eb7" xml:space="preserve">
+          <source>If you specify an input that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing input.</source>
+          <target state="new">If you specify an input that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing input.</target>
+        </trans-unit>
+        <trans-unit id="ca347191-4b9c-4d8d-8ef6-1ffd1f9fdd54" xml:space="preserve">
+          <source>If you specify the –Force parameter and specify an existing input name, the input will be replaced without confirmation.</source>
+          <target state="new">If you specify the –Force parameter and specify an existing input name, the input will be replaced without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="3bc5f14d-bcbc-4cb3-a79d-9e43b30f5a15" xml:space="preserve">
+          <source>For detailed information on the JSON file structure and contents, refer to the <bpt id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;linkText&gt;</bpt>Create Input (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-input]<ept id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;/linkText&gt;</ept><bpt id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;title&gt;</bpt><ept id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;/title&gt;</ept> section of the <bpt id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;/linkText&gt;</ept><bpt id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;title&gt;</bpt><ept id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on the JSON file structure and contents, refer to the <bpt id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;linkText&gt;</bpt>Create Input (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-input]<ept id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;/linkText&gt;</ept><bpt id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;title&gt;</bpt><ept id="241962c9-fa0c-4da5-9dbe-0c8c701a83a2">&lt;/title&gt;</ept> section of the <bpt id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;/linkText&gt;</ept><bpt id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;title&gt;</bpt><ept id="67df6e6a-74b1-4e44-bcbc-62af430e22d4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1bb65621-b5e0-46f8-bfb2-b05a7fe3cea6" xml:space="preserve">
+          <source><bpt id="3fdd8481-d093-4810-9f0a-a78313daf738">&lt;strong&gt;</bpt>Example 1<ept id="3fdd8481-d093-4810-9f0a-a78313daf738">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3fdd8481-d093-4810-9f0a-a78313daf738">&lt;strong&gt;</bpt>Example 1<ept id="3fdd8481-d093-4810-9f0a-a78313daf738">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="866a044a-4ae4-4eda-baf7-e755c863908a" xml:space="preserve">
+          <source><bpt id="b357a4b1-cca5-4f15-b504-6d69c9ff5fd8">&lt;strong&gt;</bpt>Example 2<ept id="b357a4b1-cca5-4f15-b504-6d69c9ff5fd8">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b357a4b1-cca5-4f15-b504-6d69c9ff5fd8">&lt;strong&gt;</bpt>Example 2<ept id="b357a4b1-cca5-4f15-b504-6d69c9ff5fd8">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb168bd8-7a1f-4538-832b-2b41fb1950cc" xml:space="preserve">
+          <source><bpt id="f2507269-92da-48c2-aaf2-0aa1eb167a76">&lt;strong&gt;</bpt>Example 3<ept id="f2507269-92da-48c2-aaf2-0aa1eb167a76">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f2507269-92da-48c2-aaf2-0aa1eb167a76">&lt;strong&gt;</bpt>Example 3<ept id="f2507269-92da-48c2-aaf2-0aa1eb167a76">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="217b6eff-35d2-46d7-b3d0-d53d889302b6" xml:space="preserve">
+          <source>Creates a new Stream Analytics job in Microsoft Azure, or updates the definition of an existing specified job.</source>
+          <target state="new">Creates a new Stream Analytics job in Microsoft Azure, or updates the definition of an existing specified job.</target>
+        </trans-unit>
+        <trans-unit id="d9fc2698-fc6d-46c1-b2e9-c94b9597a185" xml:space="preserve">
+          <source>The name of the job can be specified in the .json file or on the command line.</source>
+          <target state="new">The name of the job can be specified in the .json file or on the command line.</target>
+        </trans-unit>
+        <trans-unit id="1871e29c-a3d3-4c04-971b-22d485694276" xml:space="preserve">
+          <source>If both are specified, the name on the command line must be the same as the one in the file.</source>
+          <target state="new">If both are specified, the name on the command line must be the same as the one in the file.</target>
+        </trans-unit>
+        <trans-unit id="e58d352d-dcdf-4f94-9eae-433e440462bf" xml:space="preserve">
+          <source>If you specify a job name that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing job.</source>
+          <target state="new">If you specify a job name that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing job.</target>
+        </trans-unit>
+        <trans-unit id="24c84bae-47cb-43c7-8367-87ce5e2820ac" xml:space="preserve">
+          <source>If you specify the –Force parameter and specify an existing job name, the job definition will be replaced without confirmation.</source>
+          <target state="new">If you specify the –Force parameter and specify an existing job name, the job definition will be replaced without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="8d7ff6b5-1938-47d5-aba6-5a818f5c1b82" xml:space="preserve">
+          <source>For detailed information on the JSON file structure and contents, refer to the <bpt id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;linkText&gt;</bpt>Create Stream Analytics Job[msdn-rest-api-create-stream-analytics-job]<ept id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;/linkText&gt;</ept><bpt id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;title&gt;</bpt><ept id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;/title&gt;</ept> section of the <bpt id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;/linkText&gt;</ept><bpt id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;title&gt;</bpt><ept id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on the JSON file structure and contents, refer to the <bpt id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;linkText&gt;</bpt>Create Stream Analytics Job[msdn-rest-api-create-stream-analytics-job]<ept id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;/linkText&gt;</ept><bpt id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;title&gt;</bpt><ept id="1d338b9b-0cde-48bf-b7c6-de2e3a47c567">&lt;/title&gt;</ept> section of the <bpt id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;/linkText&gt;</ept><bpt id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;title&gt;</bpt><ept id="ca38d565-d86d-40df-b1db-60a03ce1dde0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="aa6eaa4a-907a-41f9-99aa-a158db9fe472" xml:space="preserve">
+          <source><bpt id="c9737e9e-9f91-4dbb-82ae-1d8a4fcadc5e">&lt;strong&gt;</bpt>Example 1<ept id="c9737e9e-9f91-4dbb-82ae-1d8a4fcadc5e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c9737e9e-9f91-4dbb-82ae-1d8a4fcadc5e">&lt;strong&gt;</bpt>Example 1<ept id="c9737e9e-9f91-4dbb-82ae-1d8a4fcadc5e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1eed82d0-fe0e-4738-b17f-a71c1af4b0ef" xml:space="preserve">
+          <source><bpt id="08393dc7-1365-4919-91e1-82488900b70e">&lt;strong&gt;</bpt>Example 2<ept id="08393dc7-1365-4919-91e1-82488900b70e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="08393dc7-1365-4919-91e1-82488900b70e">&lt;strong&gt;</bpt>Example 2<ept id="08393dc7-1365-4919-91e1-82488900b70e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="affef273-7fd9-4a9e-ad8d-ae9a6cc379e6" xml:space="preserve">
+          <source>Creates a new output within a Stream Analytics job, or updates an existing output.</source>
+          <target state="new">Creates a new output within a Stream Analytics job, or updates an existing output.</target>
+        </trans-unit>
+        <trans-unit id="62b7d504-e586-4e3f-b67c-7e0f3c9b8e63" xml:space="preserve">
+          <source>The name of the output can be specified in the .json file or on the command line.</source>
+          <target state="new">The name of the output can be specified in the .json file or on the command line.</target>
+        </trans-unit>
+        <trans-unit id="5f8f7242-88db-4bc0-8661-9d63485b2561" xml:space="preserve">
+          <source>If both are specified, the name on the command line must be the same as the one in the file.</source>
+          <target state="new">If both are specified, the name on the command line must be the same as the one in the file.</target>
+        </trans-unit>
+        <trans-unit id="581cadba-422b-4338-88a8-e24c82f04ea8" xml:space="preserve">
+          <source>If you specify an output that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing output.</source>
+          <target state="new">If you specify an output that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing output.</target>
+        </trans-unit>
+        <trans-unit id="f869bad3-e288-4d28-be51-50c176b8e68c" xml:space="preserve">
+          <source>If you specify the –Force parameter and specify an existing output name, the output will be replaced without confirmation.</source>
+          <target state="new">If you specify the –Force parameter and specify an existing output name, the output will be replaced without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="5d9e3ea8-8d51-47bc-b43c-acd393cca19e" xml:space="preserve">
+          <source>For detailed information on the JSON file structure and contents, refer to the <bpt id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;linkText&gt;</bpt>Create Output (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-output]<ept id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;/linkText&gt;</ept><bpt id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;title&gt;</bpt><ept id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;/title&gt;</ept> section of the <bpt id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;/linkText&gt;</ept><bpt id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;title&gt;</bpt><ept id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on the JSON file structure and contents, refer to the <bpt id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;linkText&gt;</bpt>Create Output (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-output]<ept id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;/linkText&gt;</ept><bpt id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;title&gt;</bpt><ept id="4472174b-f2d5-4059-a88c-7ed7e5b6b768">&lt;/title&gt;</ept> section of the <bpt id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;/linkText&gt;</ept><bpt id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;title&gt;</bpt><ept id="0c57545f-85b3-43a5-aa51-d7dcdb8bc9c9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f6a5e639-c099-41bf-a147-685a6c61153d" xml:space="preserve">
+          <source><bpt id="3ca4acc7-8cff-4bbd-be72-d2cefb6c8cef">&lt;strong&gt;</bpt>Example 1<ept id="3ca4acc7-8cff-4bbd-be72-d2cefb6c8cef">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="3ca4acc7-8cff-4bbd-be72-d2cefb6c8cef">&lt;strong&gt;</bpt>Example 1<ept id="3ca4acc7-8cff-4bbd-be72-d2cefb6c8cef">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7cc2bdf3-e5ee-4d81-b4a6-ebe29a2cb324" xml:space="preserve">
+          <source><bpt id="6f5d1692-5501-4d69-ac64-807959944ec6">&lt;strong&gt;</bpt>Example 2<ept id="6f5d1692-5501-4d69-ac64-807959944ec6">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="6f5d1692-5501-4d69-ac64-807959944ec6">&lt;strong&gt;</bpt>Example 2<ept id="6f5d1692-5501-4d69-ac64-807959944ec6">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be96cf57-ca7b-4064-b975-7beb7d25ad43" xml:space="preserve">
+          <source>Creates a new transformation within a Stream Analytics job, or updates the existing transformation.</source>
+          <target state="new">Creates a new transformation within a Stream Analytics job, or updates the existing transformation.</target>
+        </trans-unit>
+        <trans-unit id="4447dab6-7914-475d-99b5-1c69b3a98aaa" xml:space="preserve">
+          <source>The name of the transformation can be specified in the .json file or on the command line.</source>
+          <target state="new">The name of the transformation can be specified in the .json file or on the command line.</target>
+        </trans-unit>
+        <trans-unit id="f3086ab7-692b-47a0-99de-08c5905c550d" xml:space="preserve">
+          <source>If both are specified, the name on the command line must be the same as the one in the file.</source>
+          <target state="new">If both are specified, the name on the command line must be the same as the one in the file.</target>
+        </trans-unit>
+        <trans-unit id="48f94717-9b4e-4870-9e46-084418f757fb" xml:space="preserve">
+          <source>If you specify a transformation that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing transformation.</source>
+          <target state="new">If you specify a transformation that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing transformation.</target>
+        </trans-unit>
+        <trans-unit id="3549b87e-181d-482f-99e4-e14c8a83465d" xml:space="preserve">
+          <source>If you specify the –Force parameter and specify an existing transformation name, the transformation will be replaced without confirmation.</source>
+          <target state="new">If you specify the –Force parameter and specify an existing transformation name, the transformation will be replaced without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="b22e7bc4-7bb3-4bdb-a069-efa15dd8c94c" xml:space="preserve">
+          <source>For detailed information on the JSON file structure and contents, refer to the <bpt id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;linkText&gt;</bpt>Create Transformation (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-transformation]<ept id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;/linkText&gt;</ept><bpt id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;title&gt;</bpt><ept id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;/title&gt;</ept> section of the <bpt id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;/linkText&gt;</ept><bpt id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;title&gt;</bpt><ept id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For detailed information on the JSON file structure and contents, refer to the <bpt id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;linkText&gt;</bpt>Create Transformation (Azure Stream Analytics)[msdn-rest-api-create-stream-analytics-transformation]<ept id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;/linkText&gt;</ept><bpt id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;title&gt;</bpt><ept id="4396b06e-2110-4de5-b41c-633c0006cb6f">&lt;/title&gt;</ept> section of the <bpt id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;linkText&gt;</bpt>Stream Analytics Management REST API Reference Library[stream.analytics.rest.api.reference]<ept id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;/linkText&gt;</ept><bpt id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;title&gt;</bpt><ept id="f4561581-fbcf-4cfb-8965-823e822b88e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="44891797-0a72-44df-a869-6b0459e552c1" xml:space="preserve">
+          <source><bpt id="255bb914-6f7c-4350-8c22-eefa749f13a7">&lt;strong&gt;</bpt>Example 1<ept id="255bb914-6f7c-4350-8c22-eefa749f13a7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="255bb914-6f7c-4350-8c22-eefa749f13a7">&lt;strong&gt;</bpt>Example 1<ept id="255bb914-6f7c-4350-8c22-eefa749f13a7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="927cb590-221b-46e2-a915-95a4c2fffc0d" xml:space="preserve">
+          <source><bpt id="f6f94a05-af16-4ec6-880e-3ff8dbb81f0c">&lt;strong&gt;</bpt>Example 2<ept id="f6f94a05-af16-4ec6-880e-3ff8dbb81f0c">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="f6f94a05-af16-4ec6-880e-3ff8dbb81f0c">&lt;strong&gt;</bpt>Example 2<ept id="f6f94a05-af16-4ec6-880e-3ff8dbb81f0c">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a363826-a0e2-4e0b-ad1a-ecda322d6678" xml:space="preserve">
+          <source>Asynchronously deletes a specific input from a Stream Analytics job in Microsoft Azure.</source>
+          <target state="new">Asynchronously deletes a specific input from a Stream Analytics job in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="22ec113e-1e04-4827-a45b-7d35d9066341" xml:space="preserve">
+          <source>If you specify the –Force parameter, the input will be deleted without confirmation.</source>
+          <target state="new">If you specify the –Force parameter, the input will be deleted without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="8d9ae929-a610-415b-aaa5-578d0b915fcc" xml:space="preserve">
+          <source><bpt id="c1235329-2dac-43fb-9a91-c89303efb3a0">&lt;strong&gt;</bpt>Example 1<ept id="c1235329-2dac-43fb-9a91-c89303efb3a0">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="c1235329-2dac-43fb-9a91-c89303efb3a0">&lt;strong&gt;</bpt>Example 1<ept id="c1235329-2dac-43fb-9a91-c89303efb3a0">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c6f1bc7e-6cc4-4e2b-bb77-d8e1b9742f30" xml:space="preserve">
+          <source>Asynchronously deletes a specific Stream Analytics job in Microsoft Azure.</source>
+          <target state="new">Asynchronously deletes a specific Stream Analytics job in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="35d87a9c-1497-48a2-809f-d1ac18ae14de" xml:space="preserve">
+          <source>If you specify the –Force parameter, the job will be deleted without confirmation.</source>
+          <target state="new">If you specify the –Force parameter, the job will be deleted without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="3fb4e3a6-9f73-4cf2-aa1a-b1acd8f91103" xml:space="preserve">
+          <source><bpt id="11bb2096-92d4-49b8-81db-4121a313fa81">&lt;strong&gt;</bpt>Example 1<ept id="11bb2096-92d4-49b8-81db-4121a313fa81">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="11bb2096-92d4-49b8-81db-4121a313fa81">&lt;strong&gt;</bpt>Example 1<ept id="11bb2096-92d4-49b8-81db-4121a313fa81">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7df6e251-74ff-442a-a213-1c3368d5304d" xml:space="preserve">
+          <source>Asynchronously deletes a specific output from a Stream Analytics job in Microsoft Azure.</source>
+          <target state="new">Asynchronously deletes a specific output from a Stream Analytics job in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="cc09986f-8866-4525-b5b7-ad92a8d3bace" xml:space="preserve">
+          <source>If you specify the –Force parameter, the output will be deleted without confirmation.</source>
+          <target state="new">If you specify the –Force parameter, the output will be deleted without confirmation.</target>
+        </trans-unit>
+        <trans-unit id="264d8aed-afc5-4417-beee-056eaf6e9824" xml:space="preserve">
+          <source><bpt id="71403693-d14c-4e82-9bac-453d9167ffee">&lt;strong&gt;</bpt>Example 1<ept id="71403693-d14c-4e82-9bac-453d9167ffee">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="71403693-d14c-4e82-9bac-453d9167ffee">&lt;strong&gt;</bpt>Example 1<ept id="71403693-d14c-4e82-9bac-453d9167ffee">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a4d7820a-6bf5-40db-8b44-72e75faa8dab" xml:space="preserve">
+          <source>Asynchronously deploys and starts a Stream Analytics job in Microsoft Azure.</source>
+          <target state="new">Asynchronously deploys and starts a Stream Analytics job in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="1ea031c4-4561-450d-b074-fd9c00d8f2b1" xml:space="preserve">
+          <source><bpt id="e67af1ff-0434-46bf-a53c-623492cfa577">&lt;strong&gt;</bpt>Example 1<ept id="e67af1ff-0434-46bf-a53c-623492cfa577">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="e67af1ff-0434-46bf-a53c-623492cfa577">&lt;strong&gt;</bpt>Example 1<ept id="e67af1ff-0434-46bf-a53c-623492cfa577">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="42dae998-8e0a-4a55-b57e-74966a26b32d" xml:space="preserve">
+          <source>This PowerShell command starts the job StreamingJob with a custom output start time set to December 12, 2012, 12:12:12 UTC.</source>
+          <target state="new">This PowerShell command starts the job StreamingJob with a custom output start time set to December 12, 2012, 12:12:12 UTC.</target>
+        </trans-unit>
+        <trans-unit id="005f02a2-9c03-4136-9ad4-c5c9fa525c81" xml:space="preserve">
+          <source>Asynchronously stops a Stream Analytics job from running in Microsoft Azure and de-allocates resources that were that were being used.</source>
+          <target state="new">Asynchronously stops a Stream Analytics job from running in Microsoft Azure and de-allocates resources that were that were being used.</target>
+        </trans-unit>
+        <trans-unit id="dfb9b923-3e89-42b3-a455-af3eb25a09b3" xml:space="preserve">
+          <source>The job definition and metadata will remain available within your subscription through both the Azure portal and management APIs, such that the job can be edited and restarted.</source>
+          <target state="new">The job definition and metadata will remain available within your subscription through both the Azure portal and management APIs, such that the job can be edited and restarted.</target>
+        </trans-unit>
+        <trans-unit id="31034d70-856d-4dc2-b584-6b7d56c6ab15" xml:space="preserve">
+          <source>You will not be charged for a job in the stopped state.</source>
+          <target state="new">You will not be charged for a job in the stopped state.</target>
+        </trans-unit>
+        <trans-unit id="5e8392dd-bf91-4702-a2b7-4466875196f5" xml:space="preserve">
+          <source><bpt id="827b4525-24bb-4d0e-bea9-c2fedb26d5af">&lt;strong&gt;</bpt>Example 1<ept id="827b4525-24bb-4d0e-bea9-c2fedb26d5af">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="827b4525-24bb-4d0e-bea9-c2fedb26d5af">&lt;strong&gt;</bpt>Example 1<ept id="827b4525-24bb-4d0e-bea9-c2fedb26d5af">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd3e36e2-4bea-4e19-8c5e-2a80d49aa419" xml:space="preserve">
+          <source>Tests the ability of Stream Analytics to connect to a specified input.</source>
+          <target state="new">Tests the ability of Stream Analytics to connect to a specified input.</target>
+        </trans-unit>
+        <trans-unit id="fc79adc2-6edc-4b75-8d14-1e7c39931154" xml:space="preserve">
+          <source><bpt id="56f38cd6-3878-460c-bcec-1fd7e1b7be16">&lt;strong&gt;</bpt>Example 1<ept id="56f38cd6-3878-460c-bcec-1fd7e1b7be16">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="56f38cd6-3878-460c-bcec-1fd7e1b7be16">&lt;strong&gt;</bpt>Example 1<ept id="56f38cd6-3878-460c-bcec-1fd7e1b7be16">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="09c1fb20-0cd4-4c41-9d22-b3ca6875a9a9" xml:space="preserve">
+          <source>Tests the ability of Stream Analytics to connect to a specified output.</source>
+          <target state="new">Tests the ability of Stream Analytics to connect to a specified output.</target>
+        </trans-unit>
+        <trans-unit id="27b0bc29-abd9-491c-a09d-e9928ac5a6dd" xml:space="preserve">
+          <source><bpt id="b11f38a0-5e34-4148-b0dc-d9d2c816d37e">&lt;strong&gt;</bpt>Example 1<ept id="b11f38a0-5e34-4148-b0dc-d9d2c816d37e">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="b11f38a0-5e34-4148-b0dc-d9d2c816d37e">&lt;strong&gt;</bpt>Example 1<ept id="b11f38a0-5e34-4148-b0dc-d9d2c816d37e">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="089b731e-0ef6-4ab0-802b-cb2929083abc" xml:space="preserve">
+          <source>For further assistance, try our <bpt id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;/linkText&gt;</ept><bpt id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;title&gt;</bpt><ept id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;/title&gt;</ept>.</source>
+          <target state="new">For further assistance, try our <bpt id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;linkText&gt;</bpt>Azure Stream Analytics forum<ept id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;/linkText&gt;</ept><bpt id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;title&gt;</bpt><ept id="907fc818-d013-414e-a9cf-f7d05f30d288">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b21d5b6-8425-49b3-8401-3a8de2e92c91" xml:space="preserve">
+          <source><bpt id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;/linkText&gt;</ept><bpt id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;title&gt;</bpt><ept id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;linkText&gt;</bpt>Introduction to Azure Stream Analytics<ept id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;/linkText&gt;</ept><bpt id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;title&gt;</bpt><ept id="b5935995-b8ee-4018-95e4-d17f13e3f3ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="778658e0-6594-4975-8f84-56488c149037" xml:space="preserve">
+          <source><bpt id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;/linkText&gt;</ept><bpt id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;title&gt;</bpt><ept id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;linkText&gt;</bpt>Get started using Azure Stream Analytics<ept id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;/linkText&gt;</ept><bpt id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;title&gt;</bpt><ept id="214e1d55-68b6-47b4-b67e-a9e34a16632f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e27f61ee-69ff-400b-9b10-8a0cd4dd89d1" xml:space="preserve">
+          <source><bpt id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;/linkText&gt;</ept><bpt id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;title&gt;</bpt><ept id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;linkText&gt;</bpt>Scale Azure Stream Analytics jobs<ept id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;/linkText&gt;</ept><bpt id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;title&gt;</bpt><ept id="4f568122-b584-4f0f-940c-7b8c28c74351">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c82ce5a9-9a02-4404-aed6-32e41e639ac6" xml:space="preserve">
+          <source><bpt id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;/linkText&gt;</ept><bpt id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;title&gt;</bpt><ept id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;linkText&gt;</bpt>Azure Stream Analytics Query Language Reference<ept id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;/linkText&gt;</ept><bpt id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;title&gt;</bpt><ept id="82745da4-623b-4e1e-80dd-470de9be5ffb">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecd233aa-2e15-4259-a568-818afbc14bbc" xml:space="preserve">
+          <source><bpt id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;/linkText&gt;</ept><bpt id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;title&gt;</bpt><ept id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;linkText&gt;</bpt>Azure Stream Analytics Management REST API Reference<ept id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;/linkText&gt;</ept><bpt id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;title&gt;</bpt><ept id="49d1f3e7-665d-4534-9bca-a30dfbda96ba">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a37a98d-f38c-46a5-8086-9f0db347233a" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/dn722470.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/dn722470.aspx</target>
+        </trans-unit>
+        <trans-unit id="ed05b2e3-3e0e-4ab3-a3fa-e4d08b05d8f5" xml:space="preserve">
+          <source>http://azure.microsoft.com/documentation/articles/install-configure-powershell/</source>
+          <target state="new">http://azure.microsoft.com/documentation/articles/install-configure-powershell/</target>
+        </trans-unit>
+        <trans-unit id="1b221924-3aba-4b90-be29-2cda67454f36" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn834994.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn834994.aspx</target>
+        </trans-unit>
+        <trans-unit id="8cac88f4-bdf5-410e-bce4-b634fd5767df" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn835010.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn835010.aspx</target>
+        </trans-unit>
+        <trans-unit id="92963205-c5ce-4c08-95e6-fb0aa68f09ea" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn835015.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn835015.aspx</target>
+        </trans-unit>
+        <trans-unit id="f1f53675-60d8-430f-a9a0-351b4f259acd" xml:space="preserve">
+          <source>https://msdn.microsoft.com/library/dn835007.aspx</source>
+          <target state="new">https://msdn.microsoft.com/library/dn835007.aspx</target>
+        </trans-unit>
+        <trans-unit id="0a4cc645-c57e-4122-9d01-05a5cd071670" xml:space="preserve">
+          <source>stream-analytics-introduction.md</source>
+          <target state="new">stream-analytics-introduction.md</target>
+        </trans-unit>
+        <trans-unit id="cf021341-6523-4b42-8a7f-fef98cdeb1a5" xml:space="preserve">
+          <source>stream-analytics-get-started.md</source>
+          <target state="new">stream-analytics-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="8bbec691-31b8-4078-b181-0d08a8f7db4f" xml:space="preserve">
+          <source>../stream-analytics-developer-guide.md</source>
+          <target state="new">../stream-analytics-developer-guide.md</target>
+        </trans-unit>
+        <trans-unit id="ade98bc4-4173-4070-a7e0-d279350afa78" xml:space="preserve">
+          <source>stream-analytics-scale-jobs.md</source>
+          <target state="new">stream-analytics-scale-jobs.md</target>
+        </trans-unit>
+        <trans-unit id="00896b8b-eadc-4e3f-b523-ef77378ad26c" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=513299</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=513299</target>
+        </trans-unit>
+        <trans-unit id="0d41e0d5-6a1b-41b5-963a-f8e887c1c36e" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkId=517301</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkId=517301</target>
+        </trans-unit>
+      </group>
+      <group id="e9bef857-aa1a-43ac-a67a-8fb99173c124" />
+    </body>
+  </file>
+</xliff>

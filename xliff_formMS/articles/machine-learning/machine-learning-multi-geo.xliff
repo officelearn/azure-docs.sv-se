@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="49576210-bd40-43fc-828f-956bedca5e1a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="49576210-bd40-43fc-828f-956bedca5e1a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a09a5aab-f335-4cec-a8ab-014220b59840">
+        <trans-unit id="cf2ff520-aa15-4f39-bee3-7f966b546eef" xml:space="preserve">
+          <source>Multi-Geo Help documentation | Microsoft Azure</source>
+          <target state="new">Multi-Geo Help documentation | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c420bfc7-16df-43d4-a8f7-0f43e0d5dd04" xml:space="preserve">
+          <source>Learn how to create a workspace and publish a web service in an Azure region different from the South Central United States (SCUS) Azure region.</source>
+          <target state="new">Learn how to create a workspace and publish a web service in an Azure region different from the South Central United States (SCUS) Azure region.</target>
+        </trans-unit>
+        <trans-unit id="b9b38a02-c203-49ca-9f26-418c6a701dae" xml:space="preserve">
+          <source>Currently, all Azure Machine Learning assets are hosted in the South Central United States (SCUS) Azure region.</source>
+          <target state="new">Currently, all Azure Machine Learning assets are hosted in the South Central United States (SCUS) Azure region.</target>
+        </trans-unit>
+        <trans-unit id="5e7459ef-06e2-4c55-9278-bb889d174afb" xml:space="preserve">
+          <source>This article describes how you can create a workspace and publish a web service in other Azure regions.</source>
+          <target state="new">This article describes how you can create a workspace and publish a web service in other Azure regions.</target>
+        </trans-unit>
+        <trans-unit id="c97fe183-c054-49a2-acaa-94db45c1ca59" xml:space="preserve">
+          <source>Sign in to the Azure Management Portal.</source>
+          <target state="new">Sign in to the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="f4ac8140-c1a9-43ec-8f59-06d0ca1bce5d" xml:space="preserve">
+          <source>Click <bpt id="8a2cee18-3f86-49ac-b1a9-204a447ae2b3">&lt;strong&gt;</bpt>+NEW<ept id="8a2cee18-3f86-49ac-b1a9-204a447ae2b3">&lt;/strong&gt;</ept> &gt; <bpt id="8f8d3944-b2f2-469e-be4f-ec88ba4db6fb">&lt;strong&gt;</bpt>DATA SERVICES<ept id="8f8d3944-b2f2-469e-be4f-ec88ba4db6fb">&lt;/strong&gt;</ept> &gt; <bpt id="3dae5d25-d276-4936-8273-166c4d695a1f">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="3dae5d25-d276-4936-8273-166c4d695a1f">&lt;/strong&gt;</ept> &gt; <bpt id="baee1734-1f36-4033-828b-abf2581c5e86">&lt;strong&gt;</bpt>QUICK CREATE<ept id="baee1734-1f36-4033-828b-abf2581c5e86">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8a2cee18-3f86-49ac-b1a9-204a447ae2b3">&lt;strong&gt;</bpt>+NEW<ept id="8a2cee18-3f86-49ac-b1a9-204a447ae2b3">&lt;/strong&gt;</ept> &gt; <bpt id="8f8d3944-b2f2-469e-be4f-ec88ba4db6fb">&lt;strong&gt;</bpt>DATA SERVICES<ept id="8f8d3944-b2f2-469e-be4f-ec88ba4db6fb">&lt;/strong&gt;</ept> &gt; <bpt id="3dae5d25-d276-4936-8273-166c4d695a1f">&lt;strong&gt;</bpt>MACHINE LEARNING<ept id="3dae5d25-d276-4936-8273-166c4d695a1f">&lt;/strong&gt;</ept> &gt; <bpt id="baee1734-1f36-4033-828b-abf2581c5e86">&lt;strong&gt;</bpt>QUICK CREATE<ept id="baee1734-1f36-4033-828b-abf2581c5e86">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="169ddf26-4ebc-488d-87a3-a2407156cdc7" xml:space="preserve">
+          <source>Under <bpt id="21b4f44e-d09a-4960-9550-05ee6a65d28a">&lt;strong&gt;</bpt>LOCATION<ept id="21b4f44e-d09a-4960-9550-05ee6a65d28a">&lt;/strong&gt;</ept> select another region, such as <bpt id="f1ac4fd6-0379-4791-b547-616f81a64fa1">&lt;strong&gt;</bpt>Southeast Asia<ept id="f1ac4fd6-0379-4791-b547-616f81a64fa1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Under <bpt id="21b4f44e-d09a-4960-9550-05ee6a65d28a">&lt;strong&gt;</bpt>LOCATION<ept id="21b4f44e-d09a-4960-9550-05ee6a65d28a">&lt;/strong&gt;</ept> select another region, such as <bpt id="f1ac4fd6-0379-4791-b547-616f81a64fa1">&lt;strong&gt;</bpt>Southeast Asia<ept id="f1ac4fd6-0379-4791-b547-616f81a64fa1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2024a582-f30f-4773-8e17-7eecd133f6c8" xml:space="preserve">
+          <source><bpt id="d24e24e6-d75c-4621-9e1e-75a073734a59">&lt;linkText&gt;</bpt>Multi-Geo Help image 1<ept id="d24e24e6-d75c-4621-9e1e-75a073734a59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d24e24e6-d75c-4621-9e1e-75a073734a59">&lt;linkText&gt;</bpt>Multi-Geo Help image 1<ept id="d24e24e6-d75c-4621-9e1e-75a073734a59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27036880-8885-48a6-bc5a-c146f07f670f" xml:space="preserve">
+          <source>Select the workspace, and then click <bpt id="3cb53068-9d2f-4675-85b4-9330aeea51c8">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="3cb53068-9d2f-4675-85b4-9330aeea51c8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Select the workspace, and then click <bpt id="3cb53068-9d2f-4675-85b4-9330aeea51c8">&lt;strong&gt;</bpt>Sign-in to ML Studio<ept id="3cb53068-9d2f-4675-85b4-9330aeea51c8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e334dafa-1f58-4b27-bba8-784eab498145" xml:space="preserve">
+          <source><bpt id="6d571be2-77c7-4426-a39b-1608a12eb02c">&lt;linkText&gt;</bpt>Multi-Geo Help image 2<ept id="6d571be2-77c7-4426-a39b-1608a12eb02c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6d571be2-77c7-4426-a39b-1608a12eb02c">&lt;linkText&gt;</bpt>Multi-Geo Help image 2<ept id="6d571be2-77c7-4426-a39b-1608a12eb02c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5af0910c-0f0a-4e89-83cc-8ad34ff6d310" xml:space="preserve">
+          <source>You now have a workspace in another region that you may use just like any other workspace.</source>
+          <target state="new">You now have a workspace in another region that you may use just like any other workspace.</target>
+        </trans-unit>
+        <trans-unit id="3c6b4647-cd67-4e77-9a01-b0397cdb0467" xml:space="preserve">
+          <source>To switch among your workspaces, look to the upper right of your screen.</source>
+          <target state="new">To switch among your workspaces, look to the upper right of your screen.</target>
+        </trans-unit>
+        <trans-unit id="1c58a732-ea44-4f4f-a712-f2a722d78ac2" xml:space="preserve">
+          <source>Click the dropdown, select the region, and then select the workspace.</source>
+          <target state="new">Click the dropdown, select the region, and then select the workspace.</target>
+        </trans-unit>
+        <trans-unit id="8a110067-f754-4b15-a3a7-95d291db2709" xml:space="preserve">
+          <source>Everything is local to the workspace region; for example, all of your web services created from a workspace will be in the same region the workspace is located in.</source>
+          <target state="new">Everything is local to the workspace region; for example, all of your web services created from a workspace will be in the same region the workspace is located in.</target>
+        </trans-unit>
+        <trans-unit id="5d562928-187c-4fc1-8a15-9df956fa6617" xml:space="preserve">
+          <source><bpt id="e4482929-fb79-4935-85a8-7b00f4a3815a">&lt;linkText&gt;</bpt>Multi-Geo Help image 3<ept id="e4482929-fb79-4935-85a8-7b00f4a3815a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e4482929-fb79-4935-85a8-7b00f4a3815a">&lt;linkText&gt;</bpt>Multi-Geo Help image 3<ept id="e4482929-fb79-4935-85a8-7b00f4a3815a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e781c6b9-dee3-4dd1-a344-42e34223552a" xml:space="preserve">
+          <source>If you open an experiment from Gallery, you can also select which region you want to copy the experiment to.</source>
+          <target state="new">If you open an experiment from Gallery, you can also select which region you want to copy the experiment to.</target>
+        </trans-unit>
+        <trans-unit id="56171718-202c-40ee-851e-c8e678ead425" xml:space="preserve">
+          <source><bpt id="6c54a319-e8b4-40cd-a81b-53f2af1b3d54">&lt;linkText&gt;</bpt>Multi-Geo Help image 4<ept id="6c54a319-e8b4-40cd-a81b-53f2af1b3d54">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c54a319-e8b4-40cd-a81b-53f2af1b3d54">&lt;linkText&gt;</bpt>Multi-Geo Help image 4<ept id="6c54a319-e8b4-40cd-a81b-53f2af1b3d54">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5d020171-6117-45ae-bcee-09a16208f7c4" xml:space="preserve">
+          <source>To programmatically manage web services, such as for retraining, use the region-specific address: <bpt id="b99d500b-f2bf-4f5b-9d13-9943bf4c0ac9">&lt;strong&gt;</bpt>https://asiasoutheast.management.azureml.net<ept id="b99d500b-f2bf-4f5b-9d13-9943bf4c0ac9">&lt;/strong&gt;</ept></source>
+          <target state="new">To programmatically manage web services, such as for retraining, use the region-specific address: <bpt id="b99d500b-f2bf-4f5b-9d13-9943bf4c0ac9">&lt;strong&gt;</bpt>https://asiasoutheast.management.azureml.net<ept id="b99d500b-f2bf-4f5b-9d13-9943bf4c0ac9">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9914501-4be9-4f7e-ab55-b2071541367e" xml:space="preserve">
+          <source>You can only copy experiments between workspaces that belong to the same region.</source>
+          <target state="new">You can only copy experiments between workspaces that belong to the same region.</target>
+        </trans-unit>
+        <trans-unit id="6ca72bc9-84d2-4be8-8085-12192d0ec40a" xml:space="preserve">
+          <source>In the future, we will enable copying experiments between workspaces across multiple regions.</source>
+          <target state="new">In the future, we will enable copying experiments between workspaces across multiple regions.</target>
+        </trans-unit>
+        <trans-unit id="a912fec9-0b1f-4b8e-b6c4-d8f96d08133f" xml:space="preserve">
+          <source>The region selector will only show workspaces for one region at a time.</source>
+          <target state="new">The region selector will only show workspaces for one region at a time.</target>
+        </trans-unit>
+        <trans-unit id="68cf8e74-e59f-4d8b-b25c-3887d9a66f39" xml:space="preserve">
+          <source>In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.</source>
+          <target state="new">In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.</target>
+        </trans-unit>
+        <trans-unit id="ce259354-1926-45f7-9f77-d1e776a88e1e" xml:space="preserve">
+          <source>A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.</source>
+          <target state="new">A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.</target>
+        </trans-unit>
+        <trans-unit id="e3ae6898-daeb-4fd5-835a-17d4d807a9c3" xml:space="preserve">
+          <source>Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia.</source>
+          <target state="new">Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia.</target>
+        </trans-unit>
+        <trans-unit id="ce66ccfb-b43b-4ffa-988d-7a33410bba8d" xml:space="preserve">
+          <source>In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.</source>
+          <target state="new">In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.</target>
+        </trans-unit>
+        <trans-unit id="dc301382-3b92-4607-af7e-8eccdaec5695" xml:space="preserve">
+          <source>Ask a question on the <bpt id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;linkText&gt;</bpt>Azure Machine Learning forum<ept id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;/linkText&gt;</ept><bpt id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;title&gt;</bpt><ept id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Ask a question on the <bpt id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;linkText&gt;</bpt>Azure Machine Learning forum<ept id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;/linkText&gt;</ept><bpt id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;title&gt;</bpt><ept id="eed4efb5-99a2-4d0e-8a88-b13d09e249d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="11a2523d-8fa1-4dc4-928a-076b96b95569" xml:space="preserve">
+          <source>./media/machine-learning-multi-geo/multi-geo_1.png</source>
+          <target state="new">./media/machine-learning-multi-geo/multi-geo_1.png</target>
+        </trans-unit>
+        <trans-unit id="1fb47c5b-f794-4f68-b8ad-b519c3febfbc" xml:space="preserve">
+          <source>./media/machine-learning-multi-geo/multi-geo_2.png</source>
+          <target state="new">./media/machine-learning-multi-geo/multi-geo_2.png</target>
+        </trans-unit>
+        <trans-unit id="118eea0c-39e8-452d-85aa-23f453c97f50" xml:space="preserve">
+          <source>./media/machine-learning-multi-geo/multi-geo_3.png</source>
+          <target state="new">./media/machine-learning-multi-geo/multi-geo_3.png</target>
+        </trans-unit>
+        <trans-unit id="3a874243-41ca-441c-a72f-b5d657f14012" xml:space="preserve">
+          <source>./media/machine-learning-multi-geo/multi-geo_4a.png</source>
+          <target state="new">./media/machine-learning-multi-geo/multi-geo_4a.png</target>
+        </trans-unit>
+      </group>
+      <group id="043dae03-f69b-411c-90f1-a9d597ae2e44" />
+    </body>
+  </file>
+</xliff>

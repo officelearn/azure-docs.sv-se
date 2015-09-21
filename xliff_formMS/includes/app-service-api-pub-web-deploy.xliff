@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="32b9693d-3c22-4c09-a23d-027eda2fea97" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="32b9693d-3c22-4c09-a23d-027eda2fea97" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="fa0477b8-814c-49e6-ac05-7809e6db72db">
+        <trans-unit id="f370d343-6540-47f5-a843-9b8a8edafcac" xml:space="preserve">
+          <source>Right-click the API app project in <bpt id="7c69ebf7-72a4-459b-8d92-64b391a19cfc">&lt;strong&gt;</bpt>Solution Explorer<ept id="7c69ebf7-72a4-459b-8d92-64b391a19cfc">&lt;/strong&gt;</ept> and select <bpt id="109db0cf-071e-4381-87a6-7591363045bf">&lt;strong&gt;</bpt>Publish<ept id="109db0cf-071e-4381-87a6-7591363045bf">&lt;/strong&gt;</ept> to open the publish dialog.</source>
+          <target state="new">Right-click the API app project in <bpt id="7c69ebf7-72a4-459b-8d92-64b391a19cfc">&lt;strong&gt;</bpt>Solution Explorer<ept id="7c69ebf7-72a4-459b-8d92-64b391a19cfc">&lt;/strong&gt;</ept> and select <bpt id="109db0cf-071e-4381-87a6-7591363045bf">&lt;strong&gt;</bpt>Publish<ept id="109db0cf-071e-4381-87a6-7591363045bf">&lt;/strong&gt;</ept> to open the publish dialog.</target>
+        </trans-unit>
+        <trans-unit id="f6aba17c-b21b-4623-ad42-bb526fff55e1" xml:space="preserve">
+          <source>The publish profile that you created earlier should be pre-selected.</source>
+          <target state="new">The publish profile that you created earlier should be pre-selected.</target>
+        </trans-unit>
+        <trans-unit id="70bc2880-9872-4aae-9b5c-570a02f87fb8" xml:space="preserve">
+          <source>Click <bpt id="b5ee7d4d-f140-4b75-b25c-37c61aee6e1b">&lt;strong&gt;</bpt>Publish<ept id="b5ee7d4d-f140-4b75-b25c-37c61aee6e1b">&lt;/strong&gt;</ept> to begin the deployment process.</source>
+          <target state="new">Click <bpt id="b5ee7d4d-f140-4b75-b25c-37c61aee6e1b">&lt;strong&gt;</bpt>Publish<ept id="b5ee7d4d-f140-4b75-b25c-37c61aee6e1b">&lt;/strong&gt;</ept> to begin the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="cd28f3ed-7b96-48cc-8c4e-3fb8daf91c74" xml:space="preserve">
+          <source><bpt id="7f579dd4-f416-41d4-82fc-52ce0cb982fe">&lt;linkText&gt;</bpt>Deploying the API App<ept id="7f579dd4-f416-41d4-82fc-52ce0cb982fe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7f579dd4-f416-41d4-82fc-52ce0cb982fe">&lt;linkText&gt;</bpt>Deploying the API App<ept id="7f579dd4-f416-41d4-82fc-52ce0cb982fe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57dbcac5-eb75-4309-bae5-9b57fad3d450" xml:space="preserve">
+          <source>The <bpt id="b71b4441-41fb-4e4c-9643-157550fab23b">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="b71b4441-41fb-4e4c-9643-157550fab23b">&lt;/strong&gt;</ept> window shows the deployment progress.</source>
+          <target state="new">The <bpt id="b71b4441-41fb-4e4c-9643-157550fab23b">&lt;strong&gt;</bpt>Azure App Service Activity<ept id="b71b4441-41fb-4e4c-9643-157550fab23b">&lt;/strong&gt;</ept> window shows the deployment progress.</target>
+        </trans-unit>
+        <trans-unit id="d363df4a-9f63-41ed-8473-a4edac2e394f" xml:space="preserve">
+          <source><bpt id="eb7935ab-0eb3-4fd6-bbb7-641cc5770c43">&lt;linkText&gt;</bpt>Status notification of the Azure App Service Activity window<ept id="eb7935ab-0eb3-4fd6-bbb7-641cc5770c43">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="eb7935ab-0eb3-4fd6-bbb7-641cc5770c43">&lt;linkText&gt;</bpt>Status notification of the Azure App Service Activity window<ept id="eb7935ab-0eb3-4fd6-bbb7-641cc5770c43">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5df5c89f-01a2-4466-9ec7-1dae916d9d04" xml:space="preserve">
+          <source>During this deployment process, Visual Studio automatically tries to restart the <bpt id="5393dac8-d46c-4baa-b121-723d71585ef9">&lt;em&gt;</bpt>gateway<ept id="5393dac8-d46c-4baa-b121-723d71585ef9">&lt;/em&gt;</ept>.</source>
+          <target state="new">During this deployment process, Visual Studio automatically tries to restart the <bpt id="5393dac8-d46c-4baa-b121-723d71585ef9">&lt;em&gt;</bpt>gateway<ept id="5393dac8-d46c-4baa-b121-723d71585ef9">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4651e717-838c-412b-ad48-fb890bdd188a" xml:space="preserve">
+          <source>The gateway is a web app that handles administrative functions for all API apps in a resource group, and it has to be restarted to recognize changes in an API app's API definition or <bpt id="e9a45218-a2a1-4056-b506-052dd906d27c">&lt;em&gt;</bpt>apiapp.json<ept id="e9a45218-a2a1-4056-b506-052dd906d27c">&lt;/em&gt;</ept> file.</source>
+          <target state="new">The gateway is a web app that handles administrative functions for all API apps in a resource group, and it has to be restarted to recognize changes in an API app's API definition or <bpt id="e9a45218-a2a1-4056-b506-052dd906d27c">&lt;em&gt;</bpt>apiapp.json<ept id="e9a45218-a2a1-4056-b506-052dd906d27c">&lt;/em&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="2ab1dcad-f128-4450-b3f8-ef89f16ed7b6" xml:space="preserve">
+          <source>If you use another method to deploy an API app, or if Visual Studio fails to restart the gateway, you might have to restart the gateway manually.</source>
+          <target state="new">If you use another method to deploy an API app, or if Visual Studio fails to restart the gateway, you might have to restart the gateway manually.</target>
+        </trans-unit>
+        <trans-unit id="7d323269-1b9f-490e-82e6-0f5fd2929b5d" xml:space="preserve">
+          <source>The following steps explain how to do that.</source>
+          <target state="new">The following steps explain how to do that.</target>
+        </trans-unit>
+        <trans-unit id="2ab42d12-dffd-49e1-916d-43cef088b554" xml:space="preserve">
+          <source>In your browser, go to the <bpt id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;linkText&gt;</bpt>Azure preview portal<ept id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;/linkText&gt;</ept><bpt id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;title&gt;</bpt><ept id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;/title&gt;</ept>.</source>
+          <target state="new">In your browser, go to the <bpt id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;linkText&gt;</bpt>Azure preview portal<ept id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;/linkText&gt;</ept><bpt id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;title&gt;</bpt><ept id="dddf373d-c978-40ab-b843-eb7584f5cc22">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="800af48e-a1d6-447c-a70d-ab13993ce961" xml:space="preserve">
+          <source>Navigate to the <bpt id="81efc28f-c424-4e9b-b664-eed4515d326a">&lt;strong&gt;</bpt>API app<ept id="81efc28f-c424-4e9b-b664-eed4515d326a">&lt;/strong&gt;</ept> blade for the API app that you deployed.</source>
+          <target state="new">Navigate to the <bpt id="81efc28f-c424-4e9b-b664-eed4515d326a">&lt;strong&gt;</bpt>API app<ept id="81efc28f-c424-4e9b-b664-eed4515d326a">&lt;/strong&gt;</ept> blade for the API app that you deployed.</target>
+        </trans-unit>
+        <trans-unit id="cec9795e-c4eb-4225-ae40-47d5ec467ee9" xml:space="preserve">
+          <source>For information about the <bpt id="e4bc61d7-adab-493a-86a0-c8df69f8e3de">&lt;strong&gt;</bpt>API app<ept id="e4bc61d7-adab-493a-86a0-c8df69f8e3de">&lt;/strong&gt;</ept> blade, and how to find it, see <bpt id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;linkText&gt;</bpt>Manage API apps<ept id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;/linkText&gt;</ept><bpt id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;title&gt;</bpt><ept id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about the <bpt id="e4bc61d7-adab-493a-86a0-c8df69f8e3de">&lt;strong&gt;</bpt>API app<ept id="e4bc61d7-adab-493a-86a0-c8df69f8e3de">&lt;/strong&gt;</ept> blade, and how to find it, see <bpt id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;linkText&gt;</bpt>Manage API apps<ept id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;/linkText&gt;</ept><bpt id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;title&gt;</bpt><ept id="43f3a2ec-a26f-4f09-9906-7c1c7cf792cd">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="133e0085-0151-4ba1-97e8-a2300465d426" xml:space="preserve">
+          <source>Click the <bpt id="12a1ac5a-c308-435e-9c2b-68a6c487e868">&lt;strong&gt;</bpt>Gateway<ept id="12a1ac5a-c308-435e-9c2b-68a6c487e868">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">Click the <bpt id="12a1ac5a-c308-435e-9c2b-68a6c487e868">&lt;strong&gt;</bpt>Gateway<ept id="12a1ac5a-c308-435e-9c2b-68a6c487e868">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="719b5adf-7c1e-4edf-bfa9-b9e3a75545b2" xml:space="preserve">
+          <source>In the <bpt id="381d785f-9ae2-402f-bf88-33932cfad754">&lt;strong&gt;</bpt>Gateway<ept id="381d785f-9ae2-402f-bf88-33932cfad754">&lt;/strong&gt;</ept> blade, click <bpt id="deee9eb1-3a0a-4843-8054-ff4b2b103c9c">&lt;strong&gt;</bpt>Restart<ept id="deee9eb1-3a0a-4843-8054-ff4b2b103c9c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="381d785f-9ae2-402f-bf88-33932cfad754">&lt;strong&gt;</bpt>Gateway<ept id="381d785f-9ae2-402f-bf88-33932cfad754">&lt;/strong&gt;</ept> blade, click <bpt id="deee9eb1-3a0a-4843-8054-ff4b2b103c9c">&lt;strong&gt;</bpt>Restart<ept id="deee9eb1-3a0a-4843-8054-ff4b2b103c9c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="76634076-e0fa-42f1-a7e2-4fd8bdcbeec9" xml:space="preserve">
+          <source><bpt id="805e472e-8925-46a7-a691-97d492bdb083">&lt;linkText&gt;</bpt><ept id="805e472e-8925-46a7-a691-97d492bdb083">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="805e472e-8925-46a7-a691-97d492bdb083">&lt;linkText&gt;</bpt><ept id="805e472e-8925-46a7-a691-97d492bdb083">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

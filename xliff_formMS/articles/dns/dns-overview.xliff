@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7ac02dc7-d620-465a-beb9-37e1cbdd8c24" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7ac02dc7-d620-465a-beb9-37e1cbdd8c24" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="06544932-6441-4ef6-b251-7e82e51b1529">
+        <trans-unit id="38a197b8-5776-4ae1-8524-1b385be80810" xml:space="preserve">
+          <source>Overview of Azure DNS | Microsoft Azure</source>
+          <target state="new">Overview of Azure DNS | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="388e6d32-0db9-4d25-969c-8b56e1d3175b" xml:space="preserve">
+          <source>Overview of Azure DNS hosting services on Microsoft Azure and start hosting your domain on Microsoft Azure</source>
+          <target state="new">Overview of Azure DNS hosting services on Microsoft Azure and start hosting your domain on Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="74fa915d-0db1-4701-8d88-674b77c9d8ad" xml:space="preserve">
+          <source>Behind any website or service on the Internet, there is an IP address.</source>
+          <target state="new">Behind any website or service on the Internet, there is an IP address.</target>
+        </trans-unit>
+        <trans-unit id="3e147615-1a87-40e0-b653-b786c2bc805d" xml:space="preserve">
+          <source>For example, www.microsoft.com uses the IP address 134.170.185.46.</source>
+          <target state="new">For example, www.microsoft.com uses the IP address 134.170.185.46.</target>
+        </trans-unit>
+        <trans-unit id="8a45c84e-68d6-46f9-8fe9-8623e37e0596" xml:space="preserve">
+          <source>The Domain Name System, or DNS, is responsible for translating (or resolving) the website or service name to its IP address.</source>
+          <target state="new">The Domain Name System, or DNS, is responsible for translating (or resolving) the website or service name to its IP address.</target>
+        </trans-unit>
+        <trans-unit id="7f3f6141-99e5-4be0-bbf1-e4e3360fb6cd" xml:space="preserve">
+          <source>Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.</source>
+          <target state="new">Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="63669f8a-74c0-429e-9b89-fcabb55ebb3f" xml:space="preserve">
+          <source>By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools and billing as your other Azure services.</source>
+          <target state="new">By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools and billing as your other Azure services.</target>
+        </trans-unit>
+        <trans-unit id="196ed3da-d86c-478d-bbaa-7af5c6e5e9e3" xml:space="preserve">
+          <source>DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers.</source>
+          <target state="new">DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers.</target>
+        </trans-unit>
+        <trans-unit id="a279bfea-1240-4ce8-82d1-68b784193c00" xml:space="preserve">
+          <source>We use Anycast networking, so that each DNS query is answered by the closest available DNS server.</source>
+          <target state="new">We use Anycast networking, so that each DNS query is answered by the closest available DNS server.</target>
+        </trans-unit>
+        <trans-unit id="dab94b92-06d5-4ebe-95b1-1da9327f774d" xml:space="preserve">
+          <source>This provides both fast performance and high availability for your domain.</source>
+          <target state="new">This provides both fast performance and high availability for your domain.</target>
+        </trans-unit>
+        <trans-unit id="c92a7ad8-eb46-4c12-a599-a07465d72b1a" xml:space="preserve">
+          <source>The service is based on Azure Resource Manager (ARM).  Your domains and records can be managed via Azure Resource Manager REST APIs, .NET SDK, PowerShell cmdlets and command line interface.  Azure DNS is currently in Preview, and is not yet supported in the Azure management portal.&lt;BR&gt;&lt;BR&gt;
+Azure DNS does not currently support purchasing of domain names.  To purchase domains you should use a third-party domain name registrar, who will typically charge a small annual fee.  These domains can then be hosted in Azure DNS for management of DNS records—see <bpt id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;linkText&gt;</bpt>Delegate a Domain to Azure DNS<ept id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;/linkText&gt;</ept><bpt id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;title&gt;</bpt><ept id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;/title&gt;</ept> for details.</source>
+          <target state="new">The service is based on Azure Resource Manager (ARM).  Your domains and records can be managed via Azure Resource Manager REST APIs, .NET SDK, PowerShell cmdlets and command line interface.  Azure DNS is currently in Preview, and is not yet supported in the Azure management portal.&lt;BR&gt;&lt;BR&gt;
+Azure DNS does not currently support purchasing of domain names.  To purchase domains you should use a third-party domain name registrar, who will typically charge a small annual fee.  These domains can then be hosted in Azure DNS for management of DNS records—see <bpt id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;linkText&gt;</bpt>Delegate a Domain to Azure DNS<ept id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;/linkText&gt;</ept><bpt id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;title&gt;</bpt><ept id="4f8623ee-d1d3-4d73-a72b-3269a7d11ef6">&lt;/title&gt;</ept> for details.</target>
+        </trans-unit>
+        <trans-unit id="92c1c180-41fe-4327-9f86-6718d62641da" xml:space="preserve">
+          <source><bpt id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;linkText&gt;</bpt>Get started creating DNS zones<ept id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;/linkText&gt;</ept><bpt id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;title&gt;</bpt><ept id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;linkText&gt;</bpt>Get started creating DNS zones<ept id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;/linkText&gt;</ept><bpt id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;title&gt;</bpt><ept id="e42e2c2c-acbe-4e54-9f33-227f0db101ce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9dffb582-120d-4466-98eb-721d902b6515" xml:space="preserve">
+          <source><bpt id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;linkText&gt;</bpt>Automate Azure Operations with .NET SDK<ept id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;/linkText&gt;</ept><bpt id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;title&gt;</bpt><ept id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;linkText&gt;</bpt>Automate Azure Operations with .NET SDK<ept id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;/linkText&gt;</ept><bpt id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;title&gt;</bpt><ept id="468f8954-dc31-41fc-9d15-58b01b45dd04">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e8c47f1e-5efb-42d3-b58d-22351dda0a66" xml:space="preserve">
+          <source><bpt id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;/linkText&gt;</ept><bpt id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;title&gt;</bpt><ept id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;linkText&gt;</bpt>Azure DNS REST API Reference<ept id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;/linkText&gt;</ept><bpt id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;title&gt;</bpt><ept id="2e30d2e5-f411-4bc3-9610-3992c6758d55">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

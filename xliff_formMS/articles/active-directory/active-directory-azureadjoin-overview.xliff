@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d6f20dc8-0904-4471-8266-a1f81ffe5453" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d6f20dc8-0904-4471-8266-a1f81ffe5453" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="80278a85-49c9-487f-af3b-cda9e872d9fd">
+        <trans-unit id="96d8cb5f-632a-4848-a54b-da5eb180e70c" xml:space="preserve">
+          <source>Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Azure</source>
+          <target state="new">Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0a72d115-e3f2-4614-a1a7-93c71b3b6764" xml:space="preserve">
+          <source>A topic that explains Azure AD Join.</source>
+          <target state="new">A topic that explains Azure AD Join.</target>
+        </trans-unit>
+        <trans-unit id="3b8a4ddf-abc2-41c9-a0a8-fa307e4643dc" xml:space="preserve">
+          <source>Azure Active Directory (Azure AD) Join is the functionality that registers a company-owned device in Azure Active Directory to enable centralized management.</source>
+          <target state="new">Azure Active Directory (Azure AD) Join is the functionality that registers a company-owned device in Azure Active Directory to enable centralized management.</target>
+        </trans-unit>
+        <trans-unit id="dca9e303-69da-46fe-9579-f33bedf551d1" xml:space="preserve">
+          <source>It means users (employees, students) can now be connected to the enterprise cloud through Azure Active Directory.</source>
+          <target state="new">It means users (employees, students) can now be connected to the enterprise cloud through Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="1fca12b2-31bd-426e-8e09-6a4c44c51df0" xml:space="preserve">
+          <source>This enables simplified Windows deployments, access to organizational apps and resources from any Windows device, both corp-owned or personally owned devices (BYOD).</source>
+          <target state="new">This enables simplified Windows deployments, access to organizational apps and resources from any Windows device, both corp-owned or personally owned devices (BYOD).</target>
+        </trans-unit>
+        <trans-unit id="bc2d71a6-6b81-44c1-a431-4d1fcb1bda6d" xml:space="preserve">
+          <source>Azure AD Join is intended for enterprises that are cloud-first/cloud-only (typically small and medium sized businesses that do not have on-premises Active Directory infrastructure That said, Azure AD Join can and will also be used by large organizations on devices that are incapable of doing traditional domain join (like mobile devices, for example) or for users who need to primarily access Office 365 or other Azure AD SaaS apps.</source>
+          <target state="new">Azure AD Join is intended for enterprises that are cloud-first/cloud-only (typically small and medium sized businesses that do not have on-premises Active Directory infrastructure That said, Azure AD Join can and will also be used by large organizations on devices that are incapable of doing traditional domain join (like mobile devices, for example) or for users who need to primarily access Office 365 or other Azure AD SaaS apps.</target>
+        </trans-unit>
+        <trans-unit id="7a51479d-e8d6-46f0-8146-89057d74d5bd" xml:space="preserve">
+          <source>While traditional domain join is still going to get you the best on-premises experiences on devices that are capable of domain joining, Azure AD join is suitable for devices that cannot domain join and in areas where you want to manage users in the cloud with MDM capabilities instead of your traditional domain management experiences with Group Policy and SCCM.</source>
+          <target state="new">While traditional domain join is still going to get you the best on-premises experiences on devices that are capable of domain joining, Azure AD join is suitable for devices that cannot domain join and in areas where you want to manage users in the cloud with MDM capabilities instead of your traditional domain management experiences with Group Policy and SCCM.</target>
+        </trans-unit>
+        <trans-unit id="58f954af-e753-48d5-b0dd-54e86a87ac9c" xml:space="preserve">
+          <source><bpt id="ec056884-bc77-4028-b98c-820911b20ffa">&lt;linkText&gt;</bpt><ept id="ec056884-bc77-4028-b98c-820911b20ffa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ec056884-bc77-4028-b98c-820911b20ffa">&lt;linkText&gt;</bpt><ept id="ec056884-bc77-4028-b98c-820911b20ffa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fb2d59d-339c-426b-a728-31099616fe8e" xml:space="preserve">
+          <source><bpt id="63b571a1-32f6-45f9-bfd2-8e16fa875acc">&lt;strong&gt;</bpt>If your business is largely in the cloud<ept id="63b571a1-32f6-45f9-bfd2-8e16fa875acc">&lt;/strong&gt;</ept>: If you have or are moving to a model where you are reducing your on-premises footprint and want to operate more in the cloud, Azure AD join could benefit you.</source>
+          <target state="new"><bpt id="63b571a1-32f6-45f9-bfd2-8e16fa875acc">&lt;strong&gt;</bpt>If your business is largely in the cloud<ept id="63b571a1-32f6-45f9-bfd2-8e16fa875acc">&lt;/strong&gt;</ept>: If you have or are moving to a model where you are reducing your on-premises footprint and want to operate more in the cloud, Azure AD join could benefit you.</target>
+        </trans-unit>
+        <trans-unit id="3d3b1a37-c607-413f-970a-d037389a8f04" xml:space="preserve">
+          <source>Maybe you have created Azure AD accounts manually or through synchronizing your on-premises AD.</source>
+          <target state="new">Maybe you have created Azure AD accounts manually or through synchronizing your on-premises AD.</target>
+        </trans-unit>
+        <trans-unit id="d29514ef-61dc-4933-9642-6def417867a2" xml:space="preserve">
+          <source>Either way, you have an account in Azure AD and you can use it to sign in to Windows 10.</source>
+          <target state="new">Either way, you have an account in Azure AD and you can use it to sign in to Windows 10.</target>
+        </trans-unit>
+        <trans-unit id="79ecd3c2-ff2e-4d57-9cfc-0ecc498579ca" xml:space="preserve">
+          <source>You users can join their computers to Azure AD through either the OOBE process or through the Settings experience.</source>
+          <target state="new">You users can join their computers to Azure AD through either the OOBE process or through the Settings experience.</target>
+        </trans-unit>
+        <trans-unit id="961c0bc1-e7af-460e-bddc-fb8bdbeb09d9" xml:space="preserve">
+          <source>Your users now enjoy SSO access to their cloud resources like Office 365 either in the browser or in the Office applications.</source>
+          <target state="new">Your users now enjoy SSO access to their cloud resources like Office 365 either in the browser or in the Office applications.</target>
+        </trans-unit>
+        <trans-unit id="9e35b4f0-1818-4963-8157-d0acd619012d" xml:space="preserve">
+          <source><bpt id="c91b4d85-dd88-4372-bb01-6a72d866e98c">&lt;strong&gt;</bpt>Educational institutions<ept id="c91b4d85-dd88-4372-bb01-6a72d866e98c">&lt;/strong&gt;</ept>: One of the big scenarios we hear about is how education institutions have two user types: faculty and students.</source>
+          <target state="new"><bpt id="c91b4d85-dd88-4372-bb01-6a72d866e98c">&lt;strong&gt;</bpt>Educational institutions<ept id="c91b4d85-dd88-4372-bb01-6a72d866e98c">&lt;/strong&gt;</ept>: One of the big scenarios we hear about is how education institutions have two user types: faculty and students.</target>
+        </trans-unit>
+        <trans-unit id="756e4e86-642a-4574-b52d-33f40a49002a" xml:space="preserve">
+          <source>Faculty members are considered longer term members of the organization and creating on-premises accounts for them is desired.</source>
+          <target state="new">Faculty members are considered longer term members of the organization and creating on-premises accounts for them is desired.</target>
+        </trans-unit>
+        <trans-unit id="9fda1d70-a13d-4d62-9a3b-a890e167de21" xml:space="preserve">
+          <source>But students are shorter term members of the org and thus can be managed in Azure AD so directory scale can be pushed to the cloud instead of on-premises.</source>
+          <target state="new">But students are shorter term members of the org and thus can be managed in Azure AD so directory scale can be pushed to the cloud instead of on-premises.</target>
+        </trans-unit>
+        <trans-unit id="c52020ae-1a91-43dc-a5da-909394a3afa3" xml:space="preserve">
+          <source>These students can now sign in to Windows with their Azure AD account and get access to the Office 365 resources in the Office applications.</source>
+          <target state="new">These students can now sign in to Windows with their Azure AD account and get access to the Office 365 resources in the Office applications.</target>
+        </trans-unit>
+        <trans-unit id="13121d1b-65ea-45df-a753-ea4e738f4675" xml:space="preserve">
+          <source><bpt id="cf1899d5-b477-4e5b-b5cc-556050ee7e52">&lt;strong&gt;</bpt>Retail businesses<ept id="cf1899d5-b477-4e5b-b5cc-556050ee7e52">&lt;/strong&gt;</ept>:Another area we’ve heard from customers is their design to have easier management of seasonal workers.</source>
+          <target state="new"><bpt id="cf1899d5-b477-4e5b-b5cc-556050ee7e52">&lt;strong&gt;</bpt>Retail businesses<ept id="cf1899d5-b477-4e5b-b5cc-556050ee7e52">&lt;/strong&gt;</ept>:Another area we’ve heard from customers is their design to have easier management of seasonal workers.</target>
+        </trans-unit>
+        <trans-unit id="bccf6737-47cd-49ca-9e74-619aabf46807" xml:space="preserve">
+          <source>Again, longer term full time employees are created as on-premises accounts and would typically use domain joined machines.</source>
+          <target state="new">Again, longer term full time employees are created as on-premises accounts and would typically use domain joined machines.</target>
+        </trans-unit>
+        <trans-unit id="eefce3bc-c2ea-430a-8b36-6c0eaa1b93c3" xml:space="preserve">
+          <source>But seasonal workers are shorter term members of the org and thus are desired to managed where user licenses can be more easily moved around.</source>
+          <target state="new">But seasonal workers are shorter term members of the org and thus are desired to managed where user licenses can be more easily moved around.</target>
+        </trans-unit>
+        <trans-unit id="1c3b7122-dea5-4908-9ebd-2cee2697b945" xml:space="preserve">
+          <source>Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave.</source>
+          <target state="new">Creating these users in the cloud with Office 365 licenses allows these users to get the benefits of signing in to Windows and Office applications with an Azure AD account while maintaining more mobility of their licenses once they leave.</target>
+        </trans-unit>
+        <trans-unit id="fe740686-5b95-477b-97f3-a4b7ca19609a" xml:space="preserve">
+          <source><bpt id="9948675c-dc58-45a3-a43c-af7f073c9662">&lt;strong&gt;</bpt>Other businesses<ept id="9948675c-dc58-45a3-a43c-af7f073c9662">&lt;/strong&gt;</ept>: And broader than these specific scenarios, you might find that even though you maintain users in your on-premises AD directory, you could still benefit with having users Azure AD join because of simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.</source>
+          <target state="new"><bpt id="9948675c-dc58-45a3-a43c-af7f073c9662">&lt;strong&gt;</bpt>Other businesses<ept id="9948675c-dc58-45a3-a43c-af7f073c9662">&lt;/strong&gt;</ept>: And broader than these specific scenarios, you might find that even though you maintain users in your on-premises AD directory, you could still benefit with having users Azure AD join because of simplified joining experience, device management in Azure AD, automatic MDM enrollment, and single sign-on to Azure AD and on-premises resources.</target>
+        </trans-unit>
+        <trans-unit id="8058f175-af2c-45da-8f01-7df0362b0875" xml:space="preserve">
+          <source>With Azure AD Join, you get the following: </source>
+          <target state="new">With Azure AD Join, you get the following: </target>
+        </trans-unit>
+        <trans-unit id="47606cdd-4685-478d-9edc-6c11af344ddc" xml:space="preserve">
+          <source><bpt id="fe2033b7-fbca-4c63-8b5f-1beb73920c12">&lt;strong&gt;</bpt>Self-provisioning of corp-owned devices<ept id="fe2033b7-fbca-4c63-8b5f-1beb73920c12">&lt;/strong&gt;</ept>: With Windows 10, end users can configure a brand new, shrink-wrapped device in the out-of-box experience, without IT involvement.</source>
+          <target state="new"><bpt id="fe2033b7-fbca-4c63-8b5f-1beb73920c12">&lt;strong&gt;</bpt>Self-provisioning of corp-owned devices<ept id="fe2033b7-fbca-4c63-8b5f-1beb73920c12">&lt;/strong&gt;</ept>: With Windows 10, end users can configure a brand new, shrink-wrapped device in the out-of-box experience, without IT involvement.</target>
+        </trans-unit>
+        <trans-unit id="7c1bed94-148c-4f29-bc35-ae8883a1a867" xml:space="preserve">
+          <source><bpt id="49438101-6a99-4f3d-9212-231e279d6783">&lt;strong&gt;</bpt>Support for modern form factors<ept id="49438101-6a99-4f3d-9212-231e279d6783">&lt;/strong&gt;</ept>: Azure AD Join will work on devices that don’t have the traditional domain join capabilities.</source>
+          <target state="new"><bpt id="49438101-6a99-4f3d-9212-231e279d6783">&lt;strong&gt;</bpt>Support for modern form factors<ept id="49438101-6a99-4f3d-9212-231e279d6783">&lt;/strong&gt;</ept>: Azure AD Join will work on devices that don’t have the traditional domain join capabilities.</target>
+        </trans-unit>
+        <trans-unit id="5fe8a174-c2b9-4776-bb4f-e861655adf1b" xml:space="preserve">
+          <source><bpt id="4b9ba4b4-75cd-4740-a897-3a9609342ad8">&lt;strong&gt;</bpt>Uses existing organizational accounts<ept id="4b9ba4b4-75cd-4740-a897-3a9609342ad8">&lt;/strong&gt;</ept>: End users no longer need to create and maintain a personal Microsoft account to get the best experience on company-issued devices, like they did on Windows 8.</source>
+          <target state="new"><bpt id="4b9ba4b4-75cd-4740-a897-3a9609342ad8">&lt;strong&gt;</bpt>Uses existing organizational accounts<ept id="4b9ba4b4-75cd-4740-a897-3a9609342ad8">&lt;/strong&gt;</ept>: End users no longer need to create and maintain a personal Microsoft account to get the best experience on company-issued devices, like they did on Windows 8.</target>
+        </trans-unit>
+        <trans-unit id="95ae44e6-0dcb-4ee6-9342-7e911884217c" xml:space="preserve">
+          <source>They can use their existing work account in Azure AD instead.</source>
+          <target state="new">They can use their existing work account in Azure AD instead.</target>
+        </trans-unit>
+        <trans-unit id="cbf9b670-19b5-4c56-b820-e6ad4970131b" xml:space="preserve">
+          <source>For many organizations, this basically means setting up and signing on to Windows with the same credentials that are used to access Office 365.</source>
+          <target state="new">For many organizations, this basically means setting up and signing on to Windows with the same credentials that are used to access Office 365.</target>
+        </trans-unit>
+        <trans-unit id="a4a03889-9baf-46fb-8da5-558931679e67" xml:space="preserve">
+          <source><bpt id="431d4dce-8717-4609-a36a-ff5f7b76357d">&lt;strong&gt;</bpt>Automatic MDM enrollment<ept id="431d4dce-8717-4609-a36a-ff5f7b76357d">&lt;/strong&gt;</ept>: Devices can get automatically enrolled in management when connected to Azure AD.</source>
+          <target state="new"><bpt id="431d4dce-8717-4609-a36a-ff5f7b76357d">&lt;strong&gt;</bpt>Automatic MDM enrollment<ept id="431d4dce-8717-4609-a36a-ff5f7b76357d">&lt;/strong&gt;</ept>: Devices can get automatically enrolled in management when connected to Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="fcfc3515-3962-4227-89b6-d5caf6fbee40" xml:space="preserve">
+          <source>This will work with Microsoft Intune and with 3rd party MDMs.</source>
+          <target state="new">This will work with Microsoft Intune and with 3rd party MDMs.</target>
+        </trans-unit>
+        <trans-unit id="7e774ce1-718d-449b-97ba-3fef89d25440" xml:space="preserve">
+          <source>When managed with Intune, IT will be able to monitor/manage Azure AD Joined devices alongside domain joined devices in the SCCM management console.</source>
+          <target state="new">When managed with Intune, IT will be able to monitor/manage Azure AD Joined devices alongside domain joined devices in the SCCM management console.</target>
+        </trans-unit>
+        <trans-unit id="bbaddb1c-0908-463c-a02e-3a3eb38afaf4" xml:space="preserve">
+          <source><bpt id="433b0e3e-24cd-4213-8714-f6d0e7993b2c">&lt;strong&gt;</bpt>Single Sign-On to company resources<ept id="433b0e3e-24cd-4213-8714-f6d0e7993b2c">&lt;/strong&gt;</ept>: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through <bpt id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;linkText&gt;</bpt>Azure AD Connect<ept id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;/linkText&gt;</ept><bpt id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;title&gt;</bpt><ept id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="433b0e3e-24cd-4213-8714-f6d0e7993b2c">&lt;strong&gt;</bpt>Single Sign-On to company resources<ept id="433b0e3e-24cd-4213-8714-f6d0e7993b2c">&lt;/strong&gt;</ept>: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through <bpt id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;linkText&gt;</bpt>Azure AD Connect<ept id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;/linkText&gt;</ept><bpt id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;title&gt;</bpt><ept id="de3eac6f-b12a-4b85-ae4a-91342fc08e30">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c7dba1cb-3d8d-46e7-9e3d-8feab5a56e0a" xml:space="preserve">
+          <source>Corp-owned devices that are joined to Azure AD will also enjoy SSO to on-premises resources when the device is on corpnet, and from anywhere when these resources are exposed via the <bpt id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;linkText&gt;</bpt>Azure AD Application Proxy<ept id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;/linkText&gt;</ept><bpt id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;title&gt;</bpt><ept id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Corp-owned devices that are joined to Azure AD will also enjoy SSO to on-premises resources when the device is on corpnet, and from anywhere when these resources are exposed via the <bpt id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;linkText&gt;</bpt>Azure AD Application Proxy<ept id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;/linkText&gt;</ept><bpt id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;title&gt;</bpt><ept id="d71d2962-efdd-422f-97c4-43e3cb34113a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b324b96a-62e8-43fd-9da2-26d2c7a9b05c" xml:space="preserve">
+          <source><bpt id="8d8b7280-74ca-4595-812a-6973178a06d9">&lt;strong&gt;</bpt>OS State Roaming<ept id="8d8b7280-74ca-4595-812a-6973178a06d9">&lt;/strong&gt;</ept>: Things like accessibility settings, websites and Wi-Fi passwords will be synchronized across corp-owned devices without requiring a personal Microsoft account.</source>
+          <target state="new"><bpt id="8d8b7280-74ca-4595-812a-6973178a06d9">&lt;strong&gt;</bpt>OS State Roaming<ept id="8d8b7280-74ca-4595-812a-6973178a06d9">&lt;/strong&gt;</ept>: Things like accessibility settings, websites and Wi-Fi passwords will be synchronized across corp-owned devices without requiring a personal Microsoft account.</target>
+        </trans-unit>
+        <trans-unit id="38024d41-4fe5-4e4a-855b-e27b861e7751" xml:space="preserve">
+          <source><bpt id="496f1c6a-4fce-4ca1-a19f-01e3ee8aae26">&lt;strong&gt;</bpt>Enterprise-ready Windows store<ept id="496f1c6a-4fce-4ca1-a19f-01e3ee8aae26">&lt;/strong&gt;</ept>: Windows Store will support app acquisition and licensing with Azure AD accounts.</source>
+          <target state="new"><bpt id="496f1c6a-4fce-4ca1-a19f-01e3ee8aae26">&lt;strong&gt;</bpt>Enterprise-ready Windows store<ept id="496f1c6a-4fce-4ca1-a19f-01e3ee8aae26">&lt;/strong&gt;</ept>: Windows Store will support app acquisition and licensing with Azure AD accounts.</target>
+        </trans-unit>
+        <trans-unit id="94eff5b3-886c-44cd-9395-0eaf98a86050" xml:space="preserve">
+          <source>Organizations will be able to volume-license apps and make them available to the users in their organization.</source>
+          <target state="new">Organizations will be able to volume-license apps and make them available to the users in their organization.</target>
+        </trans-unit>
+        <trans-unit id="659f957d-ff87-4be4-9183-86f1ae2446e4" xml:space="preserve">
+          <source>Corporate device (Joined to On-Premises Domain)</source>
+          <target state="new">Corporate device (Joined to On-Premises Domain)</target>
+        </trans-unit>
+        <trans-unit id="4502024f-d597-4561-b3d3-f9002fc92a1f" xml:space="preserve">
+          <source>Corporate device  (Joined to the cloud)</source>
+          <target state="new">Corporate device  (Joined to the cloud)</target>
+        </trans-unit>
+        <trans-unit id="50e8e732-47c5-4397-b0fb-cb08cf8f7209" xml:space="preserve">
+          <source>Pesonal device</source>
+          <target state="new">Pesonal device</target>
+        </trans-unit>
+        <trans-unit id="6abeb8bf-4de7-4125-ba48-b718adbf4453" xml:space="preserve">
+          <source>Users sign in to Windows with work credentials (as they do today)</source>
+          <target state="new">Users sign in to Windows with work credentials (as they do today)</target>
+        </trans-unit>
+        <trans-unit id="b7485dec-8bd5-422f-9a67-aa85f57da03c" xml:space="preserve">
+          <source>Users can sign in to Windows with work credentials that are managed in Azure AD.</source>
+          <target state="new">Users can sign in to Windows with work credentials that are managed in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="74348654-d401-4932-acab-1bbd05b03148" xml:space="preserve">
+          <source>This is relevant for corporate devices in three cases:  The organization doesn’t have AD on premises (for example, small business) The organization doesn’t create all user accounts in AD (for example students, consultants, seasonal workers) Corporate devices that can’t be joined to a (on-premises) Domain, like phones or tablets running a Mobile SKU.</source>
+          <target state="new">This is relevant for corporate devices in three cases:  The organization doesn’t have AD on premises (for example, small business) The organization doesn’t create all user accounts in AD (for example students, consultants, seasonal workers) Corporate devices that can’t be joined to a (on-premises) Domain, like phones or tablets running a Mobile SKU.</target>
+        </trans-unit>
+        <trans-unit id="f9ca0d3c-a8e5-4da9-8f04-39fe470dc736" xml:space="preserve">
+          <source>For example, secondary device taken to factory/retail floor, Works for managed and federated organizations.</source>
+          <target state="new">For example, secondary device taken to factory/retail floor, Works for managed and federated organizations.</target>
+        </trans-unit>
+        <trans-unit id="da37531a-9c12-4064-aed4-ed9023d28477" xml:space="preserve">
+          <source>Users sign in to Windows with their personal MSA credentials (no change)</source>
+          <target state="new">Users sign in to Windows with their personal MSA credentials (no change)</target>
+        </trans-unit>
+        <trans-unit id="f0311899-e97e-47b8-871a-0f740a9ec892" xml:space="preserve">
+          <source>Users have access to roaming of settings and Windows Store – These services work with work account (no need for personal MSA) Requires organizations to connect their on-premises AD to Azure AD</source>
+          <target state="new">Users have access to roaming of settings and Windows Store – These services work with work account (no need for personal MSA) Requires organizations to connect their on-premises AD to Azure AD</target>
+        </trans-unit>
+        <trans-unit id="3618cb2f-5498-4c07-a248-d0b4b33f8963" xml:space="preserve">
+          <source>Self-service setup – users can go through first-run experience (FRX) through their work account (as an alternative to IT provisioning the devices – both methods are supported)</source>
+          <target state="new">Self-service setup – users can go through first-run experience (FRX) through their work account (as an alternative to IT provisioning the devices – both methods are supported)</target>
+        </trans-unit>
+        <trans-unit id="983eb706-31b7-46e2-8c26-ed9de9091d03" xml:space="preserve">
+          <source>Super easy to add a work account that’s managed in AD or Azure AD</source>
+          <target state="new">Super easy to add a work account that’s managed in AD or Azure AD</target>
+        </trans-unit>
+        <trans-unit id="7db5cdf4-ed81-410f-b12e-7e743937f5b1" xml:space="preserve">
+          <source>SSO from desktop to work apps/websites/resources, both on-premises and in the cloudApps that use Azure AD for authentication</source>
+          <target state="new">SSO from desktop to work apps/websites/resources, both on-premises and in the cloudApps that use Azure AD for authentication</target>
+        </trans-unit>
+        <trans-unit id="b5743b82-3f59-4e5d-84c1-2557aa18ed60" xml:space="preserve">
+          <source>Auto-registration in enterprise directory (Azure AD) and auto-enrolment in MDM.</source>
+          <target state="new">Auto-registration in enterprise directory (Azure AD) and auto-enrolment in MDM.</target>
+        </trans-unit>
+        <trans-unit id="97e48152-08d5-4823-be01-536d0ba32191" xml:space="preserve">
+          <source>(Azure AD Premium feature)</source>
+          <target state="new">(Azure AD Premium feature)</target>
+        </trans-unit>
+        <trans-unit id="a9c5b6c8-ae49-4182-bbb9-bc36bcbb8156" xml:space="preserve">
+          <source>Provides SSO across apps and to websites/resources with this work account</source>
+          <target state="new">Provides SSO across apps and to websites/resources with this work account</target>
+        </trans-unit>
+        <trans-unit id="5adabc4d-18cb-4ebd-8056-a2e2a343d663" xml:space="preserve">
+          <source>Users can add their personal MSA to access their personal pictures/files without impacting enterprise data (roaming settings continues to work with work account) The MSA account enables SSO and no longer drives roaming of settings</source>
+          <target state="new">Users can add their personal MSA to access their personal pictures/files without impacting enterprise data (roaming settings continues to work with work account) The MSA account enables SSO and no longer drives roaming of settings</target>
+        </trans-unit>
+        <trans-unit id="bb1d3cd7-7589-4bfa-9b91-b5287887bbce" xml:space="preserve">
+          <source>Self-service password reset (SSPR) on winlogon (ability to reset forgotten password) (You need AzureAD Premium for this)</source>
+          <target state="new">Self-service password reset (SSPR) on winlogon (ability to reset forgotten password) (You need AzureAD Premium for this)</target>
+        </trans-unit>
+        <trans-unit id="e9d1373a-afb5-4408-8250-50aca1c766c5" xml:space="preserve">
+          <source>Provides access to enterprise Store front/section so that users can acquire and use LoB apps on their personal devices</source>
+          <target state="new">Provides access to enterprise Store front/section so that users can acquire and use LoB apps on their personal devices</target>
+        </trans-unit>
+        <trans-unit id="2746f20e-66ed-4860-8900-75dd3edfa4fe" xml:space="preserve">
+          <source><bpt id="25489b25-5224-41a5-9879-6617067edfda">&lt;linkText&gt;</bpt>Learn about usage scenarios and deployment considerations for Azure AD Join<ept id="25489b25-5224-41a5-9879-6617067edfda">&lt;/linkText&gt;</ept><bpt id="25489b25-5224-41a5-9879-6617067edfda">&lt;title&gt;</bpt><ept id="25489b25-5224-41a5-9879-6617067edfda">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="25489b25-5224-41a5-9879-6617067edfda">&lt;linkText&gt;</bpt>Learn about usage scenarios and deployment considerations for Azure AD Join<ept id="25489b25-5224-41a5-9879-6617067edfda">&lt;/linkText&gt;</ept><bpt id="25489b25-5224-41a5-9879-6617067edfda">&lt;title&gt;</bpt><ept id="25489b25-5224-41a5-9879-6617067edfda">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f18f503a-c000-4d51-b776-b8cf598dccb1" xml:space="preserve">
+          <source><bpt id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;/linkText&gt;</ept><bpt id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;title&gt;</bpt><ept id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;linkText&gt;</bpt>Set up Azure AD Join<ept id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;/linkText&gt;</ept><bpt id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;title&gt;</bpt><ept id="9c7f387c-00bc-4f87-a7ec-fb8f04d78f8c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

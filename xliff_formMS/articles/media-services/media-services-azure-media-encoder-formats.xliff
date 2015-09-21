@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="52ad24b5-ca45-487c-bbc1-0d057f50a146" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="52ad24b5-ca45-487c-bbc1-0d057f50a146" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eafd73c9-772a-42d2-87d2-a876c354f767">
+        <trans-unit id="eb547785-d5bf-4d72-b784-95512b62db17" xml:space="preserve">
+          <source>Azure Media Encoder formats and codecs</source>
+          <target state="new">Azure Media Encoder formats and codecs</target>
+        </trans-unit>
+        <trans-unit id="e0462fca-0c05-4e01-ba69-0ea2a8e895e0" xml:space="preserve">
+          <source>This topic gives an overview of Azure Media Encoder formats and codecs.</source>
+          <target state="new">This topic gives an overview of Azure Media Encoder formats and codecs.</target>
+        </trans-unit>
+        <trans-unit id="c8a1cfec-ea00-479e-ad25-73879a9460d3" xml:space="preserve">
+          <source>This document contains a list of the most common input and output file formats and codecs that you can use with Azure Media Encoder.</source>
+          <target state="new">This document contains a list of the most common input and output file formats and codecs that you can use with Azure Media Encoder.</target>
+        </trans-unit>
+        <trans-unit id="afe63e19-8f91-4f0b-8d01-f7bb632adac3" xml:space="preserve">
+          <source>File format (file extensions)</source>
+          <target state="new">File format (file extensions)</target>
+        </trans-unit>
+        <trans-unit id="b663b82f-98bd-4c54-b4b7-848641ead0b1" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="d0f4f3cb-993c-4aa9-98ce-f3f107c72d33" xml:space="preserve">
+          <source>3GPP, 3GPP2 (.3gp, .3g2, .3gp2)</source>
+          <target state="new">3GPP, 3GPP2 (.3gp, .3g2, .3gp2)</target>
+        </trans-unit>
+        <trans-unit id="a48a4f51-dc3d-45dd-8377-27bc383ec362" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="19d0d2f6-114e-4165-9e5a-4e50c4dfecf5" xml:space="preserve">
+          <source>Advanced Systems Format (ASF) (.asf)</source>
+          <target state="new">Advanced Systems Format (ASF) (.asf)</target>
+        </trans-unit>
+        <trans-unit id="a70b51b9-da51-4429-ab5e-5abdf5b4ac0f" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f65c62a4-4848-42a7-ba18-7b3deaeecbea" xml:space="preserve">
+          <source>Advanced Video Coding High Definition (AVCHD) [ MPEG-2 Transport Stream ] (.mts, .m2ts)</source>
+          <target state="new">Advanced Video Coding High Definition (AVCHD) [ MPEG-2 Transport Stream ] (.mts, .m2ts)</target>
+        </trans-unit>
+        <trans-unit id="c1ef96d6-3205-4df2-b631-1659e47f14fd" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="db468a82-c6af-41ef-8090-f6b3704717ee" xml:space="preserve">
+          <source>Audio-Video Interleaved (AVI) (.avi)</source>
+          <target state="new">Audio-Video Interleaved (AVI) (.avi)</target>
+        </trans-unit>
+        <trans-unit id="e0269a1e-0cbb-4d4c-b60a-8f75e7b8dbff" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d2561f39-d25d-45d8-b11d-c6d66272914a" xml:space="preserve">
+          <source>Digital camcorder MPEG-2 (MOD) (.mod)</source>
+          <target state="new">Digital camcorder MPEG-2 (MOD) (.mod)</target>
+        </trans-unit>
+        <trans-unit id="faf7f1aa-4dde-4876-bdd1-652d5fbeed2d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f46ee1f6-a963-4bd4-8eaf-6d4b93528d5f" xml:space="preserve">
+          <source>DVD transport stream (TS) file (.ts)</source>
+          <target state="new">DVD transport stream (TS) file (.ts)</target>
+        </trans-unit>
+        <trans-unit id="f17c19e0-7cdd-4195-b775-57ac365a73a9" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="265be835-fedc-410e-8b38-cde4c38dcc5d" xml:space="preserve">
+          <source>DVD video object (VOB) file (.vob)</source>
+          <target state="new">DVD video object (VOB) file (.vob)</target>
+        </trans-unit>
+        <trans-unit id="ac0ee39c-30b8-4d56-b784-cf9775521f8e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="426f2e85-4053-4c41-87f7-1b6dd4e882b0" xml:space="preserve">
+          <source>Expression Encoder Screen Capture Codec file (.xesc)</source>
+          <target state="new">Expression Encoder Screen Capture Codec file (.xesc)</target>
+        </trans-unit>
+        <trans-unit id="879eca54-a6a6-4bb8-908c-e8a769d3e5b3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="77605e19-f4e0-4f4b-938e-b105a0837774" xml:space="preserve">
+          <source>MP4 (.mp4)</source>
+          <target state="new">MP4 (.mp4)</target>
+        </trans-unit>
+        <trans-unit id="f232399c-ef75-4588-9de2-65746407006b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c57a6de8-299e-4601-9d5c-ff554795f0f9" xml:space="preserve">
+          <source>MPEG-1 System Stream (.mpeg, .mpg)</source>
+          <target state="new">MPEG-1 System Stream (.mpeg, .mpg)</target>
+        </trans-unit>
+        <trans-unit id="f7eb2585-c7f9-4e48-8974-0d56bc4c6372" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2232089e-b08e-4ee5-8500-304a86c9f048" xml:space="preserve">
+          <source>MPEG-2 video file (.m2v)</source>
+          <target state="new">MPEG-2 video file (.m2v)</target>
+        </trans-unit>
+        <trans-unit id="88ad6bad-06c5-4c50-b86e-9fd7da24a6e8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="18457d4f-9147-438b-b9f9-5659fdda110a" xml:space="preserve">
+          <source>Smooth Streaming File Format (PIFF 1.3) (.ismv)</source>
+          <target state="new">Smooth Streaming File Format (PIFF 1.3) (.ismv)</target>
+        </trans-unit>
+        <trans-unit id="82889a95-6e2a-405c-b9b8-1d0a2cd61e52" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="01c6222d-da41-43b6-82cd-17ae4d575313" xml:space="preserve">
+          <source>Windows Media Video (WMV) (.wmv)</source>
+          <target state="new">Windows Media Video (WMV) (.wmv)</target>
+        </trans-unit>
+        <trans-unit id="4de808c0-ea97-459f-bb9f-216706e301d8" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="486e623d-6ae8-4afa-ad47-cfb21fff4d41" xml:space="preserve">
+          <source>Adobe® Flash® F4V</source>
+          <target state="new">Adobe® Flash® F4V</target>
+        </trans-unit>
+        <trans-unit id="225496c0-f0a5-445a-b199-31323e43ecca" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="5328b9bc-921e-4495-9e6b-a65e231a9936" xml:space="preserve">
+          <source>MXF/SMPTE 377M</source>
+          <target state="new">MXF/SMPTE 377M</target>
+        </trans-unit>
+        <trans-unit id="414d0946-fbba-4981-b402-8203a6407d8d" xml:space="preserve">
+          <source>Limited</source>
+          <target state="new">Limited</target>
+        </trans-unit>
+        <trans-unit id="a8117cb1-c95e-4a47-9d49-0682c58bce66" xml:space="preserve">
+          <source>GXF</source>
+          <target state="new">GXF</target>
+        </trans-unit>
+        <trans-unit id="8a15163f-287e-446d-99d7-0965c004fa6e" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="8441cc18-d2ac-47af-bdc0-6ae2b96b5a4f" xml:space="preserve">
+          <source><bpt id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;linkText&gt;</bpt>Microsoft Digital Video Recording(DVR-MS)<ept id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;/linkText&gt;</ept><bpt id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;title&gt;</bpt><ept id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;linkText&gt;</bpt>Microsoft Digital Video Recording(DVR-MS)<ept id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;/linkText&gt;</ept><bpt id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;title&gt;</bpt><ept id="acedbcbb-e3ba-4b32-b0ff-b83dbb99f0ec">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="020c6395-b5a4-4e63-8357-1e4670403ccd" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="aa4e1d07-cb52-4d04-b07e-cf00067ed023" xml:space="preserve">
+          <source>Matroska/WebM</source>
+          <target state="new">Matroska/WebM</target>
+        </trans-unit>
+        <trans-unit id="0b715369-56bd-4113-b4e0-ba810cc3c0c1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="881ff3e4-a38b-41bd-8c1e-661ecbcc9798" xml:space="preserve">
+          <source>Some uncompressed formats are supported.</source>
+          <target state="new">Some uncompressed formats are supported.</target>
+        </trans-unit>
+        <trans-unit id="1d57cfc1-d161-4b96-b3eb-602953cf6871" xml:space="preserve">
+          <source>For more information, see <bpt id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;linkText&gt;</bpt>Supported Uncompressed Video Formats<ept id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;/linkText&gt;</ept><bpt id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;title&gt;</bpt><ept id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;/title&gt;</ept></source>
+          <target state="new">For more information, see <bpt id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;linkText&gt;</bpt>Supported Uncompressed Video Formats<ept id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;/linkText&gt;</ept><bpt id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;title&gt;</bpt><ept id="ad30f9fc-928d-4f19-99d2-e519b18a87cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b0b98420-7c9d-4e43-a3bb-8183e3a8b7ba" xml:space="preserve">
+          <source>File Format (file extensions)</source>
+          <target state="new">File Format (file extensions)</target>
+        </trans-unit>
+        <trans-unit id="79452852-98c6-46d7-ab31-8816a57346d1" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="11ac9c7f-e377-4bf2-8f60-74b5023e32ab" xml:space="preserve">
+          <source>AC-3 (Dolby Digital) audio(.ac3)</source>
+          <target state="new">AC-3 (Dolby Digital) audio(.ac3)</target>
+        </trans-unit>
+        <trans-unit id="15eebf2b-8d24-4365-81cd-78acb5db5c64" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="206b027f-6cff-4cbd-a7e7-897c85b56027" xml:space="preserve">
+          <source>Audio Interchange File Format (AIFF)(.aiff)</source>
+          <target state="new">Audio Interchange File Format (AIFF)(.aiff)</target>
+        </trans-unit>
+        <trans-unit id="2cb567d7-80f4-434c-a7a2-0c102a132304" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="64912e16-027f-4eb8-a92c-79c5333e57f3" xml:space="preserve">
+          <source>Broadcast Wave Format(.bwf)</source>
+          <target state="new">Broadcast Wave Format(.bwf)</target>
+        </trans-unit>
+        <trans-unit id="8836495e-03c2-48d9-b546-cecd780596d3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="89d2835e-3960-4330-b54d-af496db5b5c9" xml:space="preserve">
+          <source>MP3 (MPEG-1 Audio Layer 3)(.mp3)</source>
+          <target state="new">MP3 (MPEG-1 Audio Layer 3)(.mp3)</target>
+        </trans-unit>
+        <trans-unit id="56fe95ff-9410-4a9f-b24d-94b39c022ade" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="08b4e4c4-279d-4fec-97b3-9c17711949c0" xml:space="preserve">
+          <source>MP4 audio(.m4A)</source>
+          <target state="new">MP4 audio(.m4A)</target>
+        </trans-unit>
+        <trans-unit id="a56cdf87-7b48-40de-b7c6-7aa459b5e9d1" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a60be338-baba-44f8-a97d-916b92749d92" xml:space="preserve">
+          <source>MPEG-4 audio book(.m4b)</source>
+          <target state="new">MPEG-4 audio book(.m4b)</target>
+        </trans-unit>
+        <trans-unit id="52fd80c4-26db-4627-84b8-24f16a209b7e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="a668cbb8-b9f0-4db7-9377-ace341b6bc94" xml:space="preserve">
+          <source>WAVE file(.wav)</source>
+          <target state="new">WAVE file(.wav)</target>
+        </trans-unit>
+        <trans-unit id="9fb29335-a52e-47fb-acc1-9e84f4aa3f47" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="1af0eb35-875b-4af6-9d65-55ddb1eca4d2" xml:space="preserve">
+          <source>Windows Media Audio(.wma)</source>
+          <target state="new">Windows Media Audio(.wma)</target>
+        </trans-unit>
+        <trans-unit id="d696d64c-9ccb-4cae-81de-005a38f309fc" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="672d88c0-755a-43b6-b8bc-9bf49817ebad" xml:space="preserve">
+          <source>Input Video Codecs</source>
+          <target state="new">Input Video Codecs</target>
+        </trans-unit>
+        <trans-unit id="bc7481a4-142c-4c7f-bbc3-ef13cdfad1d1" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="20be4e7b-f296-45e6-b949-ed9f2710508c" xml:space="preserve">
+          <source>H.264 (Baseline, Main, and High Profiles)</source>
+          <target state="new">H.264 (Baseline, Main, and High Profiles)</target>
+        </trans-unit>
+        <trans-unit id="9c695d4a-a62f-4414-916c-53683c974a8d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2d6b489a-e9ec-4b66-aa23-dc564e431b07" xml:space="preserve">
+          <source>AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</source>
+          <target state="new">AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra</target>
+        </trans-unit>
+        <trans-unit id="b4b69193-4dfb-4335-93c9-f75b5e25ca03" xml:space="preserve">
+          <source>Only 8bit 4:2:0</source>
+          <target state="new">Only 8bit 4:2:0</target>
+        </trans-unit>
+        <trans-unit id="a623650c-b229-4dad-98a9-15c5eb0dec64" xml:space="preserve">
+          <source>Avid DNxHD (in MXF)</source>
+          <target state="new">Avid DNxHD (in MXF)</target>
+        </trans-unit>
+        <trans-unit id="d2e1b713-8c90-4113-b673-7de4a6fbd8fe" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a754c504-2feb-4fb4-bd74-27131ff1e87d" xml:space="preserve">
+          <source>DVCPro/DVCProHD (in MXF)</source>
+          <target state="new">DVCPro/DVCProHD (in MXF)</target>
+        </trans-unit>
+        <trans-unit id="6c183935-8ce8-4058-9924-ce16fc095f89" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="a6dae440-7971-420e-9bd0-b60ba8787279" xml:space="preserve">
+          <source>JPEG2000</source>
+          <target state="new">JPEG2000</target>
+        </trans-unit>
+        <trans-unit id="e605cb81-e9ba-4058-a80f-07d74caca71a" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="3bff9754-d24a-419f-b3b5-2a2fb5a2c71a" xml:space="preserve">
+          <source>MPEG-2 (Simple and Main Profile and 4:2:2 Profile)</source>
+          <target state="new">MPEG-2 (Simple and Main Profile and 4:2:2 Profile)</target>
+        </trans-unit>
+        <trans-unit id="8b188eb2-2d72-4ef0-b76e-c59aa3c1f76d" xml:space="preserve">
+          <source>Up to 4:2:2 Profile</source>
+          <target state="new">Up to 4:2:2 Profile</target>
+        </trans-unit>
+        <trans-unit id="e588b063-5622-4ff9-b4a9-a221100bc463" xml:space="preserve">
+          <source>MPEG-1 (Including MPEG-PS)</source>
+          <target state="new">MPEG-1 (Including MPEG-PS)</target>
+        </trans-unit>
+        <trans-unit id="7bc7318b-6ace-4267-b44a-327a6467827e" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="7b4e429c-c510-4dac-ac64-c59abe1bcf3a" xml:space="preserve">
+          <source>Windows Media Video/VC-1</source>
+          <target state="new">Windows Media Video/VC-1</target>
+        </trans-unit>
+        <trans-unit id="d31383d4-0c12-4680-a928-70ea4737f37d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="331f6f7b-0b99-48ac-b539-9d2a95f0eb0a" xml:space="preserve">
+          <source>Canopus HQ/HQX</source>
+          <target state="new">Canopus HQ/HQX</target>
+        </trans-unit>
+        <trans-unit id="b788a1a6-28a8-4b7f-8f3d-ca3be14e123d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="ae2eb197-d9ed-4cea-9674-fa8787a3839d" xml:space="preserve">
+          <source>MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)</source>
+          <target state="new">MPEG-4 v2 (Simple Visual Profile and Advanced Simple Profile)</target>
+        </trans-unit>
+        <trans-unit id="2c00b645-311e-4702-9d1b-37a8a89e69e7" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2f8a1299-f142-46a2-ae65-ad6de579f73a" xml:space="preserve">
+          <source><bpt id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;linkText&gt;</bpt>Theora<ept id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;/linkText&gt;</ept><bpt id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;title&gt;</bpt><ept id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;linkText&gt;</bpt>Theora<ept id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;/linkText&gt;</ept><bpt id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;title&gt;</bpt><ept id="93a559f4-cde0-48aa-9160-907eba5ff6f6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e5920f5-9dd9-43c4-bda2-f0828ca3d109" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="6bf37c6e-b1ef-43c0-a3ae-78d606569800" xml:space="preserve">
+          <source>VC-1 (Simple, Main, and Advanced Profiles)</source>
+          <target state="new">VC-1 (Simple, Main, and Advanced Profiles)</target>
+        </trans-unit>
+        <trans-unit id="9c3cf3da-551c-46d6-9f80-9e31d767f773" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="1f722ba8-ee13-4bd4-b665-98cce6cd9f5d" xml:space="preserve">
+          <source>Windows Media Video (Simple, Main, and Advanced Profiles)</source>
+          <target state="new">Windows Media Video (Simple, Main, and Advanced Profiles)</target>
+        </trans-unit>
+        <trans-unit id="938a89bf-2701-4b14-b936-6cdc3dfaf688" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9ceb641b-1f74-4861-a282-2af965aa5887" xml:space="preserve">
+          <source>DV (DVC, DVHD, DVSD, DVSL)</source>
+          <target state="new">DV (DVC, DVHD, DVSD, DVSL)</target>
+        </trans-unit>
+        <trans-unit id="2173c794-6345-495a-8c09-0557df70f6fa" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f1a7ff7a-deb8-43f7-8bbc-151cf576fe5a" xml:space="preserve">
+          <source>Grass Valley HQ/HQX</source>
+          <target state="new">Grass Valley HQ/HQX</target>
+        </trans-unit>
+        <trans-unit id="71c2a240-353d-4bf0-8b28-ceb879643445" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="e790c612-ae12-4e65-a71c-b5c7b87f18fa" xml:space="preserve">
+          <source>Input Audio Codecs</source>
+          <target state="new">Input Audio Codecs</target>
+        </trans-unit>
+        <trans-unit id="22bf32dd-5af7-48cc-aa2a-705b6ee33a1d" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="036cce5a-1082-4cb6-8e07-4571ed22138e" xml:space="preserve">
+          <source>AES (SMPTE 331M and 302M, AES3-2003)</source>
+          <target state="new">AES (SMPTE 331M and 302M, AES3-2003)</target>
+        </trans-unit>
+        <trans-unit id="f86cd966-e8be-48ca-aed1-e74ffc38aea1" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="578f228e-680a-4fbe-bbef-50be49d7d295" xml:space="preserve">
+          <source>Dolby® E</source>
+          <target state="new">Dolby® E</target>
+        </trans-unit>
+        <trans-unit id="e2a62730-16d5-4fad-adfc-09e95e56c398" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="440599ac-286b-4073-8621-5737feb5c9d7" xml:space="preserve">
+          <source>Dolby® Digital (AC3)</source>
+          <target state="new">Dolby® Digital (AC3)</target>
+        </trans-unit>
+        <trans-unit id="26336830-54d5-4ec6-bb3d-45a3864112f3" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="8344ef0b-475f-43d0-afe3-ae806fa50f7b" xml:space="preserve">
+          <source>Dolby® Digital Plus (E-AC3)</source>
+          <target state="new">Dolby® Digital Plus (E-AC3)</target>
+        </trans-unit>
+        <trans-unit id="08ba1699-f364-45df-a59c-8d98898e966f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="de336d9a-ab17-42c2-a52f-ffd1b6940cf1" xml:space="preserve">
+          <source>AAC (AAC-LC, HE-AAC v1 with AAC-LC core, and HE-AAC v2 with AAC-LC core; up to 5.1)</source>
+          <target state="new">AAC (AAC-LC, HE-AAC v1 with AAC-LC core, and HE-AAC v2 with AAC-LC core; up to 5.1)</target>
+        </trans-unit>
+        <trans-unit id="9777abac-ba61-450c-9e4c-a43d837f1362" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="2b7d05b1-9d16-4f74-a3ae-3b0546bd15cf" xml:space="preserve">
+          <source>MPEG Layer 2</source>
+          <target state="new">MPEG Layer 2</target>
+        </trans-unit>
+        <trans-unit id="4148aa29-9700-44cc-8a7e-dba6a95c8d5c" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="090c6b8d-1c1f-4671-82c3-8899d0788921" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d700e9c3-30aa-4d5a-9f4d-8eab3498da23" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="f54dbc79-b739-4e9b-969f-7a6fb9f89972" xml:space="preserve">
+          <source>MP3 (MPEG-1 Audio Layer 3)</source>
+          <target state="new">MP3 (MPEG-1 Audio Layer 3)</target>
+        </trans-unit>
+        <trans-unit id="1386361b-cc7f-49fa-97b1-0f4226857b3b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="67e6c8a7-3d35-4c2c-94c8-324b2439a09e" xml:space="preserve">
+          <source>Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)</source>
+          <target state="new">Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional, and Windows Media Audio Lossless)</target>
+        </trans-unit>
+        <trans-unit id="d58d9e19-b06a-4592-8054-52ebafbf2a88" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c900b1b0-6f20-412b-b674-d6cd7453e8fc" xml:space="preserve">
+          <source>WAV/PCM</source>
+          <target state="new">WAV/PCM</target>
+        </trans-unit>
+        <trans-unit id="d873e9a4-e2a1-4eea-a5a2-e4ac592ee5b0" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="d5a6a068-db11-4c58-95fa-4a5db4d88e31" xml:space="preserve">
+          <source><bpt id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;linkText&gt;</bpt>FLAC<ept id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;/linkText&gt;</ept><bpt id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;title&gt;</bpt><ept id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;linkText&gt;</bpt>FLAC<ept id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;/linkText&gt;</ept><bpt id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;title&gt;</bpt><ept id="329e3d2d-f626-4be5-a6bd-caf29519c391">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b34a8a2-57e8-44ee-8538-f465e4593acd" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="83995378-acce-4195-9273-5224d5f8970a" xml:space="preserve">
+          <source>[Opus](https://en.wikipedia.org/wiki/Opus<bpt id="1e2fd121-df5c-4520-b89c-a027ba92296a">&lt;em&gt;</bpt>(audio<ept id="1e2fd121-df5c-4520-b89c-a027ba92296a">&lt;/em&gt;</ept>format)</source>
+          <target state="new">[Opus](https://en.wikipedia.org/wiki/Opus<bpt id="1e2fd121-df5c-4520-b89c-a027ba92296a">&lt;em&gt;</bpt>(audio<ept id="1e2fd121-df5c-4520-b89c-a027ba92296a">&lt;/em&gt;</ept>format)</target>
+        </trans-unit>
+        <trans-unit id="a3f28260-e814-44a7-8a55-ff542196df6f" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="1752ad93-a00f-4976-b3e8-c7720ee97983" xml:space="preserve">
+          <source><bpt id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;linkText&gt;</bpt>Vorbis<ept id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;/linkText&gt;</ept><bpt id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;title&gt;</bpt><ept id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;linkText&gt;</bpt>Vorbis<ept id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;/linkText&gt;</ept><bpt id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;title&gt;</bpt><ept id="64d7d13b-7299-43a8-b5dd-5844d2eea25e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de8f2357-cb56-4027-882a-fdd4e06a648b" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+        </trans-unit>
+        <trans-unit id="dea43fb5-c6e3-4f20-be43-b9e9719321a1" xml:space="preserve">
+          <source>File Format (file extensions)</source>
+          <target state="new">File Format (file extensions)</target>
+        </trans-unit>
+        <trans-unit id="202053db-0f8a-41f9-b36f-a99a7a47d02f" xml:space="preserve">
+          <source>Supported</source>
+          <target state="new">Supported</target>
+        </trans-unit>
+        <trans-unit id="e4848742-0ff1-428b-9559-34ecc00a383f" xml:space="preserve">
+          <source>Bitmap (.bmp)</source>
+          <target state="new">Bitmap (.bmp)</target>
+        </trans-unit>
+        <trans-unit id="daab0d80-77ce-49d1-be77-6f2ccb55fd4b" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="c91df9b4-d881-4006-95d0-a0c2b9da5ba0" xml:space="preserve">
+          <source>GIF, Animated GIF (.gif)</source>
+          <target state="new">GIF, Animated GIF (.gif)</target>
+        </trans-unit>
+        <trans-unit id="5f6fa062-c927-4e2a-8102-d2da21852d85" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="27804704-7057-4976-89de-8ea0ecfd48bf" xml:space="preserve">
+          <source>JPEG (.jpeg, .jpg)</source>
+          <target state="new">JPEG (.jpeg, .jpg)</target>
+        </trans-unit>
+        <trans-unit id="80322964-aef6-4eb7-a5ef-5e41f2608c41" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="42a7a769-30c8-4675-9a0d-ec935e471eac" xml:space="preserve">
+          <source>PNG (.png)</source>
+          <target state="new">PNG (.png)</target>
+        </trans-unit>
+        <trans-unit id="d75a4b32-248e-4ef2-9797-5d49c8418cac" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="34393b99-d6d9-47e9-b658-e8fb5891de2a" xml:space="preserve">
+          <source>TIFF (.tif)</source>
+          <target state="new">TIFF (.tif)</target>
+        </trans-unit>
+        <trans-unit id="facf9b2e-feaf-4d75-9576-1489bb56db86" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="9f416e01-c511-4cbe-93f8-22b62710e443" xml:space="preserve">
+          <source>WPF Canvas XAML (.xaml)</source>
+          <target state="new">WPF Canvas XAML (.xaml)</target>
+        </trans-unit>
+        <trans-unit id="033ccb0e-ed3f-4d02-a48c-6ed7c4a3020d" xml:space="preserve">
+          <source>Yes</source>
+          <target state="new">Yes</target>
+        </trans-unit>
+        <trans-unit id="b20cfc2d-3bc8-4174-a9f9-636b7b02d94c" xml:space="preserve">
+          <source>The following table lists the codecs and file formats that are supported for export.</source>
+          <target state="new">The following table lists the codecs and file formats that are supported for export.</target>
+        </trans-unit>
+        <trans-unit id="65604b30-3199-4101-a2c6-9d228f3cc4dd" xml:space="preserve">
+          <source>File Format</source>
+          <target state="new">File Format</target>
+        </trans-unit>
+        <trans-unit id="3956dbd9-8a2c-4dcf-b03a-a1c6d5830a39" xml:space="preserve">
+          <source>Video Codec</source>
+          <target state="new">Video Codec</target>
+        </trans-unit>
+        <trans-unit id="370ff487-18c6-4ce2-b10f-b6ce2741453e" xml:space="preserve">
+          <source>Audio Codec</source>
+          <target state="new">Audio Codec</target>
+        </trans-unit>
+        <trans-unit id="32b0c272-e8ed-45f8-895e-9dabbfcbc34b" xml:space="preserve">
+          <source>Windows Media (* .wmv; * .wma)</source>
+          <target state="new">Windows Media (* .wmv; * .wma)</target>
+        </trans-unit>
+        <trans-unit id="f9c7da2d-d0f6-488c-92e2-d30726bc7801" xml:space="preserve">
+          <source>VC-1 (Advanced, Main, and Simple Profiles)</source>
+          <target state="new">VC-1 (Advanced, Main, and Simple Profiles)</target>
+        </trans-unit>
+        <trans-unit id="d14ea65e-d85d-4268-8ff0-248effea43e1" xml:space="preserve">
+          <source>Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless</source>
+          <target state="new">Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless</target>
+        </trans-unit>
+        <trans-unit id="978fd260-09f7-479e-8c49-ccdf0f36806a" xml:space="preserve">
+          <source>MP4 (* .mp4)</source>
+          <target state="new">MP4 (* .mp4)</target>
+        </trans-unit>
+        <trans-unit id="46a5bcba-34e9-49e5-bb7f-846484352560" xml:space="preserve">
+          <source>H.264 (High, Main, and Baseline Profiles)</source>
+          <target state="new">H.264 (High, Main, and Baseline Profiles)</target>
+        </trans-unit>
+        <trans-unit id="92b920b8-b107-4004-a669-a98ab62339d2" xml:space="preserve">
+          <source>AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus</source>
+          <target state="new">AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus</target>
+        </trans-unit>
+        <trans-unit id="f47e23db-b3de-4920-85ca-732932b1a351" xml:space="preserve">
+          <source>Smooth Streaming File Format (PIFF 1.1) (* .ismv; * .isma)</source>
+          <target state="new">Smooth Streaming File Format (PIFF 1.1) (* .ismv; * .isma)</target>
+        </trans-unit>
+        <trans-unit id="6d906425-0b4c-4f98-bd4e-30c61ff8a340" xml:space="preserve">
+          <source>VC-1 (Advanced Profile)&lt;p&gt;H.264 (High, Main, and Baseline Profiles)</source>
+          <target state="new">VC-1 (Advanced Profile)&lt;p&gt;H.264 (High, Main, and Baseline Profiles)</target>
+        </trans-unit>
+        <trans-unit id="38ed0cd4-f8f5-4bae-848c-35a113cae5f9" xml:space="preserve">
+          <source>Windows Media Audio Standard, Windows Media Audio Professional&lt;p&gt;&lt;p&gt;AAC-LC, HE-AAC v1, HE-AAC v2</source>
+          <target state="new">Windows Media Audio Standard, Windows Media Audio Professional&lt;p&gt;&lt;p&gt;AAC-LC, HE-AAC v1, HE-AAC v2</target>
+        </trans-unit>
+        <trans-unit id="5994372d-6869-4233-804f-793dfcf60dbc" xml:space="preserve">
+          <source>For additional supported codecs and filters in Media Services, see <bpt id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;linkText&gt;</bpt>Windows DirectShow Filters<ept id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;/linkText&gt;</ept><bpt id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;title&gt;</bpt><ept id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;/title&gt;</ept>.</source>
+          <target state="new">For additional supported codecs and filters in Media Services, see <bpt id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;linkText&gt;</bpt>Windows DirectShow Filters<ept id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;/linkText&gt;</ept><bpt id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;title&gt;</bpt><ept id="5823d95c-0a71-4e90-94a7-26faa373cfc9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5fa57c18-2b8d-439d-8269-f987fd3a0513" xml:space="preserve">
+          <source>Azure Media Services provides support for importing uncompressed video data.</source>
+          <target state="new">Azure Media Services provides support for importing uncompressed video data.</target>
+        </trans-unit>
+        <trans-unit id="b3a176c0-cce1-4576-816c-16a8b34616ff" xml:space="preserve">
+          <source>This is a partial list of the supported uncompressed formats.</source>
+          <target state="new">This is a partial list of the supported uncompressed formats.</target>
+        </trans-unit>
+        <trans-unit id="ffe8cb29-be0e-4597-8b14-05a37713020f" xml:space="preserve">
+          <source>Uncompressed Video Format</source>
+          <target state="new">Uncompressed Video Format</target>
+        </trans-unit>
+        <trans-unit id="86232a3d-1777-4bb8-8b87-7e73bcd01573" xml:space="preserve">
+          <source>Description</source>
+          <target state="new">Description</target>
+        </trans-unit>
+        <trans-unit id="6f00e9e2-ccd2-4c28-b4c5-8078d60c6932" xml:space="preserve">
+          <source>Standard YVU9 format uncompressed data</source>
+          <target state="new">Standard YVU9 format uncompressed data</target>
+        </trans-unit>
+        <trans-unit id="58a07f12-045c-47b5-a84d-bc63061239a5" xml:space="preserve">
+          <source>A planar YUV format.</source>
+          <target state="new">A planar YUV format.</target>
+        </trans-unit>
+        <trans-unit id="3999128c-7c0d-4753-8a1d-daa63a889b29" xml:space="preserve">
+          <source>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; a Y sample on every vertical line, a U and V sample at every fourth vertical line.9 bits per pixel.</source>
+          <target state="new">A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; a Y sample on every vertical line, a U and V sample at every fourth vertical line.9 bits per pixel.</target>
+        </trans-unit>
+        <trans-unit id="d02559c0-6216-4270-bda2-0026b6701cc8" xml:space="preserve">
+          <source>YUV 411 format data</source>
+          <target state="new">YUV 411 format data</target>
+        </trans-unit>
+        <trans-unit id="0914187f-fc55-45d3-970a-42e7babb777d" xml:space="preserve">
+          <source>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.</source>
+          <target state="new">A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.</target>
+        </trans-unit>
+        <trans-unit id="75c37dd0-70ac-4f70-84a0-4bdc439e8eeb" xml:space="preserve">
+          <source>Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="44f106cb-53cf-4a5c-ad24-806719c64d7c" xml:space="preserve">
+          <source>Each 12-byte block is 8 image pixels.</source>
+          <target state="new">Each 12-byte block is 8 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="7b08f419-9de0-4341-9c22-f740d17a6c5e" xml:space="preserve">
+          <source>Y41P format data</source>
+          <target state="new">Y41P format data</target>
+        </trans-unit>
+        <trans-unit id="04589bf3-bc1a-4194-942d-21318b68a575" xml:space="preserve">
+          <source>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="f49706e9-293d-4dc2-8014-0674a7603272" xml:space="preserve">
+          <source>Each 12-byte block is 8 image pixels.</source>
+          <target state="new">Each 12-byte block is 8 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="edcfef8d-8cc6-45dc-b0ef-3b2a39d5b1dc" xml:space="preserve">
+          <source>YUY2 format data</source>
+          <target state="new">YUY2 format data</target>
+        </trans-unit>
+        <trans-unit id="7a8f8f9c-d748-4404-9270-dcddc8ff97e0" xml:space="preserve">
+          <source>Same as UYVY but with different pixel ordering.</source>
+          <target state="new">Same as UYVY but with different pixel ordering.</target>
+        </trans-unit>
+        <trans-unit id="2ce4726c-bb97-4d4a-80e0-dbf6d9e8cf2d" xml:space="preserve">
+          <source>Byte ordering (lowest first) is Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">Byte ordering (lowest first) is Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="ad650442-3f0c-4313-9c5a-a87346fa9609" xml:space="preserve">
+          <source>Each 4-byte block is 2 image pixels.</source>
+          <target state="new">Each 4-byte block is 2 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="b02c438a-666b-44dd-9274-7379ea8b8009" xml:space="preserve">
+          <source>YVYU format data</source>
+          <target state="new">YVYU format data</target>
+        </trans-unit>
+        <trans-unit id="78a94f0f-fe84-4972-b02e-ed132043844b" xml:space="preserve">
+          <source>A packed YUV format.</source>
+          <target state="new">A packed YUV format.</target>
+        </trans-unit>
+        <trans-unit id="26cb1b28-79cb-41c7-8240-76951cf94b82" xml:space="preserve">
+          <source>Same as UYVY but with different pixel ordering.</source>
+          <target state="new">Same as UYVY but with different pixel ordering.</target>
+        </trans-unit>
+        <trans-unit id="0fe9b2da-3a0e-4de2-ab9e-5f19e01ae4b6" xml:space="preserve">
+          <source>Byte ordering (lowest first) is Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">Byte ordering (lowest first) is Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="90bf05ea-0d7f-4209-a85b-1f9de6d4a9e8" xml:space="preserve">
+          <source>Each 4-byte block is 2 image pixels.</source>
+          <target state="new">Each 4-byte block is 2 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="db021aa0-a391-45c0-9bc5-b09d6dfa937e" xml:space="preserve">
+          <source>UYVY format data</source>
+          <target state="new">UYVY format data</target>
+        </trans-unit>
+        <trans-unit id="32f7f751-9890-4675-84ba-85ec07e1e98d" xml:space="preserve">
+          <source>A packed YUV format.</source>
+          <target state="new">A packed YUV format.</target>
+        </trans-unit>
+        <trans-unit id="1c36dd2d-29fb-4b4a-96d2-14297098c140" xml:space="preserve">
+          <source>A Y sample at every pixel, a U and V sample at every second pixel horizontally on each line; every vertical line sampled.</source>
+          <target state="new">A Y sample at every pixel, a U and V sample at every second pixel horizontally on each line; every vertical line sampled.</target>
+        </trans-unit>
+        <trans-unit id="2ded1992-89b4-4ad9-8817-4172ce0c1e06" xml:space="preserve">
+          <source>Most popular of the various YUV 4:2:2 formats.</source>
+          <target state="new">Most popular of the various YUV 4:2:2 formats.</target>
+        </trans-unit>
+        <trans-unit id="e756df73-846d-4275-add7-06d42df86ed3" xml:space="preserve">
+          <source>Byte ordering (lowest first) is U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">Byte ordering (lowest first) is U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="19ef1241-10c6-4fe3-b1cc-99d8cc6c2f13" xml:space="preserve">
+          <source>Each 4-byte block is 2 image pixels.</source>
+          <target state="new">Each 4-byte block is 2 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="886dc9db-8099-4692-9e8d-ad575848e985" xml:space="preserve">
+          <source>YUV 211 format data</source>
+          <target state="new">YUV 211 format data</target>
+        </trans-unit>
+        <trans-unit id="aeaa6dba-9808-4c00-aa19-2d7d911db4ab" xml:space="preserve">
+          <source>A packed YUV format.</source>
+          <target state="new">A packed YUV format.</target>
+        </trans-unit>
+        <trans-unit id="2c138303-9953-4822-be19-c101a49feb49" xml:space="preserve">
+          <source>A Y sample at every second pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</source>
+          <target state="new">A Y sample at every second pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.Byte ordering (lowest first) is Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, where the suffix 0 is the leftmost pixel and increasing numbers are pixels increasing left to right.</target>
+        </trans-unit>
+        <trans-unit id="373ccb31-ea02-4a4d-8bdd-3eabb4a3dac7" xml:space="preserve">
+          <source>Each 4-byte block is 4 image pixels.</source>
+          <target state="new">Each 4-byte block is 4 image pixels.</target>
+        </trans-unit>
+        <trans-unit id="f7b2acd4-d26f-455f-afd0-21f768be01ca" xml:space="preserve">
+          <source>Cirrus Logic Jr YUV 411 format</source>
+          <target state="new">Cirrus Logic Jr YUV 411 format</target>
+        </trans-unit>
+        <trans-unit id="ae96f0f6-09ec-4a69-a520-d36544dca6bb" xml:space="preserve">
+          <source>Cirrus Logic Jr YUV 411 format with less than 8 bits per Y, U, and V sample.</source>
+          <target state="new">Cirrus Logic Jr YUV 411 format with less than 8 bits per Y, U, and V sample.</target>
+        </trans-unit>
+        <trans-unit id="b58a98b3-4cae-4f60-8758-6d6939aaa218" xml:space="preserve">
+          <source>A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.</source>
+          <target state="new">A Y sample at every pixel, a U and V sample at every fourth pixel horizontally on each line; every vertical line sampled.</target>
+        </trans-unit>
+        <trans-unit id="e5bf71de-920c-4c5d-9281-afbef009005c" xml:space="preserve">
+          <source>Indeo-produced YVU9 format</source>
+          <target state="new">Indeo-produced YVU9 format</target>
+        </trans-unit>
+        <trans-unit id="18d3cb78-8fcf-493c-9ebc-154e1bdf051b" xml:space="preserve">
+          <source>Indeo-produced YVU9 format with additional information about differences from the last frame.</source>
+          <target state="new">Indeo-produced YVU9 format with additional information about differences from the last frame.</target>
+        </trans-unit>
+        <trans-unit id="65e5e70d-6273-4c3f-b01d-81ec51d7b013" xml:space="preserve">
+          <source>9.5 bits per pixel but reported as 9.</source>
+          <target state="new">9.5 bits per pixel but reported as 9.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

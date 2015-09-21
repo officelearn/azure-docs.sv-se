@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="3a269e06-3c78-4127-b020-c8488d7de933" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="3a269e06-3c78-4127-b020-c8488d7de933" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b7e877b8-78ef-4890-95b2-9d0e6ef7ccad">
+        <trans-unit id="9d9d5035-7057-4c81-9acb-1ef70137b316" xml:space="preserve">
+          <source>Connect to SQL Database by using Ruby with TinyTDS on Windows</source>
+          <target state="new">Connect to SQL Database by using Ruby with TinyTDS on Windows</target>
+        </trans-unit>
+        <trans-unit id="a787b6e0-3381-46cf-9b5d-8ae022bb7247" xml:space="preserve">
+          <source>Give a Ruby code sample you can run on Windows to connect to Azure SQL Database.</source>
+          <target state="new">Give a Ruby code sample you can run on Windows to connect to Azure SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="42cd9970-75bf-4a59-8bc0-79ca8c98ebe2" xml:space="preserve">
+          <source><bpt id="70ad208f-1abf-463b-a2dd-44dfed777655">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="70ad208f-1abf-463b-a2dd-44dfed777655">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="70ad208f-1abf-463b-a2dd-44dfed777655">&lt;token href="../../includes/sql-database-develop-includes-selector-language-platform-depth.md"&gt;</bpt><ept id="70ad208f-1abf-463b-a2dd-44dfed777655">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec338350-1f07-42fd-8d7c-86cb325260eb" xml:space="preserve">
+          <source>This topic presents a Ruby code sample that runs on a Windows computer running Windows 8.1 to connect to an Azure SQL Database database.</source>
+          <target state="new">This topic presents a Ruby code sample that runs on a Windows computer running Windows 8.1 to connect to an Azure SQL Database database.</target>
+        </trans-unit>
+        <trans-unit id="c360f4e4-276a-4964-b7c1-93106dd8d5a2" xml:space="preserve">
+          <source>Open your terminal and install the following:</source>
+          <target state="new">Open your terminal and install the following:</target>
+        </trans-unit>
+        <trans-unit id="ce6f5975-499c-4481-8c4f-91019bec8c07" xml:space="preserve">
+          <source><bpt id="0fc1606a-054c-4ea4-a645-996f7f271348">&lt;strong&gt;</bpt>1) Ruby:<ept id="0fc1606a-054c-4ea4-a645-996f7f271348">&lt;/strong&gt;</ept> If your machine does not have Ruby please install it.</source>
+          <target state="new"><bpt id="0fc1606a-054c-4ea4-a645-996f7f271348">&lt;strong&gt;</bpt>1) Ruby:<ept id="0fc1606a-054c-4ea4-a645-996f7f271348">&lt;/strong&gt;</ept> If your machine does not have Ruby please install it.</target>
+        </trans-unit>
+        <trans-unit id="2a756707-5d2e-4b26-8eb2-4abcd2b1ce42" xml:space="preserve">
+          <source>For new ruby users, we recommend you use Ruby 2.1.X installers.</source>
+          <target state="new">For new ruby users, we recommend you use Ruby 2.1.X installers.</target>
+        </trans-unit>
+        <trans-unit id="3ad25471-9317-4d61-a05d-5523ce9cad3d" xml:space="preserve">
+          <source>These provide a stable language and a extensive list of packages (gems) that are compatible and updated.</source>
+          <target state="new">These provide a stable language and a extensive list of packages (gems) that are compatible and updated.</target>
+        </trans-unit>
+        <trans-unit id="40486bcb-c503-42e1-9cd5-d1bc9b5e7d30" xml:space="preserve">
+          <source><bpt id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;linkText&gt;</bpt>Go the Ruby download page<ept id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;/linkText&gt;</ept><bpt id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;title&gt;</bpt><ept id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;/title&gt;</ept> and download the appropriate 2.1.x installer.</source>
+          <target state="new"><bpt id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;linkText&gt;</bpt>Go the Ruby download page<ept id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;/linkText&gt;</ept><bpt id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;title&gt;</bpt><ept id="ba45fd62-f463-4dd2-8b48-2cc61598f4b9">&lt;/title&gt;</ept> and download the appropriate 2.1.x installer.</target>
+        </trans-unit>
+        <trans-unit id="d413ac31-b5a6-4fe1-85ac-ee7a20c1a767" xml:space="preserve">
+          <source>For example if you are on a 64 bit machine, download the <bpt id="4099f539-04ed-4ec5-b9ee-af166880c367">&lt;strong&gt;</bpt>Ruby 2.1.6 (x64)<ept id="4099f539-04ed-4ec5-b9ee-af166880c367">&lt;/strong&gt;</ept> installer.</source>
+          <target state="new">For example if you are on a 64 bit machine, download the <bpt id="4099f539-04ed-4ec5-b9ee-af166880c367">&lt;strong&gt;</bpt>Ruby 2.1.6 (x64)<ept id="4099f539-04ed-4ec5-b9ee-af166880c367">&lt;/strong&gt;</ept> installer.</target>
+        </trans-unit>
+        <trans-unit id="a109abd1-b419-4277-9ba9-a2d04955596d" xml:space="preserve">
+          <source>&lt;br/&gt;&lt;br/&gt;Once the installer is downloaded, do the following:</source>
+          <target state="new">&lt;br/&gt;&lt;br/&gt;Once the installer is downloaded, do the following:</target>
+        </trans-unit>
+        <trans-unit id="b876a074-c91a-4e90-a5d7-3be6327f0fb3" xml:space="preserve">
+          <source>Double-click the file to start the installer.</source>
+          <target state="new">Double-click the file to start the installer.</target>
+        </trans-unit>
+        <trans-unit id="2fd6e671-99a0-4618-880e-012cd36505bf" xml:space="preserve">
+          <source>Select your language, and agree to the terms.</source>
+          <target state="new">Select your language, and agree to the terms.</target>
+        </trans-unit>
+        <trans-unit id="1992c888-4182-4170-a8c3-4a2849ab83f0" xml:space="preserve">
+          <source>On the install settings screen, select the check boxes next to both <bpt id="c9979044-4b84-4c83-b986-dad1431e49b8">&lt;em&gt;</bpt>Add Ruby executables to your PATH<ept id="c9979044-4b84-4c83-b986-dad1431e49b8">&lt;/em&gt;</ept> and <bpt id="1edab0fd-3b3f-4e24-91d3-2afd34297827">&lt;em&gt;</bpt>Associate .rb and .rbw files with this Ruby installation<ept id="1edab0fd-3b3f-4e24-91d3-2afd34297827">&lt;/em&gt;</ept>.</source>
+          <target state="new">On the install settings screen, select the check boxes next to both <bpt id="c9979044-4b84-4c83-b986-dad1431e49b8">&lt;em&gt;</bpt>Add Ruby executables to your PATH<ept id="c9979044-4b84-4c83-b986-dad1431e49b8">&lt;/em&gt;</ept> and <bpt id="1edab0fd-3b3f-4e24-91d3-2afd34297827">&lt;em&gt;</bpt>Associate .rb and .rbw files with this Ruby installation<ept id="1edab0fd-3b3f-4e24-91d3-2afd34297827">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a5046248-ff79-4e22-839a-a6a0924a6ad1" xml:space="preserve">
+          <source><bpt id="dd582f4e-5f4c-49a0-875a-d4515282fe5b">&lt;strong&gt;</bpt>2) DevKit:<ept id="dd582f4e-5f4c-49a0-875a-d4515282fe5b">&lt;/strong&gt;</ept> Download DevKit from the <bpt id="b7347867-ae14-4c6d-adf7-602997054682">&lt;linkText&gt;</bpt>RubyInstaller page<ept id="b7347867-ae14-4c6d-adf7-602997054682">&lt;/linkText&gt;</ept><bpt id="b7347867-ae14-4c6d-adf7-602997054682">&lt;title&gt;</bpt><ept id="b7347867-ae14-4c6d-adf7-602997054682">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd582f4e-5f4c-49a0-875a-d4515282fe5b">&lt;strong&gt;</bpt>2) DevKit:<ept id="dd582f4e-5f4c-49a0-875a-d4515282fe5b">&lt;/strong&gt;</ept> Download DevKit from the <bpt id="b7347867-ae14-4c6d-adf7-602997054682">&lt;linkText&gt;</bpt>RubyInstaller page<ept id="b7347867-ae14-4c6d-adf7-602997054682">&lt;/linkText&gt;</ept><bpt id="b7347867-ae14-4c6d-adf7-602997054682">&lt;title&gt;</bpt><ept id="b7347867-ae14-4c6d-adf7-602997054682">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31c47517-e168-4ebf-ba73-b133f7add386" xml:space="preserve">
+          <source>After the download is finished, do the following:</source>
+          <target state="new">After the download is finished, do the following:</target>
+        </trans-unit>
+        <trans-unit id="c7d5994d-7897-40bd-91c3-89375beeea4f" xml:space="preserve">
+          <source>Double-click the file.</source>
+          <target state="new">Double-click the file.</target>
+        </trans-unit>
+        <trans-unit id="006daa8b-d05b-4bb7-aeae-d851b04adc1e" xml:space="preserve">
+          <source>You will be asked where to extract the files.</source>
+          <target state="new">You will be asked where to extract the files.</target>
+        </trans-unit>
+        <trans-unit id="be1c8749-7163-4e94-88d6-fb13887b8734" xml:space="preserve">
+          <source>Click the "..." button, and select "C:\DevKit".</source>
+          <target state="new">Click the "..." button, and select "C:\DevKit".</target>
+        </trans-unit>
+        <trans-unit id="aaf27733-d0a9-41b0-8807-fab9c9d6436b" xml:space="preserve">
+          <source>You will probably need to create this folder first by clicking "Make New Folder".</source>
+          <target state="new">You will probably need to create this folder first by clicking "Make New Folder".</target>
+        </trans-unit>
+        <trans-unit id="c6f280b6-7ce4-4159-8341-f46bf1322815" xml:space="preserve">
+          <source>Click "OK", and then "Extract", to extract the files.</source>
+          <target state="new">Click "OK", and then "Extract", to extract the files.</target>
+        </trans-unit>
+        <trans-unit id="85429627-9455-48ed-af3c-30bb3208dce2" xml:space="preserve">
+          <source>Now open the Command Prompt and enter the following commands:</source>
+          <target state="new">Now open the Command Prompt and enter the following commands:</target>
+        </trans-unit>
+        <trans-unit id="3d5522b9-748a-4903-b2d1-07393bd036ef" xml:space="preserve">
+          <source>chdir C:\DevKit
+ruby dk.rb init
+ruby dk.rb install</source>
+          <target state="new">chdir C:\DevKit
+ruby dk.rb init
+ruby dk.rb install</target>
+        </trans-unit>
+        <trans-unit id="33c19b87-3217-46f6-918c-4af098319ddb" xml:space="preserve">
+          <source>You now have a fully functional Ruby and RubyGems!</source>
+          <target state="new">You now have a fully functional Ruby and RubyGems!</target>
+        </trans-unit>
+        <trans-unit id="a7601751-2f45-4965-83a7-1eb7b54509bf" xml:space="preserve">
+          <source><bpt id="4a1d8105-2ac9-4491-ac40-9cdd628783ef">&lt;strong&gt;</bpt>3) TinyTDS:<ept id="4a1d8105-2ac9-4491-ac40-9cdd628783ef">&lt;/strong&gt;</ept> Navigate to C:\DevKit and run the following command from your terminal.</source>
+          <target state="new"><bpt id="4a1d8105-2ac9-4491-ac40-9cdd628783ef">&lt;strong&gt;</bpt>3) TinyTDS:<ept id="4a1d8105-2ac9-4491-ac40-9cdd628783ef">&lt;/strong&gt;</ept> Navigate to C:\DevKit and run the following command from your terminal.</target>
+        </trans-unit>
+        <trans-unit id="2def1c98-b140-41b3-b299-79be98cf7766" xml:space="preserve">
+          <source>This will install TinyTDS on your machine.</source>
+          <target state="new">This will install TinyTDS on your machine.</target>
+        </trans-unit>
+        <trans-unit id="8ecb2de2-a1c5-4f8e-9a11-836570662f2c" xml:space="preserve">
+          <source>The Ruby sample relies on the <bpt id="cbfa1766-75f4-442c-ac53-3739b20c7e0a">&lt;code&gt;</bpt>AdventureWorks<ept id="cbfa1766-75f4-442c-ac53-3739b20c7e0a">&lt;/code&gt;</ept> sample database.</source>
+          <target state="new">The Ruby sample relies on the <bpt id="cbfa1766-75f4-442c-ac53-3739b20c7e0a">&lt;code&gt;</bpt>AdventureWorks<ept id="cbfa1766-75f4-442c-ac53-3739b20c7e0a">&lt;/code&gt;</ept> sample database.</target>
+        </trans-unit>
+        <trans-unit id="b8fc09b5-814e-4535-a72f-e35916dbda29" xml:space="preserve">
+          <source>If you do not already have <bpt id="372ab140-9142-461f-92b9-f26751c1db1c">&lt;code&gt;</bpt>AdventureWorks<ept id="372ab140-9142-461f-92b9-f26751c1db1c">&lt;/code&gt;</ept>, you can see how to create it by visiting <bpt id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;/linkText&gt;</ept><bpt id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;title&gt;</bpt><ept id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you do not already have <bpt id="372ab140-9142-461f-92b9-f26751c1db1c">&lt;code&gt;</bpt>AdventureWorks<ept id="372ab140-9142-461f-92b9-f26751c1db1c">&lt;/code&gt;</ept>, you can see how to create it by visiting <bpt id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;linkText&gt;</bpt>Create your first Azure SQL Database<ept id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;/linkText&gt;</ept><bpt id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;title&gt;</bpt><ept id="0cee2b2c-423e-4415-9867-485cf66bdde9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1ffad0a-2652-4d83-9b04-02c5f9acdd96" xml:space="preserve">
+          <source>The topic also explains how to retrieve the database connection string.</source>
+          <target state="new">The topic also explains how to retrieve the database connection string.</target>
+        </trans-unit>
+        <trans-unit id="50962c90-ad74-4b9b-87d7-4b624c393235" xml:space="preserve">
+          <source>The <bpt id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;linkText&gt;</bpt>TinyTDS::Client<ept id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;/linkText&gt;</ept><bpt id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;title&gt;</bpt><ept id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;/title&gt;</ept> function is used to connect to SQL Database.</source>
+          <target state="new">The <bpt id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;linkText&gt;</bpt>TinyTDS::Client<ept id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;/linkText&gt;</ept><bpt id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;title&gt;</bpt><ept id="2f2ed0a3-770a-4e56-8f8b-c1fb5ea3c4c5">&lt;/title&gt;</ept> function is used to connect to SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="9104e5ef-d40a-443e-a316-eb10fbd50a06" xml:space="preserve">
+          <source>Copy and paste the following code in an empty file.</source>
+          <target state="new">Copy and paste the following code in an empty file.</target>
+        </trans-unit>
+        <trans-unit id="5df4c704-f656-4113-8845-9866fc5dcdd8" xml:space="preserve">
+          <source>Call it test.rb.</source>
+          <target state="new">Call it test.rb.</target>
+        </trans-unit>
+        <trans-unit id="116b9bfa-ea27-497d-93c7-f81c8a599a0a" xml:space="preserve">
+          <source>Then execute it by entering the following command from your command prompt:</source>
+          <target state="new">Then execute it by entering the following command from your command prompt:</target>
+        </trans-unit>
+        <trans-unit id="109daa74-3e45-4fc0-a246-77e28e4ea06c" xml:space="preserve">
+          <source>In the code sample, the <bpt id="d727c1cd-098f-41e9-a819-073671c82520">&lt;linkText&gt;</bpt>TinyTds::Result<ept id="d727c1cd-098f-41e9-a819-073671c82520">&lt;/linkText&gt;</ept><bpt id="d727c1cd-098f-41e9-a819-073671c82520">&lt;title&gt;</bpt><ept id="d727c1cd-098f-41e9-a819-073671c82520">&lt;/title&gt;</ept> function is used to retrieve a result set from a query against SQL Database.</source>
+          <target state="new">In the code sample, the <bpt id="d727c1cd-098f-41e9-a819-073671c82520">&lt;linkText&gt;</bpt>TinyTds::Result<ept id="d727c1cd-098f-41e9-a819-073671c82520">&lt;/linkText&gt;</ept><bpt id="d727c1cd-098f-41e9-a819-073671c82520">&lt;title&gt;</bpt><ept id="d727c1cd-098f-41e9-a819-073671c82520">&lt;/title&gt;</ept> function is used to retrieve a result set from a query against SQL Database.</target>
+        </trans-unit>
+        <trans-unit id="6dd5ce6a-a1a4-4880-978c-903b57bb6fb8" xml:space="preserve">
+          <source>This function accepts a query and returns a result set.</source>
+          <target state="new">This function accepts a query and returns a result set.</target>
+        </trans-unit>
+        <trans-unit id="3ce4a464-87c5-47b9-a39e-1d77ead888b1" xml:space="preserve">
+          <source>The results set is iterated over by using <bpt id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;linkText&gt;</bpt>result.each do |row|<ept id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;/linkText&gt;</ept><bpt id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;title&gt;</bpt><ept id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;/title&gt;</ept>.</source>
+          <target state="new">The results set is iterated over by using <bpt id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;linkText&gt;</bpt>result.each do |row|<ept id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;/linkText&gt;</ept><bpt id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;title&gt;</bpt><ept id="53a351d0-f928-4701-8ecb-d6c9923b888c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b6c6e3ef-11c2-4a7f-9645-f1385825adcd" xml:space="preserve">
+          <source>The code sample:</source>
+          <target state="new">The code sample:</target>
+        </trans-unit>
+        <trans-unit id="ec413e31-93f3-445f-ad49-0141de724e7f" xml:space="preserve">
+          <source>Passes parameters for values to be inserted in a row.</source>
+          <target state="new">Passes parameters for values to be inserted in a row.</target>
+        </trans-unit>
+        <trans-unit id="791f21af-22db-4203-8ec3-c20bb7e11420" xml:space="preserve">
+          <source>Inserts the row.</source>
+          <target state="new">Inserts the row.</target>
+        </trans-unit>
+        <trans-unit id="b5a570a8-781c-4326-bd45-a867436595b1" xml:space="preserve">
+          <source>Retrieves the value that was generated for the primary key.</source>
+          <target state="new">Retrieves the value that was generated for the primary key.</target>
+        </trans-unit>
+        <trans-unit id="8230f4ff-5185-45cb-b87b-cea3e9108435" xml:space="preserve">
+          <source>In SQL Database, the <bpt id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;linkText&gt;</bpt>IDENTITY<ept id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;/linkText&gt;</ept><bpt id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;title&gt;</bpt><ept id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;/title&gt;</ept> property and the <bpt id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;linkText&gt;</bpt>SEQUENCE<ept id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;/linkText&gt;</ept><bpt id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;title&gt;</bpt><ept id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;linkText&gt;</bpt>primary key values<ept id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;/linkText&gt;</ept><bpt id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;title&gt;</bpt><ept id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;/title&gt;</ept>.</source>
+          <target state="new">In SQL Database, the <bpt id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;linkText&gt;</bpt>IDENTITY<ept id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;/linkText&gt;</ept><bpt id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;title&gt;</bpt><ept id="7d3d93c1-ee22-4902-9491-804e38262dfb">&lt;/title&gt;</ept> property and the <bpt id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;linkText&gt;</bpt>SEQUENCE<ept id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;/linkText&gt;</ept><bpt id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;title&gt;</bpt><ept id="800fc14a-60af-4ebb-baba-c016553d2af2">&lt;/title&gt;</ept> object can be used to auto-generate <bpt id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;linkText&gt;</bpt>primary key values<ept id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;/linkText&gt;</ept><bpt id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;title&gt;</bpt><ept id="67b7ddf9-d764-49be-a2bf-c4029f146a36">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b738722-c9f4-499f-a8d6-04f770871093" xml:space="preserve">
+          <source>To use TinyTDS with Azure, it is recommended that you execute several <bpt id="190a6a06-49fe-4785-82a1-49b8e365d584">&lt;code&gt;</bpt>SET<ept id="190a6a06-49fe-4785-82a1-49b8e365d584">&lt;/code&gt;</ept> statements to change how the current session handles specific information.</source>
+          <target state="new">To use TinyTDS with Azure, it is recommended that you execute several <bpt id="190a6a06-49fe-4785-82a1-49b8e365d584">&lt;code&gt;</bpt>SET<ept id="190a6a06-49fe-4785-82a1-49b8e365d584">&lt;/code&gt;</ept> statements to change how the current session handles specific information.</target>
+        </trans-unit>
+        <trans-unit id="39e6c32d-ef99-4806-aefd-42ac5aeeb846" xml:space="preserve">
+          <source>Recommended <bpt id="02e69c2f-f9e9-47b0-8c81-0b191077c7b8">&lt;code&gt;</bpt>SET<ept id="02e69c2f-f9e9-47b0-8c81-0b191077c7b8">&lt;/code&gt;</ept> statements are provided in the code sample.</source>
+          <target state="new">Recommended <bpt id="02e69c2f-f9e9-47b0-8c81-0b191077c7b8">&lt;code&gt;</bpt>SET<ept id="02e69c2f-f9e9-47b0-8c81-0b191077c7b8">&lt;/code&gt;</ept> statements are provided in the code sample.</target>
+        </trans-unit>
+        <trans-unit id="385a97a1-15de-4888-9695-7a7cdf768ab7" xml:space="preserve">
+          <source>For example, <bpt id="2a117c61-5be2-461a-834f-4ab643edf360">&lt;code&gt;</bpt>SET ANSI_NULL_DFLT_ON<ept id="2a117c61-5be2-461a-834f-4ab643edf360">&lt;/code&gt;</ept> will allow new columns created to allow null values even if the nullability status of the column is not explicitly stated.</source>
+          <target state="new">For example, <bpt id="2a117c61-5be2-461a-834f-4ab643edf360">&lt;code&gt;</bpt>SET ANSI_NULL_DFLT_ON<ept id="2a117c61-5be2-461a-834f-4ab643edf360">&lt;/code&gt;</ept> will allow new columns created to allow null values even if the nullability status of the column is not explicitly stated.</target>
+        </trans-unit>
+        <trans-unit id="288398d3-e903-4a36-9c83-623762dbd65b" xml:space="preserve">
+          <source>To align with the Microsoft SQL Server <bpt id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;linkText&gt;</bpt>datetime<ept id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;/linkText&gt;</ept><bpt id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;title&gt;</bpt><ept id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;/title&gt;</ept> format, use the <bpt id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;linkText&gt;</bpt>strftime<ept id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;/linkText&gt;</ept><bpt id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;title&gt;</bpt><ept id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;/title&gt;</ept> function to cast to the corresponding datetime format.</source>
+          <target state="new">To align with the Microsoft SQL Server <bpt id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;linkText&gt;</bpt>datetime<ept id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;/linkText&gt;</ept><bpt id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;title&gt;</bpt><ept id="46a76d02-de65-4c02-a0bd-04375a7a64c6">&lt;/title&gt;</ept> format, use the <bpt id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;linkText&gt;</bpt>strftime<ept id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;/linkText&gt;</ept><bpt id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;title&gt;</bpt><ept id="eeef26d5-b9ec-45f6-8259-ee3fce033cdc">&lt;/title&gt;</ept> function to cast to the corresponding datetime format.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

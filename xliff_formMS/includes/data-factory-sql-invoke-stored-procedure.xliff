@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dcf57cb0-2d06-495c-87a5-8da8cf8fc3ca" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dcf57cb0-2d06-495c-87a5-8da8cf8fc3ca" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="9d68ded7-1704-40dc-be4b-c72b55692659">
+        <trans-unit id="25b7e30b-92bf-4f86-82e1-b6abed95e902" xml:space="preserve">
+          <source>When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters.</source>
+          <target state="new">When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters.</target>
+        </trans-unit>
+        <trans-unit id="d3e6d84e-4f03-4e13-8c29-d92a94580c02" xml:space="preserve">
+          <source>A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose.</source>
+          <target state="new">A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose.</target>
+        </trans-unit>
+        <trans-unit id="3e7552e3-185d-4864-a89d-c27f33527bff" xml:space="preserve">
+          <source>This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…)</source>
+          <target state="new">This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…)</target>
+        </trans-unit>
+        <trans-unit id="c6e98215-f8f2-4c65-bd03-bcf00a4c3d3e" xml:space="preserve">
+          <source>needs to be done before the final insertion of source data in the destination table.</source>
+          <target state="new">needs to be done before the final insertion of source data in the destination table.</target>
+        </trans-unit>
+        <trans-unit id="0e936ebd-7712-4103-9ff3-26fa25f30792" xml:space="preserve">
+          <source>You may invoke a stored procedure of choice.</source>
+          <target state="new">You may invoke a stored procedure of choice.</target>
+        </trans-unit>
+        <trans-unit id="8b0d3a4d-1faf-4756-8796-42a6824e9336" xml:space="preserve">
+          <source>The following sample shows how to use a stored procedure to do a simple insertion into a table in the database.</source>
+          <target state="new">The following sample shows how to use a stored procedure to do a simple insertion into a table in the database.</target>
+        </trans-unit>
+        <trans-unit id="4e0006eb-f433-4bbb-8270-1491f55b8d0f" xml:space="preserve">
+          <source><bpt id="96c287fe-fc6c-498f-9b2b-b60f9e751958">&lt;strong&gt;</bpt>Output dataset<ept id="96c287fe-fc6c-498f-9b2b-b60f9e751958">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="96c287fe-fc6c-498f-9b2b-b60f9e751958">&lt;strong&gt;</bpt>Output dataset<ept id="96c287fe-fc6c-498f-9b2b-b60f9e751958">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="29dd18fe-9ef0-433f-95a5-7ee889c9873d" xml:space="preserve">
+          <source>In this example, type is set to: SqlServerTable.</source>
+          <target state="new">In this example, type is set to: SqlServerTable.</target>
+        </trans-unit>
+        <trans-unit id="d5720f13-ca3f-4771-9dc1-ef345411b3ca" xml:space="preserve">
+          <source>Set it to AzureSqlTable to use with an Azure SQL database.</source>
+          <target state="new">Set it to AzureSqlTable to use with an Azure SQL database.</target>
+        </trans-unit>
+        <trans-unit id="566667c9-b7c7-4490-9663-6e4cb36db8df" xml:space="preserve">
+          <source>Define the SqlSink section in copy activity JSON as follows.</source>
+          <target state="new">Define the SqlSink section in copy activity JSON as follows.</target>
+        </trans-unit>
+        <trans-unit id="79f339e8-b7b6-4e2e-951b-43b2ab65675d" xml:space="preserve">
+          <source>To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.</source>
+          <target state="new">To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.</target>
+        </trans-unit>
+        <trans-unit id="17a8ae19-76f8-4963-bbed-a0aac39e9c3f" xml:space="preserve">
+          <source>In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName.</source>
+          <target state="new">In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName.</target>
+        </trans-unit>
+        <trans-unit id="e05f47dd-cf93-4d9a-8a8b-2b21099d7c85" xml:space="preserve">
+          <source>It handles input data from your specified source, and insert into the output table.</source>
+          <target state="new">It handles input data from your specified source, and insert into the output table.</target>
+        </trans-unit>
+        <trans-unit id="b70eae0a-0827-45c4-ac13-38dc3484b95f" xml:space="preserve">
+          <source>Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.</source>
+          <target state="new">Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.</target>
+        </trans-unit>
+        <trans-unit id="ffe63901-e45a-44fe-861d-81b828e1e1af" xml:space="preserve">
+          <source>In your database, define the table type with the same name as SqlWriterTableType.</source>
+          <target state="new">In your database, define the table type with the same name as SqlWriterTableType.</target>
+        </trans-unit>
+        <trans-unit id="134e16d7-3024-40ea-be92-d38e8e60ec63" xml:space="preserve">
+          <source>Notice that the schema of the table type should be same as the schema returned by your input data.</source>
+          <target state="new">Notice that the schema of the table type should be same as the schema returned by your input data.</target>
+        </trans-unit>
+        <trans-unit id="2c1ae996-8ba0-4152-8bef-7ac50cac1099" xml:space="preserve">
+          <source>The stored procedure feature takes advantage of <bpt id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;linkText&gt;</bpt>Table-Valued Parameters<ept id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;/linkText&gt;</ept><bpt id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;title&gt;</bpt><ept id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">The stored procedure feature takes advantage of <bpt id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;linkText&gt;</bpt>Table-Valued Parameters<ept id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;/linkText&gt;</ept><bpt id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;title&gt;</bpt><ept id="13309f5e-39db-4037-a61b-acd9906072d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

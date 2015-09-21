@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e2261e7a-5704-4d00-aac9-3d0fdbbb6ec0" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e2261e7a-5704-4d00-aac9-3d0fdbbb6ec0" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="936aa9de-ade9-46de-9197-19a30d2ebacc">
+        <trans-unit id="3fc26d6c-e6b2-49ef-b723-b6809368901a" xml:space="preserve">
+          <source>Binomial Distribution Suite | Microsoft Azure</source>
+          <target state="new">Binomial Distribution Suite | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="1c0b98e1-6b2f-4c39-adf6-1a3e8fd7da5a" xml:space="preserve">
+          <source>Binomial Distribution Suite</source>
+          <target state="new">Binomial Distribution Suite</target>
+        </trans-unit>
+        <trans-unit id="6a5ca066-c1ab-42aa-b884-457f1187f84f" xml:space="preserve">
+          <source>The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml<bpt id="61176cd9-57a4-4eb0-909d-83b4e66dfd61">&lt;em&gt;</bpt>labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml<ept id="61176cd9-57a4-4eb0-909d-83b4e66dfd61">&lt;/em&gt;</ept>labs/bdp4), <bpt id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;linkText&gt;</bpt>Quantile Calculator<ept id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;/linkText&gt;</ept><bpt id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;title&gt;</bpt><ept id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;/title&gt;</ept>) that help in generating and dealing with binomial distributions.</source>
+          <target state="new">The Binomial Distribution Suite is a set of sample web services ([Binomial Generator](https://datamarket.azure.com/dataset/aml<bpt id="61176cd9-57a4-4eb0-909d-83b4e66dfd61">&lt;em&gt;</bpt>labs/bdg5), [Probability Calculator]( https://datamarket.azure.com/dataset/aml<ept id="61176cd9-57a4-4eb0-909d-83b4e66dfd61">&lt;/em&gt;</ept>labs/bdp4), <bpt id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;linkText&gt;</bpt>Quantile Calculator<ept id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;/linkText&gt;</ept><bpt id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;title&gt;</bpt><ept id="0453c2ab-2f38-424e-9d39-b1cc1c069666">&lt;/title&gt;</ept>) that help in generating and dealing with binomial distributions.</target>
+        </trans-unit>
+        <trans-unit id="b6671404-99c9-4944-8003-22e3a260cb18" xml:space="preserve">
+          <source>The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.</source>
+          <target state="new">The services allow generating a binomial distribution sequence of any length, calculating quantiles out of given probability and calculating probability from a given quantile.</target>
+        </trans-unit>
+        <trans-unit id="2510217a-c909-4a34-9ce8-ac3bf78d9b40" xml:space="preserve">
+          <source>Each of the services emits different outputs based on the selected service (see description below).</source>
+          <target state="new">Each of the services emits different outputs based on the selected service (see description below).</target>
+        </trans-unit>
+        <trans-unit id="18c33673-a1fe-4708-9575-2a34f667712a" xml:space="preserve">
+          <source>The Binomial Distribution Suite is based on the R functions qbinom, rbinom, and pbinom, which are included in the R stats package.</source>
+          <target state="new">The Binomial Distribution Suite is based on the R functions qbinom, rbinom, and pbinom, which are included in the R stats package.</target>
+        </trans-unit>
+        <trans-unit id="738c8863-26fe-418b-8ed2-6e8e8ff08a05" xml:space="preserve">
+          <source><bpt id="c39fe569-b45d-4f09-912d-7868bf8004de">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="c39fe569-b45d-4f09-912d-7868bf8004de">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c39fe569-b45d-4f09-912d-7868bf8004de">&lt;token href="../../includes/machine-learning-free-trial.md"&gt;</bpt><ept id="c39fe569-b45d-4f09-912d-7868bf8004de">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c07b8f9-5e2e-4b98-899b-e24af921b03d" xml:space="preserve">
+          <source>These web services could be consumed by users – potentially directly on the marketplace, through a mobile app, through a website, or even on a local computer, for example.</source>
+          <target state="new">These web services could be consumed by users – potentially directly on the marketplace, through a mobile app, through a website, or even on a local computer, for example.</target>
+        </trans-unit>
+        <trans-unit id="2ac88c2b-3ba3-4525-b1db-7e9e21ab63b6" xml:space="preserve">
+          <source>But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</source>
+          <target state="new">But the purpose of the web service is also to serve as an example of how Azure Machine Learning can be used to create web services on top of R code.</target>
+        </trans-unit>
+        <trans-unit id="f4bf1f30-4120-45f6-a843-08619f841b24" xml:space="preserve">
+          <source>With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</source>
+          <target state="new">With just a few lines of R code and clicks of a button within Azure Machine Learning Studio, an experiment can be created with R code and published as a web service.</target>
+        </trans-unit>
+        <trans-unit id="6c8bfc9a-860d-4219-bc1e-4e22f54bdc0f" xml:space="preserve">
+          <source>The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure setup by the author of the web service is required.</source>
+          <target state="new">The web service can then be published to the Azure Marketplace and consumed by users and devices across the world – no infrastructure setup by the author of the web service is required.</target>
+        </trans-unit>
+        <trans-unit id="ec510fe3-6afe-42c2-807c-7ae706e5146f" xml:space="preserve">
+          <source>The Binomial Distribution Suite includes the following 3 services.</source>
+          <target state="new">The Binomial Distribution Suite includes the following 3 services.</target>
+        </trans-unit>
+        <trans-unit id="ae24aa7c-237b-4d8d-b1ae-83557d828f2b" xml:space="preserve">
+          <source>This service accepts 4 arguments of a normal distribution and calculates the associated quantile.</source>
+          <target state="new">This service accepts 4 arguments of a normal distribution and calculates the associated quantile.</target>
+        </trans-unit>
+        <trans-unit id="63cea009-cb70-4b06-8d00-1154ee644288" xml:space="preserve">
+          <source>The input arguments are:</source>
+          <target state="new">The input arguments are:</target>
+        </trans-unit>
+        <trans-unit id="161d120a-8d5c-4a75-8f19-2d5685e8e9ac" xml:space="preserve">
+          <source>p - A single aggregated probability of multiple trials.</source>
+          <target state="new">p - A single aggregated probability of multiple trials.</target>
+        </trans-unit>
+        <trans-unit id="8532d238-b069-4fdc-9676-4014968e1f17" xml:space="preserve">
+          <source>size - The number of trials.</source>
+          <target state="new">size - The number of trials.</target>
+        </trans-unit>
+        <trans-unit id="f0d052da-33ef-49e6-bc70-db25220c44d5" xml:space="preserve">
+          <source>prob - The probability of success in a trial.</source>
+          <target state="new">prob - The probability of success in a trial.</target>
+        </trans-unit>
+        <trans-unit id="3500c1e0-511a-4bc9-b076-60e573b5ac36" xml:space="preserve">
+          <source>Side - L for the lower side of the distribution, U for the upper side of the distribution.</source>
+          <target state="new">Side - L for the lower side of the distribution, U for the upper side of the distribution.</target>
+        </trans-unit>
+        <trans-unit id="3947f4cf-8c76-40a6-8a19-2166f9a08de8" xml:space="preserve">
+          <source>The output of the service is the calculated quantile that is associated with the given probability.</source>
+          <target state="new">The output of the service is the calculated quantile that is associated with the given probability.</target>
+        </trans-unit>
+        <trans-unit id="ba9af304-cc8c-4b05-948a-5096d14d7c81" xml:space="preserve">
+          <source>This service accepts 4 arguments of a binomial distribution and calculates the associated probability.</source>
+          <target state="new">This service accepts 4 arguments of a binomial distribution and calculates the associated probability.</target>
+        </trans-unit>
+        <trans-unit id="4f554e22-76f8-4cf9-8eff-4cceb511406b" xml:space="preserve">
+          <source>The input arguments are:</source>
+          <target state="new">The input arguments are:</target>
+        </trans-unit>
+        <trans-unit id="80eda367-972a-4557-bd41-93d39f22a280" xml:space="preserve">
+          <source>q - A single quantile of an event with binomial distribution.</source>
+          <target state="new">q - A single quantile of an event with binomial distribution.</target>
+        </trans-unit>
+        <trans-unit id="25559759-1f79-4043-a795-26f921ff46c7" xml:space="preserve">
+          <source>size - The number of trials.</source>
+          <target state="new">size - The number of trials.</target>
+        </trans-unit>
+        <trans-unit id="84f0961a-e26d-400d-8c07-250d33a63acc" xml:space="preserve">
+          <source>prob - The probability of success in a trial.</source>
+          <target state="new">prob - The probability of success in a trial.</target>
+        </trans-unit>
+        <trans-unit id="a5b24e30-e136-4522-a4a4-ed5dccf8325a" xml:space="preserve">
+          <source>side - L for the lower side of the distribution, U for the upper side of the distribution, or E that is equal to a single number of successes.</source>
+          <target state="new">side - L for the lower side of the distribution, U for the upper side of the distribution, or E that is equal to a single number of successes.</target>
+        </trans-unit>
+        <trans-unit id="4255fda2-09dd-4098-ba36-e011b3b98b08" xml:space="preserve">
+          <source>The output of the service is the calculated probability that is associated with the given quantile.</source>
+          <target state="new">The output of the service is the calculated probability that is associated with the given quantile.</target>
+        </trans-unit>
+        <trans-unit id="3e8c43b6-fff5-4c53-a139-5ff576cbdab9" xml:space="preserve">
+          <source>This service accepts 3 arguments of a binomial distribution and generates a random sequence of numbers that are binomially distributed.</source>
+          <target state="new">This service accepts 3 arguments of a binomial distribution and generates a random sequence of numbers that are binomially distributed.</target>
+        </trans-unit>
+        <trans-unit id="7f295a0e-2428-4a74-a482-361f7c420a0b" xml:space="preserve">
+          <source>The following arguments should be provided to it within the request:</source>
+          <target state="new">The following arguments should be provided to it within the request:</target>
+        </trans-unit>
+        <trans-unit id="3bc89390-0508-46b3-bf9d-5cba3761bff2" xml:space="preserve">
+          <source>n - Number of observations.</source>
+          <target state="new">n - Number of observations.</target>
+        </trans-unit>
+        <trans-unit id="650982c4-7a58-42d4-a5fb-168b1e6f2734" xml:space="preserve">
+          <source>size - Number of trials.</source>
+          <target state="new">size - Number of trials.</target>
+        </trans-unit>
+        <trans-unit id="206c4546-d5d9-409c-b7ea-b500889ec162" xml:space="preserve">
+          <source>prob - Probability of success.</source>
+          <target state="new">prob - Probability of success.</target>
+        </trans-unit>
+        <trans-unit id="5f75f10b-7e52-442b-ac88-f8dbf216a950" xml:space="preserve">
+          <source>The output of the service is a sequence of length n with a binomial distribution based on the size and prob arguments.</source>
+          <target state="new">The output of the service is a sequence of length n with a binomial distribution based on the size and prob arguments.</target>
+        </trans-unit>
+        <trans-unit id="fc5d7ad2-ec6c-43c0-9804-93e1e0eca712" xml:space="preserve">
+          <source>This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</source>
+          <target state="new">This service, as hosted on the Azure Marketplace, is an OData service; these may be called through POST or GET methods.</target>
+        </trans-unit>
+        <trans-unit id="29c6b88c-1ec1-42af-a899-c6538d1fabb8" xml:space="preserve">
+          <source>There are multiple ways of consuming the service in an automated fashion (example apps are here: <bpt id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;linkText&gt;</bpt>Generator<ept id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;/linkText&gt;</ept><bpt id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;title&gt;</bpt><ept id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;/title&gt;</ept>,
+<bpt id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;linkText&gt;</bpt>Probability Calculator<ept id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;/linkText&gt;</ept><bpt id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;title&gt;</bpt><ept id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;/title&gt;</ept>,
+<bpt id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;linkText&gt;</bpt>Quantile Calculator<ept id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;/linkText&gt;</ept><bpt id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;title&gt;</bpt><ept id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;/title&gt;</ept>).</source>
+          <target state="new">There are multiple ways of consuming the service in an automated fashion (example apps are here: <bpt id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;linkText&gt;</bpt>Generator<ept id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;/linkText&gt;</ept><bpt id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;title&gt;</bpt><ept id="5cb9b46b-5725-4333-bcad-5a8892207776">&lt;/title&gt;</ept>,
+<bpt id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;linkText&gt;</bpt>Probability Calculator<ept id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;/linkText&gt;</ept><bpt id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;title&gt;</bpt><ept id="9036778a-e590-4d2a-998c-3e6d39c3bdde">&lt;/title&gt;</ept>,
+<bpt id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;linkText&gt;</bpt>Quantile Calculator<ept id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;/linkText&gt;</ept><bpt id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;title&gt;</bpt><ept id="f2b25824-f431-40c6-bc04-f811522f52e5">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="76d4f625-abc3-4e64-b139-dcfc23414363" xml:space="preserve">
+          <source>This web service was created using Azure Machine Learning.</source>
+          <target state="new">This web service was created using Azure Machine Learning.</target>
+        </trans-unit>
+        <trans-unit id="6cda5901-f17d-4316-bf1c-a879d751a330" xml:space="preserve">
+          <source>For a free trial, as well as introductory videos on creating experiments and <bpt id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;linkText&gt;</bpt>publishing web services<ept id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;/linkText&gt;</ept><bpt id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;title&gt;</bpt><ept id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;/title&gt;</ept>, please see <bpt id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;linkText&gt;</bpt>azure.com/ml<ept id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;/linkText&gt;</ept><bpt id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;title&gt;</bpt><ept id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a free trial, as well as introductory videos on creating experiments and <bpt id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;linkText&gt;</bpt>publishing web services<ept id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;/linkText&gt;</ept><bpt id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;title&gt;</bpt><ept id="6cb93e75-9936-4ee3-8115-41d985c10140">&lt;/title&gt;</ept>, please see <bpt id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;linkText&gt;</bpt>azure.com/ml<ept id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;/linkText&gt;</ept><bpt id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;title&gt;</bpt><ept id="b062e21c-c042-4c4e-954a-d307caf9b82f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="300c8040-0700-458d-abe9-8484e1cc061f" xml:space="preserve">
+          <source>Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</source>
+          <target state="new">Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.</target>
+        </trans-unit>
+        <trans-unit id="e78bda15-bb98-4e31-8e24-5f09786f4f74" xml:space="preserve">
+          <source><bpt id="392a3e36-27a8-4cc9-ad8e-af6cf9773358">&lt;linkText&gt;</bpt>Create workspace<ept id="392a3e36-27a8-4cc9-ad8e-af6cf9773358">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="392a3e36-27a8-4cc9-ad8e-af6cf9773358">&lt;linkText&gt;</bpt>Create workspace<ept id="392a3e36-27a8-4cc9-ad8e-af6cf9773358">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3fab22b3-4a51-4cc3-9eb6-9439ec1b64c0" xml:space="preserve">
+          <source><bpt id="ebc33093-4569-4301-902d-bbc572b8fef0">&lt;linkText&gt;</bpt>Create workspace<ept id="ebc33093-4569-4301-902d-bbc572b8fef0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ebc33093-4569-4301-902d-bbc572b8fef0">&lt;linkText&gt;</bpt>Create workspace<ept id="ebc33093-4569-4301-902d-bbc572b8fef0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34513ae2-2f80-413e-87cf-05018bb2c9a1" xml:space="preserve">
+          <source><bpt id="f2a8deb8-602f-4ecf-b90b-1948a6e452a4">&lt;linkText&gt;</bpt>Create workspace<ept id="f2a8deb8-602f-4ecf-b90b-1948a6e452a4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f2a8deb8-602f-4ecf-b90b-1948a6e452a4">&lt;linkText&gt;</bpt>Create workspace<ept id="f2a8deb8-602f-4ecf-b90b-1948a6e452a4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ecad3c33-91fe-4a23-b120-da6cc0a9467e" xml:space="preserve">
+          <source>These are very simple examples surrounding the binomial distribution.</source>
+          <target state="new">These are very simple examples surrounding the binomial distribution.</target>
+        </trans-unit>
+        <trans-unit id="d4cb91fe-633e-4c0d-855e-576785e23fe6" xml:space="preserve">
+          <source>As can be seen from the example code above, little error catching is implemented.</source>
+          <target state="new">As can be seen from the example code above, little error catching is implemented.</target>
+        </trans-unit>
+        <trans-unit id="4d4da633-d38c-4b13-a714-72b881f0fadf" xml:space="preserve">
+          <source>For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;linkText&gt;</bpt>here<ept id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;/linkText&gt;</ept><bpt id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;title&gt;</bpt><ept id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;/title&gt;</ept>.</source>
+          <target state="new">For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see <bpt id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;linkText&gt;</bpt>here<ept id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;/linkText&gt;</ept><bpt id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;title&gt;</bpt><ept id="61b2cbe5-3390-489d-9dbd-3fd2a0e8ea32">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae65b502-135e-491f-a461-b37d37402432" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png</target>
+        </trans-unit>
+        <trans-unit id="a5e732f5-e133-40eb-b159-1c0e99472113" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_2.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_2.png</target>
+        </trans-unit>
+        <trans-unit id="fe48ccef-b1af-46e6-aa68-1ee86a0a258a" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_3.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_3.png</target>
+        </trans-unit>
+        <trans-unit id="db7b9a74-edf1-4090-b19c-52fd8e675b8c" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_4.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_4.png</target>
+        </trans-unit>
+        <trans-unit id="a93a7fbc-cedd-41f1-bd7e-d171ac772cae" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_5.png</target>
+        </trans-unit>
+        <trans-unit id="a4426535-ace2-44fa-a1a3-9aba5cac109d" xml:space="preserve">
+          <source>./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png</source>
+          <target state="new">./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png</target>
+        </trans-unit>
+      </group>
+      <group id="391a868d-1f14-45cd-bd1a-3a254844a7c4" />
+    </body>
+  </file>
+</xliff>

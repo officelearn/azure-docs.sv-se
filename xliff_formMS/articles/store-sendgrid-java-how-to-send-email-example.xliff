@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5af65ba9-b889-4136-8174-709ee081922f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5af65ba9-b889-4136-8174-709ee081922f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="53a576fb-9dcf-4761-a522-0d3bd834baff">
+        <trans-unit id="5ba79d69-26de-472d-9dfc-5b00f81cce89" xml:space="preserve">
+          <source>store-sendgrid-java-how-to-send-email-example</source>
+          <target state="new">store-sendgrid-java-how-to-send-email-example</target>
+        </trans-unit>
+        <trans-unit id="c4334c22-749d-45ef-87b8-4641474162ef" xml:space="preserve">
+          <source>How to send email using SendGrid from Java in an Azure Deployment</source>
+          <target state="new">How to send email using SendGrid from Java in an Azure Deployment</target>
+        </trans-unit>
+        <trans-unit id="1194bcb9-4eae-4a6d-902b-d9b49f7f46c5" xml:space="preserve">
+          <source>The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure.</source>
+          <target state="new">The following example shows you how you can use SendGrid to send emails from a web page hosted in Azure.</target>
+        </trans-unit>
+        <trans-unit id="d0c69651-e27e-4f49-a242-b9ee3dc4095b" xml:space="preserve">
+          <source>The resulting application will prompt the user for email values, as shown in the following screen shot.</source>
+          <target state="new">The resulting application will prompt the user for email values, as shown in the following screen shot.</target>
+        </trans-unit>
+        <trans-unit id="8d6fc6d9-2b23-42d4-a211-af16101304b3" xml:space="preserve">
+          <source><bpt id="ac95ea8d-47c9-4307-8717-1ae419da8c30">&lt;linkText&gt;</bpt>Email form<ept id="ac95ea8d-47c9-4307-8717-1ae419da8c30">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ac95ea8d-47c9-4307-8717-1ae419da8c30">&lt;linkText&gt;</bpt>Email form<ept id="ac95ea8d-47c9-4307-8717-1ae419da8c30">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f68418e-5ae5-4b64-8623-cd5b164cdba9" xml:space="preserve">
+          <source>The resulting email will look similar to the following screen shot.</source>
+          <target state="new">The resulting email will look similar to the following screen shot.</target>
+        </trans-unit>
+        <trans-unit id="a8485c49-86ec-4175-9116-aaeac195c5cb" xml:space="preserve">
+          <source><bpt id="ad72ba6b-5518-422d-9ab3-d505fad1db48">&lt;linkText&gt;</bpt>Email message<ept id="ad72ba6b-5518-422d-9ab3-d505fad1db48">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ad72ba6b-5518-422d-9ab3-d505fad1db48">&lt;linkText&gt;</bpt>Email message<ept id="ad72ba6b-5518-422d-9ab3-d505fad1db48">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="25a2c042-e0ec-4216-82fd-20250597f5c2" xml:space="preserve">
+          <source>You'll need to do the following to use the code in this topic:</source>
+          <target state="new">You'll need to do the following to use the code in this topic:</target>
+        </trans-unit>
+        <trans-unit id="36c724ee-c62f-45d3-a864-43d649b72f4b" xml:space="preserve">
+          <source>Obtain the javax.mail JARs, for example from &lt;http://www.oracle.com/technetwork/java/javamail/index.html&gt;.</source>
+          <target state="new">Obtain the javax.mail JARs, for example from &lt;http://www.oracle.com/technetwork/java/javamail/index.html&gt;.</target>
+        </trans-unit>
+        <trans-unit id="1fc8ad36-bd64-4b72-a638-1b1ecea0bcd5" xml:space="preserve">
+          <source>Add the JARs to your Java build path.</source>
+          <target state="new">Add the JARs to your Java build path.</target>
+        </trans-unit>
+        <trans-unit id="c90c25ed-9ce3-4573-98e3-9fc4857d50a8" xml:space="preserve">
+          <source>If you are using Eclipse to create this Java application, you can include the SendGrid libraries in your application deployment file (WAR) using Eclipse's deployment assembly feature.</source>
+          <target state="new">If you are using Eclipse to create this Java application, you can include the SendGrid libraries in your application deployment file (WAR) using Eclipse's deployment assembly feature.</target>
+        </trans-unit>
+        <trans-unit id="deab52a8-db71-4a34-9d15-043f4b1bde78" xml:space="preserve">
+          <source>If you are not using Eclipse to create this Java application, ensure the libraries are included within the same Azure role as your Java application, and added to the class path of your application.</source>
+          <target state="new">If you are not using Eclipse to create this Java application, ensure the libraries are included within the same Azure role as your Java application, and added to the class path of your application.</target>
+        </trans-unit>
+        <trans-unit id="5365e39f-8927-4edf-90f9-a9e6213e8c03" xml:space="preserve">
+          <source>You must also have your own SendGrid username and password, to be able to send the email.</source>
+          <target state="new">You must also have your own SendGrid username and password, to be able to send the email.</target>
+        </trans-unit>
+        <trans-unit id="517fe8cf-cc90-4c5e-8722-8efc2622c996" xml:space="preserve">
+          <source>To get started with SendGrid, see <bpt id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;linkText&gt;</bpt>How to send email using SendGrid from Java<ept id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;/linkText&gt;</ept><bpt id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;title&gt;</bpt><ept id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get started with SendGrid, see <bpt id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;linkText&gt;</bpt>How to send email using SendGrid from Java<ept id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;/linkText&gt;</ept><bpt id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;title&gt;</bpt><ept id="4698f476-1005-485b-9fc6-a80d68830b39">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8ff216d0-6ecf-4b9d-b1c1-18eece2218e3" xml:space="preserve">
+          <source>Additionally, familiarity with the information at <bpt id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;linkText&gt;</bpt>Creating a Hello World Application for Azure in Eclipse<ept id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;/linkText&gt;</ept><bpt id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;title&gt;</bpt><ept id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;/title&gt;</ept>, or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</source>
+          <target state="new">Additionally, familiarity with the information at <bpt id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;linkText&gt;</bpt>Creating a Hello World Application for Azure in Eclipse<ept id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;/linkText&gt;</ept><bpt id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;title&gt;</bpt><ept id="45ba12f5-802b-4da5-8342-d56ed82d82ae">&lt;/title&gt;</ept>, or with other techniques for hosting Java applications in Azure if you are not using Eclipse, is highly recommended.</target>
+        </trans-unit>
+        <trans-unit id="a415c216-c898-4d25-929a-b4240bf13b83" xml:space="preserve">
+          <source>The following code shows how to create a web form to retrieve user data for sending email.</source>
+          <target state="new">The following code shows how to create a web form to retrieve user data for sending email.</target>
+        </trans-unit>
+        <trans-unit id="b9f92060-1d5c-45d6-9ea3-e5ff1bd7b29e" xml:space="preserve">
+          <source>For purposes of this content, the JSP file is named <bpt id="cf3de75d-650b-4bb6-9b25-28be2e7514f8">&lt;strong&gt;</bpt>emailform.jsp<ept id="cf3de75d-650b-4bb6-9b25-28be2e7514f8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For purposes of this content, the JSP file is named <bpt id="cf3de75d-650b-4bb6-9b25-28be2e7514f8">&lt;strong&gt;</bpt>emailform.jsp<ept id="cf3de75d-650b-4bb6-9b25-28be2e7514f8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5a444be6-015d-4bd7-a87b-b2ebde817b96" xml:space="preserve">
+          <source>The following code, which is called when you complete the form in emailform.jsp, creates the email message and sends it.</source>
+          <target state="new">The following code, which is called when you complete the form in emailform.jsp, creates the email message and sends it.</target>
+        </trans-unit>
+        <trans-unit id="ec7a121a-98d2-449d-a2d9-a4eb082f99f0" xml:space="preserve">
+          <source>For purposes of this content, the JSP file is named <bpt id="c20c1119-4e2f-4c02-9020-25d56ba76cfd">&lt;strong&gt;</bpt>sendemail.jsp<ept id="c20c1119-4e2f-4c02-9020-25d56ba76cfd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">For purposes of this content, the JSP file is named <bpt id="c20c1119-4e2f-4c02-9020-25d56ba76cfd">&lt;strong&gt;</bpt>sendemail.jsp<ept id="c20c1119-4e2f-4c02-9020-25d56ba76cfd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a24b9e0-cc79-4cba-8640-95edb1138b70" xml:space="preserve">
+          <source>In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screen shot:</source>
+          <target state="new">In addition to sending the email, emailform.jsp provides a result for the user; an example is the following screen shot:</target>
+        </trans-unit>
+        <trans-unit id="38393d8e-629a-4248-98e2-83603553c890" xml:space="preserve">
+          <source><bpt id="55b581c5-45d5-4799-b8bd-bdfc6d100f73">&lt;linkText&gt;</bpt>Send mail result<ept id="55b581c5-45d5-4799-b8bd-bdfc6d100f73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55b581c5-45d5-4799-b8bd-bdfc6d100f73">&lt;linkText&gt;</bpt>Send mail result<ept id="55b581c5-45d5-4799-b8bd-bdfc6d100f73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="00c164ba-554b-4a19-9b0e-42dc9cbaf183" xml:space="preserve">
+          <source>Deploy your application to the compute emulator and within a browser run emailform.jsp, enter values in the form, click <bpt id="f18c8670-9473-4d0a-93c9-bde06554c04a">&lt;strong&gt;</bpt>Send this email<ept id="f18c8670-9473-4d0a-93c9-bde06554c04a">&lt;/strong&gt;</ept>, and then see results in sendemail.jsp.</source>
+          <target state="new">Deploy your application to the compute emulator and within a browser run emailform.jsp, enter values in the form, click <bpt id="f18c8670-9473-4d0a-93c9-bde06554c04a">&lt;strong&gt;</bpt>Send this email<ept id="f18c8670-9473-4d0a-93c9-bde06554c04a">&lt;/strong&gt;</ept>, and then see results in sendemail.jsp.</target>
+        </trans-unit>
+        <trans-unit id="a4fb2d06-dcff-4398-87b9-85d6056841d8" xml:space="preserve">
+          <source>This code was provided to show you how to use SendGrid in Java on Azure.</source>
+          <target state="new">This code was provided to show you how to use SendGrid in Java on Azure.</target>
+        </trans-unit>
+        <trans-unit id="daeb6b5b-62d3-4632-b253-151f2d41a85b" xml:space="preserve">
+          <source>Before deploying to Azure in production, you may want to add more error handling or other features.</source>
+          <target state="new">Before deploying to Azure in production, you may want to add more error handling or other features.</target>
+        </trans-unit>
+        <trans-unit id="6f8f877f-7063-42c9-8611-18e389c5d047" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="8d869b6b-b5cf-49af-8474-c398e781c880" xml:space="preserve">
+          <source>You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form.</source>
+          <target state="new">You could use Azure storage blobs or SQL Database to store email addresses and email messages, instead of using a web form.</target>
+        </trans-unit>
+        <trans-unit id="62386b32-c328-4828-b7a0-a3c7c26c85b9" xml:space="preserve">
+          <source>For information about using Azure storage blobs in Java, see <bpt id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;linkText&gt;</bpt>How to Use the Blob Storage Service from Java<ept id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;/linkText&gt;</ept><bpt id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;title&gt;</bpt><ept id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using Azure storage blobs in Java, see <bpt id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;linkText&gt;</bpt>How to Use the Blob Storage Service from Java<ept id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;/linkText&gt;</ept><bpt id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;title&gt;</bpt><ept id="e6eaec09-b4a9-43f9-93f7-920a55cc6f3a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="99062e0e-d9a9-4f72-b283-74d579495a5a" xml:space="preserve">
+          <source>For information about using SQL Database in Java, see <bpt id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;linkText&gt;</bpt>Using SQL Database in Java<ept id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;/linkText&gt;</ept><bpt id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;title&gt;</bpt><ept id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information about using SQL Database in Java, see <bpt id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;linkText&gt;</bpt>Using SQL Database in Java<ept id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;/linkText&gt;</ept><bpt id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;title&gt;</bpt><ept id="3f6386e8-2ef8-4cd0-b9ee-1f2e3a143907">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="276eb8a9-b6b6-4299-a030-7223485e5b66" xml:space="preserve">
+          <source>You could use <bpt id="7738a40f-caf2-4044-84d1-d27db215231f">&lt;code&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="7738a40f-caf2-4044-84d1-d27db215231f">&lt;/code&gt;</ept> to retrieve the SendGrid username and password from your deployment's configuration settings, instead of using the web form to retrieve those values. For information about the <bpt id="5ce5e710-6b0c-45d9-af0d-309baae97e4d">&lt;code&gt;</bpt>RoleEnvironment<ept id="5ce5e710-6b0c-45d9-af0d-309baae97e4d">&lt;/code&gt;</ept> class, see <bpt id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;linkText&gt;</bpt>Using the Azure Service Runtime Library in JSP<ept id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;/linkText&gt;</ept><bpt id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;title&gt;</bpt><ept id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;/title&gt;</ept> and the Azure Service Runtime package documentation at &lt;http://dl.windowsazure.com/javadoc&gt;.</source>
+          <target state="new">You could use <bpt id="7738a40f-caf2-4044-84d1-d27db215231f">&lt;code&gt;</bpt>RoleEnvironment.getConfigurationSettings<ept id="7738a40f-caf2-4044-84d1-d27db215231f">&lt;/code&gt;</ept> to retrieve the SendGrid username and password from your deployment's configuration settings, instead of using the web form to retrieve those values. For information about the <bpt id="5ce5e710-6b0c-45d9-af0d-309baae97e4d">&lt;code&gt;</bpt>RoleEnvironment<ept id="5ce5e710-6b0c-45d9-af0d-309baae97e4d">&lt;/code&gt;</ept> class, see <bpt id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;linkText&gt;</bpt>Using the Azure Service Runtime Library in JSP<ept id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;/linkText&gt;</ept><bpt id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;title&gt;</bpt><ept id="de9661bb-7f6d-4029-8d2d-b1b82a77777b">&lt;/title&gt;</ept> and the Azure Service Runtime package documentation at &lt;http://dl.windowsazure.com/javadoc&gt;.</target>
+        </trans-unit>
+        <trans-unit id="a24bf58a-12e1-4b16-b2ba-cd5463ae9c14" xml:space="preserve">
+          <source>For more information about using SendGrid in Java, see <bpt id="fff73108-d32c-4062-b773-2662cd03d387">&lt;linkText&gt;</bpt>How to send email using SendGrid from Java<ept id="fff73108-d32c-4062-b773-2662cd03d387">&lt;/linkText&gt;</ept><bpt id="fff73108-d32c-4062-b773-2662cd03d387">&lt;title&gt;</bpt><ept id="fff73108-d32c-4062-b773-2662cd03d387">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about using SendGrid in Java, see <bpt id="fff73108-d32c-4062-b773-2662cd03d387">&lt;linkText&gt;</bpt>How to send email using SendGrid from Java<ept id="fff73108-d32c-4062-b773-2662cd03d387">&lt;/linkText&gt;</ept><bpt id="fff73108-d32c-4062-b773-2662cd03d387">&lt;title&gt;</bpt><ept id="fff73108-d32c-4062-b773-2662cd03d387">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18ee6ec2-fa2c-4eb7-b05b-670bfea6c448" xml:space="preserve">
+          <source>./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg</source>
+          <target state="new">./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg</target>
+        </trans-unit>
+        <trans-unit id="f3c676b0-6e9f-4742-b927-6cba234b9268" xml:space="preserve">
+          <source>./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg</source>
+          <target state="new">./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg</target>
+        </trans-unit>
+        <trans-unit id="b6d0dae2-9ec3-4f0d-b6e7-1bbe8b81a4e4" xml:space="preserve">
+          <source>./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg</source>
+          <target state="new">./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg</target>
+        </trans-unit>
+      </group>
+      <group id="b1f8e81d-6c7b-4232-9584-fea226deb039" />
+    </body>
+  </file>
+</xliff>

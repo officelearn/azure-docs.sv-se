@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="f1ade4b6-e62b-4e53-99d1-1c661b32abc9" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="f1ade4b6-e62b-4e53-99d1-1c661b32abc9" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a64eee04-8a9e-47ab-843c-0492eefc820f">
+        <trans-unit id="d3e1ab29-3f1b-4928-9c06-f2a1f6ea4de2" xml:space="preserve">
+          <source>Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide</source>
+          <target state="new">Migrating BizTalk Server EDI Solutions to BizTalk Services: Technical Guide</target>
+        </trans-unit>
+        <trans-unit id="8f65f6d3-2d7a-4186-ab19-161f11d1fecd" xml:space="preserve">
+          <source>Migrate EDI to MABS; Microsoft Azure BizTalk Services</source>
+          <target state="new">Migrate EDI to MABS; Microsoft Azure BizTalk Services</target>
+        </trans-unit>
+        <trans-unit id="e8f84c11-3f54-46e0-9b84-0923064cfd39" xml:space="preserve">
+          <source>Author: Tim Wieman and Nitin Mehrotra</source>
+          <target state="new">Author: Tim Wieman and Nitin Mehrotra</target>
+        </trans-unit>
+        <trans-unit id="1cb72612-62b2-4393-848b-e572feed33a9" xml:space="preserve">
+          <source>Reviewers: Karthik Bharthy</source>
+          <target state="new">Reviewers: Karthik Bharthy</target>
+        </trans-unit>
+        <trans-unit id="b512002d-9186-405d-bad9-8d483e6278f6" xml:space="preserve">
+          <source>Written using:  Microsoft Azure BizTalk Services – February 2014 release.</source>
+          <target state="new">Written using:  Microsoft Azure BizTalk Services – February 2014 release.</target>
+        </trans-unit>
+        <trans-unit id="37e87fb8-6e68-448f-8697-cb914a318522" xml:space="preserve">
+          <source>Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions.</source>
+          <target state="new">Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions.</target>
+        </trans-unit>
+        <trans-unit id="2db621c1-5315-4b6e-8cb0-7f158122f24a" xml:space="preserve">
+          <source>BizTalk Server has had EDI support for over a decade, since the initial BizTalk Sever release.</source>
+          <target state="new">BizTalk Server has had EDI support for over a decade, since the initial BizTalk Sever release.</target>
+        </trans-unit>
+        <trans-unit id="9fbfad22-aa60-4064-ad6a-7cd72f03c934" xml:space="preserve">
+          <source>With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform.</source>
+          <target state="new">With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform.</target>
+        </trans-unit>
+        <trans-unit id="37598edc-622c-4306-aec4-ab752daad264" xml:space="preserve">
+          <source>B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform.</source>
+          <target state="new">B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform.</target>
+        </trans-unit>
+        <trans-unit id="6c04bba2-db91-4061-a2df-06f009b25386" xml:space="preserve">
+          <source>Microsoft Azure provides this capability through BizTalk Services.</source>
+          <target state="new">Microsoft Azure provides this capability through BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="ab6b125c-cb53-4a36-9aca-93edd49c7fa2" xml:space="preserve">
+          <source>While some customers look at BizTalk Services as a "greenfield" platform for new EDI solutions, many customers have current BizTalk Server EDI solutions that they may want to migrate to Azure.</source>
+          <target state="new">While some customers look at BizTalk Services as a "greenfield" platform for new EDI solutions, many customers have current BizTalk Server EDI solutions that they may want to migrate to Azure.</target>
+        </trans-unit>
+        <trans-unit id="f55ad3f5-9c38-4326-acd7-28e275932a33" xml:space="preserve">
+          <source>Because BizTalk Services EDI is architected based on the same key entities as BizTalk Server EDI architecture (trading partners, entities, agreements), it is possible to migrate BizTalk Server EDI artifacts to BizTalk Services.</source>
+          <target state="new">Because BizTalk Services EDI is architected based on the same key entities as BizTalk Server EDI architecture (trading partners, entities, agreements), it is possible to migrate BizTalk Server EDI artifacts to BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="c8bf245f-8a2c-493f-9cee-aaf4f1ed15f9" xml:space="preserve">
+          <source>This document discusses some of the differences involved with migrating BizTalk Server EDI artifacts to BizTalk Services.</source>
+          <target state="new">This document discusses some of the differences involved with migrating BizTalk Server EDI artifacts to BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="b98a83d9-9488-4a21-8a45-8960b07c7b2a" xml:space="preserve">
+          <source>This document assumes a working knowledge of BizTalk Server EDI processing and Trading Partner Agreements.</source>
+          <target state="new">This document assumes a working knowledge of BizTalk Server EDI processing and Trading Partner Agreements.</target>
+        </trans-unit>
+        <trans-unit id="f0ab53e0-24ff-4535-8a95-b28079181f9b" xml:space="preserve">
+          <source>For more information on BizTalk Server EDI, see <bpt id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;linkText&gt;</bpt>Trading Partner Management Using BizTalk Server<ept id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;/linkText&gt;</ept><bpt id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;title&gt;</bpt><ept id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on BizTalk Server EDI, see <bpt id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;linkText&gt;</bpt>Trading Partner Management Using BizTalk Server<ept id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;/linkText&gt;</ept><bpt id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;title&gt;</bpt><ept id="e2c2c756-bb85-43be-a7af-62926c413619">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4eac1de5-3c4a-4aa7-b910-86ef9debc37f" xml:space="preserve">
+          <source>The BizTalk Server EDI module was significantly enhanced for BizTalk Server 2010, when it was remodeled to include partners, profiles, and agreements.</source>
+          <target state="new">The BizTalk Server EDI module was significantly enhanced for BizTalk Server 2010, when it was remodeled to include partners, profiles, and agreements.</target>
+        </trans-unit>
+        <trans-unit id="be01894e-aaaf-4c2e-93e5-d9c8623f969f" xml:space="preserve">
+          <source>BizTalk Services uses the same model to organize the trading partners and the business divisions within those trading partners.</source>
+          <target state="new">BizTalk Services uses the same model to organize the trading partners and the business divisions within those trading partners.</target>
+        </trans-unit>
+        <trans-unit id="0b474c68-5543-4419-90b8-627fa5bdf8a1" xml:space="preserve">
+          <source>As a result, migrating EDI artifacts from BizTalk Server 2010 and later versions to BizTalk Services, is a much more straight forward process.</source>
+          <target state="new">As a result, migrating EDI artifacts from BizTalk Server 2010 and later versions to BizTalk Services, is a much more straight forward process.</target>
+        </trans-unit>
+        <trans-unit id="c788889c-dccf-4ed6-8636-03b3d2671fd0" xml:space="preserve">
+          <source>To migrate EDI artifacts associated with versions prior to BizTalk Server 2010, you must first upgrade to BizTalk Server 2010 and then migrate your EDI artifacts to BizTalk Services.</source>
+          <target state="new">To migrate EDI artifacts associated with versions prior to BizTalk Server 2010, you must first upgrade to BizTalk Server 2010 and then migrate your EDI artifacts to BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="a052d901-56e5-4289-be06-7ee688d25df1" xml:space="preserve">
+          <source>As with BizTalk Server, EDI processing in BizTalk Services is built around a Trading Partner Management (TPM) solution.</source>
+          <target state="new">As with BizTalk Server, EDI processing in BizTalk Services is built around a Trading Partner Management (TPM) solution.</target>
+        </trans-unit>
+        <trans-unit id="bf9e6c53-9416-461b-a84c-6fc04f214d83" xml:space="preserve">
+          <source>The TPM solution has the following key components:</source>
+          <target state="new">The TPM solution has the following key components:</target>
+        </trans-unit>
+        <trans-unit id="3317a8f0-e918-49a3-920b-b5cdd22e555a" xml:space="preserve">
+          <source>Trading partners, which represent organization in a B2B transaction.</source>
+          <target state="new">Trading partners, which represent organization in a B2B transaction.</target>
+        </trans-unit>
+        <trans-unit id="8385dd84-cdf9-4578-9954-c334f262293d" xml:space="preserve">
+          <source>Profiles, which represent divisions within a trading partner.</source>
+          <target state="new">Profiles, which represent divisions within a trading partner.</target>
+        </trans-unit>
+        <trans-unit id="d385a7f9-e76b-442a-b78a-00679fb62dd3" xml:space="preserve">
+          <source>Trading partner agreements (or agreements), which represent the business agreement between two partners/profiles.</source>
+          <target state="new">Trading partner agreements (or agreements), which represent the business agreement between two partners/profiles.</target>
+        </trans-unit>
+        <trans-unit id="487508a2-0479-4dbe-92b9-9420bcb4b022" xml:space="preserve">
+          <source>The following illustration depicts the similarities, as well as differences, between a BizTalk Server EDI solution and BizTalk Services EDI solution:</source>
+          <target state="new">The following illustration depicts the similarities, as well as differences, between a BizTalk Server EDI solution and BizTalk Services EDI solution:</target>
+        </trans-unit>
+        <trans-unit id="ec98be3d-e972-47fc-9241-e7910bdc2cf0" xml:space="preserve">
+          <source><bpt id="2ef2171a-5268-459b-820e-0ff23bd27fa1">&lt;linkText&gt;</bpt><ept id="2ef2171a-5268-459b-820e-0ff23bd27fa1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ef2171a-5268-459b-820e-0ff23bd27fa1">&lt;linkText&gt;</bpt><ept id="2ef2171a-5268-459b-820e-0ff23bd27fa1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e701fca-3c8b-4920-bdda-b3cef0efe8ff" xml:space="preserve">
+          <source>The key differences, and similarities, between an EDI solution flow in BizTalk Server and BizTalk Services are:</source>
+          <target state="new">The key differences, and similarities, between an EDI solution flow in BizTalk Server and BizTalk Services are:</target>
+        </trans-unit>
+        <trans-unit id="5586fd9d-6bf4-4d02-81f9-7454b6bead4a" xml:space="preserve">
+          <source>Just like BizTalk Server uses an EDIReceive pipeline to receive an EDI message and an EDISend pipeline to send an EDI message, BizTalk Services uses an EDI Receive bridge to receive and EDI Send bridge to send out EDI messages.</source>
+          <target state="new">Just like BizTalk Server uses an EDIReceive pipeline to receive an EDI message and an EDISend pipeline to send an EDI message, BizTalk Services uses an EDI Receive bridge to receive and EDI Send bridge to send out EDI messages.</target>
+        </trans-unit>
+        <trans-unit id="9bb80748-6c3b-4661-9b66-ce369f1e3ed4" xml:space="preserve">
+          <source>In BizTalk Server, the pipelines are associated with an agreement by using send or receive ports.</source>
+          <target state="new">In BizTalk Server, the pipelines are associated with an agreement by using send or receive ports.</target>
+        </trans-unit>
+        <trans-unit id="76858f2f-487c-4011-8aad-10681d3873c4" xml:space="preserve">
+          <source>In BizTalk Services, the agreement itself denotes the send or receive bridge.</source>
+          <target state="new">In BizTalk Services, the agreement itself denotes the send or receive bridge.</target>
+        </trans-unit>
+        <trans-unit id="ad7cfd9e-dccb-4a36-b491-404b8acca908" xml:space="preserve">
+          <source>In BizTalk Server, after the EDIReceive pipeline processes the EDI message, the message is dumped to a SQL Server database.</source>
+          <target state="new">In BizTalk Server, after the EDIReceive pipeline processes the EDI message, the message is dumped to a SQL Server database.</target>
+        </trans-unit>
+        <trans-unit id="fee60fdb-9e83-4e22-9a02-f8b89df1fd6a" xml:space="preserve">
+          <source>The EdiSend pipeline then picks up the message from the SQL Server database, processes it, and then sends it out to the trading partner.</source>
+          <target state="new">The EdiSend pipeline then picks up the message from the SQL Server database, processes it, and then sends it out to the trading partner.</target>
+        </trans-unit>
+        <trans-unit id="8bdb6e84-b5d7-4b6f-9995-ac4f4ff4b333" xml:space="preserve">
+          <source>In BizTalk Services, after the EDI receive bridge processes the EDI message, it routes the message to an external process.</source>
+          <target state="new">In BizTalk Services, after the EDI receive bridge processes the EDI message, it routes the message to an external process.</target>
+        </trans-unit>
+        <trans-unit id="a7a4e57d-4b12-456c-96bf-8f85188e6535" xml:space="preserve">
+          <source>The external process could be running on Microsoft Azure or on-premises.</source>
+          <target state="new">The external process could be running on Microsoft Azure or on-premises.</target>
+        </trans-unit>
+        <trans-unit id="67f05aba-0359-448c-8360-a689755ad1c5" xml:space="preserve">
+          <source>The external process should route the message to the EDI send bridge; the send bridge does not inherently pull the message.</source>
+          <target state="new">The external process should route the message to the EDI send bridge; the send bridge does not inherently pull the message.</target>
+        </trans-unit>
+        <trans-unit id="fd29b1c4-3351-4dcb-aae3-fb6edc9313df" xml:space="preserve">
+          <source>After processing the message, the EDI send bridge routes the message to the trading partner.</source>
+          <target state="new">After processing the message, the EDI send bridge routes the message to the trading partner.</target>
+        </trans-unit>
+        <trans-unit id="586d48ce-b569-4b97-bef4-2750ac5d0fa1" xml:space="preserve">
+          <source>BizTalk Services provides an easy-to-use configuration experience to quickly create and deploy a B2B agreement between trading partners without configuring any Microsoft Azure Compute instances (Web or Worker roles), any Microsoft Azure SQL Databases, or any Microsoft Azure storage accounts.</source>
+          <target state="new">BizTalk Services provides an easy-to-use configuration experience to quickly create and deploy a B2B agreement between trading partners without configuring any Microsoft Azure Compute instances (Web or Worker roles), any Microsoft Azure SQL Databases, or any Microsoft Azure storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="f9550f13-10b3-4a40-93a2-20adef12480e" xml:space="preserve">
+          <source>More complex scenarios will require tying in workflows or other service processing "around the edges" of a Trading Partner agreement, that is, before or after Trading Partner Agreement EDI bridge processing.</source>
+          <target state="new">More complex scenarios will require tying in workflows or other service processing "around the edges" of a Trading Partner agreement, that is, before or after Trading Partner Agreement EDI bridge processing.</target>
+        </trans-unit>
+        <trans-unit id="3b623d06-60cd-42c7-b8af-6fcada435d04" xml:space="preserve">
+          <source>In detail, the following sequences of events occur during an EDI message processing in BizTalk Services.</source>
+          <target state="new">In detail, the following sequences of events occur during an EDI message processing in BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="0050c7f5-9682-41e2-bff7-858f913ef931" xml:space="preserve">
+          <source>An EDI message is received from trading partner, Fabrikam.</source>
+          <target state="new">An EDI message is received from trading partner, Fabrikam.</target>
+        </trans-unit>
+        <trans-unit id="3ce6abf9-e190-4c30-9f6c-de015875b291" xml:space="preserve">
+          <source>For receiving EDI messages from trading partners, BizTalk Services supports transport protocols such as FTP, SFTP, AS2, and HTTP/S.</source>
+          <target state="new">For receiving EDI messages from trading partners, BizTalk Services supports transport protocols such as FTP, SFTP, AS2, and HTTP/S.</target>
+        </trans-unit>
+        <trans-unit id="f26869e6-58ea-4ed0-badf-d436eeaf16e4" xml:space="preserve">
+          <source>The trading partner agreement receive-side processing disassembles the EDI message to XML format.</source>
+          <target state="new">The trading partner agreement receive-side processing disassembles the EDI message to XML format.</target>
+        </trans-unit>
+        <trans-unit id="802c54b2-0fd7-4762-b08c-242313ee7cea" xml:space="preserve">
+          <source>You can route the disassembled EDI message (in XML format) to Service Bus endpoints such as a Service Bus Relay endpoint, Service Bus Topic, Service Bus Queue, or a BizTalk Services bridge.</source>
+          <target state="new">You can route the disassembled EDI message (in XML format) to Service Bus endpoints such as a Service Bus Relay endpoint, Service Bus Topic, Service Bus Queue, or a BizTalk Services bridge.</target>
+        </trans-unit>
+        <trans-unit id="826fe340-8d12-4608-9d19-163a8b27cef0" xml:space="preserve">
+          <source>The disassembled XML messages could then be received from the endpoint for further custom processing.</source>
+          <target state="new">The disassembled XML messages could then be received from the endpoint for further custom processing.</target>
+        </trans-unit>
+        <trans-unit id="d6d822f6-fe83-40dd-bf23-4ecb25e58396" xml:space="preserve">
+          <source>These endpoints could be processed by an on-premises component or a Microsoft Azure Compute instance to further process the message in a Windows Workflow (WF) or Windows Communication Foundation (WCF) service, for example.</source>
+          <target state="new">These endpoints could be processed by an on-premises component or a Microsoft Azure Compute instance to further process the message in a Windows Workflow (WF) or Windows Communication Foundation (WCF) service, for example.</target>
+        </trans-unit>
+        <trans-unit id="5e5aeb02-838f-456c-b9dd-4a6efc038b7f" xml:space="preserve">
+          <source>The "send-side processing" of the trading partner agreement then assembles the XML message into EDI format and sends it to trading partner, Contoso.</source>
+          <target state="new">The "send-side processing" of the trading partner agreement then assembles the XML message into EDI format and sends it to trading partner, Contoso.</target>
+        </trans-unit>
+        <trans-unit id="17260f09-e81f-4bf8-a1d7-4361bebc43d2" xml:space="preserve">
+          <source>For sending EDI messages to trading partners, BizTalk Services supports the same protocols as those used for receiving EDI messages.</source>
+          <target state="new">For sending EDI messages to trading partners, BizTalk Services supports the same protocols as those used for receiving EDI messages.</target>
+        </trans-unit>
+        <trans-unit id="d1cf9835-9c42-40a9-9fdf-7d50a70df75b" xml:space="preserve">
+          <source>This document further provides conceptual guidance on migrating some of the different BizTalk Server EDI artifacts to BizTalk Services.</source>
+          <target state="new">This document further provides conceptual guidance on migrating some of the different BizTalk Server EDI artifacts to BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="a88a6094-b843-43e3-9b74-7c704965f485" xml:space="preserve">
+          <source>In BizTalk Server you set up Receive Locations and Receive Ports to receive EDI/XML messages from trading partners, and you set up Send Ports to send EDI/XML messages to trading partner.</source>
+          <target state="new">In BizTalk Server you set up Receive Locations and Receive Ports to receive EDI/XML messages from trading partners, and you set up Send Ports to send EDI/XML messages to trading partner.</target>
+        </trans-unit>
+        <trans-unit id="089f0b8b-e728-4a3e-ba34-703746bcf148" xml:space="preserve">
+          <source>You then tie up these ports to a trading partner agreement using the BizTalk Server Administration console.</source>
+          <target state="new">You then tie up these ports to a trading partner agreement using the BizTalk Server Administration console.</target>
+        </trans-unit>
+        <trans-unit id="8e9c1e0c-7cb4-4452-bb26-bff0e55ebf50" xml:space="preserve">
+          <source>In BizTalk Services, the locations where you receive messages from trading partners and where you send messages to trading partners are configured as part of the trading partner agreement itself (as part of Transport Settings) in the BizTalk Services Portal.</source>
+          <target state="new">In BizTalk Services, the locations where you receive messages from trading partners and where you send messages to trading partners are configured as part of the trading partner agreement itself (as part of Transport Settings) in the BizTalk Services Portal.</target>
+        </trans-unit>
+        <trans-unit id="dcdd99cb-887d-420b-b85d-2f4b20e0cb47" xml:space="preserve">
+          <source>So you do not really have the concept of "send ports" and "receive locations", per se, in BizTalk Services.</source>
+          <target state="new">So you do not really have the concept of "send ports" and "receive locations", per se, in BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="0a8089a0-3bff-49ba-9f0f-65b7be309ccc" xml:space="preserve">
+          <source>For more information, see <bpt id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;linkText&gt;</bpt>Creating Agreements<ept id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;/linkText&gt;</ept><bpt id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;title&gt;</bpt><ept id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;linkText&gt;</bpt>Creating Agreements<ept id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;/linkText&gt;</ept><bpt id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;title&gt;</bpt><ept id="865577d3-0a96-493b-9940-02a02e7b49d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1389b939-7dee-4f0d-a90c-5a46ab4e53e3" xml:space="preserve">
+          <source>In BizTalk Server EDI, pipelines are message processing entities that can also include custom logic for specific processing capabilities, as required by the application.</source>
+          <target state="new">In BizTalk Server EDI, pipelines are message processing entities that can also include custom logic for specific processing capabilities, as required by the application.</target>
+        </trans-unit>
+        <trans-unit id="37a4170a-505d-448b-b70f-50c0bc8ad17d" xml:space="preserve">
+          <source>For BizTalk Services, the equivalent would an EDI bridge.</source>
+          <target state="new">For BizTalk Services, the equivalent would an EDI bridge.</target>
+        </trans-unit>
+        <trans-unit id="2cd51eae-c4bc-4d3d-a2c8-d01af0bc2824" xml:space="preserve">
+          <source>However in BizTalk Services, for now, the EDI bridges are "closed".</source>
+          <target state="new">However in BizTalk Services, for now, the EDI bridges are "closed".</target>
+        </trans-unit>
+        <trans-unit id="799d8d73-1bf1-41d6-8719-e3211eae2824" xml:space="preserve">
+          <source>That is, you cannot add your own custom activities to an EDI bridge.</source>
+          <target state="new">That is, you cannot add your own custom activities to an EDI bridge.</target>
+        </trans-unit>
+        <trans-unit id="3991b989-f063-4570-bb86-6a27e5c34c5c" xml:space="preserve">
+          <source>Any custom processing must be done outside the EDI bridge in your application, either before or after the message enters the bridge configured as part of the Trading Partner agreement.</source>
+          <target state="new">Any custom processing must be done outside the EDI bridge in your application, either before or after the message enters the bridge configured as part of the Trading Partner agreement.</target>
+        </trans-unit>
+        <trans-unit id="6923679c-13ab-4f3f-8b23-4950c0c30de4" xml:space="preserve">
+          <source>EAI bridges have the option to do custom processing.</source>
+          <target state="new">EAI bridges have the option to do custom processing.</target>
+        </trans-unit>
+        <trans-unit id="e1bd11bc-9887-474c-8fd1-528f60981cc4" xml:space="preserve">
+          <source>If you want custom processing, you can use EAI bridges before or after the message is processed by the EDI bridge.</source>
+          <target state="new">If you want custom processing, you can use EAI bridges before or after the message is processed by the EDI bridge.</target>
+        </trans-unit>
+        <trans-unit id="d4e64945-183a-4196-89a5-7249ce688fa5" xml:space="preserve">
+          <source>For more information, see <bpt id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;linkText&gt;</bpt>How to Include Custom Code in Bridges<ept id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;/linkText&gt;</ept><bpt id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;title&gt;</bpt><ept id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;linkText&gt;</bpt>How to Include Custom Code in Bridges<ept id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;/linkText&gt;</ept><bpt id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;title&gt;</bpt><ept id="051b16e6-a54f-4ab0-9927-6d890aeb69e4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="29bae6ee-82df-4df9-a180-7f71e8cf162f" xml:space="preserve">
+          <source>You can insert a publish/subscribe flow with custom code and/or using Service Bus messaging Queues and Topics before the trading partner agreement receives the message, or after the agreement processes the message and routes it to a Service Bus endpoint.</source>
+          <target state="new">You can insert a publish/subscribe flow with custom code and/or using Service Bus messaging Queues and Topics before the trading partner agreement receives the message, or after the agreement processes the message and routes it to a Service Bus endpoint.</target>
+        </trans-unit>
+        <trans-unit id="4001d06c-9fed-4f45-b2af-0ecf1d2f6580" xml:space="preserve">
+          <source>See <bpt id="4838893f-38b9-4957-b138-58b84df6aaa0">&lt;strong&gt;</bpt>Scenarios/Message Flow<ept id="4838893f-38b9-4957-b138-58b84df6aaa0">&lt;/strong&gt;</ept> in this topic for the message flow pattern.</source>
+          <target state="new">See <bpt id="4838893f-38b9-4957-b138-58b84df6aaa0">&lt;strong&gt;</bpt>Scenarios/Message Flow<ept id="4838893f-38b9-4957-b138-58b84df6aaa0">&lt;/strong&gt;</ept> in this topic for the message flow pattern.</target>
+        </trans-unit>
+        <trans-unit id="7eaee364-77a7-46c5-a608-087a40252971" xml:space="preserve">
+          <source>If you are familiar with the BizTalk Server 2010 Trading Partner Agreements used for EDI processing, then BizTalk Services trading partner agreements look very familiar.</source>
+          <target state="new">If you are familiar with the BizTalk Server 2010 Trading Partner Agreements used for EDI processing, then BizTalk Services trading partner agreements look very familiar.</target>
+        </trans-unit>
+        <trans-unit id="c9987231-5248-4ad1-95ac-eb5fc832c1ef" xml:space="preserve">
+          <source>Most of the agreement settings are the same and use the same terminology.</source>
+          <target state="new">Most of the agreement settings are the same and use the same terminology.</target>
+        </trans-unit>
+        <trans-unit id="62a8fd2b-ef18-479c-8b8b-f9fc8f87d2d9" xml:space="preserve">
+          <source>In some cases, the agreement settings are much simpler compared to the same settings in BizTalk Server.</source>
+          <target state="new">In some cases, the agreement settings are much simpler compared to the same settings in BizTalk Server.</target>
+        </trans-unit>
+        <trans-unit id="096e4644-c0a4-4df0-8f29-9842b1a26c4d" xml:space="preserve">
+          <source>Microsoft Azure BizTalk Services supports X12, EDIFACT, and AS2 transport.</source>
+          <target state="new">Microsoft Azure BizTalk Services supports X12, EDIFACT, and AS2 transport.</target>
+        </trans-unit>
+        <trans-unit id="3b2abf75-d8e0-4c10-9080-f64e55554214" xml:space="preserve">
+          <source>Microsoft Azure BizTalk Services also provides a <bpt id="80e99a22-ddaf-43d7-a4da-7f458d8f53ce">&lt;strong&gt;</bpt>TPM Data Migration<ept id="80e99a22-ddaf-43d7-a4da-7f458d8f53ce">&lt;/strong&gt;</ept> tool to migrate trading partners and agreements from BizTalk Server Trading Partner module to BizTalk Services Portal.</source>
+          <target state="new">Microsoft Azure BizTalk Services also provides a <bpt id="80e99a22-ddaf-43d7-a4da-7f458d8f53ce">&lt;strong&gt;</bpt>TPM Data Migration<ept id="80e99a22-ddaf-43d7-a4da-7f458d8f53ce">&lt;/strong&gt;</ept> tool to migrate trading partners and agreements from BizTalk Server Trading Partner module to BizTalk Services Portal.</target>
+        </trans-unit>
+        <trans-unit id="ba38488a-be19-47a7-81bf-b9313c8af716" xml:space="preserve">
+          <source>The TPM Data Migration tool is available as part of a Tools package, which can be downloaded from the <bpt id="6637a626-6464-4add-8454-f504556b3e96">&lt;linkText&gt;</bpt>MABS SDK<ept id="6637a626-6464-4add-8454-f504556b3e96">&lt;/linkText&gt;</ept><bpt id="6637a626-6464-4add-8454-f504556b3e96">&lt;title&gt;</bpt><ept id="6637a626-6464-4add-8454-f504556b3e96">&lt;/title&gt;</ept>.</source>
+          <target state="new">The TPM Data Migration tool is available as part of a Tools package, which can be downloaded from the <bpt id="6637a626-6464-4add-8454-f504556b3e96">&lt;linkText&gt;</bpt>MABS SDK<ept id="6637a626-6464-4add-8454-f504556b3e96">&lt;/linkText&gt;</ept><bpt id="6637a626-6464-4add-8454-f504556b3e96">&lt;title&gt;</bpt><ept id="6637a626-6464-4add-8454-f504556b3e96">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6d9b7716-2ffb-4d58-8d3c-ead7b4083575" xml:space="preserve">
+          <source>The package also includes a readme that provides instructions on how to use the tool, and basic troubleshooting information for the tool.</source>
+          <target state="new">The package also includes a readme that provides instructions on how to use the tool, and basic troubleshooting information for the tool.</target>
+        </trans-unit>
+        <trans-unit id="acab9c2d-fb7f-44ac-8903-72a68186843d" xml:space="preserve">
+          <source>BizTalk Services provides EDI schemas which can be used in BizTalk Services solutions.</source>
+          <target state="new">BizTalk Services provides EDI schemas which can be used in BizTalk Services solutions.</target>
+        </trans-unit>
+        <trans-unit id="02dc3090-98d5-4ea4-92b6-6d6807dace24" xml:space="preserve">
+          <source>In addition, BizTalk Server EDI schemas can also be used with BizTalk Services because the root node of the EDI schema is same across BizTalk Server as well as BizTalk Services.</source>
+          <target state="new">In addition, BizTalk Server EDI schemas can also be used with BizTalk Services because the root node of the EDI schema is same across BizTalk Server as well as BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="a86bf2ec-7d7c-4ead-a8fc-80bbb557ceaf" xml:space="preserve">
+          <source>Thus, you will be able to directly take your BizTalk Server EDI schemas and use them in the EDI solutions that you develop using BizTalk Services.</source>
+          <target state="new">Thus, you will be able to directly take your BizTalk Server EDI schemas and use them in the EDI solutions that you develop using BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="06616874-4161-4eaa-9313-c299caaa747a" xml:space="preserve">
+          <source>You can also download the schemas from the <bpt id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;linkText&gt;</bpt>MABS SDK<ept id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;/linkText&gt;</ept><bpt id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;title&gt;</bpt><ept id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can also download the schemas from the <bpt id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;linkText&gt;</bpt>MABS SDK<ept id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;/linkText&gt;</ept><bpt id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;title&gt;</bpt><ept id="6bdaf0c6-e54a-42fd-94d6-88e8f93fb4f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7cd56058-5a9e-4161-bcba-0eee596da86a" xml:space="preserve">
+          <source>Maps in BizTalk Server are called Transforms in BizTalk Services.</source>
+          <target state="new">Maps in BizTalk Server are called Transforms in BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="aa929055-ad0a-4a03-bcf5-690bcbf418a0" xml:space="preserve">
+          <source>Migrating maps from BizTalk Server to BizTalk Services could be one of the more complex tasks to achieve (depending on map complexity).</source>
+          <target state="new">Migrating maps from BizTalk Server to BizTalk Services could be one of the more complex tasks to achieve (depending on map complexity).</target>
+        </trans-unit>
+        <trans-unit id="45c13826-8442-4eca-86e2-467e23ccfab8" xml:space="preserve">
+          <source>The mapping tool used for BizTalk Services is different from the BizTalk mapper.</source>
+          <target state="new">The mapping tool used for BizTalk Services is different from the BizTalk mapper.</target>
+        </trans-unit>
+        <trans-unit id="848e1d0c-2f00-400b-b6e7-12f8612f65fb" xml:space="preserve">
+          <source>Even though the mapper looks mostly the same, the underlying map format is different.</source>
+          <target state="new">Even though the mapper looks mostly the same, the underlying map format is different.</target>
+        </trans-unit>
+        <trans-unit id="960ac9ce-7b1f-4953-b2c9-d6e88dcd583a" xml:space="preserve">
+          <source>The functoids (called <bpt id="4bcccb2c-989c-4a7b-9f3f-91ca4763c20e">&lt;strong&gt;</bpt>Map Operations<ept id="4bcccb2c-989c-4a7b-9f3f-91ca4763c20e">&lt;/strong&gt;</ept> in BizTalk Services) available to the users are different as well.</source>
+          <target state="new">The functoids (called <bpt id="4bcccb2c-989c-4a7b-9f3f-91ca4763c20e">&lt;strong&gt;</bpt>Map Operations<ept id="4bcccb2c-989c-4a7b-9f3f-91ca4763c20e">&lt;/strong&gt;</ept> in BizTalk Services) available to the users are different as well.</target>
+        </trans-unit>
+        <trans-unit id="a4383262-0518-4b92-ba75-1d9496cc0f7e" xml:space="preserve">
+          <source>In effect, you cannot directly use a BizTalk map in BizTalk Services.</source>
+          <target state="new">In effect, you cannot directly use a BizTalk map in BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="21c147ad-a933-42e4-8291-1e75ff7db1aa" xml:space="preserve">
+          <source>Also, not all the functoids available in BizTalk Server are available as map operations in BizTalk Services.</source>
+          <target state="new">Also, not all the functoids available in BizTalk Server are available as map operations in BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="f184ebcc-69d8-4c65-a76f-137e8d4c815f" xml:space="preserve">
+          <source>While the list of Transform map operations available may seem quite different from the BizTalk Server mapper, BizTalk Services Transforms have new ways of accomplishing the same tasks.</source>
+          <target state="new">While the list of Transform map operations available may seem quite different from the BizTalk Server mapper, BizTalk Services Transforms have new ways of accomplishing the same tasks.</target>
+        </trans-unit>
+        <trans-unit id="6878d0b4-7043-4660-962b-3f0c10228333" xml:space="preserve">
+          <source>For example, BizTalk Services Transforms have <bpt id="10dad4c9-2bfb-45a1-ba7a-67102f2d24bf">&lt;strong&gt;</bpt>List Operations<ept id="10dad4c9-2bfb-45a1-ba7a-67102f2d24bf">&lt;/strong&gt;</ept> available.</source>
+          <target state="new">For example, BizTalk Services Transforms have <bpt id="10dad4c9-2bfb-45a1-ba7a-67102f2d24bf">&lt;strong&gt;</bpt>List Operations<ept id="10dad4c9-2bfb-45a1-ba7a-67102f2d24bf">&lt;/strong&gt;</ept> available.</target>
+        </trans-unit>
+        <trans-unit id="b774ba0d-cfa2-47f2-b041-fceaa733e132" xml:space="preserve">
+          <source>This was not available in the BizTalk mapper.</source>
+          <target state="new">This was not available in the BizTalk mapper.</target>
+        </trans-unit>
+        <trans-unit id="1201c481-42f9-4eb4-a2ff-e216f4068258" xml:space="preserve">
+          <source>The <bpt id="055b911a-38de-4237-b23d-0c8045113e45">&lt;strong&gt;</bpt>List Operations<ept id="055b911a-38de-4237-b23d-0c8045113e45">&lt;/strong&gt;</ept> enable you to create and operate on a "List", where a list is a set of items (also known as "rows") and where each item can have multiple members (also known as "columns").</source>
+          <target state="new">The <bpt id="055b911a-38de-4237-b23d-0c8045113e45">&lt;strong&gt;</bpt>List Operations<ept id="055b911a-38de-4237-b23d-0c8045113e45">&lt;/strong&gt;</ept> enable you to create and operate on a "List", where a list is a set of items (also known as "rows") and where each item can have multiple members (also known as "columns").</target>
+        </trans-unit>
+        <trans-unit id="215c9636-edd3-4cba-9ed0-630a6d91ee27" xml:space="preserve">
+          <source>You can sort the list, select items based on a condition, etc.</source>
+          <target state="new">You can sort the list, select items based on a condition, etc.</target>
+        </trans-unit>
+        <trans-unit id="7767f7ad-63c0-4a22-a129-968f32a30ea9" xml:space="preserve">
+          <source>Another example of new functionality in BizTalk Services Transforms are the <bpt id="0b60f64f-c401-48db-b241-e10918d84bfa">&lt;strong&gt;</bpt>Loop Operations<ept id="0b60f64f-c401-48db-b241-e10918d84bfa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Another example of new functionality in BizTalk Services Transforms are the <bpt id="0b60f64f-c401-48db-b241-e10918d84bfa">&lt;strong&gt;</bpt>Loop Operations<ept id="0b60f64f-c401-48db-b241-e10918d84bfa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5340f92b-d2a5-48dc-ab97-3cb80471b635" xml:space="preserve">
+          <source>It is difficult to create nested loops in the BizTalk Server mapper.</source>
+          <target state="new">It is difficult to create nested loops in the BizTalk Server mapper.</target>
+        </trans-unit>
+        <trans-unit id="105ccfa3-cb4a-4509-af16-1483a1631a08" xml:space="preserve">
+          <source>Thus, the Loop map operations are added for the BizTalk Services Transforms.</source>
+          <target state="new">Thus, the Loop map operations are added for the BizTalk Services Transforms.</target>
+        </trans-unit>
+        <trans-unit id="b10c8a36-fd0a-487f-8431-d05e1d9e1677" xml:space="preserve">
+          <source>Yet another example is the <bpt id="29136e49-59bb-4716-8ea2-2da18f9f9034">&lt;strong&gt;</bpt>If-Then-Else<ept id="29136e49-59bb-4716-8ea2-2da18f9f9034">&lt;/strong&gt;</ept> Expression map operation.</source>
+          <target state="new">Yet another example is the <bpt id="29136e49-59bb-4716-8ea2-2da18f9f9034">&lt;strong&gt;</bpt>If-Then-Else<ept id="29136e49-59bb-4716-8ea2-2da18f9f9034">&lt;/strong&gt;</ept> Expression map operation.</target>
+        </trans-unit>
+        <trans-unit id="5991025c-b2ea-4390-9709-951e5ff01672" xml:space="preserve">
+          <source>Doing an if-then-else operation was possible in the BizTalk mapper, but it required multiple functoids to accomplish a seemingly simple task.</source>
+          <target state="new">Doing an if-then-else operation was possible in the BizTalk mapper, but it required multiple functoids to accomplish a seemingly simple task.</target>
+        </trans-unit>
+        <trans-unit id="76fac857-e46e-42f7-8dab-ae059740e4a1" xml:space="preserve">
+          <source>Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms.</source>
+          <target state="new">Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms.</target>
+        </trans-unit>
+        <trans-unit id="a68f3fa4-3534-4174-8cd3-7f00e6def66e" xml:space="preserve">
+          <source>The <bpt id="b79c6344-7d3e-4068-9bc7-db587efcb597">&lt;strong&gt;</bpt>BTMMigrationTool<ept id="b79c6344-7d3e-4068-9bc7-db587efcb597">&lt;/strong&gt;</ept> is available as part of the <bpt id="e85aafa4-ae0b-410d-9af5-12ddcae49c49">&lt;strong&gt;</bpt>Tools<ept id="e85aafa4-ae0b-410d-9af5-12ddcae49c49">&lt;/strong&gt;</ept> package provided with the BizTalk Services SDK and can be downloaded from <bpt id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;linkText&gt;</bpt>here<ept id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;/linkText&gt;</ept><bpt id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;title&gt;</bpt><ept id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;/title&gt;</ept>.</source>
+          <target state="new">The <bpt id="b79c6344-7d3e-4068-9bc7-db587efcb597">&lt;strong&gt;</bpt>BTMMigrationTool<ept id="b79c6344-7d3e-4068-9bc7-db587efcb597">&lt;/strong&gt;</ept> is available as part of the <bpt id="e85aafa4-ae0b-410d-9af5-12ddcae49c49">&lt;strong&gt;</bpt>Tools<ept id="e85aafa4-ae0b-410d-9af5-12ddcae49c49">&lt;/strong&gt;</ept> package provided with the BizTalk Services SDK and can be downloaded from <bpt id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;linkText&gt;</bpt>here<ept id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;/linkText&gt;</ept><bpt id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;title&gt;</bpt><ept id="8ab45d0f-da1d-4f88-ba97-43345734cde3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e7c51ec9-4177-4a26-8d2d-19231e5191da" xml:space="preserve">
+          <source>For more information about the tool, see <bpt id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;linkText&gt;</bpt>Convert a BizTalk map to a BizTalk Services Transform<ept id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;/linkText&gt;</ept><bpt id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;title&gt;</bpt><ept id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the tool, see <bpt id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;linkText&gt;</bpt>Convert a BizTalk map to a BizTalk Services Transform<ept id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;/linkText&gt;</ept><bpt id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;title&gt;</bpt><ept id="8c6df42f-5ecd-40d8-a6ee-83ff76c56290">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18a33c07-be1e-4623-b1a2-7b1e40f903a0" xml:space="preserve">
+          <source>You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to migrate BizTalk Server maps to BizTalk Services transforms.</source>
+          <target state="new">You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to migrate BizTalk Server maps to BizTalk Services transforms.</target>
+        </trans-unit>
+        <trans-unit id="52a34661-e22e-43b8-a323-7e4423fbb89d" xml:space="preserve">
+          <source>The sample is available <bpt id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;linkText&gt;</bpt>here<ept id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;/linkText&gt;</ept><bpt id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;title&gt;</bpt><ept id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;/title&gt;</ept>.</source>
+          <target state="new">The sample is available <bpt id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;linkText&gt;</bpt>here<ept id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;/linkText&gt;</ept><bpt id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;title&gt;</bpt><ept id="c687870d-fc21-48be-82c5-ff7f04985c12">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8b0e8b0-eb48-4293-9c2d-79adb57409f2" xml:space="preserve">
+          <source>If you need to migrate BizTalk Server orchestration processing to Microsoft Azure, the orchestrations would need to be rewritten because Microsoft Azure does not support running BizTalk Server orchestrations.</source>
+          <target state="new">If you need to migrate BizTalk Server orchestration processing to Microsoft Azure, the orchestrations would need to be rewritten because Microsoft Azure does not support running BizTalk Server orchestrations.</target>
+        </trans-unit>
+        <trans-unit id="fec0de0a-ab85-48d4-92ca-85ac60b18ca9" xml:space="preserve">
+          <source>You could rewrite the orchestration functionality in a Windows Workflow Foundation 4.0 (WF4) service.</source>
+          <target state="new">You could rewrite the orchestration functionality in a Windows Workflow Foundation 4.0 (WF4) service.</target>
+        </trans-unit>
+        <trans-unit id="5029a229-8203-4d36-9728-c73b2073ee25" xml:space="preserve">
+          <source>This would be a complete rewrite as there is currently no migration from BizTalk Server orchestrations to WF4.</source>
+          <target state="new">This would be a complete rewrite as there is currently no migration from BizTalk Server orchestrations to WF4.</target>
+        </trans-unit>
+        <trans-unit id="52af87d0-410d-4a5e-95cc-3a583158a4a5" xml:space="preserve">
+          <source>Here are some resources for Windows Workflow:</source>
+          <target state="new">Here are some resources for Windows Workflow:</target>
+        </trans-unit>
+        <trans-unit id="ad8ec86a-d7fe-482d-8120-d4b2ae67b121" xml:space="preserve">
+          <source><bpt id="2a05e2b5-dd7d-4f91-b44f-26a59b5bd49e">&lt;em&gt;</bpt>How to integrate a WCF Workflow Service with Service Bus Queues and Topics<ept id="2a05e2b5-dd7d-4f91-b44f-26a59b5bd49e">&lt;/em&gt;</ept> by Paolo Salvatori.</source>
+          <target state="new"><bpt id="2a05e2b5-dd7d-4f91-b44f-26a59b5bd49e">&lt;em&gt;</bpt>How to integrate a WCF Workflow Service with Service Bus Queues and Topics<ept id="2a05e2b5-dd7d-4f91-b44f-26a59b5bd49e">&lt;/em&gt;</ept> by Paolo Salvatori.</target>
+        </trans-unit>
+        <trans-unit id="4cf778db-8754-420f-b912-8441b884e9bb" xml:space="preserve">
+          <source>See <bpt id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;linkText&gt;</bpt>here<ept id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;/linkText&gt;</ept><bpt id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;title&gt;</bpt><ept id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;linkText&gt;</bpt>here<ept id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;/linkText&gt;</ept><bpt id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;title&gt;</bpt><ept id="c158dfe9-4720-4764-8281-b9efafea3a8a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="77bfb1b0-9ecc-47a2-b6f6-18bec75eee3e" xml:space="preserve">
+          <source><bpt id="4a256bc3-f55f-421d-8a24-e001867743bc">&lt;em&gt;</bpt>Building apps with Windows Workflow Foundation and Azure<ept id="4a256bc3-f55f-421d-8a24-e001867743bc">&lt;/em&gt;</ept> session from the Build 2011 conference.</source>
+          <target state="new"><bpt id="4a256bc3-f55f-421d-8a24-e001867743bc">&lt;em&gt;</bpt>Building apps with Windows Workflow Foundation and Azure<ept id="4a256bc3-f55f-421d-8a24-e001867743bc">&lt;/em&gt;</ept> session from the Build 2011 conference.</target>
+        </trans-unit>
+        <trans-unit id="e1f0b651-c256-46a1-9993-d884cb8b9d09" xml:space="preserve">
+          <source>See <bpt id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;linkText&gt;</bpt>here<ept id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;/linkText&gt;</ept><bpt id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;title&gt;</bpt><ept id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;linkText&gt;</bpt>here<ept id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;/linkText&gt;</ept><bpt id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;title&gt;</bpt><ept id="c273d39f-96ac-4319-a5a5-fb1aa6336f5c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6aaf1ff-3386-482c-bca2-778a3fad1879" xml:space="preserve">
+          <source><bpt id="4bfed4b3-0f6f-4a3d-af74-2a33faa2c735">&lt;em&gt;</bpt>Windows Workflow Foundation Developer Center on MSDN<ept id="4bfed4b3-0f6f-4a3d-af74-2a33faa2c735">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="4bfed4b3-0f6f-4a3d-af74-2a33faa2c735">&lt;em&gt;</bpt>Windows Workflow Foundation Developer Center on MSDN<ept id="4bfed4b3-0f6f-4a3d-af74-2a33faa2c735">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4dc562fe-8487-494f-ae52-2a6846a91475" xml:space="preserve">
+          <source>See <bpt id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;linkText&gt;</bpt>here<ept id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;/linkText&gt;</ept><bpt id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;title&gt;</bpt><ept id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;linkText&gt;</bpt>here<ept id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;/linkText&gt;</ept><bpt id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;title&gt;</bpt><ept id="72bc5ad4-df7b-454a-923c-e0892ee11363">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1f973552-d9af-4d7b-99dd-e458954f3cd0" xml:space="preserve">
+          <source><bpt id="f60cb7f2-b861-464d-b6de-d91df7c3f95a">&lt;em&gt;</bpt>Windows Workflow Foundation 4 (WF4) documentation on MSDN<ept id="f60cb7f2-b861-464d-b6de-d91df7c3f95a">&lt;/em&gt;</ept>.</source>
+          <target state="new"><bpt id="f60cb7f2-b861-464d-b6de-d91df7c3f95a">&lt;em&gt;</bpt>Windows Workflow Foundation 4 (WF4) documentation on MSDN<ept id="f60cb7f2-b861-464d-b6de-d91df7c3f95a">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="edeb2a91-9941-4b10-a4d0-ed53b97b30a0" xml:space="preserve">
+          <source>See [here](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).</source>
+          <target state="new">See [here](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).</target>
+        </trans-unit>
+        <trans-unit id="4cc48ecd-478c-418d-a189-fedf44fb26d5" xml:space="preserve">
+          <source>Following are a few considerations that you must make while using BizTalk Services.</source>
+          <target state="new">Following are a few considerations that you must make while using BizTalk Services.</target>
+        </trans-unit>
+        <trans-unit id="61a5b7f1-7f0b-4f4a-b321-12c84a921ed5" xml:space="preserve">
+          <source>BizTalk Server EDI processing has the concept of "Fallback Agreements".</source>
+          <target state="new">BizTalk Server EDI processing has the concept of "Fallback Agreements".</target>
+        </trans-unit>
+        <trans-unit id="59cf3bdd-e15e-48d1-91fc-c6be4c9dd036" xml:space="preserve">
+          <source>BizTalk Services does <bpt id="599ea89e-d03d-4dfd-8153-5874e1e4903c">&lt;strong&gt;</bpt>not<ept id="599ea89e-d03d-4dfd-8153-5874e1e4903c">&lt;/strong&gt;</ept> have a Fallback Agreement concept so far.</source>
+          <target state="new">BizTalk Services does <bpt id="599ea89e-d03d-4dfd-8153-5874e1e4903c">&lt;strong&gt;</bpt>not<ept id="599ea89e-d03d-4dfd-8153-5874e1e4903c">&lt;/strong&gt;</ept> have a Fallback Agreement concept so far.</target>
+        </trans-unit>
+        <trans-unit id="7939b895-a9cb-44af-a265-318d8f5df6d3" xml:space="preserve">
+          <source>See BizTalk documentation topics <bpt id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;linkText&gt;</bpt>The Role of Agreements in EDI Processing<ept id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;/linkText&gt;</ept><bpt id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;title&gt;</bpt><ept id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;/title&gt;</ept> and <bpt id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;linkText&gt;</bpt>Configuring Global or Fallback Agreement Properties<ept id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;/linkText&gt;</ept><bpt id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;title&gt;</bpt><ept id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;/title&gt;</ept> for information on how Fallback Agreements are used in BizTalk Server.</source>
+          <target state="new">See BizTalk documentation topics <bpt id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;linkText&gt;</bpt>The Role of Agreements in EDI Processing<ept id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;/linkText&gt;</ept><bpt id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;title&gt;</bpt><ept id="5fadad39-75e8-4dc8-879b-2803cf9eafa3">&lt;/title&gt;</ept> and <bpt id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;linkText&gt;</bpt>Configuring Global or Fallback Agreement Properties<ept id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;/linkText&gt;</ept><bpt id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;title&gt;</bpt><ept id="ebd98d06-c2a3-4702-8f2b-5300fb67be58">&lt;/title&gt;</ept> for information on how Fallback Agreements are used in BizTalk Server.</target>
+        </trans-unit>
+        <trans-unit id="dc77ef6c-f0ac-4804-a008-8b93193fa1cb" xml:space="preserve">
+          <source>BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model.</source>
+          <target state="new">BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model.</target>
+        </trans-unit>
+        <trans-unit id="5e56bedf-5f5e-4305-9144-1c1b4bb457c6" xml:space="preserve">
+          <source>Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.</source>
+          <target state="new">Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.</target>
+        </trans-unit>
+        <trans-unit id="25c18feb-ae0b-4982-8afb-4242562421ba" xml:space="preserve">
+          <source>Microsoft Azure BizTalk Services is updated at regular milestones to add more features and capabilities.</source>
+          <target state="new">Microsoft Azure BizTalk Services is updated at regular milestones to add more features and capabilities.</target>
+        </trans-unit>
+        <trans-unit id="c8dd8072-1bf0-463d-bb79-09d886d3d9d0" xml:space="preserve">
+          <source>With each update, we look forward to supporting increased functionality to facilitate creating end-to-end solutions using BizTalk Services and other Azure technologies.</source>
+          <target state="new">With each update, we look forward to supporting increased functionality to facilitate creating end-to-end solutions using BizTalk Services and other Azure technologies.</target>
+        </trans-unit>
+        <trans-unit id="31467313-f42f-4597-bcb2-c90e3b0bcbbc" xml:space="preserve">
+          <source><bpt id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;linkText&gt;</bpt>Developing Enterprise Applications with Azure<ept id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;/linkText&gt;</ept><bpt id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;title&gt;</bpt><ept id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;linkText&gt;</bpt>Developing Enterprise Applications with Azure<ept id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;/linkText&gt;</ept><bpt id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;title&gt;</bpt><ept id="ac0b08d1-ea82-46f0-a191-09ed4af9628a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d601726d-45ac-44ed-8797-54f4b2a16003" xml:space="preserve">
+          <source>./media/biztalk-migrating-to-edi-guide/IC719455.png</source>
+          <target state="new">./media/biztalk-migrating-to-edi-guide/IC719455.png</target>
+        </trans-unit>
+      </group>
+      <group id="c7573e52-f6e7-49fd-99b0-94d0b173e285" />
+    </body>
+  </file>
+</xliff>

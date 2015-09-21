@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ec2d587e-9653-44b6-aab7-12ac0bca700c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ec2d587e-9653-44b6-aab7-12ac0bca700c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2d754d93-65fa-44c2-808d-fe2bdb43f4d0">
+        <trans-unit id="0381a0a8-a626-4263-8d66-32d3e2050776" xml:space="preserve">
+          <source>Get started with an HPC Pack cluster to run Excel and SOA workloads | Microsoft Azure</source>
+          <target state="new">Get started with an HPC Pack cluster to run Excel and SOA workloads | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4416a475-e45f-4399-b25f-c58740a14197" xml:space="preserve">
+          <source>.</source>
+          <target state="new">.</target>
+        </trans-unit>
+        <trans-unit id="71f70702-a933-4d6e-9363-3991e459d491" xml:space="preserve">
+          <source>This article shows you how to deploy an HPC Pack cluster on Azure infrastructure services (IaaS) using an Azure quickstart template or an Azure PowerShell deployment script.</source>
+          <target state="new">This article shows you how to deploy an HPC Pack cluster on Azure infrastructure services (IaaS) using an Azure quickstart template or an Azure PowerShell deployment script.</target>
+        </trans-unit>
+        <trans-unit id="97ef9707-f791-4e18-9c39-2c2ef31ed27a" xml:space="preserve">
+          <source>You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack.</source>
+          <target state="new">You'll use Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack.</target>
+        </trans-unit>
+        <trans-unit id="18faf91a-918d-4114-983e-049ef5323805" xml:space="preserve">
+          <source>You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer.</source>
+          <target state="new">You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer.</target>
+        </trans-unit>
+        <trans-unit id="06e26817-7f6d-45a2-8be1-9c47bc3d3af4" xml:space="preserve">
+          <source>The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.</source>
+          <target state="new">The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.</target>
+        </trans-unit>
+        <trans-unit id="488bb155-7e77-405b-a64a-ec924a5e2902" xml:space="preserve">
+          <source>At a high level the following diagram shows the HPC Pack cluster you'll create.</source>
+          <target state="new">At a high level the following diagram shows the HPC Pack cluster you'll create.</target>
+        </trans-unit>
+        <trans-unit id="647c8722-4694-46b7-a611-7500f531763e" xml:space="preserve">
+          <source><bpt id="54aae7e7-8299-429d-b25c-6a0a92ab2fed">&lt;linkText&gt;</bpt>HPC cluster with nodes running Excel workloads<ept id="54aae7e7-8299-429d-b25c-6a0a92ab2fed">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="54aae7e7-8299-429d-b25c-6a0a92ab2fed">&lt;linkText&gt;</bpt>HPC cluster with nodes running Excel workloads<ept id="54aae7e7-8299-429d-b25c-6a0a92ab2fed">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e3b65e5-2d70-4413-afe5-e1b2d474f218" xml:space="preserve">
+          <source><bpt id="a0c5e375-3d89-4a3e-a41d-31163ebba50a">&lt;strong&gt;</bpt>Client computer<ept id="a0c5e375-3d89-4a3e-a41d-31163ebba50a">&lt;/strong&gt;</ept> - You'll need a Windows-based client computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and to submit sample Excel and SOA jobs to the cluster.</source>
+          <target state="new"><bpt id="a0c5e375-3d89-4a3e-a41d-31163ebba50a">&lt;strong&gt;</bpt>Client computer<ept id="a0c5e375-3d89-4a3e-a41d-31163ebba50a">&lt;/strong&gt;</ept> - You'll need a Windows-based client computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and to submit sample Excel and SOA jobs to the cluster.</target>
+        </trans-unit>
+        <trans-unit id="5bc0f2ea-70ab-4fcc-98b2-b576fa98682a" xml:space="preserve">
+          <source><bpt id="f86546af-0ee3-4e5f-8bfa-c9a3163893af">&lt;strong&gt;</bpt>Azure subscription<ept id="f86546af-0ee3-4e5f-8bfa-c9a3163893af">&lt;/strong&gt;</ept> - If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new"><bpt id="f86546af-0ee3-4e5f-8bfa-c9a3163893af">&lt;strong&gt;</bpt>Azure subscription<ept id="f86546af-0ee3-4e5f-8bfa-c9a3163893af">&lt;/strong&gt;</ept> - If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="e4e5d379-f019-4f17-af98-d3efcabf2941" xml:space="preserve">
+          <source>For details, see <bpt id="e3558403-f368-4725-8b31-6d2262623404">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="e3558403-f368-4725-8b31-6d2262623404">&lt;/linkText&gt;</ept><bpt id="e3558403-f368-4725-8b31-6d2262623404">&lt;title&gt;</bpt><ept id="e3558403-f368-4725-8b31-6d2262623404">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="e3558403-f368-4725-8b31-6d2262623404">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="e3558403-f368-4725-8b31-6d2262623404">&lt;/linkText&gt;</ept><bpt id="e3558403-f368-4725-8b31-6d2262623404">&lt;title&gt;</bpt><ept id="e3558403-f368-4725-8b31-6d2262623404">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="49a52b60-e4aa-404d-8437-33c5f767c3a6" xml:space="preserve">
+          <source><bpt id="3d7123f3-02ee-4d7b-8ee3-7e36b5e300cd">&lt;strong&gt;</bpt>Cores quota<ept id="3d7123f3-02ee-4d7b-8ee3-7e36b5e300cd">&lt;/strong&gt;</ept> - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes.</source>
+          <target state="new"><bpt id="3d7123f3-02ee-4d7b-8ee3-7e36b5e300cd">&lt;strong&gt;</bpt>Cores quota<ept id="3d7123f3-02ee-4d7b-8ee3-7e36b5e300cd">&lt;/strong&gt;</ept> - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes.</target>
+        </trans-unit>
+        <trans-unit id="ac5a1a74-e77c-4be4-b214-468aac747c15" xml:space="preserve">
+          <source>If you are using an Azure quickstart template, be aware that the cores quota in Resource Manager is per Azure region, and you might need to increase the quota in a specific region.</source>
+          <target state="new">If you are using an Azure quickstart template, be aware that the cores quota in Resource Manager is per Azure region, and you might need to increase the quota in a specific region.</target>
+        </trans-unit>
+        <trans-unit id="eaf88c2a-7676-4f76-ac72-0aa1dbf51714" xml:space="preserve">
+          <source>See <bpt id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;linkText&gt;</bpt>Azure subscription limits, quotas, and constraints<ept id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;/linkText&gt;</ept><bpt id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;title&gt;</bpt><ept id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;/title&gt;</ept>.</source>
+          <target state="new">See <bpt id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;linkText&gt;</bpt>Azure subscription limits, quotas, and constraints<ept id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;/linkText&gt;</ept><bpt id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;title&gt;</bpt><ept id="5f2b7335-dae3-47c1-9905-0314441a1cb7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="10ac5159-9539-4348-9003-66902b37f4ba" xml:space="preserve">
+          <source>To increase a quota, you can <bpt id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;linkText&gt;</bpt>open an online customer support request<ept id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;/linkText&gt;</ept><bpt id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;title&gt;</bpt><ept id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;/title&gt;</ept> at no charge.</source>
+          <target state="new">To increase a quota, you can <bpt id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;linkText&gt;</bpt>open an online customer support request<ept id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;/linkText&gt;</ept><bpt id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;title&gt;</bpt><ept id="0a1b0243-a04f-4e84-962d-0434f8320669">&lt;/title&gt;</ept> at no charge.</target>
+        </trans-unit>
+        <trans-unit id="21f7bba1-0d40-4fe4-b4c6-2687bc13865d" xml:space="preserve">
+          <source>We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure Preview Portal; and second, using an Azure PowerShell deployment script.</source>
+          <target state="new">We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure Preview Portal; and second, using an Azure PowerShell deployment script.</target>
+        </trans-unit>
+        <trans-unit id="ac3c4131-d1f9-4f0c-89e7-1b35e5b84ab0" xml:space="preserve">
+          <source>Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure Preview portal.</source>
+          <target state="new">Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="c3dff114-2564-4dc4-88a2-3b24f40e1ad0" xml:space="preserve">
+          <source>When you open the template in the portal, you get a simple UI where you enter the settings for your cluster.</source>
+          <target state="new">When you open the template in the portal, you get a simple UI where you enter the settings for your cluster.</target>
+        </trans-unit>
+        <trans-unit id="10279b5e-a6c8-453a-8ce6-61920dc3d91c" xml:space="preserve">
+          <source>Here are the steps.</source>
+          <target state="new">Here are the steps.</target>
+        </trans-unit>
+        <trans-unit id="2a2ea17f-8fcf-4251-aae9-9fe2e26e1bf3" xml:space="preserve">
+          <source>Visit the <bpt id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;linkText&gt;</bpt>Create HPC Cluster template page on GitHub<ept id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;/linkText&gt;</ept><bpt id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;title&gt;</bpt><ept id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;/title&gt;</ept>.</source>
+          <target state="new">Visit the <bpt id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;linkText&gt;</bpt>Create HPC Cluster template page on GitHub<ept id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;/linkText&gt;</ept><bpt id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;title&gt;</bpt><ept id="00589f2a-da0d-4624-ae63-9d156d547591">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9e726326-037f-4aa4-bd82-60a2d6749121" xml:space="preserve">
+          <source>If you want, review information about the template and the source code.</source>
+          <target state="new">If you want, review information about the template and the source code.</target>
+        </trans-unit>
+        <trans-unit id="d44231cf-7124-45aa-a17d-724fd43b5a01" xml:space="preserve">
+          <source>Click <bpt id="ec6510cd-82b8-4139-9bed-b1082a828d61">&lt;strong&gt;</bpt>Deploy to Azure<ept id="ec6510cd-82b8-4139-9bed-b1082a828d61">&lt;/strong&gt;</ept> to start a deployment with the template in the Azure Preview portal.</source>
+          <target state="new">Click <bpt id="ec6510cd-82b8-4139-9bed-b1082a828d61">&lt;strong&gt;</bpt>Deploy to Azure<ept id="ec6510cd-82b8-4139-9bed-b1082a828d61">&lt;/strong&gt;</ept> to start a deployment with the template in the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="b08ed676-d36b-4f95-a2b9-34f30c9e9d83" xml:space="preserve">
+          <source><bpt id="29efd85b-1454-4eff-96b4-57c35376aa1b">&lt;linkText&gt;</bpt>Deploy template to Azure<ept id="29efd85b-1454-4eff-96b4-57c35376aa1b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29efd85b-1454-4eff-96b4-57c35376aa1b">&lt;linkText&gt;</bpt>Deploy template to Azure<ept id="29efd85b-1454-4eff-96b4-57c35376aa1b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3b8dc019-0cd4-4824-9b84-6cb10dc02a0c" xml:space="preserve">
+          <source>In the portal, follow these steps to enter the parameters for the HPC cluster template.</source>
+          <target state="new">In the portal, follow these steps to enter the parameters for the HPC cluster template.</target>
+        </trans-unit>
+        <trans-unit id="f648aa45-8ad9-41ac-bbe5-782a93c2dfac" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="db1a1fb7-7f9e-4a3f-b846-96d7d5552349" xml:space="preserve">
+          <source>On the <bpt id="9b7a8fe5-c252-420c-a725-62cc12be9c7a">&lt;strong&gt;</bpt>Edit Template<ept id="9b7a8fe5-c252-420c-a725-62cc12be9c7a">&lt;/strong&gt;</ept> page, click <bpt id="93fe5d45-82b9-4a5c-b95d-aa739fa8214e">&lt;strong&gt;</bpt>Save<ept id="93fe5d45-82b9-4a5c-b95d-aa739fa8214e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="9b7a8fe5-c252-420c-a725-62cc12be9c7a">&lt;strong&gt;</bpt>Edit Template<ept id="9b7a8fe5-c252-420c-a725-62cc12be9c7a">&lt;/strong&gt;</ept> page, click <bpt id="93fe5d45-82b9-4a5c-b95d-aa739fa8214e">&lt;strong&gt;</bpt>Save<ept id="93fe5d45-82b9-4a5c-b95d-aa739fa8214e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="23bfc534-821b-48cc-b5cf-718d6095cdba" xml:space="preserve">
+          <source><bpt id="856ebacb-2b08-400f-905f-5e912e699dfe">&lt;linkText&gt;</bpt>Save the template<ept id="856ebacb-2b08-400f-905f-5e912e699dfe">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="856ebacb-2b08-400f-905f-5e912e699dfe">&lt;linkText&gt;</bpt>Save the template<ept id="856ebacb-2b08-400f-905f-5e912e699dfe">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b124ea8-02d0-4816-bc95-d5beca3d2a69" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="5dd96e73-9ef0-4514-9521-1b53997b24bf" xml:space="preserve">
+          <source>On the <bpt id="ed021f2d-cb70-4a35-96ea-5b380b3d66d6">&lt;strong&gt;</bpt>Parameters<ept id="ed021f2d-cb70-4a35-96ea-5b380b3d66d6">&lt;/strong&gt;</ept> page, enter values for the template parameters.</source>
+          <target state="new">On the <bpt id="ed021f2d-cb70-4a35-96ea-5b380b3d66d6">&lt;strong&gt;</bpt>Parameters<ept id="ed021f2d-cb70-4a35-96ea-5b380b3d66d6">&lt;/strong&gt;</ept> page, enter values for the template parameters.</target>
+        </trans-unit>
+        <trans-unit id="70876545-d6a3-46cb-8a16-3a0d4831b9ae" xml:space="preserve">
+          <source>(Click the icon next to each setting for help information.)</source>
+          <target state="new">(Click the icon next to each setting for help information.)</target>
+        </trans-unit>
+        <trans-unit id="bf453a21-9d75-4e02-a5c9-f2b743a78fd1" xml:space="preserve">
+          <source>Sample values are shown in the following screen.</source>
+          <target state="new">Sample values are shown in the following screen.</target>
+        </trans-unit>
+        <trans-unit id="547c50c8-88b5-4c59-b0ea-89c918cba6e3" xml:space="preserve">
+          <source>This example will create a new HPC Pack cluster named <bpt id="a8b1a2c6-264b-4e9d-bb82-4d8bc134007f">&lt;em&gt;</bpt>hpc01<ept id="a8b1a2c6-264b-4e9d-bb82-4d8bc134007f">&lt;/em&gt;</ept> in the <bpt id="bb5aea99-dc79-4205-82f0-c5f22c5f06de">&lt;em&gt;</bpt>hpc.local<ept id="bb5aea99-dc79-4205-82f0-c5f22c5f06de">&lt;/em&gt;</ept> domain consisting of a head node and 2 compute nodes.</source>
+          <target state="new">This example will create a new HPC Pack cluster named <bpt id="a8b1a2c6-264b-4e9d-bb82-4d8bc134007f">&lt;em&gt;</bpt>hpc01<ept id="a8b1a2c6-264b-4e9d-bb82-4d8bc134007f">&lt;/em&gt;</ept> in the <bpt id="bb5aea99-dc79-4205-82f0-c5f22c5f06de">&lt;em&gt;</bpt>hpc.local<ept id="bb5aea99-dc79-4205-82f0-c5f22c5f06de">&lt;/em&gt;</ept> domain consisting of a head node and 2 compute nodes.</target>
+        </trans-unit>
+        <trans-unit id="d4233de7-9bd1-40bd-a255-57956247d9ec" xml:space="preserve">
+          <source>The compute nodes will be created from an HPC Pack VM image including Microsoft Excel.</source>
+          <target state="new">The compute nodes will be created from an HPC Pack VM image including Microsoft Excel.</target>
+        </trans-unit>
+        <trans-unit id="d76df8b6-34ea-405a-bf97-d30450716e4e" xml:space="preserve">
+          <source><bpt id="6fc11ac2-ab5f-4303-89fe-f44d32f83821">&lt;linkText&gt;</bpt>Enter parameters<ept id="6fc11ac2-ab5f-4303-89fe-f44d32f83821">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6fc11ac2-ab5f-4303-89fe-f44d32f83821">&lt;linkText&gt;</bpt>Enter parameters<ept id="6fc11ac2-ab5f-4303-89fe-f44d32f83821">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c12f90e2-4009-44b5-9b91-c9f380c5a750" xml:space="preserve">
+          <source>The head node VM will be created automatically from the <bpt id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;linkText&gt;</bpt>latest Marketplace  image<ept id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;/linkText&gt;</ept><bpt id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;title&gt;</bpt><ept id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;/title&gt;</ept> of HPC Pack 2012 R2 on Windows Server 2012 R2.</source>
+          <target state="new">The head node VM will be created automatically from the <bpt id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;linkText&gt;</bpt>latest Marketplace  image<ept id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;/linkText&gt;</ept><bpt id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;title&gt;</bpt><ept id="72a449b0-2fea-4348-a35a-00ba3c149b11">&lt;/title&gt;</ept> of HPC Pack 2012 R2 on Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="b63309e0-8f43-4feb-bec8-91f3d6a013f7" xml:space="preserve">
+          <source>Currently the image is based on HPC Pack 2012 R2 Update 2.</source>
+          <target state="new">Currently the image is based on HPC Pack 2012 R2 Update 2.</target>
+        </trans-unit>
+        <trans-unit id="1d03f9e0-4d9c-42c5-affc-68ab417ec730" xml:space="preserve">
+          <source>Compute node VMs will be created from the latest image of the selected compute node family.</source>
+          <target state="new">Compute node VMs will be created from the latest image of the selected compute node family.</target>
+        </trans-unit>
+        <trans-unit id="ddba94af-0a5b-4351-8ad3-9eec97652707" xml:space="preserve">
+          <source>Select the <bpt id="09a0f911-b46c-4a9c-bf0c-172037d3ffb7">&lt;strong&gt;</bpt>ComputeNode<ept id="09a0f911-b46c-4a9c-bf0c-172037d3ffb7">&lt;/strong&gt;</ept> option for the latest HPC Pack 2012 R2 Update 2 compute image for general purposes.</source>
+          <target state="new">Select the <bpt id="09a0f911-b46c-4a9c-bf0c-172037d3ffb7">&lt;strong&gt;</bpt>ComputeNode<ept id="09a0f911-b46c-4a9c-bf0c-172037d3ffb7">&lt;/strong&gt;</ept> option for the latest HPC Pack 2012 R2 Update 2 compute image for general purposes.</target>
+        </trans-unit>
+        <trans-unit id="8081fd58-e7ac-4024-a19d-8909ea780843" xml:space="preserve">
+          <source>Select <bpt id="7d875781-0bae-4147-82fc-9c773310dec5">&lt;strong&gt;</bpt>ComputeNodeWithExcel<ept id="7d875781-0bae-4147-82fc-9c773310dec5">&lt;/strong&gt;</ept> option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013.</source>
+          <target state="new">Select <bpt id="7d875781-0bae-4147-82fc-9c773310dec5">&lt;strong&gt;</bpt>ComputeNodeWithExcel<ept id="7d875781-0bae-4147-82fc-9c773310dec5">&lt;/strong&gt;</ept> option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013.</target>
+        </trans-unit>
+        <trans-unit id="dbda6334-c6ef-4da3-a6c9-fcc73d16bec6" xml:space="preserve">
+          <source>If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the <bpt id="2c182a88-75d1-4da4-aa2e-cbecd19c8497">&lt;strong&gt;</bpt>ComputeNode<ept id="2c182a88-75d1-4da4-aa2e-cbecd19c8497">&lt;/strong&gt;</ept> option (without Excel installed).</source>
+          <target state="new">If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the <bpt id="2c182a88-75d1-4da4-aa2e-cbecd19c8497">&lt;strong&gt;</bpt>ComputeNode<ept id="2c182a88-75d1-4da4-aa2e-cbecd19c8497">&lt;/strong&gt;</ept> option (without Excel installed).</target>
+        </trans-unit>
+        <trans-unit id="db8a149f-7f03-48b1-9efc-cac40f742180" xml:space="preserve">
+          <source>When using  <bpt id="c8056795-4604-4ef4-b98f-ea03ac1a83bd">&lt;strong&gt;</bpt>ComputeNodeWithExcel<ept id="c8056795-4604-4ef4-b98f-ea03ac1a83bd">&lt;/strong&gt;</ept> for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes.</source>
+          <target state="new">When using  <bpt id="c8056795-4604-4ef4-b98f-ea03ac1a83bd">&lt;strong&gt;</bpt>ComputeNodeWithExcel<ept id="c8056795-4604-4ef4-b98f-ea03ac1a83bd">&lt;/strong&gt;</ept> for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes.</target>
+        </trans-unit>
+        <trans-unit id="644492b9-a3c8-406c-81ff-a21d8bf3dfee" xml:space="preserve">
+          <source>Otherwise, the evaluation version of Excel could be expired within 30 days, and running the Excel workbook would constantly fail with the COMExeption (0x800AC472).</source>
+          <target state="new">Otherwise, the evaluation version of Excel could be expired within 30 days, and running the Excel workbook would constantly fail with the COMExeption (0x800AC472).</target>
+        </trans-unit>
+        <trans-unit id="f9706db9-61ea-47e5-927e-0cc671daa28a" xml:space="preserve">
+          <source>If this happens, you may log on the head node to clusrun “%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe” on all Excel compute nodes via HPC Cluster Manager console to rearm Excel for another 30 days of evaluation time.</source>
+          <target state="new">If this happens, you may log on the head node to clusrun “%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe” on all Excel compute nodes via HPC Cluster Manager console to rearm Excel for another 30 days of evaluation time.</target>
+        </trans-unit>
+        <trans-unit id="431fa862-74c5-4832-93fe-0443a845f087" xml:space="preserve">
+          <source>The max rearm time for the grace period is 2, after that you may need to provide a valid Excel license.</source>
+          <target state="new">The max rearm time for the grace period is 2, after that you may need to provide a valid Excel license.</target>
+        </trans-unit>
+        <trans-unit id="33cccae4-3f97-4294-81d8-6742d0817b91" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="aa564387-8e1a-44f0-a4bb-2590f8e92231" xml:space="preserve">
+          <source>Choose the subscription.</source>
+          <target state="new">Choose the subscription.</target>
+        </trans-unit>
+        <trans-unit id="579da367-1e83-41dd-b23c-680f05b646c2" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="d64d6f7d-1ec7-4fbc-b825-2d77887d2d0a" xml:space="preserve">
+          <source>Create a new resource group for the cluster, such as <bpt id="347885eb-ce35-4218-ba0d-3798e4125322">&lt;em&gt;</bpt>hpc01RG<ept id="347885eb-ce35-4218-ba0d-3798e4125322">&lt;/em&gt;</ept>.</source>
+          <target state="new">Create a new resource group for the cluster, such as <bpt id="347885eb-ce35-4218-ba0d-3798e4125322">&lt;em&gt;</bpt>hpc01RG<ept id="347885eb-ce35-4218-ba0d-3798e4125322">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a537db76-4a9e-4222-893d-56db9c0ba23e" xml:space="preserve">
+          <source>e.</source>
+          <target state="new">e.</target>
+        </trans-unit>
+        <trans-unit id="3037425f-1433-4896-83a3-8a0fd4864f3d" xml:space="preserve">
+          <source>Choose a location for the resource group, such as East US.</source>
+          <target state="new">Choose a location for the resource group, such as East US.</target>
+        </trans-unit>
+        <trans-unit id="43a49392-ada2-4415-b232-76d19d2da60f" xml:space="preserve">
+          <source>f.</source>
+          <target state="new">f.</target>
+        </trans-unit>
+        <trans-unit id="a6c89163-ff83-4936-ab29-ff17c6d904ff" xml:space="preserve">
+          <source>On the <bpt id="f923ec84-7159-45bf-809a-15dd2e358921">&lt;strong&gt;</bpt>Legal terms<ept id="f923ec84-7159-45bf-809a-15dd2e358921">&lt;/strong&gt;</ept> page, review the terms.</source>
+          <target state="new">On the <bpt id="f923ec84-7159-45bf-809a-15dd2e358921">&lt;strong&gt;</bpt>Legal terms<ept id="f923ec84-7159-45bf-809a-15dd2e358921">&lt;/strong&gt;</ept> page, review the terms.</target>
+        </trans-unit>
+        <trans-unit id="8593d717-718e-4520-b2e7-2dee6b920298" xml:space="preserve">
+          <source>If you agree, click <bpt id="8a25de87-7f9c-41e2-8b34-340c769b018f">&lt;strong&gt;</bpt>Buy<ept id="8a25de87-7f9c-41e2-8b34-340c769b018f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you agree, click <bpt id="8a25de87-7f9c-41e2-8b34-340c769b018f">&lt;strong&gt;</bpt>Buy<ept id="8a25de87-7f9c-41e2-8b34-340c769b018f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="443fbc21-481d-4337-ac81-211a293c3b11" xml:space="preserve">
+          <source>g.</source>
+          <target state="new">g.</target>
+        </trans-unit>
+        <trans-unit id="f1cb044c-e3e5-4875-a955-cd7356bb1e2b" xml:space="preserve">
+          <source>When you are finished setting the values for the template, click <bpt id="8fed78f4-2fd1-49a7-be16-eaab6ec832ff">&lt;strong&gt;</bpt>Create<ept id="8fed78f4-2fd1-49a7-be16-eaab6ec832ff">&lt;/strong&gt;</ept> .</source>
+          <target state="new">When you are finished setting the values for the template, click <bpt id="8fed78f4-2fd1-49a7-be16-eaab6ec832ff">&lt;strong&gt;</bpt>Create<ept id="8fed78f4-2fd1-49a7-be16-eaab6ec832ff">&lt;/strong&gt;</ept> .</target>
+        </trans-unit>
+        <trans-unit id="286a7a43-09c3-4df2-9c68-df50e6e14d76" xml:space="preserve">
+          <source><bpt id="62ddfc26-b2f2-4351-97cd-74c119d99cd0">&lt;linkText&gt;</bpt>Create the cluster<ept id="62ddfc26-b2f2-4351-97cd-74c119d99cd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="62ddfc26-b2f2-4351-97cd-74c119d99cd0">&lt;linkText&gt;</bpt>Create the cluster<ept id="62ddfc26-b2f2-4351-97cd-74c119d99cd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a069eca1-468e-4262-b127-f5e45a1728f6" xml:space="preserve">
+          <source>When the deployment completes (it typically takes around 30 minutes), export the cluster certificate file from the cluster head node.</source>
+          <target state="new">When the deployment completes (it typically takes around 30 minutes), export the cluster certificate file from the cluster head node.</target>
+        </trans-unit>
+        <trans-unit id="649c1707-e2d1-4325-a2bc-6afbb7c9eab9" xml:space="preserve">
+          <source>In a later step this public certificate will be imported on the client computer to provide the server-side authentication for secure HTTP binding.</source>
+          <target state="new">In a later step this public certificate will be imported on the client computer to provide the server-side authentication for secure HTTP binding.</target>
+        </trans-unit>
+        <trans-unit id="85eff5a7-55dc-4e18-911e-1ffec115ac34" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="22ef3572-2891-445f-a084-8af4a0eac2b4" xml:space="preserve">
+          <source>Connect to the head node by Remote Desktop from the Azure Preview portal.</source>
+          <target state="new">Connect to the head node by Remote Desktop from the Azure Preview portal.</target>
+        </trans-unit>
+        <trans-unit id="4283c199-76bd-42ea-b295-43e645edcf9f" xml:space="preserve">
+          <source> <bpt id="fc894edc-2510-490e-8091-e830009a9a01">&lt;linkText&gt;</bpt>Connect to the head node<ept id="fc894edc-2510-490e-8091-e830009a9a01">&lt;/linkText&gt;</ept></source>
+          <target state="new"> <bpt id="fc894edc-2510-490e-8091-e830009a9a01">&lt;linkText&gt;</bpt>Connect to the head node<ept id="fc894edc-2510-490e-8091-e830009a9a01">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a8cef65-885e-4038-8c1b-127713b208e9" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="9f1f0d23-e4b1-403a-b55c-0f1663d90cb1" xml:space="preserve">
+          <source>Use standard procedures to use Certificate Manager to export the head node certificate (located under Cert:\LocalMachine\My) without the private key.</source>
+          <target state="new">Use standard procedures to use Certificate Manager to export the head node certificate (located under Cert:\LocalMachine\My) without the private key.</target>
+        </trans-unit>
+        <trans-unit id="1be7a337-fc2f-4bb0-aae2-46d6070cb0d6" xml:space="preserve">
+          <source>In this example, export <bpt id="4bd745a9-5b10-4623-a69b-b95ccba2fee7">&lt;em&gt;</bpt>CN = hpc01.eastus.cloudapp.azure.com<ept id="4bd745a9-5b10-4623-a69b-b95ccba2fee7">&lt;/em&gt;</ept>.</source>
+          <target state="new">In this example, export <bpt id="4bd745a9-5b10-4623-a69b-b95ccba2fee7">&lt;em&gt;</bpt>CN = hpc01.eastus.cloudapp.azure.com<ept id="4bd745a9-5b10-4623-a69b-b95ccba2fee7">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24678e8e-dff8-4736-a8bb-3273cc4b38cb" xml:space="preserve">
+          <source><bpt id="d53eb47f-1c7f-4e34-96da-b2e90dd6fbfa">&lt;linkText&gt;</bpt>Export the certificate<ept id="d53eb47f-1c7f-4e34-96da-b2e90dd6fbfa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d53eb47f-1c7f-4e34-96da-b2e90dd6fbfa">&lt;linkText&gt;</bpt>Export the certificate<ept id="d53eb47f-1c7f-4e34-96da-b2e90dd6fbfa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf15f205-9e8b-404d-9f56-7540ef1110e6" xml:space="preserve">
+          <source>The HPC Pack IaaS deployment script provides another versatile way to deploy an HPC Pack cluster.</source>
+          <target state="new">The HPC Pack IaaS deployment script provides another versatile way to deploy an HPC Pack cluster.</target>
+        </trans-unit>
+        <trans-unit id="6ff1ee47-1733-4447-a9b0-6175d9b3d393" xml:space="preserve">
+          <source>It runs in Azure Service Management (ASM) mode, whereas the template runs in Azure Resource Manager (ARM) mode.</source>
+          <target state="new">It runs in Azure Service Management (ASM) mode, whereas the template runs in Azure Resource Manager (ARM) mode.</target>
+        </trans-unit>
+        <trans-unit id="e0e18164-7642-461b-b0e4-134ec3ce2cd2" xml:space="preserve">
+          <source>Also, the script is compatible with a subscription in either the Azure Global or Azure China service.</source>
+          <target state="new">Also, the script is compatible with a subscription in either the Azure Global or Azure China service.</target>
+        </trans-unit>
+        <trans-unit id="efcead73-c5b6-4788-abe0-bc4ca4b1a552" xml:space="preserve">
+          <source><bpt id="a1afdc21-b8bf-4224-810c-9fb3c2d023ac">&lt;strong&gt;</bpt>Additional prerequisites<ept id="a1afdc21-b8bf-4224-810c-9fb3c2d023ac">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="a1afdc21-b8bf-4224-810c-9fb3c2d023ac">&lt;strong&gt;</bpt>Additional prerequisites<ept id="a1afdc21-b8bf-4224-810c-9fb3c2d023ac">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f805cfe9-03df-404d-8b7d-bebbd954f8d8" xml:space="preserve">
+          <source><bpt id="9ba8dae3-5e73-4cb3-bffc-4607541f474e">&lt;strong&gt;</bpt>Azure PowerShell<ept id="9ba8dae3-5e73-4cb3-bffc-4607541f474e">&lt;/strong&gt;</ept> - <bpt id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;/linkText&gt;</ept><bpt id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;title&gt;</bpt><ept id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;/title&gt;</ept> (version 0.8.10 or later) on your client computer.</source>
+          <target state="new"><bpt id="9ba8dae3-5e73-4cb3-bffc-4607541f474e">&lt;strong&gt;</bpt>Azure PowerShell<ept id="9ba8dae3-5e73-4cb3-bffc-4607541f474e">&lt;/strong&gt;</ept> - <bpt id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;linkText&gt;</bpt>Install and configure Azure PowerShell<ept id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;/linkText&gt;</ept><bpt id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;title&gt;</bpt><ept id="3874d454-cca1-404e-9e0f-53c8af89a4f5">&lt;/title&gt;</ept> (version 0.8.10 or later) on your client computer.</target>
+        </trans-unit>
+        <trans-unit id="d20f0f23-db3c-422e-9308-20386b0f147f" xml:space="preserve">
+          <source><bpt id="fcbad09d-0ad5-4ea7-9294-ea4edf4bd3b6">&lt;strong&gt;</bpt>HPC Pack IaaS deployment script<ept id="fcbad09d-0ad5-4ea7-9294-ea4edf4bd3b6">&lt;/strong&gt;</ept> - Download and unpack the latest version of the script from the <bpt id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;/linkText&gt;</ept><bpt id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;title&gt;</bpt><ept id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="fcbad09d-0ad5-4ea7-9294-ea4edf4bd3b6">&lt;strong&gt;</bpt>HPC Pack IaaS deployment script<ept id="fcbad09d-0ad5-4ea7-9294-ea4edf4bd3b6">&lt;/strong&gt;</ept> - Download and unpack the latest version of the script from the <bpt id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;linkText&gt;</bpt>Microsoft Download Center<ept id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;/linkText&gt;</ept><bpt id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;title&gt;</bpt><ept id="897cfbf4-073f-44ef-a227-7cc94cd87c78">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86b57b7e-a5dc-4d15-a98d-69d26123a296" xml:space="preserve">
+          <source>Check the version of the script by running <bpt id="99503a6b-b6cc-491c-be31-da3905555755">&lt;code&gt;</bpt>New-HPCIaaSCluster.ps1 –Version<ept id="99503a6b-b6cc-491c-be31-da3905555755">&lt;/code&gt;</ept>.</source>
+          <target state="new">Check the version of the script by running <bpt id="99503a6b-b6cc-491c-be31-da3905555755">&lt;code&gt;</bpt>New-HPCIaaSCluster.ps1 –Version<ept id="99503a6b-b6cc-491c-be31-da3905555755">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4a211bfb-4095-4bf4-a4b1-aa8f9efc2efa" xml:space="preserve">
+          <source>This article is based on version 4.4.0 or later of the script.</source>
+          <target state="new">This article is based on version 4.4.0 or later of the script.</target>
+        </trans-unit>
+        <trans-unit id="b53894b2-00ed-4e22-8064-c28929184613" xml:space="preserve">
+          <source><bpt id="cf38680e-4246-47be-9d2f-a9a19b586d00">&lt;strong&gt;</bpt>Create the configuration file<ept id="cf38680e-4246-47be-9d2f-a9a19b586d00">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="cf38680e-4246-47be-9d2f-a9a19b586d00">&lt;strong&gt;</bpt>Create the configuration file<ept id="cf38680e-4246-47be-9d2f-a9a19b586d00">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f380cb44-9ecf-4e52-843f-b840afbfcb40" xml:space="preserve">
+          <source>The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster.</source>
+          <target state="new">The HPC Pack IaaS deployment script uses an XML configuration file as input which describes the infrastructure of the HPC cluster.</target>
+        </trans-unit>
+        <trans-unit id="418412a3-6134-44a0-b249-bed2d84e1716" xml:space="preserve">
+          <source>To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file.</source>
+          <target state="new">To deploy a cluster consisting of a head node and 18 compute nodes created from the compute node image that includes Microsoft Excel, substitute values for your environment into the following sample configuration file.</target>
+        </trans-unit>
+        <trans-unit id="538676f8-2a8f-4544-949d-bab19de41d8a" xml:space="preserve">
+          <source>For more information about the configuration file, see the Manual.rtf file in the script folder or the <bpt id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;linkText&gt;</bpt>script documentation<ept id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;/linkText&gt;</ept><bpt id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;title&gt;</bpt><ept id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the configuration file, see the Manual.rtf file in the script folder or the <bpt id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;linkText&gt;</bpt>script documentation<ept id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;/linkText&gt;</ept><bpt id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;title&gt;</bpt><ept id="6bef68b8-d54f-4e15-9d3c-c403711155ca">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="117c295f-6c01-4f3d-8a0e-6c06253d4b70" xml:space="preserve">
+          <source><bpt id="421a927b-f0e7-4392-8f1f-6281918a58cd">&lt;strong&gt;</bpt>Notes about the configuration file<ept id="421a927b-f0e7-4392-8f1f-6281918a58cd">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="421a927b-f0e7-4392-8f1f-6281918a58cd">&lt;strong&gt;</bpt>Notes about the configuration file<ept id="421a927b-f0e7-4392-8f1f-6281918a58cd">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f4295b8c-98d3-4158-9d27-8340eb637d5b" xml:space="preserve">
+          <source>The <bpt id="39993b81-559a-49c9-bf28-11c35237798f">&lt;strong&gt;</bpt>VMName<ept id="39993b81-559a-49c9-bf28-11c35237798f">&lt;/strong&gt;</ept> of the head node must be exactly the same as the <bpt id="2e3bb2a7-766d-47cd-96d4-f82a4b7cbc72">&lt;strong&gt;</bpt>ServiceName<ept id="2e3bb2a7-766d-47cd-96d4-f82a4b7cbc72">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="39993b81-559a-49c9-bf28-11c35237798f">&lt;strong&gt;</bpt>VMName<ept id="39993b81-559a-49c9-bf28-11c35237798f">&lt;/strong&gt;</ept> of the head node must be exactly the same as the <bpt id="2e3bb2a7-766d-47cd-96d4-f82a4b7cbc72">&lt;strong&gt;</bpt>ServiceName<ept id="2e3bb2a7-766d-47cd-96d4-f82a4b7cbc72">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="19e6f705-9798-4074-bb9d-3d8012c31633" xml:space="preserve">
+          <source>Make sure you specify <bpt id="66091a50-d061-4d78-a83c-8025d97f3921">&lt;strong&gt;</bpt>EnableWebPortal<ept id="66091a50-d061-4d78-a83c-8025d97f3921">&lt;/strong&gt;</ept> so that the head node certificate is generated and exported.</source>
+          <target state="new">Make sure you specify <bpt id="66091a50-d061-4d78-a83c-8025d97f3921">&lt;strong&gt;</bpt>EnableWebPortal<ept id="66091a50-d061-4d78-a83c-8025d97f3921">&lt;/strong&gt;</ept> so that the head node certificate is generated and exported.</target>
+        </trans-unit>
+        <trans-unit id="9fc7db39-954f-4b24-b8bb-4901d29a9cb5" xml:space="preserve">
+          <source>The post-configuration PowerShell script PostConfig.ps1 configures certain settings on the head node such as setting up the Azure storage connection string, removing the compute node role from the head node, and bringing all nodes online when they are deployed.</source>
+          <target state="new">The post-configuration PowerShell script PostConfig.ps1 configures certain settings on the head node such as setting up the Azure storage connection string, removing the compute node role from the head node, and bringing all nodes online when they are deployed.</target>
+        </trans-unit>
+        <trans-unit id="7aafdeaa-a298-4ae8-a75a-a9e14afb86a5" xml:space="preserve">
+          <source>A sample script follows.</source>
+          <target state="new">A sample script follows.</target>
+        </trans-unit>
+        <trans-unit id="32fd2404-bbf4-4128-b676-bbefd99e7f43" xml:space="preserve">
+          <source><bpt id="1c04d869-059a-4838-931e-4d23370819b7">&lt;strong&gt;</bpt>Run the script<ept id="1c04d869-059a-4838-931e-4d23370819b7">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="1c04d869-059a-4838-931e-4d23370819b7">&lt;strong&gt;</bpt>Run the script<ept id="1c04d869-059a-4838-931e-4d23370819b7">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4192820d-b22e-47b1-829e-97e6fe81119f" xml:space="preserve">
+          <source>Open the PowerShell console on the client computer as an administrator.</source>
+          <target state="new">Open the PowerShell console on the client computer as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="fc3cb8a6-efb1-4b24-aae6-19723ab16e68" xml:space="preserve">
+          <source>Change directory to the script folder (E:\IaaSClusterScript in this example).</source>
+          <target state="new">Change directory to the script folder (E:\IaaSClusterScript in this example).</target>
+        </trans-unit>
+        <trans-unit id="eaa7d244-94e6-41e8-aec5-acda07572a7b" xml:space="preserve">
+          <source>You have enabled REST API or web portal on HPC Pack head node.</source>
+          <target state="new">You have enabled REST API or web portal on HPC Pack head node.</target>
+        </trans-unit>
+        <trans-unit id="e40027c7-925c-4409-911c-79edef6b2093" xml:space="preserve">
+          <source>Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
+ C:\Users\hpcuser\Documents\HPCWebComponent<bpt id="a1df370d-02fc-4ea1-94eb-083b8e926199">&lt;em&gt;</bpt>HPCExcelHN004<ept id="a1df370d-02fc-4ea1-94eb-083b8e926199">&lt;/em&gt;</ept>2015070716
+2011.cer</source>
+          <target state="new">Please import the following certificate in the Trusted Root Certification Authorities certificate store on the computer where you are submitting job or accessing the HPC web portal:
+ C:\Users\hpcuser\Documents\HPCWebComponent<bpt id="a1df370d-02fc-4ea1-94eb-083b8e926199">&lt;em&gt;</bpt>HPCExcelHN004<ept id="a1df370d-02fc-4ea1-94eb-083b8e926199">&lt;/em&gt;</ept>2015070716
+2011.cer</target>
+        </trans-unit>
+        <trans-unit id="051f693d-7aa6-42d8-a2a5-8b9cbc4bec33" xml:space="preserve">
+          <source>Download the full <bpt id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;linkText&gt;</bpt>HPC Pack 2012 R2 Update 2 installation<ept id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;/linkText&gt;</ept><bpt id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;title&gt;</bpt><ept id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;/title&gt;</ept> and install the HPC Pack client,
+or download and install the <bpt id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;linkText&gt;</bpt>HPC Pack 2012 R2 Update 2 client utilities<ept id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;/linkText&gt;</ept><bpt id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;title&gt;</bpt><ept id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;/title&gt;</ept> and the appropriate Visual C++ 2010 redistributable for your computer (<bpt id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;linkText&gt;</bpt>x64<ept id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;/linkText&gt;</ept><bpt id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;title&gt;</bpt><ept id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;/title&gt;</ept>, <bpt id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;linkText&gt;</bpt>x86<ept id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;/linkText&gt;</ept><bpt id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;title&gt;</bpt><ept id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;/title&gt;</ept>).</source>
+          <target state="new">Download the full <bpt id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;linkText&gt;</bpt>HPC Pack 2012 R2 Update 2 installation<ept id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;/linkText&gt;</ept><bpt id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;title&gt;</bpt><ept id="c921425f-caef-4ab2-b6ac-f3faf9d977b8">&lt;/title&gt;</ept> and install the HPC Pack client,
+or download and install the <bpt id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;linkText&gt;</bpt>HPC Pack 2012 R2 Update 2 client utilities<ept id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;/linkText&gt;</ept><bpt id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;title&gt;</bpt><ept id="9284925b-ebe2-4d8b-8c5c-953d8213e87e">&lt;/title&gt;</ept> and the appropriate Visual C++ 2010 redistributable for your computer (<bpt id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;linkText&gt;</bpt>x64<ept id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;/linkText&gt;</ept><bpt id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;title&gt;</bpt><ept id="96bb5e8a-b9e5-4d21-b3d8-74baa21f1e15">&lt;/title&gt;</ept>, <bpt id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;linkText&gt;</bpt>x86<ept id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;/linkText&gt;</ept><bpt id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;title&gt;</bpt><ept id="bbbea8fe-1cca-4f1e-ac32-0ccd9785d380">&lt;/title&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="171eb405-e844-439c-84aa-7d3f78750974" xml:space="preserve">
+          <source>In this example, we use a sample Excel workbook named ConvertiblePricing_Complete.xlsb, available for download <bpt id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;linkText&gt;</bpt>here<ept id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;/linkText&gt;</ept><bpt id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;title&gt;</bpt><ept id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;/title&gt;</ept>.</source>
+          <target state="new">In this example, we use a sample Excel workbook named ConvertiblePricing_Complete.xlsb, available for download <bpt id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;linkText&gt;</bpt>here<ept id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;/linkText&gt;</ept><bpt id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;title&gt;</bpt><ept id="d0ab96fb-0ada-472e-b68c-19d476739a0f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd2e9fb5-7cab-43ed-98b0-8482dc990a2d" xml:space="preserve">
+          <source>Copy the Excel workbook to a working folder such as D:\Excel\Run.</source>
+          <target state="new">Copy the Excel workbook to a working folder such as D:\Excel\Run.</target>
+        </trans-unit>
+        <trans-unit id="3ed171da-2207-411b-9cb5-0ca24953d141" xml:space="preserve">
+          <source>Open the Excel workbook.</source>
+          <target state="new">Open the Excel workbook.</target>
+        </trans-unit>
+        <trans-unit id="b03f6e39-f907-4f22-bb7b-b5868f008f40" xml:space="preserve">
+          <source>On the <bpt id="338fbe82-cf10-42f8-bfe0-b8dafa4f2833">&lt;strong&gt;</bpt>Develop<ept id="338fbe82-cf10-42f8-bfe0-b8dafa4f2833">&lt;/strong&gt;</ept> ribbon, click <bpt id="3c1a30a1-5e57-490a-b2ab-67526194a7e4">&lt;strong&gt;</bpt>COM Add-Ins<ept id="3c1a30a1-5e57-490a-b2ab-67526194a7e4">&lt;/strong&gt;</ept> and confirm that the HPC Pack Excel COM add-in is loaded successfully as shown in the following screen.</source>
+          <target state="new">On the <bpt id="338fbe82-cf10-42f8-bfe0-b8dafa4f2833">&lt;strong&gt;</bpt>Develop<ept id="338fbe82-cf10-42f8-bfe0-b8dafa4f2833">&lt;/strong&gt;</ept> ribbon, click <bpt id="3c1a30a1-5e57-490a-b2ab-67526194a7e4">&lt;strong&gt;</bpt>COM Add-Ins<ept id="3c1a30a1-5e57-490a-b2ab-67526194a7e4">&lt;/strong&gt;</ept> and confirm that the HPC Pack Excel COM add-in is loaded successfully as shown in the following screen.</target>
+        </trans-unit>
+        <trans-unit id="862e2126-5d6e-4783-b3d8-d7eb73ad670f" xml:space="preserve">
+          <source><bpt id="37817e60-b505-4fbd-9c72-e7b2add51ab6">&lt;linkText&gt;</bpt>Excel add-in for HPC Pack<ept id="37817e60-b505-4fbd-9c72-e7b2add51ab6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="37817e60-b505-4fbd-9c72-e7b2add51ab6">&lt;linkText&gt;</bpt>Excel add-in for HPC Pack<ept id="37817e60-b505-4fbd-9c72-e7b2add51ab6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8cebeadc-1fb7-44bf-bebb-7a1ed72cbd8b" xml:space="preserve">
+          <source>Edit the VBA macro HPCControlMacros in Excel by changing the commented lines as shown in the following script.</source>
+          <target state="new">Edit the VBA macro HPCControlMacros in Excel by changing the commented lines as shown in the following script.</target>
+        </trans-unit>
+        <trans-unit id="dd7a9ec3-a0fb-496c-bfa3-ad3a22901637" xml:space="preserve">
+          <source>Substitute appropriate values for your environment.</source>
+          <target state="new">Substitute appropriate values for your environment.</target>
+        </trans-unit>
+        <trans-unit id="9ecce541-28e1-4ec9-8474-05b9406d7c48" xml:space="preserve">
+          <source><bpt id="fee12487-77e0-4fb6-8fec-548f07cc26c4">&lt;linkText&gt;</bpt>Excel macro for HPC Pack<ept id="fee12487-77e0-4fb6-8fec-548f07cc26c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fee12487-77e0-4fb6-8fec-548f07cc26c4">&lt;linkText&gt;</bpt>Excel macro for HPC Pack<ept id="fee12487-77e0-4fb6-8fec-548f07cc26c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="461173b9-fd51-418e-a1a9-19aac1335594" xml:space="preserve">
+          <source>// Before
+const string headnode = "[headnode]";
+// After e.g.
+const string headnode = "hpc01.eastus.cloudapp.azure.com";
+or
+const string headnode = "hpc01.cloudapp.net";</source>
+          <target state="new">// Before
+const string headnode = "[headnode]";
+// After e.g.
+const string headnode = "hpc01.eastus.cloudapp.azure.com";
+or
+const string headnode = "hpc01.cloudapp.net";</target>
+        </trans-unit>
+        <trans-unit id="f43933aa-c8e9-46ca-a3d7-5d07e50d466a" xml:space="preserve">
+          <source>To use NetTcp binding, the configuration is like connecting to an on-premises cluster.</source>
+          <target state="new">To use NetTcp binding, the configuration is like connecting to an on-premises cluster.</target>
+        </trans-unit>
+        <trans-unit id="a7992ffc-2f03-4922-bd14-30170aaacd63" xml:space="preserve">
+          <source>You'll need to open a few endpoints on the head node VM.</source>
+          <target state="new">You'll need to open a few endpoints on the head node VM.</target>
+        </trans-unit>
+        <trans-unit id="c0f7af4c-3b6a-46fc-9b45-69df4a61cf7a" xml:space="preserve">
+          <source>In the Azure Management Portal do the following.</source>
+          <target state="new">In the Azure Management Portal do the following.</target>
+        </trans-unit>
+        <trans-unit id="e9096c90-5099-42d9-af9d-820a13fa8fc9" xml:space="preserve">
+          <source>Stop the VM.</source>
+          <target state="new">Stop the VM.</target>
+        </trans-unit>
+        <trans-unit id="3eb14c61-e609-49c8-94c1-4726e0ee6fd1" xml:space="preserve">
+          <source>Add the TCP ports 9090, 9087, 9091, 9094 for the Session, Broker, Broker worker and Data services, respectively</source>
+          <target state="new">Add the TCP ports 9090, 9087, 9091, 9094 for the Session, Broker, Broker worker and Data services, respectively</target>
+        </trans-unit>
+        <trans-unit id="7324f799-0e03-4f41-820b-5e30e6626204" xml:space="preserve">
+          <source><bpt id="3ba5f8a1-68c6-43cf-b14b-e54f99163f4e">&lt;linkText&gt;</bpt>Configure endpoints<ept id="3ba5f8a1-68c6-43cf-b14b-e54f99163f4e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3ba5f8a1-68c6-43cf-b14b-e54f99163f4e">&lt;linkText&gt;</bpt>Configure endpoints<ept id="3ba5f8a1-68c6-43cf-b14b-e54f99163f4e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c25282ca-0f82-407a-9c42-4339765b95c3" xml:space="preserve">
+          <source>Start the VM.</source>
+          <target state="new">Start the VM.</target>
+        </trans-unit>
+        <trans-unit id="ebe03915-16bb-405f-81ef-323e185de235" xml:space="preserve">
+          <source>The SOA client application requires no changes except altering the head name to the IaaS cluster full name.</source>
+          <target state="new">The SOA client application requires no changes except altering the head name to the IaaS cluster full name.</target>
+        </trans-unit>
+        <trans-unit id="44cd114d-2ba9-4299-ad9c-07db7bed3b4e" xml:space="preserve">
+          <source>See <bpt id="7470d616-cf55-4cae-9618-955f23352430">&lt;linkText&gt;</bpt>these resources<ept id="7470d616-cf55-4cae-9618-955f23352430">&lt;/linkText&gt;</ept><bpt id="7470d616-cf55-4cae-9618-955f23352430">&lt;title&gt;</bpt><ept id="7470d616-cf55-4cae-9618-955f23352430">&lt;/title&gt;</ept> for more information about running Excel workloads with HPC Pack.</source>
+          <target state="new">See <bpt id="7470d616-cf55-4cae-9618-955f23352430">&lt;linkText&gt;</bpt>these resources<ept id="7470d616-cf55-4cae-9618-955f23352430">&lt;/linkText&gt;</ept><bpt id="7470d616-cf55-4cae-9618-955f23352430">&lt;title&gt;</bpt><ept id="7470d616-cf55-4cae-9618-955f23352430">&lt;/title&gt;</ept> for more information about running Excel workloads with HPC Pack.</target>
+        </trans-unit>
+        <trans-unit id="6b12b518-e329-4862-9bf9-7093c40c1329" xml:space="preserve">
+          <source>See <bpt id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;linkText&gt;</bpt>Managing SOA Services in Microsoft HPC Pack<ept id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;/linkText&gt;</ept><bpt id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;title&gt;</bpt><ept id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;/title&gt;</ept> for more about deploying and managing SOA services with HPC Pack.</source>
+          <target state="new">See <bpt id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;linkText&gt;</bpt>Managing SOA Services in Microsoft HPC Pack<ept id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;/linkText&gt;</ept><bpt id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;title&gt;</bpt><ept id="0055d99f-3137-483b-a396-8aadc5d720ee">&lt;/title&gt;</ept> for more about deploying and managing SOA services with HPC Pack.</target>
+        </trans-unit>
+        <trans-unit id="47cb7ed9-2de6-4c7d-aafe-b68a611d7046" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/scenario.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/scenario.png</target>
+        </trans-unit>
+        <trans-unit id="229444ff-1d68-405c-a1d3-e07371f96369" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/github.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/github.png</target>
+        </trans-unit>
+        <trans-unit id="977004a7-7ed1-4184-bad3-fc1e5a0729d3" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/template.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/template.png</target>
+        </trans-unit>
+        <trans-unit id="05fddb3b-cd9f-4791-992f-1b7498b3b6e9" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/parameters.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/parameters.png</target>
+        </trans-unit>
+        <trans-unit id="bcaf144d-ea1f-4c7a-aa03-0515c62dee93" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/create.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/create.png</target>
+        </trans-unit>
+        <trans-unit id="4bb46a8f-0ef9-408c-8d17-8b12c3f33194" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/connect.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/connect.png</target>
+        </trans-unit>
+        <trans-unit id="a316d9d6-5ca4-4127-91b9-b2db0990ee24" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/cert.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/cert.png</target>
+        </trans-unit>
+        <trans-unit id="d3caff3d-e837-4134-ada1-b9310766c5fc" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/addin.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/addin.png</target>
+        </trans-unit>
+        <trans-unit id="65da0cec-3588-40ab-8b21-84e26b69004c" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/macro.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/macro.png</target>
+        </trans-unit>
+        <trans-unit id="040c111a-4c28-4a80-aab4-dc2ae1069e61" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/options.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/options.png</target>
+        </trans-unit>
+        <trans-unit id="e603fa6f-8fce-46d9-85b9-0692867f24c8" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/run.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/run.png</target>
+        </trans-unit>
+        <trans-unit id="875932fb-4b4d-4a9c-b2fd-56f58ae5209d" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/endpoint.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/endpoint.png</target>
+        </trans-unit>
+        <trans-unit id="c65133df-062c-4c8e-95a4-b4d83f9f17a9" xml:space="preserve">
+          <source>./media/virtual-machines-excel-cluster-hpcpack/udf.png</source>
+          <target state="new">./media/virtual-machines-excel-cluster-hpcpack/udf.png</target>
+        </trans-unit>
+      </group>
+      <group id="a3181d50-f59a-4b63-9631-a8f0b8b2b4b2" />
+    </body>
+  </file>
+</xliff>

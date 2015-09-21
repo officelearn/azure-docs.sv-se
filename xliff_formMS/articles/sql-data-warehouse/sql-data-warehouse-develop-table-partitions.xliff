@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8942b18b-5d7e-46e3-827f-929f36dbdc5b" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8942b18b-5d7e-46e3-827f-929f36dbdc5b" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2fd0ca0b-b365-4736-aaae-36b9eaf4e0bd">
+        <trans-unit id="fc823df8-ff95-4920-a434-c942776405a9" xml:space="preserve">
+          <source>Table partitions in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Table partitions in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="4e48b131-4ada-4b9b-8cc8-36b8df64930c" xml:space="preserve">
+          <source>Tips for using table partitions in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for using table partitions in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="7c79ad65-9740-486b-a50b-bf4ee047dac1" xml:space="preserve">
+          <source>To migrate SQL Server partition definitions to SQL Data Warehouse:</source>
+          <target state="new">To migrate SQL Server partition definitions to SQL Data Warehouse:</target>
+        </trans-unit>
+        <trans-unit id="3e5ce52c-1dac-4099-b499-d721d1c6d0a7" xml:space="preserve">
+          <source>Remove SQL Server partition functions and schemes since this is managed for you when you create the table.</source>
+          <target state="new">Remove SQL Server partition functions and schemes since this is managed for you when you create the table.</target>
+        </trans-unit>
+        <trans-unit id="d4f2058b-8c44-49e5-9247-4a08ca0a388b" xml:space="preserve">
+          <source>Define the partitions when you create the table.</source>
+          <target state="new">Define the partitions when you create the table.</target>
+        </trans-unit>
+        <trans-unit id="862b8832-e0cd-47dd-b383-f585f72760be" xml:space="preserve">
+          <source>Simply specify partition boundary points and whether you want the boundary point to be effective <bpt id="ee230a3a-848a-4eb9-960b-5a2d6cb423b6">&lt;code&gt;</bpt>RANGE RIGHT<ept id="ee230a3a-848a-4eb9-960b-5a2d6cb423b6">&lt;/code&gt;</ept> or <bpt id="46d1d33b-9a81-46a6-96de-13d35a0f6c5a">&lt;code&gt;</bpt>RANGE LEFT<ept id="46d1d33b-9a81-46a6-96de-13d35a0f6c5a">&lt;/code&gt;</ept>.</source>
+          <target state="new">Simply specify partition boundary points and whether you want the boundary point to be effective <bpt id="ee230a3a-848a-4eb9-960b-5a2d6cb423b6">&lt;code&gt;</bpt>RANGE RIGHT<ept id="ee230a3a-848a-4eb9-960b-5a2d6cb423b6">&lt;/code&gt;</ept> or <bpt id="46d1d33b-9a81-46a6-96de-13d35a0f6c5a">&lt;code&gt;</bpt>RANGE LEFT<ept id="46d1d33b-9a81-46a6-96de-13d35a0f6c5a">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b24e8c35-fe37-4ef0-a79f-78ab69d8decc" xml:space="preserve">
+          <source>SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).</source>
+          <target state="new">SQL DW offers a DBA several choices for table types: heap, clustered index (CI), and clustered column-store index (CCI).</target>
+        </trans-unit>
+        <trans-unit id="f33208ea-92cd-42b6-acb4-f3c494dcacc3" xml:space="preserve">
+          <source>For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.</source>
+          <target state="new">For each of these table types, the DBA can also partition the table, which means dividing it into multiple sections to improve performance.</target>
+        </trans-unit>
+        <trans-unit id="ebf6a5b9-d701-406f-8d9d-000b9cf21d44" xml:space="preserve">
+          <source>However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.</source>
+          <target state="new">However, creating a table with too many partitions can actually cause performance degradations or query failures under some circumstances.</target>
+        </trans-unit>
+        <trans-unit id="0df82187-1b56-4ed0-8fca-2a45f1a354da" xml:space="preserve">
+          <source>These concerns are especially true for CCI tables.</source>
+          <target state="new">These concerns are especially true for CCI tables.</target>
+        </trans-unit>
+        <trans-unit id="22e1147d-4f1a-485c-9360-1fa332275565" xml:space="preserve">
+          <source>For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.</source>
+          <target state="new">For partitioning to be helpful, it is important for a DBA to understand when to use partitioning and the number of partitions to create.</target>
+        </trans-unit>
+        <trans-unit id="3571c615-8e04-4529-8fc8-bfb1a6ab948e" xml:space="preserve">
+          <source>These guidelines are intended to help DBAs make the best choices for their scenarios.</source>
+          <target state="new">These guidelines are intended to help DBAs make the best choices for their scenarios.</target>
+        </trans-unit>
+        <trans-unit id="b7ba82a2-f19c-48f6-aa50-ba048c7ec7b4" xml:space="preserve">
+          <source>Normally table partitions are useful in two primary ways: </source>
+          <target state="new">Normally table partitions are useful in two primary ways: </target>
+        </trans-unit>
+        <trans-unit id="9303a5f0-7f8d-47dd-bc00-b5bad4e08279" xml:space="preserve">
+          <source>Using partition switching to quickly truncate a section of a table.</source>
+          <target state="new">Using partition switching to quickly truncate a section of a table.</target>
+        </trans-unit>
+        <trans-unit id="c7f54125-a977-49a4-b30a-b969a8ad621d" xml:space="preserve">
+          <source>A commonly used design is for a fact table to contain rows only for some predetermined finite period.</source>
+          <target state="new">A commonly used design is for a fact table to contain rows only for some predetermined finite period.</target>
+        </trans-unit>
+        <trans-unit id="75fa667d-d422-4deb-955e-782ca9dc8398" xml:space="preserve">
+          <source>For example, a sales fact table might contain data only for the past 36 months.</source>
+          <target state="new">For example, a sales fact table might contain data only for the past 36 months.</target>
+        </trans-unit>
+        <trans-unit id="e6bd10ce-5d70-478d-9525-60b9f272be09" xml:space="preserve">
+          <source>At the end of every month, the oldest month of sales data is deleted from the table.</source>
+          <target state="new">At the end of every month, the oldest month of sales data is deleted from the table.</target>
+        </trans-unit>
+        <trans-unit id="0d9ec3ba-10cf-4634-8ffe-94cd0123f2de" xml:space="preserve">
+          <source>This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.</source>
+          <target state="new">This could be accomplished by simply deleting all of the rows for the oldest month, but deleting a large amount of data row-by-row can take a very long time.</target>
+        </trans-unit>
+        <trans-unit id="fbcb6083-7b27-4e7d-ad6b-ab611bc63a37" xml:space="preserve">
+          <source>To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.</source>
+          <target state="new">To optimize for this scenario, SQL DW supports partition swapping, which enables the entire set of rows in a partition to be dropped in a single fast operation.</target>
+        </trans-unit>
+        <trans-unit id="f275fb17-c7dd-4449-b792-2f42612f101f" xml:space="preserve">
+          <source>Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.</source>
+          <target state="new">Partitioning enables queries to easily exclude processing a large set of rows (i.e. a partition) if queries place a predicate on the partitioning column.</target>
+        </trans-unit>
+        <trans-unit id="bf7ac7ed-0afd-401f-a78b-338baf0d45ce" xml:space="preserve">
+          <source>For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.</source>
+          <target state="new">For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip processing partitions that don’t match the filter.</target>
+        </trans-unit>
+        <trans-unit id="90bcd129-3e89-4ad3-af8b-f17c34dc2ecb" xml:space="preserve">
+          <source>In effect, partitioning used in this way is a coarse grained index.</source>
+          <target state="new">In effect, partitioning used in this way is a coarse grained index.</target>
+        </trans-unit>
+        <trans-unit id="1446858a-9917-4fc5-9112-ff4ecedce782" xml:space="preserve">
+          <source>When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution &amp; partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  </source>
+          <target state="new">When creating clustered column-store indexes in SQL DW, a DBA needs to consider an additional factor: number of row.   CCI tables can achieve a high degree of compression and helps SQL DW accelerate query performance.  Due to how compression works internally in SQL DW, each partition in a CCI table needs to have a fairly large number of rows before data is compressed. In addition, SQL DW spreads data across a large number of distributions, and each distribution is further divided by partitions.  For optimal compression and performance, a minimum of 100,000 rows per distribution &amp; partition is needed.  Using the example above, if the sales fact table contained 36 monthly partitions, and given that SQL DW has 60 distributions, then the sales fact table should contain 6 million rows per month, or 216 million rows when all months are populated.  If a table contains significantly less rows than the recommended minimum, then the DBA should consider creating the table with fewer partitions in order to make the number of rows per distribution larger.  </target>
+        </trans-unit>
+        <trans-unit id="ccd915e0-e1bd-4f93-9ca5-226ec589d2a1" xml:space="preserve">
+          <source>To size your current database at the partition level use a query like the one below:</source>
+          <target state="new">To size your current database at the partition level use a query like the one below:</target>
+        </trans-unit>
+        <trans-unit id="57c490a8-0134-4b83-9d3b-147d46cb89a1" xml:space="preserve">
+          <source>The total number of distributions equals the number of storage locations used when we create a table.</source>
+          <target state="new">The total number of distributions equals the number of storage locations used when we create a table.</target>
+        </trans-unit>
+        <trans-unit id="f0d33128-df97-4efc-ab6c-a62be71c4335" xml:space="preserve">
+          <source>That's a complex way of saying that each table is created once per distribution.</source>
+          <target state="new">That's a complex way of saying that each table is created once per distribution.</target>
+        </trans-unit>
+        <trans-unit id="98a3de0f-469d-4b22-b8fe-0dbca40c801f" xml:space="preserve">
+          <source>You can also anticipate roughly how many rows, and therefore how big, each partition will be.</source>
+          <target state="new">You can also anticipate roughly how many rows, and therefore how big, each partition will be.</target>
+        </trans-unit>
+        <trans-unit id="9a1ba9b5-03a7-413c-ae84-3dc1c4dd1448" xml:space="preserve">
+          <source>The partition in the source data warehouse will be subdivided into each distribution.</source>
+          <target state="new">The partition in the source data warehouse will be subdivided into each distribution.</target>
+        </trans-unit>
+        <trans-unit id="67508914-3b3e-4acc-bc1e-54e0ce557d66" xml:space="preserve">
+          <source>Use the following calculation to guide you when determining your partition size:</source>
+          <target state="new">Use the following calculation to guide you when determining your partition size:</target>
+        </trans-unit>
+        <trans-unit id="d920c382-e822-40c8-be70-00872b6185ac" xml:space="preserve">
+          <source>MPP Partition Size = SMP Partition Size / Number of Distributions</source>
+          <target state="new">MPP Partition Size = SMP Partition Size / Number of Distributions</target>
+        </trans-unit>
+        <trans-unit id="a10060b4-496d-4c74-94bc-72b98bdd2e2e" xml:space="preserve">
+          <source>You can find out how many distributions your SQL Data Warehouse database has using the following query:</source>
+          <target state="new">You can find out how many distributions your SQL Data Warehouse database has using the following query:</target>
+        </trans-unit>
+        <trans-unit id="681ad01e-c88b-4406-b224-e00e5a099f27" xml:space="preserve">
+          <source>Now you know how big each partition is in the source system and what size you are anticipating for SQLDW you can decide on your partition boundary.</source>
+          <target state="new">Now you know how big each partition is in the source system and what size you are anticipating for SQLDW you can decide on your partition boundary.</target>
+        </trans-unit>
+        <trans-unit id="3ec4fc01-f11e-46ca-93e5-348b72edd968" xml:space="preserve">
+          <source>One final piece of information you need to factor in to the table partition decision is workload management.</source>
+          <target state="new">One final piece of information you need to factor in to the table partition decision is workload management.</target>
+        </trans-unit>
+        <trans-unit id="97c70380-da05-4de5-8b08-6b54d0ac784f" xml:space="preserve">
+          <source>In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature.</source>
+          <target state="new">In SQL Data Warehouse the maximum memory allocated to each distribution during query execution is governed by this feature.</target>
+        </trans-unit>
+        <trans-unit id="6eff71e9-b9da-46ac-aba2-b47b0266822a" xml:space="preserve">
+          <source>Please refer to the following article for more details on [workload management].</source>
+          <target state="new">Please refer to the following article for more details on [workload management].</target>
+        </trans-unit>
+        <trans-unit id="6d94d7fd-6dd2-4281-8535-125e45fb2800" xml:space="preserve">
+          <source>Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind.</source>
+          <target state="new">Ideally your partition will be sized with inmemory operations such as columnstore index rebuilds in mind.</target>
+        </trans-unit>
+        <trans-unit id="750d1dc9-b067-427d-9e97-874371c7553d" xml:space="preserve">
+          <source>An index rebuild is a memory intensive operation.</source>
+          <target state="new">An index rebuild is a memory intensive operation.</target>
+        </trans-unit>
+        <trans-unit id="a06a3baf-5228-4e8e-a16a-866961efb94f" xml:space="preserve">
+          <source>Therefore you will want to ensure that the partition index rebuild is not starved of memory.</source>
+          <target state="new">Therefore you will want to ensure that the partition index rebuild is not starved of memory.</target>
+        </trans-unit>
+        <trans-unit id="e6f62934-0f0a-4edb-ade5-4fd5174eb2c4" xml:space="preserve">
+          <source>Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.</source>
+          <target state="new">Increasing the amount of memory available to your query can be achieved by switching from the default role to one of the other roles available.</target>
+        </trans-unit>
+        <trans-unit id="c00b4166-9129-4145-8b02-1fcd3929a08f" xml:space="preserve">
+          <source>Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views.</source>
+          <target state="new">Information on the allocation of memory per distribution is available by querying the resource governor dynamic management views.</target>
+        </trans-unit>
+        <trans-unit id="667852ac-c02b-4825-80b8-ba493be4ca7f" xml:space="preserve">
+          <source>In reality your memory grant will be less than the figures below.</source>
+          <target state="new">In reality your memory grant will be less than the figures below.</target>
+        </trans-unit>
+        <trans-unit id="cb7a9dcc-7bf4-4aa7-a3c4-e7b5055b2347" xml:space="preserve">
+          <source>However, this provides a level of guidance that you can use when sizing your partitions for data management operations.</source>
+          <target state="new">However, this provides a level of guidance that you can use when sizing your partitions for data management operations.</target>
+        </trans-unit>
+        <trans-unit id="59d3651f-cce9-4cc4-a464-a3e2c96ac7eb" xml:space="preserve">
+          <source>Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class.</source>
+          <target state="new">Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class.</target>
+        </trans-unit>
+        <trans-unit id="c25e03d6-c7db-4a36-aa92-76ecae09273b" xml:space="preserve">
+          <source>If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.</source>
+          <target state="new">If your partitions grow beyond this figure you run the risk of memory pressure which in turn leads to less optimal compression.</target>
+        </trans-unit>
+        <trans-unit id="3941d7af-e918-4fdf-997f-e1789a4c80ca" xml:space="preserve">
+          <source>To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match.</source>
+          <target state="new">To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match.</target>
+        </trans-unit>
+        <trans-unit id="683eda8c-467e-4a34-963c-155de582c877" xml:space="preserve">
+          <source>As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table.</source>
+          <target state="new">As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table.</target>
+        </trans-unit>
+        <trans-unit id="20baf183-0272-491b-8348-8d8ae2158203" xml:space="preserve">
+          <source>If this is not the case then the parition switch will fail as the partition metadata will not be synchronised.</source>
+          <target state="new">If this is not the case then the parition switch will fail as the partition metadata will not be synchronised.</target>
+        </trans-unit>
+        <trans-unit id="81ea103e-bca8-4358-9943-4f1526b8f3bb" xml:space="preserve">
+          <source>The most efficient method to split a partition that already contains data is to use a <bpt id="d49d3999-7747-4111-86f0-28c62f23d491">&lt;code&gt;</bpt>CTAS<ept id="d49d3999-7747-4111-86f0-28c62f23d491">&lt;/code&gt;</ept> statement.</source>
+          <target state="new">The most efficient method to split a partition that already contains data is to use a <bpt id="d49d3999-7747-4111-86f0-28c62f23d491">&lt;code&gt;</bpt>CTAS<ept id="d49d3999-7747-4111-86f0-28c62f23d491">&lt;/code&gt;</ept> statement.</target>
+        </trans-unit>
+        <trans-unit id="0367235e-4c3e-44fb-a13e-3bdc2fe4f6ef" xml:space="preserve">
+          <source>If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.</source>
+          <target state="new">If the partitioned table is a clustered columnstore then the table partition must be empty before it can be split.</target>
+        </trans-unit>
+        <trans-unit id="0b769266-fe64-4c6d-9c8d-b4e89e208b64" xml:space="preserve">
+          <source>Below is a sample partitioned columnstore table containing one row in the final partition:</source>
+          <target state="new">Below is a sample partitioned columnstore table containing one row in the final partition:</target>
+        </trans-unit>
+        <trans-unit id="df81f2b2-ec3a-4660-ac3c-805b2cb7446f" xml:space="preserve">
+          <source>By Creating the statistic object we ensure that table metadata is more accurate.</source>
+          <target state="new">By Creating the statistic object we ensure that table metadata is more accurate.</target>
+        </trans-unit>
+        <trans-unit id="bd9699b2-7243-4eff-a979-d8eaeadcc13b" xml:space="preserve">
+          <source>If we omit creating statistics then SQL Data Warehouse will use default values.</source>
+          <target state="new">If we omit creating statistics then SQL Data Warehouse will use default values.</target>
+        </trans-unit>
+        <trans-unit id="519bfb82-6ef9-4bb5-9712-533db9ec6e0f" xml:space="preserve">
+          <source>For details on statistics please review <bpt id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;linkText&gt;</bpt>statistics<ept id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;/linkText&gt;</ept><bpt id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;title&gt;</bpt><ept id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details on statistics please review <bpt id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;linkText&gt;</bpt>statistics<ept id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;/linkText&gt;</ept><bpt id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;title&gt;</bpt><ept id="94e0c0cc-a752-4b89-8ffe-e78816488c3b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52568b2b-4414-4f53-94a8-06b0b0c84781" xml:space="preserve">
+          <source>We can then query for the row count leveraging the <bpt id="d3936cf5-b705-439a-86ba-ecf64258d982">&lt;code&gt;</bpt>sys.partitions<ept id="d3936cf5-b705-439a-86ba-ecf64258d982">&lt;/code&gt;</ept> catalog view:</source>
+          <target state="new">We can then query for the row count leveraging the <bpt id="d3936cf5-b705-439a-86ba-ecf64258d982">&lt;code&gt;</bpt>sys.partitions<ept id="d3936cf5-b705-439a-86ba-ecf64258d982">&lt;/code&gt;</ept> catalog view:</target>
+        </trans-unit>
+        <trans-unit id="c339dde4-ae2b-42e7-b188-9fdf26dfc985" xml:space="preserve">
+          <source>If we try to split this table we will get an error:</source>
+          <target state="new">If we try to split this table we will get an error:</target>
+        </trans-unit>
+        <trans-unit id="ebe2d9f5-75b7-4989-9197-f43f8ef278fe" xml:space="preserve">
+          <source>Msg 35346, Level 15, State 1, Line 44
+SPLIT clause of ALTER PARTITION statement failed because the partition is not empty.</source>
+          <target state="new">Msg 35346, Level 15, State 1, Line 44
+SPLIT clause of ALTER PARTITION statement failed because the partition is not empty.</target>
+        </trans-unit>
+        <trans-unit id="96afc434-376b-46cc-966b-0983ab58295a" xml:space="preserve">
+          <source>Only empty partitions can be split in when a columnstore index exists on the table.</source>
+          <target state="new">Only empty partitions can be split in when a columnstore index exists on the table.</target>
+        </trans-unit>
+        <trans-unit id="6e19b53e-e72a-44bd-838d-595e341d13fd" xml:space="preserve">
+          <source>Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.</source>
+          <target state="new">Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.</target>
+        </trans-unit>
+        <trans-unit id="36d0257b-f938-4b4c-9de6-496355c91734" xml:space="preserve">
+          <source>However we can use <bpt id="8fd44b63-3d23-4e7d-bd1c-51cb051e2262">&lt;code&gt;</bpt>CTAS<ept id="8fd44b63-3d23-4e7d-bd1c-51cb051e2262">&lt;/code&gt;</ept> to create a new table to hold our data.</source>
+          <target state="new">However we can use <bpt id="8fd44b63-3d23-4e7d-bd1c-51cb051e2262">&lt;code&gt;</bpt>CTAS<ept id="8fd44b63-3d23-4e7d-bd1c-51cb051e2262">&lt;/code&gt;</ept> to create a new table to hold our data.</target>
+        </trans-unit>
+        <trans-unit id="0c91698d-9e50-4c96-8860-e16e43dd3e9d" xml:space="preserve">
+          <source>As the partition boundaries are aligned a switch is permitted.</source>
+          <target state="new">As the partition boundaries are aligned a switch is permitted.</target>
+        </trans-unit>
+        <trans-unit id="23086a04-9841-43db-9e31-626667dab28d" xml:space="preserve">
+          <source>This will leave the source table with an empty partition that we can subsequently split.</source>
+          <target state="new">This will leave the source table with an empty partition that we can subsequently split.</target>
+        </trans-unit>
+        <trans-unit id="53fde893-dbd7-4ad2-a652-71aa255411bf" xml:space="preserve">
+          <source>All that is left to do is to align our data to the new partition boundaries using <bpt id="e4f73bb2-6634-4d7c-b553-f20eb00e4df6">&lt;code&gt;</bpt>CTAS<ept id="e4f73bb2-6634-4d7c-b553-f20eb00e4df6">&lt;/code&gt;</ept> and switch our data back in to the main table</source>
+          <target state="new">All that is left to do is to align our data to the new partition boundaries using <bpt id="e4f73bb2-6634-4d7c-b553-f20eb00e4df6">&lt;code&gt;</bpt>CTAS<ept id="e4f73bb2-6634-4d7c-b553-f20eb00e4df6">&lt;/code&gt;</ept> and switch our data back in to the main table</target>
+        </trans-unit>
+        <trans-unit id="3707c6db-6945-4de0-8072-6143477d9dba" xml:space="preserve">
+          <source>Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:</source>
+          <target state="new">Once you have completed the movement of the data it is a good idea to refresh the statistics on the target table to ensure they accurately reflect the new distribution of the data in their respective partitions:</target>
+        </trans-unit>
+        <trans-unit id="e3334a7f-550a-455f-b12e-0917a1870f70" xml:space="preserve">
+          <source>To avoid your table definition from <bpt id="40330d1c-db7a-4e03-8e32-8f411ef31019">&lt;strong&gt;</bpt>rusting<ept id="40330d1c-db7a-4e03-8e32-8f411ef31019">&lt;/strong&gt;</ept> in your source control system you may want to consider the following approach:</source>
+          <target state="new">To avoid your table definition from <bpt id="40330d1c-db7a-4e03-8e32-8f411ef31019">&lt;strong&gt;</bpt>rusting<ept id="40330d1c-db7a-4e03-8e32-8f411ef31019">&lt;/strong&gt;</ept> in your source control system you may want to consider the following approach:</target>
+        </trans-unit>
+        <trans-unit id="f351c8db-9504-4e53-9957-a68a52042c29" xml:space="preserve">
+          <source>Create the table as a partitioned table but with no partition values</source>
+          <target state="new">Create the table as a partitioned table but with no partition values</target>
+        </trans-unit>
+        <trans-unit id="0436b01a-0e89-418d-bc3f-0b6729877ede" xml:space="preserve">
+          <source><bpt id="a3b190a3-2192-4205-9979-2444c22f05ee">&lt;code&gt;</bpt>SPLIT<ept id="a3b190a3-2192-4205-9979-2444c22f05ee">&lt;/code&gt;</ept> the table as part of the deployment process:</source>
+          <target state="new"><bpt id="a3b190a3-2192-4205-9979-2444c22f05ee">&lt;code&gt;</bpt>SPLIT<ept id="a3b190a3-2192-4205-9979-2444c22f05ee">&lt;/code&gt;</ept> the table as part of the deployment process:</target>
+        </trans-unit>
+        <trans-unit id="0ac4d7be-c743-4f8d-964d-76ba9f9bcc13" xml:space="preserve">
+          <source>With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.</source>
+          <target state="new">With this approach the code in source control remains static and the partitioning boundary values are allowed to be dynamic; evolving with the warehouse over time.</target>
+        </trans-unit>
+        <trans-unit id="9d38f8c6-1226-4d63-818b-8b5765a7b61e" xml:space="preserve">
+          <source>Partition switching has a few differences in comparison to SQL Server.</source>
+          <target state="new">Partition switching has a few differences in comparison to SQL Server.</target>
+        </trans-unit>
+        <trans-unit id="6ec651f3-ff18-490a-9950-aeb552ae7326" xml:space="preserve">
+          <source>Be sure to read <bpt id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;linkText&gt;</bpt>Migrate your code<ept id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;/linkText&gt;</ept><bpt id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;title&gt;</bpt><ept id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;/title&gt;</ept> to learn more about this subject.</source>
+          <target state="new">Be sure to read <bpt id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;linkText&gt;</bpt>Migrate your code<ept id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;/linkText&gt;</ept><bpt id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;title&gt;</bpt><ept id="d7418d48-88d3-486a-8692-0f8574014c3c">&lt;/title&gt;</ept> to learn more about this subject.</target>
+        </trans-unit>
+        <trans-unit id="4bc6b6a3-d3d5-4af4-8425-07ce21eb43d5" xml:space="preserve">
+          <source>Once you have successfully migrated your database schema to SQL Data Warehouse you can proceed to one of the following articles:</source>
+          <target state="new">Once you have successfully migrated your database schema to SQL Data Warehouse you can proceed to one of the following articles:</target>
+        </trans-unit>
+        <trans-unit id="12849baf-61c6-4572-ba76-ffef4ed248d4" xml:space="preserve">
+          <source><bpt id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;linkText&gt;</bpt>Migrate your data<ept id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;/linkText&gt;</ept><bpt id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;title&gt;</bpt><ept id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;linkText&gt;</bpt>Migrate your data<ept id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;/linkText&gt;</ept><bpt id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;title&gt;</bpt><ept id="7e5e71d1-c2c2-4abb-b331-ba6b8b22d55c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4564bb18-5e06-4d25-b4b7-a5cbc37467e9" xml:space="preserve">
+          <source><bpt id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;linkText&gt;</bpt>Migrate your code<ept id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;/linkText&gt;</ept><bpt id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;title&gt;</bpt><ept id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;linkText&gt;</bpt>Migrate your code<ept id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;/linkText&gt;</ept><bpt id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;title&gt;</bpt><ept id="67ca965f-bdb2-446c-afce-43b19cefcecc">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="05eb292b-6187-4063-93ac-679d0e7fc8fb" xml:space="preserve">
+          <source>sql-data-warehouse-migrate-code.md</source>
+          <target state="new">sql-data-warehouse-migrate-code.md</target>
+        </trans-unit>
+        <trans-unit id="820648ca-4953-4dc7-94d1-dfb47ab1f668" xml:space="preserve">
+          <source>sql-data-warehouse-migrate-data.md</source>
+          <target state="new">sql-data-warehouse-migrate-data.md</target>
+        </trans-unit>
+        <trans-unit id="28a519a9-1946-4d15-8574-0342d8874e47" xml:space="preserve">
+          <source>sql-data-warehouse-develop-statistics.md</source>
+          <target state="new">sql-data-warehouse-develop-statistics.md</target>
+        </trans-unit>
+        <trans-unit id="ed8f32d5-0329-4d67-a447-e47a868c6d03" xml:space="preserve">
+          <source>sql-data-warehouse-develop-concurrency.md</source>
+          <target state="new">sql-data-warehouse-develop-concurrency.md</target>
+        </trans-unit>
+      </group>
+      <group id="25df0f47-809d-41f4-ae98-59d1d3ff0219" />
+    </body>
+  </file>
+</xliff>

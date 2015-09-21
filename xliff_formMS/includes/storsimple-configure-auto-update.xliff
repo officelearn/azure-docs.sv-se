@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="b085522f-3d66-49bd-8b13-f11161cbbafb" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="b085522f-3d66-49bd-8b13-f11161cbbafb" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4c549b31-a485-4035-99b6-5ccd5d1d6f96">
+        <trans-unit id="3de3a0b3-b658-489e-b6d0-d1d8903cce2f" xml:space="preserve">
+          <source>Configure automatic updating</source>
+          <target state="new">Configure automatic updating</target>
+        </trans-unit>
+        <trans-unit id="339f8047-80cf-4135-af45-dfff57270056" xml:space="preserve">
+          <source>Explains how to use the StorSimple update feature to configure automatic updates.</source>
+          <target state="new">Explains how to use the StorSimple update feature to configure automatic updates.</target>
+        </trans-unit>
+        <trans-unit id="41a99e8f-6da8-411a-9f8a-e284aa8946a4" xml:space="preserve">
+          <source>On the <bpt id="23f4bbc0-fb61-432f-a75c-df98424741cb">&lt;strong&gt;</bpt>Devices<ept id="23f4bbc0-fb61-432f-a75c-df98424741cb">&lt;/strong&gt;</ept> page, select the device on which you want to install updates.</source>
+          <target state="new">On the <bpt id="23f4bbc0-fb61-432f-a75c-df98424741cb">&lt;strong&gt;</bpt>Devices<ept id="23f4bbc0-fb61-432f-a75c-df98424741cb">&lt;/strong&gt;</ept> page, select the device on which you want to install updates.</target>
+        </trans-unit>
+        <trans-unit id="ab73fe98-7b78-4e4b-8934-4debff442ed3" xml:space="preserve">
+          <source>Navigate to <bpt id="37be7b8b-e463-4983-b91c-5d8b38769217">&lt;strong&gt;</bpt>Devices<ept id="37be7b8b-e463-4983-b91c-5d8b38769217">&lt;/strong&gt;</ept> &gt; <bpt id="8c29c53f-f537-4f0d-a5f6-c61bdc5491d5">&lt;strong&gt;</bpt>Maintenance<ept id="8c29c53f-f537-4f0d-a5f6-c61bdc5491d5">&lt;/strong&gt;</ept> and scroll down to <bpt id="1cf19f71-16d8-487e-b94f-fe992c502573">&lt;strong&gt;</bpt>Software Updates<ept id="1cf19f71-16d8-487e-b94f-fe992c502573">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Navigate to <bpt id="37be7b8b-e463-4983-b91c-5d8b38769217">&lt;strong&gt;</bpt>Devices<ept id="37be7b8b-e463-4983-b91c-5d8b38769217">&lt;/strong&gt;</ept> &gt; <bpt id="8c29c53f-f537-4f0d-a5f6-c61bdc5491d5">&lt;strong&gt;</bpt>Maintenance<ept id="8c29c53f-f537-4f0d-a5f6-c61bdc5491d5">&lt;/strong&gt;</ept> and scroll down to <bpt id="1cf19f71-16d8-487e-b94f-fe992c502573">&lt;strong&gt;</bpt>Software Updates<ept id="1cf19f71-16d8-487e-b94f-fe992c502573">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae56f9fb-4a7b-4d95-8657-47fd50b59f4a" xml:space="preserve">
+          <source>Set <bpt id="dc96dd17-6165-4a45-b817-b9b037c26cca">&lt;strong&gt;</bpt>Automatic Updates<ept id="dc96dd17-6165-4a45-b817-b9b037c26cca">&lt;/strong&gt;</ept> to <bpt id="59fcf6cc-1a5a-4ad5-9472-6aa7f651802e">&lt;strong&gt;</bpt>Yes<ept id="59fcf6cc-1a5a-4ad5-9472-6aa7f651802e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Set <bpt id="dc96dd17-6165-4a45-b817-b9b037c26cca">&lt;strong&gt;</bpt>Automatic Updates<ept id="dc96dd17-6165-4a45-b817-b9b037c26cca">&lt;/strong&gt;</ept> to <bpt id="59fcf6cc-1a5a-4ad5-9472-6aa7f651802e">&lt;strong&gt;</bpt>Yes<ept id="59fcf6cc-1a5a-4ad5-9472-6aa7f651802e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8a1d97a-2292-4e5d-ba23-2946557b68fd" xml:space="preserve">
+          <source>This option automatically scans for updates at 3:00 AM device time, and installs any updates at 4:00 AM every day.</source>
+          <target state="new">This option automatically scans for updates at 3:00 AM device time, and installs any updates at 4:00 AM every day.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="1196fb09-a70e-4f8b-8cc6-c44c07713639" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="1196fb09-a70e-4f8b-8cc6-c44c07713639" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="06f18f56-4648-458f-acfa-1d0e53f6db8d">
+        <trans-unit id="8cb836f5-f8a8-44ff-baec-9e38c8bf1295" xml:space="preserve">
+          <source>Dynamic Packaging Overview</source>
+          <target state="new">Dynamic Packaging Overview</target>
+        </trans-unit>
+        <trans-unit id="faddaaab-8408-4f74-a4c8-f56fd471b57d" xml:space="preserve">
+          <source>The topic gives and overview of dynamic packaging.</source>
+          <target state="new">The topic gives and overview of dynamic packaging.</target>
+        </trans-unit>
+        <trans-unit id="bd94bf9d-5f73-4731-b51c-b425f24e27ae" xml:space="preserve">
+          <source>Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS, XBOX, Silverlight, Windows 8).</source>
+          <target state="new">Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS, XBOX, Silverlight, Windows 8).</target>
+        </trans-unit>
+        <trans-unit id="30a34811-f35b-44a7-8636-bb59839e7340" xml:space="preserve">
+          <source>These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) V4 format and Silverlight and Xbox require Smooth Streaming.</source>
+          <target state="new">These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) V4 format and Silverlight and Xbox require Smooth Streaming.</target>
+        </trans-unit>
+        <trans-unit id="07042f8d-81ff-4ff3-b05f-a8c010a3e85b" xml:space="preserve">
+          <source>If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand MPEG DASH, HLS or Smooth Streaming, you should take advantage of Media Services dynamic packaging.</source>
+          <target state="new">If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand MPEG DASH, HLS or Smooth Streaming, you should take advantage of Media Services dynamic packaging.</target>
+        </trans-unit>
+        <trans-unit id="c0a62882-634b-475b-b7c3-c612ca80eb01" xml:space="preserve">
+          <source>With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.</source>
+          <target state="new">With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files.</target>
+        </trans-unit>
+        <trans-unit id="c90da977-38fd-4b8e-8a2a-7df7ad8bd101" xml:space="preserve">
+          <source>Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen.</source>
+          <target state="new">Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen.</target>
+        </trans-unit>
+        <trans-unit id="f4272a7c-720c-4ebd-95de-c7c0effa141c" xml:space="preserve">
+          <source>As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.</source>
+          <target state="new">As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.</target>
+        </trans-unit>
+        <trans-unit id="eb7851a9-3103-433d-ba5b-77a6acd5bbc8" xml:space="preserve">
+          <source>The following diagram shows the traditional encoding and static packaging workflow.</source>
+          <target state="new">The following diagram shows the traditional encoding and static packaging workflow.</target>
+        </trans-unit>
+        <trans-unit id="7a8f9de3-38b6-4e18-ae02-dc3c868399d8" xml:space="preserve">
+          <source><bpt id="689ac92f-f422-4a08-8b12-d7f30ff80bac">&lt;linkText&gt;</bpt>Static Encoding<ept id="689ac92f-f422-4a08-8b12-d7f30ff80bac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="689ac92f-f422-4a08-8b12-d7f30ff80bac">&lt;linkText&gt;</bpt>Static Encoding<ept id="689ac92f-f422-4a08-8b12-d7f30ff80bac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b0b9019-424d-4987-8ce6-501f3c8966ef" xml:space="preserve">
+          <source>The following diagram shows the dynamic packaging workflow.</source>
+          <target state="new">The following diagram shows the dynamic packaging workflow.</target>
+        </trans-unit>
+        <trans-unit id="97cd3208-a419-46d0-bc8c-d7faedd9443d" xml:space="preserve">
+          <source><bpt id="2ec7d79b-8670-4f56-aea5-4901a1b83e0d">&lt;linkText&gt;</bpt>Dynamic Encoding<ept id="2ec7d79b-8670-4f56-aea5-4901a1b83e0d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ec7d79b-8670-4f56-aea5-4901a1b83e0d">&lt;linkText&gt;</bpt>Dynamic Encoding<ept id="2ec7d79b-8670-4f56-aea5-4901a1b83e0d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="52f3da16-b491-4a02-a84d-c238d650f726" xml:space="preserve">
+          <source>To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content.</source>
+          <target state="new">To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content.</target>
+        </trans-unit>
+        <trans-unit id="2c0afe20-a41e-4c22-b386-70e8fbfa0adc" xml:space="preserve">
+          <source>For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale<bpt id="7da9061e-d2ce-4a27-b44d-4ea1920e8867">&lt;em&gt;</bpt>streaming<ept id="7da9061e-d2ce-4a27-b44d-4ea1920e8867">&lt;/em&gt;</ept>endpoints).</source>
+          <target state="new">For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale<bpt id="7da9061e-d2ce-4a27-b44d-4ea1920e8867">&lt;em&gt;</bpt>streaming<ept id="7da9061e-d2ce-4a27-b44d-4ea1920e8867">&lt;/em&gt;</ept>endpoints).</target>
+        </trans-unit>
+        <trans-unit id="9ffcc266-791c-49af-a932-360a28f40a94" xml:space="preserve">
+          <source>Upload an input file (called a mezzanine file).</source>
+          <target state="new">Upload an input file (called a mezzanine file).</target>
+        </trans-unit>
+        <trans-unit id="fc64eab0-642c-4f3c-a7e9-c1ff168023ce" xml:space="preserve">
+          <source>For example, H.264, MP4, or WMV (for the list of supported formats see Formats Supported by the Media Services Encoder).</source>
+          <target state="new">For example, H.264, MP4, or WMV (for the list of supported formats see Formats Supported by the Media Services Encoder).</target>
+        </trans-unit>
+        <trans-unit id="6fba1ed1-6db4-4a7e-ba04-154f48574886" xml:space="preserve">
+          <source>Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.</source>
+          <target state="new">Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.</target>
+        </trans-unit>
+        <trans-unit id="ac62d063-48ec-482c-a2c0-36b52e920b6c" xml:space="preserve">
+          <source>Publish the asset that contains the adaptive bitrate MP4 set by creating the On-Demand Locator.</source>
+          <target state="new">Publish the asset that contains the adaptive bitrate MP4 set by creating the On-Demand Locator.</target>
+        </trans-unit>
+        <trans-unit id="ec9a7f37-ea24-4438-8e08-e2de3e4cdd94" xml:space="preserve">
+          <source>Build the streaming URLs to access and stream your content.</source>
+          <target state="new">Build the streaming URLs to access and stream your content.</target>
+        </trans-unit>
+        <trans-unit id="619ee3ce-d5d3-4aab-bdfb-524580882a29" xml:space="preserve">
+          <source>Not all MP4 file formats are supported by dynamic packaging, for more information, see <bpt id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;linkText&gt;</bpt>Unsupported formats for dynamic packaging<ept id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;/linkText&gt;</ept><bpt id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;title&gt;</bpt><ept id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;/title&gt;</ept>.</source>
+          <target state="new">Not all MP4 file formats are supported by dynamic packaging, for more information, see <bpt id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;linkText&gt;</bpt>Unsupported formats for dynamic packaging<ept id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;/linkText&gt;</ept><bpt id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;title&gt;</bpt><ept id="3223ef49-e76e-44c0-951b-e0a8ff610812">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="36e69c3f-750d-4f40-881b-d762165b691a" xml:space="preserve">
+          <source>To prepare your asset for dynamic streaming you have two options: </source>
+          <target state="new">To prepare your asset for dynamic streaming you have two options: </target>
+        </trans-unit>
+        <trans-unit id="d93e5eb1-ac3b-4f6e-90fc-0f15231c7921" xml:space="preserve">
+          <source>Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder.</source>
+          <target state="new">Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder.</target>
+        </trans-unit>
+        <trans-unit id="1f6df00e-a383-4454-8f84-2035e9665ef0" xml:space="preserve">
+          <source>Upload existing adaptive bitrate sets and validate them using the Media Packager.</source>
+          <target state="new">Upload existing adaptive bitrate sets and validate them using the Media Packager.</target>
+        </trans-unit>
+        <trans-unit id="3dfbd219-d770-431c-a6dc-0a0f749a0f43" xml:space="preserve">
+          <source>For information about how to upload and encode assets see the following articles:</source>
+          <target state="new">For information about how to upload and encode assets see the following articles:</target>
+        </trans-unit>
+        <trans-unit id="5cba5ae0-a032-4ae6-94d0-92f91e64e8b2" xml:space="preserve">
+          <source>Upload your files using <bpt id="bd29311c-7986-4897-8baa-736c759650c2">&lt;strong&gt;</bpt>Azure Management Portal<ept id="bd29311c-7986-4897-8baa-736c759650c2">&lt;/strong&gt;</ept>, <bpt id="53a0477c-38b3-44bb-971b-9a980ed1b908">&lt;strong&gt;</bpt>.NET<ept id="53a0477c-38b3-44bb-971b-9a980ed1b908">&lt;/strong&gt;</ept> or <bpt id="2ae0d097-cabe-49e4-b353-0b04dc78153c">&lt;strong&gt;</bpt>REST API<ept id="2ae0d097-cabe-49e4-b353-0b04dc78153c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Upload your files using <bpt id="bd29311c-7986-4897-8baa-736c759650c2">&lt;strong&gt;</bpt>Azure Management Portal<ept id="bd29311c-7986-4897-8baa-736c759650c2">&lt;/strong&gt;</ept>, <bpt id="53a0477c-38b3-44bb-971b-9a980ed1b908">&lt;strong&gt;</bpt>.NET<ept id="53a0477c-38b3-44bb-971b-9a980ed1b908">&lt;/strong&gt;</ept> or <bpt id="2ae0d097-cabe-49e4-b353-0b04dc78153c">&lt;strong&gt;</bpt>REST API<ept id="2ae0d097-cabe-49e4-b353-0b04dc78153c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="37cf5502-9e0b-437e-bf89-803fc94a8ba3" xml:space="preserve">
+          <source><bpt id="80706547-dc3a-4723-afd5-e5163b2ce9f2">&lt;token href="../../includes/media-services-selector-upload-files.md"&gt;</bpt><ept id="80706547-dc3a-4723-afd5-e5163b2ce9f2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="80706547-dc3a-4723-afd5-e5163b2ce9f2">&lt;token href="../../includes/media-services-selector-upload-files.md"&gt;</bpt><ept id="80706547-dc3a-4723-afd5-e5163b2ce9f2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0ee3ae8c-3050-4f3d-8a15-5639bb0b7c7d" xml:space="preserve">
+          <source>Encode with <bpt id="2a18fdf7-ae98-43ca-b4ba-d84a9be89423">&lt;strong&gt;</bpt>Azure Media Encoder<ept id="2a18fdf7-ae98-43ca-b4ba-d84a9be89423">&lt;/strong&gt;</ept> using <bpt id="3d8b7323-3123-4ecd-b76b-2e4c4b410c82">&lt;strong&gt;</bpt>Azure Management Portal<ept id="3d8b7323-3123-4ecd-b76b-2e4c4b410c82">&lt;/strong&gt;</ept>, <bpt id="f6a35065-cb5b-458b-a5ff-581de0f53d6e">&lt;strong&gt;</bpt>.NET<ept id="f6a35065-cb5b-458b-a5ff-581de0f53d6e">&lt;/strong&gt;</ept>, or <bpt id="976613c7-2de7-4c7f-8ec5-c0a81d852769">&lt;strong&gt;</bpt>REST API<ept id="976613c7-2de7-4c7f-8ec5-c0a81d852769">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Encode with <bpt id="2a18fdf7-ae98-43ca-b4ba-d84a9be89423">&lt;strong&gt;</bpt>Azure Media Encoder<ept id="2a18fdf7-ae98-43ca-b4ba-d84a9be89423">&lt;/strong&gt;</ept> using <bpt id="3d8b7323-3123-4ecd-b76b-2e4c4b410c82">&lt;strong&gt;</bpt>Azure Management Portal<ept id="3d8b7323-3123-4ecd-b76b-2e4c4b410c82">&lt;/strong&gt;</ept>, <bpt id="f6a35065-cb5b-458b-a5ff-581de0f53d6e">&lt;strong&gt;</bpt>.NET<ept id="f6a35065-cb5b-458b-a5ff-581de0f53d6e">&lt;/strong&gt;</ept>, or <bpt id="976613c7-2de7-4c7f-8ec5-c0a81d852769">&lt;strong&gt;</bpt>REST API<ept id="976613c7-2de7-4c7f-8ec5-c0a81d852769">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a442b15d-683e-414f-9da4-212417df60e7" xml:space="preserve">
+          <source><bpt id="116cb0c5-7339-4c37-9622-85f82c63fe1d">&lt;token href="../../includes/media-services-selector-encode.md"&gt;</bpt><ept id="116cb0c5-7339-4c37-9622-85f82c63fe1d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="116cb0c5-7339-4c37-9622-85f82c63fe1d">&lt;token href="../../includes/media-services-selector-encode.md"&gt;</bpt><ept id="116cb0c5-7339-4c37-9622-85f82c63fe1d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="314156f2-fb34-4ab9-8026-0adcbbebe139" xml:space="preserve">
+          <source>You would typically want to perform this task if you are uploading a set of adaptive bitrate MP4 files that were not encoded with Media Services Encoder.</source>
+          <target state="new">You would typically want to perform this task if you are uploading a set of adaptive bitrate MP4 files that were not encoded with Media Services Encoder.</target>
+        </trans-unit>
+        <trans-unit id="df691967-cbd1-4ce8-9d4d-1d790e6753d9" xml:space="preserve">
+          <source>The <bpt id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;linkText&gt;</bpt>Validating Adaptive Bitrate MP4s Encoded with External Encoders<ept id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;/linkText&gt;</ept><bpt id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;title&gt;</bpt><ept id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;/title&gt;</ept> topic shows how to achieve this task.</source>
+          <target state="new">The <bpt id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;linkText&gt;</bpt>Validating Adaptive Bitrate MP4s Encoded with External Encoders<ept id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;/linkText&gt;</ept><bpt id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;title&gt;</bpt><ept id="30215196-fd12-4fcb-b3e2-a25a6048e7e7">&lt;/title&gt;</ept> topic shows how to achieve this task.</target>
+        </trans-unit>
+        <trans-unit id="c3314e80-6548-467c-b687-10b15f5d24bc" xml:space="preserve">
+          <source>Once you have the adaptive bitrate sets, you can publish your asset by creating an On-Demand locator and compose the streaming URLs for Smooth Steaming, MPEG DASH, HLS, and HDS (for Adobe PrimeTime/Access licensees only).</source>
+          <target state="new">Once you have the adaptive bitrate sets, you can publish your asset by creating an On-Demand locator and compose the streaming URLs for Smooth Steaming, MPEG DASH, HLS, and HDS (for Adobe PrimeTime/Access licensees only).</target>
+        </trans-unit>
+        <trans-unit id="3fe87114-a6ea-448f-9634-9ad02a646bfc" xml:space="preserve">
+          <source>For information on how to create locators and use dynamic packaging to stream your content, see the following topics:</source>
+          <target state="new">For information on how to create locators and use dynamic packaging to stream your content, see the following topics:</target>
+        </trans-unit>
+        <trans-unit id="2001a356-7237-49c6-8670-9ef71bd582e5" xml:space="preserve">
+          <source><bpt id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;linkText&gt;</bpt>Delivering Content to Customers Overview<ept id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;/linkText&gt;</ept><bpt id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;title&gt;</bpt><ept id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;linkText&gt;</bpt>Delivering Content to Customers Overview<ept id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;/linkText&gt;</ept><bpt id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;title&gt;</bpt><ept id="e260ffd3-ca0f-4107-a532-a83d15dac8f9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d316ffd8-cc64-4cc8-83a4-6bab5b313e19" xml:space="preserve">
+          <source>Configure asset delivery policy using <bpt id="a7cf8cec-eca1-4ca2-ac1d-7c58949c22df">&lt;strong&gt;</bpt>.NET<ept id="a7cf8cec-eca1-4ca2-ac1d-7c58949c22df">&lt;/strong&gt;</ept> or <bpt id="46a8f0da-8032-481c-86c8-535929802af8">&lt;strong&gt;</bpt>REST API<ept id="46a8f0da-8032-481c-86c8-535929802af8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Configure asset delivery policy using <bpt id="a7cf8cec-eca1-4ca2-ac1d-7c58949c22df">&lt;strong&gt;</bpt>.NET<ept id="a7cf8cec-eca1-4ca2-ac1d-7c58949c22df">&lt;/strong&gt;</ept> or <bpt id="46a8f0da-8032-481c-86c8-535929802af8">&lt;strong&gt;</bpt>REST API<ept id="46a8f0da-8032-481c-86c8-535929802af8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d03a826d-9a52-48ea-b0ad-54fbb171d801" xml:space="preserve">
+          <source><bpt id="c9e22452-0000-4a4b-bf13-f0bcb97eaa31">&lt;token href="../../includes/media-services-selector-asset-delivery-policy.md"&gt;</bpt><ept id="c9e22452-0000-4a4b-bf13-f0bcb97eaa31">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="c9e22452-0000-4a4b-bf13-f0bcb97eaa31">&lt;token href="../../includes/media-services-selector-asset-delivery-policy.md"&gt;</bpt><ept id="c9e22452-0000-4a4b-bf13-f0bcb97eaa31">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="51341421-4770-4318-a69f-cb2e4f4d60ed" xml:space="preserve">
+          <source>Publish assets (by creating Locators) using <bpt id="a95bddd8-e9fc-4e75-a47f-4a70c198132d">&lt;strong&gt;</bpt>Azure Management Portal<ept id="a95bddd8-e9fc-4e75-a47f-4a70c198132d">&lt;/strong&gt;</ept> or <bpt id="84a5f7ca-9f21-4de1-b358-f6ba161a0727">&lt;strong&gt;</bpt>.NET<ept id="84a5f7ca-9f21-4de1-b358-f6ba161a0727">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Publish assets (by creating Locators) using <bpt id="a95bddd8-e9fc-4e75-a47f-4a70c198132d">&lt;strong&gt;</bpt>Azure Management Portal<ept id="a95bddd8-e9fc-4e75-a47f-4a70c198132d">&lt;/strong&gt;</ept> or <bpt id="84a5f7ca-9f21-4de1-b358-f6ba161a0727">&lt;strong&gt;</bpt>.NET<ept id="84a5f7ca-9f21-4de1-b358-f6ba161a0727">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1532d5cd-7f81-42cd-9410-51f9240e628b" xml:space="preserve">
+          <source><bpt id="7413e3e2-692a-433d-9eab-c181242d19d6">&lt;token href="../../includes/media-services-selector-publish.md"&gt;</bpt><ept id="7413e3e2-692a-433d-9eab-c181242d19d6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7413e3e2-692a-433d-9eab-c181242d19d6">&lt;token href="../../includes/media-services-selector-publish.md"&gt;</bpt><ept id="7413e3e2-692a-433d-9eab-c181242d19d6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8e17d4d5-531e-4177-a2b4-c3aa32b847d7" xml:space="preserve">
+          <source>The following source file formats are not supported by dynamic packaging.</source>
+          <target state="new">The following source file formats are not supported by dynamic packaging.</target>
+        </trans-unit>
+        <trans-unit id="381964b7-7b04-4d1c-92d9-7ba164db2cf7" xml:space="preserve">
+          <source>Dolby digital plus mp4 files.</source>
+          <target state="new">Dolby digital plus mp4 files.</target>
+        </trans-unit>
+        <trans-unit id="22ae0f03-8901-4db4-b305-9963a1387e58" xml:space="preserve">
+          <source>Dolby digital plus smooth files.</source>
+          <target state="new">Dolby digital plus smooth files.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

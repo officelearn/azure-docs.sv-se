@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bc93ea09-d81c-420d-9ae8-8c6ef2ccdaf8" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bc93ea09-d81c-420d-9ae8-8c6ef2ccdaf8" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="7d963803-680c-4a7f-b619-944f03f7d327">
+        <trans-unit id="1dbc79bb-5edd-447c-a5fb-a89cda8a9169" xml:space="preserve">
+          <source>How to provide secure remote access to on-premises apps</source>
+          <target state="new">How to provide secure remote access to on-premises apps</target>
+        </trans-unit>
+        <trans-unit id="5be57f48-a73c-401b-9b27-668ecb7ce4b4" xml:space="preserve">
+          <source>Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.</source>
+          <target state="new">Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.</target>
+        </trans-unit>
+        <trans-unit id="e7aea4bd-2452-4225-ad99-a5ba9eb1e03a" xml:space="preserve">
+          <source>You want to provide access for remote users who have all kinds of devices – managed, unmanaged; tablets, smartphones and laptops.</source>
+          <target state="new">You want to provide access for remote users who have all kinds of devices – managed, unmanaged; tablets, smartphones and laptops.</target>
+        </trans-unit>
+        <trans-unit id="8eb3fb61-b629-483f-9d17-f90719778611" xml:space="preserve">
+          <source>And providing secure access to a myriad of resources can be complex.</source>
+          <target state="new">And providing secure access to a myriad of resources can be complex.</target>
+        </trans-unit>
+        <trans-unit id="f1d9ac97-a7d1-4e10-a018-2f87b4e8654f" xml:space="preserve">
+          <source>In recent years, reverse proxies were a popular way to provide secure remote access, but they needed to be behind firewalls which were hard to secure and hard to make highly available.</source>
+          <target state="new">In recent years, reverse proxies were a popular way to provide secure remote access, but they needed to be behind firewalls which were hard to secure and hard to make highly available.</target>
+        </trans-unit>
+        <trans-unit id="a590a1de-6488-4398-8a0d-6658d50f84ba" xml:space="preserve">
+          <source>In a modern cloud environment, we take remote access to the next level using Application Proxy in Microsoft Azure Active Directory.</source>
+          <target state="new">In a modern cloud environment, we take remote access to the next level using Application Proxy in Microsoft Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="7ab7cc8d-4195-4104-9a4b-05fc18d56bdc" xml:space="preserve">
+          <source>Application Proxy is a feature of Azure AD that is supplied as a service, meaning that it’s easy to deploy and use.</source>
+          <target state="new">Application Proxy is a feature of Azure AD that is supplied as a service, meaning that it’s easy to deploy and use.</target>
+        </trans-unit>
+        <trans-unit id="04c62f04-5031-417f-ac74-4bc413df46cf" xml:space="preserve">
+          <source>It integrates with Azure Active Directory, the same identity platform that is used by Office 365.</source>
+          <target state="new">It integrates with Azure Active Directory, the same identity platform that is used by Office 365.</target>
+        </trans-unit>
+        <trans-unit id="97382eab-7ada-45e1-9317-4aa0d9ab939f" xml:space="preserve">
+          <source>Application Proxy provides single-sign-on and secure remote access for web applications hosted on-premises, such as such as SharePoint sites and Outlook Web Access.</source>
+          <target state="new">Application Proxy provides single-sign-on and secure remote access for web applications hosted on-premises, such as such as SharePoint sites and Outlook Web Access.</target>
+        </trans-unit>
+        <trans-unit id="9175b4f4-27fd-46ea-9ca6-3e9be11e8296" xml:space="preserve">
+          <source>Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure.</source>
+          <target state="new">Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="086cd263-a0a6-4044-8d92-cc6a5122bd06" xml:space="preserve">
+          <source>Application Proxy lets you publish applications.</source>
+          <target state="new">Application Proxy lets you publish applications.</target>
+        </trans-unit>
+        <trans-unit id="86aff64b-4340-460a-ae26-7191e6680d1e" xml:space="preserve">
+          <source>Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy.</source>
+          <target state="new">Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy.</target>
+        </trans-unit>
+        <trans-unit id="cc08f407-049c-443b-bcc0-3c02fcae5dfa" xml:space="preserve">
+          <source>Application Proxy works by installing a slim Windows Server service called the Connector inside your network.</source>
+          <target state="new">Application Proxy works by installing a slim Windows Server service called the Connector inside your network.</target>
+        </trans-unit>
+        <trans-unit id="cecd8755-3899-4e7a-b664-8b3d3904df95" xml:space="preserve">
+          <source>The Connector doesn’t necessitate opening any inbound ports and you don’t have to put anything in the DMZ.</source>
+          <target state="new">The Connector doesn’t necessitate opening any inbound ports and you don’t have to put anything in the DMZ.</target>
+        </trans-unit>
+        <trans-unit id="01f9a003-e5c9-431a-a4c9-794f3b197630" xml:space="preserve">
+          <source>If you have a lot of traffic to your apps you can add more Connectors, and the service will take care of the load balancing.</source>
+          <target state="new">If you have a lot of traffic to your apps you can add more Connectors, and the service will take care of the load balancing.</target>
+        </trans-unit>
+        <trans-unit id="46a1ce6e-9bb9-40b0-8e34-7851ea93fcb3" xml:space="preserve">
+          <source>The Connectors are stateless and pull everything from the cloud as necessary.</source>
+          <target state="new">The Connectors are stateless and pull everything from the cloud as necessary.</target>
+        </trans-unit>
+        <trans-unit id="01414932-2456-4b9e-ae74-ddcf0f95fa71" xml:space="preserve">
+          <source>When a user accesses applications remotely, from any device, he’s authenticated by Azure Active Directory and gets access to the application.</source>
+          <target state="new">When a user accesses applications remotely, from any device, he’s authenticated by Azure Active Directory and gets access to the application.</target>
+        </trans-unit>
+        <trans-unit id="3fe27451-9d41-43b5-8cc8-1f27a6d9096e" xml:space="preserve">
+          <source>Azure AD Application proxy provides single sign-on (SSO) to applications that use IWA or claims-aware applications.</source>
+          <target state="new">Azure AD Application proxy provides single sign-on (SSO) to applications that use IWA or claims-aware applications.</target>
+        </trans-unit>
+        <trans-unit id="34b8f43a-7b2f-42b4-95d0-dc70a32a9dce" xml:space="preserve">
+          <source>If your application uses Integrated Windows Authentication, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO.</source>
+          <target state="new">If your application uses Integrated Windows Authentication, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO.</target>
+        </trans-unit>
+        <trans-unit id="64fff702-333b-4c05-b42a-09d9a589e183" xml:space="preserve">
+          <source>SSO to claims-aware applications is achieved because the user was already authenticated by Azure Active Directory.</source>
+          <target state="new">SSO to claims-aware applications is achieved because the user was already authenticated by Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="104892fa-9df0-478f-8851-a3526b9bee25" xml:space="preserve">
+          <source>Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator.</source>
+          <target state="new">Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator.</target>
+        </trans-unit>
+        <trans-unit id="d04d8951-86e5-4128-9179-257aff231ff3" xml:space="preserve">
+          <source>You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps.</source>
+          <target state="new">You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps.</target>
+        </trans-unit>
+        <trans-unit id="215800bd-8812-4d1a-8a2d-694b6271b7e4" xml:space="preserve">
+          <source>Take a look here for more information.</source>
+          <target state="new">Take a look here for more information.</target>
+        </trans-unit>
+        <trans-unit id="756d4485-6d9e-4389-a086-979c52a24afc" xml:space="preserve">
+          <source>Setting up Application Proxy is accomplished in two steps:</source>
+          <target state="new">Setting up Application Proxy is accomplished in two steps:</target>
+        </trans-unit>
+        <trans-unit id="dd6e3945-0f6a-4ef8-bcf0-575c7f950e03" xml:space="preserve">
+          <source><bpt id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;linkText&gt;</bpt>Enable Application Proxy and configure the Connector<ept id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;/linkText&gt;</ept><bpt id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;title&gt;</bpt><ept id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;/title&gt;</ept>&lt;br&gt;</source>
+          <target state="new"><bpt id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;linkText&gt;</bpt>Enable Application Proxy and configure the Connector<ept id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;/linkText&gt;</ept><bpt id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;title&gt;</bpt><ept id="829cbd0a-4626-4683-a41e-e3ce5eb1324e">&lt;/title&gt;</ept>&lt;br&gt;</target>
+        </trans-unit>
+        <trans-unit id="e51d29be-ce0b-48e1-be08-a43aec466409" xml:space="preserve">
+          <source><bpt id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;linkText&gt;</bpt>Publish applications<ept id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;/linkText&gt;</ept><bpt id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;title&gt;</bpt><ept id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;/title&gt;</ept> - use the quick and easy wizard to get your on-premises apps published and accessible remotely.</source>
+          <target state="new"><bpt id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;linkText&gt;</bpt>Publish applications<ept id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;/linkText&gt;</ept><bpt id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;title&gt;</bpt><ept id="f58a3107-add4-4c18-9d39-d4883c119f67">&lt;/title&gt;</ept> - use the quick and easy wizard to get your on-premises apps published and accessible remotely.</target>
+        </trans-unit>
+        <trans-unit id="ea8a4482-627d-4e5b-8e79-b361412e8da2" xml:space="preserve">
+          <source>There's a lot more you can do with Application Proxy:</source>
+          <target state="new">There's a lot more you can do with Application Proxy:</target>
+        </trans-unit>
+        <trans-unit id="77e2474f-ff46-4630-8cd8-6701e0a0d63f" xml:space="preserve">
+          <source><bpt id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;linkText&gt;</bpt>Publish applications using your own domain name<ept id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;/linkText&gt;</ept><bpt id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;title&gt;</bpt><ept id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;linkText&gt;</bpt>Publish applications using your own domain name<ept id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;/linkText&gt;</ept><bpt id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;title&gt;</bpt><ept id="62a14cf5-d110-44f2-835e-f442f9dc42c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b5f8f182-4b01-4a97-b3f0-50f7e3af63fa" xml:space="preserve">
+          <source><bpt id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;linkText&gt;</bpt>Enable single-sign on<ept id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;/linkText&gt;</ept><bpt id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;title&gt;</bpt><ept id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;linkText&gt;</bpt>Enable single-sign on<ept id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;/linkText&gt;</ept><bpt id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;title&gt;</bpt><ept id="403169d2-cbf5-4a33-8c02-5b5beb93ad69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="142276b7-841c-4a63-9bad-aa85442f5ab2" xml:space="preserve">
+          <source><bpt id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;linkText&gt;</bpt>Working with claims aware applications<ept id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;/linkText&gt;</ept><bpt id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;title&gt;</bpt><ept id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;linkText&gt;</bpt>Working with claims aware applications<ept id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;/linkText&gt;</ept><bpt id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;title&gt;</bpt><ept id="b0d7aacb-e1d9-4d9e-b389-9f7323edb660">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ff5c82b3-b9c9-465f-9400-139ef9f304e0" xml:space="preserve">
+          <source><bpt id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;linkText&gt;</bpt>Enable conditional access<ept id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;/linkText&gt;</ept><bpt id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;title&gt;</bpt><ept id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;linkText&gt;</bpt>Enable conditional access<ept id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;/linkText&gt;</ept><bpt id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;title&gt;</bpt><ept id="6b6bfc30-386b-4f3b-bbd1-b6d4692259f1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e65c64f-9578-4e1f-9c0b-7f8e514c454b" xml:space="preserve">
+          <source><bpt id="47d3430e-0289-4010-884c-b21e27148052">&lt;linkText&gt;</bpt>Take a look here at our online help<ept id="47d3430e-0289-4010-884c-b21e27148052">&lt;/linkText&gt;</ept><bpt id="47d3430e-0289-4010-884c-b21e27148052">&lt;title&gt;</bpt><ept id="47d3430e-0289-4010-884c-b21e27148052">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="47d3430e-0289-4010-884c-b21e27148052">&lt;linkText&gt;</bpt>Take a look here at our online help<ept id="47d3430e-0289-4010-884c-b21e27148052">&lt;/linkText&gt;</ept><bpt id="47d3430e-0289-4010-884c-b21e27148052">&lt;title&gt;</bpt><ept id="47d3430e-0289-4010-884c-b21e27148052">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28f5324c-0d82-441e-ad9b-b3d97ebb1c81" xml:space="preserve">
+          <source><bpt id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;linkText&gt;</bpt>Check out the Application Proxy blog<ept id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;/linkText&gt;</ept><bpt id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;title&gt;</bpt><ept id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;linkText&gt;</bpt>Check out the Application Proxy blog<ept id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;/linkText&gt;</ept><bpt id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;title&gt;</bpt><ept id="2d340469-ea6c-4389-aa0a-1b8fc95cafad">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3c62f69c-207a-4046-a495-4c5bffc03003" xml:space="preserve">
+          <source><bpt id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;linkText&gt;</bpt>Watch our videos on Channel 9!<ept id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;/linkText&gt;</ept><bpt id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;title&gt;</bpt><ept id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;linkText&gt;</bpt>Watch our videos on Channel 9!<ept id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;/linkText&gt;</ept><bpt id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;title&gt;</bpt><ept id="7d6a6dc6-77b7-434f-bdae-33e134f505cd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a076ce96-c0e2-4adc-a996-272425675521" xml:space="preserve">
+          <source><bpt id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;/linkText&gt;</ept><bpt id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;title&gt;</bpt><ept id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;/linkText&gt;</ept><bpt id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;title&gt;</bpt><ept id="0fc1d906-c893-4d33-a68d-944823b7e4e0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="36fafea9-3580-410d-9370-11c2a5443be1" xml:space="preserve">
+          <source><bpt id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;linkText&gt;</bpt>Azure Identity<ept id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;/linkText&gt;</ept><bpt id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;title&gt;</bpt><ept id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;linkText&gt;</bpt>Azure Identity<ept id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;/linkText&gt;</ept><bpt id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;title&gt;</bpt><ept id="ffb6680b-d8d3-4d54-a818-062b325ab503">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

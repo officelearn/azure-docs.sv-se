@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c4919908-0603-40c9-a42e-3b2f4085d58d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c4919908-0603-40c9-a42e-3b2f4085d58d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="aeeab9e4-caee-4313-9fe4-ddc200f67282">
+        <trans-unit id="786137d8-cd86-45c3-8c9d-197e43a5b289" xml:space="preserve">
+          <source>Deploy an existing application in Azure Service Fabric</source>
+          <target state="new">Deploy an existing application in Azure Service Fabric</target>
+        </trans-unit>
+        <trans-unit id="3b03b921-1ce8-47c9-b91b-795896135215" xml:space="preserve">
+          <source>Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster</source>
+          <target state="new">Walkthrough on how to package an existing application so it can be deployed on an Azure Service Fabric cluster</target>
+        </trans-unit>
+        <trans-unit id="829e82c7-ded7-4275-af44-07d580098b61" xml:space="preserve">
+          <source>Azure Service Fabric can be used to deploy existing applications.</source>
+          <target state="new">Azure Service Fabric can be used to deploy existing applications.</target>
+        </trans-unit>
+        <trans-unit id="4c3a7b85-3ba9-4555-a697-a8c636047c63" xml:space="preserve">
+          <source>Applications that currently runs on, for instance, an Azure Web or Worker role, can be 'packaged' so that they can be deployed on an Service Fabric cluster.</source>
+          <target state="new">Applications that currently runs on, for instance, an Azure Web or Worker role, can be 'packaged' so that they can be deployed on an Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="cf2c5595-2e40-4a2e-9bb5-e0249c4045c0" xml:space="preserve">
+          <source>Existing applications running on a Service Fabric cluster can benefit from features such as health monitoring and ALM (Application Lifecycle Management) so it is an important scenario that is fully supported.</source>
+          <target state="new">Existing applications running on a Service Fabric cluster can benefit from features such as health monitoring and ALM (Application Lifecycle Management) so it is an important scenario that is fully supported.</target>
+        </trans-unit>
+        <trans-unit id="8c64b3ca-b5aa-421d-9053-574b937728be" xml:space="preserve">
+          <source>This tutorial explains the process and basic concepts that are involved with taking an existing application and package it.</source>
+          <target state="new">This tutorial explains the process and basic concepts that are involved with taking an existing application and package it.</target>
+        </trans-unit>
+        <trans-unit id="8aa4a48f-ec23-45d7-aecf-adcc0ca08200" xml:space="preserve">
+          <source>This article that is an overview of the process, we will follow up with specific examples on how to take an existing applications (for instance a node.js or Java) app and package it so it can be hosted on a Service Fabric cluster.</source>
+          <target state="new">This article that is an overview of the process, we will follow up with specific examples on how to take an existing applications (for instance a node.js or Java) app and package it so it can be hosted on a Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="166057a4-fc29-4315-b6c0-0d7c9a50e297" xml:space="preserve">
+          <source>Before we can start and learn how to package an existing application, we need to go through an brief introduction of the Service Fabric's deployment model.</source>
+          <target state="new">Before we can start and learn how to package an existing application, we need to go through an brief introduction of the Service Fabric's deployment model.</target>
+        </trans-unit>
+        <trans-unit id="8d9515bf-c430-428c-9bb8-5cc5bc75fe73" xml:space="preserve">
+          <source>Service Fabric deployment model relies mainly on two files:</source>
+          <target state="new">Service Fabric deployment model relies mainly on two files:</target>
+        </trans-unit>
+        <trans-unit id="eb40b169-b8aa-45d8-88b7-f90e69d85def" xml:space="preserve">
+          <source>Application Manifest.</source>
+          <target state="new">Application Manifest.</target>
+        </trans-unit>
+        <trans-unit id="7447b5ba-d7db-4527-8b51-81c683c8bc58" xml:space="preserve">
+          <source>The application manifest is used to describe the application and lists the services that compose it plus other parameters,  such as the number of instances, that are used to define how the service(s) should be deployed.In the Service Fabric world,  an application is the 'upgradable unit'.</source>
+          <target state="new">The application manifest is used to describe the application and lists the services that compose it plus other parameters,  such as the number of instances, that are used to define how the service(s) should be deployed.In the Service Fabric world,  an application is the 'upgradable unit'.</target>
+        </trans-unit>
+        <trans-unit id="414a766a-9035-46b5-b01e-fb51c13c7408" xml:space="preserve">
+          <source>An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform to guarantee that the upgrade process either completely success or, if it fails, it does not leave the application is an unknown/unstable state.</source>
+          <target state="new">An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform to guarantee that the upgrade process either completely success or, if it fails, it does not leave the application is an unknown/unstable state.</target>
+        </trans-unit>
+        <trans-unit id="9ff1d86b-9d5c-406f-8fc9-1e05c22104d7" xml:space="preserve">
+          <source>This is an example of an application manifest:</source>
+          <target state="new">This is an example of an application manifest:</target>
+        </trans-unit>
+        <trans-unit id="a4781a53-835c-4b50-aa1b-46ae39648c26" xml:space="preserve">
+          <source>Service Manifest.</source>
+          <target state="new">Service Manifest.</target>
+        </trans-unit>
+        <trans-unit id="dc60db22-f7a6-4783-a800-e7a59c19ea7a" xml:space="preserve">
+          <source>Service Manifest describes the components of a service.</source>
+          <target state="new">Service Manifest describes the components of a service.</target>
+        </trans-unit>
+        <trans-unit id="8291e1ba-602e-41f6-9c3f-738e142d9df6" xml:space="preserve">
+          <source>It includes data such as name and type of the service (information that Service Fabric uses to manage the service), its code, configuration and data components plus some additional parameters that can be used to configure the service once it is deployed.</source>
+          <target state="new">It includes data such as name and type of the service (information that Service Fabric uses to manage the service), its code, configuration and data components plus some additional parameters that can be used to configure the service once it is deployed.</target>
+        </trans-unit>
+        <trans-unit id="a6f0a699-a26a-4794-a385-05418cc5eb55" xml:space="preserve">
+          <source>We are not going into the details of all the different parameters available in the service manifest, we will go through the subset that is required to make an existing application to run on Service Fabric</source>
+          <target state="new">We are not going into the details of all the different parameters available in the service manifest, we will go through the subset that is required to make an existing application to run on Service Fabric</target>
+        </trans-unit>
+        <trans-unit id="77a323b6-ac86-4089-9c16-1571e6283728" xml:space="preserve">
+          <source>This is an example of a service manifest</source>
+          <target state="new">This is an example of a service manifest</target>
+        </trans-unit>
+        <trans-unit id="332a9479-973a-43c1-8580-524c0d9ad905" xml:space="preserve">
+          <source>In order to deploy an application using, for instance, the powershell cmdlets, the application needs to follow a predefined directory structure.</source>
+          <target state="new">In order to deploy an application using, for instance, the powershell cmdlets, the application needs to follow a predefined directory structure.</target>
+        </trans-unit>
+        <trans-unit id="0d948ace-8e9f-46c7-9f0f-3e77bfb1d1dc" xml:space="preserve">
+          <source>\applicationmanifest.xml
+\MyServicePkg
+            \servicemanifest.xml
+            \code
+            \config
+            \data</source>
+          <target state="new">\applicationmanifest.xml
+\MyServicePkg
+            \servicemanifest.xml
+            \code
+            \config
+            \data</target>
+        </trans-unit>
+        <trans-unit id="c2470ef8-b20a-4661-9461-1faa2ee066d2" xml:space="preserve">
+          <source>The root contains the applicationmanifest.xml file that defines the application.</source>
+          <target state="new">The root contains the applicationmanifest.xml file that defines the application.</target>
+        </trans-unit>
+        <trans-unit id="5c0ec3bb-dba1-4872-8bcd-403ac7b5e5ce" xml:space="preserve">
+          <source>A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The servicemanifest.xml and, typically 3 directories:</source>
+          <target state="new">A subdirectory for each service included in the application is used to contain all the artifacts that the service requires: The servicemanifest.xml and, typically 3 directories:</target>
+        </trans-unit>
+        <trans-unit id="a2bb6771-b006-4a12-ae8c-205faecec6d9" xml:space="preserve">
+          <source>code: contains the service code</source>
+          <target state="new">code: contains the service code</target>
+        </trans-unit>
+        <trans-unit id="d9445c91-2b67-41a7-abc7-fe0f70fc08b3" xml:space="preserve">
+          <source>config: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.</source>
+          <target state="new">config: contains a settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.</target>
+        </trans-unit>
+        <trans-unit id="353c1415-8c15-42cd-a7cf-474df1eb9b88" xml:space="preserve">
+          <source>Data: an additional directory to store additional local data that service may need.</source>
+          <target state="new">Data: an additional directory to store additional local data that service may need.</target>
+        </trans-unit>
+        <trans-unit id="6c3c346b-86ca-4357-a894-5f9dd0e489b0" xml:space="preserve">
+          <source>Note: Data should be used to store only ephymeral data, Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated, for instance, during failover.</source>
+          <target state="new">Note: Data should be used to store only ephymeral data, Service Fabric does not copy/replicate changes to the data directory if the service needs to be relocated, for instance, during failover.</target>
+        </trans-unit>
+        <trans-unit id="d736a959-6e95-49a3-9631-b2f6e6f73717" xml:space="preserve">
+          <source>Note: You can use any arbitrary directory name for Code, Config and Data.</source>
+          <target state="new">Note: You can use any arbitrary directory name for Code, Config and Data.</target>
+        </trans-unit>
+        <trans-unit id="dc92dc6e-1367-44ca-9671-e2f16b864da0" xml:space="preserve">
+          <source>You should need to make sure to use the same value in the ApplicationManifest file.</source>
+          <target state="new">You should need to make sure to use the same value in the ApplicationManifest file.</target>
+        </trans-unit>
+        <trans-unit id="6816cf7b-82a6-494d-b2b0-40d51c144eae" xml:space="preserve">
+          <source>The process of packaging an existing application is based on the following steps:</source>
+          <target state="new">The process of packaging an existing application is based on the following steps:</target>
+        </trans-unit>
+        <trans-unit id="1aaddc64-81f2-47d6-a418-997a49ea4ade" xml:space="preserve">
+          <source>Create the package directory structure</source>
+          <target state="new">Create the package directory structure</target>
+        </trans-unit>
+        <trans-unit id="f1043193-4e86-4bb4-9b44-2ac9b5929469" xml:space="preserve">
+          <source>Add application's code and configuration files</source>
+          <target state="new">Add application's code and configuration files</target>
+        </trans-unit>
+        <trans-unit id="07a27e78-2097-4619-8e99-988a154696b3" xml:space="preserve">
+          <source>update the service manifest file</source>
+          <target state="new">update the service manifest file</target>
+        </trans-unit>
+        <trans-unit id="1b023562-a6d3-4d57-8e2e-c852acd07c97" xml:space="preserve">
+          <source>update the application manifest</source>
+          <target state="new">update the application manifest</target>
+        </trans-unit>
+        <trans-unit id="20e2071f-4cb3-4418-ac18-14ada4f48bd7" xml:space="preserve">
+          <source>You can start by creating the directory structure as described above.</source>
+          <target state="new">You can start by creating the directory structure as described above.</target>
+        </trans-unit>
+        <trans-unit id="3fd6e0d7-ae84-48e1-b997-e8b66770cfba" xml:space="preserve">
+          <source>I created a directory and copied the application and service manifest from an existing project that I previously had created in Visual Studio.</source>
+          <target state="new">I created a directory and copied the application and service manifest from an existing project that I previously had created in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d3b452ee-d7ae-48e8-a296-5b41d28db906" xml:space="preserve">
+          <source><bpt id="517a53fc-aaac-4142-afd8-ede59a403e20">&lt;linkText&gt;</bpt><ept id="517a53fc-aaac-4142-afd8-ede59a403e20">&lt;/linkText&gt;</ept> <bpt id="c208f879-59d8-4716-acef-ae29a2e471ee">&lt;linkText&gt;</bpt><ept id="c208f879-59d8-4716-acef-ae29a2e471ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="517a53fc-aaac-4142-afd8-ede59a403e20">&lt;linkText&gt;</bpt><ept id="517a53fc-aaac-4142-afd8-ede59a403e20">&lt;/linkText&gt;</ept> <bpt id="c208f879-59d8-4716-acef-ae29a2e471ee">&lt;linkText&gt;</bpt><ept id="c208f879-59d8-4716-acef-ae29a2e471ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3743075e-a05d-40cf-8a05-33772f81f108" xml:space="preserve">
+          <source>After you have created the directory structure, you can add the application's code and configuration files under the Code and Config directory.</source>
+          <target state="new">After you have created the directory structure, you can add the application's code and configuration files under the Code and Config directory.</target>
+        </trans-unit>
+        <trans-unit id="1c0539f1-f713-4588-a7fc-1229baf1f5ee" xml:space="preserve">
+          <source>You can also create additional directories or sub directories under the Code or Config directories.</source>
+          <target state="new">You can also create additional directories or sub directories under the Code or Config directories.</target>
+        </trans-unit>
+        <trans-unit id="15512028-6b2e-45e7-86de-733b515b51e7" xml:space="preserve">
+          <source>Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories Code and Settings (but you can pick different names if you want, more details in the next section).</source>
+          <target state="new">Service Fabric does an xcopy of the content of the application root directory so there is no predefined structure to use other than creating two top directories Code and Settings (but you can pick different names if you want, more details in the next section).</target>
+        </trans-unit>
+        <trans-unit id="bfa22587-6a5a-410a-aca1-7d697bc1f348" xml:space="preserve">
+          <source>!Azure Note: Make sure that you include all the files/dependencies that the application needs.</source>
+          <target state="new">!Azure Note: Make sure that you include all the files/dependencies that the application needs.</target>
+        </trans-unit>
+        <trans-unit id="c7b28867-43eb-476a-a368-522f81485e78" xml:space="preserve">
+          <source>Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed.</source>
+          <target state="new">Service Fabric will copy the content of the application package on all nodes in the cluster where the application's services are going to be deployed.</target>
+        </trans-unit>
+        <trans-unit id="e2b92689-ad8c-4b04-801a-8d0daf355c9e" xml:space="preserve">
+          <source>The package should contain all the code that the application needs in order to run.</source>
+          <target state="new">The package should contain all the code that the application needs in order to run.</target>
+        </trans-unit>
+        <trans-unit id="c1e3f209-228a-4da5-a5d6-d1ff8fce123c" xml:space="preserve">
+          <source>It is not recommended to assume that the dependencies are already installed.</source>
+          <target state="new">It is not recommended to assume that the dependencies are already installed.</target>
+        </trans-unit>
+        <trans-unit id="32e30664-32f5-4dab-b462-ce9b587e027c" xml:space="preserve">
+          <source>The next step is to edit the Service Manifest file to include the following information:</source>
+          <target state="new">The next step is to edit the Service Manifest file to include the following information:</target>
+        </trans-unit>
+        <trans-unit id="eb33018d-3823-44f2-81bd-3f6501f72697" xml:space="preserve">
+          <source>The name of the service type.</source>
+          <target state="new">The name of the service type.</target>
+        </trans-unit>
+        <trans-unit id="d22049fb-c6cf-484e-a81e-adefe5785bd0" xml:space="preserve">
+          <source>This is an 'Id' that Service Fabric uses in order to identify a service</source>
+          <target state="new">This is an 'Id' that Service Fabric uses in order to identify a service</target>
+        </trans-unit>
+        <trans-unit id="d7e71779-d529-4eed-b689-f06b40a738c4" xml:space="preserve">
+          <source>The command to use to launch the application (ExeHost)</source>
+          <target state="new">The command to use to launch the application (ExeHost)</target>
+        </trans-unit>
+        <trans-unit id="50c31724-3d13-4292-bed6-26b82d42624e" xml:space="preserve">
+          <source>Any script that needs to be run in order to setup/configure the application (SetupEntrypoint</source>
+          <target state="new">Any script that needs to be run in order to setup/configure the application (SetupEntrypoint</target>
+        </trans-unit>
+        <trans-unit id="d18a7874-8b58-47c3-bbde-e493b6bdb4c2" xml:space="preserve">
+          <source>This is an example of a <bpt id="ac807b0f-de92-4227-aa40-aa4f368a0021">&lt;code&gt;</bpt>servicemanifest.xnml<ept id="ac807b0f-de92-4227-aa40-aa4f368a0021">&lt;/code&gt;</ept> file that 'packages' a node.js application:</source>
+          <target state="new">This is an example of a <bpt id="ac807b0f-de92-4227-aa40-aa4f368a0021">&lt;code&gt;</bpt>servicemanifest.xnml<ept id="ac807b0f-de92-4227-aa40-aa4f368a0021">&lt;/code&gt;</ept> file that 'packages' a node.js application:</target>
+        </trans-unit>
+        <trans-unit id="e07cd1c9-e64a-4b67-906c-f96fc640dc8b" xml:space="preserve">
+          <source>Let's go over the different part of the file that you need to update:</source>
+          <target state="new">Let's go over the different part of the file that you need to update:</target>
+        </trans-unit>
+        <trans-unit id="7fd9d13a-6b05-4221-b5dc-d15c474d7034" xml:space="preserve">
+          <source>You can pick any name that you want for <bpt id="563c6314-aea8-47da-8273-eb01da36429e">&lt;code&gt;</bpt>ServiceTypeName<ept id="563c6314-aea8-47da-8273-eb01da36429e">&lt;/code&gt;</ept>, the value is used in the <bpt id="041637ec-e51a-4211-a4ef-a3d7dedf70b0">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="041637ec-e51a-4211-a4ef-a3d7dedf70b0">&lt;/code&gt;</ept> to identify the service.</source>
+          <target state="new">You can pick any name that you want for <bpt id="563c6314-aea8-47da-8273-eb01da36429e">&lt;code&gt;</bpt>ServiceTypeName<ept id="563c6314-aea8-47da-8273-eb01da36429e">&lt;/code&gt;</ept>, the value is used in the <bpt id="041637ec-e51a-4211-a4ef-a3d7dedf70b0">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="041637ec-e51a-4211-a4ef-a3d7dedf70b0">&lt;/code&gt;</ept> to identify the service.</target>
+        </trans-unit>
+        <trans-unit id="5ad93ab1-f301-4e0f-b79e-4ce33182f0d0" xml:space="preserve">
+          <source>You need to specify <bpt id="744be264-aeaf-4421-b34f-0b789bd9ef0b">&lt;code&gt;</bpt>UserImplicitHost = "true"<ept id="744be264-aeaf-4421-b34f-0b789bd9ef0b">&lt;/code&gt;</ept>.</source>
+          <target state="new">You need to specify <bpt id="744be264-aeaf-4421-b34f-0b789bd9ef0b">&lt;code&gt;</bpt>UserImplicitHost = "true"<ept id="744be264-aeaf-4421-b34f-0b789bd9ef0b">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3e532f6-2099-4fd1-bfd6-5fbe0a394e43" xml:space="preserve">
+          <source>This attribute tells Service Fabric that the service is based on a self-contained app so that it needs to do is just to launch it as a process and monitor its health.</source>
+          <target state="new">This attribute tells Service Fabric that the service is based on a self-contained app so that it needs to do is just to launch it as a process and monitor its health.</target>
+        </trans-unit>
+        <trans-unit id="b0bd9ab8-8b0c-44c7-ab87-3dbaeaac4bb2" xml:space="preserve">
+          <source>The CodePackage specifies the location (and version) of the service's code.</source>
+          <target state="new">The CodePackage specifies the location (and version) of the service's code.</target>
+        </trans-unit>
+        <trans-unit id="fea709c4-5615-413e-a2ef-57cd3b707f10" xml:space="preserve">
+          <source>The <bpt id="4f24f6b8-2c0c-411b-9058-200ef29a8b5a">&lt;code&gt;</bpt>Name<ept id="4f24f6b8-2c0c-411b-9058-200ef29a8b5a">&lt;/code&gt;</ept> element is used to specify the name of the directory in the Application Package that contains the service's code.</source>
+          <target state="new">The <bpt id="4f24f6b8-2c0c-411b-9058-200ef29a8b5a">&lt;code&gt;</bpt>Name<ept id="4f24f6b8-2c0c-411b-9058-200ef29a8b5a">&lt;/code&gt;</ept> element is used to specify the name of the directory in the Application Package that contains the service's code.</target>
+        </trans-unit>
+        <trans-unit id="0062bccb-ecbd-4e33-b8c6-effde7cac231" xml:space="preserve">
+          <source><bpt id="a54a7d5e-378a-4f8e-ac43-6c08021930b3">&lt;code&gt;</bpt>CodePackage<ept id="a54a7d5e-378a-4f8e-ac43-6c08021930b3">&lt;/code&gt;</ept> also has the <bpt id="77f83e38-5c99-423e-83ab-9e2c5779b5cc">&lt;code&gt;</bpt>version<ept id="77f83e38-5c99-423e-83ab-9e2c5779b5cc">&lt;/code&gt;</ept> attribute that can be used to specify the version of the code and, potentially, be used to upgrade the service's code by leveraging Service Fabric's Application LifeCycle Management infrastructure.</source>
+          <target state="new"><bpt id="a54a7d5e-378a-4f8e-ac43-6c08021930b3">&lt;code&gt;</bpt>CodePackage<ept id="a54a7d5e-378a-4f8e-ac43-6c08021930b3">&lt;/code&gt;</ept> also has the <bpt id="77f83e38-5c99-423e-83ab-9e2c5779b5cc">&lt;code&gt;</bpt>version<ept id="77f83e38-5c99-423e-83ab-9e2c5779b5cc">&lt;/code&gt;</ept> attribute that can be used to specify the version of the code and, potentially, be used to upgrade the service's code by leveraging Service Fabric's Application LifeCycle Management infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="882eb48b-daf6-4239-9c43-9ad780b08efe" xml:space="preserve">
+          <source>The <bpt id="1df255f4-4bb9-4991-9394-b2f0fb3c37dc">&lt;code&gt;</bpt>Entrypoint<ept id="1df255f4-4bb9-4991-9394-b2f0fb3c37dc">&lt;/code&gt;</ept> element in the service manifest file is used to specify how to launch the service.</source>
+          <target state="new">The <bpt id="1df255f4-4bb9-4991-9394-b2f0fb3c37dc">&lt;code&gt;</bpt>Entrypoint<ept id="1df255f4-4bb9-4991-9394-b2f0fb3c37dc">&lt;/code&gt;</ept> element in the service manifest file is used to specify how to launch the service.</target>
+        </trans-unit>
+        <trans-unit id="30b66a2d-c6d7-4b43-981c-192df96d9fb4" xml:space="preserve">
+          <source>The <bpt id="2659fbd5-cc59-4454-b004-f8d91f6461b2">&lt;code&gt;</bpt>ExeHost<ept id="2659fbd5-cc59-4454-b004-f8d91f6461b2">&lt;/code&gt;</ept> element specifies the executable (and arguments) that should be used to launch the service.</source>
+          <target state="new">The <bpt id="2659fbd5-cc59-4454-b004-f8d91f6461b2">&lt;code&gt;</bpt>ExeHost<ept id="2659fbd5-cc59-4454-b004-f8d91f6461b2">&lt;/code&gt;</ept> element specifies the executable (and arguments) that should be used to launch the service.</target>
+        </trans-unit>
+        <trans-unit id="3b575b9e-8e57-4b9a-be39-1d4210ea5ae7" xml:space="preserve">
+          <source><bpt id="df53aff6-5b4e-480b-b40d-fcec0bc72e3f">&lt;code&gt;</bpt>Program<ept id="df53aff6-5b4e-480b-b40d-fcec0bc72e3f">&lt;/code&gt;</ept>:specifies the name of the executable that should be executed in order to start the service.</source>
+          <target state="new"><bpt id="df53aff6-5b4e-480b-b40d-fcec0bc72e3f">&lt;code&gt;</bpt>Program<ept id="df53aff6-5b4e-480b-b40d-fcec0bc72e3f">&lt;/code&gt;</ept>:specifies the name of the executable that should be executed in order to start the service.</target>
+        </trans-unit>
+        <trans-unit id="6997c68c-58e7-4913-a6f8-44af49357f1b" xml:space="preserve">
+          <source><bpt id="a2aadaf1-3105-4e5f-bc66-cd1dbd7efc43">&lt;code&gt;</bpt>Arguments<ept id="a2aadaf1-3105-4e5f-bc66-cd1dbd7efc43">&lt;/code&gt;</ept>: it specifies the arguments that should be passed to the executable.</source>
+          <target state="new"><bpt id="a2aadaf1-3105-4e5f-bc66-cd1dbd7efc43">&lt;code&gt;</bpt>Arguments<ept id="a2aadaf1-3105-4e5f-bc66-cd1dbd7efc43">&lt;/code&gt;</ept>: it specifies the arguments that should be passed to the executable.</target>
+        </trans-unit>
+        <trans-unit id="3ca69674-c692-4cf0-a3d1-fbe92b92bfbb" xml:space="preserve">
+          <source>it can be a list of parameters with arguments.</source>
+          <target state="new">it can be a list of parameters with arguments.</target>
+        </trans-unit>
+        <trans-unit id="4994cd51-4a03-4ed6-9695-634a33fdbe72" xml:space="preserve">
+          <source><bpt id="b780d2fe-3971-4dc2-8b42-e394a87a0c63">&lt;code&gt;</bpt>WorkingFolder<ept id="b780d2fe-3971-4dc2-8b42-e394a87a0c63">&lt;/code&gt;</ept>: it specifies the working directory for the process that is going to be started.</source>
+          <target state="new"><bpt id="b780d2fe-3971-4dc2-8b42-e394a87a0c63">&lt;code&gt;</bpt>WorkingFolder<ept id="b780d2fe-3971-4dc2-8b42-e394a87a0c63">&lt;/code&gt;</ept>: it specifies the working directory for the process that is going to be started.</target>
+        </trans-unit>
+        <trans-unit id="f6104575-aa5f-41a2-89d3-0a6bd9db537e" xml:space="preserve">
+          <source>You can specify two values:</source>
+          <target state="new">You can specify two values:</target>
+        </trans-unit>
+        <trans-unit id="ef94dd94-2219-4ae1-9393-5b245602e8d5" xml:space="preserve">
+          <source><bpt id="4718cc6d-5d57-4c53-b239-e5eb3d87c91e">&lt;code&gt;</bpt>CodeBase<ept id="4718cc6d-5d57-4c53-b239-e5eb3d87c91e">&lt;/code&gt;</ept>: the working directory is going to be set to the Code directory in the application package (<bpt id="5c3550cb-bf6b-4c79-ae54-e102d4926121">&lt;code&gt;</bpt>Code<ept id="5c3550cb-bf6b-4c79-ae54-e102d4926121">&lt;/code&gt;</ept> directory in the structure shown below)</source>
+          <target state="new"><bpt id="4718cc6d-5d57-4c53-b239-e5eb3d87c91e">&lt;code&gt;</bpt>CodeBase<ept id="4718cc6d-5d57-4c53-b239-e5eb3d87c91e">&lt;/code&gt;</ept>: the working directory is going to be set to the Code directory in the application package (<bpt id="5c3550cb-bf6b-4c79-ae54-e102d4926121">&lt;code&gt;</bpt>Code<ept id="5c3550cb-bf6b-4c79-ae54-e102d4926121">&lt;/code&gt;</ept> directory in the structure shown below)</target>
+        </trans-unit>
+        <trans-unit id="c79cdbe1-c176-4cf7-81fb-2bf05b2a2622" xml:space="preserve">
+          <source><bpt id="36d125e7-60bb-4360-ad1f-0716914f952c">&lt;code&gt;</bpt>CodePackage<ept id="36d125e7-60bb-4360-ad1f-0716914f952c">&lt;/code&gt;</ept>: the working directory will be set to the root of the application package   (<bpt id="ff3bd07d-297f-4b93-8dc5-7bfab29db845">&lt;code&gt;</bpt>MyServicePkg<ept id="ff3bd07d-297f-4b93-8dc5-7bfab29db845">&lt;/code&gt;</ept>)
+<bpt id="b72a5550-6c6c-4894-a678-7228199c0863">&lt;code&gt;</bpt>WorkingDirectory<ept id="b72a5550-6c6c-4894-a678-7228199c0863">&lt;/code&gt;</ept> element is useful to set the correct working directory so relative paths can be used by either the application or initialization scripts.</source>
+          <target state="new"><bpt id="36d125e7-60bb-4360-ad1f-0716914f952c">&lt;code&gt;</bpt>CodePackage<ept id="36d125e7-60bb-4360-ad1f-0716914f952c">&lt;/code&gt;</ept>: the working directory will be set to the root of the application package   (<bpt id="ff3bd07d-297f-4b93-8dc5-7bfab29db845">&lt;code&gt;</bpt>MyServicePkg<ept id="ff3bd07d-297f-4b93-8dc5-7bfab29db845">&lt;/code&gt;</ept>)
+<bpt id="b72a5550-6c6c-4894-a678-7228199c0863">&lt;code&gt;</bpt>WorkingDirectory<ept id="b72a5550-6c6c-4894-a678-7228199c0863">&lt;/code&gt;</ept> element is useful to set the correct working directory so relative paths can be used by either the application or initialization scripts.</target>
+        </trans-unit>
+        <trans-unit id="4dca9520-0fbc-45c1-974b-6b017fdd4e1a" xml:space="preserve">
+          <source>There is also another value that you can specify for the <bpt id="227e6ef4-67dc-42b3-b4de-377f8fe8664a">&lt;code&gt;</bpt>WorkingFolder<ept id="227e6ef4-67dc-42b3-b4de-377f8fe8664a">&lt;/code&gt;</ept> element (<bpt id="09ede1ef-ff0f-4ff0-9a09-fa3660b8f2d5">&lt;code&gt;</bpt>Work<ept id="09ede1ef-ff0f-4ff0-9a09-fa3660b8f2d5">&lt;/code&gt;</ept>) but it is not very useful for the scenario of bringing an existing application.</source>
+          <target state="new">There is also another value that you can specify for the <bpt id="227e6ef4-67dc-42b3-b4de-377f8fe8664a">&lt;code&gt;</bpt>WorkingFolder<ept id="227e6ef4-67dc-42b3-b4de-377f8fe8664a">&lt;/code&gt;</ept> element (<bpt id="09ede1ef-ff0f-4ff0-9a09-fa3660b8f2d5">&lt;code&gt;</bpt>Work<ept id="09ede1ef-ff0f-4ff0-9a09-fa3660b8f2d5">&lt;/code&gt;</ept>) but it is not very useful for the scenario of bringing an existing application.</target>
+        </trans-unit>
+        <trans-unit id="c4d426de-62a7-4b04-8f92-7a28d8846de3" xml:space="preserve">
+          <source>The <bpt id="35aaca74-04dd-4370-9877-9c934a66b7b2">&lt;code&gt;</bpt>SetupEntrypoint<ept id="35aaca74-04dd-4370-9877-9c934a66b7b2">&lt;/code&gt;</ept> is used to specify any executable or batch file that should be executed before the service's code is launched.</source>
+          <target state="new">The <bpt id="35aaca74-04dd-4370-9877-9c934a66b7b2">&lt;code&gt;</bpt>SetupEntrypoint<ept id="35aaca74-04dd-4370-9877-9c934a66b7b2">&lt;/code&gt;</ept> is used to specify any executable or batch file that should be executed before the service's code is launched.</target>
+        </trans-unit>
+        <trans-unit id="8683aff8-b742-4ff6-a479-47a46bba75c3" xml:space="preserve">
+          <source>It is an optional element so it does not need to be included if there is no intialization/setup that is required.</source>
+          <target state="new">It is an optional element so it does not need to be included if there is no intialization/setup that is required.</target>
+        </trans-unit>
+        <trans-unit id="369f9b2a-e6c3-4362-aa9e-c5ab0d9f2385" xml:space="preserve">
+          <source>The Entrypoint is executed every time the service is restarted.</source>
+          <target state="new">The Entrypoint is executed every time the service is restarted.</target>
+        </trans-unit>
+        <trans-unit id="7fa034b2-8a3d-49e6-94fe-e9e1b7c4c271" xml:space="preserve">
+          <source>There is only one SetupEntrypoint so setup/config scripts needs to be boundled on a single batch file if the application's setup/config requires multiple scripts.</source>
+          <target state="new">There is only one SetupEntrypoint so setup/config scripts needs to be boundled on a single batch file if the application's setup/config requires multiple scripts.</target>
+        </trans-unit>
+        <trans-unit id="58dee21c-6cca-436a-b64e-5f90eaf9357f" xml:space="preserve">
+          <source>Like the <bpt id="5080c2a2-f18e-4a49-a920-7d06b2dd6789">&lt;code&gt;</bpt>Entrypoint<ept id="5080c2a2-f18e-4a49-a920-7d06b2dd6789">&lt;/code&gt;</ept> element, <bpt id="36ec9ae0-56aa-4463-9914-7a5debaa93bd">&lt;code&gt;</bpt>SetupEntrypoint<ept id="36ec9ae0-56aa-4463-9914-7a5debaa93bd">&lt;/code&gt;</ept> can execute any type of file: executable, batch fiules, powershell cmdlet.</source>
+          <target state="new">Like the <bpt id="5080c2a2-f18e-4a49-a920-7d06b2dd6789">&lt;code&gt;</bpt>Entrypoint<ept id="5080c2a2-f18e-4a49-a920-7d06b2dd6789">&lt;/code&gt;</ept> element, <bpt id="36ec9ae0-56aa-4463-9914-7a5debaa93bd">&lt;code&gt;</bpt>SetupEntrypoint<ept id="36ec9ae0-56aa-4463-9914-7a5debaa93bd">&lt;/code&gt;</ept> can execute any type of file: executable, batch fiules, powershell cmdlet.</target>
+        </trans-unit>
+        <trans-unit id="68db8ad7-382e-48dd-8cfe-9ed41cca9046" xml:space="preserve">
+          <source>In the example above, the <bpt id="a659acd8-6de9-4b84-b6ef-ee372c097cf4">&lt;code&gt;</bpt>SetupEntrypoint<ept id="a659acd8-6de9-4b84-b6ef-ee372c097cf4">&lt;/code&gt;</ept> is based on a batch file myAppsetup.cmd that is located in the scripts subdirectory of the Code directory (assuming the <bpt id="9d4d45b2-7b7e-40cc-a469-dc8104a6eaa8">&lt;code&gt;</bpt>WorkingDirectory<ept id="9d4d45b2-7b7e-40cc-a469-dc8104a6eaa8">&lt;/code&gt;</ept> element is set to <bpt id="4882cd5e-6305-40b3-8b92-80a5e6787f2c">&lt;code&gt;</bpt>Code<ept id="4882cd5e-6305-40b3-8b92-80a5e6787f2c">&lt;/code&gt;</ept>).</source>
+          <target state="new">In the example above, the <bpt id="a659acd8-6de9-4b84-b6ef-ee372c097cf4">&lt;code&gt;</bpt>SetupEntrypoint<ept id="a659acd8-6de9-4b84-b6ef-ee372c097cf4">&lt;/code&gt;</ept> is based on a batch file myAppsetup.cmd that is located in the scripts subdirectory of the Code directory (assuming the <bpt id="9d4d45b2-7b7e-40cc-a469-dc8104a6eaa8">&lt;code&gt;</bpt>WorkingDirectory<ept id="9d4d45b2-7b7e-40cc-a469-dc8104a6eaa8">&lt;/code&gt;</ept> element is set to <bpt id="4882cd5e-6305-40b3-8b92-80a5e6787f2c">&lt;code&gt;</bpt>Code<ept id="4882cd5e-6305-40b3-8b92-80a5e6787f2c">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="8f2a469e-ada7-4fbf-ac34-0bc495c3a038" xml:space="preserve">
+          <source>Once you have configured the <bpt id="7374cc91-2428-4287-b948-96ebdaaac522">&lt;code&gt;</bpt>servicemanifest.xml<ept id="7374cc91-2428-4287-b948-96ebdaaac522">&lt;/code&gt;</ept> file you need to make some changes to the <bpt id="e2e14812-5338-4ef0-be9b-32b535e85e77">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="e2e14812-5338-4ef0-be9b-32b535e85e77">&lt;/code&gt;</ept> file to ensure the correct Service type and name are used.</source>
+          <target state="new">Once you have configured the <bpt id="7374cc91-2428-4287-b948-96ebdaaac522">&lt;code&gt;</bpt>servicemanifest.xml<ept id="7374cc91-2428-4287-b948-96ebdaaac522">&lt;/code&gt;</ept> file you need to make some changes to the <bpt id="e2e14812-5338-4ef0-be9b-32b535e85e77">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="e2e14812-5338-4ef0-be9b-32b535e85e77">&lt;/code&gt;</ept> file to ensure the correct Service type and name are used.</target>
+        </trans-unit>
+        <trans-unit id="a9ac1ff6-9b34-4837-b95f-f0623566a956" xml:space="preserve">
+          <source>In the <bpt id="4904a9f7-ec57-491f-809e-a803c0156ddb">&lt;code&gt;</bpt>ServiceManifestImport<ept id="4904a9f7-ec57-491f-809e-a803c0156ddb">&lt;/code&gt;</ept> you can specify one or more services that you want to include in the app.</source>
+          <target state="new">In the <bpt id="4904a9f7-ec57-491f-809e-a803c0156ddb">&lt;code&gt;</bpt>ServiceManifestImport<ept id="4904a9f7-ec57-491f-809e-a803c0156ddb">&lt;/code&gt;</ept> you can specify one or more services that you want to include in the app.</target>
+        </trans-unit>
+        <trans-unit id="5c6d53bc-028f-4830-ad47-02cb1e7642bb" xml:space="preserve">
+          <source>Services are referenced with <bpt id="06b4b92a-5278-4309-8a7a-4090347a25ac">&lt;code&gt;</bpt>ServiceManifestName<ept id="06b4b92a-5278-4309-8a7a-4090347a25ac">&lt;/code&gt;</ept> that specifies the name of the directory where the <bpt id="71a29364-feeb-46fa-9949-b58f4f0fdb12">&lt;code&gt;</bpt>servicemanifest.xml<ept id="71a29364-feeb-46fa-9949-b58f4f0fdb12">&lt;/code&gt;</ept> file is located.</source>
+          <target state="new">Services are referenced with <bpt id="06b4b92a-5278-4309-8a7a-4090347a25ac">&lt;code&gt;</bpt>ServiceManifestName<ept id="06b4b92a-5278-4309-8a7a-4090347a25ac">&lt;/code&gt;</ept> that specifies the name of the directory where the <bpt id="71a29364-feeb-46fa-9949-b58f4f0fdb12">&lt;code&gt;</bpt>servicemanifest.xml<ept id="71a29364-feeb-46fa-9949-b58f4f0fdb12">&lt;/code&gt;</ept> file is located.</target>
+        </trans-unit>
+        <trans-unit id="34b2d1ba-1b25-4468-816a-35a2d8544634" xml:space="preserve">
+          <source>The <bpt id="72232779-0169-41b7-b678-1aa6ee997326">&lt;code&gt;</bpt>DefaultServices<ept id="72232779-0169-41b7-b678-1aa6ee997326">&lt;/code&gt;</ept> element in the application manifest file is used to define some service properties.</source>
+          <target state="new">The <bpt id="72232779-0169-41b7-b678-1aa6ee997326">&lt;code&gt;</bpt>DefaultServices<ept id="72232779-0169-41b7-b678-1aa6ee997326">&lt;/code&gt;</ept> element in the application manifest file is used to define some service properties.</target>
+        </trans-unit>
+        <trans-unit id="02a87f84-a2e1-4463-993b-b4358bfbab99" xml:space="preserve">
+          <source><bpt id="2b4209ff-feb6-4996-89f7-4878cc0ef410">&lt;code&gt;</bpt>ServiceTypeName<ept id="2b4209ff-feb6-4996-89f7-4878cc0ef410">&lt;/code&gt;</ept> is used as an 'Id' for the service.</source>
+          <target state="new"><bpt id="2b4209ff-feb6-4996-89f7-4878cc0ef410">&lt;code&gt;</bpt>ServiceTypeName<ept id="2b4209ff-feb6-4996-89f7-4878cc0ef410">&lt;/code&gt;</ept> is used as an 'Id' for the service.</target>
+        </trans-unit>
+        <trans-unit id="cf87250b-6e6f-4bee-a30c-1353636aeac3" xml:space="preserve">
+          <source>in the context of porting an existing application, <bpt id="3261382e-3fcf-4326-ae7b-011cd9afb25d">&lt;code&gt;</bpt>ServiceTypeName<ept id="3261382e-3fcf-4326-ae7b-011cd9afb25d">&lt;/code&gt;</ept> just need to be a unique identifies for your service.</source>
+          <target state="new">in the context of porting an existing application, <bpt id="3261382e-3fcf-4326-ae7b-011cd9afb25d">&lt;code&gt;</bpt>ServiceTypeName<ept id="3261382e-3fcf-4326-ae7b-011cd9afb25d">&lt;/code&gt;</ept> just need to be a unique identifies for your service.</target>
+        </trans-unit>
+        <trans-unit id="b168c1b3-ae79-4cc6-9893-78ac143de372" xml:space="preserve">
+          <source><bpt id="39fe8291-88ce-415d-ac23-689f411ce4fd">&lt;code&gt;</bpt>StatelessService<ept id="39fe8291-88ce-415d-ac23-689f411ce4fd">&lt;/code&gt;</ept>: Service Fabric supports two types of services: Stateless and Stateful.</source>
+          <target state="new"><bpt id="39fe8291-88ce-415d-ac23-689f411ce4fd">&lt;code&gt;</bpt>StatelessService<ept id="39fe8291-88ce-415d-ac23-689f411ce4fd">&lt;/code&gt;</ept>: Service Fabric supports two types of services: Stateless and Stateful.</target>
+        </trans-unit>
+        <trans-unit id="e79cadf0-88e0-4171-839b-c61ad16555bc" xml:space="preserve">
+          <source>In the case of porting an existing application the service is a stateless service so <bpt id="0191c0db-5487-4f7d-ae81-20e39fee72cf">&lt;code&gt;</bpt>StatelessService<ept id="0191c0db-5487-4f7d-ae81-20e39fee72cf">&lt;/code&gt;</ept> should always be used.</source>
+          <target state="new">In the case of porting an existing application the service is a stateless service so <bpt id="0191c0db-5487-4f7d-ae81-20e39fee72cf">&lt;code&gt;</bpt>StatelessService<ept id="0191c0db-5487-4f7d-ae81-20e39fee72cf">&lt;/code&gt;</ept> should always be used.</target>
+        </trans-unit>
+        <trans-unit id="9ce36b1e-ae5e-40e6-89cc-f2a7a1d0cd6e" xml:space="preserve">
+          <source>A Service Fabric service can be deployed in various 'configurations', for instance it can be deployed as a single or multiple instances or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.</source>
+          <target state="new">A Service Fabric service can be deployed in various 'configurations', for instance it can be deployed as a single or multiple instances or it can be deployed in such a way that there is one instance of the service on each node of the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="2084fd3c-4dfa-438d-a85a-0b4c0f00a620" xml:space="preserve">
+          <source>In the <bpt id="c5834831-3ca7-408c-ac8f-b7f1edabc01a">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="c5834831-3ca7-408c-ac8f-b7f1edabc01a">&lt;/code&gt;</ept> file you can specify how you want the application to be deployed</source>
+          <target state="new">In the <bpt id="c5834831-3ca7-408c-ac8f-b7f1edabc01a">&lt;code&gt;</bpt>applicationmanifest.xml<ept id="c5834831-3ca7-408c-ac8f-b7f1edabc01a">&lt;/code&gt;</ept> file you can specify how you want the application to be deployed</target>
+        </trans-unit>
+        <trans-unit id="b8fc3e39-520c-4669-bd07-628c88f1eabf" xml:space="preserve">
+          <source><bpt id="3ef98540-7f7d-4d31-91e8-a6e6e40d094d">&lt;code&gt;</bpt>InstanceCount<ept id="3ef98540-7f7d-4d31-91e8-a6e6e40d094d">&lt;/code&gt;</ept>: is used to specify how many instances of the service should be launched in the Service Fabric cluster.</source>
+          <target state="new"><bpt id="3ef98540-7f7d-4d31-91e8-a6e6e40d094d">&lt;code&gt;</bpt>InstanceCount<ept id="3ef98540-7f7d-4d31-91e8-a6e6e40d094d">&lt;/code&gt;</ept>: is used to specify how many instances of the service should be launched in the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="de14b01f-9655-4b28-a18d-24c00965f4eb" xml:space="preserve">
+          <source>You can set the <bpt id="2a31b521-455f-4bf2-a908-e5a813deba67">&lt;code&gt;</bpt>InstanceCount<ept id="2a31b521-455f-4bf2-a908-e5a813deba67">&lt;/code&gt;</ept> value depending on the type of application that you are deploying.</source>
+          <target state="new">You can set the <bpt id="2a31b521-455f-4bf2-a908-e5a813deba67">&lt;code&gt;</bpt>InstanceCount<ept id="2a31b521-455f-4bf2-a908-e5a813deba67">&lt;/code&gt;</ept> value depending on the type of application that you are deploying.</target>
+        </trans-unit>
+        <trans-unit id="474e5fbd-8dbd-4ae5-82da-6ecfc0793a09" xml:space="preserve">
+          <source>The two most common scenarios are:</source>
+          <target state="new">The two most common scenarios are:</target>
+        </trans-unit>
+        <trans-unit id="0494f7cc-e246-4c9b-80c1-2f4508024898" xml:space="preserve">
+          <source><bpt id="17577133-6985-4aa2-bdfe-53db787d5d84">&lt;code&gt;</bpt>InstanCount = "1"<ept id="17577133-6985-4aa2-bdfe-53db787d5d84">&lt;/code&gt;</ept>: in this case only one instance of the service will be deployed on the cluster.</source>
+          <target state="new"><bpt id="17577133-6985-4aa2-bdfe-53db787d5d84">&lt;code&gt;</bpt>InstanCount = "1"<ept id="17577133-6985-4aa2-bdfe-53db787d5d84">&lt;/code&gt;</ept>: in this case only one instance of the service will be deployed on the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d44094e6-58d1-492f-a596-83d7ebbac3b7" xml:space="preserve">
+          <source>Service Fabric's scheduler determines on which node the service is going to be deployed.</source>
+          <target state="new">Service Fabric's scheduler determines on which node the service is going to be deployed.</target>
+        </trans-unit>
+        <trans-unit id="82268523-c820-4012-b392-d4ba3284f82c" xml:space="preserve">
+          <source>A single instance count also makes sense for applications that require a different configuration if they run on multiple instances.</source>
+          <target state="new">A single instance count also makes sense for applications that require a different configuration if they run on multiple instances.</target>
+        </trans-unit>
+        <trans-unit id="86023deb-abca-428f-8198-b009b8a0cea5" xml:space="preserve">
+          <source>In that case it is easier to define multiple services in the same application manifest file and use <bpt id="74e9b56a-88fd-47b8-b41a-fe4f43712b16">&lt;code&gt;</bpt>InstanceCount = "1"<ept id="74e9b56a-88fd-47b8-b41a-fe4f43712b16">&lt;/code&gt;</ept>.</source>
+          <target state="new">In that case it is easier to define multiple services in the same application manifest file and use <bpt id="74e9b56a-88fd-47b8-b41a-fe4f43712b16">&lt;code&gt;</bpt>InstanceCount = "1"<ept id="74e9b56a-88fd-47b8-b41a-fe4f43712b16">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a16402dc-f189-44c8-9b8c-8bdb48f3e0e0" xml:space="preserve">
+          <source>So the end result will be to have multiple instances of the same service but each with a specific configuration.</source>
+          <target state="new">So the end result will be to have multiple instances of the same service but each with a specific configuration.</target>
+        </trans-unit>
+        <trans-unit id="cc4fc6ae-c8a9-4f8a-baf2-da0991e95324" xml:space="preserve">
+          <source>A value of <bpt id="8957873b-37c5-4fc1-ab5e-b33dfe61523b">&lt;code&gt;</bpt>InstanceCount<ept id="8957873b-37c5-4fc1-ab5e-b33dfe61523b">&lt;/code&gt;</ept> greater than one makes sense only if the goal is to have multiple instance of the exact same configuration.</source>
+          <target state="new">A value of <bpt id="8957873b-37c5-4fc1-ab5e-b33dfe61523b">&lt;code&gt;</bpt>InstanceCount<ept id="8957873b-37c5-4fc1-ab5e-b33dfe61523b">&lt;/code&gt;</ept> greater than one makes sense only if the goal is to have multiple instance of the exact same configuration.</target>
+        </trans-unit>
+        <trans-unit id="02b2b573-da2f-4715-8fd3-e3178ae72c10" xml:space="preserve">
+          <source><bpt id="1227323d-18fa-434b-8628-57123ea30bae">&lt;code&gt;</bpt>InstanceCount ="-1"<ept id="1227323d-18fa-434b-8628-57123ea30bae">&lt;/code&gt;</ept>: in this case one instance of the service will be deployed on every node in the Service Fabric cluster.</source>
+          <target state="new"><bpt id="1227323d-18fa-434b-8628-57123ea30bae">&lt;code&gt;</bpt>InstanceCount ="-1"<ept id="1227323d-18fa-434b-8628-57123ea30bae">&lt;/code&gt;</ept>: in this case one instance of the service will be deployed on every node in the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="4c542526-f655-4bd0-963b-d26fdb207478" xml:space="preserve">
+          <source>The end result will be having one (and only one) instance of the service for each node in the cluster.</source>
+          <target state="new">The end result will be having one (and only one) instance of the service for each node in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="05c1d2b4-75eb-4805-a519-b3d04e29ec3f" xml:space="preserve">
+          <source>This is a useful configuration for front-end applications (ex.</source>
+          <target state="new">This is a useful configuration for front-end applications (ex.</target>
+        </trans-unit>
+        <trans-unit id="b2492a39-f463-4214-a1f1-80bc1586174e" xml:space="preserve">
+          <source>a REST endpoint) because client applications just need to 'connect' to any of the node in the cluster in order to use the endpoint.</source>
+          <target state="new">a REST endpoint) because client applications just need to 'connect' to any of the node in the cluster in order to use the endpoint.</target>
+        </trans-unit>
+        <trans-unit id="8e04a9bf-6c23-4ac7-bc8c-2e8d2db125c2" xml:space="preserve">
+          <source>This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service running on all nodes in the cluster.</source>
+          <target state="new">This configuration can also be used when, for instance, all nodes of the Service Fabric cluster are connected to a load balancer so client traffic can be distributed across the service running on all nodes in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="ab526356-b3a4-4a56-af46-8d5525bf0c4b" xml:space="preserve">
+          <source>For existing application is very useful to be able to see console logs to find out if the application and configuration scripts don't show any error.</source>
+          <target state="new">For existing application is very useful to be able to see console logs to find out if the application and configuration scripts don't show any error.</target>
+        </trans-unit>
+        <trans-unit id="38e21a8e-6870-4e99-ad01-2de23ccdd9b7" xml:space="preserve">
+          <source>Console redirection can be configured in the <bpt id="58d4f5d9-7688-473d-a880-2734dbcaa22a">&lt;code&gt;</bpt>servicemanifest.xml<ept id="58d4f5d9-7688-473d-a880-2734dbcaa22a">&lt;/code&gt;</ept> file using the <bpt id="5ed05394-e9b4-44f2-b75f-134867d3a3ef">&lt;code&gt;</bpt>ConsoleRedirection<ept id="5ed05394-e9b4-44f2-b75f-134867d3a3ef">&lt;/code&gt;</ept> element</source>
+          <target state="new">Console redirection can be configured in the <bpt id="58d4f5d9-7688-473d-a880-2734dbcaa22a">&lt;code&gt;</bpt>servicemanifest.xml<ept id="58d4f5d9-7688-473d-a880-2734dbcaa22a">&lt;/code&gt;</ept> file using the <bpt id="5ed05394-e9b4-44f2-b75f-134867d3a3ef">&lt;code&gt;</bpt>ConsoleRedirection<ept id="5ed05394-e9b4-44f2-b75f-134867d3a3ef">&lt;/code&gt;</ept> element</target>
+        </trans-unit>
+        <trans-unit id="0ffa88d2-7e5b-42f4-94db-5f30778559e0" xml:space="preserve">
+          <source><bpt id="c8bf15ef-aa17-4d42-802f-ef8c14315ac2">&lt;code&gt;</bpt>ConsoleRedirection<ept id="c8bf15ef-aa17-4d42-802f-ef8c14315ac2">&lt;/code&gt;</ept> can be used to redirect console output (both stdout and stderr) to a working directory so they can be used to verify that there are no errors during the setup or execution of the application in the Service Fabric cluster.</source>
+          <target state="new"><bpt id="c8bf15ef-aa17-4d42-802f-ef8c14315ac2">&lt;code&gt;</bpt>ConsoleRedirection<ept id="c8bf15ef-aa17-4d42-802f-ef8c14315ac2">&lt;/code&gt;</ept> can be used to redirect console output (both stdout and stderr) to a working directory so they can be used to verify that there are no errors during the setup or execution of the application in the Service Fabric cluster.</target>
+        </trans-unit>
+        <trans-unit id="01c7c628-96c4-47f1-b577-65e5c62de45f" xml:space="preserve">
+          <source><bpt id="2f443e19-0f83-490c-9881-48015148c479">&lt;code&gt;</bpt>FileRetentionCount<ept id="2f443e19-0f83-490c-9881-48015148c479">&lt;/code&gt;</ept> determines how many files are saved in the working directory.</source>
+          <target state="new"><bpt id="2f443e19-0f83-490c-9881-48015148c479">&lt;code&gt;</bpt>FileRetentionCount<ept id="2f443e19-0f83-490c-9881-48015148c479">&lt;/code&gt;</ept> determines how many files are saved in the working directory.</target>
+        </trans-unit>
+        <trans-unit id="f648a282-3d2d-44a1-865d-44eb61e1c7d1" xml:space="preserve">
+          <source>A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.</source>
+          <target state="new">A value of, for instance, 5 means that the log files for the previous 5 executions are stored in the working directory.</target>
+        </trans-unit>
+        <trans-unit id="80d66d03-a916-464c-869f-3323fd5a03a3" xml:space="preserve">
+          <source><bpt id="3973c636-8bd8-44cf-a5bb-f46bd8ac622f">&lt;code&gt;</bpt>FileMaxSizeInKb<ept id="3973c636-8bd8-44cf-a5bb-f46bd8ac622f">&lt;/code&gt;</ept> specifies the max size of the log files.</source>
+          <target state="new"><bpt id="3973c636-8bd8-44cf-a5bb-f46bd8ac622f">&lt;code&gt;</bpt>FileMaxSizeInKb<ept id="3973c636-8bd8-44cf-a5bb-f46bd8ac622f">&lt;/code&gt;</ept> specifies the max size of the log files.</target>
+        </trans-unit>
+        <trans-unit id="5f7f58ea-92a8-4559-b67e-a8c21991ac2d" xml:space="preserve">
+          <source>Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used.</source>
+          <target state="new">Log files are saved on one of the service's working directories, in order to determine where the files are located, you need to use the Service Fabric Explorer to determine in which node the service is running and which is the working directory that is currently used.</target>
+        </trans-unit>
+        <trans-unit id="f0f0eb87-f3d2-4b5d-a9a9-8163c78ac3c9" xml:space="preserve">
+          <source>In the Service Fabric explorer, identify the node where the service is running</source>
+          <target state="new">In the Service Fabric explorer, identify the node where the service is running</target>
+        </trans-unit>
+        <trans-unit id="ef78be26-1ebd-42cd-9e5f-5cf6f2b69074" xml:space="preserve">
+          <source><bpt id="fa374e5a-a784-4f9d-9b6b-46f0ac5d8fab">&lt;linkText&gt;</bpt><ept id="fa374e5a-a784-4f9d-9b6b-46f0ac5d8fab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa374e5a-a784-4f9d-9b6b-46f0ac5d8fab">&lt;linkText&gt;</bpt><ept id="fa374e5a-a784-4f9d-9b6b-46f0ac5d8fab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3e2c6904-6775-490d-90d9-fa1a4be1876f" xml:space="preserve">
+          <source>After you know the node where the service is currently running, you can find out which is the working directory used</source>
+          <target state="new">After you know the node where the service is currently running, you can find out which is the working directory used</target>
+        </trans-unit>
+        <trans-unit id="a2a868b8-4131-4f61-850c-10c5b5607afb" xml:space="preserve">
+          <source><bpt id="6c0bb3ce-b696-4403-97c3-0ed398bd2649">&lt;linkText&gt;</bpt><ept id="6c0bb3ce-b696-4403-97c3-0ed398bd2649">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6c0bb3ce-b696-4403-97c3-0ed398bd2649">&lt;linkText&gt;</bpt><ept id="6c0bb3ce-b696-4403-97c3-0ed398bd2649">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e37f76b-d48c-4245-9d63-0c11b1bc8472" xml:space="preserve">
+          <source>When you select the name of the service, on the right panel you can see there the service code and settings are stored</source>
+          <target state="new">When you select the name of the service, on the right panel you can see there the service code and settings are stored</target>
+        </trans-unit>
+        <trans-unit id="933773f1-bde8-4e2e-839b-35cb676335ac" xml:space="preserve">
+          <source><bpt id="36f53683-fd93-443a-b04a-5251f0478897">&lt;linkText&gt;</bpt><ept id="36f53683-fd93-443a-b04a-5251f0478897">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="36f53683-fd93-443a-b04a-5251f0478897">&lt;linkText&gt;</bpt><ept id="36f53683-fd93-443a-b04a-5251f0478897">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="348f9c75-1e19-48b3-a6eb-274345c9ed9c" xml:space="preserve">
+          <source>If you click on the link in the 'Disk Location' field you can access the directory where the services is running on.</source>
+          <target state="new">If you click on the link in the 'Disk Location' field you can access the directory where the services is running on.</target>
+        </trans-unit>
+        <trans-unit id="b2048395-a61f-4cf9-b352-78ed1cc3addf" xml:space="preserve">
+          <source><bpt id="08d9d898-cd0e-41e9-9599-e6369bf8edac">&lt;linkText&gt;</bpt><ept id="08d9d898-cd0e-41e9-9599-e6369bf8edac">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="08d9d898-cd0e-41e9-9599-e6369bf8edac">&lt;linkText&gt;</bpt><ept id="08d9d898-cd0e-41e9-9599-e6369bf8edac">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="610f27e8-103e-416c-b2cc-bcd37992d6f0" xml:space="preserve">
+          <source>The log directory contains all log files.</source>
+          <target state="new">The log directory contains all log files.</target>
+        </trans-unit>
+        <trans-unit id="41b3a1f0-3f4b-4e9a-ae94-8f22058544af" xml:space="preserve">
+          <source>Note: This example shows the case of a single instance of the service running in the cluster.</source>
+          <target state="new">Note: This example shows the case of a single instance of the service running in the cluster.</target>
+        </trans-unit>
+        <trans-unit id="d81f9c2f-041b-4fc6-8fb2-ed4346782545" xml:space="preserve">
+          <source>If there are multiple instances you may need to check the log file on all the nodes where the service is running.</source>
+          <target state="new">If there are multiple instances you may need to check the log file on all the nodes where the service is running.</target>
+        </trans-unit>
+        <trans-unit id="0e596224-e379-4519-93f2-d4819bb8989c" xml:space="preserve">
+          <source>We are working on a tools that can be used to package an existing application simply by pointing it at the root of the directory structure of the app.</source>
+          <target state="new">We are working on a tools that can be used to package an existing application simply by pointing it at the root of the directory structure of the app.</target>
+        </trans-unit>
+        <trans-unit id="5cb0c984-4f0d-4f75-a337-c8cd009e52bb" xml:space="preserve">
+          <source>The tool takes care of generate the manifest files and configure the basic settings that are required to 'transform' the application in a Service Fabric service.</source>
+          <target state="new">The tool takes care of generate the manifest files and configure the basic settings that are required to 'transform' the application in a Service Fabric service.</target>
+        </trans-unit>
+        <trans-unit id="1e31b57c-5baf-4ee6-869e-3cc112cfdfb1" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/directory-structure-1.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/directory-structure-1.PNG</target>
+        </trans-unit>
+        <trans-unit id="7389d8fb-9071-4c25-b6e1-7d8c41f11d7d" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/directory-structure-2.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/directory-structure-2.PNG</target>
+        </trans-unit>
+        <trans-unit id="3344383f-7029-4add-9fee-c23736789c46" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/service-node-1.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/service-node-1.PNG</target>
+        </trans-unit>
+        <trans-unit id="bbab7d64-a4d7-4eed-9663-9f5ffb2e5b0c" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/service-node-2.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/service-node-2.PNG</target>
+        </trans-unit>
+        <trans-unit id="098584eb-8612-4789-b4e4-da23723b7cdf" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/service-node-3.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/service-node-3.PNG</target>
+        </trans-unit>
+        <trans-unit id="664538b6-b209-44df-afbb-d4b67516f5a9" xml:space="preserve">
+          <source>./media/service-fabric-deploy-an-existing-app/service-node-4.PNG</source>
+          <target state="new">./media/service-fabric-deploy-an-existing-app/service-node-4.PNG</target>
+        </trans-unit>
+      </group>
+      <group id="2e250c4e-9f41-400a-be83-cb95711544bc" />
+    </body>
+  </file>
+</xliff>

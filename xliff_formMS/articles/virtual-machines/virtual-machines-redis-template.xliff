@@ -1,0 +1,536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="dc7e6384-9987-4d69-acd8-609c1fc6ea6e" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="dc7e6384-9987-4d69-acd8-609c1fc6ea6e" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="06ff8c20-7c77-4dcf-8136-ca6e2ee2f69b">
+        <trans-unit id="2f6868b2-0bad-430c-abfd-fb9e716c1074" xml:space="preserve">
+          <source>Redis Cluster Resource Manager Template</source>
+          <target state="new">Redis Cluster Resource Manager Template</target>
+        </trans-unit>
+        <trans-unit id="7aa2d692-fbde-4668-95a0-cdc3a8177dbf" xml:space="preserve">
+          <source>Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template</source>
+          <target state="new">Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template</target>
+        </trans-unit>
+        <trans-unit id="2d6c02a8-3517-4bc6-a222-97fe7587f57a" xml:space="preserve">
+          <source>Redis is an open-source key-value cache and store, where keys can contain data structures such as strings, hashes, lists, sets and sorted sets.</source>
+          <target state="new">Redis is an open-source key-value cache and store, where keys can contain data structures such as strings, hashes, lists, sets and sorted sets.</target>
+        </trans-unit>
+        <trans-unit id="bacde92b-5838-42bb-9036-5457e827fada" xml:space="preserve">
+          <source>Redis supports a set of atomic operations on these data types.</source>
+          <target state="new">Redis supports a set of atomic operations on these data types.</target>
+        </trans-unit>
+        <trans-unit id="2ed82404-fb78-43ab-a810-4e98a44d075e" xml:space="preserve">
+          <source>With the release of Redis version 3.0, Redis Cluster is now available in the latest stable version of Redis.</source>
+          <target state="new">With the release of Redis version 3.0, Redis Cluster is now available in the latest stable version of Redis.</target>
+        </trans-unit>
+        <trans-unit id="e4bf860b-9c15-42ed-8e76-2673a8f0adaf" xml:space="preserve">
+          <source>Redis Cluster is a distributed implementation of Redis where data is automatically sharded across multiple Redis nodes, with the ability to continue operations when a subset of nodes is experiencing failures.</source>
+          <target state="new">Redis Cluster is a distributed implementation of Redis where data is automatically sharded across multiple Redis nodes, with the ability to continue operations when a subset of nodes is experiencing failures.</target>
+        </trans-unit>
+        <trans-unit id="7c3351e8-2201-465f-a0cf-29347e17eb6c" xml:space="preserve">
+          <source>Microsoft Azure Redis Cache is a dedicated Redis cache service, managed by Microsoft, but not all Microsoft Azure customers want to use Azure Redis Cache.</source>
+          <target state="new">Microsoft Azure Redis Cache is a dedicated Redis cache service, managed by Microsoft, but not all Microsoft Azure customers want to use Azure Redis Cache.</target>
+        </trans-unit>
+        <trans-unit id="30bb7e70-0fc4-4dbc-b553-8ba6bcefd4f9" xml:space="preserve">
+          <source>Some want to keep their Redis cache behind a subnet within their own Azure deployments, while others are more comfortable hosting their own Redis servers on Linux virtual machines in order to fully take advantage of all Redis features.</source>
+          <target state="new">Some want to keep their Redis cache behind a subnet within their own Azure deployments, while others are more comfortable hosting their own Redis servers on Linux virtual machines in order to fully take advantage of all Redis features.</target>
+        </trans-unit>
+        <trans-unit id="2f8ed6b7-e3d7-4c85-be14-2ff125565fc2" xml:space="preserve">
+          <source>This tutorial will walk through using a sample Azure Resource Manager  template to deploy a Redis cluster on Ubuntu VMs within a subnet in a resource group in Microsoft Azure.</source>
+          <target state="new">This tutorial will walk through using a sample Azure Resource Manager  template to deploy a Redis cluster on Ubuntu VMs within a subnet in a resource group in Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="4acd20da-8e97-413b-9db4-a3b64f7afaa2" xml:space="preserve">
+          <source>In addition to Redis 3.0 Cluster, this template also supports deploying Redis 2.8 with Redis Sentinel.</source>
+          <target state="new">In addition to Redis 3.0 Cluster, this template also supports deploying Redis 2.8 with Redis Sentinel.</target>
+        </trans-unit>
+        <trans-unit id="181c09a0-94d6-48b1-b41c-1ac19713dba2" xml:space="preserve">
+          <source>Note that this tutorial will focus on the Redis 3.0 Cluster implementation.</source>
+          <target state="new">Note that this tutorial will focus on the Redis 3.0 Cluster implementation.</target>
+        </trans-unit>
+        <trans-unit id="60de525b-5e9e-4f39-9316-89dbec86c17b" xml:space="preserve">
+          <source>The Redis cluster is created behind a subnet, so there is no public IP access to the Redis cluster.</source>
+          <target state="new">The Redis cluster is created behind a subnet, so there is no public IP access to the Redis cluster.</target>
+        </trans-unit>
+        <trans-unit id="e255f0a7-2f81-4cc2-89b8-88db8223bd14" xml:space="preserve">
+          <source>As part of the deployment, an optional “jump box” can be deployed.</source>
+          <target state="new">As part of the deployment, an optional “jump box” can be deployed.</target>
+        </trans-unit>
+        <trans-unit id="ffe142b9-181f-4938-95bb-dd399972aa43" xml:space="preserve">
+          <source>This “jump box” is an Ubuntu VM deployed in the subnet as well, but it <bpt id="563fd3f4-0050-4fa5-9d81-22785bcb7573">&lt;em&gt;</bpt>does<ept id="563fd3f4-0050-4fa5-9d81-22785bcb7573">&lt;/em&gt;</ept> expose a public IP address with an open SSH port that you can SSH to.</source>
+          <target state="new">This “jump box” is an Ubuntu VM deployed in the subnet as well, but it <bpt id="563fd3f4-0050-4fa5-9d81-22785bcb7573">&lt;em&gt;</bpt>does<ept id="563fd3f4-0050-4fa5-9d81-22785bcb7573">&lt;/em&gt;</ept> expose a public IP address with an open SSH port that you can SSH to.</target>
+        </trans-unit>
+        <trans-unit id="75b02eb9-2746-446f-98ba-0b9a2ee1bb03" xml:space="preserve">
+          <source>Then from the “jump box”, you can SSH to all the Redis VMs in the subnet.</source>
+          <target state="new">Then from the “jump box”, you can SSH to all the Redis VMs in the subnet.</target>
+        </trans-unit>
+        <trans-unit id="0de05044-fdff-486a-a7ea-e7dc64ef2cec" xml:space="preserve">
+          <source>This template utilizes a “t-shirt size” concept in order to specify a “Small”, “Medium”, or “Large” Redis Cluster setup.</source>
+          <target state="new">This template utilizes a “t-shirt size” concept in order to specify a “Small”, “Medium”, or “Large” Redis Cluster setup.</target>
+        </trans-unit>
+        <trans-unit id="25714464-e406-4cdd-a6cf-2808b20b4be8" xml:space="preserve">
+          <source>When the Azure Resource Manager template language supports more dynamic template sizing, this could be changed to specify the number of Redis Cluster master nodes, slave nodes, VM size, etc.  For now, you can see the VM size and the number of masters and slaves defined in the file azuredeploy.json in the variables <bpt id="03cc936b-4e0c-4669-bc78-7534747fba16">&lt;code&gt;</bpt>tshirtSizeSmall<ept id="03cc936b-4e0c-4669-bc78-7534747fba16">&lt;/code&gt;</ept>, <bpt id="905ed6ad-84b9-44e7-9045-997bdbc2d0e9">&lt;code&gt;</bpt>tshirtSizeMedium<ept id="905ed6ad-84b9-44e7-9045-997bdbc2d0e9">&lt;/code&gt;</ept>, and <bpt id="8806545f-aee1-45a7-8433-e301997b0c84">&lt;code&gt;</bpt>tshirtSizeLarge<ept id="8806545f-aee1-45a7-8433-e301997b0c84">&lt;/code&gt;</ept>.</source>
+          <target state="new">When the Azure Resource Manager template language supports more dynamic template sizing, this could be changed to specify the number of Redis Cluster master nodes, slave nodes, VM size, etc.  For now, you can see the VM size and the number of masters and slaves defined in the file azuredeploy.json in the variables <bpt id="03cc936b-4e0c-4669-bc78-7534747fba16">&lt;code&gt;</bpt>tshirtSizeSmall<ept id="03cc936b-4e0c-4669-bc78-7534747fba16">&lt;/code&gt;</ept>, <bpt id="905ed6ad-84b9-44e7-9045-997bdbc2d0e9">&lt;code&gt;</bpt>tshirtSizeMedium<ept id="905ed6ad-84b9-44e7-9045-997bdbc2d0e9">&lt;/code&gt;</ept>, and <bpt id="8806545f-aee1-45a7-8433-e301997b0c84">&lt;code&gt;</bpt>tshirtSizeLarge<ept id="8806545f-aee1-45a7-8433-e301997b0c84">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="119d0a08-c6b4-486e-82cb-e738d66121a2" xml:space="preserve">
+          <source>The Redis Cluster template for the “Medium” t-shirt size creates this configuration:</source>
+          <target state="new">The Redis Cluster template for the “Medium” t-shirt size creates this configuration:</target>
+        </trans-unit>
+        <trans-unit id="08aaf977-967e-43c2-b1d3-02467dd0a4c1" xml:space="preserve">
+          <source><bpt id="6da0d6f9-cc1f-482f-bf75-dc6e86f57451">&lt;linkText&gt;</bpt>cluster-architecture<ept id="6da0d6f9-cc1f-482f-bf75-dc6e86f57451">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6da0d6f9-cc1f-482f-bf75-dc6e86f57451">&lt;linkText&gt;</bpt>cluster-architecture<ept id="6da0d6f9-cc1f-482f-bf75-dc6e86f57451">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e21e8daf-23d0-4e51-81e5-3af42ed066d3" xml:space="preserve">
+          <source>Before diving into more details related to Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.</source>
+          <target state="new">Before diving into more details related to Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.</target>
+        </trans-unit>
+        <trans-unit id="00210d9d-1bb6-44bb-a65d-242008d76e3f" xml:space="preserve">
+          <source><bpt id="32a9a230-15f2-49e4-99b5-bc795bd10a59">&lt;token href="../../includes/arm-getting-setup-powershell.md"&gt;</bpt><ept id="32a9a230-15f2-49e4-99b5-bc795bd10a59">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="32a9a230-15f2-49e4-99b5-bc795bd10a59">&lt;token href="../../includes/arm-getting-setup-powershell.md"&gt;</bpt><ept id="32a9a230-15f2-49e4-99b5-bc795bd10a59">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e37bea85-d028-43a7-a800-be05b1eaf7d2" xml:space="preserve">
+          <source><bpt id="24250b8f-bfd2-4496-b771-76297192f874">&lt;token href="../../includes/xplat-getting-set-up-arm.md"&gt;</bpt><ept id="24250b8f-bfd2-4496-b771-76297192f874">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="24250b8f-bfd2-4496-b771-76297192f874">&lt;token href="../../includes/xplat-getting-set-up-arm.md"&gt;</bpt><ept id="24250b8f-bfd2-4496-b771-76297192f874">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2fb16915-3683-4806-8b3a-393b1f7182f6" xml:space="preserve">
+          <source>Follow these steps to create a Redis cluster by using a Resource Manager template from the GitHub template repository.</source>
+          <target state="new">Follow these steps to create a Redis cluster by using a Resource Manager template from the GitHub template repository.</target>
+        </trans-unit>
+        <trans-unit id="a563394b-8d43-4d8a-9e41-b71336b5b91d" xml:space="preserve">
+          <source>Each step will include directions for both Azure PowerShell and the Azure CLI.</source>
+          <target state="new">Each step will include directions for both Azure PowerShell and the Azure CLI.</target>
+        </trans-unit>
+        <trans-unit id="6f71ff04-cf32-4325-b61b-b75669712033" xml:space="preserve">
+          <source>Create a local folder for the JSON template and other associated files (for example, C:\Azure\Templates\RedisCluster).</source>
+          <target state="new">Create a local folder for the JSON template and other associated files (for example, C:\Azure\Templates\RedisCluster).</target>
+        </trans-unit>
+        <trans-unit id="0b26693f-2314-4a56-85c5-a57b2c650334" xml:space="preserve">
+          <source>Substitute in the folder name of your local folder and run these commands:</source>
+          <target state="new">Substitute in the folder name of your local folder and run these commands:</target>
+        </trans-unit>
+        <trans-unit id="64f3fe06-ed24-4627-a425-8a4876e2c886" xml:space="preserve">
+          <source>Clone the entire template repository by using a Git client of your choice, for example:</source>
+          <target state="new">Clone the entire template repository by using a Git client of your choice, for example:</target>
+        </trans-unit>
+        <trans-unit id="ea2bd09c-ceb8-4807-8471-db5e030f3943" xml:space="preserve">
+          <source>When the cloning is completed, look for the <bpt id="c3c588b4-c713-4ac9-8f76-4f9fe035cf71">&lt;strong&gt;</bpt>redis-high-availability<ept id="c3c588b4-c713-4ac9-8f76-4f9fe035cf71">&lt;/strong&gt;</ept> folder in your C:\Azure\Templates directory.</source>
+          <target state="new">When the cloning is completed, look for the <bpt id="c3c588b4-c713-4ac9-8f76-4f9fe035cf71">&lt;strong&gt;</bpt>redis-high-availability<ept id="c3c588b4-c713-4ac9-8f76-4f9fe035cf71">&lt;/strong&gt;</ept> folder in your C:\Azure\Templates directory.</target>
+        </trans-unit>
+        <trans-unit id="d28f33ea-aae0-455b-9597-291e1268cc25" xml:space="preserve">
+          <source>When you create a Redis cluster by using a template, you must specify a set of configuration parameters.</source>
+          <target state="new">When you create a Redis cluster by using a template, you must specify a set of configuration parameters.</target>
+        </trans-unit>
+        <trans-unit id="c0b25de0-d918-4b83-be36-7bdb4dac4c38" xml:space="preserve">
+          <source>To see the parameters that you need to specify for the template in a local JSON file before running the command to create the Redis cluster, open the JSON file in a tool or text editor of your choice.</source>
+          <target state="new">To see the parameters that you need to specify for the template in a local JSON file before running the command to create the Redis cluster, open the JSON file in a tool or text editor of your choice.</target>
+        </trans-unit>
+        <trans-unit id="9dcd38e3-410b-4fc0-8d15-b886ace6b74c" xml:space="preserve">
+          <source>Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the Redis cluster.</source>
+          <target state="new">Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the Redis cluster.</target>
+        </trans-unit>
+        <trans-unit id="0975bcaf-ef3d-436a-affc-68e3e00dba75" xml:space="preserve">
+          <source>Here is the "parameters" section for the azuredeploy.json template:</source>
+          <target state="new">Here is the "parameters" section for the azuredeploy.json template:</target>
+        </trans-unit>
+        <trans-unit id="93b6f02a-f0f4-46c8-8612-3a0cb7850093" xml:space="preserve">
+          <source>Each parameter has details such as data type and allowed values.</source>
+          <target state="new">Each parameter has details such as data type and allowed values.</target>
+        </trans-unit>
+        <trans-unit id="5ddd9ec9-186c-468c-9224-44684dd4292d" xml:space="preserve">
+          <source>This allows for validation of parameters passed during template execution in an interactive mode (e.g., Azure PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically built by parsing the list of required parameters and their descriptions.</source>
+          <target state="new">This allows for validation of parameters passed during template execution in an interactive mode (e.g., Azure PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically built by parsing the list of required parameters and their descriptions.</target>
+        </trans-unit>
+        <trans-unit id="532963c1-5b17-4262-aed7-53f090fedd10" xml:space="preserve">
+          <source>Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters.</source>
+          <target state="new">Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters.</target>
+        </trans-unit>
+        <trans-unit id="2b2f10b5-7151-4ca3-97c8-2271ad1717ab" xml:space="preserve">
+          <source>This file will then be passed as a single entity to the deployment command.</source>
+          <target state="new">This file will then be passed as a single entity to the deployment command.</target>
+        </trans-unit>
+        <trans-unit id="c04fc766-580e-41d2-addd-da19a529e54c" xml:space="preserve">
+          <source>If you do not include a parameters file, Azure PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.</source>
+          <target state="new">If you do not include a parameters file, Azure PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.</target>
+        </trans-unit>
+        <trans-unit id="da74d2e2-7dc4-4121-ab5a-e02825235946" xml:space="preserve">
+          <source>Here is an example you can find in the azuredeploy-parameters.json file.</source>
+          <target state="new">Here is an example you can find in the azuredeploy-parameters.json file.</target>
+        </trans-unit>
+        <trans-unit id="2041575e-3e3f-4a23-81f8-8178f54f0801" xml:space="preserve">
+          <source>Note that you will need to provide valid values for the parameters <bpt id="c1ee4857-59d6-40c1-8024-7ec1c3efcdd5">&lt;code&gt;</bpt>storageAccountName<ept id="c1ee4857-59d6-40c1-8024-7ec1c3efcdd5">&lt;/code&gt;</ept>, <bpt id="5ff41c72-2b4a-41e1-9350-0b376d1d6792">&lt;code&gt;</bpt>adminUsername<ept id="5ff41c72-2b4a-41e1-9350-0b376d1d6792">&lt;/code&gt;</ept>, and <bpt id="802cfca3-0494-46c9-afaa-30d547ee6fe9">&lt;code&gt;</bpt>adminPassword<ept id="802cfca3-0494-46c9-afaa-30d547ee6fe9">&lt;/code&gt;</ept>, plus any customizations to the other parameters:</source>
+          <target state="new">Note that you will need to provide valid values for the parameters <bpt id="c1ee4857-59d6-40c1-8024-7ec1c3efcdd5">&lt;code&gt;</bpt>storageAccountName<ept id="c1ee4857-59d6-40c1-8024-7ec1c3efcdd5">&lt;/code&gt;</ept>, <bpt id="5ff41c72-2b4a-41e1-9350-0b376d1d6792">&lt;code&gt;</bpt>adminUsername<ept id="5ff41c72-2b4a-41e1-9350-0b376d1d6792">&lt;/code&gt;</ept>, and <bpt id="802cfca3-0494-46c9-afaa-30d547ee6fe9">&lt;code&gt;</bpt>adminPassword<ept id="802cfca3-0494-46c9-afaa-30d547ee6fe9">&lt;/code&gt;</ept>, plus any customizations to the other parameters:</target>
+        </trans-unit>
+        <trans-unit id="1bf8a47e-f321-4c1a-b503-81af7a55b9c8" xml:space="preserve">
+          <source>The parameter <bpt id="98431fc6-6127-4e02-88a7-92bd439d181e">&lt;code&gt;</bpt>storageAccountName<ept id="98431fc6-6127-4e02-88a7-92bd439d181e">&lt;/code&gt;</ept> must be a non-existent, unique Storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).</source>
+          <target state="new">The parameter <bpt id="98431fc6-6127-4e02-88a7-92bd439d181e">&lt;code&gt;</bpt>storageAccountName<ept id="98431fc6-6127-4e02-88a7-92bd439d181e">&lt;/code&gt;</ept> must be a non-existent, unique Storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).</target>
+        </trans-unit>
+        <trans-unit id="556fbfe7-87ca-4702-91ee-c5905f04b057" xml:space="preserve">
+          <source>This Storage account will be created as part of the deployment process.</source>
+          <target state="new">This Storage account will be created as part of the deployment process.</target>
+        </trans-unit>
+        <trans-unit id="e22a191d-e87d-4a63-a804-894fac124aca" xml:space="preserve">
+          <source>Fill in an Azure deployment name, resource group name, Azure location, and the folder of your saved JSON files.</source>
+          <target state="new">Fill in an Azure deployment name, resource group name, Azure location, and the folder of your saved JSON files.</target>
+        </trans-unit>
+        <trans-unit id="48661c38-e824-4376-a656-267ff87bd703" xml:space="preserve">
+          <source>Then run these commands:</source>
+          <target state="new">Then run these commands:</target>
+        </trans-unit>
+        <trans-unit id="43e7cea1-94a8-44db-aabd-6a8a49572ba5" xml:space="preserve">
+          <source><bpt id="5e7a7a2b-ecf0-40c9-8d21-ed0dab3e679e">&lt;code&gt;</bpt>$RGName<ept id="5e7a7a2b-ecf0-40c9-8d21-ed0dab3e679e">&lt;/code&gt;</ept> must be unique within your subscription.</source>
+          <target state="new"><bpt id="5e7a7a2b-ecf0-40c9-8d21-ed0dab3e679e">&lt;code&gt;</bpt>$RGName<ept id="5e7a7a2b-ecf0-40c9-8d21-ed0dab3e679e">&lt;/code&gt;</ept> must be unique within your subscription.</target>
+        </trans-unit>
+        <trans-unit id="af09b1c6-5bc7-4e2e-8892-4473181f35e5" xml:space="preserve">
+          <source>When you run the <bpt id="1550e1dc-46a7-4c84-b57c-20e1a2ceee91">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="1550e1dc-46a7-4c84-b57c-20e1a2ceee91">&lt;/strong&gt;</ept> command, this will extract parameter values from the parameters JSON file (azuredeploy-parameters.json), and will start executing the template accordingly.</source>
+          <target state="new">When you run the <bpt id="1550e1dc-46a7-4c84-b57c-20e1a2ceee91">&lt;strong&gt;</bpt>New-AzureResourceGroupDeployment<ept id="1550e1dc-46a7-4c84-b57c-20e1a2ceee91">&lt;/strong&gt;</ept> command, this will extract parameter values from the parameters JSON file (azuredeploy-parameters.json), and will start executing the template accordingly.</target>
+        </trans-unit>
+        <trans-unit id="91e3d72d-ea4d-415a-b967-ad0bba246103" xml:space="preserve">
+          <source>Defining and using multiple parameter files with your different environments (test, production, etc.)</source>
+          <target state="new">Defining and using multiple parameter files with your different environments (test, production, etc.)</target>
+        </trans-unit>
+        <trans-unit id="3aba107e-48f3-4c4a-9371-00e7d2480e32" xml:space="preserve">
+          <source>will promote template reuse and simplify complex multi-environment solutions.</source>
+          <target state="new">will promote template reuse and simplify complex multi-environment solutions.</target>
+        </trans-unit>
+        <trans-unit id="8062de12-dfcf-402b-a863-c7ee90b7a900" xml:space="preserve">
+          <source>When deploying, please keep in mind that a new Azure Storage account needs to be created, so the name you provide as the Storage account parameter must be unique and meet all requirements for an Azure Storage account (lowercase letters and numbers only).</source>
+          <target state="new">When deploying, please keep in mind that a new Azure Storage account needs to be created, so the name you provide as the Storage account parameter must be unique and meet all requirements for an Azure Storage account (lowercase letters and numbers only).</target>
+        </trans-unit>
+        <trans-unit id="89b9fef1-9564-42ed-baaa-887dbe2178ad" xml:space="preserve">
+          <source>During the deployment, you will see something like this:</source>
+          <target state="new">During the deployment, you will see something like this:</target>
+        </trans-unit>
+        <trans-unit id="cb1e7f8d-df3e-45b2-a30c-d3bf5657d2cf" xml:space="preserve">
+          <source>During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.</source>
+          <target state="new">During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.</target>
+        </trans-unit>
+        <trans-unit id="fd39d37b-182f-46f7-a050-2f49c9090f6a" xml:space="preserve">
+          <source>To do that, go to the <bpt id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;linkText&gt;</bpt>Azure portal<ept id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;/linkText&gt;</ept><bpt id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;title&gt;</bpt><ept id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;/title&gt;</ept>, and do the following:</source>
+          <target state="new">To do that, go to the <bpt id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;linkText&gt;</bpt>Azure portal<ept id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;/linkText&gt;</ept><bpt id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;title&gt;</bpt><ept id="8e6c5978-1e34-46f0-9607-79272918d147">&lt;/title&gt;</ept>, and do the following:</target>
+        </trans-unit>
+        <trans-unit id="a9a0f368-95ae-4bfa-918e-9e138586305c" xml:space="preserve">
+          <source>In the left-hand navigation bar, click <bpt id="c325a43d-c8d4-408b-8eda-b89ff8c6cd22">&lt;strong&gt;</bpt>Browse<ept id="c325a43d-c8d4-408b-8eda-b89ff8c6cd22">&lt;/strong&gt;</ept>, and then scroll down and click <bpt id="63df5da2-7c38-429e-9950-d45bdec697b1">&lt;strong&gt;</bpt>Resource Groups<ept id="63df5da2-7c38-429e-9950-d45bdec697b1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the left-hand navigation bar, click <bpt id="c325a43d-c8d4-408b-8eda-b89ff8c6cd22">&lt;strong&gt;</bpt>Browse<ept id="c325a43d-c8d4-408b-8eda-b89ff8c6cd22">&lt;/strong&gt;</ept>, and then scroll down and click <bpt id="63df5da2-7c38-429e-9950-d45bdec697b1">&lt;strong&gt;</bpt>Resource Groups<ept id="63df5da2-7c38-429e-9950-d45bdec697b1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5170741b-eb15-49bc-b8a0-c0e632465fb8" xml:space="preserve">
+          <source>Select the resource group that you just created, to bring up the “Resource Group” blade.</source>
+          <target state="new">Select the resource group that you just created, to bring up the “Resource Group” blade.</target>
+        </trans-unit>
+        <trans-unit id="05bc8013-189b-4bfd-9c36-6b01ec6cabd2" xml:space="preserve">
+          <source>In the <bpt id="55863876-7b5e-4a21-8077-fa1b7342cf2d">&lt;strong&gt;</bpt>Monitoring<ept id="55863876-7b5e-4a21-8077-fa1b7342cf2d">&lt;/strong&gt;</ept> section, select the “Events” bar graph.</source>
+          <target state="new">In the <bpt id="55863876-7b5e-4a21-8077-fa1b7342cf2d">&lt;strong&gt;</bpt>Monitoring<ept id="55863876-7b5e-4a21-8077-fa1b7342cf2d">&lt;/strong&gt;</ept> section, select the “Events” bar graph.</target>
+        </trans-unit>
+        <trans-unit id="75771bbe-a883-4a7c-a3cd-208de2e7305f" xml:space="preserve">
+          <source>This will display the events for your deployment.</source>
+          <target state="new">This will display the events for your deployment.</target>
+        </trans-unit>
+        <trans-unit id="5759f503-fd48-4452-b67e-3cfd4dec0c07" xml:space="preserve">
+          <source>By clicking individual events, you can drill further down into the details of each operation made on behalf of the template.</source>
+          <target state="new">By clicking individual events, you can drill further down into the details of each operation made on behalf of the template.</target>
+        </trans-unit>
+        <trans-unit id="bda374eb-9b9c-4992-b03a-9ebf6971ecbb" xml:space="preserve">
+          <source>If you need to remove this resource group and all of its resources (the Storage account, virtual machine, and virtual network) after testing, use this command:</source>
+          <target state="new">If you need to remove this resource group and all of its resources (the Storage account, virtual machine, and virtual network) after testing, use this command:</target>
+        </trans-unit>
+        <trans-unit id="0ade974f-1ff5-4e58-8f46-610f1e820e21" xml:space="preserve">
+          <source>To deploy a Redis cluster via the Azure CLI, first create a resource group by specifying a name and a location:</source>
+          <target state="new">To deploy a Redis cluster via the Azure CLI, first create a resource group by specifying a name and a location:</target>
+        </trans-unit>
+        <trans-unit id="a0eab38c-19aa-4909-a10e-0cf6ca78e05b" xml:space="preserve">
+          <source>Pass this resource group name, the location of the JSON template file, and the location of the parameters file (see the above Azure PowerShell section for details) into the following command:</source>
+          <target state="new">Pass this resource group name, the location of the JSON template file, and the location of the parameters file (see the above Azure PowerShell section for details) into the following command:</target>
+        </trans-unit>
+        <trans-unit id="7d1d6701-191c-4a5d-92a1-6261ca5a5d1c" xml:space="preserve">
+          <source>You can check the status of individual resource deployments by using the following command:</source>
+          <target state="new">You can check the status of individual resource deployments by using the following command:</target>
+        </trans-unit>
+        <trans-unit id="7eda19ab-dddd-408f-a2ea-5fb58e5091b8" xml:space="preserve">
+          <source>In order to create a robust and reusable approach to Resource Manager template design, additional thinking is required to organize the series of complex and interrelated tasks required during deployment of a complex solution like Redis Cluster.</source>
+          <target state="new">In order to create a robust and reusable approach to Resource Manager template design, additional thinking is required to organize the series of complex and interrelated tasks required during deployment of a complex solution like Redis Cluster.</target>
+        </trans-unit>
+        <trans-unit id="c1d050de-8ba8-4d2a-9796-a538a81c4570" xml:space="preserve">
+          <source>By leveraging Resource Manager template linking capabilities, resource looping, and script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.</source>
+          <target state="new">By leveraging Resource Manager template linking capabilities, resource looping, and script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.</target>
+        </trans-unit>
+        <trans-unit id="13bceed5-9981-4a7e-803b-1d9a6fb2b4ab" xml:space="preserve">
+          <source>This diagram describes the relationships between all files downloaded from GitHub for this deployment:</source>
+          <target state="new">This diagram describes the relationships between all files downloaded from GitHub for this deployment:</target>
+        </trans-unit>
+        <trans-unit id="2251ff69-1504-47de-b3de-a746d00a12eb" xml:space="preserve">
+          <source><bpt id="38868e90-75ed-4794-a11b-082d7d651c45">&lt;linkText&gt;</bpt>redis-files<ept id="38868e90-75ed-4794-a11b-082d7d651c45">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="38868e90-75ed-4794-a11b-082d7d651c45">&lt;linkText&gt;</bpt>redis-files<ept id="38868e90-75ed-4794-a11b-082d7d651c45">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b3d7ea3-fecc-4e67-b087-02cdb3d5fadd" xml:space="preserve">
+          <source>This section steps you through the structure of the azuredeploy.json template for the Redis cluster.</source>
+          <target state="new">This section steps you through the structure of the azuredeploy.json template for the Redis cluster.</target>
+        </trans-unit>
+        <trans-unit id="fcf90528-121d-48b3-b198-6c8030d07994" xml:space="preserve">
+          <source>If you have not downloaded a copy of the template file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\RedisCluster).</source>
+          <target state="new">If you have not downloaded a copy of the template file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\RedisCluster).</target>
+        </trans-unit>
+        <trans-unit id="3f5c6be3-72fe-42a6-8d9b-78663bbd47fb" xml:space="preserve">
+          <source>Fill in the folder name and run these commands:</source>
+          <target state="new">Fill in the folder name and run these commands:</target>
+        </trans-unit>
+        <trans-unit id="c5bcc033-9351-4278-91ea-50eb610852c5" xml:space="preserve">
+          <source>Open the azuredeploy.json template in a text editor or tool of your choice.</source>
+          <target state="new">Open the azuredeploy.json template in a text editor or tool of your choice.</target>
+        </trans-unit>
+        <trans-unit id="d8509915-2968-4663-ad55-17501ba62771" xml:space="preserve">
+          <source>The following information describes the structure of the template file and the purpose of each section.</source>
+          <target state="new">The following information describes the structure of the template file and the purpose of each section.</target>
+        </trans-unit>
+        <trans-unit id="9c90150a-d76b-45d0-a8cd-96852210c2c7" xml:space="preserve">
+          <source>Alternately, you can see the contents of this template in your browser from <bpt id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;linkText&gt;</bpt>here<ept id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;/linkText&gt;</ept><bpt id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;title&gt;</bpt><ept id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;/title&gt;</ept>.</source>
+          <target state="new">Alternately, you can see the contents of this template in your browser from <bpt id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;linkText&gt;</bpt>here<ept id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;/linkText&gt;</ept><bpt id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;title&gt;</bpt><ept id="6d93bf7a-df13-4e0a-93cf-b08ce4250b13">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d0e24820-15b1-4410-a8f9-fa9d0de432cc" xml:space="preserve">
+          <source>We mentioned already the role of azuredeploy-parameters.json, which will be used to pass a given set of parameter values during template execution.</source>
+          <target state="new">We mentioned already the role of azuredeploy-parameters.json, which will be used to pass a given set of parameter values during template execution.</target>
+        </trans-unit>
+        <trans-unit id="561e9976-993a-49e9-9e9f-c39df49d8e19" xml:space="preserve">
+          <source>The "parameters" section of azuredeploy.json specifies parameters that are used to input data into this template.</source>
+          <target state="new">The "parameters" section of azuredeploy.json specifies parameters that are used to input data into this template.</target>
+        </trans-unit>
+        <trans-unit id="0d8f8953-56dd-4dc4-b773-c37b55c84e45" xml:space="preserve">
+          <source>Here is an example of a parameter for the “t-shirt size”:</source>
+          <target state="new">Here is an example of a parameter for the “t-shirt size”:</target>
+        </trans-unit>
+        <trans-unit id="f6239060-ef38-4d95-90f6-b99e6836d048" xml:space="preserve">
+          <source>Notice that <bpt id="2fc47c7a-0342-402a-a6de-87fd592d74cc">&lt;code&gt;</bpt>defaultValue<ept id="2fc47c7a-0342-402a-a6de-87fd592d74cc">&lt;/code&gt;</ept> may be specified, as well as <bpt id="f1b58ab8-6f2b-4490-babf-65cbe8c44605">&lt;code&gt;</bpt>allowedValues<ept id="f1b58ab8-6f2b-4490-babf-65cbe8c44605">&lt;/code&gt;</ept>.</source>
+          <target state="new">Notice that <bpt id="2fc47c7a-0342-402a-a6de-87fd592d74cc">&lt;code&gt;</bpt>defaultValue<ept id="2fc47c7a-0342-402a-a6de-87fd592d74cc">&lt;/code&gt;</ept> may be specified, as well as <bpt id="f1b58ab8-6f2b-4490-babf-65cbe8c44605">&lt;code&gt;</bpt>allowedValues<ept id="f1b58ab8-6f2b-4490-babf-65cbe8c44605">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1825f9de-a3ab-47a4-8a4c-7ba8ba19e5dc" xml:space="preserve">
+          <source>The "variables" section specifies variables that can be used throughout this template.</source>
+          <target state="new">The "variables" section specifies variables that can be used throughout this template.</target>
+        </trans-unit>
+        <trans-unit id="10af31d9-f3c0-460a-b10d-a30485ae2295" xml:space="preserve">
+          <source>Basically this contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time.</source>
+          <target state="new">Basically this contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time.</target>
+        </trans-unit>
+        <trans-unit id="05a08146-103d-48c7-92e7-7da7a814fd9c" xml:space="preserve">
+          <source>Here are some examples that range from simple to more complex:</source>
+          <target state="new">Here are some examples that range from simple to more complex:</target>
+        </trans-unit>
+        <trans-unit id="6b3a2502-0d0f-417a-8d29-de6a363764f9" xml:space="preserve">
+          <source>The <bpt id="379b0b66-157f-4cf2-9a38-ce429bdf6a91">&lt;code&gt;</bpt>vmStorageAccountContainerName<ept id="379b0b66-157f-4cf2-9a38-ce429bdf6a91">&lt;/code&gt;</ept> and <bpt id="d43079df-cd02-4f72-8872-98612485a7f4">&lt;code&gt;</bpt>vmStorageAccountDomain<ept id="d43079df-cd02-4f72-8872-98612485a7f4">&lt;/code&gt;</ept> variables are examples of simple name/value variables.</source>
+          <target state="new">The <bpt id="379b0b66-157f-4cf2-9a38-ce429bdf6a91">&lt;code&gt;</bpt>vmStorageAccountContainerName<ept id="379b0b66-157f-4cf2-9a38-ce429bdf6a91">&lt;/code&gt;</ept> and <bpt id="d43079df-cd02-4f72-8872-98612485a7f4">&lt;code&gt;</bpt>vmStorageAccountDomain<ept id="d43079df-cd02-4f72-8872-98612485a7f4">&lt;/code&gt;</ept> variables are examples of simple name/value variables.</target>
+        </trans-unit>
+        <trans-unit id="503f6320-7eb3-481a-b51e-06e9fdbb54c3" xml:space="preserve">
+          <source><bpt id="3eb8e623-7d3e-42ef-a8cd-2d2ebe42daf2">&lt;code&gt;</bpt>vnetID<ept id="3eb8e623-7d3e-42ef-a8cd-2d2ebe42daf2">&lt;/code&gt;</ept> is an example of a variable that is calculated at run time using the functions <bpt id="bfacf52f-e4e4-49fe-88e7-ec872eb4680a">&lt;code&gt;</bpt>resourceId<ept id="bfacf52f-e4e4-49fe-88e7-ec872eb4680a">&lt;/code&gt;</ept> and <bpt id="5b313c1a-c7ef-4061-81b8-ff3d9d26272d">&lt;code&gt;</bpt>parameters<ept id="5b313c1a-c7ef-4061-81b8-ff3d9d26272d">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="3eb8e623-7d3e-42ef-a8cd-2d2ebe42daf2">&lt;code&gt;</bpt>vnetID<ept id="3eb8e623-7d3e-42ef-a8cd-2d2ebe42daf2">&lt;/code&gt;</ept> is an example of a variable that is calculated at run time using the functions <bpt id="bfacf52f-e4e4-49fe-88e7-ec872eb4680a">&lt;code&gt;</bpt>resourceId<ept id="bfacf52f-e4e4-49fe-88e7-ec872eb4680a">&lt;/code&gt;</ept> and <bpt id="5b313c1a-c7ef-4061-81b8-ff3d9d26272d">&lt;code&gt;</bpt>parameters<ept id="5b313c1a-c7ef-4061-81b8-ff3d9d26272d">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea8be216-b4fb-429b-aedb-8edce413c49d" xml:space="preserve">
+          <source><bpt id="175a19e3-1ae6-4fc7-966f-3374afa7bb6d">&lt;code&gt;</bpt>machineSettings<ept id="175a19e3-1ae6-4fc7-966f-3374afa7bb6d">&lt;/code&gt;</ept> builds on these concepts even further by nesting the JSON object <bpt id="3bc8cb89-5b66-4cf4-97d0-44f8d74bc9e7">&lt;code&gt;</bpt>osImageReference<ept id="3bc8cb89-5b66-4cf4-97d0-44f8d74bc9e7">&lt;/code&gt;</ept> in the <bpt id="bc3c2dd3-a695-44d3-9183-d8d0bb1ab983">&lt;code&gt;</bpt>machineSettings<ept id="bc3c2dd3-a695-44d3-9183-d8d0bb1ab983">&lt;/code&gt;</ept> variable.</source>
+          <target state="new"><bpt id="175a19e3-1ae6-4fc7-966f-3374afa7bb6d">&lt;code&gt;</bpt>machineSettings<ept id="175a19e3-1ae6-4fc7-966f-3374afa7bb6d">&lt;/code&gt;</ept> builds on these concepts even further by nesting the JSON object <bpt id="3bc8cb89-5b66-4cf4-97d0-44f8d74bc9e7">&lt;code&gt;</bpt>osImageReference<ept id="3bc8cb89-5b66-4cf4-97d0-44f8d74bc9e7">&lt;/code&gt;</ept> in the <bpt id="bc3c2dd3-a695-44d3-9183-d8d0bb1ab983">&lt;code&gt;</bpt>machineSettings<ept id="bc3c2dd3-a695-44d3-9183-d8d0bb1ab983">&lt;/code&gt;</ept> variable.</target>
+        </trans-unit>
+        <trans-unit id="c987d052-33d9-4252-b33e-7cefd41cd3f9" xml:space="preserve">
+          <source><bpt id="88d6cefd-f18a-4bec-8dba-f137452e3cd4">&lt;code&gt;</bpt>vmScripts<ept id="88d6cefd-f18a-4bec-8dba-f137452e3cd4">&lt;/code&gt;</ept> contains a JSON array, <bpt id="2566f3d4-35b4-4a15-99cc-fa6ce634bbbe">&lt;code&gt;</bpt>scriptsToDownload<ept id="2566f3d4-35b4-4a15-99cc-fa6ce634bbbe">&lt;/code&gt;</ept>, which is calculated at run time using the <bpt id="758f58bd-7a3a-463c-bd16-ee10801f1a23">&lt;code&gt;</bpt>concat<ept id="758f58bd-7a3a-463c-bd16-ee10801f1a23">&lt;/code&gt;</ept> and <bpt id="236f24a1-ff45-4229-97e5-7f9ae6805fed">&lt;code&gt;</bpt>variables<ept id="236f24a1-ff45-4229-97e5-7f9ae6805fed">&lt;/code&gt;</ept> functions.</source>
+          <target state="new"><bpt id="88d6cefd-f18a-4bec-8dba-f137452e3cd4">&lt;code&gt;</bpt>vmScripts<ept id="88d6cefd-f18a-4bec-8dba-f137452e3cd4">&lt;/code&gt;</ept> contains a JSON array, <bpt id="2566f3d4-35b4-4a15-99cc-fa6ce634bbbe">&lt;code&gt;</bpt>scriptsToDownload<ept id="2566f3d4-35b4-4a15-99cc-fa6ce634bbbe">&lt;/code&gt;</ept>, which is calculated at run time using the <bpt id="758f58bd-7a3a-463c-bd16-ee10801f1a23">&lt;code&gt;</bpt>concat<ept id="758f58bd-7a3a-463c-bd16-ee10801f1a23">&lt;/code&gt;</ept> and <bpt id="236f24a1-ff45-4229-97e5-7f9ae6805fed">&lt;code&gt;</bpt>variables<ept id="236f24a1-ff45-4229-97e5-7f9ae6805fed">&lt;/code&gt;</ept> functions.</target>
+        </trans-unit>
+        <trans-unit id="04efb7ce-ea2e-4e9d-8d39-3a7f7f3e8ab4" xml:space="preserve">
+          <source>If you want to customize the size of the Redis Cluster deployment, then you can change the properties of the variables <bpt id="e56d3ec4-a4b7-4cdf-91ed-69776beeb6e7">&lt;code&gt;</bpt>tshirtSizeSmall<ept id="e56d3ec4-a4b7-4cdf-91ed-69776beeb6e7">&lt;/code&gt;</ept>, <bpt id="bbde2e74-445f-46eb-85b2-6b0a63a4bfee">&lt;code&gt;</bpt>tshirtSizeMedium<ept id="bbde2e74-445f-46eb-85b2-6b0a63a4bfee">&lt;/code&gt;</ept>, and <bpt id="4fa6cf04-9ffb-4771-8c82-2f45fd5ee527">&lt;code&gt;</bpt>tshirtSizeLarge<ept id="4fa6cf04-9ffb-4771-8c82-2f45fd5ee527">&lt;/code&gt;</ept> in the azuredeploy.json template.</source>
+          <target state="new">If you want to customize the size of the Redis Cluster deployment, then you can change the properties of the variables <bpt id="e56d3ec4-a4b7-4cdf-91ed-69776beeb6e7">&lt;code&gt;</bpt>tshirtSizeSmall<ept id="e56d3ec4-a4b7-4cdf-91ed-69776beeb6e7">&lt;/code&gt;</ept>, <bpt id="bbde2e74-445f-46eb-85b2-6b0a63a4bfee">&lt;code&gt;</bpt>tshirtSizeMedium<ept id="bbde2e74-445f-46eb-85b2-6b0a63a4bfee">&lt;/code&gt;</ept>, and <bpt id="4fa6cf04-9ffb-4771-8c82-2f45fd5ee527">&lt;code&gt;</bpt>tshirtSizeLarge<ept id="4fa6cf04-9ffb-4771-8c82-2f45fd5ee527">&lt;/code&gt;</ept> in the azuredeploy.json template.</target>
+        </trans-unit>
+        <trans-unit id="9937735f-ee10-4dac-b7b8-839cc10627d7" xml:space="preserve">
+          <source>Note:  The <bpt id="9e51e3c0-ee1f-43c3-83ed-cf44d25991de">&lt;code&gt;</bpt>totalMemberCountExcludingLast<ept id="9e51e3c0-ee1f-43c3-83ed-cf44d25991de">&lt;/code&gt;</ept> and <bpt id="ec18dad8-5093-43ea-b0a6-7abf9723e38c">&lt;code&gt;</bpt>totalMemberCount<ept id="ec18dad8-5093-43ea-b0a6-7abf9723e38c">&lt;/code&gt;</ept> properties are needed because the template language currently does not have “math” operations.</source>
+          <target state="new">Note:  The <bpt id="9e51e3c0-ee1f-43c3-83ed-cf44d25991de">&lt;code&gt;</bpt>totalMemberCountExcludingLast<ept id="9e51e3c0-ee1f-43c3-83ed-cf44d25991de">&lt;/code&gt;</ept> and <bpt id="ec18dad8-5093-43ea-b0a6-7abf9723e38c">&lt;code&gt;</bpt>totalMemberCount<ept id="ec18dad8-5093-43ea-b0a6-7abf9723e38c">&lt;/code&gt;</ept> properties are needed because the template language currently does not have “math” operations.</target>
+        </trans-unit>
+        <trans-unit id="48555fb6-f766-407c-860d-954b81eb698a" xml:space="preserve">
+          <source>More information regarding the template language can be found in MSDN at <bpt id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;/linkText&gt;</ept><bpt id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;title&gt;</bpt><ept id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;/title&gt;</ept>.</source>
+          <target state="new">More information regarding the template language can be found in MSDN at <bpt id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;/linkText&gt;</ept><bpt id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;title&gt;</bpt><ept id="ccb8ed3d-e63c-4d79-b756-c689a0807b54">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cea06e77-fa59-4715-b2a2-59080ba72cb0" xml:space="preserve">
+          <source>The "resources" section is where most of the action happens.</source>
+          <target state="new">The "resources" section is where most of the action happens.</target>
+        </trans-unit>
+        <trans-unit id="a31cfc98-5f9c-4a66-a574-cfef542a6b0d" xml:space="preserve">
+          <source>Looking carefully inside this section, you can immediately identify two different cases.</source>
+          <target state="new">Looking carefully inside this section, you can immediately identify two different cases.</target>
+        </trans-unit>
+        <trans-unit id="f846ea7a-f2fd-4a5d-8d4c-3e4d41573c0a" xml:space="preserve">
+          <source>The first is an element defined of type <bpt id="f8ac9241-c98d-4c4f-85c0-ef0b8c06c708">&lt;code&gt;</bpt>Microsoft.Resources/deployments<ept id="f8ac9241-c98d-4c4f-85c0-ef0b8c06c708">&lt;/code&gt;</ept> that essentially invokes a nested deployment within the main one.</source>
+          <target state="new">The first is an element defined of type <bpt id="f8ac9241-c98d-4c4f-85c0-ef0b8c06c708">&lt;code&gt;</bpt>Microsoft.Resources/deployments<ept id="f8ac9241-c98d-4c4f-85c0-ef0b8c06c708">&lt;/code&gt;</ept> that essentially invokes a nested deployment within the main one.</target>
+        </trans-unit>
+        <trans-unit id="59be0e23-1933-4725-9845-654de8eacfc1" xml:space="preserve">
+          <source>The second is the <bpt id="1c3e0a8d-52b6-4da3-b034-73e4c7951987">&lt;code&gt;</bpt>templateLink<ept id="1c3e0a8d-52b6-4da3-b034-73e4c7951987">&lt;/code&gt;</ept> property (and related <bpt id="1c088569-d1d0-44e6-9abd-16496987bf86">&lt;code&gt;</bpt>contentVersion<ept id="1c088569-d1d0-44e6-9abd-16496987bf86">&lt;/code&gt;</ept> property) that makes it possible specify a linked template file that will be invoked, passing a set of parameters as input.</source>
+          <target state="new">The second is the <bpt id="1c3e0a8d-52b6-4da3-b034-73e4c7951987">&lt;code&gt;</bpt>templateLink<ept id="1c3e0a8d-52b6-4da3-b034-73e4c7951987">&lt;/code&gt;</ept> property (and related <bpt id="1c088569-d1d0-44e6-9abd-16496987bf86">&lt;code&gt;</bpt>contentVersion<ept id="1c088569-d1d0-44e6-9abd-16496987bf86">&lt;/code&gt;</ept> property) that makes it possible specify a linked template file that will be invoked, passing a set of parameters as input.</target>
+        </trans-unit>
+        <trans-unit id="4320b77e-621a-448c-a104-af639c5ad981" xml:space="preserve">
+          <source>These can be seen in this template fragment:</source>
+          <target state="new">These can be seen in this template fragment:</target>
+        </trans-unit>
+        <trans-unit id="5df3904e-0f30-4db1-b802-f588c99292a0" xml:space="preserve">
+          <source>From this first example it is clear how azuredeploy.json in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files.</source>
+          <target state="new">From this first example it is clear how azuredeploy.json in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files.</target>
+        </trans-unit>
+        <trans-unit id="58746f88-053f-42e7-a771-d48b78c19338" xml:space="preserve">
+          <source>Each file is responsible for part of the required deployment activities.</source>
+          <target state="new">Each file is responsible for part of the required deployment activities.</target>
+        </trans-unit>
+        <trans-unit id="30cb4b63-aeda-4736-888f-d36af0d94d24" xml:space="preserve">
+          <source>In particular, the following linked templates will be used for this deployment:</source>
+          <target state="new">In particular, the following linked templates will be used for this deployment:</target>
+        </trans-unit>
+        <trans-unit id="4fb2ddee-7675-405a-9a4a-f0a267ffe1ce" xml:space="preserve">
+          <source><bpt id="d85032fc-7381-4149-873b-06f1e0aac964">&lt;strong&gt;</bpt>shared-resource.json<ept id="d85032fc-7381-4149-873b-06f1e0aac964">&lt;/strong&gt;</ept>: contains the definition of all resources that will be shared across the deployment.</source>
+          <target state="new"><bpt id="d85032fc-7381-4149-873b-06f1e0aac964">&lt;strong&gt;</bpt>shared-resource.json<ept id="d85032fc-7381-4149-873b-06f1e0aac964">&lt;/strong&gt;</ept>: contains the definition of all resources that will be shared across the deployment.</target>
+        </trans-unit>
+        <trans-unit id="afa526a5-11df-4c11-8ccc-2b93228f3f4c" xml:space="preserve">
+          <source>Examples are Storage accounts used to store a VM’s OS disks, virtual networks, and availability sets.</source>
+          <target state="new">Examples are Storage accounts used to store a VM’s OS disks, virtual networks, and availability sets.</target>
+        </trans-unit>
+        <trans-unit id="b2a99b8b-a802-424a-93f5-40771d305050" xml:space="preserve">
+          <source><bpt id="73e6e7c2-dceb-47fa-a331-d913d243ba5c">&lt;strong&gt;</bpt>jumpbox-resources.json<ept id="73e6e7c2-dceb-47fa-a331-d913d243ba5c">&lt;/strong&gt;</ept>: deploys the “jump box” VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.</source>
+          <target state="new"><bpt id="73e6e7c2-dceb-47fa-a331-d913d243ba5c">&lt;strong&gt;</bpt>jumpbox-resources.json<ept id="73e6e7c2-dceb-47fa-a331-d913d243ba5c">&lt;/strong&gt;</ept>: deploys the “jump box” VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.</target>
+        </trans-unit>
+        <trans-unit id="e14e1450-d162-4114-9af0-8eaafdc4639a" xml:space="preserve">
+          <source><bpt id="bac214ff-44e1-4086-aeb2-0e4c27804849">&lt;strong&gt;</bpt>node-resources.json<ept id="bac214ff-44e1-4086-aeb2-0e4c27804849">&lt;/strong&gt;</ept>: deploys all Redis Cluster node VMs and connected resources (network adapters, private IPs, etc.).</source>
+          <target state="new"><bpt id="bac214ff-44e1-4086-aeb2-0e4c27804849">&lt;strong&gt;</bpt>node-resources.json<ept id="bac214ff-44e1-4086-aeb2-0e4c27804849">&lt;/strong&gt;</ept>: deploys all Redis Cluster node VMs and connected resources (network adapters, private IPs, etc.).</target>
+        </trans-unit>
+        <trans-unit id="af7cc55d-e990-4298-b4bc-5f569dce2002" xml:space="preserve">
+          <source>This template also deploys VM extensions (custom scripts for Linux) and invokes a bash script to physically install and set up Redis on each node.</source>
+          <target state="new">This template also deploys VM extensions (custom scripts for Linux) and invokes a bash script to physically install and set up Redis on each node.</target>
+        </trans-unit>
+        <trans-unit id="7a8a2d3f-c996-4860-97dc-f6ecd3157250" xml:space="preserve">
+          <source>The script to invoke is passed to this template in the <bpt id="59493f23-c5d6-45f6-b044-445812fd8f57">&lt;code&gt;</bpt>machineSettings<ept id="59493f23-c5d6-45f6-b044-445812fd8f57">&lt;/code&gt;</ept> parameter of the <bpt id="916557e2-0c5d-4d39-952e-fbe8d9c2ace8">&lt;code&gt;</bpt>commandToExecute<ept id="916557e2-0c5d-4d39-952e-fbe8d9c2ace8">&lt;/code&gt;</ept> property.</source>
+          <target state="new">The script to invoke is passed to this template in the <bpt id="59493f23-c5d6-45f6-b044-445812fd8f57">&lt;code&gt;</bpt>machineSettings<ept id="59493f23-c5d6-45f6-b044-445812fd8f57">&lt;/code&gt;</ept> parameter of the <bpt id="916557e2-0c5d-4d39-952e-fbe8d9c2ace8">&lt;code&gt;</bpt>commandToExecute<ept id="916557e2-0c5d-4d39-952e-fbe8d9c2ace8">&lt;/code&gt;</ept> property.</target>
+        </trans-unit>
+        <trans-unit id="76370757-88d7-4feb-9067-dcf3fd38349e" xml:space="preserve">
+          <source>All but one of the Redis Cluster nodes can be deployed and scripted in parallel.</source>
+          <target state="new">All but one of the Redis Cluster nodes can be deployed and scripted in parallel.</target>
+        </trans-unit>
+        <trans-unit id="f4020278-f043-4ca7-b7e7-04f647ede60d" xml:space="preserve">
+          <source>One node needs to be saved until the end because the Redis Cluster setup can be run on only one node, and it must be done after all of the nodes are running the Redis server.</source>
+          <target state="new">One node needs to be saved until the end because the Redis Cluster setup can be run on only one node, and it must be done after all of the nodes are running the Redis server.</target>
+        </trans-unit>
+        <trans-unit id="20222d7f-3c24-4fa1-935d-f30c1384400b" xml:space="preserve">
+          <source>This is why the script to execute is passed to this template; the last node needs to run a slightly different script that will not only install the Redis server, but also set up the Redis cluster.</source>
+          <target state="new">This is why the script to execute is passed to this template; the last node needs to run a slightly different script that will not only install the Redis server, but also set up the Redis cluster.</target>
+        </trans-unit>
+        <trans-unit id="e3f7ae68-ccdf-41a2-8088-0b9684d2dd17" xml:space="preserve">
+          <source>Let’s drill down into <bpt id="c870cd1b-ac87-47f0-8f83-3156c300624d">&lt;em&gt;</bpt>how<ept id="c870cd1b-ac87-47f0-8f83-3156c300624d">&lt;/em&gt;</ept> this last template, node-resources.json, is used, as it is one of the most interesting from a template development perspective.</source>
+          <target state="new">Let’s drill down into <bpt id="c870cd1b-ac87-47f0-8f83-3156c300624d">&lt;em&gt;</bpt>how<ept id="c870cd1b-ac87-47f0-8f83-3156c300624d">&lt;/em&gt;</ept> this last template, node-resources.json, is used, as it is one of the most interesting from a template development perspective.</target>
+        </trans-unit>
+        <trans-unit id="1ea556c9-50c1-4482-bb35-938433a5ea5a" xml:space="preserve">
+          <source>One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance, it can set unique values for required settings.</source>
+          <target state="new">One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance, it can set unique values for required settings.</target>
+        </trans-unit>
+        <trans-unit id="47241d38-427c-4830-ac5e-46e1bdf86541" xml:space="preserve">
+          <source>This concept is known as <bpt id="ca206dca-ed34-4c45-a4d3-d2a56e1e2b80">&lt;strong&gt;</bpt>resource looping<ept id="ca206dca-ed34-4c45-a4d3-d2a56e1e2b80">&lt;/strong&gt;</ept>.</source>
+          <target state="new">This concept is known as <bpt id="ca206dca-ed34-4c45-a4d3-d2a56e1e2b80">&lt;strong&gt;</bpt>resource looping<ept id="ca206dca-ed34-4c45-a4d3-d2a56e1e2b80">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5381f9b3-2a46-4208-8d3e-f2367ec7f167" xml:space="preserve">
+          <source>When node-resources.json is invoked from within the main azuredeploy.json file, it is invoked from inside a resource that uses the <bpt id="9262c68c-b51b-4493-bd03-1060707c5c9e">&lt;code&gt;</bpt>copy<ept id="9262c68c-b51b-4493-bd03-1060707c5c9e">&lt;/code&gt;</ept> element to create a loop of sorts.</source>
+          <target state="new">When node-resources.json is invoked from within the main azuredeploy.json file, it is invoked from inside a resource that uses the <bpt id="9262c68c-b51b-4493-bd03-1060707c5c9e">&lt;code&gt;</bpt>copy<ept id="9262c68c-b51b-4493-bd03-1060707c5c9e">&lt;/code&gt;</ept> element to create a loop of sorts.</target>
+        </trans-unit>
+        <trans-unit id="74295235-a33b-46bc-9989-d37ad6a1d203" xml:space="preserve">
+          <source>A resource that uses the <bpt id="b761aff9-0e0d-4337-8a80-b6ee7ceeb606">&lt;code&gt;</bpt>copy<ept id="b761aff9-0e0d-4337-8a80-b6ee7ceeb606">&lt;/code&gt;</ept> element will “copy” itself for the number of times specified in the <bpt id="9230d306-023f-46e5-878b-2706e490e228">&lt;code&gt;</bpt>count<ept id="9230d306-023f-46e5-878b-2706e490e228">&lt;/code&gt;</ept> parameter of the <bpt id="b23a3208-9b33-4e73-9715-bc35a699193a">&lt;code&gt;</bpt>copy<ept id="b23a3208-9b33-4e73-9715-bc35a699193a">&lt;/code&gt;</ept> element.</source>
+          <target state="new">A resource that uses the <bpt id="b761aff9-0e0d-4337-8a80-b6ee7ceeb606">&lt;code&gt;</bpt>copy<ept id="b761aff9-0e0d-4337-8a80-b6ee7ceeb606">&lt;/code&gt;</ept> element will “copy” itself for the number of times specified in the <bpt id="9230d306-023f-46e5-878b-2706e490e228">&lt;code&gt;</bpt>count<ept id="9230d306-023f-46e5-878b-2706e490e228">&lt;/code&gt;</ept> parameter of the <bpt id="b23a3208-9b33-4e73-9715-bc35a699193a">&lt;code&gt;</bpt>copy<ept id="b23a3208-9b33-4e73-9715-bc35a699193a">&lt;/code&gt;</ept> element.</target>
+        </trans-unit>
+        <trans-unit id="de918be2-3bf0-4b89-88cd-0e27c734727e" xml:space="preserve">
+          <source>For all settings where it is necessary to specify unique values between different instances of the deployed resource, the <bpt id="4fb35d38-e445-4d83-b5bd-aacc8ce949cc">&lt;strong&gt;</bpt>copyindex()<ept id="4fb35d38-e445-4d83-b5bd-aacc8ce949cc">&lt;/strong&gt;</ept> function can be used to obtain a numeric value indicating the current index in that particular resource loop creation.</source>
+          <target state="new">For all settings where it is necessary to specify unique values between different instances of the deployed resource, the <bpt id="4fb35d38-e445-4d83-b5bd-aacc8ce949cc">&lt;strong&gt;</bpt>copyindex()<ept id="4fb35d38-e445-4d83-b5bd-aacc8ce949cc">&lt;/strong&gt;</ept> function can be used to obtain a numeric value indicating the current index in that particular resource loop creation.</target>
+        </trans-unit>
+        <trans-unit id="27f809ae-ee8d-4188-8b24-ca50a5ffd809" xml:space="preserve">
+          <source>In the following fragment from azuredeploy.json, you can see this concept applied to multiple VMs being created for the Redis Cluster nodes:</source>
+          <target state="new">In the following fragment from azuredeploy.json, you can see this concept applied to multiple VMs being created for the Redis Cluster nodes:</target>
+        </trans-unit>
+        <trans-unit id="7efbdfb5-ab04-4e3d-b6de-d15c490e69bf" xml:space="preserve">
+          <source>Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the <bpt id="e534dee9-e8b9-4746-bd20-3e7aa1b09889">&lt;code&gt;</bpt>dependsOn<ept id="e534dee9-e8b9-4746-bd20-3e7aa1b09889">&lt;/code&gt;</ept> JSON array.</source>
+          <target state="new">Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the <bpt id="e534dee9-e8b9-4746-bd20-3e7aa1b09889">&lt;code&gt;</bpt>dependsOn<ept id="e534dee9-e8b9-4746-bd20-3e7aa1b09889">&lt;/code&gt;</ept> JSON array.</target>
+        </trans-unit>
+        <trans-unit id="3b6dbaaa-58f2-4491-a530-a786bba22daa" xml:space="preserve">
+          <source>In this particular template, you can see that the Redis Cluster nodes are dependent on the shared resources being created first.</source>
+          <target state="new">In this particular template, you can see that the Redis Cluster nodes are dependent on the shared resources being created first.</target>
+        </trans-unit>
+        <trans-unit id="a46c1c23-a7bf-4cab-b7a8-b15cd08b30e6" xml:space="preserve">
+          <source>As was previously mentioned, the last node needs to wait for provisioning until all other nodes in the Redis cluster have been provisioned with the Redis server running on them.</source>
+          <target state="new">As was previously mentioned, the last node needs to wait for provisioning until all other nodes in the Redis cluster have been provisioned with the Redis server running on them.</target>
+        </trans-unit>
+        <trans-unit id="61d8f8a3-9cca-4318-9dc0-12acebcf4f4a" xml:space="preserve">
+          <source>This is accomplished in azuredeploy.json by having a resource named <bpt id="102b7807-6553-4836-838b-879bdca16d26">&lt;code&gt;</bpt>lastnode-resources<ept id="102b7807-6553-4836-838b-879bdca16d26">&lt;/code&gt;</ept> that depends on the <bpt id="5f47d24d-876d-446c-a4bf-fd4817ce72c3">&lt;code&gt;</bpt>copy<ept id="5f47d24d-876d-446c-a4bf-fd4817ce72c3">&lt;/code&gt;</ept> loop named <bpt id="04a4ee12-1a08-4e7c-bc19-7339bebe6e63">&lt;code&gt;</bpt>memberNodesLoop<ept id="04a4ee12-1a08-4e7c-bc19-7339bebe6e63">&lt;/code&gt;</ept> from the template snippet above.</source>
+          <target state="new">This is accomplished in azuredeploy.json by having a resource named <bpt id="102b7807-6553-4836-838b-879bdca16d26">&lt;code&gt;</bpt>lastnode-resources<ept id="102b7807-6553-4836-838b-879bdca16d26">&lt;/code&gt;</ept> that depends on the <bpt id="5f47d24d-876d-446c-a4bf-fd4817ce72c3">&lt;code&gt;</bpt>copy<ept id="5f47d24d-876d-446c-a4bf-fd4817ce72c3">&lt;/code&gt;</ept> loop named <bpt id="04a4ee12-1a08-4e7c-bc19-7339bebe6e63">&lt;code&gt;</bpt>memberNodesLoop<ept id="04a4ee12-1a08-4e7c-bc19-7339bebe6e63">&lt;/code&gt;</ept> from the template snippet above.</target>
+        </trans-unit>
+        <trans-unit id="a9995324-81f7-422e-a8e6-8d87c63a6065" xml:space="preserve">
+          <source>After provisioning of <bpt id="1ed75c5e-0f81-474b-8b2f-c27a939f8c7e">&lt;code&gt;</bpt>memberNodesLoop<ept id="1ed75c5e-0f81-474b-8b2f-c27a939f8c7e">&lt;/code&gt;</ept> is completed, <bpt id="f5589abf-fa18-4633-9619-9890774c79f3">&lt;code&gt;</bpt>lastnode-resources<ept id="f5589abf-fa18-4633-9619-9890774c79f3">&lt;/code&gt;</ept> can be provisioned:</source>
+          <target state="new">After provisioning of <bpt id="1ed75c5e-0f81-474b-8b2f-c27a939f8c7e">&lt;code&gt;</bpt>memberNodesLoop<ept id="1ed75c5e-0f81-474b-8b2f-c27a939f8c7e">&lt;/code&gt;</ept> is completed, <bpt id="f5589abf-fa18-4633-9619-9890774c79f3">&lt;code&gt;</bpt>lastnode-resources<ept id="f5589abf-fa18-4633-9619-9890774c79f3">&lt;/code&gt;</ept> can be provisioned:</target>
+        </trans-unit>
+        <trans-unit id="019bc5b4-07a4-49b0-9d17-9bbf45bf95ac" xml:space="preserve">
+          <source>Notice how the <bpt id="42858fd4-29c4-4091-ae7a-7d4a8f877e63">&lt;code&gt;</bpt>lastnode-resources<ept id="42858fd4-29c4-4091-ae7a-7d4a8f877e63">&lt;/code&gt;</ept> resource passes a slightly different <bpt id="666b314c-e220-44f6-80d4-c2e420212dd3">&lt;code&gt;</bpt>machineSettings.commandToExecute<ept id="666b314c-e220-44f6-80d4-c2e420212dd3">&lt;/code&gt;</ept> to the linked template.</source>
+          <target state="new">Notice how the <bpt id="42858fd4-29c4-4091-ae7a-7d4a8f877e63">&lt;code&gt;</bpt>lastnode-resources<ept id="42858fd4-29c4-4091-ae7a-7d4a8f877e63">&lt;/code&gt;</ept> resource passes a slightly different <bpt id="666b314c-e220-44f6-80d4-c2e420212dd3">&lt;code&gt;</bpt>machineSettings.commandToExecute<ept id="666b314c-e220-44f6-80d4-c2e420212dd3">&lt;/code&gt;</ept> to the linked template.</target>
+        </trans-unit>
+        <trans-unit id="24c5ad61-1475-4cdf-9f7b-544a044644ca" xml:space="preserve">
+          <source>This is because for the last node, in addition to the installed Redis server, it needs to call a script to set up the Redis cluster (which must be done only once after all the Redis servers are up and running).</source>
+          <target state="new">This is because for the last node, in addition to the installed Redis server, it needs to call a script to set up the Redis cluster (which must be done only once after all the Redis servers are up and running).</target>
+        </trans-unit>
+        <trans-unit id="5e5adbc0-82e4-4274-a334-cff8e80c14b6" xml:space="preserve">
+          <source>Another interesting fragment to explore is the one related to the <bpt id="b1c3f2ce-32c8-4cff-bb57-df9c28bb0e13">&lt;code&gt;</bpt>CustomScriptForLinux<ept id="b1c3f2ce-32c8-4cff-bb57-df9c28bb0e13">&lt;/code&gt;</ept> VM extensions.</source>
+          <target state="new">Another interesting fragment to explore is the one related to the <bpt id="b1c3f2ce-32c8-4cff-bb57-df9c28bb0e13">&lt;code&gt;</bpt>CustomScriptForLinux<ept id="b1c3f2ce-32c8-4cff-bb57-df9c28bb0e13">&lt;/code&gt;</ept> VM extensions.</target>
+        </trans-unit>
+        <trans-unit id="b3e0653e-ab0c-4da5-8b86-a1db7028e704" xml:space="preserve">
+          <source>These are installed as a separate type of resource, with a dependency on each cluster node.</source>
+          <target state="new">These are installed as a separate type of resource, with a dependency on each cluster node.</target>
+        </trans-unit>
+        <trans-unit id="a2f02e90-c247-4171-9790-3455aaaf88f9" xml:space="preserve">
+          <source>In this case, this is used to install and set up Redis on each VM node.</source>
+          <target state="new">In this case, this is used to install and set up Redis on each VM node.</target>
+        </trans-unit>
+        <trans-unit id="d1941969-1de7-46e4-af3f-de2d18f90363" xml:space="preserve">
+          <source>Let’s look at a snippet from the node-resources.json template that uses these:</source>
+          <target state="new">Let’s look at a snippet from the node-resources.json template that uses these:</target>
+        </trans-unit>
+        <trans-unit id="bcf23a9f-2cc8-45d4-b0b8-d30498cfab17" xml:space="preserve">
+          <source>You can see that this resource depends on the resource VM already being deployed (<bpt id="1cb25215-b681-4f0d-a00f-e95daf56ecce">&lt;code&gt;</bpt>Microsoft.Compute/virtualMachines/vmMember&lt;X&gt;<ept id="1cb25215-b681-4f0d-a00f-e95daf56ecce">&lt;/code&gt;</ept>, where <bpt id="85afbb07-96c1-43b1-8683-dc72206b9fe6">&lt;code&gt;</bpt>&lt;X&gt;<ept id="85afbb07-96c1-43b1-8683-dc72206b9fe6">&lt;/code&gt;</ept> is the parameter <bpt id="3b1a1493-527b-43de-a59c-c2aa536124fc">&lt;code&gt;</bpt>machineSettings.machineIndex<ept id="3b1a1493-527b-43de-a59c-c2aa536124fc">&lt;/code&gt;</ept>, which is the index of the VM that was passed to this script using the <bpt id="0f32b66a-5458-4be9-b824-710e85c1e3bd">&lt;strong&gt;</bpt>copyindex()<ept id="0f32b66a-5458-4be9-b824-710e85c1e3bd">&lt;/strong&gt;</ept> function).</source>
+          <target state="new">You can see that this resource depends on the resource VM already being deployed (<bpt id="1cb25215-b681-4f0d-a00f-e95daf56ecce">&lt;code&gt;</bpt>Microsoft.Compute/virtualMachines/vmMember&lt;X&gt;<ept id="1cb25215-b681-4f0d-a00f-e95daf56ecce">&lt;/code&gt;</ept>, where <bpt id="85afbb07-96c1-43b1-8683-dc72206b9fe6">&lt;code&gt;</bpt>&lt;X&gt;<ept id="85afbb07-96c1-43b1-8683-dc72206b9fe6">&lt;/code&gt;</ept> is the parameter <bpt id="3b1a1493-527b-43de-a59c-c2aa536124fc">&lt;code&gt;</bpt>machineSettings.machineIndex<ept id="3b1a1493-527b-43de-a59c-c2aa536124fc">&lt;/code&gt;</ept>, which is the index of the VM that was passed to this script using the <bpt id="0f32b66a-5458-4be9-b824-710e85c1e3bd">&lt;strong&gt;</bpt>copyindex()<ept id="0f32b66a-5458-4be9-b824-710e85c1e3bd">&lt;/strong&gt;</ept> function).</target>
+        </trans-unit>
+        <trans-unit id="282a7969-064f-40e8-9714-ee40a438ac52" xml:space="preserve">
+          <source>By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, leveraging Azure Resource Manager templates.</source>
+          <target state="new">By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-node solutions, based on any technology, leveraging Azure Resource Manager templates.</target>
+        </trans-unit>
+        <trans-unit id="69ee3fb6-d1f9-4879-9763-b3eaaa448410" xml:space="preserve">
+          <source>While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:</source>
+          <target state="new">While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:</target>
+        </trans-unit>
+        <trans-unit id="5cb3c8b7-0897-4d37-b891-5b03929d52f9" xml:space="preserve">
+          <source><bpt id="a2d21b97-6df8-4be7-a80e-0024fcb47df9">&lt;linkText&gt;</bpt>redis-template-structure<ept id="a2d21b97-6df8-4be7-a80e-0024fcb47df9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a2d21b97-6df8-4be7-a80e-0024fcb47df9">&lt;linkText&gt;</bpt>redis-template-structure<ept id="a2d21b97-6df8-4be7-a80e-0024fcb47df9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5b762bd0-e38a-4429-8b60-38569d4ae9b8" xml:space="preserve">
+          <source>In essence, this approach suggests to:</source>
+          <target state="new">In essence, this approach suggests to:</target>
+        </trans-unit>
+        <trans-unit id="08c754bd-eaa5-4b1c-ab9d-08d2e10e8914" xml:space="preserve">
+          <source>Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub-template executions.</source>
+          <target state="new">Define your core template file as a central orchestration point for all specific deployment activities, leveraging template linking to invoke sub-template executions.</target>
+        </trans-unit>
+        <trans-unit id="92299a3e-fc79-4944-b57f-409ec516addf" xml:space="preserve">
+          <source>Create a specific template file that will deploy all resources shared across all other specific deployment tasks (Storage accounts, virtual network configuration, etc.).</source>
+          <target state="new">Create a specific template file that will deploy all resources shared across all other specific deployment tasks (Storage accounts, virtual network configuration, etc.).</target>
+        </trans-unit>
+        <trans-unit id="9195a137-857c-45c0-9bcb-d66c6f54560a" xml:space="preserve">
+          <source>This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.</source>
+          <target state="new">This can be heavily reused between deployments that have similar requirements in terms of common infrastructure.</target>
+        </trans-unit>
+        <trans-unit id="40db4625-b0cb-45ed-92fc-6df0846378e2" xml:space="preserve">
+          <source>Include optional resource templates for spot requirements specific to a given resource.</source>
+          <target state="new">Include optional resource templates for spot requirements specific to a given resource.</target>
+        </trans-unit>
+        <trans-unit id="3c479596-8dc9-49db-ad00-35db1d388442" xml:space="preserve">
+          <source>For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.</source>
+          <target state="new">For identical members of a group of resources (nodes in a cluster, etc.), create specific templates that leverage resource looping in order to deploy multiple instances with unique properties.</target>
+        </trans-unit>
+        <trans-unit id="ffc8b0b4-5a9e-4467-956c-460b6276e7ac" xml:space="preserve">
+          <source>For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.</source>
+          <target state="new">For all post-deployment tasks (product installation, configurations, etc.), leverage script deployment extensions and create scripts specific to each technology.</target>
+        </trans-unit>
+        <trans-unit id="041f4efa-2cca-4888-993c-ba53ca621ffb" xml:space="preserve">
+          <source>For more information, see <bpt id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;/linkText&gt;</ept><bpt id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;title&gt;</bpt><ept id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;linkText&gt;</bpt>Azure Resource Manager Template Language<ept id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;/linkText&gt;</ept><bpt id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;title&gt;</bpt><ept id="319f5253-be93-4caf-a0c2-2fdcb4acaf26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c83596fd-9b53-4796-bad9-eef47ebde2ae" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c83596fd-9b53-4796-bad9-eef47ebde2ae" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="853f1740-787a-4965-8c42-66dedd143326">
+        <trans-unit id="36e97ee8-13a4-4076-9e60-bb883bf41ede" xml:space="preserve">
+          <source>How to add encoding units</source>
+          <target state="new">How to add encoding units</target>
+        </trans-unit>
+        <trans-unit id="26d6c5a0-47be-4d77-845d-0b5bde13cd0b" xml:space="preserve">
+          <source>Learn how to how to add encoding units with .NET</source>
+          <target state="new">Learn how to how to add encoding units with .NET</target>
+        </trans-unit>
+        <trans-unit id="3508c544-5190-406d-afad-c3de1e1aff8c" xml:space="preserve">
+          <source>A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed.</source>
+          <target state="new">A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed.</target>
+        </trans-unit>
+        <trans-unit id="ab35fef2-419a-43a5-ae6a-7627b00d63d5" xml:space="preserve">
+          <source>You can pick between the following reserved unit types: Basic, Standard, or Premium.</source>
+          <target state="new">You can pick between the following reserved unit types: Basic, Standard, or Premium.</target>
+        </trans-unit>
+        <trans-unit id="aad4fcf7-358a-4341-8874-43d050d1fdf4" xml:space="preserve">
+          <source>For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type.</source>
+          <target state="new">For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type.</target>
+        </trans-unit>
+        <trans-unit id="cfe9937f-708e-4e17-9c41-afe2681f68c7" xml:space="preserve">
+          <source>For more information, see the "Encoding Reserved Unit Types" blog written by <bpt id="2e36be00-93c6-439b-b510-73ae93914349">&lt;linkText&gt;</bpt>Milan Gada<ept id="2e36be00-93c6-439b-b510-73ae93914349">&lt;/linkText&gt;</ept><bpt id="2e36be00-93c6-439b-b510-73ae93914349">&lt;title&gt;</bpt><ept id="2e36be00-93c6-439b-b510-73ae93914349">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see the "Encoding Reserved Unit Types" blog written by <bpt id="2e36be00-93c6-439b-b510-73ae93914349">&lt;linkText&gt;</bpt>Milan Gada<ept id="2e36be00-93c6-439b-b510-73ae93914349">&lt;/linkText&gt;</ept><bpt id="2e36be00-93c6-439b-b510-73ae93914349">&lt;title&gt;</bpt><ept id="2e36be00-93c6-439b-b510-73ae93914349">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="794474fc-32a6-4a8f-a4a3-8fac25d70989" xml:space="preserve">
+          <source>In addition to specifying the reserved unit type, you can specify to provision your account with encoding reserved units.</source>
+          <target state="new">In addition to specifying the reserved unit type, you can specify to provision your account with encoding reserved units.</target>
+        </trans-unit>
+        <trans-unit id="2fd10be8-c86a-4c81-95f5-eff7f8c3b8ed" xml:space="preserve">
+          <source>The number of provisioned encoding reserved units determines the number of media tasks that can be processed concurrently in a given account.</source>
+          <target state="new">The number of provisioned encoding reserved units determines the number of media tasks that can be processed concurrently in a given account.</target>
+        </trans-unit>
+        <trans-unit id="8b7ce23a-70d2-4371-8b38-11f73eca4a0e" xml:space="preserve">
+          <source>For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed.</source>
+          <target state="new">For example, if your account has 5 reserved units, then 5 media tasks will be running concurrently as long as there are tasks to be processed.</target>
+        </trans-unit>
+        <trans-unit id="e8e241ed-5825-4b16-a9ca-15530242cf09" xml:space="preserve">
+          <source>The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes.</source>
+          <target state="new">The remaining tasks will wait in the queue and will get picked up for processing sequentially as soon as a running task finishes.</target>
+        </trans-unit>
+        <trans-unit id="f767a6ea-f844-4cf1-a6bf-b8abcc7f1b1e" xml:space="preserve">
+          <source>If an account does not have any reserved units provisioned, then tasks will be picked up sequentially.</source>
+          <target state="new">If an account does not have any reserved units provisioned, then tasks will be picked up sequentially.</target>
+        </trans-unit>
+        <trans-unit id="c0cc7599-2e35-40d1-96da-44a007b53488" xml:space="preserve">
+          <source>In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.</source>
+          <target state="new">In this case, the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.</target>
+        </trans-unit>
+        <trans-unit id="6c28dde4-1dee-4229-88ab-8289b34e9a7d" xml:space="preserve">
+          <source>To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:</source>
+          <target state="new">To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:</target>
+        </trans-unit>
+        <trans-unit id="e92323d2-def2-47e0-86b4-fece04586736" xml:space="preserve">
+          <source>By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units.</source>
+          <target state="new">By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units.</target>
+        </trans-unit>
+        <trans-unit id="0caf87e1-4f2a-48c1-94e3-086153ee87d8" xml:space="preserve">
+          <source>You can request a higher limit by opening a support ticket.</source>
+          <target state="new">You can request a higher limit by opening a support ticket.</target>
+        </trans-unit>
+        <trans-unit id="4d74980d-4dc5-44a9-bc25-b6a5611912c7" xml:space="preserve">
+          <source>To open a support ticket do the following:</source>
+          <target state="new">To open a support ticket do the following:</target>
+        </trans-unit>
+        <trans-unit id="fd41c40e-12ef-4331-8486-b80b40d3c140" xml:space="preserve">
+          <source>Click <bpt id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;linkText&gt;</bpt>Get Support<ept id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;/linkText&gt;</ept><bpt id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;title&gt;</bpt><ept id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;/title&gt;</ept>.</source>
+          <target state="new">Click <bpt id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;linkText&gt;</bpt>Get Support<ept id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;/linkText&gt;</ept><bpt id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;title&gt;</bpt><ept id="6a88279d-c8bf-44ec-ba20-5ba62a40344e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cce1db83-3da6-49ed-acc2-c2bf910167d1" xml:space="preserve">
+          <source>If you are not logged in, you will be prompted to enter your credentials.</source>
+          <target state="new">If you are not logged in, you will be prompted to enter your credentials.</target>
+        </trans-unit>
+        <trans-unit id="f868b17e-d394-4f23-8e6a-6e022f5098c1" xml:space="preserve">
+          <source>Select your subscription.</source>
+          <target state="new">Select your subscription.</target>
+        </trans-unit>
+        <trans-unit id="ac2d5284-5121-459d-a664-3f7b6a787fbc" xml:space="preserve">
+          <source>Under support type, select "Technical".</source>
+          <target state="new">Under support type, select "Technical".</target>
+        </trans-unit>
+        <trans-unit id="d95982d9-d96a-4d43-8107-69697bac0e8d" xml:space="preserve">
+          <source>Click on "Create Ticket".</source>
+          <target state="new">Click on "Create Ticket".</target>
+        </trans-unit>
+        <trans-unit id="2dd4e428-dbcd-4839-92d0-c608c2b891e4" xml:space="preserve">
+          <source>Select "Azure Media Services" in the product list presented on the next page.</source>
+          <target state="new">Select "Azure Media Services" in the product list presented on the next page.</target>
+        </trans-unit>
+        <trans-unit id="4cb46559-71a1-4c68-a48a-d73964abba96" xml:space="preserve">
+          <source>Select a "Problem type" that is appropriate for your issue.</source>
+          <target state="new">Select a "Problem type" that is appropriate for your issue.</target>
+        </trans-unit>
+        <trans-unit id="129f79e9-378b-4aa0-9c8d-560502e26a29" xml:space="preserve">
+          <source>Click Continue.</source>
+          <target state="new">Click Continue.</target>
+        </trans-unit>
+        <trans-unit id="1799d45b-b00a-427f-8c89-a105e8457c9d" xml:space="preserve">
+          <source>Follow instructions on next page and then enter details about your issue.</source>
+          <target state="new">Follow instructions on next page and then enter details about your issue.</target>
+        </trans-unit>
+        <trans-unit id="cdc9af0e-2884-4cfa-b4b6-453c9d689e94" xml:space="preserve">
+          <source>Click submit to open the ticket.</source>
+          <target state="new">Click submit to open the ticket.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

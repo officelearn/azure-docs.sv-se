@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="20999345-d9a9-445b-bde1-317bfb142c26" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="20999345-d9a9-445b-bde1-317bfb142c26" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a0620fc5-8749-4b9f-a692-55dfb7145d66">
+        <trans-unit id="2c39b6f7-72dd-4d37-90b6-beef79a8c821" xml:space="preserve">
+          <source>Azure Active Directory editions | Microsoft Azure</source>
+          <target state="new">Azure Active Directory editions | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="3b381062-745f-4b6f-8401-d55ec76b9ac7" xml:space="preserve">
+          <source>A topic that explains choices for free and paid editions of Azure Active Directory.</source>
+          <target state="new">A topic that explains choices for free and paid editions of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="706e6d2b-d002-4492-a749-7a1bebc8a33c" xml:space="preserve">
+          <source>Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud.</source>
+          <target state="new">Azure Active Directory is a service that provides comprehensive identity and access management capabilities in the cloud.</target>
+        </trans-unit>
+        <trans-unit id="afb4c04a-8648-4bba-af35-0007d7479729" xml:space="preserve">
+          <source>It combines directory services, advanced identity governance, application access management and a rich standards-based platform for developers.</source>
+          <target state="new">It combines directory services, advanced identity governance, application access management and a rich standards-based platform for developers.</target>
+        </trans-unit>
+        <trans-unit id="2f21355f-d9a2-47b4-a272-d36c207705e1" xml:space="preserve">
+          <source>For more information, <bpt id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;linkText&gt;</bpt>see this video<ept id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;/linkText&gt;</ept><bpt id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;title&gt;</bpt><ept id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, <bpt id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;linkText&gt;</bpt>see this video<ept id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;/linkText&gt;</ept><bpt id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;title&gt;</bpt><ept id="39d4f8de-b78a-47f3-893d-013403f1955c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e8658255-3c81-45cd-b10f-55d12acf5b3d" xml:space="preserve">
+          <source>Built on top of a large set of free capabilities in Microsoft Azure Active Directory, Azure Active Directory Premium and Basic editions provide a set of more advanced features to empower enterprises with more demanding identity and access management needs.</source>
+          <target state="new">Built on top of a large set of free capabilities in Microsoft Azure Active Directory, Azure Active Directory Premium and Basic editions provide a set of more advanced features to empower enterprises with more demanding identity and access management needs.</target>
+        </trans-unit>
+        <trans-unit id="25c45b39-9198-41cf-b1d5-f5d2b8ee35c3" xml:space="preserve">
+          <source>For the pricing options for these editions, see <bpt id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;linkText&gt;</bpt>Azure Active Directory Pricing<ept id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;/linkText&gt;</ept><bpt id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;title&gt;</bpt><ept id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the pricing options for these editions, see <bpt id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;linkText&gt;</bpt>Azure Active Directory Pricing<ept id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;/linkText&gt;</ept><bpt id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;title&gt;</bpt><ept id="f8101b7e-b344-4daf-9b9f-6365d6c8d117">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6665e4fc-30bb-464b-b949-1d1b159273d6" xml:space="preserve">
+          <source>When you subscribe to Azure, you get your choice of the following free and paid editions of Azure Active Directory:</source>
+          <target state="new">When you subscribe to Azure, you get your choice of the following free and paid editions of Azure Active Directory:</target>
+        </trans-unit>
+        <trans-unit id="0ae75283-f5d9-4dbf-a133-022d8a9fe72b" xml:space="preserve">
+          <source><bpt id="9ee8a3c1-ef2b-44ea-8221-c5015e16e0ce">&lt;strong&gt;</bpt>Free<ept id="9ee8a3c1-ef2b-44ea-8221-c5015e16e0ce">&lt;/strong&gt;</ept> - The Free edition of Azure Active Directory is part of every Azure subscription.</source>
+          <target state="new"><bpt id="9ee8a3c1-ef2b-44ea-8221-c5015e16e0ce">&lt;strong&gt;</bpt>Free<ept id="9ee8a3c1-ef2b-44ea-8221-c5015e16e0ce">&lt;/strong&gt;</ept> - The Free edition of Azure Active Directory is part of every Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="b11505de-2b25-4a0a-a7c6-15f30c24f332" xml:space="preserve">
+          <source>There is nothing to license and nothing to install.</source>
+          <target state="new">There is nothing to license and nothing to install.</target>
+        </trans-unit>
+        <trans-unit id="5f6c19c7-3b32-4332-907d-508ff396b138" xml:space="preserve">
+          <source>With it, you can manage user accounts, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more.</source>
+          <target state="new">With it, you can manage user accounts, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more.</target>
+        </trans-unit>
+        <trans-unit id="43af8a84-6262-4774-9224-841c7e5a52cd" xml:space="preserve">
+          <source><bpt id="434024a5-c809-42cd-9965-c3b1e6261704">&lt;strong&gt;</bpt>Basic<ept id="434024a5-c809-42cd-9965-c3b1e6261704">&lt;/strong&gt;</ept> - Azure Active Directory Basic edition provides application access and self-service identity management requirements for task workers with cloud-first needs.</source>
+          <target state="new"><bpt id="434024a5-c809-42cd-9965-c3b1e6261704">&lt;strong&gt;</bpt>Basic<ept id="434024a5-c809-42cd-9965-c3b1e6261704">&lt;/strong&gt;</ept> - Azure Active Directory Basic edition provides application access and self-service identity management requirements for task workers with cloud-first needs.</target>
+        </trans-unit>
+        <trans-unit id="b1a622be-d012-4e2b-9fb7-62f263aa97ac" xml:space="preserve">
+          <source>With the Basic edition of Azure Active Directory, you get all the capabilities that Azure Active Directory Free has to offer, plus group-based access management, self-service password reset for cloud applications, Azure Active Directory application proxy (to publish on-premises web applications using Azure Active Directory), customizable environment for launching enterprise and consumer cloud applications, and an enterprise-level SLA of 99.9 percent uptime.</source>
+          <target state="new">With the Basic edition of Azure Active Directory, you get all the capabilities that Azure Active Directory Free has to offer, plus group-based access management, self-service password reset for cloud applications, Azure Active Directory application proxy (to publish on-premises web applications using Azure Active Directory), customizable environment for launching enterprise and consumer cloud applications, and an enterprise-level SLA of 99.9 percent uptime.</target>
+        </trans-unit>
+        <trans-unit id="764069f3-c07d-43c9-a84f-41fd14f70e38" xml:space="preserve">
+          <source>An administrator who is licensed for the Azure Active Directory Basic edition can also activate an Azure Active Directory Premium trial.</source>
+          <target state="new">An administrator who is licensed for the Azure Active Directory Basic edition can also activate an Azure Active Directory Premium trial.</target>
+        </trans-unit>
+        <trans-unit id="8d400210-cfbd-4c69-a54b-50be78f2dd41" xml:space="preserve">
+          <source><bpt id="5f943552-ed81-4ed6-870c-1a8556653ea9">&lt;strong&gt;</bpt>Premium<ept id="5f943552-ed81-4ed6-870c-1a8556653ea9">&lt;/strong&gt;</ept> - With the Premium edition of Azure Active Directory, you get all of the capabilities that the Azure Active Directory Free and Basic editions have to offer, plus additional feature-rich enterprise-level identity management capabilities explained below.</source>
+          <target state="new"><bpt id="5f943552-ed81-4ed6-870c-1a8556653ea9">&lt;strong&gt;</bpt>Premium<ept id="5f943552-ed81-4ed6-870c-1a8556653ea9">&lt;/strong&gt;</ept> - With the Premium edition of Azure Active Directory, you get all of the capabilities that the Azure Active Directory Free and Basic editions have to offer, plus additional feature-rich enterprise-level identity management capabilities explained below.</target>
+        </trans-unit>
+        <trans-unit id="19cf222e-9af0-4e9b-bcbb-e0afd6bb09f4" xml:space="preserve">
+          <source>To sign up and start using Active Directory Premium today, see <bpt id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;/linkText&gt;</ept><bpt id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;title&gt;</bpt><ept id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;/title&gt;</ept>.</source>
+          <target state="new">To sign up and start using Active Directory Premium today, see <bpt id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;/linkText&gt;</ept><bpt id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;title&gt;</bpt><ept id="8e5deebd-1e1b-4a80-ace8-d7b985920dad">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="71642a0c-62d7-400b-b000-1c3f2e94a9c5" xml:space="preserve">
+          <source>Azure Active Directory Premium and Azure Active Directory Basic are not currently supported in China.</source>
+          <target state="new">Azure Active Directory Premium and Azure Active Directory Basic are not currently supported in China.</target>
+        </trans-unit>
+        <trans-unit id="094c1044-597a-4f3a-a748-7f94712b9169" xml:space="preserve">
+          <source>Please contact us at the <bpt id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;/linkText&gt;</ept><bpt id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;title&gt;</bpt><ept id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">Please contact us at the <bpt id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;linkText&gt;</bpt>Azure Active Directory Forum<ept id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;/linkText&gt;</ept><bpt id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;title&gt;</bpt><ept id="36955f6c-9296-4e39-a38b-94cb85231946">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="3df3a7ba-e677-43e8-9da4-9d3317be6654" xml:space="preserve">
+          <source>Active Directory Basic edition is a paid offering of Azure Active Directory and includes the following features:</source>
+          <target state="new">Active Directory Basic edition is a paid offering of Azure Active Directory and includes the following features:</target>
+        </trans-unit>
+        <trans-unit id="d73e2e2c-90f1-461d-b3ae-1d588b8649f0" xml:space="preserve">
+          <source><bpt id="6121e0be-ba01-4f36-a0d7-1f3db355e8fb">&lt;strong&gt;</bpt>Company branding<ept id="6121e0be-ba01-4f36-a0d7-1f3db355e8fb">&lt;/strong&gt;</ept> - To make the end user experience even better, you can add your company logo and color schemes to your organization’s Sign In and Access Panel pages.</source>
+          <target state="new"><bpt id="6121e0be-ba01-4f36-a0d7-1f3db355e8fb">&lt;strong&gt;</bpt>Company branding<ept id="6121e0be-ba01-4f36-a0d7-1f3db355e8fb">&lt;/strong&gt;</ept> - To make the end user experience even better, you can add your company logo and color schemes to your organization’s Sign In and Access Panel pages.</target>
+        </trans-unit>
+        <trans-unit id="a245fea1-d7e0-46ae-a26b-f6dd6d129fd8" xml:space="preserve">
+          <source>Once you’ve added your logo, you also have the option to add localized versions of the logo for different languages and locales.</source>
+          <target state="new">Once you’ve added your logo, you also have the option to add localized versions of the logo for different languages and locales.</target>
+        </trans-unit>
+        <trans-unit id="952c16da-0a5c-488c-8a73-539e93db68b8" xml:space="preserve">
+          <source>For more information, see <bpt id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;/linkText&gt;</ept><bpt id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;title&gt;</bpt><ept id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;/linkText&gt;</ept><bpt id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;title&gt;</bpt><ept id="118e269d-e1d4-4b83-aef9-70bbc69675fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1fad1b6e-a630-4b70-8555-332af26d03d9" xml:space="preserve">
+          <source><bpt id="1bc2b8fb-8949-491a-9464-4776a1a1f218">&lt;strong&gt;</bpt>Group-based application access<ept id="1bc2b8fb-8949-491a-9464-4776a1a1f218">&lt;/strong&gt;</ept> - Use groups to provision users and assign user access in bulk to thousands of SaaS applications.</source>
+          <target state="new"><bpt id="1bc2b8fb-8949-491a-9464-4776a1a1f218">&lt;strong&gt;</bpt>Group-based application access<ept id="1bc2b8fb-8949-491a-9464-4776a1a1f218">&lt;/strong&gt;</ept> - Use groups to provision users and assign user access in bulk to thousands of SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="9bb49666-067c-4fdb-900b-0b100930e1fc" xml:space="preserve">
+          <source>These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory.</source>
+          <target state="new">These groups can either be created solely in the cloud or you can leverage existing groups that have been synced in from your on-premises Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="4d09c5c1-a1fb-4d8f-850a-df9c996a5f0c" xml:space="preserve">
+          <source>For more information, see <bpt id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;linkText&gt;</bpt>Assign access for a group to a SaaS application in Azure AD<ept id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;/linkText&gt;</ept><bpt id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;title&gt;</bpt><ept id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;linkText&gt;</bpt>Assign access for a group to a SaaS application in Azure AD<ept id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;/linkText&gt;</ept><bpt id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;title&gt;</bpt><ept id="5d45daac-2a2b-48fd-8a2e-b0f1c0b58ff0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dedb1d90-2d42-41d9-ac54-51312066cd57" xml:space="preserve">
+          <source><bpt id="77999cf1-69f4-4e0a-90bb-a2960e5011bf">&lt;strong&gt;</bpt>Self-service password reset<ept id="77999cf1-69f4-4e0a-90bb-a2960e5011bf">&lt;/strong&gt;</ept> - Azure has always allowed directory administrators to reset passwords.</source>
+          <target state="new"><bpt id="77999cf1-69f4-4e0a-90bb-a2960e5011bf">&lt;strong&gt;</bpt>Self-service password reset<ept id="77999cf1-69f4-4e0a-90bb-a2960e5011bf">&lt;/strong&gt;</ept> - Azure has always allowed directory administrators to reset passwords.</target>
+        </trans-unit>
+        <trans-unit id="459307c4-3852-4197-ad3a-4009eee61e29" xml:space="preserve">
+          <source>With Azure Active Directory Basic, you can now reduce helpdesk calls when your users forget a password by giving all users in your directory the capability to reset their password, using the same sign in experience they have for Office 365.</source>
+          <target state="new">With Azure Active Directory Basic, you can now reduce helpdesk calls when your users forget a password by giving all users in your directory the capability to reset their password, using the same sign in experience they have for Office 365.</target>
+        </trans-unit>
+        <trans-unit id="5db6411b-ee1d-449d-b1ae-f9dffaf48154" xml:space="preserve">
+          <source>For more information, see <bpt id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;linkText&gt;</bpt>Password Management in Azure AD<ept id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;/linkText&gt;</ept><bpt id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;title&gt;</bpt><ept id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;linkText&gt;</bpt>Password Management in Azure AD<ept id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;/linkText&gt;</ept><bpt id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;title&gt;</bpt><ept id="06c45edd-ad34-4eda-a59c-acf35ddf600e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9cb22a02-f663-41aa-91b6-8bf86f544e6d" xml:space="preserve">
+          <source><bpt id="c7c65a65-b596-42b6-af19-59646922c984">&lt;strong&gt;</bpt>Enterprise SLA of 99.9%<ept id="c7c65a65-b596-42b6-af19-59646922c984">&lt;/strong&gt;</ept> - We guarantee at least 99.9% availability of the Azure Active Directory Basic service.</source>
+          <target state="new"><bpt id="c7c65a65-b596-42b6-af19-59646922c984">&lt;strong&gt;</bpt>Enterprise SLA of 99.9%<ept id="c7c65a65-b596-42b6-af19-59646922c984">&lt;/strong&gt;</ept> - We guarantee at least 99.9% availability of the Azure Active Directory Basic service.</target>
+        </trans-unit>
+        <trans-unit id="873090f0-de0d-40f8-90ee-1c79b47fdda8" xml:space="preserve">
+          <source>[<bpt id="be8cd63b-ece1-4e5e-a760-789815955f98">&lt;strong&gt;</bpt>Azure Active Directory Application Proxy<ept id="be8cd63b-ece1-4e5e-a760-789815955f98">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/dn768214.aspx) - Give your employees secure access to on-premises applications like SharePoint and Exchange/OWA from the cloud using Azure Active Directory.</source>
+          <target state="new">[<bpt id="be8cd63b-ece1-4e5e-a760-789815955f98">&lt;strong&gt;</bpt>Azure Active Directory Application Proxy<ept id="be8cd63b-ece1-4e5e-a760-789815955f98">&lt;/strong&gt;</ept>](https://msdn.microsoft.com/library/azure/dn768214.aspx) - Give your employees secure access to on-premises applications like SharePoint and Exchange/OWA from the cloud using Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="d94dc4de-c5e9-4fd8-9088-d39857c6a9f5" xml:space="preserve">
+          <source>Active Directory Premium edition is a paid offering of Azure Active Directory and includes all of the features of the Free and Basic editions plus the following features:</source>
+          <target state="new">Active Directory Premium edition is a paid offering of Azure Active Directory and includes all of the features of the Free and Basic editions plus the following features:</target>
+        </trans-unit>
+        <trans-unit id="e0b4cb8b-d8c2-4c4f-89cb-a40f17f1f26b" xml:space="preserve">
+          <source><bpt id="5d1e5d1b-0d86-4005-82a1-d6f868ef19b5">&lt;strong&gt;</bpt>Self-service group management<ept id="5d1e5d1b-0d86-4005-82a1-d6f868ef19b5">&lt;/strong&gt;</ept> - Azure Active Directory Premium simplifies day-to-day administration of groups by enabling users to create groups, request access to other groups, delegate group ownership so others can approve requests and maintain their group’s memberships.</source>
+          <target state="new"><bpt id="5d1e5d1b-0d86-4005-82a1-d6f868ef19b5">&lt;strong&gt;</bpt>Self-service group management<ept id="5d1e5d1b-0d86-4005-82a1-d6f868ef19b5">&lt;/strong&gt;</ept> - Azure Active Directory Premium simplifies day-to-day administration of groups by enabling users to create groups, request access to other groups, delegate group ownership so others can approve requests and maintain their group’s memberships.</target>
+        </trans-unit>
+        <trans-unit id="f74a83c8-7484-4adf-af01-a469767c4d25" xml:space="preserve">
+          <source>For more information, see <bpt id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;linkText&gt;</bpt>Self-service group management for users in Azure AD<ept id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;/linkText&gt;</ept><bpt id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;title&gt;</bpt><ept id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;linkText&gt;</bpt>Self-service group management for users in Azure AD<ept id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;/linkText&gt;</ept><bpt id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;title&gt;</bpt><ept id="09cbdda0-418f-4077-9f76-6090f1812123">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eec913e1-217b-4ef5-b2c8-6967b5c45ffd" xml:space="preserve">
+          <source><bpt id="9aac65d9-af20-4916-af47-340621e279d4">&lt;strong&gt;</bpt>Advanced security reports and alerts<ept id="9aac65d9-af20-4916-af47-340621e279d4">&lt;/strong&gt;</ept> – Monitor and protect access to your cloud applications by viewing detailed logs showing more advanced anomalies and inconsistent access pattern reports.</source>
+          <target state="new"><bpt id="9aac65d9-af20-4916-af47-340621e279d4">&lt;strong&gt;</bpt>Advanced security reports and alerts<ept id="9aac65d9-af20-4916-af47-340621e279d4">&lt;/strong&gt;</ept> – Monitor and protect access to your cloud applications by viewing detailed logs showing more advanced anomalies and inconsistent access pattern reports.</target>
+        </trans-unit>
+        <trans-unit id="e92a94b3-d27f-47a0-9fb0-d68a0bc68e82" xml:space="preserve">
+          <source>Advanced reports are machine learning-based and can help you gain new insights to improve access security and respond to potential threats.</source>
+          <target state="new">Advanced reports are machine learning-based and can help you gain new insights to improve access security and respond to potential threats.</target>
+        </trans-unit>
+        <trans-unit id="7ecb10f0-348e-4273-ba79-d6551c4365b9" xml:space="preserve">
+          <source>For more information, see <bpt id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;/linkText&gt;</ept><bpt id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;title&gt;</bpt><ept id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;/linkText&gt;</ept><bpt id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;title&gt;</bpt><ept id="5b292ac1-2af4-4759-9688-29ea616d8f00">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4cebbe03-d38f-4047-9d06-c6f960723f6a" xml:space="preserve">
+          <source><bpt id="29df3ee6-f5af-473d-8f65-f5dc904069d9">&lt;strong&gt;</bpt>Multi-Factor Authentication<ept id="29df3ee6-f5af-473d-8f65-f5dc904069d9">&lt;/strong&gt;</ept> - Multi-Factor Authentication is now included with Premium and can help you to secure access to on-premises applications (VPN, RADIUS, etc.), Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, and thousands of Non-MS Cloud services preintegrated with Azure Active Directory.</source>
+          <target state="new"><bpt id="29df3ee6-f5af-473d-8f65-f5dc904069d9">&lt;strong&gt;</bpt>Multi-Factor Authentication<ept id="29df3ee6-f5af-473d-8f65-f5dc904069d9">&lt;/strong&gt;</ept> - Multi-Factor Authentication is now included with Premium and can help you to secure access to on-premises applications (VPN, RADIUS, etc.), Azure, Microsoft Online Services like Office 365 and Dynamics CRM Online, and thousands of Non-MS Cloud services preintegrated with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="482a1acd-f15b-44c8-a33a-e973c926dd98" xml:space="preserve">
+          <source>Simply enable Multi-Factor Authentication for Azure Active Directory identities, and users will be prompted to set up additional verification the next time they sign in.</source>
+          <target state="new">Simply enable Multi-Factor Authentication for Azure Active Directory identities, and users will be prompted to set up additional verification the next time they sign in.</target>
+        </trans-unit>
+        <trans-unit id="a1110cfd-db60-4697-8f5c-033ba1e28e29" xml:space="preserve">
+          <source>For more information, see <bpt id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;linkText&gt;</bpt>Adding Multi-Factor Authentication to Azure Active Directory<ept id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;/linkText&gt;</ept><bpt id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;title&gt;</bpt><ept id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;linkText&gt;</bpt>Adding Multi-Factor Authentication to Azure Active Directory<ept id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;/linkText&gt;</ept><bpt id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;title&gt;</bpt><ept id="22557775-192b-4cda-99c9-c6ab6a0857b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="121a37d2-82a6-4152-82dd-3372b1d95990" xml:space="preserve">
+          <source><bpt id="350be2ba-bd20-4ab9-a4f3-db495e08ceee">&lt;strong&gt;</bpt>Microsoft Identity Manager (MIM)<ept id="350be2ba-bd20-4ab9-a4f3-db495e08ceee">&lt;/strong&gt;</ept> - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions.</source>
+          <target state="new"><bpt id="350be2ba-bd20-4ab9-a4f3-db495e08ceee">&lt;strong&gt;</bpt>Microsoft Identity Manager (MIM)<ept id="350be2ba-bd20-4ab9-a4f3-db495e08ceee">&lt;/strong&gt;</ept> - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions.</target>
+        </trans-unit>
+        <trans-unit id="c58827cd-9462-4d93-a79a-512b7ca9070c" xml:space="preserve">
+          <source>This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory.</source>
+          <target state="new">This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="4fa0f782-b4f3-4fb5-ad37-1ec000a351c6" xml:space="preserve">
+          <source>There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.</source>
+          <target state="new">There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.</target>
+        </trans-unit>
+        <trans-unit id="475a4fbe-e107-48c0-800d-6c5befc8e44c" xml:space="preserve">
+          <source>For more information, see <bpt id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;linkText&gt;</bpt>Deploy MIM 2010 R2<ept id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;/linkText&gt;</ept><bpt id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;title&gt;</bpt><ept id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;linkText&gt;</bpt>Deploy MIM 2010 R2<ept id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;/linkText&gt;</ept><bpt id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;title&gt;</bpt><ept id="1cd0efef-ffcd-4e99-a4af-4bb5ede389a8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a463810-9cf3-4777-9a41-63f96fb2004f" xml:space="preserve">
+          <source><bpt id="c2da2cc4-4690-47bc-8002-d42524dd3967">&lt;strong&gt;</bpt>Enterprise SLA of 99.9%<ept id="c2da2cc4-4690-47bc-8002-d42524dd3967">&lt;/strong&gt;</ept> - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.</source>
+          <target state="new"><bpt id="c2da2cc4-4690-47bc-8002-d42524dd3967">&lt;strong&gt;</bpt>Enterprise SLA of 99.9%<ept id="c2da2cc4-4690-47bc-8002-d42524dd3967">&lt;/strong&gt;</ept> - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.</target>
+        </trans-unit>
+        <trans-unit id="bd2b8bf2-f891-4e75-8d33-949979478373" xml:space="preserve">
+          <source>For more information, see <bpt id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;linkText&gt;</bpt>Active Directory Premium SLA<ept id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;/linkText&gt;</ept><bpt id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;title&gt;</bpt><ept id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;linkText&gt;</bpt>Active Directory Premium SLA<ept id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;/linkText&gt;</ept><bpt id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;title&gt;</bpt><ept id="b8120a99-e390-4634-98ff-0e8530599f78">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="341d357a-411c-4098-9d05-c6c902e86f00" xml:space="preserve">
+          <source><bpt id="c0bfc78f-aab2-41e5-a709-4ccc29930e23">&lt;strong&gt;</bpt>Password reset with write-back<ept id="c0bfc78f-aab2-41e5-a709-4ccc29930e23">&lt;/strong&gt;</ept> - Self-service password reset can be written back to on-premises directories.</source>
+          <target state="new"><bpt id="c0bfc78f-aab2-41e5-a709-4ccc29930e23">&lt;strong&gt;</bpt>Password reset with write-back<ept id="c0bfc78f-aab2-41e5-a709-4ccc29930e23">&lt;/strong&gt;</ept> - Self-service password reset can be written back to on-premises directories.</target>
+        </trans-unit>
+        <trans-unit id="10227a4b-ecb2-4d67-9b76-f3b2e5c3fb95" xml:space="preserve">
+          <source><bpt id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;linkText&gt;</bpt>Azure Active Directory Connect Health<ept id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;/linkText&gt;</ept><bpt id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;title&gt;</bpt><ept id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;/title&gt;</ept>: monitor the health of your on premises Active Directory infrastructure and get usage analytics.</source>
+          <target state="new"><bpt id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;linkText&gt;</bpt>Azure Active Directory Connect Health<ept id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;/linkText&gt;</ept><bpt id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;title&gt;</bpt><ept id="e238f4cc-56be-44a4-bc4f-ecddc71265a8">&lt;/title&gt;</ept>: monitor the health of your on premises Active Directory infrastructure and get usage analytics.</target>
+        </trans-unit>
+        <trans-unit id="7b7b3672-22e4-4aed-995d-7e86332f196c" xml:space="preserve">
+          <source>Directory as a service
+For the free edition, there is a 500K object limit.</source>
+          <target state="new">Directory as a service
+For the free edition, there is a 500K object limit.</target>
+        </trans-unit>
+        <trans-unit id="998da41d-eeab-4dec-a20e-a4ffbd463bb3" xml:space="preserve">
+          <source>But the 500k object limit does not apply for Office 365, Microsoft Intune or any other Microsoft online service that relies on Azure Active Directory for directory services.</source>
+          <target state="new">But the 500k object limit does not apply for Office 365, Microsoft Intune or any other Microsoft online service that relies on Azure Active Directory for directory services.</target>
+        </trans-unit>
+        <trans-unit id="2a3f2ebd-7072-416d-8786-b6652471d31e" xml:space="preserve">
+          <source>The Basic and Premium editions have no object limit.</source>
+          <target state="new">The Basic and Premium editions have no object limit.</target>
+        </trans-unit>
+        <trans-unit id="779b55f5-7103-45c5-be6e-da6cbe5e16e5" xml:space="preserve">
+          <source>User and group management using UI or Windows PowerShell cmdlets</source>
+          <target state="new">User and group management using UI or Windows PowerShell cmdlets</target>
+        </trans-unit>
+        <trans-unit id="57291083-6367-457b-9d34-ab414ac7491b" xml:space="preserve">
+          <source>Device registration</source>
+          <target state="new">Device registration</target>
+        </trans-unit>
+        <trans-unit id="f6bc2668-67e3-4bf5-975b-9fe769ccc0f5" xml:space="preserve">
+          <source>Access Panel portal for single sign-in (SSO) based user access to SaaS and custom applications
+With Azure Active Directory Free and Azure Active Directory Basic, end users who have been assigned access to each SaaS app, can see up to 10 apps in their Access Panel and get single sign-in access to them (assuming they have first been configured with SSO by the admin).</source>
+          <target state="new">Access Panel portal for single sign-in (SSO) based user access to SaaS and custom applications
+With Azure Active Directory Free and Azure Active Directory Basic, end users who have been assigned access to each SaaS app, can see up to 10 apps in their Access Panel and get single sign-in access to them (assuming they have first been configured with SSO by the admin).</target>
+        </trans-unit>
+        <trans-unit id="020c4e29-a58b-4935-8480-3bbc50ba1abe" xml:space="preserve">
+          <source>Admins can configure SSO and assign user access to as many SaaS apps as they want with Free, but end users will see only 10 apps in their Access Panel at a time.</source>
+          <target state="new">Admins can configure SSO and assign user access to as many SaaS apps as they want with Free, but end users will see only 10 apps in their Access Panel at a time.</target>
+        </trans-unit>
+        <trans-unit id="00ebac78-6e31-431a-ab74-1f5df5db632a" xml:space="preserve">
+          <source>Azure Active Directory Premium has no application limit.</source>
+          <target state="new">Azure Active Directory Premium has no application limit.</target>
+        </trans-unit>
+        <trans-unit id="965a0fe7-9149-4284-bb2f-da6f3afb610c" xml:space="preserve">
+          <source>User-based application access management and provisioning</source>
+          <target state="new">User-based application access management and provisioning</target>
+        </trans-unit>
+        <trans-unit id="f04e6659-e4fd-4e06-9246-e6b5dca4b020" xml:space="preserve">
+          <source>Self-service password change for cloud users</source>
+          <target state="new">Self-service password change for cloud users</target>
+        </trans-unit>
+        <trans-unit id="d0efdc3e-c853-4f7d-9671-059f75f3f91f" xml:space="preserve">
+          <source>Directory synchronization tool: For syncing between on-premises Active Directory and Azure Active Directory</source>
+          <target state="new">Directory synchronization tool: For syncing between on-premises Active Directory and Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="57fca224-ed83-42d4-88a7-b847d0e61017" xml:space="preserve">
+          <source>Standard security reports</source>
+          <target state="new">Standard security reports</target>
+        </trans-unit>
+        <trans-unit id="1ce409d9-a86a-4d12-9bb1-bccb9920cb58" xml:space="preserve">
+          <source>High availability SLA uptime (99.9%)</source>
+          <target state="new">High availability SLA uptime (99.9%)</target>
+        </trans-unit>
+        <trans-unit id="b1667fd9-1626-4c68-a0fa-5f7673488d18" xml:space="preserve">
+          <source>Group-based application access management and provisioning</source>
+          <target state="new">Group-based application access management and provisioning</target>
+        </trans-unit>
+        <trans-unit id="c79567aa-2073-412c-9dda-51fa2e3f77fb" xml:space="preserve">
+          <source>Customization of company logo and colors to the Sign In and Access Panel pages</source>
+          <target state="new">Customization of company logo and colors to the Sign In and Access Panel pages</target>
+        </trans-unit>
+        <trans-unit id="7f858b55-822e-4fe8-b7cc-8fe3445bc0d9" xml:space="preserve">
+          <source>Self-service password reset for cloud users</source>
+          <target state="new">Self-service password reset for cloud users</target>
+        </trans-unit>
+        <trans-unit id="c5ef759e-73db-4e76-80fc-74e37d95c317" xml:space="preserve">
+          <source>Application Proxy: Secure Remote Access and single sign-in to on-premises web applications</source>
+          <target state="new">Application Proxy: Secure Remote Access and single sign-in to on-premises web applications</target>
+        </trans-unit>
+        <trans-unit id="111097c3-c646-4a1a-89cf-6e7f20fbc69e" xml:space="preserve">
+          <source>Self-service group management for cloud users</source>
+          <target state="new">Self-service group management for cloud users</target>
+        </trans-unit>
+        <trans-unit id="2b3bb128-258e-4654-af4d-c3d576f97379" xml:space="preserve">
+          <source>Self-service password reset with on-premises write-back</source>
+          <target state="new">Self-service password reset with on-premises write-back</target>
+        </trans-unit>
+        <trans-unit id="7b627cda-aab5-4273-a5e3-582e15937093" xml:space="preserve">
+          <source>Microsoft Identity Manager (MIM) server licenses – For syncing between on-premises databases and/or directories and Azure Active Directory</source>
+          <target state="new">Microsoft Identity Manager (MIM) server licenses – For syncing between on-premises databases and/or directories and Azure Active Directory</target>
+        </trans-unit>
+        <trans-unit id="d0e22a75-507f-4640-85f7-a5e00642120d" xml:space="preserve">
+          <source>Advanced anomaly security reports (machine learning-based)</source>
+          <target state="new">Advanced anomaly security reports (machine learning-based)</target>
+        </trans-unit>
+        <trans-unit id="5812e797-f0f8-4ee8-bb42-7d3f36e2c3c4" xml:space="preserve">
+          <source><bpt id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;linkText&gt;</bpt>Cloud app discovery<ept id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;/linkText&gt;</ept><bpt id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;title&gt;</bpt><ept id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;linkText&gt;</bpt>Cloud app discovery<ept id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;/linkText&gt;</ept><bpt id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;title&gt;</bpt><ept id="2ee942a1-f89f-4dec-b061-373460720ec5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ae4ba37-7410-452b-b02b-11502cd5ccf3" xml:space="preserve">
+          <source>Advanced application usage reporting</source>
+          <target state="new">Advanced application usage reporting</target>
+        </trans-unit>
+        <trans-unit id="c80c1c21-fb55-4b63-90be-a2b7352a9e28" xml:space="preserve">
+          <source>Multi-Factor Authentication service for cloud users</source>
+          <target state="new">Multi-Factor Authentication service for cloud users</target>
+        </trans-unit>
+        <trans-unit id="15c3289d-91da-4ba4-a5a0-173ff3bb955b" xml:space="preserve">
+          <source>Multi-Factor Authentication server for on-premises users</source>
+          <target state="new">Multi-Factor Authentication server for on-premises users</target>
+        </trans-unit>
+        <trans-unit id="38c42b14-8911-49ae-900e-9bb23242d5fe" xml:space="preserve">
+          <source>Azure Active Directory Connect Health</source>
+          <target state="new">Azure Active Directory Connect Health</target>
+        </trans-unit>
+        <trans-unit id="e2390eee-64ff-41e8-81ef-7af4c501b32f" xml:space="preserve">
+          <source>The following features are currently in public preview and will be added soon:</source>
+          <target state="new">The following features are currently in public preview and will be added soon:</target>
+        </trans-unit>
+        <trans-unit id="3848bddf-f2a0-4e60-83b5-9ff442b67b45" xml:space="preserve">
+          <source><bpt id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;linkText&gt;</bpt>Administrative units<ept id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;/linkText&gt;</ept><bpt id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;title&gt;</bpt><ept id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;/title&gt;</ept>: a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.</source>
+          <target state="new"><bpt id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;linkText&gt;</bpt>Administrative units<ept id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;/linkText&gt;</ept><bpt id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;title&gt;</bpt><ept id="01fc1438-9163-4f7e-9c74-8a90a27c71e5">&lt;/title&gt;</ept>: a new Azure Active Directory container of resources that can be used for delegating administrative permissions over subsets of users and applying policies to a subset of users.</target>
+        </trans-unit>
+        <trans-unit id="668a050c-c70a-43b8-a6f3-1a7fbd6d69e6" xml:space="preserve">
+          <source><bpt id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;linkText&gt;</bpt>Add your own SaaS applications<ept id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;/linkText&gt;</ept><bpt id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;title&gt;</bpt><ept id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;/title&gt;</ept> to Azure Active Directory.</source>
+          <target state="new"><bpt id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;linkText&gt;</bpt>Add your own SaaS applications<ept id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;/linkText&gt;</ept><bpt id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;title&gt;</bpt><ept id="6c843027-741f-4bb1-997d-7bb33ed65d6a">&lt;/title&gt;</ept> to Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="733744d4-f16a-4893-bc49-fc9e2cc541f8" xml:space="preserve">
+          <source>Password rollover for Facebook, Twitter, and LinkedIn.</source>
+          <target state="new">Password rollover for Facebook, Twitter, and LinkedIn.</target>
+        </trans-unit>
+        <trans-unit id="eda82387-15eb-4849-a8c8-da0bc1747f03" xml:space="preserve">
+          <source>For more information, read <bpt id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;linkText&gt;</bpt>this article<ept id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;/linkText&gt;</ept><bpt id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;title&gt;</bpt><ept id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, read <bpt id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;linkText&gt;</bpt>this article<ept id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;/linkText&gt;</ept><bpt id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;title&gt;</bpt><ept id="8e56ebb2-3f34-48a7-9db5-f512e2fac94c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="920fbf3c-618f-4ae8-9464-3d2efccc134d" xml:space="preserve">
+          <source>Dynamic group membership.</source>
+          <target state="new">Dynamic group membership.</target>
+        </trans-unit>
+        <trans-unit id="237b5dc7-b966-41d7-850b-bfac6f39cad0" xml:space="preserve">
+          <source>For more information, see <bpt id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;linkText&gt;</bpt>this article<ept id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;/linkText&gt;</ept><bpt id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;title&gt;</bpt><ept id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;linkText&gt;</bpt>this article<ept id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;/linkText&gt;</ept><bpt id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;title&gt;</bpt><ept id="7580a38a-3af9-4e16-94c6-5058f506b556">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b24c4a1f-90e8-422c-8cc6-90788bdfcf33" xml:space="preserve">
+          <source><bpt id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;linkText&gt;</bpt>Conditional Access<ept id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;/linkText&gt;</ept><bpt id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;title&gt;</bpt><ept id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;/title&gt;</ept>: Multifactor Authentication per application.</source>
+          <target state="new"><bpt id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;linkText&gt;</bpt>Conditional Access<ept id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;/linkText&gt;</ept><bpt id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;title&gt;</bpt><ept id="48715bab-cd30-471e-9a20-c2ac6a5cf6c6">&lt;/title&gt;</ept>: Multifactor Authentication per application.</target>
+        </trans-unit>
+        <trans-unit id="d5a3cda8-e01b-4a20-8412-755135f146f2" xml:space="preserve">
+          <source>HR application integration: Workday</source>
+          <target state="new">HR application integration: Workday</target>
+        </trans-unit>
+        <trans-unit id="04ab5d1f-0397-46e1-8d7d-8c7095ec7c62" xml:space="preserve">
+          <source>Privileged Identity Management: Privileged identity management provides improved oversight to help meet service level agreements and regulatory compliance requirements.</source>
+          <target state="new">Privileged Identity Management: Privileged identity management provides improved oversight to help meet service level agreements and regulatory compliance requirements.</target>
+        </trans-unit>
+        <trans-unit id="598b6305-0946-4c92-8497-37cdb0b4ebf0" xml:space="preserve">
+          <source>Self-service application requests: Administrators can provide a list of SaaS apps to users from which so that users can choose the ones they want to use, and the apps either will be available immediately or after approval.</source>
+          <target state="new">Self-service application requests: Administrators can provide a list of SaaS apps to users from which so that users can choose the ones they want to use, and the apps either will be available immediately or after approval.</target>
+        </trans-unit>
+        <trans-unit id="60016cf0-3a7a-415f-bef7-dd3878a3e9e1" xml:space="preserve">
+          <source>Azure reporting API: data for every security report of Azure Active Directory will be available to other monitoring or SIEM tools.</source>
+          <target state="new">Azure reporting API: data for every security report of Azure Active Directory will be available to other monitoring or SIEM tools.</target>
+        </trans-unit>
+        <trans-unit id="58d99b6d-a5b9-46b3-bce2-dbf9d719b285" xml:space="preserve">
+          <source><bpt id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;/linkText&gt;</ept><bpt id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;title&gt;</bpt><ept id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;/linkText&gt;</ept><bpt id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;title&gt;</bpt><ept id="6b2b0e38-284c-4310-a4c8-16ecb6fed232">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d83fce92-c91e-4f6a-acf3-9f0e5d159151" xml:space="preserve">
+          <source><bpt id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;/linkText&gt;</ept><bpt id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;title&gt;</bpt><ept id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;/linkText&gt;</ept><bpt id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;title&gt;</bpt><ept id="2851aede-c46f-46b3-8979-16eebb6c986b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6831642c-2f7a-4240-9272-470f6f7228b1" xml:space="preserve">
+          <source><bpt id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;/linkText&gt;</ept><bpt id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;title&gt;</bpt><ept id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;linkText&gt;</bpt>View your access and usage reports<ept id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;/linkText&gt;</ept><bpt id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;title&gt;</bpt><ept id="5640a0f7-fdb6-47b0-9992-512182dd78da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

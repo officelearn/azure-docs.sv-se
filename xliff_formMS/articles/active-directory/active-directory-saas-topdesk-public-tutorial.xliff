@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7fe6976f-2196-4cc4-a2b5-e45789c28b4c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7fe6976f-2196-4cc4-a2b5-e45789c28b4c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e3c599ad-007d-45c2-bdf2-effb75f69108">
+        <trans-unit id="50889199-a32e-43f4-b3fc-07e7fc18327e" xml:space="preserve">
+          <source>Tutorial: Azure Directory integration with TOPdesk - Public | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Directory integration with TOPdesk - Public | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="94b3d14d-1fa4-46d5-9453-0d659a18e80c" xml:space="preserve">
+          <source>Learn how to use TOPdesk - Public with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use TOPdesk - Public with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="1bb4d038-d676-4bf6-9c27-ad1ea23835a3" xml:space="preserve">
+          <source>For feedback, click <bpt id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;linkText&gt;</bpt>here<ept id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;/linkText&gt;</ept><bpt id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;title&gt;</bpt><ept id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;linkText&gt;</bpt>here<ept id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;/linkText&gt;</ept><bpt id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;title&gt;</bpt><ept id="fc49194b-93a4-4382-bbbc-bc48eabe6145">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b58cfa61-11df-43d0-9484-38f18e01a22f" xml:space="preserve">
+          <source>The objective of this tutorial is to show the integration of Azure and TOPdesk - Public.</source>
+          <target state="new">The objective of this tutorial is to show the integration of Azure and TOPdesk - Public.</target>
+        </trans-unit>
+        <trans-unit id="c7d1782c-ed75-4098-9740-f032c234f5b3" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="077406db-8ad5-4ecb-b80a-2ab4e9f23c8a" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="e1723201-bcd7-42ee-a1e5-9103fcabc569" xml:space="preserve">
+          <source>A TOPdesk - Public single sign-on enabled subscription</source>
+          <target state="new">A TOPdesk - Public single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="1fb28a05-1302-47ef-9e76-ba711bb61c15" xml:space="preserve">
+          <source>After completing this tutorial, the Azure AD users you have assigned to TOPdesk - Public will be able to single sign into the application at your TOPdesk - Public company site (service provider initiated sign on), or using the <bpt id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;/linkText&gt;</ept><bpt id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;title&gt;</bpt><ept id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;/title&gt;</ept></source>
+          <target state="new">After completing this tutorial, the Azure AD users you have assigned to TOPdesk - Public will be able to single sign into the application at your TOPdesk - Public company site (service provider initiated sign on), or using the <bpt id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;/linkText&gt;</ept><bpt id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;title&gt;</bpt><ept id="4833ebf1-97fa-4e1c-a401-eac1a1721132">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f61d3d47-fe2a-4d81-a9bd-32525c1d918e" xml:space="preserve">
+          <source>The scenario outlined in this tutorial consists of the following building blocks:</source>
+          <target state="new">The scenario outlined in this tutorial consists of the following building blocks:</target>
+        </trans-unit>
+        <trans-unit id="e256e9a3-5359-449a-90cd-1b4b9ee14cd9" xml:space="preserve">
+          <source>Enabling the application integration for TOPdesk - Public</source>
+          <target state="new">Enabling the application integration for TOPdesk - Public</target>
+        </trans-unit>
+        <trans-unit id="0cb50ed2-0be5-4507-a415-7bb41f586fd8" xml:space="preserve">
+          <source>Configuring single sign-on</source>
+          <target state="new">Configuring single sign-on</target>
+        </trans-unit>
+        <trans-unit id="c3e59c36-f2c9-4aee-8154-ca466920a519" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="e6a0f0d7-3d6f-4253-bf6c-33d104fb82d3" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="e111b913-940a-4250-bffa-f620afc654b1" xml:space="preserve">
+          <source><bpt id="73af8a17-4825-4411-a4d1-a737cb8e663e">&lt;linkText&gt;</bpt>Scenario<ept id="73af8a17-4825-4411-a4d1-a737cb8e663e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73af8a17-4825-4411-a4d1-a737cb8e663e">&lt;linkText&gt;</bpt>Scenario<ept id="73af8a17-4825-4411-a4d1-a737cb8e663e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ef417d49-6a0b-43dd-af29-97a73c0d580b" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for TOPdesk - Public.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for TOPdesk - Public.</target>
+        </trans-unit>
+        <trans-unit id="9f001822-3af3-40f8-b36b-49be7e23159d" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="d04f9f45-aa2c-4cdd-a531-e91079940785">&lt;strong&gt;</bpt>Active Directory<ept id="d04f9f45-aa2c-4cdd-a531-e91079940785">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="d04f9f45-aa2c-4cdd-a531-e91079940785">&lt;strong&gt;</bpt>Active Directory<ept id="d04f9f45-aa2c-4cdd-a531-e91079940785">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="893dea6f-db90-459f-a008-e4c5f47defcf" xml:space="preserve">
+          <source><bpt id="9a710122-3295-4d75-a393-d749b8bdb226">&lt;linkText&gt;</bpt>Active Directory<ept id="9a710122-3295-4d75-a393-d749b8bdb226">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9a710122-3295-4d75-a393-d749b8bdb226">&lt;linkText&gt;</bpt>Active Directory<ept id="9a710122-3295-4d75-a393-d749b8bdb226">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2a603207-5c41-4b54-9e14-c6baf202361e" xml:space="preserve">
+          <source>From the <bpt id="441e7e4b-f101-471a-b562-809f279a8bf4">&lt;strong&gt;</bpt>Directory<ept id="441e7e4b-f101-471a-b562-809f279a8bf4">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="441e7e4b-f101-471a-b562-809f279a8bf4">&lt;strong&gt;</bpt>Directory<ept id="441e7e4b-f101-471a-b562-809f279a8bf4">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="833aeed2-d2e0-4b6d-aa0b-18fb31c9aede" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="edf59c61-d8d5-4a4e-b471-5b4cfa0f009c">&lt;strong&gt;</bpt>Applications<ept id="edf59c61-d8d5-4a4e-b471-5b4cfa0f009c">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="edf59c61-d8d5-4a4e-b471-5b4cfa0f009c">&lt;strong&gt;</bpt>Applications<ept id="edf59c61-d8d5-4a4e-b471-5b4cfa0f009c">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ede216f6-c49f-42ed-85ed-9681957c0084" xml:space="preserve">
+          <source><bpt id="8892e655-6dae-45b8-9b23-b4dbdbbfa072">&lt;linkText&gt;</bpt>Applications<ept id="8892e655-6dae-45b8-9b23-b4dbdbbfa072">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8892e655-6dae-45b8-9b23-b4dbdbbfa072">&lt;linkText&gt;</bpt>Applications<ept id="8892e655-6dae-45b8-9b23-b4dbdbbfa072">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4170b7b4-aea7-481c-8622-ae346f2eb0b0" xml:space="preserve">
+          <source>Click <bpt id="c63fc186-9593-4d8b-962a-323f0f779c59">&lt;strong&gt;</bpt>Add<ept id="c63fc186-9593-4d8b-962a-323f0f779c59">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="c63fc186-9593-4d8b-962a-323f0f779c59">&lt;strong&gt;</bpt>Add<ept id="c63fc186-9593-4d8b-962a-323f0f779c59">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="7dfa7b86-d96c-4efb-bea2-073e43b19b9b" xml:space="preserve">
+          <source><bpt id="9dc1397c-2f15-4d6b-9fc1-f2572b5842f1">&lt;linkText&gt;</bpt>Add application<ept id="9dc1397c-2f15-4d6b-9fc1-f2572b5842f1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9dc1397c-2f15-4d6b-9fc1-f2572b5842f1">&lt;linkText&gt;</bpt>Add application<ept id="9dc1397c-2f15-4d6b-9fc1-f2572b5842f1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bdc4645a-c707-4be7-b0f0-3efb234bc0f5" xml:space="preserve">
+          <source>On the <bpt id="f73fc427-9bb2-43ba-a15d-0d224e672fa7">&lt;strong&gt;</bpt>What do you want to do<ept id="f73fc427-9bb2-43ba-a15d-0d224e672fa7">&lt;/strong&gt;</ept> dialog, click <bpt id="e1798795-2ef3-4079-9240-97c6201b2f8c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e1798795-2ef3-4079-9240-97c6201b2f8c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="f73fc427-9bb2-43ba-a15d-0d224e672fa7">&lt;strong&gt;</bpt>What do you want to do<ept id="f73fc427-9bb2-43ba-a15d-0d224e672fa7">&lt;/strong&gt;</ept> dialog, click <bpt id="e1798795-2ef3-4079-9240-97c6201b2f8c">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="e1798795-2ef3-4079-9240-97c6201b2f8c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9518737f-5ff6-4b54-a942-95af73551ca5" xml:space="preserve">
+          <source><bpt id="8da484e9-3b61-4ce4-9451-f79dd144443f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="8da484e9-3b61-4ce4-9451-f79dd144443f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8da484e9-3b61-4ce4-9451-f79dd144443f">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="8da484e9-3b61-4ce4-9451-f79dd144443f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="707ec296-8a48-4129-9625-85bc93748b0c" xml:space="preserve">
+          <source>In the <bpt id="e855058f-c34b-4ef6-a9dd-c332eda950ca">&lt;strong&gt;</bpt>search box<ept id="e855058f-c34b-4ef6-a9dd-c332eda950ca">&lt;/strong&gt;</ept>, type <bpt id="ba764d6f-15ad-457a-a2b8-933ad1d01fa4">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="ba764d6f-15ad-457a-a2b8-933ad1d01fa4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e855058f-c34b-4ef6-a9dd-c332eda950ca">&lt;strong&gt;</bpt>search box<ept id="e855058f-c34b-4ef6-a9dd-c332eda950ca">&lt;/strong&gt;</ept>, type <bpt id="ba764d6f-15ad-457a-a2b8-933ad1d01fa4">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="ba764d6f-15ad-457a-a2b8-933ad1d01fa4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8b959a1b-b053-46d6-904e-0381b968ab3e" xml:space="preserve">
+          <source><bpt id="5a4ddafa-f15e-4172-a49c-a9930eb144b7">&lt;linkText&gt;</bpt>Application Gallery<ept id="5a4ddafa-f15e-4172-a49c-a9930eb144b7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a4ddafa-f15e-4172-a49c-a9930eb144b7">&lt;linkText&gt;</bpt>Application Gallery<ept id="5a4ddafa-f15e-4172-a49c-a9930eb144b7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9e0b70c2-6cc0-4b90-ab3a-23a52f008919" xml:space="preserve">
+          <source>In the results pane, select <bpt id="ac829381-1dc4-47ff-8fdd-0daebb7fec8f">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="ac829381-1dc4-47ff-8fdd-0daebb7fec8f">&lt;/strong&gt;</ept>, and then click <bpt id="f9e94ae4-fe13-4c7a-8f6b-bd8bbdc06e6c">&lt;strong&gt;</bpt>Complete<ept id="f9e94ae4-fe13-4c7a-8f6b-bd8bbdc06e6c">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="ac829381-1dc4-47ff-8fdd-0daebb7fec8f">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="ac829381-1dc4-47ff-8fdd-0daebb7fec8f">&lt;/strong&gt;</ept>, and then click <bpt id="f9e94ae4-fe13-4c7a-8f6b-bd8bbdc06e6c">&lt;strong&gt;</bpt>Complete<ept id="f9e94ae4-fe13-4c7a-8f6b-bd8bbdc06e6c">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="92b9a425-4983-4db4-94ab-2baa6307054c" xml:space="preserve">
+          <source><bpt id="0bf75937-5d84-4ade-84c1-cafea87adc7e">&lt;linkText&gt;</bpt>TOPdesk Public<ept id="0bf75937-5d84-4ade-84c1-cafea87adc7e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0bf75937-5d84-4ade-84c1-cafea87adc7e">&lt;linkText&gt;</bpt>TOPdesk Public<ept id="0bf75937-5d84-4ade-84c1-cafea87adc7e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6a01c24b-494c-4ebd-bffc-c0ae5ce02400" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable users to authenticate to TOPdesk - Public with their account in Azure AD using federation based on the SAML protocol.</source>
+          <target state="new">The objective of this section is to outline how to enable users to authenticate to TOPdesk - Public with their account in Azure AD using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="67838f6a-d6b0-4206-88c0-309db8dfe555" xml:space="preserve">
+          <source>Configuring single sign-on for TOPdesk - Public requires you to upload a logo icon file.</source>
+          <target state="new">Configuring single sign-on for TOPdesk - Public requires you to upload a logo icon file.</target>
+        </trans-unit>
+        <trans-unit id="45dd8a1b-32df-4c55-9dfc-c07dde76de16" xml:space="preserve">
+          <source>To get the icon file, contact the TOPdesk support team.</source>
+          <target state="new">To get the icon file, contact the TOPdesk support team.</target>
+        </trans-unit>
+        <trans-unit id="810b7b03-a8f7-4d79-b842-52eaa02e070c" xml:space="preserve">
+          <source>Sign on to your <bpt id="6a2a4667-1831-4e81-aad8-a48a8e394d4f">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="6a2a4667-1831-4e81-aad8-a48a8e394d4f">&lt;/strong&gt;</ept> company site as an administrator.</source>
+          <target state="new">Sign on to your <bpt id="6a2a4667-1831-4e81-aad8-a48a8e394d4f">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="6a2a4667-1831-4e81-aad8-a48a8e394d4f">&lt;/strong&gt;</ept> company site as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="cc3cec62-17af-496e-b42d-168b9acab1f2" xml:space="preserve">
+          <source>In the <bpt id="5c1062c0-6f94-4c73-8a9c-5f3a37a76a6e">&lt;strong&gt;</bpt>TOPdesk<ept id="5c1062c0-6f94-4c73-8a9c-5f3a37a76a6e">&lt;/strong&gt;</ept> menu, click <bpt id="1ed300ec-4c69-4078-849e-c9d92456ed73">&lt;strong&gt;</bpt>Settings<ept id="1ed300ec-4c69-4078-849e-c9d92456ed73">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="5c1062c0-6f94-4c73-8a9c-5f3a37a76a6e">&lt;strong&gt;</bpt>TOPdesk<ept id="5c1062c0-6f94-4c73-8a9c-5f3a37a76a6e">&lt;/strong&gt;</ept> menu, click <bpt id="1ed300ec-4c69-4078-849e-c9d92456ed73">&lt;strong&gt;</bpt>Settings<ept id="1ed300ec-4c69-4078-849e-c9d92456ed73">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f8dbdb4c-a539-4393-9579-affb0501711a" xml:space="preserve">
+          <source><bpt id="0a88b30a-7b68-40eb-8b7b-6bb2fce6e966">&lt;linkText&gt;</bpt>Settings<ept id="0a88b30a-7b68-40eb-8b7b-6bb2fce6e966">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0a88b30a-7b68-40eb-8b7b-6bb2fce6e966">&lt;linkText&gt;</bpt>Settings<ept id="0a88b30a-7b68-40eb-8b7b-6bb2fce6e966">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a3a91067-3a06-460b-bc9f-acdb23416edb" xml:space="preserve">
+          <source>Click <bpt id="8c4a1231-9b7d-4275-8eeb-05fe5c645b9e">&lt;strong&gt;</bpt>Login Settings<ept id="8c4a1231-9b7d-4275-8eeb-05fe5c645b9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="8c4a1231-9b7d-4275-8eeb-05fe5c645b9e">&lt;strong&gt;</bpt>Login Settings<ept id="8c4a1231-9b7d-4275-8eeb-05fe5c645b9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0273a508-35e3-440a-b73a-288976b05974" xml:space="preserve">
+          <source><bpt id="6778f603-6601-4015-ab6c-ebe1bc6d6b74">&lt;linkText&gt;</bpt>Login Settings<ept id="6778f603-6601-4015-ab6c-ebe1bc6d6b74">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6778f603-6601-4015-ab6c-ebe1bc6d6b74">&lt;linkText&gt;</bpt>Login Settings<ept id="6778f603-6601-4015-ab6c-ebe1bc6d6b74">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96ceee8a-d311-48b3-9fc6-ad616447de63" xml:space="preserve">
+          <source>Expand the <bpt id="e4a2a86c-1cd1-4218-b0a8-916798ff1a2d">&lt;strong&gt;</bpt>Login Settings<ept id="e4a2a86c-1cd1-4218-b0a8-916798ff1a2d">&lt;/strong&gt;</ept> menu, and then click <bpt id="27a3e3dd-d71b-4eeb-aacd-ce6d6bf7b893">&lt;strong&gt;</bpt>General<ept id="27a3e3dd-d71b-4eeb-aacd-ce6d6bf7b893">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the <bpt id="e4a2a86c-1cd1-4218-b0a8-916798ff1a2d">&lt;strong&gt;</bpt>Login Settings<ept id="e4a2a86c-1cd1-4218-b0a8-916798ff1a2d">&lt;/strong&gt;</ept> menu, and then click <bpt id="27a3e3dd-d71b-4eeb-aacd-ce6d6bf7b893">&lt;strong&gt;</bpt>General<ept id="27a3e3dd-d71b-4eeb-aacd-ce6d6bf7b893">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0ba2db6-260b-4d75-9eb7-e4b7a4fc9b4a" xml:space="preserve">
+          <source><bpt id="0e9a26ba-f057-4330-a899-6129a722c3ea">&lt;linkText&gt;</bpt>General<ept id="0e9a26ba-f057-4330-a899-6129a722c3ea">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0e9a26ba-f057-4330-a899-6129a722c3ea">&lt;linkText&gt;</bpt>General<ept id="0e9a26ba-f057-4330-a899-6129a722c3ea">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="49b91696-4c98-410a-b849-58a9b0d56ae2" xml:space="preserve">
+          <source>In the <bpt id="88bdeefe-7533-4c01-8ccf-ae68db30eda5">&lt;strong&gt;</bpt>Public<ept id="88bdeefe-7533-4c01-8ccf-ae68db30eda5">&lt;/strong&gt;</ept> section of the <bpt id="4d876f3c-bcfd-4067-99e5-e6ea6a9ea7aa">&lt;strong&gt;</bpt>SAML login<ept id="4d876f3c-bcfd-4067-99e5-e6ea6a9ea7aa">&lt;/strong&gt;</ept> configuration section, perform the following steps:</source>
+          <target state="new">In the <bpt id="88bdeefe-7533-4c01-8ccf-ae68db30eda5">&lt;strong&gt;</bpt>Public<ept id="88bdeefe-7533-4c01-8ccf-ae68db30eda5">&lt;/strong&gt;</ept> section of the <bpt id="4d876f3c-bcfd-4067-99e5-e6ea6a9ea7aa">&lt;strong&gt;</bpt>SAML login<ept id="4d876f3c-bcfd-4067-99e5-e6ea6a9ea7aa">&lt;/strong&gt;</ept> configuration section, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c485b6d1-9a01-4daa-823d-e3d5a2ab5b35" xml:space="preserve">
+          <source><bpt id="52fa9f4c-4040-4438-b0fb-a4ffbf572212">&lt;linkText&gt;</bpt>Technical Settings<ept id="52fa9f4c-4040-4438-b0fb-a4ffbf572212">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="52fa9f4c-4040-4438-b0fb-a4ffbf572212">&lt;linkText&gt;</bpt>Technical Settings<ept id="52fa9f4c-4040-4438-b0fb-a4ffbf572212">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9f1bc711-2a62-4298-9421-7e8671c0af45" xml:space="preserve">
+          <source>Click <bpt id="8bc3e270-34f3-40e8-a9fa-54b5a3e6c006">&lt;strong&gt;</bpt>Download<ept id="8bc3e270-34f3-40e8-a9fa-54b5a3e6c006">&lt;/strong&gt;</ept> to download the public metadata file, and then save it locally on your computer.</source>
+          <target state="new">Click <bpt id="8bc3e270-34f3-40e8-a9fa-54b5a3e6c006">&lt;strong&gt;</bpt>Download<ept id="8bc3e270-34f3-40e8-a9fa-54b5a3e6c006">&lt;/strong&gt;</ept> to download the public metadata file, and then save it locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="ddc940f1-43d6-46ce-9d63-58f328bdd7b4" xml:space="preserve">
+          <source>Open the metadata file, and then locate the <bpt id="b5f12dfd-3029-4519-8c24-53b835a4ebcb">&lt;strong&gt;</bpt>AssertionConsumerService<ept id="b5f12dfd-3029-4519-8c24-53b835a4ebcb">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">Open the metadata file, and then locate the <bpt id="b5f12dfd-3029-4519-8c24-53b835a4ebcb">&lt;strong&gt;</bpt>AssertionConsumerService<ept id="b5f12dfd-3029-4519-8c24-53b835a4ebcb">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="713de075-cad5-42de-a314-0860e0153510" xml:space="preserve">
+          <source><bpt id="29c5de56-e81a-408f-b40c-758d0b600718">&lt;linkText&gt;</bpt>AssertionConsumerService<ept id="29c5de56-e81a-408f-b40c-758d0b600718">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29c5de56-e81a-408f-b40c-758d0b600718">&lt;linkText&gt;</bpt>AssertionConsumerService<ept id="29c5de56-e81a-408f-b40c-758d0b600718">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f7d23008-128f-4de2-a24f-dc3935c1d38f" xml:space="preserve">
+          <source>Copy the <bpt id="a1dc5cc2-8dcc-46b4-867c-2e204cfdde3e">&lt;strong&gt;</bpt>AssertionConsumerService<ept id="a1dc5cc2-8dcc-46b4-867c-2e204cfdde3e">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Copy the <bpt id="a1dc5cc2-8dcc-46b4-867c-2e204cfdde3e">&lt;strong&gt;</bpt>AssertionConsumerService<ept id="a1dc5cc2-8dcc-46b4-867c-2e204cfdde3e">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="88a0b92d-f38d-4049-b644-fc3000784607" xml:space="preserve">
+          <source>You will need the value in the <bpt id="a16bab2e-c3e7-4551-83e1-8883510babd0">&lt;strong&gt;</bpt>Configure App URL<ept id="a16bab2e-c3e7-4551-83e1-8883510babd0">&lt;/strong&gt;</ept> section later in this tutorial.</source>
+          <target state="new">You will need the value in the <bpt id="a16bab2e-c3e7-4551-83e1-8883510babd0">&lt;strong&gt;</bpt>Configure App URL<ept id="a16bab2e-c3e7-4551-83e1-8883510babd0">&lt;/strong&gt;</ept> section later in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="2c4bae3b-9ee7-4490-bdec-90404c9739d4" xml:space="preserve">
+          <source>In a different web browser window, log into your <bpt id="ad1a0275-dfdf-4050-be13-dd03679cae2b">&lt;strong&gt;</bpt>Azure Active Directory<ept id="ad1a0275-dfdf-4050-be13-dd03679cae2b">&lt;/strong&gt;</ept> portal as an administrator.</source>
+          <target state="new">In a different web browser window, log into your <bpt id="ad1a0275-dfdf-4050-be13-dd03679cae2b">&lt;strong&gt;</bpt>Azure Active Directory<ept id="ad1a0275-dfdf-4050-be13-dd03679cae2b">&lt;/strong&gt;</ept> portal as an administrator.</target>
+        </trans-unit>
+        <trans-unit id="6000b8bd-9823-4f05-980a-17ec823324f1" xml:space="preserve">
+          <source>On the <bpt id="e5ca7aa7-c5c9-465b-a64e-98f6afd9f994">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="e5ca7aa7-c5c9-465b-a64e-98f6afd9f994">&lt;/strong&gt;</ept> application integration page, click <bpt id="e8fa62a5-96e3-4735-96d8-2f21e3260e0a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e8fa62a5-96e3-4735-96d8-2f21e3260e0a">&lt;/strong&gt;</ept> to open the <bpt id="5437dff3-0e6d-4acb-a9bc-dbb173fb000a">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="5437dff3-0e6d-4acb-a9bc-dbb173fb000a">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">On the <bpt id="e5ca7aa7-c5c9-465b-a64e-98f6afd9f994">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="e5ca7aa7-c5c9-465b-a64e-98f6afd9f994">&lt;/strong&gt;</ept> application integration page, click <bpt id="e8fa62a5-96e3-4735-96d8-2f21e3260e0a">&lt;strong&gt;</bpt>Configure single sign-on<ept id="e8fa62a5-96e3-4735-96d8-2f21e3260e0a">&lt;/strong&gt;</ept> to open the <bpt id="5437dff3-0e6d-4acb-a9bc-dbb173fb000a">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="5437dff3-0e6d-4acb-a9bc-dbb173fb000a">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="c9916476-cd54-44aa-b497-1fa53ca89d2e" xml:space="preserve">
+          <source><bpt id="bf25d1a9-d73e-46e6-ac7e-aa438e3969fc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="bf25d1a9-d73e-46e6-ac7e-aa438e3969fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="bf25d1a9-d73e-46e6-ac7e-aa438e3969fc">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="bf25d1a9-d73e-46e6-ac7e-aa438e3969fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0f4c544-e7e5-41da-bba3-3b0fa6b5dd6a" xml:space="preserve">
+          <source>On the <bpt id="b0cd2c9e-220f-4c99-820a-6e4c0e643068">&lt;strong&gt;</bpt>How would you like users to sign on to TOPdesk - Public<ept id="b0cd2c9e-220f-4c99-820a-6e4c0e643068">&lt;/strong&gt;</ept> page, select <bpt id="faa5a26d-e67a-428f-8d87-352c49c2679d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faa5a26d-e67a-428f-8d87-352c49c2679d">&lt;/strong&gt;</ept>, and then click <bpt id="8279e073-fe49-46ba-81ff-fe2359671ac2">&lt;strong&gt;</bpt>Next<ept id="8279e073-fe49-46ba-81ff-fe2359671ac2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="b0cd2c9e-220f-4c99-820a-6e4c0e643068">&lt;strong&gt;</bpt>How would you like users to sign on to TOPdesk - Public<ept id="b0cd2c9e-220f-4c99-820a-6e4c0e643068">&lt;/strong&gt;</ept> page, select <bpt id="faa5a26d-e67a-428f-8d87-352c49c2679d">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="faa5a26d-e67a-428f-8d87-352c49c2679d">&lt;/strong&gt;</ept>, and then click <bpt id="8279e073-fe49-46ba-81ff-fe2359671ac2">&lt;strong&gt;</bpt>Next<ept id="8279e073-fe49-46ba-81ff-fe2359671ac2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="db18ae18-858f-454a-9756-c92911cde59e" xml:space="preserve">
+          <source><bpt id="3af411b9-7a0a-46ab-bbea-728bcd4942af">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3af411b9-7a0a-46ab-bbea-728bcd4942af">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3af411b9-7a0a-46ab-bbea-728bcd4942af">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="3af411b9-7a0a-46ab-bbea-728bcd4942af">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="57313e9a-98a4-48e2-9c43-83b9d4a983ef" xml:space="preserve">
+          <source>On the <bpt id="de85fd4a-79cf-4b2c-87bd-b7b25373c885">&lt;strong&gt;</bpt>Configure App URL<ept id="de85fd4a-79cf-4b2c-87bd-b7b25373c885">&lt;/strong&gt;</ept> page, perform the following steps:</source>
+          <target state="new">On the <bpt id="de85fd4a-79cf-4b2c-87bd-b7b25373c885">&lt;strong&gt;</bpt>Configure App URL<ept id="de85fd4a-79cf-4b2c-87bd-b7b25373c885">&lt;/strong&gt;</ept> page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="36f5876f-0b5d-442c-bf2c-37805328cbb9" xml:space="preserve">
+          <source><bpt id="8d6784fe-1888-44d4-b418-27dd90f7e230">&lt;linkText&gt;</bpt>Configure App URL<ept id="8d6784fe-1888-44d4-b418-27dd90f7e230">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8d6784fe-1888-44d4-b418-27dd90f7e230">&lt;linkText&gt;</bpt>Configure App URL<ept id="8d6784fe-1888-44d4-b418-27dd90f7e230">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1ec7fbf-ee9f-4f40-8b7c-d953ea188b86" xml:space="preserve">
+          <source>In the <bpt id="3f6d5aef-8966-4e94-b2f3-7c1c141488d4">&lt;strong&gt;</bpt>TOPdesk - Public Sign On URL<ept id="3f6d5aef-8966-4e94-b2f3-7c1c141488d4">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign into your TOPdesk - Public application (e.g.: "<bpt id="36b0bef5-d78a-4a86-acee-8db0f4ce2e9f">&lt;em&gt;</bpt>https://qssolutions.topdesk.net<ept id="36b0bef5-d78a-4a86-acee-8db0f4ce2e9f">&lt;/em&gt;</ept>").</source>
+          <target state="new">In the <bpt id="3f6d5aef-8966-4e94-b2f3-7c1c141488d4">&lt;strong&gt;</bpt>TOPdesk - Public Sign On URL<ept id="3f6d5aef-8966-4e94-b2f3-7c1c141488d4">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign into your TOPdesk - Public application (e.g.: "<bpt id="36b0bef5-d78a-4a86-acee-8db0f4ce2e9f">&lt;em&gt;</bpt>https://qssolutions.topdesk.net<ept id="36b0bef5-d78a-4a86-acee-8db0f4ce2e9f">&lt;/em&gt;</ept>").</target>
+        </trans-unit>
+        <trans-unit id="23dc7c33-738b-4787-a5aa-2c141daa2415" xml:space="preserve">
+          <source>In the <bpt id="6d874543-2303-47a9-9a12-4cf098710325">&lt;strong&gt;</bpt>TOPdesk – Public Reply URL<ept id="6d874543-2303-47a9-9a12-4cf098710325">&lt;/strong&gt;</ept> textbox, paste the <bpt id="9065679b-01db-4708-afa9-c43695642d3a">&lt;strong&gt;</bpt>TOPdesk - Public AssertionConsumerService URL<ept id="9065679b-01db-4708-afa9-c43695642d3a">&lt;/strong&gt;</ept> (e.g.: "<bpt id="fcd90585-ce81-4e8b-b74b-1750c415b5ad">&lt;em&gt;</bpt>https://qssolutions.topdesk.net/tas/public/login/saml<ept id="fcd90585-ce81-4e8b-b74b-1750c415b5ad">&lt;/em&gt;</ept>")</source>
+          <target state="new">In the <bpt id="6d874543-2303-47a9-9a12-4cf098710325">&lt;strong&gt;</bpt>TOPdesk – Public Reply URL<ept id="6d874543-2303-47a9-9a12-4cf098710325">&lt;/strong&gt;</ept> textbox, paste the <bpt id="9065679b-01db-4708-afa9-c43695642d3a">&lt;strong&gt;</bpt>TOPdesk - Public AssertionConsumerService URL<ept id="9065679b-01db-4708-afa9-c43695642d3a">&lt;/strong&gt;</ept> (e.g.: "<bpt id="fcd90585-ce81-4e8b-b74b-1750c415b5ad">&lt;em&gt;</bpt>https://qssolutions.topdesk.net/tas/public/login/saml<ept id="fcd90585-ce81-4e8b-b74b-1750c415b5ad">&lt;/em&gt;</ept>")</target>
+        </trans-unit>
+        <trans-unit id="df28f5b4-96d5-4d42-90b3-20e7c8b399e4" xml:space="preserve">
+          <source>Click <bpt id="bb3314d7-e290-492b-9ef6-4147a266374d">&lt;strong&gt;</bpt>Next<ept id="bb3314d7-e290-492b-9ef6-4147a266374d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bb3314d7-e290-492b-9ef6-4147a266374d">&lt;strong&gt;</bpt>Next<ept id="bb3314d7-e290-492b-9ef6-4147a266374d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e6013161-8fb9-4b92-855e-dc11475935da" xml:space="preserve">
+          <source>On the <bpt id="e6276801-442b-4559-b8ed-e8eed0415494">&lt;strong&gt;</bpt>Configure single sign-on at TOPdesk - Public<ept id="e6276801-442b-4559-b8ed-e8eed0415494">&lt;/strong&gt;</ept> page, to download your metadata file, click <bpt id="cd9b94ef-1576-4d08-8e94-26de0c014cf2">&lt;strong&gt;</bpt>Download metadata<ept id="cd9b94ef-1576-4d08-8e94-26de0c014cf2">&lt;/strong&gt;</ept>, and then save the file locally on your computer.</source>
+          <target state="new">On the <bpt id="e6276801-442b-4559-b8ed-e8eed0415494">&lt;strong&gt;</bpt>Configure single sign-on at TOPdesk - Public<ept id="e6276801-442b-4559-b8ed-e8eed0415494">&lt;/strong&gt;</ept> page, to download your metadata file, click <bpt id="cd9b94ef-1576-4d08-8e94-26de0c014cf2">&lt;strong&gt;</bpt>Download metadata<ept id="cd9b94ef-1576-4d08-8e94-26de0c014cf2">&lt;/strong&gt;</ept>, and then save the file locally on your computer.</target>
+        </trans-unit>
+        <trans-unit id="2c195cb4-2fb9-427b-ad0f-d22f032b1c0a" xml:space="preserve">
+          <source><bpt id="79f183f8-87ec-4226-985c-0f6b1adb4ed3">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="79f183f8-87ec-4226-985c-0f6b1adb4ed3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="79f183f8-87ec-4226-985c-0f6b1adb4ed3">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="79f183f8-87ec-4226-985c-0f6b1adb4ed3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="59e8c9ac-5da1-408d-a051-7e5ebbe159c3" xml:space="preserve">
+          <source>To create a certificate file, perform the following steps:</source>
+          <target state="new">To create a certificate file, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="ab6a703a-a2ce-466e-a291-3accb3c40b12" xml:space="preserve">
+          <source><bpt id="7ac83e10-fffb-47bf-967a-014c5a803dc7">&lt;linkText&gt;</bpt>Certificate<ept id="7ac83e10-fffb-47bf-967a-014c5a803dc7">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7ac83e10-fffb-47bf-967a-014c5a803dc7">&lt;linkText&gt;</bpt>Certificate<ept id="7ac83e10-fffb-47bf-967a-014c5a803dc7">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9aed2359-2cb8-4327-880f-4f45a44797e9" xml:space="preserve">
+          <source>Open the downloaded metadata file.</source>
+          <target state="new">Open the downloaded metadata file.</target>
+        </trans-unit>
+        <trans-unit id="7ca872bf-3178-4ddd-82dd-572f6f9a1f52" xml:space="preserve">
+          <source>Expand the <bpt id="9c6f7e88-0258-4d00-bd49-9fb9c3399f04">&lt;strong&gt;</bpt>RoleDescriptor<ept id="9c6f7e88-0258-4d00-bd49-9fb9c3399f04">&lt;/strong&gt;</ept> node that has a <bpt id="5ef5dc61-8217-4d9c-ac48-7091af85b315">&lt;strong&gt;</bpt>xsi:type<ept id="5ef5dc61-8217-4d9c-ac48-7091af85b315">&lt;/strong&gt;</ept> of <bpt id="3e0aa347-681c-4fd2-9236-bab012edd772">&lt;strong&gt;</bpt>fed:ApplicationServiceType<ept id="3e0aa347-681c-4fd2-9236-bab012edd772">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the <bpt id="9c6f7e88-0258-4d00-bd49-9fb9c3399f04">&lt;strong&gt;</bpt>RoleDescriptor<ept id="9c6f7e88-0258-4d00-bd49-9fb9c3399f04">&lt;/strong&gt;</ept> node that has a <bpt id="5ef5dc61-8217-4d9c-ac48-7091af85b315">&lt;strong&gt;</bpt>xsi:type<ept id="5ef5dc61-8217-4d9c-ac48-7091af85b315">&lt;/strong&gt;</ept> of <bpt id="3e0aa347-681c-4fd2-9236-bab012edd772">&lt;strong&gt;</bpt>fed:ApplicationServiceType<ept id="3e0aa347-681c-4fd2-9236-bab012edd772">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a767405f-9f11-43f4-a1ae-55bdc4ffc357" xml:space="preserve">
+          <source>Copy the value of the <bpt id="91810f87-7024-49d4-ab75-c8cc39fc045d">&lt;strong&gt;</bpt>X509Certificate<ept id="91810f87-7024-49d4-ab75-c8cc39fc045d">&lt;/strong&gt;</ept> node.</source>
+          <target state="new">Copy the value of the <bpt id="91810f87-7024-49d4-ab75-c8cc39fc045d">&lt;strong&gt;</bpt>X509Certificate<ept id="91810f87-7024-49d4-ab75-c8cc39fc045d">&lt;/strong&gt;</ept> node.</target>
+        </trans-unit>
+        <trans-unit id="eeb2d93f-c2f5-489c-b39c-2968789e090f" xml:space="preserve">
+          <source>Save the copied <bpt id="a61c44c1-6511-4629-aaff-9ab59756ef26">&lt;strong&gt;</bpt>X509Certificate<ept id="a61c44c1-6511-4629-aaff-9ab59756ef26">&lt;/strong&gt;</ept> value locally on your computer in a file.</source>
+          <target state="new">Save the copied <bpt id="a61c44c1-6511-4629-aaff-9ab59756ef26">&lt;strong&gt;</bpt>X509Certificate<ept id="a61c44c1-6511-4629-aaff-9ab59756ef26">&lt;/strong&gt;</ept> value locally on your computer in a file.</target>
+        </trans-unit>
+        <trans-unit id="3db146a7-df21-4a9f-beba-38f65d528d5b" xml:space="preserve">
+          <source>On your TOPdesk - Public company site, in the <bpt id="e0707c56-31e8-4baf-838f-2fda3fd67189">&lt;strong&gt;</bpt>TOPdesk<ept id="e0707c56-31e8-4baf-838f-2fda3fd67189">&lt;/strong&gt;</ept> menu, click <bpt id="3301eafc-cf91-496d-969f-d915a8d18700">&lt;strong&gt;</bpt>Settings<ept id="3301eafc-cf91-496d-969f-d915a8d18700">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On your TOPdesk - Public company site, in the <bpt id="e0707c56-31e8-4baf-838f-2fda3fd67189">&lt;strong&gt;</bpt>TOPdesk<ept id="e0707c56-31e8-4baf-838f-2fda3fd67189">&lt;/strong&gt;</ept> menu, click <bpt id="3301eafc-cf91-496d-969f-d915a8d18700">&lt;strong&gt;</bpt>Settings<ept id="3301eafc-cf91-496d-969f-d915a8d18700">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47b70dac-64bc-4a08-84b0-f6af8513489f" xml:space="preserve">
+          <source><bpt id="0d8c4a8d-de78-47e0-9761-082000997bd0">&lt;linkText&gt;</bpt>Settings<ept id="0d8c4a8d-de78-47e0-9761-082000997bd0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="0d8c4a8d-de78-47e0-9761-082000997bd0">&lt;linkText&gt;</bpt>Settings<ept id="0d8c4a8d-de78-47e0-9761-082000997bd0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0eddd7d4-2807-457f-ab8d-0a9c924adf97" xml:space="preserve">
+          <source>Click <bpt id="bf7423c0-4249-4a10-9865-564afe0613e6">&lt;strong&gt;</bpt>Login Settings<ept id="bf7423c0-4249-4a10-9865-564afe0613e6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="bf7423c0-4249-4a10-9865-564afe0613e6">&lt;strong&gt;</bpt>Login Settings<ept id="bf7423c0-4249-4a10-9865-564afe0613e6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8f36ae01-424b-4bbd-9885-0b4bf4336a96" xml:space="preserve">
+          <source><bpt id="700793bd-247b-4b7b-b0c9-48f77678cd5e">&lt;linkText&gt;</bpt>Login Settings<ept id="700793bd-247b-4b7b-b0c9-48f77678cd5e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="700793bd-247b-4b7b-b0c9-48f77678cd5e">&lt;linkText&gt;</bpt>Login Settings<ept id="700793bd-247b-4b7b-b0c9-48f77678cd5e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="13e2fdb3-152b-4f04-a308-f504df84b6ed" xml:space="preserve">
+          <source>Expand the <bpt id="1b33b69b-dbeb-4e03-8502-ee3dc53a6349">&lt;strong&gt;</bpt>Login Settings<ept id="1b33b69b-dbeb-4e03-8502-ee3dc53a6349">&lt;/strong&gt;</ept> menu, and then click <bpt id="18922357-1de3-47a4-9613-7486778e59e8">&lt;strong&gt;</bpt>General<ept id="18922357-1de3-47a4-9613-7486778e59e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Expand the <bpt id="1b33b69b-dbeb-4e03-8502-ee3dc53a6349">&lt;strong&gt;</bpt>Login Settings<ept id="1b33b69b-dbeb-4e03-8502-ee3dc53a6349">&lt;/strong&gt;</ept> menu, and then click <bpt id="18922357-1de3-47a4-9613-7486778e59e8">&lt;strong&gt;</bpt>General<ept id="18922357-1de3-47a4-9613-7486778e59e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f88e0d51-5a02-4f7e-b2cd-9919158e802b" xml:space="preserve">
+          <source><bpt id="7e60c8a1-eee6-4bcb-94d2-8f952d8dbdbc">&lt;linkText&gt;</bpt>General<ept id="7e60c8a1-eee6-4bcb-94d2-8f952d8dbdbc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7e60c8a1-eee6-4bcb-94d2-8f952d8dbdbc">&lt;linkText&gt;</bpt>General<ept id="7e60c8a1-eee6-4bcb-94d2-8f952d8dbdbc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="271d2ab9-3386-42eb-ade1-e676b0a8e746" xml:space="preserve">
+          <source>In the <bpt id="6179ff66-dc42-4339-ab23-2aaf4cd50b4f">&lt;strong&gt;</bpt>Public<ept id="6179ff66-dc42-4339-ab23-2aaf4cd50b4f">&lt;/strong&gt;</ept> section, click <bpt id="40463289-6436-484d-82be-9a2faf46a9ea">&lt;strong&gt;</bpt>Add<ept id="40463289-6436-484d-82be-9a2faf46a9ea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="6179ff66-dc42-4339-ab23-2aaf4cd50b4f">&lt;strong&gt;</bpt>Public<ept id="6179ff66-dc42-4339-ab23-2aaf4cd50b4f">&lt;/strong&gt;</ept> section, click <bpt id="40463289-6436-484d-82be-9a2faf46a9ea">&lt;strong&gt;</bpt>Add<ept id="40463289-6436-484d-82be-9a2faf46a9ea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2d5d3b0-2a69-4083-ac94-4c7484d1f238" xml:space="preserve">
+          <source><bpt id="cf2ec117-6144-474e-9a5d-9f2140c33c82">&lt;linkText&gt;</bpt>SAML Login<ept id="cf2ec117-6144-474e-9a5d-9f2140c33c82">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cf2ec117-6144-474e-9a5d-9f2140c33c82">&lt;linkText&gt;</bpt>SAML Login<ept id="cf2ec117-6144-474e-9a5d-9f2140c33c82">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="62e61fc8-4cdf-48ba-8d97-dab4b860dbdc" xml:space="preserve">
+          <source>On the <bpt id="ecb2bda2-9627-4cef-a873-ea1410c33d6c">&lt;strong&gt;</bpt>SAML configuration assistant<ept id="ecb2bda2-9627-4cef-a873-ea1410c33d6c">&lt;/strong&gt;</ept> dialog page, perform the following steps:</source>
+          <target state="new">On the <bpt id="ecb2bda2-9627-4cef-a873-ea1410c33d6c">&lt;strong&gt;</bpt>SAML configuration assistant<ept id="ecb2bda2-9627-4cef-a873-ea1410c33d6c">&lt;/strong&gt;</ept> dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="b35af311-3e82-409d-a8f3-05bc231f25d6" xml:space="preserve">
+          <source><bpt id="b24c409f-7f00-43c1-b967-5113abbf3716">&lt;linkText&gt;</bpt>SAML Configuration Assistant<ept id="b24c409f-7f00-43c1-b967-5113abbf3716">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b24c409f-7f00-43c1-b967-5113abbf3716">&lt;linkText&gt;</bpt>SAML Configuration Assistant<ept id="b24c409f-7f00-43c1-b967-5113abbf3716">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="23de3e62-3491-4263-b2ad-20b3f9f3e729" xml:space="preserve">
+          <source>To upload your downloaded metadata file, under <bpt id="48e28bda-dd93-4e1e-b345-45b9b8dff697">&lt;strong&gt;</bpt>Federation Metadata<ept id="48e28bda-dd93-4e1e-b345-45b9b8dff697">&lt;/strong&gt;</ept>, click <bpt id="0ec7e29a-f2d1-4f54-ad40-079f32cf2224">&lt;strong&gt;</bpt>Browse<ept id="0ec7e29a-f2d1-4f54-ad40-079f32cf2224">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your downloaded metadata file, under <bpt id="48e28bda-dd93-4e1e-b345-45b9b8dff697">&lt;strong&gt;</bpt>Federation Metadata<ept id="48e28bda-dd93-4e1e-b345-45b9b8dff697">&lt;/strong&gt;</ept>, click <bpt id="0ec7e29a-f2d1-4f54-ad40-079f32cf2224">&lt;strong&gt;</bpt>Browse<ept id="0ec7e29a-f2d1-4f54-ad40-079f32cf2224">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="930e10da-241e-4e44-bb59-58ec33722191" xml:space="preserve">
+          <source>To upload your certificate file, under <bpt id="6fb7c13b-2dcf-44b2-9065-5ac5c39ff21d">&lt;strong&gt;</bpt>Certificate (RSA)<ept id="6fb7c13b-2dcf-44b2-9065-5ac5c39ff21d">&lt;/strong&gt;</ept>, click <bpt id="c46d166f-a748-4307-94bd-f99f5c011be6">&lt;strong&gt;</bpt>Browse<ept id="c46d166f-a748-4307-94bd-f99f5c011be6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload your certificate file, under <bpt id="6fb7c13b-2dcf-44b2-9065-5ac5c39ff21d">&lt;strong&gt;</bpt>Certificate (RSA)<ept id="6fb7c13b-2dcf-44b2-9065-5ac5c39ff21d">&lt;/strong&gt;</ept>, click <bpt id="c46d166f-a748-4307-94bd-f99f5c011be6">&lt;strong&gt;</bpt>Browse<ept id="c46d166f-a748-4307-94bd-f99f5c011be6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="089f0470-1893-48d1-98f0-9b6f0cb4ab68" xml:space="preserve">
+          <source>To upload the logo file you got from the TOPdesk support team, under <bpt id="2ae8a4e2-27eb-49ed-8460-8c51b78b25d0">&lt;strong&gt;</bpt>Logo icon<ept id="2ae8a4e2-27eb-49ed-8460-8c51b78b25d0">&lt;/strong&gt;</ept>, click <bpt id="5bc616df-5d0b-40da-aee7-7720e7eff28d">&lt;strong&gt;</bpt>Browse<ept id="5bc616df-5d0b-40da-aee7-7720e7eff28d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To upload the logo file you got from the TOPdesk support team, under <bpt id="2ae8a4e2-27eb-49ed-8460-8c51b78b25d0">&lt;strong&gt;</bpt>Logo icon<ept id="2ae8a4e2-27eb-49ed-8460-8c51b78b25d0">&lt;/strong&gt;</ept>, click <bpt id="5bc616df-5d0b-40da-aee7-7720e7eff28d">&lt;strong&gt;</bpt>Browse<ept id="5bc616df-5d0b-40da-aee7-7720e7eff28d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7df37674-93cb-4abe-8df5-f614a8e1130a" xml:space="preserve">
+          <source>In the <bpt id="018f432e-416d-4f18-af17-b839f4eca2b6">&lt;strong&gt;</bpt>User name attribute<ept id="018f432e-416d-4f18-af17-b839f4eca2b6">&lt;/strong&gt;</ept> textbox, type <bpt id="a5bb607f-d63d-46ed-aeb7-a50f360ab35a">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="a5bb607f-d63d-46ed-aeb7-a50f360ab35a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="018f432e-416d-4f18-af17-b839f4eca2b6">&lt;strong&gt;</bpt>User name attribute<ept id="018f432e-416d-4f18-af17-b839f4eca2b6">&lt;/strong&gt;</ept> textbox, type <bpt id="a5bb607f-d63d-46ed-aeb7-a50f360ab35a">&lt;strong&gt;</bpt>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress<ept id="a5bb607f-d63d-46ed-aeb7-a50f360ab35a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="47adb1d1-26eb-40f0-8430-ee54836b9955" xml:space="preserve">
+          <source>In the <bpt id="02e92edb-854f-4ac4-865f-cbbbf6d9fc81">&lt;strong&gt;</bpt>Display name<ept id="02e92edb-854f-4ac4-865f-cbbbf6d9fc81">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</source>
+          <target state="new">In the <bpt id="02e92edb-854f-4ac4-865f-cbbbf6d9fc81">&lt;strong&gt;</bpt>Display name<ept id="02e92edb-854f-4ac4-865f-cbbbf6d9fc81">&lt;/strong&gt;</ept> textbox, type a name for your configuration.</target>
+        </trans-unit>
+        <trans-unit id="e0fc7eda-f357-4118-94b0-e213fe59b839" xml:space="preserve">
+          <source>Click <bpt id="c41aa1dd-7e9c-4870-9b63-c6339d931d2b">&lt;strong&gt;</bpt>Save<ept id="c41aa1dd-7e9c-4870-9b63-c6339d931d2b">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c41aa1dd-7e9c-4870-9b63-c6339d931d2b">&lt;strong&gt;</bpt>Save<ept id="c41aa1dd-7e9c-4870-9b63-c6339d931d2b">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e990317-f81e-4119-ae70-832c9e4b2983" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="befdacb1-e607-407a-be7e-10bacdfcd9a3">&lt;strong&gt;</bpt>Complete<ept id="befdacb1-e607-407a-be7e-10bacdfcd9a3">&lt;/strong&gt;</ept> to close the <bpt id="93ce6f19-4ccc-4550-8f65-fc5ec519782f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="93ce6f19-4ccc-4550-8f65-fc5ec519782f">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="befdacb1-e607-407a-be7e-10bacdfcd9a3">&lt;strong&gt;</bpt>Complete<ept id="befdacb1-e607-407a-be7e-10bacdfcd9a3">&lt;/strong&gt;</ept> to close the <bpt id="93ce6f19-4ccc-4550-8f65-fc5ec519782f">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="93ce6f19-4ccc-4550-8f65-fc5ec519782f">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="a18262aa-c7ea-4df2-86f9-2fa9ef13ac31" xml:space="preserve">
+          <source><bpt id="a6a5bfe3-3b15-449f-9f30-bcf84942d66d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="a6a5bfe3-3b15-449f-9f30-bcf84942d66d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6a5bfe3-3b15-449f-9f30-bcf84942d66d">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="a6a5bfe3-3b15-449f-9f30-bcf84942d66d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1f2c2b6c-3c92-45a8-a5e3-a0bc28054bcd" xml:space="preserve">
+          <source>In order to enable Azure AD users to log into TOPdesk - Public, they must be provisioned into TOPdesk - Public.</source>
+          <target state="new">In order to enable Azure AD users to log into TOPdesk - Public, they must be provisioned into TOPdesk - Public.</target>
+        </trans-unit>
+        <trans-unit id="8f8676d1-3987-4af8-9341-9705ffad3d19" xml:space="preserve">
+          <source>In the case of TOPdesk - Public, provisioning is a manual task.</source>
+          <target state="new">In the case of TOPdesk - Public, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="46882fe0-dbd8-47ca-803a-dcfe3f31ef48" xml:space="preserve">
+          <source>Sign on to your <bpt id="d802bc97-10fb-43a8-a908-dae2f91fd9fd">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="d802bc97-10fb-43a8-a908-dae2f91fd9fd">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Sign on to your <bpt id="d802bc97-10fb-43a8-a908-dae2f91fd9fd">&lt;strong&gt;</bpt>TOPdesk - Public<ept id="d802bc97-10fb-43a8-a908-dae2f91fd9fd">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="a2affd6f-3eef-42f8-8990-9f00ccecc18b" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="19633a11-ddb9-4b0a-9981-6b44d4bd0308">&lt;strong&gt;</bpt>TOPdesk \&gt; New \&gt; Support Files \&gt; Person<ept id="19633a11-ddb9-4b0a-9981-6b44d4bd0308">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="19633a11-ddb9-4b0a-9981-6b44d4bd0308">&lt;strong&gt;</bpt>TOPdesk \&gt; New \&gt; Support Files \&gt; Person<ept id="19633a11-ddb9-4b0a-9981-6b44d4bd0308">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b9f0343a-3274-4be2-900d-4b311679ded5" xml:space="preserve">
+          <source><bpt id="979ad1c1-9367-44ab-b364-937daf7182dc">&lt;linkText&gt;</bpt>Person<ept id="979ad1c1-9367-44ab-b364-937daf7182dc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="979ad1c1-9367-44ab-b364-937daf7182dc">&lt;linkText&gt;</bpt>Person<ept id="979ad1c1-9367-44ab-b364-937daf7182dc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="f9fdc9d2-5e1f-4696-8d02-cd3593d4e50f" xml:space="preserve">
+          <source>On the New Person dialog, perform the following steps:</source>
+          <target state="new">On the New Person dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="edd690b0-72b3-4ee2-b46b-438326f9320b" xml:space="preserve">
+          <source><bpt id="9264fd4b-d833-465a-855a-b51f6923d6cf">&lt;linkText&gt;</bpt>New Person<ept id="9264fd4b-d833-465a-855a-b51f6923d6cf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9264fd4b-d833-465a-855a-b51f6923d6cf">&lt;linkText&gt;</bpt>New Person<ept id="9264fd4b-d833-465a-855a-b51f6923d6cf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5c4d9a7-9c64-435a-9423-1aa736c0ff80" xml:space="preserve">
+          <source>Click the General tab.</source>
+          <target state="new">Click the General tab.</target>
+        </trans-unit>
+        <trans-unit id="fefb619c-e76a-4474-b684-8bf13feed6a8" xml:space="preserve">
+          <source>In the Surname textbox, type the last name of a valid Azure Active Directory account you want to provision.</source>
+          <target state="new">In the Surname textbox, type the last name of a valid Azure Active Directory account you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="c5564fee-527c-4aaf-bea7-4a7762aebfdc" xml:space="preserve">
+          <source>Select a <bpt id="4e71910f-d59d-4919-bb22-d4769e498717">&lt;strong&gt;</bpt>Site<ept id="4e71910f-d59d-4919-bb22-d4769e498717">&lt;/strong&gt;</ept> for the account.</source>
+          <target state="new">Select a <bpt id="4e71910f-d59d-4919-bb22-d4769e498717">&lt;strong&gt;</bpt>Site<ept id="4e71910f-d59d-4919-bb22-d4769e498717">&lt;/strong&gt;</ept> for the account.</target>
+        </trans-unit>
+        <trans-unit id="fd7fb993-7193-486a-88a4-68571c47a518" xml:space="preserve">
+          <source>Click <bpt id="26fa1e1c-7e29-42e1-be78-78203b4622c3">&lt;strong&gt;</bpt>Save<ept id="26fa1e1c-7e29-42e1-be78-78203b4622c3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="26fa1e1c-7e29-42e1-be78-78203b4622c3">&lt;strong&gt;</bpt>Save<ept id="26fa1e1c-7e29-42e1-be78-78203b4622c3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b16d398f-6e4f-4dcf-b39c-8506b4c10fab" xml:space="preserve">
+          <source>You can use any other TOPdesk - Public user account creation tools or APIs provided by TOPdesk - Public to provision AAD user accounts.</source>
+          <target state="new">You can use any other TOPdesk - Public user account creation tools or APIs provided by TOPdesk - Public to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="60ea3862-4980-4cf1-ba82-70d17623c9db" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="40f9892b-8837-4b32-a8c6-f9179b32df65" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="8f6f1892-defd-44c2-982b-4ec04d94f7ca" xml:space="preserve">
+          <source>On the <bpt id="1bdaede3-dd6c-4555-8cf0-3cff969b39e3">&lt;strong&gt;</bpt>TOPdesk - Public **application integration page, click **Assign users<ept id="1bdaede3-dd6c-4555-8cf0-3cff969b39e3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="1bdaede3-dd6c-4555-8cf0-3cff969b39e3">&lt;strong&gt;</bpt>TOPdesk - Public **application integration page, click **Assign users<ept id="1bdaede3-dd6c-4555-8cf0-3cff969b39e3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="785de19f-2e3d-4914-b738-7b2334e3faa3" xml:space="preserve">
+          <source><bpt id="2e0987a0-0862-40e9-ac56-6098f6894323">&lt;linkText&gt;</bpt>Assign Users<ept id="2e0987a0-0862-40e9-ac56-6098f6894323">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2e0987a0-0862-40e9-ac56-6098f6894323">&lt;linkText&gt;</bpt>Assign Users<ept id="2e0987a0-0862-40e9-ac56-6098f6894323">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f340cf6-b504-4c40-8fe0-a3fcd47adb8f" xml:space="preserve">
+          <source>Select your test user, click <bpt id="0e8b85ec-506d-47ee-ad97-f3fac269fac1">&lt;strong&gt;</bpt>Assign<ept id="0e8b85ec-506d-47ee-ad97-f3fac269fac1">&lt;/strong&gt;</ept>, and then click <bpt id="b8ddf04b-31e8-4987-8c1b-ecc8b9aba883">&lt;strong&gt;</bpt>Yes<ept id="b8ddf04b-31e8-4987-8c1b-ecc8b9aba883">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="0e8b85ec-506d-47ee-ad97-f3fac269fac1">&lt;strong&gt;</bpt>Assign<ept id="0e8b85ec-506d-47ee-ad97-f3fac269fac1">&lt;/strong&gt;</ept>, and then click <bpt id="b8ddf04b-31e8-4987-8c1b-ecc8b9aba883">&lt;strong&gt;</bpt>Yes<ept id="b8ddf04b-31e8-4987-8c1b-ecc8b9aba883">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="dc0b38db-619c-409f-974e-ecab7e06744f" xml:space="preserve">
+          <source><bpt id="7662b08a-f7cd-4ffc-8d89-5ba630e0d88f">&lt;linkText&gt;</bpt>Yes<ept id="7662b08a-f7cd-4ffc-8d89-5ba630e0d88f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7662b08a-f7cd-4ffc-8d89-5ba630e0d88f">&lt;linkText&gt;</bpt>Yes<ept id="7662b08a-f7cd-4ffc-8d89-5ba630e0d88f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad3b4b1d-d5af-45ed-a2ca-caacd95234df" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="b6da3d88-9781-4f3c-8516-abb2c0d3f3ab" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;/linkText&gt;</ept><bpt id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;title&gt;</bpt><ept id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;/linkText&gt;</ept><bpt id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;title&gt;</bpt><ept id="53edb315-9689-4520-947f-7b1bd3cfe6b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

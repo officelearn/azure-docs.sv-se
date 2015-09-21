@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="db7b3710-2121-433d-9cbf-3a383d122173" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="db7b3710-2121-433d-9cbf-3a383d122173" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="eeca304f-b459-47ac-873b-afac896c13b6">
+        <trans-unit id="82accc0f-0f19-4c92-97a9-018608b3eec5" xml:space="preserve">
+          <source>Troubleshoot Access to an Application Running on an Azure Virtual Machine</source>
+          <target state="new">Troubleshoot Access to an Application Running on an Azure Virtual Machine</target>
+        </trans-unit>
+        <trans-unit id="0494c5ab-95a4-4d8a-a23c-9768beaa1876" xml:space="preserve">
+          <source>If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem.</source>
+          <target state="new">If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem.</target>
+        </trans-unit>
+        <trans-unit id="be3a6e78-20db-4835-ab57-d7eaa865f983" xml:space="preserve">
+          <source>If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.</source>
+          <target state="new">If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.</target>
+        </trans-unit>
+        <trans-unit id="c9a6ceb5-d649-48e6-a5c0-a261b0b6c31c" xml:space="preserve">
+          <source>For help in connecting to an Azure virtual machine, see <bpt id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;/linkText&gt;</ept><bpt id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;title&gt;</bpt><ept id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;/title&gt;</ept> or <bpt id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;/linkText&gt;</ept><bpt id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;title&gt;</bpt><ept id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For help in connecting to an Azure virtual machine, see <bpt id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;/linkText&gt;</ept><bpt id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;title&gt;</bpt><ept id="5f329485-c381-438c-9b09-ec6292b6f7ec">&lt;/title&gt;</ept> or <bpt id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;/linkText&gt;</ept><bpt id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;title&gt;</bpt><ept id="c993a478-3f4e-4c27-86f1-46ab80743a8d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e115a838-37a5-4db9-9cba-be0844bdc505" xml:space="preserve">
+          <source>There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.</source>
+          <target state="new">There are four main areas to troubleshoot the access of an application that is running on an Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="bf9fe40d-6056-4479-9b95-9a2f90825566" xml:space="preserve">
+          <source><bpt id="5bc870f6-a8f1-4e8f-97c5-762b1add9111">&lt;linkText&gt;</bpt><ept id="5bc870f6-a8f1-4e8f-97c5-762b1add9111">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5bc870f6-a8f1-4e8f-97c5-762b1add9111">&lt;linkText&gt;</bpt><ept id="5bc870f6-a8f1-4e8f-97c5-762b1add9111">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7fcb44de-8d12-49d6-82d9-94aa555aee07" xml:space="preserve">
+          <source>The application running on the Azure virtual machine.</source>
+          <target state="new">The application running on the Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="643a3e71-c1e4-4d6a-af6a-23a714084978" xml:space="preserve">
+          <source>The Azure virtual machine.</source>
+          <target state="new">The Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="7e12bcce-6336-40bf-8f3d-17085031fe19" xml:space="preserve">
+          <source>Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created using the Service Management API), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.</source>
+          <target state="new">Azure endpoints for the cloud service that contains the virtual machine (for virtual machines created using the Service Management API), inbound NAT rules (for virtual machines created in Resource Manager), and Network Security Groups.</target>
+        </trans-unit>
+        <trans-unit id="c32aa7d8-e533-458a-92b3-32e186196539" xml:space="preserve">
+          <source>Your Internet edge device.</source>
+          <target state="new">Your Internet edge device.</target>
+        </trans-unit>
+        <trans-unit id="f11ba2f4-1aa9-4920-bf54-314fb8c06e6b" xml:space="preserve">
+          <source>For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.</source>
+          <target state="new">For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="f3cacb76-c768-4a34-95b9-406eb18304a9" xml:space="preserve">
+          <source>To determine the source of the problem and its correction, follow these steps.</source>
+          <target state="new">To determine the source of the problem and its correction, follow these steps.</target>
+        </trans-unit>
+        <trans-unit id="e00ee94d-4631-4109-84af-c483a4d12808" xml:space="preserve">
+          <source>Try to access the application with the appropriate client program from the virtual machine on which the application is running, Use the local host name, the local IP address, or the loopback address (127.0.0.1).</source>
+          <target state="new">Try to access the application with the appropriate client program from the virtual machine on which the application is running, Use the local host name, the local IP address, or the loopback address (127.0.0.1).</target>
+        </trans-unit>
+        <trans-unit id="b1cb6020-2899-4b9b-82f1-16ac69ba40cb" xml:space="preserve">
+          <source><bpt id="b88bd98c-fc64-4e8d-84fa-01e1156523d8">&lt;linkText&gt;</bpt><ept id="b88bd98c-fc64-4e8d-84fa-01e1156523d8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b88bd98c-fc64-4e8d-84fa-01e1156523d8">&lt;linkText&gt;</bpt><ept id="b88bd98c-fc64-4e8d-84fa-01e1156523d8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a0ac3f2b-3faf-47a5-aea0-5e7879b4e640" xml:space="preserve">
+          <source>For example, if the application is a web server, run a browser on the virtual machine and try to access a web page hosted on the virtual machine.</source>
+          <target state="new">For example, if the application is a web server, run a browser on the virtual machine and try to access a web page hosted on the virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="a7ba818d-bd59-4faa-9640-8a4fce0de9a0" xml:space="preserve">
+          <source>If you can access the application, go to <bpt id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;linkText&gt;</bpt>Step 2<ept id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;/linkText&gt;</ept><bpt id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;title&gt;</bpt><ept id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you can access the application, go to <bpt id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;linkText&gt;</bpt>Step 2<ept id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;/linkText&gt;</ept><bpt id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;title&gt;</bpt><ept id="98d1b1c3-cbb9-430f-b343-9fdf298533e9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e3f0bc56-5d98-421b-bb5d-a1d64d2702c8" xml:space="preserve">
+          <source>If you cannot access the application, verify the following:</source>
+          <target state="new">If you cannot access the application, verify the following:</target>
+        </trans-unit>
+        <trans-unit id="57d1bfb0-70fc-4501-af23-d3b8eb8c031c" xml:space="preserve">
+          <source>The application is running on the target virtual machine.</source>
+          <target state="new">The application is running on the target virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8aa1a503-31f4-4bae-9101-cdb1344c20ee" xml:space="preserve">
+          <source>The application is listening on the expected TCP and UDP ports.</source>
+          <target state="new">The application is listening on the expected TCP and UDP ports.</target>
+        </trans-unit>
+        <trans-unit id="722f40c6-ec1a-4122-a31e-30ef7ce99185" xml:space="preserve">
+          <source>On both Windows and Linux-based virtual machines, use the <bpt id="5cc788af-cec9-4ca8-9526-c8c18cfa2fb5">&lt;strong&gt;</bpt>netstat -a<ept id="5cc788af-cec9-4ca8-9526-c8c18cfa2fb5">&lt;/strong&gt;</ept> command to show the active listening ports.</source>
+          <target state="new">On both Windows and Linux-based virtual machines, use the <bpt id="5cc788af-cec9-4ca8-9526-c8c18cfa2fb5">&lt;strong&gt;</bpt>netstat -a<ept id="5cc788af-cec9-4ca8-9526-c8c18cfa2fb5">&lt;/strong&gt;</ept> command to show the active listening ports.</target>
+        </trans-unit>
+        <trans-unit id="837edb24-a0d4-4c9c-bd30-9f2e2a879b36" xml:space="preserve">
+          <source>Examine the output for the expected ports on which your application should be listening.</source>
+          <target state="new">Examine the output for the expected ports on which your application should be listening.</target>
+        </trans-unit>
+        <trans-unit id="4656e41c-6f73-4976-9498-eaf013a6df2b" xml:space="preserve">
+          <source>Restart the application or configure it to use the expected ports as needed.</source>
+          <target state="new">Restart the application or configure it to use the expected ports as needed.</target>
+        </trans-unit>
+        <trans-unit id="d60e0900-5e28-4d20-b6c8-3f39bc19b3a4" xml:space="preserve">
+          <source>Try to access the application from a different virtual machine in the same virtual network as the virtual machine on which the application is running using the virtual machine's host name or its Azure-assigned public, private, or provider IP address.</source>
+          <target state="new">Try to access the application from a different virtual machine in the same virtual network as the virtual machine on which the application is running using the virtual machine's host name or its Azure-assigned public, private, or provider IP address.</target>
+        </trans-unit>
+        <trans-unit id="9ab3f755-c166-4a1c-9f3c-0f122e7dbe53" xml:space="preserve">
+          <source>For virtual machines created using the Service Management API, do not use the public IP address of the cloud service.</source>
+          <target state="new">For virtual machines created using the Service Management API, do not use the public IP address of the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="546dd761-3ef7-4ef9-8072-bd810ebb0564" xml:space="preserve">
+          <source><bpt id="1aa821d1-be69-4e9a-9bca-91bbf400f88e">&lt;linkText&gt;</bpt><ept id="1aa821d1-be69-4e9a-9bca-91bbf400f88e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1aa821d1-be69-4e9a-9bca-91bbf400f88e">&lt;linkText&gt;</bpt><ept id="1aa821d1-be69-4e9a-9bca-91bbf400f88e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55bcc77e-fd73-4eb7-a655-976ca9fca5a4" xml:space="preserve">
+          <source>For example, if the application is a web server, try to access a web page from a browser on a different virtual machine in the same virtual network.</source>
+          <target state="new">For example, if the application is a web server, try to access a web page from a browser on a different virtual machine in the same virtual network.</target>
+        </trans-unit>
+        <trans-unit id="8faaae4b-c0e3-4a1d-b5a0-e2b88cb4244c" xml:space="preserve">
+          <source>If you can access the application, go to <bpt id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;linkText&gt;</bpt>Step 3<ept id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;/linkText&gt;</ept><bpt id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;title&gt;</bpt><ept id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you can access the application, go to <bpt id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;linkText&gt;</bpt>Step 3<ept id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;/linkText&gt;</ept><bpt id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;title&gt;</bpt><ept id="0977367c-8223-4860-862b-4bbbd46d6659">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a494e467-f33c-4287-8737-500b6be0ca98" xml:space="preserve">
+          <source>If you cannot access the application, verify the following:</source>
+          <target state="new">If you cannot access the application, verify the following:</target>
+        </trans-unit>
+        <trans-unit id="1d05fe58-9e88-4a47-8132-d732b76b5b3c" xml:space="preserve">
+          <source>The host firewall on the target virtual machine is allowing the inbound request and outbound response traffic.</source>
+          <target state="new">The host firewall on the target virtual machine is allowing the inbound request and outbound response traffic.</target>
+        </trans-unit>
+        <trans-unit id="b8a61be0-7c70-4b85-8324-bf3a1944a7d8" xml:space="preserve">
+          <source>Intrusion detection or network monitoring software running on the target virtual machine is allowing the traffic.</source>
+          <target state="new">Intrusion detection or network monitoring software running on the target virtual machine is allowing the traffic.</target>
+        </trans-unit>
+        <trans-unit id="78651ec5-7db3-4b77-84d6-1bc9ce8a0741" xml:space="preserve">
+          <source>Network Security Groups are allowing the traffic.</source>
+          <target state="new">Network Security Groups are allowing the traffic.</target>
+        </trans-unit>
+        <trans-unit id="fbf5d341-74a0-4c30-a0fe-7ad09107d54a" xml:space="preserve">
+          <source>A separate component running in your virtual network in the path between the test virtual machine and the virtual machine, such as a load balancer or firewall, is allowing the traffic.</source>
+          <target state="new">A separate component running in your virtual network in the path between the test virtual machine and the virtual machine, such as a load balancer or firewall, is allowing the traffic.</target>
+        </trans-unit>
+        <trans-unit id="27515a13-ba28-4b68-9c67-f3e7d30c156e" xml:space="preserve">
+          <source>On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.</source>
+          <target state="new">On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.</target>
+        </trans-unit>
+        <trans-unit id="f97fe573-f497-4e8b-acd8-b71cacba47ea" xml:space="preserve">
+          <source>Try to access the application from a computer outside the virtual network as the virtual machine on which the application is running, but is not on the same network as your original client computer.</source>
+          <target state="new">Try to access the application from a computer outside the virtual network as the virtual machine on which the application is running, but is not on the same network as your original client computer.</target>
+        </trans-unit>
+        <trans-unit id="86ffb7b4-46a0-4597-a9f1-c49691d212e8" xml:space="preserve">
+          <source><bpt id="3058d780-0c7b-4b72-8ed9-80d21dd8465f">&lt;linkText&gt;</bpt><ept id="3058d780-0c7b-4b72-8ed9-80d21dd8465f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3058d780-0c7b-4b72-8ed9-80d21dd8465f">&lt;linkText&gt;</bpt><ept id="3058d780-0c7b-4b72-8ed9-80d21dd8465f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="948af77d-5060-4c1e-aef3-c7c4363454d2" xml:space="preserve">
+          <source>For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.</source>
+          <target state="new">For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.</target>
+        </trans-unit>
+        <trans-unit id="ae66a7a4-5c71-4ef2-b021-2666bd83f24b" xml:space="preserve">
+          <source>If you cannot access the application, verify the following:</source>
+          <target state="new">If you cannot access the application, verify the following:</target>
+        </trans-unit>
+        <trans-unit id="04d751d6-6d92-44b7-bc3f-91583aa0f949" xml:space="preserve">
+          <source>For virtual machines created using the Service Management API, that the endpoint configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</source>
+          <target state="new">For virtual machines created using the Service Management API, that the endpoint configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</target>
+        </trans-unit>
+        <trans-unit id="cb3433b0-d647-4438-b198-bec3eb0cb2d3" xml:space="preserve">
+          <source>For more information, see <bpt id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;/linkText&gt;</ept><bpt id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;title&gt;</bpt><ept id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;/linkText&gt;</ept><bpt id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;title&gt;</bpt><ept id="158a6529-c136-44ad-94e5-8ed608acc1ce">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3310b685-1700-4dde-900a-e94da344526b" xml:space="preserve">
+          <source>For virtual machines created using the Service Management API, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.</source>
+          <target state="new">For virtual machines created using the Service Management API, that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.</target>
+        </trans-unit>
+        <trans-unit id="a605fd3f-aff3-444f-ac28-c77e68aae8b9" xml:space="preserve">
+          <source>For more information, see <bpt id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;/linkText&gt;</ept><bpt id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;title&gt;</bpt><ept id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;linkText&gt;</bpt>How to Set Up Endpoints to a Virtual Machine<ept id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;/linkText&gt;</ept><bpt id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;title&gt;</bpt><ept id="4b11b150-2214-47af-aa47-2d54fbb97bf4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6ea6ef86-f27a-41cc-b561-d4a3b39f4baf" xml:space="preserve">
+          <source>For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</source>
+          <target state="new">For virtual machines created in Resource Manager, that the inbound NAT rule configuration for the virtual machine is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.</target>
+        </trans-unit>
+        <trans-unit id="4e838784-a57c-46bc-a81a-c3149c44f1a6" xml:space="preserve">
+          <source>That Network Security Groups are allowing the inbound request and outbound response traffic.</source>
+          <target state="new">That Network Security Groups are allowing the inbound request and outbound response traffic.</target>
+        </trans-unit>
+        <trans-unit id="85e13d16-9a0b-4240-84b7-da8509507981" xml:space="preserve">
+          <source>For more information, see <bpt id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;linkText&gt;</bpt>What is a Network Security Group (NSG)?<ept id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;/linkText&gt;</ept><bpt id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;title&gt;</bpt><ept id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;linkText&gt;</bpt>What is a Network Security Group (NSG)?<ept id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;/linkText&gt;</ept><bpt id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;title&gt;</bpt><ept id="b5d0cf73-3c04-426f-8c86-b9f17ed76ff5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c6e32a16-4b66-4ea8-8497-4bf20969d0be" xml:space="preserve">
+          <source>If the virtual machine or endpoint is a member of a load-balanced set:</source>
+          <target state="new">If the virtual machine or endpoint is a member of a load-balanced set:</target>
+        </trans-unit>
+        <trans-unit id="c52a7d20-0d5e-47d2-a3b0-7cac254c466a" xml:space="preserve">
+          <source>Verify that the probe protocol (TCP or UDP) and port number are correct.</source>
+          <target state="new">Verify that the probe protocol (TCP or UDP) and port number are correct.</target>
+        </trans-unit>
+        <trans-unit id="3c577669-7c19-4a4a-88ee-3f79bbde4ccb" xml:space="preserve">
+          <source>If the probe protocol and port is different than the load-balanced set protocol and port:</source>
+          <target state="new">If the probe protocol and port is different than the load-balanced set protocol and port:</target>
+        </trans-unit>
+        <trans-unit id="7945920d-26be-4a59-93c3-2f88ea9eac77" xml:space="preserve">
+          <source>Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use <bpt id="7851118f-dbfb-4203-a683-281c465cbb36">&lt;strong&gt;</bpt>netstat –a<ept id="7851118f-dbfb-4203-a683-281c465cbb36">&lt;/strong&gt;</ept> on the target virtual machine).</source>
+          <target state="new">Verify that the application is listening on the probe protocol (TCP or UDP) and port number (use <bpt id="7851118f-dbfb-4203-a683-281c465cbb36">&lt;strong&gt;</bpt>netstat –a<ept id="7851118f-dbfb-4203-a683-281c465cbb36">&lt;/strong&gt;</ept> on the target virtual machine).</target>
+        </trans-unit>
+        <trans-unit id="f14c20a8-6fdc-4ac2-ac0a-4360912d3600" xml:space="preserve">
+          <source>The host firewall on the target virtual machine is allowing the inbound probe request and outbound probe response traffic.</source>
+          <target state="new">The host firewall on the target virtual machine is allowing the inbound probe request and outbound probe response traffic.</target>
+        </trans-unit>
+        <trans-unit id="b4c2107a-b21b-4515-b136-95d565e9eb99" xml:space="preserve">
+          <source>If you can access the application, ensure that your Internet edge device is allowing:</source>
+          <target state="new">If you can access the application, ensure that your Internet edge device is allowing:</target>
+        </trans-unit>
+        <trans-unit id="4dd9ac20-5757-4d4e-af2a-9482caa03db6" xml:space="preserve">
+          <source>The outbound application request traffic from your client computer to the Azure virtual machine.</source>
+          <target state="new">The outbound application request traffic from your client computer to the Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="c3d06ce7-afbf-4711-b018-237922f52380" xml:space="preserve">
+          <source>The inbound application response traffic from the Azure virtual machine.</source>
+          <target state="new">The inbound application response traffic from the Azure virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="8d3a1f03-54bb-400b-a038-02a240ab0d55" xml:space="preserve">
+          <source>If you have run through steps 1 through 3 in this article and need additional help to correct the problem, you can:</source>
+          <target state="new">If you have run through steps 1 through 3 in this article and need additional help to correct the problem, you can:</target>
+        </trans-unit>
+        <trans-unit id="6a7ae368-6fd4-4d5f-b1fb-4037cde998c1" xml:space="preserve">
+          <source>Get help from Azure experts across the world.</source>
+          <target state="new">Get help from Azure experts across the world.</target>
+        </trans-unit>
+        <trans-unit id="5bc1e6ad-b58b-4cb3-84b6-4adc96a1c8f5" xml:space="preserve">
+          <source>Submit your issue to either the MSDN Azure or Stack Overflow forums.</source>
+          <target state="new">Submit your issue to either the MSDN Azure or Stack Overflow forums.</target>
+        </trans-unit>
+        <trans-unit id="0ee904d0-0d24-44eb-a3ff-d1cfe3829f11" xml:space="preserve">
+          <source>See <bpt id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;linkText&gt;</bpt>Microsoft Azure Forums<ept id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;/linkText&gt;</ept><bpt id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;title&gt;</bpt><ept id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;/title&gt;</ept> for more information.</source>
+          <target state="new">See <bpt id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;linkText&gt;</bpt>Microsoft Azure Forums<ept id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;/linkText&gt;</ept><bpt id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;title&gt;</bpt><ept id="d5034149-61fb-4b52-99ad-158e5fe022f0">&lt;/title&gt;</ept> for more information.</target>
+        </trans-unit>
+        <trans-unit id="ead735ac-7003-49d5-b366-306b467d36fd" xml:space="preserve">
+          <source>File an Azure support incident.</source>
+          <target state="new">File an Azure support incident.</target>
+        </trans-unit>
+        <trans-unit id="4a50856e-8f63-44b3-b7ff-964215311405" xml:space="preserve">
+          <source>Go to the <bpt id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;linkText&gt;</bpt>Azure Support site<ept id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;/linkText&gt;</ept><bpt id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;title&gt;</bpt><ept id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;/title&gt;</ept> and click <bpt id="6f69174e-4779-42f0-b63c-0f46962b38d5">&lt;strong&gt;</bpt>Get support<ept id="6f69174e-4779-42f0-b63c-0f46962b38d5">&lt;/strong&gt;</ept> under <bpt id="30965fa6-99d0-47ab-927e-20ccbb43ab52">&lt;strong&gt;</bpt>Technical and billing support<ept id="30965fa6-99d0-47ab-927e-20ccbb43ab52">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Go to the <bpt id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;linkText&gt;</bpt>Azure Support site<ept id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;/linkText&gt;</ept><bpt id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;title&gt;</bpt><ept id="9982b067-6cf1-4cba-9c6a-1a34ec613848">&lt;/title&gt;</ept> and click <bpt id="6f69174e-4779-42f0-b63c-0f46962b38d5">&lt;strong&gt;</bpt>Get support<ept id="6f69174e-4779-42f0-b63c-0f46962b38d5">&lt;/strong&gt;</ept> under <bpt id="30965fa6-99d0-47ab-927e-20ccbb43ab52">&lt;strong&gt;</bpt>Technical and billing support<ept id="30965fa6-99d0-47ab-927e-20ccbb43ab52">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="503dc428-357a-4105-8dbc-665c68d3000e" xml:space="preserve">
+          <source><bpt id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;/linkText&gt;</ept><bpt id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;title&gt;</bpt><ept id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;linkText&gt;</bpt>Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine<ept id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;/linkText&gt;</ept><bpt id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;title&gt;</bpt><ept id="a36a6228-911a-4e3b-9041-d235cc195b86">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="55200e74-00e9-4224-bbab-1eef33069f5d" xml:space="preserve">
+          <source><bpt id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;/linkText&gt;</ept><bpt id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;title&gt;</bpt><ept id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;linkText&gt;</bpt>Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine<ept id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;/linkText&gt;</ept><bpt id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;title&gt;</bpt><ept id="d486283c-3c71-4d28-b37a-8a3f1d9cfd07">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

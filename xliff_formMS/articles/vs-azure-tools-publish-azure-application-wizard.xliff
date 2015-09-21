@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="44ac6094-6a58-4c7b-8a69-2dd6d33628e2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="44ac6094-6a58-4c7b-8a69-2dd6d33628e2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f2d74274-00ef-4f72-aeae-fbb1d9ebcdb1">
+        <trans-unit id="d71aed11-02ca-4c3b-b497-fa7c0999dbac" xml:space="preserve">
+          <source>Publish Azure Application Wizard</source>
+          <target state="new">Publish Azure Application Wizard</target>
+        </trans-unit>
+        <trans-unit id="c501844a-ce89-49ef-ba36-b498b1e0b674" xml:space="preserve">
+          <source>Publish Azure Application Wizard</source>
+          <target state="new">Publish Azure Application Wizard</target>
+        </trans-unit>
+        <trans-unit id="8e107419-6e47-4da1-8a61-9d8634863a23" xml:space="preserve">
+          <source>After you develop a web application in Visual Studio, you can publish that application more easily to an Azure cloud service by using the <bpt id="79db79b6-55f5-476e-923f-23941389ad0b">&lt;strong&gt;</bpt>Publish Azure Application<ept id="79db79b6-55f5-476e-923f-23941389ad0b">&lt;/strong&gt;</ept> wizard.</source>
+          <target state="new">After you develop a web application in Visual Studio, you can publish that application more easily to an Azure cloud service by using the <bpt id="79db79b6-55f5-476e-923f-23941389ad0b">&lt;strong&gt;</bpt>Publish Azure Application<ept id="79db79b6-55f5-476e-923f-23941389ad0b">&lt;/strong&gt;</ept> wizard.</target>
+        </trans-unit>
+        <trans-unit id="7101698e-6f1c-4020-b7dd-d06341295937" xml:space="preserve">
+          <source>The first section explains the steps that you must complete before you use the wizard, and the remaining sections explain the features of the wizard.</source>
+          <target state="new">The first section explains the steps that you must complete before you use the wizard, and the remaining sections explain the features of the wizard.</target>
+        </trans-unit>
+        <trans-unit id="53319682-0b2a-41bf-a47e-e3145ae8de4f" xml:space="preserve">
+          <source>This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see <bpt id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;linkText&gt;</bpt>How to Deploy an Azure Web Site<ept id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;/linkText&gt;</ept><bpt id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;title&gt;</bpt><ept id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;/title&gt;</ept>.</source>
+          <target state="new">This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see <bpt id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;linkText&gt;</bpt>How to Deploy an Azure Web Site<ept id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;/linkText&gt;</ept><bpt id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;title&gt;</bpt><ept id="84ecfae8-8a78-408d-aacf-dc153f83c77d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="73f132e6-819f-4eac-b5b5-8142374f3162" xml:space="preserve">
+          <source>Before you can publish your web application to Azure, you need to have a Microsoft account and an Azure subscription, and you have to associate your web application with an Azure cloud service.</source>
+          <target state="new">Before you can publish your web application to Azure, you need to have a Microsoft account and an Azure subscription, and you have to associate your web application with an Azure cloud service.</target>
+        </trans-unit>
+        <trans-unit id="0c765e96-b1bf-41f2-bcc2-6dd6d50e3aad" xml:space="preserve">
+          <source>If you’ve already completed these tasks, you can skip to the next section.</source>
+          <target state="new">If you’ve already completed these tasks, you can skip to the next section.</target>
+        </trans-unit>
+        <trans-unit id="5c114dde-afc5-49f7-a524-59a1b0301070" xml:space="preserve">
+          <source>Get a Microsoft account and an Azure subscription.</source>
+          <target state="new">Get a Microsoft account and an Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="95b02e39-7025-4845-8428-ec26288463c1" xml:space="preserve">
+          <source>You can try a free one month free Azure subscription <bpt id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;linkText&gt;</bpt>here<ept id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;/linkText&gt;</ept><bpt id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;title&gt;</bpt><ept id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;/title&gt;</ept></source>
+          <target state="new">You can try a free one month free Azure subscription <bpt id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;linkText&gt;</bpt>here<ept id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;/linkText&gt;</ept><bpt id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;title&gt;</bpt><ept id="0cecc408-ee06-4ea7-a105-4cbe5e0911d2">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5dff3b79-a0fb-4ebf-a8ee-b22edd389d1c" xml:space="preserve">
+          <source>Create a cloud service and a storage account on Azure.</source>
+          <target state="new">Create a cloud service and a storage account on Azure.</target>
+        </trans-unit>
+        <trans-unit id="c329e3a0-64c9-46c8-aac0-f2d654197828" xml:space="preserve">
+          <source>You can do this from Server Explorer in Visual Studio, or by using the <bpt id="544c7961-7f44-4354-968e-5082490d0316">&lt;linkText&gt;</bpt>Azure Management portal<ept id="544c7961-7f44-4354-968e-5082490d0316">&lt;/linkText&gt;</ept><bpt id="544c7961-7f44-4354-968e-5082490d0316">&lt;title&gt;</bpt><ept id="544c7961-7f44-4354-968e-5082490d0316">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can do this from Server Explorer in Visual Studio, or by using the <bpt id="544c7961-7f44-4354-968e-5082490d0316">&lt;linkText&gt;</bpt>Azure Management portal<ept id="544c7961-7f44-4354-968e-5082490d0316">&lt;/linkText&gt;</ept><bpt id="544c7961-7f44-4354-968e-5082490d0316">&lt;title&gt;</bpt><ept id="544c7961-7f44-4354-968e-5082490d0316">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a205eb11-8beb-410a-8c00-89e1642edd4a" xml:space="preserve">
+          <source>For more information about how to set up your Azure environment, see <bpt id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;linkText&gt;</bpt>Setting Up Services Required to Publish a Cloud Service from Visual Studio<ept id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;/linkText&gt;</ept><bpt id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;title&gt;</bpt><ept id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to set up your Azure environment, see <bpt id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;linkText&gt;</bpt>Setting Up Services Required to Publish a Cloud Service from Visual Studio<ept id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;/linkText&gt;</ept><bpt id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;title&gt;</bpt><ept id="e60c2d1e-2189-44a3-9119-4991729ab912">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="928b1149-33b6-455a-901e-3af778267564" xml:space="preserve">
+          <source>Enable your web application for Azure.</source>
+          <target state="new">Enable your web application for Azure.</target>
+        </trans-unit>
+        <trans-unit id="85125134-7850-43b2-ba35-ca4c372479f3" xml:space="preserve">
+          <source>To enable your web application to be published to Azure from Visual Studio, you’ll need to associate it with an Azure cloud service project in Visual Studio.</source>
+          <target state="new">To enable your web application to be published to Azure from Visual Studio, you’ll need to associate it with an Azure cloud service project in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="e331c914-e438-4cf3-95c2-41de6137de7e" xml:space="preserve">
+          <source>To create the associated cloud service project, open the shortcut menu for the project for your web application, and then choose Convert, <bpt id="2c2f8749-6cab-4392-9abc-06b86a83f850">&lt;strong&gt;</bpt>Convert to Azure Cloud Service Project<ept id="2c2f8749-6cab-4392-9abc-06b86a83f850">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To create the associated cloud service project, open the shortcut menu for the project for your web application, and then choose Convert, <bpt id="2c2f8749-6cab-4392-9abc-06b86a83f850">&lt;strong&gt;</bpt>Convert to Azure Cloud Service Project<ept id="2c2f8749-6cab-4392-9abc-06b86a83f850">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="efe59f93-47de-47f8-a3d8-8efbfdd59682" xml:space="preserve">
+          <source>After the cloud service project is added to your solution, open the same shortcut menu again and then choose <bpt id="7079c2a4-5877-4f35-b2d9-c301840447ba">&lt;strong&gt;</bpt>Publish<ept id="7079c2a4-5877-4f35-b2d9-c301840447ba">&lt;/strong&gt;</ept>.</source>
+          <target state="new">After the cloud service project is added to your solution, open the same shortcut menu again and then choose <bpt id="7079c2a4-5877-4f35-b2d9-c301840447ba">&lt;strong&gt;</bpt>Publish<ept id="7079c2a4-5877-4f35-b2d9-c301840447ba">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2ef027c9-a9ea-42f6-a792-dc0ebcbe9def" xml:space="preserve">
+          <source>For more information about how to enable applications for Azure, see <bpt id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;linkText&gt;</bpt>How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio<ept id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;/linkText&gt;</ept><bpt id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;title&gt;</bpt><ept id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to enable applications for Azure, see <bpt id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;linkText&gt;</bpt>How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio<ept id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;/linkText&gt;</ept><bpt id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;title&gt;</bpt><ept id="db969ea0-d2e1-49f5-9780-26f373d08a09">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a83cb998-4650-4ac2-aaa7-df73befa8acb" xml:space="preserve">
+          <source>Be sure to start Visual Studio with administrator credentials (Run As Administrator).</source>
+          <target state="new">Be sure to start Visual Studio with administrator credentials (Run As Administrator).</target>
+        </trans-unit>
+        <trans-unit id="f8f9ac48-1d68-456b-8161-20e812151849" xml:space="preserve">
+          <source>When you’re ready to publish your application, open the shortcut menu for the Azure cloud service project, and then choose <bpt id="9e53cde7-7095-438b-92a8-4533f077f2bc">&lt;strong&gt;</bpt>Publish<ept id="9e53cde7-7095-438b-92a8-4533f077f2bc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When you’re ready to publish your application, open the shortcut menu for the Azure cloud service project, and then choose <bpt id="9e53cde7-7095-438b-92a8-4533f077f2bc">&lt;strong&gt;</bpt>Publish<ept id="9e53cde7-7095-438b-92a8-4533f077f2bc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ba5ba4e0-5c83-472b-9647-362813a899e9" xml:space="preserve">
+          <source>The following steps show the Publish Azure Application wizard.</source>
+          <target state="new">The following steps show the Publish Azure Application wizard.</target>
+        </trans-unit>
+        <trans-unit id="d8627113-f945-4826-a484-658e706ad21f" xml:space="preserve">
+          <source>Before you use the wizard for the first time, you must sign in.</source>
+          <target state="new">Before you use the wizard for the first time, you must sign in.</target>
+        </trans-unit>
+        <trans-unit id="99d3988a-cbbc-4a98-b81c-f45b3d614d1e" xml:space="preserve">
+          <source>Choose the <bpt id="fce37102-4a6d-40cd-8e90-3af2e1c97e25">&lt;strong&gt;</bpt>Sign In<ept id="fce37102-4a6d-40cd-8e90-3af2e1c97e25">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">Choose the <bpt id="fce37102-4a6d-40cd-8e90-3af2e1c97e25">&lt;strong&gt;</bpt>Sign In<ept id="fce37102-4a6d-40cd-8e90-3af2e1c97e25">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="ea8d8b72-681c-4280-8006-b5d2b3137ba3" xml:space="preserve">
+          <source>Sign in to the Azure portal when prompted, and provide your Azure user name and password.</source>
+          <target state="new">Sign in to the Azure portal when prompted, and provide your Azure user name and password.</target>
+        </trans-unit>
+        <trans-unit id="19e7497c-b2d3-4049-81bc-7f917c71e5ca" xml:space="preserve">
+          <source><bpt id="a37b2080-f32c-4ba1-b6c6-5891af8a3724">&lt;linkText&gt;</bpt>This is one of the publishing wizard screens<ept id="a37b2080-f32c-4ba1-b6c6-5891af8a3724">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a37b2080-f32c-4ba1-b6c6-5891af8a3724">&lt;linkText&gt;</bpt>This is one of the publishing wizard screens<ept id="a37b2080-f32c-4ba1-b6c6-5891af8a3724">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97b76b67-1993-480e-bdca-09a29e7b547a" xml:space="preserve">
+          <source>The list of subscriptions populates with the subscriptions associated with your account.</source>
+          <target state="new">The list of subscriptions populates with the subscriptions associated with your account.</target>
+        </trans-unit>
+        <trans-unit id="daaf0a07-2bb7-4a41-852d-205e35aa17e3" xml:space="preserve">
+          <source>You might also see subscriptions from any subscription files that you imported previously.</source>
+          <target state="new">You might also see subscriptions from any subscription files that you imported previously.</target>
+        </trans-unit>
+        <trans-unit id="4cd264b3-1727-4906-96f4-1c913ad46db7" xml:space="preserve">
+          <source>In the <bpt id="555643b6-5ec6-4199-80cd-8ca4987b4191">&lt;strong&gt;</bpt>Choose your subscription<ept id="555643b6-5ec6-4199-80cd-8ca4987b4191">&lt;/strong&gt;</ept> list, choose the subscription to use for this deployment.</source>
+          <target state="new">In the <bpt id="555643b6-5ec6-4199-80cd-8ca4987b4191">&lt;strong&gt;</bpt>Choose your subscription<ept id="555643b6-5ec6-4199-80cd-8ca4987b4191">&lt;/strong&gt;</ept> list, choose the subscription to use for this deployment.</target>
+        </trans-unit>
+        <trans-unit id="da0e0f9b-cc1f-4519-91a7-9157e829a680" xml:space="preserve">
+          <source>If you choose <bpt id="a3ad6127-ed4d-485f-8be8-7b4677434a22">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="a3ad6127-ed4d-485f-8be8-7b4677434a22">&lt;/strong&gt;</ept>, the <bpt id="c470beeb-c570-4a41-ab89-853f239c684f">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="c470beeb-c570-4a41-ab89-853f239c684f">&lt;/strong&gt;</ept> dialog box appears, and you can choose the subscription and user account you want to use. The <bpt id="22244387-5161-44f1-9301-58395258aaf8">&lt;strong&gt;</bpt>Accounts<ept id="22244387-5161-44f1-9301-58395258aaf8">&lt;/strong&gt;</ept> tab shows all of your accounts, and the <bpt id="fd734632-8311-440c-a9e5-bebd7a34ce56">&lt;strong&gt;</bpt>Subscriptions<ept id="fd734632-8311-440c-a9e5-bebd7a34ce56">&lt;/strong&gt;</ept> tab shows all of the subscriptions associated with the accounts. You can also choose a region from which to use Azure resources, as well as create or import certificates for your subscription from the Azure portal. If you imported any subscriptions from a subscription file, the associated certificates will appear under the <bpt id="b8709bf4-cdf8-4638-ae40-16c64f2a3d2d">&lt;strong&gt;</bpt>Certificates<ept id="b8709bf4-cdf8-4638-ae40-16c64f2a3d2d">&lt;/strong&gt;</ept> tab. When you're done, choose the <bpt id="e3d7e7b4-b741-49eb-b8b3-eec2a328d37d">&lt;strong&gt;</bpt>Close<ept id="e3d7e7b4-b741-49eb-b8b3-eec2a328d37d">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">If you choose <bpt id="a3ad6127-ed4d-485f-8be8-7b4677434a22">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="a3ad6127-ed4d-485f-8be8-7b4677434a22">&lt;/strong&gt;</ept>, the <bpt id="c470beeb-c570-4a41-ab89-853f239c684f">&lt;strong&gt;</bpt>Manage Subscriptions<ept id="c470beeb-c570-4a41-ab89-853f239c684f">&lt;/strong&gt;</ept> dialog box appears, and you can choose the subscription and user account you want to use. The <bpt id="22244387-5161-44f1-9301-58395258aaf8">&lt;strong&gt;</bpt>Accounts<ept id="22244387-5161-44f1-9301-58395258aaf8">&lt;/strong&gt;</ept> tab shows all of your accounts, and the <bpt id="fd734632-8311-440c-a9e5-bebd7a34ce56">&lt;strong&gt;</bpt>Subscriptions<ept id="fd734632-8311-440c-a9e5-bebd7a34ce56">&lt;/strong&gt;</ept> tab shows all of the subscriptions associated with the accounts. You can also choose a region from which to use Azure resources, as well as create or import certificates for your subscription from the Azure portal. If you imported any subscriptions from a subscription file, the associated certificates will appear under the <bpt id="b8709bf4-cdf8-4638-ae40-16c64f2a3d2d">&lt;strong&gt;</bpt>Certificates<ept id="b8709bf4-cdf8-4638-ae40-16c64f2a3d2d">&lt;/strong&gt;</ept> tab. When you're done, choose the <bpt id="e3d7e7b4-b741-49eb-b8b3-eec2a328d37d">&lt;strong&gt;</bpt>Close<ept id="e3d7e7b4-b741-49eb-b8b3-eec2a328d37d">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="a8db69a6-cd00-48bf-ab43-2a6e6a82e13d" xml:space="preserve">
+          <source><bpt id="49a383bf-1ded-43cb-b04e-a29fa06c1fa6">&lt;linkText&gt;</bpt>Manage subscriptions<ept id="49a383bf-1ded-43cb-b04e-a29fa06c1fa6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49a383bf-1ded-43cb-b04e-a29fa06c1fa6">&lt;linkText&gt;</bpt>Manage subscriptions<ept id="49a383bf-1ded-43cb-b04e-a29fa06c1fa6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec3b0edc-008d-4b8e-b319-852448a45960" xml:space="preserve">
+          <source>A subscription file can contain more than one subscription.</source>
+          <target state="new">A subscription file can contain more than one subscription.</target>
+        </trans-unit>
+        <trans-unit id="e4b3250f-86de-46c5-9795-2d2f83f7f54b" xml:space="preserve">
+          <source>Choose the <bpt id="7259a3c9-ad49-4e93-93ff-c72ccf5744a9">&lt;strong&gt;</bpt>Next<ept id="7259a3c9-ad49-4e93-93ff-c72ccf5744a9">&lt;/strong&gt;</ept> button to continue.</source>
+          <target state="new">Choose the <bpt id="7259a3c9-ad49-4e93-93ff-c72ccf5744a9">&lt;strong&gt;</bpt>Next<ept id="7259a3c9-ad49-4e93-93ff-c72ccf5744a9">&lt;/strong&gt;</ept> button to continue.</target>
+        </trans-unit>
+        <trans-unit id="92818929-8d42-4f08-83f5-f473ce7969ed" xml:space="preserve">
+          <source>If there aren't any cloud services in your subscription, you need to create a cloud service in Azure to host your project.</source>
+          <target state="new">If there aren't any cloud services in your subscription, you need to create a cloud service in Azure to host your project.</target>
+        </trans-unit>
+        <trans-unit id="743396ca-0368-431a-a2d2-c8c02754f98b" xml:space="preserve">
+          <source>The <bpt id="f7fe28b7-3c21-4beb-9f0c-e2243827b88b">&lt;strong&gt;</bpt>Create Cloud Service and Storage Account<ept id="f7fe28b7-3c21-4beb-9f0c-e2243827b88b">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="f7fe28b7-3c21-4beb-9f0c-e2243827b88b">&lt;strong&gt;</bpt>Create Cloud Service and Storage Account<ept id="f7fe28b7-3c21-4beb-9f0c-e2243827b88b">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="17454c54-58ce-41c1-a5e3-05de74b63958" xml:space="preserve">
+          <source>Specify a new name for the cloud service.</source>
+          <target state="new">Specify a new name for the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="9b63ea1d-29a7-4597-b361-a1fef62cb454" xml:space="preserve">
+          <source>The name must be unique in Azure.</source>
+          <target state="new">The name must be unique in Azure.</target>
+        </trans-unit>
+        <trans-unit id="590d47cd-0a6c-4920-b4e7-b2e041b486e5" xml:space="preserve">
+          <source>Then specify a region or affinity group for a data center that’s near you or most of your clients.</source>
+          <target state="new">Then specify a region or affinity group for a data center that’s near you or most of your clients.</target>
+        </trans-unit>
+        <trans-unit id="ba4a8ce6-0384-4f78-8335-de00fd3594b2" xml:space="preserve">
+          <source>This name is also used for a new storage account that Azure creates for your cloud service.</source>
+          <target state="new">This name is also used for a new storage account that Azure creates for your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="e1665e98-e74e-4afd-92f3-d966271390ff" xml:space="preserve">
+          <source>Modify any settings you want for this deployment and then publish it by choosing the <bpt id="a396011a-fbff-4ac5-b1c6-ce173d9cf050">&lt;strong&gt;</bpt>Publish<ept id="a396011a-fbff-4ac5-b1c6-ce173d9cf050">&lt;/strong&gt;</ept> button (The next section provides more details about the various settings).</source>
+          <target state="new">Modify any settings you want for this deployment and then publish it by choosing the <bpt id="a396011a-fbff-4ac5-b1c6-ce173d9cf050">&lt;strong&gt;</bpt>Publish<ept id="a396011a-fbff-4ac5-b1c6-ce173d9cf050">&lt;/strong&gt;</ept> button (The next section provides more details about the various settings).</target>
+        </trans-unit>
+        <trans-unit id="b89c4874-1d12-465c-8d76-36d03d54ed88" xml:space="preserve">
+          <source>To review the settings before publishing, choose the <bpt id="6e22bc22-417e-4875-9d2a-c06129e10122">&lt;strong&gt;</bpt>Next<ept id="6e22bc22-417e-4875-9d2a-c06129e10122">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">To review the settings before publishing, choose the <bpt id="6e22bc22-417e-4875-9d2a-c06129e10122">&lt;strong&gt;</bpt>Next<ept id="6e22bc22-417e-4875-9d2a-c06129e10122">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="2967ca0f-c7b5-447a-9103-97e29d6263ce" xml:space="preserve">
+          <source>If you chose Publish in this step, you can monitor the status of this deployment in Visual Studio.</source>
+          <target state="new">If you chose Publish in this step, you can monitor the status of this deployment in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="2ee47c6e-f915-420f-9cf7-39d166e77509" xml:space="preserve">
+          <source>You can modify both common and advanced settings for a deployment by using the <bpt id="53500ba9-c616-4778-860c-36cff10e19eb">&lt;strong&gt;</bpt>Publish Azure Application<ept id="53500ba9-c616-4778-860c-36cff10e19eb">&lt;/strong&gt;</ept> wizard.</source>
+          <target state="new">You can modify both common and advanced settings for a deployment by using the <bpt id="53500ba9-c616-4778-860c-36cff10e19eb">&lt;strong&gt;</bpt>Publish Azure Application<ept id="53500ba9-c616-4778-860c-36cff10e19eb">&lt;/strong&gt;</ept> wizard.</target>
+        </trans-unit>
+        <trans-unit id="8c8069d2-7cec-498f-b1ab-79d1bd314f45" xml:space="preserve">
+          <source>For example, you can choose a setting to deploy your application to a test environment before you release it.</source>
+          <target state="new">For example, you can choose a setting to deploy your application to a test environment before you release it.</target>
+        </trans-unit>
+        <trans-unit id="1756e312-2002-42cb-82ad-f33088d0d3ff" xml:space="preserve">
+          <source>The following illustration shows the <bpt id="d10b1326-635c-4d61-9582-b0179c55034d">&lt;strong&gt;</bpt>Common Settings<ept id="d10b1326-635c-4d61-9582-b0179c55034d">&lt;/strong&gt;</ept> tab for an Azure deployment.</source>
+          <target state="new">The following illustration shows the <bpt id="d10b1326-635c-4d61-9582-b0179c55034d">&lt;strong&gt;</bpt>Common Settings<ept id="d10b1326-635c-4d61-9582-b0179c55034d">&lt;/strong&gt;</ept> tab for an Azure deployment.</target>
+        </trans-unit>
+        <trans-unit id="50b90d2d-1eae-42d4-81f1-9206cb1be438" xml:space="preserve">
+          <source><bpt id="6896f942-654d-4a59-82e1-e4795d2963b3">&lt;linkText&gt;</bpt>Common Settings<ept id="6896f942-654d-4a59-82e1-e4795d2963b3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6896f942-654d-4a59-82e1-e4795d2963b3">&lt;linkText&gt;</bpt>Common Settings<ept id="6896f942-654d-4a59-82e1-e4795d2963b3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6491eaef-4846-4036-8814-11070fb074d1" xml:space="preserve">
+          <source>In the <bpt id="8870e62a-3af8-4989-9aa5-e0573e2618fe">&lt;strong&gt;</bpt>Cloud service<ept id="8870e62a-3af8-4989-9aa5-e0573e2618fe">&lt;/strong&gt;</ept> list, perform one of the following sets of steps:</source>
+          <target state="new">In the <bpt id="8870e62a-3af8-4989-9aa5-e0573e2618fe">&lt;strong&gt;</bpt>Cloud service<ept id="8870e62a-3af8-4989-9aa5-e0573e2618fe">&lt;/strong&gt;</ept> list, perform one of the following sets of steps:</target>
+        </trans-unit>
+        <trans-unit id="2dddc473-08d5-4e4e-8a01-2288ce5944fb" xml:space="preserve">
+          <source>In the dropdown list box, choose an existing cloud service.</source>
+          <target state="new">In the dropdown list box, choose an existing cloud service.</target>
+        </trans-unit>
+        <trans-unit id="3bf77c68-29eb-4125-9896-a1dbdde269d4" xml:space="preserve">
+          <source>The data center location for the service appears.</source>
+          <target state="new">The data center location for the service appears.</target>
+        </trans-unit>
+        <trans-unit id="04585a4a-8825-44bd-ac61-9c252c39eb53" xml:space="preserve">
+          <source>You should note this location and make sure that your storage account location is in the same data center.</source>
+          <target state="new">You should note this location and make sure that your storage account location is in the same data center.</target>
+        </trans-unit>
+        <trans-unit id="1f0b9487-314b-43a8-80bf-25f2f56d242c" xml:space="preserve">
+          <source>Choose <bpt id="362b1f00-7ba7-4586-b544-744e0caa342c">&lt;strong&gt;</bpt>Create New<ept id="362b1f00-7ba7-4586-b544-744e0caa342c">&lt;/strong&gt;</ept> to create a cloud service that Azure hosts.</source>
+          <target state="new">Choose <bpt id="362b1f00-7ba7-4586-b544-744e0caa342c">&lt;strong&gt;</bpt>Create New<ept id="362b1f00-7ba7-4586-b544-744e0caa342c">&lt;/strong&gt;</ept> to create a cloud service that Azure hosts.</target>
+        </trans-unit>
+        <trans-unit id="34611feb-a6d8-49b6-bd68-fb0ae147f051" xml:space="preserve">
+          <source>In the <bpt id="1888dd96-ed94-4c54-886d-5da20423455a">&lt;strong&gt;</bpt>Create Cloud Service<ept id="1888dd96-ed94-4c54-886d-5da20423455a">&lt;/strong&gt;</ept> dialog box, provide a name for the service, and then specify a region or affinity group to specify the location of the data center that you want to host this cloud service.</source>
+          <target state="new">In the <bpt id="1888dd96-ed94-4c54-886d-5da20423455a">&lt;strong&gt;</bpt>Create Cloud Service<ept id="1888dd96-ed94-4c54-886d-5da20423455a">&lt;/strong&gt;</ept> dialog box, provide a name for the service, and then specify a region or affinity group to specify the location of the data center that you want to host this cloud service.</target>
+        </trans-unit>
+        <trans-unit id="6484c4d4-0b8c-4be1-bd89-3fecc7283b8b" xml:space="preserve">
+          <source>The name must be unique in Azure.</source>
+          <target state="new">The name must be unique in Azure.</target>
+        </trans-unit>
+        <trans-unit id="5d5fa182-7324-462d-aa1b-d0eaf131baaf" xml:space="preserve">
+          <source>In the <bpt id="1f0ed456-1310-42e2-a03b-84a07cf01e75">&lt;strong&gt;</bpt>Environment<ept id="1f0ed456-1310-42e2-a03b-84a07cf01e75">&lt;/strong&gt;</ept> list, choose either <bpt id="e9b6243f-6c50-40fb-b1cb-a02ff5094d64">&lt;strong&gt;</bpt>Production<ept id="e9b6243f-6c50-40fb-b1cb-a02ff5094d64">&lt;/strong&gt;</ept> or <bpt id="f7e845af-c567-4ebf-87b6-e2cd3f4bb483">&lt;strong&gt;</bpt>Staging<ept id="f7e845af-c567-4ebf-87b6-e2cd3f4bb483">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="1f0ed456-1310-42e2-a03b-84a07cf01e75">&lt;strong&gt;</bpt>Environment<ept id="1f0ed456-1310-42e2-a03b-84a07cf01e75">&lt;/strong&gt;</ept> list, choose either <bpt id="e9b6243f-6c50-40fb-b1cb-a02ff5094d64">&lt;strong&gt;</bpt>Production<ept id="e9b6243f-6c50-40fb-b1cb-a02ff5094d64">&lt;/strong&gt;</ept> or <bpt id="f7e845af-c567-4ebf-87b6-e2cd3f4bb483">&lt;strong&gt;</bpt>Staging<ept id="f7e845af-c567-4ebf-87b6-e2cd3f4bb483">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7acd117a-6d50-4672-a364-6cc6c7eeb27c" xml:space="preserve">
+          <source>Choose the staging environment if you want to deploy your application to a test environment.</source>
+          <target state="new">Choose the staging environment if you want to deploy your application to a test environment.</target>
+        </trans-unit>
+        <trans-unit id="a9df343a-b877-48cd-a8b5-46d94639f32f" xml:space="preserve">
+          <source>You can move your application to the production environment later.</source>
+          <target state="new">You can move your application to the production environment later.</target>
+        </trans-unit>
+        <trans-unit id="194f1fb1-7288-4aa1-9018-f909c6e45297" xml:space="preserve">
+          <source>In the <bpt id="e25f44f1-4819-48f3-afd8-1e5807cbe694">&lt;strong&gt;</bpt>Build configuration<ept id="e25f44f1-4819-48f3-afd8-1e5807cbe694">&lt;/strong&gt;</ept> list, choose either <bpt id="71a4beca-736e-4008-813f-4a7bf8459a88">&lt;strong&gt;</bpt>Debug<ept id="71a4beca-736e-4008-813f-4a7bf8459a88">&lt;/strong&gt;</ept> or <bpt id="7df50b24-457a-485e-ab1b-eebebea69100">&lt;strong&gt;</bpt>Release<ept id="7df50b24-457a-485e-ab1b-eebebea69100">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="e25f44f1-4819-48f3-afd8-1e5807cbe694">&lt;strong&gt;</bpt>Build configuration<ept id="e25f44f1-4819-48f3-afd8-1e5807cbe694">&lt;/strong&gt;</ept> list, choose either <bpt id="71a4beca-736e-4008-813f-4a7bf8459a88">&lt;strong&gt;</bpt>Debug<ept id="71a4beca-736e-4008-813f-4a7bf8459a88">&lt;/strong&gt;</ept> or <bpt id="7df50b24-457a-485e-ab1b-eebebea69100">&lt;strong&gt;</bpt>Release<ept id="7df50b24-457a-485e-ab1b-eebebea69100">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bfc02425-7c42-4452-94ab-9bf1e9ffbf5e" xml:space="preserve">
+          <source>In the <bpt id="217aaaea-abe6-47e7-8fde-36754cbb9779">&lt;strong&gt;</bpt>Service configuration<ept id="217aaaea-abe6-47e7-8fde-36754cbb9779">&lt;/strong&gt;</ept> list, choose either <bpt id="d83f905b-1f24-40f1-8ffd-83919c3ba208">&lt;strong&gt;</bpt>Cloud<ept id="d83f905b-1f24-40f1-8ffd-83919c3ba208">&lt;/strong&gt;</ept> or <bpt id="c1491eb6-b584-4447-bc69-1cf19c6b7a47">&lt;strong&gt;</bpt>Local<ept id="c1491eb6-b584-4447-bc69-1cf19c6b7a47">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="217aaaea-abe6-47e7-8fde-36754cbb9779">&lt;strong&gt;</bpt>Service configuration<ept id="217aaaea-abe6-47e7-8fde-36754cbb9779">&lt;/strong&gt;</ept> list, choose either <bpt id="d83f905b-1f24-40f1-8ffd-83919c3ba208">&lt;strong&gt;</bpt>Cloud<ept id="d83f905b-1f24-40f1-8ffd-83919c3ba208">&lt;/strong&gt;</ept> or <bpt id="c1491eb6-b584-4447-bc69-1cf19c6b7a47">&lt;strong&gt;</bpt>Local<ept id="c1491eb6-b584-4447-bc69-1cf19c6b7a47">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f001b253-1aae-4816-b5aa-5120e19ed0eb" xml:space="preserve">
+          <source>Select the <bpt id="bc240ee3-0e86-49ba-ad98-bc20377ec9e9">&lt;strong&gt;</bpt>Enable Remote Desktop for all roles<ept id="bc240ee3-0e86-49ba-ad98-bc20377ec9e9">&lt;/strong&gt;</ept> check box if you want to be able to remotely connect to the service.</source>
+          <target state="new">Select the <bpt id="bc240ee3-0e86-49ba-ad98-bc20377ec9e9">&lt;strong&gt;</bpt>Enable Remote Desktop for all roles<ept id="bc240ee3-0e86-49ba-ad98-bc20377ec9e9">&lt;/strong&gt;</ept> check box if you want to be able to remotely connect to the service.</target>
+        </trans-unit>
+        <trans-unit id="cc50e7fe-e61f-446d-a530-d0348c356e20" xml:space="preserve">
+          <source>This option is primarily used for troubleshooting.</source>
+          <target state="new">This option is primarily used for troubleshooting.</target>
+        </trans-unit>
+        <trans-unit id="cf0c8f80-c665-4b23-a168-002806d9f4e2" xml:space="preserve">
+          <source>When you select this check box, the <bpt id="f590b84a-0257-4fff-9d23-6df516fa4816">&lt;strong&gt;</bpt>Remote Desktop Configuration<ept id="f590b84a-0257-4fff-9d23-6df516fa4816">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">When you select this check box, the <bpt id="f590b84a-0257-4fff-9d23-6df516fa4816">&lt;strong&gt;</bpt>Remote Desktop Configuration<ept id="f590b84a-0257-4fff-9d23-6df516fa4816">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="4667a5a9-2027-4383-adfc-031b7322da2d" xml:space="preserve">
+          <source>Choose the Settings link to change the configuration.</source>
+          <target state="new">Choose the Settings link to change the configuration.</target>
+        </trans-unit>
+        <trans-unit id="3c3bc209-4322-4e9a-a2ad-00e0e57511a9" xml:space="preserve">
+          <source>Select the <bpt id="62fce210-c978-4a8d-8b79-d26c7ce2a606">&lt;strong&gt;</bpt>Enable Web Deploy for all web roles<ept id="62fce210-c978-4a8d-8b79-d26c7ce2a606">&lt;/strong&gt;</ept> check box to enable web deployment for the service.</source>
+          <target state="new">Select the <bpt id="62fce210-c978-4a8d-8b79-d26c7ce2a606">&lt;strong&gt;</bpt>Enable Web Deploy for all web roles<ept id="62fce210-c978-4a8d-8b79-d26c7ce2a606">&lt;/strong&gt;</ept> check box to enable web deployment for the service.</target>
+        </trans-unit>
+        <trans-unit id="9ae29349-e969-48fe-84a8-26d1f84fba59" xml:space="preserve">
+          <source>You must enable Remote Desktop to use this feature.</source>
+          <target state="new">You must enable Remote Desktop to use this feature.</target>
+        </trans-unit>
+        <trans-unit id="74db2657-5d80-4bb0-941d-a0905319a474" xml:space="preserve">
+          <source>For more information, see [<bpt id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;/linkText&gt;</ept><bpt id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;title&gt;</bpt><ept id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;/title&gt;</ept>](https://msdn.microsoft.com/library/azure/ff683672.aspx).</source>
+          <target state="new">For more information, see [<bpt id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;/linkText&gt;</ept><bpt id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;title&gt;</bpt><ept id="fbbc134b-d14b-47d9-879d-3b87e326fde2">&lt;/title&gt;</ept>](https://msdn.microsoft.com/library/azure/ff683672.aspx).</target>
+        </trans-unit>
+        <trans-unit id="93836a07-3629-40c8-9431-9c0763231a27" xml:space="preserve">
+          <source>For more information about Web Deploy, see [<bpt id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;/linkText&gt;</ept><bpt id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;title&gt;</bpt><ept id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;/title&gt;</ept>](https://msdn.microsoft.com/library/azure/ff683672.aspx).</source>
+          <target state="new">For more information about Web Deploy, see [<bpt id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;/linkText&gt;</ept><bpt id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;title&gt;</bpt><ept id="cb909aa1-c8f9-4f61-8e2a-0491e3afa41e">&lt;/title&gt;</ept>](https://msdn.microsoft.com/library/azure/ff683672.aspx).</target>
+        </trans-unit>
+        <trans-unit id="c728d9d4-a12b-4e8a-84cd-f074729d155d" xml:space="preserve">
+          <source>Choose the <bpt id="1382fc43-9b36-4f11-9afb-3c1d26415570">&lt;strong&gt;</bpt>Advanced Settings<ept id="1382fc43-9b36-4f11-9afb-3c1d26415570">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Choose the <bpt id="1382fc43-9b36-4f11-9afb-3c1d26415570">&lt;strong&gt;</bpt>Advanced Settings<ept id="1382fc43-9b36-4f11-9afb-3c1d26415570">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="f4f888a4-2444-457b-ad7e-561d809a5409" xml:space="preserve">
+          <source>In the <bpt id="a740d890-2d27-40df-93c7-0461c46b6050">&lt;strong&gt;</bpt>Deployment label<ept id="a740d890-2d27-40df-93c7-0461c46b6050">&lt;/strong&gt;</ept> field, either accept the default name, or enter a name of your choosing.</source>
+          <target state="new">In the <bpt id="a740d890-2d27-40df-93c7-0461c46b6050">&lt;strong&gt;</bpt>Deployment label<ept id="a740d890-2d27-40df-93c7-0461c46b6050">&lt;/strong&gt;</ept> field, either accept the default name, or enter a name of your choosing.</target>
+        </trans-unit>
+        <trans-unit id="e020db5b-df2c-4c67-8ede-03d1aeefa5c8" xml:space="preserve">
+          <source>To append the date to the deployment label, leave the check box selected.</source>
+          <target state="new">To append the date to the deployment label, leave the check box selected.</target>
+        </trans-unit>
+        <trans-unit id="512cd533-1b51-41a0-9a99-4ff73f6b8336" xml:space="preserve">
+          <source><bpt id="8a69e4ee-14d5-4bb7-acdf-b19c0fb6b7da">&lt;linkText&gt;</bpt>Third screen of the Publishing Wizard<ept id="8a69e4ee-14d5-4bb7-acdf-b19c0fb6b7da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8a69e4ee-14d5-4bb7-acdf-b19c0fb6b7da">&lt;linkText&gt;</bpt>Third screen of the Publishing Wizard<ept id="8a69e4ee-14d5-4bb7-acdf-b19c0fb6b7da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e2ead933-67ec-4352-8115-2d8135733970" xml:space="preserve">
+          <source>In the <bpt id="10b2f3d5-53c5-4bb3-b931-a9e93f4abaa2">&lt;strong&gt;</bpt>Storage account<ept id="10b2f3d5-53c5-4bb3-b931-a9e93f4abaa2">&lt;/strong&gt;</ept> list, choose the storage account to use for this deployment.</source>
+          <target state="new">In the <bpt id="10b2f3d5-53c5-4bb3-b931-a9e93f4abaa2">&lt;strong&gt;</bpt>Storage account<ept id="10b2f3d5-53c5-4bb3-b931-a9e93f4abaa2">&lt;/strong&gt;</ept> list, choose the storage account to use for this deployment.</target>
+        </trans-unit>
+        <trans-unit id="2574b2b1-c8d7-4e74-bcbc-8a18c5efa211" xml:space="preserve">
+          <source>Compare the locations of the data centers for your cloud service and your storage account.</source>
+          <target state="new">Compare the locations of the data centers for your cloud service and your storage account.</target>
+        </trans-unit>
+        <trans-unit id="1855258e-c7f6-493f-92be-2675ad31adcb" xml:space="preserve">
+          <source>Ideally, these locations should be the same.</source>
+          <target state="new">Ideally, these locations should be the same.</target>
+        </trans-unit>
+        <trans-unit id="2205736e-eb2e-455a-af6e-bd467f9bbc9b" xml:space="preserve">
+          <source>The Azure storage account stores the package for the application deployment.</source>
+          <target state="new">The Azure storage account stores the package for the application deployment.</target>
+        </trans-unit>
+        <trans-unit id="bb54b401-8ad6-4a5d-a5ff-f35036423499" xml:space="preserve">
+          <source>After the application is deployed, the package is removed from the storage account.</source>
+          <target state="new">After the application is deployed, the package is removed from the storage account.</target>
+        </trans-unit>
+        <trans-unit id="fda65228-b460-41d6-b5dc-66e766072c43" xml:space="preserve">
+          <source>Select the <bpt id="cef1a328-84b2-459f-8ead-b09727f3019d">&lt;strong&gt;</bpt>Deployment update<ept id="cef1a328-84b2-459f-8ead-b09727f3019d">&lt;/strong&gt;</ept> check box if you want to deploy only updated components.</source>
+          <target state="new">Select the <bpt id="cef1a328-84b2-459f-8ead-b09727f3019d">&lt;strong&gt;</bpt>Deployment update<ept id="cef1a328-84b2-459f-8ead-b09727f3019d">&lt;/strong&gt;</ept> check box if you want to deploy only updated components.</target>
+        </trans-unit>
+        <trans-unit id="55dad101-499c-4b3a-86f3-f73d31d5091b" xml:space="preserve">
+          <source>This type of deployment can be faster than a full deployment.</source>
+          <target state="new">This type of deployment can be faster than a full deployment.</target>
+        </trans-unit>
+        <trans-unit id="8842e14e-0532-4e63-abd1-ace316323f74" xml:space="preserve">
+          <source>Choose the <bpt id="6cc140bc-d731-4e58-86c9-b901ca6d0bd3">&lt;strong&gt;</bpt>Settings<ept id="6cc140bc-d731-4e58-86c9-b901ca6d0bd3">&lt;/strong&gt;</ept> link to open the <bpt id="8724b074-517c-4c2a-8b65-ba975a893845">&lt;strong&gt;</bpt>Deployment update settings<ept id="8724b074-517c-4c2a-8b65-ba975a893845">&lt;/strong&gt;</ept> dialog box, shown in the following illustration.</source>
+          <target state="new">Choose the <bpt id="6cc140bc-d731-4e58-86c9-b901ca6d0bd3">&lt;strong&gt;</bpt>Settings<ept id="6cc140bc-d731-4e58-86c9-b901ca6d0bd3">&lt;/strong&gt;</ept> link to open the <bpt id="8724b074-517c-4c2a-8b65-ba975a893845">&lt;strong&gt;</bpt>Deployment update settings<ept id="8724b074-517c-4c2a-8b65-ba975a893845">&lt;/strong&gt;</ept> dialog box, shown in the following illustration.</target>
+        </trans-unit>
+        <trans-unit id="5e032005-d7a1-48ec-a6b2-b98e96dd584e" xml:space="preserve">
+          <source><bpt id="9ea73b6c-d471-407d-b525-00dac60d52f3">&lt;linkText&gt;</bpt>Deployment Settings<ept id="9ea73b6c-d471-407d-b525-00dac60d52f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9ea73b6c-d471-407d-b525-00dac60d52f3">&lt;linkText&gt;</bpt>Deployment Settings<ept id="9ea73b6c-d471-407d-b525-00dac60d52f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3806b6d8-6e1a-4beb-9f93-bfc988c3657f" xml:space="preserve">
+          <source>You can choose either of two options for update deployment, incremental or simultaneous.</source>
+          <target state="new">You can choose either of two options for update deployment, incremental or simultaneous.</target>
+        </trans-unit>
+        <trans-unit id="14faf24d-2097-4e5f-9df3-d272907f4d2e" xml:space="preserve">
+          <source>An incremental deployment updates one deployed instance at a time, so that your application remains online and available to users.</source>
+          <target state="new">An incremental deployment updates one deployed instance at a time, so that your application remains online and available to users.</target>
+        </trans-unit>
+        <trans-unit id="42914bb3-2286-40eb-9c3e-5cb95bf53ec0" xml:space="preserve">
+          <source>A simultaneous deployment updates all deployed instances at once.</source>
+          <target state="new">A simultaneous deployment updates all deployed instances at once.</target>
+        </trans-unit>
+        <trans-unit id="542e2c56-a215-4d91-8327-10ef2417e861" xml:space="preserve">
+          <source>Simultaneous update is faster than incremental update, but if you choose this option, your application might not be available during the update process.</source>
+          <target state="new">Simultaneous update is faster than incremental update, but if you choose this option, your application might not be available during the update process.</target>
+        </trans-unit>
+        <trans-unit id="d45d76c0-a91d-445f-b210-ee6b879dfbf7" xml:space="preserve">
+          <source>You should select the check box for If deployment can't be updated, do a full deployment if you want the full deployment to take place automatically if an update deployment fails.</source>
+          <target state="new">You should select the check box for If deployment can't be updated, do a full deployment if you want the full deployment to take place automatically if an update deployment fails.</target>
+        </trans-unit>
+        <trans-unit id="b20a856b-b4f8-437c-9d91-83f8f39d00e1" xml:space="preserve">
+          <source>A full deployment resets the virtual IP (VIP) address for the cloud service.</source>
+          <target state="new">A full deployment resets the virtual IP (VIP) address for the cloud service.</target>
+        </trans-unit>
+        <trans-unit id="04fb5c6d-0fc1-473c-a250-f201fb89a0bc" xml:space="preserve">
+          <source>For more information, see <bpt id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;linkText&gt;</bpt>How to: Retain a Constant Virtual IP Address for a Cloud Service<ept id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;/linkText&gt;</ept><bpt id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;title&gt;</bpt><ept id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;linkText&gt;</bpt>How to: Retain a Constant Virtual IP Address for a Cloud Service<ept id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;/linkText&gt;</ept><bpt id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;title&gt;</bpt><ept id="c2741ecf-191c-4c49-b6ad-54b023021203">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="697dea6a-4191-4c48-b1db-7ba95988bd99" xml:space="preserve">
+          <source>To debug your service, select the <bpt id="fb4545de-1686-4326-985c-0de48c3e06af">&lt;strong&gt;</bpt>Enable IntelliTrace<ept id="fb4545de-1686-4326-985c-0de48c3e06af">&lt;/strong&gt;</ept> check box, or if you are deploying a <bpt id="1c53915e-0817-4e8a-b3ae-2fe336e42fd3">&lt;strong&gt;</bpt>Debug<ept id="1c53915e-0817-4e8a-b3ae-2fe336e42fd3">&lt;/strong&gt;</ept> configuration and want to debug your cloud service in Azure, select the <bpt id="be7890d0-a251-4003-b63c-b2331229d15e">&lt;strong&gt;</bpt>Enable Remote Debugger for all roles<ept id="be7890d0-a251-4003-b63c-b2331229d15e">&lt;/strong&gt;</ept> checkbox to deploy the remote debugging services.</source>
+          <target state="new">To debug your service, select the <bpt id="fb4545de-1686-4326-985c-0de48c3e06af">&lt;strong&gt;</bpt>Enable IntelliTrace<ept id="fb4545de-1686-4326-985c-0de48c3e06af">&lt;/strong&gt;</ept> check box, or if you are deploying a <bpt id="1c53915e-0817-4e8a-b3ae-2fe336e42fd3">&lt;strong&gt;</bpt>Debug<ept id="1c53915e-0817-4e8a-b3ae-2fe336e42fd3">&lt;/strong&gt;</ept> configuration and want to debug your cloud service in Azure, select the <bpt id="be7890d0-a251-4003-b63c-b2331229d15e">&lt;strong&gt;</bpt>Enable Remote Debugger for all roles<ept id="be7890d0-a251-4003-b63c-b2331229d15e">&lt;/strong&gt;</ept> checkbox to deploy the remote debugging services.</target>
+        </trans-unit>
+        <trans-unit id="7d8587ce-e558-4ee4-9fe1-98d42b0600d5" xml:space="preserve">
+          <source>To profile the application, select the <bpt id="60d02a09-6f21-48c0-b335-fe9b0e79ac56">&lt;strong&gt;</bpt>Enable profiling<ept id="60d02a09-6f21-48c0-b335-fe9b0e79ac56">&lt;/strong&gt;</ept> check box, and then choose the <bpt id="6069cdc9-fb2a-424e-92bc-2fd02d99bed8">&lt;strong&gt;</bpt>Settings<ept id="6069cdc9-fb2a-424e-92bc-2fd02d99bed8">&lt;/strong&gt;</ept> link to display the profiling options.</source>
+          <target state="new">To profile the application, select the <bpt id="60d02a09-6f21-48c0-b335-fe9b0e79ac56">&lt;strong&gt;</bpt>Enable profiling<ept id="60d02a09-6f21-48c0-b335-fe9b0e79ac56">&lt;/strong&gt;</ept> check box, and then choose the <bpt id="6069cdc9-fb2a-424e-92bc-2fd02d99bed8">&lt;strong&gt;</bpt>Settings<ept id="6069cdc9-fb2a-424e-92bc-2fd02d99bed8">&lt;/strong&gt;</ept> link to display the profiling options.</target>
+        </trans-unit>
+        <trans-unit id="38dd937a-f407-412b-9f0a-355f8bbcce47" xml:space="preserve">
+          <source>You must use Visual Studio Ultimate to enable either IntelliTrace or Tier Interaction Profiling (TIP), and you can't enable both at the same time.</source>
+          <target state="new">You must use Visual Studio Ultimate to enable either IntelliTrace or Tier Interaction Profiling (TIP), and you can't enable both at the same time.</target>
+        </trans-unit>
+        <trans-unit id="1fff25a9-2cc3-4435-bef7-03926e12218b" xml:space="preserve">
+          <source>For more information, see <bpt id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;linkText&gt;</bpt>Debugging a Published Cloud Service with IntelliTrace and Visual Studio<ept id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;/linkText&gt;</ept><bpt id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;title&gt;</bpt><ept id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;/title&gt;</ept> and <bpt id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;linkText&gt;</bpt>Testing the Performance of a Cloud Service<ept id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;/linkText&gt;</ept><bpt id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;title&gt;</bpt><ept id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;linkText&gt;</bpt>Debugging a Published Cloud Service with IntelliTrace and Visual Studio<ept id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;/linkText&gt;</ept><bpt id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;title&gt;</bpt><ept id="ce286f11-e113-4be5-b572-864b3f7bc4f2">&lt;/title&gt;</ept> and <bpt id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;linkText&gt;</bpt>Testing the Performance of a Cloud Service<ept id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;/linkText&gt;</ept><bpt id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;title&gt;</bpt><ept id="8f798f00-8c7f-4662-913e-792724dbb5cb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8c8cb369-d68d-45bb-bc7f-47f92a3d450e" xml:space="preserve">
+          <source>Choose <bpt id="c96db67b-d384-4ddc-8b0b-48b7139378c9">&lt;strong&gt;</bpt>Next<ept id="c96db67b-d384-4ddc-8b0b-48b7139378c9">&lt;/strong&gt;</ept> to view the summary page for the application.</source>
+          <target state="new">Choose <bpt id="c96db67b-d384-4ddc-8b0b-48b7139378c9">&lt;strong&gt;</bpt>Next<ept id="c96db67b-d384-4ddc-8b0b-48b7139378c9">&lt;/strong&gt;</ept> to view the summary page for the application.</target>
+        </trans-unit>
+        <trans-unit id="2148bcd6-b5df-4804-a179-b2f60104f211" xml:space="preserve">
+          <source>You can choose to create a publishing profile from the settings that you have chosen. For example, you might create one profile for a test environment and another for production. To save this profile, choose the <bpt id="3351e1cd-494f-40af-8ded-cc0bfc6d49cd">&lt;strong&gt;</bpt>Save<ept id="3351e1cd-494f-40af-8ded-cc0bfc6d49cd">&lt;/strong&gt;</ept> icon. The wizard creates the profile and saves it in the Visual Studio project. To modify the profile name, open the <bpt id="39586571-ad60-4de4-acf7-776464f95f33">&lt;strong&gt;</bpt>Target profile<ept id="39586571-ad60-4de4-acf7-776464f95f33">&lt;/strong&gt;</ept> list, and then choose <bpt id="81217be4-2084-4357-b79d-ac068d931835">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="81217be4-2084-4357-b79d-ac068d931835">&lt;/strong&gt;</ept>.</source>
+          <target state="new">You can choose to create a publishing profile from the settings that you have chosen. For example, you might create one profile for a test environment and another for production. To save this profile, choose the <bpt id="3351e1cd-494f-40af-8ded-cc0bfc6d49cd">&lt;strong&gt;</bpt>Save<ept id="3351e1cd-494f-40af-8ded-cc0bfc6d49cd">&lt;/strong&gt;</ept> icon. The wizard creates the profile and saves it in the Visual Studio project. To modify the profile name, open the <bpt id="39586571-ad60-4de4-acf7-776464f95f33">&lt;strong&gt;</bpt>Target profile<ept id="39586571-ad60-4de4-acf7-776464f95f33">&lt;/strong&gt;</ept> list, and then choose <bpt id="81217be4-2084-4357-b79d-ac068d931835">&lt;strong&gt;</bpt>&lt;Manage…&gt;<ept id="81217be4-2084-4357-b79d-ac068d931835">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d42cba93-a330-4558-b49e-ae2156f891eb" xml:space="preserve">
+          <source><bpt id="50bff57d-8a32-4648-812b-03ae2f9f1eab">&lt;linkText&gt;</bpt>Summary screen of the Publishing Wizard<ept id="50bff57d-8a32-4648-812b-03ae2f9f1eab">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="50bff57d-8a32-4648-812b-03ae2f9f1eab">&lt;linkText&gt;</bpt>Summary screen of the Publishing Wizard<ept id="50bff57d-8a32-4648-812b-03ae2f9f1eab">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="befa3ceb-7cb0-4dec-8de1-3d919254af58" xml:space="preserve">
+          <source>The publishing profile appears in Solution Explorer in Visual Studio, and the profile settings are written to a file with an .azurePubxml extension.</source>
+          <target state="new">The publishing profile appears in Solution Explorer in Visual Studio, and the profile settings are written to a file with an .azurePubxml extension.</target>
+        </trans-unit>
+        <trans-unit id="f71bdf4c-ab12-4889-b3c1-140537b5236a" xml:space="preserve">
+          <source>Settings are saved as attributes of XML tags.</source>
+          <target state="new">Settings are saved as attributes of XML tags.</target>
+        </trans-unit>
+        <trans-unit id="871fce79-eeb1-4b96-b96b-860d8d358712" xml:space="preserve">
+          <source>Choose <bpt id="a75b6867-9782-4bce-b2eb-8e7b545fa853">&lt;strong&gt;</bpt>Publish<ept id="a75b6867-9782-4bce-b2eb-8e7b545fa853">&lt;/strong&gt;</ept> to publish your application.</source>
+          <target state="new">Choose <bpt id="a75b6867-9782-4bce-b2eb-8e7b545fa853">&lt;strong&gt;</bpt>Publish<ept id="a75b6867-9782-4bce-b2eb-8e7b545fa853">&lt;/strong&gt;</ept> to publish your application.</target>
+        </trans-unit>
+        <trans-unit id="723605ee-1e39-4e88-beb8-9c2d7a34e1f3" xml:space="preserve">
+          <source>You can monitor the process status in the <bpt id="d51352ba-0b3d-44df-8d9e-1babc4c7f092">&lt;strong&gt;</bpt>Output<ept id="d51352ba-0b3d-44df-8d9e-1babc4c7f092">&lt;/strong&gt;</ept> window in Visual Studio.</source>
+          <target state="new">You can monitor the process status in the <bpt id="d51352ba-0b3d-44df-8d9e-1babc4c7f092">&lt;strong&gt;</bpt>Output<ept id="d51352ba-0b3d-44df-8d9e-1babc4c7f092">&lt;/strong&gt;</ept> window in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="5c42768b-92ba-4395-99bb-d425bec7a214" xml:space="preserve">
+          <source><bpt id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;linkText&gt;</bpt>Setting Up Services Required to Publish a Cloud Service from Visual Studio<ept id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;/linkText&gt;</ept><bpt id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;title&gt;</bpt><ept id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;linkText&gt;</bpt>Setting Up Services Required to Publish a Cloud Service from Visual Studio<ept id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;/linkText&gt;</ept><bpt id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;title&gt;</bpt><ept id="3ed07579-55c1-47ab-be51-224dcea971d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e4bafbb8-1921-467b-943b-bd520f970876" xml:space="preserve">
+          <source><bpt id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;linkText&gt;</bpt>How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio<ept id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;/linkText&gt;</ept><bpt id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;title&gt;</bpt><ept id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;linkText&gt;</bpt>How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio<ept id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;/linkText&gt;</ept><bpt id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;title&gt;</bpt><ept id="efa7fab2-7dbf-4e1c-9839-3411df8f2f8e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7ce452cb-b8e1-482e-b8a3-93d4c6d3812f" xml:space="preserve">
+          <source><bpt id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;/linkText&gt;</ept><bpt id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;title&gt;</bpt><ept id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;linkText&gt;</bpt>Publishing a Cloud Service using the Azure Tools<ept id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;/linkText&gt;</ept><bpt id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;title&gt;</bpt><ept id="d9190d88-da09-44d2-8210-52a86aca3be8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="61319134-59ce-4307-ac12-0b0b4641d45e" xml:space="preserve">
+          <source><bpt id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;linkText&gt;</bpt>Debugging a Published Cloud Service with IntelliTrace and Visual Studio<ept id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;/linkText&gt;</ept><bpt id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;title&gt;</bpt><ept id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;linkText&gt;</bpt>Debugging a Published Cloud Service with IntelliTrace and Visual Studio<ept id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;/linkText&gt;</ept><bpt id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;title&gt;</bpt><ept id="2267dc53-e7f9-4c76-88d8-c67a2fc67e01">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b10e333-a9cb-41e3-a8f2-2549b658a0b1" xml:space="preserve">
+          <source><bpt id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;linkText&gt;</bpt>Testing the Performance of a Cloud Service<ept id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;/linkText&gt;</ept><bpt id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;title&gt;</bpt><ept id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;linkText&gt;</bpt>Testing the Performance of a Cloud Service<ept id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;/linkText&gt;</ept><bpt id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;title&gt;</bpt><ept id="482921db-1284-4d69-9ac2-e7c7d0ac9db1">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

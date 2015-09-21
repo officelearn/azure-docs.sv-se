@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="8de27dcd-1fd7-4618-b32c-6da013f59b94" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="8de27dcd-1fd7-4618-b32c-6da013f59b94" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="2d169b8c-3684-42a3-98c2-5ff8b93279d6">
+        <trans-unit id="0b5dee7a-1c11-459a-9e9e-5cc3e0226fb8" xml:space="preserve">
+          <source>Line of business application Phase 4 | Microsoft Azure</source>
+          <target state="new">Line of business application Phase 4 | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="0cdff5d0-3ca2-4ce6-bfa9-e0eacf9513f4" xml:space="preserve">
+          <source>Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure.</source>
+          <target state="new">Create the web servers and load your line of business application on them in Phase 4 of the line of business application in Azure.</target>
+        </trans-unit>
+        <trans-unit id="2b1f85f4-5f7f-4a7d-a725-c83efd443655" xml:space="preserve">
+          <source>In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.</source>
+          <target state="new">In this phase of deploying a high availability line of business application in Azure infrastructure services, you build out the web servers and load your line of business application on them.</target>
+        </trans-unit>
+        <trans-unit id="12109fb9-9da3-4d78-b336-793909df5696" xml:space="preserve">
+          <source>You must complete this phase before moving on to <bpt id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;linkText&gt;</bpt>Phase 5<ept id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;/linkText&gt;</ept><bpt id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;title&gt;</bpt><ept id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;/title&gt;</ept>.</source>
+          <target state="new">You must complete this phase before moving on to <bpt id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;linkText&gt;</bpt>Phase 5<ept id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;/linkText&gt;</ept><bpt id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;title&gt;</bpt><ept id="30f57215-2ab3-4621-b242-0a1ea5b0b140">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4499a3bf-f95b-41a9-98ec-179a73f2c111" xml:space="preserve">
+          <source>See <bpt id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;/linkText&gt;</ept><bpt id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;title&gt;</bpt><ept id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;/title&gt;</ept> for all of the phases.</source>
+          <target state="new">See <bpt id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;/linkText&gt;</ept><bpt id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;title&gt;</bpt><ept id="080f6c8b-71f3-45c3-ac00-531022ada581">&lt;/title&gt;</ept> for all of the phases.</target>
+        </trans-unit>
+        <trans-unit id="fc6b0bfc-8213-4dba-a1d8-e6d60b02c181" xml:space="preserve">
+          <source>There are two web server virtual machines, on which you can deploy ASP.NET applications or older applications that can be hosted by Internet Information Services (IIS) 8 in Windows Server 2012 R2.</source>
+          <target state="new">There are two web server virtual machines, on which you can deploy ASP.NET applications or older applications that can be hosted by Internet Information Services (IIS) 8 in Windows Server 2012 R2.</target>
+        </trans-unit>
+        <trans-unit id="df0d951b-e521-4688-8ab3-06640786f9ed" xml:space="preserve">
+          <source>First, you configure internal load balancing so that Azure distributes the client traffic to the line of business application evenly among the two web servers. This requires you to specify an internal load balancing instance consisting of a name and its own IP address, assigned from the subnet address space that you assigned to your Azure virtual network. To determine whether an IP address you chose for the internal load balancer is available, use these commands at the Azure PowerShell prompt. Specify the values for the variables and remove the &lt; and &gt; characters.</source>
+          <target state="new">First, you configure internal load balancing so that Azure distributes the client traffic to the line of business application evenly among the two web servers. This requires you to specify an internal load balancing instance consisting of a name and its own IP address, assigned from the subnet address space that you assigned to your Azure virtual network. To determine whether an IP address you chose for the internal load balancer is available, use these commands at the Azure PowerShell prompt. Specify the values for the variables and remove the &lt; and &gt; characters.</target>
+        </trans-unit>
+        <trans-unit id="699bac02-91ac-4d8b-93fa-f602bc8cbead" xml:space="preserve">
+          <source>If the <bpt id="5af1f538-5444-4588-a6d0-58df8f69147e">&lt;strong&gt;</bpt>IsAvailable<ept id="5af1f538-5444-4588-a6d0-58df8f69147e">&lt;/strong&gt;</ept> field in the display of the Test-AzureStaticVNetIP command is <bpt id="fc6c9a16-98d4-4b25-af23-4aad6e4b7f99">&lt;strong&gt;</bpt>True<ept id="fc6c9a16-98d4-4b25-af23-4aad6e4b7f99">&lt;/strong&gt;</ept>, you can use the IP address.</source>
+          <target state="new">If the <bpt id="5af1f538-5444-4588-a6d0-58df8f69147e">&lt;strong&gt;</bpt>IsAvailable<ept id="5af1f538-5444-4588-a6d0-58df8f69147e">&lt;/strong&gt;</ept> field in the display of the Test-AzureStaticVNetIP command is <bpt id="fc6c9a16-98d4-4b25-af23-4aad6e4b7f99">&lt;strong&gt;</bpt>True<ept id="fc6c9a16-98d4-4b25-af23-4aad6e4b7f99">&lt;/strong&gt;</ept>, you can use the IP address.</target>
+        </trans-unit>
+        <trans-unit id="1d33c8e0-96d0-4d16-a9d1-f20b2b097a3c" xml:space="preserve">
+          <source>Switch back to the Resource Manager mode of PowerShell with this command.</source>
+          <target state="new">Switch back to the Resource Manager mode of PowerShell with this command.</target>
+        </trans-unit>
+        <trans-unit id="887e139c-9656-4436-9958-b39d8b1fed66" xml:space="preserve">
+          <source>Next, fill in the variables and run the following set of commands:</source>
+          <target state="new">Next, fill in the variables and run the following set of commands:</target>
+        </trans-unit>
+        <trans-unit id="2203f493-4a93-4ef1-9b9a-145dbab0da05" xml:space="preserve">
+          <source>Next, add a DNS address record to your organization's internal DNS infrastructure that resolves the fully qualified domain name of the line of business application (such as lobapp.corp.contoso.com) to the IP address assigned to the internal load balancer (the value of $privIP in the preceding Azure PowerShell command block).</source>
+          <target state="new">Next, add a DNS address record to your organization's internal DNS infrastructure that resolves the fully qualified domain name of the line of business application (such as lobapp.corp.contoso.com) to the IP address assigned to the internal load balancer (the value of $privIP in the preceding Azure PowerShell command block).</target>
+        </trans-unit>
+        <trans-unit id="f6170a70-7da7-49d8-a827-15cd73222e98" xml:space="preserve">
+          <source>Next, use the following block of PowerShell commands to create the virtual machines for the two web servers.</source>
+          <target state="new">Next, use the following block of PowerShell commands to create the virtual machines for the two web servers.</target>
+        </trans-unit>
+        <trans-unit id="7ac5eb24-3c72-4dac-91be-207439caaeda" xml:space="preserve">
+          <source>Note that this PowerShell command set uses values from the following tables:</source>
+          <target state="new">Note that this PowerShell command set uses values from the following tables:</target>
+        </trans-unit>
+        <trans-unit id="0e76889d-1ad6-4299-865a-593dfbe819e3" xml:space="preserve">
+          <source>Table M, for your virtual machines</source>
+          <target state="new">Table M, for your virtual machines</target>
+        </trans-unit>
+        <trans-unit id="1fc8107e-8e73-45ec-9908-16a688ff5df7" xml:space="preserve">
+          <source>Table V, for your virtual network settings</source>
+          <target state="new">Table V, for your virtual network settings</target>
+        </trans-unit>
+        <trans-unit id="9310d2f7-2e4f-4098-ab0d-81f6e67fa87a" xml:space="preserve">
+          <source>Table S, for your subnet</source>
+          <target state="new">Table S, for your subnet</target>
+        </trans-unit>
+        <trans-unit id="8c7673c6-dda5-44d1-a245-21a3ef9f887b" xml:space="preserve">
+          <source>Table ST, for your storage accounts</source>
+          <target state="new">Table ST, for your storage accounts</target>
+        </trans-unit>
+        <trans-unit id="7d363a8f-812a-487a-aa3a-b3ba4e5a6123" xml:space="preserve">
+          <source>Table A, for your availability sets</source>
+          <target state="new">Table A, for your availability sets</target>
+        </trans-unit>
+        <trans-unit id="ef922527-8698-42d4-ab2d-0d0f86cac1fd" xml:space="preserve">
+          <source>Recall that you defined Table M in <bpt id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;linkText&gt;</bpt>Phase 2<ept id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;/linkText&gt;</ept><bpt id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;title&gt;</bpt><ept id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;/title&gt;</ept> and Tables V, S, ST, and A in <bpt id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;linkText&gt;</bpt>Phase 1<ept id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;/linkText&gt;</ept><bpt id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;title&gt;</bpt><ept id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;/title&gt;</ept>.</source>
+          <target state="new">Recall that you defined Table M in <bpt id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;linkText&gt;</bpt>Phase 2<ept id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;/linkText&gt;</ept><bpt id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;title&gt;</bpt><ept id="91412e42-e255-4063-a63d-f0ce66b2fad3">&lt;/title&gt;</ept> and Tables V, S, ST, and A in <bpt id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;linkText&gt;</bpt>Phase 1<ept id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;/linkText&gt;</ept><bpt id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;title&gt;</bpt><ept id="66ccb27e-a314-4a78-9ab4-fe4cec0b1697">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="362e478d-9e87-4e91-bf3d-270a587951f8" xml:space="preserve">
+          <source>When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</source>
+          <target state="new">When you have supplied all the proper values, run the resulting block at the Azure PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="4826abcb-9bff-48a2-b38a-00b9079702bb" xml:space="preserve">
+          <source>Use the remote desktop client of your choice and create a remote desktop connection to each web server virtual machine.</source>
+          <target state="new">Use the remote desktop client of your choice and create a remote desktop connection to each web server virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="358cbaf6-4d95-424d-912d-fb0fc4b558e0" xml:space="preserve">
+          <source>Use its intranet DNS or computer name and the credentials of the local administrator account.</source>
+          <target state="new">Use its intranet DNS or computer name and the credentials of the local administrator account.</target>
+        </trans-unit>
+        <trans-unit id="bac30923-7965-4cc1-abc2-aa5f77bce829" xml:space="preserve">
+          <source>Next, for each web server virtual machine, join them to the appropriate Active Directory domain with these commands at the Windows PowerShell prompt.</source>
+          <target state="new">Next, for each web server virtual machine, join them to the appropriate Active Directory domain with these commands at the Windows PowerShell prompt.</target>
+        </trans-unit>
+        <trans-unit id="3ce4df90-d9ef-464c-b90c-dff86027650b" xml:space="preserve">
+          <source>Note that you must supply domain account credentials after entering the <bpt id="ce25ad83-9650-4df8-acc9-aad1d0a6d11c">&lt;strong&gt;</bpt>Add-Computer<ept id="ce25ad83-9650-4df8-acc9-aad1d0a6d11c">&lt;/strong&gt;</ept> command.</source>
+          <target state="new">Note that you must supply domain account credentials after entering the <bpt id="ce25ad83-9650-4df8-acc9-aad1d0a6d11c">&lt;strong&gt;</bpt>Add-Computer<ept id="ce25ad83-9650-4df8-acc9-aad1d0a6d11c">&lt;/strong&gt;</ept> command.</target>
+        </trans-unit>
+        <trans-unit id="2e1d0cef-3946-4e9d-be56-5a44e4d97afd" xml:space="preserve">
+          <source>After they restart, reconnect to them using an account that has local administrator privileges.</source>
+          <target state="new">After they restart, reconnect to them using an account that has local administrator privileges.</target>
+        </trans-unit>
+        <trans-unit id="e0bf6d18-4fa5-4dfa-8890-b0be7e974be9" xml:space="preserve">
+          <source>Next, for each web server, install and configure IIS.</source>
+          <target state="new">Next, for each web server, install and configure IIS.</target>
+        </trans-unit>
+        <trans-unit id="f7053df6-d29d-4380-8283-71a2cebe0b0b" xml:space="preserve">
+          <source>Run Server Manager, and then click <bpt id="f3e7db23-79ed-4640-88c6-d9fd639e3281">&lt;strong&gt;</bpt>Add roles and features<ept id="f3e7db23-79ed-4640-88c6-d9fd639e3281">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Run Server Manager, and then click <bpt id="f3e7db23-79ed-4640-88c6-d9fd639e3281">&lt;strong&gt;</bpt>Add roles and features<ept id="f3e7db23-79ed-4640-88c6-d9fd639e3281">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c37f24d3-5d78-4398-afc9-ddae44a43df9" xml:space="preserve">
+          <source>On the Before you begin page, click <bpt id="62194e8a-d655-4c7a-859b-b62e18467662">&lt;strong&gt;</bpt>Next<ept id="62194e8a-d655-4c7a-859b-b62e18467662">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Before you begin page, click <bpt id="62194e8a-d655-4c7a-859b-b62e18467662">&lt;strong&gt;</bpt>Next<ept id="62194e8a-d655-4c7a-859b-b62e18467662">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a6e296b7-0915-41d0-b043-cb5121447a45" xml:space="preserve">
+          <source>On the Select installation type page, click <bpt id="a1190c29-217c-4b0c-bb89-a0b4ba15103d">&lt;strong&gt;</bpt>Next<ept id="a1190c29-217c-4b0c-bb89-a0b4ba15103d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select installation type page, click <bpt id="a1190c29-217c-4b0c-bb89-a0b4ba15103d">&lt;strong&gt;</bpt>Next<ept id="a1190c29-217c-4b0c-bb89-a0b4ba15103d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52653b61-e3b9-4218-8969-34106b9a365a" xml:space="preserve">
+          <source>On the Select destination server page, click <bpt id="7210bd8d-9534-49aa-beda-1bf5bd6555cc">&lt;strong&gt;</bpt>Next<ept id="7210bd8d-9534-49aa-beda-1bf5bd6555cc">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select destination server page, click <bpt id="7210bd8d-9534-49aa-beda-1bf5bd6555cc">&lt;strong&gt;</bpt>Next<ept id="7210bd8d-9534-49aa-beda-1bf5bd6555cc">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c5d6ab5a-cb7e-4391-b8d5-df0500555154" xml:space="preserve">
+          <source>On the Server roles page, click <bpt id="013e9f1c-7375-4b74-88bc-4d2355ed289e">&lt;strong&gt;</bpt>Web Server (IIS)<ept id="013e9f1c-7375-4b74-88bc-4d2355ed289e">&lt;/strong&gt;</ept> in the list of <bpt id="a317ccf8-3bf6-4367-bafd-2c8b29f34fb8">&lt;strong&gt;</bpt>Roles<ept id="a317ccf8-3bf6-4367-bafd-2c8b29f34fb8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Server roles page, click <bpt id="013e9f1c-7375-4b74-88bc-4d2355ed289e">&lt;strong&gt;</bpt>Web Server (IIS)<ept id="013e9f1c-7375-4b74-88bc-4d2355ed289e">&lt;/strong&gt;</ept> in the list of <bpt id="a317ccf8-3bf6-4367-bafd-2c8b29f34fb8">&lt;strong&gt;</bpt>Roles<ept id="a317ccf8-3bf6-4367-bafd-2c8b29f34fb8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5d817e90-7ef1-436b-91f0-8b7c2bc2f7e7" xml:space="preserve">
+          <source>When prompted, click <bpt id="94ddf92d-4e5d-4956-8a33-c8ba5a28ff08">&lt;strong&gt;</bpt>Add Features<ept id="94ddf92d-4e5d-4956-8a33-c8ba5a28ff08">&lt;/strong&gt;</ept>, and then click <bpt id="15da3966-cc42-4bdc-850d-c4f628f4e1af">&lt;strong&gt;</bpt>Next<ept id="15da3966-cc42-4bdc-850d-c4f628f4e1af">&lt;/strong&gt;</ept>.</source>
+          <target state="new">When prompted, click <bpt id="94ddf92d-4e5d-4956-8a33-c8ba5a28ff08">&lt;strong&gt;</bpt>Add Features<ept id="94ddf92d-4e5d-4956-8a33-c8ba5a28ff08">&lt;/strong&gt;</ept>, and then click <bpt id="15da3966-cc42-4bdc-850d-c4f628f4e1af">&lt;strong&gt;</bpt>Next<ept id="15da3966-cc42-4bdc-850d-c4f628f4e1af">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab58979b-2ac9-4d03-9a34-06e56943d147" xml:space="preserve">
+          <source>On the Select features page, click <bpt id="9e97b6d2-87d3-4df1-a356-7e4c2870d143">&lt;strong&gt;</bpt>Next<ept id="9e97b6d2-87d3-4df1-a356-7e4c2870d143">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select features page, click <bpt id="9e97b6d2-87d3-4df1-a356-7e4c2870d143">&lt;strong&gt;</bpt>Next<ept id="9e97b6d2-87d3-4df1-a356-7e4c2870d143">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="82e1e0fb-9a6c-4387-b433-8c96c2dce0f8" xml:space="preserve">
+          <source>On the Web Server (IIS) page, click <bpt id="0677694f-aab9-474e-b8b0-d4a74e916a53">&lt;strong&gt;</bpt>Next<ept id="0677694f-aab9-474e-b8b0-d4a74e916a53">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Web Server (IIS) page, click <bpt id="0677694f-aab9-474e-b8b0-d4a74e916a53">&lt;strong&gt;</bpt>Next<ept id="0677694f-aab9-474e-b8b0-d4a74e916a53">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b189f73-a59c-4457-bfca-5284e3af99c7" xml:space="preserve">
+          <source>On the Select role services page, select or clear the check boxes for the services you need for your LOB application, and then click <bpt id="a0343743-abe1-456c-a555-fcaca4a7ca13">&lt;strong&gt;</bpt>Next<ept id="a0343743-abe1-456c-a555-fcaca4a7ca13">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the Select role services page, select or clear the check boxes for the services you need for your LOB application, and then click <bpt id="a0343743-abe1-456c-a555-fcaca4a7ca13">&lt;strong&gt;</bpt>Next<ept id="a0343743-abe1-456c-a555-fcaca4a7ca13">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="91461bdd-cb94-4473-b671-2e5c4bbfc078" xml:space="preserve">
+          <source>10.On the Confirm installation selections page, click <bpt id="e1be7037-11de-4b42-bf07-7926306bcb97">&lt;strong&gt;</bpt>Install<ept id="e1be7037-11de-4b42-bf07-7926306bcb97">&lt;/strong&gt;</ept>.</source>
+          <target state="new">10.On the Confirm installation selections page, click <bpt id="e1be7037-11de-4b42-bf07-7926306bcb97">&lt;strong&gt;</bpt>Install<ept id="e1be7037-11de-4b42-bf07-7926306bcb97">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3f20811a-5d37-4a00-8cb0-7ff402befa12" xml:space="preserve">
+          <source>From a computer on your on-premises network:</source>
+          <target state="new">From a computer on your on-premises network:</target>
+        </trans-unit>
+        <trans-unit id="aec065bc-f1c1-40b7-8fab-dcf07ffd7174" xml:space="preserve">
+          <source>Add the files for your line of business application to the two web servers.</source>
+          <target state="new">Add the files for your line of business application to the two web servers.</target>
+        </trans-unit>
+        <trans-unit id="b9dea34e-720d-49f8-9413-661270c7984d" xml:space="preserve">
+          <source>Create the databases for your line of business application on the SQL Server cluster.</source>
+          <target state="new">Create the databases for your line of business application on the SQL Server cluster.</target>
+        </trans-unit>
+        <trans-unit id="e230d509-7f58-41f3-85a0-db9838153e5f" xml:space="preserve">
+          <source>Test access to your line of business application and its functionality.</source>
+          <target state="new">Test access to your line of business application and its functionality.</target>
+        </trans-unit>
+        <trans-unit id="3da3536f-5041-4621-8b4c-be61e07e451e" xml:space="preserve">
+          <source>This diagram is the configuration resulting from the successful completion of this phase.</source>
+          <target state="new">This diagram is the configuration resulting from the successful completion of this phase.</target>
+        </trans-unit>
+        <trans-unit id="8c6f3aaa-3de2-4195-aaa1-17c0484cb60c" xml:space="preserve">
+          <source><bpt id="fb15acbf-3227-4e65-9572-8d868f49619e">&lt;linkText&gt;</bpt><ept id="fb15acbf-3227-4e65-9572-8d868f49619e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fb15acbf-3227-4e65-9572-8d868f49619e">&lt;linkText&gt;</bpt><ept id="fb15acbf-3227-4e65-9572-8d868f49619e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="96ec1068-a70d-4b82-ad3d-7730678b7187" xml:space="preserve">
+          <source>To continue with the configuration of this workload, go to <bpt id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;linkText&gt;</bpt>Phase 5: Create the availability group and add the application databases<ept id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;/linkText&gt;</ept><bpt id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;title&gt;</bpt><ept id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;/title&gt;</ept>.</source>
+          <target state="new">To continue with the configuration of this workload, go to <bpt id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;linkText&gt;</bpt>Phase 5: Create the availability group and add the application databases<ept id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;/linkText&gt;</ept><bpt id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;title&gt;</bpt><ept id="a4159c28-e858-43cc-ab18-4ac2a331f1f1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cf2bf80a-0beb-414f-bd49-b94e0d072e12" xml:space="preserve">
+          <source><bpt id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;/linkText&gt;</ept><bpt id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;title&gt;</bpt><ept id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;linkText&gt;</bpt>Deploy a high-availability line of business application in Azure<ept id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;/linkText&gt;</ept><bpt id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;title&gt;</bpt><ept id="be9324b9-7d58-433a-bb75-0b382413760a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5f3e8ef4-79ac-4fd6-a13c-43e29617a8e3" xml:space="preserve">
+          <source><bpt id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;/linkText&gt;</ept><bpt id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;title&gt;</bpt><ept id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;linkText&gt;</bpt>Line of Business Applications architecture blueprint<ept id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;/linkText&gt;</ept><bpt id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;title&gt;</bpt><ept id="0cdf9d98-4826-4939-b5a8-2c74226f7357">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1a2e0e2-d98c-4971-a5e5-0f32d5b2f582" xml:space="preserve">
+          <source><bpt id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;/linkText&gt;</ept><bpt id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;title&gt;</bpt><ept id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;linkText&gt;</bpt>Set up a web-based LOB application in a hybrid cloud for testing<ept id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;/linkText&gt;</ept><bpt id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;title&gt;</bpt><ept id="c31db14b-9dd8-41ee-a7a0-951cd8494dce">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8242233a-df6f-4e98-a7de-be026df6c1e9" xml:space="preserve">
+          <source><bpt id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;/linkText&gt;</ept><bpt id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;title&gt;</bpt><ept id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;linkText&gt;</bpt>Azure infrastructure services implementation guidelines<ept id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;/linkText&gt;</ept><bpt id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;title&gt;</bpt><ept id="7b6f65fd-de68-4e6f-ac6f-11102f4f6bc8">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="484bb87b-f423-4015-a129-9da905539b51" xml:space="preserve">
+          <source><bpt id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;/linkText&gt;</ept><bpt id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;title&gt;</bpt><ept id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;linkText&gt;</bpt>Azure Infrastructure Services Workload: SharePoint Server 2013 farm<ept id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;/linkText&gt;</ept><bpt id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;title&gt;</bpt><ept id="c009a384-2f4e-463c-a18c-e6657e87d68a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

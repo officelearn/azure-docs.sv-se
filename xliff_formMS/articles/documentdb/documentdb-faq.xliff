@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="5d29b6ad-1010-4b7e-9d0e-15d865fb8f63" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="5d29b6ad-1010-4b7e-9d0e-15d865fb8f63" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="1decb3a6-4e48-44cb-ba49-6eadf58f2b07">
+        <trans-unit id="64089140-0d21-4f29-9bc0-ae2c298a13f7" xml:space="preserve">
+          <source>Frequently asked questions about DocumentDB | Microsoft Azure</source>
+          <target state="new">Frequently asked questions about DocumentDB | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="ad65837d-6724-4b76-b295-a0de2a8d51b5" xml:space="preserve">
+          <source>Answers to frequently asked questions related about Azure DocumentDB, a NoSQL document database service.</source>
+          <target state="new">Answers to frequently asked questions related about Azure DocumentDB, a NoSQL document database service.</target>
+        </trans-unit>
+        <trans-unit id="8802c555-8b35-4a69-8e98-c67cfd5fc8d2" xml:space="preserve">
+          <source>Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure.</source>
+          <target state="new">Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure.</target>
+        </trans-unit>
+        <trans-unit id="278e90d3-1897-4378-9715-22a3ced0663f" xml:space="preserve">
+          <source>DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key requirements.</source>
+          <target state="new">DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key requirements.</target>
+        </trans-unit>
+        <trans-unit id="758b85d0-9785-4459-a033-71eb4d5a3094" xml:space="preserve">
+          <source>DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.</source>
+          <target state="new">DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.</target>
+        </trans-unit>
+        <trans-unit id="fef08c95-ecb2-40a7-80bd-a2b7aa79aeac" xml:space="preserve">
+          <source>For instructions on deploying and using this service, see the <bpt id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;linkText&gt;</bpt>DocumentDB documentation page<ept id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;/linkText&gt;</ept><bpt id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;title&gt;</bpt><ept id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on deploying and using this service, see the <bpt id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;linkText&gt;</bpt>DocumentDB documentation page<ept id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;/linkText&gt;</ept><bpt id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;title&gt;</bpt><ept id="6a7b307a-e4a5-44d1-84de-e79d2602b462">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d16068a5-e2bf-412a-a803-ae102a1b0abe" xml:space="preserve">
+          <source>DocumentDB is a NoSQL document oriented database that stores data in JSON format.</source>
+          <target state="new">DocumentDB is a NoSQL document oriented database that stores data in JSON format.</target>
+        </trans-unit>
+        <trans-unit id="73dbf829-3741-43f5-8b4b-7d6ed9f0f0d8" xml:space="preserve">
+          <source>DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB <bpt id="48166f19-059a-4254-a007-2b0434125693">&lt;linkText&gt;</bpt>SQL query grammar<ept id="48166f19-059a-4254-a007-2b0434125693">&lt;/linkText&gt;</ept><bpt id="48166f19-059a-4254-a007-2b0434125693">&lt;title&gt;</bpt><ept id="48166f19-059a-4254-a007-2b0434125693">&lt;/title&gt;</ept>.</source>
+          <target state="new">DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB <bpt id="48166f19-059a-4254-a007-2b0434125693">&lt;linkText&gt;</bpt>SQL query grammar<ept id="48166f19-059a-4254-a007-2b0434125693">&lt;/linkText&gt;</ept><bpt id="48166f19-059a-4254-a007-2b0434125693">&lt;title&gt;</bpt><ept id="48166f19-059a-4254-a007-2b0434125693">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ec7a0cd-386c-4a32-a7e8-eea52eceb28c" xml:space="preserve">
+          <source>DocumentDB provides high performance transactional processing of server side JavaScript through <bpt id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;linkText&gt;</bpt>stored procedures, triggers, and user defined functions<ept id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;/linkText&gt;</ept><bpt id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;title&gt;</bpt><ept id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;/title&gt;</ept>.</source>
+          <target state="new">DocumentDB provides high performance transactional processing of server side JavaScript through <bpt id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;linkText&gt;</bpt>stored procedures, triggers, and user defined functions<ept id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;/linkText&gt;</ept><bpt id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;title&gt;</bpt><ept id="f4f79a2d-b781-48ec-9708-a727fb21c98e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="21000551-ede0-4479-bcc2-67f6840a0cf7" xml:space="preserve">
+          <source>The database also supports developer tunable consistency levels with associated <bpt id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;linkText&gt;</bpt>performance levels<ept id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;/linkText&gt;</ept><bpt id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;title&gt;</bpt><ept id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;/title&gt;</ept>.</source>
+          <target state="new">The database also supports developer tunable consistency levels with associated <bpt id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;linkText&gt;</bpt>performance levels<ept id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;/linkText&gt;</ept><bpt id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;title&gt;</bpt><ept id="c1e2a067-1024-411b-b040-413a8e6999c5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="39bf4f50-716f-4258-990f-95d3ae375da1" xml:space="preserve">
+          <source>No, DocumentDB  stores data in collections of JSON documents.</source>
+          <target state="new">No, DocumentDB  stores data in collections of JSON documents.</target>
+        </trans-unit>
+        <trans-unit id="479b02e9-6352-4236-8262-a9e67cfd5145" xml:space="preserve">
+          <source>For information on DocumentDB resources, see <bpt id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;linkText&gt;</bpt>DocumentDB resource model and concepts<ept id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;/linkText&gt;</ept><bpt id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;title&gt;</bpt><ept id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;/title&gt;</ept>.</source>
+          <target state="new">For information on DocumentDB resources, see <bpt id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;linkText&gt;</bpt>DocumentDB resource model and concepts<ept id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;/linkText&gt;</ept><bpt id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;title&gt;</bpt><ept id="c7f2e2a6-2a7e-4fea-bc6d-0f7b8fd8847f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1e3f7a72-5419-4eba-91df-c7709499b814" xml:space="preserve">
+          <source>Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints.</source>
+          <target state="new">Yes, DocumentDB allows applications to store arbitrary JSON documents without schema definition or hints.</target>
+        </trans-unit>
+        <trans-unit id="2125c09d-8dae-4b49-b06b-3d61dd8b5b62" xml:space="preserve">
+          <source>Data is immediately available for query through the DocumentDB SQL query interface.</source>
+          <target state="new">Data is immediately available for query through the DocumentDB SQL query interface.</target>
+        </trans-unit>
+        <trans-unit id="274acecc-f388-4f1b-82fe-7a2a42a1ed12" xml:space="preserve">
+          <source>Yes, DocumentDB supports cross-document transactions expressed as JavaScript stored procedures and triggers.</source>
+          <target state="new">Yes, DocumentDB supports cross-document transactions expressed as JavaScript stored procedures and triggers.</target>
+        </trans-unit>
+        <trans-unit id="e89ca9d8-3ff5-42b3-83fd-4001d2ac1822" xml:space="preserve">
+          <source>Transactions are scoped to a single collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests.</source>
+          <target state="new">Transactions are scoped to a single collection and executed with ACID semantics as all or nothing isolated from other concurrently executing code and user requests.</target>
+        </trans-unit>
+        <trans-unit id="f67edd70-b474-4f3e-b27f-64f46a277390" xml:space="preserve">
+          <source>If exceptions are thrown through the server side execution of JavaScript application code, the entire transaction is rolled back.</source>
+          <target state="new">If exceptions are thrown through the server side execution of JavaScript application code, the entire transaction is rolled back.</target>
+        </trans-unit>
+        <trans-unit id="76d15196-3bd2-4c3f-84aa-22308310bd1d" xml:space="preserve">
+          <source>DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important.</source>
+          <target state="new">DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important.</target>
+        </trans-unit>
+        <trans-unit id="8dca9e6a-f361-404c-bde1-4e7f4ad6738a" xml:space="preserve">
+          <source>DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models.</source>
+          <target state="new">DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models.</target>
+        </trans-unit>
+        <trans-unit id="c76fa27e-7e35-4127-bfe9-fdb3f7fb0877" xml:space="preserve">
+          <source>Applications that manage user generated content and data are <bpt id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;linkText&gt;</bpt>common use cases for DocumentDB<ept id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;/linkText&gt;</ept><bpt id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;title&gt;</bpt><ept id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;/title&gt;</ept>.</source>
+          <target state="new">Applications that manage user generated content and data are <bpt id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;linkText&gt;</bpt>common use cases for DocumentDB<ept id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;/linkText&gt;</ept><bpt id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;title&gt;</bpt><ept id="e643f7f8-215b-4be7-96a5-a8a75f6ba179">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d15330e8-c8c9-4447-868c-b0f28cf6eb9b" xml:space="preserve">
+          <source>DocumentDB accounts can be scaled in terms of storage and throughput by adding collections.</source>
+          <target state="new">DocumentDB accounts can be scaled in terms of storage and throughput by adding collections.</target>
+        </trans-unit>
+        <trans-unit id="2270f462-37b7-448b-96e7-692cc2e0355c" xml:space="preserve">
+          <source>Please see <bpt id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;/linkText&gt;</ept><bpt id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;title&gt;</bpt><ept id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;/title&gt;</ept> for the service quotas for the number of collections.</source>
+          <target state="new">Please see <bpt id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;/linkText&gt;</ept><bpt id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;title&gt;</bpt><ept id="abfd9d2f-08fa-42af-a118-b176b8e18d23">&lt;/title&gt;</ept> for the service quotas for the number of collections.</target>
+        </trans-unit>
+        <trans-unit id="5c27d815-0fba-4c41-a34b-02d7014eb20f" xml:space="preserve">
+          <source>If you require additional collections, please <bpt id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;linkText&gt;</bpt>contact support<ept id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;/linkText&gt;</ept><bpt id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;title&gt;</bpt><ept id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;/title&gt;</ept> to have your account quota increased.</source>
+          <target state="new">If you require additional collections, please <bpt id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;linkText&gt;</bpt>contact support<ept id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;/linkText&gt;</ept><bpt id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;title&gt;</bpt><ept id="f6f16a83-68b2-4067-b399-e9bbde5c26b2">&lt;/title&gt;</ept> to have your account quota increased.</target>
+        </trans-unit>
+        <trans-unit id="1ee2afd6-04ff-41ff-b8ba-af689c7ad707" xml:space="preserve">
+          <source>Please refer to the <bpt id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;linkText&gt;</bpt>DocumentDB pricing details<ept id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;/linkText&gt;</ept><bpt id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;title&gt;</bpt><ept id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;/title&gt;</ept> page for details.</source>
+          <target state="new">Please refer to the <bpt id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;linkText&gt;</bpt>DocumentDB pricing details<ept id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;/linkText&gt;</ept><bpt id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;title&gt;</bpt><ept id="f2b16316-cbf6-4dc9-ab3e-596cdce32afc">&lt;/title&gt;</ept> page for details.</target>
+        </trans-unit>
+        <trans-unit id="5eace83f-b0d2-4b86-9ad4-8ff1c9af61d2" xml:space="preserve">
+          <source>DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the <bpt id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;linkText&gt;</bpt>performance level<ept id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;/linkText&gt;</ept><bpt id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;title&gt;</bpt><ept id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;/title&gt;</ept> of each collection.</source>
+          <target state="new">DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the <bpt id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;linkText&gt;</bpt>performance level<ept id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;/linkText&gt;</ept><bpt id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;title&gt;</bpt><ept id="1156eeac-42ec-4f26-b90a-ec95495a3d1d">&lt;/title&gt;</ept> of each collection.</target>
+        </trans-unit>
+        <trans-unit id="63677410-3761-4ef1-856c-ffc18814c288" xml:space="preserve">
+          <source>If you are new to Azure, you can sign up for an <bpt id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;linkText&gt;</bpt>Azure free trial<ept id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;/linkText&gt;</ept><bpt id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;title&gt;</bpt><ept id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;/title&gt;</ept>, which gives you 30 days and $200 to try all the Azure services.</source>
+          <target state="new">If you are new to Azure, you can sign up for an <bpt id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;linkText&gt;</bpt>Azure free trial<ept id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;/linkText&gt;</ept><bpt id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;title&gt;</bpt><ept id="375622b9-06b1-4b75-95f5-f361e01d26e0">&lt;/title&gt;</ept>, which gives you 30 days and $200 to try all the Azure services.</target>
+        </trans-unit>
+        <trans-unit id="ab29278a-aaa2-4bc9-a24c-948e74b3d623" xml:space="preserve">
+          <source>Or, if you have an MSDN subscription, you are eligible for <bpt id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;linkText&gt;</bpt>$150 in free Azure credits per month<ept id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;/linkText&gt;</ept><bpt id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;title&gt;</bpt><ept id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;/title&gt;</ept> to use on any Azure service.</source>
+          <target state="new">Or, if you have an MSDN subscription, you are eligible for <bpt id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;linkText&gt;</bpt>$150 in free Azure credits per month<ept id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;/linkText&gt;</ept><bpt id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;title&gt;</bpt><ept id="1d71c383-6480-4b3c-b2b8-9d313cac9ac4">&lt;/title&gt;</ept> to use on any Azure service.</target>
+        </trans-unit>
+        <trans-unit id="b7c26ce7-683e-4216-b07c-9eb0dec9e54f" xml:space="preserve">
+          <source>If you need any help, please reach out to us on <bpt id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;linkText&gt;</bpt>Stack Overflow<ept id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;/linkText&gt;</ept><bpt id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;title&gt;</bpt><ept id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;/title&gt;</ept>, the <bpt id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;linkText&gt;</bpt>Azure DocumentDB MSDN Developer Forums<ept id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;/linkText&gt;</ept><bpt id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;title&gt;</bpt><ept id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;/title&gt;</ept>, or schedule a <bpt id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;linkText&gt;</bpt>1:1 chat with the DocumentDB engineering team<ept id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;/linkText&gt;</ept><bpt id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;title&gt;</bpt><ept id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you need any help, please reach out to us on <bpt id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;linkText&gt;</bpt>Stack Overflow<ept id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;/linkText&gt;</ept><bpt id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;title&gt;</bpt><ept id="4f3db3a4-fe7e-4d57-804b-ec05df6688d0">&lt;/title&gt;</ept>, the <bpt id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;linkText&gt;</bpt>Azure DocumentDB MSDN Developer Forums<ept id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;/linkText&gt;</ept><bpt id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;title&gt;</bpt><ept id="c7129a5d-7622-4ecf-8a47-b4a47a5f6535">&lt;/title&gt;</ept>, or schedule a <bpt id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;linkText&gt;</bpt>1:1 chat with the DocumentDB engineering team<ept id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;/linkText&gt;</ept><bpt id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;title&gt;</bpt><ept id="3f846be3-a510-420e-9e32-9f2cdd1cb7e5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="38cb643f-36b6-4bf1-9ea0-0bf533097496" xml:space="preserve">
+          <source>To stay up to date on the latest DocumentDB news and features, follow us on <bpt id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;linkText&gt;</bpt>Twitter<ept id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;/linkText&gt;</ept><bpt id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;title&gt;</bpt><ept id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;/title&gt;</ept>.</source>
+          <target state="new">To stay up to date on the latest DocumentDB news and features, follow us on <bpt id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;linkText&gt;</bpt>Twitter<ept id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;/linkText&gt;</ept><bpt id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;title&gt;</bpt><ept id="8b50a8f9-0f8e-4370-ab7f-693c014decbb">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="fab37126-bc0e-4c11-ad2b-f10541a22e08" xml:space="preserve">
+          <source>Microsoft Azure DocumentDB is available in the <bpt id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;linkText&gt;</bpt>Azure Preview portal[azure-portal]<ept id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;/linkText&gt;</ept><bpt id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;title&gt;</bpt><ept id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;/title&gt;</ept>.</source>
+          <target state="new">Microsoft Azure DocumentDB is available in the <bpt id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;linkText&gt;</bpt>Azure Preview portal[azure-portal]<ept id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;/linkText&gt;</ept><bpt id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;title&gt;</bpt><ept id="33f2c7f7-f3c4-40f6-a289-61c8be43efa1">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1cb7c131-b253-451e-80fe-979342153c18" xml:space="preserve">
+          <source>First you must sign up for a Microsoft Azure subscription.</source>
+          <target state="new">First you must sign up for a Microsoft Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="5097f590-8f1c-4374-a34e-ac35f952b23b" xml:space="preserve">
+          <source>Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription.</source>
+          <target state="new">Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="7906c916-7ec1-4980-ba52-c652d46a1369" xml:space="preserve">
+          <source>For instructions on adding a DocumentDB account, see <bpt id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;linkText&gt;</bpt>Create a DocumentDB database account<ept id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;/linkText&gt;</ept><bpt id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;title&gt;</bpt><ept id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions on adding a DocumentDB account, see <bpt id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;linkText&gt;</bpt>Create a DocumentDB database account<ept id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;/linkText&gt;</ept><bpt id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;title&gt;</bpt><ept id="0ef54ec0-79a6-4328-8b88-fe2d759b5970">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="84eed36f-26d2-4bb4-88d9-2707ebdffe7a" xml:space="preserve">
+          <source>A master key is a security token to access all resources for an account.</source>
+          <target state="new">A master key is a security token to access all resources for an account.</target>
+        </trans-unit>
+        <trans-unit id="5565ac91-8590-427c-88d0-b34e70b467e9" xml:space="preserve">
+          <source>Individuals with the key have read and write access to the all resources in the database account.</source>
+          <target state="new">Individuals with the key have read and write access to the all resources in the database account.</target>
+        </trans-unit>
+        <trans-unit id="bb3cbac0-e6e3-4553-9056-4a9b1b952fd7" xml:space="preserve">
+          <source>Use caution when distributing master keys.</source>
+          <target state="new">Use caution when distributing master keys.</target>
+        </trans-unit>
+        <trans-unit id="802b8361-4e2f-4e68-a479-3fce51bbe57a" xml:space="preserve">
+          <source>The primary master key and secondary master key are available in the <bpt id="5f596981-e3e8-4038-ac65-0f02ae8a36c4">&lt;em&gt;</bpt>*Keys *<ept id="5f596981-e3e8-4038-ac65-0f02ae8a36c4">&lt;/em&gt;</ept>blade of the <bpt id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;linkText&gt;</bpt>Azure Preview portal[azure-portal]<ept id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;/linkText&gt;</ept><bpt id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;title&gt;</bpt><ept id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;/title&gt;</ept>.</source>
+          <target state="new">The primary master key and secondary master key are available in the <bpt id="5f596981-e3e8-4038-ac65-0f02ae8a36c4">&lt;em&gt;</bpt>*Keys *<ept id="5f596981-e3e8-4038-ac65-0f02ae8a36c4">&lt;/em&gt;</ept>blade of the <bpt id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;linkText&gt;</bpt>Azure Preview portal[azure-portal]<ept id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;/linkText&gt;</ept><bpt id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;title&gt;</bpt><ept id="5eb8d5a8-de46-4298-a294-729c7fad1937">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9a3eb49d-3c26-4304-95b8-44c847bb2ec6" xml:space="preserve">
+          <source>For more information about keys, see <bpt id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;linkText&gt;</bpt>View, copy, and regenerate access keys<ept id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;/linkText&gt;</ept><bpt id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;title&gt;</bpt><ept id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about keys, see <bpt id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;linkText&gt;</bpt>View, copy, and regenerate access keys<ept id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;/linkText&gt;</ept><bpt id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;title&gt;</bpt><ept id="b36186fd-005c-4e03-8ee7-1042d9bc71a7">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="afb82e12-6516-4a36-b0ed-72b050a52f79" xml:space="preserve">
+          <source>You can create databases using the <bpt id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;/linkText&gt;</ept><bpt id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;title&gt;</bpt><ept id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;/title&gt;</ept> as described in <bpt id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;linkText&gt;</bpt>Create a DocumentDB database <ept id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;/linkText&gt;</ept><bpt id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;title&gt;</bpt><ept id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;/title&gt;</ept>, one of the <bpt id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;/linkText&gt;</ept><bpt id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;title&gt;</bpt><ept id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;/title&gt;</ept>, or through the <bpt id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;linkText&gt;</bpt>REST APIs<ept id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;/linkText&gt;</ept><bpt id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;title&gt;</bpt><ept id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create databases using the <bpt id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;linkText&gt;</bpt>Azure Preview portal<ept id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;/linkText&gt;</ept><bpt id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;title&gt;</bpt><ept id="ece9f421-5596-42a1-b225-02fdcea6f0b5">&lt;/title&gt;</ept> as described in <bpt id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;linkText&gt;</bpt>Create a DocumentDB database <ept id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;/linkText&gt;</ept><bpt id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;title&gt;</bpt><ept id="11fa7520-8f7b-40e3-9abf-70ffa3764f0c">&lt;/title&gt;</ept>, one of the <bpt id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;/linkText&gt;</ept><bpt id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;title&gt;</bpt><ept id="8dcc8a3b-da6d-4067-8203-ebc2ed2c0a89">&lt;/title&gt;</ept>, or through the <bpt id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;linkText&gt;</bpt>REST APIs<ept id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;/linkText&gt;</ept><bpt id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;title&gt;</bpt><ept id="75ecbe20-4758-461a-ac02-8e37f31db007">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35e5624f-e779-4488-af0e-a7647cb13f60" xml:space="preserve">
+          <source>A collection is a container of JSON documents and the associated JavaScript application logic.</source>
+          <target state="new">A collection is a container of JSON documents and the associated JavaScript application logic.</target>
+        </trans-unit>
+        <trans-unit id="fc4666bc-6903-4da9-9e6c-969e1d70f7a9" xml:space="preserve">
+          <source>Queries and transactions are scoped to collections.</source>
+          <target state="new">Queries and transactions are scoped to collections.</target>
+        </trans-unit>
+        <trans-unit id="23be0b3e-e102-4419-9989-196b7de63e87" xml:space="preserve">
+          <source>You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed.</source>
+          <target state="new">You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed.</target>
+        </trans-unit>
+        <trans-unit id="21db27dc-3a09-4610-903b-32b9a1a35c7b" xml:space="preserve">
+          <source>Collections are also the billing entities for DocumentDB.</source>
+          <target state="new">Collections are also the billing entities for DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="97fb88d2-889a-4582-bef7-37c1e1661e53" xml:space="preserve">
+          <source>Your monthly DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the <bpt id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;linkText&gt;</bpt>performance level<ept id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;/linkText&gt;</ept><bpt id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;title&gt;</bpt><ept id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;/title&gt;</ept> of each collection.</source>
+          <target state="new">Your monthly DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the <bpt id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;linkText&gt;</bpt>performance level<ept id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;/linkText&gt;</ept><bpt id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;title&gt;</bpt><ept id="d796dc63-66f3-436c-9a69-8aa4170a95aa">&lt;/title&gt;</ept> of each collection.</target>
+        </trans-unit>
+        <trans-unit id="4d27f000-7563-462a-9f74-67098d8de2bf" xml:space="preserve">
+          <source>For more information, see <bpt id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;linkText&gt;</bpt>DocumentDB pricing<ept id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;/linkText&gt;</ept><bpt id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;title&gt;</bpt><ept id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;linkText&gt;</bpt>DocumentDB pricing<ept id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;/linkText&gt;</ept><bpt id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;title&gt;</bpt><ept id="b636503f-5d2d-4cfa-8106-ea759d626ca8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="98d8cc0e-0bf6-4500-a2e1-058404efe1cd" xml:space="preserve">
+          <source>Each collection comes with an allocation of database storage and provisioned throughput at one of the supported <bpt id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;linkText&gt;</bpt>performance levels<ept id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;/linkText&gt;</ept><bpt id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;title&gt;</bpt><ept id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;/title&gt;</ept>.</source>
+          <target state="new">Each collection comes with an allocation of database storage and provisioned throughput at one of the supported <bpt id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;linkText&gt;</bpt>performance levels<ept id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;/linkText&gt;</ept><bpt id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;title&gt;</bpt><ept id="0e507fdf-1f9f-475e-87cc-73571c032968">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3e7411bb-3d34-4126-b069-a38c1b0a1115" xml:space="preserve">
+          <source>Quotas are also in place for each resource managed by the service.</source>
+          <target state="new">Quotas are also in place for each resource managed by the service.</target>
+        </trans-unit>
+        <trans-unit id="0caf93ba-7da6-421c-bda9-1ded73e61cea" xml:space="preserve">
+          <source>For a list of all limits, see <bpt id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;/linkText&gt;</ept><bpt id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;title&gt;</bpt><ept id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;/title&gt;</ept>.</source>
+          <target state="new">For a list of all limits, see <bpt id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;linkText&gt;</bpt>DocumentDB limits<ept id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;/linkText&gt;</ept><bpt id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;title&gt;</bpt><ept id="2952f957-03bf-40a1-9a8d-03f5262b5174">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35f3d8e1-5546-42aa-99b6-aaed3e9b3ad1" xml:space="preserve">
+          <source>To request a change to your account limits, see <bpt id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;linkText&gt;</bpt>Request increased DocumentDB account limits<ept id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;/linkText&gt;</ept><bpt id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;title&gt;</bpt><ept id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;/title&gt;</ept>.</source>
+          <target state="new">To request a change to your account limits, see <bpt id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;linkText&gt;</bpt>Request increased DocumentDB account limits<ept id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;/linkText&gt;</ept><bpt id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;title&gt;</bpt><ept id="c42aea86-5d95-4cdf-98f7-ba55d68dcbab">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d2651fc5-c519-4d28-b93d-38e7a53a59ef" xml:space="preserve">
+          <source>You can create users and permissions using one of the <bpt id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;/linkText&gt;</ept><bpt id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;title&gt;</bpt><ept id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;/title&gt;</ept> or through the <bpt id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;linkText&gt;</bpt>REST APIs<ept id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;/linkText&gt;</ept><bpt id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;title&gt;</bpt><ept id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create users and permissions using one of the <bpt id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;linkText&gt;</bpt>DocumentDB SDKs<ept id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;/linkText&gt;</ept><bpt id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;title&gt;</bpt><ept id="6bd0740c-6a9a-4944-95f7-46e785495c52">&lt;/title&gt;</ept> or through the <bpt id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;linkText&gt;</bpt>REST APIs<ept id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;/linkText&gt;</ept><bpt id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;title&gt;</bpt><ept id="57756b94-f69b-4150-8df3-323d7a7056fc">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="96cb7fd5-cfc0-4011-a994-1b8ba3dbc8fd" xml:space="preserve">
+          <source><bpt id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;linkText&gt;</bpt>SDKs<ept id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;/linkText&gt;</ept><bpt id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;title&gt;</bpt><ept id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;/title&gt;</ept> are available for .NET, Python, Node.js, JavaScript, and Java.</source>
+          <target state="new"><bpt id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;linkText&gt;</bpt>SDKs<ept id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;/linkText&gt;</ept><bpt id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;title&gt;</bpt><ept id="12980d8f-4851-4f2a-a366-db3bfdf0f7a5">&lt;/title&gt;</ept> are available for .NET, Python, Node.js, JavaScript, and Java.</target>
+        </trans-unit>
+        <trans-unit id="b4855476-3c9a-43db-b632-d2ad4e93737a" xml:space="preserve">
+          <source>Developers can also leverage the <bpt id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;linkText&gt;</bpt>RESTful HTTP APIs<ept id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;/linkText&gt;</ept><bpt id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;title&gt;</bpt><ept id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;/title&gt;</ept> to interact with DocumentDB resources from a variety of platforms and languages.</source>
+          <target state="new">Developers can also leverage the <bpt id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;linkText&gt;</bpt>RESTful HTTP APIs<ept id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;/linkText&gt;</ept><bpt id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;title&gt;</bpt><ept id="2717a348-ba9c-4ff0-b170-0d85b0b65d13">&lt;/title&gt;</ept> to interact with DocumentDB resources from a variety of platforms and languages.</target>
+        </trans-unit>
+        <trans-unit id="9640ef1d-b646-489b-9acf-15ba570e5aef" xml:space="preserve">
+          <source>Samples for the DocumentDB <bpt id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;linkText&gt;</bpt>.NET<ept id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;/linkText&gt;</ept><bpt id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;title&gt;</bpt><ept id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;/title&gt;</ept>, <bpt id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;linkText&gt;</bpt>Java<ept id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;/linkText&gt;</ept><bpt id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;title&gt;</bpt><ept id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;/title&gt;</ept>, <bpt id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;linkText&gt;</bpt>Node.js<ept id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;/linkText&gt;</ept><bpt id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;title&gt;</bpt><ept id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;/title&gt;</ept>, and <bpt id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;linkText&gt;</bpt>Python<ept id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;/linkText&gt;</ept><bpt id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;title&gt;</bpt><ept id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;/title&gt;</ept> SDKs are available on GitHub.</source>
+          <target state="new">Samples for the DocumentDB <bpt id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;linkText&gt;</bpt>.NET<ept id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;/linkText&gt;</ept><bpt id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;title&gt;</bpt><ept id="94479d3b-5422-4da0-98aa-c8e40e347402">&lt;/title&gt;</ept>, <bpt id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;linkText&gt;</bpt>Java<ept id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;/linkText&gt;</ept><bpt id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;title&gt;</bpt><ept id="7bc854fb-1e83-4f99-bb6a-7f30bfa8abed">&lt;/title&gt;</ept>, <bpt id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;linkText&gt;</bpt>Node.js<ept id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;/linkText&gt;</ept><bpt id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;title&gt;</bpt><ept id="60820798-b84d-4084-ac61-a51c3027b8e7">&lt;/title&gt;</ept>, and <bpt id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;linkText&gt;</bpt>Python<ept id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;/linkText&gt;</ept><bpt id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;title&gt;</bpt><ept id="c426b6bb-ad6d-467f-996d-4bfb64781d8a">&lt;/title&gt;</ept> SDKs are available on GitHub.</target>
+        </trans-unit>
+        <trans-unit id="77c4cc5f-3f8f-4e63-bcc7-9879ae462af2" xml:space="preserve">
+          <source>The DocumentDB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs).</source>
+          <target state="new">The DocumentDB SQL query language provides rich hierarchical and relational operators and extensibility via JavaScript based user defined functions (UDFs).</target>
+        </trans-unit>
+        <trans-unit id="75023e74-3537-4b7a-acc9-1630df136eee" xml:space="preserve">
+          <source>JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the DocumentDB automatic indexing techniques as well as the SQL query dialect of DocumentDB.</source>
+          <target state="new">JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes, which is used by both the DocumentDB automatic indexing techniques as well as the SQL query dialect of DocumentDB.</target>
+        </trans-unit>
+        <trans-unit id="b856602a-cf57-4573-bc35-b223598a08e6" xml:space="preserve">
+          <source>For details on how to use the SQL grammar, please see the <bpt id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;linkText&gt;</bpt>Query DocumentDB[query]<ept id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;/linkText&gt;</ept><bpt id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;title&gt;</bpt><ept id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;/title&gt;</ept> article.</source>
+          <target state="new">For details on how to use the SQL grammar, please see the <bpt id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;linkText&gt;</bpt>Query DocumentDB[query]<ept id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;/linkText&gt;</ept><bpt id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;title&gt;</bpt><ept id="aa1c2a92-05a8-4bc2-ae4a-e56a2e7d7c8e">&lt;/title&gt;</ept> article.</target>
+        </trans-unit>
+        <trans-unit id="6b6fe92f-b8ee-470e-aef1-e0a6346b70f6" xml:space="preserve">
+          <source>The primitive data types supported in DocumentDB are the same as JSON.</source>
+          <target state="new">The primitive data types supported in DocumentDB are the same as JSON.</target>
+        </trans-unit>
+        <trans-unit id="71626cf1-5be9-4041-ae04-a7b44df4d6ae" xml:space="preserve">
+          <source>JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), and Booleans - true, false, and Nulls.</source>
+          <target state="new">JSON has a simple type system that consists of Strings, Numbers (IEEE754 double precision), and Booleans - true, false, and Nulls.</target>
+        </trans-unit>
+        <trans-unit id="52839fc0-bdef-45ac-a452-c10b850a4708" xml:space="preserve">
+          <source>More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator.</source>
+          <target state="new">More complex data types like DateTime, Guid, Int64, and Geometry can be represented both in JSON and DocumentDB through the creation of nested objects using the { } operator and arrays using the [ ] operator.</target>
+        </trans-unit>
+        <trans-unit id="c94de7d7-2481-40d9-af5b-41dd2f6997ce" xml:space="preserve">
+          <source>DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tags or ETags.</source>
+          <target state="new">DocumentDB supports optimistic concurrency control (OCC) through HTTP entity tags or ETags.</target>
+        </trans-unit>
+        <trans-unit id="2ac56a55-8f9d-4813-a590-292f74a567f3" xml:space="preserve">
+          <source>Every DocumentDB resource has an ETag, and DocumentDB clients include their latest read version in write requests.</source>
+          <target state="new">Every DocumentDB resource has an ETag, and DocumentDB clients include their latest read version in write requests.</target>
+        </trans-unit>
+        <trans-unit id="f8cf8f06-d01f-4421-8340-c01efef2b9ea" xml:space="preserve">
+          <source>If the ETag is current, the change is committed.</source>
+          <target state="new">If the ETag is current, the change is committed.</target>
+        </trans-unit>
+        <trans-unit id="5aa4f32d-f51f-4c2f-8a3f-5090d1793368" xml:space="preserve">
+          <source>If the value has been changed externally, the server rejects the write with a "HTTP 412 Precondition failure" response code.</source>
+          <target state="new">If the value has been changed externally, the server rejects the write with a "HTTP 412 Precondition failure" response code.</target>
+        </trans-unit>
+        <trans-unit id="2ef894c9-2e3f-45eb-87b2-761936733aff" xml:space="preserve">
+          <source>Clients must read the latest version of the resource and retry the request.</source>
+          <target state="new">Clients must read the latest version of the resource and retry the request.</target>
+        </trans-unit>
+        <trans-unit id="e0002a33-c996-45ed-812a-eb24119a2967" xml:space="preserve">
+          <source>DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers.</source>
+          <target state="new">DocumentDB supports language-integrated transactions via JavaScript stored procedures and triggers.</target>
+        </trans-unit>
+        <trans-unit id="9aa0e3f7-695a-48ec-bf5d-a27ec9497e80" xml:space="preserve">
+          <source>All database operations inside scripts are executed under snapshot isolation scoped to the collection.</source>
+          <target state="new">All database operations inside scripts are executed under snapshot isolation scoped to the collection.</target>
+        </trans-unit>
+        <trans-unit id="36b1ab04-71da-4c33-b04a-ee879ad4d984" xml:space="preserve">
+          <source>A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds.</source>
+          <target state="new">A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds.</target>
+        </trans-unit>
+        <trans-unit id="e10aa5f2-ea77-40e5-b9b7-936f508f3372" xml:space="preserve">
+          <source>If the JavaScript throws an error, the transaction is rolled back.</source>
+          <target state="new">If the JavaScript throws an error, the transaction is rolled back.</target>
+        </trans-unit>
+        <trans-unit id="fe1df543-2f91-4d0f-8a21-071b60ffdab3" xml:space="preserve">
+          <source>See <bpt id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;linkText&gt;</bpt>DocumentDB server-side programming<ept id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;/linkText&gt;</ept><bpt id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;title&gt;</bpt><ept id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;/title&gt;</ept> for more details.</source>
+          <target state="new">See <bpt id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;linkText&gt;</bpt>DocumentDB server-side programming<ept id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;/linkText&gt;</ept><bpt id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;title&gt;</bpt><ept id="6ebd4130-7d6f-40ab-ab81-e48e206673a5">&lt;/title&gt;</ept> for more details.</target>
+        </trans-unit>
+        <trans-unit id="f532ecdf-028a-4298-b46f-dd5b0c56b948" xml:space="preserve">
+          <source>There are three ways to bulk insert documents into DocumentDB:</source>
+          <target state="new">There are three ways to bulk insert documents into DocumentDB:</target>
+        </trans-unit>
+        <trans-unit id="2ccb1634-5488-4324-923d-7a8e2d757299" xml:space="preserve">
+          <source>The data migration tool, as described in <bpt id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;linkText&gt;</bpt>Import data to DocumentDB<ept id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;/linkText&gt;</ept><bpt id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;title&gt;</bpt><ept id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;/title&gt;</ept>.</source>
+          <target state="new">The data migration tool, as described in <bpt id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;linkText&gt;</bpt>Import data to DocumentDB<ept id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;/linkText&gt;</ept><bpt id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;title&gt;</bpt><ept id="74348029-8f95-47af-be62-3e32ff8eb8b5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eb0aeb82-baab-4fbb-8fc6-a507d2b0d81c" xml:space="preserve">
+          <source>Document Explorer in the Azure preview portal, as described in <bpt id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;linkText&gt;</bpt>Bulk add documents with Document Explorer<ept id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;/linkText&gt;</ept><bpt id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;title&gt;</bpt><ept id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;/title&gt;</ept>.</source>
+          <target state="new">Document Explorer in the Azure preview portal, as described in <bpt id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;linkText&gt;</bpt>Bulk add documents with Document Explorer<ept id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;/linkText&gt;</ept><bpt id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;title&gt;</bpt><ept id="79ad8704-d489-40ee-ae8c-bde73adc7272">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1b3c948c-e1a0-4982-838e-823fa8a34e1f" xml:space="preserve">
+          <source>Stored procedures, as described in <bpt id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;linkText&gt;</bpt>DocumentDB server-side programming<ept id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;/linkText&gt;</ept><bpt id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;title&gt;</bpt><ept id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;/title&gt;</ept>.</source>
+          <target state="new">Stored procedures, as described in <bpt id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;linkText&gt;</bpt>DocumentDB server-side programming<ept id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;/linkText&gt;</ept><bpt id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;title&gt;</bpt><ept id="f1120258-dc89-4955-8042-3debfc158ea9">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4855bc73-b7f3-4bf1-aefd-fcfb21ecf81e" xml:space="preserve">
+          <source>Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached.</source>
+          <target state="new">Yes, because DocumentDB is a RESTful service, resource links are immutable and can be cached.</target>
+        </trans-unit>
+        <trans-unit id="850899b5-3d9f-4d2f-b5fb-2638cbfab454" xml:space="preserve">
+          <source>DocumentDB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change.</source>
+          <target state="new">DocumentDB clients can specify an "If-None-Match" header for reads against any resource like document or collection and update their local copies only when the server version has change.</target>
+        </trans-unit>
+        <trans-unit id="f014e45b-783a-46e0-aeb8-7c26f5874bd6" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="614cef99-8715-4031-9054-891f5c9cd702" xml:space="preserve">
+          <source>documentdb-sql-query.md</source>
+          <target state="new">documentdb-sql-query.md</target>
+        </trans-unit>
+      </group>
+      <group id="8655ba46-4fc5-49d4-bdaf-4c9b29cfc2ff" />
+    </body>
+  </file>
+</xliff>

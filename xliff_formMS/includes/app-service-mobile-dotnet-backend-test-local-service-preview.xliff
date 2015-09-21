@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="9ad69b15-061b-497c-bdb9-d4e5be19dbd1" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="9ad69b15-061b-497c-bdb9-d4e5be19dbd1" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5d598adf-dfe3-487b-886d-302250343e34">
+        <trans-unit id="1b54fccf-ecb4-4d3a-9cb5-3d1d97c15c47" xml:space="preserve">
+          <source>The mobile app project lets you to run your new mobile app backend locally.</source>
+          <target state="new">The mobile app project lets you to run your new mobile app backend locally.</target>
+        </trans-unit>
+        <trans-unit id="efb97fa0-008d-4ef6-892c-70819ee378d3" xml:space="preserve">
+          <source>This makes it easy to debug your service code before you even publish it to Azure.</source>
+          <target state="new">This makes it easy to debug your service code before you even publish it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="52503964-a88b-4843-b8a9-21e8ff5131cd" xml:space="preserve">
+          <source>On your Windows PC, extract project you downloaded earlier, and then open it in Visual Studio.</source>
+          <target state="new">On your Windows PC, extract project you downloaded earlier, and then open it in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="d0b3e287-d71f-4ff0-8d75-0a46c35b8675" xml:space="preserve">
+          <source>Select the bottom project which should be your Mobile App name with Service at the end of it.</source>
+          <target state="new">Select the bottom project which should be your Mobile App name with Service at the end of it.</target>
+        </trans-unit>
+        <trans-unit id="e7b1f4f1-089f-4b8d-b16f-c60c91413ba0" xml:space="preserve">
+          <source>Press <bpt id="1da502bb-951d-400a-b1d3-5bdee5f3c2e2">&lt;strong&gt;</bpt>CTRL-F5<ept id="1da502bb-951d-400a-b1d3-5bdee5f3c2e2">&lt;/strong&gt;</ept> to download the nuget packages, build the project and start the mobile app backend locally.</source>
+          <target state="new">Press <bpt id="1da502bb-951d-400a-b1d3-5bdee5f3c2e2">&lt;strong&gt;</bpt>CTRL-F5<ept id="1da502bb-951d-400a-b1d3-5bdee5f3c2e2">&lt;/strong&gt;</ept> to download the nuget packages, build the project and start the mobile app backend locally.</target>
+        </trans-unit>
+        <trans-unit id="d67e7d95-5915-41cb-802d-7610273091bb" xml:space="preserve">
+          <source>When you run your mobile app client, pointed at localhost, it will talk to your local backend.</source>
+          <target state="new">When you run your mobile app client, pointed at localhost, it will talk to your local backend.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

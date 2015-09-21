@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="204cc859-13c8-4889-acaf-72ab25ab2e0f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="204cc859-13c8-4889-acaf-72ab25ab2e0f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4677f4a2-f790-48ba-a75c-89304ab129fe">
+        <trans-unit id="8079c087-81c5-48a7-aec7-08b8d5c10900" xml:space="preserve">
+          <source>Endorsed distributions of Linux in Azure</source>
+          <target state="new">Endorsed distributions of Linux in Azure</target>
+        </trans-unit>
+        <trans-unit id="70c870b5-c283-4889-838f-be5462685cbf" xml:space="preserve">
+          <source>Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE.</source>
+          <target state="new">Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, OpenLogic, and SUSE.</target>
+        </trans-unit>
+        <trans-unit id="f788a591-8e8e-40ce-8103-9123027740f0" xml:space="preserve">
+          <source>The Linux images in the Azure Gallery are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list.</source>
+          <target state="new">The Linux images in the Azure Gallery are provided by a number of partners, and we are working with various Linux communities to add even more flavors to the Endorsed Distribution list.</target>
+        </trans-unit>
+        <trans-unit id="792d8afa-5717-4c92-80be-19c65b10d886" xml:space="preserve">
+          <source>In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on <bpt id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;linkText&gt;</bpt>this page<ept id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;/linkText&gt;</ept><bpt id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;title&gt;</bpt><ept id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the meantime, for distributions not available from the Gallery you can always Bring-Your-Own-Linux by following the guidelines on <bpt id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;linkText&gt;</bpt>this page<ept id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;/linkText&gt;</ept><bpt id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;title&gt;</bpt><ept id="e426bde9-ceaf-417f-8feb-e5f6330b2835">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b634f8b7-60fb-459f-a06a-e6d32fb106c2" xml:space="preserve">
+          <source>The following table lists the Linux distributions and versions that are supported on Azure.</source>
+          <target state="new">The following table lists the Linux distributions and versions that are supported on Azure.</target>
+        </trans-unit>
+        <trans-unit id="c175af22-1a5b-402b-8f47-6ff3f4c1ace3" xml:space="preserve">
+          <source>The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download <bpt id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;linkText&gt;</bpt>here<ept id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;/linkText&gt;</ept><bpt id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;title&gt;</bpt><ept id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;/title&gt;</ept>.  Please see <bpt id="226a2276-9491-4445-837f-7f951862db3b">&lt;linkText&gt;</bpt>this article<ept id="226a2276-9491-4445-837f-7f951862db3b">&lt;/linkText&gt;</ept><bpt id="226a2276-9491-4445-837f-7f951862db3b">&lt;title&gt;</bpt><ept id="226a2276-9491-4445-837f-7f951862db3b">&lt;/title&gt;</ept> for more information about the LIS drivers.</source>
+          <target state="new">The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  The LIS drivers are either built into the distribution's kernel by default, or for older RHEL/CentOS-based distributions are available as a separate download <bpt id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;linkText&gt;</bpt>here<ept id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;/linkText&gt;</ept><bpt id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;title&gt;</bpt><ept id="db878c46-2f12-46cc-beee-cd59b289a077">&lt;/title&gt;</ept>.  Please see <bpt id="226a2276-9491-4445-837f-7f951862db3b">&lt;linkText&gt;</bpt>this article<ept id="226a2276-9491-4445-837f-7f951862db3b">&lt;/linkText&gt;</ept><bpt id="226a2276-9491-4445-837f-7f951862db3b">&lt;title&gt;</bpt><ept id="226a2276-9491-4445-837f-7f951862db3b">&lt;/title&gt;</ept> for more information about the LIS drivers.</target>
+        </trans-unit>
+        <trans-unit id="0b506f9e-5714-4490-bab4-213a36d18e91" xml:space="preserve">
+          <source>The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.</source>
+          <target state="new">The Azure Linux Agent is already pre-installed on the Azure Gallery images and are typically available from the distribution's package repository.</target>
+        </trans-unit>
+        <trans-unit id="c3f1ba14-1a07-43fd-bbfa-6707f5ccd1bb" xml:space="preserve">
+          <source>Source code can be found on <bpt id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;linkText&gt;</bpt>GitHub<ept id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;/linkText&gt;</ept><bpt id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;title&gt;</bpt><ept id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;/title&gt;</ept>.</source>
+          <target state="new">Source code can be found on <bpt id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;linkText&gt;</bpt>GitHub<ept id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;/linkText&gt;</ept><bpt id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;title&gt;</bpt><ept id="95b047cd-3cfa-4571-8fa7-59d8481b3b82">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bb77456-096b-457c-bc72-73a7673977a9" xml:space="preserve">
+          <source>Distribution</source>
+          <target state="new">Distribution</target>
+        </trans-unit>
+        <trans-unit id="6effd19a-edf7-4ff3-8f24-c4ae9061dcff" xml:space="preserve">
+          <source>Version</source>
+          <target state="new">Version</target>
+        </trans-unit>
+        <trans-unit id="8bc3e8ea-bdb8-4dee-9e45-2f3734a6c325" xml:space="preserve">
+          <source>Drivers</source>
+          <target state="new">Drivers</target>
+        </trans-unit>
+        <trans-unit id="7a66fbed-0ed5-4ded-abf6-f026664d4fac" xml:space="preserve">
+          <source>Agent</source>
+          <target state="new">Agent</target>
+        </trans-unit>
+        <trans-unit id="5f105bae-5384-473d-a549-ef749acdca30" xml:space="preserve">
+          <source>Canonical Ubuntu</source>
+          <target state="new">Canonical Ubuntu</target>
+        </trans-unit>
+        <trans-unit id="c94722c1-8724-400f-9e9a-bc1e52350e77" xml:space="preserve">
+          <source>Ubuntu 12.04, 14.04, 14.10 and 15.04</source>
+          <target state="new">Ubuntu 12.04, 14.04, 14.10 and 15.04</target>
+        </trans-unit>
+        <trans-unit id="8ac24592-c316-4227-84e2-f60f427c6d6d" xml:space="preserve">
+          <source>In Kernel</source>
+          <target state="new">In Kernel</target>
+        </trans-unit>
+        <trans-unit id="5aee6126-ffe1-442b-8ef1-d9849de18da4" xml:space="preserve">
+          <source>Package: In repo under "walinuxagent" &lt;p&gt;&lt;p&gt;Source: <bpt id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;linkText&gt;</bpt>GitHub<ept id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;/linkText&gt;</ept><bpt id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;title&gt;</bpt><ept id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;/title&gt;</ept></source>
+          <target state="new">Package: In repo under "walinuxagent" &lt;p&gt;&lt;p&gt;Source: <bpt id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;linkText&gt;</bpt>GitHub<ept id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;/linkText&gt;</ept><bpt id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;title&gt;</bpt><ept id="e162eeb4-8996-4c29-9ae0-e9192752f657">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="34be3781-3018-477c-9d01-78a226abed62" xml:space="preserve">
+          <source>CentOS by OpenLogic</source>
+          <target state="new">CentOS by OpenLogic</target>
+        </trans-unit>
+        <trans-unit id="a3c14f3c-e275-46ce-a6c2-4cc975e0bbfd" xml:space="preserve">
+          <source>CentOS 6.3+, 7.0+</source>
+          <target state="new">CentOS 6.3+, 7.0+</target>
+        </trans-unit>
+        <trans-unit id="421ff306-5057-4cda-a654-65efffbb921b" xml:space="preserve">
+          <source>CentOS 6.3: <bpt id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;linkText&gt;</bpt>LIS Download<ept id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;/linkText&gt;</ept><bpt id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;title&gt;</bpt><ept id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;/title&gt;</ept>&lt;p&gt;CentOS 6.4+: In Kernel</source>
+          <target state="new">CentOS 6.3: <bpt id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;linkText&gt;</bpt>LIS Download<ept id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;/linkText&gt;</ept><bpt id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;title&gt;</bpt><ept id="fb72d553-89a4-474c-bc33-b0ea601b5f75">&lt;/title&gt;</ept>&lt;p&gt;CentOS 6.4+: In Kernel</target>
+        </trans-unit>
+        <trans-unit id="d6a51e55-af60-4c83-9686-16be0d78126f" xml:space="preserve">
+          <source>Package: In &lt;a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/"&gt;OpenLogic repo   under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;linkText&gt;</bpt>GitHub<ept id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;/linkText&gt;</ept><bpt id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;title&gt;</bpt><ept id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;/title&gt;</ept></source>
+          <target state="new">Package: In &lt;a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/"&gt;OpenLogic repo   under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;linkText&gt;</bpt>GitHub<ept id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;/linkText&gt;</ept><bpt id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;title&gt;</bpt><ept id="1490fa29-b007-4bbb-8a10-4ac4341e3f14">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="afc5e662-64d1-489b-8fbf-a70b515eb0dc" xml:space="preserve">
+          <source><bpt id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;linkText&gt;</bpt>CoreOS<ept id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;/linkText&gt;</ept><bpt id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;title&gt;</bpt><ept id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;linkText&gt;</bpt>CoreOS<ept id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;/linkText&gt;</ept><bpt id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;title&gt;</bpt><ept id="59c1a108-4c3a-462b-9e91-acf518ac266b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1581f243-f10f-43fe-9c51-2930b3da422c" xml:space="preserve">
+          <source>494.4.0+</source>
+          <target state="new">494.4.0+</target>
+        </trans-unit>
+        <trans-unit id="72d0378c-e64e-4880-91bf-e7552d5e10eb" xml:space="preserve">
+          <source>In Kernel</source>
+          <target state="new">In Kernel</target>
+        </trans-unit>
+        <trans-unit id="3c6b668d-da31-4679-b71f-73b13f0260db" xml:space="preserve">
+          <source>Source: <bpt id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;linkText&gt;</bpt>GitHub<ept id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;/linkText&gt;</ept><bpt id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;title&gt;</bpt><ept id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;/title&gt;</ept></source>
+          <target state="new">Source: <bpt id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;linkText&gt;</bpt>GitHub<ept id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;/linkText&gt;</ept><bpt id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;title&gt;</bpt><ept id="4e2d3d6d-d302-400e-a926-79cf82a070df">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99440575-668f-4b73-be2d-56ed14aba161" xml:space="preserve">
+          <source>Oracle Linux</source>
+          <target state="new">Oracle Linux</target>
+        </trans-unit>
+        <trans-unit id="be8133c3-8d3a-4fa4-8791-02ecb84558b2" xml:space="preserve">
+          <source>6.4+, 7.0+</source>
+          <target state="new">6.4+, 7.0+</target>
+        </trans-unit>
+        <trans-unit id="988641b4-f8b8-42b9-8f8f-2d959955a485" xml:space="preserve">
+          <source>In Kernel</source>
+          <target state="new">In Kernel</target>
+        </trans-unit>
+        <trans-unit id="dfbd672d-c607-4df7-9395-0ae84815fe40" xml:space="preserve">
+          <source>Package: In repo under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;linkText&gt;</bpt>GitHub<ept id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;/linkText&gt;</ept><bpt id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;title&gt;</bpt><ept id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;/title&gt;</ept></source>
+          <target state="new">Package: In repo under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;linkText&gt;</bpt>GitHub<ept id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;/linkText&gt;</ept><bpt id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;title&gt;</bpt><ept id="d9dc6303-f956-4140-b189-cc31b1c2d1ab">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf40e959-74e5-4188-9e15-81af2821be56" xml:space="preserve">
+          <source>SUSE Linux Enterprise</source>
+          <target state="new">SUSE Linux Enterprise</target>
+        </trans-unit>
+        <trans-unit id="c59e04ec-1f9b-4990-bc87-b1c72fc8f142" xml:space="preserve">
+          <source>SLES 11 SP3+, SLES 12+ and  &lt;p&gt;&lt;p&gt; SLES for SAP 11.3+</source>
+          <target state="new">SLES 11 SP3+, SLES 12+ and  &lt;p&gt;&lt;p&gt; SLES for SAP 11.3+</target>
+        </trans-unit>
+        <trans-unit id="fc02105a-7f13-4c50-a9f4-b3adafa0aab8" xml:space="preserve">
+          <source>In Kernel</source>
+          <target state="new">In Kernel</target>
+        </trans-unit>
+        <trans-unit id="7d3caf1d-0e10-4f83-9765-eb678e15770e" xml:space="preserve">
+          <source>Package: In <bpt id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;linkText&gt;</bpt>Cloud:Tools<ept id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;/linkText&gt;</ept><bpt id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;title&gt;</bpt><ept id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;/title&gt;</ept> repo under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;linkText&gt;</bpt>GitHub<ept id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;/linkText&gt;</ept><bpt id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;title&gt;</bpt><ept id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;/title&gt;</ept></source>
+          <target state="new">Package: In <bpt id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;linkText&gt;</bpt>Cloud:Tools<ept id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;/linkText&gt;</ept><bpt id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;title&gt;</bpt><ept id="792bf88e-9c2a-4209-bebb-0c12f86f2ee4">&lt;/title&gt;</ept> repo under "WALinuxAgent"&lt;p&gt;&lt;p&gt;Source: <bpt id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;linkText&gt;</bpt>GitHub<ept id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;/linkText&gt;</ept><bpt id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;title&gt;</bpt><ept id="ead896dd-76e8-44ae-b72f-5ba890e20211">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="de43ac31-8704-4a44-b92b-1d51ad58e364" xml:space="preserve">
+          <source>openSUSE</source>
+          <target state="new">openSUSE</target>
+        </trans-unit>
+        <trans-unit id="9e36a367-ac1f-4f99-811b-5b6f44527d59" xml:space="preserve">
+          <source>openSUSE 13.1+</source>
+          <target state="new">openSUSE 13.1+</target>
+        </trans-unit>
+        <trans-unit id="5e4b7ddb-e966-4b1b-81a7-abfb7e29d28e" xml:space="preserve">
+          <source>In Kernel</source>
+          <target state="new">In Kernel</target>
+        </trans-unit>
+        <trans-unit id="99a5366d-cec6-4480-ab7e-06996320f3e6" xml:space="preserve">
+          <source>Package: In <bpt id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;linkText&gt;</bpt>Cloud:Tools<ept id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;/linkText&gt;</ept><bpt id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;title&gt;</bpt><ept id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;/title&gt;</ept> repo under "WALinuxAgent" &lt;p&gt;&lt;p&gt;Source Code: <bpt id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;linkText&gt;</bpt>GitHub<ept id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;/linkText&gt;</ept><bpt id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;title&gt;</bpt><ept id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;/title&gt;</ept></source>
+          <target state="new">Package: In <bpt id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;linkText&gt;</bpt>Cloud:Tools<ept id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;/linkText&gt;</ept><bpt id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;title&gt;</bpt><ept id="398de84b-4ad3-4b22-87b5-d115e0775969">&lt;/title&gt;</ept> repo under "WALinuxAgent" &lt;p&gt;&lt;p&gt;Source Code: <bpt id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;linkText&gt;</bpt>GitHub<ept id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;/linkText&gt;</ept><bpt id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;title&gt;</bpt><ept id="932b4cdb-f63a-4633-8df3-868c0a6dd3d7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="be8a8b11-f342-4b11-b531-593e2aea1e38" xml:space="preserve">
+          <source><bpt id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;linkText&gt;</bpt>http://www.ubuntu.com/cloud/azure<ept id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;/linkText&gt;</ept><bpt id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;title&gt;</bpt><ept id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;linkText&gt;</bpt>http://www.ubuntu.com/cloud/azure<ept id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;/linkText&gt;</ept><bpt id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;title&gt;</bpt><ept id="80d68bd2-b079-462a-8c41-880560f20c6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="255c0bef-4d83-4d4c-81ab-a9162996c2b7" xml:space="preserve">
+          <source>Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers.</source>
+          <target state="new">Canonical engineering and open community governance drive Ubuntu's success in client, server and cloud computing,  including personal cloud services for consumers.</target>
+        </trans-unit>
+        <trans-unit id="64a74f79-b5bb-45be-834a-2f38542cf44a" xml:space="preserve">
+          <source>Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.</source>
+          <target state="new">Canonical's vision of a unified free platform in Ubuntu, from phone to cloud, with a family of coherent interfaces for the phone, tablet, TV and desktop, makes Ubuntu the first choice for diverse institutions from public cloud providers to the makers of consumer electronics, and a favorite among individual technologists.</target>
+        </trans-unit>
+        <trans-unit id="2df5abc3-77eb-4cd5-9a67-e96b36b2d669" xml:space="preserve">
+          <source>With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.</source>
+          <target state="new">With developers and engineering centers around the world, Canonical is uniquely positioned to partner with hardware makers, content providers and software developers to bring Ubuntu solutions to market, from PCs to servers and handheld devices.</target>
+        </trans-unit>
+        <trans-unit id="f9a3d3ab-d56c-42d3-9da8-b87730b8b316" xml:space="preserve">
+          <source><bpt id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;linkText&gt;</bpt>https://coreos.com/docs/running-coreos/cloud-providers/azure/<ept id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;/linkText&gt;</ept><bpt id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;title&gt;</bpt><ept id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;linkText&gt;</bpt>https://coreos.com/docs/running-coreos/cloud-providers/azure/<ept id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;/linkText&gt;</ept><bpt id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;title&gt;</bpt><ept id="ad7573ad-b89a-4b3d-bc39-fee0ff492d6b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d61b2a95-7773-450e-9142-cec5b06229c8" xml:space="preserve">
+          <source>From the CoreOS Website:</source>
+          <target state="new">From the CoreOS Website:</target>
+        </trans-unit>
+        <trans-unit id="019cbba5-d52c-4c3e-b858-cb7ec99906e2" xml:space="preserve">
+          <source>*CoreOS is designed for security, consistency, and reliability.</source>
+          <target state="new">*CoreOS is designed for security, consistency, and reliability.</target>
+        </trans-unit>
+        <trans-unit id="ca5e695e-79be-4c59-994a-33fb156ee462" xml:space="preserve">
+          <source>Instead of installing packages via yum or apt, CoreOS uses Linux containers to manage your services at a higher level of abstraction.</source>
+          <target state="new">Instead of installing packages via yum or apt, CoreOS uses Linux containers to manage your services at a higher level of abstraction.</target>
+        </trans-unit>
+        <trans-unit id="5e8d083b-f9c9-4661-abd8-e0f1302935a0" xml:space="preserve">
+          <source>A single service's code and all dependencies are packaged within a container that can be run on one or many CoreOS machines.*</source>
+          <target state="new">A single service's code and all dependencies are packaged within a container that can be run on one or many CoreOS machines.*</target>
+        </trans-unit>
+        <trans-unit id="e4dd3066-14be-4ee0-99bb-70983dbc78fc" xml:space="preserve">
+          <source><bpt id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;linkText&gt;</bpt>http://www.openlogic.com/azure<ept id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;/linkText&gt;</ept><bpt id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;title&gt;</bpt><ept id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;linkText&gt;</bpt>http://www.openlogic.com/azure<ept id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;/linkText&gt;</ept><bpt id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;title&gt;</bpt><ept id="eba78398-2fdf-4aee-bdb3-db9c28a84f4a">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a9ee39f1-4df5-4aed-aea6-31667da90c05" xml:space="preserve">
+          <source>OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center.</source>
+          <target state="new">OpenLogic is a leading provider of enterprise open source solutions for the cloud and the data center.</target>
+        </trans-unit>
+        <trans-unit id="ca7d061c-450f-4c1c-8cc6-9c825e8de57b" xml:space="preserve">
+          <source>OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software.</source>
+          <target state="new">OpenLogic helps hundreds of leading enterprise across a wide range of industries to safely acquire, support, and control open source software.</target>
+        </trans-unit>
+        <trans-unit id="d8efb4dc-d517-4485-a839-2c1ecbb8472f" xml:space="preserve">
+          <source>OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing CentOS-based images on Azure.</source>
+          <target state="new">OpenLogic offers commercial-grade technical support and indemnification for 600 open source packages backed by the OpenLogic Expert Community, including enterprise level support for CentOS as well as being the launch partner for providing CentOS-based images on Azure.</target>
+        </trans-unit>
+        <trans-unit id="54ebaae1-6533-48a9-b32e-107688bfd3a2" xml:space="preserve">
+          <source><bpt id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;linkText&gt;</bpt>http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html<ept id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;/linkText&gt;</ept><bpt id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;title&gt;</bpt><ept id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;linkText&gt;</bpt>http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html<ept id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;/linkText&gt;</ept><bpt id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;title&gt;</bpt><ept id="55346d07-933e-4ecd-994c-cf809d1d1a78">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="40924b35-ffaf-4da5-8828-b95b2cc6aeb9" xml:space="preserve">
+          <source>Oracle’s strategy is to offer a broad portfolio of solutions for public and private clouds, while giving customers choice and flexibility in how they deploy Oracle software in Oracle clouds as well as other clouds.</source>
+          <target state="new">Oracle’s strategy is to offer a broad portfolio of solutions for public and private clouds, while giving customers choice and flexibility in how they deploy Oracle software in Oracle clouds as well as other clouds.</target>
+        </trans-unit>
+        <trans-unit id="43892059-1290-4698-8917-39b77fa76a34" xml:space="preserve">
+          <source>Oracle’s partnership with Microsoft enables customers to deploy Oracle software in Microsoft public and private clouds with the confidence of certification and support from Oracle.</source>
+          <target state="new">Oracle’s partnership with Microsoft enables customers to deploy Oracle software in Microsoft public and private clouds with the confidence of certification and support from Oracle.</target>
+        </trans-unit>
+        <trans-unit id="8ae3a15b-7009-4524-b7d5-5d50096f9bbf" xml:space="preserve">
+          <source>Oracle’s commitment and investment in Oracle public and private cloud solutions is unchanged.</source>
+          <target state="new">Oracle’s commitment and investment in Oracle public and private cloud solutions is unchanged.</target>
+        </trans-unit>
+        <trans-unit id="2854f686-1958-4cf0-9ea7-5606a9a75da1" xml:space="preserve">
+          <source><bpt id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;linkText&gt;</bpt>http://www.suse.com/suse-linux-enterprise-server-on-azure<ept id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;/linkText&gt;</ept><bpt id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;title&gt;</bpt><ept id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;linkText&gt;</bpt>http://www.suse.com/suse-linux-enterprise-server-on-azure<ept id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;/linkText&gt;</ept><bpt id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;title&gt;</bpt><ept id="46af1361-d99a-401d-a223-5e1646fb38a0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2243a18c-c6c2-4def-9990-e2651162065c" xml:space="preserve">
+          <source>SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing.</source>
+          <target state="new">SUSE Linux Enterprise Server on Azure is a proven platform that provides superior reliability and security for cloud computing.</target>
+        </trans-unit>
+        <trans-unit id="982f51a3-d932-491f-8649-55c4dc7655f9" xml:space="preserve">
+          <source>SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment.</source>
+          <target state="new">SUSE's versatile Linux platform seamlessly integrates with Azure cloud services to deliver an easily manageable cloud environment.</target>
+        </trans-unit>
+        <trans-unit id="01e06b4e-eaf2-45b4-af7a-873892d16fb9" xml:space="preserve">
+          <source>And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.</source>
+          <target state="new">And with more than 9,200 certified applications from over 1,800 independent software vendors for SUSE Linux Enterprise Server, SUSE ensures that workloads running supported in the data center can be confidently deployed on Azure.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="55ce23ee-dc5f-4801-9597-f13848f8ca40" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="55ce23ee-dc5f-4801-9597-f13848f8ca40" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="20a81f54-a9fd-477e-82ad-7bf68b44e788">
+        <trans-unit id="44273c2c-de22-436c-bd4b-78229552a35e" xml:space="preserve">
+          <source>Get Started with Azure Mobile Services for Android apps</source>
+          <target state="new">Get Started with Azure Mobile Services for Android apps</target>
+        </trans-unit>
+        <trans-unit id="7e9b1b90-1c41-4e5a-b718-bad017921173" xml:space="preserve">
+          <source>Follow this tutorial to get started using Azure Mobile Services for Android development.</source>
+          <target state="new">Follow this tutorial to get started using Azure Mobile Services for Android development.</target>
+        </trans-unit>
+        <trans-unit id="186c79af-e86c-47cc-81cd-1b89f3d9f0bd" xml:space="preserve">
+          <source><bpt id="0034ff7f-3b25-416f-b715-6349373b70c0">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="0034ff7f-3b25-416f-b715-6349373b70c0">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="0034ff7f-3b25-416f-b715-6349373b70c0">&lt;token href="../../includes/mobile-services-selector-get-started.md"&gt;</bpt><ept id="0034ff7f-3b25-416f-b715-6349373b70c0">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4caadf7-a2bf-4875-ab21-8e23e1042d50" xml:space="preserve">
+          <source>This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services.</source>
+          <target state="new">This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="535550b4-1b6d-4478-867b-a9b75bbc3508" xml:space="preserve">
+          <source>In this tutorial, you will create both a new mobile service and a simple <bpt id="389db7c3-9837-42ff-93d7-8b4f947b1b4c">&lt;strong&gt;</bpt>To do list<ept id="389db7c3-9837-42ff-93d7-8b4f947b1b4c">&lt;/strong&gt;</ept> app that stores app data in the new mobile service.</source>
+          <target state="new">In this tutorial, you will create both a new mobile service and a simple <bpt id="389db7c3-9837-42ff-93d7-8b4f947b1b4c">&lt;strong&gt;</bpt>To do list<ept id="389db7c3-9837-42ff-93d7-8b4f947b1b4c">&lt;/strong&gt;</ept> app that stores app data in the new mobile service.</target>
+        </trans-unit>
+        <trans-unit id="65c8b55d-c124-4d1b-8350-0141bcdac3fe" xml:space="preserve">
+          <source>A screenshot from the completed app is below:
+<bpt id="86dfa06b-5398-4a52-9333-c041f1a16573">&lt;linkText&gt;</bpt><ept id="86dfa06b-5398-4a52-9333-c041f1a16573">&lt;/linkText&gt;</ept></source>
+          <target state="new">A screenshot from the completed app is below:
+<bpt id="86dfa06b-5398-4a52-9333-c041f1a16573">&lt;linkText&gt;</bpt><ept id="86dfa06b-5398-4a52-9333-c041f1a16573">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17af3d3e-5ab4-4b82-8fb8-3f2c6e9b246a" xml:space="preserve">
+          <source>Completing this tutorial requires the <bpt id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;linkText&gt;</bpt>Android Developer Tools[android studio]<ept id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;/linkText&gt;</ept><bpt id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;title&gt;</bpt><ept id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;/title&gt;</ept>, which includes the Android Studio integrated development environment, and the latest Android platform.</source>
+          <target state="new">Completing this tutorial requires the <bpt id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;linkText&gt;</bpt>Android Developer Tools[android studio]<ept id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;/linkText&gt;</ept><bpt id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;title&gt;</bpt><ept id="c6a62475-bdd6-4776-9d20-b89c408a3ef3">&lt;/title&gt;</ept>, which includes the Android Studio integrated development environment, and the latest Android platform.</target>
+        </trans-unit>
+        <trans-unit id="61ffdb1e-4616-41d8-b016-edfc404e2356" xml:space="preserve">
+          <source>Android 4.2 or a later version is required.</source>
+          <target state="new">Android 4.2 or a later version is required.</target>
+        </trans-unit>
+        <trans-unit id="ba9ac941-c76b-47a6-85b6-3265b0e7fe2f" xml:space="preserve">
+          <source>The downloaded quickstart project contains the Azure Mobile Services SDK for Android.</source>
+          <target state="new">The downloaded quickstart project contains the Azure Mobile Services SDK for Android.</target>
+        </trans-unit>
+        <trans-unit id="e464a9ac-11b3-4f94-b364-e918491f32fc" xml:space="preserve">
+          <source>To complete this tutorial, you need an Azure account.</source>
+          <target state="new">To complete this tutorial, you need an Azure account.</target>
+        </trans-unit>
+        <trans-unit id="d697d9a8-dce1-4fef-8f4b-979008032e7e" xml:space="preserve">
+          <source>If you don't have an account, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new">If you don't have an account, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="e6831140-c168-4b84-8704-d98821f0050e" xml:space="preserve">
+          <source>For details, see <bpt id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;/linkText&gt;</ept><bpt id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;title&gt;</bpt><ept id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details, see <bpt id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;linkText&gt;</bpt>Azure Free Trial<ept id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;/linkText&gt;</ept><bpt id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;title&gt;</bpt><ept id="cb2c68fc-e8ca-47aa-a9bf-69ab97e1b300">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5ff4f3a7-6db9-4246-a61b-9b3d42e84f07" xml:space="preserve">
+          <source><bpt id="b3360cef-4f5a-4d5e-826c-c28d359c0665">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="b3360cef-4f5a-4d5e-826c-c28d359c0665">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="b3360cef-4f5a-4d5e-826c-c28d359c0665">&lt;token href="../../includes/mobile-services-create-new-service.md"&gt;</bpt><ept id="b3360cef-4f5a-4d5e-826c-c28d359c0665">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9a7f8463-e5d3-4735-9afc-5fd22b9bade0" xml:space="preserve">
+          <source>Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.</source>
+          <target state="new">Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="001826b3-34db-493f-a1d8-c6821be79398" xml:space="preserve">
+          <source>In this section you will create a new Android app that is connected to your mobile service.</source>
+          <target state="new">In this section you will create a new Android app that is connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="3425531b-c700-4692-8594-f4a82f5538eb" xml:space="preserve">
+          <source>In the Management Portal, click <bpt id="5b015d66-42b4-4913-a352-437e23f6ea4f">&lt;strong&gt;</bpt>Mobile Services<ept id="5b015d66-42b4-4913-a352-437e23f6ea4f">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</source>
+          <target state="new">In the Management Portal, click <bpt id="5b015d66-42b4-4913-a352-437e23f6ea4f">&lt;strong&gt;</bpt>Mobile Services<ept id="5b015d66-42b4-4913-a352-437e23f6ea4f">&lt;/strong&gt;</ept>, and then click the mobile service that you just created.</target>
+        </trans-unit>
+        <trans-unit id="bf1734c9-a9d0-4e44-9dbd-70cdcc447dd7" xml:space="preserve">
+          <source>In the quickstart tab, click <bpt id="1e41f46f-87e4-45bd-a513-dec568d6fd73">&lt;strong&gt;</bpt>Android<ept id="1e41f46f-87e4-45bd-a513-dec568d6fd73">&lt;/strong&gt;</ept> under <bpt id="ecbcb45a-f3e0-4390-8632-0d552283ab9b">&lt;strong&gt;</bpt>Choose platform<ept id="ecbcb45a-f3e0-4390-8632-0d552283ab9b">&lt;/strong&gt;</ept> and expand <bpt id="0f2ad230-7b86-4145-8bbc-316ff04ea27c">&lt;strong&gt;</bpt>Create a new Android app<ept id="0f2ad230-7b86-4145-8bbc-316ff04ea27c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the quickstart tab, click <bpt id="1e41f46f-87e4-45bd-a513-dec568d6fd73">&lt;strong&gt;</bpt>Android<ept id="1e41f46f-87e4-45bd-a513-dec568d6fd73">&lt;/strong&gt;</ept> under <bpt id="ecbcb45a-f3e0-4390-8632-0d552283ab9b">&lt;strong&gt;</bpt>Choose platform<ept id="ecbcb45a-f3e0-4390-8632-0d552283ab9b">&lt;/strong&gt;</ept> and expand <bpt id="0f2ad230-7b86-4145-8bbc-316ff04ea27c">&lt;strong&gt;</bpt>Create a new Android app<ept id="0f2ad230-7b86-4145-8bbc-316ff04ea27c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6a6d8692-7eda-4a41-a9d0-b10182762567" xml:space="preserve">
+          <source><bpt id="814b362b-04c0-4886-b1b4-9a2d251b3e6d">&lt;linkText&gt;</bpt><ept id="814b362b-04c0-4886-b1b4-9a2d251b3e6d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="814b362b-04c0-4886-b1b4-9a2d251b3e6d">&lt;linkText&gt;</bpt><ept id="814b362b-04c0-4886-b1b4-9a2d251b3e6d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="47017acd-f988-4bce-a77b-c1f61f5ab2e6" xml:space="preserve">
+          <source>This displays the three easy steps to create an Android app connected to your mobile service.</source>
+          <target state="new">This displays the three easy steps to create an Android app connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="159599e4-97b4-407b-b708-efcf8dbb81ee" xml:space="preserve">
+          <source><bpt id="aff00e27-16b4-4532-9a2c-3ca66d008d71">&lt;linkText&gt;</bpt><ept id="aff00e27-16b4-4532-9a2c-3ca66d008d71">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="aff00e27-16b4-4532-9a2c-3ca66d008d71">&lt;linkText&gt;</bpt><ept id="aff00e27-16b4-4532-9a2c-3ca66d008d71">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b97b825a-fd36-4602-88af-4d476369b98a" xml:space="preserve">
+          <source>If you haven't already done so, download and install the <bpt id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;linkText&gt;</bpt>Android Developer Tools[android sdk]<ept id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;/linkText&gt;</ept><bpt id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;title&gt;</bpt><ept id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;/title&gt;</ept> on your local computer or virtual machine.</source>
+          <target state="new">If you haven't already done so, download and install the <bpt id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;linkText&gt;</bpt>Android Developer Tools[android sdk]<ept id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;/linkText&gt;</ept><bpt id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;title&gt;</bpt><ept id="e03143dd-a4b3-409f-b06b-201bc71a671b">&lt;/title&gt;</ept> on your local computer or virtual machine.</target>
+        </trans-unit>
+        <trans-unit id="2c271f81-ab85-4db2-a2b4-712ff103b6fd" xml:space="preserve">
+          <source>Click <bpt id="1c8ef86f-f38d-4045-aec9-4ebdd53395e0">&lt;strong&gt;</bpt>Create TodoItem table<ept id="1c8ef86f-f38d-4045-aec9-4ebdd53395e0">&lt;/strong&gt;</ept> to create a table to store app data.</source>
+          <target state="new">Click <bpt id="1c8ef86f-f38d-4045-aec9-4ebdd53395e0">&lt;strong&gt;</bpt>Create TodoItem table<ept id="1c8ef86f-f38d-4045-aec9-4ebdd53395e0">&lt;/strong&gt;</ept> to create a table to store app data.</target>
+        </trans-unit>
+        <trans-unit id="26cf981b-ca00-4f73-abca-d871d2da13db" xml:space="preserve">
+          <source>Now download your app:</source>
+          <target state="new">Now download your app:</target>
+        </trans-unit>
+        <trans-unit id="2d4a489d-24af-42a9-aa3a-2c44d3b74dfb" xml:space="preserve">
+          <source>The latest app version uses the Mobile Services Android SDK 2.0.</source>
+          <target state="new">The latest app version uses the Mobile Services Android SDK 2.0.</target>
+        </trans-unit>
+        <trans-unit id="026124f7-505f-4947-a6ae-b82e8efb5fb3" xml:space="preserve">
+          <source>You can download that version from &lt;a href="https://github.com/RickSaling/mobile-services-samples/tree/futures"&gt;here&lt;/a&gt;.</source>
+          <target state="new">You can download that version from &lt;a href="https://github.com/RickSaling/mobile-services-samples/tree/futures"&gt;here&lt;/a&gt;.</target>
+        </trans-unit>
+        <trans-unit id="7df928ac-2233-4da9-a828-bfe934563e95" xml:space="preserve">
+          <source>Click <bpt id="bffe182e-9d41-48e5-872f-c4cfb65cc513">&lt;strong&gt;</bpt>Download Zip<ept id="bffe182e-9d41-48e5-872f-c4cfb65cc513">&lt;/strong&gt;</ept>, unzip it, and the project is in GettingStarted under the Android folder.</source>
+          <target state="new">Click <bpt id="bffe182e-9d41-48e5-872f-c4cfb65cc513">&lt;strong&gt;</bpt>Download Zip<ept id="bffe182e-9d41-48e5-872f-c4cfb65cc513">&lt;/strong&gt;</ept>, unzip it, and the project is in GettingStarted under the Android folder.</target>
+        </trans-unit>
+        <trans-unit id="d1a684e5-f34e-4099-a4b4-f29c2836e089" xml:space="preserve">
+          <source>An earlier version uses the prior version of the SDK.</source>
+          <target state="new">An earlier version uses the prior version of the SDK.</target>
+        </trans-unit>
+        <trans-unit id="9f7076d3-63da-4ea2-a8d4-0b2d484a612c" xml:space="preserve">
+          <source>To use it, under <bpt id="d7f18aaf-ea5e-48c0-a69c-0a4a43f9d4ae">&lt;strong&gt;</bpt>Download and run your app<ept id="d7f18aaf-ea5e-48c0-a69c-0a4a43f9d4ae">&lt;/strong&gt;</ept>, click <bpt id="1dd23b59-ff5a-47b0-9682-f20d71359af5">&lt;strong&gt;</bpt>Download<ept id="1dd23b59-ff5a-47b0-9682-f20d71359af5">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To use it, under <bpt id="d7f18aaf-ea5e-48c0-a69c-0a4a43f9d4ae">&lt;strong&gt;</bpt>Download and run your app<ept id="d7f18aaf-ea5e-48c0-a69c-0a4a43f9d4ae">&lt;/strong&gt;</ept>, click <bpt id="1dd23b59-ff5a-47b0-9682-f20d71359af5">&lt;strong&gt;</bpt>Download<ept id="1dd23b59-ff5a-47b0-9682-f20d71359af5">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9f25914f-56f0-4044-8572-07ea58bde3fd" xml:space="preserve">
+          <source>This downloads the project for the sample <bpt id="63300121-93cc-464d-9db6-f33514763aa5">&lt;em&gt;</bpt>To do list<ept id="63300121-93cc-464d-9db6-f33514763aa5">&lt;/em&gt;</ept> application that is connected to your mobile service.</source>
+          <target state="new">This downloads the project for the sample <bpt id="63300121-93cc-464d-9db6-f33514763aa5">&lt;em&gt;</bpt>To do list<ept id="63300121-93cc-464d-9db6-f33514763aa5">&lt;/em&gt;</ept> application that is connected to your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="e9c3c03f-92d5-486c-98cf-7e77ba875162" xml:space="preserve">
+          <source>The project files are compressed, so browse to their location and expand the files on your computer.</source>
+          <target state="new">The project files are compressed, so browse to their location and expand the files on your computer.</target>
+        </trans-unit>
+        <trans-unit id="152b85bc-1ef4-4acf-aeb9-c9a3db68dc05" xml:space="preserve">
+          <source><bpt id="6149c631-df64-4476-a25b-a3ee80782b49">&lt;token href="../../includes/mobile-services-android-get-started.md"&gt;</bpt><ept id="6149c631-df64-4476-a25b-a3ee80782b49">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6149c631-df64-4476-a25b-a3ee80782b49">&lt;token href="../../includes/mobile-services-android-get-started.md"&gt;</bpt><ept id="6149c631-df64-4476-a25b-a3ee80782b49">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="66d09f2d-f5eb-423a-af65-f79e209b46a4" xml:space="preserve">
+          <source>If you would like to see the source code of the completed app, go <bpt id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;linkText&gt;</bpt>here<ept id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;/linkText&gt;</ept><bpt id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;title&gt;</bpt><ept id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to see the source code of the completed app, go <bpt id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;linkText&gt;</bpt>here<ept id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;/linkText&gt;</ept><bpt id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;title&gt;</bpt><ept id="31faf4ac-c05e-4501-8584-6bc556e162f4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2bf156b2-2443-4b51-929d-7f1e2451b11d" xml:space="preserve">
+          <source>If you would like to see the Eclipse version of this tutorial, go to : <bpt id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;linkText&gt;</bpt>Get started (Eclipse)<ept id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;/linkText&gt;</ept><bpt id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;title&gt;</bpt><ept id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;/title&gt;</ept>.</source>
+          <target state="new">If you would like to see the Eclipse version of this tutorial, go to : <bpt id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;linkText&gt;</bpt>Get started (Eclipse)<ept id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;/linkText&gt;</ept><bpt id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;title&gt;</bpt><ept id="4ad85485-f7fd-4404-bc11-df69b9d8b94c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="946a45e0-61f8-4824-a062-0969485eafbb" xml:space="preserve">
+          <source>Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</source>
+          <target state="new">Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:</target>
+        </trans-unit>
+        <trans-unit id="7b27af7c-38a8-4740-9bd2-2488c342651f" xml:space="preserve">
+          <source>[Get started with data]
+&lt;br/&gt;Learn more about storing and querying data using Mobile Services.</source>
+          <target state="new">[Get started with data]
+&lt;br/&gt;Learn more about storing and querying data using Mobile Services.</target>
+        </trans-unit>
+        <trans-unit id="007dabd0-d881-4d42-9b03-d2fb251dc03f" xml:space="preserve">
+          <source>[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</source>
+          <target state="new">[Get started with authentication]
+&lt;br/&gt;Learn how to authenticate users of your app with an identity provider.</target>
+        </trans-unit>
+        <trans-unit id="9f7c2e0c-14f9-4082-8b1c-01ec8082aae1" xml:space="preserve">
+          <source>[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</source>
+          <target state="new">[Get started with push notifications]
+&lt;br/&gt;Learn how to send a very basic push notification to your app.</target>
+        </trans-unit>
+        <trans-unit id="b10e8d44-57f7-4cab-a061-8501bd684a6c" xml:space="preserve">
+          <source>#getting-started</source>
+          <target state="new">#getting-started</target>
+        </trans-unit>
+        <trans-unit id="80c4a39c-c2db-4188-aa7f-d7136bde4082" xml:space="preserve">
+          <source>#create-new-service</source>
+          <target state="new">#create-new-service</target>
+        </trans-unit>
+        <trans-unit id="5193cb5b-6427-4186-9321-790dcd77769a" xml:space="preserve">
+          <source>#define-mobile-service-instance</source>
+          <target state="new">#define-mobile-service-instance</target>
+        </trans-unit>
+        <trans-unit id="dab42610-9ac9-4bb5-870f-0abf8229b926" xml:space="preserve">
+          <source>#next-steps</source>
+          <target state="new">#next-steps</target>
+        </trans-unit>
+        <trans-unit id="63aaf159-3c1e-43bc-b410-59797e4dd3e5" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png</target>
+        </trans-unit>
+        <trans-unit id="f2336c9b-5c5b-4c0c-969b-99816d097e84" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png</target>
+        </trans-unit>
+        <trans-unit id="2c3b1bdd-26b3-4ff8-9073-e59b71852d0a" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png</target>
+        </trans-unit>
+        <trans-unit id="5dba7395-e0b1-4636-8a90-6c023636a9d4" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png</target>
+        </trans-unit>
+        <trans-unit id="aecf1d0c-6d75-4d63-b89e-739a3ebec839" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png</target>
+        </trans-unit>
+        <trans-unit id="2f6614ac-5924-43ca-bab1-b7b280cad6b2" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-data-tab.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-data-tab.png</target>
+        </trans-unit>
+        <trans-unit id="f6cc871e-cd37-43cf-b6d9-b7ac1b55505b" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-data-browse.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-data-browse.png</target>
+        </trans-unit>
+        <trans-unit id="c3cd563b-e146-4678-869c-cb01d152fc3b" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png</target>
+        </trans-unit>
+        <trans-unit id="33414c37-5885-4342-8148-23a37f338509" xml:space="preserve">
+          <source>./media/mobile-services-android-get-started/mobile-services-import-android-project.png</source>
+          <target state="new">./media/mobile-services-android-get-started/mobile-services-import-android-project.png</target>
+        </trans-unit>
+        <trans-unit id="f8373a71-a3a0-4e7d-a1eb-7b7e80c8992f" xml:space="preserve">
+          <source>mobile-services-android-get-started-ec.md</source>
+          <target state="new">mobile-services-android-get-started-ec.md</target>
+        </trans-unit>
+        <trans-unit id="eb29a5ac-e93c-441e-a69f-ba5c724c0755" xml:space="preserve">
+          <source>mobile-services-android-get-started-data.md</source>
+          <target state="new">mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="edba5fac-0af7-4bbd-9b9c-ad1a51685c76" xml:space="preserve">
+          <source>mobile-services-android-get-started-users.md</source>
+          <target state="new">mobile-services-android-get-started-users.md</target>
+        </trans-unit>
+        <trans-unit id="7b22a87c-c69b-400b-a7b9-611e024a7fb0" xml:space="preserve">
+          <source>mobile-services-javascript-backend-android-get-started-push.md</source>
+          <target state="new">mobile-services-javascript-backend-android-get-started-push.md</target>
+        </trans-unit>
+        <trans-unit id="74fb8f72-8d10-40df-a679-68a861364643" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=280125</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=280125</target>
+        </trans-unit>
+        <trans-unit id="ab1b3162-13ee-4d8f-b0ad-e39b089eb2f5" xml:space="preserve">
+          <source>https://developer.android.com/sdk/index.html</source>
+          <target state="new">https://developer.android.com/sdk/index.html</target>
+        </trans-unit>
+        <trans-unit id="fa9bf6c9-d78a-4089-ab46-47f80e88dd32" xml:space="preserve">
+          <source>https://go.microsoft.com/fwLink/p/?LinkID=266533</source>
+          <target state="new">https://go.microsoft.com/fwLink/p/?LinkID=266533</target>
+        </trans-unit>
+        <trans-unit id="21e02786-0639-4647-9b0d-829d0ff2fdc8" xml:space="preserve">
+          <source>https://manage.windowsazure.com/</source>
+          <target state="new">https://manage.windowsazure.com/</target>
+        </trans-unit>
+      </group>
+      <group id="4b1ab90d-7dd0-4cc6-80b0-02e1149ecca0" />
+    </body>
+  </file>
+</xliff>

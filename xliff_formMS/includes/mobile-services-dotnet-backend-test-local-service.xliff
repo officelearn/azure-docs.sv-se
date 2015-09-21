@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="71e47582-466c-4692-b5f3-a013e2818dd6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="71e47582-466c-4692-b5f3-a013e2818dd6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cb9fbe90-4e16-4716-a996-4fabf7610ba5">
+        <trans-unit id="4beb6a9f-ac9d-4c52-8cf5-ab3c7539c4b1" xml:space="preserve">
+          <source>The mobile service project lets you to run your new mobile service locally.</source>
+          <target state="new">The mobile service project lets you to run your new mobile service locally.</target>
+        </trans-unit>
+        <trans-unit id="688ae6f2-8838-4897-8f31-6aa511625e11" xml:space="preserve">
+          <source>This makes it easy to debug your service code before you even publish it to Azure.</source>
+          <target state="new">This makes it easy to debug your service code before you even publish it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="c36b4fc2-538f-421b-937e-0c46118b4c86" xml:space="preserve">
+          <source>On your Windows PC, download your personalized server project, extract it, and then open it in Visual Studio.</source>
+          <target state="new">On your Windows PC, download your personalized server project, extract it, and then open it in Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="14161e6a-7a5e-4f40-964a-02b4ef5dabc1" xml:space="preserve">
+          <source>Press the <bpt id="cddd4342-9aca-42d1-bb49-c089b94a3019">&lt;strong&gt;</bpt>F5<ept id="cddd4342-9aca-42d1-bb49-c089b94a3019">&lt;/strong&gt;</ept> key to rebuild the project and start the mobile service locally.</source>
+          <target state="new">Press the <bpt id="cddd4342-9aca-42d1-bb49-c089b94a3019">&lt;strong&gt;</bpt>F5<ept id="cddd4342-9aca-42d1-bb49-c089b94a3019">&lt;/strong&gt;</ept> key to rebuild the project and start the mobile service locally.</target>
+        </trans-unit>
+        <trans-unit id="7ebdf909-512e-4a73-bfd9-7b1706e7fa88" xml:space="preserve">
+          <source>A web page is displayed after the mobile service starts successfully.</source>
+          <target state="new">A web page is displayed after the mobile service starts successfully.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

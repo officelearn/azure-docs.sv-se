@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="7b8c1d07-5035-4458-9e29-55a84f832893" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="7b8c1d07-5035-4458-9e29-55a84f832893" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="a460c76a-58e3-4831-a1b9-875b43bf7737">
+        <trans-unit id="baa0724a-619e-495f-ac32-bdc2855a0cb5" xml:space="preserve">
+          <source>Setting up services required to publish a cloud service from Visual Studio</source>
+          <target state="new">Setting up services required to publish a cloud service from Visual Studio</target>
+        </trans-unit>
+        <trans-unit id="b4b32a5a-a436-4f49-86cb-e4219f2aa855" xml:space="preserve">
+          <source>Learn the procedures to set up cloud and storage account services and configure your Azure application</source>
+          <target state="new">Learn the procedures to set up cloud and storage account services and configure your Azure application</target>
+        </trans-unit>
+        <trans-unit id="8eb10c0b-2158-4886-a85e-6af8ced72539" xml:space="preserve">
+          <source>Before you can publish a cloud service project, you must set up the following services:</source>
+          <target state="new">Before you can publish a cloud service project, you must set up the following services:</target>
+        </trans-unit>
+        <trans-unit id="146921af-2d11-494b-808c-e8352feccc7c" xml:space="preserve">
+          <source>A <bpt id="c1b3184b-7551-4e5f-9706-4143093d9a25">&lt;strong&gt;</bpt>cloud service<ept id="c1b3184b-7551-4e5f-9706-4143093d9a25">&lt;/strong&gt;</ept> to run your roles in the Azure environment</source>
+          <target state="new">A <bpt id="c1b3184b-7551-4e5f-9706-4143093d9a25">&lt;strong&gt;</bpt>cloud service<ept id="c1b3184b-7551-4e5f-9706-4143093d9a25">&lt;/strong&gt;</ept> to run your roles in the Azure environment</target>
+        </trans-unit>
+        <trans-unit id="e9e99a59-dcd3-44d6-aa40-244d0ebdd496" xml:space="preserve">
+          <source>A <bpt id="8397c193-4f2b-48a1-89d5-629387268c62">&lt;strong&gt;</bpt>storage account<ept id="8397c193-4f2b-48a1-89d5-629387268c62">&lt;/strong&gt;</ept> that provides access to the Blob, Queue, and Table services.</source>
+          <target state="new">A <bpt id="8397c193-4f2b-48a1-89d5-629387268c62">&lt;strong&gt;</bpt>storage account<ept id="8397c193-4f2b-48a1-89d5-629387268c62">&lt;/strong&gt;</ept> that provides access to the Blob, Queue, and Table services.</target>
+        </trans-unit>
+        <trans-unit id="a2e0f063-a49d-4f95-a264-38549d29f108" xml:space="preserve">
+          <source>Use the following procedures to set up these services and configure your application</source>
+          <target state="new">Use the following procedures to set up these services and configure your application</target>
+        </trans-unit>
+        <trans-unit id="f8cf7892-d6b4-43b2-982d-77b52d1917e4" xml:space="preserve">
+          <source>To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment.</source>
+          <target state="new">To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment.</target>
+        </trans-unit>
+        <trans-unit id="757b001a-8b11-4a8a-a2c8-09e4eddff280" xml:space="preserve">
+          <source>You can create a cloud service in the Azure Management Portal, as described <bpt id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;linkText&gt;</bpt>here<ept id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;/linkText&gt;</ept><bpt id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;title&gt;</bpt><ept id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create a cloud service in the Azure Management Portal, as described <bpt id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;linkText&gt;</bpt>here<ept id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;/linkText&gt;</ept><bpt id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;title&gt;</bpt><ept id="b1119e83-38d5-470f-9846-aa3234ab65e8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="52a731cf-840b-4101-80e4-6e2ce2d36231" xml:space="preserve">
+          <source>You can also create a cloud service in Visual Studio when you use the publishing wizard.</source>
+          <target state="new">You can also create a cloud service in Visual Studio when you use the publishing wizard.</target>
+        </trans-unit>
+        <trans-unit id="6943b13c-8458-41fc-abb0-5a55a1f50220" xml:space="preserve">
+          <source>Open the shortcut menu for the Azure project, and choose <bpt id="82045409-2e0a-4861-a351-daeeda8463d1">&lt;strong&gt;</bpt>Publish<ept id="82045409-2e0a-4861-a351-daeeda8463d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Open the shortcut menu for the Azure project, and choose <bpt id="82045409-2e0a-4861-a351-daeeda8463d1">&lt;strong&gt;</bpt>Publish<ept id="82045409-2e0a-4861-a351-daeeda8463d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2fa615e7-802d-4113-8e8f-b0cc6302ee4f" xml:space="preserve">
+          <source><bpt id="49642bc4-63dc-4537-8558-8e81f5264df8">&lt;linkText&gt;</bpt>VST_PublishMenu<ept id="49642bc4-63dc-4537-8558-8e81f5264df8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="49642bc4-63dc-4537-8558-8e81f5264df8">&lt;linkText&gt;</bpt>VST_PublishMenu<ept id="49642bc4-63dc-4537-8558-8e81f5264df8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e352d919-5ec0-48b5-bb02-c364cdfc6809" xml:space="preserve">
+          <source>If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.</source>
+          <target state="new">If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.</target>
+        </trans-unit>
+        <trans-unit id="1bcf4870-6c0f-4837-9da3-65e8dbce385c" xml:space="preserve">
+          <source>Choose the <bpt id="432cc9e1-4bf2-440a-9c10-3686b9ec24c3">&lt;strong&gt;</bpt>Next<ept id="432cc9e1-4bf2-440a-9c10-3686b9ec24c3">&lt;/strong&gt;</ept> button to advance to the <bpt id="7c1dbb3d-11f3-42d9-a2a3-dcb6d65a82a4">&lt;strong&gt;</bpt>Settings<ept id="7c1dbb3d-11f3-42d9-a2a3-dcb6d65a82a4">&lt;/strong&gt;</ept> page.</source>
+          <target state="new">Choose the <bpt id="432cc9e1-4bf2-440a-9c10-3686b9ec24c3">&lt;strong&gt;</bpt>Next<ept id="432cc9e1-4bf2-440a-9c10-3686b9ec24c3">&lt;/strong&gt;</ept> button to advance to the <bpt id="7c1dbb3d-11f3-42d9-a2a3-dcb6d65a82a4">&lt;strong&gt;</bpt>Settings<ept id="7c1dbb3d-11f3-42d9-a2a3-dcb6d65a82a4">&lt;/strong&gt;</ept> page.</target>
+        </trans-unit>
+        <trans-unit id="94115675-85be-4037-b0ca-8508c408e6a5" xml:space="preserve">
+          <source><bpt id="cef0207f-b853-4c93-88b6-3279bea33baa">&lt;linkText&gt;</bpt>Publishing Wizard Common Settings<ept id="cef0207f-b853-4c93-88b6-3279bea33baa">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cef0207f-b853-4c93-88b6-3279bea33baa">&lt;linkText&gt;</bpt>Publishing Wizard Common Settings<ept id="cef0207f-b853-4c93-88b6-3279bea33baa">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b04990ac-a6a8-4f66-bcaf-1983c6370d33" xml:space="preserve">
+          <source>In the <bpt id="54cf5ab8-3b2f-4c24-8d81-1299ebd92c30">&lt;strong&gt;</bpt>Cloud Services<ept id="54cf5ab8-3b2f-4c24-8d81-1299ebd92c30">&lt;/strong&gt;</ept> list, choose <bpt id="7ab6b044-5c11-42e2-bf6c-08c4e5505346">&lt;strong&gt;</bpt>Create New<ept id="7ab6b044-5c11-42e2-bf6c-08c4e5505346">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="54cf5ab8-3b2f-4c24-8d81-1299ebd92c30">&lt;strong&gt;</bpt>Cloud Services<ept id="54cf5ab8-3b2f-4c24-8d81-1299ebd92c30">&lt;/strong&gt;</ept> list, choose <bpt id="7ab6b044-5c11-42e2-bf6c-08c4e5505346">&lt;strong&gt;</bpt>Create New<ept id="7ab6b044-5c11-42e2-bf6c-08c4e5505346">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9414204-f7f9-41fe-8e09-795a117b6cbe" xml:space="preserve">
+          <source>The <bpt id="7de41a3f-d7d0-422c-98df-0f96f7f931c8">&lt;strong&gt;</bpt>Create Azure Services<ept id="7de41a3f-d7d0-422c-98df-0f96f7f931c8">&lt;/strong&gt;</ept> dialog appears.</source>
+          <target state="new">The <bpt id="7de41a3f-d7d0-422c-98df-0f96f7f931c8">&lt;strong&gt;</bpt>Create Azure Services<ept id="7de41a3f-d7d0-422c-98df-0f96f7f931c8">&lt;/strong&gt;</ept> dialog appears.</target>
+        </trans-unit>
+        <trans-unit id="b6599169-bdc3-4218-b887-2d507b72ade6" xml:space="preserve">
+          <source>Enter the name of your cloud service.</source>
+          <target state="new">Enter the name of your cloud service.</target>
+        </trans-unit>
+        <trans-unit id="9c17e295-35e5-43c3-980f-6046b0c11b10" xml:space="preserve">
+          <source>The name forms part of the URL for your service and therefore must be globally unique.</source>
+          <target state="new">The name forms part of the URL for your service and therefore must be globally unique.</target>
+        </trans-unit>
+        <trans-unit id="1ecc66c2-7c8c-472a-964e-48db51ac070e" xml:space="preserve">
+          <source>The name is not case-sensitive.</source>
+          <target state="new">The name is not case-sensitive.</target>
+        </trans-unit>
+        <trans-unit id="8462222d-c464-4add-b575-2a8e81282df8" xml:space="preserve">
+          <source>Sign in to the <bpt id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;/linkText&gt;</ept><bpt id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;title&gt;</bpt><ept id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;/title&gt;</ept> on the Microsoft website.</source>
+          <target state="new">Sign in to the <bpt id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;/linkText&gt;</ept><bpt id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;title&gt;</bpt><ept id="fb67563f-df85-4fee-91e1-3d7ec9c6d848">&lt;/title&gt;</ept> on the Microsoft website.</target>
+        </trans-unit>
+        <trans-unit id="11dec7b5-9b71-494a-87ec-1afa44665f11" xml:space="preserve">
+          <source>(optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.</source>
+          <target state="new">(optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.</target>
+        </trans-unit>
+        <trans-unit id="b094f43f-a059-4d06-83f1-67d111b7c28b" xml:space="preserve">
+          <source>Choose the <bpt id="b18ddba6-aa26-4e87-8032-cded96b5da24">&lt;strong&gt;</bpt>+<ept id="b18ddba6-aa26-4e87-8032-cded96b5da24">&lt;/strong&gt;</ept> icon in the lower-left corner, and then choose <bpt id="d6369662-ef99-439a-af2f-24c98be79d1e">&lt;strong&gt;</bpt>Cloud Service<ept id="d6369662-ef99-439a-af2f-24c98be79d1e">&lt;/strong&gt;</ept> on the menu that appears.</source>
+          <target state="new">Choose the <bpt id="b18ddba6-aa26-4e87-8032-cded96b5da24">&lt;strong&gt;</bpt>+<ept id="b18ddba6-aa26-4e87-8032-cded96b5da24">&lt;/strong&gt;</ept> icon in the lower-left corner, and then choose <bpt id="d6369662-ef99-439a-af2f-24c98be79d1e">&lt;strong&gt;</bpt>Cloud Service<ept id="d6369662-ef99-439a-af2f-24c98be79d1e">&lt;/strong&gt;</ept> on the menu that appears.</target>
+        </trans-unit>
+        <trans-unit id="32533483-4d6a-4616-a598-7bc009eb7aa0" xml:space="preserve">
+          <source>Another screen with two options, <bpt id="c8c3c579-cbc9-4fe8-875d-56b7fb3e8ab3">&lt;strong&gt;</bpt>Quick Create<ept id="c8c3c579-cbc9-4fe8-875d-56b7fb3e8ab3">&lt;/strong&gt;</ept> and <bpt id="aa46519a-2e9d-42b3-bf99-218d3445ccac">&lt;strong&gt;</bpt>Custom Create<ept id="aa46519a-2e9d-42b3-bf99-218d3445ccac">&lt;/strong&gt;</ept>, appears.</source>
+          <target state="new">Another screen with two options, <bpt id="c8c3c579-cbc9-4fe8-875d-56b7fb3e8ab3">&lt;strong&gt;</bpt>Quick Create<ept id="c8c3c579-cbc9-4fe8-875d-56b7fb3e8ab3">&lt;/strong&gt;</ept> and <bpt id="aa46519a-2e9d-42b3-bf99-218d3445ccac">&lt;strong&gt;</bpt>Custom Create<ept id="aa46519a-2e9d-42b3-bf99-218d3445ccac">&lt;/strong&gt;</ept>, appears.</target>
+        </trans-unit>
+        <trans-unit id="09da17b1-0454-4866-86c1-3ce7f5ed6d47" xml:space="preserve">
+          <source>If you choose <bpt id="c859b5f3-ae0c-4a21-a346-9a58f80fa1d5">&lt;strong&gt;</bpt>Quick Create<ept id="c859b5f3-ae0c-4a21-a346-9a58f80fa1d5">&lt;/strong&gt;</ept>, you can create a cloud service just by specifying its URL and the region where it will be physically hosted.</source>
+          <target state="new">If you choose <bpt id="c859b5f3-ae0c-4a21-a346-9a58f80fa1d5">&lt;strong&gt;</bpt>Quick Create<ept id="c859b5f3-ae0c-4a21-a346-9a58f80fa1d5">&lt;/strong&gt;</ept>, you can create a cloud service just by specifying its URL and the region where it will be physically hosted.</target>
+        </trans-unit>
+        <trans-unit id="95bfa6f2-a024-42a7-9ffb-079b1a1d263e" xml:space="preserve">
+          <source>If you choose <bpt id="f4c3eb19-eb0c-4207-88dd-02d56928e7d8">&lt;strong&gt;</bpt>Custom Create<ept id="f4c3eb19-eb0c-4207-88dd-02d56928e7d8">&lt;/strong&gt;</ept>, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate.</source>
+          <target state="new">If you choose <bpt id="f4c3eb19-eb0c-4207-88dd-02d56928e7d8">&lt;strong&gt;</bpt>Custom Create<ept id="f4c3eb19-eb0c-4207-88dd-02d56928e7d8">&lt;/strong&gt;</ept>, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate.</target>
+        </trans-unit>
+        <trans-unit id="801ab9ca-f847-4473-beff-1ae5e8d7a89e" xml:space="preserve">
+          <source>Custom Create isn’t required if you intend to publish your cloud service by using the <bpt id="9aabce37-60fe-40ea-b29d-d8ff9ee404bb">&lt;strong&gt;</bpt>Publish<ept id="9aabce37-60fe-40ea-b29d-d8ff9ee404bb">&lt;/strong&gt;</ept> command in an Azure project.</source>
+          <target state="new">Custom Create isn’t required if you intend to publish your cloud service by using the <bpt id="9aabce37-60fe-40ea-b29d-d8ff9ee404bb">&lt;strong&gt;</bpt>Publish<ept id="9aabce37-60fe-40ea-b29d-d8ff9ee404bb">&lt;/strong&gt;</ept> command in an Azure project.</target>
+        </trans-unit>
+        <trans-unit id="75a1eea3-1d87-444f-95ff-88484bc84813" xml:space="preserve">
+          <source>The <bpt id="31b1ae4c-1a72-4c51-849b-4643348d1776">&lt;strong&gt;</bpt>Publish<ept id="31b1ae4c-1a72-4c51-849b-4643348d1776">&lt;/strong&gt;</ept> command is available on the shortcut menu for an Azure project.</source>
+          <target state="new">The <bpt id="31b1ae4c-1a72-4c51-849b-4643348d1776">&lt;strong&gt;</bpt>Publish<ept id="31b1ae4c-1a72-4c51-849b-4643348d1776">&lt;/strong&gt;</ept> command is available on the shortcut menu for an Azure project.</target>
+        </trans-unit>
+        <trans-unit id="eacb89c3-ad96-410e-a824-ad759372255f" xml:space="preserve">
+          <source>Choose <bpt id="4091396d-cfac-4b55-8086-b41b0ae74d27">&lt;strong&gt;</bpt>Quick Create<ept id="4091396d-cfac-4b55-8086-b41b0ae74d27">&lt;/strong&gt;</ept> to later publish your cloud service by using Visual Studio.</source>
+          <target state="new">Choose <bpt id="4091396d-cfac-4b55-8086-b41b0ae74d27">&lt;strong&gt;</bpt>Quick Create<ept id="4091396d-cfac-4b55-8086-b41b0ae74d27">&lt;/strong&gt;</ept> to later publish your cloud service by using Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="f26102d4-74e7-4865-a0c4-c4ea0d50d86f" xml:space="preserve">
+          <source>Specify a name for your cloud service.The complete URL appears next to the name.</source>
+          <target state="new">Specify a name for your cloud service.The complete URL appears next to the name.</target>
+        </trans-unit>
+        <trans-unit id="09f8c85b-dacc-4f4b-8af3-b6b31aeadee2" xml:space="preserve">
+          <source>In the list, choose the region where most of your users are located.</source>
+          <target state="new">In the list, choose the region where most of your users are located.</target>
+        </trans-unit>
+        <trans-unit id="bc7738da-7850-4ad5-91be-29d2b9adb248" xml:space="preserve">
+          <source>At the bottom of the window, choose the <bpt id="8f013121-4ed7-4042-a9e8-71bbf09fc230">&lt;strong&gt;</bpt>Create Cloud Service<ept id="8f013121-4ed7-4042-a9e8-71bbf09fc230">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">At the bottom of the window, choose the <bpt id="8f013121-4ed7-4042-a9e8-71bbf09fc230">&lt;strong&gt;</bpt>Create Cloud Service<ept id="8f013121-4ed7-4042-a9e8-71bbf09fc230">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="c58e6f78-231b-4556-ab06-d3acf457d383" xml:space="preserve">
+          <source>A storage account provides access to the Blob, Queue, and Table services.</source>
+          <target state="new">A storage account provides access to the Blob, Queue, and Table services.</target>
+        </trans-unit>
+        <trans-unit id="11831621-d949-47bd-99ad-57b988fe2cca" xml:space="preserve">
+          <source>You can create a storage account by using Visual Studio or the <bpt id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;linkText&gt;</bpt>Azure Platform Management Portal<ept id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;/linkText&gt;</ept><bpt id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;title&gt;</bpt><ept id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can create a storage account by using Visual Studio or the <bpt id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;linkText&gt;</bpt>Azure Platform Management Portal<ept id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;/linkText&gt;</ept><bpt id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;title&gt;</bpt><ept id="24e0b598-3f7f-40e1-be9a-35e4c299325c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5b4f7558-3c0f-4629-bf79-8ae95b09c31b" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for the <bpt id="c78c38a3-51e7-4900-9466-4154cd353dff">&lt;strong&gt;</bpt>Storage<ept id="c78c38a3-51e7-4900-9466-4154cd353dff">&lt;/strong&gt;</ept> node, and then choose <bpt id="86843a4f-3172-4b66-b369-61bb1c330df2">&lt;strong&gt;</bpt>Create Storage Account<ept id="86843a4f-3172-4b66-b369-61bb1c330df2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for the <bpt id="c78c38a3-51e7-4900-9466-4154cd353dff">&lt;strong&gt;</bpt>Storage<ept id="c78c38a3-51e7-4900-9466-4154cd353dff">&lt;/strong&gt;</ept> node, and then choose <bpt id="86843a4f-3172-4b66-b369-61bb1c330df2">&lt;strong&gt;</bpt>Create Storage Account<ept id="86843a4f-3172-4b66-b369-61bb1c330df2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b0e37848-0fde-4903-888a-7df636f502b6" xml:space="preserve">
+          <source><bpt id="2ca11e1b-9ed4-4753-be67-fba210281c28">&lt;linkText&gt;</bpt>Create a new Azure storage account<ept id="2ca11e1b-9ed4-4753-be67-fba210281c28">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2ca11e1b-9ed4-4753-be67-fba210281c28">&lt;linkText&gt;</bpt>Create a new Azure storage account<ept id="2ca11e1b-9ed4-4753-be67-fba210281c28">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="68328483-eb4c-4713-b67b-d035fd557597" xml:space="preserve">
+          <source>Select or enter the following information for the new storage account in the <bpt id="ada1bd23-9427-4efe-902e-5ba13e43889e">&lt;strong&gt;</bpt>Create Storage Account<ept id="ada1bd23-9427-4efe-902e-5ba13e43889e">&lt;/strong&gt;</ept> dialog box.</source>
+          <target state="new">Select or enter the following information for the new storage account in the <bpt id="ada1bd23-9427-4efe-902e-5ba13e43889e">&lt;strong&gt;</bpt>Create Storage Account<ept id="ada1bd23-9427-4efe-902e-5ba13e43889e">&lt;/strong&gt;</ept> dialog box.</target>
+        </trans-unit>
+        <trans-unit id="710d21f3-b026-42b9-ba7a-a1655941dc9a" xml:space="preserve">
+          <source>The Azure subscription to which you want to add the storage account.</source>
+          <target state="new">The Azure subscription to which you want to add the storage account.</target>
+        </trans-unit>
+        <trans-unit id="ada55047-38f8-408c-bc59-f000506e0287" xml:space="preserve">
+          <source>The name you want to use for the new storage account.</source>
+          <target state="new">The name you want to use for the new storage account.</target>
+        </trans-unit>
+        <trans-unit id="e5e9956e-4948-453c-a8e3-a3cf383b6adf" xml:space="preserve">
+          <source>The region or affinity group (such as West US or East Asia).</source>
+          <target state="new">The region or affinity group (such as West US or East Asia).</target>
+        </trans-unit>
+        <trans-unit id="e30946f9-e013-46f8-b0a7-7dea138fe9fb" xml:space="preserve">
+          <source>The type of replication you want to use for the storage account, such as Geo-Redundant.</source>
+          <target state="new">The type of replication you want to use for the storage account, such as Geo-Redundant.</target>
+        </trans-unit>
+        <trans-unit id="3c4fe220-97f3-418f-b699-1297ece766fb" xml:space="preserve">
+          <source>When you’re done, choose <bpt id="b4813bbe-2658-4e76-a87e-6487d9497bdb">&lt;strong&gt;</bpt>Create<ept id="b4813bbe-2658-4e76-a87e-6487d9497bdb">&lt;/strong&gt;</ept>.The new storage account appears in the <bpt id="57c8c05d-958c-4d56-8f7b-88a08bc02f46">&lt;strong&gt;</bpt>Storage<ept id="57c8c05d-958c-4d56-8f7b-88a08bc02f46">&lt;/strong&gt;</ept> list in Server Explorer.</source>
+          <target state="new">When you’re done, choose <bpt id="b4813bbe-2658-4e76-a87e-6487d9497bdb">&lt;strong&gt;</bpt>Create<ept id="b4813bbe-2658-4e76-a87e-6487d9497bdb">&lt;/strong&gt;</ept>.The new storage account appears in the <bpt id="57c8c05d-958c-4d56-8f7b-88a08bc02f46">&lt;strong&gt;</bpt>Storage<ept id="57c8c05d-958c-4d56-8f7b-88a08bc02f46">&lt;/strong&gt;</ept> list in Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="a2cb7987-bb4b-42c2-8935-fe75bc3f7fcd" xml:space="preserve">
+          <source>Sign in to the <bpt id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;linkText&gt;</bpt>Azure Platform Management Portal<ept id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;/linkText&gt;</ept><bpt id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;title&gt;</bpt><ept id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;/title&gt;</ept> on the Microsoft website.</source>
+          <target state="new">Sign in to the <bpt id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;linkText&gt;</bpt>Azure Platform Management Portal<ept id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;/linkText&gt;</ept><bpt id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;title&gt;</bpt><ept id="2f76b53b-9005-42ee-974a-6d6e93eb2e64">&lt;/title&gt;</ept> on the Microsoft website.</target>
+        </trans-unit>
+        <trans-unit id="658fd90c-85fb-4bc2-b42c-d24e11577810" xml:space="preserve">
+          <source>(optional) To view your storage accounts, choose the <bpt id="702c9afb-7795-47d1-a019-67c66885419d">&lt;strong&gt;</bpt>Storage<ept id="702c9afb-7795-47d1-a019-67c66885419d">&lt;/strong&gt;</ept> link in the panel on the left side of the page.</source>
+          <target state="new">(optional) To view your storage accounts, choose the <bpt id="702c9afb-7795-47d1-a019-67c66885419d">&lt;strong&gt;</bpt>Storage<ept id="702c9afb-7795-47d1-a019-67c66885419d">&lt;/strong&gt;</ept> link in the panel on the left side of the page.</target>
+        </trans-unit>
+        <trans-unit id="f42534c9-d6be-46f9-adf5-166a548bdc74" xml:space="preserve">
+          <source>In the lower-left corner of the page, choose the <bpt id="78827192-7154-447a-be63-86f77c59e447">&lt;strong&gt;</bpt>+<ept id="78827192-7154-447a-be63-86f77c59e447">&lt;/strong&gt;</ept> icon.</source>
+          <target state="new">In the lower-left corner of the page, choose the <bpt id="78827192-7154-447a-be63-86f77c59e447">&lt;strong&gt;</bpt>+<ept id="78827192-7154-447a-be63-86f77c59e447">&lt;/strong&gt;</ept> icon.</target>
+        </trans-unit>
+        <trans-unit id="7ad078aa-103d-4403-8ff2-fc1358f4a819" xml:space="preserve">
+          <source>In the menu that appears, choose <bpt id="50083a63-581e-4984-ab2f-22e38e633a0d">&lt;strong&gt;</bpt>Storage<ept id="50083a63-581e-4984-ab2f-22e38e633a0d">&lt;/strong&gt;</ept>, and then choose <bpt id="c145d073-e559-4b4c-ade1-b6557235dc8d">&lt;strong&gt;</bpt>Quick Create<ept id="c145d073-e559-4b4c-ade1-b6557235dc8d">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu that appears, choose <bpt id="50083a63-581e-4984-ab2f-22e38e633a0d">&lt;strong&gt;</bpt>Storage<ept id="50083a63-581e-4984-ab2f-22e38e633a0d">&lt;/strong&gt;</ept>, and then choose <bpt id="c145d073-e559-4b4c-ade1-b6557235dc8d">&lt;strong&gt;</bpt>Quick Create<ept id="c145d073-e559-4b4c-ade1-b6557235dc8d">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="72c557ed-1126-4fd2-a8a5-dfbe05ec8a83" xml:space="preserve">
+          <source>Give the storage account a name that will result in a unique url.</source>
+          <target state="new">Give the storage account a name that will result in a unique url.</target>
+        </trans-unit>
+        <trans-unit id="fdf69c67-9336-4deb-bc3a-91db5fb36eb5" xml:space="preserve">
+          <source>Give your cloud service a name.</source>
+          <target state="new">Give your cloud service a name.</target>
+        </trans-unit>
+        <trans-unit id="9850adc9-1e4a-47cf-b60e-3c54ec3e600d" xml:space="preserve">
+          <source>The complete URL appears next to the name.</source>
+          <target state="new">The complete URL appears next to the name.</target>
+        </trans-unit>
+        <trans-unit id="5176c219-cdee-4d25-9c82-498165c787b0" xml:space="preserve">
+          <source>In the list of regions, choose a region where most of your users are located.</source>
+          <target state="new">In the list of regions, choose a region where most of your users are located.</target>
+        </trans-unit>
+        <trans-unit id="01a35100-ff85-40cb-a278-a4c8d993b5a1" xml:space="preserve">
+          <source>Specify whether you want to enable geo-replication.</source>
+          <target state="new">Specify whether you want to enable geo-replication.</target>
+        </trans-unit>
+        <trans-unit id="e54919c5-5e79-4de3-97b7-66ee6dadad70" xml:space="preserve">
+          <source>If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss.</source>
+          <target state="new">If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss.</target>
+        </trans-unit>
+        <trans-unit id="d42a2243-3eaf-410a-a3f2-ec9fb2e77241" xml:space="preserve">
+          <source>This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later.</source>
+          <target state="new">This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later.</target>
+        </trans-unit>
+        <trans-unit id="1ffc9cc0-bda9-42f8-96e8-f306d4c4b887" xml:space="preserve">
+          <source>For more information, see <bpt id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;linkText&gt;</bpt>Geo-replication<ept id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;/linkText&gt;</ept><bpt id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;title&gt;</bpt><ept id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;linkText&gt;</bpt>Geo-replication<ept id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;/linkText&gt;</ept><bpt id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;title&gt;</bpt><ept id="ca1848df-73fd-4c6d-acd6-8e4eb79857d5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5114de12-b0b7-4108-a7d9-5d45c34839dc" xml:space="preserve">
+          <source>At the bottom of the window, choose the <bpt id="75e8e046-3e87-4412-b659-ac8cc06ed1f2">&lt;strong&gt;</bpt>Create Storage Account<ept id="75e8e046-3e87-4412-b659-ac8cc06ed1f2">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">At the bottom of the window, choose the <bpt id="75e8e046-3e87-4412-b659-ac8cc06ed1f2">&lt;strong&gt;</bpt>Create Storage Account<ept id="75e8e046-3e87-4412-b659-ac8cc06ed1f2">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="94488eb4-ac08-44a5-9f7b-78fa0dc6c548" xml:space="preserve">
+          <source>After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account.</source>
+          <target state="new">After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account.</target>
+        </trans-unit>
+        <trans-unit id="1af829b3-bf7d-4ef3-98b1-6ea1aaedac9e" xml:space="preserve">
+          <source>You use these keys to authenticate requests made against the storage services.</source>
+          <target state="new">You use these keys to authenticate requests made against the storage services.</target>
+        </trans-unit>
+        <trans-unit id="4996d32e-6ff5-4718-8927-7f33370ba181" xml:space="preserve">
+          <source>The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised.</source>
+          <target state="new">The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised.</target>
+        </trans-unit>
+        <trans-unit id="11134deb-7dca-45f7-8bd1-9ce7c6828d8e" xml:space="preserve">
+          <source>Additionally, it is recommended that you regenerate your access keys on a regular basis.</source>
+          <target state="new">Additionally, it is recommended that you regenerate your access keys on a regular basis.</target>
+        </trans-unit>
+        <trans-unit id="04c013a5-4cc7-42c4-b4ca-6c74eaf77580" xml:space="preserve">
+          <source>You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.</source>
+          <target state="new">You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.</target>
+        </trans-unit>
+        <trans-unit id="7631dbe7-89d2-4b55-a497-e1756075b8a3" xml:space="preserve">
+          <source>You must configure any role that accesses storage services to use the Azure storage services that you have created.</source>
+          <target state="new">You must configure any role that accesses storage services to use the Azure storage services that you have created.</target>
+        </trans-unit>
+        <trans-unit id="db3f1cfa-2519-4fb7-bc93-e20b60000820" xml:space="preserve">
+          <source>To do this, you can use multiple service configurations for your Azure project.</source>
+          <target state="new">To do this, you can use multiple service configurations for your Azure project.</target>
+        </trans-unit>
+        <trans-unit id="68545d0a-872b-4ce5-9e8c-f1346de0f5a5" xml:space="preserve">
+          <source>By default, two are created in your Azure project.</source>
+          <target state="new">By default, two are created in your Azure project.</target>
+        </trans-unit>
+        <trans-unit id="fe23dcf8-f94a-49a0-b1fb-2c984699415f" xml:space="preserve">
+          <source>By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration.</source>
+          <target state="new">By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration.</target>
+        </trans-unit>
+        <trans-unit id="6be1d1e6-9be3-49ab-a0c3-16178f1c00fe" xml:space="preserve">
+          <source>For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure.</source>
+          <target state="new">For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure.</target>
+        </trans-unit>
+        <trans-unit id="85a93563-92a6-4fc3-9513-4c73457f77b5" xml:space="preserve">
+          <source>For more information about service configurations, see <bpt id="3b1bb084-3134-4302-967c-966334734be2">&lt;linkText&gt;</bpt>Configuring an Azure Project<ept id="3b1bb084-3134-4302-967c-966334734be2">&lt;/linkText&gt;</ept><bpt id="3b1bb084-3134-4302-967c-966334734be2">&lt;title&gt;</bpt><ept id="3b1bb084-3134-4302-967c-966334734be2">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about service configurations, see <bpt id="3b1bb084-3134-4302-967c-966334734be2">&lt;linkText&gt;</bpt>Configuring an Azure Project<ept id="3b1bb084-3134-4302-967c-966334734be2">&lt;/linkText&gt;</ept><bpt id="3b1bb084-3134-4302-967c-966334734be2">&lt;title&gt;</bpt><ept id="3b1bb084-3134-4302-967c-966334734be2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="00062e4e-dc7a-4446-84c4-0c77136c31f0" xml:space="preserve">
+          <source>In Visual Studio open your Azure solution.</source>
+          <target state="new">In Visual Studio open your Azure solution.</target>
+        </trans-unit>
+        <trans-unit id="68aee85f-8cbb-4b73-a7f7-2220d03937b1" xml:space="preserve">
+          <source>In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose <bpt id="0cdbc74c-ce21-429e-8dc4-3e3b74e46fbb">&lt;strong&gt;</bpt>Properties<ept id="0cdbc74c-ce21-429e-8dc4-3e3b74e46fbb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose <bpt id="0cdbc74c-ce21-429e-8dc4-3e3b74e46fbb">&lt;strong&gt;</bpt>Properties<ept id="0cdbc74c-ce21-429e-8dc4-3e3b74e46fbb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef8756a7-29c5-4151-b0f8-ffeaae2fa99c" xml:space="preserve">
+          <source>A page with the name of the role is displayed in the Visual Studio editor.</source>
+          <target state="new">A page with the name of the role is displayed in the Visual Studio editor.</target>
+        </trans-unit>
+        <trans-unit id="1275987c-beeb-446d-bd0f-8b2405f0cc8b" xml:space="preserve">
+          <source>The page displays the fields for the <bpt id="71380152-28c0-497a-95be-18ebb3b893b7">&lt;strong&gt;</bpt>Configuration<ept id="71380152-28c0-497a-95be-18ebb3b893b7">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">The page displays the fields for the <bpt id="71380152-28c0-497a-95be-18ebb3b893b7">&lt;strong&gt;</bpt>Configuration<ept id="71380152-28c0-497a-95be-18ebb3b893b7">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="d93df6cb-912b-49cc-a2c6-ac6683ae2c6c" xml:space="preserve">
+          <source>In the property pages for the role, choose <bpt id="00891893-7021-4997-90cc-5d16ddfdb958">&lt;strong&gt;</bpt>Settings<ept id="00891893-7021-4997-90cc-5d16ddfdb958">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the property pages for the role, choose <bpt id="00891893-7021-4997-90cc-5d16ddfdb958">&lt;strong&gt;</bpt>Settings<ept id="00891893-7021-4997-90cc-5d16ddfdb958">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="88bc8674-24f8-42fa-9617-f588a64ad218" xml:space="preserve">
+          <source>In the <bpt id="ebb2acef-0cbd-494a-8fb1-112b50b3a391">&lt;strong&gt;</bpt>Service Configuration<ept id="ebb2acef-0cbd-494a-8fb1-112b50b3a391">&lt;/strong&gt;</ept> list, choose the name of the service configuration that you want to edit.</source>
+          <target state="new">In the <bpt id="ebb2acef-0cbd-494a-8fb1-112b50b3a391">&lt;strong&gt;</bpt>Service Configuration<ept id="ebb2acef-0cbd-494a-8fb1-112b50b3a391">&lt;/strong&gt;</ept> list, choose the name of the service configuration that you want to edit.</target>
+        </trans-unit>
+        <trans-unit id="88d0a605-0aa7-4df2-92bc-59481f6a0a1b" xml:space="preserve">
+          <source>If you want to make changes to all of the service configurations for this role, you can choose <bpt id="097d156e-8ba0-41a2-9b1e-5e8a186409fa">&lt;strong&gt;</bpt>All Configurations<ept id="097d156e-8ba0-41a2-9b1e-5e8a186409fa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you want to make changes to all of the service configurations for this role, you can choose <bpt id="097d156e-8ba0-41a2-9b1e-5e8a186409fa">&lt;strong&gt;</bpt>All Configurations<ept id="097d156e-8ba0-41a2-9b1e-5e8a186409fa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0499261c-d29d-4cd2-807f-dc87c24ce6a8" xml:space="preserve">
+          <source>For more information about how to update service configurations, see <bpt id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;linkText&gt;</bpt>Manage Connection Strings for Storage Accounts<ept id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;/linkText&gt;</ept><bpt id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;title&gt;</bpt><ept id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to update service configurations, see <bpt id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;linkText&gt;</bpt>Manage Connection Strings for Storage Accounts<ept id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;/linkText&gt;</ept><bpt id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;title&gt;</bpt><ept id="d738ccb4-e9d7-435d-b788-1055116550d3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2eeeeb23-3f9d-4f93-a0db-cbf923c43ab8" xml:space="preserve">
+          <source>To modify any connection string settings, choose the <bpt id="fd97aad5-68c5-4c63-b629-affdbb2defcf">&lt;strong&gt;</bpt>…<ept id="fd97aad5-68c5-4c63-b629-affdbb2defcf">&lt;/strong&gt;</ept> button next to the setting.</source>
+          <target state="new">To modify any connection string settings, choose the <bpt id="fd97aad5-68c5-4c63-b629-affdbb2defcf">&lt;strong&gt;</bpt>…<ept id="fd97aad5-68c5-4c63-b629-affdbb2defcf">&lt;/strong&gt;</ept> button next to the setting.</target>
+        </trans-unit>
+        <trans-unit id="4d64556f-d0c6-4eec-b413-4a96d92169a8" xml:space="preserve">
+          <source>The <bpt id="190c7da3-a081-4f8b-9efc-eb56bc7bc29d">&lt;strong&gt;</bpt>Create Storage Connection String<ept id="190c7da3-a081-4f8b-9efc-eb56bc7bc29d">&lt;/strong&gt;</ept> dialog box appears.</source>
+          <target state="new">The <bpt id="190c7da3-a081-4f8b-9efc-eb56bc7bc29d">&lt;strong&gt;</bpt>Create Storage Connection String<ept id="190c7da3-a081-4f8b-9efc-eb56bc7bc29d">&lt;/strong&gt;</ept> dialog box appears.</target>
+        </trans-unit>
+        <trans-unit id="71687a87-c248-41e3-9005-6a9c0ab39bdd" xml:space="preserve">
+          <source>Under <bpt id="422c31a5-b5a7-40a1-b19a-c1375bcb6ec6">&lt;strong&gt;</bpt>Connect using<ept id="422c31a5-b5a7-40a1-b19a-c1375bcb6ec6">&lt;/strong&gt;</ept>, choose the <bpt id="34b29c96-f996-4654-9db1-f63b86013fb3">&lt;strong&gt;</bpt>Your subscription<ept id="34b29c96-f996-4654-9db1-f63b86013fb3">&lt;/strong&gt;</ept> option.</source>
+          <target state="new">Under <bpt id="422c31a5-b5a7-40a1-b19a-c1375bcb6ec6">&lt;strong&gt;</bpt>Connect using<ept id="422c31a5-b5a7-40a1-b19a-c1375bcb6ec6">&lt;/strong&gt;</ept>, choose the <bpt id="34b29c96-f996-4654-9db1-f63b86013fb3">&lt;strong&gt;</bpt>Your subscription<ept id="34b29c96-f996-4654-9db1-f63b86013fb3">&lt;/strong&gt;</ept> option.</target>
+        </trans-unit>
+        <trans-unit id="f34a765e-34e8-43f2-a5ab-3dff39f8b4c5" xml:space="preserve">
+          <source>In the <bpt id="e2370a3a-8db3-4830-a6ab-a7cdc41ae91d">&lt;strong&gt;</bpt>Subscription<ept id="e2370a3a-8db3-4830-a6ab-a7cdc41ae91d">&lt;/strong&gt;</ept> list, choose your subscription.</source>
+          <target state="new">In the <bpt id="e2370a3a-8db3-4830-a6ab-a7cdc41ae91d">&lt;strong&gt;</bpt>Subscription<ept id="e2370a3a-8db3-4830-a6ab-a7cdc41ae91d">&lt;/strong&gt;</ept> list, choose your subscription.</target>
+        </trans-unit>
+        <trans-unit id="4213c426-4c89-4cff-8661-6e078dc35c30" xml:space="preserve">
+          <source>If the list of subscriptions doesn't include the one that you want, choose the <bpt id="b53d24bb-6e4c-47d6-a335-acce6cf1fe06">&lt;strong&gt;</bpt>Download Publish Settings<ept id="b53d24bb-6e4c-47d6-a335-acce6cf1fe06">&lt;/strong&gt;</ept> link.</source>
+          <target state="new">If the list of subscriptions doesn't include the one that you want, choose the <bpt id="b53d24bb-6e4c-47d6-a335-acce6cf1fe06">&lt;strong&gt;</bpt>Download Publish Settings<ept id="b53d24bb-6e4c-47d6-a335-acce6cf1fe06">&lt;/strong&gt;</ept> link.</target>
+        </trans-unit>
+        <trans-unit id="ba757cc4-df59-41d8-821c-ec4fefce217c" xml:space="preserve">
+          <source>In the <bpt id="d2391202-1dde-4cac-9fdb-ec4df501024c">&lt;strong&gt;</bpt>Account name<ept id="d2391202-1dde-4cac-9fdb-ec4df501024c">&lt;/strong&gt;</ept> list, choose your storage account name.</source>
+          <target state="new">In the <bpt id="d2391202-1dde-4cac-9fdb-ec4df501024c">&lt;strong&gt;</bpt>Account name<ept id="d2391202-1dde-4cac-9fdb-ec4df501024c">&lt;/strong&gt;</ept> list, choose your storage account name.</target>
+        </trans-unit>
+        <trans-unit id="87fdb8ed-4277-442c-a556-683f0b497c45" xml:space="preserve">
+          <source>Azure Tools obtains storage account credentials automatically by using the .publishsettings file.</source>
+          <target state="new">Azure Tools obtains storage account credentials automatically by using the .publishsettings file.</target>
+        </trans-unit>
+        <trans-unit id="4c18a016-8ea0-412c-894e-ed15879051bf" xml:space="preserve">
+          <source>To specify your storage account credentials manually, choose the <bpt id="094e8212-883e-4f65-ba90-1e686b2a296b">&lt;strong&gt;</bpt>Manually entered credentials<ept id="094e8212-883e-4f65-ba90-1e686b2a296b">&lt;/strong&gt;</ept> option, and then continue with this procedure.</source>
+          <target state="new">To specify your storage account credentials manually, choose the <bpt id="094e8212-883e-4f65-ba90-1e686b2a296b">&lt;strong&gt;</bpt>Manually entered credentials<ept id="094e8212-883e-4f65-ba90-1e686b2a296b">&lt;/strong&gt;</ept> option, and then continue with this procedure.</target>
+        </trans-unit>
+        <trans-unit id="6a6044d4-7373-41cd-b340-f911cf165c1f" xml:space="preserve">
+          <source>You can get your storage account name and primary key from the <bpt id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;linkText&gt;</bpt>Management Portal<ept id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;/linkText&gt;</ept><bpt id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;title&gt;</bpt><ept id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can get your storage account name and primary key from the <bpt id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;linkText&gt;</bpt>Management Portal<ept id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;/linkText&gt;</ept><bpt id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;title&gt;</bpt><ept id="5457817c-b2b9-4b66-bbc1-b3cf2e20c07c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="60529307-63e7-45ce-a930-76d792ee053a" xml:space="preserve">
+          <source>If you don’t want to specify your storage account settings manually, choose the <bpt id="bd46d19f-012e-4139-8931-6ed06d519f88">&lt;strong&gt;</bpt>OK<ept id="bd46d19f-012e-4139-8931-6ed06d519f88">&lt;/strong&gt;</ept> button to close the dialog box.</source>
+          <target state="new">If you don’t want to specify your storage account settings manually, choose the <bpt id="bd46d19f-012e-4139-8931-6ed06d519f88">&lt;strong&gt;</bpt>OK<ept id="bd46d19f-012e-4139-8931-6ed06d519f88">&lt;/strong&gt;</ept> button to close the dialog box.</target>
+        </trans-unit>
+        <trans-unit id="48ab4abc-c481-45b4-a441-d4993047f46e" xml:space="preserve">
+          <source>Choose the <bpt id="a7a1c870-7bc6-4551-94f9-790a8e052f3c">&lt;strong&gt;</bpt>Enter storage account<ept id="a7a1c870-7bc6-4551-94f9-790a8e052f3c">&lt;/strong&gt;</ept> credentials link.</source>
+          <target state="new">Choose the <bpt id="a7a1c870-7bc6-4551-94f9-790a8e052f3c">&lt;strong&gt;</bpt>Enter storage account<ept id="a7a1c870-7bc6-4551-94f9-790a8e052f3c">&lt;/strong&gt;</ept> credentials link.</target>
+        </trans-unit>
+        <trans-unit id="a24b7900-4ce9-4362-af47-685f0e1a2127" xml:space="preserve">
+          <source>In the <bpt id="fd09371f-05e2-4bd5-9d98-ca272d7b1ab6">&lt;strong&gt;</bpt>Account name<ept id="fd09371f-05e2-4bd5-9d98-ca272d7b1ab6">&lt;/strong&gt;</ept> box, enter the name of your storage account.</source>
+          <target state="new">In the <bpt id="fd09371f-05e2-4bd5-9d98-ca272d7b1ab6">&lt;strong&gt;</bpt>Account name<ept id="fd09371f-05e2-4bd5-9d98-ca272d7b1ab6">&lt;/strong&gt;</ept> box, enter the name of your storage account.</target>
+        </trans-unit>
+        <trans-unit id="97d938b0-f1f6-4344-a799-4469d78d5f63" xml:space="preserve">
+          <source>Log into the Management Portal, and then choose the <bpt id="40b9617f-6958-4b35-b6af-a15f61982d94">&lt;strong&gt;</bpt>Storage<ept id="40b9617f-6958-4b35-b6af-a15f61982d94">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">Log into the Management Portal, and then choose the <bpt id="40b9617f-6958-4b35-b6af-a15f61982d94">&lt;strong&gt;</bpt>Storage<ept id="40b9617f-6958-4b35-b6af-a15f61982d94">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="e2fbe264-8528-43d5-a93a-6959dee997e9" xml:space="preserve">
+          <source>The portal shows a list of storage accounts.</source>
+          <target state="new">The portal shows a list of storage accounts.</target>
+        </trans-unit>
+        <trans-unit id="3925a6f8-0244-4e1d-8c19-f668d924b841" xml:space="preserve">
+          <source>If you choose an account, a page for it opens.</source>
+          <target state="new">If you choose an account, a page for it opens.</target>
+        </trans-unit>
+        <trans-unit id="4d5c7bf4-865b-4a40-8a40-8865dd68af64" xml:space="preserve">
+          <source>You can copy the name of the storage account from this page.</source>
+          <target state="new">You can copy the name of the storage account from this page.</target>
+        </trans-unit>
+        <trans-unit id="81fe0962-6722-4083-a474-50d75b7c903c" xml:space="preserve">
+          <source>If you are using a previous version of the Management Portal, the name of your storage account appears in the <bpt id="e42ade8c-0bb3-4df7-b77c-18ccbdfda453">&lt;strong&gt;</bpt>Storage Accounts<ept id="e42ade8c-0bb3-4df7-b77c-18ccbdfda453">&lt;/strong&gt;</ept> view of the Management Portal.</source>
+          <target state="new">If you are using a previous version of the Management Portal, the name of your storage account appears in the <bpt id="e42ade8c-0bb3-4df7-b77c-18ccbdfda453">&lt;strong&gt;</bpt>Storage Accounts<ept id="e42ade8c-0bb3-4df7-b77c-18ccbdfda453">&lt;/strong&gt;</ept> view of the Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="341e00b4-27d3-403e-b3c3-4e589f894819" xml:space="preserve">
+          <source>To copy this name, highlight it in the <bpt id="36b8ed39-5f30-44dd-8038-dafbe69516a5">&lt;strong&gt;</bpt>Properties<ept id="36b8ed39-5f30-44dd-8038-dafbe69516a5">&lt;/strong&gt;</ept> window of this view, and then choose the Ctrl-C keys.</source>
+          <target state="new">To copy this name, highlight it in the <bpt id="36b8ed39-5f30-44dd-8038-dafbe69516a5">&lt;strong&gt;</bpt>Properties<ept id="36b8ed39-5f30-44dd-8038-dafbe69516a5">&lt;/strong&gt;</ept> window of this view, and then choose the Ctrl-C keys.</target>
+        </trans-unit>
+        <trans-unit id="9d5764c9-369e-4c6f-b78b-fc50d30250a7" xml:space="preserve">
+          <source>To paste the name into Visual Studio, choose the <bpt id="1701c5cd-7817-497a-bf5d-e3b2bf6aafc5">&lt;strong&gt;</bpt>Account name<ept id="1701c5cd-7817-497a-bf5d-e3b2bf6aafc5">&lt;/strong&gt;</ept> text box, and then choose the Ctrl+V keys.</source>
+          <target state="new">To paste the name into Visual Studio, choose the <bpt id="1701c5cd-7817-497a-bf5d-e3b2bf6aafc5">&lt;strong&gt;</bpt>Account name<ept id="1701c5cd-7817-497a-bf5d-e3b2bf6aafc5">&lt;/strong&gt;</ept> text box, and then choose the Ctrl+V keys.</target>
+        </trans-unit>
+        <trans-unit id="c09d59bc-aec2-4be9-b6ad-6c189193c31a" xml:space="preserve">
+          <source>In the <bpt id="87f38b5c-fd42-4c2a-a5e9-274f13741247">&lt;strong&gt;</bpt>Account key<ept id="87f38b5c-fd42-4c2a-a5e9-274f13741247">&lt;/strong&gt;</ept> box, enter your primary key, or copy and paste it from the <bpt id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;linkText&gt;</bpt>Management Portal<ept id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;/linkText&gt;</ept><bpt id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;title&gt;</bpt><ept id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;/title&gt;</ept>.</source>
+          <target state="new">In the <bpt id="87f38b5c-fd42-4c2a-a5e9-274f13741247">&lt;strong&gt;</bpt>Account key<ept id="87f38b5c-fd42-4c2a-a5e9-274f13741247">&lt;/strong&gt;</ept> box, enter your primary key, or copy and paste it from the <bpt id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;linkText&gt;</bpt>Management Portal<ept id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;/linkText&gt;</ept><bpt id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;title&gt;</bpt><ept id="357dbbb3-3493-4cf0-9f3c-7bf3814cae70">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="07cbbd33-36cc-4d8b-bde0-a99730db0a66" xml:space="preserve">
+          <source>To copy this key from the Management Portal:</source>
+          <target state="new">To copy this key from the Management Portal:</target>
+        </trans-unit>
+        <trans-unit id="f220c516-4400-4403-845c-37b282b65ef7" xml:space="preserve">
+          <source>At the bottom of the page for the appropriate storage account, choose the <bpt id="ca35bb3f-4eac-46a3-89cd-15f1bef292ca">&lt;strong&gt;</bpt>Manage Keys<ept id="ca35bb3f-4eac-46a3-89cd-15f1bef292ca">&lt;/strong&gt;</ept> button.</source>
+          <target state="new">At the bottom of the page for the appropriate storage account, choose the <bpt id="ca35bb3f-4eac-46a3-89cd-15f1bef292ca">&lt;strong&gt;</bpt>Manage Keys<ept id="ca35bb3f-4eac-46a3-89cd-15f1bef292ca">&lt;/strong&gt;</ept> button.</target>
+        </trans-unit>
+        <trans-unit id="fe0d4f6f-a4f1-4c7f-a190-b5b08beca01d" xml:space="preserve">
+          <source>On the <bpt id="71991e08-33b0-408b-9821-473bdebb6bc9">&lt;strong&gt;</bpt>Manage Keys Access<ept id="71991e08-33b0-408b-9821-473bdebb6bc9">&lt;/strong&gt;</ept> page, select the text of the primary access key, and then choose the Ctrl+C keys.</source>
+          <target state="new">On the <bpt id="71991e08-33b0-408b-9821-473bdebb6bc9">&lt;strong&gt;</bpt>Manage Keys Access<ept id="71991e08-33b0-408b-9821-473bdebb6bc9">&lt;/strong&gt;</ept> page, select the text of the primary access key, and then choose the Ctrl+C keys.</target>
+        </trans-unit>
+        <trans-unit id="e82b35a5-4bcf-46a1-a4d2-b0358f1d4d77" xml:space="preserve">
+          <source>In Azure Tools, paste the key into the <bpt id="736cce5d-0056-481f-a20f-a7feafd2d716">&lt;strong&gt;</bpt>Account key<ept id="736cce5d-0056-481f-a20f-a7feafd2d716">&lt;/strong&gt;</ept> box.</source>
+          <target state="new">In Azure Tools, paste the key into the <bpt id="736cce5d-0056-481f-a20f-a7feafd2d716">&lt;strong&gt;</bpt>Account key<ept id="736cce5d-0056-481f-a20f-a7feafd2d716">&lt;/strong&gt;</ept> box.</target>
+        </trans-unit>
+        <trans-unit id="a10f9412-829e-431c-8885-b29c1815f648" xml:space="preserve">
+          <source>You must select one of the following options to determine how the service will access the storage account:</source>
+          <target state="new">You must select one of the following options to determine how the service will access the storage account:</target>
+        </trans-unit>
+        <trans-unit id="7008f89a-126c-48ef-ac6d-d5cc0d8b6008" xml:space="preserve">
+          <source><bpt id="d4afc33b-241a-4ce2-93af-4c6afed7472d">&lt;strong&gt;</bpt>Use HTTP<ept id="d4afc33b-241a-4ce2-93af-4c6afed7472d">&lt;/strong&gt;</ept>. This is the standard option. For example, <bpt id="29f527e7-d1d8-4940-b523-e108b485e857">&lt;code&gt;</bpt>http://&lt;account name&gt;.blob.core.windows.net<ept id="29f527e7-d1d8-4940-b523-e108b485e857">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="d4afc33b-241a-4ce2-93af-4c6afed7472d">&lt;strong&gt;</bpt>Use HTTP<ept id="d4afc33b-241a-4ce2-93af-4c6afed7472d">&lt;/strong&gt;</ept>. This is the standard option. For example, <bpt id="29f527e7-d1d8-4940-b523-e108b485e857">&lt;code&gt;</bpt>http://&lt;account name&gt;.blob.core.windows.net<ept id="29f527e7-d1d8-4940-b523-e108b485e857">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a0e7dbb1-11d4-42ff-b91b-051c3768c7c9" xml:space="preserve">
+          <source><bpt id="7cfbd349-d628-49e4-afba-0c8e187cbaa9">&lt;strong&gt;</bpt>Use HTTPS<ept id="7cfbd349-d628-49e4-afba-0c8e187cbaa9">&lt;/strong&gt;</ept> for a secure connection. For example, <bpt id="9ecfb3df-fb77-4803-b49f-e2426e523b8f">&lt;code&gt;</bpt>https://&lt;accountname&gt;.blob.core.windows.net<ept id="9ecfb3df-fb77-4803-b49f-e2426e523b8f">&lt;/code&gt;</ept>.</source>
+          <target state="new"><bpt id="7cfbd349-d628-49e4-afba-0c8e187cbaa9">&lt;strong&gt;</bpt>Use HTTPS<ept id="7cfbd349-d628-49e4-afba-0c8e187cbaa9">&lt;/strong&gt;</ept> for a secure connection. For example, <bpt id="9ecfb3df-fb77-4803-b49f-e2426e523b8f">&lt;code&gt;</bpt>https://&lt;accountname&gt;.blob.core.windows.net<ept id="9ecfb3df-fb77-4803-b49f-e2426e523b8f">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="54ae9679-0687-4f42-85ad-b111af253866" xml:space="preserve">
+          <source><bpt id="eadd25dc-5381-4602-8057-6b96c25ca89f">&lt;strong&gt;</bpt>Specify custom endpoints<ept id="eadd25dc-5381-4602-8057-6b96c25ca89f">&lt;/strong&gt;</ept> for each of the three services.</source>
+          <target state="new"><bpt id="eadd25dc-5381-4602-8057-6b96c25ca89f">&lt;strong&gt;</bpt>Specify custom endpoints<ept id="eadd25dc-5381-4602-8057-6b96c25ca89f">&lt;/strong&gt;</ept> for each of the three services.</target>
+        </trans-unit>
+        <trans-unit id="5f03ccf3-f939-4ce2-bfd2-43de5fbd5ae2" xml:space="preserve">
+          <source>You can then type these endpoints into the field for the specific service.</source>
+          <target state="new">You can then type these endpoints into the field for the specific service.</target>
+        </trans-unit>
+        <trans-unit id="991de23d-a44f-4c82-90b3-8f02bcd23cd2" xml:space="preserve">
+          <source>If you create custom endpoints, you can create a more complex connection string.</source>
+          <target state="new">If you create custom endpoints, you can create a more complex connection string.</target>
+        </trans-unit>
+        <trans-unit id="0faa8f18-06ba-447d-8519-5353c1d85dcf" xml:space="preserve">
+          <source>When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service.</source>
+          <target state="new">When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service.</target>
+        </trans-unit>
+        <trans-unit id="a084360a-2893-498e-8c6a-2ea76d598b23" xml:space="preserve">
+          <source>Also you can grant access only to blob resources in a single container through a shared access signature.</source>
+          <target state="new">Also you can grant access only to blob resources in a single container through a shared access signature.</target>
+        </trans-unit>
+        <trans-unit id="b26a4911-c817-499a-849c-e50130f1abe5" xml:space="preserve">
+          <source>For more information about how to create custom endpoints, see <bpt id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;linkText&gt;</bpt>Configure Azure Storage Connection Strings<ept id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;/linkText&gt;</ept><bpt id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;title&gt;</bpt><ept id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about how to create custom endpoints, see <bpt id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;linkText&gt;</bpt>Configure Azure Storage Connection Strings<ept id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;/linkText&gt;</ept><bpt id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;title&gt;</bpt><ept id="5270f30e-2724-4f2c-a317-6553af89a906">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f54e876-1437-4749-ad5a-84ea05ae4217" xml:space="preserve">
+          <source>To save these connection string changes, choose the <bpt id="aa132517-1d80-47f7-9a71-6f8239251764">&lt;strong&gt;</bpt>OK<ept id="aa132517-1d80-47f7-9a71-6f8239251764">&lt;/strong&gt;</ept> button and then choose the <bpt id="eb8a5369-e5f7-455a-818d-71ce5bdcfd59">&lt;strong&gt;</bpt>Save<ept id="eb8a5369-e5f7-455a-818d-71ce5bdcfd59">&lt;/strong&gt;</ept> button on the toolbar.</source>
+          <target state="new">To save these connection string changes, choose the <bpt id="aa132517-1d80-47f7-9a71-6f8239251764">&lt;strong&gt;</bpt>OK<ept id="aa132517-1d80-47f7-9a71-6f8239251764">&lt;/strong&gt;</ept> button and then choose the <bpt id="eb8a5369-e5f7-455a-818d-71ce5bdcfd59">&lt;strong&gt;</bpt>Save<ept id="eb8a5369-e5f7-455a-818d-71ce5bdcfd59">&lt;/strong&gt;</ept> button on the toolbar.</target>
+        </trans-unit>
+        <trans-unit id="5d05e44d-0c05-4fbc-9db9-99f7fa084fb9" xml:space="preserve">
+          <source>After you save these changes, you can get the value of this connection string in your code by using <bpt id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;linkText&gt;</bpt>GetConfigurationSettingValue<ept id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;/linkText&gt;</ept><bpt id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;title&gt;</bpt><ept id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;/title&gt;</ept>.</source>
+          <target state="new">After you save these changes, you can get the value of this connection string in your code by using <bpt id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;linkText&gt;</bpt>GetConfigurationSettingValue<ept id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;/linkText&gt;</ept><bpt id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;title&gt;</bpt><ept id="8673be3c-0c51-4a83-bccf-c00b2638ab5f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0678d917-0b87-4cf0-b94b-b00aa9dca099" xml:space="preserve">
+          <source>When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string.</source>
+          <target state="new">When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string.</target>
+        </trans-unit>
+        <trans-unit id="0d6eea9d-1b10-4d6e-8299-4437942bd045" xml:space="preserve">
+          <source>After your application is published, verify that the application works as expected against the Azure storage services</source>
+          <target state="new">After your application is published, verify that the application works as expected against the Azure storage services</target>
+        </trans-unit>
+        <trans-unit id="c4d01c1a-32a6-4cd0-b030-38cab79f1b4d" xml:space="preserve">
+          <source><bpt id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;/linkText&gt;</ept><bpt id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;title&gt;</bpt><ept id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;linkText&gt;</bpt>Publishing to an Azure Cloud Service from Visual Studio<ept id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;/linkText&gt;</ept><bpt id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;title&gt;</bpt><ept id="a61c58d3-a153-436d-b09b-30a4be24a448">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

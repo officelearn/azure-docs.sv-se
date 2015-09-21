@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="d192c5f0-f0a2-4f92-bcbf-46f2c7731991" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="d192c5f0-f0a2-4f92-bcbf-46f2c7731991" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="8c26ba28-9535-4123-9128-2bab14a955f1">
+        <trans-unit id="ee0c5b6c-4dfa-40f0-9a89-313361edcde2" xml:space="preserve">
+          <source>Azure Data Catalog get started with data catalog</source>
+          <target state="new">Azure Data Catalog get started with data catalog</target>
+        </trans-unit>
+        <trans-unit id="c6205e21-aa06-4332-ae38-c9fdba889634" xml:space="preserve">
+          <source>End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog.</source>
+          <target state="new">End-to-end tutorial of the scenarios and capabilities of Azure Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="9dc20c61-a834-4363-87f0-3804480b093b" xml:space="preserve">
+          <source>This article is an end-to-end tutorial of the scenarios and capabilities of Azure Data Catalog public preview.</source>
+          <target state="new">This article is an end-to-end tutorial of the scenarios and capabilities of Azure Data Catalog public preview.</target>
+        </trans-unit>
+        <trans-unit id="bb8c7c56-710f-456d-a4be-f317c050a5ec" xml:space="preserve">
+          <source>Once you sign up for the preview, you can follow these steps to create a Data Catalog, and register, annotate, and discover data sources.</source>
+          <target state="new">Once you sign up for the preview, you can follow these steps to create a Data Catalog, and register, annotate, and discover data sources.</target>
+        </trans-unit>
+        <trans-unit id="9b90e718-122b-4b32-9d6c-e78c136710e0" xml:space="preserve">
+          <source>Before you begin this tutorial you must have the following:</source>
+          <target state="new">Before you begin this tutorial you must have the following:</target>
+        </trans-unit>
+        <trans-unit id="6ef2ad26-e01a-4ed1-94ae-59da8b66b784" xml:space="preserve">
+          <source><bpt id="e9b26d7f-0bb1-4da8-ab6c-76398b30c4cc">&lt;strong&gt;</bpt>An Azure subscription<ept id="e9b26d7f-0bb1-4da8-ab6c-76398b30c4cc">&lt;/strong&gt;</ept> -  If you don't have a subscription, you can create a free trial account in just a couple of minutes.</source>
+          <target state="new"><bpt id="e9b26d7f-0bb1-4da8-ab6c-76398b30c4cc">&lt;strong&gt;</bpt>An Azure subscription<ept id="e9b26d7f-0bb1-4da8-ab6c-76398b30c4cc">&lt;/strong&gt;</ept> -  If you don't have a subscription, you can create a free trial account in just a couple of minutes.</target>
+        </trans-unit>
+        <trans-unit id="171fbfd6-f9d2-4c54-81b8-427ee593d98d" xml:space="preserve">
+          <source>See the <bpt id="c00826a5-f315-4933-8382-dda994e9596e">&lt;linkText&gt;</bpt>Free Trial<ept id="c00826a5-f315-4933-8382-dda994e9596e">&lt;/linkText&gt;</ept><bpt id="c00826a5-f315-4933-8382-dda994e9596e">&lt;title&gt;</bpt><ept id="c00826a5-f315-4933-8382-dda994e9596e">&lt;/title&gt;</ept> article for details.</source>
+          <target state="new">See the <bpt id="c00826a5-f315-4933-8382-dda994e9596e">&lt;linkText&gt;</bpt>Free Trial<ept id="c00826a5-f315-4933-8382-dda994e9596e">&lt;/linkText&gt;</ept><bpt id="c00826a5-f315-4933-8382-dda994e9596e">&lt;title&gt;</bpt><ept id="c00826a5-f315-4933-8382-dda994e9596e">&lt;/title&gt;</ept> article for details.</target>
+        </trans-unit>
+        <trans-unit id="71ead249-0623-4f57-8693-6e8f0238b9e4" xml:space="preserve">
+          <source><bpt id="53d0e166-2c0c-4766-8100-4edf95479a9c">&lt;strong&gt;</bpt>Azure Active Directory<ept id="53d0e166-2c0c-4766-8100-4edf95479a9c">&lt;/strong&gt;</ept> -  Azure Data Catalog uses <bpt id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;/linkText&gt;</ept><bpt id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;title&gt;</bpt><ept id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;/title&gt;</ept> for identity and access management.</source>
+          <target state="new"><bpt id="53d0e166-2c0c-4766-8100-4edf95479a9c">&lt;strong&gt;</bpt>Azure Active Directory<ept id="53d0e166-2c0c-4766-8100-4edf95479a9c">&lt;/strong&gt;</ept> -  Azure Data Catalog uses <bpt id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;linkText&gt;</bpt>Azure Active Directory<ept id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;/linkText&gt;</ept><bpt id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;title&gt;</bpt><ept id="8bba99ef-f1fe-4486-bc44-8cf2f47019f1">&lt;/title&gt;</ept> for identity and access management.</target>
+        </trans-unit>
+        <trans-unit id="eb39b7d8-cfa0-4413-b181-42fc9eceeaa6" xml:space="preserve">
+          <source><bpt id="477c903d-9b50-4307-813c-74ee14c68479">&lt;strong&gt;</bpt>Data sources<ept id="477c903d-9b50-4307-813c-74ee14c68479">&lt;/strong&gt;</ept> - Azure Data Catalog provides capabilities for data source discovery, and to proceed with the tutorial you must have access to one or more data sources.</source>
+          <target state="new"><bpt id="477c903d-9b50-4307-813c-74ee14c68479">&lt;strong&gt;</bpt>Data sources<ept id="477c903d-9b50-4307-813c-74ee14c68479">&lt;/strong&gt;</ept> - Azure Data Catalog provides capabilities for data source discovery, and to proceed with the tutorial you must have access to one or more data sources.</target>
+        </trans-unit>
+        <trans-unit id="e805cf9c-a465-4dfd-8033-6c5e8d5bfb95" xml:space="preserve">
+          <source>The tutorial is written using the Adventure Works sample databases, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role.</source>
+          <target state="new">The tutorial is written using the Adventure Works sample databases, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role.</target>
+        </trans-unit>
+        <trans-unit id="4a3cbd1d-5326-41de-b7fc-16c079a4d2cb" xml:space="preserve">
+          <source>In this exercise, you install the Adventure Works sample for SQL Server Database Engine, and SQL Server Analysis Services Multidimensional.</source>
+          <target state="new">In this exercise, you install the Adventure Works sample for SQL Server Database Engine, and SQL Server Analysis Services Multidimensional.</target>
+        </trans-unit>
+        <trans-unit id="c033614d-4a7a-4677-a975-52cb4f9e67ca" xml:space="preserve">
+          <source>These samples are used in the exercises that follow.</source>
+          <target state="new">These samples are used in the exercises that follow.</target>
+        </trans-unit>
+        <trans-unit id="95ad699d-83ff-4daf-855e-5f4b26eff87d" xml:space="preserve">
+          <source>This exercise is optional.</source>
+          <target state="new">This exercise is optional.</target>
+        </trans-unit>
+        <trans-unit id="c1d6edf1-8ecb-43a6-97bc-9809a64108dd" xml:space="preserve">
+          <source>The remaining exercises in the tutorial are written to reference the Adventure Works sample databases, but you can also choose to skip this exercise and work with your own data sources instead.</source>
+          <target state="new">The remaining exercises in the tutorial are written to reference the Adventure Works sample databases, but you can also choose to skip this exercise and work with your own data sources instead.</target>
+        </trans-unit>
+        <trans-unit id="8f31fd51-5881-427e-9ac6-d98b19d85373" xml:space="preserve">
+          <source>Here are the steps to install the Adventure Works.</source>
+          <target state="new">Here are the steps to install the Adventure Works.</target>
+        </trans-unit>
+        <trans-unit id="83115d82-0e5d-400f-a5b2-61c71c0fbefb" xml:space="preserve">
+          <source>The Adventure Works OLTP database supports standard online transaction processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles) including Manufacturing, Sales, and Purchasing.</source>
+          <target state="new">The Adventure Works OLTP database supports standard online transaction processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles) including Manufacturing, Sales, and Purchasing.</target>
+        </trans-unit>
+        <trans-unit id="9779c576-ec11-4531-bc45-5960327f7ed5" xml:space="preserve">
+          <source>The Adventure Works DW database demonstrates how to build a data warehouse.</source>
+          <target state="new">The Adventure Works DW database demonstrates how to build a data warehouse.</target>
+        </trans-unit>
+        <trans-unit id="3c2dfaa4-c0cb-455f-b5c6-0efdfcae2c46" xml:space="preserve">
+          <source>The databases are located at http://msftdbprodsamples.codeplex.com/ and can be installed by following the steps in [How to install the Adventure Works 2014 Sample Databases].</source>
+          <target state="new">The databases are located at http://msftdbprodsamples.codeplex.com/ and can be installed by following the steps in [How to install the Adventure Works 2014 Sample Databases].</target>
+        </trans-unit>
+        <trans-unit id="5b9a688c-9e3d-482a-8786-0633efc15af1" xml:space="preserve">
+          <source>In this exercise you installed the Adventure Works sample databases that are used in the remaining exercises.</source>
+          <target state="new">In this exercise you installed the Adventure Works sample databases that are used in the remaining exercises.</target>
+        </trans-unit>
+        <trans-unit id="bef1a00a-c0bd-43ad-af8e-1d1522112097" xml:space="preserve">
+          <source>If you chose to skip this exercise and to use your own enterprise data sources, please be prepared to remember names, tags, and other metadata.</source>
+          <target state="new">If you chose to skip this exercise and to use your own enterprise data sources, please be prepared to remember names, tags, and other metadata.</target>
+        </trans-unit>
+        <trans-unit id="0f367cb0-d02c-45dd-b198-a6d7d7a5ce83" xml:space="preserve">
+          <source>In this exercise you will use the Azure Data Catalog registration tool to register your data sources with the catalog.</source>
+          <target state="new">In this exercise you will use the Azure Data Catalog registration tool to register your data sources with the catalog.</target>
+        </trans-unit>
+        <trans-unit id="8f55aa28-1845-466d-ac91-80b2df23f21b" xml:space="preserve">
+          <source>Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog.</source>
+          <target state="new">Registration is the process of extracting key structural metadata – such as names, types, and locations – from the data source and the assets it contains, and copying that metadata to the catalog.</target>
+        </trans-unit>
+        <trans-unit id="c35d180b-4716-4b00-98cb-7e22714997e2" xml:space="preserve">
+          <source>The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.</source>
+          <target state="new">The data sources and their data remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.</target>
+        </trans-unit>
+        <trans-unit id="a592f30d-2bf7-402d-8ac1-98f95a972f65" xml:space="preserve">
+          <source>Log into the Azure Data Catalog portal.</source>
+          <target state="new">Log into the Azure Data Catalog portal.</target>
+        </trans-unit>
+        <trans-unit id="c3ea1e19-1756-434f-8738-72e2422bbc35" xml:space="preserve">
+          <source><bpt id="01666406-5f80-49ec-bfe8-0081d0f197fc">&lt;linkText&gt;</bpt>register1<ept id="01666406-5f80-49ec-bfe8-0081d0f197fc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="01666406-5f80-49ec-bfe8-0081d0f197fc">&lt;linkText&gt;</bpt>register1<ept id="01666406-5f80-49ec-bfe8-0081d0f197fc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5be9ad00-fe3e-4993-812c-3276c60951e4" xml:space="preserve">
+          <source>Scroll down, and click <bpt id="8e638810-9f11-4c96-9015-3557fe759beb">&lt;strong&gt;</bpt>Publish data<ept id="8e638810-9f11-4c96-9015-3557fe759beb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Scroll down, and click <bpt id="8e638810-9f11-4c96-9015-3557fe759beb">&lt;strong&gt;</bpt>Publish data<ept id="8e638810-9f11-4c96-9015-3557fe759beb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7d8586c6-b614-4757-8128-b7b4815b5887" xml:space="preserve">
+          <source><bpt id="ba39fc2f-927d-414c-89d6-571a61505c96">&lt;linkText&gt;</bpt>register2<ept id="ba39fc2f-927d-414c-89d6-571a61505c96">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="ba39fc2f-927d-414c-89d6-571a61505c96">&lt;linkText&gt;</bpt>register2<ept id="ba39fc2f-927d-414c-89d6-571a61505c96">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="728f71bb-6055-4e2f-bd0d-7ae1f31d2ec0" xml:space="preserve">
+          <source>Click <bpt id="48bebb63-1d88-43de-963c-a210324bff10">&lt;strong&gt;</bpt>Launch Application<ept id="48bebb63-1d88-43de-963c-a210324bff10">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="48bebb63-1d88-43de-963c-a210324bff10">&lt;strong&gt;</bpt>Launch Application<ept id="48bebb63-1d88-43de-963c-a210324bff10">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d8dadc94-58af-4a35-a6ff-f80bf4ddfe5e" xml:space="preserve">
+          <source>In the <bpt id="cd8103e0-b5e8-4e1e-a4d3-ad718855a336">&lt;strong&gt;</bpt>Welcome<ept id="cd8103e0-b5e8-4e1e-a4d3-ad718855a336">&lt;/strong&gt;</ept> page, click <bpt id="08aa2b9d-ea21-457c-9cb1-c334bc6df805">&lt;strong&gt;</bpt>Sign in<ept id="08aa2b9d-ea21-457c-9cb1-c334bc6df805">&lt;/strong&gt;</ept>, and enter your credentials.</source>
+          <target state="new">In the <bpt id="cd8103e0-b5e8-4e1e-a4d3-ad718855a336">&lt;strong&gt;</bpt>Welcome<ept id="cd8103e0-b5e8-4e1e-a4d3-ad718855a336">&lt;/strong&gt;</ept> page, click <bpt id="08aa2b9d-ea21-457c-9cb1-c334bc6df805">&lt;strong&gt;</bpt>Sign in<ept id="08aa2b9d-ea21-457c-9cb1-c334bc6df805">&lt;/strong&gt;</ept>, and enter your credentials.</target>
+        </trans-unit>
+        <trans-unit id="81c9dea5-ac69-4076-9dcc-480ad9dda15c" xml:space="preserve">
+          <source>In the <bpt id="30b3edb4-ed27-4542-b589-28dd343678b2">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="30b3edb4-ed27-4542-b589-28dd343678b2">&lt;/strong&gt;</ept> page, click <bpt id="86f9b0fc-7d64-4c3f-b15d-80445dcf39d2">&lt;strong&gt;</bpt>SQL Server<ept id="86f9b0fc-7d64-4c3f-b15d-80445dcf39d2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="30b3edb4-ed27-4542-b589-28dd343678b2">&lt;strong&gt;</bpt>Microsoft Azure Data Catalog<ept id="30b3edb4-ed27-4542-b589-28dd343678b2">&lt;/strong&gt;</ept> page, click <bpt id="86f9b0fc-7d64-4c3f-b15d-80445dcf39d2">&lt;strong&gt;</bpt>SQL Server<ept id="86f9b0fc-7d64-4c3f-b15d-80445dcf39d2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="74fb1979-36c8-40ae-9df6-dba0108e5a16" xml:space="preserve">
+          <source><bpt id="f98d0f07-a6e7-479c-9095-dd1eed7d6eb6">&lt;linkText&gt;</bpt>register3<ept id="f98d0f07-a6e7-479c-9095-dd1eed7d6eb6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f98d0f07-a6e7-479c-9095-dd1eed7d6eb6">&lt;linkText&gt;</bpt>register3<ept id="f98d0f07-a6e7-479c-9095-dd1eed7d6eb6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="45e4f0a2-46e9-40c7-a295-552c208806f1" xml:space="preserve">
+          <source>Enter your <bpt id="e359b40c-829f-40b7-91aa-57f974d51542">&lt;strong&gt;</bpt>Server Name<ept id="e359b40c-829f-40b7-91aa-57f974d51542">&lt;/strong&gt;</ept>, and click <bpt id="589271db-11e4-4fd9-8d3e-b62c5dc34e1f">&lt;strong&gt;</bpt>CONNECT<ept id="589271db-11e4-4fd9-8d3e-b62c5dc34e1f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter your <bpt id="e359b40c-829f-40b7-91aa-57f974d51542">&lt;strong&gt;</bpt>Server Name<ept id="e359b40c-829f-40b7-91aa-57f974d51542">&lt;/strong&gt;</ept>, and click <bpt id="589271db-11e4-4fd9-8d3e-b62c5dc34e1f">&lt;strong&gt;</bpt>CONNECT<ept id="589271db-11e4-4fd9-8d3e-b62c5dc34e1f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="475b5aa6-b0ae-4b63-83b3-c64e3abfd121" xml:space="preserve">
+          <source>The next page is where you register the metadata of your data source.</source>
+          <target state="new">The next page is where you register the metadata of your data source.</target>
+        </trans-unit>
+        <trans-unit id="2332e650-c86b-44fb-a2a9-af944cb3591c" xml:space="preserve">
+          <source>In this example, you register <bpt id="23015e32-5eaa-4c20-938d-da5724b98e3c">&lt;strong&gt;</bpt>Product<ept id="23015e32-5eaa-4c20-938d-da5724b98e3c">&lt;/strong&gt;</ept> objects from the AdventureWorks Production namespace.</source>
+          <target state="new">In this example, you register <bpt id="23015e32-5eaa-4c20-938d-da5724b98e3c">&lt;strong&gt;</bpt>Product<ept id="23015e32-5eaa-4c20-938d-da5724b98e3c">&lt;/strong&gt;</ept> objects from the AdventureWorks Production namespace.</target>
+        </trans-unit>
+        <trans-unit id="d8edd450-08e0-4fb3-b954-4aff40f5e940" xml:space="preserve">
+          <source>Here’s how to do it:</source>
+          <target state="new">Here’s how to do it:</target>
+        </trans-unit>
+        <trans-unit id="9ca8d2d5-f1f0-4ae9-8379-36f9479be7b2" xml:space="preserve">
+          <source>a.</source>
+          <target state="new">a.</target>
+        </trans-unit>
+        <trans-unit id="56a88cc9-2b0d-45f6-87b9-5c00cb1f3ed9" xml:space="preserve">
+          <source>In the Hierarchy tree, click <bpt id="0b7d02f0-3e91-462d-8d6c-e84e76b2dcbd">&lt;strong&gt;</bpt>Production<ept id="0b7d02f0-3e91-462d-8d6c-e84e76b2dcbd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Hierarchy tree, click <bpt id="0b7d02f0-3e91-462d-8d6c-e84e76b2dcbd">&lt;strong&gt;</bpt>Production<ept id="0b7d02f0-3e91-462d-8d6c-e84e76b2dcbd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="87760bc2-41b7-4916-bd2f-be3be8d96aec" xml:space="preserve">
+          <source>b.</source>
+          <target state="new">b.</target>
+        </trans-unit>
+        <trans-unit id="b00728b4-c6eb-4e89-a4df-8fa0745cb970" xml:space="preserve">
+          <source>Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.</source>
+          <target state="new">Ctrl+click Product, ProductCategory, ProductDescription, and ProductPhoto.</target>
+        </trans-unit>
+        <trans-unit id="6647b1dd-5ae7-419c-8fc1-029b4a94dad0" xml:space="preserve">
+          <source><bpt id="256a9366-4983-44c5-bfc3-32de57bb4fdc">&lt;linkText&gt;</bpt>register4<ept id="256a9366-4983-44c5-bfc3-32de57bb4fdc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="256a9366-4983-44c5-bfc3-32de57bb4fdc">&lt;linkText&gt;</bpt>register4<ept id="256a9366-4983-44c5-bfc3-32de57bb4fdc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="638b350f-89c8-42cb-bd3f-fabea212783e" xml:space="preserve">
+          <source>c.</source>
+          <target state="new">c.</target>
+        </trans-unit>
+        <trans-unit id="4e80871d-881e-4efe-875d-e4a11c0dc6b7" xml:space="preserve">
+          <source>Click the move selected arrow (<bpt id="d515db4d-a5be-4c9a-a3cd-ac1cfc68d90e">&lt;strong&gt;</bpt>&gt;<ept id="d515db4d-a5be-4c9a-a3cd-ac1cfc68d90e">&lt;/strong&gt;</ept>).</source>
+          <target state="new">Click the move selected arrow (<bpt id="d515db4d-a5be-4c9a-a3cd-ac1cfc68d90e">&lt;strong&gt;</bpt>&gt;<ept id="d515db4d-a5be-4c9a-a3cd-ac1cfc68d90e">&lt;/strong&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="4bc08a8a-4fa7-4ca9-990e-f9c08ab9ef9d" xml:space="preserve">
+          <source>This will move all Product objects into the <bpt id="633b1409-c890-49ff-ae9a-459c495e6be0">&lt;strong&gt;</bpt>To be registered<ept id="633b1409-c890-49ff-ae9a-459c495e6be0">&lt;/strong&gt;</ept> list.</source>
+          <target state="new">This will move all Product objects into the <bpt id="633b1409-c890-49ff-ae9a-459c495e6be0">&lt;strong&gt;</bpt>To be registered<ept id="633b1409-c890-49ff-ae9a-459c495e6be0">&lt;/strong&gt;</ept> list.</target>
+        </trans-unit>
+        <trans-unit id="a8f44971-fe88-4bfc-b130-4b9a34c67793" xml:space="preserve">
+          <source><bpt id="05f75ac0-ca56-4e52-b1f9-acfa1691c172">&lt;linkText&gt;</bpt>register5<ept id="05f75ac0-ca56-4e52-b1f9-acfa1691c172">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="05f75ac0-ca56-4e52-b1f9-acfa1691c172">&lt;linkText&gt;</bpt>register5<ept id="05f75ac0-ca56-4e52-b1f9-acfa1691c172">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="41ed0494-cd03-424a-94d1-221b63668bd7" xml:space="preserve">
+          <source>d.</source>
+          <target state="new">d.</target>
+        </trans-unit>
+        <trans-unit id="139e6f2e-7f54-4999-a154-cd8791f3ca43" xml:space="preserve">
+          <source><bpt id="ae891b98-9dcc-40d9-9475-19683839e9b1">&lt;strong&gt;</bpt>Optional<ept id="ae891b98-9dcc-40d9-9475-19683839e9b1">&lt;/strong&gt;</ept>: You can <bpt id="aee91413-5190-4a0b-93ba-65d620760871">&lt;strong&gt;</bpt>Include a Preview<ept id="aee91413-5190-4a0b-93ba-65d620760871">&lt;/strong&gt;</ept>, and <bpt id="e8402d4a-48d8-4b54-9e48-84b9bef1d1ed">&lt;strong&gt;</bpt>Add a data source expert<ept id="e8402d4a-48d8-4b54-9e48-84b9bef1d1ed">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="ae891b98-9dcc-40d9-9475-19683839e9b1">&lt;strong&gt;</bpt>Optional<ept id="ae891b98-9dcc-40d9-9475-19683839e9b1">&lt;/strong&gt;</ept>: You can <bpt id="aee91413-5190-4a0b-93ba-65d620760871">&lt;strong&gt;</bpt>Include a Preview<ept id="aee91413-5190-4a0b-93ba-65d620760871">&lt;/strong&gt;</ept>, and <bpt id="e8402d4a-48d8-4b54-9e48-84b9bef1d1ed">&lt;strong&gt;</bpt>Add a data source expert<ept id="e8402d4a-48d8-4b54-9e48-84b9bef1d1ed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b401130-06b5-4e1f-9c07-afa380540d28" xml:space="preserve">
+          <source>e.</source>
+          <target state="new">e.</target>
+        </trans-unit>
+        <trans-unit id="fe194c54-8b4f-4f6f-9119-d9ba8b520d02" xml:space="preserve">
+          <source>In the <bpt id="617092dd-9866-46ad-95d4-14541f75bd49">&lt;strong&gt;</bpt>Add tags<ept id="617092dd-9866-46ad-95d4-14541f75bd49">&lt;/strong&gt;</ept>, enter description, photo.</source>
+          <target state="new">In the <bpt id="617092dd-9866-46ad-95d4-14541f75bd49">&lt;strong&gt;</bpt>Add tags<ept id="617092dd-9866-46ad-95d4-14541f75bd49">&lt;/strong&gt;</ept>, enter description, photo.</target>
+        </trans-unit>
+        <trans-unit id="fd4b32ce-6f5a-401a-9498-09b42aefbc6a" xml:space="preserve">
+          <source>This will add search tags for these data assets.</source>
+          <target state="new">This will add search tags for these data assets.</target>
+        </trans-unit>
+        <trans-unit id="9917509f-cd9d-4838-a56b-1676ebb37882" xml:space="preserve">
+          <source>Tags are a great way to help users find a registered data source.</source>
+          <target state="new">Tags are a great way to help users find a registered data source.</target>
+        </trans-unit>
+        <trans-unit id="bf21d0bd-35cd-470a-ac2e-05fa2674f8e1" xml:space="preserve">
+          <source>f.</source>
+          <target state="new">f.</target>
+        </trans-unit>
+        <trans-unit id="dcc44fe0-78b1-4950-bc08-5ece4c4810a0" xml:space="preserve">
+          <source>Click <bpt id="7a3bdc09-fa99-487a-88e9-0c6b4136c2e4">&lt;strong&gt;</bpt>REGISTER<ept id="7a3bdc09-fa99-487a-88e9-0c6b4136c2e4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="7a3bdc09-fa99-487a-88e9-0c6b4136c2e4">&lt;strong&gt;</bpt>REGISTER<ept id="7a3bdc09-fa99-487a-88e9-0c6b4136c2e4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d86dfd3e-d28f-406b-993f-c9a47e7b2dab" xml:space="preserve">
+          <source>Azure Data Catalog registers your selected objects.</source>
+          <target state="new">Azure Data Catalog registers your selected objects.</target>
+        </trans-unit>
+        <trans-unit id="6b0ced7f-3f3a-4441-b888-cac2227fabf2" xml:space="preserve">
+          <source>In this exercise, the selected objects from Adventure Works are registered.</source>
+          <target state="new">In this exercise, the selected objects from Adventure Works are registered.</target>
+        </trans-unit>
+        <trans-unit id="4d93529c-c92f-4385-b4e7-8c0f4c0999a7" xml:space="preserve">
+          <source><bpt id="b0b38eb3-7031-4864-86fa-9964492379ec">&lt;linkText&gt;</bpt>register6<ept id="b0b38eb3-7031-4864-86fa-9964492379ec">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b0b38eb3-7031-4864-86fa-9964492379ec">&lt;linkText&gt;</bpt>register6<ept id="b0b38eb3-7031-4864-86fa-9964492379ec">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="af7f12a1-132e-4d8a-8f5c-2a4c89e12da4" xml:space="preserve">
+          <source>g.</source>
+          <target state="new">g.</target>
+        </trans-unit>
+        <trans-unit id="a95b3db2-7d05-4e50-a3ab-6134d1082ced" xml:space="preserve">
+          <source>To see your registered data source objects, click <bpt id="d49c02c6-5422-4fa2-ad54-5f85973d48db">&lt;strong&gt;</bpt>View Portal<ept id="d49c02c6-5422-4fa2-ad54-5f85973d48db">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To see your registered data source objects, click <bpt id="d49c02c6-5422-4fa2-ad54-5f85973d48db">&lt;strong&gt;</bpt>View Portal<ept id="d49c02c6-5422-4fa2-ad54-5f85973d48db">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7e7bbc11-eb81-402e-8457-830c8ad38a90" xml:space="preserve">
+          <source>In the Azure Data Catalog portal, you can view data source objects in <bpt id="d42a54be-9615-4bb3-b569-7125f869fab6">&lt;strong&gt;</bpt>Tiles<ept id="d42a54be-9615-4bb3-b569-7125f869fab6">&lt;/strong&gt;</ept> or a <bpt id="4e7c501e-5581-4547-9046-0d434807806c">&lt;strong&gt;</bpt>List<ept id="4e7c501e-5581-4547-9046-0d434807806c">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Data Catalog portal, you can view data source objects in <bpt id="d42a54be-9615-4bb3-b569-7125f869fab6">&lt;strong&gt;</bpt>Tiles<ept id="d42a54be-9615-4bb3-b569-7125f869fab6">&lt;/strong&gt;</ept> or a <bpt id="4e7c501e-5581-4547-9046-0d434807806c">&lt;strong&gt;</bpt>List<ept id="4e7c501e-5581-4547-9046-0d434807806c">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="25201c17-bc9b-4325-badb-77e8d34458cf" xml:space="preserve">
+          <source><bpt id="d096d3ec-1ba4-44a3-a00c-d416ae836d4d">&lt;linkText&gt;</bpt>register7<ept id="d096d3ec-1ba4-44a3-a00c-d416ae836d4d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d096d3ec-1ba4-44a3-a00c-d416ae836d4d">&lt;linkText&gt;</bpt>register7<ept id="d096d3ec-1ba4-44a3-a00c-d416ae836d4d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8a8c2581-cc24-43b2-8712-879ed532bb95" xml:space="preserve">
+          <source>In this exercise you registered objects from the Adventure Works sample database so that they can easily discovered by users across your organization.</source>
+          <target state="new">In this exercise you registered objects from the Adventure Works sample database so that they can easily discovered by users across your organization.</target>
+        </trans-unit>
+        <trans-unit id="d15d96a3-7557-43ad-b8de-f01d7fa2c151" xml:space="preserve">
+          <source>In the next exercise you learn how to discover registered data assets.</source>
+          <target state="new">In the next exercise you learn how to discover registered data assets.</target>
+        </trans-unit>
+        <trans-unit id="b6aa4b29-812b-4724-ad2d-58962b044426" xml:space="preserve">
+          <source>In this exercise you will use the Azure Data Catalog portal to discover registered data assets and view their metadata.</source>
+          <target state="new">In this exercise you will use the Azure Data Catalog portal to discover registered data assets and view their metadata.</target>
+        </trans-unit>
+        <trans-unit id="730a37fe-3432-4abf-99f4-db869941bd06" xml:space="preserve">
+          <source>Azure Data Catalog provides multiple tools for discovering data assets, including simple keyword search, interactive filters, and an advanced search syntax for “power” users.</source>
+          <target state="new">Azure Data Catalog provides multiple tools for discovering data assets, including simple keyword search, interactive filters, and an advanced search syntax for “power” users.</target>
+        </trans-unit>
+        <trans-unit id="79e31158-c9fb-4faf-85ea-a44a2fb319d8" xml:space="preserve">
+          <source><bpt id="36a4ac51-6632-4de2-bdd2-23c7a764fd19">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="36a4ac51-6632-4de2-bdd2-23c7a764fd19">&lt;/strong&gt;</ept> has a simple but powerful search syntax that enables you to easily build queries that return the data the users need.</source>
+          <target state="new"><bpt id="36a4ac51-6632-4de2-bdd2-23c7a764fd19">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="36a4ac51-6632-4de2-bdd2-23c7a764fd19">&lt;/strong&gt;</ept> has a simple but powerful search syntax that enables you to easily build queries that return the data the users need.</target>
+        </trans-unit>
+        <trans-unit id="e83f1eae-b691-4a40-8563-5d593714e6f7" xml:space="preserve">
+          <source>For details about <bpt id="e40dc906-df31-4e45-ab15-e8d0957fd824">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e40dc906-df31-4e45-ab15-e8d0957fd824">&lt;/strong&gt;</ept>, see Search syntax reference.</source>
+          <target state="new">For details about <bpt id="e40dc906-df31-4e45-ab15-e8d0957fd824">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="e40dc906-df31-4e45-ab15-e8d0957fd824">&lt;/strong&gt;</ept>, see Search syntax reference.</target>
+        </trans-unit>
+        <trans-unit id="457e7fd9-cf23-4de7-8e4a-d085c709e3ef" xml:space="preserve">
+          <source><bpt id="fdd18163-2d8e-49d4-8515-347a966c0294">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="fdd18163-2d8e-49d4-8515-347a966c0294">&lt;/strong&gt;</ept> has the following search options:</source>
+          <target state="new"><bpt id="fdd18163-2d8e-49d4-8515-347a966c0294">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="fdd18163-2d8e-49d4-8515-347a966c0294">&lt;/strong&gt;</ept> has the following search options:</target>
+        </trans-unit>
+        <trans-unit id="c661099c-2eb1-48d0-8ea4-3a2705b82b8b" xml:space="preserve">
+          <source>Keyword search</source>
+          <target state="new">Keyword search</target>
+        </trans-unit>
+        <trans-unit id="72ca4df4-70de-4d60-bee1-f0fc8940d729" xml:space="preserve">
+          <source>Filter</source>
+          <target state="new">Filter</target>
+        </trans-unit>
+        <trans-unit id="56dacd84-c0e4-440b-8e6b-55f6b47e0768" xml:space="preserve">
+          <source>Advanced search</source>
+          <target state="new">Advanced search</target>
+        </trans-unit>
+        <trans-unit id="b7faa8c2-5015-4265-84d4-0e599cdc8e7c" xml:space="preserve">
+          <source>You can also refine what data assets to view.</source>
+          <target state="new">You can also refine what data assets to view.</target>
+        </trans-unit>
+        <trans-unit id="bda9430c-b871-467d-8b26-12d44de803df" xml:space="preserve">
+          <source><bpt id="92294744-6f30-4fec-8350-c0afa8afea7b">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="92294744-6f30-4fec-8350-c0afa8afea7b">&lt;/strong&gt;</ept> has the following view options:</source>
+          <target state="new"><bpt id="92294744-6f30-4fec-8350-c0afa8afea7b">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="92294744-6f30-4fec-8350-c0afa8afea7b">&lt;/strong&gt;</ept> has the following view options:</target>
+        </trans-unit>
+        <trans-unit id="3c61dc00-8fbe-45c1-a339-36f3ee6b79a6" xml:space="preserve">
+          <source>View properties</source>
+          <target state="new">View properties</target>
+        </trans-unit>
+        <trans-unit id="8d636a2a-a179-4b58-a15c-67781a290218" xml:space="preserve">
+          <source>View columns</source>
+          <target state="new">View columns</target>
+        </trans-unit>
+        <trans-unit id="8145f404-7349-473f-8020-6617e28ee2b3" xml:space="preserve">
+          <source>View preview</source>
+          <target state="new">View preview</target>
+        </trans-unit>
+        <trans-unit id="ddf8e5b2-b7f8-4f56-a382-261d53d3fa09" xml:space="preserve">
+          <source>For this example, you will use a keyword search.</source>
+          <target state="new">For this example, you will use a keyword search.</target>
+        </trans-unit>
+        <trans-unit id="f8fb355b-99ea-4956-9516-0d045624a3f5" xml:space="preserve">
+          <source><bpt id="a3964f4f-442c-4769-84e6-f07aa1372604">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a3964f4f-442c-4769-84e6-f07aa1372604">&lt;/strong&gt;</ept> search has several query techniques.</source>
+          <target state="new"><bpt id="a3964f4f-442c-4769-84e6-f07aa1372604">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a3964f4f-442c-4769-84e6-f07aa1372604">&lt;/strong&gt;</ept> search has several query techniques.</target>
+        </trans-unit>
+        <trans-unit id="a1ef0459-298b-4546-bfbf-ac9c431cad2d" xml:space="preserve">
+          <source>This example will use a <bpt id="06e426bb-94b7-4eb0-866b-86c0983712da">&lt;strong&gt;</bpt>Grouping<ept id="06e426bb-94b7-4eb0-866b-86c0983712da">&lt;/strong&gt;</ept> search query.</source>
+          <target state="new">This example will use a <bpt id="06e426bb-94b7-4eb0-866b-86c0983712da">&lt;strong&gt;</bpt>Grouping<ept id="06e426bb-94b7-4eb0-866b-86c0983712da">&lt;/strong&gt;</ept> search query.</target>
+        </trans-unit>
+        <trans-unit id="1ab30071-3a97-47df-a0ea-3508beb4d6f7" xml:space="preserve">
+          <source><bpt id="817a6513-c1b6-4f19-a086-a9c4e7080f67">&lt;strong&gt;</bpt>Query Techniques<ept id="817a6513-c1b6-4f19-a086-a9c4e7080f67">&lt;/strong&gt;</ept></source>
+          <target state="new"><bpt id="817a6513-c1b6-4f19-a086-a9c4e7080f67">&lt;strong&gt;</bpt>Query Techniques<ept id="817a6513-c1b6-4f19-a086-a9c4e7080f67">&lt;/strong&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2426a6bd-c21f-4c34-b27c-f3a5cffeb872" xml:space="preserve">
+          <source>Technique</source>
+          <target state="new">Technique</target>
+        </trans-unit>
+        <trans-unit id="05de8aef-860a-4eb7-bf07-9f08da53e019" xml:space="preserve">
+          <source>Use</source>
+          <target state="new">Use</target>
+        </trans-unit>
+        <trans-unit id="52ec53b5-26bb-4205-8d4c-3e11a1b50bf0" xml:space="preserve">
+          <source>Example</source>
+          <target state="new">Example</target>
+        </trans-unit>
+        <trans-unit id="604fb52e-e3cb-42ca-8b56-e5eb0989fc76" xml:space="preserve">
+          <source>Property Scoping</source>
+          <target state="new">Property Scoping</target>
+        </trans-unit>
+        <trans-unit id="7e68511e-8278-40cd-9a69-4459d28c81f7" xml:space="preserve">
+          <source>Only return data sources where the search term is matched in the specified property</source>
+          <target state="new">Only return data sources where the search term is matched in the specified property</target>
+        </trans-unit>
+        <trans-unit id="b1f2e038-524b-47ed-95b6-31c0b98c2615" xml:space="preserve">
+          <source>name:product</source>
+          <target state="new">name:product</target>
+        </trans-unit>
+        <trans-unit id="2f604d10-c954-4ec1-9ccd-e4760f7402da" xml:space="preserve">
+          <source>Logical Operators</source>
+          <target state="new">Logical Operators</target>
+        </trans-unit>
+        <trans-unit id="8f83a484-c532-4833-b3c9-121c1fc50342" xml:space="preserve">
+          <source>Broaden or narrow a search using Boolean operations, as described in the Boolean Operators section on this page</source>
+          <target state="new">Broaden or narrow a search using Boolean operations, as described in the Boolean Operators section on this page</target>
+        </trans-unit>
+        <trans-unit id="ef1c4653-3a27-45e0-a0bf-bd73051631eb" xml:space="preserve">
+          <source>finance NOT corporate</source>
+          <target state="new">finance NOT corporate</target>
+        </trans-unit>
+        <trans-unit id="94c339a1-3ab6-4fee-85a5-edeaa227b842" xml:space="preserve">
+          <source>Grouping with Parenthesis</source>
+          <target state="new">Grouping with Parenthesis</target>
+        </trans-unit>
+        <trans-unit id="35bfad8e-72c7-47c2-a558-227cb2905c67" xml:space="preserve">
+          <source>Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators</source>
+          <target state="new">Use parentheses to group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators</target>
+        </trans-unit>
+        <trans-unit id="960a5647-6398-494d-9bf6-cedc3530ff7d" xml:space="preserve">
+          <source>name:product AND (tags:illustration OR tags:photo)</source>
+          <target state="new">name:product AND (tags:illustration OR tags:photo)</target>
+        </trans-unit>
+        <trans-unit id="327bc374-d9f4-469b-b425-a85e025da7e4" xml:space="preserve">
+          <source>Comparison Operators</source>
+          <target state="new">Comparison Operators</target>
+        </trans-unit>
+        <trans-unit id="95872e7d-6ac2-4530-9b10-f63bbd4b4b94" xml:space="preserve">
+          <source>Use comparisons other than equality for properties that have numeric and date data types</source>
+          <target state="new">Use comparisons other than equality for properties that have numeric and date data types</target>
+        </trans-unit>
+        <trans-unit id="08379302-7bb9-414d-87db-322f0b390e2f" xml:space="preserve">
+          <source>creationTime:&amp;gt;11/05/14</source>
+          <target state="new">creationTime:&amp;gt;11/05/14</target>
+        </trans-unit>
+        <trans-unit id="f2146aff-ed53-44ea-ae9b-0f5d75f3b67f" xml:space="preserve">
+          <source>In this example, you do a <bpt id="8cce6020-bc32-4804-9085-efba17013cde">&lt;strong&gt;</bpt>Grouping<ept id="8cce6020-bc32-4804-9085-efba17013cde">&lt;/strong&gt;</ept> search for data assets where name equals product and tags equal illustration or tags equal photo.</source>
+          <target state="new">In this example, you do a <bpt id="8cce6020-bc32-4804-9085-efba17013cde">&lt;strong&gt;</bpt>Grouping<ept id="8cce6020-bc32-4804-9085-efba17013cde">&lt;/strong&gt;</ept> search for data assets where name equals product and tags equal illustration or tags equal photo.</target>
+        </trans-unit>
+        <trans-unit id="4c7a84fc-6aa6-4980-98f7-61b8bc6c137f" xml:space="preserve">
+          <source>Log into the <bpt id="d88e14d5-a4f3-41f4-8e8c-d768a1a97849">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d88e14d5-a4f3-41f4-8e8c-d768a1a97849">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Log into the <bpt id="d88e14d5-a4f3-41f4-8e8c-d768a1a97849">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d88e14d5-a4f3-41f4-8e8c-d768a1a97849">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="0b658387-dbf6-4b78-9949-838238640a13" xml:space="preserve">
+          <source>Click <bpt id="909c4c03-81cb-41a7-9073-215a50996d02">&lt;strong&gt;</bpt>Discover<ept id="909c4c03-81cb-41a7-9073-215a50996d02">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="909c4c03-81cb-41a7-9073-215a50996d02">&lt;strong&gt;</bpt>Discover<ept id="909c4c03-81cb-41a7-9073-215a50996d02">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c4904909-90f7-439c-845a-510c8775482e" xml:space="preserve">
+          <source>In <bpt id="dbdf61e0-3c11-4624-9c37-0d0a424bfa10">&lt;strong&gt;</bpt>Search<ept id="dbdf61e0-3c11-4624-9c37-0d0a424bfa10">&lt;/strong&gt;</ept> box, enter a <bpt id="29acd915-05e7-4694-9da3-0e96e73d4deb">&lt;strong&gt;</bpt>Grouping<ept id="29acd915-05e7-4694-9da3-0e96e73d4deb">&lt;/strong&gt;</ept> query: (tags:description OR tags:photo).</source>
+          <target state="new">In <bpt id="dbdf61e0-3c11-4624-9c37-0d0a424bfa10">&lt;strong&gt;</bpt>Search<ept id="dbdf61e0-3c11-4624-9c37-0d0a424bfa10">&lt;/strong&gt;</ept> box, enter a <bpt id="29acd915-05e7-4694-9da3-0e96e73d4deb">&lt;strong&gt;</bpt>Grouping<ept id="29acd915-05e7-4694-9da3-0e96e73d4deb">&lt;/strong&gt;</ept> query: (tags:description OR tags:photo).</target>
+        </trans-unit>
+        <trans-unit id="85f94982-5646-4ab8-82a4-1720d6e58bb8" xml:space="preserve">
+          <source>Click the search icon, or press Enter.</source>
+          <target state="new">Click the search icon, or press Enter.</target>
+        </trans-unit>
+        <trans-unit id="71a82c53-a394-49f7-a5d3-1938bbd8c266" xml:space="preserve">
+          <source><bpt id="18f2dd46-93cc-44d3-835f-2f4545c6a9d4">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="18f2dd46-93cc-44d3-835f-2f4545c6a9d4">&lt;/strong&gt;</ept> will display data assets for this search query.</source>
+          <target state="new"><bpt id="18f2dd46-93cc-44d3-835f-2f4545c6a9d4">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="18f2dd46-93cc-44d3-835f-2f4545c6a9d4">&lt;/strong&gt;</ept> will display data assets for this search query.</target>
+        </trans-unit>
+        <trans-unit id="2724028b-2374-424d-a433-8aa56960fb50" xml:space="preserve">
+          <source><bpt id="be2e3706-2c67-4880-9c2e-63aa39963a5c">&lt;linkText&gt;</bpt>search<ept id="be2e3706-2c67-4880-9c2e-63aa39963a5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="be2e3706-2c67-4880-9c2e-63aa39963a5c">&lt;linkText&gt;</bpt>search<ept id="be2e3706-2c67-4880-9c2e-63aa39963a5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1dce2ee7-2d84-4d28-98db-bafc5e867cbf" xml:space="preserve">
+          <source>In this exercise you used the <bpt id="b390ecc1-f8ba-4403-87ff-cb1b56c643b8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b390ecc1-f8ba-4403-87ff-cb1b56c643b8">&lt;/strong&gt;</ept> portal to discover and view data assets registered with the catalog.</source>
+          <target state="new">In this exercise you used the <bpt id="b390ecc1-f8ba-4403-87ff-cb1b56c643b8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="b390ecc1-f8ba-4403-87ff-cb1b56c643b8">&lt;/strong&gt;</ept> portal to discover and view data assets registered with the catalog.</target>
+        </trans-unit>
+        <trans-unit id="4a30f40d-49ca-4d5b-891b-c5ea9baab28e" xml:space="preserve">
+          <source>In this exercise you will use the <bpt id="28df431f-ebe5-4e94-863b-dc3a334e15df">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="28df431f-ebe5-4e94-863b-dc3a334e15df">&lt;/strong&gt;</ept> portal to annotate data assets that have been previously registered in the catalog.</source>
+          <target state="new">In this exercise you will use the <bpt id="28df431f-ebe5-4e94-863b-dc3a334e15df">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="28df431f-ebe5-4e94-863b-dc3a334e15df">&lt;/strong&gt;</ept> portal to annotate data assets that have been previously registered in the catalog.</target>
+        </trans-unit>
+        <trans-unit id="bcf49abd-be8b-4306-9030-779062897847" xml:space="preserve">
+          <source>The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets even easier to discover and understand.</source>
+          <target state="new">The annotations you provide will supplement and enhance the structural metadata extracted from the data source during registration and will make the data assets even easier to discover and understand.</target>
+        </trans-unit>
+        <trans-unit id="ce757f04-1f3b-4a1e-b6c0-eacc72e20393" xml:space="preserve">
+          <source>Because each <bpt id="a78830d3-56d9-4a09-8451-3d7a85588e35">&lt;strong&gt;</bpt>Data Catalog<ept id="a78830d3-56d9-4a09-8451-3d7a85588e35">&lt;/strong&gt;</ept> user can provide his own annotations, it’s easy for every user with a perspective on the data to share it.</source>
+          <target state="new">Because each <bpt id="a78830d3-56d9-4a09-8451-3d7a85588e35">&lt;strong&gt;</bpt>Data Catalog<ept id="a78830d3-56d9-4a09-8451-3d7a85588e35">&lt;/strong&gt;</ept> user can provide his own annotations, it’s easy for every user with a perspective on the data to share it.</target>
+        </trans-unit>
+        <trans-unit id="592adfc4-17d6-406c-9ed1-edd98931bf97" xml:space="preserve">
+          <source>Log into the <bpt id="47dfb52b-41cc-493a-9ff5-6c331e3985b5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="47dfb52b-41cc-493a-9ff5-6c331e3985b5">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Log into the <bpt id="47dfb52b-41cc-493a-9ff5-6c331e3985b5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="47dfb52b-41cc-493a-9ff5-6c331e3985b5">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="7e825b35-77a6-4a10-99af-a85940d96596" xml:space="preserve">
+          <source>Click <bpt id="5bcc040c-6551-4641-bb86-80d1c9ca2d35">&lt;strong&gt;</bpt>Discover<ept id="5bcc040c-6551-4641-bb86-80d1c9ca2d35">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="5bcc040c-6551-4641-bb86-80d1c9ca2d35">&lt;strong&gt;</bpt>Discover<ept id="5bcc040c-6551-4641-bb86-80d1c9ca2d35">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0252b900-4e65-4ad2-95f4-8e0011f42e89" xml:space="preserve">
+          <source>Choose one or more <bpt id="6b6b00c1-6ed2-4388-80c5-c7e077b296e8">&lt;strong&gt;</bpt>Data Assets<ept id="6b6b00c1-6ed2-4388-80c5-c7e077b296e8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose one or more <bpt id="6b6b00c1-6ed2-4388-80c5-c7e077b296e8">&lt;strong&gt;</bpt>Data Assets<ept id="6b6b00c1-6ed2-4388-80c5-c7e077b296e8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c115ca9e-f3d0-4b95-bf67-22f596b90632" xml:space="preserve">
+          <source>In this example, choose <bpt id="c8c1df33-80a1-46c5-96a4-5472b7aba5ba">&lt;strong&gt;</bpt>ProductPhoto<ept id="c8c1df33-80a1-46c5-96a4-5472b7aba5ba">&lt;/strong&gt;</ept>, and enter “Product photos for marketing materials.”</source>
+          <target state="new">In this example, choose <bpt id="c8c1df33-80a1-46c5-96a4-5472b7aba5ba">&lt;strong&gt;</bpt>ProductPhoto<ept id="c8c1df33-80a1-46c5-96a4-5472b7aba5ba">&lt;/strong&gt;</ept>, and enter “Product photos for marketing materials.”</target>
+        </trans-unit>
+        <trans-unit id="047534b6-5509-4284-a7e0-80ef17c4e40e" xml:space="preserve">
+          <source>Enter a <bpt id="7d165eff-6d6c-4f16-b28b-75106519b17c">&lt;strong&gt;</bpt>Description<ept id="7d165eff-6d6c-4f16-b28b-75106519b17c">&lt;/strong&gt;</ept> that will help other discover and understand why and how to use the selected data asset.</source>
+          <target state="new">Enter a <bpt id="7d165eff-6d6c-4f16-b28b-75106519b17c">&lt;strong&gt;</bpt>Description<ept id="7d165eff-6d6c-4f16-b28b-75106519b17c">&lt;/strong&gt;</ept> that will help other discover and understand why and how to use the selected data asset.</target>
+        </trans-unit>
+        <trans-unit id="1deb3362-1869-497d-a262-4c2d9a594622" xml:space="preserve">
+          <source>For example, enter “Product images”.</source>
+          <target state="new">For example, enter “Product images”.</target>
+        </trans-unit>
+        <trans-unit id="61315e40-f129-494c-87be-0b2b9712976a" xml:space="preserve">
+          <source>You can also add more tags, and view columns.</source>
+          <target state="new">You can also add more tags, and view columns.</target>
+        </trans-unit>
+        <trans-unit id="d5aed88f-6b10-4827-a645-e65eef3044db" xml:space="preserve">
+          <source>Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.</source>
+          <target state="new">Now you can try searching and filtering to discover data assets using the descriptive metadata you’ve added to the catalog.</target>
+        </trans-unit>
+        <trans-unit id="32a06d6a-3d6c-427d-a1c4-db1095938918" xml:space="preserve">
+          <source><bpt id="e94e01bd-fd68-42c9-b984-48f8c2e01bb3">&lt;linkText&gt;</bpt>annotate<ept id="e94e01bd-fd68-42c9-b984-48f8c2e01bb3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e94e01bd-fd68-42c9-b984-48f8c2e01bb3">&lt;linkText&gt;</bpt>annotate<ept id="e94e01bd-fd68-42c9-b984-48f8c2e01bb3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6fcd9f2c-22b4-47b3-b62f-4b7013399a91" xml:space="preserve">
+          <source>In this exercise you added descriptive information to registered data assets so that catalog users can discover data source using terms they understand.</source>
+          <target state="new">In this exercise you added descriptive information to registered data assets so that catalog users can discover data source using terms they understand.</target>
+        </trans-unit>
+        <trans-unit id="c109111d-b10a-4ef0-af70-934eba7bacc7" xml:space="preserve">
+          <source>In this exercise you will work with another user to add metadata to data assets in the catalog.</source>
+          <target state="new">In this exercise you will work with another user to add metadata to data assets in the catalog.</target>
+        </trans-unit>
+        <trans-unit id="a3c68bc8-0ef8-4c71-8666-1e4c6523ea46" xml:space="preserve">
+          <source>Azure Data Catalog’s crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.</source>
+          <target state="new">Azure Data Catalog’s crowdsourced approach to annotations allows any user to add tags, descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.</target>
+        </trans-unit>
+        <trans-unit id="6359d259-b6a0-4cf2-bcba-85d522bda38e" xml:space="preserve">
+          <source>If you don’t have another user to work with on this tutorial, don’t worry!</source>
+          <target state="new">If you don’t have another user to work with on this tutorial, don’t worry!</target>
+        </trans-unit>
+        <trans-unit id="3a59da2a-364b-4d88-99e7-f0a3123ae91d" xml:space="preserve">
+          <source>Any user who accesses the data catalog can add his own perspective when he chooses to do so.</source>
+          <target state="new">Any user who accesses the data catalog can add his own perspective when he chooses to do so.</target>
+        </trans-unit>
+        <trans-unit id="bdfb61f8-eff4-4bc8-8a03-13d852b3653c" xml:space="preserve">
+          <source>This crowdsourcing approach to metadata allows the contents of the catalog and the richness of the catalog’s metadata to grow over time.</source>
+          <target state="new">This crowdsourcing approach to metadata allows the contents of the catalog and the richness of the catalog’s metadata to grow over time.</target>
+        </trans-unit>
+        <trans-unit id="509c64e4-accc-4998-bce0-bbebb5e38d5b" xml:space="preserve">
+          <source>Ask a colleague to repeat the <bpt id="16a064b7-0354-429f-8f6c-61b49a3c44d3">&lt;strong&gt;</bpt>Annotating Registered Data Sources<ept id="16a064b7-0354-429f-8f6c-61b49a3c44d3">&lt;/strong&gt;</ept> exercise above.</source>
+          <target state="new">Ask a colleague to repeat the <bpt id="16a064b7-0354-429f-8f6c-61b49a3c44d3">&lt;strong&gt;</bpt>Annotating Registered Data Sources<ept id="16a064b7-0354-429f-8f6c-61b49a3c44d3">&lt;/strong&gt;</ept> exercise above.</target>
+        </trans-unit>
+        <trans-unit id="921b9c09-019e-466d-81c6-ed4b5a777d84" xml:space="preserve">
+          <source>After your colleague adds a description to a data asset, such as ProductPhoto, you will see multiple annotations.</source>
+          <target state="new">After your colleague adds a description to a data asset, such as ProductPhoto, you will see multiple annotations.</target>
+        </trans-unit>
+        <trans-unit id="99227983-c31c-4520-b85e-592149b3f8f4" xml:space="preserve">
+          <source>In this exercise you explored Azure Data Catalog’s capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.</source>
+          <target state="new">In this exercise you explored Azure Data Catalog’s capabilities for crowdsourced metadata, where any catalog user can annotate the data assets he discovers.</target>
+        </trans-unit>
+        <trans-unit id="bb332570-6a27-4fd9-b371-2db723a9670a" xml:space="preserve">
+          <source>Exercise: Connecting to Data Sources
+In this exercise you will use the <bpt id="d8a057cb-651f-4ee1-9eda-1b1079f027a5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d8a057cb-651f-4ee1-9eda-1b1079f027a5">&lt;/strong&gt;</ept> portal to connect to data sources using Microsoft Excel.</source>
+          <target state="new">Exercise: Connecting to Data Sources
+In this exercise you will use the <bpt id="d8a057cb-651f-4ee1-9eda-1b1079f027a5">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d8a057cb-651f-4ee1-9eda-1b1079f027a5">&lt;/strong&gt;</ept> portal to connect to data sources using Microsoft Excel.</target>
+        </trans-unit>
+        <trans-unit id="7f2bac96-97fd-4414-9264-25ab1b6a6ace" xml:space="preserve">
+          <source>It’s important to remember that <bpt id="a0d23c99-baa0-4c3c-8734-7bd15319c9d8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a0d23c99-baa0-4c3c-8734-7bd15319c9d8">&lt;/strong&gt;</ept> doesn’t give users access to the actual data source – it simply makes it easier for users to discover and understand them.</source>
+          <target state="new">It’s important to remember that <bpt id="a0d23c99-baa0-4c3c-8734-7bd15319c9d8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a0d23c99-baa0-4c3c-8734-7bd15319c9d8">&lt;/strong&gt;</ept> doesn’t give users access to the actual data source – it simply makes it easier for users to discover and understand them.</target>
+        </trans-unit>
+        <trans-unit id="b87dac17-efa9-4942-bb72-ffeba2566033" xml:space="preserve">
+          <source>When users connect to a data source, the client application they choose will use their Windows credentials or will prompt them for credentials as necessary.</source>
+          <target state="new">When users connect to a data source, the client application they choose will use their Windows credentials or will prompt them for credentials as necessary.</target>
+        </trans-unit>
+        <trans-unit id="1bcc9eb8-7ee8-43e8-84af-cee1cedefc91" xml:space="preserve">
+          <source>If the user has not previously been granted access to the data source, he will need to be granted access before he can connect.</source>
+          <target state="new">If the user has not previously been granted access to the data source, he will need to be granted access before he can connect.</target>
+        </trans-unit>
+        <trans-unit id="397eef25-4b86-48df-9cc3-ab56724d0452" xml:space="preserve">
+          <source>Log into the <bpt id="04163949-b50e-4d5e-be2b-620180fed6c8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="04163949-b50e-4d5e-be2b-620180fed6c8">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Log into the <bpt id="04163949-b50e-4d5e-be2b-620180fed6c8">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="04163949-b50e-4d5e-be2b-620180fed6c8">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="64b72190-54ba-4825-a67a-958824374aa9" xml:space="preserve">
+          <source>Click <bpt id="c1bde11b-31d1-4365-bc6b-6ab5a7f64358">&lt;strong&gt;</bpt>Discover<ept id="c1bde11b-31d1-4365-bc6b-6ab5a7f64358">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="c1bde11b-31d1-4365-bc6b-6ab5a7f64358">&lt;strong&gt;</bpt>Discover<ept id="c1bde11b-31d1-4365-bc6b-6ab5a7f64358">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="86022562-ef50-4bf0-88de-04279094ecba" xml:space="preserve">
+          <source>Choose a data asset.</source>
+          <target state="new">Choose a data asset.</target>
+        </trans-unit>
+        <trans-unit id="0259dadd-4178-4e23-a04c-5fef01314696" xml:space="preserve">
+          <source>In this example, choose ProductCategory.</source>
+          <target state="new">In this example, choose ProductCategory.</target>
+        </trans-unit>
+        <trans-unit id="130e0537-b3df-4329-9c1b-5da921bc3c33" xml:space="preserve">
+          <source>Choose <bpt id="ab6a9126-fa31-463f-8b9c-f6cedbe92de3">&lt;strong&gt;</bpt>Open In<ept id="ab6a9126-fa31-463f-8b9c-f6cedbe92de3">&lt;/strong&gt;</ept> &gt; <bpt id="307fd6ba-78fc-459d-9094-5f860d672f22">&lt;strong&gt;</bpt>Excel<ept id="307fd6ba-78fc-459d-9094-5f860d672f22">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Choose <bpt id="ab6a9126-fa31-463f-8b9c-f6cedbe92de3">&lt;strong&gt;</bpt>Open In<ept id="ab6a9126-fa31-463f-8b9c-f6cedbe92de3">&lt;/strong&gt;</ept> &gt; <bpt id="307fd6ba-78fc-459d-9094-5f860d672f22">&lt;strong&gt;</bpt>Excel<ept id="307fd6ba-78fc-459d-9094-5f860d672f22">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f0e59d0d-6a7c-4654-9b79-c4d410662955" xml:space="preserve">
+          <source><bpt id="acc14a20-e196-42d7-aaf9-7c71ee6a25f5">&lt;linkText&gt;</bpt>connect1<ept id="acc14a20-e196-42d7-aaf9-7c71ee6a25f5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="acc14a20-e196-42d7-aaf9-7c71ee6a25f5">&lt;linkText&gt;</bpt>connect1<ept id="acc14a20-e196-42d7-aaf9-7c71ee6a25f5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c2dcb610-6f72-4329-8661-814c70e64775" xml:space="preserve">
+          <source>In the <bpt id="91df006a-fd31-412c-84ee-4e82c2474319">&lt;strong&gt;</bpt>Microsoft Excel Security Notice<ept id="91df006a-fd31-412c-84ee-4e82c2474319">&lt;/strong&gt;</ept> window, click <bpt id="c5ba96aa-a3bf-40d0-9f96-00f1080c05b3">&lt;strong&gt;</bpt>Enable<ept id="c5ba96aa-a3bf-40d0-9f96-00f1080c05b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="91df006a-fd31-412c-84ee-4e82c2474319">&lt;strong&gt;</bpt>Microsoft Excel Security Notice<ept id="91df006a-fd31-412c-84ee-4e82c2474319">&lt;/strong&gt;</ept> window, click <bpt id="c5ba96aa-a3bf-40d0-9f96-00f1080c05b3">&lt;strong&gt;</bpt>Enable<ept id="c5ba96aa-a3bf-40d0-9f96-00f1080c05b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="66da103b-e4f4-40ec-b682-56b3e2113384" xml:space="preserve">
+          <source>Open the <bpt id="bdaebfaa-3f46-4f4d-8f9b-003611615953">&lt;strong&gt;</bpt>ProductCategory.odc<ept id="bdaebfaa-3f46-4f4d-8f9b-003611615953">&lt;/strong&gt;</ept> file.</source>
+          <target state="new">Open the <bpt id="bdaebfaa-3f46-4f4d-8f9b-003611615953">&lt;strong&gt;</bpt>ProductCategory.odc<ept id="bdaebfaa-3f46-4f4d-8f9b-003611615953">&lt;/strong&gt;</ept> file.</target>
+        </trans-unit>
+        <trans-unit id="83946921-fc2d-4323-bf01-c78877d987ca" xml:space="preserve">
+          <source>The data source is opened in Excel.</source>
+          <target state="new">The data source is opened in Excel.</target>
+        </trans-unit>
+        <trans-unit id="c3ce3ed5-4159-4706-8623-ff5632f995d5" xml:space="preserve">
+          <source><bpt id="22a66aca-3357-4be6-89e6-44e57a5337f4">&lt;linkText&gt;</bpt>connect2<ept id="22a66aca-3357-4be6-89e6-44e57a5337f4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="22a66aca-3357-4be6-89e6-44e57a5337f4">&lt;linkText&gt;</bpt>connect2<ept id="22a66aca-3357-4be6-89e6-44e57a5337f4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ced297fe-e347-44f6-867c-5103893ad183" xml:space="preserve">
+          <source>In this exercise you connected to data sources discovered using Azure Data Catalog.</source>
+          <target state="new">In this exercise you connected to data sources discovered using Azure Data Catalog.</target>
+        </trans-unit>
+        <trans-unit id="39373445-8ad7-45c0-8e05-85ba5f31f898" xml:space="preserve">
+          <source>The <bpt id="9521ca87-5d5a-416e-8973-d14de93b51ff">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="9521ca87-5d5a-416e-8973-d14de93b51ff">&lt;/strong&gt;</ept> portal allows users to connect directly using the client applications integrated into its <bpt id="769b5603-e220-48c1-839a-25544e6df89f">&lt;strong&gt;</bpt>Open in…<ept id="769b5603-e220-48c1-839a-25544e6df89f">&lt;/strong&gt;</ept> menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.</source>
+          <target state="new">The <bpt id="9521ca87-5d5a-416e-8973-d14de93b51ff">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="9521ca87-5d5a-416e-8973-d14de93b51ff">&lt;/strong&gt;</ept> portal allows users to connect directly using the client applications integrated into its <bpt id="769b5603-e220-48c1-839a-25544e6df89f">&lt;strong&gt;</bpt>Open in…<ept id="769b5603-e220-48c1-839a-25544e6df89f">&lt;/strong&gt;</ept> menu, and allows users to connect using any application they choose using the connection location information included in the asset metadata.</target>
+        </trans-unit>
+        <trans-unit id="d8f21ff8-5f10-4744-90f5-830d3a37ba15" xml:space="preserve">
+          <source>In this exercise you will use the <bpt id="85aaf97d-a5d8-41e5-820c-84a6da21b7f0">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="85aaf97d-a5d8-41e5-820c-84a6da21b7f0">&lt;/strong&gt;</ept> portal to remove preview data from registered data assets, and to delete data assets from the catalog.</source>
+          <target state="new">In this exercise you will use the <bpt id="85aaf97d-a5d8-41e5-820c-84a6da21b7f0">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="85aaf97d-a5d8-41e5-820c-84a6da21b7f0">&lt;/strong&gt;</ept> portal to remove preview data from registered data assets, and to delete data assets from the catalog.</target>
+        </trans-unit>
+        <trans-unit id="0c25a29a-3f02-40b7-8f9c-b42610f09de3" xml:space="preserve">
+          <source>The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered.</source>
+          <target state="new">The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered.</target>
+        </trans-unit>
+        <trans-unit id="8661134e-a1f6-41ab-bd44-2b3fe0618a99" xml:space="preserve">
+          <source>The management capabilities included in the <bpt id="67e380a5-e6df-48dd-a1bb-d41d489d2761">&lt;strong&gt;</bpt>Standard Edition of Azure Data Catalog<ept id="67e380a5-e6df-48dd-a1bb-d41d489d2761">&lt;/strong&gt;</ept> provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.</source>
+          <target state="new">The management capabilities included in the <bpt id="67e380a5-e6df-48dd-a1bb-d41d489d2761">&lt;strong&gt;</bpt>Standard Edition of Azure Data Catalog<ept id="67e380a5-e6df-48dd-a1bb-d41d489d2761">&lt;/strong&gt;</ept> provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.</target>
+        </trans-unit>
+        <trans-unit id="32135607-6c77-4863-98f4-a1d89bf3f3d9" xml:space="preserve">
+          <source>In <bpt id="d1d19dfa-ce7a-46e2-8c99-045a5196a7cf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d1d19dfa-ce7a-46e2-8c99-045a5196a7cf">&lt;/strong&gt;</ept>, you can remove preview from delete individual asset or delete multiple assets.</source>
+          <target state="new">In <bpt id="d1d19dfa-ce7a-46e2-8c99-045a5196a7cf">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="d1d19dfa-ce7a-46e2-8c99-045a5196a7cf">&lt;/strong&gt;</ept>, you can remove preview from delete individual asset or delete multiple assets.</target>
+        </trans-unit>
+        <trans-unit id="223fc7f7-2e38-4bd6-bad6-3776db75abfe" xml:space="preserve">
+          <source>Log into the <bpt id="69594b60-94cb-486d-994e-5b75be5d7fd3">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="69594b60-94cb-486d-994e-5b75be5d7fd3">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Log into the <bpt id="69594b60-94cb-486d-994e-5b75be5d7fd3">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="69594b60-94cb-486d-994e-5b75be5d7fd3">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="ceb04f67-ca7f-42de-95bd-e1a946131d13" xml:space="preserve">
+          <source>Click <bpt id="1f88a36b-1f80-4c09-be18-c8d801a7f5e2">&lt;strong&gt;</bpt>Discover<ept id="1f88a36b-1f80-4c09-be18-c8d801a7f5e2">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="1f88a36b-1f80-4c09-be18-c8d801a7f5e2">&lt;strong&gt;</bpt>Discover<ept id="1f88a36b-1f80-4c09-be18-c8d801a7f5e2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="b2ce6494-4847-4a47-ba86-410db7b68a9a" xml:space="preserve">
+          <source>Choose one or more data assets.</source>
+          <target state="new">Choose one or more data assets.</target>
+        </trans-unit>
+        <trans-unit id="63e9df2e-d5ec-43f2-a63a-1d543fef1de2" xml:space="preserve">
+          <source>Click <bpt id="52ebda81-87a5-4215-ad6c-570010506ddd">&lt;strong&gt;</bpt>Delete<ept id="52ebda81-87a5-4215-ad6c-570010506ddd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="52ebda81-87a5-4215-ad6c-570010506ddd">&lt;strong&gt;</bpt>Delete<ept id="52ebda81-87a5-4215-ad6c-570010506ddd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7c81ea33-29c8-4b82-87b4-dba5da0c47a7" xml:space="preserve">
+          <source>In this exercise you removed registered data assets from the catalog.</source>
+          <target state="new">In this exercise you removed registered data assets from the catalog.</target>
+        </trans-unit>
+        <trans-unit id="fa4dd66f-723c-4d7c-957f-5698571de6ed" xml:space="preserve">
+          <source>In this exercise you will use the management capabilities of the <bpt id="41d76b44-bbff-4b3d-9f52-2d6beeb502aa">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="41d76b44-bbff-4b3d-9f52-2d6beeb502aa">&lt;/strong&gt;</ept> to take ownership of data assets and to control what users can discover and manage those assets.</source>
+          <target state="new">In this exercise you will use the management capabilities of the <bpt id="41d76b44-bbff-4b3d-9f52-2d6beeb502aa">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="41d76b44-bbff-4b3d-9f52-2d6beeb502aa">&lt;/strong&gt;</ept> to take ownership of data assets and to control what users can discover and manage those assets.</target>
+        </trans-unit>
+        <trans-unit id="47e42061-2866-4a10-acaf-0c8e37effca9" xml:space="preserve">
+          <source>Note: The management capabilities described in this exercise are available only in the Standard Edition of Azure Data Catalog, and not in the Free Edition.</source>
+          <target state="new">Note: The management capabilities described in this exercise are available only in the Standard Edition of Azure Data Catalog, and not in the Free Edition.</target>
+        </trans-unit>
+        <trans-unit id="84a9be2f-56d6-4b54-b794-dd30989264cb" xml:space="preserve">
+          <source>In <bpt id="c28e1c01-7191-4a14-88fc-4950caab4d3e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="c28e1c01-7191-4a14-88fc-4950caab4d3e">&lt;/strong&gt;</ept>, you can take ownership of data assets, add co-owners to data assets, and set the visibility of data assets.</source>
+          <target state="new">In <bpt id="c28e1c01-7191-4a14-88fc-4950caab4d3e">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="c28e1c01-7191-4a14-88fc-4950caab4d3e">&lt;/strong&gt;</ept>, you can take ownership of data assets, add co-owners to data assets, and set the visibility of data assets.</target>
+        </trans-unit>
+        <trans-unit id="49886d95-14b7-4d38-9c16-0b38a0a34fe0" xml:space="preserve">
+          <source>Log into the <bpt id="a2afb7c3-77c5-42ef-bf8f-7b89146e2b9c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a2afb7c3-77c5-42ef-bf8f-7b89146e2b9c">&lt;/strong&gt;</ept> portal.</source>
+          <target state="new">Log into the <bpt id="a2afb7c3-77c5-42ef-bf8f-7b89146e2b9c">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="a2afb7c3-77c5-42ef-bf8f-7b89146e2b9c">&lt;/strong&gt;</ept> portal.</target>
+        </trans-unit>
+        <trans-unit id="d731ec8a-e055-4d1a-bc7f-1240404bfaca" xml:space="preserve">
+          <source>Click <bpt id="b8ae9574-9455-476d-8f32-dc68e7a3bd51">&lt;strong&gt;</bpt>Discover<ept id="b8ae9574-9455-476d-8f32-dc68e7a3bd51">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="b8ae9574-9455-476d-8f32-dc68e7a3bd51">&lt;strong&gt;</bpt>Discover<ept id="b8ae9574-9455-476d-8f32-dc68e7a3bd51">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dd268054-fc49-4073-97fd-93090c0624cd" xml:space="preserve">
+          <source>Choose one or more data assets.</source>
+          <target state="new">Choose one or more data assets.</target>
+        </trans-unit>
+        <trans-unit id="22fa9d91-2395-4c53-9265-3ababc488555" xml:space="preserve">
+          <source>In the <bpt id="2715dff3-5534-4ed0-88ce-35afd0dc48b0">&lt;strong&gt;</bpt>Properties<ept id="2715dff3-5534-4ed0-88ce-35afd0dc48b0">&lt;/strong&gt;</ept> panel, <bpt id="446029f4-5984-4216-b291-d287baa45c5a">&lt;strong&gt;</bpt>Management<ept id="446029f4-5984-4216-b291-d287baa45c5a">&lt;/strong&gt;</ept> section, click <bpt id="dc653908-374d-4d4f-bf2f-2a82d7709909">&lt;strong&gt;</bpt>Take Ownership<ept id="dc653908-374d-4d4f-bf2f-2a82d7709909">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="2715dff3-5534-4ed0-88ce-35afd0dc48b0">&lt;strong&gt;</bpt>Properties<ept id="2715dff3-5534-4ed0-88ce-35afd0dc48b0">&lt;/strong&gt;</ept> panel, <bpt id="446029f4-5984-4216-b291-d287baa45c5a">&lt;strong&gt;</bpt>Management<ept id="446029f4-5984-4216-b291-d287baa45c5a">&lt;/strong&gt;</ept> section, click <bpt id="dc653908-374d-4d4f-bf2f-2a82d7709909">&lt;strong&gt;</bpt>Take Ownership<ept id="dc653908-374d-4d4f-bf2f-2a82d7709909">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5f3b57ce-1cca-4c8a-8423-6b70e93c214a" xml:space="preserve">
+          <source>To restrict visibility, click <bpt id="3e9f5bb0-91bf-48fa-88f4-4dfb9339a0cb">&lt;strong&gt;</bpt>Owners &amp; These Users<ept id="3e9f5bb0-91bf-48fa-88f4-4dfb9339a0cb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">To restrict visibility, click <bpt id="3e9f5bb0-91bf-48fa-88f4-4dfb9339a0cb">&lt;strong&gt;</bpt>Owners &amp; These Users<ept id="3e9f5bb0-91bf-48fa-88f4-4dfb9339a0cb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3a0f7d55-fa55-4c69-b8a6-e596d6133431" xml:space="preserve">
+          <source><bpt id="71721647-c1e8-44fa-8b65-1e6c18e99d59">&lt;linkText&gt;</bpt>ownership<ept id="71721647-c1e8-44fa-8b65-1e6c18e99d59">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="71721647-c1e8-44fa-8b65-1e6c18e99d59">&lt;linkText&gt;</bpt>ownership<ept id="71721647-c1e8-44fa-8b65-1e6c18e99d59">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2899ccf5-6679-474c-a3c9-ec30b9c0915a" xml:space="preserve">
+          <source>In this exercise you explored the management capabilities of the catalog, and restricted visibility on selected data assets.</source>
+          <target state="new">In this exercise you explored the management capabilities of the catalog, and restricted visibility on selected data assets.</target>
+        </trans-unit>
+        <trans-unit id="9da12b3d-a31e-4561-92f3-db1131be1e75" xml:space="preserve">
+          <source>In this tutorial you explored essential capabilities of the <bpt id="29a2c0b8-1dfe-46ce-b204-2809fb8e54d9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="29a2c0b8-1dfe-46ce-b204-2809fb8e54d9">&lt;/strong&gt;</ept> preview, including registering, annotating, discovering, and managing enterprise data sources.</source>
+          <target state="new">In this tutorial you explored essential capabilities of the <bpt id="29a2c0b8-1dfe-46ce-b204-2809fb8e54d9">&lt;strong&gt;</bpt>Azure Data Catalog<ept id="29a2c0b8-1dfe-46ce-b204-2809fb8e54d9">&lt;/strong&gt;</ept> preview, including registering, annotating, discovering, and managing enterprise data sources.</target>
+        </trans-unit>
+        <trans-unit id="49d98841-2cb2-459e-80cb-2c2a0c9c888c" xml:space="preserve">
+          <source>Now that you’ve completed the tutorial, it’s time to get started.</source>
+          <target state="new">Now that you’ve completed the tutorial, it’s time to get started.</target>
+        </trans-unit>
+        <trans-unit id="57170ad9-c96d-498f-8e04-c93a66bc900f" xml:space="preserve">
+          <source>You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.</source>
+          <target state="new">You can begin today by registering the data sources you and your team rely on, and by inviting colleagues to use the catalog.</target>
+        </trans-unit>
+        <trans-unit id="a3689c11-54da-479c-9804-d5029825ca6e" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register1.png</source>
+          <target state="new">./media/data-catalog-get-started/register1.png</target>
+        </trans-unit>
+        <trans-unit id="9ebbe8c3-2c58-468e-9291-c05389d51dc9" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register2.png</source>
+          <target state="new">./media/data-catalog-get-started/register2.png</target>
+        </trans-unit>
+        <trans-unit id="8803a1ec-f2c7-4321-931b-c92e209c9d50" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register3.png</source>
+          <target state="new">./media/data-catalog-get-started/register3.png</target>
+        </trans-unit>
+        <trans-unit id="cfd6b2ab-59ae-4b2e-bfa4-3d7d323bfc99" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register4.png</source>
+          <target state="new">./media/data-catalog-get-started/register4.png</target>
+        </trans-unit>
+        <trans-unit id="818167ab-da4f-4535-b103-aa0915ae89ce" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register5.png</source>
+          <target state="new">./media/data-catalog-get-started/register5.png</target>
+        </trans-unit>
+        <trans-unit id="f06b8bfd-8f58-436e-b577-98eef275ccdf" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register6.png</source>
+          <target state="new">./media/data-catalog-get-started/register6.png</target>
+        </trans-unit>
+        <trans-unit id="23aaa86d-987f-4417-8a0f-e026d630ac02" xml:space="preserve">
+          <source>./media/data-catalog-get-started/register7.png</source>
+          <target state="new">./media/data-catalog-get-started/register7.png</target>
+        </trans-unit>
+        <trans-unit id="56409970-d93c-44f0-b610-7055dd5a2438" xml:space="preserve">
+          <source>./media/data-catalog-get-started/search.png</source>
+          <target state="new">./media/data-catalog-get-started/search.png</target>
+        </trans-unit>
+        <trans-unit id="c50686c1-1acd-4d5c-92e7-e2b6e41640db" xml:space="preserve">
+          <source>./media/data-catalog-get-started/annotate.png</source>
+          <target state="new">./media/data-catalog-get-started/annotate.png</target>
+        </trans-unit>
+        <trans-unit id="ddc69ca9-35a8-47c5-b1d9-06e4e981f140" xml:space="preserve">
+          <source>./media/data-catalog-get-started/connect1.png</source>
+          <target state="new">./media/data-catalog-get-started/connect1.png</target>
+        </trans-unit>
+        <trans-unit id="33647ca7-a2dd-41fc-9fe9-5ac7f53e191d" xml:space="preserve">
+          <source>./media/data-catalog-get-started/connect2.png</source>
+          <target state="new">./media/data-catalog-get-started/connect2.png</target>
+        </trans-unit>
+        <trans-unit id="2cbb2081-1014-4841-a465-a760d71a4b36" xml:space="preserve">
+          <source>./media/data-catalog-get-started/ownership.png</source>
+          <target state="new">./media/data-catalog-get-started/ownership.png</target>
+        </trans-unit>
+      </group>
+      <group id="9cdaf05d-aded-4ad3-bc15-8dd8160b347f" />
+    </body>
+  </file>
+</xliff>

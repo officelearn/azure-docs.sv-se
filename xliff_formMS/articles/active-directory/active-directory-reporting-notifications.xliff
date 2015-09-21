@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="62b8ecd0-aae2-4df8-b3de-de2769a33f5d" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="62b8ecd0-aae2-4df8-b3de-de2769a33f5d" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="cf962d17-c63f-49c6-9d3b-ad45bfb1e6ba">
+        <trans-unit id="c017b4f8-c4d7-48d6-b537-d3ec19a8a730" xml:space="preserve">
+          <source>Azure Active Directory Reporting Notifications</source>
+          <target state="new">Azure Active Directory Reporting Notifications</target>
+        </trans-unit>
+        <trans-unit id="a03f2bcd-3556-443b-901d-08b87b6fa24f" xml:space="preserve">
+          <source>How to use the Azure Active Directory reporting notifications for suspicious sign ins.</source>
+          <target state="new">How to use the Azure Active Directory reporting notifications for suspicious sign ins.</target>
+        </trans-unit>
+        <trans-unit id="3e36f73c-78d1-4af3-99e8-e8cd6de75925" xml:space="preserve">
+          <source>At this time, only the Irregular Sign in Activity report triggers email notifications.</source>
+          <target state="new">At this time, only the Irregular Sign in Activity report triggers email notifications.</target>
+        </trans-unit>
+        <trans-unit id="ac5701d6-afad-42a0-a426-26118dcf6654" xml:space="preserve">
+          <source>Irregular Sign ins are those that have been identified by our machine learning algorithms, on the basis of an "impossible travel" condition combined with an anomalous sign in location and device.</source>
+          <target state="new">Irregular Sign ins are those that have been identified by our machine learning algorithms, on the basis of an "impossible travel" condition combined with an anomalous sign in location and device.</target>
+        </trans-unit>
+        <trans-unit id="808ff80f-9dae-4e05-9731-040ce3b83006" xml:space="preserve">
+          <source>This may indicate that a hacker has been trying to sign in using this account.</source>
+          <target state="new">This may indicate that a hacker has been trying to sign in using this account.</target>
+        </trans-unit>
+        <trans-unit id="6d89738a-dde1-459c-a818-57362a6907b4" xml:space="preserve">
+          <source>The email is sent to all global admins who have been assigned an Active Directory Premium license.</source>
+          <target state="new">The email is sent to all global admins who have been assigned an Active Directory Premium license.</target>
+        </trans-unit>
+        <trans-unit id="450ba9ae-f24d-4dbf-8634-800e307a8f5d" xml:space="preserve">
+          <source>To ensure it is delivered, we send it to the admins Alternate Email Address as well.</source>
+          <target state="new">To ensure it is delivered, we send it to the admins Alternate Email Address as well.</target>
+        </trans-unit>
+        <trans-unit id="91790455-0893-430b-98f7-5acdec18951a" xml:space="preserve">
+          <source>Admins should include aad-alerts-noreply@mail.windowsazure.com in their safe senders list so they don’t miss the email.</source>
+          <target state="new">Admins should include aad-alerts-noreply@mail.windowsazure.com in their safe senders list so they don’t miss the email.</target>
+        </trans-unit>
+        <trans-unit id="e24e6e12-7e82-42ca-bea2-b0fd7589177f" xml:space="preserve">
+          <source>The email is sent if 10 new Irregular Sign in Activities occur in the last 30 days, or since the last email was sent, whichever is less.</source>
+          <target state="new">The email is sent if 10 new Irregular Sign in Activities occur in the last 30 days, or since the last email was sent, whichever is less.</target>
+        </trans-unit>
+        <trans-unit id="d51ed61f-61ac-4dd4-8efc-e31af7b94289" xml:space="preserve">
+          <source>When you click on the link, you will be redirected to the report page within the Azure Management Portal.</source>
+          <target state="new">When you click on the link, you will be redirected to the report page within the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="b8d1e4c5-1353-47ec-bfca-ea0ece667958" xml:space="preserve">
+          <source>In order to access the report, you need to be both:</source>
+          <target state="new">In order to access the report, you need to be both:</target>
+        </trans-unit>
+        <trans-unit id="4a17c7f2-f784-4cca-bd63-6166657988b4" xml:space="preserve">
+          <source>An admin or co-admin of your Azure subscription</source>
+          <target state="new">An admin or co-admin of your Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="943a2e58-114b-40aa-ba42-765d2406567f" xml:space="preserve">
+          <source>A global administrator in the directory, and assigned an Active Directory Premium license.</source>
+          <target state="new">A global administrator in the directory, and assigned an Active Directory Premium license.</target>
+        </trans-unit>
+        <trans-unit id="c195a3a2-70bd-44eb-a700-5d0a7f2e2a2a" xml:space="preserve">
+          <source>For more information, see Azure Active Directory editions.</source>
+          <target state="new">For more information, see Azure Active Directory editions.</target>
+        </trans-unit>
+        <trans-unit id="df6eb4c4-d410-46eb-8799-481f28329b95" xml:space="preserve">
+          <source>Yes, to turn off notifications related to anomalous sign ins within the Azure Management Portal, click <bpt id="8e1a8823-fe6d-4314-8886-82a25857d785">&lt;strong&gt;</bpt>Configure<ept id="8e1a8823-fe6d-4314-8886-82a25857d785">&lt;/strong&gt;</ept>, and then select <bpt id="7b3130ba-d007-40db-8191-bec6d2f919d0">&lt;strong&gt;</bpt>Disabled<ept id="7b3130ba-d007-40db-8191-bec6d2f919d0">&lt;/strong&gt;</ept> under the <bpt id="a3bc066b-dc1e-4704-95f9-50804664bc15">&lt;strong&gt;</bpt>Notifications<ept id="a3bc066b-dc1e-4704-95f9-50804664bc15">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Yes, to turn off notifications related to anomalous sign ins within the Azure Management Portal, click <bpt id="8e1a8823-fe6d-4314-8886-82a25857d785">&lt;strong&gt;</bpt>Configure<ept id="8e1a8823-fe6d-4314-8886-82a25857d785">&lt;/strong&gt;</ept>, and then select <bpt id="7b3130ba-d007-40db-8191-bec6d2f919d0">&lt;strong&gt;</bpt>Disabled<ept id="7b3130ba-d007-40db-8191-bec6d2f919d0">&lt;/strong&gt;</ept> under the <bpt id="a3bc066b-dc1e-4704-95f9-50804664bc15">&lt;strong&gt;</bpt>Notifications<ept id="a3bc066b-dc1e-4704-95f9-50804664bc15">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="234fcc37-b80c-413b-9f0a-f0a7ea852f1f" xml:space="preserve">
+          <source>Curious about what security, audit, and activity reports are available?</source>
+          <target state="new">Curious about what security, audit, and activity reports are available?</target>
+        </trans-unit>
+        <trans-unit id="1d78a5a4-fd65-4243-bbf3-c7d56fbffc0a" xml:space="preserve">
+          <source>Check out <bpt id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;linkText&gt;</bpt>Azure AD Security, Audit, and Activity Reports<ept id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;/linkText&gt;</ept><bpt id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;title&gt;</bpt><ept id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;/title&gt;</ept></source>
+          <target state="new">Check out <bpt id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;linkText&gt;</bpt>Azure AD Security, Audit, and Activity Reports<ept id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;/linkText&gt;</ept><bpt id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;title&gt;</bpt><ept id="3beb537e-0d5e-4a17-a151-76b660735f1b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7b762059-3509-4c4f-a644-bc25b4a68aaa" xml:space="preserve">
+          <source><bpt id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;/linkText&gt;</ept><bpt id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;title&gt;</bpt><ept id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;linkText&gt;</bpt>Getting started with Azure Active Directory Premium<ept id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;/linkText&gt;</ept><bpt id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;title&gt;</bpt><ept id="de66d00f-230f-453b-9ee4-79e65690630b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4aacd89c-ae4d-4aac-ac4b-5bc1c9910c7c" xml:space="preserve">
+          <source><bpt id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;/linkText&gt;</ept><bpt id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;title&gt;</bpt><ept id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;linkText&gt;</bpt>Add company branding to your Sign In and Access Panel pages<ept id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;/linkText&gt;</ept><bpt id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;title&gt;</bpt><ept id="3a46c74d-7b34-4693-b6b1-6cb6a4023515">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

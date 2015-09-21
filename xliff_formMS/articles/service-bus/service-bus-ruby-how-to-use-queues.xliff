@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="2ce868a3-8164-4b22-8d42-d2c49a9c5c13" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="2ce868a3-8164-4b22-8d42-d2c49a9c5c13" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="bdbf6c21-f70d-4325-9995-32f8aa55215f">
+        <trans-unit id="5722049c-deb1-4f88-9836-c0bc5e0f00bc" xml:space="preserve">
+          <source>How to use Service Bus queues (Ruby) | Microsoft Azure</source>
+          <target state="new">How to use Service Bus queues (Ruby) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c442f89e-cfb5-446e-b9f6-1b7a40ba1e74" xml:space="preserve">
+          <source>Learn how to use Service Bus queues in Azure. Code samples written in Ruby.</source>
+          <target state="new">Learn how to use Service Bus queues in Azure. Code samples written in Ruby.</target>
+        </trans-unit>
+        <trans-unit id="70f31af5-00b1-4ead-885a-bfad0ce2eb7b" xml:space="preserve">
+          <source>This guide will show you how to use Service Bus queues.</source>
+          <target state="new">This guide will show you how to use Service Bus queues.</target>
+        </trans-unit>
+        <trans-unit id="d000cb4c-bffe-4f68-9cf2-d30e28baef31" xml:space="preserve">
+          <source>The samples are
+written in Ruby and use the Azure gem.</source>
+          <target state="new">The samples are
+written in Ruby and use the Azure gem.</target>
+        </trans-unit>
+        <trans-unit id="76074ced-fb46-40b6-8737-644581577168" xml:space="preserve">
+          <source>The scenarios
+covered include <bpt id="3bbfe3ed-7526-478a-b6a6-4daf6622d5fb">&lt;strong&gt;</bpt>creating queues, sending and receiving messages<ept id="3bbfe3ed-7526-478a-b6a6-4daf6622d5fb">&lt;/strong&gt;</ept>, and
+<bpt id="ccc02398-831d-420c-8ab7-3284486e3be1">&lt;strong&gt;</bpt>deleting queues<ept id="ccc02398-831d-420c-8ab7-3284486e3be1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios
+covered include <bpt id="3bbfe3ed-7526-478a-b6a6-4daf6622d5fb">&lt;strong&gt;</bpt>creating queues, sending and receiving messages<ept id="3bbfe3ed-7526-478a-b6a6-4daf6622d5fb">&lt;/strong&gt;</ept>, and
+<bpt id="ccc02398-831d-420c-8ab7-3284486e3be1">&lt;strong&gt;</bpt>deleting queues<ept id="ccc02398-831d-420c-8ab7-3284486e3be1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7960ac73-681c-448a-968f-ed1fca17c50c" xml:space="preserve">
+          <source>For more information on queues, see the <bpt id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;linkText&gt;</bpt>Next Steps<ept id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;/linkText&gt;</ept><bpt id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;title&gt;</bpt><ept id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For more information on queues, see the <bpt id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;linkText&gt;</bpt>Next Steps<ept id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;/linkText&gt;</ept><bpt id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;title&gt;</bpt><ept id="f7bc4a05-3352-4a49-bab4-c0c4aa69b7f0">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="ad2e664c-4335-49dd-8d13-0633dab06086" xml:space="preserve">
+          <source>Service Bus Queues support a <bpt id="5b0ff879-3b42-418f-bd26-1a2dfaeaf94e">&lt;strong&gt;</bpt>brokered messaging communication<ept id="5b0ff879-3b42-418f-bd26-1a2dfaeaf94e">&lt;/strong&gt;</ept>
+model.</source>
+          <target state="new">Service Bus Queues support a <bpt id="5b0ff879-3b42-418f-bd26-1a2dfaeaf94e">&lt;strong&gt;</bpt>brokered messaging communication<ept id="5b0ff879-3b42-418f-bd26-1a2dfaeaf94e">&lt;/strong&gt;</ept>
+model.</target>
+        </trans-unit>
+        <trans-unit id="d0c4c43c-5c4b-4ea7-8b92-ddbe9fd5886b" xml:space="preserve">
+          <source>When using queues, components of a distributed application do not
+communicate directly with each other, they instead exchange messages via
+a queue, which acts as an intermediary.</source>
+          <target state="new">When using queues, components of a distributed application do not
+communicate directly with each other, they instead exchange messages via
+a queue, which acts as an intermediary.</target>
+        </trans-unit>
+        <trans-unit id="ca7a912e-5f7a-4a18-bca2-70f718f01649" xml:space="preserve">
+          <source>A message producer (sender)
+hands off a message to the queue and then continues its processing.</source>
+          <target state="new">A message producer (sender)
+hands off a message to the queue and then continues its processing.</target>
+        </trans-unit>
+        <trans-unit id="82b87bc6-a4ee-4f6f-bbf1-101e6b8bf915" xml:space="preserve">
+          <source>Asynchronously, a message consumer (receiver) pulls the message from the
+queue and processes it.</source>
+          <target state="new">Asynchronously, a message consumer (receiver) pulls the message from the
+queue and processes it.</target>
+        </trans-unit>
+        <trans-unit id="1e56d845-c932-4244-8375-2088fb162d88" xml:space="preserve">
+          <source>The producer does not have to wait for a reply
+from the consumer in order to continue to process and send further
+messages.</source>
+          <target state="new">The producer does not have to wait for a reply
+from the consumer in order to continue to process and send further
+messages.</target>
+        </trans-unit>
+        <trans-unit id="2b677027-e26f-4968-b5a5-3b5229326fdd" xml:space="preserve">
+          <source>Queues offer <bpt id="025ec1e4-7c21-4126-876e-3ae8911aebb0">&lt;strong&gt;</bpt>First In, First Out (FIFO)<ept id="025ec1e4-7c21-4126-876e-3ae8911aebb0">&lt;/strong&gt;</ept> message delivery
+to one or more competing consumers.</source>
+          <target state="new">Queues offer <bpt id="025ec1e4-7c21-4126-876e-3ae8911aebb0">&lt;strong&gt;</bpt>First In, First Out (FIFO)<ept id="025ec1e4-7c21-4126-876e-3ae8911aebb0">&lt;/strong&gt;</ept> message delivery
+to one or more competing consumers.</target>
+        </trans-unit>
+        <trans-unit id="d0511937-d3da-4be0-aa26-097e7b7ccf16" xml:space="preserve">
+          <source>That is, messages are typically
+received and processed by the receivers in the order in which they were
+added to the queue, and each message is received and processed by only
+one message consumer.</source>
+          <target state="new">That is, messages are typically
+received and processed by the receivers in the order in which they were
+added to the queue, and each message is received and processed by only
+one message consumer.</target>
+        </trans-unit>
+        <trans-unit id="1a1e8a71-a942-41e2-a429-e7efd92ad242" xml:space="preserve">
+          <source><bpt id="b79f6bac-06b3-4666-8afc-5e07774a39a1">&lt;linkText&gt;</bpt>QueueConcepts<ept id="b79f6bac-06b3-4666-8afc-5e07774a39a1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b79f6bac-06b3-4666-8afc-5e07774a39a1">&lt;linkText&gt;</bpt>QueueConcepts<ept id="b79f6bac-06b3-4666-8afc-5e07774a39a1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a5f93080-5772-40f1-8693-09aab92821c2" xml:space="preserve">
+          <source>Service Bus queues are a general-purpose technology that can be used for
+a wide variety of scenarios:</source>
+          <target state="new">Service Bus queues are a general-purpose technology that can be used for
+a wide variety of scenarios:</target>
+        </trans-unit>
+        <trans-unit id="6f77fbf5-6b30-4fb2-b962-b7287cc305cd" xml:space="preserve">
+          <source>Communication between web and worker roles in a multi-tier
+Azure application</source>
+          <target state="new">Communication between web and worker roles in a multi-tier
+Azure application</target>
+        </trans-unit>
+        <trans-unit id="693c81fe-9649-4e9e-84bd-64d1db2d7c22" xml:space="preserve">
+          <source>Communication between on-premises apps and Azure hosted apps
+in a hybrid solution</source>
+          <target state="new">Communication between on-premises apps and Azure hosted apps
+in a hybrid solution</target>
+        </trans-unit>
+        <trans-unit id="c907ab6b-3ff8-4c3f-a841-c6be0ea95339" xml:space="preserve">
+          <source>Communication between components of a distributed application
+running on-premises in different organizations or departments of an
+organization</source>
+          <target state="new">Communication between components of a distributed application
+running on-premises in different organizations or departments of an
+organization</target>
+        </trans-unit>
+        <trans-unit id="21203f46-88cd-4a76-9184-d50d85309059" xml:space="preserve">
+          <source>Using queues can enable you to scale out your applications better, and
+enable more resiliency to your architecture.</source>
+          <target state="new">Using queues can enable you to scale out your applications better, and
+enable more resiliency to your architecture.</target>
+        </trans-unit>
+        <trans-unit id="336e0feb-fdb3-49b2-b58d-597f82d9b502" xml:space="preserve">
+          <source>To begin using Service Bus queues in Azure, you must first create a service namespace.</source>
+          <target state="new">To begin using Service Bus queues in Azure, you must first create a service namespace.</target>
+        </trans-unit>
+        <trans-unit id="958c2897-5cd6-402e-ab65-9cc8f50c7500" xml:space="preserve">
+          <source>A service namespace provides a scoping container for addressing Service Bus resources within your application.</source>
+          <target state="new">A service namespace provides a scoping container for addressing Service Bus resources within your application.</target>
+        </trans-unit>
+        <trans-unit id="a2d83738-8ca2-4f07-b929-60fc1e3c2376" xml:space="preserve">
+          <source>You must create the
+namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.</source>
+          <target state="new">You must create the
+namespace through the command-line interface because the Portal does not create the service bus with an ACS connection.</target>
+        </trans-unit>
+        <trans-unit id="22c89fe5-4b27-4ab8-8aaf-38205adbd21d" xml:space="preserve">
+          <source>To create a service namespace:</source>
+          <target state="new">To create a service namespace:</target>
+        </trans-unit>
+        <trans-unit id="8cd5f40e-38d1-405d-9605-3fc6d78c2b0c" xml:space="preserve">
+          <source>Open an Azure Powershell console.</source>
+          <target state="new">Open an Azure Powershell console.</target>
+        </trans-unit>
+        <trans-unit id="3c1aa907-96c8-4ced-a7fa-7a482208c42c" xml:space="preserve">
+          <source>Type the command to create an Azure service bus namespace as shown below.</source>
+          <target state="new">Type the command to create an Azure service bus namespace as shown below.</target>
+        </trans-unit>
+        <trans-unit id="78e1b8b5-e105-4860-b867-927471a0bee0" xml:space="preserve">
+          <source>Provide your own namespace value and specify the same region as your application.</source>
+          <target state="new">Provide your own namespace value and specify the same region as your application.</target>
+        </trans-unit>
+        <trans-unit id="f5488f56-4558-461b-a959-20433777a7a6" xml:space="preserve">
+          <source>New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true</source>
+          <target state="new">New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true</target>
+        </trans-unit>
+        <trans-unit id="d27ea696-edb5-4296-88f5-b2293d21f34e" xml:space="preserve">
+          <source><bpt id="9bc75cd2-a50d-4f14-998d-f669200c7bcb">&lt;linkText&gt;</bpt>Create Namespace<ept id="9bc75cd2-a50d-4f14-998d-f669200c7bcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9bc75cd2-a50d-4f14-998d-f669200c7bcb">&lt;linkText&gt;</bpt>Create Namespace<ept id="9bc75cd2-a50d-4f14-998d-f669200c7bcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="928232a1-8350-41f1-abcb-e9bbfb42d52e" xml:space="preserve">
+          <source>In order to perform management operations, such as creating a queue on the new
+namespace, you must obtain the management credentials for the namespace.</source>
+          <target state="new">In order to perform management operations, such as creating a queue on the new
+namespace, you must obtain the management credentials for the namespace.</target>
+        </trans-unit>
+        <trans-unit id="3c582512-eef2-4b24-b85a-fa618a03c4c4" xml:space="preserve">
+          <source>The PowerShell cmdlet you ran to create the Azure service bus namespace displays
+the key you can use to manage the namespace.</source>
+          <target state="new">The PowerShell cmdlet you ran to create the Azure service bus namespace displays
+the key you can use to manage the namespace.</target>
+        </trans-unit>
+        <trans-unit id="78c9e89f-9ee7-4c92-9881-218090b7528a" xml:space="preserve">
+          <source>Copy the <bpt id="50c46f56-b414-4862-b724-06f2f2848530">&lt;strong&gt;</bpt>DefaultKey<ept id="50c46f56-b414-4862-b724-06f2f2848530">&lt;/strong&gt;</ept> value.</source>
+          <target state="new">Copy the <bpt id="50c46f56-b414-4862-b724-06f2f2848530">&lt;strong&gt;</bpt>DefaultKey<ept id="50c46f56-b414-4862-b724-06f2f2848530">&lt;/strong&gt;</ept> value.</target>
+        </trans-unit>
+        <trans-unit id="c3061e50-40d1-4974-8df2-01747fbc9d60" xml:space="preserve">
+          <source>You
+will use this value in your code later in this tutorial.</source>
+          <target state="new">You
+will use this value in your code later in this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="6ce71296-9e88-4151-ab8e-46ce1aa8ce38" xml:space="preserve">
+          <source><bpt id="29d38afb-6cc8-4b61-83d2-4b1df47a6434">&lt;linkText&gt;</bpt>Copy key<ept id="29d38afb-6cc8-4b61-83d2-4b1df47a6434">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="29d38afb-6cc8-4b61-83d2-4b1df47a6434">&lt;linkText&gt;</bpt>Copy key<ept id="29d38afb-6cc8-4b61-83d2-4b1df47a6434">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="eb14ea3e-a54f-4281-8cf9-06b49425feab" xml:space="preserve">
+          <source>You can also find this key if you log on to the
+<bpt id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;linkText&gt;</bpt>Azure Portal<ept id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;/linkText&gt;</ept><bpt id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;title&gt;</bpt><ept id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;/title&gt;</ept> and navigate to the
+connection information for your service bus namespace.</source>
+          <target state="new">You can also find this key if you log on to the
+<bpt id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;linkText&gt;</bpt>Azure Portal<ept id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;/linkText&gt;</ept><bpt id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;title&gt;</bpt><ept id="c99fa950-e547-4925-ad9d-a2f14c6934f9">&lt;/title&gt;</ept> and navigate to the
+connection information for your service bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="4b7d222e-1abe-43f3-b99e-6629a9525cd7" xml:space="preserve">
+          <source>Create a Ruby application.</source>
+          <target state="new">Create a Ruby application.</target>
+        </trans-unit>
+        <trans-unit id="5d201f9f-dc06-4995-b338-11c1e1cb1ac4" xml:space="preserve">
+          <source>For instructions, see <bpt id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;linkText&gt;</bpt>Create a Ruby Application on Azure<ept id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;/linkText&gt;</ept><bpt id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;title&gt;</bpt><ept id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For instructions, see <bpt id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;linkText&gt;</bpt>Create a Ruby Application on Azure<ept id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;/linkText&gt;</ept><bpt id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;title&gt;</bpt><ept id="dce3fb12-06bf-4799-aa1e-dd01cb294f3e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dc878c4d-2c41-4460-a910-37a4c232b640" xml:space="preserve">
+          <source>To use Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.</source>
+          <target state="new">To use Azure service bus, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.</target>
+        </trans-unit>
+        <trans-unit id="c680c792-8073-4e07-bbf1-3bd231dfcb91" xml:space="preserve">
+          <source>Use a command-line interface such as <bpt id="c08e8fba-d955-47b0-906d-d64e0d5d8b27">&lt;strong&gt;</bpt>PowerShell<ept id="c08e8fba-d955-47b0-906d-d64e0d5d8b27">&lt;/strong&gt;</ept> (Windows), <bpt id="48f26f3e-e56f-439e-91d9-b57d508f7cdb">&lt;strong&gt;</bpt>Terminal<ept id="48f26f3e-e56f-439e-91d9-b57d508f7cdb">&lt;/strong&gt;</ept> (Mac), or <bpt id="cb47e65d-2728-4822-8e76-5592ab379139">&lt;strong&gt;</bpt>Bash<ept id="cb47e65d-2728-4822-8e76-5592ab379139">&lt;/strong&gt;</ept> (Unix).</source>
+          <target state="new">Use a command-line interface such as <bpt id="c08e8fba-d955-47b0-906d-d64e0d5d8b27">&lt;strong&gt;</bpt>PowerShell<ept id="c08e8fba-d955-47b0-906d-d64e0d5d8b27">&lt;/strong&gt;</ept> (Windows), <bpt id="48f26f3e-e56f-439e-91d9-b57d508f7cdb">&lt;strong&gt;</bpt>Terminal<ept id="48f26f3e-e56f-439e-91d9-b57d508f7cdb">&lt;/strong&gt;</ept> (Mac), or <bpt id="cb47e65d-2728-4822-8e76-5592ab379139">&lt;strong&gt;</bpt>Bash<ept id="cb47e65d-2728-4822-8e76-5592ab379139">&lt;/strong&gt;</ept> (Unix).</target>
+        </trans-unit>
+        <trans-unit id="0d8d0ba2-9d60-4e9b-b2a4-2c6721c02664" xml:space="preserve">
+          <source>Type "gem install azure" in the command window to install the gem and dependencies.</source>
+          <target state="new">Type "gem install azure" in the command window to install the gem and dependencies.</target>
+        </trans-unit>
+        <trans-unit id="c014995d-2d93-45ca-8734-3f5691356256" xml:space="preserve">
+          <source>Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:</source>
+          <target state="new">Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:</target>
+        </trans-unit>
+        <trans-unit id="7b847025-8595-4ed3-952f-8688d5bfe086" xml:space="preserve">
+          <source>The azure module will read the environment variables <bpt id="de337dff-48b2-4d9b-a77b-76ddd73ab46a">&lt;strong&gt;</bpt>AZURE\_SERVICEBUS\_NAMESPACE<ept id="de337dff-48b2-4d9b-a77b-76ddd73ab46a">&lt;/strong&gt;</ept> and <bpt id="87e03190-7bd5-4af4-90ca-c2b04318bbc2">&lt;strong&gt;</bpt>AZURE\_SERVICEBUS\_ACCESS_KEY<ept id="87e03190-7bd5-4af4-90ca-c2b04318bbc2">&lt;/strong&gt;</ept>
+for information required to connect to your Azure service bus namespace.</source>
+          <target state="new">The azure module will read the environment variables <bpt id="de337dff-48b2-4d9b-a77b-76ddd73ab46a">&lt;strong&gt;</bpt>AZURE\_SERVICEBUS\_NAMESPACE<ept id="de337dff-48b2-4d9b-a77b-76ddd73ab46a">&lt;/strong&gt;</ept> and <bpt id="87e03190-7bd5-4af4-90ca-c2b04318bbc2">&lt;strong&gt;</bpt>AZURE\_SERVICEBUS\_ACCESS_KEY<ept id="87e03190-7bd5-4af4-90ca-c2b04318bbc2">&lt;/strong&gt;</ept>
+for information required to connect to your Azure service bus namespace.</target>
+        </trans-unit>
+        <trans-unit id="ad01925a-c211-49d0-b932-9b6c21fbe848" xml:space="preserve">
+          <source>If these environment variables are not set, you must specify the namespace information before using <bpt id="cd3c0ece-7a21-4769-9bbd-1bf1675628ec">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="cd3c0ece-7a21-4769-9bbd-1bf1675628ec">&lt;/strong&gt;</ept> with the following code:</source>
+          <target state="new">If these environment variables are not set, you must specify the namespace information before using <bpt id="cd3c0ece-7a21-4769-9bbd-1bf1675628ec">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="cd3c0ece-7a21-4769-9bbd-1bf1675628ec">&lt;/strong&gt;</ept> with the following code:</target>
+        </trans-unit>
+        <trans-unit id="9451e14f-6ec8-4df5-9673-c57356f62e2b" xml:space="preserve">
+          <source>Set the service bus namespace value to the value you created rather than the entire URL.</source>
+          <target state="new">Set the service bus namespace value to the value you created rather than the entire URL.</target>
+        </trans-unit>
+        <trans-unit id="eb1501d3-23bb-4208-aa31-0fc29316d81b" xml:space="preserve">
+          <source>For example, use <bpt id="7758f04e-83ca-4287-b36e-2037c10fe0f1">&lt;strong&gt;</bpt>"yourexamplenamespace"<ept id="7758f04e-83ca-4287-b36e-2037c10fe0f1">&lt;/strong&gt;</ept>, not "yourexamplenamespace.servicebus.windows.net".</source>
+          <target state="new">For example, use <bpt id="7758f04e-83ca-4287-b36e-2037c10fe0f1">&lt;strong&gt;</bpt>"yourexamplenamespace"<ept id="7758f04e-83ca-4287-b36e-2037c10fe0f1">&lt;/strong&gt;</ept>, not "yourexamplenamespace.servicebus.windows.net".</target>
+        </trans-unit>
+        <trans-unit id="0e96c63f-08db-4ff1-bfe7-eb866f2f0011" xml:space="preserve">
+          <source>The <bpt id="077dffea-efd3-4db5-b78e-568d05170f2e">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="077dffea-efd3-4db5-b78e-568d05170f2e">&lt;/strong&gt;</ept> object lets you work with queues.</source>
+          <target state="new">The <bpt id="077dffea-efd3-4db5-b78e-568d05170f2e">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="077dffea-efd3-4db5-b78e-568d05170f2e">&lt;/strong&gt;</ept> object lets you work with queues.</target>
+        </trans-unit>
+        <trans-unit id="ab46857e-2fee-4bd8-9a1e-7810f99e1348" xml:space="preserve">
+          <source>To create a queue, use the <bpt id="20ea1e94-6646-46b5-bba1-100263d780aa">&lt;strong&gt;</bpt>create_queue()<ept id="20ea1e94-6646-46b5-bba1-100263d780aa">&lt;/strong&gt;</ept> method.</source>
+          <target state="new">To create a queue, use the <bpt id="20ea1e94-6646-46b5-bba1-100263d780aa">&lt;strong&gt;</bpt>create_queue()<ept id="20ea1e94-6646-46b5-bba1-100263d780aa">&lt;/strong&gt;</ept> method.</target>
+        </trans-unit>
+        <trans-unit id="d3a91d2f-8c76-4185-94da-ad97c2a66d2e" xml:space="preserve">
+          <source>The following example creates a queue or print out the error if there is any.</source>
+          <target state="new">The following example creates a queue or print out the error if there is any.</target>
+        </trans-unit>
+        <trans-unit id="95f169b4-b5ee-4e72-b4df-3bff94718c27" xml:space="preserve">
+          <source>You can also pass in a <bpt id="e83906a1-8f8a-43c3-8a92-91a74ff77b40">&lt;strong&gt;</bpt>Azure::ServiceBus::Queue<ept id="e83906a1-8f8a-43c3-8a92-91a74ff77b40">&lt;/strong&gt;</ept> object with additional options, which allows you to override default queue settings such as message time to live or maximum queue size.</source>
+          <target state="new">You can also pass in a <bpt id="e83906a1-8f8a-43c3-8a92-91a74ff77b40">&lt;strong&gt;</bpt>Azure::ServiceBus::Queue<ept id="e83906a1-8f8a-43c3-8a92-91a74ff77b40">&lt;/strong&gt;</ept> object with additional options, which allows you to override default queue settings such as message time to live or maximum queue size.</target>
+        </trans-unit>
+        <trans-unit id="b0bf382a-b826-4882-b4dd-8feaccdfbfe6" xml:space="preserve">
+          <source>The following example shows setting the maximum queue size to 5GB and time to live to 1 minute:</source>
+          <target state="new">The following example shows setting the maximum queue size to 5GB and time to live to 1 minute:</target>
+        </trans-unit>
+        <trans-unit id="cb5d1bfe-4e4b-4e35-a6e7-849547dd0014" xml:space="preserve">
+          <source>To send a message to a Service Bus queue, you application will call the <bpt id="fe50cdc9-b76a-491a-8841-f8d03a094b8c">&lt;strong&gt;</bpt>send\_queue\_message()<ept id="fe50cdc9-b76a-491a-8841-f8d03a094b8c">&lt;/strong&gt;</ept> method on the <bpt id="35228995-1cc1-40bf-9537-b1293a1250f4">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="35228995-1cc1-40bf-9537-b1293a1250f4">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">To send a message to a Service Bus queue, you application will call the <bpt id="fe50cdc9-b76a-491a-8841-f8d03a094b8c">&lt;strong&gt;</bpt>send\_queue\_message()<ept id="fe50cdc9-b76a-491a-8841-f8d03a094b8c">&lt;/strong&gt;</ept> method on the <bpt id="35228995-1cc1-40bf-9537-b1293a1250f4">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="35228995-1cc1-40bf-9537-b1293a1250f4">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="035e2c9d-e2ae-4c8d-b69d-21f75c0d2b29" xml:space="preserve">
+          <source>Messages sent to (and received from) service bus queues are <bpt id="391956a7-2049-419b-a0af-60250fe009cd">&lt;strong&gt;</bpt>Azure::ServiceBus::BrokeredMessage<ept id="391956a7-2049-419b-a0af-60250fe009cd">&lt;/strong&gt;</ept> objects, and have a set of standard properties (such as <bpt id="3ad208c9-dc62-4e87-8208-df871dc789e4">&lt;strong&gt;</bpt>label<ept id="3ad208c9-dc62-4e87-8208-df871dc789e4">&lt;/strong&gt;</ept> and <bpt id="0de02f0b-5943-4b70-ada0-44c44227499f">&lt;strong&gt;</bpt>time\_to\_live<ept id="0de02f0b-5943-4b70-ada0-44c44227499f">&lt;/strong&gt;</ept>), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data.</source>
+          <target state="new">Messages sent to (and received from) service bus queues are <bpt id="391956a7-2049-419b-a0af-60250fe009cd">&lt;strong&gt;</bpt>Azure::ServiceBus::BrokeredMessage<ept id="391956a7-2049-419b-a0af-60250fe009cd">&lt;/strong&gt;</ept> objects, and have a set of standard properties (such as <bpt id="3ad208c9-dc62-4e87-8208-df871dc789e4">&lt;strong&gt;</bpt>label<ept id="3ad208c9-dc62-4e87-8208-df871dc789e4">&lt;/strong&gt;</ept> and <bpt id="0de02f0b-5943-4b70-ada0-44c44227499f">&lt;strong&gt;</bpt>time\_to\_live<ept id="0de02f0b-5943-4b70-ada0-44c44227499f">&lt;/strong&gt;</ept>), a dictionary that is used to hold custom application specific properties, and a body of arbitrary application data.</target>
+        </trans-unit>
+        <trans-unit id="8830caa1-c614-4638-8fcb-3ed2650ed743" xml:space="preserve">
+          <source>An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.</source>
+          <target state="new">An application can set the body of the message by passing a string value as the message and any required standard properties will be populated with default values.</target>
+        </trans-unit>
+        <trans-unit id="abf84fbf-fe3e-4f54-b75d-5e19eef3b9a0" xml:space="preserve">
+          <source>The following example demonstrates how to send a test message to the queue named "test-queue" using <bpt id="f2ae4230-3ad1-4803-b4b7-5dc08ac48322">&lt;strong&gt;</bpt>send\_queue\_message()<ept id="f2ae4230-3ad1-4803-b4b7-5dc08ac48322">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The following example demonstrates how to send a test message to the queue named "test-queue" using <bpt id="f2ae4230-3ad1-4803-b4b7-5dc08ac48322">&lt;strong&gt;</bpt>send\_queue\_message()<ept id="f2ae4230-3ad1-4803-b4b7-5dc08ac48322">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="e6784c11-ba99-4185-b37d-8af6bb6c210c" xml:space="preserve">
+          <source>Service bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB).</source>
+          <target state="new">Service bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB).</target>
+        </trans-unit>
+        <trans-unit id="330aa9fa-0f69-4a1e-b1fa-04f8f673adcb" xml:space="preserve">
+          <source>There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue.</source>
+          <target state="new">There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue.</target>
+        </trans-unit>
+        <trans-unit id="6dbbb2b0-e69d-4f54-a0db-5690b08c4c39" xml:space="preserve">
+          <source>This queue size is defined at creation time, with an upper limit of 5 GB.</source>
+          <target state="new">This queue size is defined at creation time, with an upper limit of 5 GB.</target>
+        </trans-unit>
+        <trans-unit id="8f86b62f-7335-4fb2-852f-33e4e0861f46" xml:space="preserve">
+          <source>Messages are received from a queue using the <bpt id="50a6f03a-c530-4f4d-8d67-7d9ce0c60c6f">&lt;strong&gt;</bpt>receive\_queue\_message()<ept id="50a6f03a-c530-4f4d-8d67-7d9ce0c60c6f">&lt;/strong&gt;</ept> method on the <bpt id="8a91656e-7089-4d1e-9ec2-aefae1f8cb9f">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="8a91656e-7089-4d1e-9ec2-aefae1f8cb9f">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">Messages are received from a queue using the <bpt id="50a6f03a-c530-4f4d-8d67-7d9ce0c60c6f">&lt;strong&gt;</bpt>receive\_queue\_message()<ept id="50a6f03a-c530-4f4d-8d67-7d9ce0c60c6f">&lt;/strong&gt;</ept> method on the <bpt id="8a91656e-7089-4d1e-9ec2-aefae1f8cb9f">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="8a91656e-7089-4d1e-9ec2-aefae1f8cb9f">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="3625ba15-55cf-460e-97d8-4e18835738a3" xml:space="preserve">
+          <source>By default, messages are read and locked without being deleted from the queue.</source>
+          <target state="new">By default, messages are read and locked without being deleted from the queue.</target>
+        </trans-unit>
+        <trans-unit id="b1463b2e-09cf-4eb7-8479-e6b15c9a5c9e" xml:space="preserve">
+          <source>However, you can delete messages from the queue as they are read by setting the <bpt id="4c7f08bb-7359-4461-9c00-d1a111425a6f">&lt;strong&gt;</bpt>:peek_lock<ept id="4c7f08bb-7359-4461-9c00-d1a111425a6f">&lt;/strong&gt;</ept> option to <bpt id="264758d6-0dba-43b5-8186-07a73c4b9e18">&lt;strong&gt;</bpt>false<ept id="264758d6-0dba-43b5-8186-07a73c4b9e18">&lt;/strong&gt;</ept>.</source>
+          <target state="new">However, you can delete messages from the queue as they are read by setting the <bpt id="4c7f08bb-7359-4461-9c00-d1a111425a6f">&lt;strong&gt;</bpt>:peek_lock<ept id="4c7f08bb-7359-4461-9c00-d1a111425a6f">&lt;/strong&gt;</ept> option to <bpt id="264758d6-0dba-43b5-8186-07a73c4b9e18">&lt;strong&gt;</bpt>false<ept id="264758d6-0dba-43b5-8186-07a73c4b9e18">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4b90f7a6-efbd-404a-a196-766783b99fd5" xml:space="preserve">
+          <source>The default behavior makes the reading and deleting into a two stage operation, which makes it possible to support applications that cannot tolerate missing messages.</source>
+          <target state="new">The default behavior makes the reading and deleting into a two stage operation, which makes it possible to support applications that cannot tolerate missing messages.</target>
+        </trans-unit>
+        <trans-unit id="2334c446-d72b-4037-94d0-f5b1010db4e5" xml:space="preserve">
+          <source>When service bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application.</source>
+          <target state="new">When service bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application.</target>
+        </trans-unit>
+        <trans-unit id="50cef671-e751-4c9a-a3e8-0d12bb5e4159" xml:space="preserve">
+          <source>After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling <bpt id="66a08ed4-2345-4463-8579-2dfedbcc5ec7">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="66a08ed4-2345-4463-8579-2dfedbcc5ec7">&lt;/strong&gt;</ept> method and providing the message to be deleted as a parameter.</source>
+          <target state="new">After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling <bpt id="66a08ed4-2345-4463-8579-2dfedbcc5ec7">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="66a08ed4-2345-4463-8579-2dfedbcc5ec7">&lt;/strong&gt;</ept> method and providing the message to be deleted as a parameter.</target>
+        </trans-unit>
+        <trans-unit id="64603dd3-496e-41ff-83ad-d15121a15ccf" xml:space="preserve">
+          <source>The <bpt id="8bea3b74-5a06-4435-94fa-5ce8c4520618">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="8bea3b74-5a06-4435-94fa-5ce8c4520618">&lt;/strong&gt;</ept> method will mark the message as being consumed and remove it from the queue.</source>
+          <target state="new">The <bpt id="8bea3b74-5a06-4435-94fa-5ce8c4520618">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="8bea3b74-5a06-4435-94fa-5ce8c4520618">&lt;/strong&gt;</ept> method will mark the message as being consumed and remove it from the queue.</target>
+        </trans-unit>
+        <trans-unit id="80d9ea18-087c-42ac-9ec2-8e133247a80d" xml:space="preserve">
+          <source>If the <bpt id="0e9ae522-bc0f-4d6e-8d55-bd75d0472012">&lt;strong&gt;</bpt>:peek\_lock<ept id="0e9ae522-bc0f-4d6e-8d55-bd75d0472012">&lt;/strong&gt;</ept> parameter is set to <bpt id="003b670d-2860-46e4-a9e1-13b6f5e37414">&lt;strong&gt;</bpt>false<ept id="003b670d-2860-46e4-a9e1-13b6f5e37414">&lt;/strong&gt;</ept>, reading and deleting the message becomes the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure.</source>
+          <target state="new">If the <bpt id="0e9ae522-bc0f-4d6e-8d55-bd75d0472012">&lt;strong&gt;</bpt>:peek\_lock<ept id="0e9ae522-bc0f-4d6e-8d55-bd75d0472012">&lt;/strong&gt;</ept> parameter is set to <bpt id="003b670d-2860-46e4-a9e1-13b6f5e37414">&lt;strong&gt;</bpt>false<ept id="003b670d-2860-46e4-a9e1-13b6f5e37414">&lt;/strong&gt;</ept>, reading and deleting the message becomes the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure.</target>
+        </trans-unit>
+        <trans-unit id="562abbc1-40ce-4266-bc6f-be444688e189" xml:space="preserve">
+          <source>To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it.</source>
+          <target state="new">To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it.</target>
+        </trans-unit>
+        <trans-unit id="f855d6b6-93c3-4207-b668-152f51fb20bf" xml:space="preserve">
+          <source>Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.</source>
+          <target state="new">Because Service Bus will have marked the message as being consumed, then when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.</target>
+        </trans-unit>
+        <trans-unit id="285d4f19-a1d8-45eb-90e1-76f086fce352" xml:space="preserve">
+          <source>The example below demonstrates how messages can be received and processed using <bpt id="5b6f64fa-b9e8-4e43-b485-0d502a0d0ccd">&lt;strong&gt;</bpt>receive\_queue\_message()<ept id="5b6f64fa-b9e8-4e43-b485-0d502a0d0ccd">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The example below demonstrates how messages can be received and processed using <bpt id="5b6f64fa-b9e8-4e43-b485-0d502a0d0ccd">&lt;strong&gt;</bpt>receive\_queue\_message()<ept id="5b6f64fa-b9e8-4e43-b485-0d502a0d0ccd">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ea4661a2-a072-4876-be33-a4eda629bc58" xml:space="preserve">
+          <source>The example first receives and deletes a message by using <bpt id="ff893957-ddee-4131-9cc4-25d1cbcfb96a">&lt;strong&gt;</bpt>:peek\_lock<ept id="ff893957-ddee-4131-9cc4-25d1cbcfb96a">&lt;/strong&gt;</ept> set to <bpt id="f89a1923-ec8f-4709-995a-38716e0bd96a">&lt;strong&gt;</bpt>false<ept id="f89a1923-ec8f-4709-995a-38716e0bd96a">&lt;/strong&gt;</ept>, then it receives another message and then deletes the message using <bpt id="115add3f-5c4f-4003-9407-7396361dd508">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="115add3f-5c4f-4003-9407-7396361dd508">&lt;/strong&gt;</ept>:</source>
+          <target state="new">The example first receives and deletes a message by using <bpt id="ff893957-ddee-4131-9cc4-25d1cbcfb96a">&lt;strong&gt;</bpt>:peek\_lock<ept id="ff893957-ddee-4131-9cc4-25d1cbcfb96a">&lt;/strong&gt;</ept> set to <bpt id="f89a1923-ec8f-4709-995a-38716e0bd96a">&lt;strong&gt;</bpt>false<ept id="f89a1923-ec8f-4709-995a-38716e0bd96a">&lt;/strong&gt;</ept>, then it receives another message and then deletes the message using <bpt id="115add3f-5c4f-4003-9407-7396361dd508">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="115add3f-5c4f-4003-9407-7396361dd508">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="431377fd-72bd-4e12-8fe5-0c2dd423d588" xml:space="preserve">
+          <source>Service bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message.</source>
+          <target state="new">Service bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message.</target>
+        </trans-unit>
+        <trans-unit id="22cab84b-940d-4ef4-b8d6-f05e8e9fc3cb" xml:space="preserve">
+          <source>If a receiver application is unable to process the message for some reason, then it can call the <bpt id="1a1aa4b8-942e-480c-ba4f-341f94e5b318">&lt;strong&gt;</bpt>unlock\_queue\_message()<ept id="1a1aa4b8-942e-480c-ba4f-341f94e5b318">&lt;/strong&gt;</ept> method on the <bpt id="f84467cb-3c93-4652-87ae-cecc88eaaadd">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="f84467cb-3c93-4652-87ae-cecc88eaaadd">&lt;/strong&gt;</ept> object.</source>
+          <target state="new">If a receiver application is unable to process the message for some reason, then it can call the <bpt id="1a1aa4b8-942e-480c-ba4f-341f94e5b318">&lt;strong&gt;</bpt>unlock\_queue\_message()<ept id="1a1aa4b8-942e-480c-ba4f-341f94e5b318">&lt;/strong&gt;</ept> method on the <bpt id="f84467cb-3c93-4652-87ae-cecc88eaaadd">&lt;strong&gt;</bpt>Azure::ServiceBusService<ept id="f84467cb-3c93-4652-87ae-cecc88eaaadd">&lt;/strong&gt;</ept> object.</target>
+        </trans-unit>
+        <trans-unit id="2ac3da00-fb81-4024-b7c4-8f8ed7327d38" xml:space="preserve">
+          <source>This will cause service bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.</source>
+          <target state="new">This will cause service bus to unlock the message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.</target>
+        </trans-unit>
+        <trans-unit id="01f7accc-ea1d-4d15-abed-776701e933ed" xml:space="preserve">
+          <source>There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (e.g., if the application crashes), then service bus will unlock the message automatically and make it available to be received again.</source>
+          <target state="new">There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (e.g., if the application crashes), then service bus will unlock the message automatically and make it available to be received again.</target>
+        </trans-unit>
+        <trans-unit id="331ead93-3caa-430d-9ed5-87edd7b2e7a1" xml:space="preserve">
+          <source>In the event that the application crashes after processing the message but before the <bpt id="71c081b0-16cf-4415-9600-100aaa7989df">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="71c081b0-16cf-4415-9600-100aaa7989df">&lt;/strong&gt;</ept> method is called, then the message will be redelivered to the application when it restarts.</source>
+          <target state="new">In the event that the application crashes after processing the message but before the <bpt id="71c081b0-16cf-4415-9600-100aaa7989df">&lt;strong&gt;</bpt>delete\_queue\_message()<ept id="71c081b0-16cf-4415-9600-100aaa7989df">&lt;/strong&gt;</ept> method is called, then the message will be redelivered to the application when it restarts.</target>
+        </trans-unit>
+        <trans-unit id="f3526607-1d63-4da9-9b4d-f4f7b190f74f" xml:space="preserve">
+          <source>This is often called <bpt id="abab3900-7685-4e36-8504-0b54d4bdcca9">&lt;strong&gt;</bpt>At Least Once Processing<ept id="abab3900-7685-4e36-8504-0b54d4bdcca9">&lt;/strong&gt;</ept>, that is, each message will be processed at least once but in certain situations the same message may be redelivered.</source>
+          <target state="new">This is often called <bpt id="abab3900-7685-4e36-8504-0b54d4bdcca9">&lt;strong&gt;</bpt>At Least Once Processing<ept id="abab3900-7685-4e36-8504-0b54d4bdcca9">&lt;/strong&gt;</ept>, that is, each message will be processed at least once but in certain situations the same message may be redelivered.</target>
+        </trans-unit>
+        <trans-unit id="3c4df05e-4d51-41f0-952c-5ea3f59418db" xml:space="preserve">
+          <source>If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery.</source>
+          <target state="new">If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery.</target>
+        </trans-unit>
+        <trans-unit id="921bdf2b-7697-4a14-b3fb-99ab6ff19de7" xml:space="preserve">
+          <source>This is often achieved using the <bpt id="ccf8a790-fc7c-426e-aa37-4e72c8f18fa3">&lt;strong&gt;</bpt>message\_id<ept id="ccf8a790-fc7c-426e-aa37-4e72c8f18fa3">&lt;/strong&gt;</ept> property of the message, which will remain constant across delivery attempts.</source>
+          <target state="new">This is often achieved using the <bpt id="ccf8a790-fc7c-426e-aa37-4e72c8f18fa3">&lt;strong&gt;</bpt>message\_id<ept id="ccf8a790-fc7c-426e-aa37-4e72c8f18fa3">&lt;/strong&gt;</ept> property of the message, which will remain constant across delivery attempts.</target>
+        </trans-unit>
+        <trans-unit id="0f3ade8e-8d35-41a5-8c72-097409f9df2f" xml:space="preserve">
+          <source>Now that you've learned the basics of Service Bus queues, follow these links to learn more.</source>
+          <target state="new">Now that you've learned the basics of Service Bus queues, follow these links to learn more.</target>
+        </trans-unit>
+        <trans-unit id="5fef9731-583f-44e3-bf94-d28a264645f7" xml:space="preserve">
+          <source>See the MSDN Reference: <bpt id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;/linkText&gt;</ept><bpt id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;title&gt;</bpt><ept id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;/title&gt;</ept></source>
+          <target state="new">See the MSDN Reference: <bpt id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;linkText&gt;</bpt>Queues, Topics, and Subscriptions<ept id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;/linkText&gt;</ept><bpt id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;title&gt;</bpt><ept id="fefa2082-e2f5-43ef-9495-1b7ce5c4bfef">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="008f706b-000d-485c-b3e5-eb177d3f0c3a" xml:space="preserve">
+          <source>Visit the <bpt id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;linkText&gt;</bpt>Azure SDK for Ruby<ept id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;/linkText&gt;</ept><bpt id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;title&gt;</bpt><ept id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;/title&gt;</ept> repository on GitHub</source>
+          <target state="new">Visit the <bpt id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;linkText&gt;</bpt>Azure SDK for Ruby<ept id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;/linkText&gt;</ept><bpt id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;title&gt;</bpt><ept id="1d252114-4b18-4b29-a872-6b9ffff1c18d">&lt;/title&gt;</ept> repository on GitHub</target>
+        </trans-unit>
+        <trans-unit id="09b989b7-29a2-4df6-8ffe-b525a8bae836" xml:space="preserve">
+          <source>For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the <bpt id="83117003-b15d-4525-b764-a61661a1271b">&lt;linkText&gt;</bpt>How to use the Azure Queue Service<ept id="83117003-b15d-4525-b764-a61661a1271b">&lt;/linkText&gt;</ept><bpt id="83117003-b15d-4525-b764-a61661a1271b">&lt;title&gt;</bpt><ept id="83117003-b15d-4525-b764-a61661a1271b">&lt;/title&gt;</ept> article, see <bpt id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;linkText&gt;</bpt>Azure Queues and Azure Service Bus Queues - Compared and Contrasted<ept id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;/linkText&gt;</ept><bpt id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;title&gt;</bpt><ept id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;/title&gt;</ept></source>
+          <target state="new">For a comparision between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the <bpt id="83117003-b15d-4525-b764-a61661a1271b">&lt;linkText&gt;</bpt>How to use the Azure Queue Service<ept id="83117003-b15d-4525-b764-a61661a1271b">&lt;/linkText&gt;</ept><bpt id="83117003-b15d-4525-b764-a61661a1271b">&lt;title&gt;</bpt><ept id="83117003-b15d-4525-b764-a61661a1271b">&lt;/title&gt;</ept> article, see <bpt id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;linkText&gt;</bpt>Azure Queues and Azure Service Bus Queues - Compared and Contrasted<ept id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;/linkText&gt;</ept><bpt id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;title&gt;</bpt><ept id="c7744b4c-67a3-41ba-8124-b2ea52f0c17f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

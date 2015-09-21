@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="39f9939f-1a0e-4a9a-8e58-d52b686b0fe4" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="39f9939f-1a0e-4a9a-8e58-d52b686b0fe4" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4195165b-ac99-48f5-9d45-14c14b081626">
+        <trans-unit id="a2933604-cf3a-4b66-a9e6-a1b5418d8ed8" xml:space="preserve">
+          <source>Add push notifications to your Xamarin Android app | Microsoft Azure</source>
+          <target state="new">Add push notifications to your Xamarin Android app | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="026ae504-9a3b-4623-82b3-ee1a99240ca1" xml:space="preserve">
+          <source>Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs.</source>
+          <target state="new">Learn how to configure push notifications with Google Cloud Messaging for you Xamarin.Android apps using Azure Mobile Services and Azure Notification Hubs.</target>
+        </trans-unit>
+        <trans-unit id="3b656d92-edbb-4927-950d-6240191f9799" xml:space="preserve">
+          <source><bpt id="7bf6fe39-83bb-444b-a936-208f3ffab426">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="7bf6fe39-83bb-444b-a936-208f3ffab426">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7bf6fe39-83bb-444b-a936-208f3ffab426">&lt;token href="../../includes/mobile-services-selector-get-started-push.md"&gt;</bpt><ept id="7bf6fe39-83bb-444b-a936-208f3ffab426">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a159ac88-f51a-4038-a184-9b77ec94faeb" xml:space="preserve">
+          <source>This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.Android app.</source>
+          <target state="new">This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.Android app.</target>
+        </trans-unit>
+        <trans-unit id="2fea5bb7-c34a-45c5-b082-7936a7ea101d" xml:space="preserve">
+          <source>In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the [Get started with Mobile Services] project.</source>
+          <target state="new">In this tutorial you add push notifications using the Google Cloud Messaging (GCM) service to the [Get started with Mobile Services] project.</target>
+        </trans-unit>
+        <trans-unit id="93dda17a-8d23-44b2-9c5d-eca9ad9a4411" xml:space="preserve">
+          <source>When complete, your mobile service will send a push notification each time a record is inserted.</source>
+          <target state="new">When complete, your mobile service will send a push notification each time a record is inserted.</target>
+        </trans-unit>
+        <trans-unit id="137c1322-638e-441d-891b-6528f9043466" xml:space="preserve">
+          <source>This tutorial requires the following:</source>
+          <target state="new">This tutorial requires the following:</target>
+        </trans-unit>
+        <trans-unit id="a042b6c3-6c60-4f29-bdc1-85bd2a886f5b" xml:space="preserve">
+          <source>An active Google account.</source>
+          <target state="new">An active Google account.</target>
+        </trans-unit>
+        <trans-unit id="c204f4ef-9d75-49a3-b043-10134d66ce0c" xml:space="preserve">
+          <source>[Google Cloud Messaging Client Component].</source>
+          <target state="new">[Google Cloud Messaging Client Component].</target>
+        </trans-unit>
+        <trans-unit id="a3a02f7d-155a-4adf-a8d9-6887a0bbb6ab" xml:space="preserve">
+          <source>You will add this component during the tutorial.</source>
+          <target state="new">You will add this component during the tutorial.</target>
+        </trans-unit>
+        <trans-unit id="873ebef8-c192-4eb3-81c2-0ead51d6c240" xml:space="preserve">
+          <source>You should already have the [Xamarin.Android] and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</source>
+          <target state="new">You should already have the [Xamarin.Android] and the [Azure Mobile Services Component] installed in your project from when you completed either [Get started with Mobile Services] or [Add Mobile Services to an existing app].</target>
+        </trans-unit>
+        <trans-unit id="6c7c369b-05bb-436b-88d9-22e77df1442b" xml:space="preserve">
+          <source><bpt id="acd74d03-6db0-4cf8-97c1-d513db9111f6">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="acd74d03-6db0-4cf8-97c1-d513db9111f6">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="acd74d03-6db0-4cf8-97c1-d513db9111f6">&lt;token href="../../includes/mobile-services-enable-google-cloud-messaging.md"&gt;</bpt><ept id="acd74d03-6db0-4cf8-97c1-d513db9111f6">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9b9e9681-e495-49ff-a520-84a8f98db21d" xml:space="preserve">
+          <source><bpt id="9f033e09-3818-44d2-a215-608cc76bdb60">&lt;token href="../../includes/mobile-services-android-configure-push.md"&gt;</bpt><ept id="9f033e09-3818-44d2-a215-608cc76bdb60">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="9f033e09-3818-44d2-a215-608cc76bdb60">&lt;token href="../../includes/mobile-services-android-configure-push.md"&gt;</bpt><ept id="9f033e09-3818-44d2-a215-608cc76bdb60">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="523c57f0-0212-4dc6-8e92-a74003fa81a1" xml:space="preserve">
+          <source>The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure Management Portal.</source>
+          <target state="new">The following steps show you how to update the script registered to the insert operation on the TodoItem table in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="ca4b940e-a709-44d8-86ce-950c7c5a4eb4" xml:space="preserve">
+          <source>You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer.</source>
+          <target state="new">You can also access and edit this mobile service script directly in Visual Studio, in the Azure node of Server Explorer.</target>
+        </trans-unit>
+        <trans-unit id="4c482415-c19d-4aa0-9517-425557301784" xml:space="preserve">
+          <source><bpt id="37ad6bb6-f3ea-416a-bc49-6601ecbaf447">&lt;token href="../../includes/mobile-services-javascript-backend-android-push-insert-script.md"&gt;</bpt><ept id="37ad6bb6-f3ea-416a-bc49-6601ecbaf447">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="37ad6bb6-f3ea-416a-bc49-6601ecbaf447">&lt;token href="../../includes/mobile-services-javascript-backend-android-push-insert-script.md"&gt;</bpt><ept id="37ad6bb6-f3ea-416a-bc49-6601ecbaf447">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6c163e5e-6c0a-4d72-a386-a2de17053163" xml:space="preserve">
+          <source><bpt id="799f0f1f-0770-4eb8-b087-b7b371220a98">&lt;token href="../../includes/mobile-services-xamarin-android-push-configure-project.md"&gt;</bpt><ept id="799f0f1f-0770-4eb8-b087-b7b371220a98">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="799f0f1f-0770-4eb8-b087-b7b371220a98">&lt;token href="../../includes/mobile-services-xamarin-android-push-configure-project.md"&gt;</bpt><ept id="799f0f1f-0770-4eb8-b087-b7b371220a98">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0efa1992-96f4-4c44-8f81-67dfe7f6ce3a" xml:space="preserve">
+          <source><bpt id="fda67fa2-a1ef-45d7-9a9b-dc2d3e30c8b2">&lt;token href="../../includes/mobile-services-xamarin-android-push-add-to-app.md"&gt;</bpt><ept id="fda67fa2-a1ef-45d7-9a9b-dc2d3e30c8b2">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fda67fa2-a1ef-45d7-9a9b-dc2d3e30c8b2">&lt;token href="../../includes/mobile-services-xamarin-android-push-add-to-app.md"&gt;</bpt><ept id="fda67fa2-a1ef-45d7-9a9b-dc2d3e30c8b2">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0eb2eb3f-111e-4132-80eb-742f4f693799" xml:space="preserve">
+          <source>You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.</source>
+          <target state="new">You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.</target>
+        </trans-unit>
+        <trans-unit id="05ee3a7d-f17a-4302-903a-75e6cd2c5d3e" xml:space="preserve">
+          <source><bpt id="6e11e056-d9d5-4632-82f9-f0f4f3c3307e">&lt;token href="../../includes/mobile-services-android-push-notifications-test.md"&gt;</bpt><ept id="6e11e056-d9d5-4632-82f9-f0f4f3c3307e">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6e11e056-d9d5-4632-82f9-f0f4f3c3307e">&lt;token href="../../includes/mobile-services-android-push-notifications-test.md"&gt;</bpt><ept id="6e11e056-d9d5-4632-82f9-f0f4f3c3307e">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3f07a381-5735-4a74-b864-3f6a0135e7c1" xml:space="preserve">
+          <source>You have successfully completed this tutorial.</source>
+          <target state="new">You have successfully completed this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="80829f3c-625e-4b39-9fa1-202df6db57aa" xml:space="preserve">
+          <source>Learn more about Mobile Services and Notification Hubs in the following topics:</source>
+          <target state="new">Learn more about Mobile Services and Notification Hubs in the following topics:</target>
+        </trans-unit>
+        <trans-unit id="346eff20-32de-4cf2-a449-7c5c6bbc36ca" xml:space="preserve">
+          <source>[Add Mobile Services to an existing app]
+&lt;br/&gt;Learn more about storing and querying data using mobile services.</source>
+          <target state="new">[Add Mobile Services to an existing app]
+&lt;br/&gt;Learn more about storing and querying data using mobile services.</target>
+        </trans-unit>
+        <trans-unit id="718574d2-be96-46e5-b4e7-878d34198036" xml:space="preserve">
+          <source><bpt id="bbe79016-df54-491b-b375-b63fadab5385">&lt;linkText&gt;</bpt>Get started with authentication<ept id="bbe79016-df54-491b-b375-b63fadab5385">&lt;/linkText&gt;</ept><bpt id="bbe79016-df54-491b-b375-b63fadab5385">&lt;title&gt;</bpt><ept id="bbe79016-df54-491b-b375-b63fadab5385">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</source>
+          <target state="new"><bpt id="bbe79016-df54-491b-b375-b63fadab5385">&lt;linkText&gt;</bpt>Get started with authentication<ept id="bbe79016-df54-491b-b375-b63fadab5385">&lt;/linkText&gt;</ept><bpt id="bbe79016-df54-491b-b375-b63fadab5385">&lt;title&gt;</bpt><ept id="bbe79016-df54-491b-b375-b63fadab5385">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn how to authenticate users of your app with different account types using mobile services.</target>
+        </trans-unit>
+        <trans-unit id="648a5e4b-2e25-41bb-a7b8-51eef69c676e" xml:space="preserve">
+          <source><bpt id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;linkText&gt;</bpt>What are Notification Hubs?<ept id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;/linkText&gt;</ept><bpt id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;title&gt;</bpt><ept id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</source>
+          <target state="new"><bpt id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;linkText&gt;</bpt>What are Notification Hubs?<ept id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;/linkText&gt;</ept><bpt id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;title&gt;</bpt><ept id="21dd48d7-9128-4d45-a414-3167863e05c3">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how Notification Hubs works to deliver notifications to your apps across all major client platforms.</target>
+        </trans-unit>
+        <trans-unit id="a98f6b51-1f09-4949-a16c-caa69820d0b7" xml:space="preserve">
+          <source><bpt id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;/linkText&gt;</ept><bpt id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;title&gt;</bpt><ept id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions. </source>
+          <target state="new"><bpt id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;linkText&gt;</bpt>Debug Notification Hubs applications<ept id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;/linkText&gt;</ept><bpt id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;title&gt;</bpt><ept id="57dfa979-a509-4ad6-96e7-d0b1feba025b">&lt;/title&gt;</ept>
+&lt;/br&gt;Get guidance troubleshooting and debugging Notification Hubs solutions. </target>
+        </trans-unit>
+        <trans-unit id="0666e248-f73a-47f2-adff-cd728fd27e3f" xml:space="preserve">
+          <source><bpt id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;linkText&gt;</bpt>How to use the .NET client library for Mobile Services<ept id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;/linkText&gt;</ept><bpt id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;title&gt;</bpt><ept id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with Xamarin C# code.</source>
+          <target state="new"><bpt id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;linkText&gt;</bpt>How to use the .NET client library for Mobile Services<ept id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;/linkText&gt;</ept><bpt id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;title&gt;</bpt><ept id="92b44f78-e8d9-427d-9f33-adf68dcc6451">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to use Mobile Services with Xamarin C# code.</target>
+        </trans-unit>
+        <trans-unit id="3095cf3e-f1c7-43d3-b76d-b90c8652722f" xml:space="preserve">
+          <source><bpt id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;linkText&gt;</bpt>Mobile Services server script reference<ept id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;/linkText&gt;</ept><bpt id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;title&gt;</bpt><ept id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to implement business logic in your mobile service.</source>
+          <target state="new"><bpt id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;linkText&gt;</bpt>Mobile Services server script reference<ept id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;/linkText&gt;</ept><bpt id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;title&gt;</bpt><ept id="cd881531-2e09-4141-b49d-7d8fc0da3e92">&lt;/title&gt;</ept>
+&lt;br/&gt;Learn more about how to implement business logic in your mobile service.</target>
+        </trans-unit>
+        <trans-unit id="ca1dcd7e-753f-43df-877d-e18191a66dac" xml:space="preserve">
+          <source>mobile-services-ios-get-started.md</source>
+          <target state="new">mobile-services-ios-get-started.md</target>
+        </trans-unit>
+        <trans-unit id="acd0bf91-ad6d-46c4-a4f1-d1272d954f5d" xml:space="preserve">
+          <source>mobile-services-android-get-started-data.md</source>
+          <target state="new">mobile-services-android-get-started-data.md</target>
+        </trans-unit>
+        <trans-unit id="3d645fbe-e8f4-4f21-8d15-00d182972b8b" xml:space="preserve">
+          <source>http://components.xamarin.com/view/GCMClient/</source>
+          <target state="new">http://components.xamarin.com/view/GCMClient/</target>
+        </trans-unit>
+        <trans-unit id="a85239a4-a8a2-4b1d-aa09-548794b9f53f" xml:space="preserve">
+          <source>http://xamarin.com/download/</source>
+          <target state="new">http://xamarin.com/download/</target>
+        </trans-unit>
+        <trans-unit id="da3bf8ab-07b6-417e-8fa9-1660ea7883d3" xml:space="preserve">
+          <source>http://components.xamarin.com/view/azure-mobile-services/</source>
+          <target state="new">http://components.xamarin.com/view/azure-mobile-services/</target>
+        </trans-unit>
+      </group>
+      <group id="2bcb10e5-a76a-4cd5-9712-0f55b0241533" />
+    </body>
+  </file>
+</xliff>

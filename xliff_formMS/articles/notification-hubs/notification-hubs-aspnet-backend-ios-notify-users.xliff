@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c2e8bbc3-ffd5-4efc-a339-23375fe6b382" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c2e8bbc3-ffd5-4efc-a339-23375fe6b382" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="180bb0ab-3fa0-4c41-8275-f921d526aa14">
+        <trans-unit id="bd55739e-b7b2-495c-a3cc-3ee21bc644d0" xml:space="preserve">
+          <source>Azure Notification Hubs Notify Users</source>
+          <target state="new">Azure Notification Hubs Notify Users</target>
+        </trans-unit>
+        <trans-unit id="80e36b8d-ab19-4585-ae66-83c35fbcca94" xml:space="preserve">
+          <source>Learn how to send push notifications to users in Azure. Code samples written in Objective-C and the .NET API for the backend.</source>
+          <target state="new">Learn how to send push notifications to users in Azure. Code samples written in Objective-C and the .NET API for the backend.</target>
+        </trans-unit>
+        <trans-unit id="86293031-0856-4990-9629-cdaa03ff0378" xml:space="preserve">
+          <source><bpt id="dc640899-e1d7-427a-8001-cdc86527fec8">&lt;token href="../../includes/notification-hubs-selector-aspnet-backend-notify-users.md"&gt;</bpt><ept id="dc640899-e1d7-427a-8001-cdc86527fec8">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="dc640899-e1d7-427a-8001-cdc86527fec8">&lt;token href="../../includes/notification-hubs-selector-aspnet-backend-notify-users.md"&gt;</bpt><ept id="dc640899-e1d7-427a-8001-cdc86527fec8">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1b18626d-745e-4c32-b967-7fafeb43c6a1" xml:space="preserve">
+          <source>Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.</source>
+          <target state="new">Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.</target>
+        </trans-unit>
+        <trans-unit id="b53d8834-e67a-4d6b-8402-83365fe18cce" xml:space="preserve">
+          <source>This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device.</source>
+          <target state="new">This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device.</target>
+        </trans-unit>
+        <trans-unit id="ff2cd213-c3f4-4819-be92-7c5b4b3e2572" xml:space="preserve">
+          <source>An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic <bpt id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;linkText&gt;</bpt>Registering from your app backend<ept id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;/linkText&gt;</ept><bpt id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;title&gt;</bpt><ept id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;/title&gt;</ept>.</source>
+          <target state="new">An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic <bpt id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;linkText&gt;</bpt>Registering from your app backend<ept id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;/linkText&gt;</ept><bpt id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;title&gt;</bpt><ept id="3f47fe68-00cc-4585-a9b7-7e0732418fa3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0be5f125-0209-4e0b-b726-9409a2887356" xml:space="preserve">
+          <source>This tutorial assumes that you have created and configured your notification hub as described in <bpt id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;/linkText&gt;</ept><bpt id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;title&gt;</bpt><ept id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;/title&gt;</ept>.</source>
+          <target state="new">This tutorial assumes that you have created and configured your notification hub as described in <bpt id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;/linkText&gt;</ept><bpt id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;title&gt;</bpt><ept id="799f61de-46b3-4603-b98a-9892daca26f0">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9f209fb-327f-4a4a-b3d9-6ef3cd443ed8" xml:space="preserve">
+          <source>This tutorial is also the prerequisite to the <bpt id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;linkText&gt;</bpt>Secure Push (iOS)<ept id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;/linkText&gt;</ept><bpt id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;title&gt;</bpt><ept id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">This tutorial is also the prerequisite to the <bpt id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;linkText&gt;</bpt>Secure Push (iOS)<ept id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;/linkText&gt;</ept><bpt id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;title&gt;</bpt><ept id="af07328f-3dd6-4970-8edf-58c1df99a34f">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="0268bcd5-d3a9-4df3-a994-6ad7c69c334b" xml:space="preserve">
+          <source>If you are using Mobile Services as your backend service, see the <bpt id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;linkText&gt;</bpt>Mobile Services version<ept id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;/linkText&gt;</ept><bpt id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;title&gt;</bpt><ept id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;/title&gt;</ept> of this tutorial.</source>
+          <target state="new">If you are using Mobile Services as your backend service, see the <bpt id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;linkText&gt;</bpt>Mobile Services version<ept id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;/linkText&gt;</ept><bpt id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;title&gt;</bpt><ept id="7eb49fd8-b4d1-471f-b846-39706334ec87">&lt;/title&gt;</ept> of this tutorial.</target>
+        </trans-unit>
+        <trans-unit id="bda3c6ad-cd5c-4438-ba75-e26331894b0e" xml:space="preserve">
+          <source><bpt id="519bdff4-080e-4aa7-ac26-da1eb1840c9d">&lt;token href="../../includes/notification-hubs-aspnet-backend-notifyusers.md"&gt;</bpt><ept id="519bdff4-080e-4aa7-ac26-da1eb1840c9d">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="519bdff4-080e-4aa7-ac26-da1eb1840c9d">&lt;token href="../../includes/notification-hubs-aspnet-backend-notifyusers.md"&gt;</bpt><ept id="519bdff4-080e-4aa7-ac26-da1eb1840c9d">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d32dff7b-f3b9-4655-8f6c-0637a19bc382" xml:space="preserve">
+          <source>Open the Single Page view app you created in the <bpt id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;/linkText&gt;</ept><bpt id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;title&gt;</bpt><ept id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">Open the Single Page view app you created in the <bpt id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;/linkText&gt;</ept><bpt id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;title&gt;</bpt><ept id="51b8b2e6-6690-45ef-a75e-04e59188e754">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="a3bbaaba-2e3b-4b4a-9dab-91538d08ac2a" xml:space="preserve">
+          <source>In this section we assume that your project is configured with an empty organization name.</source>
+          <target state="new">In this section we assume that your project is configured with an empty organization name.</target>
+        </trans-unit>
+        <trans-unit id="f2e280b8-07bd-49b6-bb60-de1300f33fce" xml:space="preserve">
+          <source>If not, you will need to prepend your organization name to all class names.</source>
+          <target state="new">If not, you will need to prepend your organization name to all class names.</target>
+        </trans-unit>
+        <trans-unit id="d5e78e6e-4960-4d61-9805-68a68ad669e3" xml:space="preserve">
+          <source>In your Main.storyboard add the components shown in the screenshot below from the object library.</source>
+          <target state="new">In your Main.storyboard add the components shown in the screenshot below from the object library.</target>
+        </trans-unit>
+        <trans-unit id="b189aabc-1b97-44c0-87d3-646e89d8fc5e" xml:space="preserve">
+          <source><bpt id="4650c134-9d1f-426c-a2d1-6f2edb068462">&lt;linkText&gt;</bpt><ept id="4650c134-9d1f-426c-a2d1-6f2edb068462">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4650c134-9d1f-426c-a2d1-6f2edb068462">&lt;linkText&gt;</bpt><ept id="4650c134-9d1f-426c-a2d1-6f2edb068462">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9d5ccf65-2c60-4b2d-acb7-42882606c656" xml:space="preserve">
+          <source><bpt id="ef335fa8-49e6-4fb9-92da-b4b6ec72ce7f">&lt;strong&gt;</bpt>Username<ept id="ef335fa8-49e6-4fb9-92da-b4b6ec72ce7f">&lt;/strong&gt;</ept>: A UITextField with placeholder text, <bpt id="04d39f2a-e573-4241-862b-5f0da4cbe2e2">&lt;em&gt;</bpt>Enter Username<ept id="04d39f2a-e573-4241-862b-5f0da4cbe2e2">&lt;/em&gt;</ept>, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.</source>
+          <target state="new"><bpt id="ef335fa8-49e6-4fb9-92da-b4b6ec72ce7f">&lt;strong&gt;</bpt>Username<ept id="ef335fa8-49e6-4fb9-92da-b4b6ec72ce7f">&lt;/strong&gt;</ept>: A UITextField with placeholder text, <bpt id="04d39f2a-e573-4241-862b-5f0da4cbe2e2">&lt;em&gt;</bpt>Enter Username<ept id="04d39f2a-e573-4241-862b-5f0da4cbe2e2">&lt;/em&gt;</ept>, immediately beneath the send results label and constrained to the left and right margins and beneath the send results label.</target>
+        </trans-unit>
+        <trans-unit id="f2a5c4bd-3f38-43a6-9d01-01035a644e62" xml:space="preserve">
+          <source><bpt id="585821bb-2bf5-4580-8283-81ff6b52c537">&lt;strong&gt;</bpt>Password<ept id="585821bb-2bf5-4580-8283-81ff6b52c537">&lt;/strong&gt;</ept>: A UITextField with placeholder text, <bpt id="6282ea74-1f14-428f-aebd-06632b167082">&lt;em&gt;</bpt>Enter Password<ept id="6282ea74-1f14-428f-aebd-06632b167082">&lt;/em&gt;</ept>, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field.</source>
+          <target state="new"><bpt id="585821bb-2bf5-4580-8283-81ff6b52c537">&lt;strong&gt;</bpt>Password<ept id="585821bb-2bf5-4580-8283-81ff6b52c537">&lt;/strong&gt;</ept>: A UITextField with placeholder text, <bpt id="6282ea74-1f14-428f-aebd-06632b167082">&lt;em&gt;</bpt>Enter Password<ept id="6282ea74-1f14-428f-aebd-06632b167082">&lt;/em&gt;</ept>, immediately beneath the username text field and constrained to the left and right margins and beneath the username text field.</target>
+        </trans-unit>
+        <trans-unit id="21ec658d-9253-4518-aeb6-400160a49fb6" xml:space="preserve">
+          <source>Check the <bpt id="d3103845-789f-4f2d-a8a5-d95dc4553942">&lt;strong&gt;</bpt>Secure Text Entry<ept id="d3103845-789f-4f2d-a8a5-d95dc4553942">&lt;/strong&gt;</ept> option in the Attribute Inspector, under <bpt id="009c8360-fdb9-4f94-a6bb-86c37e6049dd">&lt;em&gt;</bpt>Return Key<ept id="009c8360-fdb9-4f94-a6bb-86c37e6049dd">&lt;/em&gt;</ept>.</source>
+          <target state="new">Check the <bpt id="d3103845-789f-4f2d-a8a5-d95dc4553942">&lt;strong&gt;</bpt>Secure Text Entry<ept id="d3103845-789f-4f2d-a8a5-d95dc4553942">&lt;/strong&gt;</ept> option in the Attribute Inspector, under <bpt id="009c8360-fdb9-4f94-a6bb-86c37e6049dd">&lt;em&gt;</bpt>Return Key<ept id="009c8360-fdb9-4f94-a6bb-86c37e6049dd">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f40beabc-e29e-4ac3-af5d-95ca605ee38c" xml:space="preserve">
+          <source><bpt id="752f08f3-9fc7-4320-8cdd-aaed68f3bee3">&lt;strong&gt;</bpt>Log in<ept id="752f08f3-9fc7-4320-8cdd-aaed68f3bee3">&lt;/strong&gt;</ept>: A UIButton labeled immediately beneath the password text field and uncheck the <bpt id="3b8cd41b-09d2-4d10-a0f2-a7f497e15dc0">&lt;strong&gt;</bpt>Enabled<ept id="3b8cd41b-09d2-4d10-a0f2-a7f497e15dc0">&lt;/strong&gt;</ept> option in the Attributes Inspector, under <bpt id="62dd6880-7883-4ae6-aea8-752250e3fd2c">&lt;em&gt;</bpt>Control-Content<ept id="62dd6880-7883-4ae6-aea8-752250e3fd2c">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="752f08f3-9fc7-4320-8cdd-aaed68f3bee3">&lt;strong&gt;</bpt>Log in<ept id="752f08f3-9fc7-4320-8cdd-aaed68f3bee3">&lt;/strong&gt;</ept>: A UIButton labeled immediately beneath the password text field and uncheck the <bpt id="3b8cd41b-09d2-4d10-a0f2-a7f497e15dc0">&lt;strong&gt;</bpt>Enabled<ept id="3b8cd41b-09d2-4d10-a0f2-a7f497e15dc0">&lt;/strong&gt;</ept> option in the Attributes Inspector, under <bpt id="62dd6880-7883-4ae6-aea8-752250e3fd2c">&lt;em&gt;</bpt>Control-Content<ept id="62dd6880-7883-4ae6-aea8-752250e3fd2c">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c16872f7-2a7a-4b1f-b236-1bfde81f4d1d" xml:space="preserve">
+          <source><bpt id="d65b9e52-b9a7-403c-ae88-dfee9d359a5e">&lt;strong&gt;</bpt>WNS<ept id="d65b9e52-b9a7-403c-ae88-dfee9d359a5e">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification Windows Notification Service if it has been setup on the hub.</source>
+          <target state="new"><bpt id="d65b9e52-b9a7-403c-ae88-dfee9d359a5e">&lt;strong&gt;</bpt>WNS<ept id="d65b9e52-b9a7-403c-ae88-dfee9d359a5e">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification Windows Notification Service if it has been setup on the hub.</target>
+        </trans-unit>
+        <trans-unit id="2ff1b322-9233-464f-85b3-176626f175c7" xml:space="preserve">
+          <source>See the <bpt id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;linkText&gt;</bpt>Windows Getting Started<ept id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;/linkText&gt;</ept><bpt id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;title&gt;</bpt><ept id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">See the <bpt id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;linkText&gt;</bpt>Windows Getting Started<ept id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;/linkText&gt;</ept><bpt id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;title&gt;</bpt><ept id="ba88f274-1ad9-4a3c-82d7-737abe3d6acb">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="9c3af629-78e1-4ce8-9ec1-4f8af72d2c70" xml:space="preserve">
+          <source><bpt id="4769ea60-3ea4-4f1b-8a7f-2559fe7491c8">&lt;strong&gt;</bpt>GCM<ept id="4769ea60-3ea4-4f1b-8a7f-2559fe7491c8">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification to Google Cloud Messaging if it has been setup on the hub.</source>
+          <target state="new"><bpt id="4769ea60-3ea4-4f1b-8a7f-2559fe7491c8">&lt;strong&gt;</bpt>GCM<ept id="4769ea60-3ea4-4f1b-8a7f-2559fe7491c8">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification to Google Cloud Messaging if it has been setup on the hub.</target>
+        </trans-unit>
+        <trans-unit id="3c966ab6-34db-4d1b-91d2-f97fb29eafc5" xml:space="preserve">
+          <source>See <bpt id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;linkText&gt;</bpt>Android Getting Started<ept id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;/linkText&gt;</ept><bpt id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;title&gt;</bpt><ept id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">See <bpt id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;linkText&gt;</bpt>Android Getting Started<ept id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;/linkText&gt;</ept><bpt id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;title&gt;</bpt><ept id="2c47378b-6dbe-4f48-afdc-b9fe5a0f2bed">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="2bb8ba6e-7d92-418d-aec7-aed2d1d7804c" xml:space="preserve">
+          <source><bpt id="82afda55-7537-457a-88f1-10eae818902b">&lt;strong&gt;</bpt>APNS<ept id="82afda55-7537-457a-88f1-10eae818902b">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification to the Apple Platform Notification Service.</source>
+          <target state="new"><bpt id="82afda55-7537-457a-88f1-10eae818902b">&lt;strong&gt;</bpt>APNS<ept id="82afda55-7537-457a-88f1-10eae818902b">&lt;/strong&gt;</ept>: Label and switch to enable sending the notification to the Apple Platform Notification Service.</target>
+        </trans-unit>
+        <trans-unit id="278d2373-d957-4ac0-a7d9-925d2aacaca7" xml:space="preserve">
+          <source><bpt id="5d4a4d4f-2ffb-49d6-92c0-292310f92a48">&lt;strong&gt;</bpt>Recipent Username<ept id="5d4a4d4f-2ffb-49d6-92c0-292310f92a48">&lt;/strong&gt;</ept>:A UITextField with placeholder text, <bpt id="d84b2c88-ad7f-4e94-9afd-1b74b76831f9">&lt;em&gt;</bpt>Recipient username tag<ept id="d84b2c88-ad7f-4e94-9afd-1b74b76831f9">&lt;/em&gt;</ept>, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.</source>
+          <target state="new"><bpt id="5d4a4d4f-2ffb-49d6-92c0-292310f92a48">&lt;strong&gt;</bpt>Recipent Username<ept id="5d4a4d4f-2ffb-49d6-92c0-292310f92a48">&lt;/strong&gt;</ept>:A UITextField with placeholder text, <bpt id="d84b2c88-ad7f-4e94-9afd-1b74b76831f9">&lt;em&gt;</bpt>Recipient username tag<ept id="d84b2c88-ad7f-4e94-9afd-1b74b76831f9">&lt;/em&gt;</ept>, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.</target>
+        </trans-unit>
+        <trans-unit id="5d16271c-8603-4a0a-a8d1-20389c60b889" xml:space="preserve">
+          <source>Some components were added in the <bpt id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;/linkText&gt;</ept><bpt id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;title&gt;</bpt><ept id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;/title&gt;</ept> tutorial.</source>
+          <target state="new">Some components were added in the <bpt id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;linkText&gt;</bpt>Getting Started with Notification Hubs (iOS)<ept id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;/linkText&gt;</ept><bpt id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;title&gt;</bpt><ept id="beb76b11-ed43-457c-912f-7b41d091142a">&lt;/title&gt;</ept> tutorial.</target>
+        </trans-unit>
+        <trans-unit id="318ced30-a17e-4f66-8892-2fc689670ef6" xml:space="preserve">
+          <source><bpt id="4ce2123b-16d4-461b-96ce-07bfb8344967">&lt;strong&gt;</bpt>Ctrl<ept id="4ce2123b-16d4-461b-96ce-07bfb8344967">&lt;/strong&gt;</ept> drag from the components in the view to ViewController.h and add these new outlets.</source>
+          <target state="new"><bpt id="4ce2123b-16d4-461b-96ce-07bfb8344967">&lt;strong&gt;</bpt>Ctrl<ept id="4ce2123b-16d4-461b-96ce-07bfb8344967">&lt;/strong&gt;</ept> drag from the components in the view to ViewController.h and add these new outlets.</target>
+        </trans-unit>
+        <trans-unit id="e812801a-b7e3-44d3-983c-d34b25a97f1d" xml:space="preserve">
+          <source>In ViewController.h, add the following <bpt id="1980e3a9-79ca-4a88-8d08-bc3255751653">&lt;code&gt;</bpt>#define<ept id="1980e3a9-79ca-4a88-8d08-bc3255751653">&lt;/code&gt;</ept> just below your import statements. Substitute the <bpt id="be5d4028-59e7-4dae-9bbb-0d33ed67ae5c">&lt;em&gt;</bpt>&lt;Enter Your Backend Endpoint\&gt;<ept id="be5d4028-59e7-4dae-9bbb-0d33ed67ae5c">&lt;/em&gt;</ept> placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, <bpt id="5d033d02-aaab-4f32-90d9-ae48f5834aea">&lt;em&gt;</bpt>http://you_backend.azurewebsites.net<ept id="5d033d02-aaab-4f32-90d9-ae48f5834aea">&lt;/em&gt;</ept>.</source>
+          <target state="new">In ViewController.h, add the following <bpt id="1980e3a9-79ca-4a88-8d08-bc3255751653">&lt;code&gt;</bpt>#define<ept id="1980e3a9-79ca-4a88-8d08-bc3255751653">&lt;/code&gt;</ept> just below your import statements. Substitute the <bpt id="be5d4028-59e7-4dae-9bbb-0d33ed67ae5c">&lt;em&gt;</bpt>&lt;Enter Your Backend Endpoint\&gt;<ept id="be5d4028-59e7-4dae-9bbb-0d33ed67ae5c">&lt;/em&gt;</ept> placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, <bpt id="5d033d02-aaab-4f32-90d9-ae48f5834aea">&lt;em&gt;</bpt>http://you_backend.azurewebsites.net<ept id="5d033d02-aaab-4f32-90d9-ae48f5834aea">&lt;/em&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ac8ff361-6e35-4fa6-8da8-3f43416f2c40" xml:space="preserve">
+          <source>In your project, create a new <bpt id="3b2d48c9-a50b-465f-a945-6451b035022c">&lt;strong&gt;</bpt>Cocoa Touch class<ept id="3b2d48c9-a50b-465f-a945-6451b035022c">&lt;/strong&gt;</ept> named <bpt id="63527dac-dfdf-439f-8af5-61e5d4d270af">&lt;strong&gt;</bpt>RegisterClient<ept id="63527dac-dfdf-439f-8af5-61e5d4d270af">&lt;/strong&gt;</ept> to interface with the ASP.NET back-end you created.</source>
+          <target state="new">In your project, create a new <bpt id="3b2d48c9-a50b-465f-a945-6451b035022c">&lt;strong&gt;</bpt>Cocoa Touch class<ept id="3b2d48c9-a50b-465f-a945-6451b035022c">&lt;/strong&gt;</ept> named <bpt id="63527dac-dfdf-439f-8af5-61e5d4d270af">&lt;strong&gt;</bpt>RegisterClient<ept id="63527dac-dfdf-439f-8af5-61e5d4d270af">&lt;/strong&gt;</ept> to interface with the ASP.NET back-end you created.</target>
+        </trans-unit>
+        <trans-unit id="8adb6032-53c9-489b-b4ba-8cf3ca7bfebc" xml:space="preserve">
+          <source>Create the class inheriting from <bpt id="0a4f2143-28b6-4bce-af5f-4d3be4042f56">&lt;code&gt;</bpt>NSObject<ept id="0a4f2143-28b6-4bce-af5f-4d3be4042f56">&lt;/code&gt;</ept>.</source>
+          <target state="new">Create the class inheriting from <bpt id="0a4f2143-28b6-4bce-af5f-4d3be4042f56">&lt;code&gt;</bpt>NSObject<ept id="0a4f2143-28b6-4bce-af5f-4d3be4042f56">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a011e923-1f5a-4d79-8cc5-793cb96968d9" xml:space="preserve">
+          <source>Then add the following code in the RegisterClient.h.</source>
+          <target state="new">Then add the following code in the RegisterClient.h.</target>
+        </trans-unit>
+        <trans-unit id="4754637c-5892-4a72-b631-2895bb5ff324" xml:space="preserve">
+          <source>In the RegisterClient.m update the <bpt id="7e71491d-cfcd-40e5-ad95-5a650e1c19c5">&lt;code&gt;</bpt>@interface<ept id="7e71491d-cfcd-40e5-ad95-5a650e1c19c5">&lt;/code&gt;</ept> section:</source>
+          <target state="new">In the RegisterClient.m update the <bpt id="7e71491d-cfcd-40e5-ad95-5a650e1c19c5">&lt;code&gt;</bpt>@interface<ept id="7e71491d-cfcd-40e5-ad95-5a650e1c19c5">&lt;/code&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="e054eeff-d382-4fa9-8eb3-b8ec534205f0" xml:space="preserve">
+          <source>Replace the <bpt id="f67ce6ac-9ba7-42fc-922c-92318dcd6082">&lt;code&gt;</bpt>@implementation<ept id="f67ce6ac-9ba7-42fc-922c-92318dcd6082">&lt;/code&gt;</ept> section in the RegisterClient.m with the following code.</source>
+          <target state="new">Replace the <bpt id="f67ce6ac-9ba7-42fc-922c-92318dcd6082">&lt;code&gt;</bpt>@implementation<ept id="f67ce6ac-9ba7-42fc-922c-92318dcd6082">&lt;/code&gt;</ept> section in the RegisterClient.m with the following code.</target>
+        </trans-unit>
+        <trans-unit id="bff1d30d-275f-4e15-b5cb-78a5f2f84b08" xml:space="preserve">
+          <source>The code above implements the logic explained in the guidance article <bpt id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;linkText&gt;</bpt>Registering from your app backend<ept id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;/linkText&gt;</ept><bpt id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;title&gt;</bpt><ept id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;/title&gt;</ept> using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.</source>
+          <target state="new">The code above implements the logic explained in the guidance article <bpt id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;linkText&gt;</bpt>Registering from your app backend<ept id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;/linkText&gt;</ept><bpt id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;title&gt;</bpt><ept id="6e7bc8d7-98fb-4f85-8210-5006e8b2bd81">&lt;/title&gt;</ept> using NSURLSession to perform REST calls to your app backend, and NSUserDefaults to locally store the registrationId returned by the notification hub.</target>
+        </trans-unit>
+        <trans-unit id="ce8bb749-8804-470e-9469-a99bfeb69d8d" xml:space="preserve">
+          <source>Note that this class requires its property <bpt id="d9bc5837-f8bf-466e-88a2-535cdfcc5be9">&lt;strong&gt;</bpt>authorizationHeader<ept id="d9bc5837-f8bf-466e-88a2-535cdfcc5be9">&lt;/strong&gt;</ept> to be set in order to work properly.</source>
+          <target state="new">Note that this class requires its property <bpt id="d9bc5837-f8bf-466e-88a2-535cdfcc5be9">&lt;strong&gt;</bpt>authorizationHeader<ept id="d9bc5837-f8bf-466e-88a2-535cdfcc5be9">&lt;/strong&gt;</ept> to be set in order to work properly.</target>
+        </trans-unit>
+        <trans-unit id="43173a09-5e22-40fc-b62e-2c9503fcbce0" xml:space="preserve">
+          <source>This property is set by the <bpt id="2f9309a9-027f-4fc8-98c9-4cb9b5e563e8">&lt;strong&gt;</bpt>ViewController<ept id="2f9309a9-027f-4fc8-98c9-4cb9b5e563e8">&lt;/strong&gt;</ept> class after the log in.</source>
+          <target state="new">This property is set by the <bpt id="2f9309a9-027f-4fc8-98c9-4cb9b5e563e8">&lt;strong&gt;</bpt>ViewController<ept id="2f9309a9-027f-4fc8-98c9-4cb9b5e563e8">&lt;/strong&gt;</ept> class after the log in.</target>
+        </trans-unit>
+        <trans-unit id="bb69cc7d-c1e2-4398-a452-8f81208497af" xml:space="preserve">
+          <source>In ViewController.h, add a <bpt id="7fa5fdd0-2db7-4cc7-8d6e-2f5745cfd4fc">&lt;code&gt;</bpt>#import<ept id="7fa5fdd0-2db7-4cc7-8d6e-2f5745cfd4fc">&lt;/code&gt;</ept> statement for RegisterClient.h.</source>
+          <target state="new">In ViewController.h, add a <bpt id="7fa5fdd0-2db7-4cc7-8d6e-2f5745cfd4fc">&lt;code&gt;</bpt>#import<ept id="7fa5fdd0-2db7-4cc7-8d6e-2f5745cfd4fc">&lt;/code&gt;</ept> statement for RegisterClient.h.</target>
+        </trans-unit>
+        <trans-unit id="994a0337-c271-4f6d-bce1-34372fdca523" xml:space="preserve">
+          <source>Then add a declaration for the device token and reference to a <bpt id="c36caa80-0c9e-4afa-87c4-7410a6148995">&lt;code&gt;</bpt>RegisterClient<ept id="c36caa80-0c9e-4afa-87c4-7410a6148995">&lt;/code&gt;</ept> instance in the <bpt id="94e7da5b-72b1-4d82-9624-8af6f733e757">&lt;code&gt;</bpt>@interface<ept id="94e7da5b-72b1-4d82-9624-8af6f733e757">&lt;/code&gt;</ept> section:</source>
+          <target state="new">Then add a declaration for the device token and reference to a <bpt id="c36caa80-0c9e-4afa-87c4-7410a6148995">&lt;code&gt;</bpt>RegisterClient<ept id="c36caa80-0c9e-4afa-87c4-7410a6148995">&lt;/code&gt;</ept> instance in the <bpt id="94e7da5b-72b1-4d82-9624-8af6f733e757">&lt;code&gt;</bpt>@interface<ept id="94e7da5b-72b1-4d82-9624-8af6f733e757">&lt;/code&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="0fd920c9-86f9-43da-9a17-77d42b947274" xml:space="preserve">
+          <source>In ViewController.m, add a private method declaration in the <bpt id="f6eac588-e2c6-461a-843d-dc434c142768">&lt;code&gt;</bpt>@interface<ept id="f6eac588-e2c6-461a-843d-dc434c142768">&lt;/code&gt;</ept> section:</source>
+          <target state="new">In ViewController.m, add a private method declaration in the <bpt id="f6eac588-e2c6-461a-843d-dc434c142768">&lt;code&gt;</bpt>@interface<ept id="f6eac588-e2c6-461a-843d-dc434c142768">&lt;/code&gt;</ept> section:</target>
+        </trans-unit>
+        <trans-unit id="f0c9fc92-eb9d-494f-bd83-ded99710d8c5" xml:space="preserve">
+          <source>The following snippet is not a secure authentication scheme, you should substitute the implementation of the <bpt id="e5010289-411b-43ee-bbcf-45d07a06f3ea">&lt;strong&gt;</bpt>createAndSetAuthenticationHeaderWithUsername:AndPassword:<ept id="e5010289-411b-43ee-bbcf-45d07a06f3ea">&lt;/strong&gt;</ept> with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.</source>
+          <target state="new">The following snippet is not a secure authentication scheme, you should substitute the implementation of the <bpt id="e5010289-411b-43ee-bbcf-45d07a06f3ea">&lt;strong&gt;</bpt>createAndSetAuthenticationHeaderWithUsername:AndPassword:<ept id="e5010289-411b-43ee-bbcf-45d07a06f3ea">&lt;/strong&gt;</ept> with your specific authentication mechanism that generates an authentication token to be consumed by the register client class, e.g. OAuth, Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="c18e3814-9f09-423f-8574-3cf4b7e518b3" xml:space="preserve">
+          <source>Then in the <bpt id="e380dd5c-8a9c-45c8-b10f-64d960da3258">&lt;code&gt;</bpt>@implementation<ept id="e380dd5c-8a9c-45c8-b10f-64d960da3258">&lt;/code&gt;</ept> section of ViewController.m add the following code which adds the implementation for setting the device token and authentication header.</source>
+          <target state="new">Then in the <bpt id="e380dd5c-8a9c-45c8-b10f-64d960da3258">&lt;code&gt;</bpt>@implementation<ept id="e380dd5c-8a9c-45c8-b10f-64d960da3258">&lt;/code&gt;</ept> section of ViewController.m add the following code which adds the implementation for setting the device token and authentication header.</target>
+        </trans-unit>
+        <trans-unit id="94df5d92-28be-4dce-9f71-4fe4f4a75d2b" xml:space="preserve">
+          <source>Note how setting the device token enables the log in button.</source>
+          <target state="new">Note how setting the device token enables the log in button.</target>
+        </trans-unit>
+        <trans-unit id="e146bceb-c2ee-4c35-9553-7acb2e135c61" xml:space="preserve">
+          <source>This is becasue as a part of the login action, the view controller registers for push notifications with the app backend.</source>
+          <target state="new">This is becasue as a part of the login action, the view controller registers for push notifications with the app backend.</target>
+        </trans-unit>
+        <trans-unit id="9a1dead0-f58e-482e-88b1-d8c8037e97e1" xml:space="preserve">
+          <source>Hence, we do not want Log In action to be accessible till the device token has been properly set up.</source>
+          <target state="new">Hence, we do not want Log In action to be accessible till the device token has been properly set up.</target>
+        </trans-unit>
+        <trans-unit id="e3c89001-71f3-4793-b8ee-47c8e5591839" xml:space="preserve">
+          <source>You can decouple the log in from the push registration as long as the former happens before the latter.</source>
+          <target state="new">You can decouple the log in from the push registration as long as the former happens before the latter.</target>
+        </trans-unit>
+        <trans-unit id="3f7fb0e8-c443-4c25-8f6f-9871eaeeadf8" xml:space="preserve">
+          <source>In ViewController.m, use the following snippets to implement the action method for your <bpt id="98cf1b32-2a5a-4f60-99dd-ba946646b699">&lt;strong&gt;</bpt>Log In<ept id="98cf1b32-2a5a-4f60-99dd-ba946646b699">&lt;/strong&gt;</ept> button and a method to send the notification message using the ASP.NET backend.</source>
+          <target state="new">In ViewController.m, use the following snippets to implement the action method for your <bpt id="98cf1b32-2a5a-4f60-99dd-ba946646b699">&lt;strong&gt;</bpt>Log In<ept id="98cf1b32-2a5a-4f60-99dd-ba946646b699">&lt;/strong&gt;</ept> button and a method to send the notification message using the ASP.NET backend.</target>
+        </trans-unit>
+        <trans-unit id="0e83abe1-bbe9-4d1e-aaeb-87364a3967a5" xml:space="preserve">
+          <source>Update the action for the <bpt id="89c3f98e-3bc2-4062-a465-cbf744adf78c">&lt;strong&gt;</bpt>Send Notification<ept id="89c3f98e-3bc2-4062-a465-cbf744adf78c">&lt;/strong&gt;</ept> button to use the ASP.NET backend and send to any PNS enabled by a switch.</source>
+          <target state="new">Update the action for the <bpt id="89c3f98e-3bc2-4062-a465-cbf744adf78c">&lt;strong&gt;</bpt>Send Notification<ept id="89c3f98e-3bc2-4062-a465-cbf744adf78c">&lt;/strong&gt;</ept> button to use the ASP.NET backend and send to any PNS enabled by a switch.</target>
+        </trans-unit>
+        <trans-unit id="87ec8957-08d8-43aa-b213-7d33aa70f1cc" xml:space="preserve">
+          <source>In function <bpt id="2a5e3e74-5176-4e80-aacc-c851a4132a9b">&lt;strong&gt;</bpt>ViewDidLoad<ept id="2a5e3e74-5176-4e80-aacc-c851a4132a9b">&lt;/strong&gt;</ept>, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.</source>
+          <target state="new">In function <bpt id="2a5e3e74-5176-4e80-aacc-c851a4132a9b">&lt;strong&gt;</bpt>ViewDidLoad<ept id="2a5e3e74-5176-4e80-aacc-c851a4132a9b">&lt;/strong&gt;</ept>, add the following to instantiate the RegisterClient instance and set the delegate for your text fields.</target>
+        </trans-unit>
+        <trans-unit id="eee8e499-341a-4bf8-8a9f-6042bb829098" xml:space="preserve">
+          <source>Now in <bpt id="3cb1b1be-a066-4fee-a03c-fc40b5fe679d">&lt;strong&gt;</bpt>AppDelegate.m<ept id="3cb1b1be-a066-4fee-a03c-fc40b5fe679d">&lt;/strong&gt;</ept>, remove all the content of the method <bpt id="18972556-4e6e-4c0d-a920-0762d2996c51">&lt;strong&gt;</bpt>application:didRegisterForPushNotificationWithDeviceToken:<ept id="18972556-4e6e-4c0d-a920-0762d2996c51">&lt;/strong&gt;</ept> and replace it with the following to make sure that the view controller contains the latest device token retrieved from APNs:</source>
+          <target state="new">Now in <bpt id="3cb1b1be-a066-4fee-a03c-fc40b5fe679d">&lt;strong&gt;</bpt>AppDelegate.m<ept id="3cb1b1be-a066-4fee-a03c-fc40b5fe679d">&lt;/strong&gt;</ept>, remove all the content of the method <bpt id="18972556-4e6e-4c0d-a920-0762d2996c51">&lt;strong&gt;</bpt>application:didRegisterForPushNotificationWithDeviceToken:<ept id="18972556-4e6e-4c0d-a920-0762d2996c51">&lt;/strong&gt;</ept> and replace it with the following to make sure that the view controller contains the latest device token retrieved from APNs:</target>
+        </trans-unit>
+        <trans-unit id="1a5fa24e-7874-4d69-b718-8098e4874ff6" xml:space="preserve">
+          <source>Finally in <bpt id="615f180c-e776-4f09-a91b-a7be3a163c5a">&lt;strong&gt;</bpt>AppDelegate.m<ept id="615f180c-e776-4f09-a91b-a7be3a163c5a">&lt;/strong&gt;</ept>, make sure you have the following method:</source>
+          <target state="new">Finally in <bpt id="615f180c-e776-4f09-a91b-a7be3a163c5a">&lt;strong&gt;</bpt>AppDelegate.m<ept id="615f180c-e776-4f09-a91b-a7be3a163c5a">&lt;/strong&gt;</ept>, make sure you have the following method:</target>
+        </trans-unit>
+        <trans-unit id="099450fa-bfe2-48cf-8649-f0c006e7cf57" xml:space="preserve">
+          <source>In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</source>
+          <target state="new">In XCode, run the app on a physical iOS device (push notifications will not work in the simulator).</target>
+        </trans-unit>
+        <trans-unit id="63d7d340-9a65-4315-9c97-c608ea694396" xml:space="preserve">
+          <source>In the iOS app UI, enter a username and password.</source>
+          <target state="new">In the iOS app UI, enter a username and password.</target>
+        </trans-unit>
+        <trans-unit id="50473836-6d19-4316-b61c-be29ee1e242c" xml:space="preserve">
+          <source>These can be any string, but they must both be the same string value.</source>
+          <target state="new">These can be any string, but they must both be the same string value.</target>
+        </trans-unit>
+        <trans-unit id="fba482ee-729d-47b4-8df8-9e2aff9b1dba" xml:space="preserve">
+          <source>Then click <bpt id="c29e8cb7-5fc7-4f92-8fbf-2ec517d4df30">&lt;strong&gt;</bpt>Log In<ept id="c29e8cb7-5fc7-4f92-8fbf-2ec517d4df30">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then click <bpt id="c29e8cb7-5fc7-4f92-8fbf-2ec517d4df30">&lt;strong&gt;</bpt>Log In<ept id="c29e8cb7-5fc7-4f92-8fbf-2ec517d4df30">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8e32359b-2865-4043-b2d3-163205037440" xml:space="preserve">
+          <source><bpt id="7bc9995a-3300-4857-b706-45c14d2b82da">&lt;linkText&gt;</bpt><ept id="7bc9995a-3300-4857-b706-45c14d2b82da">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7bc9995a-3300-4857-b706-45c14d2b82da">&lt;linkText&gt;</bpt><ept id="7bc9995a-3300-4857-b706-45c14d2b82da">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8d9e7fbb-f7de-496d-a8fb-ddde38805a15" xml:space="preserve">
+          <source>You should see a pop-up informing you of registration success.</source>
+          <target state="new">You should see a pop-up informing you of registration success.</target>
+        </trans-unit>
+        <trans-unit id="9b0551ce-045c-46c8-8e7a-9bb17c4fedb0" xml:space="preserve">
+          <source>Click <bpt id="43206250-f8e9-49b2-a703-0fed3226a646">&lt;strong&gt;</bpt>OK<ept id="43206250-f8e9-49b2-a703-0fed3226a646">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="43206250-f8e9-49b2-a703-0fed3226a646">&lt;strong&gt;</bpt>OK<ept id="43206250-f8e9-49b2-a703-0fed3226a646">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="783ae5c9-09f9-47a1-8ebe-b348083df4c2" xml:space="preserve">
+          <source><bpt id="d8ff917d-b9ec-45ad-afc8-b966fdc11922">&lt;linkText&gt;</bpt><ept id="d8ff917d-b9ec-45ad-afc8-b966fdc11922">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d8ff917d-b9ec-45ad-afc8-b966fdc11922">&lt;linkText&gt;</bpt><ept id="d8ff917d-b9ec-45ad-afc8-b966fdc11922">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4acd13c1-1cc8-4257-a718-0a9eb52d4ecc" xml:space="preserve">
+          <source>In the <bpt id="bed24c5c-0adb-4079-a56e-676660f04b14">&lt;em&gt;</bpt>*Recipient username tag<ept id="bed24c5c-0adb-4079-a56e-676660f04b14">&lt;/em&gt;</ept> text field, enter the user name tag used with the registration from another device.</source>
+          <target state="new">In the <bpt id="bed24c5c-0adb-4079-a56e-676660f04b14">&lt;em&gt;</bpt>*Recipient username tag<ept id="bed24c5c-0adb-4079-a56e-676660f04b14">&lt;/em&gt;</ept> text field, enter the user name tag used with the registration from another device.</target>
+        </trans-unit>
+        <trans-unit id="434f9095-b91c-4da9-8fd3-6dfc0807c566" xml:space="preserve">
+          <source>Enter a notification message and click <bpt id="0ab1e12f-c0d3-4683-b30e-4dc168a2fd37">&lt;strong&gt;</bpt>Send Notification<ept id="0ab1e12f-c0d3-4683-b30e-4dc168a2fd37">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enter a notification message and click <bpt id="0ab1e12f-c0d3-4683-b30e-4dc168a2fd37">&lt;strong&gt;</bpt>Send Notification<ept id="0ab1e12f-c0d3-4683-b30e-4dc168a2fd37">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ae6261fc-6ef6-4296-a417-102bcd043501" xml:space="preserve">
+          <source>Only the devices that have a registration with the recipient user name tag receive the notification message.</source>
+          <target state="new">Only the devices that have a registration with the recipient user name tag receive the notification message.</target>
+        </trans-unit>
+        <trans-unit id="dc162764-5f78-4fac-a9e6-d83e3a5b046e" xml:space="preserve">
+          <source>It is only sent to those users.</source>
+          <target state="new">It is only sent to those users.</target>
+        </trans-unit>
+        <trans-unit id="c6659f73-32c0-4e69-ab62-b69fa106b992" xml:space="preserve">
+          <source><bpt id="e5a4f718-8697-47fc-b927-41cd5cb67629">&lt;linkText&gt;</bpt><ept id="e5a4f718-8697-47fc-b927-41cd5cb67629">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e5a4f718-8697-47fc-b927-41cd5cb67629">&lt;linkText&gt;</bpt><ept id="e5a4f718-8697-47fc-b927-41cd5cb67629">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fdf21a43-4652-453a-95a4-ed1414e3bc87" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png</target>
+        </trans-unit>
+        <trans-unit id="b3e6408d-4ad5-4154-88c7-adfc6470d33c" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png</target>
+        </trans-unit>
+        <trans-unit id="cdddf388-b5ca-4ae9-a1a9-f4ea19777d00" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png</target>
+        </trans-unit>
+        <trans-unit id="4de9ea69-1466-49a8-915d-ad29cfc082b3" xml:space="preserve">
+          <source>./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png</source>
+          <target state="new">./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png</target>
+        </trans-unit>
+      </group>
+      <group id="9072d826-9042-4af5-a77b-92c837ed0166" />
+    </body>
+  </file>
+</xliff>

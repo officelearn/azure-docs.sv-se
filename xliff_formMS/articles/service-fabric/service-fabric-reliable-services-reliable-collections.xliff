@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="6a935e85-031c-4c55-8081-69cc201ccdb6" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="6a935e85-031c-4c55-8081-69cc201ccdb6" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="82e7ecad-9f51-449f-8c02-49b9a3216954">
+        <trans-unit id="9a4a1c12-549b-4999-89eb-1d9a0049f035" xml:space="preserve">
+          <source>Reliable Collections</source>
+          <target state="new">Reliable Collections</target>
+        </trans-unit>
+        <trans-unit id="6a01c44e-525d-4ec9-aa2b-2a6d33995abe" xml:space="preserve">
+          <source>Reliable Collections enable you to write highly available, scalable, and low latency cloud applications.</source>
+          <target state="new">Reliable Collections enable you to write highly available, scalable, and low latency cloud applications.</target>
+        </trans-unit>
+        <trans-unit id="0ed3d7dd-709f-4c57-bbbb-0cde8fa5ef1c" xml:space="preserve">
+          <source>Reliable Collections enable you to write highly available, scalable, and low latency
+cloud applications as though you are writing single machine applications.</source>
+          <target state="new">Reliable Collections enable you to write highly available, scalable, and low latency
+cloud applications as though you are writing single machine applications.</target>
+        </trans-unit>
+        <trans-unit id="b7b75b6a-6085-4163-b277-ae15871372e1" xml:space="preserve">
+          <source>The classes in the <bpt id="69fe3c21-6d5a-457a-ba15-1e2c07bcbea2">&lt;code&gt;</bpt>Microsoft.ServiceFabric.Data.Collections<ept id="69fe3c21-6d5a-457a-ba15-1e2c07bcbea2">&lt;/code&gt;</ept> namespace provide a set of out-of-the-box
+collections that automatically make your state highly available.</source>
+          <target state="new">The classes in the <bpt id="69fe3c21-6d5a-457a-ba15-1e2c07bcbea2">&lt;code&gt;</bpt>Microsoft.ServiceFabric.Data.Collections<ept id="69fe3c21-6d5a-457a-ba15-1e2c07bcbea2">&lt;/code&gt;</ept> namespace provide a set of out-of-the-box
+collections that automatically make your state highly available.</target>
+        </trans-unit>
+        <trans-unit id="fbfa6946-9629-4969-b2cb-7522a9175e8f" xml:space="preserve">
+          <source>Developers need only to program to the Reliable Collection APIs and let Reliable Collections
+manage the replicated and local state.</source>
+          <target state="new">Developers need only to program to the Reliable Collection APIs and let Reliable Collections
+manage the replicated and local state.</target>
+        </trans-unit>
+        <trans-unit id="abe494cc-53f1-4c6d-aa6f-58453d0e6f8f" xml:space="preserve">
+          <source>The key difference between Reliable Collections and other high-availability technologies
+(such as Redis, Azure Table service, and Azure Queue service) is that the state is
+kept locally in the service instance while also being made highly available.</source>
+          <target state="new">The key difference between Reliable Collections and other high-availability technologies
+(such as Redis, Azure Table service, and Azure Queue service) is that the state is
+kept locally in the service instance while also being made highly available.</target>
+        </trans-unit>
+        <trans-unit id="28b7de8f-bc90-472c-bfac-bb92659d0b32" xml:space="preserve">
+          <source>This means that:</source>
+          <target state="new">This means that:</target>
+        </trans-unit>
+        <trans-unit id="2862b344-de4c-4633-8a60-0b1550791e06" xml:space="preserve">
+          <source>All reads are local, which results in low latency and high throughput reads.</source>
+          <target state="new">All reads are local, which results in low latency and high throughput reads.</target>
+        </trans-unit>
+        <trans-unit id="0b294069-6567-49a7-a17c-71fe74fa6c8a" xml:space="preserve">
+          <source>All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.</source>
+          <target state="new">All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.</target>
+        </trans-unit>
+        <trans-unit id="d5ebdb28-2e67-4485-903a-b273bb0c5699" xml:space="preserve">
+          <source><bpt id="546eab3c-5ae7-4ab5-a3aa-7be7bcaca3f3">&lt;linkText&gt;</bpt>Image of Evolution of Collections.<ept id="546eab3c-5ae7-4ab5-a3aa-7be7bcaca3f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="546eab3c-5ae7-4ab5-a3aa-7be7bcaca3f3">&lt;linkText&gt;</bpt>Image of Evolution of Collections.<ept id="546eab3c-5ae7-4ab5-a3aa-7be7bcaca3f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fd3bb9be-183a-4978-b6e4-6230dc09f5f3" xml:space="preserve">
+          <source>Reliable Collections can be thought of as the natural evolution of the <bpt id="90de5b46-c491-4e57-9087-41b89972d4e9">&lt;code&gt;</bpt>System.Collections<ept id="90de5b46-c491-4e57-9087-41b89972d4e9">&lt;/code&gt;</ept>
+classes: a new set of collections that are designed for the cloud and multi-machine
+applications without increasing complexity for the developer.</source>
+          <target state="new">Reliable Collections can be thought of as the natural evolution of the <bpt id="90de5b46-c491-4e57-9087-41b89972d4e9">&lt;code&gt;</bpt>System.Collections<ept id="90de5b46-c491-4e57-9087-41b89972d4e9">&lt;/code&gt;</ept>
+classes: a new set of collections that are designed for the cloud and multi-machine
+applications without increasing complexity for the developer.</target>
+        </trans-unit>
+        <trans-unit id="721af3ce-a15c-4a26-bc77-a903e277debb" xml:space="preserve">
+          <source>As such, they are:</source>
+          <target state="new">As such, they are:</target>
+        </trans-unit>
+        <trans-unit id="74174a27-83dc-47c5-ac8b-6c4bbd010ccf" xml:space="preserve">
+          <source>Replicated: State changes are replicated for high availability.</source>
+          <target state="new">Replicated: State changes are replicated for high availability.</target>
+        </trans-unit>
+        <trans-unit id="be86ead3-69fa-4151-ad94-74ddd05bd213" xml:space="preserve">
+          <source>Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).</source>
+          <target state="new">Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).</target>
+        </trans-unit>
+        <trans-unit id="da661c38-4abe-4431-9262-1487bf76a400" xml:space="preserve">
+          <source>Asynchronous: APIs are asynchronous to ensure threads are not blocked when incurring IO.</source>
+          <target state="new">Asynchronous: APIs are asynchronous to ensure threads are not blocked when incurring IO.</target>
+        </trans-unit>
+        <trans-unit id="35c18af3-be22-447e-b0a0-cc50598d490d" xml:space="preserve">
+          <source>Transactional: APIs utilize the abstraction of transactions to allow you to manage multiple Reliable Collections within a service easily.</source>
+          <target state="new">Transactional: APIs utilize the abstraction of transactions to allow you to manage multiple Reliable Collections within a service easily.</target>
+        </trans-unit>
+        <trans-unit id="acb2d641-8790-4989-9004-eff7ebf6382b" xml:space="preserve">
+          <source>Reliable Collections provide strong consistency guarantees out of the box in order
+to make reasoning about application state easier.</source>
+          <target state="new">Reliable Collections provide strong consistency guarantees out of the box in order
+to make reasoning about application state easier.</target>
+        </trans-unit>
+        <trans-unit id="3385e494-a2a4-48a4-87f9-24b888e277f5" xml:space="preserve">
+          <source>Strong consistency is achieved by ensuring transaction commits only complete after the entire transaction
+has been applied on a quorum of replicas including the primary.</source>
+          <target state="new">Strong consistency is achieved by ensuring transaction commits only complete after the entire transaction
+has been applied on a quorum of replicas including the primary.</target>
+        </trans-unit>
+        <trans-unit id="3bb7b790-1c6c-467f-a221-b2d1773f807a" xml:space="preserve">
+          <source>To achieve weaker consistency, application can acknowledge back to the client / requester
+before the asynchronous commit returns.</source>
+          <target state="new">To achieve weaker consistency, application can acknowledge back to the client / requester
+before the asynchronous commit returns.</target>
+        </trans-unit>
+        <trans-unit id="df7abb6f-5956-4438-9cc2-681bab6139ce" xml:space="preserve">
+          <source>The Reliable Collections APIs are an evolution of concurrent collections APIs
+(found in the <bpt id="75cae0b9-3e87-4d8f-9ae9-4f8720375be3">&lt;code&gt;</bpt>System.Collections.Concurrent<ept id="75cae0b9-3e87-4d8f-9ae9-4f8720375be3">&lt;/code&gt;</ept> namespace):</source>
+          <target state="new">The Reliable Collections APIs are an evolution of concurrent collections APIs
+(found in the <bpt id="75cae0b9-3e87-4d8f-9ae9-4f8720375be3">&lt;code&gt;</bpt>System.Collections.Concurrent<ept id="75cae0b9-3e87-4d8f-9ae9-4f8720375be3">&lt;/code&gt;</ept> namespace):</target>
+        </trans-unit>
+        <trans-unit id="92f9fb76-6444-4156-b17a-3b0aa5ee7aa3" xml:space="preserve">
+          <source>Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.</source>
+          <target state="new">Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.</target>
+        </trans-unit>
+        <trans-unit id="62ee1796-fca7-441d-b7a0-c91f59fbc611" xml:space="preserve">
+          <source>No out parameters: Uses <bpt id="fdc59df0-f892-488b-af81-21afbb0550f6">&lt;code&gt;</bpt>ConditionalResult&lt;T&gt;<ept id="fdc59df0-f892-488b-af81-21afbb0550f6">&lt;/code&gt;</ept> to return a bool and a value instead of out parameters. <bpt id="32ce5a19-fdef-4470-aea9-73d2219fa4d7">&lt;code&gt;</bpt>ConditionalResult&lt;T&gt;<ept id="32ce5a19-fdef-4470-aea9-73d2219fa4d7">&lt;/code&gt;</ept> is like <bpt id="09bfda63-4719-47cf-81aa-c70264bb908a">&lt;code&gt;</bpt>Nullable&lt;T&gt;<ept id="09bfda63-4719-47cf-81aa-c70264bb908a">&lt;/code&gt;</ept> but does not require T to be a struct.</source>
+          <target state="new">No out parameters: Uses <bpt id="fdc59df0-f892-488b-af81-21afbb0550f6">&lt;code&gt;</bpt>ConditionalResult&lt;T&gt;<ept id="fdc59df0-f892-488b-af81-21afbb0550f6">&lt;/code&gt;</ept> to return a bool and a value instead of out parameters. <bpt id="32ce5a19-fdef-4470-aea9-73d2219fa4d7">&lt;code&gt;</bpt>ConditionalResult&lt;T&gt;<ept id="32ce5a19-fdef-4470-aea9-73d2219fa4d7">&lt;/code&gt;</ept> is like <bpt id="09bfda63-4719-47cf-81aa-c70264bb908a">&lt;code&gt;</bpt>Nullable&lt;T&gt;<ept id="09bfda63-4719-47cf-81aa-c70264bb908a">&lt;/code&gt;</ept> but does not require T to be a struct.</target>
+        </trans-unit>
+        <trans-unit id="02830f6d-d44b-4207-84d8-d131d87419ae" xml:space="preserve">
+          <source>Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.</source>
+          <target state="new">Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.</target>
+        </trans-unit>
+        <trans-unit id="2ef54153-7261-4db2-9710-e1c6109632a4" xml:space="preserve">
+          <source>Today, <bpt id="26d7f1a1-b505-4cb3-8043-4e94134e59c6">&lt;code&gt;</bpt>Microsoft.ServiceFabric.Data.Collections<ept id="26d7f1a1-b505-4cb3-8043-4e94134e59c6">&lt;/code&gt;</ept> contains two collections:</source>
+          <target state="new">Today, <bpt id="26d7f1a1-b505-4cb3-8043-4e94134e59c6">&lt;code&gt;</bpt>Microsoft.ServiceFabric.Data.Collections<ept id="26d7f1a1-b505-4cb3-8043-4e94134e59c6">&lt;/code&gt;</ept> contains two collections:</target>
+        </trans-unit>
+        <trans-unit id="edc4a130-5014-4bc9-91cf-937028f8c1f0" xml:space="preserve">
+          <source><bpt id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;linkText&gt;</bpt>Reliable Dictionary<ept id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;/linkText&gt;</ept><bpt id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;title&gt;</bpt><ept id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;/title&gt;</ept>: Represents a replicated, transactional, and asynchronous collection of key/value pairs.</source>
+          <target state="new"><bpt id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;linkText&gt;</bpt>Reliable Dictionary<ept id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;/linkText&gt;</ept><bpt id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;title&gt;</bpt><ept id="bf32dd0b-ed7d-461b-87b4-9dae2f49cfa2">&lt;/title&gt;</ept>: Represents a replicated, transactional, and asynchronous collection of key/value pairs.</target>
+        </trans-unit>
+        <trans-unit id="26d66cf3-c040-4b4f-8f65-a8a98dd4f9f2" xml:space="preserve">
+          <source>Similar to <bpt id="6a04bc35-311d-4e27-9323-46b2f79ac96a">&lt;code&gt;</bpt>ConcurrentDictionary<ept id="6a04bc35-311d-4e27-9323-46b2f79ac96a">&lt;/code&gt;</ept>, both the key and the value can be of any type.</source>
+          <target state="new">Similar to <bpt id="6a04bc35-311d-4e27-9323-46b2f79ac96a">&lt;code&gt;</bpt>ConcurrentDictionary<ept id="6a04bc35-311d-4e27-9323-46b2f79ac96a">&lt;/code&gt;</ept>, both the key and the value can be of any type.</target>
+        </trans-unit>
+        <trans-unit id="94774799-0a1b-4ea8-a3cb-d92134cc8bc2" xml:space="preserve">
+          <source><bpt id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;linkText&gt;</bpt>Reliable Queue<ept id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;/linkText&gt;</ept><bpt id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;title&gt;</bpt><ept id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;/title&gt;</ept>: Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue.</source>
+          <target state="new"><bpt id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;linkText&gt;</bpt>Reliable Queue<ept id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;/linkText&gt;</ept><bpt id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;title&gt;</bpt><ept id="a7fe9f5d-1424-495f-8298-c7eb49fe6529">&lt;/title&gt;</ept>: Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue.</target>
+        </trans-unit>
+        <trans-unit id="73d3139a-c1e5-4c0f-becd-9f48127dabf7" xml:space="preserve">
+          <source>Similar to <bpt id="0b59be2f-06ed-4244-9eac-fea8d4ca1832">&lt;code&gt;</bpt>ConcurrentQueue<ept id="0b59be2f-06ed-4244-9eac-fea8d4ca1832">&lt;/code&gt;</ept>, the value can be of any type.</source>
+          <target state="new">Similar to <bpt id="0b59be2f-06ed-4244-9eac-fea8d4ca1832">&lt;code&gt;</bpt>ConcurrentQueue<ept id="0b59be2f-06ed-4244-9eac-fea8d4ca1832">&lt;/code&gt;</ept>, the value can be of any type.</target>
+        </trans-unit>
+        <trans-unit id="86d35217-2aad-4eef-b8ec-1d1dc4e09fb6" xml:space="preserve">
+          <source>Isolation level is a measure of the degree isolation is achieved.</source>
+          <target state="new">Isolation level is a measure of the degree isolation is achieved.</target>
+        </trans-unit>
+        <trans-unit id="acd3ae19-8a8a-4a41-aca6-99579b3504d1" xml:space="preserve">
+          <source>Isolation means that a transaction behaves as it would in a system that only allows
+one transaction to be in-flight at any given point of time.</source>
+          <target state="new">Isolation means that a transaction behaves as it would in a system that only allows
+one transaction to be in-flight at any given point of time.</target>
+        </trans-unit>
+        <trans-unit id="be143994-9e6e-4cb8-943e-66dfd8f2eb7b" xml:space="preserve">
+          <source>Reliable Collections automatically choose the isolation level to use for a given
+read operation depending on the operation and the role of the replica.</source>
+          <target state="new">Reliable Collections automatically choose the isolation level to use for a given
+read operation depending on the operation and the role of the replica.</target>
+        </trans-unit>
+        <trans-unit id="ffd2f489-7d01-46bf-b1f9-7e1c4a007099" xml:space="preserve">
+          <source>There are two isolation levels that are supported in Reliable Collections:</source>
+          <target state="new">There are two isolation levels that are supported in Reliable Collections:</target>
+        </trans-unit>
+        <trans-unit id="035548f5-409d-4487-9403-672ad5e81843" xml:space="preserve">
+          <source><bpt id="4a6fa170-3178-43d0-aa97-4dd04488c385">&lt;strong&gt;</bpt>Repeatable Read<ept id="4a6fa170-3178-43d0-aa97-4dd04488c385">&lt;/strong&gt;</ept>: "Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes.</source>
+          <target state="new"><bpt id="4a6fa170-3178-43d0-aa97-4dd04488c385">&lt;strong&gt;</bpt>Repeatable Read<ept id="4a6fa170-3178-43d0-aa97-4dd04488c385">&lt;/strong&gt;</ept>: "Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes.</target>
+        </trans-unit>
+        <trans-unit id="0cf27b4a-1a4d-4f2b-886a-b8362ff5b7f5" xml:space="preserve">
+          <source>(https://msdn.microsoft.com/en-us/library/ms173763.aspx)"</source>
+          <target state="new">(https://msdn.microsoft.com/en-us/library/ms173763.aspx)"</target>
+        </trans-unit>
+        <trans-unit id="a33d2e37-f88d-4da4-b6cf-b79ae31615d7" xml:space="preserve">
+          <source><bpt id="39d90582-3e72-43cd-a4cc-18e0468a3240">&lt;strong&gt;</bpt>Snapshot<ept id="39d90582-3e72-43cd-a4cc-18e0468a3240">&lt;/strong&gt;</ept>: "Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.</source>
+          <target state="new"><bpt id="39d90582-3e72-43cd-a4cc-18e0468a3240">&lt;strong&gt;</bpt>Snapshot<ept id="39d90582-3e72-43cd-a4cc-18e0468a3240">&lt;/strong&gt;</ept>: "Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.</target>
+        </trans-unit>
+        <trans-unit id="88a55ebb-4c9a-4394-b432-cfd75e8022c7" xml:space="preserve">
+          <source>The transaction can only recognize data modifications that were committed before the start of the transaction.</source>
+          <target state="new">The transaction can only recognize data modifications that were committed before the start of the transaction.</target>
+        </trans-unit>
+        <trans-unit id="bcc1942b-7aff-4c80-9a3e-e33dc9cc2575" xml:space="preserve">
+          <source>Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.</source>
+          <target state="new">Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.</target>
+        </trans-unit>
+        <trans-unit id="8ae0cad1-0e0e-4202-a959-548d5d03a679" xml:space="preserve">
+          <source>The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.</source>
+          <target state="new">The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.</target>
+        </trans-unit>
+        <trans-unit id="3f69c669-4b67-4e50-ad04-544ef76014f0" xml:space="preserve">
+          <source>(https://msdn.microsoft.com/en-us/library/ms173763.aspx)"</source>
+          <target state="new">(https://msdn.microsoft.com/en-us/library/ms173763.aspx)"</target>
+        </trans-unit>
+        <trans-unit id="5937a64f-bfa4-4c54-b7c5-28e14b537f4f" xml:space="preserve">
+          <source>Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.</source>
+          <target state="new">Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.</target>
+        </trans-unit>
+        <trans-unit id="6a5361fb-0b4f-4f3e-8ca0-f4edaabf1da1" xml:space="preserve">
+          <source>In other words, any write within a transaction will be visible to a following read
+that belongs to the same transaction.</source>
+          <target state="new">In other words, any write within a transaction will be visible to a following read
+that belongs to the same transaction.</target>
+        </trans-unit>
+        <trans-unit id="9e6de222-dc1d-4e0a-9d80-5b92308a7d71" xml:space="preserve">
+          <source>Operation \ Role</source>
+          <target state="new">Operation \ Role</target>
+        </trans-unit>
+        <trans-unit id="bf582ea7-6939-440d-8d55-833989ecb126" xml:space="preserve">
+          <source>Primary</source>
+          <target state="new">Primary</target>
+        </trans-unit>
+        <trans-unit id="edae8af6-63f3-4e7b-b965-21fc6c105025" xml:space="preserve">
+          <source>Secondary</source>
+          <target state="new">Secondary</target>
+        </trans-unit>
+        <trans-unit id="6c651f51-2785-496e-9d40-5c6a665d018b" xml:space="preserve">
+          <source>Single Entity Read</source>
+          <target state="new">Single Entity Read</target>
+        </trans-unit>
+        <trans-unit id="3183399d-8252-454a-bcc2-ac5198fbad17" xml:space="preserve">
+          <source>Repeatable Read</source>
+          <target state="new">Repeatable Read</target>
+        </trans-unit>
+        <trans-unit id="28db4018-ea05-404f-9289-05ac57202d44" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="da877ae9-fb7a-418b-8839-100c37114302" xml:space="preserve">
+          <source>Enumeration \ Count</source>
+          <target state="new">Enumeration \ Count</target>
+        </trans-unit>
+        <trans-unit id="66405074-db1f-4860-bca4-d42f396ad234" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="fe08b6d1-3600-417e-8929-e89296b3dc45" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="f077f5e2-110f-4a42-a062-a0ff47ee7e97" xml:space="preserve">
+          <source>Operation \ Role</source>
+          <target state="new">Operation \ Role</target>
+        </trans-unit>
+        <trans-unit id="7558c1c5-283a-4e85-b642-bad4d5446ab4" xml:space="preserve">
+          <source>Primary</source>
+          <target state="new">Primary</target>
+        </trans-unit>
+        <trans-unit id="a5e1fd13-8447-4e8b-9976-469f5b4ce968" xml:space="preserve">
+          <source>Secondary</source>
+          <target state="new">Secondary</target>
+        </trans-unit>
+        <trans-unit id="05686bcc-126b-45ae-a89f-63c6e5c48b37" xml:space="preserve">
+          <source>Single Entity Read</source>
+          <target state="new">Single Entity Read</target>
+        </trans-unit>
+        <trans-unit id="bc93d440-0a8c-4f7f-8f26-83d4cecc272c" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="b6bd4eb4-b368-494b-89a1-8c211823c1b1" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="69484ab7-019e-4c32-b207-0915f555df0d" xml:space="preserve">
+          <source>Enumeration \ Count</source>
+          <target state="new">Enumeration \ Count</target>
+        </trans-unit>
+        <trans-unit id="82fed509-fd21-48cf-8a16-73c324d42b57" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="b8698152-686a-45b8-9894-bd137c268eae" xml:space="preserve">
+          <source>Snapshot</source>
+          <target state="new">Snapshot</target>
+        </trans-unit>
+        <trans-unit id="06dfa760-0e48-4325-9946-e3026cbd032e" xml:space="preserve">
+          <source>Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.</source>
+          <target state="new">Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.</target>
+        </trans-unit>
+        <trans-unit id="1e43697c-6f10-4fad-84de-2becaa71a620" xml:space="preserve">
+          <source>This is a model where each state change is logged on disk and only applied in memory.</source>
+          <target state="new">This is a model where each state change is logged on disk and only applied in memory.</target>
+        </trans-unit>
+        <trans-unit id="cc957876-d6e6-4d23-b808-80d2f427e385" xml:space="preserve">
+          <source>The complete state itself is only persisted occasionally (aka.</source>
+          <target state="new">The complete state itself is only persisted occasionally (aka.</target>
+        </trans-unit>
+        <trans-unit id="09f38953-07ec-4b00-aaf5-5d331d49366a" xml:space="preserve">
+          <source>Checkpoint).</source>
+          <target state="new">Checkpoint).</target>
+        </trans-unit>
+        <trans-unit id="a28ea20b-3f86-4478-b718-9e2999808c7b" xml:space="preserve">
+          <source>The benefit it provides is:</source>
+          <target state="new">The benefit it provides is:</target>
+        </trans-unit>
+        <trans-unit id="9c1fac99-c42d-4fe5-af57-8d6a4510aa9e" xml:space="preserve">
+          <source>Deltas are turned into sequential append-only writes on disk for improved performance.</source>
+          <target state="new">Deltas are turned into sequential append-only writes on disk for improved performance.</target>
+        </trans-unit>
+        <trans-unit id="69a0da40-95b4-4ea9-b54a-3673ad15b775" xml:space="preserve">
+          <source>To better understand the log and checkpoint model, let’s first look at the infinite disk scenario.</source>
+          <target state="new">To better understand the log and checkpoint model, let’s first look at the infinite disk scenario.</target>
+        </trans-unit>
+        <trans-unit id="7a4484a1-3935-4662-87c4-75ec21246a30" xml:space="preserve">
+          <source>Reliable State Manager logs every operation before it is replicated.</source>
+          <target state="new">Reliable State Manager logs every operation before it is replicated.</target>
+        </trans-unit>
+        <trans-unit id="422429a5-7e66-4bdb-bd2f-ed6b9d3b4be7" xml:space="preserve">
+          <source>This allows the Reliable Collection to only apply the operation in memory.</source>
+          <target state="new">This allows the Reliable Collection to only apply the operation in memory.</target>
+        </trans-unit>
+        <trans-unit id="13765560-b059-46d9-b1cd-3ea3de0ca4b6" xml:space="preserve">
+          <source>Since logs are persisted, even when the replica fails and needs to be restarted, the Reliable State Manager
+has enough information in its logs to replay all the operations the replica has lost.</source>
+          <target state="new">Since logs are persisted, even when the replica fails and needs to be restarted, the Reliable State Manager
+has enough information in its logs to replay all the operations the replica has lost.</target>
+        </trans-unit>
+        <trans-unit id="c4a10598-c8a2-4e90-80a5-d5a4ac259f2e" xml:space="preserve">
+          <source>As disk is infinite, log records never need to be removed and the Reliable Collection only needs to manage the in-memory state.</source>
+          <target state="new">As disk is infinite, log records never need to be removed and the Reliable Collection only needs to manage the in-memory state.</target>
+        </trans-unit>
+        <trans-unit id="64e8cc8c-e579-4157-ab95-4b3a129d4516" xml:space="preserve">
+          <source>Now let’s look at the finite disk scenario.</source>
+          <target state="new">Now let’s look at the finite disk scenario.</target>
+        </trans-unit>
+        <trans-unit id="b277e5ea-2cc9-445c-aed9-aa5b6e587efa" xml:space="preserve">
+          <source>At one point the Reliable State Manager will run out of disk space.</source>
+          <target state="new">At one point the Reliable State Manager will run out of disk space.</target>
+        </trans-unit>
+        <trans-unit id="5622b753-8265-43e9-bef9-dc77f054d40a" xml:space="preserve">
+          <source>Before that happens the Reliable State Manager needs to truncate its log to make room for the newer records.</source>
+          <target state="new">Before that happens the Reliable State Manager needs to truncate its log to make room for the newer records.</target>
+        </trans-unit>
+        <trans-unit id="bfdd6b37-2f7d-47ae-b055-3498c77f394f" xml:space="preserve">
+          <source>It will request the Reliable Collections to checkpoint their in-memory state.</source>
+          <target state="new">It will request the Reliable Collections to checkpoint their in-memory state.</target>
+        </trans-unit>
+        <trans-unit id="4ed54b5a-e6a1-4cdb-9e63-94da1ac28f0a" xml:space="preserve">
+          <source>It is the Reliable Collection's responsibility to persist its state up to that point.</source>
+          <target state="new">It is the Reliable Collection's responsibility to persist its state up to that point.</target>
+        </trans-unit>
+        <trans-unit id="56f813af-06b4-4a1c-b3bd-6631569c99d3" xml:space="preserve">
+          <source>Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.</source>
+          <target state="new">Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.</target>
+        </trans-unit>
+        <trans-unit id="587d126d-70af-40f7-b29f-84fb100c13f8" xml:space="preserve">
+          <source>This way, when the replica needs to be restarted, Reliable Collections will recover their
+checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred
+since the checkpoint.</source>
+          <target state="new">This way, when the replica needs to be restarted, Reliable Collections will recover their
+checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred
+since the checkpoint.</target>
+        </trans-unit>
+        <trans-unit id="8dc79401-2e91-4e1b-95b1-68495299e661" xml:space="preserve">
+          <source>In Reliable Collections, all transactions are two-phased: a transaction does not release
+the locks it has acquired until the transaction terminates with either an abort or commit.</source>
+          <target state="new">In Reliable Collections, all transactions are two-phased: a transaction does not release
+the locks it has acquired until the transaction terminates with either an abort or commit.</target>
+        </trans-unit>
+        <trans-unit id="8541faed-43d1-4dbe-a659-7c8511182302" xml:space="preserve">
+          <source>Reliable Collections always take Exclusive locks.</source>
+          <target state="new">Reliable Collections always take Exclusive locks.</target>
+        </trans-unit>
+        <trans-unit id="9b83d6f8-d78d-4523-b4c6-4a2cd47ca7a8" xml:space="preserve">
+          <source>For reads, the locking is dependent on couple of factors.</source>
+          <target state="new">For reads, the locking is dependent on couple of factors.</target>
+        </trans-unit>
+        <trans-unit id="aab7798e-da5a-4b37-ab05-831d3b92a3b9" xml:space="preserve">
+          <source>Any read operation done using Shapshot Isolation is lock free.</source>
+          <target state="new">Any read operation done using Shapshot Isolation is lock free.</target>
+        </trans-unit>
+        <trans-unit id="01c52144-aff1-4d50-a982-9d13bee710e2" xml:space="preserve">
+          <source>Any Repeatable read operation by default takes Shared locks.</source>
+          <target state="new">Any Repeatable read operation by default takes Shared locks.</target>
+        </trans-unit>
+        <trans-unit id="8f8ad845-4d0d-4a97-80b7-e5c88b3d9c85" xml:space="preserve">
+          <source>However, for any read operation that supports Repeatable Read, user can ask for an
+Update lock instead of the Shared lock.</source>
+          <target state="new">However, for any read operation that supports Repeatable Read, user can ask for an
+Update lock instead of the Shared lock.</target>
+        </trans-unit>
+        <trans-unit id="462bd0cc-f572-402f-891b-979f774c52f8" xml:space="preserve">
+          <source>Update lock is an asymmetric lock used to prevent a common form of deadlock that
+occurs when multiple transactions lock resources for potential update at a later time.</source>
+          <target state="new">Update lock is an asymmetric lock used to prevent a common form of deadlock that
+occurs when multiple transactions lock resources for potential update at a later time.</target>
+        </trans-unit>
+        <trans-unit id="ae60e2a5-ffcb-46f1-853b-f328031870b5" xml:space="preserve">
+          <source>The lock compatibility matrix can be found below:</source>
+          <target state="new">The lock compatibility matrix can be found below:</target>
+        </trans-unit>
+        <trans-unit id="91804cff-e4fd-40b7-9f5e-1e60c238ab47" xml:space="preserve">
+          <source>Request \ Granted</source>
+          <target state="new">Request \ Granted</target>
+        </trans-unit>
+        <trans-unit id="67a30cf0-4904-4c58-b8ab-62b75e54d8b3" xml:space="preserve">
+          <source>None</source>
+          <target state="new">None</target>
+        </trans-unit>
+        <trans-unit id="d63a7918-8e4d-49c3-9630-5832bb0201ab" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="3f7b2d43-b681-4b5f-aed6-f01ed464b93a" xml:space="preserve">
+          <source>Update</source>
+          <target state="new">Update</target>
+        </trans-unit>
+        <trans-unit id="407d9de0-130a-4c05-afd6-1b9ee27a99ff" xml:space="preserve">
+          <source>Exclusive</source>
+          <target state="new">Exclusive</target>
+        </trans-unit>
+        <trans-unit id="b8c99db8-27f6-4e73-b855-c991f5d5b13d" xml:space="preserve">
+          <source>Shared</source>
+          <target state="new">Shared</target>
+        </trans-unit>
+        <trans-unit id="20a40554-1a93-4058-94b1-d3ed45d6e48f" xml:space="preserve">
+          <source>No Conflict</source>
+          <target state="new">No Conflict</target>
+        </trans-unit>
+        <trans-unit id="aa4d4965-87be-4ae5-a2dd-d2d37cfeb7f2" xml:space="preserve">
+          <source>No Conflict</source>
+          <target state="new">No Conflict</target>
+        </trans-unit>
+        <trans-unit id="3e083365-bbc7-44dc-a4ee-c8c7ba50e906" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="c5aeaa9d-9341-4b64-9256-a680a15dec9d" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="80e6455b-005d-4909-8a9b-735efedcd613" xml:space="preserve">
+          <source>Update</source>
+          <target state="new">Update</target>
+        </trans-unit>
+        <trans-unit id="a5db9f6f-466a-4c18-8a5e-1892a2e675b0" xml:space="preserve">
+          <source>No Conflict</source>
+          <target state="new">No Conflict</target>
+        </trans-unit>
+        <trans-unit id="b37fafc5-8831-47dc-9f1a-7e4b5231dba1" xml:space="preserve">
+          <source>No Conflict</source>
+          <target state="new">No Conflict</target>
+        </trans-unit>
+        <trans-unit id="69ec488a-f1e6-4332-bb6c-0abc01a71198" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="0266a545-c76a-4dfd-9728-27595bdfa08e" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="34a2a6bd-50ae-47f9-9d17-6898f9ff4c32" xml:space="preserve">
+          <source>Exclusive</source>
+          <target state="new">Exclusive</target>
+        </trans-unit>
+        <trans-unit id="d9df0cc8-bbc8-4fb8-8ba8-c58c7ea089ad" xml:space="preserve">
+          <source>No Conflict</source>
+          <target state="new">No Conflict</target>
+        </trans-unit>
+        <trans-unit id="f329707e-e759-4687-984d-15909afc310b" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="2b0576c9-d823-42a9-a38f-9289b15d83e6" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="71693bb0-0531-4b35-a327-227f4908c216" xml:space="preserve">
+          <source>Conflict</source>
+          <target state="new">Conflict</target>
+        </trans-unit>
+        <trans-unit id="065e8747-637a-482d-af34-8e08ca87e8d0" xml:space="preserve">
+          <source>Note that timeout argument in the Reliable Collections APIs are used as a deadlock detection.</source>
+          <target state="new">Note that timeout argument in the Reliable Collections APIs are used as a deadlock detection.</target>
+        </trans-unit>
+        <trans-unit id="427f2472-3267-46ea-8afb-5ea023e11409" xml:space="preserve">
+          <source>For example, two transactions (T1 and T2) are trying to read and update K1.</source>
+          <target state="new">For example, two transactions (T1 and T2) are trying to read and update K1.</target>
+        </trans-unit>
+        <trans-unit id="dc3f42c1-fe53-4f80-9c31-e67ccc0bb702" xml:space="preserve">
+          <source>It is possible for them to deadlock, because they both end up having the Shared lock.</source>
+          <target state="new">It is possible for them to deadlock, because they both end up having the Shared lock.</target>
+        </trans-unit>
+        <trans-unit id="dde706e4-0a73-4745-b771-0e6d097d0339" xml:space="preserve">
+          <source>In this case, one or both of the operations will timeout.</source>
+          <target state="new">In this case, one or both of the operations will timeout.</target>
+        </trans-unit>
+        <trans-unit id="781dc4fd-28c1-4f42-913b-94f6515471b2" xml:space="preserve">
+          <source>Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.</source>
+          <target state="new">Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.</target>
+        </trans-unit>
+        <trans-unit id="460d04d6-0f12-4059-b7da-21cce9643e7b" xml:space="preserve">
+          <source><bpt id="dba4969e-ff09-4b5c-8cfb-e83be7f2f034">&lt;strong&gt;</bpt>DO NOT<ept id="dba4969e-ff09-4b5c-8cfb-e83be7f2f034">&lt;/strong&gt;</ept> modify an object of custom type returned by read operations (e.g <bpt id="31507150-abe3-4542-8d89-ca2cf773e350">&lt;code&gt;</bpt>TryPeekAsync<ept id="31507150-abe3-4542-8d89-ca2cf773e350">&lt;/code&gt;</ept> or <bpt id="f74b7262-06ec-409b-9717-540c0ed4f2fd">&lt;code&gt;</bpt>TryGetAsync<ept id="f74b7262-06ec-409b-9717-540c0ed4f2fd">&lt;/code&gt;</ept>).</source>
+          <target state="new"><bpt id="dba4969e-ff09-4b5c-8cfb-e83be7f2f034">&lt;strong&gt;</bpt>DO NOT<ept id="dba4969e-ff09-4b5c-8cfb-e83be7f2f034">&lt;/strong&gt;</ept> modify an object of custom type returned by read operations (e.g <bpt id="31507150-abe3-4542-8d89-ca2cf773e350">&lt;code&gt;</bpt>TryPeekAsync<ept id="31507150-abe3-4542-8d89-ca2cf773e350">&lt;/code&gt;</ept> or <bpt id="f74b7262-06ec-409b-9717-540c0ed4f2fd">&lt;code&gt;</bpt>TryGetAsync<ept id="f74b7262-06ec-409b-9717-540c0ed4f2fd">&lt;/code&gt;</ept>).</target>
+        </trans-unit>
+        <trans-unit id="688c24a2-2520-4602-9fc0-3a8a929a9c27" xml:space="preserve">
+          <source>Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.</source>
+          <target state="new">Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.</target>
+        </trans-unit>
+        <trans-unit id="47d8d8cd-9cb2-46dd-a1ca-51c2aba26c5e" xml:space="preserve">
+          <source><bpt id="7b2ac7b4-2dec-4e0a-9008-441489275e68">&lt;strong&gt;</bpt>DO<ept id="7b2ac7b4-2dec-4e0a-9008-441489275e68">&lt;/strong&gt;</ept> deep copy returned object of custom type before modifying it.</source>
+          <target state="new"><bpt id="7b2ac7b4-2dec-4e0a-9008-441489275e68">&lt;strong&gt;</bpt>DO<ept id="7b2ac7b4-2dec-4e0a-9008-441489275e68">&lt;/strong&gt;</ept> deep copy returned object of custom type before modifying it.</target>
+        </trans-unit>
+        <trans-unit id="5f1e8239-4628-4d2c-b124-d0cf5c3b3db6" xml:space="preserve">
+          <source>Since, structs and built-in types are pass-by-value, you do not need to do a deep copy on them.</source>
+          <target state="new">Since, structs and built-in types are pass-by-value, you do not need to do a deep copy on them.</target>
+        </trans-unit>
+        <trans-unit id="16d509a2-970d-42c6-84db-894dc7f37408" xml:space="preserve">
+          <source><bpt id="33b36a87-78b8-413e-8648-517b6b606906">&lt;strong&gt;</bpt>DO NOT<ept id="33b36a87-78b8-413e-8648-517b6b606906">&lt;/strong&gt;</ept> use <bpt id="0b789002-2eb5-47f8-8054-732a93472a7e">&lt;code&gt;</bpt>TimeSpan.MaxValue<ept id="0b789002-2eb5-47f8-8054-732a93472a7e">&lt;/code&gt;</ept> for timeouts.</source>
+          <target state="new"><bpt id="33b36a87-78b8-413e-8648-517b6b606906">&lt;strong&gt;</bpt>DO NOT<ept id="33b36a87-78b8-413e-8648-517b6b606906">&lt;/strong&gt;</ept> use <bpt id="0b789002-2eb5-47f8-8054-732a93472a7e">&lt;code&gt;</bpt>TimeSpan.MaxValue<ept id="0b789002-2eb5-47f8-8054-732a93472a7e">&lt;/code&gt;</ept> for timeouts.</target>
+        </trans-unit>
+        <trans-unit id="6a73e2bc-8563-4ebe-9d2b-63ea81184ef2" xml:space="preserve">
+          <source>Timeouts should be used to detect deadlocks.</source>
+          <target state="new">Timeouts should be used to detect deadlocks.</target>
+        </trans-unit>
+        <trans-unit id="686cf0c8-e06f-4f46-acc6-4641671faaaa" xml:space="preserve">
+          <source><bpt id="7fca3ad4-2537-4d2b-ba6b-6f2974657d8e">&lt;strong&gt;</bpt>DO NOT<ept id="7fca3ad4-2537-4d2b-ba6b-6f2974657d8e">&lt;/strong&gt;</ept> create a transaction within another transaction’s <bpt id="979e37f7-90e0-418e-8472-72a84e4ad3a8">&lt;code&gt;</bpt>using<ept id="979e37f7-90e0-418e-8472-72a84e4ad3a8">&lt;/code&gt;</ept> statement because it can cause deadlocks.</source>
+          <target state="new"><bpt id="7fca3ad4-2537-4d2b-ba6b-6f2974657d8e">&lt;strong&gt;</bpt>DO NOT<ept id="7fca3ad4-2537-4d2b-ba6b-6f2974657d8e">&lt;/strong&gt;</ept> create a transaction within another transaction’s <bpt id="979e37f7-90e0-418e-8472-72a84e4ad3a8">&lt;code&gt;</bpt>using<ept id="979e37f7-90e0-418e-8472-72a84e4ad3a8">&lt;/code&gt;</ept> statement because it can cause deadlocks.</target>
+        </trans-unit>
+        <trans-unit id="5b9444b6-77ce-4398-ba13-9ddd96dcc1ec" xml:space="preserve">
+          <source>Here are some things to keep in mind:</source>
+          <target state="new">Here are some things to keep in mind:</target>
+        </trans-unit>
+        <trans-unit id="91971ba2-e283-4070-98be-56a743e0cdaf" xml:space="preserve">
+          <source>The default timeout is 4 seconds for all the Reliable Collection APIs.</source>
+          <target state="new">The default timeout is 4 seconds for all the Reliable Collection APIs.</target>
+        </trans-unit>
+        <trans-unit id="35ecc2eb-c7ca-4ec6-be84-81338a7c44bb" xml:space="preserve">
+          <source>Most users should not override this.</source>
+          <target state="new">Most users should not override this.</target>
+        </trans-unit>
+        <trans-unit id="38a0fc49-3f2e-4de8-8499-568301ae815e" xml:space="preserve">
+          <source>The default cancellation token is <bpt id="2d6f38b6-4cef-4be0-99bd-7cd01742b5ab">&lt;code&gt;</bpt>CancellationToken.None<ept id="2d6f38b6-4cef-4be0-99bd-7cd01742b5ab">&lt;/code&gt;</ept> in all Reliable Collections APIs.</source>
+          <target state="new">The default cancellation token is <bpt id="2d6f38b6-4cef-4be0-99bd-7cd01742b5ab">&lt;code&gt;</bpt>CancellationToken.None<ept id="2d6f38b6-4cef-4be0-99bd-7cd01742b5ab">&lt;/code&gt;</ept> in all Reliable Collections APIs.</target>
+        </trans-unit>
+        <trans-unit id="ff2d4cd3-baa4-4bb5-8c8e-3722de78296a" xml:space="preserve">
+          <source>Enumerations are snapshot consistent within a collection.</source>
+          <target state="new">Enumerations are snapshot consistent within a collection.</target>
+        </trans-unit>
+        <trans-unit id="7bf01634-0c85-49d8-9677-cbe33a7337e0" xml:space="preserve">
+          <source>However, enumerations of multiple collections are not consistent across collections.</source>
+          <target state="new">However, enumerations of multiple collections are not consistent across collections.</target>
+        </trans-unit>
+        <trans-unit id="305fa2b1-6553-42af-8ea6-039974a566de" xml:space="preserve">
+          <source>To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.</source>
+          <target state="new">To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.</target>
+        </trans-unit>
+        <trans-unit id="5436a5f1-3fc2-4743-957d-69e2963ae8ed" xml:space="preserve">
+          <source><bpt id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;linkText&gt;</bpt>Reliable Services Quick Start<ept id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;/linkText&gt;</ept><bpt id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;title&gt;</bpt><ept id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;linkText&gt;</bpt>Reliable Services Quick Start<ept id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;/linkText&gt;</ept><bpt id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;title&gt;</bpt><ept id="dd147fad-9f9f-486b-8d69-7d8e60ed641c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e07c0252-8836-4a4c-81d8-d2a3090e1b09" xml:space="preserve">
+          <source><bpt id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;linkText&gt;</bpt>Getting Started with Service Fabric Web API services<ept id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;/linkText&gt;</ept><bpt id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;title&gt;</bpt><ept id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;linkText&gt;</bpt>Getting Started with Service Fabric Web API services<ept id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;/linkText&gt;</ept><bpt id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;title&gt;</bpt><ept id="2f8602f1-9442-417a-bba6-e48621a838d0">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e5a0fc92-f535-4973-8ab2-642383d54198" xml:space="preserve">
+          <source><bpt id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;linkText&gt;</bpt>Advanced usage of the Reliable Services programming model<ept id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;/linkText&gt;</ept><bpt id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;title&gt;</bpt><ept id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;linkText&gt;</bpt>Advanced usage of the Reliable Services programming model<ept id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;/linkText&gt;</ept><bpt id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;title&gt;</bpt><ept id="97cdec26-18c1-487b-b96f-411dbe515827">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5c4952cc-346f-4250-ac84-c57e598204a2" xml:space="preserve">
+          <source><bpt id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;linkText&gt;</bpt>Developer reference for Reliable Collections<ept id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;/linkText&gt;</ept><bpt id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;title&gt;</bpt><ept id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;linkText&gt;</bpt>Developer reference for Reliable Collections<ept id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;/linkText&gt;</ept><bpt id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;title&gt;</bpt><ept id="60aabd5e-ed1e-4c59-afac-3043b61512c6">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

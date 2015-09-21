@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="c712aa3f-2b51-4def-94fc-c7f9ccd804bf" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="c712aa3f-2b51-4def-94fc-c7f9ccd804bf" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4b1ef364-f4b8-4e16-b507-ee6d5c5dc17a">
+        <trans-unit id="079edb25-3d45-44f3-8c77-efc89e871b86" xml:space="preserve">
+          <source>&lt;properties 
+    pageTitle="How to use your Office 365 subscription with Azure RemoteApp"
+    description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</source>
+          <target state="new">&lt;properties 
+    pageTitle="How to use your Office 365 subscription with Azure RemoteApp"
+    description="Learn how you can use your Office 365 subscription in Azure RemoteApp to share Office apps."
+    services="remoteapp"
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="40ea6759-70b1-48ea-bcb7-e40be23f1893" xml:space="preserve">
+          <source>&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" /&gt;</source>
+          <target state="new">&lt;tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" /&gt;</target>
+        </trans-unit>
+        <trans-unit id="718d2d5f-569f-433e-bbcd-6aae38d9a415" xml:space="preserve">
+          <source>Did you know that you can use your existing Office 365 subscription in Azure RemoteApp to share Office apps from the cloud?</source>
+          <target state="new">Did you know that you can use your existing Office 365 subscription in Azure RemoteApp to share Office apps from the cloud?</target>
+        </trans-unit>
+        <trans-unit id="375adc30-9886-4106-8be8-fcd993046d1e" xml:space="preserve">
+          <source>Read on for information on your Office 365 + Azure RemoteApp options, including links to articles about Office 365 that help you make the most of your subscription.</source>
+          <target state="new">Read on for information on your Office 365 + Azure RemoteApp options, including links to articles about Office 365 that help you make the most of your subscription.</target>
+        </trans-unit>
+        <trans-unit id="bf879619-16bf-46a7-9291-8f7781950818" xml:space="preserve">
+          <source>Yes!</source>
+          <target state="new">Yes!</target>
+        </trans-unit>
+        <trans-unit id="32aa6f31-7b9f-40b4-a8d9-c42d2f021257" xml:space="preserve">
+          <source>In fact, using your Office 365 subscription is the only way to bring your Office applications to Azure RemoteApp.</source>
+          <target state="new">In fact, using your Office 365 subscription is the only way to bring your Office applications to Azure RemoteApp.</target>
+        </trans-unit>
+        <trans-unit id="89037c97-bc47-4064-8003-0c64bd20cd88" xml:space="preserve">
+          <source>The great thing about your Office 365 subscription is that it lets you use the same user license on many different platforms and environments, including the Azure cloud.</source>
+          <target state="new">The great thing about your Office 365 subscription is that it lets you use the same user license on many different platforms and environments, including the Azure cloud.</target>
+        </trans-unit>
+        <trans-unit id="a3959d2e-1d8e-454c-9b9a-f7712d592ce6" xml:space="preserve">
+          <source>When you use Office applications in Azure RemoteApp you don't need to purchase additional licenses or configure your existing licenses in any special way.</source>
+          <target state="new">When you use Office applications in Azure RemoteApp you don't need to purchase additional licenses or configure your existing licenses in any special way.</target>
+        </trans-unit>
+        <trans-unit id="9a91581e-af15-47db-870b-b6f87eb7d273" xml:space="preserve">
+          <source>All you need is an Office 365 subscription that includes <bpt id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;linkText&gt;</bpt>Office 365 ProPlus<ept id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;/linkText&gt;</ept><bpt id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;title&gt;</bpt><ept id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;/title&gt;</ept>.</source>
+          <target state="new">All you need is an Office 365 subscription that includes <bpt id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;linkText&gt;</bpt>Office 365 ProPlus<ept id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;/linkText&gt;</ept><bpt id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;title&gt;</bpt><ept id="cae11884-f5e2-416c-ba98-5fe710a4bb18">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="41da401a-7b83-4478-b76f-2d92971497e8" xml:space="preserve">
+          <source>Office 365 ProPlus enables <bpt id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;linkText&gt;</bpt>shared computer activation<ept id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;/linkText&gt;</ept><bpt id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;title&gt;</bpt><ept id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;/title&gt;</ept> - this feature enables temporary user-based activation for Office in virtual and cloud environments like Azure RemoteApp (and Remote Desktop Services).</source>
+          <target state="new">Office 365 ProPlus enables <bpt id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;linkText&gt;</bpt>shared computer activation<ept id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;/linkText&gt;</ept><bpt id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;title&gt;</bpt><ept id="536104e9-6ecc-4cd7-80fc-c85df0d3a9e1">&lt;/title&gt;</ept> - this feature enables temporary user-based activation for Office in virtual and cloud environments like Azure RemoteApp (and Remote Desktop Services).</target>
+        </trans-unit>
+        <trans-unit id="ea713fab-f8e7-40e8-b1d8-ebf684e00722" xml:space="preserve">
+          <source>Which Office 365 plans include Office 365 ProPlus?</source>
+          <target state="new">Which Office 365 plans include Office 365 ProPlus?</target>
+        </trans-unit>
+        <trans-unit id="67f683dc-58b5-4a93-a4e8-f8ae0f1f22d3" xml:space="preserve">
+          <source>Check out the <bpt id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;linkText&gt;</bpt>Service availability within each plan<ept id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;/linkText&gt;</ept><bpt id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;title&gt;</bpt><ept id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;/title&gt;</ept> table.</source>
+          <target state="new">Check out the <bpt id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;linkText&gt;</bpt>Service availability within each plan<ept id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;/linkText&gt;</ept><bpt id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;title&gt;</bpt><ept id="da50b52b-02e4-418b-9973-c3f4dc931529">&lt;/title&gt;</ept> table.</target>
+        </trans-unit>
+        <trans-unit id="64d633a5-942c-4832-b4ef-20420efda724" xml:space="preserve">
+          <source>Note that not all plans include Office 365 ProPlus (for example, the Office 365 Business plan).</source>
+          <target state="new">Note that not all plans include Office 365 ProPlus (for example, the Office 365 Business plan).</target>
+        </trans-unit>
+        <trans-unit id="ce00dea8-9ae2-4b1f-9694-acbccd712be0" xml:space="preserve">
+          <source>If your plan does not, consider upgrading to a plan that does (for example, Office 365 Education E3).</source>
+          <target state="new">If your plan does not, consider upgrading to a plan that does (for example, Office 365 Education E3).</target>
+        </trans-unit>
+        <trans-unit id="2780115c-5221-4370-ba44-0c5691243ca1" xml:space="preserve">
+          <source>Each user license for Office 365 ProPlus lets a single user activate Office applications on up to 5 computers plus tablets and phones.</source>
+          <target state="new">Each user license for Office 365 ProPlus lets a single user activate Office applications on up to 5 computers plus tablets and phones.</target>
+        </trans-unit>
+        <trans-unit id="4354e690-f95c-472d-9395-4c5baaa23b6b" xml:space="preserve">
+          <source>Each activation is registered with the user until they deactivate Office on the device.</source>
+          <target state="new">Each activation is registered with the user until they deactivate Office on the device.</target>
+        </trans-unit>
+        <trans-unit id="188e2463-1c36-4f76-8031-a869846d1bff" xml:space="preserve">
+          <source>(Users can manage their devices in the <bpt id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;linkText&gt;</bpt>Office 365 portal<ept id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;/linkText&gt;</ept><bpt id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;title&gt;</bpt><ept id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;/title&gt;</ept>.)</source>
+          <target state="new">(Users can manage their devices in the <bpt id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;linkText&gt;</bpt>Office 365 portal<ept id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;/linkText&gt;</ept><bpt id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;title&gt;</bpt><ept id="f965b634-3e4c-4a5a-b421-8f9797d6af77">&lt;/title&gt;</ept>.)</target>
+        </trans-unit>
+        <trans-unit id="4d1f5fa3-45e4-44d3-83b1-299461f88c9d" xml:space="preserve">
+          <source>As long as you (the admin) assign Office 365 ProPlus licenses to your users, they can use Office on their personal devices, as well as through your Azure RemoteApp collection.</source>
+          <target state="new">As long as you (the admin) assign Office 365 ProPlus licenses to your users, they can use Office on their personal devices, as well as through your Azure RemoteApp collection.</target>
+        </trans-unit>
+        <trans-unit id="0e021ec1-7671-4a11-94b3-ad665545c3ff" xml:space="preserve">
+          <source>You can use your Office 365 ProPlus subscription to share Office 2013 and Office 2016 (after it's released).</source>
+          <target state="new">You can use your Office 365 ProPlus subscription to share Office 2013 and Office 2016 (after it's released).</target>
+        </trans-unit>
+        <trans-unit id="98595a7c-12ac-4f60-844a-a4dc33cd6f45" xml:space="preserve">
+          <source>Azure RemoteApp doesn't support earlier versions of Office.</source>
+          <target state="new">Azure RemoteApp doesn't support earlier versions of Office.</target>
+        </trans-unit>
+        <trans-unit id="8aaff41c-0070-4568-a813-9c06168740b8" xml:space="preserve">
+          <source>The Office 365 ProPlus image included in your RemoteApp subscription includes both Visio Pro and Project Pro.</source>
+          <target state="new">The Office 365 ProPlus image included in your RemoteApp subscription includes both Visio Pro and Project Pro.</target>
+        </trans-unit>
+        <trans-unit id="99e3d765-d4f7-4eb1-94f7-f14b842b111b" xml:space="preserve">
+          <source>But you cannot use your Office 365 ProPlus subscription to activate those programs - they each have their own license.</source>
+          <target state="new">But you cannot use your Office 365 ProPlus subscription to activate those programs - they each have their own license.</target>
+        </trans-unit>
+        <trans-unit id="8dfd6bea-02cf-400d-95bc-c10c2f9b705c" xml:space="preserve">
+          <source>You can activate them in the <bpt id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;linkText&gt;</bpt>Office 365 portal<ept id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;/linkText&gt;</ept><bpt id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;title&gt;</bpt><ept id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;/title&gt;</ept>.</source>
+          <target state="new">You can activate them in the <bpt id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;linkText&gt;</bpt>Office 365 portal<ept id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;/linkText&gt;</ept><bpt id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;title&gt;</bpt><ept id="1b57df2f-4ae3-4763-af86-aa1c6dca9e87">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="18e4877c-6e31-4197-b445-413c8030670d" xml:space="preserve">
+          <source>You don't have to license these programs if you don't want to use them.</source>
+          <target state="new">You don't have to license these programs if you don't want to use them.</target>
+        </trans-unit>
+        <trans-unit id="b70ebbc5-95ce-423e-8085-46ba965092fe" xml:space="preserve">
+          <source>Just activate the programs you want to use - and skip the others.</source>
+          <target state="new">Just activate the programs you want to use - and skip the others.</target>
+        </trans-unit>
+        <trans-unit id="ed1f7259-1188-4c41-bdbd-ed859da3fbe1" xml:space="preserve">
+          <source>You'll still see them in the image, but you can't use them.</source>
+          <target state="new">You'll still see them in the image, but you can't use them.</target>
+        </trans-unit>
+        <trans-unit id="52879621-c226-4e3f-95ed-614715cacdd9" xml:space="preserve">
+          <source>Now that you know the details of Office 365 licensing, let's get you started using it in Azure RemoteApp - it's very easy:</source>
+          <target state="new">Now that you know the details of Office 365 licensing, let's get you started using it in Azure RemoteApp - it's very easy:</target>
+        </trans-unit>
+        <trans-unit id="916ff60b-4f9f-4907-8f30-54c57dbfe284" xml:space="preserve">
+          <source>When you create your Azure RemoteApp collection, use the <bpt id="d0fde295-1977-4e72-a8d7-903adbf98167">&lt;strong&gt;</bpt>Office 365 ProPlus (Subscription required)<ept id="d0fde295-1977-4e72-a8d7-903adbf98167">&lt;/strong&gt;</ept> image.</source>
+          <target state="new">When you create your Azure RemoteApp collection, use the <bpt id="d0fde295-1977-4e72-a8d7-903adbf98167">&lt;strong&gt;</bpt>Office 365 ProPlus (Subscription required)<ept id="d0fde295-1977-4e72-a8d7-903adbf98167">&lt;/strong&gt;</ept> image.</target>
+        </trans-unit>
+        <trans-unit id="1736f575-46c5-4765-99d4-9f88acdf94a5" xml:space="preserve">
+          <source><bpt id="de7ee0fc-a529-477f-a3f4-9e3b77c13dcb">&lt;linkText&gt;</bpt>Azure RemoteApp image with Office 365 Pro Plus<ept id="de7ee0fc-a529-477f-a3f4-9e3b77c13dcb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="de7ee0fc-a529-477f-a3f4-9e3b77c13dcb">&lt;linkText&gt;</bpt>Azure RemoteApp image with Office 365 Pro Plus<ept id="de7ee0fc-a529-477f-a3f4-9e3b77c13dcb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a17bb370-80d0-47a6-9ad9-fb59b66ed011" xml:space="preserve">
+          <source>This image contains the latest version of Windows Server and Office 365 ProPlus.</source>
+          <target state="new">This image contains the latest version of Windows Server and Office 365 ProPlus.</target>
+        </trans-unit>
+        <trans-unit id="ff89ddeb-f8b2-4cd1-983a-59417d1fb89c" xml:space="preserve">
+          <source>After you configure your collection (including publishing apps), your users simply log into Azure RemoteApp (by using their RemoteApp client) and provide their Office 365 credentials for any Office apps.</source>
+          <target state="new">After you configure your collection (including publishing apps), your users simply log into Azure RemoteApp (by using their RemoteApp client) and provide their Office 365 credentials for any Office apps.</target>
+        </trans-unit>
+        <trans-unit id="5a921e24-6c5f-40fb-9915-5caabfd9fa51" xml:space="preserve">
+          <source>Licenses are automatically delivered without any set up or management required.</source>
+          <target state="new">Licenses are automatically delivered without any set up or management required.</target>
+        </trans-unit>
+        <trans-unit id="bb0d8416-f8b7-4488-966c-92912219a046" xml:space="preserve">
+          <source>You can create a custom image for your collection that contains Office 365 ProPlus.</source>
+          <target state="new">You can create a custom image for your collection that contains Office 365 ProPlus.</target>
+        </trans-unit>
+        <trans-unit id="1ac90ca0-13fd-4bcc-bd9d-476fab8295c9" xml:space="preserve">
+          <source>There are 2 choices - use the Azure gallery image we provide or you can create your own custom image and install Office 365 ProPlus there.</source>
+          <target state="new">There are 2 choices - use the Azure gallery image we provide or you can create your own custom image and install Office 365 ProPlus there.</target>
+        </trans-unit>
+        <trans-unit id="05cf9d18-b759-4781-8802-68ccaeda0c7e" xml:space="preserve">
+          <source>The easiest way to deploy Office 365 ProPlus to a collection is to <bpt id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;linkText&gt;</bpt>start with one of the Azure gallery images<ept id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;/linkText&gt;</ept><bpt id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;title&gt;</bpt><ept id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;/title&gt;</ept> included in your Azure RemoteApp subscription.</source>
+          <target state="new">The easiest way to deploy Office 365 ProPlus to a collection is to <bpt id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;linkText&gt;</bpt>start with one of the Azure gallery images<ept id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;/linkText&gt;</ept><bpt id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;title&gt;</bpt><ept id="ecb8fd9c-1440-43f2-a6d5-d08b45aa6b54">&lt;/title&gt;</ept> included in your Azure RemoteApp subscription.</target>
+        </trans-unit>
+        <trans-unit id="5af8feec-2689-46bc-bc8e-0c35f9133789" xml:space="preserve">
+          <source>Make sure you choose the <bpt id="9e31177a-b691-4660-ad10-c7630525a2db">&lt;strong&gt;</bpt>Windows Server Remote Desktop Session Host with Office 365 ProPlus pre-installed<ept id="9e31177a-b691-4660-ad10-c7630525a2db">&lt;/strong&gt;</ept> image.</source>
+          <target state="new">Make sure you choose the <bpt id="9e31177a-b691-4660-ad10-c7630525a2db">&lt;strong&gt;</bpt>Windows Server Remote Desktop Session Host with Office 365 ProPlus pre-installed<ept id="9e31177a-b691-4660-ad10-c7630525a2db">&lt;/strong&gt;</ept> image.</target>
+        </trans-unit>
+        <trans-unit id="01ac78b9-36e9-4c98-9a29-2975ba86cff5" xml:space="preserve">
+          <source>Then, install any other apps you want on that image, and you're good to go.</source>
+          <target state="new">Then, install any other apps you want on that image, and you're good to go.</target>
+        </trans-unit>
+        <trans-unit id="985a23b7-bbb5-463d-9cbf-aeb5cee54296" xml:space="preserve">
+          <source>You can always create a custom image - you can create an <bpt id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;linkText&gt;</bpt>Azure VM<ept id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;/linkText&gt;</ept><bpt id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;title&gt;</bpt><ept id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;/title&gt;</ept> or <bpt id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;linkText&gt;</bpt>create the image locally<ept id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;/linkText&gt;</ept><bpt id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;title&gt;</bpt><ept id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;/title&gt;</ept> and upload it to Azure.</source>
+          <target state="new">You can always create a custom image - you can create an <bpt id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;linkText&gt;</bpt>Azure VM<ept id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;/linkText&gt;</ept><bpt id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;title&gt;</bpt><ept id="20450c60-e20d-45f6-adc0-55f39c43cbd2">&lt;/title&gt;</ept> or <bpt id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;linkText&gt;</bpt>create the image locally<ept id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;/linkText&gt;</ept><bpt id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;title&gt;</bpt><ept id="55ecb446-ff24-441c-884f-1ecdb6fcbb7f">&lt;/title&gt;</ept> and upload it to Azure.</target>
+        </trans-unit>
+        <trans-unit id="88a0c5cd-e9f4-4bfa-b1f5-7e64b7b90065" xml:space="preserve">
+          <source>In either case, make sure you install Office 365 ProPlus using the shared computer activation node.</source>
+          <target state="new">In either case, make sure you install Office 365 ProPlus using the shared computer activation node.</target>
+        </trans-unit>
+        <trans-unit id="5d4373a4-bf6d-4cad-ac85-c88d86e792b0" xml:space="preserve">
+          <source>Use the <bpt id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;linkText&gt;</bpt>Office Deployment Tool<ept id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;/linkText&gt;</ept><bpt id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;title&gt;</bpt><ept id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;/title&gt;</ept> and follow the <bpt id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;linkText&gt;</bpt>instructions<ept id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;/linkText&gt;</ept><bpt id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;title&gt;</bpt><ept id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;/title&gt;</ept> for installation.</source>
+          <target state="new">Use the <bpt id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;linkText&gt;</bpt>Office Deployment Tool<ept id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;/linkText&gt;</ept><bpt id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;title&gt;</bpt><ept id="28fe0ad3-4803-450a-84b2-bc8001c41bef">&lt;/title&gt;</ept> and follow the <bpt id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;linkText&gt;</bpt>instructions<ept id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;/linkText&gt;</ept><bpt id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;title&gt;</bpt><ept id="c8e8e886-705b-417b-817a-e1f80938fb9e">&lt;/title&gt;</ept> for installation.</target>
+        </trans-unit>
+        <trans-unit id="6aa7cfb3-e1ae-43ef-88b9-149c3e79a3eb" xml:space="preserve">
+          <source>Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases.</source>
+          <target state="new">Your custom image is used by Azure RemoteApp as a template for adding additional resources as the demand from your users increases.</target>
+        </trans-unit>
+        <trans-unit id="f99263c4-25f3-4b26-afd1-1571450b45d1" xml:space="preserve">
+          <source>To prevent delays and connection issues, disable automatic updated for Office in the image.</source>
+          <target state="new">To prevent delays and connection issues, disable automatic updated for Office in the image.</target>
+        </trans-unit>
+        <trans-unit id="d3c9071f-2744-4c60-aace-3a30db26c77e" xml:space="preserve">
+          <source>If you do not, then every resource created with that template will automatically update when it is started.</source>
+          <target state="new">If you do not, then every resource created with that template will automatically update when it is started.</target>
+        </trans-unit>
+        <trans-unit id="03fa49c0-86d3-48a7-ab0d-554f6fdb2350" xml:space="preserve">
+          <source>Instead, use the standard Azure RemoteApp process for updating your custom image.</source>
+          <target state="new">Instead, use the standard Azure RemoteApp process for updating your custom image.</target>
+        </trans-unit>
+        <trans-unit id="c0cfc4ab-a54d-42b1-ae77-bf109e100b0b" xml:space="preserve">
+          <source>That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.</source>
+          <target state="new">That way you update the Office applications once on the template image and then let Azure RemoteApp take care of getting the updates to your users.</target>
+        </trans-unit>
+        <trans-unit id="9a00459b-5e4c-4ede-9ba3-7d5c4db15375" xml:space="preserve">
+          <source>To disable automatic updates, add the following to the Office Deployment Tool configuration file:</source>
+          <target state="new">To disable automatic updates, add the following to the Office Deployment Tool configuration file:</target>
+        </trans-unit>
+        <trans-unit id="18d1617d-d9f3-4b57-9423-a47d16713d24" xml:space="preserve">
+          <source>So now your configuration file should contain these lines:</source>
+          <target state="new">So now your configuration file should contain these lines:</target>
+        </trans-unit>
+        <trans-unit id="d6a3aea9-ba6f-4a9c-b949-621a4ddc09f7" xml:space="preserve">
+          <source>There are many reasons to update the image in your collection.</source>
+          <target state="new">There are many reasons to update the image in your collection.</target>
+        </trans-unit>
+        <trans-unit id="60967b6a-e767-4557-8643-69b49487f66a" xml:space="preserve">
+          <source>Here are just a few:</source>
+          <target state="new">Here are just a few:</target>
+        </trans-unit>
+        <trans-unit id="8e445bb5-818b-4ed6-aa2e-008cb9857ac9" xml:space="preserve">
+          <source>Get the latest Windows updates </source>
+          <target state="new">Get the latest Windows updates </target>
+        </trans-unit>
+        <trans-unit id="35d36d05-5667-4e63-8d22-345438560d53" xml:space="preserve">
+          <source>Get the latest Office 365 ProPlus application updates</source>
+          <target state="new">Get the latest Office 365 ProPlus application updates</target>
+        </trans-unit>
+        <trans-unit id="1f3b0b90-40c5-4ab7-a3b5-547ac495dc09" xml:space="preserve">
+          <source>Update your custom app</source>
+          <target state="new">Update your custom app</target>
+        </trans-unit>
+        <trans-unit id="99fb8bf8-a56d-4a5b-a3bf-d82c0bf62be9" xml:space="preserve">
+          <source>Change other configuration settings for the image itself</source>
+          <target state="new">Change other configuration settings for the image itself</target>
+        </trans-unit>
+        <trans-unit id="2de0f408-039d-4c15-b886-8fadf0e0e4b4" xml:space="preserve">
+          <source>For the end-to-end steps for updating your collection to use the image you updated, go <bpt id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;linkText&gt;</bpt>here<ept id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;/linkText&gt;</ept><bpt id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;title&gt;</bpt><ept id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For the end-to-end steps for updating your collection to use the image you updated, go <bpt id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;linkText&gt;</bpt>here<ept id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;/linkText&gt;</ept><bpt id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;title&gt;</bpt><ept id="cb19c417-62da-448f-bfc6-9108e69292d6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ef5b9c43-5f3f-428a-9e8f-592ba8e2b84b" xml:space="preserve">
+          <source>But for information on how to update the image and Office 365 ProPlus, check out the following information.</source>
+          <target state="new">But for information on how to update the image and Office 365 ProPlus, check out the following information.</target>
+        </trans-unit>
+        <trans-unit id="52f56189-656c-49d9-892d-84e7021b32f8" xml:space="preserve">
+          <source>You have two options for updating your image - replace your image with a completely new one or manually update your existing image.</source>
+          <target state="new">You have two options for updating your image - replace your image with a completely new one or manually update your existing image.</target>
+        </trans-unit>
+        <trans-unit id="c2e9e2e6-0915-4770-a00d-8403b574fb01" xml:space="preserve">
+          <source>With this option, you let Microsoft take care of the Windows Server and Office 365 ProPlus updates.</source>
+          <target state="new">With this option, you let Microsoft take care of the Windows Server and Office 365 ProPlus updates.</target>
+        </trans-unit>
+        <trans-unit id="cdca17bd-8b43-443c-af03-6172b38149e0" xml:space="preserve">
+          <source>Instead of updating your existing image, you'll create a completely new image based on the latest gallery image.</source>
+          <target state="new">Instead of updating your existing image, you'll create a completely new image based on the latest gallery image.</target>
+        </trans-unit>
+        <trans-unit id="cf757d7e-99e5-40a4-8b7a-a9694b9fbe6a" xml:space="preserve">
+          <source>Then, repeat any steps you did before to customize the image - install custom apps, modify the image configuration, etc.</source>
+          <target state="new">Then, repeat any steps you did before to customize the image - install custom apps, modify the image configuration, etc.</target>
+        </trans-unit>
+        <trans-unit id="3c2ddc92-3c6f-4f9b-8b16-81b9e28f3074" xml:space="preserve">
+          <source>The gallery images are regularly updated, so you can rest easy, knowing that your Windows Server and Office 365 ProPlus apps are up to date.</source>
+          <target state="new">The gallery images are regularly updated, so you can rest easy, knowing that your Windows Server and Office 365 ProPlus apps are up to date.</target>
+        </trans-unit>
+        <trans-unit id="cff109dc-91a0-43d5-9db2-21091c17361d" xml:space="preserve">
+          <source>Of course, the trade-off is that you'll have to apply your customizations every time you get a new image.</source>
+          <target state="new">Of course, the trade-off is that you'll have to apply your customizations every time you get a new image.</target>
+        </trans-unit>
+        <trans-unit id="2c61d7b9-fa41-4069-a644-aad27aaec264" xml:space="preserve">
+          <source>You can create scripts to automate setting your customizations.</source>
+          <target state="new">You can create scripts to automate setting your customizations.</target>
+        </trans-unit>
+        <trans-unit id="6e6f5076-70f0-49a7-b89d-f58b38cc99e6" xml:space="preserve">
+          <source>With this option, you use standard Windows tools to apply updates to the image.</source>
+          <target state="new">With this option, you use standard Windows tools to apply updates to the image.</target>
+        </trans-unit>
+        <trans-unit id="3dfb98ce-9bac-4785-916c-7c1c349b92e8" xml:space="preserve">
+          <source>For Office 365 ProPlus, use the Office Deployment tool to download and install the latest updates or versions of Office 365 ProPlus.</source>
+          <target state="new">For Office 365 ProPlus, use the Office Deployment tool to download and install the latest updates or versions of Office 365 ProPlus.</target>
+        </trans-unit>
+        <trans-unit id="d5e305eb-1025-4cf6-b822-f51c1fdacfaf" xml:space="preserve">
+          <source>Remember - disable the Office 365 ProPlus automatic updates.</source>
+          <target state="new">Remember - disable the Office 365 ProPlus automatic updates.</target>
+        </trans-unit>
+        <trans-unit id="a199f7c6-9be5-4cf8-8960-64c8c9ddac5d" xml:space="preserve">
+          <source>Need more information about using the Office Deployment Tool for updates?</source>
+          <target state="new">Need more information about using the Office Deployment Tool for updates?</target>
+        </trans-unit>
+        <trans-unit id="c4ecc950-df71-4634-9c0e-426c920d9e55" xml:space="preserve">
+          <source><bpt id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;linkText&gt;</bpt>Deploy Click-to-Run for Office 365 products by using the Office Deployment Tool<ept id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;/linkText&gt;</ept><bpt id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;title&gt;</bpt><ept id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;linkText&gt;</bpt>Deploy Click-to-Run for Office 365 products by using the Office Deployment Tool<ept id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;/linkText&gt;</ept><bpt id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;title&gt;</bpt><ept id="c159a67a-34c5-4417-b7db-99717ac7e8da">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3542e805-0e5b-4704-902d-e55925c69a2e" xml:space="preserve">
+          <source><bpt id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;linkText&gt;</bpt>Deploying and Updating Office 365 ProPlus Using the Office Deployment Tool<ept id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;/linkText&gt;</ept><bpt id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;title&gt;</bpt><ept id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;/title&gt;</ept> (video)</source>
+          <target state="new"><bpt id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;linkText&gt;</bpt>Deploying and Updating Office 365 ProPlus Using the Office Deployment Tool<ept id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;/linkText&gt;</ept><bpt id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;title&gt;</bpt><ept id="798de4e8-f99f-467c-bc97-5e7e769d0b5f">&lt;/title&gt;</ept> (video)</target>
+        </trans-unit>
+        <trans-unit id="e9116791-00a9-4ed5-9794-ce69377c507b" xml:space="preserve">
+          <source><bpt id="95c13abf-1036-4100-b239-95743379176c">&lt;linkText&gt;</bpt>Configure update settings for Office 365 ProPlus<ept id="95c13abf-1036-4100-b239-95743379176c">&lt;/linkText&gt;</ept><bpt id="95c13abf-1036-4100-b239-95743379176c">&lt;title&gt;</bpt><ept id="95c13abf-1036-4100-b239-95743379176c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="95c13abf-1036-4100-b239-95743379176c">&lt;linkText&gt;</bpt>Configure update settings for Office 365 ProPlus<ept id="95c13abf-1036-4100-b239-95743379176c">&lt;/linkText&gt;</ept><bpt id="95c13abf-1036-4100-b239-95743379176c">&lt;title&gt;</bpt><ept id="95c13abf-1036-4100-b239-95743379176c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

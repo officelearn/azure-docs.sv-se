@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="34d47387-e16d-4017-b6e9-d148d9f7cfad" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="34d47387-e16d-4017-b6e9-d148d9f7cfad" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="f5b68d0d-923c-4533-9753-4eae97a8de86">
+        <trans-unit id="958e7cdf-3e71-4b41-9554-4436d50cf25e" xml:space="preserve">
+          <source>Tutorial: Azure Active Directory integration with New Relic | Microsoft Azure</source>
+          <target state="new">Tutorial: Azure Active Directory integration with New Relic | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="cb70f329-c384-4c58-ab30-566872241dcc" xml:space="preserve">
+          <source>Learn how to use New Relic with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</source>
+          <target state="new">Learn how to use New Relic with Azure Active Directory to enable single sign-on, automated provisioning, and more!.</target>
+        </trans-unit>
+        <trans-unit id="d0674dc8-3234-4f20-9764-5ec04945ccc4" xml:space="preserve">
+          <source>For feedback, click <bpt id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;linkText&gt;</bpt>here<ept id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;/linkText&gt;</ept><bpt id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;title&gt;</bpt><ept id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For feedback, click <bpt id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;linkText&gt;</bpt>here<ept id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;/linkText&gt;</ept><bpt id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;title&gt;</bpt><ept id="eebb95a3-98af-40dd-83f2-7623b5c6235d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="67dac2ae-991f-457b-a673-f027f3a0eb24" xml:space="preserve">
+          <source>The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and New Relic.</source>
+          <target state="new">The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and New Relic.</target>
+        </trans-unit>
+        <trans-unit id="632eccf4-212e-41d4-b553-ef4048730aea" xml:space="preserve">
+          <source>The scenario outlined in this tutorial assumes that you already have the following items:</source>
+          <target state="new">The scenario outlined in this tutorial assumes that you already have the following items:</target>
+        </trans-unit>
+        <trans-unit id="ac2c911a-d85e-48c5-8b6b-30b231faf586" xml:space="preserve">
+          <source>A valid Azure subscription</source>
+          <target state="new">A valid Azure subscription</target>
+        </trans-unit>
+        <trans-unit id="02e39f98-bd52-473a-acd7-4618ac056564" xml:space="preserve">
+          <source>A New Relic single sign-on enabled subscription</source>
+          <target state="new">A New Relic single sign-on enabled subscription</target>
+        </trans-unit>
+        <trans-unit id="00f6a856-1c97-4dee-a7e0-c7506421922f" xml:space="preserve">
+          <source>After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to single sign-on using the AAD Access Panel.</source>
+          <target state="new">After completing this tutorial, the Azure Active Directory users you have assigned to New Relic will be able to single sign-on using the AAD Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="e4dc49a7-1e03-4d29-8eb3-8cb941137cad" xml:space="preserve">
+          <source>Enabling the application integration for New Relic</source>
+          <target state="new">Enabling the application integration for New Relic</target>
+        </trans-unit>
+        <trans-unit id="1f4262a3-56e8-4ce4-a916-11366cf01fae" xml:space="preserve">
+          <source>Configuring Single Sign-On</source>
+          <target state="new">Configuring Single Sign-On</target>
+        </trans-unit>
+        <trans-unit id="02bcf7ff-c200-432d-aa39-b17c5cf26bb8" xml:space="preserve">
+          <source>Configuring user provisioning</source>
+          <target state="new">Configuring user provisioning</target>
+        </trans-unit>
+        <trans-unit id="56b13cc4-f435-430d-87d2-b1ff5308f0e8" xml:space="preserve">
+          <source>Assigning users</source>
+          <target state="new">Assigning users</target>
+        </trans-unit>
+        <trans-unit id="faddb1bd-6b40-493a-9606-f32b96a5d32a" xml:space="preserve">
+          <source><bpt id="7c3166af-0364-4d83-b443-1ba3daf50e2c">&lt;linkText&gt;</bpt>Scenario<ept id="7c3166af-0364-4d83-b443-1ba3daf50e2c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7c3166af-0364-4d83-b443-1ba3daf50e2c">&lt;linkText&gt;</bpt>Scenario<ept id="7c3166af-0364-4d83-b443-1ba3daf50e2c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4347d9bb-85da-45d3-9dec-222066294778" xml:space="preserve">
+          <source>The objective of this section is to outline how to enable the application integration for New Relic.</source>
+          <target state="new">The objective of this section is to outline how to enable the application integration for New Relic.</target>
+        </trans-unit>
+        <trans-unit id="ec00e6f5-3eb0-42fe-82db-e4b6e0f80d97" xml:space="preserve">
+          <source>In the Azure Management Portal, on the left navigation pane, click <bpt id="646fe561-055e-49fb-b881-86ab99b907a4">&lt;strong&gt;</bpt>Active Directory<ept id="646fe561-055e-49fb-b881-86ab99b907a4">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, on the left navigation pane, click <bpt id="646fe561-055e-49fb-b881-86ab99b907a4">&lt;strong&gt;</bpt>Active Directory<ept id="646fe561-055e-49fb-b881-86ab99b907a4">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4c8d321c-1c23-4a47-aa7a-eb9e71d602eb" xml:space="preserve">
+          <source><bpt id="a6186ba1-fbb2-40b1-ab4d-d45c13b44da4">&lt;linkText&gt;</bpt>Active Directory<ept id="a6186ba1-fbb2-40b1-ab4d-d45c13b44da4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a6186ba1-fbb2-40b1-ab4d-d45c13b44da4">&lt;linkText&gt;</bpt>Active Directory<ept id="a6186ba1-fbb2-40b1-ab4d-d45c13b44da4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fb87534b-86ea-4940-91d6-724df2ccf0b3" xml:space="preserve">
+          <source>From the <bpt id="c551a29c-ab46-420a-b29b-bc40a97f02b6">&lt;strong&gt;</bpt>Directory<ept id="c551a29c-ab46-420a-b29b-bc40a97f02b6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</source>
+          <target state="new">From the <bpt id="c551a29c-ab46-420a-b29b-bc40a97f02b6">&lt;strong&gt;</bpt>Directory<ept id="c551a29c-ab46-420a-b29b-bc40a97f02b6">&lt;/strong&gt;</ept> list, select the directory for which you want to enable directory integration.</target>
+        </trans-unit>
+        <trans-unit id="c721ddab-73ae-4a6b-bc99-e94632283c89" xml:space="preserve">
+          <source>To open the applications view, in the directory view, click <bpt id="cf84986a-63ea-439a-8de9-b9fdd5d71925">&lt;strong&gt;</bpt>Applications<ept id="cf84986a-63ea-439a-8de9-b9fdd5d71925">&lt;/strong&gt;</ept> in the top menu.</source>
+          <target state="new">To open the applications view, in the directory view, click <bpt id="cf84986a-63ea-439a-8de9-b9fdd5d71925">&lt;strong&gt;</bpt>Applications<ept id="cf84986a-63ea-439a-8de9-b9fdd5d71925">&lt;/strong&gt;</ept> in the top menu.</target>
+        </trans-unit>
+        <trans-unit id="ac6aecf7-4047-4f44-a9fb-c679b77d92e5" xml:space="preserve">
+          <source><bpt id="7fbd5ab9-179d-483c-aafe-0c1a0840cda6">&lt;linkText&gt;</bpt>Applications<ept id="7fbd5ab9-179d-483c-aafe-0c1a0840cda6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7fbd5ab9-179d-483c-aafe-0c1a0840cda6">&lt;linkText&gt;</bpt>Applications<ept id="7fbd5ab9-179d-483c-aafe-0c1a0840cda6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9110ceed-9e67-4b17-91a2-c4b997a329e5" xml:space="preserve">
+          <source>Click <bpt id="7227a6dd-dbd1-4e90-9564-b7932b497fce">&lt;strong&gt;</bpt>Add<ept id="7227a6dd-dbd1-4e90-9564-b7932b497fce">&lt;/strong&gt;</ept> at the bottom of the page.</source>
+          <target state="new">Click <bpt id="7227a6dd-dbd1-4e90-9564-b7932b497fce">&lt;strong&gt;</bpt>Add<ept id="7227a6dd-dbd1-4e90-9564-b7932b497fce">&lt;/strong&gt;</ept> at the bottom of the page.</target>
+        </trans-unit>
+        <trans-unit id="1989ebeb-886b-43e5-8a5a-b19917746aee" xml:space="preserve">
+          <source><bpt id="e38b806a-b177-427e-9bfc-cf365208b38c">&lt;linkText&gt;</bpt>Add application<ept id="e38b806a-b177-427e-9bfc-cf365208b38c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e38b806a-b177-427e-9bfc-cf365208b38c">&lt;linkText&gt;</bpt>Add application<ept id="e38b806a-b177-427e-9bfc-cf365208b38c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9fa86569-6bfb-4fa9-be57-a606ce04aeb6" xml:space="preserve">
+          <source>On the <bpt id="5abfa895-df8f-47f2-ad41-3dfed14b0617">&lt;strong&gt;</bpt>What do you want to do<ept id="5abfa895-df8f-47f2-ad41-3dfed14b0617">&lt;/strong&gt;</ept> dialog, click <bpt id="81458f9a-316e-439a-8495-2345a8185a81">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="81458f9a-316e-439a-8495-2345a8185a81">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="5abfa895-df8f-47f2-ad41-3dfed14b0617">&lt;strong&gt;</bpt>What do you want to do<ept id="5abfa895-df8f-47f2-ad41-3dfed14b0617">&lt;/strong&gt;</ept> dialog, click <bpt id="81458f9a-316e-439a-8495-2345a8185a81">&lt;strong&gt;</bpt>Add an application from the gallery<ept id="81458f9a-316e-439a-8495-2345a8185a81">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24f88192-dc46-4329-bb8d-f1b998d25c58" xml:space="preserve">
+          <source><bpt id="35edc5b3-6bbb-4923-9936-4ceb8df1fa73">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="35edc5b3-6bbb-4923-9936-4ceb8df1fa73">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="35edc5b3-6bbb-4923-9936-4ceb8df1fa73">&lt;linkText&gt;</bpt>Add an application from gallerry<ept id="35edc5b3-6bbb-4923-9936-4ceb8df1fa73">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="dabd23e0-336d-416d-bfcc-2a701a9dc97b" xml:space="preserve">
+          <source>In the <bpt id="742e2529-1cfb-480a-8dfd-8ee8c63ddc52">&lt;strong&gt;</bpt>search box<ept id="742e2529-1cfb-480a-8dfd-8ee8c63ddc52">&lt;/strong&gt;</ept>, type <bpt id="3ed55338-db0e-4c60-8940-71a5692ebd16">&lt;strong&gt;</bpt>New Relic<ept id="3ed55338-db0e-4c60-8940-71a5692ebd16">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="742e2529-1cfb-480a-8dfd-8ee8c63ddc52">&lt;strong&gt;</bpt>search box<ept id="742e2529-1cfb-480a-8dfd-8ee8c63ddc52">&lt;/strong&gt;</ept>, type <bpt id="3ed55338-db0e-4c60-8940-71a5692ebd16">&lt;strong&gt;</bpt>New Relic<ept id="3ed55338-db0e-4c60-8940-71a5692ebd16">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="eaeaea80-9ee1-4da1-9a24-c6634481dfda" xml:space="preserve">
+          <source><bpt id="28ec1382-4a1b-4f7b-b0a9-90397fbb568d">&lt;linkText&gt;</bpt>Application Gallery<ept id="28ec1382-4a1b-4f7b-b0a9-90397fbb568d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="28ec1382-4a1b-4f7b-b0a9-90397fbb568d">&lt;linkText&gt;</bpt>Application Gallery<ept id="28ec1382-4a1b-4f7b-b0a9-90397fbb568d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="758a2a74-ff84-45ca-aea5-dbdc146ac9b7" xml:space="preserve">
+          <source>In the results pane, select <bpt id="d0677d53-f1cf-4214-8227-e1f9043c23a5">&lt;strong&gt;</bpt>New Relic<ept id="d0677d53-f1cf-4214-8227-e1f9043c23a5">&lt;/strong&gt;</ept>, and then click <bpt id="ca4b0d36-b123-468c-8a0d-9476cafb6e59">&lt;strong&gt;</bpt>Complete<ept id="ca4b0d36-b123-468c-8a0d-9476cafb6e59">&lt;/strong&gt;</ept> to add the application.</source>
+          <target state="new">In the results pane, select <bpt id="d0677d53-f1cf-4214-8227-e1f9043c23a5">&lt;strong&gt;</bpt>New Relic<ept id="d0677d53-f1cf-4214-8227-e1f9043c23a5">&lt;/strong&gt;</ept>, and then click <bpt id="ca4b0d36-b123-468c-8a0d-9476cafb6e59">&lt;strong&gt;</bpt>Complete<ept id="ca4b0d36-b123-468c-8a0d-9476cafb6e59">&lt;/strong&gt;</ept> to add the application.</target>
+        </trans-unit>
+        <trans-unit id="1285de3f-0fab-44f1-bf82-07a95541ec2a" xml:space="preserve">
+          <source><bpt id="fe5abfd7-5965-40c5-9d0b-d4a8df5cf3f3">&lt;linkText&gt;</bpt>New Relic<ept id="fe5abfd7-5965-40c5-9d0b-d4a8df5cf3f3">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fe5abfd7-5965-40c5-9d0b-d4a8df5cf3f3">&lt;linkText&gt;</bpt>New Relic<ept id="fe5abfd7-5965-40c5-9d0b-d4a8df5cf3f3">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="917d4183-366f-4398-9b29-d89786bc2f17" xml:space="preserve">
+          <source>This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.</source>
+          <target state="new">This section outlines how to enable users to authenticate to New Relic with their account in Azure Active Directory, using federation based on the SAML protocol.</target>
+        </trans-unit>
+        <trans-unit id="ef2eb240-5929-4068-be52-769a5a3b524f" xml:space="preserve">
+          <source>In the Azure AD portal, on the <bpt id="829e0e2a-fa20-464a-8b1b-507fe8a038ee">&lt;strong&gt;</bpt>New Relic<ept id="829e0e2a-fa20-464a-8b1b-507fe8a038ee">&lt;/strong&gt;</ept> application integration page, click <bpt id="d5eee8a9-ff00-4339-b40b-4e5cdb76f973">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d5eee8a9-ff00-4339-b40b-4e5cdb76f973">&lt;/strong&gt;</ept> to open the <bpt id="6af938e8-50da-4e50-b909-d52801d4bc51">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="6af938e8-50da-4e50-b909-d52801d4bc51">&lt;/em&gt;</ept> dialog.</source>
+          <target state="new">In the Azure AD portal, on the <bpt id="829e0e2a-fa20-464a-8b1b-507fe8a038ee">&lt;strong&gt;</bpt>New Relic<ept id="829e0e2a-fa20-464a-8b1b-507fe8a038ee">&lt;/strong&gt;</ept> application integration page, click <bpt id="d5eee8a9-ff00-4339-b40b-4e5cdb76f973">&lt;strong&gt;</bpt>Configure single sign-on<ept id="d5eee8a9-ff00-4339-b40b-4e5cdb76f973">&lt;/strong&gt;</ept> to open the <bpt id="6af938e8-50da-4e50-b909-d52801d4bc51">&lt;em&gt;</bpt>*Configure Single Sign On *<ept id="6af938e8-50da-4e50-b909-d52801d4bc51">&lt;/em&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="1b964e95-8c4c-4aeb-a0fd-4880a1513d62" xml:space="preserve">
+          <source><bpt id="73efcce7-e178-44e2-bf54-2441b6e20c21">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="73efcce7-e178-44e2-bf54-2441b6e20c21">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="73efcce7-e178-44e2-bf54-2441b6e20c21">&lt;linkText&gt;</bpt>Configure single sign-on<ept id="73efcce7-e178-44e2-bf54-2441b6e20c21">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cce9e6e8-2505-4515-83a5-206df27a5d90" xml:space="preserve">
+          <source>On the <bpt id="7ff3c80a-85ef-45dc-8666-415c91ef1165">&lt;strong&gt;</bpt>How would you like users to sign on to New Relic<ept id="7ff3c80a-85ef-45dc-8666-415c91ef1165">&lt;/strong&gt;</ept> page, select <bpt id="bf694011-7de7-4b88-af03-e734b5ee56a1">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bf694011-7de7-4b88-af03-e734b5ee56a1">&lt;/strong&gt;</ept>, and then click <bpt id="e6f9c264-1352-4a9b-838c-779f0d0844d9">&lt;strong&gt;</bpt>Next<ept id="e6f9c264-1352-4a9b-838c-779f0d0844d9">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="7ff3c80a-85ef-45dc-8666-415c91ef1165">&lt;strong&gt;</bpt>How would you like users to sign on to New Relic<ept id="7ff3c80a-85ef-45dc-8666-415c91ef1165">&lt;/strong&gt;</ept> page, select <bpt id="bf694011-7de7-4b88-af03-e734b5ee56a1">&lt;strong&gt;</bpt>Microsoft Azure AD Single Sign-On<ept id="bf694011-7de7-4b88-af03-e734b5ee56a1">&lt;/strong&gt;</ept>, and then click <bpt id="e6f9c264-1352-4a9b-838c-779f0d0844d9">&lt;strong&gt;</bpt>Next<ept id="e6f9c264-1352-4a9b-838c-779f0d0844d9">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d75125fb-f346-4b27-9c03-315d6865f4d8" xml:space="preserve">
+          <source><bpt id="159901ac-407b-4c9b-b74b-0d68dd9ceff5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="159901ac-407b-4c9b-b74b-0d68dd9ceff5">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="159901ac-407b-4c9b-b74b-0d68dd9ceff5">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="159901ac-407b-4c9b-b74b-0d68dd9ceff5">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bae2272e-4441-4843-80c1-f1be270993a9" xml:space="preserve">
+          <source>On the <bpt id="51894488-4e7a-4a16-a259-ca99780f25f5">&lt;strong&gt;</bpt>Configure App URL<ept id="51894488-4e7a-4a16-a259-ca99780f25f5">&lt;/strong&gt;</ept> page, in the <bpt id="572452d1-3726-4307-bbfc-a0eccf26fffb">&lt;strong&gt;</bpt>New Relic Sign On URL<ept id="572452d1-3726-4307-bbfc-a0eccf26fffb">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your New Relic application, and then click <bpt id="5a2a618b-d58e-4e1a-9aa6-3e55bc75c68e">&lt;strong&gt;</bpt>Next<ept id="5a2a618b-d58e-4e1a-9aa6-3e55bc75c68e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="51894488-4e7a-4a16-a259-ca99780f25f5">&lt;strong&gt;</bpt>Configure App URL<ept id="51894488-4e7a-4a16-a259-ca99780f25f5">&lt;/strong&gt;</ept> page, in the <bpt id="572452d1-3726-4307-bbfc-a0eccf26fffb">&lt;strong&gt;</bpt>New Relic Sign On URL<ept id="572452d1-3726-4307-bbfc-a0eccf26fffb">&lt;/strong&gt;</ept> textbox, type the URL used by your users to sign on to your New Relic application, and then click <bpt id="5a2a618b-d58e-4e1a-9aa6-3e55bc75c68e">&lt;strong&gt;</bpt>Next<ept id="5a2a618b-d58e-4e1a-9aa6-3e55bc75c68e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="06ba6663-c7be-4f67-b673-ecd9ddbda7b1" xml:space="preserve">
+          <source>The app URL is your New Relic tenant URL (e.g.: <bpt id="210d41c5-ec76-46fb-850b-70fdbe148e91">&lt;em&gt;</bpt>https://rpm.newrelic.com<ept id="210d41c5-ec76-46fb-850b-70fdbe148e91">&lt;/em&gt;</ept>):</source>
+          <target state="new">The app URL is your New Relic tenant URL (e.g.: <bpt id="210d41c5-ec76-46fb-850b-70fdbe148e91">&lt;em&gt;</bpt>https://rpm.newrelic.com<ept id="210d41c5-ec76-46fb-850b-70fdbe148e91">&lt;/em&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="8de4f040-9a17-4708-8be1-a6fb245cbbd5" xml:space="preserve">
+          <source><bpt id="d76a7bd2-6610-4408-ba37-213d6a8ff7b6">&lt;linkText&gt;</bpt>Configure App URL<ept id="d76a7bd2-6610-4408-ba37-213d6a8ff7b6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d76a7bd2-6610-4408-ba37-213d6a8ff7b6">&lt;linkText&gt;</bpt>Configure App URL<ept id="d76a7bd2-6610-4408-ba37-213d6a8ff7b6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d8ebffc-2f72-4ca9-820b-aacff21d0c4f" xml:space="preserve">
+          <source>On the <bpt id="88de7d45-b0b2-443d-a28b-70f42297a112">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="88de7d45-b0b2-443d-a28b-70f42297a112">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="447be45d-f69c-41e8-ae70-f1cbe314cd74">&lt;strong&gt;</bpt>Download certificate<ept id="447be45d-f69c-41e8-ae70-f1cbe314cd74">&lt;/strong&gt;</ept>, and then save the certificate file locally to your computer.</source>
+          <target state="new">On the <bpt id="88de7d45-b0b2-443d-a28b-70f42297a112">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="88de7d45-b0b2-443d-a28b-70f42297a112">&lt;/strong&gt;</ept> page, to download your certificate, click <bpt id="447be45d-f69c-41e8-ae70-f1cbe314cd74">&lt;strong&gt;</bpt>Download certificate<ept id="447be45d-f69c-41e8-ae70-f1cbe314cd74">&lt;/strong&gt;</ept>, and then save the certificate file locally to your computer.</target>
+        </trans-unit>
+        <trans-unit id="4373fbfb-cb96-4130-9546-e3794c429eec" xml:space="preserve">
+          <source><bpt id="fa60ec5d-fbb1-464f-aa25-5d56da2f0336">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fa60ec5d-fbb1-464f-aa25-5d56da2f0336">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fa60ec5d-fbb1-464f-aa25-5d56da2f0336">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="fa60ec5d-fbb1-464f-aa25-5d56da2f0336">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ad2d1f11-6be5-406c-9d8b-38812839fa7d" xml:space="preserve">
+          <source>In a different web browser window, sign on to your <bpt id="871612a5-48a1-4840-a574-c4f88fa842a4">&lt;strong&gt;</bpt>New Relic<ept id="871612a5-48a1-4840-a574-c4f88fa842a4">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">In a different web browser window, sign on to your <bpt id="871612a5-48a1-4840-a574-c4f88fa842a4">&lt;strong&gt;</bpt>New Relic<ept id="871612a5-48a1-4840-a574-c4f88fa842a4">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="9e0cd72c-6ac5-4790-b94b-27ceaf15e2c9" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="79382587-14e2-4639-a540-7153abd5c4d1">&lt;strong&gt;</bpt>Account Settings<ept id="79382587-14e2-4639-a540-7153abd5c4d1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="79382587-14e2-4639-a540-7153abd5c4d1">&lt;strong&gt;</bpt>Account Settings<ept id="79382587-14e2-4639-a540-7153abd5c4d1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9ae18f61-52c4-4aed-9471-7e5b72e52a61" xml:space="preserve">
+          <source><bpt id="425e8afb-1e98-47bf-aa82-df76e8a49222">&lt;linkText&gt;</bpt>Account Settings<ept id="425e8afb-1e98-47bf-aa82-df76e8a49222">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="425e8afb-1e98-47bf-aa82-df76e8a49222">&lt;linkText&gt;</bpt>Account Settings<ept id="425e8afb-1e98-47bf-aa82-df76e8a49222">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0c4388f4-fdd7-402b-a811-e9766d777bf9" xml:space="preserve">
+          <source>Click the <bpt id="36077253-63eb-4492-a8f5-95211f3ddb3a">&lt;strong&gt;</bpt>Security and authentication<ept id="36077253-63eb-4492-a8f5-95211f3ddb3a">&lt;/strong&gt;</ept> tab, and then click the <bpt id="8c56e9c2-7e69-4795-b23c-433196d12226">&lt;strong&gt;</bpt>Single sign on<ept id="8c56e9c2-7e69-4795-b23c-433196d12226">&lt;/strong&gt;</ept> tab.</source>
+          <target state="new">Click the <bpt id="36077253-63eb-4492-a8f5-95211f3ddb3a">&lt;strong&gt;</bpt>Security and authentication<ept id="36077253-63eb-4492-a8f5-95211f3ddb3a">&lt;/strong&gt;</ept> tab, and then click the <bpt id="8c56e9c2-7e69-4795-b23c-433196d12226">&lt;strong&gt;</bpt>Single sign on<ept id="8c56e9c2-7e69-4795-b23c-433196d12226">&lt;/strong&gt;</ept> tab.</target>
+        </trans-unit>
+        <trans-unit id="a7607c0f-49df-430a-8bcb-9f5e6c3bf328" xml:space="preserve">
+          <source><bpt id="3d422a7f-a430-4fc3-9105-2571cccf1cbd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="3d422a7f-a430-4fc3-9105-2571cccf1cbd">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d422a7f-a430-4fc3-9105-2571cccf1cbd">&lt;linkText&gt;</bpt>Single Sign-On<ept id="3d422a7f-a430-4fc3-9105-2571cccf1cbd">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="bf8ec526-d0fd-4624-9a2b-24c0a130fd02" xml:space="preserve">
+          <source>On the SAML dialog page, perform the following steps:</source>
+          <target state="new">On the SAML dialog page, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="271a9429-115c-4208-b2eb-275a89684d82" xml:space="preserve">
+          <source><bpt id="6f3790bd-4185-460b-8a36-20e617ae049a">&lt;linkText&gt;</bpt>SAML<ept id="6f3790bd-4185-460b-8a36-20e617ae049a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="6f3790bd-4185-460b-8a36-20e617ae049a">&lt;linkText&gt;</bpt>SAML<ept id="6f3790bd-4185-460b-8a36-20e617ae049a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0a2c8112-c347-4b99-a565-cc62b606c17a" xml:space="preserve">
+          <source>Click <bpt id="c5b1530d-d7c1-4783-a4a4-e9c080dac4d7">&lt;strong&gt;</bpt>Choose File<ept id="c5b1530d-d7c1-4783-a4a4-e9c080dac4d7">&lt;/strong&gt;</ept> to upload your downloaded Azure Active Directory certificate.</source>
+          <target state="new">Click <bpt id="c5b1530d-d7c1-4783-a4a4-e9c080dac4d7">&lt;strong&gt;</bpt>Choose File<ept id="c5b1530d-d7c1-4783-a4a4-e9c080dac4d7">&lt;/strong&gt;</ept> to upload your downloaded Azure Active Directory certificate.</target>
+        </trans-unit>
+        <trans-unit id="5d62f44f-346e-42ba-b108-b2be20462ef0" xml:space="preserve">
+          <source>In the Microsoft Azure portal, on the <bpt id="afd411cf-4f9f-4a64-bfa5-98df6c01636c">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="afd411cf-4f9f-4a64-bfa5-98df6c01636c">&lt;/strong&gt;</ept> page, copy the <bpt id="a1112a33-4d00-4efb-894b-e12486cea54e">&lt;strong&gt;</bpt>Remote Login URL<ept id="a1112a33-4d00-4efb-894b-e12486cea54e">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="272d3d69-70ed-4f96-9cce-cd4f2cc502b5">&lt;strong&gt;</bpt>Remote login URL<ept id="272d3d69-70ed-4f96-9cce-cd4f2cc502b5">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Microsoft Azure portal, on the <bpt id="afd411cf-4f9f-4a64-bfa5-98df6c01636c">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="afd411cf-4f9f-4a64-bfa5-98df6c01636c">&lt;/strong&gt;</ept> page, copy the <bpt id="a1112a33-4d00-4efb-894b-e12486cea54e">&lt;strong&gt;</bpt>Remote Login URL<ept id="a1112a33-4d00-4efb-894b-e12486cea54e">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="272d3d69-70ed-4f96-9cce-cd4f2cc502b5">&lt;strong&gt;</bpt>Remote login URL<ept id="272d3d69-70ed-4f96-9cce-cd4f2cc502b5">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="a67292a6-e898-4123-a03b-1fa1962cace2" xml:space="preserve">
+          <source>In the Microsoft Azure portal, on the <bpt id="4bdb7b48-5f05-42d1-9cdc-7a9b14a7fdf8">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="4bdb7b48-5f05-42d1-9cdc-7a9b14a7fdf8">&lt;/strong&gt;</ept> page, copy the <bpt id="0fe7f1eb-b961-4f71-865c-63332c78032d">&lt;strong&gt;</bpt>Remote Logout URL<ept id="0fe7f1eb-b961-4f71-865c-63332c78032d">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c40ebaeb-09fc-42d8-a622-d0a96295e929">&lt;strong&gt;</bpt>Logout landing URL<ept id="c40ebaeb-09fc-42d8-a622-d0a96295e929">&lt;/strong&gt;</ept> textbox.</source>
+          <target state="new">In the Microsoft Azure portal, on the <bpt id="4bdb7b48-5f05-42d1-9cdc-7a9b14a7fdf8">&lt;strong&gt;</bpt>Configure single sign-on at New Relic<ept id="4bdb7b48-5f05-42d1-9cdc-7a9b14a7fdf8">&lt;/strong&gt;</ept> page, copy the <bpt id="0fe7f1eb-b961-4f71-865c-63332c78032d">&lt;strong&gt;</bpt>Remote Logout URL<ept id="0fe7f1eb-b961-4f71-865c-63332c78032d">&lt;/strong&gt;</ept> value, and then paste it into the <bpt id="c40ebaeb-09fc-42d8-a622-d0a96295e929">&lt;strong&gt;</bpt>Logout landing URL<ept id="c40ebaeb-09fc-42d8-a622-d0a96295e929">&lt;/strong&gt;</ept> textbox.</target>
+        </trans-unit>
+        <trans-unit id="73d1c28c-2674-46de-8243-cd94ab758a86" xml:space="preserve">
+          <source>Click <bpt id="69fdfbcb-1554-468b-9977-db64bc356ffa">&lt;strong&gt;</bpt>Save my changes<ept id="69fdfbcb-1554-468b-9977-db64bc356ffa">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="69fdfbcb-1554-468b-9977-db64bc356ffa">&lt;strong&gt;</bpt>Save my changes<ept id="69fdfbcb-1554-468b-9977-db64bc356ffa">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="512dc938-1919-449e-bc82-a74ccaf3841e" xml:space="preserve">
+          <source>On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="e7e7cb7d-7245-43be-a9ba-acd7954ff8f3">&lt;strong&gt;</bpt>Complete<ept id="e7e7cb7d-7245-43be-a9ba-acd7954ff8f3">&lt;/strong&gt;</ept> to close the <bpt id="17672d6d-07ae-48c3-8ba1-89168f6bbd7e">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="17672d6d-07ae-48c3-8ba1-89168f6bbd7e">&lt;/strong&gt;</ept> dialog.</source>
+          <target state="new">On the Azure AD portal, select the single sign-on configuration confirmation, and then click <bpt id="e7e7cb7d-7245-43be-a9ba-acd7954ff8f3">&lt;strong&gt;</bpt>Complete<ept id="e7e7cb7d-7245-43be-a9ba-acd7954ff8f3">&lt;/strong&gt;</ept> to close the <bpt id="17672d6d-07ae-48c3-8ba1-89168f6bbd7e">&lt;strong&gt;</bpt>Configure Single Sign On<ept id="17672d6d-07ae-48c3-8ba1-89168f6bbd7e">&lt;/strong&gt;</ept> dialog.</target>
+        </trans-unit>
+        <trans-unit id="32cfb591-4670-42d5-a6a8-1459b602cc04" xml:space="preserve">
+          <source><bpt id="f0d521ae-6059-47c5-9478-6f58911041ee">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f0d521ae-6059-47c5-9478-6f58911041ee">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f0d521ae-6059-47c5-9478-6f58911041ee">&lt;linkText&gt;</bpt>Configure Single Sign-On<ept id="f0d521ae-6059-47c5-9478-6f58911041ee">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ee507fb5-6fef-46cc-a4a1-ebaabfb8d580" xml:space="preserve">
+          <source>In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.</source>
+          <target state="new">In order to enable Azure Active Directory users to log into New Relic, they must be provisioned into New Relic.</target>
+        </trans-unit>
+        <trans-unit id="e382b6a0-51ab-4e70-802c-d3d08deaa195" xml:space="preserve">
+          <source>In the case of New Relic, provisioning is a manual task.</source>
+          <target state="new">In the case of New Relic, provisioning is a manual task.</target>
+        </trans-unit>
+        <trans-unit id="3d40737e-3e94-4ed0-ba26-45844aa0f10e" xml:space="preserve">
+          <source>Log in to your <bpt id="14d40d4f-7c01-45ae-8b85-617b0239ddc5">&lt;strong&gt;</bpt>New Relic<ept id="14d40d4f-7c01-45ae-8b85-617b0239ddc5">&lt;/strong&gt;</ept> company site as administrator.</source>
+          <target state="new">Log in to your <bpt id="14d40d4f-7c01-45ae-8b85-617b0239ddc5">&lt;strong&gt;</bpt>New Relic<ept id="14d40d4f-7c01-45ae-8b85-617b0239ddc5">&lt;/strong&gt;</ept> company site as administrator.</target>
+        </trans-unit>
+        <trans-unit id="d7e3c217-eff5-41e9-b2e3-6549e377bb38" xml:space="preserve">
+          <source>In the menu on the top, click <bpt id="8645c825-e775-48df-b7b1-1d9ed183f289">&lt;strong&gt;</bpt>Account Settings<ept id="8645c825-e775-48df-b7b1-1d9ed183f289">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the menu on the top, click <bpt id="8645c825-e775-48df-b7b1-1d9ed183f289">&lt;strong&gt;</bpt>Account Settings<ept id="8645c825-e775-48df-b7b1-1d9ed183f289">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c1332961-2475-4015-985e-ff930e26e3c5" xml:space="preserve">
+          <source><bpt id="95a9a095-a043-4b24-a9b8-6a903ea48fad">&lt;linkText&gt;</bpt>Account Settings<ept id="95a9a095-a043-4b24-a9b8-6a903ea48fad">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="95a9a095-a043-4b24-a9b8-6a903ea48fad">&lt;linkText&gt;</bpt>Account Settings<ept id="95a9a095-a043-4b24-a9b8-6a903ea48fad">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7828eeba-c3d3-4c42-92d3-7f3da97d9e69" xml:space="preserve">
+          <source>In the <bpt id="ff320b4c-8e3b-4dae-b92c-75d000dcd341">&lt;strong&gt;</bpt>Account<ept id="ff320b4c-8e3b-4dae-b92c-75d000dcd341">&lt;/strong&gt;</ept> pane on the left side, click <bpt id="f7d9b29e-cda2-4c44-aada-d2160bf73d5d">&lt;strong&gt;</bpt>Summary<ept id="f7d9b29e-cda2-4c44-aada-d2160bf73d5d">&lt;/strong&gt;</ept>, and then click <bpt id="a1d1988f-8da0-4f47-8e8e-2a5caeaa398e">&lt;strong&gt;</bpt>Add user<ept id="a1d1988f-8da0-4f47-8e8e-2a5caeaa398e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="ff320b4c-8e3b-4dae-b92c-75d000dcd341">&lt;strong&gt;</bpt>Account<ept id="ff320b4c-8e3b-4dae-b92c-75d000dcd341">&lt;/strong&gt;</ept> pane on the left side, click <bpt id="f7d9b29e-cda2-4c44-aada-d2160bf73d5d">&lt;strong&gt;</bpt>Summary<ept id="f7d9b29e-cda2-4c44-aada-d2160bf73d5d">&lt;/strong&gt;</ept>, and then click <bpt id="a1d1988f-8da0-4f47-8e8e-2a5caeaa398e">&lt;strong&gt;</bpt>Add user<ept id="a1d1988f-8da0-4f47-8e8e-2a5caeaa398e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c485106d-d748-4e89-bcec-fecd6451a361" xml:space="preserve">
+          <source><bpt id="5a72ea7e-ffad-4dc7-8aee-5235a2491812">&lt;linkText&gt;</bpt>Account Settings<ept id="5a72ea7e-ffad-4dc7-8aee-5235a2491812">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="5a72ea7e-ffad-4dc7-8aee-5235a2491812">&lt;linkText&gt;</bpt>Account Settings<ept id="5a72ea7e-ffad-4dc7-8aee-5235a2491812">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="26a17500-0c0c-4c90-8ab7-246ce50984dd" xml:space="preserve">
+          <source>On the <bpt id="fb45f4c7-672f-40c4-baef-3bd50de25fff">&lt;strong&gt;</bpt>Active users<ept id="fb45f4c7-672f-40c4-baef-3bd50de25fff">&lt;/strong&gt;</ept> dialog, perform the following steps:</source>
+          <target state="new">On the <bpt id="fb45f4c7-672f-40c4-baef-3bd50de25fff">&lt;strong&gt;</bpt>Active users<ept id="fb45f4c7-672f-40c4-baef-3bd50de25fff">&lt;/strong&gt;</ept> dialog, perform the following steps:</target>
+        </trans-unit>
+        <trans-unit id="c1815d16-c3da-46c5-ab0e-9d13929793b0" xml:space="preserve">
+          <source><bpt id="b993d148-66b6-442e-8e98-71aabcb1a46b">&lt;linkText&gt;</bpt>Active Users<ept id="b993d148-66b6-442e-8e98-71aabcb1a46b">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="b993d148-66b6-442e-8e98-71aabcb1a46b">&lt;linkText&gt;</bpt>Active Users<ept id="b993d148-66b6-442e-8e98-71aabcb1a46b">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1d68cb62-ae24-425b-8bd3-50b725715055" xml:space="preserve">
+          <source>In the <bpt id="f510958a-ac17-448e-9fdc-556569e778e0">&lt;strong&gt;</bpt>Email<ept id="f510958a-ac17-448e-9fdc-556569e778e0">&lt;/strong&gt;</ept> textbox, type the email address of a valid Azure Active Directory user you want to provision.</source>
+          <target state="new">In the <bpt id="f510958a-ac17-448e-9fdc-556569e778e0">&lt;strong&gt;</bpt>Email<ept id="f510958a-ac17-448e-9fdc-556569e778e0">&lt;/strong&gt;</ept> textbox, type the email address of a valid Azure Active Directory user you want to provision.</target>
+        </trans-unit>
+        <trans-unit id="40d60f19-178d-46be-ad26-65300241246b" xml:space="preserve">
+          <source>As <bpt id="a5fc8cb5-1d01-4e14-a49b-74ecc13ecf98">&lt;strong&gt;</bpt>Role<ept id="a5fc8cb5-1d01-4e14-a49b-74ecc13ecf98">&lt;/strong&gt;</ept> select <bpt id="c757ed39-34b7-4895-a458-8e9944eaed99">&lt;strong&gt;</bpt>User<ept id="c757ed39-34b7-4895-a458-8e9944eaed99">&lt;/strong&gt;</ept>.</source>
+          <target state="new">As <bpt id="a5fc8cb5-1d01-4e14-a49b-74ecc13ecf98">&lt;strong&gt;</bpt>Role<ept id="a5fc8cb5-1d01-4e14-a49b-74ecc13ecf98">&lt;/strong&gt;</ept> select <bpt id="c757ed39-34b7-4895-a458-8e9944eaed99">&lt;strong&gt;</bpt>User<ept id="c757ed39-34b7-4895-a458-8e9944eaed99">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="43536e28-f0ac-4b5c-9fc0-a42ed72c895a" xml:space="preserve">
+          <source>Click <bpt id="22c9aa90-7b14-47bf-bfb0-7d6226e1bc91">&lt;strong&gt;</bpt>Add this user<ept id="22c9aa90-7b14-47bf-bfb0-7d6226e1bc91">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="22c9aa90-7b14-47bf-bfb0-7d6226e1bc91">&lt;strong&gt;</bpt>Add this user<ept id="22c9aa90-7b14-47bf-bfb0-7d6226e1bc91">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0812e20e-4cea-49e2-9206-632f98c53787" xml:space="preserve">
+          <source>You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.</source>
+          <target state="new">You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.</target>
+        </trans-unit>
+        <trans-unit id="b6c5705e-d734-4f65-9007-0c80b4374145" xml:space="preserve">
+          <source>To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</source>
+          <target state="new">To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.</target>
+        </trans-unit>
+        <trans-unit id="fd2eb0e4-3444-45cd-ba1e-15b3f1175c3e" xml:space="preserve">
+          <source>In the Azure AD portal, create a test account.</source>
+          <target state="new">In the Azure AD portal, create a test account.</target>
+        </trans-unit>
+        <trans-unit id="e40d1906-194c-4739-b0cf-4b6343194e09" xml:space="preserve">
+          <source>On the <bpt id="6e6831a8-1efd-440c-9381-45e479446cb5">&lt;strong&gt;</bpt>New Relic<ept id="6e6831a8-1efd-440c-9381-45e479446cb5">&lt;/strong&gt;</ept> application integration page, click <bpt id="445267eb-2306-4f39-84f1-c97372765897">&lt;strong&gt;</bpt>Assign users<ept id="445267eb-2306-4f39-84f1-c97372765897">&lt;/strong&gt;</ept>.</source>
+          <target state="new">On the <bpt id="6e6831a8-1efd-440c-9381-45e479446cb5">&lt;strong&gt;</bpt>New Relic<ept id="6e6831a8-1efd-440c-9381-45e479446cb5">&lt;/strong&gt;</ept> application integration page, click <bpt id="445267eb-2306-4f39-84f1-c97372765897">&lt;strong&gt;</bpt>Assign users<ept id="445267eb-2306-4f39-84f1-c97372765897">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="bd9c61fa-9bc1-45d6-9763-37798680fca3" xml:space="preserve">
+          <source><bpt id="d02476cd-19ff-454f-8a76-67fbd2c717b9">&lt;linkText&gt;</bpt>Assign Users<ept id="d02476cd-19ff-454f-8a76-67fbd2c717b9">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="d02476cd-19ff-454f-8a76-67fbd2c717b9">&lt;linkText&gt;</bpt>Assign Users<ept id="d02476cd-19ff-454f-8a76-67fbd2c717b9">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6b6e5c97-4d62-439c-bf6e-041edb66fe4a" xml:space="preserve">
+          <source>Select your test user, click <bpt id="0bd7f1d1-0cae-4b53-842d-5b7655a34a52">&lt;strong&gt;</bpt>Assign<ept id="0bd7f1d1-0cae-4b53-842d-5b7655a34a52">&lt;/strong&gt;</ept>, and then click <bpt id="667254a2-8d5c-4d13-81d0-0e14bf428713">&lt;strong&gt;</bpt>Yes<ept id="667254a2-8d5c-4d13-81d0-0e14bf428713">&lt;/strong&gt;</ept> to confirm your assignment.</source>
+          <target state="new">Select your test user, click <bpt id="0bd7f1d1-0cae-4b53-842d-5b7655a34a52">&lt;strong&gt;</bpt>Assign<ept id="0bd7f1d1-0cae-4b53-842d-5b7655a34a52">&lt;/strong&gt;</ept>, and then click <bpt id="667254a2-8d5c-4d13-81d0-0e14bf428713">&lt;strong&gt;</bpt>Yes<ept id="667254a2-8d5c-4d13-81d0-0e14bf428713">&lt;/strong&gt;</ept> to confirm your assignment.</target>
+        </trans-unit>
+        <trans-unit id="9386f2a9-4508-4140-b5cf-8f90ecd233b8" xml:space="preserve">
+          <source><bpt id="8362819d-4cf5-4446-89bd-7a59f6b6a510">&lt;linkText&gt;</bpt>Yes<ept id="8362819d-4cf5-4446-89bd-7a59f6b6a510">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8362819d-4cf5-4446-89bd-7a59f6b6a510">&lt;linkText&gt;</bpt>Yes<ept id="8362819d-4cf5-4446-89bd-7a59f6b6a510">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="97d10058-bad4-42a7-975d-080e1edac743" xml:space="preserve">
+          <source>If you want to test your single sign-on settings, open the Access Panel.</source>
+          <target state="new">If you want to test your single sign-on settings, open the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="f15f582d-aec3-43ee-a709-cbb8d1218bca" xml:space="preserve">
+          <source>For more details about the Access Panel, see <bpt id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;/linkText&gt;</ept><bpt id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;title&gt;</bpt><ept id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details about the Access Panel, see <bpt id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;linkText&gt;</bpt>Introduction to the Access Panel<ept id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;/linkText&gt;</ept><bpt id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;title&gt;</bpt><ept id="f90f5a41-7ad0-459a-a778-38c08f0d5f0d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

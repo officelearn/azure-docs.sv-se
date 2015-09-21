@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="e7cfaa15-41cf-4e1e-bdc9-ecd7dbf2df31" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="e7cfaa15-41cf-4e1e-bdc9-ecd7dbf2df31" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="b06287e4-78fa-442a-a5a4-5a61fb9fc56e">
+        <trans-unit id="69e00e57-2981-41e8-8b08-0c3705a3fc5b" xml:space="preserve">
+          <source>Connecting to Media Services Account using REST API</source>
+          <target state="new">Connecting to Media Services Account using REST API</target>
+        </trans-unit>
+        <trans-unit id="0ec5887e-c409-4fcb-a0a1-b7cfaf0d2183" xml:space="preserve">
+          <source>This topic demonstrates how to connect to Media Services uisng REST API.</source>
+          <target state="new">This topic demonstrates how to connect to Media Services uisng REST API.</target>
+        </trans-unit>
+        <trans-unit id="849a0afa-e7fe-4b3f-9ad0-0255ecd92698" xml:space="preserve">
+          <source>This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services REST API.</source>
+          <target state="new">This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services REST API.</target>
+        </trans-unit>
+        <trans-unit id="0365d0d4-c938-4ccd-ac0c-12585d4fa326" xml:space="preserve">
+          <source>Two things are required when accessing Microsoft Azure Media Services: An access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself.</source>
+          <target state="new">Two things are required when accessing Microsoft Azure Media Services: An access token provided by Azure Access Control Services (ACS), and the URI of Media Services itself.</target>
+        </trans-unit>
+        <trans-unit id="27597b3f-6c67-4d94-b441-f8cd2852cd1c" xml:space="preserve">
+          <source>You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.</source>
+          <target state="new">You can use any means you want when creating these requests as long as you specify the correct header values and pass in the access token correctly when calling into Media Services.</target>
+        </trans-unit>
+        <trans-unit id="c373e872-42a9-40db-abc3-ff50f293efbc" xml:space="preserve">
+          <source>The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:</source>
+          <target state="new">The following steps describe the most common workflow when using the Media Services REST API to connect to Media Services:</target>
+        </trans-unit>
+        <trans-unit id="38321bd3-5af8-4395-b995-56e6e082779a" xml:space="preserve">
+          <source>Getting an access token </source>
+          <target state="new">Getting an access token </target>
+        </trans-unit>
+        <trans-unit id="ff63d99c-fdd6-4b8a-aa0b-a215f7cb421c" xml:space="preserve">
+          <source>Connecting to the Media Services URI </source>
+          <target state="new">Connecting to the Media Services URI </target>
+        </trans-unit>
+        <trans-unit id="2abf252c-b40a-4a91-976b-67d45817f694" xml:space="preserve">
+          <source>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</source>
+          <target state="new">After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI.</target>
+        </trans-unit>
+        <trans-unit id="cdc70082-7331-4022-a189-12ccfed01ea3" xml:space="preserve">
+          <source>You must make subsequent calls to the new URI.</source>
+          <target state="new">You must make subsequent calls to the new URI.</target>
+        </trans-unit>
+        <trans-unit id="e28cb99c-79ad-463c-9a18-03e38ac4afcb" xml:space="preserve">
+          <source>You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.</source>
+          <target state="new">You may also receive a HTTP/1.1 200 response that contains the ODATA API metadata description.</target>
+        </trans-unit>
+        <trans-unit id="ded65123-954d-4f27-a59a-635c59c59439" xml:space="preserve">
+          <source>Post your subsequent API calls to the new URL.</source>
+          <target state="new">Post your subsequent API calls to the new URL.</target>
+        </trans-unit>
+        <trans-unit id="e619fa47-3e5e-409d-8335-27203d845ef0" xml:space="preserve">
+          <source>For example, if after trying to connect, you got the following:</source>
+          <target state="new">For example, if after trying to connect, you got the following:</target>
+        </trans-unit>
+        <trans-unit id="9aa27419-3a10-4885-98bb-b4d2488f49e4" xml:space="preserve">
+          <source>You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.</source>
+          <target state="new">You should post your subsequent API calls to https://wamsbayclus001rest-hs.cloudapp.net/api/.</target>
+        </trans-unit>
+        <trans-unit id="35c65ef1-a27c-4bef-b4cd-98189e674039" xml:space="preserve">
+          <source>To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service.</source>
+          <target state="new">To access Media Services directly through the REST API, retrieve an access token from ACS and use it during every HTTP request you make into the service.</target>
+        </trans-unit>
+        <trans-unit id="44c90726-a052-416e-9866-91a4fda03a46" xml:space="preserve">
+          <source>This token is similar to other tokens provided by ACS based on access claims provided in the header of an HTTP request and using the OAuth v2 protocol.</source>
+          <target state="new">This token is similar to other tokens provided by ACS based on access claims provided in the header of an HTTP request and using the OAuth v2 protocol.</target>
+        </trans-unit>
+        <trans-unit id="317df14f-a180-4185-8bbd-619da12aff5e" xml:space="preserve">
+          <source>You do not need any other prerequisites before directly connecting to Media Services.</source>
+          <target state="new">You do not need any other prerequisites before directly connecting to Media Services.</target>
+        </trans-unit>
+        <trans-unit id="42334f25-d814-4d0b-a5e7-be923fe9b4cd" xml:space="preserve">
+          <source>The following example shows the HTTP request header and body used to retrieve a token.</source>
+          <target state="new">The following example shows the HTTP request header and body used to retrieve a token.</target>
+        </trans-unit>
+        <trans-unit id="5cfe50ab-014b-4e34-99cc-d37af8c1e329" xml:space="preserve">
+          <source><bpt id="199a4500-8b04-4797-a035-cfb837060465">&lt;strong&gt;</bpt>Header<ept id="199a4500-8b04-4797-a035-cfb837060465">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="199a4500-8b04-4797-a035-cfb837060465">&lt;strong&gt;</bpt>Header<ept id="199a4500-8b04-4797-a035-cfb837060465">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="3d2310d2-6a9f-43f4-9d8d-349f426666e3" xml:space="preserve">
+          <source><bpt id="696ed33d-01d2-4014-84f2-49c1180fe54c">&lt;strong&gt;</bpt>Body<ept id="696ed33d-01d2-4014-84f2-49c1180fe54c">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="696ed33d-01d2-4014-84f2-49c1180fe54c">&lt;strong&gt;</bpt>Body<ept id="696ed33d-01d2-4014-84f2-49c1180fe54c">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2f781c1d-50f4-4600-9405-bf1b241a68a5" xml:space="preserve">
+          <source>You need to prove the client<bpt id="ec20fadf-fdb5-470f-b043-fa6561d5ff46">&lt;em&gt;</bpt>id and client<ept id="ec20fadf-fdb5-470f-b043-fa6561d5ff46">&lt;/em&gt;</ept>secret values in the body of this request; client<bpt id="e45d93a5-d23c-4021-8861-43947f51f9d9">&lt;em&gt;</bpt>id and client<ept id="e45d93a5-d23c-4021-8861-43947f51f9d9">&lt;/em&gt;</ept>secret correspond to the AccountName and AccountKey values, respectively.</source>
+          <target state="new">You need to prove the client<bpt id="ec20fadf-fdb5-470f-b043-fa6561d5ff46">&lt;em&gt;</bpt>id and client<ept id="ec20fadf-fdb5-470f-b043-fa6561d5ff46">&lt;/em&gt;</ept>secret values in the body of this request; client<bpt id="e45d93a5-d23c-4021-8861-43947f51f9d9">&lt;em&gt;</bpt>id and client<ept id="e45d93a5-d23c-4021-8861-43947f51f9d9">&lt;/em&gt;</ept>secret correspond to the AccountName and AccountKey values, respectively.</target>
+        </trans-unit>
+        <trans-unit id="408c8bb3-b399-476c-9818-7249661efa4c" xml:space="preserve">
+          <source>These values are provided to you by Media Services when you set up your account.</source>
+          <target state="new">These values are provided to you by Media Services when you set up your account.</target>
+        </trans-unit>
+        <trans-unit id="f1075865-086f-45d0-b9f0-7f3e0f9649e3" xml:space="preserve">
+          <source>Note that the AccountKey for your Media Services account must be URL-encoded (see <bpt id="37bc539a-125f-4714-b925-c52ece27a632">&lt;linkText&gt;</bpt>Percent-Encoding<ept id="37bc539a-125f-4714-b925-c52ece27a632">&lt;/linkText&gt;</ept><bpt id="37bc539a-125f-4714-b925-c52ece27a632">&lt;title&gt;</bpt><ept id="37bc539a-125f-4714-b925-c52ece27a632">&lt;/title&gt;</ept> when using it as the client_secret value in your access token request.</source>
+          <target state="new">Note that the AccountKey for your Media Services account must be URL-encoded (see <bpt id="37bc539a-125f-4714-b925-c52ece27a632">&lt;linkText&gt;</bpt>Percent-Encoding<ept id="37bc539a-125f-4714-b925-c52ece27a632">&lt;/linkText&gt;</ept><bpt id="37bc539a-125f-4714-b925-c52ece27a632">&lt;title&gt;</bpt><ept id="37bc539a-125f-4714-b925-c52ece27a632">&lt;/title&gt;</ept> when using it as the client_secret value in your access token request.</target>
+        </trans-unit>
+        <trans-unit id="faa2c0a0-294a-4b7f-9e64-1257452147e6" xml:space="preserve">
+          <source>For example: </source>
+          <target state="new">For example: </target>
+        </trans-unit>
+        <trans-unit id="a2867d24-d7c8-4989-a641-0179d5aa911c" xml:space="preserve">
+          <source>The following example shows the HTTP response that contains the access token in the response body.</source>
+          <target state="new">The following example shows the HTTP response that contains the access token in the response body.</target>
+        </trans-unit>
+        <trans-unit id="49c30ac3-98a1-4fa5-ae9e-66fd41aec46a" xml:space="preserve">
+          <source>It is recommended to cache the "access<bpt id="797c5c9a-8fb0-4d42-b74c-e3f98ffb7b70">&lt;em&gt;</bpt>token " and "expires<ept id="797c5c9a-8fb0-4d42-b74c-e3f98ffb7b70">&lt;/em&gt;</ept>in " values to an external storage.</source>
+          <target state="new">It is recommended to cache the "access<bpt id="797c5c9a-8fb0-4d42-b74c-e3f98ffb7b70">&lt;em&gt;</bpt>token " and "expires<ept id="797c5c9a-8fb0-4d42-b74c-e3f98ffb7b70">&lt;/em&gt;</ept>in " values to an external storage.</target>
+        </trans-unit>
+        <trans-unit id="b0ddd819-7046-451c-88f2-51c6b4b72862" xml:space="preserve">
+          <source>The token data could later be retrieved from the storage and re-used in your Media Services REST API calls.</source>
+          <target state="new">The token data could later be retrieved from the storage and re-used in your Media Services REST API calls.</target>
+        </trans-unit>
+        <trans-unit id="d48a78e3-bc45-4a6a-8e89-8019045ed78c" xml:space="preserve">
+          <source>This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.</source>
+          <target state="new">This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.</target>
+        </trans-unit>
+        <trans-unit id="fd9f5fde-845d-4493-9e1c-ff402bdaa858" xml:space="preserve">
+          <source>Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.</source>
+          <target state="new">Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.</target>
+        </trans-unit>
+        <trans-unit id="4495aef2-a2e1-45e8-b0bb-c3921e044325" xml:space="preserve">
+          <source>The root URI for Media Services is https://media.windows.net/.</source>
+          <target state="new">The root URI for Media Services is https://media.windows.net/.</target>
+        </trans-unit>
+        <trans-unit id="91b16ff4-045b-4ae7-a267-1f7850ed7f36" xml:space="preserve">
+          <source>You should initially connect to this URI, and if you get a 301 redirect back in response, you should make subsequent calls to the new URI.</source>
+          <target state="new">You should initially connect to this URI, and if you get a 301 redirect back in response, you should make subsequent calls to the new URI.</target>
+        </trans-unit>
+        <trans-unit id="a37b1036-702f-4cd2-83dc-a0b16115cd0c" xml:space="preserve">
+          <source>In addition, do not use any auto-redirect/follow logic in your requests.</source>
+          <target state="new">In addition, do not use any auto-redirect/follow logic in your requests.</target>
+        </trans-unit>
+        <trans-unit id="2d414faa-93bf-4eb0-a2cf-1d0fc6b1315b" xml:space="preserve">
+          <source>HTTP verbs and request bodies will not be forwarded to the new URI.</source>
+          <target state="new">HTTP verbs and request bodies will not be forwarded to the new URI.</target>
+        </trans-unit>
+        <trans-unit id="d1a187b0-32ec-4a61-a533-98a12aab9533" xml:space="preserve">
+          <source>Note that the root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.windows.net/ where the storage account name is the same one you used during your Media Services account setup.</source>
+          <target state="new">Note that the root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.windows.net/ where the storage account name is the same one you used during your Media Services account setup.</target>
+        </trans-unit>
+        <trans-unit id="aedcdc33-47d9-44b3-8487-f3467183e2c2" xml:space="preserve">
+          <source>The following example demonstrates HTTP request to the Media Services root URI (https://media.windows.net/).</source>
+          <target state="new">The following example demonstrates HTTP request to the Media Services root URI (https://media.windows.net/).</target>
+        </trans-unit>
+        <trans-unit id="4e134ee0-bfb6-4f09-8c9e-067c8f68600d" xml:space="preserve">
+          <source>The request gets a 301 redirect back in response.</source>
+          <target state="new">The request gets a 301 redirect back in response.</target>
+        </trans-unit>
+        <trans-unit id="17defae8-d072-481a-9ce3-60cd4f0ea4ad" xml:space="preserve">
+          <source>The subsequent request is using the new URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).</source>
+          <target state="new">The subsequent request is using the new URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).</target>
+        </trans-unit>
+        <trans-unit id="39322fdc-c1f0-4a84-bd90-ad82b464d938" xml:space="preserve">
+          <source><bpt id="be3bc9db-9ea2-41fb-9796-3a0c02a7644e">&lt;strong&gt;</bpt>HTTP Request<ept id="be3bc9db-9ea2-41fb-9796-3a0c02a7644e">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="be3bc9db-9ea2-41fb-9796-3a0c02a7644e">&lt;strong&gt;</bpt>HTTP Request<ept id="be3bc9db-9ea2-41fb-9796-3a0c02a7644e">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="13552724-82c3-46af-9142-da1a5f0028b1" xml:space="preserve">
+          <source><bpt id="3f82b290-4271-4b48-9f4c-f9917b7e02a3">&lt;strong&gt;</bpt>HTTP Response<ept id="3f82b290-4271-4b48-9f4c-f9917b7e02a3">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="3f82b290-4271-4b48-9f4c-f9917b7e02a3">&lt;strong&gt;</bpt>HTTP Response<ept id="3f82b290-4271-4b48-9f4c-f9917b7e02a3">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="a8017135-142d-4021-b290-09c4e4d90f38" xml:space="preserve">
+          <source><bpt id="7282df5d-cd91-4289-b940-18ba39259219">&lt;strong&gt;</bpt>HTTP Request<ept id="7282df5d-cd91-4289-b940-18ba39259219">&lt;/strong&gt;</ept> (using the new URI):</source>
+          <target state="new"><bpt id="7282df5d-cd91-4289-b940-18ba39259219">&lt;strong&gt;</bpt>HTTP Request<ept id="7282df5d-cd91-4289-b940-18ba39259219">&lt;/strong&gt;</ept> (using the new URI):</target>
+        </trans-unit>
+        <trans-unit id="76ab3b53-545e-4ca0-a9d9-0128a1707759" xml:space="preserve">
+          <source><bpt id="ef757ab3-6320-44cd-bdfc-8ac9a640ba15">&lt;strong&gt;</bpt>HTTP Response<ept id="ef757ab3-6320-44cd-bdfc-8ac9a640ba15">&lt;/strong&gt;</ept>:</source>
+          <target state="new"><bpt id="ef757ab3-6320-44cd-bdfc-8ac9a640ba15">&lt;strong&gt;</bpt>HTTP Response<ept id="ef757ab3-6320-44cd-bdfc-8ac9a640ba15">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="858b1543-6e51-4865-b6e1-1b1c5db1d23d" xml:space="preserve">
+          <source>Once you get the new URI, that is the URI that should be used to communicate with Media Services.</source>
+          <target state="new">Once you get the new URI, that is the URI that should be used to communicate with Media Services.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

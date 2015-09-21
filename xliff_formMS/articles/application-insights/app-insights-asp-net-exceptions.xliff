@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="69f29629-3987-4057-ae00-5973d9cbc328" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="69f29629-3987-4057-ae00-5973d9cbc328" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="4747fa64-6675-48db-9b30-61315386ad76">
+        <trans-unit id="0d92f2b2-34e6-403a-9875-a3b00eeea5e1" xml:space="preserve">
+          <source>Diagnose failures and exceptions in ASP.NET apps with Application Insights</source>
+          <target state="new">Diagnose failures and exceptions in ASP.NET apps with Application Insights</target>
+        </trans-unit>
+        <trans-unit id="649a20cc-9971-4f69-8960-c8b0f1a96a0c" xml:space="preserve">
+          <source>Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry.</source>
+          <target state="new">Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry.</target>
+        </trans-unit>
+        <trans-unit id="f62b4e64-00ea-4fb3-96c4-3d5d35cf8933" xml:space="preserve">
+          <source>By monitoring your application with <bpt id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;/linkText&gt;</ept><bpt id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;title&gt;</bpt><ept id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;/title&gt;</ept>, you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.</source>
+          <target state="new">By monitoring your application with <bpt id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;linkText&gt;</bpt>Visual Studio Application Insights[start]<ept id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;/linkText&gt;</ept><bpt id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;title&gt;</bpt><ept id="e618e3e0-300e-4b72-85ff-3a9c45f4eff7">&lt;/title&gt;</ept>, you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.</target>
+        </trans-unit>
+        <trans-unit id="d60b2a66-7239-4f3c-8de1-f4842b2f3a57" xml:space="preserve">
+          <source>To monitor an ASP.NET app, you have to <bpt id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;linkText&gt;</bpt>add Application Insights SDK[greenbrown]<ept id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;/linkText&gt;</ept><bpt id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;title&gt;</bpt><ept id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;/title&gt;</ept> to your application, or <bpt id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;linkText&gt;</bpt>install Status Monitor on your IIS server[redfield]<ept id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;/linkText&gt;</ept><bpt id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;title&gt;</bpt><ept id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;/title&gt;</ept>, or, if your app is an Azure Web App, add the <bpt id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;linkText&gt;</bpt>Application Insights Extension[azure]<ept id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;/linkText&gt;</ept><bpt id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;title&gt;</bpt><ept id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;/title&gt;</ept>.</source>
+          <target state="new">To monitor an ASP.NET app, you have to <bpt id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;linkText&gt;</bpt>add Application Insights SDK[greenbrown]<ept id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;/linkText&gt;</ept><bpt id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;title&gt;</bpt><ept id="d447828a-30ca-4e0f-a405-508af86653c5">&lt;/title&gt;</ept> to your application, or <bpt id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;linkText&gt;</bpt>install Status Monitor on your IIS server[redfield]<ept id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;/linkText&gt;</ept><bpt id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;title&gt;</bpt><ept id="ac8440f7-9098-476b-948e-11095b3580b9">&lt;/title&gt;</ept>, or, if your app is an Azure Web App, add the <bpt id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;linkText&gt;</bpt>Application Insights Extension[azure]<ept id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;/linkText&gt;</ept><bpt id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;title&gt;</bpt><ept id="8ebecc2c-4342-4b83-b3b1-83afd4659ec5">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6303dde0-fc2a-4a7d-8188-8bb0d82fc70f" xml:space="preserve">
+          <source>From the overview blade, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.</source>
+          <target state="new">From the overview blade, the Failures tile shows you charts of exceptions and failed HTTP requests, together with a list of the request URLs that cause the most frequent failures.</target>
+        </trans-unit>
+        <trans-unit id="d247cfdf-601c-4d1d-8fb0-1beec0e4f9d4" xml:space="preserve">
+          <source><bpt id="7451265e-572e-49f7-b403-8c00c7b4799d">&lt;linkText&gt;</bpt>Select Failures<ept id="7451265e-572e-49f7-b403-8c00c7b4799d">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7451265e-572e-49f7-b403-8c00c7b4799d">&lt;linkText&gt;</bpt>Select Failures<ept id="7451265e-572e-49f7-b403-8c00c7b4799d">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="ec3ea818-edbd-4d18-a6b2-d21151761c36" xml:space="preserve">
+          <source>Click through one of the failed request types in the list to get to individual occurrences of the failure.</source>
+          <target state="new">Click through one of the failed request types in the list to get to individual occurrences of the failure.</target>
+        </trans-unit>
+        <trans-unit id="0a7da44b-d510-498a-9414-aa0ad45c47ec" xml:space="preserve">
+          <source>From there, click through to the exceptions or any trace data associated with it:</source>
+          <target state="new">From there, click through to the exceptions or any trace data associated with it:</target>
+        </trans-unit>
+        <trans-unit id="4c934a59-4d18-46dd-a296-f904cc46b586" xml:space="preserve">
+          <source><bpt id="3244aeea-e188-4a3a-be8f-78773cb39274">&lt;linkText&gt;</bpt>Select an instance of a failed request, and under exception details, get to instances of the exception.<ept id="3244aeea-e188-4a3a-be8f-78773cb39274">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3244aeea-e188-4a3a-be8f-78773cb39274">&lt;linkText&gt;</bpt>Select an instance of a failed request, and under exception details, get to instances of the exception.<ept id="3244aeea-e188-4a3a-be8f-78773cb39274">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4a7c97c1-95b6-46e7-b459-d112f1ed7260" xml:space="preserve">
+          <source><bpt id="e4142b05-dcec-4073-ae65-3d8b22a4f681">&lt;strong&gt;</bpt>Alternatively,<ept id="e4142b05-dcec-4073-ae65-3d8b22a4f681">&lt;/strong&gt;</ept> you can start from the list of exceptions that you'll find further down the Failures blade.</source>
+          <target state="new"><bpt id="e4142b05-dcec-4073-ae65-3d8b22a4f681">&lt;strong&gt;</bpt>Alternatively,<ept id="e4142b05-dcec-4073-ae65-3d8b22a4f681">&lt;/strong&gt;</ept> you can start from the list of exceptions that you'll find further down the Failures blade.</target>
+        </trans-unit>
+        <trans-unit id="43af070d-223e-437e-be5c-b7863a2a3d88" xml:space="preserve">
+          <source>Keep clicking until you eventually get to individual exceptions.</source>
+          <target state="new">Keep clicking until you eventually get to individual exceptions.</target>
+        </trans-unit>
+        <trans-unit id="a08c264f-4805-4040-82eb-73a8ddc4dfce" xml:space="preserve">
+          <source><bpt id="7dd15701-c123-4084-b90a-37212999d12e">&lt;linkText&gt;</bpt>Drill through<ept id="7dd15701-c123-4084-b90a-37212999d12e">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="7dd15701-c123-4084-b90a-37212999d12e">&lt;linkText&gt;</bpt>Drill through<ept id="7dd15701-c123-4084-b90a-37212999d12e">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d117c50e-2e9d-4e8c-8a99-324d43f38463" xml:space="preserve">
+          <source>*No exceptions showing?</source>
+          <target state="new">*No exceptions showing?</target>
+        </trans-unit>
+        <trans-unit id="ec5a75cc-b30d-47ba-b7ef-36ee8a09e601" xml:space="preserve">
+          <source>See <bpt id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;linkText&gt;</bpt>Capture exceptions<ept id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;/linkText&gt;</ept><bpt id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;title&gt;</bpt><ept id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;/title&gt;</ept>.*</source>
+          <target state="new">See <bpt id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;linkText&gt;</bpt>Capture exceptions<ept id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;/linkText&gt;</ept><bpt id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;title&gt;</bpt><ept id="a3c768b6-bf60-432e-9a8e-ea2f81142dd1">&lt;/title&gt;</ept>.*</target>
+        </trans-unit>
+        <trans-unit id="8213e3b9-bf46-499c-b136-0340daff2e7c" xml:space="preserve">
+          <source>From there you can look at the stack trace and detailed properties of each exception and find related log trace or other events.</source>
+          <target state="new">From there you can look at the stack trace and detailed properties of each exception and find related log trace or other events.</target>
+        </trans-unit>
+        <trans-unit id="aa81511a-e8ff-4e30-a65a-b0b77ec4cd6b" xml:space="preserve">
+          <source><bpt id="90991b7c-fa4f-4074-880d-6b01266234e0">&lt;linkText&gt;</bpt>Drill through<ept id="90991b7c-fa4f-4074-880d-6b01266234e0">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="90991b7c-fa4f-4074-880d-6b01266234e0">&lt;linkText&gt;</bpt>Drill through<ept id="90991b7c-fa4f-4074-880d-6b01266234e0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4fcbd87c-6e67-4c01-96f0-d6d3b9e2a24f" xml:space="preserve">
+          <source><bpt id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;linkText&gt;</bpt>Learn more about Diagnostic Search[diagnostic]<ept id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;/linkText&gt;</ept><bpt id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;title&gt;</bpt><ept id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;linkText&gt;</bpt>Learn more about Diagnostic Search[diagnostic]<ept id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;/linkText&gt;</ept><bpt id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;title&gt;</bpt><ept id="ca257d2a-d481-4070-9bde-62d9f3e0c580">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="70a39a10-a42e-4e20-92e1-e757936790b4" xml:space="preserve">
+          <source>A <bpt id="bfb00056-ddf0-43c1-afca-2161f4e83b06">&lt;em&gt;</bpt>dependency<ept id="bfb00056-ddf0-43c1-afca-2161f4e83b06">&lt;/em&gt;</ept> is a service that your application calls, typically through a REST API or database connection.</source>
+          <target state="new">A <bpt id="bfb00056-ddf0-43c1-afca-2161f4e83b06">&lt;em&gt;</bpt>dependency<ept id="bfb00056-ddf0-43c1-afca-2161f4e83b06">&lt;/em&gt;</ept> is a service that your application calls, typically through a REST API or database connection.</target>
+        </trans-unit>
+        <trans-unit id="1f96e576-fb84-4d76-8bc3-bf2c3dd3e1a4" xml:space="preserve">
+          <source><bpt id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;linkText&gt;</bpt>Application Insights Status Monitor[redfield]<ept id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;/linkText&gt;</ept><bpt id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;title&gt;</bpt><ept id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;/title&gt;</ept> automatically monitors a variety of types of dependency call, measuring call duration and success or failure.</source>
+          <target state="new"><bpt id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;linkText&gt;</bpt>Application Insights Status Monitor[redfield]<ept id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;/linkText&gt;</ept><bpt id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;title&gt;</bpt><ept id="aa3b63e6-c133-4816-84f4-98ca780ec011">&lt;/title&gt;</ept> automatically monitors a variety of types of dependency call, measuring call duration and success or failure.</target>
+        </trans-unit>
+        <trans-unit id="9fe3e364-a949-4e61-ac29-acdaf39c3417" xml:space="preserve">
+          <source>To get dependency data, you have to <bpt id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;linkText&gt;</bpt>install Status Monitor[redfield]<ept id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;/linkText&gt;</ept><bpt id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;title&gt;</bpt><ept id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;/title&gt;</ept> on your IIS server, or if your app is an Azure Web App, use the <bpt id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;linkText&gt;</bpt>Application Insights Extension[azure]<ept id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;/linkText&gt;</ept><bpt id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;title&gt;</bpt><ept id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;/title&gt;</ept>.</source>
+          <target state="new">To get dependency data, you have to <bpt id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;linkText&gt;</bpt>install Status Monitor[redfield]<ept id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;/linkText&gt;</ept><bpt id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;title&gt;</bpt><ept id="e80fec22-0185-4c5b-b496-bd1feafd9175">&lt;/title&gt;</ept> on your IIS server, or if your app is an Azure Web App, use the <bpt id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;linkText&gt;</bpt>Application Insights Extension[azure]<ept id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;/linkText&gt;</ept><bpt id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;title&gt;</bpt><ept id="d981d338-2c76-4b3d-9a93-5b93afbc6f2d">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="5c80d814-aeca-4548-a48b-74288128fb99" xml:space="preserve">
+          <source>You can do this either</source>
+          <target state="new">You can do this either</target>
+        </trans-unit>
+        <trans-unit id="4e02ed36-c27a-4dd7-b4cb-26b4007cf4a8" xml:space="preserve">
+          <source>Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.</source>
+          <target state="new">Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.</target>
+        </trans-unit>
+        <trans-unit id="a2f53b76-2016-4f24-bbf5-186dcccd0638" xml:space="preserve">
+          <source>*No dependency failures?</source>
+          <target state="new">*No dependency failures?</target>
+        </trans-unit>
+        <trans-unit id="85b60743-38bb-4306-aa8a-85987bdc9952" xml:space="preserve">
+          <source>That's good.</source>
+          <target state="new">That's good.</target>
+        </trans-unit>
+        <trans-unit id="e73545af-d4f5-4a40-91d2-9265ecbf5336" xml:space="preserve">
+          <source>But to verify that you're getting dependency data, open the Performance blade and look at the Dependency Duration chart.*</source>
+          <target state="new">But to verify that you're getting dependency data, open the Performance blade and look at the Dependency Duration chart.*</target>
+        </trans-unit>
+        <trans-unit id="01a48761-cc3c-4801-b95b-61fc21c42338" xml:space="preserve">
+          <source>To get diagnostic data specific to your app, you can insert code to send your own telemetry data.</source>
+          <target state="new">To get diagnostic data specific to your app, you can insert code to send your own telemetry data.</target>
+        </trans-unit>
+        <trans-unit id="c5675b07-2633-4713-9d05-0ab5a7fd9d48" xml:space="preserve">
+          <source>This displayed in diagnostic search alongside the request, page view and other automatically-collected data.</source>
+          <target state="new">This displayed in diagnostic search alongside the request, page view and other automatically-collected data.</target>
+        </trans-unit>
+        <trans-unit id="e5082831-5acb-46b2-b49a-28acebcd0d93" xml:space="preserve">
+          <source>You have several options:</source>
+          <target state="new">You have several options:</target>
+        </trans-unit>
+        <trans-unit id="0926cb15-6a15-47db-b890-3951ac5c1e45" xml:space="preserve">
+          <source><bpt id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;linkText&gt;</bpt>TrackEvent()<ept id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;/linkText&gt;</ept><bpt id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;title&gt;</bpt><ept id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;/title&gt;</ept> is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search.</source>
+          <target state="new"><bpt id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;linkText&gt;</bpt>TrackEvent()<ept id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;/linkText&gt;</ept><bpt id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;title&gt;</bpt><ept id="9b320ed0-29d2-4e55-9873-8beb56db0adf">&lt;/title&gt;</ept> is typically used for monitoring usage patterns, but the data it sends also appears under Custom Events in diagnostic search.</target>
+        </trans-unit>
+        <trans-unit id="9d425128-581e-4559-866c-66c9c3d464db" xml:space="preserve">
+          <source>Events are named, and can carry string properties and numeric metrics on which you can <bpt id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;linkText&gt;</bpt>filter your diagnostic searches[diagnostic]<ept id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;/linkText&gt;</ept><bpt id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;title&gt;</bpt><ept id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;/title&gt;</ept>.</source>
+          <target state="new">Events are named, and can carry string properties and numeric metrics on which you can <bpt id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;linkText&gt;</bpt>filter your diagnostic searches[diagnostic]<ept id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;/linkText&gt;</ept><bpt id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;title&gt;</bpt><ept id="69f9f497-dc3a-49f3-933e-b9534090e925">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3ea51d00-e775-4089-94f0-6552c93707d0" xml:space="preserve">
+          <source><bpt id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;linkText&gt;</bpt>TrackTrace()<ept id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;/linkText&gt;</ept><bpt id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;title&gt;</bpt><ept id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;/title&gt;</ept> lets you send longer data such as POST information.</source>
+          <target state="new"><bpt id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;linkText&gt;</bpt>TrackTrace()<ept id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;/linkText&gt;</ept><bpt id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;title&gt;</bpt><ept id="56f24afa-b329-406f-b470-03dc2c2d161e">&lt;/title&gt;</ept> lets you send longer data such as POST information.</target>
+        </trans-unit>
+        <trans-unit id="764da3d5-34f1-42a6-aa64-22b5d9545c66" xml:space="preserve">
+          <source><bpt id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;linkText&gt;</bpt>TrackException()<ept id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;/linkText&gt;</ept><bpt id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;title&gt;</bpt><ept id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;/title&gt;</ept> sends stack traces.</source>
+          <target state="new"><bpt id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;linkText&gt;</bpt>TrackException()<ept id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;/linkText&gt;</ept><bpt id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;title&gt;</bpt><ept id="283720ce-f51e-409a-89c3-04ed2f6bc1a2">&lt;/title&gt;</ept> sends stack traces.</target>
+        </trans-unit>
+        <trans-unit id="dac1774d-68ac-48e5-b69b-9ea6f8c77131" xml:space="preserve">
+          <source><bpt id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;linkText&gt;</bpt>More about exceptions<ept id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;/linkText&gt;</ept><bpt id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;title&gt;</bpt><ept id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;linkText&gt;</bpt>More about exceptions<ept id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;/linkText&gt;</ept><bpt id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;title&gt;</bpt><ept id="2aaffd4f-cca0-4364-bad3-9ea12b3b117e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="32886700-1084-4193-a5c6-03121bc9e6fd" xml:space="preserve">
+          <source>If you already use a logging framework like Log4Net or NLog, you can <bpt id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;linkText&gt;</bpt>capture those logs[netlogs]<ept id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;/linkText&gt;</ept><bpt id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;title&gt;</bpt><ept id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;/title&gt;</ept> and see them in diagnostic search alongside request and exception data.</source>
+          <target state="new">If you already use a logging framework like Log4Net or NLog, you can <bpt id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;linkText&gt;</bpt>capture those logs[netlogs]<ept id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;/linkText&gt;</ept><bpt id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;title&gt;</bpt><ept id="ed59e9a0-03b3-4a2e-846e-a4d82d35ba47">&lt;/title&gt;</ept> and see them in diagnostic search alongside request and exception data.</target>
+        </trans-unit>
+        <trans-unit id="f40f0b65-ff57-4b0c-b891-e3c7f166de93" xml:space="preserve">
+          <source>To see these events, open <bpt id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;/linkText&gt;</ept><bpt id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;title&gt;</bpt><ept id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;/title&gt;</ept>, open Filter, and then choose Custom Event, Trace, or Exception.</source>
+          <target state="new">To see these events, open <bpt id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;linkText&gt;</bpt>Search[diagnostic]<ept id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;/linkText&gt;</ept><bpt id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;title&gt;</bpt><ept id="152c90cd-ca64-4dc9-886e-40bb22b4ec9b">&lt;/title&gt;</ept>, open Filter, and then choose Custom Event, Trace, or Exception.</target>
+        </trans-unit>
+        <trans-unit id="1ba72a8a-2137-405e-aa39-81c68fa456b4" xml:space="preserve">
+          <source><bpt id="3d506b81-d10f-44de-a829-c11a7cbd7167">&lt;linkText&gt;</bpt>Drill through<ept id="3d506b81-d10f-44de-a829-c11a7cbd7167">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3d506b81-d10f-44de-a829-c11a7cbd7167">&lt;linkText&gt;</bpt>Drill through<ept id="3d506b81-d10f-44de-a829-c11a7cbd7167">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4041d62c-897b-48c0-88ff-0f8070ddbaf3" xml:space="preserve">
+          <source>Request details don't include the data sent to your app in a POST call.</source>
+          <target state="new">Request details don't include the data sent to your app in a POST call.</target>
+        </trans-unit>
+        <trans-unit id="7d99f74c-3a10-4c2d-a31f-fb0f3ba1c04f" xml:space="preserve">
+          <source>To have this data reported:</source>
+          <target state="new">To have this data reported:</target>
+        </trans-unit>
+        <trans-unit id="9e147a5f-2b5a-4081-ad8a-26c7f0b19f34" xml:space="preserve">
+          <source><bpt id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;linkText&gt;</bpt>Install the SDK[greenbrown]<ept id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;/linkText&gt;</ept><bpt id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;title&gt;</bpt><ept id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;/title&gt;</ept> in your application project.</source>
+          <target state="new"><bpt id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;linkText&gt;</bpt>Install the SDK[greenbrown]<ept id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;/linkText&gt;</ept><bpt id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;title&gt;</bpt><ept id="89b191ea-b235-49ac-a759-e1ace7faba7c">&lt;/title&gt;</ept> in your application project.</target>
+        </trans-unit>
+        <trans-unit id="13f96fb2-c08d-4e2b-bf7a-c3d68c7849f0" xml:space="preserve">
+          <source>Insert code in your application to call <bpt id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;linkText&gt;</bpt>Microsoft.ApplicationInsights.TrackTrace()[api]<ept id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;/linkText&gt;</ept><bpt id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;title&gt;</bpt><ept id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;/title&gt;</ept>.</source>
+          <target state="new">Insert code in your application to call <bpt id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;linkText&gt;</bpt>Microsoft.ApplicationInsights.TrackTrace()[api]<ept id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;/linkText&gt;</ept><bpt id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;title&gt;</bpt><ept id="cf27ecd4-46ce-4484-be5c-bd539940ad0b">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="671c3aee-01cd-4ff3-8748-638ce6bcd688" xml:space="preserve">
+          <source>Send the POST data in the message parameter.</source>
+          <target state="new">Send the POST data in the message parameter.</target>
+        </trans-unit>
+        <trans-unit id="9a1f7843-feb6-46ca-b572-19e31cac6c28" xml:space="preserve">
+          <source>There is a limit to the permitted size, so you should try to send just the essential data.</source>
+          <target state="new">There is a limit to the permitted size, so you should try to send just the essential data.</target>
+        </trans-unit>
+        <trans-unit id="658342e5-82c0-41b3-9f8d-ce76b14c964f" xml:space="preserve">
+          <source>When you investigate a failed request, find the associated traces.</source>
+          <target state="new">When you investigate a failed request, find the associated traces.</target>
+        </trans-unit>
+        <trans-unit id="547e96f9-b96a-4b58-97ee-885dee849adc" xml:space="preserve">
+          <source><bpt id="f6acd5be-a557-45d7-ba94-b0b26da21f5c">&lt;linkText&gt;</bpt>Drill through<ept id="f6acd5be-a557-45d7-ba94-b0b26da21f5c">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f6acd5be-a557-45d7-ba94-b0b26da21f5c">&lt;linkText&gt;</bpt>Drill through<ept id="f6acd5be-a557-45d7-ba94-b0b26da21f5c">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03360c08-ed69-4f8c-8b64-ebaefeef304d" xml:space="preserve">
+          <source>At first, you won't see in the portal all the exceptions that cause failures in your app.</source>
+          <target state="new">At first, you won't see in the portal all the exceptions that cause failures in your app.</target>
+        </trans-unit>
+        <trans-unit id="848c833a-fdc9-4ea5-bcda-5f74eda4db23" xml:space="preserve">
+          <source>You'll see any browser exceptions (if you're using the <bpt id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;linkText&gt;</bpt>JavaScript SDK[client]<ept id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;/linkText&gt;</ept><bpt id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;title&gt;</bpt><ept id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;/title&gt;</ept> in your web pages).</source>
+          <target state="new">You'll see any browser exceptions (if you're using the <bpt id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;linkText&gt;</bpt>JavaScript SDK[client]<ept id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;/linkText&gt;</ept><bpt id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;title&gt;</bpt><ept id="146e1501-13c7-4244-8076-6bbd7b4404fe">&lt;/title&gt;</ept> in your web pages).</target>
+        </trans-unit>
+        <trans-unit id="586139e9-3947-4dfd-8da0-c06b4d71c56f" xml:space="preserve">
+          <source>But most server exceptions are caught by IIS and you have to write a bit of code to see them.</source>
+          <target state="new">But most server exceptions are caught by IIS and you have to write a bit of code to see them.</target>
+        </trans-unit>
+        <trans-unit id="50587e8e-c228-46aa-a791-2b778d926a87" xml:space="preserve">
+          <source>You can:</source>
+          <target state="new">You can:</target>
+        </trans-unit>
+        <trans-unit id="7238e987-9629-464a-a1e5-288716f3509f" xml:space="preserve">
+          <source><bpt id="96fd2d72-c2a7-4fc8-b0ed-7e9d735fc7e0">&lt;strong&gt;</bpt>Log exceptions explicitly<ept id="96fd2d72-c2a7-4fc8-b0ed-7e9d735fc7e0">&lt;/strong&gt;</ept> by inserting code in exception handlers to report the exceptions.</source>
+          <target state="new"><bpt id="96fd2d72-c2a7-4fc8-b0ed-7e9d735fc7e0">&lt;strong&gt;</bpt>Log exceptions explicitly<ept id="96fd2d72-c2a7-4fc8-b0ed-7e9d735fc7e0">&lt;/strong&gt;</ept> by inserting code in exception handlers to report the exceptions.</target>
+        </trans-unit>
+        <trans-unit id="22629d32-4d26-4637-be80-b5ff5deaf803" xml:space="preserve">
+          <source><bpt id="72f5afd9-b56b-403b-b3dc-b752e8f79017">&lt;strong&gt;</bpt>Capture exceptions automatically<ept id="72f5afd9-b56b-403b-b3dc-b752e8f79017">&lt;/strong&gt;</ept> by configuring your ASP.NET framework.</source>
+          <target state="new"><bpt id="72f5afd9-b56b-403b-b3dc-b752e8f79017">&lt;strong&gt;</bpt>Capture exceptions automatically<ept id="72f5afd9-b56b-403b-b3dc-b752e8f79017">&lt;/strong&gt;</ept> by configuring your ASP.NET framework.</target>
+        </trans-unit>
+        <trans-unit id="0d977413-f474-4974-8b84-62fd762784c5" xml:space="preserve">
+          <source>The necessary additions are different for different types of framework.</source>
+          <target state="new">The necessary additions are different for different types of framework.</target>
+        </trans-unit>
+        <trans-unit id="25f65545-f6ac-4a41-b585-e7a9507d0122" xml:space="preserve">
+          <source>The simplest way is to insert a call to TrackException() in an exception handler.</source>
+          <target state="new">The simplest way is to insert a call to TrackException() in an exception handler.</target>
+        </trans-unit>
+        <trans-unit id="78fc33a9-809a-475d-ab0d-1f24539600f7" xml:space="preserve">
+          <source>JavaScript</source>
+          <target state="new">JavaScript</target>
+        </trans-unit>
+        <trans-unit id="42ec301d-9848-4a65-8f8f-f9c891ab9688" xml:space="preserve">
+          <source>C#</source>
+          <target state="new">C#</target>
+        </trans-unit>
+        <trans-unit id="acba8b50-a5f9-4e6a-8c31-b7c3e16e71b3" xml:space="preserve">
+          <source>VB</source>
+          <target state="new">VB</target>
+        </trans-unit>
+        <trans-unit id="c6dc9e9f-5984-4af7-82d1-7dca0523841b" xml:space="preserve">
+          <source>The properties and measurements parameters are optional, but are useful for <bpt id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;linkText&gt;</bpt>filtering and adding[diagnostic]<ept id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;/linkText&gt;</ept><bpt id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;title&gt;</bpt><ept id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;/title&gt;</ept> extra information.</source>
+          <target state="new">The properties and measurements parameters are optional, but are useful for <bpt id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;linkText&gt;</bpt>filtering and adding[diagnostic]<ept id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;/linkText&gt;</ept><bpt id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;title&gt;</bpt><ept id="9c7fc3a9-8ca5-4274-9888-834ac33ff504">&lt;/title&gt;</ept> extra information.</target>
+        </trans-unit>
+        <trans-unit id="755fa2c2-401e-4d3b-adea-e0e0beb2e43a" xml:space="preserve">
+          <source>For example, if you have an app that can run several games, you could find all the exception reports related to a particular game.</source>
+          <target state="new">For example, if you have an app that can run several games, you could find all the exception reports related to a particular game.</target>
+        </trans-unit>
+        <trans-unit id="8292cd05-65fa-41a0-b7e7-97b7166902aa" xml:space="preserve">
+          <source>You can add as many items as you like to each dictionary.</source>
+          <target state="new">You can add as many items as you like to each dictionary.</target>
+        </trans-unit>
+        <trans-unit id="e18452ea-d43b-4f8f-b2dc-649945477e14" xml:space="preserve">
+          <source>Most browser exceptions are reported.</source>
+          <target state="new">Most browser exceptions are reported.</target>
+        </trans-unit>
+        <trans-unit id="b2387aec-bf37-4a28-871b-053eff1dbf38" xml:space="preserve">
+          <source>If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute <bpt id="4ce4ef57-f960-4729-a51b-07a355b132ef">&lt;code&gt;</bpt>crossorigin="anonymous"<ept id="4ce4ef57-f960-4729-a51b-07a355b132ef">&lt;/code&gt;</ept>,  and that the server sends <bpt id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;linkText&gt;</bpt>CORS headers<ept id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;/linkText&gt;</ept><bpt id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;title&gt;</bpt><ept id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;/title&gt;</ept>.</source>
+          <target state="new">If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute <bpt id="4ce4ef57-f960-4729-a51b-07a355b132ef">&lt;code&gt;</bpt>crossorigin="anonymous"<ept id="4ce4ef57-f960-4729-a51b-07a355b132ef">&lt;/code&gt;</ept>,  and that the server sends <bpt id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;linkText&gt;</bpt>CORS headers<ept id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;/linkText&gt;</ept><bpt id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;title&gt;</bpt><ept id="307d3bbf-58b9-4770-92b6-0d018a6e2b8f">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="24d88448-0145-47dd-ae6f-6ed8207f2267" xml:space="preserve">
+          <source>This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.</source>
+          <target state="new">This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.</target>
+        </trans-unit>
+        <trans-unit id="a1d48176-de82-4fd3-ac3c-8c9125aacbb0" xml:space="preserve">
+          <source>For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.</source>
+          <target state="new">For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.</target>
+        </trans-unit>
+        <trans-unit id="3c640397-326c-45b9-b961-65b230c2efcb" xml:space="preserve">
+          <source>But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs.</source>
+          <target state="new">But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs.</target>
+        </trans-unit>
+        <trans-unit id="51e39e63-0fa0-48d8-93c4-18d20fed71c2" xml:space="preserve">
+          <source>(Add a Global.asax file if you don't already have one.)</source>
+          <target state="new">(Add a Global.asax file if you don't already have one.)</target>
+        </trans-unit>
+        <trans-unit id="e9e539c1-8bdc-456f-9320-69ce48582844" xml:space="preserve">
+          <source><bpt id="8e1da221-a02f-4d30-8691-25398545637e">&lt;em&gt;</bpt>C#<ept id="8e1da221-a02f-4d30-8691-25398545637e">&lt;/em&gt;</ept></source>
+          <target state="new"><bpt id="8e1da221-a02f-4d30-8691-25398545637e">&lt;em&gt;</bpt>C#<ept id="8e1da221-a02f-4d30-8691-25398545637e">&lt;/em&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="3989e7f0-3702-414d-8979-a814a463a93a" xml:space="preserve">
+          <source>If the <bpt id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;linkText&gt;</bpt>CustomErrors<ept id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;/linkText&gt;</ept><bpt id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;title&gt;</bpt><ept id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;/title&gt;</ept> configuration is <bpt id="95c22487-6b39-41b6-845a-9a28085b4511">&lt;code&gt;</bpt>Off<ept id="95c22487-6b39-41b6-845a-9a28085b4511">&lt;/code&gt;</ept>, then exceptions will be available for the <bpt id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;linkText&gt;</bpt>HTTP Module<ept id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;/linkText&gt;</ept><bpt id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;title&gt;</bpt><ept id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;/title&gt;</ept> to collect.</source>
+          <target state="new">If the <bpt id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;linkText&gt;</bpt>CustomErrors<ept id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;/linkText&gt;</ept><bpt id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;title&gt;</bpt><ept id="7a54442b-f2cb-47ae-b56a-ca1fde980d96">&lt;/title&gt;</ept> configuration is <bpt id="95c22487-6b39-41b6-845a-9a28085b4511">&lt;code&gt;</bpt>Off<ept id="95c22487-6b39-41b6-845a-9a28085b4511">&lt;/code&gt;</ept>, then exceptions will be available for the <bpt id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;linkText&gt;</bpt>HTTP Module<ept id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;/linkText&gt;</ept><bpt id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;title&gt;</bpt><ept id="064a3b7c-342d-48b9-8452-bc9339082484">&lt;/title&gt;</ept> to collect.</target>
+        </trans-unit>
+        <trans-unit id="8f451ae8-9cb7-4554-90e4-09b12d3baa1a" xml:space="preserve">
+          <source>However, if it is <bpt id="2569e39d-466e-4208-8e30-9de475740a00">&lt;code&gt;</bpt>RemoteOnly<ept id="2569e39d-466e-4208-8e30-9de475740a00">&lt;/code&gt;</ept> (default), or <bpt id="6f71c0a4-5882-4f48-85b9-0f2bdb1315a7">&lt;code&gt;</bpt>On<ept id="6f71c0a4-5882-4f48-85b9-0f2bdb1315a7">&lt;/code&gt;</ept>, then the exception will be cleared and not available for Application Insights to automatically collect.</source>
+          <target state="new">However, if it is <bpt id="2569e39d-466e-4208-8e30-9de475740a00">&lt;code&gt;</bpt>RemoteOnly<ept id="2569e39d-466e-4208-8e30-9de475740a00">&lt;/code&gt;</ept> (default), or <bpt id="6f71c0a4-5882-4f48-85b9-0f2bdb1315a7">&lt;code&gt;</bpt>On<ept id="6f71c0a4-5882-4f48-85b9-0f2bdb1315a7">&lt;/code&gt;</ept>, then the exception will be cleared and not available for Application Insights to automatically collect.</target>
+        </trans-unit>
+        <trans-unit id="f6a2bd30-caf5-4f9f-92b4-a0d3c88ca0aa" xml:space="preserve">
+          <source>You can fix that by overriding the <bpt id="d739db9d-eae6-4575-9f91-458546751ded">&lt;linkText&gt;</bpt>System.Web.Mvc.HandleErrorAttribute class<ept id="d739db9d-eae6-4575-9f91-458546751ded">&lt;/linkText&gt;</ept><bpt id="d739db9d-eae6-4575-9f91-458546751ded">&lt;title&gt;</bpt><ept id="d739db9d-eae6-4575-9f91-458546751ded">&lt;/title&gt;</ept>, and applying the overridden class as shown for the different MVC versions below (<bpt id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;linkText&gt;</bpt>github source<ept id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;/linkText&gt;</ept><bpt id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;title&gt;</bpt><ept id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;/title&gt;</ept>):</source>
+          <target state="new">You can fix that by overriding the <bpt id="d739db9d-eae6-4575-9f91-458546751ded">&lt;linkText&gt;</bpt>System.Web.Mvc.HandleErrorAttribute class<ept id="d739db9d-eae6-4575-9f91-458546751ded">&lt;/linkText&gt;</ept><bpt id="d739db9d-eae6-4575-9f91-458546751ded">&lt;title&gt;</bpt><ept id="d739db9d-eae6-4575-9f91-458546751ded">&lt;/title&gt;</ept>, and applying the overridden class as shown for the different MVC versions below (<bpt id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;linkText&gt;</bpt>github source<ept id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;/linkText&gt;</ept><bpt id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;title&gt;</bpt><ept id="d4ff24a3-d810-4a99-94a5-b08d5bda72dd">&lt;/title&gt;</ept>):</target>
+        </trans-unit>
+        <trans-unit id="0bbf6a90-a88f-42d7-abee-0fde294fe807" xml:space="preserve">
+          <source>Replace the HandleError attribute with your new attribute in your controllers.</source>
+          <target state="new">Replace the HandleError attribute with your new attribute in your controllers.</target>
+        </trans-unit>
+        <trans-unit id="3152b5e7-6cf0-4ef7-87ed-2dc8b6c967e3" xml:space="preserve">
+          <source><bpt id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;linkText&gt;</bpt>Sample<ept id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;/linkText&gt;</ept><bpt id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;title&gt;</bpt><ept id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;linkText&gt;</bpt>Sample<ept id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;/linkText&gt;</ept><bpt id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;title&gt;</bpt><ept id="f4fd1658-3cb9-4cb6-944a-b34c1b0dbf37">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2e9e819a-0917-4223-8b84-032f6be9bc15" xml:space="preserve">
+          <source>Register <bpt id="29685929-3c75-483f-ae58-e10c4329c959">&lt;code&gt;</bpt>AiHandleErrorAttribute<ept id="29685929-3c75-483f-ae58-e10c4329c959">&lt;/code&gt;</ept> as a global filter in Global.asax.cs:</source>
+          <target state="new">Register <bpt id="29685929-3c75-483f-ae58-e10c4329c959">&lt;code&gt;</bpt>AiHandleErrorAttribute<ept id="29685929-3c75-483f-ae58-e10c4329c959">&lt;/code&gt;</ept> as a global filter in Global.asax.cs:</target>
+        </trans-unit>
+        <trans-unit id="6ce44c8c-b758-489e-b3f3-1a421718cf7e" xml:space="preserve">
+          <source><bpt id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;linkText&gt;</bpt>Sample<ept id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;/linkText&gt;</ept><bpt id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;title&gt;</bpt><ept id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;linkText&gt;</bpt>Sample<ept id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;/linkText&gt;</ept><bpt id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;title&gt;</bpt><ept id="4df21172-e155-4b3c-b5b4-7280be5cea0d">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="acd49f98-767e-4d43-8b8f-1da6b615c8a9" xml:space="preserve">
+          <source>Register AiHandleErrorAttribute as a global filter in FilterConfig.cs:</source>
+          <target state="new">Register AiHandleErrorAttribute as a global filter in FilterConfig.cs:</target>
+        </trans-unit>
+        <trans-unit id="07aeefe7-d14f-48d5-8897-906d6b99c773" xml:space="preserve">
+          <source><bpt id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;linkText&gt;</bpt>Sample<ept id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;/linkText&gt;</ept><bpt id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;title&gt;</bpt><ept id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;linkText&gt;</bpt>Sample<ept id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;/linkText&gt;</ept><bpt id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;title&gt;</bpt><ept id="cfbad82d-1ff1-486c-b081-4d208822cada">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fa3c5a2f-ed58-408d-9e7c-a8761b4d27b8" xml:space="preserve">
+          <source>Override System.Web.Http.Filters.ExceptionFilterAttribute:</source>
+          <target state="new">Override System.Web.Http.Filters.ExceptionFilterAttribute:</target>
+        </trans-unit>
+        <trans-unit id="4ef35d76-44fb-42d6-96bc-b244088576ac" xml:space="preserve">
+          <source>You could add this overridden attribute to specific controllers, or add it to the global filter configuration in the WebApiConfig class: </source>
+          <target state="new">You could add this overridden attribute to specific controllers, or add it to the global filter configuration in the WebApiConfig class: </target>
+        </trans-unit>
+        <trans-unit id="39a95e36-2ab7-4d1b-b900-659c104b121b" xml:space="preserve">
+          <source>[Sample](https://github.com/AppInsightsSamples/WebApi<bpt id="94492c46-3f34-4b6c-a101-a2fdce55975a">&lt;em&gt;</bpt>1.x<ept id="94492c46-3f34-4b6c-a101-a2fdce55975a">&lt;/em&gt;</ept>UnhandledExceptions)</source>
+          <target state="new">[Sample](https://github.com/AppInsightsSamples/WebApi<bpt id="94492c46-3f34-4b6c-a101-a2fdce55975a">&lt;em&gt;</bpt>1.x<ept id="94492c46-3f34-4b6c-a101-a2fdce55975a">&lt;/em&gt;</ept>UnhandledExceptions)</target>
+        </trans-unit>
+        <trans-unit id="f39d8c14-65bb-4cf9-8aca-1d15708651fd" xml:space="preserve">
+          <source>There are a number of cases that the exception filters cannot handle.</source>
+          <target state="new">There are a number of cases that the exception filters cannot handle.</target>
+        </trans-unit>
+        <trans-unit id="1d0be932-de69-498b-841a-d6b85ba6d154" xml:space="preserve">
+          <source>For example:</source>
+          <target state="new">For example:</target>
+        </trans-unit>
+        <trans-unit id="282ea0c9-c119-4534-959b-38081141a396" xml:space="preserve">
+          <source>Exceptions thrown from controller constructors.</source>
+          <target state="new">Exceptions thrown from controller constructors.</target>
+        </trans-unit>
+        <trans-unit id="a8ca3835-7bbb-44e6-aa34-2818037bd90d" xml:space="preserve">
+          <source>Exceptions thrown from message handlers.</source>
+          <target state="new">Exceptions thrown from message handlers.</target>
+        </trans-unit>
+        <trans-unit id="1a97d524-6040-4b7b-a6da-710d3516caaf" xml:space="preserve">
+          <source>Exceptions thrown during routing.</source>
+          <target state="new">Exceptions thrown during routing.</target>
+        </trans-unit>
+        <trans-unit id="3903f17e-6098-4557-869c-102d2c4820d5" xml:space="preserve">
+          <source>Exceptions thrown during response content serialization.</source>
+          <target state="new">Exceptions thrown during response content serialization.</target>
+        </trans-unit>
+        <trans-unit id="12966df4-5a73-4131-abe1-120dfbb8c5d6" xml:space="preserve">
+          <source>Add an implementation of IExceptionLogger:</source>
+          <target state="new">Add an implementation of IExceptionLogger:</target>
+        </trans-unit>
+        <trans-unit id="0ae65f24-c964-4e41-917a-dee381d41b0a" xml:space="preserve">
+          <source>Add this to the services in WebApiConfig:</source>
+          <target state="new">Add this to the services in WebApiConfig:</target>
+        </trans-unit>
+        <trans-unit id="89ef6f5e-af3e-4ac9-8877-4afe375958c8" xml:space="preserve">
+          <source>[Sample](https://github.com/AppInsightsSamples/WebApi<bpt id="06b64e24-d564-466a-8090-f4eecbead69e">&lt;em&gt;</bpt>2.x<ept id="06b64e24-d564-466a-8090-f4eecbead69e">&lt;/em&gt;</ept>UnhandledExceptions)</source>
+          <target state="new">[Sample](https://github.com/AppInsightsSamples/WebApi<bpt id="06b64e24-d564-466a-8090-f4eecbead69e">&lt;em&gt;</bpt>2.x<ept id="06b64e24-d564-466a-8090-f4eecbead69e">&lt;/em&gt;</ept>UnhandledExceptions)</target>
+        </trans-unit>
+        <trans-unit id="58f8242f-3e9b-46f1-ab9a-495e754f8551" xml:space="preserve">
+          <source>As alternatives, you could:</source>
+          <target state="new">As alternatives, you could:</target>
+        </trans-unit>
+        <trans-unit id="33108d7c-74d0-4159-a911-df5dcbe06afd" xml:space="preserve">
+          <source>Replace the only ExceptionHandler with a custom implementation of IExceptionHandler.</source>
+          <target state="new">Replace the only ExceptionHandler with a custom implementation of IExceptionHandler.</target>
+        </trans-unit>
+        <trans-unit id="972a94b1-b259-46e5-8b58-163c111ec718" xml:space="preserve">
+          <source>This is only called when the framework is still able to choose which response message to send (not when the connection is aborted for instance)</source>
+          <target state="new">This is only called when the framework is still able to choose which response message to send (not when the connection is aborted for instance)</target>
+        </trans-unit>
+        <trans-unit id="a1d1dc17-0e3e-44db-810c-f36cc3406fbf" xml:space="preserve">
+          <source>Exception Filters (as described in the section on Web API 1.x controllers above) - not called in all cases.</source>
+          <target state="new">Exception Filters (as described in the section on Web API 1.x controllers above) - not called in all cases.</target>
+        </trans-unit>
+        <trans-unit id="21173c8d-7580-436c-92a8-db2caada1921" xml:space="preserve">
+          <source>Add a class that extends Attribute and implements IErrorHandler and IServiceBehavior.</source>
+          <target state="new">Add a class that extends Attribute and implements IErrorHandler and IServiceBehavior.</target>
+        </trans-unit>
+        <trans-unit id="a794c938-b199-49b7-9e7e-fc29d5e2d69c" xml:space="preserve">
+          <source>Add the attribute to the service implementations:</source>
+          <target state="new">Add the attribute to the service implementations:</target>
+        </trans-unit>
+        <trans-unit id="e119e945-efcc-4be6-862a-e80680ff7c09" xml:space="preserve">
+          <source><bpt id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;linkText&gt;</bpt>Sample<ept id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;/linkText&gt;</ept><bpt id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;title&gt;</bpt><ept id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;linkText&gt;</bpt>Sample<ept id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;/linkText&gt;</ept><bpt id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;title&gt;</bpt><ept id="730b5249-77a6-4414-b694-8a29bb04590f">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="fc4fc717-06a7-4505-ae85-9d1eec2e17b3" xml:space="preserve">
+          <source>app-insights-api-custom-events-metrics.md</source>
+          <target state="new">app-insights-api-custom-events-metrics.md</target>
+        </trans-unit>
+        <trans-unit id="59df7033-fbf1-4fc6-9ae6-bf73c71b2a32" xml:space="preserve">
+          <source>../insights-perf-analytics.md</source>
+          <target state="new">../insights-perf-analytics.md</target>
+        </trans-unit>
+        <trans-unit id="603cb7bf-ff56-45fb-a606-e5cf525c992e" xml:space="preserve">
+          <source>app-insights-javascript.md</source>
+          <target state="new">app-insights-javascript.md</target>
+        </trans-unit>
+        <trans-unit id="b1073392-eb74-4215-a71d-4cb57696d8dc" xml:space="preserve">
+          <source>app-insights-diagnostic-search.md</source>
+          <target state="new">app-insights-diagnostic-search.md</target>
+        </trans-unit>
+        <trans-unit id="a13cd82b-bac2-4ac9-8cd1-5325c9d43168" xml:space="preserve">
+          <source>app-insights-start-monitoring-app-health-usage.md</source>
+          <target state="new">app-insights-start-monitoring-app-health-usage.md</target>
+        </trans-unit>
+        <trans-unit id="d83560ac-3fb6-4f60-851f-4fcf0ba58421" xml:space="preserve">
+          <source>app-insights-asp-net-trace-logs.md</source>
+          <target state="new">app-insights-asp-net-trace-logs.md</target>
+        </trans-unit>
+        <trans-unit id="4efd48e4-7457-48f2-8b75-6935134d033c" xml:space="preserve">
+          <source>app-insights-monitor-performance-live-website-now.md</source>
+          <target state="new">app-insights-monitor-performance-live-website-now.md</target>
+        </trans-unit>
+        <trans-unit id="84e17882-8335-44b2-81ba-1bce83bfce8a" xml:space="preserve">
+          <source>app-insights-get-started.md</source>
+          <target state="new">app-insights-get-started.md</target>
+        </trans-unit>
+      </group>
+      <group id="8e73a983-1b96-4ff9-85a7-1db82ad3c26d" />
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="caa89029-1030-4bf6-94ac-109d77bad5c5" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="caa89029-1030-4bf6-94ac-109d77bad5c5" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="73a8fc30-c46a-4c35-8f71-2627daa6b0dc">
+        <trans-unit id="608c8e27-7d20-4e20-9fd6-923db2591d59" xml:space="preserve">
+          <source>Scaling API Endpoints | Microsoft Azure</source>
+          <target state="new">Scaling API Endpoints | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="6707d915-649d-442f-9aac-7aef8385da6a" xml:space="preserve">
+          <source>Scaling web service endpoints in Azure Machine Learning</source>
+          <target state="new">Scaling web service endpoints in Azure Machine Learning</target>
+        </trans-unit>
+        <trans-unit id="3ddd3632-692e-4969-b22b-4374ae587fb9" xml:space="preserve">
+          <source>Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.</source>
+          <target state="new">Web service endpoints in Azure Machine Learning have selectable throttle levels to match the rate at which the endpoint will be consumed.</target>
+        </trans-unit>
+        <trans-unit id="46065e7e-629b-43f1-b45b-fe76959cde3d" xml:space="preserve">
+          <source>There are two factors which control the amount of throttling done on an endpoint:</source>
+          <target state="new">There are two factors which control the amount of throttling done on an endpoint:</target>
+        </trans-unit>
+        <trans-unit id="0369523b-5767-4856-bf77-a7361a2e3a04" xml:space="preserve">
+          <source>Throttle Level: Low or High.</source>
+          <target state="new">Throttle Level: Low or High.</target>
+        </trans-unit>
+        <trans-unit id="26c2e31f-42f6-4e62-bfaa-264e993f0451" xml:space="preserve">
+          <source>Only paying customers are allowed to set throttle level to High</source>
+          <target state="new">Only paying customers are allowed to set throttle level to High</target>
+        </trans-unit>
+        <trans-unit id="4a2a9e2d-2d9f-4bce-a119-6998dfd25083" xml:space="preserve">
+          <source>Max Concurrent Calls : 4 for throttle level Low; 20-200 for throttle level High</source>
+          <target state="new">Max Concurrent Calls : 4 for throttle level Low; 20-200 for throttle level High</target>
+        </trans-unit>
+        <trans-unit id="d0c98058-6dc6-4e71-8fbb-be825fd5867d" xml:space="preserve">
+          <source>The synchronous APIs are typically used in situations where a low latency is desired.</source>
+          <target state="new">The synchronous APIs are typically used in situations where a low latency is desired.</target>
+        </trans-unit>
+        <trans-unit id="8de6e957-0868-4f0e-907c-c5d3d907a47c" xml:space="preserve">
+          <source>Latency here implies the time it takes for the API to complete one request, and doesn't account for any network delays.</source>
+          <target state="new">Latency here implies the time it takes for the API to complete one request, and doesn't account for any network delays.</target>
+        </trans-unit>
+        <trans-unit id="517f8376-fc51-4ef7-b2a7-6acba061990c" xml:space="preserve">
+          <source>Let's say you have an API with a 50ms latency.</source>
+          <target state="new">Let's say you have an API with a 50ms latency.</target>
+        </trans-unit>
+        <trans-unit id="01facc36-cfdc-4a61-a5cf-d99c31f10a24" xml:space="preserve">
+          <source>To fully consume the available capacity with throttle level High and Max Concurrent Calls = 20, you need to call this API 20 * 1000 / 50 = 400 times per second.</source>
+          <target state="new">To fully consume the available capacity with throttle level High and Max Concurrent Calls = 20, you need to call this API 20 * 1000 / 50 = 400 times per second.</target>
+        </trans-unit>
+        <trans-unit id="d3417f94-e48c-4966-b0fd-766d4adc5ce1" xml:space="preserve">
+          <source>Extending this further, a Max Concurrent Calls of 200 will allow you to call the API 4000 times per second, assuming a 50ms latency.</source>
+          <target state="new">Extending this further, a Max Concurrent Calls of 200 will allow you to call the API 4000 times per second, assuming a 50ms latency.</target>
+        </trans-unit>
+        <trans-unit id="00456964-011d-47f9-b91e-2b5342ce9ba3" xml:space="preserve">
+          <source>If you plan to call the API with a higher load than what Max Concurrent Calls of 200 will support, then you should create multiple endpoints on the same web service and randomly distribute your load across all of them.</source>
+          <target state="new">If you plan to call the API with a higher load than what Max Concurrent Calls of 200 will support, then you should create multiple endpoints on the same web service and randomly distribute your load across all of them.</target>
+        </trans-unit>
+        <trans-unit id="a6b9e172-e6c7-4f38-8e2c-2369f8bfc53d" xml:space="preserve">
+          <source>Keep in mind that using a very high concurrency count can be detrimental if you're not hitting the API with a correspondingly high rate.</source>
+          <target state="new">Keep in mind that using a very high concurrency count can be detrimental if you're not hitting the API with a correspondingly high rate.</target>
+        </trans-unit>
+        <trans-unit id="f4a05ee7-b6f1-4b57-9156-267f254f4875" xml:space="preserve">
+          <source>You might see sporadic timeouts and/or spikes in the latency if you put a relatively low load on an API configured for high load.</source>
+          <target state="new">You might see sporadic timeouts and/or spikes in the latency if you put a relatively low load on an API configured for high load.</target>
+        </trans-unit>
+        <trans-unit id="b5c50eb2-bae6-47de-ae2a-1bf8709f0317" xml:space="preserve">
+          <source>Note that tweaking throttle settings only influences the behavior of the Synchronous API (RRS).</source>
+          <target state="new">Note that tweaking throttle settings only influences the behavior of the Synchronous API (RRS).</target>
+        </trans-unit>
+        <trans-unit id="8ce91d93-f57a-49fe-83df-ab5c349fc456" xml:space="preserve">
+          <source>You should tweak these settings if you see frequent 503 Service Unavailable responses on the Synchronous API.</source>
+          <target state="new">You should tweak these settings if you see frequent 503 Service Unavailable responses on the Synchronous API.</target>
+        </trans-unit>
+        <trans-unit id="af60323b-09ab-4399-a2dc-30aaf36f888b" xml:space="preserve">
+          <source>The management UI allows toggling the throttle level.</source>
+          <target state="new">The management UI allows toggling the throttle level.</target>
+        </trans-unit>
+        <trans-unit id="93051d7c-741b-4d6e-983d-6d980894316c" xml:space="preserve">
+          <source>To have a custom concurrency number to go with Throttle Level High, please use the Patch Endpoint API.</source>
+          <target state="new">To have a custom concurrency number to go with Throttle Level High, please use the Patch Endpoint API.</target>
+        </trans-unit>
+        <trans-unit id="1bffcfaf-a70a-43d7-8a0e-2af2c07cf0d6" xml:space="preserve">
+          <source>Open up manage.windowsazure.com</source>
+          <target state="new">Open up manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="667bdf9b-46aa-46a1-8825-9705c5f065d3" xml:space="preserve">
+          <source>Navigate to the Machine Learning tab</source>
+          <target state="new">Navigate to the Machine Learning tab</target>
+        </trans-unit>
+        <trans-unit id="ce667a45-6198-487d-8cba-424393e9da9f" xml:space="preserve">
+          <source>Click on your workspace.</source>
+          <target state="new">Click on your workspace.</target>
+        </trans-unit>
+        <trans-unit id="b68a9c86-8345-4ec3-acda-e69d7738a2b7" xml:space="preserve">
+          <source>Navigate to the web service which has your endpoint
+<bpt id="28a94c60-e2bc-482e-941c-1dab49b0f5fb">&lt;linkText&gt;</bpt>Navigate to web service<ept id="28a94c60-e2bc-482e-941c-1dab49b0f5fb">&lt;/linkText&gt;</ept></source>
+          <target state="new">Navigate to the web service which has your endpoint
+<bpt id="28a94c60-e2bc-482e-941c-1dab49b0f5fb">&lt;linkText&gt;</bpt>Navigate to web service<ept id="28a94c60-e2bc-482e-941c-1dab49b0f5fb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0841a10-1690-4fa1-9e55-60258212b3fc" xml:space="preserve">
+          <source>Click on the endpoint, and then click on the Configure tab
+<bpt id="9561a3fe-314e-4cdb-bc3e-07bd0ddf3078">&lt;linkText&gt;</bpt>Navigate to endpoint configuration<ept id="9561a3fe-314e-4cdb-bc3e-07bd0ddf3078">&lt;/linkText&gt;</ept></source>
+          <target state="new">Click on the endpoint, and then click on the Configure tab
+<bpt id="9561a3fe-314e-4cdb-bc3e-07bd0ddf3078">&lt;linkText&gt;</bpt>Navigate to endpoint configuration<ept id="9561a3fe-314e-4cdb-bc3e-07bd0ddf3078">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="31cfc76d-572b-4927-b244-9fed1a2fc8c1" xml:space="preserve">
+          <source>Change the throttle level to High and click on Save.</source>
+          <target state="new">Change the throttle level to High and click on Save.</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

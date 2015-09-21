@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="daa86827-1c7d-4b77-9c65-33fabc80c14c" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="daa86827-1c7d-4b77-9c65-33fabc80c14c" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="235ae069-640a-4cd4-a20a-fc7abd6a4a8c">
+        <trans-unit id="9eed6f95-eecc-4417-8d00-c7afaa67e068" xml:space="preserve">
+          <source>Manage servers and usage data</source>
+          <target state="new">Manage servers and usage data</target>
+        </trans-unit>
+        <trans-unit id="ece533a3-06a9-4777-b664-0854b56891d3" xml:space="preserve">
+          <source>Learn about how much data is sent to the Operational Insights service from your servers</source>
+          <target state="new">Learn about how much data is sent to the Operational Insights service from your servers</target>
+        </trans-unit>
+        <trans-unit id="e9ccd9c7-1ff8-4afd-85b0-b774664350cc" xml:space="preserve">
+          <source><bpt id="7ebd40b0-c2db-4885-8df4-4e312ed23956">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="7ebd40b0-c2db-4885-8df4-4e312ed23956">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="7ebd40b0-c2db-4885-8df4-4e312ed23956">&lt;token href="../../includes/operational-insights-note-moms.md"&gt;</bpt><ept id="7ebd40b0-c2db-4885-8df4-4e312ed23956">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5ad7f3e9-c97c-475c-ad04-3bdbb53cb693" xml:space="preserve">
+          <source>Operational Insights collects data and sends it to the Operational Insights service periodically.</source>
+          <target state="new">Operational Insights collects data and sends it to the Operational Insights service periodically.</target>
+        </trans-unit>
+        <trans-unit id="9b31e471-ed40-4fcd-a77d-4d8c15949232" xml:space="preserve">
+          <source>You can use the <bpt id="b7c0abbd-eb6d-4d61-98e9-dce801601eeb">&lt;strong&gt;</bpt>Usage<ept id="b7c0abbd-eb6d-4d61-98e9-dce801601eeb">&lt;/strong&gt;</ept> dashboard to view how much data is being sent to the Operational Insights service.</source>
+          <target state="new">You can use the <bpt id="b7c0abbd-eb6d-4d61-98e9-dce801601eeb">&lt;strong&gt;</bpt>Usage<ept id="b7c0abbd-eb6d-4d61-98e9-dce801601eeb">&lt;/strong&gt;</ept> dashboard to view how much data is being sent to the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="ca790136-eca4-4452-a47c-fe8aab24d57f" xml:space="preserve">
+          <source>The <bpt id="14e8bdb1-93b1-44b5-b731-39ecda0efd9f">&lt;strong&gt;</bpt>Usage<ept id="14e8bdb1-93b1-44b5-b731-39ecda0efd9f">&lt;/strong&gt;</ept> dashboard also shows you how much data is being sent daily by solutions and how often your management groups are sending data.</source>
+          <target state="new">The <bpt id="14e8bdb1-93b1-44b5-b731-39ecda0efd9f">&lt;strong&gt;</bpt>Usage<ept id="14e8bdb1-93b1-44b5-b731-39ecda0efd9f">&lt;/strong&gt;</ept> dashboard also shows you how much data is being sent daily by solutions and how often your management groups are sending data.</target>
+        </trans-unit>
+        <trans-unit id="d1fb4080-5c34-45ac-9900-9e408c1b1de4" xml:space="preserve">
+          <source>If you have a free account, you're limited to sending 500 MB of data to the Operational Insights service daily.</source>
+          <target state="new">If you have a free account, you're limited to sending 500 MB of data to the Operational Insights service daily.</target>
+        </trans-unit>
+        <trans-unit id="b179b61c-25dd-4607-a9ca-22125abc5452" xml:space="preserve">
+          <source>If you reach the daily limit, data analyzing will stop and resume at the start of the next day.</source>
+          <target state="new">If you reach the daily limit, data analyzing will stop and resume at the start of the next day.</target>
+        </trans-unit>
+        <trans-unit id="7faab819-93b6-460a-9202-3b8248e58bff" xml:space="preserve">
+          <source>You can view your usage by using the <bpt id="7ae51345-0128-4774-8443-969b63708a94">&lt;strong&gt;</bpt>Servers and Usage<ept id="7ae51345-0128-4774-8443-969b63708a94">&lt;/strong&gt;</ept> tile on the <bpt id="b29f7121-6cda-49ab-a2df-475636204486">&lt;strong&gt;</bpt>Overview<ept id="b29f7121-6cda-49ab-a2df-475636204486">&lt;/strong&gt;</ept> dashboard in Operational Insights.</source>
+          <target state="new">You can view your usage by using the <bpt id="7ae51345-0128-4774-8443-969b63708a94">&lt;strong&gt;</bpt>Servers and Usage<ept id="7ae51345-0128-4774-8443-969b63708a94">&lt;/strong&gt;</ept> tile on the <bpt id="b29f7121-6cda-49ab-a2df-475636204486">&lt;strong&gt;</bpt>Overview<ept id="b29f7121-6cda-49ab-a2df-475636204486">&lt;/strong&gt;</ept> dashboard in Operational Insights.</target>
+        </trans-unit>
+        <trans-unit id="cddc0352-d9b7-40d1-9fa2-1ea7c5082cd1" xml:space="preserve">
+          <source><bpt id="170e16d9-1707-448a-b04c-739bfd6107e1">&lt;linkText&gt;</bpt>image of Servers and Usage tile<ept id="170e16d9-1707-448a-b04c-739bfd6107e1">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="170e16d9-1707-448a-b04c-739bfd6107e1">&lt;linkText&gt;</bpt>image of Servers and Usage tile<ept id="170e16d9-1707-448a-b04c-739bfd6107e1">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="03562ef4-47fc-4630-924e-578e976be706" xml:space="preserve">
+          <source>If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the Operational Insights service.</source>
+          <target state="new">If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove a solution to reduce the amount of data that you send to the Operational Insights service.</target>
+        </trans-unit>
+        <trans-unit id="38712d93-8286-41aa-b729-8a70f66f8736" xml:space="preserve">
+          <source>For more information about removing solutions, see <bpt id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;linkText&gt;</bpt>Use the Solutions Gallery to add or remove solutions<ept id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;/linkText&gt;</ept><bpt id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;title&gt;</bpt><ept id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about removing solutions, see <bpt id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;linkText&gt;</bpt>Use the Solutions Gallery to add or remove solutions<ept id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;/linkText&gt;</ept><bpt id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;title&gt;</bpt><ept id="01cffe3a-fc1d-4593-a292-ed1c8e02a2ac">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="145a2734-4f73-4108-9be7-e28b359f4c0c" xml:space="preserve">
+          <source>If an Operations Manager management group is having problems sending data to the Operational Insights service, you can troubleshoot the issue, or you can remove the group from Operational Insights, if needed.</source>
+          <target state="new">If an Operations Manager management group is having problems sending data to the Operational Insights service, you can troubleshoot the issue, or you can remove the group from Operational Insights, if needed.</target>
+        </trans-unit>
+        <trans-unit id="8e985a3e-8940-443b-be64-0cfb659cc9aa" xml:space="preserve">
+          <source><bpt id="33275440-969d-4a5d-a805-72cbd80a0702">&lt;linkText&gt;</bpt>image of Usage dashboard<ept id="33275440-969d-4a5d-a805-72cbd80a0702">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="33275440-969d-4a5d-a805-72cbd80a0702">&lt;linkText&gt;</bpt>image of Usage dashboard<ept id="33275440-969d-4a5d-a805-72cbd80a0702">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="98a07694-12c3-43dc-926b-660f010aeb82" xml:space="preserve">
+          <source>The <bpt id="fbf3002a-5209-4b00-9d30-07b03041e7a4">&lt;strong&gt;</bpt>Usage<ept id="fbf3002a-5209-4b00-9d30-07b03041e7a4">&lt;/strong&gt;</ept> dashboard displays the following information:</source>
+          <target state="new">The <bpt id="fbf3002a-5209-4b00-9d30-07b03041e7a4">&lt;strong&gt;</bpt>Usage<ept id="fbf3002a-5209-4b00-9d30-07b03041e7a4">&lt;/strong&gt;</ept> dashboard displays the following information:</target>
+        </trans-unit>
+        <trans-unit id="6d6e12b9-257c-44c1-9869-9d0d4186911b" xml:space="preserve">
+          <source>Average usage per day</source>
+          <target state="new">Average usage per day</target>
+        </trans-unit>
+        <trans-unit id="cb0773a4-5f09-4b31-858b-069963f09408" xml:space="preserve">
+          <source>Data usage for each solution for today</source>
+          <target state="new">Data usage for each solution for today</target>
+        </trans-unit>
+        <trans-unit id="a5706a15-303f-45af-94cc-ee094091600d" xml:space="preserve">
+          <source>How often the servers in each management group are sending data to the Operational Insights service</source>
+          <target state="new">How often the servers in each management group are sending data to the Operational Insights service</target>
+        </trans-unit>
+        <trans-unit id="198376f9-3682-4c2e-94a0-a0adedc7ab0f" xml:space="preserve">
+          <source>On the <bpt id="7cbb1996-373f-448a-ba77-4602c1e12249">&lt;strong&gt;</bpt>Overview<ept id="7cbb1996-373f-448a-ba77-4602c1e12249">&lt;/strong&gt;</ept> page, click the <bpt id="18011162-12d7-4178-866d-666600539afe">&lt;strong&gt;</bpt>Servers and Usage<ept id="18011162-12d7-4178-866d-666600539afe">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">On the <bpt id="7cbb1996-373f-448a-ba77-4602c1e12249">&lt;strong&gt;</bpt>Overview<ept id="7cbb1996-373f-448a-ba77-4602c1e12249">&lt;/strong&gt;</ept> page, click the <bpt id="18011162-12d7-4178-866d-666600539afe">&lt;strong&gt;</bpt>Servers and Usage<ept id="18011162-12d7-4178-866d-666600539afe">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="a60dbe26-9f38-439f-bb19-e893db0e636d" xml:space="preserve">
+          <source>On the <bpt id="5e8a8f27-5224-4637-b143-c5ed91bd08bb">&lt;strong&gt;</bpt>Usage<ept id="5e8a8f27-5224-4637-b143-c5ed91bd08bb">&lt;/strong&gt;</ept> dashboard, view the usage categories that show areas you’re concerned about.</source>
+          <target state="new">On the <bpt id="5e8a8f27-5224-4637-b143-c5ed91bd08bb">&lt;strong&gt;</bpt>Usage<ept id="5e8a8f27-5224-4637-b143-c5ed91bd08bb">&lt;/strong&gt;</ept> dashboard, view the usage categories that show areas you’re concerned about.</target>
+        </trans-unit>
+        <trans-unit id="81c95b6c-1c1e-4073-b15c-cd3fea5ea8ff" xml:space="preserve">
+          <source>If there is data about a solution that is unnecessarily using a lot of the allotted quota, you might consider removing that solution.</source>
+          <target state="new">If there is data about a solution that is unnecessarily using a lot of the allotted quota, you might consider removing that solution.</target>
+        </trans-unit>
+        <trans-unit id="70f200fd-55b7-4c15-a5dc-37f0961daccd" xml:space="preserve">
+          <source>On the <bpt id="ead5f2a9-455e-4b68-a096-06884b25bb1d">&lt;strong&gt;</bpt>Overview<ept id="ead5f2a9-455e-4b68-a096-06884b25bb1d">&lt;/strong&gt;</ept> page, click the <bpt id="2f1ce8e1-5bed-494e-b0e1-3ea7fb67df56">&lt;strong&gt;</bpt>Servers and Usage<ept id="2f1ce8e1-5bed-494e-b0e1-3ea7fb67df56">&lt;/strong&gt;</ept> tile.</source>
+          <target state="new">On the <bpt id="ead5f2a9-455e-4b68-a096-06884b25bb1d">&lt;strong&gt;</bpt>Overview<ept id="ead5f2a9-455e-4b68-a096-06884b25bb1d">&lt;/strong&gt;</ept> page, click the <bpt id="2f1ce8e1-5bed-494e-b0e1-3ea7fb67df56">&lt;strong&gt;</bpt>Servers and Usage<ept id="2f1ce8e1-5bed-494e-b0e1-3ea7fb67df56">&lt;/strong&gt;</ept> tile.</target>
+        </trans-unit>
+        <trans-unit id="0e5787bb-9388-4a9f-aef9-68ef65c9516a" xml:space="preserve">
+          <source>On the <bpt id="63d6fb01-c163-41a5-bb3a-e1a6a7ce3655">&lt;strong&gt;</bpt>Usage<ept id="63d6fb01-c163-41a5-bb3a-e1a6a7ce3655">&lt;/strong&gt;</ept> dashboard, view information about the management groups that aren’t sending data.</source>
+          <target state="new">On the <bpt id="63d6fb01-c163-41a5-bb3a-e1a6a7ce3655">&lt;strong&gt;</bpt>Usage<ept id="63d6fb01-c163-41a5-bb3a-e1a6a7ce3655">&lt;/strong&gt;</ept> dashboard, view information about the management groups that aren’t sending data.</target>
+        </trans-unit>
+        <trans-unit id="5dd5c9cb-94a3-4617-9069-403af8a36495" xml:space="preserve">
+          <source>If there’s a management group that isn’t sending data, you can click <bpt id="f00a342e-f97f-4810-88d5-56f092a2303a">&lt;strong&gt;</bpt>Troubleshoot<ept id="f00a342e-f97f-4810-88d5-56f092a2303a">&lt;/strong&gt;</ept> to get detailed troubleshooting information.</source>
+          <target state="new">If there’s a management group that isn’t sending data, you can click <bpt id="f00a342e-f97f-4810-88d5-56f092a2303a">&lt;strong&gt;</bpt>Troubleshoot<ept id="f00a342e-f97f-4810-88d5-56f092a2303a">&lt;/strong&gt;</ept> to get detailed troubleshooting information.</target>
+        </trans-unit>
+        <trans-unit id="06003590-f73a-441a-888f-a469d88e1b31" xml:space="preserve">
+          <source>If you no longer want to keep a management group and all the agents that report to it, click <bpt id="8369a9e1-0dd3-4cf8-916d-c8e28dac07e0">&lt;strong&gt;</bpt>Remove<ept id="8369a9e1-0dd3-4cf8-916d-c8e28dac07e0">&lt;/strong&gt;</ept>.</source>
+          <target state="new">If you no longer want to keep a management group and all the agents that report to it, click <bpt id="8369a9e1-0dd3-4cf8-916d-c8e28dac07e0">&lt;strong&gt;</bpt>Remove<ept id="8369a9e1-0dd3-4cf8-916d-c8e28dac07e0">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="dfa42c06-f772-4cfa-91dc-44e71d6c0ace" xml:space="preserve">
+          <source><bpt id="6d144b5d-1afe-47de-bb6a-19dd53360454">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="6d144b5d-1afe-47de-bb6a-19dd53360454">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="6d144b5d-1afe-47de-bb6a-19dd53360454">&lt;token href="../../includes/operational-insights-export.md"&gt;</bpt><ept id="6d144b5d-1afe-47de-bb6a-19dd53360454">&lt;/token&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

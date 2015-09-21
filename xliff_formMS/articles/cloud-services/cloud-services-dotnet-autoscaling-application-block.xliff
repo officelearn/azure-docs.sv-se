@@ -1,0 +1,1069 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="120d8e9c-7724-4fac-bdd0-d2d213d93f1f" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="120d8e9c-7724-4fac-bdd0-d2d213d93f1f" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="3783abbe-716b-444b-b838-05265931da50">
+        <trans-unit id="395c10b2-f691-4fb5-a453-8be78d572777" xml:space="preserve">
+          <source>Use the autoscaling application block (.NET) | Microsoft Azure</source>
+          <target state="new">Use the autoscaling application block (.NET) | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="50b3eabd-b1af-4a91-879e-ecceaee80ec8" xml:space="preserve">
+          <source>Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API.</source>
+          <target state="new">Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API.</target>
+        </trans-unit>
+        <trans-unit id="d4c8fd0a-4c9b-4053-889a-cfbbb25d0238" xml:space="preserve">
+          <source>This guide will demonstrate how to perform common scenarios using the
+Autoscaling Application Block from the <bpt id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;linkText&gt;</bpt>Microsoft Enterprise Library 5.0
+Integration Pack for Azure<ept id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;/linkText&gt;</ept><bpt id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;title&gt;</bpt><ept id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;/title&gt;</ept>.</source>
+          <target state="new">This guide will demonstrate how to perform common scenarios using the
+Autoscaling Application Block from the <bpt id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;linkText&gt;</bpt>Microsoft Enterprise Library 5.0
+Integration Pack for Azure<ept id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;/linkText&gt;</ept><bpt id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;title&gt;</bpt><ept id="81b7123b-65ad-4af9-9c5b-ec47df20d135">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2481d5c1-a9fd-4dc0-94b1-79dfd8ce3a13" xml:space="preserve">
+          <source>The samples are written in C\#
+and use the .NET API.</source>
+          <target state="new">The samples are written in C\#
+and use the .NET API.</target>
+        </trans-unit>
+        <trans-unit id="dbde6a39-ef27-4cd5-b5e4-ea7f2ace32dc" xml:space="preserve">
+          <source>The scenarios covered include <bpt id="87790cd2-e79c-4862-9415-c1e62911e351">&lt;strong&gt;</bpt>hosting the
+block<ept id="87790cd2-e79c-4862-9415-c1e62911e351">&lt;/strong&gt;</ept>, <bpt id="6a9c959e-0d7d-47b0-94ea-49d8f1ea73bd">&lt;strong&gt;</bpt>using constraint rules<ept id="6a9c959e-0d7d-47b0-94ea-49d8f1ea73bd">&lt;/strong&gt;</ept>, and <bpt id="311f9790-8e0a-44b8-b3b8-32775d564bd7">&lt;strong&gt;</bpt>using reactive rules<ept id="311f9790-8e0a-44b8-b3b8-32775d564bd7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The scenarios covered include <bpt id="87790cd2-e79c-4862-9415-c1e62911e351">&lt;strong&gt;</bpt>hosting the
+block<ept id="87790cd2-e79c-4862-9415-c1e62911e351">&lt;/strong&gt;</ept>, <bpt id="6a9c959e-0d7d-47b0-94ea-49d8f1ea73bd">&lt;strong&gt;</bpt>using constraint rules<ept id="6a9c959e-0d7d-47b0-94ea-49d8f1ea73bd">&lt;/strong&gt;</ept>, and <bpt id="311f9790-8e0a-44b8-b3b8-32775d564bd7">&lt;strong&gt;</bpt>using reactive rules<ept id="311f9790-8e0a-44b8-b3b8-32775d564bd7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="df90458c-7614-4ee4-8ec0-08f195266d9c" xml:space="preserve">
+          <source>For
+more information on the Autoscaling Application Block, see the <bpt id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;linkText&gt;</bpt>Next Steps<ept id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;/linkText&gt;</ept><bpt id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;title&gt;</bpt><ept id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;/title&gt;</ept> section.</source>
+          <target state="new">For
+more information on the Autoscaling Application Block, see the <bpt id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;linkText&gt;</bpt>Next Steps<ept id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;/linkText&gt;</ept><bpt id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;title&gt;</bpt><ept id="af682cf0-2a96-4b95-b306-096ba8783f06">&lt;/title&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="8c8f04f6-5b28-4286-b78a-54705c6ab2b9" xml:space="preserve">
+          <source>The Autoscaling Application Block can automatically scale your 
+Azure application based on rules that you define specifically for your
+application.</source>
+          <target state="new">The Autoscaling Application Block can automatically scale your 
+Azure application based on rules that you define specifically for your
+application.</target>
+        </trans-unit>
+        <trans-unit id="91731825-cfc5-4924-984a-1664f9c5458e" xml:space="preserve">
+          <source>You can use these rules to help your Azure
+application maintain its throughput in response to changes in its
+workload, while at the same time control the costs associated with
+hosting your application in Azure.</source>
+          <target state="new">You can use these rules to help your Azure
+application maintain its throughput in response to changes in its
+workload, while at the same time control the costs associated with
+hosting your application in Azure.</target>
+        </trans-unit>
+        <trans-unit id="c84d9ce9-ae2b-4cfc-905a-2169397d6006" xml:space="preserve">
+          <source>Along with scaling by
+increasing or decreasing the number of role instances in your
+application, the block also enables you to use other scaling actions
+such as throttling certain functionality within your application or
+using custom-defined actions.</source>
+          <target state="new">Along with scaling by
+increasing or decreasing the number of role instances in your
+application, the block also enables you to use other scaling actions
+such as throttling certain functionality within your application or
+using custom-defined actions.</target>
+        </trans-unit>
+        <trans-unit id="ceb42811-3786-473c-9ec6-5f38b9899fbe" xml:space="preserve">
+          <source>You can choose to host the block in an Azure role or in an
+on-premises application.</source>
+          <target state="new">You can choose to host the block in an Azure role or in an
+on-premises application.</target>
+        </trans-unit>
+        <trans-unit id="0aa2c1df-8ce8-41cb-bff3-f68157378fa2" xml:space="preserve">
+          <source>The Autoscaling Application Block is part of the <bpt id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;linkText&gt;</bpt>Microsoft Enterprise Library 5.0 Integration Pack for Azure<ept id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;/linkText&gt;</ept><bpt id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;title&gt;</bpt><ept id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">The Autoscaling Application Block is part of the <bpt id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;linkText&gt;</bpt>Microsoft Enterprise Library 5.0 Integration Pack for Azure<ept id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;/linkText&gt;</ept><bpt id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;title&gt;</bpt><ept id="ea2969d9-9494-4f5a-95ee-ab7a60bb27b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2da88ee-c03a-4ce0-88e2-518971e77a38" xml:space="preserve">
+          <source>In the following diagram, the green line shows a plot of the number of
+running instances of an Azure role over two days.</source>
+          <target state="new">In the following diagram, the green line shows a plot of the number of
+running instances of an Azure role over two days.</target>
+        </trans-unit>
+        <trans-unit id="19767c89-b2d1-4d5c-9c1f-c264bbeac7ea" xml:space="preserve">
+          <source>The number of
+instances changes automatically over time in response to a set of
+autoscaling rules.</source>
+          <target state="new">The number of
+instances changes automatically over time in response to a set of
+autoscaling rules.</target>
+        </trans-unit>
+        <trans-unit id="8a67144f-6406-413d-957b-eba97c6d62e5" xml:space="preserve">
+          <source><bpt id="4f61172f-688f-4cb3-9b7c-01d026adb816">&lt;linkText&gt;</bpt>diagram of sample autoscaling<ept id="4f61172f-688f-4cb3-9b7c-01d026adb816">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="4f61172f-688f-4cb3-9b7c-01d026adb816">&lt;linkText&gt;</bpt>diagram of sample autoscaling<ept id="4f61172f-688f-4cb3-9b7c-01d026adb816">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="038df42c-7a8d-414b-9456-7c5395255bfc" xml:space="preserve">
+          <source>The block uses two types of rules to define the autoscaling behavior for
+your application:</source>
+          <target state="new">The block uses two types of rules to define the autoscaling behavior for
+your application:</target>
+        </trans-unit>
+        <trans-unit id="0f9a47e3-81b0-4fe1-971f-ea508038b0a6" xml:space="preserve">
+          <source><bpt id="b82611e2-4ff3-486f-8de9-391ddd746420">&lt;strong&gt;</bpt>Constraint Rules:<ept id="b82611e2-4ff3-486f-8de9-391ddd746420">&lt;/strong&gt;</ept> To set upper and lower bounds on the number of
+instances, for example, let's say that between 8:00 and 10:00 every
+morning you want a minimum of four and a maximum of six instances,
+then you use a <bpt id="d32da708-d2d5-434f-bf89-68cfa4102656">&lt;strong&gt;</bpt>constraint rule<ept id="d32da708-d2d5-434f-bf89-68cfa4102656">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="b82611e2-4ff3-486f-8de9-391ddd746420">&lt;strong&gt;</bpt>Constraint Rules:<ept id="b82611e2-4ff3-486f-8de9-391ddd746420">&lt;/strong&gt;</ept> To set upper and lower bounds on the number of
+instances, for example, let's say that between 8:00 and 10:00 every
+morning you want a minimum of four and a maximum of six instances,
+then you use a <bpt id="d32da708-d2d5-434f-bf89-68cfa4102656">&lt;strong&gt;</bpt>constraint rule<ept id="d32da708-d2d5-434f-bf89-68cfa4102656">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="68557c1f-991f-4d5a-8322-fc690159960f" xml:space="preserve">
+          <source>In the diagram, the red and blue
+lines represent constraint rules.</source>
+          <target state="new">In the diagram, the red and blue
+lines represent constraint rules.</target>
+        </trans-unit>
+        <trans-unit id="9a114437-ca71-4bc5-9713-ddd46d5bee39" xml:space="preserve">
+          <source>For example, at point <bpt id="51a4382d-1845-49c3-bd04-53a8d003df9b">&lt;strong&gt;</bpt>A<ept id="51a4382d-1845-49c3-bd04-53a8d003df9b">&lt;/strong&gt;</ept> in
+the diagram, the minimum number of role instances rises from two to
+four, in order to accommodate the anticipated increase in the
+application's workload at this time.</source>
+          <target state="new">For example, at point <bpt id="51a4382d-1845-49c3-bd04-53a8d003df9b">&lt;strong&gt;</bpt>A<ept id="51a4382d-1845-49c3-bd04-53a8d003df9b">&lt;/strong&gt;</ept> in
+the diagram, the minimum number of role instances rises from two to
+four, in order to accommodate the anticipated increase in the
+application's workload at this time.</target>
+        </trans-unit>
+        <trans-unit id="0c116acb-665c-45e4-b52b-40efd55fc748" xml:space="preserve">
+          <source>At point <bpt id="2afb3365-0435-4f64-892e-0044f434bf6c">&lt;strong&gt;</bpt>B<ept id="2afb3365-0435-4f64-892e-0044f434bf6c">&lt;/strong&gt;</ept> in the diagram,
+the number of role instances is prevented from climbing above five
+in order to control the running costs of the application.</source>
+          <target state="new">At point <bpt id="2afb3365-0435-4f64-892e-0044f434bf6c">&lt;strong&gt;</bpt>B<ept id="2afb3365-0435-4f64-892e-0044f434bf6c">&lt;/strong&gt;</ept> in the diagram,
+the number of role instances is prevented from climbing above five
+in order to control the running costs of the application.</target>
+        </trans-unit>
+        <trans-unit id="b9b27c82-2a45-4830-ad5b-1beef00ff204" xml:space="preserve">
+          <source><bpt id="4bb364d0-b8b2-49b9-ab48-ffdfda4f2b34">&lt;strong&gt;</bpt>Reactive Rules:<ept id="4bb364d0-b8b2-49b9-ab48-ffdfda4f2b34">&lt;/strong&gt;</ept> To enable the number of role instances to change
+in response to unpredictable changes in demand, you use <bpt id="cc0a5cc7-c833-4001-9654-a4982f8faed2">&lt;strong&gt;</bpt>reactive
+rules<ept id="cc0a5cc7-c833-4001-9654-a4982f8faed2">&lt;/strong&gt;</ept>.</source>
+          <target state="new"><bpt id="4bb364d0-b8b2-49b9-ab48-ffdfda4f2b34">&lt;strong&gt;</bpt>Reactive Rules:<ept id="4bb364d0-b8b2-49b9-ab48-ffdfda4f2b34">&lt;/strong&gt;</ept> To enable the number of role instances to change
+in response to unpredictable changes in demand, you use <bpt id="cc0a5cc7-c833-4001-9654-a4982f8faed2">&lt;strong&gt;</bpt>reactive
+rules<ept id="cc0a5cc7-c833-4001-9654-a4982f8faed2">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="803b0235-87b0-4df8-b217-6d0cb2ac6882" xml:space="preserve">
+          <source>At point <bpt id="8d0e1409-384b-45cf-8b98-9bb9d7fb1680">&lt;strong&gt;</bpt>C<ept id="8d0e1409-384b-45cf-8b98-9bb9d7fb1680">&lt;/strong&gt;</ept> in the diagram, the block automatically
+reduces the number of role instances, from four to three, in
+response to a reduction in workload.</source>
+          <target state="new">At point <bpt id="8d0e1409-384b-45cf-8b98-9bb9d7fb1680">&lt;strong&gt;</bpt>C<ept id="8d0e1409-384b-45cf-8b98-9bb9d7fb1680">&lt;/strong&gt;</ept> in the diagram, the block automatically
+reduces the number of role instances, from four to three, in
+response to a reduction in workload.</target>
+        </trans-unit>
+        <trans-unit id="885768fc-f419-493b-be5a-1a9fee83cc3c" xml:space="preserve">
+          <source>At point <bpt id="d88b573a-021d-46f2-82ad-ec0b36d5dd0b">&lt;strong&gt;</bpt>D<ept id="d88b573a-021d-46f2-82ad-ec0b36d5dd0b">&lt;/strong&gt;</ept>, the block
+detects an increase in workload and automatically increases the
+number of running role instances from three to four.</source>
+          <target state="new">At point <bpt id="d88b573a-021d-46f2-82ad-ec0b36d5dd0b">&lt;strong&gt;</bpt>D<ept id="d88b573a-021d-46f2-82ad-ec0b36d5dd0b">&lt;/strong&gt;</ept>, the block
+detects an increase in workload and automatically increases the
+number of running role instances from three to four.</target>
+        </trans-unit>
+        <trans-unit id="b44e923f-8c6d-4358-a88b-5ec1322fa5b0" xml:space="preserve">
+          <source>The block stores its configuration settings in two stores:</source>
+          <target state="new">The block stores its configuration settings in two stores:</target>
+        </trans-unit>
+        <trans-unit id="2c217ab0-ec1a-4b7d-9d09-4b5d63e8f678" xml:space="preserve">
+          <source><bpt id="e9c1a2ca-0113-4d4f-90a4-c65b2192afaf">&lt;strong&gt;</bpt>Rules Store:<ept id="e9c1a2ca-0113-4d4f-90a4-c65b2192afaf">&lt;/strong&gt;</ept> The Rules Store holds your business configuration;
+a list of all the autoscaling rules that you have defined for your
+Azure application.</source>
+          <target state="new"><bpt id="e9c1a2ca-0113-4d4f-90a4-c65b2192afaf">&lt;strong&gt;</bpt>Rules Store:<ept id="e9c1a2ca-0113-4d4f-90a4-c65b2192afaf">&lt;/strong&gt;</ept> The Rules Store holds your business configuration;
+a list of all the autoscaling rules that you have defined for your
+Azure application.</target>
+        </trans-unit>
+        <trans-unit id="714d1319-7e32-4163-8057-7f1232d158db" xml:space="preserve">
+          <source>This store is typically an XML file that
+is located where the Autoscaling Application Block can read it, for
+example in Azure blob storage or in a local file.</source>
+          <target state="new">This store is typically an XML file that
+is located where the Autoscaling Application Block can read it, for
+example in Azure blob storage or in a local file.</target>
+        </trans-unit>
+        <trans-unit id="303bb780-c8b4-4188-bb58-2ba625b21bed" xml:space="preserve">
+          <source><bpt id="a299c51a-6b27-4152-b056-657b6b8ef3ba">&lt;strong&gt;</bpt>Service Information Store:<ept id="a299c51a-6b27-4152-b056-657b6b8ef3ba">&lt;/strong&gt;</ept> The Service Information Store stores
+your operational configuration, which is the service model of your
+Azure application.</source>
+          <target state="new"><bpt id="a299c51a-6b27-4152-b056-657b6b8ef3ba">&lt;strong&gt;</bpt>Service Information Store:<ept id="a299c51a-6b27-4152-b056-657b6b8ef3ba">&lt;/strong&gt;</ept> The Service Information Store stores
+your operational configuration, which is the service model of your
+Azure application.</target>
+        </trans-unit>
+        <trans-unit id="e8b11a21-b63d-4e85-a7e2-aa32680dba1e" xml:space="preserve">
+          <source>This service model includes all of the
+information about your Azure application (such as role names
+and storage account details) that the block needs to be able to
+collect data points from the target Azure application and to
+perform scaling operations.</source>
+          <target state="new">This service model includes all of the
+information about your Azure application (such as role names
+and storage account details) that the block needs to be able to
+collect data points from the target Azure application and to
+perform scaling operations.</target>
+        </trans-unit>
+        <trans-unit id="9b8bc02d-7af1-450d-925e-3fda2f353ebd" xml:space="preserve">
+          <source>Reactive rules can use performance counter data from roles as part of
+the rule definition.</source>
+          <target state="new">Reactive rules can use performance counter data from roles as part of
+the rule definition.</target>
+        </trans-unit>
+        <trans-unit id="2c7ac2ea-b656-4a17-a9be-ca8490ea5347" xml:space="preserve">
+          <source>For example, a reactive rule may monitor the CPU
+utilization of an Azure role to determine whether the block
+should initiate a scaling operation.</source>
+          <target state="new">For example, a reactive rule may monitor the CPU
+utilization of an Azure role to determine whether the block
+should initiate a scaling operation.</target>
+        </trans-unit>
+        <trans-unit id="90c7ec02-96a7-46a7-96db-381fb96f5b92" xml:space="preserve">
+          <source>The block reads performance counter
+data from the Azure Diagnostics table named
+<bpt id="bcda8a07-4cb3-4b83-81b8-68e64e909087">&lt;strong&gt;</bpt>WADPerformanceCountersTable<ept id="bcda8a07-4cb3-4b83-81b8-68e64e909087">&lt;/strong&gt;</ept> in Azure storage.</source>
+          <target state="new">The block reads performance counter
+data from the Azure Diagnostics table named
+<bpt id="bcda8a07-4cb3-4b83-81b8-68e64e909087">&lt;strong&gt;</bpt>WADPerformanceCountersTable<ept id="bcda8a07-4cb3-4b83-81b8-68e64e909087">&lt;/strong&gt;</ept> in Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="b29f5b25-3416-4df3-8643-d6e6d8ff895e" xml:space="preserve">
+          <source>By default, Azure does not write performance counter data to the
+Azure Diagnostics table in Azure storage.</source>
+          <target state="new">By default, Azure does not write performance counter data to the
+Azure Diagnostics table in Azure storage.</target>
+        </trans-unit>
+        <trans-unit id="d9a56062-10d6-4517-830d-6486a0c7d508" xml:space="preserve">
+          <source>Therefore, you
+should modify the roles from which you need to collect performance
+counter data to save this data.</source>
+          <target state="new">Therefore, you
+should modify the roles from which you need to collect performance
+counter data to save this data.</target>
+        </trans-unit>
+        <trans-unit id="0e9595f7-8a0d-4fba-86a0-9c99ab3933fb" xml:space="preserve">
+          <source>For details about how to enable
+performance counters in your application, see <bpt id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;linkText&gt;</bpt>Using performance counters in Azure<ept id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;/linkText&gt;</ept><bpt id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;title&gt;</bpt><ept id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;/title&gt;</ept>.</source>
+          <target state="new">For details about how to enable
+performance counters in your application, see <bpt id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;linkText&gt;</bpt>Using performance counters in Azure<ept id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;/linkText&gt;</ept><bpt id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;title&gt;</bpt><ept id="fccf86df-079f-4c5d-bec3-0b878dad41b6">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4ef9eca0-1eb3-4a31-bde5-88d2257023d6" xml:space="preserve">
+          <source>You can host the Autoscaling Application Block either in an Azure
+role or in an on-premises application.</source>
+          <target state="new">You can host the Autoscaling Application Block either in an Azure
+role or in an on-premises application.</target>
+        </trans-unit>
+        <trans-unit id="76f74548-0b93-4187-925c-648d3d40ed00" xml:space="preserve">
+          <source>The Autoscaling Application Block
+is typically hosted in a separate application from the target
+application that you want to scale automatically.</source>
+          <target state="new">The Autoscaling Application Block
+is typically hosted in a separate application from the target
+application that you want to scale automatically.</target>
+        </trans-unit>
+        <trans-unit id="993c8cce-8855-47e3-af0e-7d641c0bb708" xml:space="preserve">
+          <source>This section provides
+guidelines about how to configure your host application.</source>
+          <target state="new">This section provides
+guidelines about how to configure your host application.</target>
+        </trans-unit>
+        <trans-unit id="5a9c67d6-faf6-4728-bbce-a0a14f5099aa" xml:space="preserve">
+          <source>Before you can use the Autoscaling Application Block in your Visual
+Studio project, you will need to obtain the Autoscaling Application
+Block binaries and add references to them in your project.</source>
+          <target state="new">Before you can use the Autoscaling Application Block in your Visual
+Studio project, you will need to obtain the Autoscaling Application
+Block binaries and add references to them in your project.</target>
+        </trans-unit>
+        <trans-unit id="b73e40cf-71c3-4b68-a2b9-547a90573389" xml:space="preserve">
+          <source>The NuGet
+Visual Studio extension makes it easy to install and update libraries
+and tools in Visual Studio and Visual Web Developer.</source>
+          <target state="new">The NuGet
+Visual Studio extension makes it easy to install and update libraries
+and tools in Visual Studio and Visual Web Developer.</target>
+        </trans-unit>
+        <trans-unit id="ae33326e-e3a8-4a13-a434-d4bfcf0464ec" xml:space="preserve">
+          <source>The Autoscaling
+Application Block NuGet package is the easiest way to get the Autscaling
+Application Block APIs.</source>
+          <target state="new">The Autoscaling
+Application Block NuGet package is the easiest way to get the Autscaling
+Application Block APIs.</target>
+        </trans-unit>
+        <trans-unit id="611db8ed-5513-47b6-ab13-8e6e54f5d7d3" xml:space="preserve">
+          <source>For more information about <bpt id="dacff11d-6cc4-4994-8445-f992ee6875b6">&lt;strong&gt;</bpt>NuGet<ept id="dacff11d-6cc4-4994-8445-f992ee6875b6">&lt;/strong&gt;</ept>, and how to
+install and use the <bpt id="acb8902d-8dc7-47e0-ab3f-13e66b8ea137">&lt;strong&gt;</bpt>NuGet<ept id="acb8902d-8dc7-47e0-ab3f-13e66b8ea137">&lt;/strong&gt;</ept> Visual Studio extension, see the <bpt id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;linkText&gt;</bpt>NuGet<ept id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;/linkText&gt;</ept><bpt id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;title&gt;</bpt><ept id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;/title&gt;</ept>
+website.</source>
+          <target state="new">For more information about <bpt id="dacff11d-6cc4-4994-8445-f992ee6875b6">&lt;strong&gt;</bpt>NuGet<ept id="dacff11d-6cc4-4994-8445-f992ee6875b6">&lt;/strong&gt;</ept>, and how to
+install and use the <bpt id="acb8902d-8dc7-47e0-ab3f-13e66b8ea137">&lt;strong&gt;</bpt>NuGet<ept id="acb8902d-8dc7-47e0-ab3f-13e66b8ea137">&lt;/strong&gt;</ept> Visual Studio extension, see the <bpt id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;linkText&gt;</bpt>NuGet<ept id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;/linkText&gt;</ept><bpt id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;title&gt;</bpt><ept id="fd1f8fb3-55eb-4dbe-b3b1-36072b982ab2">&lt;/title&gt;</ept>
+website.</target>
+        </trans-unit>
+        <trans-unit id="71ee8d6a-c997-4818-9b7f-d2bab8c68c40" xml:space="preserve">
+          <source>Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
+package in your application, do the following:</source>
+          <target state="new">Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
+package in your application, do the following:</target>
+        </trans-unit>
+        <trans-unit id="5041f30f-d201-409c-8111-4f6cfeabb1ad" xml:space="preserve">
+          <source>Open the <bpt id="8104613e-9755-4a0f-9382-256189249c05">&lt;strong&gt;</bpt>NuGet Package Manager Console<ept id="8104613e-9755-4a0f-9382-256189249c05">&lt;/strong&gt;</ept> window.</source>
+          <target state="new">Open the <bpt id="8104613e-9755-4a0f-9382-256189249c05">&lt;strong&gt;</bpt>NuGet Package Manager Console<ept id="8104613e-9755-4a0f-9382-256189249c05">&lt;/strong&gt;</ept> window.</target>
+        </trans-unit>
+        <trans-unit id="f5d23e99-0bf2-455b-badb-6964f1612f4b" xml:space="preserve">
+          <source>In the <bpt id="4833fc9d-4ece-4943-93b2-9dfed63073b2">&lt;strong&gt;</bpt>Tools<ept id="4833fc9d-4ece-4943-93b2-9dfed63073b2">&lt;/strong&gt;</ept>
+menu, select <bpt id="a6bf2a94-8215-4fab-8527-eb87b52d41b1">&lt;strong&gt;</bpt>Library Package Manager<ept id="a6bf2a94-8215-4fab-8527-eb87b52d41b1">&lt;/strong&gt;</ept>, the select <bpt id="b93bd894-27e0-49f7-9c11-90b8c9617e74">&lt;strong&gt;</bpt>Package
+Manager Console<ept id="b93bd894-27e0-49f7-9c11-90b8c9617e74">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="4833fc9d-4ece-4943-93b2-9dfed63073b2">&lt;strong&gt;</bpt>Tools<ept id="4833fc9d-4ece-4943-93b2-9dfed63073b2">&lt;/strong&gt;</ept>
+menu, select <bpt id="a6bf2a94-8215-4fab-8527-eb87b52d41b1">&lt;strong&gt;</bpt>Library Package Manager<ept id="a6bf2a94-8215-4fab-8527-eb87b52d41b1">&lt;/strong&gt;</ept>, the select <bpt id="b93bd894-27e0-49f7-9c11-90b8c9617e74">&lt;strong&gt;</bpt>Package
+Manager Console<ept id="b93bd894-27e0-49f7-9c11-90b8c9617e74">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0095080c-9d73-4e5c-9735-3cc9fe6f2378" xml:space="preserve">
+          <source>Enter the following command in the NuGet Package Manager Console
+window:</source>
+          <target state="new">Enter the following command in the NuGet Package Manager Console
+window:</target>
+        </trans-unit>
+        <trans-unit id="44231df7-8c0f-4b0a-91bb-a0855e4982ff" xml:space="preserve">
+          <source>Installing the NuGet package updates your project with all the necessary
+assemblies and references that you need to use the Autoscaling
+Application Block.</source>
+          <target state="new">Installing the NuGet package updates your project with all the necessary
+assemblies and references that you need to use the Autoscaling
+Application Block.</target>
+        </trans-unit>
+        <trans-unit id="a8b5fa0c-f88c-47ab-851f-d1939646726e" xml:space="preserve">
+          <source>Your project now includes the XML schema files for
+the autoscaling rule definitions and autoscaling service information.</source>
+          <target state="new">Your project now includes the XML schema files for
+the autoscaling rule definitions and autoscaling service information.</target>
+        </trans-unit>
+        <trans-unit id="2dae5b20-cb09-41b8-918b-7d7914291065" xml:space="preserve">
+          <source>The project now also includes a readme file that contains important
+information about the Autoscaling Application Block:</source>
+          <target state="new">The project now also includes a readme file that contains important
+information about the Autoscaling Application Block:</target>
+        </trans-unit>
+        <trans-unit id="4b242a4e-414d-4f32-abe8-fa92a17d2d61" xml:space="preserve">
+          <source><bpt id="2fef5846-fb3f-4d57-935d-6c4729ddcacc">&lt;linkText&gt;</bpt>files configured by autoscaling NuGet package<ept id="2fef5846-fb3f-4d57-935d-6c4729ddcacc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2fef5846-fb3f-4d57-935d-6c4729ddcacc">&lt;linkText&gt;</bpt>files configured by autoscaling NuGet package<ept id="2fef5846-fb3f-4d57-935d-6c4729ddcacc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cbc5e7aa-4c23-480c-8f01-bf2df933109e" xml:space="preserve">
+          <source>Your project must target the .NET Framework 4.</source>
+          <target state="new">Your project must target the .NET Framework 4.</target>
+        </trans-unit>
+        <trans-unit id="724d775a-cca1-4a4f-92f0-907409ed1c63" xml:space="preserve">
+          <source>To change or verify the
+target framework:</source>
+          <target state="new">To change or verify the
+target framework:</target>
+        </trans-unit>
+        <trans-unit id="00d14994-1166-4c75-8d1f-bdea2c28e2d8" xml:space="preserve">
+          <source>In Solution Explorer, right-click on the project name and select
+<bpt id="18e466f2-8211-4344-92bd-4c1721d2b5c1">&lt;strong&gt;</bpt>Properties<ept id="18e466f2-8211-4344-92bd-4c1721d2b5c1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In Solution Explorer, right-click on the project name and select
+<bpt id="18e466f2-8211-4344-92bd-4c1721d2b5c1">&lt;strong&gt;</bpt>Properties<ept id="18e466f2-8211-4344-92bd-4c1721d2b5c1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e65f01f2-53f8-40d6-983b-dd096b13d526" xml:space="preserve">
+          <source>In the <bpt id="37ad30b1-aa9f-4fef-b30e-d5def30ecbea">&lt;strong&gt;</bpt>Application<ept id="37ad30b1-aa9f-4fef-b30e-d5def30ecbea">&lt;/strong&gt;</ept> tab of the Properties window, make sure Target framework is set to <bpt id="76c81c6f-c90f-4471-bd39-89dac64fd957">&lt;strong&gt;</bpt>.NET Framework 4<ept id="76c81c6f-c90f-4471-bd39-89dac64fd957">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="37ad30b1-aa9f-4fef-b30e-d5def30ecbea">&lt;strong&gt;</bpt>Application<ept id="37ad30b1-aa9f-4fef-b30e-d5def30ecbea">&lt;/strong&gt;</ept> tab of the Properties window, make sure Target framework is set to <bpt id="76c81c6f-c90f-4471-bd39-89dac64fd957">&lt;strong&gt;</bpt>.NET Framework 4<ept id="76c81c6f-c90f-4471-bd39-89dac64fd957">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="6b9c0544-8ea3-4837-b6b8-7941de62f70f" xml:space="preserve">
+          <source><bpt id="9326f179-0220-4126-8408-4612cb812a11">&lt;linkText&gt;</bpt>image<ept id="9326f179-0220-4126-8408-4612cb812a11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="9326f179-0220-4126-8408-4612cb812a11">&lt;linkText&gt;</bpt>image<ept id="9326f179-0220-4126-8408-4612cb812a11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="127a50cc-1129-48ec-a712-8f2890e6668d" xml:space="preserve">
+          <source>Add the following code namespace declarations to the top of any C\# file
+in which you wish to programmatically access the Autoscaling Application
+Block:</source>
+          <target state="new">Add the following code namespace declarations to the top of any C\# file
+in which you wish to programmatically access the Autoscaling Application
+Block:</target>
+        </trans-unit>
+        <trans-unit id="4d77fa16-9c16-48af-b2e4-7b42a87a68d4" xml:space="preserve">
+          <source>Use the <bpt id="7f2943af-17b0-4d93-a334-feec6cff301e">&lt;strong&gt;</bpt>IServiceLocator.GetInstance<ept id="7f2943af-17b0-4d93-a334-feec6cff301e">&lt;/strong&gt;</ept> method to instantiate the
+Autoscaler, and then call the <bpt id="48891cd2-dd42-435f-8f60-a570703c4c23">&lt;strong&gt;</bpt>Autoscaler.Start<ept id="48891cd2-dd42-435f-8f60-a570703c4c23">&lt;/strong&gt;</ept> method to run the
+<bpt id="2d0387be-c41f-4555-a964-9fb6fdee2116">&lt;strong&gt;</bpt>Autoscaler<ept id="2d0387be-c41f-4555-a964-9fb6fdee2116">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Use the <bpt id="7f2943af-17b0-4d93-a334-feec6cff301e">&lt;strong&gt;</bpt>IServiceLocator.GetInstance<ept id="7f2943af-17b0-4d93-a334-feec6cff301e">&lt;/strong&gt;</ept> method to instantiate the
+Autoscaler, and then call the <bpt id="48891cd2-dd42-435f-8f60-a570703c4c23">&lt;strong&gt;</bpt>Autoscaler.Start<ept id="48891cd2-dd42-435f-8f60-a570703c4c23">&lt;/strong&gt;</ept> method to run the
+<bpt id="2d0387be-c41f-4555-a964-9fb6fdee2116">&lt;strong&gt;</bpt>Autoscaler<ept id="2d0387be-c41f-4555-a964-9fb6fdee2116">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="14ffa391-7eab-4918-a899-037b570deca3" xml:space="preserve">
+          <source>Typically, you store your service model (a description of your 
+Azure environment that includes information about subscriptions, hosted
+services, roles, and storages accounts) in an XML file.</source>
+          <target state="new">Typically, you store your service model (a description of your 
+Azure environment that includes information about subscriptions, hosted
+services, roles, and storages accounts) in an XML file.</target>
+        </trans-unit>
+        <trans-unit id="ae92ccc1-95c9-4f6d-907a-b5c4ee48aa1c" xml:space="preserve">
+          <source>You can find a
+copy of the schema for this XML file in the
+<bpt id="7fd9de0e-fbf8-47f5-b3f6-43c8e30b0fa1">&lt;strong&gt;</bpt>AutoscalingServiceModel.xsd<ept id="7fd9de0e-fbf8-47f5-b3f6-43c8e30b0fa1">&lt;/strong&gt;</ept> file in your project.</source>
+          <target state="new">You can find a
+copy of the schema for this XML file in the
+<bpt id="7fd9de0e-fbf8-47f5-b3f6-43c8e30b0fa1">&lt;strong&gt;</bpt>AutoscalingServiceModel.xsd<ept id="7fd9de0e-fbf8-47f5-b3f6-43c8e30b0fa1">&lt;/strong&gt;</ept> file in your project.</target>
+        </trans-unit>
+        <trans-unit id="fb075ff9-879e-47be-9f35-552a0de74930" xml:space="preserve">
+          <source>In Visual Studio,
+this schema provides Intellisense and validation when you edit the
+service model XML file.</source>
+          <target state="new">In Visual Studio,
+this schema provides Intellisense and validation when you edit the
+service model XML file.</target>
+        </trans-unit>
+        <trans-unit id="247780ff-3f23-4d2e-a035-cdb4327477db" xml:space="preserve">
+          <source>Create a new XML file called <bpt id="710726c2-4ce4-4bad-946f-79dc08668232">&lt;strong&gt;</bpt>services.xml<ept id="710726c2-4ce4-4bad-946f-79dc08668232">&lt;/strong&gt;</ept> in your project.</source>
+          <target state="new">Create a new XML file called <bpt id="710726c2-4ce4-4bad-946f-79dc08668232">&lt;strong&gt;</bpt>services.xml<ept id="710726c2-4ce4-4bad-946f-79dc08668232">&lt;/strong&gt;</ept> in your project.</target>
+        </trans-unit>
+        <trans-unit id="91308652-c3db-4e06-8598-7a204bdc17a9" xml:space="preserve">
+          <source>In Visual Studio, you must ensure that the service model file is copied
+to the output folder.</source>
+          <target state="new">In Visual Studio, you must ensure that the service model file is copied
+to the output folder.</target>
+        </trans-unit>
+        <trans-unit id="f4096aae-7da6-4f63-aaa0-7959c0d29116" xml:space="preserve">
+          <source>To do this:</source>
+          <target state="new">To do this:</target>
+        </trans-unit>
+        <trans-unit id="50624730-43ec-48f6-bd93-2387a9d69ca4" xml:space="preserve">
+          <source>Right-click on the file and select <bpt id="30690381-0e59-4b88-aadd-1d1771449d2a">&lt;strong&gt;</bpt>Properties<ept id="30690381-0e59-4b88-aadd-1d1771449d2a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on the file and select <bpt id="30690381-0e59-4b88-aadd-1d1771449d2a">&lt;strong&gt;</bpt>Properties<ept id="30690381-0e59-4b88-aadd-1d1771449d2a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ff2886d8-ddb6-458e-a48f-ec9732287604" xml:space="preserve">
+          <source>Within the Properties pane, set the <bpt id="25116efa-a274-4058-b9cd-b5be88ff034e">&lt;strong&gt;</bpt>Copy to Output Directory<ept id="25116efa-a274-4058-b9cd-b5be88ff034e">&lt;/strong&gt;</ept>
+value to <bpt id="517eb260-8135-43bb-a859-d2de83aad2a1">&lt;strong&gt;</bpt>Copy always<ept id="517eb260-8135-43bb-a859-d2de83aad2a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the Properties pane, set the <bpt id="25116efa-a274-4058-b9cd-b5be88ff034e">&lt;strong&gt;</bpt>Copy to Output Directory<ept id="25116efa-a274-4058-b9cd-b5be88ff034e">&lt;/strong&gt;</ept>
+value to <bpt id="517eb260-8135-43bb-a859-d2de83aad2a1">&lt;strong&gt;</bpt>Copy always<ept id="517eb260-8135-43bb-a859-d2de83aad2a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f986da5c-160b-4232-a1ee-ad9548ca1d98" xml:space="preserve">
+          <source><bpt id="542050db-cacd-4ea1-ab6e-f0ca0fdf2ae2">&lt;linkText&gt;</bpt>Set Copy to Output Directory value<ept id="542050db-cacd-4ea1-ab6e-f0ca0fdf2ae2">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="542050db-cacd-4ea1-ab6e-f0ca0fdf2ae2">&lt;linkText&gt;</bpt>Set Copy to Output Directory value<ept id="542050db-cacd-4ea1-ab6e-f0ca0fdf2ae2">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e1e1d1c3-130f-4c89-91a5-7ed44404ca46" xml:space="preserve">
+          <source>The following code sample shows an example service model in a <bpt id="ba4bf816-e42c-4d9d-abd9-5214b3148cd5">&lt;strong&gt;</bpt>services.xml<ept id="ba4bf816-e42c-4d9d-abd9-5214b3148cd5">&lt;/strong&gt;</ept> file:</source>
+          <target state="new">The following code sample shows an example service model in a <bpt id="ba4bf816-e42c-4d9d-abd9-5214b3148cd5">&lt;strong&gt;</bpt>services.xml<ept id="ba4bf816-e42c-4d9d-abd9-5214b3148cd5">&lt;/strong&gt;</ept> file:</target>
+        </trans-unit>
+        <trans-unit id="349bae49-71a0-4ed0-a557-6a39e9c928bc" xml:space="preserve">
+          <source>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"&gt;
+  &lt;subscriptions&gt;
+    &lt;subscription name="[subscriptionname]"
+                  certificateThumbprint="[managementcertificatethumbprint]"
+                  subscriptionId="[subscriptionid]"
+                  certificateStoreLocation="CurrentUser"
+                  certificateStoreName="My"&gt;
+      &lt;services&gt;
+        &lt;service dnsPrefix="[hostedservicednsprefix]" slot="Staging"&gt;
+          &lt;roles&gt;
+            &lt;role alias="AutoscalingApplicationRole"
+                  roleName="[targetrolename]"
+                  wadStorageAccountName="targetstorage"/&gt;
+          &lt;/roles&gt;
+        &lt;/service&gt;
+      &lt;/services&gt;
+      &lt;storageAccounts&gt;
+        &lt;storageAccount alias="targetstorage"
+          connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"&gt;
+        &lt;/storageAccount&gt;
+      &lt;/storageAccounts&gt;
+    &lt;/subscription&gt;
+  &lt;/subscriptions&gt;
+&lt;/serviceModel&gt;</source>
+          <target state="new">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"&gt;
+  &lt;subscriptions&gt;
+    &lt;subscription name="[subscriptionname]"
+                  certificateThumbprint="[managementcertificatethumbprint]"
+                  subscriptionId="[subscriptionid]"
+                  certificateStoreLocation="CurrentUser"
+                  certificateStoreName="My"&gt;
+      &lt;services&gt;
+        &lt;service dnsPrefix="[hostedservicednsprefix]" slot="Staging"&gt;
+          &lt;roles&gt;
+            &lt;role alias="AutoscalingApplicationRole"
+                  roleName="[targetrolename]"
+                  wadStorageAccountName="targetstorage"/&gt;
+          &lt;/roles&gt;
+        &lt;/service&gt;
+      &lt;/services&gt;
+      &lt;storageAccounts&gt;
+        &lt;storageAccount alias="targetstorage"
+          connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"&gt;
+        &lt;/storageAccount&gt;
+      &lt;/storageAccounts&gt;
+    &lt;/subscription&gt;
+  &lt;/subscriptions&gt;
+&lt;/serviceModel&gt;</target>
+        </trans-unit>
+        <trans-unit id="1209d40e-ce5a-4ee6-82b1-5ec1f80f4a1a" xml:space="preserve">
+          <source>You must replace the values in square brackets with values specific to
+your environment and target application.</source>
+          <target state="new">You must replace the values in square brackets with values specific to
+your environment and target application.</target>
+        </trans-unit>
+        <trans-unit id="a962e15b-2dbe-4888-bb4b-758c662279f2" xml:space="preserve">
+          <source>To find many of these values,
+you will need to log in to the <bpt id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;/linkText&gt;</ept><bpt id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;title&gt;</bpt><ept id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find many of these values,
+you will need to log in to the <bpt id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;linkText&gt;</bpt>Azure Management Portal<ept id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;/linkText&gt;</ept><bpt id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;title&gt;</bpt><ept id="b78e39f4-a7e9-446c-8477-b5d2241916b4">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="90d3c883-ece9-40b1-af5c-e6170bb70ee1" xml:space="preserve">
+          <source>Sign in to the management portal.</source>
+          <target state="new">Sign in to the management portal.</target>
+        </trans-unit>
+        <trans-unit id="38d445e9-0bdd-4b0c-ab8a-1dd8746a9a3f" xml:space="preserve">
+          <source><bpt id="1b750854-a609-4eca-ab85-b7ea463a3103">&lt;strong&gt;</bpt>[subscriptionname]:<ept id="1b750854-a609-4eca-ab85-b7ea463a3103">&lt;/strong&gt;</ept> Choose a friendly name to refer to the
+Azure subscription that contains the application in which
+you want to use auto-scaling.</source>
+          <target state="new"><bpt id="1b750854-a609-4eca-ab85-b7ea463a3103">&lt;strong&gt;</bpt>[subscriptionname]:<ept id="1b750854-a609-4eca-ab85-b7ea463a3103">&lt;/strong&gt;</ept> Choose a friendly name to refer to the
+Azure subscription that contains the application in which
+you want to use auto-scaling.</target>
+        </trans-unit>
+        <trans-unit id="edc23311-b1ed-4552-893d-830e5ccf4a36" xml:space="preserve">
+          <source><bpt id="d0d32291-4ca5-4830-a020-36b7ab220cad">&lt;strong&gt;</bpt>[subscriptionid]:<ept id="d0d32291-4ca5-4830-a020-36b7ab220cad">&lt;/strong&gt;</ept> The unique ID of the
+Azure subscription that contains the application in which
+you want to use auto-scaling.</source>
+          <target state="new"><bpt id="d0d32291-4ca5-4830-a020-36b7ab220cad">&lt;strong&gt;</bpt>[subscriptionid]:<ept id="d0d32291-4ca5-4830-a020-36b7ab220cad">&lt;/strong&gt;</ept> The unique ID of the
+Azure subscription that contains the application in which
+you want to use auto-scaling.</target>
+        </trans-unit>
+        <trans-unit id="9e90f9c3-65a1-4c08-aa09-cee8ec3d1f4d" xml:space="preserve">
+          <source>In the Azure Management Portal, click
+<bpt id="d71d7068-25cf-4f68-9bc9-dbe31204b494">&lt;strong&gt;</bpt>Cloud Services<ept id="d71d7068-25cf-4f68-9bc9-dbe31204b494">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click
+<bpt id="d71d7068-25cf-4f68-9bc9-dbe31204b494">&lt;strong&gt;</bpt>Cloud Services<ept id="d71d7068-25cf-4f68-9bc9-dbe31204b494">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="da71dd89-5663-4dc7-8b33-bb4ef6a3bd54" xml:space="preserve">
+          <source>In the list of Cloud Services, click on the service that hosts the
+application in which you want to use autoscaling.</source>
+          <target state="new">In the list of Cloud Services, click on the service that hosts the
+application in which you want to use autoscaling.</target>
+        </trans-unit>
+        <trans-unit id="769faccb-1bd5-4438-8115-c4fcbac30e81" xml:space="preserve">
+          <source>The
+Quick Glance pane on the right will display the
+<bpt id="c313e83e-7a5d-466c-8d28-d590ce69aa76">&lt;strong&gt;</bpt>Subscription ID<ept id="c313e83e-7a5d-466c-8d28-d590ce69aa76">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The
+Quick Glance pane on the right will display the
+<bpt id="c313e83e-7a5d-466c-8d28-d590ce69aa76">&lt;strong&gt;</bpt>Subscription ID<ept id="c313e83e-7a5d-466c-8d28-d590ce69aa76">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="7f10bcf3-7e82-4fdb-bc9b-f78265fcb23a" xml:space="preserve">
+          <source><bpt id="1fa9a96f-52f1-4963-a49c-6bc1240fe019">&lt;linkText&gt;</bpt>image<ept id="1fa9a96f-52f1-4963-a49c-6bc1240fe019">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1fa9a96f-52f1-4963-a49c-6bc1240fe019">&lt;linkText&gt;</bpt>image<ept id="1fa9a96f-52f1-4963-a49c-6bc1240fe019">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06075c98-7ad3-4881-9ba4-0bd54a70980d" xml:space="preserve">
+          <source><bpt id="1cdba061-d3d3-4daa-91bb-bc9e06948097">&lt;strong&gt;</bpt>[hostedservicednsprefix]:<ept id="1cdba061-d3d3-4daa-91bb-bc9e06948097">&lt;/strong&gt;</ept> The DNS Prefix of the hosted service in which you want to use auto-scaling.</source>
+          <target state="new"><bpt id="1cdba061-d3d3-4daa-91bb-bc9e06948097">&lt;strong&gt;</bpt>[hostedservicednsprefix]:<ept id="1cdba061-d3d3-4daa-91bb-bc9e06948097">&lt;/strong&gt;</ept> The DNS Prefix of the hosted service in which you want to use auto-scaling.</target>
+        </trans-unit>
+        <trans-unit id="55908ab4-c64b-4cb9-a13b-8ef8ab6ee275" xml:space="preserve">
+          <source>In the Azure Management Portal, click
+<bpt id="262857fd-6f00-4c9b-a82f-8b485d7c8171">&lt;strong&gt;</bpt>Cloud Services<ept id="262857fd-6f00-4c9b-a82f-8b485d7c8171">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click
+<bpt id="262857fd-6f00-4c9b-a82f-8b485d7c8171">&lt;strong&gt;</bpt>Cloud Services<ept id="262857fd-6f00-4c9b-a82f-8b485d7c8171">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="30c4f2c3-1151-451d-b62d-eb70d3f47c52" xml:space="preserve">
+          <source>In the list of Cloud Services, locate the service that hosts the
+application in which you want to use autoscaling.</source>
+          <target state="new">In the list of Cloud Services, locate the service that hosts the
+application in which you want to use autoscaling.</target>
+        </trans-unit>
+        <trans-unit id="d33d2321-a380-4faa-8542-e88973d3bc88" xml:space="preserve">
+          <source>The name of
+the cloud serviceClick is the <bpt id="c129dd21-aa62-4068-93be-6cd9fa8bd0b3">&lt;strong&gt;</bpt>DNS Prefix<ept id="c129dd21-aa62-4068-93be-6cd9fa8bd0b3">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The name of
+the cloud serviceClick is the <bpt id="c129dd21-aa62-4068-93be-6cd9fa8bd0b3">&lt;strong&gt;</bpt>DNS Prefix<ept id="c129dd21-aa62-4068-93be-6cd9fa8bd0b3">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0dd17d8c-ea4d-4200-b64d-6f7af8274eef" xml:space="preserve">
+          <source><bpt id="611949c5-7bae-4c35-ba7e-ed83892b9d38">&lt;linkText&gt;</bpt>image<ept id="611949c5-7bae-4c35-ba7e-ed83892b9d38">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="611949c5-7bae-4c35-ba7e-ed83892b9d38">&lt;linkText&gt;</bpt>image<ept id="611949c5-7bae-4c35-ba7e-ed83892b9d38">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="7303bbfd-6d80-4c9d-8d58-005a9de26a55" xml:space="preserve">
+          <source><bpt id="cb54e3c0-34af-489e-accf-c829d0df1ffc">&lt;strong&gt;</bpt>[targetrolename]:<ept id="cb54e3c0-34af-489e-accf-c829d0df1ffc">&lt;/strong&gt;</ept> The name of the role that is the target of your auto-scaling rules.</source>
+          <target state="new"><bpt id="cb54e3c0-34af-489e-accf-c829d0df1ffc">&lt;strong&gt;</bpt>[targetrolename]:<ept id="cb54e3c0-34af-489e-accf-c829d0df1ffc">&lt;/strong&gt;</ept> The name of the role that is the target of your auto-scaling rules.</target>
+        </trans-unit>
+        <trans-unit id="16b1acb2-7749-48b9-abc7-c0b7d846e8a9" xml:space="preserve">
+          <source>In the Azure Management Portal, click
+<bpt id="569e0e98-3831-4857-8a0c-fdedee6485a1">&lt;strong&gt;</bpt>Cloud Services<ept id="569e0e98-3831-4857-8a0c-fdedee6485a1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click
+<bpt id="569e0e98-3831-4857-8a0c-fdedee6485a1">&lt;strong&gt;</bpt>Cloud Services<ept id="569e0e98-3831-4857-8a0c-fdedee6485a1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="09e9d403-a88e-4d9b-83d4-70229c3be333" xml:space="preserve">
+          <source>In the list of Cloud Services, click on the service that hosts the
+application in which you want to use autoscaling, then click
+<bpt id="9a3f0930-9d90-43fa-9914-c7d1d5a73b9e">&lt;strong&gt;</bpt>Instances<ept id="9a3f0930-9d90-43fa-9914-c7d1d5a73b9e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the list of Cloud Services, click on the service that hosts the
+application in which you want to use autoscaling, then click
+<bpt id="9a3f0930-9d90-43fa-9914-c7d1d5a73b9e">&lt;strong&gt;</bpt>Instances<ept id="9a3f0930-9d90-43fa-9914-c7d1d5a73b9e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="a2c0d46d-d5ee-4fc1-aabc-1cc33ff1ddbe" xml:space="preserve">
+          <source>The <bpt id="3bd200c7-649e-4e0a-9e20-7416aaa48b53">&lt;em&gt;</bpt>*Role<ept id="3bd200c7-649e-4e0a-9e20-7416aaa48b53">&lt;/em&gt;</ept> column displays the name of your target
+role.</source>
+          <target state="new">The <bpt id="3bd200c7-649e-4e0a-9e20-7416aaa48b53">&lt;em&gt;</bpt>*Role<ept id="3bd200c7-649e-4e0a-9e20-7416aaa48b53">&lt;/em&gt;</ept> column displays the name of your target
+role.</target>
+        </trans-unit>
+        <trans-unit id="dc624182-6894-4d43-8c78-6d1dd8df46cd" xml:space="preserve">
+          <source><bpt id="1320b3eb-76b8-4fb2-a708-a5d6f2ae3f1f">&lt;linkText&gt;</bpt>image<ept id="1320b3eb-76b8-4fb2-a708-a5d6f2ae3f1f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="1320b3eb-76b8-4fb2-a708-a5d6f2ae3f1f">&lt;linkText&gt;</bpt>image<ept id="1320b3eb-76b8-4fb2-a708-a5d6f2ae3f1f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="201c147f-610b-4fed-96b6-bb5b5a287dae" xml:space="preserve">
+          <source><bpt id="9c159f82-9957-4873-ad0c-dac19d5048fb">&lt;strong&gt;</bpt>[storageaccountname]<ept id="9c159f82-9957-4873-ad0c-dac19d5048fb">&lt;/strong&gt;</ept> and <bpt id="9a337e6e-0592-4d48-9ee4-3476a6105261">&lt;strong&gt;</bpt>[storageaccountkey]:<ept id="9a337e6e-0592-4d48-9ee4-3476a6105261">&lt;/strong&gt;</ept> The name of the Azure storage account that you are using for your target Azure application.</source>
+          <target state="new"><bpt id="9c159f82-9957-4873-ad0c-dac19d5048fb">&lt;strong&gt;</bpt>[storageaccountname]<ept id="9c159f82-9957-4873-ad0c-dac19d5048fb">&lt;/strong&gt;</ept> and <bpt id="9a337e6e-0592-4d48-9ee4-3476a6105261">&lt;strong&gt;</bpt>[storageaccountkey]:<ept id="9a337e6e-0592-4d48-9ee4-3476a6105261">&lt;/strong&gt;</ept> The name of the Azure storage account that you are using for your target Azure application.</target>
+        </trans-unit>
+        <trans-unit id="aff887cb-8dc4-43b0-920c-4eb51802ad80" xml:space="preserve">
+          <source>In the Azure Management Portal, click
+<bpt id="820766a4-9f86-4ce3-a159-3e59cdd66ef6">&lt;strong&gt;</bpt>Storage<ept id="820766a4-9f86-4ce3-a159-3e59cdd66ef6">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click
+<bpt id="820766a4-9f86-4ce3-a159-3e59cdd66ef6">&lt;strong&gt;</bpt>Storage<ept id="820766a4-9f86-4ce3-a159-3e59cdd66ef6">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="cd0170c0-decd-4d5c-92b9-ee1115e05e11" xml:space="preserve">
+          <source>In the list of Storage Accounts, select  the storage account you are using.</source>
+          <target state="new">In the list of Storage Accounts, select  the storage account you are using.</target>
+        </trans-unit>
+        <trans-unit id="729f44f5-f148-4957-a48d-538e3aeb10cb" xml:space="preserve">
+          <source>The
+<bpt id="e5b390cd-32d1-449b-81f1-cce09e982eb1">&lt;strong&gt;</bpt>Name<ept id="e5b390cd-32d1-449b-81f1-cce09e982eb1">&lt;/strong&gt;</ept> column will display the <bpt id="52813ea9-5ad1-4a23-8a3f-0699352e9ef7">&lt;strong&gt;</bpt>Name<ept id="52813ea9-5ad1-4a23-8a3f-0699352e9ef7">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The
+<bpt id="e5b390cd-32d1-449b-81f1-cce09e982eb1">&lt;strong&gt;</bpt>Name<ept id="e5b390cd-32d1-449b-81f1-cce09e982eb1">&lt;/strong&gt;</ept> column will display the <bpt id="52813ea9-5ad1-4a23-8a3f-0699352e9ef7">&lt;strong&gt;</bpt>Name<ept id="52813ea9-5ad1-4a23-8a3f-0699352e9ef7">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1a78c8fc-e49f-41cd-9bd7-402de0f19f84" xml:space="preserve">
+          <source>Click the <bpt id="2c207f22-c1f0-40fe-acec-bcf35479a6e2">&lt;strong&gt;</bpt>Manage Keys<ept id="2c207f22-c1f0-40fe-acec-bcf35479a6e2">&lt;/strong&gt;</ept> button at the bottom of the screen
+to get the primary access key.</source>
+          <target state="new">Click the <bpt id="2c207f22-c1f0-40fe-acec-bcf35479a6e2">&lt;strong&gt;</bpt>Manage Keys<ept id="2c207f22-c1f0-40fe-acec-bcf35479a6e2">&lt;/strong&gt;</ept> button at the bottom of the screen
+to get the primary access key.</target>
+        </trans-unit>
+        <trans-unit id="96891ac8-2efc-4a0c-b57f-31706772757d" xml:space="preserve">
+          <source><bpt id="2be85401-eaab-437d-873b-0c224cf243ce">&lt;linkText&gt;</bpt>image<ept id="2be85401-eaab-437d-873b-0c224cf243ce">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="2be85401-eaab-437d-873b-0c224cf243ce">&lt;linkText&gt;</bpt>image<ept id="2be85401-eaab-437d-873b-0c224cf243ce">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="28ffb779-2a39-404b-aba7-a168f931b148" xml:space="preserve">
+          <source><bpt id="2a3bfb19-25a0-4ac2-af04-9d1b310226a3">&lt;strong&gt;</bpt>[managementcertificatethumbprint]:<ept id="2a3bfb19-25a0-4ac2-af04-9d1b310226a3">&lt;/strong&gt;</ept> The <bpt id="df2f99af-e365-4b6a-85dd-638c291984a2">&lt;strong&gt;</bpt>Thumbprint<ept id="df2f99af-e365-4b6a-85dd-638c291984a2">&lt;/strong&gt;</ept> of the Management Certificate that the block will use to secure scaling requests to the target application.</source>
+          <target state="new"><bpt id="2a3bfb19-25a0-4ac2-af04-9d1b310226a3">&lt;strong&gt;</bpt>[managementcertificatethumbprint]:<ept id="2a3bfb19-25a0-4ac2-af04-9d1b310226a3">&lt;/strong&gt;</ept> The <bpt id="df2f99af-e365-4b6a-85dd-638c291984a2">&lt;strong&gt;</bpt>Thumbprint<ept id="df2f99af-e365-4b6a-85dd-638c291984a2">&lt;/strong&gt;</ept> of the Management Certificate that the block will use to secure scaling requests to the target application.</target>
+        </trans-unit>
+        <trans-unit id="b65da4b2-451a-40cb-bf9a-3251f08e22ef" xml:space="preserve">
+          <source>In the Azure Management Portal, click
+<bpt id="228e06ec-76df-4e78-865e-31d1509380d8">&lt;strong&gt;</bpt>Settings<ept id="228e06ec-76df-4e78-865e-31d1509380d8">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the Azure Management Portal, click
+<bpt id="228e06ec-76df-4e78-865e-31d1509380d8">&lt;strong&gt;</bpt>Settings<ept id="228e06ec-76df-4e78-865e-31d1509380d8">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2279648d-1459-4e67-af07-b340a9d68572" xml:space="preserve">
+          <source>The <bpt id="f77fa8f6-8691-4422-ac60-b94189c70cd6">&lt;strong&gt;</bpt>Thumbprint<ept id="f77fa8f6-8691-4422-ac60-b94189c70cd6">&lt;/strong&gt;</ept> column will display the <bpt id="7e2cc57e-1449-4d12-8eb7-98ba721ead04">&lt;strong&gt;</bpt>Thumbprint<ept id="7e2cc57e-1449-4d12-8eb7-98ba721ead04">&lt;/strong&gt;</ept>.</source>
+          <target state="new">The <bpt id="f77fa8f6-8691-4422-ac60-b94189c70cd6">&lt;strong&gt;</bpt>Thumbprint<ept id="f77fa8f6-8691-4422-ac60-b94189c70cd6">&lt;/strong&gt;</ept> column will display the <bpt id="7e2cc57e-1449-4d12-8eb7-98ba721ead04">&lt;strong&gt;</bpt>Thumbprint<ept id="7e2cc57e-1449-4d12-8eb7-98ba721ead04">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3037422d-77dc-4779-bbb7-7e4688612b4e" xml:space="preserve">
+          <source><bpt id="3077c87e-8b5c-4a9e-a2a6-d9504497ba5f">&lt;linkText&gt;</bpt>image<ept id="3077c87e-8b5c-4a9e-a2a6-d9504497ba5f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="3077c87e-8b5c-4a9e-a2a6-d9504497ba5f">&lt;linkText&gt;</bpt>image<ept id="3077c87e-8b5c-4a9e-a2a6-d9504497ba5f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="477c0c88-8e12-4eed-a83a-c314298e0d94" xml:space="preserve">
+          <source>To find out more about the content of the service model file, see
+<bpt id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;linkText&gt;</bpt>Storing Your Service Information Data<ept id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;/linkText&gt;</ept><bpt id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;title&gt;</bpt><ept id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;/title&gt;</ept>.</source>
+          <target state="new">To find out more about the content of the service model file, see
+<bpt id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;linkText&gt;</bpt>Storing Your Service Information Data<ept id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;/linkText&gt;</ept><bpt id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;title&gt;</bpt><ept id="cd43acce-94a0-4bca-a982-e862379dc532">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0a9898ef-d4be-4582-866b-97670a3d3d54" xml:space="preserve">
+          <source>Typically, you store the autoscaling rules that control the number of
+role instances in your target application in an XML file.</source>
+          <target state="new">Typically, you store the autoscaling rules that control the number of
+role instances in your target application in an XML file.</target>
+        </trans-unit>
+        <trans-unit id="d57969bc-220c-45b3-bbc9-34374e47a263" xml:space="preserve">
+          <source>You can find a
+copy of the schema for this XML file in the <bpt id="86d38b66-e116-4414-a964-8764ece0ff72">&lt;strong&gt;</bpt>AutoscalingRules.xsd<ept id="86d38b66-e116-4414-a964-8764ece0ff72">&lt;/strong&gt;</ept>
+file in your project.</source>
+          <target state="new">You can find a
+copy of the schema for this XML file in the <bpt id="86d38b66-e116-4414-a964-8764ece0ff72">&lt;strong&gt;</bpt>AutoscalingRules.xsd<ept id="86d38b66-e116-4414-a964-8764ece0ff72">&lt;/strong&gt;</ept>
+file in your project.</target>
+        </trans-unit>
+        <trans-unit id="a0f6addc-f4eb-4966-88e0-e59e5f0ed0f8" xml:space="preserve">
+          <source>In Visual Studio, this schema provides
+Intellisense and validation when you edit the XML file.</source>
+          <target state="new">In Visual Studio, this schema provides
+Intellisense and validation when you edit the XML file.</target>
+        </trans-unit>
+        <trans-unit id="b3ff21ab-b577-4f93-b961-cc3ffd352b0a" xml:space="preserve">
+          <source>Create a new XML file named <bpt id="36b37211-248e-4973-8431-52c2dc098b3b">&lt;strong&gt;</bpt>rules.xml<ept id="36b37211-248e-4973-8431-52c2dc098b3b">&lt;/strong&gt;</ept> in your project.</source>
+          <target state="new">Create a new XML file named <bpt id="36b37211-248e-4973-8431-52c2dc098b3b">&lt;strong&gt;</bpt>rules.xml<ept id="36b37211-248e-4973-8431-52c2dc098b3b">&lt;/strong&gt;</ept> in your project.</target>
+        </trans-unit>
+        <trans-unit id="3bdc37c7-f22a-4c09-ae83-ffdcc788866c" xml:space="preserve">
+          <source>In Visual Studio, you must ensure that the rules file is copied to the
+output folder.</source>
+          <target state="new">In Visual Studio, you must ensure that the rules file is copied to the
+output folder.</target>
+        </trans-unit>
+        <trans-unit id="273f1a55-a6bf-4c03-89e6-db74ec1a84fc" xml:space="preserve">
+          <source>To do this:</source>
+          <target state="new">To do this:</target>
+        </trans-unit>
+        <trans-unit id="f330f08e-b996-49ba-a1fe-f04000f483b4" xml:space="preserve">
+          <source>Right-click on the file and select <bpt id="1b1abc52-0afe-47b1-8183-11b5dd685643">&lt;strong&gt;</bpt>Properties<ept id="1b1abc52-0afe-47b1-8183-11b5dd685643">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on the file and select <bpt id="1b1abc52-0afe-47b1-8183-11b5dd685643">&lt;strong&gt;</bpt>Properties<ept id="1b1abc52-0afe-47b1-8183-11b5dd685643">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="48f9b8bd-e716-4c8b-bda5-f7f28fa26b75" xml:space="preserve">
+          <source>Within the Properties pane, set the <bpt id="8c9131ba-10ed-4b08-b66e-ba73adf3260b">&lt;strong&gt;</bpt>Copy to Output Directory<ept id="8c9131ba-10ed-4b08-b66e-ba73adf3260b">&lt;/strong&gt;</ept>
+value to <bpt id="ff50e7ec-ede2-41b5-9013-2ecfa6fb858e">&lt;strong&gt;</bpt>Copy always<ept id="ff50e7ec-ede2-41b5-9013-2ecfa6fb858e">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Within the Properties pane, set the <bpt id="8c9131ba-10ed-4b08-b66e-ba73adf3260b">&lt;strong&gt;</bpt>Copy to Output Directory<ept id="8c9131ba-10ed-4b08-b66e-ba73adf3260b">&lt;/strong&gt;</ept>
+value to <bpt id="ff50e7ec-ede2-41b5-9013-2ecfa6fb858e">&lt;strong&gt;</bpt>Copy always<ept id="ff50e7ec-ede2-41b5-9013-2ecfa6fb858e">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e278031b-b412-4287-8036-f7a3581e5567" xml:space="preserve">
+          <source>The following code sample shows an example rule set in a <bpt id="be94c74e-a679-4b12-a4a2-0ab16ab89e5a">&lt;strong&gt;</bpt>rules.xml<ept id="be94c74e-a679-4b12-a4a2-0ab16ab89e5a">&lt;/strong&gt;</ept>
+file:</source>
+          <target state="new">The following code sample shows an example rule set in a <bpt id="be94c74e-a679-4b12-a4a2-0ab16ab89e5a">&lt;strong&gt;</bpt>rules.xml<ept id="be94c74e-a679-4b12-a4a2-0ab16ab89e5a">&lt;/strong&gt;</ept>
+file:</target>
+        </trans-unit>
+        <trans-unit id="2ffb71cc-035d-4d15-9225-cc15c189df2b" xml:space="preserve">
+          <source>In this example there are three autoscaling rules (one <bpt id="cb4a8799-fde5-4d62-b0fd-f796eb03de87">&lt;strong&gt;</bpt>constraint
+rule<ept id="cb4a8799-fde5-4d62-b0fd-f796eb03de87">&lt;/strong&gt;</ept> and two <bpt id="bb532fd7-971f-47ec-a5ed-e77d91d43dbf">&lt;strong&gt;</bpt>reactive rules<ept id="bb532fd7-971f-47ec-a5ed-e77d91d43dbf">&lt;/strong&gt;</ept>) that operate on a target named
+<bpt id="d0955821-9a6d-49c8-a354-943147f2aea7">&lt;strong&gt;</bpt>AutoscalingApplicationRole<ept id="d0955821-9a6d-49c8-a354-943147f2aea7">&lt;/strong&gt;</ept> that is the alias of a role defined in
+the <bpt id="25962380-5a07-4558-b44f-95793f946566">&lt;strong&gt;</bpt>service model<ept id="25962380-5a07-4558-b44f-95793f946566">&lt;/strong&gt;</ept>:</source>
+          <target state="new">In this example there are three autoscaling rules (one <bpt id="cb4a8799-fde5-4d62-b0fd-f796eb03de87">&lt;strong&gt;</bpt>constraint
+rule<ept id="cb4a8799-fde5-4d62-b0fd-f796eb03de87">&lt;/strong&gt;</ept> and two <bpt id="bb532fd7-971f-47ec-a5ed-e77d91d43dbf">&lt;strong&gt;</bpt>reactive rules<ept id="bb532fd7-971f-47ec-a5ed-e77d91d43dbf">&lt;/strong&gt;</ept>) that operate on a target named
+<bpt id="d0955821-9a6d-49c8-a354-943147f2aea7">&lt;strong&gt;</bpt>AutoscalingApplicationRole<ept id="d0955821-9a6d-49c8-a354-943147f2aea7">&lt;/strong&gt;</ept> that is the alias of a role defined in
+the <bpt id="25962380-5a07-4558-b44f-95793f946566">&lt;strong&gt;</bpt>service model<ept id="25962380-5a07-4558-b44f-95793f946566">&lt;/strong&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="78f05e3c-0c16-4d71-bc0c-c98881f31e14" xml:space="preserve">
+          <source>The constraint rule is always active and sets the minimum number of
+role instances to two and the maximum number of role instances to
+six.</source>
+          <target state="new">The constraint rule is always active and sets the minimum number of
+role instances to two and the maximum number of role instances to
+six.</target>
+        </trans-unit>
+        <trans-unit id="40aec83b-585b-4a20-afec-763049bbbb08" xml:space="preserve">
+          <source>Both reactive rules use an <bpt id="eda2dd36-9864-4680-b228-ce32e552a411">&lt;strong&gt;</bpt>operand<ept id="eda2dd36-9864-4680-b228-ce32e552a411">&lt;/strong&gt;</ept> named
+<bpt id="1d1af6f0-aab3-49d1-a743-3467c5961676">&lt;strong&gt;</bpt>WebRoleA\_CPU\_Avg\_5m<ept id="1d1af6f0-aab3-49d1-a743-3467c5961676">&lt;/strong&gt;</ept> that calculates the average CPU usage
+over the last five minutes for an Azure role named
+<bpt id="81cf0397-1348-4e95-a580-9d5f99232d6f">&lt;strong&gt;</bpt>AutoscalingApplicationRole.<ept id="81cf0397-1348-4e95-a580-9d5f99232d6f">&lt;/strong&gt;</ept> This role is defined in the
+<bpt id="8fec7478-7a9d-485c-b759-64b904a1ab39">&lt;strong&gt;</bpt>service model<ept id="8fec7478-7a9d-485c-b759-64b904a1ab39">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Both reactive rules use an <bpt id="eda2dd36-9864-4680-b228-ce32e552a411">&lt;strong&gt;</bpt>operand<ept id="eda2dd36-9864-4680-b228-ce32e552a411">&lt;/strong&gt;</ept> named
+<bpt id="1d1af6f0-aab3-49d1-a743-3467c5961676">&lt;strong&gt;</bpt>WebRoleA\_CPU\_Avg\_5m<ept id="1d1af6f0-aab3-49d1-a743-3467c5961676">&lt;/strong&gt;</ept> that calculates the average CPU usage
+over the last five minutes for an Azure role named
+<bpt id="81cf0397-1348-4e95-a580-9d5f99232d6f">&lt;strong&gt;</bpt>AutoscalingApplicationRole.<ept id="81cf0397-1348-4e95-a580-9d5f99232d6f">&lt;/strong&gt;</ept> This role is defined in the
+<bpt id="8fec7478-7a9d-485c-b759-64b904a1ab39">&lt;strong&gt;</bpt>service model<ept id="8fec7478-7a9d-485c-b759-64b904a1ab39">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="d9e8f29a-89f6-4f96-aa69-6ad31e7e4638" xml:space="preserve">
+          <source>The reactive rule named <bpt id="4853457f-d5b8-4579-9af3-6c6ff5bec77d">&lt;strong&gt;</bpt>ScaleUpOnHighUtilization<ept id="4853457f-d5b8-4579-9af3-6c6ff5bec77d">&lt;/strong&gt;</ept> increments the
+instance count of the target role by one if the average CPU
+utilization over the last five minutes has been greater than or
+equal to 60%.</source>
+          <target state="new">The reactive rule named <bpt id="4853457f-d5b8-4579-9af3-6c6ff5bec77d">&lt;strong&gt;</bpt>ScaleUpOnHighUtilization<ept id="4853457f-d5b8-4579-9af3-6c6ff5bec77d">&lt;/strong&gt;</ept> increments the
+instance count of the target role by one if the average CPU
+utilization over the last five minutes has been greater than or
+equal to 60%.</target>
+        </trans-unit>
+        <trans-unit id="38028563-bad7-4481-8196-e93f75fe68d2" xml:space="preserve">
+          <source>The reactive rule named <bpt id="bcdb0f60-d44a-48a3-8b32-c8c5b7deae0f">&lt;strong&gt;</bpt>ScaleDownOnLowUtilization<ept id="bcdb0f60-d44a-48a3-8b32-c8c5b7deae0f">&lt;/strong&gt;</ept> decrements the
+instance count of the target role by one if the average CPU
+utilization over the last five minutes has been less than 60%.</source>
+          <target state="new">The reactive rule named <bpt id="bcdb0f60-d44a-48a3-8b32-c8c5b7deae0f">&lt;strong&gt;</bpt>ScaleDownOnLowUtilization<ept id="bcdb0f60-d44a-48a3-8b32-c8c5b7deae0f">&lt;/strong&gt;</ept> decrements the
+instance count of the target role by one if the average CPU
+utilization over the last five minutes has been less than 60%.</target>
+        </trans-unit>
+        <trans-unit id="6e23bccd-b631-4b41-8637-7fc4a31ba898" xml:space="preserve">
+          <source>After you have defined your service model and autoscaling rules, you
+must configure the Autoscaling Application Block to use them.</source>
+          <target state="new">After you have defined your service model and autoscaling rules, you
+must configure the Autoscaling Application Block to use them.</target>
+        </trans-unit>
+        <trans-unit id="764ab906-ee40-486b-b879-6cac859442ad" xml:space="preserve">
+          <source>This
+operational configuration information is stored in the application
+configuration file.</source>
+          <target state="new">This
+operational configuration information is stored in the application
+configuration file.</target>
+        </trans-unit>
+        <trans-unit id="c2b2c080-182c-4fe9-a471-dc8ee2ebf985" xml:space="preserve">
+          <source>By default, the Autoscaling Application Block expects the autoscaling
+rules and service model to be stored in Azure blobs.</source>
+          <target state="new">By default, the Autoscaling Application Block expects the autoscaling
+rules and service model to be stored in Azure blobs.</target>
+        </trans-unit>
+        <trans-unit id="30c33bb7-a8f6-4b2b-a4b4-c95b4a5b6bdc" xml:space="preserve">
+          <source>In this
+example, you will configure the block to load them from the local file
+system.</source>
+          <target state="new">In this
+example, you will configure the block to load them from the local file
+system.</target>
+        </trans-unit>
+        <trans-unit id="d352314e-4935-4da8-85c8-f58f4cac9a4c" xml:space="preserve">
+          <source>Right-click on the <bpt id="c4587d00-e847-4485-a617-ae83ba147a2e">&lt;strong&gt;</bpt>App.config<ept id="c4587d00-e847-4485-a617-ae83ba147a2e">&lt;/strong&gt;</ept> file in Solution Explorer and then
+click <bpt id="dc6b5f78-c86f-417e-a501-e3fc8fc7bfea">&lt;strong&gt;</bpt>Edit Configuration File<ept id="dc6b5f78-c86f-417e-a501-e3fc8fc7bfea">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Right-click on the <bpt id="c4587d00-e847-4485-a617-ae83ba147a2e">&lt;strong&gt;</bpt>App.config<ept id="c4587d00-e847-4485-a617-ae83ba147a2e">&lt;/strong&gt;</ept> file in Solution Explorer and then
+click <bpt id="dc6b5f78-c86f-417e-a501-e3fc8fc7bfea">&lt;strong&gt;</bpt>Edit Configuration File<ept id="dc6b5f78-c86f-417e-a501-e3fc8fc7bfea">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="151386d7-6ee7-45c7-abda-aede4e203777" xml:space="preserve">
+          <source>In the <bpt id="c57ce5a8-f38f-43d0-9901-58b12415a925">&lt;strong&gt;</bpt>Blocks<ept id="c57ce5a8-f38f-43d0-9901-58b12415a925">&lt;/strong&gt;</ept> menu, click <bpt id="036cc6f8-04f2-4e72-9b62-93fd64d9b31e">&lt;strong&gt;</bpt>Add Autoscaling Settings<ept id="036cc6f8-04f2-4e72-9b62-93fd64d9b31e">&lt;/strong&gt;</ept>:  
+<bpt id="f5d5bc13-cbff-4500-b604-d0d93266ac17">&lt;linkText&gt;</bpt>image<ept id="f5d5bc13-cbff-4500-b604-d0d93266ac17">&lt;/linkText&gt;</ept></source>
+          <target state="new">In the <bpt id="c57ce5a8-f38f-43d0-9901-58b12415a925">&lt;strong&gt;</bpt>Blocks<ept id="c57ce5a8-f38f-43d0-9901-58b12415a925">&lt;/strong&gt;</ept> menu, click <bpt id="036cc6f8-04f2-4e72-9b62-93fd64d9b31e">&lt;strong&gt;</bpt>Add Autoscaling Settings<ept id="036cc6f8-04f2-4e72-9b62-93fd64d9b31e">&lt;/strong&gt;</ept>:  
+<bpt id="f5d5bc13-cbff-4500-b604-d0d93266ac17">&lt;linkText&gt;</bpt>image<ept id="f5d5bc13-cbff-4500-b604-d0d93266ac17">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="2cf4b622-7115-46eb-b102-a5c97777532f" xml:space="preserve">
+          <source>Expand the <bpt id="ee7f4ba1-beb7-45e4-93f4-a0f456297ecb">&lt;strong&gt;</bpt>Autoscaling Settings<ept id="ee7f4ba1-beb7-45e4-93f4-a0f456297ecb">&lt;/strong&gt;</ept> and then click the ellipsis (...)
+next to the <bpt id="d1f9ab2c-97ff-444f-8b41-481b97318ebe">&lt;strong&gt;</bpt>Data Points Store Storage Account<ept id="d1f9ab2c-97ff-444f-8b41-481b97318ebe">&lt;/strong&gt;</ept>, add the <bpt id="e12d7dc3-200b-404b-84b0-7fcfe1605537">&lt;strong&gt;</bpt>Account
+name<ept id="e12d7dc3-200b-404b-84b0-7fcfe1605537">&lt;/strong&gt;</ept> and <bpt id="1afa7d2d-2d31-4146-8eb0-a21fcef070b7">&lt;strong&gt;</bpt>Account key<ept id="1afa7d2d-2d31-4146-8eb0-a21fcef070b7">&lt;/strong&gt;</ept> of the Azure storage account
+where the block will store the data points that it collects (see
+<bpt id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;linkText&gt;</bpt>How To: Define your Service Model<ept id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;/linkText&gt;</ept><bpt id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;title&gt;</bpt><ept id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;/title&gt;</ept> if you are unsure about where
+to find these values), and then click <bpt id="3bf1ff5a-1eab-4e6d-9be6-c85dc9855209">&lt;strong&gt;</bpt>OK<ept id="3bf1ff5a-1eab-4e6d-9be6-c85dc9855209">&lt;/strong&gt;</ept>:  </source>
+          <target state="new">Expand the <bpt id="ee7f4ba1-beb7-45e4-93f4-a0f456297ecb">&lt;strong&gt;</bpt>Autoscaling Settings<ept id="ee7f4ba1-beb7-45e4-93f4-a0f456297ecb">&lt;/strong&gt;</ept> and then click the ellipsis (...)
+next to the <bpt id="d1f9ab2c-97ff-444f-8b41-481b97318ebe">&lt;strong&gt;</bpt>Data Points Store Storage Account<ept id="d1f9ab2c-97ff-444f-8b41-481b97318ebe">&lt;/strong&gt;</ept>, add the <bpt id="e12d7dc3-200b-404b-84b0-7fcfe1605537">&lt;strong&gt;</bpt>Account
+name<ept id="e12d7dc3-200b-404b-84b0-7fcfe1605537">&lt;/strong&gt;</ept> and <bpt id="1afa7d2d-2d31-4146-8eb0-a21fcef070b7">&lt;strong&gt;</bpt>Account key<ept id="1afa7d2d-2d31-4146-8eb0-a21fcef070b7">&lt;/strong&gt;</ept> of the Azure storage account
+where the block will store the data points that it collects (see
+<bpt id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;linkText&gt;</bpt>How To: Define your Service Model<ept id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;/linkText&gt;</ept><bpt id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;title&gt;</bpt><ept id="66c7377d-da35-4fe2-9c49-82c65983a436">&lt;/title&gt;</ept> if you are unsure about where
+to find these values), and then click <bpt id="3bf1ff5a-1eab-4e6d-9be6-c85dc9855209">&lt;strong&gt;</bpt>OK<ept id="3bf1ff5a-1eab-4e6d-9be6-c85dc9855209">&lt;/strong&gt;</ept>:  </target>
+        </trans-unit>
+        <trans-unit id="19773211-c3bf-4056-8f96-061660ff7eca" xml:space="preserve">
+          <source><bpt id="597772cc-d8bf-4a43-8c15-449a68909b75">&lt;linkText&gt;</bpt>image<ept id="597772cc-d8bf-4a43-8c15-449a68909b75">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="597772cc-d8bf-4a43-8c15-449a68909b75">&lt;linkText&gt;</bpt>image<ept id="597772cc-d8bf-4a43-8c15-449a68909b75">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c782a096-f893-4c14-a7eb-f3dc14092c4b" xml:space="preserve">
+          <source>Expand the <bpt id="870d2936-ad19-4823-b8d9-cf4c6a3a4053">&lt;strong&gt;</bpt>Autoscaling Settings<ept id="870d2936-ad19-4823-b8d9-cf4c6a3a4053">&lt;/strong&gt;</ept> section to reveal the <bpt id="5e68daa0-2810-42e7-be3e-adbad0f032fa">&lt;strong&gt;</bpt>Rules
+Store<ept id="5e68daa0-2810-42e7-be3e-adbad0f032fa">&lt;/strong&gt;</ept> and <bpt id="96f359e5-98e2-48de-80c1-ef2295b33bba">&lt;strong&gt;</bpt>Service Information Store<ept id="96f359e5-98e2-48de-80c1-ef2295b33bba">&lt;/strong&gt;</ept> sections.</source>
+          <target state="new">Expand the <bpt id="870d2936-ad19-4823-b8d9-cf4c6a3a4053">&lt;strong&gt;</bpt>Autoscaling Settings<ept id="870d2936-ad19-4823-b8d9-cf4c6a3a4053">&lt;/strong&gt;</ept> section to reveal the <bpt id="5e68daa0-2810-42e7-be3e-adbad0f032fa">&lt;strong&gt;</bpt>Rules
+Store<ept id="5e68daa0-2810-42e7-be3e-adbad0f032fa">&lt;/strong&gt;</ept> and <bpt id="96f359e5-98e2-48de-80c1-ef2295b33bba">&lt;strong&gt;</bpt>Service Information Store<ept id="96f359e5-98e2-48de-80c1-ef2295b33bba">&lt;/strong&gt;</ept> sections.</target>
+        </trans-unit>
+        <trans-unit id="deba0bca-5c92-4af0-a140-40fba1dbf4a5" xml:space="preserve">
+          <source>By default, they
+are configured to use Azure blob storage:  
+<bpt id="988c3072-8f8f-41bb-ae4d-a103e15d3cfb">&lt;linkText&gt;</bpt>image<ept id="988c3072-8f8f-41bb-ae4d-a103e15d3cfb">&lt;/linkText&gt;</ept></source>
+          <target state="new">By default, they
+are configured to use Azure blob storage:  
+<bpt id="988c3072-8f8f-41bb-ae4d-a103e15d3cfb">&lt;linkText&gt;</bpt>image<ept id="988c3072-8f8f-41bb-ae4d-a103e15d3cfb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="edc49401-ac8f-484d-b5cd-fe7ba8e37a8f" xml:space="preserve">
+          <source>Click the plus sign (+) next to <bpt id="83f6247c-3bd1-4f4d-9fa6-fcfb7b3ef78c">&lt;strong&gt;</bpt>Rules Store<ept id="83f6247c-3bd1-4f4d-9fa6-fcfb7b3ef78c">&lt;/strong&gt;</ept>, point to <bpt id="dad6514f-7b85-40e7-9cde-f81dd5f61410">&lt;strong&gt;</bpt>Set
+Rules Store<ept id="dad6514f-7b85-40e7-9cde-f81dd5f61410">&lt;/strong&gt;</ept>, then click <bpt id="c9ade38a-0711-4b47-9940-66d0c2f7f1ce">&lt;strong&gt;</bpt>Use Local File Rules Store<ept id="c9ade38a-0711-4b47-9940-66d0c2f7f1ce">&lt;/strong&gt;</ept>, and then
+click <bpt id="0b155dc2-be76-4af0-ab90-8c4bbe163562">&lt;strong&gt;</bpt>Yes<ept id="0b155dc2-be76-4af0-ab90-8c4bbe163562">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the plus sign (+) next to <bpt id="83f6247c-3bd1-4f4d-9fa6-fcfb7b3ef78c">&lt;strong&gt;</bpt>Rules Store<ept id="83f6247c-3bd1-4f4d-9fa6-fcfb7b3ef78c">&lt;/strong&gt;</ept>, point to <bpt id="dad6514f-7b85-40e7-9cde-f81dd5f61410">&lt;strong&gt;</bpt>Set
+Rules Store<ept id="dad6514f-7b85-40e7-9cde-f81dd5f61410">&lt;/strong&gt;</ept>, then click <bpt id="c9ade38a-0711-4b47-9940-66d0c2f7f1ce">&lt;strong&gt;</bpt>Use Local File Rules Store<ept id="c9ade38a-0711-4b47-9940-66d0c2f7f1ce">&lt;/strong&gt;</ept>, and then
+click <bpt id="0b155dc2-be76-4af0-ab90-8c4bbe163562">&lt;strong&gt;</bpt>Yes<ept id="0b155dc2-be76-4af0-ab90-8c4bbe163562">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="275b1809-288e-4789-a7b4-5fd1b071670e" xml:space="preserve">
+          <source>In the <bpt id="f8160e5d-0fe5-48be-a3c3-640cd6a55ec2">&lt;strong&gt;</bpt>File Name<ept id="f8160e5d-0fe5-48be-a3c3-640cd6a55ec2">&lt;/strong&gt;</ept> box, type <bpt id="856ee075-faa4-4fff-9cbb-c8bd328395f1">&lt;strong&gt;</bpt>rules.xml<ept id="856ee075-faa4-4fff-9cbb-c8bd328395f1">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f8160e5d-0fe5-48be-a3c3-640cd6a55ec2">&lt;strong&gt;</bpt>File Name<ept id="f8160e5d-0fe5-48be-a3c3-640cd6a55ec2">&lt;/strong&gt;</ept> box, type <bpt id="856ee075-faa4-4fff-9cbb-c8bd328395f1">&lt;strong&gt;</bpt>rules.xml<ept id="856ee075-faa4-4fff-9cbb-c8bd328395f1">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35d74570-3e79-4007-9afa-591e10004649" xml:space="preserve">
+          <source>This is the name of
+the file that contains your autoscaling rules:  
+<bpt id="1669e960-2558-4b37-98c8-29ef1eb051f0">&lt;linkText&gt;</bpt>image<ept id="1669e960-2558-4b37-98c8-29ef1eb051f0">&lt;/linkText&gt;</ept></source>
+          <target state="new">This is the name of
+the file that contains your autoscaling rules:  
+<bpt id="1669e960-2558-4b37-98c8-29ef1eb051f0">&lt;linkText&gt;</bpt>image<ept id="1669e960-2558-4b37-98c8-29ef1eb051f0">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="93d1575e-a321-4af3-8f9a-17b336651c52" xml:space="preserve">
+          <source>Click the plus sign (+) next to <bpt id="96c04319-b5a5-485a-9ce6-cc5872d0114e">&lt;strong&gt;</bpt>Service Information Store<ept id="96c04319-b5a5-485a-9ce6-cc5872d0114e">&lt;/strong&gt;</ept>, point
+to <bpt id="fa015611-fa80-439b-af76-9052cc2b750f">&lt;strong&gt;</bpt>Set Service Information Store<ept id="fa015611-fa80-439b-af76-9052cc2b750f">&lt;/strong&gt;</ept>, then click <bpt id="c7ffc048-c9e9-40c5-b59f-49ccf772d1c2">&lt;strong&gt;</bpt>Use Local File
+Service Information Store<ept id="c7ffc048-c9e9-40c5-b59f-49ccf772d1c2">&lt;/strong&gt;</ept>, and then click <bpt id="d510e1ca-3b66-4cab-9485-bd227273ffcb">&lt;strong&gt;</bpt>Yes<ept id="d510e1ca-3b66-4cab-9485-bd227273ffcb">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the plus sign (+) next to <bpt id="96c04319-b5a5-485a-9ce6-cc5872d0114e">&lt;strong&gt;</bpt>Service Information Store<ept id="96c04319-b5a5-485a-9ce6-cc5872d0114e">&lt;/strong&gt;</ept>, point
+to <bpt id="fa015611-fa80-439b-af76-9052cc2b750f">&lt;strong&gt;</bpt>Set Service Information Store<ept id="fa015611-fa80-439b-af76-9052cc2b750f">&lt;/strong&gt;</ept>, then click <bpt id="c7ffc048-c9e9-40c5-b59f-49ccf772d1c2">&lt;strong&gt;</bpt>Use Local File
+Service Information Store<ept id="c7ffc048-c9e9-40c5-b59f-49ccf772d1c2">&lt;/strong&gt;</ept>, and then click <bpt id="d510e1ca-3b66-4cab-9485-bd227273ffcb">&lt;strong&gt;</bpt>Yes<ept id="d510e1ca-3b66-4cab-9485-bd227273ffcb">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="c71ebd2c-da71-4d4b-92a0-96f3bede4503" xml:space="preserve">
+          <source>In the <bpt id="f3cd0960-7340-491b-bf6f-0336fb3e38fb">&lt;strong&gt;</bpt>File Name<ept id="f3cd0960-7340-491b-bf6f-0336fb3e38fb">&lt;/strong&gt;</ept> box, type <bpt id="855b3a80-5cec-4d9b-97f1-b6e299382f71">&lt;strong&gt;</bpt>services.xml<ept id="855b3a80-5cec-4d9b-97f1-b6e299382f71">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the <bpt id="f3cd0960-7340-491b-bf6f-0336fb3e38fb">&lt;strong&gt;</bpt>File Name<ept id="f3cd0960-7340-491b-bf6f-0336fb3e38fb">&lt;/strong&gt;</ept> box, type <bpt id="855b3a80-5cec-4d9b-97f1-b6e299382f71">&lt;strong&gt;</bpt>services.xml<ept id="855b3a80-5cec-4d9b-97f1-b6e299382f71">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2f2ef5c6-99a5-403c-954f-ae3fb160b886" xml:space="preserve">
+          <source>This is the name of
+the file that contains your autoscaling rules:  
+<bpt id="67f8c3db-39dd-4788-98d9-51eaeee65556">&lt;linkText&gt;</bpt>image<ept id="67f8c3db-39dd-4788-98d9-51eaeee65556">&lt;/linkText&gt;</ept></source>
+          <target state="new">This is the name of
+the file that contains your autoscaling rules:  
+<bpt id="67f8c3db-39dd-4788-98d9-51eaeee65556">&lt;linkText&gt;</bpt>image<ept id="67f8c3db-39dd-4788-98d9-51eaeee65556">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="abbdeb61-14aa-4163-afc4-77f5e3502977" xml:space="preserve">
+          <source>In the Enterprise Library Configuration window, on the <bpt id="085cc052-60d5-4baf-b115-1e8653f8d377">&lt;strong&gt;</bpt>File<ept id="085cc052-60d5-4baf-b115-1e8653f8d377">&lt;/strong&gt;</ept>
+menu, click <bpt id="7456339d-7fd4-4690-91c3-bf9d53d00eb2">&lt;strong&gt;</bpt>Save<ept id="7456339d-7fd4-4690-91c3-bf9d53d00eb2">&lt;/strong&gt;</ept> to save your configuration changes.</source>
+          <target state="new">In the Enterprise Library Configuration window, on the <bpt id="085cc052-60d5-4baf-b115-1e8653f8d377">&lt;strong&gt;</bpt>File<ept id="085cc052-60d5-4baf-b115-1e8653f8d377">&lt;/strong&gt;</ept>
+menu, click <bpt id="7456339d-7fd4-4690-91c3-bf9d53d00eb2">&lt;strong&gt;</bpt>Save<ept id="7456339d-7fd4-4690-91c3-bf9d53d00eb2">&lt;/strong&gt;</ept> to save your configuration changes.</target>
+        </trans-unit>
+        <trans-unit id="23d061cb-a344-49e6-9c21-6a31aea465c2" xml:space="preserve">
+          <source>Then in the
+Enterprise Library Configuration window, on the <bpt id="9f8b9153-581e-4ad7-8c84-aa1a36216cf0">&lt;strong&gt;</bpt>File<ept id="9f8b9153-581e-4ad7-8c84-aa1a36216cf0">&lt;/strong&gt;</ept> menu, click
+<bpt id="f4cd65c4-24ae-4dc1-8ec6-a6b9dffd2d8a">&lt;strong&gt;</bpt>Exit<ept id="f4cd65c4-24ae-4dc1-8ec6-a6b9dffd2d8a">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Then in the
+Enterprise Library Configuration window, on the <bpt id="9f8b9153-581e-4ad7-8c84-aa1a36216cf0">&lt;strong&gt;</bpt>File<ept id="9f8b9153-581e-4ad7-8c84-aa1a36216cf0">&lt;/strong&gt;</ept> menu, click
+<bpt id="f4cd65c4-24ae-4dc1-8ec6-a6b9dffd2d8a">&lt;strong&gt;</bpt>Exit<ept id="f4cd65c4-24ae-4dc1-8ec6-a6b9dffd2d8a">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85ab38bd-89f7-40a3-96c4-f73b40d5255c" xml:space="preserve">
+          <source>To get detailed information about the actions that the Autoscaling
+Application Block is performing you need to capture the log messages
+that it writes.</source>
+          <target state="new">To get detailed information about the actions that the Autoscaling
+Application Block is performing you need to capture the log messages
+that it writes.</target>
+        </trans-unit>
+        <trans-unit id="53e7dc98-3af1-4f9d-96cc-a34e5f66380e" xml:space="preserve">
+          <source>For example, if you are hosting the block in a console
+application, you can view the log messages in the Output window in
+Visual Studio.</source>
+          <target state="new">For example, if you are hosting the block in a console
+application, you can view the log messages in the Output window in
+Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="151e92fa-d89d-4847-a51f-dcef3108e9aa" xml:space="preserve">
+          <source>The following section shows you how to configure this
+behavior.</source>
+          <target state="new">The following section shows you how to configure this
+behavior.</target>
+        </trans-unit>
+        <trans-unit id="bafbb254-fec6-441b-b641-01ebacaee2b2" xml:space="preserve">
+          <source>In Visual Studio, double-click on the <bpt id="459a8f03-4e74-437e-aae1-bfbdbfd2bf00">&lt;strong&gt;</bpt>App.config<ept id="459a8f03-4e74-437e-aae1-bfbdbfd2bf00">&lt;/strong&gt;</ept> file in
+Solution Explorer to open it in the editor.</source>
+          <target state="new">In Visual Studio, double-click on the <bpt id="459a8f03-4e74-437e-aae1-bfbdbfd2bf00">&lt;strong&gt;</bpt>App.config<ept id="459a8f03-4e74-437e-aae1-bfbdbfd2bf00">&lt;/strong&gt;</ept> file in
+Solution Explorer to open it in the editor.</target>
+        </trans-unit>
+        <trans-unit id="695e8dbd-871d-4c66-a47e-47dfbc0c644f" xml:space="preserve">
+          <source>Then add the
+<bpt id="5cd126bb-913e-4df4-892c-9d3d5afae38f">&lt;strong&gt;</bpt>system.diagnostics<ept id="5cd126bb-913e-4df4-892c-9d3d5afae38f">&lt;/strong&gt;</ept> section as shown in the following sample:</source>
+          <target state="new">Then add the
+<bpt id="5cd126bb-913e-4df4-892c-9d3d5afae38f">&lt;strong&gt;</bpt>system.diagnostics<ept id="5cd126bb-913e-4df4-892c-9d3d5afae38f">&lt;/strong&gt;</ept> section as shown in the following sample:</target>
+        </trans-unit>
+        <trans-unit id="17a0758e-2d41-435e-80d1-8dd0a27f9176" xml:space="preserve">
+          <source>Save your changes.</source>
+          <target state="new">Save your changes.</target>
+        </trans-unit>
+        <trans-unit id="5b6b2104-c30a-4af0-aeef-6db487db6168" xml:space="preserve">
+          <source>You can now run your Autoscaling Application Block host console
+application and observe how the autoscaling rules work with your target
+Azure application.</source>
+          <target state="new">You can now run your Autoscaling Application Block host console
+application and observe how the autoscaling rules work with your target
+Azure application.</target>
+        </trans-unit>
+        <trans-unit id="43d0067e-f13e-43a7-ace3-c100caa117d0" xml:space="preserve">
+          <source>When you run the host console application,
+you should see messages similar to the following in the Output window in
+Visual Studio.</source>
+          <target state="new">When you run the host console application,
+you should see messages similar to the following in the Output window in
+Visual Studio.</target>
+        </trans-unit>
+        <trans-unit id="e77081e0-dbe1-4257-84e2-1c02b337408d" xml:space="preserve">
+          <source>These log messages help you to understand the behavior of
+the block.</source>
+          <target state="new">These log messages help you to understand the behavior of
+the block.</target>
+        </trans-unit>
+        <trans-unit id="b2fa4c79-b234-4e19-95c2-fcb60615ab58" xml:space="preserve">
+          <source>For example, they indicate which rules are being matched by
+the block and what actions the block is taking.</source>
+          <target state="new">For example, they indicate which rules are being matched by
+the block and what actions the block is taking.</target>
+        </trans-unit>
+        <trans-unit id="77af89c2-68e6-4df8-8332-af0c181cea6c" xml:space="preserve">
+          <source>Now that you've learned the basics of using the Autoscaling Application
+Block, follow these links to learn how to implement more complex
+autoscaling scenarios:</source>
+          <target state="new">Now that you've learned the basics of using the Autoscaling Application
+Block, follow these links to learn how to implement more complex
+autoscaling scenarios:</target>
+        </trans-unit>
+        <trans-unit id="10d980aa-9370-4ebf-b8f3-2f54b0891144" xml:space="preserve">
+          <source><bpt id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;linkText&gt;</bpt>Hosting the Autoscaling Application Block in a Worker Role<ept id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;/linkText&gt;</ept><bpt id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;title&gt;</bpt><ept id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;linkText&gt;</bpt>Hosting the Autoscaling Application Block in a Worker Role<ept id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;/linkText&gt;</ept><bpt id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;title&gt;</bpt><ept id="ba525671-60b1-449f-9605-02f786fdba0c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="e22f551f-dbdc-4ce1-9dcc-dcf1281d50d5" xml:space="preserve">
+          <source><bpt id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;linkText&gt;</bpt>Implementing Throttling Behavior<ept id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;/linkText&gt;</ept><bpt id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;title&gt;</bpt><ept id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;linkText&gt;</bpt>Implementing Throttling Behavior<ept id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;/linkText&gt;</ept><bpt id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;title&gt;</bpt><ept id="0b6eb9b5-159a-4dbf-ba2e-c8d8feea5efd">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d1109664-e2c7-428e-b3d2-cec2ea0ddcdc" xml:space="preserve">
+          <source><bpt id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;linkText&gt;</bpt>Understanding Rule Ranks and Reconciliation<ept id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;/linkText&gt;</ept><bpt id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;title&gt;</bpt><ept id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;linkText&gt;</bpt>Understanding Rule Ranks and Reconciliation<ept id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;/linkText&gt;</ept><bpt id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;title&gt;</bpt><ept id="11e9a615-d480-4bbc-88d1-6d006d684eb7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="558e2a4f-a56d-4918-802b-48449ec04e09" xml:space="preserve">
+          <source><bpt id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;linkText&gt;</bpt>Extending and Modifying the Autoscaling Application Block<ept id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;/linkText&gt;</ept><bpt id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;title&gt;</bpt><ept id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;linkText&gt;</bpt>Extending and Modifying the Autoscaling Application Block<ept id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;/linkText&gt;</ept><bpt id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;title&gt;</bpt><ept id="de6e627c-45b4-43b7-a3f6-e43f33bd23c4">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a130a2ac-9db2-432c-b865-1a223e6e17ac" xml:space="preserve">
+          <source><bpt id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;linkText&gt;</bpt>Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs<ept id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;/linkText&gt;</ept><bpt id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;title&gt;</bpt><ept id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;linkText&gt;</bpt>Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs<ept id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;/linkText&gt;</ept><bpt id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;title&gt;</bpt><ept id="69c354df-5825-4256-8773-cee94b5c4baf">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1a0c0582-a5c4-463f-94f1-dd2fa0797779" xml:space="preserve">
+          <source><bpt id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;linkText&gt;</bpt>Using Notifications and Manual Scaling<ept id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;/linkText&gt;</ept><bpt id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;title&gt;</bpt><ept id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;linkText&gt;</bpt>Using Notifications and Manual Scaling<ept id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;/linkText&gt;</ept><bpt id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;title&gt;</bpt><ept id="abfeb049-49aa-4fad-92d1-0812e543b328">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6e62f264-d01c-4a21-89fc-571d08507c6e" xml:space="preserve">
+          <source><bpt id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;linkText&gt;</bpt>Defining Scale Groups<ept id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;/linkText&gt;</ept><bpt id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;title&gt;</bpt><ept id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;linkText&gt;</bpt>Defining Scale Groups<ept id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;/linkText&gt;</ept><bpt id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;title&gt;</bpt><ept id="5d8fb050-bdb0-42f2-a87a-68298400e7c3">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c9406f3-7690-4c0a-a7c3-ef9079c3cc80" xml:space="preserve">
+          <source><bpt id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;linkText&gt;</bpt>Using the WASABiCmdlets for manipulating the block via Windows PowerShell<ept id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;/linkText&gt;</ept><bpt id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;title&gt;</bpt><ept id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;linkText&gt;</bpt>Using the WASABiCmdlets for manipulating the block via Windows PowerShell<ept id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;/linkText&gt;</ept><bpt id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;title&gt;</bpt><ept id="35d62d71-b0ef-4f62-8593-c8634cf51a7c">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="27372137-322c-4a50-a39b-0ffccd055175" xml:space="preserve">
+          <source><bpt id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;linkText&gt;</bpt>Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure<ept id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;/linkText&gt;</ept><bpt id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;title&gt;</bpt><ept id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;linkText&gt;</bpt>Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure<ept id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;/linkText&gt;</ept><bpt id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;title&gt;</bpt><ept id="ae37634f-64a2-4bc3-8e4a-7ef1a53f73c7">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d5735cee-df1d-4a5c-9c28-168a10e8697d" xml:space="preserve">
+          <source><bpt id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;linkText&gt;</bpt>How Sage Reduces Azure Hosting Costs Using Autoscaling<ept id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;/linkText&gt;</ept><bpt id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;title&gt;</bpt><ept id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;linkText&gt;</bpt>How Sage Reduces Azure Hosting Costs Using Autoscaling<ept id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;/linkText&gt;</ept><bpt id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;title&gt;</bpt><ept id="3d47560f-e4d9-44c9-9bfc-285b54f6b529">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="614b08cc-1006-45f5-b7b7-5ff5645be35c" xml:space="preserve">
+          <source><bpt id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;linkText&gt;</bpt>Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure<ept id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;/linkText&gt;</ept><bpt id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;title&gt;</bpt><ept id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;linkText&gt;</bpt>Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure<ept id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;/linkText&gt;</ept><bpt id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;title&gt;</bpt><ept id="93a8a3c5-71d4-4d2d-ac83-39dc981964c9">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9ba79293-31ae-4ea8-a50e-2fe4d4475d58" xml:space="preserve">
+          <source>http://go.microsoft.com/fwlink/?LinkID=235134</source>
+          <target state="new">http://go.microsoft.com/fwlink/?LinkID=235134</target>
+        </trans-unit>
+        <trans-unit id="fcb5458d-505f-4634-8aac-37ccf99ead6c" xml:space="preserve">
+          <source>http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/</source>
+          <target state="new">http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/</target>
+        </trans-unit>
+        <trans-unit id="10e07cf7-764e-4042-b0b3-015e496f484a" xml:space="preserve">
+          <source>http://nuget.org/</source>
+          <target state="new">http://nuget.org/</target>
+        </trans-unit>
+        <trans-unit id="81ca65ee-831a-4ca1-8ef9-237b3b7726b4" xml:space="preserve">
+          <source>http://manage.windowsazure.com</source>
+          <target state="new">http://manage.windowsazure.com</target>
+        </trans-unit>
+        <trans-unit id="75a16751-271f-4202-bfef-6cd3fb5750dd" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680878(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680878(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="e1835489-4cae-48bf-9442-c52af2c180b4" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680914(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680914(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="2833030b-1db8-44cc-a670-45fc9f70df19" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680896(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680896(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="7a597292-7f27-47ce-ba69-c63d55fe1ebf" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680923(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680923(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="22156a8b-c5cd-4a08-ac18-82341927ae3f" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680889(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680889(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="d590a333-d800-408c-a179-dd8b1c712582" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680951(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680951(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="dcf94cc4-16e8-4fb4-bf8e-72dd71abf294" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680885(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680885(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="8364a5a7-1fee-43d6-a900-b9ee6ec08e11" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680902(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680902(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="71315502-0247-4d44-aaff-38559233e9be" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680938(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680938(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="321518cc-ad3d-40da-9891-a6a58b3b2d73" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/hh680949(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/hh680949(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="66889d3f-79c2-4e20-af83-c19a2e4e83bb" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj838716(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj838716(PandP.50).aspx</target>
+        </trans-unit>
+        <trans-unit id="12c70f94-d422-4d83-a681-bdd04d06d567" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/jj838718(PandP.50).aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/jj838718(PandP.50).aspx</target>
+        </trans-unit>
+      </group>
+      <group id="27ce388b-9c8d-46d2-9203-a304f24505ce" />
+    </body>
+  </file>
+</xliff>

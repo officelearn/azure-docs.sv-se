@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="bf3abd8b-6b66-4f89-8c14-2823ec79b78a" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="bf3abd8b-6b66-4f89-8c14-2823ec79b78a" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="83a98e87-a10a-40f6-8f24-c943ac607e55">
+        <trans-unit id="ad49579b-ab2d-4de1-aed8-5f45853c540f" xml:space="preserve">
+          <source>What is application access and single sign-on with Azure Active Directory? | Microsoft Azure</source>
+          <target state="new">What is application access and single sign-on with Azure Active Directory? | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="c056481f-3e25-455d-bbf8-f2a7970b48e5" xml:space="preserve">
+          <source>Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.</source>
+          <target state="new">Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.</target>
+        </trans-unit>
+        <trans-unit id="dca25ca5-5a63-48f4-8eae-d5d3d3741a38" xml:space="preserve">
+          <source>Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account.</source>
+          <target state="new">Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account.</target>
+        </trans-unit>
+        <trans-unit id="6bd3ee8f-09e2-4220-9ec6-0c5bbce5388d" xml:space="preserve">
+          <source>Once signed in, you can access all of the applications you need without being required to authenticate (e.g. type a password) a second time.</source>
+          <target state="new">Once signed in, you can access all of the applications you need without being required to authenticate (e.g. type a password) a second time.</target>
+        </trans-unit>
+        <trans-unit id="1ea4e9aa-0071-4e5f-8404-ad47b74c5b51" xml:space="preserve">
+          <source>Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity.</source>
+          <target state="new">Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity.</target>
+        </trans-unit>
+        <trans-unit id="362d7782-12c6-43ee-80d6-0f5adab3a84a" xml:space="preserve">
+          <source>Historically, IT staff needs to individually create and update user accounts in each SaaS application, and users have to remember a password for each SaaS application.</source>
+          <target state="new">Historically, IT staff needs to individually create and update user accounts in each SaaS application, and users have to remember a password for each SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="446b9271-a3c1-4677-b5df-ba563414e3af" xml:space="preserve">
+          <source>Azure Active Directory extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all of the web and SaaS applications needed for their job.</source>
+          <target state="new">Azure Active Directory extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all of the web and SaaS applications needed for their job.</target>
+        </trans-unit>
+        <trans-unit id="df0b9136-5df1-49e0-be49-0829d5ab42e5" xml:space="preserve">
+          <source>So not only do users not have to manage multiple sets of usernames and passwords, their applications access can be automatically provisioned or de-provisioned based on their organization group members, and also their status as an employees.</source>
+          <target state="new">So not only do users not have to manage multiple sets of usernames and passwords, their applications access can be automatically provisioned or de-provisioned based on their organization group members, and also their status as an employees.</target>
+        </trans-unit>
+        <trans-unit id="894b6037-9f48-43d6-90f3-bbb446f5e22c" xml:space="preserve">
+          <source>Azure Active Directory introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.</source>
+          <target state="new">Azure Active Directory introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="59947e12-5a2f-43c0-ab81-8a47ee5c2dcb" xml:space="preserve">
+          <source>Azure AD enables easy integration to many of today’s popular SaaS applications; it provides identity and access management, and enables users to single sign-on to applications directly, or discover and launch them from a portal such as Office 365 or the Azure AD access panel.</source>
+          <target state="new">Azure AD enables easy integration to many of today’s popular SaaS applications; it provides identity and access management, and enables users to single sign-on to applications directly, or discover and launch them from a portal such as Office 365 or the Azure AD access panel.</target>
+        </trans-unit>
+        <trans-unit id="842264af-1d6f-493e-a291-dfbd3b842bc9" xml:space="preserve">
+          <source>The architecture of the integration consists of the following four main building blocks:</source>
+          <target state="new">The architecture of the integration consists of the following four main building blocks:</target>
+        </trans-unit>
+        <trans-unit id="ab773c80-505d-4e80-b851-a039621c8189" xml:space="preserve">
+          <source>Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD.</source>
+          <target state="new">Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="42f4199b-acb0-472e-b018-7314482a10fc" xml:space="preserve">
+          <source>Single sign-on is what enables users to authenticate to an application using their single organizational account.</source>
+          <target state="new">Single sign-on is what enables users to authenticate to an application using their single organizational account.</target>
+        </trans-unit>
+        <trans-unit id="2f7668f2-9c51-48bf-bb5d-46c9a782feae" xml:space="preserve">
+          <source>User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD.</source>
+          <target state="new">User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="a053b115-80da-44c4-a780-a9bb45431453" xml:space="preserve">
+          <source>A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.</source>
+          <target state="new">A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="eff2e8b1-21eb-4683-8270-06991d494023" xml:space="preserve">
+          <source>Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization</source>
+          <target state="new">Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization</target>
+        </trans-unit>
+        <trans-unit id="bb97615f-dc5d-453a-a633-07c9ba7e40b8" xml:space="preserve">
+          <source>Unified reporting and monitoring of user activity in Azure AD</source>
+          <target state="new">Unified reporting and monitoring of user activity in Azure AD</target>
+        </trans-unit>
+        <trans-unit id="119f4798-0838-40f1-8a50-06d2bd900309" xml:space="preserve">
+          <source>When a user “signs in” to an application, they go through an authentication process where they are required to prove that they are who they say they are.</source>
+          <target state="new">When a user “signs in” to an application, they go through an authentication process where they are required to prove that they are who they say they are.</target>
+        </trans-unit>
+        <trans-unit id="ac0f4c09-bcd0-4a45-8d9a-dfcba88d20da" xml:space="preserve">
+          <source>Without single sign-on, this is typically done by entering a password that is stored at the application, and the user is required to know this password.</source>
+          <target state="new">Without single sign-on, this is typically done by entering a password that is stored at the application, and the user is required to know this password.</target>
+        </trans-unit>
+        <trans-unit id="d9bca283-2ef8-4dee-9df2-f440d14bf22f" xml:space="preserve">
+          <source>Azure AD supports three different ways to sign in to applications:</source>
+          <target state="new">Azure AD supports three different ways to sign in to applications:</target>
+        </trans-unit>
+        <trans-unit id="2745d3ac-a23c-4f49-8994-8ac700d64f0c" xml:space="preserve">
+          <source><bpt id="48c811be-5421-46c2-940f-71b74e164bfe">&lt;strong&gt;</bpt>Federated Single Sign-On<ept id="48c811be-5421-46c2-940f-71b74e164bfe">&lt;/strong&gt;</ept> enables applications to redirect to Azure AD for user authentication instead of prompting for its own password.</source>
+          <target state="new"><bpt id="48c811be-5421-46c2-940f-71b74e164bfe">&lt;strong&gt;</bpt>Federated Single Sign-On<ept id="48c811be-5421-46c2-940f-71b74e164bfe">&lt;/strong&gt;</ept> enables applications to redirect to Azure AD for user authentication instead of prompting for its own password.</target>
+        </trans-unit>
+        <trans-unit id="ee062a69-7e5e-495f-83a8-f2c26eaa3bd5" xml:space="preserve">
+          <source>This is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.</source>
+          <target state="new">This is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="178d5d44-f71f-4749-9abf-61d87a0e1659" xml:space="preserve">
+          <source><bpt id="54084b01-119a-4f19-80e3-c24ac96b244f">&lt;strong&gt;</bpt>Password-based Single Sign-On<ept id="54084b01-119a-4f19-80e3-c24ac96b244f">&lt;/strong&gt;</ept> enables secure application password storage and replay using a web browser extension or mobile app.</source>
+          <target state="new"><bpt id="54084b01-119a-4f19-80e3-c24ac96b244f">&lt;strong&gt;</bpt>Password-based Single Sign-On<ept id="54084b01-119a-4f19-80e3-c24ac96b244f">&lt;/strong&gt;</ept> enables secure application password storage and replay using a web browser extension or mobile app.</target>
+        </trans-unit>
+        <trans-unit id="b07df0b2-2476-4eab-b30a-5a74b1840165" xml:space="preserve">
+          <source>This leverages the existing sign-in process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.</source>
+          <target state="new">This leverages the existing sign-in process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.</target>
+        </trans-unit>
+        <trans-unit id="de4b92b0-9e52-4699-b9a6-899fe017f9d7" xml:space="preserve">
+          <source><bpt id="4ae90aa2-8b96-48b7-94ca-2dc65380b73a">&lt;strong&gt;</bpt>Existing Single Sign-On<ept id="4ae90aa2-8b96-48b7-94ca-2dc65380b73a">&lt;/strong&gt;</ept> enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.</source>
+          <target state="new"><bpt id="4ae90aa2-8b96-48b7-94ca-2dc65380b73a">&lt;strong&gt;</bpt>Existing Single Sign-On<ept id="4ae90aa2-8b96-48b7-94ca-2dc65380b73a">&lt;/strong&gt;</ept> enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.</target>
+        </trans-unit>
+        <trans-unit id="7c019514-553b-41ae-8654-bd0368986a01" xml:space="preserve">
+          <source>Once a user have authenticated with an application, they also need to have an account record provisioned at the application that tells the application where there permissions and level of access are inside the application.</source>
+          <target state="new">Once a user have authenticated with an application, they also need to have an account record provisioned at the application that tells the application where there permissions and level of access are inside the application.</target>
+        </trans-unit>
+        <trans-unit id="b87f9589-d52f-41b7-99c0-3470dce04d21" xml:space="preserve">
+          <source>The provisioning of this account record can either occur automatically, or it can occur manually by an administrator before the user is provided single sign-on access.</source>
+          <target state="new">The provisioning of this account record can either occur automatically, or it can occur manually by an administrator before the user is provided single sign-on access.</target>
+        </trans-unit>
+        <trans-unit id="51a2a8a9-ee5c-4ab3-b9c1-13b87d388bb4" xml:space="preserve">
+          <source> More details on these single sign-on modes and provisioning below.</source>
+          <target state="new"> More details on these single sign-on modes and provisioning below.</target>
+        </trans-unit>
+        <trans-unit id="9e41197e-8418-4e31-9d00-8b2a1a00fb09" xml:space="preserve">
+          <source>Federated Single Sign-On enables sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from Azure AD.</source>
+          <target state="new">Federated Single Sign-On enables sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="229f9617-026b-416b-8924-53b1ba4d4fb6" xml:space="preserve">
+          <source>In this scenario, when you have already been logged into Azure AD, and you want to access resources that are controlled by a third-party SaaS application, federation eliminates the need for a user to be re-authenticated.</source>
+          <target state="new">In this scenario, when you have already been logged into Azure AD, and you want to access resources that are controlled by a third-party SaaS application, federation eliminates the need for a user to be re-authenticated.</target>
+        </trans-unit>
+        <trans-unit id="249bcf2c-3aa4-44e0-990e-4fa4b85b4f8d" xml:space="preserve">
+          <source>Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.</source>
+          <target state="new">Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.</target>
+        </trans-unit>
+        <trans-unit id="3e7c01f4-0975-4005-a0cd-24f02949243a" xml:space="preserve">
+          <source>See also: <bpt id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;linkText&gt;</bpt>Managing Certificates for Federated Single Sign-On<ept id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;/linkText&gt;</ept><bpt id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;title&gt;</bpt><ept id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;/title&gt;</ept></source>
+          <target state="new">See also: <bpt id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;linkText&gt;</bpt>Managing Certificates for Federated Single Sign-On<ept id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;/linkText&gt;</ept><bpt id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;title&gt;</bpt><ept id="13068fec-19b2-4e61-ad0c-60d067e13804">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1ef14d76-bc4e-45e3-a8e3-eeb74c427886" xml:space="preserve">
+          <source>Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application.</source>
+          <target state="new">Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="ebe4a9ee-03e1-43b3-8476-35648e49bce4" xml:space="preserve">
+          <source>When you enable this feature, Azure AD collects and securely stores the user account information and the related password.</source>
+          <target state="new">When you enable this feature, Azure AD collects and securely stores the user account information and the related password.</target>
+        </trans-unit>
+        <trans-unit id="9679752b-619f-4411-8dac-069049853c26" xml:space="preserve">
+          <source>Azure AD can support password-based single sign on for any cloud-based app that has an HTML-based sign-in page.</source>
+          <target state="new">Azure AD can support password-based single sign on for any cloud-based app that has an HTML-based sign-in page.</target>
+        </trans-unit>
+        <trans-unit id="21c3115a-879a-4e3b-a0eb-0efec8c4d464" xml:space="preserve">
+          <source>By using a custom browser plugin, AAD automates the user’s sign in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign in page on behalf of the user.</source>
+          <target state="new">By using a custom browser plugin, AAD automates the user’s sign in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign in page on behalf of the user.</target>
+        </trans-unit>
+        <trans-unit id="c15bfe7b-dfba-4d9a-9f9b-81cc6852f31b" xml:space="preserve">
+          <source>There are two use cases:</source>
+          <target state="new">There are two use cases:</target>
+        </trans-unit>
+        <trans-unit id="909e3f30-d53d-4826-ad46-d8d96a046a74" xml:space="preserve">
+          <source><bpt id="903f94eb-7cdf-45aa-ba2b-b3c896e15837">&lt;strong&gt;</bpt>Administrator manages credentials<ept id="903f94eb-7cdf-45aa-ba2b-b3c896e15837">&lt;/strong&gt;</ept> – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application.</source>
+          <target state="new"><bpt id="903f94eb-7cdf-45aa-ba2b-b3c896e15837">&lt;strong&gt;</bpt>Administrator manages credentials<ept id="903f94eb-7cdf-45aa-ba2b-b3c896e15837">&lt;/strong&gt;</ept> – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application.</target>
+        </trans-unit>
+        <trans-unit id="47626fc8-bcb9-4732-808b-66cef17bee67" xml:space="preserve">
+          <source>In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link.</source>
+          <target state="new">In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link.</target>
+        </trans-unit>
+        <trans-unit id="8250cb70-2b25-4b49-885b-18206293f35c" xml:space="preserve">
+          <source>This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords.</source>
+          <target state="new">This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords.</target>
+        </trans-unit>
+        <trans-unit id="c12e4db6-1611-4c5b-add2-84323fd4fb89" xml:space="preserve">
+          <source>The credentials are obfuscated from the end user during the automated sign in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user.</source>
+          <target state="new">The credentials are obfuscated from the end user during the automated sign in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user.</target>
+        </trans-unit>
+        <trans-unit id="59fbb865-99c4-4c52-a705-c914ebce13ba" xml:space="preserve">
+          <source>Administrator-provided credentials are very useful when providing account access that is shared among many users, such as social media or document sharing applications.</source>
+          <target state="new">Administrator-provided credentials are very useful when providing account access that is shared among many users, such as social media or document sharing applications.</target>
+        </trans-unit>
+        <trans-unit id="c11e95d7-faae-4dfc-8f5a-a723495cab9e" xml:space="preserve">
+          <source><bpt id="9402613c-7c7b-4dd6-9587-8a7d7db5af1d">&lt;strong&gt;</bpt>User manages credentials<ept id="9402613c-7c7b-4dd6-9587-8a7d7db5af1d">&lt;/strong&gt;</ept> – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel.</source>
+          <target state="new"><bpt id="9402613c-7c7b-4dd6-9587-8a7d7db5af1d">&lt;strong&gt;</bpt>User manages credentials<ept id="9402613c-7c7b-4dd6-9587-8a7d7db5af1d">&lt;/strong&gt;</ept> – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel.</target>
+        </trans-unit>
+        <trans-unit id="8edc1a83-a8f0-4a4f-8d24-b9d884a09baf" xml:space="preserve">
+          <source>This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application.</source>
+          <target state="new">This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application.</target>
+        </trans-unit>
+        <trans-unit id="fe392237-4877-454d-9837-a677f8904407" xml:space="preserve">
+          <source>This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.</source>
+          <target state="new">This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.</target>
+        </trans-unit>
+        <trans-unit id="72610b96-1b7a-4fcb-a352-f813980c7048" xml:space="preserve">
+          <source>In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process.</source>
+          <target state="new">In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process.</target>
+        </trans-unit>
+        <trans-unit id="499ef0e7-01ce-4ed4-9145-1fa19b999952" xml:space="preserve">
+          <source>Using password-based single sign on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.</source>
+          <target state="new">Using password-based single sign on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.</target>
+        </trans-unit>
+        <trans-unit id="153a2e75-76c6-49ba-a957-4391882aeb83" xml:space="preserve">
+          <source>Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service.</source>
+          <target state="new">Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service.</target>
+        </trans-unit>
+        <trans-unit id="974a00d3-ab3f-4c0a-b1d3-2d68998759e9" xml:space="preserve">
+          <source>Most third-party SaaS applications that are supported by Azure AD support this feature.</source>
+          <target state="new">Most third-party SaaS applications that are supported by Azure AD support this feature.</target>
+        </trans-unit>
+        <trans-unit id="b4cb68db-c4b6-4168-8391-c5bdd3c59593" xml:space="preserve">
+          <source>For password-based SSO, the end user’s browsers can be:</source>
+          <target state="new">For password-based SSO, the end user’s browsers can be:</target>
+        </trans-unit>
+        <trans-unit id="044bbe2d-42a9-40c5-ba24-53eb456bc91e" xml:space="preserve">
+          <source>Internet Explorer 8, 9, and 10 -- on Windows 7 or later</source>
+          <target state="new">Internet Explorer 8, 9, and 10 -- on Windows 7 or later</target>
+        </trans-unit>
+        <trans-unit id="dae611ae-a9b3-4589-b63c-06f28b9bbd32" xml:space="preserve">
+          <source>Chrome -- on Windows 7 or later, and on MacOS X or later</source>
+          <target state="new">Chrome -- on Windows 7 or later, and on MacOS X or later</target>
+        </trans-unit>
+        <trans-unit id="b4988366-027b-4db8-a0a7-8aac2b67787c" xml:space="preserve">
+          <source>Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later</source>
+          <target state="new">Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later</target>
+        </trans-unit>
+        <trans-unit id="3205bb4b-1dfe-4655-8d34-347bf2505bd7" xml:space="preserve">
+          <source><bpt id="caab93f2-4e05-4971-b247-a279beb0afb6">&lt;strong&gt;</bpt>Note:<ept id="caab93f2-4e05-4971-b247-a279beb0afb6">&lt;/strong&gt;</ept> The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.</source>
+          <target state="new"><bpt id="caab93f2-4e05-4971-b247-a279beb0afb6">&lt;strong&gt;</bpt>Note:<ept id="caab93f2-4e05-4971-b247-a279beb0afb6">&lt;/strong&gt;</ept> The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.</target>
+        </trans-unit>
+        <trans-unit id="f5e90055-cb15-44d9-9dbe-d593d5c9375a" xml:space="preserve">
+          <source>When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”.</source>
+          <target state="new">When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”.</target>
+        </trans-unit>
+        <trans-unit id="0f008f29-4b48-4c7e-8679-7dae5b7f987b" xml:space="preserve">
+          <source>This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.</source>
+          <target state="new">This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.</target>
+        </trans-unit>
+        <trans-unit id="7c3c33c2-0e67-4f2b-b674-cc245b19b759" xml:space="preserve">
+          <source>For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel.</source>
+          <target state="new">For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel.</target>
+        </trans-unit>
+        <trans-unit id="6f9ee1a5-5de8-430d-be7f-1031a03be6fa" xml:space="preserve">
+          <source>When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.</source>
+          <target state="new">When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.</target>
+        </trans-unit>
+        <trans-unit id="d5f11e5b-4f6c-4905-b2d3-0946fa24aab0" xml:space="preserve">
+          <source>For select applications, Azure AD enables automated user provisioning and de-provisioning of accounts in third-party SaaS applications from within the Azure Management Portal, using your Windows Server Active Directory or Azure AD identity information.</source>
+          <target state="new">For select applications, Azure AD enables automated user provisioning and de-provisioning of accounts in third-party SaaS applications from within the Azure Management Portal, using your Windows Server Active Directory or Azure AD identity information.</target>
+        </trans-unit>
+        <trans-unit id="89a99d63-74c1-4a2e-8892-2bc14e9cdb90" xml:space="preserve">
+          <source>When a user is given permissions in Azure AD for one of these applications, an account can be automatically created (provisioned) in the target SaaS application.</source>
+          <target state="new">When a user is given permissions in Azure AD for one of these applications, an account can be automatically created (provisioned) in the target SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="c7e72d18-3f34-43e9-9ea1-277686d254f1" xml:space="preserve">
+          <source>When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application.</source>
+          <target state="new">When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="1ac2ad1a-c7b3-4782-8f06-3eb3bf061c80" xml:space="preserve">
+          <source>This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications.</source>
+          <target state="new">This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications.</target>
+        </trans-unit>
+        <trans-unit id="8ce492da-3a95-4fa9-8902-730bf50682f5" xml:space="preserve">
+          <source>In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.</source>
+          <target state="new">In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.</target>
+        </trans-unit>
+        <trans-unit id="61bb90ef-38f0-4f1d-8db2-153b1fd7a80c" xml:space="preserve">
+          <source>To learn more, see <bpt id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;linkText&gt;</bpt>Automated User Provisioning and Deprovisioning to SaaS Applications<ept id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;/linkText&gt;</ept><bpt id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;title&gt;</bpt><ept id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;/title&gt;</ept></source>
+          <target state="new">To learn more, see <bpt id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;linkText&gt;</bpt>Automated User Provisioning and Deprovisioning to SaaS Applications<ept id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;/linkText&gt;</ept><bpt id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;title&gt;</bpt><ept id="bb6eb4fb-d3dc-4683-a2ea-ba1338a74dc5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c0444721-9318-4e7e-a777-7e41da726ada" xml:space="preserve">
+          <source>Ready to get started?</source>
+          <target state="new">Ready to get started?</target>
+        </trans-unit>
+        <trans-unit id="d958377b-7970-4088-ac08-16c9d0be8b64" xml:space="preserve">
+          <source>To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.</source>
+          <target state="new">To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.</target>
+        </trans-unit>
+        <trans-unit id="6afb36a8-47a3-4ad6-8bca-d99e1839abf8" xml:space="preserve">
+          <source>The <bpt id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;linkText&gt;</bpt>Azure Active Directory Application Gallery<ept id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;/linkText&gt;</ept><bpt id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;title&gt;</bpt><ept id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;/title&gt;</ept> provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.</source>
+          <target state="new">The <bpt id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;linkText&gt;</bpt>Azure Active Directory Application Gallery<ept id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;/linkText&gt;</ept><bpt id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;title&gt;</bpt><ept id="1cd4978f-3bef-4702-b3d8-d033340909f6">&lt;/title&gt;</ept> provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="436e1b6b-f00d-4098-bdbe-7c77c859ff8a" xml:space="preserve">
+          <source><bpt id="cce3625f-5499-4f53-ac45-fbc385828dbf">&lt;linkText&gt;</bpt><ept id="cce3625f-5499-4f53-ac45-fbc385828dbf">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="cce3625f-5499-4f53-ac45-fbc385828dbf">&lt;linkText&gt;</bpt><ept id="cce3625f-5499-4f53-ac45-fbc385828dbf">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="06424b6a-cd25-4992-b035-0deb1ce2542b" xml:space="preserve">
+          <source>Here are some tips for finding apps by what capabilities they support:</source>
+          <target state="new">Here are some tips for finding apps by what capabilities they support:</target>
+        </trans-unit>
+        <trans-unit id="649a27fa-7881-4429-bf25-ef0882f6e68c" xml:space="preserve">
+          <source>Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the <bpt id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;linkText&gt;</bpt>Azure Active Directory Application Gallery<ept id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;/linkText&gt;</ept><bpt id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;title&gt;</bpt><ept id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;/title&gt;</ept>.</source>
+          <target state="new">Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the <bpt id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;linkText&gt;</bpt>Azure Active Directory Application Gallery<ept id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;/linkText&gt;</ept><bpt id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;title&gt;</bpt><ept id="8d9823cc-2e20-4cf9-8ebf-3a12eb5a99f8">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="8d06ae80-0c53-48e0-b0b2-535061f3185a" xml:space="preserve">
+          <source>A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found <bpt id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;linkText&gt;</bpt>here<ept id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;/linkText&gt;</ept><bpt id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;title&gt;</bpt><ept id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;/title&gt;</ept>.</source>
+          <target state="new">A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found <bpt id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;linkText&gt;</bpt>here<ept id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;/linkText&gt;</ept><bpt id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;title&gt;</bpt><ept id="141ab6bf-8ba3-4063-b40a-1ecdd4bf2aaf">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="3c134e5d-f1d7-437a-b709-8232be978ded" xml:space="preserve">
+          <source>Once you’ve found your application, you can get started by follow the step-by-step instructions presented in the app gallery and in the Azure management portal to enable single sign-on.</source>
+          <target state="new">Once you’ve found your application, you can get started by follow the step-by-step instructions presented in the app gallery and in the Azure management portal to enable single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="1b4e7b99-0aa7-46eb-b127-413bc65047d8" xml:space="preserve">
+          <source>If your application is not found in the Azure AD application gallery, then you have these options:</source>
+          <target state="new">If your application is not found in the Azure AD application gallery, then you have these options:</target>
+        </trans-unit>
+        <trans-unit id="372f4c45-ef6c-4c79-b3b9-893b4f971bdf" xml:space="preserve">
+          <source><bpt id="b8af4f2d-dbca-415e-a004-2260b617df13">&lt;strong&gt;</bpt>Add an unlisted app you are using<ept id="b8af4f2d-dbca-415e-a004-2260b617df13">&lt;/strong&gt;</ept> - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using.</source>
+          <target state="new"><bpt id="b8af4f2d-dbca-415e-a004-2260b617df13">&lt;strong&gt;</bpt>Add an unlisted app you are using<ept id="b8af4f2d-dbca-415e-a004-2260b617df13">&lt;/strong&gt;</ept> - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using.</target>
+        </trans-unit>
+        <trans-unit id="d5e4469b-7bdd-4ed6-9777-9c2b1c75c16a" xml:space="preserve">
+          <source>You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.</source>
+          <target state="new">You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.</target>
+        </trans-unit>
+        <trans-unit id="027bfa49-2b2a-4d84-94b6-b6d1d3c90186" xml:space="preserve">
+          <source>For more details, see this article on <bpt id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;linkText&gt;</bpt>adding your own application<ept id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;/linkText&gt;</ept><bpt id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;title&gt;</bpt><ept id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more details, see this article on <bpt id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;linkText&gt;</bpt>adding your own application<ept id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;/linkText&gt;</ept><bpt id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;title&gt;</bpt><ept id="e348b30a-17ef-40e9-8f65-e3cc01b96751">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e1d0abc8-e4d5-4f69-87d1-eda546cd39ad" xml:space="preserve">
+          <source><bpt id="362103e9-ea38-4b6b-825e-a61a28a8ada4">&lt;strong&gt;</bpt>Add your own app you are developing<ept id="362103e9-ea38-4b6b-825e-a61a28a8ada4">&lt;/strong&gt;</ept> - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API.</source>
+          <target state="new"><bpt id="362103e9-ea38-4b6b-825e-a61a28a8ada4">&lt;strong&gt;</bpt>Add your own app you are developing<ept id="362103e9-ea38-4b6b-825e-a61a28a8ada4">&lt;/strong&gt;</ept> - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API.</target>
+        </trans-unit>
+        <trans-unit id="64b41046-a835-4f7b-b04d-4a5b17632b8f" xml:space="preserve">
+          <source>For more information, see these resources:</source>
+          <target state="new">For more information, see these resources:</target>
+        </trans-unit>
+        <trans-unit id="1370d2d8-152b-4dd1-bc33-df880e5f8187" xml:space="preserve">
+          <source><bpt id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;/linkText&gt;</ept><bpt id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;title&gt;</bpt><ept id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;linkText&gt;</bpt>Authentication Scenarios for Azure AD<ept id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;/linkText&gt;</ept><bpt id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;title&gt;</bpt><ept id="0406f2a2-62e1-4fad-9ce1-786fc0ccfdc5">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="1bbc1493-3efb-4726-9419-248882ea0e0f" xml:space="preserve">
+          <source><bpt id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet<ept id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;/linkText&gt;</ept><bpt id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;title&gt;</bpt><ept id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet<ept id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;/linkText&gt;</ept><bpt id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;title&gt;</bpt><ept id="d25a7545-092c-4269-82fb-27a0c53e9217">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b2494381-c561-4d97-be4a-b22a046f36fd" xml:space="preserve">
+          <source><bpt id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet<ept id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;/linkText&gt;</ept><bpt id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;title&gt;</bpt><ept id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet<ept id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;/linkText&gt;</ept><bpt id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;title&gt;</bpt><ept id="30e5f55f-0734-422e-9cbb-b737be84fc29">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="9c52b7dc-f48b-4a34-93c9-3109acd9283b" xml:space="preserve">
+          <source><bpt id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore<ept id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;/linkText&gt;</ept><bpt id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;title&gt;</bpt><ept id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;linkText&gt;</bpt>https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore<ept id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;/linkText&gt;</ept><bpt id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;title&gt;</bpt><ept id="ab341001-3cce-4299-9ea6-615cb817ec69">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="796ed3e5-6814-4608-9ade-90273862c490" xml:space="preserve">
+          <source><bpt id="e28a7123-e753-4e76-87ac-2f36e585146a">&lt;strong&gt;</bpt>Request an app integration<ept id="e28a7123-e753-4e76-87ac-2f36e585146a">&lt;/strong&gt;</ept> - Request support for the application you need using the <bpt id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;linkText&gt;</bpt>Azure AD feedback forum<ept id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;/linkText&gt;</ept><bpt id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;title&gt;</bpt><ept id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;/title&gt;</ept>.</source>
+          <target state="new"><bpt id="e28a7123-e753-4e76-87ac-2f36e585146a">&lt;strong&gt;</bpt>Request an app integration<ept id="e28a7123-e753-4e76-87ac-2f36e585146a">&lt;/strong&gt;</ept> - Request support for the application you need using the <bpt id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;linkText&gt;</bpt>Azure AD feedback forum<ept id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;/linkText&gt;</ept><bpt id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;title&gt;</bpt><ept id="61d367fe-8fea-45a9-bd22-2353ce92e24c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="f1109e11-7d51-4ff3-ab9e-9c208b3ec335" xml:space="preserve">
+          <source>You can use the Active Directory extension in the Azure Management Portal to configure the application single sign-on.</source>
+          <target state="new">You can use the Active Directory extension in the Azure Management Portal to configure the application single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="e2bf99d4-9af6-47bf-a769-a8ca259337d8" xml:space="preserve">
+          <source>As a first step, you need to select a directory from the Active Directory section in the portal:</source>
+          <target state="new">As a first step, you need to select a directory from the Active Directory section in the portal:</target>
+        </trans-unit>
+        <trans-unit id="147307a4-0e1f-47d9-9d7f-f4d4483e93f7" xml:space="preserve">
+          <source><bpt id="c068b9b9-72a0-46ad-aee6-d19397990d8f">&lt;linkText&gt;</bpt><ept id="c068b9b9-72a0-46ad-aee6-d19397990d8f">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="c068b9b9-72a0-46ad-aee6-d19397990d8f">&lt;linkText&gt;</bpt><ept id="c068b9b9-72a0-46ad-aee6-d19397990d8f">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="cd1e096d-2c21-43d7-8ab3-c3c9e4e3f3ba" xml:space="preserve">
+          <source>To manage your third-party SaaS applications, you can switch into the Applications tab of the selected directory.</source>
+          <target state="new">To manage your third-party SaaS applications, you can switch into the Applications tab of the selected directory.</target>
+        </trans-unit>
+        <trans-unit id="e65797ba-fd25-4183-970b-64a38f321fe8" xml:space="preserve">
+          <source>This view enables administrators to:</source>
+          <target state="new">This view enables administrators to:</target>
+        </trans-unit>
+        <trans-unit id="2219da3b-c85c-43b2-8f13-386fd8fae596" xml:space="preserve">
+          <source>Add new applications from the Azure AD gallery, as well as apps you are developing</source>
+          <target state="new">Add new applications from the Azure AD gallery, as well as apps you are developing</target>
+        </trans-unit>
+        <trans-unit id="2b1975c4-f256-480d-9c47-42333fdb7c8c" xml:space="preserve">
+          <source>Delete integrated applications</source>
+          <target state="new">Delete integrated applications</target>
+        </trans-unit>
+        <trans-unit id="02bd503a-78d6-49fc-baea-4b6b48598067" xml:space="preserve">
+          <source>Manage the applications they have already integrated</source>
+          <target state="new">Manage the applications they have already integrated</target>
+        </trans-unit>
+        <trans-unit id="61c3d857-a32d-4f82-b054-25eaefa34433" xml:space="preserve">
+          <source>Typical administrative tasks for a third-party SaaS application are:</source>
+          <target state="new">Typical administrative tasks for a third-party SaaS application are:</target>
+        </trans-unit>
+        <trans-unit id="298c3c11-8f10-427b-a637-ec04462e13ac" xml:space="preserve">
+          <source>Enabling single sign-on with Azure AD, using password SSO or, if available for the target SaaS, federated SSO</source>
+          <target state="new">Enabling single sign-on with Azure AD, using password SSO or, if available for the target SaaS, federated SSO</target>
+        </trans-unit>
+        <trans-unit id="f93292fb-152a-4562-a230-f1965700b94a" xml:space="preserve">
+          <source>Optionally, enabling user provisioning for user provisioning and de-provisioning (identity lifecycle management)</source>
+          <target state="new">Optionally, enabling user provisioning for user provisioning and de-provisioning (identity lifecycle management)</target>
+        </trans-unit>
+        <trans-unit id="da2f7e2f-85e6-4bca-a760-e3393d5ad04d" xml:space="preserve">
+          <source>For applications where user provisioning is enabled, selecting which users have access to that application</source>
+          <target state="new">For applications where user provisioning is enabled, selecting which users have access to that application</target>
+        </trans-unit>
+        <trans-unit id="f90f877e-e8c6-46a3-810e-59d7a6c55013" xml:space="preserve">
+          <source>For gallery apps that support federated single sign-on, configuration typically requires you to provide additional configuration settings such as certificates and metadata to create a federated trust between the third-party app and Azure AD.</source>
+          <target state="new">For gallery apps that support federated single sign-on, configuration typically requires you to provide additional configuration settings such as certificates and metadata to create a federated trust between the third-party app and Azure AD.</target>
+        </trans-unit>
+        <trans-unit id="33f0bfc4-b95d-4a2e-9936-2420f9ecf7b4" xml:space="preserve">
+          <source>The configuration wizard walks you through the details and provides you with easy access to the SaaS application specific data and instructions.</source>
+          <target state="new">The configuration wizard walks you through the details and provides you with easy access to the SaaS application specific data and instructions.</target>
+        </trans-unit>
+        <trans-unit id="f11f629f-d585-42dc-8543-760408c4da1e" xml:space="preserve">
+          <source>For gallery apps that support automatic user provisioning, this requires you to give Azure AD permissions to manage your accounts in the SaaS application.</source>
+          <target state="new">For gallery apps that support automatic user provisioning, this requires you to give Azure AD permissions to manage your accounts in the SaaS application.</target>
+        </trans-unit>
+        <trans-unit id="509f7a29-54ee-44c3-9649-5db9c5047cfc" xml:space="preserve">
+          <source>At a minimum, you need to provide credentials Azure AD should use when authenticating over to the target application.</source>
+          <target state="new">At a minimum, you need to provide credentials Azure AD should use when authenticating over to the target application.</target>
+        </trans-unit>
+        <trans-unit id="c5cf6c40-33be-4dd4-a27a-0330bb10af1f" xml:space="preserve">
+          <source>Whether additional configuration settings need to be provided depends on the requirements of the application.</source>
+          <target state="new">Whether additional configuration settings need to be provided depends on the requirements of the application.</target>
+        </trans-unit>
+        <trans-unit id="ba5d7c4b-2d5d-40d9-85ba-17c6fba1de27" xml:space="preserve">
+          <source>Azure AD provides several customizable ways to deploy applications to end-users in your organization:</source>
+          <target state="new">Azure AD provides several customizable ways to deploy applications to end-users in your organization:</target>
+        </trans-unit>
+        <trans-unit id="20b07467-fd81-4087-8050-7de37aa2c310" xml:space="preserve">
+          <source>Azure AD access panel</source>
+          <target state="new">Azure AD access panel</target>
+        </trans-unit>
+        <trans-unit id="fd4d0b19-a7da-4af1-a923-9641aa6db375" xml:space="preserve">
+          <source>Office 365 application launcher</source>
+          <target state="new">Office 365 application launcher</target>
+        </trans-unit>
+        <trans-unit id="641d51ab-4aed-4cb0-85a2-1f3be470e3a9" xml:space="preserve">
+          <source>Direct sign-on to federated apps</source>
+          <target state="new">Direct sign-on to federated apps</target>
+        </trans-unit>
+        <trans-unit id="cb09e28c-3b94-4cbb-92f4-0c1bc928f6f7" xml:space="preserve">
+          <source>Deep links to federated, password-based, or existing apps</source>
+          <target state="new">Deep links to federated, password-based, or existing apps</target>
+        </trans-unit>
+        <trans-unit id="173ac67f-8504-4bd5-81eb-4b66dfbbc4b7" xml:space="preserve">
+          <source>Which method(s) you choose to deploy in your organization is your discretion.</source>
+          <target state="new">Which method(s) you choose to deploy in your organization is your discretion.</target>
+        </trans-unit>
+        <trans-unit id="81ae267c-147e-441a-9fe9-a81308bdaacb" xml:space="preserve">
+          <source>The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator.</source>
+          <target state="new">The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator.</target>
+        </trans-unit>
+        <trans-unit id="e0d6c2ae-6205-45fb-bc02-efc63c90f2a9" xml:space="preserve">
+          <source>If you are an end-user with <bpt id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;linkText&gt;</bpt>Azure Active Directory Premium<ept id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;/linkText&gt;</ept><bpt id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;title&gt;</bpt><ept id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;/title&gt;</ept>, you can also utilize self-service group management capabilities through the Access Panel.</source>
+          <target state="new">If you are an end-user with <bpt id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;linkText&gt;</bpt>Azure Active Directory Premium<ept id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;/linkText&gt;</ept><bpt id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;title&gt;</bpt><ept id="e271c344-95a1-4553-bddf-b3f90fcbb0d2">&lt;/title&gt;</ept>, you can also utilize self-service group management capabilities through the Access Panel.</target>
+        </trans-unit>
+        <trans-unit id="95dcc167-d469-43cb-9399-b5943ce3efb8" xml:space="preserve">
+          <source><bpt id="f65f05ce-089e-4c96-bcbc-94f83dfcbdfc">&lt;linkText&gt;</bpt><ept id="f65f05ce-089e-4c96-bcbc-94f83dfcbdfc">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f65f05ce-089e-4c96-bcbc-94f83dfcbdfc">&lt;linkText&gt;</bpt><ept id="f65f05ce-089e-4c96-bcbc-94f83dfcbdfc">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="759eee98-d98e-4a39-aba7-b3ac56e1424d" xml:space="preserve">
+          <source>The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.</source>
+          <target state="new">The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.</target>
+        </trans-unit>
+        <trans-unit id="9c4754f6-1847-400a-8a4b-c6bba4abd44a" xml:space="preserve">
+          <source>For more information on the Azure AD access panel, see the <bpt id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;linkText&gt;</bpt>introduction to the access panel<ept id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;/linkText&gt;</ept><bpt id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;title&gt;</bpt><ept id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information on the Azure AD access panel, see the <bpt id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;linkText&gt;</bpt>introduction to the access panel<ept id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;/linkText&gt;</ept><bpt id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;title&gt;</bpt><ept id="180c1af7-a592-4524-acaf-d4cd148cc795">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="1002f9be-dd54-4941-bea3-6af596d83f29" xml:space="preserve">
+          <source>For organizations that have deployed Office 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at https://portal.office.com/myapps.</source>
+          <target state="new">For organizations that have deployed Office 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at https://portal.office.com/myapps.</target>
+        </trans-unit>
+        <trans-unit id="c3481837-47f0-4ed5-a001-d5cbdc715c78" xml:space="preserve">
+          <source>This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Office 365.</source>
+          <target state="new">This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Office 365.</target>
+        </trans-unit>
+        <trans-unit id="a21cde31-8ea4-4c53-9cd7-d7f7c3b2c904" xml:space="preserve">
+          <source><bpt id="a4a25e40-afff-462a-87b7-88cf4cd35ca4">&lt;linkText&gt;</bpt><ept id="a4a25e40-afff-462a-87b7-88cf4cd35ca4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4a25e40-afff-462a-87b7-88cf4cd35ca4">&lt;linkText&gt;</bpt><ept id="a4a25e40-afff-462a-87b7-88cf4cd35ca4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="443cdd99-61db-4174-a53c-0df274ab8908" xml:space="preserve">
+          <source>For more information about the Office 365 application launcher, see <bpt id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;linkText&gt;</bpt>Have your app appear in the Office 365 app launcher<ept id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;/linkText&gt;</ept><bpt id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;title&gt;</bpt><ept id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information about the Office 365 application launcher, see <bpt id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;linkText&gt;</bpt>Have your app appear in the Office 365 app launcher<ept id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;/linkText&gt;</ept><bpt id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;title&gt;</bpt><ept id="0ee499a2-c818-499e-83c3-ef0d192e869e">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="542929af-14dd-4151-81eb-e25aeb6b9062" xml:space="preserve">
+          <source>Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in.</source>
+          <target state="new">Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in.</target>
+        </trans-unit>
+        <trans-unit id="dd6adc91-296b-4cbd-b327-711d8d463294" xml:space="preserve">
+          <source>This is known as service provider -initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure management portal for details).</source>
+          <target state="new">This is known as service provider -initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure management portal for details).</target>
+        </trans-unit>
+        <trans-unit id="9e9afd21-aa81-4287-9ad8-5a22d3220834" xml:space="preserve">
+          <source><bpt id="f34bec0f-9a01-4c4c-8fb9-c11aaa1b0db6">&lt;linkText&gt;</bpt><ept id="f34bec0f-9a01-4c4c-8fb9-c11aaa1b0db6">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="f34bec0f-9a01-4c4c-8fb9-c11aaa1b0db6">&lt;linkText&gt;</bpt><ept id="f34bec0f-9a01-4c4c-8fb9-c11aaa1b0db6">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="5e12c857-497a-44b8-97c1-593268f8e5d2" xml:space="preserve">
+          <source>Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, existing single sign-on, and any form of federated single sign-on.</source>
+          <target state="new">Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, existing single sign-on, and any form of federated single sign-on.</target>
+        </trans-unit>
+        <trans-unit id="569c8423-263a-412d-85cf-d3e1d7f79ac3" xml:space="preserve">
+          <source>These links are specifically-crafted URLs that send a user through the Azure AD sign in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365.</source>
+          <target state="new">These links are specifically-crafted URLs that send a user through the Azure AD sign in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365.</target>
+        </trans-unit>
+        <trans-unit id="76669bbe-b07e-438f-9c11-a54d573c8633" xml:space="preserve">
+          <source>These Single Sign-On URLs can be found under the Dashboard tab of any pre-integrated application in the Active Directory section of the Azure management portal, as shown in the screenshot below.</source>
+          <target state="new">These Single Sign-On URLs can be found under the Dashboard tab of any pre-integrated application in the Active Directory section of the Azure management portal, as shown in the screenshot below.</target>
+        </trans-unit>
+        <trans-unit id="16a35b4d-927f-44bc-aaa2-4303ea22294f" xml:space="preserve">
+          <source><bpt id="8b1d3096-d416-42ef-b4c0-2c15e46ab8c4">&lt;linkText&gt;</bpt><ept id="8b1d3096-d416-42ef-b4c0-2c15e46ab8c4">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="8b1d3096-d416-42ef-b4c0-2c15e46ab8c4">&lt;linkText&gt;</bpt><ept id="8b1d3096-d416-42ef-b4c0-2c15e46ab8c4">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4dafe134-dd84-46f1-9ccd-2e058489fbf5" xml:space="preserve">
+          <source>These links can be copied and pasted anywhere you want to provide a sign-in link to the selected application.</source>
+          <target state="new">These links can be copied and pasted anywhere you want to provide a sign-in link to the selected application.</target>
+        </trans-unit>
+        <trans-unit id="e0f488ce-535b-478f-aa20-e916209f7d7c" xml:space="preserve">
+          <source>This could be in an email, or in any custom web-based portal that you have set up for user application access.</source>
+          <target state="new">This could be in an email, or in any custom web-based portal that you have set up for user application access.</target>
+        </trans-unit>
+        <trans-unit id="41aa41f5-e9d4-4152-b2ef-4107d43e615f" xml:space="preserve">
+          <source>Here's an example of an Azure AD direct single sign-on URL for Twitter:</source>
+          <target state="new">Here's an example of an Azure AD direct single sign-on URL for Twitter:</target>
+        </trans-unit>
+        <trans-unit id="876e40ac-2ceb-4c37-86e4-7b1556209bf8" xml:space="preserve">
+          <source><bpt id="14be031d-ef47-49d8-95a3-7fd9ce3505d2">&lt;code&gt;</bpt>https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced<ept id="14be031d-ef47-49d8-95a3-7fd9ce3505d2">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="14be031d-ef47-49d8-95a3-7fd9ce3505d2">&lt;code&gt;</bpt>https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced<ept id="14be031d-ef47-49d8-95a3-7fd9ce3505d2">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="22d2f7e8-cdfc-4b76-a9a5-97206e0a8525" xml:space="preserve">
+          <source>Similar to organization-specific URLs for the access panel, you can further customize this URL by adding one of the active or verified domains for your directory after the myapps.microsoft.com domain.</source>
+          <target state="new">Similar to organization-specific URLs for the access panel, you can further customize this URL by adding one of the active or verified domains for your directory after the myapps.microsoft.com domain.</target>
+        </trans-unit>
+        <trans-unit id="e602008c-1eb7-4790-bfeb-6dc0aefaca29" xml:space="preserve">
+          <source>This ensures any organizational branding is loaded immediately on the sign-in page without the user needing to enter their user ID first:</source>
+          <target state="new">This ensures any organizational branding is loaded immediately on the sign-in page without the user needing to enter their user ID first:</target>
+        </trans-unit>
+        <trans-unit id="69896c2a-78fa-471c-b726-74fdac43e61e" xml:space="preserve">
+          <source><bpt id="6d2712cb-9948-428c-8104-1572f3eb74e1">&lt;code&gt;</bpt>https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced<ept id="6d2712cb-9948-428c-8104-1572f3eb74e1">&lt;/code&gt;</ept></source>
+          <target state="new"><bpt id="6d2712cb-9948-428c-8104-1572f3eb74e1">&lt;code&gt;</bpt>https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced<ept id="6d2712cb-9948-428c-8104-1572f3eb74e1">&lt;/code&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b7961694-8518-422a-a608-5a6b014ee621" xml:space="preserve">
+          <source>When an authorized user clicks on one of these application-specific links, they first see their organizational sign-in page (assuming they are not already signed in), and after sign-in are redirected to their app without stopping at the access panel first.</source>
+          <target state="new">When an authorized user clicks on one of these application-specific links, they first see their organizational sign-in page (assuming they are not already signed in), and after sign-in are redirected to their app without stopping at the access panel first.</target>
+        </trans-unit>
+        <trans-unit id="33169b5c-df4d-4130-a32b-94c995d0e374" xml:space="preserve">
+          <source>If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension.</source>
+          <target state="new">If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension.</target>
+        </trans-unit>
+        <trans-unit id="4a19a5de-1c7d-4a46-a03b-d87445216ce9" xml:space="preserve">
+          <source>The link URL also remains constant if the single sign-on configuration for the application changes.</source>
+          <target state="new">The link URL also remains constant if the single sign-on configuration for the application changes.</target>
+        </trans-unit>
+        <trans-unit id="51e84e6d-98f8-430a-98f2-72b84f6984dc" xml:space="preserve">
+          <source>These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate.</source>
+          <target state="new">These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate.</target>
+        </trans-unit>
+        <trans-unit id="498fc278-1b5c-47f3-8033-7a9acdf762ab" xml:space="preserve">
+          <source>However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.</source>
+          <target state="new">However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.</target>
+        </trans-unit>
+        <trans-unit id="eeb1309e-d28d-40db-812d-7e9553e2c5ee" xml:space="preserve">
+          <source><bpt id="3500e9a0-f435-4605-aa93-274a9577c338">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="3500e9a0-f435-4605-aa93-274a9577c338">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="3500e9a0-f435-4605-aa93-274a9577c338">&lt;token href="../../includes/active-directory-saas-toc.md"&gt;</bpt><ept id="3500e9a0-f435-4605-aa93-274a9577c338">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="da8406c4-f083-4d95-a51b-4f84e5a337cb" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/onlineappgallery.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/onlineappgallery.png</target>
+        </trans-unit>
+        <trans-unit id="c498fe1f-64d9-4d58-8ddb-91225188238a" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/azuremgmtportal.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/azuremgmtportal.png</target>
+        </trans-unit>
+        <trans-unit id="25e83c6b-f44e-48f7-aa4e-5f2fee445587" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/accesspanel.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/accesspanel.png</target>
+        </trans-unit>
+        <trans-unit id="bd79eb3a-9f5a-4ec9-9bc6-3e3939c95a37" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/officeapphub.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/officeapphub.png</target>
+        </trans-unit>
+        <trans-unit id="7cce128f-dc25-47ac-afb3-c878becb22d2" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/workdaymobile.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/workdaymobile.png</target>
+        </trans-unit>
+        <trans-unit id="f83dcbd2-9a6c-4052-9065-0f03fe087185" xml:space="preserve">
+          <source>./media/active-directory-appssoaccess-whatis/deeplink.png</source>
+          <target state="new">./media/active-directory-appssoaccess-whatis/deeplink.png</target>
+        </trans-unit>
+      </group>
+      <group id="44a3b63b-df35-487e-8076-7cac3cb8f9df" />
+    </body>
+  </file>
+</xliff>

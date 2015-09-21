@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="76e95b9c-2f34-45e7-a3c7-76010f24d0ca" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="76e95b9c-2f34-45e7-a3c7-76010f24d0ca" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="e7487523-0be0-481a-9001-b14381d59c3e">
+        <trans-unit id="18302627-d0c1-4646-9f5c-2968dc9ef547" xml:space="preserve">
+          <source>Defining and Managing State</source>
+          <target state="new">Defining and Managing State</target>
+        </trans-unit>
+        <trans-unit id="195bfa1e-01d7-4d56-91bf-d9cac47a2a36" xml:space="preserve">
+          <source>How to define and manage service state in Service Fabric</source>
+          <target state="new">How to define and manage service state in Service Fabric</target>
+        </trans-unit>
+        <trans-unit id="79d80dcb-dd1c-4f7a-806f-31fc184377b5" xml:space="preserve">
+          <source><bpt id="f7d06e5f-7aed-4b5b-8a8c-edc9b98ee82b">&lt;strong&gt;</bpt>Service State<ept id="f7d06e5f-7aed-4b5b-8a8c-edc9b98ee82b">&lt;/strong&gt;</ept> is the data the service requires in order to function.</source>
+          <target state="new"><bpt id="f7d06e5f-7aed-4b5b-8a8c-edc9b98ee82b">&lt;strong&gt;</bpt>Service State<ept id="f7d06e5f-7aed-4b5b-8a8c-edc9b98ee82b">&lt;/strong&gt;</ept> is the data the service requires in order to function.</target>
+        </trans-unit>
+        <trans-unit id="6662e0ea-301b-4aff-b77f-b73593a61d83" xml:space="preserve">
+          <source>It is the data structures and variables that the service reads and writes in order to do work.</source>
+          <target state="new">It is the data structures and variables that the service reads and writes in order to do work.</target>
+        </trans-unit>
+        <trans-unit id="ac10fb57-d0a2-4a88-b5f1-4b54428f91d7" xml:space="preserve">
+          <source>For example: Consider a simple calculator service.</source>
+          <target state="new">For example: Consider a simple calculator service.</target>
+        </trans-unit>
+        <trans-unit id="8ff4cd31-c2eb-407b-ba05-9d528142e615" xml:space="preserve">
+          <source>This service takes two numbers and returns their sum.</source>
+          <target state="new">This service takes two numbers and returns their sum.</target>
+        </trans-unit>
+        <trans-unit id="970f92b4-30d8-4deb-b44c-8bb64e5355ed" xml:space="preserve">
+          <source>This is a purely stateless service that has no data associated with it.</source>
+          <target state="new">This is a purely stateless service that has no data associated with it.</target>
+        </trans-unit>
+        <trans-unit id="57ed7163-f5f4-46da-b39b-7815094c5b01" xml:space="preserve">
+          <source>Now, consider the same calculator but in addition to computing sum it also has a method to return the last sum it had computed.</source>
+          <target state="new">Now, consider the same calculator but in addition to computing sum it also has a method to return the last sum it had computed.</target>
+        </trans-unit>
+        <trans-unit id="4091ef1e-fa5a-44a1-a601-207ac3620be6" xml:space="preserve">
+          <source>This service is now stateful - it contains some state that it writes to (when it computes a new sum) and reads from (when it returns the last computed sum).</source>
+          <target state="new">This service is now stateful - it contains some state that it writes to (when it computes a new sum) and reads from (when it returns the last computed sum).</target>
+        </trans-unit>
+        <trans-unit id="38fb6f0e-0220-4df2-aedd-e561ffee9631" xml:space="preserve">
+          <source>In Service Fabric, the first service is called a Stateless Service.</source>
+          <target state="new">In Service Fabric, the first service is called a Stateless Service.</target>
+        </trans-unit>
+        <trans-unit id="c3ddf4d3-f8be-4e2d-abfa-2d2e18503278" xml:space="preserve">
+          <source>The second service is called a Stateful Service.</source>
+          <target state="new">The second service is called a Stateful Service.</target>
+        </trans-unit>
+        <trans-unit id="6cd7d586-d9fe-439e-98eb-f45bf0a6d2b1" xml:space="preserve">
+          <source>State can either be externalized or co-located with the code that is manipulating the state.</source>
+          <target state="new">State can either be externalized or co-located with the code that is manipulating the state.</target>
+        </trans-unit>
+        <trans-unit id="4f2c6026-00fe-44c1-98b3-fe4895eb093f" xml:space="preserve">
+          <source>Externalization of state is typically done by using an external database or store.</source>
+          <target state="new">Externalization of state is typically done by using an external database or store.</target>
+        </trans-unit>
+        <trans-unit id="addde9cb-4d41-4b57-a39e-afed958aafa2" xml:space="preserve">
+          <source>In our calculator example, this could be a SQL database where the current result is stored in a table.</source>
+          <target state="new">In our calculator example, this could be a SQL database where the current result is stored in a table.</target>
+        </trans-unit>
+        <trans-unit id="fd228943-cfb6-41e5-ad1a-97d1fa4bbdb3" xml:space="preserve">
+          <source>Every request to compute the sum performs an update on this row.</source>
+          <target state="new">Every request to compute the sum performs an update on this row.</target>
+        </trans-unit>
+        <trans-unit id="fc32765f-592b-4aa6-914a-6525330a56d3" xml:space="preserve">
+          <source>State can also be co-located with the code that manipulates this code.</source>
+          <target state="new">State can also be co-located with the code that manipulates this code.</target>
+        </trans-unit>
+        <trans-unit id="5336f7f0-42d1-4c51-998d-9b5a54dfd49f" xml:space="preserve">
+          <source>Stateful services in Service Fabric are built using this model.</source>
+          <target state="new">Stateful services in Service Fabric are built using this model.</target>
+        </trans-unit>
+        <trans-unit id="b167aa90-8973-48df-a9eb-8c78fe7e7aad" xml:space="preserve">
+          <source>Service Fabric provides the infrastructure to ensure this state is highly available and fault tolerant in the event of failures.</source>
+          <target state="new">Service Fabric provides the infrastructure to ensure this state is highly available and fault tolerant in the event of failures.</target>
+        </trans-unit>
+        <trans-unit id="8b9fbfc1-39d4-4099-8f8c-e75b293695b4" xml:space="preserve">
+          <source>For information on Service Fabric concepts, see the following:</source>
+          <target state="new">For information on Service Fabric concepts, see the following:</target>
+        </trans-unit>
+        <trans-unit id="509a6746-825d-4a5e-a847-5422f8bf2873" xml:space="preserve">
+          <source><bpt id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;linkText&gt;</bpt>Availability of Service Fabric Services<ept id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;/linkText&gt;</ept><bpt id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;title&gt;</bpt><ept id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;linkText&gt;</bpt>Availability of Service Fabric Services<ept id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;/linkText&gt;</ept><bpt id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;title&gt;</bpt><ept id="96cf933a-c126-40d6-bc80-c22f24120096">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="99ebc850-c8a5-4584-91ee-a204db20228f" xml:space="preserve">
+          <source><bpt id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;linkText&gt;</bpt>Scalability of Service Fabric Services<ept id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;/linkText&gt;</ept><bpt id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;title&gt;</bpt><ept id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;linkText&gt;</bpt>Scalability of Service Fabric Services<ept id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;/linkText&gt;</ept><bpt id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;title&gt;</bpt><ept id="484ef2cb-cebb-4a6b-a2b6-d34a5be31c88">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="43b3422c-57bb-42a2-9814-5543ece207c7" xml:space="preserve">
+          <source><bpt id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;linkText&gt;</bpt>Partitioning Service Fabric Services<ept id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;/linkText&gt;</ept><bpt id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;title&gt;</bpt><ept id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;linkText&gt;</bpt>Partitioning Service Fabric Services<ept id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;/linkText&gt;</ept><bpt id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;title&gt;</bpt><ept id="f92e4903-dba0-484d-8ac8-83ecb2b7ca92">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

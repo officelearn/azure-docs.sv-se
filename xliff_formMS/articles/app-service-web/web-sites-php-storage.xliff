@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="ce315015-9079-4be9-b99b-cb6195274d14" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="ce315015-9079-4be9-b99b-cb6195274d14" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="aeefc24f-90b7-43a6-a365-d8a9ce8c6425">
+        <trans-unit id="c2b215cc-ea78-400f-bb30-0a59daab2bec" xml:space="preserve">
+          <source>Create a PHP web app in Azure App Service using Azure Storage</source>
+          <target state="new">Create a PHP web app in Azure App Service using Azure Storage</target>
+        </trans-unit>
+        <trans-unit id="bbf156f0-c8d6-457a-9408-f87208e4e8ec" xml:space="preserve">
+          <source>This tutorial shows you how to create a PHP web app in Azure App Service and use the Azure Tables storage service in the back-end.</source>
+          <target state="new">This tutorial shows you how to create a PHP web app in Azure App Service and use the Azure Tables storage service in the back-end.</target>
+        </trans-unit>
+        <trans-unit id="fa95025f-ce6f-42c7-961f-80ef721c8b67" xml:space="preserve">
+          <source>This tutorial shows you how to create a PHP web app in <bpt id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;linkText&gt;</bpt>Azure App Service<ept id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;/linkText&gt;</ept><bpt id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;title&gt;</bpt><ept id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;/title&gt;</ept> and use the Azure Tables storage service in the back-end.</source>
+          <target state="new">This tutorial shows you how to create a PHP web app in <bpt id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;linkText&gt;</bpt>Azure App Service<ept id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;/linkText&gt;</ept><bpt id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;title&gt;</bpt><ept id="b028c9b1-c11b-423d-9072-3fd3431a69f8">&lt;/title&gt;</ept> and use the Azure Tables storage service in the back-end.</target>
+        </trans-unit>
+        <trans-unit id="bec6a15e-8d39-44bb-b870-1d233f35466d" xml:space="preserve">
+          <source>This tutorial assumes you have <bpt id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;/linkText&gt;</ept><bpt id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;title&gt;</bpt><ept id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;/title&gt;</ept> and a web server installed on your computer.</source>
+          <target state="new">This tutorial assumes you have <bpt id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;linkText&gt;</bpt>PHP[install-php]<ept id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;/linkText&gt;</ept><bpt id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;title&gt;</bpt><ept id="7cbd62a5-5f36-4afd-86b7-47831c773388">&lt;/title&gt;</ept> and a web server installed on your computer.</target>
+        </trans-unit>
+        <trans-unit id="4f28c898-d6ec-47b2-b76e-4a56b81dee13" xml:space="preserve">
+          <source>The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux.</source>
+          <target state="new">The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux.</target>
+        </trans-unit>
+        <trans-unit id="96c3e5a5-7365-467f-9978-0f9069b2a5b3" xml:space="preserve">
+          <source>Upon completing this guide, you will have a PHP web app running in Azure and accessing the Table storage service.</source>
+          <target state="new">Upon completing this guide, you will have a PHP web app running in Azure and accessing the Table storage service.</target>
+        </trans-unit>
+        <trans-unit id="8e27ba58-a429-497a-be09-e917b4483af9" xml:space="preserve">
+          <source>You will learn:</source>
+          <target state="new">You will learn:</target>
+        </trans-unit>
+        <trans-unit id="9ebcbbc5-b22d-42e8-a8a0-e9e19aef8246" xml:space="preserve">
+          <source>How to install the Azure client libraries and include them into your application.</source>
+          <target state="new">How to install the Azure client libraries and include them into your application.</target>
+        </trans-unit>
+        <trans-unit id="c93ba76e-2fb6-49ac-adfd-cd18b2b234c4" xml:space="preserve">
+          <source>How to use the client libraries for creating tables, and for creating, querying and deleting table entities.</source>
+          <target state="new">How to use the client libraries for creating tables, and for creating, querying and deleting table entities.</target>
+        </trans-unit>
+        <trans-unit id="fea3fbb4-d309-4d80-bbe3-67c97c3d855e" xml:space="preserve">
+          <source>How to create an Azure Storage Account and set up your application to use it.</source>
+          <target state="new">How to create an Azure Storage Account and set up your application to use it.</target>
+        </trans-unit>
+        <trans-unit id="312e43cb-dbb3-4791-b30e-e6b013db64ab" xml:space="preserve">
+          <source>How to create an Azure web app and deploy to it using Git</source>
+          <target state="new">How to create an Azure web app and deploy to it using Git</target>
+        </trans-unit>
+        <trans-unit id="ae5010ed-54bd-498a-a12a-c05770bff5ab" xml:space="preserve">
+          <source>You will build a simple Tasklist web application in PHP.</source>
+          <target state="new">You will build a simple Tasklist web application in PHP.</target>
+        </trans-unit>
+        <trans-unit id="cc0101d1-242d-497a-b2ca-47cad09d8fe4" xml:space="preserve">
+          <source>A screenshot of the completed application is below:</source>
+          <target state="new">A screenshot of the completed application is below:</target>
+        </trans-unit>
+        <trans-unit id="be25ccfd-85a1-440a-807f-3fed011dc27b" xml:space="preserve">
+          <source><bpt id="89288bfd-399a-4e94-9566-9f19dc29be11">&lt;linkText&gt;</bpt>Azure PHP web app<ept id="89288bfd-399a-4e94-9566-9f19dc29be11">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="89288bfd-399a-4e94-9566-9f19dc29be11">&lt;linkText&gt;</bpt>Azure PHP web app<ept id="89288bfd-399a-4e94-9566-9f19dc29be11">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c566997e-8550-48ad-809e-f4f12d0db97c" xml:space="preserve">
+          <source><bpt id="fed1b035-98ac-4907-8a11-cfae8c96e737">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="fed1b035-98ac-4907-8a11-cfae8c96e737">&lt;/token&gt;</ept></source>
+          <target state="new"><bpt id="fed1b035-98ac-4907-8a11-cfae8c96e737">&lt;token href="../../includes/create-account-and-websites-note.md"&gt;</bpt><ept id="fed1b035-98ac-4907-8a11-cfae8c96e737">&lt;/token&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="17170e37-ca12-4bda-97b0-09d609d55ec3" xml:space="preserve">
+          <source>If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;linkText&gt;</bpt>Try App Service<ept id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;/linkText&gt;</ept><bpt id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;title&gt;</bpt><ept id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</source>
+          <target state="new">If you want to get started with Azure App Service before signing up for an Azure account, go to <bpt id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;linkText&gt;</bpt>Try App Service<ept id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;/linkText&gt;</ept><bpt id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;title&gt;</bpt><ept id="9e47ce5c-4975-4c06-9ff4-e554d2ffc24a">&lt;/title&gt;</ept>, where you can immediately create a short-lived starter web app in App Service.</target>
+        </trans-unit>
+        <trans-unit id="c38d6542-9a95-4214-b55f-1f4eb82d8c62" xml:space="preserve">
+          <source>No credit cards required; no commitments.</source>
+          <target state="new">No credit cards required; no commitments.</target>
+        </trans-unit>
+        <trans-unit id="fe147e9a-0d20-4b55-9489-8093c55cd2fd" xml:space="preserve">
+          <source>To install the PHP Client Libraries for Azure via Composer, follow these steps:</source>
+          <target state="new">To install the PHP Client Libraries for Azure via Composer, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="ac7e7843-b367-49db-99e3-0849673581f6" xml:space="preserve">
+          <source><bpt id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;linkText&gt;</bpt>Install Git[install-git]<ept id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;/linkText&gt;</ept><bpt id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;title&gt;</bpt><ept id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;linkText&gt;</bpt>Install Git[install-git]<ept id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;/linkText&gt;</ept><bpt id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;title&gt;</bpt><ept id="3db11708-4bee-4849-9af5-7b12fa92fe13">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="8c3f4cf0-7321-4881-9759-893061d0c1cd" xml:space="preserve">
+          <source>On Windows, you will also need to add the Git executable to your PATH environment variable.</source>
+          <target state="new">On Windows, you will also need to add the Git executable to your PATH environment variable.</target>
+        </trans-unit>
+        <trans-unit id="3276d081-7bea-4013-a0d2-03d5eeeac2d8" xml:space="preserve">
+          <source>Create a file named <bpt id="a0ad03e3-a4d0-4f85-acdf-750a1c7c078e">&lt;strong&gt;</bpt>composer.json<ept id="a0ad03e3-a4d0-4f85-acdf-750a1c7c078e">&lt;/strong&gt;</ept> in the root of your project and add the following code to it:</source>
+          <target state="new">Create a file named <bpt id="a0ad03e3-a4d0-4f85-acdf-750a1c7c078e">&lt;strong&gt;</bpt>composer.json<ept id="a0ad03e3-a4d0-4f85-acdf-750a1c7c078e">&lt;/strong&gt;</ept> in the root of your project and add the following code to it:</target>
+        </trans-unit>
+        <trans-unit id="c5a3d196-649f-47d7-b067-6e1f4679d4ea" xml:space="preserve">
+          <source>Download **<bpt id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;linkText&gt;</bpt>composer.phar[composer-phar]<ept id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;/linkText&gt;</ept><bpt id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;title&gt;</bpt><ept id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;/title&gt;</ept>** in your project root.</source>
+          <target state="new">Download **<bpt id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;linkText&gt;</bpt>composer.phar[composer-phar]<ept id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;/linkText&gt;</ept><bpt id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;title&gt;</bpt><ept id="0117d991-dfb1-413f-9849-818d9c93c4f4">&lt;/title&gt;</ept>** in your project root.</target>
+        </trans-unit>
+        <trans-unit id="961e54ab-2022-4545-96a7-fa7e2e1756ca" xml:space="preserve">
+          <source>Open a command prompt and execute this in your project root</source>
+          <target state="new">Open a command prompt and execute this in your project root</target>
+        </trans-unit>
+        <trans-unit id="b6508b37-2eb5-4233-8f25-4ed29f09b0d6" xml:space="preserve">
+          <source>There are four basic steps that have to be performed before you can make a call to an Azure API wen using the libraries.</source>
+          <target state="new">There are four basic steps that have to be performed before you can make a call to an Azure API wen using the libraries.</target>
+        </trans-unit>
+        <trans-unit id="e9bec4c7-5816-430a-b340-eb27362cb3a4" xml:space="preserve">
+          <source>You will create an initialization script that will perform these steps.</source>
+          <target state="new">You will create an initialization script that will perform these steps.</target>
+        </trans-unit>
+        <trans-unit id="e523e0e2-1067-4bc9-9d8d-8dcb8f6081bc" xml:space="preserve">
+          <source>Create a file called <bpt id="fd109a00-1d0c-4614-9d3e-2c7ff4b46b4f">&lt;strong&gt;</bpt>init.php<ept id="fd109a00-1d0c-4614-9d3e-2c7ff4b46b4f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a file called <bpt id="fd109a00-1d0c-4614-9d3e-2c7ff4b46b4f">&lt;strong&gt;</bpt>init.php<ept id="fd109a00-1d0c-4614-9d3e-2c7ff4b46b4f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0507c33e-2b38-4bcc-9ae1-41316dbc6f6d" xml:space="preserve">
+          <source>First, include the autoloader script:</source>
+          <target state="new">First, include the autoloader script:</target>
+        </trans-unit>
+        <trans-unit id="c0bb110d-a4b6-45d0-907c-b3359de33d12" xml:space="preserve">
+          <source>Include the namespaces you are going to use.</source>
+          <target state="new">Include the namespaces you are going to use.</target>
+        </trans-unit>
+        <trans-unit id="3753009a-2b15-4057-8c8c-73db4211119d" xml:space="preserve">
+          <source>To create any Azure service client you need to use the <bpt id="75cdc815-6fb6-4167-a70f-3adb56c040d4">&lt;strong&gt;</bpt>ServicesBuilder<ept id="75cdc815-6fb6-4167-a70f-3adb56c040d4">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">To create any Azure service client you need to use the <bpt id="75cdc815-6fb6-4167-a70f-3adb56c040d4">&lt;strong&gt;</bpt>ServicesBuilder<ept id="75cdc815-6fb6-4167-a70f-3adb56c040d4">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="a13b34fe-fc4a-426b-aafb-7b2db61ee3ed" xml:space="preserve">
+          <source>To catch exceptions produced by any API call you need the <bpt id="f9d67cfa-f6e0-451e-8d86-876c9a021dea">&lt;strong&gt;</bpt>ServiceException<ept id="f9d67cfa-f6e0-451e-8d86-876c9a021dea">&lt;/strong&gt;</ept> class:</source>
+          <target state="new">To catch exceptions produced by any API call you need the <bpt id="f9d67cfa-f6e0-451e-8d86-876c9a021dea">&lt;strong&gt;</bpt>ServiceException<ept id="f9d67cfa-f6e0-451e-8d86-876c9a021dea">&lt;/strong&gt;</ept> class:</target>
+        </trans-unit>
+        <trans-unit id="bb4371e7-196f-4694-9110-2419d75d2932" xml:space="preserve">
+          <source>To instantiate the service client you will also need a valid connection string.</source>
+          <target state="new">To instantiate the service client you will also need a valid connection string.</target>
+        </trans-unit>
+        <trans-unit id="7c5dbe7f-8c3c-4490-a39d-4baf6bddc571" xml:space="preserve">
+          <source>The format for the table service connection strings is:</source>
+          <target state="new">The format for the table service connection strings is:</target>
+        </trans-unit>
+        <trans-unit id="f940ce64-e0af-40a9-89c2-4d18a142177d" xml:space="preserve">
+          <source>For accessing a live service:</source>
+          <target state="new">For accessing a live service:</target>
+        </trans-unit>
+        <trans-unit id="7c2f0b7e-8f17-43d7-80b0-20dffe6daf6f" xml:space="preserve">
+          <source>For accessing the emulator storage:</source>
+          <target state="new">For accessing the emulator storage:</target>
+        </trans-unit>
+        <trans-unit id="792c68e1-f28a-4b2e-9b77-b9b3c1526df8" xml:space="preserve">
+          <source>Use the <bpt id="0fff431b-2722-4a9c-a333-efaa55636208">&lt;code&gt;</bpt>ServicesBuilder::createTableService<ept id="0fff431b-2722-4a9c-a333-efaa55636208">&lt;/code&gt;</ept> factory method to instantiate a wrapper around Table service calls.</source>
+          <target state="new">Use the <bpt id="0fff431b-2722-4a9c-a333-efaa55636208">&lt;code&gt;</bpt>ServicesBuilder::createTableService<ept id="0fff431b-2722-4a9c-a333-efaa55636208">&lt;/code&gt;</ept> factory method to instantiate a wrapper around Table service calls.</target>
+        </trans-unit>
+        <trans-unit id="2e27c543-1286-4494-b94f-d95fef54513b" xml:space="preserve">
+          <source><bpt id="731ca538-8087-473c-8abe-eaf79eff5694">&lt;code&gt;</bpt>$tableRestProxy<ept id="731ca538-8087-473c-8abe-eaf79eff5694">&lt;/code&gt;</ept> contains a method for every REST call available on Azure Tables.</source>
+          <target state="new"><bpt id="731ca538-8087-473c-8abe-eaf79eff5694">&lt;code&gt;</bpt>$tableRestProxy<ept id="731ca538-8087-473c-8abe-eaf79eff5694">&lt;/code&gt;</ept> contains a method for every REST call available on Azure Tables.</target>
+        </trans-unit>
+        <trans-unit id="c4d70620-2a36-4657-9d7e-4695cd8e59ae" xml:space="preserve">
+          <source>Before you can store data you first have to create a container for it, the Table.</source>
+          <target state="new">Before you can store data you first have to create a container for it, the Table.</target>
+        </trans-unit>
+        <trans-unit id="3b9f4f08-b3ca-4dc1-ac42-fea23da5a876" xml:space="preserve">
+          <source>Create a file named <bpt id="6a6edaf2-2cf9-441e-89ff-7228a7e2a981">&lt;strong&gt;</bpt>createtable.php<ept id="6a6edaf2-2cf9-441e-89ff-7228a7e2a981">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a file named <bpt id="6a6edaf2-2cf9-441e-89ff-7228a7e2a981">&lt;strong&gt;</bpt>createtable.php<ept id="6a6edaf2-2cf9-441e-89ff-7228a7e2a981">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4d0abbe7-1c10-4520-b2e2-353062212860" xml:space="preserve">
+          <source>First, include the initialization script you just created.</source>
+          <target state="new">First, include the initialization script you just created.</target>
+        </trans-unit>
+        <trans-unit id="f529e37d-60aa-4260-8873-dcd8051ab555" xml:space="preserve">
+          <source>You will be including this script in every file accessing Azure:</source>
+          <target state="new">You will be including this script in every file accessing Azure:</target>
+        </trans-unit>
+        <trans-unit id="b26a2972-c519-443e-b6a5-7e38f88ea7c6" xml:space="preserve">
+          <source>Then, make a call to <bpt id="d52c1940-8371-4532-9498-3c0e6a1935ef">&lt;em&gt;</bpt>createTable<ept id="d52c1940-8371-4532-9498-3c0e6a1935ef">&lt;/em&gt;</ept> passing in the name of the table.</source>
+          <target state="new">Then, make a call to <bpt id="d52c1940-8371-4532-9498-3c0e6a1935ef">&lt;em&gt;</bpt>createTable<ept id="d52c1940-8371-4532-9498-3c0e6a1935ef">&lt;/em&gt;</ept> passing in the name of the table.</target>
+        </trans-unit>
+        <trans-unit id="a3957a1e-ffb1-48fc-99a4-122e20b186cb" xml:space="preserve">
+          <source>Similarly to other NoSQL table stores, no schema is required for Azure Tables.</source>
+          <target state="new">Similarly to other NoSQL table stores, no schema is required for Azure Tables.</target>
+        </trans-unit>
+        <trans-unit id="484d2a1f-025f-4557-9cbf-9e89ed62dd25" xml:space="preserve">
+          <source>Error codes and message scan be found here: <bpt id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;linkText&gt;</bpt>http://msdn.microsoft.com/library/windowsazure/dd179438.aspx[msdn-errors]<ept id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;/linkText&gt;</ept><bpt id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;title&gt;</bpt><ept id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;/title&gt;</ept></source>
+          <target state="new">Error codes and message scan be found here: <bpt id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;linkText&gt;</bpt>http://msdn.microsoft.com/library/windowsazure/dd179438.aspx[msdn-errors]<ept id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;/linkText&gt;</ept><bpt id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;title&gt;</bpt><ept id="2aa06ddf-c46a-418d-a336-00eef70e230b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="6102f9aa-2cb1-474e-a896-98bdeda09c5e" xml:space="preserve">
+          <source>The home page of the Tasklist application should list all existing tasks and allow the insertion of new ones.</source>
+          <target state="new">The home page of the Tasklist application should list all existing tasks and allow the insertion of new ones.</target>
+        </trans-unit>
+        <trans-unit id="c596b451-96cd-44ea-87fc-be84b5cd61c1" xml:space="preserve">
+          <source>Create a file named <bpt id="98d7f8bf-5490-41a6-a53c-5003dc4bc563">&lt;strong&gt;</bpt>index.php<ept id="98d7f8bf-5490-41a6-a53c-5003dc4bc563">&lt;/strong&gt;</ept> and insert the following HTML and PHP code which will form the header of the page:</source>
+          <target state="new">Create a file named <bpt id="98d7f8bf-5490-41a6-a53c-5003dc4bc563">&lt;strong&gt;</bpt>index.php<ept id="98d7f8bf-5490-41a6-a53c-5003dc4bc563">&lt;/strong&gt;</ept> and insert the following HTML and PHP code which will form the header of the page:</target>
+        </trans-unit>
+        <trans-unit id="59f207e9-5b29-45a8-8e35-bc2641c49df9" xml:space="preserve">
+          <source>To query Azure Tables for <bpt id="101b4582-a039-41ad-bc87-a3baee0d29ef">&lt;strong&gt;</bpt>all entities<ept id="101b4582-a039-41ad-bc87-a3baee0d29ef">&lt;/strong&gt;</ept> stored in the <bpt id="8efc6523-0d49-4d65-8e0c-60b21cd6a3d8">&lt;em&gt;</bpt>tasks<ept id="8efc6523-0d49-4d65-8e0c-60b21cd6a3d8">&lt;/em&gt;</ept> table you call the <bpt id="9e9b2c35-d2ac-4b4f-9631-4f1d4b0e14b3">&lt;em&gt;</bpt>queryEntities<ept id="9e9b2c35-d2ac-4b4f-9631-4f1d4b0e14b3">&lt;/em&gt;</ept> method passing only the name of the table.</source>
+          <target state="new">To query Azure Tables for <bpt id="101b4582-a039-41ad-bc87-a3baee0d29ef">&lt;strong&gt;</bpt>all entities<ept id="101b4582-a039-41ad-bc87-a3baee0d29ef">&lt;/strong&gt;</ept> stored in the <bpt id="8efc6523-0d49-4d65-8e0c-60b21cd6a3d8">&lt;em&gt;</bpt>tasks<ept id="8efc6523-0d49-4d65-8e0c-60b21cd6a3d8">&lt;/em&gt;</ept> table you call the <bpt id="9e9b2c35-d2ac-4b4f-9631-4f1d4b0e14b3">&lt;em&gt;</bpt>queryEntities<ept id="9e9b2c35-d2ac-4b4f-9631-4f1d4b0e14b3">&lt;/em&gt;</ept> method passing only the name of the table.</target>
+        </trans-unit>
+        <trans-unit id="b1477934-2609-4a16-859b-fd440946e562" xml:space="preserve">
+          <source>In the <bpt id="d200c127-fbd4-4381-9828-c191b35ed38d">&lt;strong&gt;</bpt>Updating an Entity<ept id="d200c127-fbd4-4381-9828-c191b35ed38d">&lt;/strong&gt;</ept> section below you will also see how to pass a filter querying for a specific entity.</source>
+          <target state="new">In the <bpt id="d200c127-fbd4-4381-9828-c191b35ed38d">&lt;strong&gt;</bpt>Updating an Entity<ept id="d200c127-fbd4-4381-9828-c191b35ed38d">&lt;/strong&gt;</ept> section below you will also see how to pass a filter querying for a specific entity.</target>
+        </trans-unit>
+        <trans-unit id="f1f61e14-5cfe-4b10-91b9-ea61e3478328" xml:space="preserve">
+          <source>To iterate on the entities in the result set:</source>
+          <target state="new">To iterate on the entities in the result set:</target>
+        </trans-unit>
+        <trans-unit id="ec7e81f3-8875-4973-84e6-459f5eac32fa" xml:space="preserve">
+          <source>Once you get an <bpt id="0a638850-c230-497e-aa5d-254e75629305">&lt;code&gt;</bpt>Entity<ept id="0a638850-c230-497e-aa5d-254e75629305">&lt;/code&gt;</ept>, the model for reading data is <bpt id="18d6ac8c-dcb9-4ad8-ab44-17cbd620f366">&lt;code&gt;</bpt>Entity-&gt;getPropertyValue('[name]')<ept id="18d6ac8c-dcb9-4ad8-ab44-17cbd620f366">&lt;/code&gt;</ept>:</source>
+          <target state="new">Once you get an <bpt id="0a638850-c230-497e-aa5d-254e75629305">&lt;code&gt;</bpt>Entity<ept id="0a638850-c230-497e-aa5d-254e75629305">&lt;/code&gt;</ept>, the model for reading data is <bpt id="18d6ac8c-dcb9-4ad8-ab44-17cbd620f366">&lt;code&gt;</bpt>Entity-&gt;getPropertyValue('[name]')<ept id="18d6ac8c-dcb9-4ad8-ab44-17cbd620f366">&lt;/code&gt;</ept>:</target>
+        </trans-unit>
+        <trans-unit id="2a68437f-ef80-49c8-8375-69d551a0f660" xml:space="preserve">
+          <source>Last, you must insert the form that feeds data into the task insertion script and complete the HTML:</source>
+          <target state="new">Last, you must insert the form that feeds data into the task insertion script and complete the HTML:</target>
+        </trans-unit>
+        <trans-unit id="18905829-c30a-446e-9d64-fd1882a9b2f3" xml:space="preserve">
+          <source>Your application can now read all items stored in the table.</source>
+          <target state="new">Your application can now read all items stored in the table.</target>
+        </trans-unit>
+        <trans-unit id="240e3c7e-400a-4f7f-81be-446275de4dbe" xml:space="preserve">
+          <source>Since there won't be any at fist, let's add a function that writes data into the database.</source>
+          <target state="new">Since there won't be any at fist, let's add a function that writes data into the database.</target>
+        </trans-unit>
+        <trans-unit id="39b457f2-eb43-4ab4-85ea-22dee084a362" xml:space="preserve">
+          <source>Create a file named <bpt id="3f061124-b60e-4498-b291-f1d7d2818aed">&lt;strong&gt;</bpt>additem.php<ept id="3f061124-b60e-4498-b291-f1d7d2818aed">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Create a file named <bpt id="3f061124-b60e-4498-b291-f1d7d2818aed">&lt;strong&gt;</bpt>additem.php<ept id="3f061124-b60e-4498-b291-f1d7d2818aed">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="699bfe4d-915e-431f-b4a4-c2e2ca5e833c" xml:space="preserve">
+          <source>Add the following to the file:</source>
+          <target state="new">Add the following to the file:</target>
+        </trans-unit>
+        <trans-unit id="1ebe1c45-c836-4f56-8ade-da323c4d2eb9" xml:space="preserve">
+          <source>The first step of inserting an entity is instantiating an <bpt id="c0f13dfe-99d6-4c36-891f-27717fc8c176">&lt;code&gt;</bpt>Entity<ept id="c0f13dfe-99d6-4c36-891f-27717fc8c176">&lt;/code&gt;</ept> object and setting the properties on it:</source>
+          <target state="new">The first step of inserting an entity is instantiating an <bpt id="c0f13dfe-99d6-4c36-891f-27717fc8c176">&lt;code&gt;</bpt>Entity<ept id="c0f13dfe-99d6-4c36-891f-27717fc8c176">&lt;/code&gt;</ept> object and setting the properties on it:</target>
+        </trans-unit>
+        <trans-unit id="7f53b750-4ba0-4739-8af1-a28e27b3365d" xml:space="preserve">
+          <source>Then you can pass the <bpt id="798d32e0-6d1c-41d8-9a72-a69621971e25">&lt;code&gt;</bpt>$entity<ept id="798d32e0-6d1c-41d8-9a72-a69621971e25">&lt;/code&gt;</ept> you just created to the <bpt id="e98599c5-d15b-4ff4-b200-2331ad4342f6">&lt;code&gt;</bpt>insertEntity<ept id="e98599c5-d15b-4ff4-b200-2331ad4342f6">&lt;/code&gt;</ept> method:</source>
+          <target state="new">Then you can pass the <bpt id="798d32e0-6d1c-41d8-9a72-a69621971e25">&lt;code&gt;</bpt>$entity<ept id="798d32e0-6d1c-41d8-9a72-a69621971e25">&lt;/code&gt;</ept> you just created to the <bpt id="e98599c5-d15b-4ff4-b200-2331ad4342f6">&lt;code&gt;</bpt>insertEntity<ept id="e98599c5-d15b-4ff4-b200-2331ad4342f6">&lt;/code&gt;</ept> method:</target>
+        </trans-unit>
+        <trans-unit id="c9bbbb7b-9f1d-474c-8ed8-d8d32b6bb8cc" xml:space="preserve">
+          <source>Last, to make the page return to the home page after inserting the entity:</source>
+          <target state="new">Last, to make the page return to the home page after inserting the entity:</target>
+        </trans-unit>
+        <trans-unit id="275f73a3-db00-4614-b510-8d4d66a58a06" xml:space="preserve">
+          <source>The task list app has the ability to mark an item as complete as well as to unmark it.</source>
+          <target state="new">The task list app has the ability to mark an item as complete as well as to unmark it.</target>
+        </trans-unit>
+        <trans-unit id="54dc1008-c6c3-4090-8b49-05aa7e7479c2" xml:space="preserve">
+          <source>The home page passes in the <bpt id="b163def0-c6d5-4353-a1d9-146eee272239">&lt;em&gt;</bpt>RowKey<ept id="b163def0-c6d5-4353-a1d9-146eee272239">&lt;/em&gt;</ept> and <bpt id="0c08cff2-5c3d-424f-80ee-3256b86d4619">&lt;em&gt;</bpt>PartitionKey<ept id="0c08cff2-5c3d-424f-80ee-3256b86d4619">&lt;/em&gt;</ept> of an entity and the target state (marked==1, unmarked==0).</source>
+          <target state="new">The home page passes in the <bpt id="b163def0-c6d5-4353-a1d9-146eee272239">&lt;em&gt;</bpt>RowKey<ept id="b163def0-c6d5-4353-a1d9-146eee272239">&lt;/em&gt;</ept> and <bpt id="0c08cff2-5c3d-424f-80ee-3256b86d4619">&lt;em&gt;</bpt>PartitionKey<ept id="0c08cff2-5c3d-424f-80ee-3256b86d4619">&lt;/em&gt;</ept> of an entity and the target state (marked==1, unmarked==0).</target>
+        </trans-unit>
+        <trans-unit id="c5cbf77e-7f97-48cc-83c8-d1fa58205b41" xml:space="preserve">
+          <source>Create a file called <bpt id="eb27f332-7b2a-48ec-9414-0badbc8c1057">&lt;strong&gt;</bpt>markitem.php<ept id="eb27f332-7b2a-48ec-9414-0badbc8c1057">&lt;/strong&gt;</ept> and add the initialization part:</source>
+          <target state="new">Create a file called <bpt id="eb27f332-7b2a-48ec-9414-0badbc8c1057">&lt;strong&gt;</bpt>markitem.php<ept id="eb27f332-7b2a-48ec-9414-0badbc8c1057">&lt;/strong&gt;</ept> and add the initialization part:</target>
+        </trans-unit>
+        <trans-unit id="355c2e98-1b95-4b19-a674-2173bb776168" xml:space="preserve">
+          <source>The first step to updating an entity is fetching it from the Table:</source>
+          <target state="new">The first step to updating an entity is fetching it from the Table:</target>
+        </trans-unit>
+        <trans-unit id="4b4f0e64-d410-41e2-8d50-7041cbcb2fb4" xml:space="preserve">
+          <source>As you can see the passed in query filter is of the form <bpt id="b7a55aae-591f-4642-8c57-65a0dfba3d57">&lt;code&gt;</bpt>Key eq 'Value'<ept id="b7a55aae-591f-4642-8c57-65a0dfba3d57">&lt;/code&gt;</ept>.</source>
+          <target state="new">As you can see the passed in query filter is of the form <bpt id="b7a55aae-591f-4642-8c57-65a0dfba3d57">&lt;code&gt;</bpt>Key eq 'Value'<ept id="b7a55aae-591f-4642-8c57-65a0dfba3d57">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9b6970df-4987-48da-bf48-dfcfef3850cc" xml:space="preserve">
+          <source>A full description of the query syntax is available <bpt id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;linkText&gt;</bpt>here[msdn-table-query-syntax]<ept id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;/linkText&gt;</ept><bpt id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;title&gt;</bpt><ept id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;/title&gt;</ept>.</source>
+          <target state="new">A full description of the query syntax is available <bpt id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;linkText&gt;</bpt>here[msdn-table-query-syntax]<ept id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;/linkText&gt;</ept><bpt id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;title&gt;</bpt><ept id="c7464830-56c7-4144-8ee0-279c085e2c26">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="35007ce5-cf02-4075-ad0d-acc6fef5f3cf" xml:space="preserve">
+          <source>Then you can change any properties:</source>
+          <target state="new">Then you can change any properties:</target>
+        </trans-unit>
+        <trans-unit id="75f60682-af4b-412b-9888-7dc03f6cd4d2" xml:space="preserve">
+          <source>And the <bpt id="b0ee512f-80fe-4de1-a42a-8c0c4fe87783">&lt;code&gt;</bpt>updateEntity<ept id="b0ee512f-80fe-4de1-a42a-8c0c4fe87783">&lt;/code&gt;</ept> method performs the update:</source>
+          <target state="new">And the <bpt id="b0ee512f-80fe-4de1-a42a-8c0c4fe87783">&lt;code&gt;</bpt>updateEntity<ept id="b0ee512f-80fe-4de1-a42a-8c0c4fe87783">&lt;/code&gt;</ept> method performs the update:</target>
+        </trans-unit>
+        <trans-unit id="8da0371b-c0cc-423e-9e5a-130d485a2c2d" xml:space="preserve">
+          <source>To make the page return to the home page after inserting the entity:</source>
+          <target state="new">To make the page return to the home page after inserting the entity:</target>
+        </trans-unit>
+        <trans-unit id="e0483d0d-6fba-489b-bc1d-ebb562f7c0ae" xml:space="preserve">
+          <source>Deleting an item is accomplished with a single call to <bpt id="a042de06-01e0-46e8-ac2f-1f46b6d332de">&lt;code&gt;</bpt>deleteItem<ept id="a042de06-01e0-46e8-ac2f-1f46b6d332de">&lt;/code&gt;</ept>.</source>
+          <target state="new">Deleting an item is accomplished with a single call to <bpt id="a042de06-01e0-46e8-ac2f-1f46b6d332de">&lt;code&gt;</bpt>deleteItem<ept id="a042de06-01e0-46e8-ac2f-1f46b6d332de">&lt;/code&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4170d1c8-925f-4a39-8fd9-26636859844f" xml:space="preserve">
+          <source>The passed in values are the <bpt id="c3ed5cdc-4bb4-4ca7-bb2c-60a9df4674d2">&lt;strong&gt;</bpt>PartitionKey<ept id="c3ed5cdc-4bb4-4ca7-bb2c-60a9df4674d2">&lt;/strong&gt;</ept> and the <bpt id="75453ab0-3bd3-44a3-83e1-6d8a2a43b634">&lt;strong&gt;</bpt>RowKey<ept id="75453ab0-3bd3-44a3-83e1-6d8a2a43b634">&lt;/strong&gt;</ept>, which together make up the primary key of the entity.</source>
+          <target state="new">The passed in values are the <bpt id="c3ed5cdc-4bb4-4ca7-bb2c-60a9df4674d2">&lt;strong&gt;</bpt>PartitionKey<ept id="c3ed5cdc-4bb4-4ca7-bb2c-60a9df4674d2">&lt;/strong&gt;</ept> and the <bpt id="75453ab0-3bd3-44a3-83e1-6d8a2a43b634">&lt;strong&gt;</bpt>RowKey<ept id="75453ab0-3bd3-44a3-83e1-6d8a2a43b634">&lt;/strong&gt;</ept>, which together make up the primary key of the entity.</target>
+        </trans-unit>
+        <trans-unit id="de32a889-f5af-4b3c-82f2-786fff0cacfe" xml:space="preserve">
+          <source>Create a file called <bpt id="0a6ee77b-4a69-45ae-9768-f72aa8208c5d">&lt;strong&gt;</bpt>deleteitem.php<ept id="0a6ee77b-4a69-45ae-9768-f72aa8208c5d">&lt;/strong&gt;</ept> and insert the following code:</source>
+          <target state="new">Create a file called <bpt id="0a6ee77b-4a69-45ae-9768-f72aa8208c5d">&lt;strong&gt;</bpt>deleteitem.php<ept id="0a6ee77b-4a69-45ae-9768-f72aa8208c5d">&lt;/strong&gt;</ept> and insert the following code:</target>
+        </trans-unit>
+        <trans-unit id="f3b366b5-c11f-4322-9527-fd95b316954c" xml:space="preserve">
+          <source>To make your application store data into the cloud you need to first create a storage account in Azure and then pass the proper authentication information to the <bpt id="cec518f9-28cf-4b7a-b9e7-821958eaf01d">&lt;em&gt;</bpt>Configuration<ept id="cec518f9-28cf-4b7a-b9e7-821958eaf01d">&lt;/em&gt;</ept> class.</source>
+          <target state="new">To make your application store data into the cloud you need to first create a storage account in Azure and then pass the proper authentication information to the <bpt id="cec518f9-28cf-4b7a-b9e7-821958eaf01d">&lt;em&gt;</bpt>Configuration<ept id="cec518f9-28cf-4b7a-b9e7-821958eaf01d">&lt;/em&gt;</ept> class.</target>
+        </trans-unit>
+        <trans-unit id="a5374726-8a10-4195-b432-dc63e8d3f555" xml:space="preserve">
+          <source>Login to the <bpt id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;/linkText&gt;</ept><bpt id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;title&gt;</bpt><ept id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;/linkText&gt;</ept><bpt id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;title&gt;</bpt><ept id="8c61d754-bde0-43fe-8397-edb509ba2a56">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="407e1750-696c-4f41-a98c-4f6554868104" xml:space="preserve">
+          <source>Click the <bpt id="875c9df1-c412-4bc6-a11d-336305090bcd">&lt;strong&gt;</bpt>New<ept id="875c9df1-c412-4bc6-a11d-336305090bcd">&lt;/strong&gt;</ept> icon on the bottom left of the portal, then click <bpt id="39b2cec3-c241-4c92-a567-222b8a0d22af">&lt;strong&gt;</bpt>Data + Storage<ept id="39b2cec3-c241-4c92-a567-222b8a0d22af">&lt;/strong&gt;</ept> &gt; <bpt id="b21fd0ef-3dce-41fe-9daa-171d3f957e8f">&lt;strong&gt;</bpt>Storage<ept id="b21fd0ef-3dce-41fe-9daa-171d3f957e8f">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click the <bpt id="875c9df1-c412-4bc6-a11d-336305090bcd">&lt;strong&gt;</bpt>New<ept id="875c9df1-c412-4bc6-a11d-336305090bcd">&lt;/strong&gt;</ept> icon on the bottom left of the portal, then click <bpt id="39b2cec3-c241-4c92-a567-222b8a0d22af">&lt;strong&gt;</bpt>Data + Storage<ept id="39b2cec3-c241-4c92-a567-222b8a0d22af">&lt;/strong&gt;</ept> &gt; <bpt id="b21fd0ef-3dce-41fe-9daa-171d3f957e8f">&lt;strong&gt;</bpt>Storage<ept id="b21fd0ef-3dce-41fe-9daa-171d3f957e8f">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2c7823ea-17b9-4e08-a2d3-038457fc8c45" xml:space="preserve">
+          <source>Give the storage account a unique name and create a new <bpt id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;linkText&gt;</bpt>resource group<ept id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;/linkText&gt;</ept><bpt id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;title&gt;</bpt><ept id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;/title&gt;</ept> for it.</source>
+          <target state="new">Give the storage account a unique name and create a new <bpt id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;linkText&gt;</bpt>resource group<ept id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;/linkText&gt;</ept><bpt id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;title&gt;</bpt><ept id="1e63d590-f329-4d1d-9b73-df1869c98766">&lt;/title&gt;</ept> for it.</target>
+        </trans-unit>
+        <trans-unit id="50bcc75b-c360-4ee7-9155-340e561b40cd" xml:space="preserve">
+          <source><bpt id="a4670905-dd3e-4e00-8b9b-07fab366e24a">&lt;linkText&gt;</bpt>Create a new storage account<ept id="a4670905-dd3e-4e00-8b9b-07fab366e24a">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a4670905-dd3e-4e00-8b9b-07fab366e24a">&lt;linkText&gt;</bpt>Create a new storage account<ept id="a4670905-dd3e-4e00-8b9b-07fab366e24a">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d102d90d-cb42-4452-8a87-5ca673adae3f" xml:space="preserve">
+          <source>When the storage account has been created, the <bpt id="7c7e1e97-77d1-4d3d-8459-7e11bcc14fbe">&lt;strong&gt;</bpt>Notifications<ept id="7c7e1e97-77d1-4d3d-8459-7e11bcc14fbe">&lt;/strong&gt;</ept> button will flash a green <bpt id="c55b07ec-f5de-4950-b6cb-7783874ac3e2">&lt;strong&gt;</bpt>SUCCESS<ept id="c55b07ec-f5de-4950-b6cb-7783874ac3e2">&lt;/strong&gt;</ept> and the storage account's blade is open to show that it belongs to the new resource group you created.</source>
+          <target state="new">When the storage account has been created, the <bpt id="7c7e1e97-77d1-4d3d-8459-7e11bcc14fbe">&lt;strong&gt;</bpt>Notifications<ept id="7c7e1e97-77d1-4d3d-8459-7e11bcc14fbe">&lt;/strong&gt;</ept> button will flash a green <bpt id="c55b07ec-f5de-4950-b6cb-7783874ac3e2">&lt;strong&gt;</bpt>SUCCESS<ept id="c55b07ec-f5de-4950-b6cb-7783874ac3e2">&lt;/strong&gt;</ept> and the storage account's blade is open to show that it belongs to the new resource group you created.</target>
+        </trans-unit>
+        <trans-unit id="5f7202f7-deb2-435c-90d3-54ed610e73a0" xml:space="preserve">
+          <source>Click the <bpt id="4b553a9d-fe9d-4e05-8214-62a43350f6ef">&lt;strong&gt;</bpt>Settings<ept id="4b553a9d-fe9d-4e05-8214-62a43350f6ef">&lt;/strong&gt;</ept> part in the storage account's blade.</source>
+          <target state="new">Click the <bpt id="4b553a9d-fe9d-4e05-8214-62a43350f6ef">&lt;strong&gt;</bpt>Settings<ept id="4b553a9d-fe9d-4e05-8214-62a43350f6ef">&lt;/strong&gt;</ept> part in the storage account's blade.</target>
+        </trans-unit>
+        <trans-unit id="22fb4ada-00ad-4eda-93f3-3038bbf96cb6" xml:space="preserve">
+          <source>Take note of the account name and the primary key.</source>
+          <target state="new">Take note of the account name and the primary key.</target>
+        </trans-unit>
+        <trans-unit id="b1a2c7df-98d5-4044-9c85-d7c76e8c8f66" xml:space="preserve">
+          <source><bpt id="85e24d9a-74f3-4df1-b4a2-c5b1a2e12c39">&lt;linkText&gt;</bpt>Select Manage Keys<ept id="85e24d9a-74f3-4df1-b4a2-c5b1a2e12c39">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="85e24d9a-74f3-4df1-b4a2-c5b1a2e12c39">&lt;linkText&gt;</bpt>Select Manage Keys<ept id="85e24d9a-74f3-4df1-b4a2-c5b1a2e12c39">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="a925ef6a-ad67-4975-8853-094e87e60065" xml:space="preserve">
+          <source>Open <bpt id="4b12ad69-250a-4b07-8e85-10f1428eec59">&lt;strong&gt;</bpt>init.php<ept id="4b12ad69-250a-4b07-8e85-10f1428eec59">&lt;/strong&gt;</ept> and replace <bpt id="78700afd-3d34-4c05-aabb-41b143dcea0d">&lt;code&gt;</bpt>[YOUR_STORAGE_ACCOUNT_NAME]<ept id="78700afd-3d34-4c05-aabb-41b143dcea0d">&lt;/code&gt;</ept> and <bpt id="63645bea-3221-4f91-b567-5c0c6b51f1ef">&lt;code&gt;</bpt>[YOUR_STORAGE_ACCOUNT_KEY]<ept id="63645bea-3221-4f91-b567-5c0c6b51f1ef">&lt;/code&gt;</ept> with the account name and key you took note of in the last step.</source>
+          <target state="new">Open <bpt id="4b12ad69-250a-4b07-8e85-10f1428eec59">&lt;strong&gt;</bpt>init.php<ept id="4b12ad69-250a-4b07-8e85-10f1428eec59">&lt;/strong&gt;</ept> and replace <bpt id="78700afd-3d34-4c05-aabb-41b143dcea0d">&lt;code&gt;</bpt>[YOUR_STORAGE_ACCOUNT_NAME]<ept id="78700afd-3d34-4c05-aabb-41b143dcea0d">&lt;/code&gt;</ept> and <bpt id="63645bea-3221-4f91-b567-5c0c6b51f1ef">&lt;code&gt;</bpt>[YOUR_STORAGE_ACCOUNT_KEY]<ept id="63645bea-3221-4f91-b567-5c0c6b51f1ef">&lt;/code&gt;</ept> with the account name and key you took note of in the last step.</target>
+        </trans-unit>
+        <trans-unit id="23d1a353-e152-4007-87c8-0c1d091cef94" xml:space="preserve">
+          <source>Save the file.</source>
+          <target state="new">Save the file.</target>
+        </trans-unit>
+        <trans-unit id="73f3ab21-302a-42b0-9ed1-dc5ff105b42d" xml:space="preserve">
+          <source>Follow these steps to create an Azure web app:</source>
+          <target state="new">Follow these steps to create an Azure web app:</target>
+        </trans-unit>
+        <trans-unit id="7c080916-ec08-4e13-b667-9340186124f4" xml:space="preserve">
+          <source>Login to the <bpt id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;/linkText&gt;</ept><bpt id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;title&gt;</bpt><ept id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;/title&gt;</ept>.</source>
+          <target state="new">Login to the <bpt id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;linkText&gt;</bpt>Azure Portal[management-portal]<ept id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;/linkText&gt;</ept><bpt id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;title&gt;</bpt><ept id="03615075-fd5c-4b9c-8ac7-79ebca5be6d2">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="9200cc53-a817-4442-aedd-1b51f819d89f" xml:space="preserve">
+          <source>Create an empty web app with the instructions at <bpt id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;linkText&gt;</bpt>How to: Create a web app Using the Azure Portal<ept id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;/linkText&gt;</ept><bpt id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;title&gt;</bpt><ept id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;/title&gt;</ept>.</source>
+          <target state="new">Create an empty web app with the instructions at <bpt id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;linkText&gt;</bpt>How to: Create a web app Using the Azure Portal<ept id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;/linkText&gt;</ept><bpt id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;title&gt;</bpt><ept id="d9fd5ea3-0c5a-43ed-83f3-058e0e281ce3">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="999db378-2dde-44fe-8532-fb73a22b17f5" xml:space="preserve">
+          <source>Be sure to create a new <bpt id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;linkText&gt;</bpt>App Service plan<ept id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;/linkText&gt;</ept><bpt id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;title&gt;</bpt><ept id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;/title&gt;</ept> and select the resource group you created previously for the storage account.</source>
+          <target state="new">Be sure to create a new <bpt id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;linkText&gt;</bpt>App Service plan<ept id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;/linkText&gt;</ept><bpt id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;title&gt;</bpt><ept id="06b6d298-943e-4f4c-9eb2-2564de30fbe6">&lt;/title&gt;</ept> and select the resource group you created previously for the storage account.</target>
+        </trans-unit>
+        <trans-unit id="d09c6973-19a7-463b-b515-488d80f083dc" xml:space="preserve">
+          <source>When the web app has been created, the <bpt id="45dde398-796b-43e0-8bf2-b816fbf42aa1">&lt;strong&gt;</bpt>Notifications<ept id="45dde398-796b-43e0-8bf2-b816fbf42aa1">&lt;/strong&gt;</ept> button will flash a green <bpt id="62b29c20-1bda-4281-8714-01ca0923eb31">&lt;strong&gt;</bpt>SUCCESS<ept id="62b29c20-1bda-4281-8714-01ca0923eb31">&lt;/strong&gt;</ept> and the web app's blade is open to show that it belongs to the new resource group you created.</source>
+          <target state="new">When the web app has been created, the <bpt id="45dde398-796b-43e0-8bf2-b816fbf42aa1">&lt;strong&gt;</bpt>Notifications<ept id="45dde398-796b-43e0-8bf2-b816fbf42aa1">&lt;/strong&gt;</ept> button will flash a green <bpt id="62b29c20-1bda-4281-8714-01ca0923eb31">&lt;strong&gt;</bpt>SUCCESS<ept id="62b29c20-1bda-4281-8714-01ca0923eb31">&lt;/strong&gt;</ept> and the web app's blade is open to show that it belongs to the new resource group you created.</target>
+        </trans-unit>
+        <trans-unit id="21744923-05d5-4c6b-8e21-e87816699beb" xml:space="preserve">
+          <source>In the web app's blade, click <bpt id="eec05810-b38d-407f-a0d9-4da146c58517">&lt;strong&gt;</bpt>Set up continuous deployment<ept id="eec05810-b38d-407f-a0d9-4da146c58517">&lt;/strong&gt;</ept>, and choose <bpt id="acdd3ea0-df8f-44be-8945-35ace647eabf">&lt;strong&gt;</bpt>Local Git Repository<ept id="acdd3ea0-df8f-44be-8945-35ace647eabf">&lt;/strong&gt;</ept>.</source>
+          <target state="new">In the web app's blade, click <bpt id="eec05810-b38d-407f-a0d9-4da146c58517">&lt;strong&gt;</bpt>Set up continuous deployment<ept id="eec05810-b38d-407f-a0d9-4da146c58517">&lt;/strong&gt;</ept>, and choose <bpt id="acdd3ea0-df8f-44be-8945-35ace647eabf">&lt;strong&gt;</bpt>Local Git Repository<ept id="acdd3ea0-df8f-44be-8945-35ace647eabf">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="85d0701f-a6e4-448c-8afa-40695b31e44c" xml:space="preserve">
+          <source>Click <bpt id="a2e0979e-3227-4f70-b159-077db0011577">&lt;strong&gt;</bpt>OK<ept id="a2e0979e-3227-4f70-b159-077db0011577">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Click <bpt id="a2e0979e-3227-4f70-b159-077db0011577">&lt;strong&gt;</bpt>OK<ept id="a2e0979e-3227-4f70-b159-077db0011577">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="2e3c05b5-3c79-4a3b-8389-098f81be79b7" xml:space="preserve">
+          <source><bpt id="55a30bf1-c7fc-462f-8ea2-1769d1909d94">&lt;linkText&gt;</bpt>Set up Git publishing<ept id="55a30bf1-c7fc-462f-8ea2-1769d1909d94">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="55a30bf1-c7fc-462f-8ea2-1769d1909d94">&lt;linkText&gt;</bpt>Set up Git publishing<ept id="55a30bf1-c7fc-462f-8ea2-1769d1909d94">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="0096ac33-b284-47c2-865d-74fa3d894d65" xml:space="preserve">
+          <source>Before you can deploy your local Git repository to Azure, you must also set up deployment credentials.</source>
+          <target state="new">Before you can deploy your local Git repository to Azure, you must also set up deployment credentials.</target>
+        </trans-unit>
+        <trans-unit id="967dfef6-e28b-4607-bdec-25e86bd067dc" xml:space="preserve">
+          <source>In the web app's blade, click <bpt id="024243b6-d178-464f-81fa-4e9a51ffb877">&lt;strong&gt;</bpt>All Settings<ept id="024243b6-d178-464f-81fa-4e9a51ffb877">&lt;/strong&gt;</ept> &gt; <bpt id="039d0ed0-efef-43ab-a632-ba076c237e0a">&lt;strong&gt;</bpt>Deployment credentials<ept id="039d0ed0-efef-43ab-a632-ba076c237e0a">&lt;/strong&gt;</ept> to configure the credentials.</source>
+          <target state="new">In the web app's blade, click <bpt id="024243b6-d178-464f-81fa-4e9a51ffb877">&lt;strong&gt;</bpt>All Settings<ept id="024243b6-d178-464f-81fa-4e9a51ffb877">&lt;/strong&gt;</ept> &gt; <bpt id="039d0ed0-efef-43ab-a632-ba076c237e0a">&lt;strong&gt;</bpt>Deployment credentials<ept id="039d0ed0-efef-43ab-a632-ba076c237e0a">&lt;/strong&gt;</ept> to configure the credentials.</target>
+        </trans-unit>
+        <trans-unit id="c3d77267-caac-49b0-a525-4b8d324975aa" xml:space="preserve">
+          <source>Click <bpt id="e9897327-43b2-4322-ab14-92b6ce46f8a5">&lt;strong&gt;</bpt>Save<ept id="e9897327-43b2-4322-ab14-92b6ce46f8a5">&lt;/strong&gt;</ept> when you're done.</source>
+          <target state="new">Click <bpt id="e9897327-43b2-4322-ab14-92b6ce46f8a5">&lt;strong&gt;</bpt>Save<ept id="e9897327-43b2-4322-ab14-92b6ce46f8a5">&lt;/strong&gt;</ept> when you're done.</target>
+        </trans-unit>
+        <trans-unit id="8505129e-268d-4469-a10d-87a0b72ad603" xml:space="preserve">
+          <source><bpt id="fff54e7a-ef87-4b69-911a-dc657bd147e8">&lt;linkText&gt;</bpt>Create publishing credentials<ept id="fff54e7a-ef87-4b69-911a-dc657bd147e8">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="fff54e7a-ef87-4b69-911a-dc657bd147e8">&lt;linkText&gt;</bpt>Create publishing credentials<ept id="fff54e7a-ef87-4b69-911a-dc657bd147e8">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="d704f9a5-1471-4228-ae7c-b45efd1eb742" xml:space="preserve">
+          <source>It will take a few seconds to set up your repository.</source>
+          <target state="new">It will take a few seconds to set up your repository.</target>
+        </trans-unit>
+        <trans-unit id="53bc9b15-573a-44a3-93fc-460a2b1e7ee2" xml:space="preserve">
+          <source>Once the Git repository is ready, you now push your changes to it.</source>
+          <target state="new">Once the Git repository is ready, you now push your changes to it.</target>
+        </trans-unit>
+        <trans-unit id="187368f3-941e-45fb-bb26-f486d882c68a" xml:space="preserve">
+          <source>You can find the repo URL by clicking the same deployment part in the web app's blade.</source>
+          <target state="new">You can find the repo URL by clicking the same deployment part in the web app's blade.</target>
+        </trans-unit>
+        <trans-unit id="6e0b4da7-c3ce-41b6-8445-954287535312" xml:space="preserve">
+          <source><bpt id="a343bde6-8227-411c-9bba-425da44a5422">&lt;linkText&gt;</bpt>Git deployment instructions returned after creating a repository for the web app.<ept id="a343bde6-8227-411c-9bba-425da44a5422">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="a343bde6-8227-411c-9bba-425da44a5422">&lt;linkText&gt;</bpt>Git deployment instructions returned after creating a repository for the web app.<ept id="a343bde6-8227-411c-9bba-425da44a5422">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c034bb5d-8347-4703-af1d-0adf8eedf3ed" xml:space="preserve">
+          <source>Note the instructions, as these will be used in the next section to publish the application.</source>
+          <target state="new">Note the instructions, as these will be used in the next section to publish the application.</target>
+        </trans-unit>
+        <trans-unit id="d4c0b389-37dd-481b-8049-7d878a12aa64" xml:space="preserve">
+          <source>To publish your application with Git, follow the steps below.</source>
+          <target state="new">To publish your application with Git, follow the steps below.</target>
+        </trans-unit>
+        <trans-unit id="9de7f5bc-f00e-4ce8-87a4-9f99364a8984" xml:space="preserve">
+          <source>Open the <bpt id="ba7a3123-d2ae-4707-8e92-519a10956b69">&lt;strong&gt;</bpt>vendor/microsoft/windowsazure<ept id="ba7a3123-d2ae-4707-8e92-519a10956b69">&lt;/strong&gt;</ept> folder under the root of the application and delete the following files and folders:</source>
+          <target state="new">Open the <bpt id="ba7a3123-d2ae-4707-8e92-519a10956b69">&lt;strong&gt;</bpt>vendor/microsoft/windowsazure<ept id="ba7a3123-d2ae-4707-8e92-519a10956b69">&lt;/strong&gt;</ept> folder under the root of the application and delete the following files and folders:</target>
+        </trans-unit>
+        <trans-unit id="7317dffb-fbe0-41bd-b846-1ae9b620f694" xml:space="preserve">
+          <source>.git</source>
+          <target state="new">.git</target>
+        </trans-unit>
+        <trans-unit id="adf7ad92-4477-4b41-90f5-6e675cd8ac9d" xml:space="preserve">
+          <source>.gitattributes</source>
+          <target state="new">.gitattributes</target>
+        </trans-unit>
+        <trans-unit id="ebe62f5c-78ce-4378-87c9-c113de755eec" xml:space="preserve">
+          <source>.gitignore</source>
+          <target state="new">.gitignore</target>
+        </trans-unit>
+        <trans-unit id="f40330d9-9811-4d71-9f61-85dcf869eac9" xml:space="preserve">
+          <source>When the Composer package manager downloads the Azure client libraries and their dependencies it does so by cloning the GitHub repository that they reside in.</source>
+          <target state="new">When the Composer package manager downloads the Azure client libraries and their dependencies it does so by cloning the GitHub repository that they reside in.</target>
+        </trans-unit>
+        <trans-unit id="13a8a663-e394-4f23-b54f-c37af2f65d11" xml:space="preserve">
+          <source>In the next step, the application will be deployed via Git by creating a repository out of the root folder of the application.</source>
+          <target state="new">In the next step, the application will be deployed via Git by creating a repository out of the root folder of the application.</target>
+        </trans-unit>
+        <trans-unit id="abc90f76-7999-4a85-9dca-2f65c5f6d008" xml:space="preserve">
+          <source>Git will ignore the sub-repository where the client libraries live unless the repository-specific files are removed.</source>
+          <target state="new">Git will ignore the sub-repository where the client libraries live unless the repository-specific files are removed.</target>
+        </trans-unit>
+        <trans-unit id="9aca6d4e-af0f-4842-aec0-a9ed543ae343" xml:space="preserve">
+          <source>Open GitBash (or a terminal, if Git is in your <bpt id="3429a1e6-0907-4391-b7ae-9bcd25e3695a">&lt;code&gt;</bpt>PATH<ept id="3429a1e6-0907-4391-b7ae-9bcd25e3695a">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</source>
+          <target state="new">Open GitBash (or a terminal, if Git is in your <bpt id="3429a1e6-0907-4391-b7ae-9bcd25e3695a">&lt;code&gt;</bpt>PATH<ept id="3429a1e6-0907-4391-b7ae-9bcd25e3695a">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="4fe7bef7-94bf-4fe1-a77f-4187acf2d5a1" xml:space="preserve">
+          <source>You will be prompted for the password you created earlier.</source>
+          <target state="new">You will be prompted for the password you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="dd0f9488-f0c5-4615-b0a3-348b50ee9d07" xml:space="preserve">
+          <source>Browse to <bpt id="fd4e3b7a-a034-4f1d-8603-0a94058b3a57">&lt;strong&gt;</bpt>http://[your web app domain]/createtable.php<ept id="fd4e3b7a-a034-4f1d-8603-0a94058b3a57">&lt;/strong&gt;</ept> to create the table for the application.</source>
+          <target state="new">Browse to <bpt id="fd4e3b7a-a034-4f1d-8603-0a94058b3a57">&lt;strong&gt;</bpt>http://[your web app domain]/createtable.php<ept id="fd4e3b7a-a034-4f1d-8603-0a94058b3a57">&lt;/strong&gt;</ept> to create the table for the application.</target>
+        </trans-unit>
+        <trans-unit id="b572d5d3-ffcc-4745-a025-5f5b2be09628" xml:space="preserve">
+          <source>Browse to <bpt id="cd47054b-07d5-45c4-ae4f-7cd3d974d897">&lt;strong&gt;</bpt>http://[your web app domain]/index.php<ept id="cd47054b-07d5-45c4-ae4f-7cd3d974d897">&lt;/strong&gt;</ept> to begin using the application.</source>
+          <target state="new">Browse to <bpt id="cd47054b-07d5-45c4-ae4f-7cd3d974d897">&lt;strong&gt;</bpt>http://[your web app domain]/index.php<ept id="cd47054b-07d5-45c4-ae4f-7cd3d974d897">&lt;/strong&gt;</ept> to begin using the application.</target>
+        </trans-unit>
+        <trans-unit id="896181fe-c92b-43f5-991e-ca4925310e40" xml:space="preserve">
+          <source>After you have published your application, you can begin making changes to it and use Git to publish them.</source>
+          <target state="new">After you have published your application, you can begin making changes to it and use Git to publish them.</target>
+        </trans-unit>
+        <trans-unit id="da3601b5-08ce-4f21-b4a3-0cba127a64aa" xml:space="preserve">
+          <source>To publish changes to application, follow these steps:</source>
+          <target state="new">To publish changes to application, follow these steps:</target>
+        </trans-unit>
+        <trans-unit id="1d6f4d17-a619-4729-bf97-04df25a98ec8" xml:space="preserve">
+          <source>Make changes to your application locally.</source>
+          <target state="new">Make changes to your application locally.</target>
+        </trans-unit>
+        <trans-unit id="85c3176a-0e66-4c6e-b56f-820f1a35d7c2" xml:space="preserve">
+          <source>Open GitBash (or a terminal, it Git is in your <bpt id="b0a3397a-6f43-48ff-8de1-84687dcc4fdf">&lt;code&gt;</bpt>PATH<ept id="b0a3397a-6f43-48ff-8de1-84687dcc4fdf">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</source>
+          <target state="new">Open GitBash (or a terminal, it Git is in your <bpt id="b0a3397a-6f43-48ff-8de1-84687dcc4fdf">&lt;code&gt;</bpt>PATH<ept id="b0a3397a-6f43-48ff-8de1-84687dcc4fdf">&lt;/code&gt;</ept>), change directories to the root directory of your application, and run the following commands:</target>
+        </trans-unit>
+        <trans-unit id="3b246592-51a0-4f9a-899e-b2d02c8ab30f" xml:space="preserve">
+          <source>You will be prompted for the password you created earlier.</source>
+          <target state="new">You will be prompted for the password you created earlier.</target>
+        </trans-unit>
+        <trans-unit id="f547f15b-0217-4ccb-b88a-0407604703d2" xml:space="preserve">
+          <source>Browse to <bpt id="eb162343-24d5-46e5-b0ec-1ae68127a210">&lt;strong&gt;</bpt>http://[your web app domain]/index.php<ept id="eb162343-24d5-46e5-b0ec-1ae68127a210">&lt;/strong&gt;</ept> to see your changes.</source>
+          <target state="new">Browse to <bpt id="eb162343-24d5-46e5-b0ec-1ae68127a210">&lt;strong&gt;</bpt>http://[your web app domain]/index.php<ept id="eb162343-24d5-46e5-b0ec-1ae68127a210">&lt;/strong&gt;</ept> to see your changes.</target>
+        </trans-unit>
+        <trans-unit id="cc3c694f-d7f0-4384-a7ee-1f14c47b68d8" xml:space="preserve">
+          <source>For a guide to the change from Websites to App Service see: <bpt id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;/linkText&gt;</ept><bpt id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;title&gt;</bpt><ept id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change from Websites to App Service see: <bpt id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;linkText&gt;</bpt>Azure App Service and Its Impact on Existing Azure Services<ept id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;/linkText&gt;</ept><bpt id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;title&gt;</bpt><ept id="1d9718f0-a131-425a-8772-db74cd46b803">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="078dfcc6-fbba-45b8-8cef-d497edf13774" xml:space="preserve">
+          <source>For a guide to the change of the old portal to the new portal see: <bpt id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;linkText&gt;</bpt>Reference for navigating the portal<ept id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;/linkText&gt;</ept><bpt id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;title&gt;</bpt><ept id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;/title&gt;</ept></source>
+          <target state="new">For a guide to the change of the old portal to the new portal see: <bpt id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;linkText&gt;</bpt>Reference for navigating the portal<ept id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;/linkText&gt;</ept><bpt id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;title&gt;</bpt><ept id="6e80cfdf-6a2e-46a4-8dde-9cc7d67b066e">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="386a1bc5-c339-45ee-85ea-9a1a16148dc5" xml:space="preserve">
+          <source>http://www.php.net/manual/en/install.php</source>
+          <target state="new">http://www.php.net/manual/en/install.php</target>
+        </trans-unit>
+        <trans-unit id="3b9c50f8-78a3-4b29-867d-95ec82945c2f" xml:space="preserve">
+          <source>http://git-scm.com/book/en/Getting-Started-Installing-Git</source>
+          <target state="new">http://git-scm.com/book/en/Getting-Started-Installing-Git</target>
+        </trans-unit>
+        <trans-unit id="cb0f5e89-7b34-4648-8690-311e80c5afe9" xml:space="preserve">
+          <source>http://getcomposer.org/composer.phar</source>
+          <target state="new">http://getcomposer.org/composer.phar</target>
+        </trans-unit>
+        <trans-unit id="297e53db-8af3-45bd-a4ad-525dcd26f73b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dd179438.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dd179438.aspx</target>
+        </trans-unit>
+        <trans-unit id="d7655b63-9734-4bcd-b521-0de2ccc4887b" xml:space="preserve">
+          <source>http://msdn.microsoft.com/library/windowsazure/dd894031.aspx</source>
+          <target state="new">http://msdn.microsoft.com/library/windowsazure/dd894031.aspx</target>
+        </trans-unit>
+        <trans-unit id="72a7d9f5-f047-4d95-a1f0-1f515757a38b" xml:space="preserve">
+          <source>./media/web-sites-php-storage/ws-storage-app.png</source>
+          <target state="new">./media/web-sites-php-storage/ws-storage-app.png</target>
+        </trans-unit>
+        <trans-unit id="4d423749-839e-4b7d-9180-33eb275dafe7" xml:space="preserve">
+          <source>https://portal.azure.com</source>
+          <target state="new">https://portal.azure.com</target>
+        </trans-unit>
+        <trans-unit id="84935c50-4ce7-4628-a5d3-6de3afa1225f" xml:space="preserve">
+          <source>./media/web-sites-php-storage/createstorage.png</source>
+          <target state="new">./media/web-sites-php-storage/createstorage.png</target>
+        </trans-unit>
+        <trans-unit id="48ff64fb-7b50-4b7d-93ee-d71ec74e3052" xml:space="preserve">
+          <source>./media/web-sites-php-storage/keydetails.png</source>
+          <target state="new">./media/web-sites-php-storage/keydetails.png</target>
+        </trans-unit>
+        <trans-unit id="842d8bb1-7655-4e7a-8a7d-468464802967" xml:space="preserve">
+          <source>./media/web-sites-php-storage/setup_git_publishing.png</source>
+          <target state="new">./media/web-sites-php-storage/setup_git_publishing.png</target>
+        </trans-unit>
+        <trans-unit id="06c9b50c-11ed-42a7-b554-8af21774e109" xml:space="preserve">
+          <source>./media/web-sites-php-storage/git-deployment-credentials.png</source>
+          <target state="new">./media/web-sites-php-storage/git-deployment-credentials.png</target>
+        </trans-unit>
+        <trans-unit id="cc288ca8-5605-4f41-b191-a28abfaa2a31" xml:space="preserve">
+          <source>./media/web-sites-php-storage/git-instructions.png</source>
+          <target state="new">./media/web-sites-php-storage/git-instructions.png</target>
+        </trans-unit>
+      </group>
+      <group id="2828d8d5-6c7e-46ca-a988-878203f21f87" />
+    </body>
+  </file>
+</xliff>

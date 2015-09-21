@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="cf75b619-c60a-46a3-a337-23bdb77d54d2" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="cf75b619-c60a-46a3-a337-23bdb77d54d2" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="0f308dbb-907b-4048-ac67-0004580417f2">
+        <trans-unit id="828c117f-e0d5-45fc-82f7-a9a545924efd" xml:space="preserve">
+          <source>Conditional Access for Applications Published with Azure AD Application Proxy</source>
+          <target state="new">Conditional Access for Applications Published with Azure AD Application Proxy</target>
+        </trans-unit>
+        <trans-unit id="5d2e7306-cb24-42b8-ae36-8aa5677303f8" xml:space="preserve">
+          <source>Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy.</source>
+          <target state="new">Covers how to set up conditional access for applications you publish to be accessed remotely using Azure AD Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="618d7f39-4822-4775-a2c1-c3590744440b" xml:space="preserve">
+          <source>Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</source>
+          <target state="new">Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="f5111ec7-aba3-4a82-b8ac-55af2371ff13" xml:space="preserve">
+          <source>For more information, see <bpt id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;/linkText&gt;</ept><bpt id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;title&gt;</bpt><ept id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more information, see <bpt id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;linkText&gt;</bpt>Azure Active Directory editions<ept id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;/linkText&gt;</ept><bpt id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;title&gt;</bpt><ept id="64440759-a1a2-451e-a8f0-d084f943213c">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="e2695f73-1693-4c00-8525-a50938e51180" xml:space="preserve">
+          <source>You can now enable access rules to grant conditional access to users and groups accessing applications published using Application Proxy.</source>
+          <target state="new">You can now enable access rules to grant conditional access to users and groups accessing applications published using Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="fc9f556b-8391-4f8b-ab31-82b874678a52" xml:space="preserve">
+          <source>This enables you to:</source>
+          <target state="new">This enables you to:</target>
+        </trans-unit>
+        <trans-unit id="b866ff8a-bd8f-4476-99a7-10204fc75b22" xml:space="preserve">
+          <source>Require mutli-factor authentication per application</source>
+          <target state="new">Require mutli-factor authentication per application</target>
+        </trans-unit>
+        <trans-unit id="0836c3ae-8127-40b6-b034-5dae5486be86" xml:space="preserve">
+          <source>Require multi-factor authentication only when users are not at work</source>
+          <target state="new">Require multi-factor authentication only when users are not at work</target>
+        </trans-unit>
+        <trans-unit id="48aa5ca3-6cb4-473f-95a6-25535f1a7c30" xml:space="preserve">
+          <source>Block users from accessing the application when they are not at work</source>
+          <target state="new">Block users from accessing the application when they are not at work</target>
+        </trans-unit>
+        <trans-unit id="3ef76d9b-59e1-4c05-8486-782c63bd04ba" xml:space="preserve">
+          <source>These rules can be applied to all users and groups or only to specific users and groups.</source>
+          <target state="new">These rules can be applied to all users and groups or only to specific users and groups.</target>
+        </trans-unit>
+        <trans-unit id="d42e3722-3bd3-4938-93aa-828ce35839f0" xml:space="preserve">
+          <source>By default the rule will apply to all users who have access to the application.</source>
+          <target state="new">By default the rule will apply to all users who have access to the application.</target>
+        </trans-unit>
+        <trans-unit id="ec796b0f-e4c4-467d-81db-22ad0acbf914" xml:space="preserve">
+          <source>However the rule can also be restricted to users that are members of the specified security groups.</source>
+          <target state="new">However the rule can also be restricted to users that are members of the specified security groups.</target>
+        </trans-unit>
+        <trans-unit id="e92244fc-5dbd-42f9-85ae-081b501de7b9" xml:space="preserve">
+          <source>Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation.</source>
+          <target state="new">Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation.</target>
+        </trans-unit>
+        <trans-unit id="1e7c7539-bbb4-4dd5-83ac-0d68d758b9be" xml:space="preserve">
+          <source>In addition, access rules are evaluated when the OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.</source>
+          <target state="new">In addition, access rules are evaluated when the OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.</target>
+        </trans-unit>
+        <trans-unit id="9040ad9a-0ef1-4164-8a53-0d2b13cdaf6e" xml:space="preserve">
+          <source>Subscription to Azure Active Directory Premium </source>
+          <target state="new">Subscription to Azure Active Directory Premium </target>
+        </trans-unit>
+        <trans-unit id="46ac78f1-bab7-49ed-aeaa-6bd806602db3" xml:space="preserve">
+          <source>A federated or managed Azure Active Directory tenant </source>
+          <target state="new">A federated or managed Azure Active Directory tenant </target>
+        </trans-unit>
+        <trans-unit id="a058ecce-d319-4bf7-86a8-b5938684cae2" xml:space="preserve">
+          <source>Federated tenants require that multi-factor authentication (MFA) be enabled </source>
+          <target state="new">Federated tenants require that multi-factor authentication (MFA) be enabled </target>
+        </trans-unit>
+        <trans-unit id="6b5d4bf6-2000-42c0-9f7f-b442cc599b11" xml:space="preserve">
+          <source><bpt id="dfc8c1b8-3e42-471f-b509-47f6812f2638">&lt;linkText&gt;</bpt><ept id="dfc8c1b8-3e42-471f-b509-47f6812f2638">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="dfc8c1b8-3e42-471f-b509-47f6812f2638">&lt;linkText&gt;</bpt><ept id="dfc8c1b8-3e42-471f-b509-47f6812f2638">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="4c0866cf-9eba-4a43-8d14-157ec282b10f" xml:space="preserve">
+          <source>Sign in as an administrator in the Azure Management Portal.</source>
+          <target state="new">Sign in as an administrator in the Azure Management Portal.</target>
+        </trans-unit>
+        <trans-unit id="893ee39a-10de-42ae-ba78-122ebb32ecfa" xml:space="preserve">
+          <source>Go to Active Directory and select the directory in which you want to enable Application Proxy.</source>
+          <target state="new">Go to Active Directory and select the directory in which you want to enable Application Proxy.</target>
+        </trans-unit>
+        <trans-unit id="38a23d1b-911b-499b-848b-0f25097a2a51" xml:space="preserve">
+          <source>Click <bpt id="5a2d62f6-eac2-4228-8321-7bf6470ba2a6">&lt;strong&gt;</bpt>Applications<ept id="5a2d62f6-eac2-4228-8321-7bf6470ba2a6">&lt;/strong&gt;</ept> and scroll down to the <bpt id="d094aa6e-2856-4764-a068-4c404c1cc248">&lt;strong&gt;</bpt>Access Rules<ept id="d094aa6e-2856-4764-a068-4c404c1cc248">&lt;/strong&gt;</ept> section.</source>
+          <target state="new">Click <bpt id="5a2d62f6-eac2-4228-8321-7bf6470ba2a6">&lt;strong&gt;</bpt>Applications<ept id="5a2d62f6-eac2-4228-8321-7bf6470ba2a6">&lt;/strong&gt;</ept> and scroll down to the <bpt id="d094aa6e-2856-4764-a068-4c404c1cc248">&lt;strong&gt;</bpt>Access Rules<ept id="d094aa6e-2856-4764-a068-4c404c1cc248">&lt;/strong&gt;</ept> section.</target>
+        </trans-unit>
+        <trans-unit id="ad540a6a-1912-4bca-9ee2-3d09089ea60d" xml:space="preserve">
+          <source>The access rules section with only be shown for applications published using Application Proxy that use federated authentication.</source>
+          <target state="new">The access rules section with only be shown for applications published using Application Proxy that use federated authentication.</target>
+        </trans-unit>
+        <trans-unit id="8330751c-9687-4ae3-ac64-3efe91482589" xml:space="preserve">
+          <source>Enable the rule by selecting <bpt id="d9cf4fb7-cc87-4239-94ce-325b6c95b493">&lt;strong&gt;</bpt>Enable Access Rules<ept id="d9cf4fb7-cc87-4239-94ce-325b6c95b493">&lt;/strong&gt;</ept> to <bpt id="f86f9da3-a8d9-4a5e-a616-fcdcc3726a27">&lt;strong&gt;</bpt>On<ept id="f86f9da3-a8d9-4a5e-a616-fcdcc3726a27">&lt;/strong&gt;</ept>.</source>
+          <target state="new">Enable the rule by selecting <bpt id="d9cf4fb7-cc87-4239-94ce-325b6c95b493">&lt;strong&gt;</bpt>Enable Access Rules<ept id="d9cf4fb7-cc87-4239-94ce-325b6c95b493">&lt;/strong&gt;</ept> to <bpt id="f86f9da3-a8d9-4a5e-a616-fcdcc3726a27">&lt;strong&gt;</bpt>On<ept id="f86f9da3-a8d9-4a5e-a616-fcdcc3726a27">&lt;/strong&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="ab3c3e64-dcea-40d6-8b68-57e33cc18698" xml:space="preserve">
+          <source>Specify the users and groups to whom the rules will apply. Use the <bpt id="64f7d8fb-b63b-4ffe-91a4-980582d08a3a">&lt;strong&gt;</bpt>Add Group<ept id="64f7d8fb-b63b-4ffe-91a4-980582d08a3a">&lt;/strong&gt;</ept> button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups. &lt;br&gt; To explicitly exclude security groups from the rule, check <bpt id="4063aa0c-6ba9-4164-bcb2-f382fd184a53">&lt;strong&gt;</bpt>Except<ept id="4063aa0c-6ba9-4164-bcb2-f382fd184a53">&lt;/strong&gt;</ept>  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication. &lt;br&gt;If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. <bpt id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;linkText&gt;</bpt>Learn more about multi-factor authentication and per-user settings<ept id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;/linkText&gt;</ept><bpt id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;title&gt;</bpt><ept id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;/title&gt;</ept>. </source>
+          <target state="new">Specify the users and groups to whom the rules will apply. Use the <bpt id="64f7d8fb-b63b-4ffe-91a4-980582d08a3a">&lt;strong&gt;</bpt>Add Group<ept id="64f7d8fb-b63b-4ffe-91a4-980582d08a3a">&lt;/strong&gt;</ept> button  to select one or more groups to which the access rule will apply. This dialog can also be used to remove selected groups.  When the rules are selected to apply to groups, the access rules will only be enforced for users that belong to one of the specified security groups. &lt;br&gt; To explicitly exclude security groups from the rule, check <bpt id="4063aa0c-6ba9-4164-bcb2-f382fd184a53">&lt;strong&gt;</bpt>Except<ept id="4063aa0c-6ba9-4164-bcb2-f382fd184a53">&lt;/strong&gt;</ept>  and specify one or more groups. Users who are members of a group in the Except list will not be required to perform multi-factor authentication. &lt;br&gt;If a user was configured using the per-user multi-factor authentication feature, this setting will take precedence over the application multi-factor authentication rules. This means that a user who has been configured for per-user multi-factor authentication will be required to perform multi-factor authentication even if they have been exempted from the application's multi-factor authentication rules. <bpt id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;linkText&gt;</bpt>Learn more about multi-factor authentication and per-user settings<ept id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;/linkText&gt;</ept><bpt id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;title&gt;</bpt><ept id="8f0fa5be-154d-405c-b9ac-81d655b60ffa">&lt;/title&gt;</ept>. </target>
+        </trans-unit>
+        <trans-unit id="01eb764f-72a1-4a33-9dcb-c186b6489b99" xml:space="preserve">
+          <source>Select the access rule you want to set:</source>
+          <target state="new">Select the access rule you want to set:</target>
+        </trans-unit>
+        <trans-unit id="4ac4fe4b-f647-415c-9910-7b5c4ff5565a" xml:space="preserve">
+          <source><bpt id="ca957a65-07ef-4500-bdfc-7d20dbee480b">&lt;strong&gt;</bpt>Require Multi-factor authentication<ept id="ca957a65-07ef-4500-bdfc-7d20dbee480b">&lt;/strong&gt;</ept>: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.</source>
+          <target state="new"><bpt id="ca957a65-07ef-4500-bdfc-7d20dbee480b">&lt;strong&gt;</bpt>Require Multi-factor authentication<ept id="ca957a65-07ef-4500-bdfc-7d20dbee480b">&lt;/strong&gt;</ept>: Users to whom access rules apply will be required to complete multi-factor authentication before accessing the application to which the rule applies.</target>
+        </trans-unit>
+        <trans-unit id="34d19c99-1ece-42e1-b5aa-c603d816ce23" xml:space="preserve">
+          <source><bpt id="f5790327-a838-4895-9834-17031252c70b">&lt;strong&gt;</bpt>Require Multi-factor authentication when not at work<ept id="f5790327-a838-4895-9834-17031252c70b">&lt;/strong&gt;</ept>: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication.</source>
+          <target state="new"><bpt id="f5790327-a838-4895-9834-17031252c70b">&lt;strong&gt;</bpt>Require Multi-factor authentication when not at work<ept id="f5790327-a838-4895-9834-17031252c70b">&lt;/strong&gt;</ept>: Users trying to access the application from a trusted IP address will not be required to perform multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="64ad1f2c-775c-4c5b-a17a-0d9730fa9709" xml:space="preserve">
+          <source>The trusted IP address ranges can be configured on the multi-factor authentication settings page.</source>
+          <target state="new">The trusted IP address ranges can be configured on the multi-factor authentication settings page.</target>
+        </trans-unit>
+        <trans-unit id="5e1dd636-6167-451a-8be3-e4d39146abd0" xml:space="preserve">
+          <source><bpt id="5dcfe879-2654-4e74-be03-eee9648d31f8">&lt;strong&gt;</bpt>Block access when not at work<ept id="5dcfe879-2654-4e74-be03-eee9648d31f8">&lt;/strong&gt;</ept>: Users trying to access the application from outside your corporate network will not be able to access the application.</source>
+          <target state="new"><bpt id="5dcfe879-2654-4e74-be03-eee9648d31f8">&lt;strong&gt;</bpt>Block access when not at work<ept id="5dcfe879-2654-4e74-be03-eee9648d31f8">&lt;/strong&gt;</ept>: Users trying to access the application from outside your corporate network will not be able to access the application.</target>
+        </trans-unit>
+        <trans-unit id="e9103cc2-ba4d-4f82-9cf8-0fc281ca3682" xml:space="preserve">
+          <source>For federated tenants, multi-factor authentication (MFA) may performed by Azure Active Directory or by the on-premises AD FS server.</source>
+          <target state="new">For federated tenants, multi-factor authentication (MFA) may performed by Azure Active Directory or by the on-premises AD FS server.</target>
+        </trans-unit>
+        <trans-unit id="667ee513-a8c9-49e8-9449-557b334178da" xml:space="preserve">
+          <source>By default, MFA will occur on any page hosted by Azure Active Directory.</source>
+          <target state="new">By default, MFA will occur on any page hosted by Azure Active Directory.</target>
+        </trans-unit>
+        <trans-unit id="7c3ea433-69ca-4e1f-9cc3-4fc68bdfef59" xml:space="preserve">
+          <source>In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.</source>
+          <target state="new">In order to configure MFA on-premises, run Windows PowerShell and use the –SupportsMFA property to set the Azure AD module.</target>
+        </trans-unit>
+        <trans-unit id="c63c8f9e-a558-472c-9fbe-6667c10c76be" xml:space="preserve">
+          <source>The following example shows how to enable on-premises MFA by using the <bpt id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;linkText&gt;</bpt>Set-MsolDomainFederationSettings cmdlet<ept id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;/linkText&gt;</ept><bpt id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;title&gt;</bpt><ept id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;/title&gt;</ept> on the contoso.com tenant: <bpt id="f6c4be54-1b15-4aa0-a6ca-766108c70da7">&lt;code&gt;</bpt>Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true <ept id="f6c4be54-1b15-4aa0-a6ca-766108c70da7">&lt;/code&gt;</ept>
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication.</source>
+          <target state="new">The following example shows how to enable on-premises MFA by using the <bpt id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;linkText&gt;</bpt>Set-MsolDomainFederationSettings cmdlet<ept id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;/linkText&gt;</ept><bpt id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;title&gt;</bpt><ept id="f103587d-8d18-45bd-8d7a-2bdf3957ef36">&lt;/title&gt;</ept> on the contoso.com tenant: <bpt id="f6c4be54-1b15-4aa0-a6ca-766108c70da7">&lt;code&gt;</bpt>Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true <ept id="f6c4be54-1b15-4aa0-a6ca-766108c70da7">&lt;/code&gt;</ept>
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication.</target>
+        </trans-unit>
+        <trans-unit id="e46bdde1-f5d1-43fb-bc59-302a28356cb2" xml:space="preserve">
+          <source>Follow the instructions for <bpt id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;linkText&gt;</bpt>Deploying Microsoft Azure Multi-Factor Authentication on-premises<ept id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;/linkText&gt;</ept><bpt id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;title&gt;</bpt><ept id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;/title&gt;</ept>.</source>
+          <target state="new">Follow the instructions for <bpt id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;linkText&gt;</bpt>Deploying Microsoft Azure Multi-Factor Authentication on-premises<ept id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;/linkText&gt;</ept><bpt id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;title&gt;</bpt><ept id="31c79978-be0e-4247-bb3d-6e64da12c83a">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="4f30e4d8-7b44-4fc0-a315-803e7f68d3a5" xml:space="preserve">
+          <source><bpt id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;/linkText&gt;</ept><bpt id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;title&gt;</bpt><ept id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;linkText&gt;</bpt>Sign up for Azure as an organization<ept id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;/linkText&gt;</ept><bpt id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;title&gt;</bpt><ept id="4e455f04-022b-4c19-8317-690a847a5b7b">&lt;/title&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="c4bdce32-1f4a-41ff-9654-30c700b9a5d8" xml:space="preserve">
+          <source><bpt id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;linkText&gt;</bpt>Azure Identity<ept id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;/linkText&gt;</ept><bpt id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;title&gt;</bpt><ept id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;/title&gt;</ept></source>
+          <target state="new"><bpt id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;linkText&gt;</bpt>Azure Identity<ept id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;/linkText&gt;</ept><bpt id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;title&gt;</bpt><ept id="8291caaa-930a-4e76-b5d1-c8cb58eed011">&lt;/title&gt;</ept></target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

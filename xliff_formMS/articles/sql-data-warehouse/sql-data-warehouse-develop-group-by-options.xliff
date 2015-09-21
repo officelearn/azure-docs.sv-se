@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-us" target-language="zh-cn" original="foo.file" tool-id="846694e8-7920-43e3-8f1a-261a1e41a327" product-name="foo" product-version="1.0" build-num="1">
+    <header>
+      <tool tool-id="846694e8-7920-43e3-8f1a-261a1e41a327" tool-name="MarkdownToXliff" tool-version="1.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="5577f94f-7ad7-4187-9c93-001905d83195">
+        <trans-unit id="44d294e1-d076-4421-80b9-ad5336270353" xml:space="preserve">
+          <source>Group by options in SQL Data Warehouse | Microsoft Azure</source>
+          <target state="new">Group by options in SQL Data Warehouse | Microsoft Azure</target>
+        </trans-unit>
+        <trans-unit id="db3a7cbc-f2ec-4792-9e77-e40abdb15ef1" xml:space="preserve">
+          <source>Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.</source>
+          <target state="new">Tips for implementing group by options in Azure SQL Data Warehouse for developing solutions.</target>
+        </trans-unit>
+        <trans-unit id="80ebc867-b1c7-4c08-8fd1-9015f6b488ff" xml:space="preserve">
+          <source>The [GROUP BY] clause is used to aggregate data to a summary set of rows.</source>
+          <target state="new">The [GROUP BY] clause is used to aggregate data to a summary set of rows.</target>
+        </trans-unit>
+        <trans-unit id="4705bdc0-0ced-44f5-92e9-1ee7fd320819" xml:space="preserve">
+          <source>It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.</source>
+          <target state="new">It also has a few options that extend it's functionality that need to be worked around as they are not directly supported by Azure SQL Data Warehouse.</target>
+        </trans-unit>
+        <trans-unit id="b2d0ea02-5032-483b-bd19-c669c2adeed6" xml:space="preserve">
+          <source>These options are</source>
+          <target state="new">These options are</target>
+        </trans-unit>
+        <trans-unit id="3f12d5d8-d958-4724-893c-c9d1f4a70342" xml:space="preserve">
+          <source>GROUP BY with ROLLUP</source>
+          <target state="new">GROUP BY with ROLLUP</target>
+        </trans-unit>
+        <trans-unit id="f5c405ba-a075-40c6-b340-cfabd55187dd" xml:space="preserve">
+          <source>GROUPING SETS</source>
+          <target state="new">GROUPING SETS</target>
+        </trans-unit>
+        <trans-unit id="d0e9b357-e049-4323-b112-1994aef93ff4" xml:space="preserve">
+          <source>GROUP BY with CUBE</source>
+          <target state="new">GROUP BY with CUBE</target>
+        </trans-unit>
+        <trans-unit id="c84d3aac-ce2c-4f30-b2cc-2d14a70ad3a2" xml:space="preserve">
+          <source>The simplest option here is to use <bpt id="e55b5e96-a4a9-41fb-9167-403a29ba57d7">&lt;code&gt;</bpt>UNION ALL<ept id="e55b5e96-a4a9-41fb-9167-403a29ba57d7">&lt;/code&gt;</ept> instead to perform the rollup rather than relying on the explicit syntax.</source>
+          <target state="new">The simplest option here is to use <bpt id="e55b5e96-a4a9-41fb-9167-403a29ba57d7">&lt;code&gt;</bpt>UNION ALL<ept id="e55b5e96-a4a9-41fb-9167-403a29ba57d7">&lt;/code&gt;</ept> instead to perform the rollup rather than relying on the explicit syntax.</target>
+        </trans-unit>
+        <trans-unit id="dfff660b-b524-4c95-a841-327cba0ad698" xml:space="preserve">
+          <source>The result is exactly the same</source>
+          <target state="new">The result is exactly the same</target>
+        </trans-unit>
+        <trans-unit id="3a0857fe-abc7-4345-8c04-c447720ae7e1" xml:space="preserve">
+          <source>Below is an example of a group by statement using the <bpt id="bd8073d4-3c70-4bfa-93e3-4ea6cdf240a2">&lt;code&gt;</bpt>ROLLUP<ept id="bd8073d4-3c70-4bfa-93e3-4ea6cdf240a2">&lt;/code&gt;</ept> option:</source>
+          <target state="new">Below is an example of a group by statement using the <bpt id="bd8073d4-3c70-4bfa-93e3-4ea6cdf240a2">&lt;code&gt;</bpt>ROLLUP<ept id="bd8073d4-3c70-4bfa-93e3-4ea6cdf240a2">&lt;/code&gt;</ept> option:</target>
+        </trans-unit>
+        <trans-unit id="bb5c5745-52fd-49d8-aa0a-3b9643eb8641" xml:space="preserve">
+          <source>By using ROLLUP we have requested the following aggregations:</source>
+          <target state="new">By using ROLLUP we have requested the following aggregations:</target>
+        </trans-unit>
+        <trans-unit id="ec43d394-aaac-4f8e-bdbb-a025f7d1dc3d" xml:space="preserve">
+          <source>Country and Region</source>
+          <target state="new">Country and Region</target>
+        </trans-unit>
+        <trans-unit id="42d92818-cbc8-4813-9025-33f39fe2e311" xml:space="preserve">
+          <source>Country</source>
+          <target state="new">Country</target>
+        </trans-unit>
+        <trans-unit id="88dab14d-d1b3-4746-8b70-aab59cc96b94" xml:space="preserve">
+          <source>Grand Total</source>
+          <target state="new">Grand Total</target>
+        </trans-unit>
+        <trans-unit id="41efc961-8037-4e0d-a7cd-06582cb487a1" xml:space="preserve">
+          <source>To replace this you will need to use <bpt id="38e33968-154e-4a5f-8c6b-79326368f676">&lt;code&gt;</bpt>UNION ALL<ept id="38e33968-154e-4a5f-8c6b-79326368f676">&lt;/code&gt;</ept>; specifying the aggregations required explicitly to return the same results:</source>
+          <target state="new">To replace this you will need to use <bpt id="38e33968-154e-4a5f-8c6b-79326368f676">&lt;code&gt;</bpt>UNION ALL<ept id="38e33968-154e-4a5f-8c6b-79326368f676">&lt;/code&gt;</ept>; specifying the aggregations required explicitly to return the same results:</target>
+        </trans-unit>
+        <trans-unit id="79ca2690-5a1a-447c-bfe7-70d3577854c7" xml:space="preserve">
+          <source>For GROUPING SETS all we need to do is adopt the same principal but only create UNION ALL sections for the aggregation levels we want to see</source>
+          <target state="new">For GROUPING SETS all we need to do is adopt the same principal but only create UNION ALL sections for the aggregation levels we want to see</target>
+        </trans-unit>
+        <trans-unit id="dfd999a5-2a11-4e77-9ec6-2d6d1a5c31b4" xml:space="preserve">
+          <source>It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach.</source>
+          <target state="new">It is possible to create a GROUP BY WITH CUBE using the UNION ALL approach.</target>
+        </trans-unit>
+        <trans-unit id="dae3b7ca-55d1-4c78-a6a5-cf2fbb817b9e" xml:space="preserve">
+          <source>The problem is that the code can quickly become cumbersome and unwieldy.</source>
+          <target state="new">The problem is that the code can quickly become cumbersome and unwieldy.</target>
+        </trans-unit>
+        <trans-unit id="7b1d7c39-ee82-4d70-a67c-bd9a52dc8ce4" xml:space="preserve">
+          <source>To mitigate this you can use this more advanced approach.</source>
+          <target state="new">To mitigate this you can use this more advanced approach.</target>
+        </trans-unit>
+        <trans-unit id="a61f006c-56ae-412f-89f8-219e6cabbc7f" xml:space="preserve">
+          <source>Let's use the example above.</source>
+          <target state="new">Let's use the example above.</target>
+        </trans-unit>
+        <trans-unit id="462382c0-2054-4c4a-b029-d1ec67fc09cd" xml:space="preserve">
+          <source>The first step is to define the 'cube' that defines all the levels of aggregation that we want to create.</source>
+          <target state="new">The first step is to define the 'cube' that defines all the levels of aggregation that we want to create.</target>
+        </trans-unit>
+        <trans-unit id="9deda24e-e459-4247-859e-2b7b2ac7b460" xml:space="preserve">
+          <source>It is important to take note of the CROSS JOIN of the two derived tables.</source>
+          <target state="new">It is important to take note of the CROSS JOIN of the two derived tables.</target>
+        </trans-unit>
+        <trans-unit id="fcd471d8-0df6-4319-928c-810c5130f4bd" xml:space="preserve">
+          <source>This generates all the levels for us.</source>
+          <target state="new">This generates all the levels for us.</target>
+        </trans-unit>
+        <trans-unit id="052bc2ab-5b5d-43a7-9518-d64ddaccc563" xml:space="preserve">
+          <source>The rest of the code is really there for formatting.</source>
+          <target state="new">The rest of the code is really there for formatting.</target>
+        </trans-unit>
+        <trans-unit id="64f1525e-1213-4103-abf4-323966357839" xml:space="preserve">
+          <source>The results of the CTAS can be seen below:</source>
+          <target state="new">The results of the CTAS can be seen below:</target>
+        </trans-unit>
+        <trans-unit id="d48e37e9-a486-47c6-9127-3a333118b64a" xml:space="preserve">
+          <source><bpt id="e3bafecb-7460-4256-a1c2-83591e4b35bb">&lt;linkText&gt;</bpt><ept id="e3bafecb-7460-4256-a1c2-83591e4b35bb">&lt;/linkText&gt;</ept></source>
+          <target state="new"><bpt id="e3bafecb-7460-4256-a1c2-83591e4b35bb">&lt;linkText&gt;</bpt><ept id="e3bafecb-7460-4256-a1c2-83591e4b35bb">&lt;/linkText&gt;</ept></target>
+        </trans-unit>
+        <trans-unit id="b92c394a-1314-443c-a2d7-696c8e994593" xml:space="preserve">
+          <source>The second step is to specify a target table to store interim results:</source>
+          <target state="new">The second step is to specify a target table to store interim results:</target>
+        </trans-unit>
+        <trans-unit id="3335e6ed-9551-4f43-92ca-4255f0d817a3" xml:space="preserve">
+          <source>The third step is to loop over our cube of columns performing the aggregation.</source>
+          <target state="new">The third step is to loop over our cube of columns performing the aggregation.</target>
+        </trans-unit>
+        <trans-unit id="3a7358d0-5512-4a2f-ae01-e950407fe690" xml:space="preserve">
+          <source>The query will run once for every row in the #Cube temporary table and store the results in the #Results temp table</source>
+          <target state="new">The query will run once for every row in the #Cube temporary table and store the results in the #Results temp table</target>
+        </trans-unit>
+        <trans-unit id="1f680d51-8d48-4f7f-8cbf-60b6f31c816f" xml:space="preserve">
+          <source>Lastly we can return the results by simply reading from the #Results temporary table</source>
+          <target state="new">Lastly we can return the results by simply reading from the #Results temporary table</target>
+        </trans-unit>
+        <trans-unit id="623b9045-7e66-45be-a1f1-827e305ad6ca" xml:space="preserve">
+          <source>By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.</source>
+          <target state="new">By breaking the code up into sections and generating a looping construct the code becomes more manageable and maintainable.</target>
+        </trans-unit>
+        <trans-unit id="0bc72945-8896-48a8-bc50-2189480b9d79" xml:space="preserve">
+          <source>For more development tips, see <bpt id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;linkText&gt;</bpt>development overview<ept id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;/linkText&gt;</ept><bpt id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;title&gt;</bpt><ept id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;/title&gt;</ept>.</source>
+          <target state="new">For more development tips, see <bpt id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;linkText&gt;</bpt>development overview<ept id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;/linkText&gt;</ept><bpt id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;title&gt;</bpt><ept id="9bafe6ed-ba31-4fca-ac88-f053d3056027">&lt;/title&gt;</ept>.</target>
+        </trans-unit>
+        <trans-unit id="0e91fd7c-cfee-4981-982c-fefaed3fa969" xml:space="preserve">
+          <source>media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png</source>
+          <target state="new">media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png</target>
+        </trans-unit>
+        <trans-unit id="cb2b1223-b63b-4416-b279-b8a2651ae335" xml:space="preserve">
+          <source>sql-data-warehouse-overview-develop.md</source>
+          <target state="new">sql-data-warehouse-overview-develop.md</target>
+        </trans-unit>
+        <trans-unit id="f961ad5b-830a-4abf-bafc-1720ff6b5efa" xml:space="preserve">
+          <source>https://msdn.microsoft.com/en-us/library/ms177673.aspx</source>
+          <target state="new">https://msdn.microsoft.com/en-us/library/ms177673.aspx</target>
+        </trans-unit>
+      </group>
+      <group id="d01e4520-af7a-4455-8213-3ef84aefe150" />
+    </body>
+  </file>
+</xliff>
